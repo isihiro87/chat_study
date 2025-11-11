@@ -1,0 +1,61 @@
+---
+name: repository-structure
+description: リポジトリ構造定義書を作成するための詳細ガイドとテンプレート。リポジトリ構造定義時にのみ使用。
+allowed-tools: Read, Write
+---
+
+# リポジトリ構造定義スキル
+
+このスキルは、明確で保守しやすいリポジトリ構造を定義するための詳細ガイドです。
+
+## テンプレートの参照
+
+リポジトリ構造定義書を作成する際は、以下のテンプレートを使用してください:
+
+```bash
+Read('.claude/skills/repository-structure/template.md')
+```
+
+## リポジトリ構造定義書の構成要素
+
+### 1. ディレクトリ構造
+
+**ツリー形式で視覚化**
+
+良い例:
+```
+src/
+├── commands/        # CLIコマンド実装
+├── services/        # ビジネスロジック
+├── repositories/    # データ永続化層
+└── types/           # TypeScript型定義
+```
+
+### 2. 各ディレクトリの責務
+
+各ディレクトリの:
+- 役割と責務
+- 配置すべきファイルの種類
+- 命名規則
+- 依存関係のルール
+
+例:
+```
+services/:
+- 役割: ビジネスロジックの実装
+- 配置: *Service.ts パターンのファイル
+- 命名: PascalCase + Service接尾辞
+- 依存: repositories層のみに依存可能
+```
+
+### 3. ファイル配置規則
+
+ファイルの種類ごとの配置場所と命名規則
+
+## 詳細ガイド
+
+さらに詳しい作成ガイドは以下を参照:
+
+```bash
+Read('.claude/skills/repository-structure/guide.md')
+```
