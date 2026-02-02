@@ -18,11 +18,11 @@ export function ChatQuiz({
   const [showExplanation, setShowExplanation] = useState(false);
   const explanationRef = useRef<HTMLDivElement>(null);
 
-  // 解説が表示されたら自動スクロール
+  // 解説が表示されたら自動スクロール（解説の一番上が画面上部に来るように）
   useEffect(() => {
     if (showExplanation && explanationRef.current) {
-      // block: 'nearest'で、既に表示されている場合はスクロールしない
-      explanationRef.current.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      // block: 'start'で解説の上端を画面上部に配置（収まらない場合は可能な限りスクロール）
+      explanationRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }, [showExplanation]);
 
@@ -149,6 +149,13 @@ export function ChatQuiz({
               style={{ fontFamily: "'Noto Sans JP', sans-serif" }}
               dangerouslySetInnerHTML={{ __html: quiz.explanation }}
             />
+            {/* タップで続きに進む */}
+            <p
+              className="mt-4 text-center text-sm text-white/60"
+              style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+            >
+              ▼ タップで続きに進む
+            </p>
           </motion.div>
         )}
       </div>
