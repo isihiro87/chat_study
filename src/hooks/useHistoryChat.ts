@@ -27,22 +27,12 @@ interface UseHistoryChatReturn {
   reset: () => void;
 }
 
-const STORAGE_KEY = 'chat-tap-hint-dismissed';
-
-function getInitialHasTapped(): boolean {
-  try {
-    return localStorage.getItem(STORAGE_KEY) === 'true';
-  } catch {
-    return false;
-  }
-}
-
 export function useHistoryChat(chat: HistoryChat): UseHistoryChatReturn {
   // 表示済み要素数（最初は1つ目のみ表示）
   const [shownIndex, setShownIndex] = useState(1);
 
-  // タップヒント表示済み状態
-  const [hasTapped, setHasTapped] = useState(getInitialHasTapped);
+  // タップヒント表示済み状態（セッション中のみ有効、localStorageに保存しない）
+  const [hasTapped, setHasTapped] = useState(false);
 
   // クイズ回答状態
   const [quizAnswers, setQuizAnswers] = useState<Record<number, number | null>>({});
@@ -89,13 +79,8 @@ export function useHistoryChat(chat: HistoryChat): UseHistoryChatReturn {
       return;
     }
 
-    // 初回タップ時にlocalStorageへ保存してヒントを非表示にする
+    // 初回タップ時にヒントを非表示にする
     if (!hasTapped) {
-      try {
-        localStorage.setItem(STORAGE_KEY, 'true');
-      } catch {
-        // localStorageアクセスエラー時は無視
-      }
       setHasTapped(true);
     }
 

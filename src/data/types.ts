@@ -148,4 +148,4 @@ export interface QuizQuestion {
 }
 
 // タブの種類
-export type TabType = 'explanation' | 'video' | 'flashcard' | 'quiz' | 'chat';
+export type TabType = 'video' | 'flashcard' | 'quiz' | 'chat';

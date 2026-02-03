@@ -1,4 +1,4 @@
-import { Pointer, Video, Layers, HelpCircle, MessageCircle } from 'lucide-react';
+import { Video, Layers, HelpCircle, MessageCircle } from 'lucide-react';
 import type { TabType } from '../../data/types';
 
 interface TabBarProps {
@@ -13,7 +13,6 @@ const allTabs: { id: TabType; label: string; icon: React.ElementType }[] = [
   { id: 'flashcard', label: 'カード', icon: Layers },
   { id: 'quiz', label: 'クイズ', icon: HelpCircle },
   { id: 'video', label: '動画', icon: Video },
-  { id: 'explanation', label: 'タップ', icon: Pointer },
 ];
 
 export function TabBar({

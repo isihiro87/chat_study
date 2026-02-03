@@ -25,6 +25,7 @@ export function useFlashcard(cards: Flashcard[]): UseFlashcardReturn {
   const [isFlipped, setIsFlipped] = useState(false);
   const [remembered, setRemembered] = useState<Set<string>>(new Set());
   const [reviewQueue, setReviewQueue] = useState<string[]>([]);
+  const [pendingReview, setPendingReview] = useState<string[]>([]); // 復習モード中に「わからない」にしたカード
   const [isReviewMode, setIsReviewMode] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
 
@@ -49,8 +50,14 @@ export function useFlashcard(cards: Flashcard[]): UseFlashcardReturn {
     } else {
       // 現在のモードが終了
       if (isReviewMode) {
-        // 復習モード終了 → 完了
-        setIsComplete(true);
+        // 復習モード終了 → pendingReviewがあれば次の復習サイクルへ
+        if (pendingReview.length > 0) {
+          setReviewQueue(pendingReview);
+          setPendingReview([]);
+          setCurrentIndex(0);
+        } else {
+          setIsComplete(true);
+        }
       } else {
         // 通常モード終了 → 復習キューがあれば復習モードへ
         if (reviewQueue.length > 0) {
@@ -61,7 +68,7 @@ export function useFlashcard(cards: Flashcard[]): UseFlashcardReturn {
         }
       }
     }
-  }, [currentIndex, currentCards.length, isReviewMode, reviewQueue.length]);
+  }, [currentIndex, currentCards.length, isReviewMode, reviewQueue.length, pendingReview]);
 
   const next = useCallback(() => {
     goToNext();
@@ -90,12 +97,20 @@ export function useFlashcard(cards: Flashcard[]): UseFlashcardReturn {
       newSet.delete(cardId);
       return newSet;
     });
-    // 復習キューに追加（重複防止）
-    setReviewQueue((prev) => {
-      if (prev.includes(cardId)) return prev;
-      return [...prev, cardId];
-    });
-  }, [currentCard]);
+    // 復習モード中は次の復習サイクル用のpendingReviewに追加
+    // 通常モードはreviewQueueに追加
+    if (isReviewMode) {
+      setPendingReview((prev) => {
+        if (prev.includes(cardId)) return prev;
+        return [...prev, cardId];
+      });
+    } else {
+      setReviewQueue((prev) => {
+        if (prev.includes(cardId)) return prev;
+        return [...prev, cardId];
+      });
+    }
+  }, [currentCard, isReviewMode]);
 
   // 左スワイプ = わからない
   const swipeLeft = useCallback(() => {
@@ -114,6 +129,7 @@ export function useFlashcard(cards: Flashcard[]): UseFlashcardReturn {
     setIsFlipped(false);
     setRemembered(new Set());
     setReviewQueue([]);
+    setPendingReview([]);
     setIsReviewMode(false);
     setIsComplete(false);
   }, []);

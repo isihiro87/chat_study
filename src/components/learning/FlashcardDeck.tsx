@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence, useMotionValue, useTransform, type PanInfo } from 'framer-motion';
-import { RotateCcw, Check, ChevronLeft, ChevronRight } from 'lucide-react';
+import { RotateCcw, Check, ChevronLeft, ChevronRight, Layers, ArrowLeft, ArrowRight } from 'lucide-react';
 import { useFlashcard } from '../../hooks/useFlashcard';
 import type { Flashcard } from '../../data/types';
+
 
 interface FlashcardDeckProps {
   cards: Flashcard[];
@@ -51,6 +52,12 @@ export function FlashcardDeck({ cards, onProgressChange }: FlashcardDeckProps) {
   }, [currentIndex, total, totalCards, onProgressChange]);
 
   const [showHint, setShowHint] = useState(false);
+  // 初回説明表示（セッション中のみ有効、localStorageに保存しない）
+  const [showIntro, setShowIntro] = useState(true);
+
+  const dismissIntro = () => {
+    setShowIntro(false);
+  };
 
   // カード切り替え時にモーション値をリセット
   useEffect(() => {
@@ -88,6 +95,72 @@ export function FlashcardDeck({ cards, onProgressChange }: FlashcardDeckProps) {
     return null;
   }
 
+  // 初回説明モーダル
+  if (showIntro) {
+    return (
+      <div className="flex h-full flex-col items-center justify-center px-6">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          className="w-full max-w-sm rounded-2xl bg-white p-6 shadow-xl"
+        >
+          <div className="mb-4 flex items-center justify-center">
+            <div className="flex h-16 w-16 items-center justify-center rounded-full bg-indigo-100">
+              <Layers className="h-8 w-8 text-indigo-600" />
+            </div>
+          </div>
+
+          <h2 className="mb-4 text-center text-xl font-bold text-gray-800">
+            カード学習の使い方
+          </h2>
+
+          <div className="mb-6 space-y-4">
+            <div className="flex items-center gap-3 rounded-lg bg-gray-50 p-3">
+              <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-indigo-100">
+                <span className="text-xl">👆</span>
+              </div>
+              <div>
+                <p className="font-medium text-gray-800">タップでめくる</p>
+                <p className="text-sm text-gray-500">カードをタップすると答えが見れるよ</p>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-3 rounded-lg bg-gray-50 p-3">
+              <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-red-100">
+                <ArrowLeft className="h-5 w-5 text-red-500" />
+              </div>
+              <div>
+                <p className="font-medium text-gray-800">左スワイプ = もう一度</p>
+                <p className="text-sm text-gray-500">わからない時は左へ</p>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-3 rounded-lg bg-gray-50 p-3">
+              <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-green-100">
+                <ArrowRight className="h-5 w-5 text-green-500" />
+              </div>
+              <div>
+                <p className="font-medium text-gray-800">右スワイプ = 覚えた！</p>
+                <p className="text-sm text-gray-500">わかった時は右へ</p>
+              </div>
+            </div>
+          </div>
+
+          <p className="mb-4 text-center text-sm text-gray-500">
+            全部覚えるまで繰り返し復習できるよ！
+          </p>
+
+          <button
+            onClick={dismissIntro}
+            className="w-full rounded-full bg-indigo-500 px-6 py-3 font-medium text-white shadow-md transition-transform active:scale-95"
+          >
+            はじめる
+          </button>
+        </motion.div>
+      </div>
+    );
+  }
+
   const handleDrag = (_: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
     if (info.offset.x < -30) {
       setDragDirection('left');
@@ -123,8 +196,8 @@ export function FlashcardDeck({ cards, onProgressChange }: FlashcardDeckProps) {
         </div>
       )}
 
-      {/* カードエリア - フル表示 */}
-      <div className="relative flex-1 overflow-hidden px-4 pb-10 pt-2">
+      {/* カードエリア - フル表示（TabBarとの重なりを防ぐためpb-20） */}
+      <div className="relative flex-1 overflow-hidden px-4 pb-20 pt-2">
         {/* スワイプ方向インジケーター */}
         <AnimatePresence>
           {dragDirection === 'left' && (
@@ -257,8 +330,8 @@ export function FlashcardDeck({ cards, onProgressChange }: FlashcardDeckProps) {
           <ChevronRight className="h-5 w-5 text-gray-600" />
         </button>
 
-        {/* ドットナビゲーション */}
-        <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-1.5">
+        {/* ドットナビゲーション（TabBarの上に配置するためbottom-6） */}
+        <div className="absolute bottom-6 left-1/2 flex -translate-x-1/2 gap-1.5">
           {(isReviewMode ? Array(reviewCount).fill(0) : cards).map((_, index) => (
             <div
               key={index}

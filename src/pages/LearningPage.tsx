@@ -2,7 +2,6 @@ import { useState, useCallback, useMemo } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import { TabBar } from '../components/common/TabBar';
-import { ExplanationView } from '../components/learning/ExplanationView';
 import { VideoPlayer } from '../components/learning/VideoPlayer';
 import { FlashcardDeck } from '../components/learning/FlashcardDeck';
 import { QuizView } from '../components/learning/QuizView';
@@ -16,7 +15,6 @@ export function LearningPage() {
   const { topicId } = useParams<{ topicId: string }>();
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState<TabType>('chat'); // チャットを初期タブに
-  const [slideProgress, setSlideProgress] = useState({ current: 1, total: 1 });
   const [cardProgress, setCardProgress] = useState({ current: 1, total: 1 });
 
   const topic = topicId ? getTopic(topicId) : undefined;
@@ -36,10 +34,6 @@ export function LearningPage() {
 
   // 動画タブは準備中のため無効化
   const disabledTabs: TabType[] = ['video'];
-
-  const handleSlideProgressChange = useCallback((current: number, total: number) => {
-    setSlideProgress({ current, total });
-  }, []);
 
   const handleCardProgressChange = useCallback((current: number, total: number) => {
     setCardProgress({ current, total });
@@ -75,23 +69,7 @@ export function LearningPage() {
     </header>
   );
 
-  // タップモード（スライド）はフルスクリーン表示
-  if (activeTab === 'explanation') {
-    return (
-      <div className="flex h-screen flex-col bg-gray-50">
-        <FullScreenHeader progress={slideProgress} />
-        <main className="flex-1 overflow-hidden">
-          <ExplanationView
-            explanation={topic.content.explanation}
-            onProgressChange={handleSlideProgressChange}
-          />
-        </main>
-        <TabBar activeTab={activeTab} onTabChange={setActiveTab} hiddenTabs={hiddenTabs} disabledTabs={disabledTabs} />
-      </div>
-    );
-  }
-
-  // フラッシュカードもフルスクリーン表示
+  // フラッシュカードはフルスクリーン表示
   if (activeTab === 'flashcard') {
     return (
       <div className="flex h-screen flex-col bg-gray-50">
@@ -126,7 +104,12 @@ export function LearningPage() {
             </div>
           </div>
         </header>
-        <ChatContainer chat={chat} embedded />
+        <ChatContainer
+          chat={chat}
+          embedded
+          onNavigateToFlashcard={() => setActiveTab('flashcard')}
+          onNavigateToQuiz={() => setActiveTab('quiz')}
+        />
         <TabBar activeTab={activeTab} onTabChange={setActiveTab} hiddenTabs={hiddenTabs} disabledTabs={disabledTabs} />
       </div>
     );

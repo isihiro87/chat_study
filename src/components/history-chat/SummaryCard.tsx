@@ -1,14 +1,16 @@
 import { motion } from 'framer-motion';
-import { RotateCcw, Trophy } from 'lucide-react';
+import { RotateCcw, Trophy, Layers, HelpCircle } from 'lucide-react';
 
 interface SummaryCardProps {
   points: string[];
   score: number;
   totalQuizzes: number;
   onReplay: () => void;
+  onNavigateToFlashcard?: () => void;
+  onNavigateToQuiz?: () => void;
 }
 
-export function SummaryCard({ points, score, totalQuizzes, onReplay }: SummaryCardProps) {
+export function SummaryCard({ points, score, totalQuizzes, onReplay, onNavigateToFlashcard, onNavigateToQuiz }: SummaryCardProps) {
   const percentage = totalQuizzes > 0 ? Math.round((score / totalQuizzes) * 100) : 0;
 
   return (
@@ -74,6 +76,43 @@ export function SummaryCard({ points, score, totalQuizzes, onReplay }: SummaryCa
             ))}
           </ul>
         </div>
+
+        {/* 次のステップへのガイド */}
+        {(onNavigateToFlashcard || onNavigateToQuiz) && (
+          <div className="mb-4 rounded-lg bg-blue-50 p-4">
+            <p
+              className="mb-3 text-sm font-bold text-blue-800"
+              style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+            >
+              💡 暗記を定着させよう！
+            </p>
+            <p className="mb-3 text-sm text-blue-700">
+              カードで復習したり、クイズで理解度をチェックしてみよう！
+            </p>
+            <div className="flex gap-2">
+              {onNavigateToFlashcard && (
+                <button
+                  onClick={onNavigateToFlashcard}
+                  className="flex flex-1 items-center justify-center gap-2 rounded-full bg-indigo-500 px-4 py-2.5 text-sm font-medium text-white shadow-md transition-transform active:scale-95"
+                  style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+                >
+                  <Layers className="h-4 w-4" />
+                  カードで復習
+                </button>
+              )}
+              {onNavigateToQuiz && (
+                <button
+                  onClick={onNavigateToQuiz}
+                  className="flex flex-1 items-center justify-center gap-2 rounded-full bg-green-500 px-4 py-2.5 text-sm font-medium text-white shadow-md transition-transform active:scale-95"
+                  style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+                >
+                  <HelpCircle className="h-4 w-4" />
+                  クイズに挑戦
+                </button>
+              )}
+            </div>
+          </div>
+        )}
 
         {/* リプレイボタン */}
         <button

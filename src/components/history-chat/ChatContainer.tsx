@@ -12,9 +12,11 @@ import type { HistoryChat, EndContent } from '../../data/history-chat/types';
 interface ChatContainerProps {
   chat: HistoryChat;
   embedded?: boolean; // TabBar内に埋め込む場合はtrue
+  onNavigateToFlashcard?: () => void;
+  onNavigateToQuiz?: () => void;
 }
 
-export function ChatContainer({ chat, embedded = false }: ChatContainerProps) {
+export function ChatContainer({ chat, embedded = false, onNavigateToFlashcard, onNavigateToQuiz }: ChatContainerProps) {
   const {
     shownIndex,
     visibleContent,
@@ -133,6 +135,8 @@ export function ChatContainer({ chat, embedded = false }: ChatContainerProps) {
                       score={score}
                       totalQuizzes={totalQuizzes}
                       onReplay={reset}
+                      onNavigateToFlashcard={onNavigateToFlashcard}
+                      onNavigateToQuiz={onNavigateToQuiz}
                     />
                   );
 
