@@ -2,7 +2,7 @@ import type { Topic } from '../../../../../../types';
 
 export const agricultureIndustry: Topic = {
   id: 'agriculture-industry',
-  eraId: 'edo-late',
+  eraId: 'edo-development',
   name: '新田開発と産業の発展',
   subtitle: '農業技術の進歩と商工業の成長',
   icon: '🌾',

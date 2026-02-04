@@ -1,18 +1,18 @@
 import { sampleChat } from './sample-chat';
 // 江戸時代（後半）のチャット
-import { kyohoReformChat } from '../subjects/history/eras/edo-late/topics/6-kyoho-reform/chat';
-import { genrokuCultureChat } from '../subjects/history/eras/edo-late/topics/5-genroku-culture/chat';
-import { tanumaPoliticsChat } from '../subjects/history/eras/edo-late/topics/7-tanuma-politics/chat';
-import { kanseiReformChat } from '../subjects/history/eras/edo-late/topics/8-kansei-reform/chat';
-import { kaseiCultureChat } from '../subjects/history/eras/edo-late/topics/10-kasei-culture/chat';
-import { newLearningChat } from '../subjects/history/eras/edo-late/topics/9-new-learning/chat';
-import { tempoReformChat } from '../subjects/history/eras/edo-late/topics/12-tempo-reform/chat';
-import { foreignShipsChat } from '../subjects/history/eras/edo-late/topics/11-foreign-ships/chat';
-import { agricultureIndustryChat } from '../subjects/history/eras/edo-late/topics/1-agriculture-industry/chat';
-import { threeCapitalsChat } from '../subjects/history/eras/edo-late/topics/2-three-capitals/chat';
-import { transportationChat } from '../subjects/history/eras/edo-late/topics/3-transportation/chat';
-import { bakuhanSystemChat } from '../subjects/history/eras/edo-late/topics/4-bakuhan-system/chat';
-import { threeReformsSummaryChat } from '../subjects/history/eras/edo-late/topics/13-three-reforms-summary/chat';
+import { kyohoReformChat } from '../subjects/history/eras/edo-development/topics/6-kyoho-reform/chat';
+import { genrokuCultureChat } from '../subjects/history/eras/edo-development/topics/5-genroku-culture/chat';
+import { tanumaPoliticsChat } from '../subjects/history/eras/edo-development/topics/7-tanuma-politics/chat';
+import { kanseiReformChat } from '../subjects/history/eras/edo-development/topics/8-kansei-reform/chat';
+import { kaseiCultureChat } from '../subjects/history/eras/edo-development/topics/10-kasei-culture/chat';
+import { newLearningChat } from '../subjects/history/eras/edo-development/topics/9-new-learning/chat';
+import { tempoReformChat } from '../subjects/history/eras/edo-development/topics/12-tempo-reform/chat';
+import { foreignShipsChat } from '../subjects/history/eras/edo-development/topics/11-foreign-ships/chat';
+import { agricultureIndustryChat } from '../subjects/history/eras/edo-development/topics/1-agriculture-industry/chat';
+import { threeCapitalsChat } from '../subjects/history/eras/edo-development/topics/2-three-capitals/chat';
+import { transportationChat } from '../subjects/history/eras/edo-development/topics/3-transportation/chat';
+import { bakuhanSystemChat } from '../subjects/history/eras/edo-development/topics/4-bakuhan-system/chat';
+import { threeReformsSummaryChat } from '../subjects/history/eras/edo-development/topics/13-three-reforms-summary/chat';
 // 近代革命と国家形成のチャット
 import { britishRevolutionChat } from '../subjects/history/eras/modern-era/topics/1-british-revolution/chat';
 import { americanIndependenceChat } from '../subjects/history/eras/modern-era/topics/2-american-independence/chat';

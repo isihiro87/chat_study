@@ -2,7 +2,7 @@ import type { Topic } from '../../../../../../types';
 
 export const kaseiCulture: Topic = {
   id: 'kasei-culture',
-  eraId: 'edo-late',
+  eraId: 'edo-development',
   name: '化政文化',
   subtitle: '江戸を中心とした庶民文化',
   icon: '🎨',

@@ -2,7 +2,7 @@ import type { Topic } from '../../../../../../types';
 
 export const bakuhanSystem: Topic = {
   id: 'bakuhan-system',
-  eraId: 'edo-late',
+  eraId: 'edo-development',
   name: '幕藩体制の安定',
   subtitle: '徳川幕府による政治のしくみ',
   icon: '🏛️',

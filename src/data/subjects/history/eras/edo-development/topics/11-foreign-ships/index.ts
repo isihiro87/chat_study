@@ -2,7 +2,7 @@ import type { Topic } from '../../../../../../types';
 
 export const foreignShips: Topic = {
   id: 'foreign-ships',
-  eraId: 'edo-late',
+  eraId: 'edo-development',
   name: '外国船の接近',
   subtitle: '開国への圧力と幕府の対応',
   icon: '🚢',

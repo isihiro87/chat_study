@@ -2,7 +2,7 @@ import type { Topic } from '../../../../../../types';
 
 export const threeCapitals: Topic = {
   id: 'three-capitals',
-  eraId: 'edo-late',
+  eraId: 'edo-development',
   name: '三都の繁栄',
   subtitle: '江戸・大阪・京都の発展',
   icon: '🏙️',

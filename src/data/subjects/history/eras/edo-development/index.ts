@@ -13,19 +13,19 @@ import { foreignShips } from './topics/11-foreign-ships';
 import { tempoReform } from './topics/12-tempo-reform';
 import { threeReformsSummary } from './topics/13-three-reforms-summary';
 
-// 江戸時代（後半）
-export const edoLateEra: Era = {
-  id: 'edo-late',
+// 江戸時代②（産業発展と改革）
+export const edoDevelopmentEra: Era = {
+  id: 'edo-development',
   subjectId: 'history',
-  name: '江戸時代（後半）',
-  subtitle: '改革と文化の時代',
-  period: '1716年〜1868年',
+  name: '江戸時代②',
+  subtitle: '産業発展と改革の時代',
+  period: '1716年〜1853年',
   icon: '🎭',
   order: 7,
 };
 
-// 江戸時代（後半）のトピック一覧
-export const edoLateTopics: Topic[] = [
+// 江戸時代②のトピック一覧
+export const edoDevelopmentTopics: Topic[] = [
   agricultureIndustry,
   threeCapitals,
   transportation,

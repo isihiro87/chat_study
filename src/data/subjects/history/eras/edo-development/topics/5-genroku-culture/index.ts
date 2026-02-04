@@ -2,7 +2,7 @@ import type { Topic } from '../../../../../../types';
 
 export const genrokuCulture: Topic = {
   id: 'genroku-culture',
-  eraId: 'edo-late',
+  eraId: 'edo-development',
   name: '元禄文化',
   subtitle: '上方を中心とした町人文化',
   icon: '🎭',

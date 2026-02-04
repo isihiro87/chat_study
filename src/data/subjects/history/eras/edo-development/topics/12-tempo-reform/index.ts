@@ -2,7 +2,7 @@ import type { Topic } from '../../../../../../types';
 
 export const tempoReform: Topic = {
   id: 'tempo-reform',
-  eraId: 'edo-late',
+  eraId: 'edo-development',
   name: '天保の改革',
   subtitle: '水野忠邦による最後の幕政改革',
   icon: '⚖️',

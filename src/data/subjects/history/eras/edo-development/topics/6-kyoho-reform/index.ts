@@ -2,7 +2,7 @@ import type { Topic } from '../../../../../../types';
 
 export const kyohoReform: Topic = {
   id: 'kyoho-reform',
-  eraId: 'edo-late',
+  eraId: 'edo-development',
   name: '享保の改革',
   subtitle: '徳川吉宗による幕政改革',
   icon: '📜',

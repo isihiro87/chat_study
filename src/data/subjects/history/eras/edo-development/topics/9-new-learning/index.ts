@@ -2,7 +2,7 @@ import type { Topic } from '../../../../../../types';
 
 export const newLearning: Topic = {
   id: 'new-learning',
-  eraId: 'edo-late',
+  eraId: 'edo-development',
   name: '国学と蘭学',
   subtitle: '新しい学問の発展',
   icon: '🔬',

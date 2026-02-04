@@ -1,7 +1,7 @@
 import type { Era, Topic } from '../../../types';
 import { asukaEra, asukaTopics } from './asuka';
-import { edoEarlyEra, edoEarlyTopics } from './edo-early';
-import { edoLateEra, edoLateTopics } from './edo-late';
+import { edoFoundationEra, edoFoundationTopics } from './edo-foundation';
+import { edoDevelopmentEra, edoDevelopmentTopics } from './edo-development';
 import { modernEra, modernEraTopics } from './modern-era';
 import { bakumatsuEra, bakumatsuTopics } from './bakumatsu';
 import { meijiEarlyEra, meijiEarlyTopics } from './meiji-early';
@@ -10,8 +10,8 @@ import { meijiLateEra, meijiLateTopics } from './meiji-late';
 // 全時代一覧
 export const eras: Era[] = [
   asukaEra,
-  edoEarlyEra,
-  edoLateEra,
+  edoFoundationEra,
+  edoDevelopmentEra,
   modernEra,
   bakumatsuEra,
   meijiEarlyEra,
@@ -21,8 +21,8 @@ export const eras: Era[] = [
 // 全トピック一覧
 export const allTopics: Topic[] = [
   ...asukaTopics,
-  ...edoEarlyTopics,
-  ...edoLateTopics,
+  ...edoFoundationTopics,
+  ...edoDevelopmentTopics,
   ...modernEraTopics,
   ...bakumatsuTopics,
   ...meijiEarlyTopics,
@@ -45,8 +45,8 @@ export function getTopic(topicId: string): Topic | undefined {
 }
 
 export { asukaEra, asukaTopics } from './asuka';
-export { edoEarlyEra, edoEarlyTopics } from './edo-early';
-export { edoLateEra, edoLateTopics } from './edo-late';
+export { edoFoundationEra, edoFoundationTopics } from './edo-foundation';
+export { edoDevelopmentEra, edoDevelopmentTopics } from './edo-development';
 export { modernEra, modernEraTopics } from './modern-era';
 export { bakumatsuEra, bakumatsuTopics } from './bakumatsu';
 export { meijiEarlyEra, meijiEarlyTopics } from './meiji-early';

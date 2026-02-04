@@ -2,7 +2,7 @@ import type { Topic } from '../../../../../../types';
 
 export const threeReformsSummary: Topic = {
   id: 'three-reforms-summary',
-  eraId: 'edo-late',
+  eraId: 'edo-development',
   name: '三大改革まとめ',
   subtitle: '享保・寛政・天保を比較',
   icon: '📊',

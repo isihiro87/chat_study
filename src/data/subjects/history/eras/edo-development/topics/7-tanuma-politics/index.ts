@@ -2,7 +2,7 @@ import type { Topic } from '../../../../../../types';
 
 export const tanumaPolitics: Topic = {
   id: 'tanuma-politics',
-  eraId: 'edo-late',
+  eraId: 'edo-development',
   name: '田沼意次の政治',
   subtitle: '商業重視の積極財政',
   icon: '💰',

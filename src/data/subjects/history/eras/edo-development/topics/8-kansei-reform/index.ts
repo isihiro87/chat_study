@@ -2,7 +2,7 @@ import type { Topic } from '../../../../../../types';
 
 export const kanseiReform: Topic = {
   id: 'kansei-reform',
-  eraId: 'edo-late',
+  eraId: 'edo-development',
   name: '寛政の改革',
   subtitle: '松平定信による引き締め政策',
   icon: '📚',

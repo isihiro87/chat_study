@@ -2,7 +2,7 @@ import type { Topic } from '../../../../../../types';
 
 export const transportation: Topic = {
   id: 'transportation',
-  eraId: 'edo-late',
+  eraId: 'edo-development',
   name: '五街道と水運',
   subtitle: '交通網の整備と物流の発達',
   icon: '🛤️',
