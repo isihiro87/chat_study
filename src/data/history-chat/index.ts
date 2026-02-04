@@ -1,18 +1,20 @@
 import { sampleChat } from './sample-chat';
-// 江戸時代（後半）のチャット
-import { kyohoReformChat } from '../subjects/history/eras/edo-development/topics/6-kyoho-reform/chat';
-import { genrokuCultureChat } from '../subjects/history/eras/edo-development/topics/5-genroku-culture/chat';
-import { tanumaPoliticsChat } from '../subjects/history/eras/edo-development/topics/7-tanuma-politics/chat';
-import { kanseiReformChat } from '../subjects/history/eras/edo-development/topics/8-kansei-reform/chat';
-import { kaseiCultureChat } from '../subjects/history/eras/edo-development/topics/10-kasei-culture/chat';
-import { newLearningChat } from '../subjects/history/eras/edo-development/topics/9-new-learning/chat';
-import { tempoReformChat } from '../subjects/history/eras/edo-development/topics/12-tempo-reform/chat';
-import { foreignShipsChat } from '../subjects/history/eras/edo-development/topics/11-foreign-ships/chat';
-import { agricultureIndustryChat } from '../subjects/history/eras/edo-development/topics/1-agriculture-industry/chat';
-import { threeCapitalsChat } from '../subjects/history/eras/edo-development/topics/2-three-capitals/chat';
-import { transportationChat } from '../subjects/history/eras/edo-development/topics/3-transportation/chat';
-import { bakuhanSystemChat } from '../subjects/history/eras/edo-development/topics/4-bakuhan-system/chat';
-import { threeReformsSummaryChat } from '../subjects/history/eras/edo-development/topics/13-three-reforms-summary/chat';
+// 江戸時代②（経済）のチャット
+import { agricultureIndustryChat } from '../subjects/history/eras/edo-economy/topics/1-agriculture-industry/chat';
+import { threeCapitalsChat } from '../subjects/history/eras/edo-economy/topics/2-three-capitals/chat';
+import { transportationChat } from '../subjects/history/eras/edo-economy/topics/3-transportation/chat';
+import { bakuhanSystemChat } from '../subjects/history/eras/edo-economy/topics/4-bakuhan-system/chat';
+// 江戸時代③（元禄）のチャット
+import { genrokuCultureChat } from '../subjects/history/eras/edo-genroku/topics/5-genroku-culture/chat';
+import { kyohoReformChat } from '../subjects/history/eras/edo-genroku/topics/6-kyoho-reform/chat';
+import { tanumaPoliticsChat } from '../subjects/history/eras/edo-genroku/topics/7-tanuma-politics/chat';
+// 江戸時代④（改革）のチャット
+import { kanseiReformChat } from '../subjects/history/eras/edo-reforms/topics/8-kansei-reform/chat';
+import { newLearningChat } from '../subjects/history/eras/edo-reforms/topics/9-new-learning/chat';
+import { kaseiCultureChat } from '../subjects/history/eras/edo-reforms/topics/10-kasei-culture/chat';
+import { foreignShipsChat } from '../subjects/history/eras/edo-reforms/topics/11-foreign-ships/chat';
+import { tempoReformChat } from '../subjects/history/eras/edo-reforms/topics/12-tempo-reform/chat';
+import { threeReformsSummaryChat } from '../subjects/history/eras/edo-reforms/topics/13-three-reforms-summary/chat';
 // 近代革命と国家形成のチャット
 import { britishRevolutionChat } from '../subjects/history/eras/modern-era/topics/1-british-revolution/chat';
 import { americanIndependenceChat } from '../subjects/history/eras/modern-era/topics/2-american-independence/chat';
@@ -45,18 +47,21 @@ import type { HistoryChat } from './types';
 // チャットデータのマップ
 const chatMap: Record<string, HistoryChat> = {
   sample: sampleChat,
-  'kyoho-reform': kyohoReformChat,
-  'genroku-culture': genrokuCultureChat,
-  'tanuma-politics': tanumaPoliticsChat,
-  'kansei-reform': kanseiReformChat,
-  'kasei-culture': kaseiCultureChat,
-  'new-learning': newLearningChat,
-  'tempo-reform': tempoReformChat,
-  'foreign-ships': foreignShipsChat,
+  // 江戸時代②（経済）
   'agriculture-industry': agricultureIndustryChat,
   'three-capitals': threeCapitalsChat,
   transportation: transportationChat,
   'bakuhan-system': bakuhanSystemChat,
+  // 江戸時代③（元禄）
+  'genroku-culture': genrokuCultureChat,
+  'kyoho-reform': kyohoReformChat,
+  'tanuma-politics': tanumaPoliticsChat,
+  // 江戸時代④（改革）
+  'kansei-reform': kanseiReformChat,
+  'new-learning': newLearningChat,
+  'kasei-culture': kaseiCultureChat,
+  'foreign-ships': foreignShipsChat,
+  'tempo-reform': tempoReformChat,
   'three-reforms-summary': threeReformsSummaryChat,
   // 近代革命と国家形成
   'british-revolution': britishRevolutionChat,
