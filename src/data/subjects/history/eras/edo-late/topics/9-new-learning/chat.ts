@@ -87,12 +87,12 @@ export const newLearningChat: HistoryChat = {
       question: '杉田玄白らが翻訳した医学書は？',
       options: [
         { letter: 'A', text: '古事記伝', correct: false },
-        { letter: 'B', text: '解体新書', correct: true },
-        { letter: 'C', text: '蘭学事始', correct: false },
+        { letter: 'B', text: '蘭学事始', correct: false },
+        { letter: 'C', text: '解体新書', correct: true },
         { letter: 'D', text: '農学全書', correct: false },
       ],
       explanation:
-        '<strong>正解はB「解体新書」</strong>です。オランダ語の解剖書を翻訳し、西洋医学を日本に紹介しました。',
+        '<strong>正解はC「解体新書」</strong>です。オランダ語の解剖書を翻訳し、西洋医学を日本に紹介しました。',
     },
     {
       type: 'narrator',
@@ -119,12 +119,12 @@ export const newLearningChat: HistoryChat = {
       question: '庶民の子が読み書きを学んだ教育施設は？',
       options: [
         { letter: 'A', text: '藩校', correct: false },
-        { letter: 'B', text: '寺子屋', correct: true },
-        { letter: 'C', text: '私塾', correct: false },
-        { letter: 'D', text: '昌平坂学問所', correct: false },
+        { letter: 'B', text: '私塾', correct: false },
+        { letter: 'C', text: '昌平坂学問所', correct: false },
+        { letter: 'D', text: '寺子屋', correct: true },
       ],
       explanation:
-        '<strong>正解はB「寺子屋」</strong>です。庶民の子が「読み・書き・そろばん」を学びました。藩校は武士の子が通う学校です。',
+        '<strong>正解はD「寺子屋」</strong>です。庶民の子が「読み・書き・そろばん」を学びました。藩校は武士の子が通う学校です。',
     },
     {
       type: 'end',

@@ -71,103 +71,107 @@ export function ChatContainer({ chat, embedded = false, onNavigateToFlashcard, o
 
   return (
     <div
-      className={`flex flex-col ${embedded ? 'h-full' : 'h-screen'}`}
+      className={embedded ? 'h-full' : 'min-h-screen'}
       style={{ backgroundColor: '#F0EDE6' }}
     >
-      {/* ヘッダー（埋め込みモードでは非表示） */}
-      {!embedded && (
-        <ChatHeader
-          icon={chat.icon}
-          title={chat.title}
-          subtitle={chat.subtitle}
-          progress={progress}
-        />
-      )}
-
-      {/* チャットエリア */}
       <div
-        ref={scrollRef}
-        className={`flex-1 overflow-y-auto ${embedded ? 'pb-24' : 'pb-20'}`}
-        onClick={handleTap}
-        style={{ cursor: isWaitingForQuiz || isComplete ? 'default' : 'pointer' }}
+        className={`mx-auto flex max-w-md flex-col ${embedded ? 'h-full' : 'h-screen'}`}
       >
-        <div className="px-0 py-5">
-          <AnimatePresence>
-            {visibleContent.map((content, index) => {
-              const key = `content-${index}`;
+        {/* ヘッダー（埋め込みモードでは非表示） */}
+        {!embedded && (
+          <ChatHeader
+            icon={chat.icon}
+            title={chat.title}
+            subtitle={chat.subtitle}
+            progress={progress}
+          />
+        )}
 
-              switch (content.type) {
-                case 'date':
-                  return <DateSeparator key={key} text={content.text} />;
-
-                case 'narrator':
-                  return <NarratorBlock key={key} text={content.text} />;
-
-                case 'message': {
-                  const character = characterMap[content.characterId];
-                  if (!character) return null;
-                  return (
-                    <ChatMessage
-                      key={key}
-                      side={content.side}
-                      character={character}
-                      text={content.text}
-                    />
-                  );
-                }
-
-                case 'quiz':
-                  return (
-                    <ChatQuiz
-                      key={key}
-                      quiz={content}
-                      selectedAnswer={quizAnswers[index] ?? null}
-                      isAnswered={quizAnswers[index] !== undefined}
-                      onSelectAnswer={selectAnswer}
-                    />
-                  );
-
-                case 'end':
-                  return (
-                    <SummaryCard
-                      key={key}
-                      points={(content as EndContent).points}
-                      score={score}
-                      totalQuizzes={totalQuizzes}
-                      onReplay={reset}
-                      onNavigateToFlashcard={onNavigateToFlashcard}
-                      onNavigateToQuiz={onNavigateToQuiz}
-                    />
-                  );
-
-                default:
-                  return null;
-              }
-            })}
-          </AnimatePresence>
-
-          {/* スクロール用アンカー */}
-          <div ref={endRef} />
-        </div>
-      </div>
-
-      {/* タップ促進プロンプト */}
-      {promptMessage && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          className={`fixed left-0 right-0 bg-gradient-to-t from-black/50 to-transparent px-4 pt-8 text-center ${
-            embedded ? 'bottom-16 pb-4' : 'bottom-0 pb-6'
-          }`}
+        {/* チャットエリア */}
+        <div
+          ref={scrollRef}
+          className={`flex-1 overflow-y-auto ${embedded ? 'pb-24' : 'pb-20'}`}
+          onClick={handleTap}
+          style={{ cursor: isWaitingForQuiz || isComplete ? 'default' : 'pointer' }}
         >
-          <span
-            className="rounded-full bg-white/90 px-4 py-2 text-sm font-medium text-gray-700 shadow-lg"
-            style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+          <div className="px-0 py-5">
+            <AnimatePresence>
+              {visibleContent.map((content, index) => {
+                const key = `content-${index}`;
+
+                switch (content.type) {
+                  case 'date':
+                    return <DateSeparator key={key} text={content.text} />;
+
+                  case 'narrator':
+                    return <NarratorBlock key={key} text={content.text} />;
+
+                  case 'message': {
+                    const character = characterMap[content.characterId];
+                    if (!character) return null;
+                    return (
+                      <ChatMessage
+                        key={key}
+                        side={content.side}
+                        character={character}
+                        text={content.text}
+                      />
+                    );
+                  }
+
+                  case 'quiz':
+                    return (
+                      <ChatQuiz
+                        key={key}
+                        quiz={content}
+                        selectedAnswer={quizAnswers[index] ?? null}
+                        isAnswered={quizAnswers[index] !== undefined}
+                        onSelectAnswer={selectAnswer}
+                      />
+                    );
+
+                  case 'end':
+                    return (
+                      <SummaryCard
+                        key={key}
+                        points={(content as EndContent).points}
+                        score={score}
+                        totalQuizzes={totalQuizzes}
+                        onReplay={reset}
+                        onNavigateToFlashcard={onNavigateToFlashcard}
+                        onNavigateToQuiz={onNavigateToQuiz}
+                      />
+                    );
+
+                  default:
+                    return null;
+                }
+              })}
+            </AnimatePresence>
+
+            {/* スクロール用アンカー */}
+            <div ref={endRef} />
+          </div>
+        </div>
+
+        {/* タップ促進プロンプト */}
+        {promptMessage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className={`fixed left-1/2 w-full max-w-md -translate-x-1/2 bg-gradient-to-t from-black/50 to-transparent px-4 pt-8 text-center ${
+              embedded ? 'bottom-16 pb-4' : 'bottom-0 pb-6'
+            }`}
           >
-            {promptMessage}
-          </span>
-        </motion.div>
-      )}
+            <span
+              className="rounded-full bg-white/90 px-4 py-2 text-sm font-medium text-gray-700 shadow-lg"
+              style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+            >
+              {promptMessage}
+            </span>
+          </motion.div>
+        )}
+      </div>
     </div>
   );
 }

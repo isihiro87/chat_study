@@ -11,6 +11,7 @@ import { newLearning } from './topics/9-new-learning';
 import { kaseiCulture } from './topics/10-kasei-culture';
 import { foreignShips } from './topics/11-foreign-ships';
 import { tempoReform } from './topics/12-tempo-reform';
+import { threeReformsSummary } from './topics/13-three-reforms-summary';
 
 // 江戸時代（後半）
 export const edoLateEra: Era = {
@@ -37,4 +38,5 @@ export const edoLateTopics: Topic[] = [
   kaseiCulture,
   foreignShips,
   tempoReform,
+  threeReformsSummary,
 ];

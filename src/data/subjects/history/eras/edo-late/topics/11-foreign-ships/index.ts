@@ -23,9 +23,24 @@ export const foreignShips: Topic = {
     },
     videos: [],
     flashcards: [
-      { id: 'fc1', front: '異国船打払令', back: '外国船を追い払う命令（1825年）' },
-      { id: 'fc2', front: 'フェートン号事件', back: 'イギリス軍艦が長崎に侵入した事件' },
-      { id: 'fc3', front: 'アヘン戦争', back: '清がイギリスに敗れた戦争（1840-42年）' },
+      {
+        id: 'fc1',
+        front: '異国船打払令',
+        back: '外国船を追い払う命令（1825年）',
+        explanation: '外国船を見つけ次第砲撃して追い払う強硬な政策。',
+      },
+      {
+        id: 'fc2',
+        front: 'フェートン号事件',
+        back: 'イギリス軍艦が長崎に侵入した事件',
+        explanation: '1808年にイギリス軍艦が長崎に侵入し、オランダ商館員を人質にした。',
+      },
+      {
+        id: 'fc3',
+        front: 'アヘン戦争',
+        back: '清がイギリスに敗れた戦争（1840-42年）',
+        explanation: '清の敗北を知った幕府は、異国船打払令を緩和した。',
+      },
     ],
     quiz: {
       questions: [

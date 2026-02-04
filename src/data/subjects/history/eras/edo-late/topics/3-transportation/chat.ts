@@ -51,12 +51,12 @@ export const transportationChat: HistoryChat = {
       question: '江戸と京都を結び、53の宿場があった街道は？',
       options: [
         { letter: 'A', text: '中山道', correct: false },
-        { letter: 'B', text: '東海道', correct: true },
-        { letter: 'C', text: '日光街道', correct: false },
-        { letter: 'D', text: '甲州街道', correct: false },
+        { letter: 'B', text: '日光街道', correct: false },
+        { letter: 'C', text: '甲州街道', correct: false },
+        { letter: 'D', text: '東海道', correct: true },
       ],
       explanation:
-        '<strong>正解はB「東海道」</strong>です。「東海道五十三次」として広重の浮世絵にも描かれました。',
+        '<strong>正解はD「東海道」</strong>です。「東海道五十三次」として広重の浮世絵にも描かれました。',
     },
     {
       type: 'message',
@@ -78,13 +78,13 @@ export const transportationChat: HistoryChat = {
       type: 'quiz',
       question: '江戸を起点とする5つの主要街道を何という？',
       options: [
-        { letter: 'A', text: '三街道', correct: false },
-        { letter: 'B', text: '五街道', correct: true },
+        { letter: 'A', text: '五街道', correct: true },
+        { letter: 'B', text: '三街道', correct: false },
         { letter: 'C', text: '七街道', correct: false },
         { letter: 'D', text: '十街道', correct: false },
       ],
       explanation:
-        '<strong>正解はB「五街道」</strong>です。東海道・中山道・日光街道・奥州街道・甲州街道の5つです。',
+        '<strong>正解はA「五街道」</strong>です。東海道・中山道・日光街道・奥州街道・甲州街道の5つです。',
     },
     {
       type: 'end',

@@ -58,12 +58,12 @@ export const threeCapitalsChat: HistoryChat = {
       question: '「天下の台所」と呼ばれた都市はどこ？',
       options: [
         { letter: 'A', text: '江戸', correct: false },
-        { letter: 'B', text: '京都', correct: false },
-        { letter: 'C', text: '大阪', correct: true },
+        { letter: 'B', text: '大阪', correct: true },
+        { letter: 'C', text: '京都', correct: false },
         { letter: 'D', text: '堺', correct: false },
       ],
       explanation:
-        '<strong>正解はC「大阪」</strong>です。全国の米や特産物が集まり、経済の中心地として栄えました。',
+        '<strong>正解はB「大阪」</strong>です。全国の米や特産物が集まり、経済の中心地として栄えました。',
     },
     {
       type: 'message',
@@ -86,12 +86,12 @@ export const threeCapitalsChat: HistoryChat = {
       question: '大阪に置かれた、各藩の米や特産物を売る施設は？',
       options: [
         { letter: 'A', text: '問屋', correct: false },
-        { letter: 'B', text: '蔵屋敷', correct: true },
-        { letter: 'C', text: '株仲間', correct: false },
+        { letter: 'B', text: '株仲間', correct: false },
+        { letter: 'C', text: '蔵屋敷', correct: true },
         { letter: 'D', text: '両替商', correct: false },
       ],
       explanation:
-        '<strong>正解はB「蔵屋敷」</strong>です。各藩が大阪に設置し、米や特産物の売買を行いました。',
+        '<strong>正解はC「蔵屋敷」</strong>です。各藩が大阪に設置し、米や特産物の売買を行いました。',
     },
     {
       type: 'end',

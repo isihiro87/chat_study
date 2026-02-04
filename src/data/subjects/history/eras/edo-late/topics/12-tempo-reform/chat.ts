@@ -73,12 +73,12 @@ export const tempoReformChat: HistoryChat = {
       question: '天保の改革で、物価を下げるために解散させられたものは？',
       options: [
         { letter: 'A', text: '藩校', correct: false },
-        { letter: 'B', text: '株仲間', correct: true },
-        { letter: 'C', text: '寺子屋', correct: false },
-        { letter: 'D', text: '問屋', correct: false },
+        { letter: 'B', text: '寺子屋', correct: false },
+        { letter: 'C', text: '問屋', correct: false },
+        { letter: 'D', text: '株仲間', correct: true },
       ],
       explanation:
-        '<strong>正解はB「株仲間」</strong>です。物価高の原因として解散させましたが、かえって流通が混乱しました。',
+        '<strong>正解はD「株仲間」</strong>です。物価高の原因として解散させましたが、かえって流通が混乱しました。',
     },
     {
       type: 'message',
@@ -100,13 +100,13 @@ export const tempoReformChat: HistoryChat = {
       type: 'quiz',
       question: '天保の改革で、大名の領地を幕府直轄にしようとして失敗した法令は？',
       options: [
-        { letter: 'A', text: '倹約令', correct: false },
+        { letter: 'A', text: '上知令', correct: true },
         { letter: 'B', text: '株仲間解散令', correct: false },
-        { letter: 'C', text: '上知令', correct: true },
+        { letter: 'C', text: '倹約令', correct: false },
         { letter: 'D', text: '人返し令', correct: false },
       ],
       explanation:
-        '<strong>正解はC「上知令」</strong>です。大名たちの猛反対にあい、水野忠邦は失脚しました。',
+        '<strong>正解はA「上知令」</strong>です。大名たちの猛反対にあい、水野忠邦は失脚しました。',
     },
     {
       type: 'narrator',

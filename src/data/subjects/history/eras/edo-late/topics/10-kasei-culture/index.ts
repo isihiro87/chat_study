@@ -23,10 +23,24 @@ export const kaseiCulture: Topic = {
     },
     videos: [],
     flashcards: [
-      { id: 'fc1', front: '葛飾北斎', back: '浮世絵師。「富嶽三十六景」' },
-      { id: 'fc2', front: '歌川広重', back: '浮世絵師。「東海道五十三次」' },
-      { id: 'fc3', front: '十返舎一九', back: '「東海道中膝栗毛」の作者' },
-      { id: 'fc4', front: '小林一茶', back: '俳人。庶民的な俳句で知られる' },
+      {
+        id: 'fc1',
+        front: '歌川広重',
+        back: '「東海道五十三次」を代表作とする浮世絵師はだれ？',
+        explanation: '叙情的な風景描写が特徴で、海外の画家ゴッホにも影響を与えた。',
+      },
+      {
+        id: 'fc2',
+        front: '美人画',
+        back: '喜多川歌麿が女性の表情を繊細に描いたジャンルは？',
+        explanation: '浮世絵の主要な題材の一つとして、庶民の間で人気を博した。',
+      },
+      {
+        id: 'fc3',
+        front: '滑稽本',
+        back: '「東海道中膝栗毛」は何という種類の本？',
+        explanation: '弥次さん喜多さんの旅の失敗談をユーモラスに描いた。',
+      },
     ],
     quiz: {
       questions: [

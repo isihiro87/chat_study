@@ -23,10 +23,18 @@ export const newLearning: Topic = {
     },
     videos: [],
     flashcards: [
-      { id: 'fc1', front: '本居宣長', back: '国学者。「古事記伝」を著した' },
-      { id: 'fc2', front: '杉田玄白', back: '蘭学者。「解体新書」を翻訳' },
-      { id: 'fc3', front: '伊能忠敬', back: '日本全国を測量し、精密な日本地図を作成' },
-      { id: 'fc4', front: '平賀源内', back: 'エレキテルを復元した蘭学者' },
+      {
+        id: 'fc1',
+        front: '適塾',
+        back: '緒方洪庵が大阪に開いた私塾は？',
+        explanation: '蘭学や医学を教え、福沢諭吉などの有能な人材を輩出した。',
+      },
+      {
+        id: 'fc2',
+        front: '鳴滝塾',
+        back: 'シーボルトが長崎に開いた私塾は？',
+        explanation: 'オランダ商館医が直接指導し、日本の西洋医学の発展に寄与した。',
+      },
     ],
     quiz: {
       questions: [

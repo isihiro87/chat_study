@@ -57,12 +57,12 @@ export const tanumaPoliticsChat: HistoryChat = {
       question: '田沼意次が公認した商人の同業者組合を何という？',
       options: [
         { letter: 'A', text: '座', correct: false },
-        { letter: 'B', text: '株仲間', correct: true },
-        { letter: 'C', text: '問屋', correct: false },
-        { letter: 'D', text: '両替商', correct: false },
+        { letter: 'B', text: '問屋', correct: false },
+        { letter: 'C', text: '両替商', correct: false },
+        { letter: 'D', text: '株仲間', correct: true },
       ],
       explanation:
-        '<strong>正解はB「株仲間」</strong>です。田沼は株仲間を認める代わりに税金を徴収し、財政収入を増やそうとしました。',
+        '<strong>正解はD「株仲間」</strong>です。田沼は株仲間を認める代わりに税金を徴収し、財政収入を増やそうとしました。',
     },
     {
       type: 'message',

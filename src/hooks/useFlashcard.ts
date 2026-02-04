@@ -10,12 +10,14 @@ interface UseFlashcardReturn {
   rememberedCount: number;
   totalCards: number;
   reviewCount: number;
+  notRememberedCount: number;
   flip: () => void;
   next: () => void;
   prev: () => void;
   markRemembered: () => void;
   markAgain: () => void;
   reset: () => void;
+  resetWithReviewOnly: () => void;
   swipeLeft: () => void;
   swipeRight: () => void;
 }
@@ -134,6 +136,21 @@ export function useFlashcard(cards: Flashcard[]): UseFlashcardReturn {
     setIsComplete(false);
   }, []);
 
+  // 復習が必要なカードのみでリスタート
+  const resetWithReviewOnly = useCallback(() => {
+    if (reviewQueue.length === 0) {
+      // 復習キューが空の場合は通常リセット
+      reset();
+      return;
+    }
+    setCurrentIndex(0);
+    setIsFlipped(false);
+    setIsReviewMode(true);
+    setPendingReview([]);
+    setIsComplete(false);
+    // reviewQueueはそのまま保持
+  }, [reviewQueue.length, reset]);
+
   return {
     currentIndex,
     currentCard,
@@ -143,12 +160,14 @@ export function useFlashcard(cards: Flashcard[]): UseFlashcardReturn {
     rememberedCount: remembered.size,
     totalCards: cards.length,
     reviewCount: reviewQueue.length,
+    notRememberedCount: cards.length - remembered.size,
     flip,
     next,
     prev,
     markRemembered,
     markAgain,
     reset,
+    resetWithReviewOnly,
     swipeLeft,
     swipeRight,
   };

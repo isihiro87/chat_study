@@ -20,6 +20,14 @@ export function TopPage() {
         </p>
       </header>
 
+      {/* PC向け注意喚起 - スマホでは非表示 */}
+      <div className="mx-auto hidden max-w-md px-4 pt-4 md:block">
+        <div className="flex items-center gap-2 rounded-lg border border-indigo-100 bg-indigo-50 p-3 text-sm text-indigo-700">
+          <span>📱</span>
+          <span>このアプリはスマホで見やすいように作られています（パソコンでもお使いいただけます）</span>
+        </div>
+      </div>
+
       <main className="mx-auto max-w-md px-4 py-6">
         <h2 className="mb-4 text-lg font-semibold text-gray-800">
           科目をえらぶ

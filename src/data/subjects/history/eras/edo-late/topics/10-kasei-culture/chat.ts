@@ -44,13 +44,13 @@ export const kaseiCultureChat: HistoryChat = {
       type: 'quiz',
       question: '「東海道中膝栗毛」を書いた作者は？',
       options: [
-        { letter: 'A', text: '曲亭馬琴', correct: false },
-        { letter: 'B', text: '十返舎一九', correct: true },
+        { letter: 'A', text: '十返舎一九', correct: true },
+        { letter: 'B', text: '曲亭馬琴', correct: false },
         { letter: 'C', text: '井原西鶴', correct: false },
         { letter: 'D', text: '式亭三馬', correct: false },
       ],
       explanation:
-        '<strong>正解はB「十返舎一九」</strong>です。弥次郎兵衛と喜多八の東海道旅行記で、庶民に大人気でした。',
+        '<strong>正解はA「十返舎一九」</strong>です。弥次郎兵衛と喜多八の東海道旅行記で、庶民に大人気でした。',
     },
     {
       type: 'narrator',
@@ -61,12 +61,12 @@ export const kaseiCultureChat: HistoryChat = {
       question: '「南総里見八犬伝」を書いた作者は？',
       options: [
         { letter: 'A', text: '十返舎一九', correct: false },
-        { letter: 'B', text: '曲亭馬琴', correct: true },
-        { letter: 'C', text: '滝沢馬琴', correct: false },
-        { letter: 'D', text: '式亭三馬', correct: false },
+        { letter: 'B', text: '滝沢馬琴', correct: false },
+        { letter: 'C', text: '式亭三馬', correct: false },
+        { letter: 'D', text: '曲亭馬琴', correct: true },
       ],
       explanation:
-        '<strong>正解はB「曲亭馬琴」</strong>です。28年かけて完成させた長編小説で、勧善懲悪の物語です。',
+        '<strong>正解はD「曲亭馬琴」</strong>です。28年かけて完成させた長編小説で、勧善懲悪の物語です。',
     },
     {
       type: 'message',

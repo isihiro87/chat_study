@@ -51,24 +51,24 @@ export const kyohoReformChat: HistoryChat = {
       question: '享保の改革を行った8代将軍は誰？',
       options: [
         { letter: 'A', text: '徳川綱吉', correct: false },
-        { letter: 'B', text: '徳川吉宗', correct: true },
-        { letter: 'C', text: '徳川家斉', correct: false },
+        { letter: 'B', text: '徳川家斉', correct: false },
+        { letter: 'C', text: '徳川吉宗', correct: true },
         { letter: 'D', text: '徳川慶喜', correct: false },
       ],
       explanation:
-        '<strong>正解はB「徳川吉宗」</strong>です。8代将軍吉宗は「米将軍」とも呼ばれ、享保の改革で幕府の立て直しを図りました。',
+        '<strong>正解はC「徳川吉宗」</strong>です。8代将軍吉宗は「米将軍」とも呼ばれ、享保の改革で幕府の立て直しを図りました。',
     },
     {
       type: 'quiz',
       question: '大名に米を献上させる代わりに参勤交代の江戸滞在を短くした制度は？',
       options: [
-        { letter: 'A', text: '上げ米の制', correct: true },
-        { letter: 'B', text: '目安箱', correct: false },
+        { letter: 'A', text: '目安箱', correct: false },
+        { letter: 'B', text: '上げ米の制', correct: true },
         { letter: 'C', text: '公事方御定書', correct: false },
         { letter: 'D', text: '倹約令', correct: false },
       ],
       explanation:
-        '<strong>正解はA「上げ米の制」</strong>です。幕府の財政難を助ける代わりに、大名の負担を軽くする制度でした。',
+        '<strong>正解はB「上げ米の制」</strong>です。幕府の財政難を助ける代わりに、大名の負担を軽くする制度でした。',
     },
     {
       type: 'message',
@@ -113,12 +113,12 @@ export const kyohoReformChat: HistoryChat = {
       question: '裁判の基準となる法律を定めたものは？',
       options: [
         { letter: 'A', text: '武家諸法度', correct: false },
-        { letter: 'B', text: '公事方御定書', correct: true },
-        { letter: 'C', text: '禁中並公家諸法度', correct: false },
-        { letter: 'D', text: '御成敗式目', correct: false },
+        { letter: 'B', text: '禁中並公家諸法度', correct: false },
+        { letter: 'C', text: '御成敗式目', correct: false },
+        { letter: 'D', text: '公事方御定書', correct: true },
       ],
       explanation:
-        '<strong>正解はB「公事方御定書」</strong>です。盗みの被害額による刑罰の違いなど、具体的な基準が定められました。',
+        '<strong>正解はD「公事方御定書」</strong>です。盗みの被害額による刑罰の違いなど、具体的な基準が定められました。',
     },
     {
       type: 'narrator',
@@ -151,12 +151,12 @@ export const kyohoReformChat: HistoryChat = {
       question: '作業場に人を集めて分業で製品を作る仕組みを何という？',
       options: [
         { letter: 'A', text: '問屋制家内工業', correct: false },
-        { letter: 'B', text: '工場制手工業（マニュファクチュア）', correct: true },
-        { letter: 'C', text: '座', correct: false },
+        { letter: 'B', text: '座', correct: false },
+        { letter: 'C', text: '工場制手工業（マニュファクチュア）', correct: true },
         { letter: 'D', text: '株仲間', correct: false },
       ],
       explanation:
-        '<strong>正解はB「工場制手工業（マニュファクチュア）」</strong>です。分業により、より効率的に生産できるようになりました。',
+        '<strong>正解はC「工場制手工業（マニュファクチュア）」</strong>です。分業により、より効率的に生産できるようになりました。',
     },
     {
       type: 'end',

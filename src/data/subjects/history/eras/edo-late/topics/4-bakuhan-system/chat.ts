@@ -51,12 +51,12 @@ export const bakuhanSystemChat: HistoryChat = {
       question: '江戸幕府が大名を統制するために定めた法律は？',
       options: [
         { letter: 'A', text: '御成敗式目', correct: false },
-        { letter: 'B', text: '武家諸法度', correct: true },
-        { letter: 'C', text: '大宝律令', correct: false },
+        { letter: 'B', text: '大宝律令', correct: false },
+        { letter: 'C', text: '武家諸法度', correct: true },
         { letter: 'D', text: '公事方御定書', correct: false },
       ],
       explanation:
-        '<strong>正解はB「武家諸法度」</strong>です。2代将軍秀忠の時に制定され、その後改定されていきました。',
+        '<strong>正解はC「武家諸法度」</strong>です。2代将軍秀忠の時に制定され、その後改定されていきました。',
     },
     {
       type: 'message',
@@ -79,12 +79,12 @@ export const bakuhanSystemChat: HistoryChat = {
       question: '大名が1年おきに江戸と領地を往復する制度は？',
       options: [
         { letter: 'A', text: '武家諸法度', correct: false },
-        { letter: 'B', text: '参勤交代', correct: true },
-        { letter: 'C', text: '鎖国', correct: false },
-        { letter: 'D', text: '検地', correct: false },
+        { letter: 'B', text: '鎖国', correct: false },
+        { letter: 'C', text: '検地', correct: false },
+        { letter: 'D', text: '参勤交代', correct: true },
       ],
       explanation:
-        '<strong>正解はB「参勤交代」</strong>です。3代将軍家光の時に制度化され、大名の妻子は江戸に住むことが義務づけられました。',
+        '<strong>正解はD「参勤交代」</strong>です。3代将軍家光の時に制度化され、大名の妻子は江戸に住むことが義務づけられました。',
     },
     {
       type: 'end',

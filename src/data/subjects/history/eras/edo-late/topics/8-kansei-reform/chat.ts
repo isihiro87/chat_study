@@ -57,12 +57,12 @@ export const kanseiReformChat: HistoryChat = {
       question: '寛政の改革を行った、吉宗の孫である老中は？',
       options: [
         { letter: 'A', text: '田沼意次', correct: false },
-        { letter: 'B', text: '松平定信', correct: true },
-        { letter: 'C', text: '水野忠邦', correct: false },
-        { letter: 'D', text: '新井白石', correct: false },
+        { letter: 'B', text: '水野忠邦', correct: false },
+        { letter: 'C', text: '新井白石', correct: false },
+        { letter: 'D', text: '松平定信', correct: true },
       ],
       explanation:
-        '<strong>正解はB「松平定信」</strong>です。徳川吉宗の孫で、祖父の政治をお手本に厳しい改革を行いました。',
+        '<strong>正解はD「松平定信」</strong>です。徳川吉宗の孫で、祖父の政治をお手本に厳しい改革を行いました。',
     },
     {
       type: 'message',
@@ -79,12 +79,12 @@ export const kanseiReformChat: HistoryChat = {
       question: '寛政の改革で、旗本や御家人の借金を帳消しにした法令は？',
       options: [
         { letter: 'A', text: '倹約令', correct: false },
-        { letter: 'B', text: '囲い米の制', correct: false },
-        { letter: 'C', text: '棄捐令', correct: true },
+        { letter: 'B', text: '棄捐令', correct: true },
+        { letter: 'C', text: '囲い米の制', correct: false },
         { letter: 'D', text: '上知令', correct: false },
       ],
       explanation:
-        '<strong>正解はC「棄捐令」</strong>です。生活に困る旗本や御家人の借金を帳消しにして救済しました。',
+        '<strong>正解はB「棄捐令」</strong>です。生活に困る旗本や御家人の借金を帳消しにして救済しました。',
     },
     {
       type: 'date',

@@ -44,13 +44,13 @@ export const foreignShipsChat: HistoryChat = {
       type: 'quiz',
       question: '1825年に幕府が出した、外国船を追い払う命令は？',
       options: [
-        { letter: 'A', text: '鎖国令', correct: false },
-        { letter: 'B', text: '異国船打払令', correct: true },
+        { letter: 'A', text: '異国船打払令', correct: true },
+        { letter: 'B', text: '鎖国令', correct: false },
         { letter: 'C', text: '禁教令', correct: false },
         { letter: 'D', text: '海防令', correct: false },
       ],
       explanation:
-        '<strong>正解はB「異国船打払令」</strong>です。外国船を見つけ次第砲撃して追い払う強硬な政策でした。',
+        '<strong>正解はA「異国船打払令」</strong>です。外国船を見つけ次第砲撃して追い払う強硬な政策でした。',
     },
     {
       type: 'narrator',
@@ -71,12 +71,12 @@ export const foreignShipsChat: HistoryChat = {
       question: '異国船打払令を批判した蘭学者が処罰された事件は？',
       options: [
         { letter: 'A', text: '安政の大獄', correct: false },
-        { letter: 'B', text: '蛮社の獄', correct: true },
-        { letter: 'C', text: '禁門の変', correct: false },
+        { letter: 'B', text: '禁門の変', correct: false },
+        { letter: 'C', text: '蛮社の獄', correct: true },
         { letter: 'D', text: '桜田門外の変', correct: false },
       ],
       explanation:
-        '<strong>正解はB「蛮社の獄」</strong>です。渡辺崋山や高野長英らが処罰され、幕府の厳しい姿勢が示されました。',
+        '<strong>正解はC「蛮社の獄」</strong>です。渡辺崋山や高野長英らが処罰され、幕府の厳しい姿勢が示されました。',
     },
     {
       type: 'date',
@@ -103,12 +103,12 @@ export const foreignShipsChat: HistoryChat = {
       question: '1837年に大阪で乱を起こした元幕府役人は？',
       options: [
         { letter: 'A', text: '渡辺崋山', correct: false },
-        { letter: 'B', text: '高野長英', correct: false },
-        { letter: 'C', text: '大塩平八郎', correct: true },
+        { letter: 'B', text: '大塩平八郎', correct: true },
+        { letter: 'C', text: '高野長英', correct: false },
         { letter: 'D', text: '間宮林蔵', correct: false },
       ],
       explanation:
-        '<strong>正解はC「大塩平八郎」</strong>です。ききんに苦しむ民を救うため、元幕府役人が乱を起こしたことは大きな衝撃でした。',
+        '<strong>正解はB「大塩平八郎」</strong>です。ききんに苦しむ民を救うため、元幕府役人が乱を起こしたことは大きな衝撃でした。',
     },
     {
       type: 'end',

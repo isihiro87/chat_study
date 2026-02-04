@@ -132,6 +132,7 @@ export interface Flashcard {
   front: string;
   back: string;
   hint?: string;
+  explanation?: string;
 }
 
 // クイズ
