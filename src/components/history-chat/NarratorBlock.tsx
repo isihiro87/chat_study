@@ -17,6 +17,12 @@ export function NarratorBlock({ text }: NarratorBlockProps) {
         style={{ borderLeftColor: '#9B59B6' }}
       >
         <p
+          className="mb-1 text-xs font-bold text-purple-600"
+          style={{ fontFamily: "'Noto Sans JP', sans-serif" }}
+        >
+          ナレーション
+        </p>
+        <p
           className="text-sm leading-relaxed text-gray-700"
           style={{ fontFamily: "'Noto Sans JP', sans-serif" }}
           dangerouslySetInnerHTML={{ __html: text }}

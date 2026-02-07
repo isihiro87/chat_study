@@ -15,6 +15,7 @@ export const meijiLateEra: Era = {
   period: '1889年〜1912年',
   icon: '🏭',
   order: 11,
+  grade: 2,
 };
 
 // 明治時代（後期）のトピック一覧

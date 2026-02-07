@@ -42,6 +42,24 @@ import { russoJapaneseWarChat } from '../subjects/history/eras/meiji-late/topics
 import { koreaAnnexationChat } from '../subjects/history/eras/meiji-late/topics/4-korea-annexation/chat';
 import { japanIndustrialRevolutionChat } from '../subjects/history/eras/meiji-late/topics/5-industrial-revolution/chat';
 import { meijiCultureChat } from '../subjects/history/eras/meiji-late/topics/6-meiji-culture/chat';
+// 第一次世界大戦と日本のチャット
+import { ww1OutbreakChat } from '../subjects/history/eras/ww1-japan/topics/1-ww1-outbreak/chat';
+import { japanInWw1Chat } from '../subjects/history/eras/ww1-japan/topics/2-japan-in-ww1/chat';
+import { russianRevolutionChat } from '../subjects/history/eras/ww1-japan/topics/3-russian-revolution/chat';
+import { postwarOrderChat } from '../subjects/history/eras/ww1-japan/topics/4-postwar-order/chat';
+// 大正デモクラシーのチャット
+import { politicalReformChat } from '../subjects/history/eras/taisho-democracy/topics/1-political-reform/chat';
+import { socialMovementsChat } from '../subjects/history/eras/taisho-democracy/topics/2-social-movements/chat';
+import { massCultureChat } from '../subjects/history/eras/taisho-democracy/topics/3-mass-culture/chat';
+// 世界恐慌と日本の中国侵略のチャット
+import { greatDepressionChat } from '../subjects/history/eras/showa-crisis/topics/1-great-depression/chat';
+import { manchurianIncidentChat } from '../subjects/history/eras/showa-crisis/topics/2-manchurian-incident/chat';
+import { sinoJapaneseWarShowaChat } from '../subjects/history/eras/showa-crisis/topics/3-sino-japanese-war/chat';
+// 第二次世界大戦と日本のチャット
+import { ww2OutbreakChat } from '../subjects/history/eras/ww2-japan/topics/1-ww2-outbreak/chat';
+import { pacificWarChat } from '../subjects/history/eras/ww2-japan/topics/2-pacific-war/chat';
+import { wartimeLifeChat } from '../subjects/history/eras/ww2-japan/topics/3-wartime-life/chat';
+import { endOfWarChat } from '../subjects/history/eras/ww2-japan/topics/4-end-of-war/chat';
 import type { HistoryChat } from './types';
 
 // チャットデータのマップ
@@ -90,6 +108,24 @@ const chatMap: Record<string, HistoryChat> = {
   'korea-annexation': koreaAnnexationChat,
   'japan-industrial-revolution': japanIndustrialRevolutionChat,
   'meiji-culture': meijiCultureChat,
+  // 第一次世界大戦と日本
+  'ww1-outbreak': ww1OutbreakChat,
+  'japan-in-ww1': japanInWw1Chat,
+  'russian-revolution': russianRevolutionChat,
+  'postwar-order': postwarOrderChat,
+  // 大正デモクラシー
+  'political-reform': politicalReformChat,
+  'social-movements': socialMovementsChat,
+  'mass-culture': massCultureChat,
+  // 世界恐慌と日本の中国侵略
+  'great-depression': greatDepressionChat,
+  'manchurian-incident': manchurianIncidentChat,
+  'sino-japanese-war-showa': sinoJapaneseWarShowaChat,
+  // 第二次世界大戦と日本
+  'ww2-outbreak': ww2OutbreakChat,
+  'pacific-war': pacificWarChat,
+  'wartime-life': wartimeLifeChat,
+  'end-of-war': endOfWarChat,
 };
 
 // IDからチャットデータを取得

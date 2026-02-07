@@ -15,6 +15,7 @@ export const meijiEarlyEra: Era = {
   period: '1868年〜1889年',
   icon: '🌅',
   order: 10,
+  grade: 2,
 };
 
 // 明治時代（前期）のトピック一覧

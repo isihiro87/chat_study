@@ -16,6 +16,7 @@ export interface Era {
   period: string; // 例: "1603年〜1868年"
   icon: string;
   order: number;
+  grade?: number; // 学年（2 = 中2, 3 = 中3）
 }
 
 // トピック（Topic）- 時代の中の学習単位

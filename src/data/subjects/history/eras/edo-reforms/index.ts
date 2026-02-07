@@ -15,6 +15,7 @@ export const edoReformsEra: Era = {
   period: '1787年〜1853年',
   icon: '📜',
   order: 9,
+  grade: 2,
 };
 
 // 江戸時代④（改革）のトピック一覧

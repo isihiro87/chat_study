@@ -12,6 +12,7 @@ export const bakumatsuEra: Era = {
   period: '1853年〜1868年',
   icon: '⚔️',
   order: 9,
+  grade: 2,
 };
 
 // 幕末のトピック一覧

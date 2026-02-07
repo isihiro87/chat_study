@@ -1,12 +1,21 @@
+import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { ChevronRight } from 'lucide-react';
 import { Header } from '../components/common/Header';
 import { getSubject } from '../data/subjects';
 import { eras } from '../data/subjects/history';
 
+const grades = [
+  { value: 2, label: '中2' },
+  { value: 3, label: '中3' },
+] as const;
+
 export function EraSelectPage() {
   const { subjectId } = useParams<{ subjectId: string }>();
   const subject = subjectId ? getSubject(subjectId) : undefined;
+  const [selectedGrade, setSelectedGrade] = useState(2);
+
+  const filteredEras = eras.filter((era) => era.grade === selectedGrade);
 
   if (!subject) {
     return (
@@ -21,8 +30,25 @@ export function EraSelectPage() {
       <Header title={subject.name} subtitle="学びたい時代をえらぼう" showBack />
 
       <main className="mx-auto max-w-md px-4 py-4">
+        {/* 学年タブ */}
+        <div className="mb-4 flex gap-2">
+          {grades.map((grade) => (
+            <button
+              key={grade.value}
+              onClick={() => setSelectedGrade(grade.value)}
+              className={`flex-1 rounded-lg py-2.5 text-sm font-bold transition-colors ${
+                selectedGrade === grade.value
+                  ? 'bg-indigo-600 text-white shadow-md'
+                  : 'bg-white text-gray-600 shadow-sm hover:bg-gray-50'
+              }`}
+            >
+              {grade.label}
+            </button>
+          ))}
+        </div>
+
         <div className="space-y-3">
-          {eras.map((era) => (
+          {filteredEras.map((era) => (
             <Link
               key={era.id}
               to={`/subjects/${subjectId}/eras/${era.id}`}
@@ -40,7 +66,7 @@ export function EraSelectPage() {
           ))}
         </div>
 
-        {eras.length === 0 && (
+        {filteredEras.length === 0 && (
           <div className="py-12 text-center">
             <p className="text-gray-500">時代がありません</p>
           </div>

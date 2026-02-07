@@ -12,6 +12,7 @@ export const edoGenrokuEra: Era = {
   period: '1680年〜1786年',
   icon: '🎭',
   order: 8,
+  grade: 2,
 };
 
 // 江戸時代③（元禄）のトピック一覧

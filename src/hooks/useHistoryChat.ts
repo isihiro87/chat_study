@@ -27,9 +27,19 @@ interface UseHistoryChatReturn {
   reset: () => void;
 }
 
+// 初回表示時に日付・ナレーションを自動表示するため、最初のメッセージ/クイズの位置を算出
+function getInitialShownIndex(content: ChatContent[]): number {
+  for (let i = 0; i < content.length; i++) {
+    if (content[i].type === 'message' || content[i].type === 'quiz') {
+      return i;
+    }
+  }
+  return 1;
+}
+
 export function useHistoryChat(chat: HistoryChat): UseHistoryChatReturn {
-  // 表示済み要素数（最初は1つ目のみ表示）
-  const [shownIndex, setShownIndex] = useState(1);
+  // 表示済み要素数（日付+最初のナレーションまで自動表示）
+  const [shownIndex, setShownIndex] = useState(() => getInitialShownIndex(chat.content));
 
   // タップヒント表示済み状態（セッション中のみ有効、localStorageに保存しない）
   const [hasTapped, setHasTapped] = useState(false);

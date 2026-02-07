@@ -28,7 +28,7 @@ export function ChatMessage({ side, character, text }: ChatMessageProps) {
           {character.emoji}
         </div>
         <span
-          className="max-w-[48px] truncate text-[10px] text-gray-500"
+          className="max-w-[80px] truncate text-[10px] text-gray-500"
           style={{ fontFamily: "'Noto Sans JP', sans-serif" }}
         >
           {character.name}
