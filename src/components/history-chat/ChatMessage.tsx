@@ -46,9 +46,8 @@ export function ChatMessage({ side, character, text }: ChatMessageProps) {
         <p
           className="text-sm leading-relaxed text-gray-800"
           style={{ fontFamily: "'Noto Sans JP', sans-serif" }}
-        >
-          {text}
-        </p>
+          dangerouslySetInnerHTML={{ __html: text }}
+        />
       </div>
     </motion.div>
   );
