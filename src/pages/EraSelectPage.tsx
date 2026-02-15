@@ -6,6 +6,7 @@ import { getSubject } from '../data/subjects';
 import { eras } from '../data/subjects/history';
 
 const grades = [
+  { value: 1, label: '中1' },
   { value: 2, label: '中2' },
   { value: 3, label: '中3' },
 ] as const;
@@ -13,7 +14,7 @@ const grades = [
 export function EraSelectPage() {
   const { subjectId } = useParams<{ subjectId: string }>();
   const subject = subjectId ? getSubject(subjectId) : undefined;
-  const [selectedGrade, setSelectedGrade] = useState(2);
+  const [selectedGrade, setSelectedGrade] = useState(1);
 
   const filteredEras = eras.filter((era) => era.grade === selectedGrade);
 
