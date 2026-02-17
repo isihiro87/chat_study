@@ -10,8 +10,49 @@ interface SummaryCardProps {
   onNavigateToQuiz?: () => void;
 }
 
+interface RankInfo {
+  title: string;
+  emoji: string;
+  color: string;
+  bgColor: string;
+}
+
+function getRankInfo(percentage: number): RankInfo {
+  if (percentage === 100) {
+    return {
+      title: '完璧マスター！',
+      emoji: '👑',
+      color: '#D97706',
+      bgColor: 'from-yellow-50 to-amber-100',
+    };
+  }
+  if (percentage >= 80) {
+    return {
+      title: 'すごい！',
+      emoji: '🌟',
+      color: '#10B981',
+      bgColor: 'from-emerald-50 to-green-100',
+    };
+  }
+  if (percentage >= 60) {
+    return {
+      title: 'がんばった！',
+      emoji: '💪',
+      color: '#F59E0B',
+      bgColor: 'from-amber-50 to-orange-50',
+    };
+  }
+  return {
+    title: 'もう一回チャレンジ！',
+    emoji: '🔥',
+    color: '#6B7280',
+    bgColor: 'from-gray-50 to-slate-100',
+  };
+}
+
 export function SummaryCard({ points, score, totalQuizzes, onReplay, onNavigateToFlashcard, onNavigateToQuiz }: SummaryCardProps) {
   const percentage = totalQuizzes > 0 ? Math.round((score / totalQuizzes) * 100) : 0;
+  const rank = totalQuizzes > 0 ? getRankInfo(percentage) : null;
 
   return (
     <motion.div
@@ -20,7 +61,7 @@ export function SummaryCard({ points, score, totalQuizzes, onReplay, onNavigateT
       transition={{ duration: 0.45 }}
       className="mx-3 my-4"
     >
-      <div className="rounded-xl bg-gradient-to-br from-amber-50 to-orange-50 p-5 shadow-lg">
+      <div className={`rounded-xl bg-gradient-to-br ${rank?.bgColor || 'from-amber-50 to-orange-50'} p-5 shadow-lg`}>
         {/* ヘッダー */}
         <div className="mb-4 flex items-center gap-3">
           <div className="flex h-12 w-12 items-center justify-center rounded-full bg-amber-100">
@@ -37,15 +78,29 @@ export function SummaryCard({ points, score, totalQuizzes, onReplay, onNavigateT
           </div>
         </div>
 
-        {/* スコア */}
-        {totalQuizzes > 0 && (
+        {/* スコア + ランク */}
+        {totalQuizzes > 0 && rank && (
           <div className="mb-4 rounded-lg bg-white p-4 text-center shadow-sm">
+            {/* ランク称号 */}
+            <motion.div
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ delay: 0.3, type: 'spring', stiffness: 200 }}
+              className="mb-2"
+            >
+              <span className="text-3xl">{rank.emoji}</span>
+              <p
+                className="mt-1 text-base font-bold"
+                style={{ color: rank.color, fontFamily: "'Zen Maru Gothic', sans-serif" }}
+              >
+                {rank.title}
+              </p>
+            </motion.div>
+
             <p className="mb-1 text-sm text-gray-500">クイズ正解率</p>
             <p
               className="text-3xl font-bold"
-              style={{
-                color: percentage >= 80 ? '#10B981' : percentage >= 60 ? '#F59E0B' : '#6B7280',
-              }}
+              style={{ color: rank.color }}
             >
               {percentage}%
             </p>
@@ -93,20 +148,20 @@ export function SummaryCard({ points, score, totalQuizzes, onReplay, onNavigateT
               {onNavigateToFlashcard && (
                 <button
                   onClick={onNavigateToFlashcard}
-                  className="flex flex-1 items-center justify-center gap-2 rounded-full bg-indigo-500 px-4 py-2.5 text-sm font-medium text-white shadow-md transition-transform active:scale-95"
+                  className="flex flex-1 items-center justify-center gap-2 whitespace-nowrap rounded-full bg-indigo-500 px-4 py-2.5 text-sm font-medium text-white shadow-md transition-transform active:scale-95"
                   style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
                 >
-                  <Layers className="h-4 w-4" />
+                  <Layers className="h-4 w-4 flex-shrink-0" />
                   カードで復習
                 </button>
               )}
               {onNavigateToQuiz && (
                 <button
                   onClick={onNavigateToQuiz}
-                  className="flex flex-1 items-center justify-center gap-2 rounded-full bg-green-500 px-4 py-2.5 text-sm font-medium text-white shadow-md transition-transform active:scale-95"
+                  className="flex flex-1 items-center justify-center gap-2 whitespace-nowrap rounded-full bg-green-500 px-4 py-2.5 text-sm font-medium text-white shadow-md transition-transform active:scale-95"
                   style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
                 >
-                  <HelpCircle className="h-4 w-4" />
+                  <HelpCircle className="h-4 w-4 flex-shrink-0" />
                   クイズに挑戦
                 </button>
               )}

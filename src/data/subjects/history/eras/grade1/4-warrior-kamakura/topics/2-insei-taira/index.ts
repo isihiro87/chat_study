@@ -59,8 +59,8 @@ export const inseiTaira: Topic = {
         {
           id: 'q1',
           question: '武士として初めて太政大臣になったのはだれ？',
-          options: ['源義家', '平清盛', '源頼朝', '藤原道長'],
-          correctIndex: 1,
+          options: ['源義家', '藤原道長', '平清盛', '源頼朝'],
+          correctIndex: 2,
           explanation: '平清盛は平治の乱に勝利したのち、武士として初めて太政大臣にのぼりつめました。',
         },
         {
@@ -73,8 +73,8 @@ export const inseiTaira: Topic = {
         {
           id: 'q3',
           question: '1185年に平氏がほろんだ戦いの場所は？',
-          options: ['一ノ谷', '屋島', '壇ノ浦', '鎌倉'],
-          correctIndex: 2,
+          options: ['一ノ谷', '鎌倉', '屋島', '壇ノ浦'],
+          correctIndex: 3,
           explanation: '壇ノ浦（現在の山口県下関市）で源氏が平氏をやぶり、平氏は滅亡しました。',
         },
       ],

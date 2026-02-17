@@ -48,13 +48,13 @@ export const sinoJapaneseWarChat: HistoryChat = {
       type: 'quiz',
       question: '1895年に日清戦争後に結ばれた講和条約は？',
       options: [
-        { letter: 'A', text: '下関条約', correct: true },
+        { letter: 'A', text: '南京条約', correct: false },
         { letter: 'B', text: 'ポーツマス条約', correct: false },
-        { letter: 'C', text: '南京条約', correct: false },
-        { letter: 'D', text: '日朝修好条規', correct: false },
+        { letter: 'C', text: '日朝修好条規', correct: false },
+        { letter: 'D', text: '下関条約', correct: true },
       ],
       explanation:
-        '<strong>正解はA「下関条約」</strong>です。遼東半島・台湾の割譲、賠償金2億両などが定められました。',
+        '<strong>正解はD「下関条約」</strong>です。遼東半島・台湾の割譲、賠償金2億両などが定められました。',
     },
     {
       type: 'message',

@@ -83,12 +83,12 @@ export const openingJapanChat: HistoryChat = {
       question: '日米修好通商条約で日本が認めた、外国人を日本の法律で裁けない権利は？',
       options: [
         { letter: 'A', text: '関税自主権', correct: false },
-        { letter: 'B', text: '領事裁判権', correct: true },
+        { letter: 'B', text: '治安維持権', correct: false },
         { letter: 'C', text: '最恵国待遇', correct: false },
-        { letter: 'D', text: '治安維持権', correct: false },
+        { letter: 'D', text: '領事裁判権', correct: true },
       ],
       explanation:
-        '<strong>正解はB「領事裁判権」</strong>です。外国人の犯罪をその国の法律で裁く権利で、治外法権とも呼ばれます。',
+        '<strong>正解はD「領事裁判権」</strong>です。外国人の犯罪をその国の法律で裁く権利で、治外法権とも呼ばれます。',
     },
     {
       type: 'end',

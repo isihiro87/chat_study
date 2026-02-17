@@ -72,7 +72,7 @@ export function FlashcardDeck({ cards, onProgressChange }: FlashcardDeckProps) {
     const hasUnremembered = notRememberedCount > 0;
 
     return (
-      <div className="flex h-full flex-col items-center justify-center px-6">
+      <div className="flex h-full flex-col items-center justify-center px-6 pb-14">
         {/* 完了アイコン */}
         <motion.div
           initial={{ scale: 0, rotate: -180 }}
@@ -155,7 +155,7 @@ export function FlashcardDeck({ cards, onProgressChange }: FlashcardDeckProps) {
   // 初回説明モーダル
   if (showIntro) {
     return (
-      <div className="flex h-full flex-col items-center justify-center px-6">
+      <div className="flex h-full flex-col items-center justify-center px-6 pb-14">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -243,7 +243,7 @@ export function FlashcardDeck({ cards, onProgressChange }: FlashcardDeckProps) {
   const canGoNext = currentIndex < currentCards - 1;
 
   return (
-    <div className="flex h-full flex-col">
+    <div className="flex h-full flex-col pb-14">
       {/* 復習モード表示 */}
       {isReviewMode && (
         <div className="flex-shrink-0 bg-secondary/10 px-4 py-2 text-center">
@@ -253,8 +253,8 @@ export function FlashcardDeck({ cards, onProgressChange }: FlashcardDeckProps) {
         </div>
       )}
 
-      {/* カードエリア - フル表示（TabBarとの重なりを防ぐためpb-20） */}
-      <div className="relative flex-1 overflow-hidden px-4 pb-20 pt-2">
+      {/* カードエリア */}
+      <div className="relative flex flex-1 flex-col overflow-hidden px-4 pt-2">
         {/* スワイプ方向インジケーター */}
         <AnimatePresence>
           {dragDirection === 'left' && (
@@ -283,6 +283,8 @@ export function FlashcardDeck({ cards, onProgressChange }: FlashcardDeckProps) {
           )}
         </AnimatePresence>
 
+        {/* カード（flex-1で残りスペースを使い、min-h-0でオーバーフロー防止） */}
+        <div className="flex-1 min-h-0">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentCard.id}
@@ -314,7 +316,7 @@ export function FlashcardDeck({ cards, onProgressChange }: FlashcardDeckProps) {
               >
                 {/* 表面（説明 - currentCard.back） */}
                 <motion.div
-                  className="absolute inset-0 flex flex-col items-center justify-center rounded-3xl border-4 p-8 shadow-xl"
+                  className="absolute inset-0 flex flex-col items-center justify-center rounded-3xl border-4 p-5 shadow-xl"
                   style={{
                     backfaceVisibility: 'hidden',
                     backgroundColor: cardBgColor,
@@ -330,19 +332,19 @@ export function FlashcardDeck({ cards, onProgressChange }: FlashcardDeckProps) {
                         e.stopPropagation();
                         setShowHint(!showHint);
                       }}
-                      className="mt-6 rounded-full bg-gray-100 px-4 py-2 text-sm text-gray-500 transition-colors hover:bg-gray-200"
+                      className="mt-3 rounded-full bg-gray-100 px-4 py-2 text-sm text-gray-500 transition-colors hover:bg-gray-200"
                     >
                       {showHint ? currentCard.hint : 'ヒントを見る'}
                     </button>
                   )}
-                  <p className="mt-8 text-sm text-gray-400">
+                  <p className="mt-4 text-sm text-gray-400">
                     👆 タップして答えを見る
                   </p>
                 </motion.div>
 
                 {/* 裏面（用語 - currentCard.front） */}
                 <motion.div
-                  className="absolute inset-0 flex flex-col items-center justify-center rounded-3xl border-4 p-8 shadow-xl"
+                  className="absolute inset-0 flex flex-col items-center justify-center rounded-3xl border-4 p-5 shadow-xl"
                   style={{
                     backfaceVisibility: 'hidden',
                     transform: 'rotateY(180deg)',
@@ -355,12 +357,12 @@ export function FlashcardDeck({ cards, onProgressChange }: FlashcardDeckProps) {
                   </p>
                   {/* 解説表示 */}
                   {currentCard.explanation && (
-                    <p className="mt-4 text-center text-sm leading-relaxed text-gray-500">
+                    <p className="mt-3 text-center text-sm leading-relaxed text-gray-500">
                       {currentCard.explanation}
                     </p>
                   )}
                   {/* スワイプヒント */}
-                  <div className="mt-8 flex w-full items-center justify-center gap-6 text-sm">
+                  <div className="mt-4 flex w-full items-center justify-center gap-6 text-sm">
                     <div className="flex items-center gap-1 text-red-500">
                       <ArrowLeft className="h-4 w-4" />
                       <span>もう一度</span>
@@ -376,9 +378,10 @@ export function FlashcardDeck({ cards, onProgressChange }: FlashcardDeckProps) {
             </div>
           </motion.div>
         </AnimatePresence>
+        </div>
 
-        {/* ナビゲーションエリア（下部に配置） */}
-        <div className="absolute bottom-4 left-0 right-0 flex flex-col items-center gap-3">
+        {/* ナビゲーションエリア */}
+        <div className="flex flex-shrink-0 flex-col items-center gap-2 py-2">
           {/* ドットインジケーター */}
           <div className="flex gap-1.5">
             {(isReviewMode ? Array(reviewCount).fill(0) : cards).map((_, index) => (

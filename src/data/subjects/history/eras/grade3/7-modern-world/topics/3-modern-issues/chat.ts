@@ -51,12 +51,12 @@ export const modernIssuesChat: HistoryChat = {
       question: '1997年に採択された温室効果ガス削減の文書は？',
       options: [
         { letter: 'A', text: 'パリ協定', correct: false },
-        { letter: 'B', text: 'ラムサール条約', correct: false },
-        { letter: 'C', text: '京都議定書', correct: true },
-        { letter: 'D', text: 'ワシントン条約', correct: false },
+        { letter: 'B', text: '京都議定書', correct: true },
+        { letter: 'C', text: 'ワシントン条約', correct: false },
+        { letter: 'D', text: 'ラムサール条約', correct: false },
       ],
       explanation:
-        '<strong>正解はC「京都議定書」</strong>です。1997年に京都で採択され、先進国に温室効果ガスの削減義務を課しました。',
+        '<strong>正解はB「京都議定書」</strong>です。1997年に京都で採択され、先進国に温室効果ガスの削減義務を課しました。',
     },
     {
       type: 'date',
@@ -86,13 +86,13 @@ export const modernIssuesChat: HistoryChat = {
       type: 'quiz',
       question: '2030年までの達成を目指す17の国際目標は？',
       options: [
-        { letter: 'A', text: 'MDGs', correct: false },
-        { letter: 'B', text: 'SDGs（持続可能な開発目標）', correct: true },
+        { letter: 'A', text: 'SDGs（持続可能な開発目標）', correct: true },
+        { letter: 'B', text: 'MDGs', correct: false },
         { letter: 'C', text: 'APEC', correct: false },
         { letter: 'D', text: 'ODA', correct: false },
       ],
       explanation:
-        '<strong>正解はB「SDGs（持続可能な開発目標）」</strong>です。2015年に国連で採択され、貧困・教育・環境など幅広い分野の目標が含まれます。',
+        '<strong>正解はA「SDGs（持続可能な開発目標）」</strong>です。2015年に国連で採択され、貧困・教育・環境など幅広い分野の目標が含まれます。',
     },
     {
       type: 'end',

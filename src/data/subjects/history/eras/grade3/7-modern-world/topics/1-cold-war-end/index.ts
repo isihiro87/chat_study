@@ -113,12 +113,12 @@ export const coldWarEnd: Topic = {
           id: 'q1',
           question: '1989年に米ソ首脳が冷戦の終結を宣言した会談は？',
           options: [
-            'ヤルタ会談',
-            'ポツダム会談',
             'マルタ会談',
+            'ポツダム会談',
+            'ヤルタ会談',
             'ジュネーブ会談',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             'マルタ会談で、アメリカのブッシュ大統領とソ連のゴルバチョフが冷戦の終結を宣言しました。',
         },
@@ -141,10 +141,10 @@ export const coldWarEnd: Topic = {
           options: [
             '湾岸戦争',
             'イラク戦争',
-            'アメリカ同時多発テロ',
             '天安門事件',
+            'アメリカ同時多発テロ',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             'アメリカ同時多発テロは2001年9月11日にニューヨークなどで起きた大規模テロ事件です。',
         },

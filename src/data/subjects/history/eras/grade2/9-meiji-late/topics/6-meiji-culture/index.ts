@@ -110,8 +110,8 @@ export const meijiCulture: Topic = {
         {
           id: 'q1',
           question: '「吾輩は猫である」「坊っちゃん」を書いた作家は？',
-          options: ['森鷗外', '夏目漱石', '二葉亭四迷', '正岡子規'],
-          correctIndex: 1,
+          options: ['夏目漱石', '正岡子規', '二葉亭四迷', '森鷗外'],
+          correctIndex: 0,
           explanation:
             '夏目漱石はイギリスに留学し、近代日本を代表する文豪として多くの名作を残しました。',
         },

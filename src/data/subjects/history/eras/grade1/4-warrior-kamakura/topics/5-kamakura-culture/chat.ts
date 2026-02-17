@@ -52,12 +52,12 @@ export const kamakuraCultureChat: HistoryChat = {
       type: 'quiz',
       question: '東大寺南大門の金剛力士像を作った仏師は？',
       options: [
-        { letter: 'A', text: '快慶', correct: false },
-        { letter: 'B', text: '運慶', correct: true },
+        { letter: 'A', text: '運慶', correct: true },
+        { letter: 'B', text: '快慶', correct: false },
         { letter: 'C', text: '定朝', correct: false },
         { letter: 'D', text: '行基', correct: false },
       ],
-      explanation: '<strong>正解はB「運慶」</strong>です。運慶は快慶らとともに東大寺南大門の金剛力士像を制作しました。力強く写実的な作風が特徴です。',
+      explanation: '<strong>正解はA「運慶」</strong>です。運慶は快慶らとともに東大寺南大門の金剛力士像を制作しました。力強く写実的な作風が特徴です。',
     },
     {
       type: 'narrator',
@@ -86,11 +86,11 @@ export const kamakuraCultureChat: HistoryChat = {
       question: '「南無阿弥陀仏」と念仏を唱えて救われると説き、浄土宗を開いたのは？',
       options: [
         { letter: 'A', text: '親鸞', correct: false },
-        { letter: 'B', text: '日蓮', correct: false },
-        { letter: 'C', text: '法然', correct: true },
+        { letter: 'B', text: '法然', correct: true },
+        { letter: 'C', text: '日蓮', correct: false },
         { letter: 'D', text: '一遍', correct: false },
       ],
-      explanation: '<strong>正解はC「法然」</strong>です。法然は念仏を唱えれば誰でも極楽浄土に行けると説き、浄土宗を開きました。弟子の親鸞は浄土真宗を広めました。',
+      explanation: '<strong>正解はB「法然」</strong>です。法然は念仏を唱えれば誰でも極楽浄土に行けると説き、浄土宗を開きました。弟子の親鸞は浄土真宗を広めました。',
     },
     {
       type: 'end',

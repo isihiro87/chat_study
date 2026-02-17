@@ -105,15 +105,15 @@ export const kofunEra: Topic = {
         {
           id: 'q1',
           question: '円形と方形を組み合わせた日本独自の墓は？',
-          options: ['円墳', '方墳', '前方後円墳', 'ピラミッド'],
-          correctIndex: 2,
+          options: ['円墳', '前方後円墳', '方墳', 'ピラミッド'],
+          correctIndex: 1,
           explanation: '前方後円墳は日本独自の墓の形式で、鍵穴のような形をしています。',
         },
         {
           id: 'q2',
           question: '大陸から移り住み技術や文化を伝えた人々を何という？',
-          options: ['武士', '渡来人', '公家', '商人'],
-          correctIndex: 1,
+          options: ['武士', '公家', '商人', '渡来人'],
+          correctIndex: 3,
           explanation: '渡来人は須恵器・漢字・仏教などの技術や文化を日本に伝えました。',
         },
         {

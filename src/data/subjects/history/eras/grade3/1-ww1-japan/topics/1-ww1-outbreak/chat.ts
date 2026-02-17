@@ -44,13 +44,13 @@ export const ww1OutbreakChat: HistoryChat = {
       type: 'quiz',
       question: '第一次世界大戦のきっかけとなった1914年の事件は？',
       options: [
-        { letter: 'A', text: '義和団事件', correct: false },
-        { letter: 'B', text: 'サラエボ事件', correct: true },
+        { letter: 'A', text: '辛亥革命', correct: false },
+        { letter: 'B', text: '義和団事件', correct: false },
         { letter: 'C', text: 'ノルマントン号事件', correct: false },
-        { letter: 'D', text: '辛亥革命', correct: false },
+        { letter: 'D', text: 'サラエボ事件', correct: true },
       ],
       explanation:
-        '<strong>正解はB「サラエボ事件」</strong>です。オーストリアの皇太子が暗殺されたことで、同盟関係により各国が連鎖的に参戦しました。',
+        '<strong>正解はD「サラエボ事件」</strong>です。オーストリアの皇太子が暗殺されたことで、同盟関係により各国が連鎖的に参戦しました。',
     },
     {
       type: 'message',
@@ -73,12 +73,12 @@ export const ww1OutbreakChat: HistoryChat = {
       question: '三国協商を構成した国の正しい組み合わせは？',
       options: [
         { letter: 'A', text: 'ドイツ・オーストリア・イタリア', correct: false },
-        { letter: 'B', text: 'イギリス・ドイツ・ロシア', correct: false },
-        { letter: 'C', text: 'イギリス・フランス・ロシア', correct: true },
+        { letter: 'B', text: 'イギリス・フランス・ロシア', correct: true },
+        { letter: 'C', text: 'イギリス・ドイツ・ロシア', correct: false },
         { letter: 'D', text: 'フランス・オーストリア・イタリア', correct: false },
       ],
       explanation:
-        '<strong>正解はC「イギリス・フランス・ロシア」</strong>です。三国同盟（ドイツ・オーストリア・イタリア）と対立しました。',
+        '<strong>正解はB「イギリス・フランス・ロシア」</strong>です。三国同盟（ドイツ・オーストリア・イタリア）と対立しました。',
     },
     {
       type: 'message',
@@ -96,11 +96,11 @@ export const ww1OutbreakChat: HistoryChat = {
       options: [
         { letter: 'A', text: '局地戦', correct: false },
         { letter: 'B', text: '冷戦', correct: false },
-        { letter: 'C', text: '代理戦争', correct: false },
-        { letter: 'D', text: '総力戦', correct: true },
+        { letter: 'C', text: '総力戦', correct: true },
+        { letter: 'D', text: '代理戦争', correct: false },
       ],
       explanation:
-        '<strong>正解はD「総力戦」</strong>です。第一次世界大戦では軍事力だけでなく経済力や国民生活のすべてが動員されました。',
+        '<strong>正解はC「総力戦」</strong>です。第一次世界大戦では軍事力だけでなく経済力や国民生活のすべてが動員されました。',
     },
     {
       type: 'end',

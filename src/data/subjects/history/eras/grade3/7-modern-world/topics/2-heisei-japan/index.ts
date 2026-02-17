@@ -108,12 +108,12 @@ export const heiseiJapan: Topic = {
           id: 'q2',
           question: '1993年に崩壊した自民党と社会党による政治体制は？',
           options: [
-            '大政翼賛体制',
             '護憲体制',
             '55年体制',
+            '大政翼賛体制',
             '二大政党制',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation:
             '55年体制は1955年から続いた自民党の長期政権体制で、1993年に非自民連立政権が誕生して崩壊しました。',
         },
@@ -122,11 +122,11 @@ export const heiseiJapan: Topic = {
           question: '1980年代後半の異常な好景気を何という？',
           options: [
             '高度経済成長',
-            'バブル経済',
             '平成不況',
+            'バブル経済',
             '神武景気',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             'バブル経済は1980年代後半に株価や地価が急上昇した好景気で、1990年代に崩壊して平成不況につながりました。',
         },

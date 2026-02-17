@@ -44,13 +44,13 @@ export const constitutionChat: HistoryChat = {
       type: 'quiz',
       question: '初代内閣総理大臣となった人物は？',
       options: [
-        { letter: 'A', text: '伊藤博文', correct: true },
+        { letter: 'A', text: '板垣退助', correct: false },
         { letter: 'B', text: '大隈重信', correct: false },
-        { letter: 'C', text: '板垣退助', correct: false },
-        { letter: 'D', text: '岩倉具視', correct: false },
+        { letter: 'C', text: '岩倉具視', correct: false },
+        { letter: 'D', text: '伊藤博文', correct: true },
       ],
       explanation:
-        '<strong>正解はA「伊藤博文」</strong>です。1885年に内閣制度が発足し、伊藤が初代総理大臣になりました。',
+        '<strong>正解はD「伊藤博文」</strong>です。1885年に内閣制度が発足し、伊藤が初代総理大臣になりました。',
     },
     {
       type: 'message',
@@ -71,12 +71,12 @@ export const constitutionChat: HistoryChat = {
       question: '大日本帝国憲法で、国の主権者とされたのは？',
       options: [
         { letter: 'A', text: '国民', correct: false },
-        { letter: 'B', text: '天皇', correct: true },
+        { letter: 'B', text: '帝国議会', correct: false },
         { letter: 'C', text: '内閣総理大臣', correct: false },
-        { letter: 'D', text: '帝国議会', correct: false },
+        { letter: 'D', text: '天皇', correct: true },
       ],
       explanation:
-        '<strong>正解はB「天皇」</strong>です。天皇は国の元首で神聖な存在とされました（天皇主権）。',
+        '<strong>正解はD「天皇」</strong>です。天皇は国の元首で神聖な存在とされました（天皇主権）。',
     },
     {
       type: 'end',

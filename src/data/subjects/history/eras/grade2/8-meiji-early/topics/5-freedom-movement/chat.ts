@@ -44,13 +44,13 @@ export const freedomMovementChat: HistoryChat = {
       type: 'quiz',
       question: '1874年に板垣退助らが提出した、国会開設を求める文書は？',
       options: [
-        { letter: 'A', text: '民撰議院設立の建白書', correct: true },
-        { letter: 'B', text: '五箇条の御誓文', correct: false },
+        { letter: 'A', text: '五箇条の御誓文', correct: false },
+        { letter: 'B', text: '民撰議院設立の建白書', correct: true },
         { letter: 'C', text: '大日本帝国憲法', correct: false },
         { letter: 'D', text: '教育勅語', correct: false },
       ],
       explanation:
-        '<strong>正解はA「民撰議院設立の建白書」</strong>です。国会開設を求める自由民権運動の始まりとなりました。',
+        '<strong>正解はB「民撰議院設立の建白書」</strong>です。国会開設を求める自由民権運動の始まりとなりました。',
     },
     {
       type: 'message',
@@ -80,13 +80,13 @@ export const freedomMovementChat: HistoryChat = {
       type: 'quiz',
       question: '1881年に板垣退助を党首として結成された政党は？',
       options: [
-        { letter: 'A', text: '立憲改進党', correct: false },
-        { letter: 'B', text: '自由党', correct: true },
+        { letter: 'A', text: '自由党', correct: true },
+        { letter: 'B', text: '立憲改進党', correct: false },
         { letter: 'C', text: '立憲政友会', correct: false },
         { letter: 'D', text: '国民党', correct: false },
       ],
       explanation:
-        '<strong>正解はB「自由党」</strong>です。フランス流の急進的な自由主義を主張しました。',
+        '<strong>正解はA「自由党」</strong>です。フランス流の急進的な自由主義を主張しました。',
     },
     {
       type: 'end',

@@ -44,13 +44,13 @@ export const industrialRevolutionChat: HistoryChat = {
       type: 'quiz',
       question: '蒸気機関を改良し、産業革命を推進したのは？',
       options: [
-        { letter: 'A', text: 'ワット', correct: true },
+        { letter: 'A', text: 'ニュートン', correct: false },
         { letter: 'B', text: 'スティーブンソン', correct: false },
-        { letter: 'C', text: 'ニュートン', correct: false },
-        { letter: 'D', text: 'ダーウィン', correct: false },
+        { letter: 'C', text: 'ダーウィン', correct: false },
+        { letter: 'D', text: 'ワット', correct: true },
       ],
       explanation:
-        '<strong>正解はA「ワット」</strong>です。改良された蒸気機関は工場や交通機関の動力となりました。',
+        '<strong>正解はD「ワット」</strong>です。改良された蒸気機関は工場や交通機関の動力となりました。',
     },
     {
       type: 'narrator',
@@ -81,12 +81,12 @@ export const industrialRevolutionChat: HistoryChat = {
       question: '産業革命後、労働者が権利を守るために作った団体は？',
       options: [
         { letter: 'A', text: '議会', correct: false },
-        { letter: 'B', text: '労働組合', correct: true },
-        { letter: 'C', text: '軍隊', correct: false },
-        { letter: 'D', text: '政党', correct: false },
+        { letter: 'B', text: '政党', correct: false },
+        { letter: 'C', text: '労働組合', correct: true },
+        { letter: 'D', text: '軍隊', correct: false },
       ],
       explanation:
-        '<strong>正解はB「労働組合」</strong>です。長時間労働や低賃金に対抗するため、労働者が団結して作りました。',
+        '<strong>正解はC「労働組合」</strong>です。長時間労働や低賃金に対抗するため、労働者が団結して作りました。',
     },
     {
       type: 'end',

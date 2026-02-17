@@ -110,8 +110,8 @@ export const constitution: Topic = {
         {
           id: 'q1',
           question: '1889年に発布された、天皇主権の憲法は？',
-          options: ['日本国憲法', '大日本帝国憲法', '五箇条の御誓文', '教育勅語'],
-          correctIndex: 1,
+          options: ['日本国憲法', '教育勅語', '五箇条の御誓文', '大日本帝国憲法'],
+          correctIndex: 3,
           explanation:
             '大日本帝国憲法は1889年2月11日に発布され、天皇を主権者とする立憲国家が成立しました。',
         },

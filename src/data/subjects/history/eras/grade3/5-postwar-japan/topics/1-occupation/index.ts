@@ -65,16 +65,16 @@ export const occupation: Topic = {
         {
           id: 'q1',
           question: '占領下の日本で民主化の指令を出した組織は？',
-          options: ['国際連合', 'GHQ', '大政翼賛会', '枢密院'],
-          correctIndex: 1,
+          options: ['GHQ', '枢密院', '大政翼賛会', '国際連合'],
+          correctIndex: 0,
           explanation:
             'GHQ（連合国軍最高司令官総司令部）がマッカーサーのもとで日本の民主化を進めました。',
         },
         {
           id: 'q2',
           question: '日本の戦争指導者を裁いた国際裁判は何と呼ばれる？',
-          options: ['ニュルンベルク裁判', '東京裁判', '国際司法裁判', '軍事法廷'],
-          correctIndex: 1,
+          options: ['国際司法裁判', 'ニュルンベルク裁判', '東京裁判', '軍事法廷'],
+          correctIndex: 2,
           explanation:
             '東京裁判（極東国際軍事裁判）は1946年から1948年にかけて行われました。',
         },
@@ -82,8 +82,8 @@ export const occupation: Topic = {
           id: 'q3',
           question:
             '日本に無条件降伏を求めた、1945年の連合国の宣言は？',
-          options: ['カイロ宣言', 'ポツダム宣言', '大西洋憲章', 'ヤルタ協定'],
-          correctIndex: 1,
+          options: ['カイロ宣言', '大西洋憲章', 'ポツダム宣言', 'ヤルタ協定'],
+          correctIndex: 2,
           explanation:
             'ポツダム宣言は1945年7月に出され、日本は8月にこれを受け入れて降伏しました。',
         },

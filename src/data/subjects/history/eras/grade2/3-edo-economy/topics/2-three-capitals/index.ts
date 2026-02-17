@@ -71,8 +71,8 @@ export const threeCapitals: Topic = {
         {
           id: 'q1',
           question: '「天下の台所」と呼ばれた都市はどこ？',
-          options: ['江戸', '京都', '大阪', '堺'],
-          correctIndex: 2,
+          options: ['大阪', '江戸', '京都', '堺'],
+          correctIndex: 0,
           explanation: '大阪は全国から米や特産物が集まり、「天下の台所」と呼ばれました。',
         },
       ],

@@ -57,13 +57,13 @@ export const threeCapitalsChat: HistoryChat = {
       type: 'quiz',
       question: '「天下の台所」と呼ばれた都市はどこ？',
       options: [
-        { letter: 'A', text: '江戸', correct: false },
-        { letter: 'B', text: '大阪', correct: true },
-        { letter: 'C', text: '京都', correct: false },
+        { letter: 'A', text: '大阪', correct: true },
+        { letter: 'B', text: '京都', correct: false },
+        { letter: 'C', text: '江戸', correct: false },
         { letter: 'D', text: '堺', correct: false },
       ],
       explanation:
-        '<strong>正解はB「大阪」</strong>です。全国の米や特産物が集まり、経済の中心地として栄えました。',
+        '<strong>正解はA「大阪」</strong>です。全国の米や特産物が集まり、経済の中心地として栄えました。',
     },
     {
       type: 'message',

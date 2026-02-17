@@ -111,12 +111,12 @@ export const endOfWar: Topic = {
           id: 'q1',
           question: '広島に原子爆弾が投下された日はいつ？',
           options: [
-            '1945年8月1日',
             '1945年8月6日',
             '1945年8月9日',
+            '1945年8月1日',
             '1945年8月15日',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '1945年8月6日に広島に原爆が投下されました。8月9日は長崎への投下です。',
         },
@@ -126,26 +126,26 @@ export const endOfWar: Topic = {
           options: [
             'カイロ宣言',
             'ヤルタ協定',
-            'ポツダム宣言',
             '大西洋憲章',
+            'ポツダム宣言',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             'ポツダム宣言はアメリカ・イギリス・中国が日本に無条件降伏を求めたものです。',
         },
         {
           id: 'q3',
           question: '1945年8月15日に天皇がラジオで終戦を伝えた放送を何という？',
-          options: ['大本営発表', '終戦宣言', '玉音放送', '降伏声明'],
-          correctIndex: 2,
+          options: ['玉音放送', '終戦宣言', '大本営発表', '降伏声明'],
+          correctIndex: 0,
           explanation:
             '玉音放送で天皇が国民にポツダム宣言受け入れと終戦を伝えました。',
         },
         {
           id: 'q4',
           question: '1945年に住民を巻き込んだ激しい地上戦が行われた場所は？',
-          options: ['硫黄島', '沖縄', 'サイパン', 'グアム'],
-          correctIndex: 1,
+          options: ['沖縄', '硫黄島', 'サイパン', 'グアム'],
+          correctIndex: 0,
           explanation:
             '沖縄戦では約20万人が犠牲になり、住民の集団自決なども起きました。',
         },

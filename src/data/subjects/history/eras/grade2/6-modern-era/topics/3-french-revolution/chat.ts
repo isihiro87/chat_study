@@ -44,13 +44,13 @@ export const frenchRevolutionChat: HistoryChat = {
       type: 'quiz',
       question: 'フランス革命のきっかけとなった1789年の事件は？',
       options: [
-        { letter: 'A', text: 'バスティーユ牢獄襲撃', correct: true },
+        { letter: 'A', text: '名誉革命', correct: false },
         { letter: 'B', text: 'ボストン茶会事件', correct: false },
-        { letter: 'C', text: '名誉革命', correct: false },
+        { letter: 'C', text: 'バスティーユ牢獄襲撃', correct: true },
         { letter: 'D', text: '三部会召集', correct: false },
       ],
       explanation:
-        '<strong>正解はA「バスティーユ牢獄襲撃」</strong>です。1789年7月14日に起こり、フランス革命の象徴となりました。',
+        '<strong>正解はC「バスティーユ牢獄襲撃」</strong>です。1789年7月14日に起こり、フランス革命の象徴となりました。',
     },
     {
       type: 'message',
@@ -67,12 +67,12 @@ export const frenchRevolutionChat: HistoryChat = {
       question: 'フランス革命で発表された、自由・平等・国民主権を謳った文書は？',
       options: [
         { letter: 'A', text: '独立宣言', correct: false },
-        { letter: 'B', text: '権利章典', correct: false },
-        { letter: 'C', text: '人権宣言', correct: true },
-        { letter: 'D', text: 'ナポレオン法典', correct: false },
+        { letter: 'B', text: '人権宣言', correct: true },
+        { letter: 'C', text: 'ナポレオン法典', correct: false },
+        { letter: 'D', text: '権利章典', correct: false },
       ],
       explanation:
-        '<strong>正解はC「人権宣言」</strong>です。「人は生まれながらにして自由で平等」という理念を世界に広めました。',
+        '<strong>正解はB「人権宣言」</strong>です。「人は生まれながらにして自由で平等」という理念を世界に広めました。',
     },
     {
       type: 'message',

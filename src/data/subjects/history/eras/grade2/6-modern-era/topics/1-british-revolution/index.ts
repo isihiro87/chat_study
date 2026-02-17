@@ -110,8 +110,8 @@ export const britishRevolution: Topic = {
         {
           id: 'q1',
           question: '「血を流さない革命」として知られるイギリスの革命は？',
-          options: ['ピューリタン革命', '名誉革命', 'フランス革命', '産業革命'],
-          correctIndex: 1,
+          options: ['ピューリタン革命', '産業革命', 'フランス革命', '名誉革命'],
+          correctIndex: 3,
           explanation: '名誉革命は1688年に起こり、武力衝突なしに国王を追放した革命です。',
         },
       ],

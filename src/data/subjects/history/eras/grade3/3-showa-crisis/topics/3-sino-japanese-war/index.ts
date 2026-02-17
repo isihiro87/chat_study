@@ -126,11 +126,11 @@ export const sinoJapaneseWar: Topic = {
             '日本の侵略に対抗して国民党と共産党が結成した組織は？',
           options: [
             '大政翼賛会',
-            '抗日民族統一戦線',
             '国際連盟',
             '隣組',
+            '抗日民族統一戦線',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '抗日民族統一戦線は、蔣介石（国民党）と毛沢東（共産党）が日本に対抗するために結成した協力関係です。',
         },
@@ -140,11 +140,11 @@ export const sinoJapaneseWar: Topic = {
             '1938年に制定された、議会の承認なしに人や物資を動員できる法律は？',
           options: [
             '治安維持法',
+            '徴兵令',
             '国家総動員法',
             '大日本帝国憲法',
-            '徴兵令',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             '国家総動員法により、政府は議会の承認なしに人的・物的資源を戦争に動員できるようになりました。',
         },
@@ -153,12 +153,12 @@ export const sinoJapaneseWar: Topic = {
           question:
             '戦時中に全ての政党が解散して統合された組織は？',
           options: [
-            '隣組',
             '翼賛壮年団',
             '大政翼賛会',
+            '隣組',
             '国民精神総動員',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation:
             '大政翼賛会は全ての政党が解散して統合された組織で、政府の方針に国民全体を動員するために作られました。',
         },
@@ -168,11 +168,11 @@ export const sinoJapaneseWar: Topic = {
             '植民地で日本語の使用や日本式の名前への改名を強制した政策は？',
           options: [
             '富国強兵',
+            '文明開化',
             '殖産興業',
             '皇民化政策',
-            '文明開化',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '皇民化政策は朝鮮や台湾などの植民地で行われ、日本語の使用や創氏改名が強制されました。',
         },

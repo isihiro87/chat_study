@@ -120,11 +120,11 @@ export const coldWar: Topic = {
             'アメリカを中心とする西側諸国が結成した軍事同盟は？',
           options: [
             'ワルシャワ条約機構',
-            'NATO（北大西洋条約機構）',
             '国際連合',
+            'NATO（北大西洋条約機構）',
             '三国同盟',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             'NATOはアメリカを中心とする西側諸国の軍事同盟で、ソ連を中心とする東側のワルシャワ条約機構と対立しました。',
         },
@@ -143,11 +143,11 @@ export const coldWar: Topic = {
             '1960年にアフリカで多くの国が独立し、この年は何と呼ばれた？',
           options: [
             'アジアの年',
+            '革命の年',
             'アフリカの年',
             '独立の年',
-            '革命の年',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             '1960年にはアフリカで17か国が独立し、「アフリカの年」と呼ばれました。',
         },

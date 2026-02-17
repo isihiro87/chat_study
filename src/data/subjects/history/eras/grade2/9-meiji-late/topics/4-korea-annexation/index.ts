@@ -110,8 +110,8 @@ export const koreaAnnexation: Topic = {
         {
           id: 'q1',
           question: '1911年に清を倒した中国の革命は？',
-          options: ['フランス革命', '辛亥革命', '名誉革命', 'ロシア革命'],
-          correctIndex: 1,
+          options: ['フランス革命', '名誉革命', '辛亥革命', 'ロシア革命'],
+          correctIndex: 2,
           explanation:
             '辛亥革命により清が滅亡し、アジア初の共和国である中華民国が建国されました。',
         },

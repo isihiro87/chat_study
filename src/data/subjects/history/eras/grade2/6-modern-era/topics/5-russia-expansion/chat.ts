@@ -44,13 +44,13 @@ export const russiaExpansionChat: HistoryChat = {
       type: 'quiz',
       question: 'ロシアが不凍港を求めて南へ進出しようとした政策は？',
       options: [
-        { letter: 'A', text: '南下政策', correct: true },
+        { letter: 'A', text: '開国政策', correct: false },
         { letter: 'B', text: '鉄血政策', correct: false },
-        { letter: 'C', text: '開国政策', correct: false },
-        { letter: 'D', text: '植民地政策', correct: false },
+        { letter: 'C', text: '植民地政策', correct: false },
+        { letter: 'D', text: '南下政策', correct: true },
       ],
       explanation:
-        '<strong>正解はA「南下政策」</strong>です。冬でも凍らない港を求めて南へ勢力を広げようとしました。',
+        '<strong>正解はD「南下政策」</strong>です。冬でも凍らない港を求めて南へ勢力を広げようとしました。',
     },
     {
       type: 'message',
@@ -76,13 +76,13 @@ export const russiaExpansionChat: HistoryChat = {
       type: 'quiz',
       question: 'クリミア戦争後、ロシアで出された改革は？',
       options: [
-        { letter: 'A', text: '徴兵制', correct: false },
-        { letter: 'B', text: '農奴解放令', correct: true },
+        { letter: 'A', text: '農奴解放令', correct: true },
+        { letter: 'B', text: '普通選挙', correct: false },
         { letter: 'C', text: '義務教育', correct: false },
-        { letter: 'D', text: '普通選挙', correct: false },
+        { letter: 'D', text: '徴兵制', correct: false },
       ],
       explanation:
-        '<strong>正解はB「農奴解放令」</strong>です。1861年、アレクサンドル2世がロシア近代化のために出しました。',
+        '<strong>正解はA「農奴解放令」</strong>です。1861年、アレクサンドル2世がロシア近代化のために出しました。',
     },
     {
       type: 'end',

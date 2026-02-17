@@ -50,13 +50,13 @@ export const agricultureIndustryChat: HistoryChat = {
       type: 'quiz',
       question: '江戸時代に稲の脱穀を効率化した農具は？',
       options: [
-        { letter: 'A', text: '千歯こき', correct: true },
+        { letter: 'A', text: '水車', correct: false },
         { letter: 'B', text: '備中ぐわ', correct: false },
         { letter: 'C', text: '唐箕', correct: false },
-        { letter: 'D', text: '水車', correct: false },
+        { letter: 'D', text: '千歯こき', correct: true },
       ],
       explanation:
-        '<strong>正解はA「千歯こき」</strong>です。歯の間に稲穂を通して脱穀する道具で、作業効率が大幅に向上しました。',
+        '<strong>正解はD「千歯こき」</strong>です。歯の間に稲穂を通して脱穀する道具で、作業効率が大幅に向上しました。',
     },
     {
       type: 'message',
@@ -78,13 +78,13 @@ export const agricultureIndustryChat: HistoryChat = {
       type: 'quiz',
       question: 'いわしを干した肥料を何という？',
       options: [
-        { letter: 'A', text: '金肥', correct: false },
-        { letter: 'B', text: '堆肥', correct: false },
+        { letter: 'A', text: '干鰯（ほしか）', correct: true },
+        { letter: 'B', text: '金肥', correct: false },
         { letter: 'C', text: '油かす', correct: false },
-        { letter: 'D', text: '干鰯（ほしか）', correct: true },
+        { letter: 'D', text: '堆肥', correct: false },
       ],
       explanation:
-        '<strong>正解はD「干鰯（ほしか）」</strong>です。いわしを干した肥料で、金肥の代表的なものでした。',
+        '<strong>正解はA「干鰯（ほしか）」</strong>です。いわしを干した肥料で、金肥の代表的なものでした。',
     },
     {
       type: 'end',

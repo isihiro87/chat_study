@@ -53,11 +53,11 @@ export const jomonEraChat: HistoryChat = {
       question: '表面に縄目のような文様がある土器は？',
       options: [
         { letter: 'A', text: '弥生土器', correct: false },
-        { letter: 'B', text: '縄文土器', correct: true },
-        { letter: 'C', text: '須恵器', correct: false },
-        { letter: 'D', text: '土師器', correct: false },
+        { letter: 'B', text: '須恵器', correct: false },
+        { letter: 'C', text: '土師器', correct: false },
+        { letter: 'D', text: '縄文土器', correct: true },
       ],
-      explanation: '<strong>正解はB「縄文土器」</strong>です。縄を転がしてつけた文様が特徴的です。',
+      explanation: '<strong>正解はD「縄文土器」</strong>です。縄を転がしてつけた文様が特徴的です。',
     },
     {
       type: 'message',
@@ -75,12 +75,12 @@ export const jomonEraChat: HistoryChat = {
       type: 'quiz',
       question: '縄文人が地面を掘り柱を立てて造った家は？',
       options: [
-        { letter: 'A', text: '高床倉庫', correct: false },
+        { letter: 'A', text: 'たて穴住居', correct: true },
         { letter: 'B', text: '書院造', correct: false },
-        { letter: 'C', text: 'たて穴住居', correct: true },
-        { letter: 'D', text: '武家屋敷', correct: false },
+        { letter: 'C', text: '武家屋敷', correct: false },
+        { letter: 'D', text: '高床倉庫', correct: false },
       ],
-      explanation: '<strong>正解はC「たて穴住居」</strong>です。地面を掘り下げて柱を立て、屋根をかけた住居です。',
+      explanation: '<strong>正解はA「たて穴住居」</strong>です。地面を掘り下げて柱を立て、屋根をかけた住居です。',
     },
     {
       type: 'end',

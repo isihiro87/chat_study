@@ -54,15 +54,15 @@ export const muromachiCulture: Topic = {
         {
           id: 'q1',
           question: '足利義満が北山の別荘に建てた、豪華な3層の建物は？',
-          options: ['銀閣', '金閣', '鹿苑寺', '平等院鳳凰堂'],
-          correctIndex: 1,
+          options: ['金閣', '銀閣', '鹿苑寺', '平等院鳳凰堂'],
+          correctIndex: 0,
           explanation: '金閣は足利義満が北山の別荘に建てた豪華な3層の建物で、北山文化を象徴しています。',
         },
         {
           id: 'q2',
           question: '観阿弥・世阿弥親子が猿楽から大成させた伝統芸能は？',
-          options: ['狂言', '歌舞伎', '能', '人形浄瑠璃'],
-          correctIndex: 2,
+          options: ['能', '狂言', '歌舞伎', '人形浄瑠璃'],
+          correctIndex: 0,
           explanation: '能は観阿弥・世阿弥親子が猿楽をもとに大成させた伝統芸能で、武士や貴族に愛されました。',
         },
         {

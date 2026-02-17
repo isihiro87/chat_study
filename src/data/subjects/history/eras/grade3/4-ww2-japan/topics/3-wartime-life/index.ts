@@ -110,24 +110,24 @@ export const wartimeLife: Topic = {
         {
           id: 'q1',
           question: '1943年から大学生が戦場に送られたことを何という？',
-          options: ['勤労動員', '学徒出陣', '疎開', '徴兵制'],
-          correctIndex: 1,
+          options: ['勤労動員', '疎開', '学徒出陣', '徴兵制'],
+          correctIndex: 2,
           explanation:
             '学徒出陣により、多くの大学生が学業を中断して戦場に送られました。',
         },
         {
           id: 'q2',
           question: '戦時中に家庭の鍋や寺の鐘が回収されたことを何という？',
-          options: ['配給制', '金属供出', '疎開', '勤労動員'],
-          correctIndex: 1,
+          options: ['金属供出', '勤労動員', '疎開', '配給制'],
+          correctIndex: 0,
           explanation:
             '金属供出では、兵器を作るために家庭の鍋や寺の鐘まで回収されました。',
         },
         {
           id: 'q3',
           question: '空襲を避けるため、都市部の子どもたちが地方に移り住むことを何という？',
-          options: ['疎開', '勤労動員', '学徒出陣', '灯火管制'],
-          correctIndex: 0,
+          options: ['学徒出陣', '勤労動員', '疎開', '灯火管制'],
+          correctIndex: 2,
           explanation:
             '疎開では、親元を離れた子どもたちが地方で不慣れな生活を送りました。',
         },
@@ -136,11 +136,11 @@ export const wartimeLife: Topic = {
           question: '戦時中の国民に我慢を求めたスローガンとして正しいのは？',
           options: [
             '富国強兵',
-            '殖産興業',
             '欲しがりません勝つまでは',
+            '殖産興業',
             '脱亜入欧',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation:
             '「欲しがりません勝つまでは」は、食糧難の中で国民に耐乏を求めたスローガンです。',
         },

@@ -74,11 +74,11 @@ export const sekkanPoliticsChat: HistoryChat = {
       question: '摂関政治の全盛期を築いた人物は？',
       options: [
         { letter: 'A', text: '藤原頼通', correct: false },
-        { letter: 'B', text: '藤原道長', correct: true },
+        { letter: 'B', text: '菅原道真', correct: false },
         { letter: 'C', text: '中臣鎌足', correct: false },
-        { letter: 'D', text: '菅原道真', correct: false },
+        { letter: 'D', text: '藤原道長', correct: true },
       ],
-      explanation: '<strong>正解はB「藤原道長」</strong>です。道長は4人の娘を天皇に嫁がせ、摂関政治の全盛期を築きました。',
+      explanation: '<strong>正解はD「藤原道長」</strong>です。道長は4人の娘を天皇に嫁がせ、摂関政治の全盛期を築きました。',
     },
     {
       type: 'end',

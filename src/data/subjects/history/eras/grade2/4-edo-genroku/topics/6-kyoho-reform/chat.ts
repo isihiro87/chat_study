@@ -51,12 +51,12 @@ export const kyohoReformChat: HistoryChat = {
       question: '享保の改革を行った8代将軍は誰？',
       options: [
         { letter: 'A', text: '徳川綱吉', correct: false },
-        { letter: 'B', text: '徳川家斉', correct: false },
-        { letter: 'C', text: '徳川吉宗', correct: true },
+        { letter: 'B', text: '徳川吉宗', correct: true },
+        { letter: 'C', text: '徳川家斉', correct: false },
         { letter: 'D', text: '徳川慶喜', correct: false },
       ],
       explanation:
-        '<strong>正解はC「徳川吉宗」</strong>です。8代将軍吉宗は「米将軍」とも呼ばれ、享保の改革で幕府の立て直しを図りました。',
+        '<strong>正解はB「徳川吉宗」</strong>です。8代将軍吉宗は「米将軍」とも呼ばれ、享保の改革で幕府の立て直しを図りました。',
     },
     {
       type: 'quiz',
@@ -90,13 +90,13 @@ export const kyohoReformChat: HistoryChat = {
       type: 'quiz',
       question: '庶民が政治への意見を投書できるように吉宗が設置したものは？',
       options: [
-        { letter: 'A', text: '投書箱', correct: false },
+        { letter: 'A', text: '訴状箱', correct: false },
         { letter: 'B', text: '意見箱', correct: false },
-        { letter: 'C', text: '目安箱', correct: true },
-        { letter: 'D', text: '訴状箱', correct: false },
+        { letter: 'C', text: '投書箱', correct: false },
+        { letter: 'D', text: '目安箱', correct: true },
       ],
       explanation:
-        '<strong>正解はC「目安箱」</strong>です。目安箱への投書から小石川養生所（病院）が作られるなど、実際に政策に反映されました。',
+        '<strong>正解はD「目安箱」</strong>です。目安箱への投書から小石川養生所（病院）が作られるなど、実際に政策に反映されました。',
     },
     {
       type: 'message',
@@ -113,12 +113,12 @@ export const kyohoReformChat: HistoryChat = {
       question: '裁判の基準となる法律を定めたものは？',
       options: [
         { letter: 'A', text: '武家諸法度', correct: false },
-        { letter: 'B', text: '禁中並公家諸法度', correct: false },
+        { letter: 'B', text: '公事方御定書', correct: true },
         { letter: 'C', text: '御成敗式目', correct: false },
-        { letter: 'D', text: '公事方御定書', correct: true },
+        { letter: 'D', text: '禁中並公家諸法度', correct: false },
       ],
       explanation:
-        '<strong>正解はD「公事方御定書」</strong>です。盗みの被害額による刑罰の違いなど、具体的な基準が定められました。',
+        '<strong>正解はB「公事方御定書」</strong>です。盗みの被害額による刑罰の違いなど、具体的な基準が定められました。',
     },
     {
       type: 'narrator',
@@ -139,24 +139,24 @@ export const kyohoReformChat: HistoryChat = {
       question: '問屋が農民に道具やお金を貸して家で製品を作らせる仕組みを何という？',
       options: [
         { letter: 'A', text: '工場制手工業', correct: false },
-        { letter: 'B', text: '問屋制家内工業', correct: true },
-        { letter: 'C', text: '株仲間', correct: false },
+        { letter: 'B', text: '株仲間', correct: false },
+        { letter: 'C', text: '問屋制家内工業', correct: true },
         { letter: 'D', text: '座', correct: false },
       ],
       explanation:
-        '<strong>正解はB「問屋制家内工業」</strong>です。農民は農業以外の収入を得られるようになりました。',
+        '<strong>正解はC「問屋制家内工業」</strong>です。農民は農業以外の収入を得られるようになりました。',
     },
     {
       type: 'quiz',
       question: '作業場に人を集めて分業で製品を作る仕組みを何という？',
       options: [
-        { letter: 'A', text: '問屋制家内工業', correct: false },
+        { letter: 'A', text: '工場制手工業（マニュファクチュア）', correct: true },
         { letter: 'B', text: '座', correct: false },
-        { letter: 'C', text: '工場制手工業（マニュファクチュア）', correct: true },
-        { letter: 'D', text: '株仲間', correct: false },
+        { letter: 'C', text: '株仲間', correct: false },
+        { letter: 'D', text: '問屋制家内工業', correct: false },
       ],
       explanation:
-        '<strong>正解はC「工場制手工業（マニュファクチュア）」</strong>です。分業により、より効率的に生産できるようになりました。',
+        '<strong>正解はA「工場制手工業（マニュファクチュア）」</strong>です。分業により、より効率的に生産できるようになりました。',
     },
     {
       type: 'end',

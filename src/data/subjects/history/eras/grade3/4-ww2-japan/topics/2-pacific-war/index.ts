@@ -112,11 +112,11 @@ export const pacificWar: Topic = {
           question: '太平洋戦争が始まるきっかけとなった日本の攻撃は？',
           options: [
             'ミッドウェー攻撃',
-            '真珠湾攻撃',
             'サイパン攻撃',
             '東京大空襲',
+            '真珠湾攻撃',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '1941年12月8日の真珠湾攻撃とマレー半島上陸により太平洋戦争が始まりました。',
         },
@@ -125,19 +125,19 @@ export const pacificWar: Topic = {
           question: '日本海軍が大敗し、戦局の転換点となった1942年の海戦は？',
           options: [
             'レイテ沖海戦',
-            'ミッドウェー海戦',
-            '珊瑚海海戦',
             '日本海海戦',
+            '珊瑚海海戦',
+            'ミッドウェー海戦',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             'ミッドウェー海戦で日本は主力空母4隻を失い、以後守勢に回りました。',
         },
         {
           id: 'q3',
           question: '1944年に陥落し、日本本土への空襲が本格化するきっかけとなった島は？',
-          options: ['グアム島', '硫黄島', 'サイパン島', '沖縄'],
-          correctIndex: 2,
+          options: ['サイパン島', '硫黄島', 'グアム島', '沖縄'],
+          correctIndex: 0,
           explanation:
             'サイパン島の陥落により、B-29爆撃機による日本本土空襲が可能になりました。',
         },

@@ -50,13 +50,13 @@ export const pacificWarChat: HistoryChat = {
       type: 'quiz',
       question: '太平洋戦争が始まった日はいつ？',
       options: [
-        { letter: 'A', text: '1939年9月1日', correct: false },
-        { letter: 'B', text: '1941年12月8日', correct: true },
+        { letter: 'A', text: '1945年8月15日', correct: false },
+        { letter: 'B', text: '1939年9月1日', correct: false },
         { letter: 'C', text: '1942年6月5日', correct: false },
-        { letter: 'D', text: '1945年8月15日', correct: false },
+        { letter: 'D', text: '1941年12月8日', correct: true },
       ],
       explanation:
-        '<strong>正解はB「1941年12月8日」</strong>です。真珠湾攻撃とマレー半島上陸が行われた日です。',
+        '<strong>正解はD「1941年12月8日」</strong>です。真珠湾攻撃とマレー半島上陸が行われた日です。',
     },
     {
       type: 'date',
@@ -80,13 +80,13 @@ export const pacificWarChat: HistoryChat = {
       type: 'quiz',
       question: '1942年に日本海軍が大敗した海戦は？',
       options: [
-        { letter: 'A', text: 'レイテ沖海戦', correct: false },
-        { letter: 'B', text: '珊瑚海海戦', correct: false },
-        { letter: 'C', text: 'ミッドウェー海戦', correct: true },
+        { letter: 'A', text: 'ミッドウェー海戦', correct: true },
+        { letter: 'B', text: 'レイテ沖海戦', correct: false },
+        { letter: 'C', text: '珊瑚海海戦', correct: false },
         { letter: 'D', text: '日本海海戦', correct: false },
       ],
       explanation:
-        '<strong>正解はC「ミッドウェー海戦」</strong>です。主力空母4隻を失い、太平洋戦争の転換点となりました。',
+        '<strong>正解はA「ミッドウェー海戦」</strong>です。主力空母4隻を失い、太平洋戦争の転換点となりました。',
     },
     {
       type: 'date',
@@ -110,13 +110,13 @@ export const pacificWarChat: HistoryChat = {
       type: 'quiz',
       question: 'サイパン島陥落で可能になったことは？',
       options: [
-        { letter: 'A', text: '日本本土への空襲', correct: true },
-        { letter: 'B', text: '日本への海上封鎖', correct: false },
-        { letter: 'C', text: '日本への地上侵攻', correct: false },
+        { letter: 'A', text: '日本への地上侵攻', correct: false },
+        { letter: 'B', text: '日本本土への空襲', correct: true },
+        { letter: 'C', text: '日本への海上封鎖', correct: false },
         { letter: 'D', text: '日本への原爆投下', correct: false },
       ],
       explanation:
-        '<strong>正解はA「日本本土への空襲」</strong>です。B-29爆撃機の航続距離内に日本本土が入りました。',
+        '<strong>正解はB「日本本土への空襲」</strong>です。B-29爆撃機の航続距離内に日本本土が入りました。',
     },
     {
       type: 'end',

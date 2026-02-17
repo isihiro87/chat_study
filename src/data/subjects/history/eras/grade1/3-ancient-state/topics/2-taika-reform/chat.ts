@@ -47,11 +47,11 @@ export const taikaReformChat: HistoryChat = {
       question: '645年に始まった政治改革は？',
       options: [
         { letter: 'A', text: '班田収授法', correct: false },
-        { letter: 'B', text: '大化の改新', correct: true },
-        { letter: 'C', text: '承久の乱', correct: false },
-        { letter: 'D', text: '建武の新政', correct: false },
+        { letter: 'B', text: '承久の乱', correct: false },
+        { letter: 'C', text: '建武の新政', correct: false },
+        { letter: 'D', text: '大化の改新', correct: true },
       ],
-      explanation: '<strong>正解はB「大化の改新」</strong>です。中大兄皇子と中臣鎌足が蘇我氏を倒し、天皇中心の政治改革を始めました。',
+      explanation: '<strong>正解はD「大化の改新」</strong>です。中大兄皇子と中臣鎌足が蘇我氏を倒し、天皇中心の政治改革を始めました。',
     },
     {
       type: 'narrator',

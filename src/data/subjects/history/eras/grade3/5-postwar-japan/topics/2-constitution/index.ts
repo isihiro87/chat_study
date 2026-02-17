@@ -90,24 +90,24 @@ export const constitution: Topic = {
         {
           id: 'q1',
           question: '日本国憲法の三大原則に含まれないものはどれ？',
-          options: ['国民主権', '基本的人権の尊重', '富国強兵', '平和主義'],
-          correctIndex: 2,
+          options: ['富国強兵', '基本的人権の尊重', '国民主権', '平和主義'],
+          correctIndex: 0,
           explanation:
             '日本国憲法の三大原則は国民主権・基本的人権の尊重・平和主義です。富国強兵は明治時代のスローガンです。',
         },
         {
           id: 'q2',
           question: '政府が地主の土地を買い上げ、小作人に安く売った改革は？',
-          options: ['財閥解体', '農地改革', '地租改正', '殖産興業'],
-          correctIndex: 1,
+          options: ['財閥解体', '殖産興業', '農地改革', '地租改正'],
+          correctIndex: 2,
           explanation:
             '農地改革により多くの小作人が自分の土地を持つ自作農となりました。',
         },
         {
           id: 'q3',
           question: '日本国憲法において天皇はどのような地位と定められた？',
-          options: ['元首', '象徴', '統治者', '大元帥'],
-          correctIndex: 1,
+          options: ['統治者', '元首', '象徴', '大元帥'],
+          correctIndex: 2,
           explanation:
             '日本国憲法では天皇は「日本国および日本国民統合の象徴」と定められました。',
         },

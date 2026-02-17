@@ -112,11 +112,11 @@ export const manchurianIncident: Topic = {
           question: '1931年に満州事変のきっかけとなった事件は？',
           options: [
             'サラエボ事件',
+            '甲午農民戦争',
             '盧溝橋事件',
             '柳条湖事件',
-            '甲午農民戦争',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '柳条湖事件は関東軍が南満州鉄道の線路を自ら爆破し、中国側のせいにして軍事行動を開始した事件です。',
         },
@@ -134,11 +134,11 @@ export const manchurianIncident: Topic = {
             '国際連盟の勧告を不服として日本が1933年にとった行動は？',
           options: [
             '満州国の解散',
-            '国際連盟からの脱退',
-            '中国との和平交渉',
             '軍備の縮小',
+            '中国との和平交渉',
+            '国際連盟からの脱退',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             'リットン調査団の勧告を受け入れず、日本は国際連盟を脱退して国際的に孤立していきました。',
         },

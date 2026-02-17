@@ -78,13 +78,13 @@ export const foreignRelationsEdoChat: HistoryChat = {
       type: 'quiz',
       question: '鎖国下、朝鮮との外交を仲介した藩は？',
       options: [
-        { letter: 'A', text: '薩摩藩', correct: false },
+        { letter: 'A', text: '対馬藩', correct: true },
         { letter: 'B', text: '松前藩', correct: false },
-        { letter: 'C', text: '対馬藩', correct: true },
-        { letter: 'D', text: '長州藩', correct: false },
+        { letter: 'C', text: '長州藩', correct: false },
+        { letter: 'D', text: '薩摩藩', correct: false },
       ],
       explanation:
-        '<strong>正解はC「対馬藩」</strong>です。対馬藩の宗氏が朝鮮との外交を担当し、朝鮮通信使の来日を取り次ぎました。',
+        '<strong>正解はA「対馬藩」</strong>です。対馬藩の宗氏が朝鮮との外交を担当し、朝鮮通信使の来日を取り次ぎました。',
     },
     {
       type: 'end',

@@ -52,12 +52,12 @@ export const threeReformsSummaryChat: HistoryChat = {
       question: '享保の改革を行った8代将軍は？',
       options: [
         { letter: 'A', text: '徳川綱吉', correct: false },
-        { letter: 'B', text: '徳川家斉', correct: false },
+        { letter: 'B', text: '徳川吉宗', correct: true },
         { letter: 'C', text: '徳川慶喜', correct: false },
-        { letter: 'D', text: '徳川吉宗', correct: true },
+        { letter: 'D', text: '徳川家斉', correct: false },
       ],
       explanation:
-        '<strong>正解はD「徳川吉宗」</strong>です。「米将軍」とも呼ばれ、三大改革で唯一成功した改革を行いました。',
+        '<strong>正解はB「徳川吉宗」</strong>です。「米将軍」とも呼ばれ、三大改革で唯一成功した改革を行いました。',
     },
     {
       type: 'message',
@@ -111,13 +111,13 @@ export const threeReformsSummaryChat: HistoryChat = {
       type: 'quiz',
       question: '三大改革で唯一、将軍自らが行い成功した改革は？',
       options: [
-        { letter: 'A', text: '寛政の改革', correct: false },
-        { letter: 'B', text: '享保の改革', correct: true },
-        { letter: 'C', text: '天保の改革', correct: false },
+        { letter: 'A', text: '天保の改革', correct: false },
+        { letter: 'B', text: '寛政の改革', correct: false },
+        { letter: 'C', text: '享保の改革', correct: true },
         { letter: 'D', text: '田沼の政治', correct: false },
       ],
       explanation:
-        '<strong>正解はB「享保の改革」</strong>です。8代将軍吉宗が自ら行った改革で、一定の成功を収めました。寛政・天保は老中が行い失敗しました。',
+        '<strong>正解はC「享保の改革」</strong>です。8代将軍吉宗が自ら行った改革で、一定の成功を収めました。寛政・天保は老中が行い失敗しました。',
     },
     {
       type: 'quiz',
@@ -139,13 +139,13 @@ export const threeReformsSummaryChat: HistoryChat = {
       type: 'quiz',
       question: '三大改革と異なり、商業を重視した政治を行ったのは？',
       options: [
-        { letter: 'A', text: '徳川吉宗', correct: false },
-        { letter: 'B', text: '田沼意次', correct: true },
-        { letter: 'C', text: '松平定信', correct: false },
+        { letter: 'A', text: '田沼意次', correct: true },
+        { letter: 'B', text: '松平定信', correct: false },
+        { letter: 'C', text: '徳川吉宗', correct: false },
         { letter: 'D', text: '水野忠邦', correct: false },
       ],
       explanation:
-        '<strong>正解はB「田沼意次」</strong>です。享保と寛政の間に、株仲間の奨励など商業重視の政策を行いました。',
+        '<strong>正解はA「田沼意次」</strong>です。享保と寛政の間に、株仲間の奨励など商業重視の政策を行いました。',
     },
     {
       type: 'end',

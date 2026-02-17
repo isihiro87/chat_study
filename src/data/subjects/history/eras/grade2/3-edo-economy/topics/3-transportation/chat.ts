@@ -78,13 +78,13 @@ export const transportationChat: HistoryChat = {
       type: 'quiz',
       question: '江戸を起点とする5つの主要街道を何という？',
       options: [
-        { letter: 'A', text: '五街道', correct: true },
-        { letter: 'B', text: '三街道', correct: false },
+        { letter: 'A', text: '三街道', correct: false },
+        { letter: 'B', text: '十街道', correct: false },
         { letter: 'C', text: '七街道', correct: false },
-        { letter: 'D', text: '十街道', correct: false },
+        { letter: 'D', text: '五街道', correct: true },
       ],
       explanation:
-        '<strong>正解はA「五街道」</strong>です。東海道・中山道・日光街道・奥州街道・甲州街道の5つです。',
+        '<strong>正解はD「五街道」</strong>です。東海道・中山道・日光街道・奥州街道・甲州街道の5つです。',
     },
     {
       type: 'end',

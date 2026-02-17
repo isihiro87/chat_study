@@ -51,8 +51,8 @@ export const muromachiBakufu: Topic = {
         {
           id: 'q1',
           question: '後醍醐天皇が鎌倉幕府を倒した後に始めた、天皇中心の政治は？',
-          options: ['院政', '建武の新政', '摂関政治', '親政'],
-          correctIndex: 1,
+          options: ['摂関政治', '院政', '建武の新政', '親政'],
+          correctIndex: 2,
           explanation: '建武の新政は後醍醐天皇が天皇中心の政治を目指して始めましたが、武士の不満により短期間で崩壊しました。',
         },
         {
@@ -65,8 +65,8 @@ export const muromachiBakufu: Topic = {
         {
           id: 'q3',
           question: '室町幕府で将軍を補佐した最重要の職を何という？',
-          options: ['執権', '管領', '守護', '地頭'],
-          correctIndex: 1,
+          options: ['執権', '守護', '地頭', '管領'],
+          correctIndex: 3,
           explanation: '管領は室町幕府で将軍を補佐する最重要の職で、有力な守護大名が就任しました。',
         },
       ],

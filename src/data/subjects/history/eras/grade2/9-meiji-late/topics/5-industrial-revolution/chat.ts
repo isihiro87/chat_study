@@ -48,13 +48,13 @@ export const japanIndustrialRevolutionChat: HistoryChat = {
       type: 'quiz',
       question: '1901年に操業を開始した、重工業発展の基礎となった製鉄所は？',
       options: [
-        { letter: 'A', text: '八幡製鉄所', correct: true },
+        { letter: 'A', text: '横須賀造船所', correct: false },
         { letter: 'B', text: '富岡製糸場', correct: false },
         { letter: 'C', text: '長崎造船所', correct: false },
-        { letter: 'D', text: '横須賀造船所', correct: false },
+        { letter: 'D', text: '八幡製鉄所', correct: true },
       ],
       explanation:
-        '<strong>正解はA「八幡製鉄所」</strong>です。日清戦争の賠償金で建設され、重化学工業発展の基礎となりました。',
+        '<strong>正解はD「八幡製鉄所」</strong>です。日清戦争の賠償金で建設され、重化学工業発展の基礎となりました。',
     },
     {
       type: 'narrator',
@@ -74,13 +74,13 @@ export const japanIndustrialRevolutionChat: HistoryChat = {
       type: 'quiz',
       question: '足尾銅山鉱毒事件で被害農民のために闘った議員は？',
       options: [
-        { letter: 'A', text: '板垣退助', correct: false },
-        { letter: 'B', text: '田中正造', correct: true },
+        { letter: 'A', text: '田中正造', correct: true },
+        { letter: 'B', text: '板垣退助', correct: false },
         { letter: 'C', text: '幸徳秋水', correct: false },
         { letter: 'D', text: '大隈重信', correct: false },
       ],
       explanation:
-        '<strong>正解はB「田中正造」</strong>です。天皇に直訴しようとしたことでも有名です。',
+        '<strong>正解はA「田中正造」</strong>です。天皇に直訴しようとしたことでも有名です。',
     },
     {
       type: 'end',

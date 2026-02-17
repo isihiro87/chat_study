@@ -49,8 +49,8 @@ export const newLearning: Topic = {
         {
           id: 'q2',
           question: '杉田玄白らが翻訳した医学書は？',
-          options: ['古事記伝', '解体新書', '蘭学事始', '農学全書'],
-          correctIndex: 1,
+          options: ['古事記伝', '蘭学事始', '農学全書', '解体新書'],
+          correctIndex: 3,
           explanation:
             '解体新書はオランダ語の解剖書を翻訳したもので、西洋医学を日本に紹介しました。',
         },
@@ -65,8 +65,8 @@ export const newLearning: Topic = {
         {
           id: 'q4',
           question: '庶民の子が読み書きを学んだ教育施設は？',
-          options: ['藩校', '寺子屋', '私塾', '昌平坂学問所'],
-          correctIndex: 1,
+          options: ['寺子屋', '藩校', '私塾', '昌平坂学問所'],
+          correctIndex: 0,
           explanation:
             '寺子屋では庶民の子が「読み・書き・そろばん」を学びました。藩校は武士の子が通う学校です。',
         },

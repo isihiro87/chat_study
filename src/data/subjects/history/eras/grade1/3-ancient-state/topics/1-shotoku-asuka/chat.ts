@@ -74,11 +74,11 @@ export const shotokuAsukaChat: HistoryChat = {
       question: '聖徳太子が建立した飛鳥文化を代表する寺は？',
       options: [
         { letter: 'A', text: '東大寺', correct: false },
-        { letter: 'B', text: '法隆寺', correct: true },
-        { letter: 'C', text: '唐招提寺', correct: false },
+        { letter: 'B', text: '唐招提寺', correct: false },
+        { letter: 'C', text: '法隆寺', correct: true },
         { letter: 'D', text: '平等院', correct: false },
       ],
-      explanation: '<strong>正解はB「法隆寺」</strong>です。世界最古の木造建築として知られ、飛鳥文化を代表する寺院です。',
+      explanation: '<strong>正解はC「法隆寺」</strong>です。世界最古の木造建築として知られ、飛鳥文化を代表する寺院です。',
     },
     {
       type: 'end',

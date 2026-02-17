@@ -110,8 +110,8 @@ export const sinoJapaneseWar: Topic = {
         {
           id: 'q1',
           question: '1895年に日清戦争後に結ばれた講和条約は？',
-          options: ['南京条約', '下関条約', 'ポーツマス条約', '日朝修好条規'],
-          correctIndex: 1,
+          options: ['南京条約', '日朝修好条規', 'ポーツマス条約', '下関条約'],
+          correctIndex: 3,
           explanation:
             '下関条約で日本は遼東半島・台湾などを獲得し、賠償金2億両を得ました。',
         },

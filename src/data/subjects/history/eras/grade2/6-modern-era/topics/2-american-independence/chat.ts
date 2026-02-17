@@ -44,13 +44,13 @@ export const americanIndependenceChat: HistoryChat = {
       type: 'quiz',
       question: 'アメリカ植民地の人々が掲げたスローガンは？',
       options: [
-        { letter: 'A', text: '自由・平等・友愛', correct: false },
-        { letter: 'B', text: '代表なくして課税なし', correct: true },
+        { letter: 'A', text: '王権神授説', correct: false },
+        { letter: 'B', text: '自由・平等・友愛', correct: false },
         { letter: 'C', text: '万人は平等', correct: false },
-        { letter: 'D', text: '王権神授説', correct: false },
+        { letter: 'D', text: '代表なくして課税なし', correct: true },
       ],
       explanation:
-        '<strong>正解はB「代表なくして課税なし」</strong>です。自分たちの代表がいない議会の課税に反対するスローガンでした。',
+        '<strong>正解はD「代表なくして課税なし」</strong>です。自分たちの代表がいない議会の課税に反対するスローガンでした。',
     },
     {
       type: 'message',

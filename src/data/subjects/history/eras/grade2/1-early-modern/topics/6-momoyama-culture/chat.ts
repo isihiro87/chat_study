@@ -79,12 +79,12 @@ export const momoyamaCultureChat: HistoryChat = {
       type: 'quiz',
       question: '桃山文化を代表する、金箔を使った壮大な絵画を何という？',
       options: [
-        { letter: 'A', text: '大和絵', correct: false },
-        { letter: 'B', text: '水墨画', correct: false },
+        { letter: 'A', text: '障壁画', correct: true },
+        { letter: 'B', text: '大和絵', correct: false },
         { letter: 'C', text: '浮世絵', correct: false },
-        { letter: 'D', text: '障壁画', correct: true },
+        { letter: 'D', text: '水墨画', correct: false },
       ],
-      explanation: '<strong>正解はD「障壁画」</strong>です。狩野永徳らが城の襖や屏風に金箔を使って描いた壮大な絵画で、<strong>唐獅子図屏風</strong>が代表作です。',
+      explanation: '<strong>正解はA「障壁画」</strong>です。狩野永徳らが城の襖や屏風に金箔を使って描いた壮大な絵画で、<strong>唐獅子図屏風</strong>が代表作です。',
     },
     {
       type: 'end',

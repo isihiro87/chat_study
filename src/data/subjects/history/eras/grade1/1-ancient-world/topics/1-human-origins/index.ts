@@ -80,8 +80,8 @@ export const humanOrigins: Topic = {
         {
           id: 'q1',
           question: '約700万年前に現れた最古の人類は？',
-          options: ['原人', '猿人', '新人', '旧人'],
-          correctIndex: 1,
+          options: ['猿人', '原人', '新人', '旧人'],
+          correctIndex: 0,
           explanation: '猿人はアフリカで約700万年前に出現した最古の人類です。',
         },
         {

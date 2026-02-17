@@ -48,13 +48,13 @@ export const politicalReformChat: HistoryChat = {
       type: 'quiz',
       question: '第一次護憲運動で退陣に追い込まれた藩閥出身の首相は？',
       options: [
-        { letter: 'A', text: '原敬', correct: false },
-        { letter: 'B', text: '桂太郎', correct: true },
-        { letter: 'C', text: '山県有朋', correct: false },
-        { letter: 'D', text: '寺内正毅', correct: false },
+        { letter: 'A', text: '寺内正毅', correct: false },
+        { letter: 'B', text: '原敬', correct: false },
+        { letter: 'C', text: '桂太郎', correct: true },
+        { letter: 'D', text: '山県有朋', correct: false },
       ],
       explanation:
-        '<strong>正解はB「桂太郎」</strong>です。民衆の護憲運動により、藩閥政治の象徴である桂太郎内閣は退陣しました。',
+        '<strong>正解はC「桂太郎」</strong>です。民衆の護憲運動により、藩閥政治の象徴である桂太郎内閣は退陣しました。',
     },
     {
       type: 'narrator',
@@ -95,12 +95,12 @@ export const politicalReformChat: HistoryChat = {
       question: '1925年に成立した普通選挙法で選挙権を得たのは？',
       options: [
         { letter: 'A', text: '20歳以上のすべての男女', correct: false },
-        { letter: 'B', text: '25歳以上のすべての男女', correct: false },
-        { letter: 'C', text: '20歳以上のすべての男性', correct: false },
-        { letter: 'D', text: '25歳以上のすべての男性', correct: true },
+        { letter: 'B', text: '25歳以上のすべての男性', correct: true },
+        { letter: 'C', text: '25歳以上のすべての男女', correct: false },
+        { letter: 'D', text: '20歳以上のすべての男性', correct: false },
       ],
       explanation:
-        '<strong>正解はD「25歳以上のすべての男性」</strong>です。財産による制限はなくなりましたが、女性参政権はまだ認められていませんでした。',
+        '<strong>正解はB「25歳以上のすべての男性」</strong>です。財産による制限はなくなりましたが、女性参政権はまだ認められていませんでした。',
     },
     {
       type: 'end',

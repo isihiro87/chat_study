@@ -55,12 +55,12 @@ export const threeReformsChat: HistoryChat = {
       question: '1873年に出された、満20歳の男子に兵役を課す法律は？',
       options: [
         { letter: 'A', text: '学制', correct: false },
-        { letter: 'B', text: '徴兵令', correct: true },
-        { letter: 'C', text: '地租改正', correct: false },
-        { letter: 'D', text: '廃藩置県', correct: false },
+        { letter: 'B', text: '地租改正', correct: false },
+        { letter: 'C', text: '廃藩置県', correct: false },
+        { letter: 'D', text: '徴兵令', correct: true },
       ],
       explanation:
-        '<strong>正解はB「徴兵令」</strong>です。国民皆兵の原則で、武士だけでなく国民全員が兵役を負うようになりました。',
+        '<strong>正解はD「徴兵令」</strong>です。国民皆兵の原則で、武士だけでなく国民全員が兵役を負うようになりました。',
     },
     {
       type: 'message',
@@ -83,12 +83,12 @@ export const threeReformsChat: HistoryChat = {
       question: '地租改正で、税額の基準とされた土地の価格を何という？',
       options: [
         { letter: 'A', text: '地券', correct: false },
-        { letter: 'B', text: '地租', correct: false },
-        { letter: 'C', text: '地価', correct: true },
-        { letter: 'D', text: '年貢', correct: false },
+        { letter: 'B', text: '地価', correct: true },
+        { letter: 'C', text: '年貢', correct: false },
+        { letter: 'D', text: '地租', correct: false },
       ],
       explanation:
-        '<strong>正解はC「地価」</strong>です。地価の3%（後に2.5%）を現金で納める制度でした。',
+        '<strong>正解はB「地価」</strong>です。地価の3%（後に2.5%）を現金で納める制度でした。',
     },
     {
       type: 'end',

@@ -243,24 +243,24 @@ export const asuka: Unit = {
         {
           id: 'q1',
           question: '聖徳太子が定めた、役人の心構えを示したものは？',
-          options: ['大化の改新', '十七条の憲法', '冠位十二階', '大宝律令'],
-          correctIndex: 1,
+          options: ['大宝律令', '大化の改新', '冠位十二階', '十七条の憲法'],
+          correctIndex: 3,
           explanation:
             '十七条の憲法は604年に制定され、「和を以て貴しとなす」など役人の心構えが書かれています。',
         },
         {
           id: 'q2',
           question: '大化の改新が始まったのは何年？',
-          options: ['604年', '607年', '645年', '701年'],
-          correctIndex: 2,
+          options: ['604年', '645年', '607年', '701年'],
+          correctIndex: 1,
           explanation:
             '645年に中大兄皇子と中臣鎌足が蘇我氏を倒し、大化の改新が始まりました。',
         },
         {
           id: 'q3',
           question: '中国（隋）に送られた使節を何という？',
-          options: ['遣唐使', '遣隋使', '遣宋使', '朝貢使'],
-          correctIndex: 1,
+          options: ['遣唐使', '遣宋使', '朝貢使', '遣隋使'],
+          correctIndex: 3,
           explanation:
             '遣隋使は聖徳太子の時代に隋に送られた使節で、小野妹子が有名です。',
         },
@@ -268,16 +268,16 @@ export const asuka: Unit = {
           id: 'q4',
           question:
             '「土地と人民は国のもの」という大化の改新の考え方を何という？',
-          options: ['律令制', '公地公民', '班田収授', '荘園制'],
-          correctIndex: 1,
+          options: ['律令制', '班田収授', '公地公民', '荘園制'],
+          correctIndex: 2,
           explanation:
             '公地公民は、土地と人民を私有ではなく国（天皇）のものとする考え方です。',
         },
         {
           id: 'q5',
           question: '701年に完成した日本初の本格的な法律集は？',
-          options: ['十七条の憲法', '養老律令', '大宝律令', '御成敗式目'],
-          correctIndex: 2,
+          options: ['大宝律令', '養老律令', '十七条の憲法', '御成敗式目'],
+          correctIndex: 0,
           explanation:
             '大宝律令は701年に完成し、これにより日本は本格的な律令国家となりました。',
         },

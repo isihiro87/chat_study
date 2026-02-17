@@ -46,8 +46,8 @@ export const sekkanPolitics: Topic = {
         {
           id: 'q1',
           question: '藤原氏が天皇の外戚として実権を握った政治は？',
-          options: ['院政', '摂関政治', '執権政治', '建武の新政'],
-          correctIndex: 1,
+          options: ['院政', '執権政治', '建武の新政', '摂関政治'],
+          correctIndex: 3,
           explanation: '摂関政治は藤原氏が摂政・関白として権力を握った政治形態です。',
         },
         {
@@ -60,8 +60,8 @@ export const sekkanPolitics: Topic = {
         {
           id: 'q3',
           question: '平安時代の貴族の住居の建築様式は？',
-          options: ['書院造', '寝殿造', '校倉造', '数寄屋造'],
-          correctIndex: 1,
+          options: ['校倉造', '書院造', '寝殿造', '数寄屋造'],
+          correctIndex: 2,
           explanation: '寝殿造は中央に寝殿を置き、渡り廊下で周囲の建物を結ぶ様式です。',
         },
       ],

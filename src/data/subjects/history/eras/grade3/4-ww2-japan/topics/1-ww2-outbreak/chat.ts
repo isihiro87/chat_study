@@ -87,12 +87,12 @@ export const ww2OutbreakChat: HistoryChat = {
       question: 'ABCD包囲陣で日本に対して行われた経済制裁の中心は？',
       options: [
         { letter: 'A', text: '食料輸出禁止', correct: false },
-        { letter: 'B', text: '石油輸出禁止', correct: true },
-        { letter: 'C', text: '武器輸出禁止', correct: false },
+        { letter: 'B', text: '武器輸出禁止', correct: false },
+        { letter: 'C', text: '石油輸出禁止', correct: true },
         { letter: 'D', text: '鉄鉱石輸出禁止', correct: false },
       ],
       explanation:
-        '<strong>正解はB「石油輸出禁止」</strong>です。石油を断たれた日本は、資源確保のために開戦を決意しました。',
+        '<strong>正解はC「石油輸出禁止」</strong>です。石油を断たれた日本は、資源確保のために開戦を決意しました。',
     },
     {
       type: 'narrator',
@@ -102,13 +102,13 @@ export const ww2OutbreakChat: HistoryChat = {
       type: 'quiz',
       question: '1940年に日本が結んだ軍事同盟は？',
       options: [
-        { letter: 'A', text: '日英同盟', correct: false },
+        { letter: 'A', text: '日独伊三国同盟', correct: true },
         { letter: 'B', text: '三国協商', correct: false },
-        { letter: 'C', text: '日独伊三国同盟', correct: true },
-        { letter: 'D', text: '日ソ中立条約', correct: false },
+        { letter: 'C', text: '日ソ中立条約', correct: false },
+        { letter: 'D', text: '日英同盟', correct: false },
       ],
       explanation:
-        '<strong>正解はC「日独伊三国同盟」</strong>です。日本・ドイツ・イタリアが枢軸国として連合国と対立しました。',
+        '<strong>正解はA「日独伊三国同盟」</strong>です。日本・ドイツ・イタリアが枢軸国として連合国と対立しました。',
     },
     {
       type: 'end',

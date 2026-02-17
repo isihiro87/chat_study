@@ -79,12 +79,12 @@ export const socialClassesChat: HistoryChat = {
       question: '江戸時代、自分の田畑を持つ百姓を何という？',
       options: [
         { letter: 'A', text: '水のみ百姓', correct: false },
-        { letter: 'B', text: '名主', correct: false },
-        { letter: 'C', text: '本百姓', correct: true },
-        { letter: 'D', text: '小作人', correct: false },
+        { letter: 'B', text: '本百姓', correct: true },
+        { letter: 'C', text: '小作人', correct: false },
+        { letter: 'D', text: '名主', correct: false },
       ],
       explanation:
-        '<strong>正解はC「本百姓」</strong>です。自分の田畑を持ち年貢を納める百姓で、村の運営にも参加しました。田畑を持たない百姓は水のみ百姓と呼ばれました。',
+        '<strong>正解はB「本百姓」</strong>です。自分の田畑を持ち年貢を納める百姓で、村の運営にも参加しました。田畑を持たない百姓は水のみ百姓と呼ばれました。',
     },
     {
       type: 'end',

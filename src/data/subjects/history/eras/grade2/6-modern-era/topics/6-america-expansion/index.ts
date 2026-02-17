@@ -98,8 +98,8 @@ export const americaExpansion: Topic = {
         {
           id: 'q1',
           question: '南北戦争中に奴隷解放宣言を出したアメリカ大統領は？',
-          options: ['ワシントン', 'ジェファソン', 'リンカン', 'ルーズベルト'],
-          correctIndex: 2,
+          options: ['ワシントン', 'リンカン', 'ジェファソン', 'ルーズベルト'],
+          correctIndex: 1,
           explanation:
             'リンカンは1863年に奴隷解放宣言を出し、南部の奴隷の解放を宣言しました。',
         },

@@ -86,15 +86,15 @@ export const chineseCivilization: Topic = {
         {
           id: 'q1',
           question: '紀元前3世紀に初めて中国を統一した人物は？',
-          options: ['孔子', '始皇帝', '劉邦', 'アレクサンドロス大王'],
-          correctIndex: 1,
+          options: ['孔子', '劉邦', '始皇帝', 'アレクサンドロス大王'],
+          correctIndex: 2,
           explanation: '始皇帝は秦の王で、紀元前221年に初めて中国を統一しました。',
         },
         {
           id: 'q2',
           question: '殷で占いの結果を記すのに使われた文字は？',
-          options: ['くさび形文字', '象形文字', '甲骨文字', 'アルファベット'],
-          correctIndex: 2,
+          options: ['くさび形文字', '象形文字', 'アルファベット', '甲骨文字'],
+          correctIndex: 3,
           explanation: '甲骨文字は亀の甲羅や牛の骨に刻まれた中国最古の文字です。',
         },
         {

@@ -66,11 +66,11 @@ export const postwarOrderChat: HistoryChat = {
       options: [
         { letter: 'A', text: '五・四運動', correct: false },
         { letter: 'B', text: '辛亥革命', correct: false },
-        { letter: 'C', text: '三・一独立運動', correct: true },
-        { letter: 'D', text: '義和団事件', correct: false },
+        { letter: 'C', text: '義和団事件', correct: false },
+        { letter: 'D', text: '三・一独立運動', correct: true },
       ],
       explanation:
-        '<strong>正解はC「三・一独立運動」</strong>です。1919年3月1日に始まった朝鮮の大規模な独立運動です。',
+        '<strong>正解はD「三・一独立運動」</strong>です。1919年3月1日に始まった朝鮮の大規模な独立運動です。',
     },
     {
       type: 'message',
@@ -93,12 +93,12 @@ export const postwarOrderChat: HistoryChat = {
       question: 'インドで非暴力・不服従運動を指導した人物は？',
       options: [
         { letter: 'A', text: 'ネルー', correct: false },
-        { letter: 'B', text: 'ガンディー', correct: true },
-        { letter: 'C', text: 'スカルノ', correct: false },
-        { letter: 'D', text: '孫文', correct: false },
+        { letter: 'B', text: '孫文', correct: false },
+        { letter: 'C', text: 'ガンディー', correct: true },
+        { letter: 'D', text: 'スカルノ', correct: false },
       ],
       explanation:
-        '<strong>正解はB「ガンディー」</strong>です。暴力を使わずに不当な支配に従わないという方法でイギリスからの独立を目指しました。',
+        '<strong>正解はC「ガンディー」</strong>です。暴力を使わずに不当な支配に従わないという方法でイギリスからの独立を目指しました。',
     },
     {
       type: 'end',

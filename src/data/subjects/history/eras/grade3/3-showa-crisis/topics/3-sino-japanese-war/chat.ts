@@ -49,12 +49,12 @@ export const sinoJapaneseWarShowaChat: HistoryChat = {
       question: '1937年に日中戦争のきっかけとなった事件は？',
       options: [
         { letter: 'A', text: '柳条湖事件', correct: false },
-        { letter: 'B', text: '盧溝橋事件', correct: true },
-        { letter: 'C', text: '五・一五事件', correct: false },
+        { letter: 'B', text: '五・一五事件', correct: false },
+        { letter: 'C', text: '盧溝橋事件', correct: true },
         { letter: 'D', text: 'サラエボ事件', correct: false },
       ],
       explanation:
-        '<strong>正解はB「盧溝橋事件」</strong>です。北京郊外の盧溝橋で日本軍と中国軍が衝突し、日中戦争が始まりました。',
+        '<strong>正解はC「盧溝橋事件」</strong>です。北京郊外の盧溝橋で日本軍と中国軍が衝突し、日中戦争が始まりました。',
     },
     {
       type: 'narrator',
@@ -79,24 +79,24 @@ export const sinoJapaneseWarShowaChat: HistoryChat = {
       question: '1938年に制定された、議会の承認なしに人や物資を動員できる法律は？',
       options: [
         { letter: 'A', text: '治安維持法', correct: false },
-        { letter: 'B', text: '徴兵令', correct: false },
-        { letter: 'C', text: '国家総動員法', correct: true },
-        { letter: 'D', text: '大日本帝国憲法', correct: false },
+        { letter: 'B', text: '国家総動員法', correct: true },
+        { letter: 'C', text: '大日本帝国憲法', correct: false },
+        { letter: 'D', text: '徴兵令', correct: false },
       ],
       explanation:
-        '<strong>正解はC「国家総動員法」</strong>です。政府は議会の承認なしに人的・物的資源を戦争に動員できるようになりました。',
+        '<strong>正解はB「国家総動員法」</strong>です。政府は議会の承認なしに人的・物的資源を戦争に動員できるようになりました。',
     },
     {
       type: 'quiz',
       question: '日本の侵略に対抗して国民党と共産党が結成した協力関係は？',
       options: [
-        { letter: 'A', text: '大政翼賛会', correct: false },
-        { letter: 'B', text: '抗日民族統一戦線', correct: true },
+        { letter: 'A', text: '抗日民族統一戦線', correct: true },
+        { letter: 'B', text: '大政翼賛会', correct: false },
         { letter: 'C', text: '国際連盟', correct: false },
         { letter: 'D', text: '三国同盟', correct: false },
       ],
       explanation:
-        '<strong>正解はB「抗日民族統一戦線」</strong>です。蔣介石（国民党）と毛沢東（共産党）が日本に対抗するために結成しました。',
+        '<strong>正解はA「抗日民族統一戦線」</strong>です。蔣介石（国民党）と毛沢東（共産党）が日本に対抗するために結成しました。',
     },
     {
       type: 'end',

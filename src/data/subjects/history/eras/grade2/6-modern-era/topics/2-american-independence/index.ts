@@ -98,8 +98,8 @@ export const americanIndependence: Topic = {
         {
           id: 'q1',
           question: 'アメリカ独立戦争の総司令官で、初代大統領となった人物は？',
-          options: ['リンカン', 'ワシントン', 'ジェファソン', 'フランクリン'],
-          correctIndex: 1,
+          options: ['リンカン', 'ジェファソン', 'フランクリン', 'ワシントン'],
+          correctIndex: 3,
           explanation:
             'ジョージ・ワシントンは独立戦争を勝利に導き、アメリカ合衆国初代大統領となりました。',
         },

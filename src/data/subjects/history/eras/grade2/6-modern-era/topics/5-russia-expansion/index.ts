@@ -86,8 +86,8 @@ export const russiaExpansion: Topic = {
         {
           id: 'q1',
           question: 'ロシアが不凍港を求めて南へ進出しようとした政策を何という？',
-          options: ['鉄血政策', '南下政策', '開国政策', '植民地政策'],
-          correctIndex: 1,
+          options: ['鉄血政策', '開国政策', '南下政策', '植民地政策'],
+          correctIndex: 2,
           explanation:
             '南下政策は、冬でも凍らない港を求めてロシアが進めた拡大政策です。',
         },

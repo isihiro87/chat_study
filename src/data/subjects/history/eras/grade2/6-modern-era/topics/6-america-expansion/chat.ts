@@ -90,12 +90,12 @@ export const americaExpansionChat: HistoryChat = {
       question: '南北戦争中に奴隷解放宣言を出した大統領は？',
       options: [
         { letter: 'A', text: 'ワシントン', correct: false },
-        { letter: 'B', text: 'ジェファソン', correct: false },
-        { letter: 'C', text: 'リンカン', correct: true },
+        { letter: 'B', text: 'リンカン', correct: true },
+        { letter: 'C', text: 'ジェファソン', correct: false },
         { letter: 'D', text: 'ルーズベルト', correct: false },
       ],
       explanation:
-        '<strong>正解はC「リンカン」</strong>です。1863年に奴隷解放宣言を出し、「人民の、人民による、人民のための政治」と演説しました。',
+        '<strong>正解はB「リンカン」</strong>です。1863年に奴隷解放宣言を出し、「人民の、人民による、人民のための政治」と演説しました。',
     },
     {
       type: 'end',

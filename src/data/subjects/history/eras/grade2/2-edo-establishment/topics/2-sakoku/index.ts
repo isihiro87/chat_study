@@ -70,8 +70,8 @@ export const sakoku: Topic = {
         {
           id: 'q3',
           question: '鎖国を完成させ、ポルトガル船の来航を禁止した将軍はだれ？',
-          options: ['徳川家康', '徳川秀忠', '徳川家光', '徳川綱吉'],
-          correctIndex: 2,
+          options: ['徳川家康', '徳川秀忠', '徳川綱吉', '徳川家光'],
+          correctIndex: 3,
           explanation: '3代将軍徳川家光のもとで1639年にポルトガル船の来航が禁止され、鎖国が完成しました。',
         },
       ],

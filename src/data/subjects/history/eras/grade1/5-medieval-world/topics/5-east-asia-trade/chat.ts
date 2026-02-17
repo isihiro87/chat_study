@@ -59,11 +59,11 @@ export const eastAsiaTradeChat: HistoryChat = {
       question: '日明貿易で、倭寇と正式な貿易船を区別するために使われた合い札は？',
       options: [
         { letter: 'A', text: '朱印状', correct: false },
-        { letter: 'B', text: '勘合', correct: true },
-        { letter: 'C', text: '渡航証', correct: false },
+        { letter: 'B', text: '渡航証', correct: false },
+        { letter: 'C', text: '勘合', correct: true },
         { letter: 'D', text: '通行手形', correct: false },
       ],
-      explanation: '<strong>正解はB「勘合」</strong>です。足利義満は倭寇と区別するため、明から勘合（合い札）を受け取り、正式な貿易船であることを証明しました。このため日明貿易は<strong>勘合貿易</strong>とも呼ばれます。',
+      explanation: '<strong>正解はC「勘合」</strong>です。足利義満は倭寇と区別するため、明から勘合（合い札）を受け取り、正式な貿易船であることを証明しました。このため日明貿易は<strong>勘合貿易</strong>とも呼ばれます。',
     },
     {
       type: 'narrator',

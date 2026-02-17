@@ -54,13 +54,13 @@ export const postOpeningChat: HistoryChat = {
       type: 'quiz',
       question: '井伊直弼が尊王攘夷派を厳しく処罰した事件は？',
       options: [
-        { letter: 'A', text: '安政の大獄', correct: true },
+        { letter: 'A', text: '禁門の変', correct: false },
         { letter: 'B', text: '桜田門外の変', correct: false },
-        { letter: 'C', text: '禁門の変', correct: false },
+        { letter: 'C', text: '安政の大獄', correct: true },
         { letter: 'D', text: '薩英戦争', correct: false },
       ],
       explanation:
-        '<strong>正解はA「安政の大獄」</strong>です。吉田松陰らが処刑され、多くの大名・公家が処分されました。',
+        '<strong>正解はC「安政の大獄」</strong>です。吉田松陰らが処刑され、多くの大名・公家が処分されました。',
     },
     {
       type: 'message',
@@ -81,12 +81,12 @@ export const postOpeningChat: HistoryChat = {
       question: '開港後の日本で、最大の貿易港となったのは？',
       options: [
         { letter: 'A', text: '長崎', correct: false },
-        { letter: 'B', text: '神戸', correct: false },
-        { letter: 'C', text: '横浜', correct: true },
-        { letter: 'D', text: '函館', correct: false },
+        { letter: 'B', text: '函館', correct: false },
+        { letter: 'C', text: '神戸', correct: false },
+        { letter: 'D', text: '横浜', correct: true },
       ],
       explanation:
-        '<strong>正解はC「横浜」</strong>です。イギリスを相手に生糸などを輸出する最大の貿易港となりました。',
+        '<strong>正解はD「横浜」</strong>です。イギリスを相手に生糸などを輸出する最大の貿易港となりました。',
     },
     {
       type: 'end',

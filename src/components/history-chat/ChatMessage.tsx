@@ -5,10 +5,17 @@ interface ChatMessageProps {
   side: 'left' | 'right';
   character: ChatCharacter;
   text: string;
+  expression?: string;
 }
 
-export function ChatMessage({ side, character, text }: ChatMessageProps) {
+export function ChatMessage({ side, character, text, expression }: ChatMessageProps) {
   const isLeft = side === 'left';
+
+  // 表情が指定されていればexpressionsマップから取得、なければデフォルトemoji
+  const avatarEmoji =
+    expression && character.expressions?.[expression]
+      ? character.expressions[expression]
+      : character.emoji;
 
   return (
     <motion.div
@@ -25,7 +32,7 @@ export function ChatMessage({ side, character, text }: ChatMessageProps) {
             background: `linear-gradient(135deg, ${character.colorFrom}, ${character.colorTo})`,
           }}
         >
-          {character.emoji}
+          {avatarEmoji}
         </div>
         <span
           className="max-w-[80px] truncate text-[10px] text-gray-500"

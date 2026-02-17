@@ -43,12 +43,12 @@ export const socialMovementsChat: HistoryChat = {
       question: '日本で初めてメーデーが行われたのは何年？',
       options: [
         { letter: 'A', text: '1918年', correct: false },
-        { letter: 'B', text: '1920年', correct: true },
-        { letter: 'C', text: '1922年', correct: false },
-        { letter: 'D', text: '1925年', correct: false },
+        { letter: 'B', text: '1925年', correct: false },
+        { letter: 'C', text: '1920年', correct: true },
+        { letter: 'D', text: '1922年', correct: false },
       ],
       explanation:
-        '<strong>正解はB「1920年」</strong>です。労働者が団結して権利を主張する日本初のメーデーが行われました。',
+        '<strong>正解はC「1920年」</strong>です。労働者が団結して権利を主張する日本初のメーデーが行われました。',
     },
     {
       type: 'message',
@@ -74,13 +74,13 @@ export const socialMovementsChat: HistoryChat = {
       type: 'quiz',
       question: '全国水平社を結成した人々は？',
       options: [
-        { letter: 'A', text: '労働者', correct: false },
+        { letter: 'A', text: '被差別部落の人々', correct: true },
         { letter: 'B', text: '小作農', correct: false },
-        { letter: 'C', text: '被差別部落の人々', correct: true },
+        { letter: 'C', text: '労働者', correct: false },
         { letter: 'D', text: '女性', correct: false },
       ],
       explanation:
-        '<strong>正解はC「被差別部落の人々」</strong>です。差別からの解放を目指して1922年に結成され、水平社宣言を発表しました。',
+        '<strong>正解はA「被差別部落の人々」</strong>です。差別からの解放を目指して1922年に結成され、水平社宣言を発表しました。',
     },
     {
       type: 'narrator',
@@ -90,13 +90,13 @@ export const socialMovementsChat: HistoryChat = {
       type: 'quiz',
       question: '新婦人協会を設立した女性解放運動の指導者は？',
       options: [
-        { letter: 'A', text: '与謝野晶子', correct: false },
-        { letter: 'B', text: '津田梅子', correct: false },
+        { letter: 'A', text: '平塚らいてう', correct: true },
+        { letter: 'B', text: '与謝野晶子', correct: false },
         { letter: 'C', text: '樋口一葉', correct: false },
-        { letter: 'D', text: '平塚らいてう', correct: true },
+        { letter: 'D', text: '津田梅子', correct: false },
       ],
       explanation:
-        '<strong>正解はD「平塚らいてう」</strong>です。「元始、女性は太陽であった」と宣言し、女性の政治参加を求める運動を展開しました。',
+        '<strong>正解はA「平塚らいてう」</strong>です。「元始、女性は太陽であった」と宣言し、女性の政治参加を求める運動を展開しました。',
     },
     {
       type: 'end',

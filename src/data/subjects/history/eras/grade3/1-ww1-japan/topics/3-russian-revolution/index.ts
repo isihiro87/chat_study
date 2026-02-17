@@ -110,24 +110,24 @@ export const russianRevolution: Topic = {
         {
           id: 'q1',
           question: '1917年のロシア革命を指導した人物は？',
-          options: ['スターリン', 'マルクス', 'レーニン', 'トロツキー'],
-          correctIndex: 2,
+          options: ['マルクス', 'レーニン', 'スターリン', 'トロツキー'],
+          correctIndex: 1,
           explanation:
             'レーニンがロシア革命を指導し、世界初の社会主義政府を樹立しました。',
         },
         {
           id: 'q2',
           question: 'ソビエト社会主義共和国連邦（ソ連）が成立した年は？',
-          options: ['1917年', '1919年', '1922年', '1925年'],
-          correctIndex: 2,
+          options: ['1922年', '1917年', '1919年', '1925年'],
+          correctIndex: 0,
           explanation:
             '1922年にソ連が成立しました。同じ年に日本もシベリアから撤兵しました。',
         },
         {
           id: 'q3',
           question: 'スターリンが実施した経済計画は？',
-          options: ['大躍進政策', '五か年計画', 'ニューディール政策', '殖産興業'],
-          correctIndex: 1,
+          options: ['大躍進政策', 'ニューディール政策', '殖産興業', '五か年計画'],
+          correctIndex: 3,
           explanation:
             'スターリンは五か年計画を実施し、重工業の発展と農業の集団化を進めました。',
         },
@@ -135,8 +135,8 @@ export const russianRevolution: Topic = {
           id: 'q4',
           question:
             'ロシア革命の影響を恐れた日本などがシベリアに軍隊を送ったことを何という？',
-          options: ['日露戦争', 'シベリア出兵', '満州事変', '義和団事件'],
-          correctIndex: 1,
+          options: ['日露戦争', '義和団事件', 'シベリア出兵', '満州事変'],
+          correctIndex: 2,
           explanation:
             'シベリア出兵は、社会主義革命の波及を防ぐために行われました。',
         },

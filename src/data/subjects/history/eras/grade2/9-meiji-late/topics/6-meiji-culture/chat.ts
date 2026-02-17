@@ -52,13 +52,13 @@ export const meijiCultureChat: HistoryChat = {
       type: 'quiz',
       question: '「吾輩は猫である」「坊っちゃん」を書いた作家は？',
       options: [
-        { letter: 'A', text: '夏目漱石', correct: true },
+        { letter: 'A', text: '二葉亭四迷', correct: false },
         { letter: 'B', text: '森鷗外', correct: false },
-        { letter: 'C', text: '二葉亭四迷', correct: false },
-        { letter: 'D', text: '正岡子規', correct: false },
+        { letter: 'C', text: '正岡子規', correct: false },
+        { letter: 'D', text: '夏目漱石', correct: true },
       ],
       explanation:
-        '<strong>正解はA「夏目漱石」</strong>です。イギリスに留学し、近代日本を代表する文豪となりました。',
+        '<strong>正解はD「夏目漱石」</strong>です。イギリスに留学し、近代日本を代表する文豪となりました。',
     },
     {
       type: 'narrator',
@@ -78,13 +78,13 @@ export const meijiCultureChat: HistoryChat = {
       type: 'quiz',
       question: '破傷風の治療法を発見した細菌学者は？',
       options: [
-        { letter: 'A', text: '野口英世', correct: false },
-        { letter: 'B', text: '北里柴三郎', correct: true },
+        { letter: 'A', text: '北里柴三郎', correct: true },
+        { letter: 'B', text: '福沢諭吉', correct: false },
         { letter: 'C', text: '長岡半太郎', correct: false },
-        { letter: 'D', text: '福沢諭吉', correct: false },
+        { letter: 'D', text: '野口英世', correct: false },
       ],
       explanation:
-        '<strong>正解はB「北里柴三郎」</strong>です。千円札の肖像にもなっている世界的な細菌学者です。',
+        '<strong>正解はA「北里柴三郎」</strong>です。千円札の肖像にもなっている世界的な細菌学者です。',
     },
     {
       type: 'end',

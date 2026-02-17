@@ -46,11 +46,11 @@ export const massCultureChat: HistoryChat = {
       options: [
         { letter: 'A', text: '1920年', correct: false },
         { letter: 'B', text: '1923年', correct: false },
-        { letter: 'C', text: '1925年', correct: true },
-        { letter: 'D', text: '1927年', correct: false },
+        { letter: 'C', text: '1927年', correct: false },
+        { letter: 'D', text: '1925年', correct: true },
       ],
       explanation:
-        '<strong>正解はC「1925年」</strong>です。ラジオ放送の開始により、全国の家庭に情報や娯楽が届けられるようになりました。',
+        '<strong>正解はD「1925年」</strong>です。ラジオ放送の開始により、全国の家庭に情報や娯楽が届けられるようになりました。',
     },
     {
       type: 'narrator',

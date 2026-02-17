@@ -46,12 +46,12 @@ export const kamakuraBakufuChat: HistoryChat = {
       type: 'quiz',
       question: '鎌倉幕府で、荘園・公領の管理や年貢の徴収を行った役職は？',
       options: [
-        { letter: 'A', text: '守護', correct: false },
-        { letter: 'B', text: '地頭', correct: true },
+        { letter: 'A', text: '地頭', correct: true },
+        { letter: 'B', text: '守護', correct: false },
         { letter: 'C', text: '執権', correct: false },
         { letter: 'D', text: '関白', correct: false },
       ],
-      explanation: '<strong>正解はB「地頭」</strong>です。地頭は荘園・公領に置かれ、土地の管理や年貢の徴収を行いました。守護は国ごとに置かれ、軍事・警察を担当しました。',
+      explanation: '<strong>正解はA「地頭」</strong>です。地頭は荘園・公領に置かれ、土地の管理や年貢の徴収を行いました。守護は国ごとに置かれ、軍事・警察を担当しました。',
     },
     {
       type: 'narrator',
@@ -73,12 +73,12 @@ export const kamakuraBakufuChat: HistoryChat = {
       type: 'quiz',
       question: '北条泰時が定めた武士の法律は？',
       options: [
-        { letter: 'A', text: '大宝律令', correct: false },
-        { letter: 'B', text: '十七条の憲法', correct: false },
-        { letter: 'C', text: '御成敗式目', correct: true },
+        { letter: 'A', text: '御成敗式目', correct: true },
+        { letter: 'B', text: '大宝律令', correct: false },
+        { letter: 'C', text: '十七条の憲法', correct: false },
         { letter: 'D', text: '武家諸法度', correct: false },
       ],
-      explanation: '<strong>正解はC「御成敗式目」</strong>です。1232年に北条泰時が制定した武士のための法律で、裁判の基準を示しました。貞永式目とも呼ばれます。',
+      explanation: '<strong>正解はA「御成敗式目」</strong>です。1232年に北条泰時が制定した武士のための法律で、裁判の基準を示しました。貞永式目とも呼ばれます。',
     },
     {
       type: 'end',

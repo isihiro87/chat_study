@@ -107,8 +107,8 @@ export const kyohoReform: Topic = {
         {
           id: 'q1',
           question: '享保の改革を行った8代将軍は誰？',
-          options: ['徳川綱吉', '徳川吉宗', '徳川家斉', '徳川慶喜'],
-          correctIndex: 1,
+          options: ['徳川綱吉', '徳川家斉', '徳川吉宗', '徳川慶喜'],
+          correctIndex: 2,
           explanation:
             '徳川吉宗は8代将軍で、「米将軍」とも呼ばれ、享保の改革で幕府の立て直しを図りました。',
         },
@@ -116,8 +116,8 @@ export const kyohoReform: Topic = {
           id: 'q2',
           question:
             '大名に米を献上させる代わりに参勤交代の江戸滞在を短くした制度は？',
-          options: ['上げ米の制', '目安箱', '公事方御定書', '倹約令'],
-          correctIndex: 0,
+          options: ['公事方御定書', '目安箱', '倹約令', '上げ米の制'],
+          correctIndex: 3,
           explanation:
             '上げ米の制は、幕府の財政難を助ける代わりに、大名の負担を軽くする制度でした。',
         },
@@ -132,8 +132,8 @@ export const kyohoReform: Topic = {
         {
           id: 'q4',
           question: '裁判の基準となる法律を定めたものは？',
-          options: ['武家諸法度', '公事方御定書', '禁中並公家諸法度', '御成敗式目'],
-          correctIndex: 1,
+          options: ['禁中並公家諸法度', '武家諸法度', '公事方御定書', '御成敗式目'],
+          correctIndex: 2,
           explanation:
             '公事方御定書では、盗みの被害額による刑罰の違いなど、具体的な基準が定められました。',
         },
@@ -141,8 +141,8 @@ export const kyohoReform: Topic = {
           id: 'q5',
           question:
             '問屋が農民に道具やお金を貸して家で製品を作らせる仕組みを何という？',
-          options: ['工場制手工業', '問屋制家内工業', '株仲間', '座'],
-          correctIndex: 1,
+          options: ['工場制手工業', '座', '株仲間', '問屋制家内工業'],
+          correctIndex: 3,
           explanation:
             '問屋制家内工業により、農民は農業以外の収入を得られるようになりました。',
         },
@@ -151,11 +151,11 @@ export const kyohoReform: Topic = {
           question: '作業場に人を集めて分業で製品を作る仕組みを何という？',
           options: [
             '問屋制家内工業',
-            '工場制手工業（マニュファクチュア）',
             '座',
+            '工場制手工業（マニュファクチュア）',
             '株仲間',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             '工場制手工業（マニュファクチュア）は、分業により効率的に生産できる仕組みです。',
         },

@@ -50,13 +50,13 @@ export const ryukyuAinuChat: HistoryChat = {
       type: 'quiz',
       question: '琉球王国を支配下に置いた藩は？',
       options: [
-        { letter: 'A', text: '長州藩', correct: false },
+        { letter: 'A', text: '薩摩藩', correct: true },
         { letter: 'B', text: '対馬藩', correct: false },
         { letter: 'C', text: '松前藩', correct: false },
-        { letter: 'D', text: '薩摩藩', correct: true },
+        { letter: 'D', text: '長州藩', correct: false },
       ],
       explanation:
-        '<strong>正解はD「薩摩藩」</strong>です。1609年に薩摩藩が琉球に侵攻し、以後支配下に置きました。琉球は薩摩藩と清の両方に属する形となりました。',
+        '<strong>正解はA「薩摩藩」</strong>です。1609年に薩摩藩が琉球に侵攻し、以後支配下に置きました。琉球は薩摩藩と清の両方に属する形となりました。',
     },
     {
       type: 'message',
@@ -79,12 +79,12 @@ export const ryukyuAinuChat: HistoryChat = {
       question: '1669年、松前藩の不公平な交易に対して蜂起したアイヌの首長は？',
       options: [
         { letter: 'A', text: '天草四郎', correct: false },
-        { letter: 'B', text: 'シャクシャイン', correct: true },
+        { letter: 'B', text: 'ラクスマン', correct: false },
         { letter: 'C', text: 'コシャマイン', correct: false },
-        { letter: 'D', text: 'ラクスマン', correct: false },
+        { letter: 'D', text: 'シャクシャイン', correct: true },
       ],
       explanation:
-        '<strong>正解はB「シャクシャイン」</strong>です。松前藩の不公平な交易に対し、アイヌの人々を率いて蜂起しましたが鎮圧されました。',
+        '<strong>正解はD「シャクシャイン」</strong>です。松前藩の不公平な交易に対し、アイヌの人々を率いて蜂起しましたが鎮圧されました。',
     },
     {
       type: 'end',

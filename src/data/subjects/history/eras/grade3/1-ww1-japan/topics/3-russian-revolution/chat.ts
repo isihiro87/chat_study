@@ -46,11 +46,11 @@ export const russianRevolutionChat: HistoryChat = {
       options: [
         { letter: 'A', text: 'スターリン', correct: false },
         { letter: 'B', text: 'マルクス', correct: false },
-        { letter: 'C', text: 'レーニン', correct: true },
-        { letter: 'D', text: 'ウィルソン', correct: false },
+        { letter: 'C', text: 'ウィルソン', correct: false },
+        { letter: 'D', text: 'レーニン', correct: true },
       ],
       explanation:
-        '<strong>正解はC「レーニン」</strong>です。レーニンはロシア革命を指導し、世界初の社会主義政府を樹立しました。',
+        '<strong>正解はD「レーニン」</strong>です。レーニンはロシア革命を指導し、世界初の社会主義政府を樹立しました。',
     },
     {
       type: 'narrator',
@@ -76,13 +76,13 @@ export const russianRevolutionChat: HistoryChat = {
       type: 'quiz',
       question: 'ソビエト社会主義共和国連邦（ソ連）が成立した年は？',
       options: [
-        { letter: 'A', text: '1917年', correct: false },
+        { letter: 'A', text: '1922年', correct: true },
         { letter: 'B', text: '1919年', correct: false },
-        { letter: 'C', text: '1922年', correct: true },
-        { letter: 'D', text: '1925年', correct: false },
+        { letter: 'C', text: '1925年', correct: false },
+        { letter: 'D', text: '1917年', correct: false },
       ],
       explanation:
-        '<strong>正解はC「1922年」</strong>です。同じ年に日本もシベリアから撤兵しました。',
+        '<strong>正解はA「1922年」</strong>です。同じ年に日本もシベリアから撤兵しました。',
     },
     {
       type: 'narrator',
@@ -92,13 +92,13 @@ export const russianRevolutionChat: HistoryChat = {
       type: 'quiz',
       question: 'スターリンが実施した経済計画は？',
       options: [
-        { letter: 'A', text: '大躍進政策', correct: false },
-        { letter: 'B', text: '五か年計画', correct: true },
+        { letter: 'A', text: '殖産興業', correct: false },
+        { letter: 'B', text: '大躍進政策', correct: false },
         { letter: 'C', text: 'ニューディール政策', correct: false },
-        { letter: 'D', text: '殖産興業', correct: false },
+        { letter: 'D', text: '五か年計画', correct: true },
       ],
       explanation:
-        '<strong>正解はB「五か年計画」</strong>です。重工業の発展と農業の集団化を進めましたが、多くの犠牲が出ました。',
+        '<strong>正解はD「五か年計画」</strong>です。重工業の発展と農業の集団化を進めましたが、多くの犠牲が出ました。',
     },
     {
       type: 'end',

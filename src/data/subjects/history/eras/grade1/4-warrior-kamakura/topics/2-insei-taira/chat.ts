@@ -48,10 +48,10 @@ export const inseiTairaChat: HistoryChat = {
       options: [
         { letter: 'A', text: '摂関政治', correct: false },
         { letter: 'B', text: '執権政治', correct: false },
-        { letter: 'C', text: '院政', correct: true },
-        { letter: 'D', text: '親政', correct: false },
+        { letter: 'C', text: '親政', correct: false },
+        { letter: 'D', text: '院政', correct: true },
       ],
-      explanation: '<strong>正解はC「院政」</strong>です。退位した天皇（上皇）が院で政治を行うことを院政といいます。',
+      explanation: '<strong>正解はD「院政」</strong>です。退位した天皇（上皇）が院で政治を行うことを院政といいます。',
     },
     {
       type: 'narrator',
@@ -81,10 +81,10 @@ export const inseiTairaChat: HistoryChat = {
       options: [
         { letter: 'A', text: '征夷大将軍', correct: false },
         { letter: 'B', text: '関白', correct: false },
-        { letter: 'C', text: '執権', correct: false },
-        { letter: 'D', text: '太政大臣', correct: true },
+        { letter: 'C', text: '太政大臣', correct: true },
+        { letter: 'D', text: '執権', correct: false },
       ],
-      explanation: '<strong>正解はD「太政大臣」</strong>です。平清盛は武士として初めて太政大臣に就任し、平氏一族で朝廷の要職を独占しました。',
+      explanation: '<strong>正解はC「太政大臣」</strong>です。平清盛は武士として初めて太政大臣に就任し、平氏一族で朝廷の要職を独占しました。',
     },
     {
       type: 'end',

@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import type { QuizContent } from '../../data/history-chat/types';
 
@@ -7,6 +7,25 @@ interface ChatQuizProps {
   selectedAnswer: number | null;
   isAnswered: boolean;
   onSelectAnswer: (optionIndex: number) => void;
+}
+
+const CORRECT_MESSAGES = [
+  'すごい！正解！ 🎉',
+  'さすが！完璧！ ✨',
+  'ナイス！その通り！ 👏',
+  'バッチリ！ 💯',
+  'お見事！ 🌟',
+];
+
+const INCORRECT_MESSAGES = [
+  '惜しい！次はいけるよ！ 💪',
+  'ドンマイ！覚えておこう！ 📝',
+  'もう少し！次がんばろう！ 🔥',
+  'おしかった！解説を読んでみよう 👀',
+];
+
+function getRandomMessage(messages: string[]): string {
+  return messages[Math.floor(Math.random() * messages.length)];
 }
 
 export function ChatQuiz({
@@ -18,10 +37,23 @@ export function ChatQuiz({
   const [showExplanation, setShowExplanation] = useState(false);
   const explanationRef = useRef<HTMLDivElement>(null);
 
+  // 正誤判定（回答確定後に固定）
+  const isCorrectAnswer = useMemo(() => {
+    if (selectedAnswer === null) return false;
+    return quiz.options[selectedAnswer]?.correct === true;
+  }, [selectedAnswer, quiz.options]);
+
+  // フィードバックメッセージ（回答確定後に固定）
+  const feedbackMessage = useMemo(() => {
+    if (selectedAnswer === null) return '';
+    return isCorrectAnswer
+      ? getRandomMessage(CORRECT_MESSAGES)
+      : getRandomMessage(INCORRECT_MESSAGES);
+  }, [selectedAnswer, isCorrectAnswer]);
+
   // 解説が表示されたら自動スクロール（解説の一番上が画面上部に来るように）
   useEffect(() => {
     if (showExplanation && explanationRef.current) {
-      // block: 'start'で解説の上端を画面上部に配置（収まらない場合は可能な限りスクロール）
       explanationRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }, [showExplanation]);
@@ -29,6 +61,7 @@ export function ChatQuiz({
   const handleSelect = (index: number) => {
     if (isAnswered) return;
     onSelectAnswer(index);
+
     // 少し遅れて解説を表示
     setTimeout(() => setShowExplanation(true), 300);
   };
@@ -133,6 +166,23 @@ export function ChatQuiz({
             );
           })}
         </div>
+
+        {/* フィードバックメッセージ */}
+        {isAnswered && feedbackMessage && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.3, delay: 0.1 }}
+            className={`mt-3 rounded-lg px-4 py-2.5 text-center text-sm font-bold ${
+              isCorrectAnswer
+                ? 'bg-green-500/20 text-green-300'
+                : 'bg-orange-500/20 text-orange-300'
+            }`}
+            style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+          >
+            {feedbackMessage}
+          </motion.div>
+        )}
 
         {/* 解説 */}
         {showExplanation && (

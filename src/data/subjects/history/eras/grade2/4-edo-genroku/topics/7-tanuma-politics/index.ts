@@ -53,16 +53,16 @@ export const tanumaPolitics: Topic = {
         {
           id: 'q1',
           question: '田沼意次が公認した商人の同業者組合を何という？',
-          options: ['座', '株仲間', '問屋', '両替商'],
-          correctIndex: 1,
+          options: ['座', '両替商', '株仲間', '問屋'],
+          correctIndex: 2,
           explanation:
             '田沼は株仲間を認める代わりに税金を徴収し、財政収入を増やそうとしました。',
         },
         {
           id: 'q2',
           question: '田沼意次が長崎貿易で輸出を増やした海産物を何という？',
-          options: ['干鰯', '俵物', '昆布', '塩'],
-          correctIndex: 1,
+          options: ['俵物', '干鰯', '昆布', '塩'],
+          correctIndex: 0,
           explanation:
             '俵物とは干しアワビ、いりこ、ふかひれなどの海産物で、中国へ輸出されました。',
         },

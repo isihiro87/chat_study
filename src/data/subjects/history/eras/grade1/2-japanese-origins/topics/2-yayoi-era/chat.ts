@@ -46,12 +46,12 @@ export const yayoiEraChat: HistoryChat = {
       type: 'quiz',
       question: '収穫した稲を保管するために建てられた倉庫は？',
       options: [
-        { letter: 'A', text: 'たて穴住居', correct: false },
-        { letter: 'B', text: '高床倉庫', correct: true },
+        { letter: 'A', text: '高床倉庫', correct: true },
+        { letter: 'B', text: 'たて穴住居', correct: false },
         { letter: 'C', text: '正倉院', correct: false },
         { letter: 'D', text: '校倉造', correct: false },
       ],
-      explanation: '<strong>正解はB「高床倉庫」</strong>です。床を高くして湿気やねずみから稲を守りました。',
+      explanation: '<strong>正解はA「高床倉庫」</strong>です。床を高くして湿気やねずみから稲を守りました。',
     },
     {
       type: 'narrator',
@@ -73,12 +73,12 @@ export const yayoiEraChat: HistoryChat = {
       type: 'quiz',
       question: '3世紀ごろ、30あまりの国をまとめた女王は？',
       options: [
-        { letter: 'A', text: '推古天皇', correct: false },
-        { letter: 'B', text: '持統天皇', correct: false },
-        { letter: 'C', text: '卑弥呼', correct: true },
+        { letter: 'A', text: '卑弥呼', correct: true },
+        { letter: 'B', text: '推古天皇', correct: false },
+        { letter: 'C', text: '持統天皇', correct: false },
         { letter: 'D', text: '額田王', correct: false },
       ],
-      explanation: '<strong>正解はC「卑弥呼」</strong>です。邪馬台国の女王で、まじないの力で国々をまとめました。',
+      explanation: '<strong>正解はA「卑弥呼」</strong>です。邪馬台国の女王で、まじないの力で国々をまとめました。',
     },
     {
       type: 'end',

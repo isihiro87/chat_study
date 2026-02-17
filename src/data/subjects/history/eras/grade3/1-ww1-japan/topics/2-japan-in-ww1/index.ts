@@ -119,28 +119,28 @@ export const japanInWw1: Topic = {
           id: 'q2',
           question: '1915年に日本が中国の袁世凱政府に突きつけた要求は？',
           options: [
+            '二十一か条の要求',
             '下関条約',
             'ポーツマス条約',
-            '二十一か条の要求',
             '日中共同宣言',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             '二十一か条の要求は、山東省の権益継承や南満州の権益拡大などを含む要求でした。',
         },
         {
           id: 'q3',
           question: '日本が第一次世界大戦中にドイツから占領した中国の地域は？',
-          options: ['満州', '山東省', '台湾', '朝鮮半島'],
-          correctIndex: 1,
+          options: ['満州', '台湾', '山東省', '朝鮮半島'],
+          correctIndex: 2,
           explanation:
             '日本は中国の山東省にあったドイツの権益地を占領しました。',
         },
         {
           id: 'q4',
           question: '第一次世界大戦中に日本で起きた好景気を何という？',
-          options: ['バブル景気', '大戦景気', '高度経済成長', '岩戸景気'],
-          correctIndex: 1,
+          options: ['バブル景気', '岩戸景気', '大戦景気', '高度経済成長'],
+          correctIndex: 2,
           explanation:
             'ヨーロッパ諸国が戦争に集中する中、日本はアジア市場への輸出を伸ばし大戦景気を迎えました。',
         },

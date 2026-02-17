@@ -53,15 +53,15 @@ export const muromachiSociety: Topic = {
         {
           id: 'q1',
           question: '村の有力な農民を中心に作られた、室町時代の自治組織を何という？',
-          options: ['座', '惣', '町衆', '寄合'],
-          correctIndex: 1,
+          options: ['座', '町衆', '寄合', '惣'],
+          correctIndex: 3,
           explanation: '惣は村の有力な農民を中心に作られた自治組織で、寄合を開いて村の運営を話し合いました。',
         },
         {
           id: 'q2',
           question: '商人や手工業者が営業の独占権を得るために作った団体は？',
-          options: ['惣', '馬借', '町衆', '座'],
-          correctIndex: 3,
+          options: ['惣', '座', '町衆', '馬借'],
+          correctIndex: 1,
           explanation: '座は商人や手工業者が寺社などの保護を受けて営業の独占権を得るために作った団体です。',
         },
         {

@@ -53,8 +53,8 @@ export const momoyamaCulture: Topic = {
         {
           id: 'q1',
           question: '秀吉に仕え、質素な「わび茶」を完成させた人物は？',
-          options: ['狩野永徳', '出雲の阿国', '千利休', '雪舟'],
-          correctIndex: 2,
+          options: ['狩野永徳', '出雲の阿国', '雪舟', '千利休'],
+          correctIndex: 3,
           explanation: '千利休は茶の湯を芸術の域に高め、質素なわびの精神を重んじる「わび茶」を完成させました。',
         },
         {
@@ -67,8 +67,8 @@ export const momoyamaCulture: Topic = {
         {
           id: 'q3',
           question: '京都で「かぶきおどり」を始め、大きな人気を博した女性は？',
-          options: ['静御前', '出雲の阿国', '千姫', '淀殿'],
-          correctIndex: 1,
+          options: ['淀殿', '静御前', '千姫', '出雲の阿国'],
+          correctIndex: 3,
           explanation: '出雲の阿国は京都で「かぶきおどり」を始め、後の歌舞伎のもととなる芸能を生み出しました。',
         },
       ],

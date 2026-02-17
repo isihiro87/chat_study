@@ -56,13 +56,13 @@ export const tanumaPoliticsChat: HistoryChat = {
       type: 'quiz',
       question: '田沼意次が公認した商人の同業者組合を何という？',
       options: [
-        { letter: 'A', text: '座', correct: false },
+        { letter: 'A', text: '両替商', correct: false },
         { letter: 'B', text: '問屋', correct: false },
-        { letter: 'C', text: '両替商', correct: false },
-        { letter: 'D', text: '株仲間', correct: true },
+        { letter: 'C', text: '株仲間', correct: true },
+        { letter: 'D', text: '座', correct: false },
       ],
       explanation:
-        '<strong>正解はD「株仲間」</strong>です。田沼は株仲間を認める代わりに税金を徴収し、財政収入を増やそうとしました。',
+        '<strong>正解はC「株仲間」</strong>です。田沼は株仲間を認める代わりに税金を徴収し、財政収入を増やそうとしました。',
     },
     {
       type: 'message',
@@ -101,12 +101,12 @@ export const tanumaPoliticsChat: HistoryChat = {
       question: '田沼意次が失脚する一因となった大飢饉は？',
       options: [
         { letter: 'A', text: '享保のききん', correct: false },
-        { letter: 'B', text: '天明のききん', correct: true },
-        { letter: 'C', text: '天保のききん', correct: false },
+        { letter: 'B', text: '天保のききん', correct: false },
+        { letter: 'C', text: '天明のききん', correct: true },
         { letter: 'D', text: '寛永のききん', correct: false },
       ],
       explanation:
-        '<strong>正解はB「天明のききん」</strong>です。浅間山の噴火による凶作と、ワイロ政治への批判から田沼は失脚しました。',
+        '<strong>正解はC「天明のききん」</strong>です。浅間山の噴火による凶作と、ワイロ政治への批判から田沼は失脚しました。',
     },
     {
       type: 'end',

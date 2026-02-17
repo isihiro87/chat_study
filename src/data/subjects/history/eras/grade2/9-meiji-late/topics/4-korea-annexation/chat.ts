@@ -48,13 +48,13 @@ export const koreaAnnexationChat: HistoryChat = {
       type: 'quiz',
       question: '1910年に日本が韓国を植民地にしたことを何という？',
       options: [
-        { letter: 'A', text: '韓国併合', correct: true },
+        { letter: 'A', text: '版籍奉還', correct: false },
         { letter: 'B', text: '琉球処分', correct: false },
-        { letter: 'C', text: '版籍奉還', correct: false },
-        { letter: 'D', text: '廃藩置県', correct: false },
+        { letter: 'C', text: '廃藩置県', correct: false },
+        { letter: 'D', text: '韓国併合', correct: true },
       ],
       explanation:
-        '<strong>正解はA「韓国併合」</strong>です。朝鮮総督府を置いて植民地として支配しました。',
+        '<strong>正解はD「韓国併合」</strong>です。朝鮮総督府を置いて植民地として支配しました。',
     },
     {
       type: 'narrator',
@@ -75,12 +75,12 @@ export const koreaAnnexationChat: HistoryChat = {
       question: '1911年に清を倒した中国の革命は？',
       options: [
         { letter: 'A', text: 'フランス革命', correct: false },
-        { letter: 'B', text: '辛亥革命', correct: true },
+        { letter: 'B', text: 'ロシア革命', correct: false },
         { letter: 'C', text: '名誉革命', correct: false },
-        { letter: 'D', text: 'ロシア革命', correct: false },
+        { letter: 'D', text: '辛亥革命', correct: true },
       ],
       explanation:
-        '<strong>正解はB「辛亥革命」</strong>です。アジア初の共和国である中華民国が建国されました。',
+        '<strong>正解はD「辛亥革命」</strong>です。アジア初の共和国である中華民国が建国されました。',
     },
     {
       type: 'end',

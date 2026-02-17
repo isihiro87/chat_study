@@ -107,8 +107,8 @@ export const agricultureIndustry: Topic = {
         {
           id: 'q1',
           question: '江戸時代に稲の脱穀を効率化した農具は？',
-          options: ['備中ぐわ', '千歯こき', '唐箕', '水車'],
-          correctIndex: 1,
+          options: ['水車', '備中ぐわ', '唐箕', '千歯こき'],
+          correctIndex: 3,
           explanation: '千歯こきは、歯の間に稲穂を通して脱穀する道具です。',
         },
       ],

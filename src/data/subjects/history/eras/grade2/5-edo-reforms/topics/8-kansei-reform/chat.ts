@@ -78,13 +78,13 @@ export const kanseiReformChat: HistoryChat = {
       type: 'quiz',
       question: '寛政の改革で、旗本や御家人の借金を帳消しにした法令は？',
       options: [
-        { letter: 'A', text: '倹約令', correct: false },
-        { letter: 'B', text: '棄捐令', correct: true },
-        { letter: 'C', text: '囲い米の制', correct: false },
+        { letter: 'A', text: '囲い米の制', correct: false },
+        { letter: 'B', text: '倹約令', correct: false },
+        { letter: 'C', text: '棄捐令', correct: true },
         { letter: 'D', text: '上知令', correct: false },
       ],
       explanation:
-        '<strong>正解はB「棄捐令」</strong>です。生活に困る旗本や御家人の借金を帳消しにして救済しました。',
+        '<strong>正解はC「棄捐令」</strong>です。生活に困る旗本や御家人の借金を帳消しにして救済しました。',
     },
     {
       type: 'date',
@@ -108,13 +108,13 @@ export const kanseiReformChat: HistoryChat = {
       type: 'quiz',
       question: '1792年に蝦夷地の根室に来航したロシアの使節は？',
       options: [
-        { letter: 'A', text: 'ラクスマン', correct: true },
-        { letter: 'B', text: 'レザノフ', correct: false },
-        { letter: 'C', text: 'ペリー', correct: false },
+        { letter: 'A', text: 'レザノフ', correct: false },
+        { letter: 'B', text: 'ペリー', correct: false },
+        { letter: 'C', text: 'ラクスマン', correct: true },
         { letter: 'D', text: 'プチャーチン', correct: false },
       ],
       explanation:
-        '<strong>正解はA「ラクスマン」</strong>です。通商を求めて来航しましたが、幕府は拒否しました。',
+        '<strong>正解はC「ラクスマン」</strong>です。通商を求めて来航しましたが、幕府は拒否しました。',
     },
     {
       type: 'message',

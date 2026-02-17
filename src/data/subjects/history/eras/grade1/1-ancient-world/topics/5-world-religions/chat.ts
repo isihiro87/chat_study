@@ -52,12 +52,12 @@ export const worldReligionsChat: HistoryChat = {
       type: 'quiz',
       question: '紀元前5世紀頃のインドで仏教を開いたのは？',
       options: [
-        { letter: 'A', text: 'イエス', correct: false },
-        { letter: 'B', text: 'ムハンマド', correct: false },
-        { letter: 'C', text: 'シャカ', correct: true },
+        { letter: 'A', text: 'ムハンマド', correct: false },
+        { letter: 'B', text: 'シャカ', correct: true },
+        { letter: 'C', text: 'イエス', correct: false },
         { letter: 'D', text: '孔子', correct: false },
       ],
-      explanation: '<strong>正解はC「シャカ」</strong>です。釈迦は紀元前5世紀頃のインドで仏教を開きました。',
+      explanation: '<strong>正解はB「シャカ」</strong>です。釈迦は紀元前5世紀頃のインドで仏教を開きました。',
     },
     {
       type: 'narrator',

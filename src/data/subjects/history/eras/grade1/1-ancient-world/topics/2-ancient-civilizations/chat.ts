@@ -81,10 +81,10 @@ export const ancientCivilizationsChat: HistoryChat = {
       options: [
         { letter: 'A', text: 'コロッセオ', correct: false },
         { letter: 'B', text: '万里の長城', correct: false },
-        { letter: 'C', text: 'ピラミッド', correct: true },
-        { letter: 'D', text: 'パルテノン神殿', correct: false },
+        { letter: 'C', text: 'パルテノン神殿', correct: false },
+        { letter: 'D', text: 'ピラミッド', correct: true },
       ],
-      explanation: '<strong>正解はC「ピラミッド」</strong>です。王（ファラオ）の墓として建設された巨大建造物です。',
+      explanation: '<strong>正解はD「ピラミッド」</strong>です。王（ファラオ）の墓として建設された巨大建造物です。',
     },
     {
       type: 'end',

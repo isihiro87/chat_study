@@ -83,8 +83,8 @@ export const genrokuCulture: Topic = {
         {
           id: 'q1',
           question: '「奥の細道」を書いた俳諧師は？',
-          options: ['井原西鶴', '近松門左衛門', '松尾芭蕉', '菱川師宣'],
-          correctIndex: 2,
+          options: ['菱川師宣', '近松門左衛門', '井原西鶴', '松尾芭蕉'],
+          correctIndex: 3,
           explanation: '松尾芭蕉は俳諧を芸術として確立し、東北・北陸を旅して「奥の細道」を書きました。',
         },
       ],

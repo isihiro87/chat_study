@@ -110,8 +110,8 @@ export const postOpening: Topic = {
         {
           id: 'q1',
           question: '井伊直弼が尊王攘夷派を厳しく処罰した事件を何という？',
-          options: ['桜田門外の変', '安政の大獄', '薩英戦争', '禁門の変'],
-          correctIndex: 1,
+          options: ['安政の大獄', '薩英戦争', '桜田門外の変', '禁門の変'],
+          correctIndex: 0,
           explanation:
             '安政の大獄では、吉田松陰らが処刑され、多くの大名や公家が処分されました。',
         },

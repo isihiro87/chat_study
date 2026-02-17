@@ -48,13 +48,13 @@ export const russoJapaneseWarChat: HistoryChat = {
       type: 'quiz',
       question: '1902年に日本とイギリスが結んだ同盟は？',
       options: [
-        { letter: 'A', text: '日英同盟', correct: true },
+        { letter: 'A', text: '日独同盟', correct: false },
         { letter: 'B', text: '三国同盟', correct: false },
         { letter: 'C', text: '日清同盟', correct: false },
-        { letter: 'D', text: '日独同盟', correct: false },
+        { letter: 'D', text: '日英同盟', correct: true },
       ],
       explanation:
-        '<strong>正解はA「日英同盟」</strong>です。ロシアの南下を警戒する両国の利害が一致しました。',
+        '<strong>正解はD「日英同盟」</strong>です。ロシアの南下を警戒する両国の利害が一致しました。',
     },
     {
       type: 'narrator',

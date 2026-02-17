@@ -57,13 +57,13 @@ export const genrokuCultureChat: HistoryChat = {
       type: 'quiz',
       question: '「奥の細道」を書いた俳諧師は？',
       options: [
-        { letter: 'A', text: '井原西鶴', correct: false },
+        { letter: 'A', text: '松尾芭蕉', correct: true },
         { letter: 'B', text: '近松門左衛門', correct: false },
         { letter: 'C', text: '菱川師宣', correct: false },
-        { letter: 'D', text: '松尾芭蕉', correct: true },
+        { letter: 'D', text: '井原西鶴', correct: false },
       ],
       explanation:
-        '<strong>正解はD「松尾芭蕉」</strong>です。芭蕉は東北・北陸を旅し、その紀行文「奥の細道」は俳諧文学の傑作です。',
+        '<strong>正解はA「松尾芭蕉」</strong>です。芭蕉は東北・北陸を旅し、その紀行文「奥の細道」は俳諧文学の傑作です。',
     },
     {
       type: 'message',
@@ -85,13 +85,13 @@ export const genrokuCultureChat: HistoryChat = {
       type: 'quiz',
       question: '「曽根崎心中」などの人形浄瑠璃の脚本家は？',
       options: [
-        { letter: 'A', text: '近松門左衛門', correct: true },
-        { letter: 'B', text: '井原西鶴', correct: false },
+        { letter: 'A', text: '井原西鶴', correct: false },
+        { letter: 'B', text: '菱川師宣', correct: false },
         { letter: 'C', text: '松尾芭蕉', correct: false },
-        { letter: 'D', text: '菱川師宣', correct: false },
+        { letter: 'D', text: '近松門左衛門', correct: true },
       ],
       explanation:
-        '<strong>正解はA「近松門左衛門」</strong>です。「日本のシェイクスピア」とも呼ばれ、義理と人情の葛藤を描きました。',
+        '<strong>正解はD「近松門左衛門」</strong>です。「日本のシェイクスピア」とも呼ばれ、義理と人情の葛藤を描きました。',
     },
     {
       type: 'end',

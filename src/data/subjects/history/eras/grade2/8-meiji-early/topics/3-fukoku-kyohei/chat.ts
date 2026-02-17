@@ -54,13 +54,13 @@ export const fukokuKyoheiChat: HistoryChat = {
       type: 'quiz',
       question: 'フランスの技術を導入して建設された官営模範工場は？',
       options: [
-        { letter: 'A', text: '富岡製糸場', correct: true },
-        { letter: 'B', text: '八幡製鉄所', correct: false },
+        { letter: 'A', text: '八幡製鉄所', correct: false },
+        { letter: 'B', text: '富岡製糸場', correct: true },
         { letter: 'C', text: '長崎造船所', correct: false },
         { letter: 'D', text: '横須賀造船所', correct: false },
       ],
       explanation:
-        '<strong>正解はA「富岡製糸場」</strong>です。群馬県に建設され、高品質な生糸を生産しました。',
+        '<strong>正解はB「富岡製糸場」</strong>です。群馬県に建設され、高品質な生糸を生産しました。',
     },
     {
       type: 'narrator',

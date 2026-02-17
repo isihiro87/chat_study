@@ -54,10 +54,10 @@ export const hideyoshiPolicyChat: HistoryChat = {
       options: [
         { letter: 'A', text: '刀狩', correct: false },
         { letter: 'B', text: '楽市楽座', correct: false },
-        { letter: 'C', text: '太閤検地', correct: true },
-        { letter: 'D', text: '地租改正', correct: false },
+        { letter: 'C', text: '地租改正', correct: false },
+        { letter: 'D', text: '太閤検地', correct: true },
       ],
-      explanation: '<strong>正解はC「太閤検地」</strong>です。秀吉は全国の田畑を調査し、<strong>石高</strong>（米の収穫量）で土地の価値を統一的に表しました。',
+      explanation: '<strong>正解はD「太閤検地」</strong>です。秀吉は全国の田畑を調査し、<strong>石高</strong>（米の収穫量）で土地の価値を統一的に表しました。',
     },
     {
       type: 'narrator',
@@ -80,11 +80,11 @@ export const hideyoshiPolicyChat: HistoryChat = {
       question: '秀吉が百姓から武器を取り上げた政策を何という？',
       options: [
         { letter: 'A', text: '太閤検地', correct: false },
-        { letter: 'B', text: '兵農分離', correct: false },
-        { letter: 'C', text: '刀狩', correct: true },
-        { letter: 'D', text: '武家諸法度', correct: false },
+        { letter: 'B', text: '刀狩', correct: true },
+        { letter: 'C', text: '武家諸法度', correct: false },
+        { letter: 'D', text: '兵農分離', correct: false },
       ],
-      explanation: '<strong>正解はC「刀狩」</strong>です。秀吉は百姓から刀や槍などの武器を没収する<strong>刀狩</strong>を実施し、一揆を防ぎ<strong>兵農分離</strong>を進めました。',
+      explanation: '<strong>正解はB「刀狩」</strong>です。秀吉は百姓から刀や槍などの武器を没収する<strong>刀狩</strong>を実施し、一揆を防ぎ<strong>兵農分離</strong>を進めました。',
     },
     {
       type: 'end',

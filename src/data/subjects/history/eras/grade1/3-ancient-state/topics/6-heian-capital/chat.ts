@@ -47,11 +47,11 @@ export const heianCapitalChat: HistoryChat = {
       question: '794年に遷都された都は？',
       options: [
         { letter: 'A', text: '平城京', correct: false },
-        { letter: 'B', text: '平安京', correct: true },
-        { letter: 'C', text: '藤原京', correct: false },
+        { letter: 'B', text: '藤原京', correct: false },
+        { letter: 'C', text: '平安京', correct: true },
         { letter: 'D', text: '長岡京', correct: false },
       ],
-      explanation: '<strong>正解はB「平安京」</strong>です。桓武天皇が794年に遷都し、以後約400年間都となりました。',
+      explanation: '<strong>正解はC「平安京」</strong>です。桓武天皇が794年に遷都し、以後約400年間都となりました。',
     },
     {
       type: 'narrator',
@@ -75,10 +75,10 @@ export const heianCapitalChat: HistoryChat = {
       options: [
         { letter: 'A', text: '最澄', correct: false },
         { letter: 'B', text: '鑑真', correct: false },
-        { letter: 'C', text: '空海', correct: true },
-        { letter: 'D', text: '行基', correct: false },
+        { letter: 'C', text: '行基', correct: false },
+        { letter: 'D', text: '空海', correct: true },
       ],
-      explanation: '<strong>正解はC「空海」</strong>です。空海は唐で密教を学び、真言宗を開いて高野山に金剛峯寺を建てました。',
+      explanation: '<strong>正解はD「空海」</strong>です。空海は唐で密教を学び、真言宗を開いて高野山に金剛峯寺を建てました。',
     },
     {
       type: 'end',

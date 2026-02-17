@@ -53,15 +53,15 @@ export const shotokuAsuka: Topic = {
         {
           id: 'q1',
           question: '才能や功績で役人の地位を決める制度は？',
-          options: ['十七条の憲法', '冠位十二階', '班田収授法', '大宝律令'],
-          correctIndex: 1,
+          options: ['冠位十二階', '十七条の憲法', '班田収授法', '大宝律令'],
+          correctIndex: 0,
           explanation: '冠位十二階は家柄ではなく才能や功績で地位を決める制度です。',
         },
         {
           id: 'q2',
           question: '遣隋使として中国に派遣された人物は？',
-          options: ['中臣鎌足', '小野妹子', '菅原道真', '最澄'],
-          correctIndex: 1,
+          options: ['中臣鎌足', '菅原道真', '小野妹子', '最澄'],
+          correctIndex: 2,
           explanation: '小野妹子は推古天皇の時代に遣隋使として派遣されました。',
         },
         {

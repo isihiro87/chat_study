@@ -100,13 +100,13 @@ export const tempoReformChat: HistoryChat = {
       type: 'quiz',
       question: '天保の改革で、大名の領地を幕府直轄にしようとして失敗した法令は？',
       options: [
-        { letter: 'A', text: '上知令', correct: true },
-        { letter: 'B', text: '株仲間解散令', correct: false },
+        { letter: 'A', text: '株仲間解散令', correct: false },
+        { letter: 'B', text: '上知令', correct: true },
         { letter: 'C', text: '倹約令', correct: false },
         { letter: 'D', text: '人返し令', correct: false },
       ],
       explanation:
-        '<strong>正解はA「上知令」</strong>です。大名たちの猛反対にあい、水野忠邦は失脚しました。',
+        '<strong>正解はB「上知令」</strong>です。大名たちの猛反対にあい、水野忠邦は失脚しました。',
     },
     {
       type: 'narrator',

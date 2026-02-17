@@ -110,8 +110,8 @@ export const openingJapan: Topic = {
         {
           id: 'q1',
           question: '1853年に黒船で浦賀に来航し、開国を要求したアメリカの軍人は？',
-          options: ['ハリス', 'ペリー', 'ワシントン', 'リンカン'],
-          correctIndex: 1,
+          options: ['ハリス', 'リンカン', 'ワシントン', 'ペリー'],
+          correctIndex: 3,
           explanation:
             'ペリーは1853年に浦賀に来航し、翌年日米和親条約を結ばせました。',
         },

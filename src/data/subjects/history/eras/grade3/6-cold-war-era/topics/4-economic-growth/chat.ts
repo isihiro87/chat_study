@@ -61,12 +61,12 @@ export const economicGrowthChat: HistoryChat = {
       question: '高度経済成長期に「三種の神器」と呼ばれた家電製品は？',
       options: [
         { letter: 'A', text: 'テレビ・ラジオ・電話', correct: false },
-        { letter: 'B', text: 'テレビ・洗濯機・冷蔵庫', correct: true },
+        { letter: 'B', text: '洗濯機・掃除機・冷蔵庫', correct: false },
         { letter: 'C', text: 'テレビ・エアコン・自動車', correct: false },
-        { letter: 'D', text: '洗濯機・掃除機・冷蔵庫', correct: false },
+        { letter: 'D', text: 'テレビ・洗濯機・冷蔵庫', correct: true },
       ],
       explanation:
-        '<strong>正解はB「テレビ・洗濯機・冷蔵庫」</strong>です。高度経済成長期に「三種の神器」として家庭に普及しました。',
+        '<strong>正解はD「テレビ・洗濯機・冷蔵庫」</strong>です。高度経済成長期に「三種の神器」として家庭に普及しました。',
     },
     {
       type: 'date',
@@ -100,13 +100,13 @@ export const economicGrowthChat: HistoryChat = {
       type: 'quiz',
       question: '1973年の石油危機のきっかけとなった出来事は？',
       options: [
-        { letter: 'A', text: 'ベトナム戦争', correct: false },
+        { letter: 'A', text: 'キューバ危機', correct: false },
         { letter: 'B', text: '朝鮮戦争', correct: false },
-        { letter: 'C', text: '中東戦争', correct: true },
-        { letter: 'D', text: 'キューバ危機', correct: false },
+        { letter: 'C', text: 'ベトナム戦争', correct: false },
+        { letter: 'D', text: '中東戦争', correct: true },
       ],
       explanation:
-        '<strong>正解はC「中東戦争」</strong>です。中東戦争をきっかけに産油国が石油価格を引き上げ、世界経済に大きな打撃を与えました。',
+        '<strong>正解はD「中東戦争」</strong>です。中東戦争をきっかけに産油国が石油価格を引き上げ、世界経済に大きな打撃を与えました。',
     },
     {
       type: 'end',

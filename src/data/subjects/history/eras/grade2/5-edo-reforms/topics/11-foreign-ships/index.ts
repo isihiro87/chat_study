@@ -47,8 +47,8 @@ export const foreignShips: Topic = {
         {
           id: 'q1',
           question: '1825年に幕府が出した、外国船を追い払う命令は？',
-          options: ['鎖国令', '異国船打払令', '禁教令', '海防令'],
-          correctIndex: 1,
+          options: ['異国船打払令', '禁教令', '鎖国令', '海防令'],
+          correctIndex: 0,
           explanation:
             '異国船打払令は外国船を見つけ次第砲撃して追い払う強硬な政策でした。',
         },

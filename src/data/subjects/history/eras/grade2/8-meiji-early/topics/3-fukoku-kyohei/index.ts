@@ -110,8 +110,8 @@ export const fukokuKyohei: Topic = {
         {
           id: 'q1',
           question: '「学問のすゝめ」を著し、学問の重要性を説いた思想家は？',
-          options: ['中江兆民', '福沢諭吉', '板垣退助', '伊藤博文'],
-          correctIndex: 1,
+          options: ['中江兆民', '板垣退助', '福沢諭吉', '伊藤博文'],
+          correctIndex: 2,
           explanation:
             '福沢諭吉は「天は人の上に人を造らず」で知られ、個人の独立と学問の大切さを訴えました。',
         },

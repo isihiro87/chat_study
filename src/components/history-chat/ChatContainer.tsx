@@ -1,13 +1,15 @@
 import { useRef, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useHistoryChat } from '../../hooks/useHistoryChat';
+import { useTooltip } from '../../hooks/useTooltip';
 import { ChatHeader } from './ChatHeader';
 import { DateSeparator } from './DateSeparator';
 import { NarratorBlock } from './NarratorBlock';
 import { ChatMessage } from './ChatMessage';
 import { ChatQuiz } from './ChatQuiz';
 import { SummaryCard } from './SummaryCard';
-import type { HistoryChat, EndContent } from '../../data/history-chat/types';
+import { SummaryPointBlock } from './SummaryPointBlock';
+import type { HistoryChat, EndContent, MessageContent } from '../../data/history-chat/types';
 
 interface ChatContainerProps {
   chat: HistoryChat;
@@ -34,6 +36,10 @@ export function ChatContainer({ chat, embedded = false, onNavigateToFlashcard, o
 
   const scrollRef = useRef<HTMLDivElement>(null);
   const endRef = useRef<HTMLDivElement>(null);
+  const summaryRef = useRef<HTMLDivElement>(null);
+
+  // ツールチップ機能（data-tooltip属性をハンドリング）
+  useTooltip(scrollRef);
 
   // キャラクターマップを作成
   const characterMap = useMemo(() => {
@@ -48,11 +54,14 @@ export function ChatContainer({ chat, embedded = false, onNavigateToFlashcard, o
   const progress = Math.round((shownIndex / totalContent) * 100);
 
   // 新しい要素が表示されたら自動スクロール
+  // 結果画面（end）表示時はカード上端が見えるようにスクロール
   useEffect(() => {
-    if (endRef.current) {
+    if (isComplete && summaryRef.current) {
+      summaryRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else if (endRef.current) {
       endRef.current.scrollIntoView({ behavior: 'smooth' });
     }
-  }, [shownIndex]);
+  }, [shownIndex, isComplete]);
 
   // タップハンドラ
   const handleTap = () => {
@@ -109,12 +118,14 @@ export function ChatContainer({ chat, embedded = false, onNavigateToFlashcard, o
                   case 'message': {
                     const character = characterMap[content.characterId];
                     if (!character) return null;
+                    const messageContent = content as MessageContent;
                     return (
                       <ChatMessage
                         key={key}
                         side={content.side}
                         character={character}
                         text={content.text}
+                        expression={messageContent.expression}
                       />
                     );
                   }
@@ -130,10 +141,13 @@ export function ChatContainer({ chat, embedded = false, onNavigateToFlashcard, o
                       />
                     );
 
+                  case 'summary-point':
+                    return <SummaryPointBlock key={key} text={content.text} />;
+
                   case 'end':
                     return (
+                      <div key={key} ref={summaryRef}>
                       <SummaryCard
-                        key={key}
                         points={(content as EndContent).points}
                         score={score}
                         totalQuizzes={totalQuizzes}
@@ -141,6 +155,7 @@ export function ChatContainer({ chat, embedded = false, onNavigateToFlashcard, o
                         onNavigateToFlashcard={onNavigateToFlashcard}
                         onNavigateToQuiz={onNavigateToQuiz}
                       />
+                      </div>
                     );
 
                   default:

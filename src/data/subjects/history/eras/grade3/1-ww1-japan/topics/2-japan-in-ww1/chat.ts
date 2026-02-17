@@ -72,13 +72,13 @@ export const japanInWw1Chat: HistoryChat = {
       type: 'quiz',
       question: '1915年に日本が中国に突きつけた要求は？',
       options: [
-        { letter: 'A', text: '下関条約', correct: false },
+        { letter: 'A', text: '二十一か条の要求', correct: true },
         { letter: 'B', text: 'ポーツマス条約', correct: false },
-        { letter: 'C', text: '二十一か条の要求', correct: true },
+        { letter: 'C', text: '下関条約', correct: false },
         { letter: 'D', text: '日中共同宣言', correct: false },
       ],
       explanation:
-        '<strong>正解はC「二十一か条の要求」</strong>です。袁世凱政府に対して出され、中国国民の反日感情が高まりました。',
+        '<strong>正解はA「二十一か条の要求」</strong>です。袁世凱政府に対して出され、中国国民の反日感情が高まりました。',
     },
     {
       type: 'narrator',
@@ -95,12 +95,12 @@ export const japanInWw1Chat: HistoryChat = {
       question: '第一次世界大戦中に日本で起きた好景気を何という？',
       options: [
         { letter: 'A', text: 'バブル景気', correct: false },
-        { letter: 'B', text: '高度経済成長', correct: false },
-        { letter: 'C', text: '大戦景気', correct: true },
-        { letter: 'D', text: '岩戸景気', correct: false },
+        { letter: 'B', text: '岩戸景気', correct: false },
+        { letter: 'C', text: '高度経済成長', correct: false },
+        { letter: 'D', text: '大戦景気', correct: true },
       ],
       explanation:
-        '<strong>正解はC「大戦景気」</strong>です。ヨーロッパ諸国が戦争に集中する中、日本はアジア市場への輸出を伸ばしました。',
+        '<strong>正解はD「大戦景気」</strong>です。ヨーロッパ諸国が戦争に集中する中、日本はアジア市場への輸出を伸ばしました。',
     },
     {
       type: 'end',

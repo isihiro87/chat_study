@@ -52,12 +52,12 @@ export const nobunagaHideyoshiChat: HistoryChat = {
       type: 'quiz',
       question: '織田信長が城下の商工業を活性化するために行った政策は何？',
       options: [
-        { letter: 'A', text: '参勤交代', correct: false },
-        { letter: 'B', text: '楽市楽座', correct: true },
+        { letter: 'A', text: '刀狩', correct: false },
+        { letter: 'B', text: '参勤交代', correct: false },
         { letter: 'C', text: '太閤検地', correct: false },
-        { letter: 'D', text: '刀狩', correct: false },
+        { letter: 'D', text: '楽市楽座', correct: true },
       ],
-      explanation: '<strong>正解はB「楽市楽座」</strong>です。織田信長は座の特権を廃止し、誰でも自由に商売ができる<strong>楽市楽座</strong>の政策を実施しました。',
+      explanation: '<strong>正解はD「楽市楽座」</strong>です。織田信長は座の特権を廃止し、誰でも自由に商売ができる<strong>楽市楽座</strong>の政策を実施しました。',
     },
     {
       type: 'narrator',
@@ -80,11 +80,11 @@ export const nobunagaHideyoshiChat: HistoryChat = {
       question: '豊臣秀吉が全国統一を達成したのは何年？',
       options: [
         { letter: 'A', text: '1582年', correct: false },
-        { letter: 'B', text: '1585年', correct: false },
-        { letter: 'C', text: '1590年', correct: true },
-        { letter: 'D', text: '1600年', correct: false },
+        { letter: 'B', text: '1600年', correct: false },
+        { letter: 'C', text: '1585年', correct: false },
+        { letter: 'D', text: '1590年', correct: true },
       ],
-      explanation: '<strong>正解はC「1590年」</strong>です。豊臣秀吉は1590年に北条氏を滅ぼし、<strong>全国統一</strong>を達成しました。',
+      explanation: '<strong>正解はD「1590年」</strong>です。豊臣秀吉は1590年に北条氏を滅ぼし、<strong>全国統一</strong>を達成しました。',
     },
     {
       type: 'end',

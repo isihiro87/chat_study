@@ -50,13 +50,13 @@ export const coldWarEndChat: HistoryChat = {
       type: 'quiz',
       question: '1989年に取り壊された冷戦の象徴は何？',
       options: [
-        { letter: 'A', text: '万里の長城', correct: false },
-        { letter: 'B', text: 'ベルリンの壁', correct: true },
+        { letter: 'A', text: 'ベルリンの壁', correct: true },
+        { letter: 'B', text: 'ブランデンブルク門', correct: false },
         { letter: 'C', text: '鉄のカーテン', correct: false },
-        { letter: 'D', text: 'ブランデンブルク門', correct: false },
+        { letter: 'D', text: '万里の長城', correct: false },
       ],
       explanation:
-        '<strong>正解はB「ベルリンの壁」</strong>です。東西ドイツを隔てていた壁が取り壊され、冷戦終結の象徴となりました。',
+        '<strong>正解はA「ベルリンの壁」</strong>です。東西ドイツを隔てていた壁が取り壊され、冷戦終結の象徴となりました。',
     },
     {
       type: 'date',
@@ -90,13 +90,13 @@ export const coldWarEndChat: HistoryChat = {
       type: 'quiz',
       question: '米ソ首脳が冷戦の終結を宣言した1989年の会談は？',
       options: [
-        { letter: 'A', text: 'ヤルタ会談', correct: false },
-        { letter: 'B', text: 'ポツダム会談', correct: false },
-        { letter: 'C', text: 'マルタ会談', correct: true },
+        { letter: 'A', text: 'ポツダム会談', correct: false },
+        { letter: 'B', text: 'マルタ会談', correct: true },
+        { letter: 'C', text: 'ヤルタ会談', correct: false },
         { letter: 'D', text: 'ジュネーブ会談', correct: false },
       ],
       explanation:
-        '<strong>正解はC「マルタ会談」</strong>です。1989年12月、アメリカのブッシュ大統領とソ連のゴルバチョフが冷戦の終結を宣言しました。',
+        '<strong>正解はB「マルタ会談」</strong>です。1989年12月、アメリカのブッシュ大統領とソ連のゴルバチョフが冷戦の終結を宣言しました。',
     },
     {
       type: 'end',

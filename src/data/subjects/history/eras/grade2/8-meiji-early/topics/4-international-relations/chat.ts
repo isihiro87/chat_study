@@ -80,13 +80,13 @@ export const internationalRelationsChat: HistoryChat = {
       type: 'quiz',
       question: '1879年、琉球を沖縄県とした一連の動きを何という？',
       options: [
-        { letter: 'A', text: '廃藩置県', correct: false },
-        { letter: 'B', text: '琉球処分', correct: true },
+        { letter: 'A', text: '琉球処分', correct: true },
+        { letter: 'B', text: '版籍奉還', correct: false },
         { letter: 'C', text: '征韓論', correct: false },
-        { letter: 'D', text: '版籍奉還', correct: false },
+        { letter: 'D', text: '廃藩置県', correct: false },
       ],
       explanation:
-        '<strong>正解はB「琉球処分」</strong>です。清の反対を押し切って沖縄県を設置しました。',
+        '<strong>正解はA「琉球処分」</strong>です。清の反対を押し切って沖縄県を設置しました。',
     },
     {
       type: 'end',

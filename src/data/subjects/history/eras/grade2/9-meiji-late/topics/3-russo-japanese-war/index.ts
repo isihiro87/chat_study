@@ -110,8 +110,8 @@ export const russoJapaneseWar: Topic = {
         {
           id: 'q1',
           question: '1905年に日露戦争後に結ばれた講和条約は？',
-          options: ['下関条約', 'ポーツマス条約', '南京条約', '日朝修好条規'],
-          correctIndex: 1,
+          options: ['ポーツマス条約', '下関条約', '南京条約', '日朝修好条規'],
+          correctIndex: 0,
           explanation:
             'ポーツマス条約でアメリカ大統領の仲介により講和が成立しましたが、賠償金は得られませんでした。',
         },

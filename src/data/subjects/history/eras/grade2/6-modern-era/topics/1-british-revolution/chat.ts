@@ -45,12 +45,12 @@ export const britishRevolutionChat: HistoryChat = {
       question: '「権力は一つに集中すると暴走する」として三権分立を唱えた思想家は？',
       options: [
         { letter: 'A', text: 'ロック', correct: false },
-        { letter: 'B', text: 'モンテスキュー', correct: true },
-        { letter: 'C', text: 'ルソー', correct: false },
+        { letter: 'B', text: 'ルソー', correct: false },
+        { letter: 'C', text: 'モンテスキュー', correct: true },
         { letter: 'D', text: 'ワシントン', correct: false },
       ],
       explanation:
-        '<strong>正解はB「モンテスキュー」</strong>です。立法・行政・司法の三つに権力を分けることで暴走を防ぐと主張しました。',
+        '<strong>正解はC「モンテスキュー」</strong>です。立法・行政・司法の三つに権力を分けることで暴走を防ぐと主張しました。',
     },
     {
       type: 'message',
@@ -77,12 +77,12 @@ export const britishRevolutionChat: HistoryChat = {
       question: '血を流さずに国王を追放した革命を何という？',
       options: [
         { letter: 'A', text: 'ピューリタン革命', correct: false },
-        { letter: 'B', text: '市民革命', correct: false },
-        { letter: 'C', text: '名誉革命', correct: true },
-        { letter: 'D', text: '産業革命', correct: false },
+        { letter: 'B', text: '名誉革命', correct: true },
+        { letter: 'C', text: '産業革命', correct: false },
+        { letter: 'D', text: '市民革命', correct: false },
       ],
       explanation:
-        '<strong>正解はC「名誉革命」</strong>です。1688年、武力衝突なしに国王を追放した「無血革命」です。',
+        '<strong>正解はB「名誉革命」</strong>です。1688年、武力衝突なしに国王を追放した「無血革命」です。',
     },
     {
       type: 'end',

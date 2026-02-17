@@ -53,15 +53,15 @@ export const taikaReform: Topic = {
         {
           id: 'q1',
           question: '645年に始まった政治改革は？',
-          options: ['班田収授法', '大化の改新', '承久の乱', '建武の新政'],
-          correctIndex: 1,
+          options: ['班田収授法', '建武の新政', '大化の改新', '承久の乱'],
+          correctIndex: 2,
           explanation: '大化の改新は中大兄皇子と中臣鎌足が蘇我氏を倒して始めた改革です。',
         },
         {
           id: 'q2',
           question: '663年に唐・新羅の連合軍に敗れた戦いは？',
-          options: ['壬申の乱', '白村江の戦い', '元寇', '応仁の乱'],
-          correctIndex: 1,
+          options: ['元寇', '壬申の乱', '白村江の戦い', '応仁の乱'],
+          correctIndex: 2,
           explanation: '白村江の戦いで日本は百済を助けようとしましたが敗北しました。',
         },
         {

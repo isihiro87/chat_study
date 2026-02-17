@@ -54,8 +54,8 @@ export const sengokuEra: Topic = {
         {
           id: 'q1',
           question: '1467年に将軍の後継ぎ問題などから京都で始まった、11年に及ぶ戦乱は？',
-          options: ['承久の乱', '壬申の乱', '応仁の乱', '保元の乱'],
-          correctIndex: 2,
+          options: ['承久の乱', '応仁の乱', '壬申の乱', '保元の乱'],
+          correctIndex: 1,
           explanation: '応仁の乱は1467年に京都で始まった戦乱で、11年にも及び京都は焼け野原となりました。',
         },
         {

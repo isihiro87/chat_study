@@ -53,11 +53,11 @@ export const europeChangeChat: HistoryChat = {
       question: '14世紀にイタリアで始まった、古代ギリシャ・ローマの文化を復興しようとする運動を何という？',
       options: [
         { letter: 'A', text: '産業革命', correct: false },
-        { letter: 'B', text: 'ルネサンス', correct: true },
-        { letter: 'C', text: '宗教改革', correct: false },
+        { letter: 'B', text: '宗教改革', correct: false },
+        { letter: 'C', text: 'ルネサンス', correct: true },
         { letter: 'D', text: '啓蒙思想', correct: false },
       ],
-      explanation: '<strong>正解はB「ルネサンス」</strong>です。14世紀のイタリアから始まった文芸復興運動で、人間中心の考え方が広まりました。',
+      explanation: '<strong>正解はC「ルネサンス」</strong>です。14世紀のイタリアから始まった文芸復興運動で、人間中心の考え方が広まりました。',
     },
     {
       type: 'narrator',

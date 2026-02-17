@@ -111,8 +111,8 @@ export const westernAsiaInvasion: Topic = {
         {
           id: 'q1',
           question: '1840年、アヘンの取り締まりをきっかけにイギリスが清に仕掛けた戦争は？',
-          options: ['クリミア戦争', 'アヘン戦争', '南北戦争', '独立戦争'],
-          correctIndex: 1,
+          options: ['アヘン戦争', 'クリミア戦争', '南北戦争', '独立戦争'],
+          correctIndex: 0,
           explanation:
             'アヘン戦争は、清がアヘンの密輸を取り締まったことへの報復としてイギリスが起こしました。',
         },

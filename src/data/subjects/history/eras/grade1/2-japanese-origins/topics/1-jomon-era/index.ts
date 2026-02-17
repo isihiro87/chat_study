@@ -114,8 +114,8 @@ export const jomonEra: Topic = {
         {
           id: 'q3',
           question: '祈りや魔よけのために作られた土の人形は？',
-          options: ['埴輪', '土偶', '銅鐸', '勾玉'],
-          correctIndex: 1,
+          options: ['土偶', '埴輪', '銅鐸', '勾玉'],
+          correctIndex: 0,
           explanation: '土偶は縄文時代に祈りや魔よけの目的で作られた土製の人形です。',
         },
       ],

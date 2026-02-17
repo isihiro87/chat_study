@@ -53,11 +53,11 @@ export const nanbanTradeChat: HistoryChat = {
       question: '1543年にポルトガル人によって日本に伝えられたものは何？',
       options: [
         { letter: 'A', text: 'キリスト教', correct: false },
-        { letter: 'B', text: '鉄砲', correct: true },
-        { letter: 'C', text: '活版印刷', correct: false },
+        { letter: 'B', text: '活版印刷', correct: false },
+        { letter: 'C', text: '鉄砲', correct: true },
         { letter: 'D', text: '羅針盤', correct: false },
       ],
-      explanation: '<strong>正解はB「鉄砲」</strong>です。1543年にポルトガル人が種子島に漂着し、<strong>鉄砲</strong>が伝来しました。戦国時代の戦い方を大きく変えました。',
+      explanation: '<strong>正解はC「鉄砲」</strong>です。1543年にポルトガル人が種子島に漂着し、<strong>鉄砲</strong>が伝来しました。戦国時代の戦い方を大きく変えました。',
     },
     {
       type: 'narrator',
@@ -81,10 +81,10 @@ export const nanbanTradeChat: HistoryChat = {
       options: [
         { letter: 'A', text: 'ルター', correct: false },
         { letter: 'B', text: 'コロンブス', correct: false },
-        { letter: 'C', text: 'フランシスコ・ザビエル', correct: true },
-        { letter: 'D', text: 'ヴァリニャーノ', correct: false },
+        { letter: 'C', text: 'ヴァリニャーノ', correct: false },
+        { letter: 'D', text: 'フランシスコ・ザビエル', correct: true },
       ],
-      explanation: '<strong>正解はC「フランシスコ・ザビエル」</strong>です。1549年にイエズス会の宣教師として鹿児島に上陸し、日本にキリスト教を伝えました。',
+      explanation: '<strong>正解はD「フランシスコ・ザビエル」</strong>です。1549年にイエズス会の宣教師として鹿児島に上陸し、日本にキリスト教を伝えました。',
     },
     {
       type: 'end',

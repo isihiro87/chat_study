@@ -110,8 +110,8 @@ export const freedomMovement: Topic = {
         {
           id: 'q1',
           question: '1877年に西郷隆盛を中心に起きた、最大の士族の反乱は？',
-          options: ['佐賀の乱', '西南戦争', '秩父事件', '神風連の乱'],
-          correctIndex: 1,
+          options: ['秩父事件', '佐賀の乱', '西南戦争', '神風連の乱'],
+          correctIndex: 2,
           explanation:
             '西南戦争は最大・最後の士族の反乱で、政府軍の勝利により武力抵抗は終わりました。',
         },

@@ -118,24 +118,24 @@ export const socialMovements: Topic = {
         {
           id: 'q2',
           question: '「元始、女性は太陽であった」と宣言した人物は？',
-          options: ['与謝野晶子', '平塚らいてう', '津田梅子', '樋口一葉'],
-          correctIndex: 1,
+          options: ['平塚らいてう', '津田梅子', '与謝野晶子', '樋口一葉'],
+          correctIndex: 0,
           explanation:
             '平塚らいてうは女性解放運動の先駆者で、新婦人協会を設立して女性の政治参加を求めました。',
         },
         {
           id: 'q3',
           question: '日本で初めてメーデーが行われたのは何年？',
-          options: ['1918年', '1920年', '1922年', '1925年'],
-          correctIndex: 1,
+          options: ['1920年', '1925年', '1922年', '1918年'],
+          correctIndex: 0,
           explanation:
             '1920年に日本初のメーデーが行われ、労働者が団結して権利を主張しました。',
         },
         {
           id: 'q4',
           question: '小作農が地主に対して起こした争いを何という？',
-          options: ['労働争議', '米騒動', '小作争議', '護憲運動'],
-          correctIndex: 2,
+          options: ['米騒動', '小作争議', '労働争議', '護憲運動'],
+          correctIndex: 1,
           explanation:
             '小作争議は小作農が地主に対して小作料の引き下げなどを求めた争いで、大正時代に各地で頻発しました。',
         },

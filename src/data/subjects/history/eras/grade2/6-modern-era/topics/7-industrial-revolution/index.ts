@@ -110,8 +110,8 @@ export const industrialRevolution: Topic = {
         {
           id: 'q1',
           question: '産業革命で蒸気機関を改良したイギリスの技術者は？',
-          options: ['ワット', 'スティーブンソン', 'ニュートン', 'ダーウィン'],
-          correctIndex: 0,
+          options: ['ダーウィン', 'スティーブンソン', 'ニュートン', 'ワット'],
+          correctIndex: 3,
           explanation:
             'ワットは蒸気機関を改良し、工場の動力や交通機関の発展に貢献しました。',
         },

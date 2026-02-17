@@ -42,13 +42,13 @@ export const treatyRevisionChat: HistoryChat = {
       type: 'quiz',
       question: '日本人乗客が見殺しにされ、領事裁判権撤廃の世論が高まった事件は？',
       options: [
-        { letter: 'A', text: 'ノルマントン号事件', correct: true },
+        { letter: 'A', text: '甲午農民戦争', correct: false },
         { letter: 'B', text: '江華島事件', correct: false },
         { letter: 'C', text: '大津事件', correct: false },
-        { letter: 'D', text: '甲午農民戦争', correct: false },
+        { letter: 'D', text: 'ノルマントン号事件', correct: true },
       ],
       explanation:
-        '<strong>正解はA「ノルマントン号事件」</strong>です。イギリス人船長が軽い罪で済んだことで国民の怒りが高まりました。',
+        '<strong>正解はD「ノルマントン号事件」</strong>です。イギリス人船長が軽い罪で済んだことで国民の怒りが高まりました。',
     },
     {
       type: 'message',

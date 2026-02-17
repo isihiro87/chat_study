@@ -16,6 +16,7 @@ export function LearningPage() {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState<TabType>('chat'); // チャットを初期タブに
   const [cardProgress, setCardProgress] = useState({ current: 1, total: 1 });
+  const [quizProgress, setQuizProgress] = useState({ current: 1, total: 1 });
 
   const topic = topicId ? getTopic(topicId) : undefined;
 
@@ -37,6 +38,10 @@ export function LearningPage() {
 
   const handleCardProgressChange = useCallback((current: number, total: number) => {
     setCardProgress({ current, total });
+  }, []);
+
+  const handleQuizProgressChange = useCallback((current: number, total: number) => {
+    setQuizProgress({ current, total });
   }, []);
 
   if (!topic) {
@@ -72,7 +77,7 @@ export function LearningPage() {
   // フラッシュカードはフルスクリーン表示
   if (activeTab === 'flashcard') {
     return (
-      <div className="flex h-screen flex-col bg-gray-50">
+      <div className="flex h-dvh flex-col bg-gray-50">
         <FullScreenHeader progress={cardProgress} />
         <main className="flex-1 overflow-hidden">
           <FlashcardDeck
@@ -88,7 +93,7 @@ export function LearningPage() {
   // チャットタブはフルスクリーン表示（TabBarの上に）
   if (activeTab === 'chat' && chat) {
     return (
-      <div className="flex h-screen flex-col pb-16">
+      <div className="flex h-dvh flex-col pb-16">
         <header className="flex-shrink-0 bg-white shadow-sm">
           <div className="flex items-center px-4 py-3">
             <button
@@ -115,13 +120,27 @@ export function LearningPage() {
     );
   }
 
+  // クイズはフルスクリーン表示
+  if (activeTab === 'quiz') {
+    return (
+      <div className="flex h-dvh flex-col bg-gray-50">
+        <FullScreenHeader progress={quizProgress} />
+        <main className="flex-1 overflow-hidden">
+          <QuizView
+            quiz={topic.content.quiz}
+            onProgressChange={handleQuizProgressChange}
+          />
+        </main>
+        <TabBar activeTab={activeTab} onTabChange={setActiveTab} hiddenTabs={hiddenTabs} disabledTabs={disabledTabs} />
+      </div>
+    );
+  }
+
   // その他のタブは通常表示
   const renderContent = () => {
     switch (activeTab) {
       case 'video':
         return <VideoPlayer videos={topic.content.videos} />;
-      case 'quiz':
-        return <QuizView quiz={topic.content.quiz} />;
       default:
         return null;
     }

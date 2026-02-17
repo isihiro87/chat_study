@@ -87,10 +87,10 @@ export const kamakuraSocietyChat: HistoryChat = {
       options: [
         { letter: 'A', text: '和同開珎', correct: false },
         { letter: 'B', text: '永楽通宝', correct: false },
-        { letter: 'C', text: '宋銭', correct: true },
-        { letter: 'D', text: '寛永通宝', correct: false },
+        { letter: 'C', text: '寛永通宝', correct: false },
+        { letter: 'D', text: '宋銭', correct: true },
       ],
-      explanation: '<strong>正解はC「宋銭」</strong>です。日宋貿易で輸入された宋銭が鎌倉時代に広く流通し、貨幣経済が発展しました。',
+      explanation: '<strong>正解はD「宋銭」</strong>です。日宋貿易で輸入された宋銭が鎌倉時代に広く流通し、貨幣経済が発展しました。',
     },
     {
       type: 'end',

@@ -46,12 +46,12 @@ export const muromachiBakufuChat: HistoryChat = {
       type: 'quiz',
       question: '後醍醐天皇が鎌倉幕府を倒した後に始めた天皇中心の政治を何という？',
       options: [
-        { letter: 'A', text: '院政', correct: false },
+        { letter: 'A', text: '大化の改新', correct: false },
         { letter: 'B', text: '摂関政治', correct: false },
-        { letter: 'C', text: '建武の新政', correct: true },
-        { letter: 'D', text: '大化の改新', correct: false },
+        { letter: 'C', text: '院政', correct: false },
+        { letter: 'D', text: '建武の新政', correct: true },
       ],
-      explanation: '<strong>正解はC「建武の新政」</strong>です。後醍醐天皇は1334年に天皇中心の政治を始めましたが、武士の不満が高まり約2年で崩壊しました。',
+      explanation: '<strong>正解はD「建武の新政」</strong>です。後醍醐天皇は1334年に天皇中心の政治を始めましたが、武士の不満が高まり約2年で崩壊しました。',
     },
     {
       type: 'narrator',
@@ -74,11 +74,11 @@ export const muromachiBakufuChat: HistoryChat = {
       question: '室町幕府で将軍を補佐した役職を何という？',
       options: [
         { letter: 'A', text: '執権', correct: false },
-        { letter: 'B', text: '管領', correct: true },
-        { letter: 'C', text: '老中', correct: false },
+        { letter: 'B', text: '老中', correct: false },
+        { letter: 'C', text: '管領', correct: true },
         { letter: 'D', text: '関白', correct: false },
       ],
-      explanation: '<strong>正解はB「管領」</strong>です。管領は室町幕府で将軍を補佐する最高職で、細川・斯波・畠山の三家が交代で就任しました。',
+      explanation: '<strong>正解はC「管領」</strong>です。管領は室町幕府で将軍を補佐する最高職で、細川・斯波・畠山の三家が交代で就任しました。',
     },
     {
       type: 'end',

@@ -60,13 +60,13 @@ export const westernAsiaInvasionChat: HistoryChat = {
       type: 'quiz',
       question: '1840年、イギリスが清に仕掛けた戦争は？',
       options: [
-        { letter: 'A', text: 'アヘン戦争', correct: true },
+        { letter: 'A', text: '南北戦争', correct: false },
         { letter: 'B', text: 'クリミア戦争', correct: false },
-        { letter: 'C', text: '南北戦争', correct: false },
+        { letter: 'C', text: 'アヘン戦争', correct: true },
         { letter: 'D', text: '独立戦争', correct: false },
       ],
       explanation:
-        '<strong>正解はA「アヘン戦争」</strong>です。清がアヘンの密輸を取り締まったことへの報復でした。',
+        '<strong>正解はC「アヘン戦争」</strong>です。清がアヘンの密輸を取り締まったことへの報復でした。',
     },
     {
       type: 'message',
@@ -83,12 +83,12 @@ export const westernAsiaInvasionChat: HistoryChat = {
       question: '輸入品にかける税率を自国で決める権利を何という？',
       options: [
         { letter: 'A', text: '領事裁判権', correct: false },
-        { letter: 'B', text: '関税自主権', correct: true },
+        { letter: 'B', text: '最恵国待遇', correct: false },
         { letter: 'C', text: '治外法権', correct: false },
-        { letter: 'D', text: '最恵国待遇', correct: false },
+        { letter: 'D', text: '関税自主権', correct: true },
       ],
       explanation:
-        '<strong>正解はB「関税自主権」</strong>です。清は南京条約でこの権利を失い、自国産業を守れなくなりました。',
+        '<strong>正解はD「関税自主権」</strong>です。清は南京条約でこの権利を失い、自国産業を守れなくなりました。',
     },
     {
       type: 'end',

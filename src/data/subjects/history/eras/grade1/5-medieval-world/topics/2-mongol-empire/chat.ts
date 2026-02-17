@@ -73,12 +73,12 @@ export const mongolEmpireChat: HistoryChat = {
       type: 'quiz',
       question: 'マルコ・ポーロが東方見聞録で日本を紹介した呼び名は？',
       options: [
-        { letter: 'A', text: '東方の楽園', correct: false },
-        { letter: 'B', text: '黄金の国ジパング', correct: true },
+        { letter: 'A', text: '黄金の国ジパング', correct: true },
+        { letter: 'B', text: '東方の楽園', correct: false },
         { letter: 'C', text: '日の出ずる国', correct: false },
         { letter: 'D', text: '絹の国', correct: false },
       ],
-      explanation: '<strong>正解はB「黄金の国ジパング」</strong>です。マルコ・ポーロは『東方見聞録』の中で日本を「黄金の国ジパング」と紹介し、ヨーロッパの人々にアジアへの関心を広めました。',
+      explanation: '<strong>正解はA「黄金の国ジパング」</strong>です。マルコ・ポーロは『東方見聞録』の中で日本を「黄金の国ジパング」と紹介し、ヨーロッパの人々にアジアへの関心を広めました。',
     },
     {
       type: 'end',

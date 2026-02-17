@@ -48,13 +48,13 @@ export const greatDepressionChat: HistoryChat = {
       type: 'quiz',
       question: 'ルーズベルト大統領が世界恐慌に対して行った経済政策は？',
       options: [
-        { letter: 'A', text: 'ニューディール政策', correct: true },
-        { letter: 'B', text: 'ブロック経済', correct: false },
+        { letter: 'A', text: 'ブロック経済', correct: false },
+        { letter: 'B', text: 'ニューディール政策', correct: true },
         { letter: 'C', text: '殖産興業', correct: false },
         { letter: 'D', text: '国家総動員法', correct: false },
       ],
       explanation:
-        '<strong>正解はA「ニューディール政策」</strong>です。公共事業で雇用を創出し、経済の立て直しを図りました。',
+        '<strong>正解はB「ニューディール政策」</strong>です。公共事業で雇用を創出し、経済の立て直しを図りました。',
     },
     {
       type: 'narrator',

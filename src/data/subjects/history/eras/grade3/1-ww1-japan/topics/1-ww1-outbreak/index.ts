@@ -110,8 +110,8 @@ export const ww1Outbreak: Topic = {
         {
           id: 'q1',
           question: '第一次世界大戦のきっかけとなった1914年の事件は？',
-          options: ['ノルマントン号事件', 'サラエボ事件', '辛亥革命', '日露戦争'],
-          correctIndex: 1,
+          options: ['辛亥革命', 'ノルマントン号事件', 'サラエボ事件', '日露戦争'],
+          correctIndex: 2,
           explanation:
             'サラエボ事件でオーストリアの皇太子が暗殺され、第一次世界大戦が始まりました。',
         },
@@ -131,16 +131,16 @@ export const ww1Outbreak: Topic = {
         {
           id: 'q3',
           question: '第一次世界大戦で初めて使われた新兵器に含まれないものは？',
-          options: ['戦車', '飛行機', '原子爆弾', '毒ガス'],
-          correctIndex: 2,
+          options: ['戦車', '飛行機', '毒ガス', '原子爆弾'],
+          correctIndex: 3,
           explanation:
             '原子爆弾は第二次世界大戦で使われたもので、第一次世界大戦では戦車・飛行機・毒ガス・潜水艦が新兵器として登場しました。',
         },
         {
           id: 'q4',
           question: '第一次世界大戦のように、国の全ての力を動員して行う戦争を何という？',
-          options: ['局地戦', '代理戦争', '総力戦', '冷戦'],
-          correctIndex: 2,
+          options: ['局地戦', '代理戦争', '冷戦', '総力戦'],
+          correctIndex: 3,
           explanation:
             '総力戦とは、軍事力だけでなく経済力や国民生活のすべてを動員して戦う戦争です。',
         },

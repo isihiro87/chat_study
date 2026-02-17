@@ -105,12 +105,12 @@ export const postwarCulture: Topic = {
           question:
             '「漫画の神様」と呼ばれ、「鉄腕アトム」を描いた人物は？',
           options: [
-            '黒澤明',
             '手塚治虫',
+            '黒澤明',
             '湯川秀樹',
             '川端康成',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '手塚治虫は「鉄腕アトム」をはじめ多くの名作を生み出し、日本の漫画・アニメ文化の基礎を築きました。',
         },
@@ -120,11 +120,11 @@ export const postwarCulture: Topic = {
             '1949年に日本人として初めてノーベル賞を受賞した人物は？',
           options: [
             '川端康成',
-            '黒澤明',
             '湯川秀樹',
+            '黒澤明',
             '手塚治虫',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation:
             '湯川秀樹は中間子理論の研究により、日本人初のノーベル物理学賞を受賞しました。',
         },

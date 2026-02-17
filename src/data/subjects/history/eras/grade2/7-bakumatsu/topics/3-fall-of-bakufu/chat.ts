@@ -57,13 +57,13 @@ export const fallOfBakufuChat: HistoryChat = {
       type: 'quiz',
       question: '1866年、薩摩藩と長州藩を仲介して同盟を結ばせた人物は？',
       options: [
-        { letter: 'A', text: '坂本龍馬', correct: true },
+        { letter: 'A', text: '高杉晋作', correct: false },
         { letter: 'B', text: '西郷隆盛', correct: false },
-        { letter: 'C', text: '高杉晋作', correct: false },
-        { letter: 'D', text: '木戸孝允', correct: false },
+        { letter: 'C', text: '木戸孝允', correct: false },
+        { letter: 'D', text: '坂本龍馬', correct: true },
       ],
       explanation:
-        '<strong>正解はA「坂本龍馬」</strong>です。土佐藩出身の龍馬が対立していた両藩を結びつけました。',
+        '<strong>正解はD「坂本龍馬」</strong>です。土佐藩出身の龍馬が対立していた両藩を結びつけました。',
     },
     {
       type: 'narrator',
@@ -83,13 +83,13 @@ export const fallOfBakufuChat: HistoryChat = {
       type: 'quiz',
       question: '1867年、徳川慶喜が政権を朝廷に返したことを何という？',
       options: [
-        { letter: 'A', text: '王政復古', correct: false },
-        { letter: 'B', text: '大政奉還', correct: true },
+        { letter: 'A', text: '大政奉還', correct: true },
+        { letter: 'B', text: '版籍奉還', correct: false },
         { letter: 'C', text: '廃藩置県', correct: false },
-        { letter: 'D', text: '版籍奉還', correct: false },
+        { letter: 'D', text: '王政復古', correct: false },
       ],
       explanation:
-        '<strong>正解はB「大政奉還」</strong>です。約260年続いた江戸幕府の政権が終わりました。',
+        '<strong>正解はA「大政奉還」</strong>です。約260年続いた江戸幕府の政権が終わりました。',
     },
     {
       type: 'narrator',

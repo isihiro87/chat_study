@@ -12,9 +12,10 @@ export interface HistoryChat {
 export interface ChatCharacter {
   id: string; // 識別ID（英字）
   name: string; // 表示名
-  emoji: string; // アバター絵文字
+  emoji: string; // アバター絵文字（デフォルト表情）
   colorFrom: string; // グラデーション開始色
   colorTo: string; // グラデーション終了色
+  expressions?: Record<string, string>; // 表情マップ（例: { happy: '😊', surprised: '😲' }）
 }
 
 // コンテンツ要素（Union型）
@@ -23,6 +24,7 @@ export type ChatContent =
   | NarratorContent
   | MessageContent
   | QuizContent
+  | SummaryPointContent
   | EndContent;
 
 export interface DateContent {
@@ -40,6 +42,7 @@ export interface MessageContent {
   side: 'left' | 'right';
   characterId: string;
   text: string;
+  expression?: string; // キャラクターの表情キー（ChatCharacter.expressionsに対応）
 }
 
 export interface QuizContent {
@@ -53,6 +56,11 @@ export interface QuizOption {
   letter: string; // 'A', 'B', 'C', 'D'
   text: string;
   correct: boolean;
+}
+
+export interface SummaryPointContent {
+  type: 'summary-point';
+  text: string; // ミニまとめの1行テキスト
 }
 
 export interface EndContent {

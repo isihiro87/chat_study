@@ -48,13 +48,13 @@ export const manchurianIncidentChat: HistoryChat = {
       type: 'quiz',
       question: '1931年に満州事変のきっかけとなった事件は？',
       options: [
-        { letter: 'A', text: '盧溝橋事件', correct: false },
+        { letter: 'A', text: '柳条湖事件', correct: true },
         { letter: 'B', text: 'サラエボ事件', correct: false },
-        { letter: 'C', text: '柳条湖事件', correct: true },
-        { letter: 'D', text: '甲午農民戦争', correct: false },
+        { letter: 'C', text: '甲午農民戦争', correct: false },
+        { letter: 'D', text: '盧溝橋事件', correct: false },
       ],
       explanation:
-        '<strong>正解はC「柳条湖事件」</strong>です。関東軍が南満州鉄道の線路を自ら爆破し、中国のせいにして軍事行動を開始しました。',
+        '<strong>正解はA「柳条湖事件」</strong>です。関東軍が南満州鉄道の線路を自ら爆破し、中国のせいにして軍事行動を開始しました。',
     },
     {
       type: 'narrator',

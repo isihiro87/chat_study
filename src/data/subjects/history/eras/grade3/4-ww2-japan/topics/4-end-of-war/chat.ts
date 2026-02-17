@@ -44,13 +44,13 @@ export const endOfWarChat: HistoryChat = {
       type: 'quiz',
       question: '1945年にアメリカ軍が上陸し、住民を巻き込んだ激しい地上戦が行われた場所は？',
       options: [
-        { letter: 'A', text: '硫黄島', correct: false },
-        { letter: 'B', text: '沖縄', correct: true },
-        { letter: 'C', text: 'サイパン', correct: false },
+        { letter: 'A', text: '沖縄', correct: true },
+        { letter: 'B', text: 'サイパン', correct: false },
+        { letter: 'C', text: '硫黄島', correct: false },
         { letter: 'D', text: '広島', correct: false },
       ],
       explanation:
-        '<strong>正解はB「沖縄」</strong>です。沖縄戦では約20万人が犠牲になりました。',
+        '<strong>正解はA「沖縄」</strong>です。沖縄戦では約20万人が犠牲になりました。',
     },
     {
       type: 'date',
@@ -79,12 +79,12 @@ export const endOfWarChat: HistoryChat = {
       question: '広島に原爆が投下されたのは何月何日？',
       options: [
         { letter: 'A', text: '8月1日', correct: false },
-        { letter: 'B', text: '8月6日', correct: true },
+        { letter: 'B', text: '8月15日', correct: false },
         { letter: 'C', text: '8月9日', correct: false },
-        { letter: 'D', text: '8月15日', correct: false },
+        { letter: 'D', text: '8月6日', correct: true },
       ],
       explanation:
-        '<strong>正解はB「8月6日」</strong>です。8月9日は長崎への原爆投下、8月15日は終戦の日です。',
+        '<strong>正解はD「8月6日」</strong>です。8月9日は長崎への原爆投下、8月15日は終戦の日です。',
     },
     {
       type: 'narrator',
@@ -114,13 +114,13 @@ export const endOfWarChat: HistoryChat = {
       type: 'quiz',
       question: '天皇がラジオで国民に終戦を伝えた放送を何という？',
       options: [
-        { letter: 'A', text: '大本営発表', correct: false },
+        { letter: 'A', text: '玉音放送', correct: true },
         { letter: 'B', text: '終戦宣言', correct: false },
-        { letter: 'C', text: '玉音放送', correct: true },
+        { letter: 'C', text: '大本営発表', correct: false },
         { letter: 'D', text: '降伏声明', correct: false },
       ],
       explanation:
-        '<strong>正解はC「玉音放送」</strong>です。1945年8月15日、天皇がラジオで終戦を国民に伝えました。',
+        '<strong>正解はA「玉音放送」</strong>です。1945年8月15日、天皇がラジオで終戦を国民に伝えました。',
     },
     {
       type: 'end',

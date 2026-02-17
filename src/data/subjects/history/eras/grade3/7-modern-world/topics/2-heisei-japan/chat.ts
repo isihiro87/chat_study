@@ -50,13 +50,13 @@ export const heiseiJapanChat: HistoryChat = {
       type: 'quiz',
       question: '1992年に成立した自衛隊の海外派遣を認める法律は？',
       options: [
-        { letter: 'A', text: '自衛隊法', correct: false },
-        { letter: 'B', text: '国際平和協力法（PKO協力法）', correct: true },
+        { letter: 'A', text: '国際平和協力法（PKO協力法）', correct: true },
+        { letter: 'B', text: '自衛隊法', correct: false },
         { letter: 'C', text: '日米安保条約', correct: false },
         { letter: 'D', text: '安全保障条約', correct: false },
       ],
       explanation:
-        '<strong>正解はB「国際平和協力法（PKO協力法）」</strong>です。この法律により自衛隊の国連平和維持活動への参加が可能になりました。',
+        '<strong>正解はA「国際平和協力法（PKO協力法）」</strong>です。この法律により自衛隊の国連平和維持活動への参加が可能になりました。',
     },
     {
       type: 'date',
@@ -90,13 +90,13 @@ export const heiseiJapanChat: HistoryChat = {
       type: 'quiz',
       question: '1993年に崩壊した自民党と社会党の長期的な政治体制は？',
       options: [
-        { letter: 'A', text: '大政翼賛体制', correct: false },
+        { letter: 'A', text: '55年体制', correct: true },
         { letter: 'B', text: '護憲体制', correct: false },
-        { letter: 'C', text: '55年体制', correct: true },
+        { letter: 'C', text: '大政翼賛体制', correct: false },
         { letter: 'D', text: '二大政党制', correct: false },
       ],
       explanation:
-        '<strong>正解はC「55年体制」</strong>です。1955年から続いた自民党の長期政権体制が、1993年に非自民連立政権の誕生で崩壊しました。',
+        '<strong>正解はA「55年体制」</strong>です。1955年から続いた自民党の長期政権体制が、1993年に非自民連立政権の誕生で崩壊しました。',
     },
     {
       type: 'end',

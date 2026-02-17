@@ -59,8 +59,8 @@ export const transportation: Topic = {
         {
           id: 'q1',
           question: '江戸と京都を結ぶ街道で、53の宿場があったのは？',
-          options: ['中山道', '東海道', '日光街道', '甲州街道'],
-          correctIndex: 1,
+          options: ['東海道', '日光街道', '中山道', '甲州街道'],
+          correctIndex: 0,
           explanation: '東海道は江戸〜京都間を結び、「東海道五十三次」として知られます。',
         },
       ],

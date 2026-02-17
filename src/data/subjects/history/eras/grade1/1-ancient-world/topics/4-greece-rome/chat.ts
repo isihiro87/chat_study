@@ -46,12 +46,12 @@ export const greeceRomeChat: HistoryChat = {
       type: 'quiz',
       question: 'アテネで行われた、市民全員が参加する政治を何という？',
       options: [
-        { letter: 'A', text: '帝政', correct: false },
+        { letter: 'A', text: '民主政', correct: true },
         { letter: 'B', text: '共和政', correct: false },
-        { letter: 'C', text: '民主政', correct: true },
+        { letter: 'C', text: '帝政', correct: false },
         { letter: 'D', text: '封建制', correct: false },
       ],
-      explanation: '<strong>正解はC「民主政」</strong>です。アテネでは成年男性市民全員が参加する直接民主政が行われました。',
+      explanation: '<strong>正解はA「民主政」</strong>です。アテネでは成年男性市民全員が参加する直接民主政が行われました。',
     },
     {
       type: 'narrator',
@@ -74,11 +74,11 @@ export const greeceRomeChat: HistoryChat = {
       question: 'ローマ市内に造られた巨大な円形闘技場は？',
       options: [
         { letter: 'A', text: 'パルテノン神殿', correct: false },
-        { letter: 'B', text: 'コロッセオ', correct: true },
-        { letter: 'C', text: 'ピラミッド', correct: false },
-        { letter: 'D', text: '万里の長城', correct: false },
+        { letter: 'B', text: '万里の長城', correct: false },
+        { letter: 'C', text: 'コロッセオ', correct: true },
+        { letter: 'D', text: 'ピラミッド', correct: false },
       ],
-      explanation: '<strong>正解はB「コロッセオ」</strong>です。約5万人を収容できた巨大な円形闘技場です。',
+      explanation: '<strong>正解はC「コロッセオ」</strong>です。約5万人を収容できた巨大な円形闘技場です。',
     },
     {
       type: 'end',

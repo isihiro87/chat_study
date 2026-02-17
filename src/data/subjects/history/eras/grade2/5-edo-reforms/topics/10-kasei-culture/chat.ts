@@ -44,13 +44,13 @@ export const kaseiCultureChat: HistoryChat = {
       type: 'quiz',
       question: '「東海道中膝栗毛」を書いた作者は？',
       options: [
-        { letter: 'A', text: '十返舎一九', correct: true },
+        { letter: 'A', text: '式亭三馬', correct: false },
         { letter: 'B', text: '曲亭馬琴', correct: false },
-        { letter: 'C', text: '井原西鶴', correct: false },
-        { letter: 'D', text: '式亭三馬', correct: false },
+        { letter: 'C', text: '十返舎一九', correct: true },
+        { letter: 'D', text: '井原西鶴', correct: false },
       ],
       explanation:
-        '<strong>正解はA「十返舎一九」</strong>です。弥次郎兵衛と喜多八の東海道旅行記で、庶民に大人気でした。',
+        '<strong>正解はC「十返舎一九」</strong>です。弥次郎兵衛と喜多八の東海道旅行記で、庶民に大人気でした。',
     },
     {
       type: 'narrator',
@@ -60,13 +60,13 @@ export const kaseiCultureChat: HistoryChat = {
       type: 'quiz',
       question: '「南総里見八犬伝」を書いた作者は？',
       options: [
-        { letter: 'A', text: '十返舎一九', correct: false },
+        { letter: 'A', text: '式亭三馬', correct: false },
         { letter: 'B', text: '滝沢馬琴', correct: false },
-        { letter: 'C', text: '式亭三馬', correct: false },
-        { letter: 'D', text: '曲亭馬琴', correct: true },
+        { letter: 'C', text: '曲亭馬琴', correct: true },
+        { letter: 'D', text: '十返舎一九', correct: false },
       ],
       explanation:
-        '<strong>正解はD「曲亭馬琴」</strong>です。28年かけて完成させた長編小説で、勧善懲悪の物語です。',
+        '<strong>正解はC「曲亭馬琴」</strong>です。28年かけて完成させた長編小説で、勧善懲悪の物語です。',
     },
     {
       type: 'message',
@@ -87,12 +87,12 @@ export const kaseiCultureChat: HistoryChat = {
       question: '「富嶽三十六景」を描いた浮世絵師は？',
       options: [
         { letter: 'A', text: '喜多川歌麿', correct: false },
-        { letter: 'B', text: '歌川広重', correct: false },
-        { letter: 'C', text: '葛飾北斎', correct: true },
-        { letter: 'D', text: '菱川師宣', correct: false },
+        { letter: 'B', text: '菱川師宣', correct: false },
+        { letter: 'C', text: '歌川広重', correct: false },
+        { letter: 'D', text: '葛飾北斎', correct: true },
       ],
       explanation:
-        '<strong>正解はC「葛飾北斎」</strong>です。「神奈川沖浪裏」などは世界的に有名で、ゴッホにも影響を与えました。',
+        '<strong>正解はD「葛飾北斎」</strong>です。「神奈川沖浪裏」などは世界的に有名で、ゴッホにも影響を与えました。',
     },
     {
       type: 'quiz',

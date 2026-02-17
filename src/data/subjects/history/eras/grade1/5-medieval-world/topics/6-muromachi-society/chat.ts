@@ -52,12 +52,12 @@ export const muromachiSocietyChat: HistoryChat = {
       type: 'quiz',
       question: '室町時代に農民が作った、村の自治組織は何と呼ばれる？',
       options: [
-        { letter: 'A', text: '座', correct: false },
-        { letter: 'B', text: '講', correct: false },
-        { letter: 'C', text: '惣', correct: true },
+        { letter: 'A', text: '講', correct: false },
+        { letter: 'B', text: '惣', correct: true },
+        { letter: 'C', text: '座', correct: false },
         { letter: 'D', text: '組', correct: false },
       ],
-      explanation: '<strong>正解はC「惣」</strong>です。室町時代に農民が自主的に作った村の自治組織で、用水管理や村の掟を寄合で話し合って決めました。',
+      explanation: '<strong>正解はB「惣」</strong>です。室町時代に農民が自主的に作った村の自治組織で、用水管理や村の掟を寄合で話し合って決めました。',
     },
     {
       type: 'narrator',
@@ -86,11 +86,11 @@ export const muromachiSocietyChat: HistoryChat = {
       question: '室町時代に農民が幕府に借金の帳消しを求めて起こした運動は？',
       options: [
         { letter: 'A', text: '一向一揆', correct: false },
-        { letter: 'B', text: '国一揆', correct: false },
+        { letter: 'B', text: '土一揆', correct: true },
         { letter: 'C', text: '百姓一揆', correct: false },
-        { letter: 'D', text: '土一揆', correct: true },
+        { letter: 'D', text: '国一揆', correct: false },
       ],
-      explanation: '<strong>正解はD「土一揆」</strong>です。農民らが団結して幕府に<strong>徳政令</strong>（借金の帳消し）を要求しました。1428年の正長の土一揆が代表的です。',
+      explanation: '<strong>正解はB「土一揆」</strong>です。農民らが団結して幕府に<strong>徳政令</strong>（借金の帳消し）を要求しました。1428年の正長の土一揆が代表的です。',
     },
     {
       type: 'end',

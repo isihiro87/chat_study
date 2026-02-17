@@ -60,13 +60,13 @@ export const occupationChat: HistoryChat = {
       type: 'quiz',
       question: '占領下の日本で民主化の指令を出した組織は？',
       options: [
-        { letter: 'A', text: '国際連合', correct: false },
-        { letter: 'B', text: 'GHQ', correct: true },
+        { letter: 'A', text: 'GHQ', correct: true },
+        { letter: 'B', text: '国際連合', correct: false },
         { letter: 'C', text: '大政翼賛会', correct: false },
         { letter: 'D', text: '枢密院', correct: false },
       ],
       explanation:
-        '<strong>正解はB「GHQ」</strong>です。連合国軍最高司令官総司令部の略称で、マッカーサーのもとで日本の民主化を進めました。',
+        '<strong>正解はA「GHQ」</strong>です。連合国軍最高司令官総司令部の略称で、マッカーサーのもとで日本の民主化を進めました。',
     },
     {
       type: 'message',
@@ -83,12 +83,12 @@ export const occupationChat: HistoryChat = {
       question: 'ポツダム宣言を受け入れた日本が行ったことは？',
       options: [
         { letter: 'A', text: '連合国への宣戦布告', correct: false },
-        { letter: 'B', text: '無条件降伏', correct: true },
-        { letter: 'C', text: '講和条約の拒否', correct: false },
-        { letter: 'D', text: '中立宣言', correct: false },
+        { letter: 'B', text: '講和条約の拒否', correct: false },
+        { letter: 'C', text: '中立宣言', correct: false },
+        { letter: 'D', text: '無条件降伏', correct: true },
       ],
       explanation:
-        '<strong>正解はB「無条件降伏」</strong>です。1945年8月、日本はポツダム宣言を受け入れて無条件降伏しました。',
+        '<strong>正解はD「無条件降伏」</strong>です。1945年8月、日本はポツダム宣言を受け入れて無条件降伏しました。',
     },
     {
       type: 'end',

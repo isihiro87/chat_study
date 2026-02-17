@@ -47,11 +47,11 @@ export const kofunEraChat: HistoryChat = {
       question: '円形と方形を組み合わせた日本独自の墓は？',
       options: [
         { letter: 'A', text: '円墳', correct: false },
-        { letter: 'B', text: '前方後円墳', correct: true },
-        { letter: 'C', text: 'ピラミッド', correct: false },
+        { letter: 'B', text: 'ピラミッド', correct: false },
+        { letter: 'C', text: '前方後円墳', correct: true },
         { letter: 'D', text: '方墳', correct: false },
       ],
-      explanation: '<strong>正解はB「前方後円墳」</strong>です。鍵穴のような形をした日本独自の墓です。',
+      explanation: '<strong>正解はC「前方後円墳」</strong>です。鍵穴のような形をした日本独自の墓です。',
     },
     {
       type: 'narrator',
@@ -75,10 +75,10 @@ export const kofunEraChat: HistoryChat = {
       options: [
         { letter: 'A', text: '武士', correct: false },
         { letter: 'B', text: '公家', correct: false },
-        { letter: 'C', text: '渡来人', correct: true },
-        { letter: 'D', text: '商人', correct: false },
+        { letter: 'C', text: '商人', correct: false },
+        { letter: 'D', text: '渡来人', correct: true },
       ],
-      explanation: '<strong>正解はC「渡来人」</strong>です。須恵器・漢字・仏教などを日本に伝えました。',
+      explanation: '<strong>正解はD「渡来人」</strong>です。須恵器・漢字・仏教などを日本に伝えました。',
     },
     {
       type: 'end',

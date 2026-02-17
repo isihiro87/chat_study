@@ -52,12 +52,12 @@ export const sengokuEraChat: HistoryChat = {
       type: 'quiz',
       question: '応仁の乱の後に広まった、実力で主君を倒してのし上がる風潮を何という？',
       options: [
-        { letter: 'A', text: '下剋上', correct: true },
+        { letter: 'A', text: '守護不入', correct: false },
         { letter: 'B', text: '御恩と奉公', correct: false },
-        { letter: 'C', text: '守護不入', correct: false },
+        { letter: 'C', text: '下剋上', correct: true },
         { letter: 'D', text: '惣無事令', correct: false },
       ],
-      explanation: '<strong>正解はA「下剋上」</strong>です。応仁の乱をきっかけに、身分の低い者が実力で上の者を倒してのし上がる<strong>下剋上</strong>の風潮が広まり、戦国時代の原動力となりました。',
+      explanation: '<strong>正解はC「下剋上」</strong>です。応仁の乱をきっかけに、身分の低い者が実力で上の者を倒してのし上がる<strong>下剋上</strong>の風潮が広まり、戦国時代の原動力となりました。',
     },
     {
       type: 'narrator',

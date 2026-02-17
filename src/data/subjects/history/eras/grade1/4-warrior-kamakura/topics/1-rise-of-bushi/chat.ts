@@ -80,11 +80,11 @@ export const riseOfBushiChat: HistoryChat = {
       question: '奥州藤原氏が建てた黄金の建築物は？',
       options: [
         { letter: 'A', text: '平等院鳳凰堂', correct: false },
-        { letter: 'B', text: '金閣', correct: false },
-        { letter: 'C', text: '中尊寺金色堂', correct: true },
+        { letter: 'B', text: '中尊寺金色堂', correct: true },
+        { letter: 'C', text: '金閣', correct: false },
         { letter: 'D', text: '東大寺大仏殿', correct: false },
       ],
-      explanation: '<strong>正解はC「中尊寺金色堂」</strong>です。奥州藤原氏が平泉に建てた中尊寺金色堂は、金箔で覆われた豪華な仏堂です。',
+      explanation: '<strong>正解はB「中尊寺金色堂」</strong>です。奥州藤原氏が平泉に建てた中尊寺金色堂は、金箔で覆われた豪華な仏堂です。',
     },
     {
       type: 'end',

@@ -51,8 +51,8 @@ export const mongolInvasion: Topic = {
         {
           id: 'q1',
           question: '二度の元寇に際し、防衛を指揮した鎌倉幕府の執権は？',
-          options: ['北条泰時', '北条時宗', '北条義時', '北条時頼'],
-          correctIndex: 1,
+          options: ['北条時宗', '北条泰時', '北条義時', '北条時頼'],
+          correctIndex: 0,
           explanation: '北条時宗は文永の役と弘安の役の二度の元寇に対し、幕府の執権として防衛を指揮しました。',
         },
         {
@@ -65,8 +65,8 @@ export const mongolInvasion: Topic = {
         {
           id: 'q3',
           question: '政治の実権を朝廷に取り戻そうとして鎌倉幕府を倒した天皇は？',
-          options: ['後白河天皇', '後鳥羽上皇', '後醍醐天皇', '後嵯峨天皇'],
-          correctIndex: 2,
+          options: ['後白河天皇', '後醍醐天皇', '後嵯峨天皇', '後鳥羽上皇'],
+          correctIndex: 1,
           explanation: '後醍醐天皇は足利尊氏らの協力を得て鎌倉幕府を倒し、天皇中心の政治を目指しました。',
         },
       ],

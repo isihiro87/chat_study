@@ -59,12 +59,12 @@ export const postwarCultureChat: HistoryChat = {
       question: '「漫画の神様」と呼ばれ、「鉄腕アトム」を描いた人物は？',
       options: [
         { letter: 'A', text: '黒澤明', correct: false },
-        { letter: 'B', text: '手塚治虫', correct: true },
-        { letter: 'C', text: '湯川秀樹', correct: false },
+        { letter: 'B', text: '湯川秀樹', correct: false },
+        { letter: 'C', text: '手塚治虫', correct: true },
         { letter: 'D', text: '川端康成', correct: false },
       ],
       explanation:
-        '<strong>正解はB「手塚治虫」</strong>です。「鉄腕アトム」で日本の漫画・アニメ文化の基礎を築きました。',
+        '<strong>正解はC「手塚治虫」</strong>です。「鉄腕アトム」で日本の漫画・アニメ文化の基礎を築きました。',
     },
     {
       type: 'date',

@@ -74,11 +74,11 @@ export const medievalEuropeIslamChat: HistoryChat = {
       question: 'イスラーム世界で発展した、幾何学的な模様の芸術を何という？',
       options: [
         { letter: 'A', text: 'モザイク', correct: false },
-        { letter: 'B', text: 'フレスコ', correct: false },
-        { letter: 'C', text: 'アラベスク', correct: true },
-        { letter: 'D', text: 'ステンドグラス', correct: false },
+        { letter: 'B', text: 'アラベスク', correct: true },
+        { letter: 'C', text: 'ステンドグラス', correct: false },
+        { letter: 'D', text: 'フレスコ', correct: false },
       ],
-      explanation: '<strong>正解はC「アラベスク」</strong>です。アラベスクはイスラーム世界で発展した幾何学的な模様の芸術で、モスクの装飾などに用いられました。',
+      explanation: '<strong>正解はB「アラベスク」</strong>です。アラベスクはイスラーム世界で発展した幾何学的な模様の芸術で、モスクの装飾などに用いられました。',
     },
     {
       type: 'end',

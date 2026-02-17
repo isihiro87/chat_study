@@ -80,11 +80,11 @@ export const europeSpreadChat: HistoryChat = {
       question: 'オランダやイギリスがアジア貿易のために設立した会社を何という？',
       options: [
         { letter: 'A', text: '南蛮貿易会社', correct: false },
-        { letter: 'B', text: '東インド会社', correct: true },
+        { letter: 'B', text: '香辛料貿易会社', correct: false },
         { letter: 'C', text: '西インド会社', correct: false },
-        { letter: 'D', text: '香辛料貿易会社', correct: false },
+        { letter: 'D', text: '東インド会社', correct: true },
       ],
-      explanation: '<strong>正解はB「東インド会社」</strong>です。オランダやイギリスがアジアとの貿易を独占するために設立した特許会社で、植民地支配の拠点となりました。',
+      explanation: '<strong>正解はD「東インド会社」</strong>です。オランダやイギリスがアジアとの貿易を独占するために設立した特許会社で、植民地支配の拠点となりました。',
     },
     {
       type: 'end',

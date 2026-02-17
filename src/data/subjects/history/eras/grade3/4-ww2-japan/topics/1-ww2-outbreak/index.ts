@@ -112,11 +112,11 @@ export const ww2Outbreak: Topic = {
           question: '第二次世界大戦が始まったきっかけは？',
           options: [
             'サラエボ事件',
-            'ドイツのポーランド侵攻',
             '真珠湾攻撃',
             '満州事変',
+            'ドイツのポーランド侵攻',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '1939年にドイツがポーランドに侵攻したことが第二次世界大戦の始まりです。',
         },
@@ -124,28 +124,28 @@ export const ww2Outbreak: Topic = {
           id: 'q2',
           question: '日独伊三国同盟で日本と同盟を結んだ国の組み合わせは？',
           options: [
-            'ドイツ・ソ連',
             'ドイツ・イタリア',
-            'イタリア・フランス',
             'ドイツ・イギリス',
+            'イタリア・フランス',
+            'ドイツ・ソ連',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '1940年に日本はドイツ・イタリアと三国同盟を結び、枢軸国を形成しました。',
         },
         {
           id: 'q3',
           question: 'ABCD包囲陣の「A」はどの国を指す？',
-          options: ['オーストラリア', 'アメリカ', 'アルゼンチン', 'オーストリア'],
-          correctIndex: 1,
+          options: ['オーストリア', 'オーストラリア', 'アルゼンチン', 'アメリカ'],
+          correctIndex: 3,
           explanation:
             'ABCDはAmerica（アメリカ）・Britain（イギリス）・China（中国）・Dutch（オランダ）の頭文字です。',
         },
         {
           id: 'q4',
           question: 'ナチス・ドイツによるユダヤ人の大量虐殺を何という？',
-          options: ['レジスタンス', 'プロパガンダ', 'ホロコースト', 'ファシズム'],
-          correctIndex: 2,
+          options: ['ホロコースト', 'レジスタンス', 'プロパガンダ', 'ファシズム'],
+          correctIndex: 0,
           explanation:
             'ホロコーストでは、強制収容所で約600万人のユダヤ人が犠牲になりました。',
         },

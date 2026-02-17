@@ -61,8 +61,8 @@ export const eastAsiaTrade: Topic = {
         {
           id: 'q2',
           question: '15世紀に尚氏が沖縄島を統一して建てた国は？',
-          options: ['琉球王国', '朝鮮国', '蝦夷国', '薩摩国'],
-          correctIndex: 0,
+          options: ['薩摩国', '朝鮮国', '蝦夷国', '琉球王国'],
+          correctIndex: 3,
           explanation: '琉球王国は尚氏が沖縄島を統一して建てた国で、中継貿易によって大いに繁栄しました。',
         },
         {

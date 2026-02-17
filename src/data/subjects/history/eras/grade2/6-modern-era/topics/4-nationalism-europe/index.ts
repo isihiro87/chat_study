@@ -98,8 +98,8 @@ export const nationalismEurope: Topic = {
         {
           id: 'q1',
           question: '「鉄と血」でドイツを統一した「鉄血宰相」は？',
-          options: ['ナポレオン', 'ビスマルク', 'ワシントン', 'リンカン'],
-          correctIndex: 1,
+          options: ['ワシントン', 'ナポレオン', 'ビスマルク', 'リンカン'],
+          correctIndex: 2,
           explanation:
             'ビスマルクはプロイセンの首相として、軍事力を背景にドイツ統一を達成しました。',
         },

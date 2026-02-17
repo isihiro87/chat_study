@@ -54,13 +54,13 @@ export const wartimeLifeChat: HistoryChat = {
       type: 'quiz',
       question: '1943年から大学生が戦場に送られたことを何という？',
       options: [
-        { letter: 'A', text: '勤労動員', correct: false },
+        { letter: 'A', text: '学徒出陣', correct: true },
         { letter: 'B', text: '徴兵制', correct: false },
-        { letter: 'C', text: '学徒出陣', correct: true },
-        { letter: 'D', text: '疎開', correct: false },
+        { letter: 'C', text: '疎開', correct: false },
+        { letter: 'D', text: '勤労動員', correct: false },
       ],
       explanation:
-        '<strong>正解はC「学徒出陣」</strong>です。兵力不足を補うため、大学生が学業を中断して出征しました。',
+        '<strong>正解はA「学徒出陣」</strong>です。兵力不足を補うため、大学生が学業を中断して出征しました。',
     },
     {
       type: 'narrator',
@@ -86,13 +86,13 @@ export const wartimeLifeChat: HistoryChat = {
       type: 'quiz',
       question: '家庭の鍋や寺の鐘が政府に回収されたことを何という？',
       options: [
-        { letter: 'A', text: '配給制', correct: false },
-        { letter: 'B', text: '金属供出', correct: true },
-        { letter: 'C', text: '灯火管制', correct: false },
+        { letter: 'A', text: '灯火管制', correct: false },
+        { letter: 'B', text: '配給制', correct: false },
+        { letter: 'C', text: '金属供出', correct: true },
         { letter: 'D', text: '勤労動員', correct: false },
       ],
       explanation:
-        '<strong>正解はB「金属供出」</strong>です。兵器の材料として、あらゆる金属が回収されました。',
+        '<strong>正解はC「金属供出」</strong>です。兵器の材料として、あらゆる金属が回収されました。',
     },
     {
       type: 'narrator',
@@ -102,13 +102,13 @@ export const wartimeLifeChat: HistoryChat = {
       type: 'quiz',
       question: '戦時中の国民への我慢を求めたスローガンは？',
       options: [
-        { letter: 'A', text: '富国強兵', correct: false },
-        { letter: 'B', text: '殖産興業', correct: false },
+        { letter: 'A', text: '欲しがりません勝つまでは', correct: true },
+        { letter: 'B', text: '富国強兵', correct: false },
         { letter: 'C', text: '八紘一宇', correct: false },
-        { letter: 'D', text: '欲しがりません勝つまでは', correct: true },
+        { letter: 'D', text: '殖産興業', correct: false },
       ],
       explanation:
-        '<strong>正解はD「欲しがりません勝つまでは」</strong>です。食糧難のなか、国民に耐乏を求めたスローガンでした。',
+        '<strong>正解はA「欲しがりません勝つまでは」</strong>です。食糧難のなか、国民に耐乏を求めたスローガンでした。',
     },
     {
       type: 'end',

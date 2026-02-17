@@ -140,12 +140,12 @@ export const independence: Topic = {
           question:
             '1951年に日本が主権を回復した条約は？',
           options: [
-            'ポーツマス条約',
-            'サンフランシスコ平和条約',
-            '日米安全保障条約',
             '日ソ共同宣言',
+            'ポーツマス条約',
+            '日米安全保障条約',
+            'サンフランシスコ平和条約',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             'サンフランシスコ平和条約により、日本は主権を回復し独立国として国際社会に復帰しました。',
         },
@@ -155,11 +155,11 @@ export const independence: Topic = {
             '朝鮮戦争によって日本経済が潤ったことを何という？',
           options: [
             'バブル景気',
-            '特需景気',
             '高度経済成長',
+            '特需景気',
             '神武景気',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             '朝鮮戦争でアメリカ軍の軍需物資を日本企業が受注し、経済復興のきっかけとなりました。',
         },
@@ -170,10 +170,10 @@ export const independence: Topic = {
           options: [
             '自由民権運動',
             '大正デモクラシー',
-            '安保闘争',
             '米騒動',
+            '安保闘争',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '1960年に岸信介首相のもとで安保条約改定に反対する安保闘争が起こりました。',
         },

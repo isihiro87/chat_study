@@ -111,12 +111,12 @@ export const postwarOrder: Topic = {
           id: 'q1',
           question: '第一次世界大戦後の講和条約として正しいものは？',
           options: [
-            '下関条約',
-            'ポーツマス条約',
-            'ベルサイユ条約',
             'ワシントン条約',
+            'ポーツマス条約',
+            '下関条約',
+            'ベルサイユ条約',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '1919年のパリ講和会議でベルサイユ条約が結ばれ、ドイツに厳しい条件が課されました。',
         },
@@ -124,20 +124,20 @@ export const postwarOrder: Topic = {
           id: 'q2',
           question: '1919年に朝鮮で起きた、日本からの独立を求める運動は？',
           options: [
+            '三・一独立運動',
             '五・四運動',
             '辛亥革命',
-            '三・一独立運動',
             '義和団事件',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             '三・一独立運動は1919年3月1日に始まった朝鮮の大規模な独立運動です。',
         },
         {
           id: 'q3',
           question: 'インドで非暴力・不服従運動を指導した人物は？',
-          options: ['ネルー', 'ガンディー', 'スカルノ', '孫文'],
-          correctIndex: 1,
+          options: ['ガンディー', 'スカルノ', 'ネルー', '孫文'],
+          correctIndex: 0,
           explanation:
             'ガンディーは非暴力・不服従の手段でイギリスからの独立を目指しました。',
         },
@@ -154,12 +154,12 @@ export const postwarOrder: Topic = {
           id: 'q5',
           question: '1919年に中国で起きた、日本への反発から始まった運動は？',
           options: [
-            '三・一独立運動',
             '五・四運動',
+            '三・一独立運動',
             '辛亥革命',
             '太平天国の乱',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '五・四運動は、パリ講和会議で山東省の権益が日本に渡ることへの抗議から始まりました。',
         },

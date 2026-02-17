@@ -50,8 +50,8 @@ export const kokufuCulture: Topic = {
         {
           id: 'q1',
           question: '紫式部が書いた、貴族社会を描いた長編物語は？',
-          options: ['枕草子', '源氏物語', '古事記', '万葉集'],
-          correctIndex: 1,
+          options: ['枕草子', '古事記', '源氏物語', '万葉集'],
+          correctIndex: 2,
           explanation: '源氏物語は世界最古の長編小説ともいわれる紫式部の代表作です。',
         },
         {
@@ -64,8 +64,8 @@ export const kokufuCulture: Topic = {
         {
           id: 'q3',
           question: '1053年に藤原頼通が宇治に建立した建物は？',
-          options: ['東大寺', '平等院鳳凰堂', '法隆寺', '唐招提寺'],
-          correctIndex: 1,
+          options: ['東大寺', '唐招提寺', '法隆寺', '平等院鳳凰堂'],
+          correctIndex: 3,
           explanation: '平等院鳳凰堂は浄土信仰に基づいて建立された美しい建物です。',
         },
       ],

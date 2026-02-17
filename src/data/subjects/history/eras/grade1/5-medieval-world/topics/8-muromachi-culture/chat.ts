@@ -58,12 +58,12 @@ export const muromachiCultureChat: HistoryChat = {
       type: 'quiz',
       question: '足利義満が京都の北山に建て、金箔を貼った華やかな建物は？',
       options: [
-        { letter: 'A', text: '銀閣', correct: false },
-        { letter: 'B', text: '金閣', correct: true },
-        { letter: 'C', text: '平等院', correct: false },
+        { letter: 'A', text: '平等院', correct: false },
+        { letter: 'B', text: '銀閣', correct: false },
+        { letter: 'C', text: '金閣', correct: true },
         { letter: 'D', text: '中尊寺金色堂', correct: false },
       ],
-      explanation: '<strong>正解はB「金閣」</strong>です。3代将軍<strong>足利義満</strong>が京都の北山に建てた金閣（鹿苑寺）は、公家文化と武家文化の融合を象徴する<strong>北山文化</strong>の代表です。',
+      explanation: '<strong>正解はC「金閣」</strong>です。3代将軍<strong>足利義満</strong>が京都の北山に建てた金閣（鹿苑寺）は、公家文化と武家文化の融合を象徴する<strong>北山文化</strong>の代表です。',
     },
     {
       type: 'narrator',
@@ -91,12 +91,12 @@ export const muromachiCultureChat: HistoryChat = {
       type: 'quiz',
       question: '水墨画を大成し、明にも渡って学んだ室町時代の画家は？',
       options: [
-        { letter: 'A', text: '狩野永徳', correct: false },
-        { letter: 'B', text: '尾形光琳', correct: false },
-        { letter: 'C', text: '雪舟', correct: true },
+        { letter: 'A', text: '雪舟', correct: true },
+        { letter: 'B', text: '狩野永徳', correct: false },
+        { letter: 'C', text: '尾形光琳', correct: false },
         { letter: 'D', text: '葛飾北斎', correct: false },
       ],
-      explanation: '<strong>正解はC「雪舟」</strong>です。<strong>雪舟</strong>は明に渡って水墨画の技法を学び、日本独自の<strong>水墨画</strong>を大成しました。東山文化を代表する芸術家です。',
+      explanation: '<strong>正解はA「雪舟」</strong>です。<strong>雪舟</strong>は明に渡って水墨画の技法を学び、日本独自の<strong>水墨画</strong>を大成しました。東山文化を代表する芸術家です。',
     },
     {
       type: 'end',

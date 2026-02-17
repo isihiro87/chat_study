@@ -51,12 +51,12 @@ export const edoBakufuChat: HistoryChat = {
       question: '1600年、徳川家康が勝利した天下分け目の戦いは？',
       options: [
         { letter: 'A', text: '長篠の戦い', correct: false },
-        { letter: 'B', text: '関ヶ原の戦い', correct: true },
-        { letter: 'C', text: '大坂の陣', correct: false },
+        { letter: 'B', text: '大坂の陣', correct: false },
+        { letter: 'C', text: '関ヶ原の戦い', correct: true },
         { letter: 'D', text: '桶狭間の戦い', correct: false },
       ],
       explanation:
-        '<strong>正解はB「関ヶ原の戦い」</strong>です。1600年、東軍（家康）と西軍（石田三成ら）が激突し、家康が勝利しました。',
+        '<strong>正解はC「関ヶ原の戦い」</strong>です。1600年、東軍（家康）と西軍（石田三成ら）が激突し、家康が勝利しました。',
     },
     {
       type: 'message',
@@ -78,13 +78,13 @@ export const edoBakufuChat: HistoryChat = {
       type: 'quiz',
       question: '大名が1年おきに江戸と領地を往復する制度は？',
       options: [
-        { letter: 'A', text: '武家諸法度', correct: false },
-        { letter: 'B', text: '参勤交代', correct: true },
+        { letter: 'A', text: '参勤交代', correct: true },
+        { letter: 'B', text: '検地', correct: false },
         { letter: 'C', text: '鎖国', correct: false },
-        { letter: 'D', text: '検地', correct: false },
+        { letter: 'D', text: '武家諸法度', correct: false },
       ],
       explanation:
-        '<strong>正解はB「参勤交代」</strong>です。3代将軍家光の時に制度化され、大名の経済力を弱めて反乱を防ぐ目的がありました。',
+        '<strong>正解はA「参勤交代」</strong>です。3代将軍家光の時に制度化され、大名の経済力を弱めて反乱を防ぐ目的がありました。',
     },
     {
       type: 'end',

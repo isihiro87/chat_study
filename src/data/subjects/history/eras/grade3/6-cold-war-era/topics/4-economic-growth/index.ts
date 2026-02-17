@@ -168,12 +168,12 @@ export const economicGrowth: Topic = {
           question:
             '高度経済成長期に「三種の神器」と呼ばれた家電製品の組み合わせは？',
           options: [
-            'テレビ・ラジオ・電話',
             'テレビ・洗濯機・冷蔵庫',
             'テレビ・エアコン・自動車',
+            'テレビ・ラジオ・電話',
             '洗濯機・掃除機・冷蔵庫',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             'テレビ・洗濯機・冷蔵庫は「三種の神器」と呼ばれ、高度経済成長期に家庭に普及しました。',
         },
@@ -182,12 +182,12 @@ export const economicGrowth: Topic = {
           question:
             '1973年の石油危機のきっかけとなった出来事は？',
           options: [
-            'ベトナム戦争',
             '朝鮮戦争',
             '中東戦争',
             'キューバ危機',
+            'ベトナム戦争',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation:
             '1973年の中東戦争をきっかけに産油国が石油価格を大幅に引き上げ、石油危機が起こりました。',
         },
@@ -196,12 +196,12 @@ export const economicGrowth: Topic = {
           question:
             '有機水銀が原因で発生した公害病は？',
           options: [
-            'イタイイタイ病',
             '水俣病',
+            'イタイイタイ病',
             '四日市ぜんそく',
             '足尾鉱毒事件',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '水俣病は工場排水に含まれる有機水銀が原因で発生した公害病です。',
         },

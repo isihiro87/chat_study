@@ -53,11 +53,11 @@ export const handenTaxChat: HistoryChat = {
       question: '人々に土地を与え、死後返還させる制度は？',
       options: [
         { letter: 'A', text: '墾田永年私財法', correct: false },
-        { letter: 'B', text: '班田収授法', correct: true },
-        { letter: 'C', text: '三世一身法', correct: false },
-        { letter: 'D', text: '公地・公民', correct: false },
+        { letter: 'B', text: '三世一身法', correct: false },
+        { letter: 'C', text: '公地・公民', correct: false },
+        { letter: 'D', text: '班田収授法', correct: true },
       ],
-      explanation: '<strong>正解はB「班田収授法」</strong>です。6歳以上の人に口分田を与え、死後に国へ返させる制度です。',
+      explanation: '<strong>正解はD「班田収授法」</strong>です。6歳以上の人に口分田を与え、死後に国へ返させる制度です。',
     },
     {
       type: 'narrator',
@@ -81,10 +81,10 @@ export const handenTaxChat: HistoryChat = {
       options: [
         { letter: 'A', text: '班田収授法', correct: false },
         { letter: 'B', text: '三世一身法', correct: false },
-        { letter: 'C', text: '墾田永年私財法', correct: true },
-        { letter: 'D', text: '大宝律令', correct: false },
+        { letter: 'C', text: '大宝律令', correct: false },
+        { letter: 'D', text: '墾田永年私財法', correct: true },
       ],
-      explanation: '<strong>正解はC「墾田永年私財法」</strong>です。開墾した土地の永久私有を認め、のちの荘園の広がりにつながりました。',
+      explanation: '<strong>正解はD「墾田永年私財法」</strong>です。開墾した土地の永久私有を認め、のちの荘園の広がりにつながりました。',
     },
     {
       type: 'end',

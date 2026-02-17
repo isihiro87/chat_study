@@ -65,16 +65,16 @@ export const kanseiReform: Topic = {
         {
           id: 'q1',
           question: '寛政の改革を行った、吉宗の孫である老中は？',
-          options: ['田沼意次', '松平定信', '水野忠邦', '新井白石'],
-          correctIndex: 1,
+          options: ['松平定信', '水野忠邦', '田沼意次', '新井白石'],
+          correctIndex: 0,
           explanation:
             '松平定信は徳川吉宗の孫で、祖父の政治をお手本に厳しい改革を行いました。',
         },
         {
           id: 'q2',
           question: '寛政の改革で、旗本や御家人の借金を帳消しにした法令は？',
-          options: ['倹約令', '囲い米の制', '棄捐令', '上知令'],
-          correctIndex: 2,
+          options: ['囲い米の制', '棄捐令', '上知令', '倹約令'],
+          correctIndex: 1,
           explanation:
             '棄捐令により、生活に困る旗本や御家人の借金を帳消しにして救済しました。',
         },

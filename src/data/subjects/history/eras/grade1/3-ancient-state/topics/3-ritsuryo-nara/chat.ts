@@ -46,12 +46,12 @@ export const ritsuryoNaraChat: HistoryChat = {
       type: 'quiz',
       question: '701年に完成した律令は？',
       options: [
-        { letter: 'A', text: '十七条の憲法', correct: false },
-        { letter: 'B', text: '大宝律令', correct: true },
-        { letter: 'C', text: '御成敗式目', correct: false },
+        { letter: 'A', text: '御成敗式目', correct: false },
+        { letter: 'B', text: '十七条の憲法', correct: false },
+        { letter: 'C', text: '大宝律令', correct: true },
         { letter: 'D', text: '武家諸法度', correct: false },
       ],
-      explanation: '<strong>正解はB「大宝律令」</strong>です。唐の律令にならい、刑罰（律）と政治の決まり（令）を定めました。',
+      explanation: '<strong>正解はC「大宝律令」</strong>です。唐の律令にならい、刑罰（律）と政治の決まり（令）を定めました。',
     },
     {
       type: 'narrator',
@@ -74,11 +74,11 @@ export const ritsuryoNaraChat: HistoryChat = {
       question: '710年に奈良に置かれた都は？',
       options: [
         { letter: 'A', text: '藤原京', correct: false },
-        { letter: 'B', text: '平城京', correct: true },
-        { letter: 'C', text: '平安京', correct: false },
+        { letter: 'B', text: '平安京', correct: false },
+        { letter: 'C', text: '平城京', correct: true },
         { letter: 'D', text: '長岡京', correct: false },
       ],
-      explanation: '<strong>正解はB「平城京」</strong>です。唐の長安にならって造られた、奈良時代の都です。',
+      explanation: '<strong>正解はC「平城京」</strong>です。唐の長安にならって造られた、奈良時代の都です。',
     },
     {
       type: 'end',

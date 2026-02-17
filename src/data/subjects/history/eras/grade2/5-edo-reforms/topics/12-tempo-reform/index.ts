@@ -53,24 +53,24 @@ export const tempoReform: Topic = {
         {
           id: 'q1',
           question: '天保の改革を行った老中は？',
-          options: ['松平定信', '田沼意次', '水野忠邦', '徳川吉宗'],
-          correctIndex: 2,
+          options: ['松平定信', '水野忠邦', '田沼意次', '徳川吉宗'],
+          correctIndex: 1,
           explanation:
             '水野忠邦は江戸幕府最後の幕政改革を行いましたが、厳しすぎて失敗しました。',
         },
         {
           id: 'q2',
           question: '天保の改革で、物価を下げるために解散させられたものは？',
-          options: ['藩校', '株仲間', '寺子屋', '問屋'],
-          correctIndex: 1,
+          options: ['株仲間', '藩校', '寺子屋', '問屋'],
+          correctIndex: 0,
           explanation:
             '株仲間を物価高の原因として解散させましたが、かえって流通が混乱しました。',
         },
         {
           id: 'q3',
           question: '天保の改革で、大名の領地を幕府直轄にしようとして失敗した法令は？',
-          options: ['倹約令', '株仲間解散令', '上知令', '人返し令'],
-          correctIndex: 2,
+          options: ['倹約令', '上知令', '人返し令', '株仲間解散令'],
+          correctIndex: 1,
           explanation:
             '上知令は大名たちの猛反対にあい、水野忠邦は失脚しました。',
         },

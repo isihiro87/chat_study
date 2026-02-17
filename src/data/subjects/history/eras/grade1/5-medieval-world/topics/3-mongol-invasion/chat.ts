@@ -47,11 +47,11 @@ export const mongolInvasionChat: HistoryChat = {
       question: '1274年に元軍が日本に襲来した戦いを何という？',
       options: [
         { letter: 'A', text: '弘安の役', correct: false },
-        { letter: 'B', text: '文永の役', correct: true },
-        { letter: 'C', text: '承久の乱', correct: false },
+        { letter: 'B', text: '承久の乱', correct: false },
+        { letter: 'C', text: '文永の役', correct: true },
         { letter: 'D', text: '壇ノ浦の戦い', correct: false },
       ],
-      explanation: '<strong>正解はB「文永の役」</strong>です。1274年の元軍の最初の襲来を文永の役といいます。2度目の1281年の襲来は弘安の役と呼ばれます。',
+      explanation: '<strong>正解はC「文永の役」</strong>です。1274年の元軍の最初の襲来を文永の役といいます。2度目の1281年の襲来は弘安の役と呼ばれます。',
     },
     {
       type: 'narrator',

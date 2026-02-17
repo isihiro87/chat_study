@@ -110,8 +110,8 @@ export const internationalRelations: Topic = {
         {
           id: 'q1',
           question: '1871年に欧米に派遣された使節団の大使は？',
-          options: ['大久保利通', '西郷隆盛', '岩倉具視', '伊藤博文'],
-          correctIndex: 2,
+          options: ['大久保利通', '西郷隆盛', '伊藤博文', '岩倉具視'],
+          correctIndex: 3,
           explanation:
             '岩倉具視を大使とする岩倉使節団は、条約改正交渉と欧米の調査のために派遣されました。',
         },

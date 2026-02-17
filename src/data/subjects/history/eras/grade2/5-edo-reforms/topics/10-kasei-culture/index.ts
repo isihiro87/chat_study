@@ -63,16 +63,16 @@ export const kaseiCulture: Topic = {
         {
           id: 'q3',
           question: '「富嶽三十六景」を描いた浮世絵師は？',
-          options: ['喜多川歌麿', '歌川広重', '葛飾北斎', '菱川師宣'],
-          correctIndex: 2,
+          options: ['菱川師宣', '歌川広重', '喜多川歌麿', '葛飾北斎'],
+          correctIndex: 3,
           explanation:
             '葛飾北斎の「神奈川沖浪裏」などは世界的に有名で、ゴッホにも影響を与えました。',
         },
         {
           id: 'q4',
           question: '「東海道五十三次」を描いた浮世絵師は？',
-          options: ['葛飾北斎', '歌川広重', '喜多川歌麿', '東洲斎写楽'],
-          correctIndex: 1,
+          options: ['葛飾北斎', '喜多川歌麿', '歌川広重', '東洲斎写楽'],
+          correctIndex: 2,
           explanation:
             '歌川広重は東海道の宿場を描いた風景画で、旅の情景が美しく表現されています。',
         },

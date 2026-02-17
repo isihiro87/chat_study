@@ -168,12 +168,12 @@ export const international: Topic = {
           question:
             '1972年に日本と中国の国交を正常化した声明は？',
           options: [
-            '日中平和友好条約',
             '日中共同声明',
+            '日中平和友好条約',
             '日ソ共同宣言',
             '日韓基本条約',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '1972年に田中角栄首相が訪中し、日中共同声明により中国との国交が正常化しました。',
         },
@@ -181,8 +181,8 @@ export const international: Topic = {
           id: 'q3',
           question:
             '1972年にアメリカから日本に返還された地域は？',
-          options: ['小笠原諸島', '北方領土', '沖縄', '対馬'],
-          correctIndex: 2,
+          options: ['沖縄', '小笠原諸島', '北方領土', '対馬'],
+          correctIndex: 0,
           explanation:
             '1972年に佐藤栄作首相のもとで沖縄がアメリカから日本に返還されました。',
         },

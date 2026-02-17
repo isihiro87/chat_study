@@ -110,8 +110,8 @@ export const frenchRevolution: Topic = {
         {
           id: 'q1',
           question: 'フランス革命のきっかけとなった1789年の事件は？',
-          options: ['ボストン茶会事件', 'バスティーユ牢獄襲撃', '名誉革命', 'アヘン戦争'],
-          correctIndex: 1,
+          options: ['バスティーユ牢獄襲撃', 'アヘン戦争', '名誉革命', 'ボストン茶会事件'],
+          correctIndex: 0,
           explanation:
             '1789年7月14日のバスティーユ牢獄襲撃がフランス革命の始まりとなりました。',
         },

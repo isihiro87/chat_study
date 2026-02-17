@@ -57,12 +57,12 @@ export const postwarConstitutionChat: HistoryChat = {
       question: '日本国憲法の三大原則に含まれないものはどれ？',
       options: [
         { letter: 'A', text: '国民主権', correct: false },
-        { letter: 'B', text: '平和主義', correct: false },
-        { letter: 'C', text: '富国強兵', correct: true },
-        { letter: 'D', text: '基本的人権の尊重', correct: false },
+        { letter: 'B', text: '富国強兵', correct: true },
+        { letter: 'C', text: '基本的人権の尊重', correct: false },
+        { letter: 'D', text: '平和主義', correct: false },
       ],
       explanation:
-        '<strong>正解はC「富国強兵」</strong>です。富国強兵は明治時代のスローガンで、日本国憲法の三大原則は国民主権・基本的人権の尊重・平和主義です。',
+        '<strong>正解はB「富国強兵」</strong>です。富国強兵は明治時代のスローガンで、日本国憲法の三大原則は国民主権・基本的人権の尊重・平和主義です。',
     },
     {
       type: 'narrator',

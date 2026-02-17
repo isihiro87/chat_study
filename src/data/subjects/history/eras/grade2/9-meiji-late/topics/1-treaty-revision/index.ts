@@ -110,8 +110,8 @@ export const treatyRevision: Topic = {
         {
           id: 'q1',
           question: '1894年に領事裁判権の撤廃に成功した外務大臣は？',
-          options: ['井上馨', '陸奥宗光', '小村寿太郎', '伊藤博文'],
-          correctIndex: 1,
+          options: ['井上馨', '小村寿太郎', '伊藤博文', '陸奥宗光'],
+          correctIndex: 3,
           explanation:
             '陸奥宗光は日清戦争直前にイギリスとの交渉に成功し、領事裁判権を撤廃しました。',
         },

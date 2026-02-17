@@ -46,12 +46,12 @@ export const kokufuCultureChat: HistoryChat = {
       type: 'quiz',
       question: '紫式部が書いた長編物語は？',
       options: [
-        { letter: 'A', text: '枕草子', correct: false },
-        { letter: 'B', text: '源氏物語', correct: true },
-        { letter: 'C', text: '古事記', correct: false },
+        { letter: 'A', text: '源氏物語', correct: true },
+        { letter: 'B', text: '古事記', correct: false },
+        { letter: 'C', text: '枕草子', correct: false },
         { letter: 'D', text: '万葉集', correct: false },
       ],
-      explanation: '<strong>正解はB「源氏物語」</strong>です。紫式部が書いた世界最古級の長編小説で、光源氏の一生を描いています。',
+      explanation: '<strong>正解はA「源氏物語」</strong>です。紫式部が書いた世界最古級の長編小説で、光源氏の一生を描いています。',
     },
     {
       type: 'narrator',
@@ -74,11 +74,11 @@ export const kokufuCultureChat: HistoryChat = {
       question: '日本語を書き表すために作られた文字は？',
       options: [
         { letter: 'A', text: '漢字', correct: false },
-        { letter: 'B', text: '甲骨文字', correct: false },
-        { letter: 'C', text: '仮名文字', correct: true },
-        { letter: 'D', text: 'くさび形文字', correct: false },
+        { letter: 'B', text: '仮名文字', correct: true },
+        { letter: 'C', text: 'くさび形文字', correct: false },
+        { letter: 'D', text: '甲骨文字', correct: false },
       ],
-      explanation: '<strong>正解はC「仮名文字」</strong>です。漢字をもとに日本独自の仮名文字（ひらがな・カタカナ）が作られ、文学が発展しました。',
+      explanation: '<strong>正解はB「仮名文字」</strong>です。漢字をもとに日本独自の仮名文字（ひらがな・カタカナ）が作られ、文学が発展しました。',
     },
     {
       type: 'end',

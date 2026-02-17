@@ -66,8 +66,8 @@ export const riseOfBushi: Topic = {
         {
           id: 'q1',
           question: '武士が一族や家来を従えてつくった組織を何という？',
-          options: ['荘園', '武士団', '公領', '幕府'],
-          correctIndex: 1,
+          options: ['公領', '荘園', '武士団', '幕府'],
+          correctIndex: 2,
           explanation: '武士団は武士が一族や家来を従えてつくった軍事組織で、惣領が長としてまとめました。',
         },
         {
