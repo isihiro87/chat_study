@@ -14,13 +14,12 @@ import type { TabType } from '../data/types';
 export function LearningPage() {
   const { topicId } = useParams<{ topicId: string }>();
   const navigate = useNavigate();
-  const [activeTab, setActiveTab] = useState<TabType>('chat'); // チャットを初期タブに
+  const [activeTab, setActiveTab] = useState<TabType>('chat');
   const [cardProgress, setCardProgress] = useState({ current: 1, total: 1 });
   const [quizProgress, setQuizProgress] = useState({ current: 1, total: 1 });
 
   const topic = topicId ? getTopic(topicId) : undefined;
 
-  // チャットデータを取得
   const chat = useMemo(() => {
     if (topic?.content.chatId) {
       return getHistoryChat(topic.content.chatId);
@@ -28,12 +27,10 @@ export function LearningPage() {
     return undefined;
   }, [topic?.content.chatId]);
 
-  // チャットがない場合はチャットタブを非表示
   const hiddenTabs: TabType[] = useMemo(() => {
     return chat ? [] : ['chat'];
   }, [chat]);
 
-  // 動画タブは準備中のため無効化
   const disabledTabs: TabType[] = ['video'];
 
   // タブ切り替え時にスクロール位置をリセット
@@ -57,8 +54,8 @@ export function LearningPage() {
     );
   }
 
-  // フルスクリーン表示用のヘッダー
-  const FullScreenHeader = ({ progress }: { progress: { current: number; total: number } }) => (
+  // 戻るボタン付きヘッダーのJSX（進捗表示あり）
+  const progressHeader = (progress: { current: number; total: number }) => (
     <header className="flex-shrink-0 bg-white shadow-sm">
       <div className="flex items-center px-4 py-3">
         <button
@@ -79,85 +76,89 @@ export function LearningPage() {
     </header>
   );
 
-  // フラッシュカードはフルスクリーン表示
-  if (activeTab === 'flashcard') {
-    return (
-      <div className="flex h-dvh flex-col bg-gray-50">
-        <FullScreenHeader progress={cardProgress} />
+  // 戻るボタン付きヘッダーのJSX（進捗表示なし）
+  const simpleHeader = (
+    <header className="flex-shrink-0 bg-white shadow-sm">
+      <div className="flex items-center px-4 py-3">
+        <button
+          onClick={() => navigate(-1)}
+          className="mr-3 flex h-10 w-10 items-center justify-center rounded-full hover:bg-gray-100 active:bg-gray-200"
+          aria-label="戻る"
+        >
+          <ArrowLeft className="h-6 w-6 text-gray-600" />
+        </button>
+        <div className="flex-1">
+          <h1 className="text-lg font-bold text-gray-800">{topic.name}</h1>
+          <p className="text-sm text-gray-500">{topic.subtitle}</p>
+        </div>
+      </div>
+    </header>
+  );
+
+  return (
+    <>
+      {/* チャットタブ（常にマウント、display制御で表示切替） */}
+      {chat && (
+        <div
+          className="flex h-dvh flex-col pb-16"
+          style={{ display: activeTab === 'chat' ? 'flex' : 'none' }}
+        >
+          {simpleHeader}
+          <ChatContainer
+            chat={chat}
+            embedded
+            onNavigateToFlashcard={() => setActiveTab('flashcard')}
+            onNavigateToQuiz={() => setActiveTab('quiz')}
+          />
+        </div>
+      )}
+
+      {/* フラッシュカードタブ（常にマウント、display制御で表示切替） */}
+      <div
+        className="flex h-dvh flex-col bg-gray-50"
+        style={{ display: activeTab === 'flashcard' ? 'flex' : 'none' }}
+      >
+        {progressHeader(cardProgress)}
         <main className="flex-1 overflow-hidden">
           <FlashcardDeck
             cards={topic.content.flashcards}
             onProgressChange={handleCardProgressChange}
           />
         </main>
-        <TabBar activeTab={activeTab} onTabChange={setActiveTab} hiddenTabs={hiddenTabs} disabledTabs={disabledTabs} />
       </div>
-    );
-  }
 
-  // チャットタブはフルスクリーン表示（TabBarの上に）
-  if (activeTab === 'chat' && chat) {
-    return (
-      <div className="flex h-dvh flex-col pb-16">
-        <header className="flex-shrink-0 bg-white shadow-sm">
-          <div className="flex items-center px-4 py-3">
-            <button
-              onClick={() => navigate(-1)}
-              className="mr-3 flex h-10 w-10 items-center justify-center rounded-full hover:bg-gray-100 active:bg-gray-200"
-              aria-label="戻る"
-            >
-              <ArrowLeft className="h-6 w-6 text-gray-600" />
-            </button>
-            <div className="flex-1">
-              <h1 className="text-lg font-bold text-gray-800">{topic.name}</h1>
-              <p className="text-sm text-gray-500">{topic.subtitle}</p>
-            </div>
-          </div>
-        </header>
-        <ChatContainer
-          chat={chat}
-          embedded
-          onNavigateToFlashcard={() => setActiveTab('flashcard')}
-          onNavigateToQuiz={() => setActiveTab('quiz')}
-        />
-        <TabBar activeTab={activeTab} onTabChange={setActiveTab} hiddenTabs={hiddenTabs} disabledTabs={disabledTabs} />
-      </div>
-    );
-  }
-
-  // クイズはフルスクリーン表示
-  if (activeTab === 'quiz') {
-    return (
-      <div className="flex h-dvh flex-col bg-gray-50">
-        <FullScreenHeader progress={quizProgress} />
+      {/* クイズタブ（常にマウント、display制御で表示切替） */}
+      <div
+        className="flex h-dvh flex-col bg-gray-50"
+        style={{ display: activeTab === 'quiz' ? 'flex' : 'none' }}
+      >
+        {progressHeader(quizProgress)}
         <main className="flex-1 overflow-hidden">
           <QuizView
             quiz={topic.content.quiz}
             onProgressChange={handleQuizProgressChange}
           />
         </main>
-        <TabBar activeTab={activeTab} onTabChange={setActiveTab} hiddenTabs={hiddenTabs} disabledTabs={disabledTabs} />
       </div>
-    );
-  }
 
-  // その他のタブは通常表示
-  const renderContent = () => {
-    switch (activeTab) {
-      case 'video':
-        return <VideoPlayer videos={topic.content.videos} />;
-      default:
-        return null;
-    }
-  };
+      {/* 動画タブ（常にマウント、display制御で表示切替） */}
+      <div
+        className="min-h-screen bg-gray-50 pb-16"
+        style={{ display: activeTab === 'video' ? 'block' : 'none' }}
+      >
+        <Header title={topic.name} subtitle={topic.subtitle} showBack />
+        <main className="mx-auto max-w-md px-4 py-4">
+          <VideoPlayer videos={topic.content.videos} />
+        </main>
+      </div>
 
-  return (
-    <div className="min-h-screen bg-gray-50 pb-16">
-      <Header title={topic.name} subtitle={topic.subtitle} showBack />
-
-      <main className="mx-auto max-w-md px-4 py-4">{renderContent()}</main>
-
-      <TabBar activeTab={activeTab} onTabChange={setActiveTab} hiddenTabs={hiddenTabs} disabledTabs={disabledTabs} />
-    </div>
+      {/* TabBar（共通、常に表示） */}
+      <TabBar
+        activeTab={activeTab}
+        onTabChange={setActiveTab}
+        hiddenTabs={hiddenTabs}
+        disabledTabs={disabledTabs}
+      />
+    </>
   );
 }
