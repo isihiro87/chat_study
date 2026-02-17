@@ -289,7 +289,7 @@ export function FlashcardDeck({ cards, onProgressChange }: FlashcardDeckProps) {
           <motion.div
             key={currentCard.id}
             className="h-full cursor-pointer"
-            style={{ x }}
+            style={{ x, touchAction: 'none' }}
             drag="x"
             dragConstraints={{ left: 0, right: 0 }}
             dragElastic={0.3}

@@ -22,7 +22,7 @@ function ProgressDots({
     <div className="flex items-center justify-center gap-2">
       <div className="flex gap-1.5">
         {Array.from({ length: total }, (_, i) => (
-          <motion.div
+          <div
             key={i}
             className={`h-2.5 w-2.5 rounded-full transition-colors ${
               i < current
@@ -35,9 +35,6 @@ function ProgressDots({
                     : 'bg-gray-400'
                   : 'bg-gray-200'
             }`}
-            initial={i === current ? { scale: 1 } : {}}
-            animate={i === current ? { scale: [1, 1.2, 1] } : {}}
-            transition={{ duration: 0.3 }}
           />
         ))}
       </div>
@@ -285,15 +282,11 @@ export function QuizView({ quiz, onProgressChange }: QuizViewProps) {
       {/* プログレスドット + 問題文 */}
       <div className="flex-shrink-0 px-4 pt-2">
         {isReviewMode && (
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="mb-2 flex justify-center"
-          >
+          <div className="mb-2 flex justify-center">
             <span className="rounded-full bg-amber-100 px-3 py-1 text-xs font-bold text-amber-700">
               復習モード
             </span>
-          </motion.div>
+          </div>
         )}
         <ProgressDots
           current={currentIndex}
@@ -301,11 +294,7 @@ export function QuizView({ quiz, onProgressChange }: QuizViewProps) {
           isReviewMode={isReviewMode}
         />
 
-        <motion.div
-          key={`question-${currentIndex}-${isReviewMode}`}
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.3 }}
+        <div
           className="mt-3 rounded-2xl border-2 border-gray-200 bg-white p-4"
         >
           <div className="mb-1 flex items-center gap-2">
@@ -319,7 +308,7 @@ export function QuizView({ quiz, onProgressChange }: QuizViewProps) {
           >
             {currentQuestion?.question}
           </p>
-        </motion.div>
+        </div>
       </div>
 
       {/* 選択肢 / 正誤フィードバック エリア */}
@@ -429,22 +418,15 @@ export function QuizView({ quiz, onProgressChange }: QuizViewProps) {
             </motion.div>
           ) : (
             /* 選択肢リスト */
-            <motion.div
+            <div
               key={`options-${currentIndex}-${isReviewMode}`}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
               className="flex flex-1 flex-col justify-center space-y-2.5"
             >
               {currentQuestion?.options.map((option: string, index: number) => (
-                <motion.button
+                <button
                   key={index}
                   onClick={() => selectAnswer(index)}
-                  className="flex w-full items-center gap-3 rounded-xl border-2 border-gray-200 bg-white p-3.5 text-left transition-all hover:bg-gray-50"
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.05 }}
-                  whileTap={{ scale: 0.98 }}
+                  className="flex w-full items-center gap-3 rounded-xl border-2 border-gray-200 bg-white p-3.5 text-left transition-all hover:bg-gray-50 active:scale-[0.98]"
                 >
                   <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-gray-100 text-sm font-bold text-gray-600">
                     {String.fromCharCode(65 + index)}
@@ -455,9 +437,9 @@ export function QuizView({ quiz, onProgressChange }: QuizViewProps) {
                   >
                     {option}
                   </span>
-                </motion.button>
+                </button>
               ))}
-            </motion.div>
+            </div>
           )}
         </AnimatePresence>
       </div>

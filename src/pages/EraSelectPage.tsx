@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { ChevronRight } from 'lucide-react';
 import { Header } from '../components/common/Header';
@@ -15,6 +15,11 @@ export function EraSelectPage() {
   const { subjectId } = useParams<{ subjectId: string }>();
   const subject = subjectId ? getSubject(subjectId) : undefined;
   const [selectedGrade, setSelectedGrade] = useState(1);
+
+  // 学年切り替え時にスクロール位置をリセット
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [selectedGrade]);
 
   const filteredEras = eras.filter((era) => era.grade === selectedGrade);
 
