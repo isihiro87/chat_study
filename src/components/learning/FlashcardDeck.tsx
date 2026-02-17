@@ -284,7 +284,7 @@ export function FlashcardDeck({ cards, onProgressChange }: FlashcardDeckProps) {
         </AnimatePresence>
 
         {/* カード（flex-1で残りスペースを使い、min-h-0でオーバーフロー防止） */}
-        <div className="flex-1 min-h-0">
+        <div className="flex-1 min-h-0" style={{ touchAction: 'none', overscrollBehavior: 'none' }}>
         <AnimatePresence mode="wait">
           <motion.div
             key={currentCard.id}
