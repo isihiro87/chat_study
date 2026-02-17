@@ -1,4 +1,4 @@
-import { useState, useCallback, useMemo } from 'react';
+import { useState, useCallback, useMemo, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import { TabBar } from '../components/common/TabBar';
@@ -35,6 +35,11 @@ export function LearningPage() {
 
   // 動画タブは準備中のため無効化
   const disabledTabs: TabType[] = ['video'];
+
+  // タブ切り替え時にスクロール位置をリセット
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [activeTab]);
 
   const handleCardProgressChange = useCallback((current: number, total: number) => {
     setCardProgress({ current, total });

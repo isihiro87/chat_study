@@ -1,4 +1,4 @@
-import { useState, useCallback, useMemo } from 'react';
+import { useState, useCallback, useMemo, useEffect } from 'react';
 import type { Flashcard } from '../data/types';
 
 interface UseFlashcardReturn {
@@ -27,9 +27,11 @@ export function useFlashcard(cards: Flashcard[]): UseFlashcardReturn {
   const [isFlipped, setIsFlipped] = useState(false);
   const [remembered, setRemembered] = useState<Set<string>>(new Set());
   const [reviewQueue, setReviewQueue] = useState<string[]>([]);
-  const [pendingReview, setPendingReview] = useState<string[]>([]); // 復習モード中に「わからない」にしたカード
+  const [pendingReview, setPendingReview] = useState<string[]>([]);
   const [isReviewMode, setIsReviewMode] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
+  // 最後のカードを処理した後の遷移をuseEffectで行うためのフラグ
+  const [needsTransition, setNeedsTransition] = useState(false);
 
   // 現在のカードリスト（通常モード or 復習モード）
   const currentCards = useMemo(() => {
@@ -45,36 +47,44 @@ export function useFlashcard(cards: Flashcard[]): UseFlashcardReturn {
     setIsFlipped((prev) => !prev);
   }, []);
 
-  const goToNext = useCallback(() => {
+  // 次のカードへ進む（最後のカードの場合は遷移フラグを立てる）
+  const advanceToNext = useCallback(() => {
     setIsFlipped(false);
     if (currentIndex < currentCards.length - 1) {
       setCurrentIndex((prev) => prev + 1);
     } else {
-      // 現在のモードが終了
-      if (isReviewMode) {
-        // 復習モード終了 → pendingReviewがあれば次の復習サイクルへ
-        if (pendingReview.length > 0) {
-          setReviewQueue(pendingReview);
-          setPendingReview([]);
-          setCurrentIndex(0);
-        } else {
-          setIsComplete(true);
-        }
+      // 最後のカード → 遷移フラグを立てる
+      // 実際の遷移はuseEffectで行う（ステート更新後の正しい値で判断するため）
+      setNeedsTransition(true);
+    }
+  }, [currentIndex, currentCards.length]);
+
+  // 遷移ロジック（useEffectで実行し、ステートクロージャ問題を回避）
+  useEffect(() => {
+    if (!needsTransition) return;
+    setNeedsTransition(false);
+
+    if (isReviewMode) {
+      if (pendingReview.length > 0) {
+        setReviewQueue(pendingReview);
+        setPendingReview([]);
+        setCurrentIndex(0);
       } else {
-        // 通常モード終了 → 復習キューがあれば復習モードへ
-        if (reviewQueue.length > 0) {
-          setIsReviewMode(true);
-          setCurrentIndex(0);
-        } else {
-          setIsComplete(true);
-        }
+        setIsComplete(true);
+      }
+    } else {
+      if (reviewQueue.length > 0) {
+        setIsReviewMode(true);
+        setCurrentIndex(0);
+      } else {
+        setIsComplete(true);
       }
     }
-  }, [currentIndex, currentCards.length, isReviewMode, reviewQueue.length, pendingReview]);
+  }, [needsTransition, isReviewMode, reviewQueue.length, pendingReview]);
 
   const next = useCallback(() => {
-    goToNext();
-  }, [goToNext]);
+    advanceToNext();
+  }, [advanceToNext]);
 
   const prev = useCallback(() => {
     setIsFlipped(false);
@@ -87,9 +97,12 @@ export function useFlashcard(cards: Flashcard[]): UseFlashcardReturn {
     if (!currentCard) return;
     const cardId = currentCard.id;
     setRemembered((prev) => new Set(prev).add(cardId));
-    // 復習キューから削除
-    setReviewQueue((prev) => prev.filter((id) => id !== cardId));
-  }, [currentCard]);
+    // 復習モード中はreviewQueueを変更しない（配列縮みによるインデックス超過を防止）
+    // 通常モードのみreviewQueueから削除
+    if (!isReviewMode) {
+      setReviewQueue((prev) => prev.filter((id) => id !== cardId));
+    }
+  }, [currentCard, isReviewMode]);
 
   const markAgain = useCallback(() => {
     if (!currentCard) return;
@@ -117,14 +130,14 @@ export function useFlashcard(cards: Flashcard[]): UseFlashcardReturn {
   // 左スワイプ = わからない
   const swipeLeft = useCallback(() => {
     markAgain();
-    goToNext();
-  }, [markAgain, goToNext]);
+    advanceToNext();
+  }, [markAgain, advanceToNext]);
 
   // 右スワイプ = わかった
   const swipeRight = useCallback(() => {
     markRemembered();
-    goToNext();
-  }, [markRemembered, goToNext]);
+    advanceToNext();
+  }, [markRemembered, advanceToNext]);
 
   const reset = useCallback(() => {
     setCurrentIndex(0);
@@ -134,22 +147,25 @@ export function useFlashcard(cards: Flashcard[]): UseFlashcardReturn {
     setPendingReview([]);
     setIsReviewMode(false);
     setIsComplete(false);
+    setNeedsTransition(false);
   }, []);
 
   // 復習が必要なカードのみでリスタート
   const resetWithReviewOnly = useCallback(() => {
-    if (reviewQueue.length === 0) {
-      // 復習キューが空の場合は通常リセット
+    // 覚えたカードを除外した復習キューを作成
+    const notRememberedIds = reviewQueue.filter((id) => !remembered.has(id));
+    if (notRememberedIds.length === 0) {
       reset();
       return;
     }
+    setReviewQueue(notRememberedIds);
     setCurrentIndex(0);
     setIsFlipped(false);
     setIsReviewMode(true);
     setPendingReview([]);
     setIsComplete(false);
-    // reviewQueueはそのまま保持
-  }, [reviewQueue.length, reset]);
+    setNeedsTransition(false);
+  }, [reviewQueue, remembered, reset]);
 
   return {
     currentIndex,
@@ -159,7 +175,9 @@ export function useFlashcard(cards: Flashcard[]): UseFlashcardReturn {
     isReviewMode,
     rememberedCount: remembered.size,
     totalCards: cards.length,
-    reviewCount: reviewQueue.length,
+    reviewCount: isReviewMode
+      ? currentCards.length
+      : reviewQueue.length,
     notRememberedCount: cards.length - remembered.size,
     flip,
     next,
