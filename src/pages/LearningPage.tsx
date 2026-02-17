@@ -14,11 +14,14 @@ import type { TabType } from '../data/types';
 export function LearningPage() {
   const { topicId } = useParams<{ topicId: string }>();
   const navigate = useNavigate();
-  const [activeTab, setActiveTab] = useState<TabType>('chat');
-  const [cardProgress, setCardProgress] = useState({ current: 1, total: 1 });
-  const [quizProgress, setQuizProgress] = useState({ current: 1, total: 1 });
 
   const topic = topicId ? getTopic(topicId) : undefined;
+
+  const [activeTab, setActiveTab] = useState<TabType>(() =>
+    topic?.content.chatId ? 'chat' : 'flashcard'
+  );
+  const [cardProgress, setCardProgress] = useState({ current: 1, total: 1 });
+  const [quizProgress, setQuizProgress] = useState({ current: 1, total: 1 });
 
   const chat = useMemo(() => {
     if (topic?.content.chatId) {

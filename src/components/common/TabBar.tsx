@@ -1,4 +1,5 @@
 import { Video, Layers, HelpCircle, MessageCircle } from 'lucide-react';
+import { motion } from 'framer-motion';
 import type { TabType } from '../../data/types';
 
 interface TabBarProps {
@@ -57,6 +58,13 @@ export function TabBar({
                 <span className="absolute -top-1 right-1/4 rounded bg-gray-400 px-1 text-[8px] text-white">
                   準備中
                 </span>
+              )}
+              {isActive && (
+                <motion.div
+                  layoutId="tab-indicator"
+                  className="absolute bottom-0 left-2 right-2 h-0.5 rounded-full bg-primary"
+                  transition={{ type: 'spring', stiffness: 500, damping: 35 }}
+                />
               )}
             </button>
           );
