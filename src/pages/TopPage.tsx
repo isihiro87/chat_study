@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
-import { Scroll, Calculator, Languages, Lock } from 'lucide-react';
+import { Scroll, Calculator, Languages, Lock, ChevronRight, Flame, BookOpen, RotateCcw, ArrowRight } from 'lucide-react';
 import { subjects } from '../data/subjects';
+import { getTopic } from '../data/subjects/history/eras';
+import { useStudyProgress } from '../hooks/useStudyProgress';
 
 const iconMap: Record<string, React.ElementType> = {
   scroll: Scroll,
@@ -8,7 +10,56 @@ const iconMap: Record<string, React.ElementType> = {
   languages: Languages,
 };
 
+function TopicLinkCard({
+  topic,
+  label,
+  sublabel,
+  icon: Icon,
+  iconColor,
+  iconBg,
+}: {
+  topic: { id: string; eraId: string; name: string; icon: string };
+  label: string;
+  sublabel?: string;
+  icon: React.ElementType;
+  iconColor: string;
+  iconBg: string;
+}) {
+  return (
+    <Link
+      to={`/subjects/history/eras/${topic.eraId}/topics/${topic.id}`}
+      className="flex items-center gap-3 rounded-xl bg-white p-3 shadow-sm transition-transform active:scale-98"
+    >
+      <div className={`flex h-10 w-10 items-center justify-center rounded-full ${iconBg}`}>
+        <Icon className={`h-5 w-5 ${iconColor}`} />
+      </div>
+      <div className="flex-1 min-w-0">
+        <p className="text-xs text-gray-500">{label}</p>
+        <p className="truncate text-sm font-semibold text-gray-800">
+          {topic.icon} {topic.name}
+        </p>
+        {sublabel && <p className="text-xs text-gray-400">{sublabel}</p>}
+      </div>
+      <ChevronRight className="h-4 w-4 flex-shrink-0 text-gray-400" />
+    </Link>
+  );
+}
+
 export function TopPage() {
+  const {
+    streak,
+    totalStudiedTopics,
+    totalTopics,
+    lastStudiedTopicId,
+    getNextTopicToStudy,
+    getReviewRecommendations,
+  } = useStudyProgress();
+
+  const hasProgress = totalStudiedTopics > 0;
+  const lastTopic = lastStudiedTopicId ? getTopic(lastStudiedTopicId) : undefined;
+  const nextTopic = getNextTopicToStudy();
+  const reviews = getReviewRecommendations(3);
+
   return (
     <div className="min-h-screen bg-gray-50">
       <header className="bg-white px-4 py-6 shadow-sm">
@@ -76,6 +127,74 @@ export function TopPage() {
             );
           })}
         </div>
+
+        {/* 進捗セクション - 学習済みトピックがある場合のみ表示 */}
+        {hasProgress && (
+          <div className="mt-8 space-y-5">
+            {/* がんばりセクション */}
+            <div className="rounded-xl bg-white p-4 shadow-sm">
+              <h3 className="mb-3 text-sm font-semibold text-gray-600">がんばり</h3>
+              <div className="flex gap-3">
+                <div className="flex flex-1 items-center gap-2 rounded-lg bg-orange-50 p-3">
+                  <Flame className="h-5 w-5 text-orange-500" />
+                  <div>
+                    <p className="text-lg font-bold text-orange-600">{streak}日</p>
+                    <p className="text-xs text-orange-400">れんぞく学習</p>
+                  </div>
+                </div>
+                <div className="flex flex-1 items-center gap-2 rounded-lg bg-indigo-50 p-3">
+                  <BookOpen className="h-5 w-5 text-indigo-500" />
+                  <div>
+                    <p className="text-lg font-bold text-indigo-600">
+                      {totalStudiedTopics}<span className="text-sm font-normal text-indigo-400">/{totalTopics}</span>
+                    </p>
+                    <p className="text-xs text-indigo-400">学習ずみ</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* つづきから学習 & 次にやるべき */}
+            <div className="space-y-2">
+              {lastTopic && (
+                <TopicLinkCard
+                  topic={lastTopic}
+                  label="つづきから学習"
+                  icon={ArrowRight}
+                  iconColor="text-indigo-600"
+                  iconBg="bg-indigo-100"
+                />
+              )}
+              {nextTopic && nextTopic.id !== lastStudiedTopicId && (
+                <TopicLinkCard
+                  topic={nextTopic}
+                  label="次にやるべき"
+                  icon={BookOpen}
+                  iconColor="text-emerald-600"
+                  iconBg="bg-emerald-100"
+                />
+              )}
+            </div>
+
+            {/* 復習おすすめ */}
+            {reviews.length > 0 && (
+              <div className="space-y-2">
+                <h3 className="text-sm font-semibold text-gray-600">復習おすすめ</h3>
+                {reviews.map((r) => (
+                  <TopicLinkCard
+                    key={r.topic.id}
+                    topic={r.topic}
+                    label="クイズをもういちど"
+                    sublabel={`ベスト: ${r.quizBestScore}/${r.quizTotalQuestions}問`}
+                    icon={RotateCcw}
+                    iconColor="text-amber-600"
+                    iconBg="bg-amber-100"
+                  />
+                ))}
+              </div>
+            )}
+          </div>
+        )}
       </main>
     </div>
   );

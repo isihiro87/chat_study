@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useMotionValue, useTransform, type PanInfo } from 'framer-motion';
 import { RotateCcw, Check, ChevronLeft, ChevronRight, Layers, ArrowLeft, ArrowRight } from 'lucide-react';
 import { useFlashcard } from '../../hooks/useFlashcard';
@@ -8,9 +8,10 @@ import type { Flashcard } from '../../data/types';
 interface FlashcardDeckProps {
   cards: Flashcard[];
   onProgressChange?: (current: number, total: number) => void;
+  onComplete?: () => void;
 }
 
-export function FlashcardDeck({ cards, onProgressChange }: FlashcardDeckProps) {
+export function FlashcardDeck({ cards, onProgressChange, onComplete }: FlashcardDeckProps) {
   const {
     currentIndex,
     currentCard,
@@ -52,6 +53,15 @@ export function FlashcardDeck({ cards, onProgressChange }: FlashcardDeckProps) {
   useEffect(() => {
     onProgressChange?.(currentIndex + 1, total || totalCards);
   }, [currentIndex, total, totalCards, onProgressChange]);
+
+  // フラッシュカード完了時のコールバック（1回のみ発火）
+  const completeCalled = useRef(false);
+  useEffect(() => {
+    if (isComplete && !completeCalled.current) {
+      completeCalled.current = true;
+      onComplete?.();
+    }
+  }, [isComplete, onComplete]);
 
   const [showHint, setShowHint] = useState(false);
   // 初回説明表示（セッション中のみ有効、localStorageに保存しない）

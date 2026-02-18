@@ -5,8 +5,9 @@ import type { TabType } from '../../data/types';
 interface TabBarProps {
   activeTab: TabType;
   onTabChange: (tab: TabType) => void;
-  hiddenTabs?: TabType[]; // 非表示にするタブ
-  disabledTabs?: TabType[]; // 無効化するタブ（準備中）
+  hiddenTabs?: TabType[];
+  disabledTabs?: TabType[];
+  completedTabs?: TabType[];
 }
 
 const allTabs: { id: TabType; label: string; icon: React.ElementType }[] = [
@@ -21,6 +22,7 @@ export function TabBar({
   onTabChange,
   hiddenTabs = [],
   disabledTabs = [],
+  completedTabs = [],
 }: TabBarProps) {
   const tabs = allTabs.filter((tab) => !hiddenTabs.includes(tab.id));
 
@@ -30,6 +32,7 @@ export function TabBar({
         {tabs.map(({ id, label, icon: Icon }) => {
           const isActive = activeTab === id;
           const isDisabled = disabledTabs.includes(id);
+          const isCompleted = completedTabs.includes(id);
           return (
             <button
               key={id}
@@ -44,15 +47,20 @@ export function TabBar({
               }`}
               aria-current={isActive ? 'page' : undefined}
             >
-              <Icon
-                className={`h-6 w-6 ${
-                  isDisabled
-                    ? 'text-gray-300'
-                    : isActive
-                      ? 'text-primary'
-                      : 'text-gray-400'
-                }`}
-              />
+              <div className="relative">
+                <Icon
+                  className={`h-6 w-6 ${
+                    isDisabled
+                      ? 'text-gray-300'
+                      : isActive
+                        ? 'text-primary'
+                        : 'text-gray-400'
+                  }`}
+                />
+                {isCompleted && !isDisabled && (
+                  <span className="absolute -right-1 -top-1 h-2.5 w-2.5 rounded-full border-2 border-white bg-emerald-500" />
+                )}
+              </div>
               <span className="mt-1 text-xs font-medium">{label}</span>
               {isDisabled && (
                 <span className="absolute -top-1 right-1/4 rounded bg-gray-400 px-1 text-[8px] text-white">

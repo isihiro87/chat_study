@@ -9,6 +9,7 @@ import { ChatContainer } from '../components/history-chat/ChatContainer';
 import { Header } from '../components/common/Header';
 import { getTopic } from '../data/subjects/history';
 import { getHistoryChat } from '../data/history-chat';
+import { useStudyProgress } from '../hooks/useStudyProgress';
 import type { TabType } from '../data/types';
 
 export function LearningPage() {
@@ -22,6 +23,25 @@ export function LearningPage() {
   );
   const [cardProgress, setCardProgress] = useState({ current: 1, total: 1 });
   const [quizProgress, setQuizProgress] = useState({ current: 1, total: 1 });
+  const [quizNewBest, setQuizNewBest] = useState(false);
+
+  const {
+    markChatRead,
+    markFlashcardCompleted,
+    updateQuizScore,
+    getTopicProgress,
+  } = useStudyProgress();
+
+  // 現在のトピックの進捗
+  const topicProgress = topicId ? getTopicProgress(topicId) : null;
+  const completedTabs: TabType[] = useMemo(() => {
+    if (!topicProgress) return [];
+    const tabs: TabType[] = [];
+    if (topicProgress.chatRead) tabs.push('chat');
+    if (topicProgress.flashcardCompleted) tabs.push('flashcard');
+    if (topicProgress.quizBestScore !== null) tabs.push('quiz');
+    return tabs;
+  }, [topicProgress]);
 
   const chat = useMemo(() => {
     if (topic?.content.chatId) {
@@ -47,7 +67,28 @@ export function LearningPage() {
 
   const handleQuizProgressChange = useCallback((current: number, total: number) => {
     setQuizProgress({ current, total });
+    if (current === 1) {
+      setQuizNewBest(false);
+    }
   }, []);
+
+  const handleChatComplete = useCallback(() => {
+    if (topicId) markChatRead(topicId);
+  }, [topicId, markChatRead]);
+
+  const handleFlashcardComplete = useCallback(() => {
+    if (topicId) markFlashcardCompleted(topicId);
+  }, [topicId, markFlashcardCompleted]);
+
+  const handleQuizComplete = useCallback(
+    (score: number, total: number) => {
+      if (topicId) {
+        const { isNewBest } = updateQuizScore(topicId, score, total);
+        setQuizNewBest(isNewBest);
+      }
+    },
+    [topicId, updateQuizScore],
+  );
 
   if (!topic) {
     return (
@@ -112,6 +153,7 @@ export function LearningPage() {
             embedded
             onNavigateToFlashcard={() => setActiveTab('flashcard')}
             onNavigateToQuiz={() => setActiveTab('quiz')}
+            onComplete={handleChatComplete}
           />
         </div>
       )}
@@ -126,6 +168,7 @@ export function LearningPage() {
           <FlashcardDeck
             cards={topic.content.flashcards}
             onProgressChange={handleCardProgressChange}
+            onComplete={handleFlashcardComplete}
           />
         </main>
       </div>
@@ -140,6 +183,8 @@ export function LearningPage() {
           <QuizView
             quiz={topic.content.quiz}
             onProgressChange={handleQuizProgressChange}
+            onComplete={handleQuizComplete}
+            isNewBest={quizNewBest}
           />
         </main>
       </div>
@@ -161,6 +206,7 @@ export function LearningPage() {
         onTabChange={setActiveTab}
         hiddenTabs={hiddenTabs}
         disabledTabs={disabledTabs}
+        completedTabs={completedTabs}
       />
     </>
   );

@@ -16,9 +16,10 @@ interface ChatContainerProps {
   embedded?: boolean; // TabBar内に埋め込む場合はtrue
   onNavigateToFlashcard?: () => void;
   onNavigateToQuiz?: () => void;
+  onComplete?: () => void;
 }
 
-export function ChatContainer({ chat, embedded = false, onNavigateToFlashcard, onNavigateToQuiz }: ChatContainerProps) {
+export function ChatContainer({ chat, embedded = false, onNavigateToFlashcard, onNavigateToQuiz, onComplete }: ChatContainerProps) {
   const {
     shownIndex,
     visibleContent,
@@ -52,6 +53,15 @@ export function ChatContainer({ chat, embedded = false, onNavigateToFlashcard, o
 
   // 進捗率を計算
   const progress = Math.round((shownIndex / totalContent) * 100);
+
+  // チャット完了時のコールバック（一度だけ呼ぶ）
+  const completeCalled = useRef(false);
+  useEffect(() => {
+    if (isComplete && !completeCalled.current) {
+      completeCalled.current = true;
+      onComplete?.();
+    }
+  }, [isComplete, onComplete]);
 
   // 新しい要素が表示されたら自動スクロール
   // 結果画面（end）表示時はカード上端が見えるようにスクロール

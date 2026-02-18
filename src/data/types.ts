@@ -151,3 +151,22 @@ export interface QuizQuestion {
 
 // タブの種類
 export type TabType = 'video' | 'flashcard' | 'quiz' | 'chat';
+
+// 学習進捗
+export interface StudyProgress {
+  version: 1;
+  topics: Record<string, TopicProgress>;
+  streak: {
+    currentStreak: number;
+    lastStudyDate: string; // "YYYY-MM-DD"
+  };
+  lastStudiedTopicId: string | null;
+}
+
+export interface TopicProgress {
+  chatRead: boolean;
+  flashcardCompleted: boolean;
+  quizBestScore: number | null;
+  quizTotalQuestions: number | null;
+  lastStudiedAt: string;
+}

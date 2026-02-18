@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, Check } from 'lucide-react';
 import { Header } from '../components/common/Header';
 import { getSubject } from '../data/subjects';
 import { eras } from '../data/subjects/history';
+import { useStudyProgress } from '../hooks/useStudyProgress';
 
 const grades = [
   { value: 1, label: '中1' },
@@ -15,6 +16,7 @@ export function EraSelectPage() {
   const { subjectId } = useParams<{ subjectId: string }>();
   const subject = subjectId ? getSubject(subjectId) : undefined;
   const [selectedGrade, setSelectedGrade] = useState(1);
+  const { getEraProgress } = useStudyProgress();
 
   // 学年切り替え時にスクロール位置をリセット
   useEffect(() => {
@@ -54,22 +56,37 @@ export function EraSelectPage() {
         </div>
 
         <div className="space-y-3">
-          {filteredEras.map((era) => (
-            <Link
-              key={era.id}
-              to={`/subjects/${subjectId}/eras/${era.id}`}
-              className="flex items-center gap-3 rounded-xl bg-white p-4 shadow-sm transition-transform active:scale-98"
-            >
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-secondary/10 text-2xl">
-                {era.icon}
-              </div>
-              <div className="flex-1">
-                <h3 className="font-semibold text-gray-800">{era.name}</h3>
-                <p className="text-sm text-gray-500">{era.period}</p>
-              </div>
-              <ChevronRight className="h-5 w-5 text-gray-400" />
-            </Link>
-          ))}
+          {filteredEras.map((era) => {
+            const progress = getEraProgress(era.id);
+            const allDone = progress.completed === progress.total && progress.total > 0;
+
+            return (
+              <Link
+                key={era.id}
+                to={`/subjects/${subjectId}/eras/${era.id}`}
+                className="flex items-center gap-3 rounded-xl bg-white p-4 shadow-sm transition-transform active:scale-98"
+              >
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-secondary/10 text-2xl">
+                  {era.icon}
+                </div>
+                <div className="flex-1">
+                  <h3 className="font-semibold text-gray-800">{era.name}</h3>
+                  <p className="text-sm text-gray-500">{era.period}</p>
+                </div>
+                {allDone ? (
+                  <div className="flex h-7 w-7 items-center justify-center rounded-full bg-emerald-500">
+                    <Check className="h-4 w-4 text-white" />
+                  </div>
+                ) : progress.completed > 0 ? (
+                  <span className="rounded-full bg-indigo-50 px-2.5 py-1 text-xs font-bold text-indigo-600">
+                    {progress.completed}/{progress.total}
+                  </span>
+                ) : (
+                  <ChevronRight className="h-5 w-5 text-gray-400" />
+                )}
+              </Link>
+            );
+          })}
         </div>
 
         {filteredEras.length === 0 && (

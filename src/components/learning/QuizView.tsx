@@ -7,6 +7,8 @@ import type { Quiz } from '../../data/types';
 interface QuizViewProps {
   quiz: Quiz;
   onProgressChange?: (current: number, total: number) => void;
+  onComplete?: (score: number, total: number) => void;
+  isNewBest?: boolean;
 }
 
 function ProgressDots({
@@ -125,7 +127,7 @@ function ResultMessage({ percentage }: { percentage: number }) {
   }
 }
 
-export function QuizView({ quiz, onProgressChange }: QuizViewProps) {
+export function QuizView({ quiz, onProgressChange, onComplete, isNewBest }: QuizViewProps) {
   const {
     isStarted,
     currentIndex,
@@ -148,6 +150,13 @@ export function QuizView({ quiz, onProgressChange }: QuizViewProps) {
   useEffect(() => {
     onProgressChange?.(currentIndex + 1, totalQuestions);
   }, [currentIndex, totalQuestions, onProgressChange]);
+
+  // クイズ完了時のコールバック（復習モードでない初回完了時のみ）
+  useEffect(() => {
+    if (isComplete && !isReviewMode) {
+      onComplete?.(score, quiz.questions.length);
+    }
+  }, [isComplete, isReviewMode, score, quiz.questions.length, onComplete]);
 
   if (!isStarted) {
     return (
@@ -220,6 +229,17 @@ export function QuizView({ quiz, onProgressChange }: QuizViewProps) {
               className="mb-3 rounded-full bg-amber-100 px-3 py-1 text-xs font-bold text-amber-700"
             >
               復習モード完了！
+            </motion.div>
+          )}
+
+          {!isReviewMode && isNewBest && (
+            <motion.div
+              initial={{ scale: 0, rotate: -10 }}
+              animate={{ scale: 1, rotate: 0 }}
+              transition={{ type: 'spring', stiffness: 300, delay: 0.15 }}
+              className="mb-3 rounded-full bg-gradient-to-r from-amber-400 to-orange-400 px-4 py-1.5 text-sm font-bold text-white shadow-md"
+            >
+              🏆 自己ベスト更新！
             </motion.div>
           )}
 
