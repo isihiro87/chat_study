@@ -337,7 +337,7 @@ export function QuizView({ quiz, onProgressChange, onComplete, isNewBest }: Quiz
         </div>
 
         {/* 選択肢 / 正誤フィードバック エリア */}
-        <div className="flex flex-1 flex-col min-h-0 px-4 pt-3">
+        <div className="flex flex-1 flex-col min-h-0 px-4 pt-2">
           <AnimatePresence mode="wait">
             {isAnswered ? (
               /* 正誤フィードバックオーバーレイ */
