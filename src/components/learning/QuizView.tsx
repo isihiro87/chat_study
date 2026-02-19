@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Check, X, RotateCcw, Trophy, RefreshCw } from 'lucide-react';
 import { useQuiz } from '../../hooks/useQuiz';
 import type { Quiz } from '../../data/types';
@@ -338,44 +338,26 @@ export function QuizView({ quiz, onProgressChange, onComplete, isNewBest }: Quiz
 
         {/* 選択肢 / 正誤フィードバック エリア */}
         <div className="flex flex-1 flex-col min-h-0 px-4 pt-2">
-          <AnimatePresence mode="wait">
             {isAnswered ? (
-              /* 正誤フィードバックオーバーレイ */
-              <motion.div
-                key="feedback"
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.3 }}
-                className="flex flex-1 flex-col overflow-y-auto"
-              >
+              /* 正誤フィードバック */
+              <div className="flex flex-1 flex-col overflow-y-auto">
                 {/* 正誤表示 */}
                 <div className={`rounded-2xl p-4 ${isCorrectAnswer ? 'bg-emerald-50 border-2 border-emerald-300' : 'bg-red-50 border-2 border-red-300'}`}>
                   <div className="mb-3 flex items-center gap-2">
                     {isCorrectAnswer ? (
                       <>
-                        <motion.div
-                          initial={{ scale: 0 }}
-                          animate={{ scale: 1 }}
-                          transition={{ type: 'spring', stiffness: 500 }}
-                          className="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-500"
-                        >
+                        <div className="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-500">
                           <Check className="h-5 w-5 text-white" />
-                        </motion.div>
+                        </div>
                         <span className="text-lg font-bold text-emerald-700" style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}>
                           正解！
                         </span>
                       </>
                     ) : (
                       <>
-                        <motion.div
-                          initial={{ scale: 0 }}
-                          animate={{ scale: 1 }}
-                          transition={{ type: 'spring', stiffness: 500 }}
-                          className="flex h-8 w-8 items-center justify-center rounded-full bg-red-500"
-                        >
+                        <div className="flex h-8 w-8 items-center justify-center rounded-full bg-red-500">
                           <X className="h-5 w-5 text-white" />
-                        </motion.div>
+                        </div>
                         <span className="text-lg font-bold text-red-700" style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}>
                           不正解
                         </span>
@@ -404,12 +386,7 @@ export function QuizView({ quiz, onProgressChange, onComplete, isNewBest }: Quiz
 
                 {/* 解説 */}
                 {currentQuestion?.explanation && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.15 }}
-                    className="mt-3 rounded-xl bg-gray-50 p-4"
-                  >
+                  <div className="mt-3 rounded-xl bg-gray-50 p-4">
                     <p
                       className="mb-1 text-sm font-bold text-gray-700"
                       style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
@@ -422,16 +399,11 @@ export function QuizView({ quiz, onProgressChange, onComplete, isNewBest }: Quiz
                     >
                       {currentQuestion.explanation}
                     </p>
-                  </motion.div>
+                  </div>
                 )}
 
                 {/* 次へボタン */}
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 }}
-                  className="mt-auto flex justify-center pt-3"
-                >
+                <div className="mt-auto flex justify-center pt-3">
                   <button
                     onClick={nextQuestion}
                     className="rounded-full bg-gray-800 px-10 py-3 font-bold text-white transition-transform active:scale-95"
@@ -439,8 +411,8 @@ export function QuizView({ quiz, onProgressChange, onComplete, isNewBest }: Quiz
                   >
                     {currentIndex < totalQuestions - 1 ? '次の問題へ' : '結果を見る'}
                   </button>
-                </motion.div>
-              </motion.div>
+                </div>
+              </div>
             ) : (
               /* 選択肢リスト */
               <div
@@ -466,7 +438,6 @@ export function QuizView({ quiz, onProgressChange, onComplete, isNewBest }: Quiz
                 ))}
               </div>
             )}
-          </AnimatePresence>
         </div>
       </div>
     </div>
