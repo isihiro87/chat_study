@@ -445,7 +445,7 @@ export function QuizView({ quiz, onProgressChange, onComplete, isNewBest }: Quiz
               /* 選択肢リスト */
               <div
                 key={`options-${currentIndex}-${isReviewMode}`}
-                className="flex flex-1 flex-col justify-center space-y-2.5"
+                className="flex flex-1 flex-col space-y-2.5"
               >
                 {currentQuestion?.options.map((option: string, index: number) => (
                   <button
