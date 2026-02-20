@@ -1,6 +1,21 @@
 import { useState, useCallback, useMemo, useEffect } from 'react';
 import type { Flashcard } from '../data/types';
 
+// 各カードの学習履歴
+export interface CardHistory {
+  rememberedCount: number;  // 「知ってる」に振り分けた回数
+  againCount: number;       // 「もう一度」に振り分けた回数
+  firstAttempt: 'remembered' | 'again' | null; // 初回の振り分け結果
+}
+
+// セッション全体の学習履歴
+export interface SessionHistory {
+  cardHistories: Map<string, CardHistory>;  // カードID -> 履歴
+  reviewRounds: number;                      // 復習ラウンド数
+  firstRoundRemembered: number;              // 初回で「知ってる」にした枚数
+  firstRoundTotal: number;                   // 初回の総カード数
+}
+
 interface UseFlashcardReturn {
   currentIndex: number;
   currentCard: Flashcard | null;
@@ -11,6 +26,7 @@ interface UseFlashcardReturn {
   totalCards: number;
   reviewCount: number;
   notRememberedCount: number;
+  sessionHistory: SessionHistory;
   flip: () => void;
   next: () => void;
   prev: () => void;
@@ -32,6 +48,12 @@ export function useFlashcard(cards: Flashcard[]): UseFlashcardReturn {
   const [isComplete, setIsComplete] = useState(false);
   // 最後のカードを処理した後の遷移をuseEffectで行うためのフラグ
   const [needsTransition, setNeedsTransition] = useState(false);
+
+  // 学習履歴の状態
+  const [cardHistories, setCardHistories] = useState<Map<string, CardHistory>>(new Map());
+  const [reviewRounds, setReviewRounds] = useState(0);
+  const [isFirstRound, setIsFirstRound] = useState(true);
+  const [firstRoundStats, setFirstRoundStats] = useState({ remembered: 0, total: 0 });
 
   // 現在のカードリスト（通常モード or 復習モード）
   const currentCards = useMemo(() => {
@@ -69,6 +91,8 @@ export function useFlashcard(cards: Flashcard[]): UseFlashcardReturn {
         setReviewQueue(pendingReview);
         setPendingReview([]);
         setCurrentIndex(0);
+        // 復習ラウンドをインクリメント
+        setReviewRounds((prev) => prev + 1);
       } else {
         setIsComplete(true);
       }
@@ -76,6 +100,9 @@ export function useFlashcard(cards: Flashcard[]): UseFlashcardReturn {
       if (reviewQueue.length > 0) {
         setIsReviewMode(true);
         setCurrentIndex(0);
+        // 初回ラウンド終了、復習モード開始
+        setIsFirstRound(false);
+        setReviewRounds(1);
       } else {
         setIsComplete(true);
       }
@@ -102,7 +129,29 @@ export function useFlashcard(cards: Flashcard[]): UseFlashcardReturn {
     if (!isReviewMode) {
       setReviewQueue((prev) => prev.filter((id) => id !== cardId));
     }
-  }, [currentCard, isReviewMode]);
+
+    // 学習履歴を更新
+    setCardHistories((prev) => {
+      const newMap = new Map(prev);
+      const existing = newMap.get(cardId) || { rememberedCount: 0, againCount: 0, firstAttempt: null };
+      const isFirstAttemptForCard = existing.firstAttempt === null;
+      newMap.set(cardId, {
+        ...existing,
+        rememberedCount: existing.rememberedCount + 1,
+        firstAttempt: isFirstAttemptForCard ? 'remembered' : existing.firstAttempt,
+      });
+
+      // 初回ラウンドで初めて振り分ける場合、firstRoundStatsを更新
+      if (isFirstRound && isFirstAttemptForCard) {
+        setFirstRoundStats((stats) => ({
+          remembered: stats.remembered + 1,
+          total: stats.total + 1,
+        }));
+      }
+
+      return newMap;
+    });
+  }, [currentCard, isReviewMode, isFirstRound]);
 
   const markAgain = useCallback(() => {
     if (!currentCard) return;
@@ -125,7 +174,29 @@ export function useFlashcard(cards: Flashcard[]): UseFlashcardReturn {
         return [...prev, cardId];
       });
     }
-  }, [currentCard, isReviewMode]);
+
+    // 学習履歴を更新
+    setCardHistories((prev) => {
+      const newMap = new Map(prev);
+      const existing = newMap.get(cardId) || { rememberedCount: 0, againCount: 0, firstAttempt: null };
+      const isFirstAttemptForCard = existing.firstAttempt === null;
+      newMap.set(cardId, {
+        ...existing,
+        againCount: existing.againCount + 1,
+        firstAttempt: isFirstAttemptForCard ? 'again' : existing.firstAttempt,
+      });
+
+      // 初回ラウンドで初めて振り分ける場合、firstRoundStatsを更新（totalのみ）
+      if (isFirstRound && isFirstAttemptForCard) {
+        setFirstRoundStats((stats) => ({
+          ...stats,
+          total: stats.total + 1,
+        }));
+      }
+
+      return newMap;
+    });
+  }, [currentCard, isReviewMode, isFirstRound]);
 
   // 左スワイプ = わからない
   const swipeLeft = useCallback(() => {
@@ -148,6 +219,11 @@ export function useFlashcard(cards: Flashcard[]): UseFlashcardReturn {
     setIsReviewMode(false);
     setIsComplete(false);
     setNeedsTransition(false);
+    // 学習履歴もリセット
+    setCardHistories(new Map());
+    setReviewRounds(0);
+    setIsFirstRound(true);
+    setFirstRoundStats({ remembered: 0, total: 0 });
   }, []);
 
   // 復習が必要なカードのみでリスタート
@@ -167,6 +243,14 @@ export function useFlashcard(cards: Flashcard[]): UseFlashcardReturn {
     setNeedsTransition(false);
   }, [reviewQueue, remembered, reset]);
 
+  // セッション履歴を構築
+  const sessionHistory: SessionHistory = useMemo(() => ({
+    cardHistories,
+    reviewRounds,
+    firstRoundRemembered: firstRoundStats.remembered,
+    firstRoundTotal: firstRoundStats.total,
+  }), [cardHistories, reviewRounds, firstRoundStats]);
+
   return {
     currentIndex,
     currentCard,
@@ -179,6 +263,7 @@ export function useFlashcard(cards: Flashcard[]): UseFlashcardReturn {
       ? currentCards.length
       : reviewQueue.length,
     notRememberedCount: cards.length - remembered.size,
+    sessionHistory,
     flip,
     next,
     prev,

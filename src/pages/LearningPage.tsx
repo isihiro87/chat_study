@@ -1,6 +1,6 @@
 import { useState, useCallback, useMemo, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, Home } from 'lucide-react';
 import { TabBar } from '../components/common/TabBar';
 import { VideoPlayer } from '../components/learning/VideoPlayer';
 import { FlashcardDeck } from '../components/learning/FlashcardDeck';
@@ -10,13 +10,19 @@ import { Header } from '../components/common/Header';
 import { getTopic } from '../data/subjects/history';
 import { getHistoryChat } from '../data/history-chat';
 import { useStudyProgress } from '../hooks/useStudyProgress';
+import { useTopicNavigation } from '../hooks/useTopicNavigation';
 import type { TabType } from '../data/types';
 
 export function LearningPage() {
-  const { topicId } = useParams<{ topicId: string }>();
+  const { subjectId, eraId, topicId } = useParams<{
+    subjectId: string;
+    eraId: string;
+    topicId: string;
+  }>();
   const navigate = useNavigate();
 
   const topic = topicId ? getTopic(topicId) : undefined;
+  const { prevTopic, nextTopic } = useTopicNavigation(topicId);
 
   const [activeTab, setActiveTab] = useState<TabType>(() =>
     topic?.content.chatId ? 'chat' : 'flashcard'
@@ -55,6 +61,19 @@ export function LearningPage() {
   }, [chat]);
 
   const disabledTabs: TabType[] = ['video'];
+
+  // 前後トピックのナビゲーション情報
+  const topicNavigation = useMemo(() => {
+    const basePath = `/subjects/${subjectId}/eras/${eraId}/topics`;
+    return {
+      prev: prevTopic
+        ? { name: prevTopic.name, path: `${basePath}/${prevTopic.id}` }
+        : null,
+      next: nextTopic
+        ? { name: nextTopic.name, path: `${basePath}/${nextTopic.id}` }
+        : null,
+    };
+  }, [subjectId, eraId, prevTopic, nextTopic]);
 
   // タブ切り替え時にスクロール位置をリセット
   useEffect(() => {
@@ -109,13 +128,20 @@ export function LearningPage() {
         >
           <ArrowLeft className="h-6 w-6 text-gray-600" />
         </button>
-        <div className="flex-1">
-          <h1 className="text-lg font-bold text-gray-800">{topic.name}</h1>
-          <p className="text-sm text-gray-500">{topic.subtitle}</p>
+        <div className="flex-1 min-w-0">
+          <h1 className="truncate text-lg font-bold text-gray-800">{topic.name}</h1>
+          <p className="truncate text-sm text-gray-500">{topic.subtitle}</p>
         </div>
-        <div className="rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
+        <div className="flex-shrink-0 rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
           {progress.current}/{progress.total}
         </div>
+        <button
+          onClick={() => navigate('/')}
+          className="ml-2 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full hover:bg-gray-100 active:bg-gray-200"
+          aria-label="ホーム"
+        >
+          <Home className="h-5 w-5 text-gray-600" />
+        </button>
       </div>
     </header>
   );
@@ -131,10 +157,17 @@ export function LearningPage() {
         >
           <ArrowLeft className="h-6 w-6 text-gray-600" />
         </button>
-        <div className="flex-1">
-          <h1 className="text-lg font-bold text-gray-800">{topic.name}</h1>
-          <p className="text-sm text-gray-500">{topic.subtitle}</p>
+        <div className="flex-1 min-w-0">
+          <h1 className="truncate text-lg font-bold text-gray-800">{topic.name}</h1>
+          <p className="truncate text-sm text-gray-500">{topic.subtitle}</p>
         </div>
+        <button
+          onClick={() => navigate('/')}
+          className="ml-2 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full hover:bg-gray-100 active:bg-gray-200"
+          aria-label="ホーム"
+        >
+          <Home className="h-5 w-5 text-gray-600" />
+        </button>
       </div>
     </header>
   );
@@ -185,6 +218,7 @@ export function LearningPage() {
             onProgressChange={handleQuizProgressChange}
             onComplete={handleQuizComplete}
             isNewBest={quizNewBest}
+            navigation={topicNavigation}
           />
         </main>
       </div>

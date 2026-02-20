@@ -1,6 +1,6 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useMemo } from 'react';
 import { motion, AnimatePresence, useMotionValue, useTransform, type PanInfo } from 'framer-motion';
-import { RotateCcw, Check, ChevronLeft, ChevronRight, Layers, ArrowLeft, ArrowRight } from 'lucide-react';
+import { RotateCcw, Check, ChevronLeft, ChevronRight, Layers, ArrowLeft, ArrowRight, AlertTriangle } from 'lucide-react';
 import { useFlashcard } from '../../hooks/useFlashcard';
 import type { Flashcard } from '../../data/types';
 
@@ -22,6 +22,7 @@ export function FlashcardDeck({ cards, onProgressChange, onComplete }: Flashcard
     totalCards,
     reviewCount,
     notRememberedCount,
+    sessionHistory,
     flip,
     prev,
     next,
@@ -78,53 +79,154 @@ export function FlashcardDeck({ cards, onProgressChange, onComplete }: Flashcard
     setShowHint(false);
   }, [currentCard?.id, x]);
 
+  // 苦手カード（2回以上「もう一度」を選択したカード）を抽出
+  const difficultCards = useMemo(() => {
+    const result: { card: Flashcard; againCount: number }[] = [];
+    sessionHistory.cardHistories.forEach((history, cardId) => {
+      if (history.againCount >= 2) {
+        const card = cards.find((c) => c.id === cardId);
+        if (card) {
+          result.push({ card, againCount: history.againCount });
+        }
+      }
+    });
+    // againCountが多い順にソート
+    return result.sort((a, b) => b.againCount - a.againCount);
+  }, [sessionHistory.cardHistories, cards]);
+
+  // パフォーマンスに応じた評価メッセージ
+  const getPerformanceMessage = () => {
+    const { firstRoundRemembered, reviewRounds } = sessionHistory;
+    const firstRoundRate = totalCards > 0 ? firstRoundRemembered / totalCards : 0;
+
+    if (reviewRounds === 0) {
+      // 復習なしで完了（一発で全問正解）
+      return { emoji: '🏆', message: '一発で完璧！すごい！', color: 'text-yellow-500' };
+    } else if (firstRoundRate >= 0.8) {
+      return { emoji: '🌟', message: 'とてもよくできました！', color: 'text-green-500' };
+    } else if (firstRoundRate >= 0.5) {
+      return { emoji: '💪', message: '復習して覚えたね！', color: 'text-blue-500' };
+    } else {
+      return { emoji: '🎯', message: '最後まで頑張った！', color: 'text-purple-500' };
+    }
+  };
+
   if (isComplete) {
     const hasUnremembered = notRememberedCount > 0;
+    const { firstRoundRemembered, reviewRounds } = sessionHistory;
+    const performanceInfo = getPerformanceMessage();
 
     return (
-      <div className="flex h-full flex-col items-center justify-center px-6 pb-14">
+      <div className="flex h-full flex-col items-center overflow-y-auto px-6 py-8">
         {/* 完了アイコン */}
         <motion.div
           initial={{ scale: 0, rotate: -180 }}
           animate={{ scale: 1, rotate: 0 }}
           transition={{ type: 'spring', stiffness: 200, damping: 15 }}
-          className="mb-6 flex h-24 w-24 items-center justify-center rounded-full bg-gradient-to-br from-green-400 to-emerald-500 shadow-lg"
+          className="mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-green-400 to-emerald-500 shadow-lg"
         >
-          <Check className="h-12 w-12 text-white" />
+          <Check className="h-10 w-10 text-white" />
         </motion.div>
 
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="mb-2 text-3xl font-bold text-gray-800"
+          className="mb-1 text-2xl font-bold text-gray-800"
         >
           🎉 完了！
         </motion.h2>
 
-        {/* 統計情報 */}
+        {/* パフォーマンスメッセージ */}
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.25 }}
+          className={`mb-4 text-lg font-bold ${performanceInfo.color}`}
+        >
+          {performanceInfo.emoji} {performanceInfo.message}
+        </motion.p>
+
+        {/* 学習過程の統計情報 */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
-          className="mb-8 w-full max-w-xs rounded-2xl bg-gray-50 p-5"
+          className="mb-4 w-full max-w-xs rounded-2xl bg-gray-50 p-4"
         >
-          <p className="mb-3 text-center text-sm font-medium text-gray-500">📊 結果</p>
+          <p className="mb-3 text-center text-sm font-medium text-gray-500">📊 学習の過程</p>
           <div className="space-y-2">
+            {/* 初回正答率 */}
             <div className="flex items-center justify-between">
-              <span className="text-gray-600">総カード数</span>
-              <span className="font-bold text-gray-800">{totalCards}枚</span>
+              <span className="text-gray-600">初回で正解</span>
+              <span className="font-bold text-gray-800">
+                {firstRoundRemembered}/{totalCards}枚
+                {totalCards > 0 && (
+                  <span className="ml-1 text-sm text-gray-500">
+                    ({Math.round((firstRoundRemembered / totalCards) * 100)}%)
+                  </span>
+                )}
+              </span>
             </div>
+
+            {/* 復習ラウンド数 */}
             <div className="flex items-center justify-between">
-              <span className="text-gray-600">覚えた</span>
-              <span className="font-bold text-green-600">✓ {rememberedCount}枚</span>
+              <span className="text-gray-600">復習回数</span>
+              <span className="font-bold text-gray-800">
+                {reviewRounds === 0 ? (
+                  <span className="text-green-600">なし（一発！）</span>
+                ) : (
+                  `${reviewRounds}回`
+                )}
+              </span>
             </div>
-            <div className="flex items-center justify-between">
-              <span className="text-gray-600">復習が必要</span>
-              <span className="font-bold text-orange-500">{notRememberedCount}枚</span>
+
+            {/* 最終結果 */}
+            <div className="mt-2 border-t border-gray-200 pt-2">
+              <div className="flex items-center justify-between">
+                <span className="text-gray-600">総カード数</span>
+                <span className="font-bold text-gray-800">{totalCards}枚</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-gray-600">全て覚えた</span>
+                <span className="font-bold text-green-600">✓ {rememberedCount}枚</span>
+              </div>
             </div>
           </div>
         </motion.div>
+
+        {/* 苦手カードセクション */}
+        {difficultCards.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.35 }}
+            className="mb-4 w-full max-w-xs rounded-2xl bg-orange-50 p-4"
+          >
+            <div className="mb-3 flex items-center justify-center gap-2">
+              <AlertTriangle className="h-4 w-4 text-orange-500" />
+              <p className="text-sm font-medium text-orange-600">苦手なカード</p>
+            </div>
+            <div className="space-y-2">
+              {difficultCards.slice(0, 3).map(({ card, againCount }) => (
+                <div
+                  key={card.id}
+                  className="flex items-center justify-between rounded-lg bg-white/80 px-3 py-2"
+                >
+                  <span className="truncate text-sm text-gray-700">{card.front}</span>
+                  <span className="ml-2 flex-shrink-0 text-xs text-orange-500">
+                    {againCount}回復習
+                  </span>
+                </div>
+              ))}
+              {difficultCards.length > 3 && (
+                <p className="text-center text-xs text-orange-400">
+                  他{difficultCards.length - 3}枚も苦手かも
+                </p>
+              )}
+            </div>
+          </motion.div>
+        )}
 
         {/* アクションボタン */}
         <motion.div

@@ -1,14 +1,21 @@
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Check, X, RotateCcw, Trophy, RefreshCw } from 'lucide-react';
+import { Check, X, RotateCcw, Trophy, RefreshCw, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useQuiz } from '../../hooks/useQuiz';
 import type { Quiz } from '../../data/types';
+
+interface TopicNavigationInfo {
+  prev: { name: string; path: string } | null;
+  next: { name: string; path: string } | null;
+}
 
 interface QuizViewProps {
   quiz: Quiz;
   onProgressChange?: (current: number, total: number) => void;
   onComplete?: (score: number, total: number) => void;
   isNewBest?: boolean;
+  navigation?: TopicNavigationInfo;
 }
 
 function ProgressDots({
@@ -127,7 +134,7 @@ function ResultMessage({ percentage }: { percentage: number }) {
   }
 }
 
-export function QuizView({ quiz, onProgressChange, onComplete, isNewBest }: QuizViewProps) {
+export function QuizView({ quiz, onProgressChange, onComplete, isNewBest, navigation }: QuizViewProps) {
   const {
     isStarted,
     currentIndex,
@@ -292,6 +299,46 @@ export function QuizView({ quiz, onProgressChange, onComplete, isNewBest }: Quiz
               最初からやり直す
             </motion.button>
           </div>
+
+          {/* 前後の内容へのナビゲーション */}
+          {navigation && (navigation.prev || navigation.next) && (
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 }}
+              className="mt-6 w-full max-w-xs space-y-2"
+            >
+              <p className="text-center text-xs text-gray-400">他の内容を学習する</p>
+              {navigation.prev && (
+                <Link
+                  to={navigation.prev.path}
+                  className="flex items-center gap-2 rounded-xl border border-gray-200 bg-white p-3 transition-all hover:bg-gray-50 active:scale-[0.98] active:bg-gray-100"
+                >
+                  <ChevronLeft className="h-5 w-5 flex-shrink-0 text-gray-400" />
+                  <div className="min-w-0 flex-1">
+                    <p className="text-xs text-gray-400">前の内容へ</p>
+                    <p className="truncate text-sm font-medium text-gray-700">
+                      {navigation.prev.name}
+                    </p>
+                  </div>
+                </Link>
+              )}
+              {navigation.next && (
+                <Link
+                  to={navigation.next.path}
+                  className="flex items-center gap-2 rounded-xl border border-gray-200 bg-white p-3 transition-all hover:bg-gray-50 active:scale-[0.98] active:bg-gray-100"
+                >
+                  <div className="min-w-0 flex-1">
+                    <p className="text-xs text-gray-400">次の内容へ</p>
+                    <p className="truncate text-sm font-medium text-gray-700">
+                      {navigation.next.name}
+                    </p>
+                  </div>
+                  <ChevronRight className="h-5 w-5 flex-shrink-0 text-gray-400" />
+                </Link>
+              )}
+            </motion.div>
+          )}
         </div>
       </div>
     );
