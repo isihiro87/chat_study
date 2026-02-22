@@ -201,7 +201,7 @@ export function SummaryCard({ points, score, totalQuizzes, onReplay, onNavigateT
             ChatGPTでもっと深く知る
           </button>
           <p className="mt-3 text-center text-xs text-purple-600">
-            💡 開いたら Enterキー を押すだけで会話スタート！
+            💡 開いたら 送信ボタン を押すだけで会話スタート！
           </p>
         </div>
 
