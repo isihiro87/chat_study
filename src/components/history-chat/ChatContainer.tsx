@@ -164,6 +164,8 @@ export function ChatContainer({ chat, embedded = false, onNavigateToFlashcard, o
                         onReplay={reset}
                         onNavigateToFlashcard={onNavigateToFlashcard}
                         onNavigateToQuiz={onNavigateToQuiz}
+                        chatTitle={chat.title}
+                        chatSubtitle={chat.subtitle}
                       />
                       </div>
                     );

@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
-import { RotateCcw, Trophy, Layers, HelpCircle } from 'lucide-react';
+import { RotateCcw, Trophy, Layers, HelpCircle, MessageCircle } from 'lucide-react';
+import { buildChatGPTUrl } from '../../utils/chatgptPrompt';
 
 interface SummaryCardProps {
   points: string[];
@@ -8,6 +9,8 @@ interface SummaryCardProps {
   onReplay: () => void;
   onNavigateToFlashcard?: () => void;
   onNavigateToQuiz?: () => void;
+  chatTitle: string;
+  chatSubtitle: string;
 }
 
 interface RankInfo {
@@ -50,9 +53,18 @@ function getRankInfo(percentage: number): RankInfo {
   };
 }
 
-export function SummaryCard({ points, score, totalQuizzes, onReplay, onNavigateToFlashcard, onNavigateToQuiz }: SummaryCardProps) {
+export function SummaryCard({ points, score, totalQuizzes, onReplay, onNavigateToFlashcard, onNavigateToQuiz, chatTitle, chatSubtitle }: SummaryCardProps) {
   const percentage = totalQuizzes > 0 ? Math.round((score / totalQuizzes) * 100) : 0;
   const rank = totalQuizzes > 0 ? getRankInfo(percentage) : null;
+
+  const handleOpenChatGPT = () => {
+    const url = buildChatGPTUrl({
+      title: chatTitle,
+      subtitle: chatSubtitle,
+      points,
+    });
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
 
   return (
     <motion.div
@@ -168,6 +180,30 @@ export function SummaryCard({ points, score, totalQuizzes, onReplay, onNavigateT
             </div>
           </div>
         )}
+
+        {/* ChatGPTでもっと深く知る */}
+        <div className="mb-4 rounded-lg bg-purple-50 p-4">
+          <p
+            className="mb-3 text-sm font-bold text-purple-800"
+            style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+          >
+            🎓 AI先生ともっと深く学ぼう！
+          </p>
+          <p className="mb-3 text-sm text-purple-700">
+            ChatGPTのAI先生と対話しながら、理解を深めよう！
+          </p>
+          <button
+            onClick={handleOpenChatGPT}
+            className="flex w-full items-center justify-center gap-2 rounded-full bg-purple-500 px-4 py-2.5 text-sm font-medium text-white shadow-md transition-transform hover:bg-purple-600 active:scale-95"
+            style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+          >
+            <MessageCircle className="h-4 w-4" />
+            ChatGPTでもっと深く知る
+          </button>
+          <p className="mt-3 text-center text-xs text-purple-600">
+            💡 開いたら Enterキー を押すだけで会話スタート！
+          </p>
+        </div>
 
         {/* リプレイボタン */}
         <button
