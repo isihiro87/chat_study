@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Scroll, Calculator, Languages, Lock, ChevronRight, Flame, BookOpen, RotateCcw, ArrowRight } from 'lucide-react';
+import { Scroll, Calculator, Languages, Lock, ChevronRight, Flame, BookOpen, RotateCcw, ArrowRight, MousePointerClick, MessageCircle, CheckCircle } from 'lucide-react';
 import { subjects } from '../data/subjects';
 import { getTopic } from '../data/subjects/history/eras';
 import { useStudyProgress } from '../hooks/useStudyProgress';
@@ -80,6 +80,41 @@ export function TopPage() {
       </div>
 
       <main className="mx-auto max-w-md px-4 py-6">
+        {/* 使い方ガイド - 初回ユーザー向け */}
+        {!hasProgress && (
+          <div className="mb-6 rounded-xl bg-gradient-to-br from-indigo-50 to-purple-50 p-4 shadow-sm">
+            <h2 className="mb-3 text-center text-sm font-semibold text-indigo-700">
+              はじめての方へ
+            </h2>
+            <div className="flex justify-between gap-2">
+              <div className="flex flex-1 flex-col items-center">
+                <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-sm">
+                  <MousePointerClick className="h-6 w-6 text-indigo-500" aria-hidden="true" />
+                </div>
+                <p className="text-center text-xs font-bold text-gray-700">1. えらぶ</p>
+                <p className="text-center text-xs text-gray-500">科目と単元を<br />タップ</p>
+              </div>
+              <div className="flex flex-1 flex-col items-center">
+                <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-sm">
+                  <MessageCircle className="h-6 w-6 text-indigo-500" aria-hidden="true" />
+                </div>
+                <p className="text-center text-xs font-bold text-gray-700">2. よむ</p>
+                <p className="text-center text-xs text-gray-500">チャットで<br />かんたん学習</p>
+              </div>
+              <div className="flex flex-1 flex-col items-center">
+                <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-sm">
+                  <CheckCircle className="h-6 w-6 text-indigo-500" aria-hidden="true" />
+                </div>
+                <p className="text-center text-xs font-bold text-gray-700">3. たしかめる</p>
+                <p className="text-center text-xs text-gray-500">クイズで<br />チェック!</p>
+              </div>
+            </div>
+            <p className="mt-3 text-center text-xs text-indigo-600">
+              まずは下の「歴史」をタップしてね
+            </p>
+          </div>
+        )}
+
         <h2 className="mb-4 text-lg font-semibold text-gray-800">
           科目をえらぶ
         </h2>
