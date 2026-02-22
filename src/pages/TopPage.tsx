@@ -189,12 +189,12 @@ export function TopPage() {
               </div>
             </div>
 
-            {/* つづきから学習 & 次にやるべき */}
+            {/* 最後にやった内容 & 次の内容 */}
             <div className="space-y-2">
               {lastTopic && (
                 <TopicLinkCard
                   topic={lastTopic}
-                  label="つづきから学習"
+                  label="最後にやった内容"
                   icon={ArrowRight}
                   iconColor="text-indigo-600"
                   iconBg="bg-indigo-100"
@@ -203,7 +203,7 @@ export function TopPage() {
               {nextTopic && nextTopic.id !== lastStudiedTopicId && (
                 <TopicLinkCard
                   topic={nextTopic}
-                  label="次にやるべき"
+                  label="次の内容"
                   icon={BookOpen}
                   iconColor="text-emerald-600"
                   iconBg="bg-emerald-100"
