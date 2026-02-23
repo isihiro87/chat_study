@@ -6,6 +6,7 @@ import { EraSelectPage } from './pages/EraSelectPage';
 import { TopicSelectPage } from './pages/TopicSelectPage';
 import { LearningPage } from './pages/LearningPage';
 import { HistoryChatPage } from './pages/HistoryChatPage';
+import { pageview } from './utils/gtag';
 
 // ルート変更時にスクロール位置を復元またはリセット
 function ScrollRestoration() {
@@ -63,10 +64,19 @@ function AnimatedRoutes() {
   );
 }
 
+function PageViewTracker() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    pageview(pathname);
+  }, [pathname]);
+  return null;
+}
+
 function App() {
   return (
     <div className="min-h-screen bg-gray-50">
       <ScrollRestoration />
+      <PageViewTracker />
       <AnimatedRoutes />
     </div>
   );
