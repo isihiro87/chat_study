@@ -1,4 +1,4 @@
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, Clock } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 interface ChatHeaderProps {
@@ -6,9 +6,10 @@ interface ChatHeaderProps {
   title: string;
   subtitle: string;
   progress: number; // 0-100
+  estimatedMinutes: number; // 推定読了時間（分）
 }
 
-export function ChatHeader({ icon, title, subtitle, progress }: ChatHeaderProps) {
+export function ChatHeader({ icon, title, subtitle, progress, estimatedMinutes }: ChatHeaderProps) {
   const navigate = useNavigate();
 
   return (
@@ -49,19 +50,37 @@ export function ChatHeader({ icon, title, subtitle, progress }: ChatHeaderProps)
             </div>
           </div>
 
-          {/* バッジ */}
-          <span className="rounded-full bg-white/20 px-3 py-1 text-xs font-medium text-white">
-            中学歴史
-          </span>
+          {/* バッジエリア */}
+          <div className="flex items-center gap-2">
+            {estimatedMinutes > 0 && (
+              <span className="flex items-center gap-1 rounded-full bg-white/15 px-2.5 py-1 text-xs font-medium text-white/90">
+                <Clock className="h-3 w-3" />
+                約{estimatedMinutes}分
+              </span>
+            )}
+            <span className="rounded-full bg-white/20 px-3 py-1 text-xs font-medium text-white">
+              中学歴史
+            </span>
+          </div>
         </div>
       </div>
 
-      {/* プログレスバー */}
-      <div className="h-1 w-full bg-gray-200">
-        <div
-          className="h-full bg-gradient-to-r from-amber-500 to-orange-500 transition-all duration-300"
-          style={{ width: `${progress}%` }}
-        />
+      {/* プログレスバー + 進捗テキスト */}
+      <div className="relative">
+        <div className="h-1 w-full bg-gray-200">
+          <div
+            className="h-full bg-gradient-to-r from-amber-500 to-orange-500 transition-all duration-300"
+            style={{ width: `${progress}%` }}
+          />
+        </div>
+        <div className="absolute right-2 top-1.5">
+          <span
+            className="text-[10px] font-medium text-gray-400"
+            style={{ fontFamily: "'Noto Sans JP', sans-serif" }}
+          >
+            {progress}%
+          </span>
+        </div>
       </div>
     </header>
   );

@@ -2,6 +2,7 @@ import { useRef, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useHistoryChat } from '../../hooks/useHistoryChat';
 import { useTooltip } from '../../hooks/useTooltip';
+import { estimateReadingTime } from '../../utils/estimateReadingTime';
 import { ChatHeader } from './ChatHeader';
 import { DateSeparator } from './DateSeparator';
 import { NarratorBlock } from './NarratorBlock';
@@ -17,9 +18,10 @@ interface ChatContainerProps {
   onNavigateToFlashcard?: () => void;
   onNavigateToQuiz?: () => void;
   onComplete?: () => void;
+  onProgressChange?: (current: number, total: number) => void;
 }
 
-export function ChatContainer({ chat, embedded = false, onNavigateToFlashcard, onNavigateToQuiz, onComplete }: ChatContainerProps) {
+export function ChatContainer({ chat, embedded = false, onNavigateToFlashcard, onNavigateToQuiz, onComplete, onProgressChange }: ChatContainerProps) {
   const {
     shownIndex,
     visibleContent,
@@ -54,6 +56,14 @@ export function ChatContainer({ chat, embedded = false, onNavigateToFlashcard, o
   // 進捗率を計算
   const progress = Math.round((shownIndex / totalContent) * 100);
 
+  // 推定読了時間を算出（メモ化）
+  const estimatedMinutes = useMemo(() => estimateReadingTime(chat.content), [chat.content]);
+
+  // 進捗変化を親に通知
+  useEffect(() => {
+    onProgressChange?.(shownIndex, totalContent);
+  }, [shownIndex, totalContent, onProgressChange]);
+
   // チャット完了時のコールバック（一度だけ呼ぶ）
   const completeCalled = useRef(false);
   useEffect(() => {
@@ -80,13 +90,22 @@ export function ChatContainer({ chat, embedded = false, onNavigateToFlashcard, o
     }
   };
 
+  // クイズ回答直後の状態（最後の表示コンテンツがクイズで回答済み）
+  const isPostQuiz = useMemo(() => {
+    if (isWaitingForQuiz || isComplete || shownIndex === 0) return false;
+    const lastIndex = shownIndex - 1;
+    return chat.content[lastIndex].type === 'quiz' && quizAnswers[lastIndex] !== undefined;
+  }, [isWaitingForQuiz, isComplete, shownIndex, chat.content, quizAnswers]);
+
   // プロンプトメッセージ
-  // クイズ待ち状態のメッセージは常に表示、タップヒントは一度タップしたら非表示
+  // クイズ待ち状態: 選択肢をタップ、初回またはクイズ回答後: タップして次へ
   const promptMessage = isWaitingForQuiz
     ? '❓ 選択肢をタップ！'
-    : isComplete || hasTapped
+    : isComplete
       ? ''
-      : '▼ タップして次へ';
+      : (!hasTapped || isPostQuiz)
+        ? '▼ タップして次へ'
+        : '';
 
   return (
     <div
@@ -103,6 +122,7 @@ export function ChatContainer({ chat, embedded = false, onNavigateToFlashcard, o
             title={chat.title}
             subtitle={chat.subtitle}
             progress={progress}
+            estimatedMinutes={estimatedMinutes}
           />
         )}
 
@@ -186,9 +206,11 @@ export function ChatContainer({ chat, embedded = false, onNavigateToFlashcard, o
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
+            onClick={handleTap}
             className={`fixed left-1/2 w-full max-w-md -translate-x-1/2 bg-gradient-to-t from-black/50 to-transparent px-4 pt-8 text-center ${
               embedded ? 'bottom-16 pb-4' : 'bottom-0 pb-6'
             }`}
+            style={{ cursor: isWaitingForQuiz ? 'default' : 'pointer' }}
           >
             <span
               className="rounded-full bg-white/90 px-4 py-2 text-sm font-medium text-gray-700 shadow-lg"

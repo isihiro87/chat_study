@@ -199,13 +199,6 @@ export function ChatQuiz({
               style={{ fontFamily: "'Noto Sans JP', sans-serif" }}
               dangerouslySetInnerHTML={{ __html: quiz.explanation }}
             />
-            {/* タップで続きに進む */}
-            <p
-              className="mt-4 text-center text-sm text-white/60"
-              style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
-            >
-              ▼ タップで続きに進む
-            </p>
           </motion.div>
         )}
       </div>

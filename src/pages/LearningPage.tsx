@@ -1,6 +1,6 @@
 import { useState, useCallback, useMemo, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, Home } from 'lucide-react';
+import { ArrowLeft, Home, Clock } from 'lucide-react';
 import { TabBar } from '../components/common/TabBar';
 import { VideoPlayer } from '../components/learning/VideoPlayer';
 import { FlashcardDeck } from '../components/learning/FlashcardDeck';
@@ -9,6 +9,7 @@ import { ChatContainer } from '../components/history-chat/ChatContainer';
 import { Header } from '../components/common/Header';
 import { getTopic } from '../data/subjects/history';
 import { getHistoryChat } from '../data/history-chat';
+import { estimateReadingTime } from '../utils/estimateReadingTime';
 import { useStudyProgress } from '../hooks/useStudyProgress';
 import { useTopicNavigation } from '../hooks/useTopicNavigation';
 import type { TabType } from '../data/types';
@@ -29,6 +30,7 @@ export function LearningPage() {
   );
   const [cardProgress, setCardProgress] = useState({ current: 1, total: 1 });
   const [quizProgress, setQuizProgress] = useState({ current: 1, total: 1 });
+  const [chatProgress, setChatProgress] = useState({ current: 0, total: 1 });
   const [quizNewBest, setQuizNewBest] = useState(false);
 
   const {
@@ -55,6 +57,11 @@ export function LearningPage() {
     }
     return undefined;
   }, [topic?.content.chatId]);
+
+  // チャットの推定読了時間
+  const chatEstimatedMinutes = useMemo(() => {
+    return chat ? estimateReadingTime(chat.content) : 0;
+  }, [chat]);
 
   const hiddenTabs: TabType[] = useMemo(() => {
     return chat ? [] : ['chat'];
@@ -89,6 +96,10 @@ export function LearningPage() {
     if (current === 1) {
       setQuizNewBest(false);
     }
+  }, []);
+
+  const handleChatProgressChange = useCallback((current: number, total: number) => {
+    setChatProgress({ current, total });
   }, []);
 
   const handleChatComplete = useCallback(() => {
@@ -146,8 +157,13 @@ export function LearningPage() {
     </header>
   );
 
-  // 戻るボタン付きヘッダーのJSX（進捗表示なし）
-  const simpleHeader = (
+  // チャットの進捗率
+  const chatProgressPercent = chatProgress.total > 0
+    ? Math.round((chatProgress.current / chatProgress.total) * 100)
+    : 0;
+
+  // 戻るボタン付きヘッダーのJSX（チャット用：読了時間・進捗表示あり）
+  const chatHeader = (
     <header className="flex-shrink-0 bg-white shadow-sm">
       <div className="flex items-center px-4 py-3">
         <button
@@ -161,6 +177,12 @@ export function LearningPage() {
           <h1 className="truncate text-lg font-bold text-gray-800">{topic.name}</h1>
           <p className="truncate text-sm text-gray-500">{topic.subtitle}</p>
         </div>
+        {chatEstimatedMinutes > 0 && (
+          <span className="flex items-center gap-1 rounded-full bg-gray-100 px-2.5 py-1 text-xs font-medium text-gray-600">
+            <Clock className="h-3 w-3" />
+            約{chatEstimatedMinutes}分
+          </span>
+        )}
         <button
           onClick={() => navigate('/')}
           className="ml-2 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full hover:bg-gray-100 active:bg-gray-200"
@@ -168,6 +190,22 @@ export function LearningPage() {
         >
           <Home className="h-5 w-5 text-gray-600" />
         </button>
+      </div>
+      {/* プログレスバー */}
+      <div className="relative">
+        <div className="h-1 w-full bg-gray-100">
+          <div
+            className="h-full bg-gradient-to-r from-amber-500 to-orange-500 transition-all duration-300"
+            style={{ width: `${chatProgressPercent}%` }}
+          />
+        </div>
+        {chatProgressPercent > 0 && (
+          <div className="absolute right-2 top-1.5">
+            <span className="text-[10px] font-medium text-gray-400">
+              {chatProgressPercent}%
+            </span>
+          </div>
+        )}
       </div>
     </header>
   );
@@ -180,13 +218,14 @@ export function LearningPage() {
           className="flex h-dvh flex-col pb-16"
           style={{ display: activeTab === 'chat' ? 'flex' : 'none' }}
         >
-          {simpleHeader}
+          {chatHeader}
           <ChatContainer
             chat={chat}
             embedded
             onNavigateToFlashcard={() => setActiveTab('flashcard')}
             onNavigateToQuiz={() => setActiveTab('quiz')}
             onComplete={handleChatComplete}
+            onProgressChange={handleChatProgressChange}
           />
         </div>
       )}
