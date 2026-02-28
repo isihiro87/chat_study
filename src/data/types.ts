@@ -36,7 +36,26 @@ export interface TopicContent {
   videos: Video[];
   flashcards: Flashcard[];
   quiz: Quiz;
-  chatId?: string; // 歴史チャットのID（オプション）
+  chatId?: string; // チャットのID（オプション）
+  examples?: ExampleSet; // 例題（オプション）
+}
+
+// 例題
+export interface ExampleSet {
+  examples: Example[];
+}
+
+export interface Example {
+  id: string;
+  question: string; // 問題文
+  steps: ExampleStep[]; // 解法ステップ
+  answer: string; // 最終回答
+}
+
+export interface ExampleStep {
+  title: string; // ステップタイトル（例: "Step 1: 主語を確認"）
+  content: string; // ステップの説明
+  highlight?: string; // 強調ポイント（オプション）
 }
 
 // 後方互換性のためのエイリアス
@@ -150,7 +169,7 @@ export interface QuizQuestion {
 }
 
 // タブの種類
-export type TabType = 'video' | 'flashcard' | 'quiz' | 'chat';
+export type TabType = 'video' | 'flashcard' | 'quiz' | 'chat' | 'example';
 
 // 学習進捗
 export interface StudyProgress {
@@ -166,6 +185,7 @@ export interface StudyProgress {
 export interface TopicProgress {
   chatRead: boolean;
   flashcardCompleted: boolean;
+  exampleCompleted: boolean;
   quizBestScore: number | null;
   quizTotalQuestions: number | null;
   lastStudiedAt: string;

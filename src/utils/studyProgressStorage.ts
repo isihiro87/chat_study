@@ -5,6 +5,7 @@ const STORAGE_KEY = 'marutto-study-progress';
 export const DEFAULT_TOPIC_PROGRESS: TopicProgress = {
   chatRead: false,
   flashcardCompleted: false,
+  exampleCompleted: false,
   quizBestScore: null,
   quizTotalQuestions: null,
   lastStudiedAt: '',

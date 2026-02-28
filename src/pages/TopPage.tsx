@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Scroll, Calculator, Languages, Lock, ChevronRight, Flame, BookOpen, RotateCcw, ArrowRight, MousePointerClick, MessageCircle, CheckCircle } from 'lucide-react';
 import { subjects } from '../data/subjects';
-import { getTopic } from '../data/subjects/history/eras';
+import { getTopic, getEra } from '../data/subjects/registry';
 import { useStudyProgress } from '../hooks/useStudyProgress';
 
 const iconMap: Record<string, React.ElementType> = {
@@ -25,9 +25,12 @@ function TopicLinkCard({
   iconColor: string;
   iconBg: string;
 }) {
+  const era = getEra(topic.eraId);
+  const subjectId = era?.subjectId ?? 'history';
+
   return (
     <Link
-      to={`/subjects/history/eras/${topic.eraId}/topics/${topic.id}`}
+      to={`/subjects/${subjectId}/eras/${topic.eraId}/topics/${topic.id}`}
       className="flex items-center gap-3 rounded-xl bg-white p-3 shadow-sm transition-transform active:scale-98"
     >
       <div className={`flex h-10 w-10 items-center justify-center rounded-full ${iconBg}`}>
@@ -110,7 +113,7 @@ export function TopPage() {
               </div>
             </div>
             <p className="mt-3 text-center text-xs text-indigo-600">
-              まずは下の「歴史」をタップしてね
+              まずは下の科目をタップしてね
             </p>
           </div>
         )}

@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { getTopic, getTopicsByEra } from '../data/subjects/history';
+import { getTopic, getTopicsByEra } from '../data/subjects/registry';
 import type { Topic } from '../data/types';
 
 interface TopicNavigation {

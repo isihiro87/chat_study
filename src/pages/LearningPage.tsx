@@ -5,10 +5,10 @@ import { TabBar } from '../components/common/TabBar';
 import { VideoPlayer } from '../components/learning/VideoPlayer';
 import { FlashcardDeck } from '../components/learning/FlashcardDeck';
 import { QuizView } from '../components/learning/QuizView';
+import { ExampleView } from '../components/learning/ExampleView';
 import { ChatContainer } from '../components/history-chat/ChatContainer';
 import { Header } from '../components/common/Header';
-import { getTopic } from '../data/subjects/history';
-import { getHistoryChat } from '../data/history-chat';
+import { getTopic, getChat } from '../data/subjects/registry';
 import { estimateReadingTime } from '../utils/estimateReadingTime';
 import { useStudyProgress } from '../hooks/useStudyProgress';
 import { useTopicNavigation } from '../hooks/useTopicNavigation';
@@ -30,12 +30,14 @@ export function LearningPage() {
   );
   const [cardProgress, setCardProgress] = useState({ current: 1, total: 1 });
   const [quizProgress, setQuizProgress] = useState({ current: 1, total: 1 });
+  const [exampleProgress, setExampleProgress] = useState({ current: 1, total: 1 });
   const [chatProgress, setChatProgress] = useState({ current: 0, total: 1 });
   const [quizNewBest, setQuizNewBest] = useState(false);
 
   const {
     markChatRead,
     markFlashcardCompleted,
+    markExampleCompleted,
     updateQuizScore,
     getTopicProgress,
   } = useStudyProgress();
@@ -46,6 +48,7 @@ export function LearningPage() {
     if (!topicProgress) return [];
     const tabs: TabType[] = [];
     if (topicProgress.chatRead) tabs.push('chat');
+    if (topicProgress.exampleCompleted) tabs.push('example');
     if (topicProgress.flashcardCompleted) tabs.push('flashcard');
     if (topicProgress.quizBestScore !== null) tabs.push('quiz');
     return tabs;
@@ -53,7 +56,7 @@ export function LearningPage() {
 
   const chat = useMemo(() => {
     if (topic?.content.chatId) {
-      return getHistoryChat(topic.content.chatId);
+      return getChat(topic.content.chatId);
     }
     return undefined;
   }, [topic?.content.chatId]);
@@ -63,9 +66,13 @@ export function LearningPage() {
     return chat ? estimateReadingTime(chat.content) : 0;
   }, [chat]);
 
+  const hasExamples = !!topic?.content.examples;
   const hiddenTabs: TabType[] = useMemo(() => {
-    return chat ? [] : ['chat'];
-  }, [chat]);
+    const hidden: TabType[] = [];
+    if (!chat) hidden.push('chat');
+    if (!hasExamples) hidden.push('example');
+    return hidden;
+  }, [chat, hasExamples]);
 
   const disabledTabs: TabType[] = ['video'];
 
@@ -81,6 +88,11 @@ export function LearningPage() {
         : null,
     };
   }, [subjectId, eraId, prevTopic, nextTopic]);
+
+  // トピック変更時にデフォルトタブにリセット（別トピックへの遷移対応）
+  useEffect(() => {
+    setActiveTab(topic?.content.chatId ? 'chat' : 'flashcard');
+  }, [topicId, topic?.content.chatId]);
 
   // タブ切り替え時にスクロール位置をリセット
   useEffect(() => {
@@ -98,6 +110,10 @@ export function LearningPage() {
     }
   }, []);
 
+  const handleExampleProgressChange = useCallback((current: number, total: number) => {
+    setExampleProgress({ current, total });
+  }, []);
+
   const handleChatProgressChange = useCallback((current: number, total: number) => {
     setChatProgress({ current, total });
   }, []);
@@ -109,6 +125,10 @@ export function LearningPage() {
   const handleFlashcardComplete = useCallback(() => {
     if (topicId) markFlashcardCompleted(topicId);
   }, [topicId, markFlashcardCompleted]);
+
+  const handleExampleComplete = useCallback(() => {
+    if (topicId) markExampleCompleted(topicId);
+  }, [topicId, markExampleCompleted]);
 
   const handleQuizComplete = useCallback(
     (score: number, total: number) => {
@@ -220,6 +240,7 @@ export function LearningPage() {
         >
           {chatHeader}
           <ChatContainer
+            key={topicId}
             chat={chat}
             embedded
             onNavigateToFlashcard={() => setActiveTab('flashcard')}
@@ -227,6 +248,24 @@ export function LearningPage() {
             onComplete={handleChatComplete}
             onProgressChange={handleChatProgressChange}
           />
+        </div>
+      )}
+
+      {/* 例題タブ（常にマウント、display制御で表示切替） */}
+      {topic.content.examples && (
+        <div
+          className="flex h-dvh flex-col bg-gray-50"
+          style={{ display: activeTab === 'example' ? 'flex' : 'none' }}
+        >
+          {progressHeader(exampleProgress)}
+          <main className="flex-1 overflow-hidden">
+            <ExampleView
+              key={topicId}
+              examples={topic.content.examples}
+              onProgressChange={handleExampleProgressChange}
+              onComplete={handleExampleComplete}
+            />
+          </main>
         </div>
       )}
 
@@ -238,6 +277,7 @@ export function LearningPage() {
         {progressHeader(cardProgress)}
         <main className="flex-1 overflow-hidden">
           <FlashcardDeck
+            key={topicId}
             cards={topic.content.flashcards}
             onProgressChange={handleCardProgressChange}
             onComplete={handleFlashcardComplete}
@@ -253,6 +293,7 @@ export function LearningPage() {
         {progressHeader(quizProgress)}
         <main className="flex-1 overflow-hidden">
           <QuizView
+            key={topicId}
             quiz={topic.content.quiz}
             onProgressChange={handleQuizProgressChange}
             onComplete={handleQuizComplete}

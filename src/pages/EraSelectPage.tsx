@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import { ChevronRight, Check } from 'lucide-react';
 import { Header } from '../components/common/Header';
 import { getSubject } from '../data/subjects';
-import { eras } from '../data/subjects/history';
+import { getErasBySubject } from '../data/subjects/registry';
 import { useStudyProgress } from '../hooks/useStudyProgress';
 
 const grades = [
@@ -23,7 +23,8 @@ export function EraSelectPage() {
     window.scrollTo(0, 0);
   }, [selectedGrade]);
 
-  const filteredEras = eras.filter((era) => era.grade === selectedGrade);
+  const allEras = subjectId ? getErasBySubject(subjectId) : [];
+  const filteredEras = allEras.filter((era) => era.grade === selectedGrade);
 
   if (!subject) {
     return (
@@ -35,7 +36,7 @@ export function EraSelectPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <Header title={subject.name} subtitle="学びたい時代をえらぼう" showBack />
+      <Header title={subject.name} subtitle={subjectId === 'history' ? '学びたい時代をえらぼう' : '学びたい単元をえらぼう'} showBack />
 
       <main className="mx-auto max-w-md px-4 py-4">
         {/* 学年タブ */}
@@ -91,7 +92,7 @@ export function EraSelectPage() {
 
         {filteredEras.length === 0 && (
           <div className="py-12 text-center">
-            <p className="text-gray-500">時代がありません</p>
+            <p className="text-gray-500">{subjectId === 'history' ? '時代がありません' : '単元がありません'}</p>
           </div>
         )}
       </main>

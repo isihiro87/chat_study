@@ -109,7 +109,7 @@ export function ChatContainer({ chat, embedded = false, onNavigateToFlashcard, o
 
   return (
     <div
-      className={embedded ? 'h-full' : 'min-h-screen'}
+      className={embedded ? 'flex-1 min-h-0 overflow-hidden' : 'min-h-screen'}
       style={{ backgroundColor: '#F0EDE6' }}
     >
       <div

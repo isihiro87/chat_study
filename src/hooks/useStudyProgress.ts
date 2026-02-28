@@ -6,7 +6,7 @@ import {
   updateStreak,
   DEFAULT_TOPIC_PROGRESS,
 } from '../utils/studyProgressStorage';
-import { allTopics, getTopicsByEra } from '../data/subjects/history/eras';
+import { allTopics, getTopicsByEra } from '../data/subjects/registry';
 import type { StudyProgress, TopicProgress, Topic } from '../data/types';
 
 interface EraProgress {
@@ -68,6 +68,17 @@ export function useStudyProgress() {
     [recordActivity],
   );
 
+  const markExampleCompleted = useCallback(
+    (topicId: string) => {
+      recordActivity(topicId, (tp) => ({
+        ...tp,
+        exampleCompleted: true,
+        lastStudiedAt: new Date().toISOString(),
+      }));
+    },
+    [recordActivity],
+  );
+
   const updateQuizScore = useCallback(
     (topicId: string, score: number, total: number): { isNewBest: boolean } => {
       let isNewBest = false;
@@ -104,7 +115,7 @@ export function useStudyProgress() {
     (topicId: string): boolean => {
       const tp = progress.topics[topicId];
       if (!tp) return false;
-      return tp.chatRead || tp.flashcardCompleted || tp.quizBestScore !== null;
+      return tp.chatRead || tp.flashcardCompleted || tp.exampleCompleted || tp.quizBestScore !== null;
     },
     [progress],
   );
@@ -114,7 +125,7 @@ export function useStudyProgress() {
       const topics = getTopicsByEra(eraId);
       const completed = topics.filter((t) => {
         const tp = progress.topics[t.id];
-        return tp && (tp.chatRead || tp.flashcardCompleted || tp.quizBestScore !== null);
+        return tp && (tp.chatRead || tp.flashcardCompleted || tp.exampleCompleted || tp.quizBestScore !== null);
       }).length;
       return { completed, total: topics.length };
     },
@@ -125,7 +136,7 @@ export function useStudyProgress() {
 
   const totalStudiedTopics = useMemo(() => {
     return Object.values(progress.topics).filter(
-      (tp) => tp.chatRead || tp.flashcardCompleted || tp.quizBestScore !== null,
+      (tp) => tp.chatRead || tp.flashcardCompleted || tp.exampleCompleted || tp.quizBestScore !== null,
     ).length;
   }, [progress]);
 
@@ -136,7 +147,7 @@ export function useStudyProgress() {
   const getNextTopicToStudy = useCallback((): Topic | null => {
     for (const topic of allTopics) {
       const tp = progress.topics[topic.id];
-      if (!tp || (!tp.chatRead && !tp.flashcardCompleted && tp.quizBestScore === null)) {
+      if (!tp || (!tp.chatRead && !tp.flashcardCompleted && !tp.exampleCompleted && tp.quizBestScore === null)) {
         return topic;
       }
     }
@@ -174,6 +185,7 @@ export function useStudyProgress() {
   return {
     markChatRead,
     markFlashcardCompleted,
+    markExampleCompleted,
     updateQuizScore,
     getTopicProgress,
     getEraProgress,

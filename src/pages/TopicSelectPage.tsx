@@ -1,7 +1,7 @@
 import { Link, useParams } from 'react-router-dom';
 import { ChevronRight, Check } from 'lucide-react';
 import { Header } from '../components/common/Header';
-import { getEra, getTopicsByEra } from '../data/subjects/history';
+import { getEra, getTopicsByEra } from '../data/subjects/registry';
 import { useStudyProgress } from '../hooks/useStudyProgress';
 
 export function TopicSelectPage() {
@@ -42,7 +42,7 @@ export function TopicSelectPage() {
           <div className="mb-4 flex items-center gap-2 rounded-xl bg-emerald-50 border border-emerald-200 p-3">
             <span className="text-xl">🎉</span>
             <p className="text-sm font-bold text-emerald-700">
-              この時代のトピックをすべて学習したよ！
+              このセクションのトピックをすべて学習したよ！
             </p>
           </div>
         )}

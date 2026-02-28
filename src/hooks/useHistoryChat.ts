@@ -41,8 +41,8 @@ export function useHistoryChat(chat: HistoryChat): UseHistoryChatReturn {
   // 表示済み要素数（日付+最初のナレーションまで自動表示）
   const [shownIndex, setShownIndex] = useState(() => getInitialShownIndex(chat.content));
 
-  // タップヒント表示済み状態（セッション中のみ有効、localStorageに保存しない）
-  const [hasTapped, setHasTapped] = useState(false);
+  // タップ回数（3回タップするまでヒントを表示し続ける）
+  const [tapCount, setTapCount] = useState(0);
 
   // クイズ回答状態
   const [quizAnswers, setQuizAnswers] = useState<Record<number, number | null>>({});
@@ -89,15 +89,13 @@ export function useHistoryChat(chat: HistoryChat): UseHistoryChatReturn {
       return;
     }
 
-    // 初回タップ時にヒントを非表示にする
-    if (!hasTapped) {
-      setHasTapped(true);
-    }
+    // タップ回数を更新（3回まで）
+    setTapCount((prev) => Math.min(prev + 1, 3));
 
     if (shownIndex < totalContent) {
       setShownIndex((prev) => prev + 1);
     }
-  }, [isWaitingForQuiz, hasTapped, shownIndex, totalContent]);
+  }, [isWaitingForQuiz, shownIndex, totalContent]);
 
   // クイズに回答
   const selectAnswer = useCallback(
@@ -132,7 +130,7 @@ export function useHistoryChat(chat: HistoryChat): UseHistoryChatReturn {
     visibleContent,
     totalContent,
     isComplete,
-    hasTapped,
+    hasTapped: tapCount >= 3,
     isWaitingForQuiz,
     currentQuizIndex,
     quizAnswers,
