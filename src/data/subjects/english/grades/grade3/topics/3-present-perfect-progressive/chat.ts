@@ -1,0 +1,167 @@
+import type { HistoryChat } from '../../../../../../../data/history-chat/types';
+
+export const presentPerfectProgressiveChat: HistoryChat = {
+  id: 'eng-present-perfect-progressive',
+  icon: '⏱️',
+  title: '現在完了進行形を覚えよう',
+  subtitle: '〜中3英語〜 have been + ~ing',
+  characters: [
+    {
+      id: 'teacher',
+      name: '先生',
+      emoji: '👩‍🏫',
+      colorFrom: '#7c3aed',
+      colorTo: '#a78bfa',
+      expressions: {
+        explaining: '🧑‍🏫',
+        happy: '😊',
+        encouraging: '💪',
+        thinking: '🤔',
+      },
+    },
+    {
+      id: 'student',
+      name: '生徒',
+      emoji: '👦',
+      colorFrom: '#059669',
+      colorTo: '#34d399',
+      expressions: {
+        curious: '🙋‍♂️',
+        surprised: '😲',
+        thinking: '🤔',
+        happy: '😄',
+        confused: '😵‍💫',
+      },
+    },
+  ],
+  content: [
+    {
+      type: 'date',
+      text: '<ruby>現在完了進行形<rt>げんざいかんりょうしんこうけい</rt></ruby>の<ruby>基本<rt>きほん</rt></ruby>',
+    },
+    {
+      type: 'narrator',
+      text: '<ruby>前回<rt>ぜんかい</rt></ruby>の<ruby>現在完了<rt>げんざいかんりょう</rt></ruby>（have + <ruby>過去分詞<rt>かこぶんし</rt></ruby>）に続いて、<ruby>今日<rt>きょう</rt></ruby>は<strong><ruby>現在完了進行形<rt>げんざいかんりょうしんこうけい</rt></ruby></strong>を<ruby>覚<rt>おぼ</rt></ruby>えよう！<ruby>例文<rt>れいぶん</rt></ruby>からスタート！',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: 'まずこの<ruby>例文<rt>れいぶん</rt></ruby>を見てみよう！<br/><br/><strong>I have been studying for two hours.</strong><br/>（<ruby>私<rt>わたし</rt></ruby>は2<ruby>時間<rt>じかん</rt></ruby>ずっと<ruby>勉強<rt>べんきょう</rt></ruby>しています。）<br/><br/>「2<ruby>時間<rt>じかん</rt></ruby>前からずっと<ruby>勉強<rt>べんきょう</rt></ruby>し<strong>続けて</strong>いる」という<ruby>意味<rt>いみ</rt></ruby>だよ。',
+      speakable: ['I have been studying for two hours.'],
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: 'have been studying ってすごく<ruby>長<rt>なが</rt></ruby>いですね！<ruby>現在完了<rt>げんざいかんりょう</rt></ruby>の have studied とはどうちがうんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: 'いい<ruby>質問<rt>しつもん</rt></ruby>！ 作り方は：<br/><br/><strong>have（has）+ been + 〜ing</strong><br/><br/><ruby>現在完了<rt>げんざいかんりょう</rt></ruby>の have + <ruby>過去分詞<rt>かこぶんし</rt></ruby>に、<ruby>進行形<rt>しんこうけい</rt></ruby>の be + 〜ing が合体したイメージだよ！<br/><br/>have + <strong>been</strong>（be の<ruby>過去分詞<rt>かこぶんし</rt></ruby>）+ <strong>〜ing</strong><br/><br/>ちがいは<ruby>後<rt>あと</rt></ruby>で<ruby>詳<rt>くわ</rt></ruby>しく<ruby>説明<rt>せつめい</rt></ruby>するね。まずはもう少し<ruby>例文<rt>れいぶん</rt></ruby>を見よう！',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<strong>She has been running since this morning.</strong><br/>（<ruby>彼女<rt>かのじょ</rt></ruby>は<ruby>今朝<rt>けさ</rt></ruby>からずっと走っています。）<br/><br/><strong>They have been waiting for thirty minutes.</strong><br/>（<ruby>彼<rt>かれ</rt></ruby>らは30<ruby>分間<rt>ぷんかん</rt></ruby>ずっと<ruby>待<rt>ま</rt></ruby>っています。）<br/><br/>どちらも「ずっと〜し続けている」だね。<ruby>現在完了<rt>げんざいかんりょう</rt></ruby>と<ruby>同<rt>おな</rt></ruby>じく for / since もいっしょに使えるよ！',
+      speakable: ['She has been running since this morning.', 'They have been waiting for thirty minutes.'],
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'happy',
+      text: 'She のときは has been + 〜ing になるんですね！ for と since もそのまま使えるんだ。',
+    },
+    {
+      type: 'summary-point',
+      text: '<ruby>現在完了進行形<rt>げんざいかんりょうしんこうけい</rt></ruby>「ずっと〜し続けている」: <strong>have（has）+ been + 〜ing</strong> ＋ for / since',
+    },
+    {
+      type: 'quiz',
+      question: '「I (　　) for three hours.（私は3時間ずっと勉強し続けています。）」\nの (　　) に入るのは？',
+      options: [
+        { letter: 'A', text: 'have studied', correct: false },
+        { letter: 'B', text: 'have been studying', correct: true },
+        { letter: 'C', text: 'am studying', correct: false },
+        { letter: 'D', text: 'has been studying', correct: false },
+      ],
+      explanation: '「ずっと〜し続けている」は<ruby>現在完了進行形<rt>げんざいかんりょうしんこうけい</rt></ruby>。主語が I だから <strong>have been studying</strong> だよ。',
+    },
+    {
+      type: 'date',
+      text: '<ruby>現在完了<rt>げんざいかんりょう</rt></ruby>とのちがい',
+    },
+    {
+      type: 'narrator',
+      text: '<ruby>現在完了<rt>げんざいかんりょう</rt></ruby>（have + <ruby>過去分詞<rt>かこぶんし</rt></ruby>）と<ruby>現在完了進行形<rt>げんざいかんりょうしんこうけい</rt></ruby>（have been + 〜ing）のちがいを<ruby>例文<rt>れいぶん</rt></ruby>で<ruby>比<rt>くら</rt></ruby>べてみよう！',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: 'この2つの<ruby>例文<rt>れいぶん</rt></ruby>を<ruby>比<rt>くら</rt></ruby>べてみよう！<br/><br/>① <strong>I have lived here for ten years.</strong><br/>（<ruby>私<rt>わたし</rt></ruby>は10<ruby>年間<rt>ねんかん</rt></ruby>ここに住んでいます。）<br/><br/>② <strong>I have been reading this book for two hours.</strong><br/>（<ruby>私<rt>わたし</rt></ruby>は2<ruby>時間<rt>じかん</rt></ruby>ずっとこの<ruby>本<rt>ほん</rt></ruby>を読んでいます。）',
+      speakable: ['I have lived here for ten years.', 'I have been reading this book for two hours.'],
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'confused',
+      text: 'どっちも「〜している」ですよね？何がちがうんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: 'ポイントはこう！<br/><br/>① <strong><ruby>現在完了<rt>げんざいかんりょう</rt></ruby></strong>（have lived）<br/>→ <ruby>状態<rt>じょうたい</rt></ruby>がずっと続いている（住む・知っている など）<br/><br/>② <strong><ruby>現在完了進行形<rt>げんざいかんりょうしんこうけい</rt></ruby></strong>（have been reading）<br/>→ <ruby>動作<rt>どうさ</rt></ruby>をずっとし<strong>続けて</strong>いる（読む・走る・<ruby>勉強<rt>べんきょう</rt></ruby>する など）<br/><br/>「<ruby>動<rt>うご</rt></ruby>いている感じ」があるときは<ruby>現在完了進行形<rt>げんざいかんりょうしんこうけい</rt></ruby>を使うんだよ！',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: 'live（住む）や know（知っている）は<ruby>状態<rt>じょうたい</rt></ruby>だから<ruby>現在完了<rt>げんざいかんりょう</rt></ruby>、study（<ruby>勉強<rt>べんきょう</rt></ruby>する）や run（走る）は<ruby>動作<rt>どうさ</rt></ruby>だから<ruby>現在完了進行形<rt>げんざいかんりょうしんこうけい</rt></ruby>ですね！',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'encouraging',
+      text: 'バッチリ！まとめるとこうだよ。<br/><br/>・live, know, like のような「<ruby>状態<rt>じょうたい</rt></ruby>」→ <strong>have + <ruby>過去分詞<rt>かこぶんし</rt></ruby></strong><br/>・study, run, read のような「<ruby>動作<rt>どうさ</rt></ruby>」→ <strong>have been + 〜ing</strong><br/><br/><ruby>迷<rt>まよ</rt></ruby>ったら「体を<ruby>動<rt>うご</rt></ruby>かす感じがあるかな？」と考えてみよう！',
+    },
+    {
+      type: 'summary-point',
+      text: '<ruby>状態<rt>じょうたい</rt></ruby>の<ruby>継続<rt>けいぞく</rt></ruby>（live, know）→ <strong><ruby>現在完了<rt>げんざいかんりょう</rt></ruby></strong> ／ <ruby>動作<rt>どうさ</rt></ruby>の<ruby>継続<rt>けいぞく</rt></ruby>（study, run）→ <strong><ruby>現在完了進行形<rt>げんざいかんりょうしんこうけい</rt></ruby></strong>',
+    },
+    {
+      type: 'quiz',
+      question: '「She (　　) English since she was five.（彼女は5歳からずっと英語を勉強し続けています。）」\nの (　　) に入るのは？',
+      options: [
+        { letter: 'A', text: 'has studied', correct: false },
+        { letter: 'B', text: 'has been studying', correct: true },
+        { letter: 'C', text: 'is studying', correct: false },
+        { letter: 'D', text: 'studied', correct: false },
+      ],
+      explanation: '「<ruby>勉強<rt>べんきょう</rt></ruby>する」は<ruby>動作<rt>どうさ</rt></ruby>だから<ruby>現在完了進行形<rt>げんざいかんりょうしんこうけい</rt></ruby>。She だから <strong>has been studying</strong> だよ。',
+    },
+    {
+      type: 'end',
+      points: [
+        '<ruby>現在完了進行形<rt>げんざいかんりょうしんこうけい</rt></ruby> = <strong>have（has）+ been + 〜ing</strong>「ずっと〜し続けている」',
+        'for（〜の<ruby>間<rt>あいだ</rt></ruby>）/ since（〜から）もいっしょに使える',
+        '<ruby>状態<rt>じょうたい</rt></ruby>の<ruby>継続<rt>けいぞく</rt></ruby>（live, know, like）→ <ruby>現在完了<rt>げんざいかんりょう</rt></ruby>（have + <ruby>過去分詞<rt>かこぶんし</rt></ruby>）',
+        '<ruby>動作<rt>どうさ</rt></ruby>の<ruby>継続<rt>けいぞく</rt></ruby>（study, run, read）→ <ruby>現在完了進行形<rt>げんざいかんりょうしんこうけい</rt></ruby>（have been + 〜ing）',
+      ],
+    },
+  ],
+};
