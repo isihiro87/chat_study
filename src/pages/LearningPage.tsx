@@ -235,7 +235,7 @@ export function LearningPage() {
       {/* チャットタブ（常にマウント、display制御で表示切替） */}
       {chat && (
         <div
-          className="flex h-dvh flex-col pb-16"
+          className="flex h-dvh flex-col overflow-hidden pb-16"
           style={{ display: activeTab === 'chat' ? 'flex' : 'none' }}
         >
           {chatHeader}
