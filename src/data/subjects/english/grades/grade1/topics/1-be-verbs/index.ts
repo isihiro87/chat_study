@@ -96,21 +96,21 @@ export const beVerbs: Topic = {
       questions: [
         {
           id: 'eng-be-q1',
-          question: '「I (　　) a student.\n（私は生徒です。）」\nの (　　) に入るのは？',
+          question: '「I (　　) a student.（私は生徒です。）」\nの (　　) に入るのは？',
           options: ['am', 'is', 'are', 'do'],
           correctIndex: 0,
           explanation: '「私 = I」のときは、いつも am だよ。',
         },
         {
           id: 'eng-be-q2',
-          question: '「She (　　) from Tokyo.\n（彼女は東京しゅっしんです。）」\nの (　　) に入るのは？',
+          question: '「She (　　) from Tokyo.（彼女は東京しゅっしんです。）」\nの (　　) に入るのは？',
           options: ['am', 'is', 'are', 'do'],
           correctIndex: 1,
           explanation: 'She（彼女）は1人だから is を使うよ。',
         },
         {
           id: 'eng-be-q3',
-          question: '「(　　) you happy?\n（あなたはうれしいですか？）」\nの (　　) に入るのは？',
+          question: '「(　　) you happy?（あなたはうれしいですか？）」\nの (　　) に入るのは？',
           options: ['Am', 'Is', 'Are', 'Do'],
           correctIndex: 2,
           explanation: 'you のbe動詞は are。「〜ですか？」だからいちばん前に出して Are you happy? だよ。',
@@ -140,7 +140,7 @@ export const beVerbs: Topic = {
       examples: [
         {
           id: 'eng-be-ex1',
-          question: '次の日本語を英語にしよう。「私は生徒です。」',
+          question: '次の日本語を英語にしよう。\n「私は生徒です。」',
           steps: [
             {
               title: 'Step 1: 「だれが？」をさがそう',
@@ -162,7 +162,7 @@ export const beVerbs: Topic = {
         },
         {
           id: 'eng-be-ex2',
-          question: '次の文を「〜じゃない」の文にしよう。\nShe is a teacher.\n（彼女は先生です。）',
+          question: '次の文を「〜じゃない」の文にしよう。\nShe is a teacher.（彼女は先生です。）',
           steps: [
             {
               title: 'Step 1: be動詞をさがそう',
@@ -180,11 +180,11 @@ export const beVerbs: Topic = {
               highlight: "isn't",
             },
           ],
-          answer: "She is not a teacher.\n= She isn't a teacher.\n（彼女は先生ではありません。）",
+          answer: "She is not a teacher. = She isn't a teacher.\n（彼女は先生ではありません。）",
         },
         {
           id: 'eng-be-ex3',
-          question: '次の文を「〜ですか？」の文にして、\nYes で答えよう。\nYou are from Japan.\n（あなたは日本出身です。）',
+          question: '次の文を「〜ですか？」の文にして、Yes で答えよう。\nYou are from Japan.（あなたは日本出身です。）',
           steps: [
             {
               title: 'Step 1: be動詞をさがそう',

@@ -43,6 +43,7 @@ export interface MessageContent {
   characterId: string;
   text: string;
   expression?: string; // キャラクターの表情キー（ChatCharacter.expressionsに対応）
+  speakable?: string[]; // 音声再生対象の英文リスト（英語科目用）
 }
 
 export interface QuizContent {

@@ -173,7 +173,7 @@ function QuestionSlideView({ slide, title }: { slide: { type: 'question'; questi
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2 }}
-        className="text-center text-2xl font-bold leading-relaxed text-gray-800"
+        className="whitespace-pre-line text-center text-2xl font-bold leading-relaxed text-gray-800"
       >
         {slide.question}
       </motion.p>

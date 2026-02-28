@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { RotateCcw, Trophy, Layers, HelpCircle, MessageCircle } from 'lucide-react';
+import { RotateCcw, Trophy, Layers, HelpCircle, MessageCircle, BookOpen } from 'lucide-react';
 import { buildChatGPTUrl } from '../../utils/chatgptPrompt';
 
 interface SummaryCardProps {
@@ -9,6 +9,7 @@ interface SummaryCardProps {
   onReplay: () => void;
   onNavigateToFlashcard?: () => void;
   onNavigateToQuiz?: () => void;
+  onNavigateToExample?: () => void;
   chatTitle: string;
   chatSubtitle: string;
 }
@@ -53,7 +54,7 @@ function getRankInfo(percentage: number): RankInfo {
   };
 }
 
-export function SummaryCard({ points, score, totalQuizzes, onReplay, onNavigateToFlashcard, onNavigateToQuiz, chatTitle, chatSubtitle }: SummaryCardProps) {
+export function SummaryCard({ points, score, totalQuizzes, onReplay, onNavigateToFlashcard, onNavigateToQuiz, onNavigateToExample, chatTitle, chatSubtitle }: SummaryCardProps) {
   const percentage = totalQuizzes > 0 ? Math.round((score / totalQuizzes) * 100) : 0;
   const rank = totalQuizzes > 0 ? getRankInfo(percentage) : null;
 
@@ -178,6 +179,29 @@ export function SummaryCard({ points, score, totalQuizzes, onReplay, onNavigateT
                 </button>
               )}
             </div>
+          </div>
+        )}
+
+        {/* 例題の解き方を見る */}
+        {onNavigateToExample && (
+          <div className="mb-4 rounded-lg bg-orange-50 p-4">
+            <p
+              className="mb-3 text-sm font-bold text-orange-800"
+              style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+            >
+              📝 例題で実力チェック！
+            </p>
+            <p className="mb-3 text-sm text-orange-700">
+              実際の問題を解いて、理解度を確かめよう！
+            </p>
+            <button
+              onClick={onNavigateToExample}
+              className="flex w-full items-center justify-center gap-2 rounded-full bg-orange-500 px-4 py-2.5 text-sm font-medium text-white shadow-md transition-transform hover:bg-orange-600 active:scale-95"
+              style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+            >
+              <BookOpen className="h-4 w-4" />
+              例題の解き方を見る
+            </button>
           </div>
         )}
 

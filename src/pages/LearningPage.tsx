@@ -245,6 +245,7 @@ export function LearningPage() {
             embedded
             onNavigateToFlashcard={() => setActiveTab('flashcard')}
             onNavigateToQuiz={() => setActiveTab('quiz')}
+            onNavigateToExample={topic.content.examples ? () => setActiveTab('example') : undefined}
             onComplete={handleChatComplete}
             onProgressChange={handleChatProgressChange}
           />

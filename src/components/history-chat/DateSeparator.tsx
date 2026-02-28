@@ -17,7 +17,7 @@ export function DateSeparator({ text }: DateSeparatorProps) {
         className="whitespace-nowrap rounded-full bg-gray-100 px-4 py-1.5 text-xs font-medium text-gray-600"
         style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
       >
-        {text}
+        <span dangerouslySetInnerHTML={{ __html: text }} />
       </span>
       <div className="h-px flex-1 bg-gray-300" />
     </motion.div>

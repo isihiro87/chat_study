@@ -320,3 +320,12 @@ chatId: 'human-origins', // フォルダ名の先頭「数字-」を除去した
 - 既存のindex.tsのid, eraId, name, subtitle, icon, orderは変更しない（contentのみ更新）
 - 既存のchat.tsとindex.tsのcontentは全体上書きする（ただしindex.tsのid, eraId, name, subtitle, icon, orderは保持）
 - `/generate-quiz`との違い: こちらはflashcardsも含むフルコンテンツ生成（引数もフォルダパス vs ファイルパス）
+
+### 英語科目の場合の追加ルール
+
+英語科目（`subjects/english/`配下）のchat.tsを生成する場合は、必ず **`english-content`スキル** のガイドラインに従うこと。特に以下が重要:
+
+- **例文先行→かみ砕き説明スタイル**: ルールや文法用語から入らず、まず簡単な例文を提示し、生徒がその中で気づき・疑問を言い、先生がかみ砕いて説明する流れ
+- 言葉づかいのルール（禁止用語・学年別用語）
+- 英文には必ず日本語訳をつける
+- HTMLタグの使い方は英語スキル準拠（ruby/tooltipは不要、`<strong>`のみ）

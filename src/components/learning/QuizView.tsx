@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import { Check, X, RotateCcw, Trophy, RefreshCw, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useQuiz } from '../../hooks/useQuiz';
 import type { Quiz } from '../../data/types';
@@ -55,83 +54,25 @@ function ProgressDots({
 }
 
 function ResultMessage({ percentage }: { percentage: number }) {
-  if (percentage === 100) {
-    return (
-      <div className="text-center">
-        <motion.span
-          className="mb-2 inline-block text-4xl"
-          initial={{ scale: 0, rotate: -180 }}
-          animate={{ scale: 1, rotate: 0 }}
-          transition={{ type: 'spring', stiffness: 200, delay: 0.2 }}
-        >
-          🎉
-        </motion.span>
-        <p
-          className="text-base font-bold text-emerald-600"
-          style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
-        >
-          パーフェクト！すごい！
-        </p>
-      </div>
-    );
-  } else if (percentage >= 80) {
-    return (
-      <div className="text-center">
-        <motion.span
-          className="mb-2 inline-block text-4xl"
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          transition={{ type: 'spring', stiffness: 200, delay: 0.2 }}
-        >
-          🌟
-        </motion.span>
-        <p
-          className="text-base font-bold text-emerald-600"
-          style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
-        >
-          すごい！よく覚えてるね！
-        </p>
-      </div>
-    );
-  } else if (percentage >= 60) {
-    return (
-      <div className="text-center">
-        <motion.span
-          className="mb-2 inline-block text-4xl"
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          transition={{ type: 'spring', stiffness: 200, delay: 0.2 }}
-        >
-          👍
-        </motion.span>
-        <p
-          className="text-base font-bold text-amber-600"
-          style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
-        >
-          いい調子！もう少しで完璧！
-        </p>
-      </div>
-    );
-  } else {
-    return (
-      <div className="text-center">
-        <motion.span
-          className="mb-2 inline-block text-4xl"
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          transition={{ type: 'spring', stiffness: 200, delay: 0.2 }}
-        >
-          💪
-        </motion.span>
-        <p
-          className="text-base font-bold text-gray-600"
-          style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
-        >
-          復習して覚えよう！
-        </p>
-      </div>
-    );
-  }
+  const { emoji, message, color } = percentage === 100
+    ? { emoji: '🎉', message: 'パーフェクト！すごい！', color: 'text-emerald-600' }
+    : percentage >= 80
+      ? { emoji: '🌟', message: 'すごい！よく覚えてるね！', color: 'text-emerald-600' }
+      : percentage >= 60
+        ? { emoji: '👍', message: 'いい調子！もう少しで完璧！', color: 'text-amber-600' }
+        : { emoji: '💪', message: '復習して覚えよう！', color: 'text-gray-600' };
+
+  return (
+    <div className="text-center">
+      <span className="mb-2 inline-block text-4xl">{emoji}</span>
+      <p
+        className={`text-base font-bold ${color}`}
+        style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+      >
+        {message}
+      </p>
+    </div>
+  );
 }
 
 export function QuizView({ quiz, onProgressChange, onComplete, isNewBest, navigation }: QuizViewProps) {
@@ -169,14 +110,9 @@ export function QuizView({ quiz, onProgressChange, onComplete, isNewBest, naviga
     return (
       <div className="flex h-full flex-col items-center justify-center px-4 pb-16">
         <div className="mx-auto flex w-full max-w-md flex-col items-center">
-          <motion.div
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ type: 'spring', stiffness: 200 }}
-            className="mb-6 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100"
-          >
+          <div className="mb-6 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
             <span className="text-4xl">❓</span>
-          </motion.div>
+          </div>
 
           <h2
             className="mb-2 text-xl font-bold text-gray-800"
@@ -189,16 +125,13 @@ export function QuizView({ quiz, onProgressChange, onComplete, isNewBest, naviga
             全{quiz.questions.length}問
           </p>
 
-          <motion.button
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
+          <button
             onClick={start}
             className="rounded-full bg-gray-800 px-12 py-4 font-bold text-white transition-transform active:scale-95"
             style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
           >
             スタート
-          </motion.button>
+          </button>
         </div>
       </div>
     );
@@ -220,34 +153,20 @@ export function QuizView({ quiz, onProgressChange, onComplete, isNewBest, naviga
     return (
       <div className="flex h-full flex-col items-center justify-center px-4 pb-16">
         <div className="mx-auto flex w-full max-w-md flex-col items-center">
-          <motion.div
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ type: 'spring', stiffness: 200 }}
-            className="mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-amber-50"
-          >
+          <div className="mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-amber-50">
             <Trophy className="h-10 w-10 text-amber-500" />
-          </motion.div>
+          </div>
 
           {isReviewMode && (
-            <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="mb-3 rounded-full bg-amber-100 px-3 py-1 text-xs font-bold text-amber-700"
-            >
+            <div className="mb-3 rounded-full bg-amber-100 px-3 py-1 text-xs font-bold text-amber-700">
               復習モード完了！
-            </motion.div>
+            </div>
           )}
 
           {!isReviewMode && isNewBest && (
-            <motion.div
-              initial={{ scale: 0, rotate: -10 }}
-              animate={{ scale: 1, rotate: 0 }}
-              transition={{ type: 'spring', stiffness: 300, delay: 0.15 }}
-              className="mb-3 rounded-full bg-gradient-to-r from-amber-400 to-orange-400 px-4 py-1.5 text-sm font-bold text-white shadow-md"
-            >
+            <div className="mb-3 rounded-full bg-gradient-to-r from-amber-400 to-orange-400 px-4 py-1.5 text-sm font-bold text-white shadow-md">
               🏆 自己ベスト更新！
-            </motion.div>
+            </div>
           )}
 
           <h2
@@ -257,16 +176,11 @@ export function QuizView({ quiz, onProgressChange, onComplete, isNewBest, naviga
             クイズ完了！
           </h2>
 
-          <motion.div
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ delay: 0.1, type: 'spring', stiffness: 200 }}
-            className="mb-2"
-          >
+          <div className="mb-2">
             <p className="text-center text-5xl font-bold text-gray-800">
               {displayScore} / {displayTotal}
             </p>
-          </motion.div>
+          </div>
 
           <p className="mb-6 text-base text-gray-500">正解率 {percentage}%</p>
 
@@ -274,40 +188,29 @@ export function QuizView({ quiz, onProgressChange, onComplete, isNewBest, naviga
 
           <div className="mt-8 flex w-full max-w-xs flex-col gap-3">
             {!isReviewMode && wrongAnswers.length > 0 && (
-              <motion.button
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
+              <button
                 onClick={startReview}
                 className="flex items-center justify-center gap-2 rounded-full bg-amber-500 px-6 py-3.5 font-bold text-white transition-transform active:scale-95"
                 style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
               >
                 <RefreshCw className="h-5 w-5" />
                 間違えた問題だけ復習（{wrongAnswers.length}問）
-              </motion.button>
+              </button>
             )}
 
-            <motion.button
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
+            <button
               onClick={reset}
               className="flex items-center justify-center gap-2 rounded-full border-2 border-gray-200 bg-white px-6 py-3.5 font-bold text-gray-700 transition-transform active:scale-95"
               style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
             >
               <RotateCcw className="h-5 w-5" />
               最初からやり直す
-            </motion.button>
+            </button>
           </div>
 
           {/* 前後の内容へのナビゲーション */}
           {navigation && (navigation.prev || navigation.next) && (
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-              className="mt-6 w-full max-w-xs space-y-2"
-            >
+            <div className="mt-6 w-full max-w-xs space-y-2">
               <p className="text-center text-xs text-gray-400">他の内容を学習する</p>
               {navigation.prev && (
                 <Link
@@ -337,7 +240,7 @@ export function QuizView({ quiz, onProgressChange, onComplete, isNewBest, naviga
                   <ChevronRight className="h-5 w-5 flex-shrink-0 text-gray-400" />
                 </Link>
               )}
-            </motion.div>
+            </div>
           )}
         </div>
       </div>
@@ -375,7 +278,7 @@ export function QuizView({ quiz, onProgressChange, onComplete, isNewBest, naviga
               </span>
             </div>
             <p
-              className="text-base font-semibold leading-relaxed text-gray-800 sm:text-lg"
+              className="whitespace-pre-line text-base font-semibold leading-relaxed text-gray-800 sm:text-lg"
               style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
             >
               {currentQuestion?.question}
@@ -441,7 +344,7 @@ export function QuizView({ quiz, onProgressChange, onComplete, isNewBest, naviga
                       解説
                     </p>
                     <p
-                      className="text-sm leading-relaxed text-gray-600"
+                      className="whitespace-pre-line text-sm leading-relaxed text-gray-600"
                       style={{ fontFamily: "'Noto Sans JP', sans-serif" }}
                     >
                       {currentQuestion.explanation}

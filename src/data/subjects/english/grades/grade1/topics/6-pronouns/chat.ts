@@ -1,0 +1,168 @@
+import type { HistoryChat } from '../../../../../../../data/history-chat/types';
+
+export const pronounsChat: HistoryChat = {
+  id: 'eng-pronouns',
+  icon: '👥',
+  title: '代名詞を覚えよう',
+  subtitle: '〜中1英語〜 I / you / he / she / my / your',
+  characters: [
+    {
+      id: 'teacher',
+      name: '先生',
+      emoji: '👩‍🏫',
+      colorFrom: '#7c3aed',
+      colorTo: '#a78bfa',
+      expressions: {
+        explaining: '🧑‍🏫',
+        happy: '😊',
+        encouraging: '💪',
+        thinking: '🤔',
+      },
+    },
+    {
+      id: 'student',
+      name: '生徒',
+      emoji: '👦',
+      colorFrom: '#059669',
+      colorTo: '#34d399',
+      expressions: {
+        curious: '🙋‍♂️',
+        surprised: '😲',
+        thinking: '🤔',
+        happy: '😄',
+        confused: '😵‍💫',
+      },
+    },
+  ],
+  content: [
+    {
+      type: 'date',
+      text: '「だれが」を<ruby>表<rt>あらわ</rt></ruby>す<ruby>言葉<rt>ことば</rt></ruby>',
+    },
+    {
+      type: 'narrator',
+      text: '<ruby>英語<rt>えいご</rt></ruby>には「<ruby>私<rt>わたし</rt></ruby>」「あなた」「<ruby>彼<rt>かれ</rt></ruby>」「<ruby>彼女<rt>かのじょ</rt></ruby>」のように、人を<ruby>指<rt>さ</rt></ruby>す<ruby>言葉<rt>ことば</rt></ruby>がいくつもあるよ。<ruby>例文<rt>れいぶん</rt></ruby>で<ruby>覚<rt>おぼ</rt></ruby>えていこう！',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: 'まずこの<ruby>例文<rt>れいぶん</rt></ruby>を見てみよう！<br/><br/><strong>I am a student.</strong>（<ruby>私<rt>わたし</rt></ruby>は<ruby>生徒<rt>せいと</rt></ruby>です。）<br/><strong>You are a teacher.</strong>（あなたは先生です。）<br/><strong>He is Ken.</strong>（<ruby>彼<rt>かれ</rt></ruby>はケンです。）<br/><strong>She is Yuki.</strong>（<ruby>彼女<rt>かのじょ</rt></ruby>はユキです。）',
+      speakable: ['I am a student.', 'You are a teacher.', 'He is Ken.', 'She is Yuki.'],
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: 'I、You、He、She… 「だれが」にあたる<ruby>言葉<rt>ことば</rt></ruby>がいろいろありますね。',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: 'そう！これらは<strong><ruby>代名詞<rt>だいめいし</rt></ruby></strong>（名前のかわりに使う<ruby>言葉<rt>ことば</rt></ruby>）と<ruby>呼<rt>よ</rt></ruby>ぶんだ。<ruby>整理<rt>せいり</rt></ruby>してみよう！<br/><br/>👤 <strong>I</strong> =<ruby>私<rt>わたし</rt></ruby><br/>👤 <strong>you</strong> = あなた<br/>👨 <strong>he</strong> =<ruby>彼<rt>かれ</rt></ruby>（<ruby>男<rt>おとこ</rt></ruby>の人）<br/>👩 <strong>she</strong> =<ruby>彼女<rt>かのじょ</rt></ruby>（<ruby>女<rt>おんな</rt></ruby>の人）<br/>📦 <strong>it</strong> = それ（もの・<ruby>動物<rt>どうぶつ</rt></ruby>）<br/>👥 <strong>we</strong> =<ruby>私<rt>わたし</rt></ruby>たち<br/>👥 <strong>they</strong> =<ruby>彼<rt>かれ</rt></ruby>ら・それら',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: 'we は「<ruby>私<rt>わたし</rt></ruby>たち」で、they は「<ruby>彼<rt>かれ</rt></ruby>ら」ですね。<ruby>例文<rt>れいぶん</rt></ruby>で見たいです！',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<ruby>例文<rt>れいぶん</rt></ruby>で<ruby>確認<rt>かくにん</rt></ruby>しよう！<br/><br/><strong>We are friends.</strong>（<ruby>私<rt>わたし</rt></ruby>たちは<ruby>友達<rt>ともだち</rt></ruby>です。）<br/><strong>They are students.</strong>（<ruby>彼<rt>かれ</rt></ruby>らは<ruby>生徒<rt>せいと</rt></ruby>です。）<br/><br/>we も they も2人<ruby>以上<rt>いじょう</rt></ruby>だから、be<ruby>動詞<rt>どうし</rt></ruby>は <strong>are</strong> を使うよ！',
+      speakable: ['We are friends.', 'They are students.'],
+    },
+    {
+      type: 'summary-point',
+      text: '<ruby>代名詞<rt>だいめいし</rt></ruby>: <strong>I</strong>（<ruby>私<rt>わたし</rt></ruby>）/ <strong>you</strong>（あなた）/ <strong>he</strong>（<ruby>彼<rt>かれ</rt></ruby>）/ <strong>she</strong>（<ruby>彼女<rt>かのじょ</rt></ruby>）/ <strong>it</strong>（それ）/ <strong>we</strong>（<ruby>私<rt>わたし</rt></ruby>たち）/ <strong>they</strong>（<ruby>彼<rt>かれ</rt></ruby>ら）',
+    },
+    {
+      type: 'quiz',
+      question: '「私たちは友達です。」を英語にすると？',
+      options: [
+        { letter: 'A', text: 'They are friends.', correct: false },
+        { letter: 'B', text: 'You are friends.', correct: false },
+        { letter: 'C', text: 'We are friends.', correct: true },
+        { letter: 'D', text: 'I are friends.', correct: false },
+      ],
+      explanation: '「<ruby>私<rt>わたし</rt></ruby>たち」は <strong>we</strong> だよ。We are friends.',
+    },
+    {
+      type: 'date',
+      text: '「〜の」を<ruby>表<rt>あらわ</rt></ruby>す形',
+    },
+    {
+      type: 'narrator',
+      text: '「<ruby>私<rt>わたし</rt></ruby>の」「あなたの」と言いたいときは、<ruby>代名詞<rt>だいめいし</rt></ruby>の形がかわるよ。<ruby>例文<rt>れいぶん</rt></ruby>で見てみよう！',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: 'この2つの<ruby>例文<rt>れいぶん</rt></ruby>を<ruby>比<rt>くら</rt></ruby>べてみよう！<br/><br/><strong>I am a student.</strong>（<ruby>私<rt>わたし</rt></ruby>は<ruby>生徒<rt>せいと</rt></ruby>です。）<br/><strong>This is my book.</strong>（これは<ruby>私<rt>わたし</rt></ruby><strong>の</strong>本です。）',
+      speakable: ['This is my book.'],
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'surprised',
+      text: 'I が <strong>my</strong> にかわってる！「<ruby>私<rt>わたし</rt></ruby>の」のときは I じゃなくて my なんですね！',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: 'その<ruby>通<rt>とお</rt></ruby>り！「〜の」と言いたいときは<ruby>代名詞<rt>だいめいし</rt></ruby>の形がかわるんだよ。まとめてみよう！<br/><br/>I → <strong>my</strong>（<ruby>私<rt>わたし</rt></ruby>の）<br/>you → <strong>your</strong>（あなたの）<br/>he → <strong>his</strong>（<ruby>彼<rt>かれ</rt></ruby>の）<br/>she → <strong>her</strong>（<ruby>彼女<rt>かのじょ</rt></ruby>の）<br/>it → <strong>its</strong>（それの）<br/>we → <strong>our</strong>（<ruby>私<rt>わたし</rt></ruby>たちの）<br/>they → <strong>their</strong>（<ruby>彼<rt>かれ</rt></ruby>らの）',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '<ruby>例文<rt>れいぶん</rt></ruby>でもっと見たいです！',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<ruby>例文<rt>れいぶん</rt></ruby>で<ruby>確認<rt>かくにん</rt></ruby>しよう！<br/><br/><strong>This is your pen.</strong>（これはあなたのペンです。）<br/><strong>That is his bag.</strong>（あれは<ruby>彼<rt>かれ</rt></ruby>のカバンです。）<br/><strong>I like her cat.</strong>（<ruby>私<rt>わたし</rt></ruby>は<ruby>彼女<rt>かのじょ</rt></ruby>のネコが<ruby>好<rt>す</rt></ruby>きです。）<br/><br/>「〜の」の形は<ruby>名詞<rt>めいし</rt></ruby>の<strong>前に<ruby>置<rt>お</rt></ruby>く</strong>んだよ。',
+      speakable: ['This is your pen.', 'That is his bag.', 'I like her cat.'],
+    },
+    {
+      type: 'summary-point',
+      text: '「〜の」: <strong>my</strong> / <strong>your</strong> / <strong>his</strong> / <strong>her</strong> / <strong>its</strong> / <strong>our</strong> / <strong>their</strong> → <ruby>名詞<rt>めいし</rt></ruby>の前に<ruby>置<rt>お</rt></ruby>く',
+    },
+    {
+      type: 'quiz',
+      question: '「これは彼女のカバンです。」を英語にすると？',
+      options: [
+        { letter: 'A', text: 'This is she bag.', correct: false },
+        { letter: 'B', text: 'This is her bag.', correct: true },
+        { letter: 'C', text: 'This is his bag.', correct: false },
+        { letter: 'D', text: 'This is hers bag.', correct: false },
+      ],
+      explanation: '「<ruby>彼女<rt>かのじょ</rt></ruby>の」は <strong>her</strong> だよ。This is her bag.',
+    },
+    {
+      type: 'end',
+      points: [
+        '「だれが」: <strong>I / you / he / she / it / we / they</strong>',
+        '「〜の」: <strong>my / your / his / her / its / our / their</strong>',
+        '「〜の」の形は<ruby>名詞<rt>めいし</rt></ruby>の前に<ruby>置<rt>お</rt></ruby>く（my book、your pen など）',
+        'I → my、you → your のように形がかわることを<ruby>覚<rt>おぼ</rt></ruby>えよう',
+      ],
+    },
+  ],
+};

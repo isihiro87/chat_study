@@ -67,17 +67,25 @@ export function FlashcardDeck({ cards, onProgressChange, onComplete }: Flashcard
   const [showHint, setShowHint] = useState(false);
   // 初回説明表示（セッション中のみ有効、localStorageに保存しない）
   const [showIntro, setShowIntro] = useState(true);
+  // スワイプヒントテキストの表示回数（3回まで表示）
+  const swipeHintCountRef = useRef(0);
+  const [showSwipeHint, setShowSwipeHint] = useState(true);
 
   const dismissIntro = () => {
     setShowIntro(false);
   };
 
-  // カード切り替え時にモーション値をリセット
+  // カード切り替え時にモーション値をリセット & スワイプヒントカウント更新
   useEffect(() => {
     x.set(0);
     setDragDirection(null);
     setShowHint(false);
+    swipeHintCountRef.current += 1;
+    if (swipeHintCountRef.current > 3) {
+      setShowSwipeHint(false);
+    }
   }, [currentCard?.id, x]);
+
 
   // 苦手カード（2回以上「もう一度」を選択したカード）を抽出
   const difficultCards = useMemo(() => {
@@ -118,45 +126,22 @@ export function FlashcardDeck({ cards, onProgressChange, onComplete }: Flashcard
 
     return (
       <div className="flex h-full flex-col items-center overflow-y-auto px-6 py-8">
-        {/* 完了アイコン */}
-        <motion.div
-          initial={{ scale: 0, rotate: -180 }}
-          animate={{ scale: 1, rotate: 0 }}
-          transition={{ type: 'spring', stiffness: 200, damping: 15 }}
-          className="mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-green-400 to-emerald-500 shadow-lg"
-        >
+        <div className="mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-green-400 to-emerald-500 shadow-lg">
           <Check className="h-10 w-10 text-white" />
-        </motion.div>
+        </div>
 
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="mb-1 text-2xl font-bold text-gray-800"
-        >
+        <h2 className="mb-1 text-2xl font-bold text-gray-800">
           🎉 完了！
-        </motion.h2>
+        </h2>
 
-        {/* パフォーマンスメッセージ */}
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.25 }}
-          className={`mb-4 text-lg font-bold ${performanceInfo.color}`}
-        >
+        <p className={`mb-4 text-lg font-bold ${performanceInfo.color}`}>
           {performanceInfo.emoji} {performanceInfo.message}
-        </motion.p>
+        </p>
 
         {/* 学習過程の統計情報 */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-          className="mb-4 w-full max-w-xs rounded-2xl bg-gray-50 p-4"
-        >
+        <div className="mb-4 w-full max-w-xs rounded-2xl bg-gray-50 p-4">
           <p className="mb-3 text-center text-sm font-medium text-gray-500">📊 学習の過程</p>
           <div className="space-y-2">
-            {/* 初回正答率 */}
             <div className="flex items-center justify-between">
               <span className="text-gray-600">初回で正解</span>
               <span className="font-bold text-gray-800">
@@ -169,7 +154,6 @@ export function FlashcardDeck({ cards, onProgressChange, onComplete }: Flashcard
               </span>
             </div>
 
-            {/* 復習ラウンド数 */}
             <div className="flex items-center justify-between">
               <span className="text-gray-600">復習回数</span>
               <span className="font-bold text-gray-800">
@@ -181,7 +165,6 @@ export function FlashcardDeck({ cards, onProgressChange, onComplete }: Flashcard
               </span>
             </div>
 
-            {/* 最終結果 */}
             <div className="mt-2 border-t border-gray-200 pt-2">
               <div className="flex items-center justify-between">
                 <span className="text-gray-600">総カード数</span>
@@ -193,16 +176,11 @@ export function FlashcardDeck({ cards, onProgressChange, onComplete }: Flashcard
               </div>
             </div>
           </div>
-        </motion.div>
+        </div>
 
         {/* 苦手カードセクション */}
         {difficultCards.length > 0 && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.35 }}
-            className="mb-4 w-full max-w-xs rounded-2xl bg-orange-50 p-4"
-          >
+          <div className="mb-4 w-full max-w-xs rounded-2xl bg-orange-50 p-4">
             <div className="mb-3 flex items-center justify-center gap-2">
               <AlertTriangle className="h-4 w-4 text-orange-500" />
               <p className="text-sm font-medium text-orange-600">苦手なカード</p>
@@ -225,16 +203,11 @@ export function FlashcardDeck({ cards, onProgressChange, onComplete }: Flashcard
                 </p>
               )}
             </div>
-          </motion.div>
+          </div>
         )}
 
         {/* アクションボタン */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
-          className="flex w-full max-w-xs flex-col gap-3"
-        >
+        <div className="flex w-full max-w-xs flex-col gap-3">
           {hasUnremembered && (
             <button
               onClick={resetWithReviewOnly}
@@ -255,7 +228,7 @@ export function FlashcardDeck({ cards, onProgressChange, onComplete }: Flashcard
             <Layers className="h-5 w-5" />
             最初からやり直す
           </button>
-        </motion.div>
+        </div>
       </div>
     );
   }
@@ -435,7 +408,7 @@ export function FlashcardDeck({ cards, onProgressChange, onComplete }: Flashcard
                     borderColor: cardBorderColor,
                   }}
                 >
-                  <p className="text-center text-xl font-bold leading-relaxed text-gray-800 sm:text-2xl">
+                  <p className="whitespace-pre-line text-center text-xl font-bold leading-relaxed text-gray-800 sm:text-2xl">
                     {currentCard.back}
                   </p>
                   {currentCard.hint && (
@@ -464,33 +437,62 @@ export function FlashcardDeck({ cards, onProgressChange, onComplete }: Flashcard
                     borderColor: cardBorderColor,
                   }}
                 >
-                  <p className="text-center text-2xl font-bold leading-relaxed text-gray-800 sm:text-3xl">
+                  <p className="whitespace-pre-line text-center text-2xl font-bold leading-relaxed text-gray-800 sm:text-3xl">
                     {currentCard.front}
                   </p>
                   {/* 解説表示 */}
                   {currentCard.explanation && (
-                    <p className="mt-3 text-center text-sm leading-relaxed text-gray-500">
+                    <p className="mt-3 whitespace-pre-line text-center text-sm leading-relaxed text-gray-500">
                       {currentCard.explanation}
                     </p>
                   )}
-                  {/* スワイプヒント */}
-                  <div className="mt-4 flex w-full items-center justify-center gap-6 text-sm">
-                    <div className="flex items-center gap-1 text-red-500">
-                      <ArrowLeft className="h-4 w-4" />
-                      <span>もう一度</span>
-                    </div>
-                    <div className="h-4 w-px bg-gray-300" />
-                    <div className="flex items-center gap-1 text-green-500">
-                      <span>知ってた</span>
-                      <ArrowRight className="h-4 w-4" />
-                    </div>
-                  </div>
                 </motion.div>
               </motion.div>
             </div>
           </motion.div>
         </AnimatePresence>
         </div>
+
+        {/* 振り分けボタン（裏面表示時のみ） */}
+        <AnimatePresence>
+          {isFlipped && (
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 10 }}
+              transition={{ duration: 0.2 }}
+              className="flex flex-shrink-0 flex-col items-center gap-1.5 px-4 py-2"
+            >
+              <div className="flex items-center justify-center gap-4">
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    swipeLeft();
+                  }}
+                  className="flex items-center gap-2 rounded-full bg-gradient-to-r from-red-400 to-orange-400 px-5 py-2.5 text-sm font-bold text-white shadow-md transition-transform active:scale-95"
+                >
+                  <RotateCcw className="h-4 w-4" />
+                  後で復習
+                </button>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    swipeRight();
+                  }}
+                  className="flex items-center gap-2 rounded-full bg-gradient-to-r from-green-400 to-emerald-500 px-5 py-2.5 text-sm font-bold text-white shadow-md transition-transform active:scale-95"
+                >
+                  <Check className="h-4 w-4" />
+                  わかった
+                </button>
+              </div>
+              {showSwipeHint && (
+                <p className="text-xs text-gray-400">
+                  ← スワイプでもOK →
+                </p>
+              )}
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         {/* ナビゲーションエリア */}
         <div className="flex flex-shrink-0 flex-col items-center gap-2 py-2">

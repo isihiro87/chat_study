@@ -2,6 +2,7 @@ import { useRef, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useHistoryChat } from '../../hooks/useHistoryChat';
 import { useTooltip } from '../../hooks/useTooltip';
+import { useSpeechSynthesis } from '../../hooks/useSpeechSynthesis';
 import { estimateReadingTime } from '../../utils/estimateReadingTime';
 import { ChatHeader } from './ChatHeader';
 import { DateSeparator } from './DateSeparator';
@@ -17,11 +18,12 @@ interface ChatContainerProps {
   embedded?: boolean; // TabBar内に埋め込む場合はtrue
   onNavigateToFlashcard?: () => void;
   onNavigateToQuiz?: () => void;
+  onNavigateToExample?: () => void;
   onComplete?: () => void;
   onProgressChange?: (current: number, total: number) => void;
 }
 
-export function ChatContainer({ chat, embedded = false, onNavigateToFlashcard, onNavigateToQuiz, onComplete, onProgressChange }: ChatContainerProps) {
+export function ChatContainer({ chat, embedded = false, onNavigateToFlashcard, onNavigateToQuiz, onNavigateToExample, onComplete, onProgressChange }: ChatContainerProps) {
   const {
     shownIndex,
     visibleContent,
@@ -43,6 +45,9 @@ export function ChatContainer({ chat, embedded = false, onNavigateToFlashcard, o
 
   // ツールチップ機能（data-tooltip属性をハンドリング）
   useTooltip(scrollRef);
+
+  // 音声再生機能
+  const { speak, isSpeaking, speakingText, isSupported: isSpeechSupported } = useSpeechSynthesis();
 
   // キャラクターマップを作成
   const characterMap = useMemo(() => {
@@ -156,6 +161,10 @@ export function ChatContainer({ chat, embedded = false, onNavigateToFlashcard, o
                         character={character}
                         text={content.text}
                         expression={messageContent.expression}
+                        speakable={isSpeechSupported ? messageContent.speakable : undefined}
+                        isSpeaking={isSpeaking}
+                        speakingText={speakingText}
+                        onSpeak={speak}
                       />
                     );
                   }
@@ -184,6 +193,7 @@ export function ChatContainer({ chat, embedded = false, onNavigateToFlashcard, o
                         onReplay={reset}
                         onNavigateToFlashcard={onNavigateToFlashcard}
                         onNavigateToQuiz={onNavigateToQuiz}
+                        onNavigateToExample={onNavigateToExample}
                         chatTitle={chat.title}
                         chatSubtitle={chat.subtitle}
                       />

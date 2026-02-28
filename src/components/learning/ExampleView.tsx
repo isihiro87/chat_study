@@ -203,7 +203,7 @@ export function ExampleView({ examples, onProgressChange, onComplete }: ExampleV
               </span>
             </div>
             <p
-              className="text-base font-semibold leading-relaxed text-gray-800 sm:text-lg"
+              className="whitespace-pre-line text-base font-semibold leading-relaxed text-gray-800 sm:text-lg"
               style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
             >
               {currentExample.question}
@@ -225,7 +225,7 @@ export function ExampleView({ examples, onProgressChange, onComplete }: ExampleV
                   className="rounded-xl border border-indigo-100 bg-indigo-50/50 p-3.5"
                 >
                   <p className="mb-1 text-sm font-bold text-indigo-700">{step.title}</p>
-                  <p className="text-sm leading-relaxed text-gray-700">{step.content}</p>
+                  <p className="whitespace-pre-line text-sm leading-relaxed text-gray-700">{step.content}</p>
                   {step.highlight && (
                     <div className="mt-2 inline-block rounded-lg bg-indigo-100 px-3 py-1">
                       <span className="text-sm font-bold text-indigo-800">{step.highlight}</span>
@@ -255,7 +255,7 @@ export function ExampleView({ examples, onProgressChange, onComplete }: ExampleV
                   </span>
                 </div>
                 <p
-                  className="text-base font-semibold text-emerald-800"
+                  className="whitespace-pre-line text-base font-semibold text-emerald-800"
                   style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
                 >
                   {currentExample.answer}

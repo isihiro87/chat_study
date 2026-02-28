@@ -96,28 +96,28 @@ export const generalVerbs: Topic = {
       questions: [
         {
           id: 'eng-gv-q1',
-          question: '「I (　　) soccer.\n（私はサッカーをします。）」\nの (　　) に入るのは？',
+          question: '「I (　　) soccer.（私はサッカーをします。）」\nの (　　) に入るのは？',
           options: ['plays', 'play', 'playing', 'am play'],
           correctIndex: 1,
           explanation: 'I のときは動詞はそのままの形だよ。play がそのまま入るよ。',
         },
         {
           id: 'eng-gv-q2',
-          question: '「She (　　) English.\n（彼女は英語を話します。）」\nの (　　) に入るのは？',
+          question: '「She (　　) English.（彼女は英語を話します。）」\nの (　　) に入るのは？',
           options: ['speak', 'speaks', 'speaking', 'is speak'],
           correctIndex: 1,
           explanation: 'She は1人だから、動詞のおしりに s をつけるよ。speak → speaks',
         },
         {
           id: 'eng-gv-q3',
-          question: '「He (　　) like fish.\n（彼は魚が好きじゃない。）」\nの (　　) に入るのは？',
+          question: '「He (　　) like fish.（彼は魚が好きじゃない。）」\nの (　　) に入るのは？',
           options: ["don't", "doesn't", "isn't", 'not'],
           correctIndex: 1,
           explanation: "He は1人だから doesn't を使うよ。likes → like にもどるのもポイント！",
         },
         {
           id: 'eng-gv-q4',
-          question: '「(　　) they play baseball?\n（彼らは野球をしますか？）」\nの (　　) に入るのは？',
+          question: '「(　　) they play baseball?（彼らは野球をしますか？）」\nの (　　) に入るのは？',
           options: ['Are', 'Is', 'Do', 'Does'],
           correctIndex: 2,
           explanation: 'they は2人いじょうだから Do を使うよ。',
@@ -162,7 +162,7 @@ export const generalVerbs: Topic = {
         },
         {
           id: 'eng-gv-ex2',
-          question: '次の文を「〜しない」の文にしよう。\nHe likes music.\n（彼は音楽が好きです。）',
+          question: '次の文を「〜しない」の文にしよう。\nHe likes music.（彼は音楽が好きです。）',
           steps: [
             {
               title: 'Step 1: 「だれが？」をたしかめよう',
@@ -184,7 +184,7 @@ export const generalVerbs: Topic = {
         },
         {
           id: 'eng-gv-ex3',
-          question: '次の文を「〜しますか？」の文にして、\nNo で答えよう。\nYou study math.\n（あなたは数学を勉強します。）',
+          question: '次の文を「〜しますか？」の文にして、No で答えよう。\nYou study math.（あなたは数学を勉強します。）',
           steps: [
             {
               title: 'Step 1: 「だれが？」をたしかめよう',

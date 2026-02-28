@@ -1,14 +1,28 @@
 import { motion } from 'framer-motion';
 import type { ChatCharacter } from '../../data/history-chat/types';
+import { SpeakButton } from './SpeakButton';
 
 interface ChatMessageProps {
   side: 'left' | 'right';
   character: ChatCharacter;
   text: string;
   expression?: string;
+  speakable?: string[];
+  isSpeaking?: boolean;
+  speakingText?: string | null;
+  onSpeak?: (text: string) => void;
 }
 
-export function ChatMessage({ side, character, text, expression }: ChatMessageProps) {
+export function ChatMessage({
+  side,
+  character,
+  text,
+  expression,
+  speakable,
+  isSpeaking,
+  speakingText,
+  onSpeak,
+}: ChatMessageProps) {
   const isLeft = side === 'left';
 
   // 表情が指定されていればexpressionsマップから取得、なければデフォルトemoji
@@ -16,6 +30,8 @@ export function ChatMessage({ side, character, text, expression }: ChatMessagePr
     expression && character.expressions?.[expression]
       ? character.expressions[expression]
       : character.emoji;
+
+  const hasSpeakable = speakable && speakable.length > 0 && onSpeak;
 
   return (
     <motion.div
@@ -42,19 +58,34 @@ export function ChatMessage({ side, character, text, expression }: ChatMessagePr
         </span>
       </div>
 
-      {/* 吹き出し */}
-      <div
-        className={`relative max-w-[72%] rounded-2xl px-4 py-2.5 ${
-          isLeft
-            ? 'rounded-tl-sm bg-white shadow-sm'
-            : 'rounded-tr-sm bg-green-200'
-        }`}
-      >
-        <p
-          className="text-sm leading-relaxed text-gray-800"
-          style={{ fontFamily: "'Noto Sans JP', sans-serif" }}
-          dangerouslySetInnerHTML={{ __html: text }}
-        />
+      {/* 吹き出し + 音声ボタン */}
+      <div className="flex max-w-[72%] flex-col gap-1.5">
+        <div
+          className={`relative rounded-2xl px-4 py-2.5 ${
+            isLeft
+              ? 'rounded-tl-sm bg-white shadow-sm'
+              : 'rounded-tr-sm bg-green-200'
+          }`}
+        >
+          <p
+            className="text-sm leading-relaxed text-gray-800"
+            style={{ fontFamily: "'Noto Sans JP', sans-serif" }}
+            dangerouslySetInnerHTML={{ __html: text }}
+          />
+        </div>
+
+        {hasSpeakable && (
+          <div className={`flex flex-wrap gap-1.5 ${isLeft ? 'pl-1' : 'pr-1'}`}>
+            {speakable.map((s) => (
+              <SpeakButton
+                key={s}
+                text={s}
+                isSpeaking={!!isSpeaking && speakingText === s}
+                onSpeak={onSpeak}
+              />
+            ))}
+          </div>
+        )}
       </div>
     </motion.div>
   );
