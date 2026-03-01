@@ -10,23 +10,31 @@ import {
   allTopics as englishAllTopics,
   getTopicsByEra as getEnglishTopicsByEra,
 } from './english/grades';
+import {
+  eras as mathEras,
+  allTopics as mathAllTopics,
+  getTopicsByEra as getMathTopicsByEra,
+} from './math/units';
 import { getHistoryChat, getAllHistoryChats } from '../history-chat';
 import { getEnglishChat, getAllEnglishChats } from '../english-chat';
+import { getMathChat, getAllMathChats } from '../math-chat';
 
 // 全科目のEra集約
 const erasBySubject: Record<string, Era[]> = {
   history: historyEras,
   english: englishEras,
+  math: mathEras,
 };
 
 // 全科目のTopic集約
 const allTopicsBySubject: Record<string, Topic[]> = {
   history: historyAllTopics,
   english: englishAllTopics,
+  math: mathAllTopics,
 };
 
 // 全トピック（科目横断）
-export const allTopics: Topic[] = [...historyAllTopics, ...englishAllTopics];
+export const allTopics: Topic[] = [...historyAllTopics, ...englishAllTopics, ...mathAllTopics];
 
 // 科目別Era取得
 export function getErasBySubject(subjectId: string): Era[] {
@@ -49,6 +57,8 @@ export function getTopicsByEra(eraId: string): Topic[] {
   if (historyTopics.length > 0) return historyTopics;
   const engTopics = getEnglishTopicsByEra(eraId);
   if (engTopics.length > 0) return engTopics;
+  const mathTopics = getMathTopicsByEra(eraId);
+  if (mathTopics.length > 0) return mathTopics;
   return [];
 }
 
@@ -68,10 +78,10 @@ export function getAllTopics(): Topic[] {
 
 // チャット取得（科目横断検索）
 export function getChat(chatId: string): HistoryChat | undefined {
-  return getHistoryChat(chatId) ?? getEnglishChat(chatId);
+  return getHistoryChat(chatId) ?? getEnglishChat(chatId) ?? getMathChat(chatId);
 }
 
 // 全チャット取得
 export function getAllChats(): HistoryChat[] {
-  return [...getAllHistoryChats(), ...getAllEnglishChats()];
+  return [...getAllHistoryChats(), ...getAllEnglishChats(), ...getAllMathChats()];
 }

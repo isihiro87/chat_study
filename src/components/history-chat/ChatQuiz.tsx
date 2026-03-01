@@ -123,7 +123,7 @@ export function ChatQuiz({
                 key={option.letter}
                 onClick={() => handleSelect(index)}
                 disabled={isAnswered}
-                className={`flex w-full items-center gap-3 rounded-lg border-2 px-4 py-3 text-left transition-all ${bgColor} ${borderColor}`}
+                className={`flex w-full items-center gap-3 rounded-lg border-2 px-4 py-3 text-left transition-all ${bgColor} ${borderColor} ${!isAnswered ? 'hover:bg-white/20 hover:border-white/40' : ''}`}
                 animate={
                   isAnswered && isSelected
                     ? isCorrect

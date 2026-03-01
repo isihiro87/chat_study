@@ -386,113 +386,92 @@ export function FlashcardDeck({ cards, onProgressChange, onComplete }: Flashcard
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.2 }}
           >
-            <div
-              className="relative mx-auto h-full max-w-md"
-              style={{ perspective: '1200px' }}
-            >
+            <div className="relative mx-auto h-full max-w-md">
               <motion.div
-                className="relative h-full w-full"
-                animate={{ rotateY: isFlipped ? 180 : 0 }}
-                transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+                className="flex h-full w-full flex-col rounded-3xl border-4 p-5 shadow-xl"
                 style={{
-                  transformStyle: 'preserve-3d',
-                  willChange: 'transform',
+                  backgroundColor: cardBgColor,
+                  borderColor: cardBorderColor,
                 }}
               >
-                {/* 表面（説明 - currentCard.back） */}
-                <motion.div
-                  className="absolute inset-0 flex flex-col items-center justify-center rounded-3xl border-4 p-5 shadow-xl"
-                  style={{
-                    backfaceVisibility: 'hidden',
-                    backgroundColor: cardBgColor,
-                    borderColor: cardBorderColor,
-                  }}
-                >
-                  <p className="whitespace-pre-line text-center text-xl font-bold leading-relaxed text-gray-800 sm:text-2xl">
-                    {currentCard.back}
-                  </p>
-                  {currentCard.hint && (
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setShowHint(!showHint);
-                      }}
-                      className="mt-3 rounded-full bg-gray-100 px-4 py-2 text-sm text-gray-500 transition-colors hover:bg-gray-200"
-                    >
-                      {showHint ? currentCard.hint : 'ヒントを見る'}
-                    </button>
+                {/* コンテンツ中央配置エリア */}
+                <div className="flex flex-1 flex-col items-center justify-center min-h-0">
+                  {!isFlipped ? (
+                    <>
+                      {/* 表面（説明 - currentCard.back） */}
+                      <p className="whitespace-pre-line text-center text-lg font-bold leading-relaxed text-gray-800 sm:text-xl">
+                        {currentCard.back}
+                      </p>
+                      {currentCard.hint && (
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setShowHint(!showHint);
+                          }}
+                          className="mt-3 rounded-full bg-gray-100 px-4 py-2 text-sm text-gray-500 transition-colors hover:bg-gray-200"
+                        >
+                          {showHint ? currentCard.hint : 'ヒントを見る'}
+                        </button>
+                      )}
+                    </>
+                  ) : (
+                    <>
+                      {/* 裏面（用語 - currentCard.front） */}
+                      <p className="whitespace-pre-line text-center text-lg font-bold leading-relaxed text-gray-800 sm:text-xl">
+                        {currentCard.front}
+                      </p>
+                      {/* 解説表示 */}
+                      {currentCard.explanation && (
+                        <p className="mt-3 whitespace-pre-line text-center text-sm leading-relaxed text-gray-500">
+                          {currentCard.explanation}
+                        </p>
+                      )}
+                    </>
                   )}
-                  <p className="mt-4 text-sm text-gray-400">
-                    👆 タップして答えを見る
-                  </p>
-                </motion.div>
-
-                {/* 裏面（用語 - currentCard.front） */}
-                <motion.div
-                  className="absolute inset-0 flex flex-col items-center justify-center rounded-3xl border-4 p-5 shadow-xl"
-                  style={{
-                    backfaceVisibility: 'hidden',
-                    transform: 'rotateY(180deg)',
-                    backgroundColor: cardBgColor,
-                    borderColor: cardBorderColor,
-                  }}
-                >
-                  <p className="whitespace-pre-line text-center text-2xl font-bold leading-relaxed text-gray-800 sm:text-3xl">
-                    {currentCard.front}
-                  </p>
-                  {/* 解説表示 */}
-                  {currentCard.explanation && (
-                    <p className="mt-3 whitespace-pre-line text-center text-sm leading-relaxed text-gray-500">
-                      {currentCard.explanation}
+                </div>
+                {/* カード内下部エリア（表裏で常に同じ高さを確保） */}
+                <div className="flex flex-shrink-0 flex-col items-center gap-1.5 pt-3">
+                  {!isFlipped ? (
+                    <p className="py-2.5 text-sm text-gray-400">
+                      👆 タップして答えを見る
                     </p>
+                  ) : (
+                    <>
+                      <div className="flex items-center justify-center gap-4">
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            swipeLeft();
+                          }}
+                          className="flex items-center gap-2 rounded-full bg-gradient-to-r from-red-400 to-orange-400 px-5 py-2.5 text-sm font-bold text-white shadow-md transition-transform active:scale-95"
+                        >
+                          <RotateCcw className="h-4 w-4" />
+                          後で復習
+                        </button>
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            swipeRight();
+                          }}
+                          className="flex items-center gap-2 rounded-full bg-gradient-to-r from-green-400 to-emerald-500 px-5 py-2.5 text-sm font-bold text-white shadow-md transition-transform active:scale-95"
+                        >
+                          <Check className="h-4 w-4" />
+                          わかった
+                        </button>
+                      </div>
+                      {showSwipeHint && (
+                        <p className="text-xs text-gray-400">
+                          ← スワイプでもOK →
+                        </p>
+                      )}
+                    </>
                   )}
-                </motion.div>
+                </div>
               </motion.div>
             </div>
           </motion.div>
         </AnimatePresence>
         </div>
-
-        {/* 振り分けボタン（裏面表示時のみ） */}
-        <AnimatePresence>
-          {isFlipped && (
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 10 }}
-              transition={{ duration: 0.2 }}
-              className="flex flex-shrink-0 flex-col items-center gap-1.5 px-4 py-2"
-            >
-              <div className="flex items-center justify-center gap-4">
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    swipeLeft();
-                  }}
-                  className="flex items-center gap-2 rounded-full bg-gradient-to-r from-red-400 to-orange-400 px-5 py-2.5 text-sm font-bold text-white shadow-md transition-transform active:scale-95"
-                >
-                  <RotateCcw className="h-4 w-4" />
-                  後で復習
-                </button>
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    swipeRight();
-                  }}
-                  className="flex items-center gap-2 rounded-full bg-gradient-to-r from-green-400 to-emerald-500 px-5 py-2.5 text-sm font-bold text-white shadow-md transition-transform active:scale-95"
-                >
-                  <Check className="h-4 w-4" />
-                  わかった
-                </button>
-              </div>
-              {showSwipeHint && (
-                <p className="text-xs text-gray-400">
-                  ← スワイプでもOK →
-                </p>
-              )}
-            </motion.div>
-          )}
-        </AnimatePresence>
 
         {/* ナビゲーションエリア */}
         <div className="flex flex-shrink-0 flex-col items-center gap-2 py-2">

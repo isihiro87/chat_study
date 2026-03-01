@@ -41,7 +41,7 @@ export function TabBar({
               disabled={isDisabled}
               className={`relative flex flex-1 flex-col items-center py-2 ${
                 isDisabled
-                  ? 'cursor-not-allowed text-gray-300'
+                  ? 'cursor-default text-gray-300'
                   : isActive
                     ? 'text-primary'
                     : 'text-gray-400'

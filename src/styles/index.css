@@ -16,6 +16,15 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
+/* ブラウザ間でボタンのカーソルを統一（Firefoxはデフォルトでpointerにならない） */
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: default;
+}
+
 /* スクロールバーを目立たなく */
 ::-webkit-scrollbar {
   width: 4px;
@@ -87,4 +96,43 @@ ruby rt {
 @keyframes tooltip-fade-in {
   from { opacity: 0; transform: translateY(4px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+/* インライン音声読み上げ */
+.speakable-inline {
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.15s ease;
+}
+
+.speakable-inline:active {
+  background-color: rgba(99, 102, 241, 0.1);
+}
+
+.speakable-inline .speaker-icon {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin-left: 3px;
+  vertical-align: -1px;
+  color: #9CA3AF;
+  transition: color 0.15s ease;
+}
+
+.speakable-inline:active .speaker-icon {
+  color: #6366F1;
+}
+
+.speakable-inline.speaking {
+  background-color: rgba(99, 102, 241, 0.1);
+}
+
+.speakable-inline.speaking .speaker-icon {
+  color: #6366F1;
+  animation: speaker-pulse 1s ease-in-out infinite;
+}
+
+@keyframes speaker-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
 }

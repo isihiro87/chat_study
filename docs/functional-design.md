@@ -342,7 +342,7 @@ interface VideoPlayerProps {
 #### FlashcardDeck（フラッシュカードデッキ）
 
 **責務**:
-- カードのフリップアニメーション
+- カードの表裏即時切り替え
 - 左右スワイプでカード切替
 - 「覚えた」「もう一度」の仕分け
 
@@ -432,8 +432,7 @@ sequenceDiagram
     Card-->>User: 1枚目の表面を表示
 
     User->>Card: カードをタップ
-    Card->>Anim: フリップアニメーション
-    Anim-->>User: 裏面（答え）を表示
+    Card-->>User: 裏面（答え）を即時表示
 
     User->>Card: 「覚えた」をタップ
     Card-->>User: 次のカードへスライド

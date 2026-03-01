@@ -373,7 +373,7 @@ export function QuizView({ quiz, onProgressChange, onComplete, isNewBest, naviga
                   <button
                     key={index}
                     onClick={() => selectAnswer(index)}
-                    className="flex w-full items-center gap-3 rounded-xl border-2 border-gray-200 bg-white p-3.5 text-left transition-all hover:bg-gray-50 active:scale-[0.98]"
+                    className="flex w-full cursor-pointer items-center gap-3 rounded-xl border-2 border-gray-200 bg-white p-3.5 text-left transition-all hover:border-gray-300 hover:bg-gray-50 hover:shadow-sm active:scale-[0.98]"
                   >
                     <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-gray-100 text-sm font-bold text-gray-600">
                       {String.fromCharCode(65 + index)}

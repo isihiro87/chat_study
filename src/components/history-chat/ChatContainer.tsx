@@ -134,7 +134,7 @@ export function ChatContainer({ chat, embedded = false, onNavigateToFlashcard, o
         {/* チャットエリア */}
         <div
           ref={scrollRef}
-          className={`flex-1 overflow-y-auto ${embedded ? 'pb-24' : 'pb-20'}`}
+          className={`flex-1 select-none overflow-y-auto ${embedded ? 'pb-24' : 'pb-20'}`}
           onClick={handleTap}
           style={{ cursor: isWaitingForQuiz || isComplete ? 'default' : 'pointer' }}
         >
