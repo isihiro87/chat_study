@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { ChevronRight, Check } from 'lucide-react';
 import { Header } from '../components/common/Header';
+import { SEOHead } from '../components/common/SEOHead';
 import { getSubject } from '../data/subjects';
 import { getErasBySubject, getTopicsByEra } from '../data/subjects/registry';
 import { useStudyProgress } from '../hooks/useStudyProgress';
@@ -40,6 +41,15 @@ export function EraSelectPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <SEOHead
+        title={`${subject.name} - 中学${subject.name}`}
+        description={`中学${subject.name}を動画・フラッシュカード・クイズで楽しく学べます。`}
+        path={`/subjects/${subjectId}`}
+        breadcrumbs={[
+          { name: 'ホーム', path: '/' },
+          { name: subject.name, path: `/subjects/${subjectId}` },
+        ]}
+      />
       <Header title={subject.name} subtitle={subjectId === 'history' ? '学びたい時代をえらぼう' : '学びたい単元をえらぼう'} showBack />
 
       <main className="mx-auto max-w-md px-4 py-4">

@@ -1,12 +1,15 @@
 import { Link, useParams } from 'react-router-dom';
 import { ChevronRight, Check } from 'lucide-react';
 import { Header } from '../components/common/Header';
+import { SEOHead } from '../components/common/SEOHead';
 import { getEra, getTopicsByEra } from '../data/subjects/registry';
+import { getSubject } from '../data/subjects';
 import { useStudyProgress } from '../hooks/useStudyProgress';
 
 export function TopicSelectPage() {
   const { subjectId, eraId } = useParams<{ subjectId: string; eraId: string }>();
   const era = eraId ? getEra(eraId) : undefined;
+  const subject = subjectId ? getSubject(subjectId) : undefined;
   const topics = eraId ? getTopicsByEra(eraId) : [];
   const { isTopicStudied, getTopicProgress, getEraProgress } = useStudyProgress();
 
@@ -23,6 +26,16 @@ export function TopicSelectPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <SEOHead
+        title={`${era.name} - ${subject?.name ?? '学習'}`}
+        description={`${era.name}（${era.period}）のトピックを動画・フラッシュカード・クイズで学べます。`}
+        path={`/subjects/${subjectId}/eras/${eraId}`}
+        breadcrumbs={[
+          { name: 'ホーム', path: '/' },
+          { name: subject?.name ?? '', path: `/subjects/${subjectId}` },
+          { name: era.name, path: `/subjects/${subjectId}/eras/${eraId}` },
+        ]}
+      />
       <Header title={era.name} subtitle={era.subtitle} showBack />
 
       <main className="mx-auto max-w-md px-4 py-4">

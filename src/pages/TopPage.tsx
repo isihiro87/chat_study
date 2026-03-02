@@ -3,6 +3,7 @@ import { Scroll, Calculator, Languages, Lock, ChevronRight, Flame, BookOpen, Rot
 import { subjects } from '../data/subjects';
 import { getTopic, getEra } from '../data/subjects/registry';
 import { useStudyProgress } from '../hooks/useStudyProgress';
+import { SEOHead } from '../components/common/SEOHead';
 
 const iconMap: Record<string, React.ElementType> = {
   scroll: Scroll,
@@ -65,6 +66,11 @@ export function TopPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <SEOHead
+        path="/"
+        description="中学生向け無料学習サイト。歴史・英語・数学をチャット形式の解説・フラッシュカード・クイズで楽しく学べます。定期テスト対策にも。"
+        breadcrumbs={[{ name: 'ホーム', path: '/' }]}
+      />
       <header className="bg-white px-4 py-6 shadow-sm">
         <h1 className="text-center text-2xl font-bold text-primary">
           チャットでスタディ

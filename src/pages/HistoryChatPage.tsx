@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { ChatContainer } from '../components/history-chat/ChatContainer';
+import { SEOHead } from '../components/common/SEOHead';
 import { getHistoryChat } from '../data/history-chat';
 
 export function HistoryChatPage() {
@@ -29,5 +30,18 @@ export function HistoryChatPage() {
     );
   }
 
-  return <ChatContainer chat={chat} />;
+  return (
+    <>
+      <SEOHead
+        title={`${chat.title} - 歴史チャット`}
+        description={`${chat.title}（${chat.subtitle}）をチャット形式で楽しく学べます。`}
+        path={`/chat/${chatId}`}
+        breadcrumbs={[
+          { name: 'ホーム', path: '/' },
+          { name: chat.title, path: `/chat/${chatId}` },
+        ]}
+      />
+      <ChatContainer chat={chat} />
+    </>
+  );
 }

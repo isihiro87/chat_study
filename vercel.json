@@ -1,7 +1,8 @@
 {
+  "trailingSlash": true,
   "rewrites": [
     {
-      "source": "/((?!assets/).*)",
+      "source": "/((?!assets/|sitemap\\.xml|robots\\.txt).*)",
       "destination": "/index.html"
     }
   ]

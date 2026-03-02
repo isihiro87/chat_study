@@ -8,7 +8,9 @@ import { QuizView } from '../components/learning/QuizView';
 import { ExampleView } from '../components/learning/ExampleView';
 import { ChatContainer } from '../components/history-chat/ChatContainer';
 import { Header } from '../components/common/Header';
-import { getTopic, getChat } from '../data/subjects/registry';
+import { getTopic, getChat, getEra } from '../data/subjects/registry';
+import { getSubject } from '../data/subjects';
+import { SEOHead } from '../components/common/SEOHead';
 import { estimateReadingTime } from '../utils/estimateReadingTime';
 import { useStudyProgress } from '../hooks/useStudyProgress';
 import { useTopicNavigation } from '../hooks/useTopicNavigation';
@@ -23,6 +25,8 @@ export function LearningPage() {
   const navigate = useNavigate();
 
   const topic = topicId ? getTopic(topicId) : undefined;
+  const era = eraId ? getEra(eraId) : undefined;
+  const subject = subjectId ? getSubject(subjectId) : undefined;
   const { prevTopic, nextTopic } = useTopicNavigation(topicId);
 
   const [activeTab, setActiveTab] = useState<TabType>(() =>
@@ -232,6 +236,17 @@ export function LearningPage() {
 
   return (
     <>
+      <SEOHead
+        title={`${topic.name} - ${subject?.name ?? '学習'}`}
+        description={`${topic.name}（${topic.subtitle}）をチャット解説・フラッシュカード・クイズで学べます。中学${subject?.name ?? ''}の定期テスト対策に。`}
+        path={`/subjects/${subjectId}/eras/${eraId}/topics/${topicId}`}
+        breadcrumbs={[
+          { name: 'ホーム', path: '/' },
+          { name: subject?.name ?? '', path: `/subjects/${subjectId}` },
+          ...(era ? [{ name: era.name, path: `/subjects/${subjectId}/eras/${eraId}` }] : []),
+          { name: topic.name, path: `/subjects/${subjectId}/eras/${eraId}/topics/${topicId}` },
+        ]}
+      />
       {/* チャットタブ（常にマウント、display制御で表示切替） */}
       {chat && (
         <div

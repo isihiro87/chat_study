@@ -22,6 +22,7 @@ export const DEFAULT_PROGRESS: StudyProgress = {
 };
 
 export function loadProgress(): StudyProgress {
+  if (typeof window === 'undefined') return { ...DEFAULT_PROGRESS };
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) return { ...DEFAULT_PROGRESS };
@@ -36,6 +37,7 @@ export function loadProgress(): StudyProgress {
 }
 
 export function saveProgress(progress: StudyProgress): void {
+  if (typeof window === 'undefined') return;
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
   } catch (e) {
