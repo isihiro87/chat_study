@@ -163,9 +163,16 @@ export interface Quiz {
 export interface QuizQuestion {
   id: string;
   question: string;
+  type?: 'choice' | 'reorder';
+  // 4択問題用（type === 'choice' または未指定の場合に使用）
   options: string[];
-  correctIndex: number;
+  correctIndex: number; // 並べ替え問題の場合は -1 を設定（使用されない）
+  // 並べ替え問題用（type === 'reorder' の場合に使用）
+  words?: string[]; // すべて小文字で格納（文頭大文字化はUI側で処理）
+  correctOrder?: number[];
+  punctuation?: '.' | '?'; // 文末記号（並べ替え問題で使用）
   explanation?: string;
+  sourceTopicId?: string; // まとめクイズ用：出題元トピックID（buildRandomQuizで付与）
 }
 
 // タブの種類

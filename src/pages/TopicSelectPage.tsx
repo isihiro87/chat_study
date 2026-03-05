@@ -85,7 +85,7 @@ export function TopicSelectPage() {
                     <p className="text-sm text-gray-500">{topic.subtitle}</p>
                   </div>
                   {hasQuizScore && (
-                    <p className="mt-0.5 text-xs text-indigo-500 font-medium">
+                    <p className="mt-0.5 text-xs text-amber-500 font-medium">
                       Q: {tp.quizBestScore}/{tp.quizTotalQuestions}
                     </p>
                   )}

@@ -202,7 +202,7 @@ function QuestionSlideView({ slide, title }: { slide: { type: 'question'; questi
 // 理由・背景スライド
 function ReasonSlideView({ slide }: { slide: { type: 'reason'; headline: string; points?: string[]; visual?: { type: string; items: { label: string; value?: string; emoji?: string }[] }; image?: { src: string; alt: string } } }) {
   return (
-    <div className="flex h-full flex-col bg-gradient-to-b from-orange-50 to-white px-6 py-8">
+    <div className="flex h-full flex-col bg-amber-50 px-6 py-8">
       <motion.h3
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -275,7 +275,7 @@ function ReasonSlideView({ slide }: { slide: { type: 'reason'; headline: string;
 // 結論スライド
 function ConclusionSlideView({ slide }: { slide: { type: 'conclusion'; conclusion: string; keywords?: { text: string; isImportant?: boolean }[]; nextHint?: string; image?: { src: string; alt: string } } }) {
   return (
-    <div className="flex h-full flex-col items-center justify-center bg-gradient-to-b from-emerald-50 to-white px-6 py-8">
+    <div className="flex h-full flex-col items-center justify-center bg-emerald-50 px-6 py-8">
       <motion.div
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}

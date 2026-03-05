@@ -1,7 +1,5 @@
 import { useState, useCallback, useMemo } from 'react';
-import type { Quiz } from '../data/types';
-
-import type { QuizQuestion } from '../data/types';
+import type { Quiz, QuizQuestion } from '../data/types';
 
 interface UseQuizReturn {
   isStarted: boolean;
@@ -13,6 +11,8 @@ interface UseQuizReturn {
   answers: (number | null)[];
   start: () => void;
   selectAnswer: (index: number) => void;
+  submitReorderAnswer: (order: number[]) => void;
+  reorderAnswer: number[] | null;
   nextQuestion: () => void;
   reset: () => void;
   wrongAnswers: number[];
@@ -31,19 +31,25 @@ export function useQuiz(quiz: Quiz): UseQuizReturn {
   const [isAnswered, setIsAnswered] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
   const [answers, setAnswers] = useState<(number | null)[]>(
-    new Array(quiz.questions.length).fill(null)
+    new Array(quiz.questions.length).fill(null),
   );
   const [score, setScore] = useState(0);
 
   const [isReviewMode, setIsReviewMode] = useState(false);
   const [reviewQuestionIndices, setReviewQuestionIndices] = useState<number[]>([]);
   const [reviewScore, setReviewScore] = useState(0);
+  const [reorderAnswer, setReorderAnswer] = useState<number[] | null>(null);
 
   const wrongAnswers = useMemo(() => {
     const wrong: number[] = [];
     answers.forEach((answer, index) => {
-      if (answer !== null && answer !== quiz.questions[index].correctIndex) {
-        wrong.push(index);
+      if (answer === null) return;
+      const question = quiz.questions[index];
+      const isReorder = question.type === 'reorder';
+      if (isReorder) {
+        if (answer !== 0) wrong.push(index);
+      } else {
+        if (answer !== question.correctIndex) wrong.push(index);
       }
     });
     return wrong;
@@ -87,7 +93,42 @@ export function useQuiz(quiz: Quiz): UseQuizReturn {
         }
       }
     },
-    [isAnswered, answers, currentIndex, quiz.questions, isReviewMode, reviewQuestionIndices]
+    [isAnswered, answers, currentIndex, quiz.questions, isReviewMode, reviewQuestionIndices],
+  );
+
+  const submitReorderAnswer = useCallback(
+    (order: number[]) => {
+      if (isAnswered) return;
+
+      setReorderAnswer(order);
+      setIsAnswered(true);
+
+      const question = isReviewMode
+        ? quiz.questions[reviewQuestionIndices[currentIndex]]
+        : quiz.questions[currentIndex];
+
+      const isCorrect =
+        question.correctOrder != null &&
+        order.length === question.correctOrder.length &&
+        order.every((val, idx) => val === question.correctOrder![idx]);
+
+      if (isReviewMode) {
+        if (isCorrect) {
+          setReviewScore((prev) => prev + 1);
+        }
+      } else {
+        const newAnswers = [...answers];
+        newAnswers[currentIndex] = isCorrect ? 0 : -1;
+        setAnswers(newAnswers);
+
+        if (isCorrect) {
+          setScore((prev) => prev + 1);
+        }
+      }
+
+      setSelectedAnswer(isCorrect ? 0 : -1);
+    },
+    [isAnswered, answers, currentIndex, quiz.questions, isReviewMode, reviewQuestionIndices],
   );
 
   const nextQuestion = useCallback(() => {
@@ -97,6 +138,7 @@ export function useQuiz(quiz: Quiz): UseQuizReturn {
       setCurrentIndex((prev) => prev + 1);
       setSelectedAnswer(null);
       setIsAnswered(false);
+      setReorderAnswer(null);
     } else {
       setIsComplete(true);
     }
@@ -117,6 +159,7 @@ export function useQuiz(quiz: Quiz): UseQuizReturn {
     setIsReviewMode(false);
     setReviewQuestionIndices([]);
     setReviewScore(0);
+    setReorderAnswer(null);
   }, [quiz.questions.length]);
 
   const startReview = useCallback(() => {
@@ -130,6 +173,7 @@ export function useQuiz(quiz: Quiz): UseQuizReturn {
     setIsAnswered(false);
     setIsComplete(false);
     setReviewScore(0);
+    setReorderAnswer(null);
   }, [wrongAnswers]);
 
   return {
@@ -142,6 +186,8 @@ export function useQuiz(quiz: Quiz): UseQuizReturn {
     answers,
     start,
     selectAnswer,
+    submitReorderAnswer,
+    reorderAnswer,
     nextQuestion,
     reset,
     wrongAnswers,

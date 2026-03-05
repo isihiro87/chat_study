@@ -1,6 +1,13 @@
 import { useState, useCallback, useMemo, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Home, Clock } from 'lucide-react';
+import { SummaryQuizPopup } from '../components/random-quiz/SummaryQuizPopup';
+import {
+  addCompletedTopic,
+  shouldShowSummaryQuizPopup,
+  getSessionCompletedTopics,
+  markPopupShown,
+} from '../utils/sessionStudyTracker';
 import { TabBar } from '../components/common/TabBar';
 import { VideoPlayer } from '../components/learning/VideoPlayer';
 import { FlashcardDeck } from '../components/learning/FlashcardDeck';
@@ -37,6 +44,8 @@ export function LearningPage() {
   const [exampleProgress, setExampleProgress] = useState({ current: 1, total: 1 });
   const [chatProgress, setChatProgress] = useState({ current: 0, total: 1 });
   const [quizNewBest, setQuizNewBest] = useState(false);
+  const [showSummaryPopup, setShowSummaryPopup] = useState(false);
+  const [summaryTopicIds, setSummaryTopicIds] = useState<string[]>([]);
 
   const {
     markChatRead,
@@ -139,6 +148,12 @@ export function LearningPage() {
       if (topicId) {
         const { isNewBest } = updateQuizScore(topicId, score, total);
         setQuizNewBest(isNewBest);
+        addCompletedTopic(topicId);
+        if (shouldShowSummaryQuizPopup()) {
+          markPopupShown();
+          setSummaryTopicIds(getSessionCompletedTopics());
+          setShowSummaryPopup(true);
+        }
       }
     },
     [topicId, updateQuizScore],
@@ -219,7 +234,7 @@ export function LearningPage() {
       <div className="relative">
         <div className="h-1 w-full bg-gray-100">
           <div
-            className="h-full bg-gradient-to-r from-amber-500 to-orange-500 transition-all duration-300"
+            className="h-full bg-amber-500 transition-all duration-300"
             style={{ width: `${chatProgressPercent}%` }}
           />
         </div>
@@ -338,6 +353,28 @@ export function LearningPage() {
         disabledTabs={disabledTabs}
         completedTabs={completedTabs}
       />
+
+      {/* まとめクイズポップアップ */}
+      {showSummaryPopup && (
+        <SummaryQuizPopup
+          topicIds={summaryTopicIds}
+          onStart={() => {
+            setShowSummaryPopup(false);
+            const nextPath = nextTopic
+              ? `/subjects/${subjectId}/eras/${eraId}/topics/${nextTopic.id}`
+              : undefined;
+            navigate(`/subjects/${subjectId}/random-quiz`, {
+              state: {
+                preselectedTopicIds: summaryTopicIds,
+                returnTo: nextPath
+                  ? { path: nextPath, name: nextTopic!.name }
+                  : undefined,
+              },
+            });
+          }}
+          onDismiss={() => setShowSummaryPopup(false)}
+        />
+      )}
     </>
   );
 }

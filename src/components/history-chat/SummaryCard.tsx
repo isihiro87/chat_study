@@ -27,7 +27,7 @@ function getRankInfo(percentage: number): RankInfo {
       title: '完璧マスター！',
       emoji: '👑',
       color: '#D97706',
-      bgColor: 'from-yellow-50 to-amber-100',
+      bgColor: 'bg-amber-50',
     };
   }
   if (percentage >= 80) {
@@ -35,7 +35,7 @@ function getRankInfo(percentage: number): RankInfo {
       title: 'すごい！',
       emoji: '🌟',
       color: '#10B981',
-      bgColor: 'from-emerald-50 to-green-100',
+      bgColor: 'bg-emerald-50',
     };
   }
   if (percentage >= 60) {
@@ -43,14 +43,14 @@ function getRankInfo(percentage: number): RankInfo {
       title: 'がんばった！',
       emoji: '💪',
       color: '#F59E0B',
-      bgColor: 'from-amber-50 to-orange-50',
+      bgColor: 'bg-amber-50',
     };
   }
   return {
     title: 'もう一回チャレンジ！',
     emoji: '🔥',
     color: '#6B7280',
-    bgColor: 'from-gray-50 to-slate-100',
+    bgColor: 'bg-gray-50',
   };
 }
 
@@ -74,7 +74,7 @@ export function SummaryCard({ points, score, totalQuizzes, onReplay, onNavigateT
       transition={{ duration: 0.45 }}
       className="mx-3 my-4"
     >
-      <div className={`rounded-xl bg-gradient-to-br ${rank?.bgColor || 'from-amber-50 to-orange-50'} p-5 shadow-lg`}>
+      <div className={`rounded-xl ${rank?.bgColor || 'bg-amber-50'} p-5 shadow-sm`}>
         {/* ヘッダー */}
         <div className="mb-4 flex items-center gap-3">
           <div className="flex h-12 w-12 items-center justify-center rounded-full bg-amber-100">
@@ -147,21 +147,21 @@ export function SummaryCard({ points, score, totalQuizzes, onReplay, onNavigateT
 
         {/* 次のステップへのガイド */}
         {(onNavigateToFlashcard || onNavigateToQuiz) && (
-          <div className="mb-4 rounded-lg bg-blue-50 p-4">
+          <div className="mb-4 rounded-lg bg-amber-50 p-4">
             <p
-              className="mb-3 text-sm font-bold text-blue-800"
+              className="mb-3 text-sm font-bold text-amber-800"
               style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
             >
               💡 暗記を定着させよう！
             </p>
-            <p className="mb-3 text-sm text-blue-700">
+            <p className="mb-3 text-sm text-amber-700">
               カードで復習したり、クイズで理解度をチェックしてみよう！
             </p>
             <div className="flex gap-2">
               {onNavigateToFlashcard && (
                 <button
                   onClick={onNavigateToFlashcard}
-                  className="flex flex-1 items-center justify-center gap-2 whitespace-nowrap rounded-full bg-indigo-500 px-4 py-2.5 text-sm font-medium text-white shadow-md transition-transform active:scale-95"
+                  className="flex flex-1 items-center justify-center gap-2 whitespace-nowrap rounded-full bg-amber-500 px-4 py-2.5 text-sm font-medium text-white shadow-sm transition-transform active:scale-95"
                   style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
                 >
                   <Layers className="h-4 w-4 flex-shrink-0" />
@@ -171,7 +171,7 @@ export function SummaryCard({ points, score, totalQuizzes, onReplay, onNavigateT
               {onNavigateToQuiz && (
                 <button
                   onClick={onNavigateToQuiz}
-                  className="flex flex-1 items-center justify-center gap-2 whitespace-nowrap rounded-full bg-green-500 px-4 py-2.5 text-sm font-medium text-white shadow-md transition-transform active:scale-95"
+                  className="flex flex-1 items-center justify-center gap-2 whitespace-nowrap rounded-full bg-green-500 px-4 py-2.5 text-sm font-medium text-white shadow-sm transition-transform active:scale-95"
                   style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
                 >
                   <HelpCircle className="h-4 w-4 flex-shrink-0" />
@@ -184,19 +184,19 @@ export function SummaryCard({ points, score, totalQuizzes, onReplay, onNavigateT
 
         {/* 例題の解き方を見る */}
         {onNavigateToExample && (
-          <div className="mb-4 rounded-lg bg-orange-50 p-4">
+          <div className="mb-4 rounded-lg bg-amber-50 p-4">
             <p
-              className="mb-3 text-sm font-bold text-orange-800"
+              className="mb-3 text-sm font-bold text-amber-800"
               style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
             >
               📝 例題で実力チェック！
             </p>
-            <p className="mb-3 text-sm text-orange-700">
+            <p className="mb-3 text-sm text-amber-700">
               実際の問題を解いて、理解度を確かめよう！
             </p>
             <button
               onClick={onNavigateToExample}
-              className="flex w-full items-center justify-center gap-2 rounded-full bg-orange-500 px-4 py-2.5 text-sm font-medium text-white shadow-md transition-transform hover:bg-orange-600 active:scale-95"
+              className="flex w-full items-center justify-center gap-2 rounded-full bg-amber-500 px-4 py-2.5 text-sm font-medium text-white shadow-sm transition-transform hover:bg-amber-600 active:scale-95"
               style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
             >
               <BookOpen className="h-4 w-4" />
@@ -206,25 +206,25 @@ export function SummaryCard({ points, score, totalQuizzes, onReplay, onNavigateT
         )}
 
         {/* ChatGPTでもっと深く知る */}
-        <div className="mb-4 rounded-lg bg-purple-50 p-4">
+        <div className="mb-4 rounded-lg bg-amber-50 p-4">
           <p
-            className="mb-3 text-sm font-bold text-purple-800"
+            className="mb-3 text-sm font-bold text-amber-800"
             style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
           >
             🎓 AI先生ともっと深く学ぼう！
           </p>
-          <p className="mb-3 text-sm text-purple-700">
+          <p className="mb-3 text-sm text-amber-700">
             ChatGPTのAI先生と対話しながら、理解を深めよう！
           </p>
           <button
             onClick={handleOpenChatGPT}
-            className="flex w-full items-center justify-center gap-2 rounded-full bg-purple-500 px-4 py-2.5 text-sm font-medium text-white shadow-md transition-transform hover:bg-purple-600 active:scale-95"
+            className="flex w-full items-center justify-center gap-2 rounded-full bg-amber-500 px-4 py-2.5 text-sm font-medium text-white shadow-sm transition-transform hover:bg-amber-600 active:scale-95"
             style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
           >
             <MessageCircle className="h-4 w-4" />
             ChatGPTでもっと深く知る
           </button>
-          <p className="mt-3 text-center text-xs text-purple-600">
+          <p className="mt-3 text-center text-xs text-amber-600">
             💡 開いたら 送信ボタン を押すだけで会話スタート！
           </p>
         </div>
@@ -232,7 +232,7 @@ export function SummaryCard({ points, score, totalQuizzes, onReplay, onNavigateT
         {/* リプレイボタン */}
         <button
           onClick={onReplay}
-          className="flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 px-6 py-3 font-medium text-white shadow-md transition-transform active:scale-95"
+          className="flex w-full items-center justify-center gap-2 rounded-full bg-amber-500 px-6 py-3 font-medium text-white shadow-sm transition-transform active:scale-95"
           style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
         >
           <RotateCcw className="h-5 w-5" />

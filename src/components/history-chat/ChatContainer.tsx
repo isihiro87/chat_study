@@ -217,13 +217,13 @@ export function ChatContainer({ chat, embedded = false, onNavigateToFlashcard, o
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             onClick={handleTap}
-            className={`fixed left-1/2 w-full max-w-md -translate-x-1/2 bg-gradient-to-t from-black/50 to-transparent px-4 pt-8 text-center ${
+            className={`fixed left-1/2 w-full max-w-md -translate-x-1/2 bg-black/30 px-4 pt-8 text-center ${
               embedded ? 'bottom-16 pb-4' : 'bottom-0 pb-6'
             }`}
             style={{ cursor: isWaitingForQuiz ? 'default' : 'pointer' }}
           >
             <span
-              className="rounded-full bg-white/90 px-4 py-2 text-sm font-medium text-gray-700 shadow-lg"
+              className="rounded-full bg-white/90 px-4 py-2 text-sm font-medium text-gray-700 shadow-sm"
               style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
             >
               {promptMessage}

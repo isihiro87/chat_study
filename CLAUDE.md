@@ -76,7 +76,18 @@
 - **architecture.md** - 技術仕様書
 - **repository-structure.md** - リポジトリ構造定義書
 - **development-guidelines.md** - 開発ガイドライン
+- **design-guide.md** - デザインガイド（色・ボタン・タイポグラフィ規約）
 - **glossary.md** - ユビキタス言語定義
+
+## デザイン規約（必読）
+
+UIを実装・変更する際は必ず `docs/design-guide.md` を参照すること。
+
+- **禁止色**: indigo, purple, violet 系統は使用禁止
+- **アクセント色**: amber-500 (`#F59E0B`) を統一アクセントに使用
+- **ボタン**: グラデーション(`from-* to-*`)禁止。ソリッドカラーのみ
+- **背景**: ページ背景は `#FAF9F7`（ウォームホワイト）
+- **影**: `shadow-md`, `shadow-lg` 禁止。`shadow-sm` のみ許可
 
 ### 作業単位のドキュメント(`.steering/`)
 

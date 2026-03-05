@@ -1,8 +1,8 @@
-import { useEffect } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Check, X, RotateCcw, Trophy, RefreshCw, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useQuiz } from '../../hooks/useQuiz';
-import type { Quiz } from '../../data/types';
+import type { Quiz, QuizQuestion } from '../../data/types';
 
 interface TopicNavigationInfo {
   prev: { name: string; path: string } | null;
@@ -13,8 +13,10 @@ interface QuizViewProps {
   quiz: Quiz;
   onProgressChange?: (current: number, total: number) => void;
   onComplete?: (score: number, total: number) => void;
+  onCompleteWithWrongQuestions?: (wrongQuestions: QuizQuestion[]) => void;
   isNewBest?: boolean;
   navigation?: TopicNavigationInfo;
+  extraResultButtons?: React.ReactNode;
 }
 
 function ProgressDots({
@@ -75,7 +77,126 @@ function ResultMessage({ percentage }: { percentage: number }) {
   );
 }
 
-export function QuizView({ quiz, onProgressChange, onComplete, isNewBest, navigation }: QuizViewProps) {
+function ReorderQuestionInput({
+  question,
+  onSubmit,
+  questionKey,
+}: {
+  question: QuizQuestion;
+  onSubmit: (order: number[]) => void;
+  questionKey: string;
+}) {
+  const words = question.words ?? [];
+  const punctuation = question.punctuation;
+  const [selectedIndices, setSelectedIndices] = useState<number[]>([]);
+
+  useEffect(() => {
+    setSelectedIndices([]);
+  }, [questionKey]);
+
+  const handleSelectWord = (wordIndex: number) => {
+    if (selectedIndices.includes(wordIndex)) return;
+    setSelectedIndices([...selectedIndices, wordIndex]);
+  };
+
+  const handleRemoveWord = (positionIndex: number) => {
+    setSelectedIndices(selectedIndices.filter((_, i) => i !== positionIndex));
+  };
+
+  const isAllPlaced = selectedIndices.length === words.length;
+
+  // 解答欄での表示: 文頭は大文字化
+  const getDisplayWord = (wordIndex: number, posIndex: number) => {
+    const word = words[wordIndex];
+    if (posIndex === 0) {
+      return word.charAt(0).toUpperCase() + word.slice(1);
+    }
+    return word;
+  };
+
+  return (
+    <div className="flex flex-1 flex-col">
+      {/* 解答欄 */}
+      <div className="mb-4 min-h-[52px] rounded-xl border-2 border-dashed border-gray-300 bg-gray-50 p-3">
+        {selectedIndices.length === 0 ? (
+          <p className="text-center text-sm text-gray-400">単語をタップして並べよう</p>
+        ) : (
+          <div className="flex flex-wrap items-center gap-2">
+            {selectedIndices.map((wordIndex, posIndex) => (
+              <button
+                key={posIndex}
+                onClick={() => handleRemoveWord(posIndex)}
+                className="rounded-lg border-2 border-amber-300 bg-amber-50 px-3 py-1.5 text-sm font-medium text-amber-800 transition-all active:scale-95"
+                style={{ fontFamily: "'Noto Sans JP', sans-serif" }}
+              >
+                {getDisplayWord(wordIndex, posIndex)}
+              </button>
+            ))}
+            {punctuation && (
+              <span className="text-sm font-bold text-gray-600">{punctuation}</span>
+            )}
+          </div>
+        )}
+      </div>
+
+      {/* 単語選択肢（データに格納された通りに表示。I・固有名詞は大文字のまま） */}
+      <div className="mb-4 flex flex-wrap justify-center gap-2">
+        {words.map((word, index) => {
+          const isSelected = selectedIndices.includes(index);
+          return (
+            <button
+              key={index}
+              onClick={() => handleSelectWord(index)}
+              disabled={isSelected}
+              className={`rounded-lg border-2 px-3 py-1.5 text-sm font-medium transition-all active:scale-95 ${
+                isSelected
+                  ? 'border-gray-200 bg-gray-100 text-gray-300'
+                  : 'border-gray-300 bg-white text-gray-800 hover:border-gray-400 hover:bg-gray-50'
+              }`}
+              style={{ fontFamily: "'Noto Sans JP', sans-serif" }}
+            >
+              {word}
+            </button>
+          );
+        })}
+      </div>
+
+      {/* 回答するボタン */}
+      <div className="mt-auto flex justify-center pt-3">
+        <button
+          onClick={() => onSubmit(selectedIndices)}
+          disabled={!isAllPlaced}
+          className={`rounded-full px-10 py-3 font-bold transition-transform active:scale-95 ${
+            isAllPlaced
+              ? 'bg-gray-800 text-white'
+              : 'bg-gray-200 text-gray-400'
+          }`}
+          style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+        >
+          回答する
+        </button>
+      </div>
+    </div>
+  );
+}
+
+export function QuizView({ quiz, onProgressChange, onComplete, onCompleteWithWrongQuestions, isNewBest, navigation, extraResultButtons }: QuizViewProps) {
+  const hasChoiceQuestions = quiz.questions.some((q) => q.type !== 'reorder');
+  const hasReorderQuestions = quiz.questions.some((q) => q.type === 'reorder');
+  const hasBothTypes = hasChoiceQuestions && hasReorderQuestions;
+
+  const [includeChoice, setIncludeChoice] = useState(true);
+  const [includeReorder, setIncludeReorder] = useState(true);
+
+  const filteredQuiz = useMemo<Quiz>(() => {
+    if (!hasBothTypes) return quiz;
+    const filtered = quiz.questions.filter((q) => {
+      const isReorder = q.type === 'reorder';
+      return isReorder ? includeReorder : includeChoice;
+    });
+    return { questions: filtered.length > 0 ? filtered : quiz.questions };
+  }, [quiz, hasBothTypes, includeChoice, includeReorder]);
+
   const {
     isStarted,
     currentIndex,
@@ -85,6 +206,8 @@ export function QuizView({ quiz, onProgressChange, onComplete, isNewBest, naviga
     score,
     start,
     selectAnswer,
+    submitReorderAnswer,
+    reorderAnswer,
     nextQuestion,
     reset,
     wrongAnswers,
@@ -93,7 +216,7 @@ export function QuizView({ quiz, onProgressChange, onComplete, isNewBest, naviga
     totalQuestions,
     currentQuestion,
     reviewScore,
-  } = useQuiz(quiz);
+  } = useQuiz(filteredQuiz);
 
   useEffect(() => {
     onProgressChange?.(currentIndex + 1, totalQuestions);
@@ -102,9 +225,16 @@ export function QuizView({ quiz, onProgressChange, onComplete, isNewBest, naviga
   // クイズ完了時のコールバック（復習モードでない初回完了時のみ）
   useEffect(() => {
     if (isComplete && !isReviewMode) {
-      onComplete?.(score, quiz.questions.length);
+      onComplete?.(score, filteredQuiz.questions.length);
+      if (onCompleteWithWrongQuestions && wrongAnswers.length > 0) {
+        const wrongQs = wrongAnswers.map((idx) => filteredQuiz.questions[idx]);
+        onCompleteWithWrongQuestions(wrongQs);
+      }
     }
-  }, [isComplete, isReviewMode, score, quiz.questions.length, onComplete]);
+  }, [isComplete, isReviewMode, score, filteredQuiz.questions.length, onComplete, onCompleteWithWrongQuestions, wrongAnswers, filteredQuiz.questions]);
+
+  const choiceCount = quiz.questions.filter((q) => q.type !== 'reorder').length;
+  const reorderCount = quiz.questions.filter((q) => q.type === 'reorder').length;
 
   if (!isStarted) {
     return (
@@ -121,9 +251,48 @@ export function QuizView({ quiz, onProgressChange, onComplete, isNewBest, naviga
             クイズに挑戦！
           </h2>
 
-          <p className="mb-8 text-base text-gray-500">
-            全{quiz.questions.length}問
+          <p className="mb-4 text-base text-gray-500">
+            全{filteredQuiz.questions.length}問
           </p>
+
+          {hasBothTypes && (
+            <div className="mb-6 w-full max-w-xs space-y-2">
+              <p
+                className="text-center text-sm font-bold text-gray-600"
+                style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+              >
+                出題する問題タイプ
+              </p>
+              <label className="flex cursor-pointer items-center gap-3 rounded-xl border-2 border-gray-200 bg-white p-3 transition-all hover:bg-gray-50">
+                <input
+                  type="checkbox"
+                  checked={includeChoice}
+                  onChange={(e) => {
+                    if (!e.target.checked && !includeReorder) return;
+                    setIncludeChoice(e.target.checked);
+                  }}
+                  className="h-5 w-5 rounded accent-gray-800"
+                />
+                <span className="flex-1 text-sm font-medium text-gray-700">
+                  選択問題（{choiceCount}問）
+                </span>
+              </label>
+              <label className="flex cursor-pointer items-center gap-3 rounded-xl border-2 border-gray-200 bg-white p-3 transition-all hover:bg-gray-50">
+                <input
+                  type="checkbox"
+                  checked={includeReorder}
+                  onChange={(e) => {
+                    if (!e.target.checked && !includeChoice) return;
+                    setIncludeReorder(e.target.checked);
+                  }}
+                  className="h-5 w-5 rounded accent-gray-800"
+                />
+                <span className="flex-1 text-sm font-medium text-gray-700">
+                  並べ替え問題（{reorderCount}問）
+                </span>
+              </label>
+            </div>
+          )}
 
           <button
             onClick={start}
@@ -164,7 +333,7 @@ export function QuizView({ quiz, onProgressChange, onComplete, isNewBest, naviga
           )}
 
           {!isReviewMode && isNewBest && (
-            <div className="mb-3 rounded-full bg-gradient-to-r from-amber-400 to-orange-400 px-4 py-1.5 text-sm font-bold text-white shadow-md">
+            <div className="mb-3 rounded-full bg-amber-500 px-4 py-1.5 text-sm font-bold text-white shadow-sm">
               🏆 自己ベスト更新！
             </div>
           )}
@@ -186,27 +355,31 @@ export function QuizView({ quiz, onProgressChange, onComplete, isNewBest, naviga
 
           <ResultMessage percentage={percentage} />
 
-          <div className="mt-8 flex w-full max-w-xs flex-col gap-3">
-            {!isReviewMode && wrongAnswers.length > 0 && (
+          {extraResultButtons ? (
+            <div className="mt-8">{extraResultButtons}</div>
+          ) : (
+            <div className="mt-8 flex w-full max-w-xs flex-col gap-3">
+              {!isReviewMode && wrongAnswers.length > 0 && (
+                <button
+                  onClick={startReview}
+                  className="flex items-center justify-center gap-2 rounded-full bg-amber-500 px-6 py-3.5 font-bold text-white transition-transform active:scale-95"
+                  style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+                >
+                  <RefreshCw className="h-5 w-5" />
+                  間違えた問題だけ復習（{wrongAnswers.length}問）
+                </button>
+              )}
+
               <button
-                onClick={startReview}
-                className="flex items-center justify-center gap-2 rounded-full bg-amber-500 px-6 py-3.5 font-bold text-white transition-transform active:scale-95"
+                onClick={reset}
+                className="flex items-center justify-center gap-2 rounded-full border-2 border-gray-200 bg-white px-6 py-3.5 font-bold text-gray-700 transition-transform active:scale-95"
                 style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
               >
-                <RefreshCw className="h-5 w-5" />
-                間違えた問題だけ復習（{wrongAnswers.length}問）
+                <RotateCcw className="h-5 w-5" />
+                最初からやり直す
               </button>
-            )}
-
-            <button
-              onClick={reset}
-              className="flex items-center justify-center gap-2 rounded-full border-2 border-gray-200 bg-white px-6 py-3.5 font-bold text-gray-700 transition-transform active:scale-95"
-              style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
-            >
-              <RotateCcw className="h-5 w-5" />
-              最初からやり直す
-            </button>
-          </div>
+            </div>
+          )}
 
           {/* 前後の内容へのナビゲーション */}
           {navigation && (navigation.prev || navigation.next) && (
@@ -247,9 +420,30 @@ export function QuizView({ quiz, onProgressChange, onComplete, isNewBest, naviga
     );
   }
 
-  const isCorrectAnswer = selectedAnswer === currentQuestion?.correctIndex;
-  const selectedOptionText = selectedAnswer !== null ? currentQuestion?.options[selectedAnswer] : '';
-  const correctOptionText = currentQuestion?.options[currentQuestion.correctIndex] ?? '';
+  const isReorderQuestion = currentQuestion?.type === 'reorder';
+  const isCorrectAnswer = isReorderQuestion
+    ? selectedAnswer === 0
+    : selectedAnswer === currentQuestion?.correctIndex;
+
+  const formatReorderSentence = (indices: number[], words: string[], punctuation?: '.' | '?') => {
+    const sentence = indices.map((idx, pos) => {
+      const word = words[idx];
+      return pos === 0 ? word.charAt(0).toUpperCase() + word.slice(1) : word;
+    }).join(' ');
+    return punctuation ? sentence + punctuation : sentence;
+  };
+
+  const selectedOptionText = isReorderQuestion
+    ? (reorderAnswer && currentQuestion?.words
+        ? formatReorderSentence(reorderAnswer, currentQuestion.words, currentQuestion.punctuation)
+        : '')
+    : (selectedAnswer !== null ? currentQuestion?.options[selectedAnswer] : '');
+
+  const correctOptionText = isReorderQuestion
+    ? (currentQuestion?.correctOrder && currentQuestion?.words
+        ? formatReorderSentence(currentQuestion.correctOrder, currentQuestion.words, currentQuestion.punctuation)
+        : '')
+    : (currentQuestion?.options[currentQuestion.correctIndex] ?? '');
 
   return (
     <div className="flex h-full flex-col pb-16">
@@ -276,6 +470,11 @@ export function QuizView({ quiz, onProgressChange, onComplete, isNewBest, naviga
               <span className="rounded-full bg-gray-100 px-2.5 py-0.5 text-sm font-bold text-gray-600">
                 Q{currentIndex + 1}
               </span>
+              {isReorderQuestion && (
+                <span className="rounded-full bg-amber-100 px-2 py-0.5 text-xs font-bold text-amber-600">
+                  並べ替え
+                </span>
+              )}
             </div>
             <p
               className="whitespace-pre-line text-base font-semibold leading-relaxed text-gray-800 sm:text-lg"
@@ -363,6 +562,13 @@ export function QuizView({ quiz, onProgressChange, onComplete, isNewBest, naviga
                   </button>
                 </div>
               </div>
+            ) : isReorderQuestion && currentQuestion ? (
+              /* 並べ替え問題 */
+              <ReorderQuestionInput
+                question={currentQuestion}
+                onSubmit={submitReorderAnswer}
+                questionKey={`${currentIndex}-${isReviewMode}`}
+              />
             ) : (
               /* 選択肢リスト */
               <div

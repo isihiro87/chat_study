@@ -6,6 +6,7 @@ import { EraSelectPage } from './pages/EraSelectPage';
 import { TopicSelectPage } from './pages/TopicSelectPage';
 import { LearningPage } from './pages/LearningPage';
 import { HistoryChatPage } from './pages/HistoryChatPage';
+import { RandomQuizPage } from './pages/RandomQuizPage';
 import { pageview } from './utils/gtag';
 
 // ルート変更時にスクロール位置を復元またはリセット
@@ -56,6 +57,7 @@ function AnimatedRoutes() {
       <Routes location={location}>
         <Route path="/" element={<TopPage />} />
         <Route path="/subjects/:subjectId" element={<EraSelectPage />} />
+        <Route path="/subjects/:subjectId/random-quiz" element={<RandomQuizPage />} />
         <Route path="/subjects/:subjectId/eras/:eraId" element={<TopicSelectPage />} />
         <Route path="/subjects/:subjectId/eras/:eraId/topics/:topicId" element={<LearningPage />} />
         <Route path="/chat/:chatId" element={<HistoryChatPage />} />

@@ -69,7 +69,7 @@ export function ChatHeader({ icon, title, subtitle, progress, estimatedMinutes }
       <div className="relative">
         <div className="h-1 w-full bg-gray-200">
           <div
-            className="h-full bg-gradient-to-r from-amber-500 to-orange-500 transition-all duration-300"
+            className="h-full bg-amber-500 transition-all duration-300"
             style={{ width: `${progress}%` }}
           />
         </div>

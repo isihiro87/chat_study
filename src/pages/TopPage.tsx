@@ -82,7 +82,7 @@ export function TopPage() {
 
       {/* PC向け注意喚起 - スマホでは非表示 */}
       <div className="mx-auto hidden max-w-md px-4 pt-4 md:block">
-        <div className="flex items-center gap-2 rounded-lg border border-indigo-100 bg-indigo-50 p-3 text-sm text-indigo-700">
+        <div className="flex items-center gap-2 rounded-lg border border-amber-100 bg-amber-50 p-3 text-sm text-amber-700">
           <span>📱</span>
           <span>このアプリはスマホで見やすいように作られています（パソコンでもお使いいただけます）</span>
         </div>
@@ -91,34 +91,34 @@ export function TopPage() {
       <main className="mx-auto max-w-md px-4 py-6">
         {/* 使い方ガイド - 初回ユーザー向け */}
         {!hasProgress && (
-          <div className="mb-6 rounded-xl bg-gradient-to-br from-indigo-50 to-purple-50 p-4 shadow-sm">
-            <h2 className="mb-3 text-center text-sm font-semibold text-indigo-700">
+          <div className="mb-6 rounded-xl bg-amber-50 p-4 shadow-sm">
+            <h2 className="mb-3 text-center text-sm font-semibold text-amber-700">
               はじめての方へ
             </h2>
             <div className="flex justify-between gap-2">
               <div className="flex flex-1 flex-col items-center">
                 <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-sm">
-                  <MousePointerClick className="h-6 w-6 text-indigo-500" aria-hidden="true" />
+                  <MousePointerClick className="h-6 w-6 text-amber-500" aria-hidden="true" />
                 </div>
                 <p className="text-center text-xs font-bold text-gray-700">1. えらぶ</p>
                 <p className="text-center text-xs text-gray-500">科目と単元を<br />タップ</p>
               </div>
               <div className="flex flex-1 flex-col items-center">
                 <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-sm">
-                  <MessageCircle className="h-6 w-6 text-indigo-500" aria-hidden="true" />
+                  <MessageCircle className="h-6 w-6 text-amber-500" aria-hidden="true" />
                 </div>
                 <p className="text-center text-xs font-bold text-gray-700">2. よむ</p>
                 <p className="text-center text-xs text-gray-500">チャットで<br />かんたん学習</p>
               </div>
               <div className="flex flex-1 flex-col items-center">
                 <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-sm">
-                  <CheckCircle className="h-6 w-6 text-indigo-500" aria-hidden="true" />
+                  <CheckCircle className="h-6 w-6 text-amber-500" aria-hidden="true" />
                 </div>
                 <p className="text-center text-xs font-bold text-gray-700">3. たしかめる</p>
                 <p className="text-center text-xs text-gray-500">クイズで<br />チェック!</p>
               </div>
             </div>
-            <p className="mt-3 text-center text-xs text-indigo-600">
+            <p className="mt-3 text-center text-xs text-amber-600">
               まずは下の科目をタップしてね
             </p>
           </div>
@@ -179,20 +179,20 @@ export function TopPage() {
             <div className="rounded-xl bg-white p-4 shadow-sm">
               <h3 className="mb-3 text-sm font-semibold text-gray-600">がんばり</h3>
               <div className="flex gap-3">
-                <div className="flex flex-1 items-center gap-2 rounded-lg bg-orange-50 p-3">
+                <div className="flex flex-1 items-center gap-2 rounded-lg bg-amber-50 p-3">
                   <Flame className="h-5 w-5 text-orange-500" />
                   <div>
                     <p className="text-lg font-bold text-orange-600">{streak}日</p>
                     <p className="text-xs text-orange-400">れんぞく学習</p>
                   </div>
                 </div>
-                <div className="flex flex-1 items-center gap-2 rounded-lg bg-indigo-50 p-3">
-                  <BookOpen className="h-5 w-5 text-indigo-500" />
+                <div className="flex flex-1 items-center gap-2 rounded-lg bg-amber-50 p-3">
+                  <BookOpen className="h-5 w-5 text-amber-500" />
                   <div>
-                    <p className="text-lg font-bold text-indigo-600">
-                      {totalStudiedTopics}<span className="text-sm font-normal text-indigo-400">/{totalTopics}</span>
+                    <p className="text-lg font-bold text-amber-600">
+                      {totalStudiedTopics}<span className="text-sm font-normal text-amber-400">/{totalTopics}</span>
                     </p>
-                    <p className="text-xs text-indigo-400">学習ずみ</p>
+                    <p className="text-xs text-amber-400">学習ずみ</p>
                   </div>
                 </div>
               </div>
@@ -205,8 +205,8 @@ export function TopPage() {
                   topic={lastTopic}
                   label="最後にやった内容"
                   icon={ArrowRight}
-                  iconColor="text-indigo-600"
-                  iconBg="bg-indigo-100"
+                  iconColor="text-amber-600"
+                  iconBg="bg-amber-100"
                 />
               )}
               {nextTopic && nextTopic.id !== lastStudiedTopicId && (

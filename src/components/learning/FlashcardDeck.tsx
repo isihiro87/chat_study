@@ -40,12 +40,12 @@ export function FlashcardDeck({ cards, onProgressChange, onComplete }: Flashcard
   const cardBgColor = useTransform(
     x,
     [-150, 0, 150],
-    ['rgb(254, 226, 226)', 'rgb(249, 250, 255)', 'rgb(220, 252, 231)']
+    ['rgb(254, 226, 226)', 'rgb(255, 251, 235)', 'rgb(220, 252, 231)']
   );
   const cardBorderColor = useTransform(
     x,
     [-150, -50, 0, 50, 150],
-    ['rgb(239, 68, 68)', 'rgb(239, 68, 68)', 'rgb(199, 210, 254)', 'rgb(34, 197, 94)', 'rgb(34, 197, 94)']
+    ['rgb(239, 68, 68)', 'rgb(239, 68, 68)', 'rgb(252, 211, 77)', 'rgb(34, 197, 94)', 'rgb(34, 197, 94)']
   );
 
   // プログレス通知
@@ -113,9 +113,9 @@ export function FlashcardDeck({ cards, onProgressChange, onComplete }: Flashcard
     } else if (firstRoundRate >= 0.8) {
       return { emoji: '🌟', message: 'とてもよくできました！', color: 'text-green-500' };
     } else if (firstRoundRate >= 0.5) {
-      return { emoji: '💪', message: '復習して覚えたね！', color: 'text-blue-500' };
+      return { emoji: '💪', message: '復習して覚えたね！', color: 'text-amber-500' };
     } else {
-      return { emoji: '🎯', message: '最後まで頑張った！', color: 'text-purple-500' };
+      return { emoji: '🎯', message: '最後まで頑張った！', color: 'text-amber-500' };
     }
   };
 
@@ -126,7 +126,7 @@ export function FlashcardDeck({ cards, onProgressChange, onComplete }: Flashcard
 
     return (
       <div className="flex h-full flex-col items-center overflow-y-auto px-6 py-8">
-        <div className="mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-green-400 to-emerald-500 shadow-lg">
+        <div className="mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-emerald-500 shadow-sm">
           <Check className="h-10 w-10 text-white" />
         </div>
 
@@ -180,7 +180,7 @@ export function FlashcardDeck({ cards, onProgressChange, onComplete }: Flashcard
 
         {/* 苦手カードセクション */}
         {difficultCards.length > 0 && (
-          <div className="mb-4 w-full max-w-xs rounded-2xl bg-orange-50 p-4">
+          <div className="mb-4 w-full max-w-xs rounded-2xl bg-amber-50 p-4">
             <div className="mb-3 flex items-center justify-center gap-2">
               <AlertTriangle className="h-4 w-4 text-orange-500" />
               <p className="text-sm font-medium text-orange-600">苦手なカード</p>
@@ -211,7 +211,7 @@ export function FlashcardDeck({ cards, onProgressChange, onComplete }: Flashcard
           {hasUnremembered && (
             <button
               onClick={resetWithReviewOnly}
-              className="flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-orange-400 to-amber-500 px-6 py-4 text-base font-bold text-white shadow-lg transition-transform active:scale-95"
+              className="flex w-full items-center justify-center gap-2 rounded-full bg-amber-500 px-6 py-4 text-base font-bold text-white shadow-sm transition-transform active:scale-95"
             >
               <RotateCcw className="h-5 w-5" />
               わからなかったカードを復習
@@ -219,10 +219,10 @@ export function FlashcardDeck({ cards, onProgressChange, onComplete }: Flashcard
           )}
           <button
             onClick={reset}
-            className={`flex w-full items-center justify-center gap-2 rounded-full px-6 py-4 text-base font-bold shadow-lg transition-transform active:scale-95 ${
+            className={`flex w-full items-center justify-center gap-2 rounded-full px-6 py-4 text-base font-bold shadow-sm transition-transform active:scale-95 ${
               hasUnremembered
                 ? 'bg-white text-gray-700 border-2 border-gray-200'
-                : 'bg-gradient-to-r from-indigo-500 to-purple-500 text-white'
+                : 'bg-amber-500 text-white'
             }`}
           >
             <Layers className="h-5 w-5" />
@@ -244,10 +244,10 @@ export function FlashcardDeck({ cards, onProgressChange, onComplete }: Flashcard
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="w-full max-w-sm rounded-2xl bg-gradient-to-br from-white to-indigo-50 p-6 shadow-xl"
+          className="w-full max-w-sm rounded-2xl bg-amber-50 p-6 shadow-sm"
         >
           <div className="mb-4 flex items-center justify-center">
-            <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-indigo-400 to-purple-500 shadow-lg">
+            <div className="flex h-16 w-16 items-center justify-center rounded-full bg-amber-500 shadow-sm">
               <Layers className="h-8 w-8 text-white" />
             </div>
           </div>
@@ -258,7 +258,7 @@ export function FlashcardDeck({ cards, onProgressChange, onComplete }: Flashcard
 
           <div className="mb-6 space-y-4">
             <div className="flex items-center gap-3 rounded-xl bg-white/80 p-3 shadow-sm">
-              <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-indigo-100 to-purple-100">
+              <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-amber-100">
                 <span className="text-xl">👆</span>
               </div>
               <div>
@@ -268,7 +268,7 @@ export function FlashcardDeck({ cards, onProgressChange, onComplete }: Flashcard
             </div>
 
             <div className="flex items-center gap-3 rounded-xl bg-white/80 p-3 shadow-sm">
-              <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-red-100 to-orange-100">
+              <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-red-100">
                 <ArrowLeft className="h-5 w-5 text-red-500" />
               </div>
               <div>
@@ -278,7 +278,7 @@ export function FlashcardDeck({ cards, onProgressChange, onComplete }: Flashcard
             </div>
 
             <div className="flex items-center gap-3 rounded-xl bg-white/80 p-3 shadow-sm">
-              <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-green-100 to-emerald-100">
+              <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-emerald-100">
                 <ArrowRight className="h-5 w-5 text-green-500" />
               </div>
               <div>
@@ -294,7 +294,7 @@ export function FlashcardDeck({ cards, onProgressChange, onComplete }: Flashcard
 
           <button
             onClick={dismissIntro}
-            className="w-full rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 px-6 py-3 font-bold text-white shadow-lg transition-transform active:scale-95"
+            className="w-full rounded-full bg-amber-500 px-6 py-3 font-bold text-white shadow-sm transition-transform active:scale-95"
           >
             はじめる 🚀
           </button>
@@ -349,7 +349,7 @@ export function FlashcardDeck({ cards, onProgressChange, onComplete }: Flashcard
               exit={{ opacity: 0, scale: 0.8 }}
               className="pointer-events-none absolute left-8 top-1/2 z-20 -translate-y-1/2"
             >
-              <div className="rounded-full bg-error px-4 py-2 text-sm font-bold text-white shadow-lg">
+              <div className="rounded-full bg-error px-4 py-2 text-sm font-bold text-white shadow-sm">
                 もう一度
               </div>
             </motion.div>
@@ -361,7 +361,7 @@ export function FlashcardDeck({ cards, onProgressChange, onComplete }: Flashcard
               exit={{ opacity: 0, scale: 0.8 }}
               className="pointer-events-none absolute right-8 top-1/2 z-20 -translate-y-1/2"
             >
-              <div className="rounded-full bg-success px-4 py-2 text-sm font-bold text-white shadow-lg">
+              <div className="rounded-full bg-success px-4 py-2 text-sm font-bold text-white shadow-sm">
                 覚えた!
               </div>
             </motion.div>
@@ -388,7 +388,7 @@ export function FlashcardDeck({ cards, onProgressChange, onComplete }: Flashcard
           >
             <div className="relative mx-auto h-full max-w-md">
               <motion.div
-                className="flex h-full w-full flex-col rounded-3xl border-4 p-5 shadow-xl"
+                className="flex h-full w-full flex-col rounded-3xl border-4 p-5 shadow-sm"
                 style={{
                   backgroundColor: cardBgColor,
                   borderColor: cardBorderColor,
@@ -443,7 +443,7 @@ export function FlashcardDeck({ cards, onProgressChange, onComplete }: Flashcard
                             e.stopPropagation();
                             swipeLeft();
                           }}
-                          className="flex items-center gap-2 rounded-full bg-gradient-to-r from-red-400 to-orange-400 px-5 py-2.5 text-sm font-bold text-white shadow-md transition-transform active:scale-95"
+                          className="flex items-center gap-2 rounded-full bg-red-400 px-5 py-2.5 text-sm font-bold text-white shadow-sm transition-transform active:scale-95"
                         >
                           <RotateCcw className="h-4 w-4" />
                           後で復習
@@ -453,7 +453,7 @@ export function FlashcardDeck({ cards, onProgressChange, onComplete }: Flashcard
                             e.stopPropagation();
                             swipeRight();
                           }}
-                          className="flex items-center gap-2 rounded-full bg-gradient-to-r from-green-400 to-emerald-500 px-5 py-2.5 text-sm font-bold text-white shadow-md transition-transform active:scale-95"
+                          className="flex items-center gap-2 rounded-full bg-emerald-500 px-5 py-2.5 text-sm font-bold text-white shadow-sm transition-transform active:scale-95"
                         >
                           <Check className="h-4 w-4" />
                           わかった

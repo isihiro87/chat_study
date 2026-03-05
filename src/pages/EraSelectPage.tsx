@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { ChevronRight, Check } from 'lucide-react';
+import { ChevronRight, Check, Shuffle } from 'lucide-react';
 import { Header } from '../components/common/Header';
 import { SEOHead } from '../components/common/SEOHead';
 import { getSubject } from '../data/subjects';
@@ -61,7 +61,7 @@ export function EraSelectPage() {
               onClick={() => setSelectedGrade(grade.value)}
               className={`flex-1 rounded-lg py-2.5 text-sm font-bold transition-colors ${
                 selectedGrade === grade.value
-                  ? 'bg-indigo-600 text-white shadow-md'
+                  ? 'bg-amber-600 text-white shadow-sm'
                   : 'bg-white text-gray-600 shadow-sm hover:bg-gray-50'
               }`}
             >
@@ -69,6 +69,23 @@ export function EraSelectPage() {
             </button>
           ))}
         </div>
+
+        {/* まとめクイズボタン（英語・歴史のみ） */}
+        {(subjectId === 'history' || subjectId === 'english') && (
+          <Link
+            to={`/subjects/${subjectId}/random-quiz`}
+            className="mb-4 flex items-center gap-3 rounded-xl bg-amber-500 p-4 text-white shadow-sm transition-transform active:scale-98"
+          >
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/20">
+              <Shuffle className="h-5 w-5" />
+            </div>
+            <div className="flex-1">
+              <h3 className="font-bold">まとめクイズ</h3>
+              <p className="text-sm text-white/80">範囲をえらんでランダム出題</p>
+            </div>
+            <ChevronRight className="h-5 w-5 text-white/60" />
+          </Link>
+        )}
 
         {singleEra ? (
           /* Eraが1つの場合: トピック一覧を直接表示 */
@@ -91,7 +108,7 @@ export function EraSelectPage() {
                     <h3 className="font-semibold text-gray-800">{topic.name}</h3>
                     <p className="text-sm text-gray-500">{topic.subtitle}</p>
                     {hasQuizScore && (
-                      <p className="mt-0.5 text-xs text-indigo-500 font-medium">
+                      <p className="mt-0.5 text-xs text-amber-500 font-medium">
                         Q: {tp.quizBestScore}/{tp.quizTotalQuestions}
                       </p>
                     )}
@@ -132,7 +149,7 @@ export function EraSelectPage() {
                       <Check className="h-4 w-4 text-white" />
                     </div>
                   ) : progress.completed > 0 ? (
-                    <span className="rounded-full bg-indigo-50 px-2.5 py-1 text-xs font-bold text-indigo-600">
+                    <span className="rounded-full bg-amber-50 px-2.5 py-1 text-xs font-bold text-amber-600">
                       {progress.completed}/{progress.total}
                     </span>
                   ) : (

@@ -68,7 +68,7 @@ export function ExampleView({ examples, onProgressChange, onComplete }: ExampleV
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ type: 'spring', stiffness: 200 }}
-            className="mb-6 flex h-24 w-24 items-center justify-center rounded-full bg-blue-50"
+            className="mb-6 flex h-24 w-24 items-center justify-center rounded-full bg-amber-50"
           >
             <span className="text-4xl">📝</span>
           </motion.div>
@@ -181,9 +181,9 @@ export function ExampleView({ examples, onProgressChange, onComplete }: ExampleV
                   key={i}
                   className={`h-2.5 w-2.5 rounded-full transition-colors ${
                     i < currentIndex
-                      ? 'bg-blue-500'
+                      ? 'bg-gray-800'
                       : i === currentIndex
-                        ? 'bg-blue-300'
+                        ? 'bg-gray-400'
                         : 'bg-gray-200'
                   }`}
                 />
@@ -195,9 +195,9 @@ export function ExampleView({ examples, onProgressChange, onComplete }: ExampleV
           </div>
 
           {/* 問題文 */}
-          <div className="mt-3 rounded-2xl border-2 border-blue-200 bg-white p-4">
+          <div className="mt-3 rounded-2xl border-2 border-gray-200 bg-white p-4">
             <div className="mb-1 flex items-center gap-2">
-              <span className="rounded-full bg-blue-50 px-2.5 py-0.5 text-sm font-bold text-blue-600">
+              <span className="rounded-full bg-gray-50 px-2.5 py-0.5 text-sm font-bold text-gray-600">
                 <BookOpen className="mr-1 inline h-3.5 w-3.5" />
                 問題
               </span>
@@ -222,13 +222,13 @@ export function ExampleView({ examples, onProgressChange, onComplete }: ExampleV
                   initial={{ opacity: 0, y: 15 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3 }}
-                  className="rounded-xl border border-indigo-100 bg-indigo-50/50 p-3.5"
+                  className="rounded-xl border border-amber-100 bg-amber-50/50 p-3.5"
                 >
-                  <p className="mb-1 text-sm font-bold text-indigo-700">{step.title}</p>
+                  <p className="mb-1 text-sm font-bold text-amber-700">{step.title}</p>
                   <p className="whitespace-pre-line text-sm leading-relaxed text-gray-700">{step.content}</p>
                   {step.highlight && (
-                    <div className="mt-2 inline-block rounded-lg bg-indigo-100 px-3 py-1">
-                      <span className="text-sm font-bold text-indigo-800">{step.highlight}</span>
+                    <div className="mt-2 inline-block rounded-lg bg-amber-100 px-3 py-1">
+                      <span className="text-sm font-bold text-amber-800">{step.highlight}</span>
                     </div>
                   )}
                 </motion.div>
@@ -284,7 +284,7 @@ export function ExampleView({ examples, onProgressChange, onComplete }: ExampleV
             ) : (
               <button
                 onClick={handleNextExample}
-                className="flex items-center gap-2 rounded-full bg-blue-600 px-10 py-3 font-bold text-white transition-transform active:scale-95"
+                className="flex items-center gap-2 rounded-full bg-gray-800 px-10 py-3 font-bold text-white transition-transform active:scale-95"
                 style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
               >
                 {currentIndex < totalExamples - 1 ? (

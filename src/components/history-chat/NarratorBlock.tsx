@@ -13,11 +13,11 @@ export function NarratorBlock({ text }: NarratorBlockProps) {
       className="mx-3 my-3"
     >
       <div
-        className="rounded-lg border-l-4 bg-purple-50 px-4 py-3"
-        style={{ borderLeftColor: '#9B59B6' }}
+        className="rounded-lg border-l-4 bg-amber-50 px-4 py-3"
+        style={{ borderLeftColor: '#D97706' }}
       >
         <p
-          className="mb-1 text-xs font-bold text-purple-600"
+          className="mb-1 text-xs font-bold text-amber-600"
           style={{ fontFamily: "'Noto Sans JP', sans-serif" }}
         >
           ナレーション
