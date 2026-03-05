@@ -44,3 +44,6 @@ coverage/
 # yarn.lock
 
 .claude/settings.local.json
+
+# SEO analysis (local only)
+seo-keywords.md

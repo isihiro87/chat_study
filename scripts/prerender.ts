@@ -94,7 +94,7 @@ function buildTopPage(): PageData {
     .filter((s) => s.isAvailable)
     .map(
       (s) =>
-        `<li><a href="/subjects/${s.id}">${esc(s.name)} - ${esc(s.description)}</a></li>`,
+        `<li><a href="/subjects/${s.id}/">${esc(s.name)} - ${esc(s.description)}</a></li>`,
     )
     .join('\n');
 
@@ -121,7 +121,7 @@ function buildSubjectPage(subjectId: string): PageData {
   const eraLinks = eras
     .map((era) => {
       const grade = era.grade ? `（${gradeLabels[era.grade] ?? ''}）` : '';
-      return `<li><a href="/subjects/${subjectId}/eras/${era.id}">${esc(era.name)}${grade} - ${esc(era.period)}</a></li>`;
+      return `<li><a href="/subjects/${subjectId}/eras/${era.id}/">${esc(era.name)}${grade} - ${esc(era.period)}</a></li>`;
     })
     .join('\n');
 
@@ -151,7 +151,7 @@ function buildEraPage(subjectId: string, era: Era): PageData {
   const topicLinks = topics
     .map(
       (t) =>
-        `<li><a href="/subjects/${subjectId}/eras/${era.id}/topics/${t.id}">${esc(t.name)} - ${esc(t.subtitle)}</a></li>`,
+        `<li><a href="/subjects/${subjectId}/eras/${era.id}/topics/${t.id}/">${esc(t.name)} - ${esc(t.subtitle)}</a></li>`,
     )
     .join('\n');
 

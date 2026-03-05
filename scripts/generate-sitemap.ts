@@ -86,12 +86,16 @@ function collectRoutes(): SitemapEntry[] {
 function buildSitemapXml(routes: SitemapEntry[]): string {
   const urlEntries = routes
     .map(
-      (r) => `  <url>
-    <loc>${BASE_URL}${r.loc}</loc>
+      (r) => {
+        // trailingSlash: true に合わせて末尾スラッシュを付与（リダイレクト回避）
+        const loc = r.loc.endsWith('/') ? r.loc : `${r.loc}/`;
+        return `  <url>
+    <loc>${BASE_URL}${loc}</loc>
     <lastmod>${TODAY}</lastmod>
     <changefreq>${r.changefreq}</changefreq>
     <priority>${r.priority}</priority>
-  </url>`,
+  </url>`;
+      },
     )
     .join('\n');
 
