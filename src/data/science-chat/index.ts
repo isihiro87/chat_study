@@ -1,5 +1,15 @@
 import type { HistoryChat } from '../history-chat/types';
-// Chemistry
+// Grade 2: Weather
+import { observationPressureChat } from '../subjects/science/units/grade2/3-weather/topics/1-observation-pressure/chat';
+import { pressureHumidityChat } from '../subjects/science/units/grade2/3-weather/topics/2-pressure-humidity/chat';
+import { cloudsFrontsChat } from '../subjects/science/units/grade2/3-weather/topics/3-clouds-fronts/chat';
+import { japanWeatherChat } from '../subjects/science/units/grade2/3-weather/topics/4-japan-weather/chat';
+// Grade 2: Electricity
+import { staticElectricityChat } from '../subjects/science/units/grade2/4-electricity/topics/1-static-electricity/chat';
+import { circuitOhmChat } from '../subjects/science/units/grade2/4-electricity/topics/2-circuit-ohm/chat';
+import { electricEnergyChat } from '../subjects/science/units/grade2/4-electricity/topics/3-electric-energy/chat';
+import { currentMagnetismChat } from '../subjects/science/units/grade2/4-electricity/topics/4-current-magnetism/chat';
+// Grade 3: Chemistry
 import { solutionIonsChat } from '../subjects/science/units/grade3/1-chemistry/topics/1-solution-ions/chat';
 import { acidAlkaliChat } from '../subjects/science/units/grade3/1-chemistry/topics/2-acid-alkali/chat';
 import { chemicalBatteryChat } from '../subjects/science/units/grade3/1-chemistry/topics/3-chemical-battery/chat';
@@ -17,7 +27,17 @@ import { moonVenusChat } from '../subjects/science/units/grade3/4-earth/topics/2
 import { solarSystemUniverseChat } from '../subjects/science/units/grade3/4-earth/topics/3-solar-system/chat';
 
 const chatMap: Record<string, HistoryChat> = {
-  // Chemistry
+  // Grade 2: Weather
+  [observationPressureChat.id]: observationPressureChat,
+  [pressureHumidityChat.id]: pressureHumidityChat,
+  [cloudsFrontsChat.id]: cloudsFrontsChat,
+  [japanWeatherChat.id]: japanWeatherChat,
+  // Grade 2: Electricity
+  [staticElectricityChat.id]: staticElectricityChat,
+  [circuitOhmChat.id]: circuitOhmChat,
+  [electricEnergyChat.id]: electricEnergyChat,
+  [currentMagnetismChat.id]: currentMagnetismChat,
+  // Grade 3: Chemistry
   [solutionIonsChat.id]: solutionIonsChat,
   [acidAlkaliChat.id]: acidAlkaliChat,
   [chemicalBatteryChat.id]: chemicalBatteryChat,

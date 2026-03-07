@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250">
+  <rect width="400" height="250" fill="#F5F3F0" rx="16"/>
+  <text x="200" y="20" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1f2937">日本の四季の気圧配置</text>
+
+  <defs>
+    <marker id="aB" markerWidth="6" markerHeight="5" refX="6" refY="2.5" orient="auto">
+      <path d="M0,0 L6,2.5 L0,5" fill="#3B82F6"/>
+    </marker>
+    <marker id="aR" markerWidth="6" markerHeight="5" refX="6" refY="2.5" orient="auto">
+      <path d="M0,0 L6,2.5 L0,5" fill="#EF4444"/>
+    </marker>
+    <marker id="aG" markerWidth="6" markerHeight="5" refX="6" refY="2.5" orient="auto">
+      <path d="M0,0 L6,2.5 L0,5" fill="#6B7280"/>
+    </marker>
+    <!-- Simple Japan outline (reusable) -->
+    <g id="japan">
+      <path d="M12,4 L14,2 L16,3 L17,6 L15,8 L16,11 L18,14 L17,17 L14,19 L12,17 L10,19 L9,16 L10,13 L8,10 L9,7 L11,6 Z" fill="none" stroke="#9CA3AF" stroke-width="0.8"/>
+      <path d="M6,5 L8,3 L10,4 L9,7 L7,7 Z" fill="none" stroke="#9CA3AF" stroke-width="0.8"/>
+    </g>
+  </defs>
+
+  <!-- Panel borders -->
+  <rect x="10" y="28" width="188" height="105" rx="8" fill="white" stroke="#D1D5DB" stroke-width="0.8"/>
+  <rect x="202" y="28" width="188" height="105" rx="8" fill="white" stroke="#D1D5DB" stroke-width="0.8"/>
+  <rect x="10" y="137" width="188" height="105" rx="8" fill="white" stroke="#D1D5DB" stroke-width="0.8"/>
+  <rect x="202" y="137" width="188" height="105" rx="8" fill="white" stroke="#D1D5DB" stroke-width="0.8"/>
+
+  <!-- ===== Panel 1: 冬 (top-left) ===== -->
+  <text x="22" y="44" font-family="sans-serif" font-size="11" font-weight="bold" fill="#3B82F6">冬</text>
+  <text x="52" y="44" font-family="sans-serif" font-size="8" fill="#6B7280">西高東低</text>
+
+  <!-- Japan -->
+  <use href="#japan" x="85" y="55"/>
+
+  <!-- シベリア高気圧 -->
+  <circle cx="45" cy="65" r="18" fill="#3B82F6" opacity="0.15" stroke="#3B82F6" stroke-width="1"/>
+  <text x="45" y="62" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#3B82F6">H</text>
+  <text x="45" y="73" text-anchor="middle" font-family="sans-serif" font-size="6" fill="#3B82F6">シベリア</text>
+
+  <!-- 低気圧 (east) -->
+  <circle cx="160" cy="58" r="13" fill="#EF4444" opacity="0.12" stroke="#EF4444" stroke-width="0.8"/>
+  <text x="160" y="62" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#EF4444">L</text>
+
+  <!-- 北西の季節風 arrows -->
+  <line x1="65" y1="60" x2="88" y2="68" stroke="#3B82F6" stroke-width="1.2" marker-end="url(#aB)"/>
+  <line x1="62" y1="72" x2="85" y2="78" stroke="#3B82F6" stroke-width="1.2" marker-end="url(#aB)"/>
+  <text x="60" y="100" font-family="sans-serif" font-size="7" fill="#6B7280">北西の季節風</text>
+
+  <!-- Isobars (vertical-ish lines suggesting west-east pressure) -->
+  <line x1="118" y1="50" x2="115" y2="95" stroke="#D1D5DB" stroke-width="0.5"/>
+  <line x1="132" y1="48" x2="130" y2="93" stroke="#D1D5DB" stroke-width="0.5"/>
+  <line x1="146" y1="47" x2="145" y2="92" stroke="#D1D5DB" stroke-width="0.5"/>
+
+  <!-- ===== Panel 2: 夏 (top-right) ===== -->
+  <text x="214" y="44" font-family="sans-serif" font-size="11" font-weight="bold" fill="#EF4444">夏</text>
+  <text x="238" y="44" font-family="sans-serif" font-size="8" fill="#6B7280">南高北低</text>
+
+  <!-- Japan -->
+  <use href="#japan" x="280" y="48"/>
+
+  <!-- 太平洋高気圧 -->
+  <circle cx="330" cy="105" r="22" fill="#3B82F6" opacity="0.15" stroke="#3B82F6" stroke-width="1"/>
+  <text x="330" y="102" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#3B82F6">H</text>
+  <text x="330" y="113" text-anchor="middle" font-family="sans-serif" font-size="6" fill="#3B82F6">太平洋</text>
+
+  <!-- 南東の季節風 arrows -->
+  <line x1="320" y1="90" x2="302" y2="75" stroke="#EF4444" stroke-width="1.2" marker-end="url(#aR)"/>
+  <line x1="310" y1="97" x2="295" y2="82" stroke="#EF4444" stroke-width="1.2" marker-end="url(#aR)"/>
+  <text x="260" y="100" font-family="sans-serif" font-size="7" fill="#6B7280">南東の</text>
+  <text x="260" y="109" font-family="sans-serif" font-size="7" fill="#6B7280">季節風</text>
+
+  <!-- ===== Panel 3: 梅雨 (bottom-left) ===== -->
+  <text x="22" y="153" font-family="sans-serif" font-size="11" font-weight="bold" fill="#10B981">梅雨</text>
+
+  <!-- Japan -->
+  <use href="#japan" x="85" y="158"/>
+
+  <!-- オホーツク海高気圧 (north) -->
+  <circle cx="130" cy="155" r="14" fill="#06B6D4" opacity="0.15" stroke="#06B6D4" stroke-width="0.8"/>
+  <text x="130" y="153" text-anchor="middle" font-family="sans-serif" font-size="7" font-weight="bold" fill="#06B6D4">H</text>
+  <text x="130" y="162" text-anchor="middle" font-family="sans-serif" font-size="5" fill="#06B6D4">オホーツク海</text>
+
+  <!-- 小笠原高気圧 (south) -->
+  <circle cx="130" cy="218" r="14" fill="#EF4444" opacity="0.12" stroke="#EF4444" stroke-width="0.8"/>
+  <text x="130" y="216" text-anchor="middle" font-family="sans-serif" font-size="7" font-weight="bold" fill="#EF4444">H</text>
+  <text x="130" y="225" text-anchor="middle" font-family="sans-serif" font-size="5" fill="#EF4444">小笠原</text>
+
+  <!-- 梅雨前線 (zigzag line between) -->
+  <path d="M40,188 L55,183 L70,190 L85,183 L100,190 L115,183 L130,190 L145,183 L160,190 L175,183 L185,188" fill="none" stroke="#10B981" stroke-width="1.8"/>
+  <text x="60" y="200" font-family="sans-serif" font-size="7" font-weight="bold" fill="#10B981">梅雨前線</text>
+
+  <!-- Rain marks -->
+  <line x1="75" y1="192" x2="73" y2="198" stroke="#3B82F6" stroke-width="0.6"/>
+  <line x1="100" y1="192" x2="98" y2="198" stroke="#3B82F6" stroke-width="0.6"/>
+  <line x1="125" y1="192" x2="123" y2="198" stroke="#3B82F6" stroke-width="0.6"/>
+  <line x1="150" y1="192" x2="148" y2="198" stroke="#3B82F6" stroke-width="0.6"/>
+
+  <!-- ===== Panel 4: 台風 (bottom-right) ===== -->
+  <text x="214" y="153" font-family="sans-serif" font-size="11" font-weight="bold" fill="#F59E0B">台風</text>
+
+  <!-- Japan -->
+  <use href="#japan" x="280" y="155"/>
+
+  <!-- Typhoon spiral symbol -->
+  <circle cx="280" cy="215" r="12" fill="#F59E0B" opacity="0.15" stroke="#F59E0B" stroke-width="1.2"/>
+  <!-- Spiral lines -->
+  <path d="M280,215 Q276,210 280,206 Q285,202 288,208" fill="none" stroke="#F59E0B" stroke-width="1.2"/>
+  <path d="M280,215 Q284,220 280,224 Q275,228 272,222" fill="none" stroke="#F59E0B" stroke-width="1.2"/>
+  <text x="280" y="233" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#F59E0B">台風</text>
+
+  <!-- Curving path northward -->
+  <path d="M280,205 Q275,190 285,178 Q295,166 305,160" fill="none" stroke="#F59E0B" stroke-width="1.5" stroke-dasharray="4,2" marker-end="url(#aG)"/>
+  <text x="320" y="162" font-family="sans-serif" font-size="7" fill="#6B7280">北上</text>
+
+  <!-- 太平洋高気圧 (guides path) -->
+  <circle cx="350" cy="210" r="16" fill="#3B82F6" opacity="0.1" stroke="#3B82F6" stroke-width="0.8"/>
+  <text x="350" y="210" text-anchor="middle" font-family="sans-serif" font-size="8" font-weight="bold" fill="#3B82F6">H</text>
+  <text x="350" y="219" text-anchor="middle" font-family="sans-serif" font-size="5" fill="#3B82F6">太平洋</text>
+</svg>
