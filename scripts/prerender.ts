@@ -234,10 +234,10 @@ function buildChatPage(chat: HistoryChat): PageData {
   const textParts: string[] = [];
   for (const item of chat.content.slice(0, 20)) {
     if (item.type === 'narrator') {
-      // HTMLタグを除去してテキストのみ抽出
-      textParts.push(item.text.replace(/<[^>]*>/g, ''));
+      // ルビ注釈(rt/rp)の中身を除去してからHTMLタグを除去（SEO用テキスト抽出）
+      textParts.push(item.text.replace(/<r[tp][^>]*>.*?<\/r[tp]>/g, '').replace(/<[^>]*>/g, ''));
     } else if (item.type === 'message') {
-      textParts.push(item.text.replace(/<[^>]*>/g, ''));
+      textParts.push(item.text.replace(/<r[tp][^>]*>.*?<\/r[tp]>/g, '').replace(/<[^>]*>/g, ''));
     } else if (item.type === 'summary-point') {
       textParts.push(item.text);
     } else if (item.type === 'end') {
