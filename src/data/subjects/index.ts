@@ -1,8 +1,4 @@
 import type { Subject } from '../types';
-import { history } from './history';
-import { english } from './english';
-import { math } from './math';
-import { science } from './science';
 
 export const subjects: Subject[] = [
   {
@@ -38,5 +34,3 @@ export const subjects: Subject[] = [
 export function getSubject(id: string): Subject | undefined {
   return subjects.find((s) => s.id === id);
 }
-
-export { history, english, math, science };

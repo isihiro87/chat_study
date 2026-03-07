@@ -1,12 +1,38 @@
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { ChatContainer } from '../components/history-chat/ChatContainer';
 import { SEOHead } from '../components/common/SEOHead';
-import { getHistoryChat } from '../data/history-chat';
+import { loadChat } from '../data/subjects/registry';
+import type { HistoryChat } from '../data/history-chat/types';
 
 export function HistoryChatPage() {
   const { chatId } = useParams<{ chatId: string }>();
+  const [chat, setChat] = useState<HistoryChat | undefined>(undefined);
+  const [isLoading, setIsLoading] = useState(true);
 
-  const chat = chatId ? getHistoryChat(chatId) : undefined;
+  useEffect(() => {
+    if (!chatId) {
+      setIsLoading(false);
+      return;
+    }
+    let cancelled = false;
+    setIsLoading(true);
+    loadChat(chatId).then((data) => {
+      if (!cancelled) {
+        setChat(data);
+        setIsLoading(false);
+      }
+    });
+    return () => { cancelled = true; };
+  }, [chatId]);
+
+  if (isLoading) {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-gray-50">
+        <div className="h-8 w-8 animate-spin rounded-full border-4 border-gray-300 border-t-amber-500" />
+      </div>
+    );
+  }
 
   if (!chat) {
     return (

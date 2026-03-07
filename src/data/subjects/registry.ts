@@ -1,48 +1,27 @@
-import type { Era, Topic } from '../types';
+import type { Era, TopicContent } from '../types';
 import type { HistoryChat } from '../history-chat/types';
 import {
-  eras as historyEras,
-  allTopics as historyAllTopics,
-  getTopicsByEra as getHistoryTopicsByEra,
-} from './history/eras';
-import {
-  eras as englishEras,
-  allTopics as englishAllTopics,
-  getTopicsByEra as getEnglishTopicsByEra,
-} from './english/grades';
-import {
-  eras as mathEras,
-  allTopics as mathAllTopics,
-  getTopicsByEra as getMathTopicsByEra,
-} from './math/units';
-import {
-  eras as scienceEras,
-  allTopics as scienceAllTopics,
-  getTopicsByEra as getScienceTopicsByEra,
-} from './science/units';
-import { getHistoryChat, getAllHistoryChats } from '../history-chat';
-import { getEnglishChat, getAllEnglishChats } from '../english-chat';
-import { getMathChat, getAllMathChats } from '../math-chat';
-import { getScienceChat, getAllScienceChats } from '../science-chat';
+  eraMetas,
+  topicMetas,
+  contentLoaders,
+  chatLoaders,
+  type TopicMeta,
+} from '../generated/topic-registry.generated';
 
-// 全科目のEra集約
-const erasBySubject: Record<string, Era[]> = {
-  history: historyEras,
-  english: englishEras,
-  math: mathEras,
-  science: scienceEras,
-};
+// 科目別Era集約
+const erasBySubject: Record<string, Era[]> = {};
+for (const era of eraMetas) {
+  const list = erasBySubject[era.subjectId] ?? [];
+  list.push(era);
+  erasBySubject[era.subjectId] = list;
+}
+// 各科目内でorder順にソート
+for (const eras of Object.values(erasBySubject)) {
+  eras.sort((a, b) => a.order - b.order);
+}
 
-// 全科目のTopic集約
-const allTopicsBySubject: Record<string, Topic[]> = {
-  history: historyAllTopics,
-  english: englishAllTopics,
-  math: mathAllTopics,
-  science: scienceAllTopics,
-};
-
-// 全トピック（科目横断）
-export const allTopics: Topic[] = [...historyAllTopics, ...englishAllTopics, ...mathAllTopics, ...scienceAllTopics];
+// 全トピックメタデータ（科目横断）
+export const allTopics: TopicMeta[] = topicMetas;
 
 // 科目別Era取得
 export function getErasBySubject(subjectId: string): Era[] {
@@ -51,47 +30,62 @@ export function getErasBySubject(subjectId: string): Era[] {
 
 // Era取得（科目横断検索）
 export function getEra(eraId: string): Era | undefined {
-  for (const eras of Object.values(erasBySubject)) {
-    const found = eras.find((e) => e.id === eraId);
-    if (found) return found;
-  }
-  return undefined;
+  return eraMetas.find((e) => e.id === eraId);
 }
 
 // Era内トピック取得
-export function getTopicsByEra(eraId: string): Topic[] {
-  // 歴史から先に検索
-  const historyTopics = getHistoryTopicsByEra(eraId);
-  if (historyTopics.length > 0) return historyTopics;
-  const engTopics = getEnglishTopicsByEra(eraId);
-  if (engTopics.length > 0) return engTopics;
-  const mathTopics = getMathTopicsByEra(eraId);
-  if (mathTopics.length > 0) return mathTopics;
-  const sciTopics = getScienceTopicsByEra(eraId);
-  if (sciTopics.length > 0) return sciTopics;
-  return [];
+export function getTopicsByEra(eraId: string): TopicMeta[] {
+  return allTopics.filter((t) => t.eraId === eraId).sort((a, b) => a.order - b.order);
 }
 
-// トピック取得（科目横断検索）
-export function getTopic(topicId: string): Topic | undefined {
-  for (const topics of Object.values(allTopicsBySubject)) {
-    const found = topics.find((t) => t.id === topicId);
-    if (found) return found;
-  }
-  return undefined;
+// トピックメタデータ取得（科目横断検索）
+export function getTopic(topicId: string): TopicMeta | undefined {
+  return allTopics.find((t) => t.id === topicId);
 }
 
 // 全トピック取得
-export function getAllTopics(): Topic[] {
+export function getAllTopics(): TopicMeta[] {
   return allTopics;
 }
 
-// チャット取得（科目横断検索）
-export function getChat(chatId: string): HistoryChat | undefined {
-  return getHistoryChat(chatId) ?? getEnglishChat(chatId) ?? getMathChat(chatId) ?? getScienceChat(chatId);
+// コンテンツキャッシュ
+const contentCache = new Map<string, TopicContent>();
+const chatCache = new Map<string, HistoryChat>();
+
+// トピックコンテンツを非同期ロード（キャッシュ付き）
+export async function loadTopicContent(topicId: string): Promise<TopicContent | undefined> {
+  const cached = contentCache.get(topicId);
+  if (cached) return cached;
+  const loader = contentLoaders[topicId];
+  if (!loader) return undefined;
+  const content = await loader();
+  contentCache.set(topicId, content);
+  return content;
 }
 
-// 全チャット取得
-export function getAllChats(): HistoryChat[] {
-  return [...getAllHistoryChats(), ...getAllEnglishChats(), ...getAllMathChats(), ...getAllScienceChats()];
+// チャットデータを非同期ロード（キャッシュ付き）
+export async function loadChat(chatId: string): Promise<HistoryChat | undefined> {
+  const cached = chatCache.get(chatId);
+  if (cached) return cached;
+  const loader = chatLoaders[chatId];
+  if (!loader) return undefined;
+  const chat = await loader();
+  chatCache.set(chatId, chat);
+  return chat;
 }
+
+// 複数トピックのコンテンツを並列ロード
+export async function loadMultipleTopicContents(
+  topicIds: string[],
+): Promise<Map<string, TopicContent>> {
+  const results = new Map<string, TopicContent>();
+  await Promise.all(
+    topicIds.map(async (id) => {
+      const content = await loadTopicContent(id);
+      if (content) results.set(id, content);
+    }),
+  );
+  return results;
+}
+
+export type { TopicMeta };

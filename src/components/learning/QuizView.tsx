@@ -446,10 +446,10 @@ export function QuizView({ quiz, onProgressChange, onComplete, onCompleteWithWro
     : (currentQuestion?.options[currentQuestion.correctIndex] ?? '');
 
   return (
-    <div className="flex h-full flex-col pb-16">
-      <div className="mx-auto flex w-full max-w-md flex-1 flex-col min-h-0">
+    <div className="h-full overflow-y-auto pb-16">
+      <div className="mx-auto w-full max-w-md">
         {/* プログレスドット + 問題文 */}
-        <div className="flex-shrink-0 px-4 pt-2">
+        <div className="px-4 pt-2">
           {isReviewMode && (
             <div className="mb-2 flex justify-center">
               <span className="rounded-full bg-amber-100 px-3 py-1 text-xs font-bold text-amber-700">
@@ -486,10 +486,10 @@ export function QuizView({ quiz, onProgressChange, onComplete, onCompleteWithWro
         </div>
 
         {/* 選択肢 / 正誤フィードバック エリア */}
-        <div className="flex flex-1 flex-col min-h-0 px-4 pt-2">
+        <div className="px-4 pt-2 pb-4">
             {isAnswered ? (
               /* 正誤フィードバック */
-              <div className="flex flex-1 flex-col overflow-y-auto">
+              <div>
                 {/* 正誤表示 */}
                 <div className={`rounded-2xl p-4 ${isCorrectAnswer ? 'bg-emerald-50 border-2 border-emerald-300' : 'bg-red-50 border-2 border-red-300'}`}>
                   <div className="mb-3 flex items-center gap-2">
@@ -516,20 +516,20 @@ export function QuizView({ quiz, onProgressChange, onComplete, onCompleteWithWro
 
                   {/* ユーザーの回答と正答 */}
                   <div className="space-y-2">
-                    <div className="flex items-start gap-2">
-                      <span className="flex-shrink-0 text-sm font-bold text-gray-500">あなたの回答:</span>
-                      <span className={`text-sm font-medium ${isCorrectAnswer ? 'text-emerald-700' : 'text-red-700'}`}>
-                        {selectedOptionText}
-                      </span>
-                    </div>
                     {!isCorrectAnswer && (
-                      <div className="flex items-start gap-2">
-                        <span className="flex-shrink-0 text-sm font-bold text-gray-500">正答:</span>
-                        <span className="text-sm font-medium text-emerald-700">
+                      <div className="flex items-start gap-2 rounded-lg bg-emerald-100 p-2.5">
+                        <span className="flex-shrink-0 text-sm font-bold text-emerald-700">正答:</span>
+                        <span className="text-base font-bold text-emerald-800">
                           {correctOptionText}
                         </span>
                       </div>
                     )}
+                    <div className="flex items-start gap-2">
+                      <span className="flex-shrink-0 text-sm font-bold text-gray-400">あなたの回答:</span>
+                      <span className={`text-sm ${isCorrectAnswer ? 'font-medium text-emerald-700' : 'text-gray-500'}`}>
+                        {selectedOptionText}
+                      </span>
+                    </div>
                   </div>
                 </div>
 
@@ -552,7 +552,7 @@ export function QuizView({ quiz, onProgressChange, onComplete, onCompleteWithWro
                 )}
 
                 {/* 次へボタン */}
-                <div className="mt-auto flex justify-center pt-3">
+                <div className="flex justify-center pt-3">
                   <button
                     onClick={nextQuestion}
                     className="rounded-full bg-gray-800 px-10 py-3 font-bold text-white transition-transform active:scale-95"
@@ -573,7 +573,7 @@ export function QuizView({ quiz, onProgressChange, onComplete, onCompleteWithWro
               /* 選択肢リスト */
               <div
                 key={`options-${currentIndex}-${isReviewMode}`}
-                className="flex flex-1 flex-col space-y-2.5"
+                className="flex flex-col space-y-2.5"
               >
                 {currentQuestion?.options.map((option: string, index: number) => (
                   <button

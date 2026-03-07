@@ -7,7 +7,8 @@ import {
   DEFAULT_TOPIC_PROGRESS,
 } from '../utils/studyProgressStorage';
 import { allTopics, getTopicsByEra } from '../data/subjects/registry';
-import type { StudyProgress, TopicProgress, Topic } from '../data/types';
+import type { TopicMeta } from '../data/subjects/registry';
+import type { StudyProgress, TopicProgress } from '../data/types';
 
 interface EraProgress {
   completed: number;
@@ -15,7 +16,7 @@ interface EraProgress {
 }
 
 interface ReviewRecommendation {
-  topic: Topic;
+  topic: TopicMeta;
   quizBestScore: number;
   quizTotalQuestions: number;
 }
@@ -144,7 +145,7 @@ export function useStudyProgress() {
 
   const lastStudiedTopicId = progress.lastStudiedTopicId;
 
-  const getNextTopicToStudy = useCallback((): Topic | null => {
+  const getNextTopicToStudy = useCallback((): TopicMeta | null => {
     for (const topic of allTopics) {
       const tp = progress.topics[topic.id];
       if (!tp || (!tp.chatRead && !tp.flashcardCompleted && !tp.exampleCompleted && tp.quizBestScore === null)) {

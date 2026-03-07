@@ -11,6 +11,7 @@ import type { Quiz, QuizQuestion } from '../data/types';
 
 interface LocationState {
   preselectedTopicIds?: string[];
+  preselectedQuestionCount?: number;
   returnTo?: { path: string; name: string };
 }
 
@@ -23,6 +24,7 @@ export function RandomQuizPage() {
   const locationState = location.state as LocationState | null;
   const returnTo = locationState?.returnTo;
   const initialTopicIds = locationState?.preselectedTopicIds;
+  const initialQuestionCount = locationState?.preselectedQuestionCount ?? 0;
   const autoStarted = useRef(false);
 
   const [mode, setMode] = useState<'setup' | 'quiz'>('setup');
@@ -36,18 +38,19 @@ export function RandomQuizPage() {
   useEffect(() => {
     if (initialTopicIds && initialTopicIds.length > 0 && !autoStarted.current) {
       autoStarted.current = true;
-      const generated = buildRandomQuiz(initialTopicIds, 0); // 0 = all questions
-      if (generated.questions.length > 0) {
-        setQuiz(generated);
-        setLastConfig({ topicIds: initialTopicIds, count: 0 });
-        setQuizKey((prev) => prev + 1);
-        setMode('quiz');
-      }
+      buildRandomQuiz(initialTopicIds, initialQuestionCount).then((generated) => {
+        if (generated.questions.length > 0) {
+          setQuiz(generated);
+          setLastConfig({ topicIds: initialTopicIds, count: initialQuestionCount });
+          setQuizKey((prev) => prev + 1);
+          setMode('quiz');
+        }
+      });
     }
   }, [initialTopicIds]);
 
-  const handleStart = useCallback((topicIds: string[], questionCount: number) => {
-    const generated = buildRandomQuiz(topicIds, questionCount);
+  const handleStart = useCallback(async (topicIds: string[], questionCount: number) => {
+    const generated = await buildRandomQuiz(topicIds, questionCount);
     if (generated.questions.length === 0) return;
     setQuiz(generated);
     setLastConfig({ topicIds, count: questionCount });
@@ -55,9 +58,9 @@ export function RandomQuizPage() {
     setMode('quiz');
   }, []);
 
-  const handleRetry = useCallback(() => {
+  const handleRetry = useCallback(async () => {
     if (!lastConfig) return;
-    const generated = buildRandomQuiz(lastConfig.topicIds, lastConfig.count);
+    const generated = await buildRandomQuiz(lastConfig.topicIds, lastConfig.count);
     setQuiz(generated);
     setQuizKey((prev) => prev + 1);
     setWrongQuestions([]);

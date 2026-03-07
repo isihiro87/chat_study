@@ -15,13 +15,14 @@ import { QuizView } from '../components/learning/QuizView';
 import { ExampleView } from '../components/learning/ExampleView';
 import { ChatContainer } from '../components/history-chat/ChatContainer';
 import { Header } from '../components/common/Header';
-import { getTopic, getChat, getEra } from '../data/subjects/registry';
+import { getTopic, loadChat, loadTopicContent, getEra } from '../data/subjects/registry';
 import { getSubject } from '../data/subjects';
 import { SEOHead } from '../components/common/SEOHead';
 import { estimateReadingTime } from '../utils/estimateReadingTime';
 import { useStudyProgress } from '../hooks/useStudyProgress';
 import { useTopicNavigation } from '../hooks/useTopicNavigation';
-import type { TabType } from '../data/types';
+import type { TabType, TopicContent } from '../data/types';
+import type { HistoryChat } from '../data/history-chat/types';
 
 export function LearningPage() {
   const { subjectId, eraId, topicId } = useParams<{
@@ -36,8 +37,12 @@ export function LearningPage() {
   const subject = subjectId ? getSubject(subjectId) : undefined;
   const { prevTopic, nextTopic } = useTopicNavigation(topicId);
 
+  const [content, setContent] = useState<TopicContent | null>(null);
+  const [chat, setChat] = useState<HistoryChat | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+
   const [activeTab, setActiveTab] = useState<TabType>(() =>
-    topic?.content.chatId ? 'chat' : 'flashcard'
+    topic?.chatId ? 'chat' : 'flashcard'
   );
   const [cardProgress, setCardProgress] = useState({ current: 1, total: 1 });
   const [quizProgress, setQuizProgress] = useState({ current: 1, total: 1 });
@@ -67,19 +72,38 @@ export function LearningPage() {
     return tabs;
   }, [topicProgress]);
 
-  const chat = useMemo(() => {
-    if (topic?.content.chatId) {
-      return getChat(topic.content.chatId);
+  // 非同期でコンテンツとチャットをロード
+  useEffect(() => {
+    let cancelled = false;
+    setIsLoading(true);
+    setContent(null);
+    setChat(null);
+
+    async function load() {
+      if (!topicId || !topic) {
+        setIsLoading(false);
+        return;
+      }
+      const [loadedContent, loadedChat] = await Promise.all([
+        loadTopicContent(topicId),
+        topic.chatId ? loadChat(topic.chatId) : Promise.resolve(undefined),
+      ]);
+      if (!cancelled) {
+        setContent(loadedContent ?? null);
+        setChat(loadedChat ?? null);
+        setIsLoading(false);
+      }
     }
-    return undefined;
-  }, [topic?.content.chatId]);
+    load();
+    return () => { cancelled = true; };
+  }, [topicId, topic?.chatId]);
 
   // チャットの推定読了時間
   const chatEstimatedMinutes = useMemo(() => {
     return chat ? estimateReadingTime(chat.content) : 0;
   }, [chat]);
 
-  const hasExamples = !!topic?.content.examples;
+  const hasExamples = !!topic?.hasExamples;
   const hiddenTabs: TabType[] = useMemo(() => {
     const hidden: TabType[] = [];
     if (!chat) hidden.push('chat');
@@ -104,8 +128,8 @@ export function LearningPage() {
 
   // トピック変更時にデフォルトタブにリセット（別トピックへの遷移対応）
   useEffect(() => {
-    setActiveTab(topic?.content.chatId ? 'chat' : 'flashcard');
-  }, [topicId, topic?.content.chatId]);
+    setActiveTab(topic?.chatId ? 'chat' : 'flashcard');
+  }, [topicId, topic?.chatId]);
 
   // タブ切り替え時にスクロール位置をリセット
   useEffect(() => {
@@ -163,6 +187,17 @@ export function LearningPage() {
     return (
       <div className="flex min-h-screen items-center justify-center">
         <p className="text-gray-500">トピックが見つかりません</p>
+      </div>
+    );
+  }
+
+  if (isLoading || !content) {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-[#FAF9F7]">
+        <div className="text-center">
+          <div className="mx-auto h-8 w-8 animate-spin rounded-full border-4 border-gray-200 border-t-amber-500" />
+          <p className="mt-3 text-sm text-gray-500">読み込み中...</p>
+        </div>
       </div>
     );
   }
@@ -275,7 +310,7 @@ export function LearningPage() {
             embedded
             onNavigateToFlashcard={() => setActiveTab('flashcard')}
             onNavigateToQuiz={() => setActiveTab('quiz')}
-            onNavigateToExample={topic.content.examples ? () => setActiveTab('example') : undefined}
+            onNavigateToExample={content.examples ? () => setActiveTab('example') : undefined}
             onComplete={handleChatComplete}
             onProgressChange={handleChatProgressChange}
           />
@@ -283,7 +318,7 @@ export function LearningPage() {
       )}
 
       {/* 例題タブ（常にマウント、display制御で表示切替） */}
-      {topic.content.examples && (
+      {content.examples && (
         <div
           className="flex h-dvh flex-col bg-gray-50"
           style={{ display: activeTab === 'example' ? 'flex' : 'none' }}
@@ -292,7 +327,7 @@ export function LearningPage() {
           <main className="flex-1 overflow-hidden">
             <ExampleView
               key={topicId}
-              examples={topic.content.examples}
+              examples={content.examples}
               onProgressChange={handleExampleProgressChange}
               onComplete={handleExampleComplete}
             />
@@ -309,7 +344,7 @@ export function LearningPage() {
         <main className="flex-1 overflow-hidden">
           <FlashcardDeck
             key={topicId}
-            cards={topic.content.flashcards}
+            cards={content.flashcards}
             onProgressChange={handleCardProgressChange}
             onComplete={handleFlashcardComplete}
           />
@@ -325,7 +360,7 @@ export function LearningPage() {
         <main className="flex-1 overflow-hidden">
           <QuizView
             key={topicId}
-            quiz={topic.content.quiz}
+            quiz={content.quiz}
             onProgressChange={handleQuizProgressChange}
             onComplete={handleQuizComplete}
             isNewBest={quizNewBest}
@@ -341,7 +376,7 @@ export function LearningPage() {
       >
         <Header title={topic.name} subtitle={topic.subtitle} showBack />
         <main className="mx-auto max-w-md px-4 py-4">
-          <VideoPlayer videos={topic.content.videos} />
+          <VideoPlayer videos={content.videos} />
         </main>
       </div>
 
@@ -358,7 +393,7 @@ export function LearningPage() {
       {showSummaryPopup && (
         <SummaryQuizPopup
           topicIds={summaryTopicIds}
-          onStart={() => {
+          onStart={(questionCount) => {
             setShowSummaryPopup(false);
             const nextPath = nextTopic
               ? `/subjects/${subjectId}/eras/${eraId}/topics/${nextTopic.id}`
@@ -366,6 +401,7 @@ export function LearningPage() {
             navigate(`/subjects/${subjectId}/random-quiz`, {
               state: {
                 preselectedTopicIds: summaryTopicIds,
+                preselectedQuestionCount: questionCount,
                 returnTo: nextPath
                   ? { path: nextPath, name: nextTopic!.name }
                   : undefined,

@@ -1,8 +1,9 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { Check, CheckSquare, Square, Shuffle } from 'lucide-react';
 import { getErasBySubject, getTopicsByEra } from '../../data/subjects/registry';
 import { collectQuestions } from '../../utils/buildRandomQuiz';
-import type { Era, Topic } from '../../data/types';
+import type { TopicMeta } from '../../data/subjects/registry';
+import type { Era } from '../../data/types';
 
 const grades = [
   { value: 1, label: '中1' },
@@ -32,7 +33,7 @@ export function RandomQuizSetup({ subjectId, onStart, initialSelectedTopicIds }:
   );
 
   const topicsByEra = useMemo(() => {
-    const map = new Map<string, { era: Era; topics: Topic[] }>();
+    const map = new Map<string, { era: Era; topics: TopicMeta[] }>();
     for (const era of filteredEras) {
       const topics = getTopicsByEra(era.id);
       if (topics.length > 0) {
@@ -50,10 +51,14 @@ export function RandomQuizSetup({ subjectId, onStart, initialSelectedTopicIds }:
     return ids;
   }, [topicsByEra]);
 
-  const availableQuestionCount = useMemo(
-    () => collectQuestions(Array.from(selectedTopicIds)).length,
-    [selectedTopicIds],
-  );
+  const [availableQuestionCount, setAvailableQuestionCount] = useState(0);
+  useEffect(() => {
+    let cancelled = false;
+    collectQuestions(Array.from(selectedTopicIds)).then((qs) => {
+      if (!cancelled) setAvailableQuestionCount(qs.length);
+    });
+    return () => { cancelled = true; };
+  }, [selectedTopicIds]);
 
   const effectiveCount = questionCount === 0 || questionCount > availableQuestionCount
     ? availableQuestionCount
@@ -188,9 +193,6 @@ export function RandomQuizSetup({ subjectId, onStart, initialSelectedTopicIds }:
                         </div>
                         <span className="text-base">{topic.icon}</span>
                         <p className="flex-1 text-sm text-gray-700">{topic.name}</p>
-                        <span className="text-xs text-gray-400">
-                          {topic.content.quiz.questions.length}問
-                        </span>
                       </button>
                     );
                   })}

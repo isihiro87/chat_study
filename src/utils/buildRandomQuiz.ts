@@ -1,5 +1,5 @@
 import type { Quiz, QuizQuestion } from '../data/types';
-import { getTopic } from '../data/subjects/registry';
+import { loadMultipleTopicContents } from '../data/subjects/registry';
 
 function shuffleArray<T>(array: T[]): T[] {
   const shuffled = [...array];
@@ -10,21 +10,22 @@ function shuffleArray<T>(array: T[]): T[] {
   return shuffled;
 }
 
-export function collectQuestions(topicIds: string[]): QuizQuestion[] {
+export async function collectQuestions(topicIds: string[]): Promise<QuizQuestion[]> {
+  const contentMap = await loadMultipleTopicContents(topicIds);
   const questions: QuizQuestion[] = [];
   for (const topicId of topicIds) {
-    const topic = getTopic(topicId);
-    if (topic) {
+    const content = contentMap.get(topicId);
+    if (content) {
       questions.push(
-        ...topic.content.quiz.questions.map((q) => ({ ...q, sourceTopicId: topicId })),
+        ...content.quiz.questions.map((q) => ({ ...q, sourceTopicId: topicId })),
       );
     }
   }
   return questions;
 }
 
-export function buildRandomQuiz(topicIds: string[], count: number): Quiz {
-  const allQuestions = collectQuestions(topicIds);
+export async function buildRandomQuiz(topicIds: string[], count: number): Promise<Quiz> {
+  const allQuestions = await collectQuestions(topicIds);
   const shuffled = shuffleArray(allQuestions);
   const selected = count > 0 && count < shuffled.length
     ? shuffled.slice(0, count)

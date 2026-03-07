@@ -1,11 +1,11 @@
 import { useMemo } from 'react';
 import { getTopic, getTopicsByEra } from '../data/subjects/registry';
-import type { Topic } from '../data/types';
+import type { TopicMeta } from '../data/subjects/registry';
 
 interface TopicNavigation {
-  prevTopic: Topic | null;
-  nextTopic: Topic | null;
-  currentTopic: Topic | null;
+  prevTopic: TopicMeta | null;
+  nextTopic: TopicMeta | null;
+  currentTopic: TopicMeta | null;
   eraId: string | null;
 }
 
