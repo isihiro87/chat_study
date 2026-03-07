@@ -60,6 +60,12 @@ export const growthReproductionChat: HistoryChat = {
       text: '分裂の前に<strong><ruby>染色体<rp>(</rp><rt>せんしょくたい</rt><rp>)</rp></ruby></strong>が<ruby>複製<rp>(</rp><rt>ふくせい</rt><rp>)</rp></ruby>されるんだ。だから分裂後の2つの細胞は、もとの細胞と<strong>同じ数の染色体</strong>をもつよ。分裂のとき、ひも状の染色体が現れて<ruby>均等<rp>(</rp><rt>きんとう</rt><rp>)</rp></ruby>に分かれるんだ',
     },
     {
+      type: 'image',
+      src: '/images/science/cell-division.svg',
+      alt: '体細胞分裂のようす',
+      caption: '染色体が複製され、均等に分かれて2つの細胞になる',
+    },
+    {
       type: 'summary-point',
       text: '成長 = <span class="keyword">体細胞分裂</span>（数を増やす）+ 細胞が大きくなる。染色体数は変わらない！',
     },
@@ -87,6 +93,12 @@ export const growthReproductionChat: HistoryChat = {
       characterId: 'teacher',
       expression: 'explaining',
       text: '一方、<strong>有性生殖</strong>では<strong><ruby>卵<rp>(</rp><rt>らん</rt><rp>)</rp></ruby></strong>（<ruby>卵細胞<rp>(</rp><rt>らんさいぼう</rt><rp>)</rp></ruby>）と<strong><ruby>精子<rp>(</rp><rt>せいし</rt><rp>)</rp></ruby></strong>（<ruby>精細胞<rp>(</rp><rt>せいさいぼう</rt><rp>)</rp></ruby>）という<strong><span class="keyword"><ruby>生殖細胞<rp>(</rp><rt>せいしょくさいぼう</rt><rp>)</rp></ruby></span></strong>が受精して、多様な形質の子が生まれるよ',
+    },
+    {
+      type: 'image',
+      src: '/images/science/reproduction-types.svg',
+      alt: '無性生殖と有性生殖の比較',
+      caption: '無性生殖（親と同じ）と有性生殖（多様な子）',
     },
     {
       type: 'quiz',

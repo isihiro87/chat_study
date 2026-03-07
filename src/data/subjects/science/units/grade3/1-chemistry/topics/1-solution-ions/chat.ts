@@ -82,6 +82,12 @@ export const solutionIonsChat: HistoryChat = {
       text: '<span class="keyword">電解質</span>（食塩・塩酸など）= 水に溶けてイオンに分かれる → 電流が流れる。<span class="keyword">非電解質</span>（砂糖・エタノール）= イオンにならない → 電流が流れない',
     },
     {
+      type: 'image',
+      src: '/images/science/electrolysis-model.svg',
+      alt: 'NaClの電離モデル',
+      caption: '電解質が水に溶けてイオンに分かれるようす',
+    },
+    {
       type: 'quiz',
       question: '次のうち、電解質はどれ？',
       options: [
@@ -107,6 +113,12 @@ export const solutionIonsChat: HistoryChat = {
       characterId: 'teacher',
       expression: 'explaining',
       text: '<ruby>塩化銅<rp>(</rp><rt>えんかどう</rt><rp>)</rp></ruby><ruby>水溶液<rp>(</rp><rt>すいようえき</rt><rp>)</rp></ruby>を<ruby>電気分解<rp>(</rp><rt>でんきぶんかい</rt><rp>)</rp></ruby>してみよう。<strong><ruby>陰極<rp>(</rp><rt>いんきょく</rt><rp>)</rp></ruby></strong>（−極）には<ruby>赤色<rp>(</rp><rt>あかいろ</rt><rp>)</rp></ruby>の<strong><ruby>銅<rp>(</rp><rt>どう</rt><rp>)</rp></ruby></strong>が付着して、<strong><ruby>陽極<rp>(</rp><rt>ようきょく</rt><rp>)</rp></ruby></strong>（＋極）からは<ruby>刺激臭<rp>(</rp><rt>しげきしゅう</rt><rp>)</rp></ruby>のある<strong><ruby>塩素<rp>(</rp><rt>えんそ</rt><rp>)</rp></ruby></strong>が発生するよ',
+    },
+    {
+      type: 'image',
+      src: '/images/science/electrolysis-apparatus.svg',
+      alt: '塩化銅水溶液の電気分解装置',
+      caption: '陰極に銅が付着し、陽極から塩素が発生する',
     },
     {
       type: 'message',
@@ -154,6 +166,12 @@ export const solutionIonsChat: HistoryChat = {
       characterId: 'teacher',
       expression: 'happy',
       text: '<ruby>電子<rp>(</rp><rt>でんし</rt><rp>)</rp></ruby>は−の電気をもっていて、<ruby>原子核<rp>(</rp><rt>げんしかく</rt><rp>)</rp></ruby>のまわりを回っているよ。ふつうの<ruby>原子<rp>(</rp><rt>げんし</rt><rp>)</rp></ruby>では<strong><ruby>陽子<rp>(</rp><rt>ようし</rt><rp>)</rp></ruby>の数 ＝ <ruby>電子<rp>(</rp><rt>でんし</rt><rp>)</rp></ruby>の数</strong>だから、全体として電気的に<ruby>中性<rp>(</rp><rt>ちゅうせい</rt><rp>)</rp></ruby>なんだ',
+    },
+    {
+      type: 'image',
+      src: '/images/science/atom-model.svg',
+      alt: '原子の構造モデル',
+      caption: '原子核（陽子＋中性子）のまわりを電子が回る',
     },
     {
       type: 'date',

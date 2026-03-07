@@ -64,6 +64,12 @@ export const evolutionChat: HistoryChat = {
       text: '脊椎動物の進化：<span class="keyword">魚類</span> → <span class="keyword">両生類</span> → <span class="keyword">ハチュウ類</span> → <span class="keyword">哺乳類・鳥類</span>',
     },
     {
+      type: 'image',
+      src: '/images/science/evolution-tree.svg',
+      alt: '脊椎動物の進化の道すじ',
+      caption: '魚類 → 両生類 → ハチュウ類 → 哺乳類・鳥類',
+    },
+    {
       type: 'narrator',
       text: '進化の<ruby>証拠<rp>(</rp><rt>しょうこ</rt><rp>)</rp></ruby>は<ruby>化石<rp>(</rp><rt>かせき</rt><rp>)</rp></ruby>として残されています。特に、2つの動物群の<ruby>中間的<rp>(</rp><rt>ちゅうかんてき</rt><rp>)</rp></ruby>な特徴をもつ化石は、進化のつながりを示す重要な<ruby>証拠<rp>(</rp><rt>しょうこ</rt><rp>)</rp></ruby>です。',
     },
@@ -124,6 +130,12 @@ export const evolutionChat: HistoryChat = {
       characterId: 'teacher',
       expression: 'explaining',
       text: '見た目は全然ちがうけど、骨の並び方は<strong>同じパターン</strong>なんだ。こういう<ruby>器官<rp>(</rp><rt>きかん</rt><rp>)</rp></ruby>を<strong><span class="keyword"><span data-tooltip="形や働きは違うが骨格の基本構造が共通している器官。共通の祖先から進化した証拠"><ruby>相同器官<rp>(</rp><rt>そうどうきかん</rt><rp>)</rp></ruby></span></span></strong>というよ。共通の<ruby>祖先<rp>(</rp><rt>そせん</rt><rp>)</rp></ruby>から進化した<ruby>証拠<rp>(</rp><rt>しょうこ</rt><rp>)</rp></ruby>なんだ',
+    },
+    {
+      type: 'image',
+      src: '/images/science/homologous-organs.svg',
+      alt: '相同器官の比較',
+      caption: 'クジラのひれ・ヒトのうで・コウモリの翼の骨格比較',
     },
     {
       type: 'message',

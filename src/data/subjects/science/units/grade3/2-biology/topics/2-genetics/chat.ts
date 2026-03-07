@@ -74,6 +74,12 @@ export const geneticsChat: HistoryChat = {
       text: '消えたように見えるけど、実は隠れているだけなんだ！子の代（Aa）同士を掛け合わせると、<strong>孫の代</strong>で丸：しわ＝<strong>約3：1</strong>で現れるよ。これを<strong><span class="keyword"><span data-tooltip="孫の代で顕性：潜性＝約3：1になる法則"><ruby>分離<rp>(</rp><rt>ぶんり</rt><rp>)</rp></ruby>の<ruby>法則<rp>(</rp><rt>ほうそく</rt><rp>)</rp></ruby></span></span></strong>というんだ',
     },
     {
+      type: 'image',
+      src: '/images/science/mendel-cross.svg',
+      alt: 'メンデルの交配実験',
+      caption: '親（AA×aa）→ 子（Aa）→ 孫（AA:Aa:aa = 1:2:1）',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">顕性形質</span>が子に現れ、<span class="keyword">潜性形質</span>は隠れるだけ。孫の代で<span class="keyword">3：1</span>に分離！',
     },
@@ -113,6 +119,12 @@ export const geneticsChat: HistoryChat = {
       characterId: 'teacher',
       expression: 'happy',
       text: 'その通り！<strong>核 → 染色体 → DNA</strong>の関係をおさえておこう。DNAの<ruby>配列<rp>(</rp><rt>はいれつ</rt><rp>)</rp></ruby>に遺伝情報が書き込まれているんだよ',
+    },
+    {
+      type: 'image',
+      src: '/images/science/dna-hierarchy.svg',
+      alt: '核・染色体・DNAの関係',
+      caption: '核 → 染色体 → DNA（二重らせん構造）',
     },
     {
       type: 'summary-point',

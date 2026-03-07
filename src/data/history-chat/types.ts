@@ -26,6 +26,7 @@ export type ChatContent =
   | QuizContent
   | SummaryPointContent
   | WhiteboardContent
+  | ImageContent
   | EndContent;
 
 export interface DateContent {
@@ -75,6 +76,13 @@ export interface WhiteboardContent {
   type: 'whiteboard';
   title?: string; // ホワイトボードのタイトル
   steps: WhiteboardStep[];
+}
+
+export interface ImageContent {
+  type: 'image';
+  src: string; // 画像パス（例: '/images/science/atom-model.svg'）
+  alt: string; // 代替テキスト
+  caption?: string; // キャプション（オプション）
 }
 
 export interface EndContent {

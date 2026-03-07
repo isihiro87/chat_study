@@ -71,6 +71,12 @@ export const chemicalBatteryChat: HistoryChat = {
       text: 'どっちの<ruby>金属<rp>(</rp><rt>きんぞく</rt><rp>)</rp></ruby>が−<ruby>極<rp>(</rp><rt>きょく</rt><rp>)</rp></ruby>になるか、どうやって<ruby>決<rp>(</rp><rt>き</rt><rp>)</rp></ruby>まるんですか？',
     },
     {
+      type: 'image',
+      src: '/images/science/battery-model.svg',
+      alt: '電池のしくみモデル図',
+      caption: '異なる2種類の金属と電解質水溶液で電流が流れる',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">電池</span>の3要素 = <strong>電解質水溶液</strong> + <strong>異なる2種類の金属</strong>。イオンになりやすい金属が<span class="keyword">−極</span>！',
     },
@@ -102,6 +108,12 @@ export const chemicalBatteryChat: HistoryChat = {
       characterId: 'teacher',
       expression: 'excited',
       text: '<ruby>正解<rp>(</rp><rt>せいかい</rt><rp>)</rp></ruby>！しかも、2つの<ruby>金属<rp>(</rp><rt>きんぞく</rt><rp>)</rp></ruby>のイオン<ruby>化<rp>(</rp><rt>か</rt><rp>)</rp></ruby><ruby>傾向<rp>(</rp><rt>けいこう</rt><rp>)</rp></ruby>の<strong><ruby>差<rp>(</rp><rt>さ</rt><rp>)</rp></ruby>が大きいほど</strong>、<ruby>電圧<rp>(</rp><rt>でんあつ</rt><rp>)</rp></ruby>も大きくなるんだ。MgとAgを使えばZnとCuより大きな<ruby>電圧<rp>(</rp><rt>でんあつ</rt><rp>)</rp></ruby>が<ruby>得<rp>(</rp><rt>え</rt><rp>)</rp></ruby>られるよ',
+    },
+    {
+      type: 'image',
+      src: '/images/science/ionization-tendency.svg',
+      alt: 'イオン化傾向の順番',
+      caption: 'Mg > Zn > Fe > Cu > Ag — 左ほどイオンになりやすい',
     },
     {
       type: 'summary-point',

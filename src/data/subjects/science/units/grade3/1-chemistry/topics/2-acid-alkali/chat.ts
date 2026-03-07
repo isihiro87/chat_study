@@ -50,6 +50,12 @@ export const acidAlkaliChat: HistoryChat = {
       text: '<ruby>水溶液<rp>(</rp><rt>すいようえき</rt><rp>)</rp></ruby>の<ruby>性質<rp>(</rp><rt>せいしつ</rt><rp>)</rp></ruby>を<ruby>調<rp>(</rp><rt>しら</rt><rp>)</rp></ruby>べる<ruby>指示薬<rp>(</rp><rt>しじやく</rt><rp>)</rp></ruby>を3つ<ruby>覚<rp>(</rp><rt>おぼ</rt><rp>)</rp></ruby>えよう！<br/><strong><span class="keyword">リトマス<ruby>紙<rp>(</rp><rt>し</rt><rp>)</rp></ruby></span></strong>：<ruby>酸性<rp>(</rp><rt>さんせい</rt><rp>)</rp></ruby>→<ruby>青<rp>(</rp><rt>あお</rt><rp>)</rp></ruby>を<ruby>赤<rp>(</rp><rt>あか</rt><rp>)</rp></ruby>に、アルカリ<ruby>性<rp>(</rp><rt>せい</rt><rp>)</rp></ruby>→<ruby>赤<rp>(</rp><rt>あか</rt><rp>)</rp></ruby>を<ruby>青<rp>(</rp><rt>あお</rt><rp>)</rp></ruby>に<br/><strong><span class="keyword">BTB<ruby>溶液<rp>(</rp><rt>ようえき</rt><rp>)</rp></ruby></span></strong>：<ruby>酸性<rp>(</rp><rt>さんせい</rt><rp>)</rp></ruby>→<ruby>黄色<rp>(</rp><rt>きいろ</rt><rp>)</rp></ruby>、<ruby>中性<rp>(</rp><rt>ちゅうせい</rt><rp>)</rp></ruby>→<ruby>緑色<rp>(</rp><rt>みどりいろ</rt><rp>)</rp></ruby>、アルカリ<ruby>性<rp>(</rp><rt>せい</rt><rp>)</rp></ruby>→<ruby>青色<rp>(</rp><rt>あおいろ</rt><rp>)</rp></ruby><br/><strong><span class="keyword">フェノールフタレイン<ruby>溶液<rp>(</rp><rt>ようえき</rt><rp>)</rp></ruby></span></strong>：アルカリ<ruby>性<rp>(</rp><rt>せい</rt><rp>)</rp></ruby>だけ<ruby>赤色<rp>(</rp><rt>あかいろ</rt><rp>)</rp></ruby>に！',
     },
     {
+      type: 'image',
+      src: '/images/science/indicator-colors.svg',
+      alt: '指示薬の色の変化',
+      caption: 'リトマス紙・BTB溶液・フェノールフタレインの色変化',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',
@@ -95,6 +101,12 @@ export const acidAlkaliChat: HistoryChat = {
       characterId: 'teacher',
       expression: 'thinking',
       text: '<strong>pH</strong>は<ruby>酸性<rp>(</rp><rt>さんせい</rt><rp>)</rp></ruby>・アルカリ<ruby>性<rp>(</rp><rt>せい</rt><rp>)</rp></ruby>の<ruby>強<rp>(</rp><rt>つよ</rt><rp>)</rp></ruby>さを<ruby>数値<rp>(</rp><rt>すうち</rt><rp>)</rp></ruby>で<ruby>表<rp>(</rp><rt>あらわ</rt><rp>)</rp></ruby>したもの。0〜14の<ruby>範囲<rp>(</rp><rt>はんい</rt><rp>)</rp></ruby>で、<strong>pH 7が<ruby>中性<rp>(</rp><rt>ちゅうせい</rt><rp>)</rp></ruby></strong>。7より小さいと<ruby>酸性<rp>(</rp><rt>さんせい</rt><rp>)</rp></ruby>、大きいとアルカリ<ruby>性<rp>(</rp><rt>せい</rt><rp>)</rp></ruby>だよ',
+    },
+    {
+      type: 'image',
+      src: '/images/science/ph-scale.svg',
+      alt: 'pHスケール',
+      caption: 'pH 0〜14のスケール（7が中性）',
     },
     {
       type: 'message',
@@ -154,6 +166,12 @@ export const acidAlkaliChat: HistoryChat = {
       characterId: 'student',
       expression: 'happy',
       text: '<ruby>身近<rp>(</rp><rt>みぢか</rt><rp>)</rp></ruby>なところでも<ruby>中和<rp>(</rp><rt>ちゅうわ</rt><rp>)</rp></ruby>が使われているんですね！',
+    },
+    {
+      type: 'image',
+      src: '/images/science/neutralization.svg',
+      alt: '中和反応のモデル図',
+      caption: 'H⁺とOH⁻が結びついて水ができ、残ったイオンが塩になる',
     },
     {
       type: 'summary-point',

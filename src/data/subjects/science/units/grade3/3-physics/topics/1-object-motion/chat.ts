@@ -64,6 +64,12 @@ export const objectMotionChat: HistoryChat = {
       text: '打点の間隔が広いほど速い、せまいほど遅いということがわかるよ。一定の時間ごとに点を打つから、移動距離の変化が見えるんだ',
     },
     {
+      type: 'image',
+      src: '/images/science/motion-tape.svg',
+      alt: '記録タイマーのテープ',
+      caption: '打点間隔が広い＝速い、せまい＝遅い',
+    },
+    {
       type: 'narrator',
       text: '<ruby>速<rp>(</rp><rt>はや</rt><rp>)</rp></ruby>さには2<ruby>種類<rp>(</rp><rt>しゅるい</rt><rp>)</rp></ruby>あります。ある区間全体の<strong><span class="keyword">平均の速さ</span></strong>と、ごく<ruby>短<rp>(</rp><rt>みじか</rt><rp>)</rp></ruby>い時間での<strong><span class="keyword"><ruby>瞬間<rp>(</rp><rt>しゅんかん</rt><rp>)</rp></ruby>の速さ</span></strong>です。',
     },

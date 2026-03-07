@@ -64,6 +64,12 @@ export const energyWorkChat: HistoryChat = {
       text: 'その通り！位置エネルギーが運動エネルギーに<ruby>変換<rp>(</rp><rt>へんかん</rt><rp>)</rp></ruby>されるんだ。でも2つの合計（<strong>力学的エネルギー</strong>）は<ruby>摩擦<rp>(</rp><rt>まさつ</rt><rp>)</rp></ruby>がなければ<strong>一定</strong>に<ruby>保存<rp>(</rp><rt>ほぞん</rt><rp>)</rp></ruby>されるんだよ',
     },
     {
+      type: 'image',
+      src: '/images/science/mechanical-energy.svg',
+      alt: '力学的エネルギーの保存',
+      caption: '位置エネルギーと運動エネルギーの和は一定',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">力学的エネルギー</span> = 運動E + 位置E は常に一定（保存される）！',
     },
@@ -146,6 +152,12 @@ export const energyWorkChat: HistoryChat = {
     {
       type: 'narrator',
       text: '<ruby>熱<rp>(</rp><rt>ねつ</rt><rp>)</rp></ruby>の伝わり方には3つあります。物質中を伝わる<strong><span class="keyword"><ruby>伝導<rp>(</rp><rt>でんどう</rt><rp>)</rp></ruby></span></strong>、<ruby>液体<rp>(</rp><rt>えきたい</rt><rp>)</rp></ruby>や<ruby>気体<rp>(</rp><rt>きたい</rt><rp>)</rp></ruby>の流れによる<strong><span class="keyword"><ruby>対流<rp>(</rp><rt>たいりゅう</rt><rp>)</rp></ruby></span></strong>、<ruby>電磁波<rp>(</rp><rt>でんじは</rt><rp>)</rp></ruby>による<strong><span class="keyword"><ruby>放射<rp>(</rp><rt>ほうしゃ</rt><rp>)</rp></ruby></span></strong>です。',
+    },
+    {
+      type: 'image',
+      src: '/images/science/energy-conversion.svg',
+      alt: 'エネルギーの変換',
+      caption: 'エネルギーはさまざまな形に変換される',
     },
     {
       type: 'message',

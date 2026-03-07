@@ -64,6 +64,12 @@ export const forceActionChat: HistoryChat = {
       text: '2つの力を2辺とする平行四辺形を作って、その<ruby>対角線<rp>(</rp><rt>たいかくせん</rt><rp>)</rp></ruby>が合力になるんだよ。逆に1つの力を2つに分けるのが<strong>力の<ruby>分解<rp>(</rp><rt>ぶんかい</rt><rp>)</rp></ruby></strong>で、分けた力を<strong><ruby>分力<rp>(</rp><rt>ぶんりょく</rt><rp>)</rp></ruby></strong>というんだ',
     },
     {
+      type: 'image',
+      src: '/images/science/force-composition.svg',
+      alt: '力の合成と分解',
+      caption: '平行四辺形の法則で合力を求める',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">合力</span> = 平行四辺形の対角線。<span class="keyword">分力</span> = 1つの力を2つに分解！',
     },
@@ -103,6 +109,12 @@ export const forceActionChat: HistoryChat = {
     {
       type: 'narrator',
       text: '物体がもとの<ruby>運動状態<rp>(</rp><rt>うんどうじょうたい</rt><rp>)</rp></ruby>を続けようとする性質を<strong><span class="keyword"><ruby>慣性<rp>(</rp><rt>かんせい</rt><rp>)</rp></ruby></span></strong>といいます。これは<strong><span class="keyword">慣性の法則</span></strong>（運動の第1法則）として知られています。',
+    },
+    {
+      type: 'image',
+      src: '/images/science/inertia-diagram.svg',
+      alt: '慣性の法則',
+      caption: '合力が0なら静止し続ける or 等速直線運動を続ける',
     },
     {
       type: 'summary-point',

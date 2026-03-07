@@ -64,6 +64,12 @@ export const moonVenusChat: HistoryChat = {
       text: 'その通り！<strong>新月</strong>は月が太陽と同じ方向にあって、光っている面が地球側を向いていないから見えないだけだよ。約<strong>29.5日</strong>で新月→<ruby>三日月<rp>(</rp><rt>みかづき</rt><rp>)</rp></ruby>→<ruby>上弦<rp>(</rp><rt>じょうげん</rt><rp>)</rp></ruby>の月→<ruby>満月<rp>(</rp><rt>まんげつ</rt><rp>)</rp></ruby>→<ruby>下弦<rp>(</rp><rt>かげん</rt><rp>)</rp></ruby>の月→新月と<ruby>繰<rp>(</rp><rt>く</rt><rp>)</rp></ruby>り返すんだ',
     },
     {
+      type: 'image',
+      src: '/images/science/moon-phases.svg',
+      alt: '月の満ち欠けのしくみ',
+      caption: '太陽・地球・月の位置関係で満ち欠けが起こる',
+    },
+    {
       type: 'summary-point',
       text: '月は<span class="keyword">太陽光を反射</span>して光る。位置関係の変化で<span class="keyword">約29.5日</span>の周期で<span class="keyword">満ち欠け</span>する！',
     },
@@ -114,6 +120,12 @@ export const moonVenusChat: HistoryChat = {
       characterId: 'teacher',
       expression: 'excited',
       text: '明け方の東の空に見えるときは<strong>「<ruby>明<rp>(</rp><rt>あ</rt><rp>)</rp></ruby>けの<ruby>明星<rp>(</rp><rt>みょうじょう</rt><rp>)</rp></ruby>」</strong>、夕方の西の空に見えるときは<strong>「よいの明星」</strong>とよばれるよ。さらに金星は、地球との<ruby>距離<rp>(</rp><rt>きょり</rt><rp>)</rp></ruby>が変わるから<strong>大きさと形</strong>も変化して見えるんだ',
+    },
+    {
+      type: 'image',
+      src: '/images/science/venus-orbit.svg',
+      alt: '金星の見え方と公転軌道',
+      caption: '内惑星の金星は明け方か夕方にしか見えない',
     },
     {
       type: 'summary-point',

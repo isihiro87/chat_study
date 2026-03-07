@@ -78,6 +78,12 @@ export const solarSystemUniverseChat: HistoryChat = {
       text: 'その通り！ 木星や土星には<ruby>固<rp>(</rp><rt>かた</rt><rp>)</rp></ruby>い地面がないんだ。他にも<ruby>火星<rp>(</rp><rt>かせい</rt><rp>)</rp></ruby>と木星の間には<strong><ruby>小惑星<rp>(</rp><rt>しょうわくせい</rt><rp>)</rp></ruby></strong>がたくさんあって、<ruby>氷<rp>(</rp><rt>こおり</rt><rp>)</rp></ruby>や<ruby>塵<rp>(</rp><rt>ちり</rt><rp>)</rp></ruby>でできた<strong>すい星</strong>も太陽系の仲間だよ',
     },
     {
+      type: 'image',
+      src: '/images/science/solar-system.svg',
+      alt: '太陽系の構造',
+      caption: '地球型惑星（内側）と木星型惑星（外側）',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">地球型惑星</span>（水金地火）＝岩石・小型・高密度 ↔ <span class="keyword">木星型惑星</span>（木土天海）＝気体・大型・低密度',
     },

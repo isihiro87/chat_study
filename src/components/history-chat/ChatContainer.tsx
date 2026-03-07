@@ -12,6 +12,7 @@ import { ChatQuiz } from './ChatQuiz';
 import { SummaryCard } from './SummaryCard';
 import { SummaryPointBlock } from './SummaryPointBlock';
 import { WhiteboardBlock } from './WhiteboardBlock';
+import { ChatImageBlock } from './ChatImageBlock';
 import type { HistoryChat, EndContent, MessageContent } from '../../data/history-chat/types';
 
 interface ChatContainerProps {
@@ -190,6 +191,16 @@ export function ChatContainer({ chat, embedded = false, onNavigateToFlashcard, o
                         key={key}
                         title={content.title}
                         steps={content.steps}
+                      />
+                    );
+
+                  case 'image':
+                    return (
+                      <ChatImageBlock
+                        key={key}
+                        src={content.src}
+                        alt={content.alt}
+                        caption={content.caption}
                       />
                     );
 

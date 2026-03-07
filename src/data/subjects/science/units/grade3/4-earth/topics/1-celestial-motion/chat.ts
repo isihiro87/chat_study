@@ -104,6 +104,12 @@ export const celestialMotionChat: HistoryChat = {
       text: 'その通り！太陽が最も高くなる<ruby>瞬間<rp>(</rp><rt>しゅんかん</rt><rp>)</rp></ruby>を<strong>南中</strong>といって、そのときの時刻が<strong>正午</strong>だよ。<ruby>経度<rp>(</rp><rt>けいど</rt><rp>)</rp></ruby>が違う場所では南中時刻がずれるから、<strong>時差</strong>が生まれるんだ',
     },
     {
+      type: 'image',
+      src: '/images/science/celestial-sphere.svg',
+      alt: '天球と日周運動',
+      caption: '地球の自転により天体が東→南中→西と動いて見える',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">自転</span>（西→東）→ 天体が<span class="keyword">日周運動</span>（東→南中→西）して見える！',
     },
@@ -147,6 +153,12 @@ export const celestialMotionChat: HistoryChat = {
       characterId: 'teacher',
       expression: 'thinking',
       text: 'いい質問だね！地球の<ruby>地軸<rp>(</rp><rt>ちじく</rt><rp>)</rp></ruby>は公転面に対して<strong>23.4度</strong><ruby>傾<rp>(</rp><rt>かたむ</rt><rp>)</rp></ruby>いているんだ。この傾きのまま公転するから、季節によって太陽の<strong>南中高度</strong>や<strong>昼の長さ</strong>が変わるんだよ',
+    },
+    {
+      type: 'image',
+      src: '/images/science/seasons-tilt.svg',
+      alt: '地軸の傾きと四季',
+      caption: '地軸が23.4度傾いたまま公転 → 四季が生まれる',
     },
     {
       type: 'message',
