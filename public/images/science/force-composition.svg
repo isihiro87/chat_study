@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 280" fill="none">
+  <!-- Background -->
+  <rect width="400" height="280" rx="16" fill="#F5F3F0"/>
+
+  <!-- Title -->
+  <text x="200" y="25" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1f2937">力の合成（平行四辺形の法則）</text>
+
+  <!-- Origin point -->
+  <circle cx="100" cy="200" r="5" fill="#374151"/>
+
+  <!-- Force F1 (upward-right) -->
+  <line x1="100" y1="200" x2="250" y2="120" stroke="#3B82F6" stroke-width="3" marker-end="url(#bluearrow2)"/>
+  <text x="185" y="145" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1D4ED8">F₁</text>
+
+  <!-- Force F2 (right) -->
+  <line x1="100" y1="200" x2="280" y2="200" stroke="#10B981" stroke-width="3" marker-end="url(#greenarrow)"/>
+  <text x="195" y="220" font-family="sans-serif" font-size="13" font-weight="bold" fill="#059669">F₂</text>
+
+  <!-- Parallelogram dashed lines -->
+  <line x1="250" y1="120" x2="330" y2="120" stroke="#9CA3AF" stroke-width="1.5" stroke-dasharray="5 3"/>
+  <line x1="280" y1="200" x2="330" y2="120" stroke="#9CA3AF" stroke-width="1.5" stroke-dasharray="5 3"/>
+
+  <!-- Resultant force (合力) -->
+  <line x1="100" y1="200" x2="330" y2="120" stroke="#EF4444" stroke-width="3" marker-end="url(#redarrow)"/>
+  <text x="230" y="148" font-family="sans-serif" font-size="14" font-weight="bold" fill="#DC2626">合力 F</text>
+
+  <!-- Labels -->
+  <text x="200" y="255" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#4B5563">2つの力の合力は平行四辺形の対角線で求められる</text>
+  <text x="200" y="272" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#9CA3AF">※ 分力はこの逆で、1つの力を2つに分ける</text>
+
+  <!-- Arrow markers -->
+  <defs>
+    <marker id="bluearrow2" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <path d="M0,0 L10,3.5 L0,7" fill="#3B82F6"/>
+    </marker>
+    <marker id="greenarrow" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <path d="M0,0 L10,3.5 L0,7" fill="#10B981"/>
+    </marker>
+    <marker id="redarrow" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <path d="M0,0 L10,3.5 L0,7" fill="#EF4444"/>
+    </marker>
+  </defs>
+</svg>

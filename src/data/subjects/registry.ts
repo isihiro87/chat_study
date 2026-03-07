@@ -15,15 +15,22 @@ import {
   allTopics as mathAllTopics,
   getTopicsByEra as getMathTopicsByEra,
 } from './math/units';
+import {
+  eras as scienceEras,
+  allTopics as scienceAllTopics,
+  getTopicsByEra as getScienceTopicsByEra,
+} from './science/units';
 import { getHistoryChat, getAllHistoryChats } from '../history-chat';
 import { getEnglishChat, getAllEnglishChats } from '../english-chat';
 import { getMathChat, getAllMathChats } from '../math-chat';
+import { getScienceChat, getAllScienceChats } from '../science-chat';
 
 // 全科目のEra集約
 const erasBySubject: Record<string, Era[]> = {
   history: historyEras,
   english: englishEras,
   math: mathEras,
+  science: scienceEras,
 };
 
 // 全科目のTopic集約
@@ -31,10 +38,11 @@ const allTopicsBySubject: Record<string, Topic[]> = {
   history: historyAllTopics,
   english: englishAllTopics,
   math: mathAllTopics,
+  science: scienceAllTopics,
 };
 
 // 全トピック（科目横断）
-export const allTopics: Topic[] = [...historyAllTopics, ...englishAllTopics, ...mathAllTopics];
+export const allTopics: Topic[] = [...historyAllTopics, ...englishAllTopics, ...mathAllTopics, ...scienceAllTopics];
 
 // 科目別Era取得
 export function getErasBySubject(subjectId: string): Era[] {
@@ -59,6 +67,8 @@ export function getTopicsByEra(eraId: string): Topic[] {
   if (engTopics.length > 0) return engTopics;
   const mathTopics = getMathTopicsByEra(eraId);
   if (mathTopics.length > 0) return mathTopics;
+  const sciTopics = getScienceTopicsByEra(eraId);
+  if (sciTopics.length > 0) return sciTopics;
   return [];
 }
 
@@ -78,10 +88,10 @@ export function getAllTopics(): Topic[] {
 
 // チャット取得（科目横断検索）
 export function getChat(chatId: string): HistoryChat | undefined {
-  return getHistoryChat(chatId) ?? getEnglishChat(chatId) ?? getMathChat(chatId);
+  return getHistoryChat(chatId) ?? getEnglishChat(chatId) ?? getMathChat(chatId) ?? getScienceChat(chatId);
 }
 
 // 全チャット取得
 export function getAllChats(): HistoryChat[] {
-  return [...getAllHistoryChats(), ...getAllEnglishChats(), ...getAllMathChats()];
+  return [...getAllHistoryChats(), ...getAllEnglishChats(), ...getAllMathChats(), ...getAllScienceChats()];
 }

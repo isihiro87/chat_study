@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 280" fill="none">
+  <!-- Background -->
+  <rect width="400" height="280" rx="16" fill="#F5F3F0"/>
+
+  <!-- Title -->
+  <text x="200" y="22" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1f2937">地軸の傾きと季節の変化</text>
+
+  <!-- Sun (center) -->
+  <circle cx="200" cy="140" r="25" fill="#FDE68A" stroke="#F59E0B" stroke-width="2"/>
+  <text x="200" y="145" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#92400E">太陽</text>
+
+  <!-- Orbit -->
+  <ellipse cx="200" cy="140" rx="160" ry="70" stroke="#9CA3AF" stroke-width="1.5" stroke-dasharray="6 3" fill="none"/>
+
+  <!-- Summer (left - Earth tilted toward sun) -->
+  <g transform="translate(45, 125)">
+    <circle cx="0" cy="0" r="16" fill="#3B82F6"/>
+    <!-- Tilted axis -->
+    <line x1="-5" y1="20" x2="5" y2="-20" stroke="white" stroke-width="1.5"/>
+    <circle cx="4" cy="-18" r="2" fill="white"/>
+  </g>
+  <text x="45" y="165" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#DC2626">夏至</text>
+  <text x="45" y="178" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#6B7280">北半球が太陽側</text>
+
+  <!-- Winter (right - Earth tilted away from sun) -->
+  <g transform="translate(355, 125)">
+    <circle cx="0" cy="0" r="16" fill="#3B82F6"/>
+    <!-- Tilted axis -->
+    <line x1="-5" y1="20" x2="5" y2="-20" stroke="white" stroke-width="1.5"/>
+    <circle cx="4" cy="-18" r="2" fill="white"/>
+  </g>
+  <text x="355" y="165" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#1D4ED8">冬至</text>
+  <text x="355" y="178" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#6B7280">北半球が反対側</text>
+
+  <!-- Spring (top) -->
+  <g transform="translate(200, 68)">
+    <circle cx="0" cy="0" r="12" fill="#3B82F6"/>
+    <line x1="-3" y1="14" x2="3" y2="-14" stroke="white" stroke-width="1.5"/>
+    <circle cx="2.5" cy="-12.5" r="1.5" fill="white"/>
+  </g>
+  <text x="200" y="50" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#6B7280">春分</text>
+
+  <!-- Autumn (bottom) -->
+  <g transform="translate(200, 212)">
+    <circle cx="0" cy="0" r="12" fill="#3B82F6"/>
+    <line x1="-3" y1="14" x2="3" y2="-14" stroke="white" stroke-width="1.5"/>
+    <circle cx="2.5" cy="-12.5" r="1.5" fill="white"/>
+  </g>
+  <text x="200" y="235" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#6B7280">秋分</text>
+
+  <!-- Tilt angle annotation -->
+  <text x="60" y="200" font-family="sans-serif" font-size="9" fill="#D97706">地軸の傾き 23.4°</text>
+
+  <!-- Bottom explanation -->
+  <text x="200" y="255" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#4B5563">地軸が23.4°傾いたまま公転 → 南中高度・昼の長さが変化 → 季節</text>
+  <text x="200" y="272" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#9CA3AF">公転方向 →（反時計回り）</text>
+</svg>

@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 280" fill="none">
+  <!-- Background -->
+  <rect width="400" height="280" rx="16" fill="#1f2937"/>
+
+  <!-- Title -->
+  <text x="200" y="22" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="white">太陽系の惑星</text>
+
+  <!-- Sun (left edge) -->
+  <circle cx="15" cy="140" r="30" fill="#FDE68A" stroke="#F59E0B" stroke-width="2"/>
+  <text x="15" y="145" text-anchor="middle" font-family="sans-serif" font-size="8" font-weight="bold" fill="#92400E">太陽</text>
+
+  <!-- Terrestrial planets (地球型惑星) -->
+  <text x="115" y="48" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#FCA5A5">地球型惑星（岩石・小型・高密度）</text>
+
+  <!-- Mercury -->
+  <circle cx="60" cy="140" r="4" fill="#9CA3AF"/>
+  <text x="60" y="160" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#9CA3AF">水星</text>
+
+  <!-- Venus -->
+  <circle cx="85" cy="140" r="7" fill="#F59E0B"/>
+  <text x="85" y="160" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#F59E0B">金星</text>
+
+  <!-- Earth -->
+  <circle cx="115" cy="140" r="7" fill="#3B82F6"/>
+  <text x="115" y="160" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#60A5FA">地球</text>
+
+  <!-- Mars -->
+  <circle cx="145" cy="140" r="5" fill="#EF4444"/>
+  <text x="145" y="160" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#FCA5A5">火星</text>
+
+  <!-- Separator -->
+  <line x1="170" y1="60" x2="170" y2="220" stroke="#4B5563" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="170" y="235" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#6B7280">小惑星帯</text>
+
+  <!-- Gas giants (木星型惑星) -->
+  <text x="290" y="48" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#93C5FD">木星型惑星（気体・大型・低密度）</text>
+
+  <!-- Jupiter -->
+  <circle cx="215" cy="140" r="20" fill="#D97706" stroke="#92400E" stroke-width="1.5"/>
+  <text x="215" y="145" text-anchor="middle" font-family="sans-serif" font-size="8" fill="white">木星</text>
+  <text x="215" y="170" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#D97706">(最大)</text>
+
+  <!-- Saturn -->
+  <circle cx="270" cy="140" r="16" fill="#FBBF24"/>
+  <ellipse cx="270" cy="140" rx="26" ry="5" fill="none" stroke="#F59E0B" stroke-width="1.5"/>
+  <text x="270" y="170" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#FBBF24">土星</text>
+
+  <!-- Uranus -->
+  <circle cx="320" cy="140" r="10" fill="#67E8F9"/>
+  <text x="320" y="170" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#67E8F9">天王星</text>
+
+  <!-- Neptune -->
+  <circle cx="365" cy="140" r="9" fill="#3B82F6"/>
+  <text x="365" y="170" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#60A5FA">海王星</text>
+
+  <!-- Bottom comparison -->
+  <rect x="30" y="195" width="160" height="45" rx="8" fill="#374151"/>
+  <text x="110" y="212" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#FCA5A5">地球型: 岩石でできた</text>
+  <text x="110" y="228" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#FCA5A5">小型で密度が高い</text>
+
+  <rect x="210" y="195" width="160" height="45" rx="8" fill="#374151"/>
+  <text x="290" y="212" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#93C5FD">木星型: 気体でできた</text>
+  <text x="290" y="228" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#93C5FD">大型で密度が低い</text>
+
+  <text x="200" y="268" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#6B7280">※ 大きさの比率は実際とは異なります</text>
+</svg>

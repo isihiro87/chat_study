@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" fill="none">
+  <!-- Background -->
+  <rect width="400" height="250" rx="16" fill="#F5F3F0"/>
+
+  <!-- Title -->
+  <text x="200" y="25" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1f2937">体細胞分裂のようす</text>
+
+  <!-- Stage 1: Original cell -->
+  <ellipse cx="60" cy="120" rx="35" ry="40" fill="#D1FAE5" stroke="#059669" stroke-width="2"/>
+  <circle cx="60" cy="115" r="12" fill="#FEF3C7" stroke="#F59E0B" stroke-width="1.5"/>
+  <!-- Chromosomes -->
+  <line x1="55" y1="110" x2="65" y2="120" stroke="#EF4444" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="55" y1="120" x2="65" y2="110" stroke="#3B82F6" stroke-width="2.5" stroke-linecap="round"/>
+  <text x="60" y="175" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#374151">1. もとの細胞</text>
+  <text x="60" y="188" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#6B7280">(染色体2本)</text>
+
+  <!-- Arrow 1 -->
+  <path d="M100 120 L125 120" stroke="#6B7280" stroke-width="2" marker-end="url(#grayarr)"/>
+
+  <!-- Stage 2: Chromosomes duplicated -->
+  <ellipse cx="160" cy="120" rx="35" ry="40" fill="#D1FAE5" stroke="#059669" stroke-width="2"/>
+  <circle cx="160" cy="115" r="12" fill="#FEF3C7" stroke="#F59E0B" stroke-width="1.5"/>
+  <line x1="153" y1="108" x2="163" y2="118" stroke="#EF4444" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="155" y1="110" x2="165" y2="120" stroke="#EF4444" stroke-width="2.5" stroke-linecap="round" opacity="0.5"/>
+  <line x1="153" y1="118" x2="163" y2="108" stroke="#3B82F6" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="155" y1="120" x2="165" y2="110" stroke="#3B82F6" stroke-width="2.5" stroke-linecap="round" opacity="0.5"/>
+  <text x="160" y="175" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#374151">2. 染色体が複製</text>
+
+  <!-- Arrow 2 -->
+  <path d="M200 120 L225 120" stroke="#6B7280" stroke-width="2" marker-end="url(#grayarr)"/>
+
+  <!-- Stage 3: Splitting -->
+  <ellipse cx="265" cy="120" rx="40" ry="40" fill="#D1FAE5" stroke="#059669" stroke-width="2"/>
+  <line x1="265" y1="80" x2="265" y2="160" stroke="#059669" stroke-width="1.5" stroke-dasharray="4 2"/>
+  <line x1="250" y1="110" x2="255" y2="120" stroke="#EF4444" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="250" y1="120" x2="255" y2="110" stroke="#3B82F6" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="275" y1="110" x2="280" y2="120" stroke="#EF4444" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="275" y1="120" x2="280" y2="110" stroke="#3B82F6" stroke-width="2.5" stroke-linecap="round"/>
+  <text x="265" y="175" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#374151">3. 分裂中</text>
+
+  <!-- Arrow 3 -->
+  <path d="M310 120 L325 120" stroke="#6B7280" stroke-width="2" marker-end="url(#grayarr)"/>
+
+  <!-- Stage 4: Two cells -->
+  <ellipse cx="350" cy="100" rx="25" ry="28" fill="#D1FAE5" stroke="#059669" stroke-width="2"/>
+  <line x1="345" y1="95" x2="355" y2="105" stroke="#EF4444" stroke-width="2" stroke-linecap="round"/>
+  <line x1="345" y1="105" x2="355" y2="95" stroke="#3B82F6" stroke-width="2" stroke-linecap="round"/>
+
+  <ellipse cx="350" cy="145" rx="25" ry="28" fill="#D1FAE5" stroke="#059669" stroke-width="2"/>
+  <line x1="345" y1="140" x2="355" y2="150" stroke="#EF4444" stroke-width="2" stroke-linecap="round"/>
+  <line x1="345" y1="150" x2="355" y2="140" stroke="#3B82F6" stroke-width="2" stroke-linecap="round"/>
+  <text x="350" y="188" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#374151">4. 2つの細胞に</text>
+
+  <!-- Bottom note -->
+  <text x="200" y="215" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#4B5563">染色体の数は分裂後も同じ（体細胞分裂）</text>
+  <text x="200" y="235" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#9CA3AF">※ 減数分裂では染色体の数が半分になる</text>
+
+  <defs>
+    <marker id="grayarr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#6B7280"/>
+    </marker>
+  </defs>
+</svg>

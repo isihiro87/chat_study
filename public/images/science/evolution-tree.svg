@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 280" fill="none">
+  <!-- Background -->
+  <rect width="400" height="280" rx="16" fill="#F5F3F0"/>
+
+  <!-- Title -->
+  <text x="200" y="22" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1f2937">脊椎動物の進化</text>
+
+  <!-- Timeline arrow (bottom to top) -->
+  <line x1="40" y1="250" x2="40" y2="50" stroke="#9CA3AF" stroke-width="2" marker-end="url(#timearr)"/>
+  <text x="25" y="150" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#6B7280" transform="rotate(-90 25 150)">時間の流れ</text>
+
+  <!-- Era labels -->
+  <text x="55" y="240" font-family="sans-serif" font-size="8" fill="#9CA3AF">古生代</text>
+  <text x="55" y="180" font-family="sans-serif" font-size="8" fill="#9CA3AF">中生代</text>
+  <text x="55" y="90" font-family="sans-serif" font-size="8" fill="#9CA3AF">新生代</text>
+
+  <!-- Fish (bottom, origin) -->
+  <rect x="100" y="225" width="80" height="30" rx="8" fill="#3B82F6"/>
+  <text x="140" y="244" text-anchor="middle" font-family="sans-serif" font-size="11" fill="white">🐟 魚類</text>
+
+  <!-- Branch line up from fish -->
+  <line x1="140" y1="225" x2="140" y2="200" stroke="#6B7280" stroke-width="2"/>
+
+  <!-- Amphibian -->
+  <line x1="140" y1="200" x2="180" y2="190" stroke="#6B7280" stroke-width="2"/>
+  <rect x="150" y="175" width="90" height="30" rx="8" fill="#10B981"/>
+  <text x="195" y="194" text-anchor="middle" font-family="sans-serif" font-size="11" fill="white">🐸 両生類</text>
+
+  <!-- Ichthyostega label -->
+  <text x="120" y="198" font-family="sans-serif" font-size="7" fill="#D97706" font-style="italic">イクチオステガ</text>
+  <circle cx="140" cy="200" r="3" fill="#F59E0B"/>
+
+  <!-- Branch up from amphibian -->
+  <line x1="195" y1="175" x2="195" y2="150" stroke="#6B7280" stroke-width="2"/>
+
+  <!-- Reptile -->
+  <line x1="195" y1="150" x2="240" y2="140" stroke="#6B7280" stroke-width="2"/>
+  <rect x="210" y="125" width="100" height="30" rx="8" fill="#F59E0B"/>
+  <text x="260" y="144" text-anchor="middle" font-family="sans-serif" font-size="11" fill="white">🦎 ハチュウ類</text>
+
+  <!-- Branch from reptile to birds and mammals -->
+  <line x1="260" y1="125" x2="260" y2="100" stroke="#6B7280" stroke-width="2"/>
+
+  <!-- Bird branch -->
+  <line x1="260" y1="100" x2="320" y2="80" stroke="#6B7280" stroke-width="2"/>
+  <rect x="290" y="60" width="80" height="30" rx="8" fill="#EF4444"/>
+  <text x="330" y="79" text-anchor="middle" font-family="sans-serif" font-size="11" fill="white">🐦 鳥類</text>
+
+  <!-- Archaeopteryx label -->
+  <text x="275" y="93" font-family="sans-serif" font-size="7" fill="#D97706" font-style="italic">始祖鳥</text>
+  <circle cx="260" cy="100" r="3" fill="#F59E0B"/>
+
+  <!-- Mammal branch -->
+  <line x1="260" y1="100" x2="170" y2="80" stroke="#6B7280" stroke-width="2"/>
+  <rect x="100" y="60" width="100" height="30" rx="8" fill="#8B5CF6"/>
+  <text x="150" y="79" text-anchor="middle" font-family="sans-serif" font-size="11" fill="white">🐘 哺乳類</text>
+
+  <!-- Bottom note -->
+  <text x="200" y="270" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#4B5563">水中生活 → 陸上生活へと進化</text>
+
+  <defs>
+    <marker id="timearr" markerWidth="8" markerHeight="6" refX="4" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#9CA3AF"/>
+    </marker>
+  </defs>
+</svg>

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none">
+  <!-- Background -->
+  <rect width="400" height="300" rx="16" fill="#1f2937"/>
+
+  <!-- Title -->
+  <text x="200" y="25" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="white">月の満ち欠け</text>
+
+  <!-- Sun (top) -->
+  <text x="200" y="50" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#FDE68A">太陽光 ☀️ →</text>
+  <line x1="260" y1="45" x2="370" y2="45" stroke="#FDE68A" stroke-width="1" stroke-dasharray="4 2"/>
+
+  <!-- Earth (center) -->
+  <circle cx="200" cy="155" r="22" fill="#3B82F6"/>
+  <text x="200" y="160" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="white">地球</text>
+
+  <!-- Moon positions around Earth -->
+  <!-- New moon (top - between earth and sun) -->
+  <circle cx="200" cy="75" r="14" fill="#374151" stroke="#6B7280" stroke-width="1"/>
+  <text x="200" y="60" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#9CA3AF">新月</text>
+
+  <!-- First quarter (right) -->
+  <circle cx="310" cy="155" r="14" fill="#374151" stroke="#6B7280" stroke-width="1"/>
+  <path d="M310 141 A14 14 0 0 1 310 169" fill="#FEF3C7"/>
+  <text x="340" y="160" font-family="sans-serif" font-size="8" fill="#9CA3AF">上弦</text>
+
+  <!-- Full moon (bottom) -->
+  <circle cx="200" cy="235" r="14" fill="#FEF3C7" stroke="#F59E0B" stroke-width="1"/>
+  <text x="200" y="262" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#9CA3AF">満月</text>
+
+  <!-- Last quarter (left) -->
+  <circle cx="90" cy="155" r="14" fill="#374151" stroke="#6B7280" stroke-width="1"/>
+  <path d="M90 141 A14 14 0 0 0 90 169" fill="#FEF3C7"/>
+  <text x="55" y="160" font-family="sans-serif" font-size="8" fill="#9CA3AF">下弦</text>
+
+  <!-- Orbit circle -->
+  <circle cx="200" cy="155" r="80" stroke="#4B5563" stroke-width="1" stroke-dasharray="6 3" fill="none"/>
+
+  <!-- Arrow showing orbit direction -->
+  <text x="270" y="100" font-family="sans-serif" font-size="9" fill="#6B7280">公転方向 →</text>
+
+  <!-- Bottom explanation -->
+  <text x="200" y="288" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#9CA3AF">月は約29.5日で地球を一周し、見え方が変わる</text>
+</svg>

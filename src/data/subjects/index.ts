@@ -2,6 +2,7 @@ import type { Subject } from '../types';
 import { history } from './history';
 import { english } from './english';
 import { math } from './math';
+import { science } from './science';
 
 export const subjects: Subject[] = [
   {
@@ -25,10 +26,17 @@ export const subjects: Subject[] = [
     description: '代数を中心に学ぼう',
     isAvailable: true,
   },
+  {
+    id: 'science',
+    name: '理科',
+    icon: 'flask-conical',
+    description: '化学・生物・物理・地学',
+    isAvailable: true,
+  },
 ];
 
 export function getSubject(id: string): Subject | undefined {
   return subjects.find((s) => s.id === id);
 }
 
-export { history, english, math };
+export { history, english, math, science };
