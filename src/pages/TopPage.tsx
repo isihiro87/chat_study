@@ -133,6 +133,8 @@ export function TopPage() {
             const Icon = iconMap[subject.icon] || Scroll;
             const isAvailable = subject.isAvailable;
 
+            const isPreview = subject.id === 'math';
+
             if (isAvailable) {
               return (
                 <Link
@@ -144,9 +146,16 @@ export function TopPage() {
                     <Icon className="h-7 w-7 text-primary" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-lg font-semibold text-gray-800">
-                      {subject.name}
-                    </h3>
+                    <div className="flex items-center gap-2">
+                      <h3 className="text-lg font-semibold text-gray-800">
+                        {subject.name}
+                      </h3>
+                      {isPreview && (
+                        <span className="rounded-full bg-amber-100 px-2 py-0.5 text-[10px] font-bold text-amber-700">
+                          準備中
+                        </span>
+                      )}
+                    </div>
                     <p className="text-sm text-gray-500">{subject.description}</p>
                   </div>
                 </Link>

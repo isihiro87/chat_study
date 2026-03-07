@@ -48,7 +48,17 @@ export const linearEquationsChat: HistoryChat = {
       side: 'left',
       characterId: 'teacher',
       expression: 'explaining',
-      text: 'まずこの<ruby>式<rt>しき</rt></ruby>を見てみよう！<br/><br/><strong>x + 3 = 7</strong><br/><br/>この x にどんな<ruby>数<rt>かず</rt></ruby>を入れたら<ruby>等式<rt>とうしき</rt></ruby>が<ruby>成<rt>な</rt></ruby>り<ruby>立<rt>た</rt></ruby>つかな？',
+      text: 'まずこの<ruby>式<rt>しき</rt></ruby>を見てみよう！',
+    },
+    {
+      type: 'whiteboard',
+      title: '<ruby>問題<rt>もんだい</rt></ruby>',
+      steps: [
+        {
+          formula: 'x + 3 = 7',
+          annotation: 'この x にどんな<ruby>数<rt>かず</rt></ruby>を入れたら<ruby>等式<rt>とうしき</rt></ruby>が<ruby>成<rt>な</rt></ruby>り<ruby>立<rt>た</rt></ruby>つ？',
+        },
+      ],
     },
     {
       type: 'message',
@@ -88,7 +98,24 @@ export const linearEquationsChat: HistoryChat = {
       side: 'left',
       characterId: 'teacher',
       expression: 'explaining',
-      text: '<ruby>等式<rt>とうしき</rt></ruby>には<ruby>大事<rt>だいじ</rt></ruby>な<ruby>性質<rt>せいしつ</rt></ruby>があるよ。<br/><br/>「<ruby>両辺<rt>りょうへん</rt></ruby>に<ruby>同<rt>おな</rt></ruby>じ<ruby>数<rt>かず</rt></ruby>を<ruby>足<rt>た</rt></ruby>しても引いても、等式は成り立つ」<br/><br/>x + 3 = 7 の<ruby>両辺<rt>りょうへん</rt></ruby>から 3 を引くと…<br/>x + 3 <strong>− 3</strong> = 7 <strong>− 3</strong><br/>x = 4',
+      text: '<ruby>等式<rt>とうしき</rt></ruby>には<ruby>大事<rt>だいじ</rt></ruby>な<ruby>性質<rt>せいしつ</rt></ruby>があるよ。「<ruby>両辺<rt>りょうへん</rt></ruby>に<ruby>同<rt>おな</rt></ruby>じ<ruby>数<rt>かず</rt></ruby>を<ruby>足<rt>た</rt></ruby>しても引いても、等式は成り立つ」んだ。',
+    },
+    {
+      type: 'whiteboard',
+      title: '<ruby>等式<rt>とうしき</rt></ruby>の<ruby>性質<rt>せいしつ</rt></ruby>を使った<ruby>解<rt>と</rt></ruby>き方',
+      steps: [
+        {
+          formula: 'x + 3 = 7',
+          annotation: '<ruby>両辺<rt>りょうへん</rt></ruby>から 3 を引く',
+        },
+        {
+          formula: 'x + 3 <strong>− 3</strong> = 7 <strong>− 3</strong>',
+        },
+        {
+          formula: 'x = 4',
+          isResult: true,
+        },
+      ],
     },
     {
       type: 'message',
@@ -102,7 +129,25 @@ export const linearEquationsChat: HistoryChat = {
       side: 'left',
       characterId: 'teacher',
       expression: 'encouraging',
-      text: 'そう！これを<ruby>簡単<rt>かんたん</rt></ruby>に書くのが<strong>「<ruby>移項<rt>いこう</rt></ruby>」</strong>だよ。<br/><br/>x + 3 = 7<br/>→ x = 7 <strong>− 3</strong>（+3 が<ruby>反対側<rt>はんたいがわ</rt></ruby>に<ruby>移<rt>うつ</rt></ruby>って −3 になった！）<br/>→ x = 4<br/><br/><ruby>移項<rt>いこう</rt></ruby>のルール: <strong><ruby>符号<rt>ふごう</rt></ruby>が<ruby>変<rt>か</rt></ruby>わる</strong>！<br/>+ → − に、− → + に変わるよ！',
+      text: 'そう！これを<ruby>簡単<rt>かんたん</rt></ruby>に書くのが<strong>「<ruby>移項<rt>いこう</rt></ruby>」</strong>だよ。',
+    },
+    {
+      type: 'whiteboard',
+      title: '<ruby>移項<rt>いこう</rt></ruby>のやり方',
+      steps: [
+        {
+          formula: 'x + 3 = 7',
+          annotation: '+3 を<ruby>反対側<rt>はんたいがわ</rt></ruby>に<ruby>移<rt>うつ</rt></ruby>すと −3 になる！',
+        },
+        {
+          formula: 'x = 7 <strong>− 3</strong>',
+          annotation: '<ruby>移項<rt>いこう</rt></ruby>のルール: <strong><ruby>符号<rt>ふごう</rt></ruby>が<ruby>変<rt>か</rt></ruby>わる</strong>（+ → −、− → +）',
+        },
+        {
+          formula: 'x = 4',
+          isResult: true,
+        },
+      ],
     },
     {
       type: 'summary-point',
@@ -129,7 +174,17 @@ export const linearEquationsChat: HistoryChat = {
       side: 'left',
       characterId: 'teacher',
       expression: 'explaining',
-      text: '<ruby>次<rt>つぎ</rt></ruby>はこんな<ruby>問題<rt>もんだい</rt></ruby>！<br/><br/><strong>3x + 2 = 11</strong><br/><br/>x の<ruby>前<rt>まえ</rt></ruby>に<ruby>数字<rt>すうじ</rt></ruby>がついているね。どうやって<ruby>解<rt>と</rt></ruby>くかな？',
+      text: '<ruby>次<rt>つぎ</rt></ruby>はこんな<ruby>問題<rt>もんだい</rt></ruby>！ x の<ruby>前<rt>まえ</rt></ruby>に<ruby>数字<rt>すうじ</rt></ruby>がついているね。',
+    },
+    {
+      type: 'whiteboard',
+      title: '<ruby>問題<rt>もんだい</rt></ruby>',
+      steps: [
+        {
+          formula: '3x + 2 = 11',
+          annotation: 'どうやって<ruby>解<rt>と</rt></ruby>くかな？',
+        },
+      ],
     },
     {
       type: 'message',
@@ -143,7 +198,28 @@ export const linearEquationsChat: HistoryChat = {
       side: 'left',
       characterId: 'teacher',
       expression: 'happy',
-      text: 'いいぞ！<ruby>移項<rt>いこう</rt></ruby>は<ruby>完璧<rt>かんぺき</rt></ruby>！<br/><br/>3x = 9 は「x の 3<ruby>倍<rt>ばい</rt></ruby>が 9」ってこと。だから<strong><ruby>両辺<rt>りょうへん</rt></ruby>を 3 で<ruby>割<rt>わ</rt></ruby>る</strong>よ！<br/><br/>3x ÷ 3 = 9 ÷ 3<br/><strong>x = 3</strong>',
+      text: 'いいぞ！<ruby>移項<rt>いこう</rt></ruby>は<ruby>完璧<rt>かんぺき</rt></ruby>！ 3x = 9 は「x の 3<ruby>倍<rt>ばい</rt></ruby>が 9」ってこと。だから<strong><ruby>両辺<rt>りょうへん</rt></ruby>を 3 で<ruby>割<rt>わ</rt></ruby>る</strong>よ！',
+    },
+    {
+      type: 'whiteboard',
+      title: '<ruby>解<rt>と</rt></ruby>き方',
+      steps: [
+        {
+          formula: '3x + 2 = 11',
+          annotation: '+2 を<ruby>移項<rt>いこう</rt></ruby>',
+        },
+        {
+          formula: '3x = 11 − 2 = 9',
+        },
+        {
+          formula: '3x ÷ 3 = 9 ÷ 3',
+          annotation: '<ruby>両辺<rt>りょうへん</rt></ruby>を 3 で<ruby>割<rt>わ</rt></ruby>る',
+        },
+        {
+          formula: 'x = 3',
+          isResult: true,
+        },
+      ],
     },
     {
       type: 'message',
@@ -177,7 +253,7 @@ export const linearEquationsChat: HistoryChat = {
       side: 'left',
       characterId: 'teacher',
       expression: 'explaining',
-      text: '<ruby>最後<rt>さいご</rt></ruby>に、<ruby>小数<rt>しょうすう</rt></ruby>や<ruby>分数<rt>ぶんすう</rt></ruby>の<ruby>方程式<rt>ほうていしき</rt></ruby>を見てみよう！<br/><br/><strong>0.3x = 1.2</strong><br/><br/><ruby>小数<rt>しょうすう</rt></ruby>があるときはどうする？',
+      text: '<ruby>最後<rt>さいご</rt></ruby>に、<ruby>小数<rt>しょうすう</rt></ruby>や<ruby>分数<rt>ぶんすう</rt></ruby>の<ruby>方程式<rt>ほうていしき</rt></ruby>を見てみよう！<ruby>小数<rt>しょうすう</rt></ruby>があるときはどうする？',
     },
     {
       type: 'message',
@@ -191,7 +267,31 @@ export const linearEquationsChat: HistoryChat = {
       side: 'left',
       characterId: 'teacher',
       expression: 'encouraging',
-      text: 'そこで<ruby>裏技<rt>うらわざ</rt></ruby>！<strong><ruby>両辺<rt>りょうへん</rt></ruby>を10<ruby>倍<rt>ばい</rt></ruby></strong>して<ruby>整数<rt>せいすう</rt></ruby>にしちゃおう！<br/><br/>0.3x = 1.2<br/>→ <strong>10<ruby>倍<rt>ばい</rt></ruby></strong>: 3x = 12<br/>→ x = 12 ÷ 3 = <strong>4</strong><br/><br/><ruby>分数<rt>ぶんすう</rt></ruby>のときも<ruby>同<rt>おな</rt></ruby>じ！<ruby>分母<rt>ぶんぼ</rt></ruby>の<ruby>最小公倍数<rt>さいしょうこうばいすう</rt></ruby>をかけて<ruby>分数<rt>ぶんすう</rt></ruby>を「はらう」んだ。',
+      text: 'そこで<ruby>裏技<rt>うらわざ</rt></ruby>！<strong><ruby>両辺<rt>りょうへん</rt></ruby>を10<ruby>倍<rt>ばい</rt></ruby></strong>して<ruby>整数<rt>せいすう</rt></ruby>にしちゃおう！',
+    },
+    {
+      type: 'whiteboard',
+      title: '<ruby>小数<rt>しょうすう</rt></ruby>の<ruby>方程式<rt>ほうていしき</rt></ruby>',
+      steps: [
+        {
+          formula: '0.3x = 1.2',
+          annotation: '<ruby>両辺<rt>りょうへん</rt></ruby>を <strong>10<ruby>倍<rt>ばい</rt></ruby></strong>',
+        },
+        {
+          formula: '3x = 12',
+        },
+        {
+          formula: 'x = 12 ÷ 3 = <strong>4</strong>',
+          isResult: true,
+        },
+      ],
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<ruby>分数<rt>ぶんすう</rt></ruby>のときも<ruby>同<rt>おな</rt></ruby>じ！<ruby>分母<rt>ぶんぼ</rt></ruby>の<ruby>最小公倍数<rt>さいしょうこうばいすう</rt></ruby>をかけて<ruby>分数<rt>ぶんすう</rt></ruby>を「はらう」んだ。',
     },
     {
       type: 'summary-point',

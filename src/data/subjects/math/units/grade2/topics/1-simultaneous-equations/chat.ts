@@ -48,7 +48,28 @@ export const simultaneousEquationsChat: HistoryChat = {
       side: 'left',
       characterId: 'teacher',
       expression: 'explaining',
-      text: 'こんな<ruby>問題<rt>もんだい</rt></ruby>を<ruby>考<rt>かんが</rt></ruby>えてみよう。<br/><br/>「りんごとみかんを<ruby>合<rt>あ</rt></ruby>わせて 7<ruby>個<rt>こ</rt></ruby>。りんごはみかんより 3<ruby>個<rt>こ</rt></ruby><ruby>多<rt>おお</rt></ruby>い。それぞれ何<ruby>個<rt>こ</rt></ruby>？」<br/><br/>りんごを x<ruby>個<rt>こ</rt></ruby>、みかんを y<ruby>個<rt>こ</rt></ruby>とすると…<br/><strong>① x + y = 7</strong><br/><strong>② x − y = 3</strong><br/><br/>この2つの<ruby>式<rt>しき</rt></ruby>の<ruby>組<rt>く</rt></ruby>み<ruby>合<rt>あ</rt></ruby>わせが<strong><ruby>連立方程式<rt>れんりつほうていしき</rt></ruby></strong>だよ！',
+      text: 'こんな<ruby>問題<rt>もんだい</rt></ruby>を<ruby>考<rt>かんが</rt></ruby>えてみよう。<br/>「りんごとみかんを<ruby>合<rt>あ</rt></ruby>わせて 7<ruby>個<rt>こ</rt></ruby>。りんごはみかんより 3<ruby>個<rt>こ</rt></ruby><ruby>多<rt>おお</rt></ruby>い。それぞれ何<ruby>個<rt>こ</rt></ruby>？」',
+    },
+    {
+      type: 'whiteboard',
+      title: '<ruby>式<rt>しき</rt></ruby>を立てよう（りんご = x、みかん = y）',
+      steps: [
+        {
+          formula: '① x + y = 7',
+          annotation: '<ruby>合<rt>あ</rt></ruby>わせて 7<ruby>個<rt>こ</rt></ruby>',
+        },
+        {
+          formula: '② x − y = 3',
+          annotation: 'りんごはみかんより 3<ruby>個<rt>こ</rt></ruby><ruby>多<rt>おお</rt></ruby>い',
+        },
+      ],
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: 'この2つの<ruby>式<rt>しき</rt></ruby>の<ruby>組<rt>く</rt></ruby>み<ruby>合<rt>あ</rt></ruby>わせが<strong><ruby>連立方程式<rt>れんりつほうていしき</rt></ruby></strong>だよ！',
     },
     {
       type: 'message',
@@ -81,21 +102,57 @@ export const simultaneousEquationsChat: HistoryChat = {
       side: 'left',
       characterId: 'teacher',
       expression: 'explaining',
-      text: 'さっきの<ruby>問題<rt>もんだい</rt></ruby>をやってみよう！<br/><br/>① x + y = 7<br/>② x − y = 3<br/><br/>y に<ruby>注目<rt>ちゅうもく</rt></ruby>！①は <strong>+y</strong>、②は <strong>−y</strong> だよね。この2つの<ruby>式<rt>しき</rt></ruby>を<ruby>足<rt>た</rt></ruby>すとどうなる？',
+      text: 'さっきの<ruby>問題<rt>もんだい</rt></ruby>をやってみよう！ y に<ruby>注目<rt>ちゅうもく</rt></ruby>！①は <strong>+y</strong>、②は <strong>−y</strong> だよね。この2つの<ruby>式<rt>しき</rt></ruby>を<ruby>足<rt>た</rt></ruby>すとどうなる？',
     },
     {
       type: 'message',
       side: 'right',
       characterId: 'student',
       expression: 'thinking',
-      text: 'えっと… (x + y) + (x − y) = 7 + 3 だから… x + x = 10 で <strong>2x = 10</strong>！ y が<ruby>消<rt>き</rt></ruby>えた！',
+      text: 'えっと… (x + y) + (x − y) = 7 + 3 だから… y が<ruby>消<rt>き</rt></ruby>えた！',
+    },
+    {
+      type: 'whiteboard',
+      title: '<ruby>加減法<rt>かげんほう</rt></ruby>の<ruby>解<rt>と</rt></ruby>き方',
+      steps: [
+        {
+          formula: '① x + y = 7',
+        },
+        {
+          formula: '② x − y = 3',
+          annotation: '① + ② で y を<ruby>消去<rt>しょうきょ</rt></ruby>',
+        },
+        {
+          formula: '2x = 10',
+          annotation: '+y と −y が<ruby>打<rt>う</rt></ruby>ち<ruby>消<rt>け</rt></ruby>し<ruby>合<rt>あ</rt></ruby>った！',
+        },
+        {
+          formula: 'x = 5',
+          isResult: true,
+        },
+      ],
     },
     {
       type: 'message',
       side: 'left',
       characterId: 'teacher',
       expression: 'encouraging',
-      text: '<ruby>完璧<rt>かんぺき</rt></ruby>！ +y と −y が<ruby>打<rt>う</rt></ruby>ち<ruby>消<rt>け</rt></ruby>し<ruby>合<rt>あ</rt></ruby>って<ruby>消<rt>き</rt></ruby>えたね！<br/><br/>2x = 10 → <strong>x = 5</strong><br/><br/>x = 5 を ① に<ruby>代入<rt>だいにゅう</rt></ruby>すると…<br/>5 + y = 7 → <strong>y = 2</strong><br/><br/><ruby>答<rt>こた</rt></ruby>え: りんご 5<ruby>個<rt>こ</rt></ruby>、みかん 2<ruby>個<rt>こ</rt></ruby>！',
+      text: '<ruby>完璧<rt>かんぺき</rt></ruby>！次に x = 5 を ① に<ruby>代入<rt>だいにゅう</rt></ruby>して y を<ruby>求<rt>もと</rt></ruby>めよう！',
+    },
+    {
+      type: 'whiteboard',
+      title: 'y を<ruby>求<rt>もと</rt></ruby>める',
+      steps: [
+        {
+          formula: '5 + y = 7',
+          annotation: '① に x = 5 を<ruby>代入<rt>だいにゅう</rt></ruby>',
+        },
+        {
+          formula: 'y = 2',
+          isResult: true,
+          annotation: '<ruby>答<rt>こた</rt></ruby>え: りんご 5<ruby>個<rt>こ</rt></ruby>、みかん 2<ruby>個<rt>こ</rt></ruby>',
+        },
+      ],
     },
     {
       type: 'message',
@@ -133,21 +190,59 @@ export const simultaneousEquationsChat: HistoryChat = {
       side: 'left',
       characterId: 'teacher',
       expression: 'explaining',
-      text: '<ruby>次<rt>つぎ</rt></ruby>の<ruby>連立方程式<rt>れんりつほうていしき</rt></ruby>を見てみよう！<br/><br/>① y = 2x<br/>② x + y = 9<br/><br/>①を見て！もう <strong>y = 2x</strong> ってわかってるよね。これを②の y に<ruby>入<rt>い</rt></ruby>れちゃおう！',
+      text: '<ruby>次<rt>つぎ</rt></ruby>の<ruby>連立方程式<rt>れんりつほうていしき</rt></ruby>を見てみよう！①を見て！もう <strong>y = 2x</strong> ってわかってるよね。これを②の y に<ruby>入<rt>い</rt></ruby>れちゃおう！',
+    },
+    {
+      type: 'whiteboard',
+      title: '<ruby>代入法<rt>だいにゅうほう</rt></ruby>の<ruby>解<rt>と</rt></ruby>き方',
+      steps: [
+        {
+          formula: '① y = 2x',
+        },
+        {
+          formula: '② x + y = 9',
+          annotation: '② の y に 2x を<ruby>代入<rt>だいにゅう</rt></ruby>',
+        },
+        {
+          formula: 'x + <strong>2x</strong> = 9',
+        },
+        {
+          formula: '3x = 9',
+        },
+        {
+          formula: 'x = 3',
+          isResult: true,
+        },
+      ],
     },
     {
       type: 'message',
       side: 'right',
       characterId: 'student',
       expression: 'curious',
-      text: '② の y のところに 2x を入れるんですか？<br/><br/>x + <strong>2x</strong> = 9 → 3x = 9 → <strong>x = 3</strong>！',
+      text: 'おおー！y のところに 2x を入れるだけで<ruby>解<rt>と</rt></ruby>けた！',
+    },
+    {
+      type: 'whiteboard',
+      title: 'y を<ruby>求<rt>もと</rt></ruby>める',
+      steps: [
+        {
+          formula: 'y = 2 × 3',
+          annotation: '① に x = 3 を<ruby>代入<rt>だいにゅう</rt></ruby>',
+        },
+        {
+          formula: 'y = 6',
+          isResult: true,
+          annotation: '<ruby>答<rt>こた</rt></ruby>え: x = 3, y = 6',
+        },
+      ],
     },
     {
       type: 'message',
       side: 'left',
       characterId: 'teacher',
       expression: 'happy',
-      text: 'すごい！<ruby>完璧<rt>かんぺき</rt></ruby>だよ！<br/><br/>x = 3 を ① y = 2x に<ruby>代入<rt>だいにゅう</rt></ruby>して…<br/>y = 2 × 3 = <strong>6</strong><br/><br/><ruby>答<rt>こた</rt></ruby>え: x = 3, y = 6<br/><br/><ruby>代入法<rt>だいにゅうほう</rt></ruby>は、<strong>「y = ○○」の形が<ruby>最初<rt>さいしょ</rt></ruby>からあるとき</strong>にとくに<ruby>便利<rt>べんり</rt></ruby>だよ！',
+      text: '<ruby>代入法<rt>だいにゅうほう</rt></ruby>は、<strong>「y = ○○」の形が<ruby>最初<rt>さいしょ</rt></ruby>からあるとき</strong>にとくに<ruby>便利<rt>べんり</rt></ruby>だよ！',
     },
     {
       type: 'summary-point',

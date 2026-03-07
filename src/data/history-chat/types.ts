@@ -25,6 +25,7 @@ export type ChatContent =
   | MessageContent
   | QuizContent
   | SummaryPointContent
+  | WhiteboardContent
   | EndContent;
 
 export interface DateContent {
@@ -62,6 +63,18 @@ export interface QuizOption {
 export interface SummaryPointContent {
   type: 'summary-point';
   text: string; // ミニまとめの1行テキスト
+}
+
+export interface WhiteboardStep {
+  formula: string; // 数式（HTML対応）
+  annotation?: string; // 補足説明（HTML対応）
+  isResult?: boolean; // 最終結果のハイライト
+}
+
+export interface WhiteboardContent {
+  type: 'whiteboard';
+  title?: string; // ホワイトボードのタイトル
+  steps: WhiteboardStep[];
 }
 
 export interface EndContent {

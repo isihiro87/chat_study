@@ -11,6 +11,7 @@ import { ChatMessage } from './ChatMessage';
 import { ChatQuiz } from './ChatQuiz';
 import { SummaryCard } from './SummaryCard';
 import { SummaryPointBlock } from './SummaryPointBlock';
+import { WhiteboardBlock } from './WhiteboardBlock';
 import type { HistoryChat, EndContent, MessageContent } from '../../data/history-chat/types';
 
 interface ChatContainerProps {
@@ -182,6 +183,15 @@ export function ChatContainer({ chat, embedded = false, onNavigateToFlashcard, o
 
                   case 'summary-point':
                     return <SummaryPointBlock key={key} text={content.text} />;
+
+                  case 'whiteboard':
+                    return (
+                      <WhiteboardBlock
+                        key={key}
+                        title={content.title}
+                        steps={content.steps}
+                      />
+                    );
 
                   case 'end':
                     return (

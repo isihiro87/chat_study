@@ -48,7 +48,24 @@ export const quadraticEquationsChat: HistoryChat = {
       side: 'left',
       characterId: 'teacher',
       expression: 'explaining',
-      text: '<ruby>今日<rt>きょう</rt></ruby>はこんな<ruby>問題<rt>もんだい</rt></ruby>を<ruby>解<rt>と</rt></ruby>けるようになるよ！<br/><br/><strong>x² − 5x + 6 = 0</strong><br/><br/>x² があるね。これが<strong><ruby>二次方程式<rt>にじほうていしき</rt></ruby></strong>だよ。<ruby>一次方程式<rt>いちじほうていしき</rt></ruby>との<ruby>大<rt>おお</rt></ruby>きな<ruby>違<rt>ちが</rt></ruby>いは、<strong><ruby>解<rt>かい</rt></ruby>が2つある</strong>こと！',
+      text: '<ruby>今日<rt>きょう</rt></ruby>はこんな<ruby>問題<rt>もんだい</rt></ruby>を<ruby>解<rt>と</rt></ruby>けるようになるよ！',
+    },
+    {
+      type: 'whiteboard',
+      title: '<ruby>二次方程式<rt>にじほうていしき</rt></ruby>の<ruby>例<rt>れい</rt></ruby>',
+      steps: [
+        {
+          formula: 'x² − 5x + 6 = 0',
+          annotation: 'x² があるね。これが<strong><ruby>二次方程式<rt>にじほうていしき</rt></ruby></strong>！',
+        },
+      ],
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<ruby>一次方程式<rt>いちじほうていしき</rt></ruby>との<ruby>大<rt>おお</rt></ruby>きな<ruby>違<rt>ちが</rt></ruby>いは、<strong><ruby>解<rt>かい</rt></ruby>が2つある</strong>こと！',
     },
     {
       type: 'message',
@@ -62,7 +79,29 @@ export const quadraticEquationsChat: HistoryChat = {
       side: 'left',
       characterId: 'teacher',
       expression: 'happy',
-      text: 'そう、x² があるからね。<ruby>例<rt>たと</rt></ruby>えば x² = 9 のとき、x = 3 も x = −3 も<ruby>正解<rt>せいかい</rt></ruby>でしょ？<br/>3² = 9 ✓<br/>(−3)² = 9 ✓<br/><br/>だから<strong>±（プラスマイナス）</strong>で2つの<ruby>解<rt>かい</rt></ruby>が出てくるんだ。',
+      text: 'そう、x² があるからね。<ruby>例<rt>たと</rt></ruby>えば x² = 9 のとき…',
+    },
+    {
+      type: 'whiteboard',
+      title: 'なぜ<ruby>解<rt>かい</rt></ruby>が2つ？',
+      steps: [
+        {
+          formula: 'x² = 9',
+        },
+        {
+          formula: '3² = 9 ✓',
+          annotation: 'x = 3 は<ruby>正解<rt>せいかい</rt></ruby>',
+        },
+        {
+          formula: '(−3)² = 9 ✓',
+          annotation: 'x = −3 も<ruby>正解<rt>せいかい</rt></ruby>！',
+        },
+        {
+          formula: 'x = ±3',
+          isResult: true,
+          annotation: '<strong>±</strong>（プラスマイナス）で2つの<ruby>解<rt>かい</rt></ruby>',
+        },
+      ],
     },
     {
       type: 'summary-point',
@@ -81,7 +120,22 @@ export const quadraticEquationsChat: HistoryChat = {
       side: 'left',
       characterId: 'teacher',
       expression: 'explaining',
-      text: '<ruby>大事<rt>だいじ</rt></ruby>な<ruby>原則<rt>げんそく</rt></ruby>を<ruby>覚<rt>おぼ</rt></ruby>えよう！<br/><br/><strong>A × B = 0 ならば、A = 0 または B = 0</strong><br/><br/>つまり、<ruby>式<rt>しき</rt></ruby>を (　)(　) = 0 の形にできれば、それぞれを 0 とおいて<ruby>解<rt>と</rt></ruby>ける！',
+      text: '<ruby>大事<rt>だいじ</rt></ruby>な<ruby>原則<rt>げんそく</rt></ruby>を<ruby>覚<rt>おぼ</rt></ruby>えよう！',
+    },
+    {
+      type: 'whiteboard',
+      title: '<ruby>因数分解<rt>いんすうぶんかい</rt></ruby>の<ruby>原則<rt>げんそく</rt></ruby>',
+      steps: [
+        {
+          formula: 'A × B = 0',
+          annotation: 'ならば…',
+        },
+        {
+          formula: 'A = 0 または B = 0',
+          isResult: true,
+          annotation: '(　)(　) = 0 の形にできれば、それぞれを 0 とおいて<ruby>解<rt>と</rt></ruby>ける！',
+        },
+      ],
     },
     {
       type: 'message',
@@ -95,7 +149,28 @@ export const quadraticEquationsChat: HistoryChat = {
       side: 'left',
       characterId: 'teacher',
       expression: 'encouraging',
-      text: 'コツは<strong>「かけて c、<ruby>足<rt>た</rt></ruby>して b」</strong>になる2つの<ruby>数<rt>かず</rt></ruby>を<ruby>探<rt>さが</rt></ruby>すこと！<br/><br/>x² − 5x + <strong>6</strong> = 0<br/><br/>かけて <strong>6</strong>、<ruby>足<rt>た</rt></ruby>して <strong>−5</strong> になる2<ruby>数<rt>すう</rt></ruby>は？<br/>→ <strong>−2</strong> と <strong>−3</strong>（−2 × −3 = 6、−2 + −3 = −5）<br/><br/>(x − 2)(x − 3) = 0<br/>x = <strong>2</strong> または x = <strong>3</strong>',
+      text: 'コツは<strong>「かけて c、<ruby>足<rt>た</rt></ruby>して b」</strong>になる2つの<ruby>数<rt>かず</rt></ruby>を<ruby>探<rt>さが</rt></ruby>すこと！',
+    },
+    {
+      type: 'whiteboard',
+      title: '<ruby>因数分解<rt>いんすうぶんかい</rt></ruby>で<ruby>解<rt>と</rt></ruby>く',
+      steps: [
+        {
+          formula: 'x² − 5x + 6 = 0',
+          annotation: 'かけて <strong>6</strong>、<ruby>足<rt>た</rt></ruby>して <strong>−5</strong> になる2<ruby>数<rt>すう</rt></ruby>は？',
+        },
+        {
+          formula: '→ <strong>−2</strong> と <strong>−3</strong>',
+          annotation: '−2 × −3 = 6 ✓　−2 + (−3) = −5 ✓',
+        },
+        {
+          formula: '(x − 2)(x − 3) = 0',
+        },
+        {
+          formula: 'x = 2 または x = 3',
+          isResult: true,
+        },
+      ],
     },
     {
       type: 'message',
@@ -133,7 +208,21 @@ export const quadraticEquationsChat: HistoryChat = {
       side: 'left',
       characterId: 'teacher',
       expression: 'explaining',
-      text: '<ruby>因数分解<rt>いんすうぶんかい</rt></ruby>できないとき、<ruby>解<rt>かい</rt></ruby>の<ruby>公式<rt>こうしき</rt></ruby>を使うよ！<br/><br/>ax² + bx + c = 0 のとき<br/><strong>x = (−b ± √(b²−4ac)) / 2a</strong><br/><br/>これに a, b, c を<ruby>代入<rt>だいにゅう</rt></ruby>するだけ！',
+      text: '<ruby>因数分解<rt>いんすうぶんかい</rt></ruby>できないとき、<ruby>解<rt>かい</rt></ruby>の<ruby>公式<rt>こうしき</rt></ruby>を使うよ！',
+    },
+    {
+      type: 'whiteboard',
+      title: '<ruby>解<rt>かい</rt></ruby>の<ruby>公式<rt>こうしき</rt></ruby>',
+      steps: [
+        {
+          formula: 'ax² + bx + c = 0 のとき',
+        },
+        {
+          formula: 'x = (−b ± √(b²−4ac)) / 2a',
+          isResult: true,
+          annotation: 'これに a, b, c を<ruby>代入<rt>だいにゅう</rt></ruby>するだけ！',
+        },
+      ],
     },
     {
       type: 'message',
@@ -147,7 +236,32 @@ export const quadraticEquationsChat: HistoryChat = {
       side: 'left',
       characterId: 'teacher',
       expression: 'encouraging',
-      text: '<ruby>大丈夫<rt>だいじょうぶ</rt></ruby>！やってみよう。<br/><br/>x² + 4x + 1 = 0（<ruby>因数分解<rt>いんすうぶんかい</rt></ruby>できない！）<br/><br/>a = 1, b = 4, c = 1 を<ruby>代入<rt>だいにゅう</rt></ruby>：<br/>x = (−4 ± √(16 − 4)) / 2<br/>x = (−4 ± √12) / 2<br/>x = (−4 ± 2√3) / 2<br/>x = <strong>−2 ± √3</strong><br/><br/>a, b, c を<ruby>当<rt>あ</rt></ruby>てはめるだけだよ！',
+      text: '<ruby>大丈夫<rt>だいじょうぶ</rt></ruby>！やってみよう。',
+    },
+    {
+      type: 'whiteboard',
+      title: '<ruby>解<rt>かい</rt></ruby>の<ruby>公式<rt>こうしき</rt></ruby>を使ってみよう',
+      steps: [
+        {
+          formula: 'x² + 4x + 1 = 0',
+          annotation: '<ruby>因数分解<rt>いんすうぶんかい</rt></ruby>できない！→ a=1, b=4, c=1',
+        },
+        {
+          formula: 'x = (−4 ± √(16 − 4)) / 2',
+          annotation: 'b²−4ac = 16−4 = 12',
+        },
+        {
+          formula: 'x = (−4 ± √12) / 2',
+        },
+        {
+          formula: 'x = (−4 ± 2√3) / 2',
+          annotation: '√12 = 2√3',
+        },
+        {
+          formula: 'x = −2 ± √3',
+          isResult: true,
+        },
+      ],
     },
     {
       type: 'message',
