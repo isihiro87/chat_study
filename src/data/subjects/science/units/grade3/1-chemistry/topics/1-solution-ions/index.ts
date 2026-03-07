@@ -14,6 +14,11 @@ export const solutionIons: Topic = {
           title: '電解質と非電解質',
           content:
             '物質を水に溶かしたとき、その水溶液に電流が流れるかどうかで物質を2つに分類できます。電流が流れる物質を電解質、流れない物質を非電解質といいます。電解質は水に溶けるとイオンに分かれる（電離する）ため、電流が流れます。',
+          image: {
+            src: '/images/science/electrolysis-model.svg',
+            alt: 'NaClの電離イメージ',
+            caption: '電解質が水に溶けてイオンに分かれるようす',
+          },
           keyPoints: [
             '電解質：塩化ナトリウム（NaCl）、塩化水素（HCl）、水酸化ナトリウム（NaOH）など',
             '非電解質：砂糖、エタノールなど（水に溶けてもイオンにならない）',
@@ -25,9 +30,9 @@ export const solutionIons: Topic = {
           content:
             '電解質の水溶液に電流を流すと、化学変化が起きて物質が分解されます。これを電気分解といいます。陰極（−極）と陽極（＋極）にそれぞれ異なる物質が現れます。',
           image: {
-            src: '/images/science/electrolysis-model.svg',
-            alt: '電気分解の模式図',
-            caption: '塩化銅水溶液の電気分解',
+            src: '/images/science/electrolysis-apparatus.svg',
+            alt: '塩化銅水溶液の電気分解装置',
+            caption: '陰極に銅、陽極に塩素が発生',
           },
           keyPoints: [
             '塩化銅水溶液の電気分解：陰極に銅（赤色の物質）、陽極に塩素（刺激臭の気体）',
@@ -101,8 +106,8 @@ export const solutionIons: Topic = {
               subtext: '電気分解の実験',
               emoji: '🔬',
               image: {
-                src: '/images/science/electrolysis-model.svg',
-                alt: '電気分解の装置',
+                src: '/images/science/electrolysis-apparatus.svg',
+                alt: '塩化銅水溶液の電気分解装置',
               },
             },
             {

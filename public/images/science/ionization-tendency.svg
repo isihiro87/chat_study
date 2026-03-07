@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 180" fill="none">
+  <!-- Background -->
+  <rect width="400" height="180" rx="16" fill="#F5F3F0"/>
+
+  <!-- Title -->
+  <text x="200" y="25" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1f2937">金属のイオン化傾向</text>
+
+  <!-- Arrow bar -->
+  <defs>
+    <linearGradient id="ionGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#E5E7EB"/>
+    </linearGradient>
+  </defs>
+  <rect x="30" y="45" width="340" height="12" rx="6" fill="url(#ionGrad)"/>
+  <text x="30" y="72" font-family="sans-serif" font-size="10" font-weight="bold" fill="#1D4ED8">イオンになりやすい</text>
+  <text x="370" y="72" text-anchor="end" font-family="sans-serif" font-size="10" font-weight="bold" fill="#9CA3AF">イオンになりにくい</text>
+
+  <!-- Metal boxes -->
+  <!-- Mg -->
+  <rect x="30" y="85" width="60" height="50" rx="8" fill="#DBEAFE" stroke="#3B82F6" stroke-width="2"/>
+  <text x="60" y="105" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="bold" fill="#1D4ED8">Mg</text>
+  <text x="60" y="122" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#374151">マグネシウム</text>
+
+  <!-- > arrow -->
+  <text x="103" y="112" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="bold" fill="#6B7280">></text>
+
+  <!-- Zn -->
+  <rect x="115" y="85" width="55" height="50" rx="8" fill="#DBEAFE" stroke="#60A5FA" stroke-width="1.5"/>
+  <text x="142.5" y="105" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="bold" fill="#2563EB">Zn</text>
+  <text x="142.5" y="122" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#374151">亜鉛</text>
+
+  <!-- > arrow -->
+  <text x="183" y="112" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="bold" fill="#6B7280">></text>
+
+  <!-- Fe -->
+  <rect x="195" y="85" width="50" height="50" rx="8" fill="#F3F4F6" stroke="#9CA3AF" stroke-width="1.5"/>
+  <text x="220" y="105" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="bold" fill="#4B5563">Fe</text>
+  <text x="220" y="122" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#374151">鉄</text>
+
+  <!-- > arrow -->
+  <text x="258" y="112" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="bold" fill="#6B7280">></text>
+
+  <!-- Cu -->
+  <rect x="270" y="85" width="50" height="50" rx="8" fill="#FEF3C7" stroke="#F59E0B" stroke-width="1.5"/>
+  <text x="295" y="105" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="bold" fill="#D97706">Cu</text>
+  <text x="295" y="122" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#374151">銅</text>
+
+  <!-- > arrow -->
+  <text x="333" y="112" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="bold" fill="#6B7280">></text>
+
+  <!-- Ag -->
+  <rect x="345" y="85" width="45" height="50" rx="8" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="1.5"/>
+  <text x="367.5" y="105" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="bold" fill="#9CA3AF">Ag</text>
+  <text x="367.5" y="122" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#374151">銀</text>
+
+  <!-- Bottom note -->
+  <text x="200" y="158" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#4B5563">電池では：イオン化傾向が大きい金属 → −極（電子を放出）</text>
+  <text x="200" y="172" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#4B5563">2つの金属の差が大きいほど → 大きな電圧</text>
+</svg>

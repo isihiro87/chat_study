@@ -24,6 +24,11 @@ export const genetics: Topic = {
           title: '遺伝子の本体',
           content:
             '形質を決める情報をもつものを遺伝子といいます。遺伝子の本体はDNA（デオキシリボ核酸）という物質で、細胞の核の中にある染色体に含まれています。DNAは二重らせん構造をしており、遺伝情報がその配列に書き込まれています。',
+          image: {
+            src: '/images/science/dna-hierarchy.svg',
+            alt: '遺伝子のある場所の階層図',
+            caption: '細胞→核→染色体→DNA→遺伝子',
+          },
           keyPoints: [
             '遺伝子：形質を決める情報をもつもの',
             'DNA＝デオキシリボ核酸が遺伝子の本体',

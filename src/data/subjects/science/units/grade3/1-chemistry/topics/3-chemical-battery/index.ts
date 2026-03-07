@@ -14,6 +14,11 @@ export const chemicalBattery: Topic = {
           title: '電池のしくみ',
           content:
             '電池は、電解質水溶液に異なる2種類の金属を入れることで、化学エネルギーを電気エネルギーに変換する装置です。イオンになりやすい金属が−極（負極）となり、電子を放出します。その電子が導線を通ってもう一方の金属（＋極・正極）に流れることで電流が生じます。',
+          image: {
+            src: '/images/science/battery-model.svg',
+            alt: 'ダニエル電池のしくみ',
+            caption: '電池の基本構造',
+          },
           keyPoints: [
             '電池の3要素：電解質水溶液 + 異なる2種類の金属',
             'イオンになりやすい金属 → −極（電子を放出する側）',
@@ -24,6 +29,11 @@ export const chemicalBattery: Topic = {
           title: '金属のイオン化傾向',
           content:
             '金属にはイオンになりやすさの順番（イオン化傾向）があります。イオン化傾向が大きい金属ほど電子を失いやすく、水溶液中でイオンになりやすいです。電池では、イオン化傾向が大きい金属が−極になります。',
+          image: {
+            src: '/images/science/ionization-tendency.svg',
+            alt: 'イオン化傾向の序列図',
+            caption: 'Mg > Zn > Fe > Cu > Ag',
+          },
           keyPoints: [
             'イオン化傾向の大きい順：Mg（マグネシウム） > Zn（亜鉛） > Fe（鉄） > Cu（銅） > Ag（銀）',
             'イオン化傾向が大きい金属 = 電子を失いやすい = −極になる',

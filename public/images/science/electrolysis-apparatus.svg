@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 280" fill="none">
+  <!-- Background -->
+  <rect width="400" height="280" rx="16" fill="#F5F3F0"/>
+
+  <!-- Title -->
+  <text x="200" y="25" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1f2937">塩化銅水溶液の電気分解</text>
+
+  <!-- Beaker -->
+  <rect x="80" y="70" width="240" height="150" rx="10" fill="#E0F2FE" stroke="#7DD3FC" stroke-width="2"/>
+  <text x="200" y="90" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#0369A1">塩化銅水溶液（CuCl2）</text>
+
+  <!-- Battery / Power source -->
+  <rect x="155" y="35" width="90" height="25" rx="5" fill="white" stroke="#374151" stroke-width="1.5"/>
+  <text x="185" y="52" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#374151">電源装置</text>
+  <text x="155" y="52" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#DC2626">+</text>
+  <text x="245" y="52" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#1D4ED8">-</text>
+
+  <!-- Wires -->
+  <path d="M155 48 L130 48 L130 80" stroke="#374151" stroke-width="2" fill="none"/>
+  <path d="M245 48 L270 48 L270 80" stroke="#374151" stroke-width="2" fill="none"/>
+
+  <!-- Anode (+) electrode -->
+  <rect x="122" y="80" width="16" height="110" rx="3" fill="#6B7280" stroke="#374151" stroke-width="1.5"/>
+  <text x="130" y="210" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#DC2626">陽極（+極）</text>
+
+  <!-- Cathode (-) electrode -->
+  <rect x="262" y="80" width="16" height="110" rx="3" fill="#6B7280" stroke="#374151" stroke-width="1.5"/>
+  <text x="270" y="210" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1D4ED8">陰極（-極）</text>
+
+  <!-- Chlorine gas bubbles at anode -->
+  <circle cx="118" cy="110" r="5" fill="#86EFAC" opacity="0.7"/>
+  <circle cx="112" cy="125" r="4" fill="#86EFAC" opacity="0.6"/>
+  <circle cx="116" cy="140" r="6" fill="#86EFAC" opacity="0.7"/>
+  <circle cx="110" cy="155" r="3.5" fill="#86EFAC" opacity="0.5"/>
+  <circle cx="115" cy="100" r="3" fill="#86EFAC" opacity="0.5"/>
+
+  <!-- Chlorine label -->
+  <text x="95" y="100" text-anchor="end" font-family="sans-serif" font-size="9" font-weight="bold" fill="#059669">塩素</text>
+  <text x="95" y="112" text-anchor="end" font-family="sans-serif" font-size="8" fill="#059669">(Cl2)</text>
+  <text x="95" y="124" text-anchor="end" font-family="sans-serif" font-size="8" fill="#6B7280">刺激臭の</text>
+  <text x="95" y="134" text-anchor="end" font-family="sans-serif" font-size="8" fill="#6B7280">気体</text>
+
+  <!-- Copper deposit at cathode -->
+  <rect x="278" y="130" width="10" height="60" rx="2" fill="#D97706" opacity="0.8"/>
+  <rect x="278" y="145" width="8" height="40" rx="2" fill="#B45309"/>
+
+  <!-- Copper label -->
+  <text x="305" y="100" font-family="sans-serif" font-size="9" font-weight="bold" fill="#B45309">銅</text>
+  <text x="305" y="112" font-family="sans-serif" font-size="8" fill="#B45309">(Cu)</text>
+  <text x="305" y="124" font-family="sans-serif" font-size="8" fill="#6B7280">赤色の</text>
+  <text x="305" y="134" font-family="sans-serif" font-size="8" fill="#6B7280">固体が付着</text>
+
+  <!-- Ion movement arrows -->
+  <path d="M200 130 L155 115" stroke="#10B981" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#greenArr)"/>
+  <text x="170" y="110" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#10B981">Cl-</text>
+
+  <path d="M200 150 L255 135" stroke="#D97706" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#orangeArr)"/>
+  <text x="235" y="135" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#D97706">Cu2+</text>
+
+  <!-- Bottom equation -->
+  <rect x="50" y="238" width="300" height="30" rx="6" fill="white" stroke="#E5E7EB" stroke-width="1"/>
+  <text x="200" y="258" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#374151">CuCl2 → Cu + Cl2</text>
+
+  <!-- Arrow markers -->
+  <defs>
+    <marker id="greenArr" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto">
+      <path d="M0,0 L7,2.5 L0,5" fill="#10B981"/>
+    </marker>
+    <marker id="orangeArr" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto">
+      <path d="M0,0 L7,2.5 L0,5" fill="#D97706"/>
+    </marker>
+  </defs>
+</svg>

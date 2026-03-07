@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" fill="none">
+  <!-- Background -->
+  <rect width="400" height="250" rx="16" fill="#F5F3F0"/>
+
+  <!-- Title -->
+  <text x="200" y="22" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1f2937">日食と月食のしくみ</text>
+
+  <!-- Solar Eclipse (top) -->
+  <text x="200" y="45" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#EF4444">日食（太陽 - 月 - 地球）</text>
+
+  <!-- Sun -->
+  <circle cx="50" cy="85" r="25" fill="#FDE68A" stroke="#F59E0B" stroke-width="2"/>
+  <text x="50" y="89" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#D97706">太陽</text>
+
+  <!-- Moon (between) -->
+  <circle cx="190" cy="85" r="12" fill="#9CA3AF" stroke="#6B7280" stroke-width="1.5"/>
+  <text x="190" y="89" text-anchor="middle" font-family="sans-serif" font-size="7" font-weight="bold" fill="white">月</text>
+
+  <!-- Earth -->
+  <circle cx="330" cy="85" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="2"/>
+  <text x="330" y="89" text-anchor="middle" font-family="sans-serif" font-size="8" font-weight="bold" fill="#1D4ED8">地球</text>
+
+  <!-- Shadow cone -->
+  <path d="M202 80 L312 75 L312 95 L202 90 Z" fill="#374151" opacity="0.1"/>
+  <text x="255" y="72" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#6B7280">月の影</text>
+
+  <!-- Light rays blocked -->
+  <path d="M75 75 L178 82" stroke="#F59E0B" stroke-width="1" stroke-dasharray="3 2"/>
+  <path d="M75 95 L178 88" stroke="#F59E0B" stroke-width="1" stroke-dasharray="3 2"/>
+
+  <!-- Explanation -->
+  <text x="200" y="118" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#374151">月が太陽を隠す → 地球から太陽が見えなくなる</text>
+
+  <!-- Divider -->
+  <line x1="40" y1="130" x2="360" y2="130" stroke="#E5E7EB" stroke-width="1"/>
+
+  <!-- Lunar Eclipse (bottom) -->
+  <text x="200" y="148" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#3B82F6">月食（太陽 - 地球 - 月）</text>
+
+  <!-- Sun -->
+  <circle cx="50" cy="188" r="25" fill="#FDE68A" stroke="#F59E0B" stroke-width="2"/>
+  <text x="50" y="192" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#D97706">太陽</text>
+
+  <!-- Earth (between) -->
+  <circle cx="190" cy="188" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="2"/>
+  <text x="190" y="192" text-anchor="middle" font-family="sans-serif" font-size="8" font-weight="bold" fill="#1D4ED8">地球</text>
+
+  <!-- Moon -->
+  <circle cx="330" cy="188" r="12" fill="#6B7280" stroke="#4B5563" stroke-width="1.5"/>
+  <text x="330" y="192" text-anchor="middle" font-family="sans-serif" font-size="7" font-weight="bold" fill="white">月</text>
+
+  <!-- Shadow cone -->
+  <path d="M208 181 L318 183 L318 193 L208 195 Z" fill="#374151" opacity="0.15"/>
+  <text x="265" y="177" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#6B7280">地球の影</text>
+
+  <!-- Light rays blocked -->
+  <path d="M75 178 L172 184" stroke="#F59E0B" stroke-width="1" stroke-dasharray="3 2"/>
+  <path d="M75 198 L172 192" stroke="#F59E0B" stroke-width="1" stroke-dasharray="3 2"/>
+
+  <!-- Explanation -->
+  <text x="200" y="220" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#374151">地球の影に月が入る → 月が暗くなる（赤銅色に見える）</text>
+
+  <!-- Bottom key point -->
+  <rect x="80" y="230" width="240" height="18" rx="4" fill="white" stroke="#E5E7EB" stroke-width="1"/>
+  <text x="200" y="243" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#4B5563">日食 = 新月のとき、月食 = 満月のとき に起こる</text>
+</svg>

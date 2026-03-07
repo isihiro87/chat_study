@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 220" fill="none">
+  <!-- Background -->
+  <rect width="400" height="220" rx="16" fill="#F5F3F0"/>
+
+  <!-- Title -->
+  <text x="200" y="25" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1f2937">遺伝子のある場所</text>
+
+  <!-- Cell -->
+  <rect x="15" y="50" width="70" height="60" rx="10" fill="#DCFCE7" stroke="#10B981" stroke-width="2"/>
+  <text x="50" y="75" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#059669">細胞</text>
+  <circle cx="50" cy="95" r="8" fill="#10B981" opacity="0.3"/>
+
+  <!-- Arrow -->
+  <path d="M88 80 L108 80" stroke="#6B7280" stroke-width="2" marker-end="url(#hArr)"/>
+
+  <!-- Nucleus -->
+  <rect x="112" y="50" width="70" height="60" rx="10" fill="#DBEAFE" stroke="#3B82F6" stroke-width="2"/>
+  <text x="147" y="75" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#1D4ED8">核</text>
+  <ellipse cx="147" cy="93" rx="15" ry="8" fill="#3B82F6" opacity="0.2" stroke="#3B82F6" stroke-width="1"/>
+
+  <!-- Arrow -->
+  <path d="M185 80 L205 80" stroke="#6B7280" stroke-width="2" marker-end="url(#hArr)"/>
+
+  <!-- Chromosome -->
+  <rect x="209" y="50" width="70" height="60" rx="10" fill="#FEF3C7" stroke="#F59E0B" stroke-width="2"/>
+  <text x="244" y="75" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#D97706">染色体</text>
+  <!-- X shape for chromosome -->
+  <path d="M236 88 L252 100 M252 88 L236 100" stroke="#D97706" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Arrow -->
+  <path d="M282 80 L302 80" stroke="#6B7280" stroke-width="2" marker-end="url(#hArr)"/>
+
+  <!-- DNA -->
+  <rect x="306" y="50" width="80" height="60" rx="10" fill="#FCE7F3" stroke="#EC4899" stroke-width="2"/>
+  <text x="346" y="75" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#BE185D">DNA</text>
+  <!-- Helix hint -->
+  <path d="M332 88 C338 92 354 88 354 92 C354 96 338 92 338 96 C338 100 354 96 354 100" stroke="#EC4899" stroke-width="1.5" fill="none"/>
+  <path d="M338 88 C344 92 360 88 360 92 C360 96 344 92 344 96 C344 100 360 96 360 100" stroke="#EC4899" stroke-width="1.5" fill="none" opacity="0.5"/>
+
+  <!-- Gene label below DNA -->
+  <path d="M346 115 L346 135" stroke="#6B7280" stroke-width="1.5" marker-end="url(#hArr)"/>
+  <rect x="306" y="140" width="80" height="35" rx="8" fill="#EF4444" opacity="0.1" stroke="#EF4444" stroke-width="1.5"/>
+  <text x="346" y="160" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#DC2626">遺伝子</text>
+  <text x="346" y="172" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#DC2626">（DNAの一部）</text>
+
+  <!-- Bottom explanation -->
+  <text x="200" y="200" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#4B5563">細胞の核にある染色体はDNAでできており、その一部が遺伝子</text>
+  <text x="200" y="214" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#6B7280">遺伝子 = 形質（体の特徴）を決める情報</text>
+
+  <defs>
+    <marker id="hArr" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto">
+      <path d="M0,0 L7,2.5 L0,5" fill="#6B7280"/>
+    </marker>
+  </defs>
+</svg>

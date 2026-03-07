@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 230" fill="none">
+  <!-- Background -->
+  <rect width="400" height="230" rx="16" fill="#F5F3F0"/>
+
+  <!-- Title -->
+  <text x="200" y="25" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1f2937">相同器官の比較</text>
+  <text x="200" y="40" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#6B7280">形はちがうが、骨の基本構造は同じ</text>
+
+  <!-- Common ancestor note -->
+  <rect x="130" y="48" width="140" height="22" rx="6" fill="#FEF3C7" stroke="#F59E0B" stroke-width="1"/>
+  <text x="200" y="63" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#92400E">共通の祖先から進化した証拠</text>
+
+  <!-- Human arm -->
+  <rect x="15" y="80" width="85" height="120" rx="8" fill="white" stroke="#E5E7EB" stroke-width="1.5"/>
+  <text x="57" y="98" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#374151">ヒトの腕</text>
+  <!-- Bones -->
+  <rect x="40" y="105" width="10" height="30" rx="3" fill="#3B82F6"/>
+  <rect x="55" y="105" width="10" height="30" rx="3" fill="#06B6D4"/>
+  <rect x="36" y="138" width="8" height="8" rx="2" fill="#F59E0B"/>
+  <rect x="46" y="138" width="8" height="8" rx="2" fill="#F59E0B"/>
+  <rect x="56" y="138" width="8" height="8" rx="2" fill="#F59E0B"/>
+  <rect x="36" y="148" width="6" height="15" rx="2" fill="#10B981"/>
+  <rect x="44" y="148" width="6" height="15" rx="2" fill="#10B981"/>
+  <rect x="52" y="148" width="6" height="15" rx="2" fill="#10B981"/>
+  <rect x="60" y="148" width="6" height="15" rx="2" fill="#10B981"/>
+  <text x="57" y="180" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#6B7280">つかむ</text>
+
+  <!-- Whale flipper -->
+  <rect x="110" y="80" width="85" height="120" rx="8" fill="white" stroke="#E5E7EB" stroke-width="1.5"/>
+  <text x="152" y="98" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#374151">クジラのひれ</text>
+  <!-- Bones (wider, shorter) -->
+  <rect x="130" y="108" width="14" height="20" rx="3" fill="#3B82F6"/>
+  <rect x="148" y="108" width="14" height="20" rx="3" fill="#06B6D4"/>
+  <rect x="126" y="130" width="10" height="8" rx="2" fill="#F59E0B"/>
+  <rect x="138" y="130" width="10" height="8" rx="2" fill="#F59E0B"/>
+  <rect x="150" y="130" width="10" height="8" rx="2" fill="#F59E0B"/>
+  <rect x="126" y="140" width="8" height="20" rx="2" fill="#10B981"/>
+  <rect x="136" y="140" width="8" height="20" rx="2" fill="#10B981"/>
+  <rect x="146" y="140" width="8" height="20" rx="2" fill="#10B981"/>
+  <rect x="156" y="140" width="8" height="20" rx="2" fill="#10B981"/>
+  <text x="152" y="180" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#6B7280">泳ぐ</text>
+
+  <!-- Bat wing -->
+  <rect x="205" y="80" width="85" height="120" rx="8" fill="white" stroke="#E5E7EB" stroke-width="1.5"/>
+  <text x="247" y="98" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#374151">コウモリの翼</text>
+  <!-- Bones (elongated fingers) -->
+  <rect x="232" y="105" width="10" height="25" rx="3" fill="#3B82F6"/>
+  <rect x="246" y="105" width="10" height="25" rx="3" fill="#06B6D4"/>
+  <rect x="226" y="132" width="6" height="6" rx="2" fill="#F59E0B"/>
+  <rect x="236" y="132" width="6" height="6" rx="2" fill="#F59E0B"/>
+  <rect x="246" y="132" width="6" height="6" rx="2" fill="#F59E0B"/>
+  <rect x="224" y="140" width="4" height="28" rx="1" fill="#10B981"/>
+  <rect x="232" y="140" width="4" height="28" rx="1" fill="#10B981"/>
+  <rect x="240" y="140" width="4" height="28" rx="1" fill="#10B981"/>
+  <rect x="248" y="140" width="4" height="28" rx="1" fill="#10B981"/>
+  <text x="247" y="180" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#6B7280">飛ぶ</text>
+
+  <!-- Legend -->
+  <rect x="300" y="80" width="90" height="120" rx="8" fill="white" stroke="#E5E7EB" stroke-width="1.5"/>
+  <text x="345" y="98" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#374151">骨の対応</text>
+  <rect x="310" y="106" width="12" height="12" rx="2" fill="#3B82F6"/>
+  <text x="330" y="116" font-family="sans-serif" font-size="8" fill="#374151">上腕骨</text>
+  <rect x="310" y="124" width="12" height="12" rx="2" fill="#06B6D4"/>
+  <text x="330" y="134" font-family="sans-serif" font-size="8" fill="#374151">前腕骨</text>
+  <rect x="310" y="142" width="12" height="12" rx="2" fill="#F59E0B"/>
+  <text x="330" y="152" font-family="sans-serif" font-size="8" fill="#374151">手根骨</text>
+  <rect x="310" y="160" width="12" height="12" rx="2" fill="#10B981"/>
+  <text x="330" y="170" font-family="sans-serif" font-size="8" fill="#374151">指の骨</text>
+
+  <!-- Bottom -->
+  <text x="200" y="215" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#4B5563">はたらきは違うが、骨の並びは同じ → 共通の祖先をもつ証拠</text>
+</svg>

@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" fill="none">
+  <!-- Background -->
+  <rect width="400" height="250" rx="16" fill="#F5F3F0"/>
+
+  <!-- Title -->
+  <text x="200" y="25" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1f2937">無性生殖と有性生殖</text>
+
+  <!-- Left: Asexual -->
+  <rect x="15" y="40" width="175" height="190" rx="10" fill="white" stroke="#E5E7EB" stroke-width="1.5"/>
+  <rect x="15" y="40" width="175" height="30" rx="10" fill="#10B981"/>
+  <rect x="15" y="55" width="175" height="15" fill="#10B981"/>
+  <text x="102" y="60" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="white">無性生殖</text>
+
+  <!-- Asexual: parent cell divides -->
+  <circle cx="102" cy="100" r="18" fill="#DCFCE7" stroke="#10B981" stroke-width="2"/>
+  <text x="102" y="104" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#059669">親</text>
+
+  <path d="M102 120 L80 140 M102 120 L124 140" stroke="#10B981" stroke-width="2" marker-end="url(#gArr)"/>
+
+  <circle cx="72" cy="155" r="15" fill="#DCFCE7" stroke="#10B981" stroke-width="1.5"/>
+  <text x="72" y="159" text-anchor="middle" font-family="sans-serif" font-size="8" font-weight="bold" fill="#059669">子</text>
+  <circle cx="132" cy="155" r="15" fill="#DCFCE7" stroke="#10B981" stroke-width="1.5"/>
+  <text x="132" y="159" text-anchor="middle" font-family="sans-serif" font-size="8" font-weight="bold" fill="#059669">子</text>
+
+  <text x="102" y="185" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#374151">親と同じ遺伝子</text>
+  <text x="102" y="198" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#6B7280">例: 分裂・出芽・栄養生殖</text>
+  <text x="102" y="210" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#6B7280">アメーバ・ジャガイモなど</text>
+
+  <!-- Right: Sexual -->
+  <rect x="210" y="40" width="175" height="190" rx="10" fill="white" stroke="#E5E7EB" stroke-width="1.5"/>
+  <rect x="210" y="40" width="175" height="30" rx="10" fill="#3B82F6"/>
+  <rect x="210" y="55" width="175" height="15" fill="#3B82F6"/>
+  <text x="297" y="60" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="white">有性生殖</text>
+
+  <!-- Sexual: sperm + egg -->
+  <circle cx="265" cy="97" r="14" fill="#DBEAFE" stroke="#3B82F6" stroke-width="2"/>
+  <text x="265" y="101" text-anchor="middle" font-family="sans-serif" font-size="8" font-weight="bold" fill="#1D4ED8">精子</text>
+
+  <text x="297" y="101" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#6B7280">+</text>
+
+  <circle cx="330" cy="97" r="14" fill="#FCE7F3" stroke="#EC4899" stroke-width="2"/>
+  <text x="330" y="101" text-anchor="middle" font-family="sans-serif" font-size="8" font-weight="bold" fill="#BE185D">卵</text>
+
+  <path d="M297 115 L297 135" stroke="#3B82F6" stroke-width="2" marker-end="url(#bArr)"/>
+  <text x="320" y="128" font-family="sans-serif" font-size="8" fill="#3B82F6">受精</text>
+
+  <circle cx="297" cy="155" r="15" fill="#EDE9FE" stroke="#F59E0B" stroke-width="2"/>
+  <text x="297" y="159" text-anchor="middle" font-family="sans-serif" font-size="8" font-weight="bold" fill="#D97706">子</text>
+
+  <text x="297" y="185" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#374151">両親の遺伝子を受けつぐ</text>
+  <text x="297" y="198" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#6B7280">例: 受精による生殖</text>
+  <text x="297" y="210" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#6B7280">ヒト・動物・植物など</text>
+
+  <!-- Bottom comparison -->
+  <text x="200" y="245" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#4B5563">無性生殖 = 親と同じ（クローン） / 有性生殖 = 多様性が生まれる</text>
+
+  <defs>
+    <marker id="gArr" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto">
+      <path d="M0,0 L7,2.5 L0,5" fill="#10B981"/>
+    </marker>
+    <marker id="bArr" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto">
+      <path d="M0,0 L7,2.5 L0,5" fill="#3B82F6"/>
+    </marker>
+  </defs>
+</svg>

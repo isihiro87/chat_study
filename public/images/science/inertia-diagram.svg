@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 220" fill="none">
+  <!-- Background -->
+  <rect width="400" height="220" rx="16" fill="#F5F3F0"/>
+
+  <!-- Title -->
+  <text x="200" y="25" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1f2937">慣性の法則</text>
+
+  <!-- Scene 1: Moving train -->
+  <rect x="20" y="45" width="170" height="130" rx="8" fill="white" stroke="#E5E7EB" stroke-width="1.5"/>
+  <text x="105" y="62" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#3B82F6">走行中</text>
+
+  <!-- Train body -->
+  <rect x="40" y="100" width="130" height="45" rx="6" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+  <!-- Wheels -->
+  <circle cx="70" cy="150" r="8" fill="#6B7280" stroke="#374151" stroke-width="1"/>
+  <circle cx="140" cy="150" r="8" fill="#6B7280" stroke="#374151" stroke-width="1"/>
+  <!-- Person standing upright -->
+  <circle cx="105" cy="82" r="8" fill="#FDE68A" stroke="#D97706" stroke-width="1.5"/>
+  <line x1="105" y1="90" x2="105" y2="110" stroke="#D97706" stroke-width="2"/>
+  <line x1="105" y1="110" x2="98" y2="125" stroke="#D97706" stroke-width="2"/>
+  <line x1="105" y1="110" x2="112" y2="125" stroke="#D97706" stroke-width="2"/>
+  <!-- Motion arrow -->
+  <path d="M40 165 L170 165" stroke="#3B82F6" stroke-width="2" marker-end="url(#iArr)"/>
+  <text x="105" y="178" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#3B82F6">進行方向 →</text>
+
+  <!-- Scene 2: Braking -->
+  <rect x="210" y="45" width="170" height="130" rx="8" fill="white" stroke="#E5E7EB" stroke-width="1.5"/>
+  <text x="295" y="62" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#EF4444">急ブレーキ！</text>
+
+  <!-- Train body (stopped) -->
+  <rect x="230" y="100" width="130" height="45" rx="6" fill="#FEE2E2" stroke="#EF4444" stroke-width="1.5"/>
+  <!-- Wheels -->
+  <circle cx="260" cy="150" r="8" fill="#6B7280" stroke="#374151" stroke-width="1"/>
+  <circle cx="330" cy="150" r="8" fill="#6B7280" stroke="#374151" stroke-width="1"/>
+  <!-- Person tilting forward -->
+  <circle cx="310" cy="78" r="8" fill="#FDE68A" stroke="#D97706" stroke-width="1.5"/>
+  <line x1="310" y1="86" x2="302" y2="108" stroke="#D97706" stroke-width="2"/>
+  <line x1="302" y1="108" x2="295" y2="125" stroke="#D97706" stroke-width="2"/>
+  <line x1="302" y1="108" x2="308" y2="125" stroke="#D97706" stroke-width="2"/>
+  <!-- Person momentum arrow -->
+  <path d="M312 78 L335 78" stroke="#EF4444" stroke-width="2" marker-end="url(#rArr)"/>
+  <text x="330" y="73" font-family="sans-serif" font-size="7" fill="#EF4444">慣性</text>
+  <!-- Stop mark -->
+  <text x="230" y="165" font-family="sans-serif" font-size="16" fill="#EF4444">||</text>
+  <text x="250" y="178" font-family="sans-serif" font-size="8" fill="#EF4444">電車は止まる</text>
+
+  <!-- Bottom explanation -->
+  <rect x="30" y="185" width="340" height="28" rx="6" fill="white" stroke="#E5E7EB" stroke-width="1"/>
+  <text x="200" y="203" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#374151">物体は運動の状態を続けようとする性質（慣性）をもつ</text>
+
+  <defs>
+    <marker id="iArr" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto">
+      <path d="M0,0 L7,2.5 L0,5" fill="#3B82F6"/>
+    </marker>
+    <marker id="rArr" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto">
+      <path d="M0,0 L7,2.5 L0,5" fill="#EF4444"/>
+    </marker>
+  </defs>
+</svg>

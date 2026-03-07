@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 220" fill="none">
+  <!-- Background -->
+  <rect width="400" height="220" rx="16" fill="#F5F3F0"/>
+
+  <!-- Title -->
+  <text x="200" y="25" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1f2937">エネルギーの変換</text>
+
+  <!-- Central: Electrical energy -->
+  <circle cx="200" cy="110" r="35" fill="#DBEAFE" stroke="#3B82F6" stroke-width="2"/>
+  <text x="200" y="106" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#1D4ED8">電気</text>
+  <text x="200" y="118" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#1D4ED8">エネルギー</text>
+
+  <!-- Top: Light energy -->
+  <circle cx="200" cy="45" r="25" fill="#FEF3C7" stroke="#F59E0B" stroke-width="2"/>
+  <text x="200" y="49" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#D97706">光</text>
+  <path d="M200 75 L200 70" stroke="#F59E0B" stroke-width="2" marker-end="url(#eArr)"/>
+  <text x="225" y="65" font-family="sans-serif" font-size="7" fill="#6B7280">LED</text>
+
+  <!-- Left: Chemical energy -->
+  <circle cx="80" cy="80" r="25" fill="#DCFCE7" stroke="#10B981" stroke-width="2"/>
+  <text x="80" y="77" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#059669">化学</text>
+  <text x="80" y="88" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#059669">エネルギー</text>
+  <path d="M105 90 L165 100" stroke="#10B981" stroke-width="2" marker-end="url(#eArr)"/>
+  <text x="120" y="88" font-family="sans-serif" font-size="7" fill="#6B7280">電池</text>
+
+  <!-- Right: Motion (Kinetic) energy -->
+  <circle cx="320" cy="80" r="25" fill="#FCE7F3" stroke="#EC4899" stroke-width="2"/>
+  <text x="320" y="77" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#BE185D">運動</text>
+  <text x="320" y="88" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#BE185D">エネルギー</text>
+  <path d="M235 105 L295 90" stroke="#EC4899" stroke-width="2" marker-end="url(#eArr)"/>
+  <text x="275" y="88" font-family="sans-serif" font-size="7" fill="#6B7280">モーター</text>
+
+  <!-- Bottom-left: Heat energy -->
+  <circle cx="100" cy="160" r="25" fill="#FEE2E2" stroke="#EF4444" stroke-width="2"/>
+  <text x="100" y="157" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#DC2626">熱</text>
+  <text x="100" y="168" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#DC2626">エネルギー</text>
+  <path d="M175 130 L125 150" stroke="#EF4444" stroke-width="2" marker-end="url(#eArr)"/>
+  <text x="135" y="135" font-family="sans-serif" font-size="7" fill="#6B7280">ヒーター</text>
+
+  <!-- Bottom-right: Sound energy -->
+  <circle cx="300" cy="160" r="25" fill="#E0E7FF" stroke="#6366F1" stroke-width="2"/>
+  <text x="300" y="157" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#4338CA">音</text>
+  <text x="300" y="168" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#4338CA">エネルギー</text>
+  <path d="M225 130 L275 150" stroke="#6366F1" stroke-width="2" marker-end="url(#eArr)"/>
+  <text x="262" y="135" font-family="sans-serif" font-size="7" fill="#6B7280">スピーカー</text>
+
+  <!-- Bottom note -->
+  <text x="200" y="205" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#4B5563">エネルギーは形を変えても、全体の量は変わらない（エネルギー保存の法則）</text>
+
+  <defs>
+    <marker id="eArr" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto">
+      <path d="M0,0 L7,2.5 L0,5" fill="#6B7280"/>
+    </marker>
+  </defs>
+</svg>

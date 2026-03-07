@@ -14,6 +14,11 @@ export const acidAlkali: Topic = {
           title: '酸性とアルカリ性の性質',
           content:
             '水溶液には酸性・中性・アルカリ性の3つの性質があります。リトマス紙やBTB溶液、フェノールフタレイン溶液などの指示薬を使って調べることができます。酸性の水溶液は青色リトマス紙を赤色に変え、アルカリ性の水溶液は赤色リトマス紙を青色に変えます。',
+          image: {
+            src: '/images/science/indicator-colors.svg',
+            alt: '指示薬の色変化一覧表',
+            caption: 'リトマス紙・BTB溶液の色変化',
+          },
           keyPoints: [
             'リトマス紙：酸性→青を赤に変える、アルカリ性→赤を青に変える',
             'BTB溶液：酸性→黄色、中性→緑色、アルカリ性→青色',
@@ -24,6 +29,11 @@ export const acidAlkali: Topic = {
           title: '酸とアルカリの正体とpH',
           content:
             '酸性の水溶液にはH⁺（水素イオン）が、アルカリ性の水溶液にはOH⁻（水酸化物イオン）が含まれています。水溶液の酸性・アルカリ性の強さはpH（ピーエイチ）で表し、0〜14の数値で示します。pH7が中性で、7より小さいほど酸性が強く、7より大きいほどアルカリ性が強くなります。',
+          image: {
+            src: '/images/science/ph-scale.svg',
+            alt: 'pHスケール図',
+            caption: 'pH 0〜14と代表的な物質',
+          },
           keyPoints: [
             '酸性の正体：H⁺（水素イオン）が多い',
             'アルカリ性の正体：OH⁻（水酸化物イオン）が多い',
@@ -34,6 +44,11 @@ export const acidAlkali: Topic = {
           title: '中和と塩（えん）',
           content:
             '酸性の水溶液とアルカリ性の水溶液を混ぜると、H⁺とOH⁻が結びついてH₂O（水）ができます。この反応を中和といいます。中和では水と同時に塩（えん）もできます。中和反応は発熱反応で、混ぜると温度が上がります。',
+          image: {
+            src: '/images/science/neutralization.svg',
+            alt: '中和反応の模式図',
+            caption: 'HCl + NaOH → NaCl + H₂O',
+          },
           keyPoints: [
             '中和：H⁺ + OH⁻ → H₂O（酸とアルカリが打ち消し合う）',
             '塩（えん）：酸の陰イオンとアルカリの陽イオンが結びついた物質',
@@ -51,6 +66,10 @@ export const acidAlkali: Topic = {
               question: 'BTB溶液が黄色になったら、その水溶液は何性？',
               subtext: '指示薬の色変化',
               emoji: '🎨',
+              image: {
+                src: '/images/science/indicator-colors.svg',
+                alt: '指示薬の色変化一覧表',
+              },
             },
             {
               type: 'reason',
@@ -90,6 +109,10 @@ export const acidAlkali: Topic = {
               question: '酸性の水溶液に共通して含まれるイオンは何？',
               subtext: 'pHとイオンの関係',
               emoji: '🔢',
+              image: {
+                src: '/images/science/ph-scale.svg',
+                alt: 'pHスケール図',
+              },
             },
             {
               type: 'reason',
@@ -129,6 +152,10 @@ export const acidAlkali: Topic = {
               question: '塩酸と水酸化ナトリウム水溶液を混ぜると、食塩ができるって本当？',
               subtext: '中和と塩（えん）',
               emoji: '🧂',
+              image: {
+                src: '/images/science/neutralization.svg',
+                alt: '中和反応の模式図',
+              },
             },
             {
               type: 'reason',
