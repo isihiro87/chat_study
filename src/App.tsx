@@ -1,13 +1,14 @@
-import { useEffect } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import { Routes, Route, useLocation, useNavigationType } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { TopPage } from './pages/TopPage';
-import { EraSelectPage } from './pages/EraSelectPage';
-import { TopicSelectPage } from './pages/TopicSelectPage';
-import { LearningPage } from './pages/LearningPage';
-import { HistoryChatPage } from './pages/HistoryChatPage';
-import { RandomQuizPage } from './pages/RandomQuizPage';
 import { pageview } from './utils/gtag';
+
+const EraSelectPage = lazy(() => import('./pages/EraSelectPage').then(m => ({ default: m.EraSelectPage })));
+const TopicSelectPage = lazy(() => import('./pages/TopicSelectPage').then(m => ({ default: m.TopicSelectPage })));
+const LearningPage = lazy(() => import('./pages/LearningPage').then(m => ({ default: m.LearningPage })));
+const HistoryChatPage = lazy(() => import('./pages/HistoryChatPage').then(m => ({ default: m.HistoryChatPage })));
+const RandomQuizPage = lazy(() => import('./pages/RandomQuizPage').then(m => ({ default: m.RandomQuizPage })));
 
 // ルート変更時にスクロール位置を復元またはリセット
 function ScrollRestoration() {
@@ -54,14 +55,16 @@ function AnimatedRoutes() {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.15 }}
     >
-      <Routes location={location}>
-        <Route path="/" element={<TopPage />} />
-        <Route path="/subjects/:subjectId" element={<EraSelectPage />} />
-        <Route path="/subjects/:subjectId/random-quiz" element={<RandomQuizPage />} />
-        <Route path="/subjects/:subjectId/eras/:eraId" element={<TopicSelectPage />} />
-        <Route path="/subjects/:subjectId/eras/:eraId/topics/:topicId" element={<LearningPage />} />
-        <Route path="/chat/:chatId" element={<HistoryChatPage />} />
-      </Routes>
+      <Suspense fallback={null}>
+        <Routes location={location}>
+          <Route path="/" element={<TopPage />} />
+          <Route path="/subjects/:subjectId" element={<EraSelectPage />} />
+          <Route path="/subjects/:subjectId/random-quiz" element={<RandomQuizPage />} />
+          <Route path="/subjects/:subjectId/eras/:eraId" element={<TopicSelectPage />} />
+          <Route path="/subjects/:subjectId/eras/:eraId/topics/:topicId" element={<LearningPage />} />
+          <Route path="/chat/:chatId" element={<HistoryChatPage />} />
+        </Routes>
+      </Suspense>
     </motion.div>
   );
 }
