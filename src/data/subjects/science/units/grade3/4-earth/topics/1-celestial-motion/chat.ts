@@ -64,6 +64,12 @@ export const celestialMotionChat: HistoryChat = {
       text: '太陽のまわりには<strong>コロナ</strong>という<ruby>高温<rp>(</rp><rt>こうおん</rt><rp>)</rp></ruby>のガスや、<strong>プロミネンス</strong>という<ruby>炎<rp>(</rp><rt>ほのお</rt><rp>)</rp></ruby>のような構造も見えるよ。そして黒点が日ごとに移動することから、太陽が<ruby>自転<rp>(</rp><rt>じてん</rt><rp>)</rp></ruby>していることがわかるんだ！',
     },
     {
+      type: 'image',
+      src: '/images/science/grade3/earth/sunspot-observation.png',
+      alt: '太陽の黒点観察',
+      caption: '望遠鏡で太陽像を投影し、黒点の移動を記録する',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">恒星</span> = 自ら光を出す天体。<span class="keyword">黒点</span>の移動 → 太陽の自転の証拠！',
     },
@@ -108,6 +114,12 @@ export const celestialMotionChat: HistoryChat = {
       src: '/images/science/grade3/earth/celestial-sphere.svg',
       alt: '天球と日周運動',
       caption: '地球の自転により天体が東→南中→西と動いて見える',
+    },
+    {
+      type: 'image',
+      src: '/images/science/grade3/earth/star-trail-photo.png',
+      alt: '北の空の星の軌跡',
+      caption: '北極星を中心に星が反時計回りに動く（長時間露光写真）',
     },
     {
       type: 'summary-point',

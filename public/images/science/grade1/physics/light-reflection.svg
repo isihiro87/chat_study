@@ -24,17 +24,19 @@
 
   <!-- Incident ray (amber) -->
   <line x1="85" y1="55" x2="150" y2="130" stroke="#F59E0B" stroke-width="2.5"/>
-  <path d="M122,98 L130,103 L123,108" fill="none" stroke="#F59E0B" stroke-width="2"/>
+  <!-- Arrow pointing toward mirror along the ray -->
+  <path d="M114,96 L124,100 L121,89" fill="none" stroke="#F59E0B" stroke-width="2"/>
 
   <!-- Reflected ray (red) -->
   <line x1="150" y1="130" x2="215" y2="55" stroke="#EF4444" stroke-width="2.5"/>
-  <path d="M183,90 L188,83 L193,90" fill="none" stroke="#EF4444" stroke-width="2"/>
+  <!-- Arrow pointing away from mirror along the ray -->
+  <path d="M180,103 L183,92 L173,96" fill="none" stroke="#EF4444" stroke-width="2"/>
 
   <!-- Angle arcs -->
-  <path d="M150,95 Q132,95 122,82" fill="none" stroke="#F59E0B" stroke-width="1.5"/>
-  <text x="108" y="100" font-family="sans-serif" font-size="10" fill="#F59E0B">入射角</text>
-  <path d="M150,95 Q168,95 178,82" fill="none" stroke="#EF4444" stroke-width="1.5"/>
-  <text x="180" y="100" font-family="sans-serif" font-size="10" fill="#EF4444">反射角</text>
+  <path d="M150,103 A27,27 0 0,0 132,110" fill="none" stroke="#F59E0B" stroke-width="1.5"/>
+  <text x="100" y="112" font-family="sans-serif" font-size="10" fill="#F59E0B">入射角</text>
+  <path d="M150,105 A25,25 0 0,1 166,111" fill="none" stroke="#EF4444" stroke-width="1.5"/>
+  <text x="168" y="118" font-family="sans-serif" font-size="10" fill="#EF4444">反射角</text>
 
   <!-- Incident point -->
   <circle cx="150" cy="130" r="3" fill="#374151"/>

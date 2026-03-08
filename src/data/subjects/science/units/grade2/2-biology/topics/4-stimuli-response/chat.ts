@@ -64,6 +64,12 @@ export const stimuliResponseChat: HistoryChat = {
       text: '<ruby>目<rp>(</rp><rt>め</rt><rp>)</rp></ruby>は<strong><ruby>網膜<rp>(</rp><rt>もうまく</rt><rp>)</rp></ruby></strong>で<ruby>光<rp>(</rp><rt>ひかり</rt><rp>)</rp></ruby>を、<ruby>耳<rp>(</rp><rt>みみ</rt><rp>)</rp></ruby>は<strong><ruby>うずまき管<rp>(</rp><rt>うずまきかん</rt><rp>)</rp></ruby></strong>で<ruby>音<rp>(</rp><rt>おと</rt><rp>)</rp></ruby>を受けとるよ。受けとった<ruby>刺激<rp>(</rp><rt>しげき</rt><rp>)</rp></ruby>は<strong><span class="keyword"><ruby>感覚<rp>(</rp><rt>かんかく</rt><rp>)</rp></ruby><ruby>神経<rp>(</rp><rt>しんけい</rt><rp>)</rp></ruby></span></strong>で<ruby>信号<rp>(</rp><rt>しんごう</rt><rp>)</rp></ruby>として<ruby>脳<rp>(</rp><rt>のう</rt><rp>)</rp></ruby>へ<ruby>伝<rp>(</rp><rt>つた</rt><rp>)</rp></ruby>えられるんだ',
     },
     {
+      type: 'image',
+      src: '/images/science/grade2/biology/eye-ear-structure.png',
+      alt: '目と耳の構造',
+      caption: '上：目の断面（レンズ・網膜）、下：耳の断面（鼓膜・うずまき管）',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">感覚器官</span>＝目・耳・鼻・皮膚・舌。目の<span class="keyword">網膜</span>、耳の<span class="keyword">うずまき管</span>で刺激を受けとる',
     },

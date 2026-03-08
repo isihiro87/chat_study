@@ -136,6 +136,12 @@ export const earthquakeChat: HistoryChat = {
       text: '<ruby>地震<rp>(</rp><rt>じしん</rt><rp>)</rp></ruby>で<ruby>岩盤<rp>(</rp><rt>がんばん</rt><rp>)</rp></ruby>がずれた<ruby>跡<rp>(</rp><rt>あと</rt><rp>)</rp></ruby>を<strong><span class="keyword"><ruby>断層<rp>(</rp><rt>だんそう</rt><rp>)</rp></ruby></span></strong>というよ。<ruby>将来<rp>(</rp><rt>しょうらい</rt><rp>)</rp></ruby><ruby>地震<rp>(</rp><rt>じしん</rt><rp>)</rp></ruby>を<ruby>起<rp>(</rp><rt>お</rt><rp>)</rp></ruby>こす<ruby>可能性<rp>(</rp><rt>かのうせい</rt><rp>)</rp></ruby>があるものを<strong><span class="keyword"><ruby>活断層<rp>(</rp><rt>かつだんそう</rt><rp>)</rp></ruby></span></strong>といって、<ruby>日本<rp>(</rp><rt>にほん</rt><rp>)</rp></ruby>にはたくさんあるんだ。<ruby>海底<rp>(</rp><rt>かいてい</rt><rp>)</rp></ruby>で大きな<ruby>地震<rp>(</rp><rt>じしん</rt><rp>)</rp></ruby>が<ruby>起<rp>(</rp><rt>お</rt><rp>)</rp></ruby>こると<strong><span class="keyword"><ruby>津波<rp>(</rp><rt>つなみ</rt><rp>)</rp></ruby></span></strong>が<ruby>発生<rp>(</rp><rt>はっせい</rt><rp>)</rp></ruby>することもあるよ',
     },
     {
+      type: 'image',
+      src: '/images/science/grade1/earth/plate-boundary.png',
+      alt: 'プレートの沈み込みと地震',
+      caption: '海洋プレートが大陸プレートの下に沈み込み、地震と津波が発生する',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">プレート</span>の境界で地震が多発。<span class="keyword">断層</span>＝岩盤のずれた跡。<span class="keyword">活断層</span>＝将来地震を起こす可能性。<span class="keyword">海溝</span>付近で津波のリスク',
     },

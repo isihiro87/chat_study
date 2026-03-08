@@ -110,6 +110,12 @@ export const volcanoChat: HistoryChat = {
       text: '<ruby>火山灰<rp>(</rp><rt>かざんばい</rt><rp>)</rp></ruby>を水で洗うと<strong><span class="keyword"><ruby>鉱物<rp>(</rp><rt>こうぶつ</rt><rp>)</rp></ruby></span></strong>の<ruby>粒<rp>(</rp><rt>つぶ</rt><rp>)</rp></ruby>が見えるよ。<ruby>鉱物<rp>(</rp><rt>こうぶつ</rt><rp>)</rp></ruby>は2つに分類できるんだ。<br/>・<strong><span class="keyword"><ruby>無色<rp>(</rp><rt>むしょく</rt><rp>)</rp></ruby><ruby>鉱物<rp>(</rp><rt>こうぶつ</rt><rp>)</rp></ruby></span></strong>：<ruby>石英<rp>(</rp><rt>せきえい</rt><rp>)</rp></ruby>（<ruby>透明<rp>(</rp><rt>とうめい</rt><rp>)</rp></ruby>）、<ruby>長石<rp>(</rp><rt>ちょうせき</rt><rp>)</rp></ruby>（白色）<br/>・<strong><span class="keyword"><ruby>有色<rp>(</rp><rt>ゆうしょく</rt><rp>)</rp></ruby><ruby>鉱物<rp>(</rp><rt>こうぶつ</rt><rp>)</rp></ruby></span></strong>：<ruby>黒雲母<rp>(</rp><rt>くろうんも</rt><rp>)</rp></ruby>、<ruby>角閃石<rp>(</rp><rt>かくせんせき</rt><rp>)</rp></ruby>、<ruby>輝石<rp>(</rp><rt>きせき</rt><rp>)</rp></ruby>、カンラン<ruby>石<rp>(</rp><rt>せき</rt><rp>)</rp></ruby>',
     },
     {
+      type: 'image',
+      src: '/images/science/grade1/earth/volcanic-products.jpeg',
+      alt: '火山噴出物',
+      caption: '軽石（左上）・火山灰（右上）・火山弾（左下）・溶岩（右下）',
+    },
+    {
       type: 'quiz',
       question: '次のうち、無色鉱物はどれ？',
       options: [
@@ -163,6 +169,12 @@ export const volcanoChat: HistoryChat = {
       characterId: 'student',
       expression: 'happy',
       text: '「りあげかせは」！<ruby>覚<rp>(</rp><rt>おぼ</rt><rp>)</rp></ruby>えやすいですね！',
+    },
+    {
+      type: 'image',
+      src: '/images/science/grade1/earth/rock-texture.png',
+      alt: '火成岩の組織の比較',
+      caption: '火山岩（斑状組織）と深成岩（等粒状組織）の偏光顕微鏡像',
     },
     {
       type: 'summary-point',

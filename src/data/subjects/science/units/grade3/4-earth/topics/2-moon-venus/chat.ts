@@ -183,6 +183,12 @@ export const moonVenusChat: HistoryChat = {
       caption: '地球の影の中に月が入る',
     },
     {
+      type: 'image',
+      src: '/images/science/grade3/earth/eclipse-photos.png',
+      alt: '日食と月食の写真',
+      caption: '左上：皆既日食、右上：金環日食、左下：皆既月食、右下：部分月食',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">日食</span>＝太陽−月−地球（新月）／ <span class="keyword">月食</span>＝太陽−地球−月（満月）',
     },

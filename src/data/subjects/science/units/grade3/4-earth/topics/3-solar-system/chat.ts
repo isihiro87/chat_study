@@ -135,6 +135,18 @@ export const solarSystemUniverseChat: HistoryChat = {
       text: '数千億個！？ 宇宙ってすごいスケールですね...',
     },
     {
+      type: 'image',
+      src: '/images/science/grade3/earth/galaxy-structure.png',
+      alt: '銀河系の構造',
+      caption: '上：真上から見た渦巻き構造、下：横から見た円盤状の形',
+    },
+    {
+      type: 'image',
+      src: '/images/science/grade3/earth/planets-comparison.png',
+      alt: '太陽系の惑星',
+      caption: '上段：地球型惑星（水金地火）、下段：木星型惑星（木土天海）',
+    },
+    {
       type: 'message',
       side: 'left',
       characterId: 'teacher',

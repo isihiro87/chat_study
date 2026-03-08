@@ -78,6 +78,12 @@ export const pressureHumidityChat: HistoryChat = {
       text: 'するどいね！ 等圧線の<strong><ruby>間隔<rp>(</rp><rt>かんかく</rt><rp>)</rp></ruby>がせまい</strong>ところは気圧の差が大きいから、<strong>風が強い</strong>んだ。<ruby>逆<rp>(</rp><rt>ぎゃく</rt><rp>)</rp></ruby>に間隔が広いところは風がおだやかだよ',
     },
     {
+      type: 'image',
+      src: '/images/science/grade2/weather/weather-map-example.png',
+      alt: '天気図の実例',
+      caption: '春の典型的な天気図。高気圧(H)と低気圧(L)、前線が描かれている',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">等圧線</span>＝気圧の等しい点を結んだ線。空気は高気圧→低気圧へ移動＝<span class="keyword">風</span>。等圧線の間隔がせまい → 強風！',
     },

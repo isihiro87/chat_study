@@ -131,6 +131,18 @@ export const strataChat: HistoryChat = {
       text: '<strong><ruby>三葉虫<rp>(</rp><rt>さんようちゅう</rt><rp>)</rp></ruby></strong>→<ruby>古生代<rp>(</rp><rt>こせいだい</rt><rp>)</rp></ruby>、<strong>アンモナイト</strong>→<ruby>中生代<rp>(</rp><rt>ちゅうせいだい</rt><rp>)</rp></ruby>、<strong>ビカリア</strong>→<ruby>新生代<rp>(</rp><rt>しんせいだい</rt><rp>)</rp></ruby>だよ。<ruby>示準<rp>(</rp><rt>しじゅん</rt><rp>)</rp></ruby><ruby>化石<rp>(</rp><rt>かせき</rt><rp>)</rp></ruby>は<ruby>広<rp>(</rp><rt>ひろ</rt><rp>)</rp></ruby>い<ruby>範囲<rp>(</rp><rt>はんい</rt><rp>)</rp></ruby>に<ruby>生息<rp>(</rp><rt>せいそく</rt><rp>)</rp></ruby>し、<ruby>短<rp>(</rp><rt>みじか</rt><rp>)</rp></ruby>い<ruby>期間<rp>(</rp><rt>きかん</rt><rp>)</rp></ruby>で<ruby>絶滅<rp>(</rp><rt>ぜつめつ</rt><rp>)</rp></ruby>した<ruby>生物<rp>(</rp><rt>せいぶつ</rt><rp>)</rp></ruby>が<ruby>適<rp>(</rp><rt>てき</rt><rp>)</rp></ruby>しているんだ',
     },
     {
+      type: 'image',
+      src: '/images/science/grade1/earth/fossil-examples.png',
+      alt: '示準化石と示相化石',
+      caption: '上段：示準化石（三葉虫・アンモナイト・ビカリア）、下段：示相化石（サンゴ・シジミ・シダ）',
+    },
+    {
+      type: 'image',
+      src: '/images/science/grade1/earth/sedimentary-rocks.png',
+      alt: '堆積岩の粒の比較',
+      caption: 'れき岩（左）・砂岩（中）・泥岩（右）の粒の大きさの違い',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">堆積岩</span>：れき岩・砂岩・泥岩・石灰岩・チャート・凝灰岩。<span class="keyword">示相化石</span>＝環境、<span class="keyword">示準化石</span>＝時代（三葉虫→古生代、アンモナイト→中生代、ビカリア→新生代）',
     },

@@ -72,6 +72,12 @@ export const cellsChat: HistoryChat = {
     },
     {
       type: 'image',
+      src: '/images/science/grade2/biology/cell-microscope.png',
+      alt: '植物・動物細胞の顕微鏡像',
+      caption: '左：タマネギの表皮細胞（酢酸カーミン染色）、右：ヒトのほおの粘膜細胞（メチレンブルー染色）',
+    },
+    {
+      type: 'image',
       src: '/images/science/grade2/biology/cell-structure.svg',
       alt: '植物細胞と動物細胞の比較',
       caption: '植物細胞だけにある細胞壁・葉緑体・液胞',
@@ -141,6 +147,12 @@ export const cellsChat: HistoryChat = {
       characterId: 'teacher',
       expression: 'happy',
       text: '<strong><ruby>組織<rp>(</rp><rt>そしき</rt><rp>)</rp></ruby></strong>は形やはたらきが同じ<ruby>細胞<rp>(</rp><rt>さいぼう</rt><rp>)</rp></ruby>の<ruby>集<rp>(</rp><rt>あつ</rt><rp>)</rp></ruby>まり、<strong><ruby>器官<rp>(</rp><rt>きかん</rt><rp>)</rp></ruby></strong>は<ruby>組織<rp>(</rp><rt>そしき</rt><rp>)</rp></ruby>が<ruby>集<rp>(</rp><rt>あつ</rt><rp>)</rp></ruby>まって<ruby>特定<rp>(</rp><rt>とくてい</rt><rp>)</rp></ruby>のはたらきをするものだよ。例えば<ruby>筋肉<rp>(</rp><rt>きんにく</rt><rp>)</rp></ruby><ruby>組織<rp>(</rp><rt>そしき</rt><rp>)</rp></ruby>が<ruby>集<rp>(</rp><rt>あつ</rt><rp>)</rp></ruby>まって心臓（<ruby>器官<rp>(</rp><rt>きかん</rt><rp>)</rp></ruby>）になるイメージだ',
+    },
+    {
+      type: 'image',
+      src: '/images/science/grade2/biology/unicellular-organisms.png',
+      alt: '単細胞生物の顕微鏡像',
+      caption: '左上：ゾウリムシ、右上：アメーバ、左下：ミドリムシ、右下：ミカヅキモ',
     },
     {
       type: 'summary-point',

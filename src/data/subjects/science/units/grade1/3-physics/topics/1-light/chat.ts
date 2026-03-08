@@ -158,6 +158,12 @@ export const lightChat: HistoryChat = {
     },
     {
       type: 'image',
+      src: '/images/science/grade1/physics/light-fiber.png',
+      alt: '光ファイバーの全反射',
+      caption: '光ファイバーの内部で光が全反射を繰り返して進む',
+    },
+    {
+      type: 'image',
       src: '/images/science/grade1/physics/light-refraction-new.svg',
       alt: '光の屈折',
       caption: '空気からガラスに入ると法線に近づくように曲がる',

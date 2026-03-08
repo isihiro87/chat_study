@@ -78,6 +78,12 @@ export const cloudsFrontsChat: HistoryChat = {
       text: 'その通り！そして地球上の水は、太陽エネルギーを<ruby>原動力<rp>(</rp><rt>げんどうりょく</rt><rp>)</rp></ruby>に<ruby>蒸発<rp>(</rp><rt>じょうはつ</rt><rp>)</rp></ruby>と<ruby>降水<rp>(</rp><rt>こうすい</rt><rp>)</rp></ruby>を<ruby>繰<rp>(</rp><rt>く</rt><rp>)</rp></ruby>り返しているんだ。これを<strong><span class="keyword"><span data-tooltip="蒸発→雲→降水→河川→海→蒸発…と水が地球上を循環すること">水の<ruby>循環<rp>(</rp><rt>じゅんかん</rt><rp>)</rp></ruby></span></span></strong>というよ',
     },
     {
+      type: 'image',
+      src: '/images/science/grade2/weather/cloud-formation-experiment.png',
+      alt: '雲のでき方の実験',
+      caption: '注射器で気圧を下げると（右）フラスコ内に雲が発生する',
+    },
+    {
       type: 'summary-point',
       text: '空気が上昇 → <span class="keyword">膨張</span> → 温度低下 → <span class="keyword">露点</span>に達すると水滴・氷の粒 → <span class="keyword">雲</span>ができる！',
     },

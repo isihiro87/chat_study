@@ -129,6 +129,12 @@ export const plantBodyChat: HistoryChat = {
       text: '<ruby>蒸散<rp>(</rp><rt>じょうさん</rt><rp>)</rp></ruby>が<ruby>主<rp>(</rp><rt>おも</rt><rp>)</rp></ruby>な<ruby>原動力<rp>(</rp><rt>げんどうりょく</rt><rp>)</rp></ruby>になって、<ruby>根<rp>(</rp><rt>ね</rt><rp>)</rp></ruby>からの<strong><ruby>吸水<rp>(</rp><rt>きゅうすい</rt><rp>)</rp></ruby></strong>が起こるんだ。<ruby>根<rp>(</rp><rt>ね</rt><rp>)</rp></ruby>の<ruby>表面<rp>(</rp><rt>ひょうめん</rt><rp>)</rp></ruby>にある<strong><span class="keyword"><ruby>根毛<rp>(</rp><rt>こんもう</rt><rp>)</rp></ruby></span></strong>が<ruby>表面積<rp>(</rp><rt>ひょうめんせき</rt><rp>)</rp></ruby>を<ruby>広<rp>(</rp><rt>ひろ</rt><rp>)</rp></ruby>げて、<ruby>効率<rp>(</rp><rt>こうりつ</rt><rp>)</rp></ruby>よく水を<ruby>吸収<rp>(</rp><rt>きゅうしゅう</rt><rp>)</rp></ruby>しているよ',
     },
     {
+      type: 'image',
+      src: '/images/science/grade2/biology/stomata-microscope.png',
+      alt: '気孔と孔辺細胞の顕微鏡像',
+      caption: '葉の表皮を顕微鏡で観察。三日月形の孔辺細胞が気孔を囲む',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">気孔</span>＝孔辺細胞に囲まれたすきま（葉の裏に多い）。<span class="keyword">蒸散</span>＝気孔から水蒸気が出る→吸水の原動力。<span class="keyword">根毛</span>で効率よく吸水',
     },

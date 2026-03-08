@@ -154,6 +154,12 @@ export const animalBodyChat: HistoryChat = {
       text: '<ruby>肺<rp>(</rp><rt>はい</rt><rp>)</rp></ruby>の中には<strong><span class="keyword"><ruby>肺胞<rp>(</rp><rt>はいほう</rt><rp>)</rp></ruby></span></strong>という小さなふくろがたくさんあるよ。ここで<ruby>酸素<rp>(</rp><rt>さんそ</rt><rp>)</rp></ruby>が<ruby>血液<rp>(</rp><rt>けつえき</rt><rp>)</rp></ruby>に取り<ruby>込<rp>(</rp><rt>こ</rt><rp>)</rp></ruby>まれ、CO<sub>2</sub>が<ruby>放出<rp>(</rp><rt>ほうしゅつ</rt><rp>)</rp></ruby>されるんだ。たくさんの<ruby>肺胞<rp>(</rp><rt>はいほう</rt><rp>)</rp></ruby>で<ruby>表面積<rp>(</rp><rt>ひょうめんせき</rt><rp>)</rp></ruby>を大きくして<ruby>効率<rp>(</rp><rt>こうりつ</rt><rp>)</rp></ruby>を上げているよ',
     },
     {
+      type: 'image',
+      src: '/images/science/grade2/biology/lung-alveoli.png',
+      alt: '肺胞と毛細血管のガス交換',
+      caption: '肺胞のまわりを毛細血管が取り囲み、O₂とCO₂を交換する',
+    },
+    {
       type: 'message',
       side: 'left',
       characterId: 'teacher',
