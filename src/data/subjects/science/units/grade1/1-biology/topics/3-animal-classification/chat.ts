@@ -65,7 +65,7 @@ export const animalClassificationChat: HistoryChat = {
     },
     {
       type: 'image',
-      src: '/images/science/vertebrate-groups.svg',
+      src: '/images/science/grade1/biology/vertebrate-groups.svg',
       alt: '脊椎動物の5つのグループ',
       caption: '魚類・両生類・ハチュウ類・鳥類・哺乳類の特徴',
     },
@@ -191,7 +191,13 @@ export const animalClassificationChat: HistoryChat = {
     },
     {
       type: 'image',
-      src: '/images/science/invertebrate-groups.svg',
+      src: '/images/science/grade1/biology/invertebrate-diversity.png',
+      alt: '無脊椎動物の多様性',
+      caption: '節足動物（甲虫）、軟体動物（イカ）、棘皮動物（ウニ）、環形動物（ミミズ）',
+    },
+    {
+      type: 'image',
+      src: '/images/science/grade1/biology/invertebrate-groups.svg',
       alt: '無脊椎動物の分類',
       caption: '節足動物（昆虫類・甲殻類）と軟体動物',
     },

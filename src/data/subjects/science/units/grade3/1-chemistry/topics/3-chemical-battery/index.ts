@@ -15,7 +15,7 @@ export const chemicalBattery: Topic = {
           content:
             '電池は、電解質水溶液に異なる2種類の金属を入れることで、化学エネルギーを電気エネルギーに変換する装置です。イオンになりやすい金属が−極（負極）となり、電子を放出します。その電子が導線を通ってもう一方の金属（＋極・正極）に流れることで電流が生じます。',
           image: {
-            src: '/images/science/battery-model.svg',
+            src: '/images/science/grade3/chemistry/battery-model.svg',
             alt: 'ダニエル電池のしくみ',
             caption: '電池の基本構造',
           },
@@ -30,7 +30,7 @@ export const chemicalBattery: Topic = {
           content:
             '金属にはイオンになりやすさの順番（イオン化傾向）があります。イオン化傾向が大きい金属ほど電子を失いやすく、水溶液中でイオンになりやすいです。電池では、イオン化傾向が大きい金属が−極になります。',
           image: {
-            src: '/images/science/ionization-tendency.svg',
+            src: '/images/science/grade3/chemistry/ionization-tendency.svg',
             alt: 'イオン化傾向の序列図',
             caption: 'Mg > Zn > Fe > Cu > Ag',
           },
@@ -63,7 +63,7 @@ export const chemicalBattery: Topic = {
               subtext: '電池のしくみ',
               emoji: '🍋',
               image: {
-                src: '/images/science/battery-model.svg',
+                src: '/images/science/grade3/chemistry/battery-model.svg',
                 alt: '電池のしくみの模式図',
               },
             },
@@ -145,7 +145,7 @@ export const chemicalBattery: Topic = {
               subtext: '電池の種類',
               emoji: '📱',
               image: {
-                src: '/images/science/battery-model.svg',
+                src: '/images/science/grade3/chemistry/battery-model.svg',
                 alt: 'ダニエル電池の模式図',
               },
             },

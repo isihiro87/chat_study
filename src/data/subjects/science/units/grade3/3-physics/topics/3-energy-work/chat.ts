@@ -65,7 +65,7 @@ export const energyWorkChat: HistoryChat = {
     },
     {
       type: 'image',
-      src: '/images/science/mechanical-energy.svg',
+      src: '/images/science/grade3/physics/mechanical-energy.svg',
       alt: '力学的エネルギーの保存',
       caption: '位置エネルギーと運動エネルギーの和は一定',
     },
@@ -118,6 +118,12 @@ export const energyWorkChat: HistoryChat = {
       text: '力が半分になっても距離が2倍なら同じ仕事なんですね！ラクできると思ったのに...',
     },
     {
+      type: 'image',
+      src: '/images/science/grade3/physics/pulley-work.png',
+      alt: '定滑車と動滑車のしくみ',
+      caption: '定滑車は力の向きを変え、動滑車は力を半分にする（距離は2倍）',
+    },
+    {
       type: 'message',
       side: 'left',
       characterId: 'teacher',
@@ -155,7 +161,7 @@ export const energyWorkChat: HistoryChat = {
     },
     {
       type: 'image',
-      src: '/images/science/energy-conversion.svg',
+      src: '/images/science/grade3/physics/energy-conversion.svg',
       alt: 'エネルギーの変換',
       caption: 'エネルギーはさまざまな形に変換される',
     },

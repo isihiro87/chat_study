@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" fill="none">
+  <rect width="300" height="300" rx="16" fill="#F5F3F0"/>
+  <text x="150" y="22" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1f2937">静電気のしくみ</text>
+
+  <!-- Before rubbing -->
+  <rect x="10" y="35" width="135" height="110" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1"/>
+  <text x="77" y="52" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#374151">こする前</text>
+
+  <!-- Object A -->
+  <rect x="25" y="65" width="45" height="30" rx="5" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1"/>
+  <text x="47" y="84" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#1e40af">A</text>
+  <!-- + and - balanced -->
+  <text x="30" y="107" font-family="sans-serif" font-size="9" fill="#EF4444">+ +</text>
+  <text x="30" y="118" font-family="sans-serif" font-size="9" fill="#3B82F6">- -</text>
+
+  <!-- Object B -->
+  <rect x="85" y="65" width="45" height="30" rx="5" fill="#FEE2E2" stroke="#EF4444" stroke-width="1"/>
+  <text x="107" y="84" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#991B1B">B</text>
+  <text x="90" y="107" font-family="sans-serif" font-size="9" fill="#EF4444">+ +</text>
+  <text x="90" y="118" font-family="sans-serif" font-size="9" fill="#3B82F6">- -</text>
+
+  <text x="77" y="138" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#6B7280">+と-が同じ数（電気的に中性）</text>
+
+  <!-- After rubbing -->
+  <rect x="155" y="35" width="135" height="110" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1"/>
+  <text x="222" y="52" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#374151">こすった後</text>
+
+  <!-- Object A (lost electrons → +) -->
+  <rect x="170" y="65" width="45" height="30" rx="5" fill="#FEE2E2" stroke="#EF4444" stroke-width="2"/>
+  <text x="192" y="84" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#991B1B">A</text>
+  <text x="175" y="107" font-family="sans-serif" font-size="9" fill="#EF4444">+ +</text>
+  <text x="175" y="118" font-family="sans-serif" font-size="9" fill="#3B82F6">-</text>
+  <text x="192" y="132" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#EF4444">+に帯電</text>
+
+  <!-- Electron transfer arrow -->
+  <path d="M210,80 L230,80" fill="none" stroke="#3B82F6" stroke-width="1.5"/>
+  <path d="M226,77 L232,80 L226,83" fill="#3B82F6"/>
+  <text x="220" y="74" text-anchor="middle" font-family="sans-serif" font-size="6" fill="#3B82F6">e-移動</text>
+
+  <!-- Object B (gained electrons → -) -->
+  <rect x="235" y="65" width="45" height="30" rx="5" fill="#DBEAFE" stroke="#3B82F6" stroke-width="2"/>
+  <text x="257" y="84" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#1e40af">B</text>
+  <text x="240" y="107" font-family="sans-serif" font-size="9" fill="#EF4444">+ +</text>
+  <text x="240" y="118" font-family="sans-serif" font-size="9" fill="#3B82F6">- - -</text>
+  <text x="257" y="132" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#3B82F6">-に帯電</text>
+
+  <text x="222" y="142" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#6B7280">電子(-)が移動 → 静電気が発生</text>
+
+  <!-- Attraction and repulsion -->
+  <rect x="10" y="155" width="280" height="60" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1"/>
+  <text x="150" y="172" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#374151">電気の力</text>
+
+  <!-- Attraction -->
+  <circle cx="55" cy="195" r="12" fill="#FEE2E2" stroke="#EF4444" stroke-width="1"/>
+  <text x="55" y="199" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#EF4444">+</text>
+  <path d="M70,195 L88,195" stroke="#10B981" stroke-width="1.5"/>
+  <path d="M84,192 L90,195 L84,198" fill="#10B981"/>
+  <path d="M105,195 L88,195" stroke="#10B981" stroke-width="1.5"/>
+  <path d="M92,192 L86,195 L92,198" fill="#10B981"/>
+  <circle cx="108" cy="195" r="12" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1"/>
+  <text x="108" y="199" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#3B82F6">-</text>
+  <text x="82" y="185" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#10B981">引き合う</text>
+
+  <!-- Repulsion -->
+  <circle cx="195" cy="195" r="12" fill="#FEE2E2" stroke="#EF4444" stroke-width="1"/>
+  <text x="195" y="199" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#EF4444">+</text>
+  <path d="M207,195 L218,195" stroke="#EF4444" stroke-width="1.5"/>
+  <path d="M214,192 L220,195 L214,198" fill="#EF4444"/>
+  <path d="M238,195 L248,195" stroke="#EF4444" stroke-width="1.5"/>
+  <path d="M244,192 L250,195 L244,198" fill="#EF4444"/>
+  <circle cx="250" cy="195" r="12" fill="#FEE2E2" stroke="#EF4444" stroke-width="1"/>
+  <text x="250" y="199" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#EF4444">+</text>
+  <text x="222" y="185" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#EF4444">しりぞけ合う</text>
+
+  <!-- Summary -->
+  <rect x="10" y="225" width="280" height="60" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1"/>
+  <circle cx="30" cy="242" r="4" fill="#F59E0B"/>
+  <text x="42" y="246" font-family="sans-serif" font-size="8" fill="#374151">摩擦で電子(-)が移動 → 静電気が発生</text>
+  <circle cx="30" cy="258" r="4" fill="#F59E0B"/>
+  <text x="42" y="262" font-family="sans-serif" font-size="8" fill="#374151">同じ電気 → しりぞけ合う / 異なる電気 → 引き合う</text>
+  <circle cx="30" cy="274" r="4" fill="#F59E0B"/>
+  <text x="42" y="278" font-family="sans-serif" font-size="8" fill="#374151">放電：たまった電気が一気に流れる（雷もこのしくみ）</text>
+</svg>

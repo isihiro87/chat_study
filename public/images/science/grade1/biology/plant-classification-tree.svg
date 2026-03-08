@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" fill="none">
+  <rect width="300" height="300" rx="16" fill="#F5F3F0"/>
+  <text x="150" y="22" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1f2937">植物の分類</text>
+
+  <!-- Root: 植物 -->
+  <rect x="110" y="32" width="80" height="22" rx="6" fill="#059669"/>
+  <text x="150" y="47" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="white">植物</text>
+
+  <!-- Branch lines from 植物 -->
+  <line x1="130" y1="54" x2="75" y2="72" stroke="#374151" stroke-width="1.2"/>
+  <line x1="170" y1="54" x2="225" y2="72" stroke="#374151" stroke-width="1.2"/>
+
+  <!-- Level 2: 種子植物 / 種子をつくらない -->
+  <rect x="25" y="72" width="100" height="20" rx="5" fill="#4ADE80"/>
+  <text x="75" y="86" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#1f2937">種子植物</text>
+  <rect x="175" y="72" width="100" height="20" rx="5" fill="#86EFAC"/>
+  <text x="225" y="86" text-anchor="middle" font-family="sans-serif" font-size="8" font-weight="bold" fill="#1f2937">種子をつくらない</text>
+
+  <!-- Branch from 種子植物 -->
+  <line x1="50" y1="92" x2="40" y2="112" stroke="#374151" stroke-width="1"/>
+  <line x1="100" y1="92" x2="110" y2="112" stroke="#374151" stroke-width="1"/>
+
+  <!-- Branch from 種子をつくらない -->
+  <line x1="205" y1="92" x2="195" y2="112" stroke="#374151" stroke-width="1"/>
+  <line x1="245" y1="92" x2="255" y2="112" stroke="#374151" stroke-width="1"/>
+
+  <!-- Level 3 -->
+  <rect x="5" y="112" width="70" height="20" rx="5" fill="#FEF3C7"/>
+  <text x="40" y="126" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#92400E">被子植物</text>
+  <rect x="80" y="112" width="65" height="20" rx="5" fill="#FEF3C7"/>
+  <text x="112" y="126" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#92400E">裸子植物</text>
+
+  <rect x="160" y="112" width="65" height="20" rx="5" fill="#E0F2FE"/>
+  <text x="192" y="126" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#0369A1">シダ植物</text>
+  <rect x="230" y="112" width="65" height="20" rx="5" fill="#E0F2FE"/>
+  <text x="262" y="126" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#0369A1">コケ植物</text>
+
+  <!-- Branch from 被子植物 -->
+  <line x1="25" y1="132" x2="18" y2="150" stroke="#374151" stroke-width="1"/>
+  <line x1="55" y1="132" x2="62" y2="150" stroke="#374151" stroke-width="1"/>
+
+  <!-- Level 4: 双子葉・単子葉 -->
+  <rect x="2" y="150" width="40" height="18" rx="4" fill="#FDE68A"/>
+  <text x="22" y="163" text-anchor="middle" font-family="sans-serif" font-size="7" font-weight="bold" fill="#92400E">双子葉類</text>
+  <rect x="47" y="150" width="40" height="18" rx="4" fill="#FDE68A"/>
+  <text x="67" y="163" text-anchor="middle" font-family="sans-serif" font-size="7" font-weight="bold" fill="#92400E">単子葉類</text>
+
+  <!-- Characteristics boxes -->
+  <!-- 双子葉類 -->
+  <rect x="2" y="176" width="85" height="48" rx="5" fill="white" stroke="#D1D5DB" stroke-width="1"/>
+  <text x="44" y="189" text-anchor="middle" font-family="sans-serif" font-size="7" font-weight="bold" fill="#374151">双子葉類の特徴</text>
+  <text x="44" y="201" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#6B7280">子葉2枚 / 網状脈</text>
+  <text x="44" y="213" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#6B7280">主根・側根 / 輪状</text>
+
+  <!-- 単子葉類 -->
+  <rect x="2" y="230" width="85" height="48" rx="5" fill="white" stroke="#D1D5DB" stroke-width="1"/>
+  <text x="44" y="243" text-anchor="middle" font-family="sans-serif" font-size="7" font-weight="bold" fill="#374151">単子葉類の特徴</text>
+  <text x="44" y="255" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#6B7280">子葉1枚 / 平行脈</text>
+  <text x="44" y="267" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#6B7280">ひげ根 / ばらばら</text>
+
+  <!-- 裸子植物 examples -->
+  <rect x="93" y="140" width="50" height="30" rx="4" fill="white" stroke="#D1D5DB" stroke-width="1"/>
+  <text x="118" y="153" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#6B7280">マツ</text>
+  <text x="118" y="163" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#6B7280">胚珠むき出し</text>
+
+  <!-- シダ植物 -->
+  <rect x="160" y="140" width="65" height="30" rx="4" fill="white" stroke="#D1D5DB" stroke-width="1"/>
+  <text x="192" y="153" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#6B7280">維管束あり</text>
+  <text x="192" y="163" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#6B7280">胞子で増える</text>
+
+  <!-- コケ植物 -->
+  <rect x="230" y="140" width="65" height="30" rx="4" fill="white" stroke="#D1D5DB" stroke-width="1"/>
+  <text x="262" y="153" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#6B7280">維管束なし</text>
+  <text x="262" y="163" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#6B7280">胞子で増える</text>
+
+  <!-- Key concept -->
+  <text x="150" y="292" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#6B7280">種子 → 子房 → 葉脈の順に分類していく</text>
+</svg>

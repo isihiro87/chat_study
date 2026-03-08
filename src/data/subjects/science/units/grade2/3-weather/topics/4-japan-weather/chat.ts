@@ -155,6 +155,12 @@ export const japanWeatherChat: HistoryChat = {
       text: '冬：<span class="keyword">西高東低</span>・日本海側大雪。夏：<span class="keyword">太平洋高気圧</span>・高温多湿。春秋：移動性高気圧と低気圧が交互 → 周期的変化！',
     },
     {
+      type: 'image',
+      src: '/images/science/grade2/weather/japan-seasons.svg',
+      alt: '日本の四季の天気',
+      caption: '季節ごとの気圧配置と天気の特徴',
+    },
+    {
       type: 'quiz',
       question: '冬の日本の典型的な気圧配置はどれか。',
       options: [

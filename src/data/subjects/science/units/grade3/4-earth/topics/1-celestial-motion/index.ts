@@ -26,7 +26,7 @@ export const celestialMotion: Topic = {
           content:
             '地球は西から東へ1日に1回転しています（自転）。この自転により、天体は東の空からのぼり、南の空で最も高くなり（南中）、西の空にしずむように見えます。このような天体の1日の見かけの動きを日周運動といいます。天球とは、観測者を中心とした仮想の球面のことです。',
           image: {
-            src: '/images/science/celestial-sphere.svg',
+            src: '/images/science/grade3/earth/celestial-sphere.svg',
             alt: '天球と日周運動の模式図',
             caption: '太陽の見かけの動き（東→南中→西）',
           },
@@ -58,7 +58,7 @@ export const celestialMotion: Topic = {
             '夏至：南中高度が高く昼が長い ／ 冬至：南中高度が低く昼が短い',
           ],
           image: {
-            src: '/images/science/seasons-tilt.svg',
+            src: '/images/science/grade3/earth/seasons-tilt.svg',
             alt: '地軸の傾きと季節の変化',
             caption: '地軸が23.4度傾いていることで季節が生まれる',
           },
@@ -153,7 +153,7 @@ export const celestialMotion: Topic = {
               subtext: '地軸の傾きの秘密',
               emoji: '🌸',
               image: {
-                src: '/images/science/seasons-tilt.svg',
+                src: '/images/science/grade3/earth/seasons-tilt.svg',
                 alt: '地軸の傾きと季節の変化',
               },
             },

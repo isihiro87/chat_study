@@ -75,7 +75,7 @@ export const geneticsChat: HistoryChat = {
     },
     {
       type: 'image',
-      src: '/images/science/mendel-cross.svg',
+      src: '/images/science/grade3/biology/mendel-cross.svg',
       alt: 'メンデルの交配実験',
       caption: '親（AA×aa）→ 子（Aa）→ 孫（AA:Aa:aa = 1:2:1）',
     },
@@ -122,7 +122,7 @@ export const geneticsChat: HistoryChat = {
     },
     {
       type: 'image',
-      src: '/images/science/dna-hierarchy.svg',
+      src: '/images/science/grade3/biology/dna-hierarchy.svg',
       alt: '核・染色体・DNAの関係',
       caption: '核 → 染色体 → DNA（二重らせん構造）',
     },

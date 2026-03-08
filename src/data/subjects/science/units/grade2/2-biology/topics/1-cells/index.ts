@@ -15,7 +15,7 @@ export const cells: Topic = {
           content:
             '細胞は生物の体をつくる基本単位です。すべての細胞に共通するつくりとして、外側の細胞膜、その内側の細胞質、そして内部の核があります。核は酢酸オルセインや酢酸カーミンなどの染色液で赤く染まります。植物の細胞には、細胞膜の外側にある丈夫な細胞壁、光合成を行う緑色の葉緑体、水や物質が入っている液胞という特徴的なつくりがあります。',
           image: {
-            src: '/images/science/cell-structure.svg',
+            src: '/images/science/grade2/biology/cell-structure.svg',
             alt: '植物細胞と動物細胞の比較図',
             caption: '植物細胞には細胞壁・葉緑体・液胞がある',
           },
@@ -57,7 +57,7 @@ export const cells: Topic = {
               subtext: '細胞のちがい',
               emoji: '🔬',
               image: {
-                src: '/images/science/cell-structure.svg',
+                src: '/images/science/grade2/biology/cell-structure.svg',
                 alt: '植物細胞と動物細胞の比較',
               },
             },

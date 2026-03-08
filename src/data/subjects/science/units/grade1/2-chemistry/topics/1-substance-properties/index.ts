@@ -15,7 +15,7 @@ export const substanceProperties: Topic = {
           content:
             '「物体」はものの形や用途に注目した呼び方で、「物質」はものの材料に注目した呼び方です。たとえば「アルミニウムの缶」では、缶が物体、アルミニウムが物質です。物質は大きく金属と非金属に分けられます。金属には共通する性質があり、みがくと光る（金属光沢）、電気や熱をよく通す、たたくとうすく広がる（展性）、引っ張ると細く伸びる（延性）という4つの性質をもっています。',
           image: {
-            src: '/images/science/metal-properties.svg',
+            src: '/images/science/grade1/chemistry/metal-properties.svg',
             alt: '金属の4つの性質',
             caption: '金属光沢・電気伝導性・展性・延性が金属の共通性質',
           },

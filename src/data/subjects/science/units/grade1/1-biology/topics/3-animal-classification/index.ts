@@ -15,7 +15,7 @@ export const animalClassification: Topic = {
           content:
             '背骨（脊椎）をもつ動物を脊椎動物といい、魚類・両生類・ハチュウ類・鳥類・哺乳類の5つのグループに分けられます。魚類はえらで呼吸し、うろこでおおわれ、卵生です。両生類は子のときえら呼吸、親になると肺と皮膚で呼吸します。ハチュウ類はうろこやこうらでおおわれ、肺で呼吸します。鳥類は羽毛でおおわれ、肺で呼吸します。哺乳類は毛でおおわれ、肺で呼吸し、胎生です。',
           image: {
-            src: '/images/science/vertebrate-groups.svg',
+            src: '/images/science/grade1/biology/vertebrate-groups.svg',
             alt: '脊椎動物の5つのグループ',
             caption: '魚類・両生類・ハチュウ類・鳥類・哺乳類の特徴',
           },
@@ -40,7 +40,7 @@ export const animalClassification: Topic = {
           content:
             '背骨をもたない動物を無脊椎動物といいます。節足動物は体が外骨格でおおわれ、体やあしに節があります。昆虫類は体が頭・胸・腹の3つに分かれ、あしは胸から3対6本出ています。甲殻類（エビ・カニなど）もあしに節があります。軟体動物（イカ・タコ・アサリなど）は外とう膜という膜で内臓が包まれています。',
           image: {
-            src: '/images/science/invertebrate-groups.svg',
+            src: '/images/science/grade1/biology/invertebrate-groups.svg',
             alt: '無脊椎動物の分類',
             caption: '節足動物（昆虫類・甲殻類）と軟体動物',
           },
@@ -62,7 +62,7 @@ export const animalClassification: Topic = {
               subtext: '脊椎動物の分類',
               emoji: '🐟',
               image: {
-                src: '/images/science/vertebrate-groups.svg',
+                src: '/images/science/grade1/biology/vertebrate-groups.svg',
                 alt: '脊椎動物の5つのグループ',
               },
             },

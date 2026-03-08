@@ -65,9 +65,15 @@ export const animalBodyChat: HistoryChat = {
     },
     {
       type: 'image',
-      src: '/images/science/digestive-system.svg',
-      alt: '消化管と消化酵素',
-      caption: '消化管の流れと各消化酵素のはたらき',
+      src: '/images/science/grade2/biology/digestive-tract.svg',
+      alt: '消化管のつくり',
+      caption: '口→食道→胃→小腸→大腸→肛門',
+    },
+    {
+      type: 'image',
+      src: '/images/science/grade2/biology/digestive-enzymes.svg',
+      alt: '消化酵素のはたらき',
+      caption: 'それぞれの消化液に含まれる酵素と分解するもの',
     },
     {
       type: 'message',
@@ -170,9 +176,15 @@ export const animalBodyChat: HistoryChat = {
     },
     {
       type: 'image',
-      src: '/images/science/blood-circulation.svg',
-      alt: '体循環と肺循環',
-      caption: '2つの循環ルート',
+      src: '/images/science/grade2/biology/pulmonary-circulation.svg',
+      alt: '肺循環',
+      caption: '右心室→肺動脈→肺→肺静脈→左心房',
+    },
+    {
+      type: 'image',
+      src: '/images/science/grade2/biology/systemic-circulation.svg',
+      alt: '体循環',
+      caption: '左心室→大動脈→全身→大静脈→右心房',
     },
     {
       type: 'summary-point',

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200" fill="none">
+  <!-- Background -->
+  <rect width="300" height="200" rx="16" fill="#F5F3F0"/>
+
+  <!-- Header -->
+  <rect x="10" y="10" width="280" height="28" rx="8" fill="#10B981"/>
+  <text x="150" y="29" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="white">二酸化炭素（CO₂）の発生</text>
+
+  <!-- つくり方 Section -->
+  <rect x="10" y="48" width="280" height="46" rx="8" fill="white" stroke="#E5E7EB" stroke-width="1"/>
+  <text x="25" y="66" font-family="sans-serif" font-size="10" font-weight="bold" fill="#10B981">つくり方</text>
+  <text x="25" y="82" font-family="sans-serif" font-size="9" fill="#374151">石灰石（貝殻） ＋ うすい塩酸</text>
+
+  <!-- 性質 Section -->
+  <rect x="10" y="102" width="280" height="62" rx="8" fill="white" stroke="#E5E7EB" stroke-width="1"/>
+  <text x="25" y="120" font-family="sans-serif" font-size="10" font-weight="bold" fill="#10B981">性質</text>
+  <text x="25" y="136" font-family="sans-serif" font-size="9" fill="#374151">・ 無色無臭の気体</text>
+  <text x="165" y="136" font-family="sans-serif" font-size="9" fill="#374151">・ 空気より重い</text>
+  <text x="25" y="150" font-family="sans-serif" font-size="9" fill="#374151">・ 石灰水を白くにごらせる</text>
+  <text x="25" y="164" font-family="sans-serif" font-size="9" fill="#374151">・ 水に少し溶ける（炭酸水）</text>
+
+  <!-- 集め方 -->
+  <rect x="10" y="172" width="280" height="22" rx="6" fill="#D1FAE5" stroke="#10B981" stroke-width="1"/>
+  <text x="150" y="187" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#065F46">集め方: 水上置換法 または 下方置換法</text>
+</svg>

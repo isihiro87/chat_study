@@ -25,7 +25,7 @@ export const currentMagnetism: Topic = {
           content:
             '電流が流れると、そのまわりに磁界が生じます。1本の導線に電流を流すと、導線を中心に同心円状の磁界ができます（右手の法則）。コイルに電流を流すと、棒磁石と同様の磁界ができます。',
           image: {
-            src: '/images/science/magnetic-field.svg',
+            src: '/images/science/grade2/electricity/straight-current-field.svg',
             alt: '電流がつくる磁界',
             caption: '右手の法則で磁界の向きがわかる',
           },
@@ -51,7 +51,7 @@ export const currentMagnetism: Topic = {
           content:
             'コイルの中の磁界が変化すると、コイルに電圧が生じて電流が流れます。これを電磁誘導といい、流れる電流を誘導電流といいます。磁石を速く動かす・コイルの巻数を増やす・強い磁石を使うと、誘導電流は大きくなります。発電機はこの原理を利用しています。乾電池のように一定方向に流れる電流を直流、コンセントのように向きが周期的に変わる電流を交流といいます。交流の1秒あたりの振動回数を周波数（Hz）といいます。交流は変圧器で電圧を変えやすいため、送電に利用されています。',
           image: {
-            src: '/images/science/electromagnetic-induction.svg',
+            src: '/images/science/grade2/electricity/electromagnetic-induction.svg',
             alt: '電磁誘導のしくみ',
             caption: 'コイルと磁石で電流が発生する',
           },
@@ -114,7 +114,7 @@ export const currentMagnetism: Topic = {
               subtext: '電流と磁界の関係',
               emoji: '⚡',
               image: {
-                src: '/images/science/magnetic-field.svg',
+                src: '/images/science/grade2/electricity/straight-current-field.svg',
                 alt: '電流がつくる磁界',
               },
             },
@@ -149,7 +149,7 @@ export const currentMagnetism: Topic = {
               subtext: '電磁誘導の発見',
               emoji: '🔌',
               image: {
-                src: '/images/science/electromagnetic-induction.svg',
+                src: '/images/science/grade2/electricity/electromagnetic-induction.svg',
                 alt: '電磁誘導のしくみ',
               },
             },

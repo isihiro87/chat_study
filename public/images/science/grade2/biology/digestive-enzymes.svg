@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 220">
+  <rect width="400" height="220" rx="16" fill="#F5F3F0"/>
+
+  <!-- Title -->
+  <text x="200" y="24" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1f2937">消化酵素のはたらき</text>
+
+  <!-- Table headers -->
+  <rect x="15" y="38" width="85" height="22" rx="4" fill="#374151"/>
+  <text x="57" y="53" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="white">消化液</text>
+  <rect x="105" y="38" width="85" height="22" rx="4" fill="#374151"/>
+  <text x="147" y="53" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="white">消化酵素</text>
+  <rect x="195" y="38" width="190" height="22" rx="4" fill="#374151"/>
+  <text x="290" y="53" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="white">はたらき</text>
+
+  <!-- Row 1: だ液 -->
+  <rect x="15" y="64" width="85" height="30" rx="4" fill="#FEF3C7" stroke="#F59E0B" stroke-width="1"/>
+  <text x="57" y="79" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#92400e">だ液</text>
+  <text x="57" y="90" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#92400e">(口)</text>
+  <rect x="105" y="64" width="85" height="30" rx="4" fill="white" stroke="#D1D5DB" stroke-width="1"/>
+  <text x="147" y="83" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#374151">アミラーゼ</text>
+  <rect x="195" y="64" width="190" height="30" rx="4" fill="white" stroke="#D1D5DB" stroke-width="1"/>
+  <text x="290" y="83" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#374151">デンプン → 麦芽糖</text>
+
+  <!-- Row 2: 胃液 -->
+  <rect x="15" y="98" width="85" height="30" rx="4" fill="#fee2e2" stroke="#EF4444" stroke-width="1"/>
+  <text x="57" y="113" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#991b1b">胃液</text>
+  <text x="57" y="124" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#991b1b">(胃)</text>
+  <rect x="105" y="98" width="85" height="30" rx="4" fill="white" stroke="#D1D5DB" stroke-width="1"/>
+  <text x="147" y="117" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#374151">ペプシン</text>
+  <rect x="195" y="98" width="190" height="30" rx="4" fill="white" stroke="#D1D5DB" stroke-width="1"/>
+  <text x="290" y="117" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#374151">タンパク質 → 分解</text>
+
+  <!-- Row 3: すい液 -->
+  <rect x="15" y="132" width="85" height="42" rx="4" fill="#dbeafe" stroke="#3B82F6" stroke-width="1"/>
+  <text x="57" y="150" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#1e40af">すい液</text>
+  <text x="57" y="167" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#1e40af">(すい臓)</text>
+  <rect x="105" y="132" width="85" height="42" rx="4" fill="white" stroke="#D1D5DB" stroke-width="1"/>
+  <text x="147" y="148" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#374151">アミラーゼ</text>
+  <text x="147" y="160" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#374151">トリプシン</text>
+  <text x="147" y="172" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#374151">リパーゼ</text>
+  <rect x="195" y="132" width="190" height="42" rx="4" fill="white" stroke="#D1D5DB" stroke-width="1"/>
+  <text x="290" y="148" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#374151">デンプン → 麦芽糖</text>
+  <text x="290" y="160" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#374151">タンパク質 → アミノ酸</text>
+  <text x="290" y="172" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#374151">脂肪 → 脂肪酸+モノグリセリド</text>
+
+  <!-- Row 4: 胆汁 -->
+  <rect x="15" y="178" width="85" height="30" rx="4" fill="#d1fae5" stroke="#10B981" stroke-width="1"/>
+  <text x="57" y="193" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#065f46">胆汁</text>
+  <text x="57" y="204" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#065f46">(肝臓で生成)</text>
+  <rect x="105" y="178" width="85" height="30" rx="4" fill="white" stroke="#D1D5DB" stroke-width="1"/>
+  <text x="147" y="196" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#9CA3AF">なし</text>
+  <rect x="195" y="178" width="190" height="30" rx="4" fill="white" stroke="#D1D5DB" stroke-width="1"/>
+  <text x="290" y="191" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#374151">脂肪を細かくする</text>
+  <text x="290" y="203" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#6B7280">(リパーゼのはたらきを助ける)</text>
+</svg>

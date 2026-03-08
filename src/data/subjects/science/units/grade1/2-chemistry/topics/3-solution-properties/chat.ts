@@ -173,6 +173,18 @@ export const solutionPropertiesChat: HistoryChat = {
       text: 'そう！<ruby>混合物<rp>(</rp><rt>こんごうぶつ</rt><rp>)</rp></ruby>から<ruby>純粋<rp>(</rp><rt>じゅんすい</rt><rp>)</rp></ruby>な<ruby>物質<rp>(</rp><rt>ぶっしつ</rt><rp>)</rp></ruby>を<ruby>取<rp>(</rp><rt>と</rt><rp>)</rp></ruby>り出す<ruby>方法<rp>(</rp><rt>ほうほう</rt><rp>)</rp></ruby>として<ruby>再結晶<rp>(</rp><rt>さいけっしょう</rt><rp>)</rp></ruby>はとても<ruby>大切<rp>(</rp><rt>たいせつ</rt><rp>)</rp></ruby>だよ',
     },
     {
+      type: 'image',
+      src: '/images/science/grade1/chemistry/crystal-shapes.png',
+      alt: '結晶の形の比較',
+      caption: '食塩（立方体）・ミョウバン（正八面体）・硝酸カリウム（針状）',
+    },
+    {
+      type: 'image',
+      src: '/images/science/grade1/chemistry/solubility-curve.svg',
+      alt: '溶解度曲線',
+      caption: '温度と溶解度の関係（硝酸カリウム・食塩・ミョウバン）',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">溶解度</span>＝水100gにとける最大質量。<span class="keyword">飽和水溶液</span>を冷やすと<span class="keyword">再結晶</span>で純粋な結晶が得られる',
     },

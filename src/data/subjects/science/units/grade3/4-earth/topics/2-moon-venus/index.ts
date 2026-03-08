@@ -15,7 +15,7 @@ export const moonVenus: Topic = {
           content:
             '月は地球のまわりを回る衛星で、自ら光を出さず太陽の光を反射して光っています。太陽・地球・月の位置関係が変わることで、地球から見える月の形が変化します。これが月の満ち欠けで、約29.5日の周期でくり返されます。新月→三日月→上弦の月→満月→下弦の月→新月とめぐります。',
           image: {
-            src: '/images/science/moon-phases.svg',
+            src: '/images/science/grade3/earth/moon-phases.svg',
             alt: '月の満ち欠けの図',
             caption: '太陽・地球・月の位置関係と月の形',
           },
@@ -31,7 +31,7 @@ export const moonVenus: Topic = {
           content:
             '金星は地球より内側を公転する内惑星です。内惑星は太陽から大きく離れないため、真夜中には見えません。明け方の東の空（明けの明星）か、夕方の西の空（よいの明星）にしか見えません。また、金星は地球との距離が変化するため、大きさと形（満ち欠け）が変わって見えます。',
           image: {
-            src: '/images/science/venus-orbit.svg',
+            src: '/images/science/grade3/earth/venus-orbit.svg',
             alt: '金星の公転と見え方',
             caption: '内惑星は太陽の近くにしか見えない',
           },
@@ -47,9 +47,9 @@ export const moonVenus: Topic = {
           content:
             '日食は太陽−月−地球の順に一直線に並んだとき（新月のとき）に起こり、月が太陽をかくす現象です。月食は太陽−地球−月の順に一直線に並んだとき（満月のとき）に起こり、地球の影に月が入る現象です。',
           image: {
-            src: '/images/science/eclipse-mechanism.svg',
-            alt: '日食と月食のしくみ',
-            caption: '日食（新月時）と月食（満月時）',
+            src: '/images/science/grade3/earth/solar-eclipse.svg',
+            alt: '日食のしくみ',
+            caption: '日食（新月時）：月が太陽をかくす',
           },
           keyPoints: [
             '日食：太陽−月−地球（新月時）→ 月が太陽をかくす',
@@ -68,7 +68,7 @@ export const moonVenus: Topic = {
               subtext: '月の満ち欠けの謎',
               emoji: '🌓',
               image: {
-                src: '/images/science/moon-phases.svg',
+                src: '/images/science/grade3/earth/moon-phases.svg',
                 alt: '月の満ち欠け',
               },
             },

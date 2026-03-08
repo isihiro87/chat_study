@@ -64,6 +64,12 @@ export const circuitOhmChat: HistoryChat = {
       text: '<strong><span class="keyword"><ruby>直列<rp>(</rp><rt>ちょくれつ</rt><rp>)</rp></ruby>回路</span></strong>は<ruby>電気<rp>(</rp><rt>でんき</rt><rp>)</rp></ruby>の通り道が<strong>1本</strong>だけ。<strong><span class="keyword"><ruby>並列<rp>(</rp><rt>へいれつ</rt><rp>)</rp></ruby>回路</span></strong>は途中で<strong><ruby>枝分<rp>(</rp><rt>えだわ</rt><rp>)</rp></ruby>かれ</strong>しているよ。クリスマスツリーの<ruby>豆電球<rp>(</rp><rt>まめでんきゅう</rt><rp>)</rp></ruby>が1つ切れると全部消えるのが<ruby>直列<rp>(</rp><rt>ちょくれつ</rt><rp>)</rp></ruby>、<ruby>家<rp>(</rp><rt>いえ</rt><rp>)</rp></ruby>のコンセントのように1つ消しても他は使えるのが<ruby>並列<rp>(</rp><rt>へいれつ</rt><rp>)</rp></ruby>だね',
     },
     {
+      type: 'image',
+      src: '/images/science/grade2/electricity/series-parallel.svg',
+      alt: '直列回路と並列回路',
+      caption: '直列＝1本道、並列＝枝分かれ',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',
@@ -187,6 +193,12 @@ export const circuitOhmChat: HistoryChat = {
       characterId: 'teacher',
       expression: 'excited',
       text: '<strong>V ＝ R × I</strong> だよ。Vは<ruby>電圧<rp>(</rp><rt>でんあつ</rt><rp>)</rp></ruby>〔V（ボルト）〕、Iは電流〔A（アンペア）〕、Rは<strong><span class="keyword"><ruby>電気抵抗<rp>(</rp><rt>でんきていこう</rt><rp>)</rp></ruby></span></strong>〔<strong>Ω（オーム）</strong>〕だよ。電流を<ruby>求<rp>(</rp><rt>もと</rt><rp>)</rp></ruby>めるときは <strong>I ＝ V ÷ R</strong>、<ruby>抵抗<rp>(</rp><rt>ていこう</rt><rp>)</rp></ruby>を<ruby>求<rp>(</rp><rt>もと</rt><rp>)</rp></ruby>めるときは <strong>R ＝ V ÷ I</strong> と変形できるね',
+    },
+    {
+      type: 'image',
+      src: '/images/science/grade2/electricity/ohms-law.svg',
+      alt: 'オームの法則',
+      caption: 'V＝I×R（電圧＝電流×抵抗）',
     },
     {
       type: 'message',

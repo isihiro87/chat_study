@@ -15,7 +15,7 @@ export const circuitOhm: Topic = {
           content:
             '電気の通り道を回路といい、回路図は電気用図記号を使って表します。回路には大きく分けて2種類あります。直列回路は電流の通り道が一本道で、並列回路は途中で枝分かれする回路です。',
           image: {
-            src: '/images/science/series-parallel.svg',
+            src: '/images/science/grade2/electricity/series-parallel.svg',
             alt: '直列回路と並列回路の比較',
           },
           keyPoints: [
@@ -39,7 +39,7 @@ export const circuitOhm: Topic = {
           content:
             '電圧と電流の間には比例の関係があり、これをオームの法則といいます。V＝R×I（電圧〔V〕＝抵抗〔Ω〕×電流〔A〕）で表されます。電気を通しやすい物質を導体、通しにくい物質を不導体（絶縁体）といいます。',
           image: {
-            src: '/images/science/ohms-law.svg',
+            src: '/images/science/grade2/electricity/ohms-law.svg',
             alt: 'オームの法則（V-Iグラフ）',
             caption: '電圧と電流は比例する',
           },
@@ -62,7 +62,7 @@ export const circuitOhm: Topic = {
               subtext: '回路の基本',
               emoji: '💡',
               image: {
-                src: '/images/science/series-parallel.svg',
+                src: '/images/science/grade2/electricity/series-parallel.svg',
                 alt: '直列回路と並列回路の比較',
               },
             },
@@ -142,7 +142,7 @@ export const circuitOhm: Topic = {
               subtext: 'オームの法則',
               emoji: '📐',
               image: {
-                src: '/images/science/ohms-law.svg',
+                src: '/images/science/grade2/electricity/ohms-law.svg',
                 alt: 'オームの法則（V-Iグラフ）',
               },
             },

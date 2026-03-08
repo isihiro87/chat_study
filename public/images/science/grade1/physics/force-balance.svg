@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200" fill="none">
+  <rect width="300" height="200" rx="16" fill="#F5F3F0"/>
+  <text x="150" y="24" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#374151">2力のつり合いの条件</text>
+
+  <!-- Object in center -->
+  <rect x="115" y="70" width="70" height="40" rx="6" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+  <text x="150" y="95" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#1e40af">物体</text>
+
+  <!-- Left force F1 (red) -->
+  <line x1="115" y1="90" x2="35" y2="90" stroke="#EF4444" stroke-width="3"/>
+  <path d="M40,86 L30,90 L40,94" fill="#EF4444"/>
+  <text x="75" y="80" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#EF4444">F₁</text>
+
+  <!-- Right force F2 (green) -->
+  <line x1="185" y1="90" x2="265" y2="90" stroke="#10B981" stroke-width="3"/>
+  <path d="M260,86 L270,90 L260,94" fill="#10B981"/>
+  <text x="225" y="80" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#10B981">F₂</text>
+
+  <!-- Dashed line showing same line of action -->
+  <line x1="30" y1="90" x2="270" y2="90" stroke="#9CA3AF" stroke-width="0.5" stroke-dasharray="3 3"/>
+
+  <!-- Three conditions -->
+  <rect x="35" y="125" width="230" height="65" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1"/>
+  <text x="150" y="143" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#374151">つり合いの3条件</text>
+
+  <!-- Condition 1 -->
+  <circle cx="60" cy="160" r="8" fill="#F59E0B" opacity="0.2" stroke="#F59E0B" stroke-width="1"/>
+  <text x="60" y="164" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#F59E0B">1</text>
+  <text x="75" y="164" font-family="sans-serif" font-size="10" fill="#374151">同一直線上</text>
+
+  <!-- Condition 2 -->
+  <circle cx="60" cy="180" r="8" fill="#F59E0B" opacity="0.2" stroke="#F59E0B" stroke-width="1"/>
+  <text x="60" y="184" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#F59E0B">2</text>
+  <text x="75" y="184" font-family="sans-serif" font-size="10" fill="#374151">逆向き</text>
+
+  <!-- Condition 3 -->
+  <circle cx="165" cy="160" r="8" fill="#F59E0B" opacity="0.2" stroke="#F59E0B" stroke-width="1"/>
+  <text x="165" y="164" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#F59E0B">3</text>
+  <text x="180" y="164" font-family="sans-serif" font-size="10" fill="#374151">同じ大きさ</text>
+</svg>

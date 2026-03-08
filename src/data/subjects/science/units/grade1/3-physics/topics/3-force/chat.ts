@@ -137,6 +137,12 @@ export const forceChat: HistoryChat = {
       text: 'そのとおり！ だからばねのびを読めば力の大きさがわかるんだ。ただし、ばねを<ruby>限界<rp>(</rp><rt>げんかい</rt><rp>)</rp></ruby>以上に<ruby>伸<rp>(</rp><rt>の</rt><rp>)</rp></ruby>ばすと<ruby>比例<rp>(</rp><rt>ひれい</rt><rp>)</rp></ruby>しなくなるから<ruby>注意<rp>(</rp><rt>ちゅうい</rt><rp>)</rp></ruby>だよ',
     },
     {
+      type: 'image',
+      src: '/images/science/grade1/physics/hookes-law.svg',
+      alt: 'フックの法則',
+      caption: 'ばねの伸びは力の大きさに比例する',
+    },
+    {
       type: 'summary-point',
       text: '力の単位は<span class="keyword">N（ニュートン）</span>。100g≒1N。<span class="keyword">フックの法則</span>：力とばねののびは比例！',
     },
@@ -168,6 +174,12 @@ export const forceChat: HistoryChat = {
       text: '力は<strong><ruby>矢印<rp>(</rp><rt>やじるし</rt><rp>)</rp></ruby></strong>で表すんだ。<strong><span class="keyword">力の3<ruby>要素<rp>(</rp><rt>ようそ</rt><rp>)</rp></ruby></span></strong>は、<strong><ruby>作用点<rp>(</rp><rt>さようてん</rt><rp>)</rp></ruby></strong>（力のはたらく点）、<strong>力の向き</strong>、<strong>力の大きさ</strong>だよ。<ruby>矢印<rp>(</rp><rt>やじるし</rt><rp>)</rp></ruby>の<ruby>始点<rp>(</rp><rt>してん</rt><rp>)</rp></ruby>が<ruby>作用点<rp>(</rp><rt>さようてん</rt><rp>)</rp></ruby>、向きが力の向き、長さが力の大きさを表すんだ',
     },
     {
+      type: 'image',
+      src: '/images/science/grade1/physics/force-representation.svg',
+      alt: '力の矢印の3要素',
+      caption: '作用点・向き・大きさを矢印で表す',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',
@@ -194,6 +206,12 @@ export const forceChat: HistoryChat = {
       characterId: 'teacher',
       expression: 'excited',
       text: 'そう！ <strong><span class="keyword">2力のつり<ruby>合<rp>(</rp><rt>あ</rt><rp>)</rp></ruby>い</span></strong>には<strong>3つの<ruby>条件<rp>(</rp><rt>じょうけん</rt><rp>)</rp></ruby></strong>があるよ。<strong>(1)2力が<ruby>一直線上<rp>(</rp><rt>いっちょくせんじょう</rt><rp>)</rp></ruby></strong>にある、<strong>(2)大きさが<ruby>等<rp>(</rp><rt>ひと</rt><rp>)</rp></ruby>しい</strong>、<strong>(3)向きが<ruby>反対<rp>(</rp><rt>はんたい</rt><rp>)</rp></ruby></strong>。この3つ<ruby>全<rp>(</rp><rt>すべ</rt><rp>)</rp></ruby>てを<ruby>満<rp>(</rp><rt>み</rt><rp>)</rp></ruby>たすとき力はつり合うんだ',
+    },
+    {
+      type: 'image',
+      src: '/images/science/grade1/physics/force-balance.svg',
+      alt: '2力のつり合いの条件',
+      caption: '同一直線上・逆向き・同じ大きさ',
     },
     {
       type: 'message',

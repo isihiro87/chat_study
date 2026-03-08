@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200" fill="none">
+  <!-- Background -->
+  <rect width="300" height="200" rx="16" fill="#F5F3F0"/>
+
+  <!-- Title -->
+  <text x="150" y="22" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#EF4444">下方置換法</text>
+
+  <!-- Bottle -->
+  <rect x="100" y="45" width="80" height="85" rx="6" fill="white" stroke="#FCA5A5" stroke-width="1.5"/>
+  <text x="140" y="68" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#6B7280">集気びん</text>
+
+  <!-- Gas sinking arrows -->
+  <path d="M125,65 L125,115" stroke="#EF4444" stroke-width="2" stroke-dasharray="4 3"/>
+  <path d="M140,65 L140,115" stroke="#EF4444" stroke-width="2" stroke-dasharray="4 3"/>
+  <path d="M155,65 L155,115" stroke="#EF4444" stroke-width="2" stroke-dasharray="4 3"/>
+  <path d="M121,111 L125,120 L129,111" fill="none" stroke="#EF4444" stroke-width="1.5"/>
+  <path d="M136,111 L140,120 L144,111" fill="none" stroke="#EF4444" stroke-width="1.5"/>
+  <path d="M151,111 L155,120 L159,111" fill="none" stroke="#EF4444" stroke-width="1.5"/>
+
+  <!-- Label -->
+  <text x="200" y="105" font-family="sans-serif" font-size="10" fill="#EF4444">↓ 重い気体が</text>
+  <text x="200" y="119" font-family="sans-serif" font-size="10" fill="#EF4444">   下に沈む</text>
+
+  <!-- Gas tube from top -->
+  <line x1="140" y1="30" x2="140" y2="45" stroke="#374151" stroke-width="2"/>
+  <line x1="70" y1="30" x2="140" y2="30" stroke="#374151" stroke-width="2"/>
+  <text x="70" y="27" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#374151">ガス管</text>
+
+  <!-- Arrow showing gas entry -->
+  <path d="M100,30 L120,30" stroke="#EF4444" stroke-width="1.5"/>
+  <path d="M116,27 L122,30 L116,33" fill="#EF4444"/>
+
+  <!-- Air escaping note -->
+  <text x="140" y="140" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#6B7280">空気は上から出ていく</text>
+
+  <!-- Info section -->
+  <rect x="15" y="152" width="270" height="38" rx="8" fill="white" stroke="#E5E7EB" stroke-width="1"/>
+  <text x="150" y="168" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#374151">条件: 空気より重い ＋ 水に溶けやすい（CO₂, Cl₂）</text>
+  <text x="150" y="183" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#6B7280">気体は下に沈み、空気は上から押し出される</text>
+</svg>

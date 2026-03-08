@@ -65,7 +65,7 @@ export const earthquakeChat: HistoryChat = {
     },
     {
       type: 'image',
-      src: '/images/science/seismic-waves.svg',
+      src: '/images/science/grade1/earth/seismic-waves.svg',
       alt: 'P波とS波の伝わり方',
       caption: 'P波（速い）が先に届き、S波（遅い）があとから届く',
     },

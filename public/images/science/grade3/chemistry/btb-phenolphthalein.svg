@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200" fill="none">
+  <!-- Background -->
+  <rect width="400" height="200" rx="16" fill="#F5F3F0"/>
+
+  <!-- Title -->
+  <text x="200" y="25" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1f2937">BTB溶液とフェノールフタレイン</text>
+
+  <!-- BTB Section -->
+  <rect x="15" y="40" width="370" height="68" rx="8" fill="white" stroke="#E5E7EB" stroke-width="1"/>
+  <text x="75" y="60" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#374151">BTB溶液</text>
+
+  <!-- BTB: Acid = Yellow -->
+  <rect x="140" y="48" width="70" height="50" rx="6" fill="#FDE68A" stroke="#F59E0B" stroke-width="1.5"/>
+  <text x="175" y="70" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#92400E">黄色</text>
+  <text x="175" y="84" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#92400E">酸性</text>
+
+  <!-- Arrow -->
+  <text x="218" y="76" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#6B7280">→</text>
+
+  <!-- BTB: Neutral = Green -->
+  <rect x="228" y="48" width="70" height="50" rx="6" fill="#86EFAC" stroke="#22C55E" stroke-width="1.5"/>
+  <text x="263" y="70" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#166534">緑色</text>
+  <text x="263" y="84" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#166534">中性</text>
+
+  <!-- Arrow -->
+  <text x="306" y="76" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#6B7280">→</text>
+
+  <!-- BTB: Alkaline = Blue -->
+  <rect x="316" y="48" width="60" height="50" rx="6" fill="#93C5FD" stroke="#3B82F6" stroke-width="1.5"/>
+  <text x="346" y="70" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1E40AF">青色</text>
+  <text x="346" y="84" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#1E40AF">アルカリ性</text>
+
+  <!-- Phenolphthalein Section -->
+  <rect x="15" y="118" width="370" height="68" rx="8" fill="white" stroke="#E5E7EB" stroke-width="1"/>
+  <text x="75" y="138" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#374151">フェノール</text>
+  <text x="75" y="152" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#374151">フタレイン</text>
+
+  <!-- PP: Acid/Neutral = Colorless -->
+  <rect x="140" y="126" width="158" height="50" rx="6" fill="white" stroke="#D1D5DB" stroke-width="1.5" stroke-dasharray="4 2"/>
+  <text x="219" y="148" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#9CA3AF">無色</text>
+  <text x="219" y="164" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#9CA3AF">酸性・中性で変化なし</text>
+
+  <!-- Arrow -->
+  <text x="306" y="155" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#6B7280">→</text>
+
+  <!-- PP: Alkaline = Red/Pink -->
+  <rect x="316" y="126" width="60" height="50" rx="6" fill="#FCA5A5" stroke="#EF4444" stroke-width="1.5"/>
+  <text x="346" y="148" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#991B1B">赤色</text>
+  <text x="346" y="164" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#991B1B">アルカリ性</text>
+
+  <text x="200" y="198" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#6B7280">フェノールフタレインはアルカリ性のみで色が変わる</text>
+</svg>

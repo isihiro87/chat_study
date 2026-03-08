@@ -98,9 +98,9 @@ export const stimuliResponseChat: HistoryChat = {
     },
     {
       type: 'image',
-      src: '/images/science/nervous-system.svg',
-      alt: '神経系のしくみ',
-      caption: '中枢神経（脳・せきずい）と末しょう神経（感覚・運動）',
+      src: '/images/science/grade2/biology/conscious-response.svg',
+      alt: '意識して起こる反応の経路',
+      caption: '感覚器官→感覚神経→せきずい→脳→せきずい→運動神経→筋肉',
     },
     {
       type: 'summary-point',
@@ -146,6 +146,12 @@ export const stimuliResponseChat: HistoryChat = {
       characterId: 'teacher',
       expression: 'happy',
       text: '<ruby>反射<rp>(</rp><rt>はんしゃ</rt><rp>)</rp></ruby>では<ruby>信号<rp>(</rp><rt>しんごう</rt><rp>)</rp></ruby>が<strong><ruby>脳<rp>(</rp><rt>のう</rt><rp>)</rp></ruby>を<ruby>経由<rp>(</rp><rt>けいゆ</rt><rp>)</rp></ruby>しない</strong>んだ。<ruby>感覚<rp>(</rp><rt>かんかく</rt><rp>)</rp></ruby><ruby>器官<rp>(</rp><rt>きかん</rt><rp>)</rp></ruby>→<ruby>感覚<rp>(</rp><rt>かんかく</rt><rp>)</rp></ruby><ruby>神経<rp>(</rp><rt>しんけい</rt><rp>)</rp></ruby>→<strong>せきずい</strong>→<ruby>運動<rp>(</rp><rt>うんどう</rt><rp>)</rp></ruby><ruby>神経<rp>(</rp><rt>しんけい</rt><rp>)</rp></ruby>→<ruby>運動<rp>(</rp><rt>うんどう</rt><rp>)</rp></ruby><ruby>器官<rp>(</rp><rt>きかん</rt><rp>)</rp></ruby>という<ruby>経路<rp>(</rp><rt>けいろ</rt><rp>)</rp></ruby>で、せきずいから<ruby>直接<rp>(</rp><rt>ちょくせつ</rt><rp>)</rp></ruby><ruby>命令<rp>(</rp><rt>めいれい</rt><rp>)</rp></ruby>が出るから<ruby>速<rp>(</rp><rt>はや</rt><rp>)</rp></ruby>いんだ',
+    },
+    {
+      type: 'image',
+      src: '/images/science/grade2/biology/reflex-response.svg',
+      alt: '反射のしくみ',
+      caption: '脳を通らず、せきずいで折り返す（速い反応）',
     },
     {
       type: 'summary-point',

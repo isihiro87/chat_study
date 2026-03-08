@@ -65,7 +65,7 @@ export const evolutionChat: HistoryChat = {
     },
     {
       type: 'image',
-      src: '/images/science/evolution-tree.svg',
+      src: '/images/science/grade3/biology/evolution-tree.svg',
       alt: '脊椎動物の進化の道すじ',
       caption: '魚類 → 両生類 → ハチュウ類 → 哺乳類・鳥類',
     },
@@ -93,6 +93,12 @@ export const evolutionChat: HistoryChat = {
       characterId: 'teacher',
       expression: 'happy',
       text: 'いい表現だね！もう一つ、<strong><span class="keyword"><span data-tooltip="鳥類の特徴（羽毛）とハチュウ類の特徴（歯・つめ・長い尾）をもつ中間的な化石生物"><ruby>始祖鳥<rp>(</rp><rt>しそちょう</rt><rp>)</rp></ruby></span></span></strong>も有名だよ。<ruby>鳥類<rp>(</rp><rt>ちょうるい</rt><rp>)</rp></ruby>の特徴である<strong><ruby>羽毛<rp>(</rp><rt>うもう</rt><rp>)</rp></ruby></strong>と、ハチュウ類の特徴である<strong>歯・つめ・長い<ruby>尾<rp>(</rp><rt>お</rt><rp>)</rp></ruby></strong>をもっていたんだ',
+    },
+    {
+      type: 'image',
+      src: '/images/science/grade3/biology/archaeopteryx.png',
+      alt: '始祖鳥の復元図',
+      caption: '羽毛（鳥類の特徴）と歯・翼の爪・長い尾（ハチュウ類の特徴）をもつ',
     },
     {
       type: 'quiz',
@@ -133,7 +139,7 @@ export const evolutionChat: HistoryChat = {
     },
     {
       type: 'image',
-      src: '/images/science/homologous-organs.svg',
+      src: '/images/science/grade3/biology/homologous-organs.svg',
       alt: '相同器官の比較',
       caption: 'クジラのひれ・ヒトのうで・コウモリの翼の骨格比較',
     },
@@ -147,6 +153,12 @@ export const evolutionChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<span class="keyword">相同器官</span>＝形は違うけど骨の基本構造が同じ → 共通の祖先から進化した証拠！',
+    },
+    {
+      type: 'image',
+      src: '/images/science/grade3/biology/living-fossils.png',
+      alt: '生きた化石',
+      caption: 'シーラカンス（左）とカブトガニ（右）。太古の姿をほぼ保っている',
     },
     {
       type: 'quiz',

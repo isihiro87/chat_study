@@ -21,9 +21,9 @@ export const solarSystemUniverse: Topic = {
             'すい星：氷や塵でできた天体（尾を引く）',
           ],
           image: {
-            src: '/images/science/solar-system.svg',
-            alt: '太陽系の惑星',
-            caption: '太陽系の8つの惑星',
+            src: '/images/science/grade3/earth/terrestrial-planets.svg',
+            alt: '地球型惑星',
+            caption: '水星・金星・地球・火星（小さく、密度が大きい）',
           },
         },
         {
@@ -59,8 +59,8 @@ export const solarSystemUniverse: Topic = {
               subtext: '惑星の2タイプ',
               emoji: '🌍',
               image: {
-                src: '/images/science/solar-system.svg',
-                alt: '太陽系の惑星',
+                src: '/images/science/grade3/earth/terrestrial-planets.svg',
+                alt: '地球型惑星',
               },
             },
             {

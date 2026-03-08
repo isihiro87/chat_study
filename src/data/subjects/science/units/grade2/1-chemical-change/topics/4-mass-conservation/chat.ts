@@ -65,7 +65,7 @@ export const massConservationChat: HistoryChat = {
     },
     {
       type: 'image',
-      src: '/images/science/mass-conservation.svg',
+      src: '/images/science/grade2/chemical-change/mass-conservation.svg',
       alt: '質量保存の法則',
       caption: '化学変化の前後で物質全体の質量は変わらない',
     },
@@ -123,7 +123,7 @@ export const massConservationChat: HistoryChat = {
     },
     {
       type: 'image',
-      src: '/images/science/mass-ratio-graph.svg',
+      src: '/images/science/grade2/chemical-change/mass-ratio-graph.svg',
       alt: '金属と酸素の質量比のグラフ',
       caption: '銅:酸素=4:1、マグネシウム:酸素=3:2',
     },

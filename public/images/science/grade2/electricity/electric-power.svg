@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" fill="none">
+  <rect width="300" height="300" rx="16" fill="#F5F3F0"/>
+  <text x="150" y="22" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1f2937">電力と電力量</text>
+
+  <!-- 電力 section -->
+  <rect x="10" y="35" width="280" height="85" rx="8" fill="white" stroke="#3B82F6" stroke-width="1.5"/>
+  <text x="150" y="55" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#3B82F6">電力 P（W：ワット）</text>
+
+  <!-- Formula -->
+  <rect x="50" y="65" width="200" height="35" rx="6" fill="#DBEAFE"/>
+  <text x="150" y="88" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="bold" fill="#1e40af">P(W) = V(V) × I(A)</text>
+
+  <text x="85" y="110" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#6B7280">電力</text>
+  <text x="165" y="110" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#6B7280">電圧</text>
+  <text x="230" y="110" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#6B7280">電流</text>
+
+  <!-- 電力量 section -->
+  <rect x="10" y="130" width="280" height="85" rx="8" fill="white" stroke="#10B981" stroke-width="1.5"/>
+  <text x="150" y="150" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#10B981">電力量 W（J：ジュール）</text>
+
+  <!-- Formula -->
+  <rect x="35" y="160" width="230" height="35" rx="6" fill="#D1FAE5"/>
+  <text x="150" y="183" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="bold" fill="#065F46">W(J) = P(W) × t(s)</text>
+
+  <text x="85" y="205" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#6B7280">電力量</text>
+  <text x="165" y="205" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#6B7280">電力</text>
+  <text x="230" y="205" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#6B7280">時間(秒)</text>
+
+  <!-- 熱量 section -->
+  <rect x="10" y="225" width="280" height="60" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1"/>
+  <text x="150" y="242" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#374151">覚えておこう</text>
+
+  <circle cx="30" cy="258" r="4" fill="#F59E0B"/>
+  <text x="42" y="262" font-family="sans-serif" font-size="8" fill="#374151">1Wの電力を1秒間使う → 1J の電力量</text>
+
+  <circle cx="30" cy="274" r="4" fill="#F59E0B"/>
+  <text x="42" y="278" font-family="sans-serif" font-size="8" fill="#374151">1kWh ＝ 1000W × 3600s ＝ 3,600,000J</text>
+</svg>

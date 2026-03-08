@@ -83,7 +83,7 @@ export const solutionIonsChat: HistoryChat = {
     },
     {
       type: 'image',
-      src: '/images/science/electrolysis-model.svg',
+      src: '/images/science/grade3/chemistry/electrolysis-model.svg',
       alt: 'NaClの電離モデル',
       caption: '電解質が水に溶けてイオンに分かれるようす',
     },
@@ -116,7 +116,7 @@ export const solutionIonsChat: HistoryChat = {
     },
     {
       type: 'image',
-      src: '/images/science/electrolysis-apparatus.svg',
+      src: '/images/science/grade3/chemistry/electrolysis-apparatus.svg',
       alt: '塩化銅水溶液の電気分解装置',
       caption: '陰極に銅が付着し、陽極から塩素が発生する',
     },
@@ -133,6 +133,12 @@ export const solutionIonsChat: HistoryChat = {
       characterId: 'teacher',
       expression: 'thinking',
       text: '<ruby>塩酸<rp>(</rp><rt>えんさん</rt><rp>)</rp></ruby>の<ruby>電気分解<rp>(</rp><rt>でんきぶんかい</rt><rp>)</rp></ruby>も<ruby>覚<rp>(</rp><rt>おぼ</rt><rp>)</rp></ruby>えておこう。<ruby>陰極<rp>(</rp><rt>いんきょく</rt><rp>)</rp></ruby>に<strong><ruby>水素<rp>(</rp><rt>すいそ</rt><rp>)</rp></ruby></strong>、<ruby>陽極<rp>(</rp><rt>ようきょく</rt><rp>)</rp></ruby>に<strong><ruby>塩素<rp>(</rp><rt>えんそ</rt><rp>)</rp></ruby></strong>が発生するよ。覚え方は「陰極にはプラスのイオンが引きつけられる」だ',
+    },
+    {
+      type: 'image',
+      src: '/images/science/grade3/chemistry/electrolysis-experiment.png',
+      alt: '塩化銅水溶液の電気分解',
+      caption: '陰極に銅が析出し、陽極から塩素が発生する',
     },
     {
       type: 'summary-point',
@@ -169,7 +175,7 @@ export const solutionIonsChat: HistoryChat = {
     },
     {
       type: 'image',
-      src: '/images/science/atom-model.svg',
+      src: '/images/science/grade3/chemistry/atom-model.svg',
       alt: '原子の構造モデル',
       caption: '原子核（陽子＋中性子）のまわりを電子が回る',
     },

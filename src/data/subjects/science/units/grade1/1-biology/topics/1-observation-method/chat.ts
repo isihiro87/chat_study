@@ -79,7 +79,7 @@ export const observationMethodChat: HistoryChat = {
     },
     {
       type: 'image',
-      src: '/images/science/sketch-method.svg',
+      src: '/images/science/grade1/biology/sketch-method.svg',
       alt: 'スケッチのしかた',
       caption: 'スケッチは細い線で輪郭を描き、影はつけない',
     },
@@ -132,7 +132,7 @@ export const observationMethodChat: HistoryChat = {
     },
     {
       type: 'image',
-      src: '/images/science/microscope-usage.svg',
+      src: '/images/science/grade1/biology/microscope-usage.svg',
       alt: '顕微鏡の使い方',
       caption: '顕微鏡の各部分の名前と使い方',
     },

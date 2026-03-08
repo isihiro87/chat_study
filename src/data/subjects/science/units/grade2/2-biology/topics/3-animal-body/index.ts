@@ -15,9 +15,9 @@ export const animalBody: Topic = {
           content:
             '食物は口から始まり、食道、胃、小腸、大腸、肛門へ続く1本の長い管（消化管）を通ります。食物を吸収されやすい物質に分解するのが消化酵素です。だ液中のアミラーゼはデンプンを麦芽糖などに、胃液中のペプシンやすい液中のトリプシンはタンパク質をアミノ酸に分解します。胆汁は肝臓で作られ、消化酵素は含みませんが、すい液中のリパーゼのはたらきを助け、脂肪を脂肪酸とモノグリセリドに分解します。',
           image: {
-            src: '/images/science/digestive-system.svg',
-            alt: '消化管と消化酵素',
-            caption: '消化管の流れと各消化酵素のはたらき',
+            src: '/images/science/grade2/biology/digestive-tract.svg',
+            alt: '消化管のつくり',
+            caption: '口→食道→胃→小腸→大腸→肛門',
           },
           keyPoints: [
             '消化管：口→食道→胃→小腸→大腸→肛門',
@@ -42,9 +42,9 @@ export const animalBody: Topic = {
           content:
             '肺の気管の先にある小さなふくろ（肺胞）で、酸素が血液に取り込まれ、二酸化炭素が放出されます。心臓は4つの部屋（右心房・右心室・左心房・左心室）があり、拍動により血液を送り出します。心臓から全身を回って戻る体循環と、心臓から肺を通って戻る肺循環があります。',
           image: {
-            src: '/images/science/blood-circulation.svg',
-            alt: '体循環と肺循環',
-            caption: '体循環（全身）と肺循環（肺）の2つのルート',
+            src: '/images/science/grade2/biology/pulmonary-circulation.svg',
+            alt: '肺循環',
+            caption: '右心室→肺動脈→肺→肺静脈→左心房',
           },
           keyPoints: [
             '肺胞：表面積が大きく、効率よく気体交換（O₂取込み・CO₂放出）',
@@ -75,8 +75,8 @@ export const animalBody: Topic = {
               subtext: '消化と吸収',
               emoji: '🍽️',
               image: {
-                src: '/images/science/digestive-system.svg',
-                alt: '消化管と消化酵素',
+                src: '/images/science/grade2/biology/digestive-tract.svg',
+                alt: '消化管のつくり',
               },
             },
             {
@@ -110,8 +110,8 @@ export const animalBody: Topic = {
               subtext: '2つの循環',
               emoji: '🫀',
               image: {
-                src: '/images/science/blood-circulation.svg',
-                alt: '体循環と肺循環',
+                src: '/images/science/grade2/biology/pulmonary-circulation.svg',
+                alt: '肺循環',
               },
             },
             {

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200" fill="none">
+  <!-- Background -->
+  <rect width="300" height="200" rx="16" fill="#F5F3F0"/>
+
+  <!-- Header -->
+  <rect x="10" y="10" width="280" height="28" rx="8" fill="#3B82F6"/>
+  <text x="150" y="29" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="white">酸素（O₂）の発生</text>
+
+  <!-- つくり方 Section -->
+  <rect x="10" y="48" width="280" height="52" rx="8" fill="white" stroke="#E5E7EB" stroke-width="1"/>
+  <text x="25" y="66" font-family="sans-serif" font-size="10" font-weight="bold" fill="#3B82F6">つくり方</text>
+  <text x="25" y="82" font-family="sans-serif" font-size="9" fill="#374151">二酸化マンガン ＋ うすい過酸化水素水（オキシドール）</text>
+  <text x="25" y="94" font-family="sans-serif" font-size="8" fill="#6B7280">※二酸化マンガンは触媒（自身は変化しない）</text>
+
+  <!-- 性質 Section -->
+  <rect x="10" y="108" width="280" height="55" rx="8" fill="white" stroke="#E5E7EB" stroke-width="1"/>
+  <text x="25" y="126" font-family="sans-serif" font-size="10" font-weight="bold" fill="#3B82F6">性質</text>
+  <text x="25" y="142" font-family="sans-serif" font-size="9" fill="#374151">・ 無色無臭の気体</text>
+  <text x="150" y="142" font-family="sans-serif" font-size="9" fill="#374151">・ 物を燃やすはたらき</text>
+  <text x="25" y="156" font-family="sans-serif" font-size="9" fill="#374151">・ 水に溶けにくい</text>
+  <text x="150" y="156" font-family="sans-serif" font-size="9" fill="#374151">・ 線香が激しく燃える</text>
+
+  <!-- 集め方 -->
+  <rect x="10" y="170" width="280" height="22" rx="6" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1"/>
+  <text x="150" y="185" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#1E40AF">集め方: 水上置換法</text>
+</svg>

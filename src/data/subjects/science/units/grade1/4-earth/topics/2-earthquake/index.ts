@@ -15,7 +15,7 @@ export const earthquake: Topic = {
           content:
             '地震が発生した地下の場所を震源、震源の真上の地表の点を震央といいます。地震のゆれには2種類あり、はじめの小さなゆれを初期微動（P波による）、あとから来る大きなゆれを主要動（S波による）といいます。P波はS波より速く伝わるため、初期微動が先に届きます。初期微動が続く時間を初期微動継続時間といい、震源からの距離が大きいほど長くなります。地震の規模をマグニチュード（M）、各地のゆれの強さを震度で表します。',
           image: {
-            src: '/images/science/seismic-waves.svg',
+            src: '/images/science/grade1/earth/seismic-waves.svg',
             alt: 'P波とS波の伝わり方',
             caption: 'P波（速い・小さなゆれ）が先に届き、S波（遅い・大きなゆれ）があとから届く',
           },
@@ -60,7 +60,7 @@ export const earthquake: Topic = {
               subtext: '初期微動と主要動',
               emoji: '🌍',
               image: {
-                src: '/images/science/seismic-waves.svg',
+                src: '/images/science/grade1/earth/seismic-waves.svg',
                 alt: 'P波とS波の伝わり方',
               },
             },

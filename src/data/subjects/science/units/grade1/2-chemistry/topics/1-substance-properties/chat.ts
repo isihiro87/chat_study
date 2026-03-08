@@ -84,7 +84,7 @@ export const substancePropertiesChat: HistoryChat = {
     },
     {
       type: 'image',
-      src: '/images/science/metal-properties.svg',
+      src: '/images/science/grade1/chemistry/metal-properties.svg',
       alt: '金属の4つの性質',
       caption: '金属光沢・電気伝導性・展性・延性',
     },
@@ -156,6 +156,12 @@ export const substancePropertiesChat: HistoryChat = {
       characterId: 'teacher',
       expression: 'excited',
       text: '<ruby>砂糖<rp>(</rp><rt>さとう</rt><rp>)</rp></ruby>が<strong><ruby>有機物<rp>(</rp><rt>ゆうきぶつ</rt><rp>)</rp></ruby></strong>だよ！<ruby>燃<rp>(</rp><rt>も</rt><rp>)</rp></ruby>やすと黒くこげて<ruby>二酸化炭素<rp>(</rp><rt>にさんかたんそ</rt><rp>)</rp></ruby>が出る。<ruby>食塩<rp>(</rp><rt>しょくえん</rt><rp>)</rp></ruby>は<strong><ruby>無機物<rp>(</rp><rt>むきぶつ</rt><rp>)</rp></ruby></strong>だから<ruby>燃<rp>(</rp><rt>も</rt><rp>)</rp></ruby>えないんだ。デンプン・エタノール・ろうも<ruby>有機物<rp>(</rp><rt>ゆうきぶつ</rt><rp>)</rp></ruby>だよ',
+    },
+    {
+      type: 'image',
+      src: '/images/science/grade1/chemistry/gas-burner-flame.png',
+      alt: 'ガスバーナーの炎の調節',
+      caption: '空気の量で炎が変化：オレンジ（空気不足）→ 青白 → 青（適正）',
     },
     {
       type: 'message',

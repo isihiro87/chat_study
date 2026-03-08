@@ -51,7 +51,7 @@ export const plantClassificationChat: HistoryChat = {
     },
     {
       type: 'image',
-      src: '/images/science/flower-structure.svg',
+      src: '/images/science/grade1/biology/flower-structure.svg',
       alt: '花のつくり',
       caption: '花の各部分：がく・花弁・おしべ・めしべ',
     },
@@ -103,6 +103,12 @@ export const plantClassificationChat: HistoryChat = {
       text: 'マツの花を見たことはあるかな？マツの花には<ruby>子房<rp>(</rp><rt>しぼう</rt><rp>)</rp></ruby>がないんだ。<ruby>胚珠<rp>(</rp><rt>はいしゅ</rt><rp>)</rp></ruby>がむき出しになっている<ruby>植物<rp>(</rp><rt>しょくぶつ</rt><rp>)</rp></ruby>を<strong><span class="keyword"><ruby>裸子植物<rp>(</rp><rt>らししょくぶつ</rt><rp>)</rp></ruby></span></strong>というよ。<ruby>子房<rp>(</rp><rt>しぼう</rt><rp>)</rp></ruby>がないから<strong><ruby>果実<rp>(</rp><rt>かじつ</rt><rp>)</rp></ruby>はできない</strong>んだ',
     },
     {
+      type: 'image',
+      src: '/images/science/grade1/biology/pine-cone-structure.png',
+      alt: 'マツの花のつくり',
+      caption: '雄花の花粉のうと雌花のむき出しの胚珠',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',
@@ -132,7 +138,7 @@ export const plantClassificationChat: HistoryChat = {
     },
     {
       type: 'image',
-      src: '/images/science/plant-classification-tree.svg',
+      src: '/images/science/grade1/biology/plant-classification-tree.svg',
       alt: '植物の分類',
       caption: '被子植物と裸子植物、双子葉類と単子葉類の分類',
     },
@@ -182,6 +188,12 @@ export const plantClassificationChat: HistoryChat = {
       text: '大きな<ruby>違<rp>(</rp><rt>ちが</rt><rp>)</rp></ruby>いは<strong><span class="keyword"><ruby>維管束<rp>(</rp><rt>いかんそく</rt><rp>)</rp></ruby></span></strong>があるかどうかだよ。<br/><strong>シダ<ruby>植物<rp>(</rp><rt>しょくぶつ</rt><rp>)</rp></ruby></strong>（イヌワラビなど）：根・<ruby>茎<rp>(</rp><rt>くき</rt><rp>)</rp></ruby>・葉の<ruby>区別<rp>(</rp><rt>くべつ</rt><rp>)</rp></ruby>が<strong>ある</strong>、<ruby>維管束<rp>(</rp><rt>いかんそく</rt><rp>)</rp></ruby>が<strong>ある</strong><br/><strong>コケ<ruby>植物<rp>(</rp><rt>しょくぶつ</rt><rp>)</rp></ruby></strong>（ゼニゴケなど）：根・<ruby>茎<rp>(</rp><rt>くき</rt><rp>)</rp></ruby>・葉の<ruby>区別<rp>(</rp><rt>くべつ</rt><rp>)</rp></ruby>が<strong>ない</strong>、<ruby>維管束<rp>(</rp><rt>いかんそく</rt><rp>)</rp></ruby>も<strong>ない</strong>',
     },
     {
+      type: 'image',
+      src: '/images/science/grade1/biology/fern-spore.png',
+      alt: 'シダ植物の全体像と胞子のう',
+      caption: '葉の裏に胞子のう群がつく',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',
@@ -194,6 +206,12 @@ export const plantClassificationChat: HistoryChat = {
       characterId: 'teacher',
       expression: 'happy',
       text: 'いいところに気づいたね！コケ<ruby>植物<rp>(</rp><rt>しょくぶつ</rt><rp>)</rp></ruby>は<strong><span class="keyword"><ruby>仮根<rp>(</rp><rt>かこん</rt><rp>)</rp></ruby></span></strong>という根のようなもので体を<ruby>地面<rp>(</rp><rt>じめん</rt><rp>)</rp></ruby>に<ruby>固定<rp>(</rp><rt>こてい</rt><rp>)</rp></ruby>しているんだ。水は体の<ruby>表面<rp>(</rp><rt>ひょうめん</rt><rp>)</rp></ruby>全体で<ruby>吸収<rp>(</rp><rt>きゅうしゅう</rt><rp>)</rp></ruby>するよ',
+    },
+    {
+      type: 'image',
+      src: '/images/science/grade1/biology/moss-structure.png',
+      alt: 'コケ植物の構造',
+      caption: 'ゼニゴケ（左）とスギゴケ（右）。仮根で固定する',
     },
     {
       type: 'message',

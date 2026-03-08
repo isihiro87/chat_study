@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200" fill="none">
+  <!-- Background -->
+  <rect width="400" height="200" rx="16" fill="#1f2937"/>
+
+  <!-- Title -->
+  <text x="200" y="28" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="white">木星型惑星（ガス惑星）</text>
+
+  <!-- Planets row -->
+  <!-- Jupiter -->
+  <circle cx="75" cy="95" r="35" fill="#D97706" stroke="#92400E" stroke-width="1.5"/>
+  <line x1="42" y1="85" x2="108" y2="85" stroke="#92400E" stroke-width="1" opacity="0.5"/>
+  <line x1="45" y1="95" x2="105" y2="95" stroke="#92400E" stroke-width="1" opacity="0.5"/>
+  <line x1="42" y1="105" x2="108" y2="105" stroke="#92400E" stroke-width="1" opacity="0.5"/>
+  <text x="75" y="99" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="white">木星</text>
+  <text x="75" y="138" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#D97706">最大の惑星</text>
+
+  <!-- Saturn -->
+  <circle cx="185" cy="95" r="28" fill="#FBBF24"/>
+  <ellipse cx="185" cy="95" rx="45" ry="8" fill="none" stroke="#F59E0B" stroke-width="2"/>
+  <text x="185" y="99" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#92400E">土星</text>
+  <text x="185" y="132" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#FBBF24">美しい環</text>
+
+  <!-- Uranus -->
+  <circle cx="290" cy="95" r="18" fill="#67E8F9"/>
+  <text x="290" y="99" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#1f2937">天王星</text>
+  <text x="290" y="122" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#67E8F9">横倒しの自転</text>
+
+  <!-- Neptune -->
+  <circle cx="365" cy="95" r="16" fill="#3B82F6"/>
+  <text x="365" y="99" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="white">海王星</text>
+  <text x="365" y="120" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#60A5FA">最も遠い</text>
+
+  <!-- Characteristics box -->
+  <rect x="40" y="148" width="320" height="38" rx="8" fill="#374151"/>
+  <text x="200" y="165" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#93C5FD">特徴: 大きい・密度が小さい・ガス状の表面</text>
+  <text x="200" y="179" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#6B7280">太陽から遠い4つの惑星 ※大きさの比率は実際とは異なります</text>
+</svg>

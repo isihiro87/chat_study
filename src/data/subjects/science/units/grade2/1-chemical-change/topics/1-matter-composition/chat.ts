@@ -65,7 +65,7 @@ export const matterCompositionChat: HistoryChat = {
     },
     {
       type: 'image',
-      src: '/images/science/thermal-decomposition.svg',
+      src: '/images/science/grade2/chemical-change/thermal-decomposition.svg',
       alt: '炭酸水素ナトリウムの熱分解',
       caption: '加熱すると3つの物質に分解される',
     },
@@ -84,6 +84,12 @@ export const matterCompositionChat: HistoryChat = {
       text: 'いい<ruby>質問<rp>(</rp><rt>しつもん</rt><rp>)</rp></ruby>！<ruby>二酸化炭素<rp>(</rp><rt>にさんかたんそ</rt><rp>)</rp></ruby>は<strong><ruby>石灰水<rp>(</rp><rt>せっかいすい</rt><rp>)</rp></ruby>が白くにごる</strong>ことで、水は<strong><ruby>塩化<rp>(</rp><rt>えんか</rt><rp>)</rp></ruby>コバルト<ruby>紙<rp>(</rp><rt>し</rt><rp>)</rp></ruby>が青→赤に変わる</strong>ことで確認できるよ',
     },
     {
+      type: 'image',
+      src: '/images/science/grade2/chemical-change/cobalt-paper-test.png',
+      alt: '塩化コバルト紙の色変化',
+      caption: '乾燥時は青色（左）、水を検出すると桃色に変化（右）',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">熱分解</span>: 炭酸水素ナトリウム → 炭酸ナトリウム + 水 + 二酸化炭素。<span class="keyword">酸化銀</span>の加熱 → 銀 + 酸素',
     },
@@ -96,7 +102,7 @@ export const matterCompositionChat: HistoryChat = {
     },
     {
       type: 'image',
-      src: '/images/science/water-electrolysis.svg',
+      src: '/images/science/grade2/chemical-change/water-electrolysis.svg',
       alt: '水の電気分解',
       caption: '陰極に水素、陽極に酸素が発生（体積比2:1）',
     },
@@ -157,7 +163,7 @@ export const matterCompositionChat: HistoryChat = {
     },
     {
       type: 'image',
-      src: '/images/science/periodic-table-basic.svg',
+      src: '/images/science/grade2/chemical-change/periodic-table-basic.svg',
       alt: 'おもな元素と元素記号',
       caption: '中学で覚えておきたい元素記号',
     },

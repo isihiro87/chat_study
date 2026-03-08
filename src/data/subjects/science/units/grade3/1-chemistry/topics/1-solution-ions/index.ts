@@ -15,7 +15,7 @@ export const solutionIons: Topic = {
           content:
             '物質を水に溶かしたとき、その水溶液に電流が流れるかどうかで物質を2つに分類できます。電流が流れる物質を電解質、流れない物質を非電解質といいます。電解質は水に溶けるとイオンに分かれる（電離する）ため、電流が流れます。',
           image: {
-            src: '/images/science/electrolysis-model.svg',
+            src: '/images/science/grade3/chemistry/electrolysis-model.svg',
             alt: 'NaClの電離イメージ',
             caption: '電解質が水に溶けてイオンに分かれるようす',
           },
@@ -30,7 +30,7 @@ export const solutionIons: Topic = {
           content:
             '電解質の水溶液に電流を流すと、化学変化が起きて物質が分解されます。これを電気分解といいます。陰極（−極）と陽極（＋極）にそれぞれ異なる物質が現れます。',
           image: {
-            src: '/images/science/electrolysis-apparatus.svg',
+            src: '/images/science/grade3/chemistry/electrolysis-apparatus.svg',
             alt: '塩化銅水溶液の電気分解装置',
             caption: '陰極に銅、陽極に塩素が発生',
           },
@@ -45,7 +45,7 @@ export const solutionIons: Topic = {
           content:
             '原子は中心にある原子核と、そのまわりを回る電子からできています。原子核は＋の電気をもつ陽子と、電気をもたない中性子からなります。原子が電子を失うと陽イオン、電子を得ると陰イオンになります。',
           image: {
-            src: '/images/science/atom-model.svg',
+            src: '/images/science/grade3/chemistry/atom-model.svg',
             alt: '原子の構造の模式図',
             caption: '原子核（陽子＋中性子）と電子',
           },
@@ -106,7 +106,7 @@ export const solutionIons: Topic = {
               subtext: '電気分解の実験',
               emoji: '🔬',
               image: {
-                src: '/images/science/electrolysis-apparatus.svg',
+                src: '/images/science/grade3/chemistry/electrolysis-apparatus.svg',
                 alt: '塩化銅水溶液の電気分解装置',
               },
             },
@@ -141,7 +141,7 @@ export const solutionIons: Topic = {
               subtext: '電子のやりとり',
               emoji: '⚛️',
               image: {
-                src: '/images/science/atom-model.svg',
+                src: '/images/science/grade3/chemistry/atom-model.svg',
                 alt: '原子の構造',
               },
             },

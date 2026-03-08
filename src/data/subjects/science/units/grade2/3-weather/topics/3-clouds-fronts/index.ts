@@ -36,9 +36,9 @@ export const cloudsFronts: Topic = {
           content:
             '寒冷前線は寒気が暖気の下に潜り込む前線で、積乱雲が発達し短時間の強い雨が降ります。通過後は北寄りの風に変わり気温が急激に低下します。温暖前線は暖気が寒気の上を這い上がる前線で、乱層雲や高層雲ができ、広い範囲で弱い長雨が降ります。通過後は南寄りの風に変わり気温が上昇します。このほか、閉そく前線や停滞前線もあります。温帯低気圧には南東側に温暖前線、南西側に寒冷前線が伴います。',
           image: {
-            src: '/images/science/front-types.svg',
-            alt: '寒冷前線と温暖前線の比較',
-            caption: '寒冷前線と温暖前線の構造と天気の変化',
+            src: '/images/science/grade2/weather/cold-front.svg',
+            alt: '寒冷前線の断面',
+            caption: '冷たい空気が暖かい空気の下にもぐり込む',
           },
           keyPoints: [
             '寒冷前線：寒気が暖気の下に潜り込む→積乱雲→短時間の強い雨→通過後は北寄りの風で気温急低下',
@@ -128,8 +128,8 @@ export const cloudsFronts: Topic = {
               subtext: '前線の種類',
               emoji: '🌧️',
               image: {
-                src: '/images/science/front-types.svg',
-                alt: '寒冷前線と温暖前線の比較',
+                src: '/images/science/grade2/weather/cold-front.svg',
+                alt: '寒冷前線の断面',
               },
             },
             {

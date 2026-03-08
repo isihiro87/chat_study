@@ -72,7 +72,7 @@ export const cellsChat: HistoryChat = {
     },
     {
       type: 'image',
-      src: '/images/science/cell-structure.svg',
+      src: '/images/science/grade2/biology/cell-structure.svg',
       alt: '植物細胞と動物細胞の比較',
       caption: '植物細胞だけにある細胞壁・葉緑体・液胞',
     },

@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200">
+  <defs>
+    <marker id="arrowGray" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#6B7280"/>
+    </marker>
+  </defs>
+  <rect width="400" height="200" rx="16" fill="#F5F3F0"/>
+
+  <!-- Title -->
+  <text x="200" y="24" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1f2937">酸化銅の炭素による還元</text>
+
+  <!-- Chemical equation -->
+  <!-- CuO -->
+  <rect x="25" y="50" width="65" height="42" rx="6" fill="#FEE2E2" stroke="#EF4444" stroke-width="1.5"/>
+  <text x="57" y="68" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#DC2626">CuO</text>
+  <text x="57" y="84" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#DC2626">酸化銅</text>
+
+  <!-- + -->
+  <text x="105" y="74" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="bold" fill="#6B7280">+</text>
+
+  <!-- C -->
+  <rect x="120" y="50" width="50" height="42" rx="6" fill="#E5E7EB" stroke="#6B7280" stroke-width="1.5"/>
+  <text x="145" y="72" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#374151">C</text>
+  <text x="145" y="86" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#374151">炭素</text>
+
+  <!-- Arrow -->
+  <line x1="182" y1="71" x2="218" y2="71" stroke="#6B7280" stroke-width="2.5" marker-end="url(#arrowGray)"/>
+
+  <!-- Cu -->
+  <rect x="230" y="50" width="55" height="42" rx="6" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+  <text x="257" y="72" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1D4ED8">Cu</text>
+  <text x="257" y="86" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#1D4ED8">銅</text>
+
+  <!-- + -->
+  <text x="300" y="74" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="bold" fill="#6B7280">+</text>
+
+  <!-- CO2 -->
+  <rect x="315" y="50" width="65" height="42" rx="6" fill="#FEE2E2" stroke="#EF4444" stroke-width="1.5"/>
+  <text x="347" y="68" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#DC2626">CO&#x2082;</text>
+  <text x="347" y="84" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#DC2626">二酸化炭素</text>
+
+  <!-- Reduction label (CuO → Cu) -->
+  <path d="M57,98 Q57,120 257,120 L257,98" fill="none" stroke="#3B82F6" stroke-width="1.5"/>
+  <text x="157" y="135" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1D4ED8">還元された</text>
+  <text x="157" y="148" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#3B82F6">（酸素をうばわれた）</text>
+
+  <!-- Oxidation label (C → CO2) -->
+  <path d="M145,98 Q145,165 347,165 L347,98" fill="none" stroke="#EF4444" stroke-width="1.5"/>
+  <text x="246" y="178" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#DC2626">酸化された</text>
+  <text x="246" y="192" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#EF4444">（酸素と結びついた）</text>
+</svg>

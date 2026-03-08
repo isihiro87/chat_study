@@ -65,7 +65,7 @@ export const plantBodyChat: HistoryChat = {
     },
     {
       type: 'image',
-      src: '/images/science/photosynthesis.svg',
+      src: '/images/science/grade2/biology/photosynthesis.svg',
       alt: '光合成のしくみ',
       caption: '光＋CO₂＋水 → デンプン＋O₂',
     },
@@ -196,7 +196,7 @@ export const plantBodyChat: HistoryChat = {
     },
     {
       type: 'image',
-      src: '/images/science/vascular-bundle.svg',
+      src: '/images/science/grade2/biology/vascular-bundle.svg',
       alt: '維管束のつくり',
       caption: '道管（水）と師管（養分）の通り道',
     },

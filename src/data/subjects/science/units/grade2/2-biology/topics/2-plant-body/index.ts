@@ -15,7 +15,7 @@ export const plantBody: Topic = {
           content:
             '植物が光を受けて、二酸化炭素と水を材料とし、デンプンなどの養分と酸素をつくるはたらきを光合成といいます。光合成は葉の細胞の中にある緑色の粒である葉緑体で行われます。デンプンが作られたことは、ヨウ素液が青紫色に変化することで確認できます。',
           image: {
-            src: '/images/science/photosynthesis.svg',
+            src: '/images/science/grade2/biology/photosynthesis.svg',
             alt: '光合成のしくみ',
             caption: '光＋二酸化炭素＋水 → デンプン＋酸素',
           },
@@ -50,7 +50,7 @@ export const plantBody: Topic = {
           content:
             '根から吸収された水や肥料分の通り道を道管、葉で作られた養分が水に溶けやすい物質に変化して全身に運ばれる通り道を師管といいます。道管と師管の集まりを維管束といい、単子葉類では全体に散らばり、双子葉類では周辺部に輪の形に並んでいます。根の表面には根毛があり、表面積を広げて効率よく水を吸収しています。',
           image: {
-            src: '/images/science/vascular-bundle.svg',
+            src: '/images/science/grade2/biology/vascular-bundle.svg',
             alt: '維管束のつくり',
             caption: '道管（水の通り道）と師管（養分の通り道）',
           },
@@ -73,7 +73,7 @@ export const plantBody: Topic = {
               subtext: '光合成のひみつ',
               emoji: '☀️',
               image: {
-                src: '/images/science/photosynthesis.svg',
+                src: '/images/science/grade2/biology/photosynthesis.svg',
                 alt: '光合成のしくみ',
               },
             },
@@ -177,7 +177,7 @@ export const plantBody: Topic = {
               subtext: '水と養分の通り道',
               emoji: '🌱',
               image: {
-                src: '/images/science/vascular-bundle.svg',
+                src: '/images/science/grade2/biology/vascular-bundle.svg',
                 alt: '維管束のつくり',
               },
             },

@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200">
+  <defs>
+    <marker id="currentArr" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto">
+      <path d="M0,0 L6,2 L0,4 Z" fill="#EF4444"/>
+    </marker>
+  </defs>
+  <rect width="300" height="200" rx="16" fill="#F5F3F0"/>
+
+  <!-- Title -->
+  <text x="150" y="22" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1f2937">コイルの磁界と右手の法則</text>
+
+  <!-- === Left: Coil with magnetic field === -->
+  <text x="80" y="42" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#374151">コイルの磁界</text>
+
+  <!-- Coil shape (simplified solenoid cross-section) -->
+  <ellipse cx="80" cy="110" rx="18" ry="40" fill="none" stroke="#EF4444" stroke-width="2"/>
+  <ellipse cx="80" cy="110" rx="18" ry="40" fill="#FEE2E2" opacity="0.3"/>
+
+  <!-- Magnetic field lines through coil -->
+  <path d="M40,110 L120,110" stroke="#3B82F6" stroke-width="1.5" marker-end="url(#fieldArr)"/>
+  <path d="M30,90 Q80,75 130,90" stroke="#3B82F6" stroke-width="1" stroke-dasharray="3,2"/>
+  <path d="M30,130 Q80,145 130,130" stroke="#3B82F6" stroke-width="1" stroke-dasharray="3,2"/>
+
+  <!-- Field arrow marker -->
+  <defs>
+    <marker id="fieldArr" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto">
+      <path d="M0,0 L6,2 L0,4 Z" fill="#3B82F6"/>
+    </marker>
+  </defs>
+
+  <!-- N and S poles -->
+  <text x="130" y="114" font-family="sans-serif" font-size="12" font-weight="bold" fill="#EF4444">N</text>
+  <text x="24" y="114" font-family="sans-serif" font-size="12" font-weight="bold" fill="#3B82F6">S</text>
+
+  <!-- Current direction arrows on coil -->
+  <path d="M62,78 L58,72 L64,74" fill="#EF4444"/>
+  <path d="M98,142 L102,148 L96,146" fill="#EF4444"/>
+  <text x="80" y="168" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#EF4444">電流の向き</text>
+
+  <!-- === Right: Right-hand rule === -->
+  <text x="215" y="42" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#10B981">右手の法則</text>
+
+  <!-- Simplified hand -->
+  <ellipse cx="215" cy="115" rx="30" ry="35" fill="#FDEBD0" stroke="#D4A574" stroke-width="1.5"/>
+
+  <!-- Thumb pointing right (N pole direction) -->
+  <rect x="238" y="90" width="32" height="13" rx="6" fill="#FDEBD0" stroke="#D4A574" stroke-width="1.5"/>
+
+  <!-- Thumb arrow (magnetic field / N pole direction) -->
+  <line x1="270" y1="96" x2="282" y2="96" stroke="#3B82F6" stroke-width="2" marker-end="url(#fieldArr)"/>
+  <text x="275" y="85" font-family="sans-serif" font-size="8" font-weight="bold" fill="#3B82F6">N極</text>
+  <text x="275" y="110" font-family="sans-serif" font-size="7" fill="#3B82F6">(親指)</text>
+
+  <!-- Curling fingers -->
+  <path d="M190,88 Q180,100 185,118" fill="none" stroke="#EF4444" stroke-width="1.8"/>
+  <path d="M183,115 L185,118 L189,114" fill="#EF4444"/>
+
+  <text x="170" y="95" text-anchor="end" font-family="sans-serif" font-size="8" font-weight="bold" fill="#EF4444">電流</text>
+  <text x="170" y="105" text-anchor="end" font-family="sans-serif" font-size="7" fill="#EF4444">(4本指)</text>
+
+  <!-- Summary box -->
+  <rect x="155" y="158" width="130" height="32" rx="6" fill="white" stroke="#D1D5DB" stroke-width="1"/>
+  <text x="220" y="172" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#374151">親指 → N極(磁界)の向き</text>
+  <text x="220" y="184" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#374151">4本指 → 電流の向き</text>
+</svg>

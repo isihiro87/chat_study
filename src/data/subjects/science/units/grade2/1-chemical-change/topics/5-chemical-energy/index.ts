@@ -15,7 +15,7 @@ export const chemicalEnergy: Topic = {
           content:
             '化学変化では熱の出入りがあります。周囲に熱を出して温度が上がる化学変化を発熱反応、周囲から熱をうばって温度が下がる化学変化を吸熱反応といいます。物質がもっているエネルギーを化学エネルギーといい、化学変化によってこのエネルギーの差が熱や光として現れます。',
           image: {
-            src: '/images/science/exo-endo-thermic.svg',
+            src: '/images/science/grade2/chemical-change/exo-endo-thermic.svg',
             alt: '発熱反応と吸熱反応',
             caption: '発熱反応は温度が上がり、吸熱反応は温度が下がる',
           },
@@ -49,7 +49,7 @@ export const chemicalEnergy: Topic = {
               subtext: '化学変化と熱',
               emoji: '🔥',
               image: {
-                src: '/images/science/exo-endo-thermic.svg',
+                src: '/images/science/grade2/chemical-change/exo-endo-thermic.svg',
                 alt: '発熱反応と吸熱反応',
               },
             },

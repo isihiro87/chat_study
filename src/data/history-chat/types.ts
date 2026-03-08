@@ -80,7 +80,7 @@ export interface WhiteboardContent {
 
 export interface ImageContent {
   type: 'image';
-  src: string; // 画像パス（例: '/images/science/atom-model.svg'）
+  src: string; // 画像パス（例: '/images/science/grade3/chemistry/atom-model.svg'）
   alt: string; // 代替テキスト
   caption?: string; // キャプション（オプション）
 }

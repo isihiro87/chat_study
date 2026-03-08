@@ -25,7 +25,7 @@ export const growthReproduction: Topic = {
           content:
             '生物のふえ方には、受精を行わない無性生殖と、受精を行う有性生殖があります。無性生殖にはアメーバの分裂、植物の栄養生殖（いもやさし木でふえる）などがあり、親と全く同じ形質をもつ子ができます。有性生殖では、卵（卵細胞）と精子（精細胞）という生殖細胞がつくられ、受精によって新しい個体が生まれます。',
           image: {
-            src: '/images/science/reproduction-types.svg',
+            src: '/images/science/grade3/biology/reproduction-types.svg',
             alt: '無性生殖と有性生殖の比較図',
             caption: '無性生殖（クローン）と有性生殖（多様性）',
           },
@@ -57,7 +57,7 @@ export const growthReproduction: Topic = {
               subtext: '成長のひみつ',
               emoji: '🔬',
               image: {
-                src: '/images/science/cell-division.svg',
+                src: '/images/science/grade3/biology/cell-division.svg',
                 alt: '細胞分裂のようす',
               },
             },

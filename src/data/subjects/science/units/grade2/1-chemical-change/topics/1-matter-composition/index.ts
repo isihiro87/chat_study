@@ -15,7 +15,7 @@ export const matterComposition: Topic = {
           content:
             '1種類の物質が2種類以上の物質に分かれる化学変化を分解といいます。加熱による分解を熱分解、電流を流して分解することを電気分解といいます。炭酸水素ナトリウムを加熱すると二酸化炭素・水・炭酸ナトリウムに分解され、酸化銀を加熱すると銀と酸素に分解されます。水を電気分解すると陰極に水素、陽極に酸素が発生します。',
           image: {
-            src: '/images/science/thermal-decomposition.svg',
+            src: '/images/science/grade2/chemical-change/thermal-decomposition.svg',
             alt: '炭酸水素ナトリウムの熱分解',
             caption: '炭酸水素ナトリウムを加熱すると3つの物質に分解される',
           },
@@ -30,7 +30,7 @@ export const matterComposition: Topic = {
           content:
             '物質をつくる最小の単位を原子といいます。ドルトンが提唱し、化学変化で分割されたり、他の種類に変わったり、なくなったりしません。原子の種類を元素といい、元素記号で表します。性質の似た元素を整理した表を周期表といいます。',
           image: {
-            src: '/images/science/periodic-table-basic.svg',
+            src: '/images/science/grade2/chemical-change/periodic-table-basic.svg',
             alt: 'おもな元素と元素記号',
             caption: '中学で覚えておきたい元素記号の一覧',
           },
@@ -63,7 +63,7 @@ export const matterComposition: Topic = {
               subtext: '熱分解の実験',
               emoji: '🔥',
               image: {
-                src: '/images/science/thermal-decomposition.svg',
+                src: '/images/science/grade2/chemical-change/thermal-decomposition.svg',
                 alt: '炭酸水素ナトリウムの熱分解',
               },
             },

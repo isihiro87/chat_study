@@ -35,7 +35,7 @@ export const evolution: Topic = {
           content:
             '見た目や働きは異なるのに、骨格の基本構造が共通している器官を相同器官といいます。クジラのひれ、ヒトのうで、コウモリの翼は、形は違いますが骨の並び方の基本構造は共通しています。これは、これらの生物が共通の祖先から進化したことを示す証拠です。',
           image: {
-            src: '/images/science/homologous-organs.svg',
+            src: '/images/science/grade3/biology/homologous-organs.svg',
             alt: '相同器官の比較図',
             caption: 'ヒトの腕・クジラのひれ・コウモリの翼',
           },
@@ -57,7 +57,7 @@ export const evolution: Topic = {
               subtext: '進化の大きな流れ',
               emoji: '🐟',
               image: {
-                src: '/images/science/evolution-tree.svg',
+                src: '/images/science/grade3/biology/evolution-tree.svg',
                 alt: '脊椎動物の進化の系統樹',
               },
             },

@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" fill="none">
+  <rect width="300" height="300" rx="16" fill="#F5F3F0"/>
+  <text x="150" y="22" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1f2937">溶解度曲線</text>
+
+  <!-- Graph area -->
+  <rect x="55" y="35" width="230" height="180" rx="0" fill="white"/>
+
+  <!-- Y axis -->
+  <line x1="55" y1="35" x2="55" y2="215" stroke="#374151" stroke-width="1.5"/>
+  <text x="15" y="75" font-family="sans-serif" font-size="8" fill="#374151">溶</text>
+  <text x="15" y="87" font-family="sans-serif" font-size="8" fill="#374151">解</text>
+  <text x="15" y="99" font-family="sans-serif" font-size="8" fill="#374151">度</text>
+  <text x="25" y="115" font-family="sans-serif" font-size="7" fill="#6B7280">(g/水100g)</text>
+
+  <!-- Y axis ticks -->
+  <line x1="52" y1="195" x2="55" y2="195" stroke="#374151" stroke-width="1"/>
+  <text x="48" y="199" text-anchor="end" font-family="sans-serif" font-size="7" fill="#6B7280">20</text>
+  <line x1="52" y1="155" x2="55" y2="155" stroke="#374151" stroke-width="1"/>
+  <text x="48" y="159" text-anchor="end" font-family="sans-serif" font-size="7" fill="#6B7280">60</text>
+  <line x1="52" y1="115" x2="55" y2="115" stroke="#374151" stroke-width="1"/>
+  <text x="48" y="119" text-anchor="end" font-family="sans-serif" font-size="7" fill="#6B7280">100</text>
+  <line x1="52" y1="75" x2="55" y2="75" stroke="#374151" stroke-width="1"/>
+  <text x="48" y="79" text-anchor="end" font-family="sans-serif" font-size="7" fill="#6B7280">140</text>
+
+  <!-- X axis -->
+  <line x1="55" y1="215" x2="285" y2="215" stroke="#374151" stroke-width="1.5"/>
+  <text x="170" y="232" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#374151">水の温度(℃)</text>
+
+  <!-- X axis ticks -->
+  <line x1="85" y1="215" x2="85" y2="218" stroke="#374151" stroke-width="1"/>
+  <text x="85" y="226" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#6B7280">10</text>
+  <line x1="125" y1="215" x2="125" y2="218" stroke="#374151" stroke-width="1"/>
+  <text x="125" y="226" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#6B7280">20</text>
+  <line x1="165" y1="215" x2="165" y2="218" stroke="#374151" stroke-width="1"/>
+  <text x="165" y="226" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#6B7280">40</text>
+  <line x1="205" y1="215" x2="205" y2="218" stroke="#374151" stroke-width="1"/>
+  <text x="205" y="226" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#6B7280">60</text>
+  <line x1="245" y1="215" x2="245" y2="218" stroke="#374151" stroke-width="1"/>
+  <text x="245" y="226" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#6B7280">80</text>
+
+  <!-- Grid lines -->
+  <line x1="55" y1="195" x2="285" y2="195" stroke="#F3F4F6" stroke-width="0.5"/>
+  <line x1="55" y1="175" x2="285" y2="175" stroke="#F3F4F6" stroke-width="0.5"/>
+  <line x1="55" y1="155" x2="285" y2="155" stroke="#F3F4F6" stroke-width="0.5"/>
+  <line x1="55" y1="135" x2="285" y2="135" stroke="#F3F4F6" stroke-width="0.5"/>
+  <line x1="55" y1="115" x2="285" y2="115" stroke="#F3F4F6" stroke-width="0.5"/>
+
+  <!-- 硝酸カリウム curve (steep) -->
+  <path d="M55,205 Q85,200 105,195 Q125,188 145,170 Q165,148 185,118 Q205,85 230,55 Q245,42 260,38" fill="none" stroke="#EF4444" stroke-width="2.5"/>
+  <text x="262" y="45" font-family="sans-serif" font-size="8" font-weight="bold" fill="#EF4444">硝酸カリウム</text>
+
+  <!-- 食塩 curve (flat) -->
+  <path d="M55,180 Q125,178 165,177 Q205,176 245,174 Q270,173 285,172" fill="none" stroke="#3B82F6" stroke-width="2.5"/>
+  <text x="262" y="168" font-family="sans-serif" font-size="8" font-weight="bold" fill="#3B82F6">食塩(NaCl)</text>
+
+  <!-- ミョウバン curve (medium) -->
+  <path d="M55,207 Q85,205 105,202 Q125,197 145,185 Q165,168 185,145 Q205,115 225,85 Q245,60 260,45" fill="none" stroke="#10B981" stroke-width="2" stroke-dasharray="5 3"/>
+  <text x="262" y="58" font-family="sans-serif" font-size="8" font-weight="bold" fill="#10B981">ミョウバン</text>
+
+  <!-- Key points -->
+  <rect x="10" y="242" width="280" height="48" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1"/>
+  <circle cx="30" cy="258" r="4" fill="#F59E0B"/>
+  <text x="42" y="262" font-family="sans-serif" font-size="8" fill="#374151">温度が高い→溶解度が大きい（硝酸カリウムは急上昇）</text>
+  <circle cx="30" cy="275" r="4" fill="#F59E0B"/>
+  <text x="42" y="279" font-family="sans-serif" font-size="8" fill="#374151">食塩は温度が変わってもほぼ一定→再結晶しにくい</text>
+</svg>

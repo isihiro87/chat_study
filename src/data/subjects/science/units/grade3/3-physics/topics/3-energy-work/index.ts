@@ -15,7 +15,7 @@ export const energyWork: Topic = {
           content:
             'エネルギーとは、他の物体に仕事をする能力のことです。運動している物体がもつエネルギーを運動エネルギー、高い位置にある物体がもつエネルギーを位置エネルギーといいます。運動エネルギーと位置エネルギーの和を力学的エネルギーといい、摩擦や空気抵抗がなければ力学的エネルギーは一定に保たれます（力学的エネルギーの保存）。',
           image: {
-            src: '/images/science/mechanical-energy.svg',
+            src: '/images/science/grade3/physics/mechanical-energy.svg',
             alt: '力学的エネルギーの保存の図',
             caption: '振り子における運動エネルギーと位置エネルギーの変換',
           },
@@ -40,7 +40,7 @@ export const energyWork: Topic = {
           content:
             'エネルギーはさまざまな形に変換できます。たとえば電気エネルギーは熱・光・運動エネルギーなどに変換されます。しかし、変換の際にはすべてが有効に使われるわけではなく、一部は熱エネルギーなどとして失われます。有効に利用できるエネルギーの割合を変換効率といいます。熱の伝わり方には伝導・対流・放射の3つがあります。エネルギー全体の総量は変化しません（エネルギー保存の法則）。',
           image: {
-            src: '/images/science/energy-conversion.svg',
+            src: '/images/science/grade3/physics/energy-conversion.svg',
             alt: 'エネルギー変換の流れ図',
             caption: '電気エネルギーからさまざまなエネルギーへの変換',
           },
@@ -62,7 +62,7 @@ export const energyWork: Topic = {
               subtext: '力学的エネルギー',
               emoji: '🎢',
               image: {
-                src: '/images/science/mechanical-energy.svg',
+                src: '/images/science/grade3/physics/mechanical-energy.svg',
                 alt: '力学的エネルギーの保存',
               },
             },

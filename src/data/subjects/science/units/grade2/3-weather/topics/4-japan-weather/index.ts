@@ -35,7 +35,7 @@ export const japanWeather: Topic = {
           content:
             '冬は西高東低の気圧配置になり、シベリア高気圧から冷たく乾燥した北西の季節風が吹きます。日本海側は大雪、太平洋側は乾燥した晴天となります。夏は太平洋高気圧に覆われ、南東の季節風が吹き、高温多湿になります。春と秋は移動性高気圧と低気圧が交互に通過するため、天気が周期的に変化します。梅雨や秋雨の時期は停滞前線が日本付近に停滞します。台風は熱帯低気圧が発達したもので、最大風速が17m/s以上のものをいいます。',
           image: {
-            src: '/images/science/japan-seasons.svg',
+            src: '/images/science/grade2/weather/japan-seasons.svg',
             alt: '日本の四季の気圧配置',
             caption: '冬（西高東低）と夏（太平洋高気圧）',
           },
@@ -138,7 +138,7 @@ export const japanWeather: Topic = {
               subtext: '西高東低の気圧配置',
               emoji: '⛄',
               image: {
-                src: '/images/science/japan-seasons.svg',
+                src: '/images/science/grade2/weather/japan-seasons.svg',
                 alt: '日本の四季の気圧配置',
               },
             },

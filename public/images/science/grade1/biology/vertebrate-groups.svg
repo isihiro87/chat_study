@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" fill="none">
+  <rect width="300" height="300" rx="16" fill="#F5F3F0"/>
+  <text x="150" y="22" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1f2937">脊椎動物の5つのグループ</text>
+
+  <!-- Column headers -->
+  <text x="80" y="48" text-anchor="middle" font-family="sans-serif" font-size="8" font-weight="bold" fill="#6B7280">呼吸</text>
+  <text x="120" y="48" text-anchor="middle" font-family="sans-serif" font-size="8" font-weight="bold" fill="#6B7280">体表</text>
+  <text x="165" y="48" text-anchor="middle" font-family="sans-serif" font-size="8" font-weight="bold" fill="#6B7280">生まれ方</text>
+  <text x="215" y="48" text-anchor="middle" font-family="sans-serif" font-size="8" font-weight="bold" fill="#6B7280">体温</text>
+  <text x="262" y="48" text-anchor="middle" font-family="sans-serif" font-size="8" font-weight="bold" fill="#6B7280">例</text>
+
+  <!-- Row 1: 魚類 -->
+  <rect x="8" y="55" width="284" height="38" rx="6" fill="#DBEAFE"/>
+  <text x="32" y="72" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#1e40af">魚類</text>
+  <text x="32" y="84" text-anchor="middle" font-family="sans-serif" font-size="14">🐟</text>
+  <text x="80" y="78" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#374151">えら</text>
+  <text x="120" y="78" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#374151">うろこ</text>
+  <text x="165" y="78" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#374151">卵生(水中)</text>
+  <text x="215" y="78" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#3B82F6">変温</text>
+  <text x="262" y="78" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#6B7280">メダカ</text>
+
+  <!-- Row 2: 両生類 -->
+  <rect x="8" y="97" width="284" height="38" rx="6" fill="#D1FAE5"/>
+  <text x="32" y="114" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#065F46">両生類</text>
+  <text x="32" y="126" text-anchor="middle" font-family="sans-serif" font-size="14">🐸</text>
+  <text x="80" y="115" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#374151">子:えら</text>
+  <text x="80" y="126" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#374151">親:肺+皮膚</text>
+  <text x="120" y="120" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#374151">しめった皮膚</text>
+  <text x="165" y="120" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#374151">卵生(水中)</text>
+  <text x="215" y="120" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#3B82F6">変温</text>
+  <text x="262" y="120" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#6B7280">カエル</text>
+
+  <!-- Row 3: ハチュウ類 -->
+  <rect x="8" y="139" width="284" height="38" rx="6" fill="#FEF3C7"/>
+  <text x="32" y="153" text-anchor="middle" font-family="sans-serif" font-size="8" font-weight="bold" fill="#92400E">ハチュウ類</text>
+  <text x="32" y="168" text-anchor="middle" font-family="sans-serif" font-size="14">🦎</text>
+  <text x="80" y="162" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#374151">肺</text>
+  <text x="120" y="162" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#374151">かたいうろこ</text>
+  <text x="165" y="162" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#374151">卵生(陸上)</text>
+  <text x="215" y="162" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#3B82F6">変温</text>
+  <text x="262" y="162" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#6B7280">トカゲ</text>
+
+  <!-- Row 4: 鳥類 -->
+  <rect x="8" y="181" width="284" height="38" rx="6" fill="#FEE2E2"/>
+  <text x="32" y="198" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#991B1B">鳥類</text>
+  <text x="32" y="210" text-anchor="middle" font-family="sans-serif" font-size="14">🐦</text>
+  <text x="80" y="204" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#374151">肺</text>
+  <text x="120" y="204" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#374151">羽毛</text>
+  <text x="165" y="204" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#374151">卵生(陸上)</text>
+  <text x="215" y="204" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#EF4444">恒温</text>
+  <text x="262" y="204" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#6B7280">スズメ</text>
+
+  <!-- Row 5: 哺乳類 -->
+  <rect x="8" y="223" width="284" height="38" rx="6" fill="#FCE7F3"/>
+  <text x="32" y="240" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#831843">哺乳類</text>
+  <text x="32" y="252" text-anchor="middle" font-family="sans-serif" font-size="14">🐕</text>
+  <text x="80" y="246" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#374151">肺</text>
+  <text x="120" y="246" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#374151">毛</text>
+  <text x="165" y="246" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#374151">胎生</text>
+  <text x="215" y="246" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#EF4444">恒温</text>
+  <text x="262" y="246" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#6B7280">ヒト</text>
+
+  <!-- Footer -->
+  <text x="150" y="278" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#6B7280">恒温動物 = 鳥類・哺乳類 / 変温動物 = 魚・両生・ハチュウ類</text>
+  <text x="150" y="292" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#6B7280">胎生 = 哺乳類のみ / 他はすべて卵生</text>
+</svg>

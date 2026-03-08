@@ -65,7 +65,7 @@ export const stateChangeChat: HistoryChat = {
     },
     {
       type: 'image',
-      src: '/images/science/state-change.svg',
+      src: '/images/science/grade1/chemistry/state-change.svg',
       alt: '物質の三態変化',
       caption: '固体・液体・気体の状態変化と粒子のようす',
     },
@@ -156,6 +156,12 @@ export const stateChangeChat: HistoryChat = {
       characterId: 'student',
       expression: 'surprised',
       text: '<ruby>沸点<rp>(</rp><rt>ふってん</rt><rp>)</rp></ruby>のちがいで<ruby>分<rp>(</rp><rt>わ</rt><rp>)</rp></ruby>けられるんですね！',
+    },
+    {
+      type: 'image',
+      src: '/images/science/grade1/chemistry/distillation-apparatus.png',
+      alt: '蒸留の実験装置',
+      caption: '赤ワインからエタノールを蒸留で取り出す装置',
     },
     {
       type: 'message',

@@ -15,7 +15,7 @@ export const gasProperties: Topic = {
           content:
             '気体にはそれぞれ特有の性質があります。酸素（O₂）は無色無臭で、ものを燃やすはたらきがあり、二酸化マンガンにうすい過酸化水素水（オキシドール）を加えると発生します。二酸化炭素（CO₂）は無色無臭で、石灰水を白くにごらせ、石灰石にうすい塩酸を加えると発生します。水素（H₂）は最も軽い気体で、火をつけると燃えて水ができ、亜鉛にうすい塩酸を加えると発生します。窒素（N₂）は空気の約78%をしめ、ほとんど反応しない安定した気体です。',
           image: {
-            src: '/images/science/gas-generation.svg',
+            src: '/images/science/grade1/chemistry/oxygen-generation.svg',
             alt: '気体の発生方法',
             caption: '代表的な気体の発生方法と確認方法',
           },
@@ -30,7 +30,7 @@ export const gasProperties: Topic = {
           content:
             '気体の集め方には3つの方法があります。水上置換法は水にとけにくい気体を集める方法で、純粋な気体が集められます。上方置換法は空気より密度が小さい（軽い）気体を集める方法で、アンモニアなどに使います。下方置換法は空気より密度が大きい（重い）気体を集める方法で、二酸化炭素などに使います。気体の水への溶けやすさと密度で、どの集め方がよいか決まります。',
           image: {
-            src: '/images/science/gas-collection.svg',
+            src: '/images/science/grade1/chemistry/water-displacement.svg',
             alt: '気体の3つの集め方',
             caption: '水上置換法・上方置換法・下方置換法',
           },
@@ -62,7 +62,7 @@ export const gasProperties: Topic = {
               subtext: '代表的な気体の発生',
               emoji: '🫧',
               image: {
-                src: '/images/science/gas-generation.svg',
+                src: '/images/science/grade1/chemistry/oxygen-generation.svg',
                 alt: '気体の発生',
               },
             },
@@ -97,7 +97,7 @@ export const gasProperties: Topic = {
               subtext: '3つの集め方',
               emoji: '🧪',
               image: {
-                src: '/images/science/gas-collection.svg',
+                src: '/images/science/grade1/chemistry/water-displacement.svg',
                 alt: '気体の集め方',
               },
             },

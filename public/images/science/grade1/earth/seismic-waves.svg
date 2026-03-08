@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" fill="none">
+  <rect width="300" height="300" rx="16" fill="#F5F3F0"/>
+  <text x="150" y="22" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1f2937">P波とS波の伝わり方</text>
+
+  <!-- Seismograph record -->
+  <rect x="15" y="35" width="270" height="120" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1"/>
+  <text x="150" y="52" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#374151">地震計の記録</text>
+
+  <!-- Time axis -->
+  <line x1="30" y1="105" x2="270" y2="105" stroke="#9CA3AF" stroke-width="1"/>
+  <text x="270" y="118" text-anchor="end" font-family="sans-serif" font-size="8" fill="#9CA3AF">時間→</text>
+
+  <!-- Baseline -->
+  <line x1="30" y1="85" x2="80" y2="85" stroke="#374151" stroke-width="1"/>
+
+  <!-- P wave (small vibrations) - 初期微動 -->
+  <path d="M80,85 L85,80 L90,90 L95,78 L100,92 L105,80 L110,88 L115,82 L120,90 L125,80 L130,88" fill="none" stroke="#3B82F6" stroke-width="1.5"/>
+
+  <!-- S wave (large vibrations) - 主要動 -->
+  <path d="M130,85 L135,65 L145,105 L155,55 L165,110 L175,60 L185,108 L195,68 L205,100 L215,72 L225,95 L235,78 L245,90 L255,82 L265,85" fill="none" stroke="#EF4444" stroke-width="2"/>
+
+  <!-- Labels -->
+  <rect x="70" y="56" width="60" height="16" rx="3" fill="#DBEAFE"/>
+  <text x="100" y="67" text-anchor="middle" font-family="sans-serif" font-size="8" font-weight="bold" fill="#1e40af">初期微動(小)</text>
+
+  <rect x="160" y="56" width="60" height="16" rx="3" fill="#FEE2E2"/>
+  <text x="190" y="67" text-anchor="middle" font-family="sans-serif" font-size="8" font-weight="bold" fill="#991B1B">主要動(大)</text>
+
+  <!-- P波到着 marker -->
+  <line x1="80" y1="70" x2="80" y2="110" stroke="#3B82F6" stroke-width="1" stroke-dasharray="3 2"/>
+  <text x="80" y="120" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#3B82F6">P波到着</text>
+
+  <!-- S波到着 marker -->
+  <line x1="130" y1="70" x2="130" y2="110" stroke="#EF4444" stroke-width="1" stroke-dasharray="3 2"/>
+  <text x="130" y="120" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#EF4444">S波到着</text>
+
+  <!-- 初期微動継続時間 -->
+  <line x1="80" y1="130" x2="130" y2="130" stroke="#F59E0B" stroke-width="2"/>
+  <path d="M80,127 L80,133" stroke="#F59E0B" stroke-width="1.5"/>
+  <path d="M130,127 L130,133" stroke="#F59E0B" stroke-width="1.5"/>
+  <text x="105" y="142" text-anchor="middle" font-family="sans-serif" font-size="7" font-weight="bold" fill="#F59E0B">初期微動継続時間</text>
+
+  <!-- Comparison boxes -->
+  <rect x="15" y="160" width="130" height="65" rx="8" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1"/>
+  <text x="80" y="178" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1e40af">P波（Primary）</text>
+  <text x="80" y="195" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#374151">速い（約7km/s）</text>
+  <text x="80" y="210" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#374151">小さなゆれ（カタカタ）</text>
+
+  <rect x="155" y="160" width="130" height="65" rx="8" fill="#FEE2E2" stroke="#EF4444" stroke-width="1"/>
+  <text x="220" y="178" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#991B1B">S波（Secondary）</text>
+  <text x="220" y="195" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#374151">遅い（約4km/s）</text>
+  <text x="220" y="210" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#374151">大きなゆれ（ガタガタ）</text>
+
+  <!-- Key point -->
+  <rect x="15" y="235" width="270" height="50" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1"/>
+  <text x="150" y="252" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#1f2937">ポイント</text>
+  <text x="150" y="268" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#374151">震源からの距離が遠いほど、初期微動継続時間が長くなる</text>
+  <text x="150" y="280" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#6B7280">→ これを利用して震源までの距離がわかる</text>
+</svg>

@@ -51,7 +51,7 @@ export const chemicalCombinationChat: HistoryChat = {
     },
     {
       type: 'image',
-      src: '/images/science/iron-sulfur-reaction.svg',
+      src: '/images/science/grade2/chemical-change/iron-sulfur-reaction.svg',
       alt: '鉄と硫黄の化合',
       caption: '鉄と硫黄が化合して硫化鉄になる',
     },
@@ -116,7 +116,7 @@ export const chemicalCombinationChat: HistoryChat = {
     },
     {
       type: 'image',
-      src: '/images/science/chemical-equation.svg',
+      src: '/images/science/grade2/chemical-change/chemical-equation.svg',
       alt: '化学反応式の書き方',
       caption: '3ステップで化学反応式を書く',
     },

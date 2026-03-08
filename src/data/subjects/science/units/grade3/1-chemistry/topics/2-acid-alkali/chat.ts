@@ -51,9 +51,9 @@ export const acidAlkaliChat: HistoryChat = {
     },
     {
       type: 'image',
-      src: '/images/science/indicator-colors.svg',
-      alt: '指示薬の色の変化',
-      caption: 'リトマス紙・BTB溶液・フェノールフタレインの色変化',
+      src: '/images/science/grade3/chemistry/btb-phenolphthalein.svg',
+      alt: 'BTB溶液とフェノールフタレイン',
+      caption: 'BTB: 黄(酸性)→緑(中性)→青(アルカリ性)',
     },
     {
       type: 'message',
@@ -68,6 +68,12 @@ export const acidAlkaliChat: HistoryChat = {
       characterId: 'teacher',
       expression: 'happy',
       text: '<ruby>覚<rp>(</rp><rt>おぼ</rt><rp>)</rp></ruby>え方があるよ！「<ruby>酸<rp>(</rp><rt>さん</rt><rp>)</rp></ruby>は<ruby>青<rp>(</rp><rt>あお</rt><rp>)</rp></ruby>を<ruby>赤<rp>(</rp><rt>あか</rt><rp>)</rp></ruby>くする」→<ruby>酸<rp>(</rp><rt>さん</rt><rp>)</rp></ruby>っぱいものを食べると<ruby>顔<rp>(</rp><rt>かお</rt><rp>)</rp></ruby>が<ruby>赤<rp>(</rp><rt>あか</rt><rp>)</rp></ruby>くなる、ってイメージだよ',
+    },
+    {
+      type: 'image',
+      src: '/images/science/grade3/chemistry/litmus-paper.svg',
+      alt: 'リトマス紙の色変化',
+      caption: '青色リトマス紙は酸性で赤に、赤色リトマス紙はアルカリ性で青に変化',
     },
     {
       type: 'summary-point',
@@ -104,7 +110,7 @@ export const acidAlkaliChat: HistoryChat = {
     },
     {
       type: 'image',
-      src: '/images/science/ph-scale.svg',
+      src: '/images/science/grade3/chemistry/ph-scale.svg',
       alt: 'pHスケール',
       caption: 'pH 0〜14のスケール（7が中性）',
     },
@@ -169,7 +175,7 @@ export const acidAlkaliChat: HistoryChat = {
     },
     {
       type: 'image',
-      src: '/images/science/neutralization.svg',
+      src: '/images/science/grade3/chemistry/neutralization.svg',
       alt: '中和反応のモデル図',
       caption: 'H⁺とOH⁻が結びついて水ができ、残ったイオンが塩になる',
     },

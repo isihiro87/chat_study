@@ -50,6 +50,12 @@ export const solarSystemUniverseChat: HistoryChat = {
       text: '太陽に近い順に<ruby>水星<rp>(</rp><rt>すいせい</rt><rp>)</rp></ruby>・<ruby>金星<rp>(</rp><rt>きんせい</rt><rp>)</rp></ruby>・地球・<ruby>火星<rp>(</rp><rt>かせい</rt><rp>)</rp></ruby>が<strong>地球型惑星</strong>だよ。<ruby>岩石<rp>(</rp><rt>がんせき</rt><rp>)</rp></ruby>でできていて、小型で<ruby>密度<rp>(</rp><rt>みつど</rt><rp>)</rp></ruby>が高いのが特徴だね',
     },
     {
+      type: 'image',
+      src: '/images/science/grade3/earth/terrestrial-planets.svg',
+      alt: '地球型惑星',
+      caption: '水星・金星・地球・火星（小さく、密度が大きい）',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',
@@ -79,9 +85,9 @@ export const solarSystemUniverseChat: HistoryChat = {
     },
     {
       type: 'image',
-      src: '/images/science/solar-system.svg',
-      alt: '太陽系の構造',
-      caption: '地球型惑星（内側）と木星型惑星（外側）',
+      src: '/images/science/grade3/earth/gas-giant-planets.svg',
+      alt: '木星型惑星',
+      caption: '木星・土星・天王星・海王星（大きく、密度が小さい）',
     },
     {
       type: 'summary-point',

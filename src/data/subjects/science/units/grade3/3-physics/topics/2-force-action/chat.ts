@@ -65,7 +65,7 @@ export const forceActionChat: HistoryChat = {
     },
     {
       type: 'image',
-      src: '/images/science/force-composition.svg',
+      src: '/images/science/grade3/physics/force-composition.svg',
       alt: '力の合成と分解',
       caption: '平行四辺形の法則で合力を求める',
     },
@@ -112,7 +112,7 @@ export const forceActionChat: HistoryChat = {
     },
     {
       type: 'image',
-      src: '/images/science/inertia-diagram.svg',
+      src: '/images/science/grade3/physics/inertia-diagram.svg',
       alt: '慣性の法則',
       caption: '合力が0なら静止し続ける or 等速直線運動を続ける',
     },

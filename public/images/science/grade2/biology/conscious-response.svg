@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200" fill="none">
+  <rect width="400" height="200" rx="16" fill="#F5F3F0"/>
+  <text x="200" y="22" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1f2937">意識して起こる反応</text>
+
+  <!-- Sensory organ -->
+  <rect x="10" y="45" width="65" height="45" rx="8" fill="#FEF3C7" stroke="#F59E0B" stroke-width="1.5"/>
+  <text x="42" y="64" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#92400e">感覚器官</text>
+  <text x="42" y="78" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#92400e">目・耳・皮膚</text>
+
+  <!-- Arrow: sensory organ → sensory nerve -->
+  <line x1="75" y1="67" x2="95" y2="67" stroke="#F59E0B" stroke-width="2" marker-end="url(#arrowAmb)"/>
+
+  <!-- Sensory nerve -->
+  <rect x="102" y="52" width="48" height="30" rx="6" fill="#FEF3C7" stroke="#F59E0B" stroke-width="1"/>
+  <text x="126" y="71" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#92400e">感覚神経</text>
+
+  <!-- Arrow: sensory nerve → spinal cord -->
+  <line x1="150" y1="67" x2="170" y2="67" stroke="#F59E0B" stroke-width="2" marker-end="url(#arrowAmb)"/>
+
+  <!-- Spinal cord (first pass) -->
+  <rect x="177" y="52" width="46" height="30" rx="6" fill="#93c5fd" stroke="#3B82F6" stroke-width="1.5"/>
+  <text x="200" y="71" text-anchor="middle" font-family="sans-serif" font-size="8" font-weight="bold" fill="#1e3a8a">せきずい</text>
+
+  <!-- Arrow: spinal cord → brain (up) -->
+  <line x1="200" y1="52" x2="200" y2="35" stroke="#3B82F6" stroke-width="2" marker-end="url(#arrowBlu)"/>
+
+  <!-- Brain (top center, highlighted) -->
+  <ellipse cx="200" cy="25" rx="0" ry="0" fill="none"/>
+  <rect x="155" y="100" width="90" height="50" rx="10" fill="#93c5fd" stroke="#3B82F6" stroke-width="2"/>
+  <text x="200" y="122" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#1e3a8a">脳</text>
+  <text x="200" y="138" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#3B82F6">（判断・命令）</text>
+
+  <!-- Arrow: spinal cord down to brain -->
+  <line x1="200" y1="82" x2="200" y2="100" stroke="#3B82F6" stroke-width="2" marker-end="url(#arrowBlu)"/>
+
+  <!-- Arrow: brain back up to spinal cord area for return path -->
+  <!-- We show a return path on the right side -->
+  <path d="M245 125 L270 125 L270 67 L260 67" stroke="#3B82F6" stroke-width="2" fill="none" marker-end="url(#arrowBlu)"/>
+  <text x="282" y="100" font-family="sans-serif" font-size="7" fill="#3B82F6">命令</text>
+
+  <!-- Spinal cord (return) -->
+  <rect x="237" y="52" width="46" height="30" rx="6" fill="#93c5fd" stroke="#3B82F6" stroke-width="1.5"/>
+  <text x="260" y="71" text-anchor="middle" font-family="sans-serif" font-size="8" font-weight="bold" fill="#1e3a8a">せきずい</text>
+
+  <!-- Arrow: spinal cord → motor nerve -->
+  <line x1="283" y1="67" x2="303" y2="67" stroke="#10B981" stroke-width="2" marker-end="url(#arrowGrn)"/>
+
+  <!-- Motor nerve -->
+  <rect x="310" y="52" width="48" height="30" rx="6" fill="#d1fae5" stroke="#10B981" stroke-width="1"/>
+  <text x="334" y="71" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#065f46">運動神経</text>
+
+  <!-- Arrow: motor nerve → muscle -->
+  <line x1="358" y1="67" x2="370" y2="67" stroke="#10B981" stroke-width="2" marker-end="url(#arrowGrn)"/>
+
+  <!-- Muscle -->
+  <rect x="372" y="48" width="22" height="38" rx="6" fill="#d1fae5" stroke="#10B981" stroke-width="1.5"/>
+  <text x="383" y="63" text-anchor="middle" font-family="sans-serif" font-size="7" font-weight="bold" fill="#065f46">筋</text>
+  <text x="383" y="75" text-anchor="middle" font-family="sans-serif" font-size="7" font-weight="bold" fill="#065f46">肉</text>
+
+  <!-- Flow summary -->
+  <rect x="20" y="160" width="360" height="30" rx="6" fill="#e0e7ff" stroke="#3B82F6" stroke-width="1"/>
+  <text x="200" y="179" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#1e40af">感覚器官 → 感覚神経 → せきずい → 脳 → せきずい → 運動神経 → 筋肉</text>
+
+  <!-- Key point -->
+  <text x="200" y="155" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#374151">※ 脳で判断してから反応するため、少し時間がかかる</text>
+
+  <defs>
+    <marker id="arrowAmb" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto">
+      <path d="M0,0 L7,2.5 L0,5" fill="#F59E0B"/>
+    </marker>
+    <marker id="arrowBlu" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto">
+      <path d="M0,0 L7,2.5 L0,5" fill="#3B82F6"/>
+    </marker>
+    <marker id="arrowGrn" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto">
+      <path d="M0,0 L7,2.5 L0,5" fill="#10B981"/>
+    </marker>
+  </defs>
+</svg>

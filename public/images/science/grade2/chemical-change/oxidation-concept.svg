@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200">
+  <defs>
+    <marker id="arrowR" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#EF4444"/>
+    </marker>
+    <marker id="arrowB" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#3B82F6"/>
+    </marker>
+  </defs>
+  <rect width="400" height="200" rx="16" fill="#F5F3F0"/>
+
+  <!-- Title -->
+  <text x="200" y="24" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1f2937">酸化と還元</text>
+
+  <!-- Oxidation box -->
+  <rect x="30" y="42" width="150" height="70" rx="10" fill="#FEE2E2" stroke="#EF4444" stroke-width="2"/>
+  <text x="105" y="64" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#DC2626">酸化（さんか）</text>
+  <text x="105" y="82" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#7F1D1D">物質が酸素と</text>
+  <text x="105" y="96" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#7F1D1D">結びつく反応</text>
+
+  <!-- Reduction box -->
+  <rect x="220" y="42" width="150" height="70" rx="10" fill="#DBEAFE" stroke="#3B82F6" stroke-width="2"/>
+  <text x="295" y="64" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1D4ED8">還元（かんげん）</text>
+  <text x="295" y="82" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#1E3A5F">酸化物から酸素が</text>
+  <text x="295" y="96" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#1E3A5F">うばわれる反応</text>
+
+  <!-- Bidirectional arrow with O2 -->
+  <!-- Top arrow: 酸素を得る (oxidation) -->
+  <line x1="185" y1="62" x2="215" y2="62" stroke="#EF4444" stroke-width="2" marker-end="url(#arrowR)"/>
+  <text x="200" y="56" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#EF4444">+O₂</text>
+
+  <!-- Bottom arrow: 酸素を失う (reduction) -->
+  <line x1="215" y1="90" x2="185" y2="90" stroke="#3B82F6" stroke-width="2" marker-end="url(#arrowB)"/>
+  <text x="200" y="102" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#3B82F6">-O₂</text>
+
+  <!-- Central concept -->
+  <rect x="130" y="120" width="140" height="28" rx="8" fill="#F59E0B" opacity="0.15" stroke="#F59E0B" stroke-width="1.5"/>
+  <text x="200" y="138" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#92400E">同時に起こる！</text>
+
+  <!-- Examples -->
+  <text x="105" y="166" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#6B7280">例: 2Cu + O₂ → 2CuO</text>
+  <text x="105" y="180" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#9CA3AF">銅の酸化</text>
+
+  <text x="295" y="166" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#6B7280">例: CuO + C → Cu + CO₂</text>
+  <text x="295" y="180" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#9CA3AF">酸化銅の還元</text>
+</svg>

@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" fill="none">
+  <rect width="300" height="300" rx="16" fill="#F5F3F0"/>
+  <text x="150" y="22" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1f2937">地層のでき方</text>
+
+  <!-- River scene -->
+  <!-- Mountain -->
+  <path d="M10,120 L50,60 L90,120" fill="#A3E635" stroke="#65A30D" stroke-width="1"/>
+  <path d="M60,120 L90,75 L120,120" fill="#86EFAC" stroke="#65A30D" stroke-width="1"/>
+
+  <!-- River flow -->
+  <path d="M50,100 Q80,105 110,115 Q140,120 170,125" fill="none" stroke="#3B82F6" stroke-width="2"/>
+  <text x="100" y="105" font-family="sans-serif" font-size="7" fill="#3B82F6">川の流れ →</text>
+
+  <!-- Sea -->
+  <rect x="150" y="120" width="140" height="85" rx="0" fill="#DBEAFE"/>
+  <text x="220" y="135" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#1e40af">海</text>
+
+  <!-- Shore line -->
+  <line x1="150" y1="120" x2="150" y2="205" stroke="#93C5FD" stroke-width="1.5"/>
+
+  <!-- Sediment layers at sea bottom -->
+  <!-- れき (gravel) - near shore -->
+  <rect x="155" y="175" width="30" height="30" fill="#9CA3AF"/>
+  <circle cx="163" cy="183" r="4" fill="#6B7280"/>
+  <circle cx="175" cy="188" r="3" fill="#6B7280"/>
+  <circle cx="168" cy="196" r="3.5" fill="#6B7280"/>
+
+  <!-- 砂 (sand) - middle -->
+  <rect x="185" y="180" width="35" height="25" fill="#FDE68A"/>
+  <text x="202" y="196" text-anchor="middle" font-family="sans-serif" font-size="6" fill="#92400E">砂</text>
+
+  <!-- 泥 (mud) - far from shore -->
+  <rect x="220" y="185" width="60" height="20" fill="#D1D5DB"/>
+  <text x="250" y="198" text-anchor="middle" font-family="sans-serif" font-size="6" fill="#4B5563">泥</text>
+
+  <!-- Labels -->
+  <text x="170" y="172" text-anchor="middle" font-family="sans-serif" font-size="7" font-weight="bold" fill="#374151">れき</text>
+  <text x="168" y="215" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#6B7280">（大きい）</text>
+  <text x="250" y="215" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#6B7280">（小さい）</text>
+
+  <!-- Arrow showing particle size -->
+  <line x1="160" y1="220" x2="275" y2="220" stroke="#F59E0B" stroke-width="1.5"/>
+  <path d="M270,217 L275,220 L270,223" fill="#F59E0B"/>
+  <text x="215" y="232" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#F59E0B">粒が小さくなる →</text>
+
+  <!-- Process labels at top -->
+  <rect x="10" y="38" width="280" height="18" rx="4" fill="white" stroke="#D1D5DB" stroke-width="1"/>
+  <text x="40" y="51" text-anchor="middle" font-family="sans-serif" font-size="8" font-weight="bold" fill="#374151">風化</text>
+  <text x="55" y="51" font-family="sans-serif" font-size="8" fill="#6B7280">→</text>
+  <text x="90" y="51" text-anchor="middle" font-family="sans-serif" font-size="8" font-weight="bold" fill="#374151">侵食</text>
+  <text x="105" y="51" font-family="sans-serif" font-size="8" fill="#6B7280">→</text>
+  <text x="140" y="51" text-anchor="middle" font-family="sans-serif" font-size="8" font-weight="bold" fill="#374151">運搬</text>
+  <text x="155" y="51" font-family="sans-serif" font-size="8" fill="#6B7280">→</text>
+  <text x="190" y="51" text-anchor="middle" font-family="sans-serif" font-size="8" font-weight="bold" fill="#374151">堆積</text>
+  <text x="205" y="51" font-family="sans-serif" font-size="8" fill="#6B7280">→</text>
+  <text x="248" y="51" text-anchor="middle" font-family="sans-serif" font-size="8" font-weight="bold" fill="#374151">地層の形成</text>
+
+  <!-- Strata cross-section -->
+  <rect x="15" y="245" width="270" height="45" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1"/>
+  <text x="150" y="260" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#1f2937">地層の断面</text>
+  <!-- Layers -->
+  <rect x="45" y="267" width="210" height="5" fill="#9CA3AF"/>
+  <rect x="45" y="272" width="210" height="5" fill="#FDE68A"/>
+  <rect x="45" y="277" width="210" height="5" fill="#D1D5DB"/>
+  <text x="270" y="273" font-family="sans-serif" font-size="6" fill="#6B7280">れき岩</text>
+  <text x="270" y="279" font-family="sans-serif" font-size="6" fill="#6B7280">砂岩</text>
+  <text x="270" y="285" font-family="sans-serif" font-size="6" fill="#6B7280">泥岩</text>
+  <text x="38" y="278" text-anchor="end" font-family="sans-serif" font-size="6" fill="#6B7280">古い↓</text>
+</svg>

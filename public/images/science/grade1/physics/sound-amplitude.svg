@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200" fill="none">
+  <rect width="300" height="200" rx="16" fill="#F5F3F0"/>
+  <text x="150" y="24" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1f2937">音の大きさ（振幅）</text>
+
+  <!-- Large sound waveform -->
+  <rect x="15" y="40" width="130" height="100" rx="8" fill="white" stroke="#EF4444" stroke-width="1.5"/>
+  <text x="80" y="56" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#EF4444">大きい音</text>
+  <line x1="25" y1="95" x2="135" y2="95" stroke="#E5E7EB" stroke-width="0.5"/>
+  <path d="M25,95 Q37,55 49,95 Q61,135 73,95 Q85,55 97,95 Q109,135 121,95 Q129,70 135,95" fill="none" stroke="#EF4444" stroke-width="2.5"/>
+  <!-- Amplitude arrow -->
+  <line x1="49" y1="60" x2="49" y2="95" stroke="#F59E0B" stroke-width="2"/>
+  <path d="M45,64 L49,56 L53,64" fill="#F59E0B"/>
+  <text x="65" y="72" font-family="sans-serif" font-size="9" font-weight="bold" fill="#F59E0B">振幅大</text>
+
+  <!-- Small sound waveform -->
+  <rect x="155" y="40" width="130" height="100" rx="8" fill="white" stroke="#3B82F6" stroke-width="1.5"/>
+  <text x="220" y="56" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#3B82F6">小さい音</text>
+  <line x1="165" y1="95" x2="275" y2="95" stroke="#E5E7EB" stroke-width="0.5"/>
+  <path d="M165,95 Q177,82 189,95 Q201,108 213,95 Q225,82 237,95 Q249,108 261,95 Q269,87 275,95" fill="none" stroke="#3B82F6" stroke-width="2.5"/>
+  <!-- Amplitude arrow -->
+  <line x1="189" y1="84" x2="189" y2="95" stroke="#F59E0B" stroke-width="2"/>
+  <path d="M185,88 L189,80 L193,88" fill="#F59E0B"/>
+  <text x="205" y="86" font-family="sans-serif" font-size="9" font-weight="bold" fill="#F59E0B">振幅小</text>
+
+  <!-- Bottom summary -->
+  <rect x="25" y="155" width="250" height="32" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1"/>
+  <circle cx="45" cy="172" r="5" fill="#F59E0B"/>
+  <text x="58" y="176" font-family="sans-serif" font-size="11" fill="#374151">音の大きさ ＝ 振幅（波の高さ）</text>
+</svg>

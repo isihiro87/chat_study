@@ -221,6 +221,12 @@ export const observationPressureChat: HistoryChat = {
       text: '<span class="keyword">大気圧</span>＝上空の空気の重さで生じる圧力。あらゆる向きにはたらく。1気圧 ≒ <span class="keyword">1013hPa</span>。標高が高い → 気圧が低い！',
     },
     {
+      type: 'image',
+      src: '/images/science/grade2/weather/pressure-wind.svg',
+      alt: '気圧と風のしくみ',
+      caption: '高気圧→下降気流・晴れ、低気圧→上昇気流・くもり',
+    },
+    {
       type: 'quiz',
       question: '大気圧について正しいものはどれか。',
       options: [

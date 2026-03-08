@@ -113,6 +113,12 @@ export const currentMagnetismChat: HistoryChat = {
       text: '右手の<strong><ruby>親指<rp>(</rp><rt>おやゆび</rt><rp>)</rp></ruby>を電流の向き</strong>に立てて、<strong>残りの4本の指を曲げた向き</strong>が磁界の向きだよ。これを「右ねじの法則」ともいうんだ',
     },
     {
+      type: 'image',
+      src: '/images/science/grade2/electricity/straight-current-field.svg',
+      alt: '直線電流のまわりの磁界',
+      caption: '電流のまわりに同心円状の磁界ができる',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',
@@ -125,6 +131,12 @@ export const currentMagnetismChat: HistoryChat = {
       characterId: 'teacher',
       expression: 'excited',
       text: 'コイルに電流を流すと、<strong><ruby>棒磁石<rp>(</rp><rt>ぼうじしゃく</rt><rp>)</rp></ruby>と同じような磁界</strong>ができるんだ！コイルの一方がN極、もう一方がS極になるよ。これが<strong><ruby>電磁石<rp>(</rp><rt>でんじしゃく</rt><rp>)</rp></ruby></strong>の原理だね',
+    },
+    {
+      type: 'image',
+      src: '/images/science/grade2/electricity/right-hand-rule.svg',
+      alt: 'コイルの磁界と右手の法則',
+      caption: '右手の親指がN極、4本の指が電流の向き',
     },
     {
       type: 'summary-point',
@@ -236,6 +248,12 @@ export const currentMagnetismChat: HistoryChat = {
       characterId: 'teacher',
       expression: 'happy',
       text: 'そうだよ！磁石を入れるときと出すときで<ruby>誘導<rp>(</rp><rt>ゆうどう</rt><rp>)</rp></ruby>電流の向きは逆になるんだ。この原理を使って、コイルと磁石で電気を作る装置が<strong><span class="keyword"><ruby>発電機<rp>(</rp><rt>はつでんき</rt><rp>)</rp></ruby></span></strong>だよ',
+    },
+    {
+      type: 'image',
+      src: '/images/science/grade2/electricity/electromagnetic-induction.svg',
+      alt: '電磁誘導',
+      caption: 'コイルの中で磁石を動かすと電流が流れる',
     },
     {
       type: 'message',

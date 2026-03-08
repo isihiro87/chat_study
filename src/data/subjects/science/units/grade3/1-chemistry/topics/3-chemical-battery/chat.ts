@@ -64,6 +64,12 @@ export const chemicalBatteryChat: HistoryChat = {
       text: 'そのとおり！レモンの<ruby>果汁<rp>(</rp><rt>かじゅう</rt><rp>)</rp></ruby>が<ruby>電解質<rp>(</rp><rt>でんかいしつ</rt><rp>)</rp></ruby><ruby>水溶液<rp>(</rp><rt>すいようえき</rt><rp>)</rp></ruby>の<ruby>役割<rp>(</rp><rt>やくわり</rt><rp>)</rp></ruby>をしているんだ。<strong>イオンになりやすい<ruby>金属<rp>(</rp><rt>きんぞく</rt><rp>)</rp></ruby></strong>が<ruby>電子<rp>(</rp><rt>でんし</rt><rp>)</rp></ruby>を<ruby>放出<rp>(</rp><rt>ほうしゅつ</rt><rp>)</rp></ruby>して<strong>−<ruby>極<rp>(</rp><rt>きょく</rt><rp>)</rp></ruby></strong>になるよ',
     },
     {
+      type: 'image',
+      src: '/images/science/grade3/chemistry/fruit-battery.jpeg',
+      alt: '果物電池の実験',
+      caption: 'レモンに銅板と亜鉛板を差して電圧を発生させる',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',
@@ -72,7 +78,7 @@ export const chemicalBatteryChat: HistoryChat = {
     },
     {
       type: 'image',
-      src: '/images/science/battery-model.svg',
+      src: '/images/science/grade3/chemistry/battery-model.svg',
       alt: '電池のしくみモデル図',
       caption: '異なる2種類の金属と電解質水溶液で電流が流れる',
     },
@@ -111,7 +117,7 @@ export const chemicalBatteryChat: HistoryChat = {
     },
     {
       type: 'image',
-      src: '/images/science/ionization-tendency.svg',
+      src: '/images/science/grade3/chemistry/ionization-tendency.svg',
       alt: 'イオン化傾向の順番',
       caption: 'Mg > Zn > Fe > Cu > Ag — 左ほどイオンになりやすい',
     },
@@ -161,6 +167,12 @@ export const chemicalBatteryChat: HistoryChat = {
       text: '2つの<ruby>水溶液<rp>(</rp><rt>すいようえき</rt><rp>)</rp></ruby>が<ruby>混<rp>(</rp><rt>ま</rt><rp>)</rp></ruby>ざるのを<ruby>防<rp>(</rp><rt>ふせ</rt><rp>)</rp></ruby>ぎつつ、イオンだけは<ruby>通<rp>(</rp><rt>とお</rt><rp>)</rp></ruby>すんだ。これで<ruby>回路<rp>(</rp><rt>かいろ</rt><rp>)</rp></ruby>が<ruby>完成<rp>(</rp><rt>かんせい</rt><rp>)</rp></ruby>して、<ruby>安定<rp>(</rp><rt>あんてい</rt><rp>)</rp></ruby>して電流が流れるようになるよ',
     },
     {
+      type: 'image',
+      src: '/images/science/grade3/chemistry/daniell-cell.png',
+      alt: 'ダニエル電池の構造',
+      caption: 'セロハン膜で2液を仕切り、亜鉛板と銅板で電流を取り出す',
+    },
+    {
       type: 'message',
       side: 'left',
       characterId: 'teacher',
@@ -180,6 +192,12 @@ export const chemicalBatteryChat: HistoryChat = {
       characterId: 'teacher',
       expression: 'happy',
       text: '<ruby>燃料<rp>(</rp><rt>ねんりょう</rt><rp>)</rp></ruby><ruby>電池<rp>(</rp><rt>でんち</rt><rp>)</rp></ruby>は<ruby>水<rp>(</rp><rt>みず</rt><rp>)</rp></ruby>しか<ruby>出<rp>(</rp><rt>で</rt><rp>)</rp></ruby>ないから、<ruby>環境<rp>(</rp><rt>かんきょう</rt><rp>)</rp></ruby>にやさしい<ruby>電池<rp>(</rp><rt>でんち</rt><rp>)</rp></ruby>として<ruby>注目<rp>(</rp><rt>ちゅうもく</rt><rp>)</rp></ruby>されているよ。<ruby>燃料<rp>(</rp><rt>ねんりょう</rt><rp>)</rp></ruby><ruby>電池<rp>(</rp><rt>でんち</rt><rp>)</rp></ruby><ruby>自動車<rp>(</rp><rt>じどうしゃ</rt><rp>)</rp></ruby>も走っているんだ',
+    },
+    {
+      type: 'image',
+      src: '/images/science/grade3/chemistry/fuel-cell.png',
+      alt: '燃料電池のしくみ',
+      caption: '水素と酸素から電気エネルギーを取り出し、水が生成する',
     },
     {
       type: 'summary-point',

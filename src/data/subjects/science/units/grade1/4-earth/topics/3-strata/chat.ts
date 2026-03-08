@@ -65,7 +65,7 @@ export const strataChat: HistoryChat = {
     },
     {
       type: 'image',
-      src: '/images/science/strata-formation.svg',
+      src: '/images/science/grade1/earth/strata-formation.svg',
       alt: '地層のでき方',
       caption: '粒の大きさごとに分かれて堆積する',
     },

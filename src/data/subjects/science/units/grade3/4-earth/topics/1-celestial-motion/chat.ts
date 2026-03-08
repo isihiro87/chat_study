@@ -105,7 +105,7 @@ export const celestialMotionChat: HistoryChat = {
     },
     {
       type: 'image',
-      src: '/images/science/celestial-sphere.svg',
+      src: '/images/science/grade3/earth/celestial-sphere.svg',
       alt: '天球と日周運動',
       caption: '地球の自転により天体が東→南中→西と動いて見える',
     },
@@ -156,7 +156,7 @@ export const celestialMotionChat: HistoryChat = {
     },
     {
       type: 'image',
-      src: '/images/science/seasons-tilt.svg',
+      src: '/images/science/grade3/earth/seasons-tilt.svg',
       alt: '地軸の傾きと四季',
       caption: '地軸が23.4度傾いたまま公転 → 四季が生まれる',
     },

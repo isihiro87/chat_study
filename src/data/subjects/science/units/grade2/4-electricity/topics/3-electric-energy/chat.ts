@@ -68,6 +68,12 @@ export const electricEnergyChat: HistoryChat = {
       text: 'その通り！1200Wのドライヤーを100Vで使うと、流れる電流は1200 ÷ 100 = 12Aになるんだ。家庭のブレーカーが落ちやすいのも<ruby>納得<rp>(</rp><rt>なっとく</rt><rp>)</rp></ruby>だね',
     },
     {
+      type: 'image',
+      src: '/images/science/grade2/electricity/electric-power.svg',
+      alt: '電力と電力量',
+      caption: '電力(W)＝電圧(V)×電流(A)',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">電力</span>[W] = 電圧[V] × 電流[A]。電気器具が1秒間に消費するエネルギーの大きさ！',
     },
@@ -139,6 +145,12 @@ export const electricEnergyChat: HistoryChat = {
       characterId: 'teacher',
       expression: 'excited',
       text: '電力量は電気器具が<ruby>消費<rp>(</rp><rt>しょうひ</rt><rp>)</rp></ruby>する電気エネルギーの<ruby>総量<rp>(</rp><rt>そうりょう</rt><rp>)</rp></ruby>のこと。計算式は熱量と同じ「電力 × 時間」だけど、日常では<strong>Wh（ワット時）</strong>や<strong>kWh（キロワット時）</strong>も使うんだ。電気料金の明細に書いてある「kWh」がまさにこれだよ',
+    },
+    {
+      type: 'image',
+      src: '/images/science/grade2/electricity/electric-heating-experiment.png',
+      alt: '電熱線の発熱実験',
+      caption: '太さの異なる電熱線で水の温度上昇を比較する実験',
     },
     {
       type: 'summary-point',

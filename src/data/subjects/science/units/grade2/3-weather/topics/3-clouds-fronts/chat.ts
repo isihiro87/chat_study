@@ -189,11 +189,23 @@ export const cloudsFrontsChat: HistoryChat = {
       text: 'あります！ じゃあ温暖前線はどう違うんですか？',
     },
     {
+      type: 'image',
+      src: '/images/science/grade2/weather/cold-front.svg',
+      alt: '寒冷前線の断面',
+      caption: '冷たい空気が暖かい空気の下にもぐり込む',
+    },
+    {
       type: 'message',
       side: 'left',
       characterId: 'teacher',
       expression: 'explaining',
       text: '<strong>温暖前線</strong>は暖気が寒気の上をゆるやかに<ruby>這<rp>(</rp><rt>は</rt><rp>)</rp></ruby>い上がるんだ。<strong><ruby>乱層雲<rp>(</rp><rt>らんそううん</rt><rp>)</rp></ruby></strong>ができて、<strong>広い範囲で弱い雨</strong>が長く続くよ。通過後は<strong>南寄りの風</strong>に変わって<strong>気温が上昇</strong>するんだ',
+    },
+    {
+      type: 'image',
+      src: '/images/science/grade2/weather/warm-front.svg',
+      alt: '温暖前線の断面',
+      caption: '暖かい空気が冷たい空気の上にはい上がる',
     },
     {
       type: 'message',

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence, type PanInfo } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ImageLightbox } from '../common/ImageLightbox';
 import type { SlideSet } from '../../data/types';
 
 interface SlideViewProps {
@@ -145,6 +146,38 @@ export function SlideView({ slideSets, onProgressChange }: SlideViewProps) {
   );
 }
 
+// スライド内画像の拡大表示ラッパー
+function SlideImageWithLightbox({ src, alt, className }: { src: string; alt: string; className: string }) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <>
+      <motion.img
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.1 }}
+        src={src}
+        alt={alt}
+        className={`${className} cursor-pointer`}
+        onPointerDown={(e) => e.stopPropagation()}
+        onClick={(e) => {
+          e.stopPropagation();
+          setIsOpen(true);
+        }}
+      />
+      <AnimatePresence>
+        {isOpen && (
+          <ImageLightbox
+            src={src}
+            alt={alt}
+            onClose={() => setIsOpen(false)}
+          />
+        )}
+      </AnimatePresence>
+    </>
+  );
+}
+
 // 問いかけスライド
 function QuestionSlideView({ slide, title }: { slide: { type: 'question'; question: string; subtext?: string; emoji?: string; image?: { src: string; alt: string } }; title: string }) {
   return (
@@ -160,10 +193,7 @@ function QuestionSlideView({ slide, title }: { slide: { type: 'question'; questi
         </motion.div>
       )}
       {slide.image && (
-        <motion.img
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
+        <SlideImageWithLightbox
           src={slide.image.src}
           alt={slide.image.alt}
           className="mb-6 h-40 w-auto rounded-xl object-contain"
@@ -213,10 +243,7 @@ function ReasonSlideView({ slide }: { slide: { type: 'reason'; headline: string;
       </motion.h3>
 
       {slide.image && (
-        <motion.img
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.2 }}
+        <SlideImageWithLightbox
           src={slide.image.src}
           alt={slide.image.alt}
           className="mb-6 h-48 w-auto self-center rounded-xl object-contain"
@@ -295,10 +322,7 @@ function ConclusionSlideView({ slide }: { slide: { type: 'conclusion'; conclusio
       </motion.p>
 
       {slide.image && (
-        <motion.img
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.2 }}
+        <SlideImageWithLightbox
           src={slide.image.src}
           alt={slide.image.alt}
           className="mb-6 h-40 w-auto rounded-xl object-contain"

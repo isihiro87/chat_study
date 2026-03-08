@@ -15,7 +15,7 @@ export const plantClassification: Topic = {
           content:
             '花は外側から、がく・花弁・おしべ・めしべの順についています。おしべの先のやくには花粉が入っており、花粉がめしべの柱頭につくことを受粉といいます。受粉すると子房が果実に、胚珠が種子になります。花弁が1枚1枚離れている花を離弁花（サクラ、アブラナなど）、花弁がくっついている花を合弁花（ツツジ、アサガオなど）といいます。',
           image: {
-            src: '/images/science/flower-structure.svg',
+            src: '/images/science/grade1/biology/flower-structure.svg',
             alt: '花のつくり',
             caption: '花の各部分の名前（がく・花弁・おしべ・めしべ）',
           },
@@ -30,7 +30,7 @@ export const plantClassification: Topic = {
           content:
             '胚珠が子房に包まれている植物を被子植物、胚珠がむき出しの植物を裸子植物といいます。マツやイチョウなどが裸子植物で、果実をつくりません。被子植物はさらに双子葉類と単子葉類に分けられます。双子葉類は葉脈が網状脈で、根は主根と側根からなります。単子葉類は葉脈が平行脈で、根はひげ根です。',
           image: {
-            src: '/images/science/plant-classification-tree.svg',
+            src: '/images/science/grade1/biology/plant-classification-tree.svg',
             alt: '植物の分類',
             caption: '被子植物と裸子植物、双子葉類と単子葉類の分類',
           },
@@ -62,7 +62,7 @@ export const plantClassification: Topic = {
               subtext: '花のつくりを覚えよう',
               emoji: '🌸',
               image: {
-                src: '/images/science/flower-structure.svg',
+                src: '/images/science/grade1/biology/flower-structure.svg',
                 alt: '花のつくり',
               },
             },

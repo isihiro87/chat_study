@@ -15,7 +15,7 @@ export const stateChange: Topic = {
           content:
             '物質は温度によって固体・液体・気体の3つの状態に変化します。この変化を状態変化といいます。固体から液体への変化を融解、液体から固体への変化を凝固、液体から気体への変化を蒸発（気化）、気体から液体への変化を凝縮（液化）といいます。状態変化は物質そのものが別の物質に変わるわけではなく、粒子の運動のようすが変わるだけです。',
           image: {
-            src: '/images/science/state-change.svg',
+            src: '/images/science/grade1/chemistry/state-change.svg',
             alt: '物質の三態変化',
             caption: '固体・液体・気体の状態変化と粒子のようす',
           },
@@ -57,7 +57,7 @@ export const stateChange: Topic = {
               subtext: '状態変化のしくみ',
               emoji: '🧊',
               image: {
-                src: '/images/science/state-change.svg',
+                src: '/images/science/grade1/chemistry/state-change.svg',
                 alt: '物質の三態変化',
               },
             },

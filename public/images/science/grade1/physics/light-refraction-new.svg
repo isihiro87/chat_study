@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200" fill="none">
+  <rect width="300" height="200" rx="16" fill="#F5F3F0"/>
+  <text x="150" y="24" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#10B981">光の屈折</text>
+
+  <!-- Glass area (lower half) -->
+  <rect x="30" y="100" width="240" height="60" fill="#DBEAFE" opacity="0.4"/>
+  <!-- Boundary line -->
+  <line x1="30" y1="100" x2="270" y2="100" stroke="#93C5FD" stroke-width="2"/>
+
+  <!-- Medium labels -->
+  <text x="255" y="92" text-anchor="end" font-family="sans-serif" font-size="10" fill="#6B7280">空気</text>
+  <text x="255" y="116" text-anchor="end" font-family="sans-serif" font-size="10" fill="#6B7280">ガラス</text>
+
+  <!-- Normal line (dashed) -->
+  <line x1="150" y1="40" x2="150" y2="155" stroke="#9CA3AF" stroke-width="1" stroke-dasharray="5 3"/>
+  <text x="158" y="48" font-family="sans-serif" font-size="9" fill="#9CA3AF">法線</text>
+
+  <!-- Incident ray (amber, in air) -->
+  <line x1="90" y1="42" x2="150" y2="100" stroke="#F59E0B" stroke-width="2.5"/>
+  <path d="M125,76 L132,80 L126,85" fill="none" stroke="#F59E0B" stroke-width="2"/>
+
+  <!-- Refracted ray (green, in glass - bends toward normal) -->
+  <line x1="150" y1="100" x2="185" y2="155" stroke="#10B981" stroke-width="2.5"/>
+  <path d="M170,132 L173,127 L178,133" fill="none" stroke="#10B981" stroke-width="2"/>
+
+  <!-- Incident point -->
+  <circle cx="150" cy="100" r="3" fill="#374151"/>
+
+  <!-- Angle arcs and labels -->
+  <path d="M150,75 Q132,75 120,62" fill="none" stroke="#F59E0B" stroke-width="1.5"/>
+  <text x="108" y="78" font-family="sans-serif" font-size="11" font-weight="bold" fill="#F59E0B">大</text>
+  <path d="M150,120 Q160,120 167,132" fill="none" stroke="#10B981" stroke-width="1.5"/>
+  <text x="168" y="130" font-family="sans-serif" font-size="11" font-weight="bold" fill="#10B981">小</text>
+
+  <!-- Key text -->
+  <rect x="45" y="165" width="210" height="26" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1"/>
+  <text x="150" y="183" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#374151">空気→ガラス: 法線に近づく</text>
+</svg>

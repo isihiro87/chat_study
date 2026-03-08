@@ -65,7 +65,7 @@ export const objectMotionChat: HistoryChat = {
     },
     {
       type: 'image',
-      src: '/images/science/motion-tape.svg',
+      src: '/images/science/grade3/physics/motion-tape.svg',
       alt: '記録タイマーのテープ',
       caption: '打点間隔が広い＝速い、せまい＝遅い',
     },
@@ -145,6 +145,18 @@ export const objectMotionChat: HistoryChat = {
       characterId: 'teacher',
       expression: 'happy',
       text: 'よく理解できているね！テープの打点間隔が広がれば<ruby>加速<rp>(</rp><rt>かそく</rt><rp>)</rp></ruby>、せまくなれば<ruby>減速<rp>(</rp><rt>げんそく</rt><rp>)</rp></ruby>とすぐに判断できるよ',
+    },
+    {
+      type: 'image',
+      src: '/images/science/grade3/physics/strobe-photo-slope.png',
+      alt: '斜面を下る台車のストロボ写真',
+      caption: '等時間間隔で撮影。間隔が広がり加速していることがわかる',
+    },
+    {
+      type: 'image',
+      src: '/images/science/grade3/physics/free-fall-strobe.png',
+      alt: '自由落下のストロボ写真',
+      caption: '重力による等加速度運動。落下するにつれ間隔が広がる',
     },
     {
       type: 'summary-point',

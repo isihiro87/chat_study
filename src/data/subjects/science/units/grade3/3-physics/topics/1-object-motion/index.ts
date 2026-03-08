@@ -15,7 +15,7 @@ export const objectMotion: Topic = {
           content:
             '物体の運動を調べるには、記録タイマーを使って一定時間ごとの移動距離を記録します。記録タイマーは東日本では1秒間に50回（1打点0.02秒）、西日本では1秒間に60回（1打点1/60秒）打点します。速さには、ある区間全体の平均の速さと、ごく短い時間での瞬間の速さがあります。',
           image: {
-            src: '/images/science/motion-tape.svg',
+            src: '/images/science/grade3/physics/motion-tape.svg',
             alt: '記録タイマーのテープ',
             caption: '等速・加速・減速の打点パターン',
           },

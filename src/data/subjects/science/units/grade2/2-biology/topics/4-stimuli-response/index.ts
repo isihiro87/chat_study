@@ -25,9 +25,9 @@ export const stimuliResponse: Topic = {
           content:
             '神経系は、判断や命令を行う中枢神経（脳とせきずい）と、全身に広がる末しょう神経（感覚神経と運動神経）に分けられます。意識して起こる反応は「感覚器官→感覚神経→せきずい→脳→せきずい→運動神経→運動器官」という経路で信号が伝わります。',
           image: {
-            src: '/images/science/nervous-system.svg',
-            alt: '神経系のしくみ',
-            caption: '中枢神経と末しょう神経、意識的な反応と反射の経路',
+            src: '/images/science/grade2/biology/conscious-response.svg',
+            alt: '意識して起こる反応の経路',
+            caption: '感覚器官→感覚神経→せきずい→脳→せきずい→運動神経→筋肉',
           },
           keyPoints: [
             '中枢神経：脳（判断・命令）＋せきずい（中継）',
@@ -67,8 +67,8 @@ export const stimuliResponse: Topic = {
               subtext: '刺激と反応の流れ',
               emoji: '⚡',
               image: {
-                src: '/images/science/nervous-system.svg',
-                alt: '神経系のしくみ',
+                src: '/images/science/grade2/biology/conscious-response.svg',
+                alt: '意識して起こる反応の経路',
               },
             },
             {

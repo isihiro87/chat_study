@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200" fill="none">
+  <!-- Background -->
+  <rect width="400" height="200" rx="16" fill="#1f2937"/>
+
+  <!-- Title -->
+  <text x="200" y="28" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="white">地球型惑星（岩石惑星）</text>
+
+  <!-- Planets row -->
+  <!-- Mercury -->
+  <circle cx="65" cy="95" r="8" fill="#9CA3AF"/>
+  <text x="65" y="120" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#9CA3AF">水星</text>
+  <text x="65" y="132" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#6B7280">最も小さい</text>
+
+  <!-- Venus -->
+  <circle cx="150" cy="95" r="14" fill="#F59E0B"/>
+  <text x="150" y="120" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#F59E0B">金星</text>
+  <text x="150" y="132" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#6B7280">厚い大気</text>
+
+  <!-- Earth -->
+  <circle cx="245" cy="95" r="15" fill="#3B82F6"/>
+  <circle cx="240" cy="90" r="4" fill="#22C55E" opacity="0.6"/>
+  <circle cx="249" cy="98" r="3" fill="#22C55E" opacity="0.6"/>
+  <text x="245" y="120" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#60A5FA">地球</text>
+  <text x="245" y="132" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#6B7280">水と生命</text>
+
+  <!-- Mars -->
+  <circle cx="335" cy="95" r="10" fill="#EF4444"/>
+  <text x="335" y="120" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#FCA5A5">火星</text>
+  <text x="335" y="132" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#6B7280">赤い惑星</text>
+
+  <!-- Characteristics box -->
+  <rect x="40" y="148" width="320" height="38" rx="8" fill="#374151"/>
+  <text x="200" y="165" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#FCA5A5">特徴: 小さい・密度が大きい・岩石質の表面</text>
+  <text x="200" y="179" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#6B7280">太陽に近い4つの惑星 ※大きさの比率は実際とは異なります</text>
+</svg>

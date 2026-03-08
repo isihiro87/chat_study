@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200" fill="none">
+  <rect width="300" height="200" rx="16" fill="#F5F3F0"/>
+  <text x="150" y="22" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#374151">凸レンズと像</text>
+
+  <!-- Convex lens -->
+  <ellipse cx="150" cy="105" rx="8" ry="45" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+
+  <!-- Optical axis (dashed) -->
+  <line x1="20" y1="105" x2="280" y2="105" stroke="#9CA3AF" stroke-width="1" stroke-dasharray="4 3"/>
+
+  <!-- Focal points -->
+  <circle cx="95" cy="105" r="4" fill="#F59E0B"/>
+  <text x="95" y="120" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#F59E0B">F</text>
+  <circle cx="205" cy="105" r="4" fill="#F59E0B"/>
+  <text x="205" y="120" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#F59E0B">F</text>
+
+  <!-- Object (red arrow, upright) -->
+  <line x1="55" y1="105" x2="55" y2="70" stroke="#EF4444" stroke-width="2.5"/>
+  <path d="M51,74 L55,65 L59,74" fill="#EF4444"/>
+  <text x="55" y="130" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#EF4444">物体</text>
+
+  <!-- Ray 1: parallel to axis, then through far focal point (blue) -->
+  <line x1="55" y1="70" x2="150" y2="70" stroke="#3B82F6" stroke-width="1.5"/>
+  <line x1="150" y1="70" x2="250" y2="135" stroke="#3B82F6" stroke-width="1.5"/>
+
+  <!-- Ray 2: through center of lens (green) -->
+  <line x1="55" y1="70" x2="150" y2="105" stroke="#10B981" stroke-width="1.5"/>
+  <line x1="150" y1="105" x2="250" y2="135" stroke="#10B981" stroke-width="1.5"/>
+
+  <!-- Real image (dashed red, inverted) -->
+  <line x1="250" y1="105" x2="250" y2="135" stroke="#EF4444" stroke-width="2.5" stroke-dasharray="4 3"/>
+  <path d="M246,131 L250,140 L254,131" fill="#EF4444" opacity="0.6"/>
+  <text x="250" y="155" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#EF4444">実像（逆さ）</text>
+
+  <!-- Summary -->
+  <rect x="55" y="170" width="190" height="22" rx="6" fill="white" stroke="#D1D5DB" stroke-width="1"/>
+  <text x="150" y="185" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#374151">焦点の外側 → 逆さの実像ができる</text>
+</svg>

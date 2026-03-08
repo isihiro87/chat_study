@@ -65,7 +65,7 @@ export const volcanoChat: HistoryChat = {
     },
     {
       type: 'image',
-      src: '/images/science/volcano-shapes.svg',
+      src: '/images/science/grade1/earth/volcano-shapes.svg',
       alt: '火山の形の違い',
       caption: 'マグマのねばりけが強い→溶岩ドーム、弱い→楯状火山',
     },

@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200" fill="none">
+  <!-- Background -->
+  <rect width="300" height="200" rx="16" fill="#F5F3F0"/>
+
+  <!-- Title -->
+  <text x="150" y="22" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1f2937">水素（H₂）とアンモニア（NH₃）の発生</text>
+
+  <!-- Left: Hydrogen -->
+  <rect x="8" y="35" width="136" height="155" rx="8" fill="white" stroke="#EF4444" stroke-width="1.5"/>
+  <rect x="8" y="35" width="136" height="24" rx="8" fill="#EF4444"/>
+  <text x="76" y="51" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="white">水素 H₂</text>
+
+  <text x="76" y="76" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#374151">つくり方</text>
+  <text x="76" y="90" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#374151">亜鉛（鉄）</text>
+  <text x="76" y="102" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#374151">＋ うすい塩酸</text>
+
+  <line x1="18" y1="110" x2="134" y2="110" stroke="#E5E7EB" stroke-width="1"/>
+  <text x="76" y="124" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#374151">性質</text>
+  <text x="76" y="138" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#374151">・無色無臭</text>
+  <text x="76" y="150" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#374151">・最も軽い気体</text>
+  <text x="76" y="162" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#374151">・火をつけると燃える</text>
+  <text x="76" y="174" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#374151">・水に溶けにくい</text>
+  <text x="76" y="186" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#6B7280">→ 水上置換法</text>
+
+  <!-- Right: Ammonia -->
+  <rect x="156" y="35" width="136" height="155" rx="8" fill="white" stroke="#D97706" stroke-width="1.5"/>
+  <rect x="156" y="35" width="136" height="24" rx="8" fill="#D97706"/>
+  <text x="224" y="51" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="white">アンモニア NH₃</text>
+
+  <text x="224" y="76" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#374151">つくり方</text>
+  <text x="224" y="90" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#374151">塩化アンモニウム</text>
+  <text x="224" y="102" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#374151">＋ 水酸化カルシウム</text>
+
+  <line x1="166" y1="110" x2="282" y2="110" stroke="#E5E7EB" stroke-width="1"/>
+  <text x="224" y="124" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#374151">性質</text>
+  <text x="224" y="138" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#374151">・刺激臭がある</text>
+  <text x="224" y="150" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#374151">・空気より軽い</text>
+  <text x="224" y="162" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#374151">・水に非常に溶けやすい</text>
+  <text x="224" y="174" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#374151">・水溶液はアルカリ性</text>
+  <text x="224" y="186" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#6B7280">→ 上方置換法</text>
+</svg>

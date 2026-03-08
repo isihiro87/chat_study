@@ -15,7 +15,7 @@ export const observationMethod: Topic = {
           content:
             '身近な生物を観察するときは、観察する場所の日当たりや湿り気などの環境に注目し、どのような生物がいるかを記録します。観察記録には、日時・場所・天気・気温・観察した生物の名前・スケッチ・気づいたことなどを書きます。スケッチは細い線ではっきりと描き、影をつけずに輪郭線で表します。観察した結果は生物カードにまとめます。',
           image: {
-            src: '/images/science/sketch-method.svg',
+            src: '/images/science/grade1/biology/sketch-method.svg',
             alt: 'スケッチのしかた',
             caption: 'スケッチは細い線で輪郭を描き、影はつけない',
           },
@@ -30,7 +30,7 @@ export const observationMethod: Topic = {
           content:
             'ルーペで観察するときは、ルーペを目に近づけて持ち、観察するものを前後に動かしてピントを合わせます。双眼実体顕微鏡は立体的に観察でき、倍率は20〜40倍程度です。ステージ上下式顕微鏡と鏡筒上下式顕微鏡は、プレパラートを使って観察し、倍率は40〜600倍程度です。顕微鏡では、接眼レンズ→対物レンズの順に取り付け、低倍率から観察を始めます。',
           image: {
-            src: '/images/science/microscope-usage.svg',
+            src: '/images/science/grade1/biology/microscope-usage.svg',
             alt: '顕微鏡の使い方',
             caption: '顕微鏡の各部分の名前と使い方',
           },
@@ -62,7 +62,7 @@ export const observationMethod: Topic = {
               subtext: '観察記録のコツ',
               emoji: '✏️',
               image: {
-                src: '/images/science/sketch-method.svg',
+                src: '/images/science/grade1/biology/sketch-method.svg',
                 alt: 'スケッチのしかた',
               },
             },

@@ -25,7 +25,7 @@ export const pressureHumidity: Topic = {
           content:
             '高気圧の中心では下降気流が生じ、地表付近では時計回りに風が吹き出します。低気圧の中心では上昇気流が生じ、地表付近では反時計回りに風が吹き込みます。低気圧の中心付近では上昇気流により雲ができやすく、天気がくずれやすくなります。',
           image: {
-            src: '/images/science/pressure-wind.svg',
+            src: '/images/science/grade2/weather/pressure-wind.svg',
             alt: '高気圧と低気圧の風の流れ',
             caption: '高気圧は時計回りに吹き出し、低気圧は反時計回りに吹き込む',
           },
@@ -40,7 +40,7 @@ export const pressureHumidity: Topic = {
           content:
             '空気中に含むことができる水蒸気の最大量を飽和水蒸気量といい、気温が高いほど大きくなります。空気が冷やされて水蒸気が水滴に変わり始める温度を露点といいます。水蒸気が水滴に変わることを凝結といいます。湿度は「実際の水蒸気量÷飽和水蒸気量×100（%）」で求められます。',
           image: {
-            src: '/images/science/humidity-curve.svg',
+            src: '/images/science/grade2/weather/humidity-curve.svg',
             alt: '飽和水蒸気量と気温の関係グラフ',
             caption: '気温が高いほど飽和水蒸気量は大きくなる',
           },

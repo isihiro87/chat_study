@@ -78,6 +78,18 @@ export const staticElectricityChat: HistoryChat = {
       text: 'いい<ruby>質問<rp>(</rp><rt>しつもん</rt><rp>)</rp></ruby>だね！<strong><ruby>同<rp>(</rp><rt>おな</rt><rp>)</rp></ruby>じ<ruby>種類<rp>(</rp><rt>しゅるい</rt><rp>)</rp></ruby>の電気どうし</strong>は<ruby>退<rp>(</rp><rt>しりぞ</rt><rp>)</rp></ruby>け合い（<ruby>反発<rp>(</rp><rt>はんぱつ</rt><rp>)</rp></ruby>）、<strong><ruby>異<rp>(</rp><rt>こと</rt><rp>)</rp></ruby>なる<ruby>種類<rp>(</rp><rt>しゅるい</rt><rp>)</rp></ruby>の電気どうし</strong>は引き合うんだ。<ruby>磁石<rp>(</rp><rt>じしゃく</rt><rp>)</rp></ruby>のN<ruby>極<rp>(</rp><rt>きょく</rt><rp>)</rp></ruby>どうし・S<ruby>極<rp>(</rp><rt>きょく</rt><rp>)</rp></ruby>どうしに<ruby>似<rp>(</rp><rt>に</rt><rp>)</rp></ruby>ているね',
     },
     {
+      type: 'image',
+      src: '/images/science/grade2/electricity/static-electricity.svg',
+      alt: '静電気のしくみ',
+      caption: '異なる物質をこすると＋と−の電気が分かれる',
+    },
+    {
+      type: 'image',
+      src: '/images/science/grade2/electricity/static-electricity-experiment.jpeg',
+      alt: '静電気の実験',
+      caption: 'こすったストローの引き合い・反発と放電のようす',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">静電気</span>：異なる物質をこすり合わせ→<span class="keyword">電子</span>が移動→<span class="keyword">帯電</span>。＋と−の2種類があり、同種は反発、異種は引き合う',
     },

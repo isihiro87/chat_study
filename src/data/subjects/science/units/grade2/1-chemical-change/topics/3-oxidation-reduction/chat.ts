@@ -64,6 +64,12 @@ export const oxidationReductionChat: HistoryChat = {
       text: 'そう！<ruby>熱<rp>(</rp><rt>ねつ</rt><rp>)</rp></ruby>や光を出しながら<ruby>激<rp>(</rp><rt>はげ</rt><rp>)</rp></ruby>しく<ruby>酸化<rp>(</rp><rt>さんか</rt><rp>)</rp></ruby>される<ruby>現象<rp>(</rp><rt>げんしょう</rt><rp>)</rp></ruby>を<strong><span class="keyword"><ruby>燃焼<rp>(</rp><rt>ねんしょう</rt><rp>)</rp></ruby></span></strong>というよ。<ruby>銅<rp>(</rp><rt>どう</rt><rp>)</rp></ruby>を加熱すると<strong><ruby>酸化銅<rp>(</rp><rt>さんかどう</rt><rp>)</rp></ruby></strong>（黒色）に、マグネシウムを<ruby>燃<rp>(</rp><rt>も</rt><rp>)</rp></ruby>やすと<strong><ruby>酸化<rp>(</rp><rt>さんか</rt><rp>)</rp></ruby>マグネシウム</strong>（白色）になるんだ',
     },
     {
+      type: 'image',
+      src: '/images/science/grade2/chemical-change/steel-wool-burn.png',
+      alt: 'スチールウールの燃焼実験',
+      caption: '酸素中で燃焼すると質量が増加する（酸化鉄になる）',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',
@@ -110,9 +116,15 @@ export const oxidationReductionChat: HistoryChat = {
     },
     {
       type: 'image',
-      src: '/images/science/oxidation-reduction.svg',
-      alt: '酸化と還元は同時に起こる',
-      caption: '酸化銅の炭素による還元',
+      src: '/images/science/grade2/chemical-change/copper-oxide-reduction.svg',
+      alt: '酸化銅の炭素による還元',
+      caption: 'CuO + C → Cu + CO₂',
+    },
+    {
+      type: 'image',
+      src: '/images/science/grade2/chemical-change/copper-oxide-reduction.png',
+      alt: '酸化銅の還元実験',
+      caption: '試験管で加熱し、発生したCO₂で石灰水が白くにごる',
     },
     {
       type: 'message',
@@ -127,6 +139,12 @@ export const oxidationReductionChat: HistoryChat = {
       characterId: 'teacher',
       expression: 'excited',
       text: 'すばらしい！ここが<ruby>超重要<rp>(</rp><rt>ちょうじゅうよう</rt><rp>)</rp></ruby>ポイント。<strong><span class="keyword"><ruby>酸化<rp>(</rp><rt>さんか</rt><rp>)</rp></ruby>と<ruby>還元<rp>(</rp><rt>かんげん</rt><rp>)</rp></ruby>は<ruby>常<rp>(</rp><rt>つね</rt><rp>)</rp></ruby>に<ruby>同時<rp>(</rp><rt>どうじ</rt><rp>)</rp></ruby>に<ruby>起<rp>(</rp><rt>お</rt><rp>)</rp></ruby>こる</span></strong>んだ！<ruby>一方<rp>(</rp><rt>いっぽう</rt><rp>)</rp></ruby>が<ruby>酸化<rp>(</rp><rt>さんか</rt><rp>)</rp></ruby>されれば、もう<ruby>一方<rp>(</rp><rt>いっぽう</rt><rp>)</rp></ruby>は<ruby>還元<rp>(</rp><rt>かんげん</rt><rp>)</rp></ruby>される',
+    },
+    {
+      type: 'image',
+      src: '/images/science/grade2/chemical-change/oxidation-concept.svg',
+      alt: '酸化と還元',
+      caption: '酸化と還元は同時に起こる',
     },
     {
       type: 'message',

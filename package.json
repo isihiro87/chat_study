@@ -6,9 +6,9 @@
   "scripts": {
     "prepare": "husky",
     "generate-registry": "tsx scripts/generate-topic-registry.ts",
-    "dev": "vite",
+    "dev": "npm run build && vite preview --host 0.0.0.0",
     "build": "tsx scripts/generate-topic-registry.ts && tsc && vite build && npx tsx scripts/generate-sitemap.ts && npx tsx scripts/prerender.ts",
-    "preview": "vite preview",
+    "preview": "vite preview --host 0.0.0.0",
     "lint": "eslint .",
     "format": "npx prettier --write .",
     "typecheck": "tsc --noEmit",
@@ -26,6 +26,7 @@
   "license": "MIT",
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.18",
+    "@tailwindcss/vite": "^4.1.18",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
     "@types/node": "^20.11.0",

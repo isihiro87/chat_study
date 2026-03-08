@@ -15,7 +15,7 @@ export const strata: Topic = {
           content:
             '地表の岩石は気温の変化や雨風によってもろくなります。これを風化といいます。風化した岩石は流水のはたらきで侵食（削られ）、運搬（運ばれ）、堆積（積もる）します。流水で運ばれた土砂は、粒の大きいもの（れき）から順に河口近くに堆積し、粒の小さいもの（泥）は沖合まで運ばれてから堆積します。こうして海底などに層状に積もったものが地層です。',
           image: {
-            src: '/images/science/strata-formation.svg',
+            src: '/images/science/grade1/earth/strata-formation.svg',
             alt: '地層のでき方',
             caption: '流水のはたらきで粒の大きさごとに分かれて堆積する',
           },
@@ -60,7 +60,7 @@ export const strata: Topic = {
               subtext: '風化・侵食・運搬・堆積',
               emoji: '🏞️',
               image: {
-                src: '/images/science/strata-formation.svg',
+                src: '/images/science/grade1/earth/strata-formation.svg',
                 alt: '地層のでき方',
               },
             },

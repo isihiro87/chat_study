@@ -61,9 +61,15 @@ export const growthReproductionChat: HistoryChat = {
     },
     {
       type: 'image',
-      src: '/images/science/cell-division.svg',
+      src: '/images/science/grade3/biology/cell-division.svg',
       alt: '体細胞分裂のようす',
       caption: '染色体が複製され、均等に分かれて2つの細胞になる',
+    },
+    {
+      type: 'image',
+      src: '/images/science/grade3/biology/mitosis-microscope.png',
+      alt: '体細胞分裂の顕微鏡像',
+      caption: 'タマネギの根端細胞。分裂の各段階が観察できる',
     },
     {
       type: 'summary-point',
@@ -96,7 +102,13 @@ export const growthReproductionChat: HistoryChat = {
     },
     {
       type: 'image',
-      src: '/images/science/reproduction-types.svg',
+      src: '/images/science/grade3/biology/pollen-tube.png',
+      alt: '花粉管が伸びるようす',
+      caption: '花粉から花粉管が伸び、精細胞が胚珠に届く',
+    },
+    {
+      type: 'image',
+      src: '/images/science/grade3/biology/reproduction-types.svg',
       alt: '無性生殖と有性生殖の比較',
       caption: '無性生殖（親と同じ）と有性生殖（多様な子）',
     },
@@ -143,6 +155,12 @@ export const growthReproductionChat: HistoryChat = {
       characterId: 'teacher',
       expression: 'happy',
       text: '<ruby>受精卵<rp>(</rp><rt>じゅせいらん</rt><rp>)</rp></ruby>が<ruby>体細胞分裂<rp>(</rp><rt>たいさいぼうぶんれつ</rt><rp>)</rp></ruby>をくり返して個体になっていく過程を<strong><span class="keyword"><ruby>発生<rp>(</rp><rt>はっせい</rt><rp>)</rp></ruby></span></strong>というよ。発生の<ruby>初期<rp>(</rp><rt>しょき</rt><rp>)</rp></ruby>段階の個体を<strong><span class="keyword"><ruby>胚<rp>(</rp><rt>はい</rt><rp>)</rp></ruby></span></strong>というんだ',
+    },
+    {
+      type: 'image',
+      src: '/images/science/grade3/biology/frog-development.png',
+      alt: 'カエルの発生過程',
+      caption: '受精卵→卵割→胞胚→原腸胚→神経胚→尾芽胚→オタマジャクシ→成体',
     },
     {
       type: 'summary-point',

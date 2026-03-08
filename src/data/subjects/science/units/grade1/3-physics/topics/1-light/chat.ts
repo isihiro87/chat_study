@@ -92,6 +92,12 @@ export const lightChat: HistoryChat = {
       text: 'ざらざらした面では光がさまざまな方向に反射する。これを<strong><span class="keyword"><ruby>乱反射<rp>(</rp><rt>らんはんしゃ</rt><rp>)</rp></ruby></span></strong>というんだ。でも、個々の反射では入射角＝反射角が成り立っているんだよ',
     },
     {
+      type: 'image',
+      src: '/images/science/grade1/physics/light-reflection.svg',
+      alt: '反射の法則',
+      caption: '入射角＝反射角が必ず成り立つ',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">光源</span>から出た光は直進する。<span class="keyword">反射の法則</span>：入射角＝反射角。ざらざらした面では<span class="keyword">乱反射</span>！',
     },
@@ -151,6 +157,12 @@ export const lightChat: HistoryChat = {
       text: '水やガラスから空気に出ようとする光の<ruby>入射角<rp>(</rp><rt>にゅうしゃかく</rt><rp>)</rp></ruby>がある角度以上になると、光がすべて<ruby>反射<rp>(</rp><rt>はんしゃ</rt><rp>)</rp></ruby>して向こう側に出なくなるんだ。これが<strong><span class="keyword"><ruby>全反射<rp>(</rp><rt>ぜんはんしゃ</rt><rp>)</rp></ruby></span></strong>だよ。<strong><ruby>光<rp>(</rp><rt>ひかり</rt><rp>)</rp></ruby>ファイバー</strong>はこの全反射を利用しているんだ',
     },
     {
+      type: 'image',
+      src: '/images/science/grade1/physics/light-refraction-new.svg',
+      alt: '光の屈折',
+      caption: '空気からガラスに入ると法線に近づくように曲がる',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">屈折</span>：光が異なる物質の境界で曲がる。<span class="keyword">全反射</span>：入射角が大きいと光がすべて反射（光ファイバーに利用）！',
     },
@@ -201,6 +213,12 @@ export const lightChat: HistoryChat = {
       characterId: 'student',
       expression: 'happy',
       text: '虫めがねで物が大きく見えるのは<ruby>虚像<rp>(</rp><rt>きょぞう</rt><rp>)</rp></ruby>なんですね！',
+    },
+    {
+      type: 'image',
+      src: '/images/science/grade1/physics/convex-lens.svg',
+      alt: '凸レンズと像',
+      caption: '焦点より遠い物体は倒立の実像ができる',
     },
     {
       type: 'summary-point',

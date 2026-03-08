@@ -182,6 +182,12 @@ export const pressureHumidityChat: HistoryChat = {
       text: 'そう！ <strong>気温が高いほど<ruby>飽和水蒸気量<rp>(</rp><rt>ほうわすいじょうきりょう</rt><rp>)</rp></ruby>は大きくなる</strong>んだ。たとえば20℃で約17.3g/m³、10℃で約9.4g/m³。気温が下がると<ruby>含<rp>(</rp><rt>ふく</rt><rp>)</rp></ruby>みきれなくなった<ruby>水蒸気<rp>(</rp><rt>すいじょうき</rt><rp>)</rp></ruby>が<ruby>水滴<rp>(</rp><rt>すいてき</rt><rp>)</rp></ruby>に変わるよ',
     },
     {
+      type: 'image',
+      src: '/images/science/grade2/weather/humidity-curve.svg',
+      alt: '飽和水蒸気量と湿度',
+      caption: '気温が高いほど飽和水蒸気量が大きい',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',

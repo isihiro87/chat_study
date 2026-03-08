@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" fill="none">
+  <rect width="300" height="300" rx="16" fill="#F5F3F0"/>
+  <text x="150" y="25" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1f2937">物質の三態変化</text>
+
+  <!-- 固体 -->
+  <rect x="15" y="50" width="80" height="90" rx="10" fill="white" stroke="#3B82F6" stroke-width="2"/>
+  <text x="55" y="68" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#3B82F6">固体</text>
+  <!-- Particles tightly packed -->
+  <circle cx="38" cy="95" r="6" fill="#93C5FD"/>
+  <circle cx="52" cy="95" r="6" fill="#93C5FD"/>
+  <circle cx="66" cy="95" r="6" fill="#93C5FD"/>
+  <circle cx="45" cy="108" r="6" fill="#93C5FD"/>
+  <circle cx="59" cy="108" r="6" fill="#93C5FD"/>
+  <circle cx="52" cy="121" r="6" fill="#93C5FD"/>
+  <text x="55" y="137" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#6B7280">粒子が規則正しく並ぶ</text>
+
+  <!-- 液体 -->
+  <rect x="110" y="50" width="80" height="90" rx="10" fill="white" stroke="#10B981" stroke-width="2"/>
+  <text x="150" y="68" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#10B981">液体</text>
+  <!-- Particles loosely together -->
+  <circle cx="132" cy="93" r="6" fill="#86EFAC"/>
+  <circle cx="148" cy="90" r="6" fill="#86EFAC"/>
+  <circle cx="165" cy="96" r="6" fill="#86EFAC"/>
+  <circle cx="138" cy="108" r="6" fill="#86EFAC"/>
+  <circle cx="155" cy="112" r="6" fill="#86EFAC"/>
+  <circle cx="148" cy="125" r="6" fill="#86EFAC"/>
+  <text x="150" y="137" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#6B7280">粒子が自由に動く</text>
+
+  <!-- 気体 -->
+  <rect x="205" y="50" width="80" height="90" rx="10" fill="white" stroke="#EF4444" stroke-width="2"/>
+  <text x="245" y="68" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#EF4444">気体</text>
+  <!-- Particles far apart -->
+  <circle cx="220" cy="85" r="6" fill="#FCA5A5"/>
+  <circle cx="260" cy="92" r="6" fill="#FCA5A5"/>
+  <circle cx="235" cy="110" r="6" fill="#FCA5A5"/>
+  <circle cx="255" cy="125" r="6" fill="#FCA5A5"/>
+  <text x="245" y="137" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#6B7280">粒子が激しく飛び回る</text>
+
+  <!-- Arrows: 固体 → 液体 -->
+  <path d="M95,72 L110,72" fill="none" stroke="#F59E0B" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="103" y="65" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#F59E0B">融解</text>
+
+  <!-- Arrows: 液体 → 固体 -->
+  <path d="M110,82 L95,82" fill="none" stroke="#3B82F6" stroke-width="2" marker-end="url(#arrow2)"/>
+  <text x="103" y="92" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#3B82F6">凝固</text>
+
+  <!-- Arrows: 液体 → 気体 -->
+  <path d="M190,72 L205,72" fill="none" stroke="#F59E0B" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="198" y="65" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#F59E0B">蒸発</text>
+
+  <!-- Arrows: 気体 → 液体 -->
+  <path d="M205,82 L190,82" fill="none" stroke="#3B82F6" stroke-width="2" marker-end="url(#arrow2)"/>
+  <text x="198" y="92" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#3B82F6">凝縮</text>
+
+  <!-- Arrow markers -->
+  <defs>
+    <marker id="arrow" markerWidth="6" markerHeight="4" refX="6" refY="2" orient="auto">
+      <path d="M0,0 L6,2 L0,4" fill="#F59E0B"/>
+    </marker>
+    <marker id="arrow2" markerWidth="6" markerHeight="4" refX="0" refY="2" orient="auto">
+      <path d="M6,0 L0,2 L6,4" fill="#3B82F6"/>
+    </marker>
+  </defs>
+
+  <!-- 昇華 curve -->
+  <path d="M55,50 Q150,10 245,50" fill="none" stroke="#D97706" stroke-width="1.5" stroke-dasharray="4 2"/>
+  <text x="150" y="20" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#D97706">昇華（固体⇔気体）</text>
+
+  <!-- Key concepts at bottom -->
+  <rect x="15" y="155" width="270" height="130" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1"/>
+  <text x="150" y="175" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#1f2937">ポイント</text>
+
+  <circle cx="35" cy="195" r="4" fill="#F59E0B"/>
+  <text x="47" y="199" font-family="sans-serif" font-size="9" fill="#374151">状態が変わっても質量は変わらない</text>
+
+  <circle cx="35" cy="215" r="4" fill="#F59E0B"/>
+  <text x="47" y="219" font-family="sans-serif" font-size="9" fill="#374151">加熱 → 粒子の運動が激しくなる → 体積が増える</text>
+
+  <circle cx="35" cy="235" r="4" fill="#F59E0B"/>
+  <text x="47" y="239" font-family="sans-serif" font-size="9" fill="#374151">融点・沸点は物質ごとに決まっている</text>
+
+  <circle cx="35" cy="255" r="4" fill="#F59E0B"/>
+  <text x="47" y="259" font-family="sans-serif" font-size="9" fill="#374151">例外：水は固体（氷）のほうが体積が大きい</text>
+
+  <circle cx="35" cy="275" r="4" fill="#F59E0B"/>
+  <text x="47" y="279" font-family="sans-serif" font-size="9" fill="#374151">蒸留：沸点の違いを利用して混合物を分ける</text>
+</svg>

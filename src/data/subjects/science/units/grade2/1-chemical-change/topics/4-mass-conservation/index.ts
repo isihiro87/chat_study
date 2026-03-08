@@ -15,7 +15,7 @@ export const massConservation: Topic = {
           content:
             '化学変化が起こる前と後で、物質全体の質量は変わりません。これを質量保存の法則といいます。化学変化の前後で原子が新しくできたり、なくなったりしないため成り立ちます。密閉容器で実験すると、気体が発生する反応でも質量が保存されることを確認できます。',
           image: {
-            src: '/images/science/mass-conservation.svg',
+            src: '/images/science/grade2/chemical-change/mass-conservation.svg',
             alt: '質量保存の法則',
             caption: '化学変化の前後で物質全体の質量は変わらない',
           },
@@ -31,7 +31,7 @@ export const massConservation: Topic = {
           content:
             '2種類の物質が結びつくとき、それぞれの物質は常に一定の質量の比で結びつきます。銅と酸素が結びつく質量の比は4:1、マグネシウムと酸素が結びつく質量の比は3:2です。この比は常に一定で、物質の量を変えても変わりません。',
           image: {
-            src: '/images/science/mass-ratio-graph.svg',
+            src: '/images/science/grade2/chemical-change/mass-ratio-graph.svg',
             alt: '金属と酸素の質量比',
             caption: '銅:酸素=4:1、マグネシウム:酸素=3:2（一定の比で結びつく）',
           },
@@ -54,7 +54,7 @@ export const massConservation: Topic = {
               subtext: '質量は増える？減る？',
               emoji: '⚖️',
               image: {
-                src: '/images/science/mass-conservation.svg',
+                src: '/images/science/grade2/chemical-change/mass-conservation.svg',
                 alt: '質量保存の法則',
               },
             },
@@ -87,7 +87,7 @@ export const massConservation: Topic = {
               subtext: '質量比の計算',
               emoji: '🔢',
               image: {
-                src: '/images/science/mass-ratio-graph.svg',
+                src: '/images/science/grade2/chemical-change/mass-ratio-graph.svg',
                 alt: '質量比のグラフ',
               },
             },

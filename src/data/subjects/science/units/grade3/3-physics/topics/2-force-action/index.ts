@@ -15,7 +15,7 @@ export const forceAction: Topic = {
           content:
             '2つの力を1つの力に置き換えることを力の合成といい、その1つの力を合力といいます。逆に、1つの力を2つの力に分けることを力の分解といい、分けた力を分力といいます。同一直線上にない2力の合力は、平行四辺形の法則で求められます。斜面上の物体にはたらく重力は、斜面に平行な方向と斜面に垂直な方向に分解できます。',
           image: {
-            src: '/images/science/force-composition.svg',
+            src: '/images/science/grade3/physics/force-composition.svg',
             alt: '力の合成と分解の図',
             caption: '平行四辺形の法則による合力の求め方',
           },
@@ -30,7 +30,7 @@ export const forceAction: Topic = {
           content:
             '物体に力がはたらかないとき（または合力が0のとき）、静止している物体は静止し続け、運動している物体は等速直線運動を続けます。これを慣性の法則（運動の第1法則）といいます。物体がもともとの運動状態を続けようとする性質を慣性といいます。',
           image: {
-            src: '/images/science/inertia-diagram.svg',
+            src: '/images/science/grade3/physics/inertia-diagram.svg',
             alt: '慣性の法則の模式図',
             caption: '電車の急ブレーキと慣性',
           },
@@ -62,7 +62,7 @@ export const forceAction: Topic = {
               subtext: '力の合成',
               emoji: '↗️',
               image: {
-                src: '/images/science/force-composition.svg',
+                src: '/images/science/grade3/physics/force-composition.svg',
                 alt: '力の合成の図',
               },
             },

@@ -109,6 +109,12 @@ export const soundChat: HistoryChat = {
       text: '音の<strong>大きさ</strong>は<strong><span class="keyword"><ruby>振幅<rp>(</rp><rt>しんぷく</rt><rp>)</rp></ruby></span></strong>で決まるんだ。<ruby>振幅<rp>(</rp><rt>しんぷく</rt><rp>)</rp></ruby>が大きいほど大きい音になる。<ruby>太鼓<rp>(</rp><rt>たいこ</rt><rp>)</rp></ruby>を<ruby>強<rp>(</rp><rt>つよ</rt><rp>)</rp></ruby>くたたくと<ruby>振幅<rp>(</rp><rt>しんぷく</rt><rp>)</rp></ruby>が大きくなって大きな音がするよね',
     },
     {
+      type: 'image',
+      src: '/images/science/grade1/physics/sound-amplitude.svg',
+      alt: '音の大きさと振幅',
+      caption: '振幅が大きいほど大きな音になる',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',
@@ -121,6 +127,12 @@ export const soundChat: HistoryChat = {
       characterId: 'teacher',
       expression: 'excited',
       text: '音の<strong>高さ</strong>は<strong><span class="keyword"><ruby>振動数<rp>(</rp><rt>しんどうすう</rt><rp>)</rp></ruby></span></strong>で決まるよ！ 1<ruby>秒間<rp>(</rp><rt>びょうかん</rt><rp>)</rp></ruby>に<ruby>振動<rp>(</rp><rt>しんどう</rt><rp>)</rp></ruby>する<ruby>回数<rp>(</rp><rt>かいすう</rt><rp>)</rp></ruby>が多いほど高い音になるんだ。単位は<strong><span class="keyword">Hz（ヘルツ）</span></strong>を使うよ',
+    },
+    {
+      type: 'image',
+      src: '/images/science/grade1/physics/sound-frequency.svg',
+      alt: '音の高さと振動数',
+      caption: '振動数が大きいほど高い音になる',
     },
     {
       type: 'message',

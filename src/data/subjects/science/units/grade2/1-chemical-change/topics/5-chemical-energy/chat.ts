@@ -79,7 +79,13 @@ export const chemicalEnergyChat: HistoryChat = {
     },
     {
       type: 'image',
-      src: '/images/science/exo-endo-thermic.svg',
+      src: '/images/science/grade2/chemical-change/exo-endo-experiment.png',
+      alt: '発熱反応と吸熱反応の実験',
+      caption: '鉄粉＋活性炭で発熱（左）、水酸化バリウム＋塩化アンモニウムで吸熱（右）',
+    },
+    {
+      type: 'image',
+      src: '/images/science/grade2/chemical-change/exo-endo-thermic.svg',
       alt: '発熱反応と吸熱反応',
       caption: '発熱反応は温度UP、吸熱反応は温度DOWN',
     },

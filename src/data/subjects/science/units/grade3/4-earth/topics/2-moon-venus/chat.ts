@@ -65,7 +65,7 @@ export const moonVenusChat: HistoryChat = {
     },
     {
       type: 'image',
-      src: '/images/science/moon-phases.svg',
+      src: '/images/science/grade3/earth/moon-phases.svg',
       alt: '月の満ち欠けのしくみ',
       caption: '太陽・地球・月の位置関係で満ち欠けが起こる',
     },
@@ -123,7 +123,7 @@ export const moonVenusChat: HistoryChat = {
     },
     {
       type: 'image',
-      src: '/images/science/venus-orbit.svg',
+      src: '/images/science/grade3/earth/venus-orbit.svg',
       alt: '金星の見え方と公転軌道',
       caption: '内惑星の金星は明け方か夕方にしか見えない',
     },
@@ -157,6 +157,12 @@ export const moonVenusChat: HistoryChat = {
       text: 'そう！<strong><ruby>日食<rp>(</rp><rt>にっしょく</rt><rp>)</rp></ruby></strong>は<strong>太陽−月−地球</strong>の順に並んだとき、月が太陽をかくす<ruby>現象<rp>(</rp><rt>げんしょう</rt><rp>)</rp></ruby>だよ。<strong>新月</strong>のときに起こるんだ',
     },
     {
+      type: 'image',
+      src: '/images/science/grade3/earth/solar-eclipse.svg',
+      alt: '日食のしくみ',
+      caption: '月が太陽の光をさえぎり、地球に影ができる',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',
@@ -169,6 +175,12 @@ export const moonVenusChat: HistoryChat = {
       characterId: 'teacher',
       expression: 'happy',
       text: '<strong>月食</strong>は<strong>太陽−地球−月</strong>の順に並んだとき、地球の<ruby>影<rp>(</rp><rt>かげ</rt><rp>)</rp></ruby>に月が入る現象だよ。<strong>満月</strong>のときに起こるんだ。日食＝新月、月食＝満月とセットで覚えよう！',
+    },
+    {
+      type: 'image',
+      src: '/images/science/grade3/earth/lunar-eclipse.svg',
+      alt: '月食のしくみ',
+      caption: '地球の影の中に月が入る',
     },
     {
       type: 'summary-point',

@@ -15,7 +15,7 @@ export const chemicalCombination: Topic = {
           content:
             '2種類以上の物質が結びついて、別の新しい物質ができる化学変化を化合といいます。鉄と硫黄を混ぜて加熱すると硫化鉄ができ、銅と硫黄を加熱すると硫化銅ができます。水素と酸素の混合気体に点火すると水ができます。',
           image: {
-            src: '/images/science/iron-sulfur-reaction.svg',
+            src: '/images/science/grade2/chemical-change/iron-sulfur-reaction.svg',
             alt: '鉄と硫黄の化合',
             caption: '鉄と硫黄が化合して硫化鉄（化合物）になる',
           },
@@ -41,7 +41,7 @@ export const chemicalCombination: Topic = {
           content:
             '化学式を使って化学変化の前後を表した式を化学反応式といいます。矢印（→）の左側に反応前の物質、右側に反応後の物質を書きます。左右で各原子の数が等しくなるように係数をつけます。',
           image: {
-            src: '/images/science/chemical-equation.svg',
+            src: '/images/science/grade2/chemical-change/chemical-equation.svg',
             alt: '化学反応式の書き方',
             caption: '3ステップで化学反応式を書く',
           },
@@ -64,7 +64,7 @@ export const chemicalCombination: Topic = {
               subtext: '化合の実験',
               emoji: '🔥',
               image: {
-                src: '/images/science/iron-sulfur-reaction.svg',
+                src: '/images/science/grade2/chemical-change/iron-sulfur-reaction.svg',
                 alt: '鉄と硫黄の化合',
               },
             },
@@ -106,7 +106,7 @@ export const chemicalCombination: Topic = {
               subtext: '化学反応式の書き方',
               emoji: '📝',
               image: {
-                src: '/images/science/chemical-equation.svg',
+                src: '/images/science/grade2/chemical-change/chemical-equation.svg',
                 alt: '化学反応式の書き方',
               },
             },

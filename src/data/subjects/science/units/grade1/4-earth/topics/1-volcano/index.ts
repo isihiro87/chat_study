@@ -15,7 +15,7 @@ export const volcano: Topic = {
           content:
             '地下にある高温でどろどろに溶けた岩石をマグマといいます。マグマが地表に噴き出す現象が噴火です。マグマのねばりけの違いによって火山の形が異なります。ねばりけが強いマグマは溶岩ドーム（おわん型）をつくり、噴火は爆発的になります。ねばりけが中程度のマグマは円すい型（成層火山）をつくります。ねばりけが弱いマグマは傾斜のゆるやかな楯状火山（たて状火山）をつくり、溶岩は黒っぽい色になります。',
           image: {
-            src: '/images/science/volcano-shapes.svg',
+            src: '/images/science/grade1/earth/volcano-shapes.svg',
             alt: '火山の形の違い',
             caption: 'マグマのねばりけによって火山の形が変わる',
           },
@@ -58,7 +58,7 @@ export const volcano: Topic = {
               subtext: 'マグマのねばりけ',
               emoji: '🌋',
               image: {
-                src: '/images/science/volcano-shapes.svg',
+                src: '/images/science/grade1/earth/volcano-shapes.svg',
                 alt: '火山の形の違い',
               },
             },

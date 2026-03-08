@@ -26,7 +26,7 @@ export const oxidationReduction: Topic = {
           content:
             '酸化物から酸素がうばわれる化学変化を還元といいます。酸化銅を炭素と混ぜて加熱すると、炭素が酸素をうばって二酸化炭素になり、銅が単体として残ります。酸化と還元は常に同時に起こります。',
           image: {
-            src: '/images/science/oxidation-reduction.svg',
+            src: '/images/science/grade2/chemical-change/oxidation-concept.svg',
             alt: '酸化と還元は同時に起こる',
             caption: '酸化銅の炭素による還元（酸化と還元が同時に進行）',
           },
@@ -87,7 +87,7 @@ export const oxidationReduction: Topic = {
               subtext: '還元の実験',
               emoji: '⚗️',
               image: {
-                src: '/images/science/oxidation-reduction.svg',
+                src: '/images/science/grade2/chemical-change/oxidation-concept.svg',
                 alt: '酸化と還元',
               },
             },
