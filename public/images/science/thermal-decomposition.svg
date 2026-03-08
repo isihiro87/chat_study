@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 260" fill="none">
+  <!-- Background -->
+  <rect width="420" height="260" rx="16" fill="#F5F3F0"/>
+
+  <!-- Title -->
+  <text x="210" y="26" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1f2937">炭酸水素ナトリウムの熱分解</text>
+
+  <!-- Test tube -->
+  <rect x="30" y="60" width="60" height="140" rx="8" fill="#FEF3C7" stroke="#F59E0B" stroke-width="2"/>
+  <text x="60" y="100" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#92400E">NaHCO&#x2083;</text>
+  <text x="60" y="115" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#92400E">(炭酸水素</text>
+  <text x="60" y="127" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#92400E">ナトリウム)</text>
+
+  <!-- Flame -->
+  <ellipse cx="60" cy="210" rx="15" ry="10" fill="#EF4444" opacity="0.7"/>
+  <ellipse cx="60" cy="205" rx="8" ry="12" fill="#F59E0B" opacity="0.8"/>
+  <text x="60" y="240" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#DC2626">加熱</text>
+
+  <!-- Arrow -->
+  <path d="M110 130 L160 130" stroke="#6B7280" stroke-width="2.5" marker-end="url(#arrowG)"/>
+  <text x="135" y="120" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#6B7280">分解</text>
+
+  <!-- Products -->
+  <!-- CO2 -->
+  <rect x="180" y="50" width="100" height="50" rx="10" fill="#DBEAFE" stroke="#3B82F6" stroke-width="2"/>
+  <text x="230" y="72" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1D4ED8">CO&#x2082;</text>
+  <text x="230" y="90" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#1D4ED8">二酸化炭素(気体)</text>
+
+  <!-- H2O -->
+  <rect x="300" y="50" width="100" height="50" rx="10" fill="#DBEAFE" stroke="#3B82F6" stroke-width="2"/>
+  <text x="350" y="72" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1D4ED8">H&#x2082;O</text>
+  <text x="350" y="90" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#1D4ED8">水(液体)</text>
+
+  <!-- Na2CO3 -->
+  <rect x="230" y="120" width="120" height="50" rx="10" fill="#FEF3C7" stroke="#F59E0B" stroke-width="2"/>
+  <text x="290" y="142" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#92400E">Na&#x2082;CO&#x2083;</text>
+  <text x="290" y="160" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#92400E">炭酸ナトリウム(固体)</text>
+
+  <!-- Confirmation methods -->
+  <text x="230" y="200" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#4B5563">確認方法:</text>
+  <text x="210" y="218" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#6B7280">CO&#x2082; → 石灰水が白くにごる</text>
+  <text x="210" y="233" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#6B7280">H&#x2082;O → 塩化コバルト紙が青→赤</text>
+  <text x="210" y="248" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#6B7280">Na&#x2082;CO&#x2083; → フェノールフタレインで濃い赤</text>
+
+  <!-- Arrow marker -->
+  <defs>
+    <marker id="arrowG" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#6B7280"/>
+    </marker>
+  </defs>
+</svg>

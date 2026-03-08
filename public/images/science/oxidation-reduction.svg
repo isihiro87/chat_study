@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 250" fill="none">
+  <!-- Background -->
+  <rect width="420" height="250" rx="16" fill="#F5F3F0"/>
+
+  <!-- Title -->
+  <text x="210" y="26" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1f2937">酸化と還元は同時に起こる</text>
+
+  <!-- Oxidation side -->
+  <rect x="20" y="50" width="170" height="80" rx="10" fill="#FEE2E2" stroke="#EF4444" stroke-width="2"/>
+  <text x="105" y="72" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#DC2626">酸化（さんか）</text>
+  <text x="105" y="92" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#7F1D1D">物質が酸素と結びつく</text>
+  <text x="105" y="110" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#7F1D1D">できた物質 = 酸化物</text>
+  <text x="105" y="125" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#9CA3AF">例: 2Cu + O₂ → 2CuO</text>
+
+  <!-- Reduction side -->
+  <rect x="230" y="50" width="170" height="80" rx="10" fill="#DBEAFE" stroke="#3B82F6" stroke-width="2"/>
+  <text x="315" y="72" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1D4ED8">還元（かんげん）</text>
+  <text x="315" y="92" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#1E3A5F">酸化物から酸素がうばわれる</text>
+  <text x="315" y="110" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#1E3A5F">酸素を失って単体に戻る</text>
+  <text x="315" y="125" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#9CA3AF">例: CuO + C → Cu + CO₂</text>
+
+  <!-- Bidirectional arrow -->
+  <path d="M195 85 L225 85" stroke="#6B7280" stroke-width="2" marker-end="url(#arrowOR)" marker-start="url(#arrowORL)"/>
+  <text x="210" y="78" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#6B7280">同時</text>
+
+  <!-- Example reaction -->
+  <rect x="30" y="150" width="360" height="85" rx="10" fill="white" stroke="#D1D5DB" stroke-width="1.5"/>
+  <text x="210" y="170" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1f2937">酸化銅の炭素による還元</text>
+
+  <!-- CuO -->
+  <rect x="50" y="182" width="60" height="35" rx="6" fill="#FEE2E2" stroke="#EF4444" stroke-width="1.5"/>
+  <text x="80" y="198" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#DC2626">CuO</text>
+  <text x="80" y="212" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#DC2626">酸化銅</text>
+
+  <!-- + -->
+  <text x="125" y="202" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="bold" fill="#6B7280">+</text>
+
+  <!-- C -->
+  <rect x="140" y="182" width="45" height="35" rx="6" fill="#E5E7EB" stroke="#6B7280" stroke-width="1.5"/>
+  <text x="162" y="202" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#374151">C</text>
+  <text x="162" y="215" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#374151">炭素</text>
+
+  <!-- Arrow -->
+  <path d="M198 200 L238 200" stroke="#6B7280" stroke-width="2.5" marker-end="url(#arrowOR)"/>
+
+  <!-- Cu -->
+  <rect x="248" y="182" width="50" height="35" rx="6" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
+  <text x="273" y="202" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1D4ED8">Cu</text>
+  <text x="273" y="215" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#1D4ED8">銅(還元)</text>
+
+  <!-- + -->
+  <text x="313" y="202" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="bold" fill="#6B7280">+</text>
+
+  <!-- CO2 -->
+  <rect x="325" y="182" width="55" height="35" rx="6" fill="#FEE2E2" stroke="#EF4444" stroke-width="1.5"/>
+  <text x="352" y="198" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#DC2626">CO&#x2082;</text>
+  <text x="352" y="212" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#DC2626">二酸化炭素(酸化)</text>
+
+  <!-- Arrow markers -->
+  <defs>
+    <marker id="arrowOR" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#6B7280"/>
+    </marker>
+    <marker id="arrowORL" markerWidth="8" markerHeight="6" refX="0" refY="3" orient="auto">
+      <path d="M8,0 L0,3 L8,6 Z" fill="#6B7280"/>
+    </marker>
+  </defs>
+</svg>

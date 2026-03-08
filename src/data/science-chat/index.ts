@@ -1,4 +1,10 @@
 import type { HistoryChat } from '../history-chat/types';
+// Grade 2: Chemical Change
+import { matterCompositionChat } from '../subjects/science/units/grade2/1-chemical-change/topics/1-matter-composition/chat';
+import { chemicalCombinationChat } from '../subjects/science/units/grade2/1-chemical-change/topics/2-chemical-combination/chat';
+import { oxidationReductionChat } from '../subjects/science/units/grade2/1-chemical-change/topics/3-oxidation-reduction/chat';
+import { massConservationChat } from '../subjects/science/units/grade2/1-chemical-change/topics/4-mass-conservation/chat';
+import { chemicalEnergyChat } from '../subjects/science/units/grade2/1-chemical-change/topics/5-chemical-energy/chat';
 // Grade 2: Weather
 import { observationPressureChat } from '../subjects/science/units/grade2/3-weather/topics/1-observation-pressure/chat';
 import { pressureHumidityChat } from '../subjects/science/units/grade2/3-weather/topics/2-pressure-humidity/chat';
@@ -27,6 +33,12 @@ import { moonVenusChat } from '../subjects/science/units/grade3/4-earth/topics/2
 import { solarSystemUniverseChat } from '../subjects/science/units/grade3/4-earth/topics/3-solar-system/chat';
 
 const chatMap: Record<string, HistoryChat> = {
+  // Grade 2: Chemical Change
+  [matterCompositionChat.id]: matterCompositionChat,
+  [chemicalCombinationChat.id]: chemicalCombinationChat,
+  [oxidationReductionChat.id]: oxidationReductionChat,
+  [massConservationChat.id]: massConservationChat,
+  [chemicalEnergyChat.id]: chemicalEnergyChat,
   // Grade 2: Weather
   [observationPressureChat.id]: observationPressureChat,
   [pressureHumidityChat.id]: pressureHumidityChat,
