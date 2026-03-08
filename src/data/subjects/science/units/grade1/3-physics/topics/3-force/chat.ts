@@ -1,0 +1,233 @@
+import type { HistoryChat } from '../../../../../../../../data/history-chat/types';
+
+export const forceChat: HistoryChat = {
+  id: 'sci1-force',
+  icon: '💪',
+  title: '力の世界',
+  subtitle: '〜中1物理〜 力のはたらき・フックの法則・力のつり合い',
+  characters: [
+    {
+      id: 'teacher',
+      name: '理科の先生',
+      emoji: '👩‍🏫',
+      colorFrom: '#059669',
+      colorTo: '#34d399',
+      expressions: {
+        explaining: '🧑‍🏫',
+        happy: '😊',
+        excited: '🤩',
+        thinking: '🤔',
+      },
+    },
+    {
+      id: 'student',
+      name: '生徒',
+      emoji: '👦',
+      colorFrom: '#d97706',
+      colorTo: '#fbbf24',
+      expressions: {
+        curious: '🙋‍♂️',
+        surprised: '😲',
+        thinking: '🤔',
+        happy: '😄',
+      },
+    },
+  ],
+  content: [
+    {
+      type: 'date',
+      text: '<ruby>力<rp>(</rp><rt>ちから</rt><rp>)</rp></ruby>の3つのはたらき',
+    },
+    {
+      type: 'narrator',
+      text: '<ruby>日常<rp>(</rp><rt>にちじょう</rt><rp>)</rp></ruby><ruby>生活<rp>(</rp><rt>せいかつ</rt><rp>)</rp></ruby>の中にはさまざまな<ruby>力<rp>(</rp><rt>ちから</rt><rp>)</rp></ruby>がはたらいています。力のはたらきと<ruby>種類<rp>(</rp><rt>しゅるい</rt><rp>)</rp></ruby>を学びましょう。',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<ruby>力<rp>(</rp><rt>ちから</rt><rp>)</rp></ruby>には<strong>3つのはたらき</strong>があるんだ。<strong>(1)<ruby>物体<rp>(</rp><rt>ぶったい</rt><rp>)</rp></ruby>の形を変える</strong>、<strong>(2)<ruby>物体<rp>(</rp><rt>ぶったい</rt><rp>)</rp></ruby>の<ruby>運動<rp>(</rp><rt>うんどう</rt><rp>)</rp></ruby>の<ruby>状態<rp>(</rp><rt>じょうたい</rt><rp>)</rp></ruby>を変える</strong>、<strong>(3)<ruby>物体<rp>(</rp><rt>ぶったい</rt><rp>)</rp></ruby>を<ruby>支<rp>(</rp><rt>ささ</rt><rp>)</rp></ruby>える</strong>だよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '「<ruby>運動<rp>(</rp><rt>うんどう</rt><rp>)</rp></ruby>の<ruby>状態<rp>(</rp><rt>じょうたい</rt><rp>)</rp></ruby>を変える」って具体的にはどういうことですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'excited',
+      text: 'ボールを<ruby>投<rp>(</rp><rt>な</rt><rp>)</rp></ruby>げる（<ruby>動<rp>(</rp><rt>うご</rt><rp>)</rp></ruby>かす）、<ruby>転<rp>(</rp><rt>ころ</rt><rp>)</rp></ruby>がるボールを止める、<ruby>方向<rp>(</rp><rt>ほうこう</rt><rp>)</rp></ruby>を変える、これらすべてが<ruby>運動<rp>(</rp><rt>うんどう</rt><rp>)</rp></ruby>の<ruby>状態<rp>(</rp><rt>じょうたい</rt><rp>)</rp></ruby>を変えることだよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: '身のまわりにはどんな力があるんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: 'たくさんあるよ！ <strong><span class="keyword"><ruby>重力<rp>(</rp><rt>じゅうりょく</rt><rp>)</rp></ruby></span></strong>（<ruby>地球<rp>(</rp><rt>ちきゅう</rt><rp>)</rp></ruby>が物体を<ruby>引<rp>(</rp><rt>ひ</rt><rp>)</rp></ruby>く力）、<strong><span class="keyword"><ruby>摩擦力<rp>(</rp><rt>まさつりょく</rt><rp>)</rp></ruby></span></strong>（面にそって<ruby>運動<rp>(</rp><rt>うんどう</rt><rp>)</rp></ruby>をさまたげる力）、<strong><ruby>弾性力<rp>(</rp><rt>だんせいりょく</rt><rp>)</rp></ruby></strong>（ばねが<ruby>元<rp>(</rp><rt>もと</rt><rp>)</rp></ruby>に<ruby>戻<rp>(</rp><rt>もど</rt><rp>)</rp></ruby>ろうとする力）、<strong><ruby>磁力<rp>(</rp><rt>じりょく</rt><rp>)</rp></ruby></strong>（<ruby>磁石<rp>(</rp><rt>じしゃく</rt><rp>)</rp></ruby>の力）などだね',
+    },
+    {
+      type: 'summary-point',
+      text: '力の3つのはたらき：<span class="keyword">形を変える・運動の状態を変える・支える</span>。身のまわりには<span class="keyword">重力</span>・<span class="keyword">摩擦力</span>・弾性力・磁力などがある！',
+    },
+    {
+      type: 'quiz',
+      question: '力の3つのはたらきに含まれないものはどれか。',
+      options: [
+        { letter: 'A', text: '物体の形を変える', correct: false },
+        { letter: 'B', text: '物体の運動の状態を変える', correct: false },
+        { letter: 'C', text: '物体の温度を上げる', correct: true },
+        { letter: 'D', text: '物体を支える', correct: false },
+      ],
+      explanation:
+        '<strong>正解はC「<ruby>物体<rp>(</rp><rt>ぶったい</rt><rp>)</rp></ruby>の<ruby>温度<rp>(</rp><rt>おんど</rt><rp>)</rp></ruby>を上げる」</strong>です。力の3つのはたらきは「形を変える」「<ruby>運動<rp>(</rp><rt>うんどう</rt><rp>)</rp></ruby>の<ruby>状態<rp>(</rp><rt>じょうたい</rt><rp>)</rp></ruby>を変える」「<ruby>支<rp>(</rp><rt>ささ</rt><rp>)</rp></ruby>える」です。',
+    },
+    {
+      type: 'date',
+      text: '<ruby>力<rp>(</rp><rt>ちから</rt><rp>)</rp></ruby>のはかり<ruby>方<rp>(</rp><rt>かた</rt><rp>)</rp></ruby>とフックの<ruby>法則<rp>(</rp><rt>ほうそく</rt><rp>)</rp></ruby>',
+    },
+    {
+      type: 'narrator',
+      text: '力の大きさはどのようにはかるのでしょうか。<ruby>単位<rp>(</rp><rt>たんい</rt><rp>)</rp></ruby>とばねの<ruby>性質<rp>(</rp><rt>せいしつ</rt><rp>)</rp></ruby>を学びましょう。',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '力の大きさの単位は<strong><span class="keyword">N（ニュートン）</span></strong>だよ。<ruby>約<rp>(</rp><rt>やく</rt><rp>)</rp></ruby>100gの<ruby>物体<rp>(</rp><rt>ぶったい</rt><rp>)</rp></ruby>にはたらく<ruby>重力<rp>(</rp><rt>じゅうりょく</rt><rp>)</rp></ruby>が<strong>約1N</strong>だから、ペットボトル1本（500g）なら約5Nだね',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '力はどうやってはかるんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'excited',
+      text: '<strong>ばねばかり</strong>を使うんだ！ ばねには<ruby>面白<rp>(</rp><rt>おもしろ</rt><rp>)</rp></ruby>い<ruby>性質<rp>(</rp><rt>せいしつ</rt><rp>)</rp></ruby>があって、<strong>力の大きさとばねののびは<ruby>比例<rp>(</rp><rt>ひれい</rt><rp>)</rp></ruby>する</strong>んだ。これを<strong><span class="keyword">フックの<ruby>法則<rp>(</rp><rt>ほうそく</rt><rp>)</rp></ruby></span></strong>というよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'surprised',
+      text: '力が2<ruby>倍<rp>(</rp><rt>ばい</rt><rp>)</rp></ruby>になったら、のびも2倍ってことですか！ すごくシンプルですね！',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: 'そのとおり！ だからばねのびを読めば力の大きさがわかるんだ。ただし、ばねを<ruby>限界<rp>(</rp><rt>げんかい</rt><rp>)</rp></ruby>以上に<ruby>伸<rp>(</rp><rt>の</rt><rp>)</rp></ruby>ばすと<ruby>比例<rp>(</rp><rt>ひれい</rt><rp>)</rp></ruby>しなくなるから<ruby>注意<rp>(</rp><rt>ちゅうい</rt><rp>)</rp></ruby>だよ',
+    },
+    {
+      type: 'summary-point',
+      text: '力の単位は<span class="keyword">N（ニュートン）</span>。100g≒1N。<span class="keyword">フックの法則</span>：力とばねののびは比例！',
+    },
+    {
+      type: 'quiz',
+      question: 'ばねに1Nの力を加えたら2cmのびた。3Nの力では何cmのびるか。',
+      options: [
+        { letter: 'A', text: '3cm', correct: false },
+        { letter: 'B', text: '4cm', correct: false },
+        { letter: 'C', text: '6cm', correct: true },
+        { letter: 'D', text: '8cm', correct: false },
+      ],
+      explanation:
+        '<strong>正解はC「6cm」</strong>です。フックの<ruby>法則<rp>(</rp><rt>ほうそく</rt><rp>)</rp></ruby>より、力が3<ruby>倍<rp>(</rp><rt>ばい</rt><rp>)</rp></ruby>になるとのびも3<ruby>倍<rp>(</rp><rt>ばい</rt><rp>)</rp></ruby>になるので、2cm×3＝6cmです。',
+    },
+    {
+      type: 'date',
+      text: '<ruby>力<rp>(</rp><rt>ちから</rt><rp>)</rp></ruby>の<ruby>表<rp>(</rp><rt>あらわ</rt><rp>)</rp></ruby>し<ruby>方<rp>(</rp><rt>かた</rt><rp>)</rp></ruby>とつり<ruby>合<rp>(</rp><rt>あ</rt><rp>)</rp></ruby>い',
+    },
+    {
+      type: 'narrator',
+      text: '力を<ruby>矢印<rp>(</rp><rt>やじるし</rt><rp>)</rp></ruby>で表す方法と、2つの力がつり<ruby>合<rp>(</rp><rt>あ</rt><rp>)</rp></ruby>う<ruby>条件<rp>(</rp><rt>じょうけん</rt><rp>)</rp></ruby>を学びましょう。',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '力は<strong><ruby>矢印<rp>(</rp><rt>やじるし</rt><rp>)</rp></ruby></strong>で表すんだ。<strong><span class="keyword">力の3<ruby>要素<rp>(</rp><rt>ようそ</rt><rp>)</rp></ruby></span></strong>は、<strong><ruby>作用点<rp>(</rp><rt>さようてん</rt><rp>)</rp></ruby></strong>（力のはたらく点）、<strong>力の向き</strong>、<strong>力の大きさ</strong>だよ。<ruby>矢印<rp>(</rp><rt>やじるし</rt><rp>)</rp></ruby>の<ruby>始点<rp>(</rp><rt>してん</rt><rp>)</rp></ruby>が<ruby>作用点<rp>(</rp><rt>さようてん</rt><rp>)</rp></ruby>、向きが力の向き、長さが力の大きさを表すんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '<ruby>机<rp>(</rp><rt>つくえ</rt><rp>)</rp></ruby>の上の本は<ruby>動<rp>(</rp><rt>うご</rt><rp>)</rp></ruby>かないですけど、力ははたらいていますか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'thinking',
+      text: 'いい<ruby>質問<rp>(</rp><rt>しつもん</rt><rp>)</rp></ruby>だ！ 実は<ruby>下向<rp>(</rp><rt>したむ</rt><rp>)</rp></ruby>きの<strong><ruby>重力<rp>(</rp><rt>じゅうりょく</rt><rp>)</rp></ruby></strong>と、<ruby>机<rp>(</rp><rt>つくえ</rt><rp>)</rp></ruby>が<ruby>押<rp>(</rp><rt>お</rt><rp>)</rp></ruby>し<ruby>返<rp>(</rp><rt>かえ</rt><rp>)</rp></ruby>す<ruby>上向<rp>(</rp><rt>うわむ</rt><rp>)</rp></ruby>きの<strong><ruby>垂直抗力<rp>(</rp><rt>すいちょくこうりょく</rt><rp>)</rp></ruby></strong>がはたらいていて、<strong>つり合っている</strong>から<ruby>動<rp>(</rp><rt>うご</rt><rp>)</rp></ruby>かないんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'surprised',
+      text: '力がはたらいていないんじゃなくて、つり<ruby>合<rp>(</rp><rt>あ</rt><rp>)</rp></ruby>っているんですね！',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'excited',
+      text: 'そう！ <strong><span class="keyword">2力のつり<ruby>合<rp>(</rp><rt>あ</rt><rp>)</rp></ruby>い</span></strong>には<strong>3つの<ruby>条件<rp>(</rp><rt>じょうけん</rt><rp>)</rp></ruby></strong>があるよ。<strong>(1)2力が<ruby>一直線上<rp>(</rp><rt>いっちょくせんじょう</rt><rp>)</rp></ruby></strong>にある、<strong>(2)大きさが<ruby>等<rp>(</rp><rt>ひと</rt><rp>)</rp></ruby>しい</strong>、<strong>(3)向きが<ruby>反対<rp>(</rp><rt>はんたい</rt><rp>)</rp></ruby></strong>。この3つ<ruby>全<rp>(</rp><rt>すべ</rt><rp>)</rp></ruby>てを<ruby>満<rp>(</rp><rt>み</rt><rp>)</rp></ruby>たすとき力はつり合うんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: '<ruby>重力<rp>(</rp><rt>じゅうりょく</rt><rp>)</rp></ruby>と<ruby>質量<rp>(</rp><rt>しつりょう</rt><rp>)</rp></ruby>って<ruby>違<rp>(</rp><rt>ちが</rt><rp>)</rp></ruby>うんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: '<ruby>違<rp>(</rp><rt>ちが</rt><rp>)</rp></ruby>うよ！ <strong><ruby>重力<rp>(</rp><rt>じゅうりょく</rt><rp>)</rp></ruby></strong>は<ruby>地球<rp>(</rp><rt>ちきゅう</rt><rp>)</rp></ruby>が<ruby>引<rp>(</rp><rt>ひ</rt><rp>)</rp></ruby>く力で単位は<strong>N</strong>。<ruby>場所<rp>(</rp><rt>ばしょ</rt><rp>)</rp></ruby>によって変わるよ（月では<ruby>地球<rp>(</rp><rt>ちきゅう</rt><rp>)</rp></ruby>の約1/6）。<strong><ruby>質量<rp>(</rp><rt>しつりょう</rt><rp>)</rp></ruby></strong>は<ruby>物質<rp>(</rp><rt>ぶっしつ</rt><rp>)</rp></ruby>そのものの量で単位は<strong>kg</strong>や<strong>g</strong>。どこにいっても変わらないんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'happy',
+      text: '月に行っても<ruby>質量<rp>(</rp><rt>しつりょう</rt><rp>)</rp></ruby>は同じだけど、<ruby>重力<rp>(</rp><rt>じゅうりょく</rt><rp>)</rp></ruby>は<ruby>軽<rp>(</rp><rt>かる</rt><rp>)</rp></ruby>くなるんですね！',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">力の3要素</span>：作用点・向き・大きさ。<span class="keyword">2力のつり合い</span>：一直線上・大きさが等しい・向きが反対！重力(N)と質量(kg)は別物！',
+    },
+    {
+      type: 'end',
+      points: [
+        '力の<strong>3つのはたらき</strong>：形を変える・<ruby>運動<rp>(</rp><rt>うんどう</rt><rp>)</rp></ruby>の<ruby>状態<rp>(</rp><rt>じょうたい</rt><rp>)</rp></ruby>を変える・<ruby>支<rp>(</rp><rt>ささ</rt><rp>)</rp></ruby>える',
+        '力の単位は<strong>N（ニュートン）</strong>。100g ≒ 1N。<strong>フックの<ruby>法則<rp>(</rp><rt>ほうそく</rt><rp>)</rp></ruby></strong>：力とばねののびは<ruby>比例<rp>(</rp><rt>ひれい</rt><rp>)</rp></ruby>',
+        '<strong>力の3<ruby>要素<rp>(</rp><rt>ようそ</rt><rp>)</rp></ruby></strong>：<ruby>作用点<rp>(</rp><rt>さようてん</rt><rp>)</rp></ruby>・力の向き・力の大きさ。力は<ruby>矢印<rp>(</rp><rt>やじるし</rt><rp>)</rp></ruby>で表す',
+        '<strong>2力のつり<ruby>合<rp>(</rp><rt>あ</rt><rp>)</rp></ruby>いの3<ruby>条件<rp>(</rp><rt>じょうけん</rt><rp>)</rp></ruby></strong>：<ruby>一直線上<rp>(</rp><rt>いっちょくせんじょう</rt><rp>)</rp></ruby>・大きさが<ruby>等<rp>(</rp><rt>ひと</rt><rp>)</rp></ruby>しい・向きが<ruby>反対<rp>(</rp><rt>はんたい</rt><rp>)</rp></ruby>。<strong><ruby>重力<rp>(</rp><rt>じゅうりょく</rt><rp>)</rp></ruby></strong>(N)と<strong><ruby>質量<rp>(</rp><rt>しつりょう</rt><rp>)</rp></ruby></strong>(kg)は<ruby>別<rp>(</rp><rt>べつ</rt><rp>)</rp></ruby>の<ruby>概念<rp>(</rp><rt>がいねん</rt><rp>)</rp></ruby>',
+      ],
+    },
+  ],
+};

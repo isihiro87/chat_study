@@ -1,0 +1,187 @@
+import type { HistoryChat } from '../../../../../../../../data/history-chat/types';
+
+export const gasPropertiesChat: HistoryChat = {
+  id: 'sci1-gas-properties',
+  icon: '💨',
+  title: '気体の性質',
+  subtitle: '〜中1化学〜 気体の発生と性質・集め方',
+  characters: [
+    {
+      id: 'teacher',
+      name: '理科の先生',
+      emoji: '👩‍🏫',
+      colorFrom: '#059669',
+      colorTo: '#34d399',
+      expressions: {
+        explaining: '🧑‍🏫',
+        happy: '😊',
+        excited: '🤩',
+        thinking: '🤔',
+      },
+    },
+    {
+      id: 'student',
+      name: '生徒',
+      emoji: '👦',
+      colorFrom: '#d97706',
+      colorTo: '#fbbf24',
+      expressions: {
+        curious: '🙋‍♂️',
+        surprised: '😲',
+        thinking: '🤔',
+        happy: '😄',
+      },
+    },
+  ],
+  content: [
+    {
+      type: 'date',
+      text: '<ruby>身<rp>(</rp><rt>み</rt><rp>)</rp></ruby>のまわりの<ruby>気体<rp>(</rp><rt>きたい</rt><rp>)</rp></ruby>',
+    },
+    {
+      type: 'narrator',
+      text: '<ruby>代表的<rp>(</rp><rt>だいひょうてき</rt><rp>)</rp></ruby>な<ruby>気体<rp>(</rp><rt>きたい</rt><rp>)</rp></ruby>の<ruby>発生方法<rp>(</rp><rt>はっせいほうほう</rt><rp>)</rp></ruby>と<ruby>性質<rp>(</rp><rt>せいしつ</rt><rp>)</rp></ruby>を学びましょう。',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: 'まずは<strong><span class="keyword"><ruby>酸素<rp>(</rp><rt>さんそ</rt><rp>)</rp></ruby></span></strong>だよ。<ruby>二酸化<rp>(</rp><rt>にさんか</rt><rp>)</rp></ruby>マンガンに<ruby>うすい<ruby>過酸化水素水<rp>(</rp><rt>かさんかすいそすい</rt><rp>)</rp></ruby></ruby>（オキシドール）を<ruby>加<rp>(</rp><rt>くわ</rt><rp>)</rp></ruby>えると<ruby>発生<rp>(</rp><rt>はっせい</rt><rp>)</rp></ruby>するんだ。火のついた<ruby>線香<rp>(</rp><rt>せんこう</rt><rp>)</rp></ruby>を入れると<strong><ruby>激<rp>(</rp><rt>はげ</rt><rp>)</rp></ruby>しく<ruby>燃<rp>(</rp><rt>も</rt><rp>)</rp></ruby>える</strong>よ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '<ruby>二酸化炭素<rp>(</rp><rt>にさんかたんそ</rt><rp>)</rp></ruby>はどうやって<ruby>発生<rp>(</rp><rt>はっせい</rt><rp>)</rp></ruby>させるんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: '<strong><span class="keyword"><ruby>二酸化炭素<rp>(</rp><rt>にさんかたんそ</rt><rp>)</rp></ruby></span></strong>は、<ruby>石灰石<rp>(</rp><rt>せっかいせき</rt><rp>)</rp></ruby>にうすい<ruby>塩酸<rp>(</rp><rt>えんさん</rt><rp>)</rp></ruby>を<ruby>加<rp>(</rp><rt>くわ</rt><rp>)</rp></ruby>えると<ruby>発生<rp>(</rp><rt>はっせい</rt><rp>)</rp></ruby>するよ。<ruby>確認方法<rp>(</rp><rt>かくにんほうほう</rt><rp>)</rp></ruby>は<strong><ruby>石灰水<rp>(</rp><rt>せっかいすい</rt><rp>)</rp></ruby>が白くにごる</strong>ことだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: '<ruby>水素<rp>(</rp><rt>すいそ</rt><rp>)</rp></ruby>は？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'excited',
+      text: '<strong><span class="keyword"><ruby>水素<rp>(</rp><rt>すいそ</rt><rp>)</rp></ruby></span></strong>は<ruby>亜鉛<rp>(</rp><rt>あえん</rt><rp>)</rp></ruby>にうすい<ruby>塩酸<rp>(</rp><rt>えんさん</rt><rp>)</rp></ruby>を<ruby>加<rp>(</rp><rt>くわ</rt><rp>)</rp></ruby>えると<ruby>発生<rp>(</rp><rt>はっせい</rt><rp>)</rp></ruby>するよ。<ruby>最<rp>(</rp><rt>もっと</rt><rp>)</rp></ruby>も<ruby>軽<rp>(</rp><rt>かる</rt><rp>)</rp></ruby>い<ruby>気体<rp>(</rp><rt>きたい</rt><rp>)</rp></ruby>で、火をつけると<strong>ポンと<ruby>音<rp>(</rp><rt>おと</rt><rp>)</rp></ruby>をたてて<ruby>燃<rp>(</rp><rt>も</rt><rp>)</rp></ruby>えて水ができる</strong>んだ',
+    },
+    {
+      type: 'image',
+      src: '/images/science/gas-generation.svg',
+      alt: '気体の発生方法',
+      caption: '酸素・二酸化炭素・水素の発生方法',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">酸素</span>：二酸化マンガン＋過酸化水素水。<span class="keyword">二酸化炭素</span>：石灰石＋塩酸。<span class="keyword">水素</span>：亜鉛＋塩酸',
+    },
+    {
+      type: 'date',
+      text: '<ruby>気体<rp>(</rp><rt>きたい</rt><rp>)</rp></ruby>の<ruby>集<rp>(</rp><rt>あつ</rt><rp>)</rp></ruby>め<ruby>方<rp>(</rp><rt>かた</rt><rp>)</rp></ruby>',
+    },
+    {
+      type: 'narrator',
+      text: '<ruby>気体<rp>(</rp><rt>きたい</rt><rp>)</rp></ruby>の<ruby>性質<rp>(</rp><rt>せいしつ</rt><rp>)</rp></ruby>によって<ruby>集<rp>(</rp><rt>あつ</rt><rp>)</rp></ruby>め<ruby>方<rp>(</rp><rt>かた</rt><rp>)</rp></ruby>が<ruby>異<rp>(</rp><rt>こと</rt><rp>)</rp></ruby>なります。3つの<ruby>方法<rp>(</rp><rt>ほうほう</rt><rp>)</rp></ruby>を<ruby>覚<rp>(</rp><rt>おぼ</rt><rp>)</rp></ruby>えましょう。',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<ruby>気体<rp>(</rp><rt>きたい</rt><rp>)</rp></ruby>の<ruby>集<rp>(</rp><rt>あつ</rt><rp>)</rp></ruby>め<ruby>方<rp>(</rp><rt>かた</rt><rp>)</rp></ruby>は3つあるよ！<br/>1. <strong><span class="keyword"><ruby>水上置換法<rp>(</rp><rt>すいじょうちかんほう</rt><rp>)</rp></ruby></span></strong>：水にとけにくい<ruby>気体<rp>(</rp><rt>きたい</rt><rp>)</rp></ruby>を<ruby>集<rp>(</rp><rt>あつ</rt><rp>)</rp></ruby>める<br/>2. <strong><span class="keyword"><ruby>上方置換法<rp>(</rp><rt>じょうほうちかんほう</rt><rp>)</rp></ruby></span></strong>：<ruby>空気<rp>(</rp><rt>くうき</rt><rp>)</rp></ruby>より<ruby>軽<rp>(</rp><rt>かる</rt><rp>)</rp></ruby>い<ruby>気体<rp>(</rp><rt>きたい</rt><rp>)</rp></ruby>を<ruby>集<rp>(</rp><rt>あつ</rt><rp>)</rp></ruby>める<br/>3. <strong><span class="keyword"><ruby>下方置換法<rp>(</rp><rt>かほうちかんほう</rt><rp>)</rp></ruby></span></strong>：<ruby>空気<rp>(</rp><rt>くうき</rt><rp>)</rp></ruby>より<ruby>重<rp>(</rp><rt>おも</rt><rp>)</rp></ruby>い<ruby>気体<rp>(</rp><rt>きたい</rt><rp>)</rp></ruby>を<ruby>集<rp>(</rp><rt>あつ</rt><rp>)</rp></ruby>める',
+    },
+    {
+      type: 'image',
+      src: '/images/science/gas-collection.svg',
+      alt: '気体の3つの集め方',
+      caption: '水上置換法・上方置換法・下方置換法',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: 'どの<ruby>方法<rp>(</rp><rt>ほうほう</rt><rp>)</rp></ruby>が一番いいんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'thinking',
+      text: '<ruby>水上置換法<rp>(</rp><rt>すいじょうちかんほう</rt><rp>)</rp></ruby>が<ruby>一番<rp>(</rp><rt>いちばん</rt><rp>)</rp></ruby><ruby>純粋<rp>(</rp><rt>じゅんすい</rt><rp>)</rp></ruby>な<ruby>気体<rp>(</rp><rt>きたい</rt><rp>)</rp></ruby>を<ruby>集<rp>(</rp><rt>あつ</rt><rp>)</rp></ruby>められるよ。でも水にとけやすい<ruby>気体<rp>(</rp><rt>きたい</rt><rp>)</rp></ruby>には使えないから、<ruby>気体<rp>(</rp><rt>きたい</rt><rp>)</rp></ruby>の<ruby>性質<rp>(</rp><rt>せいしつ</rt><rp>)</rp></ruby>に合わせて<ruby>選<rp>(</rp><rt>えら</rt><rp>)</rp></ruby>ぶんだ',
+    },
+    {
+      type: 'quiz',
+      question: '水にとけにくい気体を集める方法はどれ？',
+      options: [
+        { letter: 'A', text: '上方置換法', correct: false },
+        { letter: 'B', text: '下方置換法', correct: false },
+        { letter: 'C', text: '水上置換法', correct: true },
+        { letter: 'D', text: 'ろ過', correct: false },
+      ],
+      explanation:
+        '<strong>正解はC「<ruby>水上置換法<rp>(</rp><rt>すいじょうちかんほう</rt><rp>)</rp></ruby>」</strong>です。水にとけにくい<ruby>気体<rp>(</rp><rt>きたい</rt><rp>)</rp></ruby>を水中で<ruby>集<rp>(</rp><rt>あつ</rt><rp>)</rp></ruby>める<ruby>方法<rp>(</rp><rt>ほうほう</rt><rp>)</rp></ruby>で、<ruby>純粋<rp>(</rp><rt>じゅんすい</rt><rp>)</rp></ruby>な<ruby>気体<rp>(</rp><rt>きたい</rt><rp>)</rp></ruby>が得られます。',
+    },
+    {
+      type: 'date',
+      text: 'アンモニアの<ruby>噴水実験<rp>(</rp><rt>ふんすいじっけん</rt><rp>)</rp></ruby>',
+    },
+    {
+      type: 'narrator',
+      text: '<strong><span class="keyword">アンモニア</span></strong>は<ruby>水<rp>(</rp><rt>みず</rt><rp>)</rp></ruby>に<ruby>非常<rp>(</rp><rt>ひじょう</rt><rp>)</rp></ruby>にとけやすい<ruby>気体<rp>(</rp><rt>きたい</rt><rp>)</rp></ruby>です。その<ruby>性質<rp>(</rp><rt>せいしつ</rt><rp>)</rp></ruby>を<ruby>利用<rp>(</rp><rt>りよう</rt><rp>)</rp></ruby>した<ruby>実験<rp>(</rp><rt>じっけん</rt><rp>)</rp></ruby>を見てみましょう。',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'excited',
+      text: 'アンモニアを<ruby>満<rp>(</rp><rt>み</rt><rp>)</rp></ruby>たしたフラスコに水を<ruby>少<rp>(</rp><rt>すこ</rt><rp>)</rp></ruby>し入れると、アンモニアが<ruby>一気<rp>(</rp><rt>いっき</rt><rp>)</rp></ruby>に水にとけて<ruby>気圧<rp>(</rp><rt>きあつ</rt><rp>)</rp></ruby>が下がるんだ。すると<strong><ruby>噴水<rp>(</rp><rt>ふんすい</rt><rp>)</rp></ruby>のように水が<ruby>吹<rp>(</rp><rt>ふ</rt><rp>)</rp></ruby>き<ruby>上<rp>(</rp><rt>あ</rt><rp>)</rp></ruby>がる</strong>よ！',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'surprised',
+      text: 'すごい！アンモニアがそんなに<ruby>水<rp>(</rp><rt>みず</rt><rp>)</rp></ruby>にとけやすいんですね！',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: 'そう！アンモニアは<strong><ruby>刺激臭<rp>(</rp><rt>しげきしゅう</rt><rp>)</rp></ruby></strong>があって、<ruby>水溶液<rp>(</rp><rt>すいようえき</rt><rp>)</rp></ruby>は<strong>アルカリ<ruby>性<rp>(</rp><rt>せい</rt><rp>)</rp></ruby></strong>を<ruby>示<rp>(</rp><rt>しめ</rt><rp>)</rp></ruby>すんだ。<ruby>空気<rp>(</rp><rt>くうき</rt><rp>)</rp></ruby>より<ruby>軽<rp>(</rp><rt>かる</rt><rp>)</rp></ruby>いから<strong><ruby>上方置換法<rp>(</rp><rt>じょうほうちかんほう</rt><rp>)</rp></ruby></strong>で<ruby>集<rp>(</rp><rt>あつ</rt><rp>)</rp></ruby>めるよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'happy',
+      text: '<ruby>気体<rp>(</rp><rt>きたい</rt><rp>)</rp></ruby>の<ruby>性質<rp>(</rp><rt>せいしつ</rt><rp>)</rp></ruby>と<ruby>集<rp>(</rp><rt>あつ</rt><rp>)</rp></ruby>め<ruby>方<rp>(</rp><rt>かた</rt><rp>)</rp></ruby>がつながってきました！',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">アンモニア</span>：刺激臭・水に非常にとけやすい・アルカリ性・上方置換法で集める。<span class="keyword">噴水実験</span>でとけやすさを確認',
+    },
+    {
+      type: 'end',
+      points: [
+        '<strong><ruby>酸素<rp>(</rp><rt>さんそ</rt><rp>)</rp></ruby></strong>：<ruby>二酸化<rp>(</rp><rt>にさんか</rt><rp>)</rp></ruby>マンガン＋<ruby>過酸化水素水<rp>(</rp><rt>かさんかすいそすい</rt><rp>)</rp></ruby>。<ruby>線香<rp>(</rp><rt>せんこう</rt><rp>)</rp></ruby>が<ruby>激<rp>(</rp><rt>はげ</rt><rp>)</rp></ruby>しく<ruby>燃<rp>(</rp><rt>も</rt><rp>)</rp></ruby>える',
+        '<strong><ruby>二酸化炭素<rp>(</rp><rt>にさんかたんそ</rt><rp>)</rp></ruby></strong>：<ruby>石灰石<rp>(</rp><rt>せっかいせき</rt><rp>)</rp></ruby>＋<ruby>塩酸<rp>(</rp><rt>えんさん</rt><rp>)</rp></ruby>。<ruby>石灰水<rp>(</rp><rt>せっかいすい</rt><rp>)</rp></ruby>が白くにごる',
+        '<strong><ruby>水素<rp>(</rp><rt>すいそ</rt><rp>)</rp></ruby></strong>：<ruby>亜鉛<rp>(</rp><rt>あえん</rt><rp>)</rp></ruby>＋<ruby>塩酸<rp>(</rp><rt>えんさん</rt><rp>)</rp></ruby>。ポンと<ruby>音<rp>(</rp><rt>おと</rt><rp>)</rp></ruby>をたてて<ruby>燃<rp>(</rp><rt>も</rt><rp>)</rp></ruby>える',
+        '<strong><ruby>気体<rp>(</rp><rt>きたい</rt><rp>)</rp></ruby>の<ruby>集<rp>(</rp><rt>あつ</rt><rp>)</rp></ruby>め<ruby>方<rp>(</rp><rt>かた</rt><rp>)</rp></ruby></strong>：<ruby>水上置換法<rp>(</rp><rt>すいじょうちかんほう</rt><rp>)</rp></ruby>（水にとけにくい）・<ruby>上方置換法<rp>(</rp><rt>じょうほうちかんほう</rt><rp>)</rp></ruby>（<ruby>軽<rp>(</rp><rt>かる</rt><rp>)</rp></ruby>い）・<ruby>下方置換法<rp>(</rp><rt>かほうちかんほう</rt><rp>)</rp></ruby>（<ruby>重<rp>(</rp><rt>おも</rt><rp>)</rp></ruby>い）',
+      ],
+    },
+  ],
+};

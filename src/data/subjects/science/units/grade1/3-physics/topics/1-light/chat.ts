@@ -1,0 +1,219 @@
+import type { HistoryChat } from '../../../../../../../../data/history-chat/types';
+
+export const lightChat: HistoryChat = {
+  id: 'sci1-light',
+  icon: '🔦',
+  title: '光の世界',
+  subtitle: '〜中1物理〜 光の直進・反射・屈折・レンズ',
+  characters: [
+    {
+      id: 'teacher',
+      name: '理科の先生',
+      emoji: '👩‍🏫',
+      colorFrom: '#059669',
+      colorTo: '#34d399',
+      expressions: {
+        explaining: '🧑‍🏫',
+        happy: '😊',
+        excited: '🤩',
+        thinking: '🤔',
+      },
+    },
+    {
+      id: 'student',
+      name: '生徒',
+      emoji: '👦',
+      colorFrom: '#d97706',
+      colorTo: '#fbbf24',
+      expressions: {
+        curious: '🙋‍♂️',
+        surprised: '😲',
+        thinking: '🤔',
+        happy: '😄',
+      },
+    },
+  ],
+  content: [
+    {
+      type: 'date',
+      text: '<ruby>光<rp>(</rp><rt>ひかり</rt><rp>)</rp></ruby>の<ruby>直進<rp>(</rp><rt>ちょくしん</rt><rp>)</rp></ruby>と<ruby>反射<rp>(</rp><rt>はんしゃ</rt><rp>)</rp></ruby>',
+    },
+    {
+      type: 'narrator',
+      text: '光はどのように進み、物はなぜ見えるのか。<ruby>光<rp>(</rp><rt>ひかり</rt><rp>)</rp></ruby>の<ruby>基本的<rp>(</rp><rt>きほんてき</rt><rp>)</rp></ruby>な<ruby>性質<rp>(</rp><rt>せいしつ</rt><rp>)</rp></ruby>を学びましょう。',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '光は<strong><span class="keyword"><ruby>光源<rp>(</rp><rt>こうげん</rt><rp>)</rp></ruby></span></strong>から出て<strong><ruby>直進<rp>(</rp><rt>ちょくしん</rt><rp>)</rp></ruby></strong>するんだ。<ruby>太陽<rp>(</rp><rt>たいよう</rt><rp>)</rp></ruby>や<ruby>電球<rp>(</rp><rt>でんきゅう</rt><rp>)</rp></ruby>のように自ら光を出す物体を<ruby>光源<rp>(</rp><rt>こうげん</rt><rp>)</rp></ruby>というよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '月は光源じゃないんですか？ 光っているように見えますけど……',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'excited',
+      text: 'いいところに<ruby>気<rp>(</rp><rt>き</rt><rp>)</rp></ruby>づいたね！ 月は<ruby>太陽<rp>(</rp><rt>たいよう</rt><rp>)</rp></ruby>の光を<strong><ruby>反射<rp>(</rp><rt>はんしゃ</rt><rp>)</rp></ruby></strong>しているだけだから光源じゃないんだ。物が見えるのは、光源の光が物体に当たって反射し、その光が<ruby>目<rp>(</rp><rt>め</rt><rp>)</rp></ruby>に<ruby>届<rp>(</rp><rt>とど</rt><rp>)</rp></ruby>くからだよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'surprised',
+      text: 'じゃあ真っ暗な部屋で物が見えないのは、反射する光がないからですね！',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: 'そのとおり！ さて、<ruby>鏡<rp>(</rp><rt>かがみ</rt><rp>)</rp></ruby>のようななめらかな面に光が当たると、<strong><span class="keyword"><ruby>反射<rp>(</rp><rt>はんしゃ</rt><rp>)</rp></ruby>の<ruby>法則<rp>(</rp><rt>ほうそく</rt><rp>)</rp></ruby></span></strong>にしたがって反射するんだ。<strong><ruby>入射角<rp>(</rp><rt>にゅうしゃかく</rt><rp>)</rp></ruby>＝<ruby>反射角<rp>(</rp><rt>はんしゃかく</rt><rp>)</rp></ruby></strong>が必ず成り立つよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: 'ざらざらした面でも反射の<ruby>法則<rp>(</rp><rt>ほうそく</rt><rp>)</rp></ruby>は成り立つんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'thinking',
+      text: 'ざらざらした面では光がさまざまな方向に反射する。これを<strong><span class="keyword"><ruby>乱反射<rp>(</rp><rt>らんはんしゃ</rt><rp>)</rp></ruby></span></strong>というんだ。でも、個々の反射では入射角＝反射角が成り立っているんだよ',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">光源</span>から出た光は直進する。<span class="keyword">反射の法則</span>：入射角＝反射角。ざらざらした面では<span class="keyword">乱反射</span>！',
+    },
+    {
+      type: 'quiz',
+      question: '光が鏡で反射するとき、入射角と反射角の関係はどれか。',
+      options: [
+        { letter: 'A', text: '入射角＞反射角', correct: false },
+        { letter: 'B', text: '入射角＝反射角', correct: true },
+        { letter: 'C', text: '入射角＜反射角', correct: false },
+        { letter: 'D', text: '関係は一定ではない', correct: false },
+      ],
+      explanation:
+        '<strong>正解はB「入射角＝反射角」</strong>です。<ruby>反射<rp>(</rp><rt>はんしゃ</rt><rp>)</rp></ruby>の<ruby>法則<rp>(</rp><rt>ほうそく</rt><rp>)</rp></ruby>により、<ruby>入射角<rp>(</rp><rt>にゅうしゃかく</rt><rp>)</rp></ruby>と<ruby>反射角<rp>(</rp><rt>はんしゃかく</rt><rp>)</rp></ruby>は常に<ruby>等<rp>(</rp><rt>ひと</rt><rp>)</rp></ruby>しくなります。',
+    },
+    {
+      type: 'date',
+      text: '<ruby>光<rp>(</rp><rt>ひかり</rt><rp>)</rp></ruby>の<ruby>屈折<rp>(</rp><rt>くっせつ</rt><rp>)</rp></ruby>と<ruby>全反射<rp>(</rp><rt>ぜんはんしゃ</rt><rp>)</rp></ruby>',
+    },
+    {
+      type: 'narrator',
+      text: '光が<ruby>異<rp>(</rp><rt>こと</rt><rp>)</rp></ruby>なる<ruby>物質<rp>(</rp><rt>ぶっしつ</rt><rp>)</rp></ruby>の<ruby>境界面<rp>(</rp><rt>きょうかいめん</rt><rp>)</rp></ruby>を<ruby>通<rp>(</rp><rt>とお</rt><rp>)</rp></ruby>るとき、進む方向が変わることがあります。',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: 'コップの水にストローを入れると<ruby>曲<rp>(</rp><rt>ま</rt><rp>)</rp></ruby>がって見えるよね？ これは光の<strong><span class="keyword"><ruby>屈折<rp>(</rp><rt>くっせつ</rt><rp>)</rp></ruby></span></strong>が<ruby>原因<rp>(</rp><rt>げんいん</rt><rp>)</rp></ruby>なんだ。空気から水に入ると、光は<ruby>境界面<rp>(</rp><rt>きょうかいめん</rt><rp>)</rp></ruby>に<ruby>近<rp>(</rp><rt>ちか</rt><rp>)</rp></ruby>づくように曲がるよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '空気から水に入るときと、水から空気に出るときでは曲がり方がちがうんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'excited',
+      text: 'そう！ <strong>空気→水</strong>のときは<strong><ruby>屈折角<rp>(</rp><rt>くっせつかく</rt><rp>)</rp></ruby>＜<ruby>入射角<rp>(</rp><rt>にゅうしゃかく</rt><rp>)</rp></ruby></strong>、<strong>水→空気</strong>のときは<strong>屈折角＞入射角</strong>になるんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: '<ruby>全反射<rp>(</rp><rt>ぜんはんしゃ</rt><rp>)</rp></ruby>って何ですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: '水やガラスから空気に出ようとする光の<ruby>入射角<rp>(</rp><rt>にゅうしゃかく</rt><rp>)</rp></ruby>がある角度以上になると、光がすべて<ruby>反射<rp>(</rp><rt>はんしゃ</rt><rp>)</rp></ruby>して向こう側に出なくなるんだ。これが<strong><span class="keyword"><ruby>全反射<rp>(</rp><rt>ぜんはんしゃ</rt><rp>)</rp></ruby></span></strong>だよ。<strong><ruby>光<rp>(</rp><rt>ひかり</rt><rp>)</rp></ruby>ファイバー</strong>はこの全反射を利用しているんだ',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">屈折</span>：光が異なる物質の境界で曲がる。<span class="keyword">全反射</span>：入射角が大きいと光がすべて反射（光ファイバーに利用）！',
+    },
+    {
+      type: 'quiz',
+      question: '全反射を利用しているものはどれか。',
+      options: [
+        { letter: 'A', text: '虫めがね', correct: false },
+        { letter: 'B', text: '鏡', correct: false },
+        { letter: 'C', text: '光ファイバー', correct: true },
+        { letter: 'D', text: 'カメラ', correct: false },
+      ],
+      explanation:
+        '<strong>正解はC「光ファイバー」</strong>です。<ruby>光<rp>(</rp><rt>ひかり</rt><rp>)</rp></ruby>ファイバーは<ruby>全反射<rp>(</rp><rt>ぜんはんしゃ</rt><rp>)</rp></ruby>を利用して、光を<ruby>遠<rp>(</rp><rt>とお</rt><rp>)</rp></ruby>くまで<ruby>伝<rp>(</rp><rt>つた</rt><rp>)</rp></ruby>えます。',
+    },
+    {
+      type: 'date',
+      text: '<ruby>凸<rp>(</rp><rt>とつ</rt><rp>)</rp></ruby>レンズと<ruby>像<rp>(</rp><rt>ぞう</rt><rp>)</rp></ruby>',
+    },
+    {
+      type: 'narrator',
+      text: '<ruby>凸<rp>(</rp><rt>とつ</rt><rp>)</rp></ruby>レンズを通した光がつくる<ruby>像<rp>(</rp><rt>ぞう</rt><rp>)</rp></ruby>について学びましょう。',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<strong><span class="keyword"><ruby>凸<rp>(</rp><rt>とつ</rt><rp>)</rp></ruby>レンズ</span></strong>は<ruby>中央<rp>(</rp><rt>ちゅうおう</rt><rp>)</rp></ruby>がふくらんだレンズで、光を<ruby>集<rp>(</rp><rt>あつ</rt><rp>)</rp></ruby>めるはたらきがあるんだ。<ruby>平行<rp>(</rp><rt>へいこう</rt><rp>)</rp></ruby>な光が集まる点を<strong><span class="keyword"><ruby>焦点<rp>(</rp><rt>しょうてん</rt><rp>)</rp></ruby></span></strong>、レンズの<ruby>中心<rp>(</rp><rt>ちゅうしん</rt><rp>)</rp></ruby>から<ruby>焦点<rp>(</rp><rt>しょうてん</rt><rp>)</rp></ruby>までの<ruby>距離<rp>(</rp><rt>きょり</rt><rp>)</rp></ruby>を<strong><ruby>焦点距離<rp>(</rp><rt>しょうてんきょり</rt><rp>)</rp></ruby></strong>というよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '<ruby>実像<rp>(</rp><rt>じつぞう</rt><rp>)</rp></ruby>と<ruby>虚像<rp>(</rp><rt>きょぞう</rt><rp>)</rp></ruby>はどうちがうんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'excited',
+      text: '<strong><span class="keyword"><ruby>実像<rp>(</rp><rt>じつぞう</rt><rp>)</rp></ruby></span></strong>は、物体が<ruby>焦点<rp>(</rp><rt>しょうてん</rt><rp>)</rp></ruby>より遠くにあるときにできる<strong>上下左右が<ruby>逆<rp>(</rp><rt>ぎゃく</rt><rp>)</rp></ruby></strong>の<ruby>像<rp>(</rp><rt>ぞう</rt><rp>)</rp></ruby>で、スクリーンに<ruby>映<rp>(</rp><rt>うつ</rt><rp>)</rp></ruby>せるよ。<strong><span class="keyword"><ruby>虚像<rp>(</rp><rt>きょぞう</rt><rp>)</rp></ruby></span></strong>は、物体が<ruby>焦点<rp>(</rp><rt>しょうてん</rt><rp>)</rp></ruby>より近くにあるとき、レンズを<ruby>通<rp>(</rp><rt>とお</rt><rp>)</rp></ruby>して見える<strong><ruby>正立<rp>(</rp><rt>せいりつ</rt><rp>)</rp></ruby>で大きい<ruby>像<rp>(</rp><rt>ぞう</rt><rp>)</rp></ruby></strong>だよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'happy',
+      text: '虫めがねで物が大きく見えるのは<ruby>虚像<rp>(</rp><rt>きょぞう</rt><rp>)</rp></ruby>なんですね！',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">凸レンズ</span>：焦点より遠い→<span class="keyword">実像</span>（倒立・スクリーンに映る）、焦点より近い→<span class="keyword">虚像</span>（正立・大きい）！',
+    },
+    {
+      type: 'end',
+      points: [
+        '<strong><ruby>光源<rp>(</rp><rt>こうげん</rt><rp>)</rp></ruby></strong>から出た光は<strong><ruby>直進<rp>(</rp><rt>ちょくしん</rt><rp>)</rp></ruby></strong>する。物が見えるのは<ruby>反射<rp>(</rp><rt>はんしゃ</rt><rp>)</rp></ruby>した光が目に届くから',
+        '<strong><ruby>反射<rp>(</rp><rt>はんしゃ</rt><rp>)</rp></ruby>の<ruby>法則<rp>(</rp><rt>ほうそく</rt><rp>)</rp></ruby></strong>：<ruby>入射角<rp>(</rp><rt>にゅうしゃかく</rt><rp>)</rp></ruby>＝<ruby>反射角<rp>(</rp><rt>はんしゃかく</rt><rp>)</rp></ruby>。ざらざらした面では<strong><ruby>乱反射<rp>(</rp><rt>らんはんしゃ</rt><rp>)</rp></ruby></strong>',
+        '<strong><ruby>屈折<rp>(</rp><rt>くっせつ</rt><rp>)</rp></ruby></strong>：光が<ruby>異<rp>(</rp><rt>こと</rt><rp>)</rp></ruby>なる<ruby>物質<rp>(</rp><rt>ぶっしつ</rt><rp>)</rp></ruby>の<ruby>境界<rp>(</rp><rt>きょうかい</rt><rp>)</rp></ruby>で曲がる。<strong><ruby>全反射<rp>(</rp><rt>ぜんはんしゃ</rt><rp>)</rp></ruby></strong>は光ファイバーに利用',
+        '<strong><ruby>凸<rp>(</rp><rt>とつ</rt><rp>)</rp></ruby>レンズ</strong>：<ruby>焦点<rp>(</rp><rt>しょうてん</rt><rp>)</rp></ruby>より遠い → <strong><ruby>実像<rp>(</rp><rt>じつぞう</rt><rp>)</rp></ruby></strong>（<ruby>倒立<rp>(</rp><rt>とうりつ</rt><rp>)</rp></ruby>）、<ruby>焦点<rp>(</rp><rt>しょうてん</rt><rp>)</rp></ruby>より近い → <strong><ruby>虚像<rp>(</rp><rt>きょぞう</rt><rp>)</rp></ruby></strong>（<ruby>正立<rp>(</rp><rt>せいりつ</rt><rp>)</rp></ruby>・大きい）',
+      ],
+    },
+  ],
+};

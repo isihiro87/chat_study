@@ -1,0 +1,213 @@
+import type { HistoryChat } from '../../../../../../../../data/history-chat/types';
+
+export const observationMethodChat: HistoryChat = {
+  id: 'sci1-observation-method',
+  icon: '🔬',
+  title: '生物の観察と分類のしかた',
+  subtitle: '〜中1生物〜 ルーペ・顕微鏡の使い方・スケッチ・分類の基準',
+  characters: [
+    {
+      id: 'teacher',
+      name: '理科の先生',
+      emoji: '👩‍🏫',
+      colorFrom: '#059669',
+      colorTo: '#34d399',
+      expressions: {
+        explaining: '🧑‍🏫',
+        happy: '😊',
+        excited: '🤩',
+        thinking: '🤔',
+      },
+    },
+    {
+      id: 'student',
+      name: '生徒',
+      emoji: '👦',
+      colorFrom: '#d97706',
+      colorTo: '#fbbf24',
+      expressions: {
+        curious: '🙋‍♂️',
+        surprised: '😲',
+        thinking: '🤔',
+        happy: '😄',
+      },
+    },
+  ],
+  content: [
+    {
+      type: 'date',
+      text: '<ruby>生物<rp>(</rp><rt>せいぶつ</rt><rp>)</rp></ruby>の<ruby>観察<rp>(</rp><rt>かんさつ</rt><rp>)</rp></ruby>と<ruby>記録<rp>(</rp><rt>きろく</rt><rp>)</rp></ruby>',
+    },
+    {
+      type: 'narrator',
+      text: '<ruby>身近<rp>(</rp><rt>みぢか</rt><rp>)</rp></ruby>な<ruby>生物<rp>(</rp><rt>せいぶつ</rt><rp>)</rp></ruby>を<ruby>観察<rp>(</rp><rt>かんさつ</rt><rp>)</rp></ruby>するための方法と、<ruby>記録<rp>(</rp><rt>きろく</rt><rp>)</rp></ruby>のしかたを学びましょう。',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '今日は<ruby>身近<rp>(</rp><rt>みぢか</rt><rp>)</rp></ruby>な<ruby>生物<rp>(</rp><rt>せいぶつ</rt><rp>)</rp></ruby>を<ruby>観察<rp>(</rp><rt>かんさつ</rt><rp>)</rp></ruby>する方法を学ぶよ。<ruby>観察<rp>(</rp><rt>かんさつ</rt><rp>)</rp></ruby>するときに大切なことは何だと思う？',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: 'よく見ること…ですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: 'そうだね！でもそれだけじゃないんだ。<strong><span class="keyword"><ruby>観察記録<rp>(</rp><rt>かんさつきろく</rt><rp>)</rp></ruby></span></strong>をしっかりつけることが大切だよ。<strong><ruby>日時<rp>(</rp><rt>にちじ</rt><rp>)</rp></ruby>・場所・天気・<ruby>気温<rp>(</rp><rt>きおん</rt><rp>)</rp></ruby></strong>などの<ruby>環境<rp>(</rp><rt>かんきょう</rt><rp>)</rp></ruby>の情報と、<ruby>生物<rp>(</rp><rt>せいぶつ</rt><rp>)</rp></ruby>の名前や<ruby>特徴<rp>(</rp><rt>とくちょう</rt><rp>)</rp></ruby>を<ruby>記録<rp>(</rp><rt>きろく</rt><rp>)</rp></ruby>するんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '<ruby>絵<rp>(</rp><rt>え</rt><rp>)</rp></ruby>も<ruby>描<rp>(</rp><rt>か</rt><rp>)</rp></ruby>くんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'excited',
+      text: 'いい<ruby>質問<rp>(</rp><rt>しつもん</rt><rp>)</rp></ruby>！<ruby>理科<rp>(</rp><rt>りか</rt><rp>)</rp></ruby>では<strong><span class="keyword">スケッチ</span></strong>という方法で<ruby>描<rp>(</rp><rt>か</rt><rp>)</rp></ruby>くよ。ルールがあるんだ。<br/>1. <strong><ruby>細<rp>(</rp><rt>ほそ</rt><rp>)</rp></ruby>い1本の線</strong>で<ruby>輪郭<rp>(</rp><rt>りんかく</rt><rp>)</rp></ruby>を<ruby>描<rp>(</rp><rt>か</rt><rp>)</rp></ruby>く<br/>2. <strong><ruby>影<rp>(</rp><rt>かげ</rt><rp>)</rp></ruby>をつけない</strong><br/>3. ぬりつぶさない',
+    },
+    {
+      type: 'image',
+      src: '/images/science/sketch-method.svg',
+      alt: 'スケッチのしかた',
+      caption: 'スケッチは細い線で輪郭を描き、影はつけない',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">観察記録</span>: 日時・場所・天気・気温・生物名・スケッチ・気づきを記入。<span class="keyword">スケッチ</span>は細い線・影なし・ぬりつぶさない',
+    },
+    {
+      type: 'date',
+      text: 'ルーペと<ruby>顕微鏡<rp>(</rp><rt>けんびきょう</rt><rp>)</rp></ruby>の使い方',
+    },
+    {
+      type: 'narrator',
+      text: '小さな<ruby>生物<rp>(</rp><rt>せいぶつ</rt><rp>)</rp></ruby>を<ruby>観察<rp>(</rp><rt>かんさつ</rt><rp>)</rp></ruby>するための<ruby>道具<rp>(</rp><rt>どうぐ</rt><rp>)</rp></ruby>について学びましょう。',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<strong><span class="keyword">ルーペ</span></strong>の正しい使い方を知ってる？',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: 'ルーペを<ruby>観察<rp>(</rp><rt>かんさつ</rt><rp>)</rp></ruby>するものに近づけるんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'excited',
+      text: '実は<ruby>逆<rp>(</rp><rt>ぎゃく</rt><rp>)</rp></ruby>なんだ！ルーペは<strong>目に近づけて<ruby>固定<rp>(</rp><rt>こてい</rt><rp>)</rp></ruby></strong>して、<strong><ruby>観察<rp>(</rp><rt>かんさつ</rt><rp>)</rp></ruby>するものを前後に動かして</strong>ピントを合わせるんだよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'surprised',
+      text: 'ルーペのほうを<ruby>固定<rp>(</rp><rt>こてい</rt><rp>)</rp></ruby>するんですね！',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: 'もっと小さいものを見るには<strong><span class="keyword"><ruby>顕微鏡<rp>(</rp><rt>けんびきょう</rt><rp>)</rp></ruby></span></strong>を使うよ。<strong><span class="keyword"><ruby>双眼実体顕微鏡<rp>(</rp><rt>そうがんじったいけんびきょう</rt><rp>)</rp></ruby></span></strong>は<ruby>立体的<rp>(</rp><rt>りったいてき</rt><rp>)</rp></ruby>に見えて<ruby>倍率<rp>(</rp><rt>ばいりつ</rt><rp>)</rp></ruby>は20〜40<ruby>倍<rp>(</rp><rt>ばい</rt><rp>)</rp></ruby>。普通の<ruby>顕微鏡<rp>(</rp><rt>けんびきょう</rt><rp>)</rp></ruby>は<ruby>倍率<rp>(</rp><rt>ばいりつ</rt><rp>)</rp></ruby>40〜600<ruby>倍<rp>(</rp><rt>ばい</rt><rp>)</rp></ruby>でとても細かく見えるんだ',
+    },
+    {
+      type: 'image',
+      src: '/images/science/microscope-usage.svg',
+      alt: '顕微鏡の使い方',
+      caption: '顕微鏡の各部分の名前と使い方',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'thinking',
+      text: '<ruby>顕微鏡<rp>(</rp><rt>けんびきょう</rt><rp>)</rp></ruby>のレンズは<strong><span class="keyword"><ruby>接眼<rp>(</rp><rt>せつがん</rt><rp>)</rp></ruby>レンズ</span></strong>を<ruby>先<rp>(</rp><rt>さき</rt><rp>)</rp></ruby>に取り付けて、<ruby>次<rp>(</rp><rt>つぎ</rt><rp>)</rp></ruby>に<strong><span class="keyword"><ruby>対物<rp>(</rp><rt>たいぶつ</rt><rp>)</rp></ruby>レンズ</span></strong>を取り付ける。<ruby>観察<rp>(</rp><rt>かんさつ</rt><rp>)</rp></ruby>は<strong><ruby>低倍率<rp>(</rp><rt>ていばいりつ</rt><rp>)</rp></ruby>から</strong>始めるのがルールだよ',
+    },
+    {
+      type: 'quiz',
+      question: 'ルーペで観察するとき、正しい方法はどれ？',
+      options: [
+        { letter: 'A', text: 'ルーペを観察物に近づける', correct: false },
+        { letter: 'B', text: 'ルーペを目に近づけ、観察物を動かす', correct: true },
+        { letter: 'C', text: 'ルーペと観察物の両方を動かす', correct: false },
+        { letter: 'D', text: 'ルーペを遠くに持つ', correct: false },
+      ],
+      explanation:
+        '<strong>正解はB</strong>です。ルーペは<ruby>目<rp>(</rp><rt>め</rt><rp>)</rp></ruby>に近づけて<ruby>固定<rp>(</rp><rt>こてい</rt><rp>)</rp></ruby>し、<ruby>観察<rp>(</rp><rt>かんさつ</rt><rp>)</rp></ruby>するものを前後に動かしてピントを合わせます。',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">ルーペ</span>：目に近づけて固定、観察物を動かす。<span class="keyword">顕微鏡</span>：接眼レンズ→対物レンズの順に取り付け、低倍率から観察',
+    },
+    {
+      type: 'date',
+      text: '<ruby>生物<rp>(</rp><rt>せいぶつ</rt><rp>)</rp></ruby>の<ruby>分類<rp>(</rp><rt>ぶんるい</rt><rp>)</rp></ruby>のしかた',
+    },
+    {
+      type: 'narrator',
+      text: '<ruby>生物<rp>(</rp><rt>せいぶつ</rt><rp>)</rp></ruby>を<ruby>仲間<rp>(</rp><rt>なかま</rt><rp>)</rp></ruby>分けする方法を学びましょう。',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<ruby>生物<rp>(</rp><rt>せいぶつ</rt><rp>)</rp></ruby>を<ruby>分類<rp>(</rp><rt>ぶんるい</rt><rp>)</rp></ruby>するときは、<strong><span class="keyword"><ruby>共通点<rp>(</rp><rt>きょうつうてん</rt><rp>)</rp></ruby></span></strong>と<strong><span class="keyword"><ruby>相違点<rp>(</rp><rt>そういてん</rt><rp>)</rp></ruby></span></strong>に<ruby>注目<rp>(</rp><rt>ちゅうもく</rt><rp>)</rp></ruby>するんだ。例えば「花がある／ない」「<ruby>種子<rp>(</rp><rt>しゅし</rt><rp>)</rp></ruby>でふえる／<ruby>胞子<rp>(</rp><rt>ほうし</rt><rp>)</rp></ruby>でふえる」などの<ruby>基準<rp>(</rp><rt>きじゅん</rt><rp>)</rp></ruby>でグループ分けするよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '<ruby>基準<rp>(</rp><rt>きじゅん</rt><rp>)</rp></ruby>は何でもいいんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: '<ruby>科学的<rp>(</rp><rt>かがくてき</rt><rp>)</rp></ruby>な<ruby>分類<rp>(</rp><rt>ぶんるい</rt><rp>)</rp></ruby>では、<strong>体のつくり</strong>など<strong>変化しにくい<ruby>特徴<rp>(</rp><rt>とくちょう</rt><rp>)</rp></ruby></strong>を<ruby>基準<rp>(</rp><rt>きじゅん</rt><rp>)</rp></ruby>にするんだ。花の<ruby>色<rp>(</rp><rt>いろ</rt><rp>)</rp></ruby>や大きさは<ruby>環境<rp>(</rp><rt>かんきょう</rt><rp>)</rp></ruby>で変わるから、<ruby>分類<rp>(</rp><rt>ぶんるい</rt><rp>)</rp></ruby>の<ruby>基準<rp>(</rp><rt>きじゅん</rt><rp>)</rp></ruby>には向かないよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'happy',
+      text: 'なるほど！体のつくりで分けるんですね！',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">分類</span>＝共通点・相違点に注目してグループ分け。科学的な分類では<span class="keyword">体のつくり</span>など変化しにくい特徴を基準にする',
+    },
+    {
+      type: 'end',
+      points: [
+        '<strong><ruby>観察記録<rp>(</rp><rt>かんさつきろく</rt><rp>)</rp></ruby></strong>：<ruby>日時<rp>(</rp><rt>にちじ</rt><rp>)</rp></ruby>・場所・天気・<ruby>気温<rp>(</rp><rt>きおん</rt><rp>)</rp></ruby>・<ruby>生物<rp>(</rp><rt>せいぶつ</rt><rp>)</rp></ruby>名・スケッチ・気づきを<ruby>記録<rp>(</rp><rt>きろく</rt><rp>)</rp></ruby>する',
+        '<strong>スケッチ</strong>：<ruby>細<rp>(</rp><rt>ほそ</rt><rp>)</rp></ruby>い1本の線で<ruby>輪郭<rp>(</rp><rt>りんかく</rt><rp>)</rp></ruby>を<ruby>描<rp>(</rp><rt>か</rt><rp>)</rp></ruby>き、<ruby>影<rp>(</rp><rt>かげ</rt><rp>)</rp></ruby>はつけない',
+        '<strong>ルーペ</strong>：目に近づけて<ruby>固定<rp>(</rp><rt>こてい</rt><rp>)</rp></ruby>し、<ruby>観察物<rp>(</rp><rt>かんさつぶつ</rt><rp>)</rp></ruby>を動かしてピントを合わせる',
+        '<strong><ruby>顕微鏡<rp>(</rp><rt>けんびきょう</rt><rp>)</rp></ruby></strong>：<ruby>接眼<rp>(</rp><rt>せつがん</rt><rp>)</rp></ruby>レンズ→<ruby>対物<rp>(</rp><rt>たいぶつ</rt><rp>)</rp></ruby>レンズの順に取り付け、<ruby>低倍率<rp>(</rp><rt>ていばいりつ</rt><rp>)</rp></ruby>から<ruby>観察<rp>(</rp><rt>かんさつ</rt><rp>)</rp></ruby>',
+        '<strong><ruby>分類<rp>(</rp><rt>ぶんるい</rt><rp>)</rp></ruby></strong>：<ruby>共通点<rp>(</rp><rt>きょうつうてん</rt><rp>)</rp></ruby>・<ruby>相違点<rp>(</rp><rt>そういてん</rt><rp>)</rp></ruby>に<ruby>注目<rp>(</rp><rt>ちゅうもく</rt><rp>)</rp></ruby>し、体のつくりなど変化しにくい<ruby>特徴<rp>(</rp><rt>とくちょう</rt><rp>)</rp></ruby>を<ruby>基準<rp>(</rp><rt>きじゅん</rt><rp>)</rp></ruby>にする',
+      ],
+    },
+  ],
+};
