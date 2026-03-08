@@ -29,6 +29,13 @@ export const subjects: Subject[] = [
     description: '化学・生物・物理・地学',
     isAvailable: true,
   },
+  {
+    id: 'geography',
+    name: '地理',
+    icon: 'globe',
+    description: '世界と日本の地理を学ぼう',
+    isAvailable: true,
+  },
 ];
 
 export function getSubject(id: string): Subject | undefined {

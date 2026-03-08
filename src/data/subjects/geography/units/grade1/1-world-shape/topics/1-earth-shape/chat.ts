@@ -1,0 +1,201 @@
+import type { HistoryChat } from '../../../../../../../../data/history-chat/types';
+
+export const earthShapeChat: HistoryChat = {
+  id: 'geo1-earth-shape',
+  icon: '🌏',
+  title: '地球の姿',
+  subtitle: '〜中1地理〜 大陸と大洋・六つの州の区分',
+  characters: [
+    {
+      id: 'teacher',
+      name: '地理の先生',
+      emoji: '🌍',
+      colorFrom: '#2563EB',
+      colorTo: '#60A5FA',
+      expressions: {
+        explaining: '🧑‍🏫',
+        happy: '😊',
+        excited: '🤩',
+        thinking: '🤔',
+      },
+    },
+    {
+      id: 'student',
+      name: '生徒',
+      emoji: '👦',
+      colorFrom: '#d97706',
+      colorTo: '#fbbf24',
+      expressions: {
+        curious: '🙋‍♂️',
+        surprised: '😲',
+        thinking: '🤔',
+        happy: '😄',
+      },
+    },
+  ],
+  content: [
+    {
+      type: 'date',
+      text: '陸地と海洋の割合',
+    },
+    {
+      type: 'narrator',
+      text: '地球は「<strong>水の<ruby>惑星<rp>(</rp><rt>わくせい</rt><rp>)</rp></ruby></strong>」と呼ばれるほど、<ruby>海洋<rp>(</rp><rt>かいよう</rt><rp>)</rp></ruby>が広がっています。まずは<ruby>陸地<rp>(</rp><rt>りくち</rt><rp>)</rp></ruby>と海洋の割合から見てみましょう。',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '地球の表面は、<strong><span class="keyword"><ruby>陸地<rp>(</rp><rt>りくち</rt><rp>)</rp></ruby>が約3割</span></strong>、<strong><span class="keyword"><ruby>海洋<rp>(</rp><rt>かいよう</rt><rp>)</rp></ruby>が約7割</span></strong>を占めているんだよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'surprised',
+      text: 'えっ、海のほうがそんなに多いんですか！陸地は3割しかないんですね',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: 'そうなんだ。だから宇宙から見ると地球は青く見えるんだよ。北半球には陸地が多く、南半球には海洋が多い、という特徴もあるよ',
+    },
+    {
+      type: 'summary-point',
+      text: '地球の表面：<span class="keyword">陸地 約3割</span>・<span class="keyword">海洋 約7割</span>',
+    },
+    {
+      type: 'date',
+      text: '六大陸と三大洋',
+    },
+    {
+      type: 'narrator',
+      text: '地球上の<ruby>陸地<rp>(</rp><rt>りくち</rt><rp>)</rp></ruby>は<strong>六つの<ruby>大陸<rp>(</rp><rt>たいりく</rt><rp>)</rp></ruby></strong>に、<ruby>海洋<rp>(</rp><rt>かいよう</rt><rp>)</rp></ruby>は<strong>三つの<ruby>大洋<rp>(</rp><rt>たいよう</rt><rp>)</rp></ruby></strong>に分けられます。',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '六つの大陸って、全部言えますか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: 'もちろん！<strong><span class="keyword">ユーラシア<ruby>大陸<rp>(</rp><rt>たいりく</rt><rp>)</rp></ruby></span></strong>、<strong><span class="keyword">アフリカ大陸</span></strong>、<strong><span class="keyword"><ruby>北<rp>(</rp><rt>きた</rt><rp>)</rp></ruby>アメリカ大陸</span></strong>、<strong><span class="keyword"><ruby>南<rp>(</rp><rt>みなみ</rt><rp>)</rp></ruby>アメリカ大陸</span></strong>、<strong><span class="keyword">オーストラリア大陸</span></strong>、そして<strong><span class="keyword"><ruby>南極大陸<rp>(</rp><rt>なんきょくたいりく</rt><rp>)</rp></ruby></span></strong>の六つだよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: 'ユーラシア大陸が一番大きいんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'excited',
+      text: 'その通り！ユーラシア大陸は世界最大の大陸だよ。ヨーロッパとアジアがつながった巨大な大陸なんだ',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '次に三つの大洋だね。<strong><span class="keyword"><ruby>太平洋<rp>(</rp><rt>たいへいよう</rt><rp>)</rp></ruby></span></strong>、<strong><span class="keyword"><ruby>大西洋<rp>(</rp><rt>たいせいよう</rt><rp>)</rp></ruby></span></strong>、<strong><span class="keyword">インド<ruby>洋<rp>(</rp><rt>よう</rt><rp>)</rp></ruby></span></strong>の三つだよ。太平洋が最も広いんだ',
+    },
+    {
+      type: 'image',
+      src: '/images/geography/grade1/world-shape/continents-oceans.png',
+      alt: '六大陸と三大洋の位置を示す世界地図',
+      caption: '六つの大陸と三つの大洋',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">六大陸</span>：ユーラシア・アフリカ・北アメリカ・南アメリカ・オーストラリア・南極',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">三大洋</span>：太平洋（最大）・大西洋・インド洋',
+    },
+    {
+      type: 'quiz',
+      question: '世界で最も大きい大陸はどれ？',
+      options: [
+        { letter: 'A', text: 'アフリカ大陸', correct: false },
+        { letter: 'B', text: 'ユーラシア大陸', correct: true },
+        { letter: 'C', text: '北アメリカ大陸', correct: false },
+        { letter: 'D', text: '南極大陸', correct: false },
+      ],
+      explanation: '<strong>正解はB「ユーラシア<ruby>大陸<rp>(</rp><rt>たいりく</rt><rp>)</rp></ruby>」</strong>です。ヨーロッパとアジアがつながった世界最大の大陸です。',
+    },
+    {
+      type: 'date',
+      text: '世界の六つの州',
+    },
+    {
+      type: 'narrator',
+      text: '世界の国々は、地域ごとに<strong>六つの<ruby>州<rp>(</rp><rt>しゅう</rt><rp>)</rp></ruby></strong>に分けられています。大陸の区分とは少し異なるので注意しましょう。',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '大陸の分け方とは違うんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: 'いい質問だね。六つの州は<strong><span class="keyword">アジア<ruby>州<rp>(</rp><rt>しゅう</rt><rp>)</rp></ruby></span></strong>、<strong><span class="keyword">ヨーロッパ州</span></strong>、<strong><span class="keyword">アフリカ州</span></strong>、<strong><span class="keyword">北アメリカ州</span></strong>、<strong><span class="keyword">南アメリカ州</span></strong>、<strong><span class="keyword">オセアニア州</span></strong>だよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: 'あれ、ユーラシア大陸はひとつなのに、アジア州とヨーロッパ州に分かれるんですね',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: 'よく気づいたね！ユーラシア大陸は<strong>アジア州</strong>と<strong>ヨーロッパ州</strong>に分けられるんだ。また、オーストラリア大陸や<ruby>太平洋<rp>(</rp><rt>たいへいよう</rt><rp>)</rp></ruby>の島々は<strong>オセアニア州</strong>としてまとめられるよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'happy',
+      text: '大陸の区分と州の区分は似ているけど、少し違うんですね。整理できました！',
+    },
+    {
+      type: 'image',
+      src: '/images/geography/grade1/world-shape/six-regions-map.png',
+      alt: '六つの州を色分けした世界地図',
+      caption: '世界の六つの州',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">六つの州</span>：アジア州・ヨーロッパ州・アフリカ州・北アメリカ州・南アメリカ州・オセアニア州',
+    },
+    {
+      type: 'end',
+      points: [
+        '地球の表面：<strong><ruby>陸地<rp>(</rp><rt>りくち</rt><rp>)</rp></ruby> 約3割</strong>、<strong><ruby>海洋<rp>(</rp><rt>かいよう</rt><rp>)</rp></ruby> 約7割</strong>',
+        '<strong>六大陸</strong>：ユーラシア・アフリカ・北アメリカ・南アメリカ・オーストラリア・<ruby>南極<rp>(</rp><rt>なんきょく</rt><rp>)</rp></ruby>',
+        '<strong>三大洋</strong>：<ruby>太平洋<rp>(</rp><rt>たいへいよう</rt><rp>)</rp></ruby>（最大）・<ruby>大西洋<rp>(</rp><rt>たいせいよう</rt><rp>)</rp></ruby>・インド<ruby>洋<rp>(</rp><rt>よう</rt><rp>)</rp></ruby>',
+        '<strong>六つの<ruby>州<rp>(</rp><rt>しゅう</rt><rp>)</rp></ruby></strong>：アジア・ヨーロッパ・アフリカ・北アメリカ・南アメリカ・オセアニア',
+      ],
+    },
+  ],
+};

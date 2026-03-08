@@ -10,10 +10,13 @@ interface ChatImageBlockProps {
 
 export function ChatImageBlock({ src, alt, caption }: ChatImageBlockProps) {
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+  const [hasError, setHasError] = useState(false);
 
   const handleImageClick = (e: React.MouseEvent) => {
     e.stopPropagation();
-    setIsLightboxOpen(true);
+    if (!hasError) {
+      setIsLightboxOpen(true);
+    }
   };
 
   return (
@@ -25,13 +28,28 @@ export function ChatImageBlock({ src, alt, caption }: ChatImageBlockProps) {
         className="mx-3 my-2 overflow-hidden rounded-2xl bg-white shadow-sm"
       >
         <div className="flex justify-center p-4">
-          <img
-            src={src}
-            alt={alt}
-            className="max-h-[240px] w-auto max-w-full cursor-pointer object-contain"
-            loading="lazy"
-            onClick={handleImageClick}
-          />
+          {hasError ? (
+            <div className="flex h-[160px] w-full items-center justify-center rounded-lg bg-gray-50">
+              <div className="text-center">
+                <span className="text-3xl">🖼️</span>
+                <p
+                  className="mt-1 text-xs text-gray-400"
+                  style={{ fontFamily: "'Noto Sans JP', sans-serif" }}
+                >
+                  {alt}
+                </p>
+              </div>
+            </div>
+          ) : (
+            <img
+              src={src}
+              alt={alt}
+              className="max-h-[240px] w-auto max-w-full cursor-pointer object-contain"
+              loading="lazy"
+              onClick={handleImageClick}
+              onError={() => setHasError(true)}
+            />
+          )}
         </div>
         {caption && (
           <p

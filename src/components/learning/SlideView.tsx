@@ -149,6 +149,18 @@ export function SlideView({ slideSets, onProgressChange }: SlideViewProps) {
 // スライド内画像の拡大表示ラッパー
 function SlideImageWithLightbox({ src, alt, className }: { src: string; alt: string; className: string }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [hasError, setHasError] = useState(false);
+
+  if (hasError) {
+    return (
+      <div className={`${className} flex items-center justify-center rounded-xl bg-gray-50`}>
+        <div className="text-center">
+          <span className="text-2xl">🖼️</span>
+          <p className="mt-1 text-xs text-gray-400">{alt}</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <>
@@ -164,6 +176,7 @@ function SlideImageWithLightbox({ src, alt, className }: { src: string; alt: str
           e.stopPropagation();
           setIsOpen(true);
         }}
+        onError={() => setHasError(true)}
       />
       <AnimatePresence>
         {isOpen && (

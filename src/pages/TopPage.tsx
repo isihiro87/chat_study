@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Scroll, Calculator, Languages, Lock, ChevronRight, Flame, BookOpen, RotateCcw, ArrowRight, MousePointerClick, MessageCircle, CheckCircle } from 'lucide-react';
+import { Scroll, Calculator, Languages, Globe, FlaskConical, Lock, ChevronRight, Flame, BookOpen, RotateCcw, ArrowRight, MousePointerClick, MessageCircle, CheckCircle } from 'lucide-react';
 import { subjects } from '../data/subjects';
 import { getTopic, getEra } from '../data/subjects/registry';
 import { useStudyProgress } from '../hooks/useStudyProgress';
@@ -9,6 +9,8 @@ const iconMap: Record<string, React.ElementType> = {
   scroll: Scroll,
   calculator: Calculator,
   languages: Languages,
+  globe: Globe,
+  'flask-conical': FlaskConical,
 };
 
 function TopicLinkCard({
