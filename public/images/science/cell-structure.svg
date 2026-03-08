@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" fill="none">
+  <rect width="400" height="250" rx="16" fill="#F5F3F0"/>
+  <text x="200" y="25" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1f2937">植物細胞と動物細胞のつくり</text>
+
+  <!-- Plant Cell -->
+  <text x="110" y="48" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#10B981">植物細胞</text>
+  <!-- Cell wall -->
+  <rect x="30" y="55" width="160" height="140" rx="12" stroke="#10B981" stroke-width="3" fill="#d1fae5" opacity="0.4"/>
+  <text x="35" y="70" font-family="sans-serif" font-size="8" fill="#10B981">細胞壁</text>
+  <!-- Cell membrane -->
+  <rect x="40" y="65" width="140" height="120" rx="10" stroke="#3B82F6" stroke-width="2" fill="#dbeafe" opacity="0.3"/>
+  <text x="45" y="80" font-family="sans-serif" font-size="8" fill="#3B82F6">細胞膜</text>
+  <!-- Nucleus -->
+  <circle cx="110" cy="130" r="22" stroke="#EF4444" stroke-width="2" fill="#fecaca" opacity="0.5"/>
+  <text x="110" y="133" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#EF4444">核</text>
+  <!-- Cytoplasm label -->
+  <text x="65" y="170" font-family="sans-serif" font-size="8" fill="#6B7280">細胞質</text>
+  <!-- Chloroplast -->
+  <ellipse cx="70" cy="110" rx="12" ry="8" fill="#10B981" opacity="0.6"/>
+  <text x="70" y="100" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#059669">葉緑体</text>
+  <!-- Vacuole -->
+  <ellipse cx="140" cy="105" rx="18" ry="12" stroke="#3B82F6" stroke-width="1.5" fill="#bfdbfe" opacity="0.4"/>
+  <text x="140" y="108" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#3B82F6">液胞</text>
+
+  <!-- Animal Cell -->
+  <text x="300" y="48" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#F59E0B">動物細胞</text>
+  <!-- Cell membrane (no cell wall) -->
+  <ellipse cx="300" cy="130" rx="80" ry="65" stroke="#3B82F6" stroke-width="2" fill="#dbeafe" opacity="0.3"/>
+  <text x="235" y="80" font-family="sans-serif" font-size="8" fill="#3B82F6">細胞膜</text>
+  <!-- Nucleus -->
+  <circle cx="300" cy="130" r="22" stroke="#EF4444" stroke-width="2" fill="#fecaca" opacity="0.5"/>
+  <text x="300" y="133" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#EF4444">核</text>
+  <!-- Cytoplasm label -->
+  <text x="260" y="170" font-family="sans-serif" font-size="8" fill="#6B7280">細胞質</text>
+  <!-- No chloroplast, no vacuole, no cell wall -->
+  <text x="340" y="105" font-family="sans-serif" font-size="7" fill="#6B7280">細胞壁なし</text>
+  <text x="340" y="115" font-family="sans-serif" font-size="7" fill="#6B7280">葉緑体なし</text>
+  <text x="340" y="125" font-family="sans-serif" font-size="7" fill="#6B7280">液胞なし</text>
+
+  <!-- VS divider -->
+  <line x1="200" y1="55" x2="200" y2="195" stroke="#6B7280" stroke-width="1" stroke-dasharray="4,4"/>
+
+  <!-- Shared parts -->
+  <rect x="100" y="210" width="200" height="30" rx="8" fill="#FEF3C7" stroke="#F59E0B" stroke-width="1"/>
+  <text x="200" y="229" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#92400e">共通: 細胞膜・細胞質・核</text>
+</svg>

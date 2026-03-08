@@ -1,5 +1,6 @@
 import type { Era, Topic } from '../../../types';
 import { chemicalChangeEra, chemicalChangeTopics } from './grade2/1-chemical-change';
+import { biologyGrade2Era, biologyGrade2Topics } from './grade2/2-biology';
 import { weatherEra, weatherTopics } from './grade2/3-weather';
 import { electricityEra, electricityTopics } from './grade2/4-electricity';
 import { chemistryEra, chemistryTopics } from './grade3/1-chemistry';
@@ -10,6 +11,7 @@ import { earthEra, earthTopics } from './grade3/4-earth';
 // 全Era一覧
 export const eras: Era[] = [
   chemicalChangeEra,
+  biologyGrade2Era,
   weatherEra,
   electricityEra,
   chemistryEra,
@@ -21,6 +23,7 @@ export const eras: Era[] = [
 // 全トピック一覧
 export const allTopics: Topic[] = [
   ...chemicalChangeTopics,
+  ...biologyGrade2Topics,
   ...weatherTopics,
   ...electricityTopics,
   ...chemistryTopics,

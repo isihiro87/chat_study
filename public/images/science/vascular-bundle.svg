@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 280" fill="none">
+  <rect width="400" height="280" rx="16" fill="#F5F3F0"/>
+  <text x="200" y="25" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1f2937">維管束のつくり（道管と師管）</text>
+
+  <!-- Plant diagram (left side) -->
+  <text x="80" y="50" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#374151">植物の断面</text>
+
+  <!-- Stem cross-section -->
+  <circle cx="80" cy="130" r="50" fill="#d1fae5" stroke="#10B981" stroke-width="2"/>
+  <text x="80" y="90" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#059669">茎の断面</text>
+
+  <!-- Xylem (道管) - inner, blue -->
+  <circle cx="60" cy="115" r="8" fill="#93c5fd" stroke="#3B82F6" stroke-width="1.5"/>
+  <circle cx="80" cy="105" r="8" fill="#93c5fd" stroke="#3B82F6" stroke-width="1.5"/>
+  <circle cx="100" cy="115" r="8" fill="#93c5fd" stroke="#3B82F6" stroke-width="1.5"/>
+
+  <!-- Phloem (師管) - outer, red -->
+  <circle cx="55" cy="135" r="6" fill="#fca5a5" stroke="#EF4444" stroke-width="1.5"/>
+  <circle cx="80" cy="145" r="6" fill="#fca5a5" stroke="#EF4444" stroke-width="1.5"/>
+  <circle cx="105" cy="135" r="6" fill="#fca5a5" stroke="#EF4444" stroke-width="1.5"/>
+
+  <!-- Legend for left -->
+  <rect x="15" y="180" width="12" height="12" rx="3" fill="#93c5fd" stroke="#3B82F6" stroke-width="1"/>
+  <text x="32" y="191" font-family="sans-serif" font-size="9" fill="#3B82F6">道管（内側）</text>
+  <rect x="15" y="198" width="12" height="12" rx="3" fill="#fca5a5" stroke="#EF4444" stroke-width="1"/>
+  <text x="32" y="209" font-family="sans-serif" font-size="9" fill="#EF4444">師管（外側）</text>
+
+  <!-- Right side: function diagram -->
+  <text x="280" y="50" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#374151">はたらき</text>
+
+  <!-- Xylem function -->
+  <rect x="210" y="65" width="140" height="55" rx="8" fill="#dbeafe" stroke="#3B82F6" stroke-width="1.5"/>
+  <text x="280" y="82" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#3B82F6">道管</text>
+  <text x="280" y="97" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#374151">根から吸収した</text>
+  <text x="280" y="110" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#374151">水・肥料分の通り道</text>
+  <!-- Arrow up -->
+  <text x="355" y="95" font-family="sans-serif" font-size="16" fill="#3B82F6">↑</text>
+
+  <!-- Phloem function -->
+  <rect x="210" y="135" width="140" height="55" rx="8" fill="#fee2e2" stroke="#EF4444" stroke-width="1.5"/>
+  <text x="280" y="152" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#EF4444">師管</text>
+  <text x="280" y="167" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#374151">葉で作られた養分</text>
+  <text x="280" y="180" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#374151">（デンプン→糖）の通り道</text>
+  <!-- Arrow down -->
+  <text x="355" y="165" font-family="sans-serif" font-size="16" fill="#EF4444">↓</text>
+
+  <!-- Comparison: monocot vs dicot -->
+  <rect x="30" y="225" width="155" height="45" rx="8" fill="#FEF3C7" stroke="#F59E0B" stroke-width="1"/>
+  <text x="107" y="243" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#92400e">単子葉類</text>
+  <text x="107" y="258" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#92400e">維管束が全体に散らばる</text>
+
+  <rect x="215" y="225" width="155" height="45" rx="8" fill="#FEF3C7" stroke="#F59E0B" stroke-width="1"/>
+  <text x="292" y="243" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#92400e">双子葉類</text>
+  <text x="292" y="258" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#92400e">維管束が輪の形に並ぶ</text>
+</svg>

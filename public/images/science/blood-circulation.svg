@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 280" fill="none">
+  <rect width="400" height="280" rx="16" fill="#F5F3F0"/>
+  <text x="200" y="25" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1f2937">体循環と肺循環</text>
+
+  <!-- Heart (center) -->
+  <rect x="145" y="105" width="110" height="90" rx="12" fill="#fecaca" stroke="#EF4444" stroke-width="2"/>
+  <text x="200" y="125" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#991b1b">心臓</text>
+
+  <!-- 4 chambers -->
+  <rect x="152" y="132" width="48" height="28" rx="4" fill="#fee2e2" stroke="#EF4444" stroke-width="1"/>
+  <text x="176" y="149" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#991b1b">右心房</text>
+  <rect x="152" y="163" width="48" height="28" rx="4" fill="#fee2e2" stroke="#EF4444" stroke-width="1"/>
+  <text x="176" y="180" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#991b1b">右心室</text>
+  <rect x="200" y="132" width="48" height="28" rx="4" fill="#fecaca" stroke="#EF4444" stroke-width="1"/>
+  <text x="224" y="149" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#991b1b">左心房</text>
+  <rect x="200" y="163" width="48" height="28" rx="4" fill="#fecaca" stroke="#EF4444" stroke-width="1"/>
+  <text x="224" y="180" text-anchor="middle" font-family="sans-serif" font-size="7" fill="#991b1b">左心室</text>
+
+  <!-- Lungs (top) -->
+  <rect x="130" y="35" width="140" height="45" rx="12" fill="#dbeafe" stroke="#3B82F6" stroke-width="2"/>
+  <text x="200" y="60" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1e40af">肺</text>
+  <text x="200" y="73" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#3B82F6">O₂を取り込み、CO₂を放出</text>
+
+  <!-- Body (bottom) -->
+  <rect x="120" y="220" width="160" height="45" rx="12" fill="#FEF3C7" stroke="#F59E0B" stroke-width="2"/>
+  <text x="200" y="244" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#92400e">全身の細胞</text>
+  <text x="200" y="257" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#92400e">O₂を使い、CO₂を放出</text>
+
+  <!-- Pulmonary circulation (blue arrows) -->
+  <!-- Heart right → Lungs -->
+  <line x1="170" y1="132" x2="170" y2="80" stroke="#3B82F6" stroke-width="2.5" marker-end="url(#arrowBl)"/>
+  <text x="135" y="108" font-family="sans-serif" font-size="7" fill="#3B82F6">肺動脈</text>
+  <!-- Lungs → Heart left -->
+  <line x1="230" y1="80" x2="230" y2="132" stroke="#EF4444" stroke-width="2.5" marker-end="url(#arrowRd)"/>
+  <text x="240" y="108" font-family="sans-serif" font-size="7" fill="#EF4444">肺静脈</text>
+
+  <!-- Pulmonary label -->
+  <text x="50" y="90" font-family="sans-serif" font-size="10" font-weight="bold" fill="#3B82F6">肺循環</text>
+  <rect x="28" y="78" width="60" height="18" rx="4" fill="none" stroke="#3B82F6" stroke-width="1" stroke-dasharray="3,2"/>
+
+  <!-- Body circulation (red arrows) -->
+  <!-- Heart left → Body -->
+  <line x1="230" y1="191" x2="230" y2="220" stroke="#EF4444" stroke-width="2.5" marker-end="url(#arrowRd)"/>
+  <text x="240" y="210" font-family="sans-serif" font-size="7" fill="#EF4444">動脈</text>
+  <!-- Body → Heart right -->
+  <line x1="170" y1="220" x2="170" y2="191" stroke="#3B82F6" stroke-width="2.5" marker-end="url(#arrowBl)"/>
+  <text x="135" y="210" font-family="sans-serif" font-size="7" fill="#3B82F6">静脈</text>
+
+  <!-- Body circulation label -->
+  <text x="330" y="210" font-family="sans-serif" font-size="10" font-weight="bold" fill="#EF4444">体循環</text>
+  <rect x="315" y="198" width="60" height="18" rx="4" fill="none" stroke="#EF4444" stroke-width="1" stroke-dasharray="3,2"/>
+
+  <!-- Legend -->
+  <line x1="30" y1="268" x2="50" y2="268" stroke="#EF4444" stroke-width="2.5"/>
+  <text x="55" y="272" font-family="sans-serif" font-size="8" fill="#374151">動脈血（O₂が多い）</text>
+  <line x1="180" y1="268" x2="200" y2="268" stroke="#3B82F6" stroke-width="2.5"/>
+  <text x="205" y="272" font-family="sans-serif" font-size="8" fill="#374151">静脈血（CO₂が多い）</text>
+
+  <defs>
+    <marker id="arrowBl" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto">
+      <path d="M0,0 L7,2.5 L0,5" fill="#3B82F6"/>
+    </marker>
+    <marker id="arrowRd" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto">
+      <path d="M0,0 L7,2.5 L0,5" fill="#EF4444"/>
+    </marker>
+  </defs>
+</svg>

@@ -5,6 +5,11 @@ import { chemicalCombinationChat } from '../subjects/science/units/grade2/1-chem
 import { oxidationReductionChat } from '../subjects/science/units/grade2/1-chemical-change/topics/3-oxidation-reduction/chat';
 import { massConservationChat } from '../subjects/science/units/grade2/1-chemical-change/topics/4-mass-conservation/chat';
 import { chemicalEnergyChat } from '../subjects/science/units/grade2/1-chemical-change/topics/5-chemical-energy/chat';
+// Grade 2: Biology
+import { cellsChat } from '../subjects/science/units/grade2/2-biology/topics/1-cells/chat';
+import { plantBodyChat } from '../subjects/science/units/grade2/2-biology/topics/2-plant-body/chat';
+import { animalBodyChat } from '../subjects/science/units/grade2/2-biology/topics/3-animal-body/chat';
+import { stimuliResponseChat } from '../subjects/science/units/grade2/2-biology/topics/4-stimuli-response/chat';
 // Grade 2: Weather
 import { observationPressureChat } from '../subjects/science/units/grade2/3-weather/topics/1-observation-pressure/chat';
 import { pressureHumidityChat } from '../subjects/science/units/grade2/3-weather/topics/2-pressure-humidity/chat';
@@ -39,6 +44,11 @@ const chatMap: Record<string, HistoryChat> = {
   [oxidationReductionChat.id]: oxidationReductionChat,
   [massConservationChat.id]: massConservationChat,
   [chemicalEnergyChat.id]: chemicalEnergyChat,
+  // Grade 2: Biology
+  [cellsChat.id]: cellsChat,
+  [plantBodyChat.id]: plantBodyChat,
+  [animalBodyChat.id]: animalBodyChat,
+  [stimuliResponseChat.id]: stimuliResponseChat,
   // Grade 2: Weather
   [observationPressureChat.id]: observationPressureChat,
   [pressureHumidityChat.id]: pressureHumidityChat,
