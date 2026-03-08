@@ -50,6 +50,12 @@ ruby rt {
   font-weight: 400;
 }
 
+/* 数学ホワイトボード: <strong>タグで注目箇所をamber色にハイライト */
+.math-wb-formula strong {
+  color: #D97706;
+  font-weight: 700;
+}
+
 /* キーワード強調バッジ */
 .keyword {
   background-color: #FEF3C7;

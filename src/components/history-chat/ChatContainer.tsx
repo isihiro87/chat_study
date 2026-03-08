@@ -12,6 +12,7 @@ import { ChatQuiz } from './ChatQuiz';
 import { SummaryCard } from './SummaryCard';
 import { SummaryPointBlock } from './SummaryPointBlock';
 import { WhiteboardBlock } from './WhiteboardBlock';
+import { MathWhiteboardBlock } from './MathWhiteboardBlock';
 import { ChatImageBlock } from './ChatImageBlock';
 import type { HistoryChat, EndContent, MessageContent } from '../../data/history-chat/types';
 
@@ -36,6 +37,8 @@ export function ChatContainer({ chat, embedded = false, onNavigateToFlashcard, o
     quizAnswers,
     score,
     totalQuizzes,
+    isWaitingForWhiteboard,
+    getWhiteboardRevealedSteps,
     next,
     selectAnswer,
     reset,
@@ -50,6 +53,9 @@ export function ChatContainer({ chat, embedded = false, onNavigateToFlashcard, o
 
   // 音声再生機能
   const { speak, isSpeaking, speakingText, isSupported: isSpeechSupported } = useSpeechSynthesis();
+
+  // 数学科目かどうかの判定
+  const isMathChat = chat.id.startsWith('math-');
 
   // キャラクターマップを作成
   const characterMap = useMemo(() => {
@@ -97,6 +103,8 @@ export function ChatContainer({ chat, embedded = false, onNavigateToFlashcard, o
     }
   };
 
+  // ホワイトボード展開中もタップ可能にする（nextが内部で処理する）
+
   // クイズ回答直後の状態（最後の表示コンテンツがクイズで回答済み）
   const isPostQuiz = useMemo(() => {
     if (isWaitingForQuiz || isComplete || shownIndex === 0) return false;
@@ -105,14 +113,16 @@ export function ChatContainer({ chat, embedded = false, onNavigateToFlashcard, o
   }, [isWaitingForQuiz, isComplete, shownIndex, chat.content, quizAnswers]);
 
   // プロンプトメッセージ
-  // クイズ待ち状態: 選択肢をタップ、初回またはクイズ回答後: タップして次へ
+  // クイズ待ち状態: 選択肢をタップ、ホワイトボード展開中: タップして次のステップ、初回またはクイズ回答後: タップして次へ
   const promptMessage = isWaitingForQuiz
     ? '❓ 選択肢をタップ！'
     : isComplete
       ? ''
-      : (!hasTapped || isPostQuiz)
-        ? '▼ タップして次へ'
-        : '';
+      : isWaitingForWhiteboard
+        ? '▼ タップして次のステップ'
+        : (!hasTapped || isPostQuiz)
+          ? '▼ タップして次へ'
+          : '';
 
   return (
     <div
@@ -186,6 +196,16 @@ export function ChatContainer({ chat, embedded = false, onNavigateToFlashcard, o
                     return <SummaryPointBlock key={key} text={content.text} />;
 
                   case 'whiteboard':
+                    if (isMathChat) {
+                      return (
+                        <MathWhiteboardBlock
+                          key={key}
+                          title={content.title}
+                          steps={content.steps}
+                          revealedSteps={getWhiteboardRevealedSteps(index)}
+                        />
+                      );
+                    }
                     return (
                       <WhiteboardBlock
                         key={key}

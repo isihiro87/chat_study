@@ -1,5 +1,5 @@
 import { useState, useCallback, useMemo } from 'react';
-import type { HistoryChat, ChatContent, QuizContent } from '../data/history-chat/types';
+import type { HistoryChat, ChatContent, QuizContent, WhiteboardContent } from '../data/history-chat/types';
 
 interface UseHistoryChatReturn {
   // 表示状態
@@ -20,6 +20,10 @@ interface UseHistoryChatReturn {
   // スコア
   score: number;
   totalQuizzes: number;
+
+  // ホワイトボード状態
+  isWaitingForWhiteboard: boolean;
+  getWhiteboardRevealedSteps: (contentIndex: number) => number;
 
   // アクション
   next: () => void;
@@ -47,6 +51,9 @@ export function useHistoryChat(chat: HistoryChat): UseHistoryChatReturn {
   // クイズ回答状態
   const [quizAnswers, setQuizAnswers] = useState<Record<number, number | null>>({});
   const [quizResults, setQuizResults] = useState<Record<number, boolean>>({});
+
+  // ホワイトボードステップ進行状態（contentIndex → 表示済みステップ数）
+  const [whiteboardProgress, setWhiteboardProgress] = useState<Record<number, number>>({});
 
   const content = chat.content;
   const totalContent = content.length;
@@ -82,6 +89,17 @@ export function useHistoryChat(chat: HistoryChat): UseHistoryChatReturn {
   // クイズ回答待ち状態か
   const isWaitingForQuiz = currentQuizIndex !== null;
 
+  // ホワイトボード展開中かどうか（最後の表示コンテンツがwhiteboardで未完了の場合）
+  const isWaitingForWhiteboard = useMemo(() => {
+    if (shownIndex === 0) return false;
+    const lastIndex = shownIndex - 1;
+    const lastContent = content[lastIndex];
+    if (lastContent?.type !== 'whiteboard') return false;
+    const revealed = whiteboardProgress[lastIndex] ?? 0;
+    const totalSteps = (lastContent as WhiteboardContent).steps.length;
+    return revealed < totalSteps;
+  }, [content, shownIndex, whiteboardProgress]);
+
   // 次の要素を表示
   const next = useCallback(() => {
     // クイズ回答待ち中は進めない
@@ -92,10 +110,28 @@ export function useHistoryChat(chat: HistoryChat): UseHistoryChatReturn {
     // タップ回数を更新（3回まで）
     setTapCount((prev) => Math.min(prev + 1, 3));
 
+    // ホワイトボード展開中はステップを進める
+    if (isWaitingForWhiteboard) {
+      const lastIndex = shownIndex - 1;
+      setWhiteboardProgress((prev) => ({
+        ...prev,
+        [lastIndex]: (prev[lastIndex] ?? 0) + 1,
+      }));
+      return;
+    }
+
     if (shownIndex < totalContent) {
+      // 次のコンテンツがwhiteboardの場合、進行と同時にステップ1を初期化
+      const nextContent = content[shownIndex];
+      if (nextContent?.type === 'whiteboard') {
+        setWhiteboardProgress((prev) => ({
+          ...prev,
+          [shownIndex]: 1,
+        }));
+      }
       setShownIndex((prev) => prev + 1);
     }
-  }, [isWaitingForQuiz, shownIndex, totalContent]);
+  }, [isWaitingForQuiz, isWaitingForWhiteboard, shownIndex, totalContent, content]);
 
   // クイズに回答
   const selectAnswer = useCallback(
@@ -118,11 +154,18 @@ export function useHistoryChat(chat: HistoryChat): UseHistoryChatReturn {
     [content, currentQuizIndex]
   );
 
+  // ホワイトボードの表示済みステップ数を取得
+  const getWhiteboardRevealedSteps = useCallback(
+    (contentIndex: number) => whiteboardProgress[contentIndex] ?? 0,
+    [whiteboardProgress]
+  );
+
   // リセット
   const reset = useCallback(() => {
     setShownIndex(1);
     setQuizAnswers({});
     setQuizResults({});
+    setWhiteboardProgress({});
   }, []);
 
   return {
@@ -137,6 +180,8 @@ export function useHistoryChat(chat: HistoryChat): UseHistoryChatReturn {
     quizResults,
     score,
     totalQuizzes,
+    isWaitingForWhiteboard,
+    getWhiteboardRevealedSteps,
     next,
     selectAnswer,
     reset,
