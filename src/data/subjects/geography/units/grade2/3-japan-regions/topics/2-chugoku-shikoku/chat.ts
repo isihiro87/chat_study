@@ -1,0 +1,207 @@
+import type { HistoryChat } from '../../../../../../../../data/history-chat/types';
+
+export const chugokuShikokuChat: HistoryChat = {
+  id: 'geo2-chugoku-shikoku',
+  icon: '🌊',
+  title: '中国・四国地方',
+  subtitle: '〜中2地理〜 山陰・瀬戸内・南四国の気候差・本四連絡橋・過疎対策',
+  characters: [
+    {
+      id: 'teacher',
+      name: '地理の先生',
+      emoji: '🌍',
+      colorFrom: '#2563EB',
+      colorTo: '#60A5FA',
+      expressions: {
+        explaining: '🧑‍🏫',
+        happy: '😊',
+        excited: '🤩',
+        thinking: '🤔',
+      },
+    },
+    {
+      id: 'student',
+      name: '生徒',
+      emoji: '👦',
+      colorFrom: '#d97706',
+      colorTo: '#fbbf24',
+      expressions: {
+        curious: '🙋‍♂️',
+        surprised: '😲',
+        thinking: '🤔',
+        happy: '😄',
+      },
+    },
+  ],
+  content: [
+    {
+      type: 'date',
+      text: '3つの地域と気候の違い',
+    },
+    {
+      type: 'narrator',
+      text: '<ruby>中国<rp>(</rp><rt>ちゅうごく</rt><rp>)</rp></ruby>・<ruby>四国<rp>(</rp><rt>しこく</rt><rp>)</rp></ruby>地方は山地によって3つの地域に分かれ、気候が大きく異なります。',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '中国・四国地方は<strong><span class="keyword"><ruby>中国山地<rp>(</rp><rt>ちゅうごくさんち</rt><rp>)</rp></ruby></span></strong>と<strong><span class="keyword"><ruby>四国山地<rp>(</rp><rt>しこくさんち</rt><rp>)</rp></ruby></span></strong>によって、<ruby>山陰<rp>(</rp><rt>さんいん</rt><rp>)</rp></ruby>・<ruby>瀬戸内<rp>(</rp><rt>せとうち</rt><rp>)</rp></ruby>・<ruby>南四国<rp>(</rp><rt>みなみしこく</rt><rp>)</rp></ruby>の3つの地域に分かれるんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '3つの地域で気候はどう違うんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<strong>山陰</strong>（日本海側）は冬に北西の<ruby>季節風<rp>(</rp><rt>きせつふう</rt><rp>)</rp></ruby>で<ruby>雪<rp>(</rp><rt>ゆき</rt><rp>)</rp></ruby>が多いよ。<strong>瀬戸内</strong>は山地にはさまれて<ruby>季節風<rp>(</rp><rt>きせつふう</rt><rp>)</rp></ruby>の<ruby>影響<rp>(</rp><rt>えいきょう</rt><rp>)</rp></ruby>を受けにくく、<ruby>降水量<rp>(</rp><rt>こうすいりょう</rt><rp>)</rp></ruby>が少なくて温暖なんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: '南四国はどうですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: '<strong>南四国</strong>（<ruby>太平洋<rp>(</rp><rt>たいへいよう</rt><rp>)</rp></ruby>側）は<ruby>黒潮<rp>(</rp><rt>くろしお</rt><rp>)</rp></ruby>の影響で温暖だけど、夏は<ruby>台風<rp>(</rp><rt>たいふう</rt><rp>)</rp></ruby>や<ruby>梅雨<rp>(</rp><rt>つゆ</rt><rp>)</rp></ruby>前線の影響で降水量がとても多いんだよ',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">中国山地</span>と<span class="keyword">四国山地</span>で、山陰（雪）・瀬戸内（少雨）・南四国（多雨）の3気候に分かれる',
+    },
+    {
+      type: 'date',
+      text: '本州四国連絡橋と交通',
+    },
+    {
+      type: 'narrator',
+      text: '本州と四国を結ぶ橋の<ruby>開通<rp>(</rp><rt>かいつう</rt><rp>)</rp></ruby>は、地域に大きな変化をもたらしました。',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'excited',
+      text: '<strong><span class="keyword"><ruby>本州四国連絡橋<rp>(</rp><rt>ほんしゅうしこくれんらくきょう</rt><rp>)</rp></ruby></span></strong>は3つのルートがあるよ。<strong><ruby>瀬戸大橋<rp>(</rp><rt>せとおおはし</rt><rp>)</rp></ruby></strong>、<strong><ruby>明石海峡大橋<rp>(</rp><rt>あかしかいきょうおおはし</rt><rp>)</rp></ruby></strong>、<strong>しまなみ<ruby>海道<rp>(</rp><rt>かいどう</rt><rp>)</rp></ruby></strong>だ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'happy',
+      text: '橋ができて便利になったんですね！',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'thinking',
+      text: 'でも問題もあるんだ。交通が便利になって、四国の人が<ruby>大阪<rp>(</rp><rt>おおさか</rt><rp>)</rp></ruby>や<ruby>神戸<rp>(</rp><rt>こうべ</rt><rp>)</rp></ruby>に買い物に行くようになり、地元の<ruby>商店街<rp>(</rp><rt>しょうてんがい</rt><rp>)</rp></ruby>が<ruby>衰退<rp>(</rp><rt>すいたい</rt><rp>)</rp></ruby>する<strong><span class="keyword">ストロー<ruby>現象<rp>(</rp><rt>げんしょう</rt><rp>)</rp></ruby></span></strong>が起きているんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'surprised',
+      text: 'ストローで吸い取られるように人が流れるから「ストロー現象」なんですね！',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">本州四国連絡橋</span>で移動が便利に。一方で<span class="keyword">ストロー現象</span>による地方の衰退が課題',
+    },
+    {
+      type: 'date',
+      text: '瀬戸内工業地域とICT活用',
+    },
+    {
+      type: 'narrator',
+      text: '<ruby>瀬戸内海<rp>(</rp><rt>せとないかい</rt><rp>)</rp></ruby>沿岸の工業と、<ruby>過疎<rp>(</rp><rt>かそ</rt><rp>)</rp></ruby>地域のICT活用を見てみましょう。',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '瀬戸内海沿岸には<strong><span class="keyword"><ruby>石油化学<rp>(</rp><rt>せきゆかがく</rt><rp>)</rp></ruby>コンビナート</span></strong>が立ち並んでいるよ。<ruby>倉敷<rp>(</rp><rt>くらしき</rt><rp>)</rp></ruby>市の<ruby>水島<rp>(</rp><rt>みずしま</rt><rp>)</rp></ruby>地区や<ruby>周南<rp>(</rp><rt>しゅうなん</rt><rp>)</rp></ruby>市が代表的だね。これを<strong><span class="keyword"><ruby>瀬戸内工業地域<rp>(</rp><rt>せとうちこうぎょうちいき</rt><rp>)</rp></ruby></span></strong>というんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: 'なぜ瀬戸内海沿岸に工場が多いんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: '瀬戸内海は<ruby>波<rp>(</rp><rt>なみ</rt><rp>)</rp></ruby>が<ruby>穏<rp>(</rp><rt>おだ</rt><rp>)</rp></ruby>やかで大型タンカーが<ruby>航行<rp>(</rp><rt>こうこう</rt><rp>)</rp></ruby>しやすいんだ。<ruby>原料<rp>(</rp><rt>げんりょう</rt><rp>)</rp></ruby>の<ruby>輸入<rp>(</rp><rt>ゆにゅう</rt><rp>)</rp></ruby>や製品の<ruby>輸出<rp>(</rp><rt>ゆしゅつ</rt><rp>)</rp></ruby>に便利な<ruby>立地<rp>(</rp><rt>りっち</rt><rp>)</rp></ruby>なんだよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: '中山間地域の<ruby>過疎<rp>(</rp><rt>かそ</rt><rp>)</rp></ruby>化はどう解決しているんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'excited',
+      text: '<ruby>徳島<rp>(</rp><rt>とくしま</rt><rp>)</rp></ruby>県<ruby>上勝<rp>(</rp><rt>かみかつ</rt><rp>)</rp></ruby>町では、<ruby>高齢者<rp>(</rp><rt>こうれいしゃ</rt><rp>)</rp></ruby>がタブレットを使って<strong><span class="keyword">葉っぱビジネス</span></strong>をしているんだ。料理の「つまもの」に使う葉っぱを出荷して<ruby>収入<rp>(</rp><rt>しゅうにゅう</rt><rp>)</rp></ruby>を得ているよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'surprised',
+      text: 'おばあちゃんがタブレット！すごいですね！',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: '<ruby>島根<rp>(</rp><rt>しまね</rt><rp>)</rp></ruby>県<ruby>松江<rp>(</rp><rt>まつえ</rt><rp>)</rp></ruby>市では、プログラミング言語<strong><span class="keyword">Ruby</span></strong>の開発者が<ruby>拠点<rp>(</rp><rt>きょてん</rt><rp>)</rp></ruby>を置いていて、IT企業の<ruby>誘致<rp>(</rp><rt>ゆうち</rt><rp>)</rp></ruby>による地域おこしが行われているんだよ',
+    },
+    {
+      type: 'quiz',
+      question: '交通網の整備で地方の人口や消費が大都市に流出する現象を何というか？',
+      options: [
+        { letter: 'A', text: 'ドーナツ化現象', correct: false },
+        { letter: 'B', text: 'ストロー現象', correct: true },
+        { letter: 'C', text: 'ヒートアイランド現象', correct: false },
+        { letter: 'D', text: 'スプロール現象', correct: false },
+      ],
+      explanation:
+        '<strong>正解はB「ストロー<ruby>現象<rp>(</rp><rt>げんしょう</rt><rp>)</rp></ruby>」</strong>です。交通が便利になった結果、ストローで吸い取るように地方の人口や消費が大都市に流出する現象です。',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">瀬戸内工業地域</span>：石油化学コンビナート。<span class="keyword">葉っぱビジネス</span>・<span class="keyword">Ruby</span>でICT活用の地域おこし',
+    },
+    {
+      type: 'end',
+      points: [
+        '<strong>中国山地</strong>と<strong>四国山地</strong>で<ruby>山陰<rp>(</rp><rt>さんいん</rt><rp>)</rp></ruby>・<ruby>瀬戸内<rp>(</rp><rt>せとうち</rt><rp>)</rp></ruby>・南四国の3つの気候に分かれる',
+        '<strong><ruby>本州四国連絡橋<rp>(</rp><rt>ほんしゅうしこくれんらくきょう</rt><rp>)</rp></ruby></strong>で移動が便利に。<strong>ストロー現象</strong>で地方の<ruby>衰退<rp>(</rp><rt>すいたい</rt><rp>)</rp></ruby>が課題',
+        '<strong><ruby>瀬戸内工業地域<rp>(</rp><rt>せとうちこうぎょうちいき</rt><rp>)</rp></ruby></strong>：石油化学コンビナートが立地',
+        '<strong>葉っぱビジネス</strong>・<strong>Ruby</strong>などICTを活用した<ruby>過疎<rp>(</rp><rt>かそ</rt><rp>)</rp></ruby>地域の<ruby>活性化<rp>(</rp><rt>かっせいか</rt><rp>)</rp></ruby>',
+      ],
+    },
+  ],
+};

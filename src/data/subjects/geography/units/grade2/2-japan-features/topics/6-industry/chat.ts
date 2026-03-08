@@ -1,0 +1,204 @@
+import type { HistoryChat } from '../../../../../../../../data/history-chat/types';
+
+export const industryChat: HistoryChat = {
+  id: 'geo2-industry',
+  icon: '🏭',
+  title: '産業・交通から見た日本の特色',
+  subtitle: '〜中2地理〜 農業・工業・サービス業と交通網',
+  characters: [
+    {
+      id: 'teacher',
+      name: '地理の先生',
+      emoji: '🌍',
+      colorFrom: '#2563EB',
+      colorTo: '#60A5FA',
+      expressions: {
+        explaining: '🧑‍🏫',
+        happy: '😊',
+        excited: '🤩',
+        thinking: '🤔',
+      },
+    },
+    {
+      id: 'student',
+      name: '生徒',
+      emoji: '👦',
+      colorFrom: '#d97706',
+      colorTo: '#fbbf24',
+      expressions: {
+        curious: '🙋‍♂️',
+        surprised: '😲',
+        thinking: '🤔',
+        happy: '😄',
+      },
+    },
+  ],
+  content: [
+    {
+      type: 'date',
+      text: '農業と食料自給率',
+    },
+    {
+      type: 'narrator',
+      text: '日本の<ruby>産業<rp>(</rp><rt>さんぎょう</rt><rp>)</rp></ruby>にはどのような特色があるのでしょうか。まず<ruby>農業<rp>(</rp><rt>のうぎょう</rt><rp>)</rp></ruby>と<ruby>食料自給率<rp>(</rp><rt>しょくりょうじきゅうりつ</rt><rp>)</rp></ruby>から見ていきましょう。',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '日本の<strong><span class="keyword"><ruby>食料自給率<rp>(</rp><rt>しょくりょうじきゅうりつ</rt><rp>)</rp></ruby></span></strong>は<ruby>カロリー<rp>(</rp><rt>かろりー</rt><rp>)</rp></ruby>ベースで<strong>約40%前後</strong>と、先進国の中でも低い水準なんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'surprised',
+      text: '食べ物の半分以上を外国から<ruby>輸入<rp>(</rp><rt>ゆにゅう</rt><rp>)</rp></ruby>しているんですか！',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'thinking',
+      text: 'そうなんだ。安い外国産の<ruby>農産物<rp>(</rp><rt>のうさんぶつ</rt><rp>)</rp></ruby>に押されて国内の農業は<ruby>厳<rp>(</rp><rt>きび</rt><rp>)</rp></ruby>しい状況だよ。でも各地で<strong><span class="keyword">農産物のブランド化</span></strong>が進められているんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: 'ブランド化ってどういうことですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: '品質の高さを<ruby>武器<rp>(</rp><rt>ぶき</rt><rp>)</rp></ruby>に<ruby>付加価値<rp>(</rp><rt>ふかかち</rt><rp>)</rp></ruby>をつけて販売する取り組みだよ。コシヒカリ（米）、<ruby>夕張<rp>(</rp><rt>ゆうばり</rt><rp>)</rp></ruby>メロン、<ruby>松阪牛<rp>(</rp><rt>まつさかうし</rt><rp>)</rp></ruby>なんかが有名だね。最近は<strong><span class="keyword">スマート<ruby>農業<rp>(</rp><rt>のうぎょう</rt><rp>)</rp></ruby></span></strong>（IT活用）も注目されているよ',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">食料自給率</span>：カロリーベースで約40%（先進国でも低い）',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">農産物のブランド化</span>で付加価値をつけて対応',
+    },
+    {
+      type: 'date',
+      text: '工業とサービス業',
+    },
+    {
+      type: 'narrator',
+      text: '日本の<ruby>工業<rp>(</rp><rt>こうぎょう</rt><rp>)</rp></ruby>やサービス業はどこに集まっていて、どう変化しているのでしょうか。',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '日本の工場ってどこに集まっているんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<strong><span class="keyword"><ruby>太平洋<rp>(</rp><rt>たいへいよう</rt><rp>)</rp></ruby>ベルト</span></strong>とよばれる、<ruby>関東<rp>(</rp><rt>かんとう</rt><rp>)</rp></ruby>から<ruby>九州<rp>(</rp><rt>きゅうしゅう</rt><rp>)</rp></ruby>北部にかけての太平洋<ruby>沿<rp>(</rp><rt>ぞ</rt><rp>)</rp></ruby>いの地域に<ruby>工業地帯<rp>(</rp><rt>こうぎょうちたい</rt><rp>)</rp></ruby>が集中しているよ。<strong><span class="keyword"><ruby>四大工業地帯<rp>(</rp><rt>よんだいこうぎょうちたい</rt><rp>)</rp></ruby></span></strong>は<ruby>京浜<rp>(</rp><rt>けいひん</rt><rp>)</rp></ruby>・<ruby>中京<rp>(</rp><rt>ちゅうきょう</rt><rp>)</rp></ruby>・<ruby>阪神<rp>(</rp><rt>はんしん</rt><rp>)</rp></ruby>・<ruby>北九州<rp>(</rp><rt>きたきゅうしゅう</rt><rp>)</rp></ruby>だね',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: '最近はサービス業で働く人が増えているって聞きました',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'excited',
+      text: 'その通り！<strong><span class="keyword"><ruby>第三次産業<rp>(</rp><rt>だいさんじさんぎょう</rt><rp>)</rp></ruby></span></strong>（サービス業）の<ruby>就業者<rp>(</rp><rt>しゅうぎょうしゃ</rt><rp>)</rp></ruby>が増加して、全就業者の<strong>約7割</strong>を占めているんだ。<strong><span class="keyword">ICT</span></strong>（<ruby>情報通信技術<rp>(</rp><rt>じょうほうつうしんぎじゅつ</rt><rp>)</rp></ruby>）の発達で<ruby>情報<rp>(</rp><rt>じょうほう</rt><rp>)</rp></ruby>・通信関連のサービスが急成長しているよ',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">太平洋ベルト</span>に工業地帯が集中（京浜・中京・阪神・北九州）',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">第三次産業</span>が就業者の約7割。<span class="keyword">ICT</span>も急成長',
+    },
+    {
+      type: 'date',
+      text: '交通網と通信網の発達',
+    },
+    {
+      type: 'narrator',
+      text: '日本の<ruby>交通網<rp>(</rp><rt>こうつうもう</rt><rp>)</rp></ruby>と<ruby>通信網<rp>(</rp><rt>つうしんもう</rt><rp>)</rp></ruby>はどのように発達してきたのでしょうか。',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '日本の交通ってすごく便利ですよね？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<strong><span class="keyword"><ruby>新幹線<rp>(</rp><rt>しんかんせん</rt><rp>)</rp></ruby></span></strong>や<strong><span class="keyword"><ruby>高速道路<rp>(</rp><rt>こうそくどうろ</rt><rp>)</rp></ruby></span></strong>の<ruby>整備<rp>(</rp><rt>せいび</rt><rp>)</rp></ruby>で、主要都市間の<ruby>移動時間<rp>(</rp><rt>いどうじかん</rt><rp>)</rp></ruby>が大幅に<ruby>短縮<rp>(</rp><rt>たんしゅく</rt><rp>)</rp></ruby>されたんだ。特に<strong><ruby>東海道新幹線<rp>(</rp><rt>とうかいどうしんかんせん</rt><rp>)</rp></ruby></strong>は東京・名古屋・大阪を結ぶ<ruby>大動脈<rp>(</rp><rt>だいどうみゃく</rt><rp>)</rp></ruby>だよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: 'インターネットの発達でも変わったことがありますか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: '<strong><span class="keyword">インターネット<ruby>通信網<rp>(</rp><rt>つうしんもう</rt><rp>)</rp></ruby></span></strong>の<ruby>普及<rp>(</rp><rt>ふきゅう</rt><rp>)</rp></ruby>で、<ruby>離<rp>(</rp><rt>はな</rt><rp>)</rp></ruby>れた場所でもリアルタイムに情報のやり取りができるようになったよ。テレワークやオンライン教育も広がっているんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'happy',
+      text: '交通も通信も発達して、日本中がつながっているんですね！',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">新幹線</span>・<span class="keyword">高速道路</span>で移動時間が大幅短縮',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">インターネット通信網</span>の普及でテレワーク・オンライン教育も広がる',
+    },
+    {
+      type: 'quiz',
+      question: '日本で全就業者の約7割を占める産業はどれか？',
+      options: [
+        { letter: 'A', text: '第一次産業', correct: false },
+        { letter: 'B', text: '第二次産業', correct: false },
+        { letter: 'C', text: '第三次産業', correct: true },
+        { letter: 'D', text: '第四次産業', correct: false },
+      ],
+      explanation: '<strong>正解はC「<ruby>第三次産業<rp>(</rp><rt>だいさんじさんぎょう</rt><rp>)</rp></ruby>」</strong>です。サービス業・商業・<ruby>運輸業<rp>(</rp><rt>うんゆぎょう</rt><rp>)</rp></ruby>・<ruby>情報通信業<rp>(</rp><rt>じょうほうつうしんぎょう</rt><rp>)</rp></ruby>などが含まれ、<ruby>就業者<rp>(</rp><rt>しゅうぎょうしゃ</rt><rp>)</rp></ruby>の約7割を占めています。',
+    },
+    {
+      type: 'end',
+      points: [
+        '<strong><ruby>食料自給率<rp>(</rp><rt>しょくりょうじきゅうりつ</rt><rp>)</rp></ruby></strong>：カロリーベースで<strong>約40%</strong>。<ruby>農産物<rp>(</rp><rt>のうさんぶつ</rt><rp>)</rp></ruby>の<strong>ブランド化</strong>やスマート農業で対応',
+        '<strong><ruby>太平洋<rp>(</rp><rt>たいへいよう</rt><rp>)</rp></ruby>ベルト</strong>に<ruby>工業地帯<rp>(</rp><rt>こうぎょうちたい</rt><rp>)</rp></ruby>が集中（<ruby>京浜<rp>(</rp><rt>けいひん</rt><rp>)</rp></ruby>・<ruby>中京<rp>(</rp><rt>ちゅうきょう</rt><rp>)</rp></ruby>・<ruby>阪神<rp>(</rp><rt>はんしん</rt><rp>)</rp></ruby>・<ruby>北九州<rp>(</rp><rt>きたきゅうしゅう</rt><rp>)</rp></ruby>）',
+        '<strong><ruby>第三次産業<rp>(</rp><rt>だいさんじさんぎょう</rt><rp>)</rp></ruby></strong>（サービス業）が<ruby>就業者<rp>(</rp><rt>しゅうぎょうしゃ</rt><rp>)</rp></ruby>の<strong>約7割</strong>。<strong>ICT</strong>も急成長',
+        '<strong><ruby>新幹線<rp>(</rp><rt>しんかんせん</rt><rp>)</rp></ruby></strong>・<strong><ruby>高速道路<rp>(</rp><rt>こうそくどうろ</rt><rp>)</rp></ruby></strong>で移動時間短縮。<strong>インターネット</strong>でテレワークも普及',
+      ],
+    },
+  ],
+};

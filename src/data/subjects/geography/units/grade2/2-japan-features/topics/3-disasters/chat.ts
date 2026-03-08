@@ -1,0 +1,207 @@
+import type { HistoryChat } from '../../../../../../../../data/history-chat/types';
+
+export const disastersChat: HistoryChat = {
+  id: 'geo2-disasters',
+  icon: '🌊',
+  title: '自然災害と防災・減災',
+  subtitle: '〜中2地理〜 地震・台風・火山と防災の取り組み',
+  characters: [
+    {
+      id: 'teacher',
+      name: '地理の先生',
+      emoji: '🌍',
+      colorFrom: '#2563EB',
+      colorTo: '#60A5FA',
+      expressions: {
+        explaining: '🧑‍🏫',
+        happy: '😊',
+        excited: '🤩',
+        thinking: '🤔',
+      },
+    },
+    {
+      id: 'student',
+      name: '生徒',
+      emoji: '👦',
+      colorFrom: '#d97706',
+      colorTo: '#fbbf24',
+      expressions: {
+        curious: '🙋‍♂️',
+        surprised: '😲',
+        thinking: '🤔',
+        happy: '😄',
+      },
+    },
+  ],
+  content: [
+    {
+      type: 'date',
+      text: '地震・津波・火山による災害',
+    },
+    {
+      type: 'narrator',
+      text: '日本は世界でも<ruby>自然災害<rp>(</rp><rt>しぜんさいがい</rt><rp>)</rp></ruby>が多い国のひとつです。どのような災害が起こるのか、そしてどう備えるのかを学びましょう。',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '日本は<ruby>環太平洋造山帯<rp>(</rp><rt>かんたいへいようぞうざんたい</rt><rp>)</rp></ruby>に位置しているから、<strong><span class="keyword"><ruby>地震<rp>(</rp><rt>じしん</rt><rp>)</rp></ruby></span></strong>や<strong><span class="keyword"><ruby>火山<rp>(</rp><rt>かざん</rt><rp>)</rp></ruby>の<ruby>噴火<rp>(</rp><rt>ふんか</rt><rp>)</rp></ruby></span></strong>がとても多いんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '地震が海の底で起きると<ruby>津波<rp>(</rp><rt>つなみ</rt><rp>)</rp></ruby>になるんですよね？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: 'そうだね。海底で大きな地震が起こると<ruby>海底<rp>(</rp><rt>かいてい</rt><rp>)</rp></ruby>の<ruby>地盤<rp>(</rp><rt>じばん</rt><rp>)</rp></ruby>が動いて海水が持ち上げられ、<strong><span class="keyword"><ruby>津波<rp>(</rp><rt>つなみ</rt><rp>)</rp></ruby></span></strong>が発生するんだ。2011年の<strong><ruby>東日本大震災<rp>(</rp><rt>ひがしにほんだいしんさい</rt><rp>)</rp></ruby></strong>では巨大津波が東北の太平洋沿岸を<ruby>襲<rp>(</rp><rt>おそ</rt><rp>)</rp></ruby>い、<ruby>甚大<rp>(</rp><rt>じんだい</rt><rp>)</rp></ruby>な<ruby>被害<rp>(</rp><rt>ひがい</rt><rp>)</rp></ruby>が出たんだよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'surprised',
+      text: '火山の噴火ではどんな被害が出るんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'thinking',
+      text: '日本には<strong>100以上の<ruby>活火山<rp>(</rp><rt>かつかざん</rt><rp>)</rp></ruby></strong>があるんだ。噴火すると<ruby>溶岩流<rp>(</rp><rt>ようがんりゅう</rt><rp>)</rp></ruby>や<ruby>火砕流<rp>(</rp><rt>かさいりゅう</rt><rp>)</rp></ruby>、<ruby>火山灰<rp>(</rp><rt>かざんばい</rt><rp>)</rp></ruby>が降って大きな被害になることがある。でも、<ruby>温泉<rp>(</rp><rt>おんせん</rt><rp>)</rp></ruby>や<ruby>肥沃<rp>(</rp><rt>ひよく</rt><rp>)</rp></ruby>な土地をもたらす<ruby>恩恵<rp>(</rp><rt>おんけい</rt><rp>)</rp></ruby>もあるんだよ',
+    },
+    {
+      type: 'summary-point',
+      text: '日本は<span class="keyword">地震</span>・<span class="keyword">津波</span>・<span class="keyword">火山の噴火</span>のリスクが高い',
+    },
+    {
+      type: 'date',
+      text: '気象災害',
+    },
+    {
+      type: 'narrator',
+      text: '地震や火山だけでなく、<ruby>台風<rp>(</rp><rt>たいふう</rt><rp>)</rp></ruby>や<ruby>豪雨<rp>(</rp><rt>ごうう</rt><rp>)</rp></ruby>による災害も日本では多く発生します。',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '台風や大雨ではどんな災害が起こるんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<strong><span class="keyword"><ruby>台風<rp>(</rp><rt>たいふう</rt><rp>)</rp></ruby></span></strong>は夏から秋にかけて日本に<ruby>接近<rp>(</rp><rt>せっきん</rt><rp>)</rp></ruby>して、<ruby>暴風<rp>(</rp><rt>ぼうふう</rt><rp>)</rp></ruby>や大雨をもたらすよ。<strong><span class="keyword"><ruby>集中豪雨<rp>(</rp><rt>しゅうちゅうごうう</rt><rp>)</rp></ruby></span></strong>は短時間に大量の雨が降る<ruby>現象<rp>(</rp><rt>げんしょう</rt><rp>)</rp></ruby>で、<strong><span class="keyword"><ruby>土石流<rp>(</rp><rt>どせきりゅう</rt><rp>)</rp></ruby></span></strong>や<strong><span class="keyword"><ruby>洪水<rp>(</rp><rt>こうずい</rt><rp>)</rp></ruby></span></strong>の原因になるんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: 'ほかにもどんな気象災害がありますか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<strong><span class="keyword"><ruby>冷害<rp>(</rp><rt>れいがい</rt><rp>)</rp></ruby></span></strong>は夏に気温が上がらず<ruby>農作物<rp>(</rp><rt>のうさくぶつ</rt><rp>)</rp></ruby>に被害を与える災害だよ。<strong><span class="keyword"><ruby>干害<rp>(</rp><rt>かんがい</rt><rp>)</rp></ruby></span></strong>は長期間雨が降らず水不足になること。日本海側では冬に<strong><span class="keyword"><ruby>雪崩<rp>(</rp><rt>なだれ</rt><rp>)</rp></ruby></span></strong>の被害もあるんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'surprised',
+      text: 'いろんな種類の災害があるんですね…',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">台風</span>・<span class="keyword">集中豪雨</span> → 土石流・洪水・がけ崩れ',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">冷害</span>（農作物被害）・<span class="keyword">干害</span>（水不足）・<span class="keyword">雪崩</span>も発生',
+    },
+    {
+      type: 'date',
+      text: '防災・減災の取り組み',
+    },
+    {
+      type: 'narrator',
+      text: '災害から命を守るためには、日頃からの備えが大切です。<ruby>防災<rp>(</rp><rt>ぼうさい</rt><rp>)</rp></ruby>・<ruby>減災<rp>(</rp><rt>げんさい</rt><rp>)</rp></ruby>の取り組みを学びましょう。',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '災害に備えるためにはどうすればいいんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: 'まず<strong><span class="keyword">ハザードマップ</span></strong>を活用しよう。自分の住む地域のどこが<ruby>危険<rp>(</rp><rt>きけん</rt><rp>)</rp></ruby>か、<ruby>避難場所<rp>(</rp><rt>ひなんばしょ</rt><rp>)</rp></ruby>はどこか、事前に知っておくことが大切だよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: '防災って国がやってくれるものじゃないんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'excited',
+      text: '国や<ruby>自治体<rp>(</rp><rt>じちたい</rt><rp>)</rp></ruby>が行う<strong><span class="keyword"><ruby>公助<rp>(</rp><rt>こうじょ</rt><rp>)</rp></ruby></span></strong>だけでは限界があるんだ。自分の身を自分で守る<strong><span class="keyword"><ruby>自助<rp>(</rp><rt>じじょ</rt><rp>)</rp></ruby></span></strong>と、地域の人同士で助け合う<strong><span class="keyword"><ruby>共助<rp>(</rp><rt>きょうじょ</rt><rp>)</rp></ruby></span></strong>を組み合わせることが大切なんだよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'happy',
+      text: '公助・自助・共助の3つが大切なんですね！普段から避難経路を確認しておきます！',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">ハザードマップ</span>で地域の災害リスクと避難場所を確認',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">公助</span>（国・自治体）・<span class="keyword">自助</span>（自分で守る）・<span class="keyword">共助</span>（地域で助け合う）の組み合わせが大切',
+    },
+    {
+      type: 'quiz',
+      question: '地域ごとの災害リスクや避難場所を示した地図を何というか？',
+      options: [
+        { letter: 'A', text: '地形図', correct: false },
+        { letter: 'B', text: 'ハザードマップ', correct: true },
+        { letter: 'C', text: '天気図', correct: false },
+        { letter: 'D', text: '路線図', correct: false },
+      ],
+      explanation: '<strong>正解はB「ハザードマップ」</strong>です。地域の<ruby>災害<rp>(</rp><rt>さいがい</rt><rp>)</rp></ruby>リスク（<ruby>浸水<rp>(</rp><rt>しんすい</rt><rp>)</rp></ruby>区域、<ruby>土砂災害<rp>(</rp><rt>どしゃさいがい</rt><rp>)</rp></ruby><ruby>危険箇所<rp>(</rp><rt>きけんかしょ</rt><rp>)</rp></ruby>など）や<ruby>避難場所<rp>(</rp><rt>ひなんばしょ</rt><rp>)</rp></ruby>を示した地図です。',
+    },
+    {
+      type: 'end',
+      points: [
+        '日本は<strong><ruby>地震<rp>(</rp><rt>じしん</rt><rp>)</rp></ruby></strong>・<strong><ruby>津波<rp>(</rp><rt>つなみ</rt><rp>)</rp></ruby></strong>・<strong><ruby>火山<rp>(</rp><rt>かざん</rt><rp>)</rp></ruby>の<ruby>噴火<rp>(</rp><rt>ふんか</rt><rp>)</rp></ruby></strong>による災害が多い（<ruby>環太平洋造山帯<rp>(</rp><rt>かんたいへいようぞうざんたい</rt><rp>)</rp></ruby>に位置）',
+        '<strong><ruby>台風<rp>(</rp><rt>たいふう</rt><rp>)</rp></ruby></strong>・<strong><ruby>集中豪雨<rp>(</rp><rt>しゅうちゅうごうう</rt><rp>)</rp></ruby></strong> → <ruby>土石流<rp>(</rp><rt>どせきりゅう</rt><rp>)</rp></ruby>・<ruby>洪水<rp>(</rp><rt>こうずい</rt><rp>)</rp></ruby>。<ruby>冷害<rp>(</rp><rt>れいがい</rt><rp>)</rp></ruby>・<ruby>干害<rp>(</rp><rt>かんがい</rt><rp>)</rp></ruby>・<ruby>雪崩<rp>(</rp><rt>なだれ</rt><rp>)</rp></ruby>も',
+        '<strong>ハザードマップ</strong>で地域の災害リスクと<ruby>避難場所<rp>(</rp><rt>ひなんばしょ</rt><rp>)</rp></ruby>を確認',
+        '<strong><ruby>公助<rp>(</rp><rt>こうじょ</rt><rp>)</rp></ruby></strong>（国・自治体）・<strong><ruby>自助<rp>(</rp><rt>じじょ</rt><rp>)</rp></ruby></strong>（自分で守る）・<strong><ruby>共助<rp>(</rp><rt>きょうじょ</rt><rp>)</rp></ruby></strong>（地域で助け合う）の組み合わせが大切',
+      ],
+    },
+  ],
+};

@@ -3,6 +3,9 @@ import { worldShapeEra, worldShapeTopics } from './grade1/1-world-shape';
 import { japanShapeEra, japanShapeTopics } from './grade1/2-japan-shape';
 import { lifeEnvironmentEra, lifeEnvironmentTopics } from './grade1/3-life-environment';
 import { worldRegionsEra, worldRegionsTopics } from './grade1/4-world-regions';
+import { regionalResearchEra, regionalResearchTopics } from './grade2/1-regional-research';
+import { japanFeaturesEra, japanFeaturesTopics } from './grade2/2-japan-features';
+import { japanRegionsEra, japanRegionsTopics } from './grade2/3-japan-regions';
 
 // 全Era一覧
 export const eras: Era[] = [
@@ -10,6 +13,9 @@ export const eras: Era[] = [
   japanShapeEra,
   lifeEnvironmentEra,
   worldRegionsEra,
+  regionalResearchEra,
+  japanFeaturesEra,
+  japanRegionsEra,
 ].sort((a, b) => a.order - b.order);
 
 // 全トピック一覧
@@ -18,6 +24,9 @@ export const allTopics: Topic[] = [
   ...japanShapeTopics,
   ...lifeEnvironmentTopics,
   ...worldRegionsTopics,
+  ...regionalResearchTopics,
+  ...japanFeaturesTopics,
+  ...japanRegionsTopics,
 ];
 
 // Era取得

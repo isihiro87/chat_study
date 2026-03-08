@@ -1,0 +1,188 @@
+import type { HistoryChat } from '../../../../../../../../data/history-chat/types';
+
+export const climateChat: HistoryChat = {
+  id: 'geo2-climate',
+  icon: '🌸',
+  title: '気候から見た日本の特色',
+  subtitle: '〜中2地理〜 四季の変化と6つの気候区分',
+  characters: [
+    {
+      id: 'teacher',
+      name: '地理の先生',
+      emoji: '🌍',
+      colorFrom: '#2563EB',
+      colorTo: '#60A5FA',
+      expressions: {
+        explaining: '🧑‍🏫',
+        happy: '😊',
+        excited: '🤩',
+        thinking: '🤔',
+      },
+    },
+    {
+      id: 'student',
+      name: '生徒',
+      emoji: '👦',
+      colorFrom: '#d97706',
+      colorTo: '#fbbf24',
+      expressions: {
+        curious: '🙋‍♂️',
+        surprised: '😲',
+        thinking: '🤔',
+        happy: '😄',
+      },
+    },
+  ],
+  content: [
+    {
+      type: 'date',
+      text: '日本の気候の特徴',
+    },
+    {
+      type: 'narrator',
+      text: '日本は<ruby>四季<rp>(</rp><rt>しき</rt><rp>)</rp></ruby>の変化がはっきりした国です。その気候の特徴と、<ruby>季節<rp>(</rp><rt>きせつ</rt><rp>)</rp></ruby>ごとの<ruby>気象現象<rp>(</rp><rt>きしょうげんしょう</rt><rp>)</rp></ruby>を見ていきましょう。',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '日本の気候は<strong><span class="keyword"><ruby>温暖湿潤気候<rp>(</rp><rt>おんだんしつじゅんきこう</rt><rp>)</rp></ruby></span></strong>が中心で、<strong>四季がはっきり</strong>しているのが大きな特徴だよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '梅雨とか台風も日本の気候の特徴ですよね？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: 'そのとおり！春から夏にかけての<strong><span class="keyword"><ruby>梅雨<rp>(</rp><rt>つゆ</rt><rp>)</rp></ruby></span></strong>、夏から秋の<strong><span class="keyword"><ruby>台風<rp>(</rp><rt>たいふう</rt><rp>)</rp></ruby></span></strong>、そして冬の<strong><span class="keyword"><ruby>季節風<rp>(</rp><rt>きせつふう</rt><rp>)</rp></ruby>（モンスーン）</span></strong>が特徴的な気象現象だね',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: '季節風ってどういうものですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '季節によって<ruby>吹<rp>(</rp><rt>ふ</rt><rp>)</rp></ruby>く方向が変わる風のことだよ。<strong>夏は南東から</strong><ruby>湿<rp>(</rp><rt>しめ</rt><rp>)</rp></ruby>った風が吹いて<ruby>太平洋側<rp>(</rp><rt>たいへいようがわ</rt><rp>)</rp></ruby>に大量の雨をもたらし、<strong>冬は北西から</strong>冷たく湿った風が吹いて<ruby>日本海側<rp>(</rp><rt>にほんかいがわ</rt><rp>)</rp></ruby>に大雪をもたらすんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'surprised',
+      text: '季節風の向きで太平洋側と日本海側の天気が変わるんですね！',
+    },
+    {
+      type: 'summary-point',
+      text: '日本は<span class="keyword">温暖湿潤気候</span>が中心。四季がはっきりしている',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">季節風</span>：夏は南東から（太平洋側に雨）、冬は北西から（日本海側に雪）',
+    },
+    {
+      type: 'date',
+      text: '6つの気候区分',
+    },
+    {
+      type: 'narrator',
+      text: '日本は南北に長いため、地域によって気候が大きく異なります。<strong>6つの<ruby>気候区分<rp>(</rp><rt>きこうくぶん</rt><rp>)</rp></ruby></strong>を見ていきましょう。',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '日本はどんな気候区分に分けられるんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '日本は<strong>6つの気候区分</strong>に分けられるよ。まず<strong><span class="keyword">北海道の気候</span></strong>は冬の寒さが<ruby>厳<rp>(</rp><rt>きび</rt><rp>)</rp></ruby>しく、<strong><ruby>梅雨<rp>(</rp><rt>つゆ</rt><rp>)</rp></ruby>がない</strong>のが大きな特徴だ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'surprised',
+      text: '北海道には梅雨がないんですか！',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: '<ruby>梅雨前線<rp>(</rp><rt>ばいうぜんせん</rt><rp>)</rp></ruby>は北海道まで北上しないことが多いからね。次に<strong><span class="keyword">日本海側の気候</span></strong>は冬に<ruby>北西<rp>(</rp><rt>ほくせい</rt><rp>)</rp></ruby>の季節風で<strong>大雪</strong>が降る。<strong><span class="keyword">太平洋側の気候</span></strong>は夏に<ruby>降水量<rp>(</rp><rt>こうすいりょう</rt><rp>)</rp></ruby>が多く、冬は<ruby>晴天<rp>(</rp><rt>せいてん</rt><rp>)</rp></ruby>が多いよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: '日本海側と太平洋側で正反対なんですね。あと3つは何ですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<strong><span class="keyword">中央高地の気候</span></strong>は<ruby>昼夜<rp>(</rp><rt>ちゅうや</rt><rp>)</rp></ruby>や夏冬の<ruby>気温差<rp>(</rp><rt>きおんさ</rt><rp>)</rp></ruby>が大きく<ruby>降水量<rp>(</rp><rt>こうすいりょう</rt><rp>)</rp></ruby>が少ない。<strong><span class="keyword"><ruby>瀬戸内<rp>(</rp><rt>せとうち</rt><rp>)</rp></ruby>の気候</span></strong>は一年中<ruby>温暖<rp>(</rp><rt>おんだん</rt><rp>)</rp></ruby>で降水量が少ない<ruby>穏<rp>(</rp><rt>おだ</rt><rp>)</rp></ruby>やかな気候だよ',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'excited',
+      text: '最後は<strong><span class="keyword">南西諸島の気候</span></strong>。<ruby>亜熱帯<rp>(</rp><rt>あねったい</rt><rp>)</rp></ruby>に近くて一年中温暖、降水量も多いよ。<ruby>沖縄<rp>(</rp><rt>おきなわ</rt><rp>)</rp></ruby>などがこれに当たるね',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'happy',
+      text: '6つもあるんですね！山脈や海流の影響でこんなに違いが生まれるんだ',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">6つの気候区分</span>：北海道・日本海側・太平洋側・中央高地・瀬戸内・南西諸島',
+    },
+    {
+      type: 'summary-point',
+      text: '山脈が季節風をさえぎり、日本海側と太平洋側の<span class="keyword">気候の違い</span>を生む',
+    },
+    {
+      type: 'quiz',
+      question: '冬に大量の雪が降るのはどの気候区分の地域か？',
+      options: [
+        { letter: 'A', text: '太平洋側の気候', correct: false },
+        { letter: 'B', text: '日本海側の気候', correct: true },
+        { letter: 'C', text: '瀬戸内の気候', correct: false },
+        { letter: 'D', text: '中央高地の気候', correct: false },
+      ],
+      explanation: '<strong>正解はB「日本海側の気候」</strong>です。冬の北西の<ruby>季節風<rp>(</rp><rt>きせつふう</rt><rp>)</rp></ruby>が日本海で<ruby>水蒸気<rp>(</rp><rt>すいじょうき</rt><rp>)</rp></ruby>を含み、山脈にぶつかって大量の雪を降らせます。',
+    },
+    {
+      type: 'end',
+      points: [
+        '日本は<strong><ruby>温暖湿潤気候<rp>(</rp><rt>おんだんしつじゅんきこう</rt><rp>)</rp></ruby></strong>が中心で、<strong>四季</strong>がはっきりしている',
+        '<strong><ruby>季節風<rp>(</rp><rt>きせつふう</rt><rp>)</rp></ruby></strong>：夏は<strong>南東</strong>から（太平洋側に雨）、冬は<strong>北西</strong>から（日本海側に雪）',
+        '<strong>6つの気候区分</strong>：<ruby>北海道<rp>(</rp><rt>ほっかいどう</rt><rp>)</rp></ruby>・日本海側・太平洋側・<ruby>中央高地<rp>(</rp><rt>ちゅうおうこうち</rt><rp>)</rp></ruby>・<ruby>瀬戸内<rp>(</rp><rt>せとうち</rt><rp>)</rp></ruby>・<ruby>南西諸島<rp>(</rp><rt>なんせいしょとう</rt><rp>)</rp></ruby>',
+        '<ruby>北海道<rp>(</rp><rt>ほっかいどう</rt><rp>)</rp></ruby>は<strong><ruby>梅雨<rp>(</rp><rt>つゆ</rt><rp>)</rp></ruby>がない</strong>。<ruby>瀬戸内<rp>(</rp><rt>せとうち</rt><rp>)</rp></ruby>は山に囲まれて<strong>温暖・少雨</strong>',
+      ],
+    },
+  ],
+};

@@ -1,0 +1,200 @@
+import type { HistoryChat } from '../../../../../../../../data/history-chat/types';
+
+export const tohokuChat: HistoryChat = {
+  id: 'geo2-tohoku',
+  icon: '🌾',
+  title: '東北地方',
+  subtitle: '〜中2地理〜 奥羽山脈・やませ・リアス海岸・伝統産業・震災復興',
+  characters: [
+    {
+      id: 'teacher',
+      name: '地理の先生',
+      emoji: '🌍',
+      colorFrom: '#2563EB',
+      colorTo: '#60A5FA',
+      expressions: {
+        explaining: '🧑‍🏫',
+        happy: '😊',
+        excited: '🤩',
+        thinking: '🤔',
+      },
+    },
+    {
+      id: 'student',
+      name: '生徒',
+      emoji: '👦',
+      colorFrom: '#d97706',
+      colorTo: '#fbbf24',
+      expressions: {
+        curious: '🙋‍♂️',
+        surprised: '😲',
+        thinking: '🤔',
+        happy: '😄',
+      },
+    },
+  ],
+  content: [
+    {
+      type: 'date',
+      text: '奥羽山脈と気候',
+    },
+    {
+      type: 'narrator',
+      text: '<ruby>東北<rp>(</rp><rt>とうほく</rt><rp>)</rp></ruby>地方は<ruby>奥羽山脈<rp>(</rp><rt>おううさんみゃく</rt><rp>)</rp></ruby>を<ruby>境<rp>(</rp><rt>さかい</rt><rp>)</rp></ruby>に、日本海側と太平洋側で気候が大きく異なります。',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '東北地方の中央には<strong><span class="keyword"><ruby>奥羽山脈<rp>(</rp><rt>おううさんみゃく</rt><rp>)</rp></ruby></span></strong>が南北に連なっているよ。日本海側は冬に<ruby>季節風<rp>(</rp><rt>きせつふう</rt><rp>)</rp></ruby>が大量の<ruby>雪<rp>(</rp><rt>ゆき</rt><rp>)</rp></ruby>を降らせる<ruby>豪雪<rp>(</rp><rt>ごうせつ</rt><rp>)</rp></ruby>地帯なんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '太平洋側はどんな気候ですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'thinking',
+      text: '太平洋側では夏に<strong><span class="keyword">やませ</span></strong>という<ruby>冷<rp>(</rp><rt>つめ</rt><rp>)</rp></ruby>たく<ruby>湿<rp>(</rp><rt>しめ</rt><rp>)</rp></ruby>った北東の風が<ruby>吹<rp>(</rp><rt>ふ</rt><rp>)</rp></ruby>くことがあるんだ。<ruby>霧<rp>(</rp><rt>きり</rt><rp>)</rp></ruby>が発生して<ruby>日照<rp>(</rp><rt>にっしょう</rt><rp>)</rp></ruby>不足になると、<ruby>稲<rp>(</rp><rt>いね</rt><rp>)</rp></ruby>の<ruby>生育<rp>(</rp><rt>せいいく</rt><rp>)</rp></ruby>が<ruby>妨<rp>(</rp><rt>さまた</rt><rp>)</rp></ruby>げられて<strong><ruby>冷害<rp>(</rp><rt>れいがい</rt><rp>)</rp></ruby></strong>が起きるよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: '冷害にはどう対策しているんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: '<strong><ruby>品種改良<rp>(</rp><rt>ひんしゅかいりょう</rt><rp>)</rp></ruby></strong>で寒さに強い<ruby>品種<rp>(</rp><rt>ひんしゅ</rt><rp>)</rp></ruby>が開発されているよ。「ひとめぼれ」や「あきたこまち」などの<ruby>銘柄<rp>(</rp><rt>めいがら</rt><rp>)</rp></ruby>米も品種改良の<ruby>成果<rp>(</rp><rt>せいか</rt><rp>)</rp></ruby>なんだ',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">奥羽山脈</span>で気候が分かれる。<span class="keyword">やませ</span>は太平洋側の冷害の原因。品種改良で対策',
+    },
+    {
+      type: 'date',
+      text: '三陸海岸と漁業',
+    },
+    {
+      type: 'narrator',
+      text: '<ruby>三陸<rp>(</rp><rt>さんりく</rt><rp>)</rp></ruby>海岸は世界有数の<ruby>漁場<rp>(</rp><rt>ぎょじょう</rt><rp>)</rp></ruby>を持つ地域です。',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '三陸海岸は<strong><span class="keyword">リアス<ruby>海岸<rp>(</rp><rt>かいがん</rt><rp>)</rp></ruby></span></strong>になっていて、出入りの<ruby>複雑<rp>(</rp><rt>ふくざつ</rt><rp>)</rp></ruby>な海岸線が特徴だよ。波が<ruby>穏<rp>(</rp><rt>おだ</rt><rp>)</rp></ruby>やかな<ruby>入<rp>(</rp><rt>い</rt><rp>)</rp></ruby>り<ruby>江<rp>(</rp><rt>え</rt><rp>)</rp></ruby>を利用して<strong><ruby>養殖漁業<rp>(</rp><rt>ようしょくぎょぎょう</rt><rp>)</rp></ruby></strong>が盛んなんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '何を<ruby>養殖<rp>(</rp><rt>ようしょく</rt><rp>)</rp></ruby>しているんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'excited',
+      text: 'わかめ・かき・ほたてなどだよ。三陸<ruby>沖<rp>(</rp><rt>おき</rt><rp>)</rp></ruby>は<ruby>暖流<rp>(</rp><rt>だんりゅう</rt><rp>)</rp></ruby>の<ruby>黒潮<rp>(</rp><rt>くろしお</rt><rp>)</rp></ruby>と<ruby>寒流<rp>(</rp><rt>かんりゅう</rt><rp>)</rp></ruby>の<ruby>親潮<rp>(</rp><rt>おやしお</rt><rp>)</rp></ruby>がぶつかる<strong><span class="keyword"><ruby>潮目<rp>(</rp><rt>しおめ</rt><rp>)</rp></ruby>（<ruby>潮境<rp>(</rp><rt>しおざかい</rt><rp>)</rp></ruby>）</span></strong>で、プランクトンが豊富だから魚がたくさん集まるんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'surprised',
+      text: '暖流と寒流がぶつかるところに魚が集まるんですね！',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">リアス海岸</span>で養殖漁業。<span class="keyword">潮目</span>（黒潮×親潮）で世界有数の好漁場',
+    },
+    {
+      type: 'date',
+      text: '伝統文化と震災復興',
+    },
+    {
+      type: 'narrator',
+      text: '東北の<ruby>伝統文化<rp>(</rp><rt>でんとうぶんか</rt><rp>)</rp></ruby>と、<ruby>東日本大震災<rp>(</rp><rt>ひがしにほんだいしんさい</rt><rp>)</rp></ruby>からの<ruby>復興<rp>(</rp><rt>ふっこう</rt><rp>)</rp></ruby>について学びましょう。',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'excited',
+      text: '東北の<ruby>夏祭<rp>(</rp><rt>なつまつ</rt><rp>)</rp></ruby>りは有名だよ。<ruby>青森<rp>(</rp><rt>あおもり</rt><rp>)</rp></ruby>の<strong>ねぶた祭</strong>、<ruby>秋田<rp>(</rp><rt>あきた</rt><rp>)</rp></ruby>の<strong><ruby>竿燈<rp>(</rp><rt>かんとう</rt><rp>)</rp></ruby>まつり</strong>、<ruby>仙台<rp>(</rp><rt>せんだい</rt><rp>)</rp></ruby>の<strong><ruby>七夕<rp>(</rp><rt>たなばた</rt><rp>)</rp></ruby>まつり</strong>、<ruby>山形<rp>(</rp><rt>やまがた</rt><rp>)</rp></ruby>の<strong><ruby>花笠<rp>(</rp><rt>はながさ</rt><rp>)</rp></ruby>まつり</strong>は「<strong>東北四大祭り</strong>」とよばれているよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'happy',
+      text: '稲作と関係がある祭りもあるんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: 'そう！<ruby>豊作<rp>(</rp><rt>ほうさく</rt><rp>)</rp></ruby>を<ruby>願<rp>(</rp><rt>ねが</rt><rp>)</rp></ruby>う行事が<ruby>起源<rp>(</rp><rt>きげん</rt><rp>)</rp></ruby>のものが多いんだ。<ruby>伝統産業<rp>(</rp><rt>でんとうさんぎょう</rt><rp>)</rp></ruby>では<ruby>岩手<rp>(</rp><rt>いわて</rt><rp>)</rp></ruby>県の<strong><span class="keyword"><ruby>南部鉄器<rp>(</rp><rt>なんぶてっき</rt><rp>)</rp></ruby></span></strong>が海外でデザイン性を評価されて人気なんだよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: '2011年の<ruby>東日本大震災<rp>(</rp><rt>ひがしにほんだいしんさい</rt><rp>)</rp></ruby>では大きな<ruby>被害<rp>(</rp><rt>ひがい</rt><rp>)</rp></ruby>がありましたよね...',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '三陸海岸を中心に巨大な<ruby>津波<rp>(</rp><rt>つなみ</rt><rp>)</rp></ruby>が<ruby>甚大<rp>(</rp><rt>じんだい</rt><rp>)</rp></ruby>な被害をもたらしたんだ。その教訓から、<strong><ruby>防潮堤<rp>(</rp><rt>ぼうちょうてい</rt><rp>)</rp></ruby></strong>の建設、<strong><ruby>高台移転<rp>(</rp><rt>たかだいいてん</rt><rp>)</rp></ruby></strong>、<strong><ruby>防災教育<rp>(</rp><rt>ぼうさいきょういく</rt><rp>)</rp></ruby></strong>の<ruby>充実<rp>(</rp><rt>じゅうじつ</rt><rp>)</rp></ruby>など新しいまちづくりが進められているよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'happy',
+      text: '教訓を<ruby>未来<rp>(</rp><rt>みらい</rt><rp>)</rp></ruby>に生かしているんですね。大切なことですね',
+    },
+    {
+      type: 'quiz',
+      question: '東北地方の太平洋側に夏に吹く、冷害の原因となる冷たい風を何というか？',
+      options: [
+        { letter: 'A', text: '季節風', correct: false },
+        { letter: 'B', text: 'やませ', correct: true },
+        { letter: 'C', text: '偏西風', correct: false },
+        { letter: 'D', text: 'フェーン', correct: false },
+      ],
+      explanation:
+        '<strong>正解はB「やませ」</strong>です。冷たく<ruby>湿<rp>(</rp><rt>しめ</rt><rp>)</rp></ruby>った北東の風で、<ruby>霧<rp>(</rp><rt>きり</rt><rp>)</rp></ruby>や<ruby>日照<rp>(</rp><rt>にっしょう</rt><rp>)</rp></ruby>不足をもたらし、<ruby>冷害<rp>(</rp><rt>れいがい</rt><rp>)</rp></ruby>の原因になります。',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">東北四大祭り</span>は稲作文化がルーツ。<span class="keyword">南部鉄器</span>は海外で人気。震災の教訓から<span class="keyword">防災</span>のまちづくり',
+    },
+    {
+      type: 'end',
+      points: [
+        '<strong><ruby>奥羽山脈<rp>(</rp><rt>おううさんみゃく</rt><rp>)</rp></ruby></strong>で日本海側（豪雪）と太平洋側（<strong>やませ</strong>）の気候が分かれる',
+        '<strong>リアス海岸</strong>で<ruby>養殖漁業<rp>(</rp><rt>ようしょくぎょぎょう</rt><rp>)</rp></ruby>。三陸沖は<strong><ruby>潮目<rp>(</rp><rt>しおめ</rt><rp>)</rp></ruby></strong>で世界有数の好漁場',
+        '<strong>東北四大祭り</strong>（ねぶた・竿燈・七夕・花笠）。<strong><ruby>南部鉄器<rp>(</rp><rt>なんぶてっき</rt><rp>)</rp></ruby></strong>のグローバル化',
+        '<strong><ruby>東日本大震災<rp>(</rp><rt>ひがしにほんだいしんさい</rt><rp>)</rp></ruby></strong>の教訓：<ruby>防潮堤<rp>(</rp><rt>ぼうちょうてい</rt><rp>)</rp></ruby>・<ruby>高台移転<rp>(</rp><rt>たかだいいてん</rt><rp>)</rp></ruby>・<ruby>防災教育<rp>(</rp><rt>ぼうさいきょういく</rt><rp>)</rp></ruby>',
+      ],
+    },
+  ],
+};

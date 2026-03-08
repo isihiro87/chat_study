@@ -1,0 +1,204 @@
+import type { HistoryChat } from '../../../../../../../../data/history-chat/types';
+
+export const energyChat: HistoryChat = {
+  id: 'geo2-energy',
+  icon: '⚡',
+  title: '資源・エネルギーから見た日本の特色',
+  subtitle: '〜中2地理〜 低い自給率と再生可能エネルギー',
+  characters: [
+    {
+      id: 'teacher',
+      name: '地理の先生',
+      emoji: '🌍',
+      colorFrom: '#2563EB',
+      colorTo: '#60A5FA',
+      expressions: {
+        explaining: '🧑‍🏫',
+        happy: '😊',
+        excited: '🤩',
+        thinking: '🤔',
+      },
+    },
+    {
+      id: 'student',
+      name: '生徒',
+      emoji: '👦',
+      colorFrom: '#d97706',
+      colorTo: '#fbbf24',
+      expressions: {
+        curious: '🙋‍♂️',
+        surprised: '😲',
+        thinking: '🤔',
+        happy: '😄',
+      },
+    },
+  ],
+  content: [
+    {
+      type: 'date',
+      text: '鉱産資源の輸入依存',
+    },
+    {
+      type: 'narrator',
+      text: '日本は<ruby>資源<rp>(</rp><rt>しげん</rt><rp>)</rp></ruby>やエネルギーの面で、どのような特色があるのでしょうか。まず<ruby>鉱産資源<rp>(</rp><rt>こうさんしげん</rt><rp>)</rp></ruby>について見ていきましょう。',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '日本は<strong><span class="keyword"><ruby>鉱産資源<rp>(</rp><rt>こうさんしげん</rt><rp>)</rp></ruby></span></strong>に<ruby>乏<rp>(</rp><rt>とぼ</rt><rp>)</rp></ruby>しい国なんだ。<ruby>石油<rp>(</rp><rt>せきゆ</rt><rp>)</rp></ruby>・<ruby>石炭<rp>(</rp><rt>せきたん</rt><rp>)</rp></ruby>・<ruby>天然<rp>(</rp><rt>てんねん</rt><rp>)</rp></ruby>ガス・<ruby>鉄鉱石<rp>(</rp><rt>てっこうせき</rt><rp>)</rp></ruby>などの多くを海外からの<ruby>輸入<rp>(</rp><rt>ゆにゅう</rt><rp>)</rp></ruby>に頼っているよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: 'エネルギー自給率ってどれくらいなんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'thinking',
+      text: '日本の<strong><span class="keyword">エネルギー<ruby>自給率<rp>(</rp><rt>じきゅうりつ</rt><rp>)</rp></ruby></span></strong>は<ruby>先進国<rp>(</rp><rt>せんしんこく</rt><rp>)</rp></ruby>の中でも<strong>特に低い水準</strong>なんだ。<ruby>石油<rp>(</rp><rt>せきゆ</rt><rp>)</rp></ruby>は<strong><span class="keyword"><ruby>中東<rp>(</rp><rt>ちゅうとう</rt><rp>)</rp></ruby></span></strong>地域からの輸入が大きな<ruby>割合<rp>(</rp><rt>わりあい</rt><rp>)</rp></ruby>を占めているよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'surprised',
+      text: '中東に頼りすぎると、何かあったときに困りますよね',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: 'その通り！だから<strong>輸入先の<ruby>多様化<rp>(</rp><rt>たようか</rt><rp>)</rp></ruby></strong>や<strong>エネルギー源の多様化</strong>が大切な<ruby>課題<rp>(</rp><rt>かだい</rt><rp>)</rp></ruby>になっているんだ',
+    },
+    {
+      type: 'summary-point',
+      text: '日本は<span class="keyword">鉱産資源に乏しく</span>、エネルギーの多くを<span class="keyword">輸入に依存</span>',
+    },
+    {
+      type: 'summary-point',
+      text: '石油は<span class="keyword">中東</span>からの輸入が大きな割合。輸入先の多様化が課題',
+    },
+    {
+      type: 'date',
+      text: '再生可能エネルギーへの転換',
+    },
+    {
+      type: 'narrator',
+      text: '<ruby>化石燃料<rp>(</rp><rt>かせきねんりょう</rt><rp>)</rp></ruby>への<ruby>依存<rp>(</rp><rt>いぞん</rt><rp>)</rp></ruby>を減らすため、新しいエネルギーへの転換が進められています。',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '化石燃料に代わるエネルギーって何がありますか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'excited',
+      text: '<strong><span class="keyword"><ruby>再生可能<rp>(</rp><rt>さいせいかのう</rt><rp>)</rp></ruby>エネルギー</span></strong>だね！<ruby>太陽光<rp>(</rp><rt>たいようこう</rt><rp>)</rp></ruby>発電・<ruby>風力<rp>(</rp><rt>ふうりょく</rt><rp>)</rp></ruby>発電・<ruby>水力<rp>(</rp><rt>すいりょく</rt><rp>)</rp></ruby>発電・<strong><span class="keyword"><ruby>地熱<rp>(</rp><rt>ちねつ</rt><rp>)</rp></ruby>発電</span></strong>・バイオマス発電などがあるよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: '日本は火山が多いから、地熱発電に向いていそうですね！',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: '鋭いね！日本は<ruby>火山国<rp>(</rp><rt>かざんこく</rt><rp>)</rp></ruby>で<ruby>地熱資源<rp>(</rp><rt>ちねつしげん</rt><rp>)</rp></ruby>が豊富だから、<ruby>地熱<rp>(</rp><rt>ちねつ</rt><rp>)</rp></ruby>発電の<ruby>潜在的<rp>(</rp><rt>せんざいてき</rt><rp>)</rp></ruby>な可能性が高い国なんだ。でもまだ再生可能エネルギー全体の割合は十分とはいえないんだよ',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">再生可能エネルギー</span>：太陽光・風力・水力・地熱・バイオマスなど',
+    },
+    {
+      type: 'summary-point',
+      text: '日本は<span class="keyword">地熱資源</span>が豊富だが、再生可能エネルギーの割合はまだ低い',
+    },
+    {
+      type: 'date',
+      text: '持続可能な社会に向けて',
+    },
+    {
+      type: 'narrator',
+      text: '限りある<ruby>資源<rp>(</rp><rt>しげん</rt><rp>)</rp></ruby>を大切に使うため、どのような取り組みがあるのでしょうか。',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '資源を大切にするために私たちにできることはありますか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<strong><span class="keyword">3R</span></strong>の取り組みが大切だよ。<strong><span class="keyword">リデュース</span></strong>（<ruby>廃棄物<rp>(</rp><rt>はいきぶつ</rt><rp>)</rp></ruby>を減らす）・<strong><span class="keyword">リユース</span></strong>（<ruby>繰<rp>(</rp><rt>く</rt><rp>)</rp></ruby>り返し使う）・<strong><span class="keyword">リサイクル</span></strong>（<ruby>再資源化<rp>(</rp><rt>さいしげんか</rt><rp>)</rp></ruby>する）の3つだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: '都市鉱山って何ですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'excited',
+      text: '<strong><span class="keyword"><ruby>都市鉱山<rp>(</rp><rt>としこうざん</rt><rp>)</rp></ruby></span></strong>とは、使い終わった<ruby>携帯電話<rp>(</rp><rt>けいたいでんわ</rt><rp>)</rp></ruby>やパソコンなどから、金や銀、<ruby>レアメタル<rp>(</rp><rt>れあめたる</rt><rp>)</rp></ruby>（<ruby>希少金属<rp>(</rp><rt>きしょうきんぞく</rt><rp>)</rp></ruby>）を回収する考え方だよ。日本の都市鉱山に<ruby>眠<rp>(</rp><rt>ねむ</rt><rp>)</rp></ruby>るレアメタルの量は世界有数ともいわれているんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'happy',
+      text: '捨てているものの中に宝の山があるんですね！3Rを心がけます！',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">3R</span>：リデュース（減らす）・リユース（再使用）・リサイクル（再資源化）',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">都市鉱山</span>：使用済み電子機器からレアメタルを回収',
+    },
+    {
+      type: 'quiz',
+      question: '3Rに含まれないものはどれか？',
+      options: [
+        { letter: 'A', text: 'リデュース', correct: false },
+        { letter: 'B', text: 'リユース', correct: false },
+        { letter: 'C', text: 'リサイクル', correct: false },
+        { letter: 'D', text: 'リフォーム', correct: true },
+      ],
+      explanation: '<strong>正解はD「リフォーム」</strong>です。3Rは<span class="keyword">リデュース</span>（<ruby>廃棄物<rp>(</rp><rt>はいきぶつ</rt><rp>)</rp></ruby>を減らす）・<span class="keyword">リユース</span>（<ruby>繰<rp>(</rp><rt>く</rt><rp>)</rp></ruby>り返し使う）・<span class="keyword">リサイクル</span>（<ruby>再資源化<rp>(</rp><rt>さいしげんか</rt><rp>)</rp></ruby>）の3つです。',
+    },
+    {
+      type: 'end',
+      points: [
+        '日本は<strong><ruby>鉱産資源<rp>(</rp><rt>こうさんしげん</rt><rp>)</rp></ruby>に<ruby>乏<rp>(</rp><rt>とぼ</rt><rp>)</rp></ruby>しく</strong>、エネルギーの多くを<strong>輸入に<ruby>依存<rp>(</rp><rt>いぞん</rt><rp>)</rp></ruby></strong>（<ruby>石油<rp>(</rp><rt>せきゆ</rt><rp>)</rp></ruby>は<ruby>中東<rp>(</rp><rt>ちゅうとう</rt><rp>)</rp></ruby>に大きく依存）',
+        '<strong><ruby>再生可能<rp>(</rp><rt>さいせいかのう</rt><rp>)</rp></ruby>エネルギー</strong>：太陽光・風力・水力・<ruby>地熱<rp>(</rp><rt>ちねつ</rt><rp>)</rp></ruby>・バイオマス発電（日本は地熱資源が豊富）',
+        '<strong>3R</strong>：リデュース（減らす）・リユース（再使用）・リサイクル（<ruby>再資源化<rp>(</rp><rt>さいしげんか</rt><rp>)</rp></ruby>）',
+        '<strong><ruby>都市鉱山<rp>(</rp><rt>としこうざん</rt><rp>)</rp></ruby></strong>：使用済み電子機器から<ruby>レアメタル<rp>(</rp><rt>れあめたる</rt><rp>)</rp></ruby>（<ruby>希少金属<rp>(</rp><rt>きしょうきんぞく</rt><rp>)</rp></ruby>）を回収して再利用',
+      ],
+    },
+  ],
+};

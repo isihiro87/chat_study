@@ -1,0 +1,188 @@
+import type { HistoryChat } from '../../../../../../../../data/history-chat/types';
+
+export const populationChat: HistoryChat = {
+  id: 'geo2-population',
+  icon: '👥',
+  title: '人口から見た日本の特色',
+  subtitle: '〜中2地理〜 過密と過疎・少子高齢化',
+  characters: [
+    {
+      id: 'teacher',
+      name: '地理の先生',
+      emoji: '🌍',
+      colorFrom: '#2563EB',
+      colorTo: '#60A5FA',
+      expressions: {
+        explaining: '🧑‍🏫',
+        happy: '😊',
+        excited: '🤩',
+        thinking: '🤔',
+      },
+    },
+    {
+      id: 'student',
+      name: '生徒',
+      emoji: '👦',
+      colorFrom: '#d97706',
+      colorTo: '#fbbf24',
+      expressions: {
+        curious: '🙋‍♂️',
+        surprised: '😲',
+        thinking: '🤔',
+        happy: '😄',
+      },
+    },
+  ],
+  content: [
+    {
+      type: 'date',
+      text: '都市への人口集中と過密',
+    },
+    {
+      type: 'narrator',
+      text: '日本の人口は、特定の地域に<ruby>集中<rp>(</rp><rt>しゅうちゅう</rt><rp>)</rp></ruby>しています。それが生み出す問題を見ていきましょう。',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '日本の人口は<strong><span class="keyword">三大都市圏</span></strong>（<ruby>東京<rp>(</rp><rt>とうきょう</rt><rp>)</rp></ruby>・<ruby>大阪<rp>(</rp><rt>おおさか</rt><rp>)</rp></ruby>・<ruby>名古屋<rp>(</rp><rt>なごや</rt><rp>)</rp></ruby>）に集中しているんだ。ほかにも<strong><span class="keyword"><ruby>地方中枢都市<rp>(</rp><rt>ちほうちゅうすうとし</rt><rp>)</rp></ruby></span></strong>（<ruby>札幌<rp>(</rp><rt>さっぽろ</rt><rp>)</rp></ruby>・<ruby>仙台<rp>(</rp><rt>せんだい</rt><rp>)</rp></ruby>・<ruby>広島<rp>(</rp><rt>ひろしま</rt><rp>)</rp></ruby>・<ruby>福岡<rp>(</rp><rt>ふくおか</rt><rp>)</rp></ruby>など）にも人口が集まっているよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '人口が集中すると、どんな問題が起こるんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'thinking',
+      text: '<strong><span class="keyword"><ruby>過密<rp>(</rp><rt>かみつ</rt><rp>)</rp></ruby></span></strong>とよばれる問題だね。<ruby>通勤<rp>(</rp><rt>つうきん</rt><rp>)</rp></ruby>ラッシュや<ruby>住宅不足<rp>(</rp><rt>じゅうたくぶそく</rt><rp>)</rp></ruby>、<ruby>交通渋滞<rp>(</rp><rt>こうつうじゅうたい</rt><rp>)</rp></ruby>、ごみ処理の問題などが発生するんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: 'ドーナツ化現象って何ですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<strong><span class="keyword">ドーナツ化現象</span></strong>は、<ruby>都心<rp>(</rp><rt>としん</rt><rp>)</rp></ruby>の<ruby>地価<rp>(</rp><rt>ちか</rt><rp>)</rp></ruby>が高いから<ruby>郊外<rp>(</rp><rt>こうがい</rt><rp>)</rp></ruby>に住む人が増えて、都心部の人口が減る現象だよ。ドーナツの真ん中が空洞のように見えることからこの名前がついたんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'surprised',
+      text: 'なるほど！名前の由来がおもしろいですね',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">三大都市圏</span>（東京・大阪・名古屋）に人口集中 → <span class="keyword">過密</span>の問題',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">ドーナツ化現象</span>：都心の地価高騰 → 郊外に人口が移動',
+    },
+    {
+      type: 'date',
+      text: '過疎化と少子高齢化',
+    },
+    {
+      type: 'narrator',
+      text: '都市に人口が集中する一方で、<ruby>農村<rp>(</rp><rt>のうそん</rt><rp>)</rp></ruby>や<ruby>山間部<rp>(</rp><rt>さんかんぶ</rt><rp>)</rp></ruby>では深刻な問題が起きています。',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '過密の反対に、人が少なくなる地域もあるんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: 'そうなんだ。農村や<ruby>山間部<rp>(</rp><rt>さんかんぶ</rt><rp>)</rp></ruby>・<ruby>離島<rp>(</rp><rt>りとう</rt><rp>)</rp></ruby>では<strong><span class="keyword"><ruby>過疎<rp>(</rp><rt>かそ</rt><rp>)</rp></ruby>化</span></strong>が進んでいるよ。若者が<ruby>進学<rp>(</rp><rt>しんがく</rt><rp>)</rp></ruby>や<ruby>就職<rp>(</rp><rt>しゅうしょく</rt><rp>)</rp></ruby>で都市に出ていくから、残るのは<ruby>高齢者<rp>(</rp><rt>こうれいしゃ</rt><rp>)</rp></ruby>が多くなるんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: '過疎化が進むと何が困るんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'thinking',
+      text: '学校や<ruby>病院<rp>(</rp><rt>びょういん</rt><rp>)</rp></ruby>が<ruby>統廃合<rp>(</rp><rt>とうはいごう</rt><rp>)</rp></ruby>されたり、バスや電車が<ruby>廃止<rp>(</rp><rt>はいし</rt><rp>)</rp></ruby>されたりして、<ruby>地域社会<rp>(</rp><rt>ちいきしゃかい</rt><rp>)</rp></ruby>を維持するのが難しくなるんだよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '少子高齢化もよく聞きますが、どういうことですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<strong><span class="keyword"><ruby>少子高齢化<rp>(</rp><rt>しょうしこうれいか</rt><rp>)</rp></ruby></span></strong>は、<ruby>出生率<rp>(</rp><rt>しゅっしょうりつ</rt><rp>)</rp></ruby>が下がって子どもが減り、<ruby>平均寿命<rp>(</rp><rt>へいきんじゅみょう</rt><rp>)</rp></ruby>が延びて高齢者が増えることだよ。<strong><span class="keyword"><ruby>人口<rp>(</rp><rt>じんこう</rt><rp>)</rp></ruby>ピラミッド</span></strong>を見ると、昔のピラミッド型から今は<strong><span class="keyword">つぼ型</span></strong>に変わっているんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'surprised',
+      text: 'つぼ型！上が広くて下が狭い形ですね。労働する人が減ると大変だ…',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: 'そうだね。<ruby>労働力<rp>(</rp><rt>ろうどうりょく</rt><rp>)</rp></ruby>の不足や<ruby>社会保障費<rp>(</rp><rt>しゃかいほしょうひ</rt><rp>)</rp></ruby>（<ruby>年金<rp>(</rp><rt>ねんきん</rt><rp>)</rp></ruby>・<ruby>医療費<rp>(</rp><rt>いりょうひ</rt><rp>)</rp></ruby>）の増大が大きな課題になっているんだよ',
+    },
+    {
+      type: 'summary-point',
+      text: '農村・山間部・離島で<span class="keyword">過疎化</span>が進行（若者の都市への流出）',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">少子高齢化</span>：人口ピラミッドがピラミッド型 → <span class="keyword">つぼ型</span>に変化',
+    },
+    {
+      type: 'quiz',
+      question: '都心部の人口が減少し郊外に人口が移る現象を何というか？',
+      options: [
+        { letter: 'A', text: '過疎化', correct: false },
+        { letter: 'B', text: '少子化', correct: false },
+        { letter: 'C', text: 'ドーナツ化現象', correct: true },
+        { letter: 'D', text: '都心回帰', correct: false },
+      ],
+      explanation: '<strong>正解はC「ドーナツ化現象」</strong>です。<ruby>都心<rp>(</rp><rt>としん</rt><rp>)</rp></ruby>の<ruby>地価<rp>(</rp><rt>ちか</rt><rp>)</rp></ruby>が高いため<ruby>郊外<rp>(</rp><rt>こうがい</rt><rp>)</rp></ruby>に住む人が増え、都心の人口が減少する現象です。',
+    },
+    {
+      type: 'end',
+      points: [
+        '<strong>三大都市圏</strong>（東京・大阪・名古屋）と<strong><ruby>地方中枢都市<rp>(</rp><rt>ちほうちゅうすうとし</rt><rp>)</rp></ruby></strong>に人口集中 → <strong><ruby>過密<rp>(</rp><rt>かみつ</rt><rp>)</rp></ruby></strong>',
+        '<strong>ドーナツ化現象</strong>：<ruby>都心<rp>(</rp><rt>としん</rt><rp>)</rp></ruby>の<ruby>地価<rp>(</rp><rt>ちか</rt><rp>)</rp></ruby>高騰で<ruby>郊外<rp>(</rp><rt>こうがい</rt><rp>)</rp></ruby>に人口移動',
+        '農村・<ruby>山間部<rp>(</rp><rt>さんかんぶ</rt><rp>)</rp></ruby>・<ruby>離島<rp>(</rp><rt>りとう</rt><rp>)</rp></ruby>で<strong><ruby>過疎<rp>(</rp><rt>かそ</rt><rp>)</rp></ruby>化</strong>が進行。学校・病院の<ruby>統廃合<rp>(</rp><rt>とうはいごう</rt><rp>)</rp></ruby>などの問題',
+        '<strong><ruby>少子高齢化<rp>(</rp><rt>しょうしこうれいか</rt><rp>)</rp></ruby></strong>：人口ピラミッドが<strong>つぼ型</strong>に。<ruby>労働力<rp>(</rp><rt>ろうどうりょく</rt><rp>)</rp></ruby>不足・<ruby>社会保障費<rp>(</rp><rt>しゃかいほしょうひ</rt><rp>)</rp></ruby>の増大が課題',
+      ],
+    },
+  ],
+};
