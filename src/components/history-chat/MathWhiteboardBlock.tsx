@@ -5,26 +5,38 @@ interface MathWhiteboardBlockProps {
   title?: string;
   steps: WhiteboardStep[];
   revealedSteps: number;
+  /** ホワイトボードがアクティブ（ステップ展開中 or 最後のコンテンツ）のときtrue */
+  isActive?: boolean;
   onStepBack?: () => void;
 }
 
-export function MathWhiteboardBlock({ title, steps, revealedSteps, onStepBack }: MathWhiteboardBlockProps) {
+export function MathWhiteboardBlock({
+  title,
+  steps,
+  revealedSteps,
+  isActive = false,
+  onStepBack,
+}: MathWhiteboardBlockProps) {
   const scrollAreaRef = useRef<HTMLDivElement>(null);
   const latestIndex = revealedSteps - 1;
 
-  // ホワイトボード内部のスクロールのみ制御（親スクロールに影響しない）
+  // ホワイトボード内部のスクロールのみ制御（親スクロールコンテナに影響しない）
   useEffect(() => {
     const area = scrollAreaRef.current;
     if (!area) return;
     const target = area.querySelector<HTMLElement>(`[data-step="${latestIndex}"]`);
     if (!target) return;
-    const bottom = target.offsetTop + target.offsetHeight;
-    if (bottom > area.scrollTop + area.clientHeight) {
-      area.scrollTop = bottom - area.clientHeight;
+    const targetBottom = target.offsetTop + target.offsetHeight;
+    const areaViewBottom = area.scrollTop + area.clientHeight;
+    if (targetBottom > areaViewBottom) {
+      area.scrollTop = targetBottom - area.clientHeight;
     }
   }, [revealedSteps, latestIndex]);
 
   if (steps.length === 0) return null;
+
+  // 戻るボタン表示条件: アクティブ & 2ステップ以上表示済み
+  const showBackButton = isActive && revealedSteps > 1 && onStepBack;
 
   return (
     <div className="mx-3 my-3">
@@ -47,7 +59,6 @@ export function MathWhiteboardBlock({ title, steps, revealedSteps, onStepBack }:
             const isRevealed = index < revealedSteps;
             const isLatest = index === latestIndex;
             const isPast = index < latestIndex;
-            const isResult = step.isResult;
 
             return (
               <div key={index} data-step={index}>
@@ -58,7 +69,7 @@ export function MathWhiteboardBlock({ title, steps, revealedSteps, onStepBack }:
                 >
                   <p
                     className={`text-lg font-bold leading-snug ${
-                      isResult
+                      step.isResult
                         ? 'math-wb-result'
                         : isPast
                           ? 'text-gray-400'
@@ -69,7 +80,7 @@ export function MathWhiteboardBlock({ title, steps, revealedSteps, onStepBack }:
                   />
                 </div>
 
-                {/* 解説: 常にレンダリングして高さ確保、最新ステップのみ表示 */}
+                {/* 解説: 全ステップ分を常にレンダリングして高さ確保 */}
                 {step.annotation && (
                   <p
                     className="mt-0.5 px-3 text-center text-xs leading-relaxed text-gray-500"
@@ -87,7 +98,7 @@ export function MathWhiteboardBlock({ title, steps, revealedSteps, onStepBack }:
 
         {/* フッター: 戻るボタン + 進捗 */}
         <div className="mt-2 flex items-center justify-between">
-          {revealedSteps > 1 && onStepBack ? (
+          {showBackButton ? (
             <button
               type="button"
               onClick={(e) => {
