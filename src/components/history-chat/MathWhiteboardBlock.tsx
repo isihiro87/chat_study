@@ -9,17 +9,20 @@ interface MathWhiteboardBlockProps {
 }
 
 export function MathWhiteboardBlock({ title, steps, revealedSteps, onStepBack }: MathWhiteboardBlockProps) {
-  const lastRevealedRef = useRef<HTMLDivElement>(null);
-  const latestNewIndex = revealedSteps - 1;
+  const scrollAreaRef = useRef<HTMLDivElement>(null);
+  const latestIndex = revealedSteps - 1;
 
+  // ホワイトボード内部のスクロールのみ制御（親スクロールに影響しない）
   useEffect(() => {
-    if (lastRevealedRef.current) {
-      lastRevealedRef.current.scrollIntoView({
-        behavior: 'instant',
-        block: 'nearest',
-      });
+    const area = scrollAreaRef.current;
+    if (!area) return;
+    const target = area.querySelector<HTMLElement>(`[data-step="${latestIndex}"]`);
+    if (!target) return;
+    const bottom = target.offsetTop + target.offsetHeight;
+    if (bottom > area.scrollTop + area.clientHeight) {
+      area.scrollTop = bottom - area.clientHeight;
     }
-  }, [revealedSteps]);
+  }, [revealedSteps, latestIndex]);
 
   if (steps.length === 0) return null;
 
@@ -34,25 +37,25 @@ export function MathWhiteboardBlock({ title, steps, revealedSteps, onStepBack }:
           />
         )}
 
-        {/* 式エリア: 全ステップ+解説のスロットを最初から描画 */}
+        {/* 式エリア: 全ステップを最初から描画して高さ固定 */}
         <div
-          className="flex w-full flex-col items-center overflow-y-auto"
+          ref={scrollAreaRef}
+          className="w-full overflow-y-auto"
           style={{ maxHeight: '50vh' }}
         >
           {steps.map((step, index) => {
             const isRevealed = index < revealedSteps;
-            const isLatest = index === latestNewIndex;
+            const isLatest = index === latestIndex;
+            const isPast = index < latestIndex;
             const isResult = step.isResult;
-            const isPast = index < latestNewIndex;
 
             return (
-              <div
-                key={`step-${index}`}
-                ref={index === latestNewIndex ? lastRevealedRef : undefined}
-                className="w-full"
-              >
-                {/* 数式: 未表示はinvisibleで高さだけ確保 */}
-                <div className={`math-wb-formula px-3 py-0.5 text-center ${!isRevealed ? 'invisible' : ''}`}>
+              <div key={index} data-step={index}>
+                {/* 数式: 未表示は visibility:hidden で高さだけ確保 */}
+                <div
+                  className="math-wb-formula px-3 py-0.5 text-center"
+                  style={{ visibility: isRevealed ? 'visible' : 'hidden' }}
+                >
                   <p
                     className={`text-lg font-bold leading-snug ${
                       isResult
@@ -66,13 +69,14 @@ export function MathWhiteboardBlock({ title, steps, revealedSteps, onStepBack }:
                   />
                 </div>
 
-                {/* 解説: 常にレンダリングして高さ確保、最新の表示済みステップのみvisible */}
+                {/* 解説: 常にレンダリングして高さ確保、最新ステップのみ表示 */}
                 {step.annotation && (
                   <p
-                    className={`mt-0.5 text-center text-xs leading-relaxed text-gray-500 ${
-                      isRevealed && isLatest ? '' : 'invisible'
-                    }`}
-                    style={{ fontFamily: "'Noto Sans JP', sans-serif" }}
+                    className="mt-0.5 px-3 text-center text-xs leading-relaxed text-gray-500"
+                    style={{
+                      fontFamily: "'Noto Sans JP', sans-serif",
+                      visibility: isRevealed && isLatest ? 'visible' : 'hidden',
+                    }}
                     dangerouslySetInnerHTML={{ __html: step.annotation }}
                   />
                 )}
@@ -81,7 +85,7 @@ export function MathWhiteboardBlock({ title, steps, revealedSteps, onStepBack }:
           })}
         </div>
 
-        {/* フッター: 進捗 + 戻るボタン */}
+        {/* フッター: 戻るボタン + 進捗 */}
         <div className="mt-2 flex items-center justify-between">
           {revealedSteps > 1 && onStepBack ? (
             <button
