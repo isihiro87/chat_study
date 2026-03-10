@@ -28,6 +28,7 @@ interface UseHistoryChatReturn {
   // アクション
   next: () => void;
   selectAnswer: (optionIndex: number) => void;
+  stepBack: () => void;
   reset: () => void;
 }
 
@@ -160,6 +161,21 @@ export function useHistoryChat(chat: HistoryChat): UseHistoryChatReturn {
     [whiteboardProgress]
   );
 
+  // ホワイトボードを1ステップ戻す
+  const stepBack = useCallback(() => {
+    if (shownIndex === 0) return;
+    const lastIndex = shownIndex - 1;
+    const lastContent = content[lastIndex];
+    if (lastContent?.type !== 'whiteboard') return;
+    const revealed = whiteboardProgress[lastIndex] ?? 0;
+    if (revealed > 1) {
+      setWhiteboardProgress((prev) => ({
+        ...prev,
+        [lastIndex]: prev[lastIndex] - 1,
+      }));
+    }
+  }, [content, shownIndex, whiteboardProgress]);
+
   // リセット
   const reset = useCallback(() => {
     setShownIndex(1);
@@ -184,6 +200,7 @@ export function useHistoryChat(chat: HistoryChat): UseHistoryChatReturn {
     getWhiteboardRevealedSteps,
     next,
     selectAnswer,
+    stepBack,
     reset,
   };
 }

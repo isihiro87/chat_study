@@ -56,6 +56,17 @@ ruby rt {
   font-weight: 700;
 }
 
+/* 数学ホワイトボード: 答えの式を下線で控えめに強調 */
+.math-wb-result {
+  color: #92400E;
+  text-decoration: underline;
+  text-decoration-color: #F59E0B;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 2px;
+}
+
+/* 数学ホワイトボード: animateInsert用（将来の拡張用に残す、現在は未使用） */
+
 /* キーワード強調バッジ */
 .keyword {
   background-color: #FEF3C7;

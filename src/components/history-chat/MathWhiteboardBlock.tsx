@@ -1,106 +1,127 @@
-import { motion, AnimatePresence } from 'framer-motion';
+import { useRef, useEffect } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 import type { WhiteboardStep } from '../../data/history-chat/types';
 
 interface MathWhiteboardBlockProps {
   title?: string;
   steps: WhiteboardStep[];
   revealedSteps: number;
+  onStepBack?: () => void;
 }
 
-export function MathWhiteboardBlock({ title, steps, revealedSteps }: MathWhiteboardBlockProps) {
+export function MathWhiteboardBlock({ title, steps, revealedSteps, onStepBack }: MathWhiteboardBlockProps) {
+  const stepsEndRef = useRef<HTMLDivElement>(null);
+
+  const visibleSteps = steps.length > 0 ? steps.slice(0, revealedSteps) : [];
+  const latestNewIndex = revealedSteps - 1;
+
+  // 全ステップ分の高さを初めから確保（コンパクト: 2rem per step）
+  const stepsAreaMinHeight = steps.length > 0
+    ? steps.length * 2.0
+    : 0;
+
+  useEffect(() => {
+    if (stepsEndRef.current) {
+      stepsEndRef.current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+      });
+    }
+  }, [revealedSteps]);
+
   if (steps.length === 0) return null;
 
-  const visibleSteps = steps.slice(0, revealedSteps);
-  const currentAnnotation = visibleSteps.length > 0
-    ? visibleSteps[visibleSteps.length - 1].annotation
-    : undefined;
-
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.45 }}
-      className="mx-3 my-3"
-    >
+    <div className="mx-3 my-3">
       <div className="rounded-2xl border border-gray-200 bg-white px-4 py-4">
         {title && (
           <p
-            className="mb-3 text-xs font-bold text-gray-400"
+            className="mb-2 text-xs font-bold text-gray-400"
             style={{ fontFamily: "'Noto Sans JP', sans-serif" }}
             dangerouslySetInnerHTML={{ __html: title }}
           />
         )}
 
-        {/* 式エリア（上部） */}
-        <div className="flex flex-col items-center gap-0">
-          <AnimatePresence initial={false}>
-            {visibleSteps.map((step, index) => {
-              const isResult = step.isResult;
+        {/* 式エリア */}
+        <div
+          className="flex w-full flex-col items-center overflow-y-auto"
+          style={{
+            minHeight: `${stepsAreaMinHeight}rem`,
+            maxHeight: '50vh',
+          }}
+        >
+          {visibleSteps.map((step, index) => {
+            const isResult = step.isResult;
+            const isLatest = index === latestNewIndex;
+            const isPast = index < latestNewIndex;
 
-              return (
-                <motion.div
-                  key={`step-${index}`}
-                  initial={{ opacity: 0, y: -12, scale: 0.96 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  transition={{ duration: 0.4, ease: 'easeOut' }}
-                  className="w-full"
-                >
-                  {/* ステップ間の矢印 */}
-                  {index > 0 && (
-                    <div className="flex justify-center py-0.5">
-                      <span className="text-sm text-gray-300">↓</span>
-                    </div>
-                  )}
-
-                  {/* 数式: <strong>タグで注目箇所をamber色にハイライト */}
-                  <div
-                    className={`math-wb-formula rounded-xl px-4 py-2 text-center ${
+            return (
+              <div key={`step-${index}`} className="w-full">
+                {/* 数式 */}
+                <div className="math-wb-formula px-3 py-0.5 text-center">
+                  <p
+                    className={`text-lg font-bold leading-snug ${
                       isResult
-                        ? 'border border-amber-200 bg-amber-50'
-                        : ''
+                        ? 'math-wb-result'
+                        : isPast
+                          ? 'text-gray-400'
+                          : 'text-gray-800'
                     }`}
-                  >
-                    <p
-                      className={`text-lg font-bold leading-relaxed ${
-                        isResult ? 'text-amber-800' : 'text-gray-800'
-                      }`}
+                    style={{ fontFamily: "'Noto Sans JP', sans-serif" }}
+                    dangerouslySetInnerHTML={{ __html: step.formula }}
+                  />
+                </div>
+
+                {/* annotation: 最新ステップのみ表示 */}
+                <AnimatePresence>
+                  {step.annotation && isLatest && (
+                    <motion.p
+                      key={`annotation-${index}`}
+                      initial={{ opacity: 0, y: -4 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, height: 0, marginTop: 0 }}
+                      transition={{ duration: 0.3, ease: 'easeOut' }}
+                      className="mt-0.5 text-center text-xs leading-relaxed text-gray-500"
                       style={{ fontFamily: "'Noto Sans JP', sans-serif" }}
-                      dangerouslySetInnerHTML={{ __html: step.formula }}
+                      dangerouslySetInnerHTML={{ __html: step.annotation }}
                     />
-                  </div>
-                </motion.div>
-              );
-            })}
-          </AnimatePresence>
+                  )}
+                </AnimatePresence>
+              </div>
+            );
+          })}
+          <div ref={stepsEndRef} />
         </div>
 
-        {/* 解説エリア（下部・字幕方式） */}
-        <div className="mt-3 min-h-[2.5rem]">
-          <AnimatePresence mode="wait">
-            {currentAnnotation && (
-              <motion.p
-                key={currentAnnotation}
-                initial={{ opacity: 0, y: 6 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -6 }}
-                transition={{ duration: 0.3 }}
-                className="rounded-lg bg-gray-50 px-3 py-2 text-center text-xs leading-relaxed text-gray-500"
-                style={{ fontFamily: "'Noto Sans JP', sans-serif" }}
-                dangerouslySetInnerHTML={{ __html: currentAnnotation }}
-              />
-            )}
-          </AnimatePresence>
-        </div>
+        {/* フッター: 進捗 + 戻るボタン */}
+        <div className="mt-2 flex items-center justify-between">
+          {/* 戻るボタン */}
+          {revealedSteps > 1 && onStepBack ? (
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                onStepBack();
+              }}
+              className="rounded-full border border-gray-200 bg-white px-3 py-1 text-xs text-gray-500 active:scale-95"
+              style={{ fontFamily: "'Noto Sans JP', sans-serif" }}
+            >
+              ← もどる
+            </button>
+          ) : (
+            <div />
+          )}
 
-        {/* 残りステップインジケーター */}
-        {revealedSteps < steps.length && (
-          <div className="mt-2 flex justify-center">
+          {/* 進捗表示 */}
+          {revealedSteps < steps.length ? (
             <span className="text-xs text-gray-300">
               {revealedSteps} / {steps.length}
             </span>
-          </div>
-        )}
+          ) : (
+            <div />
+          )}
+        </div>
       </div>
-    </motion.div>
+    </div>
   );
 }

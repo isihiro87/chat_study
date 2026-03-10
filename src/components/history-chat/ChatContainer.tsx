@@ -41,6 +41,7 @@ export function ChatContainer({ chat, embedded = false, onNavigateToFlashcard, o
     getWhiteboardRevealedSteps,
     next,
     selectAnswer,
+    stepBack,
     reset,
   } = useHistoryChat(chat);
 
@@ -203,6 +204,7 @@ export function ChatContainer({ chat, embedded = false, onNavigateToFlashcard, o
                           title={content.title}
                           steps={content.steps}
                           revealedSteps={getWhiteboardRevealedSteps(index)}
+                          onStepBack={stepBack}
                         />
                       );
                     }
