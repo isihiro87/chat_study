@@ -10,20 +10,14 @@ interface MathWhiteboardBlockProps {
 }
 
 export function MathWhiteboardBlock({ title, steps, revealedSteps, onStepBack }: MathWhiteboardBlockProps) {
-  const stepsEndRef = useRef<HTMLDivElement>(null);
-
-  const visibleSteps = steps.length > 0 ? steps.slice(0, revealedSteps) : [];
+  const lastRevealedRef = useRef<HTMLDivElement>(null);
   const latestNewIndex = revealedSteps - 1;
-
-  // 全ステップ分の高さを初めから確保（コンパクト: 2rem per step）
-  const stepsAreaMinHeight = steps.length > 0
-    ? steps.length * 2.0
-    : 0;
+  const latestStep = revealedSteps > 0 ? steps[latestNewIndex] : null;
 
   useEffect(() => {
-    if (stepsEndRef.current) {
-      stepsEndRef.current.scrollIntoView({
-        behavior: 'smooth',
+    if (lastRevealedRef.current) {
+      lastRevealedRef.current.scrollIntoView({
+        behavior: 'instant',
         block: 'nearest',
       });
     }
@@ -42,23 +36,23 @@ export function MathWhiteboardBlock({ title, steps, revealedSteps, onStepBack }:
           />
         )}
 
-        {/* 式エリア */}
+        {/* 式エリア: 全ステップ分のスロットを最初から描画 */}
         <div
           className="flex w-full flex-col items-center overflow-y-auto"
-          style={{
-            minHeight: `${stepsAreaMinHeight}rem`,
-            maxHeight: '50vh',
-          }}
+          style={{ maxHeight: '50vh' }}
         >
-          {visibleSteps.map((step, index) => {
+          {steps.map((step, index) => {
+            const isRevealed = index < revealedSteps;
             const isResult = step.isResult;
-            const isLatest = index === latestNewIndex;
             const isPast = index < latestNewIndex;
 
             return (
-              <div key={`step-${index}`} className="w-full">
-                {/* 数式 */}
-                <div className="math-wb-formula px-3 py-0.5 text-center">
+              <div
+                key={`step-${index}`}
+                ref={index === latestNewIndex ? lastRevealedRef : undefined}
+                className="w-full"
+              >
+                <div className={`math-wb-formula px-3 py-0.5 text-center ${!isRevealed ? 'invisible' : ''}`}>
                   <p
                     className={`text-lg font-bold leading-snug ${
                       isResult
@@ -71,31 +65,29 @@ export function MathWhiteboardBlock({ title, steps, revealedSteps, onStepBack }:
                     dangerouslySetInnerHTML={{ __html: step.formula }}
                   />
                 </div>
-
-                {/* annotation: 最新ステップのみ表示 */}
-                <AnimatePresence>
-                  {step.annotation && isLatest && (
-                    <motion.p
-                      key={`annotation-${index}`}
-                      initial={{ opacity: 0, y: -4 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, height: 0, marginTop: 0 }}
-                      transition={{ duration: 0.3, ease: 'easeOut' }}
-                      className="mt-0.5 text-center text-xs leading-relaxed text-gray-500"
-                      style={{ fontFamily: "'Noto Sans JP', sans-serif" }}
-                      dangerouslySetInnerHTML={{ __html: step.annotation }}
-                    />
-                  )}
-                </AnimatePresence>
               </div>
             );
           })}
-          <div ref={stepsEndRef} />
         </div>
+
+        {/* annotation: 式エリアの外に配置（レイアウトに影響しない） */}
+        <AnimatePresence mode="wait">
+          {latestStep?.annotation && (
+            <motion.p
+              key={`annotation-${latestNewIndex}`}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="mt-1 text-center text-xs leading-relaxed text-gray-500"
+              style={{ fontFamily: "'Noto Sans JP', sans-serif" }}
+              dangerouslySetInnerHTML={{ __html: latestStep.annotation }}
+            />
+          )}
+        </AnimatePresence>
 
         {/* フッター: 進捗 + 戻るボタン */}
         <div className="mt-2 flex items-center justify-between">
-          {/* 戻るボタン */}
           {revealedSteps > 1 && onStepBack ? (
             <button
               type="button"
@@ -112,7 +104,6 @@ export function MathWhiteboardBlock({ title, steps, revealedSteps, onStepBack }:
             <div />
           )}
 
-          {/* 進捗表示 */}
           {revealedSteps < steps.length ? (
             <span className="text-xs text-gray-300">
               {revealedSteps} / {steps.length}
