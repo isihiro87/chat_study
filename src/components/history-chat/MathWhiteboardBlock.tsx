@@ -1,5 +1,4 @@
 import { useRef, useEffect } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
 import type { WhiteboardStep } from '../../data/history-chat/types';
 
 interface MathWhiteboardBlockProps {
@@ -12,7 +11,6 @@ interface MathWhiteboardBlockProps {
 export function MathWhiteboardBlock({ title, steps, revealedSteps, onStepBack }: MathWhiteboardBlockProps) {
   const lastRevealedRef = useRef<HTMLDivElement>(null);
   const latestNewIndex = revealedSteps - 1;
-  const latestStep = revealedSteps > 0 ? steps[latestNewIndex] : null;
 
   useEffect(() => {
     if (lastRevealedRef.current) {
@@ -36,13 +34,14 @@ export function MathWhiteboardBlock({ title, steps, revealedSteps, onStepBack }:
           />
         )}
 
-        {/* 式エリア: 全ステップ分のスロットを最初から描画 */}
+        {/* 式エリア: 全ステップ+解説のスロットを最初から描画 */}
         <div
           className="flex w-full flex-col items-center overflow-y-auto"
           style={{ maxHeight: '50vh' }}
         >
           {steps.map((step, index) => {
             const isRevealed = index < revealedSteps;
+            const isLatest = index === latestNewIndex;
             const isResult = step.isResult;
             const isPast = index < latestNewIndex;
 
@@ -52,6 +51,7 @@ export function MathWhiteboardBlock({ title, steps, revealedSteps, onStepBack }:
                 ref={index === latestNewIndex ? lastRevealedRef : undefined}
                 className="w-full"
               >
+                {/* 数式: 未表示はinvisibleで高さだけ確保 */}
                 <div className={`math-wb-formula px-3 py-0.5 text-center ${!isRevealed ? 'invisible' : ''}`}>
                   <p
                     className={`text-lg font-bold leading-snug ${
@@ -65,26 +65,21 @@ export function MathWhiteboardBlock({ title, steps, revealedSteps, onStepBack }:
                     dangerouslySetInnerHTML={{ __html: step.formula }}
                   />
                 </div>
+
+                {/* 解説: 常にレンダリングして高さ確保、最新の表示済みステップのみvisible */}
+                {step.annotation && (
+                  <p
+                    className={`mt-0.5 text-center text-xs leading-relaxed text-gray-500 ${
+                      isRevealed && isLatest ? '' : 'invisible'
+                    }`}
+                    style={{ fontFamily: "'Noto Sans JP', sans-serif" }}
+                    dangerouslySetInnerHTML={{ __html: step.annotation }}
+                  />
+                )}
               </div>
             );
           })}
         </div>
-
-        {/* annotation: 式エリアの外に配置（レイアウトに影響しない） */}
-        <AnimatePresence mode="wait">
-          {latestStep?.annotation && (
-            <motion.p
-              key={`annotation-${latestNewIndex}`}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              className="mt-1 text-center text-xs leading-relaxed text-gray-500"
-              style={{ fontFamily: "'Noto Sans JP', sans-serif" }}
-              dangerouslySetInnerHTML={{ __html: latestStep.annotation }}
-            />
-          )}
-        </AnimatePresence>
 
         {/* フッター: 進捗 + 戻るボタン */}
         <div className="mt-2 flex items-center justify-between">
