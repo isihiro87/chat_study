@@ -198,14 +198,12 @@ export function ChatContainer({ chat, embedded = false, onNavigateToFlashcard, o
 
                   case 'whiteboard':
                     if (isMathChat) {
-                      const isLastVisible = index === visibleContent.length - 1;
                       return (
                         <MathWhiteboardBlock
                           key={key}
                           title={content.title}
                           steps={content.steps}
                           revealedSteps={getWhiteboardRevealedSteps(index)}
-                          isActive={isLastVisible}
                           onStepBack={stepBack}
                         />
                       );
