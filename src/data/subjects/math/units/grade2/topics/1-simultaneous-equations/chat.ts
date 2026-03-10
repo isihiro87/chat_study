@@ -205,6 +205,7 @@ export const simultaneousEquationsChat: HistoryChat = {
         },
         {
           formula: 'x + <strong>2x</strong> = 9',
+          animateInsert: true,
         },
         {
           formula: '3x = 9',

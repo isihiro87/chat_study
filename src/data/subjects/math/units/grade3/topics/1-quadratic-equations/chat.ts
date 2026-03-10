@@ -161,6 +161,7 @@ export const quadraticEquationsChat: HistoryChat = {
         },
         {
           formula: '→ <strong>−2</strong> と <strong>−3</strong>',
+          animateInsert: true,
           annotation: '−2 × −3 = 6 ✓　−2 + (−3) = −5 ✓',
         },
         {

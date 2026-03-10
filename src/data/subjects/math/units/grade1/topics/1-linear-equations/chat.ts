@@ -110,10 +110,13 @@ export const linearEquationsChat: HistoryChat = {
         },
         {
           formula: 'x + 3 <strong>− 3</strong> = 7 <strong>− 3</strong>',
+          animateInsert: true,
+          annotation: '<ruby>左<rt>ひだり</rt></ruby>の +3 と −3 が<ruby>打<rt>う</rt></ruby>ち<ruby>消<rt>け</rt></ruby>し<ruby>合<rt>あ</rt></ruby>う！',
         },
         {
           formula: 'x = 4',
           isResult: true,
+          annotation: 'x だけが<ruby>残<rt>のこ</rt></ruby>って<ruby>答<rt>こた</rt></ruby>えが出た！',
         },
       ],
     },
@@ -141,11 +144,13 @@ export const linearEquationsChat: HistoryChat = {
         },
         {
           formula: 'x = 7 <strong>− 3</strong>',
+          animateInsert: true,
           annotation: '<ruby>移項<rt>いこう</rt></ruby>のルール: <strong><ruby>符号<rt>ふごう</rt></ruby>が<ruby>変<rt>か</rt></ruby>わる</strong>（+ → −、− → +）',
         },
         {
           formula: 'x = 4',
           isResult: true,
+          annotation: '7 − 3 = 4。<ruby>移項<rt>いこう</rt></ruby>で<ruby>簡単<rt>かんたん</rt></ruby>に<ruby>解<rt>と</rt></ruby>けた！',
         },
       ],
     },
@@ -182,7 +187,7 @@ export const linearEquationsChat: HistoryChat = {
       steps: [
         {
           formula: '3x + 2 = 11',
-          annotation: 'どうやって<ruby>解<rt>と</rt></ruby>くかな？',
+          annotation: 'x の<ruby>前<rt>まえ</rt></ruby>に<ruby>数字<rt>すうじ</rt></ruby>がついてる！どうやって<ruby>解<rt>と</rt></ruby>く？',
         },
       ],
     },
@@ -210,14 +215,17 @@ export const linearEquationsChat: HistoryChat = {
         },
         {
           formula: '3x = 11 − 2 = 9',
+          annotation: '+2 が<ruby>反対側<rt>はんたいがわ</rt></ruby>で −2 になった！',
         },
         {
-          formula: '3x ÷ 3 = 9 ÷ 3',
+          formula: '3x <strong>÷ 3</strong> = 9 <strong>÷ 3</strong>',
+          animateInsert: true,
           annotation: '<ruby>両辺<rt>りょうへん</rt></ruby>を 3 で<ruby>割<rt>わ</rt></ruby>る',
         },
         {
           formula: 'x = 3',
           isResult: true,
+          annotation: '9 ÷ 3 = 3 で<ruby>答<rt>こた</rt></ruby>えが出た！',
         },
       ],
     },
@@ -279,10 +287,12 @@ export const linearEquationsChat: HistoryChat = {
         },
         {
           formula: '3x = 12',
+          annotation: '<ruby>小数<rt>しょうすう</rt></ruby>が<ruby>消<rt>き</rt></ruby>えて<ruby>計算<rt>けいさん</rt></ruby>しやすい！',
         },
         {
           formula: 'x = 12 ÷ 3 = <strong>4</strong>',
           isResult: true,
+          annotation: '<ruby>両辺<rt>りょうへん</rt></ruby>を 3 で<ruby>割<rt>わ</rt></ruby>って完了！',
         },
       ],
     },
