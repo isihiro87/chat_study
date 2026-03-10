@@ -78,6 +78,12 @@ export const chugokuShikokuChat: HistoryChat = {
       text: '<strong>南四国</strong>（<ruby>太平洋<rp>(</rp><rt>たいへいよう</rt><rp>)</rp></ruby>側）は<ruby>黒潮<rp>(</rp><rt>くろしお</rt><rp>)</rp></ruby>の影響で温暖だけど、夏は<ruby>台風<rp>(</rp><rt>たいふう</rt><rp>)</rp></ruby>や<ruby>梅雨<rp>(</rp><rt>つゆ</rt><rp>)</rp></ruby>前線の影響で降水量がとても多いんだよ',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade2/japan-regions/chugoku-shikoku-climate.png',
+      alt: '中国・四国地方の3つの気候区分の図',
+      caption: '中国山地と四国山地で山陰・瀬戸内・南四国に分かれる',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">中国山地</span>と<span class="keyword">四国山地</span>で、山陰（雪）・瀬戸内（少雨）・南四国（多雨）の3気候に分かれる',
     },
@@ -177,6 +183,12 @@ export const chugokuShikokuChat: HistoryChat = {
       characterId: 'teacher',
       expression: 'happy',
       text: '<ruby>島根<rp>(</rp><rt>しまね</rt><rp>)</rp></ruby>県<ruby>松江<rp>(</rp><rt>まつえ</rt><rp>)</rp></ruby>市では、プログラミング言語<strong><span class="keyword">Ruby</span></strong>の開発者が<ruby>拠点<rp>(</rp><rt>きょてん</rt><rp>)</rp></ruby>を置いていて、IT企業の<ruby>誘致<rp>(</rp><rt>ゆうち</rt><rp>)</rp></ruby>による地域おこしが行われているんだよ',
+    },
+    {
+      type: 'image',
+      src: '/images/geography/grade2/japan-regions/chugoku-shikoku-ict.png',
+      alt: '中国・四国地方の産業とICT活用の図',
+      caption: '瀬戸内工業地域と葉っぱビジネス・Rubyの地域おこし',
     },
     {
       type: 'quiz',

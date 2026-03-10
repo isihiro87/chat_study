@@ -78,6 +78,12 @@ export const kinkiChat: HistoryChat = {
       text: 'そうなんだ。<strong><span class="keyword">オーバーツーリズム</span></strong>（<ruby>観光公害<rp>(</rp><rt>かんこうこうがい</rt><rp>)</rp></ruby>）といって、観光客が増えすぎて<ruby>交通渋滞<rp>(</rp><rt>こうつうじゅうたい</rt><rp>)</rp></ruby>やごみ問題、<ruby>住民<rp>(</rp><rt>じゅうみん</rt><rp>)</rp></ruby>の生活への影響が出ているんだ',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade2/japan-regions/kinki-kyoto.png',
+      alt: '近畿地方の歴史的景観と大都市圏の図',
+      caption: '京都の景観条例と大阪の大都市圏',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">景観条例</span>で高さ制限・看板規制。<span class="keyword">オーバーツーリズム</span>が新たな課題',
     },
@@ -184,6 +190,12 @@ export const kinkiChat: HistoryChat = {
       characterId: 'teacher',
       expression: 'excited',
       text: 'その通り！京都府<ruby>和束<rp>(</rp><rt>わづか</rt><rp>)</rp></ruby>町は<ruby>宇治茶<rp>(</rp><rt>うじちゃ</rt><rp>)</rp></ruby>の<ruby>産地<rp>(</rp><rt>さんち</rt><rp>)</rp></ruby>で、<ruby>茶畑<rp>(</rp><rt>ちゃばたけ</rt><rp>)</rp></ruby>の<ruby>景観<rp>(</rp><rt>けいかん</rt><rp>)</rp></ruby>を生かしたまちづくりを進めているんだ',
+    },
+    {
+      type: 'image',
+      src: '/images/geography/grade2/japan-regions/kinki-ine.png',
+      alt: '近畿地方の村落と地域おこしの図',
+      caption: '伊根町の舟屋・吉野杉の林業・和束町の茶畑',
     },
     {
       type: 'quiz',

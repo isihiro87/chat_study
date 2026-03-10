@@ -78,6 +78,12 @@ export const disastersChat: HistoryChat = {
       text: '日本には<strong>100以上の<ruby>活火山<rp>(</rp><rt>かつかざん</rt><rp>)</rp></ruby></strong>があるんだ。噴火すると<ruby>溶岩流<rp>(</rp><rt>ようがんりゅう</rt><rp>)</rp></ruby>や<ruby>火砕流<rp>(</rp><rt>かさいりゅう</rt><rp>)</rp></ruby>、<ruby>火山灰<rp>(</rp><rt>かざんばい</rt><rp>)</rp></ruby>が降って大きな被害になることがある。でも、<ruby>温泉<rp>(</rp><rt>おんせん</rt><rp>)</rp></ruby>や<ruby>肥沃<rp>(</rp><rt>ひよく</rt><rp>)</rp></ruby>な土地をもたらす<ruby>恩恵<rp>(</rp><rt>おんけい</rt><rp>)</rp></ruby>もあるんだよ',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade2/japan-features/disasters.png',
+      alt: '日本の自然災害と防災・減災の図',
+      caption: '地震・津波・火山・台風と自助・共助・公助の3つの柱',
+    },
+    {
       type: 'summary-point',
       text: '日本は<span class="keyword">地震</span>・<span class="keyword">津波</span>・<span class="keyword">火山の噴火</span>のリスクが高い',
     },

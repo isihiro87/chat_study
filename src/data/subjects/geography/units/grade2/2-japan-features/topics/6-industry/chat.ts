@@ -78,6 +78,12 @@ export const industryChat: HistoryChat = {
       text: '品質の高さを<ruby>武器<rp>(</rp><rt>ぶき</rt><rp>)</rp></ruby>に<ruby>付加価値<rp>(</rp><rt>ふかかち</rt><rp>)</rp></ruby>をつけて販売する取り組みだよ。コシヒカリ（米）、<ruby>夕張<rp>(</rp><rt>ゆうばり</rt><rp>)</rp></ruby>メロン、<ruby>松阪牛<rp>(</rp><rt>まつさかうし</rt><rp>)</rp></ruby>なんかが有名だね。最近は<strong><span class="keyword">スマート<ruby>農業<rp>(</rp><rt>のうぎょう</rt><rp>)</rp></ruby></span></strong>（IT活用）も注目されているよ',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade2/japan-features/industry.png',
+      alt: '日本の産業・交通の特色の図',
+      caption: '産業別人口の変化と太平洋ベルトの工業地帯',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">食料自給率</span>：カロリーベースで約40%（先進国でも低い）',
     },

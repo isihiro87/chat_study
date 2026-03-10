@@ -64,6 +64,12 @@ export const chubuChat: HistoryChat = {
       text: '東海は<ruby>太平洋<rp>(</rp><rt>たいへいよう</rt><rp>)</rp></ruby>側で温暖・<ruby>多雨<rp>(</rp><rt>たう</rt><rp>)</rp></ruby>。中央高地は標高が高くて夏でも<ruby>涼<rp>(</rp><rt>すず</rt><rp>)</rp></ruby>しい<ruby>冷涼<rp>(</rp><rt>れいりょう</rt><rp>)</rp></ruby>な気候。北陸は冬に<ruby>大量<rp>(</rp><rt>たいりょう</rt><rp>)</rp></ruby>の<ruby>雪<rp>(</rp><rt>ゆき</rt><rp>)</rp></ruby>が降る<strong><ruby>豪雪<rp>(</rp><rt>ごうせつ</rt><rp>)</rp></ruby>地帯</strong>だよ',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade2/japan-regions/chubu-regions.png',
+      alt: '中部地方の3つの地域の図',
+      caption: '日本アルプスを境に東海・中央高地・北陸に分かれる',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">日本アルプス</span>を境に東海（温暖・多雨）・中央高地（冷涼）・北陸（豪雪）の3地域',
     },
@@ -156,6 +162,12 @@ export const chubuChat: HistoryChat = {
       characterId: 'teacher',
       expression: 'happy',
       text: 'ほかにも<ruby>石川<rp>(</rp><rt>いしかわ</rt><rp>)</rp></ruby>県の<strong><ruby>輪島塗<rp>(</rp><rt>わじまぬり</rt><rp>)</rp></ruby></strong>・<strong><ruby>九谷焼<rp>(</rp><rt>くたにやき</rt><rp>)</rp></ruby></strong>、新潟県<ruby>燕<rp>(</rp><rt>つばめ</rt><rp>)</rp></ruby>市・<ruby>三条<rp>(</rp><rt>さんじょう</rt><rp>)</rp></ruby>市の<ruby>金属<rp>(</rp><rt>きんぞく</rt><rp>)</rp></ruby><ruby>洋食器<rp>(</rp><rt>ようしょっき</rt><rp>)</rp></ruby>も有名だよ',
+    },
+    {
+      type: 'image',
+      src: '/images/geography/grade2/japan-regions/chubu-agriculture.png',
+      alt: '中部地方の多様な産業の図',
+      caption: '東海の自動車産業・中央高地の高原野菜・北陸の伝統工芸',
     },
     {
       type: 'quiz',

@@ -22,6 +22,13 @@ No photorealism, no 3D rendering. Simple, diagrammatic, easy to understand.
 **参照元**: Topic: geo2-research-methods - sections[0], slides, chat.ts
 
 ```
+Style: flat educational illustration for Japanese middle school textbook.
+Background: warm white (#F5F3F0), clean and minimal.
+Color palette: blue (#3B82F6), red (#EF4444), green (#10B981), amber (#F59E0B), gray (#6B7280).
+Labels: Japanese text, clear sans-serif font, no decorative elements.
+Aspect ratio: 16:10 (landscape).
+No photorealism, no 3D rendering. Simple, diagrammatic, easy to understand.
+
 A flowchart showing the steps of regional research (地域調査):
 
 Six boxes connected by downward arrows in vertical flow:
@@ -43,6 +50,13 @@ Title: "地域調査の進め方"
 **参照元**: Topic: geo2-topographic-maps - sections[0], slides, chat.ts
 
 ```
+Style: flat educational illustration for Japanese middle school textbook.
+Background: warm white (#F5F3F0), clean and minimal.
+Color palette: blue (#3B82F6), red (#EF4444), green (#10B981), amber (#F59E0B), gray (#6B7280).
+Labels: Japanese text, clear sans-serif font, no decorative elements.
+Aspect ratio: 16:10 (landscape).
+No photorealism, no 3D rendering. Simple, diagrammatic, easy to understand.
+
 An educational diagram showing how to calculate actual distances from topographic maps:
 
 Top section: Two map excerpts side by side:
@@ -74,6 +88,13 @@ Title: "地形図の読み取り方"
 **参照元**: Topic: geo2-fieldwork - sections[0], slides, chat.ts
 
 ```
+Style: flat educational illustration for Japanese middle school textbook.
+Background: warm white (#F5F3F0), clean and minimal.
+Color palette: blue (#3B82F6), red (#EF4444), green (#10B981), amber (#F59E0B), gray (#6B7280).
+Labels: Japanese text, clear sans-serif font, no decorative elements.
+Aspect ratio: 16:10 (landscape).
+No photorealism, no 3D rendering. Simple, diagrammatic, easy to understand.
+
 A sample route map (ルートマップ) for a field study:
 
 A simple hand-drawn style map of a fictional neighborhood showing:
@@ -106,6 +127,13 @@ Title: "ルートマップの作り方"
 **参照元**: Topic: geo2-landforms - sections[0], slides, chat.ts
 
 ```
+Style: flat educational illustration for Japanese middle school textbook.
+Background: warm white (#F5F3F0), clean and minimal.
+Color palette: blue (#3B82F6), red (#EF4444), green (#10B981), amber (#F59E0B), gray (#6B7280).
+Labels: Japanese text, clear sans-serif font, no decorative elements.
+Aspect ratio: 16:10 (landscape).
+No photorealism, no 3D rendering. Simple, diagrammatic, easy to understand.
+
 A physical map of Japan showing major landform features:
 
 Mountain ranges and highlands labeled:
@@ -137,6 +165,13 @@ Title: "日本の地形と海流"
 **参照元**: Topic: geo2-climate - sections[0], slides
 
 ```
+Style: flat educational illustration for Japanese middle school textbook.
+Background: warm white (#F5F3F0), clean and minimal.
+Color palette: blue (#3B82F6), red (#EF4444), green (#10B981), amber (#F59E0B), gray (#6B7280).
+Labels: Japanese text, clear sans-serif font, no decorative elements.
+Aspect ratio: 16:10 (landscape).
+No photorealism, no 3D rendering. Simple, diagrammatic, easy to understand.
+
 A map of Japan showing the six climate regions with representative rain-temperature diagrams:
 
 Six climate regions color-coded on Japan map:
@@ -166,6 +201,13 @@ Title: "日本の6つの気候区分"
 **参照元**: Topic: geo2-disasters - sections[0], slides
 
 ```
+Style: flat educational illustration for Japanese middle school textbook.
+Background: warm white (#F5F3F0), clean and minimal.
+Color palette: blue (#3B82F6), red (#EF4444), green (#10B981), amber (#F59E0B), gray (#6B7280).
+Labels: Japanese text, clear sans-serif font, no decorative elements.
+Aspect ratio: 16:10 (landscape).
+No photorealism, no 3D rendering. Simple, diagrammatic, easy to understand.
+
 An educational diagram showing Japan's natural disasters and disaster prevention:
 
 Top half - Types of disasters (4 panels):
@@ -192,6 +234,13 @@ Title: "日本の自然災害と防災・減災"
 **参照元**: Topic: geo2-population - sections[0], slides
 
 ```
+Style: flat educational illustration for Japanese middle school textbook.
+Background: warm white (#F5F3F0), clean and minimal.
+Color palette: blue (#3B82F6), red (#EF4444), green (#10B981), amber (#F59E0B), gray (#6B7280).
+Labels: Japanese text, clear sans-serif font, no decorative elements.
+Aspect ratio: 16:10 (landscape).
+No photorealism, no 3D rendering. Simple, diagrammatic, easy to understand.
+
 An educational diagram about Japan's population:
 
 Left side: Japan map showing population density:
@@ -221,6 +270,13 @@ Title: "日本の人口の特色と少子高齢化"
 **参照元**: Topic: geo2-energy - sections[0], slides
 
 ```
+Style: flat educational illustration for Japanese middle school textbook.
+Background: warm white (#F5F3F0), clean and minimal.
+Color palette: blue (#3B82F6), red (#EF4444), green (#10B981), amber (#F59E0B), gray (#6B7280).
+Labels: Japanese text, clear sans-serif font, no decorative elements.
+Aspect ratio: 16:10 (landscape).
+No photorealism, no 3D rendering. Simple, diagrammatic, easy to understand.
+
 An educational diagram about Japan's energy and resources:
 
 Top section: Import dependency visualization:
@@ -250,6 +306,13 @@ Title: "日本の資源・エネルギー"
 **参照元**: Topic: geo2-industry - sections[0], slides
 
 ```
+Style: flat educational illustration for Japanese middle school textbook.
+Background: warm white (#F5F3F0), clean and minimal.
+Color palette: blue (#3B82F6), red (#EF4444), green (#10B981), amber (#F59E0B), gray (#6B7280).
+Labels: Japanese text, clear sans-serif font, no decorative elements.
+Aspect ratio: 16:10 (landscape).
+No photorealism, no 3D rendering. Simple, diagrammatic, easy to understand.
+
 An educational diagram about Japan's industry and transportation:
 
 Top left: 産業別人口の変化 (Industrial sector employment change):
@@ -282,6 +345,13 @@ Title: "日本の産業・交通の特色"
 **参照元**: Topic: geo2-regional-division - sections[0], slides
 
 ```
+Style: flat educational illustration for Japanese middle school textbook.
+Background: warm white (#F5F3F0), clean and minimal.
+Color palette: blue (#3B82F6), red (#EF4444), green (#10B981), amber (#F59E0B), gray (#6B7280).
+Labels: Japanese text, clear sans-serif font, no decorative elements.
+Aspect ratio: 16:10 (landscape).
+No photorealism, no 3D rendering. Simple, diagrammatic, easy to understand.
+
 Four small maps of Japan side by side, each showing a different way to divide Japan into regions:
 
 Map 1 "標高による区分":
@@ -318,6 +388,13 @@ Title: "さまざまな視点による地域区分"
 **参照元**: Topic: geo2-kyushu - sections[0]
 
 ```
+Style: flat educational illustration for Japanese middle school textbook.
+Background: warm white (#F5F3F0), clean and minimal.
+Color palette: blue (#3B82F6), red (#EF4444), green (#10B981), amber (#F59E0B), gray (#6B7280).
+Labels: Japanese text, clear sans-serif font, no decorative elements.
+Aspect ratio: 16:10 (landscape).
+No photorealism, no 3D rendering. Simple, diagrammatic, easy to understand.
+
 A map and diagram of Kyushu region focusing on volcanic features:
 
 Left: Kyushu regional map showing:
@@ -348,6 +425,13 @@ Title: "九州地方の火山と自然環境"
 **参照元**: Topic: geo2-kyushu - sections[1]
 
 ```
+Style: flat educational illustration for Japanese middle school textbook.
+Background: warm white (#F5F3F0), clean and minimal.
+Color palette: blue (#3B82F6), red (#EF4444), green (#10B981), amber (#F59E0B), gray (#6B7280).
+Labels: Japanese text, clear sans-serif font, no decorative elements.
+Aspect ratio: 16:10 (landscape).
+No photorealism, no 3D rendering. Simple, diagrammatic, easy to understand.
+
 A map and data visualization of Kyushu's agriculture and environmental efforts:
 
 Left: Kyushu map with agricultural zones marked:
@@ -375,6 +459,13 @@ Title: "九州地方の農業と環境への取り組み"
 **参照元**: Topic: geo2-chugoku-shikoku - sections[0]
 
 ```
+Style: flat educational illustration for Japanese middle school textbook.
+Background: warm white (#F5F3F0), clean and minimal.
+Color palette: blue (#3B82F6), red (#EF4444), green (#10B981), amber (#F59E0B), gray (#6B7280).
+Labels: Japanese text, clear sans-serif font, no decorative elements.
+Aspect ratio: 16:10 (landscape).
+No photorealism, no 3D rendering. Simple, diagrammatic, easy to understand.
+
 A diagram showing the three climate zones of Chugoku-Shikoku region:
 
 Center: Cross-section from Sea of Japan to Pacific Ocean:
@@ -404,6 +495,13 @@ Title: "中国・四国地方の気候と交通"
 **参照元**: Topic: geo2-chugoku-shikoku - sections[2]
 
 ```
+Style: flat educational illustration for Japanese middle school textbook.
+Background: warm white (#F5F3F0), clean and minimal.
+Color palette: blue (#3B82F6), red (#EF4444), green (#10B981), amber (#F59E0B), gray (#6B7280).
+Labels: Japanese text, clear sans-serif font, no decorative elements.
+Aspect ratio: 16:10 (landscape).
+No photorealism, no 3D rendering. Simple, diagrammatic, easy to understand.
+
 An illustration showing ICT-based regional revitalization in Chugoku-Shikoku:
 
 Left side: 瀬戸内工業地域:
@@ -435,6 +533,13 @@ Title: "中国・四国地方の産業とICT活用"
 **参照元**: Topic: geo2-kinki - sections[0]
 
 ```
+Style: flat educational illustration for Japanese middle school textbook.
+Background: warm white (#F5F3F0), clean and minimal.
+Color palette: blue (#3B82F6), red (#EF4444), green (#10B981), amber (#F59E0B), gray (#6B7280).
+Labels: Japanese text, clear sans-serif font, no decorative elements.
+Aspect ratio: 16:10 (landscape).
+No photorealism, no 3D rendering. Simple, diagrammatic, easy to understand.
+
 An illustration of Kinki region's historical preservation and urban development:
 
 Top: Kinki region map showing:
@@ -467,6 +572,13 @@ Title: "近畿地方の歴史的景観と大都市圏"
 **参照元**: Topic: geo2-kinki - sections[2]
 
 ```
+Style: flat educational illustration for Japanese middle school textbook.
+Background: warm white (#F5F3F0), clean and minimal.
+Color palette: blue (#3B82F6), red (#EF4444), green (#10B981), amber (#F59E0B), gray (#6B7280).
+Labels: Japanese text, clear sans-serif font, no decorative elements.
+Aspect ratio: 16:10 (landscape).
+No photorealism, no 3D rendering. Simple, diagrammatic, easy to understand.
+
 An illustration showing rural revitalization efforts in Kinki region:
 
 Three panels:
@@ -502,6 +614,13 @@ Title: "近畿地方の村落と地域おこし"
 **参照元**: Topic: geo2-chubu - sections[0]
 
 ```
+Style: flat educational illustration for Japanese middle school textbook.
+Background: warm white (#F5F3F0), clean and minimal.
+Color palette: blue (#3B82F6), red (#EF4444), green (#10B981), amber (#F59E0B), gray (#6B7280).
+Labels: Japanese text, clear sans-serif font, no decorative elements.
+Aspect ratio: 16:10 (landscape).
+No photorealism, no 3D rendering. Simple, diagrammatic, easy to understand.
+
 A map and climate diagram of Chubu region's three areas:
 
 Center: Chubu region map divided into three zones:
@@ -532,6 +651,13 @@ Title: "中部地方の3つの地域"
 **参照元**: Topic: geo2-chubu - sections[1]
 
 ```
+Style: flat educational illustration for Japanese middle school textbook.
+Background: warm white (#F5F3F0), clean and minimal.
+Color palette: blue (#3B82F6), red (#EF4444), green (#10B981), amber (#F59E0B), gray (#6B7280).
+Labels: Japanese text, clear sans-serif font, no decorative elements.
+Aspect ratio: 16:10 (landscape).
+No photorealism, no 3D rendering. Simple, diagrammatic, easy to understand.
+
 An illustration of Chubu region's diverse industries:
 
 Top section - 東海の工業:
@@ -562,6 +688,13 @@ Title: "中部地方の多様な産業"
 **参照元**: Topic: geo2-kanto - sections[0]
 
 ```
+Style: flat educational illustration for Japanese middle school textbook.
+Background: warm white (#F5F3F0), clean and minimal.
+Color palette: blue (#3B82F6), red (#EF4444), green (#10B981), amber (#F59E0B), gray (#6B7280).
+Labels: Japanese text, clear sans-serif font, no decorative elements.
+Aspect ratio: 16:10 (landscape).
+No photorealism, no 3D rendering. Simple, diagrammatic, easy to understand.
+
 A diagram of Kanto region's geography and urban features:
 
 Top: Kanto plain map showing:
@@ -591,6 +724,13 @@ Title: "関東地方の地形と世界都市・東京"
 **参照元**: Topic: geo2-kanto - sections[2]
 
 ```
+Style: flat educational illustration for Japanese middle school textbook.
+Background: warm white (#F5F3F0), clean and minimal.
+Color palette: blue (#3B82F6), red (#EF4444), green (#10B981), amber (#F59E0B), gray (#6B7280).
+Labels: Japanese text, clear sans-serif font, no decorative elements.
+Aspect ratio: 16:10 (landscape).
+No photorealism, no 3D rendering. Simple, diagrammatic, easy to understand.
+
 An illustration of Kanto's industry and commuter patterns:
 
 Top: Industrial zones on Kanto map:
@@ -620,6 +760,13 @@ Title: "関東地方の産業と都市構造"
 **参照元**: Topic: geo2-tohoku - sections[0]
 
 ```
+Style: flat educational illustration for Japanese middle school textbook.
+Background: warm white (#F5F3F0), clean and minimal.
+Color palette: blue (#3B82F6), red (#EF4444), green (#10B981), amber (#F59E0B), gray (#6B7280).
+Labels: Japanese text, clear sans-serif font, no decorative elements.
+Aspect ratio: 16:10 (landscape).
+No photorealism, no 3D rendering. Simple, diagrammatic, easy to understand.
+
 A climate and geography diagram of Tohoku region:
 
 Center: Tohoku map showing:
@@ -653,6 +800,13 @@ Title: "東北地方の気候と農業"
 **参照元**: Topic: geo2-tohoku - sections[2]
 
 ```
+Style: flat educational illustration for Japanese middle school textbook.
+Background: warm white (#F5F3F0), clean and minimal.
+Color palette: blue (#3B82F6), red (#EF4444), green (#10B981), amber (#F59E0B), gray (#6B7280).
+Labels: Japanese text, clear sans-serif font, no decorative elements.
+Aspect ratio: 16:10 (landscape).
+No photorealism, no 3D rendering. Simple, diagrammatic, easy to understand.
+
 An illustration of Tohoku's traditions and disaster reconstruction:
 
 Top section - 伝統文化:
@@ -684,6 +838,13 @@ Title: "東北地方の伝統文化と防災の取り組み"
 **参照元**: Topic: geo2-hokkaido - sections[0]
 
 ```
+Style: flat educational illustration for Japanese middle school textbook.
+Background: warm white (#F5F3F0), clean and minimal.
+Color palette: blue (#3B82F6), red (#EF4444), green (#10B981), amber (#F59E0B), gray (#6B7280).
+Labels: Japanese text, clear sans-serif font, no decorative elements.
+Aspect ratio: 16:10 (landscape).
+No photorealism, no 3D rendering. Simple, diagrammatic, easy to understand.
+
 A diagram of Hokkaido's climate and cold-weather adaptations:
 
 Top: Hokkaido map showing:
@@ -718,6 +879,13 @@ Title: "北海道地方の気候と暮らしの工夫"
 **参照元**: Topic: geo2-hokkaido - sections[1]
 
 ```
+Style: flat educational illustration for Japanese middle school textbook.
+Background: warm white (#F5F3F0), clean and minimal.
+Color palette: blue (#3B82F6), red (#EF4444), green (#10B981), amber (#F59E0B), gray (#6B7280).
+Labels: Japanese text, clear sans-serif font, no decorative elements.
+Aspect ratio: 16:10 (landscape).
+No photorealism, no 3D rendering. Simple, diagrammatic, easy to understand.
+
 An illustration of Hokkaido's agriculture and tourism:
 
 Top section - 大規模農業:

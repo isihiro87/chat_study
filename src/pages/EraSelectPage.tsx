@@ -7,7 +7,7 @@ import { getSubject } from '../data/subjects';
 import { getErasBySubject, getTopicsByEra } from '../data/subjects/registry';
 import { useStudyProgress } from '../hooks/useStudyProgress';
 
-const grades = [
+const allGrades = [
   { value: 1, label: '中1' },
   { value: 2, label: '中2' },
   { value: 3, label: '中3' },
@@ -25,6 +25,11 @@ export function EraSelectPage() {
   }, [selectedGrade]);
 
   const allEras = subjectId ? getErasBySubject(subjectId) : [];
+
+  // この科目に存在する学年のみタブ表示
+  const availableGradeValues = new Set(allEras.map((e) => e.grade));
+  const grades = allGrades.filter((g) => availableGradeValues.has(g.value));
+
   const filteredEras = allEras.filter((era) => era.grade === selectedGrade);
 
   // Eraが1つだけの場合（英語など）、直接トピック一覧を表示

@@ -85,6 +85,12 @@ export const populationChat: HistoryChat = {
       text: 'なるほど！名前の由来がおもしろいですね',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade2/japan-features/population.png',
+      alt: '日本の人口分布と少子高齢化の図',
+      caption: '三大都市圏への人口集中と人口ピラミッドの変化',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">三大都市圏</span>（東京・大阪・名古屋）に人口集中 → <span class="keyword">過密</span>の問題',
     },

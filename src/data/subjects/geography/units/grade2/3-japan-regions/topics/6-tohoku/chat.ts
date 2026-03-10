@@ -78,6 +78,12 @@ export const tohokuChat: HistoryChat = {
       text: '<strong><ruby>品種改良<rp>(</rp><rt>ひんしゅかいりょう</rt><rp>)</rp></ruby></strong>で寒さに強い<ruby>品種<rp>(</rp><rt>ひんしゅ</rt><rp>)</rp></ruby>が開発されているよ。「ひとめぼれ」や「あきたこまち」などの<ruby>銘柄<rp>(</rp><rt>めいがら</rt><rp>)</rp></ruby>米も品種改良の<ruby>成果<rp>(</rp><rt>せいか</rt><rp>)</rp></ruby>なんだ',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade2/japan-regions/tohoku-climate.png',
+      alt: '東北地方の気候と農業の図',
+      caption: '奥羽山脈で気候が分かれ、やませが冷害の原因に',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">奥羽山脈</span>で気候が分かれる。<span class="keyword">やませ</span>は太平洋側の冷害の原因。品種改良で対策',
     },
@@ -170,6 +176,12 @@ export const tohokuChat: HistoryChat = {
       characterId: 'student',
       expression: 'happy',
       text: '教訓を<ruby>未来<rp>(</rp><rt>みらい</rt><rp>)</rp></ruby>に生かしているんですね。大切なことですね',
+    },
+    {
+      type: 'image',
+      src: '/images/geography/grade2/japan-regions/tohoku-tradition.png',
+      alt: '東北地方の伝統文化と防災の取り組みの図',
+      caption: '東北四大祭り・南部鉄器と震災復興のまちづくり',
     },
     {
       type: 'quiz',

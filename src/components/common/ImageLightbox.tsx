@@ -61,7 +61,7 @@ export function ImageLightbox({ src, alt, caption, onClose }: ImageLightboxProps
 
       {/* 画像とキャプション */}
       <div
-        className="flex h-[85vh] w-[90vw] flex-col items-center justify-center"
+        className="relative flex h-[85vh] w-[90vw] flex-col items-center justify-center"
         onClick={handleImageClick}
       >
         <motion.img
@@ -73,6 +73,12 @@ export function ImageLightbox({ src, alt, caption, onClose }: ImageLightboxProps
           alt={alt}
           className="h-full w-full rounded-lg object-contain"
         />
+        <span
+          className="absolute bottom-1 right-1 text-[10px] text-white/40"
+          style={{ fontFamily: "'Noto Sans JP', sans-serif" }}
+        >
+          AI生成
+        </span>
         {caption && (
           <p
             className="mt-3 text-center text-sm text-white/80"

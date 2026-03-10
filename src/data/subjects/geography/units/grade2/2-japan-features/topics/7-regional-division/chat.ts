@@ -78,6 +78,12 @@ export const regionalDivisionChat: HistoryChat = {
       text: 'その通り！それが大事なポイントだね。<strong>使う基準によって同じ地域でも異なる区分になる</strong>んだ。だからテーマや<ruby>目的<rp>(</rp><rt>もくてき</rt><rp>)</rp></ruby>に応じて適切な視点を選ぶことが大切だよ',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade2/japan-features/regional-division.png',
+      alt: 'さまざまな視点による地域区分の図',
+      caption: '標高・人口・産業・移動時間など、視点で見え方が変わる',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">地域区分</span>：さまざまな基準で地域を分けること',
     },

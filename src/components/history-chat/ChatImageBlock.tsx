@@ -27,7 +27,7 @@ export function ChatImageBlock({ src, alt, caption }: ChatImageBlockProps) {
         transition={{ duration: 0.4 }}
         className="mx-3 my-2 overflow-hidden rounded-2xl bg-white shadow-sm"
       >
-        <div className="flex justify-center p-4">
+        <div className="relative flex justify-center p-4">
           {hasError ? (
             <div className="flex h-[160px] w-full items-center justify-center rounded-lg bg-gray-50">
               <div className="text-center">
@@ -41,14 +41,22 @@ export function ChatImageBlock({ src, alt, caption }: ChatImageBlockProps) {
               </div>
             </div>
           ) : (
-            <img
-              src={src}
-              alt={alt}
-              className="max-h-[240px] w-auto max-w-full cursor-pointer object-contain"
-              loading="lazy"
-              onClick={handleImageClick}
-              onError={() => setHasError(true)}
-            />
+            <div className="relative inline-block">
+              <img
+                src={src}
+                alt={alt}
+                className="max-h-[240px] w-auto max-w-full cursor-pointer object-contain"
+                loading="lazy"
+                onClick={handleImageClick}
+                onError={() => setHasError(true)}
+              />
+              <span
+                className="absolute bottom-1 right-1 text-[10px] text-gray-400"
+                style={{ fontFamily: "'Noto Sans JP', sans-serif" }}
+              >
+                AI生成
+              </span>
+            </div>
           )}
         </div>
         {caption && (

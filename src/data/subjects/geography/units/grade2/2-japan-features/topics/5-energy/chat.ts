@@ -78,6 +78,12 @@ export const energyChat: HistoryChat = {
       text: 'その通り！だから<strong>輸入先の<ruby>多様化<rp>(</rp><rt>たようか</rt><rp>)</rp></ruby></strong>や<strong>エネルギー源の多様化</strong>が大切な<ruby>課題<rp>(</rp><rt>かだい</rt><rp>)</rp></ruby>になっているんだ',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade2/japan-features/energy.png',
+      alt: '日本の資源・エネルギーの図',
+      caption: '低い自給率と再生可能エネルギーへの転換',
+    },
+    {
       type: 'summary-point',
       text: '日本は<span class="keyword">鉱産資源に乏しく</span>、エネルギーの多くを<span class="keyword">輸入に依存</span>',
     },

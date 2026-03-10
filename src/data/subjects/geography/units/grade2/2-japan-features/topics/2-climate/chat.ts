@@ -85,6 +85,12 @@ export const climateChat: HistoryChat = {
       text: '季節風の向きで太平洋側と日本海側の天気が変わるんですね！',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade2/japan-features/climate.png',
+      alt: '日本の6つの気候区分の図',
+      caption: '季節風と山脈の影響で6つの気候区分に分かれる',
+    },
+    {
       type: 'summary-point',
       text: '日本は<span class="keyword">温暖湿潤気候</span>が中心。四季がはっきりしている',
     },

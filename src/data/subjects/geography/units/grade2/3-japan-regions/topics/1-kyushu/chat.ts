@@ -92,6 +92,12 @@ export const kyushuChat: HistoryChat = {
       text: 'いい質問！<strong><span class="keyword">シラス台地</span></strong>は火山灰が<ruby>堆積<rp>(</rp><rt>たいせき</rt><rp>)</rp></ruby>してできた台地だよ。水はけがよすぎて<ruby>稲作<rp>(</rp><rt>いなさく</rt><rp>)</rp></ruby>には向かないけど、<ruby>畜産<rp>(</rp><rt>ちくさん</rt><rp>)</rp></ruby>やさつまいもの<ruby>栽培<rp>(</rp><rt>さいばい</rt><rp>)</rp></ruby>に利用されているんだ',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade2/japan-regions/kyushu-volcano.png',
+      alt: '九州地方の火山と自然環境の図',
+      caption: '阿蘇山のカルデラ・桜島・シラス台地',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">阿蘇山のカルデラ</span>・<span class="keyword">桜島</span>の活火山。<span class="keyword">シラス台地</span>は畜産・さつまいも栽培に利用',
     },
@@ -184,6 +190,12 @@ export const kyushuChat: HistoryChat = {
       characterId: 'teacher',
       expression: 'excited',
       text: '鹿児島県と宮崎県は<ruby>肉牛<rp>(</rp><rt>にくぎゅう</rt><rp>)</rp></ruby>・<ruby>豚<rp>(</rp><rt>ぶた</rt><rp>)</rp></ruby>・<ruby>鶏<rp>(</rp><rt>にわとり</rt><rp>)</rp></ruby>の<ruby>飼育<rp>(</rp><rt>しいく</rt><rp>)</rp></ruby>が盛んな<strong>畜産王国</strong>だよ！シラス台地の広い土地が<ruby>牧場<rp>(</rp><rt>ぼくじょう</rt><rp>)</rp></ruby>に利用されているんだ',
+    },
+    {
+      type: 'image',
+      src: '/images/geography/grade2/japan-regions/kyushu-agriculture.png',
+      alt: '九州地方の農業と環境への取り組みの図',
+      caption: '筑紫平野の稲作・宮崎平野の促成栽培・南九州の畜産',
     },
     {
       type: 'quiz',

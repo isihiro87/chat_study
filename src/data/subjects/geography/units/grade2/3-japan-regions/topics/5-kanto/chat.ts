@@ -78,6 +78,12 @@ export const kantoChat: HistoryChat = {
       text: 'その通り！アスファルトやコンクリートが<ruby>太陽<rp>(</rp><rt>たいよう</rt><rp>)</rp></ruby>の熱を<ruby>吸収<rp>(</rp><rt>きゅうしゅう</rt><rp>)</rp></ruby>し、エアコンの<ruby>排熱<rp>(</rp><rt>はいねつ</rt><rp>)</rp></ruby>も加わって、<ruby>郊外<rp>(</rp><rt>こうがい</rt><rp>)</rp></ruby>より気温が高くなるんだ。<ruby>猛暑日<rp>(</rp><rt>もうしょび</rt><rp>)</rp></ruby>やゲリラ<ruby>豪雨<rp>(</rp><rt>ごうう</rt><rp>)</rp></ruby>の原因にもなっているよ',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade2/japan-regions/kanto-plain.png',
+      alt: '関東地方の地形と世界都市・東京の図',
+      caption: '関東平野とヒートアイランド現象・世界都市東京',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">関東ローム層</span>（火山灰の赤土）で畑作。<span class="keyword">ヒートアイランド現象</span>で都市部の気温上昇が問題',
     },
@@ -170,6 +176,12 @@ export const kantoChat: HistoryChat = {
       characterId: 'teacher',
       expression: 'happy',
       text: '<strong><ruby>北関東工業地域<rp>(</rp><rt>きたかんとうこうぎょうちいき</rt><rp>)</rp></ruby></strong>は<ruby>群馬<rp>(</rp><rt>ぐんま</rt><rp>)</rp></ruby>・<ruby>栃木<rp>(</rp><rt>とちぎ</rt><rp>)</rp></ruby>・茨城に広がっていて、<ruby>高速道路<rp>(</rp><rt>こうそくどうろ</rt><rp>)</rp></ruby>沿いに自動車や<ruby>電気機械<rp>(</rp><rt>でんききかい</rt><rp>)</rp></ruby>の工場が立地しているよ',
+    },
+    {
+      type: 'image',
+      src: '/images/geography/grade2/japan-regions/kanto-industry.png',
+      alt: '関東地方の産業と都市構造の図',
+      caption: '京浜・京葉・北関東の工業地域と近郊農業',
     },
     {
       type: 'quiz',

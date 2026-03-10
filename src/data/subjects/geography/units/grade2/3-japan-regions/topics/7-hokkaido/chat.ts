@@ -78,6 +78,12 @@ export const hokkaidoChat: HistoryChat = {
       text: '本当だよ！梅雨がなくて<ruby>台風<rp>(</rp><rt>たいふう</rt><rp>)</rp></ruby>の<ruby>影響<rp>(</rp><rt>えいきょう</rt><rp>)</rp></ruby>も少ないから、夏は比較的すごしやすいんだ',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade2/japan-regions/hokkaido-climate.png',
+      alt: '北海道地方の気候と暮らしの工夫の図',
+      caption: '亜寒帯気候と二重窓・断熱材・ロードヒーティング',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">亜寒帯気候</span>で冬は厳しい寒さ。二重窓・断熱材・ロードヒーティングで対策。梅雨なし',
     },
@@ -170,6 +176,12 @@ export const hokkaidoChat: HistoryChat = {
       characterId: 'teacher',
       expression: 'happy',
       text: '根釧台地は<ruby>冷涼<rp>(</rp><rt>れいりょう</rt><rp>)</rp></ruby>で<ruby>霧<rp>(</rp><rt>きり</rt><rp>)</rp></ruby>が多いから<ruby>畑作<rp>(</rp><rt>はたさく</rt><rp>)</rp></ruby>に向かないんだ。その代わり広大な<ruby>牧草地<rp>(</rp><rt>ぼくそうち</rt><rp>)</rp></ruby>で<strong><ruby>酪農<rp>(</rp><rt>らくのう</rt><rp>)</rp></ruby></strong>が盛んで、<ruby>生乳<rp>(</rp><rt>せいにゅう</rt><rp>)</rp></ruby>の生産量は<strong>日本一</strong>だよ',
+    },
+    {
+      type: 'image',
+      src: '/images/geography/grade2/japan-regions/hokkaido-agriculture.png',
+      alt: '北海道地方の農業と観光の図',
+      caption: '石狩平野の稲作・十勝平野の輪作・根釧台地の酪農',
     },
     {
       type: 'quiz',
