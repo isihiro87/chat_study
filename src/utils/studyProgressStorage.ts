@@ -36,12 +36,45 @@ export function loadProgress(): StudyProgress {
   }
 }
 
-export function saveProgress(progress: StudyProgress): void {
-  if (typeof window === 'undefined') return;
+export function saveProgress(progress: StudyProgress): boolean {
+  if (typeof window === 'undefined') return false;
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
+    return true;
   } catch (e) {
     console.warn('Failed to save study progress:', e);
+    if (e instanceof DOMException && e.name === 'QuotaExceededError') {
+      // 古いトピック進捗を削除して容量を確保
+      const trimmed = trimOldTopics(progress);
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(trimmed));
+        return true;
+      } catch {
+        // それでも失敗した場合は諦める
+      }
+    }
+    return false;
+  }
+}
+
+/** lastStudiedAtが古い順にトピック進捗を半分削除して容量を確保 */
+function trimOldTopics(progress: StudyProgress): StudyProgress {
+  const entries = Object.entries(progress.topics);
+  if (entries.length <= 1) return progress;
+  entries.sort((a, b) => (a[1].lastStudiedAt || '').localeCompare(b[1].lastStudiedAt || ''));
+  const keep = entries.slice(Math.floor(entries.length / 2));
+  return {
+    ...progress,
+    topics: Object.fromEntries(keep),
+  };
+}
+
+export function clearProgress(): void {
+  if (typeof window === 'undefined') return;
+  try {
+    localStorage.removeItem(STORAGE_KEY);
+  } catch (e) {
+    console.warn('Failed to clear study progress:', e);
   }
 }
 

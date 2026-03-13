@@ -1,3 +1,4 @@
+// Security: dangerouslySetInnerHTML is used with static TypeScript data only (no user input or API data).
 import { useState, useRef, useEffect, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import type { QuizContent } from '../../data/history-chat/types';

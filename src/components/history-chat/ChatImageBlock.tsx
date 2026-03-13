@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { memo, useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ImageLightbox } from '../common/ImageLightbox';
 
@@ -8,13 +8,37 @@ interface ChatImageBlockProps {
   caption?: string;
 }
 
-export function ChatImageBlock({ src, alt, caption }: ChatImageBlockProps) {
+export const ChatImageBlock = memo(function ChatImageBlock({ src, alt, caption }: ChatImageBlockProps) {
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const [hasError, setHasError] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const imgRef = useRef<HTMLImageElement>(null);
+
+  // loading="lazy" はスクロールコンテナ内で発火しない場合があるため、
+  // Intersection Observer で手動管理する
+  const [shouldLoad, setShouldLoad] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShouldLoad(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '200px' }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   const handleImageClick = (e: React.MouseEvent) => {
     e.stopPropagation();
-    if (!hasError) {
+    if (!hasError && isLoaded) {
       setIsLightboxOpen(true);
     }
   };
@@ -22,6 +46,7 @@ export function ChatImageBlock({ src, alt, caption }: ChatImageBlockProps) {
   return (
     <>
       <motion.div
+        ref={containerRef}
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.4 }}
@@ -42,20 +67,30 @@ export function ChatImageBlock({ src, alt, caption }: ChatImageBlockProps) {
             </div>
           ) : (
             <div className="relative inline-block">
-              <img
-                src={src}
-                alt={alt}
-                className="max-h-[240px] w-auto max-w-full cursor-pointer object-contain"
-                loading="lazy"
-                onClick={handleImageClick}
-                onError={() => setHasError(true)}
-              />
-              <span
-                className="absolute bottom-1 right-1 text-[10px] text-gray-400"
-                style={{ fontFamily: "'Noto Sans JP', sans-serif" }}
-              >
-                AI生成
-              </span>
+              {shouldLoad && (
+                <img
+                  ref={imgRef}
+                  src={src}
+                  alt={alt}
+                  className={`max-h-[240px] w-full cursor-pointer object-contain transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+                  onClick={handleImageClick}
+                  onLoad={() => setIsLoaded(true)}
+                  onError={() => setHasError(true)}
+                />
+              )}
+              {!isLoaded && !hasError && (
+                <div className="flex h-[160px] w-full items-center justify-center">
+                  <div className="h-6 w-6 animate-spin rounded-full border-2 border-gray-200 border-t-amber-500" />
+                </div>
+              )}
+              {isLoaded && (
+                <span
+                  className="absolute bottom-1 right-1 text-[10px] text-gray-400"
+                  style={{ fontFamily: "'Noto Sans JP', sans-serif" }}
+                >
+                  AI生成
+                </span>
+              )}
             </div>
           )}
         </div>
@@ -81,4 +116,4 @@ export function ChatImageBlock({ src, alt, caption }: ChatImageBlockProps) {
       </AnimatePresence>
     </>
   );
-}
+});

@@ -1,0 +1,16 @@
+{
+  "name": "チャットでスタディ",
+  "short_name": "チャトスタ",
+  "description": "中学生のためのスマホ学習サイト",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FAF9F7",
+  "theme_color": "#F59E0B",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    }
+  ]
+}

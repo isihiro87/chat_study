@@ -71,6 +71,7 @@ export interface WhiteboardStep {
   annotation?: string; // 補足説明（HTML対応）
   isResult?: boolean; // 最終結果のハイライト
   animateInsert?: boolean; // trueの場合、<strong>部分が遅延フェードインで「後から挿入される」演出
+  grouped?: boolean; // trueの場合、連続するgroupedステップを中括弧でグループ化表示
 }
 
 export interface WhiteboardContent {

@@ -187,6 +187,7 @@ export interface StudyProgress {
     lastStudyDate: string; // "YYYY-MM-DD"
   };
   lastStudiedTopicId: string | null;
+  bookmarkedTopicIds?: string[];
 }
 
 export interface TopicProgress {

@@ -1,10 +1,12 @@
+// Security: dangerouslySetInnerHTML is used with static TypeScript data only (no user input or API data).
+import { memo } from 'react';
 import { motion } from 'framer-motion';
 
 interface DateSeparatorProps {
   text: string;
 }
 
-export function DateSeparator({ text }: DateSeparatorProps) {
+export const DateSeparator = memo(function DateSeparator({ text }: DateSeparatorProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -22,4 +24,4 @@ export function DateSeparator({ text }: DateSeparatorProps) {
       <div className="h-px flex-1 bg-gray-300" />
     </motion.div>
   );
-}
+});

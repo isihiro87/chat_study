@@ -1,4 +1,4 @@
-import { useEffect, type MouseEvent } from 'react';
+import { useEffect, useRef, type MouseEvent } from 'react';
 import { motion } from 'framer-motion';
 import { X } from 'lucide-react';
 
@@ -10,10 +10,29 @@ interface ImageLightboxProps {
 }
 
 export function ImageLightbox({ src, alt, caption, onClose }: ImageLightboxProps) {
-  // Escapeキーで閉じる
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const previousFocusRef = useRef<Element | null>(null);
+
+  // オープン時に閉じるボタンにフォーカス、クローズ時に元のフォーカスを復元
+  useEffect(() => {
+    previousFocusRef.current = document.activeElement;
+    closeButtonRef.current?.focus();
+    return () => {
+      if (previousFocusRef.current instanceof HTMLElement) {
+        previousFocusRef.current.focus();
+      }
+    };
+  }, []);
+
+  // Escapeキーで閉じる + フォーカストラップ
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
+      if (e.key === 'Tab') {
+        // ダイアログ内にフォーカス可能な要素は閉じるボタンのみなのでフォーカスを固定
+        e.preventDefault();
+        closeButtonRef.current?.focus();
+      }
     };
     document.addEventListener('keydown', handleKeyDown);
     return () => document.removeEventListener('keydown', handleKeyDown);
@@ -49,6 +68,7 @@ export function ImageLightbox({ src, alt, caption, onClose }: ImageLightboxProps
     >
       {/* 閉じるボタン */}
       <button
+        ref={closeButtonRef}
         onClick={(e) => {
           e.stopPropagation();
           onClose();

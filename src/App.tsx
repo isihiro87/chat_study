@@ -2,6 +2,8 @@ import { lazy, Suspense, useEffect } from 'react';
 import { Routes, Route, useLocation, useNavigationType } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { TopPage } from './pages/TopPage';
+import { ErrorBoundary } from './components/common/ErrorBoundary';
+import { NotFoundPage } from './pages/NotFoundPage';
 import { pageview } from './utils/gtag';
 
 const EraSelectPage = lazy(() => import('./pages/EraSelectPage').then(m => ({ default: m.EraSelectPage })));
@@ -9,6 +11,7 @@ const TopicSelectPage = lazy(() => import('./pages/TopicSelectPage').then(m => (
 const LearningPage = lazy(() => import('./pages/LearningPage').then(m => ({ default: m.LearningPage })));
 const HistoryChatPage = lazy(() => import('./pages/HistoryChatPage').then(m => ({ default: m.HistoryChatPage })));
 const RandomQuizPage = lazy(() => import('./pages/RandomQuizPage').then(m => ({ default: m.RandomQuizPage })));
+const SettingsPage = lazy(() => import('./pages/SettingsPage').then(m => ({ default: m.SettingsPage })));
 
 // ルート変更時にスクロール位置を復元またはリセット
 function ScrollRestoration() {
@@ -63,6 +66,8 @@ function AnimatedRoutes() {
           <Route path="/subjects/:subjectId/eras/:eraId" element={<TopicSelectPage />} />
           <Route path="/subjects/:subjectId/eras/:eraId/topics/:topicId" element={<LearningPage />} />
           <Route path="/chat/:chatId" element={<HistoryChatPage />} />
+          <Route path="/settings" element={<SettingsPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>
     </motion.div>
@@ -79,11 +84,13 @@ function PageViewTracker() {
 
 function App() {
   return (
-    <div className="min-h-screen bg-gray-50">
-      <ScrollRestoration />
-      <PageViewTracker />
-      <AnimatedRoutes />
-    </div>
+    <ErrorBoundary>
+      <div className="min-h-screen bg-[#FAF9F7]">
+        <ScrollRestoration />
+        <PageViewTracker />
+        <AnimatedRoutes />
+      </div>
+    </ErrorBoundary>
   );
 }
 

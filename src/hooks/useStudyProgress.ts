@@ -183,6 +183,25 @@ export function useStudyProgress() {
     [progress],
   );
 
+  const bookmarkedTopicIds = useMemo(() => progress.bookmarkedTopicIds ?? [], [progress]);
+
+  const toggleBookmark = useCallback(
+    (topicId: string) => {
+      const current = loadProgress();
+      const ids = current.bookmarkedTopicIds ?? [];
+      const updated = ids.includes(topicId)
+        ? ids.filter((id) => id !== topicId)
+        : [...ids, topicId];
+      save({ ...current, bookmarkedTopicIds: updated });
+    },
+    [save],
+  );
+
+  const isBookmarked = useCallback(
+    (topicId: string): boolean => bookmarkedTopicIds.includes(topicId),
+    [bookmarkedTopicIds],
+  );
+
   return {
     markChatRead,
     markFlashcardCompleted,
@@ -197,5 +216,8 @@ export function useStudyProgress() {
     lastStudiedTopicId,
     getNextTopicToStudy,
     getReviewRecommendations,
+    bookmarkedTopicIds,
+    toggleBookmark,
+    isBookmarked,
   };
 }

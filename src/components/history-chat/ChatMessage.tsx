@@ -1,4 +1,6 @@
-import { useRef, useEffect, useCallback, useMemo } from 'react';
+// Security: dangerouslySetInnerHTML is used with static TypeScript data only (no user input or API data).
+// If data sources become dynamic, implement HTML sanitization (e.g., DOMPurify).
+import { memo, useRef, useEffect, useCallback, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import type { ChatCharacter } from '../../data/history-chat/types';
 import { injectSpeakerIcons } from '../../utils/injectSpeakerIcons';
@@ -14,7 +16,7 @@ interface ChatMessageProps {
   onSpeak?: (text: string) => void;
 }
 
-export function ChatMessage({
+export const ChatMessage = memo(function ChatMessage({
   side,
   character,
   text,
@@ -122,4 +124,4 @@ export function ChatMessage({
       </div>
     </motion.div>
   );
-}
+});

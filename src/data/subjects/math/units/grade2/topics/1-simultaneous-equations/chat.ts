@@ -57,10 +57,12 @@ export const simultaneousEquationsChat: HistoryChat = {
         {
           formula: '① x + y = 7',
           annotation: '<ruby>合<rt>あ</rt></ruby>わせて 7<ruby>個<rt>こ</rt></ruby>',
+          grouped: true,
         },
         {
           formula: '② x − y = 3',
           annotation: 'りんごはみかんより 3<ruby>個<rt>こ</rt></ruby><ruby>多<rt>おお</rt></ruby>い',
+          grouped: true,
         },
       ],
     },
@@ -117,10 +119,12 @@ export const simultaneousEquationsChat: HistoryChat = {
       steps: [
         {
           formula: '① x + y = 7',
+          grouped: true,
         },
         {
           formula: '② x − y = 3',
           annotation: '① + ② で y を<ruby>消去<rt>しょうきょ</rt></ruby>',
+          grouped: true,
         },
         {
           formula: '2x = 10',
@@ -198,10 +202,12 @@ export const simultaneousEquationsChat: HistoryChat = {
       steps: [
         {
           formula: '① y = 2x',
+          grouped: true,
         },
         {
           formula: '② x + y = 9',
           annotation: '② の y に 2x を<ruby>代入<rt>だいにゅう</rt></ruby>',
+          grouped: true,
         },
         {
           formula: 'x + <strong>2x</strong> = 9',

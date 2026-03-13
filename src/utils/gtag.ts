@@ -4,3 +4,12 @@ export function pageview(url: string): void {
   if (typeof window === 'undefined' || typeof window.gtag !== 'function') return;
   window.gtag('config', GA_MEASUREMENT_ID, { page_path: url });
 }
+
+export function trackEvent(action: string, label?: string, value?: number): void {
+  if (typeof window === 'undefined' || typeof window.gtag !== 'function') return;
+  window.gtag('event', action, {
+    event_category: 'engagement',
+    event_label: label,
+    value,
+  });
+}

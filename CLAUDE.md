@@ -58,6 +58,47 @@
 
 詳細な手順と更新管理のルールはsteeringスキル内に定義されています。
 
+## サイトマップ（ページ構成）
+
+| パス | ページ | コンポーネント | 説明 |
+|------|--------|---------------|------|
+| `/` | トップページ | `TopPage` | 教科選択・学習ダッシュボード・トピック検索 |
+| `/subjects/:subjectId` | 学年・時代選択 | `EraSelectPage` | 学年タブ付きの時代/単元一覧 |
+| `/subjects/:subjectId/random-quiz` | ランダムクイズ | `RandomQuizPage` | 教科横断のミックスクイズ |
+| `/subjects/:subjectId/eras/:eraId` | トピック選択 | `TopicSelectPage` | 時代/単元内のトピック一覧 |
+| `/subjects/:subjectId/eras/:eraId/topics/:topicId` | 学習ページ | `LearningPage` | メイン学習画面（タブ切替） |
+| `/chat/:chatId` | 歴史チャット | `HistoryChatPage` | 対話形式の歴史学習 |
+| `*` | 404ページ | `NotFoundPage` | 存在しないURLのフォールバック |
+
+### 全体構成の補足
+
+- **ErrorBoundary** (`src/components/common/ErrorBoundary.tsx`): App全体をラップ。レンダリングエラー時にフォールバックUIを表示
+- **非同期エラーハンドリング**: LearningPage・HistoryChatPageはデータロード失敗時にエラーUI+再試行ボタンを表示
+- **トピック検索**: TopPageに全263トピックを対象としたクライアントサイド検索（debounce 300ms、最大10件表示）
+
+### 学習ページのタブ構成
+
+LearningPage内で以下のタブを切り替え（トピックのコンテンツ有無で表示/非表示）:
+
+| タブ | コンポーネント | 説明 |
+|------|---------------|------|
+| チャット | `ChatContainer` | 対話形式の解説（歴史・地理） |
+| 解説 | `ExplanationView` / `SlideView` | テキスト解説 or 3タップスライド |
+| 例題 | `ExampleView` | ステップ形式の問題解説（数学） |
+| フラッシュカード | `FlashcardDeck` | スワイプ式の暗記カード |
+| クイズ | `QuizView` | 4択・語順並べ替え問題 |
+| 動画 | `VideoPlayer` | YouTube動画（横型・縦型） |
+
+### 教科構成
+
+| 教科ID | 教科名 | 学年 | コンテンツ形式 |
+|--------|--------|------|---------------|
+| `history` | 歴史 | 1-3年 | チャット, フラッシュカード, クイズ |
+| `english` | 英語 | 1-3年 | 解説, フラッシュカード, クイズ |
+| `math` | 数学 | 1-3年 | 解説, 例題, フラッシュカード, クイズ |
+| `science` | 理科 | 1-3年 | 解説/スライド, フラッシュカード, クイズ |
+| `geography` | 地理 | 1-2年 | チャット, フラッシュカード, クイズ |
+
 ## ディレクトリ構造
 
 ### 永続的ドキュメント(`docs/`)

@@ -1,3 +1,4 @@
+// Security: dangerouslySetInnerHTML is used with static TypeScript data only (no user input or API data).
 import { motion } from 'framer-motion';
 import type { WhiteboardStep } from '../../data/history-chat/types';
 

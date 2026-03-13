@@ -1,3 +1,4 @@
+// Security: dangerouslySetInnerHTML is used with static TypeScript data only (no user input or API data).
 import { motion } from 'framer-motion';
 import { RotateCcw, Trophy, Layers, HelpCircle, MessageCircle, BookOpen } from 'lucide-react';
 import { buildChatGPTUrl } from '../../utils/chatgptPrompt';

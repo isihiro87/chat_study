@@ -1,3 +1,4 @@
+import { memo, useCallback } from 'react';
 import { Video, Layers, HelpCircle, MessageCircle, BookOpen } from 'lucide-react';
 import { motion } from 'framer-motion';
 import type { TabType } from '../../data/types';
@@ -18,7 +19,7 @@ const allTabs: { id: TabType; label: string; icon: React.ElementType }[] = [
   { id: 'video', label: '動画', icon: Video },
 ];
 
-export function TabBar({
+export const TabBar = memo(function TabBar({
   activeTab,
   onTabChange,
   hiddenTabs = [],
@@ -27,17 +28,43 @@ export function TabBar({
 }: TabBarProps) {
   const tabs = allTabs.filter((tab) => !hiddenTabs.includes(tab.id));
 
+  const handleKeyDown = useCallback(
+    (e: React.KeyboardEvent, currentIndex: number) => {
+      let nextIndex = -1;
+      if (e.key === 'ArrowRight') {
+        for (let i = 1; i <= tabs.length; i++) {
+          const idx = (currentIndex + i) % tabs.length;
+          if (!disabledTabs.includes(tabs[idx].id)) { nextIndex = idx; break; }
+        }
+      } else if (e.key === 'ArrowLeft') {
+        for (let i = 1; i <= tabs.length; i++) {
+          const idx = (currentIndex - i + tabs.length) % tabs.length;
+          if (!disabledTabs.includes(tabs[idx].id)) { nextIndex = idx; break; }
+        }
+      }
+      if (nextIndex >= 0) {
+        e.preventDefault();
+        onTabChange(tabs[nextIndex].id);
+        const btn = (e.currentTarget.parentNode as HTMLElement)?.querySelectorAll<HTMLButtonElement>('[role="tab"]')[nextIndex];
+        btn?.focus();
+      }
+    },
+    [tabs, disabledTabs, onTabChange],
+  );
+
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-20 border-t border-gray-200 bg-white">
-      <div className="mx-auto flex max-w-md">
-        {tabs.map(({ id, label, icon: Icon }) => {
+    <nav className="fixed bottom-0 left-0 right-0 z-20 border-t border-gray-200 bg-white" aria-label="学習モード">
+      <div className="mx-auto flex max-w-md" role="tablist">
+        {tabs.map(({ id, label, icon: Icon }, index) => {
           const isActive = activeTab === id;
           const isDisabled = disabledTabs.includes(id);
           const isCompleted = completedTabs.includes(id);
           return (
             <button
               key={id}
+              role="tab"
               onClick={() => !isDisabled && onTabChange(id)}
+              onKeyDown={(e) => handleKeyDown(e, index)}
               disabled={isDisabled}
               className={`relative flex flex-1 flex-col items-center py-2 ${
                 isDisabled
@@ -46,7 +73,9 @@ export function TabBar({
                     ? 'text-primary'
                     : 'text-gray-400'
               }`}
-              aria-current={isActive ? 'page' : undefined}
+              aria-selected={isActive}
+              aria-label={`${label}タブ${isCompleted ? '（完了済み）' : ''}${isDisabled ? '（準備中）' : ''}`}
+              tabIndex={isActive ? 0 : -1}
             >
               <div className="relative">
                 <Icon
@@ -81,4 +110,4 @@ export function TabBar({
       </div>
     </nav>
   );
-}
+});

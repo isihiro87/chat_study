@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import {
   SITE_NAME,
+  BASE_URL,
   DEFAULT_DESCRIPTION,
   buildTitle,
   buildCanonicalUrl,
@@ -59,12 +60,20 @@ export function SEOHead({ title, description, path, breadcrumbs }: SEOHeadProps)
     setMetaTag('description', desc);
 
     // OGP
+    const ogImage = `${BASE_URL}/images/og-image.png`;
     setMetaTag('og:title', fullTitle, true);
     setMetaTag('og:description', desc, true);
     setMetaTag('og:type', 'website', true);
     setMetaTag('og:url', canonicalUrl, true);
     setMetaTag('og:site_name', SITE_NAME, true);
     setMetaTag('og:locale', 'ja_JP', true);
+    setMetaTag('og:image', ogImage, true);
+
+    // Twitter Card
+    setMetaTag('twitter:card', 'summary_large_image');
+    setMetaTag('twitter:title', fullTitle);
+    setMetaTag('twitter:description', desc);
+    setMetaTag('twitter:image', ogImage);
 
     // canonical
     setLinkTag('canonical', canonicalUrl);

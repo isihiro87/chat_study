@@ -1,3 +1,4 @@
+// Security: dangerouslySetInnerHTML is used with static TypeScript data only (no user input or API data).
 import { motion } from 'framer-motion';
 
 interface SummaryPointBlockProps {

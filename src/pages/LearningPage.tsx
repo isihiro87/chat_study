@@ -1,6 +1,6 @@
 import { useState, useCallback, useMemo, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, Home, Clock } from 'lucide-react';
+import { ArrowLeft, Home, Clock, Star, X } from 'lucide-react';
 import { SummaryQuizPopup } from '../components/random-quiz/SummaryQuizPopup';
 import {
   addCompletedTopic,
@@ -19,6 +19,7 @@ import { getTopic, loadChat, loadTopicContent, getEra } from '../data/subjects/r
 import { getSubject } from '../data/subjects';
 import { SEOHead } from '../components/common/SEOHead';
 import { estimateReadingTime } from '../utils/estimateReadingTime';
+import { trackEvent } from '../utils/gtag';
 import { useStudyProgress } from '../hooks/useStudyProgress';
 import { useTopicNavigation } from '../hooks/useTopicNavigation';
 import type { TabType, TopicContent } from '../data/types';
@@ -40,10 +41,23 @@ export function LearningPage() {
   const [content, setContent] = useState<TopicContent | null>(null);
   const [chat, setChat] = useState<HistoryChat | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [loadError, setLoadError] = useState(false);
 
-  const [activeTab, setActiveTab] = useState<TabType>(() =>
-    topic?.chatId ? 'chat' : 'flashcard'
-  );
+  const [activeTab, setActiveTabRaw] = useState<TabType>(() => {
+    if (topicId) {
+      const saved = sessionStorage.getItem(`activeTab:${topicId}`);
+      if (saved === 'chat' || saved === 'flashcard' || saved === 'quiz' || saved === 'example' || saved === 'video') {
+        return saved;
+      }
+    }
+    return topic?.chatId ? 'chat' : 'flashcard';
+  });
+  const setActiveTab = useCallback((tab: TabType) => {
+    setActiveTabRaw(tab);
+    if (topicId) {
+      sessionStorage.setItem(`activeTab:${topicId}`, tab);
+    }
+  }, [topicId]);
   const [cardProgress, setCardProgress] = useState({ current: 1, total: 1 });
   const [quizProgress, setQuizProgress] = useState({ current: 1, total: 1 });
   const [exampleProgress, setExampleProgress] = useState({ current: 1, total: 1 });
@@ -51,6 +65,9 @@ export function LearningPage() {
   const [quizNewBest, setQuizNewBest] = useState(false);
   const [showSummaryPopup, setShowSummaryPopup] = useState(false);
   const [summaryTopicIds, setSummaryTopicIds] = useState<string[]>([]);
+  const [showOnboarding, setShowOnboarding] = useState(() => {
+    return !localStorage.getItem('learningpage_onboarded');
+  });
 
   const {
     markChatRead,
@@ -58,6 +75,8 @@ export function LearningPage() {
     markExampleCompleted,
     updateQuizScore,
     getTopicProgress,
+    isBookmarked,
+    toggleBookmark,
   } = useStudyProgress();
 
   // 現在のトピックの進捗
@@ -73,30 +92,45 @@ export function LearningPage() {
   }, [topicProgress]);
 
   // 非同期でコンテンツとチャットをロード
-  useEffect(() => {
-    let cancelled = false;
+  const loadContent = useCallback(async (tid: string, chatId?: string) => {
     setIsLoading(true);
+    setLoadError(false);
     setContent(null);
     setChat(null);
-
-    async function load() {
-      if (!topicId || !topic) {
-        setIsLoading(false);
-        return;
-      }
+    try {
       const [loadedContent, loadedChat] = await Promise.all([
-        loadTopicContent(topicId),
-        topic.chatId ? loadChat(topic.chatId) : Promise.resolve(undefined),
+        loadTopicContent(tid),
+        chatId ? loadChat(chatId) : Promise.resolve(undefined),
       ]);
-      if (!cancelled) {
-        setContent(loadedContent ?? null);
-        setChat(loadedChat ?? null);
-        setIsLoading(false);
-      }
+      setContent(loadedContent ?? null);
+      setChat(loadedChat ?? null);
+    } catch {
+      setLoadError(true);
+    } finally {
+      setIsLoading(false);
     }
-    load();
-    return () => { cancelled = true; };
-  }, [topicId, topic?.chatId]);
+  }, []);
+
+  useEffect(() => {
+    if (!topicId || !topic) {
+      setIsLoading(false);
+      return;
+    }
+    void loadContent(topicId, topic.chatId ?? undefined);
+  }, [topicId, topic?.chatId, loadContent]);
+
+  // 前後トピックのプリフェッチ（メインコンテンツ読み込み後）
+  useEffect(() => {
+    if (isLoading || loadError) return;
+    const prefetchIds = [prevTopic?.id, nextTopic?.id].filter(Boolean) as string[];
+    prefetchIds.forEach((id) => {
+      const t = getTopic(id);
+      if (t) {
+        void loadTopicContent(id).catch(() => {});
+        if (t.chatId) void loadChat(t.chatId).catch(() => {});
+      }
+    });
+  }, [isLoading, loadError, prevTopic?.id, nextTopic?.id]);
 
   // チャットの推定読了時間
   const chatEstimatedMinutes = useMemo(() => {
@@ -136,6 +170,19 @@ export function LearningPage() {
     window.scrollTo(0, 0);
   }, [activeTab]);
 
+  // クイズ・フラッシュカード進行中のページ離脱確認
+  const isInProgress =
+    (activeTab === 'quiz' && quizProgress.current > 1 && quizProgress.current <= quizProgress.total) ||
+    (activeTab === 'flashcard' && cardProgress.current > 1 && cardProgress.current <= cardProgress.total);
+  useEffect(() => {
+    if (!isInProgress) return;
+    const handler = (e: BeforeUnloadEvent) => {
+      e.preventDefault();
+    };
+    window.addEventListener('beforeunload', handler);
+    return () => window.removeEventListener('beforeunload', handler);
+  }, [isInProgress]);
+
   const handleCardProgressChange = useCallback((current: number, total: number) => {
     setCardProgress({ current, total });
   }, []);
@@ -160,7 +207,10 @@ export function LearningPage() {
   }, [topicId, markChatRead]);
 
   const handleFlashcardComplete = useCallback(() => {
-    if (topicId) markFlashcardCompleted(topicId);
+    if (topicId) {
+      markFlashcardCompleted(topicId);
+      trackEvent('flashcard_complete', topicId);
+    }
   }, [topicId, markFlashcardCompleted]);
 
   const handleExampleComplete = useCallback(() => {
@@ -172,6 +222,7 @@ export function LearningPage() {
       if (topicId) {
         const { isNewBest } = updateQuizScore(topicId, score, total);
         setQuizNewBest(isNewBest);
+        trackEvent('quiz_complete', topicId, Math.round((score / total) * 100));
         addCompletedTopic(topicId);
         if (shouldShowSummaryQuizPopup()) {
           markPopupShown();
@@ -187,6 +238,35 @@ export function LearningPage() {
     return (
       <div className="flex min-h-screen items-center justify-center">
         <p className="text-gray-500">トピックが見つかりません</p>
+      </div>
+    );
+  }
+
+  if (loadError) {
+    return (
+      <div className="flex min-h-screen flex-col items-center justify-center bg-[#FAF9F7] px-4">
+        <span className="mb-4 text-6xl">😵</span>
+        <h1
+          className="mb-2 text-xl font-bold text-gray-800"
+          style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+        >
+          読み込みに失敗しました
+        </h1>
+        <p
+          className="mb-6 text-center text-sm text-gray-500"
+          style={{ fontFamily: "'Noto Sans JP', sans-serif" }}
+        >
+          コンテンツの取得中にエラーが発生しました。
+          <br />
+          もう一度お試しください。
+        </p>
+        <button
+          onClick={() => loadContent(topicId!, topic.chatId ?? undefined)}
+          className="rounded-full bg-gray-800 px-6 py-3 text-sm font-semibold text-white active:scale-95"
+          style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+        >
+          再試行
+        </button>
       </div>
     );
   }
@@ -215,14 +295,25 @@ export function LearningPage() {
         </button>
         <div className="flex-1 min-w-0">
           <h1 className="truncate text-lg font-bold text-gray-800">{topic.name}</h1>
-          <p className="truncate text-sm text-gray-500">{topic.subtitle}</p>
+          <p className="truncate text-xs text-gray-400">
+            {subject?.name}{era ? ` › ${era.name}` : ''}
+          </p>
         </div>
         <div className="flex-shrink-0 rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
           {progress.current}/{progress.total}
         </div>
+        {topicId && (
+          <button
+            onClick={() => toggleBookmark(topicId)}
+            className="ml-2 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full hover:bg-gray-100 active:bg-gray-200"
+            aria-label={isBookmarked(topicId) ? 'お気に入りから削除' : 'お気に入りに追加'}
+          >
+            <Star className={`h-5 w-5 ${isBookmarked(topicId) ? 'fill-amber-500 text-amber-500' : 'text-gray-400'}`} />
+          </button>
+        )}
         <button
           onClick={() => navigate('/')}
-          className="ml-2 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full hover:bg-gray-100 active:bg-gray-200"
+          className="ml-1 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full hover:bg-gray-100 active:bg-gray-200"
           aria-label="ホーム"
         >
           <Home className="h-5 w-5 text-gray-600" />
@@ -249,7 +340,9 @@ export function LearningPage() {
         </button>
         <div className="flex-1 min-w-0">
           <h1 className="truncate text-lg font-bold text-gray-800">{topic.name}</h1>
-          <p className="truncate text-sm text-gray-500">{topic.subtitle}</p>
+          <p className="truncate text-xs text-gray-400">
+            {subject?.name}{era ? ` › ${era.name}` : ''}
+          </p>
         </div>
         {chatEstimatedMinutes > 0 && (
           <span className="flex items-center gap-1 rounded-full bg-gray-100 px-2.5 py-1 text-xs font-medium text-gray-600">
@@ -379,6 +472,23 @@ export function LearningPage() {
           <VideoPlayer videos={content.videos} />
         </main>
       </div>
+
+      {/* 初回オンボーディングバナー */}
+      {showOnboarding && (
+        <div className="fixed bottom-16 left-0 right-0 z-30 flex items-center justify-between bg-amber-50 px-4 py-2.5 text-xs text-amber-700 shadow-sm">
+          <span>下のタブで「チャット解説」「フラッシュカード」「クイズ」を切り替えられます</span>
+          <button
+            onClick={() => {
+              setShowOnboarding(false);
+              localStorage.setItem('learningpage_onboarded', '1');
+            }}
+            className="ml-2 flex-shrink-0 rounded-full p-1 hover:bg-amber-100"
+            aria-label="閉じる"
+          >
+            <X className="h-4 w-4" />
+          </button>
+        </div>
+      )}
 
       {/* TabBar（共通、常に表示） */}
       <TabBar
