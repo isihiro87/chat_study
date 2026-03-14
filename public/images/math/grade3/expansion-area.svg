@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none">
+  <rect width="400" height="300" rx="16" fill="#F5F3F0"/>
+  <text x="200" y="22" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1f2937">(a + b)² = a² + 2ab + b² の面積図</text>
+
+  <!-- Main square outline -->
+  <rect x="60" y="40" width="200" height="200" rx="0" fill="none" stroke="#374151" stroke-width="2"/>
+
+  <!-- Dividing lines -->
+  <line x1="190" y1="40" x2="190" y2="240" stroke="#374151" stroke-width="1.5"/>
+  <line x1="60" y1="170" x2="260" y2="170" stroke="#374151" stroke-width="1.5"/>
+
+  <!-- a² area (top-left) -->
+  <rect x="60" y="40" width="130" height="130" fill="#3B82F6" fill-opacity="0.15"/>
+  <text x="125" y="112" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="bold" fill="#2563EB">a²</text>
+
+  <!-- ab area (top-right) -->
+  <rect x="190" y="40" width="70" height="130" fill="#10B981" fill-opacity="0.15"/>
+  <text x="225" y="112" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#059669">ab</text>
+
+  <!-- ab area (bottom-left) -->
+  <rect x="60" y="170" width="130" height="70" fill="#10B981" fill-opacity="0.15"/>
+  <text x="125" y="210" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#059669">ab</text>
+
+  <!-- b² area (bottom-right) -->
+  <rect x="190" y="170" width="70" height="70" fill="#EF4444" fill-opacity="0.15"/>
+  <text x="225" y="210" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#DC2626">b²</text>
+
+  <!-- Dimension labels - top -->
+  <line x1="60" y1="32" x2="190" y2="32" stroke="#2563EB" stroke-width="1.5"/>
+  <text x="125" y="28" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#2563EB">a</text>
+  <line x1="190" y1="32" x2="260" y2="32" stroke="#DC2626" stroke-width="1.5"/>
+  <text x="225" y="28" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#DC2626">b</text>
+
+  <!-- Dimension labels - left -->
+  <text x="50" y="112" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#2563EB">a</text>
+  <line x1="55" y1="40" x2="55" y2="170" stroke="#2563EB" stroke-width="1.5"/>
+  <text x="50" y="210" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#DC2626">b</text>
+  <line x1="55" y1="170" x2="55" y2="240" stroke="#DC2626" stroke-width="1.5"/>
+
+  <!-- Total dimension - bottom -->
+  <line x1="60" y1="248" x2="260" y2="248" stroke="#374151" stroke-width="1.5"/>
+  <text x="160" y="260" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#374151">a + b</text>
+
+  <!-- Formula on right side -->
+  <rect x="280" y="60" width="110" height="130" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1"/>
+  <text x="335" y="82" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="bold" fill="#1f2937">面積の合計</text>
+  <rect x="290" y="90" width="90" height="22" rx="4" fill="#3B82F6" fill-opacity="0.15"/>
+  <text x="335" y="106" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#2563EB">a²</text>
+  <text x="335" y="122" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#374151">＋</text>
+  <rect x="290" y="128" width="90" height="22" rx="4" fill="#10B981" fill-opacity="0.15"/>
+  <text x="335" y="144" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#059669">2ab</text>
+  <text x="335" y="160" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#374151">＋</text>
+  <rect x="290" y="166" width="90" height="22" rx="4" fill="#EF4444" fill-opacity="0.15"/>
+  <text x="335" y="182" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#DC2626">b²</text>
+
+  <!-- Key point -->
+  <rect x="15" y="268" width="370" height="24" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1"/>
+  <circle cx="30" cy="280" r="4" fill="#F59E0B"/>
+  <text x="40" y="284" font-family="sans-serif" font-size="8" fill="#374151">一辺 (a+b) の正方形の面積 = a² + 2ab + b² → これが展開の公式！</text>
+</svg>

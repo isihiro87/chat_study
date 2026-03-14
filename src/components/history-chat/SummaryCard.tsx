@@ -2,6 +2,7 @@
 import { motion } from 'framer-motion';
 import { RotateCcw, Trophy, Layers, HelpCircle, MessageCircle, BookOpen } from 'lucide-react';
 import { buildChatGPTUrl } from '../../utils/chatgptPrompt';
+import { renderMathInHtml } from '../../utils/math-formula';
 
 interface SummaryCardProps {
   points: string[];
@@ -139,7 +140,7 @@ export function SummaryCard({ points, score, totalQuizzes, onReplay, onNavigateT
                 <span
                   className="text-sm leading-relaxed text-gray-700"
                   style={{ fontFamily: "'Noto Sans JP', sans-serif" }}
-                  dangerouslySetInnerHTML={{ __html: point }}
+                  dangerouslySetInnerHTML={{ __html: renderMathInHtml(point) }}
                 />
               </li>
             ))}

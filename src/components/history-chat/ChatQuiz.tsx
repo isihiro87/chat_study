@@ -2,6 +2,7 @@
 import { useState, useRef, useEffect, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import type { QuizContent } from '../../data/history-chat/types';
+import { renderMathInHtml } from '../../utils/math-formula';
 
 interface ChatQuizProps {
   quiz: QuizContent;
@@ -88,9 +89,8 @@ export function ChatQuiz({
           <p
             className="mt-2 text-base font-medium leading-relaxed text-white"
             style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
-          >
-            {quiz.question}
-          </p>
+            dangerouslySetInnerHTML={{ __html: renderMathInHtml(quiz.question) }}
+          />
         </div>
 
         {/* 選択肢 */}
@@ -154,9 +154,8 @@ export function ChatQuiz({
                 <span
                   className={`text-sm font-medium ${textColor}`}
                   style={{ fontFamily: "'Noto Sans JP', sans-serif" }}
-                >
-                  {option.text}
-                </span>
+                  dangerouslySetInnerHTML={{ __html: renderMathInHtml(option.text) }}
+                />
                 {isAnswered && isCorrect && (
                   <span className="ml-auto text-green-400">✓</span>
                 )}
@@ -198,7 +197,7 @@ export function ChatQuiz({
             <p
               className="text-sm leading-relaxed text-white/90"
               style={{ fontFamily: "'Noto Sans JP', sans-serif" }}
-              dangerouslySetInnerHTML={{ __html: quiz.explanation }}
+              dangerouslySetInnerHTML={{ __html: renderMathInHtml(quiz.explanation) }}
             />
           </motion.div>
         )}

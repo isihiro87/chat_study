@@ -2,6 +2,7 @@
 import { useRef, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import type { WhiteboardStep } from '../../data/history-chat/types';
+import { renderMathInHtml } from '../../utils/math-formula';
 
 interface MathWhiteboardBlockProps {
   title?: string;
@@ -91,7 +92,7 @@ export function MathWhiteboardBlock({ title, steps, revealedSteps, onStepBack }:
           <p
             className={`text-lg font-bold leading-snug ${getTextColorClass(step, index)}`}
             style={{ fontFamily: "'Noto Sans JP', sans-serif" }}
-            dangerouslySetInnerHTML={{ __html: step.formula }}
+            dangerouslySetInnerHTML={{ __html: renderMathInHtml(step.formula) }}
           />
         </div>
 
@@ -106,7 +107,7 @@ export function MathWhiteboardBlock({ title, steps, revealedSteps, onStepBack }:
               transition={{ duration: 0.3, ease: 'easeOut' }}
               className="mt-0.5 text-center text-xs leading-relaxed text-gray-500"
               style={{ fontFamily: "'Noto Sans JP', sans-serif" }}
-              dangerouslySetInnerHTML={{ __html: step.annotation }}
+              dangerouslySetInnerHTML={{ __html: renderMathInHtml(step.annotation) }}
             />
           )}
         </AnimatePresence>
@@ -130,7 +131,7 @@ export function MathWhiteboardBlock({ title, steps, revealedSteps, onStepBack }:
             <p
               className="sticky top-0 z-10 w-full bg-white pb-1 text-center text-xs font-bold text-gray-400"
               style={{ fontFamily: "'Noto Sans JP', sans-serif" }}
-              dangerouslySetInnerHTML={{ __html: title }}
+              dangerouslySetInnerHTML={{ __html: renderMathInHtml(title) }}
             />
           )}
 

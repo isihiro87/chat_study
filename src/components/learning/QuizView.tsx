@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Check, X, RotateCcw, Trophy, RefreshCw, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useQuiz } from '../../hooks/useQuiz';
 import type { Quiz, QuizQuestion } from '../../data/types';
+import { MathText } from '../common/MathText';
 
 interface TopicNavigationInfo {
   prev: { name: string; path: string } | null;
@@ -480,7 +481,7 @@ export function QuizView({ quiz, onProgressChange, onComplete, onCompleteWithWro
               className="whitespace-pre-line text-base font-semibold leading-relaxed text-gray-800 sm:text-lg"
               style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
             >
-              {currentQuestion?.question}
+              {currentQuestion && <MathText text={currentQuestion.question} />}
             </p>
           </div>
         </div>
@@ -519,16 +520,12 @@ export function QuizView({ quiz, onProgressChange, onComplete, onCompleteWithWro
                     {!isCorrectAnswer && (
                       <div className="flex items-start gap-2 rounded-lg bg-emerald-100 p-2.5">
                         <span className="flex-shrink-0 text-sm font-bold text-emerald-700">正答:</span>
-                        <span className="text-base font-bold text-emerald-800">
-                          {correctOptionText}
-                        </span>
+                          <MathText text={correctOptionText ?? ''} className="text-base font-bold text-emerald-800" />
                       </div>
                     )}
                     <div className="flex items-start gap-2">
                       <span className="flex-shrink-0 text-sm font-bold text-gray-400">あなたの回答:</span>
-                      <span className={`text-sm ${isCorrectAnswer ? 'font-medium text-emerald-700' : 'text-gray-500'}`}>
-                        {selectedOptionText}
-                      </span>
+                      <MathText text={selectedOptionText ?? ''} className={`text-sm ${isCorrectAnswer ? 'font-medium text-emerald-700' : 'text-gray-500'}`} />
                     </div>
                   </div>
                 </div>
@@ -542,12 +539,12 @@ export function QuizView({ quiz, onProgressChange, onComplete, onCompleteWithWro
                     >
                       解説
                     </p>
-                    <p
+                    <MathText
+                      text={currentQuestion.explanation}
+                      as="p"
                       className="whitespace-pre-line text-sm leading-relaxed text-gray-600"
                       style={{ fontFamily: "'Noto Sans JP', sans-serif" }}
-                    >
-                      {currentQuestion.explanation}
-                    </p>
+                    />
                   </div>
                 )}
 
@@ -584,12 +581,11 @@ export function QuizView({ quiz, onProgressChange, onComplete, onCompleteWithWro
                     <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-gray-100 text-sm font-bold text-gray-600">
                       {String.fromCharCode(65 + index)}
                     </span>
-                    <span
+                    <MathText
+                      text={option}
                       className="flex-1 font-medium text-gray-800"
                       style={{ fontFamily: "'Noto Sans JP', sans-serif" }}
-                    >
-                      {option}
-                    </span>
+                    />
                   </button>
                 ))}
               </div>

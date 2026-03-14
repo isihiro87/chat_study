@@ -3,6 +3,7 @@ import { motion, AnimatePresence, useMotionValue, useTransform, type PanInfo } f
 import { RotateCcw, Check, ChevronLeft, ChevronRight, Layers, ArrowLeft, ArrowRight, AlertTriangle } from 'lucide-react';
 import { useFlashcard } from '../../hooks/useFlashcard';
 import type { Flashcard } from '../../data/types';
+import { MathText } from '../common/MathText';
 
 
 interface FlashcardDeckProps {
@@ -191,7 +192,7 @@ export function FlashcardDeck({ cards, onProgressChange, onComplete }: Flashcard
                   key={card.id}
                   className="flex items-center justify-between rounded-lg bg-white/80 px-3 py-2"
                 >
-                  <span className="truncate text-sm text-gray-700">{card.front}</span>
+                  <MathText text={card.front} className="truncate text-sm text-gray-700" />
                   <span className="ml-2 flex-shrink-0 text-xs text-orange-500">
                     {againCount}回復習
                   </span>
@@ -399,9 +400,7 @@ export function FlashcardDeck({ cards, onProgressChange, onComplete }: Flashcard
                   {!isFlipped ? (
                     <>
                       {/* 表面（説明 - currentCard.back） */}
-                      <p className="whitespace-pre-line text-center text-lg font-bold leading-relaxed text-gray-800 sm:text-xl">
-                        {currentCard.back}
-                      </p>
+                      <MathText text={currentCard.back} as="p" className="whitespace-pre-line text-center text-lg font-bold leading-relaxed text-gray-800 sm:text-xl" />
                       {currentCard.hint && (
                         <button
                           onClick={(e) => {
@@ -417,14 +416,10 @@ export function FlashcardDeck({ cards, onProgressChange, onComplete }: Flashcard
                   ) : (
                     <>
                       {/* 裏面（用語 - currentCard.front） */}
-                      <p className="whitespace-pre-line text-center text-lg font-bold leading-relaxed text-gray-800 sm:text-xl">
-                        {currentCard.front}
-                      </p>
+                      <MathText text={currentCard.front} as="p" className="whitespace-pre-line text-center text-lg font-bold leading-relaxed text-gray-800 sm:text-xl" />
                       {/* 解説表示 */}
                       {currentCard.explanation && (
-                        <p className="mt-3 whitespace-pre-line text-center text-sm leading-relaxed text-gray-500">
-                          {currentCard.explanation}
-                        </p>
+                        <MathText text={currentCard.explanation} as="p" className="mt-3 whitespace-pre-line text-center text-sm leading-relaxed text-gray-500" />
                       )}
                     </>
                   )}

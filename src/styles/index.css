@@ -93,6 +93,40 @@ ruby rt {
   border-radius: 6px 0 0 6px;
 }
 
+/* 数学ホワイトボード: 分数の上下表記 */
+.math-frac {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  vertical-align: middle;
+  line-height: 1.2;
+}
+
+.math-frac .math-num {
+  border-bottom: 1.5px solid currentColor;
+  padding: 0 4px 2px;
+}
+
+.math-frac .math-den {
+  padding: 2px 4px 0;
+}
+
+/* 数学ホワイトボード: 根号（√） */
+.math-sqrt {
+  display: inline-block;
+  border-top: 1.5px solid currentColor;
+  padding: 0 4px;
+  margin-left: 12px;
+  position: relative;
+}
+
+.math-sqrt::before {
+  content: '√';
+  position: absolute;
+  left: -12px;
+  top: -2px;
+}
+
 /* キーワード強調バッジ */
 .keyword {
   background-color: #FEF3C7;

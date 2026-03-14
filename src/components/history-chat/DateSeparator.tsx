@@ -1,6 +1,7 @@
 // Security: dangerouslySetInnerHTML is used with static TypeScript data only (no user input or API data).
 import { memo } from 'react';
 import { motion } from 'framer-motion';
+import { renderMathInHtml } from '../../utils/math-formula';
 
 interface DateSeparatorProps {
   text: string;
@@ -19,7 +20,7 @@ export const DateSeparator = memo(function DateSeparator({ text }: DateSeparator
         className="whitespace-nowrap rounded-full bg-gray-100 px-4 py-1.5 text-xs font-medium text-gray-600"
         style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
       >
-        <span dangerouslySetInnerHTML={{ __html: text }} />
+        <span dangerouslySetInnerHTML={{ __html: renderMathInHtml(text) }} />
       </span>
       <div className="h-px flex-1 bg-gray-300" />
     </motion.div>

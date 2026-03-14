@@ -4,6 +4,7 @@ import { memo, useRef, useEffect, useCallback, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import type { ChatCharacter } from '../../data/history-chat/types';
 import { injectSpeakerIcons } from '../../utils/injectSpeakerIcons';
+import { renderMathInHtml } from '../../utils/math-formula';
 
 interface ChatMessageProps {
   side: 'left' | 'right';
@@ -40,8 +41,8 @@ export const ChatMessage = memo(function ChatMessage({
 
   // speakable英文にスピーカーアイコンを注入したHTMLを生成
   const processedHtml = useMemo(() => {
-    if (!speakable || speakable.length === 0) return text;
-    return injectSpeakerIcons(text, speakable);
+    const base = (!speakable || speakable.length === 0) ? text : injectSpeakerIcons(text, speakable);
+    return renderMathInHtml(base);
   }, [text, speakable]);
 
   // speakable要素のクリックハンドラ（イベント委譲）

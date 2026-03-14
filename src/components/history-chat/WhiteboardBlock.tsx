@@ -1,6 +1,7 @@
 // Security: dangerouslySetInnerHTML is used with static TypeScript data only (no user input or API data).
 import { motion } from 'framer-motion';
 import type { WhiteboardStep } from '../../data/history-chat/types';
+import { renderMathInHtml } from '../../utils/math-formula';
 
 interface WhiteboardBlockProps {
   title?: string;
@@ -22,7 +23,7 @@ export function WhiteboardBlock({ title, steps }: WhiteboardBlockProps) {
           <p
             className="mb-3 text-xs font-bold text-gray-400"
             style={{ fontFamily: "'Noto Sans JP', sans-serif" }}
-            dangerouslySetInnerHTML={{ __html: title }}
+            dangerouslySetInnerHTML={{ __html: renderMathInHtml(title) }}
           />
         )}
 
@@ -49,13 +50,13 @@ export function WhiteboardBlock({ title, steps }: WhiteboardBlockProps) {
                     step.isResult ? 'text-amber-800' : 'text-gray-800'
                   }`}
                   style={{ fontFamily: "'Noto Sans JP', sans-serif" }}
-                  dangerouslySetInnerHTML={{ __html: step.formula }}
+                  dangerouslySetInnerHTML={{ __html: renderMathInHtml(step.formula) }}
                 />
                 {step.annotation && (
                   <p
                     className="mt-1 text-xs leading-relaxed text-gray-400"
                     style={{ fontFamily: "'Noto Sans JP', sans-serif" }}
-                    dangerouslySetInnerHTML={{ __html: step.annotation }}
+                    dangerouslySetInnerHTML={{ __html: renderMathInHtml(step.annotation) }}
                   />
                 )}
               </div>

@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none">
+  <rect width="400" height="300" rx="16" fill="#F5F3F0"/>
+  <text x="200" y="22" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1f2937">一次関数 y = 2x + 1 のグラフ</text>
+
+  <!-- Graph area -->
+  <rect x="70" y="32" width="260" height="220" rx="0" fill="white"/>
+
+  <!-- Grid lines -->
+  <line x1="70" y1="82" x2="330" y2="82" stroke="#F3F4F6" stroke-width="0.5"/>
+  <line x1="70" y1="112" x2="330" y2="112" stroke="#F3F4F6" stroke-width="0.5"/>
+  <line x1="70" y1="172" x2="330" y2="172" stroke="#F3F4F6" stroke-width="0.5"/>
+  <line x1="70" y1="202" x2="330" y2="202" stroke="#F3F4F6" stroke-width="0.5"/>
+  <line x1="70" y1="232" x2="330" y2="232" stroke="#F3F4F6" stroke-width="0.5"/>
+  <line x1="130" y1="32" x2="130" y2="252" stroke="#F3F4F6" stroke-width="0.5"/>
+  <line x1="160" y1="32" x2="160" y2="252" stroke="#F3F4F6" stroke-width="0.5"/>
+  <line x1="230" y1="32" x2="230" y2="252" stroke="#F3F4F6" stroke-width="0.5"/>
+  <line x1="260" y1="32" x2="260" y2="252" stroke="#F3F4F6" stroke-width="0.5"/>
+  <line x1="290" y1="32" x2="290" y2="252" stroke="#F3F4F6" stroke-width="0.5"/>
+
+  <!-- Y axis -->
+  <line x1="70" y1="32" x2="70" y2="252" stroke="#374151" stroke-width="1.5"/>
+  <!-- X axis -->
+  <line x1="70" y1="142" x2="330" y2="142" stroke="#374151" stroke-width="1.5"/>
+
+  <!-- Origin label (原点は x=70, y=142) -->
+  <text x="63" y="150" text-anchor="end" font-family="sans-serif" font-size="9" fill="#374151">O</text>
+
+  <!-- Y axis labels -->
+  <text x="63" y="236" text-anchor="end" font-family="sans-serif" font-size="8" fill="#6B7280">-3</text>
+  <text x="63" y="206" text-anchor="end" font-family="sans-serif" font-size="8" fill="#6B7280">-2</text>
+  <text x="63" y="176" text-anchor="end" font-family="sans-serif" font-size="8" fill="#6B7280">-1</text>
+  <text x="63" y="116" text-anchor="end" font-family="sans-serif" font-size="8" fill="#6B7280">1</text>
+  <text x="63" y="86" text-anchor="end" font-family="sans-serif" font-size="8" fill="#6B7280">2</text>
+  <text x="63" y="56" text-anchor="end" font-family="sans-serif" font-size="8" fill="#6B7280">3</text>
+
+  <!-- X axis labels -->
+  <text x="100" y="156" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#6B7280">-2</text>
+  <text x="130" y="156" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#6B7280">-1</text>
+  <text x="200" y="156" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#6B7280">1</text>
+  <text x="230" y="156" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#6B7280">2</text>
+  <text x="260" y="156" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#6B7280">3</text>
+
+  <!-- Axis arrows -->
+  <text x="335" y="146" font-family="sans-serif" font-size="10" fill="#374151">x</text>
+  <text x="73" y="30" font-family="sans-serif" font-size="10" fill="#374151">y</text>
+
+  <!-- Line: y = 2x + 1 -->
+  <!-- x=-2 → y=-3 (100, 232), x=0 → y=1 (160+10=170, 112), x=1 → y=3 (200, 52) -->
+  <!-- Using grid: x unit=30px from origin(160,142), y unit=30px -->
+  <!-- Recalculate: origin at (160,142), 1 unit = 30px -->
+  <!-- x=-3: (70, 142+7*30/... let me use simpler mapping -->
+  <!-- origin (160, 142), scale 30px/unit -->
+  <!-- x=-2.5: (160-75=85, 142-(-4)*30=142+120... too big -->
+  <!-- Let me use origin at mid, scale=30 -->
+  <!-- y=2x+1: x=-1.5→y=-2: (160-45=115, 142+60=202), x=0→y=1: (160, 142-30=112), x=1→y=3: (190, 142-90=52) -->
+  <line x1="85" y1="232" x2="250" y2="32" stroke="#EF4444" stroke-width="2.5"/>
+
+  <!-- Slope annotation: from (0,1) to (1,3) -->
+  <!-- (160, 112) to (190, 52) -->
+  <line x1="160" y1="112" x2="190" y2="112" stroke="#F59E0B" stroke-width="1.5" stroke-dasharray="4 2"/>
+  <line x1="190" y1="112" x2="190" y2="52" stroke="#F59E0B" stroke-width="1.5" stroke-dasharray="4 2"/>
+  <text x="175" y="108" text-anchor="middle" font-family="sans-serif" font-size="8" font-weight="bold" fill="#F59E0B">1</text>
+  <text x="198" y="85" text-anchor="start" font-family="sans-serif" font-size="8" font-weight="bold" fill="#F59E0B">2</text>
+
+  <!-- Intercept annotation -->
+  <circle cx="160" cy="112" r="4" fill="#3B82F6"/>
+  <text x="140" y="100" text-anchor="end" font-family="sans-serif" font-size="9" font-weight="bold" fill="#3B82F6">切片 b=1</text>
+
+  <!-- Slope label -->
+  <rect x="204" y="68" width="90" height="20" rx="4" fill="#FEF3C7" stroke="#F59E0B" stroke-width="1"/>
+  <text x="249" y="82" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#D97706">傾き a=2</text>
+
+  <!-- Key points -->
+  <rect x="15" y="260" width="370" height="32" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1"/>
+  <circle cx="30" cy="276" r="4" fill="#F59E0B"/>
+  <text x="40" y="280" font-family="sans-serif" font-size="8" fill="#374151">y = ax + b の「a」が傾き（xが1増えるとyがa増える）、「b」が切片（y軸との交点）</text>
+</svg>

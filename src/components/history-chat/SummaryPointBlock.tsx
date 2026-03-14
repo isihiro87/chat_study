@@ -1,5 +1,6 @@
 // Security: dangerouslySetInnerHTML is used with static TypeScript data only (no user input or API data).
 import { motion } from 'framer-motion';
+import { renderMathInHtml } from '../../utils/math-formula';
 
 interface SummaryPointBlockProps {
   text: string;
@@ -18,7 +19,7 @@ export function SummaryPointBlock({ text }: SummaryPointBlockProps) {
         <p
           className="text-sm font-medium leading-relaxed text-amber-900"
           style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
-          dangerouslySetInnerHTML={{ __html: text }}
+          dangerouslySetInnerHTML={{ __html: renderMathInHtml(text) }}
         />
       </div>
     </motion.div>

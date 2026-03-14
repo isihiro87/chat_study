@@ -1,18 +1,38 @@
 import type { Era, Topic } from '../../../types';
+// Grade 1
 import { mathGrade1Era, mathGrade1Topics } from './grade1';
-import { mathGrade2Era, mathGrade2Topics } from './grade2';
-import { mathGrade3Era, mathGrade3Topics } from './grade3';
+// Grade 2
+import { expressionsEra, expressionsTopics } from './grade2';
+import { simultaneousEqEra, simultaneousEqTopics } from './grade2';
+import { linearFuncEra, linearFuncTopics } from './grade2';
+// Grade 3
+import { expansionFactoringEra, expansionFactoringTopics } from './grade3';
+import { squareRootsEra, squareRootsTopics } from './grade3';
+import { quadraticEqEra, quadraticEqTopics } from './grade3';
+import { quadraticFuncEra, quadraticFuncTopics } from './grade3';
 
 // 全Era一覧
-export const eras: Era[] = [mathGrade1Era, mathGrade2Era, mathGrade3Era].sort(
-  (a, b) => a.order - b.order,
-);
+export const eras: Era[] = [
+  mathGrade1Era,
+  expressionsEra,
+  simultaneousEqEra,
+  linearFuncEra,
+  expansionFactoringEra,
+  squareRootsEra,
+  quadraticEqEra,
+  quadraticFuncEra,
+].sort((a, b) => a.order - b.order);
 
 // 全トピック一覧
 export const allTopics: Topic[] = [
   ...mathGrade1Topics,
-  ...mathGrade2Topics,
-  ...mathGrade3Topics,
+  ...expressionsTopics,
+  ...simultaneousEqTopics,
+  ...linearFuncTopics,
+  ...expansionFactoringTopics,
+  ...squareRootsTopics,
+  ...quadraticEqTopics,
+  ...quadraticFuncTopics,
 ];
 
 // Era取得

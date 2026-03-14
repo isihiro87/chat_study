@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none">
+  <rect width="400" height="300" rx="16" fill="#F5F3F0"/>
+  <text x="200" y="22" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1f2937">y = x² の変化の割合</text>
+
+  <!-- Graph area -->
+  <rect x="70" y="32" width="250" height="210" rx="0" fill="white"/>
+
+  <!-- Grid lines -->
+  <line x1="70" y1="82" x2="320" y2="82" stroke="#F3F4F6" stroke-width="0.5"/>
+  <line x1="70" y1="132" x2="320" y2="132" stroke="#F3F4F6" stroke-width="0.5"/>
+  <line x1="120" y1="32" x2="120" y2="242" stroke="#F3F4F6" stroke-width="0.5"/>
+  <line x1="170" y1="32" x2="170" y2="242" stroke="#F3F4F6" stroke-width="0.5"/>
+  <line x1="220" y1="32" x2="220" y2="242" stroke="#F3F4F6" stroke-width="0.5"/>
+  <line x1="270" y1="32" x2="270" y2="242" stroke="#F3F4F6" stroke-width="0.5"/>
+
+  <!-- Axes: origin at (70, 232), scale 50px/unit -->
+  <line x1="70" y1="232" x2="320" y2="232" stroke="#374151" stroke-width="1.5"/>
+  <line x1="70" y1="32" x2="70" y2="242" stroke="#374151" stroke-width="1.5"/>
+
+  <!-- Labels -->
+  <text x="63" y="240" text-anchor="end" font-family="sans-serif" font-size="9" fill="#374151">O</text>
+  <text x="325" y="236" font-family="sans-serif" font-size="10" fill="#374151">x</text>
+  <text x="74" y="30" font-family="sans-serif" font-size="10" fill="#374151">y</text>
+
+  <!-- X labels -->
+  <text x="120" y="246" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#6B7280">1</text>
+  <text x="170" y="246" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#6B7280">2</text>
+  <text x="220" y="246" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#6B7280">3</text>
+  <text x="270" y="246" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#6B7280">4</text>
+
+  <!-- Y labels -->
+  <text x="63" y="186" text-anchor="end" font-family="sans-serif" font-size="8" fill="#6B7280">1</text>
+  <text x="63" y="136" text-anchor="end" font-family="sans-serif" font-size="8" fill="#6B7280">4</text>
+  <text x="63" y="86" text-anchor="end" font-family="sans-serif" font-size="8" fill="#6B7280">9</text>
+  <text x="63" y="42" text-anchor="end" font-family="sans-serif" font-size="8" fill="#6B7280">16</text>
+
+  <!-- Parabola y=x² (x=0 to x=4.5) -->
+  <!-- scale: x: 50px/unit from x=70, y: -50px/unit from y=232 (but we need y scale different) -->
+  <!-- Let's use y scale: 1 unit = ~12.5px so 16 units = 200px -->
+  <!-- Actually y: 0→232, 1→232-50=182, 4→232-100=132, 9→232-150=82, 16→232-200=32 -->
+  <!-- So y scale is not uniform. Let me use: y=n → 232 - n*(200/16) = 232 - n*12.5 -->
+  <!-- x=0: (70,232), x=1: (120, 232-12.5=219.5→use 182 with 50px scale) -->
+  <!-- Let me keep it simple: x scale=50, y: 0→232, 1→182, 4→132, 9→82, 16→32 -->
+  <!-- But that means y scale is 50px per unit, going up to 4 units = 200. y=x² maxes at 16 which doesn't fit -->
+  <!-- Better: origin(70,232), x:50px/unit, y:50px per 4 units (=12.5px per 1) -->
+  <!-- x=0→(70,232), x=1→y=1→(120, 232-12.5=219.5), x=2→y=4→(170, 232-50=182), x=3→y=9→(220, 232-112.5=119.5), x=4→y=16→(270, 232-200=32) -->
+  <!-- Hmm the ticks I used above don't match. Let me recalculate with fixed y ticks -->
+  <!-- Y ticks: 1→182, 4→132, 9→82, 16→32 → spacing varies -->
+  <!-- So y scale: value*12.5 from bottom: 1*50=50→232-50=182? No, 1→182 means 50px for 1 unit -->
+  <!-- Ok: 1→182(50px), 4→132(100px), 9→82(150px), 16→32(200px) -->
+  <!-- This is NOT linear. That's wrong for a graph. Let me use linear y scale -->
+  <!-- Linear: 200px for 16 units = 12.5px per unit -->
+  <!-- y=0: 232, y=1: 219.5, y=4: 182, y=9: 119.5, y=16: 32 -->
+  <path d="M70,232 Q95,229 120,219.5 Q145,207 170,182 Q195,144 220,119.5 Q245,75 270,32" fill="none" stroke="#EF4444" stroke-width="2.5"/>
+
+  <!-- Points on the curve -->
+  <!-- (0,0) → (70, 232) -->
+  <circle cx="70" cy="232" r="4" fill="#374151"/>
+  <!-- (1,1) → (120, 219.5) -->
+  <circle cx="120" cy="219.5" r="4" fill="#3B82F6"/>
+  <!-- (2,4) → (170, 182) -->
+  <circle cx="170" cy="182" r="4" fill="#3B82F6"/>
+  <!-- (3,9) → (220, 119.5) -->
+  <circle cx="220" cy="119.5" r="4" fill="#3B82F6"/>
+
+  <!-- Segment 1: x=0→1, slope=1 (gentle) -->
+  <line x1="70" y1="232" x2="120" y2="219.5" stroke="#10B981" stroke-width="2" stroke-dasharray="4 2"/>
+  <rect x="72" y="210" width="60" height="16" rx="3" fill="#D1FAE5" stroke="#10B981" stroke-width="0.8"/>
+  <text x="102" y="222" text-anchor="middle" font-family="sans-serif" font-size="8" font-weight="bold" fill="#059669">傾き = 1</text>
+
+  <!-- Segment 2: x=1→2, slope=3 (medium) -->
+  <line x1="120" y1="219.5" x2="170" y2="182" stroke="#F59E0B" stroke-width="2" stroke-dasharray="4 2"/>
+  <rect x="122" y="188" width="60" height="16" rx="3" fill="#FEF3C7" stroke="#F59E0B" stroke-width="0.8"/>
+  <text x="152" y="200" text-anchor="middle" font-family="sans-serif" font-size="8" font-weight="bold" fill="#D97706">傾き = 3</text>
+
+  <!-- Segment 3: x=2→3, slope=5 (steep) -->
+  <line x1="170" y1="182" x2="220" y2="119.5" stroke="#EF4444" stroke-width="2" stroke-dasharray="4 2"/>
+  <rect x="177" y="138" width="60" height="16" rx="3" fill="#FEE2E2" stroke="#EF4444" stroke-width="0.8"/>
+  <text x="207" y="150" text-anchor="middle" font-family="sans-serif" font-size="8" font-weight="bold" fill="#DC2626">傾き = 5</text>
+
+  <!-- Key points -->
+  <rect x="15" y="256" width="370" height="36" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1"/>
+  <circle cx="30" cy="268" r="4" fill="#F59E0B"/>
+  <text x="40" y="272" font-family="sans-serif" font-size="8" fill="#374151">一次関数は変化の割合が一定だが、y = x² は区間によって変わる！</text>
+  <circle cx="30" cy="282" r="4" fill="#F59E0B"/>
+  <text x="40" y="286" font-family="sans-serif" font-size="8" fill="#374151">x が大きくなるほど変化の割合（傾き）も大きくなる → どんどん急になる</text>
+</svg>

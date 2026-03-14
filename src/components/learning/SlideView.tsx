@@ -3,6 +3,7 @@ import { motion, AnimatePresence, type PanInfo } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { ImageLightbox } from '../common/ImageLightbox';
 import type { SlideSet } from '../../data/types';
+import { MathText } from '../common/MathText';
 
 interface SlideViewProps {
   slideSets: SlideSet[];
@@ -218,7 +219,7 @@ function QuestionSlideView({ slide, title }: { slide: { type: 'question'; questi
         transition={{ delay: 0.2 }}
         className="whitespace-pre-line text-center text-2xl font-bold leading-relaxed text-gray-800"
       >
-        {slide.question}
+        <MathText text={slide.question} />
       </motion.p>
       {slide.subtext && (
         <motion.p
@@ -227,7 +228,7 @@ function QuestionSlideView({ slide, title }: { slide: { type: 'question'; questi
           transition={{ delay: 0.4 }}
           className="mt-4 rounded-full bg-gray-100 px-4 py-1.5 text-center text-sm text-gray-500"
         >
-          {slide.subtext}
+          <MathText text={slide.subtext} />
         </motion.p>
       )}
       <motion.p
@@ -252,7 +253,7 @@ function ReasonSlideView({ slide }: { slide: { type: 'reason'; headline: string;
         transition={{ delay: 0.1 }}
         className="mb-6 text-center text-2xl font-bold leading-relaxed text-gray-800"
       >
-        {slide.headline}
+        <MathText text={slide.headline} />
       </motion.h3>
 
       {slide.image && (
@@ -303,7 +304,7 @@ function ReasonSlideView({ slide }: { slide: { type: 'reason'; headline: string;
               <span className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-secondary text-sm font-bold text-white">
                 {i + 1}
               </span>
-              <span className="text-base leading-relaxed text-gray-700">{point}</span>
+              <MathText text={point} className="text-base leading-relaxed text-gray-700" />
             </motion.li>
           ))}
         </motion.ul>
@@ -331,7 +332,7 @@ function ConclusionSlideView({ slide }: { slide: { type: 'conclusion'; conclusio
         transition={{ delay: 0.1 }}
         className="mb-6 text-center text-2xl font-bold leading-relaxed text-gray-800"
       >
-        {slide.conclusion}
+        <MathText text={slide.conclusion} />
       </motion.p>
 
       {slide.image && (
@@ -361,7 +362,7 @@ function ConclusionSlideView({ slide }: { slide: { type: 'conclusion'; conclusio
                   : 'bg-gray-100 text-gray-700'
               }`}
             >
-              {keyword.text}
+              <MathText text={keyword.text} />
             </motion.span>
           ))}
         </motion.div>
