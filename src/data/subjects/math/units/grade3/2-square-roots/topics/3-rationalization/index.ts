@@ -38,27 +38,27 @@ export const rationalization: Topic = {
       questions: [
         {
           id: 'math-g3-rationalization-q1',
-          question: '1/√3 を有理化すると？',
-          options: ['√3', '√3/3', '3/√3', '1/3'],
+          question: '$\\frac{1}{\\sqrt{3}}$ を有理化すると？',
+          options: ['$\\sqrt{3}$', '$\\frac{\\sqrt{3}}{3}$', '$\\frac{3}{\\sqrt{3}}$', '$\\frac{1}{3}$'],
           correctIndex: 1,
           explanation:
-            '1/√3 = (1×√3)/(√3×√3) = √3/3。分母分子に√3をかけるよ。',
+            '$\\frac{1}{\\sqrt{3}} = \\frac{1 \\times \\sqrt{3}}{\\sqrt{3} \\times \\sqrt{3}} = \\frac{\\sqrt{3}}{3}$。分母分子に $\\sqrt{3}$ をかけるよ。',
         },
         {
           id: 'math-g3-rationalization-q2',
-          question: '6/√2 を有理化すると？',
-          options: ['6√2', '3√2', '√2/6', '2√6'],
+          question: '$\\frac{6}{\\sqrt{2}}$ を有理化すると？',
+          options: ['$6\\sqrt{2}$', '$3\\sqrt{2}$', '$\\frac{\\sqrt{2}}{6}$', '$2\\sqrt{6}$'],
           correctIndex: 1,
           explanation:
-            '6/√2 = (6×√2)/(√2×√2) = 6√2/2 = 3√2。有理化してから約分だよ。',
+            '$\\frac{6}{\\sqrt{2}} = \\frac{6 \\times \\sqrt{2}}{\\sqrt{2} \\times \\sqrt{2}} = \\frac{6\\sqrt{2}}{2} = 3\\sqrt{2}$。有理化してから約分だよ。',
         },
         {
           id: 'math-g3-rationalization-q3',
-          question: '2/√6 を有理化すると？',
-          options: ['2√6/6', '√6/3', '√6/6', '2√6/3'],
+          question: '$\\frac{2}{\\sqrt{6}}$ を有理化すると？',
+          options: ['$\\frac{2\\sqrt{6}}{6}$', '$\\frac{\\sqrt{6}}{3}$', '$\\frac{\\sqrt{6}}{6}$', '$\\frac{2\\sqrt{6}}{3}$'],
           correctIndex: 1,
           explanation:
-            '2/√6 = (2×√6)/(√6×√6) = 2√6/6 = √6/3。約分を忘れずに！',
+            '$\\frac{2}{\\sqrt{6}} = \\frac{2 \\times \\sqrt{6}}{\\sqrt{6} \\times \\sqrt{6}} = \\frac{2\\sqrt{6}}{6} = \\frac{\\sqrt{6}}{3}$。約分を忘れずに！',
         },
       ],
     },
@@ -66,41 +66,41 @@ export const rationalization: Topic = {
       examples: [
         {
           id: 'math-g3-rationalization-ex1',
-          question: '次の式を有理化しよう。\n1/√2',
+          question: '次の式を有理化しよう。\n$\\frac{1}{\\sqrt{2}}$',
           steps: [
             {
-              title: 'Step 1: 分母分子に√2をかける',
+              title: 'Step 1: 分母分子に $\\sqrt{2}$ をかける',
               content:
-                '分母の√2をなくすために、分母分子に√2をかけるよ。',
-              highlight: '(1×√2) / (√2×√2)',
+                '分母の $\\sqrt{2}$ をなくすために、分母分子に $\\sqrt{2}$ をかけるよ。',
+              highlight: '$\\frac{1 \\times \\sqrt{2}}{\\sqrt{2} \\times \\sqrt{2}}$',
             },
             {
               title: 'Step 2: 計算する',
               content:
-                '分子: 1×√2 = √2、分母: √2×√2 = 2。',
-              highlight: '√2/2',
+                '分子: $1 \\times \\sqrt{2} = \\sqrt{2}$、分母: $\\sqrt{2} \\times \\sqrt{2} = 2$。',
+              highlight: '$\\frac{\\sqrt{2}}{2}$',
             },
           ],
-          answer: '√2/2',
+          answer: '$\\frac{\\sqrt{2}}{2}$',
         },
         {
           id: 'math-g3-rationalization-ex2',
-          question: '次の式を有理化しよう。\n4/√8',
+          question: '次の式を有理化しよう。\n$\\frac{4}{\\sqrt{8}}$',
           steps: [
             {
-              title: 'Step 1: √8 を簡単にする',
+              title: 'Step 1: $\\sqrt{8}$ を簡単にする',
               content:
-                'まず √8 = 2√2 に変形するよ。',
-              highlight: '4/(2√2) = 2/√2',
+                'まず $\\sqrt{8} = 2\\sqrt{2}$ に変形するよ。',
+              highlight: '$\\frac{4}{2\\sqrt{2}} = \\frac{2}{\\sqrt{2}}$',
             },
             {
-              title: 'Step 2: 分母分子に√2をかける',
+              title: 'Step 2: 分母分子に $\\sqrt{2}$ をかける',
               content:
-                '2/√2 = (2×√2)/(√2×√2) = 2√2/2 = √2。',
-              highlight: '√2',
+                '$\\frac{2}{\\sqrt{2}} = \\frac{2 \\times \\sqrt{2}}{\\sqrt{2} \\times \\sqrt{2}} = \\frac{2\\sqrt{2}}{2} = \\sqrt{2}$。',
+              highlight: '$\\sqrt{2}$',
             },
           ],
-          answer: '√2',
+          answer: '$\\sqrt{2}$',
         },
       ],
     },

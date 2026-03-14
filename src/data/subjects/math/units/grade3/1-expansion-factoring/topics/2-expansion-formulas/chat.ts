@@ -189,15 +189,15 @@ export const expansionFormulasChat: HistoryChat = {
     },
     {
       type: 'quiz',
-      question: '(x + 7)(x − 7) を<ruby>展開<rt>てんかい</rt></ruby>すると？',
+      question: '$(x + 7)(x - 7)$ を<ruby>展開<rt>てんかい</rt></ruby>すると？',
       options: [
-        { letter: 'A', text: 'x² − 14x − 49', correct: false },
-        { letter: 'B', text: 'x² + 49', correct: false },
-        { letter: 'C', text: 'x² − 49', correct: true },
-        { letter: 'D', text: 'x² − 14x + 49', correct: false },
+        { letter: 'A', text: '$x^2 - 14x - 49$', correct: false },
+        { letter: 'B', text: '$x^2 + 49$', correct: false },
+        { letter: 'C', text: '$x^2 - 49$', correct: true },
+        { letter: 'D', text: '$x^2 - 14x + 49$', correct: false },
       ],
       explanation:
-        '<ruby>和<rt>わ</rt></ruby>と<ruby>差<rt>さ</rt></ruby>の<ruby>積<rt>せき</rt></ruby>の<ruby>公式<rt>こうしき</rt></ruby>で (x+7)(x−7) = x² − 7² = <strong>x² − 49</strong>',
+        '<ruby>和<rt>わ</rt></ruby>と<ruby>差<rt>さ</rt></ruby>の<ruby>積<rt>せき</rt></ruby>の<ruby>公式<rt>こうしき</rt></ruby>で $(x+7)(x-7) = x^2 - 7^2 = \\textcolor{#D97706}{x^2 - 49}$',
     },
     {
       type: 'summary-point',
@@ -206,10 +206,10 @@ export const expansionFormulasChat: HistoryChat = {
     {
       type: 'end',
       points: [
-        '<ruby>公式<rt>こうしき</rt></ruby>1: (x+a)(x+b) = x²+(a+b)x+ab',
-        '<ruby>公式<rt>こうしき</rt></ruby>2: (a+b)² = a²+2ab+b²',
-        '<ruby>公式<rt>こうしき</rt></ruby>3: (a−b)² = a²−2ab+b²',
-        '<ruby>公式<rt>こうしき</rt></ruby>4: (a+b)(a−b) = a²−b²',
+        '<ruby>公式<rt>こうしき</rt></ruby>1: $(x+a)(x+b) = x^2+(a+b)x+ab$',
+        '<ruby>公式<rt>こうしき</rt></ruby>2: $(a+b)^2 = a^2+2ab+b^2$',
+        '<ruby>公式<rt>こうしき</rt></ruby>3: $(a-b)^2 = a^2-2ab+b^2$',
+        '<ruby>公式<rt>こうしき</rt></ruby>4: $(a+b)(a-b) = a^2-b^2$',
       ],
     },
   ],

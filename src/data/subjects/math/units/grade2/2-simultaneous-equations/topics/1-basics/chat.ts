@@ -158,20 +158,20 @@ export const simulEqBasicsChat: HistoryChat = {
     },
     {
       type: 'quiz',
-      question: 'x + y = 10、x − y = 4 のとき、x の<ruby>値<rt>あたい</rt></ruby>は？',
+      question: '$x + y = 10$、$x - y = 4$ のとき、$x$ の<ruby>値<rt>あたい</rt></ruby>は？',
       options: [
-        { letter: 'A', text: 'x = 3', correct: false },
-        { letter: 'B', text: 'x = 5', correct: false },
-        { letter: 'C', text: 'x = 7', correct: true },
-        { letter: 'D', text: 'x = 10', correct: false },
+        { letter: 'A', text: '$x = 3$', correct: false },
+        { letter: 'B', text: '$x = 5$', correct: false },
+        { letter: 'C', text: '$x = 7$', correct: true },
+        { letter: 'D', text: '$x = 10$', correct: false },
       ],
       explanation:
-        '2つの<ruby>式<rt>しき</rt></ruby>を<ruby>足<rt>た</rt></ruby>すと 2x = 14 → x = <strong>7</strong>。y = 10 − 7 = 3 だよ。',
+        '2つの<ruby>式<rt>しき</rt></ruby>を<ruby>足<rt>た</rt></ruby>すと $2x = 14 \\rightarrow x = \\textcolor{#D97706}{7}$。$y = 10 - 7 = 3$ だよ。',
     },
     {
       type: 'end',
       points: [
-        '<ruby>二元一次方程式<rt>にげんいちじほうていしき</rt></ruby>：x と y の2つの<ruby>文字<rt>もじ</rt></ruby>をふくむ<ruby>一次方程式<rt>いちじほうていしき</rt></ruby>',
+        '<ruby>二元一次方程式<rt>にげんいちじほうていしき</rt></ruby>：$x$ と $y$ の2つの<ruby>文字<rt>もじ</rt></ruby>をふくむ<ruby>一次方程式<rt>いちじほうていしき</rt></ruby>',
         '<ruby>連立方程式<rt>れんりつほうていしき</rt></ruby>：2つの<ruby>式<rt>しき</rt></ruby>を<ruby>組<rt>く</rt></ruby>み<ruby>合<rt>あ</rt></ruby>わせたもの',
         '<ruby>解<rt>と</rt></ruby>き<ruby>方<rt>かた</rt></ruby>の<ruby>基本<rt>きほん</rt></ruby>：<ruby>片方<rt>かたほう</rt></ruby>の<ruby>文字<rt>もじ</rt></ruby>を<ruby>消<rt>け</rt></ruby>して、もう<ruby>片方<rt>かたほう</rt></ruby>を<ruby>先<rt>さき</rt></ruby>に<ruby>求<rt>もと</rt></ruby>める',
         '<ruby>求<rt>もと</rt></ruby>めた<ruby>値<rt>あたい</rt></ruby>をもとの<ruby>式<rt>しき</rt></ruby>に<ruby>代入<rt>だいにゅう</rt></ruby>して、もう1つの<ruby>値<rt>あたい</rt></ruby>を<ruby>求<rt>もと</rt></ruby>める',

@@ -165,15 +165,15 @@ export const factoringBasicsChat: HistoryChat = {
     },
     {
       type: 'quiz',
-      question: '6x² − 12x を<ruby>因数分解<rt>いんすうぶんかい</rt></ruby>すると？',
+      question: '$6x^2 - 12x$ を<ruby>因数分解<rt>いんすうぶんかい</rt></ruby>すると？',
       options: [
-        { letter: 'A', text: '6(x²−2x)', correct: false },
-        { letter: 'B', text: '6x(x−2)', correct: true },
-        { letter: 'C', text: '3x(2x−4)', correct: false },
-        { letter: 'D', text: 'x(6x−12)', correct: false },
+        { letter: 'A', text: '$6(x^2-2x)$', correct: false },
+        { letter: 'B', text: '$6x(x-2)$', correct: true },
+        { letter: 'C', text: '$3x(2x-4)$', correct: false },
+        { letter: 'D', text: '$x(6x-12)$', correct: false },
       ],
       explanation:
-        '6x² と 12x の<ruby>共通因数<rt>きょうつういんすう</rt></ruby>は <strong>6x</strong>。6x でくくると 6x(x−2) だよ。',
+        '$6x^2$ と $12x$ の<ruby>共通因数<rt>きょうつういんすう</rt></ruby>は $\\textcolor{#D97706}{6x}$。$6x$ でくくると $6x(x-2)$ だよ。',
     },
     {
       type: 'summary-point',
@@ -185,7 +185,7 @@ export const factoringBasicsChat: HistoryChat = {
         '<ruby>因数分解<rt>いんすうぶんかい</rt></ruby> = <ruby>展開<rt>てんかい</rt></ruby>の<ruby>逆<rt>ぎゃく</rt></ruby>（かっこにまとめる）',
         'まず<ruby>共通因数<rt>きょうつういんすう</rt></ruby>を<ruby>探<rt>さが</rt></ruby>す！',
         '<ruby>数<rt>かず</rt></ruby>の<ruby>共通因数<rt>きょうつういんすう</rt></ruby>（<ruby>最大公約数<rt>さいだいこうやくすう</rt></ruby>）と<ruby>文字<rt>もじ</rt></ruby>の<ruby>共通因数<rt>きょうつういんすう</rt></ruby>をセットでくくる',
-        '<ruby>確認<rt>かくにん</rt></ruby>: くくり<ruby>出<rt>だ</rt></ruby>した<ruby>後<rt>あと</rt></ruby>に<ruby>展開<rt>てんかい</rt></ruby>して<ruby>元<rt>もと</rt></ruby>に<ruby>戻<rt>もど</rt></ruby>るか<ruby>確<rt>たし</rt></ruby>かめよう',
+        '<ruby>確認<rt>かくにん</rt></ruby>：くくり<ruby>出<rt>だ</rt></ruby>した<ruby>後<rt>あと</rt></ruby>に<ruby>展開<rt>てんかい</rt></ruby>して<ruby>元<rt>もと</rt></ruby>に<ruby>戻<rt>もど</rt></ruby>るか<ruby>確<rt>たし</rt></ruby>かめよう',
       ],
     },
   ],

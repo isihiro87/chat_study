@@ -156,22 +156,22 @@ export const linearFuncMeaningChat: HistoryChat = {
     },
     {
       type: 'quiz',
-      question: 'y = -3x + 7 の<ruby>変化<rt>へんか</rt></ruby>の<ruby>割合<rt>わりあい</rt></ruby>は？',
+      question: '$y = -3x + 7$ の<ruby>変化<rt>へんか</rt></ruby>の<ruby>割合<rt>わりあい</rt></ruby>は？',
       options: [
-        { letter: 'A', text: '7', correct: false },
-        { letter: 'B', text: '3', correct: false },
-        { letter: 'C', text: '-3', correct: true },
-        { letter: 'D', text: '-7', correct: false },
+        { letter: 'A', text: '$7$', correct: false },
+        { letter: 'B', text: '$3$', correct: false },
+        { letter: 'C', text: '$-3$', correct: true },
+        { letter: 'D', text: '$-7$', correct: false },
       ],
       explanation:
-        'y = ax + b の<ruby>変化<rt>へんか</rt></ruby>の<ruby>割合<rt>わりあい</rt></ruby>は a だよ。a = <strong>-3</strong> だね！',
+        '$y = ax + b$ の<ruby>変化<rt>へんか</rt></ruby>の<ruby>割合<rt>わりあい</rt></ruby>は $a$ だよ。$a = \\textcolor{#D97706}{-3}$ だね！',
     },
     {
       type: 'end',
       points: [
-        '<ruby>一次関数<rt>いちじかんすう</rt></ruby>は y = ax + b（a ≠ 0）の<ruby>形<rt>かたち</rt></ruby>',
-        '<ruby>比例<rt>ひれい</rt></ruby> y = ax は<ruby>一次関数<rt>いちじかんすう</rt></ruby>の<ruby>特別<rt>とくべつ</rt></ruby>な<ruby>場合<rt>ばあい</rt></ruby>（b = 0）',
-        '<ruby>変化<rt>へんか</rt></ruby>の<ruby>割合<rt>わりあい</rt></ruby> = a で、いつでも<ruby>一定<rt>いってい</rt></ruby>',
+        '<ruby>一次関数<rt>いちじかんすう</rt></ruby>は $y = ax + b$（$a \\neq 0$）の<ruby>形<rt>かたち</rt></ruby>',
+        '<ruby>比例<rt>ひれい</rt></ruby> $y = ax$ は<ruby>一次関数<rt>いちじかんすう</rt></ruby>の<ruby>特別<rt>とくべつ</rt></ruby>な<ruby>場合<rt>ばあい</rt></ruby>（$b = 0$）',
+        '<ruby>変化<rt>へんか</rt></ruby>の<ruby>割合<rt>わりあい</rt></ruby> $= a$ で、いつでも<ruby>一定<rt>いってい</rt></ruby>',
         '<ruby>身<rt>み</rt></ruby>のまわりの<ruby>場面<rt>ばめん</rt></ruby>（<ruby>水<rt>みず</rt></ruby>そうなど）で<ruby>一次関数<rt>いちじかんすう</rt></ruby>を<ruby>見<rt>み</rt></ruby>つけよう',
       ],
     },

@@ -45,16 +45,16 @@ export const simulEqApps: Topic = {
           options: ['3本', '4本', '5本', '6本'],
           correctIndex: 2,
           explanation:
-            'えんぴつ x 本、ノート y 冊。x + y = 8、60x + 120y = 660。②を60で割ると x + 2y = 11。①を引くと y = 3。x = 5 本だよ。',
+            'えんぴつ $x$ 本、ノート $y$ 冊。$x + y = 8$、$60x + 120y = 660$。②を$60$で割ると $x + 2y = 11$。①を引くと $y = 3$。$x = 5$ 本だよ。',
         },
         {
           id: 'math-g2-simul-eq-apps-q2',
           question:
             '2つの数の和が 15、差が 3。大きい方の数は？',
-          options: ['6', '7', '8', '9'],
+          options: ['$6$', '$7$', '$8$', '$9$'],
           correctIndex: 3,
           explanation:
-            '大きい数を x、小さい数を y とすると x + y = 15、x − y = 3。足すと 2x = 18 → x = 9。',
+            '大きい数を $x$、小さい数を $y$ とすると $x + y = 15$、$x - y = 3$。足すと $2x = 18 \\rightarrow x = 9$。',
         },
         {
           id: 'math-g2-simul-eq-apps-q3',
@@ -62,13 +62,13 @@ export const simulEqApps: Topic = {
             '文章題を連立方程式で解くとき、最初にすることは？',
           options: [
             'すぐに式を立てる',
-            '何を x, y にするか決める',
+            '何を $x$, $y$ にするか決める',
             '答えを予想する',
             'グラフを描く',
           ],
           correctIndex: 1,
           explanation:
-            'まず「何を x, y にするか」を決めることが大切！それから条件を式にしていくよ。',
+            'まず「何を $x$, $y$ にするか」を決めることが大切！それから条件を式にしていくよ。',
         },
       ],
     },
@@ -80,27 +80,27 @@ export const simulEqApps: Topic = {
             'りんご 1個 150円、みかん 1個 80円。合わせて 10個買って合計 1150円だった。りんごとみかんをそれぞれ何個買った？',
           steps: [
             {
-              title: 'Step 1: x, y を決める',
+              title: 'Step 1: $x$, $y$ を決める',
               content:
-                'りんごを x 個、みかんを y 個とする。',
-              highlight: 'x = りんごの個数、y = みかんの個数',
+                'りんごを $x$ 個、みかんを $y$ 個とする。',
+              highlight: '$x$ = りんごの個数、$y$ = みかんの個数',
             },
             {
               title: 'Step 2: 式を立てる',
               content:
-                '合計の個数: x + y = 10\n合計の金額: 150x + 80y = 1150',
-              highlight: '① x + y = 10, ② 150x + 80y = 1150',
+                '合計の個数: $x + y = 10$\n合計の金額: $150x + 80y = 1150$',
+              highlight: '① $x + y = 10$, ② $150x + 80y = 1150$',
             },
             {
               title: 'Step 3: 解く',
               content:
-                '①から y = 10 − x。②に代入: 150x + 80(10 − x) = 1150 → 150x + 800 − 80x = 1150 → 70x = 350 → x = 5',
-              highlight: 'x = 5',
+                '①から $y = 10 - x$。②に代入: $150x + 80(10 - x) = 1150 \\rightarrow 150x + 800 - 80x = 1150 \\rightarrow 70x = 350 \\rightarrow x = 5$',
+              highlight: '$x = 5$',
             },
             {
               title: 'Step 4: 確認',
               content:
-                'y = 10 − 5 = 5。確認: 150 × 5 + 80 × 5 = 750 + 400 = 1150 ✓',
+                '$y = 10 - 5 = 5$。確認: $150 \\times 5 + 80 \\times 5 = 750 + 400 = 1150$ ✓',
               highlight: 'りんご 5個、みかん 5個',
             },
           ],
@@ -112,27 +112,27 @@ export const simulEqApps: Topic = {
             'A地点から B地点まで行きは時速 4km、帰りは時速 6km で歩いた。往復にかかった時間は合計 5時間だった。A地点からB地点までの距離を求めよう。',
           steps: [
             {
-              title: 'Step 1: x, y を決める',
+              title: 'Step 1: $x$, $y$ を決める',
               content:
-                '行きにかかった時間を x 時間、帰りにかかった時間を y 時間とする。',
-              highlight: 'x = 行きの時間、y = 帰りの時間',
+                '行きにかかった時間を $x$ 時間、帰りにかかった時間を $y$ 時間とする。',
+              highlight: '$x$ = 行きの時間、$y$ = 帰りの時間',
             },
             {
               title: 'Step 2: 式を立てる',
               content:
-                '合計時間: x + y = 5\n行きと帰りの距離は同じ: 4x = 6y',
-              highlight: '① x + y = 5, ② 4x = 6y',
+                '合計時間: $x + y = 5$\n行きと帰りの距離は同じ: $4x = 6y$',
+              highlight: '① $x + y = 5$, ② $4x = 6y$',
             },
             {
               title: 'Step 3: 解く',
               content:
-                '②を整理: 4x − 6y = 0 → 2x − 3y = 0 → x = 3y/2。①に代入: 3y/2 + y = 5 → 5y/2 = 5 → y = 2。x = 3。',
-              highlight: 'x = 3, y = 2',
+                '②を整理: $4x - 6y = 0 \\rightarrow 2x - 3y = 0 \\rightarrow x = \\frac{3y}{2}$。①に代入: $\\frac{3y}{2} + y = 5 \\rightarrow \\frac{5y}{2} = 5 \\rightarrow y = 2$。$x = 3$。',
+              highlight: '$x = 3, y = 2$',
             },
             {
               title: 'Step 4: 距離を求める',
               content:
-                '距離 = 速さ × 時間 = 4 × 3 = 12km。確認: 帰り 6 × 2 = 12km ✓',
+                '距離 $=$ 速さ $\\times$ 時間 $= 4 \\times 3 = 12$km。確認: 帰り $6 \\times 2 = 12$km ✓',
               highlight: '距離は 12km',
             },
           ],

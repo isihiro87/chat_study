@@ -193,15 +193,15 @@ export const factoringFormulasChat: HistoryChat = {
     },
     {
       type: 'quiz',
-      question: 'x² − 8x + 16 を<ruby>因数分解<rt>いんすうぶんかい</rt></ruby>すると？',
+      question: '$x^2 - 8x + 16$ を<ruby>因数分解<rt>いんすうぶんかい</rt></ruby>すると？',
       options: [
-        { letter: 'A', text: '(x−4)(x+4)', correct: false },
-        { letter: 'B', text: '(x−4)²', correct: true },
-        { letter: 'C', text: '(x−2)(x−8)', correct: false },
-        { letter: 'D', text: '(x+4)²', correct: false },
+        { letter: 'A', text: '$(x-4)(x+4)$', correct: false },
+        { letter: 'B', text: '$(x-4)^2$', correct: true },
+        { letter: 'C', text: '$(x-2)(x-8)$', correct: false },
+        { letter: 'D', text: '$(x+4)^2$', correct: false },
       ],
       explanation:
-        'x²−8x+16 = x²−2×4×x+4²。(a−b)² の<ruby>形<rt>かたち</rt></ruby>で <strong>(x−4)²</strong> だよ。',
+        '$x^2 - 8x + 16 = x^2 - 2 \\times 4 \\times x + 4^2$。$(a-b)^2$ の<ruby>形<rt>かたち</rt></ruby>で $\\textcolor{#D97706}{(x-4)^2}$ だよ。',
     },
     {
       type: 'summary-point',
@@ -210,9 +210,9 @@ export const factoringFormulasChat: HistoryChat = {
     {
       type: 'end',
       points: [
-        'x²+bx+c → かけて c、<ruby>足<rt>た</rt></ruby>して b になる2つの<ruby>数<rt>かず</rt></ruby>を<ruby>探<rt>さが</rt></ruby>す',
-        'a²+2ab+b² = (a+b)²、a²−2ab+b² = (a−b)²',
-        'a²−b² = (a+b)(a−b)',
+        '$x^2+bx+c$ → かけて $c$、<ruby>足<rt>た</rt></ruby>して $b$ になる2つの<ruby>数<rt>かず</rt></ruby>を<ruby>探<rt>さが</rt></ruby>す',
+        '$a^2+2ab+b^2 = (a+b)^2$、$a^2-2ab+b^2 = (a-b)^2$',
+        '$a^2-b^2 = (a+b)(a-b)$',
         '<ruby>符号<rt>ふごう</rt></ruby>のパターンに<ruby>注目<rt>ちゅうもく</rt></ruby>すれば<ruby>早<rt>はや</rt></ruby>く<ruby>解<rt>と</rt></ruby>ける！',
       ],
     },

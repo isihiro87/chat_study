@@ -38,32 +38,32 @@ export const quadFuncRange: Topic = {
       questions: [
         {
           id: 'math-g3-quad-func-range-q1',
-          question: 'y = x² で -2 ≤ x ≤ 3 のとき、y の最大値は？',
-          options: ['4', '9', '0', '3'],
+          question: '$y = x^2$ で $-2 \\leq x \\leq 3$ のとき、$y$ の最大値は？',
+          options: ['$4$', '$9$', '$0$', '$3$'],
           correctIndex: 1,
           explanation:
-            'x = 3 のとき y = 9、x = -2 のとき y = 4。|x| が大きい方が y も大きいので、最大値は 9 だよ。',
+            '$x = 3$ のとき $y = 9$、$x = -2$ のとき $y = 4$。$|x|$ が大きい方が $y$ も大きいので、最大値は $9$ だよ。',
         },
         {
           id: 'math-g3-quad-func-range-q2',
-          question: 'y = x² で -2 ≤ x ≤ 3 のとき、y の最小値は？',
-          options: ['4', '9', '0', '1'],
+          question: '$y = x^2$ で $-2 \\leq x \\leq 3$ のとき、$y$ の最小値は？',
+          options: ['$4$', '$9$', '$0$', '$1$'],
           correctIndex: 2,
           explanation:
-            'x の変域が 0 をまたいでいるので、x = 0 のとき y = 0 が最小値になるよ。x = -2 のときの y = 4 が最小値ではないことに注意！',
+            '$x$ の変域が $0$ をまたいでいるので、$x = 0$ のとき $y = 0$ が最小値になるよ。$x = -2$ のときの $y = 4$ が最小値ではないことに注意！',
         },
         {
           id: 'math-g3-quad-func-range-q3',
-          question: 'y = -2x² で 1 ≤ x ≤ 3 のとき、y の変域は？',
+          question: '$y = -2x^2$ で $1 \\leq x \\leq 3$ のとき、$y$ の変域は？',
           options: [
-            '-18 ≤ y ≤ -2',
-            '-2 ≤ y ≤ 0',
-            '-18 ≤ y ≤ 0',
-            '2 ≤ y ≤ 18',
+            '$-18 \\leq y \\leq -2$',
+            '$-2 \\leq y \\leq 0$',
+            '$-18 \\leq y \\leq 0$',
+            '$2 \\leq y \\leq 18$',
           ],
           correctIndex: 0,
           explanation:
-            'x = 1 のとき y = -2、x = 3 のとき y = -18。x の変域が 0 をまたがないので、端の値だけ比べればOKだよ。',
+            '$x = 1$ のとき $y = -2$、$x = 3$ のとき $y = -18$。$x$ の変域が $0$ をまたがないので、端の値だけ比べればOKだよ。',
         },
       ],
     },
@@ -71,51 +71,51 @@ export const quadFuncRange: Topic = {
       examples: [
         {
           id: 'math-g3-quad-func-range-ex1',
-          question: 'y = 2x² で -1 ≤ x ≤ 3 のとき、y の変域を求めよう。',
+          question: '$y = 2x^2$ で $-1 \\leq x \\leq 3$ のとき、$y$ の変域を求めよう。',
           steps: [
             {
-              title: 'Step 1: x = 0 を含むかチェック',
+              title: 'Step 1: $x = 0$ を含むかチェック',
               content:
-                '-1 ≤ x ≤ 3 には x = 0 が含まれている。a = 2 > 0 だから x = 0 で y は最小値 0 をとるよ。',
-              highlight: 'x = 0 を含む → 最小値は y = 0',
+                '$-1 \\leq x \\leq 3$ には $x = 0$ が含まれている。$a = 2 > 0$ だから $x = 0$ で $y$ は最小値 $0$ をとるよ。',
+              highlight: '$x = 0$ を含む → 最小値は $y = 0$',
             },
             {
               title: 'Step 2: 端の値を比べる',
               content:
-                'x = -1 のとき y = 2、x = 3 のとき y = 18。|3| > |-1| だから最大値は y = 18。',
-              highlight: '最大値は y = 18',
+                '$x = -1$ のとき $y = 2$、$x = 3$ のとき $y = 18$。$|3| > |-1|$ だから最大値は $y = 18$。',
+              highlight: '最大値は $y = 18$',
             },
             {
               title: 'Step 3: 変域を書く',
-              content: 'y の変域は 0 ≤ y ≤ 18 だよ。',
-              highlight: '0 ≤ y ≤ 18',
+              content: '$y$ の変域は $0 \\leq y \\leq 18$ だよ。',
+              highlight: '$0 \\leq y \\leq 18$',
             },
           ],
-          answer: '0 ≤ y ≤ 18',
+          answer: '$0 \\leq y \\leq 18$',
         },
         {
           id: 'math-g3-quad-func-range-ex2',
-          question: 'y = -x² で -3 ≤ x ≤ -1 のとき、y の変域を求めよう。',
+          question: '$y = -x^2$ で $-3 \\leq x \\leq -1$ のとき、$y$ の変域を求めよう。',
           steps: [
             {
-              title: 'Step 1: x = 0 を含むかチェック',
+              title: 'Step 1: $x = 0$ を含むかチェック',
               content:
-                '-3 ≤ x ≤ -1 には x = 0 が含まれていない。端の値だけ比べればOK。',
-              highlight: 'x = 0 を含まない',
+                '$-3 \\leq x \\leq -1$ には $x = 0$ が含まれていない。端の値だけ比べればOK。',
+              highlight: '$x = 0$ を含まない',
             },
             {
               title: 'Step 2: 端の値を計算する',
               content:
-                'x = -3 のとき y = -9、x = -1 のとき y = -1。',
-              highlight: 'y = -9 と y = -1',
+                '$x = -3$ のとき $y = -9$、$x = -1$ のとき $y = -1$。',
+              highlight: '$y = -9$ と $y = -1$',
             },
             {
               title: 'Step 3: 変域を書く',
-              content: '-9 の方が小さいから、-9 ≤ y ≤ -1 だよ。',
-              highlight: '-9 ≤ y ≤ -1',
+              content: '$-9$ の方が小さいから、$-9 \\leq y \\leq -1$ だよ。',
+              highlight: '$-9 \\leq y \\leq -1$',
             },
           ],
-          answer: '-9 ≤ y ≤ -1',
+          answer: '$-9 \\leq y \\leq -1$',
         },
       ],
     },

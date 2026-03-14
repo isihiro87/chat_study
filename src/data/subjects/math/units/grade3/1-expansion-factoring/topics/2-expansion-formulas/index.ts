@@ -53,42 +53,42 @@ export const expansionFormulas: Topic = {
       questions: [
         {
           id: 'math-g3-expansion-formulas-q1',
-          question: '(x + 4)² を展開すると？',
+          question: '$(x + 4)^2$ を展開すると？',
           options: [
-            'x² + 4x + 16',
-            'x² + 8x + 16',
-            'x² + 16',
-            'x² + 8x + 8',
+            '$x^2 + 4x + 16$',
+            '$x^2 + 8x + 16$',
+            '$x^2 + 16$',
+            '$x^2 + 8x + 8$',
           ],
           correctIndex: 1,
           explanation:
-            '(x+4)² = x² + 2×x×4 + 4² = x² + 8x + 16。真ん中の項は 2×4 = 8 だよ。',
+            '$(x+4)^2 = x^2 + 2 \\times x \\times 4 + 4^2 = x^2 + 8x + 16$。真ん中の項は $2 \\times 4 = 8$ だよ。',
         },
         {
           id: 'math-g3-expansion-formulas-q2',
-          question: '(x + 6)(x − 6) を展開すると？',
+          question: '$(x + 6)(x - 6)$ を展開すると？',
           options: [
-            'x² − 12x − 36',
-            'x² + 36',
-            'x² − 36',
-            'x² − 12x + 36',
+            '$x^2 - 12x - 36$',
+            '$x^2 + 36$',
+            '$x^2 - 36$',
+            '$x^2 - 12x + 36$',
           ],
           correctIndex: 2,
           explanation:
-            '(x+6)(x−6) = x² − 6² = x² − 36。和と差の積は a² − b² になるよ。',
+            '$(x+6)(x-6) = x^2 - 6^2 = x^2 - 36$。和と差の積は $a^2 - b^2$ になるよ。',
         },
         {
           id: 'math-g3-expansion-formulas-q3',
-          question: '(x − 3)² を展開すると？',
+          question: '$(x - 3)^2$ を展開すると？',
           options: [
-            'x² − 6x + 9',
-            'x² + 6x + 9',
-            'x² − 6x − 9',
-            'x² − 9',
+            '$x^2 - 6x + 9$',
+            '$x^2 + 6x + 9$',
+            '$x^2 - 6x - 9$',
+            '$x^2 - 9$',
           ],
           correctIndex: 0,
           explanation:
-            '(x−3)² = x² − 2×x×3 + 3² = x² − 6x + 9。マイナスの2乗は真ん中が−、最後が+だよ。',
+            '$(x-3)^2 = x^2 - 2 \\times x \\times 3 + 3^2 = x^2 - 6x + 9$。マイナスの2乗は真ん中が−、最後が+だよ。',
         },
       ],
     },
@@ -96,40 +96,40 @@ export const expansionFormulas: Topic = {
       examples: [
         {
           id: 'math-g3-expansion-formulas-ex1',
-          question: '次の式を公式を使って展開しよう。\n(x + 5)²',
+          question: '次の式を公式を使って展開しよう。\n$(x + 5)^2$',
           steps: [
             {
               title: 'Step 1: どの公式を使う？',
               content:
-                '(a+b)² の形だね。a=x、b=5 で公式 (a+b)² = a²+2ab+b² を使うよ。',
-              highlight: '(a+b)² = a² + 2ab + b²',
+                '$(a+b)^2$ の形だね。$a=x$、$b=5$ で公式 $(a+b)^2 = a^2+2ab+b^2$ を使うよ。',
+              highlight: '$(a+b)^2 = a^2 + 2ab + b^2$',
             },
             {
               title: 'Step 2: 公式に当てはめる',
               content:
-                'a²=x²、2ab=2×x×5=10x、b²=5²=25。全部足し合わせよう。',
-              highlight: 'x² + 10x + 25',
+                '$a^2=x^2$、$2ab=2 \\times x \\times 5=10x$、$b^2=5^2=25$。全部足し合わせよう。',
+              highlight: '$x^2 + 10x + 25$',
             },
           ],
-          answer: 'x² + 10x + 25',
+          answer: '$x^2 + 10x + 25$',
         },
         {
           id: 'math-g3-expansion-formulas-ex2',
-          question: '次の式を公式を使って展開しよう。\n(3x + 2)(3x − 2)',
+          question: '次の式を公式を使って展開しよう。\n$(3x + 2)(3x - 2)$',
           steps: [
             {
               title: 'Step 1: どの公式を使う？',
               content:
-                '(a+b)(a−b) の形だね。a=3x、b=2 で公式 (a+b)(a−b)=a²−b² を使うよ。',
-              highlight: '(a+b)(a−b) = a² − b²',
+                '$(a+b)(a-b)$ の形だね。$a=3x$、$b=2$ で公式 $(a+b)(a-b)=a^2-b^2$ を使うよ。',
+              highlight: '$(a+b)(a-b) = a^2 - b^2$',
             },
             {
               title: 'Step 2: 公式に当てはめる',
-              content: 'a²=(3x)²=9x²、b²=2²=4。引き算するだけ！',
-              highlight: '9x² − 4',
+              content: '$a^2=(3x)^2=9x^2$、$b^2=2^2=4$。引き算するだけ！',
+              highlight: '$9x^2 - 4$',
             },
           ],
-          answer: '9x² − 4',
+          answer: '$9x^2 - 4$',
         },
       ],
     },

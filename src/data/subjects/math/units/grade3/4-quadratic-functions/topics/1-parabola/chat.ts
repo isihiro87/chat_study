@@ -158,15 +158,15 @@ export const quadFuncParabolaChat: HistoryChat = {
     },
     {
       type: 'quiz',
-      question: 'y = -3x² のグラフはどれ？',
+      question: '$y = -3x^2$ のグラフはどれ？',
       options: [
-        { letter: 'A', text: '上に開く細い放物線', correct: false },
-        { letter: 'B', text: '下に開く細い放物線', correct: true },
-        { letter: 'C', text: '上に開く広い放物線', correct: false },
-        { letter: 'D', text: '下に開く広い放物線', correct: false },
+        { letter: 'A', text: '<ruby>上<rt>うえ</rt></ruby>に<ruby>開<rt>ひら</rt></ruby>く<ruby>細<rt>ほそ</rt></ruby>い<ruby>放物線<rt>ほうぶつせん</rt></ruby>', correct: false },
+        { letter: 'B', text: '<ruby>下<rt>した</rt></ruby>に<ruby>開<rt>ひら</rt></ruby>く<ruby>細<rt>ほそ</rt></ruby>い<ruby>放物線<rt>ほうぶつせん</rt></ruby>', correct: true },
+        { letter: 'C', text: '<ruby>上<rt>うえ</rt></ruby>に<ruby>開<rt>ひら</rt></ruby>く<ruby>広<rt>ひろ</rt></ruby>い<ruby>放物線<rt>ほうぶつせん</rt></ruby>', correct: false },
+        { letter: 'D', text: '<ruby>下<rt>した</rt></ruby>に<ruby>開<rt>ひら</rt></ruby>く<ruby>広<rt>ひろ</rt></ruby>い<ruby>放物線<rt>ほうぶつせん</rt></ruby>', correct: false },
       ],
       explanation:
-        'a = -3 なので a < 0 → <ruby>下<rt>した</rt></ruby><ruby>開<rt>びら</rt></ruby>き。|a| = 3 は<ruby>大<rt>おお</rt></ruby>きいので<ruby>細<rt>ほそ</rt></ruby>い<ruby>放物線<rt>ほうぶつせん</rt></ruby>になるよ。',
+        '$a = -3$ なので $a < 0$ → <ruby>下<rt>した</rt></ruby><ruby>開<rt>びら</rt></ruby>き。$|a| = 3$ は<ruby>大<rt>おお</rt></ruby>きいので<ruby>細<rt>ほそ</rt></ruby>い<ruby>放物線<rt>ほうぶつせん</rt></ruby>になるよ。',
     },
     {
       type: 'summary-point',
@@ -175,10 +175,10 @@ export const quadFuncParabolaChat: HistoryChat = {
     {
       type: 'end',
       points: [
-        'y = ax² は「y は x の2<ruby>乗<rt>じょう</rt></ruby>に<ruby>比例<rt>ひれい</rt></ruby>」する<ruby>関数<rt>かんすう</rt></ruby>',
+        '$y = ax^2$ は「$y$ は $x$ の2<ruby>乗<rt>じょう</rt></ruby>に<ruby>比例<rt>ひれい</rt></ruby>」する<ruby>関数<rt>かんすう</rt></ruby>',
         'グラフは<ruby>放物線<rt>ほうぶつせん</rt></ruby>（U<ruby>字型<rt>じがた</rt></ruby>の<ruby>曲線<rt>きょくせん</rt></ruby>）',
-        'a > 0 → <ruby>上<rt>うえ</rt></ruby><ruby>開<rt>びら</rt></ruby>き、a < 0 → <ruby>下<rt>した</rt></ruby><ruby>開<rt>びら</rt></ruby>き',
-        '|a| が<ruby>大<rt>おお</rt></ruby>きい → <ruby>細<rt>ほそ</rt></ruby>い、|a| が<ruby>小<rt>ちい</rt></ruby>さい → <ruby>広<rt>ひろ</rt></ruby>い',
+        '$a > 0$ → <ruby>上<rt>うえ</rt></ruby><ruby>開<rt>びら</rt></ruby>き、$a < 0$ → <ruby>下<rt>した</rt></ruby><ruby>開<rt>びら</rt></ruby>き',
+        '$|a|$ が<ruby>大<rt>おお</rt></ruby>きい → <ruby>細<rt>ほそ</rt></ruby>い、$|a|$ が<ruby>小<rt>ちい</rt></ruby>さい → <ruby>広<rt>ひろ</rt></ruby>い',
       ],
     },
   ],

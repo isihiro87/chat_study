@@ -39,26 +39,26 @@ export const quadEqBasics: Topic = {
         {
           id: 'math-g3-quad-eq-basics-q1',
           question: '次のうち、二次方程式はどれ？',
-          options: ['3x + 5 = 0', 'x² − 4 = 0', '2x = 8', 'x³ + 1 = 0'],
+          options: ['$3x + 5 = 0$', '$x^2 - 4 = 0$', '$2x = 8$', '$x^3 + 1 = 0$'],
           correctIndex: 1,
           explanation:
-            'x² − 4 = 0 は x の2乗があるので二次方程式。3x+5=0 は一次、x³+1=0 は三次方程式だよ。',
+            '$x^2 - 4 = 0$ は $x$ の2乗があるので二次方程式。$3x+5=0$ は一次、$x^3+1=0$ は三次方程式だよ。',
         },
         {
           id: 'math-g3-quad-eq-basics-q2',
-          question: 'x² = 25 の解は？',
-          options: ['x = 5', 'x = −5', 'x = ±5', 'x = 25'],
+          question: '$x^2 = 25$ の解は？',
+          options: ['$x = 5$', '$x = -5$', '$x = \\pm 5$', '$x = 25$'],
           correctIndex: 2,
           explanation:
-            'x² = 25 なので x = ±√25 = ±5。5² = 25、(−5)² = 25 だから解は2つあるよ。',
+            '$x^2 = 25$ なので $x = \\pm\\sqrt{25} = \\pm 5$。$5^2 = 25$、$(-5)^2 = 25$ だから解は2つあるよ。',
         },
         {
           id: 'math-g3-quad-eq-basics-q3',
-          question: 'x² = 0 の解はいくつある？',
+          question: '$x^2 = 0$ の解はいくつある？',
           options: ['0個', '1個', '2個', '無限にある'],
           correctIndex: 1,
           explanation:
-            'x² = 0 の解は x = 0 の1つだけ。±0 は結局0なので、解は1つだよ。',
+            '$x^2 = 0$ の解は $x = 0$ の1つだけ。$\\pm 0$ は結局 $0$ なので、解は1つだよ。',
         },
       ],
     },
@@ -66,39 +66,39 @@ export const quadEqBasics: Topic = {
       examples: [
         {
           id: 'math-g3-quad-eq-basics-ex1',
-          question: '次の二次方程式を解こう。\nx² = 16',
+          question: '次の二次方程式を解こう。\n$x^2 = 16$',
           steps: [
             {
-              title: 'Step 1: x² = k の形を確認',
+              title: 'Step 1: $x^2 = k$ の形を確認',
               content:
-                'x² = 16 はすでに x² = k の形になっているよ。k = 16 だね。',
-              highlight: 'x² = 16',
+                '$x^2 = 16$ はすでに $x^2 = k$ の形になっているよ。$k = 16$ だね。',
+              highlight: '$x^2 = 16$',
             },
             {
               title: 'Step 2: 平方根をとる',
               content:
-                '両辺の平方根をとると x = ±√16 = ±4。プラスとマイナスの両方を忘れないでね！',
-              highlight: 'x = ±4',
+                '両辺の平方根をとると $x = \\pm\\sqrt{16} = \\pm 4$。プラスとマイナスの両方を忘れないでね！',
+              highlight: '$x = \\pm 4$',
             },
           ],
-          answer: 'x = 4, x = −4',
+          answer: '$x = 4, x = -4$',
         },
         {
           id: 'math-g3-quad-eq-basics-ex2',
-          question: '次の二次方程式を解こう。\n3x² − 27 = 0',
+          question: '次の二次方程式を解こう。\n$3x^2 - 27 = 0$',
           steps: [
             {
-              title: 'Step 1: x² = k の形にする',
-              content: '3x² − 27 = 0 を移項して 3x² = 27。両辺を3で割って x² = 9。',
-              highlight: 'x² = 9',
+              title: 'Step 1: $x^2 = k$ の形にする',
+              content: '$3x^2 - 27 = 0$ を移項して $3x^2 = 27$。両辺を3で割って $x^2 = 9$。',
+              highlight: '$x^2 = 9$',
             },
             {
               title: 'Step 2: 平方根をとる',
-              content: 'x = ±√9 = ±3 だよ。',
-              highlight: 'x = ±3',
+              content: '$x = \\pm\\sqrt{9} = \\pm 3$ だよ。',
+              highlight: '$x = \\pm 3$',
             },
           ],
-          answer: 'x = 3, x = −3',
+          answer: '$x = 3, x = -3$',
         },
       ],
     },

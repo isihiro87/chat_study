@@ -38,19 +38,19 @@ export const simulEqBasics: Topic = {
       questions: [
         {
           id: 'math-g2-simul-eq-basics-q1',
-          question: 'x + y = 5, x − y = 1 を同時に満たす x, y の値は？',
-          options: ['x = 2, y = 3', 'x = 3, y = 2', 'x = 4, y = 1', 'x = 1, y = 4'],
+          question: '$x + y = 5$, $x - y = 1$ を同時に満たす $x$, $y$ の値は？',
+          options: ['$x = 2, y = 3$', '$x = 3, y = 2$', '$x = 4, y = 1$', '$x = 1, y = 4$'],
           correctIndex: 1,
           explanation:
-            'x = 3, y = 2 のとき、3 + 2 = 5 ✓、3 − 2 = 1 ✓。2つの式を両方満たすのはこの組だけだよ。',
+            '$x = 3, y = 2$ のとき、$3 + 2 = 5$ ✓、$3 - 2 = 1$ ✓。2つの式を両方満たすのはこの組だけだよ。',
         },
         {
           id: 'math-g2-simul-eq-basics-q2',
-          question: '二元一次方程式 x + y = 7 の解はいくつある？',
+          question: '二元一次方程式 $x + y = 7$ の解はいくつある？',
           options: ['1つ', '2つ', '7つ', '無限にある'],
           correctIndex: 3,
           explanation:
-            '1つの二元一次方程式だけでは、解は無限にあるよ。(1,6)(2,5)(3,4)…のように何通りもあるんだ。',
+            '1つの二元一次方程式だけでは、解は無限にあるよ。$(1, 6)$, $(2, 5)$, $(3, 4)$…のように何通りもあるんだ。',
         },
         {
           id: 'math-g2-simul-eq-basics-q3',
@@ -63,7 +63,7 @@ export const simulEqBasics: Topic = {
           ],
           correctIndex: 2,
           explanation:
-            '連立方程式を解くとは、2つの式を同時に満たす x, y の値の組を求めることだよ。',
+            '連立方程式を解くとは、2つの式を同時に満たす $x$, $y$ の値の組を求めることだよ。',
         },
       ],
     },
@@ -72,46 +72,46 @@ export const simulEqBasics: Topic = {
         {
           id: 'math-g2-simul-eq-basics-ex1',
           question:
-            'x + y = 6, x − y = 2 を同時に満たす x, y の値を見つけよう。',
+            '$x + y = 6$, $x - y = 2$ を同時に満たす $x$, $y$ の値を見つけよう。',
           steps: [
             {
-              title: 'Step 1: x に値を入れて試そう',
+              title: 'Step 1: $x$ に値を入れて試そう',
               content:
-                'x = 1 のとき、式①から y = 5。式②に入れると 1 − 5 = −4 ≠ 2。ダメだね。',
-              highlight: 'x = 1 → y = 5 → 1 − 5 = −4 ✗',
+                '$x = 1$ のとき、式①から $y = 5$。式②に入れると $1 - 5 = -4 \\neq 2$。ダメだね。',
+              highlight: '$x = 1 \\rightarrow y = 5 \\rightarrow 1 - 5 = -4$ ✗',
             },
             {
               title: 'Step 2: 別の値を試そう',
               content:
-                'x = 4 のとき、式①から y = 2。式②に入れると 4 − 2 = 2 ✓。両方成り立った！',
-              highlight: 'x = 4, y = 2 → 式①: 4 + 2 = 6 ✓, 式②: 4 − 2 = 2 ✓',
+                '$x = 4$ のとき、式①から $y = 2$。式②に入れると $4 - 2 = 2$ ✓。両方成り立った！',
+              highlight: '$x = 4, y = 2$ ✓',
             },
           ],
-          answer: 'x = 4, y = 2',
+          answer: '$x = 4, y = 2$',
         },
         {
           id: 'math-g2-simul-eq-basics-ex2',
           question:
-            '2x + y = 8, x + y = 5 について、x = 3, y = 2 が解かどうか確かめよう。',
+            '$2x + y = 8$, $x + y = 5$ について、$x = 3, y = 2$ が解かどうか確かめよう。',
           steps: [
             {
               title: 'Step 1: 式①に代入',
-              content: '2 × 3 + 2 = 6 + 2 = 8 ✓ 式①は成り立つ！',
-              highlight: '2(3) + 2 = 8 ✓',
+              content: '$2 \\times 3 + 2 = 6 + 2 = 8$ ✓ 式①は成り立つ！',
+              highlight: '$2(3) + 2 = 8$ ✓',
             },
             {
               title: 'Step 2: 式②に代入',
-              content: '3 + 2 = 5 ✓ 式②も成り立つ！',
-              highlight: '3 + 2 = 5 ✓',
+              content: '$3 + 2 = 5$ ✓ 式②も成り立つ！',
+              highlight: '$3 + 2 = 5$ ✓',
             },
             {
               title: 'Step 3: 結論',
               content:
-                '2つの式を両方満たすので、x = 3, y = 2 はこの連立方程式の解だよ。',
-              highlight: 'x = 3, y = 2 は解',
+                '2つの式を両方満たすので、$x = 3, y = 2$ はこの連立方程式の解だよ。',
+              highlight: '$x = 3, y = 2$ は解',
             },
           ],
-          answer: 'x = 3, y = 2 は連立方程式の解である',
+          answer: '$x = 3, y = 2$ は連立方程式の解である',
         },
       ],
     },

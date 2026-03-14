@@ -40,10 +40,10 @@ export const quadEqApps: Topic = {
           id: 'math-g3-quad-eq-apps-q1',
           question:
             '連続する2つの正の整数の積が56のとき、小さい方の整数は？',
-          options: ['6', '7', '8', '9'],
+          options: ['$6$', '$7$', '$8$', '$9$'],
           correctIndex: 1,
           explanation:
-            'n(n+1) = 56 → n²+n−56 = 0 → (n+8)(n−7) = 0。n = 7（正の整数なので n = −8 は不適）。',
+            '$n(n+1) = 56$ → $n^2+n-56 = 0$ → $(n+8)(n-7) = 0$。$n = 7$（正の整数なので $n = -8$ は不適）。',
         },
         {
           id: 'math-g3-quad-eq-apps-q2',
@@ -52,21 +52,21 @@ export const quadEqApps: Topic = {
           options: ['4cm', '5cm', '6cm', '7cm'],
           correctIndex: 1,
           explanation:
-            '(x+3)² − x² = 40 → 6x + 9 = 40 → 6x = 31…ではなく、(x+3)² = x² + 40 → 6x + 9 = 40 → x は整数にならない。正しくは長方形: x(x+3) = x²+40 として解くと x=5。',
+            '$(x+3)^2 - x^2 = 40$ → $6x + 9 = 40$ → $6x = 31$…ではなく、$(x+3)^2 = x^2 + 40$ → $6x + 9 = 40$ → $x$ は整数にならない。正しくは長方形: $x(x+3) = x^2+40$ として解くと $x=5$。',
         },
         {
           id: 'math-g3-quad-eq-apps-q3',
           question:
-            '二次方程式の利用で、解が x = 5 と x = −3 と出た。「長さ」を求める問題のとき、答えは？',
+            '二次方程式の利用で、解が $x = 5$ と $x = -3$ と出た。「長さ」を求める問題のとき、答えは？',
           options: [
-            'x = 5 と x = −3',
-            'x = 5 のみ',
-            'x = −3 のみ',
+            '$x = 5$ と $x = -3$',
+            '$x = 5$ のみ',
+            '$x = -3$ のみ',
             '解なし',
           ],
           correctIndex: 1,
           explanation:
-            '長さは負にならないので、x = −3 は問題の条件に合わない。x = 5 が答えだよ。',
+            '長さは負にならないので、$x = -3$ は問題の条件に合わない。$x = 5$ が答えだよ。',
         },
       ],
     },
@@ -80,17 +80,17 @@ export const quadEqApps: Topic = {
             {
               title: 'Step 1: 文字で置く',
               content:
-                '小さい方を n とすると、大きい方は n+1。積が72なので n(n+1) = 72。',
-              highlight: 'n(n+1) = 72',
+                '小さい方を $n$ とすると、大きい方は $n+1$。積が72なので $n(n+1) = 72$。',
+              highlight: '$n(n+1) = 72$',
             },
             {
               title: 'Step 2: 方程式を解く',
               content:
-                'n² + n − 72 = 0 → (n+9)(n−8) = 0 → n = −9 または n = 8。正の整数なので n = 8。',
-              highlight: 'n = 8, n+1 = 9',
+                '$n^2 + n - 72 = 0$ → $(n+9)(n-8) = 0$ → $n = -9$ または $n = 8$。正の整数なので $n = 8$。',
+              highlight: '$n = 8, n+1 = 9$',
             },
           ],
-          answer: '8 と 9',
+          answer: '$8$ と $9$',
         },
         {
           id: 'math-g3-quad-eq-apps-ex2',
@@ -100,17 +100,17 @@ export const quadEqApps: Topic = {
             {
               title: 'Step 1: 文字で置く',
               content:
-                '横を x cm とすると、縦は (x−3) cm。面積 = x(x−3) = 54。',
-              highlight: 'x(x−3) = 54',
+                '横を $x$ cm とすると、縦は $(x-3)$ cm。面積 $= x(x-3) = 54$。',
+              highlight: '$x(x-3) = 54$',
             },
             {
               title: 'Step 2: 方程式を解く',
               content:
-                'x² − 3x − 54 = 0 → (x−9)(x+6) = 0 → x = 9 または x = −6。長さなので x = 9。',
-              highlight: '横 = 9cm',
+                '$x^2 - 3x - 54 = 0$ → $(x-9)(x+6) = 0$ → $x = 9$ または $x = -6$。長さなので $x = 9$。',
+              highlight: '横 $= 9$ cm',
             },
           ],
-          answer: '横 9cm（縦 6cm）',
+          answer: '横 $9$ cm（縦 $6$ cm）',
         },
       ],
     },

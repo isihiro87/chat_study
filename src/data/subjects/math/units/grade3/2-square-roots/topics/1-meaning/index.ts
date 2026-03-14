@@ -43,32 +43,32 @@ export const sqrtMeaning: Topic = {
       questions: [
         {
           id: 'math-g3-sqrt-meaning-q1',
-          question: '25の平方根はどれ？',
-          options: ['5', '−5', '±5', '√5'],
+          question: '$25$ の平方根はどれ？',
+          options: ['$5$', '$-5$', '$\\pm 5$', '$\\sqrt{5}$'],
           correctIndex: 2,
           explanation:
-            '5² = 25、(−5)² = 25 なので、25の平方根は±5だよ。正の方だけでなく負の方も忘れずに！',
+            '$5^2 = 25$、$(-5)^2 = 25$ なので、$25$ の平方根は $\\pm 5$ だよ。正の方だけでなく負の方も忘れずに！',
         },
         {
           id: 'math-g3-sqrt-meaning-q2',
           question: '次のうち無理数はどれ？',
-          options: ['√9', '√16', '√5', '√25'],
+          options: ['$\\sqrt{9}$', '$\\sqrt{16}$', '$\\sqrt{5}$', '$\\sqrt{25}$'],
           correctIndex: 2,
           explanation:
-            '√9 = 3、√16 = 4、√25 = 5 は整数になるから有理数。√5は分数で表せないから無理数だよ。',
+            '$\\sqrt{9} = 3$、$\\sqrt{16} = 4$、$\\sqrt{25} = 5$ は整数になるから有理数。$\\sqrt{5}$ は分数で表せないから無理数だよ。',
         },
         {
           id: 'math-g3-sqrt-meaning-q3',
-          question: '√2と√3と√5を小さい順に並べると？',
+          question: '$\\sqrt{2}$ と $\\sqrt{3}$ と $\\sqrt{5}$ を小さい順に並べると？',
           options: [
-            '√5 < √3 < √2',
-            '√2 < √5 < √3',
-            '√3 < √2 < √5',
-            '√2 < √3 < √5',
+            '$\\sqrt{5} < \\sqrt{3} < \\sqrt{2}$',
+            '$\\sqrt{2} < \\sqrt{5} < \\sqrt{3}$',
+            '$\\sqrt{3} < \\sqrt{2} < \\sqrt{5}$',
+            '$\\sqrt{2} < \\sqrt{3} < \\sqrt{5}$',
           ],
           correctIndex: 3,
           explanation:
-            'ルートの中の数が大きいほど値も大きい。2 < 3 < 5 だから √2 < √3 < √5 だよ。',
+            'ルートの中の数が大きいほど値も大きい。$2 < 3 < 5$ だから $\\sqrt{2} < \\sqrt{3} < \\sqrt{5}$ だよ。',
         },
       ],
     },
@@ -76,39 +76,39 @@ export const sqrtMeaning: Topic = {
       examples: [
         {
           id: 'math-g3-sqrt-meaning-ex1',
-          question: '次の数の平方根を求めよう。\n36',
+          question: '次の数の平方根を求めよう。\n$36$',
           steps: [
             {
-              title: 'Step 1: 2乗して36になる数を考えよう',
-              content: '何を2乗すると36になるかな？ 6² = 36 だね。',
-              highlight: '6² = 36',
+              title: 'Step 1: 2乗して $36$ になる数を考えよう',
+              content: '何を2乗すると $36$ になるかな？ $6^2 = 36$ だね。',
+              highlight: '$6^2 = 36$',
             },
             {
               title: 'Step 2: 負の数も忘れずに',
               content:
-                '(−6)² = 36 もOK。だから36の平方根は±6だよ。',
-              highlight: '±6',
+                '$(-6)^2 = 36$ もOK。だから $36$ の平方根は $\\pm 6$ だよ。',
+              highlight: '$\\pm 6$',
             },
           ],
-          answer: '±6',
+          answer: '$\\pm 6$',
         },
         {
           id: 'math-g3-sqrt-meaning-ex2',
-          question: '√7 の値は、どの整数とどの整数の間にある？',
+          question: '$\\sqrt{7}$ の値は、どの整数とどの整数の間にある？',
           steps: [
             {
-              title: 'Step 1: 7に近い完全平方数を探そう',
-              content: '2² = 4、3² = 9。4 < 7 < 9 だね。',
-              highlight: '4 < 7 < 9',
+              title: 'Step 1: $7$ に近い完全平方数を探そう',
+              content: '$2^2 = 4$、$3^2 = 9$。$4 < 7 < 9$ だね。',
+              highlight: '$4 < 7 < 9$',
             },
             {
               title: 'Step 2: ルートをとる',
               content:
-                '√4 < √7 < √9 → 2 < √7 < 3。√7は2と3の間にあるよ。',
-              highlight: '2 < √7 < 3',
+                '$\\sqrt{4} < \\sqrt{7} < \\sqrt{9}$ → $2 < \\sqrt{7} < 3$。$\\sqrt{7}$ は $2$ と $3$ の間にあるよ。',
+              highlight: '$2 < \\sqrt{7} < 3$',
             },
           ],
-          answer: '2と3の間',
+          answer: '$2$ と $3$ の間',
         },
       ],
     },

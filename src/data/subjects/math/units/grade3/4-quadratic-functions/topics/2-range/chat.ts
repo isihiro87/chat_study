@@ -154,15 +154,15 @@ export const quadFuncRangeChat: HistoryChat = {
     },
     {
       type: 'quiz',
-      question: 'y = -x² で -1 ≤ x ≤ 2 のとき、y の<ruby>変域<rt>へんいき</rt></ruby>は？',
+      question: '$y = -x^2$ で $-1 \\leq x \\leq 2$ のとき、$y$ の<ruby>変域<rt>へんいき</rt></ruby>は？',
       options: [
-        { letter: 'A', text: '-4 ≤ y ≤ -1', correct: false },
-        { letter: 'B', text: '-4 ≤ y ≤ 0', correct: true },
-        { letter: 'C', text: '-1 ≤ y ≤ 0', correct: false },
-        { letter: 'D', text: '-4 ≤ y ≤ 1', correct: false },
+        { letter: 'A', text: '$-4 \\leq y \\leq -1$', correct: false },
+        { letter: 'B', text: '$-4 \\leq y \\leq 0$', correct: true },
+        { letter: 'C', text: '$-1 \\leq y \\leq 0$', correct: false },
+        { letter: 'D', text: '$-4 \\leq y \\leq 1$', correct: false },
       ],
       explanation:
-        'x = 0 を<ruby>含<rt>ふく</rt></ruby>むので a < 0 → y の<ruby>最大値<rt>さいだいち</rt></ruby>は 0。x = 2 で y = -4、x = -1 で y = -1。|2| > |-1| だから<ruby>最小値<rt>さいしょうち</rt></ruby>は -4。<ruby>答<rt>こた</rt></ruby>え：-4 ≤ y ≤ 0',
+        '$x = 0$ を<ruby>含<rt>ふく</rt></ruby>むので $a < 0$ → $y$ の<ruby>最大値<rt>さいだいち</rt></ruby>は $0$。$x = 2$ で $y = -4$、$x = -1$ で $y = -1$。$|2| > |-1|$ だから<ruby>最小値<rt>さいしょうち</rt></ruby>は $-4$。<ruby>答<rt>こた</rt></ruby>え：$-4 \\leq y \\leq 0$',
     },
     {
       type: 'summary-point',
@@ -171,10 +171,10 @@ export const quadFuncRangeChat: HistoryChat = {
     {
       type: 'end',
       points: [
-        'y = ax² では x = 0 を<ruby>境<rt>さかい</rt></ruby>に y の<ruby>変化<rt>へんか</rt></ruby>の<ruby>向<rt>む</rt></ruby>きが<ruby>逆<rt>ぎゃく</rt></ruby>になる',
-        'a > 0: x = 0 で<ruby>最小値<rt>さいしょうち</rt></ruby> 0、a < 0: x = 0 で<ruby>最大値<rt>さいだいち</rt></ruby> 0',
-        'x の<ruby>変域<rt>へんいき</rt></ruby>が 0 をまたぐ → y の<ruby>最小値<rt>さいしょうち</rt></ruby>（a>0）または<ruby>最大値<rt>さいだいち</rt></ruby>（a<0）は 0',
-        '<ruby>端<rt>はし</rt></ruby>の<ruby>値<rt>あたい</rt></ruby>だけ<ruby>見<rt>み</rt></ruby>るのは NG！<ruby>必<rt>かなら</rt></ruby>ず x = 0 をチェック',
+        '$y = ax^2$ では $x = 0$ を<ruby>境<rt>さかい</rt></ruby>に $y$ の<ruby>変化<rt>へんか</rt></ruby>の<ruby>向<rt>む</rt></ruby>きが<ruby>逆<rt>ぎゃく</rt></ruby>になる',
+        '$a > 0$: $x = 0$ で<ruby>最小値<rt>さいしょうち</rt></ruby> $0$、$a < 0$: $x = 0$ で<ruby>最大値<rt>さいだいち</rt></ruby> $0$',
+        '$x$ の<ruby>変域<rt>へんいき</rt></ruby>が $0$ をまたぐ → $y$ の<ruby>最小値<rt>さいしょうち</rt></ruby>（$a>0$）または<ruby>最大値<rt>さいだいち</rt></ruby>（$a<0$）は $0$',
+        '<ruby>端<rt>はし</rt></ruby>の<ruby>値<rt>あたい</rt></ruby>だけ<ruby>見<rt>み</rt></ruby>るのは NG！<ruby>必<rt>かなら</rt></ruby>ず $x = 0$ をチェック',
       ],
     },
   ],

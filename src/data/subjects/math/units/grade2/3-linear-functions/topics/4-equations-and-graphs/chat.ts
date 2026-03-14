@@ -195,21 +195,21 @@ export const equationsAndGraphsChat: HistoryChat = {
     },
     {
       type: 'quiz',
-      question: 'y = 2x と y = -x + 6 の<ruby>交点<rt>こうてん</rt></ruby>は？',
+      question: '$y = 2x$ と $y = -x + 6$ の<ruby>交点<rt>こうてん</rt></ruby>は？',
       options: [
-        { letter: 'A', text: '(1, 2)', correct: false },
-        { letter: 'B', text: '(2, 4)', correct: true },
-        { letter: 'C', text: '(3, 3)', correct: false },
-        { letter: 'D', text: '(6, 0)', correct: false },
+        { letter: 'A', text: '$(1, 2)$', correct: false },
+        { letter: 'B', text: '$(2, 4)$', correct: true },
+        { letter: 'C', text: '$(3, 3)$', correct: false },
+        { letter: 'D', text: '$(6, 0)$', correct: false },
       ],
       explanation:
-        '2x = -x + 6 → 3x = 6 → x = 2。y = 2×2 = 4。<ruby>交点<rt>こうてん</rt></ruby>は <strong>(2, 4)</strong>',
+        '$2x = -x + 6 \\rightarrow 3x = 6 \\rightarrow x = 2$。$y = 2 \\times 2 = 4$。<ruby>交点<rt>こうてん</rt></ruby>は $\\textcolor{#D97706}{(2, 4)}$',
     },
     {
       type: 'end',
       points: [
-        'ax + by = c は y = の<ruby>形<rt>かたち</rt></ruby>に<ruby>変形<rt>へんけい</rt></ruby>してグラフをかく',
-        'y = k は<ruby>横<rt>よこ</rt></ruby>の<ruby>直線<rt>ちょくせん</rt></ruby>、x = h は<ruby>縦<rt>たて</rt></ruby>の<ruby>直線<rt>ちょくせん</rt></ruby>',
+        '$ax + by = c$ は $y =$ の<ruby>形<rt>かたち</rt></ruby>に<ruby>変形<rt>へんけい</rt></ruby>してグラフをかく',
+        '$y = k$ は<ruby>横<rt>よこ</rt></ruby>の<ruby>直線<rt>ちょくせん</rt></ruby>、$x = h$ は<ruby>縦<rt>たて</rt></ruby>の<ruby>直線<rt>ちょくせん</rt></ruby>',
         '2<ruby>直線<rt>ちょくせん</rt></ruby>の<ruby>交点<rt>こうてん</rt></ruby> = <ruby>連立方程式<rt>れんりつほうていしき</rt></ruby>の<ruby>解<rt>かい</rt></ruby>',
         '<ruby>平行<rt>へいこう</rt></ruby>な2<ruby>直線<rt>ちょくせん</rt></ruby> → <ruby>交点<rt>こうてん</rt></ruby>なし → <ruby>解<rt>かい</rt></ruby>なし',
       ],

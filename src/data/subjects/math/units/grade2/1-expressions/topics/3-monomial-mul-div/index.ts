@@ -38,27 +38,27 @@ export const monomialMulDiv: Topic = {
       questions: [
         {
           id: 'math-g2-mono-mul-div-q1',
-          question: '4x² × 3x の計算結果は？',
-          options: ['7x³', '12x²', '12x³', '7x²'],
+          question: '$4x^2 \\times 3x$ の計算結果は？',
+          options: ['$7x^3$', '$12x^2$', '$12x^3$', '$7x^2$'],
           correctIndex: 2,
           explanation:
-            '係数: 4 × 3 = 12、文字: x² × x = x³。答えは 12x³ だよ。',
+            '係数: $4 \\times 3 = 12$、文字: $x^2 \\times x = x^3$。答えは $12x^3$ だよ。',
         },
         {
           id: 'math-g2-mono-mul-div-q2',
-          question: '12a³b ÷ 4ab の計算結果は？',
-          options: ['3a²', '3a²b', '3ab', '8a²'],
+          question: '$12a^3b \\div 4ab$ の計算結果は？',
+          options: ['$3a^2$', '$3a^2b$', '$3ab$', '$8a^2$'],
           correctIndex: 0,
           explanation:
-            '係数: 12 ÷ 4 = 3、文字: a³/a = a², b/b = 1。答えは 3a² だよ。',
+            '係数: $12 \\div 4 = 3$、文字: $\\frac{a^3}{a} = a^2$, $\\frac{b}{b} = 1$。答えは $3a^2$ だよ。',
         },
         {
           id: 'math-g2-mono-mul-div-q3',
-          question: '(-2x)³ の計算結果は？',
-          options: ['-6x³', '-8x³', '8x³', '6x³'],
+          question: '$(-2x)^3$ の計算結果は？',
+          options: ['$-6x^3$', '$-8x^3$', '$8x^3$', '$6x^3$'],
           correctIndex: 1,
           explanation:
-            '(-2)³ = -8、x³ はそのまま。答えは -8x³。マイナスの奇数乗はマイナスになるよ！',
+            '$(-2)^3 = -8$、$x^3$ はそのまま。答えは $-8x^3$。マイナスの奇数乗はマイナスになるよ！',
         },
       ],
     },
@@ -66,46 +66,46 @@ export const monomialMulDiv: Topic = {
       examples: [
         {
           id: 'math-g2-mono-mul-div-ex1',
-          question: '次の計算をしよう。\n3a²b × (-2ab²)',
+          question: '次の計算をしよう。\n$3a^2b \\times (-2ab^2)$',
           steps: [
             {
               title: 'Step 1: 係数をかけよう',
               content:
-                '係数は 3 × (-2) = -6 だね。',
-              highlight: '係数: 3 × (-2) = -6',
+                '係数は $3 \\times (-2) = -6$ だね。',
+              highlight: '係数: $3 \\times (-2) = -6$',
             },
             {
               title: 'Step 2: 文字をかけよう',
               content:
-                'a の部分: a² × a = a³\nb の部分: b × b² = b³',
-              highlight: 'a² × a = a³, b × b² = b³',
+                '$a$ の部分: $a^2 \\times a = a^3$\n$b$ の部分: $b \\times b^2 = b^3$',
+              highlight: '$a^2 \\times a = a^3$, $b \\times b^2 = b^3$',
             },
             {
               title: 'Step 3: 合わせて完成',
-              content: '係数と文字を合わせると -6a³b³ になるよ。',
-              highlight: '-6a³b³',
+              content: '係数と文字を合わせると $-6a^3b^3$ になるよ。',
+              highlight: '$-6a^3b^3$',
             },
           ],
-          answer: '-6a³b³',
+          answer: '$-6a^3b^3$',
         },
         {
           id: 'math-g2-mono-mul-div-ex2',
-          question: '次の計算をしよう。\n8x⁴y² ÷ 2x²y',
+          question: '次の計算をしよう。\n$8x^4y^2 \\div 2x^2y$',
           steps: [
             {
               title: 'Step 1: 分数にしよう',
               content:
-                '割り算を分数にすると 8x⁴y²/2x²y になるよ。',
-              highlight: '8x⁴y² / 2x²y',
+                '割り算を分数にすると $\\frac{8x^4y^2}{2x^2y}$ になるよ。',
+              highlight: '$\\frac{8x^4y^2}{2x^2y}$',
             },
             {
               title: 'Step 2: 係数と文字をそれぞれ約分',
               content:
-                '係数: 8 ÷ 2 = 4\nx の部分: x⁴ ÷ x² = x²（指数を引く: 4 - 2 = 2）\ny の部分: y² ÷ y = y（指数を引く: 2 - 1 = 1）',
-              highlight: '4x²y',
+                '係数: $8 \\div 2 = 4$\n$x$ の部分: $x^4 \\div x^2 = x^2$（指数を引く: $4 - 2 = 2$）\n$y$ の部分: $y^2 \\div y = y$（指数を引く: $2 - 1 = 1$）',
+              highlight: '$4x^2y$',
             },
           ],
-          answer: '4x²y',
+          answer: '$4x^2y$',
         },
       ],
     },

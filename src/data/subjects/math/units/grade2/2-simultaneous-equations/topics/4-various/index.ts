@@ -38,42 +38,42 @@ export const variousSimulEq: Topic = {
       questions: [
         {
           id: 'math-g2-various-simul-eq-q1',
-          question: 'x/2 + y = 5 の分数をはらうにはどうする？',
+          question: '$\\frac{x}{2} + y = 5$ の分数をはらうにはどうする？',
           options: [
-            '両辺を2倍する',
-            '両辺を5倍する',
-            'x だけ2倍する',
+            '両辺を$2$倍する',
+            '両辺を$5$倍する',
+            '$x$ だけ$2$倍する',
             '分数のまま解く',
           ],
           correctIndex: 0,
           explanation:
-            '分母が2なので、両辺を2倍すると x + 2y = 10 になって分数が消えるよ。',
+            '分母が$2$なので、両辺を$2$倍すると $x + 2y = 10$ になって分数が消えるよ。',
         },
         {
           id: 'math-g2-various-simul-eq-q2',
-          question: '0.3x + 0.5y = 2.3 を整数にするには？',
+          question: '$0.3x + 0.5y = 2.3$ を整数にするには？',
           options: [
-            '両辺を3倍する',
-            '両辺を5倍する',
-            '両辺を10倍する',
-            '両辺を100倍する',
+            '両辺を$3$倍する',
+            '両辺を$5$倍する',
+            '両辺を$10$倍する',
+            '両辺を$100$倍する',
           ],
           correctIndex: 2,
           explanation:
-            '小数第一位まであるので、両辺を10倍すると 3x + 5y = 23 になるよ。',
+            '小数第一位まであるので、両辺を$10$倍すると $3x + 5y = 23$ になるよ。',
         },
         {
           id: 'math-g2-various-simul-eq-q3',
-          question: '3(x − 1) + y = 8 を展開して整理すると？',
+          question: '$3(x - 1) + y = 8$ を展開して整理すると？',
           options: [
-            '3x + y = 8',
-            '3x + y = 11',
-            '3x − 1 + y = 8',
-            'x − 3 + y = 8',
+            '$3x + y = 8$',
+            '$3x + y = 11$',
+            '$3x - 1 + y = 8$',
+            '$x - 3 + y = 8$',
           ],
           correctIndex: 1,
           explanation:
-            '3(x − 1) = 3x − 3。だから 3x − 3 + y = 8 → 3x + y = 11 になるよ。',
+            '$3(x - 1) = 3x - 3$。だから $3x - 3 + y = 8 \\rightarrow 3x + y = 11$ になるよ。',
         },
       ],
     },
@@ -82,52 +82,52 @@ export const variousSimulEq: Topic = {
         {
           id: 'math-g2-various-simul-eq-ex1',
           question:
-            '次の連立方程式を解こう。\nx/2 + y/3 = 2\nx + y = 5',
+            '次の連立方程式を解こう。\n$\\frac{x}{2} + \\frac{y}{3} = 2$\n$x + y = 5$',
           steps: [
             {
               title: 'Step 1: 分数をはらう',
               content:
-                '①の分母は 2 と 3。最小公倍数の 6 を両辺にかけるよ。\n6 × (x/2 + y/3) = 6 × 2 → 3x + 2y = 12',
-              highlight: '3x + 2y = 12',
+                '①の分母は $2$ と $3$。最小公倍数の $6$ を両辺にかけるよ。\n$6 \\times (\\frac{x}{2} + \\frac{y}{3}) = 6 \\times 2 \\rightarrow 3x + 2y = 12$',
+              highlight: '$3x + 2y = 12$',
             },
             {
               title: 'Step 2: 加減法で解く',
               content:
-                "②を2倍すると 2x + 2y = 10。①'から②'を引くと x = 2",
-              highlight: '(3x + 2y) − (2x + 2y) = 12 − 10 → x = 2',
+                "②を$2$倍すると $2x + 2y = 10$。①'から②'を引くと $x = 2$",
+              highlight: '$(3x + 2y) - (2x + 2y) = 12 - 10 \\rightarrow x = 2$',
             },
             {
-              title: 'Step 3: y を求める',
-              content: 'x = 2 を②に代入: 2 + y = 5 → y = 3',
-              highlight: 'y = 3',
+              title: 'Step 3: $y$ を求める',
+              content: '$x = 2$ を②に代入: $2 + y = 5 \\rightarrow y = 3$',
+              highlight: '$y = 3$',
             },
           ],
-          answer: 'x = 2, y = 3',
+          answer: '$x = 2, y = 3$',
         },
         {
           id: 'math-g2-various-simul-eq-ex2',
           question:
-            '次の連立方程式を解こう。\n0.2x + 0.5y = 1.9\nx + y = 5',
+            '次の連立方程式を解こう。\n$0.2x + 0.5y = 1.9$\n$x + y = 5$',
           steps: [
             {
               title: 'Step 1: 小数をなくす',
               content:
-                '①の両辺を10倍する。\n2x + 5y = 19',
-              highlight: '2x + 5y = 19',
+                '①の両辺を$10$倍する。\n$2x + 5y = 19$',
+              highlight: '$2x + 5y = 19$',
             },
             {
               title: 'Step 2: 加減法で解く',
               content:
-                "②を2倍: 2x + 2y = 10。①'から②'を引くと 3y = 9 → y = 3",
-              highlight: 'y = 3',
+                "②を$2$倍: $2x + 2y = 10$。①'から②'を引くと $3y = 9 \\rightarrow y = 3$",
+              highlight: '$y = 3$',
             },
             {
-              title: 'Step 3: x を求める',
-              content: 'y = 3 を②に代入: x + 3 = 5 → x = 2',
-              highlight: 'x = 2',
+              title: 'Step 3: $x$ を求める',
+              content: '$y = 3$ を②に代入: $x + 3 = 5 \\rightarrow x = 2$',
+              highlight: '$x = 2$',
             },
           ],
-          answer: 'x = 2, y = 3',
+          answer: '$x = 2, y = 3$',
         },
       ],
     },

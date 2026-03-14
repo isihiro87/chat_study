@@ -180,15 +180,15 @@ export const expansionBasicsChat: HistoryChat = {
     },
     {
       type: 'quiz',
-      question: '(x + 1)(x − 5) を<ruby>展開<rt>てんかい</rt></ruby>すると？',
+      question: '$(x + 1)(x - 5)$ を<ruby>展開<rt>てんかい</rt></ruby>すると？',
       options: [
-        { letter: 'A', text: 'x² − 4x − 5', correct: true },
-        { letter: 'B', text: 'x² + 4x − 5', correct: false },
-        { letter: 'C', text: 'x² − 4x + 5', correct: false },
-        { letter: 'D', text: 'x² − 6x − 5', correct: false },
+        { letter: 'A', text: '$x^2 - 4x - 5$', correct: true },
+        { letter: 'B', text: '$x^2 + 4x - 5$', correct: false },
+        { letter: 'C', text: '$x^2 - 4x + 5$', correct: false },
+        { letter: 'D', text: '$x^2 - 6x - 5$', correct: false },
       ],
       explanation:
-        '(x+1)(x−5) = x²−5x+x−5 = x²−4x−5。−5x と +x をまとめると <strong>−4x</strong> だよ。',
+        '$(x+1)(x-5) = x^2 - 5x + x - 5 = x^2 - 4x - 5$。$-5x$ と $+x$ をまとめると $\\textcolor{#D97706}{-4x}$ だよ。',
     },
     {
       type: 'summary-point',
@@ -198,8 +198,8 @@ export const expansionBasicsChat: HistoryChat = {
       type: 'end',
       points: [
         '<ruby>展開<rt>てんかい</rt></ruby> = かっこを<ruby>外<rt>はず</rt></ruby>して<ruby>式<rt>しき</rt></ruby>を<ruby>広<rt>ひろ</rt></ruby>げること',
-        '<ruby>分配法則<rt>ぶんぱいほうそく</rt></ruby>: a(b+c) = ab + ac',
-        '(a+b)(c+d) = ac + ad + bc + bd（4つの<ruby>積<rt>せき</rt></ruby>を<ruby>作<rt>つく</rt></ruby>る）',
+        '<ruby>分配法則<rt>ぶんぱいほうそく</rt></ruby>: $a(b+c) = ab + ac$',
+        '$(a+b)(c+d) = ac + ad + bc + bd$（4つの<ruby>積<rt>せき</rt></ruby>を<ruby>作<rt>つく</rt></ruby>る）',
         '<ruby>マイナスの<rt></rt></ruby><ruby>符号<rt>ふごう</rt></ruby>に<ruby>注意<rt>ちゅうい</rt></ruby>して、<ruby>同類項<rt>どうるいこう</rt></ruby>をまとめよう',
       ],
     },

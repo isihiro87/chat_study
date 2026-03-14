@@ -190,23 +190,23 @@ export const substitutionChat: HistoryChat = {
     },
     {
       type: 'quiz',
-      question: 'y = 3x、2x + y = 10 を<ruby>代入法<rt>だいにゅうほう</rt></ruby>で<ruby>解<rt>と</rt></ruby>くと x は？',
+      question: '$y = 3x$、$2x + y = 10$ を<ruby>代入法<rt>だいにゅうほう</rt></ruby>で<ruby>解<rt>と</rt></ruby>くと $x$ は？',
       options: [
-        { letter: 'A', text: 'x = 1', correct: false },
-        { letter: 'B', text: 'x = 2', correct: true },
-        { letter: 'C', text: 'x = 3', correct: false },
-        { letter: 'D', text: 'x = 5', correct: false },
+        { letter: 'A', text: '$x = 1$', correct: false },
+        { letter: 'B', text: '$x = 2$', correct: true },
+        { letter: 'C', text: '$x = 3$', correct: false },
+        { letter: 'D', text: '$x = 5$', correct: false },
       ],
       explanation:
-        'y = 3x を②に<ruby>代入<rt>だいにゅう</rt></ruby>: 2x + 3x = 10 → 5x = 10 → x = <strong>2</strong>。y = 6 だよ。',
+        '$y = 3x$ を$\\textcircled{2}$に<ruby>代入<rt>だいにゅう</rt></ruby>: $2x + 3x = 10 \\rightarrow 5x = 10 \\rightarrow x = \\textcolor{#D97706}{2}$。$y = 6$ だよ。',
     },
     {
       type: 'end',
       points: [
         '<ruby>代入法<rt>だいにゅうほう</rt></ruby>：<ruby>一方<rt>いっぽう</rt></ruby>の<ruby>式<rt>しき</rt></ruby>をもう<ruby>一方<rt>いっぽう</rt></ruby>に<ruby>代入<rt>だいにゅう</rt></ruby>して1つの<ruby>文字<rt>もじ</rt></ruby>を<ruby>消<rt>け</rt></ruby>す',
-        'y = ○○ の<ruby>形<rt>かたち</rt></ruby>がそのままあれば、すぐ<ruby>代入<rt>だいにゅう</rt></ruby>できる',
-        '<ruby>形<rt>かたち</rt></ruby>がなければ、<ruby>係数<rt>けいすう</rt></ruby>が1の<ruby>文字<rt>もじ</rt></ruby>を<ruby>変形<rt>へんけい</rt></ruby>してから<ruby>代入<rt>だいにゅう</rt></ruby>',
-        'y = ○○ の<ruby>形<rt>かたち</rt></ruby>なら<ruby>代入法<rt>だいにゅうほう</rt></ruby>、それ<ruby>以外<rt>いがい</rt></ruby>は<ruby>加減法<rt>かげんほう</rt></ruby>が<ruby>便利<rt>べんり</rt></ruby>',
+        '$y =$ ○○ の<ruby>形<rt>かたち</rt></ruby>がそのままあれば、すぐ<ruby>代入<rt>だいにゅう</rt></ruby>できる',
+        '<ruby>形<rt>かたち</rt></ruby>がなければ、<ruby>係数<rt>けいすう</rt></ruby>が$1$の<ruby>文字<rt>もじ</rt></ruby>を<ruby>変形<rt>へんけい</rt></ruby>してから<ruby>代入<rt>だいにゅう</rt></ruby>',
+        '$y =$ ○○ の<ruby>形<rt>かたち</rt></ruby>なら<ruby>代入法<rt>だいにゅうほう</rt></ruby>、それ<ruby>以外<rt>いがい</rt></ruby>は<ruby>加減法<rt>かげんほう</rt></ruby>が<ruby>便利<rt>べんり</rt></ruby>',
       ],
     },
   ],

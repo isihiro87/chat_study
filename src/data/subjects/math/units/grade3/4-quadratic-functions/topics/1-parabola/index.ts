@@ -43,15 +43,15 @@ export const quadFuncParabola: Topic = {
       questions: [
         {
           id: 'math-g3-quad-func-parabola-q1',
-          question: 'y = 2x² で、x = 3 のとき y の値は？',
-          options: ['6', '9', '12', '18'],
+          question: '$y = 2x^2$ で、$x = 3$ のとき $y$ の値は？',
+          options: ['$6$', '$9$', '$12$', '$18$'],
           correctIndex: 3,
           explanation:
-            'y = 2x² に x = 3 を代入すると y = 2 × 3² = 2 × 9 = 18 だよ。',
+            '$y = 2x^2$ に $x = 3$ を代入すると $y = 2 \\times 3^2 = 2 \\times 9 = 18$ だよ。',
         },
         {
           id: 'math-g3-quad-func-parabola-q2',
-          question: 'y = -x² のグラフはどんな形？',
+          question: '$y = -x^2$ のグラフはどんな形？',
           options: [
             '上に開く放物線',
             '下に開く放物線',
@@ -60,20 +60,20 @@ export const quadFuncParabola: Topic = {
           ],
           correctIndex: 1,
           explanation:
-            'a = -1 で a < 0 だから、下に開く放物線（∩字型）になるよ。',
+            '$a = -1$ で $a < 0$ だから、下に開く放物線（∩字型）になるよ。',
         },
         {
           id: 'math-g3-quad-func-parabola-q3',
-          question: 'y = x² と y = 3x² のグラフを比べると？',
+          question: '$y = x^2$ と $y = 3x^2$ のグラフを比べると？',
           options: [
-            'y = 3x² の方が広い',
-            'y = 3x² の方が細い',
+            '$y = 3x^2$ の方が広い',
+            '$y = 3x^2$ の方が細い',
             '同じ形',
             '向きが逆',
           ],
           correctIndex: 1,
           explanation:
-            '|a| が大きいほどグラフは細くなるよ。|3| > |1| だから y = 3x² の方が細いグラフになるんだ。',
+            '$|a|$ が大きいほどグラフは細くなるよ。$|3| > |1|$ だから $y = 3x^2$ の方が細いグラフになるんだ。',
         },
       ],
     },
@@ -81,41 +81,41 @@ export const quadFuncParabola: Topic = {
       examples: [
         {
           id: 'math-g3-quad-func-parabola-ex1',
-          question: 'y は x の2乗に比例し、x = 2 のとき y = 12 である。y を x の式で表そう。',
+          question: '$y$ は $x$ の2乗に比例し、$x = 2$ のとき $y = 12$ である。$y$ を $x$ の式で表そう。',
           steps: [
             {
-              title: 'Step 1: y = ax² とおく',
+              title: 'Step 1: $y = ax^2$ とおく',
               content:
-                'y は x の2乗に比例するから、y = ax² の形で表せるよ。a の値を求めよう。',
-              highlight: 'y = ax²',
+                '$y$ は $x$ の2乗に比例するから、$y = ax^2$ の形で表せるよ。$a$ の値を求めよう。',
+              highlight: '$y = ax^2$',
             },
             {
-              title: 'Step 2: x = 2, y = 12 を代入する',
+              title: 'Step 2: $x = 2, y = 12$ を代入する',
               content:
-                '12 = a × 2² → 12 = 4a → a = 3 だよ。',
-              highlight: 'a = 3',
+                '$12 = a \\times 2^2$ → $12 = 4a$ → $a = 3$ だよ。',
+              highlight: '$a = 3$',
             },
           ],
-          answer: 'y = 3x²',
+          answer: '$y = 3x^2$',
         },
         {
           id: 'math-g3-quad-func-parabola-ex2',
-          question: 'y = -2x² について、x = -3 のときの y の値を求めよう。',
+          question: '$y = -2x^2$ について、$x = -3$ のときの $y$ の値を求めよう。',
           steps: [
             {
-              title: 'Step 1: x = -3 を代入する',
+              title: 'Step 1: $x = -3$ を代入する',
               content:
-                'y = -2 × (-3)² と計算するよ。(-3)² を先に求めよう。',
-              highlight: '(-3)² = 9',
+                '$y = -2 \\times (-3)^2$ と計算するよ。$(-3)^2$ を先に求めよう。',
+              highlight: '$(-3)^2 = 9$',
             },
             {
               title: 'Step 2: 計算する',
               content:
-                'y = -2 × 9 = -18。マイナスの数を2乗するとプラスになることに注意だよ。',
-              highlight: 'y = -18',
+                '$y = -2 \\times 9 = -18$。マイナスの数を2乗するとプラスになることに注意だよ。',
+              highlight: '$y = -18$',
             },
           ],
-          answer: 'y = -18',
+          answer: '$y = -18$',
         },
       ],
     },

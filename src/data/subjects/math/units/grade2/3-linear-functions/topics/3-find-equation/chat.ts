@@ -184,23 +184,23 @@ export const findLinearEquationChat: HistoryChat = {
     },
     {
       type: 'quiz',
-      question: '<ruby>傾<rt>かたむ</rt></ruby>き 4 で<ruby>点<rt>てん</rt></ruby>(2, 11) を<ruby>通<rt>とお</rt></ruby>る<ruby>一次関数<rt>いちじかんすう</rt></ruby>の<ruby>式<rt>しき</rt></ruby>は？',
+      question: '<ruby>傾<rt>かたむ</rt></ruby>き $4$ で<ruby>点<rt>てん</rt></ruby>$(2, 11)$ を<ruby>通<rt>とお</rt></ruby>る<ruby>一次関数<rt>いちじかんすう</rt></ruby>の<ruby>式<rt>しき</rt></ruby>は？',
       options: [
-        { letter: 'A', text: 'y = 4x + 11', correct: false },
-        { letter: 'B', text: 'y = 4x + 3', correct: true },
-        { letter: 'C', text: 'y = 4x + 2', correct: false },
-        { letter: 'D', text: 'y = 4x − 3', correct: false },
+        { letter: 'A', text: '$y = 4x + 11$', correct: false },
+        { letter: 'B', text: '$y = 4x + 3$', correct: true },
+        { letter: 'C', text: '$y = 4x + 2$', correct: false },
+        { letter: 'D', text: '$y = 4x - 3$', correct: false },
       ],
       explanation:
-        'y = 4x + b に (2, 11) を<ruby>代入<rt>だいにゅう</rt></ruby>: 11 = 4×2 + b → 11 = 8 + b → b = <strong>3</strong>。よって y = 4x + 3',
+        '$y = 4x + b$ に $(2, 11)$ を<ruby>代入<rt>だいにゅう</rt></ruby>: $11 = 4 \\times 2 + b \\rightarrow 11 = 8 + b \\rightarrow b = \\textcolor{#D97706}{3}$。よって $y = 4x + 3$',
     },
     {
       type: 'end',
       points: [
         'パターン①：<ruby>傾<rt>かたむ</rt></ruby>き＋<ruby>切片<rt>せっぺん</rt></ruby> → そのまま<ruby>代入<rt>だいにゅう</rt></ruby>',
-        'パターン②：<ruby>傾<rt>かたむ</rt></ruby>き＋1<ruby>点<rt>てん</rt></ruby> → <ruby>点<rt>てん</rt></ruby>を<ruby>代入<rt>だいにゅう</rt></ruby>して b を<ruby>求<rt>もと</rt></ruby>める',
+        'パターン②：<ruby>傾<rt>かたむ</rt></ruby>き＋1<ruby>点<rt>てん</rt></ruby> → <ruby>点<rt>てん</rt></ruby>を<ruby>代入<rt>だいにゅう</rt></ruby>して $b$ を<ruby>求<rt>もと</rt></ruby>める',
         'パターン③：2<ruby>点<rt>てん</rt></ruby> → まず<ruby>傾<rt>かたむ</rt></ruby>きを<ruby>計算<rt>けいさん</rt></ruby>してからパターン②',
-        'どのパターンでも y = ax + b に<ruby>代入<rt>だいにゅう</rt></ruby>するのが<ruby>基本<rt>きほん</rt></ruby>！',
+        'どのパターンでも $y = ax + b$ に<ruby>代入<rt>だいにゅう</rt></ruby>するのが<ruby>基本<rt>きほん</rt></ruby>！',
       ],
     },
   ],

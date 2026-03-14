@@ -43,32 +43,32 @@ export const rateOfChange: Topic = {
       questions: [
         {
           id: 'math-g3-rate-of-change-q1',
-          question: 'y = x² で x が 1 から 3 に変化するとき、変化の割合は？',
-          options: ['2', '4', '8', '3'],
+          question: '$y = x^2$ で $x$ が $1$ から $3$ に変化するとき、変化の割合は？',
+          options: ['$2$', '$4$', '$8$', '$3$'],
           correctIndex: 1,
           explanation:
-            '変化の割合 = a(p + q) = 1 × (1 + 3) = 4。または y の増加量 9-1=8、x の増加量 3-1=2 で 8÷2=4 だよ。',
+            '変化の割合 $= a(p + q) = 1 \\times (1 + 3) = 4$。または $y$ の増加量 $9-1=8$、$x$ の増加量 $3-1=2$ で $8 \\div 2 = 4$ だよ。',
         },
         {
           id: 'math-g3-rate-of-change-q2',
-          question: 'y = 2x² で x が -1 から 3 に変化するとき、変化の割合は？',
-          options: ['2', '4', '8', '6'],
+          question: '$y = 2x^2$ で $x$ が $-1$ から $3$ に変化するとき、変化の割合は？',
+          options: ['$2$', '$4$', '$8$', '$6$'],
           correctIndex: 1,
           explanation:
-            '変化の割合 = a(p + q) = 2 × (-1 + 3) = 2 × 2 = 4 だよ。',
+            '変化の割合 $= a(p + q) = 2 \\times (-1 + 3) = 2 \\times 2 = 4$ だよ。',
         },
         {
           id: 'math-g3-rate-of-change-q3',
-          question: 'y = ax² の変化の割合と一次関数の変化の割合の違いは？',
+          question: '$y = ax^2$ の変化の割合と一次関数の変化の割合の違いは？',
           options: [
             'どちらも一定',
-            'y = ax² は区間によって変わる',
+            '$y = ax^2$ は区間によって変わる',
             'どちらも区間によって変わる',
             '一次関数は区間によって変わる',
           ],
           correctIndex: 1,
           explanation:
-            '一次関数の変化の割合は常に一定（= 傾き a）だけど、y = ax² の変化の割合は区間によって変わるよ。',
+            '一次関数の変化の割合は常に一定（= 傾き $a$）だけど、$y = ax^2$ の変化の割合は区間によって変わるよ。',
         },
       ],
     },
@@ -76,41 +76,41 @@ export const rateOfChange: Topic = {
       examples: [
         {
           id: 'math-g3-rate-of-change-ex1',
-          question: 'y = 3x² で x が 2 から 5 に変化するとき、変化の割合を求めよう。',
+          question: '$y = 3x^2$ で $x$ が $2$ から $5$ に変化するとき、変化の割合を求めよう。',
           steps: [
             {
               title: 'Step 1: 公式を使おう',
               content:
-                '変化の割合 = a(p + q)。a = 3、p = 2、q = 5 を代入するよ。',
-              highlight: 'a(p + q) = 3(2 + 5)',
+                '変化の割合 $= a(p + q)$。$a = 3$、$p = 2$、$q = 5$ を代入するよ。',
+              highlight: '$a(p + q) = 3(2 + 5)$',
             },
             {
               title: 'Step 2: 計算する',
               content:
-                '3 × 7 = 21。変化の割合は 21 だよ。',
-              highlight: '変化の割合 = 21',
+                '$3 \\times 7 = 21$。変化の割合は $21$ だよ。',
+              highlight: '変化の割合 $= 21$',
             },
           ],
-          answer: '変化の割合 = 21',
+          answer: '変化の割合 $= 21$',
         },
         {
           id: 'math-g3-rate-of-change-ex2',
-          question: 'y = -x² で x が -3 から 1 に変化するとき、変化の割合を求めよう。',
+          question: '$y = -x^2$ で $x$ が $-3$ から $1$ に変化するとき、変化の割合を求めよう。',
           steps: [
             {
               title: 'Step 1: 公式を使おう',
               content:
-                '変化の割合 = a(p + q)。a = -1、p = -3、q = 1 を代入するよ。',
-              highlight: 'a(p + q) = -1(-3 + 1)',
+                '変化の割合 $= a(p + q)$。$a = -1$、$p = -3$、$q = 1$ を代入するよ。',
+              highlight: '$a(p + q) = -1(-3 + 1)$',
             },
             {
               title: 'Step 2: 計算する',
               content:
-                '-1 × (-2) = 2。変化の割合は 2 だよ。',
-              highlight: '変化の割合 = 2',
+                '$-1 \\times (-2) = 2$。変化の割合は $2$ だよ。',
+              highlight: '変化の割合 $= 2$',
             },
           ],
-          answer: '変化の割合 = 2',
+          answer: '変化の割合 $= 2$',
         },
       ],
     },

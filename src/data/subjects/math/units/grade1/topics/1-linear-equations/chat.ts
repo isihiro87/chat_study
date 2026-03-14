@@ -160,15 +160,15 @@ export const linearEquationsChat: HistoryChat = {
     },
     {
       type: 'quiz',
-      question: 'x − 5 = 3 を解くと？',
+      question: '$x - 5 = 3$ を<ruby>解<rt>と</rt></ruby>くと？',
       options: [
-        { letter: 'A', text: 'x = −2', correct: false },
-        { letter: 'B', text: 'x = 2', correct: false },
-        { letter: 'C', text: 'x = 8', correct: true },
-        { letter: 'D', text: 'x = 15', correct: false },
+        { letter: 'A', text: '$x = -2$', correct: false },
+        { letter: 'B', text: '$x = 2$', correct: false },
+        { letter: 'C', text: '$x = 8$', correct: true },
+        { letter: 'D', text: '$x = 15$', correct: false },
       ],
       explanation:
-        'x − 5 = 3 → −5 を<ruby>移項<rt>いこう</rt></ruby>すると +5 になるよ。x = 3 + 5 = <strong>8</strong>',
+        '$x - 5 = 3 \\rightarrow -5$ を<ruby>移項<rt>いこう</rt></ruby>すると $+5$ になるよ。$x = 3 + 5 = \\textcolor{#D97706}{8}$',
     },
     {
       type: 'date',
@@ -242,15 +242,15 @@ export const linearEquationsChat: HistoryChat = {
     },
     {
       type: 'quiz',
-      question: '4x − 8 = 12 の解は？',
+      question: '$4x - 8 = 12$ の<ruby>解<rt>かい</rt></ruby>は？',
       options: [
-        { letter: 'A', text: 'x = 1', correct: false },
-        { letter: 'B', text: 'x = 3', correct: false },
-        { letter: 'C', text: 'x = 5', correct: true },
-        { letter: 'D', text: 'x = 20', correct: false },
+        { letter: 'A', text: '$x = 1$', correct: false },
+        { letter: 'B', text: '$x = 3$', correct: false },
+        { letter: 'C', text: '$x = 5$', correct: true },
+        { letter: 'D', text: '$x = 20$', correct: false },
       ],
       explanation:
-        '4x − 8 = 12 → 4x = 12 + 8 = 20 → x = 20 ÷ 4 = <strong>5</strong>',
+        '$4x - 8 = 12 \\rightarrow 4x = 12 + 8 = 20 \\rightarrow x = 20 \\div 4 = \\textcolor{#D97706}{5}$',
     },
     {
       type: 'date',
@@ -309,22 +309,22 @@ export const linearEquationsChat: HistoryChat = {
     },
     {
       type: 'quiz',
-      question: '0.5x = 3 の解は？',
+      question: '$0.5x = 3$ の<ruby>解<rt>かい</rt></ruby>は？',
       options: [
-        { letter: 'A', text: 'x = 1.5', correct: false },
-        { letter: 'B', text: 'x = 6', correct: true },
-        { letter: 'C', text: 'x = 15', correct: false },
-        { letter: 'D', text: 'x = 0.6', correct: false },
+        { letter: 'A', text: '$x = 1.5$', correct: false },
+        { letter: 'B', text: '$x = 6$', correct: true },
+        { letter: 'C', text: '$x = 15$', correct: false },
+        { letter: 'D', text: '$x = 0.6$', correct: false },
       ],
       explanation:
-        '<ruby>両辺<rt>りょうへん</rt></ruby>を10<ruby>倍<rt>ばい</rt></ruby>: 5x = 30 → x = 30 ÷ 5 = <strong>6</strong>',
+        '<ruby>両辺<rt>りょうへん</rt></ruby>を10<ruby>倍<rt>ばい</rt></ruby>: $5x = 30 \\rightarrow x = 30 \\div 5 = \\textcolor{#D97706}{6}$',
     },
     {
       type: 'end',
       points: [
-        '<ruby>方程式<rt>ほうていしき</rt></ruby> = x をふくむ<ruby>等式<rt>とうしき</rt></ruby>。<ruby>解<rt>かい</rt></ruby> = <ruby>方程式<rt>ほうていしき</rt></ruby>を<ruby>成<rt>な</rt></ruby>り<ruby>立<rt>た</rt></ruby>たせる x の<ruby>値<rt>あたい</rt></ruby>',
-        '<ruby>移項<rt>いこう</rt></ruby>するとき<ruby>符号<rt>ふごう</rt></ruby>が<ruby>変<rt>か</rt></ruby>わる（+ → −、− → +）',
-        'ax = b → <ruby>両辺<rt>りょうへん</rt></ruby>を a で<ruby>割<rt>わ</rt></ruby>る',
+        '<ruby>方程式<rt>ほうていしき</rt></ruby> = $x$ をふくむ<ruby>等式<rt>とうしき</rt></ruby>。<ruby>解<rt>かい</rt></ruby> = <ruby>方程式<rt>ほうていしき</rt></ruby>を<ruby>成<rt>な</rt></ruby>り<ruby>立<rt>た</rt></ruby>たせる $x$ の<ruby>値<rt>あたい</rt></ruby>',
+        '<ruby>移項<rt>いこう</rt></ruby>するとき<ruby>符号<rt>ふごう</rt></ruby>が<ruby>変<rt>か</rt></ruby>わる（$+$ → $-$、$-$ → $+$）',
+        '$ax = b$ → <ruby>両辺<rt>りょうへん</rt></ruby>を $a$ で<ruby>割<rt>わ</rt></ruby>る',
         '<ruby>小数<rt>しょうすう</rt></ruby>は10<ruby>倍<rt>ばい</rt></ruby>、<ruby>分数<rt>ぶんすう</rt></ruby>は<ruby>分母<rt>ぶんぼ</rt></ruby>をかけて<ruby>整数<rt>せいすう</rt></ruby>にしてから<ruby>解<rt>と</rt></ruby>こう',
       ],
     },

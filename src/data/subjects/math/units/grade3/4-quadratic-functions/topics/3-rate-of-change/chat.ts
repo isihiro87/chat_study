@@ -152,15 +152,15 @@ export const rateOfChangeChat: HistoryChat = {
     },
     {
       type: 'quiz',
-      question: 'y = 2x² で x が -1 から 4 に<ruby>変化<rt>へんか</rt></ruby>するとき、<ruby>変化<rt>へんか</rt></ruby>の<ruby>割合<rt>わりあい</rt></ruby>は？',
+      question: '$y = 2x^2$ で $x$ が $-1$ から $4$ に<ruby>変化<rt>へんか</rt></ruby>するとき、<ruby>変化<rt>へんか</rt></ruby>の<ruby>割合<rt>わりあい</rt></ruby>は？',
       options: [
-        { letter: 'A', text: '3', correct: false },
-        { letter: 'B', text: '6', correct: true },
-        { letter: 'C', text: '10', correct: false },
-        { letter: 'D', text: '8', correct: false },
+        { letter: 'A', text: '$3$', correct: false },
+        { letter: 'B', text: '$6$', correct: true },
+        { letter: 'C', text: '$10$', correct: false },
+        { letter: 'D', text: '$8$', correct: false },
       ],
       explanation:
-        '<ruby>公式<rt>こうしき</rt></ruby>: a(p + q) = 2 × (-1 + 4) = 2 × 3 = <strong>6</strong>',
+        '<ruby>公式<rt>こうしき</rt></ruby>: $a(p + q) = 2 \\times (-1 + 4) = 2 \\times 3 = \\textcolor{#D97706}{6}$',
     },
     {
       type: 'summary-point',
@@ -173,9 +173,9 @@ export const rateOfChangeChat: HistoryChat = {
     {
       type: 'end',
       points: [
-        '<ruby>変化<rt>へんか</rt></ruby>の<ruby>割合<rt>わりあい</rt></ruby> = y の<ruby>増加量<rt>ぞうかりょう</rt></ruby> ÷ x の<ruby>増加量<rt>ぞうかりょう</rt></ruby>',
-        'y = ax² では<ruby>変化<rt>へんか</rt></ruby>の<ruby>割合<rt>わりあい</rt></ruby>が<ruby>区間<rt>くかん</rt></ruby>ごとに<ruby>変<rt>か</rt></ruby>わる（<ruby>一次関数<rt>いちじかんすう</rt></ruby>は<ruby>一定<rt>いってい</rt></ruby>）',
-        '<ruby>公式<rt>こうしき</rt></ruby>: x が p → q のとき、<ruby>変化<rt>へんか</rt></ruby>の<ruby>割合<rt>わりあい</rt></ruby> = a(p + q)',
+        '<ruby>変化<rt>へんか</rt></ruby>の<ruby>割合<rt>わりあい</rt></ruby> $= y$ の<ruby>増加量<rt>ぞうかりょう</rt></ruby> $\\div$ $x$ の<ruby>増加量<rt>ぞうかりょう</rt></ruby>',
+        '$y = ax^2$ では<ruby>変化<rt>へんか</rt></ruby>の<ruby>割合<rt>わりあい</rt></ruby>が<ruby>区間<rt>くかん</rt></ruby>ごとに<ruby>変<rt>か</rt></ruby>わる（<ruby>一次関数<rt>いちじかんすう</rt></ruby>は<ruby>一定<rt>いってい</rt></ruby>）',
+        '<ruby>公式<rt>こうしき</rt></ruby>: $x$ が $p$ → $q$ のとき、<ruby>変化<rt>へんか</rt></ruby>の<ruby>割合<rt>わりあい</rt></ruby> $= a(p + q)$',
         '<ruby>放物線<rt>ほうぶつせん</rt></ruby>は<ruby>曲線<rt>きょくせん</rt></ruby>だから<ruby>場所<rt>ばしょ</rt></ruby>ごとに<ruby>傾<rt>かたむ</rt></ruby>きが<ruby>違<rt>ちが</rt></ruby>う',
       ],
     },

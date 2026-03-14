@@ -153,21 +153,21 @@ export const slopeInterceptChat: HistoryChat = {
     },
     {
       type: 'quiz',
-      question: 'y = -x + 4 のグラフで、y <ruby>軸<rt>じく</rt></ruby>との<ruby>交点<rt>こうてん</rt></ruby>は？',
+      question: '$y = -x + 4$ のグラフで、$y$ <ruby>軸<rt>じく</rt></ruby>との<ruby>交点<rt>こうてん</rt></ruby>は？',
       options: [
-        { letter: 'A', text: '(0, -1)', correct: false },
-        { letter: 'B', text: '(0, 4)', correct: true },
-        { letter: 'C', text: '(4, 0)', correct: false },
-        { letter: 'D', text: '(-1, 4)', correct: false },
+        { letter: 'A', text: '$(0, -1)$', correct: false },
+        { letter: 'B', text: '$(0, 4)$', correct: true },
+        { letter: 'C', text: '$(4, 0)$', correct: false },
+        { letter: 'D', text: '$(-1, 4)$', correct: false },
       ],
       explanation:
-        '<ruby>切片<rt>せっぺん</rt></ruby> b = 4 だから、y <ruby>軸<rt>じく</rt></ruby>との<ruby>交点<rt>こうてん</rt></ruby>は <strong>(0, 4)</strong> だよ。',
+        '<ruby>切片<rt>せっぺん</rt></ruby> $b = 4$ だから、$y$ <ruby>軸<rt>じく</rt></ruby>との<ruby>交点<rt>こうてん</rt></ruby>は $\\textcolor{#D97706}{(0, 4)}$ だよ。',
     },
     {
       type: 'end',
       points: [
-        '<ruby>傾<rt>かたむ</rt></ruby>き a：<ruby>正<rt>せい</rt></ruby>→<ruby>右上<rt>みぎうえ</rt></ruby>がり、<ruby>負<rt>ふ</rt></ruby>→<ruby>右下<rt>みぎした</rt></ruby>がり',
-        '<ruby>切片<rt>せっぺん</rt></ruby> b：グラフが y <ruby>軸<rt>じく</rt></ruby>と<ruby>交<rt>まじ</rt></ruby>わる<ruby>点<rt>てん</rt></ruby>の y <ruby>座標<rt>ざひょう</rt></ruby>',
+        '<ruby>傾<rt>かたむ</rt></ruby>き $a$：<ruby>正<rt>せい</rt></ruby>→<ruby>右上<rt>みぎうえ</rt></ruby>がり、<ruby>負<rt>ふ</rt></ruby>→<ruby>右下<rt>みぎした</rt></ruby>がり',
+        '<ruby>切片<rt>せっぺん</rt></ruby> $b$：グラフが $y$ <ruby>軸<rt>じく</rt></ruby>と<ruby>交<rt>まじ</rt></ruby>わる<ruby>点<rt>てん</rt></ruby>の $y$ <ruby>座標<rt>ざひょう</rt></ruby>',
         'グラフのかき<ruby>方<rt>かた</rt></ruby>：<ruby>切片<rt>せっぺん</rt></ruby>→<ruby>傾<rt>かたむ</rt></ruby>き→<ruby>直線<rt>ちょくせん</rt></ruby>',
         'グラフから<ruby>式<rt>しき</rt></ruby>を<ruby>読<rt>よ</rt></ruby>み<ruby>取<rt>と</rt></ruby>ることもできる',
       ],

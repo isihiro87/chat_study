@@ -38,15 +38,15 @@ export const elimination: Topic = {
       questions: [
         {
           id: 'math-g2-elimination-q1',
-          question: 'x + y = 7, x − y = 3 を加減法で解くと？',
-          options: ['x = 3, y = 4', 'x = 5, y = 2', 'x = 4, y = 3', 'x = 2, y = 5'],
+          question: '$x + y = 7$, $x - y = 3$ を加減法で解くと？',
+          options: ['$x = 3, y = 4$', '$x = 5, y = 2$', '$x = 4, y = 3$', '$x = 2, y = 5$'],
           correctIndex: 1,
           explanation:
-            '2つの式を足すと 2x = 10 → x = 5。x = 5 を①に代入すると y = 2 だよ。',
+            '2つの式を足すと $2x = 10 \\rightarrow x = 5$。$x = 5$ を①に代入すると $y = 2$ だよ。',
         },
         {
           id: 'math-g2-elimination-q2',
-          question: '3x + 2y = 16, x + 2y = 10 を加減法で解くとき、どうする？',
+          question: '$3x + 2y = 16$, $x + 2y = 10$ を加減法で解くとき、どうする？',
           options: [
             '2つの式を足す',
             '①から②を引く',
@@ -55,15 +55,15 @@ export const elimination: Topic = {
           ],
           correctIndex: 1,
           explanation:
-            'y の係数が両方 +2 で同じなので、①から②を引くと y が消えるよ。2x = 6 → x = 3 になるね。',
+            '$y$ の係数が両方 $+2$ で同じなので、①から②を引くと $y$ が消えるよ。$2x = 6 \\rightarrow x = 3$ になるね。',
         },
         {
           id: 'math-g2-elimination-q3',
-          question: '2x + 3y = 12, x + y = 5 を解くと？',
-          options: ['x = 1, y = 4', 'x = 3, y = 2', 'x = 2, y = 3', 'x = 4, y = 1'],
+          question: '$2x + 3y = 12$, $x + y = 5$ を解くと？',
+          options: ['$x = 1, y = 4$', '$x = 3, y = 2$', '$x = 2, y = 3$', '$x = 4, y = 1$'],
           correctIndex: 1,
           explanation:
-            '②を2倍すると 2x + 2y = 10。①から引くと y = 2。y = 2 を②に代入すると x = 3。',
+            '②を$2$倍すると $2x + 2y = 10$。①から引くと $y = 2$。$y = 2$ を②に代入すると $x = 3$。',
         },
       ],
     },
@@ -72,50 +72,50 @@ export const elimination: Topic = {
         {
           id: 'math-g2-elimination-ex1',
           question:
-            '次の連立方程式を加減法で解こう。\nx + y = 7\nx − y = 3',
+            '次の連立方程式を加減法で解こう。\n$x + y = 7$\n$x - y = 3$',
           steps: [
             {
               title: 'Step 1: 2つの式を足す',
               content:
-                'y の係数が +1 と −1 で符号が逆。足すと y が消えるよ！\n(x + y) + (x − y) = 7 + 3',
-              highlight: '2x = 10',
+                '$y$ の係数が $+1$ と $-1$ で符号が逆。足すと $y$ が消えるよ！\n$(x + y) + (x - y) = 7 + 3$',
+              highlight: '$2x = 10$',
             },
             {
-              title: 'Step 2: x を求める',
-              content: '2x = 10 の両辺を 2 で割ると x = 5',
-              highlight: 'x = 5',
+              title: 'Step 2: $x$ を求める',
+              content: '$2x = 10$ の両辺を $2$ で割ると $x = 5$',
+              highlight: '$x = 5$',
             },
             {
-              title: 'Step 3: y を求める',
-              content: 'x = 5 を式①に代入: 5 + y = 7 → y = 2',
-              highlight: 'y = 2',
+              title: 'Step 3: $y$ を求める',
+              content: '$x = 5$ を式①に代入: $5 + y = 7 \\rightarrow y = 2$',
+              highlight: '$y = 2$',
             },
           ],
-          answer: 'x = 5, y = 2',
+          answer: '$x = 5, y = 2$',
         },
         {
           id: 'math-g2-elimination-ex2',
           question:
-            '次の連立方程式を加減法で解こう。\n3x + 2y = 11\nx + 2y = 7',
+            '次の連立方程式を加減法で解こう。\n$3x + 2y = 11$\n$x + 2y = 7$',
           steps: [
             {
               title: 'Step 1: 係数を確認',
               content:
-                'y の係数が両方 +2 で同じ！①から②を引けば y が消えるよ。',
-              highlight: '①−② → (3x + 2y) − (x + 2y) = 11 − 7',
+                '$y$ の係数が両方 $+2$ で同じ！①から②を引けば $y$ が消えるよ。',
+              highlight: '$① - ② \\rightarrow (3x + 2y) - (x + 2y) = 11 - 7$',
             },
             {
               title: 'Step 2: 計算する',
-              content: '3x − x = 2x、2y − 2y = 0、11 − 7 = 4 → 2x = 4 → x = 2',
-              highlight: 'x = 2',
+              content: '$3x - x = 2x$、$2y - 2y = 0$、$11 - 7 = 4 \\rightarrow 2x = 4 \\rightarrow x = 2$',
+              highlight: '$x = 2$',
             },
             {
-              title: 'Step 3: y を求める',
-              content: 'x = 2 を②に代入: 2 + 2y = 7 → 2y = 5 → y = 5/2',
-              highlight: 'y = 5/2',
+              title: 'Step 3: $y$ を求める',
+              content: '$x = 2$ を②に代入: $2 + 2y = 7 \\rightarrow 2y = 5 \\rightarrow y = \\frac{5}{2}$',
+              highlight: '$y = \\frac{5}{2}$',
             },
           ],
-          answer: 'x = 2, y = 5/2',
+          answer: '$x = 2, y = \\frac{5}{2}$',
         },
       ],
     },

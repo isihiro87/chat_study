@@ -208,10 +208,10 @@ export const quadEqAppsChat: HistoryChat = {
       type: 'quiz',
       question: '「ある<ruby>正<rt>せい</rt></ruby>の<ruby>整数<rt>せいすう</rt></ruby>の2<ruby>乗<rt>じょう</rt></ruby>から、その<ruby>数<rt>すう</rt></ruby>の3<ruby>倍<rt>ばい</rt></ruby>を<ruby>引<rt>ひ</rt></ruby>くと10になる」このとき、その<ruby>整数<rt>せいすう</rt></ruby>は？',
       options: [
-        { letter: 'A', text: '3', correct: false },
-        { letter: 'B', text: '4', correct: false },
-        { letter: 'C', text: '5', correct: true },
-        { letter: 'D', text: '6', correct: false },
+        { letter: 'A', text: '$3$', correct: false },
+        { letter: 'B', text: '$4$', correct: false },
+        { letter: 'C', text: '$5$', correct: true },
+        { letter: 'D', text: '$6$', correct: false },
       ],
       explanation:
         '$x^2 - 3x = 10 \\rightarrow x^2 - 3x - 10 = 0 \\rightarrow (x-5)(x+2) = 0$。<ruby>正<rt>せい</rt></ruby>の<ruby>整数<rt>せいすう</rt></ruby>なので $x = 5$。',

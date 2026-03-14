@@ -38,42 +38,42 @@ export const factoringFormulas: Topic = {
       questions: [
         {
           id: 'math-g3-factoring-formulas-q1',
-          question: 'x² + 5x + 6 を因数分解すると？',
+          question: '$x^2 + 5x + 6$ を因数分解すると？',
           options: [
-            '(x+1)(x+6)',
-            '(x+2)(x+3)',
-            '(x+3)(x+3)',
-            '(x+1)(x+5)',
+            '$(x+1)(x+6)$',
+            '$(x+2)(x+3)$',
+            '$(x+3)(x+3)$',
+            '$(x+1)(x+5)$',
           ],
           correctIndex: 1,
           explanation:
-            'かけて6、足して5になる2つの数は 2 と 3。だから (x+2)(x+3) だよ。',
+            'かけて6、足して5になる2つの数は 2 と 3。だから $(x+2)(x+3)$ だよ。',
         },
         {
           id: 'math-g3-factoring-formulas-q2',
-          question: 'x² − 16 を因数分解すると？',
+          question: '$x^2 - 16$ を因数分解すると？',
           options: [
-            '(x−4)²',
-            '(x+4)²',
-            '(x+4)(x−4)',
-            '(x−8)(x+2)',
+            '$(x-4)^2$',
+            '$(x+4)^2$',
+            '$(x+4)(x-4)$',
+            '$(x-8)(x+2)$',
           ],
           correctIndex: 2,
           explanation:
-            'x²−16 = x²−4² の形。a²−b²=(a+b)(a−b) の公式で (x+4)(x−4) だよ。',
+            '$x^2-16 = x^2-4^2$ の形。$a^2-b^2=(a+b)(a-b)$ の公式で $(x+4)(x-4)$ だよ。',
         },
         {
           id: 'math-g3-factoring-formulas-q3',
-          question: 'x² − 10x + 25 を因数分解すると？',
+          question: '$x^2 - 10x + 25$ を因数分解すると？',
           options: [
-            '(x−5)²',
-            '(x+5)²',
-            '(x−5)(x+5)',
-            '(x−25)(x−1)',
+            '$(x-5)^2$',
+            '$(x+5)^2$',
+            '$(x-5)(x+5)$',
+            '$(x-25)(x-1)$',
           ],
           correctIndex: 0,
           explanation:
-            'x²−10x+25 = x²−2×5×x+5²。a²−2ab+b²=(a−b)² の公式で (x−5)² だよ。',
+            '$x^2-10x+25 = x^2-2 \\times 5 \\times x+5^2$。$a^2-2ab+b^2=(a-b)^2$ の公式で $(x-5)^2$ だよ。',
         },
       ],
     },
@@ -81,46 +81,46 @@ export const factoringFormulas: Topic = {
       examples: [
         {
           id: 'math-g3-factoring-formulas-ex1',
-          question: '次の式を因数分解しよう。\nx² + 9x + 20',
+          question: '次の式を因数分解しよう。\n$x^2 + 9x + 20$',
           steps: [
             {
               title: 'Step 1: かけて○、足して△を確認',
               content:
-                'x²+9x+20 だから「かけて 20、足して 9」になる2つの数を探すよ。',
+                '$x^2+9x+20$ だから「かけて 20、足して 9」になる2つの数を探すよ。',
               highlight: 'かけて20、足して9',
             },
             {
               title: 'Step 2: 組み合わせを探す',
               content:
-                '20 = 1×20、2×10、4×5。足して9になるのは… 4+5=9！見つけた！',
-              highlight: '4 と 5',
+                '$20 = 1 \\times 20$、$2 \\times 10$、$4 \\times 5$。足して9になるのは… $4+5=9$！見つけた！',
+              highlight: '$4$ と $5$',
             },
             {
               title: 'Step 3: 因数分解する',
-              content: 'a=4、b=5 なので (x+4)(x+5) が答えだよ。',
-              highlight: '(x + 4)(x + 5)',
+              content: '$a=4$、$b=5$ なので $(x+4)(x+5)$ が答えだよ。',
+              highlight: '$(x + 4)(x + 5)$',
             },
           ],
-          answer: '(x + 4)(x + 5)',
+          answer: '$(x + 4)(x + 5)$',
         },
         {
           id: 'math-g3-factoring-formulas-ex2',
-          question: '次の式を因数分解しよう。\nx² − 6x + 9',
+          question: '次の式を因数分解しよう。\n$x^2 - 6x + 9$',
           steps: [
             {
               title: 'Step 1: 2乗の公式のパターンかチェック',
               content:
-                'x² − 6x + 9。最後の 9 = 3²、真ん中の 6 = 2×3。a²−2ab+b² の形だ！',
-              highlight: 'x² − 2×3×x + 3²',
+                '$x^2 - 6x + 9$。最後の $9 = 3^2$、真ん中の $6 = 2 \\times 3$。$a^2-2ab+b^2$ の形だ！',
+              highlight: '$x^2 - 2 \\times 3 \\times x + 3^2$',
             },
             {
               title: 'Step 2: 公式を使って因数分解',
               content:
-                'a=x、b=3 で (a−b)² の公式を使うと (x−3)² になるよ。',
-              highlight: '(x − 3)²',
+                '$a=x$、$b=3$ で $(a-b)^2$ の公式を使うと $(x-3)^2$ になるよ。',
+              highlight: '$(x - 3)^2$',
             },
           ],
-          answer: '(x − 3)²',
+          answer: '$(x - 3)^2$',
         },
       ],
     },

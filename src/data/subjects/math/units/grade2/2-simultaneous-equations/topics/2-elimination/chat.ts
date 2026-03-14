@@ -192,15 +192,15 @@ export const eliminationChat: HistoryChat = {
     },
     {
       type: 'quiz',
-      question: '3x + y = 10、x + y = 4 を<ruby>加減法<rt>かげんほう</rt></ruby>で<ruby>解<rt>と</rt></ruby>くと x は？',
+      question: '$3x + y = 10$、$x + y = 4$ を<ruby>加減法<rt>かげんほう</rt></ruby>で<ruby>解<rt>と</rt></ruby>くと $x$ は？',
       options: [
-        { letter: 'A', text: 'x = 2', correct: false },
-        { letter: 'B', text: 'x = 3', correct: true },
-        { letter: 'C', text: 'x = 4', correct: false },
-        { letter: 'D', text: 'x = 6', correct: false },
+        { letter: 'A', text: '$x = 2$', correct: false },
+        { letter: 'B', text: '$x = 3$', correct: true },
+        { letter: 'C', text: '$x = 4$', correct: false },
+        { letter: 'D', text: '$x = 6$', correct: false },
       ],
       explanation:
-        'y の<ruby>係数<rt>けいすう</rt></ruby>が<ruby>両方<rt>りょうほう</rt></ruby> +1。①−②で 2x = 6 → x = <strong>3</strong>。y = 4 − 3 = 1 だよ。',
+        '$y$ の<ruby>係数<rt>けいすう</rt></ruby>が<ruby>両方<rt>りょうほう</rt></ruby> $+1$。$\\textcircled{1} - \\textcircled{2}$ で $2x = 6 \\rightarrow x = \\textcolor{#D97706}{3}$。$y = 4 - 3 = 1$ だよ。',
     },
     {
       type: 'end',

@@ -38,19 +38,19 @@ export const substitution: Topic = {
       questions: [
         {
           id: 'math-g2-substitution-q1',
-          question: 'y = 2x, x + y = 9 を代入法で解くと？',
-          options: ['x = 2, y = 4', 'x = 3, y = 6', 'x = 4, y = 8', 'x = 1, y = 2'],
+          question: '$y = 2x$, $x + y = 9$ を代入法で解くと？',
+          options: ['$x = 2, y = 4$', '$x = 3, y = 6$', '$x = 4, y = 8$', '$x = 1, y = 2$'],
           correctIndex: 1,
           explanation:
-            'y = 2x を②に代入: x + 2x = 9 → 3x = 9 → x = 3。y = 2 × 3 = 6 だよ。',
+            '$y = 2x$ を②に代入: $x + 2x = 9 \\rightarrow 3x = 9 \\rightarrow x = 3$。$y = 2 \\times 3 = 6$ だよ。',
         },
         {
           id: 'math-g2-substitution-q2',
-          question: 'x = y + 1, 2x + y = 8 を代入法で解くと？',
-          options: ['x = 3, y = 2', 'x = 2, y = 1', 'x = 4, y = 3', 'x = 5, y = 4'],
+          question: '$x = y + 1$, $2x + y = 8$ を代入法で解くと？',
+          options: ['$x = 3, y = 2$', '$x = 2, y = 1$', '$x = 4, y = 3$', '$x = 5, y = 4$'],
           correctIndex: 0,
           explanation:
-            'x = y + 1 を②に代入: 2(y + 1) + y = 8 → 3y + 2 = 8 → y = 2。x = 2 + 1 = 3。',
+            '$x = y + 1$ を②に代入: $2(y + 1) + y = 8 \\rightarrow 3y + 2 = 8 \\rightarrow y = 2$。$x = 2 + 1 = 3$。',
         },
         {
           id: 'math-g2-substitution-q3',
@@ -72,50 +72,50 @@ export const substitution: Topic = {
         {
           id: 'math-g2-substitution-ex1',
           question:
-            '次の連立方程式を代入法で解こう。\ny = 2x\nx + y = 9',
+            '次の連立方程式を代入法で解こう。\n$y = 2x$\n$x + y = 9$',
           steps: [
             {
               title: 'Step 1: ①を②に代入',
               content:
-                '①の y = 2x を②の y に代入するよ。\nx + 2x = 9',
-              highlight: 'x + 2x = 9',
+                '①の $y = 2x$ を②の $y$ に代入するよ。\n$x + 2x = 9$',
+              highlight: '$x + 2x = 9$',
             },
             {
-              title: 'Step 2: x を求める',
-              content: '3x = 9 → x = 3',
-              highlight: 'x = 3',
+              title: 'Step 2: $x$ を求める',
+              content: '$3x = 9 \\rightarrow x = 3$',
+              highlight: '$x = 3$',
             },
             {
-              title: 'Step 3: y を求める',
-              content: 'x = 3 を①に代入: y = 2 × 3 = 6',
-              highlight: 'y = 6',
+              title: 'Step 3: $y$ を求める',
+              content: '$x = 3$ を①に代入: $y = 2 \\times 3 = 6$',
+              highlight: '$y = 6$',
             },
           ],
-          answer: 'x = 3, y = 6',
+          answer: '$x = 3, y = 6$',
         },
         {
           id: 'math-g2-substitution-ex2',
           question:
-            '次の連立方程式を代入法で解こう。\nx + y = 5\n3x + 2y = 13',
+            '次の連立方程式を代入法で解こう。\n$x + y = 5$\n$3x + 2y = 13$',
           steps: [
             {
               title: 'Step 1: ①を変形',
-              content: 'x + y = 5 → y = 5 − x の形にする。',
-              highlight: 'y = 5 − x',
+              content: '$x + y = 5 \\rightarrow y = 5 - x$ の形にする。',
+              highlight: '$y = 5 - x$',
             },
             {
               title: 'Step 2: ②に代入',
               content:
-                '3x + 2(5 − x) = 13 → 3x + 10 − 2x = 13 → x = 3',
-              highlight: 'x = 3',
+                '$3x + 2(5 - x) = 13 \\rightarrow 3x + 10 - 2x = 13 \\rightarrow x = 3$',
+              highlight: '$x = 3$',
             },
             {
-              title: 'Step 3: y を求める',
-              content: 'y = 5 − 3 = 2',
-              highlight: 'y = 2',
+              title: 'Step 3: $y$ を求める',
+              content: '$y = 5 - 3 = 2$',
+              highlight: '$y = 2$',
             },
           ],
-          answer: 'x = 3, y = 2',
+          answer: '$x = 3, y = 2$',
         },
       ],
     },

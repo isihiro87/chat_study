@@ -38,42 +38,42 @@ export const quadEqFactoring: Topic = {
       questions: [
         {
           id: 'math-g3-quad-eq-factoring-q1',
-          question: '(x − 4)(x + 1) = 0 の解は？',
+          question: '$(x - 4)(x + 1) = 0$ の解は？',
           options: [
-            'x = 4, x = 1',
-            'x = −4, x = 1',
-            'x = 4, x = −1',
-            'x = −4, x = −1',
+            '$x = 4, x = 1$',
+            '$x = -4, x = 1$',
+            '$x = 4, x = -1$',
+            '$x = -4, x = -1$',
           ],
           correctIndex: 2,
           explanation:
-            'x − 4 = 0 → x = 4、x + 1 = 0 → x = −1。よって x = 4, −1 だよ。',
+            '$x - 4 = 0$ → $x = 4$、$x + 1 = 0$ → $x = -1$。よって $x = 4, -1$ だよ。',
         },
         {
           id: 'math-g3-quad-eq-factoring-q2',
-          question: 'x² − 5x + 6 = 0 の解は？',
+          question: '$x^2 - 5x + 6 = 0$ の解は？',
           options: [
-            'x = 1, x = 6',
-            'x = 2, x = 3',
-            'x = −2, x = −3',
-            'x = −1, x = −6',
+            '$x = 1, x = 6$',
+            '$x = 2, x = 3$',
+            '$x = -2, x = -3$',
+            '$x = -1, x = -6$',
           ],
           correctIndex: 1,
           explanation:
-            'x² − 5x + 6 = (x−2)(x−3) = 0。x = 2 または x = 3 だよ。',
+            '$x^2 - 5x + 6 = (x-2)(x-3) = 0$。$x = 2$ または $x = 3$ だよ。',
         },
         {
           id: 'math-g3-quad-eq-factoring-q3',
-          question: 'x² + x − 12 = 0 の解は？',
+          question: '$x^2 + x - 12 = 0$ の解は？',
           options: [
-            'x = 3, x = −4',
-            'x = −3, x = 4',
-            'x = 2, x = −6',
-            'x = 6, x = −2',
+            '$x = 3, x = -4$',
+            '$x = -3, x = 4$',
+            '$x = 2, x = -6$',
+            '$x = 6, x = -2$',
           ],
           correctIndex: 0,
           explanation:
-            'x² + x − 12 = (x+4)(x−3) = 0。x = −4 または x = 3 だよ。',
+            '$x^2 + x - 12 = (x+4)(x-3) = 0$。$x = -4$ または $x = 3$ だよ。',
         },
       ],
     },
@@ -81,38 +81,38 @@ export const quadEqFactoring: Topic = {
       examples: [
         {
           id: 'math-g3-quad-eq-factoring-ex1',
-          question: '次の二次方程式を解こう。\nx² − 5x + 6 = 0',
+          question: '次の二次方程式を解こう。\n$x^2 - 5x + 6 = 0$',
           steps: [
             {
               title: 'Step 1: 因数分解する',
               content:
-                'かけて6、たして−5になる2数を探すと、−2と−3。(x−2)(x−3) = 0 だよ。',
-              highlight: '(x−2)(x−3) = 0',
+                'かけて6、たして $-5$ になる2数を探すと、$-2$ と $-3$。$(x-2)(x-3) = 0$ だよ。',
+              highlight: '$(x-2)(x-3) = 0$',
             },
             {
-              title: 'Step 2: A×B=0 の原則を使う',
-              content: 'x−2 = 0 → x = 2、x−3 = 0 → x = 3。',
-              highlight: 'x = 2, x = 3',
+              title: 'Step 2: $A \\times B = 0$ の原則を使う',
+              content: '$x-2 = 0$ → $x = 2$、$x-3 = 0$ → $x = 3$。',
+              highlight: '$x = 2, x = 3$',
             },
           ],
-          answer: 'x = 2, x = 3',
+          answer: '$x = 2, x = 3$',
         },
         {
           id: 'math-g3-quad-eq-factoring-ex2',
-          question: '次の二次方程式を解こう。\nx² − 6x = 0',
+          question: '次の二次方程式を解こう。\n$x^2 - 6x = 0$',
           steps: [
             {
               title: 'Step 1: 共通因数をくくり出す',
-              content: 'x² − 6x = x(x − 6) と因数分解できるよ。',
-              highlight: 'x(x − 6) = 0',
+              content: '$x^2 - 6x = x(x - 6)$ と因数分解できるよ。',
+              highlight: '$x(x - 6) = 0$',
             },
             {
-              title: 'Step 2: A×B=0 の原則を使う',
-              content: 'x = 0 または x − 6 = 0 → x = 6。x = 0 を忘れないでね！',
-              highlight: 'x = 0, x = 6',
+              title: 'Step 2: $A \\times B = 0$ の原則を使う',
+              content: '$x = 0$ または $x - 6 = 0$ → $x = 6$。$x = 0$ を忘れないでね！',
+              highlight: '$x = 0, x = 6$',
             },
           ],
-          answer: 'x = 0, x = 6',
+          answer: '$x = 0, x = 6$',
         },
       ],
     },

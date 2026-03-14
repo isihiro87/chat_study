@@ -176,7 +176,7 @@ export const monomialPolynomialChat: HistoryChat = {
         { letter: 'D', text: '4', correct: false },
       ],
       explanation:
-        'x が 1<ruby>個<rt>こ</rt></ruby>、y が 2<ruby>個<rt>こ</rt></ruby>で<ruby>合計<rt>ごうけい</rt></ruby> 1 + 2 = <strong>3</strong> だよ。',
+        '$x$ が 1<ruby>個<rt>こ</rt></ruby>、$y$ が 2<ruby>個<rt>こ</rt></ruby>で<ruby>合計<rt>ごうけい</rt></ruby> $1 + 2 = \\textcolor{#D97706}{3}$ だよ。',
     },
     {
       type: 'end',

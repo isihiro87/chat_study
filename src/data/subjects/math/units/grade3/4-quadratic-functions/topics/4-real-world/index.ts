@@ -38,27 +38,27 @@ export const quadFuncRealWorld: Topic = {
       questions: [
         {
           id: 'math-g3-quad-func-real-q1',
-          question: '時速 30km の制動距離が 9m のとき、時速 60km の制動距離は？',
-          options: ['18m', '27m', '36m', '45m'],
+          question: '時速 $30$ km の制動距離が $9$ m のとき、時速 $60$ km の制動距離は？',
+          options: ['$18$ m', '$27$ m', '$36$ m', '$45$ m'],
           correctIndex: 2,
           explanation:
-            '速度が2倍(30→60)になると制動距離は2²=4倍。9×4=36m だよ。',
+            '速度が2倍($30$ → $60$)になると制動距離は $2^2=4$ 倍。$9 \\times 4 = 36$ m だよ。',
         },
         {
           id: 'math-g3-quad-func-real-q2',
-          question: 'y = av² で v = 20 のとき y = 8 だった。a の値は？',
-          options: ['0.02', '0.2', '2', '0.4'],
+          question: '$y = av^2$ で $v = 20$ のとき $y = 8$ だった。$a$ の値は？',
+          options: ['$0.02$', '$0.2$', '$2$', '$0.4$'],
           correctIndex: 0,
           explanation:
-            '8 = a × 20² → 8 = 400a → a = 8/400 = 0.02 だよ。',
+            '$8 = a \\times 20^2$ → $8 = 400a$ → $a = \\frac{8}{400} = 0.02$ だよ。',
         },
         {
           id: 'math-g3-quad-func-real-q3',
-          question: 'ふりこが1往復する時間 T 秒はひもの長さ L cm に関係する。T² が L に比例するとき、L が4倍になると T は何倍？',
+          question: 'ふりこが1往復する時間 $T$ 秒はひもの長さ $L$ cm に関係する。$T^2$ が $L$ に比例するとき、$L$ が4倍になると $T$ は何倍？',
           options: ['2倍', '4倍', '8倍', '16倍'],
           correctIndex: 0,
           explanation:
-            'T² が L に比例するから、L が4倍 → T² も4倍 → T は √4 = 2倍になるよ。',
+            '$T^2$ が $L$ に比例するから、$L$ が4倍 → $T^2$ も4倍 → $T$ は $\\sqrt{4} = 2$ 倍になるよ。',
         },
       ],
     },
@@ -67,42 +67,42 @@ export const quadFuncRealWorld: Topic = {
         {
           id: 'math-g3-quad-func-real-ex1',
           question:
-            '車の制動距離 y m は速度 v km/h の2乗に比例する。時速 40km で制動距離が 8m のとき、時速 100km の制動距離を求めよう。',
+            '車の制動距離 $y$ m は速度 $v$ km/h の2乗に比例する。時速 $40$ km で制動距離が $8$ m のとき、時速 $100$ km の制動距離を求めよう。',
           steps: [
             {
-              title: 'Step 1: y = av² とおいて a を求める',
+              title: 'Step 1: $y = av^2$ とおいて $a$ を求める',
               content:
-                'v = 40, y = 8 を代入: 8 = a × 40² → 8 = 1600a → a = 0.005',
-              highlight: 'a = 0.005',
+                '$v = 40, y = 8$ を代入: $8 = a \\times 40^2$ → $8 = 1600a$ → $a = 0.005$',
+              highlight: '$a = 0.005$',
             },
             {
-              title: 'Step 2: v = 100 を代入する',
+              title: 'Step 2: $v = 100$ を代入する',
               content:
-                'y = 0.005 × 100² = 0.005 × 10000 = 50',
-              highlight: 'y = 50m',
+                '$y = 0.005 \\times 100^2 = 0.005 \\times 10000 = 50$',
+              highlight: '$y = 50$ m',
             },
           ],
-          answer: '50m',
+          answer: '$50$ m',
         },
         {
           id: 'math-g3-quad-func-real-ex2',
           question:
-            '正方形の紙を x cm ずらして重ねたとき、重なる部分の面積 y cm² が y = x² となった。x = 3 のときの面積を求めよう。',
+            '正方形の紙を $x$ cm ずらして重ねたとき、重なる部分の面積 $y$ cm² が $y = x^2$ となった。$x = 3$ のときの面積を求めよう。',
           steps: [
             {
-              title: 'Step 1: x = 3 を代入する',
+              title: 'Step 1: $x = 3$ を代入する',
               content:
-                'y = x² に x = 3 を代入するよ。y = 3² = 9',
-              highlight: 'y = 9',
+                '$y = x^2$ に $x = 3$ を代入するよ。$y = 3^2 = 9$',
+              highlight: '$y = 9$',
             },
             {
               title: 'Step 2: 単位をつけて答える',
               content:
-                '面積だから単位は cm²。y = 9 cm² が答えだよ。',
-              highlight: '9 cm²',
+                '面積だから単位は cm²。$y = 9$ cm² が答えだよ。',
+              highlight: '$9$ cm²',
             },
           ],
-          answer: '9 cm²',
+          answer: '$9$ cm²',
         },
       ],
     },

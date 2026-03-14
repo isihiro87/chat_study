@@ -224,15 +224,15 @@ export const variousSimulEqChat: HistoryChat = {
     },
     {
       type: 'quiz',
-      question: 'x/3 + y/2 = 4 の<ruby>分数<rt>ぶんすう</rt></ruby>をはらうには<ruby>両辺<rt>りょうへん</rt></ruby>に<ruby>何<rt>なに</rt></ruby>をかける？',
+      question: '$\\frac{x}{3} + \\frac{y}{2} = 4$ の<ruby>分数<rt>ぶんすう</rt></ruby>をはらうには<ruby>両辺<rt>りょうへん</rt></ruby>に<ruby>何<rt>なに</rt></ruby>をかける？',
       options: [
-        { letter: 'A', text: '2', correct: false },
-        { letter: 'B', text: '3', correct: false },
-        { letter: 'C', text: '6', correct: true },
-        { letter: 'D', text: '12', correct: false },
+        { letter: 'A', text: '$2$', correct: false },
+        { letter: 'B', text: '$3$', correct: false },
+        { letter: 'C', text: '$6$', correct: true },
+        { letter: 'D', text: '$12$', correct: false },
       ],
       explanation:
-        '<ruby>分母<rt>ぶんぼ</rt></ruby>が 3 と 2。<ruby>最小公倍数<rt>さいしょうこうばいすう</rt></ruby>は <strong>6</strong>。<ruby>両辺<rt>りょうへん</rt></ruby>に6をかけると 2x + 3y = 24 になるよ。',
+        '<ruby>分母<rt>ぶんぼ</rt></ruby>が $3$ と $2$。<ruby>最小公倍数<rt>さいしょうこうばいすう</rt></ruby>は $\\textcolor{#D97706}{6}$。<ruby>両辺<rt>りょうへん</rt></ruby>に$6$をかけると $2x + 3y = 24$ になるよ。',
     },
     {
       type: 'end',
@@ -240,7 +240,7 @@ export const variousSimulEqChat: HistoryChat = {
         '<ruby>分数<rt>ぶんすう</rt></ruby> → <ruby>分母<rt>ぶんぼ</rt></ruby>の<ruby>最小公倍数<rt>さいしょうこうばいすう</rt></ruby>をかけて<ruby>整数<rt>せいすう</rt></ruby>にする',
         '<ruby>小数<rt>しょうすう</rt></ruby> → 10<ruby>倍<rt>ばい</rt></ruby>・100<ruby>倍<rt>ばい</rt></ruby>して<ruby>整数<rt>せいすう</rt></ruby>にする',
         'かっこ → <ruby>展開<rt>てんかい</rt></ruby>して<ruby>整理<rt>せいり</rt></ruby>する',
-        'まず <strong>ax + by = c</strong> の<ruby>形<rt>かたち</rt></ruby>に<ruby>直<rt>なお</rt></ruby>してから<ruby>解<rt>と</rt></ruby>こう',
+        'まず $ax + by = c$ の<ruby>形<rt>かたち</rt></ruby>に<ruby>直<rt>なお</rt></ruby>してから<ruby>解<rt>と</rt></ruby>こう',
       ],
     },
   ],

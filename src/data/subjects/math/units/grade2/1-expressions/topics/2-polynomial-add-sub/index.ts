@@ -38,32 +38,32 @@ export const polynomialAddSub: Topic = {
       questions: [
         {
           id: 'math-g2-poly-add-sub-q1',
-          question: '(3x + 2y) + (5x - 3y) の計算結果は？',
-          options: ['8x + 5y', '8x - y', '8x - 5y', '2x + 5y'],
+          question: '$(3x + 2y) + (5x - 3y)$ の計算結果は？',
+          options: ['$8x + 5y$', '$8x - y$', '$8x - 5y$', '$2x + 5y$'],
           correctIndex: 1,
           explanation:
-            'x の項: 3x + 5x = 8x、y の項: 2y + (-3y) = -y。だから答えは 8x - y だよ。',
+            '$x$ の項: $3x + 5x = 8x$、$y$ の項: $2y + (-3y) = -y$。だから答えは $8x - y$ だよ。',
         },
         {
           id: 'math-g2-poly-add-sub-q2',
-          question: '(4a - 3b) - (2a - 5b) の計算結果は？',
-          options: ['2a - 8b', '6a + 2b', '2a + 2b', '2a - 2b'],
+          question: '$(4a - 3b) - (2a - 5b)$ の計算結果は？',
+          options: ['$2a - 8b$', '$6a + 2b$', '$2a + 2b$', '$2a - 2b$'],
           correctIndex: 2,
           explanation:
-            'かっこを外すと 4a - 3b - 2a + 5b。同類項をまとめて 2a + 2b だよ。引き算のかっこは符号が変わるのがポイント！',
+            'かっこを外すと $4a - 3b - 2a + 5b$。同類項をまとめて $2a + 2b$ だよ。引き算のかっこは符号が変わるのがポイント！',
         },
         {
           id: 'math-g2-poly-add-sub-q3',
-          question: '-(2x² - 4x + 1) を展開すると？',
+          question: '$-(2x^2 - 4x + 1)$ を展開すると？',
           options: [
-            '2x² - 4x + 1',
-            '-2x² - 4x + 1',
-            '-2x² + 4x - 1',
-            '-2x² + 4x + 1',
+            '$2x^2 - 4x + 1$',
+            '$-2x^2 - 4x + 1$',
+            '$-2x^2 + 4x - 1$',
+            '$-2x^2 + 4x + 1$',
           ],
           correctIndex: 2,
           explanation:
-            'かっこの前が「−」なので全部の符号が反転！ 2x² → -2x², -4x → +4x, +1 → -1 だよ。',
+            'かっこの前が「$-$」なので全部の符号が反転！ $2x^2 \\rightarrow -2x^2$, $-4x \\rightarrow +4x$, $+1 \\rightarrow -1$ だよ。',
         },
       ],
     },
@@ -72,42 +72,42 @@ export const polynomialAddSub: Topic = {
         {
           id: 'math-g2-poly-add-sub-ex1',
           question:
-            '次の計算をしよう。\n(2x + 5y) + (4x - 3y)',
+            '次の計算をしよう。\n$(2x + 5y) + (4x - 3y)$',
           steps: [
             {
               title: 'Step 1: かっこを外そう',
               content:
-                'かっこの前が「+」なのでそのまま外すよ。\n2x + 5y + 4x - 3y',
-              highlight: '2x + 5y + 4x - 3y',
+                'かっこの前が「$+$」なのでそのまま外すよ。\n$2x + 5y + 4x - 3y$',
+              highlight: '$2x + 5y + 4x - 3y$',
             },
             {
               title: 'Step 2: 同類項をまとめよう',
               content:
-                'x の項: 2x + 4x = 6x\ny の項: 5y - 3y = 2y',
-              highlight: '6x + 2y',
+                '$x$ の項: $2x + 4x = 6x$\n$y$ の項: $5y - 3y = 2y$',
+              highlight: '$6x + 2y$',
             },
           ],
-          answer: '6x + 2y',
+          answer: '$6x + 2y$',
         },
         {
           id: 'math-g2-poly-add-sub-ex2',
           question:
-            '次の計算をしよう。\n(5a - 2b) - (3a - 7b)',
+            '次の計算をしよう。\n$(5a - 2b) - (3a - 7b)$',
           steps: [
             {
               title: 'Step 1: かっこを外そう',
               content:
-                'かっこの前が「−」なので、中の符号を全部反転！\n5a - 2b - 3a + 7b',
-              highlight: '5a - 2b - 3a + 7b',
+                'かっこの前が「$-$」なので、中の符号を全部反転！\n$5a - 2b - 3a + 7b$',
+              highlight: '$5a - 2b - 3a + 7b$',
             },
             {
               title: 'Step 2: 同類項をまとめよう',
               content:
-                'a の項: 5a - 3a = 2a\nb の項: -2b + 7b = 5b',
-              highlight: '2a + 5b',
+                '$a$ の項: $5a - 3a = 2a$\n$b$ の項: $-2b + 7b = 5b$',
+              highlight: '$2a + 5b$',
             },
           ],
-          answer: '2a + 5b',
+          answer: '$2a + 5b$',
         },
       ],
     },

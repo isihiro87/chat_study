@@ -165,15 +165,15 @@ export const quadFuncRealWorldChat: HistoryChat = {
     },
     {
       type: 'quiz',
-      question: '<ruby>時速<rt>じそく</rt></ruby>40km の<ruby>制動距離<rt>せいどうきょり</rt></ruby>が 16m のとき、<ruby>時速<rt>じそく</rt></ruby>80km の<ruby>制動距離<rt>せいどうきょり</rt></ruby>は？',
+      question: '<ruby>時速<rt>じそく</rt></ruby>40kmの<ruby>制動距離<rt>せいどうきょり</rt></ruby>が16mのとき、<ruby>時速<rt>じそく</rt></ruby>80kmの<ruby>制動距離<rt>せいどうきょり</rt></ruby>は？',
       options: [
-        { letter: 'A', text: '32m', correct: false },
-        { letter: 'B', text: '48m', correct: false },
-        { letter: 'C', text: '64m', correct: true },
-        { letter: 'D', text: '128m', correct: false },
+        { letter: 'A', text: '$32$ m', correct: false },
+        { letter: 'B', text: '$48$ m', correct: false },
+        { letter: 'C', text: '$64$ m', correct: true },
+        { letter: 'D', text: '$128$ m', correct: false },
       ],
       explanation:
-        '<ruby>速度<rt>そくど</rt></ruby>が2<ruby>倍<rt>ばい</rt></ruby>（40→80）→ <ruby>制動距離<rt>せいどうきょり</rt></ruby>は 2² = 4<ruby>倍<rt>ばい</rt></ruby>。16 × 4 = <strong>64m</strong>',
+        '<ruby>速度<rt>そくど</rt></ruby>が2<ruby>倍<rt>ばい</rt></ruby>（40→80）→ <ruby>制動距離<rt>せいどうきょり</rt></ruby>は $2^2 = 4$<ruby>倍<rt>ばい</rt></ruby>。$16 \\times 4 = \\textcolor{#D97706}{64}$ m',
     },
     {
       type: 'summary-point',
@@ -182,9 +182,9 @@ export const quadFuncRealWorldChat: HistoryChat = {
     {
       type: 'end',
       points: [
-        '<ruby>制動距離<rt>せいどうきょり</rt></ruby>は<ruby>速度<rt>そくど</rt></ruby>の2<ruby>乗<rt>じょう</rt></ruby>に<ruby>比例<rt>ひれい</rt></ruby>（y = av²）',
-        'ふりこの<ruby>周期<rt>しゅうき</rt></ruby>の2<ruby>乗<rt>じょう</rt></ruby>はひもの<ruby>長<rt>なが</rt></ruby>さに<ruby>比例<rt>ひれい</rt></ruby>（T² = aL）',
-        '<ruby>具体的<rt>ぐたいてき</rt></ruby>な<ruby>値<rt>あたい</rt></ruby>から<ruby>比例定数<rt>ひれいていすう</rt></ruby> a を<ruby>求<rt>もと</rt></ruby>めて<ruby>立式<rt>りっしき</rt></ruby>しよう',
+        '<ruby>制動距離<rt>せいどうきょり</rt></ruby>は<ruby>速度<rt>そくど</rt></ruby>の2<ruby>乗<rt>じょう</rt></ruby>に<ruby>比例<rt>ひれい</rt></ruby>（$y = av^2$）',
+        'ふりこの<ruby>周期<rt>しゅうき</rt></ruby>の2<ruby>乗<rt>じょう</rt></ruby>はひもの<ruby>長<rt>なが</rt></ruby>さに<ruby>比例<rt>ひれい</rt></ruby>（$T^2 = aL$）',
+        '<ruby>具体的<rt>ぐたいてき</rt></ruby>な<ruby>値<rt>あたい</rt></ruby>から<ruby>比例定数<rt>ひれいていすう</rt></ruby> $a$ を<ruby>求<rt>もと</rt></ruby>めて<ruby>立式<rt>りっしき</rt></ruby>しよう',
         '<ruby>速度<rt>そくど</rt></ruby>2<ruby>倍<rt>ばい</rt></ruby> → <ruby>距離<rt>きょり</rt></ruby>4<ruby>倍<rt>ばい</rt></ruby>、3<ruby>倍<rt>ばい</rt></ruby> → 9<ruby>倍<rt>ばい</rt></ruby>（スピードに<ruby>注意<rt>ちゅうい</rt></ruby>！）',
       ],
     },

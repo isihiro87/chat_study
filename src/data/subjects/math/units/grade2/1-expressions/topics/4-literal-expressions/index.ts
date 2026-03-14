@@ -38,32 +38,32 @@ export const literalExpressions: Topic = {
       questions: [
         {
           id: 'math-g2-literal-expr-q1',
-          question: '奇数を文字 n を使って表すと？（n は整数）',
-          options: ['n + 1', '2n', '2n + 1', 'n²'],
+          question: '奇数を文字 $n$ を使って表すと？（$n$ は整数）',
+          options: ['$n + 1$', '$2n$', '$2n + 1$', '$n^2$'],
           correctIndex: 2,
           explanation:
-            '偶数は 2n だから、それに 1 を足した 2n + 1 が奇数だよ。n = 0 なら 1、n = 1 なら 3、n = 2 なら 5 … となるね。',
+            '偶数は $2n$ だから、それに $1$ を足した $2n + 1$ が奇数だよ。$n = 0$ なら $1$、$n = 1$ なら $3$、$n = 2$ なら $5$ … となるね。',
         },
         {
           id: 'math-g2-literal-expr-q2',
-          question: 'y = 3x - 6 を x について解くと？',
+          question: '$y = 3x - 6$ を $x$ について解くと？',
           options: [
-            'x = y + 6',
-            'x = (y + 6)/3',
-            'x = 3y - 6',
-            'x = y/3 + 6',
+            '$x = y + 6$',
+            '$x = \\frac{y + 6}{3}$',
+            '$x = 3y - 6$',
+            '$x = \\frac{y}{3} + 6$',
           ],
           correctIndex: 1,
           explanation:
-            'y = 3x - 6 → y + 6 = 3x → x = (y + 6)/3 だよ。まず -6 を移項して、3 で割ろう。',
+            '$y = 3x - 6 \\rightarrow y + 6 = 3x \\rightarrow x = \\frac{y + 6}{3}$ だよ。まず $-6$ を移項して、$3$ で割ろう。',
         },
         {
           id: 'math-g2-literal-expr-q3',
           question: '連続する3つの整数の和は、どんな数の倍数になる？',
-          options: ['2の倍数', '3の倍数', '5の倍数', '6の倍数'],
+          options: ['$2$の倍数', '$3$の倍数', '$5$の倍数', '$6$の倍数'],
           correctIndex: 1,
           explanation:
-            '連続する3整数を n, n+1, n+2 とすると、和 = n + (n+1) + (n+2) = 3n + 3 = 3(n+1)。3 × (整数) の形だから 3の倍数になるよ！',
+            '連続する3整数を $n, n+1, n+2$ とすると、和 $= n + (n+1) + (n+2) = 3n + 3 = 3(n+1)$。$3 \\times$ (整数) の形だから $3$の倍数になるよ！',
         },
       ],
     },
@@ -77,44 +77,44 @@ export const literalExpressions: Topic = {
             {
               title: 'Step 1: 文字で表そう',
               content:
-                '2つの奇数を 2m + 1 と 2n + 1 とする（m, n は整数）。',
-              highlight: '2m + 1, 2n + 1',
+                '2つの奇数を $2m + 1$ と $2n + 1$ とする（$m$, $n$ は整数）。',
+              highlight: '$2m + 1$, $2n + 1$',
             },
             {
               title: 'Step 2: 和を計算しよう',
               content:
-                '(2m + 1) + (2n + 1) = 2m + 2n + 2 = 2(m + n + 1)',
-              highlight: '2(m + n + 1)',
+                '$(2m + 1) + (2n + 1) = 2m + 2n + 2 = 2(m + n + 1)$',
+              highlight: '$2(m + n + 1)$',
             },
             {
               title: 'Step 3: 結論',
               content:
-                'm + n + 1 は整数だから、2(m + n + 1) は 2 × 整数 = 偶数。よって2つの奇数の和は偶数になる。',
-              highlight: '2 × (整数) = 偶数',
+                '$m + n + 1$ は整数だから、$2(m + n + 1)$ は $2 \\times$ 整数 $=$ 偶数。よって2つの奇数の和は偶数になる。',
+              highlight: '$2 \\times$ (整数) $=$ 偶数',
             },
           ],
           answer:
-            '2つの奇数を 2m+1, 2n+1 とすると、和 = 2(m+n+1) となり偶数。',
+            '2つの奇数を $2m+1$, $2n+1$ とすると、和 $= 2(m+n+1)$ となり偶数。',
         },
         {
           id: 'math-g2-literal-expr-ex2',
           question:
-            'S = πr²h を h について解こう。',
+            '$S = \\pi r^2 h$ を $h$ について解こう。',
           steps: [
             {
-              title: 'Step 1: h を含む項を確認',
+              title: 'Step 1: $h$ を含む項を確認',
               content:
-                'S = πr²h で、右辺に h がある。h だけにしたい。',
-              highlight: 'S = πr²h',
+                '$S = \\pi r^2 h$ で、右辺に $h$ がある。$h$ だけにしたい。',
+              highlight: '$S = \\pi r^2 h$',
             },
             {
-              title: 'Step 2: 両辺を πr² で割る',
+              title: 'Step 2: 両辺を $\\pi r^2$ で割る',
               content:
-                'h にかかっている πr² で両辺を割ると、h だけが残るよ。',
-              highlight: 'S / πr² = h',
+                '$h$ にかかっている $\\pi r^2$ で両辺を割ると、$h$ だけが残るよ。',
+              highlight: '$\\frac{S}{\\pi r^2} = h$',
             },
           ],
-          answer: 'h = S / πr²',
+          answer: '$h = \\frac{S}{\\pi r^2}$',
         },
       ],
     },

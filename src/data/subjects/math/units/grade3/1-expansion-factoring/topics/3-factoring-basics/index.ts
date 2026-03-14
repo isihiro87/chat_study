@@ -38,19 +38,19 @@ export const factoringBasics: Topic = {
       questions: [
         {
           id: 'math-g3-factoring-basics-q1',
-          question: '4x + 8 を因数分解すると？',
-          options: ['2(2x+4)', '4(x+2)', '4(x+4)', 'x(4+8)'],
+          question: '$4x + 8$ を因数分解すると？',
+          options: ['$2(2x+4)$', '$4(x+2)$', '$4(x+4)$', '$x(4+8)$'],
           correctIndex: 1,
           explanation:
-            '4x と 8 の共通因数は 4。4 でくくり出すと 4(x+2) になるよ。',
+            '$4x$ と $8$ の共通因数は $4$。$4$ でくくり出すと $4(x+2)$ になるよ。',
         },
         {
           id: 'math-g3-factoring-basics-q2',
-          question: '3x² + 6x を因数分解すると？',
-          options: ['3(x²+2x)', '3x(x+2)', 'x(3x+6)', '6x(x+1)'],
+          question: '$3x^2 + 6x$ を因数分解すると？',
+          options: ['$3(x^2+2x)$', '$3x(x+2)$', '$x(3x+6)$', '$6x(x+1)$'],
           correctIndex: 1,
           explanation:
-            '3x² と 6x の共通因数は 3x。3x でくくり出すと 3x(x+2) だよ。',
+            '$3x^2$ と $6x$ の共通因数は $3x$。$3x$ でくくり出すと $3x(x+2)$ だよ。',
         },
         {
           id: 'math-g3-factoring-basics-q3',
@@ -66,41 +66,41 @@ export const factoringBasics: Topic = {
       examples: [
         {
           id: 'math-g3-factoring-basics-ex1',
-          question: '次の式を因数分解しよう。\n6x + 15',
+          question: '次の式を因数分解しよう。\n$6x + 15$',
           steps: [
             {
               title: 'Step 1: 共通因数を見つけよう',
               content:
-                '6 と 15 の最大公約数は 3。両方の項に 3 が共通しているね。',
-              highlight: '6x = 3×2x、15 = 3×5',
+                '$6$ と $15$ の最大公約数は $3$。両方の項に $3$ が共通しているね。',
+              highlight: '$6x = 3 \\times 2x$、$15 = 3 \\times 5$',
             },
             {
               title: 'Step 2: 共通因数でくくり出す',
               content:
-                '3 でくくり出すと、かっこの中は 2x + 5 になるよ。',
-              highlight: '3(2x + 5)',
+                '$3$ でくくり出すと、かっこの中は $2x + 5$ になるよ。',
+              highlight: '$3(2x + 5)$',
             },
           ],
-          answer: '3(2x + 5)',
+          answer: '$3(2x + 5)$',
         },
         {
           id: 'math-g3-factoring-basics-ex2',
-          question: '次の式を因数分解しよう。\n2x² − 8x',
+          question: '次の式を因数分解しよう。\n$2x^2 - 8x$',
           steps: [
             {
               title: 'Step 1: 共通因数を見つけよう',
               content:
-                '数の共通因数は 2、文字の共通因数は x。合わせて 2x が共通因数だよ。',
-              highlight: '2x² = 2x·x、8x = 2x·4',
+                '数の共通因数は $2$、文字の共通因数は $x$。合わせて $2x$ が共通因数だよ。',
+              highlight: '$2x^2 = 2x \\cdot x$、$8x = 2x \\cdot 4$',
             },
             {
-              title: 'Step 2: 2x でくくり出す',
+              title: 'Step 2: $2x$ でくくり出す',
               content:
-                '2x でくくると、かっこの中は x − 4 になるよ。',
-              highlight: '2x(x − 4)',
+                '$2x$ でくくると、かっこの中は $x - 4$ になるよ。',
+              highlight: '$2x(x - 4)$',
             },
           ],
-          answer: '2x(x − 4)',
+          answer: '$2x(x - 4)$',
         },
       ],
     },

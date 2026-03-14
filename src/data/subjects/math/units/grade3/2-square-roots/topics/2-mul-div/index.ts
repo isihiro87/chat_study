@@ -38,27 +38,27 @@ export const sqrtMulDiv: Topic = {
       questions: [
         {
           id: 'math-g3-sqrt-mul-div-q1',
-          question: '√3 × √5 はいくつ？',
-          options: ['√8', '√15', '√35', '15'],
+          question: '$\\sqrt{3} \\times \\sqrt{5}$ はいくつ？',
+          options: ['$\\sqrt{8}$', '$\\sqrt{15}$', '$\\sqrt{35}$', '$15$'],
           correctIndex: 1,
           explanation:
-            '√3 × √5 = √(3×5) = √15。ルートの中身どうしをかけるだけだよ。',
+            '$\\sqrt{3} \\times \\sqrt{5} = \\sqrt{3 \\times 5} = \\sqrt{15}$。ルートの中身どうしをかけるだけだよ。',
         },
         {
           id: 'math-g3-sqrt-mul-div-q2',
-          question: '√18 を簡単にすると？',
-          options: ['2√9', '3√2', '9√2', '2√3'],
+          question: '$\\sqrt{18}$ を簡単にすると？',
+          options: ['$2\\sqrt{9}$', '$3\\sqrt{2}$', '$9\\sqrt{2}$', '$2\\sqrt{3}$'],
           correctIndex: 1,
           explanation:
-            '√18 = √(9×2) = √9 × √2 = 3√2。9 = 3² を外に出すよ。',
+            '$\\sqrt{18} = \\sqrt{9 \\times 2} = \\sqrt{9} \\times \\sqrt{2} = 3\\sqrt{2}$。$9 = 3^2$ を外に出すよ。',
         },
         {
           id: 'math-g3-sqrt-mul-div-q3',
-          question: '√30 ÷ √6 はいくつ？',
-          options: ['√24', '√5', '5', '√36'],
+          question: '$\\sqrt{30} \\div \\sqrt{6}$ はいくつ？',
+          options: ['$\\sqrt{24}$', '$\\sqrt{5}$', '$5$', '$\\sqrt{36}$'],
           correctIndex: 1,
           explanation:
-            '√30 ÷ √6 = √(30÷6) = √5。ルートの中身どうしをわるだけだよ。',
+            '$\\sqrt{30} \\div \\sqrt{6} = \\sqrt{30 \\div 6} = \\sqrt{5}$。ルートの中身どうしをわるだけだよ。',
         },
       ],
     },
@@ -66,38 +66,38 @@ export const sqrtMulDiv: Topic = {
       examples: [
         {
           id: 'math-g3-sqrt-mul-div-ex1',
-          question: '次の計算をしよう。\n√2 × √8',
+          question: '次の計算をしよう。\n$\\sqrt{2} \\times \\sqrt{8}$',
           steps: [
             {
               title: 'Step 1: ルートの中身をかける',
-              content: '√2 × √8 = √(2×8) = √16 だよ。',
-              highlight: '√16',
+              content: '$\\sqrt{2} \\times \\sqrt{8} = \\sqrt{2 \\times 8} = \\sqrt{16}$ だよ。',
+              highlight: '$\\sqrt{16}$',
             },
             {
-              title: 'Step 2: √16 を計算する',
-              content: '√16 = 4。きれいな整数になったね！',
-              highlight: '4',
+              title: 'Step 2: $\\sqrt{16}$ を計算する',
+              content: '$\\sqrt{16} = 4$。きれいな整数になったね！',
+              highlight: '$4$',
             },
           ],
-          answer: '4',
+          answer: '$4$',
         },
         {
           id: 'math-g3-sqrt-mul-div-ex2',
-          question: '√12 を簡単にしよう。',
+          question: '$\\sqrt{12}$ を簡単にしよう。',
           steps: [
             {
               title: 'Step 1: 素因数分解する',
-              content: '12 = 4 × 3 = 2² × 3 だね。',
-              highlight: '12 = 2² × 3',
+              content: '$12 = 4 \\times 3 = 2^2 \\times 3$ だね。',
+              highlight: '$12 = 2^2 \\times 3$',
             },
             {
               title: 'Step 2: 完全平方数を外に出す',
               content:
-                '√12 = √(2²×3) = 2√3。2² が外に出て 2 になるよ。',
-              highlight: '2√3',
+                '$\\sqrt{12} = \\sqrt{2^2 \\times 3} = 2\\sqrt{3}$。$2^2$ が外に出て $2$ になるよ。',
+              highlight: '$2\\sqrt{3}$',
             },
           ],
-          answer: '2√3',
+          answer: '$2\\sqrt{3}$',
         },
       ],
     },

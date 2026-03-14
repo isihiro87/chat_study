@@ -39,31 +39,31 @@ export const monomialPolynomial: Topic = {
         {
           id: 'math-g2-monomial-poly-q1',
           question: '次のうち、多項式はどれ？',
-          options: ['3ab', '5x + 2y - 1', '-7x²', '4'],
+          options: ['$3ab$', '$5x + 2y - 1$', '$-7x^2$', '$4$'],
           correctIndex: 1,
           explanation:
-            '5x + 2y - 1 は項が3つあるので多項式だよ。3ab や -7x² は単項式、4 も単項式（数だけ）だね。',
+            '$5x + 2y - 1$ は項が3つあるので多項式だよ。$3ab$ や $-7x^2$ は単項式、$4$ も単項式（数だけ）だね。',
         },
         {
           id: 'math-g2-monomial-poly-q2',
-          question: '単項式 4x²y の次数は？',
-          options: ['1', '2', '3', '4'],
+          question: '単項式 $4x^2y$ の次数は？',
+          options: ['$1$', '$2$', '$3$', '$4$'],
           correctIndex: 2,
           explanation:
-            '4x²y では x が2個、y が1個かけ合わされているから、次数は 2 + 1 = 3 だよ。',
+            '$4x^2y$ では $x$ が2個、$y$ が1個かけ合わされているから、次数は $2 + 1 = 3$ だよ。',
         },
         {
           id: 'math-g2-monomial-poly-q3',
           question: '次のうち、同類項の組み合わせはどれ？',
           options: [
-            '3x と 3y',
-            '2a²b と -5a²b',
-            '4x と 4x²',
-            '7ab と 7ba²',
+            '$3x$ と $3y$',
+            '$2a^2b$ と $-5a^2b$',
+            '$4x$ と $4x^2$',
+            '$7ab$ と $7ba^2$',
           ],
           correctIndex: 1,
           explanation:
-            '2a²b と -5a²b は文字の部分が同じ（a²b）なので同類項だよ。文字の部分が違う組は同類項ではないよ。',
+            '$2a^2b$ と $-5a^2b$ は文字の部分が同じ（$a^2b$）なので同類項だよ。文字の部分が違う組は同類項ではないよ。',
         },
       ],
     },
@@ -72,41 +72,41 @@ export const monomialPolynomial: Topic = {
         {
           id: 'math-g2-monomial-poly-ex1',
           question:
-            '次の式について、単項式か多項式かを答え、多項式の場合は項をすべて答えよう。\n3x² - 5x + 2',
+            '次の式について、単項式か多項式かを答え、多項式の場合は項をすべて答えよう。\n$3x^2 - 5x + 2$',
           steps: [
             {
               title: 'Step 1: 式の形を見よう',
               content:
-                '3x² - 5x + 2 は、3x² と -5x と 2 の和の形になっているね。',
-              highlight: '3x² - 5x + 2',
+                '$3x^2 - 5x + 2$ は、$3x^2$ と $-5x$ と $2$ の和の形になっているね。',
+              highlight: '$3x^2 - 5x + 2$',
             },
             {
               title: 'Step 2: 判定する',
               content:
-                '項が複数あるので多項式だよ。項は 3x², -5x, 2 の3つだね。',
-              highlight: '項: 3x², -5x, 2',
+                '項が複数あるので多項式だよ。項は $3x^2$, $-5x$, $2$ の3つだね。',
+              highlight: '項: $3x^2$, $-5x$, $2$',
             },
           ],
-          answer: '多項式。項は 3x², -5x, 2',
+          answer: '多項式。項は $3x^2$, $-5x$, $2$',
         },
         {
           id: 'math-g2-monomial-poly-ex2',
-          question: '次の単項式の次数と係数を答えよう。\n-6a²b',
+          question: '次の単項式の次数と係数を答えよう。\n$-6a^2b$',
           steps: [
             {
               title: 'Step 1: 係数を見つけよう',
               content:
-                '文字にかかっている数は -6 だね。これが係数だよ。',
-              highlight: '係数: -6',
+                '文字にかかっている数は $-6$ だね。これが係数だよ。',
+              highlight: '係数: $-6$',
             },
             {
               title: 'Step 2: 次数を数えよう',
               content:
-                'a が2個、b が1個かけ合わされているから、次数は 2 + 1 = 3 だよ。',
-              highlight: '次数: 3',
+                '$a$ が2個、$b$ が1個かけ合わされているから、次数は $2 + 1 = 3$ だよ。',
+              highlight: '次数: $3$',
             },
           ],
-          answer: '係数: -6, 次数: 3',
+          answer: '係数: $-6$, 次数: $3$',
         },
       ],
     },

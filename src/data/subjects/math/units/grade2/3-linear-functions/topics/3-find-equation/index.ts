@@ -48,29 +48,29 @@ export const findLinearEquation: Topic = {
       questions: [
         {
           id: 'math-g2-find-linear-eq-q1',
-          question: '傾き 2、切片 5 の一次関数の式は？',
-          options: ['y = 5x + 2', 'y = 2x + 5', 'y = 2x - 5', 'y = 5x - 2'],
+          question: '傾き $2$、切片 $5$ の一次関数の式は？',
+          options: ['$y = 5x + 2$', '$y = 2x + 5$', '$y = 2x - 5$', '$y = 5x - 2$'],
           correctIndex: 1,
           explanation:
-            'y = ax + b に a = 2、b = 5 を代入して y = 2x + 5 だよ。',
+            '$y = ax + b$ に $a = 2$、$b = 5$ を代入して $y = 2x + 5$ だよ。',
         },
         {
           id: 'math-g2-find-linear-eq-q2',
           question:
-            '傾きが 3 で、点 (1, 7) を通る一次関数の式は？',
-          options: ['y = 3x + 7', 'y = 3x + 4', 'y = 7x + 3', 'y = 3x + 1'],
+            '傾きが $3$ で、点 $(1, 7)$ を通る一次関数の式は？',
+          options: ['$y = 3x + 7$', '$y = 3x + 4$', '$y = 7x + 3$', '$y = 3x + 1$'],
           correctIndex: 1,
           explanation:
-            'y = 3x + b に (1, 7) を代入: 7 = 3×1 + b → b = 4。よって y = 3x + 4。',
+            '$y = 3x + b$ に $(1, 7)$ を代入: $7 = 3 \\times 1 + b \\rightarrow b = 4$。よって $y = 3x + 4$。',
         },
         {
           id: 'math-g2-find-linear-eq-q3',
           question:
-            '2点 (1, 3) と (3, 7) を通る一次関数の式は？',
-          options: ['y = 2x + 1', 'y = 2x + 3', 'y = x + 2', 'y = 3x + 1'],
+            '2点 $(1, 3)$ と $(3, 7)$ を通る一次関数の式は？',
+          options: ['$y = 2x + 1$', '$y = 2x + 3$', '$y = x + 2$', '$y = 3x + 1$'],
           correctIndex: 0,
           explanation:
-            '傾き a = (7 - 3) ÷ (3 - 1) = 4 ÷ 2 = 2。y = 2x + b に (1, 3) を代入: 3 = 2 + b → b = 1。よって y = 2x + 1。',
+            '傾き $a = (7 - 3) \\div (3 - 1) = 4 \\div 2 = 2$。$y = 2x + b$ に $(1, 3)$ を代入: $3 = 2 + b \\rightarrow b = 1$。よって $y = 2x + 1$。',
         },
       ],
     },
@@ -79,54 +79,54 @@ export const findLinearEquation: Topic = {
         {
           id: 'math-g2-find-linear-eq-ex1',
           question:
-            '傾きが -2 で、点 (3, 1) を通る一次関数の式を求めよう。',
+            '傾きが $-2$ で、点 $(3, 1)$ を通る一次関数の式を求めよう。',
           steps: [
             {
               title: 'Step 1: 傾きを代入する',
               content:
-                'a = -2 なので、y = -2x + b と書けるよ。あとは b を求めればOK！',
-              highlight: 'y = -2x + b',
+                '$a = -2$ なので、$y = -2x + b$ と書けるよ。あとは $b$ を求めればOK！',
+              highlight: '$y = -2x + b$',
             },
             {
               title: 'Step 2: 通る点を代入する',
               content:
-                '点 (3, 1) を通るから、x = 3、y = 1 を代入。1 = -2×3 + b → 1 = -6 + b',
-              highlight: '1 = -6 + b',
+                '点 $(3, 1)$ を通るから、$x = 3$、$y = 1$ を代入。$1 = -2 \\times 3 + b \\rightarrow 1 = -6 + b$',
+              highlight: '$1 = -6 + b$',
             },
             {
-              title: 'Step 3: b を求める',
+              title: 'Step 3: $b$ を求める',
               content:
-                'b = 1 + 6 = 7。よって y = -2x + 7 が答えだよ！',
-              highlight: 'y = -2x + 7',
+                '$b = 1 + 6 = 7$。よって $y = -2x + 7$ が答えだよ！',
+              highlight: '$y = -2x + 7$',
             },
           ],
-          answer: 'y = -2x + 7',
+          answer: '$y = -2x + 7$',
         },
         {
           id: 'math-g2-find-linear-eq-ex2',
           question:
-            '2点 (2, 5) と (4, 11) を通る一次関数の式を求めよう。',
+            '2点 $(2, 5)$ と $(4, 11)$ を通る一次関数の式を求めよう。',
           steps: [
             {
-              title: 'Step 1: 傾き a を求める',
+              title: 'Step 1: 傾き $a$ を求める',
               content:
-                'a = (y の増加量) ÷ (x の増加量) = (11 - 5) ÷ (4 - 2) = 6 ÷ 2 = 3',
-              highlight: 'a = 3',
+                '$a = (y$ の増加量$) \\div (x$ の増加量$) = (11 - 5) \\div (4 - 2) = 6 \\div 2 = 3$',
+              highlight: '$a = 3$',
             },
             {
-              title: 'Step 2: b を求める',
+              title: 'Step 2: $b$ を求める',
               content:
-                'y = 3x + b に点 (2, 5) を代入: 5 = 3×2 + b → 5 = 6 + b → b = -1',
-              highlight: 'b = -1',
+                '$y = 3x + b$ に点 $(2, 5)$ を代入: $5 = 3 \\times 2 + b \\rightarrow 5 = 6 + b \\rightarrow b = -1$',
+              highlight: '$b = -1$',
             },
             {
               title: 'Step 3: 式を完成させる',
               content:
-                'a = 3、b = -1 なので y = 3x - 1 が答え！ もう1つの点 (4, 11) でも確認: 3×4 - 1 = 11 ✓',
-              highlight: 'y = 3x - 1',
+                '$a = 3$、$b = -1$ なので $y = 3x - 1$ が答え！ もう1つの点 $(4, 11)$ でも確認: $3 \\times 4 - 1 = 11$ ✓',
+              highlight: '$y = 3x - 1$',
             },
           ],
-          answer: 'y = 3x - 1',
+          answer: '$y = 3x - 1$',
         },
       ],
     },

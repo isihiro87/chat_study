@@ -38,37 +38,37 @@ export const quadFormula: Topic = {
       questions: [
         {
           id: 'math-g3-quad-formula-q1',
-          question: 'x² + 6x を平方完成すると？',
+          question: '$x^2 + 6x$ を平方完成すると？',
           options: [
-            '(x+3)² − 9',
-            '(x+6)² − 36',
-            '(x+3)² + 9',
-            '(x+6)² − 6',
+            '$(x+3)^2 - 9$',
+            '$(x+6)^2 - 36$',
+            '$(x+3)^2 + 9$',
+            '$(x+6)^2 - 6$',
           ],
           correctIndex: 0,
           explanation:
-            'x² + 6x = (x+3)² − 9。bの半分 = 3、3² = 9 を引くよ。',
+            '$x^2 + 6x = (x+3)^2 - 9$。$b$ の半分 $= 3$、$3^2 = 9$ を引くよ。',
         },
         {
           id: 'math-g3-quad-formula-q2',
-          question: 'x² + 2x − 3 = 0 を解の公式で解くと？（a=1, b=2, c=−3）',
+          question: '$x^2 + 2x - 3 = 0$ を解の公式で解くと？（$a=1, b=2, c=-3$）',
           options: [
-            'x = 1, x = −3',
-            'x = −1, x = 3',
-            'x = 1, x = 3',
-            'x = −1, x = −3',
+            '$x = 1, x = -3$',
+            '$x = -1, x = 3$',
+            '$x = 1, x = 3$',
+            '$x = -1, x = -3$',
           ],
           correctIndex: 0,
           explanation:
-            'x = (−2±√(4+12))/2 = (−2±4)/2。x = 1 または x = −3 だよ。',
+            '$x = \\frac{-2 \\pm \\sqrt{4+12}}{2} = \\frac{-2 \\pm 4}{2}$。$x = 1$ または $x = -3$ だよ。',
         },
         {
           id: 'math-g3-quad-formula-q3',
-          question: '解の公式の判別式 b²−4ac が0のとき、解はいくつ？',
+          question: '解の公式の判別式 $b^2-4ac$ が $0$ のとき、解はいくつ？',
           options: ['0個', '1個', '2個', '無限にある'],
           correctIndex: 1,
           explanation:
-            'b²−4ac = 0 のとき √0 = 0 なので ± の部分が消えて解は1つ（重解）だよ。',
+            '$b^2-4ac = 0$ のとき $\\sqrt{0} = 0$ なので $\\pm$ の部分が消えて解は1つ（重解）だよ。',
         },
       ],
     },
@@ -76,39 +76,39 @@ export const quadFormula: Topic = {
       examples: [
         {
           id: 'math-g3-quad-formula-ex1',
-          question: '平方完成で解こう。\nx² + 4x − 5 = 0',
+          question: '平方完成で解こう。\n$x^2 + 4x - 5 = 0$',
           steps: [
             {
-              title: 'Step 1: x² + 4x を平方完成',
+              title: 'Step 1: $x^2 + 4x$ を平方完成',
               content:
-                'x² + 4x = (x+2)² − 4 だから、(x+2)² − 4 − 5 = 0。',
-              highlight: '(x+2)² − 9 = 0',
+                '$x^2 + 4x = (x+2)^2 - 4$ だから、$(x+2)^2 - 4 - 5 = 0$。',
+              highlight: '$(x+2)^2 - 9 = 0$',
             },
             {
-              title: 'Step 2: (x+2)² = 9 を解く',
-              content: 'x+2 = ±3。x = −2+3 = 1 または x = −2−3 = −5。',
-              highlight: 'x = 1, x = −5',
+              title: 'Step 2: $(x+2)^2 = 9$ を解く',
+              content: '$x+2 = \\pm 3$。$x = -2+3 = 1$ または $x = -2-3 = -5$。',
+              highlight: '$x = 1, x = -5$',
             },
           ],
-          answer: 'x = 1, x = −5',
+          answer: '$x = 1, x = -5$',
         },
         {
           id: 'math-g3-quad-formula-ex2',
-          question: '解の公式で解こう。\n2x² + 5x − 3 = 0',
+          question: '解の公式で解こう。\n$2x^2 + 5x - 3 = 0$',
           steps: [
             {
-              title: 'Step 1: a, b, c を確認',
-              content: 'a = 2, b = 5, c = −3 を解の公式に代入するよ。',
-              highlight: 'x = (−5 ± √(25+24)) / 4',
+              title: 'Step 1: $a, b, c$ を確認',
+              content: '$a = 2, b = 5, c = -3$ を解の公式に代入するよ。',
+              highlight: '$x = \\frac{-5 \\pm \\sqrt{25+24}}{4}$',
             },
             {
               title: 'Step 2: 計算する',
               content:
-                'x = (−5 ± √49) / 4 = (−5 ± 7) / 4。x = 2/4 = 1/2 または x = −12/4 = −3。',
-              highlight: 'x = 1/2, x = −3',
+                '$x = \\frac{-5 \\pm \\sqrt{49}}{4} = \\frac{-5 \\pm 7}{4}$。$x = \\frac{2}{4} = \\frac{1}{2}$ または $x = \\frac{-12}{4} = -3$。',
+              highlight: '$x = \\frac{1}{2}, x = -3$',
             },
           ],
-          answer: 'x = 1/2, x = −3',
+          answer: '$x = \\frac{1}{2}, x = -3$',
         },
       ],
     },

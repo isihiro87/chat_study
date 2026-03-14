@@ -189,7 +189,7 @@ export const simulEqAppsChat: HistoryChat = {
         { letter: 'D', text: '4<ruby>個<rt>こ</rt></ruby>', correct: false },
       ],
       explanation:
-        'ケーキ x<ruby>個<rt>こ</rt></ruby>、プリン y<ruby>個<rt>こ</rt></ruby>。x + y = 6、300x + 200y = 1400。②÷100: 3x + 2y = 14。①×2: 2x + 2y = 12。<ruby>引<rt>ひ</rt></ruby>くと x = <strong>2</strong>。',
+        'ケーキ $x$<ruby>個<rt>こ</rt></ruby>、プリン $y$<ruby>個<rt>こ</rt></ruby>。$x + y = 6$、$300x + 200y = 1400$。$\\textcircled{2} \\div 100$: $3x + 2y = 14$。$\\textcircled{1} \\times 2$: $2x + 2y = 12$。<ruby>引<rt>ひ</rt></ruby>くと $x = \\textcolor{#D97706}{2}$。',
     },
     {
       type: 'end',
