@@ -1,10 +1,10 @@
 import type { HistoryChat } from '../../../../../../../../data/history-chat/types';
 
-export const plantClassificationChat: HistoryChat = {
-  id: 'sci1-plant-classification',
-  icon: '🌱',
-  title: '植物の分類',
-  subtitle: '〜中1生物〜 花のつくり・被子植物と裸子植物・種子をつくらない植物',
+export const flowerSeedChat: HistoryChat = {
+  id: 'sci1-flower-seed',
+  icon: '🌸',
+  title: '花と種子のしくみ',
+  subtitle: '〜中1生物〜 花のつくり・受粉・被子植物と裸子植物',
   characters: [
     {
       id: 'teacher',
@@ -225,13 +225,60 @@ export const plantClassificationChat: HistoryChat = {
       text: '<span class="keyword">シダ植物</span>＝根・茎・葉の区別あり、維管束あり。<span class="keyword">コケ植物</span>＝区別なし、維管束なし、<span class="keyword">仮根</span>で固定。どちらも<span class="keyword">胞子</span>でふえる',
     },
     {
+      type: 'date',
+      text: 'マツの花のつくり〜<ruby>裸子植物<rp>(</rp><rt>らししょくぶつ</rt><rp>)</rp></ruby>の<ruby>詳細<rp>(</rp><rt>しょうさい</rt><rp>)</rp></ruby>〜',
+    },
+    {
+      type: 'narrator',
+      text: '<ruby>裸子植物<rp>(</rp><rt>らししょくぶつ</rt><rp>)</rp></ruby>の<ruby>代表<rp>(</rp><rt>だいひょう</rt><rp>)</rp></ruby>であるマツの花のつくりを<ruby>詳<rp>(</rp><rt>くわ</rt><rp>)</rp></ruby>しく見てみましょう。',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: 'マツの花には<strong><span class="keyword"><ruby>雄花<rp>(</rp><rt>おばな</rt><rp>)</rp></ruby></span></strong>と<strong><span class="keyword"><ruby>雌花<rp>(</rp><rt>めばな</rt><rp>)</rp></ruby></span></strong>があるよ。<ruby>雄花<rp>(</rp><rt>おばな</rt><rp>)</rp></ruby>の<strong><span class="keyword">りん<ruby>片<rp>(</rp><rt>ぺん</rt><rp>)</rp></ruby></span></strong>には<strong><span class="keyword"><ruby>花粉<rp>(</rp><rt>かふん</rt><rp>)</rp></ruby>のう</span></strong>があって、その中に<ruby>花粉<rp>(</rp><rt>かふん</rt><rp>)</rp></ruby>が入っているんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '<ruby>雌花<rp>(</rp><rt>めばな</rt><rp>)</rp></ruby>のほうはどうなっているんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: '<ruby>雌花<rp>(</rp><rt>めばな</rt><rp>)</rp></ruby>のりん<ruby>片<rp>(</rp><rt>ぺん</rt><rp>)</rp></ruby>には<strong><ruby>胚珠<rp>(</rp><rt>はいしゅ</rt><rp>)</rp></ruby>がむき出し</strong>でついているよ。<ruby>被子植物<rp>(</rp><rt>ひししょくぶつ</rt><rp>)</rp></ruby>のように<ruby>子房<rp>(</rp><rt>しぼう</rt><rp>)</rp></ruby>に<ruby>包<rp>(</rp><rt>つつ</rt><rp>)</rp></ruby>まれていないんだ。だから「<ruby>裸<rp>(</rp><rt>はだか</rt><rp>)</rp></ruby>の<ruby>種子<rp>(</rp><rt>しゅし</rt><rp>)</rp></ruby>」で<ruby>裸子植物<rp>(</rp><rt>らししょくぶつ</rt><rp>)</rp></ruby>というんだね',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: 'マツの<ruby>花粉<rp>(</rp><rt>かふん</rt><rp>)</rp></ruby>はどうやって<ruby>運<rp>(</rp><rt>はこ</rt><rp>)</rp></ruby>ばれるんですか？<ruby>虫<rp>(</rp><rt>むし</rt><rp>)</rp></ruby>ですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'excited',
+      text: '<ruby>裸子植物<rp>(</rp><rt>らししょくぶつ</rt><rp>)</rp></ruby>の<ruby>花粉<rp>(</rp><rt>かふん</rt><rp>)</rp></ruby>は<strong><span class="keyword"><ruby>風<rp>(</rp><rt>かぜ</rt><rp>)</rp></ruby></span></strong>で<ruby>運<rp>(</rp><rt>はこ</rt><rp>)</rp></ruby>ばれるんだ！マツの<ruby>花粉<rp>(</rp><rt>かふん</rt><rp>)</rp></ruby>には<ruby>空気<rp>(</rp><rt>くうき</rt><rp>)</rp></ruby>の<ruby>袋<rp>(</rp><rt>ふくろ</rt><rp>)</rp></ruby>がついていて、<ruby>遠<rp>(</rp><rt>とお</rt><rp>)</rp></ruby>くまで<ruby>飛<rp>(</rp><rt>と</rt><rp>)</rp></ruby>べるようになっているよ。<ruby>裸子植物<rp>(</rp><rt>らししょくぶつ</rt><rp>)</rp></ruby>の<ruby>仲間<rp>(</rp><rt>なかま</rt><rp>)</rp></ruby>には<strong>マツ・イチョウ・スギ・ソテツ</strong>があるよ',
+    },
+    {
+      type: 'summary-point',
+      text: 'マツの花：<span class="keyword">雄花</span>のりん片に花粉のう、<span class="keyword">雌花</span>のりん片に胚珠がむき出し。裸子植物の花粉は<span class="keyword">風</span>で運ばれる',
+    },
+    {
       type: 'end',
       points: [
         '<strong>花のつくり</strong>：<ruby>外側<rp>(</rp><rt>そとがわ</rt><rp>)</rp></ruby>から がく→<ruby>花弁<rp>(</rp><rt>かべん</rt><rp>)</rp></ruby>→おしべ→めしべ。<strong><ruby>受粉<rp>(</rp><rt>じゅふん</rt><rp>)</rp></ruby></strong>＝<ruby>花粉<rp>(</rp><rt>かふん</rt><rp>)</rp></ruby>が<ruby>柱頭<rp>(</rp><rt>ちゅうとう</rt><rp>)</rp></ruby>につく → <ruby>子房<rp>(</rp><rt>しぼう</rt><rp>)</rp></ruby>→<ruby>果実<rp>(</rp><rt>かじつ</rt><rp>)</rp></ruby>、<ruby>胚珠<rp>(</rp><rt>はいしゅ</rt><rp>)</rp></ruby>→<ruby>種子<rp>(</rp><rt>しゅし</rt><rp>)</rp></ruby>',
         '<strong><ruby>離弁花<rp>(</rp><rt>りべんか</rt><rp>)</rp></ruby></strong>（サクラ、アブラナ）と<strong><ruby>合弁花<rp>(</rp><rt>ごうべんか</rt><rp>)</rp></ruby></strong>（ツツジ、アサガオ）',
         '<strong><ruby>被子植物<rp>(</rp><rt>ひししょくぶつ</rt><rp>)</rp></ruby></strong>＝<ruby>胚珠<rp>(</rp><rt>はいしゅ</rt><rp>)</rp></ruby>が<ruby>子房<rp>(</rp><rt>しぼう</rt><rp>)</rp></ruby>に<ruby>包<rp>(</rp><rt>つつ</rt><rp>)</rp></ruby>まれる。<strong><ruby>裸子植物<rp>(</rp><rt>らししょくぶつ</rt><rp>)</rp></ruby></strong>＝<ruby>胚珠<rp>(</rp><rt>はいしゅ</rt><rp>)</rp></ruby>がむき出し（マツ・イチョウ）',
         '<strong><ruby>双子葉類<rp>(</rp><rt>そうしようるい</rt><rp>)</rp></ruby></strong>＝<ruby>網状脈<rp>(</rp><rt>もうじょうみゃく</rt><rp>)</rp></ruby>・<ruby>主根<rp>(</rp><rt>しゅこん</rt><rp>)</rp></ruby>と<ruby>側根<rp>(</rp><rt>そっこん</rt><rp>)</rp></ruby>。<strong><ruby>単子葉類<rp>(</rp><rt>たんしようるい</rt><rp>)</rp></ruby></strong>＝<ruby>平行脈<rp>(</rp><rt>へいこうみゃく</rt><rp>)</rp></ruby>・ひげ根',
-        '<strong>シダ<ruby>植物<rp>(</rp><rt>しょくぶつ</rt><rp>)</rp></ruby></strong>（<ruby>維管束<rp>(</rp><rt>いかんそく</rt><rp>)</rp></ruby>あり）と<strong>コケ<ruby>植物<rp>(</rp><rt>しょくぶつ</rt><rp>)</rp></ruby></strong>（<ruby>維管束<rp>(</rp><rt>いかんそく</rt><rp>)</rp></ruby>なし・<ruby>仮根<rp>(</rp><rt>かこん</rt><rp>)</rp></ruby>）は<ruby>胞子<rp>(</rp><rt>ほうし</rt><rp>)</rp></ruby>でふえる',
+        'マツの花：<ruby>雄花<rp>(</rp><rt>おばな</rt><rp>)</rp></ruby>のりん<ruby>片<rp>(</rp><rt>ぺん</rt><rp>)</rp></ruby>に<ruby>花粉<rp>(</rp><rt>かふん</rt><rp>)</rp></ruby>のう、<ruby>雌花<rp>(</rp><rt>めばな</rt><rp>)</rp></ruby>のりん<ruby>片<rp>(</rp><rt>ぺん</rt><rp>)</rp></ruby>に<ruby>胚珠<rp>(</rp><rt>はいしゅ</rt><rp>)</rp></ruby>がむき出し。<ruby>風<rp>(</rp><rt>かぜ</rt><rp>)</rp></ruby>で<ruby>花粉<rp>(</rp><rt>かふん</rt><rp>)</rp></ruby>が<ruby>運<rp>(</rp><rt>はこ</rt><rp>)</rp></ruby>ばれる',
       ],
     },
   ],

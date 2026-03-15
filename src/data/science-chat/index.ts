@@ -1,4 +1,11 @@
 import type { HistoryChat } from '../history-chat/types';
+// Grade 1: Biology
+import { observationChat } from '../subjects/science/units/grade1/1-biology/topics/1-observation/chat';
+import { microscopeDetailChat } from '../subjects/science/units/grade1/1-biology/topics/2-microscope-detail/chat';
+import { flowerSeedChat } from '../subjects/science/units/grade1/1-biology/topics/3-flower-seed/chat';
+import { plantGroupsChat } from '../subjects/science/units/grade1/1-biology/topics/4-plant-groups/chat';
+import { vertebratesChat } from '../subjects/science/units/grade1/1-biology/topics/5-vertebrates/chat';
+import { invertebratesChat } from '../subjects/science/units/grade1/1-biology/topics/6-invertebrates/chat';
 // Grade 2: Chemical Change
 import { matterCompositionChat } from '../subjects/science/units/grade2/1-chemical-change/topics/1-matter-composition/chat';
 import { chemicalCombinationChat } from '../subjects/science/units/grade2/1-chemical-change/topics/2-chemical-combination/chat';
@@ -52,6 +59,13 @@ import { moonVenusChat } from '../subjects/science/units/grade3/4-earth/topics/2
 import { solarSystemUniverseChat } from '../subjects/science/units/grade3/4-earth/topics/3-solar-system/chat';
 
 const chatMap: Record<string, HistoryChat> = {
+  // Grade 1: Biology
+  [observationChat.id]: observationChat,
+  [microscopeDetailChat.id]: microscopeDetailChat,
+  [flowerSeedChat.id]: flowerSeedChat,
+  [plantGroupsChat.id]: plantGroupsChat,
+  [vertebratesChat.id]: vertebratesChat,
+  [invertebratesChat.id]: invertebratesChat,
   // Grade 2: Chemical Change
   [matterCompositionChat.id]: matterCompositionChat,
   [chemicalCombinationChat.id]: chemicalCombinationChat,

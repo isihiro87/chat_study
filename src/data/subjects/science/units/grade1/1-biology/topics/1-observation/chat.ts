@@ -1,10 +1,10 @@
 import type { HistoryChat } from '../../../../../../../../data/history-chat/types';
 
-export const observationMethodChat: HistoryChat = {
-  id: 'sci1-observation-method',
+export const observationChat: HistoryChat = {
+  id: 'sci1-observation',
   icon: '🔬',
-  title: '生物の観察と分類のしかた',
-  subtitle: '〜中1生物〜 ルーペ・顕微鏡の使い方・スケッチ・分類の基準',
+  title: '観察のしかた',
+  subtitle: '〜中1生物〜 スケッチ・ルーペ・分類の基準',
   characters: [
     {
       id: 'teacher',

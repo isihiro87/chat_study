@@ -1,10 +1,10 @@
 import type { Topic } from '../../../../../../../types';
 
-export const observationMethod: Topic = {
-  id: 'sci1-observation-method',
+export const observation: Topic = {
+  id: 'sci1-observation',
   eraId: 'sci1-biology',
-  name: '生物の観察と分類のしかた',
-  subtitle: 'ルーペ・顕微鏡の使い方・スケッチ・分類の基準',
+  name: '観察のしかた',
+  subtitle: 'スケッチ・ルーペ・分類の基準',
   icon: '🔬',
   order: 1,
   content: {
@@ -53,7 +53,7 @@ export const observationMethod: Topic = {
       ],
       slides: [
         {
-          id: 'sci1-om-slide1',
+          id: 'sci1-obs-slide1',
           title: '観察のしかたとスケッチ',
           slides: [
             {
@@ -88,7 +88,7 @@ export const observationMethod: Topic = {
           ],
         },
         {
-          id: 'sci1-om-slide2',
+          id: 'sci1-obs-slide2',
           title: 'ルーペと顕微鏡の使い方',
           slides: [
             {
@@ -126,7 +126,7 @@ export const observationMethod: Topic = {
           ],
         },
         {
-          id: 'sci1-om-slide3',
+          id: 'sci1-obs-slide3',
           title: '生物の分類のしかた',
           slides: [
             {
@@ -160,45 +160,66 @@ export const observationMethod: Topic = {
     videos: [],
     flashcards: [
       {
-        id: 'sci1-om-fc1',
+        id: 'sci1-obs-fc1',
         front: 'スケッチのルール',
         back: '生物のスケッチで守るべきルールは？',
         explanation:
           '細い1本の線で輪郭を描く。影をつけない。ぬりつぶさない。',
       },
       {
-        id: 'sci1-om-fc2',
+        id: 'sci1-obs-fc2',
         front: 'ルーペの使い方',
         back: 'ルーペで観察するとき、ルーペと観察物のどちらを動かす？',
         explanation:
           'ルーペは目に近づけて固定し、観察するものを前後に動かしてピントを合わせる。',
       },
       {
-        id: 'sci1-om-fc3',
+        id: 'sci1-obs-fc3',
         front: '双眼実体顕微鏡',
         back: '双眼実体顕微鏡の特徴と倍率は？',
         explanation:
           '立体的に観察でき、倍率は20〜40倍程度。プレパラートを使わずに観察できる。',
       },
       {
-        id: 'sci1-om-fc4',
+        id: 'sci1-obs-fc4',
         front: '顕微鏡のレンズの取り付け順',
         back: '顕微鏡のレンズはどの順番で取り付ける？',
         explanation:
-          '接眼レンズを先に取り付け、次に対物レンズを取り付ける。ほこりが入るのを防ぐため。',
+          '接眼レンズを先に取り付けてから対物レンズを取り付ける。ほこりが入るのを防ぐため。',
       },
       {
-        id: 'sci1-om-fc5',
+        id: 'sci1-obs-fc5',
         front: '分類の基準',
         back: '科学的な分類で基準にするのはどのような特徴？',
         explanation:
           '体のつくりなど変化しにくい特徴を基準にする。花の色や大きさなど変化しやすいものは使わない。',
       },
+      {
+        id: 'sci1-obs-fc6',
+        front: '観察記録の項目',
+        back: '生物の観察記録に書くべき項目は？',
+        explanation:
+          '日時・場所・天気・気温・生物名・大きさ・色・形・特徴・スケッチ・気づいたこと。',
+      },
+      {
+        id: 'sci1-obs-fc7',
+        front: 'スケッチの注意点',
+        back: 'スケッチで描いてはいけないものは？',
+        explanation:
+          '影、ぬりつぶし、背景、器具の視野の円は描かない。細い1本の線で輪郭だけを正確に描く。',
+      },
+      {
+        id: 'sci1-obs-fc8',
+        front: '動かせないものの観察',
+        back: 'ルーペで動かせないもの（花壇の花など）を観察するときはどうする？',
+        explanation:
+          'ルーペを目に近づけたまま、自分の顔（体）を前後に動かしてピントを合わせる。',
+      },
     ],
     quiz: {
       questions: [
         {
-          id: 'sci1-om-q1',
+          id: 'sci1-obs-q1',
           question: 'ルーペで観察するとき、正しい方法はどれか？',
           options: [
             'ルーペを観察物に近づけて持つ',
@@ -211,7 +232,7 @@ export const observationMethod: Topic = {
             'ルーペは目に近づけて固定し、観察するものを前後に動かしてピントを合わせます。',
         },
         {
-          id: 'sci1-om-q2',
+          id: 'sci1-obs-q2',
           question: '生物のスケッチについて正しいものはどれか？',
           options: [
             '太い線で描く',
@@ -224,7 +245,7 @@ export const observationMethod: Topic = {
             'スケッチは細い1本の線で輪郭を描き、影はつけません。ぬりつぶしもしません。',
         },
         {
-          id: 'sci1-om-q3',
+          id: 'sci1-obs-q3',
           question: '顕微鏡のレンズを取り付ける正しい順番は？',
           options: [
             '対物レンズ→接眼レンズ',
@@ -237,7 +258,7 @@ export const observationMethod: Topic = {
             '接眼レンズを先に取り付けてから対物レンズを取り付けます。鏡筒の中にほこりが入るのを防ぐためです。',
         },
         {
-          id: 'sci1-om-q4',
+          id: 'sci1-obs-q4',
           question: '顕微鏡で観察を始めるときの倍率はどうするか？',
           options: [
             '高倍率から始める',
@@ -250,7 +271,7 @@ export const observationMethod: Topic = {
             '最初は低倍率で広い範囲を見て観察物を探し、見つけたら倍率を上げて詳しく観察します。',
         },
         {
-          id: 'sci1-om-q5',
+          id: 'sci1-obs-q5',
           question: '科学的な分類で基準にするのに適しているのはどれか？',
           options: [
             '花の色',
@@ -262,12 +283,38 @@ export const observationMethod: Topic = {
           explanation:
             '科学的な分類では、体のつくりなど変化しにくい特徴を基準にします。花の色や大きさは変化しやすいため基準に向きません。',
         },
+        {
+          id: 'sci1-obs-q6',
+          question: '生物を分類するときに注目するのは何か？',
+          options: [
+            '生物の名前の長さ',
+            '共通点と相違点',
+            '発見した順番',
+            '観察した日の天気',
+          ],
+          correctIndex: 1,
+          explanation:
+            '分類するときは共通点と相違点に注目して、同じ特徴をもつものをグループ分けします。',
+        },
+        {
+          id: 'sci1-obs-q7',
+          question: '観察記録に書く項目として適切でないものはどれか？',
+          options: [
+            '観察した日時',
+            '観察した場所',
+            '昨日の夕食のメニュー',
+            '天気と気温',
+          ],
+          correctIndex: 2,
+          explanation:
+            '観察記録には日時・場所・天気・気温・生物名・スケッチ・気づいたことなど、観察に関連する情報を記入します。',
+        },
       ],
     },
     examples: {
       examples: [
         {
-          id: 'sci1-om-ex1',
+          id: 'sci1-obs-ex1',
           question:
             '校庭で見つけた植物を観察記録にまとめなさい。記録に必要な項目を挙げなさい。',
           steps: [
@@ -293,8 +340,35 @@ export const observationMethod: Topic = {
           answer:
             '観察記録には「日時・場所・天気・気温・生物名・スケッチ・気づいたこと」を記入する。',
         },
+        {
+          id: 'sci1-obs-ex2',
+          question:
+            '校庭で見つけた10種類の生物を、体のつくりの特徴をもとに分類しなさい。',
+          steps: [
+            {
+              title: 'Step 1: 大きな基準で分ける',
+              content:
+                'まず「自分で移動できるか」で分けます。移動する＝動物（チョウ、カエル、ダンゴムシなど）、移動しない＝植物（タンポポ、サクラ、コケなど）。',
+              highlight: '移動するか・しないか',
+            },
+            {
+              title: 'Step 2: さらに細かく分ける',
+              content:
+                '植物のグループを「花が咲くか」で分けます。花が咲く（タンポポ、サクラ）、花が咲かない（コケ、シダ）。動物も「足があるか」などで分けられます。',
+              highlight: '段階的に基準を変えて分類',
+            },
+            {
+              title: 'Step 3: 分類の基準を確認',
+              content:
+                '体のつくりなど変化しにくい特徴を基準にします。花の色や大きさは環境で変わるので基準に向きません。',
+              highlight: '変化しにくい特徴を基準にする',
+            },
+          ],
+          answer:
+            '共通点と相違点に注目し、体のつくりなど変化しにくい特徴を基準にして段階的にグループ分けする。',
+        },
       ],
     },
-    chatId: 'sci1-observation-method',
+    chatId: 'sci1-observation',
   },
 };

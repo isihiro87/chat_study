@@ -1,10 +1,10 @@
 import type { HistoryChat } from '../../../../../../../../data/history-chat/types';
 
-export const animalClassificationChat: HistoryChat = {
-  id: 'sci1-animal-classification',
-  icon: '🐾',
-  title: '動物の分類',
-  subtitle: '〜中1生物〜 脊椎動物・無脊椎動物・節足動物・軟体動物',
+export const vertebratesChat: HistoryChat = {
+  id: 'sci1-vertebrates',
+  icon: '🐟',
+  title: '脊椎動物',
+  subtitle: '〜中1生物〜 5つのグループ・恒温動物と変温動物・卵生と胎生',
   characters: [
     {
       id: 'teacher',
@@ -89,6 +89,60 @@ export const animalClassificationChat: HistoryChat = {
     },
     {
       type: 'date',
+      text: '<ruby>体表<rp>(</rp><rt>たいひょう</rt><rp>)</rp></ruby>と<ruby>呼吸法<rp>(</rp><rt>こきゅうほう</rt><rp>)</rp></ruby>のくわしい<ruby>比較<rp>(</rp><rt>ひかく</rt><rp>)</rp></ruby>',
+    },
+    {
+      type: 'narrator',
+      text: '<ruby>脊椎動物<rp>(</rp><rt>せきついどうぶつ</rt><rp>)</rp></ruby>の5グループを<ruby>体表<rp>(</rp><rt>たいひょう</rt><rp>)</rp></ruby>と<ruby>呼吸法<rp>(</rp><rt>こきゅうほう</rt><rp>)</rp></ruby>の観点からくわしく<ruby>比較<rp>(</rp><rt>ひかく</rt><rp>)</rp></ruby>しましょう。',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<ruby>体表<rp>(</rp><rt>たいひょう</rt><rp>)</rp></ruby>を<ruby>比較<rp>(</rp><rt>ひかく</rt><rp>)</rp></ruby>してみよう！<br/><strong><span class="keyword"><ruby>魚類<rp>(</rp><rt>ぎょるい</rt><rp>)</rp></ruby></span></strong>＝<ruby>うろこ<rp>(</rp><rt></rt><rp>)</rp></ruby><br/><strong><span class="keyword"><ruby>両生類<rp>(</rp><rt>りょうせいるい</rt><rp>)</rp></ruby></span></strong>＝しめった<ruby>皮膚<rp>(</rp><rt>ひふ</rt><rp>)</rp></ruby><br/><strong><span class="keyword">ハチュウ<ruby>類<rp>(</rp><rt>るい</rt><rp>)</rp></ruby></span></strong>＝うろこ・こうら<br/><strong><span class="keyword"><ruby>鳥類<rp>(</rp><rt>ちょうるい</rt><rp>)</rp></ruby></span></strong>＝<ruby>羽毛<rp>(</rp><rt>うもう</rt><rp>)</rp></ruby><br/><strong><span class="keyword"><ruby>哺乳類<rp>(</rp><rt>ほにゅうるい</rt><rp>)</rp></ruby></span></strong>＝<ruby>毛<rp>(</rp><rt>け</rt><rp>)</rp></ruby>',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: '<ruby>魚類<rp>(</rp><rt>ぎょるい</rt><rp>)</rp></ruby>もハチュウ<ruby>類<rp>(</rp><rt>るい</rt><rp>)</rp></ruby>もうろこがあるんですね。何が<ruby>違<rp>(</rp><rt>ちが</rt><rp>)</rp></ruby>うんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: 'いい<ruby>質問<rp>(</rp><rt>しつもん</rt><rp>)</rp></ruby>だね！<ruby>魚類<rp>(</rp><rt>ぎょるい</rt><rp>)</rp></ruby>のうろこは水中生活に<ruby>適<rp>(</rp><rt>てき</rt><rp>)</rp></ruby>していて<ruby>薄<rp>(</rp><rt>うす</rt><rp>)</rp></ruby>く、ハチュウ<ruby>類<rp>(</rp><rt>るい</rt><rp>)</rp></ruby>のうろこは<ruby>陸上<rp>(</rp><rt>りくじょう</rt><rp>)</rp></ruby>で<ruby>乾燥<rp>(</rp><rt>かんそう</rt><rp>)</rp></ruby>から体を<ruby>守<rp>(</rp><rt>まも</rt><rp>)</rp></ruby>るために<ruby>硬<rp>(</rp><rt>かた</rt><rp>)</rp></ruby>いんだ',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<ruby>呼吸法<rp>(</rp><rt>こきゅうほう</rt><rp>)</rp></ruby>も整理しよう！<br/><strong><ruby>魚類<rp>(</rp><rt>ぎょるい</rt><rp>)</rp></ruby></strong>＝<strong>えら</strong>だけ<br/><strong><ruby>両生類<rp>(</rp><rt>りょうせいるい</rt><rp>)</rp></ruby></strong>＝子は<strong>えら</strong>→親は<strong><ruby>肺<rp>(</rp><rt>はい</rt><rp>)</rp></ruby>と<ruby>皮膚<rp>(</rp><rt>ひふ</rt><rp>)</rp></ruby></strong><br/>ハチュウ<ruby>類<rp>(</rp><rt>るい</rt><rp>)</rp></ruby>・<ruby>鳥類<rp>(</rp><rt>ちょうるい</rt><rp>)</rp></ruby>・<ruby>哺乳類<rp>(</rp><rt>ほにゅうるい</rt><rp>)</rp></ruby>＝<strong><ruby>肺<rp>(</rp><rt>はい</rt><rp>)</rp></ruby></strong><br/><ruby>両生類<rp>(</rp><rt>りょうせいるい</rt><rp>)</rp></ruby>だけが成長にともなって<ruby>呼吸法<rp>(</rp><rt>こきゅうほう</rt><rp>)</rp></ruby>が変わるのがポイントだよ！',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'surprised',
+      text: '<ruby>両生類<rp>(</rp><rt>りょうせいるい</rt><rp>)</rp></ruby>の<ruby>皮膚<rp>(</rp><rt>ひふ</rt><rp>)</rp></ruby>がしめっているのは、<ruby>皮膚<rp>(</rp><rt>ひふ</rt><rp>)</rp></ruby><ruby>呼吸<rp>(</rp><rt>こきゅう</rt><rp>)</rp></ruby>をするためですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'excited',
+      text: 'その通り！<ruby>皮膚<rp>(</rp><rt>ひふ</rt><rp>)</rp></ruby><ruby>呼吸<rp>(</rp><rt>こきゅう</rt><rp>)</rp></ruby>にはしめった<ruby>皮膚<rp>(</rp><rt>ひふ</rt><rp>)</rp></ruby>が<ruby>必要<rp>(</rp><rt>ひつよう</rt><rp>)</rp></ruby>なんだ。だから<ruby>両生類<rp>(</rp><rt>りょうせいるい</rt><rp>)</rp></ruby>は<ruby>乾燥<rp>(</rp><rt>かんそう</rt><rp>)</rp></ruby>した<ruby>場所<rp>(</rp><rt>ばしょ</rt><rp>)</rp></ruby>では生きにくいんだよ',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">体表</span>：魚類＝うろこ、両生類＝しめった皮膚、ハチュウ類＝うろこ・こうら、鳥類＝羽毛、哺乳類＝毛。<span class="keyword">呼吸法</span>：魚類＝えら、両生類＝子はえら→親は肺と皮膚、それ以外＝肺',
+    },
+    {
+      type: 'date',
       text: '<ruby>恒温動物<rp>(</rp><rt>こうおんどうぶつ</rt><rp>)</rp></ruby>と<ruby>変温動物<rp>(</rp><rt>へんおんどうぶつ</rt><rp>)</rp></ruby>',
     },
     {
@@ -148,78 +202,65 @@ export const animalClassificationChat: HistoryChat = {
     },
     {
       type: 'date',
-      text: '<ruby>無脊椎動物<rp>(</rp><rt>むせきついどうぶつ</rt><rp>)</rp></ruby>',
+      text: '<ruby>卵生<rp>(</rp><rt>らんせい</rt><rp>)</rp></ruby>のくわしい<ruby>違<rp>(</rp><rt>ちが</rt><rp>)</rp></ruby>い',
     },
     {
       type: 'narrator',
-      text: '<ruby>背骨<rp>(</rp><rt>せぼね</rt><rp>)</rp></ruby>をもたない<ruby>動物<rp>(</rp><rt>どうぶつ</rt><rp>)</rp></ruby>を<strong><span class="keyword"><ruby>無脊椎動物<rp>(</rp><rt>むせきついどうぶつ</rt><rp>)</rp></ruby></span></strong>といいます。',
+      text: '<ruby>卵生<rp>(</rp><rt>らんせい</rt><rp>)</rp></ruby>の<ruby>動物<rp>(</rp><rt>どうぶつ</rt><rp>)</rp></ruby>でも、<ruby>卵<rp>(</rp><rt>たまご</rt><rp>)</rp></ruby>の<ruby>特徴<rp>(</rp><rt>とくちょう</rt><rp>)</rp></ruby>にはグループによって大きな<ruby>違<rp>(</rp><rt>ちが</rt><rp>)</rp></ruby>いがあります。',
     },
     {
       type: 'message',
       side: 'left',
       characterId: 'teacher',
       expression: 'explaining',
-      text: '<ruby>無脊椎動物<rp>(</rp><rt>むせきついどうぶつ</rt><rp>)</rp></ruby>の中で大事なのは<strong><span class="keyword"><ruby>節足動物<rp>(</rp><rt>せっそくどうぶつ</rt><rp>)</rp></ruby></span></strong>と<strong><span class="keyword"><ruby>軟体動物<rp>(</rp><rt>なんたいどうぶつ</rt><rp>)</rp></ruby></span></strong>だよ',
+      text: '<ruby>卵生<rp>(</rp><rt>らんせい</rt><rp>)</rp></ruby>の<ruby>動物<rp>(</rp><rt>どうぶつ</rt><rp>)</rp></ruby>は4グループあるけど、<ruby>卵<rp>(</rp><rt>たまご</rt><rp>)</rp></ruby>に<ruby>殻<rp>(</rp><rt>から</rt><rp>)</rp></ruby>があるかないかで2つに分けられるよ',
     },
     {
       type: 'message',
       side: 'right',
       characterId: 'student',
       expression: 'curious',
-      text: '<ruby>節足動物<rp>(</rp><rt>せっそくどうぶつ</rt><rp>)</rp></ruby>ってどんな<ruby>特徴<rp>(</rp><rt>とくちょう</rt><rp>)</rp></ruby>がありますか？',
+      text: '<ruby>殻<rp>(</rp><rt>から</rt><rp>)</rp></ruby>がある<ruby>卵<rp>(</rp><rt>たまご</rt><rp>)</rp></ruby>と<ruby>殻<rp>(</rp><rt>から</rt><rp>)</rp></ruby>がない<ruby>卵<rp>(</rp><rt>たまご</rt><rp>)</rp></ruby>って、どう<ruby>違<rp>(</rp><rt>ちが</rt><rp>)</rp></ruby>うんですか？',
     },
     {
       type: 'message',
       side: 'left',
       characterId: 'teacher',
       expression: 'excited',
-      text: '<ruby>節足動物<rp>(</rp><rt>せっそくどうぶつ</rt><rp>)</rp></ruby>は体が<strong><span class="keyword"><ruby>外骨格<rp>(</rp><rt>がいこっかく</rt><rp>)</rp></ruby></span></strong>でおおわれていて、体やあしに<strong><ruby>節<rp>(</rp><rt>ふし</rt><rp>)</rp></ruby></strong>があるんだ。<br/><strong><span class="keyword"><ruby>昆虫類<rp>(</rp><rt>こんちゅうるい</rt><rp>)</rp></ruby></span></strong>：<ruby>頭<rp>(</rp><rt>あたま</rt><rp>)</rp></ruby>・<ruby>胸<rp>(</rp><rt>むね</rt><rp>)</rp></ruby>・<ruby>腹<rp>(</rp><rt>はら</rt><rp>)</rp></ruby>の3<ruby>部分<rp>(</rp><rt>ぶぶん</rt><rp>)</rp></ruby>、あしは<ruby>胸<rp>(</rp><rt>むね</rt><rp>)</rp></ruby>から<strong>3<ruby>対<rp>(</rp><rt>つい</rt><rp>)</rp></ruby>6本</strong><br/><strong><span class="keyword"><ruby>甲殻類<rp>(</rp><rt>こうかくるい</rt><rp>)</rp></ruby></span></strong>：エビ・カニなど',
-    },
-    {
-      type: 'message',
-      side: 'right',
-      characterId: 'student',
-      expression: 'thinking',
-      text: '<ruby>軟体動物<rp>(</rp><rt>なんたいどうぶつ</rt><rp>)</rp></ruby>はどう<ruby>違<rp>(</rp><rt>ちが</rt><rp>)</rp></ruby>うんですか？',
+      text: '<strong><span class="keyword"><ruby>魚類<rp>(</rp><rt>ぎょるい</rt><rp>)</rp></ruby></span></strong>と<strong><span class="keyword"><ruby>両生類<rp>(</rp><rt>りょうせいるい</rt><rp>)</rp></ruby></span></strong>は<strong><ruby>殻<rp>(</rp><rt>から</rt><rp>)</rp></ruby>のない<ruby>卵<rp>(</rp><rt>たまご</rt><rp>)</rp></ruby></strong>を<strong><ruby>水中<rp>(</rp><rt>すいちゅう</rt><rp>)</rp></ruby></strong>に<ruby>産<rp>(</rp><rt>う</rt><rp>)</rp></ruby>むんだ。ゼリー状で<ruby>乾燥<rp>(</rp><rt>かんそう</rt><rp>)</rp></ruby>に<ruby>弱<rp>(</rp><rt>よわ</rt><rp>)</rp></ruby>いから水中でないと育たない',
     },
     {
       type: 'message',
       side: 'left',
       characterId: 'teacher',
       expression: 'happy',
-      text: '<ruby>軟体動物<rp>(</rp><rt>なんたいどうぶつ</rt><rp>)</rp></ruby>は<ruby>外骨格<rp>(</rp><rt>がいこっかく</rt><rp>)</rp></ruby>がなく、<strong><span class="keyword"><ruby>外<rp>(</rp><rt>がい</rt><rp>)</rp></ruby>とう<ruby>膜<rp>(</rp><rt>まく</rt><rp>)</rp></ruby></span></strong>という<ruby>膜<rp>(</rp><rt>まく</rt><rp>)</rp></ruby>で<ruby>内臓<rp>(</rp><rt>ないぞう</rt><rp>)</rp></ruby>が<ruby>包<rp>(</rp><rt>つつ</rt><rp>)</rp></ruby>まれているんだ。イカ・タコ・アサリ・ハマグリなどがいるよ',
-    },
-    {
-      type: 'image',
-      src: '/images/science/grade1/biology/invertebrate-diversity.png',
-      alt: '無脊椎動物の多様性',
-      caption: '節足動物（甲虫）、軟体動物（イカ）、棘皮動物（ウニ）、環形動物（ミミズ）',
-    },
-    {
-      type: 'image',
-      src: '/images/science/grade1/biology/invertebrate-groups.svg',
-      alt: '無脊椎動物の分類',
-      caption: '節足動物（昆虫類・甲殻類）と軟体動物',
+      text: 'それに<ruby>対<rp>(</rp><rt>たい</rt><rp>)</rp></ruby>して<strong><span class="keyword">ハチュウ<ruby>類<rp>(</rp><rt>るい</rt><rp>)</rp></ruby></span></strong>と<strong><span class="keyword"><ruby>鳥類<rp>(</rp><rt>ちょうるい</rt><rp>)</rp></ruby></span></strong>は<strong><ruby>殻<rp>(</rp><rt>から</rt><rp>)</rp></ruby>のある<ruby>卵<rp>(</rp><rt>たまご</rt><rp>)</rp></ruby></strong>を<strong><ruby>陸上<rp>(</rp><rt>りくじょう</rt><rp>)</rp></ruby></strong>に<ruby>産<rp>(</rp><rt>う</rt><rp>)</rp></ruby>む。<ruby>殻<rp>(</rp><rt>から</rt><rp>)</rp></ruby>があるから<ruby>乾燥<rp>(</rp><rt>かんそう</rt><rp>)</rp></ruby>から守られて、<ruby>陸上<rp>(</rp><rt>りくじょう</rt><rp>)</rp></ruby>でも<ruby>発生<rp>(</rp><rt>はっせい</rt><rp>)</rp></ruby>できるんだ',
     },
     {
       type: 'message',
       side: 'right',
       characterId: 'student',
-      expression: 'happy',
-      text: '<ruby>動物<rp>(</rp><rt>どうぶつ</rt><rp>)</rp></ruby>の<ruby>分類<rp>(</rp><rt>ぶんるい</rt><rp>)</rp></ruby>、よくわかりました！<ruby>背骨<rp>(</rp><rt>せぼね</rt><rp>)</rp></ruby>の有無で大きく分けて、さらに<ruby>細<rp>(</rp><rt>こま</rt><rp>)</rp></ruby>かく分けるんですね！',
+      expression: 'surprised',
+      text: '<ruby>殻<rp>(</rp><rt>から</rt><rp>)</rp></ruby>は<ruby>乾燥<rp>(</rp><rt>かんそう</rt><rp>)</rp></ruby>から守るためにあるんですね！じゃあ<ruby>哺乳類<rp>(</rp><rt>ほにゅうるい</rt><rp>)</rp></ruby>は<ruby>卵<rp>(</rp><rt>たまご</rt><rp>)</rp></ruby>を<ruby>産<rp>(</rp><rt>う</rt><rp>)</rp></ruby>まないんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: 'そう！<ruby>哺乳類<rp>(</rp><rt>ほにゅうるい</rt><rp>)</rp></ruby>だけが<strong><span class="keyword"><ruby>胎生<rp>(</rp><rt>たいせい</rt><rp>)</rp></ruby></span></strong>で、<ruby>母親<rp>(</rp><rt>ははおや</rt><rp>)</rp></ruby>の<ruby>体内<rp>(</rp><rt>たいない</rt><rp>)</rp></ruby>である<ruby>程度<rp>(</rp><rt>ていど</rt><rp>)</rp></ruby><ruby>育<rp>(</rp><rt>そだ</rt><rp>)</rp></ruby>ってから<ruby>生<rp>(</rp><rt>う</rt><rp>)</rp></ruby>まれるんだ。<ruby>生<rp>(</rp><rt>う</rt><rp>)</rp></ruby>まれた後は<strong><ruby>母乳<rp>(</rp><rt>ぼにゅう</rt><rp>)</rp></ruby></strong>で育てるのも<ruby>哺乳類<rp>(</rp><rt>ほにゅうるい</rt><rp>)</rp></ruby>だけの<ruby>特徴<rp>(</rp><rt>とくちょう</rt><rp>)</rp></ruby>だよ',
     },
     {
       type: 'summary-point',
-      text: '<span class="keyword">節足動物</span>＝外骨格、体やあしに節（昆虫類：頭・胸・腹、あし3対6本 ／ 甲殻類：エビ・カニ）。<span class="keyword">軟体動物</span>＝<span class="keyword">外とう膜</span>で内臓を包む（イカ・タコ・アサリ）',
+      text: '<span class="keyword">殻のない卵</span>＝魚類・両生類（水中に産む）。<span class="keyword">殻のある卵</span>＝ハチュウ類・鳥類（陸上に産む）。<span class="keyword">胎生</span>＝哺乳類だけ（母乳で育てる）',
     },
     {
       type: 'end',
       points: [
         '<strong><ruby>脊椎動物<rp>(</rp><rt>せきついどうぶつ</rt><rp>)</rp></ruby></strong>（<ruby>背骨<rp>(</rp><rt>せぼね</rt><rp>)</rp></ruby>あり）：<ruby>魚類<rp>(</rp><rt>ぎょるい</rt><rp>)</rp></ruby>・<ruby>両生類<rp>(</rp><rt>りょうせいるい</rt><rp>)</rp></ruby>・ハチュウ<ruby>類<rp>(</rp><rt>るい</rt><rp>)</rp></ruby>・<ruby>鳥類<rp>(</rp><rt>ちょうるい</rt><rp>)</rp></ruby>・<ruby>哺乳類<rp>(</rp><rt>ほにゅうるい</rt><rp>)</rp></ruby>の5グループ',
+        '<strong><ruby>体表<rp>(</rp><rt>たいひょう</rt><rp>)</rp></ruby></strong>：<ruby>魚類<rp>(</rp><rt>ぎょるい</rt><rp>)</rp></ruby>＝うろこ、<ruby>両生類<rp>(</rp><rt>りょうせいるい</rt><rp>)</rp></ruby>＝しめった<ruby>皮膚<rp>(</rp><rt>ひふ</rt><rp>)</rp></ruby>、ハチュウ<ruby>類<rp>(</rp><rt>るい</rt><rp>)</rp></ruby>＝うろこ・こうら、<ruby>鳥類<rp>(</rp><rt>ちょうるい</rt><rp>)</rp></ruby>＝<ruby>羽毛<rp>(</rp><rt>うもう</rt><rp>)</rp></ruby>、<ruby>哺乳類<rp>(</rp><rt>ほにゅうるい</rt><rp>)</rp></ruby>＝<ruby>毛<rp>(</rp><rt>け</rt><rp>)</rp></ruby>',
         '<strong><ruby>恒温動物<rp>(</rp><rt>こうおんどうぶつ</rt><rp>)</rp></ruby></strong>＝<ruby>鳥類<rp>(</rp><rt>ちょうるい</rt><rp>)</rp></ruby>・<ruby>哺乳類<rp>(</rp><rt>ほにゅうるい</rt><rp>)</rp></ruby>。<strong><ruby>変温動物<rp>(</rp><rt>へんおんどうぶつ</rt><rp>)</rp></ruby></strong>＝<ruby>魚類<rp>(</rp><rt>ぎょるい</rt><rp>)</rp></ruby>・<ruby>両生類<rp>(</rp><rt>りょうせいるい</rt><rp>)</rp></ruby>・ハチュウ<ruby>類<rp>(</rp><rt>るい</rt><rp>)</rp></ruby>',
-        '<strong><ruby>卵生<rp>(</rp><rt>らんせい</rt><rp>)</rp></ruby></strong>＝<ruby>魚類<rp>(</rp><rt>ぎょるい</rt><rp>)</rp></ruby>・<ruby>両生類<rp>(</rp><rt>りょうせいるい</rt><rp>)</rp></ruby>・ハチュウ<ruby>類<rp>(</rp><rt>るい</rt><rp>)</rp></ruby>・<ruby>鳥類<rp>(</rp><rt>ちょうるい</rt><rp>)</rp></ruby>。<strong><ruby>胎生<rp>(</rp><rt>たいせい</rt><rp>)</rp></ruby></strong>＝<ruby>哺乳類<rp>(</rp><rt>ほにゅうるい</rt><rp>)</rp></ruby>だけ',
-        '<strong><ruby>節足動物<rp>(</rp><rt>せっそくどうぶつ</rt><rp>)</rp></ruby></strong>：<ruby>外骨格<rp>(</rp><rt>がいこっかく</rt><rp>)</rp></ruby>・<ruby>節<rp>(</rp><rt>ふし</rt><rp>)</rp></ruby>あり（<ruby>昆虫類<rp>(</rp><rt>こんちゅうるい</rt><rp>)</rp></ruby>：<ruby>頭<rp>(</rp><rt>あたま</rt><rp>)</rp></ruby>・<ruby>胸<rp>(</rp><rt>むね</rt><rp>)</rp></ruby>・<ruby>腹<rp>(</rp><rt>はら</rt><rp>)</rp></ruby>、あし3<ruby>対<rp>(</rp><rt>つい</rt><rp>)</rp></ruby>6本 ／ <ruby>甲殻類<rp>(</rp><rt>こうかくるい</rt><rp>)</rp></ruby>：エビ・カニ）',
-        '<strong><ruby>軟体動物<rp>(</rp><rt>なんたいどうぶつ</rt><rp>)</rp></ruby></strong>：<ruby>外<rp>(</rp><rt>がい</rt><rp>)</rp></ruby>とう<ruby>膜<rp>(</rp><rt>まく</rt><rp>)</rp></ruby>で<ruby>内臓<rp>(</rp><rt>ないぞう</rt><rp>)</rp></ruby>を<ruby>包<rp>(</rp><rt>つつ</rt><rp>)</rp></ruby>む（イカ・タコ・アサリ）',
+        '<strong><ruby>殻<rp>(</rp><rt>から</rt><rp>)</rp></ruby>のない<ruby>卵<rp>(</rp><rt>たまご</rt><rp>)</rp></ruby></strong>＝<ruby>魚類<rp>(</rp><rt>ぎょるい</rt><rp>)</rp></ruby>・<ruby>両生類<rp>(</rp><rt>りょうせいるい</rt><rp>)</rp></ruby>（水中）。<strong><ruby>殻<rp>(</rp><rt>から</rt><rp>)</rp></ruby>のある<ruby>卵<rp>(</rp><rt>たまご</rt><rp>)</rp></ruby></strong>＝ハチュウ<ruby>類<rp>(</rp><rt>るい</rt><rp>)</rp></ruby>・<ruby>鳥類<rp>(</rp><rt>ちょうるい</rt><rp>)</rp></ruby>（<ruby>陸上<rp>(</rp><rt>りくじょう</rt><rp>)</rp></ruby>）。<strong><ruby>胎生<rp>(</rp><rt>たいせい</rt><rp>)</rp></ruby></strong>＝<ruby>哺乳類<rp>(</rp><rt>ほにゅうるい</rt><rp>)</rp></ruby>だけ',
       ],
     },
   ],
