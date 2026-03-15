@@ -1,0 +1,177 @@
+import type { HistoryChat } from '../../../../../../../../data/history-chat/types';
+
+export const waterPressureChat: HistoryChat = {
+  id: 'sci3-water-pressure',
+  icon: '🌊',
+  title: '水圧と浮力',
+  subtitle: '水中ではたらく力',
+  characters: [
+    {
+      id: 'teacher',
+      name: '理科の先生',
+      emoji: '👩‍🏫',
+      colorFrom: '#059669',
+      colorTo: '#34d399',
+      expressions: {
+        explaining: '🧐',
+        happy: '😊',
+        excited: '🤩',
+        thinking: '🤔',
+      },
+    },
+    {
+      id: 'student',
+      name: '生徒',
+      emoji: '👦',
+      colorFrom: '#d97706',
+      colorTo: '#fbbf24',
+      expressions: {
+        curious: '🙋‍♂️',
+        surprised: '😲',
+        thinking: '🤔',
+        happy: '😄',
+      },
+    },
+  ],
+  content: [
+    // === 水圧と浮力 ===
+    {
+      type: 'date',
+      text: '水圧と浮力',
+    },
+    {
+      type: 'narrator',
+      text: '水中では<strong><span class="keyword"><ruby>水圧<rp>(</rp><rt>すいあつ</rt><rp>)</rp></ruby></span></strong>があらゆる方向からはたらきます。水圧の単位は<strong><span class="keyword">パスカル（Pa）</span></strong>です。',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: 'ゴム<ruby>膜<rp>(</rp><rt>まく</rt><rp>)</rp></ruby>を張った容器を水中に沈める実験をしてみよう。深く沈めるほど、ゴム膜のへこみはどうなると思う？',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: '深いほど水圧が大きいから…へこみも大きくなりますか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: '正解！じゃあ同じ深さで、ゴム膜を上向き・横向き・下向きに変えたらどうなる？',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'surprised',
+      text: 'え、下向きが一番大きい…わけじゃなくて、全部同じですか？水圧はあらゆる方向からはたらくから！',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'excited',
+      text: 'すばらしい！水圧は<strong>深いほど大きく</strong>、<strong>あらゆる方向から</strong>等しくはたらくんだ。深くなるほど上にある水の<ruby>重力<rp>(</rp><rt>じゅうりょく</rt><rp>)</rp></ruby>が大きくなるからだよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '水圧と<ruby>浮力<rp>(</rp><rt>ふりょく</rt><rp>)</rp></ruby>はどう関係しているんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '物体の<strong>下面</strong>には上向きの水圧、<strong>上面</strong>には下向きの水圧がはたらく。下面の方が深いから水圧が大きい。この<strong>上下の水圧の差</strong>が<strong><span class="keyword"><ruby>浮力<rp>(</rp><rt>ふりょく</rt><rp>)</rp></ruby></span></strong>なんだ！',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: '左右の水圧はどうなるんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: '左右は同じ深さだから同じ大きさの水圧が<ruby>打<rp>(</rp><rt>う</rt><rp>)</rp></ruby>ち消し合うんだ。だから浮力には<strong>上下の水圧差だけ</strong>が関係するよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '浮力の大きさはどうやって計算するんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: 'ばねばかりを使う実験では、<strong>浮力 = 空気中の値 − 水中の値</strong> で求められるよ。例えば空気中で3Nの物体が、水中で2.2Nを示したら、浮力は0.8Nだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'surprised',
+      text: '浮力は深く沈めるほど大きくなるんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'thinking',
+      text: 'いい質問！完全に水中に沈んでいれば、<strong>深さは関係ない</strong>んだ。浮力の大きさは<strong>水中にある物体の体積</strong>で決まるよ。<ruby>質量<rp>(</rp><rt>しつりょう</rt><rp>)</rp></ruby>にも関係しない！',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'happy',
+      text: 'じゃあ同じ体積なら、鉄でも木でも浮力は同じなんですね！',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'excited',
+      text: 'その通り！そして水面に<ruby>浮<rp>(</rp><rt>う</rt><rp>)</rp></ruby>いている物体は、<strong>浮力 = 重力</strong> でつり合っているんだ。浮力が重力より大きければ浮き上がるし、小さければ<ruby>沈<rp>(</rp><rt>しず</rt><rp>)</rp></ruby>むよ',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">水圧</span>は深いほど大きく、あらゆる方向から。<span class="keyword">浮力</span> = 上下の水圧差 = 空気中の値 − 水中の値。体積に比例し、質量・深さには無関係！',
+    },
+    {
+      type: 'quiz',
+      question: '浮力の大きさに関係するのはどれ？',
+      options: [
+        { letter: 'A', text: '物体の質量', correct: false },
+        { letter: 'B', text: '水中にある物体の体積', correct: true },
+        { letter: 'C', text: '物体を沈める深さ', correct: false },
+        { letter: 'D', text: '水の温度', correct: false },
+      ],
+      explanation:
+        '<strong>正解はB「水中にある物体の体積」</strong>です。浮力は水中にある物体の体積が大きいほど大きくなります。物体の質量や沈める深さには関係しません。',
+    },
+    {
+      type: 'end',
+      points: [
+        '<strong><ruby>水圧<rp>(</rp><rt>すいあつ</rt><rp>)</rp></ruby></strong>は深いほど大きく、あらゆる方向からはたらく。単位はパスカル（Pa）',
+        '<strong><ruby>浮力<rp>(</rp><rt>ふりょく</rt><rp>)</rp></ruby></strong> = 上下の水圧差 = 空気中の値 − 水中の値',
+        '浮力は<strong>水中にある物体の体積</strong>に比例。質量・深さには無関係',
+        '水面に浮いている物体は<strong>浮力 = 重力</strong>でつり合っている',
+      ],
+    },
+  ],
+};

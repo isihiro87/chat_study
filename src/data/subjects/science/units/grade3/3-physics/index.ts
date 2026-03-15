@@ -1,7 +1,9 @@
 import type { Era, Topic } from '../../../../../types';
 import { objectMotion } from './topics/1-object-motion';
 import { forceAction } from './topics/2-force-action';
+import { waterPressure } from './topics/3-water-pressure';
 import { energyWork } from './topics/3-energy-work';
+import { workConversion } from './topics/5-work-energy-conversion';
 
 export const physicsEra: Era = {
   id: 'sci3-physics',
@@ -17,5 +19,7 @@ export const physicsEra: Era = {
 export const physicsTopics: Topic[] = [
   objectMotion,
   forceAction,
+  waterPressure,
   energyWork,
+  workConversion,
 ];

@@ -4,7 +4,7 @@ export const forceActionChat: HistoryChat = {
   id: 'sci3-force-action',
   icon: '💪',
   title: '力のはたらき方',
-  subtitle: '合力と分力・慣性・作用反作用・水圧と浮力',
+  subtitle: '合力と分力・慣性・作用反作用',
   characters: [
     {
       id: 'teacher',
@@ -34,6 +34,7 @@ export const forceActionChat: HistoryChat = {
     },
   ],
   content: [
+    // === セクション1: 力の合成と分解 ===
     {
       type: 'date',
       text: '力の合成と分解',
@@ -54,14 +55,28 @@ export const forceActionChat: HistoryChat = {
       side: 'right',
       characterId: 'student',
       expression: 'curious',
-      text: '平行四辺形の法則ってどうやるんですか？',
+      text: '一直線上の場合は簡単そう！右に3N、右に5Nなら合力は右に8Nですよね？',
     },
     {
       type: 'message',
       side: 'left',
       characterId: 'teacher',
       expression: 'happy',
-      text: '2つの力を2辺とする平行四辺形を作って、その<ruby>対角線<rp>(</rp><rt>たいかくせん</rt><rp>)</rp></ruby>が合力になるんだよ。逆に1つの力を2つに分けるのが<strong>力の<ruby>分解<rp>(</rp><rt>ぶんかい</rt><rp>)</rp></ruby></strong>で、分けた力を<strong><ruby>分力<rp>(</rp><rt>ぶんりょく</rt><rp>)</rp></ruby></strong>というんだ',
+      text: 'その通り！じゃあ右に3N、左に5Nだったら？',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: 'えーと…逆向きだから差で、5−3＝2N。大きい方の向きだから左に2Nですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'excited',
+      text: '完ぺき！角度がある場合は<strong><ruby>平行四辺形<rp>(</rp><rt>へいこうしへんけい</rt><rp>)</rp></ruby>の法則</strong>を使うよ。2つの力を2辺とする平行四辺形を作って、その<ruby>対角線<rp>(</rp><rt>たいかくせん</rt><rp>)</rp></ruby>が合力になるんだ',
     },
     {
       type: 'image',
@@ -70,8 +85,29 @@ export const forceActionChat: HistoryChat = {
       caption: '平行四辺形の法則で合力を求める',
     },
     {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '逆に1つの力を2つに分けることもできるんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: 'それが<strong>力の<ruby>分解<rp>(</rp><rt>ぶんかい</rt><rp>)</rp></ruby></strong>だよ。分けた力を<strong><span class="keyword"><ruby>分力<rp>(</rp><rt>ぶんりょく</rt><rp>)</rp></ruby></span></strong>という。<ruby>斜面<rp>(</rp><rt>しゃめん</rt><rp>)</rp></ruby>上の物体にはたらく重力を「斜面に<ruby>平行<rp>(</rp><rt>へいこう</rt><rp>)</rp></ruby>な方向」と「斜面に<ruby>垂直<rp>(</rp><rt>すいちょく</rt><rp>)</rp></ruby>な方向」に分解するのが大事！',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'surprised',
+      text: '斜面が急だと物が速く滑り落ちるのは、斜面に平行な分力が大きくなるからなんですね！',
+    },
+    {
       type: 'summary-point',
-      text: '<span class="keyword">合力</span> = 平行四辺形の対角線。<span class="keyword">分力</span> = 1つの力を2つに分解！',
+      text: '<span class="keyword">合力</span> = 平行四辺形の対角線。一直線上なら同じ向きは和、逆向きは差。<span class="keyword">分力</span> = 1つの力を2つに分解。斜面が急なほど平行な分力が大きい！',
     },
     {
       type: 'quiz',
@@ -85,12 +121,18 @@ export const forceActionChat: HistoryChat = {
       explanation:
         '<strong>正解はC「<ruby>平行四辺形<rp>(</rp><rt>へいこうしへんけい</rt><rp>)</rp></ruby>の<ruby>法則<rp>(</rp><rt>ほうそく</rt><rp>)</rp></ruby>」</strong>です。2つの力を2辺とする平行四辺形を作り、その<ruby>対角線<rp>(</rp><rt>たいかくせん</rt><rp>)</rp></ruby>が合力を表します。',
     },
+
+    // === セクション2: 慣性の法則と作用・反作用 ===
+    {
+      type: 'date',
+      text: '慣性の法則と作用・反作用',
+    },
     {
       type: 'message',
       side: 'left',
       characterId: 'teacher',
       expression: 'explaining',
-      text: '次に<strong><ruby>慣性<rp>(</rp><rt>かんせい</rt><rp>)</rp></ruby>の<ruby>法則<rp>(</rp><rt>ほうそく</rt><rp>)</rp></ruby></strong>を学ぼう。物体に力がはたらかない（合力が0）とき、物体はどうなると思う？',
+      text: '次に<strong><span class="keyword"><ruby>慣性<rp>(</rp><rt>かんせい</rt><rp>)</rp></ruby>の<ruby>法則<rp>(</rp><rt>ほうそく</rt><rp>)</rp></ruby></span></strong>を学ぼう。物体に力がはたらかない（合力が0）とき、物体はどうなると思う？',
     },
     {
       type: 'message',
@@ -104,11 +146,39 @@ export const forceActionChat: HistoryChat = {
       side: 'left',
       characterId: 'teacher',
       expression: 'excited',
-      text: '静止している物体は静止し続け、運動している物体は<ruby>等速直線運動<rp>(</rp><rt>とうそくちょくせんうんどう</rt><rp>)</rp></ruby>を続けるんだ！電車が急ブレーキをかけたとき体が前に倒れるのも<strong>慣性</strong>だよ',
+      text: '静止している物体は静止し続け、運動している物体は<ruby>等速直線運動<rp>(</rp><rt>とうそくちょくせんうんどう</rt><rp>)</rp></ruby>を続けるんだ！これを<strong>慣性の法則</strong>（運動の第1法則）というよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '身近な例ってありますか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: '電車が急ブレーキをかけたとき体が<strong>前</strong>に倒れるよね？これは<strong><span class="keyword">慣性</span></strong>で体が前に進み続けようとするからだよ。急に発車すると<strong>後ろ</strong>に倒れるのも同じ原理！',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'surprised',
+      text: 'だるま落としも慣性なんですか？たたいた段だけ飛び出して上のだるまは落ちないですよね！',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: 'そうだよ！上のだるまは慣性で<ruby>静止<rp>(</rp><rt>せいし</rt><rp>)</rp></ruby>し続けようとするから、その場にとどまるんだ。テーブルクロス引きも同じ原理だね',
     },
     {
       type: 'narrator',
-      text: '物体がもとの<ruby>運動状態<rp>(</rp><rt>うんどうじょうたい</rt><rp>)</rp></ruby>を続けようとする性質を<strong><span class="keyword"><ruby>慣性<rp>(</rp><rt>かんせい</rt><rp>)</rp></ruby></span></strong>といいます。これは<strong><span class="keyword">慣性の法則</span></strong>（運動の第1法則）として知られています。',
+      text: '物体がもとの<ruby>運動状態<rp>(</rp><rt>うんどうじょうたい</rt><rp>)</rp></ruby>を続けようとする性質を<strong><span class="keyword"><ruby>慣性<rp>(</rp><rt>かんせい</rt><rp>)</rp></ruby></span></strong>といいます。',
     },
     {
       type: 'image',
@@ -118,7 +188,7 @@ export const forceActionChat: HistoryChat = {
     },
     {
       type: 'summary-point',
-      text: '<span class="keyword">慣性の法則</span> = 合力0なら静止→静止、運動→等速直線運動を続ける！',
+      text: '<span class="keyword">慣性の法則</span> = 合力0なら静止→静止、運動→等速直線運動を続ける！電車のブレーキ・だるま落としは慣性の例！',
     },
     {
       type: 'message',
@@ -132,7 +202,7 @@ export const forceActionChat: HistoryChat = {
       side: 'left',
       characterId: 'teacher',
       expression: 'explaining',
-      text: '<ruby>壁<rp>(</rp><rt>かべ</rt><rp>)</rp></ruby>を押すと手が押し返されるよね？AがBに力を加えると、BからAに<strong>同じ大きさ・逆向き</strong>の力がはたらく。これが<strong>作用・反作用の法則</strong>だよ',
+      text: '<ruby>壁<rp>(</rp><rt>かべ</rt><rp>)</rp></ruby>を押すと手が押し返されるよね？AがBに力を加えると、BからAに<strong>同じ大きさ・逆向き</strong>の力がはたらく。これが<strong><span class="keyword">作用・反作用の法則</span></strong>（運動の第3法則）だよ',
     },
     {
       type: 'message',
@@ -146,42 +216,38 @@ export const forceActionChat: HistoryChat = {
       side: 'left',
       characterId: 'teacher',
       expression: 'thinking',
-      text: 'いい質問だね！つり合いは<strong>同じ物体</strong>に<ruby>はたらく<rp></rp><rt></rt><rp></rp></ruby>2力だけど、作用・反作用は<strong>別々の物体</strong>にはたらく2力なんだ',
-    },
-    {
-      type: 'narrator',
-      text: '水中では<strong><span class="keyword"><ruby>水圧<rp>(</rp><rt>すいあつ</rt><rp>)</rp></ruby></span></strong>があらゆる方向からはたらきます。<ruby>深<rp>(</rp><rt>ふか</rt><rp>)</rp></ruby>いほど水圧は大きく、物体の上下の水圧の差が<strong><span class="keyword"><ruby>浮力<rp>(</rp><rt>ふりょく</rt><rp>)</rp></ruby></span></strong>を生みます。',
+      text: 'いい質問だね！<strong>つり合い</strong>は<strong>同じ物体</strong>にはたらく2力だけど、<strong>作用・反作用</strong>は<strong>別々の物体</strong>にはたらく2力なんだ。これはテストでよく出るポイントだよ！',
     },
     {
       type: 'message',
       side: 'right',
       characterId: 'student',
       expression: 'happy',
-      text: '浮力は上下の水圧差なんですね！深く<ruby>沈<rp>(</rp><rt>しず</rt><rp>)</rp></ruby>めるほど下からの水圧が大きいから浮こうとするんだ',
+      text: 'なるほど！ロケットが飛ぶのも作用・反作用ですか？ガスを下に<ruby>噴射<rp>(</rp><rt>ふんしゃ</rt><rp>)</rp></ruby>すると、ロケットが上に押し返されるんですね！',
     },
     {
       type: 'summary-point',
-      text: '<span class="keyword">作用・反作用</span> = 別々の物体に同じ大きさ・逆向き。<span class="keyword">浮力</span> = 上下の水圧差！',
+      text: '<span class="keyword">作用・反作用</span> = 同じ大きさ・逆向き・<strong>別々の物体</strong>にはたらく。つり合いは<strong>同じ物体</strong>にはたらく！',
     },
     {
       type: 'quiz',
-      question: '作用・反作用の法則で正しいのはどれ？',
+      question: '作用・反作用の法則とつり合いの違いとして正しいのはどれ？',
       options: [
-        { letter: 'A', text: '同じ物体にはたらく', correct: false },
-        { letter: 'B', text: '大きさが異なる', correct: false },
-        { letter: 'C', text: '同じ向きにはたらく', correct: false },
-        { letter: 'D', text: '同じ大きさで逆向きにはたらく', correct: true },
+        { letter: 'A', text: '作用・反作用は大きさが異なる', correct: false },
+        { letter: 'B', text: 'つり合いは別々の物体にはたらく', correct: false },
+        { letter: 'C', text: '作用・反作用は別々の物体にはたらく', correct: true },
+        { letter: 'D', text: 'どちらも同じ物体にはたらく', correct: false },
       ],
       explanation:
-        '<strong>正解はD「同じ大きさで逆向きにはたらく」</strong>です。<ruby>作用<rp>(</rp><rt>さよう</rt><rp>)</rp></ruby>と<ruby>反作用<rp>(</rp><rt>はんさよう</rt><rp>)</rp></ruby>は同じ大きさ・逆向き・一直線上で、<strong>別々の物体</strong>にはたらきます。',
+        '<strong>正解はC「作用・反作用は別々の物体にはたらく」</strong>です。つり合いは同じ物体にはたらく2力、作用・反作用は別々の物体にはたらく2力です。',
     },
+
     {
       type: 'end',
       points: [
-        '<strong><ruby>合力<rp>(</rp><rt>ごうりょく</rt><rp>)</rp></ruby></strong>は<ruby>平行四辺形<rp>(</rp><rt>へいこうしへんけい</rt><rp>)</rp></ruby>の法則で求める。<strong><ruby>分力<rp>(</rp><rt>ぶんりょく</rt><rp>)</rp></ruby></strong>は1つの力を2つに分解',
-        '<strong><ruby>慣性<rp>(</rp><rt>かんせい</rt><rp>)</rp></ruby>の法則</strong>：合力0なら<ruby>静止<rp>(</rp><rt>せいし</rt><rp>)</rp></ruby>し続ける or <ruby>等速直線運動<rp>(</rp><rt>とうそくちょくせんうんどう</rt><rp>)</rp></ruby>を続ける',
-        '<strong>作用・反作用</strong>：同じ大きさ・逆向き・別々の物体にはたらく',
-        '<strong><ruby>水圧<rp>(</rp><rt>すいあつ</rt><rp>)</rp></ruby></strong>は深いほど大。<strong><ruby>浮力<rp>(</rp><rt>ふりょく</rt><rp>)</rp></ruby></strong> = 上下の水圧差',
+        '<strong><ruby>合力<rp>(</rp><rt>ごうりょく</rt><rp>)</rp></ruby></strong>は<ruby>平行四辺形<rp>(</rp><rt>へいこうしへんけい</rt><rp>)</rp></ruby>の法則で求める。一直線上なら同じ向き=和、逆向き=差。<strong><ruby>分力<rp>(</rp><rt>ぶんりょく</rt><rp>)</rp></ruby></strong>は1つの力を2つに分解',
+        '<strong><ruby>慣性<rp>(</rp><rt>かんせい</rt><rp>)</rp></ruby>の法則</strong>：合力0なら<ruby>静止<rp>(</rp><rt>せいし</rt><rp>)</rp></ruby>し続ける or <ruby>等速直線運動<rp>(</rp><rt>とうそくちょくせんうんどう</rt><rp>)</rp></ruby>を続ける。電車のブレーキ・だるま落としが代表例',
+        '<strong>作用・反作用</strong>：同じ大きさ・逆向き・<strong>別々の物体</strong>にはたらく（つり合いは同じ物体）',
       ],
     },
   ],

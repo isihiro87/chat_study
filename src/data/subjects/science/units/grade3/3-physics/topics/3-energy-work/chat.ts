@@ -3,8 +3,8 @@ import type { HistoryChat } from '../../../../../../../../data/history-chat/type
 export const energyWorkChat: HistoryChat = {
   id: 'sci3-energy-work',
   icon: '⚡',
-  title: 'エネルギーと仕事',
-  subtitle: '力学的エネルギー・仕事の原理・変換効率',
+  title: 'エネルギーと力学的エネルギー',
+  subtitle: 'エネルギーの種類・力学的エネルギーの保存',
   characters: [
     {
       id: 'teacher',
@@ -34,13 +34,67 @@ export const energyWorkChat: HistoryChat = {
     },
   ],
   content: [
+    // ===== Section 1: エネルギーの種類と力学的エネルギー =====
     {
       type: 'date',
-      text: '力学的エネルギーの保存',
+      text: 'エネルギーの種類と力学的エネルギー',
     },
     {
       type: 'narrator',
-      text: '<ruby>運動<rp>(</rp><rt>うんどう</rt><rp>)</rp></ruby>している物体がもつエネルギーを<strong><span class="keyword"><ruby>運動<rp>(</rp><rt>うんどう</rt><rp>)</rp></ruby>エネルギー</span></strong>、高い<ruby>位置<rp>(</rp><rt>いち</rt><rp>)</rp></ruby>にある物体がもつエネルギーを<strong><span class="keyword"><ruby>位置<rp>(</rp><rt>いち</rt><rp>)</rp></ruby>エネルギー</span></strong>といいます。この2つの和が<strong><span class="keyword"><span data-tooltip="運動エネルギーと位置エネルギーの合計。摩擦がなければ一定に保存される"><ruby>力学的<rp>(</rp><rt>りきがくてき</rt><rp>)</rp></ruby>エネルギー</span></span></strong>です。',
+      text: '<span class="keyword">エネルギー</span>とは、他の物体に<ruby>仕事<rp>(</rp><rt>しごと</rt><rp>)</rp></ruby>をする<ruby>能力<rp>(</rp><rt>のうりょく</rt><rp>)</rp></ruby>のことです。エネルギーにはさまざまな種類があり、<strong><span class="keyword"><ruby>電気<rp>(</rp><rt>でんき</rt><rp>)</rp></ruby>エネルギー</span></strong>、<strong><span class="keyword"><ruby>化学<rp>(</rp><rt>かがく</rt><rp>)</rp></ruby>エネルギー</span></strong>、<strong><span class="keyword">光エネルギー</span></strong>、<strong><span class="keyword"><ruby>熱<rp>(</rp><rt>ねつ</rt><rp>)</rp></ruby>エネルギー</span></strong>、<strong><span class="keyword">音エネルギー</span></strong>、<strong><span class="keyword"><ruby>弾性<rp>(</rp><rt>だんせい</rt><rp>)</rp></ruby>エネルギー</span></strong>などがあります。',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: 'まず「エネルギー」って何だと思う？理科では<strong>「他の物体に仕事をする能力」</strong>のことをエネルギーというんだよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '仕事をする能力...？電気とか熱とかもエネルギーなんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: 'そう！<strong>電気・化学・光・熱・音・<ruby>弾性<rp>(</rp><rt>だんせい</rt><rp>)</rp></ruby></strong>...いろいろな種類があるよ。たとえば<ruby>燃料<rp>(</rp><rt>ねんりょう</rt><rp>)</rp></ruby>や食べ物がもつエネルギーは<strong><ruby>化学<rp>(</rp><rt>かがく</rt><rp>)</rp></ruby>エネルギー</strong>、バネが<ruby>縮<rp>(</rp><rt>ちぢ</rt><rp>)</rp></ruby>んだときのエネルギーは<strong>弾性エネルギー</strong>だね',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'surprised',
+      text: 'そんなにたくさんあるんですね！じゃあ動いている物体もエネルギーをもっているんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'excited',
+      text: 'いい質問！<ruby>運動<rp>(</rp><rt>うんどう</rt><rp>)</rp></ruby>している物体がもつエネルギーを<strong>運動エネルギー</strong>というんだ。<strong>速さが大きいほど</strong>、そして<strong>質量が大きいほど</strong>、運動エネルギーは大きくなるよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: 'なるほど！トラックと自転車が同じ速さなら、重いトラックの方が運動エネルギーが大きいんですね',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: 'その通り！もう一つ大事なのが<strong><ruby>位置<rp>(</rp><rt>いち</rt><rp>)</rp></ruby>エネルギー</strong>。高い場所にある物体がもつエネルギーだよ。<strong>高さが高いほど</strong>、<strong>質量が大きいほど</strong>大きくなるんだ',
+    },
+    {
+      type: 'narrator',
+      text: '<ruby>運動<rp>(</rp><rt>うんどう</rt><rp>)</rp></ruby>エネルギーと<ruby>位置<rp>(</rp><rt>いち</rt><rp>)</rp></ruby>エネルギーの和を<strong><span class="keyword"><span data-tooltip="運動エネルギーと位置エネルギーの合計。摩擦がなければ一定に保存される"><ruby>力学的<rp>(</rp><rt>りきがくてき</rt><rp>)</rp></ruby>エネルギー</span></span></strong>といいます。<ruby>摩擦<rp>(</rp><rt>まさつ</rt><rp>)</rp></ruby>や<ruby>空気抵抗<rp>(</rp><rt>くうきていこう</rt><rp>)</rp></ruby>がなければ、力学的エネルギーは<strong>一定に<ruby>保存<rp>(</rp><rt>ほぞん</rt><rp>)</rp></ruby></strong>されます（<span class="keyword">力学的エネルギーの保存</span>）。',
     },
     {
       type: 'message',
@@ -54,24 +108,24 @@ export const energyWorkChat: HistoryChat = {
       side: 'right',
       characterId: 'student',
       expression: 'curious',
-      text: 'はい！高い所では<ruby>位置<rp>(</rp><rt>いち</rt><rp>)</rp></ruby>エネルギーが大きくて、低い所では<ruby>運動<rp>(</rp><rt>うんどう</rt><rp>)</rp></ruby>エネルギーが大きいんですか？',
+      text: 'はい！高い所では<ruby>位置<rp>(</rp><rt>いち</rt><rp>)</rp></ruby>エネルギーが大きくて、低い所では<ruby>運動<rp>(</rp><rt>うんどう</rt><rp>)</rp></ruby>エネルギーが大きいんですね！',
     },
     {
       type: 'message',
       side: 'left',
       characterId: 'teacher',
       expression: 'excited',
-      text: 'その通り！位置エネルギーが運動エネルギーに<ruby>変換<rp>(</rp><rt>へんかん</rt><rp>)</rp></ruby>されるんだ。でも2つの合計（<strong>力学的エネルギー</strong>）は<ruby>摩擦<rp>(</rp><rt>まさつ</rt><rp>)</rp></ruby>がなければ<strong>一定</strong>に<ruby>保存<rp>(</rp><rt>ほぞん</rt><rp>)</rp></ruby>されるんだよ',
+      text: 'その通り！ジェットコースターも同じ原理だよ。でも実際には<ruby>摩擦<rp>(</rp><rt>まさつ</rt><rp>)</rp></ruby>があるから、力学的エネルギーは少しずつ<strong>減少</strong>するんだ。その分は<strong>熱</strong>や<strong>音</strong>のエネルギーに変わっているんだよ',
     },
     {
       type: 'image',
       src: '/images/science/grade3/physics/mechanical-energy.svg',
       alt: '力学的エネルギーの保存',
-      caption: '位置エネルギーと運動エネルギーの和は一定',
+      caption: '振り子では位置エネルギーと運動エネルギーが相互に変換される',
     },
     {
       type: 'summary-point',
-      text: '<span class="keyword">力学的エネルギー</span> = 運動E + 位置E は常に一定（保存される）！',
+      text: '<span class="keyword">力学的エネルギー</span> = 運動E + 位置E。摩擦なしなら保存される。摩擦があると熱・音に変わり減少する！',
     },
     {
       type: 'quiz',
@@ -85,116 +139,14 @@ export const energyWorkChat: HistoryChat = {
       explanation:
         '<strong>正解はC</strong>です。<ruby>摩擦<rp>(</rp><rt>まさつ</rt><rp>)</rp></ruby>や<ruby>空気抵抗<rp>(</rp><rt>くうきていこう</rt><rp>)</rp></ruby>がなければ、<ruby>運動<rp>(</rp><rt>うんどう</rt><rp>)</rp></ruby>エネルギーと<ruby>位置<rp>(</rp><rt>いち</rt><rp>)</rp></ruby>エネルギーの和（<ruby>力学的<rp>(</rp><rt>りきがくてき</rt><rp>)</rp></ruby>エネルギー）は一定に<ruby>保存<rp>(</rp><rt>ほぞん</rt><rp>)</rp></ruby>されます。',
     },
-    {
-      type: 'message',
-      side: 'left',
-      characterId: 'teacher',
-      expression: 'explaining',
-      text: '次は「<ruby>仕事<rp>(</rp><rt>しごと</rt><rp>)</rp></ruby>」について学ぼう。理科でいう仕事は、<strong>力を加えて物体をその力の向きに動かすこと</strong>だよ',
-    },
-    {
-      type: 'message',
-      side: 'right',
-      characterId: 'student',
-      expression: 'thinking',
-      text: 'どうやって計算するんですか？',
-    },
-    {
-      type: 'message',
-      side: 'left',
-      characterId: 'teacher',
-      expression: 'happy',
-      text: '<strong>仕事[J] = 力の大きさ[N] × 力の向きに動いた距離[m]</strong> で計算するよ。3Nの力で2m動かしたら 3×2 = 6J だね',
-    },
-    {
-      type: 'narrator',
-      text: '<ruby>滑車<rp>(</rp><rt>かっしゃ</rt><rp>)</rp></ruby>やてこなどの<ruby>道具<rp>(</rp><rt>どうぐ</rt><rp>)</rp></ruby>を使うと力は小さくてすみますが、その分<ruby>距離<rp>(</rp><rt>きょり</rt><rp>)</rp></ruby>が長くなります。結局、仕事の<ruby>総量<rp>(</rp><rt>そうりょう</rt><rp>)</rp></ruby>は変わりません。これを<strong><span class="keyword"><span data-tooltip="道具を使っても使わなくても、仕事の総量は変わらないという原理">仕事の<ruby>原理<rp>(</rp><rt>げんり</rt><rp>)</rp></ruby></span></span></strong>といいます。',
-    },
-    {
-      type: 'message',
-      side: 'right',
-      characterId: 'student',
-      expression: 'surprised',
-      text: '力が半分になっても距離が2倍なら同じ仕事なんですね！ラクできると思ったのに...',
-    },
-    {
-      type: 'image',
-      src: '/images/science/grade3/physics/pulley-work.png',
-      alt: '定滑車と動滑車のしくみ',
-      caption: '定滑車は力の向きを変え、動滑車は力を半分にする（距離は2倍）',
-    },
-    {
-      type: 'message',
-      side: 'left',
-      characterId: 'teacher',
-      expression: 'thinking',
-      text: 'でも1秒あたりの仕事の大きさ = <strong><ruby>仕事率<rp>(</rp><rt>しごとりつ</rt><rp>)</rp></ruby>[W]</strong>は違うよ。速くできれば仕事率は大きくなるんだ。仕事率 = 仕事 ÷ 時間 で求めるよ',
-    },
-    {
-      type: 'summary-point',
-      text: '<span class="keyword">仕事</span> = 力 × 距離[J]。<span class="keyword">仕事の原理</span>：道具を使っても仕事は同じ！',
-    },
-    {
-      type: 'message',
-      side: 'left',
-      characterId: 'teacher',
-      expression: 'explaining',
-      text: '最後にエネルギーの<ruby>変換<rp>(</rp><rt>へんかん</rt><rp>)</rp></ruby>を学ぼう。電気エネルギーは<ruby>熱<rp>(</rp><rt>ねつ</rt><rp>)</rp></ruby>・光・運動エネルギーなどに変換できるけど、すべてが有効に使われるわけじゃないんだ',
-    },
-    {
-      type: 'message',
-      side: 'right',
-      characterId: 'student',
-      expression: 'curious',
-      text: '<ruby>白熱電球<rp>(</rp><rt>はくねつでんきゅう</rt><rp>)</rp></ruby>が<ruby>熱<rp>(</rp><rt>あつ</rt><rp>)</rp></ruby>くなるのは、電気エネルギーが熱に変わっているからですか？',
-    },
-    {
-      type: 'message',
-      side: 'left',
-      characterId: 'teacher',
-      expression: 'excited',
-      text: 'その通り！有効に利用できる<ruby>割合<rp>(</rp><rt>わりあい</rt><rp>)</rp></ruby>を<strong><ruby>変換効率<rp>(</rp><rt>へんかんこうりつ</rt><rp>)</rp></ruby></strong>というよ。でもエネルギーの<ruby>総量<rp>(</rp><rt>そうりょう</rt><rp>)</rp></ruby>は変わらない。これが<strong>エネルギー<ruby>保存<rp>(</rp><rt>ほぞん</rt><rp>)</rp></ruby>の法則</strong>だね',
-    },
-    {
-      type: 'narrator',
-      text: '<ruby>熱<rp>(</rp><rt>ねつ</rt><rp>)</rp></ruby>の伝わり方には3つあります。物質中を伝わる<strong><span class="keyword"><ruby>伝導<rp>(</rp><rt>でんどう</rt><rp>)</rp></ruby></span></strong>、<ruby>液体<rp>(</rp><rt>えきたい</rt><rp>)</rp></ruby>や<ruby>気体<rp>(</rp><rt>きたい</rt><rp>)</rp></ruby>の流れによる<strong><span class="keyword"><ruby>対流<rp>(</rp><rt>たいりゅう</rt><rp>)</rp></ruby></span></strong>、<ruby>電磁波<rp>(</rp><rt>でんじは</rt><rp>)</rp></ruby>による<strong><span class="keyword"><ruby>放射<rp>(</rp><rt>ほうしゃ</rt><rp>)</rp></ruby></span></strong>です。',
-    },
-    {
-      type: 'image',
-      src: '/images/science/grade3/physics/energy-conversion.svg',
-      alt: 'エネルギーの変換',
-      caption: 'エネルギーはさまざまな形に変換される',
-    },
-    {
-      type: 'message',
-      side: 'right',
-      characterId: 'student',
-      expression: 'happy',
-      text: '<ruby>太陽<rp>(</rp><rt>たいよう</rt><rp>)</rp></ruby>の熱が<ruby>宇宙<rp>(</rp><rt>うちゅう</rt><rp>)</rp></ruby>を通って届くのは放射ですね！空気がなくても伝わるんだ',
-    },
-    {
-      type: 'summary-point',
-      text: '<span class="keyword">エネルギー保存の法則</span>：変換されても総量は一定！<span class="keyword">変換効率</span>で有効利用の割合がわかる',
-    },
-    {
-      type: 'quiz',
-      question: '3Nの力で物体を2m持ち上げたときの仕事は？',
-      options: [
-        { letter: 'A', text: '1.5J', correct: false },
-        { letter: 'B', text: '5J', correct: false },
-        { letter: 'C', text: '6J', correct: true },
-        { letter: 'D', text: '9J', correct: false },
-      ],
-      explanation:
-        '<strong>正解はC「6J」</strong>です。<ruby>仕事<rp>(</rp><rt>しごと</rt><rp>)</rp></ruby> = 力の大きさ × 力の向きに動いた<ruby>距離<rp>(</rp><rt>きょり</rt><rp>)</rp></ruby> = 3N × 2m = 6J です。',
-    },
+
     {
       type: 'end',
       points: [
-        '<strong><ruby>力学的<rp>(</rp><rt>りきがくてき</rt><rp>)</rp></ruby>エネルギー</strong> = <ruby>運動<rp>(</rp><rt>うんどう</rt><rp>)</rp></ruby>エネルギー + <ruby>位置<rp>(</rp><rt>いち</rt><rp>)</rp></ruby>エネルギー（<ruby>摩擦<rp>(</rp><rt>まさつ</rt><rp>)</rp></ruby>なしなら<ruby>保存<rp>(</rp><rt>ほぞん</rt><rp>)</rp></ruby>）',
-        '<strong><ruby>仕事<rp>(</rp><rt>しごと</rt><rp>)</rp></ruby></strong>[J] = 力[N] × 距離[m]。<strong>仕事の<ruby>原理<rp>(</rp><rt>げんり</rt><rp>)</rp></ruby></strong>：道具を使っても仕事は同じ',
-        '<strong><ruby>仕事率<rp>(</rp><rt>しごとりつ</rt><rp>)</rp></ruby></strong>[W] = 仕事[J] ÷ 時間[s]',
-        '<strong>エネルギー保存の法則</strong>：<ruby>変換<rp>(</rp><rt>へんかん</rt><rp>)</rp></ruby>されても総量は一定。熱の伝わり方は<ruby>伝導<rp>(</rp><rt>でんどう</rt><rp>)</rp></ruby>・<ruby>対流<rp>(</rp><rt>たいりゅう</rt><rp>)</rp></ruby>・<ruby>放射<rp>(</rp><rt>ほうしゃ</rt><rp>)</rp></ruby>',
+        'エネルギーは<strong>仕事をする能力</strong>。電気・化学・光・熱・音・<ruby>弾性<rp>(</rp><rt>だんせい</rt><rp>)</rp></ruby>など種類は多い',
+        '<strong><ruby>運動<rp>(</rp><rt>うんどう</rt><rp>)</rp></ruby>エネルギー</strong>：速さが大きいほど、質量が大きいほど大きい',
+        '<strong><ruby>位置<rp>(</rp><rt>いち</rt><rp>)</rp></ruby>エネルギー</strong>：高さが高いほど、質量が大きいほど大きい',
+        '<strong><ruby>力学的<rp>(</rp><rt>りきがくてき</rt><rp>)</rp></ruby>エネルギー</strong> = 運動E + 位置E。<ruby>摩擦<rp>(</rp><rt>まさつ</rt><rp>)</rp></ruby>がなければ<ruby>保存<rp>(</rp><rt>ほぞん</rt><rp>)</rp></ruby>される',
       ],
     },
   ],
