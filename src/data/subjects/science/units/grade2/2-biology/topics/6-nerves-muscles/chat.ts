@@ -1,10 +1,10 @@
 import type { HistoryChat } from '../../../../../../../../data/history-chat/types';
 
-export const stimuliResponseChat: HistoryChat = {
-  id: 'sci2-stimuli-response',
+export const nervesMusclesChat: HistoryChat = {
+  id: 'sci2-nerves',
   icon: '⚡',
-  title: '刺激と反応',
-  subtitle: '〜中2生物〜 感覚器官・神経系・反射・骨と筋肉',
+  title: '神経と運動',
+  subtitle: '〜中2生物〜 神経系・反射・骨と筋肉',
   characters: [
     {
       id: 'teacher',
@@ -34,45 +34,6 @@ export const stimuliResponseChat: HistoryChat = {
     },
   ],
   content: [
-    {
-      type: 'date',
-      text: '<ruby>刺激<rp>(</rp><rt>しげき</rt><rp>)</rp></ruby>の受けとり',
-    },
-    {
-      type: 'narrator',
-      text: '<ruby>外界<rp>(</rp><rt>がいかい</rt><rp>)</rp></ruby>からの<ruby>刺激<rp>(</rp><rt>しげき</rt><rp>)</rp></ruby>を受けとり、<ruby>反応<rp>(</rp><rt>はんのう</rt><rp>)</rp></ruby>するしくみについて学びましょう。',
-    },
-    {
-      type: 'message',
-      side: 'left',
-      characterId: 'teacher',
-      expression: 'explaining',
-      text: '<ruby>光<rp>(</rp><rt>ひかり</rt><rp>)</rp></ruby>や<ruby>音<rp>(</rp><rt>おと</rt><rp>)</rp></ruby>、におい、<ruby>温度<rp>(</rp><rt>おんど</rt><rp>)</rp></ruby>、<ruby>味<rp>(</rp><rt>あじ</rt><rp>)</rp></ruby>などの<ruby>刺激<rp>(</rp><rt>しげき</rt><rp>)</rp></ruby>を受けとる<ruby>器官<rp>(</rp><rt>きかん</rt><rp>)</rp></ruby>を<strong><span class="keyword"><ruby>感覚<rp>(</rp><rt>かんかく</rt><rp>)</rp></ruby><ruby>器官<rp>(</rp><rt>きかん</rt><rp>)</rp></ruby></span></strong>というよ。<strong><ruby>目<rp>(</rp><rt>め</rt><rp>)</rp></ruby>・<ruby>耳<rp>(</rp><rt>みみ</rt><rp>)</rp></ruby>・<ruby>鼻<rp>(</rp><rt>はな</rt><rp>)</rp></ruby>・<ruby>皮膚<rp>(</rp><rt>ひふ</rt><rp>)</rp></ruby>・<ruby>舌<rp>(</rp><rt>した</rt><rp>)</rp></ruby></strong>の5つだ',
-    },
-    {
-      type: 'message',
-      side: 'right',
-      characterId: 'student',
-      expression: 'curious',
-      text: '<ruby>目<rp>(</rp><rt>め</rt><rp>)</rp></ruby>や<ruby>耳<rp>(</rp><rt>みみ</rt><rp>)</rp></ruby>のどこで<ruby>刺激<rp>(</rp><rt>しげき</rt><rp>)</rp></ruby>を受けとるんですか？',
-    },
-    {
-      type: 'message',
-      side: 'left',
-      characterId: 'teacher',
-      expression: 'happy',
-      text: '<ruby>目<rp>(</rp><rt>め</rt><rp>)</rp></ruby>は<strong><ruby>網膜<rp>(</rp><rt>もうまく</rt><rp>)</rp></ruby></strong>で<ruby>光<rp>(</rp><rt>ひかり</rt><rp>)</rp></ruby>を、<ruby>耳<rp>(</rp><rt>みみ</rt><rp>)</rp></ruby>は<strong><ruby>うずまき管<rp>(</rp><rt>うずまきかん</rt><rp>)</rp></ruby></strong>で<ruby>音<rp>(</rp><rt>おと</rt><rp>)</rp></ruby>を受けとるよ。受けとった<ruby>刺激<rp>(</rp><rt>しげき</rt><rp>)</rp></ruby>は<strong><span class="keyword"><ruby>感覚<rp>(</rp><rt>かんかく</rt><rp>)</rp></ruby><ruby>神経<rp>(</rp><rt>しんけい</rt><rp>)</rp></ruby></span></strong>で<ruby>信号<rp>(</rp><rt>しんごう</rt><rp>)</rp></ruby>として<ruby>脳<rp>(</rp><rt>のう</rt><rp>)</rp></ruby>へ<ruby>伝<rp>(</rp><rt>つた</rt><rp>)</rp></ruby>えられるんだ',
-    },
-    {
-      type: 'image',
-      src: '/images/science/grade2/biology/eye-ear-structure.png',
-      alt: '目と耳の構造',
-      caption: '上：目の断面（レンズ・網膜）、下：耳の断面（鼓膜・うずまき管）',
-    },
-    {
-      type: 'summary-point',
-      text: '<span class="keyword">感覚器官</span>＝目・耳・鼻・皮膚・舌。目の<span class="keyword">網膜</span>、耳の<span class="keyword">うずまき管</span>で刺激を受けとる',
-    },
     {
       type: 'date',
       text: '<ruby>神経<rp>(</rp><rt>しんけい</rt><rp>)</rp></ruby>のはたらき',
@@ -218,7 +179,6 @@ export const stimuliResponseChat: HistoryChat = {
     {
       type: 'end',
       points: [
-        '<strong><ruby>感覚<rp>(</rp><rt>かんかく</rt><rp>)</rp></ruby><ruby>器官<rp>(</rp><rt>きかん</rt><rp>)</rp></ruby></strong>：<ruby>目<rp>(</rp><rt>め</rt><rp>)</rp></ruby>・<ruby>耳<rp>(</rp><rt>みみ</rt><rp>)</rp></ruby>・<ruby>鼻<rp>(</rp><rt>はな</rt><rp>)</rp></ruby>・<ruby>皮膚<rp>(</rp><rt>ひふ</rt><rp>)</rp></ruby>・<ruby>舌<rp>(</rp><rt>した</rt><rp>)</rp></ruby>で<ruby>刺激<rp>(</rp><rt>しげき</rt><rp>)</rp></ruby>を受けとる',
         '<strong><ruby>中枢<rp>(</rp><rt>ちゅうすう</rt><rp>)</rp></ruby><ruby>神経<rp>(</rp><rt>しんけい</rt><rp>)</rp></ruby></strong>＝<ruby>脳<rp>(</rp><rt>のう</rt><rp>)</rp></ruby>＋せきずい、<strong><ruby>末<rp>(</rp><rt>まっ</rt><rp>)</rp></ruby>しょう<ruby>神経<rp>(</rp><rt>しんけい</rt><rp>)</rp></ruby></strong>＝<ruby>感覚<rp>(</rp><rt>かんかく</rt><rp>)</rp></ruby><ruby>神経<rp>(</rp><rt>しんけい</rt><rp>)</rp></ruby>＋<ruby>運動<rp>(</rp><rt>うんどう</rt><rp>)</rp></ruby><ruby>神経<rp>(</rp><rt>しんけい</rt><rp>)</rp></ruby>',
         '<strong><ruby>反射<rp>(</rp><rt>はんしゃ</rt><rp>)</rp></ruby></strong>＝<ruby>意識<rp>(</rp><rt>いしき</rt><rp>)</rp></ruby>に<ruby>無関係<rp>(</rp><rt>むかんけい</rt><rp>)</rp></ruby>の<ruby>反応<rp>(</rp><rt>はんのう</rt><rp>)</rp></ruby>。せきずいから<ruby>直接<rp>(</rp><rt>ちょくせつ</rt><rp>)</rp></ruby><ruby>命令<rp>(</rp><rt>めいれい</rt><rp>)</rp></ruby>→<ruby>速<rp>(</rp><rt>はや</rt><rp>)</rp></ruby>い',
         '<ruby>筋肉<rp>(</rp><rt>きんにく</rt><rp>)</rp></ruby>は<strong>けん</strong>で<ruby>骨<rp>(</rp><rt>ほね</rt><rp>)</rp></ruby>につき、2つが<ruby>交互<rp>(</rp><rt>こうご</rt><rp>)</rp></ruby>に<ruby>縮<rp>(</rp><rt>ちぢ</rt><rp>)</rp></ruby>む・<ruby>伸<rp>(</rp><rt>の</rt><rp>)</rp></ruby>びるで<ruby>曲<rp>(</rp><rt>ま</rt><rp>)</rp></ruby>げ<ruby>伸<rp>(</rp><rt>の</rt><rp>)</rp></ruby>ばし',

@@ -1,11 +1,11 @@
 import type { Topic } from '../../../../../../../types';
 
-export const plantBody: Topic = {
-  id: 'sci2-plant-body',
+export const plantPhotosynthesis: Topic = {
+  id: 'sci2-plant-photo',
   eraId: 'sci2-biology',
-  name: '植物のからだのつくりとはたらき',
-  subtitle: '光合成・気孔・蒸散・維管束',
-  icon: '🌿',
+  name: '光合成と呼吸',
+  subtitle: '光合成・気孔・蒸散・植物の呼吸',
+  icon: '☀️',
   order: 2,
   content: {
     explanation: {
@@ -45,26 +45,10 @@ export const plantBody: Topic = {
             '夜：呼吸のみ → 二酸化炭素を放出',
           ],
         },
-        {
-          title: '水の通り道（維管束）',
-          content:
-            '根から吸収された水や肥料分の通り道を道管、葉で作られた養分が水に溶けやすい物質に変化して全身に運ばれる通り道を師管といいます。道管と師管の集まりを維管束といい、単子葉類では全体に散らばり、双子葉類では周辺部に輪の形に並んでいます。根の表面には根毛があり、表面積を広げて効率よく水を吸収しています。',
-          image: {
-            src: '/images/science/grade2/biology/vascular-bundle.svg',
-            alt: '維管束のつくり',
-            caption: '道管（水の通り道）と師管（養分の通り道）',
-          },
-          keyPoints: [
-            '道管：根から吸収した水・肥料分の通り道',
-            '師管：葉で作られた養分の通り道',
-            '維管束：道管と師管の集まり（単子葉類＝散らばる、双子葉類＝輪の形）',
-            '根毛：根の表面にあり、表面積を広げて吸水効率を上げる',
-          ],
-        },
       ],
       slides: [
         {
-          id: 'sci2-plant-slide1',
+          id: 'sci2-pp-slide1',
           title: '光合成のしくみ',
           slides: [
             {
@@ -99,7 +83,7 @@ export const plantBody: Topic = {
           ],
         },
         {
-          id: 'sci2-plant-slide2',
+          id: 'sci2-pp-slide2',
           title: '気孔と蒸散',
           slides: [
             {
@@ -138,7 +122,7 @@ export const plantBody: Topic = {
           ],
         },
         {
-          id: 'sci2-plant-slide3',
+          id: 'sci2-pp-slide3',
           title: '植物の呼吸と光合成',
           slides: [
             {
@@ -167,93 +151,87 @@ export const plantBody: Topic = {
             },
           ],
         },
-        {
-          id: 'sci2-plant-slide4',
-          title: '維管束のつくり',
-          slides: [
-            {
-              type: 'question',
-              question: '根から吸った水はどうやって葉まで届く？',
-              subtext: '水と養分の通り道',
-              emoji: '🌱',
-              image: {
-                src: '/images/science/grade2/biology/vascular-bundle.svg',
-                alt: '維管束のつくり',
-              },
-            },
-            {
-              type: 'reason',
-              headline: '道管が水、師管が養分の通り道！',
-              points: [
-                '道管：根→葉へ水と肥料分を運ぶ',
-                '師管：葉→全身へ養分（糖）を運ぶ',
-                '道管＋師管＝維管束（単子葉類は散らばり、双子葉類は輪の形）',
-              ],
-              visual: {
-                type: 'comparison',
-                items: [
-                  { label: '道管', value: '水・肥料分（根→葉）', emoji: '💧' },
-                  { label: '師管', value: '養分（葉→全身）', emoji: '🍬' },
-                ],
-              },
-            },
-            {
-              type: 'conclusion',
-              conclusion: '維管束＝道管（水）＋師管（養分）。根毛で効率よく吸水！',
-              keywords: [
-                { text: '道管', isImportant: true },
-                { text: '師管', isImportant: true },
-                { text: '維管束', isImportant: true },
-                { text: '根毛' },
-              ],
-            },
-          ],
-        },
       ],
     },
     videos: [],
     flashcards: [
       {
-        id: 'sci2-plant-fc1',
+        id: 'sci2-pp-fc1',
         front: '光合成',
         back: '植物が光を受けて、CO₂と水からデンプンと酸素をつくるはたらきを何という？',
         explanation: '葉緑体で行われる。デンプンはヨウ素液が青紫色に変わることで確認できる。',
       },
       {
-        id: 'sci2-plant-fc2',
+        id: 'sci2-pp-fc2',
         front: '気孔',
         back: '葉の表皮にある、2つの孔辺細胞に囲まれたすきまを何という？',
         explanation: 'CO₂の取り込みや蒸散が行われる。葉の裏側に多い。',
       },
       {
-        id: 'sci2-plant-fc3',
+        id: 'sci2-pp-fc3',
         front: '蒸散',
         back: '根から吸い上げられた水が気孔から水蒸気になって出ていくことを何という？',
         explanation: '主に葉の裏側で盛んに行われる。蒸散が主な原動力となって吸水が起こる。',
       },
       {
-        id: 'sci2-plant-fc4',
-        front: '道管と師管',
-        back: '根から水を運ぶ管と、葉から養分を運ぶ管をそれぞれ何という？',
-        explanation: '道管＝水と肥料分の通り道、師管＝養分の通り道。2つ合わせて維管束。',
-      },
-      {
-        id: 'sci2-plant-fc5',
+        id: 'sci2-pp-fc4',
         front: '維管束の並び方',
         back: '単子葉類と双子葉類で維管束の並び方はどう違う？',
         explanation: '単子葉類＝全体に散らばる。双子葉類＝周辺部に輪の形に並ぶ。',
       },
       {
-        id: 'sci2-plant-fc6',
+        id: 'sci2-pp-fc5',
         front: '根毛',
         back: '根の表面にある綿毛のようなもので、吸水効率を上げるものは？',
         explanation: '表面積を広げて水や水に溶けた肥料分を効率よく吸収する。',
+      },
+      {
+        id: 'sci2-pp-fc6',
+        front: '対照実験',
+        back: '実験で調べたい条件以外の条件をすべて同じにして行う実験を何という？',
+        explanation: '対照実験。例：光合成の実験で「光が当たる」「光が当たらない」以外の条件を揃える。',
+      },
+      {
+        id: 'sci2-pp-fc7',
+        front: '光合成で発生する気体の確認',
+        back: '光合成で酸素が発生したことを確認する方法は？',
+        explanation: '水草を使い、発生した気泡を集める。火のついた線香を近づけると激しく燃える→酸素。',
+      },
+      {
+        id: 'sci2-pp-fc8',
+        front: 'エタノールで脱色する理由',
+        back: '光合成の実験で葉をエタノールにつける理由は？',
+        explanation: '葉の緑色を抜いて（脱色して）、ヨウ素液の色変化を見やすくするため。',
+      },
+      {
+        id: 'sci2-pp-fc9',
+        front: 'エタノールの加熱方法',
+        back: 'エタノールを温めるとき直接加熱しない理由は？',
+        explanation: 'エタノールは引火しやすいため、湯せん（あたためた水の中にビーカーを入れる）で加熱する。',
+      },
+      {
+        id: 'sci2-pp-fc10',
+        front: 'デンプンの検出',
+        back: 'デンプンがあるかどうかを調べる方法は？',
+        explanation: 'ヨウ素液をかけて青紫色に変化すればデンプンがある。',
+      },
+      {
+        id: 'sci2-pp-fc11',
+        front: '光合成に必要な3つの条件',
+        back: '光合成に必要な3つのものは何か？',
+        explanation: '光、二酸化炭素（CO₂）、水。これらが葉緑体に揃うと光合成が行われる。',
+      },
+      {
+        id: 'sci2-pp-fc12',
+        front: '気孔が開閉するしくみ',
+        back: '気孔はどのように開いたり閉じたりするか？',
+        explanation: '孔辺細胞が膨らむと気孔が開き、しぼむと閉じる。光が当たると開く傾向がある。',
       },
     ],
     quiz: {
       questions: [
         {
-          id: 'sci2-plant-q1',
+          id: 'sci2-pp-q1',
           question: '光合成が行われる場所はどこ？',
           options: ['細胞壁', '液胞', '葉緑体', '核'],
           correctIndex: 2,
@@ -261,7 +239,7 @@ export const plantBody: Topic = {
             '光合成は葉の細胞の中にある緑色の粒、葉緑体で行われます。光を受けてCO₂と水からデンプンと酸素をつくります。',
         },
         {
-          id: 'sci2-plant-q2',
+          id: 'sci2-pp-q2',
           question: 'デンプンができたことを確認するために使う薬品は？',
           options: ['酢酸オルセイン', 'BTB溶液', 'ヨウ素液', '石灰水'],
           correctIndex: 2,
@@ -269,7 +247,7 @@ export const plantBody: Topic = {
             'ヨウ素液はデンプンに反応して青紫色に変化します。これでデンプンが作られたことを確認できます。',
         },
         {
-          id: 'sci2-plant-q3',
+          id: 'sci2-pp-q3',
           question: '蒸散が最も盛んに行われるのはどこ？',
           options: ['葉の表側', '葉の裏側', '茎', '根'],
           correctIndex: 1,
@@ -277,7 +255,7 @@ export const plantBody: Topic = {
             '気孔は葉の裏側に多いため、蒸散は主に葉の裏側で盛んに行われます。',
         },
         {
-          id: 'sci2-plant-q4',
+          id: 'sci2-pp-q4',
           question: '植物の呼吸と光合成について正しいものはどれ？',
           options: [
             '植物は昼だけ呼吸する',
@@ -290,19 +268,71 @@ export const plantBody: Topic = {
             '植物は常に呼吸を行っていますが、昼は光合成が呼吸を上回るため、見かけ上は酸素のみが放出されます。',
         },
         {
-          id: 'sci2-plant-q5',
-          question: '根から吸収された水の通り道は？',
-          options: ['師管', '気孔', '道管', '根毛'],
+          id: 'sci2-pp-q5',
+          question: 'BTB溶液が黄色から青色に変化したとき、何が起きたと考えられる？',
+          options: ['CO₂が増えた', 'CO₂が減った', 'O₂が増えた', 'O₂が減った'],
+          correctIndex: 1,
+          explanation:
+            'BTB溶液は酸性で黄色、アルカリ性で青色。黄→青は溶液中のCO₂が減少したことを示し、光合成でCO₂が吸収されたためです。',
+        },
+        {
+          id: 'sci2-pp-q6',
+          question: '光合成の実験で葉をエタノールにつける理由は？',
+          options: [
+            'デンプンを溶かすため',
+            '葉を殺菌するため',
+            '葉の緑色を抜くため',
+            'ヨウ素液を反応させるため',
+          ],
           correctIndex: 2,
           explanation:
-            '道管は根から吸収された水や肥料分の通り道です。師管は葉で作られた養分の通り道です。',
+            '葉の緑色を脱色してヨウ素液の色変化（青紫色）を見やすくするためです。',
+        },
+        {
+          id: 'sci2-pp-q7',
+          question: '対照実験について正しいものはどれ？',
+          options: [
+            'すべての条件を変える',
+            '調べたい条件だけを変え他の条件を同じにする',
+            '結果が同じになるようにする',
+            '1回だけ行う実験のこと',
+          ],
+          correctIndex: 1,
+          explanation:
+            '対照実験は、調べたい条件（変数）だけを変え、他の条件をすべて同じにして結果を比較する実験です。',
+        },
+        {
+          id: 'sci2-pp-q8',
+          question: 'エタノールを加熱するとき湯せんにする理由は？',
+          options: [
+            '温度を一定にするため',
+            'エタノールが引火しやすいため',
+            '葉が溶けないようにするため',
+            '色を抜くのに時間がかかるため',
+          ],
+          correctIndex: 1,
+          explanation:
+            'エタノールは引火しやすい液体なので、直接火で加熱せず、お湯の中にビーカーを入れる湯せんで間接的に温めます。',
+        },
+        {
+          id: 'sci2-pp-q9',
+          question: '光合成の実験で、ふ入りの葉を使う理由は？',
+          options: [
+            '色がきれいだから',
+            '葉緑体がある部分とない部分を比較できるから',
+            'デンプンが多いから',
+            '蒸散が盛んだから',
+          ],
+          correctIndex: 1,
+          explanation:
+            'ふ入りの葉は緑色の部分（葉緑体あり）と白い部分（葉緑体なし）があり、光合成に葉緑体が必要であることを確認する対照実験ができます。',
         },
       ],
     },
     examples: {
       examples: [
         {
-          id: 'sci2-plant-ex1',
+          id: 'sci2-pp-ex1',
           question:
             '葉にアルミニウムはくをかぶせた部分と、かぶせていない部分でヨウ素液の反応を比べた。結果とその理由を答えなさい。',
           steps: [
@@ -322,8 +352,35 @@ export const plantBody: Topic = {
           answer:
             'アルミニウムはくをかぶせていない部分はヨウ素液が青紫色に変化し、かぶせた部分は変化しない。\n理由：光が当たらないと光合成が行われずデンプンが作られないため。',
         },
+        {
+          id: 'sci2-pp-ex2',
+          question:
+            '一晩暗室に置いたアサガオの葉の一部をアルミニウムはくで覆い、数時間光を当てた後、エタノールで脱色してヨウ素液をかけた。アルミはくで覆った部分と覆わなかった部分の結果と理由を答えなさい。',
+          steps: [
+            {
+              title: 'Step 1: 一晩暗室に置く理由',
+              content:
+                '葉に含まれるデンプンを使い切らせ、実験前の状態を統一するため。',
+              highlight: 'もとのデンプンをなくす',
+            },
+            {
+              title: 'Step 2: 各部分の結果',
+              content:
+                '覆わなかった部分→光が当たり光合成→デンプンが作られる→ヨウ素液が青紫色。覆った部分→光が当たらず光合成できない→デンプンなし→変色しない。',
+              highlight: '光あり→青紫色、光なし→変化なし',
+            },
+            {
+              title: 'Step 3: この実験でわかること',
+              content:
+                '光合成には光が必要であることがわかる（対照実験）。',
+              highlight: '光合成に光が必要',
+            },
+          ],
+          answer:
+            '覆わなかった部分はヨウ素液が青紫色に変化し、覆った部分は変化しない。理由：光が当たらないと光合成が行われずデンプンが作られないため。この実験から光合成に光が必要であることがわかる。',
+        },
       ],
     },
-    chatId: 'sci2-plant-body',
+    chatId: 'sci2-plant-photo',
   },
 };

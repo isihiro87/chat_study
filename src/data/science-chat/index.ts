@@ -7,9 +7,11 @@ import { massConservationChat } from '../subjects/science/units/grade2/1-chemica
 import { chemicalEnergyChat } from '../subjects/science/units/grade2/1-chemical-change/topics/5-chemical-energy/chat';
 // Grade 2: Biology
 import { cellsChat } from '../subjects/science/units/grade2/2-biology/topics/1-cells/chat';
-import { plantBodyChat } from '../subjects/science/units/grade2/2-biology/topics/2-plant-body/chat';
+import { plantPhotosynthesisChat } from '../subjects/science/units/grade2/2-biology/topics/2-plant-photosynthesis/chat';
+import { plantTransportChat } from '../subjects/science/units/grade2/2-biology/topics/3-plant-transport/chat';
 import { animalBodyChat } from '../subjects/science/units/grade2/2-biology/topics/3-animal-body/chat';
-import { stimuliResponseChat } from '../subjects/science/units/grade2/2-biology/topics/4-stimuli-response/chat';
+import { sensoryOrgansChat } from '../subjects/science/units/grade2/2-biology/topics/5-sensory-organs/chat';
+import { nervesMusclesChat } from '../subjects/science/units/grade2/2-biology/topics/6-nerves-muscles/chat';
 // Grade 2: Weather
 import { observationPressureChat } from '../subjects/science/units/grade2/3-weather/topics/1-observation-pressure/chat';
 import { pressureHumidityChat } from '../subjects/science/units/grade2/3-weather/topics/2-pressure-humidity/chat';
@@ -27,10 +29,13 @@ import { acidAlkaliPropertyChat } from '../subjects/science/units/grade3/1-chemi
 import { neutralizationChat } from '../subjects/science/units/grade3/1-chemistry/topics/4-neutralization/chat';
 import { batteryBasicsChat } from '../subjects/science/units/grade3/1-chemistry/topics/5-battery-basics/chat';
 import { batteryTypesChat } from '../subjects/science/units/grade3/1-chemistry/topics/6-battery-types/chat';
-// Biology
-import { growthReproductionChat } from '../subjects/science/units/grade3/2-biology/topics/1-growth-reproduction/chat';
-import { geneticsChat } from '../subjects/science/units/grade3/2-biology/topics/2-genetics/chat';
-import { evolutionChat } from '../subjects/science/units/grade3/2-biology/topics/3-evolution/chat';
+// Grade 3: Biology
+import { cellDivisionChat } from '../subjects/science/units/grade3/2-biology/topics/1-cell-division/chat';
+import { reproductionChat } from '../subjects/science/units/grade3/2-biology/topics/2-reproduction/chat';
+import { heredityRulesChat } from '../subjects/science/units/grade3/2-biology/topics/3-heredity-rules/chat';
+import { dnaTechnologyChat } from '../subjects/science/units/grade3/2-biology/topics/4-dna-technology/chat';
+import { vertebrateEvolutionChat } from '../subjects/science/units/grade3/2-biology/topics/5-vertebrate-evolution/chat';
+import { evolutionEvidenceChat } from '../subjects/science/units/grade3/2-biology/topics/6-evolution-evidence/chat';
 // Physics
 import { objectMotionChat } from '../subjects/science/units/grade3/3-physics/topics/1-object-motion/chat';
 import { forceActionChat } from '../subjects/science/units/grade3/3-physics/topics/2-force-action/chat';
@@ -49,9 +54,11 @@ const chatMap: Record<string, HistoryChat> = {
   [chemicalEnergyChat.id]: chemicalEnergyChat,
   // Grade 2: Biology
   [cellsChat.id]: cellsChat,
-  [plantBodyChat.id]: plantBodyChat,
+  [plantPhotosynthesisChat.id]: plantPhotosynthesisChat,
+  [plantTransportChat.id]: plantTransportChat,
   [animalBodyChat.id]: animalBodyChat,
-  [stimuliResponseChat.id]: stimuliResponseChat,
+  [sensoryOrgansChat.id]: sensoryOrgansChat,
+  [nervesMusclesChat.id]: nervesMusclesChat,
   // Grade 2: Weather
   [observationPressureChat.id]: observationPressureChat,
   [pressureHumidityChat.id]: pressureHumidityChat,
@@ -69,10 +76,13 @@ const chatMap: Record<string, HistoryChat> = {
   [neutralizationChat.id]: neutralizationChat,
   [batteryBasicsChat.id]: batteryBasicsChat,
   [batteryTypesChat.id]: batteryTypesChat,
-  // Biology
-  [growthReproductionChat.id]: growthReproductionChat,
-  [geneticsChat.id]: geneticsChat,
-  [evolutionChat.id]: evolutionChat,
+  // Grade 3: Biology
+  [cellDivisionChat.id]: cellDivisionChat,
+  [reproductionChat.id]: reproductionChat,
+  [heredityRulesChat.id]: heredityRulesChat,
+  [dnaTechnologyChat.id]: dnaTechnologyChat,
+  [vertebrateEvolutionChat.id]: vertebrateEvolutionChat,
+  [evolutionEvidenceChat.id]: evolutionEvidenceChat,
   // Physics
   [objectMotionChat.id]: objectMotionChat,
   [forceActionChat.id]: forceActionChat,

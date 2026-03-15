@@ -1,25 +1,15 @@
 import type { Topic } from '../../../../../../../types';
 
-export const stimuliResponse: Topic = {
-  id: 'sci2-stimuli-response',
+export const nervesMuscles: Topic = {
+  id: 'sci2-nerves',
   eraId: 'sci2-biology',
-  name: '刺激と反応',
-  subtitle: '感覚器官・神経系・反射・骨と筋肉',
+  name: '神経と運動',
+  subtitle: '神経系・反射・骨と筋肉',
   icon: '⚡',
-  order: 4,
+  order: 6,
   content: {
     explanation: {
       sections: [
-        {
-          title: '刺激の受けとり',
-          content:
-            '外界からの光や音、においなどの刺激を受けとる器官を感覚器官といいます。目（網膜）、耳（うずまき管）、鼻、皮膚、舌がそれにあたります。感覚器官にある特定の細胞が刺激を受け取り、感覚神経へ信号を伝えます。',
-          keyPoints: [
-            '感覚器官：目、耳、鼻、皮膚、舌の5つ',
-            '目の網膜、耳のうずまき管が刺激を受けとる',
-            '受けとった刺激は感覚神経で信号として伝わる',
-          ],
-        },
         {
           title: '神経のはたらき',
           content:
@@ -58,42 +48,7 @@ export const stimuliResponse: Topic = {
       ],
       slides: [
         {
-          id: 'sci2-stimuli-slide1',
-          title: '感覚器官と神経系',
-          slides: [
-            {
-              type: 'question',
-              question: '熱いものに触れたとき、体のなかでは何が起きている？',
-              subtext: '刺激と反応の流れ',
-              emoji: '⚡',
-              image: {
-                src: '/images/science/grade2/biology/conscious-response.svg',
-                alt: '意識して起こる反応の経路',
-              },
-            },
-            {
-              type: 'reason',
-              headline: '感覚器官→神経→脳→神経→運動器官の順で信号が伝わる！',
-              points: [
-                '感覚器官（目・耳・鼻・皮膚・舌）が刺激を受けとる',
-                '感覚神経で信号を脳（中枢神経）に伝える',
-                '脳が判断し、運動神経で筋肉に命令を出す',
-              ],
-            },
-            {
-              type: 'conclusion',
-              conclusion: '中枢神経（脳・せきずい）が司令塔、末しょう神経が情報の通り道！',
-              keywords: [
-                { text: '中枢神経', isImportant: true },
-                { text: '末しょう神経', isImportant: true },
-                { text: '感覚器官' },
-              ],
-              nextHint: '意識しなくても起こる反応があるって本当？',
-            },
-          ],
-        },
-        {
-          id: 'sci2-stimuli-slide2',
+          id: 'sci2-nm-slide1',
           title: '反射のしくみ',
           slides: [
             {
@@ -130,7 +85,7 @@ export const stimuliResponse: Topic = {
           ],
         },
         {
-          id: 'sci2-stimuli-slide3',
+          id: 'sci2-nm-slide2',
           title: '骨と筋肉のはたらき',
           slides: [
             {
@@ -164,48 +119,58 @@ export const stimuliResponse: Topic = {
     videos: [],
     flashcards: [
       {
-        id: 'sci2-stimuli-fc1',
-        front: '感覚器官',
-        back: '光や音、においなどの刺激を受けとる器官を何という？5つ答えよ。',
-        explanation: '目、耳、鼻、皮膚、舌の5つ。それぞれ特定の刺激を受けとる。',
-      },
-      {
-        id: 'sci2-stimuli-fc2',
+        id: 'sci2-nm-fc1',
         front: '中枢神経',
         back: '判断や命令を行う神経系を何という？2つの器官名も答えよ。',
         explanation: '中枢神経。脳（判断・命令）とせきずい（中継）からなる。',
       },
       {
-        id: 'sci2-stimuli-fc3',
+        id: 'sci2-nm-fc2',
         front: '末しょう神経',
         back: '中枢神経から枝分かれして全身に広がる神経を何という？2種類答えよ。',
         explanation: '末しょう神経。感覚神経（刺激を伝える）と運動神経（命令を伝える）。',
       },
       {
-        id: 'sci2-stimuli-fc4',
+        id: 'sci2-nm-fc3',
         front: '反射',
         back: '刺激に対して意識とは無関係に起こる決まった反応を何という？',
         explanation: '反射。信号がせきずいから直接運動神経へ出るため速い。例：熱いものに触れて手を引っ込める。',
       },
       {
-        id: 'sci2-stimuli-fc5',
+        id: 'sci2-nm-fc4',
         front: '筋肉と骨のしくみ',
         back: '筋肉が骨についている部分を何という？うでの曲げ伸ばしのしくみを説明せよ。',
         explanation: 'けん。2つの筋肉が関節をまたいでつき、一方が縮むともう一方が伸びて曲げ伸ばしする。',
+      },
+      {
+        id: 'sci2-nm-fc5',
+        front: '反射の例',
+        back: '反射の例を3つ答えよ。',
+        explanation: '①熱いものに触れて手を引っ込める ②口に食物が入るとだ液が出る ③明るい光で瞳孔が小さくなる。',
+      },
+      {
+        id: 'sci2-nm-fc6',
+        front: '骨のはたらき',
+        back: '骨の2つの主なはたらきは？',
+        explanation: '①からだを支える ②内臓や脳を保護する。',
+      },
+      {
+        id: 'sci2-nm-fc7',
+        front: '関節',
+        back: '骨と骨のつなぎ目を何という？',
+        explanation: '関節。骨が曲がる場所。筋肉は関節をまたいで骨についている。',
+      },
+      {
+        id: 'sci2-nm-fc8',
+        front: '反応時間の計算',
+        back: '10人で手をつないで合図を伝えるのに2.8秒かかったとき、1人あたりの反応時間は？',
+        explanation: '2.8秒÷10人＝0.28秒。1人あたり約0.28秒。',
       },
     ],
     quiz: {
       questions: [
         {
-          id: 'sci2-stimuli-q1',
-          question: '感覚器官でないものはどれ？',
-          options: ['目', '心臓', '耳', '皮膚'],
-          correctIndex: 1,
-          explanation:
-            '心臓は循環器官です。感覚器官は目、耳、鼻、皮膚、舌の5つで、外界の刺激を受けとります。',
-        },
-        {
-          id: 'sci2-stimuli-q2',
+          id: 'sci2-nm-q1',
           question: '中枢神経はどれとどれ？',
           options: [
             '感覚神経と運動神経',
@@ -218,7 +183,7 @@ export const stimuliResponse: Topic = {
             '中枢神経は脳とせきずいです。感覚神経と運動神経は末しょう神経に分類されます。',
         },
         {
-          id: 'sci2-stimuli-q3',
+          id: 'sci2-nm-q2',
           question: '反射について正しいものはどれ？',
           options: [
             '意識して起こる反応',
@@ -231,7 +196,7 @@ export const stimuliResponse: Topic = {
             '反射は意識とは無関係に起こる反応で、信号がせきずいから直接運動神経に伝わるため速いです。',
         },
         {
-          id: 'sci2-stimuli-q4',
+          id: 'sci2-nm-q3',
           question: '意識して起こる反応の信号の経路で正しいものは？',
           options: [
             '感覚器官→運動神経→脳→感覚神経→運動器官',
@@ -244,7 +209,7 @@ export const stimuliResponse: Topic = {
             '意識して起こる反応は、感覚器官→感覚神経→せきずい→脳→せきずい→運動神経→運動器官の順に信号が伝わります。',
         },
         {
-          id: 'sci2-stimuli-q5',
+          id: 'sci2-nm-q4',
           question: 'うでを曲げるとき、筋肉はどう動く？',
           options: [
             '2つとも縮む',
@@ -256,12 +221,33 @@ export const stimuliResponse: Topic = {
           explanation:
             'うでの曲げ伸ばしでは、関節をまたいでついている2つの筋肉のうち一方が縮むと、もう一方が伸ばされます。',
         },
+        {
+          id: 'sci2-nm-q5',
+          question: '次のうち反射でないものはどれ？',
+          options: ['熱いものに触れて手を引っ込める', '口に食物が入るとだ液が出る', '問題を考えて答えを書く', '明るい光で瞳孔が小さくなる'],
+          correctIndex: 2,
+          explanation: '問題を考えて答えを書くのは意識的な反応です。他の3つは意識とは無関係に起こる反射です。',
+        },
+        {
+          id: 'sci2-nm-q6',
+          question: '10人で手をつないで合図を伝える実験で3回の平均が2.7秒だった。1人あたりの反応時間は？',
+          options: ['0.027秒', '0.27秒', '2.7秒', '27秒'],
+          correctIndex: 1,
+          explanation: '2.7秒÷10人＝0.27秒。1人あたりの反応時間は約0.27秒です。',
+        },
+        {
+          id: 'sci2-nm-q7',
+          question: 'うでを曲げるとき、内側の筋肉と外側の筋肉はそれぞれどうなる？',
+          options: ['両方縮む', '両方伸びる', '内側が縮み外側が伸びる', '内側が伸び外側が縮む'],
+          correctIndex: 2,
+          explanation: 'うでを曲げるとき、内側の筋肉が縮み、外側の筋肉が伸ばされます。伸ばすときは逆になります。',
+        },
       ],
     },
     examples: {
       examples: [
         {
-          id: 'sci2-stimuli-ex1',
+          id: 'sci2-nm-ex1',
           question:
             '熱いやかんに手が触れたとき、手を引っ込める反応の経路を説明しなさい。また、この反応が意識的な反応より速い理由を答えなさい。',
           steps: [
@@ -281,8 +267,28 @@ export const stimuliResponse: Topic = {
           answer:
             '経路：皮膚→感覚神経→せきずい→運動神経→手の筋肉\n速い理由：反射は脳を経由せず、せきずいから直接運動神経に命令が出るため、信号の伝達距離が短く速い。',
         },
+        {
+          id: 'sci2-nm-ex2',
+          question: '10人が手をつないで輪になり、合図を伝える実験を行った。3回の計測で2.79秒、2.84秒、2.83秒だった。1人あたりの反応時間を求めなさい。',
+          steps: [
+            { title: 'Step 1: 平均を求める', content: '(2.79+2.84+2.83)÷3＝8.46÷3＝2.82秒', highlight: '平均＝2.82秒' },
+            { title: 'Step 2: 1人あたりの時間を計算', content: '10人で伝えたので、2.82÷10＝0.282秒', highlight: '0.282秒/人' },
+            { title: 'Step 3: 答え', content: '1人あたりの反応時間は約0.28秒。', highlight: '約0.28秒' },
+          ],
+          answer: '平均＝(2.79+2.84+2.83)÷3＝2.82秒。1人あたり：2.82÷10＝約0.28秒。',
+        },
+        {
+          id: 'sci2-nm-ex3',
+          question: '「熱いやかんに手が触れたとき手を引っ込める反応」と「ボールが飛んできたのを見てよける反応」の違いを、信号の経路の観点から説明しなさい。',
+          steps: [
+            { title: 'Step 1: 熱いやかん＝反射', content: '皮膚→感覚神経→せきずい→運動神経→手の筋肉。脳を経由しないため速い。', highlight: 'せきずいで命令→反射' },
+            { title: 'Step 2: ボールをよける＝意識的反応', content: '目→感覚神経→せきずい→脳（判断）→せきずい→運動神経→筋肉。脳を経由する。', highlight: '脳で判断→意識的反応' },
+            { title: 'Step 3: 違いのまとめ', content: '反射は脳を経由しないため速いが、意識的反応は脳で判断してから命令を出す。', highlight: '反射＝速い、意識的＝脳で判断' },
+          ],
+          answer: '熱いやかん（反射）：皮膚→感覚神経→せきずい→運動神経→筋肉（脳を経由しない→速い）。\nボールをよける（意識的反応）：目→感覚神経→せきずい→脳→せきずい→運動神経→筋肉（脳で判断→遅い）。',
+        },
       ],
     },
-    chatId: 'sci2-stimuli-response',
+    chatId: 'sci2-nerves',
   },
 };

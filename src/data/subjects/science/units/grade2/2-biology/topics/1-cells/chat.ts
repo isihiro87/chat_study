@@ -36,6 +36,46 @@ export const cellsChat: HistoryChat = {
   content: [
     {
       type: 'date',
+      text: '<ruby>顕微鏡<rp>(</rp><rt>けんびきょう</rt><rp>)</rp></ruby>の使い方',
+    },
+    {
+      type: 'narrator',
+      text: '<ruby>細胞<rp>(</rp><rt>さいぼう</rt><rp>)</rp></ruby>を<ruby>観察<rp>(</rp><rt>かんさつ</rt><rp>)</rp></ruby>するための<strong><span class="keyword"><ruby>顕微鏡<rp>(</rp><rt>けんびきょう</rt><rp>)</rp></ruby></span></strong>の使い方を学びましょう。',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<ruby>顕微鏡<rp>(</rp><rt>けんびきょう</rt><rp>)</rp></ruby>のレンズは<strong><ruby>接眼<rp>(</rp><rt>せつがん</rt><rp>)</rp></ruby>レンズ</strong>から先に取りつけるよ。<ruby>倍率<rp>(</rp><rt>ばいりつ</rt><rp>)</rp></ruby>は<strong><ruby>接眼<rp>(</rp><rt>せつがん</rt><rp>)</rp></ruby>レンズ × <ruby>対物<rp>(</rp><rt>たいぶつ</rt><rp>)</rp></ruby>レンズ</strong>で<ruby>計算<rp>(</rp><rt>けいさん</rt><rp>)</rp></ruby>するんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '<ruby>倍率<rp>(</rp><rt>ばいりつ</rt><rp>)</rp></ruby>を上げるとどうなりますか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: '<ruby>倍率<rp>(</rp><rt>ばいりつ</rt><rp>)</rp></ruby>を高くすると<ruby>視野<rp>(</rp><rt>しや</rt><rp>)</rp></ruby>が<strong><ruby>暗<rp>(</rp><rt>くら</rt><rp>)</rp></ruby>く</strong>て<strong><ruby>狭<rp>(</rp><rt>せま</rt><rp>)</rp></ruby>く</strong>なるよ。だから最初は<strong><ruby>低倍率<rp>(</rp><rt>ていばいりつ</rt><rp>)</rp></ruby></strong>で<ruby>観察<rp>(</rp><rt>かんさつ</rt><rp>)</rp></ruby>対象を見つけてから、高倍率にするんだ',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<strong><span class="keyword">プレパラート</span></strong>を作るときは、<ruby>端<rp>(</rp><rt>はし</rt><rp>)</rp></ruby>からゆっくりカバーガラスをかぶせて<ruby>気泡<rp>(</rp><rt>きほう</rt><rp>)</rp></ruby>が入らないようにしよう。<ruby>対物<rp>(</rp><rt>たいぶつ</rt><rp>)</rp></ruby>レンズを切り替えるのは<strong><span class="keyword">レボルバー</span></strong>という部品だよ',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">倍率</span>＝接眼レンズ×対物レンズ。高倍率→暗く狭い。<span class="keyword">プレパラート</span>はカバーガラスを端からかぶせる',
+    },
+    {
+      type: 'date',
       text: '<ruby>植物<rp>(</rp><rt>しょくぶつ</rt><rp>)</rp></ruby>の<ruby>細胞<rp>(</rp><rt>さいぼう</rt><rp>)</rp></ruby>と<ruby>動物<rp>(</rp><rt>どうぶつ</rt><rp>)</rp></ruby>の<ruby>細胞<rp>(</rp><rt>さいぼう</rt><rp>)</rp></ruby>',
     },
     {
@@ -149,6 +189,20 @@ export const cellsChat: HistoryChat = {
       text: '<strong><ruby>組織<rp>(</rp><rt>そしき</rt><rp>)</rp></ruby></strong>は形やはたらきが同じ<ruby>細胞<rp>(</rp><rt>さいぼう</rt><rp>)</rp></ruby>の<ruby>集<rp>(</rp><rt>あつ</rt><rp>)</rp></ruby>まり、<strong><ruby>器官<rp>(</rp><rt>きかん</rt><rp>)</rp></ruby></strong>は<ruby>組織<rp>(</rp><rt>そしき</rt><rp>)</rp></ruby>が<ruby>集<rp>(</rp><rt>あつ</rt><rp>)</rp></ruby>まって<ruby>特定<rp>(</rp><rt>とくてい</rt><rp>)</rp></ruby>のはたらきをするものだよ。例えば<ruby>筋肉<rp>(</rp><rt>きんにく</rt><rp>)</rp></ruby><ruby>組織<rp>(</rp><rt>そしき</rt><rp>)</rp></ruby>が<ruby>集<rp>(</rp><rt>あつ</rt><rp>)</rp></ruby>まって心臓（<ruby>器官<rp>(</rp><rt>きかん</rt><rp>)</rp></ruby>）になるイメージだ',
     },
     {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '<ruby>組織<rp>(</rp><rt>そしき</rt><rp>)</rp></ruby>には他にどんな<ruby>種類<rp>(</rp><rt>しゅるい</rt><rp>)</rp></ruby>がありますか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<ruby>動物<rp>(</rp><rt>どうぶつ</rt><rp>)</rp></ruby>には<strong><span class="keyword"><ruby>上皮<rp>(</rp><rt>じょうひ</rt><rp>)</rp></ruby><ruby>組織<rp>(</rp><rt>そしき</rt><rp>)</rp></ruby></span></strong>（体の<ruby>表面<rp>(</rp><rt>ひょうめん</rt><rp>)</rp></ruby>をおおう）や<strong><span class="keyword"><ruby>筋<rp>(</rp><rt>きん</rt><rp>)</rp></ruby><ruby>組織<rp>(</rp><rt>そしき</rt><rp>)</rp></ruby></span></strong>（体を動かす）があるよ。<ruby>植物<rp>(</rp><rt>しょくぶつ</rt><rp>)</rp></ruby>にも<strong><span class="keyword"><ruby>表皮<rp>(</rp><rt>ひょうひ</rt><rp>)</rp></ruby><ruby>組織<rp>(</rp><rt>そしき</rt><rp>)</rp></ruby></span></strong>（表面を<ruby>保護<rp>(</rp><rt>ほご</rt><rp>)</rp></ruby>）や<strong><span class="keyword"><ruby>葉肉<rp>(</rp><rt>ようにく</rt><rp>)</rp></ruby><ruby>組織<rp>(</rp><rt>そしき</rt><rp>)</rp></ruby></span></strong>（<ruby>光合成<rp>(</rp><rt>こうごうせい</rt><rp>)</rp></ruby>を行う）があるんだ',
+    },
+    {
       type: 'image',
       src: '/images/science/grade2/biology/unicellular-organisms.png',
       alt: '単細胞生物の顕微鏡像',
@@ -206,9 +260,10 @@ export const cellsChat: HistoryChat = {
     {
       type: 'end',
       points: [
-        '<strong><ruby>細胞<rp>(</rp><rt>さいぼう</rt><rp>)</rp></ruby>の<ruby>共通<rp>(</rp><rt>きょうつう</rt><rp>)</rp></ruby>のつくり</strong>：<ruby>細胞膜<rp>(</rp><rt>さいぼうまく</rt><rp>)</rp></ruby>・<ruby>細胞質<rp>(</rp><rt>さいぼうしつ</rt><rp>)</rp></ruby>・<ruby>核<rp>(</rp><rt>かく</rt><rp>)</rp></ruby>',
-        '<strong><ruby>植物<rp>(</rp><rt>しょくぶつ</rt><rp>)</rp></ruby>だけのつくり</strong>：<ruby>細胞壁<rp>(</rp><rt>さいぼうへき</rt><rp>)</rp></ruby>・<ruby>葉緑体<rp>(</rp><rt>ようりょくたい</rt><rp>)</rp></ruby>・<ruby>液胞<rp>(</rp><rt>えきほう</rt><rp>)</rp></ruby>',
+        '<strong><ruby>顕微鏡<rp>(</rp><rt>けんびきょう</rt><rp>)</rp></ruby></strong>：<ruby>倍率<rp>(</rp><rt>ばいりつ</rt><rp>)</rp></ruby>＝<ruby>接眼<rp>(</rp><rt>せつがん</rt><rp>)</rp></ruby>×<ruby>対物<rp>(</rp><rt>たいぶつ</rt><rp>)</rp></ruby>。<ruby>接眼<rp>(</rp><rt>せつがん</rt><rp>)</rp></ruby>レンズから先につける',
+        '<strong><ruby>細胞<rp>(</rp><rt>さいぼう</rt><rp>)</rp></ruby>の<ruby>共通<rp>(</rp><rt>きょうつう</rt><rp>)</rp></ruby>のつくり</strong>：<ruby>細胞膜<rp>(</rp><rt>さいぼうまく</rt><rp>)</rp></ruby>・<ruby>細胞質<rp>(</rp><rt>さいぼうしつ</rt><rp>)</rp></ruby>・<ruby>核<rp>(</rp><rt>かく</rt><rp>)</rp></ruby>。<strong><ruby>植物<rp>(</rp><rt>しょくぶつ</rt><rp>)</rp></ruby>だけ</strong>：<ruby>細胞壁<rp>(</rp><rt>さいぼうへき</rt><rp>)</rp></ruby>・<ruby>葉緑体<rp>(</rp><rt>ようりょくたい</rt><rp>)</rp></ruby>・<ruby>液胞<rp>(</rp><rt>えきほう</rt><rp>)</rp></ruby>',
         '<strong><ruby>単細胞<rp>(</rp><rt>たんさいぼう</rt><rp>)</rp></ruby><ruby>生物<rp>(</rp><rt>せいぶつ</rt><rp>)</rp></ruby></strong>＝1つの<ruby>細胞<rp>(</rp><rt>さいぼう</rt><rp>)</rp></ruby>で全ての<ruby>生命活動<rp>(</rp><rt>せいめいかつどう</rt><rp>)</rp></ruby>。<strong><ruby>多細胞<rp>(</rp><rt>たさいぼう</rt><rp>)</rp></ruby><ruby>生物<rp>(</rp><rt>せいぶつ</rt><rp>)</rp></ruby></strong>＝<ruby>細胞<rp>(</rp><rt>さいぼう</rt><rp>)</rp></ruby>→<ruby>組織<rp>(</rp><rt>そしき</rt><rp>)</rp></ruby>→<ruby>器官<rp>(</rp><rt>きかん</rt><rp>)</rp></ruby>→<ruby>個体<rp>(</rp><rt>こたい</rt><rp>)</rp></ruby>',
+        '<strong><ruby>組織<rp>(</rp><rt>そしき</rt><rp>)</rp></ruby>の例</strong>：<ruby>動物<rp>(</rp><rt>どうぶつ</rt><rp>)</rp></ruby>＝<ruby>上皮<rp>(</rp><rt>じょうひ</rt><rp>)</rp></ruby><ruby>組織<rp>(</rp><rt>そしき</rt><rp>)</rp></ruby>・<ruby>筋<rp>(</rp><rt>きん</rt><rp>)</rp></ruby><ruby>組織<rp>(</rp><rt>そしき</rt><rp>)</rp></ruby>。<ruby>植物<rp>(</rp><rt>しょくぶつ</rt><rp>)</rp></ruby>＝<ruby>表皮<rp>(</rp><rt>ひょうひ</rt><rp>)</rp></ruby><ruby>組織<rp>(</rp><rt>そしき</rt><rp>)</rp></ruby>・<ruby>葉肉<rp>(</rp><rt>ようにく</rt><rp>)</rp></ruby><ruby>組織<rp>(</rp><rt>そしき</rt><rp>)</rp></ruby>',
         '<strong><ruby>細胞<rp>(</rp><rt>さいぼう</rt><rp>)</rp></ruby>の<ruby>呼吸<rp>(</rp><rt>こきゅう</rt><rp>)</rp></ruby></strong>：<ruby>酸素<rp>(</rp><rt>さんそ</rt><rp>)</rp></ruby>で<ruby>養分<rp>(</rp><rt>ようぶん</rt><rp>)</rp></ruby>を<ruby>分解<rp>(</rp><rt>ぶんかい</rt><rp>)</rp></ruby>→エネルギー（CO<sub>2</sub><ruby>放出<rp>(</rp><rt>ほうしゅつ</rt><rp>)</rp></ruby>）。すべての<ruby>生物<rp>(</rp><rt>せいぶつ</rt><rp>)</rp></ruby>で<ruby>常<rp>(</rp><rt>つね</rt><rp>)</rp></ruby>に行われる',
       ],
     },

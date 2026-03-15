@@ -1,10 +1,10 @@
 import type { HistoryChat } from '../../../../../../../../data/history-chat/types';
 
-export const plantBodyChat: HistoryChat = {
-  id: 'sci2-plant-body',
-  icon: '🌿',
-  title: '植物のからだのつくりとはたらき',
-  subtitle: '〜中2生物〜 光合成・気孔・蒸散・維管束',
+export const plantPhotosynthesisChat: HistoryChat = {
+  id: 'sci2-plant-photo',
+  icon: '☀️',
+  title: '光合成と呼吸',
+  subtitle: '〜中2生物〜 光合成・気孔・蒸散・植物の呼吸',
   characters: [
     {
       id: 'teacher',
@@ -72,6 +72,24 @@ export const plantBodyChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<span class="keyword">光合成</span>：光＋CO₂＋水 → デンプン＋O₂。<span class="keyword">葉緑体</span>で行われる。ヨウ素液で青紫色→デンプンあり',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: 'ヨウ<ruby>素<rp>(</rp><rt>そ</rt><rp>)</rp></ruby><ruby>液<rp>(</rp><rt>えき</rt><rp>)</rp></ruby>で<ruby>調<rp>(</rp><rt>しら</rt><rp>)</rp></ruby>べるとき、<ruby>葉<rp>(</rp><rt>は</rt><rp>)</rp></ruby>が<ruby>緑色<rp>(</rp><rt>みどりいろ</rt><rp>)</rp></ruby>だと<ruby>色<rp>(</rp><rt>いろ</rt><rp>)</rp></ruby>がわかりにくくないですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: 'その通り！だから<ruby>実験<rp>(</rp><rt>じっけん</rt><rp>)</rp></ruby>では、まず<ruby>葉<rp>(</rp><rt>は</rt><rp>)</rp></ruby>をあたためた<strong>エタノール</strong>に入れて<strong><ruby>脱色<rp>(</rp><rt>だっしょく</rt><rp>)</rp></ruby></strong>するんだ。<ruby>葉緑素<rp>(</rp><rt>ようりょくそ</rt><rp>)</rp></ruby>の<ruby>緑色<rp>(</rp><rt>みどりいろ</rt><rp>)</rp></ruby>を<ruby>抜<rp>(</rp><rt>ぬ</rt><rp>)</rp></ruby>くことで、ヨウ<ruby>素<rp>(</rp><rt>そ</rt><rp>)</rp></ruby><ruby>液<rp>(</rp><rt>えき</rt><rp>)</rp></ruby>の<ruby>青紫色<rp>(</rp><rt>あおむらさきいろ</rt><rp>)</rp></ruby>がはっきり見えるようになるよ',
+    },
+    {
+      type: 'summary-point',
+      text: '光合成の実験手順：一晩暗所に置く→光を当てる→<span class="keyword">エタノールで脱色</span>→ヨウ素液で確認（青紫色＝デンプンあり）',
     },
     {
       type: 'quiz',
@@ -172,70 +190,11 @@ export const plantBodyChat: HistoryChat = {
       text: '植物は<span class="keyword">常に呼吸</span>する。昼は<span class="keyword">光合成＞呼吸</span>→見かけ上O₂のみ。夜は呼吸のみ→CO₂放出',
     },
     {
-      type: 'date',
-      text: '<ruby>維管束<rp>(</rp><rt>いかんそく</rt><rp>)</rp></ruby>（水と<ruby>養分<rp>(</rp><rt>ようぶん</rt><rp>)</rp></ruby>の<ruby>通<rp>(</rp><rt>とお</rt><rp>)</rp></ruby>り<ruby>道<rp>(</rp><rt>みち</rt><rp>)</rp></ruby>）',
-    },
-    {
-      type: 'narrator',
-      text: '<ruby>根<rp>(</rp><rt>ね</rt><rp>)</rp></ruby>から<ruby>吸<rp>(</rp><rt>す</rt><rp>)</rp></ruby>い上げた水や<ruby>養分<rp>(</rp><rt>ようぶん</rt><rp>)</rp></ruby>を<ruby>運<rp>(</rp><rt>はこ</rt><rp>)</rp></ruby>ぶ<strong><span class="keyword"><ruby>維管束<rp>(</rp><rt>いかんそく</rt><rp>)</rp></ruby></span></strong>のしくみを学びましょう。',
-    },
-    {
-      type: 'message',
-      side: 'left',
-      characterId: 'teacher',
-      expression: 'explaining',
-      text: '<ruby>根<rp>(</rp><rt>ね</rt><rp>)</rp></ruby>から<ruby>吸収<rp>(</rp><rt>きゅうしゅう</rt><rp>)</rp></ruby>した水や<ruby>肥料分<rp>(</rp><rt>ひりょうぶん</rt><rp>)</rp></ruby>の<ruby>通<rp>(</rp><rt>とお</rt><rp>)</rp></ruby>り<ruby>道<rp>(</rp><rt>みち</rt><rp>)</rp></ruby>を<strong><span class="keyword"><ruby>道管<rp>(</rp><rt>どうかん</rt><rp>)</rp></ruby></span></strong>、<ruby>葉<rp>(</rp><rt>は</rt><rp>)</rp></ruby>で作られた<ruby>養分<rp>(</rp><rt>ようぶん</rt><rp>)</rp></ruby>の<ruby>通<rp>(</rp><rt>とお</rt><rp>)</rp></ruby>り<ruby>道<rp>(</rp><rt>みち</rt><rp>)</rp></ruby>を<strong><span class="keyword"><ruby>師管<rp>(</rp><rt>しかん</rt><rp>)</rp></ruby></span></strong>というよ',
-    },
-    {
-      type: 'message',
-      side: 'right',
-      characterId: 'student',
-      expression: 'curious',
-      text: '<ruby>道管<rp>(</rp><rt>どうかん</rt><rp>)</rp></ruby>と<ruby>師管<rp>(</rp><rt>しかん</rt><rp>)</rp></ruby>はどう<ruby>並<rp>(</rp><rt>なら</rt><rp>)</rp></ruby>んでいるんですか？',
-    },
-    {
-      type: 'message',
-      side: 'left',
-      characterId: 'teacher',
-      expression: 'happy',
-      text: '<ruby>道管<rp>(</rp><rt>どうかん</rt><rp>)</rp></ruby>と<ruby>師管<rp>(</rp><rt>しかん</rt><rp>)</rp></ruby>の<ruby>集<rp>(</rp><rt>あつ</rt><rp>)</rp></ruby>まりを<strong><span class="keyword"><ruby>維管束<rp>(</rp><rt>いかんそく</rt><rp>)</rp></ruby></span></strong>というよ。<strong><ruby>単子葉類<rp>(</rp><rt>たんしようるい</rt><rp>)</rp></ruby></strong>では<ruby>全体<rp>(</rp><rt>ぜんたい</rt><rp>)</rp></ruby>に<ruby>散<rp>(</rp><rt>ち</rt><rp>)</rp></ruby>らばり、<strong><ruby>双子葉類<rp>(</rp><rt>そうしようるい</rt><rp>)</rp></ruby></strong>では<ruby>周辺部<rp>(</rp><rt>しゅうへんぶ</rt><rp>)</rp></ruby>に<ruby>輪<rp>(</rp><rt>わ</rt><rp>)</rp></ruby>の形に<ruby>並<rp>(</rp><rt>なら</rt><rp>)</rp></ruby>んでいるんだ',
-    },
-    {
-      type: 'image',
-      src: '/images/science/grade2/biology/vascular-bundle.svg',
-      alt: '維管束のつくり',
-      caption: '道管（水）と師管（養分）の通り道',
-    },
-    {
-      type: 'message',
-      side: 'right',
-      characterId: 'student',
-      expression: 'happy',
-      text: '<ruby>道管<rp>(</rp><rt>どうかん</rt><rp>)</rp></ruby>＝水、<ruby>師管<rp>(</rp><rt>しかん</rt><rp>)</rp></ruby>＝<ruby>養分<rp>(</rp><rt>ようぶん</rt><rp>)</rp></ruby>って<ruby>覚<rp>(</rp><rt>おぼ</rt><rp>)</rp></ruby>えればいいんですね！',
-    },
-    {
-      type: 'summary-point',
-      text: '<span class="keyword">道管</span>＝水・肥料分の通り道。<span class="keyword">師管</span>＝養分の通り道。2つ合わせて<span class="keyword">維管束</span>。単子葉類＝散らばる、双子葉類＝輪の形',
-    },
-    {
-      type: 'quiz',
-      question: '根から吸収された水の通り道は？',
-      options: [
-        { letter: 'A', text: '師管', correct: false },
-        { letter: 'B', text: '気孔', correct: false },
-        { letter: 'C', text: '道管', correct: true },
-        { letter: 'D', text: '根毛', correct: false },
-      ],
-      explanation:
-        '<strong>正解はC「<ruby>道管<rp>(</rp><rt>どうかん</rt><rp>)</rp></ruby>」</strong>です。<ruby>道管<rp>(</rp><rt>どうかん</rt><rp>)</rp></ruby>は<ruby>根<rp>(</rp><rt>ね</rt><rp>)</rp></ruby>から<ruby>吸収<rp>(</rp><rt>きゅうしゅう</rt><rp>)</rp></ruby>された水や<ruby>肥料分<rp>(</rp><rt>ひりょうぶん</rt><rp>)</rp></ruby>の<ruby>通<rp>(</rp><rt>とお</rt><rp>)</rp></ruby>り<ruby>道<rp>(</rp><rt>みち</rt><rp>)</rp></ruby>です。<ruby>師管<rp>(</rp><rt>しかん</rt><rp>)</rp></ruby>は<ruby>養分<rp>(</rp><rt>ようぶん</rt><rp>)</rp></ruby>の<ruby>通<rp>(</rp><rt>とお</rt><rp>)</rp></ruby>り<ruby>道<rp>(</rp><rt>みち</rt><rp>)</rp></ruby>です。',
-    },
-    {
       type: 'end',
       points: [
-        '<strong><ruby>光合成<rp>(</rp><rt>こうごうせい</rt><rp>)</rp></ruby></strong>：<ruby>光<rp>(</rp><rt>ひかり</rt><rp>)</rp></ruby>＋CO<sub>2</sub>＋水 → デンプン＋O<sub>2</sub>（<ruby>葉緑体<rp>(</rp><rt>ようりょくたい</rt><rp>)</rp></ruby>で行う）',
-        '<strong><ruby>気孔<rp>(</rp><rt>きこう</rt><rp>)</rp></ruby></strong>：<ruby>孔辺<rp>(</rp><rt>こうへん</rt><rp>)</rp></ruby><ruby>細胞<rp>(</rp><rt>さいぼう</rt><rp>)</rp></ruby>に<ruby>囲<rp>(</rp><rt>かこ</rt><rp>)</rp></ruby>まれたすきま。<strong><ruby>蒸散<rp>(</rp><rt>じょうさん</rt><rp>)</rp></ruby></strong>＝<ruby>気孔<rp>(</rp><rt>きこう</rt><rp>)</rp></ruby>から水<ruby>蒸気<rp>(</rp><rt>じょうき</rt><rp>)</rp></ruby>が出る（<ruby>葉<rp>(</rp><rt>は</rt><rp>)</rp></ruby>の<ruby>裏<rp>(</rp><rt>うら</rt><rp>)</rp></ruby>で<ruby>盛<rp>(</rp><rt>さか</rt><rp>)</rp></ruby>ん）→<ruby>吸水<rp>(</rp><rt>きゅうすい</rt><rp>)</rp></ruby>の<ruby>原動力<rp>(</rp><rt>げんどうりょく</rt><rp>)</rp></ruby>',
+        '<strong><ruby>光合成<rp>(</rp><rt>こうごうせい</rt><rp>)</rp></ruby></strong>：<ruby>光<rp>(</rp><rt>ひかり</rt><rp>)</rp></ruby>＋CO<sub>2</sub>＋水 → デンプン＋O<sub>2</sub>（<ruby>葉緑体<rp>(</rp><rt>ようりょくたい</rt><rp>)</rp></ruby>で行う）。<ruby>実験<rp>(</rp><rt>じっけん</rt><rp>)</rp></ruby>では<strong>エタノールで<ruby>脱色<rp>(</rp><rt>だっしょく</rt><rp>)</rp></ruby></strong>してからヨウ<ruby>素<rp>(</rp><rt>そ</rt><rp>)</rp></ruby><ruby>液<rp>(</rp><rt>えき</rt><rp>)</rp></ruby>で<ruby>確認<rp>(</rp><rt>かくにん</rt><rp>)</rp></ruby>',
+        '<strong><ruby>気孔<rp>(</rp><rt>きこう</rt><rp>)</rp></ruby></strong>：<ruby>孔辺<rp>(</rp><rt>こうへん</rt><rp>)</rp></ruby><ruby>細胞<rp>(</rp><rt>さいぼう</rt><rp>)</rp></ruby>に<ruby>囲<rp>(</rp><rt>かこ</rt><rp>)</rp></ruby>まれたすきま。<strong><ruby>蒸散<rp>(</rp><rt>じょうさん</rt><rp>)</rp></ruby></strong>＝<ruby>気孔<rp>(</rp><rt>きこう</rt><rp>)</rp></ruby>から水<ruby>蒸気<rp>(</rp><rt>じょうき</rt><rp>)</rp></ruby>が出る（<ruby>葉<rp>(</rp><rt>は</rt><rp>)</rp></ruby>の<ruby>裏<rp>(</rp><rt>うら</rt><rp>)</rp></ruby>で<ruby>盛<rp>(</rp><rt>さか</rt><rp>)</rp></ruby>ん）',
         '<ruby>植物<rp>(</rp><rt>しょくぶつ</rt><rp>)</rp></ruby>は<ruby>常<rp>(</rp><rt>つね</rt><rp>)</rp></ruby>に<strong><ruby>呼吸<rp>(</rp><rt>こきゅう</rt><rp>)</rp></ruby></strong>。<ruby>昼<rp>(</rp><rt>ひる</rt><rp>)</rp></ruby>は<ruby>光合成<rp>(</rp><rt>こうごうせい</rt><rp>)</rp></ruby>＞<ruby>呼吸<rp>(</rp><rt>こきゅう</rt><rp>)</rp></ruby>、<ruby>夜<rp>(</rp><rt>よる</rt><rp>)</rp></ruby>は<ruby>呼吸<rp>(</rp><rt>こきゅう</rt><rp>)</rp></ruby>のみ',
-        '<strong><ruby>道管<rp>(</rp><rt>どうかん</rt><rp>)</rp></ruby></strong>＝水の<ruby>通<rp>(</rp><rt>とお</rt><rp>)</rp></ruby>り<ruby>道<rp>(</rp><rt>みち</rt><rp>)</rp></ruby>、<strong><ruby>師管<rp>(</rp><rt>しかん</rt><rp>)</rp></ruby></strong>＝<ruby>養分<rp>(</rp><rt>ようぶん</rt><rp>)</rp></ruby>の<ruby>通<rp>(</rp><rt>とお</rt><rp>)</rp></ruby>り<ruby>道<rp>(</rp><rt>みち</rt><rp>)</rp></ruby>。合わせて<strong><ruby>維管束<rp>(</rp><rt>いかんそく</rt><rp>)</rp></ruby></strong>',
       ],
     },
   ],

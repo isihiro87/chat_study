@@ -1,8 +1,10 @@
 import type { Era, Topic } from '../../../../../types';
 import { cells } from './topics/1-cells';
-import { plantBody } from './topics/2-plant-body';
+import { plantPhotosynthesis } from './topics/2-plant-photosynthesis';
+import { plantTransport } from './topics/3-plant-transport';
 import { animalBody } from './topics/3-animal-body';
-import { stimuliResponse } from './topics/4-stimuli-response';
+import { sensoryOrgans } from './topics/5-sensory-organs';
+import { nervesMuscles } from './topics/6-nerves-muscles';
 
 export const biologyGrade2Era: Era = {
   id: 'sci2-biology',
@@ -17,7 +19,9 @@ export const biologyGrade2Era: Era = {
 
 export const biologyGrade2Topics: Topic[] = [
   cells,
-  plantBody,
+  plantPhotosynthesis,
+  plantTransport,
   animalBody,
-  stimuliResponse,
+  sensoryOrgans,
+  nervesMuscles,
 ];
