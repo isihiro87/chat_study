@@ -186,6 +186,35 @@ export const lightChat: HistoryChat = {
     },
     {
       type: 'date',
+      text: '<ruby>鏡<rp>(</rp><rt>かがみ</rt><rp>)</rp></ruby>にうつる<ruby>像<rp>(</rp><rt>ぞう</rt><rp>)</rp></ruby>',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<ruby>鏡<rp>(</rp><rt>かがみ</rt><rp>)</rp></ruby>にうつる<ruby>像<rp>(</rp><rt>ぞう</rt><rp>)</rp></ruby>は、<strong><ruby>鏡<rp>(</rp><rt>かがみ</rt><rp>)</rp></ruby>の面に対して<span class="keyword"><ruby>対称<rp>(</rp><rt>たいしょう</rt><rp>)</rp></ruby></span>の<ruby>位置<rp>(</rp><rt>いち</rt><rp>)</rp></ruby></strong>にできるんだ。物体と像は、鏡の面から同じ<ruby>距離<rp>(</rp><rt>きょり</rt><rp>)</rp></ruby>にあるよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '全身を<ruby>鏡<rp>(</rp><rt>かがみ</rt><rp>)</rp></ruby>にうつすには、どれくらいの大きさの<ruby>鏡<rp>(</rp><rt>かがみ</rt><rp>)</rp></ruby>が必要ですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'excited',
+      text: '実は<strong><ruby>身長<rp>(</rp><rt>しんちょう</rt><rp>)</rp></ruby>の半分</strong>の高さがあれば全身がうつるんだ！ <ruby>反射<rp>(</rp><rt>はんしゃ</rt><rp>)</rp></ruby>の<ruby>法則<rp>(</rp><rt>ほうそく</rt><rp>)</rp></ruby>から、<ruby>鏡<rp>(</rp><rt>かがみ</rt><rp>)</rp></ruby>の上端は目と頭の<ruby>中点<rp>(</rp><rt>ちゅうてん</rt><rp>)</rp></ruby>、下端は目と足の中点に合わせればいいんだよ',
+    },
+    {
+      type: 'summary-point',
+      text: '鏡の像は<span class="keyword">鏡の面に対称の位置</span>にできる。全身を映すには<span class="keyword">身長の半分</span>の鏡でOK！',
+    },
+    {
+      type: 'date',
       text: '<ruby>凸<rp>(</rp><rt>とつ</rt><rp>)</rp></ruby>レンズと<ruby>像<rp>(</rp><rt>ぞう</rt><rp>)</rp></ruby>',
     },
     {
@@ -221,6 +250,20 @@ export const lightChat: HistoryChat = {
       text: '虫めがねで物が大きく見えるのは<ruby>虚像<rp>(</rp><rt>きょぞう</rt><rp>)</rp></ruby>なんですね！',
     },
     {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: '物体の<ruby>位置<rp>(</rp><rt>いち</rt><rp>)</rp></ruby>で<ruby>実像<rp>(</rp><rt>じつぞう</rt><rp>)</rp></ruby>の大きさは変わるんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: '変わるよ！ <strong><ruby>焦点距離<rp>(</rp><rt>しょうてんきょり</rt><rp>)</rp></ruby>の2<ruby>倍<rp>(</rp><rt>ばい</rt><rp>)</rp></ruby>の位置</strong>に物体を置くと<strong>同じ大きさ</strong>、2倍より遠いと<strong>小さい<ruby>実像<rp>(</rp><rt>じつぞう</rt><rp>)</rp></ruby></strong>、2倍と<ruby>焦点<rp>(</rp><rt>しょうてん</rt><rp>)</rp></ruby>の間だと<strong>大きい<ruby>実像<rp>(</rp><rt>じつぞう</rt><rp>)</rp></ruby></strong>ができるんだ。物体をレンズに近づけるほど像は大きくなるよ',
+    },
+    {
       type: 'image',
       src: '/images/science/grade1/physics/convex-lens.svg',
       alt: '凸レンズと像',
@@ -228,7 +271,19 @@ export const lightChat: HistoryChat = {
     },
     {
       type: 'summary-point',
-      text: '<span class="keyword">凸レンズ</span>：焦点より遠い→<span class="keyword">実像</span>（倒立・スクリーンに映る）、焦点より近い→<span class="keyword">虚像</span>（正立・大きい）！',
+      text: '<span class="keyword">凸レンズ</span>：焦点より遠い→<span class="keyword">実像</span>（倒立・スクリーンに映る）、焦点より近い→<span class="keyword">虚像</span>（正立・大きい）。焦点距離の<span class="keyword">2倍の位置</span>で物体と同じ大きさの実像！',
+    },
+    {
+      type: 'quiz',
+      question: '凸レンズの焦点距離の2倍の位置に物体を置くと、できる実像の大きさはどうなるか。',
+      options: [
+        { letter: 'A', text: '物体より大きい', correct: false },
+        { letter: 'B', text: '物体と同じ大きさ', correct: true },
+        { letter: 'C', text: '物体より小さい', correct: false },
+        { letter: 'D', text: '像はできない', correct: false },
+      ],
+      explanation:
+        '<strong>正解はB「物体と同じ大きさ」</strong>です。<ruby>焦点距離<rp>(</rp><rt>しょうてんきょり</rt><rp>)</rp></ruby>の2<ruby>倍<rp>(</rp><rt>ばい</rt><rp>)</rp></ruby>の<ruby>位置<rp>(</rp><rt>いち</rt><rp>)</rp></ruby>では、物体と同じ大きさの<ruby>倒立<rp>(</rp><rt>とうりつ</rt><rp>)</rp></ruby>の<ruby>実像<rp>(</rp><rt>じつぞう</rt><rp>)</rp></ruby>ができます。',
     },
     {
       type: 'end',

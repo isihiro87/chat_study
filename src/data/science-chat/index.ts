@@ -11,6 +11,10 @@ import { flowerSeedChat } from '../subjects/science/units/grade1/1-biology/topic
 import { plantGroupsChat } from '../subjects/science/units/grade1/1-biology/topics/4-plant-groups/chat';
 import { vertebratesChat } from '../subjects/science/units/grade1/1-biology/topics/5-vertebrates/chat';
 import { invertebratesChat } from '../subjects/science/units/grade1/1-biology/topics/6-invertebrates/chat';
+// Grade 1: Physics
+import { lightChat } from '../subjects/science/units/grade1/3-physics/topics/1-light/chat';
+import { soundChat } from '../subjects/science/units/grade1/3-physics/topics/2-sound/chat';
+import { forceChat } from '../subjects/science/units/grade1/3-physics/topics/3-force/chat';
 // Grade 2: Chemical Change
 import { matterCompositionChat } from '../subjects/science/units/grade2/1-chemical-change/topics/1-matter-composition/chat';
 import { chemicalCombinationChat } from '../subjects/science/units/grade2/1-chemical-change/topics/2-chemical-combination/chat';
@@ -76,6 +80,10 @@ const chatMap: Record<string, HistoryChat> = {
   [plantGroupsChat.id]: plantGroupsChat,
   [vertebratesChat.id]: vertebratesChat,
   [invertebratesChat.id]: invertebratesChat,
+  // Grade 1: Physics
+  [lightChat.id]: lightChat,
+  [soundChat.id]: soundChat,
+  [forceChat.id]: forceChat,
   // Grade 2: Chemical Change
   [matterCompositionChat.id]: matterCompositionChat,
   [chemicalCombinationChat.id]: chemicalCombinationChat,

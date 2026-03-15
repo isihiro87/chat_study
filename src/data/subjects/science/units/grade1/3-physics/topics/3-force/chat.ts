@@ -78,6 +78,20 @@ export const forceChat: HistoryChat = {
       text: 'たくさんあるよ！ <strong><span class="keyword"><ruby>重力<rp>(</rp><rt>じゅうりょく</rt><rp>)</rp></ruby></span></strong>（<ruby>地球<rp>(</rp><rt>ちきゅう</rt><rp>)</rp></ruby>が物体を<ruby>引<rp>(</rp><rt>ひ</rt><rp>)</rp></ruby>く力）、<strong><span class="keyword"><ruby>摩擦力<rp>(</rp><rt>まさつりょく</rt><rp>)</rp></ruby></span></strong>（面にそって<ruby>運動<rp>(</rp><rt>うんどう</rt><rp>)</rp></ruby>をさまたげる力）、<strong><ruby>弾性力<rp>(</rp><rt>だんせいりょく</rt><rp>)</rp></ruby></strong>（ばねが<ruby>元<rp>(</rp><rt>もと</rt><rp>)</rp></ruby>に<ruby>戻<rp>(</rp><rt>もど</rt><rp>)</rp></ruby>ろうとする力）、<strong><ruby>磁力<rp>(</rp><rt>じりょく</rt><rp>)</rp></ruby></strong>（<ruby>磁石<rp>(</rp><rt>じしゃく</rt><rp>)</rp></ruby>の力）などだね',
     },
     {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '<strong><span class="keyword"><ruby>垂直抗力<rp>(</rp><rt>すいちょくこうりょく</rt><rp>)</rp></ruby></span></strong>や<strong><ruby>電気<rp>(</rp><rt>でんき</rt><rp>)</rp></ruby>の力</strong>も力なんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: 'そうだよ！ <strong><span class="keyword"><ruby>垂直抗力<rp>(</rp><rt>すいちょくこうりょく</rt><rp>)</rp></ruby></span></strong>は、<ruby>面<rp>(</rp><rt>めん</rt><rp>)</rp></ruby>が物体を<ruby>垂直<rp>(</rp><rt>すいちょく</rt><rp>)</rp></ruby>に<ruby>押<rp>(</rp><rt>お</rt><rp>)</rp></ruby>し<ruby>返<rp>(</rp><rt>かえ</rt><rp>)</rp></ruby>す力のことだよ。<ruby>下<rp>(</rp><rt>した</rt><rp>)</rp></ruby>じきでこすった<ruby>髪<rp>(</rp><rt>かみ</rt><rp>)</rp></ruby>の<ruby>毛<rp>(</rp><rt>け</rt><rp>)</rp></ruby>が引きつけられるのは<strong><ruby>電気<rp>(</rp><rt>でんき</rt><rp>)</rp></ruby>の力</strong>だね',
+    },
+    {
       type: 'summary-point',
       text: '力の3つのはたらき：<span class="keyword">形を変える・運動の状態を変える・支える</span>。身のまわりには<span class="keyword">重力</span>・<span class="keyword">摩擦力</span>・弾性力・磁力などがある！',
     },
@@ -233,6 +247,20 @@ export const forceChat: HistoryChat = {
       characterId: 'student',
       expression: 'happy',
       text: '月に行っても<ruby>質量<rp>(</rp><rt>しつりょう</rt><rp>)</rp></ruby>は同じだけど、<ruby>重力<rp>(</rp><rt>じゅうりょく</rt><rp>)</rp></ruby>は<ruby>軽<rp>(</rp><rt>かる</rt><rp>)</rp></ruby>くなるんですね！',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'thinking',
+      text: 'だから<ruby>測定<rp>(</rp><rt>そくてい</rt><rp>)</rp></ruby><ruby>器具<rp>(</rp><rt>きぐ</rt><rp>)</rp></ruby>も<ruby>違<rp>(</rp><rt>ちが</rt><rp>)</rp></ruby>うんだ。<strong>ばねばかり</strong>は<ruby>重力<rp>(</rp><rt>じゅうりょく</rt><rp>)</rp></ruby>をはかるから<ruby>場所<rp>(</rp><rt>ばしょ</rt><rp>)</rp></ruby>によって<ruby>値<rp>(</rp><rt>あたい</rt><rp>)</rp></ruby>が変わる。<strong><span class="keyword"><ruby>上皿<rp>(</rp><rt>うわざら</rt><rp>)</rp></ruby>てんびん</span></strong>は<ruby>質量<rp>(</rp><rt>しつりょう</rt><rp>)</rp></ruby>を<ruby>比較<rp>(</rp><rt>ひかく</rt><rp>)</rp></ruby>するから、月でも<ruby>地球<rp>(</rp><rt>ちきゅう</rt><rp>)</rp></ruby>でも同じ<ruby>値<rp>(</rp><rt>あたい</rt><rp>)</rp></ruby>になるよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'happy',
+      text: '<ruby>重力<rp>(</rp><rt>じゅうりょく</rt><rp>)</rp></ruby>はばねばかり、<ruby>質量<rp>(</rp><rt>しつりょう</rt><rp>)</rp></ruby>は<ruby>上皿<rp>(</rp><rt>うわざら</rt><rp>)</rp></ruby>てんびん！ セットで<ruby>覚<rp>(</rp><rt>おぼ</rt><rp>)</rp></ruby>えます！',
     },
     {
       type: 'summary-point',
