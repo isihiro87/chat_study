@@ -1,0 +1,167 @@
+import type { HistoryChat } from '../../../../../../../../data/history-chat/types';
+
+export const europeIssuesChat: HistoryChat = {
+  id: 'geo1-europe-issues',
+  icon: '🌍',
+  title: 'ヨーロッパ州(3) 課題・ロシア',
+  subtitle: '〜中1地理〜 EU課題・ブレグジット・ロシア',
+  characters: [
+    {
+      id: 'teacher',
+      name: '地理の先生',
+      emoji: '🌍',
+      colorFrom: '#2563EB',
+      colorTo: '#60A5FA',
+      expressions: {
+        explaining: '🧑‍🏫',
+        happy: '😊',
+        excited: '🤩',
+        thinking: '🤔',
+      },
+    },
+    {
+      id: 'student',
+      name: '生徒',
+      emoji: '👦',
+      colorFrom: '#d97706',
+      colorTo: '#fbbf24',
+      expressions: {
+        curious: '🙋‍♂️',
+        surprised: '😲',
+        thinking: '🤔',
+        happy: '😄',
+      },
+    },
+  ],
+  content: [
+    {
+      type: 'date',
+      text: '統合の課題',
+    },
+    {
+      type: 'narrator',
+      text: 'EU<ruby>統合<rp>(</rp><rt>とうごう</rt><rp>)</rp></ruby>は大きな成果を上げましたが、さまざまな<ruby>課題<rp>(</rp><rt>かだい</rt><rp>)</rp></ruby>も<ruby>抱<rp>(</rp><rt>かか</rt><rp>)</rp></ruby>えています。',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: 'EUにも問題があるんですか？いいことばかりじゃないんですね',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'thinking',
+      text: 'そうなんだ。まず<strong><span class="keyword"><ruby>加盟国間<rp>(</rp><rt>かめいこくかん</rt><rp>)</rp></ruby>の<ruby>経済格差<rp>(</rp><rt>けいざいかくさ</rt><rp>)</rp></ruby></span></strong>がある。西ヨーロッパの<ruby>先進国<rp>(</rp><rt>せんしんこく</rt><rp>)</rp></ruby>と東ヨーロッパの新しい加盟国では、<ruby>所得<rp>(</rp><rt>しょとく</rt><rp>)</rp></ruby>や<ruby>生活水準<rp>(</rp><rt>せいかつすいじゅん</rt><rp>)</rp></ruby>に大きな差があるんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: '自由に移動できるから、<ruby>豊<rp>(</rp><rt>ゆた</rt><rp>)</rp></ruby>かな国に人が<ruby>集<rp>(</rp><rt>あつ</rt><rp>)</rp></ruby>まったりしそうですね',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: 'その通り。さらに<ruby>中東<rp>(</rp><rt>ちゅうとう</rt><rp>)</rp></ruby>やアフリカからの<strong><span class="keyword"><ruby>難民<rp>(</rp><rt>なんみん</rt><rp>)</rp></ruby>・<ruby>移民<rp>(</rp><rt>いみん</rt><rp>)</rp></ruby>問題</span></strong>もあるんだ。受け入れをめぐって加盟国間で意見が対立しているよ',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'thinking',
+      text: 'そして2020年には<strong><span class="keyword">イギリスがEUを<ruby>離脱<rp>(</rp><rt>りだつ</rt><rp>)</rp></ruby></span></strong>したんだ。これは<strong>ブレグジット</strong>と呼ばれているよ。統合の流れに<ruby>逆行<rp>(</rp><rt>ぎゃっこう</rt><rp>)</rp></ruby>する大きな出来事だったんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'surprised',
+      text: 'イギリスが離脱！統合にはメリットもあるけど、課題も大きいんですね',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: 'よくまとめられたね。ヨーロッパは統合を進めながらも、経済格差や難民問題など、さまざまな課題に向き合っているんだよ',
+    },
+    {
+      type: 'summary-point',
+      text: 'EUの課題：<span class="keyword">経済格差</span>、<span class="keyword">難民・移民問題</span>、<span class="keyword">イギリスのEU離脱</span>（ブレグジット）',
+    },
+    {
+      type: 'date',
+      text: 'ロシアの自然と資源',
+    },
+    {
+      type: 'narrator',
+      text: 'ヨーロッパとアジアにまたがる<ruby>ロシア<rp>(</rp><rt>ろしあ</rt><rp>)</rp></ruby>は、世界最大の<ruby>国土<rp>(</rp><rt>こくど</rt><rp>)</rp></ruby>と<ruby>豊富<rp>(</rp><rt>ほうふ</rt><rp>)</rp></ruby>な<ruby>資源<rp>(</rp><rt>しげん</rt><rp>)</rp></ruby>を持っています。',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: 'ロシアはヨーロッパに入るんですか？それともアジアですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: 'ロシアは<strong>ヨーロッパとアジアの両方にまたがっている</strong>んだ。<ruby>世界一広<rp>(</rp><rt>せかいいちひろ</rt><rp>)</rp></ruby>い<ruby>国土<rp>(</rp><rt>こくど</rt><rp>)</rp></ruby>を持つ国だよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'surprised',
+      text: '世界で一番広い！どんな自然があるんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'excited',
+      text: 'シベリア地方には<strong><span class="keyword">タイガ</span></strong>と呼ばれる広大な<ruby>針葉樹林<rp>(</rp><rt>しんようじゅりん</rt><rp>)</rp></ruby>が広がっていて、南部には<strong><span class="keyword">ステップ</span></strong>と呼ばれる<ruby>草原<rp>(</rp><rt>そうげん</rt><rp>)</rp></ruby>地帯があるんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: 'タイガにステップ…。ロシアにはどんな資源がありますか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<strong><span class="keyword"><ruby>石油<rp>(</rp><rt>せきゆ</rt><rp>)</rp></ruby></span></strong>と<strong><span class="keyword"><ruby>天然<rp>(</rp><rt>てんねん</rt><rp>)</rp></ruby>ガス</span></strong>が<ruby>豊富<rp>(</rp><rt>ほうふ</rt><rp>)</rp></ruby>に<ruby>産出<rp>(</rp><rt>さんしゅつ</rt><rp>)</rp></ruby>されるよ。パイプラインを通じてヨーロッパの国々にエネルギーを<ruby>供給<rp>(</rp><rt>きょうきゅう</rt><rp>)</rp></ruby>しているんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'happy',
+      text: 'ロシアの資源がヨーロッパのエネルギーを支えているんですね！',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">ロシア</span>：世界最大の国土。<span class="keyword">タイガ</span>（針葉樹林）と<span class="keyword">ステップ</span>（草原）。<span class="keyword">石油</span>・<span class="keyword">天然ガス</span>をヨーロッパに供給',
+    },
+    {
+      type: 'end',
+      points: [
+        'EUの課題：<strong><ruby>経済格差<rp>(</rp><rt>けいざいかくさ</rt><rp>)</rp></ruby></strong>、<strong><ruby>難民<rp>(</rp><rt>なんみん</rt><rp>)</rp></ruby>・<ruby>移民<rp>(</rp><rt>いみん</rt><rp>)</rp></ruby>問題</strong>、<strong>イギリスのEU<ruby>離脱<rp>(</rp><rt>りだつ</rt><rp>)</rp></ruby></strong>（ブレグジット）',
+        '<strong>ロシア</strong>：<strong>タイガ</strong>（針葉樹林）・<strong>ステップ</strong>（草原）。<strong>石油</strong>・<strong>天然ガス</strong>をヨーロッパに供給',
+      ],
+    },
+  ],
+};
