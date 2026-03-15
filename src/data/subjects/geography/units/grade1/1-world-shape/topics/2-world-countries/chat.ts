@@ -103,6 +103,46 @@ export const worldCountriesChat: HistoryChat = {
     },
     {
       type: 'date',
+      text: '国名の由来を探ろう',
+    },
+    {
+      type: 'narrator',
+      text: '<ruby>国<rp>(</rp><rt>くに</rt><rp>)</rp></ruby>の<ruby>名前<rp>(</rp><rt>なまえ</rt><rp>)</rp></ruby>にはさまざまな<ruby>由来<rp>(</rp><rt>ゆらい</rt><rp>)</rp></ruby>があります。<ruby>地理<rp>(</rp><rt>ちり</rt><rp>)</rp></ruby>や<ruby>歴史<rp>(</rp><rt>れきし</rt><rp>)</rp></ruby>、<ruby>人物<rp>(</rp><rt>じんぶつ</rt><rp>)</rp></ruby>の<ruby>名前<rp>(</rp><rt>なまえ</rt><rp>)</rp></ruby>が<ruby>国名<rp>(</rp><rt>こくめい</rt><rp>)</rp></ruby>になっている<ruby>例<rp>(</rp><rt>れい</rt><rp>)</rp></ruby>を<ruby>見<rp>(</rp><rt>み</rt><rp>)</rp></ruby>てみましょう。',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: 'エクアドル<ruby>以外<rp>(</rp><rt>いがい</rt><rp>)</rp></ruby>にも、<ruby>面白<rp>(</rp><rt>おもしろ</rt><rp>)</rp></ruby>い<ruby>由来<rp>(</rp><rt>ゆらい</rt><rp>)</rp></ruby>の<ruby>国名<rp>(</rp><rt>こくめい</rt><rp>)</rp></ruby>ってありますか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'excited',
+      text: 'たくさんあるよ！<strong>インド</strong>は「<ruby>大河<rp>(</rp><rt>たいが</rt><rp>)</rp></ruby>」を<ruby>意味<rp>(</rp><rt>いみ</rt><rp>)</rp></ruby>する<span class="keyword">インダス<ruby>川<rp>(</rp><rt>がわ</rt><rp>)</rp></ruby></span>に<ruby>由来<rp>(</rp><rt>ゆらい</rt><rp>)</rp></ruby>しているんだ。<strong>フィリピン</strong>はスペインの<ruby>皇太子<rp>(</rp><rt>こうたいし</rt><rp>)</rp></ruby><span class="keyword">フェリペ</span>の<ruby>名前<rp>(</rp><rt>なまえ</rt><rp>)</rp></ruby>が<ruby>元<rp>(</rp><rt>もと</rt><rp>)</rp></ruby>になっているよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'surprised',
+      text: '<ruby>人<rp>(</rp><rt>ひと</rt><rp>)</rp></ruby>の<ruby>名前<rp>(</rp><rt>なまえ</rt><rp>)</rp></ruby>が<ruby>国名<rp>(</rp><rt>こくめい</rt><rp>)</rp></ruby>になるんですか！',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: 'そうなんだ。<strong>コロンビア</strong>も<ruby>探検家<rp>(</rp><rt>たんけんか</rt><rp>)</rp></ruby>の<span class="keyword">コロンブス</span>に<ruby>由来<rp>(</rp><rt>ゆらい</rt><rp>)</rp></ruby>しているよ。<ruby>自然<rp>(</rp><rt>しぜん</rt><rp>)</rp></ruby>、<ruby>人物<rp>(</rp><rt>じんぶつ</rt><rp>)</rp></ruby>、<ruby>言語<rp>(</rp><rt>げんご</rt><rp>)</rp></ruby>…<ruby>国名<rp>(</rp><rt>こくめい</rt><rp>)</rp></ruby>の<ruby>由来<rp>(</rp><rt>ゆらい</rt><rp>)</rp></ruby>を<ruby>調<rp>(</rp><rt>しら</rt><rp>)</rp></ruby>べると<ruby>世界<rp>(</rp><rt>せかい</rt><rp>)</rp></ruby>の<ruby>歴史<rp>(</rp><rt>れきし</rt><rp>)</rp></ruby>が<ruby>見<rp>(</rp><rt>み</rt><rp>)</rp></ruby>えてくるんだ',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">国名の由来</span>：インド＝インダス川 / フィリピン＝皇太子フェリペ / コロンビア＝コロンブス / エクアドル＝赤道',
+    },
+    {
+      type: 'date',
       text: '国境と面積のちがい',
     },
     {
@@ -238,8 +278,29 @@ export const worldCountriesChat: HistoryChat = {
       text: '<ruby>国旗<rp>(</rp><rt>こっき</rt><rp>)</rp></ruby>や<ruby>国境<rp>(</rp><rt>こっきょう</rt><rp>)</rp></ruby>、<ruby>面積<rp>(</rp><rt>めんせき</rt><rp>)</rp></ruby>に<ruby>人口密度<rp>(</rp><rt>じんこうみつど</rt><rp>)</rp></ruby>…<ruby>国<rp>(</rp><rt>くに</rt><rp>)</rp></ruby>にはいろんな<ruby>特徴<rp>(</rp><rt>とくちょう</rt><rp>)</rp></ruby>があるんですね！',
     },
     {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'excited',
+      text: 'ちなみに<ruby>世界<rp>(</rp><rt>せかい</rt><rp>)</rp></ruby>で<ruby>人口密度<rp>(</rp><rt>じんこうみつど</rt><rp>)</rp></ruby>が<ruby>最<rp>(</rp><rt>もっと</rt><rp>)</rp></ruby>も<ruby>高<rp>(</rp><rt>たか</rt><rp>)</rp></ruby>い<ruby>国<rp>(</rp><rt>くに</rt><rp>)</rp></ruby>は<strong><span class="keyword">モナコ</span></strong>で、<ruby>約<rp>(</rp><rt>やく</rt><rp>)</rp></ruby>2<ruby>万<rp>(</rp><rt>まん</rt><rp>)</rp></ruby><ruby>人<rp>(</rp><rt>にん</rt><rp>)</rp></ruby>/km²もあるんだ。<ruby>逆<rp>(</rp><rt>ぎゃく</rt><rp>)</rp></ruby>にオーストラリアは<ruby>約<rp>(</rp><rt>やく</rt><rp>)</rp></ruby>3<ruby>人<rp>(</rp><rt>にん</rt><rp>)</rp></ruby>/km²と<ruby>非常<rp>(</rp><rt>ひじょう</rt><rp>)</rp></ruby>に<ruby>低<rp>(</rp><rt>ひく</rt><rp>)</rp></ruby>いよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'surprised',
+      text: '2<ruby>万<rp>(</rp><rt>まん</rt><rp>)</rp></ruby><ruby>人<rp>(</rp><rt>にん</rt><rp>)</rp></ruby>と3<ruby>人<rp>(</rp><rt>にん</rt><rp>)</rp></ruby>！ものすごい<ruby>差<rp>(</rp><rt>さ</rt><rp>)</rp></ruby>ですね。<ruby>日本<rp>(</rp><rt>にほん</rt><rp>)</rp></ruby>の<ruby>面積<rp>(</rp><rt>めんせき</rt><rp>)</rp></ruby>は<ruby>世界<rp>(</rp><rt>せかい</rt><rp>)</rp></ruby>で<ruby>何番目<rp>(</rp><rt>なんばんめ</rt><rp>)</rp></ruby>くらいなんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<ruby>日本<rp>(</rp><rt>にほん</rt><rp>)</rp></ruby>の<ruby>面積<rp>(</rp><rt>めんせき</rt><rp>)</rp></ruby>は<ruby>世界<rp>(</rp><rt>せかい</rt><rp>)</rp></ruby>で<strong>61<ruby>番目<rp>(</rp><rt>ばんめ</rt><rp>)</rp></ruby></strong>くらいの<ruby>大<rp>(</rp><rt>おお</rt><rp>)</rp></ruby>きさだよ。<ruby>決<rp>(</rp><rt>けっ</rt><rp>)</rp></ruby>して<ruby>小<rp>(</rp><rt>ちい</rt><rp>)</rp></ruby>さい<ruby>国<rp>(</rp><rt>くに</rt><rp>)</rp></ruby>ではないんだ',
+    },
+    {
       type: 'summary-point',
-      text: '世界の人口は<span class="keyword">約80億人</span>超 / <span class="keyword">人口密度</span> ＝ 人口÷面積 / 密度が高い国（バングラデシュ等）と低い国（モンゴル等）',
+      text: '世界の人口は<span class="keyword">約80億人</span>超 / <span class="keyword">人口密度</span> ＝ 人口÷面積 / <span class="keyword">モナコ</span>が最高密度（約2万人/km²）・オーストラリアは約3人/km²',
     },
     {
       type: 'end',

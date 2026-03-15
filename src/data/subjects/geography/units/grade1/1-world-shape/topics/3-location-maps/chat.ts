@@ -107,6 +107,39 @@ export const locationMapsChat: HistoryChat = {
     },
     {
       type: 'date',
+      text: '対蹠点って何？',
+    },
+    {
+      type: 'narrator',
+      text: '地球上のある<ruby>地点<rp>(</rp><rt>ちてん</rt><rp>)</rp></ruby>の<ruby>正反対<rp>(</rp><rt>せいはんたい</rt><rp>)</rp></ruby>にある<ruby>地点<rp>(</rp><rt>ちてん</rt><rp>)</rp></ruby>のことを<strong><span class="keyword"><ruby>対蹠点<rp>(</rp><rt>たいせきてん</rt><rp>)</rp></ruby></span></strong>といいます。',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '地球の<ruby>正反対<rp>(</rp><rt>せいはんたい</rt><rp>)</rp></ruby>…ということは、地球を<ruby>掘<rp>(</rp><rt>ほ</rt><rp>)</rp></ruby>り<ruby>進<rp>(</rp><rt>すす</rt><rp>)</rp></ruby>んだら<ruby>着<rp>(</rp><rt>つ</rt><rp>)</rp></ruby>く<ruby>場所<rp>(</rp><rt>ばしょ</rt><rp>)</rp></ruby>ですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: 'そのイメージで<ruby>合<rp>(</rp><rt>あ</rt><rp>)</rp></ruby>っているよ！<ruby>東京<rp>(</rp><rt>とうきょう</rt><rp>)</rp></ruby>の<strong><span class="keyword"><ruby>対蹠点<rp>(</rp><rt>たいせきてん</rt><rp>)</rp></ruby></span></strong>は、<ruby>南<rp>(</rp><rt>みなみ</rt><rp>)</rp></ruby>アメリカの<strong>ウルグアイ<ruby>沖<rp>(</rp><rt>おき</rt><rp>)</rp></ruby></strong>の<ruby>大西洋上<rp>(</rp><rt>たいせいようじょう</rt><rp>)</rp></ruby>にあるんだ。<ruby>北緯<rp>(</rp><rt>ほくい</rt><rp>)</rp></ruby>は<ruby>南緯<rp>(</rp><rt>なんい</rt><rp>)</rp></ruby>に、<ruby>東経<rp>(</rp><rt>とうけい</rt><rp>)</rp></ruby>は<ruby>西経<rp>(</rp><rt>せいけい</rt><rp>)</rp></ruby>に<ruby>変<rp>(</rp><rt>か</rt><rp>)</rp></ruby>わるんだよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'surprised',
+      text: 'へぇ！<ruby>日本<rp>(</rp><rt>にほん</rt><rp>)</rp></ruby>の<ruby>裏側<rp>(</rp><rt>うらがわ</rt><rp>)</rp></ruby>は<ruby>海<rp>(</rp><rt>うみ</rt><rp>)</rp></ruby>なんですね！',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">対蹠点</span>：地球の正反対の地点。東京の対蹠点はウルグアイ沖',
+    },
+    {
+      type: 'date',
       text: '白夜と極夜',
     },
     {
@@ -247,12 +280,47 @@ export const locationMapsChat: HistoryChat = {
       text: '<span class="keyword">メルカトル図法</span>＝角度が正確／<span class="keyword">モルワイデ図法</span>＝面積が正確／<span class="keyword">正距方位図法</span>＝中心からの距離と方位が正確',
     },
     {
+      type: 'date',
+      text: '方位の示し方',
+    },
+    {
+      type: 'narrator',
+      text: '<ruby>方位<rp>(</rp><rt>ほうい</rt><rp>)</rp></ruby>の<ruby>示<rp>(</rp><rt>しめ</rt><rp>)</rp></ruby>し<ruby>方<rp>(</rp><rt>かた</rt><rp>)</rp></ruby>には、<ruby>目的<rp>(</rp><rt>もくてき</rt><rp>)</rp></ruby>に<ruby>応<rp>(</rp><rt>おう</rt><rp>)</rp></ruby>じて4<ruby>方位<rp>(</rp><rt>ほうい</rt><rp>)</rp></ruby>・8<ruby>方位<rp>(</rp><rt>ほうい</rt><rp>)</rp></ruby>・<strong>16<ruby>方位<rp>(</rp><rt>ほうい</rt><rp>)</rp></ruby></strong>などの<ruby>表<rp>(</rp><rt>あらわ</rt><rp>)</rp></ruby>し<ruby>方<rp>(</rp><rt>かた</rt><rp>)</rp></ruby>があります。',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '<ruby>東西南北<rp>(</rp><rt>とうざいなんぼく</rt><rp>)</rp></ruby>の4つだけじゃ<ruby>足<rp>(</rp><rt>た</rt><rp>)</rp></ruby>りないんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: 'もっと<ruby>正確<rp>(</rp><rt>せいかく</rt><rp>)</rp></ruby>に<ruby>方向<rp>(</rp><rt>ほうこう</rt><rp>)</rp></ruby>を<ruby>伝<rp>(</rp><rt>つた</rt><rp>)</rp></ruby>えたいときがあるんだ。4<ruby>方位<rp>(</rp><rt>ほうい</rt><rp>)</rp></ruby>を<ruby>細<rp>(</rp><rt>こま</rt><rp>)</rp></ruby>かくすると<strong><span class="keyword">8<ruby>方位<rp>(</rp><rt>ほうい</rt><rp>)</rp></ruby></span></strong>（<ruby>北東<rp>(</rp><rt>ほくとう</rt><rp>)</rp></ruby>・<ruby>南西<rp>(</rp><rt>なんせい</rt><rp>)</rp></ruby>など）、さらに<ruby>細<rp>(</rp><rt>こま</rt><rp>)</rp></ruby>かくすると<strong><span class="keyword">16<ruby>方位<rp>(</rp><rt>ほうい</rt><rp>)</rp></ruby></span></strong>（<ruby>北北東<rp>(</rp><rt>ほくほくとう</rt><rp>)</rp></ruby>・<ruby>東南東<rp>(</rp><rt>とうなんとう</rt><rp>)</rp></ruby>など）になるよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'happy',
+      text: '<ruby>航海<rp>(</rp><rt>こうかい</rt><rp>)</rp></ruby>や<ruby>航空<rp>(</rp><rt>こうくう</rt><rp>)</rp></ruby>では<ruby>細<rp>(</rp><rt>こま</rt><rp>)</rp></ruby>かい<ruby>方位<rp>(</rp><rt>ほうい</rt><rp>)</rp></ruby>が<ruby>大切<rp>(</rp><rt>たいせつ</rt><rp>)</rp></ruby>なんですね！',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">方位</span>：4方位 → 8方位 → <span class="keyword">16方位</span>（北北東・東南東など、より細かく方向を示せる）',
+    },
+    {
       type: 'end',
       points: [
         '<strong><ruby>緯度<rp>(</rp><rt>いど</rt><rp>)</rp></ruby></strong>：<ruby>赤道<rp>(</rp><rt>せきどう</rt><rp>)</rp></ruby>（0度）基準、<ruby>北緯<rp>(</rp><rt>ほくい</rt><rp>)</rp></ruby>・<ruby>南緯<rp>(</rp><rt>なんい</rt><rp>)</rp></ruby>各90度',
         '<strong><ruby>経度<rp>(</rp><rt>けいど</rt><rp>)</rp></ruby></strong>：<ruby>本初子午線<rp>(</rp><rt>ほんしょしごせん</rt><rp>)</rp></ruby>（0度）基準、<ruby>東経<rp>(</rp><rt>とうけい</rt><rp>)</rp></ruby>・<ruby>西経<rp>(</rp><rt>せいけい</rt><rp>)</rp></ruby>各180度',
+        '<strong><ruby>対蹠点<rp>(</rp><rt>たいせきてん</rt><rp>)</rp></ruby></strong>：地球の<ruby>正反対<rp>(</rp><rt>せいはんたい</rt><rp>)</rp></ruby>の<ruby>地点<rp>(</rp><rt>ちてん</rt><rp>)</rp></ruby>（<ruby>東京<rp>(</rp><rt>とうきょう</rt><rp>)</rp></ruby>の対蹠点はウルグアイ<ruby>沖<rp>(</rp><rt>おき</rt><rp>)</rp></ruby>）',
         '<strong><ruby>白夜<rp>(</rp><rt>びゃくや</rt><rp>)</rp></ruby></strong>（夏・太陽が沈まない）と<strong><ruby>極夜<rp>(</rp><rt>きょくや</rt><rp>)</rp></ruby></strong>（冬・太陽が昇らない）：高緯度地域の現象',
         '<strong><ruby>地球儀<rp>(</rp><rt>ちきゅうぎ</rt><rp>)</rp></ruby></strong>はすべて正確、<strong>世界地図</strong>は目的に応じた図法を選ぶ（メルカトル・モルワイデ・正距方位）',
+        '<strong><ruby>方位<rp>(</rp><rt>ほうい</rt><rp>)</rp></ruby></strong>：4方位→8方位→<strong>16方位</strong>で細かく方向を表せる',
       ],
     },
   ],

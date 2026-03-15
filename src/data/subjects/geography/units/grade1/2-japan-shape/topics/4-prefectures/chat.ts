@@ -252,6 +252,46 @@ export const prefecturesChat: HistoryChat = {
       text: '<span class="keyword">県庁所在地</span>が県名と異なる県は<span class="keyword">18</span>。代表例：宮城→仙台、栃木→宇都宮、愛知→名古屋、兵庫→神戸',
     },
     {
+      type: 'date',
+      text: '県庁所在地が県名と違う県をもっと覚えよう',
+    },
+    {
+      type: 'narrator',
+      text: '県名と<ruby>県庁所在地<rp>(</rp><rt>けんちょうしょざいち</rt><rp>)</rp></ruby>が異なる県は<strong>18</strong>もあります。テストに出やすいものをさらに確認しましょう。',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: 'さっき出た4つ以外にも覚えてほしいのがあるよ。<strong><ruby>岩手<rp>(</rp><rt>いわて</rt><rp>)</rp></ruby>県→<span class="keyword"><ruby>盛岡<rp>(</rp><rt>もりおか</rt><rp>)</rp></ruby>市</span></strong>、<strong><ruby>群馬<rp>(</rp><rt>ぐんま</rt><rp>)</rp></ruby>県→<span class="keyword"><ruby>前橋<rp>(</rp><rt>まえばし</rt><rp>)</rp></ruby>市</span></strong>、<strong><ruby>石川<rp>(</rp><rt>いしかわ</rt><rp>)</rp></ruby>県→<span class="keyword"><ruby>金沢<rp>(</rp><rt>かなざわ</rt><rp>)</rp></ruby>市</span></strong>だよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: 'たくさんありますね…何かいい覚え方はありますか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'excited',
+      text: '歴史と結びつけるといいよ！<ruby>金沢<rp>(</rp><rt>かなざわ</rt><rp>)</rp></ruby>は<ruby>加賀<rp>(</rp><rt>かが</rt><rp>)</rp></ruby>百万石の<ruby>前田<rp>(</rp><rt>まえだ</rt><rp>)</rp></ruby>家の<ruby>城下町<rp>(</rp><rt>じょうかまち</rt><rp>)</rp></ruby>、<ruby>盛岡<rp>(</rp><rt>もりおか</rt><rp>)</rp></ruby>は<ruby>南部<rp>(</rp><rt>なんぶ</rt><rp>)</rp></ruby>家の城下町だったんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'happy',
+      text: '城下町だったところが県庁所在地になることが多いんですね！歴史とつなげると覚えやすいです',
+    },
+    {
+      type: 'summary-point',
+      text: 'さらに覚えたい県庁所在地：岩手→<span class="keyword">盛岡</span>、群馬→<span class="keyword">前橋</span>、石川→<span class="keyword">金沢</span>',
+    },
+    {
       type: 'quiz',
       question: '次のうち、県名と県庁所在地名が同じ県はどれ？',
       options: [
@@ -266,10 +306,10 @@ export const prefecturesChat: HistoryChat = {
     {
       type: 'end',
       points: [
-        '1871年の<strong><ruby>廃藩置県<rp>(</rp><rt>はいはんちけん</rt><rp>)</rp></ruby></strong>で約300の藩が廃止され、現在の<strong>47都道府県</strong>（1都1道2府43県）になった',
-        '<ruby>県境<rp>(</rp><rt>けんきょう</rt><rp>)</rp></ruby>は<strong><ruby>山脈<rp>(</rp><rt>さんみゃく</rt><rp>)</rp></ruby>・<ruby>河川<rp>(</rp><rt>かせん</rt><rp>)</rp></ruby></strong>などの自然地形や旧藩の<ruby>領域<rp>(</rp><rt>りょういき</rt><rp>)</rp></ruby>がもと',
+        '1871年の<strong><ruby>廃藩置県<rp>(</rp><rt>はいはんちけん</rt><rp>)</rp></ruby></strong>で約300の藩が廃止 → 3<ruby>府<rp>(</rp><rt>ふ</rt><rp>)</rp></ruby>302<ruby>県<rp>(</rp><rt>けん</rt><rp>)</rp></ruby> → 統合を経て<strong>47都道府県</strong>',
         '<strong>7地方区分</strong>：<ruby>北海道<rp>(</rp><rt>ほっかいどう</rt><rp>)</rp></ruby>・<ruby>東北<rp>(</rp><rt>とうほく</rt><rp>)</rp></ruby>・<ruby>関東<rp>(</rp><rt>かんとう</rt><rp>)</rp></ruby>・<ruby>中部<rp>(</rp><rt>ちゅうぶ</rt><rp>)</rp></ruby>・<ruby>近畿<rp>(</rp><rt>きんき</rt><rp>)</rp></ruby>・中国<ruby>四国<rp>(</rp><rt>しこく</rt><rp>)</rp></ruby>・<ruby>九州<rp>(</rp><rt>きゅうしゅう</rt><rp>)</rp></ruby>',
-        '<strong><ruby>県庁所在地<rp>(</rp><rt>けんちょうしょざいち</rt><rp>)</rp></ruby></strong>が県名と異なる県は18。代表：宮城→<ruby>仙台<rp>(</rp><rt>せんだい</rt><rp>)</rp></ruby>、栃木→<ruby>宇都宮<rp>(</rp><rt>うつのみや</rt><rp>)</rp></ruby>、愛知→<ruby>名古屋<rp>(</rp><rt>なごや</rt><rp>)</rp></ruby>、兵庫→<ruby>神戸<rp>(</rp><rt>こうべ</rt><rp>)</rp></ruby>',
+        '<strong><ruby>県庁所在地<rp>(</rp><rt>けんちょうしょざいち</rt><rp>)</rp></ruby></strong>が県名と異なる県は18。<ruby>城下町<rp>(</rp><rt>じょうかまち</rt><rp>)</rp></ruby>や<ruby>港町<rp>(</rp><rt>みなとまち</rt><rp>)</rp></ruby>が選ばれた',
+        '代表：宮城→<ruby>仙台<rp>(</rp><rt>せんだい</rt><rp>)</rp></ruby>、栃木→<ruby>宇都宮<rp>(</rp><rt>うつのみや</rt><rp>)</rp></ruby>、愛知→<ruby>名古屋<rp>(</rp><rt>なごや</rt><rp>)</rp></ruby>、兵庫→<ruby>神戸<rp>(</rp><rt>こうべ</rt><rp>)</rp></ruby>、岩手→<ruby>盛岡<rp>(</rp><rt>もりおか</rt><rp>)</rp></ruby>、石川→<ruby>金沢<rp>(</rp><rt>かなざわ</rt><rp>)</rp></ruby>',
       ],
     },
   ],

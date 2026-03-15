@@ -146,11 +146,61 @@ export const territoryChat: HistoryChat = {
     },
     {
       type: 'summary-point',
-      text: '<span class="keyword">排他的経済水域</span>：沿岸から<span class="keyword">200海里</span>（日本は領土の約12倍・世界第6位）',
+      text: '<span class="keyword">排他的経済水域</span>：沿岸から<span class="keyword">200海里</span>（日本は<span class="keyword">国土の約10倍</span>）',
     },
     {
       type: 'summary-point',
       text: '<span class="keyword">沖ノ鳥島</span>（最南端）・<span class="keyword">南鳥島</span>（最東端）が広大なEEZ確保に貢献',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: 'EEZが国土の約10倍ってすごいですけど、沖ノ鳥島がそんなに大事だとは知りませんでした',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '沖ノ鳥島は<ruby>満潮<rp>(</rp><rt>まんちょう</rt><rp>)</rp></ruby>時にわずかに海面上に出る程度の小さな島なんだ。もし水没したら<strong>約40万km²ものEEZ</strong>が消えてしまう。だから<strong><span class="keyword"><ruby>護岸<rp>(</rp><rt>ごがん</rt><rp>)</rp></ruby>工事</span></strong>でコンクリートやテトラポッドで補強しているんだよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'surprised',
+      text: '40万km²って日本の国土面積（約38万km²）とほぼ同じ！たった1つの小さな島でそんなに…！',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'excited',
+      text: 'さらに面白い話があるよ。<ruby>小笠原諸島<rp>(</rp><rt>おがさわらしょとう</rt><rp>)</rp></ruby>の<strong><span class="keyword"><ruby>西之島<rp>(</rp><rt>にしのしま</rt><rp>)</rp></ruby></span></strong>では2013年から<ruby>火山<rp>(</rp><rt>かざん</rt><rp>)</rp></ruby>が<ruby>噴火<rp>(</rp><rt>ふんか</rt><rp>)</rp></ruby>して島の面積が大きく広がったんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'surprised',
+      text: '噴火で島が大きくなった！？それって日本にとっていいことなんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: 'いいところに気づいたね！島の<ruby>海岸線<rp>(</rp><rt>かいがんせん</rt><rp>)</rp></ruby>が広がれば、その分<strong><ruby>排他的経済水域<rp>(</rp><rt>はいたてきけいざいすいいき</rt><rp>)</rp></ruby>も<ruby>拡大<rp>(</rp><rt>かくだい</rt><rp>)</rp></ruby></strong>するんだ。<ruby>西之島<rp>(</rp><rt>にしのしま</rt><rp>)</rp></ruby>の噴火は日本のEEZ拡大につながったんだよ',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">沖ノ鳥島</span>：護岸工事で保全。水没すると約40万km²のEEZを失う',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">西之島</span>：噴火で面積拡大→排他的経済水域も拡大',
     },
     {
       type: 'quiz',
@@ -244,8 +294,8 @@ export const territoryChat: HistoryChat = {
       type: 'end',
       points: [
         '<strong><ruby>領域<rp>(</rp><rt>りょういき</rt><rp>)</rp></ruby></strong> = <strong><ruby>領土<rp>(</rp><rt>りょうど</rt><rp>)</rp></ruby></strong>（約38万km²）+ <strong><ruby>領海<rp>(</rp><rt>りょうかい</rt><rp>)</rp></ruby></strong>（沿岸から12<ruby>海里<rp>(</rp><rt>かいり</rt><rp>)</rp></ruby>）+ <strong><ruby>領空<rp>(</rp><rt>りょうくう</rt><rp>)</rp></ruby></strong>',
-        '<strong><ruby>排他的経済水域<rp>(</rp><rt>はいたてきけいざいすいいき</rt><rp>)</rp></ruby></strong>：沿岸から200海里、日本は領土の約12倍（世界第6位）',
-        '<strong><ruby>沖<rp>(</rp><rt>おき</rt><rp>)</rp></ruby>ノ<ruby>鳥島<rp>(</rp><rt>とりしま</rt><rp>)</rp></ruby></strong>（最南端）・<strong><ruby>南鳥島<rp>(</rp><rt>みなみとりしま</rt><rp>)</rp></ruby></strong>（最東端）がEEZ確保に重要',
+        '<strong><ruby>排他的経済水域<rp>(</rp><rt>はいたてきけいざいすいいき</rt><rp>)</rp></ruby></strong>：沿岸から200海里、日本は<strong>国土の約10倍</strong>',
+        '<strong><ruby>沖<rp>(</rp><rt>おき</rt><rp>)</rp></ruby>ノ<ruby>鳥島<rp>(</rp><rt>とりしま</rt><rp>)</rp></ruby></strong>：<ruby>護岸<rp>(</rp><rt>ごがん</rt><rp>)</rp></ruby>工事で保全。<strong><ruby>西之島<rp>(</rp><rt>にしのしま</rt><rp>)</rp></ruby></strong>：噴火でEEZ<ruby>拡大<rp>(</rp><rt>かくだい</rt><rp>)</rp></ruby>',
         '<strong><ruby>北方領土<rp>(</rp><rt>ほっぽうりょうど</rt><rp>)</rp></ruby></strong>：<ruby>択捉島<rp>(</rp><rt>えとろふとう</rt><rp>)</rp></ruby>・<ruby>国後島<rp>(</rp><rt>くなしりとう</rt><rp>)</rp></ruby>・<ruby>色丹島<rp>(</rp><rt>しこたんとう</rt><rp>)</rp></ruby>・<ruby>歯舞群島<rp>(</rp><rt>はぼまいぐんとう</rt><rp>)</rp></ruby>（ロシアが占拠）',
         '<strong><ruby>竹島<rp>(</rp><rt>たけしま</rt><rp>)</rp></ruby></strong>：<ruby>島根県<rp>(</rp><rt>しまねけん</rt><rp>)</rp></ruby>（韓国が占拠）、<strong><ruby>尖閣諸島<rp>(</rp><rt>せんかくしょとう</rt><rp>)</rp></ruby></strong>：<ruby>沖縄県<rp>(</rp><rt>おきなわけん</rt><rp>)</rp></ruby>（日本が有効に支配、地下資源）',
       ],

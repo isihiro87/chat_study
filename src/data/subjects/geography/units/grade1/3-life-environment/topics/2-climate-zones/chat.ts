@@ -191,6 +191,67 @@ export const climateZonesChat: HistoryChat = {
       text: '<span class="keyword">亜寒帯</span>：タイガ（針葉樹林）が広がる ／ <span class="keyword">寒帯</span>：ツンドラ気候・氷雪気候',
     },
     {
+      type: 'date',
+      text: 'ケッペンの気候区分と高山気候',
+    },
+    {
+      type: 'narrator',
+      text: '気候帯をさらに細かく分類した<strong>ケッペンの<ruby>気候区分<rp>(</rp><rt>きこうくぶん</rt><rp>)</rp></ruby></strong>と、<ruby>高山気候<rp>(</rp><rt>こうざんきこう</rt><rp>)</rp></ruby>についてくわしく見ていきましょう。',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: 'ケッペンの気候区分って、何をもとに分類しているんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<strong><span class="keyword">ケッペン</span></strong>はドイツの気候学者で、<ruby>気温<rp>(</rp><rt>きおん</rt><rp>)</rp></ruby>と<ruby>降水量<rp>(</rp><rt>こうすいりょう</rt><rp>)</rp></ruby>のデータをもとに世界の気候を細かく分類したんだ。<ruby>植生<rp>(</rp><rt>しょくせい</rt><rp>)</rp></ruby>（植物の分布）も<ruby>指標<rp>(</rp><rt>しひょう</rt><rp>)</rp></ruby>にしているよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: '温帯の三つの区分は、何がちがうんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: 'ポイントは<strong>雨の降り方</strong>だよ。<strong><span class="keyword"><ruby>温暖湿潤気候<rp>(</rp><rt>おんだんしつじゅんきこう</rt><rp>)</rp></ruby></span></strong>は夏に雨が多い。<strong><span class="keyword"><ruby>地中海性気候<rp>(</rp><rt>ちちゅうかいせいきこう</rt><rp>)</rp></ruby></span></strong>は逆に夏に乾燥して冬に雨が多い。<strong><span class="keyword"><ruby>西岸海洋性気候<rp>(</rp><rt>せいがんかいようせいきこう</rt><rp>)</rp></ruby></span></strong>は一年を通じて<ruby>均等<rp>(</rp><rt>きんとう</rt><rp>)</rp></ruby>に雨が降るんだ',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '乾燥帯も二つに分かれるよ。<strong><span class="keyword"><ruby>砂漠気候<rp>(</rp><rt>さばくきこう</rt><rp>)</rp></ruby></span></strong>はほとんど雨が降らない。<strong><span class="keyword">ステップ気候</span></strong>はわずかに雨があって短い草が生える。この差で<ruby>植生<rp>(</rp><rt>しょくせい</rt><rp>)</rp></ruby>がまったく違うんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '高山気候はケッペンの五つの気候帯とは別なんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'excited',
+      text: 'そう！高山気候は<ruby>緯度<rp>(</rp><rt>いど</rt><rp>)</rp></ruby>ではなく<strong><span class="keyword"><ruby>標高<rp>(</rp><rt>ひょうこう</rt><rp>)</rp></ruby></span></strong>に左右される特殊な気候なんだ。<strong>標高が100m上がるごとに気温は約0.6℃下がる</strong>。だから赤道直下のアンデス山脈でも山頂には雪があるんだよ',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">ケッペンの気候区分</span>：温帯3区分（降雨パターン）・乾燥帯2区分（降水量の差）・<span class="keyword">高山気候</span>：標高100mで約0.6℃低下',
+    },
+    {
       type: 'quiz',
       question: '日本の大部分が属する気候区はどれ？',
       options: [
