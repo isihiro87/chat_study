@@ -1,7 +1,10 @@
 import type { Era, Topic } from '../../../../../types';
-import { growthReproduction } from './topics/1-growth-reproduction';
-import { genetics } from './topics/2-genetics';
-import { evolution } from './topics/3-evolution';
+import { cellDivision } from './topics/1-cell-division';
+import { reproduction } from './topics/2-reproduction';
+import { heredityRules } from './topics/3-heredity-rules';
+import { dnaTechnology } from './topics/4-dna-technology';
+import { vertebrateEvolution } from './topics/5-vertebrate-evolution';
+import { evolutionEvidence } from './topics/6-evolution-evidence';
 
 export const biologyEra: Era = {
   id: 'sci3-biology',
@@ -15,7 +18,10 @@ export const biologyEra: Era = {
 };
 
 export const biologyTopics: Topic[] = [
-  growthReproduction,
-  genetics,
-  evolution,
+  cellDivision,
+  reproduction,
+  heredityRules,
+  dnaTechnology,
+  vertebrateEvolution,
+  evolutionEvidence,
 ];

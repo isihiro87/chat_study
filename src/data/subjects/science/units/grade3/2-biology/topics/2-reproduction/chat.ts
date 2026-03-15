@@ -1,0 +1,217 @@
+import type { HistoryChat } from '../../../../../../../../data/history-chat/types';
+
+export const reproductionChat: HistoryChat = {
+  id: 'sci3-reproduction',
+  icon: '🐣',
+  title: '有性生殖と減数分裂',
+  subtitle: '〜中3生物〜 有性生殖・発生・減数分裂・染色体の受けつがれ方',
+  characters: [
+    {
+      id: 'teacher',
+      name: '理科の先生',
+      emoji: '👩‍🏫',
+      colorFrom: '#059669',
+      colorTo: '#34d399',
+      expressions: {
+        explaining: '🧐',
+        happy: '😊',
+        excited: '🤩',
+        thinking: '🤔',
+      },
+    },
+    {
+      id: 'student',
+      name: '生徒',
+      emoji: '👦',
+      colorFrom: '#d97706',
+      colorTo: '#fbbf24',
+      expressions: {
+        curious: '🙋‍♂️',
+        surprised: '😲',
+        thinking: '🤔',
+        happy: '😄',
+      },
+    },
+  ],
+  content: [
+    {
+      type: 'date',
+      text: '4日目 <ruby>有性生殖<rp>(</rp><rt>ゆうせいせいしょく</rt><rp>)</rp></ruby>と<ruby>発生<rp>(</rp><rt>はっせい</rt><rp>)</rp></ruby>',
+    },
+    {
+      type: 'narrator',
+      text: '<ruby>受精<rp>(</rp><rt>じゅせい</rt><rp>)</rp></ruby>によって新しい<ruby>個体<rp>(</rp><rt>こたい</rt><rp>)</rp></ruby>をつくる<strong><span class="keyword"><ruby>有性生殖<rp>(</rp><rt>ゆうせいせいしょく</rt><rp>)</rp></ruby></span></strong>について学びましょう。',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<strong>有性生殖</strong>では、<strong><span class="keyword"><span data-tooltip="生殖のための特別な細胞。動物の卵と精子、被子植物の卵細胞と精細胞"><ruby>生殖細胞<rp>(</rp><rt>せいしょくさいぼう</rt><rp>)</rp></ruby></span></span></strong>という特別な細胞がつくられるよ。動物では<strong><ruby>卵<rp>(</rp><rt>らん</rt><rp>)</rp></ruby></strong>と<strong><ruby>精子<rp>(</rp><rt>せいし</rt><rp>)</rp></ruby></strong>、<ruby>被子植物<rp>(</rp><rt>ひししょくぶつ</rt><rp>)</rp></ruby>では<strong><ruby>卵細胞<rp>(</rp><rt>らんさいぼう</rt><rp>)</rp></ruby></strong>と<strong><ruby>精細胞<rp>(</rp><rt>せいさいぼう</rt><rp>)</rp></ruby></strong>だ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '受精ってどういうことですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<strong><span class="keyword"><ruby>受精<rp>(</rp><rt>じゅせい</rt><rp>)</rp></ruby></span></strong>とは、<ruby>雌雄<rp>(</rp><rt>しゆう</rt><rp>)</rp></ruby>の生殖細胞が<ruby>結合<rp>(</rp><rt>けつごう</rt><rp>)</rp></ruby>し、それぞれの<ruby>核<rp>(</rp><rt>かく</rt><rp>)</rp></ruby>が合体して1個の細胞になることだよ。この新しい細胞を<strong><span class="keyword"><ruby>受精卵<rp>(</rp><rt>じゅせいらん</rt><rp>)</rp></ruby></span></strong>というんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: '受精卵からどうやって体ができていくんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: '<ruby>受精卵<rp>(</rp><rt>じゅせいらん</rt><rp>)</rp></ruby>が<ruby>体細胞分裂<rp>(</rp><rt>たいさいぼうぶんれつ</rt><rp>)</rp></ruby>をくり返して<ruby>個体<rp>(</rp><rt>こたい</rt><rp>)</rp></ruby>としてのからだのつくりが完成していく過程を<strong><span class="keyword"><ruby>発生<rp>(</rp><rt>はっせい</rt><rp>)</rp></ruby></span></strong>というよ。受精卵が細胞分裂を始めてから、からだができあがる前までのものを<strong><span class="keyword"><ruby>胚<rp>(</rp><rt>はい</rt><rp>)</rp></ruby></span></strong>というんだ',
+    },
+    {
+      type: 'image',
+      src: '/images/science/grade3/biology/frog-development.png',
+      alt: 'カエルの発生過程',
+      caption: '受精卵→卵割→胞胚→原腸胚→神経胚→尾芽胚→オタマジャクシ→成体',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '植物の有性生殖はどうなっているんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<ruby>被子植物<rp>(</rp><rt>ひししょくぶつ</rt><rp>)</rp></ruby>では、<strong><ruby>花粉<rp>(</rp><rt>かふん</rt><rp>)</rp></ruby></strong>から<strong><ruby>花粉管<rp>(</rp><rt>かふんかん</rt><rp>)</rp></ruby></strong>がのびて、<ruby>精細胞<rp>(</rp><rt>せいさいぼう</rt><rp>)</rp></ruby>が<ruby>胚珠<rp>(</rp><rt>はいしゅ</rt><rp>)</rp></ruby>の<ruby>卵細胞<rp>(</rp><rt>らんさいぼう</rt><rp>)</rp></ruby>と受精するよ。受精卵が<ruby>胚<rp>(</rp><rt>はい</rt><rp>)</rp></ruby>になり、やがて<ruby>種子<rp>(</rp><rt>しゅし</rt><rp>)</rp></ruby>になるんだ',
+    },
+    {
+      type: 'image',
+      src: '/images/science/grade3/biology/pollen-tube.png',
+      alt: '花粉管が伸びるようす',
+      caption: '花粉から花粉管が伸び、精細胞が胚珠に届く',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">有性生殖</span>＝生殖細胞が<span class="keyword">受精</span>→<span class="keyword">受精卵</span>→体細胞分裂→<span class="keyword">胚</span>→個体（<span class="keyword">発生</span>）',
+    },
+    {
+      type: 'quiz',
+      question: '次のうち、無性生殖にあてはまるものは？',
+      options: [
+        { letter: 'A', text: 'カエルの卵と精子の受精', correct: false },
+        { letter: 'B', text: 'アメーバの分裂', correct: true },
+        { letter: 'C', text: 'ヒトの受精卵の発生', correct: false },
+        { letter: 'D', text: '花粉管による受精', correct: false },
+      ],
+      explanation:
+        '<strong>正解はB「アメーバの分裂」</strong>です。アメーバの分裂は<ruby>受精<rp>(</rp><rt>じゅせい</rt><rp>)</rp></ruby>を行わない<ruby>無性生殖<rp>(</rp><rt>むせいせいしょく</rt><rp>)</rp></ruby>です。親と全く同じ<ruby>形質<rp>(</rp><rt>けいしつ</rt><rp>)</rp></ruby>の子ができます。',
+    },
+    {
+      type: 'date',
+      text: '5日目 <ruby>減数分裂<rp>(</rp><rt>げんすうぶんれつ</rt><rp>)</rp></ruby>と<ruby>染色体<rp>(</rp><rt>せんしょくたい</rt><rp>)</rp></ruby>の受けつがれ方',
+    },
+    {
+      type: 'narrator',
+      text: '<ruby>生殖細胞<rp>(</rp><rt>せいしょくさいぼう</rt><rp>)</rp></ruby>がつくられるときには、<ruby>染色体<rp>(</rp><rt>せんしょくたい</rt><rp>)</rp></ruby>の数が半分になる特別な<ruby>細胞分裂<rp>(</rp><rt>さいぼうぶんれつ</rt><rp>)</rp></ruby>が行われます。',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: 'どうして<ruby>染色体<rp>(</rp><rt>せんしょくたい</rt><rp>)</rp></ruby>を半分にする必要があるんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: 'もし<ruby>生殖細胞<rp>(</rp><rt>せいしょくさいぼう</rt><rp>)</rp></ruby>の染色体数がそのままだったら、受精のたびに染色体が<strong>倍</strong>になってしまうよね？だから<strong><span class="keyword"><span data-tooltip="生殖細胞がつくられるとき、染色体数が半分になる特別な細胞分裂"><ruby>減数分裂<rp>(</rp><rt>げんすうぶんれつ</rt><rp>)</rp></ruby></span></span></strong>であらかじめ半分にしておくんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'surprised',
+      text: 'なるほど！受精で半分＋半分＝もとの数になるんですね！',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: 'そのとおり！有性生殖では、子には<strong>両方の親から半分ずつ</strong><ruby>染色体<rp>(</rp><rt>せんしょくたい</rt><rp>)</rp></ruby>を受けつぐんだ。だから子には<strong>多様な形質</strong>が現れるんだよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '無性生殖の場合はどうなりますか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '無性生殖は<ruby>体細胞分裂<rp>(</rp><rt>たいさいぼうぶんれつ</rt><rp>)</rp></ruby>で子ができるから、子の染色体は親と<strong>全く同じ</strong>になるよ。だからクローンなんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: '農業ではどちらを使い分けるんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'excited',
+      text: 'いい質問だね！<strong>同じ品質</strong>のものを作りたいときは<strong>無性生殖</strong>を使うよ。いちごのランナーでふやすのがいい例だね。<strong>新しい品種</strong>をつくりたいときは<strong>有性生殖</strong>（受精）でふやすんだ',
+    },
+    {
+      type: 'image',
+      src: '/images/science/grade3/biology/reproduction-types.svg',
+      alt: '無性生殖と有性生殖の比較',
+      caption: '無性生殖（親と同じ）と有性生殖（多様な子）',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">減数分裂</span>で染色体半分 → 受精でもとに戻る。無性生殖＝クローン、有性生殖＝両親から半分ずつで多様性！',
+    },
+    {
+      type: 'quiz',
+      question: '生殖細胞の染色体数は体細胞と比べてどうなっている？',
+      options: [
+        { letter: 'A', text: '体細胞と同じ', correct: false },
+        { letter: 'B', text: '体細胞の2倍', correct: false },
+        { letter: 'C', text: '体細胞の半分', correct: true },
+        { letter: 'D', text: '体細胞の4分の1', correct: false },
+      ],
+      explanation:
+        '<strong>正解はC「体細胞の半分」</strong>です。<ruby>減数分裂<rp>(</rp><rt>げんすうぶんれつ</rt><rp>)</rp></ruby>で<ruby>染色体<rp>(</rp><rt>せんしょくたい</rt><rp>)</rp></ruby>数が半分になり、<ruby>受精<rp>(</rp><rt>じゅせい</rt><rp>)</rp></ruby>で半分＋半分＝もとの数に戻ります。',
+    },
+    {
+      type: 'end',
+      points: [
+        '<strong><ruby>有性生殖<rp>(</rp><rt>ゆうせいせいしょく</rt><rp>)</rp></ruby></strong>＝<ruby>生殖細胞<rp>(</rp><rt>せいしょくさいぼう</rt><rp>)</rp></ruby>が<ruby>受精<rp>(</rp><rt>じゅせい</rt><rp>)</rp></ruby> → <ruby>受精卵<rp>(</rp><rt>じゅせいらん</rt><rp>)</rp></ruby> → <ruby>胚<rp>(</rp><rt>はい</rt><rp>)</rp></ruby> → 個体（<ruby>発生<rp>(</rp><rt>はっせい</rt><rp>)</rp></ruby>）',
+        '<ruby>被子植物<rp>(</rp><rt>ひししょくぶつ</rt><rp>)</rp></ruby>：<ruby>花粉管<rp>(</rp><rt>かふんかん</rt><rp>)</rp></ruby>がのびて<ruby>精細胞<rp>(</rp><rt>せいさいぼう</rt><rp>)</rp></ruby>が<ruby>卵細胞<rp>(</rp><rt>らんさいぼう</rt><rp>)</rp></ruby>と受精 → <ruby>胚<rp>(</rp><rt>はい</rt><rp>)</rp></ruby> → <ruby>種子<rp>(</rp><rt>しゅし</rt><rp>)</rp></ruby>',
+        '<strong><ruby>減数分裂<rp>(</rp><rt>げんすうぶんれつ</rt><rp>)</rp></ruby></strong>で染色体数が半分 → 受精でもとに戻る。両親から半分ずつで多様性が生まれる',
+      ],
+    },
+  ],
+};
