@@ -1,8 +1,12 @@
 import type { Era, Topic } from '../../../../../types';
-import { observationPressure } from './topics/1-observation-pressure';
-import { pressureHumidity } from './topics/2-pressure-humidity';
-import { cloudsFronts } from './topics/3-clouds-fronts';
-import { japanWeather } from './topics/4-japan-weather';
+import { weatherObservation } from './topics/1-weather-observation';
+import { pressureAtmosphere } from './topics/2-pressure-atmosphere';
+import { isobarsWind } from './topics/3-isobars-wind';
+import { humidityDewpoint } from './topics/4-humidity-dewpoint';
+import { cloudFormation } from './topics/5-cloud-formation';
+import { fronts } from './topics/6-fronts';
+import { atmosphericCirculation } from './topics/7-atmospheric-circulation';
+import { japanSeasons } from './topics/8-japan-seasons';
 
 export const weatherEra: Era = {
   id: 'sci2-weather',
@@ -16,8 +20,12 @@ export const weatherEra: Era = {
 };
 
 export const weatherTopics: Topic[] = [
-  observationPressure,
-  pressureHumidity,
-  cloudsFronts,
-  japanWeather,
+  weatherObservation,
+  pressureAtmosphere,
+  isobarsWind,
+  humidityDewpoint,
+  cloudFormation,
+  fronts,
+  atmosphericCirculation,
+  japanSeasons,
 ];

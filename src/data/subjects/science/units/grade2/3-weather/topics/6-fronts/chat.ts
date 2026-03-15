@@ -1,10 +1,10 @@
 import type { HistoryChat } from '../../../../../../../../data/history-chat/types';
 
-export const cloudsFrontsChat: HistoryChat = {
-  id: 'sci2-clouds-fronts',
-  icon: '☁️',
-  title: '雲のでき方と前線',
-  subtitle: '〜中2地学〜 雲の発生・気団・前線の種類',
+export const frontsChat: HistoryChat = {
+  id: 'sci2-fronts',
+  icon: '🌧️',
+  title: '気団と前線',
+  subtitle: '〜中2地学〜 寒冷前線・温暖前線・温帯低気圧',
   characters: [
     {
       id: 'teacher',
@@ -34,71 +34,6 @@ export const cloudsFrontsChat: HistoryChat = {
     },
   ],
   content: [
-    {
-      type: 'date',
-      text: '雲の発生と水の循環',
-    },
-    {
-      type: 'narrator',
-      text: '空が曇ってきたとき、あの雲はどうやってできるのでしょうか？雲の正体は、小さな<strong><span class="keyword"><span data-tooltip="空気中の水蒸気が冷えて変化した、ごく小さな水や氷の粒">水滴や氷の粒</span></span></strong>の集まりです。',
-    },
-    {
-      type: 'message',
-      side: 'left',
-      characterId: 'teacher',
-      expression: 'explaining',
-      text: '雲ができるしくみを順番に説明するよ。まず、<ruby>水蒸気<rp>(</rp><rt>すいじょうき</rt><rp>)</rp></ruby>を含んだ空気が<strong>上昇</strong>すると、上空ほど<ruby>気圧<rp>(</rp><rt>きあつ</rt><rp>)</rp></ruby>が低いから空気が<strong><ruby>膨張<rp>(</rp><rt>ぼうちょう</rt><rp>)</rp></ruby></strong>するんだ',
-    },
-    {
-      type: 'message',
-      side: 'right',
-      characterId: 'student',
-      expression: 'curious',
-      text: '膨張すると何が起きるんですか？',
-    },
-    {
-      type: 'message',
-      side: 'left',
-      characterId: 'teacher',
-      expression: 'thinking',
-      text: '空気が膨張すると<strong>温度が下がる</strong>んだ。そして温度が<strong><span class="keyword"><span data-tooltip="空気中の水蒸気が水滴に変わり始める温度"><ruby>露点<rp>(</rp><rt>ろてん</rt><rp>)</rp></ruby></span></span></strong>に達すると、水蒸気が水滴や氷の粒に変わる。これが雲の正体だよ！',
-    },
-    {
-      type: 'message',
-      side: 'right',
-      characterId: 'student',
-      expression: 'surprised',
-      text: 'なるほど！上昇→膨張→温度低下→露点→水滴、という流れなんですね！',
-    },
-    {
-      type: 'message',
-      side: 'left',
-      characterId: 'teacher',
-      expression: 'happy',
-      text: 'その通り！そして地球上の水は、太陽エネルギーを<ruby>原動力<rp>(</rp><rt>げんどうりょく</rt><rp>)</rp></ruby>に<ruby>蒸発<rp>(</rp><rt>じょうはつ</rt><rp>)</rp></ruby>と<ruby>降水<rp>(</rp><rt>こうすい</rt><rp>)</rp></ruby>を<ruby>繰<rp>(</rp><rt>く</rt><rp>)</rp></ruby>り返しているんだ。これを<strong><span class="keyword"><span data-tooltip="蒸発→雲→降水→河川→海→蒸発…と水が地球上を循環すること">水の<ruby>循環<rp>(</rp><rt>じゅんかん</rt><rp>)</rp></ruby></span></span></strong>というよ',
-    },
-    {
-      type: 'image',
-      src: '/images/science/grade2/weather/cloud-formation-experiment.png',
-      alt: '雲のでき方の実験',
-      caption: '注射器で気圧を下げると（右）フラスコ内に雲が発生する',
-    },
-    {
-      type: 'summary-point',
-      text: '空気が上昇 → <span class="keyword">膨張</span> → 温度低下 → <span class="keyword">露点</span>に達すると水滴・氷の粒 → <span class="keyword">雲</span>ができる！',
-    },
-    {
-      type: 'quiz',
-      question: '上昇した空気の温度が下がる理由として正しいものはどれか。',
-      options: [
-        { letter: 'A', text: '太陽の光が届かなくなるから', correct: false },
-        { letter: 'B', text: '上空ほど気圧が低く、空気が膨張するから', correct: true },
-        { letter: 'C', text: '上空ほど風が強いから', correct: false },
-        { letter: 'D', text: '水蒸気が蒸発して熱を奪うから', correct: false },
-      ],
-      explanation:
-        '<strong>正解はB</strong>です。上空ほど気圧が低いため空気が<ruby>膨張<rp>(</rp><rt>ぼうちょう</rt><rp>)</rp></ruby>し、膨張すると温度が下がります。温度が<ruby>露点<rp>(</rp><rt>ろてん</rt><rp>)</rp></ruby>に達すると水蒸気が水滴になり、雲ができます。',
-    },
     {
       type: 'date',
       text: '気団と前線',
@@ -225,11 +160,39 @@ export const cloudsFrontsChat: HistoryChat = {
       side: 'left',
       characterId: 'teacher',
       expression: 'happy',
-      text: '<strong><ruby>閉<rp>(</rp><rt>へい</rt><rp>)</rp></ruby>そく前線</strong>や<strong><ruby>停滞前線<rp>(</rp><rt>ていたいぜんせん</rt><rp>)</rp></ruby></strong>もあるよ。そして<strong><span class="keyword"><span data-tooltip="中緯度で発生する低気圧。南東に温暖前線、南西に寒冷前線を伴う"><ruby>温帯低気圧<rp>(</rp><rt>おんたいていきあつ</rt><rp>)</rp></ruby></span></span></strong>は、南東側に温暖前線、南西側に寒冷前線を伴って西から東へ移動するんだ！',
+      text: 'あるよ！ <strong><span class="keyword"><ruby>停滞前線<rp>(</rp><rt>ていたいぜんせん</rt><rp>)</rp></ruby></span></strong>は暖気と寒気がほぼ同じ<ruby>勢力<rp>(</rp><rt>せいりょく</rt><rp>)</rp></ruby>でぶつかり、ほとんど動かない前線だよ。<ruby>梅雨前線<rp>(</rp><rt>ばいうぜんせん</rt><rp>)</rp></ruby>や<ruby>秋雨前線<rp>(</rp><rt>あきさめぜんせん</rt><rp>)</rp></ruby>がこれだね',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '閉そく前線はどうやってできるんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<strong><span class="keyword"><ruby>閉<rp>(</rp><rt>へい</rt><rp>)</rp></ruby>そく前線</span></strong>は、<ruby>寒冷前線<rp>(</rp><rt>かんれいぜんせん</rt><rp>)</rp></ruby>が<ruby>温暖前線<rp>(</rp><rt>おんだんぜんせん</rt><rp>)</rp></ruby>に追いつくとできるんだ。寒冷前線のほうが移動速度が速いから、やがて追いつくんだよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: '追いついたらどうなるんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: '<ruby>暖気<rp>(</rp><rt>だんき</rt><rp>)</rp></ruby>が地表から<ruby>切<rp>(</rp><rt>き</rt><rp>)</rp></ruby>り<ruby>離<rp>(</rp><rt>はな</rt><rp>)</rp></ruby>されて上空に<ruby>押<rp>(</rp><rt>お</rt><rp>)</rp></ruby>し上げられるんだ。すると<strong><span class="keyword"><ruby>温帯低気圧<rp>(</rp><rt>おんたいていきあつ</rt><rp>)</rp></ruby></span></strong>はエネルギーが<ruby>減<rp>(</rp><rt>へ</rt><rp>)</rp></ruby>って<strong><ruby>衰退<rp>(</rp><rt>すいたい</rt><rp>)</rp></ruby></strong>するよ。温帯低気圧は南東に温暖前線、南西に寒冷前線を伴って西から東へ移動するんだ！',
     },
     {
       type: 'summary-point',
-      text: '<span class="keyword">寒冷前線</span>→積乱雲・短時間の強い雨・通過後に気温急降下。<span class="keyword">温暖前線</span>→乱層雲・広範囲の弱い雨・通過後に気温上昇！',
+      text: '<span class="keyword">寒冷前線</span>→積乱雲・短時間の強い雨。<span class="keyword">温暖前線</span>→乱層雲・広範囲の弱い雨。<span class="keyword">停滞前線</span>→同じ位置に停滞。<span class="keyword">閉そく前線</span>→寒冷が温暖に追いつく→低気圧が衰退！',
     },
     {
       type: 'quiz',
@@ -246,11 +209,11 @@ export const cloudsFrontsChat: HistoryChat = {
     {
       type: 'end',
       points: [
-        '空気が上昇 → <strong><ruby>膨張<rp>(</rp><rt>ぼうちょう</rt><rp>)</rp></ruby></strong> → 温度低下 → <strong><ruby>露点<rp>(</rp><rt>ろてん</rt><rp>)</rp></ruby></strong>で水滴に → <strong>雲</strong>ができる。太陽エネルギーで<strong>水の<ruby>循環<rp>(</rp><rt>じゅんかん</rt><rp>)</rp></ruby></strong>が起こる',
         '<strong><ruby>気団<rp>(</rp><rt>きだん</rt><rp>)</rp></ruby></strong>＝気温・湿度が一様な空気の塊。異なる気団の境界 → <strong><ruby>前線面<rp>(</rp><rt>ぜんせんめん</rt><rp>)</rp></ruby></strong>・<strong><ruby>前線<rp>(</rp><rt>ぜんせん</rt><rp>)</rp></ruby></strong>',
         '<strong><ruby>寒冷前線<rp>(</rp><rt>かんれいぜんせん</rt><rp>)</rp></ruby></strong>：<ruby>積乱雲<rp>(</rp><rt>せきらんうん</rt><rp>)</rp></ruby> → 短時間の強い雨 → 通過後は北風・気温急降下',
         '<strong><ruby>温暖前線<rp>(</rp><rt>おんだんぜんせん</rt><rp>)</rp></ruby></strong>：<ruby>乱層雲<rp>(</rp><rt>らんそううん</rt><rp>)</rp></ruby> → 広範囲の弱い雨 → 通過後は南風・気温上昇',
-        '<strong><ruby>温帯低気圧<rp>(</rp><rt>おんたいていきあつ</rt><rp>)</rp></ruby></strong>：南東に温暖前線・南西に寒冷前線を伴い、西から東へ移動する',
+        '<strong><ruby>停滞前線<rp>(</rp><rt>ていたいぜんせん</rt><rp>)</rp></ruby></strong>：暖気と寒気の<ruby>勢力<rp>(</rp><rt>せいりょく</rt><rp>)</rp></ruby>が<ruby>拮抗<rp>(</rp><rt>きっこう</rt><rp>)</rp></ruby>し、ほぼ同じ位置に<ruby>停滞<rp>(</rp><rt>ていたい</rt><rp>)</rp></ruby>。<ruby>梅雨前線<rp>(</rp><rt>ばいうぜんせん</rt><rp>)</rp></ruby>・<ruby>秋雨前線<rp>(</rp><rt>あきさめぜんせん</rt><rp>)</rp></ruby>が例',
+        '<strong><ruby>温帯低気圧<rp>(</rp><rt>おんたいていきあつ</rt><rp>)</rp></ruby></strong>：南東に温暖前線・南西に寒冷前線。寒冷前線が追いつくと<strong><ruby>閉<rp>(</rp><rt>へい</rt><rp>)</rp></ruby>そく前線</strong> → 低気圧が<ruby>衰退<rp>(</rp><rt>すいたい</rt><rp>)</rp></ruby>',
       ],
     },
   ],

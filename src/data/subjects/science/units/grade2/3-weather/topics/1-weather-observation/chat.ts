@@ -1,10 +1,10 @@
 import type { HistoryChat } from '../../../../../../../../data/history-chat/types';
 
-export const observationPressureChat: HistoryChat = {
-  id: 'sci2-observation-pressure',
-  icon: '🌤️',
-  title: '気象の観測と大気圧',
-  subtitle: '〜中2地学〜 天気の観測・圧力・気圧',
+export const weatherObservationChat: HistoryChat = {
+  id: 'sci2-weather-observation',
+  icon: '🌡️',
+  title: '気象の観測と圧力',
+  subtitle: '〜中2地学〜 天気の記号・乾湿計・圧力の計算',
   characters: [
     {
       id: 'teacher',
@@ -167,84 +167,11 @@ export const observationPressureChat: HistoryChat = {
         '<strong>正解はC「300Pa」</strong>です。<ruby>圧力<rp>(</rp><rt>あつりょく</rt><rp>)</rp></ruby>＝力÷面積＝60÷0.2＝300Paです。',
     },
     {
-      type: 'date',
-      text: '<ruby>大気圧<rp>(</rp><rt>たいきあつ</rt><rp>)</rp></ruby>',
-    },
-    {
-      type: 'narrator',
-      text: '地球のまわりには<ruby>大気<rp>(</rp><rt>たいき</rt><rp>)</rp></ruby>（空気）があり、その重さによって生じる圧力を<strong><span class="keyword"><ruby>大気圧<rp>(</rp><rt>たいきあつ</rt><rp>)</rp></ruby></span></strong>（<strong><span class="keyword"><ruby>気圧<rp>(</rp><rt>きあつ</rt><rp>)</rp></ruby></span></strong>）といいます。',
-    },
-    {
-      type: 'message',
-      side: 'left',
-      characterId: 'teacher',
-      expression: 'explaining',
-      text: '大気圧は、<ruby>上空<rp>(</rp><rt>じょうくう</rt><rp>)</rp></ruby>にある空気の重さによって生じるんだ。だから<strong>あらゆる向き</strong>からはたらくよ。上からだけじゃなく、<ruby>横<rp>(</rp><rt>よこ</rt><rp>)</rp></ruby>からも下からも<ruby>押<rp>(</rp><rt>お</rt><rp>)</rp></ruby>しているんだ',
-    },
-    {
-      type: 'message',
-      side: 'right',
-      characterId: 'student',
-      expression: 'surprised',
-      text: 'え、下からも！？ でも<ruby>潰<rp>(</rp><rt>つぶ</rt><rp>)</rp></ruby>されないのはなぜですか？',
-    },
-    {
-      type: 'message',
-      side: 'left',
-      characterId: 'teacher',
-      expression: 'thinking',
-      text: 'あらゆる方向から同じ大きさの力が<ruby>押<rp>(</rp><rt>お</rt><rp>)</rp></ruby>し合っているから、<ruby>打<rp>(</rp><rt>う</rt><rp>)</rp></ruby>ち<ruby>消<rp>(</rp><rt>け</rt><rp>)</rp></ruby>し合って<ruby>潰<rp>(</rp><rt>つぶ</rt><rp>)</rp></ruby>されないんだよ',
-    },
-    {
-      type: 'message',
-      side: 'right',
-      characterId: 'student',
-      expression: 'curious',
-      text: '気圧の単位は何を使うんですか？',
-    },
-    {
-      type: 'message',
-      side: 'left',
-      characterId: 'teacher',
-      expression: 'happy',
-      text: '気圧の単位は<strong><span class="keyword">hPa（ヘクトパスカル）</span></strong>を使うよ。海面での<ruby>標準的<rp>(</rp><rt>ひょうじゅんてき</rt><rp>)</rp></ruby>な大気圧は<strong>1<ruby>気圧<rp>(</rp><rt>きあつ</rt><rp>)</rp></ruby> ≒ 1013hPa</strong>だ。そして<ruby>標高<rp>(</rp><rt>ひょうこう</rt><rp>)</rp></ruby>が高い場所ほど上にある空気の量が少ないから、<strong>気圧は低くなる</strong>んだ',
-    },
-    {
-      type: 'message',
-      side: 'right',
-      characterId: 'student',
-      expression: 'happy',
-      text: '山の上でお<ruby>菓子<rp>(</rp><rt>かし</rt><rp>)</rp></ruby>の<ruby>袋<rp>(</rp><rt>ふくろ</rt><rp>)</rp></ruby>がパンパンになるのも、<ruby>外<rp>(</rp><rt>そと</rt><rp>)</rp></ruby>の気圧が下がるからなんですね！',
-    },
-    {
-      type: 'summary-point',
-      text: '<span class="keyword">大気圧</span>＝上空の空気の重さで生じる圧力。あらゆる向きにはたらく。1気圧 ≒ <span class="keyword">1013hPa</span>。標高が高い → 気圧が低い！',
-    },
-    {
-      type: 'image',
-      src: '/images/science/grade2/weather/pressure-wind.svg',
-      alt: '気圧と風のしくみ',
-      caption: '高気圧→下降気流・晴れ、低気圧→上昇気流・くもり',
-    },
-    {
-      type: 'quiz',
-      question: '大気圧について正しいものはどれか。',
-      options: [
-        { letter: 'A', text: '上から下の向きだけにはたらく', correct: false },
-        { letter: 'B', text: '標高が高いほど大きくなる', correct: false },
-        { letter: 'C', text: 'あらゆる向きにはたらく', correct: true },
-        { letter: 'D', text: '真空中でもはたらく', correct: false },
-      ],
-      explanation:
-        '<strong>正解はC「あらゆる向きにはたらく」</strong>です。<ruby>大気圧<rp>(</rp><rt>たいきあつ</rt><rp>)</rp></ruby>は空気の重さによる<ruby>圧力<rp>(</rp><rt>あつりょく</rt><rp>)</rp></ruby>で、上下左右あらゆる向きにはたらきます。<ruby>標高<rp>(</rp><rt>ひょうこう</rt><rp>)</rp></ruby>が高いほど<ruby>気圧<rp>(</rp><rt>きあつ</rt><rp>)</rp></ruby>は<strong>低く</strong>なります。',
-    },
-    {
       type: 'end',
       points: [
         '<strong><ruby>気象観測<rp>(</rp><rt>きしょうかんそく</rt><rp>)</rp></ruby></strong>：天気・<ruby>雲量<rp>(</rp><rt>うんりょう</rt><rp>)</rp></ruby>・気温・<ruby>湿度<rp>(</rp><rt>しつど</rt><rp>)</rp></ruby>・気圧・<ruby>風向<rp>(</rp><rt>ふうこう</rt><rp>)</rp></ruby>・<ruby>風力<rp>(</rp><rt>ふうりょく</rt><rp>)</rp></ruby>を観測する。天気は<strong><ruby>雲量<rp>(</rp><rt>うんりょう</rt><rp>)</rp></ruby></strong>で決まる（0-1 快晴 / 2-8 晴れ / 9-10 くもり）',
+        '<strong><ruby>乾湿計<rp>(</rp><rt>かんしつけい</rt><rp>)</rp></ruby></strong>：乾球と湿球の2本の温度計で気温と湿度を測定する。湿球は水の蒸発で温度が下がる',
         '<strong><ruby>圧力<rp>(</rp><rt>あつりょく</rt><rp>)</rp></ruby></strong>＝力÷面積。単位は<strong>Pa（パスカル）</strong>。面積が小さいほど圧力は大きい',
-        '<strong><ruby>大気圧<rp>(</rp><rt>たいきあつ</rt><rp>)</rp></ruby></strong>＝上空の空気の重さで生じる圧力。あらゆる向きにはたらく。1気圧 ≒ <strong>1013hPa</strong>',
-        '<ruby>標高<rp>(</rp><rt>ひょうこう</rt><rp>)</rp></ruby>が高いほど上の空気が少ない → <strong>気圧が低い</strong>（山の上でお<ruby>菓子<rp>(</rp><rt>かし</rt><rp>)</rp></ruby>の<ruby>袋<rp>(</rp><rt>ふくろ</rt><rp>)</rp></ruby>がふくらむ）',
       ],
     },
   ],

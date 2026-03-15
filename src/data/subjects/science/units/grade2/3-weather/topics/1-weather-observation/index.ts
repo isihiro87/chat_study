@@ -1,10 +1,10 @@
 import type { Topic } from '../../../../../../../types';
 
-export const observationPressure: Topic = {
-  id: 'sci2-observation-pressure',
+export const weatherObservation: Topic = {
+  id: 'sci2-weather-observation',
   eraId: 'sci2-weather',
-  name: '気象の観測と大気圧',
-  subtitle: '天気の記号・乾湿計・圧力・大気圧',
+  name: '気象の観測と圧力',
+  subtitle: '天気の記号・乾湿計・圧力の計算',
   icon: '🌡️',
   order: 1,
   content: {
@@ -30,21 +30,10 @@ export const observationPressure: Topic = {
             '同じ力でも面積が小さいほど圧力は大きくなる',
           ],
         },
-        {
-          title: '大気圧（気圧）',
-          content:
-            '大気圧（気圧）とは、上空にある空気の重さによる圧力のことです。大気圧はあらゆる向きにはたらきます。標高が高い場所ほど上空の空気が少なくなるため、大気圧は下がります。単位はhPa（ヘクトパスカル）を使い、海面上の標準気圧は約1013hPaです。',
-          keyPoints: [
-            '大気圧＝上空の空気の重さによる圧力',
-            'あらゆる向きにはたらく（上下左右すべて）',
-            '標高が高いほど大気圧は低くなる',
-            '海面上の標準気圧：約1013hPa',
-          ],
-        },
       ],
       slides: [
         {
-          id: 'sci2-obs-slide1',
+          id: 'sci2-wobs-slide1',
           title: '気象観測のポイント',
           slides: [
             {
@@ -83,7 +72,7 @@ export const observationPressure: Topic = {
           ],
         },
         {
-          id: 'sci2-obs-slide2',
+          id: 'sci2-wobs-slide2',
           title: '圧力の求め方',
           slides: [
             {
@@ -112,80 +101,57 @@ export const observationPressure: Topic = {
             },
           ],
         },
-        {
-          id: 'sci2-obs-slide3',
-          title: '大気圧のふしぎ',
-          slides: [
-            {
-              type: 'question',
-              question: '山の上でお菓子の袋がパンパンにふくらむのはなぜ？',
-              subtext: '大気圧と標高の関係',
-              emoji: '🏔️',
-            },
-            {
-              type: 'reason',
-              headline: '標高が高いと大気圧が低くなるから！',
-              points: [
-                '大気圧は上空の空気の重さによる圧力',
-                '標高が高いと上にある空気が少なくなり、大気圧が下がる',
-                '袋の中の空気が外より押されなくなり、ふくらむ',
-              ],
-            },
-            {
-              type: 'conclusion',
-              conclusion: '大気圧＝空気の重さの圧力！高いところほど低くなる！',
-              keywords: [
-                { text: '大気圧', isImportant: true },
-                { text: '1013hPa', isImportant: true },
-                { text: 'hPa（ヘクトパスカル）' },
-              ],
-            },
-          ],
-        },
       ],
     },
     videos: [],
     flashcards: [
       {
-        id: 'sci2-obs-fc1',
+        id: 'sci2-wobs-fc1',
         front: '雲量と天気の関係',
         back: '雲量0〜1は快晴、2〜8は晴れ、9〜10はくもり',
         explanation:
           '天気は空全体を10としたときの雲の割合（雲量）で決まります。',
       },
       {
-        id: 'sci2-obs-fc2',
+        id: 'sci2-wobs-fc2',
         front: '乾湿計',
         back: '乾球温度計と湿球温度計の2本を使って気温と湿度を測定する器具',
         explanation:
           '湿球温度計はガーゼで包まれており、水が蒸発するときに熱を奪うため乾球より低い値を示します。乾球と湿球の差から湿度を求めます。',
       },
       {
-        id: 'sci2-obs-fc3',
+        id: 'sci2-wobs-fc3',
         front: '圧力の公式',
         back: '圧力〔Pa〕＝ 力〔N〕÷ 面積〔m²〕',
         explanation:
           '1Paは1m²の面を1Nの力で垂直に押すときの圧力です。',
       },
       {
-        id: 'sci2-obs-fc4',
-        front: '大気圧（気圧）',
-        back: '上空にある空気の重さによる圧力。あらゆる向きにはたらく。',
+        id: 'sci2-wobs-fc4',
+        front: '圧力と面積の関係',
+        back: '同じ力でも面積が小さいほど圧力は大きくなる',
         explanation:
-          '標高が高いほど上空の空気が少なくなるため、大気圧は低くなります。',
+          'スキー板は面積が大きいため雪に沈みにくく、ハイヒールは面積が小さいため圧力が大きくなります。',
       },
       {
-        id: 'sci2-obs-fc5',
-        front: '標準気圧',
-        back: '海面上での大気圧は約1013hPa',
+        id: 'sci2-wobs-fc5',
+        front: '100g ＝ 何N？',
+        back: '100gの物体にはたらく重力は約1N',
         explanation:
-          '1hPa＝100Pa。天気予報や天気図では気圧の単位にhPaを使います。',
+          '圧力の計算では、まず質量（g）を重力（N）に変換する必要があります。500g → 5N、1kg → 10Nです。',
+      },
+      {
+        id: 'sci2-wobs-fc6',
+        front: '天気図記号（天気）',
+        back: '○＝快晴、◎＝晴れ、●＝くもり',
+        explanation:
+          '天気図では天気を記号で表します。○の中心から伸びる棒と矢羽根で風向・風力も表します。',
       },
     ],
     quiz: {
       questions: [
         {
-          id: 'sci2-obs-q1',
+          id: 'sci2-wobs-q1',
           question: '雲量が7のとき、天気は何か？',
           options: ['快晴', '晴れ', 'くもり', '雨'],
           correctIndex: 1,
@@ -193,7 +159,7 @@ export const observationPressure: Topic = {
             '雲量2〜8は「晴れ」です。雲量0〜1が快晴、9〜10がくもりです。',
         },
         {
-          id: 'sci2-obs-q2',
+          id: 'sci2-wobs-q2',
           question: '気温と湿度を同時に測定できる器具は？',
           options: ['温度計', '乾湿計', '気圧計', '風速計'],
           correctIndex: 1,
@@ -201,7 +167,7 @@ export const observationPressure: Topic = {
             '乾湿計は乾球温度計と湿球温度計の2本からなり、気温と湿度を測定できます。',
         },
         {
-          id: 'sci2-obs-q3',
+          id: 'sci2-wobs-q3',
           question: '圧力の単位として正しいものはどれ？',
           options: ['N（ニュートン）', 'Pa（パスカル）', 'g（グラム）', 'J（ジュール）'],
           correctIndex: 1,
@@ -209,32 +175,35 @@ export const observationPressure: Topic = {
             '圧力の単位はPa（パスカル）です。1Pa＝1N/m²。N（ニュートン）は力の単位です。',
         },
         {
-          id: 'sci2-obs-q4',
-          question: '大気圧について正しいものはどれ？',
-          options: [
-            '上向きにだけはたらく',
-            '標高が高いほど大きくなる',
-            'あらゆる向きにはたらく',
-            '水中ではたらかない',
-          ],
+          id: 'sci2-wobs-q4',
+          question: '質量200gの物体を0.004m²の面に置いたとき、圧力は何Paか？（100g＝1N）',
+          options: ['50Pa', '200Pa', '500Pa', '800Pa'],
           correctIndex: 2,
           explanation:
-            '大気圧はあらゆる向きにはたらきます。標高が高いほど上空の空気が少なくなるため、大気圧は低くなります。',
+            '200g→2N。圧力＝2N÷0.004m²＝500Pa。質量をNに変換してから計算するのがポイントです。',
         },
         {
-          id: 'sci2-obs-q5',
-          question: '海面上の標準気圧は約何hPaか？',
-          options: ['約500hPa', '約760hPa', '約1013hPa', '約1500hPa'],
+          id: 'sci2-wobs-q5',
+          question: '面積50cm²をm²に変換すると何m²か？',
+          options: ['0.5m²', '0.05m²', '0.005m²', '0.0005m²'],
           correctIndex: 2,
           explanation:
-            '海面上の標準気圧は約1013hPaです。これは約10万Pa（100000Pa）に相当します。',
+            '1m²＝10000cm²なので、50cm²÷10000＝0.005m²。圧力の計算では面積をm²に変換することが重要です。',
+        },
+        {
+          id: 'sci2-wobs-q6',
+          question: '1hPaは何Paか？',
+          options: ['1Pa', '10Pa', '100Pa', '1000Pa'],
+          correctIndex: 2,
+          explanation:
+            '1hPa＝100Pa。h（ヘクト）は100倍を意味する接頭辞です。',
         },
       ],
     },
     examples: {
       examples: [
         {
-          id: 'sci2-obs-ex1',
+          id: 'sci2-wobs-ex1',
           question:
             '50Nの力を0.1m²の面に垂直に加えたとき、圧力は何Paか求めなさい。',
           steps: [
@@ -259,8 +228,66 @@ export const observationPressure: Topic = {
           ],
           answer: '500Pa\n（50Nの力を0.1m²の面に加えたときの圧力は500Pa）',
         },
+        {
+          id: 'sci2-wobs-ex2',
+          question:
+            '質量800gの直方体の物体を、たて4cm × よこ5cmの面を下にして水平な台に置いた。台にはたらく圧力は何Paか求めなさい。（100g＝1N）',
+          steps: [
+            {
+              title: 'Step 1: 質量を重力（N）に変換する',
+              content:
+                '100gの物体にはたらく重力が1Nなので、800g → 800÷100 ＝ 8N',
+              highlight: '800g → 8N',
+            },
+            {
+              title: 'Step 2: 面積をcm²からm²に変換する',
+              content:
+                '面積＝4cm × 5cm ＝ 20cm²。1m² ＝ 10000cm²なので、20÷10000 ＝ 0.002m²',
+              highlight: '20cm² → 0.002m²',
+            },
+            {
+              title: 'Step 3: 圧力を計算する',
+              content:
+                '圧力＝力÷面積＝8N÷0.002m²＝4000Pa',
+              highlight: '4000Pa',
+            },
+          ],
+          answer: '4000Pa\n（面積のcm²→m²変換がポイント。1m²＝10000cm²を忘れずに！）',
+        },
+        {
+          id: 'sci2-wobs-ex3',
+          question:
+            '質量600gの直方体（たて5cm、よこ10cm、高さ20cm）がある。最も圧力が大きくなる置き方と、最も小さくなる置き方で圧力をそれぞれ求めなさい。（100g＝1N）',
+          steps: [
+            {
+              title: 'Step 1: 重力を求める',
+              content:
+                '600g → 600÷100 ＝ 6N',
+              highlight: '6N',
+            },
+            {
+              title: 'Step 2: 3つの面の面積を求める',
+              content:
+                '面A：5cm×10cm＝50cm²＝0.005m²\n面B：5cm×20cm＝100cm²＝0.01m²\n面C：10cm×20cm＝200cm²＝0.02m²',
+              highlight: '面A：0.005m²、面B：0.01m²、面C：0.02m²',
+            },
+            {
+              title: 'Step 3: 最も圧力が大きい場合（面積が最小の面A）',
+              content:
+                '圧力＝6N÷0.005m²＝1200Pa',
+              highlight: '最大：1200Pa（面A）',
+            },
+            {
+              title: 'Step 4: 最も圧力が小さい場合（面積が最大の面C）',
+              content:
+                '圧力＝6N÷0.02m²＝300Pa',
+              highlight: '最小：300Pa（面C）',
+            },
+          ],
+          answer: '最大1200Pa（5cm×10cmの面）、最小300Pa（10cm×20cmの面）\n同じ力でも面積が小さいほど圧力が大きくなります。',
+        },
       ],
     },
-    chatId: 'sci2-observation-pressure',
+    chatId: 'sci2-weather-observation',
   },
 };

@@ -1,10 +1,10 @@
 import type { HistoryChat } from '../../../../../../../../data/history-chat/types';
 
-export const japanWeatherChat: HistoryChat = {
-  id: 'sci2-japan-weather',
+export const japanSeasonsChat: HistoryChat = {
+  id: 'sci2-japan-seasons',
   icon: '🗾',
-  title: '大気の動きと日本の天気',
-  subtitle: '〜中2地学〜 偏西風・季節風・四季の天気・台風',
+  title: '日本の四季の天気',
+  subtitle: '〜中2地学〜 西高東低・梅雨・台風・気象災害',
   characters: [
     {
       id: 'teacher',
@@ -34,65 +34,6 @@ export const japanWeatherChat: HistoryChat = {
     },
   ],
   content: [
-    {
-      type: 'date',
-      text: '地球規模の大気循環',
-    },
-    {
-      type: 'narrator',
-      text: '日本の天気はなぜ<strong>西から東</strong>へ変わるのでしょうか？その<ruby>鍵<rp>(</rp><rt>かぎ</rt><rp>)</rp></ruby>は、地球規模の大気の動きにあります。',
-    },
-    {
-      type: 'message',
-      side: 'left',
-      characterId: 'teacher',
-      expression: 'explaining',
-      text: '<ruby>赤道<rp>(</rp><rt>せきどう</rt><rp>)</rp></ruby>付近は太陽のエネルギーをたくさん受けるから暖かく、<ruby>極<rp>(</rp><rt>きょく</rt><rp>)</rp></ruby>付近は寒い。この<strong>温度差</strong>が地球全体の<strong><span class="keyword"><span data-tooltip="赤道と極の温度差によって生じる地球規模の空気の流れ">大気<ruby>循環<rp>(</rp><rt>じゅんかん</rt><rp>)</rp></ruby></span></span></strong>を生み出しているんだ',
-    },
-    {
-      type: 'message',
-      side: 'right',
-      characterId: 'student',
-      expression: 'curious',
-      text: '日本のあたりではどんな風が吹いているんですか？',
-    },
-    {
-      type: 'message',
-      side: 'left',
-      characterId: 'teacher',
-      expression: 'excited',
-      text: '日本がある<ruby>中緯度帯<rp>(</rp><rt>ちゅういどたい</rt><rp>)</rp></ruby>では、<strong><span class="keyword"><span data-tooltip="中緯度帯の上空を西から東に向かって吹く風。天気が西から東へ変わる原因"><ruby>偏西風<rp>(</rp><rt>へんせいふう</rt><rp>)</rp></ruby></span></span></strong>が<strong>西から東</strong>に吹いているんだ。だから低気圧や高気圧が西から東へ運ばれて、天気も西から東へ移り変わるんだよ！',
-    },
-    {
-      type: 'message',
-      side: 'right',
-      characterId: 'student',
-      expression: 'surprised',
-      text: '天気予報で「明日は西から<ruby>崩<rp>(</rp><rt>くず</rt><rp>)</rp></ruby>れる」というのは偏西風のせいだったんですね！',
-    },
-    {
-      type: 'message',
-      side: 'left',
-      characterId: 'teacher',
-      expression: 'thinking',
-      text: 'さらに、大陸と海では温まりやすさが違うよね。大陸は温まりやすく冷めやすい、海は温まりにくく冷めにくい。この違いで季節ごとに風の向きが変わる<strong><span class="keyword"><span data-tooltip="大陸と海洋の温度差によって季節ごとに向きが変わる風"><ruby>季節風<rp>(</rp><rt>きせつふう</rt><rp>)</rp></ruby></span></span></strong>が吹くんだ。同じ原理で昼と夜で風向きが変わる<strong><ruby>海陸風<rp>(</rp><rt>かいりくふう</rt><rp>)</rp></ruby></strong>もあるよ',
-    },
-    {
-      type: 'summary-point',
-      text: '赤道と極の温度差 → <span class="keyword">大気循環</span>。中緯度帯では<span class="keyword">偏西風</span>（西→東）→ 天気が西から東へ。<span class="keyword">季節風</span>は大陸と海の温度差で発生！',
-    },
-    {
-      type: 'quiz',
-      question: '日本付近の天気が西から東へ移り変わる原因となる風はどれか。',
-      options: [
-        { letter: 'A', text: '貿易風', correct: false },
-        { letter: 'B', text: '偏西風', correct: true },
-        { letter: 'C', text: '季節風', correct: false },
-        { letter: 'D', text: '海陸風', correct: false },
-      ],
-      explanation:
-        '<strong>正解はB「<ruby>偏西風<rp>(</rp><rt>へんせいふう</rt><rp>)</rp></ruby>」</strong>です。中緯度帯の上空を西から東に吹く偏西風によって、低気圧や高気圧が西から東へ移動するため、天気も西から東へ変わります。',
-    },
     {
       type: 'date',
       text: '日本の四季の天気',
@@ -220,18 +161,65 @@ export const japanWeatherChat: HistoryChat = {
       side: 'right',
       characterId: 'student',
       expression: 'surprised',
-      text: '偏西風がここでも<ruby>関係<rp>(</rp><rt>かんけい</rt><rp>)</rp></ruby>しているんですね！',
+      text: '偏西風がここでも<ruby>関係<rp>(</rp><rt>かんけい</rt><rp>)</rp></ruby>しているんですね！ 台風の進路は季節で変わるんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'thinking',
+      text: 'いい質問だね！ 春から夏は<ruby>太平洋高気圧<rp>(</rp><rt>たいへいようこうきあつ</rt><rp>)</rp></ruby>の<ruby>勢力<rp>(</rp><rt>せいりょく</rt><rp>)</rp></ruby>が強いから、台風は高気圧の<ruby>縁<rp>(</rp><rt>ふち</rt><rp>)</rp></ruby>に沿って西へ進みやすい。でも<strong>夏から秋</strong>は太平洋高気圧が弱まるから、台風が<strong>日本列島の方へ北上</strong>しやすくなるんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: '梅雨が終わった後も<ruby>停滞前線<rp>(</rp><rt>ていたいぜんせん</rt><rp>)</rp></ruby>ができることはあるんですか？',
     },
     {
       type: 'message',
       side: 'left',
       characterId: 'teacher',
       expression: 'happy',
-      text: 'その通り！ 現代の天気予報はコンピュータを使った<strong><span class="keyword"><span data-tooltip="コンピュータで大気の状態を計算して天気を予報する方法"><ruby>数値予報<rp>(</rp><rt>すうちよほう</rt><rp>)</rp></ruby></span></span></strong>が基本だよ。<ruby>災害<rp>(</rp><rt>さいがい</rt><rp>)</rp></ruby>に備えて<strong>ハザードマップ</strong>で危険な場所を確認したり、<strong><ruby>特別警報<rp>(</rp><rt>とくべつけいほう</rt><rp>)</rp></ruby></strong>に注意して早めに<ruby>避難<rp>(</rp><rt>ひなん</rt><rp>)</rp></ruby>することが大切だね！',
+      text: 'あるよ！ 夏の終わりから秋にかけて、梅雨前線と同じような<ruby>停滞前線<rp>(</rp><rt>ていたいぜんせん</rt><rp>)</rp></ruby>ができるんだ。これを<strong><span class="keyword"><ruby>秋雨前線<rp>(</rp><rt>あきさめぜんせん</rt><rp>)</rp></ruby></span></strong>というよ。台風と秋雨前線が<ruby>重<rp>(</rp><rt>かさ</rt><rp>)</rp></ruby>なると大雨になりやすいんだ',
     },
     {
       type: 'summary-point',
-      text: '<span class="keyword">梅雨前線</span>＝小笠原気団とオホーツク海気団の境界（停滞前線）。<span class="keyword">台風</span>＝熱帯低気圧が発達（最大風速17m/s以上）。<span class="keyword">数値予報</span>・ハザードマップで災害に備える！',
+      text: '<span class="keyword">梅雨前線</span>＝小笠原気団とオホーツク海気団の境界。<span class="keyword">秋雨前線</span>＝夏の終わりの停滞前線。<span class="keyword">台風</span>の進路は太平洋高気圧の勢力で変わる！',
+    },
+    {
+      type: 'date',
+      text: '天気の<ruby>予測<rp>(</rp><rt>よそく</rt><rp>)</rp></ruby>と<ruby>気象災害<rp>(</rp><rt>きしょうさいがい</rt><rp>)</rp></ruby>',
+    },
+    {
+      type: 'narrator',
+      text: '天気を予報する方法と、<ruby>気象災害<rp>(</rp><rt>きしょうさいがい</rt><rp>)</rp></ruby>への<ruby>備<rp>(</rp><rt>そな</rt><rp>)</rp></ruby>えについて学びましょう。',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '現代の天気予報はコンピュータを使った<strong><span class="keyword"><span data-tooltip="コンピュータで大気の状態を計算して天気を予報する方法"><ruby>数値予報<rp>(</rp><rt>すうちよほう</rt><rp>)</rp></ruby></span></span></strong>が基本だよ。気温・気圧・風速などのデータを<ruby>計算<rp>(</rp><rt>けいさん</rt><rp>)</rp></ruby>して未来の天気を予測するんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '気象災害にはどう備えればいいんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: '<strong><span class="keyword">ハザードマップ</span></strong>で自分の住む地域の危険な場所や<ruby>避難<rp>(</rp><rt>ひなん</rt><rp>)</rp></ruby>経路を確認しておくことが大事だよ。<ruby>気象庁<rp>(</rp><rt>きしょうちょう</rt><rp>)</rp></ruby>が発表する<strong><span class="keyword"><ruby>特別警報<rp>(</rp><rt>とくべつけいほう</rt><rp>)</rp></ruby></span></strong>が出たら、ただちに<ruby>安全<rp>(</rp><rt>あんぜん</rt><rp>)</rp></ruby>な場所に<ruby>避難<rp>(</rp><rt>ひなん</rt><rp>)</rp></ruby>することが大切だね！',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">数値予報</span>＝コンピュータで大気をシミュレーション。<span class="keyword">ハザードマップ</span>で危険地域を確認。<span class="keyword">特別警報</span>に注意して早めに避難！',
     },
     {
       type: 'quiz',
@@ -248,11 +236,10 @@ export const japanWeatherChat: HistoryChat = {
     {
       type: 'end',
       points: [
-        '赤道と極の温度差 → <strong>大気<ruby>循環<rp>(</rp><rt>じゅんかん</rt><rp>)</rp></ruby></strong>。中緯度帯の<strong><ruby>偏西風<rp>(</rp><rt>へんせいふう</rt><rp>)</rp></ruby></strong>（西→東）が天気の移り変わりの原因',
-        '<strong><ruby>季節風<rp>(</rp><rt>きせつふう</rt><rp>)</rp></ruby></strong>：大陸と海の温まりやすさの違いで発生。冬は北西、夏は南東',
         '冬：<strong><ruby>西高東低<rp>(</rp><rt>せいこうとうてい</rt><rp>)</rp></ruby></strong>（シベリア高気圧）→ 日本海側は大雪、太平洋側は晴れ。夏：<strong><ruby>太平洋高気圧<rp>(</rp><rt>たいへいようこうきあつ</rt><rp>)</rp></ruby></strong> → 高温多湿',
-        '<strong><ruby>梅雨<rp>(</rp><rt>つゆ</rt><rp>)</rp></ruby></strong>：小笠原気団とオホーツク海気団 → <strong><ruby>梅雨前線<rp>(</rp><rt>ばいうぜんせん</rt><rp>)</rp></ruby></strong>（停滞前線）→ 長雨',
-        '<strong><ruby>台風<rp>(</rp><rt>たいふう</rt><rp>)</rp></ruby></strong>：熱帯低気圧が発達（最大風速17m/s以上）→ 偏西風に乗って日本を通過',
+        '<strong><ruby>梅雨<rp>(</rp><rt>つゆ</rt><rp>)</rp></ruby></strong>：小笠原気団とオホーツク海気団 → <strong><ruby>梅雨前線<rp>(</rp><rt>ばいうぜんせん</rt><rp>)</rp></ruby></strong>。<strong><ruby>秋雨前線<rp>(</rp><rt>あきさめぜんせん</rt><rp>)</rp></ruby></strong>も同じしくみ',
+        '<strong><ruby>台風<rp>(</rp><rt>たいふう</rt><rp>)</rp></ruby></strong>：熱帯低気圧が発達（最大風速17m/s以上）。進路は太平洋高気圧と偏西風で決まる',
+        '<strong><ruby>数値予報<rp>(</rp><rt>すうちよほう</rt><rp>)</rp></ruby></strong>・<strong>ハザードマップ</strong>・<strong><ruby>特別警報<rp>(</rp><rt>とくべつけいほう</rt><rp>)</rp></ruby></strong>で気象災害に備える',
       ],
     },
   ],

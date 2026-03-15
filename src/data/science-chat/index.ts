@@ -13,10 +13,14 @@ import { animalBodyChat } from '../subjects/science/units/grade2/2-biology/topic
 import { sensoryOrgansChat } from '../subjects/science/units/grade2/2-biology/topics/5-sensory-organs/chat';
 import { nervesMusclesChat } from '../subjects/science/units/grade2/2-biology/topics/6-nerves-muscles/chat';
 // Grade 2: Weather
-import { observationPressureChat } from '../subjects/science/units/grade2/3-weather/topics/1-observation-pressure/chat';
-import { pressureHumidityChat } from '../subjects/science/units/grade2/3-weather/topics/2-pressure-humidity/chat';
-import { cloudsFrontsChat } from '../subjects/science/units/grade2/3-weather/topics/3-clouds-fronts/chat';
-import { japanWeatherChat } from '../subjects/science/units/grade2/3-weather/topics/4-japan-weather/chat';
+import { weatherObservationChat } from '../subjects/science/units/grade2/3-weather/topics/1-weather-observation/chat';
+import { pressureAtmosphereChat } from '../subjects/science/units/grade2/3-weather/topics/2-pressure-atmosphere/chat';
+import { isobarsWindChat } from '../subjects/science/units/grade2/3-weather/topics/3-isobars-wind/chat';
+import { humidityDewpointChat } from '../subjects/science/units/grade2/3-weather/topics/4-humidity-dewpoint/chat';
+import { cloudFormationChat } from '../subjects/science/units/grade2/3-weather/topics/5-cloud-formation/chat';
+import { frontsChat } from '../subjects/science/units/grade2/3-weather/topics/6-fronts/chat';
+import { atmosphericCirculationChat } from '../subjects/science/units/grade2/3-weather/topics/7-atmospheric-circulation/chat';
+import { japanSeasonsChat } from '../subjects/science/units/grade2/3-weather/topics/8-japan-seasons/chat';
 // Grade 2: Electricity
 import { staticElectricityChat } from '../subjects/science/units/grade2/4-electricity/topics/1-static-electricity/chat';
 import { circuitOhmChat } from '../subjects/science/units/grade2/4-electricity/topics/2-circuit-ohm/chat';
@@ -39,7 +43,9 @@ import { evolutionEvidenceChat } from '../subjects/science/units/grade3/2-biolog
 // Physics
 import { objectMotionChat } from '../subjects/science/units/grade3/3-physics/topics/1-object-motion/chat';
 import { forceActionChat } from '../subjects/science/units/grade3/3-physics/topics/2-force-action/chat';
+import { waterPressureChat } from '../subjects/science/units/grade3/3-physics/topics/3-water-pressure/chat';
 import { energyWorkChat } from '../subjects/science/units/grade3/3-physics/topics/3-energy-work/chat';
+import { workConversionChat } from '../subjects/science/units/grade3/3-physics/topics/5-work-energy-conversion/chat';
 // Earth Science
 import { celestialMotionChat } from '../subjects/science/units/grade3/4-earth/topics/1-celestial-motion/chat';
 import { moonVenusChat } from '../subjects/science/units/grade3/4-earth/topics/2-moon-venus/chat';
@@ -60,10 +66,14 @@ const chatMap: Record<string, HistoryChat> = {
   [sensoryOrgansChat.id]: sensoryOrgansChat,
   [nervesMusclesChat.id]: nervesMusclesChat,
   // Grade 2: Weather
-  [observationPressureChat.id]: observationPressureChat,
-  [pressureHumidityChat.id]: pressureHumidityChat,
-  [cloudsFrontsChat.id]: cloudsFrontsChat,
-  [japanWeatherChat.id]: japanWeatherChat,
+  [weatherObservationChat.id]: weatherObservationChat,
+  [pressureAtmosphereChat.id]: pressureAtmosphereChat,
+  [isobarsWindChat.id]: isobarsWindChat,
+  [humidityDewpointChat.id]: humidityDewpointChat,
+  [cloudFormationChat.id]: cloudFormationChat,
+  [frontsChat.id]: frontsChat,
+  [atmosphericCirculationChat.id]: atmosphericCirculationChat,
+  [japanSeasonsChat.id]: japanSeasonsChat,
   // Grade 2: Electricity
   [staticElectricityChat.id]: staticElectricityChat,
   [circuitOhmChat.id]: circuitOhmChat,
@@ -86,7 +96,9 @@ const chatMap: Record<string, HistoryChat> = {
   // Physics
   [objectMotionChat.id]: objectMotionChat,
   [forceActionChat.id]: forceActionChat,
+  [waterPressureChat.id]: waterPressureChat,
   [energyWorkChat.id]: energyWorkChat,
+  [workConversionChat.id]: workConversionChat,
   // Earth Science
   [celestialMotionChat.id]: celestialMotionChat,
   [moonVenusChat.id]: moonVenusChat,

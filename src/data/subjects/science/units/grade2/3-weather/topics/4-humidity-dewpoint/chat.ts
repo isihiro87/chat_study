@@ -1,0 +1,258 @@
+import type { HistoryChat } from '../../../../../../../../data/history-chat/types';
+
+export const humidityDewpointChat: HistoryChat = {
+  id: 'sci2-humidity-dewpoint',
+  icon: '💧',
+  title: '水蒸気と湿度',
+  subtitle: '〜中2地学〜 飽和水蒸気量・露点・湿度の計算',
+  characters: [
+    {
+      id: 'teacher',
+      name: '理科の先生',
+      emoji: '👩‍🏫',
+      colorFrom: '#059669',
+      colorTo: '#34d399',
+      expressions: {
+        explaining: '🧑‍🏫',
+        happy: '😊',
+        excited: '🤩',
+        thinking: '🤔',
+      },
+    },
+    {
+      id: 'student',
+      name: '生徒',
+      emoji: '👦',
+      colorFrom: '#d97706',
+      colorTo: '#fbbf24',
+      expressions: {
+        curious: '🙋‍♂️',
+        surprised: '😲',
+        thinking: '🤔',
+        happy: '😄',
+      },
+    },
+  ],
+  content: [
+    {
+      type: 'date',
+      text: '<ruby>水蒸気<rp>(</rp><rt>すいじょうき</rt><rp>)</rp></ruby>と<ruby>湿度<rp>(</rp><rt>しつど</rt><rp>)</rp></ruby>',
+    },
+    {
+      type: 'narrator',
+      text: '空気中の<ruby>水蒸気<rp>(</rp><rt>すいじょうき</rt><rp>)</rp></ruby>の量と温度の関係を学びましょう。雲や<ruby>霧<rp>(</rp><rt>きり</rt><rp>)</rp></ruby>ができる仕組みにつながります。',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '空気が<ruby>含<rp>(</rp><rt>ふく</rt><rp>)</rp></ruby>むことができる<ruby>水蒸気<rp>(</rp><rt>すいじょうき</rt><rp>)</rp></ruby>の最大量を<strong><span class="keyword"><ruby>飽和水蒸気量<rp>(</rp><rt>ほうわすいじょうきりょう</rt><rp>)</rp></ruby></span></strong>というよ。単位はg/m³だ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '気温によって変わるんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'excited',
+      text: 'そう！ <strong>気温が高いほど<ruby>飽和水蒸気量<rp>(</rp><rt>ほうわすいじょうきりょう</rt><rp>)</rp></ruby>は大きくなる</strong>んだ。たとえば20℃で約17.3g/m³、10℃で約9.4g/m³。気温が下がると<ruby>含<rp>(</rp><rt>ふく</rt><rp>)</rp></ruby>みきれなくなった<ruby>水蒸気<rp>(</rp><rt>すいじょうき</rt><rp>)</rp></ruby>が<ruby>水滴<rp>(</rp><rt>すいてき</rt><rp>)</rp></ruby>に変わるよ',
+    },
+    {
+      type: 'image',
+      src: '/images/science/grade2/weather/humidity-curve.svg',
+      alt: '飽和水蒸気量と湿度',
+      caption: '気温が高いほど飽和水蒸気量が大きい',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: '水滴に変わり始める温度に名前はあるんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'thinking',
+      text: 'あるよ！ <ruby>水蒸気<rp>(</rp><rt>すいじょうき</rt><rp>)</rp></ruby>が<ruby>水滴<rp>(</rp><rt>すいてき</rt><rp>)</rp></ruby>に変わり始める温度を<strong><span class="keyword"><ruby>露点<rp>(</rp><rt>ろてん</rt><rp>)</rp></ruby></span></strong>というんだ。この変化を<strong><span class="keyword"><ruby>凝結<rp>(</rp><rt>ぎょうけつ</rt><rp>)</rp></ruby></span></strong>というよ。冷たいコップの表面に水滴がつくのも<ruby>凝結<rp>(</rp><rt>ぎょうけつ</rt><rp>)</rp></ruby>だね',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'surprised',
+      text: 'なるほど！ じゃあ<ruby>湿度<rp>(</rp><rt>しつど</rt><rp>)</rp></ruby>はどう計算するんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: '<strong><span class="keyword"><ruby>湿度<rp>(</rp><rt>しつど</rt><rp>)</rp></ruby></span></strong>の公式はこれだよ！<br/><br/><strong>湿度〔%〕＝（実際の<ruby>水蒸気量<rp>(</rp><rt>すいじょうきりょう</rt><rp>)</rp></ruby> ÷ <ruby>飽和水蒸気量<rp>(</rp><rt>ほうわすいじょうきりょう</rt><rp>)</rp></ruby>）× 100</strong><br/><br/>たとえば20℃の空気に10g/m³の<ruby>水蒸気<rp>(</rp><rt>すいじょうき</rt><rp>)</rp></ruby>があったら、10÷17.3×100≒<strong>約58%</strong>だね',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">飽和水蒸気量</span>：気温が高い→大きい。<span class="keyword">露点</span>：水蒸気が水滴に変わる温度（＝凝結）。<span class="keyword">湿度</span>＝（実際の水蒸気量÷飽和水蒸気量）×100%',
+    },
+    {
+      type: 'quiz',
+      question: '気温25℃で飽和水蒸気量が23.0g/m³のとき、空気1m³中に11.5gの水蒸気がふくまれていた。湿度は何%か。',
+      options: [
+        { letter: 'A', text: '25%', correct: false },
+        { letter: 'B', text: '50%', correct: true },
+        { letter: 'C', text: '75%', correct: false },
+        { letter: 'D', text: '100%', correct: false },
+      ],
+      explanation:
+        '<strong>正解はB「50%」</strong>です。<ruby>湿度<rp>(</rp><rt>しつど</rt><rp>)</rp></ruby>＝11.5÷23.0×100＝50%です。<ruby>飽和水蒸気量<rp>(</rp><rt>ほうわすいじょうきりょう</rt><rp>)</rp></ruby>のちょうど半分の<ruby>水蒸気<rp>(</rp><rt>すいじょうき</rt><rp>)</rp></ruby>が<ruby>含<rp>(</rp><rt>ふく</rt><rp>)</rp></ruby>まれているので、湿度は50%になります。',
+    },
+    {
+      type: 'date',
+      text: '<ruby>露点<rp>(</rp><rt>ろてん</rt><rp>)</rp></ruby>の<ruby>測定実験<rp>(</rp><rt>そくていじっけん</rt><rp>)</rp></ruby>',
+    },
+    {
+      type: 'narrator',
+      text: '<ruby>露点<rp>(</rp><rt>ろてん</rt><rp>)</rp></ruby>を実際に測定する実験の手順と<ruby>結果<rp>(</rp><rt>けっか</rt><rp>)</rp></ruby>を見てみましょう。',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<ruby>露点<rp>(</rp><rt>ろてん</rt><rp>)</rp></ruby>を調べるには、<strong><span class="keyword"><ruby>金属製<rp>(</rp><rt>きんぞくせい</rt><rp>)</rp></ruby>のコップ</span></strong>を使うよ。金属は<ruby>熱伝導<rp>(</rp><rt>ねつでんどう</rt><rp>)</rp></ruby>がよいから、コップの中の水温と表面の温度がほぼ同じになるんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: 'ガラスのコップじゃダメなんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'thinking',
+      text: 'ガラスは熱を伝えにくいから、中の水温と外側の表面温度にズレが出てしまうんだ。金属なら<ruby>正確<rp>(</rp><rt>せいかく</rt><rp>)</rp></ruby>に<ruby>露点<rp>(</rp><rt>ろてん</rt><rp>)</rp></ruby>を測定できるよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: 'なるほど！ 実験の手順はどうするんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'excited',
+      text: '手順は3ステップ！<br/><br/><strong>①</strong> 金属製のコップに<ruby>室温<rp>(</rp><rt>しつおん</rt><rp>)</rp></ruby>のくみ置きの水を入れる<br/><strong>②</strong> <ruby>氷水<rp>(</rp><rt>こおりみず</rt><rp>)</rp></ruby>を少しずつ加えながら、<ruby>温度計<rp>(</rp><rt>おんどけい</rt><rp>)</rp></ruby>で水温を測る（かき<ruby>混<rp>(</rp><rt>ま</rt><rp>)</rp></ruby>ぜながら！）<br/><strong>③</strong> コップの表面がくもり始めたときの<strong>水温を記録</strong>→これが<span class="keyword"><ruby>露点<rp>(</rp><rt>ろてん</rt><rp>)</rp></ruby></span>！',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'surprised',
+      text: 'コップの表面がくもるのは、<ruby>凝結<rp>(</rp><rt>ぎょうけつ</rt><rp>)</rp></ruby>が起きたってことですね！',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: 'そのとおり！ コップのまわりの空気が<ruby>冷<rp>(</rp><rt>ひ</rt><rp>)</rp></ruby>やされて<ruby>露点<rp>(</rp><rt>ろてん</rt><rp>)</rp></ruby>に達し、<ruby>水蒸気<rp>(</rp><rt>すいじょうき</rt><rp>)</rp></ruby>が<ruby>凝結<rp>(</rp><rt>ぎょうけつ</rt><rp>)</rp></ruby>して<ruby>水滴<rp>(</rp><rt>すいてき</rt><rp>)</rp></ruby>がついたんだ。<ruby>露点<rp>(</rp><rt>ろてん</rt><rp>)</rp></ruby>がわかれば、そのときの<ruby>飽和水蒸気量<rp>(</rp><rt>ほうわすいじょうきりょう</rt><rp>)</rp></ruby>の表から<strong>実際の<ruby>水蒸気量<rp>(</rp><rt>すいじょうきりょう</rt><rp>)</rp></ruby></strong>がわかるよ！',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">露点の測定実験</span>：金属製コップ＋氷水で冷却 → 表面がくもった温度＝露点。露点での飽和水蒸気量＝実際の水蒸気量！',
+    },
+    {
+      type: 'quiz',
+      question: '露点の測定実験で金属製のコップを使う理由として最も適切なものはどれか。',
+      options: [
+        { letter: 'A', text: '軽くて持ちやすいから', correct: false },
+        { letter: 'B', text: '熱伝導がよく、水温と表面温度がほぼ同じになるから', correct: true },
+        { letter: 'C', text: '透明で中が見えるから', correct: false },
+        { letter: 'D', text: '水をたくさん入れられるから', correct: false },
+      ],
+      explanation:
+        '<strong>正解はB</strong>です。金属は<ruby>熱伝導<rp>(</rp><rt>ねつでんどう</rt><rp>)</rp></ruby>がよいため、コップの中の水温と外側の表面温度がほぼ等しくなります。これにより、<ruby>凝結<rp>(</rp><rt>ぎょうけつ</rt><rp>)</rp></ruby>が起きた温度（＝<ruby>露点<rp>(</rp><rt>ろてん</rt><rp>)</rp></ruby>）を正確に測定できます。',
+    },
+    {
+      type: 'date',
+      text: '<ruby>気温<rp>(</rp><rt>きおん</rt><rp>)</rp></ruby>と<ruby>湿度<rp>(</rp><rt>しつど</rt><rp>)</rp></ruby>の1日の変化',
+    },
+    {
+      type: 'narrator',
+      text: '晴れの日と<ruby>雨<rp>(</rp><rt>あめ</rt><rp>)</rp></ruby>の日では、<ruby>気温<rp>(</rp><rt>きおん</rt><rp>)</rp></ruby>と<ruby>湿度<rp>(</rp><rt>しつど</rt><rp>)</rp></ruby>の変化パターンがまったくちがいます。',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '晴れた日は<ruby>気温<rp>(</rp><rt>きおん</rt><rp>)</rp></ruby>と<ruby>湿度<rp>(</rp><rt>しつど</rt><rp>)</rp></ruby>が<strong>反対の動き</strong>をするんだ。朝は気温が低くて<ruby>湿度<rp>(</rp><rt>しつど</rt><rp>)</rp></ruby>が高い。<ruby>昼<rp>(</rp><rt>ひる</rt><rp>)</rp></ruby>すぎの<strong>14時ごろ</strong>に気温が最も高くなると、<ruby>湿度<rp>(</rp><rt>しつど</rt><rp>)</rp></ruby>は最も低くなるよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '気温が上がると<ruby>湿度<rp>(</rp><rt>しつど</rt><rp>)</rp></ruby>が下がるのはなぜですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: 'いい質問だね！ 実は空気中の<strong><ruby>水蒸気量<rp>(</rp><rt>すいじょうきりょう</rt><rp>)</rp></ruby>は1日を通してほとんど変わらない</strong>んだ。でも気温が上がると<ruby>飽和水蒸気量<rp>(</rp><rt>ほうわすいじょうきりょう</rt><rp>)</rp></ruby>が大きくなるから、分母が大きくなって<ruby>湿度<rp>(</rp><rt>しつど</rt><rp>)</rp></ruby>は下がるんだよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'surprised',
+      text: '水蒸気の量は変わらないのに、<ruby>湿度<rp>(</rp><rt>しつど</rt><rp>)</rp></ruby>だけ変わるんですね！',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'thinking',
+      text: '一方、<strong>雨の日やくもりの日</strong>は、気温の変化が小さくて、<ruby>湿度<rp>(</rp><rt>しつど</rt><rp>)</rp></ruby>は1日中<strong>高いまま</strong>であまり変わらないんだ。グラフ問題では、晴れの日と雨の日のちがいをよく聞かれるよ！',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">晴れの日</span>：気温↑→湿度↓（14時ごろ最高気温・最低湿度）。<span class="keyword">雨・くもりの日</span>：気温・湿度とも変化が小さく、湿度は高いまま。',
+    },
+    {
+      type: 'quiz',
+      question: '晴れた日の気温が最も高くなる時間帯に湿度が最も低くなる理由として正しいものはどれか。',
+      options: [
+        { letter: 'A', text: '空気中の水蒸気が蒸発してなくなるから', correct: false },
+        { letter: 'B', text: '飽和水蒸気量が大きくなり、水蒸気量の割合が下がるから', correct: true },
+        { letter: 'C', text: '風が強くなって水蒸気が飛ばされるから', correct: false },
+        { letter: 'D', text: '雲ができて水蒸気が減るから', correct: false },
+      ],
+      explanation:
+        '<strong>正解はB</strong>です。気温が高くなると<ruby>飽和水蒸気量<rp>(</rp><rt>ほうわすいじょうきりょう</rt><rp>)</rp></ruby>が大きくなります。実際の<ruby>水蒸気量<rp>(</rp><rt>すいじょうきりょう</rt><rp>)</rp></ruby>はほとんど変わらないので、<ruby>湿度<rp>(</rp><rt>しつど</rt><rp>)</rp></ruby>（＝水蒸気量÷飽和水蒸気量×100）は低くなります。',
+    },
+    {
+      type: 'end',
+      points: [
+        '<strong><ruby>飽和水蒸気量<rp>(</rp><rt>ほうわすいじょうきりょう</rt><rp>)</rp></ruby></strong>：気温が高い → 大きい。<strong><ruby>露点<rp>(</rp><rt>ろてん</rt><rp>)</rp></ruby></strong>で<ruby>水蒸気<rp>(</rp><rt>すいじょうき</rt><rp>)</rp></ruby>が<ruby>水滴<rp>(</rp><rt>すいてき</rt><rp>)</rp></ruby>に変わる（<strong><ruby>凝結<rp>(</rp><rt>ぎょうけつ</rt><rp>)</rp></ruby></strong>）',
+        '<strong><ruby>湿度<rp>(</rp><rt>しつど</rt><rp>)</rp></ruby></strong>＝（実際の<ruby>水蒸気量<rp>(</rp><rt>すいじょうきりょう</rt><rp>)</rp></ruby> ÷ <ruby>飽和水蒸気量<rp>(</rp><rt>ほうわすいじょうきりょう</rt><rp>)</rp></ruby>）× 100%',
+        '<strong><ruby>露点<rp>(</rp><rt>ろてん</rt><rp>)</rp></ruby>の測定</strong>：金属製コップに氷水を少しずつ加え、表面がくもった温度＝<ruby>露点<rp>(</rp><rt>ろてん</rt><rp>)</rp></ruby>',
+        '<strong>晴れの日</strong>：気温と<ruby>湿度<rp>(</rp><rt>しつど</rt><rp>)</rp></ruby>は反対の動き（14時ごろ最高気温・最低<ruby>湿度<rp>(</rp><rt>しつど</rt><rp>)</rp></ruby>）。<strong>雨の日</strong>：変化が小さく<ruby>湿度<rp>(</rp><rt>しつど</rt><rp>)</rp></ruby>は高いまま',
+      ],
+    },
+  ],
+};

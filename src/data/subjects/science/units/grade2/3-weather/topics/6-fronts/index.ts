@@ -1,25 +1,15 @@
 import type { Topic } from '../../../../../../../types';
 
-export const cloudsFronts: Topic = {
-  id: 'sci2-clouds-fronts',
+export const fronts: Topic = {
+  id: 'sci2-fronts',
   eraId: 'sci2-weather',
-  name: '雲のでき方と前線',
-  subtitle: '雲の発生・気団・寒冷前線と温暖前線',
-  icon: '☁️',
-  order: 3,
+  name: '気団と前線',
+  subtitle: '寒冷前線・温暖前線・温帯低気圧',
+  icon: '🌧️',
+  order: 6,
   content: {
     explanation: {
       sections: [
-        {
-          title: '雲の発生と水の循環',
-          content:
-            '水蒸気を含む空気が上昇すると、気圧が低くなるため膨張し、温度が低下します。温度が露点に達すると空気中の水蒸気が水滴や氷の粒になり、これが集まったものが雲です。地球上の水は蒸発と降水を繰り返して循環しています。',
-          keyPoints: [
-            '空気が上昇→気圧低下→膨張→温度低下→露点に達すると水滴・氷の粒ができる',
-            '水滴や氷の粒が集まったものが雲',
-            '地球の水は蒸発と降水で絶えず循環している',
-          ],
-        },
         {
           title: '気団と前線',
           content:
@@ -50,38 +40,7 @@ export const cloudsFronts: Topic = {
       ],
       slides: [
         {
-          id: 'sci2-cf-slide1',
-          title: '雲はどうやってできる？',
-          slides: [
-            {
-              type: 'question',
-              question: '空気が上昇すると雲ができるのはなぜ？',
-              subtext: '雲の発生のしくみ',
-              emoji: '☁️',
-            },
-            {
-              type: 'reason',
-              headline: '上昇した空気が膨張して冷え、水蒸気が水滴になるから！',
-              points: [
-                '空気が上昇すると気圧が低くなり膨張する',
-                '膨張すると温度が下がる',
-                '露点に達すると水蒸気が水滴や氷の粒になる→雲！',
-              ],
-            },
-            {
-              type: 'conclusion',
-              conclusion: '雲 = 上昇気流で冷えた水蒸気が水滴・氷の粒になったもの！',
-              keywords: [
-                { text: '露点', isImportant: true },
-                { text: '膨張', isImportant: true },
-                { text: '水の循環' },
-              ],
-              nextHint: '気団と前線について見てみよう！',
-            },
-          ],
-        },
-        {
-          id: 'sci2-cf-slide2',
+          id: 'sci2-frnt-slide1',
           title: '気団と前線のしくみ',
           slides: [
             {
@@ -119,7 +78,7 @@ export const cloudsFronts: Topic = {
           ],
         },
         {
-          id: 'sci2-cf-slide3',
+          id: 'sci2-frnt-slide2',
           title: '寒冷前線と温暖前線',
           slides: [
             {
@@ -164,53 +123,64 @@ export const cloudsFronts: Topic = {
     videos: [],
     flashcards: [
       {
-        id: 'sci2-cf-fc1',
-        front: '露点',
-        back: '空気中の水蒸気が水滴に変わり始める温度のこと',
-        explanation: '空気が露点まで冷えると水蒸気が凝結し、水滴や氷の粒ができて雲になる。',
-      },
-      {
-        id: 'sci2-cf-fc2',
+        id: 'sci2-frnt-fc1',
         front: '気団',
         back: '気温や湿度がほぼ一様な、大きな空気の塊を何という？',
         explanation: '異なる気団がぶつかると前線ができる。',
       },
       {
-        id: 'sci2-cf-fc3',
+        id: 'sci2-frnt-fc2',
         front: '寒冷前線',
         back: '寒気が暖気の下に潜り込む前線を何という？',
         explanation: '積乱雲が発達し、短時間の強い雨が降る。通過後は北寄りの風で気温が急低下する。',
       },
       {
-        id: 'sci2-cf-fc4',
+        id: 'sci2-frnt-fc3',
         front: '温暖前線',
         back: '暖気が寒気の上を這い上がる前線を何という？',
         explanation: '乱層雲・高層雲ができ、広い範囲で弱い長雨が降る。通過後は南寄りの風で気温が上昇する。',
       },
       {
-        id: 'sci2-cf-fc5',
+        id: 'sci2-frnt-fc4',
         front: '温帯低気圧',
         back: '南東側に温暖前線、南西側に寒冷前線を伴う低気圧を何という？',
         explanation: '中緯度で発生し、前線を伴うのが特徴。熱帯低気圧とは異なる。',
+      },
+      {
+        id: 'sci2-frnt-fc5',
+        front: '停滞前線',
+        back: '暖気と寒気がほぼ同じ勢力でぶつかり、ほとんど動かない前線',
+        explanation: '梅雨前線や秋雨前線が停滞前線の例。長雨の原因になる。',
+      },
+      {
+        id: 'sci2-frnt-fc6',
+        front: '閉そく前線',
+        back: '寒冷前線が温暖前線に追いつくとできる前線',
+        explanation: '閉そく前線ができると暖気が上空に押し上げられ、温帯低気圧が衰退する。',
+      },
+      {
+        id: 'sci2-frnt-fc7',
+        front: '積乱雲と乱層雲のちがい',
+        back: '積乱雲＝寒冷前線（縦に発達・激しい雨）、乱層雲＝温暖前線（横に広がる・弱い雨）',
+        explanation: '前線の種類によって発達する雲が異なり、雨の降り方も違う。',
+      },
+      {
+        id: 'sci2-frnt-fc8',
+        front: '暖気と寒気の密度',
+        back: '暖気は密度が小さく上に、寒気は密度が大きく下に位置する',
+        explanation: '前線面では暖気が寒気の上に乗り上げるため、暖気が上昇して雲ができやすい。',
+      },
+      {
+        id: 'sci2-frnt-fc9',
+        front: '温帯低気圧の発達過程',
+        back: '発達→寒冷前線が温暖前線に追いつく→閉そく前線→衰退',
+        explanation: '寒冷前線の移動速度が温暖前線より速いため、やがて追いつく。',
       },
     ],
     quiz: {
       questions: [
         {
-          id: 'sci2-cf-q1',
-          question: '空気が上昇して雲ができるとき、空気の温度が下がる理由は？',
-          options: [
-            '太陽の光が届かなくなるから',
-            '空気が膨張するから',
-            '水蒸気が蒸発するから',
-            '風が強くなるから',
-          ],
-          correctIndex: 1,
-          explanation:
-            '上昇すると気圧が低くなり、空気が膨張します。膨張すると温度が下がり、露点に達すると水滴ができて雲になります。',
-        },
-        {
-          id: 'sci2-cf-q2',
+          id: 'sci2-frnt-q1',
           question: '異なる気団の境界面を何という？',
           options: ['前線', '前線面', '気圧の谷', '等圧線'],
           correctIndex: 1,
@@ -218,7 +188,7 @@ export const cloudsFronts: Topic = {
             '異なる性質の気団の境界面を前線面といいます。前線面と地表面が交わる線が前線です。',
         },
         {
-          id: 'sci2-cf-q3',
+          id: 'sci2-frnt-q2',
           question: '寒冷前線が通過した後の天気の変化として正しいものは？',
           options: [
             '南寄りの風に変わり気温が上昇する',
@@ -231,7 +201,7 @@ export const cloudsFronts: Topic = {
             '寒冷前線の通過後は、寒気に覆われるため北寄りの風に変わり、気温が急激に低下します。',
         },
         {
-          id: 'sci2-cf-q4',
+          id: 'sci2-frnt-q3',
           question: '温暖前線付近で発達する雲の種類として正しいものは？',
           options: ['積乱雲', '乱層雲', '積雲', '巻雲のみ'],
           correctIndex: 1,
@@ -239,7 +209,7 @@ export const cloudsFronts: Topic = {
             '温暖前線では暖気が寒気の上をゆるやかに這い上がるため、乱層雲や高層雲が広い範囲に発達し、弱い長雨を降らせます。',
         },
         {
-          id: 'sci2-cf-q5',
+          id: 'sci2-frnt-q4',
           question: '温帯低気圧に伴う前線の位置として正しいものは？',
           options: [
             '北東に寒冷前線、北西に温暖前線',
@@ -251,12 +221,51 @@ export const cloudsFronts: Topic = {
           explanation:
             '温帯低気圧には南東側に温暖前線、南西側に寒冷前線が伴います。',
         },
+        {
+          id: 'sci2-frnt-q5',
+          question: '停滞前線の特徴として正しいものは？',
+          options: [
+            '寒冷前線が温暖前線に追いつくとできる',
+            '暖気と寒気がほぼ同じ勢力で、ほとんど動かない',
+            '寒気が暖気の下にもぐり込む',
+            '暖気が寒気の上をゆるやかに這い上がる',
+          ],
+          correctIndex: 1,
+          explanation:
+            '停滞前線は暖気と寒気がほぼ同じ勢力でぶつかり、ほとんど動かない前線です。梅雨前線がその例です。',
+        },
+        {
+          id: 'sci2-frnt-q6',
+          question: '閉そく前線ができると温帯低気圧はどうなるか？',
+          options: [
+            '勢力が強まる',
+            '衰退する',
+            '停滞前線に変わる',
+            '台風に発達する',
+          ],
+          correctIndex: 1,
+          explanation:
+            '閉そく前線ができると暖気が地表から切り離されて上空に押し上げられ、エネルギーの供給が減って低気圧が衰退します。',
+        },
+        {
+          id: 'sci2-frnt-q7',
+          question: '温暖前線が通過した後の天気の変化として正しいものは？',
+          options: [
+            '北寄りの風に変わり気温が急低下する',
+            '南寄りの風に変わり気温が上昇する',
+            '風向は変わらず気温のみ低下する',
+            '東寄りの風に変わり雨が強まる',
+          ],
+          correctIndex: 1,
+          explanation:
+            '温暖前線通過後は暖気に覆われるため、南寄りの風に変わり気温が上昇します。',
+        },
       ],
     },
     examples: {
       examples: [
         {
-          id: 'sci2-cf-ex1',
+          id: 'sci2-frnt-ex1',
           question:
             '寒冷前線が通過するときの天気の変化を、雲の種類・雨の降り方・通過後の気温と風向きの観点から説明しなさい。',
           steps: [
@@ -282,8 +291,35 @@ export const cloudsFronts: Topic = {
           answer:
             '寒冷前線では、寒気が暖気の下に潜り込むことで積乱雲が発達し、短時間に強い雨が降る。前線の通過後は風向きが北寄りに変わり、気温が急激に低下する。',
         },
+        {
+          id: 'sci2-frnt-ex2',
+          question:
+            '温帯低気圧が日本付近を通過するとき、ある地点で経験する天気の変化を時系列で説明しなさい。',
+          steps: [
+            {
+              title: 'Step 1: 温暖前線の接近',
+              content:
+                'まず温暖前線が接近し、高層雲や乱層雲が広がります。広い範囲で弱い雨が長時間降り続きます。',
+              highlight: '乱層雲→広範囲の弱い長雨',
+            },
+            {
+              title: 'Step 2: 温暖前線の通過',
+              content:
+                '温暖前線が通過すると、暖気に覆われるため気温が上昇し、風向が南寄りに変わります。一時的に天気が回復します。',
+              highlight: '通過後→気温上昇・南寄りの風',
+            },
+            {
+              title: 'Step 3: 寒冷前線の通過',
+              content:
+                'その後、寒冷前線が近づくと積乱雲が発達し、短時間の激しい雨が降ります。通過後は北寄りの風に変わり、気温が急激に低下します。',
+              highlight: '積乱雲→強い雨→気温急低下',
+            },
+          ],
+          answer:
+            '温帯低気圧の通過では、まず温暖前線により広範囲の弱い雨が続く。通過後は気温上昇・南寄りの風。続いて寒冷前線により短時間の強い雨が降り、通過後は気温急低下・北寄りの風に変わる。',
+        },
       ],
     },
-    chatId: 'sci2-clouds-fronts',
+    chatId: 'sci2-fronts',
   },
 };
