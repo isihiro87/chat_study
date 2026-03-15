@@ -1,7 +1,10 @@
 import type { Era, Topic } from '../../../../../types';
-import { solutionIons } from './topics/1-solution-ions';
-import { acidAlkali } from './topics/2-acid-alkali';
-import { chemicalBattery } from './topics/3-chemical-battery';
+import { electrolyteElectrolysis } from './topics/1-electrolyte-electrolysis';
+import { atomIon } from './topics/2-atom-ion';
+import { acidAlkaliProperty } from './topics/3-acid-alkali-property';
+import { neutralization } from './topics/4-neutralization';
+import { batteryBasics } from './topics/5-battery-basics';
+import { batteryTypes } from './topics/6-battery-types';
 
 export const chemistryEra: Era = {
   id: 'sci3-chemistry',
@@ -15,7 +18,10 @@ export const chemistryEra: Era = {
 };
 
 export const chemistryTopics: Topic[] = [
-  solutionIons,
-  acidAlkali,
-  chemicalBattery,
+  electrolyteElectrolysis,
+  atomIon,
+  acidAlkaliProperty,
+  neutralization,
+  batteryBasics,
+  batteryTypes,
 ];

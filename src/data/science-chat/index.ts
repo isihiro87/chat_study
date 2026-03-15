@@ -21,9 +21,12 @@ import { circuitOhmChat } from '../subjects/science/units/grade2/4-electricity/t
 import { electricEnergyChat } from '../subjects/science/units/grade2/4-electricity/topics/3-electric-energy/chat';
 import { currentMagnetismChat } from '../subjects/science/units/grade2/4-electricity/topics/4-current-magnetism/chat';
 // Grade 3: Chemistry
-import { solutionIonsChat } from '../subjects/science/units/grade3/1-chemistry/topics/1-solution-ions/chat';
-import { acidAlkaliChat } from '../subjects/science/units/grade3/1-chemistry/topics/2-acid-alkali/chat';
-import { chemicalBatteryChat } from '../subjects/science/units/grade3/1-chemistry/topics/3-chemical-battery/chat';
+import { electrolyteElectrolysisChat } from '../subjects/science/units/grade3/1-chemistry/topics/1-electrolyte-electrolysis/chat';
+import { atomIonChat } from '../subjects/science/units/grade3/1-chemistry/topics/2-atom-ion/chat';
+import { acidAlkaliPropertyChat } from '../subjects/science/units/grade3/1-chemistry/topics/3-acid-alkali-property/chat';
+import { neutralizationChat } from '../subjects/science/units/grade3/1-chemistry/topics/4-neutralization/chat';
+import { batteryBasicsChat } from '../subjects/science/units/grade3/1-chemistry/topics/5-battery-basics/chat';
+import { batteryTypesChat } from '../subjects/science/units/grade3/1-chemistry/topics/6-battery-types/chat';
 // Biology
 import { growthReproductionChat } from '../subjects/science/units/grade3/2-biology/topics/1-growth-reproduction/chat';
 import { geneticsChat } from '../subjects/science/units/grade3/2-biology/topics/2-genetics/chat';
@@ -60,9 +63,12 @@ const chatMap: Record<string, HistoryChat> = {
   [electricEnergyChat.id]: electricEnergyChat,
   [currentMagnetismChat.id]: currentMagnetismChat,
   // Grade 3: Chemistry
-  [solutionIonsChat.id]: solutionIonsChat,
-  [acidAlkaliChat.id]: acidAlkaliChat,
-  [chemicalBatteryChat.id]: chemicalBatteryChat,
+  [electrolyteElectrolysisChat.id]: electrolyteElectrolysisChat,
+  [atomIonChat.id]: atomIonChat,
+  [acidAlkaliPropertyChat.id]: acidAlkaliPropertyChat,
+  [neutralizationChat.id]: neutralizationChat,
+  [batteryBasicsChat.id]: batteryBasicsChat,
+  [batteryTypesChat.id]: batteryTypesChat,
   // Biology
   [growthReproductionChat.id]: growthReproductionChat,
   [geneticsChat.id]: geneticsChat,

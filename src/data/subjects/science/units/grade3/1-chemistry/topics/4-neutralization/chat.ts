@@ -1,0 +1,181 @@
+import type { HistoryChat } from '../../../../../../../../data/history-chat/types';
+
+export const neutralizationChat: HistoryChat = {
+  id: 'sci3-neutralization',
+  icon: '🧂',
+  title: '中和反応',
+  subtitle: '〜中3化学〜 中和・塩（えん）・さまざまな中和反応',
+  characters: [
+    {
+      id: 'teacher',
+      name: '理科の先生',
+      emoji: '👩‍🏫',
+      colorFrom: '#059669',
+      colorTo: '#34d399',
+      expressions: {
+        explaining: '🧑‍🏫',
+        happy: '😊',
+        excited: '🤩',
+        thinking: '🤔',
+      },
+    },
+    {
+      id: 'student',
+      name: '生徒',
+      emoji: '👦',
+      colorFrom: '#d97706',
+      colorTo: '#fbbf24',
+      expressions: {
+        curious: '🙋‍♂️',
+        surprised: '😲',
+        thinking: '🤔',
+        happy: '😄',
+      },
+    },
+  ],
+  content: [
+    {
+      type: 'date',
+      text: '<ruby>中和<rp>(</rp><rt>ちゅうわ</rt><rp>)</rp></ruby><ruby>反応<rp>(</rp><rt>はんのう</rt><rp>)</rp></ruby>',
+    },
+    {
+      type: 'narrator',
+      text: '<ruby>酸性<rp>(</rp><rt>さんせい</rt><rp>)</rp></ruby>の<ruby>水溶液<rp>(</rp><rt>すいようえき</rt><rp>)</rp></ruby>とアルカリ<ruby>性<rp>(</rp><rt>せい</rt><rp>)</rp></ruby>の<ruby>水溶液<rp>(</rp><rt>すいようえき</rt><rp>)</rp></ruby>を<ruby>混<rp>(</rp><rt>ま</rt><rp>)</rp></ruby>ぜると、<ruby>打<rp>(</rp><rt>う</rt><rp>)</rp></ruby>ち<ruby>消<rp>(</rp><rt>け</rt><rp>)</rp></ruby>し<ruby>合<rp>(</rp><rt>あ</rt><rp>)</rp></ruby>う<ruby>反応<rp>(</rp><rt>はんのう</rt><rp>)</rp></ruby>が起きます。これが<strong><span class="keyword"><ruby>中和<rp>(</rp><rt>ちゅうわ</rt><rp>)</rp></ruby></span></strong>です。',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<ruby>塩酸<rp>(</rp><rt>えんさん</rt><rp>)</rp></ruby>（HCl）と<ruby>水酸化<rp>(</rp><rt>すいさんか</rt><rp>)</rp></ruby>ナトリウム（NaOH）を<ruby>混<rp>(</rp><rt>ま</rt><rp>)</rp></ruby>ぜると…<br/>H<sup>+</sup> + OH<sup>−</sup> → H<sub>2</sub>O（<ruby>水<rp>(</rp><rt>みず</rt><rp>)</rp></ruby>）ができる！<br/>そして<ruby>残<rp>(</rp><rt>のこ</rt><rp>)</rp></ruby>ったNa<sup>+</sup>とCl<sup>−</sup>が<strong><span class="keyword"><ruby>塩<rp>(</rp><rt>えん</rt><rp>)</rp></ruby></span></strong>（NaCl＝<ruby>食塩<rp>(</rp><rt>しょくえん</rt><rp>)</rp></ruby>）になるよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'surprised',
+      text: '<ruby>塩酸<rp>(</rp><rt>えんさん</rt><rp>)</rp></ruby>と<ruby>水酸化<rp>(</rp><rt>すいさんか</rt><rp>)</rp></ruby>ナトリウムから<ruby>食塩<rp>(</rp><rt>しょくえん</rt><rp>)</rp></ruby>ができるなんて<ruby>驚<rp>(</rp><rt>おどろ</rt><rp>)</rp></ruby>きです！',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'excited',
+      text: '<ruby>中和<rp>(</rp><rt>ちゅうわ</rt><rp>)</rp></ruby>は<strong><ruby>発熱<rp>(</rp><rt>はつねつ</rt><rp>)</rp></ruby><ruby>反応<rp>(</rp><rt>はんのう</rt><rp>)</rp></ruby></strong>でもあるんだ。<ruby>混<rp>(</rp><rt>ま</rt><rp>)</rp></ruby>ぜると<ruby>温度<rp>(</rp><rt>おんど</rt><rp>)</rp></ruby>が上がるよ',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: 'BTB<ruby>溶液<rp>(</rp><rt>ようえき</rt><rp>)</rp></ruby>を<ruby>加<rp>(</rp><rt>くわ</rt><rp>)</rp></ruby>えた<ruby>塩酸<rp>(</rp><rt>えんさん</rt><rp>)</rp></ruby>に、<ruby>水酸化<rp>(</rp><rt>すいさんか</rt><rp>)</rp></ruby>ナトリウム<ruby>水溶液<rp>(</rp><rt>すいようえき</rt><rp>)</rp></ruby>を<ruby>少<rp>(</rp><rt>すこ</rt><rp>)</rp></ruby>しずつ<ruby>加<rp>(</rp><rt>くわ</rt><rp>)</rp></ruby>えていくと…<br/><strong><ruby>黄色<rp>(</rp><rt>きいろ</rt><rp>)</rp></ruby>（<ruby>酸性<rp>(</rp><rt>さんせい</rt><rp>)</rp></ruby>）→ <ruby>緑色<rp>(</rp><rt>みどりいろ</rt><rp>)</rp></ruby>（<ruby>中性<rp>(</rp><rt>ちゅうせい</rt><rp>)</rp></ruby>）→ <ruby>青色<rp>(</rp><rt>あおいろ</rt><rp>)</rp></ruby>（アルカリ<ruby>性<rp>(</rp><rt>せい</rt><rp>)</rp></ruby>）</strong><br/>と<ruby>色<rp>(</rp><rt>いろ</rt><rp>)</rp></ruby>が<ruby>変<rp>(</rp><rt>か</rt><rp>)</rp></ruby>わっていくよ！<ruby>緑色<rp>(</rp><rt>みどりいろ</rt><rp>)</rp></ruby>のときがちょうど<ruby>中性<rp>(</rp><rt>ちゅうせい</rt><rp>)</rp></ruby>なんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '<ruby>緑色<rp>(</rp><rt>みどりいろ</rt><rp>)</rp></ruby>のとき<ruby>水<rp>(</rp><rt>みず</rt><rp>)</rp></ruby>を<ruby>蒸発<rp>(</rp><rt>じょうはつ</rt><rp>)</rp></ruby>させると何が<ruby>残<rp>(</rp><rt>のこ</rt><rp>)</rp></ruby>るんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: '<ruby>白<rp>(</rp><rt>しろ</rt><rp>)</rp></ruby>い<ruby>固体<rp>(</rp><rt>こたい</rt><rp>)</rp></ruby>が<ruby>残<rp>(</rp><rt>のこ</rt><rp>)</rp></ruby>る！それが<strong><ruby>塩化<rp>(</rp><rt>えんか</rt><rp>)</rp></ruby>ナトリウム（NaCl）</strong>＝<ruby>食塩<rp>(</rp><rt>しょくえん</rt><rp>)</rp></ruby>だよ。アルカリ<ruby>性<rp>(</rp><rt>せい</rt><rp>)</rp></ruby>になった<ruby>後<rp>(</rp><rt>あと</rt><rp>)</rp></ruby>にマグネシウムリボンを入れても、H<sup>+</sup>がないので<ruby>水素<rp>(</rp><rt>すいそ</rt><rp>)</rp></ruby>は<ruby>発生<rp>(</rp><rt>はっせい</rt><rp>)</rp></ruby>しないよ',
+    },
+    {
+      type: 'image',
+      src: '/images/science/grade3/chemistry/neutralization.svg',
+      alt: '中和反応のモデル図',
+      caption: 'H⁺とOH⁻が結びついて水ができ、残ったイオンが塩になる',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">中和</span>: H<sup>+</sup> + OH<sup>−</sup> → H<sub>2</sub>O。<span class="keyword">塩（えん）</span>も同時にできる。中和は<strong>発熱反応</strong>！BTBで黄→緑→青と色が変化',
+    },
+    {
+      type: 'quiz',
+      question: '塩酸（HCl）と水酸化ナトリウム（NaOH）の中和でできる塩（えん）は？',
+      options: [
+        { letter: 'A', text: '塩化カリウム', correct: false },
+        { letter: 'B', text: '硫酸ナトリウム', correct: false },
+        { letter: 'C', text: '塩化ナトリウム', correct: true },
+        { letter: 'D', text: '炭酸ナトリウム', correct: false },
+      ],
+      explanation:
+        '<strong>正解はC「<ruby>塩化<rp>(</rp><rt>えんか</rt><rp>)</rp></ruby>ナトリウム」</strong>です。HCl + NaOH → NaCl + H<sub>2</sub>O。Na<sup>+</sup>とCl<sup>−</sup>が<ruby>結<rp>(</rp><rt>むす</rt><rp>)</rp></ruby>びついてNaCl（<ruby>食塩<rp>(</rp><rt>しょくえん</rt><rp>)</rp></ruby>）ができます。',
+    },
+    {
+      type: 'date',
+      text: 'さまざまな<ruby>中和<rp>(</rp><rt>ちゅうわ</rt><rp>)</rp></ruby><ruby>反応<rp>(</rp><rt>はんのう</rt><rp>)</rp></ruby>',
+    },
+    {
+      type: 'narrator',
+      text: '<ruby>中和<rp>(</rp><rt>ちゅうわ</rt><rp>)</rp></ruby><ruby>反応<rp>(</rp><rt>はんのう</rt><rp>)</rp></ruby>は<ruby>塩酸<rp>(</rp><rt>えんさん</rt><rp>)</rp></ruby>と<ruby>水酸化<rp>(</rp><rt>すいさんか</rt><rp>)</rp></ruby>ナトリウムだけではありません。いろいろな<ruby>組<rp>(</rp><rt>く</rt><rp>)</rp></ruby>み<ruby>合<rp>(</rp><rt>あ</rt><rp>)</rp></ruby>わせを<ruby>見<rp>(</rp><rt>み</rt><rp>)</rp></ruby>てみましょう。',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<ruby>硝酸<rp>(</rp><rt>しょうさん</rt><rp>)</rp></ruby>（HNO<sub>3</sub>）と<ruby>水酸化<rp>(</rp><rt>すいさんか</rt><rp>)</rp></ruby>カリウム（KOH）の<ruby>中和<rp>(</rp><rt>ちゅうわ</rt><rp>)</rp></ruby>：<br/><strong>HNO<sub>3</sub> + KOH → KNO<sub>3</sub> + H<sub>2</sub>O</strong><br/><ruby>塩<rp>(</rp><rt>えん</rt><rp>)</rp></ruby>は<strong><ruby>硝酸<rp>(</rp><rt>しょうさん</rt><rp>)</rp></ruby>カリウム（KNO<sub>3</sub>）</strong>だよ',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'excited',
+      text: '<ruby>硫酸<rp>(</rp><rt>りゅうさん</rt><rp>)</rp></ruby>（H<sub>2</sub>SO<sub>4</sub>）と<ruby>水酸化<rp>(</rp><rt>すいさんか</rt><rp>)</rp></ruby>バリウム（Ba(OH)<sub>2</sub>）の<ruby>中和<rp>(</rp><rt>ちゅうわ</rt><rp>)</rp></ruby>：<br/><strong>H<sub>2</sub>SO<sub>4</sub> + Ba(OH)<sub>2</sub> → BaSO<sub>4</sub> + 2H<sub>2</sub>O</strong><br/><ruby>塩<rp>(</rp><rt>えん</rt><rp>)</rp></ruby>の<strong><ruby>硫酸<rp>(</rp><rt>りゅうさん</rt><rp>)</rp></ruby>バリウム（BaSO<sub>4</sub>）</strong>は<ruby>水<rp>(</rp><rt>みず</rt><rp>)</rp></ruby>に<ruby>溶<rp>(</rp><rt>と</rt><rp>)</rp></ruby>けない！だから<strong><ruby>白<rp>(</rp><rt>しろ</rt><rp>)</rp></ruby>い<ruby>沈殿<rp>(</rp><rt>ちんでん</rt><rp>)</rp></ruby></strong>ができるんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'surprised',
+      text: '<ruby>中和<rp>(</rp><rt>ちゅうわ</rt><rp>)</rp></ruby>で<ruby>沈殿<rp>(</rp><rt>ちんでん</rt><rp>)</rp></ruby>ができることもあるんですね！',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<ruby>炭酸<rp>(</rp><rt>たんさん</rt><rp>)</rp></ruby>（H<sub>2</sub>CO<sub>3</sub>）と<ruby>水酸化<rp>(</rp><rt>すいさんか</rt><rp>)</rp></ruby>カルシウム（Ca(OH)<sub>2</sub>）の<ruby>中和<rp>(</rp><rt>ちゅうわ</rt><rp>)</rp></ruby>：<br/><strong>H<sub>2</sub>CO<sub>3</sub> + Ca(OH)<sub>2</sub> → CaCO<sub>3</sub> + 2H<sub>2</sub>O</strong><br/><ruby>塩<rp>(</rp><rt>えん</rt><rp>)</rp></ruby>の<strong><ruby>炭酸<rp>(</rp><rt>たんさん</rt><rp>)</rp></ruby>カルシウム（CaCO<sub>3</sub>）</strong>も<ruby>白<rp>(</rp><rt>しろ</rt><rp>)</rp></ruby>い<ruby>沈殿<rp>(</rp><rt>ちんでん</rt><rp>)</rp></ruby>だよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: '<ruby>炭酸<rp>(</rp><rt>たんさん</rt><rp>)</rp></ruby>カルシウム…どこかで<ruby>聞<rp>(</rp><rt>き</rt><rp>)</rp></ruby>いたことがあります！',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: '<ruby>石灰水<rp>(</rp><rt>せっかいすい</rt><rp>)</rp></ruby>に<ruby>二酸化<rp>(</rp><rt>にさんか</rt><rp>)</rp></ruby>炭素を<ruby>通<rp>(</rp><rt>とお</rt><rp>)</rp></ruby>すと<ruby>白<rp>(</rp><rt>しろ</rt><rp>)</rp></ruby>くにごる<ruby>実験<rp>(</rp><rt>じっけん</rt><rp>)</rp></ruby>を<ruby>覚<rp>(</rp><rt>おぼ</rt><rp>)</rp></ruby>えてる？あの<ruby>白<rp>(</rp><rt>しろ</rt><rp>)</rp></ruby>い<ruby>沈殿<rp>(</rp><rt>ちんでん</rt><rp>)</rp></ruby>が<strong><ruby>炭酸<rp>(</rp><rt>たんさん</rt><rp>)</rp></ruby>カルシウム</strong>なんだ。CO<sub>2</sub>が<ruby>水<rp>(</rp><rt>みず</rt><rp>)</rp></ruby>に<ruby>溶<rp>(</rp><rt>と</rt><rp>)</rp></ruby>けて<ruby>炭酸<rp>(</rp><rt>たんさん</rt><rp>)</rp></ruby>になり、<ruby>石灰水<rp>(</rp><rt>せっかいすい</rt><rp>)</rp></ruby>の<ruby>水酸化<rp>(</rp><rt>すいさんか</rt><rp>)</rp></ruby>カルシウムと<ruby>中和<rp>(</rp><rt>ちゅうわ</rt><rp>)</rp></ruby>するんだよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'happy',
+      text: 'あの<ruby>実験<rp>(</rp><rt>じっけん</rt><rp>)</rp></ruby>も<ruby>中和<rp>(</rp><rt>ちゅうわ</rt><rp>)</rp></ruby><ruby>反応<rp>(</rp><rt>はんのう</rt><rp>)</rp></ruby>だったんですね！',
+    },
+    {
+      type: 'summary-point',
+      text: 'さまざまな中和反応：HNO₃ + KOH → <span class="keyword">KNO₃</span> + H₂O、H₂SO₄ + Ba(OH)₂ → <span class="keyword">BaSO₄↓</span> + 2H₂O（白い沈殿）、H₂CO₃ + Ca(OH)₂ → <span class="keyword">CaCO₃↓</span> + 2H₂O（石灰水が白くにごる）',
+    },
+    {
+      type: 'end',
+      points: [
+        '<strong><ruby>中和<rp>(</rp><rt>ちゅうわ</rt><rp>)</rp></ruby></strong>：H<sup>+</sup> + OH<sup>−</sup> → H<sub>2</sub>O + <strong><ruby>塩<rp>(</rp><rt>えん</rt><rp>)</rp></ruby></strong>。<ruby>発熱<rp>(</rp><rt>はつねつ</rt><rp>)</rp></ruby><ruby>反応<rp>(</rp><rt>はんのう</rt><rp>)</rp></ruby>でもある',
+        'BTB<ruby>溶液<rp>(</rp><rt>ようえき</rt><rp>)</rp></ruby>の<ruby>色変化<rp>(</rp><rt>いろへんか</rt><rp>)</rp></ruby>：<ruby>黄色<rp>(</rp><rt>きいろ</rt><rp>)</rp></ruby>（<ruby>酸性<rp>(</rp><rt>さんせい</rt><rp>)</rp></ruby>）→<ruby>緑色<rp>(</rp><rt>みどりいろ</rt><rp>)</rp></ruby>（<ruby>中性<rp>(</rp><rt>ちゅうせい</rt><rp>)</rp></ruby>）→<ruby>青色<rp>(</rp><rt>あおいろ</rt><rp>)</rp></ruby>（アルカリ<ruby>性<rp>(</rp><rt>せい</rt><rp>)</rp></ruby>）',
+        '<ruby>例<rp>(</rp><rt>れい</rt><rp>)</rp></ruby>：HCl + NaOH → NaCl + H<sub>2</sub>O、HNO<sub>3</sub> + KOH → KNO<sub>3</sub> + H<sub>2</sub>O',
+        'H<sub>2</sub>SO<sub>4</sub> + Ba(OH)<sub>2</sub> → BaSO<sub>4</sub>↓ + 2H<sub>2</sub>O（<ruby>白<rp>(</rp><rt>しろ</rt><rp>)</rp></ruby>い<ruby>沈殿<rp>(</rp><rt>ちんでん</rt><rp>)</rp></ruby>）',
+        'H<sub>2</sub>CO<sub>3</sub> + Ca(OH)<sub>2</sub> → CaCO<sub>3</sub>↓ + 2H<sub>2</sub>O（<ruby>石灰水<rp>(</rp><rt>せっかいすい</rt><rp>)</rp></ruby>が<ruby>白<rp>(</rp><rt>しろ</rt><rp>)</rp></ruby>くにごる）',
+      ],
+    },
+  ],
+};
