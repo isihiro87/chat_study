@@ -1,6 +1,9 @@
 import type { Era, Topic } from '../../../types';
 // Grade 1
-import { mathGrade1Era, mathGrade1Topics } from './grade1';
+import { posNegEra, posNegTopics } from './grade1';
+import { literalExpEra, literalExpTopics } from './grade1';
+import { equationsEra as g1EquationsEra, equationsTopics as g1EquationsTopics } from './grade1';
+import { functionsEra, functionsTopics } from './grade1';
 // Grade 2
 import { expressionsEra, expressionsTopics } from './grade2';
 import { simultaneousEqEra, simultaneousEqTopics } from './grade2';
@@ -13,7 +16,10 @@ import { quadraticFuncEra, quadraticFuncTopics } from './grade3';
 
 // 全Era一覧
 export const eras: Era[] = [
-  mathGrade1Era,
+  posNegEra,
+  literalExpEra,
+  g1EquationsEra,
+  functionsEra,
   expressionsEra,
   simultaneousEqEra,
   linearFuncEra,
@@ -25,7 +31,10 @@ export const eras: Era[] = [
 
 // 全トピック一覧
 export const allTopics: Topic[] = [
-  ...mathGrade1Topics,
+  ...posNegTopics,
+  ...literalExpTopics,
+  ...g1EquationsTopics,
+  ...functionsTopics,
   ...expressionsTopics,
   ...simultaneousEqTopics,
   ...linearFuncTopics,
