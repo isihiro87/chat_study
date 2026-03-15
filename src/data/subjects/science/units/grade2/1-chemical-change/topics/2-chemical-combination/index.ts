@@ -168,6 +168,97 @@ export const chemicalCombination: Topic = {
         explanation:
           '化合物はもとの物質とは異なる性質をもつ。混合物はそれぞれの物質の性質を保っている。',
       },
+      {
+        id: 'sci2-cc-fc6',
+        front: '鉄と硫黄の実験：加熱する場所',
+        back: '鉄と硫黄の混合物を加熱するとき、なぜ上部を加熱するのか？',
+        explanation:
+          '上部から反応を始めるため。下部を加熱すると発生した気体の逃げ場がなく、試験管が破裂する危険がある。',
+      },
+      {
+        id: 'sci2-cc-fc7',
+        front: '加熱をやめても反応が続く理由',
+        back: '鉄と硫黄の化合で、加熱をやめても反応が続くのはなぜ？',
+        explanation:
+          '鉄と硫黄の化合は発熱反応であり、反応自体が熱を出すため、一度反応が始まると加熱をやめても反応が続く。',
+      },
+      {
+        id: 'sci2-cc-fc8',
+        front: '鉄に塩酸を加えると？',
+        back: '鉄に塩酸を加えると発生する気体は？',
+        explanation:
+          '水素が発生する。一方、硫化鉄に塩酸を加えると硫化水素（腐卵臭）が発生する。',
+      },
+      {
+        id: 'sci2-cc-fc9',
+        front: '硫化鉄と磁石',
+        back: '鉄は磁石につくが、硫化鉄はどうか？',
+        explanation:
+          '硫化鉄は磁石につかない。化合によって性質が変わったことを示す重要な違い。',
+      },
+      {
+        id: 'sci2-cc-fc10',
+        front: '硫化鉄の色',
+        back: '硫化鉄は何色か？',
+        explanation:
+          '黒色。もとの鉄（灰色）や硫黄（黄色）とは異なる色になる。',
+      },
+      {
+        id: 'sci2-cc-fc11',
+        front: '銅と硫黄の化合',
+        back: '銅と硫黄が化合するとできる物質と化学反応式は？',
+        explanation:
+          '硫化銅（CuS）ができる。化学反応式：Cu + S → CuS',
+      },
+      {
+        id: 'sci2-cc-fc12',
+        front: '水素と酸素の化合',
+        back: '水素と酸素の混合気体に点火するとどうなる？',
+        explanation:
+          '爆発的に反応して水（H₂O）ができる。化学反応式：2H₂ + O₂ → 2H₂O',
+      },
+      {
+        id: 'sci2-cc-fc13',
+        front: '化学反応式の係数の意味',
+        back: '化学反応式の係数は何を表している？',
+        explanation:
+          '分子の個数比を表している。例えば 2H₂ + O₂ → 2H₂O は、水素分子2個と酸素分子1個が反応して水分子2個ができることを意味する。',
+      },
+      {
+        id: 'sci2-cc-fc14',
+        front: '2Hと2H₂の違い',
+        back: '2Hと2H₂はそれぞれ何を表す？',
+        explanation:
+          '2H＝水素原子が2個。2H₂＝水素分子が2個（水素原子は合計4個）。係数は分子全体にかかる。',
+      },
+      {
+        id: 'sci2-cc-fc15',
+        front: '鉄と硫黄の化学反応式',
+        back: '鉄と硫黄の化合の化学反応式を書きなさい',
+        explanation:
+          'Fe + S → FeS。鉄原子1個と硫黄原子1個が結びついて硫化鉄1個ができる。係数はすべて1なので省略。',
+      },
+      {
+        id: 'sci2-cc-fc16',
+        front: '炭素の燃焼の化学反応式',
+        back: '炭素が酸素と化合する化学反応式を書きなさい',
+        explanation:
+          'C + O₂ → CO₂。炭素原子1個と酸素分子1個が反応して二酸化炭素1個ができる。',
+      },
+      {
+        id: 'sci2-cc-fc17',
+        front: '酸化銀の分解の化学反応式',
+        back: '酸化銀を加熱して分解する化学反応式を書きなさい',
+        explanation:
+          '2Ag₂O → 4Ag + O₂。酸化銀2個が分解して銀原子4個と酸素分子1個ができる。',
+      },
+      {
+        id: 'sci2-cc-fc18',
+        front: '炭酸水素ナトリウムの分解',
+        back: '炭酸水素ナトリウムの熱分解の化学反応式を書きなさい',
+        explanation:
+          '2NaHCO₃ → Na₂CO₃ + CO₂ + H₂O。炭酸水素ナトリウムを加熱すると炭酸ナトリウム・二酸化炭素・水に分解される。',
+      },
     ],
     quiz: {
       questions: [
@@ -226,6 +317,97 @@ export const chemicalCombination: Topic = {
           explanation:
             '炭素と酸素が結びついて二酸化炭素ができます。C + O₂ → CO₂（C=1, O=2で一致）。',
         },
+        {
+          id: 'sci2-cc-q6',
+          question: '鉄と硫黄の化合実験で、加熱をやめても反応が続く理由は？',
+          options: [
+            '試験管に熱がたまっているから',
+            '硫黄が燃え続けているから',
+            '反応自体が熱を出す発熱反応だから',
+            '鉄が熱を吸収しているから',
+          ],
+          correctIndex: 2,
+          explanation:
+            '鉄と硫黄の化合は発熱反応です。反応で発生する熱がまわりの混合物を反応させるため、加熱をやめても反応が続きます。',
+        },
+        {
+          id: 'sci2-cc-q7',
+          question: '鉄と硫黄の混合物と硫化鉄の性質の違いとして正しいものは？',
+          options: [
+            '混合物は磁石につかないが、硫化鉄はつく',
+            '混合物は塩酸で硫化水素が出るが、硫化鉄は水素が出る',
+            '混合物は磁石につくが、硫化鉄はつかない',
+            '混合物も硫化鉄も磁石につく',
+          ],
+          correctIndex: 2,
+          explanation:
+            '混合物には鉄が含まれているので磁石につきます。硫化鉄は化合によって別の物質になったので磁石につきません。塩酸では混合物から水素、硫化鉄から硫化水素が発生します。',
+        },
+        {
+          id: 'sci2-cc-q8',
+          question: '銅の酸化を表す正しい化学反応式はどれ？',
+          options: [
+            'Cu + O₂ → CuO',
+            '2Cu + O₂ → 2CuO',
+            'Cu + O → CuO',
+            'Cu₂ + O₂ → 2CuO',
+          ],
+          correctIndex: 1,
+          explanation:
+            '2Cu + O₂ → 2CuO が正しい化学反応式です。左辺：Cu=2, O=2、右辺：Cu=2, O=2 で原子の数が一致します。',
+        },
+        {
+          id: 'sci2-cc-q9',
+          question: '「2H₂」が表しているものとして正しいのは？',
+          options: [
+            '水素原子が2個',
+            '水素分子が2個',
+            '水素原子が4個の1つの分子',
+            '水素分子が4個',
+          ],
+          correctIndex: 1,
+          explanation:
+            '2H₂は水素分子（H₂）が2個あることを意味します。水素原子の総数は4個です。「2H」なら水素原子が2個です。',
+        },
+        {
+          id: 'sci2-cc-q10',
+          question: '化学反応式の係数は何を表している？',
+          options: [
+            '原子の質量比',
+            '分子の個数比',
+            '原子番号',
+            '反応にかかる時間',
+          ],
+          correctIndex: 1,
+          explanation:
+            '化学反応式の係数は分子（や原子）の個数比を表しています。例えば 2H₂ + O₂ → 2H₂O は水素分子2個：酸素分子1個：水分子2個の比で反応することを意味します。',
+        },
+        {
+          id: 'sci2-cc-q11',
+          question: '水素と酸素が化合して水ができる反応の逆反応は？',
+          options: [
+            '水を蒸発させる',
+            '水を電気分解する',
+            '水に食塩を溶かす',
+            '水を冷却して氷にする',
+          ],
+          correctIndex: 1,
+          explanation:
+            '水の電気分解は水を水素と酸素に分解する反応で、水素と酸素の化合の逆反応にあたります。2H₂O → 2H₂ + O₂',
+        },
+        {
+          id: 'sci2-cc-q12',
+          question: '炭酸水素ナトリウムの熱分解の化学反応式として正しいものは？',
+          options: [
+            'NaHCO₃ → NaCO₃ + CO₂ + H₂O',
+            '2NaHCO₃ → Na₂CO₃ + CO₂ + H₂O',
+            'NaHCO₃ → Na₂CO₃ + 2CO₂ + H₂O',
+            '2NaHCO₃ → 2NaCO₃ + CO₂ + H₂O',
+          ],
+          correctIndex: 1,
+          explanation:
+            '2NaHCO₃ → Na₂CO₃ + CO₂ + H₂O が正しい化学反応式です。左辺：Na=2, H=2, C=2, O=6、右辺：Na=2, H=2, C=2, O=6 で一致します。',
+        },
       ],
     },
     examples: {
@@ -255,6 +437,89 @@ export const chemicalCombination: Topic = {
           ],
           answer:
             '2H₂ + O₂ → 2H₂O\n（左辺：H=4, O=2 ＝ 右辺：H=4, O=2 で一致）',
+        },
+        {
+          id: 'sci2-cc-ex2',
+          question: '鉄と硫黄の化合を化学反応式で表しなさい。',
+          steps: [
+            {
+              title: 'Step 1: 反応を確認',
+              content: '鉄（Fe）と硫黄（S）が化合して硫化鉄（FeS）ができます。',
+              highlight: 'Fe + S → FeS',
+            },
+            {
+              title: 'Step 2: 原子の数を確認',
+              content: '左辺：Fe=1, S=1。右辺：Fe=1, S=1。すでに一致しています。',
+              highlight: '係数はすべて1',
+            },
+          ],
+          answer: 'Fe + S → FeS\n（係数をつける必要なし。左右で原子の数が一致）',
+        },
+        {
+          id: 'sci2-cc-ex3',
+          question: '銅の酸化を化学反応式で表しなさい。',
+          steps: [
+            {
+              title: 'Step 1: 化学式に置きかえる',
+              content: '銅（Cu）+ 酸素（O₂）→ 酸化銅（CuO）',
+              highlight: 'Cu + O₂ → CuO',
+            },
+            {
+              title: 'Step 2: 酸素の数を合わせる',
+              content: '左辺O=2、右辺O=1。CuOの係数を2にする → Cu + O₂ → 2CuO',
+              highlight: '2CuO',
+            },
+            {
+              title: 'Step 3: 銅の数を合わせる',
+              content: '右辺Cu=2なので、左辺のCuの係数も2にする → 2Cu + O₂ → 2CuO',
+              highlight: '2Cu + O₂ → 2CuO',
+            },
+          ],
+          answer: '2Cu + O₂ → 2CuO\n（Cu=2, O=2で左右が一致）',
+        },
+        {
+          id: 'sci2-cc-ex4',
+          question: '酸化銀の分解を化学反応式で表しなさい。',
+          steps: [
+            {
+              title: 'Step 1: 化学式に置きかえる',
+              content: '酸化銀（Ag₂O）→ 銀（Ag）+ 酸素（O₂）',
+              highlight: 'Ag₂O → Ag + O₂',
+            },
+            {
+              title: 'Step 2: 酸素の数を合わせる',
+              content: '右辺O=2なので、左辺Ag₂Oの係数を2にする → 2Ag₂O → Ag + O₂',
+              highlight: '2Ag₂O',
+            },
+            {
+              title: 'Step 3: 銀の数を合わせる',
+              content: '左辺Ag=4なので、右辺Agの係数を4にする → 2Ag₂O → 4Ag + O₂',
+              highlight: '2Ag₂O → 4Ag + O₂',
+            },
+          ],
+          answer: '2Ag₂O → 4Ag + O₂\n（Ag=4, O=2で左右が一致）',
+        },
+        {
+          id: 'sci2-cc-ex5',
+          question: '炭酸水素ナトリウムの分解を化学反応式で表しなさい。',
+          steps: [
+            {
+              title: 'Step 1: 反応を確認',
+              content: '炭酸水素ナトリウム（NaHCO₃）→ 炭酸ナトリウム（Na₂CO₃）+ 二酸化炭素（CO₂）+ 水（H₂O）',
+              highlight: 'NaHCO₃ → Na₂CO₃ + CO₂ + H₂O',
+            },
+            {
+              title: 'Step 2: ナトリウムの数を合わせる',
+              content: '右辺Na=2なので、左辺NaHCO₃の係数を2にする',
+              highlight: '2NaHCO₃',
+            },
+            {
+              title: 'Step 3: 全原子の数を確認',
+              content: '左辺：Na=2, H=2, C=2, O=6。右辺：Na=2, H=2, C=2, O=6。一致！',
+              highlight: '2NaHCO₃ → Na₂CO₃ + CO₂ + H₂O',
+            },
+          ],
+          answer: '2NaHCO₃ → Na₂CO₃ + CO₂ + H₂O\n（Na=2, H=2, C=2, O=6で一致）',
         },
       ],
     },

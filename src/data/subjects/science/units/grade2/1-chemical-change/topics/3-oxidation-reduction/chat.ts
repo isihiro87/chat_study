@@ -101,6 +101,86 @@ export const oxidationReductionChat: HistoryChat = {
     },
     {
       type: 'date',
+      text: '<ruby>金属<rp>(</rp><rt>きんぞく</rt><rp>)</rp></ruby>の<ruby>酸化<rp>(</rp><rt>さんか</rt><rp>)</rp></ruby>の<ruby>詳細<rp>(</rp><rt>しょうさい</rt><rp>)</rp></ruby>',
+    },
+    {
+      type: 'narrator',
+      text: '<ruby>金属<rp>(</rp><rt>きんぞく</rt><rp>)</rp></ruby>によって<ruby>酸化<rp>(</rp><rt>さんか</rt><rp>)</rp></ruby>のしかたや<ruby>生成物<rp>(</rp><rt>せいせいぶつ</rt><rp>)</rp></ruby>の<ruby>性質<rp>(</rp><rt>せいしつ</rt><rp>)</rp></ruby>がちがいます。くわしく見てみましょう。',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: 'マグネシウムを<ruby>燃<rp>(</rp><rt>も</rt><rp>)</rp></ruby>やすと、<strong>白いまぶしい光</strong>を出して<ruby>激<rp>(</rp><rt>はげ</rt><rp>)</rp></ruby>しく<ruby>燃<rp>(</rp><rt>も</rt><rp>)</rp></ruby>えるよ。<ruby>燃<rp>(</rp><rt>も</rt><rp>)</rp></ruby>えた<ruby>後<rp>(</rp><rt>あと</rt><rp>)</rp></ruby>には<strong>白い<ruby>粉末<rp>(</rp><rt>ふんまつ</rt><rp>)</rp></ruby></strong>の<strong><span class="keyword"><ruby>酸化<rp>(</rp><rt>さんか</rt><rp>)</rp></ruby>マグネシウム（MgO）</span></strong>ができる。<ruby>化学反応式<rp>(</rp><rt>かがくはんのうしき</rt><rp>)</rp></ruby>は <strong>2Mg + O₂ → 2MgO</strong> だ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'surprised',
+      text: '花火みたいに<ruby>光<rp>(</rp><rt>ひか</rt><rp>)</rp></ruby>るんですね！<ruby>銅<rp>(</rp><rt>どう</rt><rp>)</rp></ruby>はどうなりますか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<ruby>銅<rp>(</rp><rt>どう</rt><rp>)</rp></ruby>を空気中で加熱すると、<ruby>表面<rp>(</rp><rt>ひょうめん</rt><rp>)</rp></ruby>が<strong>黒く</strong>なるよ。これは<strong><span class="keyword"><ruby>酸化銅<rp>(</rp><rt>さんかどう</rt><rp>)</rp></ruby>（CuO）</span></strong>ができたからだ。<ruby>化学反応式<rp>(</rp><rt>かがくはんのうしき</rt><rp>)</rp></ruby>は <strong>2Cu + O₂ → 2CuO</strong> だよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: 'スチールウールは<ruby>燃<rp>(</rp><rt>も</rt><rp>)</rp></ruby>えた<ruby>後<rp>(</rp><rt>あと</rt><rp>)</rp></ruby>どう<ruby>変<rp>(</rp><rt>か</rt><rp>)</rp></ruby>わるんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'excited',
+      text: 'いい<ruby>質問<rp>(</rp><rt>しつもん</rt><rp>)</rp></ruby>！スチールウールは<ruby>燃焼後<rp>(</rp><rt>ねんしょうご</rt><rp>)</rp></ruby>、3つの<ruby>変化<rp>(</rp><rt>へんか</rt><rp>)</rp></ruby>が<ruby>起<rp>(</rp><rt>お</rt><rp>)</rp></ruby>きるよ。①<strong>もろくなる</strong>（ボロボロくずれる）②<strong><ruby>磁石<rp>(</rp><rt>じしゃく</rt><rp>)</rp></ruby>に<ruby>引<rp>(</rp><rt>ひ</rt><rp>)</rp></ruby>きつけられにくくなる</strong>③<strong><ruby>質量<rp>(</rp><rt>しつりょう</rt><rp>)</rp></ruby>が<ruby>増<rp>(</rp><rt>ふ</rt><rp>)</rp></ruby>える</strong>。<ruby>鉄<rp>(</rp><rt>てつ</rt><rp>)</rp></ruby>とはまったく<ruby>別<rp>(</rp><rt>べつ</rt><rp>)</rp></ruby>の<ruby>物質<rp>(</rp><rt>ぶっしつ</rt><rp>)</rp></ruby>（<ruby>酸化鉄<rp>(</rp><rt>さんかてつ</rt><rp>)</rp></ruby>）に<ruby>変<rp>(</rp><rt>か</rt><rp>)</rp></ruby>わったんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: '<ruby>質量<rp>(</rp><rt>しつりょう</rt><rp>)</rp></ruby>が<ruby>増<rp>(</rp><rt>ふ</rt><rp>)</rp></ruby>えるのはなぜですか？<ruby>燃<rp>(</rp><rt>も</rt><rp>)</rp></ruby>えたら<ruby>軽<rp>(</rp><rt>かる</rt><rp>)</rp></ruby>くなりそうなのに…',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: '<ruby>結<rp>(</rp><rt>むす</rt><rp>)</rp></ruby>びついた<strong><ruby>酸素<rp>(</rp><rt>さんそ</rt><rp>)</rp></ruby>の<ruby>分<rp>(</rp><rt>ぶん</rt><rp>)</rp></ruby>だけ<ruby>質量<rp>(</rp><rt>しつりょう</rt><rp>)</rp></ruby>が<ruby>増加<rp>(</rp><rt>ぞうか</rt><rp>)</rp></ruby></strong>するからだよ。また、<ruby>集気<rp>(</rp><rt>しゅうき</rt><rp>)</rp></ruby>びんの<ruby>中<rp>(</rp><rt>なか</rt><rp>)</rp></ruby>で<ruby>燃<rp>(</rp><rt>も</rt><rp>)</rp></ruby>やすと<ruby>水面<rp>(</rp><rt>すいめん</rt><rp>)</rp></ruby>が<ruby>上昇<rp>(</rp><rt>じょうしょう</rt><rp>)</rp></ruby>するのは、<ruby>酸素<rp>(</rp><rt>さんそ</rt><rp>)</rp></ruby>が<ruby>使<rp>(</rp><rt>つか</rt><rp>)</rp></ruby>われて<ruby>気圧<rp>(</rp><rt>きあつ</rt><rp>)</rp></ruby>が<ruby>下<rp>(</rp><rt>さ</rt><rp>)</rp></ruby>がるからだよ',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<ruby>有機物<rp>(</rp><rt>ゆうきぶつ</rt><rp>)</rp></ruby>の<ruby>燃焼<rp>(</rp><rt>ねんしょう</rt><rp>)</rp></ruby>もくわしく見ておこう。<ruby>炭素<rp>(</rp><rt>たんそ</rt><rp>)</rp></ruby>の<ruby>燃焼<rp>(</rp><rt>ねんしょう</rt><rp>)</rp></ruby>は <strong>C + O₂ → CO₂</strong>、<ruby>水素<rp>(</rp><rt>すいそ</rt><rp>)</rp></ruby>の<ruby>燃焼<rp>(</rp><rt>ねんしょう</rt><rp>)</rp></ruby>は <strong>2H₂ + O₂ → 2H₂O</strong> だ。だから<ruby>有機物<rp>(</rp><rt>ゆうきぶつ</rt><rp>)</rp></ruby>を<ruby>燃<rp>(</rp><rt>も</rt><rp>)</rp></ruby>やすと<ruby>二酸化炭素<rp>(</rp><rt>にさんかたんそ</rt><rp>)</rp></ruby>と水ができるんだ',
+    },
+    {
+      type: 'summary-point',
+      text: 'マグネシウムの<span class="keyword">燃焼</span>：白い光→白い粉末（2Mg + O₂ → 2MgO）。銅の<span class="keyword">酸化</span>：黒くなる（2Cu + O₂ → 2CuO）。スチールウールは燃焼後もろくなり、磁石に引きつけられにくくなり、質量が増える',
+    },
+    {
+      type: 'quiz',
+      question: 'スチールウールを燃焼させた後の性質として正しいものは？',
+      options: [
+        { letter: 'A', text: 'やわらかくなり、磁石に強く引きつけられる', correct: false },
+        { letter: 'B', text: 'もろくなり、磁石に引きつけられにくくなる', correct: true },
+        { letter: 'C', text: '硬くなり、電気をよく通すようになる', correct: false },
+        { letter: 'D', text: '性質は変わらず、色だけが変わる', correct: false },
+      ],
+      explanation:
+        '<strong>正解はB</strong>です。<ruby>鉄<rp>(</rp><rt>てつ</rt><rp>)</rp></ruby>が<ruby>酸化鉄<rp>(</rp><rt>さんかてつ</rt><rp>)</rp></ruby>に<ruby>変化<rp>(</rp><rt>へんか</rt><rp>)</rp></ruby>するため、もろくなり、<ruby>磁石<rp>(</rp><rt>じしゃく</rt><rp>)</rp></ruby>に<ruby>引<rp>(</rp><rt>ひ</rt><rp>)</rp></ruby>きつけられにくくなります。<ruby>質量<rp>(</rp><rt>しつりょう</rt><rp>)</rp></ruby>は<ruby>酸素<rp>(</rp><rt>さんそ</rt><rp>)</rp></ruby>の<ruby>分<rp>(</rp><rt>ぶん</rt><rp>)</rp></ruby>だけ<ruby>増加<rp>(</rp><rt>ぞうか</rt><rp>)</rp></ruby>します。',
+    },
+    {
+      type: 'date',
       text: '<ruby>還元<rp>(</rp><rt>かんげん</rt><rp>)</rp></ruby>',
     },
     {
@@ -175,6 +255,86 @@ export const oxidationReductionChat: HistoryChat = {
       ],
       explanation:
         '<strong>正解はC「<ruby>酸化<rp>(</rp><rt>さんか</rt><rp>)</rp></ruby>と<ruby>還元<rp>(</rp><rt>かんげん</rt><rp>)</rp></ruby>は<ruby>常<rp>(</rp><rt>つね</rt><rp>)</rp></ruby>に<ruby>同時<rp>(</rp><rt>どうじ</rt><rp>)</rp></ruby>に<ruby>起<rp>(</rp><rt>お</rt><rp>)</rp></ruby>こる」</strong>です。<ruby>一方<rp>(</rp><rt>いっぽう</rt><rp>)</rp></ruby>が<ruby>酸素<rp>(</rp><rt>さんそ</rt><rp>)</rp></ruby>を<ruby>得<rp>(</rp><rt>え</rt><rp>)</rp></ruby>れば、もう<ruby>一方<rp>(</rp><rt>いっぽう</rt><rp>)</rp></ruby>は<ruby>酸素<rp>(</rp><rt>さんそ</rt><rp>)</rp></ruby>を<ruby>失<rp>(</rp><rt>うしな</rt><rp>)</rp></ruby>います。',
+    },
+    {
+      type: 'date',
+      text: '<ruby>還元<rp>(</rp><rt>かんげん</rt><rp>)</rp></ruby><ruby>実験<rp>(</rp><rt>じっけん</rt><rp>)</rp></ruby>の<ruby>詳細<rp>(</rp><rt>しょうさい</rt><rp>)</rp></ruby>と<ruby>応用<rp>(</rp><rt>おうよう</rt><rp>)</rp></ruby>',
+    },
+    {
+      type: 'narrator',
+      text: '<ruby>酸化銅<rp>(</rp><rt>さんかどう</rt><rp>)</rp></ruby>の<ruby>還元<rp>(</rp><rt>かんげん</rt><rp>)</rp></ruby><ruby>実験<rp>(</rp><rt>じっけん</rt><rp>)</rp></ruby>の<ruby>手順<rp>(</rp><rt>てじゅん</rt><rp>)</rp></ruby>と<ruby>注意点<rp>(</rp><rt>ちゅういてん</rt><rp>)</rp></ruby>、さらに<ruby>水素<rp>(</rp><rt>すいそ</rt><rp>)</rp></ruby>による<ruby>還元<rp>(</rp><rt>かんげん</rt><rp>)</rp></ruby>や<ruby>製鉄<rp>(</rp><rt>せいてつ</rt><rp>)</rp></ruby>への<ruby>応用<rp>(</rp><rt>おうよう</rt><rp>)</rp></ruby>を見てみましょう。',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<ruby>酸化銅<rp>(</rp><rt>さんかどう</rt><rp>)</rp></ruby>と<ruby>炭素<rp>(</rp><rt>たんそ</rt><rp>)</rp></ruby>の<ruby>還元<rp>(</rp><rt>かんげん</rt><rp>)</rp></ruby><ruby>実験<rp>(</rp><rt>じっけん</rt><rp>)</rp></ruby>では、<ruby>発生<rp>(</rp><rt>はっせい</rt><rp>)</rp></ruby>した<ruby>気体<rp>(</rp><rt>きたい</rt><rp>)</rp></ruby>を<ruby>石灰水<rp>(</rp><rt>せっかいすい</rt><rp>)</rp></ruby>に<ruby>通<rp>(</rp><rt>とお</rt><rp>)</rp></ruby>すよ。<strong><ruby>石灰水<rp>(</rp><rt>せっかいすい</rt><rp>)</rp></ruby>が白くにごれば</strong>、<ruby>二酸化炭素<rp>(</rp><rt>にさんかたんそ</rt><rp>)</rp></ruby>（CO₂）が<ruby>発生<rp>(</rp><rt>はっせい</rt><rp>)</rp></ruby>した<ruby>証拠<rp>(</rp><rt>しょうこ</rt><rp>)</rp></ruby>だ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '<ruby>試験管<rp>(</rp><rt>しけんかん</rt><rp>)</rp></ruby>の<ruby>中<rp>(</rp><rt>なか</rt><rp>)</rp></ruby>には何が<ruby>残<rp>(</rp><rt>のこ</rt><rp>)</rp></ruby>るんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: '<strong><ruby>赤<rp>(</rp><rt>あか</rt><rp>)</rp></ruby>い<ruby>物質<rp>(</rp><rt>ぶっしつ</rt><rp>)</rp></ruby></strong>が<ruby>残<rp>(</rp><rt>のこ</rt><rp>)</rp></ruby>るよ。これが<strong><span class="keyword"><ruby>銅<rp>(</rp><rt>どう</rt><rp>)</rp></ruby>（Cu）</span></strong>だ！<ruby>酸化銅<rp>(</rp><rt>さんかどう</rt><rp>)</rp></ruby>が<ruby>還元<rp>(</rp><rt>かんげん</rt><rp>)</rp></ruby>されて、もとの<ruby>金属<rp>(</rp><rt>きんぞく</rt><rp>)</rp></ruby>の<ruby>銅<rp>(</rp><rt>どう</rt><rp>)</rp></ruby>に<ruby>戻<rp>(</rp><rt>もど</rt><rp>)</rp></ruby>ったんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: '<ruby>実験<rp>(</rp><rt>じっけん</rt><rp>)</rp></ruby>で<ruby>注意<rp>(</rp><rt>ちゅうい</rt><rp>)</rp></ruby>することはありますか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<ruby>超重要<rp>(</rp><rt>ちょうじゅうよう</rt><rp>)</rp></ruby>！<ruby>火<rp>(</rp><rt>ひ</rt><rp>)</rp></ruby>を<ruby>消<rp>(</rp><rt>け</rt><rp>)</rp></ruby>す<ruby>前<rp>(</rp><rt>まえ</rt><rp>)</rp></ruby>に、<strong><span class="keyword">ガラス<ruby>管<rp>(</rp><rt>かん</rt><rp>)</rp></ruby>を<ruby>石灰水<rp>(</rp><rt>せっかいすい</rt><rp>)</rp></ruby>から<ruby>取<rp>(</rp><rt>と</rt><rp>)</rp></ruby>り<ruby>出<rp>(</rp><rt>だ</rt><rp>)</rp></ruby>す</span></strong>こと！<ruby>先<rp>(</rp><rt>さき</rt><rp>)</rp></ruby>に<ruby>火<rp>(</rp><rt>ひ</rt><rp>)</rp></ruby>を<ruby>消<rp>(</rp><rt>け</rt><rp>)</rp></ruby>すと、<ruby>試験管<rp>(</rp><rt>しけんかん</rt><rp>)</rp></ruby>が<ruby>冷<rp>(</rp><rt>ひ</rt><rp>)</rp></ruby>えて<ruby>石灰水<rp>(</rp><rt>せっかいすい</rt><rp>)</rp></ruby>が<ruby>逆流<rp>(</rp><rt>ぎゃくりゅう</rt><rp>)</rp></ruby>して<ruby>試験管<rp>(</rp><rt>しけんかん</rt><rp>)</rp></ruby>が<ruby>割<rp>(</rp><rt>わ</rt><rp>)</rp></ruby>れる<ruby>危険<rp>(</rp><rt>きけん</rt><rp>)</rp></ruby>があるんだ',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'excited',
+      text: '<ruby>炭素<rp>(</rp><rt>たんそ</rt><rp>)</rp></ruby>だけでなく<strong><ruby>水素<rp>(</rp><rt>すいそ</rt><rp>)</rp></ruby></strong>でも<ruby>還元<rp>(</rp><rt>かんげん</rt><rp>)</rp></ruby>できるよ。<ruby>酸化銅<rp>(</rp><rt>さんかどう</rt><rp>)</rp></ruby>に<ruby>水素<rp>(</rp><rt>すいそ</rt><rp>)</rp></ruby>を<ruby>通<rp>(</rp><rt>とお</rt><rp>)</rp></ruby>しながら加熱すると、<strong>CuO + H₂ → Cu + H₂O</strong> で<ruby>銅<rp>(</rp><rt>どう</rt><rp>)</rp></ruby>と<ruby>水<rp>(</rp><rt>みず</rt><rp>)</rp></ruby>ができるんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '<ruby>製鉄<rp>(</rp><rt>せいてつ</rt><rp>)</rp></ruby>ではどうやって<ruby>還元<rp>(</rp><rt>かんげん</rt><rp>)</rp></ruby>しているんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: '<ruby>製鉄所<rp>(</rp><rt>せいてつじょ</rt><rp>)</rp></ruby>では<strong><ruby>鉄鉱石<rp>(</rp><rt>てっこうせき</rt><rp>)</rp></ruby>（<ruby>酸化鉄<rp>(</rp><rt>さんかてつ</rt><rp>)</rp></ruby>）</strong>を<strong><span class="keyword">コークス（<ruby>炭素<rp>(</rp><rt>たんそ</rt><rp>)</rp></ruby>）</span></strong>で<ruby>還元<rp>(</rp><rt>かんげん</rt><rp>)</rp></ruby>して<ruby>鉄<rp>(</rp><rt>てつ</rt><rp>)</rp></ruby>を取り出しているんだ。<ruby>炭素<rp>(</rp><rt>たんそ</rt><rp>)</rp></ruby>は<ruby>銅<rp>(</rp><rt>どう</rt><rp>)</rp></ruby>より<ruby>酸化<rp>(</rp><rt>さんか</rt><rp>)</rp></ruby>されやすいから<ruby>酸素<rp>(</rp><rt>さんそ</rt><rp>)</rp></ruby>をうばえるんだよ。<ruby>酸化<rp>(</rp><rt>さんか</rt><rp>)</rp></ruby>されやすさは <strong>マグネシウム ＞ <ruby>炭素<rp>(</rp><rt>たんそ</rt><rp>)</rp></ruby> ＞ <ruby>水素<rp>(</rp><rt>すいそ</rt><rp>)</rp></ruby> ＞ <ruby>銅<rp>(</rp><rt>どう</rt><rp>)</rp></ruby></strong> の<ruby>順<rp>(</rp><rt>じゅん</rt><rp>)</rp></ruby>だ',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">還元実験</span>：石灰水が白くにごる（CO₂発生確認）、赤い銅が残る。<span class="keyword">操作順</span>：ガラス管を石灰水から出す→火を消す（逆流防止）。CuO + H₂ → Cu + H₂O。製鉄＝鉄鉱石をコークスで還元',
+    },
+    {
+      type: 'quiz',
+      question: '酸化銅の還元実験で、火を消す前にしなければならない操作は？',
+      options: [
+        { letter: 'A', text: '試験管を水で冷やす', correct: false },
+        { letter: 'B', text: 'ガラス管を石灰水から取り出す', correct: true },
+        { letter: 'C', text: '酸化銅をさらに加える', correct: false },
+        { letter: 'D', text: '試験管のゴム栓をはずす', correct: false },
+      ],
+      explanation:
+        '<strong>正解はB</strong>です。<ruby>先<rp>(</rp><rt>さき</rt><rp>)</rp></ruby>に<ruby>火<rp>(</rp><rt>ひ</rt><rp>)</rp></ruby>を<ruby>消<rp>(</rp><rt>け</rt><rp>)</rp></ruby>すと、<ruby>試験管<rp>(</rp><rt>しけんかん</rt><rp>)</rp></ruby>が<ruby>冷<rp>(</rp><rt>ひ</rt><rp>)</rp></ruby>えて<ruby>石灰水<rp>(</rp><rt>せっかいすい</rt><rp>)</rp></ruby>が<ruby>逆流<rp>(</rp><rt>ぎゃくりゅう</rt><rp>)</rp></ruby>し、<ruby>試験管<rp>(</rp><rt>しけんかん</rt><rp>)</rp></ruby>が<ruby>割<rp>(</rp><rt>わ</rt><rp>)</rp></ruby>れる<ruby>危険<rp>(</rp><rt>きけん</rt><rp>)</rp></ruby>があります。',
     },
     {
       type: 'end',
