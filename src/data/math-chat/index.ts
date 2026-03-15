@@ -27,6 +27,7 @@ import { eliminationChat } from '../subjects/math/units/grade2/2-simultaneous-eq
 import { substitutionChat } from '../subjects/math/units/grade2/2-simultaneous-equations/topics/3-substitution/chat';
 import { variousSimulEqChat } from '../subjects/math/units/grade2/2-simultaneous-equations/topics/4-various/chat';
 import { simulEqAppsChat } from '../subjects/math/units/grade2/2-simultaneous-equations/topics/5-applications/chat';
+import { simulEqAppsAdvChat } from '../subjects/math/units/grade2/2-simultaneous-equations/topics/6-applications-advanced/chat';
 // Grade 2: 一次関数
 import { linearFuncMeaningChat } from '../subjects/math/units/grade2/3-linear-functions/topics/1-meaning/chat';
 import { slopeInterceptChat } from '../subjects/math/units/grade2/3-linear-functions/topics/2-slope-intercept/chat';
@@ -84,6 +85,7 @@ const chatMap: Record<string, HistoryChat> = {
   [substitutionChat.id]: substitutionChat,
   [variousSimulEqChat.id]: variousSimulEqChat,
   [simulEqAppsChat.id]: simulEqAppsChat,
+  [simulEqAppsAdvChat.id]: simulEqAppsAdvChat,
   // Grade 2: 一次関数
   [linearFuncMeaningChat.id]: linearFuncMeaningChat,
   [slopeInterceptChat.id]: slopeInterceptChat,

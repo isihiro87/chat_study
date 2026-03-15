@@ -352,22 +352,8 @@ export const variousSimulEqChat: HistoryChat = {
       ],
     },
     {
-      type: 'message',
-      side: 'right',
-      characterId: 'student',
-      expression: 'curious',
-      text: '$10$ <ruby>倍<rt>ばい</rt></ruby>した<ruby>後<rt>あと</rt></ruby>、さらに<ruby>簡単<rt>かんたん</rt></ruby>にできることもありますか？',
-    },
-    {
-      type: 'message',
-      side: 'left',
-      characterId: 'teacher',
-      expression: 'happy',
-      text: 'いい<ruby>質問<rt>しつもん</rt></ruby>！$1.2x - 0.3y = 0.9$ を $10$ <ruby>倍<rt>ばい</rt></ruby>すると $12x - 3y = 9$。さらに $3$ で<ruby>割<rt>わ</rt></ruby>ると $4x - y = 3$ になるよ！',
-    },
-    {
       type: 'summary-point',
-      text: '<ruby>小数<rt>しょうすう</rt></ruby>がある → <strong>$10$ <ruby>倍<rt>ばい</rt></ruby>・$100$ <ruby>倍<rt>ばい</rt></ruby>して<ruby>整数<rt>せいすう</rt></ruby>に</strong>してから<ruby>解<rt>と</rt></ruby>く！<ruby>共通因数<rt>きょうつういんすう</rt></ruby>で<ruby>割<rt>わ</rt></ruby>れたらさらに<ruby>簡単<rt>かんたん</rt></ruby>に！',
+      text: '<ruby>小数<rt>しょうすう</rt></ruby>がある → <strong>$10$ <ruby>倍<rt>ばい</rt></ruby>・$100$ <ruby>倍<rt>ばい</rt></ruby>して<ruby>整数<rt>せいすう</rt></ruby>に</strong>してから<ruby>解<rt>と</rt></ruby>く！',
     },
 
     // ===== セクション4: A = B = C の形 =====

@@ -4,6 +4,7 @@ import { elimination } from './topics/2-elimination';
 import { substitution } from './topics/3-substitution';
 import { variousSimulEq } from './topics/4-various';
 import { simulEqApps } from './topics/5-applications';
+import { simulEqAppsAdv } from './topics/6-applications-advanced';
 
 export const simultaneousEqEra: Era = {
   id: 'math-g2-simultaneous-eq',
@@ -22,4 +23,5 @@ export const simultaneousEqTopics: Topic[] = [
   substitution,
   variousSimulEq,
   simulEqApps,
+  simulEqAppsAdv,
 ];
