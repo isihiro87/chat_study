@@ -16,8 +16,19 @@ export const monomialMulDiv: Topic = {
             '単項式どうしのかけ算は、係数は係数どうし、文字は文字どうしをかけるよ。同じ文字が出てきたら指数を足すのがポイント！',
           keyPoints: [
             '係数どうしをかける（例: 3 × 5 = 15）',
-            '同じ文字は指数を足す（例: x² × x³ = x⁵）',
-            '例: 3x² × 5x³ = 15x⁵',
+            '同じ文字は指数を足す（例: $x^2 \\times x^3 = x^5$）',
+            '例: $3x^2 \\times 5x^3 = 15x^5$',
+          ],
+        },
+        {
+          title: '単項式の累乗',
+          content:
+            '単項式の累乗は、係数も文字もまとめて累乗するよ。$(-a)^2$ と $-a^2$ の違いに注意しよう！',
+          keyPoints: [
+            '$(ab)^n = a^n b^n$（それぞれの因数を $n$ 乗する）',
+            '$(-3x)^2 = (-3)^2 \\times x^2 = 9x^2$（偶数乗で正）',
+            '$(-2a)^3 = (-2)^3 \\times a^3 = -8a^3$（奇数乗で負）',
+            '$(-a)^2 = a^2$（正）と $-a^2 = -(a^2)$（負）は全く違う！',
           ],
         },
         {
@@ -25,15 +36,121 @@ export const monomialMulDiv: Topic = {
           content:
             '単項式の割り算は、分数の形にしてから係数と文字をそれぞれ約分するよ。同じ文字は指数を引くんだ。',
           keyPoints: [
-            '割り算 → 分数の形にする（例: 6x³ ÷ 2x = 6x³/2x）',
-            '係数を約分する（例: 6/2 = 3）',
-            '同じ文字は指数を引く（例: x³/x = x²）',
+            '割り算 → 分数の形にする（例: $6x^3 \\div 2x = \\frac{6x^3}{2x}$）',
+            '係数を約分する（例: $\\frac{6}{2} = 3$）',
+            '同じ文字は指数を引く（例: $\\frac{x^3}{x} = x^2$）',
+          ],
+        },
+        {
+          title: '分数係数の除法（逆数をかける）',
+          content:
+            '分数で割るときは、逆数をかけて計算するよ。特に分数係数の単項式で割るときにこのテクニックが必要になるんだ。',
+          keyPoints: [
+            '$a \\div \\frac{b}{c} = a \\times \\frac{c}{b}$（逆数をかける）',
+            '例: $7ab \\div \\frac{1}{3}a = 7ab \\times \\frac{3}{a} = 21b$',
+            '例: $-\\frac{5}{3}x^2 \\div \\frac{5}{9}x = -\\frac{5}{3}x^2 \\times \\frac{9}{5x} = -3x$',
+          ],
+        },
+        {
+          title: '3つの式の乗除',
+          content:
+            '3つ以上の式が混ざった計算は、全体を1つの分数にまとめてから約分するのがコツだよ。割り算の部分は分母に置くんだ。',
+          keyPoints: [
+            '$A \\times B \\div C = \\frac{A \\times B}{C}$ の形にまとめる',
+            '$A \\div B \\div C = \\frac{A}{B \\times C}$ の形にまとめる',
+            '例: $(-6xy) \\times 8x \\div (-2y) = \\frac{-48x^2y}{-2y} = 24x^2$',
+          ],
+        },
+        {
+          title: 'よくある間違いパターン',
+          content:
+            '単項式の乗除でよくある間違いをまとめたよ。テスト前に確認しよう！',
+          keyPoints: [
+            '❌ $x^2 \\times x^3 = x^6$ → ⭕ $x^5$（指数は足す、かけない）',
+            '❌ $(-3a)^2 = -9a^2$ → ⭕ $9a^2$（偶数乗は正）',
+            '❌ $12a^2b \\div 4ab = 3a^2$ → ⭕ $3a$（$a^2 \\div a = a$）',
           ],
         },
       ],
     },
     videos: [],
-    flashcards: [],
+    flashcards: [
+      {
+        id: 'math-g2-mmd-fc1',
+        front: '単項式のかけ算の基本ルールは？',
+        back: '係数は係数どうしをかけ、同じ文字は指数を足す。例: $3x^2 \\times 5x^3 = 15x^5$',
+      },
+      {
+        id: 'math-g2-mmd-fc2',
+        front: '単項式の割り算の基本ルールは？',
+        back: '分数の形にして約分する。係数は普通に割り、同じ文字は指数を引く。例: $\\frac{12a^3}{4a} = 3a^2$',
+      },
+      {
+        id: 'math-g2-mmd-fc3',
+        front: '$(-3x)^2$ はいくつ？',
+        back: '$9x^2$。偶数乗なので係数は正になる。$(-3)^2 = 9$',
+      },
+      {
+        id: 'math-g2-mmd-fc4',
+        front: '$(-2a)^3$ はいくつ？',
+        back: '$-8a^3$。奇数乗なので係数は負のまま。$(-2)^3 = -8$',
+      },
+      {
+        id: 'math-g2-mmd-fc5',
+        front: '$(-a)^2$ と $-a^2$ の違いは？',
+        back: '$(-a)^2 = a^2$（正）、$-a^2 = -(a^2)$（負）。カッコの位置で符号が変わる！',
+      },
+      {
+        id: 'math-g2-mmd-fc6',
+        front: '指数法則: $a^m \\times a^n = ?$',
+        back: '$a^{m+n}$（同じ底のかけ算は指数を足す）',
+      },
+      {
+        id: 'math-g2-mmd-fc7',
+        front: '指数法則: $a^m \\div a^n = ?$（$m > n$）',
+        back: '$a^{m-n}$（同じ底の割り算は指数を引く）',
+      },
+      {
+        id: 'math-g2-mmd-fc8',
+        front: '分数係数の単項式で割るときのコツは？',
+        back: '逆数をかける！ $A \\div \\frac{b}{c} = A \\times \\frac{c}{b}$',
+      },
+      {
+        id: 'math-g2-mmd-fc9',
+        front: '3つの式の乗除を計算するコツは？',
+        back: '1つの分数にまとめる。かけ算は分子、割り算は分母に置く。$A \\times B \\div C = \\frac{A \\times B}{C}$',
+      },
+      {
+        id: 'math-g2-mmd-fc10',
+        front: '$(ab)^n$ を展開すると？',
+        back: '$a^n b^n$（それぞれの因数を $n$ 乗する）',
+      },
+      {
+        id: 'math-g2-mmd-fc11',
+        front: '$x^2 \\times x^3$ の計算でよくある間違いは？',
+        back: '$x^6$ と答えてしまうこと。正しくは指数を足して $x^5$。指数をかけるのは $(x^2)^3 = x^6$ のとき。',
+      },
+      {
+        id: 'math-g2-mmd-fc12',
+        front: '$-(-5a)^2$ の答えは？',
+        back: '$-25a^2$。まず $(-5a)^2 = 25a^2$（偶数乗で正）、次に前のマイナスをつけて $-25a^2$。',
+      },
+      {
+        id: 'math-g2-mmd-fc13',
+        front: '$A \\div B \\div C$ を分数で表すと？',
+        back: '$\\frac{A}{B \\times C}$（割り算が連続するときは分母にまとめる）',
+      },
+      {
+        id: 'math-g2-mmd-fc14',
+        front: '単項式の割り算で文字が消えるのはどんなとき？',
+        back: '分子と分母で同じ文字の指数が等しいとき。例: $\\frac{6ab}{3ab} = 2$（$a, b$ ともに消える）',
+      },
+      {
+        id: 'math-g2-mmd-fc15',
+        front: '$6xy \\div 3x$ の答えは？',
+        back: '$2y$。$\\frac{6xy}{3x} = 2y$。$x$ が約分されて $y$ だけ残る。',
+      },
+    ],
     quiz: {
       questions: [
         {
@@ -59,6 +176,62 @@ export const monomialMulDiv: Topic = {
           correctIndex: 1,
           explanation:
             '$(-2)^3 = -8$、$x^3$ はそのまま。答えは $-8x^3$。マイナスの奇数乗はマイナスになるよ！',
+        },
+        {
+          id: 'math-g2-mmd-q4',
+          question: '$(-9x)^2$ の計算結果は？',
+          options: ['$-81x^2$', '$81x^2$', '$-18x^2$', '$18x^2$'],
+          correctIndex: 1,
+          explanation:
+            '$(-9)^2 = 81$（偶数乗なので正になる）。答えは $81x^2$。',
+        },
+        {
+          id: 'math-g2-mmd-q5',
+          question: '$-(-5a)^2$ の計算結果は？',
+          options: ['$25a^2$', '$-25a^2$', '$10a^2$', '$-10a^2$'],
+          correctIndex: 1,
+          explanation:
+            'まず $(-5a)^2 = 25a^2$（偶数乗で正）。前のマイナスをつけて $-25a^2$ だよ。',
+        },
+        {
+          id: 'math-g2-mmd-q6',
+          question: '$7ab \\div \\frac{1}{3}a$ の計算結果は？',
+          options: ['$\\frac{7}{3}b$', '$21b$', '$\\frac{7b}{3a}$', '$21ab$'],
+          correctIndex: 1,
+          explanation:
+            '分数で割る → 逆数をかける。$7ab \\times \\frac{3}{a} = 21b$。',
+        },
+        {
+          id: 'math-g2-mmd-q7',
+          question: '$(-6xy) \\times 8x \\div (-2y)$ の計算結果は？',
+          options: ['$-24x^2$', '$24x^2$', '$-24xy$', '$24xy$'],
+          correctIndex: 1,
+          explanation:
+            '$\\frac{(-6xy) \\times 8x}{-2y} = \\frac{-48x^2y}{-2y} = 24x^2$。マイナス÷マイナスで正になるよ。',
+        },
+        {
+          id: 'math-g2-mmd-q8',
+          question: '$x^2 \\times x^3$ の正しい答えは？',
+          options: ['$x^6$', '$x^5$', '$2x^5$', '$x^{23}$'],
+          correctIndex: 1,
+          explanation:
+            '同じ底のかけ算は指数を足す！$x^{2+3} = x^5$。$x^6$ にするのはよくある間違いだよ。',
+        },
+        {
+          id: 'math-g2-mmd-q9',
+          question: '$15a^2b \\div 3a \\div (-5b)$ の計算結果は？',
+          options: ['$a$', '$-a$', '$ab$', '$-ab$'],
+          correctIndex: 1,
+          explanation:
+            '$\\frac{15a^2b}{3a \\times (-5b)} = \\frac{15a^2b}{-15ab} = -a$。',
+        },
+        {
+          id: 'math-g2-mmd-q10',
+          question: '$3a \\times (-4a)^2$ の計算結果は？',
+          options: ['$-48a^3$', '$48a^3$', '$-12a^3$', '$12a^2$'],
+          correctIndex: 1,
+          explanation:
+            'まず $(-4a)^2 = 16a^2$（偶数乗で正）。次に $3a \\times 16a^2 = 48a^3$。',
         },
       ],
     },
@@ -106,6 +279,99 @@ export const monomialMulDiv: Topic = {
             },
           ],
           answer: '$4x^2y$',
+        },
+        {
+          id: 'math-g2-mmd-ex3',
+          question: '次の計算をしよう。\n$(-3x)^2 \\times (-8x)$',
+          steps: [
+            {
+              title: 'Step 1: 累乗を計算しよう',
+              content:
+                '$(-3x)^2$ を計算するよ。\n$(-3)^2 = 9$（偶数乗で正）、$x^2$ はそのまま。\nだから $(-3x)^2 = 9x^2$。',
+              highlight: '$(-3x)^2 = 9x^2$',
+            },
+            {
+              title: 'Step 2: かけ算をしよう',
+              content:
+                '$9x^2 \\times (-8x)$ を計算するよ。\n係数: $9 \\times (-8) = -72$\n文字: $x^2 \\times x = x^3$',
+              highlight: '$9x^2 \\times (-8x) = -72x^3$',
+            },
+          ],
+          answer: '$-72x^3$',
+        },
+        {
+          id: 'math-g2-mmd-ex4',
+          question: '次の計算をしよう。\n$20x^2 \\div \\left(-\\frac{4}{3}x\\right)$',
+          steps: [
+            {
+              title: 'Step 1: 逆数をかける形に変えよう',
+              content:
+                '分数で割る → 逆数をかける！\n$20x^2 \\div \\left(-\\frac{4}{3}x\\right) = 20x^2 \\times \\left(-\\frac{3}{4x}\\right)$',
+              highlight: '$20x^2 \\times \\left(-\\frac{3}{4x}\\right)$',
+            },
+            {
+              title: 'Step 2: かけ算をしよう',
+              content:
+                '係数: $20 \\times \\left(-\\frac{3}{4}\\right) = -15$\n文字: $x^2 \\div x = x$',
+              highlight: '係数: $-15$、文字: $x$',
+            },
+            {
+              title: 'Step 3: 答えを書こう',
+              content: '合わせて $-15x$ が答えだよ。',
+              highlight: '$-15x$',
+            },
+          ],
+          answer: '$-15x$',
+        },
+        {
+          id: 'math-g2-mmd-ex5',
+          question: '次の計算をしよう。\n$(-6xy) \\times 8x \\div (-2y)$',
+          steps: [
+            {
+              title: 'Step 1: 1つの分数にまとめよう',
+              content:
+                'かけ算は分子、割り算は分母に置くよ。\n$\\frac{(-6xy) \\times 8x}{-2y}$',
+              highlight: '$\\frac{(-6xy) \\times 8x}{-2y}$',
+            },
+            {
+              title: 'Step 2: 分子を計算しよう',
+              content:
+                '$(-6xy) \\times 8x = -48x^2y$\n係数: $(-6) \\times 8 = -48$\n文字: $xy \\times x = x^2y$',
+              highlight: '分子: $-48x^2y$',
+            },
+            {
+              title: 'Step 3: 約分しよう',
+              content:
+                '$\\frac{-48x^2y}{-2y} = 24x^2$\n係数: $-48 \\div (-2) = 24$\n文字: $y$ が約分されて $x^2$ だけ残るよ。',
+              highlight: '$24x^2$',
+            },
+          ],
+          answer: '$24x^2$',
+        },
+        {
+          id: 'math-g2-mmd-ex6',
+          question: '次の計算をしよう。\n$10a^2b \\times \\left(-\\frac{1}{2}b\\right) \\div (-3ab)$',
+          steps: [
+            {
+              title: 'Step 1: 1つの分数にまとめよう',
+              content:
+                '$\\frac{10a^2b \\times \\left(-\\frac{1}{2}b\\right)}{-3ab}$',
+              highlight: '$\\frac{10a^2b \\times \\left(-\\frac{1}{2}b\\right)}{-3ab}$',
+            },
+            {
+              title: 'Step 2: 分子を計算しよう',
+              content:
+                '$10a^2b \\times \\left(-\\frac{1}{2}b\\right) = -5a^2b^2$\n係数: $10 \\times \\left(-\\frac{1}{2}\\right) = -5$\n文字: $a^2b \\times b = a^2b^2$',
+              highlight: '分子: $-5a^2b^2$',
+            },
+            {
+              title: 'Step 3: 約分しよう',
+              content:
+                '$\\frac{-5a^2b^2}{-3ab} = \\frac{5}{3}ab$\n係数: $-5 \\div (-3) = \\frac{5}{3}$\n文字: $a^2 \\div a = a$, $b^2 \\div b = b$',
+              highlight: '$\\frac{5}{3}ab$',
+            },
+          ],
+          answer: '$\\frac{5}{3}ab$',
         },
       ],
     },

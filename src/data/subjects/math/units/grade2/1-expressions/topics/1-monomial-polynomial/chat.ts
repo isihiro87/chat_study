@@ -76,7 +76,7 @@ export const monomialPolynomialChat: HistoryChat = {
       side: 'left',
       characterId: 'teacher',
       expression: 'happy',
-      text: 'いい<ruby>質問<rt>しつもん</rt></ruby>！<ruby>上<rt>うえ</rt></ruby>のように<strong>かけ<ruby>算<rt>ざん</rt></ruby>だけ</strong>でできている<ruby>式<rt>しき</rt></ruby>を<strong>「<ruby>単項式<rt>たんこうしき</rt></ruby>」</strong>と<ruby>言<rt>い</rt></ruby>うよ。<ruby>下<rt>した</rt></ruby>のように<ruby>単項式<rt>たんこうしき</rt></ruby>が<ruby>足<rt>た</rt></ruby>し<ruby>算<rt>ざん</rt></ruby>でつながった<ruby>式<rt>しき</rt></ruby>を<strong>「<ruby>多項式<rt>たこうしき</rt></ruby>」</strong>と<ruby>言<rt>い</rt></ruby>うんだ。',
+      text: 'いい<ruby>質問<rt>しつもん</rt></ruby>！<ruby>上<rt>うえ</rt></ruby>のように<strong>かけ<ruby>算<rt>ざん</rt></ruby>だけ</strong>でできている<ruby>式<rt>shiki</rt></ruby>を<strong>「<ruby>単項式<rt>たんこうしき</rt></ruby>」</strong>と<ruby>言<rt>い</rt></ruby>うよ。<ruby>下<rt>した</rt></ruby>のように<ruby>単項式<rt>たんこうしき</rt></ruby>が<ruby>足<rt>た</rt></ruby>し<ruby>算<rt>ざん</rt></ruby>でつながった<ruby>式<rt>しき</rt></ruby>を<strong>「<ruby>多項式<rt>たこうしき</rt></ruby>」</strong>と<ruby>言<rt>い</rt></ruby>うんだ。',
     },
     {
       type: 'message',
@@ -86,8 +86,29 @@ export const monomialPolynomialChat: HistoryChat = {
       text: 'なるほど！「<ruby>単<rt>たん</rt></ruby>」は1つ、「<ruby>多<rt>た</rt></ruby>」は<ruby>多<rt>おお</rt></ruby>いってことですね！',
     },
     {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: 'そう！<ruby>多項式<rt>たこうしき</rt></ruby>の<ruby>中<rt>なか</rt></ruby>の<ruby>一<rt>ひと</rt></ruby>つひとつの<ruby>単項式<rt>たんこうしき</rt></ruby>を<strong>「<ruby>項<rt>こう</rt></ruby>」</strong>と<ruby>呼<rt>よ</rt></ruby>ぶよ。<ruby>例<rt>たと</rt></ruby>えば $3x + 2y - 5$ の<ruby>項<rt>こう</rt></ruby>は $3x$, $2y$, $-5$ の3つだね。',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: '$-5$ も<ruby>項<rt>こう</rt></ruby>なんですか？<ruby>文字<rt>もじ</rt></ruby>がないのに？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: '<ruby>数<rt>かず</rt></ruby>だけでも<ruby>単項式<rt>たんこうしき</rt></ruby>だよ！<ruby>数<rt>かず</rt></ruby>だけの<ruby>項<rt>こう</rt></ruby>は<strong>「<ruby>定数項<rt>ていすうこう</rt></ruby>」</strong>と<ruby>呼<rt>よ</rt></ruby>ぶんだ。',
+    },
+    {
       type: 'summary-point',
-      text: '<ruby>単項式<rt>たんこうしき</rt></ruby> = かけ<ruby>算<rt>ざん</rt></ruby>だけの<ruby>式<rt>しき</rt></ruby>。<ruby>多項式<rt>たこうしき</rt></ruby> = <ruby>単項式<rt>たんこうしき</rt></ruby>の<ruby>和<rt>わ</rt></ruby>の<ruby>形<rt>かたち</rt></ruby>の<ruby>式<rt>しき</rt></ruby>。<ruby>多項式<rt>たこうしき</rt></ruby>の<ruby>中<rt>なか</rt></ruby>の<ruby>一<rt>ひと</rt></ruby>つひとつを「<ruby>項<rt>こう</rt></ruby>」と<ruby>呼<rt>よ</rt></ruby>ぶ。',
+      text: '<ruby>単項式<rt>たんこうしき</rt></ruby> = かけ<ruby>算<rt>ざん</rt></ruby>だけの<ruby>式<rt>しき</rt></ruby>。<ruby>多項式<rt>たこうしき</rt></ruby> = <ruby>単項式<rt>たんこうしき</rt></ruby>の<ruby>和<rt>わ</rt></ruby>の<ruby>形<rt>かたち</rt></ruby>の<ruby>式<rt>しき</rt></ruby>。<ruby>多項式<rt>たこうしき</rt></ruby>の<ruby>中<rt>なか</rt></ruby>の<ruby>一<rt>ひと</rt></ruby>つひとつを「<ruby>項<rt>こう</rt></ruby>」と<ruby>呼<rt>よ</rt></ruby>ぶ。<ruby>数<rt>かず</rt></ruby>だけの<ruby>項<rt>こう</rt></ruby>は「<ruby>定数項<rt>ていすうこう</rt></ruby>」。',
     },
     {
       type: 'date',
@@ -132,10 +153,83 @@ export const monomialPolynomialChat: HistoryChat = {
     },
     {
       type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '$x^2$ の<ruby>係数<rt>けいすう</rt></ruby>はいくつですか？<ruby>数<rt>かず</rt></ruby>が<ruby>書<rt>か</rt></ruby>いてないけど…',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<ruby>数<rt>かず</rt></ruby>が<ruby>書<rt>か</rt></ruby>いてないときは $1$ が<ruby>隠<rt>かく</rt></ruby>れているんだ。$x^2 = 1 \\times x^2$ だから<ruby>係数<rt>けいすう</rt></ruby>は $1$。$-y$ なら<ruby>係数<rt>けいすう</rt></ruby>は $-1$ だよ。',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'surprised',
+      text: '$1$ が<ruby>省略<rt>しょうりゃく</rt></ruby>されてるんですね！<ruby>気<rt>き</rt></ruby>をつけなきゃ。',
+    },
+    {
+      type: 'summary-point',
+      text: '<ruby>次数<rt>じすう</rt></ruby> = <ruby>文字<rt>もじ</rt></ruby>の<ruby>個数<rt>こすう</rt></ruby>。<ruby>係数<rt>けいすう</rt></ruby> = <ruby>文字<rt>もじ</rt></ruby>にかかる<ruby>数<rt>かず</rt></ruby>（$x^2$ の<ruby>係数<rt>けいすう</rt></ruby>は $1$、$-y$ の<ruby>係数<rt>けいすう</rt></ruby>は $-1$）。',
+    },
+    {
+      type: 'date',
+      text: '<ruby>多項式<rt>たこうしき</rt></ruby>の<ruby>次数<rt>じすう</rt></ruby>',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<ruby>多項式<rt>たこうしき</rt></ruby>にも<ruby>次数<rt>じすう</rt></ruby>があるよ。<ruby>各項<rt>かくこう</rt></ruby>の<ruby>次数<rt>じすう</rt></ruby>のうち、<strong>もっとも<ruby>大<rt>おお</rt></ruby>きいもの</strong>が<ruby>多項式<rt>たこうしき</rt></ruby>の<ruby>次数<rt>じすう</rt></ruby>なんだ。',
+    },
+    {
+      type: 'whiteboard',
+      title: '<ruby>多項式<rt>たこうしき</rt></ruby>の<ruby>次数<rt>じすう</rt></ruby>',
+      steps: [
+        {
+          formula: '$3x^2 + 5x - 1$',
+          annotation: '<ruby>各項<rt>かくこう</rt></ruby>の<ruby>次数<rt>じすう</rt></ruby>: 2, 1, 0 → <ruby>多項式<rt>たこうしき</rt></ruby>の<ruby>次数<rt>じすう</rt></ruby>は <strong>2</strong>（2<ruby>次式<rt>じしき</rt></ruby>）',
+        },
+        {
+          formula: '$2a + 3b - 7$',
+          annotation: '<ruby>各項<rt>かくこう</rt></ruby>の<ruby>次数<rt>じすう</rt></ruby>: 1, 1, 0 → <ruby>多項式<rt>たこうしき</rt></ruby>の<ruby>次数<rt>じすう</rt></ruby>は <strong>1</strong>（1<ruby>次式<rt>じしき</rt></ruby>）',
+        },
+      ],
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'happy',
+      text: '<ruby>一番大<rt>いちばんおお</rt></ruby>きい<ruby>次数<rt>じすう</rt></ruby>を<ruby>見<rt>み</rt></ruby>つければいいんですね！',
+    },
+    {
+      type: 'quiz',
+      question: '<ruby>多項式<rt>たこうしき</rt></ruby> $x^2y + 3xy - 2y$ の<ruby>次数<rt>じすう</rt></ruby>は？',
+      options: [
+        { letter: 'A', text: '1', correct: false },
+        { letter: 'B', text: '2', correct: false },
+        { letter: 'C', text: '3', correct: true },
+        { letter: 'D', text: '4', correct: false },
+      ],
+      explanation:
+        '$x^2y$ の<ruby>次数<rt>じすう</rt></ruby>は $2+1=3$、$3xy$ は $2$、$-2y$ は $1$。<ruby>最大<rt>さいだい</rt></ruby>の $\\textcolor{#D97706}{3}$ が<ruby>多項式<rt>たこうしき</rt></ruby>の<ruby>次数<rt>じすう</rt></ruby>だよ。',
+    },
+    {
+      type: 'date',
+      text: '<ruby>同類項<rt>どうるいこう</rt></ruby>を<ruby>見<rt>み</rt></ruby>つけよう',
+    },
+    {
+      type: 'message',
       side: 'left',
       characterId: 'teacher',
       expression: 'encouraging',
-      text: 'そのとおり！<ruby>次<rt>つぎ</rt></ruby>に<strong>「<ruby>同類項<rt>どうるいこう</rt></ruby>」</strong>も<ruby>覚<rt>おぼ</rt></ruby>えよう。<ruby>文字<rt>もじ</rt></ruby>の<ruby>部分<rt>ぶぶん</rt></ruby>が<ruby>同<rt>おな</rt></ruby>じ<ruby>項<rt>こう</rt></ruby>のことだよ。',
+      text: '<ruby>次<rt>つぎ</rt></ruby>は<strong>「<ruby>同類項<rt>どうるいこう</rt></ruby>」</strong>を<ruby>覚<rt>おぼ</rt></ruby>えよう。<ruby>文字<rt>もじ</rt></ruby>の<ruby>部分<rt>ぶぶん</rt></ruby>が<ruby>同<rt>おな</rt></ruby>じ<ruby>項<rt>こう</rt></ruby>のことだよ。',
     },
     {
       type: 'whiteboard',
@@ -163,28 +257,170 @@ export const monomialPolynomialChat: HistoryChat = {
       text: '<ruby>文字<rt>もじ</rt></ruby>の<ruby>部分<rt>ぶぶん</rt></ruby>が<ruby>完全<rt>かんぜん</rt></ruby>に<ruby>同<rt>おな</rt></ruby>じじゃないとダメなんですね。$x$ と $x^2$ は<ruby>別物<rt>べつもの</rt></ruby>か…。',
     },
     {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '$4ab$ と $-2ba$ は<ruby>同類項<rt>どうるいこう</rt></ruby>ですか？<ruby>文字<rt>もじ</rt></ruby>の<ruby>順番<rt>じゅんばん</rt></ruby>が<ruby>違<rt>ちが</rt></ruby>うけど…',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: '<ruby>同類項<rt>どうるいこう</rt></ruby>だよ！かけ<ruby>算<rt>ざん</rt></ruby>は<ruby>順番<rt>じゅんばん</rt></ruby>を<ruby>入<rt>い</rt></ruby>れ<ruby>替<rt>か</rt></ruby>えても<ruby>同<rt>おな</rt></ruby>じだから、$ab = ba$ なんだ。<ruby>文字<rt>もじ</rt></ruby>の<ruby>種類<rt>しゅるい</rt></ruby>と<ruby>個数<rt>こすう</rt></ruby>が<ruby>同<rt>おな</rt></ruby>じなら<ruby>同類項<rt>どうるいこう</rt></ruby>！',
+    },
+    {
       type: 'summary-point',
-      text: '<ruby>次数<rt>じすう</rt></ruby> = <ruby>文字<rt>もじ</rt></ruby>の<ruby>個数<rt>こすう</rt></ruby>。<ruby>係数<rt>けいすう</rt></ruby> = <ruby>文字<rt>もじ</rt></ruby>にかかる<ruby>数<rt>かず</rt></ruby>。<ruby>同類項<rt>どうるいこう</rt></ruby> = <ruby>文字<rt>もじ</rt></ruby>の<ruby>部分<rt>ぶぶん</rt></ruby>が<ruby>同<rt>おな</rt></ruby>じ<ruby>項<rt>こう</rt></ruby>。',
+      text: '<ruby>同類項<rt>どうるいこう</rt></ruby> = <ruby>文字<rt>もじ</rt></ruby>の<ruby>部分<rt>ぶぶん</rt></ruby>が<ruby>同<rt>おな</rt></ruby>じ<ruby>項<rt>こう</rt></ruby>。$x$ と $x^2$ は<ruby>別物<rt>べつもの</rt></ruby>。$ab$ と $ba$ は<ruby>同<rt>おな</rt></ruby>じ。',
+    },
+    {
+      type: 'date',
+      text: '<ruby>同類項<rt>どうるいこう</rt></ruby>をまとめよう',
+    },
+    {
+      type: 'narrator',
+      text: '<ruby>同類項<rt>どうるいこう</rt></ruby>をまとめて<ruby>式<rt>しき</rt></ruby>を<ruby>簡単<rt>かんたん</rt></ruby>にする<ruby>方法<rt>ほうほう</rt></ruby>を<ruby>学<rt>まな</rt></ruby>ぼう！',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<ruby>同類項<rt>どうるいこう</rt></ruby>は<ruby>係数<rt>けいすう</rt></ruby>を<ruby>足<rt>た</rt></ruby>し<ruby>引<rt>ひ</rt></ruby>きしてまとめられるよ。<ruby>公式<rt>こうしき</rt></ruby>は $ma + na = (m+n)a$ だ。',
+    },
+    {
+      type: 'whiteboard',
+      title: '<ruby>同類項<rt>どうるいこう</rt></ruby>をまとめる<ruby>例<rt>れい</rt></ruby>',
+      steps: [
+        {
+          formula: '$5x + 3x = (5+3)x = 8x$',
+          annotation: '<ruby>係数<rt>けいすう</rt></ruby>どうしを<ruby>足<rt>た</rt></ruby>す',
+        },
+        {
+          formula: '$7a - 4a = (7-4)a = 3a$',
+          annotation: '<ruby>係数<rt>けいすう</rt></ruby>どうしを<ruby>引<rt>ひ</rt></ruby>く',
+        },
+        {
+          formula: '$x^2 + 9x + 3x^2 - 4x$',
+          animateInsert: true,
+          annotation: '$x^2$ の<ruby>同類項<rt>どうるいこう</rt></ruby>と $x$ の<ruby>同類項<rt>どうるいこう</rt></ruby>を<ruby>別々<rt>べつべつ</rt></ruby>にまとめる',
+        },
+        {
+          formula: '$= (1+3)x^2 + (9-4)x = 4x^2 + 5x$',
+          annotation: '<ruby>答<rt>こた</rt></ruby>え！<ruby>次数<rt>じすう</rt></ruby>の<ruby>高<rt>たか</rt></ruby>い<ruby>順<rt>じゅん</rt></ruby>に<ruby>並<rt>なら</rt></ruby>べよう',
+        },
+      ],
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'happy',
+      text: '<ruby>同<rt>おな</rt></ruby>じ<ruby>文字<rt>もじ</rt></ruby>の<ruby>グループ<rt>ぐるーぷ</rt></ruby>ごとに<ruby>係数<rt>けいすう</rt></ruby>をまとめればいいんだ！',
     },
     {
       type: 'quiz',
-      question: '<ruby>単項式<rt>たんこうしき</rt></ruby> $-2xy^2$ の<ruby>次数<rt>じすう</rt></ruby>は？',
+      question: '$2x - y + 4y + 5x$ を<ruby>同類項<rt>どうるいこう</rt></ruby>でまとめると？',
       options: [
-        { letter: 'A', text: '1', correct: false },
-        { letter: 'B', text: '2', correct: false },
-        { letter: 'C', text: '3', correct: true },
-        { letter: 'D', text: '4', correct: false },
+        { letter: 'A', text: '$7x + 3y$', correct: true },
+        { letter: 'B', text: '$11xy$', correct: false },
+        { letter: 'C', text: '$3x + 5y$', correct: false },
+        { letter: 'D', text: '$7x - 3y$', correct: false },
       ],
       explanation:
-        '$x$ が 1<ruby>個<rt>こ</rt></ruby>、$y$ が 2<ruby>個<rt>こ</rt></ruby>で<ruby>合計<rt>ごうけい</rt></ruby> $1 + 2 = \\textcolor{#D97706}{3}$ だよ。',
+        '$x$ の<ruby>同類項<rt>どうるいこう</rt></ruby>: $2x + 5x = 7x$、$y$ の<ruby>同類項<rt>どうるいこう</rt></ruby>: $-y + 4y = 3y$。<ruby>答<rt>こた</rt></ruby>えは $\\textcolor{#D97706}{7x + 3y}$。',
+    },
+    {
+      type: 'date',
+      text: '<ruby>分数<rt>ぶんすう</rt></ruby>の<ruby>係数<rt>けいすう</rt></ruby>でもまとめよう',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'confused',
+      text: '<ruby>係数<rt>けいすう</rt></ruby>が<ruby>分数<rt>ぶんすう</rt></ruby>のときはどうするんですか？$\\frac{1}{2}a + \\frac{1}{3}a$ とか…',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<ruby>考<rt>かんが</rt></ruby>え<ruby>方<rt>かた</rt></ruby>は<ruby>同<rt>おな</rt></ruby>じ！<ruby>係数<rt>けいすう</rt></ruby>を<ruby>通分<rt>つうぶん</rt></ruby>してから<ruby>足<rt>た</rt></ruby>し<ruby>引<rt>ひ</rt></ruby>きするんだよ。',
+    },
+    {
+      type: 'whiteboard',
+      title: '<ruby>分数<rt>ぶんすう</rt></ruby>の<ruby>係数<rt>けいすう</rt></ruby>の<ruby>計算<rt>けいさん</rt></ruby>',
+      steps: [
+        {
+          formula: '$\\frac{1}{2}a + \\frac{1}{3}a$',
+          annotation: '<ruby>通分<rt>つうぶん</rt></ruby>しよう（<ruby>分母<rt>ぶんぼ</rt></ruby>の<ruby>最小公倍数<rt>さいしょうこうばいすう</rt></ruby>は $6$）',
+        },
+        {
+          formula: '$= \\frac{3}{6}a + \\frac{2}{6}a = \\frac{5}{6}a$',
+          animateInsert: true,
+          annotation: '<ruby>通分<rt>つうぶん</rt></ruby>して<ruby>係数<rt>けいすう</rt></ruby>をまとめる！',
+        },
+      ],
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'happy',
+      text: '<ruby>分数<rt>ぶんすう</rt></ruby>の<ruby>足<rt>た</rt></ruby>し<ruby>算<rt>ざん</rt></ruby>と<ruby>同<rt>おな</rt></ruby>じように<ruby>通分<rt>つうぶん</rt></ruby>すればOKなんですね！',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'encouraging',
+      text: 'もう<ruby>一<rt>ひと</rt></ruby>つ<ruby>練習<rt>れんしゅう</rt></ruby>！$\\frac{1}{2}a + b - \\frac{1}{3}a + 2b$ を<ruby>整理<rt>せいり</rt></ruby>してみよう。',
+    },
+    {
+      type: 'whiteboard',
+      title: '<ruby>練習問題<rt>れんしゅうもんだい</rt></ruby>',
+      steps: [
+        {
+          formula: '$\\frac{1}{2}a + b - \\frac{1}{3}a + 2b$',
+          annotation: '$a$ の<ruby>同類項<rt>どうるいこう</rt></ruby>と $b$ の<ruby>同類項<rt>どうるいこう</rt></ruby>に<ruby>分<rt>わ</rt></ruby>ける',
+        },
+        {
+          formula: '$a$: $\\frac{1}{2}a - \\frac{1}{3}a = \\frac{3}{6}a - \\frac{2}{6}a = \\frac{1}{6}a$',
+          annotation: '$a$ の<ruby>同類項<rt>どうるいこう</rt></ruby>を<ruby>通分<rt>つうぶん</rt></ruby>してまとめる',
+        },
+        {
+          formula: '$b$: $b + 2b = 3b$',
+          annotation: '$b$ の<ruby>同類項<rt>どうるいこう</rt></ruby>をまとめる',
+        },
+        {
+          formula: '<ruby>答<rt>こた</rt></ruby>え: $\\frac{1}{6}a + 3b$',
+          animateInsert: true,
+          annotation: '<ruby>完成<rt>かんせい</rt></ruby>！',
+        },
+      ],
+    },
+    {
+      type: 'quiz',
+      question: '$\\frac{2}{3}x - \\frac{1}{4}x$ を<ruby>計算<rt>けいさん</rt></ruby>すると？',
+      options: [
+        { letter: 'A', text: '$\\frac{1}{7}x$', correct: false },
+        { letter: 'B', text: '$\\frac{5}{12}x$', correct: true },
+        { letter: 'C', text: '$\\frac{1}{12}x$', correct: false },
+        { letter: 'D', text: '$\\frac{2}{12}x$', correct: false },
+      ],
+      explanation:
+        '<ruby>通分<rt>つうぶん</rt></ruby>して $\\frac{8}{12}x - \\frac{3}{12}x = \\textcolor{#D97706}{\\frac{5}{12}x}$ だよ。<ruby>分母<rt>ぶんぼ</rt></ruby>どうしを<ruby>引<rt>ひ</rt></ruby>くのではなく<ruby>通分<rt>つうぶん</rt></ruby>するのがポイント！',
     },
     {
       type: 'end',
       points: [
         '<ruby>単項式<rt>たんこうしき</rt></ruby> = かけ<ruby>算<rt>ざん</rt></ruby>だけの<ruby>式<rt>しき</rt></ruby>、<ruby>多項式<rt>たこうしき</rt></ruby> = <ruby>単項式<rt>たんこうしき</rt></ruby>の<ruby>和<rt>わ</rt></ruby>',
-        '<ruby>次数<rt>じすう</rt></ruby> = かけ<ruby>合<rt>あ</rt></ruby>わされている<ruby>文字<rt>もじ</rt></ruby>の<ruby>個数<rt>こすう</rt></ruby>',
-        '<ruby>係数<rt>けいすう</rt></ruby> = <ruby>文字<rt>もじ</rt></ruby>にかかっている<ruby>数<rt>かず</rt></ruby>',
-        '<ruby>同類項<rt>どうるいこう</rt></ruby> = <ruby>文字<rt>もじ</rt></ruby>の<ruby>部分<rt>ぶぶん</rt></ruby>が<ruby>同<rt>おな</rt></ruby>じ<ruby>項<rt>こう</rt></ruby>どうし',
+        '<ruby>次数<rt>じすう</rt></ruby> = かけ<ruby>合<rt>あ</rt></ruby>わされている<ruby>文字<rt>もじ</rt></ruby>の<ruby>個数<rt>こすう</rt></ruby>（<ruby>多項式<rt>たこうしき</rt></ruby>は<ruby>最大<rt>さいだい</rt></ruby>のもの）',
+        '<ruby>係数<rt>けいすう</rt></ruby> = <ruby>文字<rt>もじ</rt></ruby>にかかっている<ruby>数<rt>かず</rt></ruby>（$x^2$ の<ruby>係数<rt>けいすう</rt></ruby>は $1$）',
+        '<ruby>同類項<rt>どうるいこう</rt></ruby> = <ruby>文字<rt>もじ</rt></ruby>の<ruby>部分<rt>ぶぶん</rt></ruby>が<ruby>同<rt>おな</rt></ruby>じ<ruby>項<rt>こう</rt></ruby>、$ma + na = (m+n)a$ でまとめる',
+        '<ruby>分数<rt>ぶんすう</rt></ruby>の<ruby>係数<rt>けいすう</rt></ruby>は<ruby>通分<rt>つうぶん</rt></ruby>してからまとめる',
       ],
     },
   ],

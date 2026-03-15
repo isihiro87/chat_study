@@ -4,7 +4,7 @@ export const monomialMulDivChat: HistoryChat = {
   id: 'math-g2-mono-mul-div',
   icon: '✖️',
   title: '<ruby>単項式<rt>たんこうしき</rt></ruby>の<ruby>乗法<rt>じょうほう</rt></ruby>・<ruby>除法<rt>じょほう</rt></ruby>',
-  subtitle: '〜<ruby>中<rt>ちゅう</rt></ruby>2<ruby>数学<rt>すうがく</rt></ruby>〜 <ruby>係数<rt>けいすう</rt></ruby>と<ruby>文字<rt>もじ</rt></ruby>を<ruby>分<rt>わ</rt></ruby>けて<ruby>計算<rt>けいさん</rt></ruby>',
+  subtitle: '〜<ruby>中<rt>ちゅう</rt></ruby>2<ruby>数学<rt>すうがく</rt></ruby>〜 <ruby>指数<rt>しすう</rt></ruby>の<ruby>法則<rt>ほうそく</rt></ruby>を<ruby>使<rt>つか</rt></ruby>おう',
   characters: [
     {
       id: 'teacher',
@@ -35,104 +35,34 @@ export const monomialMulDivChat: HistoryChat = {
     },
   ],
   content: [
+    // ===== 1. 単項式のかけ算 =====
     {
       type: 'date',
       text: '<ruby>単項式<rt>たんこうしき</rt></ruby>のかけ<ruby>算<rt>ざん</rt></ruby>',
     },
     {
       type: 'narrator',
-      text: '<ruby>単項式<rt>たんこうしき</rt></ruby>どうしのかけ<ruby>算<rt>ざん</rt></ruby>は、<ruby>係数<rt>けいすう</rt></ruby>と<ruby>文字<rt>もじ</rt></ruby>を<ruby>分<rt>わ</rt></ruby>けて<ruby>考<rt>かんが</rt></ruby>えるのがコツ！<ruby>指数<rt>しすう</rt></ruby>の<ruby>法則<rt>ほうそく</rt></ruby>も<ruby>一緒<rt>いっしょ</rt></ruby>に<ruby>学<rt>まな</rt></ruby>ぼう。',
+      text: '<ruby>単項式<rt>たんこうしき</rt></ruby>どうしのかけ<ruby>算<rt>ざん</rt></ruby>は、<ruby>係数<rt>けいすう</rt></ruby>は<ruby>係数<rt>けいすう</rt></ruby>、<ruby>文字<rt>もじ</rt></ruby>は<ruby>文字<rt>もじ</rt></ruby>で<ruby>計算<rt>けいさん</rt></ruby>するのが<ruby>基本<rt>きほん</rt></ruby>！',
     },
     {
       type: 'message',
       side: 'left',
       characterId: 'teacher',
       expression: 'explaining',
-      text: '<ruby>単項式<rt>たんこうしき</rt></ruby>のかけ<ruby>算<rt>ざん</rt></ruby>はカンタン！<ruby>係数<rt>けいすう</rt></ruby>は<ruby>係数<rt>けいすう</rt></ruby>どうし、<ruby>文字<rt>もじ</rt></ruby>は<ruby>文字<rt>もじ</rt></ruby>どうしをかけるんだよ。',
+      text: '<ruby>単項式<rt>たんこうしき</rt></ruby>のかけ<ruby>算<rt>ざん</rt></ruby>は、<strong><ruby>係数<rt>けいすう</rt></ruby>どうし</strong>をかけて、<strong><ruby>同<rt>おな</rt></ruby>じ<ruby>文字<rt>もじ</rt></ruby></strong>は<span class="keyword"><ruby>指数<rt>しすう</rt></ruby>を<ruby>足<rt>た</rt></ruby>す</span>んだ。',
     },
     {
       type: 'whiteboard',
-      title: '<ruby>問題<rt>もんだい</rt></ruby>',
+      title: '<ruby>単項式<rt>たんこうしき</rt></ruby>の<ruby>乗法<rt>じょうほう</rt></ruby>',
       steps: [
         {
-          formula: '$3x^2 \\times 5x^3 = ?$',
-          annotation: '<ruby>係数<rt>けいすう</rt></ruby>と<ruby>文字<rt>もじ</rt></ruby>を<ruby>分<rt>わ</rt></ruby>けて<ruby>考<rt>かんが</rt></ruby>えよう',
-        },
-      ],
-    },
-    {
-      type: 'message',
-      side: 'right',
-      characterId: 'student',
-      expression: 'thinking',
-      text: '<ruby>係数<rt>けいすう</rt></ruby>は $3 \\times 5 = 15$ ですよね。<ruby>文字<rt>もじ</rt></ruby>の<ruby>部分<rt>ぶぶん</rt></ruby>はどうすれば…？',
-    },
-    {
-      type: 'message',
-      side: 'left',
-      characterId: 'teacher',
-      expression: 'happy',
-      text: '<ruby>同<rt>おな</rt></ruby>じ<ruby>文字<rt>もじ</rt></ruby>をかけるときは<strong><ruby>指数<rt>しすう</rt></ruby>を<ruby>足<rt>た</rt></ruby>す</strong>んだ！ $x^2 \\times x^3$ なら $2 + 3 = 5$ で $x^5$ になるよ。',
-    },
-    {
-      type: 'whiteboard',
-      title: '<ruby>指数<rt>しすう</rt></ruby>の<ruby>法則<rt>ほうそく</rt></ruby>',
-      steps: [
-        {
-          formula: '$3x^2 \\times 5x^3$',
-          annotation: '<ruby>係数<rt>けいすう</rt></ruby>と<ruby>文字<rt>もじ</rt></ruby>を<ruby>分<rt>わ</rt></ruby>けよう',
+          formula: '$(-6x) \\times 2y$',
+          annotation: '<ruby>係数<rt>けいすう</rt></ruby>: $(-6) \\times 2 = -12$、<ruby>文字<rt>もじ</rt></ruby>: $x \\times y = xy$',
         },
         {
-          formula: '$(3 \\times 5) \\times (x^2 \\times x^3)$',
+          formula: '$= -12xy$',
           animateInsert: true,
-          annotation: '<ruby>係数<rt>けいすう</rt></ruby>どうし、<ruby>文字<rt>もじ</rt></ruby>どうしに<ruby>分<rt>わ</rt></ruby>ける',
-        },
-        {
-          formula: '$15 \\times x^{2+3}$',
-          animateInsert: true,
-          annotation: '<ruby>同<rt>おな</rt></ruby>じ<ruby>文字<rt>もじ</rt></ruby>は<ruby>指数<rt>しすう</rt></ruby>を<ruby>足<rt>た</rt></ruby>す！',
-        },
-        {
-          formula: '$15x^5$',
-          isResult: true,
-          animateInsert: true,
-          annotation: '<ruby>完成<rt>かんせい</rt></ruby>！<ruby>係数<rt>けいすう</rt></ruby>は<ruby>普通<rt>ふつう</rt></ruby>にかけて、<ruby>指数<rt>しすう</rt></ruby>は<ruby>足<rt>た</rt></ruby>す！',
-        },
-      ],
-    },
-    {
-      type: 'message',
-      side: 'right',
-      characterId: 'student',
-      expression: 'surprised',
-      text: '$x^2 \\times x^3$ は $x \\times x \\times x \\times x \\times x$ で $x^5$ になるってことか！<ruby>指数<rt>しすう</rt></ruby>を<ruby>足<rt>た</rt></ruby>すのは<ruby>理<rt>り</rt></ruby>にかなってますね！',
-    },
-    {
-      type: 'summary-point',
-      text: '<ruby>単項式<rt>たんこうしき</rt></ruby>のかけ<ruby>算<rt>ざん</rt></ruby>: <ruby>係数<rt>けいすう</rt></ruby>は<ruby>普通<rt>ふつう</rt></ruby>にかけて、<ruby>同<rt>おな</rt></ruby>じ<ruby>文字<rt>もじ</rt></ruby>は<ruby>指数<rt>しすう</rt></ruby>を<ruby>足<rt>た</rt></ruby>す！',
-    },
-    {
-      type: 'date',
-      text: '<ruby>単項式<rt>たんこうしき</rt></ruby>の<ruby>割<rt>わ</rt></ruby>り<ruby>算<rt>ざん</rt></ruby>',
-    },
-    {
-      type: 'narrator',
-      text: '<ruby>割<rt>わ</rt></ruby>り<ruby>算<rt>ざん</rt></ruby>は<ruby>分数<rt>ぶんすう</rt></ruby>にして<ruby>約分<rt>やくぶん</rt></ruby>！<ruby>指数<rt>しすう</rt></ruby>は<ruby>引<rt>ひ</rt></ruby>き<ruby>算<rt>ざん</rt></ruby>になるよ。',
-    },
-    {
-      type: 'message',
-      side: 'left',
-      characterId: 'teacher',
-      expression: 'explaining',
-      text: '<ruby>次<rt>つぎ</rt></ruby>は<ruby>割<rt>わ</rt></ruby>り<ruby>算<rt>ざん</rt></ruby>！<ruby>割<rt>わ</rt></ruby>り<ruby>算<rt>ざん</rt></ruby>は<ruby>分数<rt>ぶんすう</rt></ruby>の<ruby>形<rt>かたち</rt></ruby>にして<ruby>約分<rt>やくぶん</rt></ruby>するのがポイントだよ。',
-    },
-    {
-      type: 'whiteboard',
-      title: '<ruby>問題<rt>もんだい</rt></ruby>',
-      steps: [
-        {
-          formula: '$12a^3b \\div 4ab = ?$',
-          annotation: 'まず<ruby>分数<rt>ぶんすう</rt></ruby>にしてみよう',
+          annotation: '<ruby>完成<rt>かんせい</rt></ruby>！',
         },
       ],
     },
@@ -141,38 +71,20 @@ export const monomialMulDivChat: HistoryChat = {
       side: 'right',
       characterId: 'student',
       expression: 'curious',
-      text: '<ruby>分数<rt>ぶんすう</rt></ruby>にするって、$\\frac{12a^3b}{4ab}$ にすればいいんですか？',
-    },
-    {
-      type: 'message',
-      side: 'left',
-      characterId: 'teacher',
-      expression: 'encouraging',
-      text: 'そのとおり！あとは<ruby>係数<rt>けいすう</rt></ruby>と<ruby>文字<rt>もじ</rt></ruby>をそれぞれ<ruby>約分<rt>やくぶん</rt></ruby>するだけだよ。',
+      text: '<ruby>同<rt>おな</rt></ruby>じ<ruby>文字<rt>もじ</rt></ruby>どうしのかけ<ruby>算<rt>ざん</rt></ruby>はどうなるんですか？',
     },
     {
       type: 'whiteboard',
-      title: '<ruby>解<rt>と</rt></ruby>き<ruby>方<rt>かた</rt></ruby>',
+      title: '<ruby>指数<rt>しすう</rt></ruby>を<ruby>足<rt>た</rt></ruby>す',
       steps: [
         {
-          formula: '$12a^3b \\div 4ab$',
-          annotation: '<ruby>分数<rt>ぶんすう</rt></ruby>の<ruby>形<rt>かたち</rt></ruby>に<ruby>変<rt>か</rt></ruby>える',
+          formula: '$3x^2 \\times 5x^3$',
+          annotation: '<ruby>係数<rt>けいすう</rt></ruby>: $3 \\times 5 = 15$',
         },
         {
-          formula: '$\\frac{12a^3b}{4ab}$',
+          formula: '$= 15x^{2+3} = 15x^5$',
           animateInsert: true,
-          annotation: '<ruby>係数<rt>けいすう</rt></ruby>と<ruby>文字<rt>もじ</rt></ruby>をそれぞれ<ruby>約分<rt>やくぶん</rt></ruby>！',
-        },
-        {
-          formula: '$\\frac{12}{4} \\times \\frac{a^3}{a} \\times \\frac{b}{b}$',
-          animateInsert: true,
-          annotation: '<ruby>係数<rt>けいすう</rt></ruby>: $12 \\div 4 = 3$, <ruby>文字<rt>もじ</rt></ruby>: <ruby>指数<rt>しすう</rt></ruby>を<ruby>引<rt>ひ</rt></ruby>く',
-        },
-        {
-          formula: '$3a^2$',
-          isResult: true,
-          animateInsert: true,
-          annotation: '$a^3 \\div a = a^2$, $b \\div b = 1$（<ruby>消<rt>き</rt></ruby>える）で<ruby>完成<rt>かんせい</rt></ruby>！',
+          annotation: '$x^2 \\times x^3 = x^{2+3} = x^5$（<ruby>指数<rt>しすう</rt></ruby>を<ruby>足<rt>た</rt></ruby>す！）',
         },
       ],
     },
@@ -181,45 +93,228 @@ export const monomialMulDivChat: HistoryChat = {
       side: 'right',
       characterId: 'student',
       expression: 'happy',
-      text: 'かけ<ruby>算<rt>ざん</rt></ruby>は<ruby>指数<rt>しすう</rt></ruby>を<ruby>足<rt>た</rt></ruby>す、<ruby>割<rt>わ</rt></ruby>り<ruby>算<rt>ざん</rt></ruby>は<ruby>指数<rt>しすう</rt></ruby>を<ruby>引<rt>ひ</rt></ruby>く！セットで<ruby>覚<rt>おぼ</rt></ruby>えます！',
+      text: '<ruby>同<rt>おな</rt></ruby>じ<ruby>文字<rt>もじ</rt></ruby>なら<ruby>指数<rt>しすう</rt></ruby>を<ruby>足<rt>た</rt></ruby>すんですね！',
     },
     {
       type: 'summary-point',
-      text: '<ruby>割<rt>わ</rt></ruby>り<ruby>算<rt>ざん</rt></ruby>: <ruby>分数<rt>ぶんすう</rt></ruby>にして<ruby>約分<rt>やくぶん</rt></ruby>。<ruby>係数<rt>けいすう</rt></ruby>は<ruby>普通<rt>ふつう</rt></ruby>に<ruby>割<rt>わ</rt></ruby>って、<ruby>同<rt>おな</rt></ruby>じ<ruby>文字<rt>もじ</rt></ruby>は<ruby>指数<rt>しすう</rt></ruby>を<ruby>引<rt>ひ</rt></ruby>く！',
+      text: '<ruby>単項式<rt>たんこうしき</rt></ruby>の<ruby>乗法<rt>じょうほう</rt></ruby>: <ruby>係数<rt>けいすう</rt></ruby>×<ruby>係数<rt>けいすう</rt></ruby>、<ruby>同<rt>おな</rt></ruby>じ<ruby>文字<rt>もじ</rt></ruby>は<ruby>指数<rt>しすう</rt></ruby>を<ruby>足<rt>た</rt></ruby>す。$x^m \\times x^n = x^{m+n}$',
+    },
+    // ===== 2. 単項式の累乗 =====
+    {
+      type: 'date',
+      text: '<ruby>単項式<rt>たんこうしき</rt></ruby>の<ruby>累乗<rt>るいじょう</rt></ruby>',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<span class="keyword"><ruby>累乗<rt>るいじょう</rt></ruby></span>の<ruby>計算<rt>けいさん</rt></ruby>で<ruby>一番<rt>いちばん</rt></ruby><ruby>大事<rt>だいじ</rt></ruby>なのは、<strong>かっこの<ruby>位置<rt>いち</rt></ruby></strong>だよ！',
+    },
+    {
+      type: 'whiteboard',
+      title: '<ruby>累乗<rt>るいじょう</rt></ruby>の<ruby>計算<rt>けいさん</rt></ruby>',
+      steps: [
+        {
+          formula: '$(7x)^2 = 7^2 \\times x^2 = 49x^2$',
+          annotation: 'かっこの<ruby>中<rt>なか</rt></ruby><ruby>全体<rt>ぜんたい</rt></ruby>を2<ruby>乗<rt>じょう</rt></ruby>する',
+        },
+        {
+          formula: '$(-3b)^2 = (-3)^2 \\times b^2 = 9b^2$',
+          annotation: '$(-)^2 = (+)$ だから<ruby>正<rt>せい</rt></ruby>になる！',
+        },
+        {
+          formula: '$-(8a)^2 = -(64a^2) = -64a^2$',
+          animateInsert: true,
+          annotation: '「−」はかっこの<ruby>外<rt>そと</rt></ruby>！$8^2 = 64$ に−をつける',
+        },
+      ],
     },
     {
       type: 'message',
       side: 'right',
       characterId: 'student',
       expression: 'confused',
-      text: '$x^2 \\times x^3 = x^6$ ですよね？<ruby>指数<rt>しすう</rt></ruby>をかけるんでしたっけ？',
+      text: '$(-3b)^2$ と $-(3b)^2$ って<ruby>違<rt>ちが</rt></ruby>うんですか？',
     },
     {
       type: 'message',
       side: 'left',
       characterId: 'teacher',
       expression: 'encouraging',
-      text: 'よくある<ruby>間違<rt>まちが</rt></ruby>い！かけ<ruby>算<rt>ざん</rt></ruby>では<ruby>指数<rt>しすう</rt></ruby>は<strong>「<ruby>足<rt>た</rt></ruby>す」</strong>だよ。$x^2 \\times x^3 = x^{2+3} = x^5$。<ruby>指数<rt>しすう</rt></ruby>どうしを「かける」のは <ruby>累乗<rt>るいじょう</rt></ruby>の<ruby>累乗<rt>るいじょう</rt></ruby> $(x^2)^3$ のときだけ！',
+      text: '<ruby>全然<rt>ぜんぜん</rt></ruby><ruby>違<rt>ちが</rt></ruby>う！$(-3b)^2 = 9b^2$（<ruby>正<rt>せい</rt></ruby>）、$-(3b)^2 = -9b^2$（<ruby>負<rt>ふ</rt></ruby>）。<strong>「−」がかっこの<ruby>中<rt>なか</rt></ruby>か<ruby>外<rt>そと</rt></ruby>か</strong>で<ruby>答<rt>こた</rt></ruby>えが<ruby>変<rt>か</rt></ruby>わるよ！',
+    },
+    {
+      type: 'summary-point',
+      text: '$(-a)^2 = a^2$（<ruby>正<rt>せい</rt></ruby>）、$-(a)^2 = -a^2$（<ruby>負<rt>ふ</rt></ruby>）。「−」がかっこの<ruby>中<rt>なか</rt></ruby>か<ruby>外<rt>そと</rt></ruby>かに<ruby>注意<rt>ちゅうい</rt></ruby>！',
+    },
+    // ===== 3. 累乗をふくむかけ算 =====
+    {
+      type: 'date',
+      text: '<ruby>累乗<rt>るいじょう</rt></ruby>をふくむかけ<ruby>算<rt>ざん</rt></ruby>',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<ruby>累乗<rt>るいじょう</rt></ruby>をふくむかけ<ruby>算<rt>ざん</rt></ruby>は、<strong>まず<ruby>累乗<rt>るいじょう</rt></ruby>を<ruby>計算<rt>けいさん</rt></ruby></strong>してからかけるよ。',
+    },
+    {
+      type: 'whiteboard',
+      title: '<ruby>累乗<rt>るいじょう</rt></ruby>×<ruby>単項式<rt>たんこうしき</rt></ruby>',
+      steps: [
+        {
+          formula: '$3a \\times (-4a)^2$',
+          annotation: 'まず $(-4a)^2 = 16a^2$ を<ruby>計算<rt>けいさん</rt></ruby>',
+        },
+        {
+          formula: '$= 3a \\times 16a^2 = 48a^3$',
+          animateInsert: true,
+          annotation: '<ruby>係数<rt>けいすう</rt></ruby>: $3 \\times 16 = 48$、$a \\times a^2 = a^3$',
+        },
+      ],
     },
     {
       type: 'quiz',
-      question: '$6x^3y \\times (-2xy^2)$ の<ruby>答<rt>こた</rt></ruby>えは？',
+      question: '$(-2x)^3 \\times 3x^2$ の<ruby>答<rt>こた</rt></ruby>えは？',
       options: [
-        { letter: 'A', text: '$-12x^4y^3$', correct: true },
-        { letter: 'B', text: '$12x^4y^3$', correct: false },
-        { letter: 'C', text: '$-12x^3y^2$', correct: false },
-        { letter: 'D', text: '$-8x^4y^3$', correct: false },
+        { letter: 'A', text: '$-24x^5$', correct: true },
+        { letter: 'B', text: '$24x^5$', correct: false },
+        { letter: 'C', text: '$-24x^6$', correct: false },
+        { letter: 'D', text: '$-6x^5$', correct: false },
       ],
       explanation:
-        '<ruby>係数<rt>けいすう</rt></ruby>: $6 \\times (-2) = -12$、$x$: $x^3 \\times x = x^4$、$y$: $y \\times y^2 = y^3$ で $\\textcolor{#D97706}{-12x^4y^3}$',
+        '$(-2x)^3 = -8x^3$。$-8x^3 \\times 3x^2 = \\textcolor{#D97706}{-24x^5}$。$(-)^3 = (-)$ だから<ruby>負<rt>ふ</rt></ruby>になる！',
     },
+    // ===== 4. 単項式の割り算 =====
+    {
+      type: 'date',
+      text: '<ruby>単項式<rt>たんこうしき</rt></ruby>の<ruby>割<rt>わ</rt></ruby>り<ruby>算<rt>ざん</rt></ruby>',
+    },
+    {
+      type: 'narrator',
+      text: '<ruby>単項式<rt>たんこうしき</rt></ruby>の<ruby>割<rt>わ</rt></ruby>り<ruby>算<rt>ざん</rt></ruby>は、<ruby>分数<rt>ぶんすう</rt></ruby>の<ruby>形<rt>かたち</rt></ruby>にして<ruby>約分<rt>やくぶん</rt></ruby>するのがコツ！',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<ruby>単項式<rt>たんこうしき</rt></ruby>の<span class="keyword"><ruby>除法<rt>じょほう</rt></ruby></span>は、<ruby>分数<rt>ぶんすう</rt></ruby>の<ruby>形<rt>かたち</rt></ruby>にして<ruby>係数<rt>けいすう</rt></ruby>と<ruby>文字<rt>もじ</rt></ruby>をそれぞれ<ruby>約分<rt>やくぶん</rt></ruby>するよ。<ruby>同<rt>おな</rt></ruby>じ<ruby>文字<rt>もじ</rt></ruby>は<ruby>指数<rt>しすう</rt></ruby>を<ruby>引<rt>ひ</rt></ruby>くんだ。',
+    },
+    {
+      type: 'whiteboard',
+      title: '<ruby>単項式<rt>たんこうしき</rt></ruby>の<ruby>除法<rt>じょほう</rt></ruby>',
+      steps: [
+        {
+          formula: '$6xy \\div 3x = \\frac{6xy}{3x}$',
+          annotation: '<ruby>分数<rt>ぶんすう</rt></ruby>の<ruby>形<rt>かたち</rt></ruby>にする',
+        },
+        {
+          formula: '$= \\frac{6}{3} \\times \\frac{x}{x} \\times y = 2y$',
+          animateInsert: true,
+          annotation: '<ruby>係数<rt>けいすう</rt></ruby>を<ruby>約分<rt>やくぶん</rt></ruby>、$x$ は<ruby>消<rt>き</rt></ruby>える！',
+        },
+      ],
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'happy',
+      text: '<ruby>分数<rt>ぶんすう</rt></ruby>にして<ruby>約分<rt>やくぶん</rt></ruby>するだけ！<ruby>分数<rt>ぶんすう</rt></ruby>の<ruby>係数<rt>けいすう</rt></ruby>のときはどうするんですか？',
+    },
+    // ===== 5. 分数係数の割り算 =====
+    {
+      type: 'date',
+      text: '<ruby>分数<rt>ぶんすう</rt></ruby><ruby>係数<rt>けいすう</rt></ruby>の<ruby>割<rt>わ</rt></ruby>り<ruby>算<rt>ざん</rt></ruby>',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<ruby>割<rt>わ</rt></ruby>る<ruby>式<rt>しき</rt></ruby>が<ruby>分数<rt>ぶんすう</rt></ruby>のときは、<span class="keyword"><ruby>逆数<rt>ぎゃくすう</rt></ruby></span>にしてかけるよ。$a \\div \\frac{b}{c} = a \\times \\frac{c}{b}$ だ。',
+    },
+    {
+      type: 'whiteboard',
+      title: '<ruby>分数<rt>ぶんすう</rt></ruby><ruby>係数<rt>けいすう</rt></ruby>の<ruby>除法<rt>じょほう</rt></ruby>',
+      steps: [
+        {
+          formula: '$\\frac{2}{3}x^2y \\div \\frac{4}{9}xy$',
+          annotation: '$\\div \\frac{4}{9}$ を $\\times \\frac{9}{4}$ に<ruby>変<rt>か</rt></ruby>える',
+        },
+        {
+          formula: '$= \\frac{2}{3}x^2y \\times \\frac{9}{4xy} = \\frac{18x^2y}{12xy} = \\frac{3}{2}x$',
+          animateInsert: true,
+          annotation: '<ruby>逆数<rt>ぎゃくすう</rt></ruby>にしてかけて<ruby>約分<rt>やくぶん</rt></ruby>！',
+        },
+      ],
+    },
+    {
+      type: 'summary-point',
+      text: '<ruby>分数<rt>ぶんすう</rt></ruby>で<ruby>割<rt>わ</rt></ruby>るときは<ruby>逆数<rt>ぎゃくすう</rt></ruby>をかける。$a \\div \\frac{b}{c} = a \\times \\frac{c}{b}$',
+    },
+    // ===== 6. 3つの式の乗除 =====
+    {
+      type: 'date',
+      text: '3つの<ruby>式<rt>しき</rt></ruby>の<ruby>乗除<rt>じょうじょ</rt></ruby>',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '3つ<ruby>以上<rt>いじょう</rt></ruby>の<ruby>単項式<rt>たんこうしき</rt></ruby>のかけ<ruby>算<rt>ざん</rt></ruby>・<ruby>割<rt>わ</rt></ruby>り<ruby>算<rt>ざん</rt></ruby>は、<strong>1つの<ruby>分数<rt>ぶんすう</rt></ruby>にまとめて</strong><ruby>約分<rt>やくぶん</rt></ruby>するのが<ruby>速<rt>はや</rt></ruby>いよ。',
+    },
+    {
+      type: 'whiteboard',
+      title: '3つの<ruby>式<rt>しき</rt></ruby>の<ruby>乗除<rt>じょうじょ</rt></ruby>',
+      steps: [
+        {
+          formula: '$(-6xy) \\times 8x \\div (-2y)$',
+          annotation: '1つの<ruby>分数<rt>ぶんすう</rt></ruby>にまとめる',
+        },
+        {
+          formula: '$= \\frac{(-6xy) \\times 8x}{-2y} = \\frac{-48x^2y}{-2y}$',
+          annotation: '÷ の<ruby>後<rt>あと</rt></ruby>は<ruby>分母<rt>ぶんぼ</rt></ruby>に<ruby>置<rt>お</rt></ruby>く',
+        },
+        {
+          formula: '$= 24x^2$',
+          animateInsert: true,
+          annotation: '(−)÷(−)=(+)、$y$ は<ruby>約分<rt>やくぶん</rt></ruby>で<ruby>消<rt>き</rt></ruby>える！',
+        },
+      ],
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'happy',
+      text: '×は<ruby>分子<rt>ぶんし</rt></ruby>に、÷は<ruby>分母<rt>ぶんぼ</rt></ruby>に<ruby>置<rt>お</rt></ruby>くんですね！',
+    },
+    {
+      type: 'quiz',
+      question: '$8xy \\times (-5y) \\div (-10x)$ の<ruby>答<rt>こた</rt></ruby>えは？',
+      options: [
+        { letter: 'A', text: '$4y^2$', correct: true },
+        { letter: 'B', text: '$-4y^2$', correct: false },
+        { letter: 'C', text: '$4xy^2$', correct: false },
+        { letter: 'D', text: '$-4xy$', correct: false },
+      ],
+      explanation:
+        '$\\frac{8xy \\times (-5y)}{-10x} = \\frac{-40xy^2}{-10x} = \\textcolor{#D97706}{4y^2}$。(−)÷(−)=(+)、$x$ が<ruby>約分<rt>やくぶん</rt></ruby>で<ruby>消<rt>き</rt></ruby>える。',
+    },
+    // ===== まとめ =====
     {
       type: 'end',
       points: [
-        'かけ<ruby>算<rt>ざん</rt></ruby>: <ruby>係数<rt>けいすう</rt></ruby>は<ruby>普通<rt>ふつう</rt></ruby>にかけて、<ruby>同<rt>おな</rt></ruby>じ<ruby>文字<rt>もじ</rt></ruby>は<ruby>指数<rt>しすう</rt></ruby>を<ruby>足<rt>た</rt></ruby>す',
-        '<ruby>割<rt>わ</rt></ruby>り<ruby>算<rt>ざん</rt></ruby>: <ruby>分数<rt>ぶんすう</rt></ruby>にして<ruby>約分<rt>やくぶん</rt></ruby>。<ruby>指数<rt>しすう</rt></ruby>は<ruby>引<rt>ひ</rt></ruby>く',
-        '$(-2x)^3 = -8x^3$ のようにマイナスの<ruby>累乗<rt>るいじょう</rt></ruby>に<ruby>注意<rt>ちゅうい</rt></ruby>',
-        '<ruby>割<rt>わ</rt></ruby>り<ruby>算<rt>ざん</rt></ruby>で<ruby>同<rt>おな</rt></ruby>じ<ruby>文字<rt>もじ</rt></ruby>が<ruby>消<rt>き</rt></ruby>えるケースも<ruby>忘<rt>わす</rt></ruby>れずに',
+        '<ruby>単項式<rt>たんこうしき</rt></ruby>の<ruby>乗法<rt>じょうほう</rt></ruby>: <ruby>係数<rt>けいすう</rt></ruby>×<ruby>係数<rt>けいすう</rt></ruby>、<ruby>同<rt>おな</rt></ruby>じ<ruby>文字<rt>もじ</rt></ruby>は<ruby>指数<rt>しすう</rt></ruby>を<ruby>足<rt>た</rt></ruby>す',
+        '<ruby>累乗<rt>るいじょう</rt></ruby>: $(-a)^2 = a^2$、$-(a)^2 = -a^2$ の<ruby>区別<rt>くべつ</rt></ruby>が<ruby>大切<rt>たいせつ</rt></ruby>',
+        '<ruby>単項式<rt>たんこうしき</rt></ruby>の<ruby>除法<rt>じょほう</rt></ruby>: <ruby>分数<rt>ぶんすう</rt></ruby>にして<ruby>約分<rt>やくぶん</rt></ruby>、<ruby>同<rt>おな</rt></ruby>じ<ruby>文字<rt>もじ</rt></ruby>は<ruby>指数<rt>しすう</rt></ruby>を<ruby>引<rt>ひ</rt></ruby>く',
+        '<ruby>分数<rt>ぶんすう</rt></ruby>で<ruby>割<rt>わ</rt></ruby>る → <ruby>逆数<rt>ぎゃくすう</rt></ruby>をかける',
+        '3つ<ruby>以上<rt>いじょう</rt></ruby>の<ruby>乗除<rt>じょうじょ</rt></ruby>: 1つの<ruby>分数<rt>ぶんすう</rt></ruby>にまとめて<ruby>約分<rt>やくぶん</rt></ruby>',
       ],
     },
   ],
