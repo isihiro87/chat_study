@@ -184,12 +184,124 @@ export const sqrtMulDivChat: HistoryChat = {
       text: '$\\sqrt{}$の<ruby>中<rt>なか</rt></ruby>を<ruby>小<rt>ちい</rt></ruby>さくするには、<ruby>完全平方数<rt>かんぜんへいほうすう</rt></ruby>を<ruby>見<rt>み</rt></ruby>つけて<ruby>外<rt>そと</rt></ruby>に<ruby>出<rt>だ</rt></ruby>す！',
     },
     {
+      type: 'date',
+      text: '$a\\sqrt{b}$ と $\\sqrt{c}$ の<ruby>変換<rt>へんかん</rt></ruby>',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<ruby>逆<rt>ぎゃく</rt></ruby>に、$2\\sqrt{5}$ を $\\sqrt{\\text{□}}$ の<ruby>形<rt>かたち</rt></ruby>に<ruby>戻<rt>もど</rt></ruby>すこともできるよ。<ruby>外<rt>そと</rt></ruby>の<ruby>数<rt>かず</rt></ruby>を<ruby>中<rt>なか</rt></ruby>に<ruby>入<rt>い</rt></ruby>れるんだ。',
+    },
+    {
+      type: 'whiteboard',
+      title: '$a\\sqrt{b}$ → $\\sqrt{c}$ の<ruby>変換<rt>へんかん</rt></ruby>',
+      steps: [
+        {
+          formula: '$2\\sqrt{5} = \\sqrt{2^2 \\times 5} = \\sqrt{20}$',
+          annotation: '<ruby>外<rt>そと</rt></ruby>の2を2<ruby>乗<rt>じょう</rt></ruby>して<ruby>中<rt>なか</rt></ruby>に<ruby>入<rt>い</rt></ruby>れる',
+        },
+        {
+          formula: '$3\\sqrt{2} = \\sqrt{3^2 \\times 2} = \\sqrt{18}$',
+          animateInsert: true,
+          annotation: '<ruby>外<rt>そと</rt></ruby>の3を2<ruby>乗<rt>じょう</rt></ruby>して<ruby>中<rt>なか</rt></ruby>に<ruby>入<rt>い</rt></ruby>れる',
+        },
+        {
+          formula: '$5\\sqrt{3} = \\sqrt{25 \\times 3} = \\sqrt{75}$',
+          isResult: true,
+          annotation: '<ruby>外<rt>そと</rt></ruby>の<ruby>数<rt>かず</rt></ruby>を2<ruby>乗<rt>じょう</rt></ruby>するのがポイント！',
+        },
+      ],
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'happy',
+      text: '<ruby>外<rt>そと</rt></ruby>に<ruby>出<rt>だ</rt></ruby>すときは<ruby>素因数分解<rt>そいんすうぶんかい</rt></ruby>、<ruby>中<rt>なか</rt></ruby>に<ruby>入<rt>い</rt></ruby>れるときは2<ruby>乗<rt>じょう</rt></ruby>するんですね！',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'encouraging',
+      text: 'この<ruby>変換<rt>へんかん</rt></ruby>は<ruby>大小比較<rt>だいしょうひかく</rt></ruby>にも<ruby>使<rt>つか</rt></ruby>えるよ。$3\\sqrt{2} = \\sqrt{18}$ と $\\sqrt{17}$ なら、$\\sqrt{17} < \\sqrt{18}$ だから $\\sqrt{17} < 3\\sqrt{2}$ だね。',
+    },
+    {
+      type: 'summary-point',
+      text: '$a\\sqrt{b} = \\sqrt{a^2 \\times b}$。<ruby>外<rt>そと</rt></ruby>の<ruby>数<rt>かず</rt></ruby>を2<ruby>乗<rt>じょう</rt></ruby>して<ruby>中<rt>なか</rt></ruby>に<ruby>入<rt>い</rt></ruby>れる！',
+    },
+    {
+      type: 'date',
+      text: '$\\sqrt{}$をふくむ<ruby>式<rt>しき</rt></ruby>の<ruby>値<rt>あたい</rt></ruby>',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '$\\sqrt{2} = 1.414$ として $\\sqrt{200}$ の<ruby>値<rt>あたい</rt></ruby>を<ruby>求<rt>もと</rt></ruby>めてみよう。',
+    },
+    {
+      type: 'whiteboard',
+      title: '$\\sqrt{200}$ の<ruby>値<rt>あたい</rt></ruby>を<ruby>求<rt>もと</rt></ruby>める',
+      steps: [
+        {
+          formula: '$\\sqrt{200} = \\sqrt{100 \\times 2}$',
+          annotation: '100を<ruby>見<rt>み</rt></ruby>つける',
+        },
+        {
+          formula: '$= 10\\sqrt{2}$',
+          animateInsert: true,
+          annotation: '$\\sqrt{100} = 10$ を<ruby>外<rt>そと</rt></ruby>に<ruby>出<rt>だ</rt></ruby>す',
+        },
+        {
+          formula: '$= 10 \\times 1.414 = 14.14$',
+          isResult: true,
+          animateInsert: true,
+          annotation: '$\\sqrt{2} = 1.414$ を<ruby>代入<rt>だいにゅう</rt></ruby>',
+        },
+      ],
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'surprised',
+      text: '$\\sqrt{200}$ を<ruby>直接<rt>ちょくせつ</rt></ruby><ruby>計算<rt>けいさん</rt></ruby>しなくても、$\\sqrt{2}$ の<ruby>値<rt>あたい</rt></ruby>から<ruby>求<rt>もと</rt></ruby>められるんですね！',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: '$\\sqrt{0.02}$ も<ruby>同<rt>おな</rt></ruby>じだよ。$\\sqrt{0.02} = \\sqrt{\\frac{2}{100}} = \\frac{\\sqrt{2}}{10} = \\frac{1.414}{10} = 0.1414$ だね！',
+    },
+    {
+      type: 'quiz',
+      question: '$\\sqrt{7} = 2.646$ として、$\\sqrt{63}$ の<ruby>値<rt>あたい</rt></ruby>は？',
+      options: [
+        { letter: 'A', text: '$5.292$', correct: false },
+        { letter: 'B', text: '$7.938$', correct: true },
+        { letter: 'C', text: '$26.46$', correct: false },
+        { letter: 'D', text: '$18.522$', correct: false },
+      ],
+      explanation:
+        '$\\sqrt{63} = \\sqrt{9 \\times 7} = 3\\sqrt{7} = 3 \\times 2.646 = 7.938$。<ruby>先<rt>さき</rt></ruby>に $\\sqrt{}$ の<ruby>中<rt>なか</rt></ruby>を<ruby>簡単<rt>かんたん</rt></ruby>にしてから<ruby>代入<rt>だいにゅう</rt></ruby>！',
+    },
+    {
+      type: 'summary-point',
+      text: '$\\sqrt{}$ の<ruby>中<rt>なか</rt></ruby>を<ruby>簡単<rt>かんたん</rt></ruby>にしてから<ruby>近似値<rt>きんじち</rt></ruby>を<ruby>代入<rt>だいにゅう</rt></ruby>すると<ruby>値<rt>あたい</rt></ruby>が<ruby>求<rt>もと</rt></ruby>められる！',
+    },
+    {
       type: 'end',
       points: [
         '$\\sqrt{a} \\times \\sqrt{b} = \\sqrt{ab}$（<ruby>中身<rt>なかみ</rt></ruby>をかける）',
         '$\\sqrt{a} \\div \\sqrt{b} = \\sqrt{\\frac{a}{b}}$（<ruby>中身<rt>なかみ</rt></ruby>をわる）',
         '$\\sqrt{12} = 2\\sqrt{3}$（<ruby>完全平方数<rt>かんぜんへいほうすう</rt></ruby>を<ruby>外<rt>そと</rt></ruby>に<ruby>出<rt>だ</rt></ruby>す）',
-        '<ruby>素因数分解<rt>そいんすうぶんかい</rt></ruby>で<ruby>整理<rt>せいり</rt></ruby>しよう',
+        '$a\\sqrt{b} = \\sqrt{a^2 b}$（<ruby>外<rt>そと</rt></ruby>の<ruby>数<rt>かず</rt></ruby>を<ruby>中<rt>なか</rt></ruby>に<ruby>入<rt>い</rt></ruby>れる）',
+        '<ruby>近似値<rt>きんじち</rt></ruby>を<ruby>代入<rt>だいにゅう</rt></ruby>して<ruby>式<rt>しき</rt></ruby>の<ruby>値<rt>あたい</rt></ruby>を<ruby>求<rt>もと</rt></ruby>められる',
       ],
     },
   ],

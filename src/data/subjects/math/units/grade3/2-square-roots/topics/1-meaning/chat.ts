@@ -188,12 +188,169 @@ export const sqrtMeaningChat: HistoryChat = {
       text: '<ruby>有理数<rt>ゆうりすう</rt></ruby> = <ruby>分数<rt>ぶんすう</rt></ruby>で<ruby>表<rt>あらわ</rt></ruby>せる<ruby>数<rt>かず</rt></ruby>、<ruby>無理数<rt>むりすう</rt></ruby> = <ruby>表<rt>あらわ</rt></ruby>せない<ruby>数<rt>かず</rt></ruby>（$\\sqrt{2}$、$\\sqrt{3}$ など）',
     },
     {
+      type: 'date',
+      text: '$(\\sqrt{a})^2$ の<ruby>計算<rt>けいさん</rt></ruby>',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<ruby>大事<rt>だいじ</rt></ruby>な<ruby>公式<rt>こうしき</rt></ruby>を<ruby>教<rt>おし</rt></ruby>えるよ。$(\\sqrt{a})^2 = a$ になるんだ。ルートと2<ruby>乗<rt>じょう</rt></ruby>は<ruby>打<rt>う</rt></ruby>ち<ruby>消<rt>け</rt></ruby>し<ruby>合<rt>あ</rt></ruby>うんだよ。',
+    },
+    {
+      type: 'whiteboard',
+      title: '$(\\sqrt{a})^2$ と $(-\\sqrt{a})^2$',
+      steps: [
+        {
+          formula: '$(\\sqrt{7})^2 = 7$',
+          annotation: 'ルートと2<ruby>乗<rt>じょう</rt></ruby>が<ruby>打<rt>う</rt></ruby>ち<ruby>消<rt>け</rt></ruby>し<ruby>合<rt>あ</rt></ruby>う',
+        },
+        {
+          formula: '$(-\\sqrt{5})^2 = 5$',
+          animateInsert: true,
+          annotation: '<ruby>負<rt>ふ</rt></ruby>の<ruby>数<rt>かず</rt></ruby>の2<ruby>乗<rt>じょう</rt></ruby>も<ruby>正<rt>せい</rt></ruby>になる',
+        },
+        {
+          formula: '$\\sqrt{(-6)^2} = \\sqrt{36} = 6$',
+          isResult: true,
+          animateInsert: true,
+          annotation: '<ruby>先<rt>さき</rt></ruby>に<ruby>中<rt>なか</rt></ruby>を<ruby>計算<rt>けいさん</rt></ruby>してからルートをとる',
+        },
+      ],
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'surprised',
+      text: '$(-\\sqrt{5})^2$ も $5$ になるんですね！<ruby>負<rt>ふ</rt></ruby>の<ruby>数<rt>かず</rt></ruby>を2<ruby>乗<rt>じょう</rt></ruby>すると<ruby>正<rt>せい</rt></ruby>になるから！',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'encouraging',
+      text: 'そのとおり！$\\sqrt{}$ を<ruby>使<rt>つか</rt></ruby>わずに<ruby>表<rt>あらわ</rt></ruby>せるものもあるよ。$\\sqrt{64} = 8$、$-\\sqrt{81} = -9$ のようにね。',
+    },
+    {
+      type: 'summary-point',
+      text: '$(\\sqrt{a})^2 = a$、$(-\\sqrt{a})^2 = a$。ルートと2<ruby>乗<rt>じょう</rt></ruby>は<ruby>打<rt>う</rt></ruby>ち<ruby>消<rt>け</rt></ruby>し<ruby>合<rt>あ</rt></ruby>う！',
+    },
+    {
+      type: 'date',
+      text: '<ruby>有限<rt>ゆうげん</rt></ruby><ruby>小数<rt>しょうすう</rt></ruby>と<ruby>循環<rt>じゅんかん</rt></ruby><ruby>小数<rt>しょうすう</rt></ruby>',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<ruby>小数<rt>しょうすう</rt></ruby>には<ruby>種類<rt>しゅるい</rt></ruby>があるよ。$\\frac{5}{8} = 0.625$ のように<ruby>終<rt>お</rt></ruby>わる<ruby>小数<rt>しょうすう</rt></ruby>を$\\textcolor{#D97706}{\\text{有限小数}}$というよ。',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '$\\frac{1}{3} = 0.333\\ldots$ みたいに<ruby>終<rt>お</rt></ruby>わらないのもありますよね？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: 'それが$\\textcolor{#D97706}{\\text{循環小数}}$！<ruby>同<rt>おな</rt></ruby>じ<ruby>数字<rt>すうじ</rt></ruby>がくり<ruby>返<rt>かえ</rt></ruby>されるんだ。<ruby>大事<rt>だいじ</rt></ruby>なのは、<ruby>有限<rt>ゆうげん</rt></ruby><ruby>小数<rt>しょうすう</rt></ruby>も<ruby>循環<rt>じゅんかん</rt></ruby><ruby>小数<rt>しょうすう</rt></ruby>も<ruby>分数<rt>ぶんすう</rt></ruby>で<ruby>表<rt>あらわ</rt></ruby>せるから$\\textcolor{#D97706}{\\text{有理数}}$だってこと！',
+    },
+    {
+      type: 'whiteboard',
+      title: '<ruby>小数<rt>しょうすう</rt></ruby>の<ruby>分類<rt>ぶんるい</rt></ruby>',
+      steps: [
+        {
+          formula: '<ruby>有限<rt>ゆうげん</rt></ruby><ruby>小数<rt>しょうすう</rt></ruby>: $\\frac{5}{8} = 0.625$',
+          annotation: '<ruby>割<rt>わ</rt></ruby>り<ruby>切<rt>き</rt></ruby>れる → <ruby>有理数<rt>ゆうりすう</rt></ruby>',
+        },
+        {
+          formula: '<ruby>循環<rt>じゅんかん</rt></ruby><ruby>小数<rt>しょうすう</rt></ruby>: $\\frac{1}{3} = 0.\\overline{3}$',
+          animateInsert: true,
+          annotation: 'くり<ruby>返<rt>かえ</rt></ruby>す → <ruby>有理数<rt>ゆうりすう</rt></ruby>',
+        },
+        {
+          formula: '<ruby>無理数<rt>むりすう</rt></ruby>: $\\sqrt{2} = 1.41421\\ldots$',
+          isResult: true,
+          annotation: '<ruby>規則性<rt>きそくせい</rt></ruby>なく<ruby>続<rt>つづ</rt></ruby>く → <ruby>分数<rt>ぶんすう</rt></ruby>で<ruby>表<rt>あらわ</rt></ruby>せない',
+        },
+      ],
+    },
+    {
+      type: 'summary-point',
+      text: '<ruby>有限<rt>ゆうげん</rt></ruby><ruby>小数<rt>しょうすう</rt></ruby>・<ruby>循環<rt>じゅんかん</rt></ruby><ruby>小数<rt>しょうすう</rt></ruby> = <ruby>有理数<rt>ゆうりすう</rt></ruby>。<ruby>規則性<rt>きそくせい</rt></ruby>なく<ruby>続<rt>つづ</rt></ruby>く<ruby>小数<rt>しょうすう</rt></ruby> = <ruby>無理数<rt>むりすう</rt></ruby>',
+    },
+    {
+      type: 'date',
+      text: '<ruby>近似値<rt>きんじち</rt></ruby>と<ruby>有効数字<rt>ゆうこうすうじ</rt></ruby>',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<ruby>測定<rt>そくてい</rt></ruby>で<ruby>得<rt>え</rt></ruby>られた<ruby>値<rt>あたい</rt></ruby>は<ruby>完全<rt>かんぜん</rt></ruby>に<ruby>正確<rt>せいかく</rt></ruby>ではないよね。この<ruby>値<rt>あたい</rt></ruby>を$\\textcolor{#D97706}{\\text{近似値}}$、<ruby>本当<rt>ほんとう</rt></ruby>の<ruby>値<rt>あたい</rt></ruby>を$\\textcolor{#D97706}{\\text{真の値}}$というよ。',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: '<ruby>誤差<rt>ごさ</rt></ruby>ってどうやって<ruby>求<rt>もと</rt></ruby>めるんですか？',
+    },
+    {
+      type: 'whiteboard',
+      title: '<ruby>誤差<rt>ごさ</rt></ruby>と<ruby>有効数字<rt>ゆうこうすうじ</rt></ruby>',
+      steps: [
+        {
+          formula: '<ruby>誤差<rt>ごさ</rt></ruby> = <ruby>近似値<rt>きんじち</rt></ruby> − <ruby>真<rt>しん</rt></ruby>の<ruby>値<rt>あたい</rt></ruby>',
+          annotation: '<ruby>誤差<rt>ごさ</rt></ruby>の<ruby>絶対値<rt>ぜったいち</rt></ruby>はなるべく<ruby>小<rt>ちい</rt></ruby>さいほうがいい',
+        },
+        {
+          formula: '$4507$m → <ruby>有効数字<rt>ゆうこうすうじ</rt></ruby>3けたで $4.51 \\times 10^3$ m',
+          isResult: true,
+          animateInsert: true,
+          annotation: '$a \\times 10^n$ の<ruby>形<rt>かたち</rt></ruby>で<ruby>表<rt>あらわ</rt></ruby>す',
+        },
+      ],
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: '<ruby>有効数字<rt>ゆうこうすうじ</rt></ruby>は<ruby>意味<rt>いみ</rt></ruby>のある<ruby>数字<rt>すうじ</rt></ruby>のこと。$a \\times 10^n$ の<ruby>形<rt>かたち</rt></ruby>にすると<ruby>何<rt>なん</rt></ruby>けたかハッキリわかるよ！',
+    },
+    {
+      type: 'quiz',
+      question: '$5200$m を<ruby>有効数字<rt>ゆうこうすうじ</rt></ruby>2けたで $a \\times 10^n$ の<ruby>形<rt>かたち</rt></ruby>に<ruby>表<rt>あらわ</rt></ruby>すと？',
+      options: [
+        { letter: 'A', text: '$52 \\times 10^2$', correct: false },
+        { letter: 'B', text: '$5.2 \\times 10^3$', correct: true },
+        { letter: 'C', text: '$5.20 \\times 10^3$', correct: false },
+        { letter: 'D', text: '$0.52 \\times 10^4$', correct: false },
+      ],
+      explanation:
+        '<ruby>有効数字<rt>ゆうこうすうじ</rt></ruby>2けた（5と2）なので $5.2 \\times 10^3$ m。<ruby>整数<rt>せいすう</rt></ruby><ruby>部分<rt>ぶぶん</rt></ruby>が1けたの<ruby>小数<rt>しょうすう</rt></ruby>にするよ。',
+    },
+    {
+      type: 'summary-point',
+      text: '<ruby>有効数字<rt>ゆうこうすうじ</rt></ruby>は $a \\times 10^n$ で<ruby>表<rt>あらわ</rt></ruby>す。$a$ は<ruby>整数<rt>せいすう</rt></ruby><ruby>部分<rt>ぶぶん</rt></ruby>が1けたの<ruby>小数<rt>しょうすう</rt></ruby>！',
+    },
+    {
       type: 'end',
       points: [
         '2<ruby>乗<rt>じょう</rt></ruby>すると a になる<ruby>数<rt>かず</rt></ruby>が「a の<ruby>平方根<rt>へいほうこん</rt></ruby>」',
         '<ruby>平方根<rt>へいほうこん</rt></ruby>は<ruby>正<rt>せい</rt></ruby>と<ruby>負<rt>ふ</rt></ruby>の2つある（$\\pm\\sqrt{a}$）',
-        '$\\sqrt{2} \\approx 1.414$、$\\sqrt{3} \\approx 1.732$（<ruby>無理数<rt>むりすう</rt></ruby>）',
-        'ルートの<ruby>中<rt>なか</rt></ruby>が<ruby>大<rt>おお</rt></ruby>きいほど<ruby>値<rt>あたい</rt></ruby>も<ruby>大<rt>おお</rt></ruby>きい',
+        '$(\\sqrt{a})^2 = a$、$(-\\sqrt{a})^2 = a$',
+        '<ruby>有理数<rt>ゆうりすう</rt></ruby> = <ruby>分数<rt>ぶんすう</rt></ruby>で<ruby>表<rt>あらわ</rt></ruby>せる、<ruby>無理数<rt>むりすう</rt></ruby> = <ruby>表<rt>あらわ</rt></ruby>せない',
+        '<ruby>有効数字<rt>ゆうこうすうじ</rt></ruby>は $a \\times 10^n$ で<ruby>表<rt>あらわ</rt></ruby>す',
       ],
     },
   ],

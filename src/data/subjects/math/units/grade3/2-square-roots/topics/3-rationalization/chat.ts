@@ -191,12 +191,112 @@ export const rationalizationChat: HistoryChat = {
       text: '<ruby>有理化<rt>ゆうりか</rt></ruby>のあとは<ruby>約分<rt>やくぶん</rt></ruby>チェック！ $\\frac{6}{\\sqrt{2}} \\rightarrow \\frac{6\\sqrt{2}}{2} \\rightarrow 3\\sqrt{2}$',
     },
     {
+      type: 'date',
+      text: '<ruby>分母<rt>ぶんぼ</rt></ruby>を<ruby>先<rt>さき</rt></ruby>に<ruby>簡単<rt>かんたん</rt></ruby>にしてから<ruby>有理化<rt>ゆうりか</rt></ruby>',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '$\\frac{4}{\\sqrt{8}}$ のように<ruby>分母<rt>ぶんぼ</rt></ruby>の $\\sqrt{}$ の<ruby>中<rt>なか</rt></ruby>が<ruby>大<rt>おお</rt></ruby>きいときは、<ruby>先<rt>さき</rt></ruby>に<ruby>簡単<rt>かんたん</rt></ruby>にすると<ruby>楽<rt>らく</rt></ruby>だよ。',
+    },
+    {
+      type: 'whiteboard',
+      title: '$\\frac{4}{\\sqrt{8}}$ の<ruby>有理化<rt>ゆうりか</rt></ruby>',
+      steps: [
+        {
+          formula: '$\\frac{4}{\\sqrt{8}} = \\frac{4}{2\\sqrt{2}}$',
+          annotation: '$\\sqrt{8} = 2\\sqrt{2}$ に<ruby>変形<rt>へんけい</rt></ruby>',
+        },
+        {
+          formula: '$= \\frac{2}{\\sqrt{2}}$',
+          animateInsert: true,
+          annotation: '<ruby>約分<rt>やくぶん</rt></ruby>して<ruby>簡単<rt>かんたん</rt></ruby>にする',
+        },
+        {
+          formula: '$= \\frac{2\\sqrt{2}}{2} = \\sqrt{2}$',
+          isResult: true,
+          animateInsert: true,
+          annotation: '<ruby>有理化<rt>ゆうりか</rt></ruby>してさらに<ruby>約分<rt>やくぶん</rt></ruby>',
+        },
+      ],
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'happy',
+      text: '<ruby>先<rt>さき</rt></ruby>に $\\sqrt{8}$ を $2\\sqrt{2}$ にしたから<ruby>計算<rt>けいさん</rt></ruby>が<ruby>簡単<rt>かんたん</rt></ruby>になりましたね！',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'encouraging',
+      text: 'もう<ruby>一<rt>ひと</rt></ruby>つ！ $\\frac{6}{\\sqrt{12}} = \\frac{6}{2\\sqrt{3}} = \\frac{3}{\\sqrt{3}} = \\frac{3\\sqrt{3}}{3} = \\sqrt{3}$ だよ。',
+    },
+    {
+      type: 'summary-point',
+      text: '<ruby>分母<rt>ぶんぼ</rt></ruby>の $\\sqrt{}$ が<ruby>大<rt>おお</rt></ruby>きいときは、<ruby>先<rt>さき</rt></ruby>に<ruby>簡単<rt>かんたん</rt></ruby>にしてから<ruby>有理化<rt>ゆうりか</rt></ruby>しよう！',
+    },
+    {
+      type: 'date',
+      text: '$\\sqrt{}$をふくむ<ruby>式<rt>しき</rt></ruby>の<ruby>値<rt>あたい</rt></ruby>',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '$\\sqrt{2} = 1.414$ として $\\frac{1}{\\sqrt{2}}$ の<ruby>値<rt>あたい</rt></ruby>を<ruby>求<rt>もと</rt></ruby>めるときは、<ruby>先<rt>さき</rt></ruby>に<ruby>有理化<rt>ゆうりか</rt></ruby>するのがコツ！',
+    },
+    {
+      type: 'whiteboard',
+      title: '$\\frac{1}{\\sqrt{2}}$ の<ruby>値<rt>あたい</rt></ruby>',
+      steps: [
+        {
+          formula: '$\\frac{1}{\\sqrt{2}} = \\frac{\\sqrt{2}}{2}$',
+          annotation: '<ruby>先<rt>さき</rt></ruby>に<ruby>有理化<rt>ゆうりか</rt></ruby>',
+        },
+        {
+          formula: '$= \\frac{1.414}{2} = 0.707$',
+          isResult: true,
+          animateInsert: true,
+          annotation: '$\\sqrt{2} = 1.414$ を<ruby>代入<rt>だいにゅう</rt></ruby>',
+        },
+      ],
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'surprised',
+      text: '<ruby>有理化<rt>ゆうりか</rt></ruby>してから<ruby>代入<rt>だいにゅう</rt></ruby>するほうが<ruby>計算<rt>けいさん</rt></ruby>しやすいですね！',
+    },
+    {
+      type: 'quiz',
+      question: '$\\sqrt{3} = 1.732$ として $\\frac{6}{\\sqrt{3}}$ の<ruby>値<rt>あたい</rt></ruby>は？',
+      options: [
+        { letter: 'A', text: '$1.732$', correct: false },
+        { letter: 'B', text: '$3.464$', correct: true },
+        { letter: 'C', text: '$5.196$', correct: false },
+        { letter: 'D', text: '$0.577$', correct: false },
+      ],
+      explanation:
+        '$\\frac{6}{\\sqrt{3}} = \\frac{6\\sqrt{3}}{3} = 2\\sqrt{3} = 2 \\times 1.732 = 3.464$。<ruby>有理化<rt>ゆうりか</rt></ruby>→<ruby>約分<rt>やくぶん</rt></ruby>→<ruby>代入<rt>だいにゅう</rt></ruby>の<ruby>順<rt>じゅん</rt></ruby>！',
+    },
+    {
+      type: 'summary-point',
+      text: '<ruby>式<rt>しき</rt></ruby>の<ruby>値<rt>あたい</rt></ruby>を<ruby>求<rt>もと</rt></ruby>めるときは、<ruby>先<rt>さき</rt></ruby>に<ruby>有理化<rt>ゆうりか</rt></ruby>してから<ruby>代入<rt>だいにゅう</rt></ruby>しよう！',
+    },
+    {
       type: 'end',
       points: [
         '<ruby>有理化<rt>ゆうりか</rt></ruby> = <ruby>分母<rt>ぶんぼ</rt></ruby>のルートを<ruby>消<rt>け</rt></ruby>すこと',
         '<ruby>分母<rt>ぶんぼ</rt></ruby><ruby>分子<rt>ぶんし</rt></ruby>に<ruby>同<rt>おな</rt></ruby>じ $\\sqrt{}$ をかける',
-        '$\\sqrt{a} \\times \\sqrt{a} = a$ でルートが<ruby>消<rt>き</rt></ruby>える',
-        '<ruby>最後<rt>さいご</rt></ruby>に<ruby>約分<rt>やくぶん</rt></ruby>できるかチェック',
+        '<ruby>分母<rt>ぶんぼ</rt></ruby>が<ruby>大<rt>おお</rt></ruby>きいときは<ruby>先<rt>さき</rt></ruby>に<ruby>簡単<rt>かんたん</rt></ruby>にする',
+        '<ruby>式<rt>しき</rt></ruby>の<ruby>値<rt>あたい</rt></ruby>は<ruby>有理化<rt>ゆうりか</rt></ruby>してから<ruby>代入<rt>だいにゅう</rt></ruby>',
       ],
     },
   ],
