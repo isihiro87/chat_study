@@ -78,8 +78,55 @@ export const solutionPropertiesChat: HistoryChat = {
       text: '<ruby>水溶液<rp>(</rp><rt>すいようえき</rt><rp>)</rp></ruby>の<ruby>特徴<rp>(</rp><rt>とくちょう</rt><rp>)</rp></ruby>は3つ！<br/>1. <strong><ruby>透明<rp>(</rp><rt>とうめい</rt><rp>)</rp></ruby></strong>である<br/>2. <ruby>濃<rp>(</rp><rt>こ</rt><rp>)</rp></ruby>さがどこでも<strong><ruby>均一<rp>(</rp><rt>きんいつ</rt><rp>)</rp></ruby></strong><br/>3. <ruby>放置<rp>(</rp><rt>ほうち</rt><rp>)</rp></ruby>しても<ruby>溶質<rp>(</rp><rt>ようしつ</rt><rp>)</rp></ruby>が<strong><ruby>沈<rp>(</rp><rt>しず</rt><rp>)</rp></ruby>まない</strong>',
     },
     {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '<ruby>純物質<rp>(</rp><rt>じゅんぶっしつ</rt><rp>)</rp></ruby>と<ruby>混合物<rp>(</rp><rt>こんごうぶつ</rt><rp>)</rp></ruby>って何ですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '1<ruby>種類<rp>(</rp><rt>しゅるい</rt><rp>)</rp></ruby>の<ruby>物質<rp>(</rp><rt>ぶっしつ</rt><rp>)</rp></ruby>だけでできているものを<strong><span class="keyword"><ruby>純物質<rp>(</rp><rt>じゅんぶっしつ</rt><rp>)</rp></ruby></span></strong>、2<ruby>種類<rp>(</rp><rt>しゅるい</rt><rp>)</rp></ruby><ruby>以上<rp>(</rp><rt>いじょう</rt><rp>)</rp></ruby>の<ruby>物質<rp>(</rp><rt>ぶっしつ</rt><rp>)</rp></ruby>が<ruby>混<rp>(</rp><rt>ま</rt><rp>)</rp></ruby>じったものを<strong><span class="keyword"><ruby>混合物<rp>(</rp><rt>こんごうぶつ</rt><rp>)</rp></ruby></span></strong>というよ。<ruby>食塩<rp>(</rp><rt>しょくえん</rt><rp>)</rp></ruby>は<ruby>純物質<rp>(</rp><rt>じゅんぶっしつ</rt><rp>)</rp></ruby>、<ruby>食塩水<rp>(</rp><rt>しょくえんすい</rt><rp>)</rp></ruby>は<ruby>混合物<rp>(</rp><rt>こんごうぶつ</rt><rp>)</rp></ruby>だね',
+    },
+    {
       type: 'summary-point',
-      text: '<span class="keyword">溶質</span>（とける物質）＋<span class="keyword">溶媒</span>（とかす液体）＝<span class="keyword">溶液</span>。水溶液は透明・均一・沈まない',
+      text: '<span class="keyword">溶質</span>（とける物質）＋<span class="keyword">溶媒</span>（とかす液体）＝<span class="keyword">溶液</span>。水溶液は透明・均一・沈まない。<span class="keyword">純物質</span>＝1種類、<span class="keyword">混合物</span>＝2種類以上',
+    },
+    {
+      type: 'date',
+      text: '<ruby>ろ過<rp>(</rp><rt>ろか</rt><rp>)</rp></ruby>の<ruby>操作<rp>(</rp><rt>そうさ</rt><rp>)</rp></ruby>',
+    },
+    {
+      type: 'narrator',
+      text: '<ruby>液体<rp>(</rp><rt>えきたい</rt><rp>)</rp></ruby>の中の<ruby>固体<rp>(</rp><rt>こたい</rt><rp>)</rp></ruby>をろ<ruby>紙<rp>(</rp><rt>し</rt><rp>)</rp></ruby>で<ruby>分離<rp>(</rp><rt>ぶんり</rt><rp>)</rp></ruby>する<strong><span class="keyword">ろ過</span></strong>の<ruby>正<rp>(</rp><rt>ただ</rt><rp>)</rp></ruby>しい<ruby>操作<rp>(</rp><rt>そうさ</rt><rp>)</rp></ruby>を学びましょう。',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<ruby>泥水<rp>(</rp><rt>どろみず</rt><rp>)</rp></ruby>をきれいにするとき<strong><span class="keyword">ろ過</span></strong>を使うよ。ろ<ruby>紙<rp>(</rp><rt>し</rt><rp>)</rp></ruby>を<ruby>半分<rp>(</rp><rt>はんぶん</rt><rp>)</rp></ruby>に<ruby>折<rp>(</rp><rt>お</rt><rp>)</rp></ruby>って、さらにもう<ruby>半分<rp>(</rp><rt>はんぶん</rt><rp>)</rp></ruby>に<ruby>折<rp>(</rp><rt>お</rt><rp>)</rp></ruby>って、1<ruby>枚<rp>(</rp><rt>まい</rt><rp>)</rp></ruby>と3<ruby>枚<rp>(</rp><rt>まい</rt><rp>)</rp></ruby>に<ruby>開<rp>(</rp><rt>ひら</rt><rp>)</rp></ruby>いて<ruby>円<rp>(</rp><rt>えん</rt><rp>)</rp></ruby>すい<ruby>形<rp>(</rp><rt>がた</rt><rp>)</rp></ruby>にするんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '<ruby>液<rp>(</rp><rt>えき</rt><rp>)</rp></ruby>を<ruby>注<rp>(</rp><rt>そそ</rt><rp>)</rp></ruby>ぐとき、<ruby>何<rp>(</rp><rt>なに</rt><rp>)</rp></ruby>か<ruby>気<rp>(</rp><rt>き</rt><rp>)</rp></ruby>をつけることはありますか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'excited',
+      text: '<strong>ガラス<ruby>棒<rp>(</rp><rt>ぼう</rt><rp>)</rp></ruby></strong>を<ruby>伝<rp>(</rp><rt>つた</rt><rp>)</rp></ruby>わらせて<ruby>注<rp>(</rp><rt>そそ</rt><rp>)</rp></ruby>ぐよ！ろ<ruby>紙<rp>(</rp><rt>し</rt><rp>)</rp></ruby>が<ruby>破<rp>(</rp><rt>やぶ</rt><rp>)</rp></ruby>れるのを<ruby>防<rp>(</rp><rt>ふせ</rt><rp>)</rp></ruby>ぐためだ。ガラス<ruby>棒<rp>(</rp><rt>ぼう</rt><rp>)</rp></ruby>はろ<ruby>紙<rp>(</rp><rt>し</rt><rp>)</rp></ruby>の<strong>3<ruby>枚<rp>(</rp><rt>まい</rt><rp>)</rp></ruby><ruby>重<rp>(</rp><rt>がさ</rt><rp>)</rp></ruby>ね</strong>の<ruby>部分<rp>(</rp><rt>ぶぶん</rt><rp>)</rp></ruby>にあてる。それから、ろうとの<ruby>足<rp>(</rp><rt>あし</rt><rp>)</rp></ruby>は<strong>ビーカーの<ruby>内壁<rp>(</rp><rt>ないへき</rt><rp>)</rp></ruby></strong>につけてね',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">ろ過</span>：ガラス棒を伝わらせて注ぐ。ろ紙の3枚重ねにあて、ろうとの足はビーカーの内壁につける',
     },
     {
       type: 'date',

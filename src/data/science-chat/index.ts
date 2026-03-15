@@ -1,4 +1,9 @@
 import type { HistoryChat } from '../history-chat/types';
+// Grade 1: Chemistry
+import { substancePropertiesChat } from '../subjects/science/units/grade1/2-chemistry/topics/1-substance-properties/chat';
+import { gasPropertiesChat } from '../subjects/science/units/grade1/2-chemistry/topics/2-gas-properties/chat';
+import { solutionPropertiesChat } from '../subjects/science/units/grade1/2-chemistry/topics/3-solution-properties/chat';
+import { stateChangeChat } from '../subjects/science/units/grade1/2-chemistry/topics/4-state-change/chat';
 // Grade 1: Biology
 import { observationChat } from '../subjects/science/units/grade1/1-biology/topics/1-observation/chat';
 import { microscopeDetailChat } from '../subjects/science/units/grade1/1-biology/topics/2-microscope-detail/chat';
@@ -59,6 +64,11 @@ import { moonVenusChat } from '../subjects/science/units/grade3/4-earth/topics/2
 import { solarSystemUniverseChat } from '../subjects/science/units/grade3/4-earth/topics/3-solar-system/chat';
 
 const chatMap: Record<string, HistoryChat> = {
+  // Grade 1: Chemistry
+  [substancePropertiesChat.id]: substancePropertiesChat,
+  [gasPropertiesChat.id]: gasPropertiesChat,
+  [solutionPropertiesChat.id]: solutionPropertiesChat,
+  [stateChangeChat.id]: stateChangeChat,
   // Grade 1: Biology
   [observationChat.id]: observationChat,
   [microscopeDetailChat.id]: microscopeDetailChat,

@@ -220,6 +220,86 @@ export const gasPropertiesChat: HistoryChat = {
       text: '<span class="keyword">アンモニア</span>：刺激臭・水に非常にとけやすい・アルカリ性・上方置換法で集める。<span class="keyword">噴水実験</span>でとけやすさを確認',
     },
     {
+      type: 'date',
+      text: '<ruby>気体<rp>(</rp><rt>きたい</rt><rp>)</rp></ruby>の<ruby>密度<rp>(</rp><rt>みつど</rt><rp>)</rp></ruby>と<ruby>確認方法<rp>(</rp><rt>かくにんほうほう</rt><rp>)</rp></ruby>',
+    },
+    {
+      type: 'narrator',
+      text: '<ruby>気体<rp>(</rp><rt>きたい</rt><rp>)</rp></ruby>の<ruby>密度<rp>(</rp><rt>みつど</rt><rp>)</rp></ruby>の<ruby>比較<rp>(</rp><rt>ひかく</rt><rp>)</rp></ruby>と、<ruby>指示薬<rp>(</rp><rt>しじやく</rt><rp>)</rp></ruby>を使った<ruby>確認方法<rp>(</rp><rt>かくにんほうほう</rt><rp>)</rp></ruby>を<ruby>整理<rp>(</rp><rt>せいり</rt><rp>)</rp></ruby>しましょう。',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '<ruby>空気<rp>(</rp><rt>くうき</rt><rp>)</rp></ruby>より<ruby>重<rp>(</rp><rt>おも</rt><rp>)</rp></ruby>い<ruby>気体<rp>(</rp><rt>きたい</rt><rp>)</rp></ruby>と<ruby>軽<rp>(</rp><rt>かる</rt><rp>)</rp></ruby>い<ruby>気体<rp>(</rp><rt>きたい</rt><rp>)</rp></ruby>ってどれですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<ruby>空気<rp>(</rp><rt>くうき</rt><rp>)</rp></ruby>より<ruby>重<rp>(</rp><rt>おも</rt><rp>)</rp></ruby>いのは<strong><span class="keyword"><ruby>二酸化炭素<rp>(</rp><rt>にさんかたんそ</rt><rp>)</rp></ruby></span></strong>と<strong><span class="keyword"><ruby>酸素<rp>(</rp><rt>さんそ</rt><rp>)</rp></ruby></span></strong>だよ。<ruby>軽<rp>(</rp><rt>かる</rt><rp>)</rp></ruby>いのは<strong><ruby>水素<rp>(</rp><rt>すいそ</rt><rp>)</rp></ruby></strong>と<strong>アンモニア</strong>。<ruby>重<rp>(</rp><rt>おも</rt><rp>)</rp></ruby>い<ruby>順<rp>(</rp><rt>じゅん</rt><rp>)</rp></ruby>に<ruby>並<rp>(</rp><rt>なら</rt><rp>)</rp></ruby>べると<ruby>二酸化炭素<rp>(</rp><rt>にさんかたんそ</rt><rp>)</rp></ruby>＞<ruby>酸素<rp>(</rp><rt>さんそ</rt><rp>)</rp></ruby>＞<ruby>空気<rp>(</rp><rt>くうき</rt><rp>)</rp></ruby>＞<ruby>窒素<rp>(</rp><rt>ちっそ</rt><rp>)</rp></ruby>＞アンモニア＞<ruby>水素<rp>(</rp><rt>すいそ</rt><rp>)</rp></ruby>だ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: '<ruby>指示薬<rp>(</rp><rt>しじやく</rt><rp>)</rp></ruby>って<ruby>色<rp>(</rp><rt>いろ</rt><rp>)</rp></ruby>が<ruby>変<rp>(</rp><rt>か</rt><rp>)</rp></ruby>わるやつですよね？どんな<ruby>種類<rp>(</rp><rt>しゅるい</rt><rp>)</rp></ruby>があるんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: 'まず<strong><span class="keyword">リトマス<ruby>紙<rp>(</rp><rt>し</rt><rp>)</rp></ruby></span></strong>。<ruby>赤色<rp>(</rp><rt>あかいろ</rt><rp>)</rp></ruby>リトマス<ruby>紙<rp>(</rp><rt>し</rt><rp>)</rp></ruby>はアルカリ<ruby>性<rp>(</rp><rt>せい</rt><rp>)</rp></ruby>で<strong><ruby>青色<rp>(</rp><rt>あおいろ</rt><rp>)</rp></ruby></strong>に、<ruby>青色<rp>(</rp><rt>あおいろ</rt><rp>)</rp></ruby>リトマス<ruby>紙<rp>(</rp><rt>し</rt><rp>)</rp></ruby>は<ruby>酸性<rp>(</rp><rt>さんせい</rt><rp>)</rp></ruby>で<strong><ruby>赤色<rp>(</rp><rt>あかいろ</rt><rp>)</rp></ruby></strong>になるよ',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<strong><span class="keyword">BTB<ruby>溶液<rp>(</rp><rt>ようえき</rt><rp>)</rp></ruby></span></strong>は<ruby>酸性<rp>(</rp><rt>さんせい</rt><rp>)</rp></ruby>で<strong><ruby>黄色<rp>(</rp><rt>きいろ</rt><rp>)</rp></ruby></strong>、<ruby>中性<rp>(</rp><rt>ちゅうせい</rt><rp>)</rp></ruby>で<strong><ruby>緑色<rp>(</rp><rt>みどりいろ</rt><rp>)</rp></ruby></strong>、アルカリ<ruby>性<rp>(</rp><rt>せい</rt><rp>)</rp></ruby>で<strong><ruby>青色<rp>(</rp><rt>あおいろ</rt><rp>)</rp></ruby></strong>になるんだ。<ruby>二酸化炭素<rp>(</rp><rt>にさんかたんそ</rt><rp>)</rp></ruby>の<ruby>水溶液<rp>(</rp><rt>すいようえき</rt><rp>)</rp></ruby>では<ruby>黄色<rp>(</rp><rt>きいろ</rt><rp>)</rp></ruby>になるよ',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'excited',
+      text: '<strong><span class="keyword">フェノールフタレイン<ruby>溶液<rp>(</rp><rt>ようえき</rt><rp>)</rp></ruby></span></strong>はアルカリ<ruby>性<rp>(</rp><rt>せい</rt><rp>)</rp></ruby>で<strong><ruby>赤色<rp>(</rp><rt>あかいろ</rt><rp>)</rp></ruby></strong>に<ruby>変色<rp>(</rp><rt>へんしょく</rt><rp>)</rp></ruby>！<ruby>中性<rp>(</rp><rt>ちゅうせい</rt><rp>)</rp></ruby>・<ruby>酸性<rp>(</rp><rt>さんせい</rt><rp>)</rp></ruby>では<ruby>無色<rp>(</rp><rt>むしょく</rt><rp>)</rp></ruby>のままだよ。アンモニアの<ruby>噴水実験<rp>(</rp><rt>ふんすいじっけん</rt><rp>)</rp></ruby>で使ったね',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '<ruby>水上置換法<rp>(</rp><rt>すいじょうちかんほう</rt><rp>)</rp></ruby>で<ruby>最初<rp>(</rp><rt>さいしょ</rt><rp>)</rp></ruby>に<ruby>出<rp>(</rp><rt>で</rt><rp>)</rp></ruby>てくる<ruby>気体<rp>(</rp><rt>きたい</rt><rp>)</rp></ruby>を<ruby>捨<rp>(</rp><rt>す</rt><rp>)</rp></ruby>てるのはなぜですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'thinking',
+      text: 'いい<ruby>質問<rp>(</rp><rt>しつもん</rt><rp>)</rp></ruby>だね！<ruby>最初<rp>(</rp><rt>さいしょ</rt><rp>)</rp></ruby>に<ruby>出<rp>(</rp><rt>で</rt><rp>)</rp></ruby>てくる<ruby>気体<rp>(</rp><rt>きたい</rt><rp>)</rp></ruby>にはもともと<strong><ruby>装置<rp>(</rp><rt>そうち</rt><rp>)</rp></ruby>の<ruby>中<rp>(</rp><rt>なか</rt><rp>)</rp></ruby>にあった<ruby>空気<rp>(</rp><rt>くうき</rt><rp>)</rp></ruby></strong>が<ruby>混<rp>(</rp><rt>ま</rt><rp>)</rp></ruby>じっているんだ。だから2<ruby>本目<rp>(</rp><rt>ほんめ</rt><rp>)</rp></ruby><ruby>以降<rp>(</rp><rt>いこう</rt><rp>)</rp></ruby>の<ruby>試験管<rp>(</rp><rt>しけんかん</rt><rp>)</rp></ruby>に<ruby>集<rp>(</rp><rt>あつ</rt><rp>)</rp></ruby>めた<ruby>気体<rp>(</rp><rt>きたい</rt><rp>)</rp></ruby>を使うんだよ',
+    },
+    {
+      type: 'quiz',
+      question: 'BTB溶液が黄色になるのは何性のとき？',
+      options: [
+        { letter: 'A', text: 'アルカリ性', correct: false },
+        { letter: 'B', text: '中性', correct: false },
+        { letter: 'C', text: '酸性', correct: true },
+        { letter: 'D', text: 'どの性質でも黄色', correct: false },
+      ],
+      explanation:
+        '<strong>正解はC「<ruby>酸性<rp>(</rp><rt>さんせい</rt><rp>)</rp></ruby>」</strong>です。BTB<ruby>溶液<rp>(</rp><rt>ようえき</rt><rp>)</rp></ruby>は<ruby>酸性<rp>(</rp><rt>さんせい</rt><rp>)</rp></ruby>で<ruby>黄色<rp>(</rp><rt>きいろ</rt><rp>)</rp></ruby>、<ruby>中性<rp>(</rp><rt>ちゅうせい</rt><rp>)</rp></ruby>で<ruby>緑色<rp>(</rp><rt>みどりいろ</rt><rp>)</rp></ruby>、アルカリ<ruby>性<rp>(</rp><rt>せい</rt><rp>)</rp></ruby>で<ruby>青色<rp>(</rp><rt>あおいろ</rt><rp>)</rp></ruby>になります。',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">密度の順</span>：CO₂＞O₂＞空気＞N₂＞NH₃＞H₂。<span class="keyword">指示薬</span>：リトマス紙・BTB溶液・フェノールフタレイン溶液で酸性・アルカリ性を判別',
+    },
+    {
       type: 'end',
       points: [
         '<strong><ruby>酸素<rp>(</rp><rt>さんそ</rt><rp>)</rp></ruby></strong>：<ruby>二酸化<rp>(</rp><rt>にさんか</rt><rp>)</rp></ruby>マンガン＋<ruby>過酸化水素水<rp>(</rp><rt>かさんかすいそすい</rt><rp>)</rp></ruby>。<ruby>線香<rp>(</rp><rt>せんこう</rt><rp>)</rp></ruby>が<ruby>激<rp>(</rp><rt>はげ</rt><rp>)</rp></ruby>しく<ruby>燃<rp>(</rp><rt>も</rt><rp>)</rp></ruby>える',
