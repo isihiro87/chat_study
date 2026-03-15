@@ -1,8 +1,10 @@
 import type { Era, Topic } from '../../../../../types';
 import { expansionBasics } from './topics/1-expansion-basics';
 import { expansionFormulas } from './topics/2-expansion-formulas';
+import { expansionAdvanced } from './topics/3-expansion-advanced';
 import { factoringBasics } from './topics/3-factoring-basics';
 import { factoringFormulas } from './topics/4-factoring-formulas';
+import { calcApplications } from './topics/5-calculation-applications';
 
 export const expansionFactoringEra: Era = {
   id: 'math-g3-expansion-factoring',
@@ -18,6 +20,8 @@ export const expansionFactoringEra: Era = {
 export const expansionFactoringTopics: Topic[] = [
   expansionBasics,
   expansionFormulas,
+  expansionAdvanced,
   factoringBasics,
   factoringFormulas,
+  calcApplications,
 ];

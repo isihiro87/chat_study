@@ -208,12 +208,177 @@ export const factoringFormulasChat: HistoryChat = {
       text: '<ruby>公式<rt>こうしき</rt></ruby>パターンを<ruby>見抜<rt>みぬ</rt></ruby>くコツ: <ruby>最後<rt>さいご</rt></ruby>の<ruby>項<rt>こう</rt></ruby>が<ruby>何<rt>なに</rt></ruby>かの2<ruby>乗<rt>じょう</rt></ruby>か？ <ruby>真<rt>ま</rt></ruby>ん<ruby>中<rt>なか</rt></ruby>が 2ab になっているか？',
     },
     {
+      type: 'date',
+      text: '<ruby>共通因数<rt>きょうつういんすう</rt></ruby>くくり<ruby>出<rt>だ</rt></ruby>し → <ruby>公式<rt>こうしき</rt></ruby>',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<ruby>実<rt>じつ</rt></ruby>は<ruby>因数分解<rt>いんすうぶんかい</rt></ruby>には<strong>2<ruby>段階<rt>だんかい</rt></ruby></strong>のパターンがあるんだ。まず<ruby>共通因数<rt>きょうつういんすう</rt></ruby>をくくり<ruby>出<rt>だ</rt></ruby>してから、<ruby>公式<rt>こうしき</rt></ruby>を<ruby>使<rt>つか</rt></ruby>うよ。',
+    },
+    {
+      type: 'whiteboard',
+      title: '2<ruby>段階<rt>だんかい</rt></ruby><ruby>因数分解<rt>いんすうぶんかい</rt></ruby>: $3x^2 + 9x + 6$',
+      steps: [
+        {
+          formula: '$3x^2 + 9x + 6$',
+          annotation: 'すべての<ruby>項<rt>こう</rt></ruby>に <strong>3</strong> が<ruby>共通<rt>きょうつう</rt></ruby>！',
+        },
+        {
+          formula: '$3(x^2 + 3x + 2)$',
+          animateInsert: true,
+          annotation: 'まず 3 をくくり<ruby>出<rt>だ</rt></ruby>す',
+        },
+        {
+          formula: '$3(x + 1)(x + 2)$',
+          isResult: true,
+          animateInsert: true,
+          annotation: 'かけて2、<ruby>足<rt>た</rt></ruby>して3 → 1と2！',
+        },
+      ],
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'surprised',
+      text: '3をくくってから、<ruby>中身<rt>なかみ</rt></ruby>をさらに<ruby>因数分解<rt>いんすうぶんかい</rt></ruby>するんですね！',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'encouraging',
+      text: '<ruby>共通因数<rt>きょうつういんすう</rt></ruby>があるときは<strong><ruby>必<rt>かなら</rt></ruby>ず<ruby>先<rt>さき</rt></ruby>にくくり<ruby>出<rt>だ</rt></ruby>す</strong>のが<ruby>鉄則<rt>てっそく</rt></ruby>！<ruby>忘<rt>わす</rt></ruby>れると<ruby>不完全<rt>ふかんぜん</rt></ruby>な<ruby>因数分解<rt>いんすうぶんかい</rt></ruby>になるよ。',
+    },
+    {
+      type: 'quiz',
+      question: '$2x^2 + 6x - 8$ を<ruby>因数分解<rt>いんすうぶんかい</rt></ruby>すると？',
+      options: [
+        { letter: 'A', text: '$2(x^2+3x-4)$', correct: false },
+        { letter: 'B', text: '$(2x-2)(x+4)$', correct: false },
+        { letter: 'C', text: '$2(x+4)(x-1)$', correct: true },
+        { letter: 'D', text: '$2(x-4)(x+1)$', correct: false },
+      ],
+      explanation:
+        'まず $2$ をくくって $2(x^2+3x-4)$。かけて$-4$、<ruby>足<rt>た</rt></ruby>して$3$ → $4$ と $-1$。$\\textcolor{#D97706}{2(x+4)(x-1)}$',
+    },
+    {
+      type: 'summary-point',
+      text: '<ruby>共通因数<rt>きょうつういんすう</rt></ruby>を<ruby>先<rt>さき</rt></ruby>にくくり<ruby>出<rt>だ</rt></ruby>す → <ruby>残<rt>のこ</rt></ruby>りをさらに<ruby>因数分解<rt>いんすうぶんかい</rt></ruby>！（2<ruby>段階<rt>だんかい</rt></ruby>が<ruby>大事<rt>だいじ</rt></ruby>）',
+    },
+    {
+      type: 'date',
+      text: '<ruby>置<rt>お</rt></ruby>き<ruby>換<rt>か</rt></ruby>えを<ruby>使<rt>つか</rt></ruby>った<ruby>因数分解<rt>いんすうぶんかい</rt></ruby>',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<ruby>式<rt>しき</rt></ruby>の<ruby>中<rt>なか</rt></ruby>に<ruby>同<rt>おな</rt></ruby>じかたまりが<ruby>見<rt>み</rt></ruby>えたら、それを <strong>M</strong> と<ruby>置<rt>お</rt></ruby>いてシンプルにできるよ！',
+    },
+    {
+      type: 'whiteboard',
+      title: '<ruby>置<rt>お</rt></ruby>き<ruby>換<rt>か</rt></ruby>え: $(x+2)^2 + 5(x+2) + 6$',
+      steps: [
+        {
+          formula: '$(x+2)^2 + 5(x+2) + 6$',
+          annotation: '$(x+2)$ が<ruby>共通<rt>きょうつう</rt></ruby>のかたまり！ $M = x+2$ と<ruby>置<rt>お</rt></ruby>く',
+        },
+        {
+          formula: '$M^2 + 5M + 6$',
+          animateInsert: true,
+          annotation: 'おなじみの<ruby>形<rt>かたち</rt></ruby>になった！',
+        },
+        {
+          formula: '$(M + 2)(M + 3)$',
+          annotation: 'かけて6、<ruby>足<rt>た</rt></ruby>して5 → 2と3',
+        },
+        {
+          formula: '$(x + 4)(x + 5)$',
+          isResult: true,
+          animateInsert: true,
+          annotation: '$M$ を $(x+2)$ に<ruby>戻<rt>もど</rt></ruby>す！ $x+2+2=x+4$、$x+2+3=x+5$',
+        },
+      ],
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'happy',
+      text: 'M に<ruby>置<rt>お</rt></ruby>き<ruby>換<rt>か</rt></ruby>えたら<ruby>普通<rt>ふつう</rt></ruby>の<ruby>因数分解<rt>いんすうぶんかい</rt></ruby>と<ruby>同<rt>おな</rt></ruby>じですね！<ruby>最後<rt>さいご</rt></ruby>に<ruby>戻<rt>もど</rt></ruby>すのを<ruby>忘<rt>わす</rt></ruby>れないようにします。',
+    },
+    {
+      type: 'summary-point',
+      text: '<ruby>同<rt>おな</rt></ruby>じかたまりを $M$ と<ruby>置<rt>お</rt></ruby>く → <ruby>因数分解<rt>いんすうぶんかい</rt></ruby> → $M$ を<ruby>元<rt>もと</rt></ruby>に<ruby>戻<rt>もど</rt></ruby>す！',
+    },
+    {
+      type: 'date',
+      text: 'グループ<ruby>分<rt>わ</rt></ruby>け<ruby>因数分解<rt>いんすうぶんかい</rt></ruby>',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'thinking',
+      text: '4つの<ruby>項<rt>こう</rt></ruby>があるとき、2つずつグループに<ruby>分<rt>わ</rt></ruby>けて<ruby>共通因数<rt>きょうつういんすう</rt></ruby>をくくる<ruby>方法<rt>ほうほう</rt></ruby>もあるよ。',
+    },
+    {
+      type: 'whiteboard',
+      title: 'グループ<ruby>分<rt>わ</rt></ruby>け: $ax - ay + bx - by$',
+      steps: [
+        {
+          formula: '$ax - ay + bx - by$',
+          annotation: '<ruby>前<rt>まえ</rt></ruby>2つと<ruby>後<rt>うし</rt></ruby>ろ2つでグループ<ruby>分<rt>わ</rt></ruby>け',
+        },
+        {
+          formula: '$a(x - y) + b(x - y)$',
+          animateInsert: true,
+          annotation: '<ruby>各<rt>かく</rt></ruby>グループで<ruby>共通因数<rt>きょうつういんすう</rt></ruby>をくくる',
+        },
+        {
+          formula: '$(x - y)(a + b)$',
+          isResult: true,
+          animateInsert: true,
+          annotation: '$(x-y)$ が<ruby>共通因数<rt>きょうつういんすう</rt></ruby>！さらにくくって<ruby>完成<rt>かんせい</rt></ruby>！',
+        },
+      ],
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'surprised',
+      text: '2<ruby>回<rt>かい</rt></ruby>くくり<ruby>出<rt>だ</rt></ruby>すんですね！グループ<ruby>分<rt>わ</rt></ruby>けの<ruby>仕方<rt>しかた</rt></ruby>がポイントですね。',
+    },
+    {
+      type: 'quiz',
+      question: '$y(x-3) + 4(x-3)$ を<ruby>因数分解<rt>いんすうぶんかい</rt></ruby>すると？',
+      options: [
+        { letter: 'A', text: '$(x-3)(y-4)$', correct: false },
+        { letter: 'B', text: '$(x-3)(y+4)$', correct: true },
+        { letter: 'C', text: '$(x+3)(y+4)$', correct: false },
+        { letter: 'D', text: '$4y(x-3)$', correct: false },
+      ],
+      explanation:
+        '$(x-3)$ が<ruby>共通因数<rt>きょうつういんすう</rt></ruby>。くくり<ruby>出<rt>だ</rt></ruby>すと $\\textcolor{#D97706}{(x-3)(y+4)}$ だよ。',
+    },
+    {
+      type: 'summary-point',
+      text: '4<ruby>項<rt>こう</rt></ruby>の<ruby>因数分解<rt>いんすうぶんかい</rt></ruby>: 2つずつグループに<ruby>分<rt>わ</rt></ruby>けて、<ruby>共通因数<rt>きょうつういんすう</rt></ruby>を2<ruby>回<rt>かい</rt></ruby>くくり<ruby>出<rt>だ</rt></ruby>す！',
+    },
+    {
       type: 'end',
       points: [
         '$x^2+bx+c$ → かけて $c$、<ruby>足<rt>た</rt></ruby>して $b$ になる2つの<ruby>数<rt>かず</rt></ruby>を<ruby>探<rt>さが</rt></ruby>す',
         '$a^2+2ab+b^2 = (a+b)^2$、$a^2-2ab+b^2 = (a-b)^2$',
         '$a^2-b^2 = (a+b)(a-b)$',
-        '<ruby>符号<rt>ふごう</rt></ruby>のパターンに<ruby>注目<rt>ちゅうもく</rt></ruby>すれば<ruby>早<rt>はや</rt></ruby>く<ruby>解<rt>と</rt></ruby>ける！',
+        '<ruby>共通因数<rt>きょうつういんすう</rt></ruby>を<ruby>先<rt>さき</rt></ruby>にくくり<ruby>出<rt>だ</rt></ruby>してから<ruby>公式<rt>こうしき</rt></ruby>を<ruby>使<rt>つか</rt></ruby>う（2<ruby>段階<rt>だんかい</rt></ruby>）',
+        '<ruby>置<rt>お</rt></ruby>き<ruby>換<rt>か</rt></ruby>えやグループ<ruby>分<rt>わ</rt></ruby>けで<ruby>複雑<rt>ふくざつ</rt></ruby>な<ruby>式<rt>しき</rt></ruby>も<ruby>因数分解<rt>いんすうぶんかい</rt></ruby>できる！',
       ],
     },
   ],

@@ -45,10 +45,73 @@ export const expansionFormulas: Topic = {
             '例: (x+3)(x−3) = x² − 9',
           ],
         },
+
+
       ],
     },
     videos: [],
-    flashcards: [],
+    flashcards: [
+      {
+        id: 'math-g3-ef-fc1',
+        front: '公式1: (x+a)(x+b) = ?',
+        back: 'x² + (a+b)x + ab\n\n「足して○、かけて△」',
+      },
+      {
+        id: 'math-g3-ef-fc2',
+        front: '公式2: (a+b)² = ?',
+        back: 'a² + 2ab + b²\n\n真ん中は 2ab（2倍を忘れずに！）',
+      },
+      {
+        id: 'math-g3-ef-fc3',
+        front: '公式3: (a−b)² = ?',
+        back: 'a² − 2ab + b²\n\n最後の b² はプラス！',
+      },
+      {
+        id: 'math-g3-ef-fc4',
+        front: '公式4: (a+b)(a−b) = ?',
+        back: 'a² − b²\n\n真ん中の項が消える（和と差の積）',
+      },
+      {
+        id: 'math-g3-ef-fc5',
+        front: '(x+3)(x+5) = ?',
+        back: 'x² + 8x + 15\n\n足して 3+5=8、かけて 3×5=15',
+      },
+      {
+        id: 'math-g3-ef-fc6',
+        front: '(x+7)(x−3) = ?',
+        back: 'x² + 4x − 21\n\n足して 7+(−3)=4、かけて 7×(−3)=−21',
+      },
+      {
+        id: 'math-g3-ef-fc7',
+        front: '(x+4)² = ?',
+        back: 'x² + 8x + 16\n\n2×x×4 = 8x を忘れずに！',
+      },
+      {
+        id: 'math-g3-ef-fc8',
+        front: '(x−5)² = ?',
+        back: 'x² − 10x + 25\n\n最後は (+25)。(−5)² = 25',
+      },
+      {
+        id: 'math-g3-ef-fc9',
+        front: '(x+6)(x−6) = ?',
+        back: 'x² − 36\n\n和と差の積で真ん中が消える',
+      },
+      {
+        id: 'math-g3-ef-fc10',
+        front: '(a+b)² = a² + b² は正しい？',
+        back: '正しくない！\n\n正しくは a² + 2ab + b²\n2ab を忘れるのが一番多いミス！',
+      },
+      {
+        id: 'math-g3-ef-fc11',
+        front: '(a−b)² と (a+b)(a−b) の違いは？',
+        back: '(a−b)² = a² − 2ab + b²\n(a+b)(a−b) = a² − b²\n\n混同注意！形をよく見よう',
+      },
+      {
+        id: 'math-g3-ef-fc12',
+        front: '(x−4)(x+9) = ?',
+        back: 'x² + 5x − 36\n\n足して −4+9=5、かけて −4×9=−36',
+      },
+    ],
     quiz: {
       questions: [
         {
@@ -89,6 +152,32 @@ export const expansionFormulas: Topic = {
           correctIndex: 0,
           explanation:
             '$(x-3)^2 = x^2 - 2 \\times x \\times 3 + 3^2 = x^2 - 6x + 9$。マイナスの2乗は真ん中が−、最後が+だよ。',
+        },
+        {
+          id: 'math-g3-expansion-formulas-q4',
+          question: '$(x + 7)(x - 3)$ を展開すると？',
+          options: [
+            '$x^2 + 10x - 21$',
+            '$x^2 + 4x - 21$',
+            '$x^2 - 4x - 21$',
+            '$x^2 + 4x + 21$',
+          ],
+          correctIndex: 1,
+          explanation:
+            '公式1で $a=7$, $b=-3$。足して $7+(-3)=4$、かけて $7 \\times (-3)=-21$ だから $x^2+4x-21$。',
+        },
+        {
+          id: 'math-g3-expansion-formulas-q5',
+          question: '$(a + b)^2 = a^2 + b^2$ は正しいか？',
+          options: [
+            '正しい',
+            '正しくない。正しくは $a^2 + ab + b^2$',
+            '正しくない。正しくは $a^2 + 2ab + b^2$',
+            '正しくない。正しくは $a^2 - b^2$',
+          ],
+          correctIndex: 2,
+          explanation:
+            '$(a+b)^2 = a^2 + 2ab + b^2$ が正しい。$2ab$ の項を忘れるのが最も多い間違い！',
         },
       ],
     },
@@ -131,6 +220,8 @@ export const expansionFormulas: Topic = {
           ],
           answer: '$9x^2 - 4$',
         },
+
+
       ],
     },
     chatId: 'math-g3-expansion-formulas',
