@@ -221,11 +221,170 @@ export const quadEqAppsChat: HistoryChat = {
       text: '<ruby>解<rt>かい</rt></ruby>の<ruby>吟味<rt>ぎんみ</rt></ruby>を<ruby>忘<rt>わす</rt></ruby>れずに！<ruby>長<rt>なが</rt></ruby>さ → <ruby>正<rt>せい</rt></ruby>のみ、<ruby>整数<rt>せいすう</rt></ruby> → <ruby>整数<rt>せいすう</rt></ruby>のみ',
     },
     {
+      type: 'date',
+      text: '<ruby>容積<rt>ようせき</rt></ruby>の<ruby>問題<rt>もんだい</rt></ruby>に<ruby>挑戦<rt>ちょうせん</rt></ruby>',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<ruby>次<rt>つぎ</rt></ruby>は<ruby>厚紙<rt>あつがみ</rt></ruby>から<ruby>箱<rt>はこ</rt></ruby>を<ruby>作<rt>つく</rt></ruby>る<ruby>問題<rt>もんだい</rt></ruby>！「1<ruby>辺<rt>ぺん</rt></ruby>12cmの<ruby>正方形<rt>せいほうけい</rt></ruby>の<ruby>厚紙<rt>あつがみ</rt></ruby>の<ruby>四隅<rt>よすみ</rt></ruby>から1<ruby>辺<rt>ぺん</rt></ruby> $x$ cmの<ruby>正方形<rt>せいほうけい</rt></ruby>を<ruby>切<rt>き</rt></ruby>り<ruby>取<rt>と</rt></ruby>って<ruby>箱<rt>はこ</rt></ruby>を<ruby>作<rt>つく</rt></ruby>る」',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: '<ruby>四隅<rt>よすみ</rt></ruby>を<ruby>切<rt>き</rt></ruby>って<ruby>折<rt>お</rt></ruby>り<ruby>曲<rt>ま</rt></ruby>げるんですよね？<ruby>底面<rt>ていめん</rt></ruby>の1<ruby>辺<rt>ぺん</rt></ruby>はどうなるんだろう…',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: '<ruby>両端<rt>りょうたん</rt></ruby>から $x$ ずつ<ruby>切<rt>き</rt></ruby>るから、<ruby>底面<rt>ていめん</rt></ruby>の1<ruby>辺<rt>ぺん</rt></ruby>は $(12 - 2x)$ cm、<ruby>高<rt>たか</rt></ruby>さは $x$ cm だよ！',
+    },
+    {
+      type: 'whiteboard',
+      title: '<ruby>厚紙<rt>あつがみ</rt></ruby>から<ruby>箱<rt>はこ</rt></ruby>を<ruby>作<rt>つく</rt></ruby>る<ruby>問題<rt>もんだい</rt></ruby>',
+      steps: [
+        {
+          formula: '<ruby>底面<rt>ていめん</rt></ruby>の1<ruby>辺<rt>ぺん</rt></ruby> $= (12 - 2x)$ cm',
+          annotation: '<ruby>両端<rt>りょうたん</rt></ruby>から $x$ ずつ<ruby>切<rt>き</rt></ruby>る',
+        },
+        {
+          formula: '<ruby>高<rt>たか</rt></ruby>さ $= x$ cm',
+          annotation: '<ruby>切<rt>き</rt></ruby>り<ruby>取<rt>と</rt></ruby>った<ruby>部分<rt>ぶぶん</rt></ruby>を<ruby>折<rt>お</rt></ruby>り<ruby>上<rt>あ</rt></ruby>げる',
+        },
+        {
+          formula: '<ruby>容積<rt>ようせき</rt></ruby> $= x(12 - 2x)^2$',
+          animateInsert: true,
+          annotation: '<ruby>高<rt>たか</rt></ruby>さ $\\times$ <ruby>底面積<rt>ていめんせき</rt></ruby>',
+        },
+        {
+          formula: '$x(12 - 2x)^2 = 128$ のとき',
+          animateInsert: true,
+          annotation: '<ruby>容積<rt>ようせき</rt></ruby>が128cm³になる $x$ は？',
+        },
+        {
+          formula: '$x = 2$（$2 \\times 8^2 = 128$）',
+          isResult: true,
+          annotation: '$0 < x < 6$ を<ruby>満<rt>み</rt></ruby>たす',
+        },
+      ],
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'surprised',
+      text: '$x$ の<ruby>範囲<rt>はんい</rt></ruby>にも<ruby>注意<rt>ちゅうい</rt></ruby>が<ruby>必要<rt>ひつよう</rt></ruby>なんですね！$x < 6$ じゃないと<ruby>底面<rt>ていめん</rt></ruby>がなくなっちゃう。',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'encouraging',
+      text: 'そのとおり！<ruby>容積<rt>ようせき</rt></ruby>の<ruby>問題<rt>もんだい</rt></ruby>では $0 < x < \\dfrac{\\text{<ruby>短<rt>みじか</rt></ruby>い<ruby>辺<rt>へん</rt></ruby>}}{2}$ が<ruby>条件<rt>じょうけん</rt></ruby>だよ。',
+    },
+    {
+      type: 'summary-point',
+      text: '<ruby>容積<rt>ようせき</rt></ruby>の<ruby>問題<rt>もんだい</rt></ruby>：<ruby>底面<rt>ていめん</rt></ruby>の1<ruby>辺<rt>ぺん</rt></ruby> $= (a - 2x)$、<ruby>高<rt>たか</rt></ruby>さ $= x$。$x$ の<ruby>範囲<rt>はんい</rt></ruby>に<ruby>注意<rt>ちゅうい</rt></ruby>！',
+    },
+    {
+      type: 'date',
+      text: '<ruby>動<rt>うご</rt></ruby>く<ruby>点<rt>てん</rt></ruby>の<ruby>問題<rt>もんだい</rt></ruby>に<ruby>挑戦<rt>ちょうせん</rt></ruby>',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<ruby>最後<rt>さいご</rt></ruby>は<ruby>動<rt>うご</rt></ruby>く<ruby>点<rt>てん</rt></ruby>の<ruby>問題<rt>もんだい</rt></ruby>！「<ruby>正方形<rt>せいほうけい</rt></ruby>ABCD（1<ruby>辺<rt>ぺん</rt></ruby>8cm）で、PがA→B、QがB→Cに<ruby>毎秒<rt>まいびょう</rt></ruby>1cmで<ruby>動<rt>うご</rt></ruby>く」',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'confused',
+      text: '<ruby>動<rt>うご</rt></ruby>く<ruby>点<rt>てん</rt></ruby>…<ruby>難<rt>むずか</rt></ruby>しそう。$x$ <ruby>秒後<rt>びょうご</rt></ruby>のBPとBQはどうなりますか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: 'AP $= x$ だから BP $= (8 - x)$、BQ $= x$ だよ。△BPQの<ruby>面積<rt>めんせき</rt></ruby>を<ruby>考<rt>かんが</rt></ruby>えよう！',
+    },
+    {
+      type: 'whiteboard',
+      title: '<ruby>動<rt>うご</rt></ruby>く<ruby>点<rt>てん</rt></ruby>の<ruby>問題<rt>もんだい</rt></ruby>',
+      steps: [
+        {
+          formula: 'BP $= (8 - x)$ cm、BQ $= x$ cm',
+          annotation: '$x$ <ruby>秒後<rt>びょうご</rt></ruby>の<ruby>各<rt>かく</rt></ruby><ruby>点<rt>てん</rt></ruby>の<ruby>位置<rt>いち</rt></ruby>',
+        },
+        {
+          formula: '△BPQ $= \\dfrac{1}{2}(8-x) \\cdot x = \\dfrac{x(8-x)}{2}$',
+          animateInsert: true,
+          annotation: '<ruby>底辺<rt>ていへん</rt></ruby> $\\times$ <ruby>高<rt>たか</rt></ruby>さ $\\div 2$',
+        },
+        {
+          formula: '$\\dfrac{x(8-x)}{2} = 6$ を<ruby>解<rt>と</rt></ruby>く',
+          animateInsert: true,
+          annotation: '<ruby>面積<rt>めんせき</rt></ruby>が6cm²になるとき',
+        },
+        {
+          formula: '$x^2 - 8x + 12 = 0$',
+          animateInsert: true,
+          annotation: '<ruby>整理<rt>せいり</rt></ruby>すると',
+        },
+        {
+          formula: '$(x - 2)(x - 6) = 0$ → $x = 2, 6$',
+          isResult: true,
+          annotation: '<ruby>両方<rt>りょうほう</rt></ruby>とも $0 < x < 8$ を<ruby>満<rt>み</rt></ruby>たす！',
+        },
+      ],
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'surprised',
+      text: '<ruby>答<rt>こた</rt></ruby>えが2つ！2<ruby>秒後<rt>びょうご</rt></ruby>と6<ruby>秒後<rt>びょうご</rt></ruby>の<ruby>両方<rt>りょうほう</rt></ruby>で<ruby>面積<rt>めんせき</rt></ruby>が6cm²になるんですね！',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'encouraging',
+      text: 'そう！<ruby>動点<rt>どうてん</rt></ruby>の<ruby>問題<rt>もんだい</rt></ruby>は<ruby>解<rt>かい</rt></ruby>が2つとも<ruby>条件<rt>じょうけん</rt></ruby>に<ruby>合<rt>あ</rt></ruby>うことが<ruby>多<rt>おお</rt></ruby>いよ。<ruby>必<rt>かなら</rt></ruby>ず<ruby>両方<rt>りょうほう</rt></ruby><ruby>確認<rt>かくにん</rt></ruby>しよう！',
+    },
+    {
+      type: 'quiz',
+      question: '<ruby>幅<rt>はば</rt></ruby>20cmの<ruby>鉄板<rt>てっぱん</rt></ruby>の<ruby>両端<rt>りょうたん</rt></ruby>を $x$ cm<ruby>折<rt>お</rt></ruby>り<ruby>曲<rt>ま</rt></ruby>げて<ruby>断面積<rt>だんめんせき</rt></ruby>が48cm²の「とい」を<ruby>作<rt>つく</rt></ruby>る。$x$ の<ruby>値<rt>あたい</rt></ruby>は？',
+      options: [
+        { letter: 'A', text: '$3$ cmまたは$7$ cm', correct: false },
+        { letter: 'B', text: '$4$ cmまたは$6$ cm', correct: true },
+        { letter: 'C', text: '$2$ cmまたは$8$ cm', correct: false },
+        { letter: 'D', text: '$5$ cmのみ', correct: false },
+      ],
+      explanation:
+        '$x(20-2x) = 48 \\rightarrow x^2 - 10x + 24 = 0 \\rightarrow (x-4)(x-6) = 0$。$x = 4$ cm または $x = 6$ cm。',
+    },
+    {
+      type: 'summary-point',
+      text: '<ruby>動<rt>うご</rt></ruby>く<ruby>点<rt>てん</rt></ruby>の<ruby>問題<rt>もんだい</rt></ruby>は<ruby>解<rt>かい</rt></ruby>が2つとも<ruby>答<rt>こた</rt></ruby>えになることがある！<ruby>範囲<rt>はんい</rt></ruby>を<ruby>確認<rt>かくにん</rt></ruby>しよう',
+    },
+    {
       type: 'end',
       points: [
         '<ruby>文章題<rt>ぶんしょうだい</rt></ruby>は「$x$ で<ruby>置<rt>お</rt></ruby>く → <ruby>式<rt>しき</rt></ruby>を<ruby>立<rt>た</rt></ruby>てる → <ruby>解<rt>と</rt></ruby>いて<ruby>吟味<rt>ぎんみ</rt></ruby>」',
         '<ruby>連続<rt>れんぞく</rt></ruby>する<ruby>整数<rt>せいすう</rt></ruby> → $n, n+1$ と<ruby>置<rt>お</rt></ruby>く',
         '<ruby>図形<rt>ずけい</rt></ruby>の<ruby>問題<rt>もんだい</rt></ruby>は<ruby>面積<rt>めんせき</rt></ruby>の<ruby>公式<rt>こうしき</rt></ruby>で<ruby>式<rt>しき</rt></ruby>を<ruby>立<rt>た</rt></ruby>てる',
+        '<ruby>容積<rt>ようせき</rt></ruby>の<ruby>問題<rt>もんだい</rt></ruby>：<ruby>底面<rt>ていめん</rt></ruby> $(a-2x)$、<ruby>高<rt>たか</rt></ruby>さ $x$',
+        '<ruby>動<rt>うご</rt></ruby>く<ruby>点<rt>てん</rt></ruby>は<ruby>解<rt>かい</rt></ruby>が2つとも<ruby>答<rt>こた</rt></ruby>えの<ruby>場合<rt>ばあい</rt></ruby>あり',
         '<ruby>解<rt>かい</rt></ruby>の<ruby>吟味<rt>ぎんみ</rt></ruby>：<ruby>問題<rt>もんだい</rt></ruby>の<ruby>条件<rt>じょうけん</rt></ruby>に<ruby>合<rt>あ</rt></ruby>うか<ruby>必<rt>かなら</rt></ruby>ず<ruby>確認<rt>かくにん</rt></ruby>！',
       ],
     },

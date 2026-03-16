@@ -203,12 +203,188 @@ export const quadEqFactoringChat: HistoryChat = {
       text: '<ruby>手順<rt>てじゅん</rt></ruby>：<ruby>右辺<rt>うへん</rt></ruby>を0にする → <ruby>因数分解<rt>いんすうぶんかい</rt></ruby> → <ruby>各因数<rt>かくいんすう</rt></ruby> $= 0$ で<ruby>解<rt>と</rt></ruby>く',
     },
     {
+      type: 'date',
+      text: '<ruby>完全平方式<rt>かんぜんへいほうしき</rt></ruby>と<ruby>重解<rt>じゅうかい</rt></ruby>',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<ruby>次<rt>つぎ</rt></ruby>は<ruby>特別<rt>とくべつ</rt></ruby>なパターンだよ。$x^2 - 2x + 1 = 0$ を<ruby>解<rt>と</rt></ruby>いてみて！',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: 'えっと…かけて1、たして$-2$になる<ruby>数<rt>すう</rt></ruby>は…$-1$ と $-1$ ！',
+    },
+    {
+      type: 'whiteboard',
+      title: '$x^2 - 2x + 1 = 0$ を<ruby>解<rt>と</rt></ruby>く',
+      steps: [
+        {
+          formula: '$x^2 - 2x + 1 = 0$',
+          annotation: '$x^2 - 2 \\times 1 \\times x + 1^2$ の<ruby>形<rt>かたち</rt></ruby>！',
+        },
+        {
+          formula: '$(x - 1)^2 = 0$',
+          animateInsert: true,
+          annotation: '<ruby>完全平方式<rt>かんぜんへいほうしき</rt></ruby>で<ruby>因数分解<rt>いんすうぶんかい</rt></ruby>',
+        },
+        {
+          formula: '$x - 1 = 0 \\rightarrow x = 1$',
+          isResult: true,
+          annotation: '<ruby>解<rt>かい</rt></ruby>が1つだけ → これを$\\textcolor{#D97706}{\\text{重解}}$という',
+        },
+      ],
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'surprised',
+      text: '<ruby>解<rt>かい</rt></ruby>が1つだけ!? <ruby>二次方程式<rt>にじほうていしき</rt></ruby>なのに？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: '「$x = 1$ と $x = 1$」で<ruby>同<rt>おな</rt></ruby>じ<ruby>値<rt>あたい</rt></ruby>が2つ<ruby>重<rt>かさ</rt></ruby>なっているんだ。これを<ruby>重解<rt>じゅうかい</rt></ruby>というよ！',
+    },
+    {
+      type: 'summary-point',
+      text: '$(x - a)^2 = 0$ → $x = a$（<ruby>重解<rt>じゅうかい</rt></ruby>）。<ruby>解<rt>かい</rt></ruby>が1つだけになるパターン！',
+    },
+    {
+      type: 'date',
+      text: '$x^2 - a^2 = 0$ の<ruby>差<rt>さ</rt></ruby>の<ruby>平方<rt>へいほう</rt></ruby>パターン',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '$x^2 - 9 = 0$ を<ruby>解<rt>と</rt></ruby>いてごらん。<ruby>定数<rt>ていすう</rt></ruby><ruby>項<rt>こう</rt></ruby>がマイナスだね。',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '$x^2 - 3^2$ だから…<ruby>和<rt>わ</rt></ruby>と<ruby>差<rt>さ</rt></ruby>の<ruby>積<rt>せき</rt></ruby>ですね！$(x + 3)(x - 3) = 0$ ！',
+    },
+    {
+      type: 'whiteboard',
+      title: '$x^2 - 9 = 0$ を<ruby>解<rt>と</rt></ruby>く',
+      steps: [
+        {
+          formula: '$x^2 - 9 = 0$',
+          annotation: '$x^2 - 3^2$ の<ruby>形<rt>かたち</rt></ruby>',
+        },
+        {
+          formula: '$(x + 3)(x - 3) = 0$',
+          animateInsert: true,
+          annotation: '$a^2 - b^2 = (a + b)(a - b)$ を<ruby>使<rt>つか</rt></ruby>う',
+        },
+        {
+          formula: '$x = -3$ または $x = 3$',
+          isResult: true,
+          annotation: '<ruby>答<rt>こた</rt></ruby>え：$x = \\pm 3$',
+        },
+      ],
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'encouraging',
+      text: '<ruby>完璧<rt>かんぺき</rt></ruby>！ $x^2 = 9$ と<ruby>変形<rt>へんけい</rt></ruby>して $x = \\pm 3$ でもOKだけど、<ruby>因数分解<rt>いんすうぶんかい</rt></ruby>でも<ruby>解<rt>と</rt></ruby>けるのがポイントだよ。',
+    },
+    {
+      type: 'quiz',
+      question: '$x^2 - 25 = 0$ の<ruby>解<rt>かい</rt></ruby>は？',
+      options: [
+        { letter: 'A', text: '$x = 5$（<ruby>重解<rt>じゅうかい</rt></ruby>）', correct: false },
+        { letter: 'B', text: '$x = \\pm 5$', correct: true },
+        { letter: 'C', text: '$x = \\pm 25$', correct: false },
+        { letter: 'D', text: '$x = 25$', correct: false },
+      ],
+      explanation:
+        '$x^2 - 25 = (x + 5)(x - 5) = 0$。$x = 5$ または $x = -5$ だよ。',
+    },
+    {
+      type: 'date',
+      text: '<ruby>係数<rt>けいすう</rt></ruby>をそろえる<ruby>テクニック<rt>てくにっく</rt></ruby>',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<ruby>最後<rt>さいご</rt></ruby>に、$-4x^2 + 8x - 4 = 0$ のように $x^2$ の<ruby>係数<rt>けいすう</rt></ruby>が1じゃないパターンだよ。',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'confused',
+      text: 'うわ、$x^2$ に $-4$ がついてる…<ruby>因数分解<rt>いんすうぶんかい</rt></ruby>できるのかな？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'encouraging',
+      text: 'まず<ruby>全体<rt>ぜんたい</rt></ruby>を $-4$ で<ruby>割<rt>わ</rt></ruby>ってみよう！そうすれば<ruby>見慣<rt>みな</rt></ruby>れた<ruby>形<rt>かたち</rt></ruby>になるよ。',
+    },
+    {
+      type: 'whiteboard',
+      title: '$-4x^2 + 8x - 4 = 0$ を<ruby>解<rt>と</rt></ruby>く',
+      steps: [
+        {
+          formula: '$-4x^2 + 8x - 4 = 0$',
+          annotation: '<ruby>全体<rt>ぜんたい</rt></ruby>を $-4$ で<ruby>割<rt>わ</rt></ruby>る',
+        },
+        {
+          formula: '$x^2 - 2x + 1 = 0$',
+          animateInsert: true,
+          annotation: '<ruby>見慣<rt>みな</rt></ruby>れた<ruby>形<rt>かたち</rt></ruby>になった！',
+        },
+        {
+          formula: '$(x - 1)^2 = 0$',
+          animateInsert: true,
+          annotation: '<ruby>完全平方式<rt>かんぜんへいほうしき</rt></ruby>で<ruby>因数分解<rt>いんすうぶんかい</rt></ruby>',
+        },
+        {
+          formula: '$x = 1$（<ruby>重解<rt>じゅうかい</rt></ruby>）',
+          isResult: true,
+          annotation: 'まず<ruby>係数<rt>けいすう</rt></ruby>をそろえるのがコツ！',
+        },
+      ],
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'happy',
+      text: 'なるほど！<ruby>割<rt>わ</rt></ruby>って<ruby>簡単<rt>かんたん</rt></ruby>にしてから<ruby>因数分解<rt>いんすうぶんかい</rt></ruby>すればいいんですね！',
+    },
+    {
+      type: 'summary-point',
+      text: '$x^2$ の<ruby>係数<rt>けいすう</rt></ruby>が1でないときは、<ruby>全体<rt>ぜんたい</rt></ruby>を<ruby>割<rt>わ</rt></ruby>って<ruby>係数<rt>けいすう</rt></ruby>を1にそろえてから<ruby>因数分解<rt>いんすうぶんかい</rt></ruby>！',
+    },
+    {
       type: 'end',
       points: [
         '$A \\times B = 0 \\rightarrow A = 0$ または $B = 0$ が<ruby>大原則<rt>だいげんそく</rt></ruby>',
         'まず<ruby>右辺<rt>うへん</rt></ruby>を0にして<ruby>左辺<rt>さへん</rt></ruby>を<ruby>因数分解<rt>いんすうぶんかい</rt></ruby>',
         '$x(x - a) = 0$ のとき、$x = 0$ も<ruby>解<rt>かい</rt></ruby>になる！',
-        '<ruby>因数分解<rt>いんすうぶんかい</rt></ruby>ができれば<ruby>二次方程式<rt>にじほうていしき</rt></ruby>は<ruby>怖<rt>こわ</rt></ruby>くない',
+        '$(x - a)^2 = 0$ → $x = a$（<ruby>重解<rt>じゅうかい</rt></ruby>）',
+        '$x^2 - a^2 = 0$ → $(x+a)(x-a) = 0$ → $x = \\pm a$',
+        '<ruby>係数<rt>けいすう</rt></ruby>が1でないときは<ruby>割<rt>わ</rt></ruby>って<ruby>整理<rt>せいり</rt></ruby>してから<ruby>因数分解<rt>いんすうぶんかい</rt></ruby>',
       ],
     },
   ],

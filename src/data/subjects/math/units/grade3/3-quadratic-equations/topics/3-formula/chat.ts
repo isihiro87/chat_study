@@ -237,6 +237,107 @@ export const quadFormulaChat: HistoryChat = {
       text: '<ruby>解<rt>かい</rt></ruby>の<ruby>公式<rt>こうしき</rt></ruby>は<ruby>万能<rt>ばんのう</rt></ruby>！<ruby>因数分解<rt>いんすうぶんかい</rt></ruby>できないときの<ruby>最終兵器<rt>さいしゅうへいき</rt></ruby>',
     },
     {
+      type: 'date',
+      text: '<ruby>解<rt>かい</rt></ruby>の<ruby>公式<rt>こうしき</rt></ruby>の<ruby>注意点<rt>ちゅういてん</rt></ruby>と<ruby>導出<rt>どうしゅつ</rt></ruby>',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<ruby>解<rt>かい</rt></ruby>の<ruby>公式<rt>こうしき</rt></ruby>を<ruby>使<rt>つか</rt></ruby>うとき、<ruby>一番<rt>いちばん</rt></ruby><ruby>多<rt>おお</rt></ruby>いミスは<ruby>符号<rt>ふごう</rt></ruby>の<ruby>間違<rt>まちが</rt></ruby>いだよ。$b$ が<ruby>負<rt>ふ</rt></ruby>のときの $-b$ が<ruby>正<rt>せい</rt></ruby>になることと、$c$ が<ruby>負<rt>ふ</rt></ruby>のときの $-4ac$ が<ruby>正<rt>せい</rt></ruby>になることに<ruby>注意<rt>ちゅうい</rt></ruby>！',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: '「マイナスのマイナスはプラス」ですね。あと $\\sqrt{}$ の<ruby>中<rt>なか</rt></ruby>が<ruby>残<rt>のこ</rt></ruby>るときはどうするんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: 'いい<ruby>質問<rt>しつもん</rt></ruby>！ $x^2 - 5x - 5 = 0$ をやってみよう。',
+    },
+    {
+      type: 'whiteboard',
+      title: '$\\sqrt{}$ が<ruby>残<rt>のこ</rt></ruby>る<ruby>例<rt>れい</rt></ruby>：$x^2 - 5x - 5 = 0$',
+      steps: [
+        {
+          formula: '$x = \\frac{5 \\pm \\sqrt{25 + 20}}{2}$',
+          annotation: '$a=1, b=-5, c=-5$ を<ruby>代入<rt>だいにゅう</rt></ruby>。$-b = 5$ に<ruby>注意<rt>ちゅうい</rt></ruby>！',
+        },
+        {
+          formula: '$x = \\frac{5 \\pm \\sqrt{45}}{2}$',
+          animateInsert: true,
+          annotation: '$\\sqrt{45}$ をさらに<ruby>簡単<rt>かんたん</rt></ruby>にできる？',
+        },
+        {
+          formula: '$x = \\frac{5 \\pm 3\\sqrt{5}}{2}$',
+          animateInsert: true,
+          isResult: true,
+          annotation: '$\\sqrt{45} = \\sqrt{9 \\times 5} = 3\\sqrt{5}$',
+        },
+      ],
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'happy',
+      text: '$\\sqrt{}$ の<ruby>中<rt>なか</rt></ruby>を<ruby>素因数分解<rt>そいんすうぶんかい</rt></ruby>して<ruby>外<rt>そと</rt></ruby>に<ruby>出<rt>だ</rt></ruby>すんですね！<ruby>約分<rt>やくぶん</rt></ruby>も<ruby>忘<rt>わす</rt></ruby>れずにチェック！',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'encouraging',
+      text: 'その<ruby>通<rt>とお</rt></ruby>り！<ruby>最後<rt>さいご</rt></ruby>に、<ruby>解<rt>かい</rt></ruby>の<ruby>公式<rt>こうしき</rt></ruby>がどうやって<ruby>生<rt>う</rt></ruby>まれたかイメージしてみよう。$ax^2 + bx + c = 0$ を<ruby>平方完成<rt>へいほうかんせい</rt></ruby>していくと…<ruby>自然<rt>しぜん</rt></ruby>にあの<ruby>公式<rt>こうしき</rt></ruby>になるんだ！',
+    },
+    {
+      type: 'whiteboard',
+      title: '<ruby>解<rt>かい</rt></ruby>の<ruby>公式<rt>こうしき</rt></ruby>の<ruby>導出<rt>どうしゅつ</rt></ruby>イメージ',
+      steps: [
+        {
+          formula: '$ax^2 + bx + c = 0$',
+          annotation: '<ruby>両辺<rt>りょうへん</rt></ruby>を $a$ で<ruby>割<rt>わ</rt></ruby>る',
+        },
+        {
+          formula: '$x^2 + \\frac{b}{a}x = -\\frac{c}{a}$',
+          animateInsert: true,
+          annotation: '<ruby>定数項<rt>ていすうこう</rt></ruby>を<ruby>移項<rt>いこう</rt></ruby>',
+        },
+        {
+          formula: '$\\left(x + \\frac{b}{2a}\\right)^2 = \\frac{b^2 - 4ac}{4a^2}$',
+          animateInsert: true,
+          annotation: '<ruby>左辺<rt>さへん</rt></ruby>を<ruby>平方完成<rt>へいほうかんせい</rt></ruby>',
+        },
+        {
+          formula: '$x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$',
+          isResult: true,
+          annotation: '<ruby>平方根<rt>へいほうこん</rt></ruby>をとって<ruby>移項<rt>いこう</rt></ruby>すれば<ruby>完成<rt>かんせい</rt></ruby>！',
+        },
+      ],
+    },
+    {
+      type: 'quiz',
+      question: '$x^2 - 4x + 1 = 0$ を<ruby>解<rt>かい</rt></ruby>の<ruby>公式<rt>こうしき</rt></ruby>で<ruby>解<rt>と</rt></ruby>くと？',
+      options: [
+        { letter: 'A', text: '$x = 2 \\pm \\sqrt{3}$', correct: true },
+        { letter: 'B', text: '$x = -2 \\pm \\sqrt{3}$', correct: false },
+        { letter: 'C', text: '$x = 2 \\pm \\sqrt{5}$', correct: false },
+        { letter: 'D', text: '$x = 4 \\pm \\sqrt{3}$', correct: false },
+      ],
+      explanation:
+        '$x = \\frac{4 \\pm \\sqrt{16-4}}{2} = \\frac{4 \\pm 2\\sqrt{3}}{2} = 2 \\pm \\sqrt{3}$ だよ。$\\sqrt{12} = 2\\sqrt{3}$ の<ruby>約分<rt>やくぶん</rt></ruby>を<ruby>忘<rt>わす</rt></ruby>れずに！',
+    },
+    {
+      type: 'summary-point',
+      text: '<ruby>符号<rt>ふごう</rt></ruby>ミスに<ruby>注意<rt>ちゅうい</rt></ruby>！$\\sqrt{}$ は<ruby>素因数分解<rt>そいんすうぶんかい</rt></ruby>で<ruby>簡単<rt>かんたん</rt></ruby>に、<ruby>約分<rt>やくぶん</rt></ruby>も<ruby>忘<rt>わす</rt></ruby>れずに',
+    },
+    {
       type: 'end',
       points: [
         '<ruby>平方完成<rt>へいほうかんせい</rt></ruby>：$x^2 + bx \\rightarrow (x + \\frac{b}{2})^2 - (\\frac{b}{2})^2$',

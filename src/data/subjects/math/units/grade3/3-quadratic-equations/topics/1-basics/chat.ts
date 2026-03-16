@@ -183,11 +183,124 @@ export const quadEqBasicsChat: HistoryChat = {
       text: '$x^2 = k$ のとき：$k > 0$ → <ruby>解<rt>かい</rt></ruby>2つ（$x = \\pm\\sqrt{k}$）、$k = 0$ → <ruby>解<rt>かい</rt></ruby>1つ、$k < 0$ → <ruby>解<rt>かい</rt></ruby>なし',
     },
     {
+      type: 'date',
+      text: 'ax² = b <ruby>型<rt>がた</rt></ruby>のバリエーション',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<ruby>次<rt>つぎ</rt></ruby>は $ax^2 = b$ <ruby>型<rt>がた</rt></ruby>のいろんなパターンを<ruby>見<rt>み</rt></ruby>てみよう。$2x^2 - 54 = 0$ を<ruby>解<rt>と</rt></ruby>いてみて！',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: 'えーっと、$2x^2 = 54$ にして、$x^2 = 27$ で… $x = \\pm\\sqrt{27}$ ですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'encouraging',
+      text: 'そう！でも $\\sqrt{27}$ はもっと<ruby>簡単<rt>かんたん</rt></ruby>にできるよ。$\\sqrt{27} = \\sqrt{9 \\times 3} = 3\\sqrt{3}$ だよね！',
+    },
+    {
+      type: 'whiteboard',
+      title: '$2x^2 - 54 = 0$ を<ruby>解<rt>と</rt></ruby>く',
+      steps: [
+        {
+          formula: '$2x^2 = 54$',
+          annotation: '<ruby>移項<rt>いこう</rt></ruby>して<ruby>右辺<rt>うへん</rt></ruby>にまとめる',
+        },
+        {
+          formula: '$x^2 = 27$',
+          animateInsert: true,
+          annotation: '<ruby>両辺<rt>りょうへん</rt></ruby>を2で<ruby>割<rt>わ</rt></ruby>る',
+        },
+        {
+          formula: '$x = \\pm\\sqrt{27} = \\pm 3\\sqrt{3}$',
+          animateInsert: true,
+          isResult: true,
+          annotation: '$\\sqrt{27} = 3\\sqrt{3}$ に<ruby>簡単<rt>かんたん</rt></ruby>にする！',
+        },
+      ],
+    },
+    {
+      type: 'quiz',
+      question: '$4x^2 = 1$ の<ruby>解<rt>かい</rt></ruby>は？',
+      options: [
+        { letter: 'A', text: '$x = \\pm 4$', correct: false },
+        { letter: 'B', text: '$x = \\pm 2$', correct: false },
+        { letter: 'C', text: '$x = \\pm \\frac{1}{2}$', correct: true },
+        { letter: 'D', text: '$x = \\pm \\frac{1}{4}$', correct: false },
+      ],
+      explanation:
+        '$x^2 = \\frac{1}{4}$ なので $x = \\pm\\frac{1}{2}$。<ruby>分数<rt>ぶんすう</rt></ruby>になるパターンも<ruby>覚<rt>おぼ</rt></ruby>えておこう！',
+    },
+    {
+      type: 'summary-point',
+      text: '$ax^2 = b$ <ruby>型<rt>がた</rt></ruby>は $x^2 = \\frac{b}{a}$ にしてから $x = \\pm\\sqrt{\\frac{b}{a}}$。√は<ruby>簡単<rt>かんたん</rt></ruby>にしよう',
+    },
+    {
+      type: 'date',
+      text: '(x+m)² = n <ruby>型<rt>がた</rt></ruby>の<ruby>解法<rt>かいほう</rt></ruby>',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<ruby>最後<rt>さいご</rt></ruby>は $(x + m)^2 = n$ <ruby>型<rt>がた</rt></ruby>だよ。$(x - 3)^2 = 5$ を<ruby>解<rt>と</rt></ruby>いてみよう。$x - 3$ を$\\textcolor{#D97706}{\\text{ひとまとまり}}$と<ruby>見<rt>み</rt></ruby>るのがコツ！',
+    },
+    {
+      type: 'whiteboard',
+      title: '$(x - 3)^2 = 5$ を<ruby>解<rt>と</rt></ruby>く',
+      steps: [
+        {
+          formula: '$(x - 3)^2 = 5$',
+          annotation: '$x - 3$ をひとまとまりと<ruby>見<rt>み</rt></ruby>る',
+        },
+        {
+          formula: '$x - 3 = \\pm\\sqrt{5}$',
+          animateInsert: true,
+          annotation: '<ruby>平方根<rt>へいほうこん</rt></ruby>をとる（$\\pm$ を<ruby>忘<rt>わす</rt></ruby>れずに！）',
+        },
+        {
+          formula: '$x = 3 \\pm \\sqrt{5}$',
+          animateInsert: true,
+          isResult: true,
+          annotation: '<ruby>両辺<rt>りょうへん</rt></ruby>に3を<ruby>足<rt>た</rt></ruby>す',
+        },
+      ],
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'happy',
+      text: 'なるほど！カッコの<ruby>中<rt>なか</rt></ruby>をまとめて<ruby>見<rt>み</rt></ruby>れば、$x^2 = k$ と<ruby>同<rt>おな</rt></ruby>じやり<ruby>方<rt>かた</rt></ruby>ですね！',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: 'その<ruby>通<rt>とお</rt></ruby>り！$(x + 5)^2 = 25$ みたいに<ruby>整数<rt>せいすう</rt></ruby>になるパターンもあるよ。$x + 5 = \\pm 5$ で $x = 0$ か $x = -10$ だね。',
+    },
+    {
+      type: 'summary-point',
+      text: '$(x+m)^2 = n$ → $x+m = \\pm\\sqrt{n}$ → $x = -m \\pm \\sqrt{n}$。カッコをひとまとまりと<ruby>見<rt>み</rt></ruby>よう',
+    },
+    {
       type: 'end',
       points: [
         '<ruby>二次方程式<rt>にじほうていしき</rt></ruby> = $ax^2 + bx + c = 0$（$a \\neq 0$）の<ruby>形<rt>かたち</rt></ruby>',
         '<ruby>解<rt>かい</rt></ruby>は<ruby>最大<rt>さいだい</rt></ruby>2つ（<ruby>正<rt>せい</rt></ruby>と<ruby>負<rt>ふ</rt></ruby>）',
-        '$x^2 = k \\rightarrow x = \\pm\\sqrt{k}$ で<ruby>解<rt>と</rt></ruby>ける',
+        '$ax^2 = b \\rightarrow x^2 = \\frac{b}{a} \\rightarrow x = \\pm\\sqrt{\\frac{b}{a}}$',
+        '$(x+m)^2 = n \\rightarrow x = -m \\pm \\sqrt{n}$',
         '<ruby>符号<rt>ふごう</rt></ruby>（$\\pm$）を<ruby>忘<rt>わす</rt></ruby>れないことが<ruby>大切<rt>たいせつ</rt></ruby>！',
       ],
     },
