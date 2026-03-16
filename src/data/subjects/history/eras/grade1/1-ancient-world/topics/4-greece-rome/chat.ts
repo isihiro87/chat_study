@@ -132,8 +132,29 @@ export const greeceRomeChat: HistoryChat = {
       text: '古代の人たちの技術ってすごいですね！',
     },
     {
+      type: 'message',
+      side: 'left',
+      characterId: 'citizen',
+      expression: 'explaining',
+      text: '「すべての道はローマに通ず」と言われるほど、<ruby>帝国<rp>(</rp><rt>ていこく</rt><rp>)</rp></ruby>中に道路網を<ruby>整備<rp>(</rp><rt>せいび</rt><rp>)</rp></ruby>したんだ。また<strong><span class="keyword">ローマ<ruby>法<rp>(</rp><rt>ほう</rt><rp>)</rp></ruby></span></strong>はヨーロッパの法律の<ruby>基礎<rp>(</rp><rt>きそ</rt><rp>)</rp></ruby>になったんだよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'surprised',
+      text: 'ローマ帝国はその後どうなったんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'citizen',
+      expression: 'thinking',
+      text: '4<ruby>世紀<rp>(</rp><rt>せいき</rt><rp>)</rp></ruby>に<strong>キリスト<ruby>教<rp>(</rp><rt>きょう</rt><rp>)</rp></ruby></strong>を<ruby>国教<rp>(</rp><rt>こっきょう</rt><rp>)</rp></ruby>にしたけど、やがて東西に<ruby>分裂<rp>(</rp><rt>ぶんれつ</rt><rp>)</rp></ruby>。<ruby>西<rp>(</rp><rt>にし</rt><rp>)</rp></ruby>ローマ<ruby>帝国<rp>(</rp><rt>ていこく</rt><rp>)</rp></ruby>は476年に<ruby>滅亡<rp>(</rp><rt>めつぼう</rt><rp>)</rp></ruby>したんだ',
+    },
+    {
       type: 'summary-point',
-      text: '<span class="keyword">アレクサンドロス大王</span>の東方遠征 → <span class="keyword">ヘレニズム</span>文化。ローマは<span class="keyword">共和政</span>から<span class="keyword">帝政</span>へ！',
+      text: '<span class="keyword">アレクサンドロス大王</span>の東方遠征 → <span class="keyword">ヘレニズム</span>文化。ローマは<span class="keyword">共和政</span>→<span class="keyword">帝政</span>→東西分裂！',
     },
     {
       type: 'quiz',

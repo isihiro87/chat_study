@@ -112,10 +112,31 @@ export const chineseCivilizationChat: HistoryChat = {
     },
     {
       type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: '始皇帝は書物を燃やしたって本当ですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'confucius',
+      expression: 'thinking',
+      text: '<strong><span class="keyword"><ruby>焚書坑儒<rp>(</rp><rt>ふんしょこうじゅ</rt><rp>)</rp></ruby></span></strong>じゃな…。書物を<ruby>焼<rp>(</rp><rt>や</rt><rp>)</rp></ruby>き、<ruby>儒学者<rp>(</rp><rt>じゅがくしゃ</rt><rp>)</rp></ruby>を<ruby>弾圧<rp>(</rp><rt>だんあつ</rt><rp>)</rp></ruby>した。<ruby>厳<rp>(</rp><rt>きび</rt><rp>)</rp></ruby>しい政治で民を苦しめ、秦はわずか15年で<ruby>滅<rp>(</rp><rt>ほろ</rt><rp>)</rp></ruby>んだのじゃ',
+    },
+    {
+      type: 'message',
       side: 'left',
       characterId: 'confucius',
       expression: 'happy',
-      text: '<strong><span class="keyword"><ruby>漢<rp>(</rp><rt>かん</rt><rp>)</rp></ruby></span></strong>が大<ruby>帝国<rp>(</rp><rt>ていこく</rt><rp>)</rp></ruby>を<ruby>築<rp>(</rp><rt>きず</rt><rp>)</rp></ruby>き、<strong><span class="keyword">シルクロード</span></strong>を通じて西方と<ruby>交易<rp>(</rp><rt>こうえき</rt><rp>)</rp></ruby>したのじゃ。中国の<ruby>絹<rp>(</rp><rt>きぬ</rt><rp>)</rp></ruby>がヨーロッパまで運ばれたんじゃよ',
+      text: 'その後、<strong><span class="keyword"><ruby>劉邦<rp>(</rp><rt>りゅうほう</rt><rp>)</rp></ruby></span></strong>が<strong><span class="keyword"><ruby>漢<rp>(</rp><rt>かん</rt><rp>)</rp></ruby></span></strong>を<ruby>建国<rp>(</rp><rt>けんこく</rt><rp>)</rp></ruby>したのじゃ。漢ではわしの教え＝<strong><ruby>儒教<rp>(</rp><rt>じゅきょう</rt><rp>)</rp></ruby></strong>が国の学問として<ruby>採用<rp>(</rp><rt>さいよう</rt><rp>)</rp></ruby>されたんじゃよ',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'confucius',
+      expression: 'explaining',
+      text: '漢は<strong><span class="keyword">シルクロード</span></strong>を通じて西方と<ruby>交易<rp>(</rp><rt>こうえき</rt><rp>)</rp></ruby>したのじゃ。中国の<ruby>絹<rp>(</rp><rt>きぬ</rt><rp>)</rp></ruby>がヨーロッパまで運ばれたんじゃよ',
     },
     {
       type: 'message',

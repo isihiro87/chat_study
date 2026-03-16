@@ -71,8 +71,29 @@ export const ancientCivilizationsChat: HistoryChat = {
       text: '法律を文字で書き残すなんて、すごく進んだ社会だったんですね！',
     },
     {
+      type: 'message',
+      side: 'left',
+      characterId: 'scholar',
+      expression: 'explaining',
+      text: 'メソポタミアでは<strong><span class="keyword"><ruby>太陰暦<rp>(</rp><rt>たいいんれき</rt><rp>)</rp></ruby></span></strong>（月の満ち欠けを基準にした暦）や<strong><span class="keyword">60<ruby>進法<rp>(</rp><rt>しんほう</rt><rp>)</rp></ruby></span></strong>も発明されたんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'surprised',
+      text: '60進法？それって今の時間の数え方（60分＝1時間）と同じですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'scholar',
+      expression: 'happy',
+      text: 'その通り！60秒＝1分、60分＝1時間、<ruby>角度<rp>(</rp><rt>かくど</rt><rp>)</rp></ruby>の360度も60進法がもとになっているんだよ',
+    },
+    {
       type: 'summary-point',
-      text: '<span class="keyword">メソポタミア文明</span>：<span class="keyword">くさび形文字</span>と<span class="keyword">ハンムラビ法典</span>が特徴！',
+      text: '<span class="keyword">メソポタミア文明</span>：<span class="keyword">くさび形文字</span>・<span class="keyword">ハンムラビ法典</span>・<span class="keyword">太陰暦</span>・<span class="keyword">60進法</span>が特徴！',
     },
     {
       type: 'quiz',
