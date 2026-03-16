@@ -350,9 +350,12 @@ export const topicMetas: TopicMeta[] = [
   { id: "sci3-energy-work", eraId: "sci3-physics", name: "エネルギーと力学的エネルギー", subtitle: "エネルギーの種類・力学的エネルギーの保存", icon: "⚡", order: 4, chatId: "sci3-energy-work", hasExamples: true },
   { id: "sci3-water-pressure", eraId: "sci3-physics", name: "水圧と浮力", subtitle: "水中ではたらく力", icon: "🌊", order: 3, chatId: "sci3-water-pressure", hasExamples: true },
   { id: "sci3-work-conversion", eraId: "sci3-physics", name: "仕事とエネルギー変換", subtitle: "仕事の原理・仕事率・変換効率", icon: "🔧", order: 5, chatId: "sci3-work-conversion", hasExamples: true },
-  { id: "sci3-celestial-motion", eraId: "sci3-earth", name: "地球の運動と天体の動き", subtitle: "自転・公転・日周運動・年周運動", icon: "🌏", order: 1, chatId: "sci3-celestial-motion", hasExamples: true },
-  { id: "sci3-moon-venus", eraId: "sci3-earth", name: "月と金星の見え方", subtitle: "満ち欠け・内惑星・日食と月食", icon: "🌙", order: 2, chatId: "sci3-moon-venus", hasExamples: true },
-  { id: "sci3-solar-system", eraId: "sci3-earth", name: "太陽系と宇宙の広がり", subtitle: "地球型惑星・木星型惑星・銀河", icon: "🪐", order: 3, chatId: "sci3-solar-system", hasExamples: true },
+  { id: "sci3-celestial-basic", eraId: "sci3-earth", name: "地球の運動と天体の動き①", subtitle: "太陽・自転・公転・年周運動", icon: "🌏", order: 1, chatId: "sci3-celestial-basic", hasExamples: true },
+  { id: "sci3-celestial-observation", eraId: "sci3-earth", name: "地球の運動と天体の動き②", subtitle: "天球・星の方位別の動き・南中高度計算", icon: "🌏", order: 2, chatId: "sci3-celestial-observation", hasExamples: true },
+  { id: "sci3-moon-venus-basic", eraId: "sci3-earth", name: "月と金星の見え方①", subtitle: "満ち欠け・内惑星・日食と月食", icon: "🌙", order: 3, chatId: "sci3-moon-venus-basic", hasExamples: true },
+  { id: "sci3-moon-venus-detail", eraId: "sci3-earth", name: "月と金星の見え方②", subtitle: "月の公転・金星の満ち欠け・皆既日食と金環日食", icon: "🌙", order: 4, chatId: "sci3-moon-venus-detail", hasExamples: true },
+  { id: "sci3-solar-system-planets", eraId: "sci3-earth", name: "太陽系の天体", subtitle: "惑星の分類・特徴・衛星と小天体", icon: "🪐", order: 5, chatId: "sci3-solar-system-planets", hasExamples: true },
+  { id: "sci3-universe", eraId: "sci3-earth", name: "宇宙の広がり", subtitle: "銀河系・光年・天文単位", icon: "🌌", order: 6, chatId: "sci3-universe", hasExamples: true },
 ];
 
 // Lazy content loaders (dynamic import, not loaded until called)
@@ -632,9 +635,12 @@ export const contentLoaders: Record<string, () => Promise<TopicContent>> = {
   "sci3-energy-work": () => import("./../subjects/science/units/grade3/3-physics/topics/3-energy-work/index.ts").then(m => m.energyWork.content),
   "sci3-water-pressure": () => import("./../subjects/science/units/grade3/3-physics/topics/3-water-pressure/index.ts").then(m => m.waterPressure.content),
   "sci3-work-conversion": () => import("./../subjects/science/units/grade3/3-physics/topics/5-work-energy-conversion/index.ts").then(m => m.workConversion.content),
-  "sci3-celestial-motion": () => import("./../subjects/science/units/grade3/4-earth/topics/1-celestial-motion/index.ts").then(m => m.celestialMotion.content),
-  "sci3-moon-venus": () => import("./../subjects/science/units/grade3/4-earth/topics/2-moon-venus/index.ts").then(m => m.moonVenus.content),
-  "sci3-solar-system": () => import("./../subjects/science/units/grade3/4-earth/topics/3-solar-system/index.ts").then(m => m.solarSystemUniverse.content),
+  "sci3-celestial-basic": () => import("./../subjects/science/units/grade3/4-earth/topics/1-celestial-basic/index.ts").then(m => m.celestialBasic.content),
+  "sci3-celestial-observation": () => import("./../subjects/science/units/grade3/4-earth/topics/2-celestial-observation/index.ts").then(m => m.celestialObservation.content),
+  "sci3-moon-venus-basic": () => import("./../subjects/science/units/grade3/4-earth/topics/3-moon-venus-basic/index.ts").then(m => m.moonVenusBasic.content),
+  "sci3-moon-venus-detail": () => import("./../subjects/science/units/grade3/4-earth/topics/4-moon-venus-detail/index.ts").then(m => m.moonVenusDetail.content),
+  "sci3-solar-system-planets": () => import("./../subjects/science/units/grade3/4-earth/topics/5-solar-system-planets/index.ts").then(m => m.solarSystemPlanets.content),
+  "sci3-universe": () => import("./../subjects/science/units/grade3/4-earth/topics/6-universe/index.ts").then(m => m.universe.content),
 };
 
 // Lazy chat loaders (dynamic import, not loaded until called)
@@ -914,8 +920,11 @@ export const chatLoaders: Record<string, () => Promise<HistoryChat>> = {
   "sci3-energy-work": () => import("./../subjects/science/units/grade3/3-physics/topics/3-energy-work/chat.ts").then(m => m.energyWorkChat),
   "sci3-water-pressure": () => import("./../subjects/science/units/grade3/3-physics/topics/3-water-pressure/chat.ts").then(m => m.waterPressureChat),
   "sci3-work-conversion": () => import("./../subjects/science/units/grade3/3-physics/topics/5-work-energy-conversion/chat.ts").then(m => m.workConversionChat),
-  "sci3-celestial-motion": () => import("./../subjects/science/units/grade3/4-earth/topics/1-celestial-motion/chat.ts").then(m => m.celestialMotionChat),
-  "sci3-moon-venus": () => import("./../subjects/science/units/grade3/4-earth/topics/2-moon-venus/chat.ts").then(m => m.moonVenusChat),
-  "sci3-solar-system": () => import("./../subjects/science/units/grade3/4-earth/topics/3-solar-system/chat.ts").then(m => m.solarSystemUniverseChat),
+  "sci3-celestial-basic": () => import("./../subjects/science/units/grade3/4-earth/topics/1-celestial-basic/chat.ts").then(m => m.celestialBasicChat),
+  "sci3-celestial-observation": () => import("./../subjects/science/units/grade3/4-earth/topics/2-celestial-observation/chat.ts").then(m => m.celestialObservationChat),
+  "sci3-moon-venus-basic": () => import("./../subjects/science/units/grade3/4-earth/topics/3-moon-venus-basic/chat.ts").then(m => m.moonVenusBasicChat),
+  "sci3-moon-venus-detail": () => import("./../subjects/science/units/grade3/4-earth/topics/4-moon-venus-detail/chat.ts").then(m => m.moonVenusDetailChat),
+  "sci3-solar-system-planets": () => import("./../subjects/science/units/grade3/4-earth/topics/5-solar-system-planets/chat.ts").then(m => m.solarSystemPlanetsChat),
+  "sci3-universe": () => import("./../subjects/science/units/grade3/4-earth/topics/6-universe/chat.ts").then(m => m.universeChat),
 };
 

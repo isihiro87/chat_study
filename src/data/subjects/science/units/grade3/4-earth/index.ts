@@ -1,7 +1,10 @@
 import type { Era, Topic } from '../../../../../types';
-import { celestialMotion } from './topics/1-celestial-motion';
-import { moonVenus } from './topics/2-moon-venus';
-import { solarSystemUniverse } from './topics/3-solar-system';
+import { celestialBasic } from './topics/1-celestial-basic';
+import { celestialObservation } from './topics/2-celestial-observation';
+import { moonVenusBasic } from './topics/3-moon-venus-basic';
+import { moonVenusDetail } from './topics/4-moon-venus-detail';
+import { solarSystemPlanets } from './topics/5-solar-system-planets';
+import { universe } from './topics/6-universe';
 
 export const earthEra: Era = {
   id: 'sci3-earth',
@@ -15,7 +18,10 @@ export const earthEra: Era = {
 };
 
 export const earthTopics: Topic[] = [
-  celestialMotion,
-  moonVenus,
-  solarSystemUniverse,
+  celestialBasic,
+  celestialObservation,
+  moonVenusBasic,
+  moonVenusDetail,
+  solarSystemPlanets,
+  universe,
 ];

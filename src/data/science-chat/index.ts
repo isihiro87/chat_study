@@ -70,9 +70,12 @@ import { waterPressureChat } from '../subjects/science/units/grade3/3-physics/to
 import { energyWorkChat } from '../subjects/science/units/grade3/3-physics/topics/3-energy-work/chat';
 import { workConversionChat } from '../subjects/science/units/grade3/3-physics/topics/5-work-energy-conversion/chat';
 // Earth Science
-import { celestialMotionChat } from '../subjects/science/units/grade3/4-earth/topics/1-celestial-motion/chat';
-import { moonVenusChat } from '../subjects/science/units/grade3/4-earth/topics/2-moon-venus/chat';
-import { solarSystemUniverseChat } from '../subjects/science/units/grade3/4-earth/topics/3-solar-system/chat';
+import { celestialBasicChat } from '../subjects/science/units/grade3/4-earth/topics/1-celestial-basic/chat';
+import { celestialObservationChat } from '../subjects/science/units/grade3/4-earth/topics/2-celestial-observation/chat';
+import { moonVenusBasicChat } from '../subjects/science/units/grade3/4-earth/topics/3-moon-venus-basic/chat';
+import { moonVenusDetailChat } from '../subjects/science/units/grade3/4-earth/topics/4-moon-venus-detail/chat';
+import { solarSystemPlanetsChat } from '../subjects/science/units/grade3/4-earth/topics/5-solar-system-planets/chat';
+import { universeChat } from '../subjects/science/units/grade3/4-earth/topics/6-universe/chat';
 
 const chatMap: Record<string, HistoryChat> = {
   // Grade 1: Chemistry
@@ -146,9 +149,12 @@ const chatMap: Record<string, HistoryChat> = {
   [energyWorkChat.id]: energyWorkChat,
   [workConversionChat.id]: workConversionChat,
   // Earth Science
-  [celestialMotionChat.id]: celestialMotionChat,
-  [moonVenusChat.id]: moonVenusChat,
-  [solarSystemUniverseChat.id]: solarSystemUniverseChat,
+  [celestialBasicChat.id]: celestialBasicChat,
+  [celestialObservationChat.id]: celestialObservationChat,
+  [moonVenusBasicChat.id]: moonVenusBasicChat,
+  [moonVenusDetailChat.id]: moonVenusDetailChat,
+  [solarSystemPlanetsChat.id]: solarSystemPlanetsChat,
+  [universeChat.id]: universeChat,
 };
 
 export function getScienceChat(chatId: string): HistoryChat | undefined {
