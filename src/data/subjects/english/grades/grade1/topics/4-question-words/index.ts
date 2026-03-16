@@ -6,7 +6,7 @@ export const questionWords: Topic = {
   name: '疑問詞',
   subtitle: 'what / who / where / when / how',
   icon: '❓',
-  order: 4,
+  order: 5,
   content: {
     explanation: {
       sections: [

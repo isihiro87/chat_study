@@ -1,0 +1,166 @@
+import type { HistoryChat } from '../../../../../../../data/history-chat/types';
+
+export const questionPatternsChat: HistoryChat = {
+  id: 'eng-question-patterns',
+  icon: '❓',
+  title: '疑問詞の応用パターン',
+  subtitle: '〜中1英語〜 前置詞 / What+名詞 / How do you ~?',
+  characters: [
+    {
+      id: 'teacher',
+      name: '先生',
+      emoji: '👩‍🏫',
+      colorFrom: '#7c3aed',
+      colorTo: '#a78bfa',
+      expressions: {
+        explaining: '🧑‍🏫',
+        happy: '😊',
+        encouraging: '💪',
+        thinking: '🤔',
+      },
+    },
+    {
+      id: 'student',
+      name: '生徒',
+      emoji: '👦',
+      colorFrom: '#059669',
+      colorTo: '#34d399',
+      expressions: {
+        curious: '🙋‍♂️',
+        surprised: '😲',
+        thinking: '🤔',
+        happy: '😄',
+        confused: '😵‍💫',
+      },
+    },
+  ],
+  content: [
+    {
+      type: 'date',
+      text: 'Where の答えと前置詞',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: 'Where で<ruby>聞<rt>き</rt></ruby>かれたとき、<ruby>答<rt>こた</rt></ruby>えには<ruby>場所<rt>ばしょ</rt></ruby>を<ruby>表<rt>あらわ</rt></ruby>す<strong><ruby>前置詞<rt>ぜんちし</rt></ruby></strong>が大切だよ！<br/><br/><strong>in</strong> =「〜の中に」<br/><strong>on</strong> =「〜の上に」<br/><strong>at</strong> =「〜に（<ruby>地点<rt>ちてん</rt></ruby>）」<br/><strong>near</strong> =「〜の近くに」<br/><strong>by</strong> =「〜のそばに」<br/><strong>under</strong> =「〜の下に」',
+      speakable: ['in', 'on', 'at', 'near', 'by', 'under'],
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '<ruby>前置詞<rt>ぜんちし</rt></ruby>ってたくさんありますね。<ruby>例文<rt>れいぶん</rt></ruby>で見たいです！',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: '<ruby>例文<rt>れいぶん</rt></ruby>で<ruby>覚<rt>おぼ</rt></ruby>えよう！<br/><br/><strong>Where is the park?</strong><br/>— It is <strong>near</strong> the station.（<ruby>駅<rt>えき</rt></ruby>の<strong>近く</strong>です。）<br/><br/><strong>Where is my bag?</strong><br/>— It is <strong>under</strong> the desk.（<ruby>机<rt>つくえ</rt></ruby>の<strong>下</strong>です。）<br/><br/><strong>Where is the cat?</strong><br/>— It is <strong>on</strong> the chair.（いすの<strong>上</strong>です。）',
+      speakable: ['Where is the park?', 'It is near the station.', 'Where is my bag?', 'It is under the desk.', 'Where is the cat?', 'It is on the chair.'],
+    },
+    {
+      type: 'summary-point',
+      text: 'Where の<ruby>答<rt>こた</rt></ruby>えには<ruby>前置詞<rt>ぜんちし</rt></ruby>が大切！ <strong>in</strong>（中）/ <strong>on</strong>（上）/ <strong>under</strong>（下）/ <strong>near</strong>（近く）/ <strong>by</strong>（そば）/ <strong>at</strong>（地点）',
+    },
+    {
+      type: 'quiz',
+      question: '「私のかばんはどこですか？」「机の下です。」— 空欄に入るのは？ It is ___ the desk.',
+      options: [
+        { letter: 'A', text: 'on', correct: false },
+        { letter: 'B', text: 'in', correct: false },
+        { letter: 'C', text: 'under', correct: true },
+        { letter: 'D', text: 'near', correct: false },
+      ],
+      explanation: '「〜の下に」は <strong>under</strong> だよ。It is <strong>under</strong> the desk.',
+    },
+    {
+      type: 'date',
+      text: 'What + 名詞 のパターン',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<strong>What</strong> のうしろに<ruby>名詞<rt>めいし</rt></ruby>をつけると、もっと<ruby>具体的<rt>ぐたいてき</rt></ruby>に<ruby>聞<rt>き</rt></ruby>けるよ！<br/><br/><strong>What time</strong> is it?（<strong>何時</strong>ですか？）<br/>— It is three o\'clock.（3時です。）<br/><br/><strong>What sport</strong> do you play?（<strong>何のスポーツ</strong>をしますか？）<br/>— I play soccer.（サッカーをします。）',
+      speakable: ['What time is it?', 'It is three o\'clock.', 'What sport do you play?', 'I play soccer.'],
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'encouraging',
+      text: 'もうひとつ！<br/><br/><strong>What subject</strong> do you like?（<strong>何の<ruby>教科<rt>きょうか</rt></ruby></strong>が好きですか？）<br/>— I like math.（<ruby>数学<rt>すうがく</rt></ruby>が好きです。）<br/><br/><strong>What + <ruby>名詞<rt>めいし</rt></ruby></strong> で「何の〜」と<ruby>聞<rt>き</rt></ruby>けるんだ。<ruby>便利<rt>べんり</rt></ruby>なパターンだから<ruby>覚<rt>おぼ</rt></ruby>えよう！',
+      speakable: ['What subject do you like?', 'I like math.'],
+    },
+    {
+      type: 'summary-point',
+      text: '<strong>What + <ruby>名詞<rt>めいし</rt></ruby></strong> で「何の〜」→ What <strong>time</strong>（何時）/ What <strong>sport</strong>（何のスポーツ）/ What <strong>subject</strong>（何の<ruby>教科<rt>きょうか</rt></ruby>）',
+    },
+    {
+      type: 'quiz',
+      question: '「何のスポーツをしますか？」を英語にすると？',
+      options: [
+        { letter: 'A', text: 'How sport do you play?', correct: false },
+        { letter: 'B', text: 'What do you play sport?', correct: false },
+        { letter: 'C', text: 'What sport do you play?', correct: true },
+        { letter: 'D', text: 'Which sport is you play?', correct: false },
+      ],
+      explanation: '「何の〜」は <strong>What + <ruby>名詞<rt>めいし</rt></ruby></strong> で<ruby>表<rt>あらわ</rt></ruby>すよ。<strong>What sport do you play?</strong>',
+    },
+    {
+      type: 'date',
+      text: 'How do you ~? の使い方',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<strong>How do you ~?</strong> は「あなたはどうやって〜しますか？」と<ruby>方法<rt>ほうほう</rt></ruby>を<ruby>聞<rt>き</rt></ruby>くときに使うよ！<br/><br/><strong>How do you come to school?</strong><br/>（どうやって<ruby>学校<rt>がっこう</rt></ruby>に来ますか？）<br/><strong>— I come by bike.</strong><br/>（<ruby>自転車<rt>じてんしゃ</rt></ruby>で来ます。）',
+      speakable: ['How do you come to school?', 'I come by bike.'],
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: '<strong>by bike</strong> の by って「〜で（<ruby>手段<rt>しゅだん</rt></ruby>）」ですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: 'その<ruby>通<rt>とお</rt></ruby>り！ <strong>by + <ruby>乗<rt>の</rt></ruby>り物</strong> で「〜で」という<ruby>意味<rt>いみ</rt></ruby>になるよ。<br/><br/>by bike（<ruby>自転車<rt>じてんしゃ</rt></ruby>で）/ by bus（バスで）/ by train（<ruby>電車<rt>でんしゃ</rt></ruby>で）<br/><br/><ruby>歩<rt>ある</rt></ruby>く<ruby>場合<rt>ばあい</rt></ruby>は <strong>on foot</strong> だよ！',
+      speakable: ['by bike', 'by bus', 'by train', 'on foot'],
+    },
+    {
+      type: 'summary-point',
+      text: '<strong>How do you ~?</strong> =「どうやって〜しますか？」→ <ruby>答<rt>こた</rt></ruby>えは <strong>by + <ruby>乗<rt>の</rt></ruby>り物</strong>（〜で）/ <strong>on foot</strong>（<ruby>徒歩<rt>とほ</rt></ruby>で）',
+    },
+    {
+      type: 'quiz',
+      question: '「どうやって学校に来ますか？」「バスで来ます。」— 正しい答えは？',
+      options: [
+        { letter: 'A', text: 'I come in bus.', correct: false },
+        { letter: 'B', text: 'I come on bus.', correct: false },
+        { letter: 'C', text: 'I come at bus.', correct: false },
+        { letter: 'D', text: 'I come by bus.', correct: true },
+      ],
+      explanation: '「〜で（<ruby>乗<rt>の</rt></ruby>り物）」は <strong>by</strong> を使うよ。<strong>I come by bus.</strong>',
+    },
+    {
+      type: 'end',
+      points: [
+        'Where の<ruby>答<rt>こた</rt></ruby>えには<ruby>前置詞<rt>ぜんちし</rt></ruby>が大切 → <strong>in</strong>（中）/ <strong>on</strong>（上）/ <strong>under</strong>（下）/ <strong>near</strong>（近く）/ <strong>by</strong>（そば）/ <strong>at</strong>（地点）',
+        '<strong>What + <ruby>名詞<rt>めいし</rt></ruby></strong> →「何の〜」（What time / What sport / What subject）',
+        '<strong>How do you ~?</strong> →「どうやって〜しますか？」/ by + <ruby>乗<rt>の</rt></ruby>り物 / on foot',
+      ],
+    },
+  ],
+};

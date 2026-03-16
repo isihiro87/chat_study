@@ -213,7 +213,7 @@ export const questionWordsChat: HistoryChat = {
       points: [
         '<strong>what</strong> =「何」→ What is this?（これは何ですか？）',
         '<strong>who</strong> =「だれ」→ Who is he?（<ruby>彼<rt>かれ</rt></ruby>はだれですか？）',
-        '<strong>where</strong> =「どこ」→ Where is the park?（<ruby>公園<rt>こうえん</rt></ruby>はどこですか？）',
+        '<strong>where</strong> =「どこ」→ Where is the library?（<ruby>図書館<rt>としょかん</rt></ruby>はどこですか？）',
         '<strong>when</strong> =「いつ」→ When is your birthday?（<ruby>誕生日<rt>たんじょうび</rt></ruby>はいつですか？）',
         '<strong>how</strong> =「どう」→ How are you? / how many =「いくつ」/ how old =「何<ruby>歳<rt>さい</rt></ruby>」',
       ],

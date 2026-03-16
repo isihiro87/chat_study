@@ -6,7 +6,7 @@ export const thirdPersonSingular: Topic = {
   name: '三人称単数現在',
   subtitle: 'he / she / it + 動詞s の使い方',
   icon: '👆',
-  order: 5,
+  order: 7,
   content: {
     explanation: {
       sections: [

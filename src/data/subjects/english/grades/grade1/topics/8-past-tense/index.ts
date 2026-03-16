@@ -6,7 +6,7 @@ export const pastTense: Topic = {
   name: '過去形と過去進行形',
   subtitle: 'was / were / played / was playing',
   icon: '⏪',
-  order: 8,
+  order: 10,
   content: {
     explanation: {
       sections: [

@@ -6,7 +6,7 @@ export const presentProgressive: Topic = {
   name: '現在進行形',
   subtitle: 'be動詞 + 〜ing で「今〜している」',
   icon: '🏃',
-  order: 7,
+  order: 9,
   content: {
     explanation: {
       sections: [

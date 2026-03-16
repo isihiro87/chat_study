@@ -6,7 +6,7 @@ export const pronouns: Topic = {
   name: '代名詞',
   subtitle: 'I / you / he / she と my / your の使い分け',
   icon: '👥',
-  order: 6,
+  order: 8,
   content: {
     explanation: {
       sections: [
