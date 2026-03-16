@@ -3,8 +3,8 @@ import type { HistoryChat } from '../../../../../../../../data/history-chat/type
 export const circuitOhmChat: HistoryChat = {
   id: 'sci2-circuit-ohm',
   icon: '🔌',
-  title: '回路と電流・電圧・抵抗',
-  subtitle: '〜中2物理〜 直列・並列回路とオームの法則',
+  title: '回路と電流・電圧',
+  subtitle: '〜中2物理〜 直列・並列回路の電流と電圧',
   characters: [
     {
       id: 'teacher',
@@ -166,84 +166,11 @@ export const circuitOhmChat: HistoryChat = {
         '<strong>正解はB</strong>です。<ruby>並列<rp>(</rp><rt>へいれつ</rt><rp>)</rp></ruby>回路では<ruby>電圧<rp>(</rp><rt>でんあつ</rt><rp>)</rp></ruby>はどこも同じ（V＝V₁＝V₂）で、電流は各<ruby>枝<rp>(</rp><rt>えだ</rt><rp>)</rp></ruby>の和が<ruby>全体<rp>(</rp><rt>ぜんたい</rt><rp>)</rp></ruby>（I＝I₁＋I₂）になります。',
     },
     {
-      type: 'date',
-      text: 'オームの<ruby>法則<rp>(</rp><rt>ほうそく</rt><rp>)</rp></ruby>と<ruby>抵抗<rp>(</rp><rt>ていこう</rt><rp>)</rp></ruby>',
-    },
-    {
-      type: 'narrator',
-      text: '<ruby>電圧<rp>(</rp><rt>でんあつ</rt><rp>)</rp></ruby>と電流の<ruby>関係<rp>(</rp><rt>かんけい</rt><rp>)</rp></ruby>をまとめた<ruby>法則<rp>(</rp><rt>ほうそく</rt><rp>)</rp></ruby>を学びましょう。電気の世界でもっとも<ruby>基本<rp>(</rp><rt>きほん</rt><rp>)</rp></ruby>的な<ruby>法則<rp>(</rp><rt>ほうそく</rt><rp>)</rp></ruby>の一つです。',
-    },
-    {
-      type: 'message',
-      side: 'left',
-      characterId: 'teacher',
-      expression: 'explaining',
-      text: '<ruby>電熱線<rp>(</rp><rt>でんねつせん</rt><rp>)</rp></ruby>に加える<ruby>電圧<rp>(</rp><rt>でんあつ</rt><rp>)</rp></ruby>を2<ruby>倍<rp>(</rp><rt>ばい</rt><rp>)</rp></ruby>にすると、流れる電流も2<ruby>倍<rp>(</rp><rt>ばい</rt><rp>)</rp></ruby>になる。つまり<ruby>電圧<rp>(</rp><rt>でんあつ</rt><rp>)</rp></ruby>と電流は<strong><ruby>比例<rp>(</rp><rt>ひれい</rt><rp>)</rp></ruby></strong>するんだ。これを<strong><span class="keyword">オームの<ruby>法則<rp>(</rp><rt>ほうそく</rt><rp>)</rp></ruby></span></strong>というよ',
-    },
-    {
-      type: 'message',
-      side: 'right',
-      characterId: 'student',
-      expression: 'curious',
-      text: '式で表すとどうなりますか？',
-    },
-    {
-      type: 'message',
-      side: 'left',
-      characterId: 'teacher',
-      expression: 'excited',
-      text: '<strong>V ＝ R × I</strong> だよ。Vは<ruby>電圧<rp>(</rp><rt>でんあつ</rt><rp>)</rp></ruby>〔V（ボルト）〕、Iは電流〔A（アンペア）〕、Rは<strong><span class="keyword"><ruby>電気抵抗<rp>(</rp><rt>でんきていこう</rt><rp>)</rp></ruby></span></strong>〔<strong>Ω（オーム）</strong>〕だよ。電流を<ruby>求<rp>(</rp><rt>もと</rt><rp>)</rp></ruby>めるときは <strong>I ＝ V ÷ R</strong>、<ruby>抵抗<rp>(</rp><rt>ていこう</rt><rp>)</rp></ruby>を<ruby>求<rp>(</rp><rt>もと</rt><rp>)</rp></ruby>めるときは <strong>R ＝ V ÷ I</strong> と変形できるね',
-    },
-    {
-      type: 'image',
-      src: '/images/science/grade2/electricity/ohms-law.svg',
-      alt: 'オームの法則',
-      caption: 'V＝I×R（電圧＝電流×抵抗）',
-    },
-    {
-      type: 'message',
-      side: 'right',
-      characterId: 'student',
-      expression: 'thinking',
-      text: '<ruby>抵抗<rp>(</rp><rt>ていこう</rt><rp>)</rp></ruby>が大きいほど電流は流れにくいんですね。<ruby>抵抗<rp>(</rp><rt>ていこう</rt><rp>)</rp></ruby>って何で<ruby>決<rp>(</rp><rt>き</rt><rp>)</rp></ruby>まるんですか？',
-    },
-    {
-      type: 'message',
-      side: 'left',
-      characterId: 'teacher',
-      expression: 'thinking',
-      text: '<ruby>抵抗<rp>(</rp><rt>ていこう</rt><rp>)</rp></ruby>の大きさは<ruby>物質<rp>(</rp><rt>ぶっしつ</rt><rp>)</rp></ruby>の<ruby>種類<rp>(</rp><rt>しゅるい</rt><rp>)</rp></ruby>・長さ・太さで<ruby>決<rp>(</rp><rt>き</rt><rp>)</rp></ruby>まるよ。<ruby>金属<rp>(</rp><rt>きんぞく</rt><rp>)</rp></ruby>のように電気を通しやすい<ruby>物質<rp>(</rp><rt>ぶっしつ</rt><rp>)</rp></ruby>を<strong><span class="keyword"><ruby>導体<rp>(</rp><rt>どうたい</rt><rp>)</rp></ruby></span></strong>、ゴムやガラスのように電気をほとんど通さない<ruby>物質<rp>(</rp><rt>ぶっしつ</rt><rp>)</rp></ruby>を<strong><span class="keyword"><ruby>不導体<rp>(</rp><rt>ふどうたい</rt><rp>)</rp></ruby></span></strong>（<ruby>絶縁体<rp>(</rp><rt>ぜつえんたい</rt><rp>)</rp></ruby>）というんだ',
-    },
-    {
-      type: 'message',
-      side: 'right',
-      characterId: 'student',
-      expression: 'happy',
-      text: 'オームの<ruby>法則<rp>(</rp><rt>ほうそく</rt><rp>)</rp></ruby>が分かれば、<ruby>電圧<rp>(</rp><rt>でんあつ</rt><rp>)</rp></ruby>・電流・<ruby>抵抗<rp>(</rp><rt>ていこう</rt><rp>)</rp></ruby>のどれか2つが分かればもう1つが<ruby>計算<rp>(</rp><rt>けいさん</rt><rp>)</rp></ruby>できるんですね！',
-    },
-    {
-      type: 'summary-point',
-      text: '<span class="keyword">オームの法則</span>：V＝R×I（電圧＝抵抗×電流）。抵抗の単位は<strong>Ω（オーム）</strong>。<span class="keyword">導体</span>＝電気を通しやすい物質（金属など）、<span class="keyword">不導体</span>（絶縁体）＝電気を通さない物質（ゴム・ガラスなど）',
-    },
-    {
-      type: 'quiz',
-      question: '10Ωの抵抗に5Vの電圧を加えたとき、流れる電流は何Aか？',
-      options: [
-        { letter: 'A', text: '0.2A', correct: false },
-        { letter: 'B', text: '0.5A', correct: true },
-        { letter: 'C', text: '2A', correct: false },
-        { letter: 'D', text: '50A', correct: false },
-      ],
-      explanation:
-        '<strong>正解はB「0.5A」</strong>です。オームの<ruby>法則<rp>(</rp><rt>ほうそく</rt><rp>)</rp></ruby> I＝V÷R より、I＝5÷10＝<strong>0.5A</strong> です。',
-    },
-    {
       type: 'end',
       points: [
         '<strong><ruby>回路図<rp>(</rp><rt>かいろず</rt><rp>)</rp></ruby></strong>：<ruby>電気用図記号<rp>(</rp><rt>でんきようずきごう</rt><rp>)</rp></ruby>で<ruby>描<rp>(</rp><rt>か</rt><rp>)</rp></ruby>く。<ruby>電流計<rp>(</rp><rt>でんりゅうけい</rt><rp>)</rp></ruby>は<ruby>直列<rp>(</rp><rt>ちょくれつ</rt><rp>)</rp></ruby>、<ruby>電圧計<rp>(</rp><rt>でんあつけい</rt><rp>)</rp></ruby>は<ruby>並列<rp>(</rp><rt>へいれつ</rt><rp>)</rp></ruby>に<ruby>接続<rp>(</rp><rt>せつぞく</rt><rp>)</rp></ruby>',
         '<strong><ruby>直列<rp>(</rp><rt>ちょくれつ</rt><rp>)</rp></ruby>回路</strong>：電流はどこも同じ（I＝I₁＝I₂）、<ruby>電圧<rp>(</rp><rt>でんあつ</rt><rp>)</rp></ruby>の和＝<ruby>全体<rp>(</rp><rt>ぜんたい</rt><rp>)</rp></ruby>（V＝V₁＋V₂）',
         '<strong><ruby>並列<rp>(</rp><rt>へいれつ</rt><rp>)</rp></ruby>回路</strong>：電流の和＝<ruby>全体<rp>(</rp><rt>ぜんたい</rt><rp>)</rp></ruby>（I＝I₁＋I₂）、<ruby>電圧<rp>(</rp><rt>でんあつ</rt><rp>)</rp></ruby>はどこも同じ（V＝V₁＝V₂）',
-        '<strong>オームの<ruby>法則<rp>(</rp><rt>ほうそく</rt><rp>)</rp></ruby></strong>：V＝R×I。<strong><ruby>導体<rp>(</rp><rt>どうたい</rt><rp>)</rp></ruby></strong>＝電気を通す、<strong><ruby>不導体<rp>(</rp><rt>ふどうたい</rt><rp>)</rp></ruby></strong>（<ruby>絶縁体<rp>(</rp><rt>ぜつえんたい</rt><rp>)</rp></ruby>）＝電気を通さない',
       ],
     },
   ],

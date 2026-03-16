@@ -3,8 +3,8 @@ import type { HistoryChat } from '../../../../../../../../data/history-chat/type
 export const staticElectricityChat: HistoryChat = {
   id: 'sci2-static-electricity',
   icon: '⚡',
-  title: '静電気と電流の正体',
-  subtitle: '〜中2物理〜 帯電・放電・陰極線・電子',
+  title: '静電気と放電',
+  subtitle: '〜中2物理〜 帯電・放電・真空放電',
   characters: [
     {
       id: 'teacher',
@@ -165,85 +165,10 @@ export const staticElectricityChat: HistoryChat = {
         '<strong>正解はB「<ruby>雲<rp>(</rp><rt>くも</rt><rp>)</rp></ruby>にたまった<ruby>静電気<rp>(</rp><rt>せいでんき</rt><rp>)</rp></ruby>が空気中を<ruby>放電<rp>(</rp><rt>ほうでん</rt><rp>)</rp></ruby>する<ruby>現象<rp>(</rp><rt>げんしょう</rt><rp>)</rp></ruby>」</strong>です。空気はふつう電気を通しませんが、大量の電気がたまると<ruby>放電<rp>(</rp><rt>ほうでん</rt><rp>)</rp></ruby>が起こります。',
     },
     {
-      type: 'date',
-      text: '<ruby>陰極線<rp>(</rp><rt>いんきょくせん</rt><rp>)</rp></ruby>と<ruby>電子<rp>(</rp><rt>でんし</rt><rp>)</rp></ruby>、電流の<ruby>正体<rp>(</rp><rt>しょうたい</rt><rp>)</rp></ruby>',
-    },
-    {
-      type: 'narrator',
-      text: '<ruby>真空放電<rp>(</rp><rt>しんくうほうでん</rt><rp>)</rp></ruby>の<ruby>実験<rp>(</rp><rt>じっけん</rt><rp>)</rp></ruby>をさらに<ruby>詳<rp>(</rp><rt>くわ</rt><rp>)</rp></ruby>しく<ruby>調<rp>(</rp><rt>しら</rt><rp>)</rp></ruby>べると、電流の正体が見えてきます。',
-    },
-    {
-      type: 'message',
-      side: 'left',
-      characterId: 'teacher',
-      expression: 'explaining',
-      text: '<strong><span class="keyword">クルックス<ruby>管<rp>(</rp><rt>かん</rt><rp>)</rp></ruby></span></strong>という<ruby>装置<rp>(</rp><rt>そうち</rt><rp>)</rp></ruby>で<ruby>真空放電<rp>(</rp><rt>しんくうほうでん</rt><rp>)</rp></ruby>をすると、−<ruby>極<rp>(</rp><rt>きょく</rt><rp>)</rp></ruby>から＋<ruby>極<rp>(</rp><rt>きょく</rt><rp>)</rp></ruby>の方向へ何かが飛んでいるのが<ruby>観察<rp>(</rp><rt>かんさつ</rt><rp>)</rp></ruby>できるんだ。この流れを<strong><span class="keyword"><ruby>陰極線<rp>(</rp><rt>いんきょくせん</rt><rp>)</rp></ruby></span></strong>（<ruby>電子線<rp>(</rp><rt>でんしせん</rt><rp>)</rp></ruby>）というよ',
-    },
-    {
-      type: 'message',
-      side: 'right',
-      characterId: 'student',
-      expression: 'curious',
-      text: '−<ruby>極<rp>(</rp><rt>きょく</rt><rp>)</rp></ruby>から飛んでいる「何か」って何ですか？',
-    },
-    {
-      type: 'message',
-      side: 'left',
-      characterId: 'teacher',
-      expression: 'excited',
-      text: 'それが<strong><span class="keyword"><ruby>電子<rp>(</rp><rt>でんし</rt><rp>)</rp></ruby></span></strong>だよ！−の電気をもった<ruby>非常<rp>(</rp><rt>ひじょう</rt><rp>)</rp></ruby>に小さな<ruby>粒子<rp>(</rp><rt>りゅうし</rt><rp>)</rp></ruby>なんだ。<ruby>陰極線<rp>(</rp><rt>いんきょくせん</rt><rp>)</rp></ruby>は<ruby>磁石<rp>(</rp><rt>じしゃく</rt><rp>)</rp></ruby>で曲がったり、<ruby>蛍光板<rp>(</rp><rt>けいこうばん</rt><rp>)</rp></ruby>を光らせたりする<ruby>性質<rp>(</rp><rt>せいしつ</rt><rp>)</rp></ruby>があるよ',
-    },
-    {
-      type: 'message',
-      side: 'right',
-      characterId: 'student',
-      expression: 'thinking',
-      text: 'じゃあ<ruby>導線<rp>(</rp><rt>どうせん</rt><rp>)</rp></ruby>の中を流れる電流も<ruby>電子<rp>(</rp><rt>でんし</rt><rp>)</rp></ruby>が動いているんですか？',
-    },
-    {
-      type: 'message',
-      side: 'left',
-      characterId: 'teacher',
-      expression: 'thinking',
-      text: 'そのとおり！<ruby>導線<rp>(</rp><rt>どうせん</rt><rp>)</rp></ruby>の中では<ruby>電子<rp>(</rp><rt>でんし</rt><rp>)</rp></ruby>が<strong>−<ruby>極<rp>(</rp><rt>きょく</rt><rp>)</rp></ruby>から＋<ruby>極<rp>(</rp><rt>きょく</rt><rp>)</rp></ruby>へ</strong>移動しているんだ。これが<strong>電流の<ruby>正体<rp>(</rp><rt>しょうたい</rt><rp>)</rp></ruby></strong>だよ',
-    },
-    {
-      type: 'message',
-      side: 'right',
-      characterId: 'student',
-      expression: 'surprised',
-      text: 'あれ？でも電流の向きは＋から−じゃなかったですか？',
-    },
-    {
-      type: 'message',
-      side: 'left',
-      characterId: 'teacher',
-      expression: 'happy',
-      text: 'いいところに気づいたね！<ruby>歴史的<rp>(</rp><rt>れきしてき</rt><rp>)</rp></ruby>に<strong>電流の向き</strong>は「＋<ruby>極<rp>(</rp><rt>きょく</rt><rp>)</rp></ruby>→−<ruby>極<rp>(</rp><rt>きょく</rt><rp>)</rp></ruby>」と<ruby>決<rp>(</rp><rt>き</rt><rp>)</rp></ruby>められたんだけど、あとから<ruby>電子<rp>(</rp><rt>でんし</rt><rp>)</rp></ruby>の動きが分かって、<strong><ruby>電子<rp>(</rp><rt>でんし</rt><rp>)</rp></ruby>の流れる向き</strong>は<ruby>逆<rp>(</rp><rt>ぎゃく</rt><rp>)</rp></ruby>（−<ruby>極<rp>(</rp><rt>きょく</rt><rp>)</rp></ruby>→＋<ruby>極<rp>(</rp><rt>きょく</rt><rp>)</rp></ruby>）だと分かったんだ。ここはテストに出やすいから<ruby>要注意<rp>(</rp><rt>ようちゅうい</rt><rp>)</rp></ruby>だよ！',
-    },
-    {
-      type: 'summary-point',
-      text: '<span class="keyword">陰極線</span>（電子線）：クルックス管で−極から＋極へ飛ぶ<span class="keyword">電子</span>の流れ。導線中も電子が−極→＋極へ移動＝電流の正体。ただし<strong>電流の向き</strong>は歴史的に＋→−と定義されている',
-    },
-    {
-      type: 'quiz',
-      question: '電流の向きと電子の流れる向きについて正しいものはどれ？',
-      options: [
-        { letter: 'A', text: '電流も電子も＋極から−極へ流れる', correct: false },
-        { letter: 'B', text: '電流も電子も−極から＋極へ流れる', correct: false },
-        { letter: 'C', text: '電流は＋極から−極、電子は−極から＋極へ流れる', correct: true },
-        { letter: 'D', text: '電流は−極から＋極、電子は＋極から−極へ流れる', correct: false },
-      ],
-      explanation:
-        '<strong>正解はC</strong>です。<ruby>歴史的<rp>(</rp><rt>れきしてき</rt><rp>)</rp></ruby>に電流の向きは＋<ruby>極<rp>(</rp><rt>きょく</rt><rp>)</rp></ruby>→−<ruby>極<rp>(</rp><rt>きょく</rt><rp>)</rp></ruby>と<ruby>定義<rp>(</rp><rt>ていぎ</rt><rp>)</rp></ruby>されましたが、実際の<ruby>電子<rp>(</rp><rt>でんし</rt><rp>)</rp></ruby>は−<ruby>極<rp>(</rp><rt>きょく</rt><rp>)</rp></ruby>→＋<ruby>極<rp>(</rp><rt>きょく</rt><rp>)</rp></ruby>へ流れています。',
-    },
-    {
       type: 'end',
       points: [
         '<strong><ruby>静電気<rp>(</rp><rt>せいでんき</rt><rp>)</rp></ruby></strong>：<ruby>異<rp>(</rp><rt>こと</rt><rp>)</rp></ruby>なる<ruby>物質<rp>(</rp><rt>ぶっしつ</rt><rp>)</rp></ruby>をこすり合わせ→<ruby>電子<rp>(</rp><rt>でんし</rt><rp>)</rp></ruby>が<ruby>移動<rp>(</rp><rt>いどう</rt><rp>)</rp></ruby>→<ruby>帯電<rp>(</rp><rt>たいでん</rt><rp>)</rp></ruby>。同種は<ruby>反発<rp>(</rp><rt>はんぱつ</rt><rp>)</rp></ruby>、<ruby>異種<rp>(</rp><rt>いしゅ</rt><rp>)</rp></ruby>は引き合う',
-        '<strong><ruby>放電<rp>(</rp><rt>ほうでん</rt><rp>)</rp></ruby></strong>：たまった電気が空間を<ruby>移動<rp>(</rp><rt>いどう</rt><rp>)</rp></ruby>する<ruby>現象<rp>(</rp><rt>げんしょう</rt><rp>)</rp></ruby>（<ruby>雷<rp>(</rp><rt>かみなり</rt><rp>)</rp></ruby>など）。<strong><ruby>真空放電<rp>(</rp><rt>しんくうほうでん</rt><rp>)</rp></ruby></strong>：<ruby>気圧<rp>(</rp><rt>きあつ</rt><rp>)</rp></ruby>を<ruby>低<rp>(</rp><rt>ひく</rt><rp>)</rp></ruby>くした空間での<ruby>放電<rp>(</rp><rt>ほうでん</rt><rp>)</rp></ruby>',
-        '<strong><ruby>陰極線<rp>(</rp><rt>いんきょくせん</rt><rp>)</rp></ruby></strong>：クルックス<ruby>管<rp>(</rp><rt>かん</rt><rp>)</rp></ruby>で−<ruby>極<rp>(</rp><rt>きょく</rt><rp>)</rp></ruby>から飛ぶ<ruby>電子<rp>(</rp><rt>でんし</rt><rp>)</rp></ruby>の流れ。電流の<ruby>正体<rp>(</rp><rt>しょうたい</rt><rp>)</rp></ruby>＝<ruby>電子<rp>(</rp><rt>でんし</rt><rp>)</rp></ruby>の<ruby>移動<rp>(</rp><rt>いどう</rt><rp>)</rp></ruby>',
-        '<ruby>電子<rp>(</rp><rt>でんし</rt><rp>)</rp></ruby>は−<ruby>極<rp>(</rp><rt>きょく</rt><rp>)</rp></ruby>→＋<ruby>極<rp>(</rp><rt>きょく</rt><rp>)</rp></ruby>へ流れるが、<strong>電流の向き</strong>は<ruby>歴史的<rp>(</rp><rt>れきしてき</rt><rp>)</rp></ruby>に＋<ruby>極<rp>(</rp><rt>きょく</rt><rp>)</rp></ruby>→−<ruby>極<rp>(</rp><rt>きょく</rt><rp>)</rp></ruby>と<ruby>定義<rp>(</rp><rt>ていぎ</rt><rp>)</rp></ruby>されている',
+        '<strong><ruby>放電<rp>(</rp><rt>ほうでん</rt><rp>)</rp></ruby></strong>：たまった電気が空間を<ruby>移動<rp>(</rp><rt>いどう</rt><rp>)</rp></ruby>する<ruby>現象<rp>(</rp><rt>げんしょう</rt><rp>)</rp></ruby>（<ruby>雷<rp>(</rp><rt>かみなり</rt><rp>)</rp></ruby>など）。<strong><ruby>真空放電<rp>(</rp><rt>しんくうほうでん</rt><rp>)</rp></ruby></strong>：<ruby>気圧<rp>(</rp><rt>きあつ</rt><rp>)</rp></ruby>を<ruby>低<rp>(</rp><rt>ひく</rt><rp>)</rp></ruby>くした空間での<ruby>放電<rp>(</rp><rt>ほうでん</rt><rp>)</rp></ruby>（<ruby>蛍光灯<rp>(</rp><rt>けいこうとう</rt><rp>)</rp></ruby>・ネオンサインに<ruby>応用<rp>(</rp><rt>おうよう</rt><rp>)</rp></ruby>）',
       ],
     },
   ],

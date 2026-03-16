@@ -43,9 +43,12 @@ import { atmosphericCirculationChat } from '../subjects/science/units/grade2/3-w
 import { japanSeasonsChat } from '../subjects/science/units/grade2/3-weather/topics/8-japan-seasons/chat';
 // Grade 2: Electricity
 import { staticElectricityChat } from '../subjects/science/units/grade2/4-electricity/topics/1-static-electricity/chat';
+import { cathodeElectronChat } from '../subjects/science/units/grade2/4-electricity/topics/2-cathode-electron/chat';
 import { circuitOhmChat } from '../subjects/science/units/grade2/4-electricity/topics/2-circuit-ohm/chat';
+import { ohmsLawChat } from '../subjects/science/units/grade2/4-electricity/topics/3-ohms-law/chat';
 import { electricEnergyChat } from '../subjects/science/units/grade2/4-electricity/topics/3-electric-energy/chat';
 import { currentMagnetismChat } from '../subjects/science/units/grade2/4-electricity/topics/4-current-magnetism/chat';
+import { electromagneticInductionChat } from '../subjects/science/units/grade2/4-electricity/topics/5-electromagnetic-induction/chat';
 // Grade 3: Chemistry
 import { electrolyteElectrolysisChat } from '../subjects/science/units/grade3/1-chemistry/topics/1-electrolyte-electrolysis/chat';
 import { atomIonChat } from '../subjects/science/units/grade3/1-chemistry/topics/2-atom-ion/chat';
@@ -116,9 +119,12 @@ const chatMap: Record<string, HistoryChat> = {
   [japanSeasonsChat.id]: japanSeasonsChat,
   // Grade 2: Electricity
   [staticElectricityChat.id]: staticElectricityChat,
+  [cathodeElectronChat.id]: cathodeElectronChat,
   [circuitOhmChat.id]: circuitOhmChat,
+  [ohmsLawChat.id]: ohmsLawChat,
   [electricEnergyChat.id]: electricEnergyChat,
   [currentMagnetismChat.id]: currentMagnetismChat,
+  [electromagneticInductionChat.id]: electromagneticInductionChat,
   // Grade 3: Chemistry
   [electrolyteElectrolysisChat.id]: electrolyteElectrolysisChat,
   [atomIonChat.id]: atomIonChat,

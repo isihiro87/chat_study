@@ -3,8 +3,8 @@ import type { HistoryChat } from '../../../../../../../../data/history-chat/type
 export const currentMagnetismChat: HistoryChat = {
   id: 'sci2-current-magnetism',
   icon: '🧲',
-  title: '電流と磁界',
-  subtitle: '〜中2物理〜 磁力線・電磁誘導・モーター・直流と交流',
+  title: '電流と磁界（1）',
+  subtitle: '〜中2物理〜 磁界・磁力線・電磁力・モーター',
   characters: [
     {
       id: 'teacher',
@@ -221,105 +221,11 @@ export const currentMagnetismChat: HistoryChat = {
         '<strong>正解はB「電流の向きか<ruby>磁界<rp>(</rp><rt>じかい</rt><rp>)</rp></ruby>の向きを逆にする」</strong>です。電流の向きまたは磁界の向きのどちらか一方を逆にすると、力の向きも逆になります。両方逆にすると力の向きは変わりません。',
     },
     {
-      type: 'date',
-      text: '電磁誘導と直流・交流',
-    },
-    {
-      type: 'narrator',
-      text: 'コイルの中の<ruby>磁界<rp>(</rp><rt>じかい</rt><rp>)</rp></ruby>が変化すると、コイルに<ruby>電圧<rp>(</rp><rt>でんあつ</rt><rp>)</rp></ruby>が生じて電流が流れます。この現象を<strong><span class="keyword"><span data-tooltip="コイル内の磁界が変化することで電圧が生じ、電流が流れる現象"><ruby>電磁誘導<rp>(</rp><rt>でんじゆうどう</rt><rp>)</rp></ruby></span></span></strong>、流れる電流を<strong><span class="keyword"><ruby>誘導電流<rp>(</rp><rt>ゆうどうでんりゅう</rt><rp>)</rp></ruby></span></strong>といいます。',
-    },
-    {
-      type: 'message',
-      side: 'left',
-      characterId: 'teacher',
-      expression: 'explaining',
-      text: 'コイルに磁石を出し入れすると電流が流れるんだ。<ruby>誘導<rp>(</rp><rt>ゆうどう</rt><rp>)</rp></ruby>電流を大きくするには、<strong>磁石を速く動かす</strong>・<strong>コイルの<ruby>巻<rp>(</rp><rt>ま</rt><rp>)</rp></ruby>き数を増やす</strong>・<strong>強い磁石を使う</strong>の3つの方法があるよ',
-    },
-    {
-      type: 'message',
-      side: 'right',
-      characterId: 'student',
-      expression: 'curious',
-      text: '磁石を逆に動かすと電流の向きも変わりますか？',
-    },
-    {
-      type: 'message',
-      side: 'left',
-      characterId: 'teacher',
-      expression: 'happy',
-      text: 'そうだよ！磁石を入れるときと出すときで<ruby>誘導<rp>(</rp><rt>ゆうどう</rt><rp>)</rp></ruby>電流の向きは逆になるんだ。この原理を使って、コイルと磁石で電気を作る装置が<strong><span class="keyword"><ruby>発電機<rp>(</rp><rt>はつでんき</rt><rp>)</rp></ruby></span></strong>だよ',
-    },
-    {
-      type: 'image',
-      src: '/images/science/grade2/electricity/electromagnetic-induction.svg',
-      alt: '電磁誘導',
-      caption: 'コイルの中で磁石を動かすと電流が流れる',
-    },
-    {
-      type: 'message',
-      side: 'right',
-      characterId: 'student',
-      expression: 'thinking',
-      text: '<strong><span class="keyword"><ruby>直流<rp>(</rp><rt>ちょくりゅう</rt><rp>)</rp></ruby></span></strong>と<strong><span class="keyword"><ruby>交流<rp>(</rp><rt>こうりゅう</rt><rp>)</rp></ruby></span></strong>のちがいを教えてください！',
-    },
-    {
-      type: 'message',
-      side: 'left',
-      characterId: 'teacher',
-      expression: 'explaining',
-      text: '<ruby>乾電池<rp>(</rp><rt>かんでんち</rt><rp>)</rp></ruby>のように電流の向きと大きさが一定なのが<strong>直流</strong>。家庭のコンセントのように電流の向きと大きさが<ruby>周期的<rp>(</rp><rt>しゅうきてき</rt><rp>)</rp></ruby>に変化するのが<strong>交流</strong>だよ',
-    },
-    {
-      type: 'message',
-      side: 'right',
-      characterId: 'student',
-      expression: 'surprised',
-      text: 'コンセントの電流は向きが変わっているんですか！？知りませんでした！',
-    },
-    {
-      type: 'message',
-      side: 'left',
-      characterId: 'teacher',
-      expression: 'excited',
-      text: '交流が1秒間に<ruby>繰<rp>(</rp><rt>く</rt><rp>)</rp></ruby>り返す回数を<strong><span class="keyword"><ruby>周波数<rp>(</rp><rt>しゅうはすう</rt><rp>)</rp></ruby></span></strong>といい、単位は<strong>Hz（ヘルツ）</strong>だよ。東日本は50Hz、西日本は60Hzなんだ',
-    },
-    {
-      type: 'message',
-      side: 'right',
-      characterId: 'student',
-      expression: 'curious',
-      text: '交流は何かメリットがあるんですか？',
-    },
-    {
-      type: 'message',
-      side: 'left',
-      characterId: 'teacher',
-      expression: 'happy',
-      text: '交流は<strong><ruby>変圧器<rp>(</rp><rt>へんあつき</rt><rp>)</rp></ruby></strong>（トランス）で電圧を<ruby>簡単<rp>(</rp><rt>かんたん</rt><rp>)</rp></ruby>に変えられるんだ。発電所から高い電圧で送電して、家庭に届く前に100Vに下げるんだよ。送電に交流が使われる大きな理由だね',
-    },
-    {
-      type: 'summary-point',
-      text: '<span class="keyword">電磁誘導</span>で誘導電流が流れる。<span class="keyword">直流</span>=一定方向、<span class="keyword">交流</span>=周期的変化。交流は変圧が容易！',
-    },
-    {
-      type: 'quiz',
-      question: '電磁誘導で誘導電流を大きくする方法として正しくないものは？',
-      options: [
-        { letter: 'A', text: '磁石を速く動かす', correct: false },
-        { letter: 'B', text: 'コイルの巻き数を増やす', correct: false },
-        { letter: 'C', text: '強い磁石を使う', correct: false },
-        { letter: 'D', text: 'コイルの太さを太くする', correct: true },
-      ],
-      explanation:
-        '<strong>正解はD「コイルの太さを太くする」</strong>です。<ruby>誘導<rp>(</rp><rt>ゆうどう</rt><rp>)</rp></ruby>電流を大きくするには、磁石を速く動かす・コイルの<ruby>巻<rp>(</rp><rt>ま</rt><rp>)</rp></ruby>き数を増やす・強い磁石を使う、の3つが有効です。コイルの太さは関係ありません。',
-    },
-    {
       type: 'end',
       points: [
         '<strong><ruby>磁界<rp>(</rp><rt>じかい</rt><rp>)</rp></ruby></strong>：磁力がはたらく空間。<strong><ruby>磁力線<rp>(</rp><rt>じりょくせん</rt><rp>)</rp></ruby></strong>はN極→S極',
         '電流→<strong><ruby>同心円状<rp>(</rp><rt>どうしんえんじょう</rt><rp>)</rp></ruby>の磁界</strong>（右ねじの法則）。コイル電流→<ruby>棒磁石<rp>(</rp><rt>ぼうじしゃく</rt><rp>)</rp></ruby>と同じ磁界',
-        '磁界中の電流は<strong>力を受ける</strong>。<strong>モーター</strong>は<ruby>整流子<rp>(</rp><rt>せいりゅうし</rt><rp>)</rp></ruby>で連続回転',
-        '<strong><ruby>電磁誘導<rp>(</rp><rt>でんじゆうどう</rt><rp>)</rp></ruby></strong>：コイル内の磁界変化→<ruby>誘導<rp>(</rp><rt>ゆうどう</rt><rp>)</rp></ruby>電流。<strong><ruby>直流<rp>(</rp><rt>ちょくりゅう</rt><rp>)</rp></ruby></strong>=一定方向、<strong><ruby>交流<rp>(</rp><rt>こうりゅう</rt><rp>)</rp></ruby></strong>=周期的変化（<ruby>周波数<rp>(</rp><rt>しゅうはすう</rt><rp>)</rp></ruby>Hz）',
+        '磁界中の電流は<strong>力を受ける</strong>。電流or磁界が逆→力も逆。<strong>モーター</strong>は<ruby>整流子<rp>(</rp><rt>せいりゅうし</rt><rp>)</rp></ruby>で連続回転',
       ],
     },
   ],

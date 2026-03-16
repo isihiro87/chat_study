@@ -6,7 +6,7 @@ export const electricEnergy: Topic = {
   name: '電気エネルギー',
   subtitle: '電力・熱量・電力量',
   icon: '💡',
-  order: 3,
+  order: 5,
   content: {
     explanation: {
       sections: [
@@ -135,6 +135,66 @@ export const electricEnergy: Topic = {
         back: '一定時間に消費された電気エネルギーの総量を何という？',
         explanation: '1Wh = 3600J。家庭の電気料金はkWh（キロワット時）で計算される。',
       },
+      {
+        id: 'sci2-ee-fc6',
+        front: '電気エネルギー',
+        back: '電気がもっているエネルギーを何という？',
+        explanation: '電気エネルギーは光・熱・音・運動エネルギーなどに変換される。',
+      },
+      {
+        id: 'sci2-ee-fc7',
+        front: '消費電力',
+        back: '電気器具に表示されているW（ワット）数のことを何という？',
+        explanation: '「100V-1200W」のように表示される。その電圧で使ったときの電力を表す。',
+      },
+      {
+        id: 'sci2-ee-fc8',
+        front: '「100V-1200W」の読み方',
+        back: '電気器具の表示「100V-1200W」はどういう意味？',
+        explanation: '100Vの電源で使ったときに消費電力が1200Wであるという意味。',
+      },
+      {
+        id: 'sci2-ee-fc9',
+        front: 'ジュール（J）の定義',
+        back: '電流によって発生する熱エネルギーの量の単位は？',
+        explanation: '熱量[J] = 電力[W] × 時間[s] で求められる。',
+      },
+      {
+        id: 'sci2-ee-fc10',
+        front: 'ワット時（Wh）の定義',
+        back: '1Wの電力を1時間使ったときの電力量の単位は？',
+        explanation: '1Wh = 3600J。電力量をより大きな単位で表すのに使う。',
+      },
+      {
+        id: 'sci2-ee-fc11',
+        front: 'kWh（キロワット時）',
+        back: '1kWhは何Whか？',
+        explanation: '1kWh = 1000Wh。家庭の電気料金はkWhで計算される。',
+      },
+      {
+        id: 'sci2-ee-fc12',
+        front: '水の上昇温度の法則',
+        back: '水の上昇温度は何に比例する？',
+        explanation: '水の上昇温度は電力の大きさと加熱時間の両方に比例する。',
+      },
+      {
+        id: 'sci2-ee-fc13',
+        front: '電熱線の太さと発熱',
+        back: '電熱線が太いほど発熱量はどうなる？',
+        explanation: '太い電熱線は抵抗が小さく、同じ電圧なら電流が大きくなり発熱量が増える。',
+      },
+      {
+        id: 'sci2-ee-fc14',
+        front: '電気料金の計算単位',
+        back: '家庭の電気料金を計算するときに使う電力量の単位は？',
+        explanation: 'kWh（キロワット時）。電気料金 = 使用電力量[kWh] × 単価[円/kWh]。',
+      },
+      {
+        id: 'sci2-ee-fc15',
+        front: 'カロリー（cal）との関係',
+        back: '1calは何Jか？',
+        explanation: '1cal ≒ 4.2J。1calは水1gの温度を1℃上げるのに必要な熱量。',
+      },
     ],
     quiz: {
       questions: [
@@ -178,6 +238,62 @@ export const electricEnergy: Topic = {
           explanation:
             '水の上昇温度は加熱時間に比例します。時間が2倍になれば、上昇温度も2倍になります。',
         },
+        {
+          id: 'sci2-ee-q6',
+          question: '「100V-600W」と表示された電気ストーブを100Vの電源につないだとき、流れる電流は何Aか？',
+          options: ['0.6A', '6A', '60A', '600A'],
+          correctIndex: 1,
+          explanation:
+            '電流[A] = 電力[W] ÷ 電圧[V] = 600 ÷ 100 = 6A です。',
+        },
+        {
+          id: 'sci2-ee-q7',
+          question: '抵抗が20Ωの電熱線に5Aの電流が流れているとき、電力は何Wか？',
+          options: ['4W', '25W', '100W', '500W'],
+          correctIndex: 3,
+          explanation:
+            'まず電圧を求めます。V = IR = 20Ω × 5A = 100V。電力 = 100V × 5A = 500W です。',
+        },
+        {
+          id: 'sci2-ee-q8',
+          question: '800Wの電子レンジを3分間使ったときの熱量は何Jか？',
+          options: ['2400J', '24000J', '144000J', '1440000J'],
+          correctIndex: 2,
+          explanation:
+            '熱量[J] = 電力[W] × 時間[s] = 800 × 180（3分 = 180秒）= 144000J です。',
+        },
+        {
+          id: 'sci2-ee-q9',
+          question: '200Wの電気器具を3時間使ったときの電力量は何Whか？',
+          options: ['60Wh', '200Wh', '600Wh', '3600Wh'],
+          correctIndex: 2,
+          explanation:
+            '電力量[Wh] = 電力[W] × 時間[h] = 200 × 3 = 600Wh です。',
+        },
+        {
+          id: 'sci2-ee-q10',
+          question: '1000Wの電気器具を2時間使ったときの電力量は何kWhか？',
+          options: ['0.2kWh', '0.5kWh', '2kWh', '2000kWh'],
+          correctIndex: 2,
+          explanation:
+            '電力量 = 1000W × 2h = 2000Wh = 2kWh です。',
+        },
+        {
+          id: 'sci2-ee-q11',
+          question: '同じ電圧をかけたとき、太い電熱線と細い電熱線ではどちらの発熱量が大きいか？',
+          options: ['太い電熱線', '細い電熱線', '同じ', '電圧による'],
+          correctIndex: 0,
+          explanation:
+            '太い電熱線は抵抗が小さいため電流が大きくなり、電力が大きくなるので発熱量も大きくなります。',
+        },
+        {
+          id: 'sci2-ee-q12',
+          question: 'テーブルタップに「合計1500Wまで」と表示がある。800Wのポットと600Wのトースターを同時に使っているとき、あと何Wまでの電気器具を追加できるか？',
+          options: ['100W', '200W', '500W', '1500W'],
+          correctIndex: 0,
+          explanation:
+            '現在の合計は800 + 600 = 1400W。あと1500 - 1400 = 100Wまで追加できます。',
+        },
       ],
     },
     examples: {
@@ -207,6 +323,98 @@ export const electricEnergy: Topic = {
             },
           ],
           answer: '電力：200W\n熱量：60000J（= 60kJ）',
+        },
+        {
+          id: 'sci2-ee-ex2',
+          question:
+            '「6V-6W」と表示されている電熱線の抵抗を求めなさい。',
+          steps: [
+            {
+              title: 'Step 1: 電流を求める',
+              content:
+                '電力[W] = 電圧[V] × 電流[A] より、電流 = 電力 ÷ 電圧 で求めます。',
+              highlight: '電流 = 6W ÷ 6V = 1A',
+            },
+            {
+              title: 'Step 2: 抵抗を求める',
+              content:
+                'オームの法則 V = IR より、R = V ÷ I で求めます。',
+              highlight: '抵抗 = 6V ÷ 1A = 6Ω',
+            },
+          ],
+          answer: '抵抗：6Ω',
+        },
+        {
+          id: 'sci2-ee-ex3',
+          question:
+            '8Wの電熱線で水100gを5分間加熱した。発生した熱がすべて水の温度上昇に使われたとすると、水温は何℃上昇するか。ただし、1cal = 4.2Jとする。',
+          steps: [
+            {
+              title: 'Step 1: 熱量を求める',
+              content:
+                '熱量[J] = 電力[W] × 時間[s] で計算します。5分 = 300秒。',
+              highlight: '熱量 = 8W × 300s = 2400J',
+            },
+            {
+              title: 'Step 2: 水の温度上昇を求める',
+              content:
+                '水1gを1℃上げるのに4.2J必要なので、水100gを1℃上げるには420J必要です。',
+              highlight: '上昇温度 = 2400J ÷ (4.2J × 100g) = 2400 ÷ 420 ≒ 5.7℃',
+            },
+          ],
+          answer: '水温の上昇：約5.7℃',
+        },
+        {
+          id: 'sci2-ee-ex4',
+          question:
+            '「100V-1200W」のドライヤーを30分間使用したときの電力量と電気料金を求めなさい。ただし、電気料金は1kWhあたり27円とする。',
+          steps: [
+            {
+              title: 'Step 1: 電力量をWhで求める',
+              content:
+                '電力量[Wh] = 電力[W] × 時間[h] で計算します。30分 = 0.5時間。',
+              highlight: '電力量 = 1200W × 0.5h = 600Wh',
+            },
+            {
+              title: 'Step 2: kWhに変換する',
+              content:
+                '1kWh = 1000Wh なので、Whを1000で割ります。',
+              highlight: '600Wh ÷ 1000 = 0.6kWh',
+            },
+            {
+              title: 'Step 3: 電気料金を求める',
+              content:
+                '電気料金 = 電力量[kWh] × 単価[円/kWh] で計算します。',
+              highlight: '電気料金 = 0.6kWh × 27円 = 16.2円',
+            },
+          ],
+          answer: '電力量：0.6kWh（= 600Wh）\n電気料金：16.2円',
+        },
+        {
+          id: 'sci2-ee-ex5',
+          question:
+            '電熱線A（6Ω）と電熱線B（12Ω）を、それぞれ6Vの電源につないで同じ量の水を5分間加熱した。どちらの発熱量が大きいか、計算で比較しなさい。',
+          steps: [
+            {
+              title: 'Step 1: 電熱線Aの電力を求める',
+              content:
+                '電流 = 6V ÷ 6Ω = 1A、電力 = 6V × 1A = 6W',
+              highlight: '電熱線Aの電力：6W',
+            },
+            {
+              title: 'Step 2: 電熱線Bの電力を求める',
+              content:
+                '電流 = 6V ÷ 12Ω = 0.5A、電力 = 6V × 0.5A = 3W',
+              highlight: '電熱線Bの電力：3W',
+            },
+            {
+              title: 'Step 3: 発熱量を比較する',
+              content:
+                '5分 = 300秒として、それぞれの熱量を求めます。',
+              highlight: 'A：6W × 300s = 1800J、B：3W × 300s = 900J → Aが2倍',
+            },
+          ],
+          answer: '電熱線Aの発熱量（1800J）が電熱線B（900J）の2倍大きい。抵抗が小さいほど電流が大きくなり、発熱量も大きくなる。',
         },
       ],
     },

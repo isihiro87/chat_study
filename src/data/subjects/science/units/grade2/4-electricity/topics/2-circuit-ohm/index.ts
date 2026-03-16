@@ -3,10 +3,10 @@ import type { Topic } from '../../../../../../../types';
 export const circuitOhm: Topic = {
   id: 'sci2-circuit-ohm',
   eraId: 'sci2-electricity',
-  name: '回路と電流・電圧・抵抗',
-  subtitle: '直列・並列回路・オームの法則',
+  name: '回路と電流・電圧',
+  subtitle: '直列・並列回路の電流と電圧',
   icon: '🔌',
-  order: 2,
+  order: 3,
   content: {
     explanation: {
       sections: [
@@ -32,22 +32,6 @@ export const circuitOhm: Topic = {
             '電流計は直列、電圧計は並列につなぐ。最大の端子からつなぐ',
             '直列回路：I＝I₁＝I₂、V＝V₁＋V₂',
             '並列回路：I＝I₁＋I₂、V＝V₁＝V₂',
-          ],
-        },
-        {
-          title: 'オームの法則と抵抗',
-          content:
-            '電圧と電流の間には比例の関係があり、これをオームの法則といいます。V＝R×I（電圧〔V〕＝抵抗〔Ω〕×電流〔A〕）で表されます。電気を通しやすい物質を導体、通しにくい物質を不導体（絶縁体）といいます。',
-          image: {
-            src: '/images/science/grade2/electricity/ohms-law.svg',
-            alt: 'オームの法則（V-Iグラフ）',
-            caption: '電圧と電流は比例する',
-          },
-          keyPoints: [
-            'オームの法則：V＝R×I（電圧＝抵抗×電流）',
-            '抵抗の単位はΩ（オーム）',
-            '導体：電気を通しやすい物質（金属など）',
-            '不導体（絶縁体）：電気を通しにくい物質（ゴム、ガラスなど）',
           ],
         },
       ],
@@ -132,40 +116,6 @@ export const circuitOhm: Topic = {
             },
           ],
         },
-        {
-          id: 'sci2-circuit-slide3',
-          title: 'オームの法則をマスター！',
-          slides: [
-            {
-              type: 'question',
-              question: '電圧を2倍にすると、電流はどうなる？',
-              subtext: 'オームの法則',
-              emoji: '📐',
-              image: {
-                src: '/images/science/grade2/electricity/ohms-law.svg',
-                alt: 'オームの法則（V-Iグラフ）',
-              },
-            },
-            {
-              type: 'reason',
-              headline: '電圧と電流は比例する！V＝R×I',
-              points: [
-                '電圧を2倍にすると電流も2倍になる（抵抗が同じとき）',
-                'V＝R×I を変形すると I＝V÷R、R＝V÷I',
-                '抵抗（Ω）は電流の流れにくさを表す',
-              ],
-            },
-            {
-              type: 'conclusion',
-              conclusion: 'オームの法則 V＝R×I で電圧・電流・抵抗を計算！',
-              keywords: [
-                { text: 'V＝R×I', isImportant: true },
-                { text: '導体', isImportant: true },
-                { text: '不導体（絶縁体）' },
-              ],
-            },
-          ],
-        },
       ],
     },
     videos: [],
@@ -189,16 +139,58 @@ export const circuitOhm: Topic = {
         explanation: '電流計は測りたい部分に直列につなぐ。最大の端子（5Aなど）からつなぎ始める。',
       },
       {
-        id: 'sci2-circuit-fc4',
-        front: 'オームの法則',
-        back: '電圧（V）・電流（I）・抵抗（R）の関係を表す法則は？',
-        explanation: 'V＝R×I（電圧＝抵抗×電流）。電圧と電流は比例する。',
+        id: 'sci2-circuit-fc6',
+        front: '回路',
+        back: '電気の通り道のことを何という？',
+        explanation: '回路とは電源から出た電流が電源にもどるまでの道すじのこと。',
       },
       {
-        id: 'sci2-circuit-fc5',
-        front: '導体と不導体（絶縁体）',
-        back: '電気を通しやすい物質と通しにくい物質をそれぞれ何という？',
-        explanation: '導体：金属など電気を通しやすい物質。不導体（絶縁体）：ゴム・ガラスなど電気を通しにくい物質。',
+        id: 'sci2-circuit-fc7',
+        front: '回路図',
+        back: '電気用図記号を使って回路を表した図を何という？',
+        explanation: '電池・豆電球・スイッチなどを決まった記号（電気用図記号）で表した図。',
+      },
+      {
+        id: 'sci2-circuit-fc8',
+        front: '電流の単位',
+        back: '電流の大きさを表す単位は？（2つ答えよ）',
+        explanation: 'A（アンペア）とmA（ミリアンペア）。1A＝1000mA。',
+      },
+      {
+        id: 'sci2-circuit-fc9',
+        front: '電圧の単位',
+        back: '電圧の大きさを表す単位は？',
+        explanation: 'V（ボルト）。電流を流そうとする力の大きさを表す。',
+      },
+      {
+        id: 'sci2-circuit-fc10',
+        front: '直列回路の電流の規則性',
+        back: '直列回路の電流にはどんな規則性がある？',
+        explanation: '直列回路では電流はどこで測っても同じ。I＝I₁＝I₂。',
+      },
+      {
+        id: 'sci2-circuit-fc11',
+        front: '直列回路の電圧の規則性',
+        back: '直列回路の電圧にはどんな規則性がある？',
+        explanation: '各部分の電圧の和が全体の電圧に等しい。V＝V₁＋V₂。',
+      },
+      {
+        id: 'sci2-circuit-fc12',
+        front: '並列回路の電流の規則性',
+        back: '並列回路の電流にはどんな規則性がある？',
+        explanation: '枝分かれ前の電流は各枝の電流の和に等しい。I＝I₁＋I₂。',
+      },
+      {
+        id: 'sci2-circuit-fc13',
+        front: '並列回路の電圧の規則性',
+        back: '並列回路の電圧にはどんな規則性がある？',
+        explanation: '各部分の電圧はすべて等しく、電源の電圧と同じ。V＝V₁＝V₂。',
+      },
+      {
+        id: 'sci2-circuit-fc14',
+        front: '電圧計のつなぎ方',
+        back: '電圧計は回路にどのようにつなぐ？',
+        explanation: '測りたい部分に並列につなぐ。最大の端子（300Vなど）からつなぎ始める。',
       },
     ],
     quiz: {
@@ -238,50 +230,84 @@ export const circuitOhm: Topic = {
             '並列回路では各部分の電圧はどこでも同じ大きさです（V＝V₁＝V₂）。',
         },
         {
-          id: 'sci2-circuit-q4',
-          question: 'オームの法則を表す式として正しいのは？',
-          options: ['V＝I÷R', 'V＝R×I', 'V＝R＋I', 'V＝R−I'],
+          id: 'sci2-circuit-q6',
+          question: '250mAは何Aか？',
+          options: ['0.025A', '0.25A', '2.5A', '25A'],
           correctIndex: 1,
           explanation:
-            'オームの法則はV＝R×I（電圧＝抵抗×電流）です。電圧と電流は比例します。',
+            '1A＝1000mAなので、250mA＝250÷1000＝0.25A です。',
         },
         {
-          id: 'sci2-circuit-q5',
-          question: '20Ωの抵抗に0.3Aの電流が流れているとき、抵抗にかかる電圧は？',
-          options: ['3V', '6V', '60V', '0.015V'],
-          correctIndex: 1,
+          id: 'sci2-circuit-q7',
+          question: '直列回路で2つの抵抗にかかる電圧がそれぞれ3Vと5Vだった。電源の電圧は？',
+          options: ['3V', '5V', '8V', '15V'],
+          correctIndex: 2,
           explanation:
-            'V＝R×I＝20Ω×0.3A＝6V です。オームの法則に値を代入して計算します。',
+            '直列回路では V＝V₁＋V₂ なので、3＋5＝8V です。',
+        },
+        {
+          id: 'sci2-circuit-q8',
+          question: '並列回路で、枝分かれした2つの電流がそれぞれ0.2Aと0.3Aだった。全体の電流は？',
+          options: ['0.2A', '0.3A', '0.5A', '0.6A'],
+          correctIndex: 2,
+          explanation:
+            '並列回路では I＝I₁＋I₂ なので、0.2＋0.3＝0.5A です。',
         },
       ],
     },
     examples: {
       examples: [
         {
-          id: 'sci2-circuit-ex1',
+          id: 'sci2-circuit-ex2',
           question:
-            '抵抗が20Ωの電熱線に0.3Aの電流が流れています。この電熱線にかかる電圧を求めなさい。',
+            '10Ωと20Ωの抵抗を直列につないだ回路に6Vの電圧をかけた。回路に流れる電流と、各抵抗にかかる電圧を求めなさい。',
           steps: [
             {
-              title: 'Step 1: 使う公式を確認する',
+              title: 'Step 1: 合成抵抗を求める',
               content:
-                'オームの法則 V＝R×I を使います。V：電圧〔V〕、R：抵抗〔Ω〕、I：電流〔A〕',
-              highlight: 'V＝R×I',
+                '直列回路の合成抵抗は R＝R₁＋R₂ で求めます。R＝10＋20＝30Ω',
+              highlight: '30Ω',
             },
             {
-              title: 'Step 2: 値を代入する',
+              title: 'Step 2: 回路に流れる電流を求める',
               content:
-                'R＝20Ω、I＝0.3A を代入します。V＝20×0.3',
-              highlight: 'V＝20×0.3',
+                'オームの法則 I＝V÷R より、I＝6÷30＝0.2A',
+              highlight: '0.2A',
             },
             {
-              title: 'Step 3: 計算する',
+              title: 'Step 3: 各抵抗にかかる電圧を求める',
               content:
-                'V＝20×0.3＝6 より、電圧は6Vです。',
-              highlight: '6V',
+                'V₁＝R₁×I＝10×0.2＝2V、V₂＝R₂×I＝20×0.2＝4V（確認：2＋4＝6Vで全体と一致）',
+              highlight: 'V₁＝2V、V₂＝4V',
             },
           ],
-          answer: 'V＝R×I＝20Ω×0.3A＝6V\n（電熱線にかかる電圧は6V）',
+          answer: '電流：I＝0.2A\n10Ωにかかる電圧：V₁＝2V\n20Ωにかかる電圧：V₂＝4V',
+        },
+        {
+          id: 'sci2-circuit-ex3',
+          question:
+            '10Ωと30Ωの抵抗を並列につないだ回路に6Vの電圧をかけた。各抵抗に流れる電流と、全体の電流を求めなさい。',
+          steps: [
+            {
+              title: 'Step 1: 並列回路の電圧を確認する',
+              content:
+                '並列回路では各部分の電圧は等しく、どちらの抵抗にも6Vがかかります。',
+              highlight: 'V＝V₁＝V₂＝6V',
+            },
+            {
+              title: 'Step 2: 各抵抗に流れる電流を求める',
+              content:
+                'I₁＝V÷R₁＝6÷10＝0.6A、I₂＝V÷R₂＝6÷30＝0.2A',
+              highlight: 'I₁＝0.6A、I₂＝0.2A',
+            },
+            {
+              title: 'Step 3: 全体の電流を求める',
+              content:
+                '並列回路では I＝I₁＋I₂ なので、I＝0.6＋0.2＝0.8A',
+              highlight: '0.8A',
+            },
+          ],
+          answer: '10Ωの電流：I₁＝0.6A\n30Ωの電流：I₂＝0.2A\n全体の電流：I＝0.8A',
         },
       ],
     },
