@@ -173,12 +173,193 @@ export const quadFuncParabolaChat: HistoryChat = {
       text: '<ruby>放物線<rt>ほうぶつせん</rt></ruby>は y <ruby>軸<rt>じく</rt></ruby>について<ruby>左右対称<rt>さゆうたいしょう</rt></ruby>。a の<ruby>符号<rt>ふごう</rt></ruby>で<ruby>向<rt>む</rt></ruby>き、|a| の<ruby>大<rt>おお</rt></ruby>きさで<ruby>開<rt>ひら</rt></ruby>き<ruby>具合<rt>ぐあい</rt></ruby>が<ruby>決<rt>き</rt></ruby>まる！',
     },
     {
+      type: 'date',
+      text: '<ruby>比例定数<rt>ひれいていすう</rt></ruby> a を<ruby>求<rt>もと</rt></ruby>めよう',
+    },
+    {
+      type: 'narrator',
+      text: 'y = ax² の式で、a の<ruby>値<rt>あたい</rt></ruby>を<ruby>求<rt>もと</rt></ruby>める<ruby>方法<rt>ほうほう</rt></ruby>をマスターしよう！',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<ruby>問題<rt>もんだい</rt></ruby>だよ。y は x の2<ruby>乗<rt>じょう</rt></ruby>に<ruby>比例<rt>ひれい</rt></ruby>し、x = 3 のとき y = 18。y を x の<ruby>式<rt>しき</rt></ruby>で<ruby>表<rt>あらわ</rt></ruby>そう。',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: 'えっと、まず y = ax² と<ruby>置<rt>お</rt></ruby>いて…x と y の<ruby>値<rt>あたい</rt></ruby>を<ruby>代入<rt>だいにゅう</rt></ruby>すればいいんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: 'そのとおり！<ruby>代入<rt>だいにゅう</rt></ruby>して a を<ruby>求<rt>もと</rt></ruby>めるんだ。',
+    },
+    {
+      type: 'whiteboard',
+      title: '<ruby>比例定数<rt>ひれいていすう</rt></ruby> a の<ruby>求<rt>もと</rt></ruby>め<ruby>方<rt>かた</rt></ruby>',
+      steps: [
+        {
+          formula: '$y = ax^2$ に $x = 3, y = 18$ を<ruby>代入<rt>だいにゅう</rt></ruby>',
+          annotation: '$18 = a \\times 3^2$',
+        },
+        {
+          formula: '$18 = 9a$',
+          animateInsert: true,
+          annotation: '$3^2 = 9$ を<ruby>計算<rt>けいさん</rt></ruby>',
+        },
+        {
+          formula: '$a = 18 \\div 9 = 2$',
+          animateInsert: true,
+          annotation: '<ruby>答<rt>こた</rt></ruby>え：$y = 2x^2$',
+        },
+      ],
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'happy',
+      text: 'なるほど！<strong>a = y ÷ x²</strong> で<ruby>求<rt>もと</rt></ruby>められるんですね！',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: 'もう1<ruby>問<rt>もん</rt></ruby>。x = -4 のとき y = -32 なら？',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: '-32 = a × (-4)² だから…(-4)² = 16 で、-32 = 16a、a = -2。<strong>y = -2x²</strong> ですね！',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'encouraging',
+      text: '<ruby>完璧<rt>かんぺき</rt></ruby>！(-4)² = 16 と<ruby>正<rt>ただ</rt></ruby>しく<ruby>計算<rt>けいさん</rt></ruby>できたね。<ruby>負<rt>ふ</rt></ruby>の<ruby>数<rt>すう</rt></ruby>を2<ruby>乗<rt>じょう</rt></ruby>するとプラスになるのがポイントだよ。',
+    },
+    {
+      type: 'quiz',
+      question: '$y$ は $x$ の2<ruby>乗<rt>じょう</rt></ruby>に<ruby>比例<rt>ひれい</rt></ruby>し、$x = 5$ のとき $y = 50$。$y$ を $x$ の<ruby>式<rt>しき</rt></ruby>で<ruby>表<rt>あらわ</rt></ruby>すと？',
+      options: [
+        { letter: 'A', text: '$y = 5x^2$', correct: false },
+        { letter: 'B', text: '$y = 10x^2$', correct: false },
+        { letter: 'C', text: '$y = 2x^2$', correct: true },
+        { letter: 'D', text: '$y = 50x^2$', correct: false },
+      ],
+      explanation:
+        '$50 = a \\times 5^2 = 25a$ → $a = 2$ だから $y = 2x^2$ だよ。',
+    },
+    {
+      type: 'summary-point',
+      text: '<ruby>比例定数<rt>ひれいていすう</rt></ruby> a は、y = ax² に<ruby>既知<rt>きち</rt></ruby>の (x, y) を<ruby>代入<rt>だいにゅう</rt></ruby>して <strong>a = y ÷ x²</strong> で<ruby>求<rt>もと</rt></ruby>める！',
+    },
+    {
+      type: 'date',
+      text: '<ruby>放物線<rt>ほうぶつせん</rt></ruby>の<ruby>式<rt>しき</rt></ruby>を<ruby>求<rt>もと</rt></ruby>めよう',
+    },
+    {
+      type: 'narrator',
+      text: 'グラフが<ruby>通<rt>とお</rt></ruby>る<ruby>点<rt>てん</rt></ruby>の<ruby>座標<rt>ざひょう</rt></ruby>から、<ruby>放物線<rt>ほうぶつせん</rt></ruby>の<ruby>式<rt>しき</rt></ruby>を<ruby>決定<rt>けってい</rt></ruby>する<ruby>方法<rt>ほうほう</rt></ruby>を<ruby>学<rt>まな</rt></ruby>ぼう！',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<ruby>放物線<rt>ほうぶつせん</rt></ruby> y = ax² のグラフが<ruby>点<rt>てん</rt></ruby> (2, -8) を<ruby>通<rt>とお</rt></ruby>るとき、<ruby>式<rt>しき</rt></ruby>を<ruby>求<rt>もと</rt></ruby>めてみよう。',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: 'さっきの<ruby>方法<rt>ほうほう</rt></ruby>と<ruby>同<rt>おな</rt></ruby>じですよね？x = 2, y = -8 を<ruby>代入<rt>だいにゅう</rt></ruby>して…',
+    },
+    {
+      type: 'whiteboard',
+      title: 'グラフから<ruby>式<rt>しき</rt></ruby>を<ruby>求<rt>もと</rt></ruby>める',
+      steps: [
+        {
+          formula: '$-8 = a \\times 2^2 = 4a$',
+          annotation: '<ruby>点<rt>てん</rt></ruby> $(2, -8)$ を<ruby>代入<rt>だいにゅう</rt></ruby>',
+        },
+        {
+          formula: '$a = -2$',
+          animateInsert: true,
+          annotation: '$a < 0$ → <ruby>下<rt>した</rt></ruby>に<ruby>開<rt>ひら</rt></ruby>く<ruby>放物線<rt>ほうぶつせん</rt></ruby>',
+        },
+        {
+          formula: '$y = -2x^2$',
+          animateInsert: true,
+          annotation: '<ruby>式<rt>しき</rt></ruby>が<ruby>決定<rt>けってい</rt></ruby>！',
+        },
+      ],
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: 'いいね！じゃあ<ruby>応用<rt>おうよう</rt></ruby><ruby>問題<rt>もんだい</rt></ruby>。この<ruby>放物線<rt>ほうぶつせん</rt></ruby> y = -2x² で、x = -3 のときの y は？',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: 'y = -2 × (-3)² = -2 × 9 = -18 です！',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: '<ruby>正解<rt>せいかい</rt></ruby>！<ruby>式<rt>しき</rt></ruby>さえ<ruby>求<rt>もと</rt></ruby>まれば、どんな x の<ruby>値<rt>あたい</rt></ruby>でも y を<ruby>計算<rt>けいさん</rt></ruby>できるよね。',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<ruby>最後<rt>さいご</rt></ruby>にもう1つ。<ruby>放物線<rt>ほうぶつせん</rt></ruby>が<ruby>通<rt>とお</rt></ruby>る<ruby>点<rt>てん</rt></ruby>から |a| の<ruby>大<rt>おお</rt></ruby>きさもわかるよ。|a| が<ruby>大<rt>おお</rt></ruby>きいほど<ruby>細<rt>ほそ</rt></ruby>い、<ruby>小<rt>ちい</rt></ruby>さいほど<ruby>広<rt>ひろ</rt></ruby>い。',
+    },
+    {
+      type: 'quiz',
+      question: '<ruby>放物線<rt>ほうぶつせん</rt></ruby> $y = ax^2$ が<ruby>点<rt>てん</rt></ruby> $(4, 8)$ を<ruby>通<rt>とお</rt></ruby>る。$a$ の<ruby>値<rt>あたい</rt></ruby>は？',
+      options: [
+        { letter: 'A', text: '$a = 2$', correct: false },
+        { letter: 'B', text: '$a = 1$', correct: false },
+        { letter: 'C', text: '$a = \\dfrac{1}{2}$', correct: true },
+        { letter: 'D', text: '$a = 4$', correct: false },
+      ],
+      explanation:
+        '$8 = a \\times 4^2 = 16a$ → $a = \\dfrac{8}{16} = \\dfrac{1}{2}$ だよ。$|a| < 1$ なので<ruby>広<rt>ひろ</rt></ruby>い<ruby>放物線<rt>ほうぶつせん</rt></ruby>だね。',
+    },
+    {
+      type: 'summary-point',
+      text: 'グラフが<ruby>通<rt>とお</rt></ruby>る<ruby>点<rt>てん</rt></ruby>の<ruby>座標<rt>ざひょう</rt></ruby>を y = ax² に<ruby>代入<rt>だいにゅう</rt></ruby>すれば、<ruby>放物線<rt>ほうぶつせん</rt></ruby>の<ruby>式<rt>しき</rt></ruby>が<ruby>求<rt>もと</rt></ruby>まる！',
+    },
+    {
       type: 'end',
       points: [
         '$y = ax^2$ は「$y$ は $x$ の2<ruby>乗<rt>じょう</rt></ruby>に<ruby>比例<rt>ひれい</rt></ruby>」する<ruby>関数<rt>かんすう</rt></ruby>',
         'グラフは<ruby>放物線<rt>ほうぶつせん</rt></ruby>（U<ruby>字型<rt>じがた</rt></ruby>の<ruby>曲線<rt>きょくせん</rt></ruby>）',
         '$a > 0$ → <ruby>上<rt>うえ</rt></ruby><ruby>開<rt>びら</rt></ruby>き、$a < 0$ → <ruby>下<rt>した</rt></ruby><ruby>開<rt>びら</rt></ruby>き',
         '$|a|$ が<ruby>大<rt>おお</rt></ruby>きい → <ruby>細<rt>ほそ</rt></ruby>い、$|a|$ が<ruby>小<rt>ちい</rt></ruby>さい → <ruby>広<rt>ひろ</rt></ruby>い',
+        '<ruby>比例定数<rt>ひれいていすう</rt></ruby> $a$ は $a = y \\div x^2$ で<ruby>求<rt>もと</rt></ruby>める',
+        'グラフが<ruby>通<rt>とお</rt></ruby>る<ruby>点<rt>てん</rt></ruby>から<ruby>放物線<rt>ほうぶつせん</rt></ruby>の<ruby>式<rt>しき</rt></ruby>が<ruby>決<rt>き</rt></ruby>まる',
       ],
     },
   ],

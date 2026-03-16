@@ -169,12 +169,121 @@ export const quadFuncRangeChat: HistoryChat = {
       text: '<ruby>変域<rt>へんいき</rt></ruby>を<ruby>求<rt>もと</rt></ruby>めるときは「x = 0 を<ruby>含<rt>ふく</rt></ruby>むか」を<ruby>最初<rt>さいしょ</rt></ruby>に<ruby>確認<rt>かくにん</rt></ruby>！',
     },
     {
+      type: 'date',
+      text: '<ruby>変域<rt>へんいき</rt></ruby>から $a$ を<ruby>求<rt>もと</rt></ruby>める<ruby>逆問題<rt>ぎゃくもんだい</rt></ruby>',
+    },
+    {
+      type: 'narrator',
+      text: 'ここからは<ruby>逆<rt>ぎゃく</rt></ruby>パターン！$y$ の<ruby>変域<rt>へんいき</rt></ruby>がわかっていて $a$ を<ruby>求<rt>もと</rt></ruby>める<ruby>問題<rt>もんだい</rt></ruby>に<ruby>挑戦<rt>ちょうせん</rt></ruby>しよう。',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '$y = ax^2$ で $-2 \\leq x \\leq 3$ のとき、$y$ の<ruby>最大値<rt>さいだいち</rt></ruby>が $18$ だった。$a$ を<ruby>求<rt>もと</rt></ruby>めてみよう（$a > 0$）。',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: 'えーと、$x = 0$ を<ruby>含<rt>ふく</rt></ruby>むから<ruby>最小値<rt>さいしょうち</rt></ruby>は $0$ で… <ruby>最大値<rt>さいだいち</rt></ruby>は<ruby>端<rt>はし</rt></ruby>の<ruby>値<rt>あたい</rt></ruby>で<ruby>決<rt>き</rt></ruby>まるんですよね？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: 'その<ruby>通<rt>とお</rt></ruby>り！ $|3| > |-2|$ だから $x = 3$ で<ruby>最大値<rt>さいだいち</rt></ruby>をとるよ。',
+    },
+    {
+      type: 'whiteboard',
+      title: '<ruby>変域<rt>へんいき</rt></ruby>から $a$ を<ruby>求<rt>もと</rt></ruby>める',
+      steps: [
+        {
+          formula: '$x = 0$ を<ruby>含<rt>ふく</rt></ruby>む → $a > 0$ なので<ruby>最小値<rt>さいしょうち</rt></ruby>は $0$',
+          annotation: 'まず $x = 0$ の<ruby>確認<rt>かくにん</rt></ruby>',
+        },
+        {
+          formula: '$|3| > |-2|$ → $x = 3$ で<ruby>最大値<rt>さいだいち</rt></ruby>',
+          annotation: '<ruby>端<rt>はし</rt></ruby>の<ruby>値<rt>あたい</rt></ruby>の<ruby>絶対値<rt>ぜったいち</rt></ruby>を<ruby>比<rt>くら</rt></ruby>べる',
+        },
+        {
+          formula: '$y = a \\times 3^2 = 9a = 18$',
+          animateInsert: true,
+          annotation: '<ruby>最大値<rt>さいだいち</rt></ruby>の<ruby>条件<rt>じょうけん</rt></ruby>で<ruby>方程式<rt>ほうていしき</rt></ruby>を<ruby>立<rt>た</rt></ruby>てる',
+        },
+        {
+          formula: '$a = 2$',
+          animateInsert: true,
+          isResult: true,
+          annotation: '<ruby>答<rt>こた</rt></ruby>え！',
+        },
+      ],
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'happy',
+      text: 'なるほど！<ruby>最大値<rt>さいだいち</rt></ruby>を<ruby>与<rt>あた</rt></ruby>える $x$ がわかれば、$y = ax^2$ に<ruby>代入<rt>だいにゅう</rt></ruby>するだけですね！',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: 'もう1<ruby>問<rt>もん</rt></ruby>！ $y = ax^2$ で $1 \\leq x \\leq 4$ のとき、<ruby>変域<rt>へんいき</rt></ruby>が $-32 \\leq y \\leq -2$ だった。$a$ を<ruby>求<rt>もと</rt></ruby>めよう。',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '$y$ が<ruby>全部<rt>ぜんぶ</rt></ruby><ruby>負<rt>ふ</rt></ruby>の<ruby>値<rt>あたい</rt></ruby>だから $a < 0$ ですね。$x = 0$ は<ruby>含<rt>ふく</rt></ruby>まないから<ruby>端<rt>はし</rt></ruby>の<ruby>値<rt>あたい</rt></ruby>だけ！',
+    },
+    {
+      type: 'whiteboard',
+      title: '$x = 0$ を<ruby>含<rt>ふく</rt></ruby>まない<ruby>逆問題<rt>ぎゃくもんだい</rt></ruby>',
+      steps: [
+        {
+          formula: '$x = 0$ を<ruby>含<rt>ふく</rt></ruby>まない → <ruby>端<rt>はし</rt></ruby>の<ruby>値<rt>あたい</rt></ruby>で<ruby>判断<rt>はんだん</rt></ruby>',
+        },
+        {
+          formula: '$x = 4$ で<ruby>最小値<rt>さいしょうち</rt></ruby>: $16a = -32$ → $a = -2$',
+          animateInsert: true,
+        },
+        {
+          formula: '<ruby>検算<rt>けんざん</rt></ruby>: $x = 1$ で $y = a = -2$（<ruby>最大値<rt>さいだいち</rt></ruby>と<ruby>一致<rt>いっち</rt></ruby>）',
+          annotation: '<ruby>両方<rt>りょうほう</rt></ruby>の<ruby>端<rt>はし</rt></ruby>で<ruby>確認<rt>かくにん</rt></ruby>すると<ruby>安心<rt>あんしん</rt></ruby>！',
+        },
+        {
+          formula: '$a = -2$',
+          animateInsert: true,
+          isResult: true,
+        },
+      ],
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'encouraging',
+      text: '<ruby>逆問題<rt>ぎゃくもんだい</rt></ruby>は<ruby>手順<rt>てじゅん</rt></ruby>さえ<ruby>覚<rt>おぼ</rt></ruby>えれば<ruby>簡単<rt>かんたん</rt></ruby>！ (1)$x = 0$ を<ruby>含<rt>ふく</rt></ruby>むか (2)どの $x$ で<ruby>最大<rt>さいだい</rt></ruby>/<ruby>最小<rt>さいしょう</rt></ruby> (3)<ruby>代入<rt>だいにゅう</rt></ruby>して<ruby>解<rt>と</rt></ruby>く、の3ステップだよ！',
+    },
+    {
+      type: 'summary-point',
+      text: '<ruby>逆問題<rt>ぎゃくもんだい</rt></ruby>: <ruby>最大値<rt>さいだいち</rt></ruby>/<ruby>最小値<rt>さいしょうち</rt></ruby>を<ruby>与<rt>あた</rt></ruby>える $x$ を<ruby>特定<rt>とくてい</rt></ruby>し、$y = ax^2$ に<ruby>代入<rt>だいにゅう</rt></ruby>して $a$ を<ruby>求<rt>もと</rt></ruby>める！',
+    },
+    {
       type: 'end',
       points: [
         '$y = ax^2$ では $x = 0$ を<ruby>境<rt>さかい</rt></ruby>に $y$ の<ruby>変化<rt>へんか</rt></ruby>の<ruby>向<rt>む</rt></ruby>きが<ruby>逆<rt>ぎゃく</rt></ruby>になる',
         '$a > 0$: $x = 0$ で<ruby>最小値<rt>さいしょうち</rt></ruby> $0$、$a < 0$: $x = 0$ で<ruby>最大値<rt>さいだいち</rt></ruby> $0$',
         '$x$ の<ruby>変域<rt>へんいき</rt></ruby>が $0$ をまたぐ → $y$ の<ruby>最小値<rt>さいしょうち</rt></ruby>（$a>0$）または<ruby>最大値<rt>さいだいち</rt></ruby>（$a<0$）は $0$',
         '<ruby>端<rt>はし</rt></ruby>の<ruby>値<rt>あたい</rt></ruby>だけ<ruby>見<rt>み</rt></ruby>るのは NG！<ruby>必<rt>かなら</rt></ruby>ず $x = 0$ をチェック',
+        '<ruby>逆問題<rt>ぎゃくもんだい</rt></ruby>: <ruby>最大値<rt>さいだいち</rt></ruby>/<ruby>最小値<rt>さいしょうち</rt></ruby>を<ruby>与<rt>あた</rt></ruby>える $x$ を<ruby>特定<rt>とくてい</rt></ruby> → $y = ax^2$ に<ruby>代入<rt>だいにゅう</rt></ruby>して $a$ を<ruby>求<rt>もと</rt></ruby>める',
       ],
     },
   ],
