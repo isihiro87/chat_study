@@ -154,6 +154,60 @@ export const riseOfBushiChat: HistoryChat = {
       explanation: '<strong>正解はB「<ruby>中尊寺金色堂<rp>(</rp><rt>ちゅうそんじこんじきどう</rt><rp>)</rp></ruby>」</strong>です。<ruby>奥州藤原氏<rp>(</rp><rt>おうしゅうふじわらし</rt><rp>)</rp></ruby>が<ruby>平泉<rp>(</rp><rt>ひらいずみ</rt><rp>)</rp></ruby>に建てた<strong>中尊寺金色堂</strong>は、<ruby>金箔<rp>(</rp><rt>きんぱく</rt><rp>)</rp></ruby>で<ruby>覆<rp>(</rp><rt>おお</rt><rp>)</rp></ruby>われた<ruby>豪華<rp>(</rp><rt>ごうか</rt><rp>)</rp></ruby>な<ruby>仏堂<rp>(</rp><rt>ぶつどう</rt><rp>)</rp></ruby>です。',
     },
     {
+      type: 'narrator',
+      text: '武士の成長を支えた背景には、<strong><span class="keyword"><ruby>荘園<rp>(</rp><rt>しょうえん</rt><rp>)</rp></ruby></span></strong>制度の発達がありました。荘園にはさまざまな<ruby>特権<rp>(</rp><rt>とっけん</rt><rp>)</rp></ruby>が認められていました。',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'bushi',
+      expression: 'explaining',
+      text: '有力な<ruby>貴族<rp>(</rp><rt>きぞく</rt><rp>)</rp></ruby>は<ruby>朝廷<rp>(</rp><rt>ちょうてい</rt><rp>)</rp></ruby>から<strong><span class="keyword"><ruby>不輸<rp>(</rp><rt>ふゆ</rt><rp>)</rp></ruby>の<ruby>権<rp>(</rp><rt>けん</rt><rp>)</rp></ruby></span></strong>（税をまぬがれる権利）と<strong><span class="keyword"><ruby>不入<rp>(</rp><rt>ふにゅう</rt><rp>)</rp></ruby>の<ruby>権<rp>(</rp><rt>けん</rt><rp>)</rp></ruby></span></strong>（役人の立ち入りを<ruby>拒否<rp>(</rp><rt>きょひ</rt><rp>)</rp></ruby>する権利）を認められたんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '税もかからず、役人も入れないなんて、すごい特権ですね！',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'bushi',
+      expression: 'happy',
+      text: 'そうだね。だから地方の<ruby>開発領主<rp>(</rp><rt>かいはつりょうしゅ</rt><rp>)</rp></ruby>は有力な貴族に荘園を<strong><span class="keyword"><ruby>寄進<rp>(</rp><rt>きしん</rt><rp>)</rp></ruby></span></strong>（差し出す）して、不輸の権や不入の権を得ようとしたんだ。11世紀ごろから荘園はどんどん増えていったよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: '荘園が増えると、それを守る武士も必要になりますね…！',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'bushi',
+      expression: 'excited',
+      text: 'その通り！荘園を守る役割を<ruby>担<rp>(</rp><rt>にな</rt><rp>)</rp></ruby>った武士は、やがて土地の<ruby>実質的<rp>(</rp><rt>じっしつてき</rt><rp>)</rp></ruby>な<ruby>支配者<rp>(</rp><rt>しはいしゃ</rt><rp>)</rp></ruby>となっていったんだ。これが後の<ruby>鎌倉幕府<rp>(</rp><rt>かまくらばくふ</rt><rp>)</rp></ruby>成立の基盤になるよ！',
+    },
+    {
+      type: 'summary-point',
+      text: '荘園の<span class="keyword">不輸の権</span>・<span class="keyword">不入の権</span>により荘園が拡大。<span class="keyword">寄進</span>により荘園が増加し、それを守る武士の力が強まった',
+    },
+    {
+      type: 'quiz',
+      question: '荘園の税をまぬがれることができる権利は？',
+      options: [
+        { letter: 'A', text: '不入の権', correct: false },
+        { letter: 'B', text: '寄進', correct: false },
+        { letter: 'C', text: '不輸の権', correct: true },
+        { letter: 'D', text: '年貢免除', correct: false },
+      ],
+      explanation: '<strong>正解はC「<ruby>不輸<rp>(</rp><rt>ふゆ</rt><rp>)</rp></ruby>の<ruby>権<rp>(</rp><rt>けん</rt><rp>)</rp></ruby>」</strong>です。<ruby>不輸<rp>(</rp><rt>ふゆ</rt><rp>)</rp></ruby>の<ruby>権<rp>(</rp><rt>けん</rt><rp>)</rp></ruby>は荘園の税を<ruby>免除<rp>(</rp><rt>めんじょ</rt><rp>)</rp></ruby>される権利で、<ruby>不入<rp>(</rp><rt>ふにゅう</rt><rp>)</rp></ruby>の<ruby>権<rp>(</rp><rt>けん</rt><rp>)</rp></ruby>は役人の立ち入りを<ruby>拒否<rp>(</rp><rt>きょひ</rt><rp>)</rp></ruby>する権利です。',
+    },
+    {
       type: 'end',
       points: [
         '<strong><ruby>武士<rp>(</rp><rt>ぶし</rt><rp>)</rp></ruby></strong>：土地を守るために武装した者。<strong><ruby>武士団<rp>(</rp><rt>ぶしだん</rt><rp>)</rp></ruby></strong>を形成し、<strong><ruby>惣領<rp>(</rp><rt>そうりょう</rt><rp>)</rp></ruby></strong>が一族を<ruby>統率<rp>(</rp><rt>とうそつ</rt><rp>)</rp></ruby>',

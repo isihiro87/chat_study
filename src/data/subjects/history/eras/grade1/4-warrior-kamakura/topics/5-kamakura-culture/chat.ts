@@ -129,7 +129,21 @@ export const kamakuraCultureChat: HistoryChat = {
       side: 'left',
       characterId: 'monk',
       expression: 'happy',
-      text: '武士には<strong><span class="keyword"><ruby>禅宗<rp>(</rp><rt>ぜんしゅう</rt><rp>)</rp></ruby></span></strong>が人気だったよ。<ruby>座禅<rp>(</rp><rt>ざぜん</rt><rp>)</rp></ruby>で自らを<ruby>鍛<rp>(</rp><rt>きた</rt><rp>)</rp></ruby>える教えが武士の精神に合っていたんだ。<ruby>臨済宗<rp>(</rp><rt>りんざいしゅう</rt><rp>)</rp></ruby>と<ruby>曹洞宗<rp>(</rp><rt>そうとうしゅう</rt><rp>)</rp></ruby>が広まったよ',
+      text: '武士には<strong><span class="keyword"><ruby>禅宗<rp>(</rp><rt>ぜんしゅう</rt><rp>)</rp></ruby></span></strong>が人気だったよ。<strong><span class="keyword"><ruby>栄西<rp>(</rp><rt>えいさい</rt><rp>)</rp></ruby></span></strong>が伝えた<strong><span class="keyword"><ruby>臨済宗<rp>(</rp><rt>りんざいしゅう</rt><rp>)</rp></ruby></span></strong>は<ruby>座禅<rp>(</rp><rt>ざぜん</rt><rp>)</rp></ruby>と<ruby>問答<rp>(</rp><rt>もんどう</rt><rp>)</rp></ruby>を重視し、<strong><span class="keyword"><ruby>道元<rp>(</rp><rt>どうげん</rt><rp>)</rp></ruby></span></strong>が伝えた<strong><span class="keyword"><ruby>曹洞宗<rp>(</rp><rt>そうとうしゅう</rt><rp>)</rp></ruby></span></strong>はひたすら座禅を行うことを重視したんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '<strong>臨済宗</strong>と<strong>曹洞宗</strong>の違いはどこですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'monk',
+      expression: 'explaining',
+      text: '<strong>臨済宗</strong>は<ruby>座禅<rp>(</rp><rt>ざぜん</rt><rp>)</rp></ruby>に加えて<ruby>師<rp>(</rp><rt>し</rt><rp>)</rp></ruby>との問答を通じて<ruby>悟<rp>(</rp><rt>さと</rt><rp>)</rp></ruby>りを目指す。<strong>曹洞宗</strong>はひたすら座禅に<ruby>打<rp>(</rp><rt>う</rt><rp>)</rp></ruby>ち<ruby>込<rp>(</rp><rt>こ</rt><rp>)</rp></ruby>む「<ruby>只管打坐<rp>(</rp><rt>しかんたざ</rt><rp>)</rp></ruby>」を大切にするよ。どちらも<ruby>精神<rp>(</rp><rt>せいしん</rt><rp>)</rp></ruby>を<ruby>鍛<rp>(</rp><rt>きた</rt><rp>)</rp></ruby>える教えが武士に合っていたんだ',
     },
     {
       type: 'message',

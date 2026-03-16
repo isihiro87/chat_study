@@ -1,0 +1,198 @@
+import type { HistoryChat } from '../../../../../../../history-chat/types';
+
+export const muromachiIndustryChat: HistoryChat = {
+  id: 'muromachi-industry',
+  icon: '🌾',
+  title: '室町時代の産業',
+  subtitle: '〜室町時代〜 農業・商業の発展',
+  characters: [
+    {
+      id: 'farmer',
+      name: '社会先生',
+      emoji: '👨‍🌾',
+      colorFrom: '#15803d',
+      colorTo: '#4ade80',
+      expressions: {
+        explaining: '🧐',
+        happy: '😊',
+        excited: '🤩',
+        thinking: '🤔',
+      },
+    },
+    {
+      id: 'student',
+      name: '生徒',
+      emoji: '👧',
+      colorFrom: '#059669',
+      colorTo: '#34d399',
+      expressions: {
+        curious: '🙋‍♀️',
+        surprised: '😲',
+        thinking: '🤔',
+        happy: '😄',
+      },
+    },
+  ],
+  content: [
+    {
+      type: 'date',
+      text: '室町時代の農業',
+    },
+    {
+      type: 'narrator',
+      text: '<ruby>室町時代<rp>(</rp><rt>むろまちじだい</rt><rp>)</rp></ruby>には<ruby>農業<rp>(</rp><rt>のうぎょう</rt><rp>)</rp></ruby>技術が大きく<ruby>進歩<rp>(</rp><rt>しんぽ</rt><rp>)</rp></ruby>し、<ruby>生産力<rp>(</rp><rt>せいさんりょく</rt><rp>)</rp></ruby>が<ruby>向上<rp>(</rp><rt>こうじょう</rt><rp>)</rp></ruby>しました。',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'farmer',
+      expression: 'explaining',
+      text: '<strong><span class="keyword"><ruby>二毛作<rp>(</rp><rt>にもうさく</rt><rp>)</rp></ruby></span></strong>が各地に<ruby>普及<rp>(</rp><rt>ふきゅう</rt><rp>)</rp></ruby>して、同じ土地で年に2回<ruby>作物<rp>(</rp><rt>さくもつ</rt><rp>)</rp></ruby>を<ruby>栽培<rp>(</rp><rt>さいばい</rt><rp>)</rp></ruby>できるようになった。一部の地域では<strong><ruby>三毛作<rp>(</rp><rt>さんもうさく</rt><rp>)</rp></ruby></strong>も行われたんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '年に2〜3回も収穫できるようになったんですね！ほかにどんな技術が発達したんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'farmer',
+      expression: 'happy',
+      text: 'かんがい用の<strong><span class="keyword"><ruby>水車<rp>(</rp><rt>すいしゃ</rt><rp>)</rp></ruby></span></strong>が使われるようになり、<ruby>牛馬<rp>(</rp><rt>ぎゅうば</rt><rp>)</rp></ruby>の<ruby>糞<rp>(</rp><rt>ふん</rt><rp>)</rp></ruby>を使った<strong><span class="keyword"><ruby>堆肥<rp>(</rp><rt>たいひ</rt><rp>)</rp></ruby></span></strong>も<ruby>肥料<rp>(</rp><rt>ひりょう</rt><rp>)</rp></ruby>として広まった。<ruby>麻<rp>(</rp><rt>あさ</rt><rp>)</rp></ruby>・<ruby>桑<rp>(</rp><rt>くわ</rt><rp>)</rp></ruby>・<ruby>茶<rp>(</rp><rt>ちゃ</rt><rp>)</rp></ruby>・<ruby>漆<rp>(</rp><rt>うるし</rt><rp>)</rp></ruby>などの<strong><span class="keyword"><ruby>商品作物<rp>(</rp><rt>しょうひんさくもつ</rt><rp>)</rp></ruby></span></strong>の<ruby>栽培<rp>(</rp><rt>さいばい</rt><rp>)</rp></ruby>も増えたんだよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'surprised',
+      text: '商品作物って、市場で売るための作物のことですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'farmer',
+      expression: 'excited',
+      text: 'その通り！自分たちで食べるだけでなく、市場で売って<ruby>現金<rp>(</rp><rt>げんきん</rt><rp>)</rp></ruby>を得るための作物を育てるようになったんだ。農民も<ruby>経済<rp>(</rp><rt>けいざい</rt><rp>)</rp></ruby>活動に参加するようになったということだね',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">二毛作</span>・三毛作の普及、<span class="keyword">水車</span>・<span class="keyword">堆肥</span>の利用、<span class="keyword">商品作物</span>（麻・桑・茶・漆）の栽培が増加',
+    },
+    {
+      type: 'quiz',
+      question: '室町時代に田に水を引くために利用されるようになった道具は何？',
+      options: [
+        { letter: 'A', text: '鉄製の鋤', correct: false },
+        { letter: 'B', text: '水車', correct: true },
+        { letter: 'C', text: '千歯こき', correct: false },
+        { letter: 'D', text: '備中鍬', correct: false },
+      ],
+      explanation: '<strong>正解はB「<ruby>水車<rp>(</rp><rt>すいしゃ</rt><rp>)</rp></ruby>」</strong>です。<ruby>室町時代<rp>(</rp><rt>むろまちじだい</rt><rp>)</rp></ruby>にはかんがい用の水車が使われるようになり、<ruby>農業<rp>(</rp><rt>のうぎょう</rt><rp>)</rp></ruby>の<ruby>生産力<rp>(</rp><rt>せいさんりょく</rt><rp>)</rp></ruby>が<ruby>向上<rp>(</rp><rt>こうじょう</rt><rp>)</rp></ruby>しました。',
+    },
+    {
+      type: 'date',
+      text: '手工業と商業の発展',
+    },
+    {
+      type: 'narrator',
+      text: '<ruby>農業<rp>(</rp><rt>のうぎょう</rt><rp>)</rp></ruby>の<ruby>発達<rp>(</rp><rt>はったつ</rt><rp>)</rp></ruby>とともに、<ruby>手工業<rp>(</rp><rt>しゅこうぎょう</rt><rp>)</rp></ruby>や<ruby>商業<rp>(</rp><rt>しょうぎょう</rt><rp>)</rp></ruby>も大きく<ruby>発展<rp>(</rp><rt>はってん</rt><rp>)</rp></ruby>しました。',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'farmer',
+      expression: 'explaining',
+      text: '手工業では、京都の<strong><span class="keyword"><ruby>西陣<rp>(</rp><rt>にしじん</rt><rp>)</rp></ruby></span></strong>や<ruby>博多<rp>(</rp><rt>はかた</rt><rp>)</rp></ruby>（<ruby>福岡県<rp>(</rp><rt>ふくおかけん</rt><rp>)</rp></ruby>）の<ruby>絹織物<rp>(</rp><rt>きぬおりもの</rt><rp>)</rp></ruby>が有名だった。各地で<ruby>陶器<rp>(</rp><rt>とうき</rt><rp>)</rp></ruby>・<ruby>鋳物類<rp>(</rp><rt>いものるい</rt><rp>)</rp></ruby>・<ruby>紙<rp>(</rp><rt>かみ</rt><rp>)</rp></ruby>なども<ruby>生産<rp>(</rp><rt>せいさん</rt><rp>)</rp></ruby>されるようになったんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '商業のほうはどうだったんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'farmer',
+      expression: 'excited',
+      text: '<ruby>定期市<rp>(</rp><rt>ていきいち</rt><rp>)</rp></ruby>は月に6回開かれる<strong><span class="keyword"><ruby>六斎市<rp>(</rp><rt>ろくさいいち</rt><rp>)</rp></ruby></span></strong>が増えた。<ruby>鎌倉時代<rp>(</rp><rt>かまくらじだい</rt><rp>)</rp></ruby>は月3回の<ruby>三斎市<rp>(</rp><rt>さんさいいち</rt><rp>)</rp></ruby>だったから、<ruby>倍<rp>(</rp><rt>ばい</rt><rp>)</rp></ruby>に増えたということだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'surprised',
+      text: '倍に！お金のやりとりはどうしていたんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'farmer',
+      expression: 'explaining',
+      text: '中国から<ruby>輸入<rp>(</rp><rt>ゆにゅう</rt><rp>)</rp></ruby>された<strong><span class="keyword"><ruby>宋銭<rp>(</rp><rt>そうせん</rt><rp>)</rp></ruby></span></strong>や<strong><span class="keyword"><ruby>明銭<rp>(</rp><rt>みんせん</rt><rp>)</rp></ruby></span></strong>が<ruby>貨幣<rp>(</rp><rt>かへい</rt><rp>)</rp></ruby>として広く流通した。<ruby>物々交換<rp>(</rp><rt>ぶつぶつこうかん</rt><rp>)</rp></ruby>から<ruby>貨幣経済<rp>(</rp><rt>かへいけいざい</rt><rp>)</rp></ruby>に大きく変わっていったんだよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: '物を運ぶ仕事をする人もいたんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'farmer',
+      expression: 'happy',
+      text: '<span data-tooltip="馬を使って物資を運搬する運送業者。土一揆にも参加した"><strong><ruby>馬借<rp>(</rp><rt>ばしゃく</rt><rp>)</rp></ruby></strong></span>は馬を使って物資を運ぶ<ruby>運送業者<rp>(</rp><rt>うんそうぎょうしゃ</rt><rp>)</rp></ruby>、<span data-tooltip="物資の運送と倉庫業を兼ねた業者"><strong><ruby>問<rp>(</rp><rt>とい</rt><rp>)</rp></ruby></strong></span>は<ruby>運送業<rp>(</rp><rt>うんそうぎょう</rt><rp>)</rp></ruby>と<ruby>倉庫業<rp>(</rp><rt>そうこぎょう</rt><rp>)</rp></ruby>を兼ねた業者だった。<ruby>物流<rp>(</rp><rt>ぶつりゅう</rt><rp>)</rp></ruby>を支える重要な存在だったんだ',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">西陣</span>・博多の絹織物。<span class="keyword">六斎市</span>（月6回の定期市）。<span class="keyword">宋銭・明銭</span>の流通。<span class="keyword">馬借</span>（運送業）と<span class="keyword">問</span>（運送兼倉庫業）',
+    },
+    {
+      type: 'date',
+      text: '座と同業者の団体',
+    },
+    {
+      type: 'narrator',
+      text: '<ruby>商人<rp>(</rp><rt>しょうにん</rt><rp>)</rp></ruby>や<ruby>手工業者<rp>(</rp><rt>しゅこうぎょうしゃ</rt><rp>)</rp></ruby>は<strong><span class="keyword"><ruby>座<rp>(</rp><rt>ざ</rt><rp>)</rp></ruby></span></strong>という<ruby>同業者<rp>(</rp><rt>どうぎょうしゃ</rt><rp>)</rp></ruby>の団体を作りました。',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'farmer',
+      expression: 'explaining',
+      text: '<span data-tooltip="商人や手工業者が作った同業者の団体。寺社の保護を受けて営業を独占した"><strong>座</strong></span>は<ruby>寺社<rp>(</rp><rt>じしゃ</rt><rp>)</rp></ruby>の<ruby>保護<rp>(</rp><rt>ほご</rt><rp>)</rp></ruby>を受けて<ruby>営業<rp>(</rp><rt>えいぎょう</rt><rp>)</rp></ruby>を<ruby>独占<rp>(</rp><rt>どくせん</rt><rp>)</rp></ruby>していた。<ruby>税<rp>(</rp><rt>ぜい</rt><rp>)</rp></ruby>を納める代わりに、その地域での<ruby>独占権<rp>(</rp><rt>どくせんけん</rt><rp>)</rp></ruby>を得ていたんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: '新しい商人は入れなかったんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'farmer',
+      expression: 'thinking',
+      text: 'そうなんだ。座に入れない新しい商人は<ruby>商売<rp>(</rp><rt>しょうばい</rt><rp>)</rp></ruby>が<ruby>制限<rp>(</rp><rt>せいげん</rt><rp>)</rp></ruby>された。だから後の<ruby>戦国大名<rp>(</rp><rt>せんごくだいみょう</rt><rp>)</rp></ruby>は座を<ruby>廃止<rp>(</rp><rt>はいし</rt><rp>)</rp></ruby>して<ruby>自由<rp>(</rp><rt>じゆう</rt><rp>)</rp></ruby>な商売を認める<strong><ruby>楽市<rp>(</rp><rt>らくいち</rt><rp>)</rp></ruby>・<ruby>楽座<rp>(</rp><rt>らくざ</rt><rp>)</rp></ruby></strong>を行うようになるんだ',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">座</span>：寺社の保護を受けた同業者団体。営業を独占し、新規参入を制限した',
+    },
+    {
+      type: 'end',
+      points: [
+        '<strong><ruby>農業<rp>(</rp><rt>のうぎょう</rt><rp>)</rp></ruby></strong>：<strong><ruby>二毛作<rp>(</rp><rt>にもうさく</rt><rp>)</rp></ruby></strong>の普及、<strong><ruby>水車<rp>(</rp><rt>すいしゃ</rt><rp>)</rp></ruby></strong>・<strong><ruby>堆肥<rp>(</rp><rt>たいひ</rt><rp>)</rp></ruby></strong>、<strong><ruby>商品作物<rp>(</rp><rt>しょうひんさくもつ</rt><rp>)</rp></ruby></strong>（麻・桑・茶・漆）',
+        '<strong><ruby>商業<rp>(</rp><rt>しょうぎょう</rt><rp>)</rp></ruby></strong>：<strong><ruby>六斎市<rp>(</rp><rt>ろくさいいち</rt><rp>)</rp></ruby></strong>（月6回）、<strong><ruby>宋銭<rp>(</rp><rt>そうせん</rt><rp>)</rp></ruby>・<ruby>明銭<rp>(</rp><rt>みんせん</rt><rp>)</rp></ruby></strong>、<strong><ruby>馬借<rp>(</rp><rt>ばしゃく</rt><rp>)</rp></ruby></strong>・<strong><ruby>問<rp>(</rp><rt>とい</rt><rp>)</rp></ruby></strong>',
+        '<strong><ruby>座<rp>(</rp><rt>ざ</rt><rp>)</rp></ruby></strong>：<ruby>寺社<rp>(</rp><rt>じしゃ</rt><rp>)</rp></ruby>の<ruby>保護<rp>(</rp><rt>ほご</rt><rp>)</rp></ruby>を受けた<ruby>同業者<rp>(</rp><rt>どうぎょうしゃ</rt><rp>)</rp></ruby>団体。<ruby>営業<rp>(</rp><rt>えいぎょう</rt><rp>)</rp></ruby>を<ruby>独占<rp>(</rp><rt>どくせん</rt><rp>)</rp></ruby>',
+      ],
+    },
+  ],
+};

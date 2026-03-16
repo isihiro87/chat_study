@@ -40,14 +40,28 @@ export const inseiTairaChat: HistoryChat = {
     },
     {
       type: 'narrator',
-      text: '<ruby>藤原氏<rp>(</rp><rt>ふじわらし</rt><rp>)</rp></ruby>の<ruby>摂関政治<rp>(</rp><rt>せっかんせいじ</rt><rp>)</rp></ruby>が<ruby>衰<rp>(</rp><rt>おとろ</rt><rp>)</rp></ruby>えると、<ruby>退位<rp>(</rp><rt>たいい</rt><rp>)</rp></ruby>した天皇（<strong><span class="keyword"><ruby>上皇<rp>(</rp><rt>じょうこう</rt><rp>)</rp></ruby></span></strong>）が<strong><span class="keyword"><ruby>院政<rp>(</rp><rt>いんせい</rt><rp>)</rp></ruby></span></strong>を始めました。やがて武士の力が政治を左右するようになります。',
+      text: '<ruby>藤原氏<rp>(</rp><rt>ふじわらし</rt><rp>)</rp></ruby>の<ruby>摂関政治<rp>(</rp><rt>せっかんせいじ</rt><rp>)</rp></ruby>が<ruby>衰<rp>(</rp><rt>おとろ</rt><rp>)</rp></ruby>えると、<strong><span class="keyword"><ruby>後三条天皇<rp>(</rp><rt>ごさんじょうてんのう</rt><rp>)</rp></ruby></span></strong>が<ruby>荘園<rp>(</rp><rt>しょうえん</rt><rp>)</rp></ruby>の増加をおさえる<ruby>政策<rp>(</rp><rt>せいさく</rt><rp>)</rp></ruby>を行いました。その後、<strong><span class="keyword"><ruby>白河上皇<rp>(</rp><rt>しらかわじょうこう</rt><rp>)</rp></ruby></span></strong>が<strong><span class="keyword"><ruby>院政<rp>(</rp><rt>いんせい</rt><rp>)</rp></ruby></span></strong>を始めました。',
     },
     {
       type: 'message',
       side: 'left',
       characterId: 'kiyomori',
       expression: 'explaining',
-      text: '<span data-tooltip="退位した天皇が「院」で行う政治のこと"><ruby>院政<rp>(</rp><rt>いんせい</rt><rp>)</rp></ruby></span>が始まると、朝廷内部の争いに武士が動員されるようになったんだ。1156年の<strong><span class="keyword"><ruby>保元<rp>(</rp><rt>ほうげん</rt><rp>)</rp></ruby>の<ruby>乱<rp>(</rp><rt>らん</rt><rp>)</rp></ruby></span></strong>では、源氏・平氏ともに朝廷の争いに巻き込まれた',
+      text: '<strong>白河上皇</strong>は<ruby>退位<rp>(</rp><rt>たいい</rt><rp>)</rp></ruby>した後も政治の<ruby>実権<rp>(</rp><rt>じっけん</rt><rp>)</rp></ruby>を握り、院の<ruby>警備<rp>(</rp><rt>けいび</rt><rp>)</rp></ruby>に<strong><span class="keyword"><ruby>北面<rp>(</rp><rt>ほくめん</rt><rp>)</rp></ruby>の<ruby>武士<rp>(</rp><rt>ぶし</rt><rp>)</rp></ruby></span></strong>を置いて武士の力を利用したんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '上皇が武士を使って権力を<ruby>維持<rp>(</rp><rt>いじ</rt><rp>)</rp></ruby>していたんですね！',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'kiyomori',
+      expression: 'explaining',
+      text: 'そうだ。やがて朝廷内部の争いに武士が動員されるようになる。<ruby>鳥羽上皇<rp>(</rp><rt>とばじょうこう</rt><rp>)</rp></ruby>の死後、1156年の<strong><span class="keyword"><ruby>保元<rp>(</rp><rt>ほうげん</rt><rp>)</rp></ruby>の<ruby>乱<rp>(</rp><rt>らん</rt><rp>)</rp></ruby></span></strong>では、源氏・平氏ともに朝廷の争いに巻き込まれた',
     },
     {
       type: 'message',
@@ -122,7 +136,21 @@ export const inseiTairaChat: HistoryChat = {
       side: 'left',
       characterId: 'kiyomori',
       expression: 'thinking',
-      text: 'そうだ…。平氏の<ruby>横暴<rp>(</rp><rt>おうぼう</rt><rp>)</rp></ruby>に不満が高まり、<ruby>源頼朝<rp>(</rp><rt>みなもとのよりとも</rt><rp>)</rp></ruby>や<ruby>義経<rp>(</rp><rt>よしつね</rt><rp>)</rp></ruby>が<ruby>挙兵<rp>(</rp><rt>きょへい</rt><rp>)</rp></ruby>する。1185年の<strong><span class="keyword"><ruby>壇ノ浦<rp>(</rp><rt>だんのうら</rt><rp>)</rp></ruby>の戦い</span></strong>で平氏は<ruby>滅亡<rp>(</rp><rt>めつぼう</rt><rp>)</rp></ruby>したのだ',
+      text: 'そうだ…。平氏が一族で<ruby>要職<rp>(</rp><rt>ようしょく</rt><rp>)</rp></ruby>を<ruby>独占<rp>(</rp><rt>どくせん</rt><rp>)</rp></ruby>したことに不満が高まり、<strong><span class="keyword"><ruby>源頼朝<rp>(</rp><rt>みなもとのよりとも</rt><rp>)</rp></ruby></span></strong>が<ruby>鎌倉<rp>(</rp><rt>かまくら</rt><rp>)</rp></ruby>（<ruby>神奈川県<rp>(</rp><rt>かながわけん</rt><rp>)</rp></ruby>）を本拠地に<ruby>挙兵<rp>(</rp><rt>きょへい</rt><rp>)</rp></ruby>したんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '源頼朝の弟の<ruby>義経<rp>(</rp><rt>よしつね</rt><rp>)</rp></ruby>も戦いで活躍したんですよね？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'kiyomori',
+      expression: 'thinking',
+      text: 'ああ…<strong><span class="keyword"><ruby>源義経<rp>(</rp><rt>みなもとのよしつね</rt><rp>)</rp></ruby></span></strong>は<ruby>軍事<rp>(</rp><rt>ぐんじ</rt><rp>)</rp></ruby>の天才で、各地で平氏を打ち破った。1185年の<strong><span class="keyword"><ruby>壇ノ浦<rp>(</rp><rt>だんのうら</rt><rp>)</rp></ruby>の戦い</span></strong>（<ruby>山口県<rp>(</rp><rt>やまぐちけん</rt><rp>)</rp></ruby>）で平氏は<ruby>滅亡<rp>(</rp><rt>めつぼう</rt><rp>)</rp></ruby>したのだ',
     },
     {
       type: 'message',

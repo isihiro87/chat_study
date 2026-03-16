@@ -1,0 +1,213 @@
+import type { HistoryChat } from '../../../../../../../history-chat/types';
+
+export const muromachiPeopleChat: HistoryChat = {
+  id: 'muromachi-people',
+  icon: '🏘️',
+  title: '室町時代の民衆',
+  subtitle: '〜室町時代〜 惣の自治と土一揆',
+  characters: [
+    {
+      id: 'farmer',
+      name: '社会先生',
+      emoji: '👨‍🌾',
+      colorFrom: '#15803d',
+      colorTo: '#4ade80',
+      expressions: {
+        explaining: '🧐',
+        happy: '😊',
+        excited: '🤩',
+        thinking: '🤔',
+      },
+    },
+    {
+      id: 'student',
+      name: '生徒',
+      emoji: '👧',
+      colorFrom: '#059669',
+      colorTo: '#34d399',
+      expressions: {
+        curious: '🙋‍♀️',
+        surprised: '😲',
+        thinking: '🤔',
+        happy: '😄',
+      },
+    },
+  ],
+  content: [
+    {
+      type: 'date',
+      text: '惣の自治と農民の団結',
+    },
+    {
+      type: 'narrator',
+      text: '<ruby>農業<rp>(</rp><rt>のうぎょう</rt><rp>)</rp></ruby>の<ruby>発達<rp>(</rp><rt>はったつ</rt><rp>)</rp></ruby>で力をつけた<ruby>農民<rp>(</rp><rt>のうみん</rt><rp>)</rp></ruby>は、<strong><span class="keyword"><ruby>惣<rp>(</rp><rt>そう</rt><rp>)</rp></ruby></span></strong>という<ruby>自治<rp>(</rp><rt>じち</rt><rp>)</rp></ruby>組織を作って村を自分たちで<ruby>運営<rp>(</rp><rt>うんえい</rt><rp>)</rp></ruby>するようになりました。',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'farmer',
+      expression: 'explaining',
+      text: '村では<span data-tooltip="農民が自主的に作った村の自治組織。用水管理や村のルールを寄合で話し合って決めた"><strong>惣</strong></span>（そう）を作り、<strong><span class="keyword"><ruby>寄合<rp>(</rp><rt>よりあい</rt><rp>)</rp></ruby></span></strong>で村の運営を話し合った。村の規約である<strong><span class="keyword"><ruby>掟<rp>(</rp><rt>おきて</rt><rp>)</rp></ruby></span></strong>を定めて共同で生活を営んだんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '具体的にはどんなことを話し合ったんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'farmer',
+      expression: 'happy',
+      text: '<ruby>用水<rp>(</rp><rt>ようすい</rt><rp>)</rp></ruby>の管理や<strong><span class="keyword"><ruby>入会地<rp>(</rp><rt>いりあいち</rt><rp>)</rp></ruby></span></strong>（共同で使う山林や野原）の利用ルールを決めた。<ruby>農業<rp>(</rp><rt>のうぎょう</rt><rp>)</rp></ruby>に欠かせない水を<ruby>公平<rp>(</rp><rt>こうへい</rt><rp>)</rp></ruby>に分けることが特に重要だったんだよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'happy',
+      text: '農民が自分たちの力で村を運営できるようになったんですね！',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">惣</span>（自治組織）：<span class="keyword">寄合</span>で運営を話し合い、<span class="keyword">おきて</span>（掟）を制定。<span class="keyword">入会地</span>の共同管理',
+    },
+    {
+      type: 'quiz',
+      question: '室町時代に農民が作った、村の自治組織は何と呼ばれる？',
+      options: [
+        { letter: 'A', text: '講', correct: false },
+        { letter: 'B', text: '惣', correct: true },
+        { letter: 'C', text: '座', correct: false },
+        { letter: 'D', text: '組', correct: false },
+      ],
+      explanation: '<strong>正解はB「<ruby>惣<rp>(</rp><rt>そう</rt><rp>)</rp></ruby>」</strong>です。室町時代に<ruby>農民<rp>(</rp><rt>のうみん</rt><rp>)</rp></ruby>が<ruby>自主的<rp>(</rp><rt>じしゅてき</rt><rp>)</rp></ruby>に作った村の<ruby>自治<rp>(</rp><rt>じち</rt><rp>)</rp></ruby>組織で、<ruby>寄合<rp>(</rp><rt>よりあい</rt><rp>)</rp></ruby>で話し合い、<ruby>掟<rp>(</rp><rt>おきて</rt><rp>)</rp></ruby>を定めて村を運営しました。',
+    },
+    {
+      type: 'date',
+      text: '土一揆と民衆の運動',
+    },
+    {
+      type: 'narrator',
+      text: '民衆の力が強まると、不満を持つ<ruby>農民<rp>(</rp><rt>のうみん</rt><rp>)</rp></ruby>が<ruby>団結<rp>(</rp><rt>だんけつ</rt><rp>)</rp></ruby>して<strong><span class="keyword"><ruby>土一揆<rp>(</rp><rt>つちいっき</rt><rp>)</rp></ruby></span></strong>を起こすようになりました。',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'farmer',
+      expression: 'explaining',
+      text: '<ruby>借金<rp>(</rp><rt>しゃっきん</rt><rp>)</rp></ruby>に苦しむ農民や<strong><ruby>馬借<rp>(</rp><rt>ばしゃく</rt><rp>)</rp></ruby></strong>が<ruby>団結<rp>(</rp><rt>だんけつ</rt><rp>)</rp></ruby>して<span data-tooltip="農民らが借金の帳消し（徳政令）を幕府に求めて起こした運動"><strong>土一揆</strong></span>を起こした。<span data-tooltip="質物を取って金を貸す高利貸し業者"><strong><ruby>土倉<rp>(</rp><rt>どそう</rt><rp>)</rp></ruby></strong></span>や<ruby>酒屋<rp>(</rp><rt>さかや</rt><rp>)</rp></ruby>を<ruby>襲撃<rp>(</rp><rt>しゅうげき</rt><rp>)</rp></ruby>して、幕府に<strong><span class="keyword"><ruby>徳政令<rp>(</rp><rt>とくせいれい</rt><rp>)</rp></ruby></span></strong>（借金の帳消し）を求めたんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'surprised',
+      text: '借金に苦しんでいたんですね。有名な土一揆はありますか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'farmer',
+      expression: 'excited',
+      text: '1428年の<strong><span class="keyword"><ruby>正長<rp>(</rp><rt>しょうちょう</rt><rp>)</rp></ruby>の<ruby>土一揆<rp>(</rp><rt>つちいっき</rt><rp>)</rp></ruby></span></strong>が有名だ。<ruby>近畿<rp>(</rp><rt>きんき</rt><rp>)</rp></ruby>地方一帯に広がった日本最初の大規模な土一揆で、<ruby>土倉<rp>(</rp><rt>どそう</rt><rp>)</rp></ruby>や<ruby>酒屋<rp>(</rp><rt>さかや</rt><rp>)</rp></ruby>を<ruby>襲<rp>(</rp><rt>おそ</rt><rp>)</rp></ruby>って借金の<ruby>証文<rp>(</rp><rt>しょうもん</rt><rp>)</rp></ruby>を<ruby>破棄<rp>(</rp><rt>はき</rt><rp>)</rp></ruby>したんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: '幕府は徳政令を出したんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'farmer',
+      expression: 'thinking',
+      text: '正長の土一揆では幕府は正式には出さなかったが、1441年の<strong><ruby>嘉吉<rp>(</rp><rt>かきつ</rt><rp>)</rp></ruby>の土一揆</strong>で幕府は初めて正式に<ruby>徳政令<rp>(</rp><rt>とくせいれい</rt><rp>)</rp></ruby>を出したんだ。民衆の要求が<ruby>政治<rp>(</rp><rt>せいじ</rt><rp>)</rp></ruby>を動かした<ruby>画期的<rp>(</rp><rt>かっきてき</rt><rp>)</rp></ruby>な出来事だったね',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">土一揆</span>：農民・<span class="keyword">馬借</span>が<span class="keyword">徳政令</span>を要求。<span class="keyword">正長の土一揆</span>（1428年）が最初の大規模な土一揆',
+    },
+    {
+      type: 'quiz',
+      question: '室町時代に農民が幕府に借金の帳消しを求めて起こした運動は？',
+      options: [
+        { letter: 'A', text: '一向一揆', correct: false },
+        { letter: 'B', text: '土一揆', correct: true },
+        { letter: 'C', text: '百姓一揆', correct: false },
+        { letter: 'D', text: '国一揆', correct: false },
+      ],
+      explanation: '<strong>正解はB「<ruby>土一揆<rp>(</rp><rt>つちいっき</rt><rp>)</rp></ruby>」</strong>です。<ruby>農民<rp>(</rp><rt>のうみん</rt><rp>)</rp></ruby>や<ruby>馬借<rp>(</rp><rt>ばしゃく</rt><rp>)</rp></ruby>が<ruby>団結<rp>(</rp><rt>だんけつ</rt><rp>)</rp></ruby>して<strong><ruby>徳政令<rp>(</rp><rt>とくせいれい</rt><rp>)</rp></ruby></strong>（借金の帳消し）を要求しました。1428年の<ruby>正長<rp>(</rp><rt>しょうちょう</rt><rp>)</rp></ruby>の土一揆が代表的です。',
+    },
+    {
+      type: 'date',
+      text: '京都の町衆と都市の自治',
+    },
+    {
+      type: 'narrator',
+      text: '京都や<ruby>港町<rp>(</rp><rt>みなとまち</rt><rp>)</rp></ruby>では、<ruby>裕福<rp>(</rp><rt>ゆうふく</rt><rp>)</rp></ruby>な<ruby>商工業者<rp>(</rp><rt>しょうこうぎょうしゃ</rt><rp>)</rp></ruby>による<ruby>自治<rp>(</rp><rt>じち</rt><rp>)</rp></ruby>が行われました。',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'farmer',
+      expression: 'explaining',
+      text: '京都では<strong><span class="keyword"><ruby>町衆<rp>(</rp><rt>まちしゅう</rt><rp>)</rp></ruby></span></strong>と呼ばれる<ruby>裕福<rp>(</rp><rt>ゆうふく</rt><rp>)</rp></ruby>な<ruby>商工業者<rp>(</rp><rt>しょうこうぎょうしゃ</rt><rp>)</rp></ruby>が力を持ち、町の自治を行っていた。<ruby>応仁<rp>(</rp><rt>おうにん</rt><rp>)</rp></ruby>の<ruby>乱<rp>(</rp><rt>らん</rt><rp>)</rp></ruby>で<ruby>荒<rp>(</rp><rt>あ</rt><rp>)</rp></ruby>れた京都を<ruby>復興<rp>(</rp><rt>ふっこう</rt><rp>)</rp></ruby>させたのも町衆の力だよ',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'farmer',
+      expression: 'excited',
+      text: '<strong>町衆</strong>は<strong><ruby>祇園祭<rp>(</rp><rt>ぎおんまつり</rt><rp>)</rp></ruby></strong>を<ruby>復活<rp>(</rp><rt>ふっかつ</rt><rp>)</rp></ruby>させ、<ruby>盛大<rp>(</rp><rt>せいだい</rt><rp>)</rp></ruby>に行うようになった。京都の文化と経済を支えた重要な存在だったんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '京都以外でも自治は行われていたんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'farmer',
+      expression: 'happy',
+      text: '<ruby>堺<rp>(</rp><rt>さかい</rt><rp>)</rp></ruby>（大阪府）では<span data-tooltip="堺で合議制の自治を行った有力商人の組織"><strong><ruby>会合衆<rp>(</rp><rt>えごうしゅう</rt><rp>)</rp></ruby></strong></span>が<ruby>合議制<rp>(</rp><rt>ごうぎせい</rt><rp>)</rp></ruby>で自治を行い、「<ruby>自由都市<rp>(</rp><rt>じゆうとし</rt><rp>)</rp></ruby>」と呼ばれた。<ruby>博多<rp>(</rp><rt>はかた</rt><rp>)</rp></ruby>でも<strong><ruby>年行司<rp>(</rp><rt>ねんぎょうじ</rt><rp>)</rp></ruby></strong>が自治を<ruby>担<rp>(</rp><rt>にな</rt><rp>)</rp></ruby>ったんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'happy',
+      text: '農村も都市も、民衆が自分たちの力で社会を動かす時代になったんですね！',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">町衆</span>：京都の自治と<span class="keyword">祇園祭</span>の復興。<span class="keyword">堺</span>の<span class="keyword">会合衆</span>、<span class="keyword">博多</span>の<span class="keyword">年行司</span>による港町の自治',
+    },
+    {
+      type: 'quiz',
+      question: '堺（大阪府）で合議制の自治を行った有力商人の組織を何という？',
+      options: [
+        { letter: 'A', text: '町衆', correct: false },
+        { letter: 'B', text: '年行司', correct: false },
+        { letter: 'C', text: '会合衆', correct: true },
+        { letter: 'D', text: '座', correct: false },
+      ],
+      explanation: '<strong>正解はC「<ruby>会合衆<rp>(</rp><rt>えごうしゅう</rt><rp>)</rp></ruby>」</strong>です。<ruby>堺<rp>(</rp><rt>さかい</rt><rp>)</rp></ruby>は<ruby>有力商人<rp>(</rp><rt>ゆうりょくしょうにん</rt><rp>)</rp></ruby>の<strong>会合衆</strong>が<ruby>合議制<rp>(</rp><rt>ごうぎせい</rt><rp>)</rp></ruby>で自治を行い、「<ruby>自由都市<rp>(</rp><rt>じゆうとし</rt><rp>)</rp></ruby>」と呼ばれました。',
+    },
+    {
+      type: 'end',
+      points: [
+        '<strong><ruby>惣<rp>(</rp><rt>そう</rt><rp>)</rp></ruby></strong>：<ruby>農民<rp>(</rp><rt>のうみん</rt><rp>)</rp></ruby>の<ruby>自治<rp>(</rp><rt>じち</rt><rp>)</rp></ruby>組織。<strong><ruby>寄合<rp>(</rp><rt>よりあい</rt><rp>)</rp></ruby></strong>で運営、<strong><ruby>掟<rp>(</rp><rt>おきて</rt><rp>)</rp></ruby></strong>で規約を制定',
+        '<strong><ruby>土一揆<rp>(</rp><rt>つちいっき</rt><rp>)</rp></ruby></strong>：農民・馬借が<strong><ruby>徳政令<rp>(</rp><rt>とくせいれい</rt><rp>)</rp></ruby></strong>を求めて<ruby>蜂起<rp>(</rp><rt>ほうき</rt><rp>)</rp></ruby>（<strong><ruby>正長<rp>(</rp><rt>しょうちょう</rt><rp>)</rp></ruby>の土一揆</strong> 1428年）',
+        '<strong><ruby>町衆<rp>(</rp><rt>まちしゅう</rt><rp>)</rp></ruby></strong>：京都の自治と<strong><ruby>祇園祭<rp>(</rp><rt>ぎおんまつり</rt><rp>)</rp></ruby></strong>。<strong><ruby>堺<rp>(</rp><rt>さかい</rt><rp>)</rp></ruby></strong>の<strong><ruby>会合衆<rp>(</rp><rt>えごうしゅう</rt><rp>)</rp></ruby></strong>、<strong><ruby>博多<rp>(</rp><rt>はかた</rt><rp>)</rp></ruby></strong>の<strong><ruby>年行司<rp>(</rp><rt>ねんぎょうじ</rt><rp>)</rp></ruby></strong>',
+      ],
+    },
+  ],
+};

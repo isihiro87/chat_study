@@ -40,7 +40,7 @@ export const eastAsiaTradeChat: HistoryChat = {
     },
     {
       type: 'narrator',
-      text: '<ruby>室町時代<rp>(</rp><rt>むろまちじだい</rt><rp>)</rp></ruby>、日本は東アジアの国々と<ruby>活発<rp>(</rp><rt>かっぱつ</rt><rp>)</rp></ruby>に<ruby>交流<rp>(</rp><rt>こうりゅう</rt><rp>)</rp></ruby>しました。<strong><span class="keyword"><ruby>日明貿易<rp>(</rp><rt>にちみんぼうえき</rt><rp>)</rp></ruby></span></strong>や<strong><span class="keyword"><ruby>琉球王国<rp>(</rp><rt>りゅうきゅうおうこく</rt><rp>)</rp></ruby></span></strong>の<ruby>中継貿易<rp>(</rp><rt>ちゅうけいぼうえき</rt><rp>)</rp></ruby>、<strong><span class="keyword">アイヌ<ruby>民族<rp>(</rp><rt>みんぞく</rt><rp>)</rp></ruby></span></strong>との<ruby>交易<rp>(</rp><rt>こうえき</rt><rp>)</rp></ruby>を見ていきましょう。',
+      text: '中国では<ruby>漢民族<rp>(</rp><rt>かんみんぞく</rt><rp>)</rp></ruby>が<strong><span class="keyword"><ruby>明<rp>(</rp><rt>みん</rt><rp>)</rp></ruby></span></strong>を<ruby>建国<rp>(</rp><rt>けんこく</rt><rp>)</rp></ruby>し、モンゴル<ruby>民族<rp>(</rp><rt>みんぞく</rt><rp>)</rp></ruby>を北へ<ruby>退<rp>(</rp><rt>しりぞ</rt><rp>)</rp></ruby>けました。<ruby>室町時代<rp>(</rp><rt>むろまちじだい</rt><rp>)</rp></ruby>、日本は東アジアの国々と<ruby>活発<rp>(</rp><rt>かっぱつ</rt><rp>)</rp></ruby>に<ruby>交流<rp>(</rp><rt>こうりゅう</rt><rp>)</rp></ruby>しました。<strong><span class="keyword"><ruby>日明貿易<rp>(</rp><rt>にちみんぼうえき</rt><rp>)</rp></ruby></span></strong>や<strong><span class="keyword"><ruby>琉球王国<rp>(</rp><rt>りゅうきゅうおうこく</rt><rp>)</rp></ruby></span></strong>の<ruby>中継貿易<rp>(</rp><rt>ちゅうけいぼうえき</rt><rp>)</rp></ruby>、<strong><span class="keyword">アイヌ<ruby>民族<rp>(</rp><rt>みんぞく</rt><rp>)</rp></ruby></span></strong>との<ruby>交易<rp>(</rp><rt>こうえき</rt><rp>)</rp></ruby>を見ていきましょう。',
     },
     {
       type: 'message',
@@ -61,21 +61,49 @@ export const eastAsiaTradeChat: HistoryChat = {
       side: 'left',
       characterId: 'merchant',
       expression: 'happy',
-      text: '一枚の札を二つに割って、日本と明で半分ずつ持つんだ。<ruby>貿易船<rp>(</rp><rt>ぼうえきせん</rt><rp>)</rp></ruby>が来たときにピッタリ合えば正式な船だとわかるしくみだよ。日本からは銅や<ruby>硫黄<rp>(</rp><rt>いおう</rt><rp>)</rp></ruby>、<ruby>刀剣<rp>(</rp><rt>とうけん</rt><rp>)</rp></ruby>を<ruby>輸出<rp>(</rp><rt>ゆしゅつ</rt><rp>)</rp></ruby>し、明からは<ruby>生糸<rp>(</rp><rt>きいと</rt><rp>)</rp></ruby>や<ruby>絹織物<rp>(</rp><rt>きぬおりもの</rt><rp>)</rp></ruby>、<ruby>銅銭<rp>(</rp><rt>どうせん</rt><rp>)</rp></ruby>を<ruby>輸入<rp>(</rp><rt>ゆにゅう</rt><rp>)</rp></ruby>した',
+      text: '一枚の札を二つに割って、日本と明で半分ずつ持つんだ。<ruby>貿易船<rp>(</rp><rt>ぼうえきせん</rt><rp>)</rp></ruby>が来たときにピッタリ合えば正式な船だとわかるしくみだよ',
     },
     {
       type: 'message',
       side: 'right',
       characterId: 'student',
       expression: 'surprised',
-      text: 'なるほど、パスポートみたいな役割だったんですね！倭寇はそんなに問題だったんですか？',
+      text: 'なるほど、パスポートみたいな役割ですね！何を<ruby>取<rp>(</rp><rt>と</rt><rp>)</rp></ruby>り<ruby>引<rp>(</rp><rt>ひ</rt><rp>)</rp></ruby>きしたんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'merchant',
+      expression: 'explaining',
+      text: '日本からは銅や<ruby>硫黄<rp>(</rp><rt>いおう</rt><rp>)</rp></ruby>、<ruby>刀剣<rp>(</rp><rt>とうけん</rt><rp>)</rp></ruby>を<ruby>輸出<rp>(</rp><rt>ゆしゅつ</rt><rp>)</rp></ruby>し、明からは<ruby>生糸<rp>(</rp><rt>きいと</rt><rp>)</rp></ruby>や<ruby>絹織物<rp>(</rp><rt>きぬおりもの</rt><rp>)</rp></ruby>、<strong><span class="keyword"><ruby>銅銭<rp>(</rp><rt>どうせん</rt><rp>)</rp></ruby></span></strong>を<ruby>輸入<rp>(</rp><rt>ゆにゅう</rt><rp>)</rp></ruby>した。銅銭は当時の日本で<ruby>通貨<rp>(</rp><rt>つうか</rt><rp>)</rp></ruby>が不足していたから、国内の<ruby>商取引<rp>(</rp><rt>しょうとりひき</rt><rp>)</rp></ruby>に広く使われたんだよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '倭寇はそんなに問題だったんですか？',
     },
     {
       type: 'message',
       side: 'left',
       characterId: 'merchant',
       expression: 'thinking',
-      text: '<strong>倭寇</strong>は海賊のような集団で、<ruby>朝鮮<rp>(</rp><rt>ちょうせん</rt><rp>)</rp></ruby>や中国の<ruby>沿岸<rp>(</rp><rt>えんがん</rt><rp>)</rp></ruby>を荒らしていた。明も<strong><span class="keyword"><ruby>朝鮮国<rp>(</rp><rt>ちょうせんこく</rt><rp>)</rp></ruby></span></strong>も倭寇の取り締まりを日本に求めていたんだ。<strong>朝鮮国</strong>は1392年に<strong><span class="keyword"><ruby>李成桂<rp>(</rp><rt>りせいけい</rt><rp>)</rp></ruby></span></strong>が建国し、<strong><span class="keyword">ハングル</span></strong>（<ruby>訓民正音<rp>(</rp><rt>くんみんせいおん</rt><rp>)</rp></ruby>）という独自の文字を作ったんだよ',
+      text: '<strong>倭寇</strong>は海賊のような集団で、<ruby>朝鮮<rp>(</rp><rt>ちょうせん</rt><rp>)</rp></ruby>や中国の<ruby>沿岸<rp>(</rp><rt>えんがん</rt><rp>)</rp></ruby>を荒らしていた。明も<strong><span class="keyword"><ruby>朝鮮国<rp>(</rp><rt>ちょうせんこく</rt><rp>)</rp></ruby></span></strong>も倭寇の<ruby>取<rp>(</rp><rt>と</rt><rp>)</rp></ruby>り<ruby>締<rp>(</rp><rt>し</rt><rp>)</rp></ruby>まりを日本に求めていたんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '朝鮮国はどんな国だったんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'merchant',
+      expression: 'explaining',
+      text: '<strong>朝鮮国</strong>は1392年に<strong><span class="keyword"><ruby>李成桂<rp>(</rp><rt>りせいけい</rt><rp>)</rp></ruby></span></strong>が<ruby>高麗<rp>(</rp><rt>こうらい</rt><rp>)</rp></ruby>を<ruby>滅<rp>(</rp><rt>ほろ</rt><rp>)</rp></ruby>ぼして建国した。<strong><span class="keyword">ハングル</span></strong>（<span data-tooltip="民を教える正しい音という意味。漢字を読めない民衆のために作られた"><ruby>訓民正音<rp>(</rp><rt>くんみんせいおん</rt><rp>)</rp></ruby></span>）という独自の文字を作って、<ruby>民衆<rp>(</rp><rt>みんしゅう</rt><rp>)</rp></ruby>の<ruby>教育<rp>(</rp><rt>きょういく</rt><rp>)</rp></ruby>に利用したんだよ',
     },
     {
       type: 'summary-point',
@@ -101,7 +129,7 @@ export const eastAsiaTradeChat: HistoryChat = {
       side: 'left',
       characterId: 'merchant',
       expression: 'excited',
-      text: '15世紀に<strong><span class="keyword"><ruby>尚氏<rp>(</rp><rt>しょうし</rt><rp>)</rp></ruby></span></strong>が沖縄を<ruby>統一<rp>(</rp><rt>とういつ</rt><rp>)</rp></ruby>し、<strong>琉球王国</strong>を建てた。明・日本・朝鮮・東南アジアを結ぶ<strong>中継貿易</strong>で大いに<ruby>栄<rp>(</rp><rt>さか</rt><rp>)</rp></ruby>えたんだ',
+      text: '15世紀前半に<strong><span class="keyword"><ruby>尚氏<rp>(</rp><rt>しょうし</rt><rp>)</rp></ruby></span></strong>が沖縄島を<ruby>統一<rp>(</rp><rt>とういつ</rt><rp>)</rp></ruby>し、<strong>琉球王国</strong>を建てた。都は<strong><span class="keyword"><ruby>首里<rp>(</rp><rt>しゅり</rt><rp>)</rp></ruby></span></strong>に置いたんだ。明・日本・朝鮮・東南アジアを結ぶ<strong>中継貿易</strong>で大いに<ruby>栄<rp>(</rp><rt>さか</rt><rp>)</rp></ruby>えた',
     },
     {
       type: 'message',
@@ -115,7 +143,21 @@ export const eastAsiaTradeChat: HistoryChat = {
       side: 'left',
       characterId: 'merchant',
       expression: 'explaining',
-      text: '<strong>アイヌ民族</strong>は<ruby>狩<rp>(</rp><rt>か</rt><rp>)</rp></ruby>りや<ruby>漁<rp>(</rp><rt>りょう</rt><rp>)</rp></ruby>、<ruby>交易<rp>(</rp><rt>こうえき</rt><rp>)</rp></ruby>で暮らしていた。<ruby>和人<rp>(</rp><rt>わじん</rt><rp>)</rp></ruby>との交易も<ruby>盛<rp>(</rp><rt>さか</rt><rp>)</rp></ruby>んだったが、不公平な<ruby>扱<rp>(</rp><rt>あつか</rt><rp>)</rp></ruby>いに怒った<strong><span class="keyword">コシャマイン</span></strong>が1457年に<ruby>蜂起<rp>(</rp><rt>ほうき</rt><rp>)</rp></ruby>したんだ',
+      text: '<strong>アイヌ民族</strong>は<ruby>狩<rp>(</rp><rt>か</rt><rp>)</rp></ruby>りや<ruby>漁<rp>(</rp><rt>りょう</rt><rp>)</rp></ruby>を行い、独自の文化を<ruby>営<rp>(</rp><rt>いとな</rt><rp>)</rp></ruby>んでいた。青森県の<strong><span class="keyword"><ruby>十三湊<rp>(</rp><rt>とさみなと</rt><rp>)</rp></ruby></span></strong>を<ruby>拠点<rp>(</rp><rt>きょてん</rt><rp>)</rp></ruby>とする<strong><span class="keyword"><ruby>安藤氏<rp>(</rp><rt>あんどうし</rt><rp>)</rp></ruby></span></strong>がアイヌとの<ruby>交易<rp>(</rp><rt>こうえき</rt><rp>)</rp></ruby>を<ruby>仲立<rp>(</rp><rt>なかだ</rt><rp>)</rp></ruby>ちしていたんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: 'アイヌ民族と<ruby>和人<rp>(</rp><rt>わじん</rt><rp>)</rp></ruby>の関係はどうだったんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'merchant',
+      expression: 'thinking',
+      text: '和人の北海道への<ruby>進出<rp>(</rp><rt>しんしゅつ</rt><rp>)</rp></ruby>が進むにつれて不公平な<ruby>扱<rp>(</rp><rt>あつか</rt><rp>)</rp></ruby>いが生まれた。15世紀には<ruby>首長<rp>(</rp><rt>しゅちょう</rt><rp>)</rp></ruby>の<strong><span class="keyword">コシャマイン</span></strong>が<ruby>蜂起<rp>(</rp><rt>ほうき</rt><rp>)</rp></ruby>して<strong><span class="keyword">コシャマインの戦い</span></strong>が起きたんだ',
     },
     {
       type: 'message',
@@ -126,7 +168,7 @@ export const eastAsiaTradeChat: HistoryChat = {
     },
     {
       type: 'summary-point',
-      text: '<span class="keyword">琉球王国</span>：<span class="keyword">尚氏</span>が統一し<span class="keyword">中継貿易</span>で繁栄。<span class="keyword">アイヌ民族</span>：<span class="keyword">コシャマイン</span>の蜂起（1457年）',
+      text: '<span class="keyword">琉球王国</span>：<span class="keyword">尚氏</span>が沖縄統一、<span class="keyword">首里</span>を都に<span class="keyword">中継貿易</span>で繁栄。<span class="keyword">アイヌ民族</span>：<span class="keyword">安藤氏</span>が交易仲介、<span class="keyword">コシャマインの戦い</span>',
     },
     {
       type: 'quiz',
@@ -142,10 +184,11 @@ export const eastAsiaTradeChat: HistoryChat = {
     {
       type: 'end',
       points: [
-        '<strong><ruby>日明貿易<rp>(</rp><rt>にちみんぼうえき</rt><rp>)</rp></ruby></strong>（<strong><ruby>勘合貿易<rp>(</rp><rt>かんごうぼうえき</rt><rp>)</rp></ruby></strong>）：<ruby>足利義満<rp>(</rp><rt>あしかがよしみつ</rt><rp>)</rp></ruby>が開始、<strong><ruby>勘合<rp>(</rp><rt>かんごう</rt><rp>)</rp></ruby></strong>で<ruby>倭寇<rp>(</rp><rt>わこう</rt><rp>)</rp></ruby>と区別',
-        '<strong><ruby>倭寇<rp>(</rp><rt>わこう</rt><rp>)</rp></ruby></strong>：海賊的集団。<strong><ruby>朝鮮国<rp>(</rp><rt>ちょうせんこく</rt><rp>)</rp></ruby></strong>は<ruby>李成桂<rp>(</rp><rt>りせいけい</rt><rp>)</rp></ruby>が建国、<ruby>ハングル<rp>(</rp><rt>はんぐる</rt><rp>)</rp></ruby>を<ruby>制定<rp>(</rp><rt>せいてい</rt><rp>)</rp></ruby>',
-        '<strong><ruby>琉球王国<rp>(</rp><rt>りゅうきゅうおうこく</rt><rp>)</rp></ruby></strong>：<ruby>尚氏<rp>(</rp><rt>しょうし</rt><rp>)</rp></ruby>が沖縄を統一し、<strong><ruby>中継貿易<rp>(</rp><rt>ちゅうけいぼうえき</rt><rp>)</rp></ruby></strong>で<ruby>繁栄<rp>(</rp><rt>はんえい</rt><rp>)</rp></ruby>',
-        '<strong>アイヌ<ruby>民族<rp>(</rp><rt>みんぞく</rt><rp>)</rp></ruby></strong>：北海道で独自の文化。<strong>コシャマイン</strong>の<ruby>蜂起<rp>(</rp><rt>ほうき</rt><rp>)</rp></ruby>（1457年）',
+        '<strong><ruby>明<rp>(</rp><rt>みん</rt><rp>)</rp></ruby></strong>：<ruby>漢民族<rp>(</rp><rt>かんみんぞく</rt><rp>)</rp></ruby>が元を倒して建国。<strong><ruby>倭寇<rp>(</rp><rt>わこう</rt><rp>)</rp></ruby></strong>の<ruby>取<rp>(</rp><rt>と</rt><rp>)</rp></ruby>り<ruby>締<rp>(</rp><rt>し</rt><rp>)</rp></ruby>まりを日本に要求',
+        '<strong><ruby>日明貿易<rp>(</rp><rt>にちみんぼうえき</rt><rp>)</rp></ruby></strong>（<strong><ruby>勘合貿易<rp>(</rp><rt>かんごうぼうえき</rt><rp>)</rp></ruby></strong>）：<ruby>足利義満<rp>(</rp><rt>あしかがよしみつ</rt><rp>)</rp></ruby>が開始。<strong><ruby>勘合<rp>(</rp><rt>かんごう</rt><rp>)</rp></ruby></strong>で<ruby>倭寇<rp>(</rp><rt>わこう</rt><rp>)</rp></ruby>と区別。<ruby>銅銭<rp>(</rp><rt>どうせん</rt><rp>)</rp></ruby>を大量輸入',
+        '<strong><ruby>朝鮮国<rp>(</rp><rt>ちょうせんこく</rt><rp>)</rp></ruby></strong>：<ruby>李成桂<rp>(</rp><rt>りせいけい</rt><rp>)</rp></ruby>が1392年に建国。<strong><ruby>ハングル<rp>(</rp><rt>はんぐる</rt><rp>)</rp></ruby></strong>（<ruby>訓民正音<rp>(</rp><rt>くんみんせいおん</rt><rp>)</rp></ruby>）を<ruby>制定<rp>(</rp><rt>せいてい</rt><rp>)</rp></ruby>し<ruby>民衆<rp>(</rp><rt>みんしゅう</rt><rp>)</rp></ruby>の<ruby>教育<rp>(</rp><rt>きょういく</rt><rp>)</rp></ruby>に利用',
+        '<strong><ruby>琉球王国<rp>(</rp><rt>りゅうきゅうおうこく</rt><rp>)</rp></ruby></strong>：<ruby>尚氏<rp>(</rp><rt>しょうし</rt><rp>)</rp></ruby>が沖縄統一、<strong><ruby>首里<rp>(</rp><rt>しゅり</rt><rp>)</rp></ruby></strong>を都に。<strong><ruby>中継貿易<rp>(</rp><rt>ちゅうけいぼうえき</rt><rp>)</rp></ruby></strong>で<ruby>繁栄<rp>(</rp><rt>はんえい</rt><rp>)</rp></ruby>',
+        '<strong>アイヌ<ruby>民族<rp>(</rp><rt>みんぞく</rt><rp>)</rp></ruby></strong>：北海道で独自の文化。<strong><ruby>安藤氏<rp>(</rp><rt>あんどうし</rt><rp>)</rp></ruby></strong>が交易仲介。<strong>コシャマインの戦い</strong>',
       ],
     },
   ],

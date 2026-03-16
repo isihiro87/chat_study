@@ -61,7 +61,7 @@ export const kamakuraSocietyChat: HistoryChat = {
       side: 'left',
       characterId: 'farmer',
       expression: 'happy',
-      text: '牛や馬に田を<ruby>耕<rp>(</rp><rt>たがや</rt><rp>)</rp></ruby>させたり、草木を焼いた灰を<ruby>肥料<rp>(</rp><rt>ひりょう</rt><rp>)</rp></ruby>にしたりと、農業の工夫も進んできたんだよ',
+      text: '<strong><span class="keyword"><ruby>鉄製農具<rp>(</rp><rt>てつせいのうぐ</rt><rp>)</rp></ruby></span></strong>が普及して土を深く<ruby>耕<rp>(</rp><rt>たがや</rt><rp>)</rp></ruby>せるようになったし、牛や馬に田を耕させる<strong><span class="keyword"><ruby>牛馬耕<rp>(</rp><rt>ぎゅうばこう</rt><rp>)</rp></ruby></span></strong>も広まったんだ。<ruby>草木灰<rp>(</rp><rt>そうもくばい</rt><rp>)</rp></ruby>を<ruby>肥料<rp>(</rp><rt>ひりょう</rt><rp>)</rp></ruby>にする工夫も進んだよ',
     },
     {
       type: 'message',
@@ -121,8 +121,22 @@ export const kamakuraSocietyChat: HistoryChat = {
       type: 'message',
       side: 'left',
       characterId: 'farmer',
+      expression: 'explaining',
+      text: '商品の<ruby>輸送<rp>(</rp><rt>ゆそう</rt><rp>)</rp></ruby>には馬を使った<strong><span class="keyword"><ruby>馬借<rp>(</rp><rt>ばしゃく</rt><rp>)</rp></ruby></span></strong>という<ruby>運送業者<rp>(</rp><rt>うんそうぎょうしゃ</rt><rp>)</rp></ruby>が活躍したんだ。各地の<ruby>産物<rp>(</rp><rt>さんぶつ</rt><rp>)</rp></ruby>が市場に運ばれるようになったよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'happy',
+      text: '農業も商業も発展して、どんどん<ruby>便利<rp>(</rp><rt>べんり</rt><rp>)</rp></ruby>になっていったんですね！',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'farmer',
       expression: 'thinking',
-      text: '武士の暮らしは<ruby>質素<rp>(</rp><rt>しっそ</rt><rp>)</rp></ruby>だったよ。「いざ鎌倉」と呼ばれれば戦に駆けつけ、<ruby>普段<rp>(</rp><rt>ふだん</rt><rp>)</rp></ruby>は<ruby>領地<rp>(</rp><rt>りょうち</rt><rp>)</rp></ruby>で農業を指導する。<ruby>武士道<rp>(</rp><rt>ぶしどう</rt><rp>)</rp></ruby>の精神を大切にしていたんだ',
+      text: '武士の暮らしは<ruby>質素<rp>(</rp><rt>しっそ</rt><rp>)</rp></ruby>だったよ。<ruby>板葺<rp>(</rp><rt>いたぶ</rt><rp>)</rp></ruby>きの住まいで暮らし、<strong><span class="keyword"><ruby>弓馬<rp>(</rp><rt>きゅうば</rt><rp>)</rp></ruby>の<ruby>道<rp>(</rp><rt>みち</rt><rp>)</rp></ruby></span></strong>を重んじて武芸に<ruby>励<rp>(</rp><rt>はげ</rt><rp>)</rp></ruby>んだんだ。「いざ鎌倉」と呼ばれれば戦に<ruby>駆<rp>(</rp><rt>か</rt><rp>)</rp></ruby>けつける<ruby>覚悟<rp>(</rp><rt>かくご</rt><rp>)</rp></ruby>を持っていたよ',
     },
     {
       type: 'message',

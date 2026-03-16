@@ -4,9 +4,11 @@ import { mongolEmpire } from './topics/2-mongol-empire';
 import { mongolInvasion } from './topics/3-mongol-invasion';
 import { muromachiBakufu } from './topics/4-muromachi-bakufu';
 import { eastAsiaTrade } from './topics/5-east-asia-trade';
-import { muromachiSociety } from './topics/6-muromachi-society';
+import { muromachiIndustry } from './topics/6-muromachi-industry';
+import { muromachiPeople } from './topics/7-muromachi-people';
 import { sengokuEra } from './topics/7-sengoku-era';
-import { muromachiCulture } from './topics/8-muromachi-culture';
+import { kitayamaCulture } from './topics/9-kitayama-culture';
+import { higashiyamaCulture } from './topics/10-higashiyama-culture';
 
 export const medievalWorldEra: Era = {
   id: 'medieval-world',
@@ -25,7 +27,9 @@ export const medievalWorldTopics: Topic[] = [
   mongolInvasion,
   muromachiBakufu,
   eastAsiaTrade,
-  muromachiSociety,
+  muromachiIndustry,
+  muromachiPeople,
   sengokuEra,
-  muromachiCulture,
+  kitayamaCulture,
+  higashiyamaCulture,
 ];

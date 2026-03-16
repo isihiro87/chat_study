@@ -47,7 +47,21 @@ export const kamakuraBakufuChat: HistoryChat = {
       side: 'left',
       characterId: 'yoritomo',
       expression: 'explaining',
-      text: '私は全国に<strong><span class="keyword"><ruby>守護<rp>(</rp><rt>しゅご</rt><rp>)</rp></ruby></span></strong>と<strong><span class="keyword"><ruby>地頭<rp>(</rp><rt>じとう</rt><rp>)</rp></ruby></span></strong>を置いた。<span data-tooltip="国ごとに置かれ、軍事や警察の仕事をする役職">守護</span>は国ごとに軍事・<ruby>警察<rp>(</rp><rt>けいさつ</rt><rp>)</rp></ruby>を担当し、<span data-tooltip="荘園や公領に置かれ、土地の管理や年貢の取り立てをする役職">地頭</span>は<ruby>荘園<rp>(</rp><rt>しょうえん</rt><rp>)</rp></ruby>・<ruby>公領<rp>(</rp><rt>こうりょう</rt><rp>)</rp></ruby>の管理や<ruby>年貢<rp>(</rp><rt>ねんぐ</rt><rp>)</rp></ruby>の<ruby>徴収<rp>(</rp><rt>ちょうしゅう</rt><rp>)</rp></ruby>を行うんだ',
+      text: '1185年、私は全国に<strong><span class="keyword"><ruby>守護<rp>(</rp><rt>しゅご</rt><rp>)</rp></ruby></span></strong>と<strong><span class="keyword"><ruby>地頭<rp>(</rp><rt>じとう</rt><rp>)</rp></ruby></span></strong>を置いた。<span data-tooltip="国ごとに置かれ、軍事や警察の仕事をする役職">守護</span>は国ごとに軍事・<ruby>警察<rp>(</rp><rt>けいさつ</rt><rp>)</rp></ruby>を担当し、<span data-tooltip="荘園や公領に置かれ、土地の管理や年貢の取り立てをする役職">地頭</span>は<ruby>荘園<rp>(</rp><rt>しょうえん</rt><rp>)</rp></ruby>・<ruby>公領<rp>(</rp><rt>こうりょう</rt><rp>)</rp></ruby>の管理や<ruby>年貢<rp>(</rp><rt>ねんぐ</rt><rp>)</rp></ruby>の<ruby>徴収<rp>(</rp><rt>ちょうしゅう</rt><rp>)</rp></ruby>を行うんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '幕府にはどんな役所があったんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'yoritomo',
+      expression: 'happy',
+      text: '幕府には3つの重要な役所がある。<strong><span class="keyword"><ruby>侍所<rp>(</rp><rt>さむらいどころ</rt><rp>)</rp></ruby></span></strong>（<ruby>御家人<rp>(</rp><rt>ごけにん</rt><rp>)</rp></ruby>の<ruby>統率<rp>(</rp><rt>とうそつ</rt><rp>)</rp></ruby>）、<strong><span class="keyword"><ruby>政所<rp>(</rp><rt>まんどころ</rt><rp>)</rp></ruby></span></strong>（政務・<ruby>財政<rp>(</rp><rt>ざいせい</rt><rp>)</rp></ruby>）、<strong><span class="keyword"><ruby>問注所<rp>(</rp><rt>もんちゅうじょ</rt><rp>)</rp></ruby></span></strong>（<ruby>裁判<rp>(</rp><rt>さいばん</rt><rp>)</rp></ruby>）だ。1192年には<strong><span class="keyword"><ruby>征夷大将軍<rp>(</rp><rt>せいいたいしょうぐん</rt><rp>)</rp></ruby></span></strong>に<ruby>任命<rp>(</rp><rt>にんめい</rt><rp>)</rp></ruby>されたよ',
     },
     {
       type: 'message',
@@ -88,6 +102,20 @@ export const kamakuraBakufuChat: HistoryChat = {
     {
       type: 'narrator',
       text: '<ruby>頼朝<rp>(</rp><rt>よりとも</rt><rp>)</rp></ruby>の死後、妻の<ruby>北条政子<rp>(</rp><rt>ほうじょうまさこ</rt><rp>)</rp></ruby>の一族である<strong><span class="keyword"><ruby>北条氏<rp>(</rp><rt>ほうじょうし</rt><rp>)</rp></ruby></span></strong>が<strong><span class="keyword"><ruby>執権<rp>(</rp><rt>しっけん</rt><rp>)</rp></ruby></span></strong>として<ruby>幕府<rp>(</rp><rt>ばくふ</rt><rp>)</rp></ruby>の<ruby>実権<rp>(</rp><rt>じっけん</rt><rp>)</rp></ruby>を握りました。',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'yoritomo',
+      expression: 'thinking',
+      text: '私の死後、3代将軍の<strong><span class="keyword"><ruby>源実朝<rp>(</rp><rt>みなもとのさねとも</rt><rp>)</rp></ruby></span></strong>が<ruby>暗殺<rp>(</rp><rt>あんさつ</rt><rp>)</rp></ruby>され、源氏の将軍は3代で<ruby>途絶<rp>(</rp><rt>とだ</rt><rp>)</rp></ruby>えてしまった…。その後は<strong><span class="keyword"><ruby>北条時政<rp>(</rp><rt>ほうじょうときまさ</rt><rp>)</rp></ruby></span></strong>が初代<ruby>執権<rp>(</rp><rt>しっけん</rt><rp>)</rp></ruby>となり、北条氏が幕府の<ruby>実権<rp>(</rp><rt>じっけん</rt><rp>)</rp></ruby>を握ったんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'surprised',
+      text: '源氏の将軍が途絶えてしまったんですね…。そのあとどうなりましたか？',
     },
     {
       type: 'message',

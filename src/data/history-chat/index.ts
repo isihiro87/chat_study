@@ -30,9 +30,11 @@ import { mongolEmpireChat } from '../subjects/history/eras/grade1/5-medieval-wor
 import { mongolInvasionChat } from '../subjects/history/eras/grade1/5-medieval-world/topics/3-mongol-invasion/chat';
 import { muromachiBakufuChat } from '../subjects/history/eras/grade1/5-medieval-world/topics/4-muromachi-bakufu/chat';
 import { eastAsiaTradeChat } from '../subjects/history/eras/grade1/5-medieval-world/topics/5-east-asia-trade/chat';
-import { muromachiSocietyChat } from '../subjects/history/eras/grade1/5-medieval-world/topics/6-muromachi-society/chat';
+import { muromachiIndustryChat } from '../subjects/history/eras/grade1/5-medieval-world/topics/6-muromachi-industry/chat';
+import { muromachiPeopleChat } from '../subjects/history/eras/grade1/5-medieval-world/topics/7-muromachi-people/chat';
 import { sengokuEraChat } from '../subjects/history/eras/grade1/5-medieval-world/topics/7-sengoku-era/chat';
-import { muromachiCultureChat } from '../subjects/history/eras/grade1/5-medieval-world/topics/8-muromachi-culture/chat';
+import { kitayamaCultureChat } from '../subjects/history/eras/grade1/5-medieval-world/topics/9-kitayama-culture/chat';
+import { higashiyamaCultureChat } from '../subjects/history/eras/grade1/5-medieval-world/topics/10-higashiyama-culture/chat';
 // Grade 2: 近世の幕開け
 import { europeChangeChat } from '../subjects/history/eras/grade2/1-early-modern/topics/1-europe-change/chat';
 import { europeSpreadChat } from '../subjects/history/eras/grade2/1-early-modern/topics/2-europe-spread/chat';
@@ -156,9 +158,11 @@ const chatMap: Record<string, HistoryChat> = {
   'mongol-invasion': mongolInvasionChat,
   'muromachi-bakufu': muromachiBakufuChat,
   'east-asia-trade': eastAsiaTradeChat,
-  'muromachi-society': muromachiSocietyChat,
+  'muromachi-industry': muromachiIndustryChat,
+  'muromachi-people': muromachiPeopleChat,
   'sengoku-era': sengokuEraChat,
-  'muromachi-culture': muromachiCultureChat,
+  'kitayama-culture': kitayamaCultureChat,
+  'higashiyama-culture': higashiyamaCultureChat,
   // Grade 2: 近世の幕開け
   'europe-change': europeChangeChat,
   'europe-spread': europeSpreadChat,
