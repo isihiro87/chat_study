@@ -1,4 +1,4 @@
-import { ArrowLeft, Clock } from 'lucide-react';
+import { ArrowLeft, Clock, Home } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 interface ChatHeaderProps {
@@ -61,6 +61,13 @@ export function ChatHeader({ icon, title, subtitle, progress, estimatedMinutes }
             <span className="rounded-full bg-white/20 px-3 py-1 text-xs font-medium text-white">
               中学歴史
             </span>
+            <button
+              onClick={() => navigate('/')}
+              className="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-white/20 active:bg-white/30"
+              aria-label="ホーム"
+            >
+              <Home className="h-4 w-4 text-white" />
+            </button>
           </div>
         </div>
       </div>

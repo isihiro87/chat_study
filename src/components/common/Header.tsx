@@ -1,4 +1,4 @@
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, Home } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 interface HeaderProps {
@@ -28,6 +28,13 @@ export function Header({ title, subtitle, showBack = false }: HeaderProps) {
             <p className="text-sm text-gray-500">{subtitle}</p>
           )}
         </div>
+        <button
+          onClick={() => navigate('/')}
+          className="ml-2 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full hover:bg-gray-100 active:bg-gray-200"
+          aria-label="ホーム"
+        >
+          <Home className="h-5 w-5 text-gray-600" />
+        </button>
       </div>
     </header>
   );
