@@ -33,6 +33,7 @@ import { linearFuncMeaningChat } from '../subjects/math/units/grade2/3-linear-fu
 import { slopeInterceptChat } from '../subjects/math/units/grade2/3-linear-functions/topics/2-slope-intercept/chat';
 import { findLinearEquationChat } from '../subjects/math/units/grade2/3-linear-functions/topics/3-find-equation/chat';
 import { equationsAndGraphsChat } from '../subjects/math/units/grade2/3-linear-functions/topics/4-equations-and-graphs/chat';
+import { linearFuncApplicationsChat } from '../subjects/math/units/grade2/3-linear-functions/topics/5-applications/chat';
 // Grade 3: 式の展開と因数分解
 import { expansionBasicsChat } from '../subjects/math/units/grade3/1-expansion-factoring/topics/1-expansion-basics/chat';
 import { expansionFormulasChat } from '../subjects/math/units/grade3/1-expansion-factoring/topics/2-expansion-formulas/chat';
@@ -91,6 +92,7 @@ const chatMap: Record<string, HistoryChat> = {
   [slopeInterceptChat.id]: slopeInterceptChat,
   [findLinearEquationChat.id]: findLinearEquationChat,
   [equationsAndGraphsChat.id]: equationsAndGraphsChat,
+  [linearFuncApplicationsChat.id]: linearFuncApplicationsChat,
   // Grade 3: 式の展開と因数分解
   [expansionBasicsChat.id]: expansionBasicsChat,
   [expansionFormulasChat.id]: expansionFormulasChat,

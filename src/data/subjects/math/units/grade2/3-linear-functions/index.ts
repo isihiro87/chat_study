@@ -3,6 +3,7 @@ import { linearFuncMeaning } from './topics/1-meaning';
 import { slopeIntercept } from './topics/2-slope-intercept';
 import { findLinearEquation } from './topics/3-find-equation';
 import { equationsAndGraphs } from './topics/4-equations-and-graphs';
+import { linearFuncApplications } from './topics/5-applications';
 
 export const linearFuncEra: Era = {
   id: 'math-g2-linear-func',
@@ -20,4 +21,5 @@ export const linearFuncTopics: Topic[] = [
   slopeIntercept,
   findLinearEquation,
   equationsAndGraphs,
+  linearFuncApplications,
 ];
