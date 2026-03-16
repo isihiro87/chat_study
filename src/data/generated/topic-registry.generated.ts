@@ -82,7 +82,7 @@ export const topicMetas: TopicMeta[] = [
   { id: "eng-question-words", eraId: "english-grade1", name: "疑問詞", subtitle: "what / who / where / when / how", icon: "❓", order: 5, chatId: "eng-question-words", hasExamples: true },
   { id: "eng-question-patterns", eraId: "english-grade1", name: "疑問詞の応用", subtitle: "前置詞 / What+名詞 / How do you ~?", icon: "❓", order: 6, chatId: "eng-question-patterns", hasExamples: true },
   { id: "eng-third-person-singular", eraId: "english-grade1", name: "三人称単数現在", subtitle: "he / she / it + 動詞s の使い方", icon: "👆", order: 7, chatId: "eng-third-person-singular", hasExamples: true },
-  { id: "eng-pronouns", eraId: "english-grade1", name: "代名詞", subtitle: "I / you / he / she と my / your の使い分け", icon: "👥", order: 8, chatId: "eng-pronouns", hasExamples: true },
+  { id: "eng-pronouns", eraId: "english-grade1", name: "代名詞", subtitle: "主格・所有格・目的格・所有代名詞と Whose / Which の使い方", icon: "👥", order: 8, chatId: "eng-pronouns", hasExamples: true },
   { id: "eng-present-progressive", eraId: "english-grade1", name: "現在進行形", subtitle: "be動詞 + 〜ing で「今〜している」", icon: "🏃", order: 9, chatId: "eng-present-progressive", hasExamples: true },
   { id: "eng-past-tense", eraId: "english-grade1", name: "過去形と過去進行形", subtitle: "was / were / played / was playing", icon: "⏪", order: 10, chatId: "eng-past-tense", hasExamples: true },
   { id: "eng-sentence-structures", eraId: "english-grade2", name: "5つの文構造", subtitle: "SV / SVC / SVO / SVOO / SVOC", icon: "🏗️", order: 1, chatId: "eng-sentence-structures", hasExamples: true },

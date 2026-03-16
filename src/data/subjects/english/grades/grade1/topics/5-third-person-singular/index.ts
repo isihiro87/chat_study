@@ -23,6 +23,16 @@ export const thirdPersonSingular: Topic = {
           ],
         },
         {
+          title: 'have は特別！ → has になる',
+          content:
+            'have だけは不規則変化で、he / she / it のときは has になるよ。haves にはならないから注意！',
+          keyPoints: [
+            'She has a cat. = 彼女はネコを飼っています。',
+            'He has two brothers. = 彼には兄弟が2人います。',
+            'Ken has a bike. = ケンは自転車を持っています。',
+          ],
+        },
+        {
           title: '「〜しない」「〜しますか？」のとき',
           content:
             "he / she / it の「〜しない」は doesn't + 動詞のもとの形。「〜しますか？」は Does をいちばん最初に置いて、動詞はもとの形にもどすよ。",
@@ -30,6 +40,26 @@ export const thirdPersonSingular: Topic = {
             "He doesn't like math. = 彼は数学が好きじゃない。（likes → like にもどる！）",
             'Does she play tennis? = 彼女はテニスをしますか？',
             "答え方: Yes, she does. / No, she doesn't.",
+          ],
+        },
+        {
+          title: '人名・家族名も三人称単数！',
+          content:
+            'Ken, Amy, Ms. Green のような人名や、My brother, Your father のような家族も、1人なら三人称単数だよ。「he か she に置きかえられるか？」で判断しよう。',
+          keyPoints: [
+            'Ken plays soccer. = ケンはサッカーをします。（Ken → he）',
+            'My sister likes music. = 私の姉は音楽が好きです。（My sister → she）',
+            'Mr. Tanaka teaches math. = 田中先生は数学を教えます。（Mr. Tanaka → he）',
+          ],
+        },
+        {
+          title: '頻度の副詞の位置',
+          content:
+            'often（よく）、usually（ふだん）、sometimes（ときどき）は動詞の前に置くよ。every day（毎日）、on weekends（週末に）は文の最後に置くよ。',
+          keyPoints: [
+            'He often watches TV. = 彼はよくテレビを見ます。',
+            'She usually goes to school by bike. = 彼女はふだん自転車で学校に行きます。',
+            'Ken studies English every day. = ケンは毎日英語を勉強します。',
           ],
         },
       ],
@@ -93,6 +123,62 @@ export const thirdPersonSingular: Topic = {
         hint: 'He（1人）の「〜しますか？」は…？',
         explanation: 'he / she / it の「〜しますか？」は Does をいちばん前に置くよ。',
       },
+      {
+        id: 'eng-tps-fc9',
+        front: 'teaches',
+        back: 'Mr. Tanaka (　　) math.\n（田中先生は数学を教えます。）',
+        hint: 'teach は ch で終わるよ。人名も三人称単数！',
+        explanation: '人名（Mr. Tanaka）は三人称単数。teach は ch で終わるから es → teaches',
+      },
+      {
+        id: 'eng-tps-fc10',
+        front: 'plays',
+        back: 'Ken (　　) the piano.\n（ケンはピアノをひきます。）',
+        hint: 'Ken は1人の人。play に…？',
+        explanation: 'Ken は三人称単数。play → plays',
+      },
+      {
+        id: 'eng-tps-fc11',
+        front: 'washes',
+        back: 'She (　　) the dishes.\n（彼女はお皿を洗います。）',
+        hint: 'wash は sh で終わるよ。',
+        explanation: 'sh で終わるから es をつけるよ。wash → washes',
+      },
+      {
+        id: 'eng-tps-fc12',
+        front: "Yes, she does.",
+        back: 'Does she like dogs?\n— (　　　　)\n（はい、好きです。）',
+        hint: 'Does で聞かれたら does で答えるよ。',
+        explanation: 'Does...? には Yes, 主語 + does. で答えるよ。',
+      },
+      {
+        id: 'eng-tps-fc13',
+        front: "No, he doesn't.",
+        back: 'Does he play tennis?\n— (　　　　)\n（いいえ、しません。）',
+        hint: "Does で聞かれて No なら doesn't を使うよ。",
+        explanation: "Does...? に No で答えるときは No, 主語 + doesn't. だよ。",
+      },
+      {
+        id: 'eng-tps-fc14',
+        front: 'often watches',
+        back: 'He (　　)(　　) TV.\n（彼はよくテレビを見ます。）',
+        hint: '「よく」= often。watch は ch で終わるよ。',
+        explanation: 'often は動詞の前。watch → watches（ch で終わるから es）',
+      },
+      {
+        id: 'eng-tps-fc15',
+        front: 'likes',
+        back: 'My brother (　　) soccer.\n（私の弟はサッカーが好きです。）',
+        hint: 'My brother は1人 → 三人称単数だよ。',
+        explanation: 'My brother は三人称単数（= he）。like → likes',
+      },
+      {
+        id: 'eng-tps-fc16',
+        front: "doesn't have",
+        back: 'She (　　)(　　) a bike.\n（彼女は自転車を持っていません。）',
+        hint: "三人称単数の否定文。has じゃなくて…？",
+        explanation: "否定文は doesn't + 原形。has ではなく have にもどるよ。",
+      },
     ],
     quiz: {
       questions: [
@@ -143,6 +229,58 @@ export const thirdPersonSingular: Topic = {
         },
         {
           id: 'eng-tps-q6',
+          question: '「Ken (　　) math every day.（ケンは毎日数学を勉強します。）」\nの (　　) に入るのは？',
+          options: ['study', 'studys', 'studies', 'studying'],
+          correctIndex: 2,
+          explanation: 'Ken は三人称単数。study は y を i にかえて es をつけて studies だよ。',
+        },
+        {
+          id: 'eng-tps-q7',
+          question: '「My sister (　　) like coffee.（私の姉はコーヒーが好きじゃないです。）」\nの (　　) に入るのは？',
+          options: ["don't", "doesn't", "isn't", 'not'],
+          correctIndex: 1,
+          explanation: "My sister は三人称単数（= she）なので doesn't を使うよ。",
+        },
+        {
+          id: 'eng-tps-q8',
+          question: '「(　　) your father cook dinner?（あなたのお父さんは夕食を作りますか？）」\nの (　　) に入るのは？',
+          options: ['Do', 'Does', 'Is', 'Are'],
+          correctIndex: 1,
+          explanation: 'your father は三人称単数（= he）なので Does を使うよ。',
+        },
+        {
+          id: 'eng-tps-q9',
+          question: '「He often (　　) TV after dinner.（彼はよく夕食後にテレビを見ます。）」\nの (　　) に入るのは？',
+          options: ['watch', 'watchs', 'watches', 'watching'],
+          correctIndex: 2,
+          explanation: 'He は三人称単数。watch は ch で終わるから es をつけて watches だよ。often があっても動詞の形は変わらないよ。',
+        },
+        {
+          id: 'eng-tps-q10',
+          question: '「She (　　) a bike.（彼女は自転車を持っていません。）」を完成させるとき、正しいのは？',
+          options: [
+            "doesn't has",
+            "doesn't have",
+            "don't have",
+            "isn't have",
+          ],
+          correctIndex: 1,
+          explanation: "三人称単数の否定文は doesn't + 動詞の原形。has ではなく have にもどるよ。",
+        },
+        {
+          id: 'eng-tps-q11',
+          question: '「Does Amy speak Japanese?」に「はい」で答えると？',
+          options: [
+            'Yes, Amy speaks.',
+            'Yes, she is.',
+            'Yes, she does.',
+            'Yes, she do.',
+          ],
+          correctIndex: 2,
+          explanation: 'Does で聞かれたら does で答えるよ。Amy は she に置きかえて Yes, she does.',
+        },
+        {
+          id: 'eng-tps-q12',
           type: 'reorder',
           question: '次の単語を正しい順番にならべて、\n「彼女はピアノをひきます。」という英文を作ろう。',
           words: ['the', 'plays', 'she', 'piano'],
@@ -153,7 +291,7 @@ export const thirdPersonSingular: Topic = {
           explanation: '「She plays the piano.」が正解。She（彼女は）+ plays（ひく）+ the piano（ピアノ）の順番だよ。She は1人だから play に s がつくよ。',
         },
         {
-          id: 'eng-tps-q7',
+          id: 'eng-tps-q13',
           type: 'reorder',
           question: '次の単語を正しい順番にならべて、\n「彼は数学が好きではありません。」という英文を作ろう。',
           words: ['like', "doesn't", 'he', 'math'],
@@ -164,7 +302,7 @@ export const thirdPersonSingular: Topic = {
           explanation: '「He doesn\'t like math.」が正解。He（彼は）+ doesn\'t（〜しない）+ like（好き）+ math（数学）の順番だよ。doesn\'t のあとは動詞のもとの形を使うよ。',
         },
         {
-          id: 'eng-tps-q8',
+          id: 'eng-tps-q14',
           type: 'reorder',
           question: '次の単語を正しい順番にならべて、\n「彼女は英語を話しますか？」という英文を作ろう。',
           words: ['she', 'does', 'speak', 'English'],
@@ -173,6 +311,17 @@ export const thirdPersonSingular: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「Does she speak English?」が正解。Does（〜しますか）+ she（彼女は）+ speak（話す）+ English（英語）の順番だよ。Does のあとは動詞のもとの形を使うよ。',
+        },
+        {
+          id: 'eng-tps-q15',
+          type: 'reorder',
+          question: '次の単語を正しい順番にならべて、\n「ケンはよく放課後にサッカーをします。」という英文を作ろう。',
+          words: ['soccer', 'Ken', 'plays', 'often', 'after school'],
+          correctOrder: [1, 3, 2, 0, 4],
+          punctuation: '.',
+          options: [],
+          correctIndex: -1,
+          explanation: '「Ken often plays soccer after school.」が正解。頻度の副詞 often は動詞 plays の前に置くよ。',
         },
       ],
     },
@@ -243,6 +392,72 @@ export const thirdPersonSingular: Topic = {
             },
           ],
           answer: 'Does she speak Japanese? — Yes, she does.\n（彼女は日本語を話しますか？ — はい、話します。）',
+        },
+        {
+          id: 'eng-tps-ex4',
+          question: '次の単語を正しい順番にならべて英文を作ろう。\n「あなたのお母さんは朝ごはんを作りますか。」\n（does / make / your mother / breakfast）',
+          steps: [
+            {
+              title: 'Step 1: 疑問文だから Does を最初に',
+              content: '三人称単数の疑問文は Does で始めるよ。',
+              highlight: 'Does',
+            },
+            {
+              title: 'Step 2: 主語を置こう',
+              content: '「あなたのお母さんは」= your mother。Does のすぐ後ろに置くよ。',
+              highlight: 'Does your mother',
+            },
+            {
+              title: 'Step 3: 動詞は原形！',
+              content: 'Does のあとは動詞の原形だよ。make breakfast で完成！',
+              highlight: 'Does your mother make breakfast?',
+            },
+          ],
+          answer: 'Does your mother make breakfast?\n（あなたのお母さんは朝ごはんを作りますか。）',
+        },
+        {
+          id: 'eng-tps-ex5',
+          question: '主語を I から Ken にかえて文を書きなおそう。\nI play soccer after school.（私は放課後サッカーをします。）',
+          steps: [
+            {
+              title: 'Step 1: 主語をかえよう',
+              content: 'I → Ken にかえるよ。Ken は1人の人だから三人称単数だね。',
+              highlight: 'Ken',
+            },
+            {
+              title: 'Step 2: 動詞に s をつけよう',
+              content: '三人称単数だから play → plays にするよ。',
+              highlight: 'plays',
+            },
+            {
+              title: 'Step 3: 残りはそのまま',
+              content: 'after school はそのまま。Ken plays soccer after school. の完成！',
+              highlight: 'Ken plays soccer after school.',
+            },
+          ],
+          answer: 'Ken plays soccer after school.\n（ケンは放課後サッカーをします。）',
+        },
+        {
+          id: 'eng-tps-ex6',
+          question: '次の日本語を英語にしよう。\n「私の姉はふだん7時に朝ごはんを食べます。」',
+          steps: [
+            {
+              title: 'Step 1: 「だれが？」をさがそう',
+              content: '「私の姉は」= My sister。1人の人だから三人称単数だよ。',
+              highlight: 'My sister',
+            },
+            {
+              title: 'Step 2: 「ふだん」の位置に注意',
+              content: '「ふだん」= usually は動詞の前に置くよ。「食べる」= eat → eats（s をつける）',
+              highlight: 'usually eats',
+            },
+            {
+              title: 'Step 3: 残りをつなげよう',
+              content: '「朝ごはんを」= breakfast、「7時に」= at seven。文の完成！',
+              highlight: 'My sister usually eats breakfast at seven.',
+            },
+          ],
+          answer: 'My sister usually eats breakfast at seven.\n（私の姉はふだん7時に朝ごはんを食べます。）',
         },
       ],
     },
