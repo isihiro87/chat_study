@@ -228,6 +228,10 @@ export function TopPage() {
           </div>
         )}
 
+        <p className="mb-4 text-xs text-gray-400">
+          ※ コンテンツは準備中のため、一部に不備がある場合があります
+        </p>
+
         <h2 className="mb-4 text-lg font-semibold text-gray-800">
           科目をえらぶ
         </h2>
@@ -236,8 +240,6 @@ export function TopPage() {
           {subjects.map((subject) => {
             const Icon = iconMap[subject.icon] || Scroll;
             const isAvailable = subject.isAvailable;
-
-            const isPreview = subject.id === 'math';
 
             if (isAvailable) {
               return (
@@ -250,16 +252,9 @@ export function TopPage() {
                     <Icon className="h-7 w-7 text-primary" />
                   </div>
                   <div className="flex-1">
-                    <div className="flex items-center gap-2">
-                      <h3 className="text-lg font-semibold text-gray-800">
-                        {subject.name}
-                      </h3>
-                      {isPreview && (
-                        <span className="rounded-full bg-amber-100 px-2 py-0.5 text-[10px] font-bold text-amber-700">
-                          準備中
-                        </span>
-                      )}
-                    </div>
+                    <h3 className="text-lg font-semibold text-gray-800">
+                      {subject.name}
+                    </h3>
                     <p className="text-sm text-gray-500">{subject.description}</p>
                   </div>
                 </Link>
