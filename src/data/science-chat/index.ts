@@ -15,6 +15,10 @@ import { invertebratesChat } from '../subjects/science/units/grade1/1-biology/to
 import { lightChat } from '../subjects/science/units/grade1/3-physics/topics/1-light/chat';
 import { soundChat } from '../subjects/science/units/grade1/3-physics/topics/2-sound/chat';
 import { forceChat } from '../subjects/science/units/grade1/3-physics/topics/3-force/chat';
+// Grade 1: Earth Science
+import { volcanoChat } from '../subjects/science/units/grade1/4-earth/topics/1-volcano/chat';
+import { earthquakeChat } from '../subjects/science/units/grade1/4-earth/topics/2-earthquake/chat';
+import { strataChat } from '../subjects/science/units/grade1/4-earth/topics/3-strata/chat';
 // Grade 2: Chemical Change
 import { matterCompositionChat } from '../subjects/science/units/grade2/1-chemical-change/topics/1-matter-composition/chat';
 import { chemicalCombinationChat } from '../subjects/science/units/grade2/1-chemical-change/topics/2-chemical-combination/chat';
@@ -84,6 +88,10 @@ const chatMap: Record<string, HistoryChat> = {
   [lightChat.id]: lightChat,
   [soundChat.id]: soundChat,
   [forceChat.id]: forceChat,
+  // Grade 1: Earth Science
+  [volcanoChat.id]: volcanoChat,
+  [earthquakeChat.id]: earthquakeChat,
+  [strataChat.id]: strataChat,
   // Grade 2: Chemical Change
   [matterCompositionChat.id]: matterCompositionChat,
   [chemicalCombinationChat.id]: chemicalCombinationChat,
