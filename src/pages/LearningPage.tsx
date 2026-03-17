@@ -223,11 +223,13 @@ export function LearningPage() {
         const { isNewBest } = updateQuizScore(topicId, score, total);
         setQuizNewBest(isNewBest);
         trackEvent('quiz_complete', topicId, Math.round((score / total) * 100));
-        addCompletedTopic(topicId);
-        if (shouldShowSummaryQuizPopup()) {
-          markPopupShown();
-          setSummaryTopicIds(getSessionCompletedTopics());
-          setShowSummaryPopup(true);
+        if (subjectId && era?.grade) {
+          addCompletedTopic(topicId, subjectId, era.grade);
+          if (shouldShowSummaryQuizPopup(subjectId, era.grade)) {
+            markPopupShown();
+            setSummaryTopicIds(getSessionCompletedTopics(subjectId, era.grade));
+            setShowSummaryPopup(true);
+          }
         }
       }
     },
