@@ -1,7 +1,6 @@
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import { Check, CheckSquare, Square, Shuffle } from 'lucide-react';
 import { getErasBySubject, getTopicsByEra } from '../../data/subjects/registry';
-import { collectQuestions } from '../../utils/buildRandomQuiz';
 import type { TopicMeta } from '../../data/subjects/registry';
 import type { Era } from '../../data/types';
 
@@ -11,8 +10,6 @@ const grades = [
   { value: 3, label: '中3' },
 ] as const;
 
-const questionCountPresets = [5, 10, 15, 20, 0] as const; // 0 = 全問
-
 interface RandomQuizSetupProps {
   subjectId: string;
   onStart: (topicIds: string[], questionCount: number) => void;
@@ -20,13 +17,16 @@ interface RandomQuizSetupProps {
 }
 
 export function RandomQuizSetup({ subjectId, onStart, initialSelectedTopicIds }: RandomQuizSetupProps) {
-  const [selectedGrade, setSelectedGrade] = useState(1);
+  const allEras = useMemo(() => getErasBySubject(subjectId), [subjectId]);
+  const availableGrades = useMemo(() => {
+    const available = new Set(allEras.map((e) => e.grade));
+    return grades.filter((g) => available.has(g.value));
+  }, [allEras]);
+
+  const [selectedGrade, setSelectedGrade] = useState(() => availableGrades[0]?.value ?? 1);
   const [selectedTopicIds, setSelectedTopicIds] = useState<Set<string>>(
     () => new Set(initialSelectedTopicIds ?? []),
   );
-  const [questionCount, setQuestionCount] = useState(10);
-
-  const allEras = useMemo(() => getErasBySubject(subjectId), [subjectId]);
   const filteredEras = useMemo(
     () => allEras.filter((era) => era.grade === selectedGrade),
     [allEras, selectedGrade],
@@ -50,19 +50,6 @@ export function RandomQuizSetup({ subjectId, onStart, initialSelectedTopicIds }:
     }
     return ids;
   }, [topicsByEra]);
-
-  const [availableQuestionCount, setAvailableQuestionCount] = useState(0);
-  useEffect(() => {
-    let cancelled = false;
-    collectQuestions(Array.from(selectedTopicIds)).then((qs) => {
-      if (!cancelled) setAvailableQuestionCount(qs.length);
-    });
-    return () => { cancelled = true; };
-  }, [selectedTopicIds]);
-
-  const effectiveCount = questionCount === 0 || questionCount > availableQuestionCount
-    ? availableQuestionCount
-    : questionCount;
 
   const toggleTopic = (topicId: string) => {
     setSelectedTopicIds((prev) => {
@@ -106,7 +93,7 @@ export function RandomQuizSetup({ subjectId, onStart, initialSelectedTopicIds }:
 
   const handleStart = () => {
     if (selectedTopicIds.size === 0) return;
-    onStart(Array.from(selectedTopicIds), questionCount);
+    onStart(Array.from(selectedTopicIds), 0);
   };
 
   return (
@@ -114,7 +101,7 @@ export function RandomQuizSetup({ subjectId, onStart, initialSelectedTopicIds }:
       <div className="flex-1 overflow-y-auto px-4 pb-32">
         {/* 学年タブ */}
         <div className="mb-4 flex gap-2">
-          {grades.map((grade) => (
+          {availableGrades.map((grade) => (
             <button
               key={grade.value}
               onClick={() => setSelectedGrade(grade.value)}
@@ -209,30 +196,9 @@ export function RandomQuizSetup({ subjectId, onStart, initialSelectedTopicIds }:
         )}
       </div>
 
-      {/* 固定フッター：問題数選択とスタートボタン */}
+      {/* 固定フッター：スタートボタン */}
       <div className="fixed bottom-0 left-0 right-0 border-t border-gray-200 bg-white px-4 pb-4 pt-3 shadow-sm">
         <div className="mx-auto max-w-md">
-          {/* 問題数プリセット */}
-          <div className="mb-3 flex items-center gap-2">
-            <span className="flex-shrink-0 text-xs font-medium text-gray-500">問題数:</span>
-            <div className="flex flex-1 gap-1.5">
-              {questionCountPresets.map((preset) => (
-                <button
-                  key={preset}
-                  onClick={() => setQuestionCount(preset)}
-                  className={`flex-1 rounded-lg py-1.5 text-xs font-bold transition-colors ${
-                    questionCount === preset
-                      ? 'bg-amber-600 text-white'
-                      : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                  }`}
-                >
-                  {preset === 0 ? '全問' : preset}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* 出題数表示 + スタート */}
           <button
             onClick={handleStart}
             disabled={selectedTopicIds.size === 0}
@@ -245,7 +211,7 @@ export function RandomQuizSetup({ subjectId, onStart, initialSelectedTopicIds }:
           >
             <Shuffle className="h-5 w-5" />
             {selectedTopicIds.size > 0
-              ? `${effectiveCount}問でスタート`
+              ? 'スタート'
               : 'トピックを選択してください'}
           </button>
         </div>

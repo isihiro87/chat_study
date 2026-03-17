@@ -75,8 +75,8 @@ export function EraSelectPage() {
           ))}
         </div>
 
-        {/* まとめクイズボタン（英語・歴史のみ） */}
-        {(subjectId === 'history' || subjectId === 'english') && (
+        {/* まとめクイズボタン */}
+        {subjectId && (
           <Link
             to={`/subjects/${subjectId}/random-quiz`}
             className="mb-4 flex items-center gap-3 rounded-xl bg-amber-500 p-4 text-white shadow-sm transition-transform active:scale-98"

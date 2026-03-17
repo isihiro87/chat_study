@@ -513,7 +513,7 @@ export function LearningPage() {
       {showSummaryPopup && (
         <SummaryQuizPopup
           topicIds={summaryTopicIds}
-          onStart={(questionCount) => {
+          onStart={() => {
             setShowSummaryPopup(false);
             const nextPath = nextTopic
               ? `/subjects/${subjectId}/eras/${eraId}/topics/${nextTopic.id}`
@@ -521,7 +521,6 @@ export function LearningPage() {
             navigate(`/subjects/${subjectId}/random-quiz`, {
               state: {
                 preselectedTopicIds: summaryTopicIds,
-                preselectedQuestionCount: questionCount,
                 returnTo: nextPath
                   ? { path: nextPath, name: nextTopic!.name }
                   : undefined,

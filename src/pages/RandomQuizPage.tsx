@@ -11,7 +11,6 @@ import type { Quiz, QuizQuestion } from '../data/types';
 
 interface LocationState {
   preselectedTopicIds?: string[];
-  preselectedQuestionCount?: number;
   returnTo?: { path: string; name: string };
 }
 
@@ -24,7 +23,6 @@ export function RandomQuizPage() {
   const locationState = location.state as LocationState | null;
   const returnTo = locationState?.returnTo;
   const initialTopicIds = locationState?.preselectedTopicIds;
-  const initialQuestionCount = locationState?.preselectedQuestionCount ?? 0;
   const autoStarted = useRef(false);
 
   const [mode, setMode] = useState<'setup' | 'quiz'>('setup');
@@ -38,10 +36,10 @@ export function RandomQuizPage() {
   useEffect(() => {
     if (initialTopicIds && initialTopicIds.length > 0 && !autoStarted.current) {
       autoStarted.current = true;
-      buildRandomQuiz(initialTopicIds, initialQuestionCount).then((generated) => {
+      buildRandomQuiz(initialTopicIds, 0).then((generated) => {
         if (generated.questions.length > 0) {
           setQuiz(generated);
-          setLastConfig({ topicIds: initialTopicIds, count: initialQuestionCount });
+          setLastConfig({ topicIds: initialTopicIds, count: 0 });
           setQuizKey((prev) => prev + 1);
           setMode('quiz');
         }
@@ -110,7 +108,7 @@ export function RandomQuizPage() {
   if (mode === 'setup') {
     return (
       <div className="flex h-dvh flex-col bg-gray-50">
-        <Header title="まとめクイズ" subtitle={`${subject.name} - 範囲と問題数をえらぼう`} showBack />
+        <Header title="まとめクイズ" subtitle={`${subject.name} - 範囲をえらぼう`} showBack />
         <main className="flex-1 overflow-hidden">
           <RandomQuizSetup
             subjectId={subjectId}
