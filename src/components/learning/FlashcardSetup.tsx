@@ -23,6 +23,7 @@ export default function FlashcardSetup({ cards, onStart }: FlashcardSetupProps) 
     new Set(['basic', 'standard', 'advanced']),
   );
   const [batchSize, setBatchSize] = useState<number | null>(10); // null = 全部
+  const [shuffleOrder, setShuffleOrder] = useState(true); // true = ランダム
 
   const countByDifficulty = useMemo(() => {
     const counts: Record<Difficulty, number> = { basic: 0, standard: 0, advanced: 0 };
@@ -53,7 +54,10 @@ export default function FlashcardSetup({ cards, onStart }: FlashcardSetupProps) 
 
   const handleStart = () => {
     if (filteredCards.length === 0) return;
-    onStart(filteredCards, effectiveBatchSize);
+    const ordered = shuffleOrder
+      ? [...filteredCards].sort(() => Math.random() - 0.5)
+      : filteredCards;
+    onStart(ordered, effectiveBatchSize);
   };
 
   return (
@@ -112,6 +116,33 @@ export default function FlashcardSetup({ cards, onStart }: FlashcardSetupProps) 
               }`}
             >
               全部
+            </button>
+          </div>
+        </div>
+
+        {/* 出題順序 */}
+        <div className="mb-5">
+          <p className="mb-2 text-sm font-medium text-gray-600">出題順序</p>
+          <div className="flex gap-2">
+            <button
+              onClick={() => setShuffleOrder(false)}
+              className={`flex-1 rounded-lg border-2 px-3 py-2 text-center text-sm font-medium transition-colors ${
+                !shuffleOrder
+                  ? 'border-amber-500 bg-amber-50 text-amber-700'
+                  : 'border-gray-200 bg-white text-gray-600 hover:border-gray-300'
+              }`}
+            >
+              順番通り
+            </button>
+            <button
+              onClick={() => setShuffleOrder(true)}
+              className={`flex-1 rounded-lg border-2 px-3 py-2 text-center text-sm font-medium transition-colors ${
+                shuffleOrder
+                  ? 'border-amber-500 bg-amber-50 text-amber-700'
+                  : 'border-gray-200 bg-white text-gray-600 hover:border-gray-300'
+              }`}
+            >
+              ランダム
             </button>
           </div>
         </div>

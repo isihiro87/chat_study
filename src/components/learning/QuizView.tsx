@@ -260,7 +260,7 @@ export function QuizView({ quiz, onProgressChange, onComplete, onCompleteWithDif
 
   if (isComplete) {
     const displayScore = isReviewMode ? reviewScore : score;
-    const displayTotal = isReviewMode ? wrongAnswers.length : quiz.questions.length;
+    const displayTotal = isReviewMode ? wrongAnswers.length : filteredQuiz.questions.length;
     const percentage = Math.round((displayScore / displayTotal) * 100);
 
     return (

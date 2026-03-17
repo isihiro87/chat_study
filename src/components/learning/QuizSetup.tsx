@@ -23,6 +23,7 @@ export default function QuizSetup({ questions, onStart }: QuizSetupProps) {
     new Set(['basic', 'standard', 'advanced']),
   );
   const [questionCount, setQuestionCount] = useState<number | null>(null); // null = 全問
+  const [shuffleOrder, setShuffleOrder] = useState(true); // true = ランダム
 
   const countByDifficulty = useMemo(() => {
     const counts: Record<Difficulty, number> = { basic: 0, standard: 0, advanced: 0 };
@@ -40,9 +41,7 @@ export default function QuizSetup({ questions, onStart }: QuizSetupProps) {
     if (questionCount === null || questionCount >= filteredQuestions.length) {
       return filteredQuestions;
     }
-    // ランダムに選択
-    const shuffled = [...filteredQuestions].sort(() => Math.random() - 0.5);
-    return shuffled.slice(0, questionCount);
+    return filteredQuestions.slice(0, questionCount);
   }, [filteredQuestions, questionCount]);
 
   const toggleDifficulty = (d: Difficulty) => {
@@ -59,7 +58,10 @@ export default function QuizSetup({ questions, onStart }: QuizSetupProps) {
 
   const handleStart = () => {
     if (finalQuestions.length === 0) return;
-    onStart(finalQuestions, Array.from(selectedDifficulties));
+    const ordered = shuffleOrder
+      ? [...finalQuestions].sort(() => Math.random() - 0.5)
+      : finalQuestions;
+    onStart(ordered, Array.from(selectedDifficulties));
   };
 
   return (
@@ -121,6 +123,33 @@ export default function QuizSetup({ questions, onStart }: QuizSetupProps) {
               }`}
             >
               全問
+            </button>
+          </div>
+        </div>
+
+        {/* 出題順序 */}
+        <div className="mb-5">
+          <p className="mb-2 text-sm font-medium text-gray-600">出題順序</p>
+          <div className="flex gap-2">
+            <button
+              onClick={() => setShuffleOrder(false)}
+              className={`flex-1 rounded-lg border-2 px-3 py-2 text-center text-sm font-medium transition-colors ${
+                !shuffleOrder
+                  ? 'border-amber-500 bg-amber-50 text-amber-700'
+                  : 'border-gray-200 bg-white text-gray-600 hover:border-gray-300'
+              }`}
+            >
+              順番通り
+            </button>
+            <button
+              onClick={() => setShuffleOrder(true)}
+              className={`flex-1 rounded-lg border-2 px-3 py-2 text-center text-sm font-medium transition-colors ${
+                shuffleOrder
+                  ? 'border-amber-500 bg-amber-50 text-amber-700'
+                  : 'border-gray-200 bg-white text-gray-600 hover:border-gray-300'
+              }`}
+            >
+              ランダム
             </button>
           </div>
         </div>
