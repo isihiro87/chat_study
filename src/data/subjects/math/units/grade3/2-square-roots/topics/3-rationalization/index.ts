@@ -54,99 +54,252 @@ export const rationalization: Topic = {
     },
     videos: [],
     flashcards: [
+      // === 既存フラッシュカード（fc1〜fc18） ===
       {
         id: 'math-g3-rationalization-fc1',
         front: '有理化とは何か？',
         back: '分母にある $\\sqrt{}$（無理数）をなくして、分母を有理数にすること。分母分子に同じルートをかけて行う。',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-rationalization-fc2',
         front: '有理化の基本手順は？',
         back: '分母分子に分母と同じ $\\sqrt{a}$ をかける。$\\frac{b}{\\sqrt{a}} = \\frac{b \\times \\sqrt{a}}{\\sqrt{a} \\times \\sqrt{a}} = \\frac{b\\sqrt{a}}{a}$',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-rationalization-fc3',
         front: '$\\sqrt{a} \\times \\sqrt{a}$ はいくつ？',
         back: '$\\sqrt{a} \\times \\sqrt{a} = a$。同じルート同士をかけるとルートが消えて中の数になる。これが有理化の核心！',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-rationalization-fc4',
         front: '$\\frac{1}{\\sqrt{2}}$ を有理化すると？',
         back: '$\\frac{1}{\\sqrt{2}} = \\frac{1 \\times \\sqrt{2}}{\\sqrt{2} \\times \\sqrt{2}} = \\frac{\\sqrt{2}}{2}$',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-rationalization-fc5',
         front: '$\\frac{1}{\\sqrt{3}}$ を有理化すると？',
         back: '$\\frac{1}{\\sqrt{3}} = \\frac{\\sqrt{3}}{3}$。分母分子に $\\sqrt{3}$ をかけて、$\\sqrt{3} \\times \\sqrt{3} = 3$ を利用する。',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-rationalization-fc6',
         front: '$\\frac{1}{\\sqrt{5}}$ を有理化すると？',
         back: '$\\frac{1}{\\sqrt{5}} = \\frac{\\sqrt{5}}{5}$。分母分子に $\\sqrt{5}$ をかけて、$\\sqrt{5} \\times \\sqrt{5} = 5$ を利用する。',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-rationalization-fc7',
         front: '有理化したあと約分が必要なのはどんなとき？',
         back: '有理化後の分子の係数と分母の数に公約数があるとき。例: $\\frac{6}{\\sqrt{2}} = \\frac{6\\sqrt{2}}{2} = 3\\sqrt{2}$（6と2を2で約分）',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-rationalization-fc8',
         front: '$\\frac{4}{\\sqrt{8}}$ を有理化するとき、まず何をする？',
         back: '先に分母を簡単にする。$\\sqrt{8} = 2\\sqrt{2}$ なので $\\frac{4}{2\\sqrt{2}} = \\frac{2}{\\sqrt{2}}$。その後 $\\frac{2\\sqrt{2}}{2} = \\sqrt{2}$。',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-rationalization-fc9',
         front: '分母を先に簡単にするのはなぜ有利？',
         back: '分母の係数が大きいと有理化後の数も大きくなり約分が面倒。先に簡単にすると数が小さくなり計算ミスが減る。例: $\\sqrt{12} = 2\\sqrt{3}$ に直してから有理化。',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-rationalization-fc10',
         front: '$\\sqrt{}$ をふくむ式の除法 $a\\sqrt{b} \\div \\sqrt{c}$ の手順は？',
         back: '① 分数にまとめる: $\\frac{a\\sqrt{b}}{\\sqrt{c}}$ ② 分子のルートと分母のルートを計算: $a\\sqrt{\\frac{b}{c}}$ または有理化して整理。',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-rationalization-fc11',
         front: '$2\\sqrt{15} \\div \\sqrt{5}$ を計算すると？',
         back: '$2\\sqrt{15} \\div \\sqrt{5} = \\frac{2\\sqrt{15}}{\\sqrt{5}} = 2\\sqrt{\\frac{15}{5}} = 2\\sqrt{3}$。ルートの中を割り算できる。',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-rationalization-fc12',
         front: '$\\frac{10}{\\sqrt{5}}$ を有理化・約分すると？',
         back: '$\\frac{10}{\\sqrt{5}} = \\frac{10\\sqrt{5}}{5} = 2\\sqrt{5}$。10 と 5 の最大公約数は 5 なので約分する。',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-rationalization-fc13',
         front: '$\\frac{8}{\\sqrt{2}}$ を有理化すると？',
         back: '$\\frac{8}{\\sqrt{2}} = \\frac{8\\sqrt{2}}{2} = 4\\sqrt{2}$。有理化後に 8÷2=4 で約分。',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-rationalization-fc14',
         front: '$\\frac{\\sqrt{12}}{\\sqrt{18}}$ を簡単にすると？',
         back: '$\\frac{\\sqrt{12}}{\\sqrt{18}} = \\sqrt{\\frac{12}{18}} = \\sqrt{\\frac{2}{3}} = \\frac{\\sqrt{2}}{\\sqrt{3}} = \\frac{\\sqrt{6}}{3}$。',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-rationalization-fc15',
         front: '$\\frac{3\\sqrt{2}}{\\sqrt{6}}$ を有理化すると？',
         back: '$\\frac{3\\sqrt{2}}{\\sqrt{6}} = \\frac{3\\sqrt{2} \\times \\sqrt{6}}{\\sqrt{6} \\times \\sqrt{6}} = \\frac{3\\sqrt{12}}{6} = \\frac{3 \\times 2\\sqrt{3}}{6} = \\sqrt{3}$。',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-rationalization-fc16',
         front: '式の値を求めるときに有理化が便利な理由は？',
         back: '分母にルートがあると数値代入後に割り算が複雑。有理化して分母を整数にすると代入・計算が簡単になる。例: $\\frac{1}{\\sqrt{3}} = \\frac{\\sqrt{3}}{3}$。',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-rationalization-fc17',
         front: '$\\sqrt{3} = 1.732$ のとき $\\frac{\\sqrt{3}}{3}$ の値は？',
         back: '$\\frac{\\sqrt{3}}{3} = \\frac{1.732}{3} \\approx 0.577$。これは $\\frac{1}{\\sqrt{3}}$ と同じ値。',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-rationalization-fc18',
         front: '有理化で最も大切なルールをひとことで言うと？',
         back: '「分母分子に同じルートをかける」。これだけ！かけ算なので分数の値は変わらず、分母のルートだけ消える。',
+        difficulty: 'basic',
+      },
+      // === 新規フラッシュカード（fc19〜fc40） ===
+      {
+        id: 'math-g3-rationalization-fc19',
+        front: '$\\frac{1}{\\sqrt{7}}$ を有理化すると？',
+        back: '$\\frac{1}{\\sqrt{7}} = \\frac{\\sqrt{7}}{7}$。分母分子に $\\sqrt{7}$ をかける。',
+        difficulty: 'basic',
+      },
+      {
+        id: 'math-g3-rationalization-fc20',
+        front: '$\\frac{1}{\\sqrt{11}}$ を有理化すると？',
+        back: '$\\frac{1}{\\sqrt{11}} = \\frac{\\sqrt{11}}{11}$。分母分子に $\\sqrt{11}$ をかける。',
+        difficulty: 'basic',
+      },
+      {
+        id: 'math-g3-rationalization-fc21',
+        front: '$\\frac{1}{\\sqrt{6}}$ を有理化すると？',
+        back: '$\\frac{1}{\\sqrt{6}} = \\frac{\\sqrt{6}}{6}$。分母分子に $\\sqrt{6}$ をかける。',
+        difficulty: 'basic',
+      },
+      {
+        id: 'math-g3-rationalization-fc22',
+        front: '$\\frac{1}{\\sqrt{10}}$ を有理化すると？',
+        back: '$\\frac{1}{\\sqrt{10}} = \\frac{\\sqrt{10}}{10}$。分母分子に $\\sqrt{10}$ をかける。',
+        difficulty: 'basic',
+      },
+      {
+        id: 'math-g3-rationalization-fc23',
+        front: '$\\frac{3}{\\sqrt{5}}$ を有理化すると？',
+        back: '$\\frac{3}{\\sqrt{5}} = \\frac{3\\sqrt{5}}{5}$。分母分子に $\\sqrt{5}$ をかける。',
+        difficulty: 'basic',
+      },
+      {
+        id: 'math-g3-rationalization-fc24',
+        front: '$\\frac{2}{\\sqrt{3}}$ を有理化すると？',
+        back: '$\\frac{2}{\\sqrt{3}} = \\frac{2\\sqrt{3}}{3}$。分母分子に $\\sqrt{3}$ をかける。',
+        difficulty: 'basic',
+      },
+      {
+        id: 'math-g3-rationalization-fc25',
+        front: '$\\frac{\\sqrt{5}}{\\sqrt{3}}$ を有理化すると？',
+        back: '$\\frac{\\sqrt{5}}{\\sqrt{3}} = \\frac{\\sqrt{5} \\times \\sqrt{3}}{3} = \\frac{\\sqrt{15}}{3}$。分子にルートがあっても同じ手順。',
+        difficulty: 'standard',
+      },
+      {
+        id: 'math-g3-rationalization-fc26',
+        front: '$\\frac{\\sqrt{7}}{\\sqrt{5}}$ を有理化すると？',
+        back: '$\\frac{\\sqrt{7}}{\\sqrt{5}} = \\frac{\\sqrt{7} \\times \\sqrt{5}}{5} = \\frac{\\sqrt{35}}{5}$。',
+        difficulty: 'standard',
+      },
+      {
+        id: 'math-g3-rationalization-fc27',
+        front: '$\\frac{6}{\\sqrt{3}}$ を有理化・約分すると？',
+        back: '$\\frac{6}{\\sqrt{3}} = \\frac{6\\sqrt{3}}{3} = 2\\sqrt{3}$。有理化後に $6 \\div 3 = 2$ で約分。',
+        difficulty: 'standard',
+      },
+      {
+        id: 'math-g3-rationalization-fc28',
+        front: '$\\frac{4}{\\sqrt{2}}$ を有理化すると？',
+        back: '$\\frac{4}{\\sqrt{2}} = \\frac{4\\sqrt{2}}{2} = 2\\sqrt{2}$。有理化後に $4 \\div 2 = 2$ で約分。',
+        difficulty: 'standard',
+      },
+      {
+        id: 'math-g3-rationalization-fc29',
+        front: '$\\frac{12}{\\sqrt{6}}$ を有理化すると？',
+        back: '$\\frac{12}{\\sqrt{6}} = \\frac{12\\sqrt{6}}{6} = 2\\sqrt{6}$。有理化後に $12 \\div 6 = 2$ で約分。',
+        difficulty: 'standard',
+      },
+      {
+        id: 'math-g3-rationalization-fc30',
+        front: '$\\frac{15}{\\sqrt{3}}$ を有理化すると？',
+        back: '$\\frac{15}{\\sqrt{3}} = \\frac{15\\sqrt{3}}{3} = 5\\sqrt{3}$。有理化後に $15 \\div 3 = 5$ で約分。',
+        difficulty: 'standard',
+      },
+      {
+        id: 'math-g3-rationalization-fc31',
+        front: '$\\frac{6}{\\sqrt{12}}$ を有理化すると？',
+        back: '先に $\\sqrt{12} = 2\\sqrt{3}$ に変形。$\\frac{6}{2\\sqrt{3}} = \\frac{3}{\\sqrt{3}} = \\frac{3\\sqrt{3}}{3} = \\sqrt{3}$。',
+        difficulty: 'standard',
+      },
+      {
+        id: 'math-g3-rationalization-fc32',
+        front: '$\\frac{10}{\\sqrt{20}}$ を有理化すると？',
+        back: '先に $\\sqrt{20} = 2\\sqrt{5}$ に変形。$\\frac{10}{2\\sqrt{5}} = \\frac{5}{\\sqrt{5}} = \\frac{5\\sqrt{5}}{5} = \\sqrt{5}$。',
+        difficulty: 'standard',
+      },
+      {
+        id: 'math-g3-rationalization-fc33',
+        front: '$\\frac{3}{\\sqrt{18}}$ を有理化すると？',
+        back: '先に $\\sqrt{18} = 3\\sqrt{2}$ に変形。$\\frac{3}{3\\sqrt{2}} = \\frac{1}{\\sqrt{2}} = \\frac{\\sqrt{2}}{2}$。',
+        difficulty: 'standard',
+      },
+      {
+        id: 'math-g3-rationalization-fc34',
+        front: '$\\sqrt{30} \\div \\sqrt{6}$ を計算すると？',
+        back: '$\\sqrt{30} \\div \\sqrt{6} = \\sqrt{\\frac{30}{6}} = \\sqrt{5}$。ルートの中を割り算。',
+        difficulty: 'standard',
+      },
+      {
+        id: 'math-g3-rationalization-fc35',
+        front: '$\\sqrt{3} \\div \\sqrt{6}$ を計算すると？',
+        back: '$\\sqrt{3} \\div \\sqrt{6} = \\sqrt{\\frac{3}{6}} = \\sqrt{\\frac{1}{2}} = \\frac{1}{\\sqrt{2}} = \\frac{\\sqrt{2}}{2}$。',
+        difficulty: 'standard',
+      },
+      {
+        id: 'math-g3-rationalization-fc36',
+        front: '$\\frac{(\\sqrt{18} - \\sqrt{8})}{\\sqrt{2}}$ を計算すると？',
+        back: '$\\sqrt{18} = 3\\sqrt{2}$、$\\sqrt{8} = 2\\sqrt{2}$ より、$\\frac{3\\sqrt{2} - 2\\sqrt{2}}{\\sqrt{2}} = \\frac{\\sqrt{2}}{\\sqrt{2}} = 1$。',
+        difficulty: 'advanced',
+      },
+      {
+        id: 'math-g3-rationalization-fc37',
+        front: '$\\frac{(\\sqrt{50} + \\sqrt{32})}{\\sqrt{2}}$ を計算すると？',
+        back: '$\\sqrt{50} = 5\\sqrt{2}$、$\\sqrt{32} = 4\\sqrt{2}$ より、$\\frac{9\\sqrt{2}}{\\sqrt{2}} = 9$。',
+        difficulty: 'advanced',
+      },
+      {
+        id: 'math-g3-rationalization-fc38',
+        front: '$\\sqrt{\\frac{5}{12}}$ を有理化すると？',
+        back: '$\\sqrt{\\frac{5}{12}} = \\frac{\\sqrt{5}}{2\\sqrt{3}} = \\frac{\\sqrt{5} \\times \\sqrt{3}}{2 \\times 3} = \\frac{\\sqrt{15}}{6}$。',
+        difficulty: 'advanced',
+      },
+      {
+        id: 'math-g3-rationalization-fc39',
+        front: '$\\frac{(\\sqrt{2} + 1)}{\\sqrt{2}}$ を有理化すると？',
+        back: '$\\frac{(\\sqrt{2} + 1) \\times \\sqrt{2}}{2} = \\frac{2 + \\sqrt{2}}{2} = 1 + \\frac{\\sqrt{2}}{2}$。',
+        difficulty: 'advanced',
+      },
+      {
+        id: 'math-g3-rationalization-fc40',
+        front: '$\\sqrt{54} \\div \\frac{12}{\\sqrt{6}}$ を計算すると？',
+        back: '$\\sqrt{54} \\times \\frac{\\sqrt{6}}{12} = 3\\sqrt{6} \\times \\frac{\\sqrt{6}}{12} = \\frac{3 \\times 6}{12} = \\frac{18}{12} = \\frac{3}{2}$。',
+        difficulty: 'advanced',
       },
     ],
     quiz: {
       questions: [
+        // === 既存クイズ（q1〜q10） ===
         {
           id: 'math-g3-rationalization-q1',
           question: '$\\frac{1}{\\sqrt{3}}$ を有理化すると？',
@@ -154,6 +307,7 @@ export const rationalization: Topic = {
           correctIndex: 1,
           explanation:
             '$\\frac{1}{\\sqrt{3}} = \\frac{1 \\times \\sqrt{3}}{\\sqrt{3} \\times \\sqrt{3}} = \\frac{\\sqrt{3}}{3}$。分母分子に $\\sqrt{3}$ をかけるよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-rationalization-q2',
@@ -162,6 +316,7 @@ export const rationalization: Topic = {
           correctIndex: 0,
           explanation:
             '$\\frac{6}{\\sqrt{2}} = \\frac{6 \\times \\sqrt{2}}{\\sqrt{2} \\times \\sqrt{2}} = \\frac{6\\sqrt{2}}{2} = 3\\sqrt{2}$。有理化してから約分だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-rationalization-q3',
@@ -170,6 +325,7 @@ export const rationalization: Topic = {
           correctIndex: 3,
           explanation:
             '$\\frac{2}{\\sqrt{6}} = \\frac{2 \\times \\sqrt{6}}{\\sqrt{6} \\times \\sqrt{6}} = \\frac{2\\sqrt{6}}{6} = \\frac{\\sqrt{6}}{3}$。約分を忘れずに！',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-rationalization-q4',
@@ -178,6 +334,7 @@ export const rationalization: Topic = {
           correctIndex: 2,
           explanation:
             '$\\sqrt{8} = 2\\sqrt{2}$ に変形してから、$\\frac{4}{2\\sqrt{2}} = \\frac{2}{\\sqrt{2}} = \\frac{2\\sqrt{2}}{2} = \\sqrt{2}$。先に分母を簡単にするのがポイント！',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-rationalization-q5',
@@ -186,6 +343,7 @@ export const rationalization: Topic = {
           correctIndex: 2,
           explanation:
             '$\\frac{10}{\\sqrt{5}} = \\frac{10\\sqrt{5}}{5} = 2\\sqrt{5}$。有理化後に $10 \\div 5 = 2$ で約分するよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-rationalization-q6',
@@ -194,6 +352,7 @@ export const rationalization: Topic = {
           correctIndex: 3,
           explanation:
             '$2\\sqrt{15} \\div \\sqrt{5} = \\frac{2\\sqrt{15}}{\\sqrt{5}} = 2\\sqrt{\\frac{15}{5}} = 2\\sqrt{3}$。ルートの中を割り算できるよ！',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-rationalization-q7',
@@ -202,6 +361,7 @@ export const rationalization: Topic = {
           correctIndex: 1,
           explanation:
             '$\\frac{\\sqrt{3}}{3} = \\frac{1.732}{3} \\approx 0.577$。これは $\\frac{1}{\\sqrt{3}}$ を有理化したもの。先に有理化してから数値を代入しよう。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-rationalization-q8',
@@ -210,6 +370,7 @@ export const rationalization: Topic = {
           correctIndex: 0,
           explanation:
             '$\\frac{\\sqrt{12}}{\\sqrt{18}} = \\frac{2\\sqrt{3}}{3\\sqrt{2}} = \\frac{2\\sqrt{3} \\times \\sqrt{2}}{3\\sqrt{2} \\times \\sqrt{2}} = \\frac{2\\sqrt{6}}{6} = \\frac{\\sqrt{6}}{3}$。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-rationalization-q9',
@@ -218,6 +379,7 @@ export const rationalization: Topic = {
           correctIndex: 0,
           explanation:
             '$\\frac{3\\sqrt{2}}{\\sqrt{6}} = \\frac{3\\sqrt{2} \\times \\sqrt{6}}{6} = \\frac{3\\sqrt{12}}{6} = \\frac{3 \\times 2\\sqrt{3}}{6} = \\frac{6\\sqrt{3}}{6} = \\sqrt{3}$。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-rationalization-q10',
@@ -226,6 +388,464 @@ export const rationalization: Topic = {
           correctIndex: 3,
           explanation:
             '$\\frac{8}{\\sqrt{2}} = \\frac{8\\sqrt{2}}{2} = 4\\sqrt{2}$。$8 \\div 2 = 4$ で約分するよ。',
+          difficulty: 'standard',
+        },
+        // === 基本的な有理化 (ichimondittou Q1-Q7, structured 大問1) ===
+        {
+          id: 'math-g3-rationalization-q11',
+          question: '$\\frac{1}{\\sqrt{2}}$ を有理化すると？',
+          options: ['$\\frac{\\sqrt{2}}{2}$', '$\\frac{2}{\\sqrt{2}}$', '$\\sqrt{2}$', '$\\frac{1}{2}$'],
+          correctIndex: 0,
+          explanation:
+            '$\\frac{1}{\\sqrt{2}} = \\frac{\\sqrt{2}}{\\sqrt{2} \\times \\sqrt{2}} = \\frac{\\sqrt{2}}{2}$。最も基本の有理化だよ。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'math-g3-rationalization-q12',
+          question: '$\\frac{1}{\\sqrt{7}}$ を有理化すると？',
+          options: ['$\\frac{7}{\\sqrt{7}}$', '$\\frac{\\sqrt{7}}{7}$', '$\\frac{\\sqrt{7}}{49}$', '$\\frac{1}{7}$'],
+          correctIndex: 1,
+          explanation:
+            '$\\frac{1}{\\sqrt{7}} = \\frac{\\sqrt{7}}{7}$。分母分子に $\\sqrt{7}$ をかけるだけ！',
+          difficulty: 'basic',
+        },
+        {
+          id: 'math-g3-rationalization-q13',
+          question: '$\\frac{1}{\\sqrt{11}}$ を有理化すると？',
+          options: ['$\\frac{\\sqrt{11}}{11}$', '$\\frac{11}{\\sqrt{11}}$', '$\\frac{\\sqrt{11}}{121}$', '$\\frac{1}{11}$'],
+          correctIndex: 0,
+          explanation:
+            '$\\frac{1}{\\sqrt{11}} = \\frac{\\sqrt{11}}{11}$。分母分子に $\\sqrt{11}$ をかけて有理化。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'math-g3-rationalization-q14',
+          question: '$\\frac{1}{\\sqrt{15}}$ を有理化すると？',
+          options: ['$\\frac{\\sqrt{15}}{15}$', '$\\frac{15}{\\sqrt{15}}$', '$\\frac{\\sqrt{15}}{225}$', '$\\frac{1}{15}$'],
+          correctIndex: 0,
+          explanation:
+            '$\\frac{1}{\\sqrt{15}} = \\frac{\\sqrt{15}}{15}$。分母分子に $\\sqrt{15}$ をかける。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'math-g3-rationalization-q15',
+          question: '$\\frac{4}{\\sqrt{7}}$ を有理化すると？',
+          options: ['$\\frac{4\\sqrt{7}}{7}$', '$\\frac{4\\sqrt{7}}{49}$', '$\\frac{\\sqrt{7}}{4}$', '$4\\sqrt{7}$'],
+          correctIndex: 0,
+          explanation:
+            '$\\frac{4}{\\sqrt{7}} = \\frac{4\\sqrt{7}}{7}$。分母分子に $\\sqrt{7}$ をかけて有理化。',
+          difficulty: 'basic',
+        },
+        // === 分子に数がある有理化 (ichimondittou Q8-Q14) ===
+        {
+          id: 'math-g3-rationalization-q16',
+          question: '$\\frac{3}{\\sqrt{5}}$ を有理化すると？',
+          options: ['$\\frac{3\\sqrt{5}}{5}$', '$\\frac{3\\sqrt{5}}{25}$', '$\\frac{\\sqrt{5}}{3}$', '$3\\sqrt{5}$'],
+          correctIndex: 0,
+          explanation:
+            '$\\frac{3}{\\sqrt{5}} = \\frac{3\\sqrt{5}}{5}$。分母分子に $\\sqrt{5}$ をかけて有理化。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'math-g3-rationalization-q17',
+          question: '$\\frac{5}{\\sqrt{7}}$ を有理化すると？',
+          options: ['$\\frac{5\\sqrt{7}}{49}$', '$\\frac{\\sqrt{7}}{5}$', '$\\frac{5\\sqrt{7}}{7}$', '$5\\sqrt{7}$'],
+          correctIndex: 2,
+          explanation:
+            '$\\frac{5}{\\sqrt{7}} = \\frac{5\\sqrt{7}}{7}$。分母分子に $\\sqrt{7}$ をかける。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'math-g3-rationalization-q18',
+          question: '$\\frac{4}{\\sqrt{3}}$ を有理化すると？',
+          options: ['$\\frac{4\\sqrt{3}}{3}$', '$\\frac{4\\sqrt{3}}{9}$', '$4\\sqrt{3}$', '$\\frac{\\sqrt{3}}{4}$'],
+          correctIndex: 0,
+          explanation:
+            '$\\frac{4}{\\sqrt{3}} = \\frac{4\\sqrt{3}}{3}$。分母分子に $\\sqrt{3}$ をかけて有理化。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'math-g3-rationalization-q19',
+          question: '$\\frac{7}{\\sqrt{2}}$ を有理化すると？',
+          options: ['$\\frac{7\\sqrt{2}}{4}$', '$\\frac{\\sqrt{2}}{7}$', '$\\frac{7\\sqrt{2}}{2}$', '$7\\sqrt{2}$'],
+          correctIndex: 2,
+          explanation:
+            '$\\frac{7}{\\sqrt{2}} = \\frac{7\\sqrt{2}}{2}$。分母分子に $\\sqrt{2}$ をかけて有理化。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'math-g3-rationalization-q20',
+          question: '$\\frac{\\sqrt{5}}{\\sqrt{3}}$ を有理化すると？',
+          options: ['$\\frac{\\sqrt{15}}{3}$', '$\\frac{\\sqrt{5}}{3}$', '$\\frac{5}{3}$', '$\\frac{\\sqrt{15}}{9}$'],
+          correctIndex: 0,
+          explanation:
+            '$\\frac{\\sqrt{5}}{\\sqrt{3}} = \\frac{\\sqrt{5} \\times \\sqrt{3}}{\\sqrt{3} \\times \\sqrt{3}} = \\frac{\\sqrt{15}}{3}$。分子のルートも一緒にかけるよ。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'math-g3-rationalization-q21',
+          question: '$\\frac{\\sqrt{7}}{\\sqrt{5}}$ を有理化すると？',
+          options: ['$\\frac{\\sqrt{7}}{5}$', '$\\frac{\\sqrt{35}}{5}$', '$\\frac{7}{5}$', '$\\frac{\\sqrt{35}}{25}$'],
+          correctIndex: 1,
+          explanation:
+            '$\\frac{\\sqrt{7}}{\\sqrt{5}} = \\frac{\\sqrt{7} \\times \\sqrt{5}}{5} = \\frac{\\sqrt{35}}{5}$。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'math-g3-rationalization-q22',
+          question: '$\\frac{\\sqrt{5}}{\\sqrt{7}}$ を有理化すると？',
+          options: ['$\\frac{\\sqrt{35}}{7}$', '$\\frac{\\sqrt{5}}{7}$', '$\\frac{5}{7}$', '$\\frac{\\sqrt{35}}{49}$'],
+          correctIndex: 0,
+          explanation:
+            '$\\frac{\\sqrt{5}}{\\sqrt{7}} = \\frac{\\sqrt{5} \\times \\sqrt{7}}{7} = \\frac{\\sqrt{35}}{7}$。',
+          difficulty: 'standard',
+        },
+        // === 約分が必要な有理化 (ichimondittou Q15-Q22) ===
+        {
+          id: 'math-g3-rationalization-q23',
+          question: '$\\frac{12}{\\sqrt{3}}$ を有理化すると？',
+          options: ['$4\\sqrt{3}$', '$12\\sqrt{3}$', '$\\frac{12\\sqrt{3}}{3}$', '$3\\sqrt{12}$'],
+          correctIndex: 0,
+          explanation:
+            '$\\frac{12}{\\sqrt{3}} = \\frac{12\\sqrt{3}}{3} = 4\\sqrt{3}$。$12 \\div 3 = 4$ で約分。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'math-g3-rationalization-q24',
+          question: '$\\frac{4}{\\sqrt{2}}$ を有理化すると？',
+          options: ['$4\\sqrt{2}$', '$\\frac{4\\sqrt{2}}{2}$', '$2\\sqrt{2}$', '$\\sqrt{2}$'],
+          correctIndex: 2,
+          explanation:
+            '$\\frac{4}{\\sqrt{2}} = \\frac{4\\sqrt{2}}{2} = 2\\sqrt{2}$。$4 \\div 2 = 2$ で約分。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'math-g3-rationalization-q25',
+          question: '$\\frac{12}{\\sqrt{6}}$ を有理化すると？',
+          options: ['$12\\sqrt{6}$', '$2\\sqrt{6}$', '$\\frac{12\\sqrt{6}}{6}$', '$6\\sqrt{2}$'],
+          correctIndex: 1,
+          explanation:
+            '$\\frac{12}{\\sqrt{6}} = \\frac{12\\sqrt{6}}{6} = 2\\sqrt{6}$。$12 \\div 6 = 2$ で約分。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'math-g3-rationalization-q26',
+          question: '$\\frac{15}{\\sqrt{3}}$ を有理化すると？',
+          options: ['$15\\sqrt{3}$', '$3\\sqrt{5}$', '$\\frac{15\\sqrt{3}}{3}$', '$5\\sqrt{3}$'],
+          correctIndex: 3,
+          explanation:
+            '$\\frac{15}{\\sqrt{3}} = \\frac{15\\sqrt{3}}{3} = 5\\sqrt{3}$。$15 \\div 3 = 5$ で約分。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'math-g3-rationalization-q27',
+          question: '$\\frac{15}{\\sqrt{15}}$ を有理化すると？',
+          options: ['$\\sqrt{15}$', '$15$', '$\\frac{15\\sqrt{15}}{15}$', '$\\frac{\\sqrt{15}}{15}$'],
+          correctIndex: 0,
+          explanation:
+            '$\\frac{15}{\\sqrt{15}} = \\frac{15\\sqrt{15}}{15} = \\sqrt{15}$。$15 \\div 15 = 1$ で約分。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'math-g3-rationalization-q28',
+          question: '$\\frac{10}{3\\sqrt{5}}$ を有理化すると？',
+          options: ['$\\frac{10\\sqrt{5}}{15}$', '$\\frac{2\\sqrt{5}}{3}$', '$\\frac{\\sqrt{5}}{3}$', '$\\frac{10\\sqrt{5}}{3}$'],
+          correctIndex: 1,
+          explanation:
+            '$\\frac{10}{3\\sqrt{5}} = \\frac{10\\sqrt{5}}{3 \\times 5} = \\frac{10\\sqrt{5}}{15} = \\frac{2\\sqrt{5}}{3}$。約分を忘れずに。',
+          difficulty: 'standard',
+        },
+        // === 分母を先に簡単にしてから有理化 (ichimondittou Q23-Q28) ===
+        {
+          id: 'math-g3-rationalization-q29',
+          question: '$\\frac{6}{\\sqrt{12}}$ を有理化すると？',
+          options: ['$\\sqrt{3}$', '$2\\sqrt{3}$', '$\\frac{6\\sqrt{12}}{12}$', '$\\frac{\\sqrt{3}}{2}$'],
+          correctIndex: 0,
+          explanation:
+            '$\\sqrt{12} = 2\\sqrt{3}$ なので $\\frac{6}{2\\sqrt{3}} = \\frac{3}{\\sqrt{3}} = \\frac{3\\sqrt{3}}{3} = \\sqrt{3}$。先に分母を簡単にするのがコツ！',
+          difficulty: 'standard',
+        },
+        {
+          id: 'math-g3-rationalization-q30',
+          question: '$\\frac{10}{\\sqrt{20}}$ を有理化すると？',
+          options: ['$\\sqrt{5}$', '$2\\sqrt{5}$', '$\\frac{10\\sqrt{20}}{20}$', '$5\\sqrt{5}$'],
+          correctIndex: 0,
+          explanation:
+            '$\\sqrt{20} = 2\\sqrt{5}$ なので $\\frac{10}{2\\sqrt{5}} = \\frac{5}{\\sqrt{5}} = \\frac{5\\sqrt{5}}{5} = \\sqrt{5}$。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'math-g3-rationalization-q31',
+          question: '$\\frac{3}{\\sqrt{18}}$ を有理化すると？',
+          options: ['$\\frac{\\sqrt{2}}{2}$', '$\\frac{\\sqrt{18}}{6}$', '$\\frac{3\\sqrt{18}}{18}$', '$\\sqrt{2}$'],
+          correctIndex: 0,
+          explanation:
+            '$\\sqrt{18} = 3\\sqrt{2}$ なので $\\frac{3}{3\\sqrt{2}} = \\frac{1}{\\sqrt{2}} = \\frac{\\sqrt{2}}{2}$。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'math-g3-rationalization-q32',
+          question: '$\\frac{12}{\\sqrt{48}}$ を有理化すると？',
+          options: ['$\\sqrt{3}$', '$2\\sqrt{3}$', '$\\frac{12\\sqrt{48}}{48}$', '$4\\sqrt{3}$'],
+          correctIndex: 0,
+          explanation:
+            '$\\sqrt{48} = 4\\sqrt{3}$ なので $\\frac{12}{4\\sqrt{3}} = \\frac{3}{\\sqrt{3}} = \\frac{3\\sqrt{3}}{3} = \\sqrt{3}$。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'math-g3-rationalization-q33',
+          question: '$\\frac{8}{\\sqrt{8}}$ を有理化すると？',
+          options: ['$2\\sqrt{2}$', '$4\\sqrt{2}$', '$\\sqrt{8}$', '$8$'],
+          correctIndex: 0,
+          explanation:
+            '$\\sqrt{8} = 2\\sqrt{2}$ なので $\\frac{8}{2\\sqrt{2}} = \\frac{4}{\\sqrt{2}} = \\frac{4\\sqrt{2}}{2} = 2\\sqrt{2}$。',
+          difficulty: 'standard',
+        },
+        // === √をふくむ式の除法 (ichimondittou Q29-Q36) ===
+        {
+          id: 'math-g3-rationalization-q34',
+          question: '$\\sqrt{30} \\div \\sqrt{6}$ を計算すると？',
+          options: ['$\\sqrt{5}$', '$5$', '$\\sqrt{24}$', '$\\sqrt{36}$'],
+          correctIndex: 0,
+          explanation:
+            '$\\sqrt{30} \\div \\sqrt{6} = \\sqrt{\\frac{30}{6}} = \\sqrt{5}$。ルートの中を割り算。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'math-g3-rationalization-q35',
+          question: '$4\\sqrt{15} \\div \\sqrt{5}$ を計算すると？',
+          options: ['$4\\sqrt{3}$', '$4\\sqrt{10}$', '$\\sqrt{12}$', '$20\\sqrt{3}$'],
+          correctIndex: 0,
+          explanation:
+            '$4\\sqrt{15} \\div \\sqrt{5} = 4\\sqrt{\\frac{15}{5}} = 4\\sqrt{3}$。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'math-g3-rationalization-q36',
+          question: '$6\\sqrt{7} \\div \\sqrt{21}$ を計算すると？',
+          options: ['$6\\sqrt{3}$', '$2\\sqrt{3}$', '$\\sqrt{2}$', '$6\\sqrt{\\frac{1}{3}}$'],
+          correctIndex: 1,
+          explanation:
+            '$6\\sqrt{7} \\div \\sqrt{21} = 6\\sqrt{\\frac{7}{21}} = 6\\sqrt{\\frac{1}{3}} = \\frac{6}{\\sqrt{3}} = \\frac{6\\sqrt{3}}{3} = 2\\sqrt{3}$。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'math-g3-rationalization-q37',
+          question: '$2\\sqrt{15} \\div \\sqrt{3}$ を計算すると？',
+          options: ['$2\\sqrt{5}$', '$2\\sqrt{12}$', '$\\sqrt{10}$', '$6\\sqrt{5}$'],
+          correctIndex: 0,
+          explanation:
+            '$2\\sqrt{15} \\div \\sqrt{3} = 2\\sqrt{\\frac{15}{3}} = 2\\sqrt{5}$。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'math-g3-rationalization-q38',
+          question: '$\\sqrt{3} \\div \\sqrt{6}$ を計算すると？',
+          options: ['$\\frac{\\sqrt{2}}{2}$', '$\\frac{1}{2}$', '$\\sqrt{2}$', '$\\frac{\\sqrt{3}}{6}$'],
+          correctIndex: 0,
+          explanation:
+            '$\\sqrt{3} \\div \\sqrt{6} = \\sqrt{\\frac{3}{6}} = \\sqrt{\\frac{1}{2}} = \\frac{1}{\\sqrt{2}} = \\frac{\\sqrt{2}}{2}$。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'math-g3-rationalization-q39',
+          question: '$\\sqrt{63} \\div \\sqrt{7}$ を計算すると？',
+          options: ['$3$', '$9$', '$\\sqrt{9}$', '$\\sqrt{56}$'],
+          correctIndex: 0,
+          explanation:
+            '$\\sqrt{63} \\div \\sqrt{7} = \\sqrt{\\frac{63}{7}} = \\sqrt{9} = 3$。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'math-g3-rationalization-q40',
+          question: '$10\\sqrt{3} \\div \\sqrt{15}$ を計算すると？',
+          options: ['$10\\sqrt{5}$', '$2\\sqrt{5}$', '$\\sqrt{2}$', '$\\frac{10}{\\sqrt{5}}$'],
+          correctIndex: 1,
+          explanation:
+            '$10\\sqrt{3} \\div \\sqrt{15} = 10\\sqrt{\\frac{3}{15}} = 10\\sqrt{\\frac{1}{5}} = \\frac{10}{\\sqrt{5}} = \\frac{10\\sqrt{5}}{5} = 2\\sqrt{5}$。',
+          difficulty: 'standard',
+        },
+        // === 式の値 (ichimondittou Q37-Q43, structured 大問5) ===
+        {
+          id: 'math-g3-rationalization-q41',
+          question: '$\\sqrt{2} = 1.414$ のとき、$\\frac{\\sqrt{2}}{2}$ の値はおよそいくつ？',
+          options: ['$0.707$', '$1.414$', '$2.828$', '$0.500$'],
+          correctIndex: 0,
+          explanation:
+            '$\\frac{\\sqrt{2}}{2} = \\frac{1.414}{2} = 0.707$。これは $\\frac{1}{\\sqrt{2}}$ を有理化した値と同じ。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'math-g3-rationalization-q42',
+          question: '$\\sqrt{5} = 2.236$ のとき、$\\frac{3}{\\sqrt{5}}$ の値はおよそいくつ？',
+          options: ['$1.342$', '$0.447$', '$6.708$', '$2.236$'],
+          correctIndex: 0,
+          explanation:
+            '$\\frac{3}{\\sqrt{5}} = \\frac{3\\sqrt{5}}{5} = \\frac{3 \\times 2.236}{5} = \\frac{6.708}{5} \\approx 1.342$。先に有理化してから代入。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'math-g3-rationalization-q43',
+          question: '$\\sqrt{2} = 1.414$ のとき、$\\frac{10}{\\sqrt{2}}$ の値はおよそいくつ？',
+          options: ['$7.07$', '$14.14$', '$5.00$', '$3.54$'],
+          correctIndex: 0,
+          explanation:
+            '$\\frac{10}{\\sqrt{2}} = 5\\sqrt{2} = 5 \\times 1.414 = 7.07$。有理化して $5\\sqrt{2}$ にしてから代入。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'math-g3-rationalization-q44',
+          question: '$\\sqrt{3} = 1.732$ のとき、$\\frac{6}{\\sqrt{3}}$ の値はおよそいくつ？',
+          options: ['$3.464$', '$1.732$', '$5.196$', '$2.000$'],
+          correctIndex: 0,
+          explanation:
+            '$\\frac{6}{\\sqrt{3}} = 2\\sqrt{3} = 2 \\times 1.732 = 3.464$。有理化して $2\\sqrt{3}$ にしてから代入。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'math-g3-rationalization-q45',
+          question: '$\\sqrt{2} = 1.414$ のとき、$\\sqrt{0.02}$ の値はおよそいくつ？',
+          options: ['$0.1414$', '$0.0200$', '$1.414$', '$0.02$'],
+          correctIndex: 0,
+          explanation:
+            '$\\sqrt{0.02} = \\sqrt{\\frac{2}{100}} = \\frac{\\sqrt{2}}{10} = \\frac{1.414}{10} = 0.1414$。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'math-g3-rationalization-q46',
+          question: '$\\sqrt{5} = 2.236$ のとき、$\\sqrt{\\frac{5}{100}}$ の値はおよそいくつ？',
+          options: ['$0.2236$', '$0.500$', '$2.236$', '$0.0500$'],
+          correctIndex: 0,
+          explanation:
+            '$\\sqrt{\\frac{5}{100}} = \\frac{\\sqrt{5}}{10} = \\frac{2.236}{10} = 0.2236$。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'math-g3-rationalization-q47',
+          question: '$\\sqrt{7} = 2.646$ のとき、$\\sqrt{\\frac{7}{4}}$ の値はおよそいくつ？',
+          options: ['$1.323$', '$0.662$', '$5.292$', '$2.646$'],
+          correctIndex: 0,
+          explanation:
+            '$\\sqrt{\\frac{7}{4}} = \\frac{\\sqrt{7}}{2} = \\frac{2.646}{2} = 1.323$。',
+          difficulty: 'standard',
+        },
+        // === 発展問題 (advanced.md) ===
+        {
+          id: 'math-g3-rationalization-q48',
+          question: '$\\frac{3\\sqrt{2} + \\sqrt{12}}{\\sqrt{6}}$ を有理化すると？',
+          options: ['$\\sqrt{3} + \\sqrt{2}$', '$3\\sqrt{2} + 2\\sqrt{3}$', '$\\frac{3\\sqrt{12} + \\sqrt{72}}{6}$', '$5$'],
+          correctIndex: 0,
+          explanation:
+            '$\\sqrt{12} = 2\\sqrt{3}$ より分子は $3\\sqrt{2} + 2\\sqrt{3}$。分母分子に $\\sqrt{6}$ をかけると $\\frac{3\\sqrt{12} + 2\\sqrt{18}}{6} = \\frac{6\\sqrt{3} + 6\\sqrt{2}}{6} = \\sqrt{3} + \\sqrt{2}$。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'math-g3-rationalization-q49',
+          question: '$\\frac{\\sqrt{18} - \\sqrt{8}}{\\sqrt{2}}$ を計算すると？',
+          options: ['$1$', '$\\sqrt{2}$', '$2$', '$\\sqrt{10}$'],
+          correctIndex: 0,
+          explanation:
+            '$\\sqrt{18} = 3\\sqrt{2}$、$\\sqrt{8} = 2\\sqrt{2}$ より $\\frac{3\\sqrt{2} - 2\\sqrt{2}}{\\sqrt{2}} = \\frac{\\sqrt{2}}{\\sqrt{2}} = 1$。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'math-g3-rationalization-q50',
+          question: '$\\frac{\\sqrt{50} + \\sqrt{32}}{\\sqrt{2}}$ を計算すると？',
+          options: ['$9$', '$7$', '$9\\sqrt{2}$', '$\\frac{9\\sqrt{2}}{2}$'],
+          correctIndex: 0,
+          explanation:
+            '$\\sqrt{50} = 5\\sqrt{2}$、$\\sqrt{32} = 4\\sqrt{2}$ より $\\frac{5\\sqrt{2} + 4\\sqrt{2}}{\\sqrt{2}} = \\frac{9\\sqrt{2}}{\\sqrt{2}} = 9$。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'math-g3-rationalization-q51',
+          question: '$\\frac{6\\sqrt{3} - \\sqrt{27}}{\\sqrt{3}}$ を計算すると？',
+          options: ['$3$', '$6$', '$3\\sqrt{3}$', '$9$'],
+          correctIndex: 0,
+          explanation:
+            '$\\sqrt{27} = 3\\sqrt{3}$ より $\\frac{6\\sqrt{3} - 3\\sqrt{3}}{\\sqrt{3}} = \\frac{3\\sqrt{3}}{\\sqrt{3}} = 3$。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'math-g3-rationalization-q52',
+          question: '$8 \\div 4\\sqrt{6}$ を有理化すると？',
+          options: ['$\\frac{\\sqrt{6}}{3}$', '$\\frac{2\\sqrt{6}}{6}$', '$2\\sqrt{6}$', '$\\frac{2}{\\sqrt{6}}$'],
+          correctIndex: 0,
+          explanation:
+            '$\\frac{8}{4\\sqrt{6}} = \\frac{2}{\\sqrt{6}} = \\frac{2\\sqrt{6}}{6} = \\frac{\\sqrt{6}}{3}$。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'math-g3-rationalization-q53',
+          question: '$\\frac{3}{\\sqrt{6}} \\times \\frac{\\sqrt{2}}{3}$ を計算すると？',
+          options: ['$\\frac{\\sqrt{3}}{3}$', '$\\frac{\\sqrt{2}}{6}$', '$\\frac{1}{\\sqrt{3}}$', '$\\frac{\\sqrt{6}}{6}$'],
+          correctIndex: 0,
+          explanation:
+            '$\\frac{3\\sqrt{2}}{3\\sqrt{6}} = \\frac{\\sqrt{2}}{\\sqrt{6}} = \\sqrt{\\frac{2}{6}} = \\frac{1}{\\sqrt{3}} = \\frac{\\sqrt{3}}{3}$。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'math-g3-rationalization-q54',
+          question: '$\\sqrt{\\frac{5}{12}}$ を有理化すると？',
+          options: ['$\\frac{\\sqrt{15}}{6}$', '$\\frac{\\sqrt{5}}{12}$', '$\\frac{\\sqrt{60}}{12}$', '$\\frac{5}{2\\sqrt{3}}$'],
+          correctIndex: 0,
+          explanation:
+            '$\\sqrt{\\frac{5}{12}} = \\frac{\\sqrt{5}}{2\\sqrt{3}} = \\frac{\\sqrt{5} \\times \\sqrt{3}}{2 \\times 3} = \\frac{\\sqrt{15}}{6}$。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'math-g3-rationalization-q55',
+          question: '$\\frac{\\sqrt{2} + 1}{\\sqrt{2}}$ を有理化すると？',
+          options: ['$1 + \\frac{\\sqrt{2}}{2}$', '$\\frac{3}{2}$', '$1 + \\sqrt{2}$', '$\\frac{\\sqrt{2} + 1}{2}$'],
+          correctIndex: 0,
+          explanation:
+            '$\\frac{(\\sqrt{2} + 1) \\times \\sqrt{2}}{\\sqrt{2} \\times \\sqrt{2}} = \\frac{2 + \\sqrt{2}}{2} = 1 + \\frac{\\sqrt{2}}{2}$。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'math-g3-rationalization-q56',
+          question: '$\\sqrt{54} \\div \\frac{12}{\\sqrt{6}}$ を計算すると？',
+          options: ['$\\frac{3}{2}$', '$3$', '$\\frac{\\sqrt{6}}{2}$', '$9$'],
+          correctIndex: 0,
+          explanation:
+            '$\\sqrt{54} \\times \\frac{\\sqrt{6}}{12} = 3\\sqrt{6} \\times \\frac{\\sqrt{6}}{12} = \\frac{3 \\times 6}{12} = \\frac{18}{12} = \\frac{3}{2}$。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'math-g3-rationalization-q57',
+          question: '$a = \\frac{3}{\\sqrt{6}},\\ b = \\frac{\\sqrt{6}}{2}$ のとき、$a + b$ はいくつ？',
+          options: ['$\\sqrt{6}$', '$\\frac{3\\sqrt{6}}{2}$', '$\\frac{5\\sqrt{6}}{6}$', '$2\\sqrt{6}$'],
+          correctIndex: 0,
+          explanation:
+            '$a = \\frac{3\\sqrt{6}}{6} = \\frac{\\sqrt{6}}{2}$ なので $a + b = \\frac{\\sqrt{6}}{2} + \\frac{\\sqrt{6}}{2} = \\sqrt{6}$。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'math-g3-rationalization-q58',
+          question: '$\\sqrt{(3/2)} + \\sqrt{(2/3)}$ を有理化してまとめると？',
+          options: ['$\\frac{5\\sqrt{6}}{6}$', '$\\frac{\\sqrt{6}}{6}$', '$\\sqrt{6}$', '$\\frac{5}{6}$'],
+          correctIndex: 0,
+          explanation:
+            '$\\frac{\\sqrt{3}}{\\sqrt{2}} + \\frac{\\sqrt{2}}{\\sqrt{3}} = \\frac{\\sqrt{6}}{2} + \\frac{\\sqrt{6}}{3} = \\frac{3\\sqrt{6} + 2\\sqrt{6}}{6} = \\frac{5\\sqrt{6}}{6}$。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'math-g3-rationalization-q59',
+          question: '$\\frac{\\sqrt{12}}{\\sqrt{50}}$ を有理化すると？',
+          options: ['$\\frac{\\sqrt{6}}{5}$', '$\\frac{2\\sqrt{3}}{5\\sqrt{2}}$', '$\\frac{6}{25}$', '$\\frac{2\\sqrt{6}}{10}$'],
+          correctIndex: 0,
+          explanation:
+            '$\\frac{\\sqrt{12}}{\\sqrt{50}} = \\frac{2\\sqrt{3}}{5\\sqrt{2}} = \\frac{2\\sqrt{3} \\times \\sqrt{2}}{5 \\times 2} = \\frac{2\\sqrt{6}}{10} = \\frac{\\sqrt{6}}{5}$。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'math-g3-rationalization-q60',
+          question: '$4\\sqrt{15} \\div \\sqrt{15}$ を計算すると？',
+          options: ['$4$', '$4\\sqrt{15}$', '$\\sqrt{15}$', '$15$'],
+          correctIndex: 0,
+          explanation:
+            '$4\\sqrt{15} \\div \\sqrt{15} = 4$。同じルート同士の割り算は $1$ になるので係数だけ残る。',
+          difficulty: 'basic',
         },
       ],
     },

@@ -115,6 +115,18 @@ export const rationalizationChat: HistoryChat = {
       text: '<ruby>有理化<rt>ゆうりか</rt></ruby>のコツ: <ruby>分母<rt>ぶんぼ</rt></ruby><ruby>分子<rt>ぶんし</rt></ruby>に<ruby>同<rt>おな</rt></ruby>じ $\\sqrt{}$ をかける → $\\sqrt{a} \\times \\sqrt{a} = a$ で<ruby>消<rt>き</rt></ruby>える！',
     },
     {
+      type: 'quiz',
+      question: '$\\frac{1}{\\sqrt{5}}$ を<ruby>有理化<rt>ゆうりか</rt></ruby>すると？',
+      options: [
+        { letter: 'A', text: '$\\frac{1}{5}$', correct: false },
+        { letter: 'B', text: '$\\frac{\\sqrt{5}}{5}$', correct: true },
+        { letter: 'C', text: '$\\frac{5}{\\sqrt{5}}$', correct: false },
+        { letter: 'D', text: '$\\frac{\\sqrt{5}}{25}$', correct: false },
+      ],
+      explanation:
+        '$\\frac{1}{\\sqrt{5}} = \\frac{1 \\times \\sqrt{5}}{\\sqrt{5} \\times \\sqrt{5}} = \\frac{\\sqrt{5}}{5}$。<ruby>分母<rt>ぶんぼ</rt></ruby><ruby>分子<rt>ぶんし</rt></ruby>に $\\sqrt{5}$ をかけるよ。',
+    },
+    {
       type: 'date',
       text: '<ruby>練習<rt>れんしゅう</rt></ruby>してみよう',
     },
@@ -191,6 +203,18 @@ export const rationalizationChat: HistoryChat = {
       text: '<ruby>有理化<rt>ゆうりか</rt></ruby>のあとは<ruby>約分<rt>やくぶん</rt></ruby>チェック！ $\\frac{6}{\\sqrt{2}} \\rightarrow \\frac{6\\sqrt{2}}{2} \\rightarrow 3\\sqrt{2}$',
     },
     {
+      type: 'quiz',
+      question: '$\\frac{10}{\\sqrt{5}}$ を<ruby>有理化<rt>ゆうりか</rt></ruby>・<ruby>約分<rt>やくぶん</rt></ruby>すると？',
+      options: [
+        { letter: 'A', text: '$\\frac{10\\sqrt{5}}{5}$', correct: false },
+        { letter: 'B', text: '$2\\sqrt{5}$', correct: true },
+        { letter: 'C', text: '$10\\sqrt{5}$', correct: false },
+        { letter: 'D', text: '$5\\sqrt{2}$', correct: false },
+      ],
+      explanation:
+        '$\\frac{10}{\\sqrt{5}} = \\frac{10\\sqrt{5}}{5} = 2\\sqrt{5}$。<ruby>有理化<rt>ゆうりか</rt></ruby>のあと $10 \\div 5 = 2$ で<ruby>約分<rt>やくぶん</rt></ruby>！',
+    },
+    {
       type: 'date',
       text: '<ruby>分母<rt>ぶんぼ</rt></ruby>を<ruby>先<rt>さき</rt></ruby>に<ruby>簡単<rt>かんたん</rt></ruby>にしてから<ruby>有理化<rt>ゆうりか</rt></ruby>',
     },
@@ -239,6 +263,18 @@ export const rationalizationChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<ruby>分母<rt>ぶんぼ</rt></ruby>の $\\sqrt{}$ が<ruby>大<rt>おお</rt></ruby>きいときは、<ruby>先<rt>さき</rt></ruby>に<ruby>簡単<rt>かんたん</rt></ruby>にしてから<ruby>有理化<rt>ゆうりか</rt></ruby>しよう！',
+    },
+    {
+      type: 'quiz',
+      question: '$\\frac{6}{\\sqrt{12}}$ を<ruby>有理化<rt>ゆうりか</rt></ruby>すると？',
+      options: [
+        { letter: 'A', text: '$\\frac{6\\sqrt{12}}{12}$', correct: false },
+        { letter: 'B', text: '$\\sqrt{3}$', correct: true },
+        { letter: 'C', text: '$2\\sqrt{3}$', correct: false },
+        { letter: 'D', text: '$\\frac{\\sqrt{3}}{2}$', correct: false },
+      ],
+      explanation:
+        '<ruby>先<rt>さき</rt></ruby>に $\\sqrt{12} = 2\\sqrt{3}$ にして、$\\frac{6}{2\\sqrt{3}} = \\frac{3}{\\sqrt{3}} = \\frac{3\\sqrt{3}}{3} = \\sqrt{3}$。',
     },
     {
       type: 'date',

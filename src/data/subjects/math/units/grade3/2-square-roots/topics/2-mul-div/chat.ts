@@ -100,6 +100,18 @@ export const sqrtMulDivChat: HistoryChat = {
       text: '$\\sqrt{a} \\times \\sqrt{b} = \\sqrt{ab}$、$\\sqrt{a} \\div \\sqrt{b} = \\sqrt{\\frac{a}{b}}$。<ruby>中身<rt>なかみ</rt></ruby>どうしを<ruby>計算<rt>けいさん</rt></ruby>するだけ！',
     },
     {
+      type: 'quiz',
+      question: '$\\sqrt{3} \\times \\sqrt{12}$ はいくつ？',
+      options: [
+        { letter: 'A', text: '$\\sqrt{15}$', correct: false },
+        { letter: 'B', text: '$6$', correct: true },
+        { letter: 'C', text: '$\\sqrt{36}$のまま', correct: false },
+        { letter: 'D', text: '$36$', correct: false },
+      ],
+      explanation:
+        '$\\sqrt{3} \\times \\sqrt{12} = \\sqrt{3 \\times 12} = \\sqrt{36} = 6$。<ruby>中身<rt>なかみ</rt></ruby>をかけたら<ruby>完全平方数<rt>かんぜんへいほうすう</rt></ruby>になったよ！',
+    },
+    {
       type: 'date',
       text: '$\\sqrt{}$の<ruby>中<rt>なか</rt></ruby>を<ruby>小<rt>ちい</rt></ruby>さくしよう',
     },
@@ -184,6 +196,18 @@ export const sqrtMulDivChat: HistoryChat = {
       text: '$\\sqrt{}$の<ruby>中<rt>なか</rt></ruby>を<ruby>小<rt>ちい</rt></ruby>さくするには、<ruby>完全平方数<rt>かんぜんへいほうすう</rt></ruby>を<ruby>見<rt>み</rt></ruby>つけて<ruby>外<rt>そと</rt></ruby>に<ruby>出<rt>だ</rt></ruby>す！',
     },
     {
+      type: 'quiz',
+      question: '$\\sqrt{72}$ を<ruby>簡単<rt>かんたん</rt></ruby>にすると？',
+      options: [
+        { letter: 'A', text: '$8\\sqrt{3}$', correct: false },
+        { letter: 'B', text: '$9\\sqrt{2}$', correct: false },
+        { letter: 'C', text: '$6\\sqrt{2}$', correct: true },
+        { letter: 'D', text: '$3\\sqrt{8}$', correct: false },
+      ],
+      explanation:
+        '$\\sqrt{72} = \\sqrt{36 \\times 2} = 6\\sqrt{2}$。$72 = 6^2 \\times 2$ なので $6$ を<ruby>外<rt>そと</rt></ruby>に<ruby>出<rt>だ</rt></ruby>すよ。',
+    },
+    {
       type: 'date',
       text: '$a\\sqrt{b}$ と $\\sqrt{c}$ の<ruby>変換<rt>へんかん</rt></ruby>',
     },
@@ -231,6 +255,18 @@ export const sqrtMulDivChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '$a\\sqrt{b} = \\sqrt{a^2 \\times b}$。<ruby>外<rt>そと</rt></ruby>の<ruby>数<rt>かず</rt></ruby>を2<ruby>乗<rt>じょう</rt></ruby>して<ruby>中<rt>なか</rt></ruby>に<ruby>入<rt>い</rt></ruby>れる！',
+    },
+    {
+      type: 'quiz',
+      question: '$4\\sqrt{3}$ を $\\sqrt{\\text{□}}$ の<ruby>形<rt>かたち</rt></ruby>にすると？',
+      options: [
+        { letter: 'A', text: '$\\sqrt{12}$', correct: false },
+        { letter: 'B', text: '$\\sqrt{48}$', correct: true },
+        { letter: 'C', text: '$\\sqrt{24}$', correct: false },
+        { letter: 'D', text: '$\\sqrt{36}$', correct: false },
+      ],
+      explanation:
+        '$4\\sqrt{3} = \\sqrt{4^2 \\times 3} = \\sqrt{16 \\times 3} = \\sqrt{48}$。<ruby>外<rt>そと</rt></ruby>の $4$ を2<ruby>乗<rt>じょう</rt></ruby>して<ruby>中<rt>なか</rt></ruby>に<ruby>入<rt>い</rt></ruby>れるよ。',
     },
     {
       type: 'date',

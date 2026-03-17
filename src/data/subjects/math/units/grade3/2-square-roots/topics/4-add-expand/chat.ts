@@ -96,6 +96,18 @@ export const sqrtAddExpandChat: HistoryChat = {
       text: '<ruby>同<rt>おな</rt></ruby>じ $\\sqrt{}$ はまとめられる。<ruby>違<rt>ちが</rt></ruby>う $\\sqrt{}$ はまとめられない！',
     },
     {
+      type: 'quiz',
+      question: '$7\\sqrt{3} - 4\\sqrt{3}$ はいくつ？',
+      options: [
+        { letter: 'A', text: '$3$', correct: false },
+        { letter: 'B', text: '$3\\sqrt{3}$', correct: true },
+        { letter: 'C', text: '$3\\sqrt{6}$', correct: false },
+        { letter: 'D', text: '$11\\sqrt{3}$', correct: false },
+      ],
+      explanation:
+        '$(7 - 4)\\sqrt{3} = 3\\sqrt{3}$。<ruby>同<rt>おな</rt></ruby>じ $\\sqrt{3}$ の<ruby>前<rt>まえ</rt></ruby>の<ruby>数<rt>かず</rt></ruby>だけ<ruby>引<rt>ひ</rt></ruby>き<ruby>算<rt>ざん</rt></ruby>するよ。',
+    },
+    {
       type: 'date',
       text: '$\\sqrt{}$の<ruby>中<rt>なか</rt></ruby>を<ruby>揃<rt>そろ</rt></ruby>えてからまとめる',
     },
@@ -196,6 +208,18 @@ export const sqrtAddExpandChat: HistoryChat = {
       text: '$(\\sqrt{a} + b)(\\sqrt{a} - b) = a - b^2$。ルートが<ruby>消<rt>き</rt></ruby>えてスッキリ！',
     },
     {
+      type: 'quiz',
+      question: '$(\\sqrt{11} + 1)(\\sqrt{11} - 1)$ はいくつ？',
+      options: [
+        { letter: 'A', text: '$12$', correct: false },
+        { letter: 'B', text: '$10$', correct: true },
+        { letter: 'C', text: '$11 - \\sqrt{11}$', correct: false },
+        { letter: 'D', text: '$\\sqrt{11}$', correct: false },
+      ],
+      explanation:
+        '$(\\sqrt{11})^2 - 1^2 = 11 - 1 = 10$。<ruby>和<rt>わ</rt></ruby>と<ruby>差<rt>さ</rt></ruby>の<ruby>積<rt>せき</rt></ruby>の<ruby>公式<rt>こうしき</rt></ruby>でルートが<ruby>消<rt>き</rt></ruby>えるよ！',
+    },
+    {
       type: 'date',
       text: '<ruby>分配法則<rt>ぶんぱいほうそく</rt></ruby>を<ruby>使<rt>つか</rt></ruby>った<ruby>計算<rt>けいさん</rt></ruby>',
     },
@@ -237,6 +261,18 @@ export const sqrtAddExpandChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<ruby>分配法則<rt>ぶんぱいほうそく</rt></ruby>: $\\sqrt{a}(\\sqrt{b} + \\sqrt{c}) = \\sqrt{ab} + \\sqrt{ac}$',
+    },
+    {
+      type: 'quiz',
+      question: '$\\sqrt{5}(\\sqrt{20} + \\sqrt{5})$ を<ruby>計算<rt>けいさん</rt></ruby>すると？',
+      options: [
+        { letter: 'A', text: '$\\sqrt{25} + \\sqrt{10}$', correct: false },
+        { letter: 'B', text: '$5\\sqrt{5}$', correct: false },
+        { letter: 'C', text: '$15$', correct: true },
+        { letter: 'D', text: '$10 + \\sqrt{5}$', correct: false },
+      ],
+      explanation:
+        '$\\sqrt{5} \\times \\sqrt{20} + \\sqrt{5} \\times \\sqrt{5} = \\sqrt{100} + \\sqrt{25} = 10 + 5 = 15$。ルートが<ruby>全部<rt>ぜんぶ</rt></ruby><ruby>消<rt>き</rt></ruby>えた！',
     },
     {
       type: 'date',
@@ -349,6 +385,18 @@ export const sqrtAddExpandChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<ruby>式<rt>しき</rt></ruby>の<ruby>値<rt>あたい</rt></ruby>は「<ruby>因数分解<rt>いんすうぶんかい</rt></ruby>→<ruby>代入<rt>だいにゅう</rt></ruby>」がコツ。<ruby>平方根<rt>へいほうこん</rt></ruby>は<ruby>図形<rt>ずけい</rt></ruby>の<ruby>長<rt>なが</rt></ruby>さにも<ruby>登場<rt>とうじょう</rt></ruby>！',
+    },
+    {
+      type: 'quiz',
+      question: '$x = \\sqrt{3} - 2$ のとき $x^2 + 4x + 4$ の<ruby>値<rt>あたい</rt></ruby>は？',
+      options: [
+        { letter: 'A', text: '$7 + 4\\sqrt{3}$', correct: false },
+        { letter: 'B', text: '$3$', correct: true },
+        { letter: 'C', text: '$7 - 4\\sqrt{3}$', correct: false },
+        { letter: 'D', text: '$1$', correct: false },
+      ],
+      explanation:
+        '$x^2 + 4x + 4 = (x + 2)^2$。$x + 2 = \\sqrt{3} - 2 + 2 = \\sqrt{3}$ を<ruby>代入<rt>だいにゅう</rt></ruby>して $(\\sqrt{3})^2 = 3$！',
     },
     {
       type: 'end',

@@ -91,6 +91,18 @@ export const sqrtMeaningChat: HistoryChat = {
       text: '2<ruby>乗<rt>じょう</rt></ruby>すると a になる<ruby>数<rt>かず</rt></ruby>を「a の<ruby>平方根<rt>へいほうこん</rt></ruby>」という。<ruby>正<rt>せい</rt></ruby>の<ruby>方<rt>ほう</rt></ruby>を $\\sqrt{a}$ と<ruby>書<rt>か</rt></ruby>く！',
     },
     {
+      type: 'quiz',
+      question: '2<ruby>乗<rt>じょう</rt></ruby>すると $36$ になる<ruby>正<rt>せい</rt></ruby>の<ruby>数<rt>かず</rt></ruby>は？',
+      options: [
+        { letter: 'A', text: '$\\sqrt{6}$', correct: false },
+        { letter: 'B', text: '$6$', correct: true },
+        { letter: 'C', text: '$18$', correct: false },
+        { letter: 'D', text: '$\\pm 6$', correct: false },
+      ],
+      explanation:
+        '$6^2 = 36$ なので $\\sqrt{36} = 6$。$\\sqrt{}$ は<ruby>正<rt>せい</rt></ruby>の<ruby>平方根<rt>へいほうこん</rt></ruby>を<ruby>表<rt>あらわ</rt></ruby>すよ。',
+    },
+    {
       type: 'date',
       text: '<ruby>平方根<rt>へいほうこん</rt></ruby>は2つある！',
     },
@@ -188,6 +200,18 @@ export const sqrtMeaningChat: HistoryChat = {
       text: '<ruby>有理数<rt>ゆうりすう</rt></ruby> = <ruby>分数<rt>ぶんすう</rt></ruby>で<ruby>表<rt>あらわ</rt></ruby>せる<ruby>数<rt>かず</rt></ruby>、<ruby>無理数<rt>むりすう</rt></ruby> = <ruby>表<rt>あらわ</rt></ruby>せない<ruby>数<rt>かず</rt></ruby>（$\\sqrt{2}$、$\\sqrt{3}$ など）',
     },
     {
+      type: 'quiz',
+      question: '$\\sqrt{16}$ は<ruby>有理数<rt>ゆうりすう</rt></ruby>？<ruby>無理数<rt>むりすう</rt></ruby>？',
+      options: [
+        { letter: 'A', text: '<ruby>無理数<rt>むりすう</rt></ruby>', correct: false },
+        { letter: 'B', text: '<ruby>有理数<rt>ゆうりすう</rt></ruby>', correct: true },
+        { letter: 'C', text: 'どちらでもない', correct: false },
+        { letter: 'D', text: '<ruby>判断<rt>はんだん</rt></ruby>できない', correct: false },
+      ],
+      explanation:
+        '$\\sqrt{16} = 4$ で<ruby>整数<rt>せいすう</rt></ruby>になるから<ruby>有理数<rt>ゆうりすう</rt></ruby>。$\\sqrt{}$ がついていても<ruby>中身<rt>なかみ</rt></ruby>が<ruby>完全平方数<rt>かんぜんへいほうすう</rt></ruby>なら<ruby>有理数<rt>ゆうりすう</rt></ruby>だよ。',
+    },
+    {
       type: 'date',
       text: '$(\\sqrt{a})^2$ の<ruby>計算<rt>けいさん</rt></ruby>',
     },
@@ -238,6 +262,18 @@ export const sqrtMeaningChat: HistoryChat = {
       text: '$(\\sqrt{a})^2 = a$、$(-\\sqrt{a})^2 = a$。ルートと2<ruby>乗<rt>じょう</rt></ruby>は<ruby>打<rt>う</rt></ruby>ち<ruby>消<rt>け</rt></ruby>し<ruby>合<rt>あ</rt></ruby>う！',
     },
     {
+      type: 'quiz',
+      question: '$(-\\sqrt{11})^2$ はいくつ？',
+      options: [
+        { letter: 'A', text: '$-11$', correct: false },
+        { letter: 'B', text: '$11$', correct: true },
+        { letter: 'C', text: '$\\sqrt{11}$', correct: false },
+        { letter: 'D', text: '$121$', correct: false },
+      ],
+      explanation:
+        '$(-\\sqrt{11})^2 = (-\\sqrt{11}) \\times (-\\sqrt{11}) = 11$。<ruby>負<rt>ふ</rt></ruby>の<ruby>数<rt>かず</rt></ruby>を2<ruby>乗<rt>じょう</rt></ruby>すると<ruby>正<rt>せい</rt></ruby>になるよ。',
+    },
+    {
       type: 'date',
       text: '<ruby>有限<rt>ゆうげん</rt></ruby><ruby>小数<rt>しょうすう</rt></ruby>と<ruby>循環<rt>じゅんかん</rt></ruby><ruby>小数<rt>しょうすう</rt></ruby>',
     },
@@ -285,6 +321,18 @@ export const sqrtMeaningChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<ruby>有限<rt>ゆうげん</rt></ruby><ruby>小数<rt>しょうすう</rt></ruby>・<ruby>循環<rt>じゅんかん</rt></ruby><ruby>小数<rt>しょうすう</rt></ruby> = <ruby>有理数<rt>ゆうりすう</rt></ruby>。<ruby>規則性<rt>きそくせい</rt></ruby>なく<ruby>続<rt>つづ</rt></ruby>く<ruby>小数<rt>しょうすう</rt></ruby> = <ruby>無理数<rt>むりすう</rt></ruby>',
+    },
+    {
+      type: 'quiz',
+      question: '$\\frac{1}{3} = 0.333\\ldots$ はどの<ruby>種類<rt>しゅるい</rt></ruby>の<ruby>数<rt>かず</rt></ruby>？',
+      options: [
+        { letter: 'A', text: '<ruby>無理数<rt>むりすう</rt></ruby>', correct: false },
+        { letter: 'B', text: '<ruby>有限<rt>ゆうげん</rt></ruby><ruby>小数<rt>しょうすう</rt></ruby>', correct: false },
+        { letter: 'C', text: '<ruby>循環<rt>じゅんかん</rt></ruby><ruby>小数<rt>しょうすう</rt></ruby>（<ruby>有理数<rt>ゆうりすう</rt></ruby>）', correct: true },
+        { letter: 'D', text: '<ruby>整数<rt>せいすう</rt></ruby>', correct: false },
+      ],
+      explanation:
+        '$0.333\\ldots$ は「3」がくり<ruby>返<rt>かえ</rt></ruby>す<ruby>循環<rt>じゅんかん</rt></ruby><ruby>小数<rt>しょうすう</rt></ruby>。<ruby>分数<rt>ぶんすう</rt></ruby>で<ruby>表<rt>あらわ</rt></ruby>せるから<ruby>有理数<rt>ゆうりすう</rt></ruby>だよ。',
     },
     {
       type: 'date',
