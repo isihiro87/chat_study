@@ -71,111 +71,136 @@ export const rateOfChange: Topic = {
     flashcards: [
       {
         id: 'math-g3-qf-rc-fc1',
-        front: '変化の割合',
-        back: 'y の増加量 ÷ x の増加量',
+        front: 'y の増加量 ÷ x の増加量', back: '変化の割合',
         explanation: '一次関数でも y = ax² でも同じ定義。ただし y = ax² では区間によって値が変わる。',
       },
       {
         id: 'math-g3-qf-rc-fc2',
-        front: 'y の増加量',
-        back: '変化後の y の値 − 変化前の y の値',
+        front: '変化後の y の値 − 変化前の y の値', back: 'y の増加量',
         explanation: 'y = x² で x が 1→3 のとき、y の増加量 = 9 − 1 = 8。',
       },
       {
         id: 'math-g3-qf-rc-fc3',
-        front: 'x の増加量',
-        back: '変化後の x の値 − 変化前の x の値',
+        front: '変化後の x の値 − 変化前の x の値', back: 'x の増加量',
         explanation: 'x が 1→3 のとき、x の増加量 = 3 − 1 = 2。',
       },
       {
         id: 'math-g3-qf-rc-fc4',
-        front: '公式 a(p + q)',
-        back: 'y = ax² で x が p から q に変化するときの変化の割合',
+        front: 'y = ax² で x が p から q に変化するときの変化の割合', back: '公式 a(p + q)',
         explanation: 'aq² − ap² = a(q+p)(q−p) を (q−p) で割って導出する。',
       },
       {
         id: 'math-g3-qf-rc-fc5',
-        front: 'y = x² で x が 1→3 のとき変化の割合は？',
-        back: '1×(1 + 3) = 4',
+        front: '1×(1 + 3) = 4', back: 'y = x² で x が 1→3 のとき変化の割合は？',
         explanation: 'y の増加量 8 ÷ x の増加量 2 = 4 でも同じ結果。',
       },
       {
         id: 'math-g3-qf-rc-fc6',
-        front: 'y = 2x² で x が −1→4 のとき変化の割合は？',
-        back: '2×(−1 + 4) = 6',
+        front: '2×(−1 + 4) = 6', back: 'y = 2x² で x が −1→4 のとき変化の割合は？',
         explanation: '公式に代入するだけで素早く求められる。',
       },
       {
         id: 'math-g3-qf-rc-fc7',
-        front: '一次関数の変化の割合の特徴',
-        back: '常に一定（= 傾き a）',
+        front: '常に一定（= 傾き a）', back: '一次関数の変化の割合の特徴',
         explanation: 'グラフが直線だから、どの区間でも傾きが同じ。',
       },
       {
         id: 'math-g3-qf-rc-fc8',
-        front: 'y = ax² の変化の割合の特徴',
-        back: '区間によって変わる',
+        front: '区間によって変わる', back: 'y = ax² の変化の割合の特徴',
         explanation: 'グラフが曲線（放物線）だから、場所によって傾きが異なる。',
       },
       {
         id: 'math-g3-qf-rc-fc9',
-        front: '平均の速さの公式',
-        back: '移動距離 ÷ かかった時間',
+        front: '移動距離 ÷ かかった時間', back: '平均の速さの公式',
         explanation: 'y = ax² のとき、平均の速さ = 変化の割合 = a(p + q)。',
       },
       {
         id: 'math-g3-qf-rc-fc10',
-        front: 'y = 2x² で 2秒後→5秒後の平均の速さは？',
-        back: '2×(2 + 5) = 14 cm/秒',
+        front: '2×(2 + 5) = 14 cm/秒', back: 'y = 2x² で 2秒後→5秒後の平均の速さは？',
         explanation: '移動距離 42cm ÷ 3秒 = 14cm/秒 でも求められる。',
       },
       {
         id: 'math-g3-qf-rc-fc11',
-        front: '斜面を転がるボールで時間が経つと速さは？',
-        back: 'だんだん速くなる（加速する）',
+        front: 'だんだん速くなる（加速する）', back: '斜面を転がるボールで時間が経つと速さは？',
         explanation: 'y = ax² の変化の割合は x が大きくなるほど大きくなるため。',
       },
       {
         id: 'math-g3-qf-rc-fc12',
-        front: '放物線と直線の交点の求め方',
-        back: 'ax² = mx + n を二次方程式として解く',
+        front: 'ax² = mx + n を二次方程式として解く', back: '放物線と直線の交点の求め方',
         explanation: '因数分解して x の値を求め、y に代入する。',
       },
       {
         id: 'math-g3-qf-rc-fc13',
-        front: 'y = x² と y = x + 2 の交点は？',
-        back: '(−1, 1) と (2, 4)',
+        front: '(−1, 1) と (2, 4)', back: 'y = x² と y = x + 2 の交点は？',
         explanation: 'x² − x − 2 = 0 → (x−2)(x+1) = 0 で x = 2, −1。',
       },
       {
         id: 'math-g3-qf-rc-fc14',
-        front: '△OABの面積（y切片分割法）',
-        back: 'y切片Cで△OACと△OCBに分け、それぞれの面積を足す',
+        front: 'y切片Cで△OACと△OCBに分け、それぞれの面積を足す', back: '△OABの面積（y切片分割法）',
         explanation: '底辺をOC（y軸上）、高さを各点の|x座標|にする。',
       },
       {
         id: 'math-g3-qf-rc-fc15',
-        front: '変化の割合が負になるのはどんなとき？',
-        back: 'a > 0 で p + q < 0、または a < 0 で p + q > 0 のとき',
+        front: 'a > 0 で p + q < 0、または a < 0 で p + q > 0 のとき', back: '変化の割合が負になるのはどんなとき？',
         explanation: 'a と (p+q) の符号が異なると変化の割合は負になる。',
       },
       {
         id: 'math-g3-qf-rc-fc16',
-        front: '変化の割合から a を逆算する方法',
-        back: '変化の割合 = a(p+q) を a について解く',
+        front: '変化の割合 = a(p+q) を a について解く', back: '変化の割合から a を逆算する方法',
         explanation: '例: 変化の割合 12、p=1、q=3 なら a = 12÷4 = 3。',
       },
       {
         id: 'math-g3-qf-rc-fc17',
-        front: '一次関数のグラフの形',
-        back: '直線',
+        front: '直線', back: '一次関数のグラフの形',
         explanation: '変化の割合が一定だから傾きが変わらない。',
       },
       {
         id: 'math-g3-qf-rc-fc18',
-        front: 'y = ax² のグラフの形',
-        back: '放物線（曲線）',
+        front: '放物線（曲線）', back: 'y = ax² のグラフの形',
         explanation: '変化の割合が区間ごとに変わるから傾きが一定でない。',
+      },
+      {
+        id: 'math-g3-qf-rc-fc19',
+        front: '3×(−2 + 3) = 3', back: 'y = 3x² で x が −2→3 のとき変化の割合は？',
+        explanation: '公式 a(p+q) に代入するだけ。',
+      },
+      {
+        id: 'math-g3-qf-rc-fc20',
+        front: '−2×(1 + 5) = −12', back: 'y = −2x² で x が 1→5 のとき変化の割合は？',
+        explanation: 'a < 0 なので変化の割合も負になる。',
+      },
+      {
+        id: 'math-g3-qf-rc-fc21',
+        front: '0（p + q = 0 のとき）', back: 'y = ax² で x が −3→3 のとき変化の割合は？',
+        explanation: 'a(−3+3) = a×0 = 0。対称な区間では変化の割合は0。',
+      },
+      {
+        id: 'math-g3-qf-rc-fc22',
+        front: '変化の割合 = a(p+q) を使って a = 変化の割合 ÷ (p+q)', back: '変化の割合と区間から a を求める方法は？',
+      },
+      {
+        id: 'math-g3-qf-rc-fc23',
+        front: '底辺 = y 軸上の線分、高さ = 各点の |x| にする', back: '△OAB の面積を y切片で分割する方法は？',
+      },
+      {
+        id: 'math-g3-qf-rc-fc24',
+        front: 'x² = 4x → x(x−4) = 0 → (0,0) と (4,16)', back: 'y = x² と y = 4x の交点は？',
+      },
+      {
+        id: 'math-g3-qf-rc-fc25',
+        front: '2点を通る直線の傾き = 変化の割合と同じ', back: '放物線上の2点を通る直線の傾きの意味は？',
+      },
+      {
+        id: 'math-g3-qf-rc-fc26',
+        front: '4(0 + 3) = 12 cm/秒', back: 'y = 4x² で 0秒後→3秒後の平均の速さは？',
+      },
+      {
+        id: 'math-g3-qf-rc-fc27',
+        front: '正しくない。y = ax² では区間によって変わる。', back: 'y = ax² の変化の割合は常に a に等しい？',
+      },
+      {
+        id: 'math-g3-qf-rc-fc28',
+        front: '2点の y 座標の差 ÷ x 座標の差で直接計算する方法もある', back: '変化の割合を公式なしで求める方法は？',
       },
     ],
     quiz: {
@@ -295,6 +320,154 @@ export const rateOfChange: Topic = {
           correctIndex: 1,
           explanation:
             '$x^2 = 3x$ → $x(x - 3) = 0$ → $x = 0, 3$。$y = 0, 9$ なので $(0, 0)$ と $(3, 9)$ だよ。',
+        },
+        {
+          id: 'math-g3-qf-rc-q13',
+          question: '$y = 3x^2$ で $x$ が $-2$ から $3$ に変化するとき、変化の割合は？',
+          options: ['$3$', '$15$', '$9$', '$6$'],
+          correctIndex: 0,
+          explanation:
+            '$a(p+q) = 3 \\times (-2+3) = 3 \\times 1 = 3$ だよ。',
+        },
+        {
+          id: 'math-g3-qf-rc-q14',
+          question: '$y = -2x^2$ で $x$ が $1$ から $5$ に変化するとき、変化の割合は？',
+          options: ['$12$', '$-12$', '$-6$', '$6$'],
+          correctIndex: 1,
+          explanation:
+            '$a(p+q) = -2 \\times (1+5) = -2 \\times 6 = -12$ だよ。',
+        },
+        {
+          id: 'math-g3-qf-rc-q15',
+          question: '$y = ax^2$ で $x$ が $-3$ から $3$ に変化するとき、変化の割合は？',
+          options: ['$6a$', '$a$', '$0$', '$9a$'],
+          correctIndex: 2,
+          explanation:
+            '$a(p+q) = a(-3+3) = a \\times 0 = 0$。対称な区間では変化の割合は $0$ だよ。',
+        },
+        {
+          id: 'math-g3-qf-rc-q16',
+          question: '$y = ax^2$ で $x$ が $2$ から $6$ に変化するとき変化の割合が $24$。$a$ は？',
+          options: ['$2$', '$3$', '$4$', '$6$'],
+          correctIndex: 1,
+          explanation:
+            '$a(2+6) = 8a = 24$ より $a = 3$ だよ。',
+        },
+        {
+          id: 'math-g3-qf-rc-q17',
+          question: '$y = x^2$ と $y = 4x$ の交点の座標は？',
+          options: [
+            '$(0, 0)$ と $(4, 16)$',
+            '$(0, 0)$ と $(4, 8)$',
+            '$(2, 4)$ と $(4, 16)$',
+            '$(0, 0)$ と $(-4, 16)$',
+          ],
+          correctIndex: 0,
+          explanation:
+            '$x^2 = 4x$ → $x(x-4) = 0$ → $x = 0, 4$。$y = 0, 16$ なので $(0,0)$ と $(4,16)$。',
+        },
+        {
+          id: 'math-g3-qf-rc-q18',
+          question: '$y = 4x^2$ で $0$ 秒後から $3$ 秒後の平均の速さは？',
+          options: ['$4$ cm/秒', '$12$ cm/秒', '$36$ cm/秒', '$24$ cm/秒'],
+          correctIndex: 1,
+          explanation:
+            '$a(p+q) = 4(0+3) = 12$ cm/秒だよ。',
+        },
+        {
+          id: 'math-g3-qf-rc-q19',
+          question: '$y = 2x^2$ で $x$ が $-3$ から $-1$ に変化するとき、変化の割合は？',
+          options: ['$-8$', '$8$', '$-4$', '$4$'],
+          correctIndex: 0,
+          explanation:
+            '$a(p+q) = 2 \\times (-3+(-1)) = 2 \\times (-4) = -8$ だよ。',
+        },
+        {
+          id: 'math-g3-qf-rc-q20',
+          question: '一次関数 $y = 3x + 1$ の変化の割合はいくつ？',
+          options: ['$1$', '$3$', '区間による', '$4$'],
+          correctIndex: 1,
+          explanation:
+            '一次関数の変化の割合は常に傾き $a = 3$ で一定だよ。',
+        },
+        {
+          id: 'math-g3-qf-rc-q21',
+          question: '$y = x^2$ 上の2点 $A(1, 1)$, $B(4, 16)$ を通る直線の傾きは？',
+          options: ['$3$', '$5$', '$4$', '$15$'],
+          correctIndex: 1,
+          explanation:
+            '傾き $= (16-1) \\div (4-1) = 15 \\div 3 = 5$。変化の割合 $= 1 \\times (1+4) = 5$ でも同じだよ。',
+        },
+        {
+          id: 'math-g3-qf-rc-q22',
+          question: '$y = x^2$ と $y = -x + 6$ の交点の $x$ 座標は？',
+          options: [
+            '$x = 2, -3$',
+            '$x = -2, 3$',
+            '$x = 1, -6$',
+            '$x = 6, -1$',
+          ],
+          correctIndex: 0,
+          explanation:
+            '$x^2 = -x+6$ → $x^2+x-6=0$ → $(x+3)(x-2) = 0$ → $x = 2, -3$ だよ。',
+        },
+        {
+          id: 'math-g3-qf-rc-q23',
+          question: '$y = -x^2$ で $x$ が $-4$ から $2$ に変化するとき、変化の割合は？',
+          options: ['$2$', '$-2$', '$6$', '$-6$'],
+          correctIndex: 0,
+          explanation:
+            '$a(p+q) = -1 \\times (-4+2) = -1 \\times (-2) = 2$ だよ。',
+        },
+        {
+          id: 'math-g3-qf-rc-q24',
+          question: 'ボールが $y = 5x^2$ cm で転がるとき、$1$ 秒後から $3$ 秒後の平均の速さは？',
+          options: ['$10$ cm/秒', '$15$ cm/秒', '$20$ cm/秒', '$25$ cm/秒'],
+          correctIndex: 2,
+          explanation:
+            '$a(p+q) = 5(1+3) = 20$ cm/秒だよ。',
+        },
+        {
+          id: 'math-g3-qf-rc-q25',
+          question: '$y = 2x^2$ で $x$ が $0$ から $4$ に変化するとき、変化の割合は？',
+          options: ['$4$', '$8$', '$16$', '$32$'],
+          correctIndex: 1,
+          explanation:
+            '$a(p+q) = 2(0+4) = 8$ だよ。',
+        },
+        {
+          id: 'math-g3-qf-rc-q26',
+          question: '$y = x^2$ と $y = -2x + 8$ の交点を $A$, $B$ とする。$A$ と $B$ の $x$ 座標は？',
+          options: [
+            '$x = -4, 2$',
+            '$x = 4, -2$',
+            '$x = 1, 8$',
+            '$x = -1, 8$',
+          ],
+          correctIndex: 0,
+          explanation:
+            '$x^2 = -2x+8$ → $x^2+2x-8=0$ → $(x+4)(x-2) = 0$ → $x = -4, 2$。',
+        },
+        {
+          id: 'math-g3-qf-rc-q27',
+          question: '$y = ax^2$ で $x$ が $-1$ から $4$ に変化するとき変化の割合が $9$。$a$ は？',
+          options: ['$1$', '$3$', '$9$', '$\\frac{3}{2}$'],
+          correctIndex: 1,
+          explanation:
+            '$a(-1+4) = 3a = 9$ より $a = 3$ だよ。',
+        },
+        {
+          id: 'math-g3-qf-rc-q28',
+          question: '$y = x^2$ で $x$ が $2$ から $2+h$ に変化するとき、変化の割合は？',
+          options: [
+            '$4 + h$',
+            '$2 + h$',
+            '$2h$',
+            '$h$',
+          ],
+          correctIndex: 0,
+          explanation:
+            '$a(p+q) = 1 \\times (2 + (2+h)) = 4 + h$ だよ。',
         },
       ],
     },

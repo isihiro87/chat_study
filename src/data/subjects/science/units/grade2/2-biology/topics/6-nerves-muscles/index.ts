@@ -166,6 +166,106 @@ export const nervesMuscles: Topic = {
         back: '10人で手をつないで合図を伝えるのに2.8秒かかったとき、1人あたりの反応時間は？',
         explanation: '2.8秒÷10人＝0.28秒。1人あたり約0.28秒。',
       },
+      {
+        id: 'sci2-nm-fc9',
+        front: '中枢神経',
+        back: '脳とせきずいの総称',
+      },
+      {
+        id: 'sci2-nm-fc10',
+        front: '末しょう神経',
+        back: '感覚神経と運動神経の総称',
+      },
+      {
+        id: 'sci2-nm-fc11',
+        front: '感覚神経',
+        back: '感覚器官→脳・せきずいへ信号を伝える神経',
+      },
+      {
+        id: 'sci2-nm-fc12',
+        front: '運動神経',
+        back: '脳・せきずい→筋肉に命令を伝える神経',
+      },
+      {
+        id: 'sci2-nm-fc13',
+        front: '反射',
+        back: '意識と関係なく起こる反応',
+      },
+      {
+        id: 'sci2-nm-fc14',
+        front: '反射の経路',
+        back: '感覚器官→感覚神経→せきずい→運動神経→運動器官',
+      },
+      {
+        id: 'sci2-nm-fc15',
+        front: '反射が速い理由',
+        back: 'せきずいで折り返し脳を経由しないから',
+      },
+      {
+        id: 'sci2-nm-fc16',
+        front: '関節',
+        back: '骨と骨のつなぎ目で動かせる部分',
+      },
+      {
+        id: 'sci2-nm-fc17',
+        front: 'けん',
+        back: '筋肉の両端にある骨と筋肉をつなぐつくり',
+      },
+      {
+        id: 'sci2-nm-fc18',
+        front: '筋肉ペアの理由',
+        back: '筋肉は縮むしかできず反対側が縮んで引き伸ばす',
+      },
+      {
+        id: 'sci2-nm-fc19',
+        front: '意識的反応の経路',
+        back: '感覚器官→感覚神経→せきずい→脳→せきずい→運動神経→運動器官',
+      },
+      {
+        id: 'sci2-nm-fc20',
+        front: 'うでを曲げるとき',
+        back: '内側が縮み外側がゆるむ',
+      },
+      {
+        id: 'sci2-nm-fc21',
+        front: 'うでを伸ばすとき',
+        back: '外側が縮み内側がゆるむ',
+      },
+      {
+        id: 'sci2-nm-fc22',
+        front: '反射の例3つ',
+        back: '熱いもので手を引く、食物でだ液、光でひとみ縮小',
+      },
+      {
+        id: 'sci2-nm-fc23',
+        front: '骨格のはたらき',
+        back: '体を支え内臓を保護',
+      },
+      {
+        id: 'sci2-nm-fc24',
+        front: '反射の折り返し場所',
+        back: 'せきずい',
+      },
+      {
+        id: 'sci2-nm-fc25',
+        front: '意識的反応の判断場所',
+        back: '脳',
+      },
+      {
+        id: 'sci2-nm-fc26',
+        front: '反応時間実験で3回計測の理由',
+        back: '誤差を小さくするため',
+      },
+      {
+        id: 'sci2-nm-fc27',
+        front: '熱いもので手を引く反応',
+        back: '反射。後から「熱い」と感じるのは脳に信号が届いた結果',
+      },
+      {
+        id: 'sci2-nm-fc28',
+        front: '筋肉が自力で伸びない',
+        back: '反対側の筋肉が縮んで引き伸ばされる',
+      }
     ],
     quiz: {
       questions: [
@@ -242,6 +342,174 @@ export const nervesMuscles: Topic = {
           correctIndex: 0,
           explanation: 'うでを曲げるとき、内側の筋肉が縮み、外側の筋肉が伸ばされます。伸ばすときは逆になります。',
         },
+        {
+          id: 'sci2-nm-q8',
+          question: '脳とせきずいの総称は？',
+          options: ['末しょう神経', '中枢神経', '感覚神経', '運動神経'],
+          correctIndex: 1,
+          explanation:
+            '中枢神経。',
+        },
+        {
+          id: 'sci2-nm-q9',
+          question: '反射の折り返し場所は？',
+          options: ['脳', 'せきずい', '感覚器官', '筋肉'],
+          correctIndex: 1,
+          explanation:
+            'せきずい。',
+        },
+        {
+          id: 'sci2-nm-q10',
+          question: '反射が速い理由は？',
+          options: ['筋肉が特別', 'せきずいで折り返し脳不経由', '感覚神経が太い', '反応が強い'],
+          correctIndex: 1,
+          explanation:
+            'せきずいで折り返すから。',
+        },
+        {
+          id: 'sci2-nm-q11',
+          question: '意識的反応の経路は？',
+          options: ['感覚器官→感覚神経→脳→運動神経→運動器官', '感覚器官→感覚神経→せきずい→脳→せきずい→運動神経→運動器官', '感覚器官→運動神経→脳→感覚神経→運動器官', '感覚器官→せきずい→運動器官'],
+          correctIndex: 1,
+          explanation:
+            'せきずい経由で脳に届く。',
+        },
+        {
+          id: 'sci2-nm-q12',
+          question: 'うで曲げ→内側筋肉は？',
+          options: ['ゆるむ', '縮む', '伸びる', '動かない'],
+          correctIndex: 1,
+          explanation:
+            '内側が縮む。',
+        },
+        {
+          id: 'sci2-nm-q13',
+          question: '筋肉と骨をつなぐのは？',
+          options: ['関節', '軟骨', 'けん', '靱帯'],
+          correctIndex: 2,
+          explanation:
+            'けん。',
+        },
+        {
+          id: 'sci2-nm-q14',
+          question: '筋肉がペアで動く理由は？',
+          options: ['力を強く', '縮むしかできない', '関節保護', '疲労分散'],
+          correctIndex: 1,
+          explanation:
+            '縮むしかできず反対側が引き伸ばす。',
+        },
+        {
+          id: 'sci2-nm-q15',
+          question: '反射でない例は？',
+          options: ['熱いもので手を引く', 'だ液が出る', '計算問題を解く', 'ひとみ縮小'],
+          correctIndex: 2,
+          explanation:
+            '計算は意識的活動。',
+        },
+        {
+          id: 'sci2-nm-q16',
+          question: '感覚神経のはたらきは？',
+          options: ['脳→筋肉に命令', '感覚器官→脳に信号伝達', '筋肉を動かす', '骨を支える'],
+          correctIndex: 1,
+          explanation:
+            '感覚器官から中枢神経へ。',
+        },
+        {
+          id: 'sci2-nm-q17',
+          question: '運動神経のはたらきは？',
+          options: ['刺激を受ける', '信号を脳へ', '脳の命令を筋肉へ', '骨と骨をつなぐ'],
+          correctIndex: 2,
+          explanation:
+            '脳やせきずいから筋肉へ。',
+        },
+        {
+          id: 'sci2-nm-q18',
+          question: 'うで伸ばし→外側筋肉は？',
+          options: ['ゆるむ', '縮む', '動かない', '太くなる'],
+          correctIndex: 1,
+          explanation:
+            '外側が縮む。',
+        },
+        {
+          id: 'sci2-nm-q19',
+          question: '手を引いた後「熱い」と感じるのは？',
+          options: ['反射の一部', '脳に信号が届いた結果', '筋肉の痛み', '皮膚の損傷'],
+          correctIndex: 1,
+          explanation:
+            '脳に信号が届いた結果。',
+        },
+        {
+          id: 'sci2-nm-q20',
+          question: '3回計測して平均を求める理由は？',
+          options: ['最大値知る', '最小値知る', '誤差を小さく', '練習効果'],
+          correctIndex: 2,
+          explanation:
+            '測定誤差を小さくする。',
+        },
+        {
+          id: 'sci2-nm-q21',
+          question: '骨と骨の動かせるつなぎ目は？',
+          options: ['けん', '靱帯', '関節', '筋肉'],
+          correctIndex: 2,
+          explanation:
+            '関節。',
+        },
+        {
+          id: 'sci2-nm-q22',
+          question: '末しょう神経に含まれるのは？',
+          options: ['脳とせきずい', '感覚神経と運動神経', '筋肉と骨', '感覚器官と運動器官'],
+          correctIndex: 1,
+          explanation:
+            '感覚神経と運動神経。',
+        },
+        {
+          id: 'sci2-nm-q23',
+          question: '体を支え内臓保護するつくりは？',
+          options: ['筋肉', '皮膚', '骨', '関節'],
+          correctIndex: 2,
+          explanation:
+            '骨（骨格）。',
+        },
+        {
+          id: 'sci2-nm-q24',
+          question: '食物を見てだ液が出るのは？',
+          options: ['意識的反応', '反射', '運動', '消化'],
+          correctIndex: 1,
+          explanation:
+            '反射。',
+        },
+        {
+          id: 'sci2-nm-q25',
+          question: '意識的反応で判断する場所は？',
+          options: ['せきずい', '感覚器官', '脳', '筋肉'],
+          correctIndex: 2,
+          explanation:
+            '脳。',
+        },
+        {
+          id: 'sci2-nm-q26',
+          question: '反射の正しい経路は？',
+          options: ['感覚器官→感覚神経→脳→運動神経→運動器官', '感覚器官→感覚神経→せきずい→運動神経→運動器官', '感覚器官→運動神経→せきずい→感覚神経→運動器官', '運動器官→運動神経→脳→感覚神経→感覚器官'],
+          correctIndex: 1,
+          explanation:
+            '脳を経由しない。',
+        },
+        {
+          id: 'sci2-nm-q27',
+          question: 'ひとみが小さくなるのは？',
+          options: ['意識的反応', '反射', '運動', '呼吸'],
+          correctIndex: 1,
+          explanation:
+            '反射で目を保護。',
+        },
+        {
+          id: 'sci2-nm-q28',
+          question: '筋肉が伸びる方法は？',
+          options: ['骨が引く', '反対側の筋肉が縮んで引き伸ばす', '重力', '神経が伸ばす'],
+          correctIndex: 1,
+          explanation:
+            '反対側の筋肉が縮む。',
+        }
       ],
     },
     examples: {

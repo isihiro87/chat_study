@@ -259,6 +259,57 @@ export const chemicalCombination: Topic = {
         explanation:
           '2NaHCO₃ → Na₂CO₃ + CO₂ + H₂O。炭酸水素ナトリウムを加熱すると炭酸ナトリウム・二酸化炭素・水に分解される。',
       },
+      {
+        id: 'sci2-cc-fc19',
+        front: '化合',
+        back: '2種類以上の物質が結びついて別の新しい物質ができる化学変化を何という？',
+      },
+      {
+        id: 'sci2-cc-fc20',
+        front: '硫化水素のにおい',
+        back: '硫化鉄にうすい塩酸を加えると発生する硫化水素はどんなにおい？',
+      },
+      {
+        id: 'sci2-cc-fc21',
+        front: '加熱をやめても反応が続く理由',
+        back: '鉄と硫黄の混合物を加熱し上部が赤くなったら加熱をやめても反応が続くのはなぜ？',
+      },
+      {
+        id: 'sci2-cc-fc22',
+        front: 'CuS',
+        back: '硫化銅の化学式は？銅と硫黄が化合してできる',
+      },
+      {
+        id: 'sci2-cc-fc23',
+        front: '水素の燃え方',
+        back: '水素は空気中で点火すると何色の炎を出して燃える？',
+      },
+      {
+        id: 'sci2-cc-fc24',
+        front: '係数',
+        back: '化学反応式で原子の数を合わせるために化学式の前につける数字を何という？',
+      },
+      {
+        id: 'sci2-cc-fc25',
+        front: '硫化鉄と磁石',
+        back: '硫化鉄は磁石に引きつけられるか？',
+      },
+      {
+        id: 'sci2-cc-fc26',
+        front: '酸化銅の色',
+        back: '銅を空気中で加熱してできる酸化銅は何色？',
+      },
+      {
+        id: 'sci2-cc-fc27',
+        front: '鉄にうすい塩酸',
+        back: '鉄にうすい塩酸を加えると発生する気体は？',
+      },
+      {
+        id: 'sci2-cc-fc28',
+        front: '硫黄の色',
+        back: '硫黄の粉末は何色？',
+      }
+    
     ],
     quiz: {
       questions: [
@@ -408,6 +459,135 @@ export const chemicalCombination: Topic = {
           explanation:
             '2NaHCO₃ → Na₂CO₃ + CO₂ + H₂O が正しい化学反応式です。左辺：Na=2, H=2, C=2, O=6、右辺：Na=2, H=2, C=2, O=6 で一致します。',
         },
+        {
+          id: 'sci2-cc-q13',
+          question: '鉄粉と硫黄を加熱すると何ができるか？',
+          options: ['酸化鉄', '硫化鉄', '塩化鉄', '炭酸鉄'],
+          correctIndex: 1,
+          explanation:
+            '鉄と硫黄が化合すると硫化鉄（FeS）ができます。',
+        },
+        {
+          id: 'sci2-cc-q14',
+          question: '硫化鉄に塩酸を加えると発生する気体は？',
+          options: ['水素', '酸素', '硫化水素', '二酸化炭素'],
+          correctIndex: 2,
+          explanation:
+            '硫化鉄に塩酸を加えると硫化水素（腐卵臭）が発生します。',
+        },
+        {
+          id: 'sci2-cc-q15',
+          question: '加熱をやめても反応が続く理由は？',
+          options: ['試験管が熱い', '硫黄が溶けている', '反応熱で次々と反応が進む', '酸素が供給される'],
+          correctIndex: 2,
+          explanation:
+            '鉄と硫黄の化合は発熱反応で、反応熱が連鎖的に反応を進めます。',
+        },
+        {
+          id: 'sci2-cc-q16',
+          question: '水素と酸素が化合してできる物質は？',
+          options: ['過酸化水素', '水', '水蒸気', '水酸化水素'],
+          correctIndex: 1,
+          explanation:
+            '2H₂ + O₂ → 2H₂O',
+        },
+        {
+          id: 'sci2-cc-q17',
+          question: '銅の酸化の正しい化学反応式は？',
+          options: ['Cu + O → CuO', '2Cu + O₂ → 2CuO', 'Cu + O₂ → CuO₂', 'Cu₂ + O → Cu₂O'],
+          correctIndex: 1,
+          explanation:
+            '2Cu + O₂ → 2CuO が正しい化学反応式です。',
+        },
+        {
+          id: 'sci2-cc-q18',
+          question: '係数が1のとき、その係数は？',
+          options: ['必ず書く', '省略する', '下に書く', '括弧で囲む'],
+          correctIndex: 1,
+          explanation:
+            '化学反応式では係数1は省略します。',
+        },
+        {
+          id: 'sci2-cc-q19',
+          question: '2H₂ + O₂ → 2H₂O で左辺の水素原子の総数は？',
+          options: ['2個', '3個', '4個', '6個'],
+          correctIndex: 2,
+          explanation:
+            '2H₂は水素分子2個、各分子に水素原子2個で合計4個です。',
+        },
+        {
+          id: 'sci2-cc-q20',
+          question: '硫黄の粉末は何色か？',
+          options: ['黒色', '白色', '赤色', '黄色'],
+          correctIndex: 3,
+          explanation:
+            '硫黄の粉末は黄色です。',
+        },
+        {
+          id: 'sci2-cc-q21',
+          question: '鉄と硫黄の混合物は磁石で分けられるか？',
+          options: ['できる', 'できない', '加熱後ならできる', '水に溶かせば可'],
+          correctIndex: 0,
+          explanation:
+            '化合前は鉄が磁石に引きつけられるため分けられます。化合後の硫化鉄は引きつけられません。',
+        },
+        {
+          id: 'sci2-cc-q22',
+          question: '水素が燃えた後、容器の内側はどうなるか？',
+          options: ['変化なし', '黒いすす', '水滴がつく', '白い粉'],
+          correctIndex: 2,
+          explanation:
+            '水素と酸素が化合して水ができるため水滴がつきます。',
+        },
+        {
+          id: 'sci2-cc-q23',
+          question: '炭素の燃焼の化学反応式は？',
+          options: ['C + O → CO', 'C + O₂ → CO₂', '2C + O₂ → 2CO', 'C₂ + O₂ → 2CO'],
+          correctIndex: 1,
+          explanation:
+            'C + O₂ → CO₂ です。',
+        },
+        {
+          id: 'sci2-cc-q24',
+          question: '硫化鉄の化学式は？',
+          options: ['FeO', 'FeS', 'Fe₂S₃', 'Fe₂O₃'],
+          correctIndex: 1,
+          explanation:
+            '硫化鉄の化学式はFeSです。',
+        },
+        {
+          id: 'sci2-cc-q25',
+          question: '銅の元素記号は？',
+          options: ['Co', 'Cp', 'Cu', 'Ca'],
+          correctIndex: 2,
+          explanation:
+            '銅はCuです。ラテン語Cuprumに由来します。',
+        },
+        {
+          id: 'sci2-cc-q26',
+          question: '鉄にうすい塩酸を加えると発生する気体は？',
+          options: ['硫化水素', '二酸化炭素', '酸素', '水素'],
+          correctIndex: 3,
+          explanation:
+            '鉄に塩酸を加えると水素が発生します。硫化鉄では硫化水素です。',
+        },
+        {
+          id: 'sci2-cc-q27',
+          question: '化合物の正しい説明は？',
+          options: ['1種類の元素だけの物質', '2種類以上の元素からなる物質', 'もとの物質と同じ性質', '磁石に引きつけられる物質'],
+          correctIndex: 1,
+          explanation:
+            '化合物は2種類以上の元素が結びついた物質です。',
+        },
+        {
+          id: 'sci2-cc-q28',
+          question: '酸化銅の化学式は？',
+          options: ['Cu₂O', 'CuO', 'CuO₂', 'Cu₂O₃'],
+          correctIndex: 1,
+          explanation:
+            'CuOです。',
+        }
+      
       ],
     },
     examples: {

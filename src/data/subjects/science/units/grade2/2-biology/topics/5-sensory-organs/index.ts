@@ -103,6 +103,111 @@ export const sensoryOrgans: Topic = {
         back: 'ライオンの目が前向き、シマウマの目が横向きについている理由は？',
         explanation: 'ライオン＝前向き→立体的に見える→距離がわかる（獲物をとらえやすい）。シマウマ＝横向き→視野が広い→敵を見つけやすい。',
       },
+      {
+        id: 'sci2-so-fc8',
+        front: '感覚器官',
+        back: '外界の刺激を受け取る器官の総称',
+      },
+      {
+        id: 'sci2-so-fc9',
+        front: '虹彩とひとみ',
+        back: '光の量を調節するつくり。中央の黒い部分がひとみ',
+      },
+      {
+        id: 'sci2-so-fc10',
+        front: '水晶体',
+        back: '目のレンズ。厚さを変えてピント調節',
+      },
+      {
+        id: 'sci2-so-fc11',
+        front: '網膜',
+        back: '目の奥の像が映るスクリーン状の膜',
+      },
+      {
+        id: 'sci2-so-fc12',
+        front: '角膜',
+        back: '目の外側の透明な膜',
+      },
+      {
+        id: 'sci2-so-fc13',
+        front: '鼓膜',
+        back: '耳の奥の音の振動を受ける薄い膜',
+      },
+      {
+        id: 'sci2-so-fc14',
+        front: '耳小骨',
+        back: '鼓膜の振動を増幅して内耳に伝える小さな骨',
+      },
+      {
+        id: 'sci2-so-fc15',
+        front: 'うずまき管',
+        back: '音の振動を信号に変換するかたつむり形のつくり',
+      },
+      {
+        id: 'sci2-so-fc16',
+        front: '肉食動物の目',
+        back: '前向き。立体的に見え距離がわかる',
+      },
+      {
+        id: 'sci2-so-fc17',
+        front: '草食動物の目',
+        back: '横向き。視野広く敵を発見しやすい',
+      },
+      {
+        id: 'sci2-so-fc18',
+        front: '音が聞こえるしくみ',
+        back: '音→鼓膜→耳小骨→うずまき管→聴覚神経→脳',
+      },
+      {
+        id: 'sci2-so-fc19',
+        front: '明るい場所でのひとみ',
+        back: '小さくなる（暗い場所では大きくなる）',
+      },
+      {
+        id: 'sci2-so-fc20',
+        front: 'ヒトの感覚器官5つ',
+        back: '目、耳、鼻、皮膚、舌',
+      },
+      {
+        id: 'sci2-so-fc21',
+        front: '皮膚が受け取る刺激',
+        back: '圧力、温度、痛み',
+      },
+      {
+        id: 'sci2-so-fc22',
+        front: '近くを見るときの水晶体',
+        back: '厚くなる',
+      },
+      {
+        id: 'sci2-so-fc23',
+        front: '光→目',
+        back: '光の刺激を受け取る感覚器官',
+      },
+      {
+        id: 'sci2-so-fc24',
+        front: 'におい→鼻',
+        back: 'においの刺激を受け取る感覚器官',
+      },
+      {
+        id: 'sci2-so-fc25',
+        front: '味→舌',
+        back: '味の刺激を受け取る感覚器官',
+      },
+      {
+        id: 'sci2-so-fc26',
+        front: '音→耳',
+        back: '音の刺激を受け取る感覚器官',
+      },
+      {
+        id: 'sci2-so-fc27',
+        front: '遠くを見るときの水晶体',
+        back: '薄くなる',
+      },
+      {
+        id: 'sci2-so-fc28',
+        front: '耳のつくりの順序',
+        back: '外→鼓膜→耳小骨→うずまき管',
+      }
     ],
     quiz: {
       questions: [
@@ -142,6 +247,190 @@ export const sensoryOrgans: Topic = {
           correctIndex: 0,
           explanation: '虹彩がひとみの大きさを調節して、目に入る光の量を変えます。',
         },
+        {
+          id: 'sci2-so-q6',
+          question: '光の量を調節するつくりは？',
+          options: ['水晶体', '網膜', '虹彩', '角膜'],
+          correctIndex: 2,
+          explanation:
+            '虹彩がひとみの大きさを変える。',
+        },
+        {
+          id: 'sci2-so-q7',
+          question: '暗い場所でひとみは？',
+          options: ['小さく', '大きく', '変わらない', '閉じる'],
+          correctIndex: 1,
+          explanation:
+            '大きくなり光を多く取り入れる。',
+        },
+        {
+          id: 'sci2-so-q8',
+          question: '近くを見るとき水晶体は？',
+          options: ['薄く', '厚く', '変わらない', '硬く'],
+          correctIndex: 1,
+          explanation:
+            '厚くなりピント調節。',
+        },
+        {
+          id: 'sci2-so-q9',
+          question: '鼓膜振動を増幅する骨は？',
+          options: ['耳小骨', 'うずまき管', '鼓膜', '聴覚神経'],
+          correctIndex: 0,
+          explanation:
+            '耳小骨で増幅して内耳へ。',
+        },
+        {
+          id: 'sci2-so-q10',
+          question: '振動を信号に変換するのは？',
+          options: ['鼓膜', '耳小骨', 'うずまき管', '聴覚神経'],
+          correctIndex: 2,
+          explanation:
+            'うずまき管で信号変換。',
+        },
+        {
+          id: 'sci2-so-q11',
+          question: '草食動物の目が横向きの利点は？',
+          options: ['立体的', '色鮮やか', '視野広く敵発見', '暗くても見える'],
+          correctIndex: 2,
+          explanation:
+            '視野が広い。',
+        },
+        {
+          id: 'sci2-so-q12',
+          question: '肉食動物の目が前向きの利点は？',
+          options: ['視野広い', '立体的で距離がわかる', '暗くても', '色がよく'],
+          correctIndex: 1,
+          explanation:
+            '立体視で距離把握。',
+        },
+        {
+          id: 'sci2-so-q13',
+          question: '皮膚の刺激でないのは？',
+          options: ['圧力', '温度', '痛み', '味'],
+          correctIndex: 3,
+          explanation:
+            '味は舌。',
+        },
+        {
+          id: 'sci2-so-q14',
+          question: '像が映る膜は？',
+          options: ['虹彩', '角膜', '水晶体', '網膜'],
+          correctIndex: 3,
+          explanation:
+            '網膜に像が映る。',
+        },
+        {
+          id: 'sci2-so-q15',
+          question: '感覚器官でないのは？',
+          options: ['目', '皮膚', '心臓', '鼻'],
+          correctIndex: 2,
+          explanation:
+            '心臓は循環器官。',
+        },
+        {
+          id: 'sci2-so-q16',
+          question: '音が聞こえる正しい順は？',
+          options: ['音→耳小骨→鼓膜→うずまき管→脳', '音→鼓膜→耳小骨→うずまき管→脳', '音→うずまき管→鼓膜→耳小骨→脳', '音→鼓膜→うずまき管→耳小骨→脳'],
+          correctIndex: 1,
+          explanation:
+            '音→鼓膜→耳小骨→うずまき管→脳。',
+        },
+        {
+          id: 'sci2-so-q17',
+          question: '目の外側の透明な膜は？',
+          options: ['網膜', '虹彩', '角膜', '水晶体'],
+          correctIndex: 2,
+          explanation:
+            '角膜。',
+        },
+        {
+          id: 'sci2-so-q18',
+          question: '光の刺激を受ける器官は？',
+          options: ['耳', '鼻', '皮膚', '目'],
+          correctIndex: 3,
+          explanation:
+            '目。',
+        },
+        {
+          id: 'sci2-so-q19',
+          question: 'においの刺激を受ける器官は？',
+          options: ['舌', '耳', '鼻', '皮膚'],
+          correctIndex: 2,
+          explanation:
+            '鼻。',
+        },
+        {
+          id: 'sci2-so-q20',
+          question: '遠くを見るとき水晶体は？',
+          options: ['厚く', '薄く', '変わらない', '小さく'],
+          correctIndex: 1,
+          explanation:
+            '薄くなる。',
+        },
+        {
+          id: 'sci2-so-q21',
+          question: '虹彩の中央の黒い部分は？',
+          options: ['角膜', '水晶体', 'ひとみ', '網膜'],
+          correctIndex: 2,
+          explanation:
+            'ひとみ（瞳孔）。',
+        },
+        {
+          id: 'sci2-so-q22',
+          question: '味の刺激を受ける器官は？',
+          options: ['鼻', '皮膚', '耳', '舌'],
+          correctIndex: 3,
+          explanation:
+            '舌。',
+        },
+        {
+          id: 'sci2-so-q23',
+          question: '明るい場所でひとみは？',
+          options: ['大きく', '小さく', '変わらない', '赤く'],
+          correctIndex: 1,
+          explanation:
+            '小さくなり光を減らす。',
+        },
+        {
+          id: 'sci2-so-q24',
+          question: '水晶体の役割は？',
+          options: ['光の量調節', '光を屈折させてピント調節', '像を信号変換', '目を保護'],
+          correctIndex: 1,
+          explanation:
+            '光を屈折させピント合わせ。',
+        },
+        {
+          id: 'sci2-so-q25',
+          question: '圧力温度の刺激を受ける器官は？',
+          options: ['目', '耳', '鼻', '皮膚'],
+          correctIndex: 3,
+          explanation:
+            '皮膚。',
+        },
+        {
+          id: 'sci2-so-q26',
+          question: '鼓膜とは？',
+          options: ['振動を信号変換', '音の振動を受ける薄い膜', '振動を増幅する骨', '音を集める'],
+          correctIndex: 1,
+          explanation:
+            '音の振動を受ける膜。',
+        },
+        {
+          id: 'sci2-so-q27',
+          question: '耳小骨のはたらきは？',
+          options: ['音を集める', '振動増幅して内耳へ', '振動を信号変換', '平衡感覚'],
+          correctIndex: 1,
+          explanation:
+            '振動を増幅して伝える。',
+        },
+        {
+          id: 'sci2-so-q28',
+          question: '網膜のはたらきは？',
+          options: ['光屈折', '光量調節', '像が映り信号変換', '目保護'],
+          correctIndex: 2,
+          explanation:
+            '像が映り信号に変換。',
+        }
       ],
     },
     examples: {

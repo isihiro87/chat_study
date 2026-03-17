@@ -236,6 +236,46 @@ export const animalBody: Topic = {
       {id:'sci2-animal-fc18', front:'食物の3大栄養素', back:'食物に含まれる有機物の3大栄養素は何か？', explanation:'炭水化物（デンプンなど）、タンパク質、脂肪。炭水化物と脂肪は主にエネルギー源、タンパク質は体をつくる材料。'},
       {id:'sci2-animal-fc19', front:'大腸のはたらき', back:'大腸の主なはたらきは何か？', explanation:'消化されなかった食物から水分を吸収する。残りは便として肛門から排出される。'},
       {id:'sci2-animal-fc20', front:'吸う息と吐く息の違い', back:'吸う息と比べて、吐く息に多く含まれる気体は？', explanation:'二酸化炭素。肺胞で血液中のCO₂が放出されるため、吐く息にはCO₂が多く含まれる。O₂は減少する。'},
+      {
+        id: 'sci2-animal-fc21',
+        front: '腎臓',
+        back: '不要物をこし取り尿をつくる器官',
+      },
+      {
+        id: 'sci2-animal-fc22',
+        front: '輸尿管',
+        back: '腎臓→ぼうこうの管',
+      },
+      {
+        id: 'sci2-animal-fc23',
+        front: '組織液',
+        back: '血しょうがしみ出て細胞を満たす液',
+      },
+      {
+        id: 'sci2-animal-fc24',
+        front: 'ベネジクト液',
+        back: '糖に反応し加熱で赤褐色に変化する薬品',
+      },
+      {
+        id: 'sci2-animal-fc25',
+        front: '胆のう',
+        back: '胆汁が蓄えられる器官',
+      },
+      {
+        id: 'sci2-animal-fc26',
+        front: '横隔膜の動き',
+        back: '吸気時は下がり、呼気時は上がる',
+      },
+      {
+        id: 'sci2-animal-fc27',
+        front: 'ヘモグロビン',
+        back: '赤血球に含まれO₂と結びつく物質',
+      },
+      {
+        id: 'sci2-animal-fc28',
+        front: '体循環と肺循環',
+        back: '心臓→全身→心臓＝体循環、心臓→肺→心臓＝肺循環',
+      }
     ],
     quiz: {
       questions: [
@@ -302,6 +342,134 @@ export const animalBody: Topic = {
         {id:'sci2-animal-q11', question:'毛細血管の壁が非常に薄い理由は？', options:['血液がゆっくり流れるため','血圧が高いため','物質の交換を効率よく行うため','弁が不要だから'], correctIndex:2, explanation:'毛細血管の壁は1層の薄い細胞でできており、養分やO₂、CO₂などの物質交換を効率よく行えます。'},
         {id:'sci2-animal-q12', question:'肝臓のはたらきでないものはどれ？', options: ['尿を作る', '胆汁を作る', 'グリコーゲンを蓄える', 'アンモニアを尿素に変える'],
         correctIndex: 0, explanation:'尿を作るのは腎臓のはたらきです。肝臓はグリコーゲンの貯蔵、胆汁の生成、アンモニアの無害化を行います。'},
+        {
+          id: 'sci2-animal-q13',
+          question: '尿をつくる器官は？',
+          options: ['肝臓', '腎臓', '肺', '心臓'],
+          correctIndex: 1,
+          explanation:
+            '腎臓で尿をつくる。',
+        },
+        {
+          id: 'sci2-animal-q14',
+          question: 'ベネジクト液+加熱→糖あり→色は？',
+          options: ['青紫', '赤褐色', '黄', '緑'],
+          correctIndex: 1,
+          explanation:
+            '赤褐色に変化。',
+        },
+        {
+          id: 'sci2-animal-q15',
+          question: '脂肪酸+モノグリセリド→柔毛中で？',
+          options: ['タンパク質', 'デンプン', '脂肪', 'アミノ酸'],
+          correctIndex: 2,
+          explanation:
+            '脂肪に戻りリンパ管へ。',
+        },
+        {
+          id: 'sci2-animal-q16',
+          question: '胆汁に消化酵素は？',
+          options: ['ある', 'ない', 'リパーゼ有', 'アミラーゼ有'],
+          correctIndex: 1,
+          explanation:
+            'なし。脂肪を細かくしてリパーゼを助ける。',
+        },
+        {
+          id: 'sci2-animal-q17',
+          question: '吸気時の横隔膜は？',
+          options: ['上がる', '下がる', '動かない', '左右拡大'],
+          correctIndex: 1,
+          explanation:
+            '下がって胸腔拡大。',
+        },
+        {
+          id: 'sci2-animal-q18',
+          question: '体循環の経路は？',
+          options: ['心臓→肺→心臓', '心臓→全身→心臓', '肺→全身→肺', '全身→肺→全身'],
+          correctIndex: 1,
+          explanation:
+            '心臓→全身→心臓。',
+        },
+        {
+          id: 'sci2-animal-q19',
+          question: 'すい液の特徴は？',
+          options: ['酵素なし', '3大栄養素すべて消化', 'タンパク質のみ', '胃で生産'],
+          correctIndex: 1,
+          explanation:
+            '3種の酵素で全て消化。',
+        },
+        {
+          id: 'sci2-animal-q20',
+          question: '動脈血の特徴は？',
+          options: ['暗い赤', '鮮やかな赤でO₂多い', '白色', '黄色'],
+          correctIndex: 1,
+          explanation:
+            'O₂多く鮮やかな赤。',
+        },
+        {
+          id: 'sci2-animal-q21',
+          question: '毛細血管壁の特徴は？',
+          options: ['厚く弾力', '弁あり', '非常に薄く物質交換', '筋肉あり'],
+          correctIndex: 2,
+          explanation:
+            '1層の細胞で物質交換。',
+        },
+        {
+          id: 'sci2-animal-q22',
+          question: '肝臓でアンモニアは？',
+          options: ['尿酸に', '尿素に', 'グリコーゲンに', '胆汁に'],
+          correctIndex: 1,
+          explanation:
+            '尿素に変換。',
+        },
+        {
+          id: 'sci2-animal-q23',
+          question: 'だ液実験で何℃に保つ？',
+          options: ['25℃', '37℃', '50℃', '100℃'],
+          correctIndex: 1,
+          explanation:
+            '体温と同じ37℃。',
+        },
+        {
+          id: 'sci2-animal-q24',
+          question: '血小板のはたらきは？',
+          options: ['O₂運搬', '細菌分解', '血液凝固', '養分運搬'],
+          correctIndex: 2,
+          explanation:
+            '出血時に血液を固める。',
+        },
+        {
+          id: 'sci2-animal-q25',
+          question: 'ブドウ糖は肝臓で何に？',
+          options: ['アミノ酸', 'グリコーゲン', '脂肪', 'タンパク質'],
+          correctIndex: 1,
+          explanation:
+            'グリコーゲンとして蓄える。',
+        },
+        {
+          id: 'sci2-animal-q26',
+          question: '消化管の正しい順は？',
+          options: ['口→胃→食道→小腸→大腸→肛門', '口→食道→胃→大腸→小腸→肛門', '口→食道→胃→小腸→大腸→肛門', '口→食道→小腸→胃→大腸→肛門'],
+          correctIndex: 2,
+          explanation:
+            '口→食道→胃→小腸→大腸→肛門。',
+        },
+        {
+          id: 'sci2-animal-q27',
+          question: '静脈の特徴は？',
+          options: ['壁厚く弾力', '壁薄く弁あり', '壁非常に薄い', '拍動あり'],
+          correctIndex: 1,
+          explanation:
+            '壁薄く弁あり。',
+        },
+        {
+          id: 'sci2-animal-q28',
+          question: '肺胞が多い利点は？',
+          options: ['空気貯蔵', '表面積大で効率的気体交換', '肺が丈夫', '声出しやすい'],
+          correctIndex: 1,
+          explanation:
+            '表面積大で効率よく気体交換。',
+        }
       ],
     },
     examples: {

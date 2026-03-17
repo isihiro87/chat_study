@@ -140,6 +140,116 @@ export const staticElectricity: Topic = {
         back: '同じ種類の電気どうし・異なる種類の電気どうしではどのような力がはたらく？',
         explanation: '同じ種類の電気どうしは反発し合い（＋と＋、−と−）、異なる種類の電気どうしは引き合う（＋と−）。',
       },
+      {
+        id: 'sci2-static-fc7',
+        front: '静電気',
+        back: '摩擦で電子が移動し物質が帯電して生じる電気',
+      },
+      {
+        id: 'sci2-static-fc8',
+        front: '帯電',
+        back: '物体が電気を帯びること',
+      },
+      {
+        id: 'sci2-static-fc9',
+        front: '電子',
+        back: '−の電気をもつ非常に小さな粒子',
+      },
+      {
+        id: 'sci2-static-fc10',
+        front: '＋帯電',
+        back: '電子を失うと＋に帯電',
+      },
+      {
+        id: 'sci2-static-fc11',
+        front: '−帯電',
+        back: '電子を受け取ると−に帯電',
+      },
+      {
+        id: 'sci2-static-fc12',
+        front: '同じ種類→反発',
+        back: '＋と＋、−と−は反発し合う',
+      },
+      {
+        id: 'sci2-static-fc13',
+        front: '異なる種類→引き合う',
+        back: '＋と−は引き合う',
+      },
+      {
+        id: 'sci2-static-fc14',
+        front: '放電',
+        back: 'たまった電気が空間を移動する現象。雷が例',
+      },
+      {
+        id: 'sci2-static-fc15',
+        front: '真空放電',
+        back: '気圧を低くした空間での放電。蛍光灯・ネオンサインに応用',
+      },
+      {
+        id: 'sci2-static-fc16',
+        front: 'クルックス管',
+        back: '真空放電を調べるガラス管',
+      },
+      {
+        id: 'sci2-static-fc17',
+        front: '陰極線（電子線）',
+        back: 'クルックス管で−極→＋極に飛ぶ粒子の流れ',
+      },
+      {
+        id: 'sci2-static-fc18',
+        front: '陰極線の正体＝電子',
+        back: '−の電気をもつ粒子',
+      },
+      {
+        id: 'sci2-static-fc19',
+        front: '陰極線は直進する',
+        back: '十字形の金属板で影ができることから',
+      },
+      {
+        id: 'sci2-static-fc20',
+        front: '陰極線は磁石で曲がる',
+        back: '電気をもった粒子だから磁界から力を受ける',
+      },
+      {
+        id: 'sci2-static-fc21',
+        front: '電流の正体＝電子の移動',
+        back: '導線中を電子が移動すること',
+      },
+      {
+        id: 'sci2-static-fc22',
+        front: '電流の向きと電子の向きは逆',
+        back: '電流＋→−、電子−→＋',
+      },
+      {
+        id: 'sci2-static-fc23',
+        front: '放射線',
+        back: 'X線・α線・β線・γ線などの総称',
+      },
+      {
+        id: 'sci2-static-fc24',
+        front: 'X線の利用',
+        back: 'レントゲン検査',
+      },
+      {
+        id: 'sci2-static-fc25',
+        front: 'α線は紙で遮れる',
+        back: '透過性が最も低い',
+      },
+      {
+        id: 'sci2-static-fc26',
+        front: 'γ線は鉛やコンクリートが必要',
+        back: '透過性が非常に高い',
+      },
+      {
+        id: 'sci2-static-fc27',
+        front: '自然放射線',
+        back: '自然界にも微量の放射線が存在',
+      },
+      {
+        id: 'sci2-static-fc28',
+        front: '電流の単位＝アンペア',
+        back: 'A（アンペア）',
+      }
     ],
     quiz: {
       questions: [
@@ -175,6 +285,198 @@ export const staticElectricity: Topic = {
           explanation:
             '気圧を低くした空間で起こる放電を真空放電といいます。蛍光灯やネオンサインに利用されています。',
         },
+        {
+          id: 'sci2-static-q5',
+          question: '静電気は何によって生じる？',
+          options: ['加熱', '摩擦', '溶解', '蒸発'],
+          correctIndex: 1,
+          explanation:
+            '摩擦で電子が移動し帯電。',
+        },
+        {
+          id: 'sci2-static-q6',
+          question: '電子を失った物体は？',
+          options: ['−に帯電', '＋に帯電', '帯電しない', '中性'],
+          correctIndex: 1,
+          explanation:
+            '−の電子を失うと＋に帯電。',
+        },
+        {
+          id: 'sci2-static-q7',
+          question: '同じ種類の電気→どうなる？',
+          options: ['引き合う', '反発し合う', '何もない', '消える'],
+          correctIndex: 1,
+          explanation:
+            '同種は反発、異種は引き合う。',
+        },
+        {
+          id: 'sci2-static-q8',
+          question: '雷はどんな現象？',
+          options: ['光の屈折', '放電', '帯電', '蒸発'],
+          correctIndex: 1,
+          explanation:
+            '雲にたまった静電気の放電。',
+        },
+        {
+          id: 'sci2-static-q9',
+          question: '陰極線の正体は？',
+          options: ['光', '電子', '空気', '原子'],
+          correctIndex: 1,
+          explanation:
+            '−の電気をもつ電子。',
+        },
+        {
+          id: 'sci2-static-q10',
+          question: '陰極線は何極から飛ぶ？',
+          options: ['＋極', '−極', '両方', 'どちらでもない'],
+          correctIndex: 1,
+          explanation:
+            '−極（陰極）から＋極へ飛ぶ。',
+        },
+        {
+          id: 'sci2-static-q11',
+          question: '陰極線が磁石で曲がることから何がわかる？',
+          options: ['光である', '電気をもった粒子', '空気である', '熱をもつ'],
+          correctIndex: 1,
+          explanation:
+            '電気をもった粒子（＝電子）だとわかる。',
+        },
+        {
+          id: 'sci2-static-q12',
+          question: '電流の向きと電子の移動は？',
+          options: ['同じ向き', '逆向き', '直角', '無関係'],
+          correctIndex: 1,
+          explanation:
+            '電流＋→−、電子−→＋で逆。',
+        },
+        {
+          id: 'sci2-static-q13',
+          question: '電流の向きは？',
+          options: ['−極→＋極', '＋極→−極', '両方向', '不定'],
+          correctIndex: 1,
+          explanation:
+            '＋極から−極と決められている。',
+        },
+        {
+          id: 'sci2-static-q14',
+          question: '真空放電が利用されている製品は？',
+          options: ['乾電池', '蛍光灯', 'モーター', 'スピーカー'],
+          correctIndex: 1,
+          explanation:
+            '蛍光灯やネオンサイン。',
+        },
+        {
+          id: 'sci2-static-q15',
+          question: 'クルックス管で十字形の影ができることから何がわかる？',
+          options: ['磁力がある', '熱がある', '直進性がある', '色がある'],
+          correctIndex: 2,
+          explanation:
+            '陰極線が直進する性質。',
+        },
+        {
+          id: 'sci2-static-q16',
+          question: '放電とは？',
+          options: ['電池が切れること', 'たまった電気が空間を移動', '電流が流れること', '電圧が下がること'],
+          correctIndex: 1,
+          explanation:
+            'たまった電気が空間を移動する現象。',
+        },
+        {
+          id: 'sci2-static-q17',
+          question: '帯電した下じきで髪が逆立つ理由は？',
+          options: ['風', '異なる電気で引き合う', '同じ電気で反発', '静電気で帯電しない'],
+          correctIndex: 1,
+          explanation:
+            '異種の電気が引き合うため。',
+        },
+        {
+          id: 'sci2-static-q18',
+          question: '電気の種類は何種類？',
+          options: ['1種類', '2種類', '3種類', '4種類'],
+          correctIndex: 1,
+          explanation:
+            '＋と−の2種類。',
+        },
+        {
+          id: 'sci2-static-q19',
+          question: '摩擦で移動するのは？',
+          options: ['＋の電気', '−の電気（電子）', '両方', '中性子'],
+          correctIndex: 1,
+          explanation:
+            '−の電気をもった電子が移動。',
+        },
+        {
+          id: 'sci2-static-q20',
+          question: 'X線の利用は？',
+          options: ['テレビ', 'レントゲン検査', '暖房', '照明'],
+          correctIndex: 1,
+          explanation:
+            '医療のレントゲン検査。',
+        },
+        {
+          id: 'sci2-static-q21',
+          question: 'α線を遮るものは？',
+          options: ['紙', 'アルミ板', '鉛', 'コンクリート'],
+          correctIndex: 0,
+          explanation:
+            'α線は紙で遮れる。',
+        },
+        {
+          id: 'sci2-static-q22',
+          question: 'γ線を遮るには？',
+          options: ['紙', 'アルミ板', 'ガラス', '鉛やコンクリート'],
+          correctIndex: 3,
+          explanation:
+            '透過性が非常に高く鉛等が必要。',
+        },
+        {
+          id: 'sci2-static-q23',
+          question: '自然界に放射線は存在する？',
+          options: ['存在しない', '存在する', '人工のみ', '宇宙のみ'],
+          correctIndex: 1,
+          explanation:
+            '自然放射線として微量存在。',
+        },
+        {
+          id: 'sci2-static-q24',
+          question: '蛍光灯が光るしくみは？',
+          options: ['電熱線の発熱', '管内の真空放電', '化学反応', '太陽光'],
+          correctIndex: 1,
+          explanation:
+            '気圧の低い管内での放電で光る。',
+        },
+        {
+          id: 'sci2-static-q25',
+          question: 'セーターを脱ぐときパチパチする理由は？',
+          options: ['布が切れる', '摩擦で帯電した静電気の放電', '空気が乾く', '温度差'],
+          correctIndex: 1,
+          explanation:
+            '静電気の放電。',
+        },
+        {
+          id: 'sci2-static-q26',
+          question: '電流の正体は？',
+          options: ['光の流れ', '空気の移動', '電子の移動', '原子の移動'],
+          correctIndex: 2,
+          explanation:
+            '導線中の電子の移動。',
+        },
+        {
+          id: 'sci2-static-q27',
+          question: '電流が＋→−と決められた理由は？',
+          options: ['正しいから', '電子発見前に歴史的に決められた', '便利だから', '安全のため'],
+          correctIndex: 1,
+          explanation:
+            '電子発見前に歴史的に決定。',
+        },
+        {
+          id: 'sci2-static-q28',
+          question: '放射性物質の例は？',
+          options: ['鉄', '銅', 'ウラン', '金'],
+          correctIndex: 2,
+          explanation:
+            'ウランやラジウムなど。',
+        }
       ],
     },
     examples: {

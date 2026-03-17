@@ -176,6 +176,101 @@ export const fronts: Topic = {
         back: '発達→寒冷前線が温暖前線に追いつく→閉そく前線→衰退',
         explanation: '寒冷前線の移動速度が温暖前線より速いため、やがて追いつく。',
       },
+      {
+        id: 'sci2-frnt-fc10',
+        front: '気団',
+        back: '気温と湿度がほぼ一様な大きな空気の塊',
+      },
+      {
+        id: 'sci2-frnt-fc11',
+        front: '前線面',
+        back: '異なる気団の境界面',
+      },
+      {
+        id: 'sci2-frnt-fc12',
+        front: '前線',
+        back: '前線面と地表面が交わる線',
+      },
+      {
+        id: 'sci2-frnt-fc13',
+        front: '寒冷前線',
+        back: '寒気が暖気の下にもぐり込む。積乱雲。短時間の激しい雨',
+      },
+      {
+        id: 'sci2-frnt-fc14',
+        front: '温暖前線',
+        back: '暖気が寒気の上をゆるやかに這い上がる。乱層雲。広い範囲の弱い長雨',
+      },
+      {
+        id: 'sci2-frnt-fc15',
+        front: '停滞前線',
+        back: '暖気と寒気がほぼ同じ勢力で停滞',
+      },
+      {
+        id: 'sci2-frnt-fc16',
+        front: '閉そく前線',
+        back: '寒冷前線が温暖前線に追いつくとできる',
+      },
+      {
+        id: 'sci2-frnt-fc17',
+        front: '温帯低気圧',
+        back: '中緯度で発生し前線を伴う低気圧',
+      },
+      {
+        id: 'sci2-frnt-fc18',
+        front: '寒冷前線通過後→気温急低下・北寄りの風',
+        back: '寒冷前線通過後の変化',
+      },
+      {
+        id: 'sci2-frnt-fc19',
+        front: '温暖前線通過後→気温上昇・南寄りの風',
+        back: '温暖前線通過後の変化',
+      },
+      {
+        id: 'sci2-frnt-fc20',
+        front: '温帯低気圧の移動方向',
+        back: '西から東へ移動',
+      },
+      {
+        id: 'sci2-frnt-fc21',
+        front: '温帯低気圧の南東側＝温暖前線',
+        back: '温帯低気圧の前線の位置',
+      },
+      {
+        id: 'sci2-frnt-fc22',
+        front: '温帯低気圧の南西側＝寒冷前線',
+        back: '温帯低気圧の前線の位置',
+      },
+      {
+        id: 'sci2-frnt-fc23',
+        front: '暖気は寒気の上に乗り上げる',
+        back: '暖気は密度が小さいため',
+      },
+      {
+        id: 'sci2-frnt-fc24',
+        front: '前線付近で天気が変わりやすい理由',
+        back: '暖気が上昇して雲ができやすい',
+      },
+      {
+        id: 'sci2-frnt-fc25',
+        front: '閉そく前線→低気圧衰退',
+        back: '閉そく前線ができると温帯低気圧は弱まる',
+      },
+      {
+        id: 'sci2-frnt-fc26',
+        front: '寒冷前線の天気図記号',
+        back: '三角形が進行方向についた線',
+      },
+      {
+        id: 'sci2-frnt-fc27',
+        front: '温暖前線の天気図記号',
+        back: '半円が進行方向についた線',
+      },
+      {
+        id: 'sci2-frnt-fc28',
+        front: '停滞前線の天気図記号',
+        back: '三角形と半円が交互に並んだ線',
+      }
     ],
     quiz: {
       questions: [
@@ -260,6 +355,174 @@ export const fronts: Topic = {
           explanation:
             '温暖前線通過後は暖気に覆われるため、南寄りの風に変わり気温が上昇します。',
         },
+        {
+          id: 'sci2-frnt-q8',
+          question: '気団とは？',
+          options: ['雲の塊', '気温と湿度がほぼ一様な大きな空気の塊', '台風のこと', '風の集まり'],
+          correctIndex: 1,
+          explanation:
+            '気温と湿度がほぼ一様な大きな空気の塊。',
+        },
+        {
+          id: 'sci2-frnt-q9',
+          question: '寒冷前線で発達する雲は？',
+          options: ['層雲', '乱層雲', '積乱雲', '巻雲'],
+          correctIndex: 2,
+          explanation:
+            '積乱雲。短時間に激しい雨。',
+        },
+        {
+          id: 'sci2-frnt-q10',
+          question: '温暖前線の雨の降り方は？',
+          options: ['短時間に激しい', '広い範囲で弱い長雨', '雪だけ', '降らない'],
+          correctIndex: 1,
+          explanation:
+            '広い範囲で弱い長雨。',
+        },
+        {
+          id: 'sci2-frnt-q11',
+          question: '寒冷前線通過後の気温は？',
+          options: ['上昇', '急低下', '変わらない', 'やや上昇'],
+          correctIndex: 1,
+          explanation:
+            '急激に低下する。',
+        },
+        {
+          id: 'sci2-frnt-q12',
+          question: '温暖前線通過後の風向は？',
+          options: ['北寄り', '南寄り', '東寄り', '無風'],
+          correctIndex: 1,
+          explanation:
+            '南寄りの風に変わる。',
+        },
+        {
+          id: 'sci2-frnt-q13',
+          question: '停滞前線とは？',
+          options: ['速く移動する前線', '暖気と寒気が同じ勢力で停滞', '消えかけの前線', '台風の前線'],
+          correctIndex: 1,
+          explanation:
+            '暖気と寒気がほぼ同じ勢力で停滞。',
+        },
+        {
+          id: 'sci2-frnt-q14',
+          question: '閉そく前線ができると温帯低気圧は？',
+          options: ['発達する', '衰退する', '変わらない', '台風になる'],
+          correctIndex: 1,
+          explanation:
+            '衰退する（弱まる）。',
+        },
+        {
+          id: 'sci2-frnt-q15',
+          question: '温帯低気圧は何の方向に移動？',
+          options: ['東→西', '西→東', '南→北', '北→南'],
+          correctIndex: 1,
+          explanation:
+            '西から東。',
+        },
+        {
+          id: 'sci2-frnt-q16',
+          question: '前線面とは？',
+          options: ['地表面', '異なる気団の境界面', '雲の底', '等圧線'],
+          correctIndex: 1,
+          explanation:
+            '異なる気団の境界面。',
+        },
+        {
+          id: 'sci2-frnt-q17',
+          question: '温帯低気圧の南東側の前線は？',
+          options: ['寒冷前線', '温暖前線', '停滞前線', '閉そく前線'],
+          correctIndex: 1,
+          explanation:
+            '南東側が温暖前線。',
+        },
+        {
+          id: 'sci2-frnt-q18',
+          question: '暖気が上昇する理由は？',
+          options: ['重い', '密度が小さい', '風に押される', '冷たい'],
+          correctIndex: 1,
+          explanation:
+            '暖気は密度が小さく寒気の上に乗り上げる。',
+        },
+        {
+          id: 'sci2-frnt-q19',
+          question: '温暖前線で発達する雲は？',
+          options: ['積乱雲', '乱層雲', '巻雲', '積雲'],
+          correctIndex: 1,
+          explanation:
+            '乱層雲（高層雲）。',
+        },
+        {
+          id: 'sci2-frnt-q20',
+          question: '寒冷前線の天気図記号は？',
+          options: ['半円が並んだ線', '三角形が並んだ線', '三角と半円が交互', '点線'],
+          correctIndex: 1,
+          explanation:
+            '三角形が進行方向についた線。',
+        },
+        {
+          id: 'sci2-frnt-q21',
+          question: '温暖前線の天気図記号は？',
+          options: ['三角形の線', '半円が並んだ線', '三角と半円交互', '二重線'],
+          correctIndex: 1,
+          explanation:
+            '半円が進行方向についた線。',
+        },
+        {
+          id: 'sci2-frnt-q22',
+          question: '閉そく前線は何が追いつくとできる？',
+          options: ['温暖前線が寒冷前線に', '寒冷前線が温暖前線に', '停滞前線が温暖前線に', '台風が前線に'],
+          correctIndex: 1,
+          explanation:
+            '寒冷前線が温暖前線に追いつく。',
+        },
+        {
+          id: 'sci2-frnt-q23',
+          question: '前線付近で天気が変わりやすい理由は？',
+          options: ['風が弱い', '暖気が上昇して雲ができやすい', '気圧が高い', '乾燥している'],
+          correctIndex: 1,
+          explanation:
+            '暖気が上昇→雲→天気変化。',
+        },
+        {
+          id: 'sci2-frnt-q24',
+          question: '温帯低気圧の南西側の前線は？',
+          options: ['温暖前線', '寒冷前線', '停滞前線', '閉そく前線'],
+          correctIndex: 1,
+          explanation:
+            '南西側が寒冷前線。',
+        },
+        {
+          id: 'sci2-frnt-q25',
+          question: '寒冷前線通過後の風向は？',
+          options: ['南寄り', '北寄り', '東寄り', '西寄り'],
+          correctIndex: 1,
+          explanation:
+            '北寄りの風に変わる。',
+        },
+        {
+          id: 'sci2-frnt-q26',
+          question: '温暖前線通過後の気温は？',
+          options: ['急低下', '上昇', '変わらない', '急上昇'],
+          correctIndex: 1,
+          explanation:
+            '気温が上昇する。',
+        },
+        {
+          id: 'sci2-frnt-q27',
+          question: '停滞前線の天気図記号は？',
+          options: ['三角形の線', '半円の線', '三角と半円が交互', '太い線'],
+          correctIndex: 2,
+          explanation:
+            '三角形と半円が交互に並んだ線。',
+        },
+        {
+          id: 'sci2-frnt-q28',
+          question: '温帯低気圧とは？',
+          options: ['熱帯の低気圧', '前線を伴う中緯度の低気圧', '前線のない低気圧', '台風のこと'],
+          correctIndex: 1,
+          explanation:
+            '中緯度で発生し前線を伴う。',
+        }
       ],
     },
     examples: {

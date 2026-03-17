@@ -47,23 +47,19 @@ export const proportion: Topic = {
     flashcards: [
       {
         id: 'math-g1-proportion-fc1',
-        front: '関数とは？',
-        back: '$x$ の値を決めると $y$ の値がただ1つ決まる関係',
+        front: '$x$ の値を決めると $y$ の値がただ1つ決まる関係', back: '関数とは？',
       },
       {
         id: 'math-g1-proportion-fc2',
-        front: '比例の式は？',
-        back: '$y = ax$（$a$ は比例定数）',
+        front: '$y = ax$（$a$ は比例定数）', back: '比例の式は？',
       },
       {
         id: 'math-g1-proportion-fc3',
-        front: '比例のグラフの特徴は？',
-        back: '原点を通る直線。$a > 0$ で右上がり、$a < 0$ で右下がり',
+        front: '原点を通る直線。$a > 0$ で右上がり、$a < 0$ で右下がり', back: '比例のグラフの特徴は？',
       },
       {
         id: 'math-g1-proportion-fc4',
-        front: '比例で $x$ が2倍になると $y$ は？',
-        back: '$y$ も2倍になる',
+        front: '$y$ も2倍になる', back: '比例で $x$ が2倍になると $y$ は？',
       },
     ],
     quiz: {

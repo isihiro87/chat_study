@@ -227,6 +227,86 @@ export const plantPhotosynthesis: Topic = {
         back: '気孔はどのように開いたり閉じたりするか？',
         explanation: '孔辺細胞が膨らむと気孔が開き、しぼむと閉じる。光が当たると開く傾向がある。',
       },
+      {
+        id: 'sci2-pp-fc13',
+        front: '光合成の原料',
+        back: 'CO₂と水',
+      },
+      {
+        id: 'sci2-pp-fc14',
+        front: '光合成の場所',
+        back: '葉緑体',
+      },
+      {
+        id: 'sci2-pp-fc15',
+        front: 'デンプン',
+        back: '光合成でつくられる有機物は？',
+      },
+      {
+        id: 'sci2-pp-fc16',
+        front: '光合成で発生する気体',
+        back: '酸素',
+      },
+      {
+        id: 'sci2-pp-fc17',
+        front: 'ヨウ素液の色変化',
+        back: 'デンプンに反応して青紫色',
+      },
+      {
+        id: 'sci2-pp-fc18',
+        front: 'エタノールで脱色する理由',
+        back: '緑色を脱色してヨウ素液の変化を見やすく',
+      },
+      {
+        id: 'sci2-pp-fc19',
+        front: '気孔',
+        back: '葉の三日月形の2つの細胞に囲まれたすきま',
+      },
+      {
+        id: 'sci2-pp-fc20',
+        front: '蒸散',
+        back: '気孔から水蒸気が出ていく現象',
+      },
+      {
+        id: 'sci2-pp-fc21',
+        front: '対照実験',
+        back: '調べたい条件だけ変え他を同じにする実験',
+      },
+      {
+        id: 'sci2-pp-fc22',
+        front: '孔辺細胞',
+        back: '気孔を囲む三日月形の細胞',
+      },
+      {
+        id: 'sci2-pp-fc23',
+        front: '蒸散が盛んな場所',
+        back: '葉の裏側。気孔が裏に多いため',
+      },
+      {
+        id: 'sci2-pp-fc24',
+        front: '植物の呼吸',
+        back: '昼も夜も常に行っている',
+      },
+      {
+        id: 'sci2-pp-fc25',
+        front: '夜間の植物',
+        back: '呼吸のみ。光合成は光がなく行われない',
+      },
+      {
+        id: 'sci2-pp-fc26',
+        front: 'ふ入りの葉の調べたい条件',
+        back: '葉緑体があるかないか',
+      },
+      {
+        id: 'sci2-pp-fc27',
+        front: 'エタノールの加熱法',
+        back: '湯せん。引火しやすいため直接火はNG',
+      },
+      {
+        id: 'sci2-pp-fc28',
+        front: '光合成の式',
+        back: 'CO₂+水→（光E）→デンプン+O₂',
+      }
     ],
     quiz: {
       questions: [
@@ -327,6 +407,158 @@ export const plantPhotosynthesis: Topic = {
           explanation:
             'ふ入りの葉は緑色の部分（葉緑体あり）と白い部分（葉緑体なし）があり、光合成に葉緑体が必要であることを確認する対照実験ができます。',
         },
+        {
+          id: 'sci2-pp-q10',
+          question: '光合成に必要なEは？',
+          options: ['化学', '電気', '光', '熱'],
+          correctIndex: 2,
+          explanation:
+            '光エネルギーが必要。',
+        },
+        {
+          id: 'sci2-pp-q11',
+          question: 'エタノール脱色の理由は？',
+          options: ['デンプン分解', '柔らかく', 'ヨウ素液の変化を見やすく', '水分除去'],
+          correctIndex: 2,
+          explanation:
+            '緑色を脱色。',
+        },
+        {
+          id: 'sci2-pp-q12',
+          question: '湯せんの理由は？',
+          options: ['温度正確', 'エタノール引火性', '葉保護', '均一脱色'],
+          correctIndex: 1,
+          explanation:
+            'エタノールは引火しやすい。',
+        },
+        {
+          id: 'sci2-pp-q13',
+          question: '蒸散は表裏どちらで盛ん？',
+          options: ['表', '裏', '同じ', '先端'],
+          correctIndex: 1,
+          explanation:
+            '裏に気孔が多い。',
+        },
+        {
+          id: 'sci2-pp-q14',
+          question: '夜間の植物は？',
+          options: ['光合成のみ', '呼吸のみ', '両方', '何もしない'],
+          correctIndex: 1,
+          explanation:
+            '光なく光合成なし。呼吸のみ。',
+        },
+        {
+          id: 'sci2-pp-q15',
+          question: '昼にO₂が多く出る理由は？',
+          options: ['昼は呼吸しない', '光合成のO₂放出>呼吸のO₂消費', '気孔が昼だけ開く', '温度が高い'],
+          correctIndex: 1,
+          explanation:
+            '光合成のO₂放出が呼吸消費を上回る。',
+        },
+        {
+          id: 'sci2-pp-q16',
+          question: 'ふの部分にヨウ素液→色は？',
+          options: ['青紫', '変化しない', '赤', '黄'],
+          correctIndex: 1,
+          explanation:
+            '葉緑体なくデンプンなし。',
+        },
+        {
+          id: 'sci2-pp-q17',
+          question: '気孔のはたらきでないのは？',
+          options: ['蒸散', 'CO₂取り入れ', 'O₂放出', '養分吸収'],
+          correctIndex: 3,
+          explanation:
+            '養分吸収は根。',
+        },
+        {
+          id: 'sci2-pp-q18',
+          question: '光合成の式で正しいのは？',
+          options: ['O₂+水→デンプン+CO₂', 'CO₂+水→デンプン+O₂', 'デンプン+O₂→CO₂+水', 'N₂+水→タンパク質'],
+          correctIndex: 1,
+          explanation:
+            'CO₂+水→デンプン+O₂。',
+        },
+        {
+          id: 'sci2-pp-q19',
+          question: 'アルミはく実験の調べたい条件は？',
+          options: ['葉緑体の有無', '光が当たるか', '水の有無', 'CO₂の有無'],
+          correctIndex: 1,
+          explanation:
+            '光が当たるかどうか。',
+        },
+        {
+          id: 'sci2-pp-q20',
+          question: '蒸散のはたらきは？',
+          options: ['光合成の原動力', '根の吸水の原動力', '養分合成を助ける', '気孔を閉じる'],
+          correctIndex: 1,
+          explanation:
+            '根からの吸水の原動力。',
+        },
+        {
+          id: 'sci2-pp-q21',
+          question: '植物の呼吸は？',
+          options: ['CO₂取り入れO₂出す', 'O₂取り入れCO₂出す', 'N₂取り入れO₂出す', '水蒸気取り入れCO₂出す'],
+          correctIndex: 1,
+          explanation:
+            'O₂取り入れCO₂出す。',
+        },
+        {
+          id: 'sci2-pp-q22',
+          question: '光合成は主にどの部分？',
+          options: ['根', '茎', '葉', '花'],
+          correctIndex: 2,
+          explanation:
+            '葉緑体をもつ葉で主に行われる。',
+        },
+        {
+          id: 'sci2-pp-q23',
+          question: 'デンプンある証拠の色は？',
+          options: ['赤', '黄', '青紫', '緑'],
+          correctIndex: 2,
+          explanation:
+            'ヨウ素液→青紫色。',
+        },
+        {
+          id: 'sci2-pp-q24',
+          question: '葉緑体必要の確認に使う葉は？',
+          options: ['枯れた葉', 'ふ入りの葉', '赤い葉', '小さい葉'],
+          correctIndex: 1,
+          explanation:
+            'ふの部分と緑の部分で比較。',
+        },
+        {
+          id: 'sci2-pp-q25',
+          question: '対照実験の定義は？',
+          options: ['全条件変えて比較', '調べたい条件だけ変え他同じ', '条件不変で繰り返し', 'ランダム'],
+          correctIndex: 1,
+          explanation:
+            '調べたい条件だけ変える。',
+        },
+        {
+          id: 'sci2-pp-q26',
+          question: '孔辺細胞とは？',
+          options: ['表皮細胞', '気孔を囲む三日月形の細胞', '葉肉細胞', '柔細胞'],
+          correctIndex: 1,
+          explanation:
+            '気孔を囲む三日月形の細胞。',
+        },
+        {
+          id: 'sci2-pp-q27',
+          question: '光合成が行われる細胞内器官は？',
+          options: ['核', '液胞', '葉緑体', '細胞壁'],
+          correctIndex: 2,
+          explanation:
+            '葉緑体で行われる。',
+        },
+        {
+          id: 'sci2-pp-q28',
+          question: '光合成で発生する気体は？',
+          options: ['CO₂', '水素', '窒素', '酸素'],
+          correctIndex: 3,
+          explanation:
+            '酸素が発生。',
+        }
       ],
     },
     examples: {

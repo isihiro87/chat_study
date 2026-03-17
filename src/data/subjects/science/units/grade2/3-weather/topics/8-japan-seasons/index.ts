@@ -131,6 +131,101 @@ export const japanSeasons: Topic = {
         back: 'コンピュータで大気の状態をシミュレーションして天気を予報する方法',
         explanation: '気温・気圧・風速などのデータをもとに計算して未来の天気を予測する。',
       },
+      {
+        id: 'sci2-jsea-fc10',
+        front: '西高東低',
+        back: '冬の典型的な気圧配置',
+      },
+      {
+        id: 'sci2-jsea-fc11',
+        front: '冬の日本海側',
+        back: '雪や雨が多い（大雪）',
+      },
+      {
+        id: 'sci2-jsea-fc12',
+        front: '冬の太平洋側',
+        back: '乾燥した晴天',
+      },
+      {
+        id: 'sci2-jsea-fc13',
+        front: '冬の日本海側に大雪のしくみ',
+        back: '北西季節風→日本海で水蒸気吸収→山脈で上昇→雪雲',
+      },
+      {
+        id: 'sci2-jsea-fc14',
+        front: '太平洋高気圧',
+        back: '夏に日本を覆う高気圧',
+      },
+      {
+        id: 'sci2-jsea-fc15',
+        front: '夏の天気',
+        back: '高温・多湿',
+      },
+      {
+        id: 'sci2-jsea-fc16',
+        front: '春秋の天気',
+        back: '移動性高気圧と低気圧が交互に通過→周期的変化',
+      },
+      {
+        id: 'sci2-jsea-fc17',
+        front: '梅雨前線',
+        back: '小笠原気団とオホーツク海気団の停滞前線',
+      },
+      {
+        id: 'sci2-jsea-fc18',
+        front: '台風',
+        back: '熱帯低気圧が発達し最大風速17m/s以上のもの',
+      },
+      {
+        id: 'sci2-jsea-fc19',
+        front: '台風のエネルギー源',
+        back: '暖かい海の水蒸気',
+      },
+      {
+        id: 'sci2-jsea-fc20',
+        front: '台風が東に向きを変える',
+        back: '偏西風の影響',
+      },
+      {
+        id: 'sci2-jsea-fc21',
+        front: '数値予報',
+        back: 'コンピュータで大気を計算して天気予報',
+      },
+      {
+        id: 'sci2-jsea-fc22',
+        front: 'ハザードマップ',
+        back: '災害危険地域を示した地図',
+      },
+      {
+        id: 'sci2-jsea-fc23',
+        front: '特別警報',
+        back: '重大な災害が予想されるときの警報',
+      },
+      {
+        id: 'sci2-jsea-fc24',
+        front: '秋雨前線',
+        back: '夏の終わりの停滞前線',
+      },
+      {
+        id: 'sci2-jsea-fc25',
+        front: 'シベリア高気圧',
+        back: '冬に西に位置する高気圧',
+      },
+      {
+        id: 'sci2-jsea-fc26',
+        front: '移動性高気圧',
+        back: '春秋に偏西風で移動する高気圧',
+      },
+      {
+        id: 'sci2-jsea-fc27',
+        front: '気象災害の例',
+        back: '大雨・台風・土砂崩れ',
+      },
+      {
+        id: 'sci2-jsea-fc28',
+        front: '気象のめぐみ',
+        back: '農業用水・生活用水・水力発電',
+      }
     ],
     quiz: {
       questions: [
@@ -215,6 +310,174 @@ export const japanSeasons: Topic = {
           explanation:
             '秋雨前線は夏の終わりから秋にかけて日本付近に停滞する前線で、梅雨前線と同じしくみでできます。',
         },
+        {
+          id: 'sci2-jsea-q8',
+          question: '冬の典型的な気圧配置は？',
+          options: ['南高北低', '西高東低', '東高西低', '北高南低'],
+          correctIndex: 1,
+          explanation:
+            '西高東低。',
+        },
+        {
+          id: 'sci2-jsea-q9',
+          question: '冬の日本海側の天気は？',
+          options: ['乾燥した晴天', '雪や雨が多い', '台風', '快晴'],
+          correctIndex: 1,
+          explanation:
+            '雪や雨が多い。',
+        },
+        {
+          id: 'sci2-jsea-q10',
+          question: '冬の太平洋側の天気は？',
+          options: ['大雪', '乾燥した晴天', '長雨', '台風'],
+          correctIndex: 1,
+          explanation:
+            '乾燥した晴天。',
+        },
+        {
+          id: 'sci2-jsea-q11',
+          question: '夏に日本を覆う高気圧は？',
+          options: ['シベリア高気圧', '太平洋高気圧', '移動性高気圧', 'オホーツク海高気圧'],
+          correctIndex: 1,
+          explanation:
+            '太平洋高気圧（小笠原高気圧）。',
+        },
+        {
+          id: 'sci2-jsea-q12',
+          question: '春秋の天気が周期的に変わる理由は？',
+          options: ['台風通過', '偏西風で高低気圧が交互に通過', '梅雨前線', '季節風'],
+          correctIndex: 1,
+          explanation:
+            '偏西風に乗って交互に通過。',
+        },
+        {
+          id: 'sci2-jsea-q13',
+          question: '梅雨前線の原因の2つの気団は？',
+          options: ['シベリアと小笠原', '小笠原とオホーツク海', 'シベリアとオホーツク海', '揚子江と小笠原'],
+          correctIndex: 1,
+          explanation:
+            '小笠原気団とオホーツク海気団。',
+        },
+        {
+          id: 'sci2-jsea-q14',
+          question: '台風の定義は？',
+          options: ['温帯低気圧', '熱帯低気圧が発達し最大風速17m/s以上', '前線を伴う低気圧', '大雨を伴う低気圧'],
+          correctIndex: 1,
+          explanation:
+            '熱帯低気圧で最大風速17m/s以上。',
+        },
+        {
+          id: 'sci2-jsea-q15',
+          question: '台風のエネルギー源は？',
+          options: ['偏西風', '暖かい海の水蒸気', '地熱', '太陽光'],
+          correctIndex: 1,
+          explanation:
+            '暖かい海の水蒸気。',
+        },
+        {
+          id: 'sci2-jsea-q16',
+          question: '台風が日本付近で東に向きを変えるのは？',
+          options: ['季節風', '偏西風', '海流', '地球の自転'],
+          correctIndex: 1,
+          explanation:
+            '偏西風の影響。',
+        },
+        {
+          id: 'sci2-jsea-q17',
+          question: '数値予報とは？',
+          options: ['人の経験で予報', 'コンピュータで大気を計算して予報', '衛星写真で予報', '動物の行動で予報'],
+          correctIndex: 1,
+          explanation:
+            'コンピュータで計算。',
+        },
+        {
+          id: 'sci2-jsea-q18',
+          question: 'ハザードマップとは？',
+          options: ['天気図', '災害危険地域を示した地図', '観光地図', '地質図'],
+          correctIndex: 1,
+          explanation:
+            '災害危険地域の地図。',
+        },
+        {
+          id: 'sci2-jsea-q19',
+          question: '冬に日本海側に大雪が降るしくみは？',
+          options: ['太平洋からの風', '北西季節風が日本海で水蒸気→山脈で上昇→雪', '台風', '前線の停滞'],
+          correctIndex: 1,
+          explanation:
+            '北西季節風→日本海→山脈→雪雲→大雪。',
+        },
+        {
+          id: 'sci2-jsea-q20',
+          question: '秋雨前線ができるしくみは梅雨前線と？',
+          options: ['異なる', '同じ', '逆', '無関係'],
+          correctIndex: 1,
+          explanation:
+            '同じしくみ（停滞前線）。',
+        },
+        {
+          id: 'sci2-jsea-q21',
+          question: '移動性高気圧が通過すると天気は？',
+          options: ['雨', '晴れ', 'くもり', '雪'],
+          correctIndex: 1,
+          explanation:
+            '高気圧→晴れ。',
+        },
+        {
+          id: 'sci2-jsea-q22',
+          question: '夏に南東の季節風が湿っている理由は？',
+          options: ['大陸を通る', '太平洋で水蒸気吸収', '山を越える', '冷たい海流'],
+          correctIndex: 1,
+          explanation:
+            '太平洋上で水蒸気を吸収。',
+        },
+        {
+          id: 'sci2-jsea-q23',
+          question: '冬に西に位置する高気圧は？',
+          options: ['太平洋高気圧', 'シベリア高気圧', '移動性高気圧', 'オホーツク海高気圧'],
+          correctIndex: 1,
+          explanation:
+            'シベリア高気圧。',
+        },
+        {
+          id: 'sci2-jsea-q24',
+          question: '気象災害の例として正しいのは？',
+          options: ['地震', '津波', '大雨による河川氾濫', '火山噴火'],
+          correctIndex: 2,
+          explanation:
+            '大雨・台風・土砂崩れなど。',
+        },
+        {
+          id: 'sci2-jsea-q25',
+          question: '特別警報とは？',
+          options: ['軽い注意', '重大な災害が予想される警報', '天気予報', '避難完了の報告'],
+          correctIndex: 1,
+          explanation:
+            '重大な災害が予想されるとき発表。',
+        },
+        {
+          id: 'sci2-jsea-q26',
+          question: '梅雨前線はどのような前線？',
+          options: ['寒冷前線', '温暖前線', '停滞前線', '閉そく前線'],
+          correctIndex: 2,
+          explanation:
+            '停滞前線。',
+        },
+        {
+          id: 'sci2-jsea-q27',
+          question: '夏の天気の特徴は？',
+          options: ['寒冷乾燥', '高温多湿', '涼しく乾燥', '低温多湿'],
+          correctIndex: 1,
+          explanation:
+            '高温・多湿。',
+        },
+        {
+          id: 'sci2-jsea-q28',
+          question: '春秋に日本を交互に通過するものは？',
+          options: ['台風と前線', '移動性高気圧と低気圧', 'シベリア気団と小笠原気団', '寒冷前線と温暖前線'],
+          correctIndex: 1,
+          explanation:
+            '移動性高気圧と低気圧。',
+        }
       ],
     },
     examples: {

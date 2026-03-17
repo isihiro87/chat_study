@@ -66,93 +66,115 @@ export const quadEqBasics: Topic = {
     flashcards: [
       {
         id: 'math-g3-qeb-fc1',
-        front: '二次方程式とは？',
-        back: 'xの2乗を含む方程式。標準形は ax² + bx + c = 0（a ≠ 0）',
+        front: 'xの2乗を含む方程式。標準形は ax² + bx + c = 0（a ≠ 0）', back: '二次方程式とは？',
       },
       {
         id: 'math-g3-qeb-fc2',
-        front: '二次方程式の「解」とは？',
-        back: '方程式を成り立たせるxの値のこと',
+        front: '方程式を成り立たせるxの値のこと', back: '二次方程式の「解」とは？',
       },
       {
         id: 'math-g3-qeb-fc3',
-        front: '二次方程式の標準形',
-        back: 'ax² + bx + c = 0（a ≠ 0）',
+        front: 'ax² + bx + c = 0（a ≠ 0）', back: '二次方程式の標準形',
       },
       {
         id: 'math-g3-qeb-fc4',
-        front: '二次方程式の解は最大いくつ？',
-        back: '最大2つ',
+        front: '最大2つ', back: '二次方程式の解は最大いくつ？',
       },
       {
         id: 'math-g3-qeb-fc5',
-        front: 'x² = k（k > 0）の解は？',
-        back: 'x = ±√k（2つの解）',
+        front: 'x = ±√k（2つの解）', back: 'x² = k（k > 0）の解は？',
       },
       {
         id: 'math-g3-qeb-fc6',
-        front: 'x² = k で k = 0 のとき解は？',
-        back: 'x = 0（解は1つ）',
+        front: 'x = 0（解は1つ）', back: 'x² = k で k = 0 のとき解は？',
       },
       {
         id: 'math-g3-qeb-fc7',
-        front: 'x² = k で k < 0 のとき解は？',
-        back: '解なし（2乗して負にはならない）',
+        front: '解なし（2乗して負にはならない）', back: 'x² = k で k < 0 のとき解は？',
       },
       {
         id: 'math-g3-qeb-fc8',
-        front: '± の読み方は？',
-        back: 'プラスマイナス。正と負の両方を表す記号',
+        front: 'プラスマイナス。正と負の両方を表す記号', back: '± の読み方は？',
       },
       {
         id: 'math-g3-qeb-fc9',
-        front: 'ax² = b の解き方は？',
-        back: 'x² = b/a にしてから x = ±√(b/a)',
+        front: 'x² = b/a にしてから x = ±√(b/a)', back: 'ax² = b の解き方は？',
       },
       {
         id: 'math-g3-qeb-fc10',
-        front: '(x + m)² = n の解き方は？',
-        back: 'x + m = ±√n → x = −m ± √n',
+        front: 'x + m = ±√n → x = −m ± √n', back: '(x + m)² = n の解き方は？',
       },
       {
         id: 'math-g3-qeb-fc11',
-        front: '平方根とは？',
-        back: '2乗すると a になる数のこと（a の平方根）',
+        front: '2乗すると a になる数のこと（a の平方根）', back: '平方根とは？',
       },
       {
         id: 'math-g3-qeb-fc12',
-        front: 'a = 0 だと ax²+bx+c=0 はどうなる？',
-        back: 'x²の項が消えて一次方程式になる',
+        front: 'x²の項が消えて一次方程式になる', back: 'a = 0 だと ax²+bx+c=0 はどうなる？',
       },
       {
         id: 'math-g3-qeb-fc13',
-        front: '3x² = 27 の解は？',
-        back: 'x² = 9 より x = ±3',
+        front: 'x² = 9 より x = ±3', back: '3x² = 27 の解は？',
       },
       {
         id: 'math-g3-qeb-fc14',
-        front: '(x − 3)² = 5 の解は？',
-        back: 'x = 3 ± √5',
+        front: 'x = 3 ± √5', back: '(x − 3)² = 5 の解は？',
       },
       {
         id: 'math-g3-qeb-fc15',
-        front: '4x² = 1 の解は？',
-        back: 'x² = 1/4 より x = ±1/2',
+        front: 'x² = 1/4 より x = ±1/2', back: '4x² = 1 の解は？',
       },
       {
         id: 'math-g3-qeb-fc16',
-        front: '二次方程式で ± を忘れるとどうなる？',
-        back: '解が1つしか求まらず、不正解になる',
+        front: '解が1つしか求まらず、不正解になる', back: '二次方程式で ± を忘れるとどうなる？',
       },
       {
         id: 'math-g3-qeb-fc17',
-        front: '「二次」とは何の次数が2？',
-        back: 'xの最高次数が2であること',
+        front: 'xの最高次数が2であること', back: '「二次」とは何の次数が2？',
       },
       {
         id: 'math-g3-qeb-fc18',
-        front: '(x + 2)² = 9 の解は？',
-        back: 'x + 2 = ±3 より x = 1 または x = −5',
+        front: 'x + 2 = ±3 より x = 1 または x = −5', back: '(x + 2)² = 9 の解は？',
+      },
+      {
+        id: 'math-g3-qeb-fc19',
+        front: 'x = ±√7', back: 'x² = 7 の解は？',
+      },
+      {
+        id: 'math-g3-qeb-fc20',
+        front: 'x = −1 ± √6', back: '(x + 1)² = 6 の解は？',
+      },
+      {
+        id: 'math-g3-qeb-fc21',
+        front: 'x² = k の形にして k > 0 か確認する', back: '二次方程式に解があるかの判定法は？',
+      },
+      {
+        id: 'math-g3-qeb-fc22',
+        front: 'x = ±2√3（√12 = 2√3）', back: 'x² = 12 の解は？',
+      },
+      {
+        id: 'math-g3-qeb-fc23',
+        front: 'x = 5 ± √3', back: '(x − 5)² = 3 の解は？',
+      },
+      {
+        id: 'math-g3-qeb-fc24',
+        front: 'x² = 2/3 より x = ±√(2/3) = ±√6/3', back: '3x² = 2 の解は？',
+      },
+      {
+        id: 'math-g3-qeb-fc25',
+        front: '平方根をとること。x² = k → x = ±√k', back: '二次方程式の基本的な解き方は？',
+      },
+      {
+        id: 'math-g3-qeb-fc26',
+        front: 'x − 4 = ±√7 より x = 4 ± √7', back: '(x − 4)² = 7 の解は？',
+      },
+      {
+        id: 'math-g3-qeb-fc27',
+        front: 'x = ±3√2（√18 = 3√2）', back: '2x² = 36 の解は？（ルートを簡単に）',
+      },
+      {
+        id: 'math-g3-qeb-fc28',
+        front: 'x + 3 = ±2 より x = −1 または x = −5', back: '(x + 3)² = 4 の解は？',
       },
     ],
     quiz: {
@@ -272,6 +294,204 @@ export const quadEqBasics: Topic = {
           correctIndex: 2,
           explanation:
             '$(x-4)^2 = 16$ より $x-4 = \\pm 4$。$x-4=4$ で $x=8$、$x-4=-4$ で $x=0$ だよ。',
+        },
+        {
+          id: 'math-g3-qeb-q13',
+          question: '$x^2 = 7$ の解は？',
+          options: ['$x = 7$', '$x = \\pm 7$', '$x = \\pm \\sqrt{7}$', '$x = \\sqrt{7}$'],
+          correctIndex: 2,
+          explanation:
+            '$x = \\pm\\sqrt{7}$。7は完全平方数でないのでルートのままだよ。',
+        },
+        {
+          id: 'math-g3-qeb-q14',
+          question: '$(x + 1)^2 = 6$ の解は？',
+          options: [
+            '$x = -1 \\pm \\sqrt{6}$',
+            '$x = 1 \\pm \\sqrt{6}$',
+            '$x = \\pm \\sqrt{5}$',
+            '$x = -1 \\pm 6$',
+          ],
+          correctIndex: 0,
+          explanation:
+            '$x + 1 = \\pm\\sqrt{6}$ より $x = -1 \\pm \\sqrt{6}$ だよ。',
+        },
+        {
+          id: 'math-g3-qeb-q15',
+          question: '$x^2 = 12$ の解は？（√を簡単に）',
+          options: [
+            '$x = \\pm 12$',
+            '$x = \\pm 2\\sqrt{3}$',
+            '$x = \\pm 3\\sqrt{2}$',
+            '$x = \\pm 6$',
+          ],
+          correctIndex: 1,
+          explanation:
+            '$x = \\pm\\sqrt{12} = \\pm\\sqrt{4 \\times 3} = \\pm 2\\sqrt{3}$ だよ。',
+        },
+        {
+          id: 'math-g3-qeb-q16',
+          question: '$(x - 5)^2 = 3$ の解は？',
+          options: [
+            '$x = 5 \\pm 3$',
+            '$x = -5 \\pm \\sqrt{3}$',
+            '$x = 5 \\pm \\sqrt{3}$',
+            '$x = \\pm \\sqrt{8}$',
+          ],
+          correctIndex: 2,
+          explanation:
+            '$x - 5 = \\pm\\sqrt{3}$ より $x = 5 \\pm \\sqrt{3}$ だよ。',
+        },
+        {
+          id: 'math-g3-qeb-q17',
+          question: '$3x^2 = 2$ の解は？',
+          options: [
+            '$x = \\pm \\frac{2}{3}$',
+            '$x = \\pm \\sqrt{\\frac{2}{3}}$',
+            '$x = \\pm \\frac{\\sqrt{6}}{3}$',
+            '$x = \\pm \\sqrt{6}$',
+          ],
+          correctIndex: 2,
+          explanation:
+            '$x^2 = \\frac{2}{3}$ より $x = \\pm\\sqrt{\\frac{2}{3}} = \\pm\\frac{\\sqrt{6}}{3}$ だよ。',
+        },
+        {
+          id: 'math-g3-qeb-q18',
+          question: '$(x + 3)^2 = 4$ の解は？',
+          options: [
+            '$x = -1, x = -5$',
+            '$x = 1, x = 5$',
+            '$x = 1, x = -7$',
+            '$x = -1, x = 5$',
+          ],
+          correctIndex: 0,
+          explanation:
+            '$x + 3 = \\pm 2$。$x = -3+2 = -1$ または $x = -3-2 = -5$ だよ。',
+        },
+        {
+          id: 'math-g3-qeb-q19',
+          question: '$2x^2 = 36$ の解は？（√を簡単に）',
+          options: [
+            '$x = \\pm 6$',
+            '$x = \\pm 18$',
+            '$x = \\pm 3\\sqrt{2}$',
+            '$x = \\pm \\sqrt{18}$',
+          ],
+          correctIndex: 2,
+          explanation:
+            '$x^2 = 18$ より $x = \\pm\\sqrt{18} = \\pm 3\\sqrt{2}$ だよ。',
+        },
+        {
+          id: 'math-g3-qeb-q20',
+          question: '$(x - 4)^2 = 7$ の解は？',
+          options: [
+            '$x = 4 \\pm 7$',
+            '$x = -4 \\pm \\sqrt{7}$',
+            '$x = 4 \\pm \\sqrt{7}$',
+            '$x = \\pm \\sqrt{11}$',
+          ],
+          correctIndex: 2,
+          explanation:
+            '$x - 4 = \\pm\\sqrt{7}$ より $x = 4 \\pm \\sqrt{7}$ だよ。',
+        },
+        {
+          id: 'math-g3-qeb-q21',
+          question: '$x^2 - 50 = 0$ の解は？',
+          options: [
+            '$x = \\pm 50$',
+            '$x = \\pm 5\\sqrt{2}$',
+            '$x = \\pm 25$',
+            '$x = \\pm 10$',
+          ],
+          correctIndex: 1,
+          explanation:
+            '$x^2 = 50$ より $x = \\pm\\sqrt{50} = \\pm 5\\sqrt{2}$ だよ。',
+        },
+        {
+          id: 'math-g3-qeb-q22',
+          question: '$(x + 6)^2 = 0$ の解は？',
+          options: [
+            '$x = 6$',
+            '$x = -6$',
+            '$x = 0$',
+            '$x = \\pm 6$',
+          ],
+          correctIndex: 1,
+          explanation:
+            '$(x+6)^2 = 0$ より $x+6 = 0$、$x = -6$。解は1つだよ。',
+        },
+        {
+          id: 'math-g3-qeb-q23',
+          question: '$\\frac{1}{2}x^2 = 8$ の解は？',
+          options: [
+            '$x = \\pm 2$',
+            '$x = \\pm 16$',
+            '$x = \\pm 4$',
+            '$x = \\pm 8$',
+          ],
+          correctIndex: 2,
+          explanation:
+            '$x^2 = 16$ より $x = \\pm 4$ だよ。',
+        },
+        {
+          id: 'math-g3-qeb-q24',
+          question: '$(x - 2)^2 = 12$ の解は？（√を簡単に）',
+          options: [
+            '$x = 2 \\pm 2\\sqrt{3}$',
+            '$x = -2 \\pm 2\\sqrt{3}$',
+            '$x = 2 \\pm \\sqrt{12}$',
+            '$x = 2 \\pm 3\\sqrt{2}$',
+          ],
+          correctIndex: 0,
+          explanation:
+            '$x - 2 = \\pm\\sqrt{12} = \\pm 2\\sqrt{3}$ より $x = 2 \\pm 2\\sqrt{3}$ だよ。',
+        },
+        {
+          id: 'math-g3-qeb-q25',
+          question: '二次方程式の解が最大いくつあるか？',
+          options: ['$1$つ', '$2$つ', '$3$つ', '無限にある'],
+          correctIndex: 1,
+          explanation:
+            '二次方程式の解は最大2つ。k>0で2つ、k=0で1つ、k<0で0個だよ。',
+        },
+        {
+          id: 'math-g3-qeb-q26',
+          question: '$3(x + 2)^2 = 48$ の解は？',
+          options: [
+            '$x = 2, x = -6$',
+            '$x = -2 \\pm 4$',
+            '$x = 2, x = 6$',
+            '$x = -6, x = 2$',
+          ],
+          correctIndex: 0,
+          explanation:
+            '$(x+2)^2 = 16$ より $x+2 = \\pm 4$。$x = 2$ または $x = -6$ だよ。',
+        },
+        {
+          id: 'math-g3-qeb-q27',
+          question: '$x^2 + 5 = 0$ の解は？',
+          options: [
+            '$x = \\pm \\sqrt{5}$',
+            '$x = -5$',
+            '解なし',
+            '$x = \\pm 5$',
+          ],
+          correctIndex: 2,
+          explanation:
+            '$x^2 = -5$ となり、2乗して負にはならないので解なし。',
+        },
+        {
+          id: 'math-g3-qeb-q28',
+          question: '$(x + 7)^2 = 49$ の解は？',
+          options: [
+            '$x = 0, x = -14$',
+            '$x = 0, x = 14$',
+            '$x = 7, x = -7$',
+            '$x = -7, x = -14$',
+          ],
+          correctIndex: 0,
+          explanation:
+            '$x + 7 = \\pm 7$。$x = 0$ または $x = -14$ だよ。',
         },
       ],
     },

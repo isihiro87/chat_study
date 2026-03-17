@@ -235,6 +235,56 @@ export const massConservation: Topic = {
         back: '砂糖を水に溶かしたとき、全体の質量は変わるか？',
         explanation: '変わらない。物理変化（溶解）でも質量保存の法則は成り立つ。',
       },
+      {
+        id: 'sci2-mcon-fc19',
+        front: '質量保存の法則',
+        back: '化学変化の前後で物質全体の質量が変わらない法則は？',
+      },
+      {
+        id: 'sci2-mcon-fc20',
+        front: 'ラボアジエ',
+        back: '質量保存の法則を発見したフランスの科学者は？',
+      },
+      {
+        id: 'sci2-mcon-fc21',
+        front: '定比例の法則',
+        back: '反応する物質の質量比が一定である法則は？',
+      },
+      {
+        id: 'sci2-mcon-fc22',
+        front: 'プルースト',
+        back: '定比例の法則を提唱した科学者は？',
+      },
+      {
+        id: 'sci2-mcon-fc23',
+        front: '銅:酸素=4:1',
+        back: '銅と酸素の化合の質量比は？',
+      },
+      {
+        id: 'sci2-mcon-fc24',
+        front: 'Mg:O=3:2',
+        back: 'マグネシウムと酸素の化合の質量比は？',
+      },
+      {
+        id: 'sci2-mcon-fc25',
+        front: '開放系で質量減少の理由',
+        back: '気体発生反応をふたなし容器で行うと質量が減る理由は？',
+      },
+      {
+        id: 'sci2-mcon-fc26',
+        front: 'スチールウールの質量増加理由',
+        back: 'スチールウール燃焼後に質量が増加する理由は？',
+      },
+      {
+        id: 'sci2-mcon-fc27',
+        front: '銅粉の加熱と色変化',
+        back: '銅粉を加熱すると色はどう変わる？',
+      },
+      {
+        id: 'sci2-mcon-fc28',
+        front: '何回も加熱を繰り返す理由',
+        back: '金属粉末を何回も加熱する理由は？',
+      }
     ],
     quiz: {
       questions: [
@@ -347,6 +397,134 @@ export const massConservation: Topic = {
           correctIndex: 1,
           explanation: 'Mg:O=3:2よりMg9gに必要な酸素=9×2/3=6g。酸素8gのうち6gが反応し2g余る。',
         },
+        {
+          id: 'sci2-mcon-q13',
+          question: '質量保存の法則の発見者は？',
+          options: ['ドルトン', 'プルースト', 'ラボアジエ', 'アボガドロ'],
+          correctIndex: 2,
+          explanation:
+            'ラボアジエが発見しました。',
+        },
+        {
+          id: 'sci2-mcon-q14',
+          question: '銅0.8g完全酸化→結合O何g？（4:1）',
+          options: ['0.1g', '0.2g', '0.4g', '0.8g'],
+          correctIndex: 1,
+          explanation:
+            '0.8÷4×1=0.2g',
+        },
+        {
+          id: 'sci2-mcon-q15',
+          question: 'Mg0.6g完全酸化→MgO何g？（3:2）',
+          options: ['0.8g', '0.9g', '1.0g', '1.2g'],
+          correctIndex: 2,
+          explanation:
+            '0.6+0.4=1.0g',
+        },
+        {
+          id: 'sci2-mcon-q16',
+          question: '密閉容器で化学変化→全体質量は？',
+          options: ['増加', '減少', '変わらない', '反応次第'],
+          correctIndex: 2,
+          explanation:
+            '質量保存の法則により不変。',
+        },
+        {
+          id: 'sci2-mcon-q17',
+          question: 'ふたなし容器でNaHCO₃+HCl→質量減の理由？',
+          options: ['水蒸発', 'CO₂が逃げる', 'HCl分解', '容器が軽く'],
+          correctIndex: 1,
+          explanation:
+            'CO₂が空気中に逃げるため。',
+        },
+        {
+          id: 'sci2-mcon-q18',
+          question: '銅粉の加熱繰り返し→質量増加停止の理由？',
+          options: ['温度不足', 'すべて酸化銅に', 'O₂不足', '銅が蒸発'],
+          correctIndex: 1,
+          explanation:
+            'すべて酸化銅になったため。',
+        },
+        {
+          id: 'sci2-mcon-q19',
+          question: '銅1.6g+O₂ 0.5g→残るもの？（4:1）',
+          options: ['銅0.1g', 'O₂ 0.1g', '銅0.2g', 'O₂ 0.2g'],
+          correctIndex: 1,
+          explanation:
+            '銅1.6gに結合O=0.4g。O₂残り0.1g。',
+        },
+        {
+          id: 'sci2-mcon-q20',
+          question: '定比例の法則の提唱者は？',
+          options: ['ラボアジエ', 'プルースト', 'ドルトン', 'ニュートン'],
+          correctIndex: 1,
+          explanation:
+            'プルーストが提唱。',
+        },
+        {
+          id: 'sci2-mcon-q21',
+          question: '銅2.0g完全酸化→CuO何g？（4:1）',
+          options: ['2.0g', '2.5g', '3.0g', '4.0g'],
+          correctIndex: 1,
+          explanation:
+            'O=0.5g。CuO=2.5g。',
+        },
+        {
+          id: 'sci2-mcon-q22',
+          question: '質量保存が成り立つ理由は？',
+          options: ['温度不変', '体積不変', '原子の種類と数不変', '分子数不変'],
+          correctIndex: 2,
+          explanation:
+            '原子の種類と数が変わらないため。',
+        },
+        {
+          id: 'sci2-mcon-q23',
+          question: 'Mg加熱→色の変化は？',
+          options: ['白→黒', '銀白→白', '赤→黒', '黒→白'],
+          correctIndex: 1,
+          explanation:
+            '銀白色→白色の酸化Mgに。',
+        },
+        {
+          id: 'sci2-mcon-q24',
+          question: 'BaSO₄沈殿前後の密閉容器質量は？',
+          options: ['増加', '減少', '変わらない', '沈殿分増加'],
+          correctIndex: 2,
+          explanation:
+            '質量保存で不変。',
+        },
+        {
+          id: 'sci2-mcon-q25',
+          question: 'Mg1.2g完全酸化→MgO何g？（3:2）',
+          options: ['1.6g', '1.8g', '2.0g', '2.4g'],
+          correctIndex: 2,
+          explanation:
+            'O=0.8g。MgO=2.0g。',
+        },
+        {
+          id: 'sci2-mcon-q26',
+          question: '開放系で質量減少しても質量保存は成り立つ？',
+          options: ['成り立たない', '成り立つ', '条件次第', '部分的'],
+          correctIndex: 1,
+          explanation:
+            '逃げた気体含めれば全体不変。',
+        },
+        {
+          id: 'sci2-mcon-q27',
+          question: '金属粉末をかき混ぜて加熱する理由は？',
+          options: ['温度均一化', '空気接触面増', '固まり防止', '反応減速'],
+          correctIndex: 1,
+          explanation:
+            '空気との接触面を増やすため。',
+        },
+        {
+          id: 'sci2-mcon-q28',
+          question: 'CuO5.0g中のCu何g？（4:1）',
+          options: ['3.0g', '3.5g', '4.0g', '4.5g'],
+          correctIndex: 2,
+          explanation:
+            '5.0×4/5=4.0g。',
+        }
       ],
     },
     examples: {

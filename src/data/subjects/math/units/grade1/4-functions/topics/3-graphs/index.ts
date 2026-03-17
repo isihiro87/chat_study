@@ -56,23 +56,19 @@ export const funcGraphs: Topic = {
     flashcards: [
       {
         id: 'math-g1-graphs-fc1',
-        front: 'グラフから比例の式を求めるには？',
-        back: 'グラフ上の点 $(x, y)$ を読み取り、$a = \\frac{y}{x}$ で比例定数を求める',
+        front: 'グラフ上の点 $(x, y)$ を読み取り、$a = \\frac{y}{x}$ で比例定数を求める', back: 'グラフから比例の式を求めるには？',
       },
       {
         id: 'math-g1-graphs-fc2',
-        front: '速さ一定のとき、道のりと時間はどんな関係？',
-        back: '比例の関係（道のり $= $ 速さ $\\times$ 時間）',
+        front: '比例の関係（道のり $= $ 速さ $\\times$ 時間）', back: '速さ一定のとき、道のりと時間はどんな関係？',
       },
       {
         id: 'math-g1-graphs-fc3',
-        front: '面積一定の長方形で縦と横はどんな関係？',
-        back: '反比例の関係（縦 $\\times$ 横 $=$ 面積で積が一定）',
+        front: '反比例の関係（縦 $\\times$ 横 $=$ 面積で積が一定）', back: '面積一定の長方形で縦と横はどんな関係？',
       },
       {
         id: 'math-g1-graphs-fc4',
-        front: '比例か反比例かの見分け方は？',
-        back: '$\\frac{y}{x}$ が一定なら比例、$xy$ が一定なら反比例',
+        front: '$\\frac{y}{x}$ が一定なら比例、$xy$ が一定なら反比例', back: '比例か反比例かの見分け方は？',
       },
     ],
     quiz: {

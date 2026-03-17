@@ -71,88 +71,115 @@ export const quadFuncParabola: Topic = {
     flashcards: [
       {
         id: 'math-g3-qf-pb-fc1',
-        front: '$y = ax^2$ の関係を何というか？',
-        back: '$y$ は $x$ の2乗に比例する（$a$ は比例定数、$a \\neq 0$）',
+        front: '$y$ は $x$ の2乗に比例する（$a$ は比例定数、$a \\neq 0$）', back: '$y = ax^2$ の関係を何というか？',
       },
       {
         id: 'math-g3-qf-pb-fc2',
-        front: '$y = ax^2$ のグラフの名前は？',
-        back: '放物線（ほうぶつせん）',
+        front: '放物線（ほうぶつせん）', back: '$y = ax^2$ のグラフの名前は？',
       },
       {
         id: 'math-g3-qf-pb-fc3',
-        front: '$y = ax^2$ の $a$ のことを何という？',
-        back: '比例定数（ひれいていすう）',
+        front: '比例定数（ひれいていすう）', back: '$y = ax^2$ の $a$ のことを何という？',
       },
       {
         id: 'math-g3-qf-pb-fc4',
-        front: '$y = ax^2$ のグラフの対称軸は？',
-        back: '$y$ 軸（$x = 0$ の直線）',
+        front: '$y$ 軸（$x = 0$ の直線）', back: '$y = ax^2$ のグラフの対称軸は？',
       },
       {
         id: 'math-g3-qf-pb-fc5',
-        front: '$y = ax^2$ のグラフの頂点は？',
-        back: '原点 $(0, 0)$',
+        front: '原点 $(0, 0)$', back: '$y = ax^2$ のグラフの頂点は？',
       },
       {
         id: 'math-g3-qf-pb-fc6',
-        front: '$a > 0$ のとき、放物線はどちらに開く？',
-        back: '上に開く（U字型）',
+        front: '上に開く（U字型）', back: '$a > 0$ のとき、放物線はどちらに開く？',
       },
       {
         id: 'math-g3-qf-pb-fc7',
-        front: '$a < 0$ のとき、放物線はどちらに開く？',
-        back: '下に開く（$\\cap$字型）',
+        front: '下に開く（$\\cap$字型）', back: '$a < 0$ のとき、放物線はどちらに開く？',
       },
       {
         id: 'math-g3-qf-pb-fc8',
-        front: '$|a|$ が大きいとき、放物線の開き方はどうなる？',
-        back: '細くなる（急になる）',
+        front: '細くなる（急になる）', back: '$|a|$ が大きいとき、放物線の開き方はどうなる？',
       },
       {
         id: 'math-g3-qf-pb-fc9',
-        front: '$|a|$ が小さいとき、放物線の開き方はどうなる？',
-        back: '広くなる（ゆるやかになる）',
+        front: '広くなる（ゆるやかになる）', back: '$|a|$ が小さいとき、放物線の開き方はどうなる？',
       },
       {
         id: 'math-g3-qf-pb-fc10',
-        front: '$y = ax^2$ で $x$ が2倍になると $y$ は何倍？',
-        back: '4倍（$2^2 = 4$）',
+        front: '4倍（$2^2 = 4$）', back: '$y = ax^2$ で $x$ が2倍になると $y$ は何倍？',
       },
       {
         id: 'math-g3-qf-pb-fc11',
-        front: '$y = ax^2$ で $x$ が3倍になると $y$ は何倍？',
-        back: '9倍（$3^2 = 9$）',
+        front: '9倍（$3^2 = 9$）', back: '$y = ax^2$ で $x$ が3倍になると $y$ は何倍？',
       },
       {
         id: 'math-g3-qf-pb-fc12',
-        front: '放物線が $y$ 軸対称である理由を式で説明すると？',
-        back: '$y = a(-x)^2 = ax^2$ となり、$x$ を $-x$ に置き換えても式が変わらないから。',
+        front: '$y = a(-x)^2 = ax^2$ となり、$x$ を $-x$ に置き換えても式が変わらないから。', back: '放物線が $y$ 軸対称である理由を式で説明すると？',
       },
       {
         id: 'math-g3-qf-pb-fc13',
-        front: '比例定数 $a$ の求め方は？',
-        back: '$y = ax^2$ に通る点 $(x, y)$ を代入して $a = y \\div x^2$ で求める。',
+        front: '$y = ax^2$ に通る点 $(x, y)$ を代入して $a = y \\div x^2$ で求める。', back: '比例定数 $a$ の求め方は？',
       },
       {
         id: 'math-g3-qf-pb-fc14',
-        front: '$y = x^2$ と $y = 3x^2$ ではどちらが細いグラフ？',
-        back: '$y = 3x^2$（$|a|$ が大きいほど細い）',
+        front: '$y = 3x^2$（$|a|$ が大きいほど細い）', back: '$y = x^2$ と $y = 3x^2$ ではどちらが細いグラフ？',
       },
       {
         id: 'math-g3-qf-pb-fc15',
-        front: '比例 $y = ax$ と $y = ax^2$ の違いは？',
-        back: '比例は直線のグラフ、$y = ax^2$ は放物線（曲線）のグラフになる。',
+        front: '比例は直線のグラフ、$y = ax^2$ は放物線（曲線）のグラフになる。', back: '比例 $y = ax$ と $y = ax^2$ の違いは？',
       },
       {
         id: 'math-g3-qf-pb-fc16',
-        front: '$y = ax^2$ のグラフで、$x$ と $-x$ の $y$ の値はどうなる？',
-        back: '等しくなる（$a \\cdot x^2 = a \\cdot (-x)^2$）',
+        front: '等しくなる（$a \\cdot x^2 = a \\cdot (-x)^2$）', back: '$y = ax^2$ のグラフで、$x$ と $-x$ の $y$ の値はどうなる？',
       },
       {
         id: 'math-g3-qf-pb-fc17',
-        front: '正方形の1辺 $x$ cm と面積 $y$ cm² の関係式は？',
-        back: '$y = x^2$（$y$ は $x$ の2乗に比例、$a = 1$）',
+        front: '$y = x^2$（$y$ は $x$ の2乗に比例、$a = 1$）', back: '正方形の1辺 $x$ cm と面積 $y$ cm² の関係式は？',
+      },
+      {
+        id: 'math-g3-qf-pb-fc18',
+        front: '$a = -\\frac{2}{3}$。$-6 = a \\times 9$ より。', back: '放物線 $y = ax^2$ が点 $(3, -6)$ を通る。$a$ は？',
+      },
+      {
+        id: 'math-g3-qf-pb-fc19',
+        front: '$y = -50$。$-2 \\times (-5)^2 = -2 \\times 25 = -50$。', back: '$y = -2x^2$ で $x = -5$ のとき $y$ は？',
+      },
+      {
+        id: 'math-g3-qf-pb-fc20',
+        front: '$n^2$ 倍になる。$y = a(nx)^2 = an^2x^2$。', back: '$y = ax^2$ で $x$ が $n$ 倍になると $y$ は？',
+      },
+      {
+        id: 'math-g3-qf-pb-fc21',
+        front: '16倍（$4^2 = 16$）', back: '$y = ax^2$ で $x$ が4倍になると $y$ は何倍？',
+      },
+      {
+        id: 'math-g3-qf-pb-fc22',
+        front: '$y = 5x^2$。$20 = a \\times 4 = 4a$ より $a = 5$。', back: '$y = ax^2$ で $x = 2, y = 20$ のとき式は？',
+      },
+      {
+        id: 'math-g3-qf-pb-fc23',
+        front: '下に開く広い放物線。$|a| < 1$ で広い。', back: '$y = -\\frac{1}{4}x^2$ のグラフの特徴は？',
+      },
+      {
+        id: 'math-g3-qf-pb-fc24',
+        front: '$y = x^2$。円の面積は $y = \\pi x^2$ で2乗に比例。', back: '半径 $x$ の円の面積 $y$ は $x$ の2乗に比例する？',
+      },
+      {
+        id: 'math-g3-qf-pb-fc25',
+        front: '$a$ の符号で開く方向、$|a|$ の大小で幅がわかる', back: '$y = ax^2$ で $a$ からわかる情報は？',
+      },
+      {
+        id: 'math-g3-qf-pb-fc26',
+        front: '通らない。$x = 0$ のとき $y = 0$ で原点しか通らない。', back: '$y = ax^2$ のグラフは $x$ 軸と原点以外で交わる？',
+      },
+      {
+        id: 'math-g3-qf-pb-fc27',
+        front: '$a = 4$。$-16 = a \\times (-2)^2 = 4a$…$a = -4$。$a = -4$ が正しい。', back: '$y = ax^2$ が $(-2, -16)$ を通るとき $a$ は？',
+      },
+      {
+        id: 'math-g3-qf-pb-fc28',
+        front: '$y = 2x^2$ の方が大きい（$|2| > |\\frac{1}{2}|$）', back: '同じ $x$ の値で $y = 2x^2$ と $y = \\frac{1}{2}x^2$ どちらが $y$ が大きい？',
       },
     ],
     quiz: {
@@ -285,6 +312,179 @@ export const quadFuncParabola: Topic = {
           correctIndex: 0,
           explanation:
             '$y = a(nx)^2 = an^2x^2$ となり、$y$ は $n^2$ 倍になるんだ。',
+        },
+        {
+          id: 'math-g3-qf-pb-q13',
+          question: '$y = -2x^2$ で $x = -5$ のとき $y$ は？',
+          options: ['$50$', '$-50$', '$-20$', '$20$'],
+          correctIndex: 1,
+          explanation:
+            '$y = -2 \\times (-5)^2 = -2 \\times 25 = -50$ だよ。',
+        },
+        {
+          id: 'math-g3-qf-pb-q14',
+          question: '$y = ax^2$ が $(2, 20)$ を通る。$a$ は？',
+          options: ['$a = 10$', '$a = 5$', '$a = 4$', '$a = 2$'],
+          correctIndex: 1,
+          explanation:
+            '$20 = a \\times 4$ より $a = 5$ だよ。',
+        },
+        {
+          id: 'math-g3-qf-pb-q15',
+          question: '$y = ax^2$ で $x$ が4倍になると $y$ は何倍？',
+          options: ['$4$ 倍', '$8$ 倍', '$16$ 倍', '$2$ 倍'],
+          correctIndex: 2,
+          explanation:
+            '$y = a(4x)^2 = 16ax^2$。$4^2 = 16$ 倍だよ。',
+        },
+        {
+          id: 'math-g3-qf-pb-q16',
+          question: '$y = -\\frac{1}{4}x^2$ のグラフの形は？',
+          options: [
+            '上に開く細い放物線',
+            '下に開く広い放物線',
+            '上に開く広い放物線',
+            '下に開く細い放物線',
+          ],
+          correctIndex: 1,
+          explanation:
+            '$a < 0$ で下に開く。$|a| = \\frac{1}{4} < 1$ で広い放物線だよ。',
+        },
+        {
+          id: 'math-g3-qf-pb-q17',
+          question: '$y = ax^2$ が $(-2, -16)$ を通る。$a$ は？',
+          options: ['$a = 4$', '$a = -4$', '$a = 8$', '$a = -8$'],
+          correctIndex: 1,
+          explanation:
+            '$-16 = a \\times (-2)^2 = 4a$ より $a = -4$ だよ。',
+        },
+        {
+          id: 'math-g3-qf-pb-q18',
+          question: '$y = ax^2$ のグラフが原点以外で $x$ 軸と交わることはある？',
+          options: [
+            'ある',
+            'ない',
+            '$a > 0$ のときだけある',
+            '$a < 0$ のときだけある',
+          ],
+          correctIndex: 1,
+          explanation:
+            '$y = ax^2$ は $x = 0$ のとき $y = 0$。原点以外では $y \\neq 0$（$a \\neq 0$）なので交わらないよ。',
+        },
+        {
+          id: 'math-g3-qf-pb-q19',
+          question: '同じ $x$ の値のとき、$y = 2x^2$ と $y = \\frac{1}{2}x^2$ はどちらが $y$ の値が大きい？（$x \\neq 0$）',
+          options: [
+            '$y = \\frac{1}{2}x^2$',
+            '同じ',
+            '$y = 2x^2$',
+            '比べられない',
+          ],
+          correctIndex: 2,
+          explanation:
+            '$|a|$ が大きい方が同じ $x$ で $|y|$ も大きい。$a > 0$ なので $y = 2x^2$ の方が大きいよ。',
+        },
+        {
+          id: 'math-g3-qf-pb-q20',
+          question: '$y = 5x^2$ で $x = -2$ のとき $y$ は？',
+          options: ['$-20$', '$20$', '$-10$', '$10$'],
+          correctIndex: 1,
+          explanation:
+            '$y = 5 \\times (-2)^2 = 5 \\times 4 = 20$。$(-2)^2 = 4$ は正だよ。',
+        },
+        {
+          id: 'math-g3-qf-pb-q21',
+          question: '次のうち、$y$ が $x$ の2乗に比例するものは？',
+          options: [
+            '1辺 $x$ cmの正方形の周の長さ $y$ cm',
+            '半径 $x$ cmの円の面積 $y$ cm²',
+            '底辺 $x$ cm、高さ5cmの三角形の面積 $y$ cm²',
+            '1個 $x$ 円の品物を3個買ったときの代金 $y$ 円',
+          ],
+          correctIndex: 1,
+          explanation:
+            '円の面積 $y = \\pi x^2$ は $x$ の2乗に比例するよ。他は1次（比例）の関係。',
+        },
+        {
+          id: 'math-g3-qf-pb-q22',
+          question: '$y = ax^2$ が点 $(6, 12)$ を通る。$a$ は？',
+          options: [
+            '$a = \\dfrac{1}{3}$',
+            '$a = 2$',
+            '$a = \\dfrac{1}{2}$',
+            '$a = 3$',
+          ],
+          correctIndex: 0,
+          explanation:
+            '$12 = a \\times 36$ より $a = \\frac{12}{36} = \\frac{1}{3}$ だよ。',
+        },
+        {
+          id: 'math-g3-qf-pb-q23',
+          question: '$y = -3x^2$ のグラフについて正しいのは？',
+          options: [
+            '上に開く細い放物線',
+            '下に開く広い放物線',
+            '下に開く細い放物線',
+            '上に開く広い放物線',
+          ],
+          correctIndex: 2,
+          explanation:
+            '$a = -3 < 0$ で下に開く。$|a| = 3 > 1$ で細い放物線だよ。',
+        },
+        {
+          id: 'math-g3-qf-pb-q24',
+          question: '$y = ax^2$ で $x = -3$ のとき $y = 27$。$a$ は？',
+          options: ['$a = 3$', '$a = -3$', '$a = 9$', '$a = -9$'],
+          correctIndex: 0,
+          explanation:
+            '$27 = a \\times (-3)^2 = 9a$ より $a = 3$ だよ。',
+        },
+        {
+          id: 'math-g3-qf-pb-q25',
+          question: '$y = ax^2$ のグラフの頂点はどこ？',
+          options: [
+            '$(0, a)$',
+            '$(a, 0)$',
+            '$(0, 0)$',
+            '$(1, a)$',
+          ],
+          correctIndex: 2,
+          explanation:
+            '$y = ax^2$ のグラフの頂点は常に原点 $(0, 0)$ だよ。',
+        },
+        {
+          id: 'math-g3-qf-pb-q26',
+          question: '$y = \\frac{1}{3}x^2$ で $x = 6$ のとき $y$ は？',
+          options: ['$2$', '$6$', '$12$', '$18$'],
+          correctIndex: 2,
+          explanation:
+            '$y = \\frac{1}{3} \\times 36 = 12$ だよ。',
+        },
+        {
+          id: 'math-g3-qf-pb-q27',
+          question: '$y = 4x^2$ と $y = \\frac{1}{4}x^2$ のグラフを比べると？',
+          options: [
+            '$y = 4x^2$ の方が広い',
+            '同じ形',
+            '$y = 4x^2$ の方が細い',
+            '向きが逆',
+          ],
+          correctIndex: 2,
+          explanation:
+            '$|4| > |\\frac{1}{4}|$ だから $y = 4x^2$ の方が細いグラフになるよ。',
+        },
+        {
+          id: 'math-g3-qf-pb-q28',
+          question: '$y = ax^2$ で $x = 1$ のとき $y = a$。これは何を意味する？',
+          options: [
+            '$a$ はグラフの傾きである',
+            '$x = 1$ のときの $y$ の値が比例定数と等しい',
+            '$a$ は $y$ 軸との交点',
+            '$a$ は頂点の $y$ 座標',
+          ],
+          correctIndex: 1,
+          explanation:
+            '$y = a \\times 1^2 = a$。$x = 1$ を代入すると $y = a$ なので、比例定数が直接わかるよ。',
         },
       ],
     },

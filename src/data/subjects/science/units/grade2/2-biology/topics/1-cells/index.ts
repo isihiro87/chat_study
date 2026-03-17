@@ -258,6 +258,66 @@ export const cells: Topic = {
         back: '植物細胞にある液胞にはどのようなものが含まれるか？',
         explanation: '水や養分、不要物などが溶けた細胞液。成長した細胞ほど大きくなる。',
       },
+      {
+        id: 'sci2-cells-fc17',
+        front: 'レボルバー',
+        back: '顕微鏡で対物レンズを切り替える回転部品は？',
+      },
+      {
+        id: 'sci2-cells-fc18',
+        front: '顕微鏡の倍率',
+        back: '顕微鏡の倍率＝接眼レンズの倍率×対物レンズの倍率',
+      },
+      {
+        id: 'sci2-cells-fc19',
+        front: 'プレパラート',
+        back: 'スライドガラスに試料をのせカバーガラスをかけたものは？',
+      },
+      {
+        id: 'sci2-cells-fc20',
+        front: '酢酸オルセイン・酢酸カーミン',
+        back: '核を赤く染める染色液を2つ答えよ',
+      },
+      {
+        id: 'sci2-cells-fc21',
+        front: '組織',
+        back: '形やはたらきが同じ細胞の集まりは？',
+      },
+      {
+        id: 'sci2-cells-fc22',
+        front: '器官',
+        back: '複数の組織が集まって特定のはたらきをするものは？',
+      },
+      {
+        id: 'sci2-cells-fc23',
+        front: '細胞の呼吸',
+        back: '細胞内で酸素で養分を分解しEを取り出すはたらきは？',
+      },
+      {
+        id: 'sci2-cells-fc24',
+        front: '単細胞生物の例',
+        back: 'ゾウリムシ、アメーバ、ミカヅキモ',
+      },
+      {
+        id: 'sci2-cells-fc25',
+        front: 'ピント合わせの手順',
+        back: '対物レンズをプレパラートに近づけてから遠ざける理由は？',
+      },
+      {
+        id: 'sci2-cells-fc26',
+        front: '視野の上下左右',
+        back: 'プレパラートを右に動かすと像は左に動く',
+      },
+      {
+        id: 'sci2-cells-fc27',
+        front: '細胞呼吸で放出される気体',
+        back: 'CO₂が放出される',
+      },
+      {
+        id: 'sci2-cells-fc28',
+        front: '多細胞生物の体の構成',
+        back: '細胞→組織→器官→個体',
+      }
     ],
     quiz: {
       questions: [
@@ -382,6 +442,134 @@ export const cells: Topic = {
           explanation:
             'レボルバーを回して対物レンズを切り替えます。ステージはプレパラートを置く台です。',
         },
+        {
+          id: 'sci2-cells-q13',
+          question: 'レンズを先につけるのは？',
+          options: ['対物', '接眼', 'どちらでも', '同時'],
+          correctIndex: 1,
+          explanation:
+            '接眼を先に。ほこり防止。',
+        },
+        {
+          id: 'sci2-cells-q14',
+          question: '倍率上げると視野の明るさは？',
+          options: ['明るく', '暗く', '変わらない', '点滅'],
+          correctIndex: 1,
+          explanation:
+            '視野が狭くなり暗くなる。',
+        },
+        {
+          id: 'sci2-cells-q15',
+          question: 'カバーガラスを端からかぶせる理由は？',
+          options: ['試料を押す', '気泡防止', '水をはじく', '染色均一'],
+          correctIndex: 1,
+          explanation:
+            '気泡が入るのを防ぐ。',
+        },
+        {
+          id: 'sci2-cells-q16',
+          question: '動物の細胞にもあるつくりは？',
+          options: ['細胞壁', '葉緑体', '細胞膜', '液胞'],
+          correctIndex: 2,
+          explanation:
+            '細胞膜は全細胞に共通。',
+        },
+        {
+          id: 'sci2-cells-q17',
+          question: 'プレパラートを右→像は？',
+          options: ['右', '左', '上', '下'],
+          correctIndex: 1,
+          explanation:
+            '上下左右が逆。',
+        },
+        {
+          id: 'sci2-cells-q18',
+          question: '単細胞生物は？',
+          options: ['ヒト', 'ゾウリムシ', 'タンポポ', 'カエル'],
+          correctIndex: 1,
+          explanation:
+            '体が1つの細胞。',
+        },
+        {
+          id: 'sci2-cells-q19',
+          question: '体の構成の正しい順は？',
+          options: ['組織→細胞→器官→個体', '細胞→組織→器官→個体', '器官→組織→細胞→個体', '細胞→器官→組織→個体'],
+          correctIndex: 1,
+          explanation:
+            '細胞→組織→器官→個体。',
+        },
+        {
+          id: 'sci2-cells-q20',
+          question: '細胞呼吸のEは何に使われる？',
+          options: ['光合成', '細胞の活動', '体温低下', '水分解'],
+          correctIndex: 1,
+          explanation:
+            '運動・成長・物質合成など。',
+        },
+        {
+          id: 'sci2-cells-q21',
+          question: '接眼10倍×対物40倍＝？',
+          options: ['50倍', '400倍', '4倍', '30倍'],
+          correctIndex: 1,
+          explanation:
+            '10×40＝400倍。',
+        },
+        {
+          id: 'sci2-cells-q22',
+          question: '植物も細胞呼吸を行う？',
+          options: ['行わない', '昼だけ', '夜だけ', '常に行う'],
+          correctIndex: 3,
+          explanation:
+            '全生物の細胞で常に行われる。',
+        },
+        {
+          id: 'sci2-cells-q23',
+          question: '細胞呼吸に必要なものは？',
+          options: ['CO₂と水', 'O₂と養分', '光と水', 'N₂と養分'],
+          correctIndex: 1,
+          explanation:
+            '酸素と養分。',
+        },
+        {
+          id: 'sci2-cells-q24',
+          question: 'メチレンブルーで染まる部分は？',
+          options: ['細胞壁', '細胞質', '核', '葉緑体'],
+          correctIndex: 2,
+          explanation:
+            '核を染める。',
+        },
+        {
+          id: 'sci2-cells-q25',
+          question: '直射日光を避ける理由は？',
+          options: ['像がぼやける', '目を傷める', '温度上昇', 'レンズ破損'],
+          correctIndex: 1,
+          explanation:
+            '目を傷める危険。',
+        },
+        {
+          id: 'sci2-cells-q26',
+          question: '光合成を行う緑色の粒は？',
+          options: ['核', '液胞', '葉緑体', 'ミトコンドリア'],
+          correctIndex: 2,
+          explanation:
+            '葉緑体で光合成。',
+        },
+        {
+          id: 'sci2-cells-q27',
+          question: '水中の小さな生物の総称は？',
+          options: ['細菌', 'プランクトン', 'ウイルス', '原生生物'],
+          correctIndex: 1,
+          explanation:
+            'プランクトン。',
+        },
+        {
+          id: 'sci2-cells-q28',
+          question: '低倍率から始める理由は？',
+          options: ['レンズ破損', '視野が広く見つけやすい', 'ピント不合', '詳しく見える'],
+          correctIndex: 1,
+          explanation:
+            '広く明るく見つけやすい。',
+        }
       ],
     },
     examples: {

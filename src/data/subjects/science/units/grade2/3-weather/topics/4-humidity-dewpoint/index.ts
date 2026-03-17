@@ -138,6 +138,91 @@ export const humidityDewpoint: Topic = {
         explanation:
           '露点では湿度100%なので、飽和水蒸気量の表から露点の温度に対応する値を読み取れば、それが実際の水蒸気量です。',
       },
+      {
+        id: 'sci2-hdew-fc12',
+        front: '水蒸気',
+        back: '空気中の目に見えない気体状態の水',
+      },
+      {
+        id: 'sci2-hdew-fc13',
+        front: '凝結',
+        back: '水蒸気が冷やされ水滴に変わる現象',
+      },
+      {
+        id: 'sci2-hdew-fc14',
+        front: '露点',
+        back: '水蒸気が水滴に変わり始める温度',
+      },
+      {
+        id: 'sci2-hdew-fc15',
+        front: '飽和水蒸気量',
+        back: '空気1m³中に含める水蒸気の最大量[g/m³]',
+      },
+      {
+        id: 'sci2-hdew-fc16',
+        front: '気温高い→飽和水蒸気量大',
+        back: '高温の空気ほど多くの水蒸気を含める',
+      },
+      {
+        id: 'sci2-hdew-fc17',
+        front: '湿度の公式',
+        back: '湿度(%)＝水蒸気量÷飽和水蒸気量×100',
+      },
+      {
+        id: 'sci2-hdew-fc18',
+        front: '気温上昇→湿度低下',
+        back: '飽和水蒸気量が大きくなり相対的に湿度下がる',
+      },
+      {
+        id: 'sci2-hdew-fc19',
+        front: '気温低下→湿度上昇',
+        back: '飽和水蒸気量が小さくなり湿度上がる',
+      },
+      {
+        id: 'sci2-hdew-fc20',
+        front: '露点での湿度',
+        back: '100%（飽和状態）',
+      },
+      {
+        id: 'sci2-hdew-fc21',
+        front: '露点測定に金属コップ',
+        back: '熱伝導がよく正確に測定できる',
+      },
+      {
+        id: 'sci2-hdew-fc22',
+        front: '露点測定で氷水を少しずつ加える',
+        back: '水温を下げてくもり始めを観察',
+      },
+      {
+        id: 'sci2-hdew-fc23',
+        front: '晴れた日の気温と湿度',
+        back: '気温↑→湿度↓、気温↓→湿度↑（反対の関係）',
+      },
+      {
+        id: 'sci2-hdew-fc24',
+        front: '最高気温は午後2時ごろ',
+        back: '晴れた日の気温は14時ごろ最高',
+      },
+      {
+        id: 'sci2-hdew-fc25',
+        front: '最低湿度は午後2時ごろ',
+        back: '気温最高時に飽和水蒸気量最大→湿度最低',
+      },
+      {
+        id: 'sci2-hdew-fc26',
+        front: 'コップの水滴',
+        back: '冷水コップの外側に水滴→空気中の水蒸気が凝結',
+      },
+      {
+        id: 'sci2-hdew-fc27',
+        front: '20℃の飽和水蒸気量',
+        back: '約17.3g/m³',
+      },
+      {
+        id: 'sci2-hdew-fc28',
+        front: '10℃の飽和水蒸気量',
+        back: '約9.4g/m³',
+      }
     ],
     quiz: {
       questions: [
@@ -229,6 +314,166 @@ export const humidityDewpoint: Topic = {
           explanation:
             '空気が露点以下に冷やされると、含みきれなくなった水蒸気が水滴に変わります。これが凝結です。',
         },
+        {
+          id: 'sci2-hdew-q9',
+          question: '水蒸気が水滴に変わる現象は？',
+          options: ['蒸発', '凝結', '融解', '昇華'],
+          correctIndex: 1,
+          explanation:
+            '凝結。',
+        },
+        {
+          id: 'sci2-hdew-q10',
+          question: '露点とは？',
+          options: ['沸点', '水蒸気が水滴に変わり始める温度', '水が凍る温度', '空気が乾く温度'],
+          correctIndex: 1,
+          explanation:
+            '水蒸気が水滴に変わり始める温度。',
+        },
+        {
+          id: 'sci2-hdew-q11',
+          question: '気温上昇→水蒸気量不変→湿度は？',
+          options: ['上がる', '下がる', '変わらない', '100%'],
+          correctIndex: 1,
+          explanation:
+            '飽和水蒸気量大→湿度下がる。',
+        },
+        {
+          id: 'sci2-hdew-q12',
+          question: '露点での湿度は？',
+          options: ['0%', '50%', '75%', '100%'],
+          correctIndex: 3,
+          explanation:
+            '飽和水蒸気量＝水蒸気量で100%。',
+        },
+        {
+          id: 'sci2-hdew-q13',
+          question: '露点測定に金属コップを使う理由は？',
+          options: ['見た目がよい', '熱伝導がよく正確', '安い', '壊れにくい'],
+          correctIndex: 1,
+          explanation:
+            '熱伝導がよく正確に測れる。',
+        },
+        {
+          id: 'sci2-hdew-q14',
+          question: '飽和水蒸気量は気温が高いと？',
+          options: ['小さくなる', '大きくなる', '変わらない', '0'],
+          correctIndex: 1,
+          explanation:
+            '高温ほど多くの水蒸気を含める。',
+        },
+        {
+          id: 'sci2-hdew-q15',
+          question: '気温20℃、水蒸気量8.65g/m³の湿度は？（飽和17.3g/m³）',
+          options: ['25%', '50%', '75%', '100%'],
+          correctIndex: 1,
+          explanation:
+            '8.65÷17.3×100＝50%。',
+        },
+        {
+          id: 'sci2-hdew-q16',
+          question: '晴れた日の気温と湿度の関係は？',
+          options: ['同じ変化', '反対の変化', '無関係', '一定'],
+          correctIndex: 1,
+          explanation:
+            '気温↑→湿度↓の反対関係。',
+        },
+        {
+          id: 'sci2-hdew-q17',
+          question: '晴れた日の気温が最高になるのは？',
+          options: ['正午', '午後2時ごろ', '午後4時ごろ', '夕方'],
+          correctIndex: 1,
+          explanation:
+            '午後2時（14時）ごろ。',
+        },
+        {
+          id: 'sci2-hdew-q18',
+          question: '冷水コップの外側に水滴がつく理由は？',
+          options: ['コップが汗をかく', '空気中の水蒸気が凝結', 'コップが溶ける', '水が漏れる'],
+          correctIndex: 1,
+          explanation:
+            '周りの空気が冷え水蒸気が凝結。',
+        },
+        {
+          id: 'sci2-hdew-q19',
+          question: '気温低下→水蒸気量不変→湿度は？',
+          options: ['上がる', '下がる', '変わらない', '0%'],
+          correctIndex: 0,
+          explanation:
+            '飽和水蒸気量小→湿度上がる。',
+        },
+        {
+          id: 'sci2-hdew-q20',
+          question: '湿度100%のとき空気は？',
+          options: ['乾燥', '飽和状態', '過飽和', '真空'],
+          correctIndex: 1,
+          explanation:
+            '水蒸気量＝飽和水蒸気量で飽和。',
+        },
+        {
+          id: 'sci2-hdew-q21',
+          question: '露点測定でかき混ぜる理由は？',
+          options: ['泡を出す', '水温を均一にする', '蒸発促進', '冷却促進'],
+          correctIndex: 1,
+          explanation:
+            '水温を均一にして正確に測る。',
+        },
+        {
+          id: 'sci2-hdew-q22',
+          question: '乾湿計で湿球が低い理由は？',
+          options: ['壊れている', '蒸発で熱をうばう', '日光', '外気温'],
+          correctIndex: 1,
+          explanation:
+            '水の蒸発で熱がうばわれる。',
+        },
+        {
+          id: 'sci2-hdew-q23',
+          question: '乾湿計の差が大→湿度は？',
+          options: ['高い', '低い', '変わらない', '100%'],
+          correctIndex: 1,
+          explanation:
+            '乾燥で蒸発盛ん→差大→湿度低。',
+        },
+        {
+          id: 'sci2-hdew-q24',
+          question: '乾湿計の差が小→湿度は？',
+          options: ['低い', '高い', '0%', '測定不能'],
+          correctIndex: 1,
+          explanation:
+            '水蒸気多→蒸発少→差小→湿度高。',
+        },
+        {
+          id: 'sci2-hdew-q25',
+          question: '雨の日の気温と湿度の変化は？',
+          options: ['大きい', '小さく湿度高い', '晴れと同じ', '反対になる'],
+          correctIndex: 1,
+          explanation:
+            '変化小さく湿度は一日中高い。',
+        },
+        {
+          id: 'sci2-hdew-q26',
+          question: '湿度の公式は？',
+          options: ['水蒸気量×飽和水蒸気量', '水蒸気量÷飽和水蒸気量×100', '飽和水蒸気量÷水蒸気量', '気温×水蒸気量'],
+          correctIndex: 1,
+          explanation:
+            '水蒸気量÷飽和水蒸気量×100。',
+        },
+        {
+          id: 'sci2-hdew-q27',
+          question: '30℃の飽和水蒸気量は約何g/m³？',
+          options: ['約9.4', '約17.3', '約30.4', '約40.0'],
+          correctIndex: 2,
+          explanation:
+            '約30.4g/m³。',
+        },
+        {
+          id: 'sci2-hdew-q28',
+          question: '露点測定でくもり始めたとき何を記録？',
+          options: ['気圧', '水温', '湿度', '風速'],
+          correctIndex: 1,
+          explanation:
+            'そのときの水温が露点。',
+        }
       ],
     },
     examples: {

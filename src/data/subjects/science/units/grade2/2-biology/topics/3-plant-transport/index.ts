@@ -110,6 +110,116 @@ export const plantTransport: Topic = {
         back: '師管を通って運ばれるのはどんな物質か？',
         explanation: '光合成でできたデンプンが水に溶けやすい物質（ショ糖など）に変化したもの。',
       },
+      {
+        id: 'sci2-pt-fc7',
+        front: 'BTB黄色',
+        back: '酸性（CO₂多い）',
+      },
+      {
+        id: 'sci2-pt-fc8',
+        front: 'BTB緑色',
+        back: '中性',
+      },
+      {
+        id: 'sci2-pt-fc9',
+        front: 'BTB青色',
+        back: 'アルカリ性（CO₂少ない）',
+      },
+      {
+        id: 'sci2-pt-fc10',
+        front: 'オオカナダモ+光→BTB',
+        back: '黄→青。光合成でCO₂使用',
+      },
+      {
+        id: 'sci2-pt-fc11',
+        front: 'オオカナダモ+暗所→BTB',
+        back: '黄のまま。光合成なく呼吸でCO₂出る',
+      },
+      {
+        id: 'sci2-pt-fc12',
+        front: '道管',
+        back: '根から水や無機物が通る管',
+      },
+      {
+        id: 'sci2-pt-fc13',
+        front: '師管',
+        back: '葉の養分（有機物）が通る管',
+      },
+      {
+        id: 'sci2-pt-fc14',
+        front: '維管束',
+        back: '道管と師管の束',
+      },
+      {
+        id: 'sci2-pt-fc15',
+        front: '道管=内側、師管=外側',
+        back: '茎の維管束での位置関係',
+      },
+      {
+        id: 'sci2-pt-fc16',
+        front: '双子葉類の維管束',
+        back: '輪の形（環状）に並ぶ',
+      },
+      {
+        id: 'sci2-pt-fc17',
+        front: '単子葉類の維管束',
+        back: '散らばっている',
+      },
+      {
+        id: 'sci2-pt-fc18',
+        front: '根毛',
+        back: '根の先端近くの毛状つくり。表面積を大きくする',
+      },
+      {
+        id: 'sci2-pt-fc19',
+        front: '油を浮かべる理由',
+        back: '水面蒸発を防ぎ蒸散量だけ測る',
+      },
+      {
+        id: 'sci2-pt-fc20',
+        front: 'ワセリンの目的',
+        back: '気孔をふさぎ蒸散を防いで比較',
+      },
+      {
+        id: 'sci2-pt-fc21',
+        front: '網状脈と平行脈',
+        back: '双子葉類=網状脈、単子葉類=平行脈',
+      },
+      {
+        id: 'sci2-pt-fc22',
+        front: '水草の気泡',
+        back: '光合成で発生する酸素',
+      },
+      {
+        id: 'sci2-pt-fc23',
+        front: 'O₂確認法',
+        back: '火のついた線香→激しく燃える',
+      },
+      {
+        id: 'sci2-pt-fc24',
+        front: '水は道管を上昇',
+        back: '根から吸い上げた水は道管を通る',
+      },
+      {
+        id: 'sci2-pt-fc25',
+        front: 'CO₂必要の確認法',
+        back: 'CO₂有無の水で気泡発生を比較',
+      },
+      {
+        id: 'sci2-pt-fc26',
+        front: '蒸散の対照実験',
+        back: 'ワセリンを表裏塗り分けて比較',
+      },
+      {
+        id: 'sci2-pt-fc27',
+        front: 'BTBの色変化原理',
+        back: 'CO₂の量（酸性度）で変わる',
+      },
+      {
+        id: 'sci2-pt-fc28',
+        front: '蒸散の場所',
+        back: '気孔から水蒸気が出る',
+      }
     ],
     quiz: {
       questions: [
@@ -142,6 +252,206 @@ export const plantTransport: Topic = {
           explanation:
             '単子葉類の維管束は茎の断面で全体に散らばっています。双子葉類は輪の形に並びます。',
         },
+        {
+          id: 'sci2-pt-q4',
+          question: 'BTB黄+オオカナダモ+光→色は？',
+          options: ['黄のまま', '緑', '青', '赤'],
+          correctIndex: 2,
+          explanation:
+            '光合成でCO₂使用→青。',
+        },
+        {
+          id: 'sci2-pt-q5',
+          question: '道管は茎のどちら側？',
+          options: ['外側', '内側', '真ん中', '上側'],
+          correctIndex: 1,
+          explanation:
+            '内側。師管は外側。',
+        },
+        {
+          id: 'sci2-pt-q6',
+          question: '根毛の利点は？',
+          options: ['病原菌防止', '表面積大で吸水効率UP', '固定', '養分蓄積'],
+          correctIndex: 1,
+          explanation:
+            '表面積大で効率的吸水。',
+        },
+        {
+          id: 'sci2-pt-q7',
+          question: '養分が通る管は？',
+          options: ['道管', '師管', '維管束', '根毛'],
+          correctIndex: 1,
+          explanation:
+            '師管で養分が通る。',
+        },
+        {
+          id: 'sci2-pt-q8',
+          question: '双子葉類の維管束は？',
+          options: ['散在', '輪の形', '一列', 'らせん'],
+          correctIndex: 1,
+          explanation:
+            '輪の形に並ぶ。',
+        },
+        {
+          id: 'sci2-pt-q9',
+          question: '水面に油を浮かべる理由は？',
+          options: ['清潔', '水面蒸発防止', '水温一定', '栄養'],
+          correctIndex: 1,
+          explanation:
+            '蒸散量だけ正確に測る。',
+        },
+        {
+          id: 'sci2-pt-q10',
+          question: 'O₂確認方法は？',
+          options: ['石灰水', '塩化コバルト紙', '線香が激しく燃える', 'マッチでポン'],
+          correctIndex: 2,
+          explanation:
+            '火のついた線香→激しく燃える。',
+        },
+        {
+          id: 'sci2-pt-q11',
+          question: 'BTB黄色の液性は？',
+          options: ['アルカリ性', '中性', '酸性', '弱アルカリ性'],
+          correctIndex: 2,
+          explanation:
+            '黄色＝酸性。',
+        },
+        {
+          id: 'sci2-pt-q12',
+          question: '単子葉類の葉脈は？',
+          options: ['網状脈', '平行脈', 'らせん', '放射'],
+          correctIndex: 1,
+          explanation:
+            '平行脈。',
+        },
+        {
+          id: 'sci2-pt-q13',
+          question: 'ワセリンを塗る目的は？',
+          options: ['養分', '気孔ふさぎ蒸散防止', '保護', '水分保持'],
+          correctIndex: 1,
+          explanation:
+            '気孔をふさいで蒸散量比較。',
+        },
+        {
+          id: 'sci2-pt-q14',
+          question: 'BTB黄+オオカナダモ+暗所→色は？',
+          options: ['青', '緑', '黄のまま', '無色'],
+          correctIndex: 2,
+          explanation:
+            '光合成なく呼吸でCO₂→黄のまま。',
+        },
+        {
+          id: 'sci2-pt-q15',
+          question: '道管を通るものは？',
+          options: ['養分', '水や無機物', 'CO₂', 'O₂'],
+          correctIndex: 1,
+          explanation:
+            '水と無機物。',
+        },
+        {
+          id: 'sci2-pt-q16',
+          question: '維管束とは？',
+          options: ['根毛の集まり', '道管と師管の束', '気孔の集まり', '葉肉細胞の集まり'],
+          correctIndex: 1,
+          explanation:
+            '道管と師管の束。',
+        },
+        {
+          id: 'sci2-pt-q17',
+          question: '蒸散が裏側で盛んな理由は？',
+          options: ['太陽に当たる', '裏に気孔多い', '裏の温度高い', '裏の水分多い'],
+          correctIndex: 1,
+          explanation:
+            '気孔が裏に多い。',
+        },
+        {
+          id: 'sci2-pt-q18',
+          question: 'CO₂が光合成に必要な確認法は？',
+          options: ['温度変更', 'CO₂有無の水で気泡比較', '光の色変更', '水量変更'],
+          correctIndex: 1,
+          explanation:
+            'CO₂有無で気泡発生比較。',
+        },
+        {
+          id: 'sci2-pt-q19',
+          question: '根の水はどの管を上昇？',
+          options: ['師管', '道管', 'リンパ管', '毛細血管'],
+          correctIndex: 1,
+          explanation:
+            '道管。',
+        },
+        {
+          id: 'sci2-pt-q20',
+          question: 'BTB緑色の液性は？',
+          options: ['酸性', '中性', 'アルカリ性', '強酸性'],
+          correctIndex: 1,
+          explanation:
+            '緑＝中性。',
+        },
+        {
+          id: 'sci2-pt-q21',
+          question: '双子葉類の葉脈は？',
+          options: ['平行脈', '網状脈', 'らせん', '放射'],
+          correctIndex: 1,
+          explanation:
+            '網状脈。',
+        },
+        {
+          id: 'sci2-pt-q22',
+          question: '単子葉類の維管束は？',
+          options: ['輪状', '散らばっている', '一列', '外側だけ'],
+          correctIndex: 1,
+          explanation:
+            '散らばっている。',
+        },
+        {
+          id: 'sci2-pt-q23',
+          question: '水草+光→気泡は何？',
+          options: ['CO₂', 'N₂', 'H₂', 'O₂'],
+          correctIndex: 3,
+          explanation:
+            '光合成でO₂発生。',
+        },
+        {
+          id: 'sci2-pt-q24',
+          question: '師管の位置は？',
+          options: ['内側', '外側', '中央', '上側'],
+          correctIndex: 1,
+          explanation:
+            '外側。道管は内側。',
+        },
+        {
+          id: 'sci2-pt-q25',
+          question: 'BTBの色変化は何の量で？',
+          options: ['O₂', 'N₂', 'CO₂', '水蒸気'],
+          correctIndex: 2,
+          explanation:
+            'CO₂の量で変わる。',
+        },
+        {
+          id: 'sci2-pt-q26',
+          question: '根毛とは？',
+          options: ['根の主軸', '根先端の毛状つくり', '根の葉', '根の太い部分'],
+          correctIndex: 1,
+          explanation:
+            '根先端近くの毛状つくり。',
+        },
+        {
+          id: 'sci2-pt-q27',
+          question: '蒸散の水蒸気が出る場所は？',
+          options: ['根毛', '道管', '気孔', '師管'],
+          correctIndex: 2,
+          explanation:
+            '気孔から出る。',
+        },
+        {
+          id: 'sci2-pt-q28',
+          question: 'BTBが青色→条件は？',
+          options: ['CO₂増加', 'CO₂減少', '温度上昇', '光照射'],
+          correctIndex: 1,
+          explanation:
+            'CO₂減少→アルカリ性→青。',
+        }
       ],
     },
     examples: {

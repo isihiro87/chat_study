@@ -158,6 +158,111 @@ export const isobarsWind: Topic = {
         explanation:
           '湿球はガーゼで包まれており、水の蒸発で温度が下がります。乾燥しているほど蒸発がさかんで温度差が大きくなります。',
       },
+      {
+        id: 'sci2-isow-fc8',
+        front: '雲量',
+        back: '空全体を10としたときの雲の割合',
+      },
+      {
+        id: 'sci2-isow-fc9',
+        front: '快晴（雲量0〜1）',
+        back: '雲がほぼない天気',
+      },
+      {
+        id: 'sci2-isow-fc10',
+        front: '晴れ（雲量2〜8）',
+        back: '雲はあるが空の大部分が見える天気',
+      },
+      {
+        id: 'sci2-isow-fc11',
+        front: 'くもり（雲量9〜10）',
+        back: '空のほとんどが雲に覆われた天気',
+      },
+      {
+        id: 'sci2-isow-fc12',
+        front: '16方位',
+        back: '風向を表す方位の数',
+      },
+      {
+        id: 'sci2-isow-fc13',
+        front: '風力0〜12の13段階',
+        back: '風力は何段階で表す？',
+      },
+      {
+        id: 'sci2-isow-fc14',
+        front: '矢羽根の向き＝風向',
+        back: '天気図記号で風向を表す部分',
+      },
+      {
+        id: 'sci2-isow-fc15',
+        front: '矢羽根の数＝風力',
+        back: '天気図記号で風力を表す部分',
+      },
+      {
+        id: 'sci2-isow-fc16',
+        front: '等圧線は4hPaごと',
+        back: '20hPaごとに太い線',
+      },
+      {
+        id: 'sci2-isow-fc17',
+        front: '等圧線せまい→風強い',
+        back: '短距離で気圧差大きい',
+      },
+      {
+        id: 'sci2-isow-fc18',
+        front: '等圧線広い→風弱い',
+        back: '気圧変化がゆるやか',
+      },
+      {
+        id: 'sci2-isow-fc19',
+        front: '風は高気圧→低気圧へ',
+        back: '気圧の高いところから低いところへ',
+      },
+      {
+        id: 'sci2-isow-fc20',
+        front: '高気圧＝下降気流',
+        back: '下降気流で雲ができにくく晴れ',
+      },
+      {
+        id: 'sci2-isow-fc21',
+        front: '低気圧＝上昇気流',
+        back: '上昇気流で雲ができやすくくもりや雨',
+      },
+      {
+        id: 'sci2-isow-fc22',
+        front: '高気圧→時計回りに吹き出す',
+        back: '日本付近での高気圧の風',
+      },
+      {
+        id: 'sci2-isow-fc23',
+        front: '低気圧→反時計回りに吹き込む',
+        back: '日本付近での低気圧の風',
+      },
+      {
+        id: 'sci2-isow-fc24',
+        front: '低気圧で雲ができる理由',
+        back: '上昇気流→冷却→水蒸気凝結',
+      },
+      {
+        id: 'sci2-isow-fc25',
+        front: '「高」は高気圧の中心',
+        back: '天気図で「高」と書かれた場所',
+      },
+      {
+        id: 'sci2-isow-fc26',
+        front: '等圧線の太い線',
+        back: '20hPaごとに太い線が引かれる',
+      },
+      {
+        id: 'sci2-isow-fc27',
+        front: '風向＝風が吹いてくる方向',
+        back: '風向の定義',
+      },
+      {
+        id: 'sci2-isow-fc28',
+        front: '風力の段階数',
+        back: '0〜12の13段階',
+      }
     ],
     quiz: {
       questions: [
@@ -208,6 +313,198 @@ export const isobarsWind: Topic = {
           explanation:
             '乾球と湿球の温度差が大きいほど空気が乾燥しており、湿度は低くなります。蒸発がさかんなため湿球の温度がより下がるのです。',
         },
+        {
+          id: 'sci2-isow-q5',
+          question: '雲量3の天気は？',
+          options: ['快晴', '晴れ', 'くもり', '雨'],
+          correctIndex: 1,
+          explanation:
+            '雲量2〜8は晴れ。',
+        },
+        {
+          id: 'sci2-isow-q6',
+          question: '等圧線の間隔せまい→風は？',
+          options: ['弱い', '強い', '変わらない', '無風'],
+          correctIndex: 1,
+          explanation:
+            '短距離で気圧差大→風強い。',
+        },
+        {
+          id: 'sci2-isow-q7',
+          question: '高気圧の中心の気流は？',
+          options: ['上昇', '下降', '水平', '回転'],
+          correctIndex: 1,
+          explanation:
+            '下降気流。',
+        },
+        {
+          id: 'sci2-isow-q8',
+          question: '低気圧が近づくと天気は？',
+          options: ['晴れ', 'くもりや雨', '快晴', '変化なし'],
+          correctIndex: 1,
+          explanation:
+            '上昇気流で雲ができる。',
+        },
+        {
+          id: 'sci2-isow-q9',
+          question: '等圧線は何hPaごと？',
+          options: ['2hPa', '4hPa', '5hPa', '10hPa'],
+          correctIndex: 1,
+          explanation:
+            '4hPaごと。',
+        },
+        {
+          id: 'sci2-isow-q10',
+          question: '風力は何段階？',
+          options: ['10段階', '12段階', '13段階', '15段階'],
+          correctIndex: 2,
+          explanation:
+            '0〜12の13段階。',
+        },
+        {
+          id: 'sci2-isow-q11',
+          question: '高気圧の風（日本付近）は？',
+          options: ['反時計回りに吹き出す', '時計回りに吹き出す', '反時計回りに吹き込む', '時計回りに吹き込む'],
+          correctIndex: 1,
+          explanation:
+            '時計回りにまわりへ吹き出す。',
+        },
+        {
+          id: 'sci2-isow-q12',
+          question: '低気圧の風（日本付近）は？',
+          options: ['時計回りに吹き出す', '反時計回りに吹き出す', '反時計回りに吹き込む', '時計回りに吹き込む'],
+          correctIndex: 2,
+          explanation:
+            '反時計回りに中心へ。',
+        },
+        {
+          id: 'sci2-isow-q13',
+          question: '低気圧で雲ができやすい理由は？',
+          options: ['気温が高い', '上昇気流で冷却→凝結', '風が強い', '湿度が低い'],
+          correctIndex: 1,
+          explanation:
+            '上昇気流で冷却→水蒸気凝結。',
+        },
+        {
+          id: 'sci2-isow-q14',
+          question: '天気図で「高」は何を表す？',
+          options: ['高温', '高湿度', '高気圧の中心', '高地'],
+          correctIndex: 2,
+          explanation:
+            '高気圧の中心。',
+        },
+        {
+          id: 'sci2-isow-q15',
+          question: '雲量1の天気は？',
+          options: ['快晴', '晴れ', 'くもり', '大雨'],
+          correctIndex: 0,
+          explanation:
+            '雲量0〜1は快晴。',
+        },
+        {
+          id: 'sci2-isow-q16',
+          question: '天気図で風向はどこで表す？',
+          options: ['丸の色', '矢羽根の向き', '数字', '線の太さ'],
+          correctIndex: 1,
+          explanation:
+            '矢羽根の向き。',
+        },
+        {
+          id: 'sci2-isow-q17',
+          question: '天気図で風力はどこで表す？',
+          options: ['丸の大きさ', '矢羽根の数', '色', '文字'],
+          correctIndex: 1,
+          explanation:
+            '矢羽根の本数。',
+        },
+        {
+          id: 'sci2-isow-q18',
+          question: '風はどの方向に吹く？',
+          options: ['低→高', '高→低', '東→西', '南→北'],
+          correctIndex: 1,
+          explanation:
+            '気圧の高い方から低い方へ。',
+        },
+        {
+          id: 'sci2-isow-q19',
+          question: '等圧線の広い→風は？',
+          options: ['強い', '弱い', '変化なし', '台風'],
+          correctIndex: 1,
+          explanation:
+            '気圧変化ゆるやかで弱い。',
+        },
+        {
+          id: 'sci2-isow-q20',
+          question: '雲量10の天気は？',
+          options: ['快晴', '晴れ', 'くもり', '大雨'],
+          correctIndex: 2,
+          explanation:
+            '雲量9〜10はくもり。',
+        },
+        {
+          id: 'sci2-isow-q21',
+          question: '高気圧の天気は？',
+          options: ['雨', '晴れ', 'くもり', '雪'],
+          correctIndex: 1,
+          explanation:
+            '下降気流で晴れ。',
+        },
+        {
+          id: 'sci2-isow-q22',
+          question: '風向とは？',
+          options: ['風が行く方向', '風が吹いてくる方向', '風の強さ', '風の高さ'],
+          correctIndex: 1,
+          explanation:
+            '風が吹いてくる方向。',
+        },
+        {
+          id: 'sci2-isow-q23',
+          question: '低気圧の中心の気流は？',
+          options: ['下降', '上昇', '水平', '回転'],
+          correctIndex: 1,
+          explanation:
+            '上昇気流。',
+        },
+        {
+          id: 'sci2-isow-q24',
+          question: '等圧線の太い線は何hPaごと？',
+          options: ['4hPa', '10hPa', '20hPa', '50hPa'],
+          correctIndex: 2,
+          explanation:
+            '20hPaごとに太い線。',
+        },
+        {
+          id: 'sci2-isow-q25',
+          question: '雲量8の天気は？',
+          options: ['快晴', '晴れ', 'くもり', '雨'],
+          correctIndex: 1,
+          explanation:
+            '雲量2〜8は晴れ。',
+        },
+        {
+          id: 'sci2-isow-q26',
+          question: '風向は何方位で表す？',
+          options: ['4方位', '8方位', '16方位', '32方位'],
+          correctIndex: 2,
+          explanation:
+            '16方位。',
+        },
+        {
+          id: 'sci2-isow-q27',
+          question: '低気圧の天気は一般にどうなる？',
+          options: ['晴れ', 'くもりや雨', '快晴', '乾燥'],
+          correctIndex: 1,
+          explanation:
+            '上昇気流で雲ができやすい。',
+        },
+        {
+          id: 'sci2-isow-q28',
+          question: '高気圧で雲ができにくい理由は？',
+          options: ['湿度が低い', '下降気流で雲が消える', '風が弱い', '気温が低い'],
+          correctIndex: 1,
+          explanation:
+            '下降気流で雲ができにくい。',
+        }
       ],
     },
     examples: {

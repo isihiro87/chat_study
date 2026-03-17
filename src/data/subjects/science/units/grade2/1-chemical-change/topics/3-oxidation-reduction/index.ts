@@ -247,6 +247,52 @@ export const oxidationReduction: Topic = {
         explanation:
           'マグネシウム ＞ 炭素 ＞ 水素 ＞ 銅。酸化されやすい物質ほど、他の物質から酸素をうばいやすい（還元力が強い）。',
       },
+      {
+        id: 'sci2-or-fc20',
+        front: '燃焼',
+        back: '熱や光を出しながら激しく酸素と結びつく酸化を何という？',
+      },
+      {
+        id: 'sci2-or-fc21',
+        front: '酸化物',
+        back: '酸化によってできた酸素を含む化合物を何という？',
+      },
+      {
+        id: 'sci2-or-fc22',
+        front: 'スチールウールの燃焼後の質量',
+        back: 'スチールウールを燃焼させた後、質量はどうなる？その理由は？',
+      },
+      {
+        id: 'sci2-or-fc23',
+        front: '還元',
+        back: '酸化物から酸素を取り除く化学変化を何という？',
+      },
+      {
+        id: 'sci2-or-fc24',
+        front: '2CuO + C → 2Cu + CO₂',
+        back: '酸化銅と炭素の反応の化学反応式は？',
+      },
+      {
+        id: 'sci2-or-fc25',
+        front: '有機物の燃焼',
+        back: '有機物を燃やすと発生する2つの物質は？',
+      },
+      {
+        id: 'sci2-or-fc26',
+        front: '酸化と還元の関係',
+        back: 'ある物質が酸化されるとき同時に起こる化学変化は？',
+      },
+      {
+        id: 'sci2-or-fc27',
+        front: 'コークス',
+        back: '製鉄所で鉄鉱石を還元するために使われる物質は？原料は？',
+      },
+      {
+        id: 'sci2-or-fc28',
+        front: 'マグネシウムの燃焼の光',
+        back: 'マグネシウムを燃焼させると何色の光を出す？',
+      }
+    
     ],
     quiz: {
       questions: [
@@ -386,6 +432,135 @@ export const oxidationReduction: Topic = {
           explanation:
             '酸化されやすさはマグネシウム ＞ 炭素 ＞ 水素 ＞ 銅 の順です。マグネシウムは炭素より酸化されやすい金属です。',
         },
+        {
+          id: 'sci2-or-q13',
+          question: 'スチールウール燃焼後に質量が増加する理由は？',
+          options: ['水分吸収', '酸素と結びつく', '炭素が増える', '温度上昇'],
+          correctIndex: 1,
+          explanation:
+            '空気中の酸素と結びつくため質量が増加します。',
+        },
+        {
+          id: 'sci2-or-q14',
+          question: 'マグネシウムの燃焼の化学反応式は？',
+          options: ['Mg + O → MgO', 'Mg + O₂ → MgO₂', '2Mg + O₂ → 2MgO', 'Mg₂ + O₂ → 2MgO'],
+          correctIndex: 2,
+          explanation:
+            '2Mg + O₂ → 2MgO です。',
+        },
+        {
+          id: 'sci2-or-q15',
+          question: '酸化銅の炭素還元で残る赤い物質は？',
+          options: ['鉄', '銅', 'マグネシウム', 'アルミニウム'],
+          correctIndex: 1,
+          explanation:
+            '酸化銅から酸素が奪われ銅が残ります。',
+        },
+        {
+          id: 'sci2-or-q16',
+          question: '酸化銅と炭素の反応で酸化されたのは？',
+          options: ['酸化銅', '炭素', '銅', '二酸化炭素'],
+          correctIndex: 1,
+          explanation:
+            '炭素が酸素と結びついて二酸化炭素になったので酸化されたのは炭素です。',
+        },
+        {
+          id: 'sci2-or-q17',
+          question: '還元の正しい説明は？',
+          options: ['酸素と結びつく', '酸化物から酸素を取り除く', '水と結びつく', '分解される'],
+          correctIndex: 1,
+          explanation:
+            '還元は酸化物から酸素を取り除く化学変化です。',
+        },
+        {
+          id: 'sci2-or-q18',
+          question: '鉄燃焼後の物質に電気は流れるか？',
+          options: ['流れる', '流れない', 'もとと同じ', '温度による'],
+          correctIndex: 1,
+          explanation:
+            '酸化鉄は金属光沢がなくもろく電気を通しません。',
+        },
+        {
+          id: 'sci2-or-q19',
+          question: '銅を加熱時にかき混ぜる理由は？',
+          options: ['温度均一化', '酸素にまんべんなく触れさせる', '反応を遅くする', '粉が飛び散らないように'],
+          correctIndex: 1,
+          explanation:
+            '銅粉全体に酸素を触れさせるためです。',
+        },
+        {
+          id: 'sci2-or-q20',
+          question: '水素の燃焼の化学反応式は？',
+          options: ['H₂ + O → H₂O', '2H₂ + O₂ → 2H₂O', 'H₂ + O₂ → H₂O₂', 'H + O → HO'],
+          correctIndex: 1,
+          explanation:
+            '2H₂ + O₂ → 2H₂O です。',
+        },
+        {
+          id: 'sci2-or-q21',
+          question: 'コークスの原料は？',
+          options: ['石油', '石炭', '天然ガス', '木炭'],
+          correctIndex: 1,
+          explanation:
+            'コークスは石炭を蒸し焼きにしてつくります。',
+        },
+        {
+          id: 'sci2-or-q22',
+          question: '有機物燃焼後に石灰水が白くにごるのは何が発生したから？',
+          options: ['水素', '水', '二酸化炭素', '酸素'],
+          correctIndex: 2,
+          explanation:
+            '有機物の燃焼で二酸化炭素が発生します。',
+        },
+        {
+          id: 'sci2-or-q23',
+          question: '酸化と還元の関係で正しいのは？',
+          options: ['別々に起こる', '同時に起こる', '酸化が先', '還元が先'],
+          correctIndex: 1,
+          explanation:
+            '酸化と還元は常に同時に起こります。',
+        },
+        {
+          id: 'sci2-or-q24',
+          question: '炭素の燃焼の化学反応式は？',
+          options: ['C + O → CO', 'C + O₂ → CO₂', '2C + O₂ → 2CO₂', 'C + 2O → CO₂'],
+          correctIndex: 1,
+          explanation:
+            'C + O₂ → CO₂ です。',
+        },
+        {
+          id: 'sci2-or-q25',
+          question: '酸化マグネシウムは何色？',
+          options: ['黒色', '赤色', '白色', '銀色'],
+          correctIndex: 2,
+          explanation:
+            '酸化マグネシウムは白色の粉末です。',
+        },
+        {
+          id: 'sci2-or-q26',
+          question: 'ろうそくの燃焼で水の発生を確認する方法は？',
+          options: ['石灰水に通す', 'ヨウ素液をつける', '冷たいガラス板にかざして水滴を見る', 'リトマス紙'],
+          correctIndex: 2,
+          explanation:
+            '冷たいガラス板を炎にかざすと水滴がつきます。',
+        },
+        {
+          id: 'sci2-or-q27',
+          question: '銅の酸化は穏やかか激しいか？',
+          options: ['穏やかな反応', '激しい燃焼', 'マグネシウムと同程度', '爆発的'],
+          correctIndex: 0,
+          explanation:
+            '銅の酸化はゆっくり進む穏やかな反応です。',
+        },
+        {
+          id: 'sci2-or-q28',
+          question: '酸化銅還元で石灰水が白くにごるのは何の発生？',
+          options: ['酸素', '水素', '二酸化炭素', '一酸化炭素'],
+          correctIndex: 2,
+          explanation:
+            '2CuO + C → 2Cu + CO₂ で二酸化炭素が発生します。',
+        }
+      
       ],
     },
     examples: {

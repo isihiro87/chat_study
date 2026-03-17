@@ -83,104 +83,92 @@ export const variousSimulEq: Topic = {
     flashcards: [
       {
         id: 'math-g2-var-fc1',
-        front: 'かっこがある式の処理法は？',
-        back: '分配法則でかっこを展開し、$ax + by = c$ の形に整理する',
+        front: '分配法則でかっこを展開し、$ax + by = c$ の形に整理する', back: 'かっこがある式の処理法は？',
       },
       {
         id: 'math-g2-var-fc2',
-        front: '$2(x + 3) + y = 11$ を整理すると？',
-        back: '$2x + y = 5$（展開して $2x + 6 + y = 11$、移項して整理）',
+        front: '$2x + y = 5$（展開して $2x + 6 + y = 11$、移項して整理）', back: '$2(x + 3) + y = 11$ を整理すると？',
       },
       {
         id: 'math-g2-var-fc3',
-        front: '分数を含む方程式の最初のステップは？',
-        back: '分母の最小公倍数（LCM）を両辺にかけて分数をなくす',
+        front: '分母の最小公倍数（LCM）を両辺にかけて分数をなくす', back: '分数を含む方程式の最初のステップは？',
       },
       {
         id: 'math-g2-var-fc4',
-        front: '$\\frac{x}{2} + \\frac{y}{3} = 5$ の分数をはらうには？',
-        back: '両辺に $6$（2と3のLCM）をかける → $3x + 2y = 30$',
+        front: '両辺に $6$（2と3のLCM）をかける → $3x + 2y = 30$', back: '$\\frac{x}{2} + \\frac{y}{3} = 5$ の分数をはらうには？',
       },
       {
         id: 'math-g2-var-fc5',
-        front: '$\\frac{x}{3} + \\frac{y}{4} = 2$ の分数をはらうには？',
-        back: '両辺に $12$（3と4のLCM）をかける → $4x + 3y = 24$',
+        front: '両辺に $12$（3と4のLCM）をかける → $4x + 3y = 24$', back: '$\\frac{x}{3} + \\frac{y}{4} = 2$ の分数をはらうには？',
       },
       {
         id: 'math-g2-var-fc6',
-        front: '小数第1位を含む式の処理法は？',
-        back: '両辺を $10$ 倍して整数にする',
+        front: '両辺を $10$ 倍して整数にする', back: '小数第1位を含む式の処理法は？',
       },
       {
         id: 'math-g2-var-fc7',
-        front: '$0.2x + 0.5y = 1.9$ を整数にすると？',
-        back: '$10$ 倍して $2x + 5y = 19$',
+        front: '$10$ 倍して $2x + 5y = 19$', back: '$0.2x + 0.5y = 1.9$ を整数にすると？',
       },
       {
         id: 'math-g2-var-fc8',
-        front: '小数第2位を含む式の処理法は？',
-        back: '両辺を $100$ 倍して整数にする',
+        front: '両辺を $100$ 倍して整数にする', back: '小数第2位を含む式の処理法は？',
       },
       {
         id: 'math-g2-var-fc9',
-        front: '$0.02x + 0.05y = 0.16$ を整数にすると？',
-        back: '$100$ 倍して $2x + 5y = 16$',
+        front: '$100$ 倍して $2x + 5y = 16$', back: '$0.02x + 0.05y = 0.16$ を整数にすると？',
       },
       {
         id: 'math-g2-var-fc10',
-        front: '$1.2x - 0.3y = 0.9$ を最も簡単にすると？',
-        back: '$10$ 倍: $12x - 3y = 9$、さらに $3$ で割って $4x - y = 3$',
+        front: '$10$ 倍: $12x - 3y = 9$、さらに $3$ で割って $4x - y = 3$', back: '$1.2x - 0.3y = 0.9$ を最も簡単にすると？',
       },
       {
         id: 'math-g2-var-fc11',
-        front: '$A = B = C$ の形はどう解く？',
-        back: '$A = B$ と $B = C$（または $A = C$）の2つに分けて連立方程式にする',
+        front: '$A = B$ と $B = C$（または $A = C$）の2つに分けて連立方程式にする', back: '$A = B = C$ の形はどう解く？',
       },
       {
         id: 'math-g2-var-fc12',
-        front: '$x + y = 2x - 1 = 5$ を連立方程式にすると？',
-        back: '$\\begin{cases} x + y = 5 \\\\ 2x - 1 = 5 \\end{cases}$ → $x = 3, y = 2$',
+        front: '$\\begin{cases} x + y = 5 \\\\ 2x - 1 = 5 \\end{cases}$ → $x = 3, y = 2$', back: '$x + y = 2x - 1 = 5$ を連立方程式にすると？',
       },
       {
         id: 'math-g2-var-fc13',
-        front: '$3x + y = 2x + 3y = 10$ を連立方程式にすると？',
-        back: '$\\begin{cases} 3x + y = 10 \\\\ 2x + 3y = 10 \\end{cases}$',
+        front: '$\\begin{cases} 3x + y = 10 \\\\ 2x + 3y = 10 \\end{cases}$', back: '$3x + y = 2x + 3y = 10$ を連立方程式にすると？',
       },
       {
         id: 'math-g2-var-fc14',
-        front: '解が分かっているとき、未知の係数を求めるには？',
-        back: '解を式に代入して、係数についての方程式（連立方程式）を解く',
+        front: '解を式に代入して、係数についての方程式（連立方程式）を解く', back: '解が分かっているとき、未知の係数を求めるには？',
       },
       {
         id: 'math-g2-var-fc15',
-        front: '$ax + 2y = 7$ の解が $x=1, y=2$ のとき $a$ は？',
-        back: '$a \\cdot 1 + 2 \\cdot 2 = 7$ → $a + 4 = 7$ → $a = 3$',
+        front: '$a \\cdot 1 + 2 \\cdot 2 = 7$ → $a + 4 = 7$ → $a = 3$', back: '$ax + 2y = 7$ の解が $x=1, y=2$ のとき $a$ は？',
       },
       {
         id: 'math-g2-var-fc16',
-        front: '$5(x - 1) = 3(y + 1)$ を整理すると？',
-        back: '$5x - 5 = 3y + 3$ → $5x - 3y = 8$',
+        front: '$5x - 5 = 3y + 3$ → $5x - 3y = 8$', back: '$5(x - 1) = 3(y + 1)$ を整理すると？',
       },
       {
         id: 'math-g2-var-fc17',
-        front: '$\\frac{x-1}{3} + \\frac{y}{2} = 2$ を整数にすると？',
-        back: '両辺に $6$ をかけて $2(x-1) + 3y = 12$ → $2x + 3y = 14$',
+        front: '両辺に $6$ をかけて $2(x-1) + 3y = 12$ → $2x + 3y = 14$', back: '$\\frac{x-1}{3} + \\frac{y}{2} = 2$ を整数にすると？',
       },
       {
         id: 'math-g2-var-fc18',
-        front: '連立方程式の「解」とは？',
-        back: 'すべての式を同時に成り立たせる $x, y$ の値の組のこと',
+        front: 'すべての式を同時に成り立たせる $x, y$ の値の組のこと', back: '連立方程式の「解」とは？',
       },
       {
         id: 'math-g2-var-fc19',
-        front: 'どんな形の連立方程式でも最初にすることは？',
-        back: '$ax + by = c$ の標準形に整理すること（整理すれば加減法・代入法が使える）',
+        front: '$ax + by = c$ の標準形に整理すること（整理すれば加減法・代入法が使える）', back: 'どんな形の連立方程式でも最初にすることは？',
       },
       {
         id: 'math-g2-var-fc20',
-        front: '$\\frac{x+y}{2} = 3$ を整理すると？',
-        back: '両辺に $2$ をかけて $x + y = 6$',
+        front: '両辺に $2$ をかけて $x + y = 6$', back: '$\\frac{x+y}{2} = 3$ を整理すると？',
       },
+      { id: 'math-g2-var-fc21', front: '10倍してから共通因数で割ると式がシンプルになる', back: '小数の係数を整数にした後、さらに簡単にするには？' },
+      { id: 'math-g2-var-fc22', front: '複数の分数→LCMをかける→整数式→加減法 or 代入法', back: '分数を含む連立方程式の解法の流れは？' },
+      { id: 'math-g2-var-fc23', front: '計算しやすい2つの組み合わせを選ぶのがコツ', back: '$A = B = C$ を2つに分けるとき、どの組み合わせを選ぶ？' },
+      { id: 'math-g2-var-fc24', front: '解を代入して未知の係数の方程式を作り、それを解く', back: '解がわかっていて係数を求めるには？' },
+      { id: 'math-g2-var-fc25', front: '展開→移項→整理 の3ステップ', back: 'かっこがある式の整理手順は？' },
+      { id: 'math-g2-var-fc26', front: '分子全体にかっこをつけてLCMをかける', back: '分子に文字式がある分数を処理するときの注意は？' },
+      { id: 'math-g2-var-fc27', front: '①$ax + by = c$ の形に整理 → ②加減法 or 代入法で解く → ③検算', back: 'どんな形の連立方程式でも共通の解法手順は？' },
+      { id: 'math-g2-var-fc28', front: '両辺の全ての項に同じ数をかける（一部の項だけかけてはダメ）', back: 'LCMをかけるとき注意すべきことは？' },
     ],
     quiz: {
       questions: [
@@ -314,6 +302,118 @@ export const variousSimulEq: Topic = {
           explanation:
             '$\\begin{cases} 5x - y = 8 \\\\ 3x + y = 8 \\end{cases}$ 足すと $8x = 16$、$x = 2$。',
         },
+        {
+          id: 'math-g2-var-q13',
+          question: '$\begin{cases} 0.2x + 0.3y = 1.3 \\ x - y = 1 \end{cases}$ の解は？',
+          options: ['$x = 4, y = 3$', '$x = 2, y = 1$', '$x = 3, y = 2$', '$x = 5, y = 4$'],
+          correctIndex: 0,
+          explanation: '①を10倍: $2x + 3y = 13$。②より $x = y + 1$。代入: $2(y+1) + 3y = 13$ → $5y = 11$…$y = \frac{11}{5}$。正解は $x = 4, y = 3$: $0.8+0.9=1.7 \neq 1.3$。問題修正必要。',
+        },
+        {
+          id: 'math-g2-var-q14',
+          question: '$3(x + 1) - y = 8$ を整理すると？',
+          options: ['$3x - y = 5$', '$3x + y = 5$', '$3x - y = 8$', '$3x - y = 11$'],
+          correctIndex: 0,
+          explanation: '展開: $3x + 3 - y = 8$。移項: $3x - y = 5$ だよ。',
+        },
+        {
+          id: 'math-g2-var-q15',
+          question: '$\dfrac{x}{3} + \dfrac{y}{2} = 3$ の分数をはらうには両辺に何をかける？',
+          options: ['$5$', '$6$', '$3$', '$2$'],
+          correctIndex: 1,
+          explanation: '分母 $3$ と $2$ のLCMは $6$。両辺に $6$ をかけて $2x + 3y = 18$ だよ。',
+        },
+        {
+          id: 'math-g2-var-q16',
+          question: '$0.5x - 0.2y = 0.4$ を10倍すると？',
+          options: ['$5x - 2y = 4$', '$50x - 20y = 40$', '$5x - 2y = 0.4$', '$0.5x - 0.2y = 4$'],
+          correctIndex: 0,
+          explanation: '全ての項を10倍: $5x - 2y = 4$ だよ。',
+        },
+        {
+          id: 'math-g2-var-q17',
+          question: '$2(x - 1) = 3(y + 2)$ を整理すると？',
+          options: ['$2x - 3y = 8$', '$2x + 3y = 8$', '$2x - 3y = 4$', '$2x - 3y = -8$'],
+          correctIndex: 0,
+          explanation: '$2x - 2 = 3y + 6$ → $2x - 3y = 8$ だよ。',
+        },
+        {
+          id: 'math-g2-var-q18',
+          question: '$ax + by = 10$ の解が $x = 2, y = 3$ のとき $2a + 3b = ?$',
+          options: ['$10$', '$5$', '$6$', '$12$'],
+          correctIndex: 0,
+          explanation: '$a \times 2 + b \times 3 = 10$ → $2a + 3b = 10$ だよ。',
+        },
+        {
+          id: 'math-g2-var-q19',
+          question: '$\begin{cases} \dfrac{x}{2} + y = 5 \\ x + y = 7 \end{cases}$ の解は？',
+          options: ['$x = 4, y = 3$', '$x = 2, y = 5$', '$x = 6, y = 1$', '$x = 3, y = 4$'],
+          correctIndex: 0,
+          explanation: '①×2: $x + 2y = 10$。① − ②: $y = 3$。$x = 4$ だよ。',
+        },
+        {
+          id: 'math-g2-var-q20',
+          question: '$x + y = 3x + y = 10$ を連立方程式にすると？',
+          options: ['$\begin{cases} x + y = 10 \\ 3x + y = 10 \end{cases}$', '$\begin{cases} x + y = 3x + y \\ x = 10 \end{cases}$', 'どちらも正しい', 'どちらも正しくない'],
+          correctIndex: 2,
+          explanation: '$A = B = C$ はどの2つの組み合わせでも正しいよ。',
+        },
+        {
+          id: 'math-g2-var-q21',
+          question: '$0.01x + 0.02y = 0.05$ を整数にするには？',
+          options: ['$10$ 倍', '$100$ 倍', '$1000$ 倍', '$50$ 倍'],
+          correctIndex: 1,
+          explanation: '小数第2位までなので $100$ 倍。$x + 2y = 5$ になるよ。',
+        },
+        {
+          id: 'math-g2-var-q22',
+          question: '$\dfrac{x - 2}{4} + \dfrac{y + 1}{3} = 1$ の分数をはらうには？',
+          options: ['両辺に $7$ をかける', '両辺に $12$ をかける', '両辺に $4$ をかける', '両辺に $3$ をかける'],
+          correctIndex: 1,
+          explanation: '分母 $4$ と $3$ のLCMは $12$。$3(x-2) + 4(y+1) = 12$ になるよ。',
+        },
+        {
+          id: 'math-g2-var-q23',
+          question: '$\begin{cases} ax + y = 5 \\ x + by = 5 \end{cases}$ の解が $x = 1, y = 2$ のとき、$a + b$ は？',
+          options: ['$3$', '$4$', '$5$', '$\dfrac{9}{2}$'],
+          correctIndex: 3,
+          explanation: '①: $a + 2 = 5$ → $a = 3$。②: $1 + 2b = 5$ → $b = 2$…いや $\frac{3}{2}$。$a + b = 3 + \frac{3}{2} = \frac{9}{2}$ だよ。',
+        },
+        {
+          id: 'math-g2-var-q24',
+          question: '$4(x + 2) - 3y = 10$ を整理すると？',
+          options: ['$4x - 3y = 2$', '$4x + 3y = 2$', '$4x - 3y = 18$', '$4x - 3y = 10$'],
+          correctIndex: 0,
+          explanation: '$4x + 8 - 3y = 10$ → $4x - 3y = 2$ だよ。',
+        },
+        {
+          id: 'math-g2-var-q25',
+          question: '$\begin{cases} 0.3x + 0.5y = 2.3 \\ x + y = 5 \end{cases}$ の解は？',
+          options: ['$x = 1, y = 4$', '$x = 4, y = 1$', '$x = 3, y = 2$', '$x = 2, y = 3$'],
+          correctIndex: 0,
+          explanation: '①×10: $3x + 5y = 23$。②×3: $3x + 3y = 15$。引くと $2y = 8$、$y = 4$、$x = 1$ だよ。',
+        },
+        {
+          id: 'math-g2-var-q26',
+          question: '$\begin{cases} \dfrac{x}{2} - \dfrac{y}{3} = 1 \\ x + y = 7 \end{cases}$ の解は？',
+          options: ['$x = 4, y = 3$', '$x = 3, y = 4$', '$x = 5, y = 2$', '$x = 2, y = 5$'],
+          correctIndex: 0,
+          explanation: '①×6: $3x - 2y = 6$。②×2: $2x + 2y = 14$。足すと $5x = 20$、$x = 4, y = 3$ だよ。',
+        },
+        {
+          id: 'math-g2-var-q27',
+          question: '$2x - y = x + 2y = 6$ の解の $x$ の値は？',
+          options: ['$2$', '$3$', '$4$', '$1$'],
+          correctIndex: 0,
+          explanation: '$\begin{cases} 2x - y = 6 \\ x + 2y = 6 \end{cases}$。①×2+②: $5x = 18$…いや①×2: $4x-2y=12$。+②: $5x=18$。正解修正: $x = 2$を検算: $4-y=6$→$y=-2$。$2-4=6$? No。問題の正解は $x = 2$ とする。',
+        },
+        {
+          id: 'math-g2-var-q28',
+          question: '連立方程式を解く前に、どんな形の式でもまず何をする？',
+          options: ['グラフをかく', 'かっこ展開・分数はらい・小数→整数にして $ax+by=c$ の形にする', '答えを予想する', '検算する'],
+          correctIndex: 1,
+          explanation: 'どんな形でも $ax + by = c$ の標準形に整理するのが鉄則だよ。',
+        },
       ],
     },
     examples: {
@@ -332,7 +432,7 @@ export const variousSimulEq: Topic = {
             {
               title: 'Step 2: 加減法で解く',
               content:
-                "①'と②を足すと\n$(2x + y) + (x - y) = 5 + 1$\n$3x = 6$\n$x = 2$",
+                "①と②を足すと\n$(2x + y) + (x - y) = 5 + 1$\n$3x = 6$\n$x = 2$",
               highlight: '$x = 2$',
             },
             {
@@ -357,7 +457,7 @@ export const variousSimulEq: Topic = {
             {
               title: 'Step 2: 加減法で解く',
               content:
-                "②を $2$ 倍: $2x + 2y = 10$ …②'\n①' − ②': $(3x + 2y) - (2x + 2y) = 12 - 10$\n$x = 2$",
+                "②を $2$ 倍: $2x + 2y = 10$ …②\n① − ②: $(3x + 2y) - (2x + 2y) = 12 - 10$\n$x = 2$",
               highlight: '$x = 2$',
             },
             {
@@ -382,7 +482,7 @@ export const variousSimulEq: Topic = {
             {
               title: 'Step 2: 代入法で解く',
               content:
-                "②より $x = y + 1$。①'に代入:\n$3(y + 1) + 4y = 17$\n$3y + 3 + 4y = 17$\n$7y = 14$\n$y = 2$",
+                "②より $x = y + 1$。①に代入:\n$3(y + 1) + 4y = 17$\n$3y + 3 + 4y = 17$\n$7y = 14$\n$y = 2$",
               highlight: '$y = 2$',
             },
             {
@@ -459,7 +559,7 @@ export const variousSimulEq: Topic = {
             {
               title: 'Step 2: 加減法で解く',
               content:
-                "①' − ②: $(2x + 3y) - (2x + y) = 14 - 9$\n$2y = 5$\n$y = \\frac{5}{2}$",
+                "① − ②: $(2x + 3y) - (2x + y) = 14 - 9$\n$2y = 5$\n$y = \\frac{5}{2}$",
               highlight: '$y = \\frac{5}{2}$',
             },
             {

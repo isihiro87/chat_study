@@ -47,23 +47,19 @@ export const inverseProportion: Topic = {
     flashcards: [
       {
         id: 'math-g1-inverse-fc1',
-        front: '反比例の式は？',
-        back: '$y = \\frac{a}{x}$（$a$ は比例定数）',
+        front: '$y = \\frac{a}{x}$（$a$ は比例定数）', back: '反比例の式は？',
       },
       {
         id: 'math-g1-inverse-fc2',
-        front: '反比例で $x$ が2倍になると $y$ は？',
-        back: '$y$ は $\\frac{1}{2}$ 倍になる',
+        front: '$y$ は $\\frac{1}{2}$ 倍になる', back: '反比例で $x$ が2倍になると $y$ は？',
       },
       {
         id: 'math-g1-inverse-fc3',
-        front: '反比例の判別法は？',
-        back: '$x \\times y = a$（積が一定）なら反比例',
+        front: '$x \\times y = a$（積が一定）なら反比例', back: '反比例の判別法は？',
       },
       {
         id: 'math-g1-inverse-fc4',
-        front: '反比例のグラフの名前と特徴は？',
-        back: '双曲線。座標軸と交わらない2つのなめらかな曲線',
+        front: '双曲線。座標軸と交わらない2つのなめらかな曲線', back: '反比例のグラフの名前と特徴は？',
       },
     ],
     quiz: {

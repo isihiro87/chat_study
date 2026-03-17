@@ -66,88 +66,115 @@ export const quadEqFactoring: Topic = {
     flashcards: [
       {
         id: 'math-g3-qef-fc1',
-        front: 'A×B=0 のとき何が言える？',
-        back: 'A = 0 または B = 0\n少なくともどちらか一方が0になる',
+        front: 'A = 0 または B = 0\n少なくともどちらか一方が0になる', back: 'A×B=0 のとき何が言える？',
       },
       {
         id: 'math-g3-qef-fc2',
-        front: '因数分解で二次方程式を解く手順（3ステップ）',
-        back: '① 右辺を0にする（移項して整理）\n② 左辺を因数分解する\n③ 各因数 = 0 として x を求める',
+        front: '① 右辺を0にする（移項して整理）\n② 左辺を因数分解する\n③ 各因数 = 0 として x を求める', back: '因数分解で二次方程式を解く手順（3ステップ）',
       },
       {
         id: 'math-g3-qef-fc3',
-        front: 'x²−6x=0 の解き方のポイントは？',
-        back: '共通因数 x でくくる → x(x−6)=0\nx=0 も解になる！両辺を x で割ってはダメ',
+        front: '共通因数 x でくくる → x(x−6)=0\nx=0 も解になる！両辺を x で割ってはダメ', back: 'x²−6x=0 の解き方のポイントは？',
       },
       {
         id: 'math-g3-qef-fc4',
-        front: '重解とは？',
-        back: '二次方程式の2つの解が同じ値になること\n例: (x−3)²=0 → x=3（重解）',
+        front: '二次方程式の2つの解が同じ値になること\n例: (x−3)²=0 → x=3（重解）', back: '重解とは？',
       },
       {
         id: 'math-g3-qef-fc5',
-        front: 'x²−2x+1=0 の解は？',
-        back: 'x=1（重解）\n(x−1)²=0 → 完全平方式',
+        front: 'x=1（重解）\n(x−1)²=0 → 完全平方式', back: 'x²−2x+1=0 の解は？',
       },
       {
         id: 'math-g3-qef-fc6',
-        front: 'x²−9=0 の解き方は？',
-        back: '差の平方の公式を使う\n(x+3)(x−3)=0 → x=±3',
+        front: '差の平方の公式を使う\n(x+3)(x−3)=0 → x=±3', back: 'x²−9=0 の解き方は？',
       },
       {
         id: 'math-g3-qef-fc7',
-        front: 'x²−a²=0 の解は？',
-        back: '(x+a)(x−a)=0\nx = a または x = −a（x = ±a）',
+        front: '(x+a)(x−a)=0\nx = a または x = −a（x = ±a）', back: 'x²−a²=0 の解は？',
       },
       {
         id: 'math-g3-qef-fc8',
-        front: '−x²+5x−6=0 を解くにはまず何をする？',
-        back: '両辺に−1をかけて x²−5x+6=0 の形にする\nx²の係数を正の1にそろえる',
+        front: '両辺に−1をかけて x²−5x+6=0 の形にする\nx²の係数を正の1にそろえる', back: '−x²+5x−6=0 を解くにはまず何をする？',
       },
       {
         id: 'math-g3-qef-fc9',
-        front: '2x²−10x+12=0 を解くにはまず何をする？',
-        back: '両辺を2で割って x²−5x+6=0 にする\n共通因数で割って係数をそろえる',
+        front: '両辺を2で割って x²−5x+6=0 にする\n共通因数で割って係数をそろえる', back: '2x²−10x+12=0 を解くにはまず何をする？',
       },
       {
         id: 'math-g3-qef-fc10',
-        front: '(x−3)(x−4)=2 はそのまま解ける？',
-        back: '解けない！右辺が0でないとA×B=0が使えない\n展開→整理→因数分解の手順で解く',
+        front: '解けない！右辺が0でないとA×B=0が使えない\n展開→整理→因数分解の手順で解く', back: '(x−3)(x−4)=2 はそのまま解ける？',
       },
       {
         id: 'math-g3-qef-fc11',
-        front: '完全平方式 x²+2ax+a² の因数分解は？',
-        back: '(x+a)²\n例: x²+6x+9 = (x+3)²',
+        front: '(x+a)²\n例: x²+6x+9 = (x+3)²', back: '完全平方式 x²+2ax+a² の因数分解は？',
       },
       {
         id: 'math-g3-qef-fc12',
-        front: '完全平方式 x²−2ax+a² の因数分解は？',
-        back: '(x−a)²\n例: x²−10x+25 = (x−5)²',
+        front: '(x−a)²\n例: x²−10x+25 = (x−5)²', back: '完全平方式 x²−2ax+a² の因数分解は？',
       },
       {
         id: 'math-g3-qef-fc13',
-        front: 'x(x−a)=0 の解を求めるとき、よくあるミスは？',
-        back: '両辺を x で割って x=0 を見落とすこと\n正解: x=0 または x=a',
+        front: '両辺を x で割って x=0 を見落とすこと\n正解: x=0 または x=a', back: 'x(x−a)=0 の解を求めるとき、よくあるミスは？',
       },
       {
         id: 'math-g3-qef-fc14',
-        front: '因数分解で解ける二次方程式の見分け方は？',
-        back: '左辺が因数分解できる形であること\nできなければ解の公式を使う',
+        front: '左辺が因数分解できる形であること\nできなければ解の公式を使う', back: '因数分解で解ける二次方程式の見分け方は？',
       },
       {
         id: 'math-g3-qef-fc15',
-        front: '−4x²+8x−4=0 を因数分解で解け',
-        back: '−4で割って x²−2x+1=0\n(x−1)²=0 → x=1（重解）',
+        front: '−4で割って x²−2x+1=0\n(x−1)²=0 → x=1（重解）', back: '−4x²+8x−4=0 を因数分解で解け',
       },
       {
         id: 'math-g3-qef-fc16',
-        front: 'x²+6x+9=0 の解は？',
-        back: 'x=−3（重解）\n(x+3)²=0',
+        front: 'x=−3（重解）\n(x+3)²=0', back: 'x²+6x+9=0 の解は？',
       },
       {
         id: 'math-g3-qef-fc17',
-        front: 'x²−25=0 の解は？',
-        back: 'x=±5\n(x+5)(x−5)=0',
+        front: 'x=±5\n(x+5)(x−5)=0', back: 'x²−25=0 の解は？',
+      },
+      {
+        id: 'math-g3-qef-fc18',
+        front: 'x=4, x=−2\n(x−4)(x+2)=0', back: 'x²−2x−8=0 の解は？',
+      },
+      {
+        id: 'math-g3-qef-fc19',
+        front: 'x=5（重解）\n(x−5)²=0', back: 'x²−10x+25=0 の解は？',
+      },
+      {
+        id: 'math-g3-qef-fc20',
+        front: 'x=0, x=−5\nx(x+5)=0', back: 'x²+5x=0 の解は？',
+      },
+      {
+        id: 'math-g3-qef-fc21',
+        front: '3で割って x²−x−6=0\n(x−3)(x+2)=0 → x=3, −2', back: '3x²−3x−18=0 の解は？',
+      },
+      {
+        id: 'math-g3-qef-fc22',
+        front: 'x=1, x=7\n展開→x²−8x+12=5→x²−8x+7=0→(x−1)(x−7)=0', back: '(x−4)²=9−4x の解は？',
+      },
+      {
+        id: 'math-g3-qef-fc23',
+        front: 'x=−4（重解）\n(x+4)²=0', back: 'x²+8x+16=0 の解は？',
+      },
+      {
+        id: 'math-g3-qef-fc24',
+        front: 'x=±7\n(x+7)(x−7)=0', back: 'x²−49=0 の解は？',
+      },
+      {
+        id: 'math-g3-qef-fc25',
+        front: 'まず右辺を0にする。因数分解はA×B=0のときだけ使える。', back: '因数分解で解くとき、最初に確認すべきことは？',
+      },
+      {
+        id: 'math-g3-qef-fc26',
+        front: 'x=2, x=−7\n(x−2)(x+7)=0', back: 'x²+5x−14=0 の解は？',
+      },
+      {
+        id: 'math-g3-qef-fc27',
+        front: 'x=0, x=8\nx(x−8)=0', back: 'x²=8x の解は？（移項してから）',
+      },
+      {
+        id: 'math-g3-qef-fc28',
+        front: 'x=6, x=−1\n−1をかけて x²−5x−6=0→(x−6)(x+1)=0', back: '−x²+5x+6=0 の解は？',
       },
     ],
     quiz: {
@@ -307,6 +334,214 @@ export const quadEqFactoring: Topic = {
           correctIndex: 3,
           explanation:
             '$3x(x + 4) = 0$。$x = 0$ または $x = -4$。共通因数でくくろう！',
+        },
+        {
+          id: 'math-g3-qef-q13',
+          question: '$x^2 - 2x - 8 = 0$ の解は？',
+          options: [
+            '$x = 2, x = -4$',
+            '$x = -2, x = 4$',
+            '$x = 4, x = -2$',
+            '$x = 1, x = -8$',
+          ],
+          correctIndex: 2,
+          explanation:
+            '$(x-4)(x+2) = 0$。$x = 4$ または $x = -2$ だよ。',
+        },
+        {
+          id: 'math-g3-qef-q14',
+          question: '$x^2 - 10x + 25 = 0$ の解は？',
+          options: [
+            '$x = 5, x = -5$',
+            '$x = 5$（重解）',
+            '$x = -5$（重解）',
+            '$x = 25$',
+          ],
+          correctIndex: 1,
+          explanation:
+            '$(x-5)^2 = 0$ → $x = 5$（重解）。完全平方式だよ。',
+        },
+        {
+          id: 'math-g3-qef-q15',
+          question: '$x^2 + 5x = 0$ の解は？',
+          options: [
+            '$x = 5$',
+            '$x = -5$',
+            '$x = 0, x = -5$',
+            '$x = 0, x = 5$',
+          ],
+          correctIndex: 2,
+          explanation:
+            '$x(x+5) = 0$。$x = 0$ または $x = -5$ だよ。',
+        },
+        {
+          id: 'math-g3-qef-q16',
+          question: '$3x^2 - 3x - 18 = 0$ の解は？',
+          options: [
+            '$x = 2, x = -3$',
+            '$x = -2, x = 3$',
+            '$x = 3, x = -2$',
+            '$x = 6, x = -1$',
+          ],
+          correctIndex: 2,
+          explanation:
+            '3で割って $x^2-x-6=0$ → $(x-3)(x+2) = 0$。$x = 3, -2$。',
+        },
+        {
+          id: 'math-g3-qef-q17',
+          question: '$x^2 + 8x + 16 = 0$ の解は？',
+          options: [
+            '$x = 4$（重解）',
+            '$x = -4$（重解）',
+            '$x = 4, x = -4$',
+            '$x = 2, x = 8$',
+          ],
+          correctIndex: 1,
+          explanation:
+            '$(x+4)^2 = 0$ → $x = -4$（重解）。',
+        },
+        {
+          id: 'math-g3-qef-q18',
+          question: '$x^2 - 49 = 0$ の解は？',
+          options: [
+            '$x = 7$',
+            '$x = -7$',
+            '$x = \\pm 7$',
+            '$x = 49$',
+          ],
+          correctIndex: 2,
+          explanation:
+            '$(x+7)(x-7) = 0$。$x = 7$ または $x = -7$。',
+        },
+        {
+          id: 'math-g3-qef-q19',
+          question: '$x^2 + 5x - 14 = 0$ の解は？',
+          options: [
+            '$x = 2, x = -7$',
+            '$x = -2, x = 7$',
+            '$x = 7, x = -2$',
+            '$x = 14, x = -1$',
+          ],
+          correctIndex: 0,
+          explanation:
+            '$(x+7)(x-2) = 0$。$x = 2$ または $x = -7$ だよ。',
+        },
+        {
+          id: 'math-g3-qef-q20',
+          question: '$x^2 = 8x$ の解は？',
+          options: [
+            '$x = 8$',
+            '$x = 0, x = -8$',
+            '$x = 0, x = 8$',
+            '$x = \\pm 8$',
+          ],
+          correctIndex: 2,
+          explanation:
+            '$x^2-8x=0$ → $x(x-8) = 0$。$x = 0$ または $x = 8$。移項してから因数分解しよう。',
+        },
+        {
+          id: 'math-g3-qef-q21',
+          question: '$-x^2 + 5x + 6 = 0$ の解は？',
+          options: [
+            '$x = -1, x = 6$',
+            '$x = 6, x = -1$',
+            '$x = 2, x = 3$',
+            '$x = -2, x = -3$',
+          ],
+          correctIndex: 1,
+          explanation:
+            '$-1$ をかけて $x^2-5x-6=0$ → $(x-6)(x+1) = 0$。$x = 6, -1$。',
+        },
+        {
+          id: 'math-g3-qef-q22',
+          question: '$x^2 - 4x - 12 = 0$ の解は？',
+          options: [
+            '$x = 6, x = -2$',
+            '$x = -6, x = 2$',
+            '$x = 4, x = -3$',
+            '$x = 3, x = -4$',
+          ],
+          correctIndex: 0,
+          explanation:
+            '$(x-6)(x+2) = 0$。$x = 6$ または $x = -2$ だよ。',
+        },
+        {
+          id: 'math-g3-qef-q23',
+          question: '$x^2 - 16 = 0$ を因数分解で解くと？',
+          options: [
+            '$x = 8$',
+            '$x = \\pm 4$',
+            '$x = 16$',
+            '$x = \\pm 16$',
+          ],
+          correctIndex: 1,
+          explanation:
+            '$(x+4)(x-4) = 0$。$x = 4$ または $x = -4$ だよ。',
+        },
+        {
+          id: 'math-g3-qef-q24',
+          question: '$x^2 + 12x + 36 = 0$ の解は？',
+          options: [
+            '$x = 6$（重解）',
+            '$x = -6$（重解）',
+            '$x = 6, x = -6$',
+            '$x = -12$',
+          ],
+          correctIndex: 1,
+          explanation:
+            '$(x+6)^2 = 0$ → $x = -6$（重解）。',
+        },
+        {
+          id: 'math-g3-qef-q25',
+          question: '$(x - 1)(x + 3) = 5$ の解は？',
+          options: [
+            '$x = 1, x = -3$',
+            '$x = 2, x = -4$',
+            '$x = -1, x = 5$',
+            '$x = 4, x = -2$',
+          ],
+          correctIndex: 1,
+          explanation:
+            '展開して $x^2+2x-3=5$ → $x^2+2x-8=0$ → $(x+4)(x-2)=0$。$x = 2, -4$。',
+        },
+        {
+          id: 'math-g3-qef-q26',
+          question: '$2x^2 - 8 = 0$ を因数分解で解くと？',
+          options: [
+            '$x = \\pm 2$',
+            '$x = \\pm 4$',
+            '$x = 2$',
+            '$x = 4$',
+          ],
+          correctIndex: 0,
+          explanation:
+            '$2(x^2-4) = 0$ → $2(x+2)(x-2) = 0$。$x = \\pm 2$ だよ。',
+        },
+        {
+          id: 'math-g3-qef-q27',
+          question: '$x^2 - 3x - 10 = 0$ の解は？',
+          options: [
+            '$x = 5, x = -2$',
+            '$x = -5, x = 2$',
+            '$x = 10, x = -1$',
+            '$x = -10, x = 1$',
+          ],
+          correctIndex: 0,
+          explanation:
+            '$(x-5)(x+2) = 0$。$x = 5$ または $x = -2$ だよ。',
+        },
+        {
+          id: 'math-g3-qef-q28',
+          question: '$x^2 - 7x = 0$ の解は？',
+          options: [
+            '$x = 7$',
+            '$x = -7$',
+            '$x = 0, x = 7$',
+            '$x = 0, x = -7$',
+          ],
+          correctIndex: 2,
+          explanation:
+            '$x(x-7) = 0$。$x = 0$ または $x = 7$。$x = 0$ を忘れないで。',
         },
       ],
     },

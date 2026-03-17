@@ -150,10 +150,11 @@ export interface Video {
 export type Difficulty = 'basic' | 'standard' | 'advanced';
 
 // フラッシュカード
+// FlashcardDeck の表示順: back（問題・質問文）→ タップ → front（答え・用語）
 export interface Flashcard {
   id: string;
-  front: string;
-  back: string;
+  front: string;  // 答え・用語（フリップ後に表示される）
+  back: string;   // 問題・質問文（最初に表示される）
   hint?: string;
   explanation?: string;
   difficulty?: Difficulty;

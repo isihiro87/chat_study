@@ -192,6 +192,91 @@ export const circuitOhm: Topic = {
         back: '電圧計は回路にどのようにつなぐ？',
         explanation: '測りたい部分に並列につなぐ。最大の端子（300Vなど）からつなぎ始める。',
       },
+      {
+        id: 'sci2-circuit-fc15',
+        front: '回路',
+        back: '電気の通り道。電源から出て戻るまでの道すじ',
+      },
+      {
+        id: 'sci2-circuit-fc16',
+        front: '直列回路',
+        back: '電流の通り道が枝分かれしない回路',
+      },
+      {
+        id: 'sci2-circuit-fc17',
+        front: '並列回路',
+        back: '電流の通り道が途中で枝分かれする回路',
+      },
+      {
+        id: 'sci2-circuit-fc18',
+        front: '電流計は直列につなぐ',
+        back: '測りたい部分に直列に',
+      },
+      {
+        id: 'sci2-circuit-fc19',
+        front: '電圧計は並列につなぐ',
+        back: '測りたい部分に並列に',
+      },
+      {
+        id: 'sci2-circuit-fc20',
+        front: '直列回路の電流',
+        back: 'どこでも同じ I＝I₁＝I₂',
+      },
+      {
+        id: 'sci2-circuit-fc21',
+        front: '並列回路の電流',
+        back: '枝分かれ前＝各枝の和 I＝I₁+I₂',
+      },
+      {
+        id: 'sci2-circuit-fc22',
+        front: '直列回路の電圧',
+        back: '各部分の和＝全体 V＝V₁+V₂',
+      },
+      {
+        id: 'sci2-circuit-fc23',
+        front: '並列回路の電圧',
+        back: 'どこも同じ V＝V₁＝V₂',
+      },
+      {
+        id: 'sci2-circuit-fc24',
+        front: 'オームの法則',
+        back: 'V＝R×I',
+      },
+      {
+        id: 'sci2-circuit-fc25',
+        front: '導体',
+        back: '電気を通しやすい物質（金属など）',
+      },
+      {
+        id: 'sci2-circuit-fc26',
+        front: '不導体（絶縁体）',
+        back: '電気を通さない物質（ゴム・ガラスなど）',
+      },
+      {
+        id: 'sci2-circuit-fc27',
+        front: '直列の合成抵抗',
+        back: 'R＝R₁+R₂',
+      },
+      {
+        id: 'sci2-circuit-fc28',
+        front: '並列の合成抵抗',
+        back: '1/R＝1/R₁+1/R₂',
+      },
+      {
+        id: 'sci2-circuit-fc29',
+        front: '抵抗を決める要因',
+        back: '物質の種類、長さ、断面積',
+      },
+      {
+        id: 'sci2-circuit-fc30',
+        front: '長さ2倍→抵抗2倍',
+        back: '抵抗は長さに比例',
+      },
+      {
+        id: 'sci2-circuit-fc31',
+        front: '断面積2倍→抵抗半分',
+        back: '抵抗は断面積に反比例',
+      }
     ],
     quiz: {
       questions: [
@@ -253,6 +338,182 @@ export const circuitOhm: Topic = {
           explanation:
             '並列回路では I＝I₁＋I₂ なので、0.2＋0.3＝0.5A です。',
         },
+        {
+          id: 'sci2-circuit-q9',
+          question: '直列回路の電流の規則は？',
+          options: ['場所で異なる', 'どこでも同じ', '枝分かれの和', '電圧に等しい'],
+          correctIndex: 1,
+          explanation:
+            'I＝I₁＝I₂。',
+        },
+        {
+          id: 'sci2-circuit-q10',
+          question: '並列回路の電流の規則は？',
+          options: ['どこでも同じ', '枝分かれ前＝各枝の和', '各部分の和＝全体', '電圧と同じ'],
+          correctIndex: 1,
+          explanation:
+            'I＝I₁+I₂。',
+        },
+        {
+          id: 'sci2-circuit-q11',
+          question: '直列回路の電圧の規則は？',
+          options: ['どこでも同じ', '枝分かれ前＝和', '各部分の和＝全体', '電流と同じ'],
+          correctIndex: 2,
+          explanation:
+            'V＝V₁+V₂。',
+        },
+        {
+          id: 'sci2-circuit-q12',
+          question: '並列回路の電圧の規則は？',
+          options: ['各部分の和＝全体', 'どこも同じ', '枝分かれ前＝和', '電流と同じ'],
+          correctIndex: 1,
+          explanation:
+            'V＝V₁＝V₂。',
+        },
+        {
+          id: 'sci2-circuit-q13',
+          question: 'オームの法則は？',
+          options: ['V＝R+I', 'V＝R×I', 'V＝R÷I', 'V＝R−I'],
+          correctIndex: 1,
+          explanation:
+            'V＝R×I（電圧＝抵抗×電流）。',
+        },
+        {
+          id: 'sci2-circuit-q14',
+          question: '10Ωに2A→電圧は？',
+          options: ['5V', '12V', '20V', '8V'],
+          correctIndex: 2,
+          explanation:
+            '10×2＝20V。',
+        },
+        {
+          id: 'sci2-circuit-q15',
+          question: '12Vで0.4A→抵抗は？',
+          options: ['3Ω', '12Ω', '30Ω', '48Ω'],
+          correctIndex: 2,
+          explanation:
+            '12÷0.4＝30Ω。',
+        },
+        {
+          id: 'sci2-circuit-q16',
+          question: '25Ωに5V→電流は？',
+          options: ['0.1A', '0.2A', '5A', '125A'],
+          correctIndex: 1,
+          explanation:
+            '5÷25＝0.2A。',
+        },
+        {
+          id: 'sci2-circuit-q17',
+          question: '電流計のつなぎ方は？',
+          options: ['並列', '直列', 'どちらでも', 'つながない'],
+          correctIndex: 1,
+          explanation:
+            '直列につなぐ。',
+        },
+        {
+          id: 'sci2-circuit-q18',
+          question: '電圧計のつなぎ方は？',
+          options: ['直列', '並列', 'どちらでも', 'つながない'],
+          correctIndex: 1,
+          explanation:
+            '並列につなぐ。',
+        },
+        {
+          id: 'sci2-circuit-q19',
+          question: '1A＝何mA？',
+          options: ['10mA', '100mA', '1000mA', '10000mA'],
+          correctIndex: 2,
+          explanation:
+            '1A＝1000mA。',
+        },
+        {
+          id: 'sci2-circuit-q20',
+          question: '電流計を最初につなぐ端子は？',
+          options: ['最小', '中間', '最大（5A）', 'どれでも'],
+          correctIndex: 2,
+          explanation:
+            '最大端子から。計器保護のため。',
+        },
+        {
+          id: 'sci2-circuit-q21',
+          question: '10Ωと20Ωの直列→合成抵抗は？',
+          options: ['10Ω', '20Ω', '30Ω', '6.7Ω'],
+          correctIndex: 2,
+          explanation:
+            'R＝10+20＝30Ω。',
+        },
+        {
+          id: 'sci2-circuit-q22',
+          question: '20Ωと20Ωの並列→合成抵抗は？',
+          options: ['40Ω', '20Ω', '10Ω', '5Ω'],
+          correctIndex: 2,
+          explanation:
+            '同じ抵抗2つの並列→半分＝10Ω。',
+        },
+        {
+          id: 'sci2-circuit-q23',
+          question: '電熱線の長さ2倍→抵抗は？',
+          options: ['半分', '変わらない', '2倍', '4倍'],
+          correctIndex: 2,
+          explanation:
+            '抵抗は長さに比例。',
+        },
+        {
+          id: 'sci2-circuit-q24',
+          question: '電熱線の断面積2倍→抵抗は？',
+          options: ['2倍', '変わらない', '半分', '4倍'],
+          correctIndex: 2,
+          explanation:
+            '抵抗は断面積に反比例。',
+        },
+        {
+          id: 'sci2-circuit-q25',
+          question: '導体の例は？',
+          options: ['ゴム', 'ガラス', '銅', 'プラスチック'],
+          correctIndex: 2,
+          explanation:
+            '銅は導体。',
+        },
+        {
+          id: 'sci2-circuit-q26',
+          question: '不導体の例は？',
+          options: ['銅', '鉄', 'アルミ', 'ゴム'],
+          correctIndex: 3,
+          explanation:
+            'ゴムは不導体（絶縁体）。',
+        },
+        {
+          id: 'sci2-circuit-q27',
+          question: '並列回路で合成抵抗は各抵抗より？',
+          options: ['大きい', '小さい', '同じ', '関係ない'],
+          correctIndex: 1,
+          explanation:
+            '電流の通り道が増え小さくなる。',
+        },
+        {
+          id: 'sci2-circuit-q28',
+          question: '直列回路で合成抵抗は各抵抗より？',
+          options: ['大きい', '小さい', '同じ', '関係ない'],
+          correctIndex: 0,
+          explanation:
+            '抵抗が加わり大きくなる。',
+        },
+        {
+          id: 'sci2-circuit-q29',
+          question: 'V-Iグラフが直線→何の法則？',
+          options: ['質量保存', 'オームの法則', '定比例', 'フックの法則'],
+          correctIndex: 1,
+          explanation:
+            '電圧と電流が比例。',
+        },
+        {
+          id: 'sci2-circuit-q30',
+          question: '抵抗を決める要因でないのは？',
+          options: ['物質の種類', '長さ', '断面積', '色'],
+          correctIndex: 3,
+          explanation:
+            '物質の種類・長さ・断面積で決まる。',
+        }
       ],
     },
     examples: {
