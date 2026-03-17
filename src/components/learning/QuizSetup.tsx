@@ -124,6 +124,29 @@ export default function QuizSetup({ questions, onStart }: QuizSetupProps) {
             >
               全問
             </button>
+            <div className="flex items-center gap-1.5">
+              <input
+                type="number"
+                min={1}
+                max={filteredQuestions.length}
+                value={questionCount !== null && !QUESTION_PRESETS.includes(questionCount as typeof QUESTION_PRESETS[number]) ? questionCount : ''}
+                placeholder="数値"
+                onChange={(e) => {
+                  const v = parseInt(e.target.value, 10);
+                  if (!isNaN(v) && v >= 1) {
+                    setQuestionCount(Math.min(v, filteredQuestions.length));
+                  } else if (e.target.value === '') {
+                    setQuestionCount(null);
+                  }
+                }}
+                className={`w-16 rounded-lg border-2 px-2 py-1.5 text-center text-sm font-medium transition-colors ${
+                  questionCount !== null && !QUESTION_PRESETS.includes(questionCount as typeof QUESTION_PRESETS[number])
+                    ? 'border-amber-500 bg-amber-50 text-amber-700'
+                    : 'border-gray-200 bg-white text-gray-600'
+                }`}
+              />
+              <span className="text-sm text-gray-500">問</span>
+            </div>
           </div>
         </div>
 

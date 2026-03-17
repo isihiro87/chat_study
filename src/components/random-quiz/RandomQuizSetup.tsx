@@ -98,7 +98,7 @@ export function RandomQuizSetup({ subjectId, onStart, initialSelectedTopicIds }:
 
   return (
     <div className="flex h-full flex-col">
-      <div className="flex-1 overflow-y-auto px-4 pb-32">
+      <div className="mx-auto w-full max-w-md flex-1 overflow-y-auto px-4 pb-32">
         {/* 学年タブ */}
         <div className="mb-4 flex gap-2">
           {availableGrades.map((grade) => (
