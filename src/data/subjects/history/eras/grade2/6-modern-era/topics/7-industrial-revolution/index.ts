@@ -110,24 +110,24 @@ export const industrialRevolution: Topic = {
         {
           id: 'q1',
           question: '産業革命で蒸気機関を改良したイギリスの技術者は？',
-          options: ['ダーウィン', 'スティーブンソン', 'ニュートン', 'ワット'],
-          correctIndex: 3,
+          options: ['ダーウィン', 'ワット', 'ニュートン', 'スティーブンソン'],
+          correctIndex: 1,
           explanation:
             'ワットは蒸気機関を改良し、工場の動力や交通機関の発展に貢献しました。',
         },
         {
           id: 'q2',
           question: '産業革命が最初に始まった国は？',
-          options: ['フランス', 'ドイツ', 'アメリカ', 'イギリス'],
-          correctIndex: 3,
+          options: ['イギリス', 'ドイツ', 'アメリカ', 'フランス'],
+          correctIndex: 0,
           explanation:
             '18世紀後半にイギリスの綿織物工業から産業革命が始まりました。',
         },
         {
           id: 'q3',
           question: '産業革命をいち早く達成し、圧倒的な工業力を持ったイギリスの呼び名は？',
-          options: ['日の沈まない国', '世界の工場', '七つの海の支配者', '大英帝国'],
-          correctIndex: 1,
+          options: ['日の沈まない国', '大英帝国', '七つの海の支配者', '世界の工場'],
+          correctIndex: 3,
           explanation:
             'イギリスは産業革命により圧倒的な生産力を持ち、「世界の工場」と呼ばれました。',
         },
@@ -142,8 +142,8 @@ export const industrialRevolution: Topic = {
         {
           id: 'q5',
           question: '産業革命後、長時間労働や低賃金に対抗するため労働者が作った団体は？',
-          options: ['政党', '労働組合', '議会', '軍隊'],
-          correctIndex: 1,
+          options: ['労働組合', '政党', '議会', '軍隊'],
+          correctIndex: 0,
           explanation:
             '労働者は労働組合を結成し、資本家と交渉して労働条件の改善を求めました。',
         },

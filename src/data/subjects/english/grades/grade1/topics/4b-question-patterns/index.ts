@@ -91,8 +91,8 @@ export const questionPatterns: Topic = {
         {
           id: 'eng-qp-q1',
           question: 'The book is ___ the desk.（本は机の上にあります。）(　　)に入る言葉は？',
-          options: ['in', 'on', 'at', 'by'],
-          correctIndex: 1,
+          options: ['on', 'in', 'at', 'by'],
+          correctIndex: 0,
           explanation: '「〜の上に」は on だよ。on the desk = 机の上に',
         },
         {
@@ -101,10 +101,10 @@ export const questionPatterns: Topic = {
           options: [
             'How time do you get up?',
             'When time do you get up?',
-            'What time do you get up?',
             'What do you get up?',
+            'What time do you get up?',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation: '「何時」は what time だよ。What time do you get up?',
         },
         {
@@ -112,18 +112,18 @@ export const questionPatterns: Topic = {
           question: 'How do you come to school? に「自転車で来ます」と答えるとき、正しいのは？',
           options: [
             'I come to school on bike.',
-            'I come to school by bike.',
             'I come to school in bike.',
+            'I come to school by bike.',
             'I come to school at bike.',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation: '交通手段は by を使うよ。by bike = 自転車で。by のあとに a / the はつけないよ。',
         },
         {
           id: 'eng-qp-q4',
           question: 'The library is ___ the station.（図書館は駅の近くにあります。）(　　)に入る言葉は？',
-          options: ['on', 'under', 'near', 'in'],
-          correctIndex: 2,
+          options: ['on', 'near', 'under', 'in'],
+          correctIndex: 1,
           explanation: '「〜の近くに」は near だよ。near the station = 駅の近くに',
         },
         {

@@ -50,15 +50,15 @@ export const medievalEuropeIslam: Topic = {
         {
           id: 'q1',
           question: '西ヨーロッパでカトリック教会の頂点に立った指導者は？',
-          options: ['ローマ教皇', '大司教', '皇帝', '国王'],
-          correctIndex: 0,
+          options: ['皇帝', '大司教', 'ローマ教皇', '国王'],
+          correctIndex: 2,
           explanation: 'ローマ教皇は中世ヨーロッパにおいてカトリック教会の最高権威として大きな力を持ちました。',
         },
         {
           id: 'q2',
           question: 'イスラーム世界でインドを起源として使用された数学上の重要な概念は？',
-          options: ['代数', '円周率', 'ゼロ', '幾何学'],
-          correctIndex: 2,
+          options: ['代数', '円周率', '幾何学', 'ゼロ'],
+          correctIndex: 3,
           explanation: 'ゼロの概念はインドで生まれ、イスラーム世界を通じてヨーロッパに伝わりました。',
         },
         {
@@ -71,8 +71,8 @@ export const medievalEuropeIslam: Topic = {
         {
           id: 'q4',
           question: '東ローマ帝国の別称で、正教会が広まった帝国を何という？',
-          options: ['オスマン帝国', 'フランク王国', 'ビザンツ帝国', '神聖ローマ帝国'],
-          correctIndex: 2,
+          options: ['オスマン帝国', 'ビザンツ帝国', 'フランク王国', '神聖ローマ帝国'],
+          correctIndex: 1,
           explanation: 'ビザンツ帝国は東ローマ帝国の別称で、正教会が広まりました。16世紀にオスマン帝国によって滅ぼされました。',
         },
         {

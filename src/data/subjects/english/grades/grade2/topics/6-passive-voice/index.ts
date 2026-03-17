@@ -114,15 +114,15 @@ export const passiveVoice: Topic = {
         {
           id: 'eng-pass-q2',
           question: '「This temple (　　) in 1300.（この寺は1300年に建てられました。）」\nの (　　) に入るのは？',
-          options: ['built', 'is built', 'was built', 'was building'],
-          correctIndex: 2,
+          options: ['was built', 'is built', 'built', 'was building'],
+          correctIndex: 0,
           explanation: '1300年のことだから過去の受け身。was + 過去分詞で was built だよ。',
         },
         {
           id: 'eng-pass-q3',
           question: '「This song was written (　　) him.（この歌は彼によって書かれました。）」\nの (　　) に入るのは？',
-          options: ['of', 'to', 'by', 'for'],
-          correctIndex: 2,
+          options: ['of', 'by', 'to', 'for'],
+          correctIndex: 1,
           explanation: '「〜によって」は by だよ。written by him = 彼によって書かれた',
         },
         {
@@ -130,11 +130,11 @@ export const passiveVoice: Topic = {
           question: '「Is this book read by many people?」に「はい」で答えるとき、正しいのは？',
           options: [
             'Yes, it does.',
-            'Yes, it is.',
-            'Yes, it was.',
             'Yes, it reads.',
+            'Yes, it was.',
+            'Yes, it is.',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation: 'Is で聞かれたら is で答えるよ。Yes, it is.',
         },
         {
@@ -142,11 +142,11 @@ export const passiveVoice: Topic = {
           question: '「This room is not used now.」の意味として正しいのは？',
           options: [
             'この部屋は今使っています。',
-            'この部屋は今使われていません。',
             'この部屋は今使いません。',
+            'この部屋は今使われていません。',
             'この部屋は今使われました。',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation: '受け身の否定文だよ。is not used =「使われていない」。',
         },
         {

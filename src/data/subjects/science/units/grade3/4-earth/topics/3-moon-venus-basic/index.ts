@@ -253,12 +253,12 @@ export const moonVenusBasic: Topic = {
           id: 'sci3-mvb-q1',
           question: '月が光って見えるのはなぜか。',
           options: [
-            '月が自ら光を出しているから',
-            '地球の光を反射しているから',
             '太陽の光を反射しているから',
+            '地球の光を反射しているから',
+            '月が自ら光を出しているから',
             '星の光を反射しているから',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             '月は自ら光を出さず、太陽の光を反射して光っています。',
         },
@@ -275,11 +275,11 @@ export const moonVenusBasic: Topic = {
           question: '金星が真夜中に見えない理由として正しいものはどれか。',
           options: [
             '金星が暗すぎるから',
-            '金星が地球より外側を公転しているから',
             '金星が地球より内側を公転しているから',
+            '金星が地球より外側を公転しているから',
             '金星は自転していないから',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation:
             '金星は地球より内側を公転する内惑星なので、太陽から大きく離れず、真夜中には見えません。',
         },
@@ -289,10 +289,10 @@ export const moonVenusBasic: Topic = {
           options: [
             '太陽−地球−月',
             '月−太陽−地球',
-            '太陽−月−地球',
             '地球−太陽−月',
+            '太陽−月−地球',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '日食は太陽−月−地球の順に一直線に並んだとき（新月時）に起こります。月が太陽をかくす現象です。',
         },

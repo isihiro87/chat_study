@@ -171,8 +171,8 @@ export const industry: Topic = {
         {
           id: 'geo2-in-q1',
           question: '日本の食料自給率（カロリーベース）として最も近いものはどれか？',
-          options: ['約20%', '約40%', '約60%', '約80%'],
-          correctIndex: 1,
+          options: ['約40%', '約20%', '約60%', '約80%'],
+          correctIndex: 0,
           explanation:
             '日本の食料自給率はカロリーベースで約40%前後です。先進国の中でも低い水準にあります。',
         },
@@ -200,8 +200,8 @@ export const industry: Topic = {
         {
           id: 'geo2-in-q4',
           question: '四大工業地帯に含まれないものはどれか？',
-          options: ['京浜工業地帯', '中京工業地帯', '京葉工業地域', '阪神工業地帯'],
-          correctIndex: 2,
+          options: ['京浜工業地帯', '中京工業地帯', '阪神工業地帯', '京葉工業地域'],
+          correctIndex: 3,
           explanation:
             '四大工業地帯は京浜・中京・阪神・北九州です。京葉は工業「地域」であり、四大工業地帯には含まれません。',
         },
@@ -211,10 +211,10 @@ export const industry: Topic = {
           options: [
             '農地をすべて宅地に変える',
             '輸入品の関税をゼロにする',
-            '農産物のブランド化で付加価値をつける',
             '農業をすべて機械化する',
+            '農産物のブランド化で付加価値をつける',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '食料自給率の低下に対し、農産物のブランド化で品質の高さを武器に付加価値をつける取り組みが行われています。',
         },

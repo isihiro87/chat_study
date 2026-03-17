@@ -158,8 +158,8 @@ export const humidityDewpoint: Topic = {
           id: 'sci2-hdew-q2',
           question:
             '気温20℃で飽和水蒸気量が17.3g/m³、実際の水蒸気量が12.1g/m³のとき、湿度は約何%か？',
-          options: ['約50%', '約60%', '約70%', '約80%'],
-          correctIndex: 2,
+          options: ['約50%', '約60%', '約80%', '約70%'],
+          correctIndex: 3,
           explanation:
             '湿度＝12.1÷17.3×100＝約69.9%≒約70%です。',
         },
@@ -167,8 +167,8 @@ export const humidityDewpoint: Topic = {
           id: 'sci2-hdew-q3',
           question:
             '気温24℃（飽和水蒸気量21.8g/m³）の空気の露点が14℃（飽和水蒸気量12.1g/m³）であった。この空気の湿度は約何%か？',
-          options: ['約46%', '約56%', '約66%', '約76%'],
-          correctIndex: 1,
+          options: ['約56%', '約46%', '約66%', '約76%'],
+          correctIndex: 0,
           explanation:
             '露点14℃での飽和水蒸気量12.1g/m³が実際の水蒸気量です。湿度＝12.1÷21.8×100≒55.5%≒約56%です。',
         },
@@ -176,8 +176,8 @@ export const humidityDewpoint: Topic = {
           id: 'sci2-hdew-q4',
           question:
             '気温26℃（飽和水蒸気量24.4g/m³）の空気が12℃（飽和水蒸気量10.7g/m³）まで冷えた。空気1m³あたり何gの水滴が生じるか？ ただし、もとの水蒸気量は15.4g/m³とする。',
-          options: ['約4.7g', '約9.0g', '約13.7g', '約15.4g'],
-          correctIndex: 0,
+          options: ['約9.0g', '約4.7g', '約13.7g', '約15.4g'],
+          correctIndex: 1,
           explanation:
             '12℃の飽和水蒸気量は10.7g/m³。もとの水蒸気量15.4g/m³から、含みきれない分＝15.4−10.7＝4.7gが水滴になります。',
         },
@@ -199,11 +199,11 @@ export const humidityDewpoint: Topic = {
           question: '晴れた日の気温が最も高くなる時間帯に湿度が最も低くなる理由として正しいものはどれ？',
           options: [
             '気温も湿度も14時ごろ最も高い',
-            '気温が最も高いとき湿度は最も低い',
-            '気温が最も高いとき湿度も最も高い',
             '気温と湿度は1日中ほとんど変わらない',
+            '気温が最も高いとき湿度も最も高い',
+            '気温が最も高いとき湿度は最も低い',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '晴れた日は14時ごろ気温が最高になり、飽和水蒸気量が大きくなるため湿度は最低になります。気温と湿度は反対の動きをします。',
         },
@@ -211,8 +211,8 @@ export const humidityDewpoint: Topic = {
           id: 'sci2-hdew-q7',
           question:
             '気温16℃（飽和水蒸気量13.6g/m³）で湿度75%のとき、空気1m³中に含まれる水蒸気量は何g/m³か？',
-          options: ['約8.2g/m³', '約10.2g/m³', '約12.5g/m³', '約13.6g/m³'],
-          correctIndex: 1,
+          options: ['約8.2g/m³', '約12.5g/m³', '約10.2g/m³', '約13.6g/m³'],
+          correctIndex: 2,
           explanation:
             '水蒸気量＝飽和水蒸気量×湿度÷100＝13.6×0.75＝10.2g/m³です。',
         },
@@ -220,12 +220,12 @@ export const humidityDewpoint: Topic = {
           id: 'sci2-hdew-q8',
           question: '凝結が起こる条件として正しいものはどれ？',
           options: [
-            '気温が飽和水蒸気量より高くなったとき',
             '空気が露点以下に冷やされたとき',
+            '気温が飽和水蒸気量より高くなったとき',
             '気圧が上がったとき',
             '風が強くなったとき',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '空気が露点以下に冷やされると、含みきれなくなった水蒸気が水滴に変わります。これが凝結です。',
         },

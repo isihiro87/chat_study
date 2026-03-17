@@ -98,24 +98,24 @@ export const americaExpansion: Topic = {
         {
           id: 'q1',
           question: '南北戦争中に奴隷解放宣言を出したアメリカ大統領は？',
-          options: ['ワシントン', 'リンカン', 'ジェファソン', 'ルーズベルト'],
-          correctIndex: 1,
+          options: ['リンカン', 'ワシントン', 'ジェファソン', 'ルーズベルト'],
+          correctIndex: 0,
           explanation:
             'リンカンは1863年に奴隷解放宣言を出し、南部の奴隷の解放を宣言しました。',
         },
         {
           id: 'q2',
           question: 'アメリカの北部が支持した、関税をかけて国内産業を守る貿易政策は？',
-          options: ['自由貿易', '三角貿易', '保護貿易', '植民地貿易'],
-          correctIndex: 2,
+          options: ['自由貿易', '保護貿易', '三角貿易', '植民地貿易'],
+          correctIndex: 1,
           explanation:
             '北部は商工業が中心で、輸入品に関税をかけて国内産業を守る保護貿易を支持しました。',
         },
         {
           id: 'q3',
           question: 'アメリカ南部の大農場で栽培され、イギリスに輸出された主要作物は？',
-          options: ['小麦', '茶', '綿花', 'タバコ'],
-          correctIndex: 2,
+          options: ['小麦', '茶', 'タバコ', '綿花'],
+          correctIndex: 3,
           explanation:
             '南部では綿花を大農場で栽培し、イギリスの綿織物工業に輸出していました。',
         },
@@ -130,16 +130,16 @@ export const americaExpansion: Topic = {
         {
           id: 'q5',
           question: '南北戦争で勝利したのはどちら？',
-          options: ['南部', '北部', '引き分け', 'イギリスの介入で終了'],
-          correctIndex: 1,
+          options: ['南部', '引き分け', '北部', 'イギリスの介入で終了'],
+          correctIndex: 2,
           explanation:
             '工業力で勝る北部が勝利し、アメリカの国の統一が維持されました。',
         },
         {
           id: 'q6',
           question: 'リンカンが「人民の、人民による、人民のための政治」と述べた演説は？',
-          options: ['独立宣言', 'ゲティスバーグ演説', '奴隷解放宣言', '就任演説'],
-          correctIndex: 1,
+          options: ['独立宣言', '就任演説', '奴隷解放宣言', 'ゲティスバーグ演説'],
+          correctIndex: 3,
           explanation:
             '1863年、南北戦争中にゲティスバーグの戦没者墓地で行われた有名な演説です。',
         },

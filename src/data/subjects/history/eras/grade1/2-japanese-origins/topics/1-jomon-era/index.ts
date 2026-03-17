@@ -160,8 +160,8 @@ export const jomonEra: Topic = {
         {
           id: 'q1',
           question: '氷期に日本が大陸と陸続きだった頃、狩りの対象となった動物は？',
-          options: ['恐竜', 'シカ', 'ナウマンゾウ', 'ウマ'],
-          correctIndex: 2,
+          options: ['恐竜', 'ナウマンゾウ', 'シカ', 'ウマ'],
+          correctIndex: 1,
           explanation:
             '氷期には大陸と日本が陸続きで、ナウマンゾウやオオツノジカを狩っていました。',
         },
@@ -183,16 +183,16 @@ export const jomonEra: Topic = {
         {
           id: 'q4',
           question: '祈りや魔よけのために作られた土の人形は？',
-          options: ['埴輪', '土偶', '銅鐸', '勾玉'],
-          correctIndex: 1,
+          options: ['土偶', '埴輪', '銅鐸', '勾玉'],
+          correctIndex: 0,
           explanation:
             '土偶は縄文時代に祈りや魔よけの目的で作られた土製の人形です。',
         },
         {
           id: 'q5',
           question: '食べ終わった貝殻や魚の骨が捨てられた場所を何という？',
-          options: ['古墳', '貝塚', '遺跡', '塚山'],
-          correctIndex: 1,
+          options: ['貝塚', '古墳', '遺跡', '塚山'],
+          correctIndex: 0,
           explanation:
             '貝塚は縄文人が食べた貝殻や骨を捨てた場所で、当時の生活を知る手がかりになります。',
         },
@@ -200,8 +200,8 @@ export const jomonEra: Topic = {
           id: 'q6',
           question:
             '旧石器時代に石器の材料として使われた黒いガラス質の石は？',
-          options: ['サヌカイト', '黒曜石', '大理石', '花崗岩'],
-          correctIndex: 1,
+          options: ['サヌカイト', '大理石', '黒曜石', '花崗岩'],
+          correctIndex: 2,
           explanation:
             '黒曜石は旧石器時代に石器の材料として重宝された黒いガラス質の石です。',
         },
@@ -209,8 +209,8 @@ export const jomonEra: Topic = {
           id: 'q7',
           question:
             '群馬県で打製石器が発見され、日本の旧石器時代を証明した遺跡は？',
-          options: ['三内丸山遺跡', '登呂遺跡', '岩宿遺跡', '吉野ヶ里遺跡'],
-          correctIndex: 2,
+          options: ['三内丸山遺跡', '登呂遺跡', '吉野ヶ里遺跡', '岩宿遺跡'],
+          correctIndex: 3,
           explanation:
             '岩宿遺跡は相沢忠洋が打製石器を発見し、日本に旧石器時代があったことを証明しました。',
         },
@@ -219,19 +219,19 @@ export const jomonEra: Topic = {
           question: '青森県にある縄文時代の大規模な集落遺跡は？',
           options: [
             '吉野ヶ里遺跡',
-            '登呂遺跡',
-            '岩宿遺跡',
             '三内丸山遺跡',
+            '岩宿遺跡',
+            '登呂遺跡',
           ],
-          correctIndex: 3,
+          correctIndex: 1,
           explanation:
             '三内丸山遺跡は青森県にある縄文時代の大規模な集落遺跡で、大型建物やクリの栽培跡が発見されました。',
         },
         {
           id: 'q9',
           question: '旧石器時代の人々が石を打ち欠いて作った石器は？',
-          options: ['磨製石器', '打製石器', '石包丁', '石斧'],
-          correctIndex: 1,
+          options: ['磨製石器', '石包丁', '打製石器', '石斧'],
+          correctIndex: 2,
           explanation:
             '打製石器は石を打ち欠いて作った石器で、旧石器時代に使われました。',
         },
@@ -240,12 +240,12 @@ export const jomonEra: Topic = {
           question:
             '氷河時代が終わり定住生活が始まったきっかけとなった変化は？',
           options: [
-            '稲作の伝来',
             '気候の温暖化',
+            '稲作の伝来',
             '金属器の伝来',
             '仏教の伝来',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '氷河時代が終わり気候が温暖になると、食料が豊富になり定住生活が始まりました。',
         },

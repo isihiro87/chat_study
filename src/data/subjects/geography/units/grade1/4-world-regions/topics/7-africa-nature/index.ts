@@ -128,8 +128,8 @@ export const africaNature: Topic = {
         {
           id: 'geo1-af1-q1',
           question: 'アフリカ北部に広がる世界最大の砂漠はどれ？',
-          options: ['ゴビ砂漠', 'サハラ砂漠', 'アタカマ砂漠', 'カラハリ砂漠'],
-          correctIndex: 1,
+          options: ['サハラ砂漠', 'ゴビ砂漠', 'アタカマ砂漠', 'カラハリ砂漠'],
+          correctIndex: 0,
           explanation:
             'サハラ砂漠はアフリカ北部に広がる世界最大の砂漠です。面積は約900万平方キロメートルにもなります。',
         },
@@ -146,8 +146,8 @@ export const africaNature: Topic = {
           id: 'geo1-af1-q3',
           question:
             'アフリカ大陸を南から北に流れ、地中海にそそぐ世界最長級の川はどれ？',
-          options: ['コンゴ川', 'ニジェール川', 'ナイル川', 'ザンベジ川'],
-          correctIndex: 2,
+          options: ['コンゴ川', 'ニジェール川', 'ザンベジ川', 'ナイル川'],
+          correctIndex: 3,
           explanation:
             'ナイル川は全長約6650キロメートルで、南から北に向かって流れ地中海にそそぎます。古代エジプト文明を支えた川としても知られています。',
         },
@@ -155,8 +155,8 @@ export const africaNature: Topic = {
           id: 'geo1-af1-q4',
           question:
             'サハラ砂漠より北のアフリカで主に信仰されている宗教はどれ？',
-          options: ['仏教', 'ヒンドゥー教', 'キリスト教', 'イスラム教'],
-          correctIndex: 3,
+          options: ['仏教', 'ヒンドゥー教', 'イスラム教', 'キリスト教'],
+          correctIndex: 2,
           explanation:
             'サハラ砂漠より北のアフリカではイスラム教が広く信仰されており、アラビア語が共通言語として使われています。',
         },

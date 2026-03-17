@@ -168,12 +168,12 @@ export const economicGrowth: Topic = {
           question:
             '高度経済成長期に「三種の神器」と呼ばれた家電製品の組み合わせは？',
           options: [
-            'テレビ・洗濯機・冷蔵庫',
-            'テレビ・エアコン・自動車',
             'テレビ・ラジオ・電話',
+            'テレビ・エアコン・自動車',
+            'テレビ・洗濯機・冷蔵庫',
             '洗濯機・掃除機・冷蔵庫',
           ],
-          correctIndex: 0,
+          correctIndex: 2,
           explanation:
             'テレビ・洗濯機・冷蔵庫は「三種の神器」と呼ばれ、高度経済成長期に家庭に普及しました。',
         },
@@ -183,11 +183,11 @@ export const economicGrowth: Topic = {
             '1973年の石油危機のきっかけとなった出来事は？',
           options: [
             '朝鮮戦争',
-            '中東戦争',
-            'キューバ危機',
             'ベトナム戦争',
+            'キューバ危機',
+            '中東戦争',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '1973年の中東戦争をきっかけに産油国が石油価格を大幅に引き上げ、石油危機が起こりました。',
         },
@@ -224,12 +224,12 @@ export const economicGrowth: Topic = {
           question:
             '「国民の所得を10年間で2倍にする」という計画を掲げた首相は？',
           options: [
-            '吉田茂',
-            '岸信介',
             '池田勇人',
+            '岸信介',
+            '吉田茂',
             '佐藤栄作',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             '池田勇人首相が掲げた所得倍増計画のもと、高度経済成長が加速しました。',
         },

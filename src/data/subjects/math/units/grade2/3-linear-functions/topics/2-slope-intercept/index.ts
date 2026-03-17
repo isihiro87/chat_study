@@ -156,16 +156,16 @@ export const slopeIntercept: Topic = {
         {
           id: 'math-g2-slope-intercept-q1',
           question: '$y = 2x + 1$ のグラフの切片は？',
-          options: ['$1$', '$2$', '$3$', '$0$'],
-          correctIndex: 0,
+          options: ['$3$', '$2$', '$1$', '$0$'],
+          correctIndex: 2,
           explanation:
             '$y = ax + b$ の $b$ が切片だよ。$b = 1$ だから、グラフは $y$ 軸上の点 $(0, 1)$ を通るね。',
         },
         {
           id: 'math-g2-slope-intercept-q2',
           question: '傾きが負のグラフはどうなる？',
-          options: ['右上がり', '右下がり', '水平', '垂直'],
-          correctIndex: 1,
+          options: ['右下がり', '右上がり', '水平', '垂直'],
+          correctIndex: 0,
           explanation:
             '傾き $a < 0$ のとき、$x$ が増えると $y$ は減るので、グラフは右下がりになるよ。',
         },
@@ -186,8 +186,8 @@ export const slopeIntercept: Topic = {
           id: 'math-g2-slope-intercept-q4',
           question:
             '$y = \\dfrac{2}{3}x + 1$ のグラフをかくとき、切片 $(0, 1)$ の次にとる点はどこ？',
-          options: ['$(1, 3)$', '$(3, 3)$', '$(2, 2)$', '$(3, 2)$'],
-          correctIndex: 1,
+          options: ['$(1, 3)$', '$(3, 2)$', '$(2, 2)$', '$(3, 3)$'],
+          correctIndex: 3,
           explanation:
             '傾き $\\dfrac{2}{3}$ は「右に3、上に2」と考えるよ。$(0, 1)$ から右に3、上に2で $(3, 3)$ だね。',
         },
@@ -196,12 +196,12 @@ export const slopeIntercept: Topic = {
           question:
             '$y = 2x + 3$ のグラフは $y = 2x$ のグラフをどう移動したもの？',
           options: [
-            '$x$ 軸方向に $3$ だけ',
             '$y$ 軸方向に $3$ だけ',
+            '$x$ 軸方向に $3$ だけ',
             '$x$ 軸方向に $2$ だけ',
             '$y$ 軸方向に $-3$ だけ',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '$y = ax + b$ のグラフは $y = ax$ のグラフを $y$ 軸方向に $b$ だけ平行移動した直線だよ。$b = 3$ なので上に3移動。',
         },
@@ -210,12 +210,12 @@ export const slopeIntercept: Topic = {
           question:
             '$y = 5x - 2$ と $y = x + 4$ のグラフでは、どちらが急なグラフ？',
           options: [
-            '$y = 5x - 2$',
             '$y = x + 4$',
+            '$y = 5x - 2$',
             '同じ急さ',
             '比べられない',
           ],
-          correctIndex: 0,
+          correctIndex: 1,
           explanation:
             '傾きの絶対値を比べると $|5| > |1|$ なので、$y = 5x - 2$ の方が急だよ。',
         },
@@ -225,11 +225,11 @@ export const slopeIntercept: Topic = {
             '$y = 2x + 1$ で $x$ の変域が $1 \\leqq x \\leqq 4$ のとき、$y$ の変域は？',
           options: [
             '$1 \\leqq y \\leqq 4$',
-            '$3 \\leqq y \\leqq 9$',
-            '$2 \\leqq y \\leqq 8$',
             '$1 \\leqq y \\leqq 9$',
+            '$2 \\leqq y \\leqq 8$',
+            '$3 \\leqq y \\leqq 9$',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '傾きが正なので、$x = 1$ のとき $y = 3$（最小）、$x = 4$ のとき $y = 9$（最大）。$3 \\leqq y \\leqq 9$ だよ。',
         },
@@ -238,12 +238,12 @@ export const slopeIntercept: Topic = {
           question:
             '$y = -2x + 10$ で $x$ の変域が $1 \\leqq x \\leqq 5$ のとき、$y$ の変域は？',
           options: [
-            '$0 \\leqq y \\leqq 8$',
-            '$8 \\leqq y \\leqq 0$',
             '$2 \\leqq y \\leqq 10$',
+            '$8 \\leqq y \\leqq 0$',
+            '$0 \\leqq y \\leqq 8$',
             '$-2 \\leqq y \\leqq 8$',
           ],
-          correctIndex: 0,
+          correctIndex: 2,
           explanation:
             '傾きが負なので注意！ $x = 1$ のとき $y = 8$（最大）、$x = 5$ のとき $y = 0$（最小）。$0 \\leqq y \\leqq 8$ だよ。',
         },
@@ -253,11 +253,11 @@ export const slopeIntercept: Topic = {
             'グラフが $(0, -2)$ を通り、$x$ が1増えると $y$ が3増える直線の式は？',
           options: [
             '$y = -2x + 3$',
-            '$y = 3x - 2$',
-            '$y = 3x + 2$',
             '$y = -2x - 3$',
+            '$y = 3x + 2$',
+            '$y = 3x - 2$',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '切片 $b = -2$、傾き $a = 3$ なので、$y = 3x - 2$ だよ。',
         },
@@ -274,8 +274,8 @@ export const slopeIntercept: Topic = {
           id: 'math-g2-slope-intercept-q11',
           question:
             '$y = 2x + 1$ と $y = 2x - 4$ のグラフの位置関係は？',
-          options: ['交わる', '平行', '一致する', '垂直に交わる'],
-          correctIndex: 1,
+          options: ['平行', '交わる', '一致する', '垂直に交わる'],
+          correctIndex: 0,
           explanation:
             '傾きが同じ $2$ なので、2つのグラフは平行だよ。切片が違うので交わることはない。',
         },
@@ -285,11 +285,11 @@ export const slopeIntercept: Topic = {
             '点 $(0, 4)$ と点 $(2, 0)$ を通る直線の式は？',
           options: [
             '$y = 2x + 4$',
-            '$y = -2x + 4$',
             '$y = -2x - 4$',
+            '$y = -2x + 4$',
             '$y = 2x - 4$',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             '切片は $4$。傾きは $\\dfrac{0 - 4}{2 - 0} = \\dfrac{-4}{2} = -2$。よって $y = -2x + 4$。',
         },

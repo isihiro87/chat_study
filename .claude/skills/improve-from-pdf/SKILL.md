@@ -37,6 +37,24 @@ Phase 6: コミット・プッシュ
 
 ---
 
+## Phase 0: 教科別分析ファイルの参照（必須）
+
+**PDF分析の前に、対象教科の分析ファイルを読み込む。**
+
+パスから教科を判定し、対応するファイルを読む:
+- `/subjects/math/` → `docs/content-analysis/math.md`
+- `/subjects/science/` → `docs/content-analysis/science.md`
+- `/subjects/history/` → `docs/content-analysis/history.md`
+- `/subjects/geography/` → `docs/content-analysis/geography.md`
+- `/subjects/english/` → `docs/content-analysis/english.md`
+
+確認するセクション:
+1. **教材タイプ別の作り方**: ID命名規則、キャラクター設定、構造パターン
+2. **改善案**: 未実施のもので今回取り入れられるものはないか
+3. **フィードバックログ**（存在する場合）: 過去の指摘で注意すべき点
+
+---
+
 ## Phase 1: PDF分析・問題作成
 
 ### 1.1 PDF読み込み
@@ -92,18 +110,27 @@ Phase 6: コミット・プッシュ
 ルール:
 - 既存のキャラクター設定（teacher/student）を踏襲
 - 難しい漢字にはrubyアノテーションをつける
+- **中学生が知らない可能性のある用語は初出時にdata-tooltipまたはカッコ書きで意味を説明する**
 - 各セクション末にsummary-pointを配置
+- **summary-pointの後には必ずquizを配置する（例外なし）**
 - 重要語句は `<span class="keyword">` で囲む
 - 1セクション（dateブロック）あたりメッセージ4-8件を目安
+- **セリフだけが6〜7つ以上続く場合、可能であれば画像(image)を挟む（4つ程度なら問題なし。挟める画像がない場合は不要）**
 
 ### 2.3 index.ts の拡充
 
 | コンテンツ | 目安数 | 基準 |
 |-----------|--------|------|
-| フラッシュカード | 15-25枚 | クイズで問われる全用語をカバー |
-| 4択クイズ | 8-12問 | 一問一答の主要問題パターンをカバー |
+| フラッシュカード | 15-30枚 | quiz/フォルダの一問一答・構造問題の全用語をカバー。各カードにdifficulty付与 |
+| 4択・並べ替えクイズ | 15-25問 | 一問一答・構造問題・発展問題から変換。各問にdifficulty付与 |
 | 例題（ステップ解説） | 4-6問 | 典型問題の解き方を段階的に説明 |
 | 解説セクション | 4-7 | チャットのdateセクションに対応 |
+
+**難易度(difficulty)の付与ルール:**
+- `'basic'`: 一問一答の基本問題レベル
+- `'standard'`: 構造問題（大問小問）レベル
+- `'advanced'`: 発展問題レベル
+- **バランス**: basic 40%, standard 40%, advanced 20% を目安
 
 ### 2.4 例題のステップ設計
 

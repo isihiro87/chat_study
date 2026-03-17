@@ -118,12 +118,12 @@ export const expansionFormulas: Topic = {
           id: 'math-g3-expansion-formulas-q1',
           question: '$(x + 4)^2$ を展開すると？',
           options: [
-            '$x^2 + 4x + 16$',
             '$x^2 + 8x + 16$',
+            '$x^2 + 4x + 16$',
             '$x^2 + 16$',
             '$x^2 + 8x + 8$',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '$(x+4)^2 = x^2 + 2 \\times x \\times 4 + 4^2 = x^2 + 8x + 16$。真ん中の項は $2 \\times 4 = 8$ だよ。',
         },
@@ -144,12 +144,12 @@ export const expansionFormulas: Topic = {
           id: 'math-g3-expansion-formulas-q3',
           question: '$(x - 3)^2$ を展開すると？',
           options: [
-            '$x^2 - 6x + 9$',
             '$x^2 + 6x + 9$',
+            '$x^2 - 6x + 9$',
             '$x^2 - 6x - 9$',
             '$x^2 - 9$',
           ],
-          correctIndex: 0,
+          correctIndex: 1,
           explanation:
             '$(x-3)^2 = x^2 - 2 \\times x \\times 3 + 3^2 = x^2 - 6x + 9$。マイナスの2乗は真ん中が−、最後が+だよ。',
         },
@@ -158,11 +158,11 @@ export const expansionFormulas: Topic = {
           question: '$(x + 7)(x - 3)$ を展開すると？',
           options: [
             '$x^2 + 10x - 21$',
-            '$x^2 + 4x - 21$',
-            '$x^2 - 4x - 21$',
             '$x^2 + 4x + 21$',
+            '$x^2 - 4x - 21$',
+            '$x^2 + 4x - 21$',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '公式1で $a=7$, $b=-3$。足して $7+(-3)=4$、かけて $7 \\times (-3)=-21$ だから $x^2+4x-21$。',
         },

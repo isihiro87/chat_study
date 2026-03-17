@@ -155,8 +155,8 @@ export const quadFuncRealWorld: Topic = {
         {
           id: 'math-g3-quad-func-real-q1',
           question: '時速 $30$ km の制動距離が $9$ m のとき、時速 $60$ km の制動距離は？',
-          options: ['$18$ m', '$27$ m', '$36$ m', '$45$ m'],
-          correctIndex: 2,
+          options: ['$18$ m', '$27$ m', '$45$ m', '$36$ m'],
+          correctIndex: 3,
           explanation:
             '速度が2倍($30$ → $60$)になると制動距離は $2^2=4$ 倍。$9 \\times 4 = 36$ m だよ。',
         },
@@ -171,8 +171,8 @@ export const quadFuncRealWorld: Topic = {
         {
           id: 'math-g3-quad-func-real-q3',
           question: 'ふりこが1往復する時間 $T$ 秒はひもの長さ $L$ cm に関係する。$T^2$ が $L$ に比例するとき、$L$ が4倍になると $T$ は何倍？',
-          options: ['2倍', '4倍', '8倍', '16倍'],
-          correctIndex: 0,
+          options: ['8倍', '4倍', '2倍', '16倍'],
+          correctIndex: 2,
           explanation:
             '$T^2$ が $L$ に比例するから、$L$ が4倍 → $T^2$ も4倍 → $T$ は $\\sqrt{4} = 2$ 倍になるよ。',
         },
@@ -187,48 +187,48 @@ export const quadFuncRealWorld: Topic = {
         {
           id: 'math-g3-qf-rw-q5',
           question: '空走距離が $0.6v$ m、制動距離が $0.01v^2$ m のとき、時速 $60$ km の停止距離は？',
-          options: ['$36$ m', '$72$ m', '$54$ m', '$60$ m'],
-          correctIndex: 1,
+          options: ['$72$ m', '$36$ m', '$54$ m', '$60$ m'],
+          correctIndex: 0,
           explanation:
             '空走距離 $= 0.6 \\times 60 = 36$ m、制動距離 $= 0.01 \\times 3600 = 36$ m。停止距離 $= 36 + 36 = 72$ m だよ。',
         },
         {
           id: 'math-g3-qf-rw-q6',
           question: '正方形を $x$ cm ずらしたとき重なる面積が $y = 2x^2$ のとき、面積が $32$ cm² になるのは $x$ が何cmのとき？',
-          options: ['$2$ cm', '$3$ cm', '$4$ cm', '$8$ cm'],
-          correctIndex: 2,
+          options: ['$2$ cm', '$3$ cm', '$8$ cm', '$4$ cm'],
+          correctIndex: 3,
           explanation:
             '$32 = 2x^2$ → $x^2 = 16$ → $x = 4$ cm（$x > 0$）だよ。',
         },
         {
           id: 'math-g3-qf-rw-q7',
           question: '斜面を転がるボールの移動距離が $y = 3x^2$ cm のとき、$2$ 秒後から $4$ 秒後までの移動距離は？',
-          options: ['$12$ cm', '$24$ cm', '$36$ cm', '$48$ cm'],
-          correctIndex: 2,
+          options: ['$12$ cm', '$36$ cm', '$24$ cm', '$48$ cm'],
+          correctIndex: 1,
           explanation:
             '$x = 4$: $y = 48$、$x = 2$: $y = 12$。移動距離 $= 48 - 12 = 36$ cm だよ。',
         },
         {
           id: 'math-g3-qf-rw-q8',
           question: '駐車料金が最初の1時間300円、以後30分ごとに100円加算。2時間30分の料金は？',
-          options: ['$500$ 円', '$600$ 円', '$700$ 円', '$800$ 円'],
-          correctIndex: 1,
+          options: ['$500$ 円', '$700$ 円', '$600$ 円', '$800$ 円'],
+          correctIndex: 2,
           explanation:
             '最初の1時間: $300$ 円。残り1時間30分 = 30分 × 3回 → $100 \\times 3 = 300$ 円。合計 $300 + 300 = 600$ 円だよ。',
         },
         {
           id: 'math-g3-qf-rw-q9',
           question: '$y = 0.01v^2$ で制動距離が $36$ m になるのは時速何kmのとき？',
-          options: ['$40$ km', '$50$ km', '$60$ km', '$70$ km'],
-          correctIndex: 2,
+          options: ['$40$ km', '$50$ km', '$70$ km', '$60$ km'],
+          correctIndex: 3,
           explanation:
             '$36 = 0.01v^2$ → $v^2 = 3600$ → $v = \\sqrt{3600} = 60$。時速 $60$ km だよ。',
         },
         {
           id: 'math-g3-qf-rw-q10',
           question: '制動距離が $y = 0.005v^2$ のとき、時速 $60$ km と時速 $30$ km の制動距離の差は？',
-          options: ['$9$ m', '$13.5$ m', '$18$ m', '$4.5$ m'],
-          correctIndex: 1,
+          options: ['$9$ m', '$18$ m', '$13.5$ m', '$4.5$ m'],
+          correctIndex: 2,
           explanation:
             '時速60: $0.005 \\times 3600 = 18$ m、時速30: $0.005 \\times 900 = 4.5$ m。差は $18 - 4.5 = 13.5$ m だよ。',
         },
@@ -243,8 +243,8 @@ export const quadFuncRealWorld: Topic = {
         {
           id: 'math-g3-qf-rw-q12',
           question: '底面積が一定の水そうに毎分同じ量の水を入れるとき、水面の高さと時間のグラフはどうなる？',
-          options: ['放物線', '直線', '階段状', '双曲線'],
-          correctIndex: 1,
+          options: ['直線', '放物線', '階段状', '双曲線'],
+          correctIndex: 0,
           explanation:
             '底面積が一定で毎分同じ量を入れるから、高さは一定の割合で増加する。つまり一次関数で直線のグラフになるよ。',
         },

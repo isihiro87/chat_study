@@ -310,8 +310,8 @@ export const volcano: Topic = {
         {
           id: 'sci1-volcano-q1',
           question: 'マグマのねばりけが弱い火山の形はどれ？',
-          options: ['溶岩ドーム', '円すい型', '楯状火山', 'カルデラ'],
-          correctIndex: 2,
+          options: ['溶岩ドーム', '楯状火山', '円すい型', 'カルデラ'],
+          correctIndex: 1,
           explanation:
             'ねばりけが弱いマグマは流れやすいため、傾斜がゆるやかな楯状火山（たて状火山）をつくります。噴火はおだやかで、溶岩は黒っぽい色になります。',
         },
@@ -327,12 +327,12 @@ export const volcano: Topic = {
           id: 'sci1-volcano-q3',
           question: '深成岩の組織の特徴はどれ？',
           options: [
-            '斑晶と石基からなる斑状組織',
             '同じくらいの大きさの結晶からなる等粒状組織',
+            '斑晶と石基からなる斑状組織',
             '非常に細かい粒だけからなる',
             '結晶がまったく見られない',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '深成岩はマグマが地下深くでゆっくり冷えて固まるため、すべての結晶が大きく成長した等粒状組織になります。',
         },
@@ -347,48 +347,48 @@ export const volcano: Topic = {
         {
           id: 'sci1-volcano-q5',
           question: '火山噴出物のうち、白っぽく穴が多い軽い石は何？',
-          options: ['溶岩', '火山弾', '軽石', '火山灰'],
-          correctIndex: 2,
+          options: ['軽石', '火山弾', '溶岩', '火山灰'],
+          correctIndex: 0,
           explanation:
             '軽石は白っぽく穴がたくさんあいた軽い石です。マグマの中のガスが抜けた跡が穴になっています。水に浮くほど軽いのが特徴です。',
         },
         {
           id: 'sci1-volcano-q6',
           question: '火山灰を水で洗って観察すると見える、マグマが冷えてできた結晶を何という？',
-          options: ['堆積物', '鉱物', '化石', '岩片'],
-          correctIndex: 1,
+          options: ['堆積物', '岩片', '化石', '鉱物'],
+          correctIndex: 3,
           explanation:
             '火山灰を水で洗うと鉱物の粒が観察できます。鉱物はマグマが冷えてできた結晶で、無色鉱物と有色鉱物に分類されます。',
         },
         {
           id: 'sci1-volcano-q7',
           question: '黒色でうすくはがれる特徴をもつ有色鉱物はどれ？',
-          options: ['カンラン石', '角閃石', '輝石', '黒雲母'],
-          correctIndex: 3,
+          options: ['カンラン石', '黒雲母', '輝石', '角閃石'],
+          correctIndex: 1,
           explanation:
             '黒雲母は黒色で板状にうすくはがれる特徴があります。有色鉱物に分類されます。',
         },
         {
           id: 'sci1-volcano-q8',
           question: 'マグマが地表付近で急に冷えてできた岩石のつくりはどれ？',
-          options: ['等粒状組織', '斑状組織', '層状組織', '粒状組織'],
-          correctIndex: 1,
+          options: ['等粒状組織', '層状組織', '斑状組織', '粒状組織'],
+          correctIndex: 2,
           explanation:
             '急に冷えると一部だけ結晶（斑晶）に成長し、残りは細かい石基になります。これを斑状組織といい、火山岩の特徴です。',
         },
         {
           id: 'sci1-volcano-q9',
           question: '次のうち、火山岩はどれ？',
-          options: ['花こう岩', 'せん緑岩', '安山岩', 'はんれい岩'],
-          correctIndex: 2,
+          options: ['花こう岩', '安山岩', 'せん緑岩', 'はんれい岩'],
+          correctIndex: 1,
           explanation:
             '安山岩は火山岩です。花こう岩・せん緑岩・はんれい岩は深成岩です。安山岩は灰色で、円すい型の成層火山と関係があります。',
         },
         {
           id: 'sci1-volcano-q10',
           question: 'ねばりけの強いマグマの火山灰に多くふくまれるのはどちら？',
-          options: ['有色鉱物', '無色鉱物', '火山ガス', '軽石'],
-          correctIndex: 1,
+          options: ['無色鉱物', '有色鉱物', '火山ガス', '軽石'],
+          correctIndex: 0,
           explanation:
             'ねばりけの強いマグマは無色鉱物（石英・長石）を多くふくみ、溶岩や火山灰は白っぽくなります。',
         },
@@ -403,8 +403,8 @@ export const volcano: Topic = {
         {
           id: 'sci1-volcano-q12',
           question: '現在活動している火山や約1万年以内に噴火記録がある火山を何という？',
-          options: ['休火山', '死火山', '活火山', '成層火山'],
-          correctIndex: 2,
+          options: ['休火山', '死火山', '成層火山', '活火山'],
+          correctIndex: 3,
           explanation:
             '活火山とは、現在活動している火山や、およそ1万年以内に噴火した記録がある火山のことです。日本には100以上の活火山があります。',
         },

@@ -113,11 +113,11 @@ export const japanIndustrialRevolution: Topic = {
             '日本の産業革命は、まずどの分野から始まった？',
           options: [
             '重化学工業',
-            '軽工業（綿糸・生糸）',
             '造船業',
+            '軽工業（綿糸・生糸）',
             '鉄鋼業',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             '1880年代後半から綿糸や生糸などの軽工業を中心に日本の産業革命が始まりました。',
         },
@@ -125,8 +125,8 @@ export const japanIndustrialRevolution: Topic = {
           id: 'q2',
           question:
             '1901年に操業を開始した、日清戦争の賠償金で建設された製鉄所は？',
-          options: ['富岡製糸場', '長崎造船所', '八幡製鉄所', '横須賀造船所'],
-          correctIndex: 2,
+          options: ['八幡製鉄所', '長崎造船所', '富岡製糸場', '横須賀造船所'],
+          correctIndex: 0,
           explanation:
             '八幡製鉄所は日清戦争の賠償金で建設され、重化学工業発展の基礎となりました。',
         },
@@ -134,8 +134,8 @@ export const japanIndustrialRevolution: Topic = {
           id: 'q3',
           question:
             '足尾銅山鉱毒事件で被害農民のために闘った議員は？',
-          options: ['幸徳秋水', '板垣退助', '大隈重信', '田中正造'],
-          correctIndex: 3,
+          options: ['幸徳秋水', '田中正造', '大隈重信', '板垣退助'],
+          correctIndex: 1,
           explanation:
             '田中正造は足尾銅山の鉱毒被害を訴え、天皇に直訴しようとしたことでも有名です。',
         },
@@ -143,8 +143,8 @@ export const japanIndustrialRevolution: Topic = {
           id: 'q4',
           question:
             '三井・三菱など、銀行・鉱山・貿易などを支配した巨大企業グループを何という？',
-          options: ['官営工場', '財閥', '労働組合', '商工会'],
-          correctIndex: 1,
+          options: ['官営工場', '商工会', '労働組合', '財閥'],
+          correctIndex: 3,
           explanation:
             '財閥は多角的な経営で日本経済を動かし、産業革命の中で大きく成長しました。',
         },
@@ -154,11 +154,11 @@ export const japanIndustrialRevolution: Topic = {
             '1910年に社会主義者が天皇暗殺を計画したとされ弾圧された事件は？',
           options: [
             '足尾銅山鉱毒事件',
-            '大逆事件',
             '秩父事件',
+            '大逆事件',
             '西南戦争',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             '大逆事件では幸徳秋水らが処刑され、政府は社会主義運動への弾圧を強めました。',
         },
@@ -167,12 +167,12 @@ export const japanIndustrialRevolution: Topic = {
           question:
             '産業革命の中で深刻化した、工場労働者の問題は？',
           options: [
-            '土地の不足',
             '低賃金・長時間労働',
+            '土地の不足',
             '外国人との競争',
             '鉄道の不足',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '工女たちの低賃金・長時間労働など労働問題が深刻化し、労働争議（ストライキ）も増えました。',
         },

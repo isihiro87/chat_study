@@ -153,8 +153,8 @@ export const atmosphericCirculation: Topic = {
         {
           id: 'sci2-atmc-q1',
           question: '日本付近の天気が西から東へ移り変わるのは、何という風の影響か？',
-          options: ['貿易風', '偏西風', '季節風', '海陸風'],
-          correctIndex: 1,
+          options: ['貿易風', '季節風', '偏西風', '海陸風'],
+          correctIndex: 2,
           explanation:
             '中緯度帯を西から東に吹く偏西風の影響で、低気圧や高気圧が西から東へ移動し、天気も西から東へ変わります。',
         },
@@ -170,12 +170,12 @@ export const atmosphericCirculation: Topic = {
           id: 'sci2-atmc-q3',
           question: 'シベリア気団の性質として正しいものは？',
           options: [
-            '温暖・湿潤',
+            '寒冷・乾燥',
             '寒冷・湿潤',
             '温暖・乾燥',
-            '寒冷・乾燥',
+            '温暖・湿潤',
           ],
-          correctIndex: 3,
+          correctIndex: 0,
           explanation:
             'シベリア気団は大陸上で発達するため寒冷・乾燥です。冬の西高東低の気圧配置の原因になります。',
         },
@@ -184,11 +184,11 @@ export const atmosphericCirculation: Topic = {
           question: '梅雨前線ができる原因となる2つの気団の組み合わせは？',
           options: [
             'シベリア気団と小笠原気団',
-            '小笠原気団とオホーツク海気団',
-            'シベリア気団とオホーツク海気団',
             '揚子江気団と小笠原気団',
+            'シベリア気団とオホーツク海気団',
+            '小笠原気団とオホーツク海気団',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '梅雨前線は南の小笠原気団（温暖湿潤）と北のオホーツク海気団（寒冷湿潤）がぶつかってできる停滞前線です。',
         },

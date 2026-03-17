@@ -144,8 +144,8 @@ export const findLinearEquation: Topic = {
         {
           id: 'math-g2-find-linear-eq-q1',
           question: '傾き $2$、切片 $5$ の一次関数の式は？',
-          options: ['$y = 5x + 2$', '$y = 2x + 5$', '$y = 2x - 5$', '$y = 5x - 2$'],
-          correctIndex: 1,
+          options: ['$y = 5x + 2$', '$y = 5x - 2$', '$y = 2x - 5$', '$y = 2x + 5$'],
+          correctIndex: 3,
           explanation:
             '$y = ax + b$ に $a = 2$、$b = 5$ を代入して $y = 2x + 5$ だよ。',
         },
@@ -153,8 +153,8 @@ export const findLinearEquation: Topic = {
           id: 'math-g2-find-linear-eq-q2',
           question:
             '傾きが $3$ で、点 $(1, 7)$ を通る一次関数の式は？',
-          options: ['$y = 3x + 7$', '$y = 3x + 4$', '$y = 7x + 3$', '$y = 3x + 1$'],
-          correctIndex: 1,
+          options: ['$y = 3x + 4$', '$y = 3x + 7$', '$y = 7x + 3$', '$y = 3x + 1$'],
+          correctIndex: 0,
           explanation:
             '$y = 3x + b$ に $(1, 7)$ を代入: $7 = 3 \\times 1 + b \\rightarrow b = 4$。よって $y = 3x + 4$。',
         },
@@ -162,8 +162,8 @@ export const findLinearEquation: Topic = {
           id: 'math-g2-find-linear-eq-q3',
           question:
             '2点 $(1, 3)$ と $(3, 7)$ を通る一次関数の式は？',
-          options: ['$y = 2x + 1$', '$y = 2x + 3$', '$y = x + 2$', '$y = 3x + 1$'],
-          correctIndex: 0,
+          options: ['$y = 2x + 3$', '$y = 2x + 1$', '$y = x + 2$', '$y = 3x + 1$'],
+          correctIndex: 1,
           explanation:
             '傾き $a = (7 - 3) \\div (3 - 1) = 4 \\div 2 = 2$。$y = 2x + b$ に $(1, 3)$ を代入: $3 = 2 + b \\rightarrow b = 1$。よって $y = 2x + 1$。',
         },
@@ -171,8 +171,8 @@ export const findLinearEquation: Topic = {
           id: 'math-g2-find-linear-eq-q4',
           question:
             '$y = -3x + 5$ に平行で、点 $(2, 1)$ を通る一次関数の式は？',
-          options: ['$y = -3x + 7$', '$y = -3x - 5$', '$y = 3x - 5$', '$y = -3x + 1$'],
-          correctIndex: 0,
+          options: ['$y = 3x - 5$', '$y = -3x - 5$', '$y = -3x + 7$', '$y = -3x + 1$'],
+          correctIndex: 2,
           explanation:
             '平行なので傾きは同じ $-3$。$y = -3x + b$ に $(2, 1)$ を代入: $1 = -6 + b \\rightarrow b = 7$。よって $y = -3x + 7$。',
         },
@@ -180,8 +180,8 @@ export const findLinearEquation: Topic = {
           id: 'math-g2-find-linear-eq-q5',
           question:
             '変化の割合が $4$ で、点 $(2, 11)$ を通る一次関数の式は？',
-          options: ['$y = 4x + 11$', '$y = 4x - 3$', '$y = 4x + 3$', '$y = 2x + 7$'],
-          correctIndex: 2,
+          options: ['$y = 4x + 11$', '$y = 4x - 3$', '$y = 2x + 7$', '$y = 4x + 3$'],
+          correctIndex: 3,
           explanation:
             '一次関数の変化の割合 $=$ 傾きだから $a = 4$。$y = 4x + b$ に $(2, 11)$ を代入: $11 = 8 + b \\rightarrow b = 3$。よって $y = 4x + 3$。',
         },
@@ -198,8 +198,8 @@ export const findLinearEquation: Topic = {
           id: 'math-g2-find-linear-eq-q7',
           question:
             '2点 $(2, 5)$ と $(4, 11)$ を通る直線の傾きは？',
-          options: ['$2$', '$3$', '$6$', '$\\dfrac{1}{3}$'],
-          correctIndex: 1,
+          options: ['$2$', '$6$', '$3$', '$\\dfrac{1}{3}$'],
+          correctIndex: 2,
           explanation:
             '傾き $a = (11 - 5) \\div (4 - 2) = 6 \\div 2 = 3$。',
         },
@@ -208,12 +208,12 @@ export const findLinearEquation: Topic = {
           question:
             '傾き $\\dfrac{1}{2}$ で、点 $(4, 5)$ を通る一次関数の式は？',
           options: [
-            '$y = \\dfrac{1}{2}x + 3$',
             '$y = \\dfrac{1}{2}x + 5$',
+            '$y = \\dfrac{1}{2}x + 3$',
             '$y = 2x - 3$',
             '$y = \\dfrac{1}{2}x - 3$',
           ],
-          correctIndex: 0,
+          correctIndex: 1,
           explanation:
             '$y = \\dfrac{1}{2}x + b$ に $(4, 5)$ を代入: $5 = 2 + b \\rightarrow b = 3$。よって $y = \\dfrac{1}{2}x + 3$。',
         },
@@ -221,8 +221,8 @@ export const findLinearEquation: Topic = {
           id: 'math-g2-find-linear-eq-q9',
           question:
             '$x = 1$ のとき $y = -1$、$x = 4$ のとき $y = 8$ である一次関数の式は？',
-          options: ['$y = 3x - 4$', '$y = 3x + 2$', '$y = 3x - 1$', '$y = -3x + 2$'],
-          correctIndex: 0,
+          options: ['$y = 3x - 1$', '$y = 3x + 2$', '$y = 3x - 4$', '$y = -3x + 2$'],
+          correctIndex: 2,
           explanation:
             '傾き $= (8 - (-1)) \\div (4 - 1) = 9 \\div 3 = 3$。$y = 3x + b$ に $(1, -1)$ を代入: $-1 = 3 + b \\rightarrow b = -4$。よって $y = 3x - 4$。',
         },
@@ -231,12 +231,12 @@ export const findLinearEquation: Topic = {
           question:
             '2点 $(1, 4)$ と $(3, 10)$ を通る一次関数の式を連立方程式で求めるとき、つくる2つの式は？',
           options: [
-            '$a + b = 4$ と $3a + b = 10$',
             '$a + b = 1$ と $a + b = 3$',
+            '$a + b = 4$ と $3a + b = 10$',
             '$4a + b = 1$ と $10a + b = 3$',
             '$a + 4b = 1$ と $3a + 10b = 3$',
           ],
-          correctIndex: 0,
+          correctIndex: 1,
           explanation:
             '$(1, 4)$ を $y = ax + b$ に代入: $4 = a \\cdot 1 + b$ → $a + b = 4$。$(3, 10)$ を代入: $10 = a \\cdot 3 + b$ → $3a + b = 10$。',
         },
@@ -244,8 +244,8 @@ export const findLinearEquation: Topic = {
           id: 'math-g2-find-linear-eq-q11',
           question:
             '$x$ が $2$ 増加すると $y$ が $6$ 減少し、点 $(1, 5)$ を通る一次関数の式は？',
-          options: ['$y = -3x + 8$', '$y = 3x + 2$', '$y = -3x + 5$', '$y = -6x + 11$'],
-          correctIndex: 0,
+          options: ['$y = -6x + 11$', '$y = 3x + 2$', '$y = -3x + 5$', '$y = -3x + 8$'],
+          correctIndex: 3,
           explanation:
             '傾き $= -6 \\div 2 = -3$。$y = -3x + b$ に $(1, 5)$ を代入: $5 = -3 + b \\rightarrow b = 8$。よって $y = -3x + 8$。',
         },
@@ -253,8 +253,8 @@ export const findLinearEquation: Topic = {
           id: 'math-g2-find-linear-eq-q12',
           question:
             'グラフが点 $(0, -3)$ と点 $(2, 1)$ を通るとき、一次関数の式は？',
-          options: ['$y = 2x + 3$', '$y = -2x + 3$', '$y = 2x - 3$', '$y = -2x - 3$'],
-          correctIndex: 2,
+          options: ['$y = 2x - 3$', '$y = -2x + 3$', '$y = 2x + 3$', '$y = -2x - 3$'],
+          correctIndex: 0,
           explanation:
             '$(0, -3)$ を通るので切片は $-3$。傾き $= (1 - (-3)) \\div (2 - 0) = 4 \\div 2 = 2$。よって $y = 2x - 3$。',
         },

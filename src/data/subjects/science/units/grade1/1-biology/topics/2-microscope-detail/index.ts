@@ -181,12 +181,12 @@ export const microscopeDetail: Topic = {
           id: 'sci1-md-q1',
           question: 'プレパラートを作るとき、カバーガラスをかぶせる方法として正しいのはどれか？',
           options: [
-            '真上から一気に落とす',
             '端をつけてゆっくり下ろす',
+            '真上から一気に落とす',
             'カバーガラスは使わない',
             '水を入れずにかぶせる',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             'カバーガラスの端をスライドガラスにつけて、ゆっくりと静かに下ろします。気泡が入らないようにするためです。',
         },
@@ -195,11 +195,11 @@ export const microscopeDetail: Topic = {
           question: '接眼レンズが10倍、対物レンズが40倍のとき、顕微鏡の倍率は何倍か？',
           options: [
             '50倍',
-            '100倍',
             '400倍',
+            '100倍',
             '4倍',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation:
             '倍率＝接眼レンズの倍率×対物レンズの倍率＝10×40＝400倍です。足し算ではなくかけ算で求めます。',
         },
@@ -209,10 +209,10 @@ export const microscopeDetail: Topic = {
           options: [
             '広くなり、明るくなる',
             '広くなり、暗くなる',
-            '狭くなり、明るくなる',
             '狭くなり、暗くなる',
+            '狭くなり、明るくなる',
           ],
-          correctIndex: 3,
+          correctIndex: 2,
           explanation:
             '倍率を上げると視野は狭くなり、暗くなります。しぼりを開いたり反射鏡を凹面鏡に変えて明るくします。',
         },
@@ -222,10 +222,10 @@ export const microscopeDetail: Topic = {
           options: [
             '倍率は40〜600倍である',
             'プレパラートが必要である',
-            '観察物を立体的に見ることができる',
             '片目でのぞいて使う',
+            '観察物を立体的に見ることができる',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '双眼実体顕微鏡は両目でのぞくため、観察物を立体的に見ることができます。倍率は20〜40倍で、プレパラートは不要です。',
         },

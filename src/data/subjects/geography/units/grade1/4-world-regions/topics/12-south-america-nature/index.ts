@@ -198,8 +198,8 @@ export const southAmericaNature: Topic = {
         {
           id: 'geo1-sa1-q2',
           question: 'アンデス山脈の高地にかつて栄えた帝国はどれ？',
-          options: ['アステカ帝国', 'マヤ文明', 'インカ帝国', 'オスマン帝国'],
-          correctIndex: 2,
+          options: ['アステカ帝国', 'インカ帝国', 'マヤ文明', 'オスマン帝国'],
+          correctIndex: 1,
           explanation:
             'アンデス山脈の高地にはインカ帝国が栄えました。16世紀にスペインによって征服されましたが、マチュピチュなどの遺跡が現在も残っています。',
         },
@@ -210,10 +210,10 @@ export const southAmericaNature: Topic = {
           options: [
             '焼畑農業',
             'プランテーション',
-            'アグロフォレストリー',
             '遊牧',
+            'アグロフォレストリー',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             'アグロフォレストリー（森林農業）は、森林の中でカカオやコーヒーなどを栽培する方法です。焼畑農業に代わる持続的な農業として注目されています。',
         },
@@ -222,12 +222,12 @@ export const southAmericaNature: Topic = {
           question:
             'ラプラタ川の流域に広がる大草原を何というか？',
           options: [
-            'セルバ',
             'パンパ',
+            'セルバ',
             'サバナ',
             'ステップ',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             'パンパはラプラタ川流域に広がる大草原で、主にアルゼンチンに位置しています。牛の放牧など大規模な牧畜がさかんです。',
         },
@@ -237,11 +237,11 @@ export const southAmericaNature: Topic = {
             '先住民とヨーロッパ系の人々の混血の人々を何とよぶか？',
           options: [
             'クレオール',
-            'ムラート',
             'メスティーソ',
+            'ムラート',
             'イヌイット',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation:
             'メスティーソは先住民とヨーロッパ系の人々の混血の人々です。スペインやポルトガルの植民地支配を通じて混血が進みました。',
         },
@@ -250,12 +250,12 @@ export const southAmericaNature: Topic = {
           question:
             'アマゾン川流域の熱帯雨林を現地の言葉で何というか？',
           options: [
-            'パンパ',
-            'タイガ',
             'セルバ',
+            'タイガ',
+            'パンパ',
             'ツンドラ',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             'セルバはアマゾン川流域に広がる広大な熱帯雨林のことです。世界最大の熱帯雨林であり、多様な生物が生息しています。',
         },
@@ -266,10 +266,10 @@ export const southAmericaNature: Topic = {
           options: [
             'スペイン語',
             '英語',
-            'ポルトガル語',
             'フランス語',
+            'ポルトガル語',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             'ブラジルはポルトガルの植民地だった歴史から、公用語はポルトガル語です。南アメリカの他の多くの国ではスペイン語が使われています。',
         },
@@ -279,11 +279,11 @@ export const southAmericaNature: Topic = {
             '20世紀初頭からブラジルに多く移住した日本の人々を何というか？',
           options: [
             '華人',
-            '日系移民',
             '帰国子女',
+            '日系移民',
             '在外邦人',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             '日系移民は20世紀初頭からコーヒー農園などでの労働力としてブラジルに移住しました。現在もブラジルには多くの日系人コミュニティがあります。',
         },

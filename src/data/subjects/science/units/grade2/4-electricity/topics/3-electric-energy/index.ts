@@ -201,16 +201,16 @@ export const electricEnergy: Topic = {
         {
           id: 'sci2-ee-q1',
           question: '100Vの電源に2Aの電流が流れる電熱器の電力は何Wか？',
-          options: ['50W', '100W', '200W', '400W'],
-          correctIndex: 2,
+          options: ['50W', '100W', '400W', '200W'],
+          correctIndex: 3,
           explanation:
             '電力[W] = 電圧[V] × 電流[A] = 100 × 2 = 200W です。',
         },
         {
           id: 'sci2-ee-q2',
           question: '電力の単位として正しいものはどれか？',
-          options: ['A（アンペア）', 'V（ボルト）', 'W（ワット）', 'J（ジュール）'],
-          correctIndex: 2,
+          options: ['W（ワット）', 'V（ボルト）', 'A（アンペア）', 'J（ジュール）'],
+          correctIndex: 0,
           explanation:
             '電力の単位はW（ワット）です。Aは電流、Vは電圧、Jは熱量（エネルギー）の単位です。',
         },
@@ -225,48 +225,48 @@ export const electricEnergy: Topic = {
         {
           id: 'sci2-ee-q4',
           question: '1Whは何Jか？',
-          options: ['60J', '360J', '1000J', '3600J'],
-          correctIndex: 3,
+          options: ['60J', '3600J', '1000J', '360J'],
+          correctIndex: 1,
           explanation:
             '1Wh = 1W × 1時間 = 1W × 3600s = 3600J です。',
         },
         {
           id: 'sci2-ee-q5',
           question: '同じ量の水を同じ電力の電熱器で加熱するとき、水の上昇温度に比例するものはどれか？',
-          options: ['電圧', '電流', '加熱時間', '水の量'],
-          correctIndex: 2,
+          options: ['電圧', '加熱時間', '電流', '水の量'],
+          correctIndex: 1,
           explanation:
             '水の上昇温度は加熱時間に比例します。時間が2倍になれば、上昇温度も2倍になります。',
         },
         {
           id: 'sci2-ee-q6',
           question: '「100V-600W」と表示された電気ストーブを100Vの電源につないだとき、流れる電流は何Aか？',
-          options: ['0.6A', '6A', '60A', '600A'],
-          correctIndex: 1,
+          options: ['6A', '0.6A', '60A', '600A'],
+          correctIndex: 0,
           explanation:
             '電流[A] = 電力[W] ÷ 電圧[V] = 600 ÷ 100 = 6A です。',
         },
         {
           id: 'sci2-ee-q7',
           question: '抵抗が20Ωの電熱線に5Aの電流が流れているとき、電力は何Wか？',
-          options: ['4W', '25W', '100W', '500W'],
-          correctIndex: 3,
+          options: ['4W', '25W', '500W', '100W'],
+          correctIndex: 2,
           explanation:
             'まず電圧を求めます。V = IR = 20Ω × 5A = 100V。電力 = 100V × 5A = 500W です。',
         },
         {
           id: 'sci2-ee-q8',
           question: '800Wの電子レンジを3分間使ったときの熱量は何Jか？',
-          options: ['2400J', '24000J', '144000J', '1440000J'],
-          correctIndex: 2,
+          options: ['2400J', '24000J', '1440000J', '144000J'],
+          correctIndex: 3,
           explanation:
             '熱量[J] = 電力[W] × 時間[s] = 800 × 180（3分 = 180秒）= 144000J です。',
         },
         {
           id: 'sci2-ee-q9',
           question: '200Wの電気器具を3時間使ったときの電力量は何Whか？',
-          options: ['60Wh', '200Wh', '600Wh', '3600Wh'],
-          correctIndex: 2,
+          options: ['600Wh', '200Wh', '60Wh', '3600Wh'],
+          correctIndex: 0,
           explanation:
             '電力量[Wh] = 電力[W] × 時間[h] = 200 × 3 = 600Wh です。',
         },
@@ -281,16 +281,16 @@ export const electricEnergy: Topic = {
         {
           id: 'sci2-ee-q11',
           question: '同じ電圧をかけたとき、太い電熱線と細い電熱線ではどちらの発熱量が大きいか？',
-          options: ['太い電熱線', '細い電熱線', '同じ', '電圧による'],
-          correctIndex: 0,
+          options: ['電圧による', '細い電熱線', '同じ', '太い電熱線'],
+          correctIndex: 3,
           explanation:
             '太い電熱線は抵抗が小さいため電流が大きくなり、電力が大きくなるので発熱量も大きくなります。',
         },
         {
           id: 'sci2-ee-q12',
           question: 'テーブルタップに「合計1500Wまで」と表示がある。800Wのポットと600Wのトースターを同時に使っているとき、あと何Wまでの電気器具を追加できるか？',
-          options: ['100W', '200W', '500W', '1500W'],
-          correctIndex: 0,
+          options: ['200W', '100W', '500W', '1500W'],
+          correctIndex: 1,
           explanation:
             '現在の合計は800 + 600 = 1400W。あと1500 - 1400 = 100Wまで追加できます。',
         },

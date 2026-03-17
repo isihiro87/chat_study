@@ -160,8 +160,8 @@ export const sqrtMulDiv: Topic = {
         {
           id: 'math-g3-sqrt-mul-div-q1',
           question: '$\\sqrt{3} \\times \\sqrt{5}$ はいくつ？',
-          options: ['$\\sqrt{8}$', '$\\sqrt{15}$', '$\\sqrt{35}$', '$15$'],
-          correctIndex: 1,
+          options: ['$\\sqrt{8}$', '$15$', '$\\sqrt{35}$', '$\\sqrt{15}$'],
+          correctIndex: 3,
           explanation:
             '$\\sqrt{3} \\times \\sqrt{5} = \\sqrt{3 \\times 5} = \\sqrt{15}$。ルートの中身どうしをかけるだけだよ。',
         },
@@ -176,24 +176,24 @@ export const sqrtMulDiv: Topic = {
         {
           id: 'math-g3-sqrt-mul-div-q3',
           question: '$\\sqrt{30} \\div \\sqrt{6}$ はいくつ？',
-          options: ['$\\sqrt{24}$', '$\\sqrt{5}$', '$5$', '$\\sqrt{36}$'],
-          correctIndex: 1,
+          options: ['$\\sqrt{24}$', '$5$', '$\\sqrt{5}$', '$\\sqrt{36}$'],
+          correctIndex: 2,
           explanation:
             '$\\sqrt{30} \\div \\sqrt{6} = \\sqrt{30 \\div 6} = \\sqrt{5}$。ルートの中身どうしをわるだけだよ。',
         },
         {
           id: 'math-g3-sqrt-mul-div-q4',
           question: '$\\sqrt{12} \\times \\sqrt{3}$ はいくつ？',
-          options: ['$\\sqrt{15}$', '$2\\sqrt{9}$', '$6$', '$3\\sqrt{4}$'],
-          correctIndex: 2,
+          options: ['$6$', '$2\\sqrt{9}$', '$\\sqrt{15}$', '$3\\sqrt{4}$'],
+          correctIndex: 0,
           explanation:
             '$\\sqrt{12} \\times \\sqrt{3} = \\sqrt{12 \\times 3} = \\sqrt{36} = 6$。中身をかけたら完全平方数になったよ。',
         },
         {
           id: 'math-g3-sqrt-mul-div-q5',
           question: '$\\sqrt{72}$ を簡単にすると？',
-          options: ['$8\\sqrt{3}$', '$6\\sqrt{2}$', '$4\\sqrt{18}$', '$9\\sqrt{2}$'],
-          correctIndex: 1,
+          options: ['$8\\sqrt{3}$', '$9\\sqrt{2}$', '$4\\sqrt{18}$', '$6\\sqrt{2}$'],
+          correctIndex: 3,
           explanation:
             '$\\sqrt{72} = \\sqrt{36 \\times 2} = 6\\sqrt{2}$。$72 = 6^2 \\times 2$ なので $6^2 = 36$ を外に出すよ。',
         },
@@ -208,16 +208,16 @@ export const sqrtMulDiv: Topic = {
         {
           id: 'math-g3-sqrt-mul-div-q7',
           question: '$3\\sqrt{2}$ を $\\sqrt{c}$ の形にすると？',
-          options: ['$\\sqrt{6}$', '$\\sqrt{12}$', '$\\sqrt{18}$', '$\\sqrt{24}$'],
-          correctIndex: 2,
+          options: ['$\\sqrt{18}$', '$\\sqrt{12}$', '$\\sqrt{6}$', '$\\sqrt{24}$'],
+          correctIndex: 0,
           explanation:
             '$3\\sqrt{2} = \\sqrt{3^2 \\times 2} = \\sqrt{9 \\times 2} = \\sqrt{18}$。外の $3$ を2乗してルートの中に入れるよ。',
         },
         {
           id: 'math-g3-sqrt-mul-div-q8',
           question: '$2\\sqrt{10} \\times 3\\sqrt{5}$ はいくつ？',
-          options: ['$5\\sqrt{50}$', '$6\\sqrt{50}$', '$30\\sqrt{2}$', '$6\\sqrt{15}$'],
-          correctIndex: 2,
+          options: ['$5\\sqrt{50}$', '$30\\sqrt{2}$', '$6\\sqrt{50}$', '$6\\sqrt{15}$'],
+          correctIndex: 1,
           explanation:
             '$2\\sqrt{10} \\times 3\\sqrt{5} = (2 \\times 3)\\sqrt{10 \\times 5} = 6\\sqrt{50} = 6 \\times 5\\sqrt{2} = 30\\sqrt{2}$。係数どうし・ルートどうしを別々にかけるよ。',
         },
@@ -232,8 +232,8 @@ export const sqrtMulDiv: Topic = {
         {
           id: 'math-g3-sqrt-mul-div-q10',
           question: '$\\sqrt{12} \\times \\sqrt{50}$ を計算すると？',
-          options: ['$\\sqrt{62}$', '$10\\sqrt{6}$', '$60\\sqrt{2}$', '$6\\sqrt{10}$'],
-          correctIndex: 1,
+          options: ['$\\sqrt{62}$', '$6\\sqrt{10}$', '$60\\sqrt{2}$', '$10\\sqrt{6}$'],
+          correctIndex: 3,
           explanation:
             '$\\sqrt{12} \\times \\sqrt{50} = \\sqrt{600} = \\sqrt{100 \\times 6} = 10\\sqrt{6}$。または $2\\sqrt{3} \\times 5\\sqrt{2} = 10\\sqrt{6}$。',
         },

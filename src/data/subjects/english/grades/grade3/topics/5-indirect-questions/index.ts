@@ -121,15 +121,15 @@ export const indirectQuestions: Topic = {
         {
           id: 'eng-iq-q1',
           question: '「I know what he (　　).（私は彼が何を好きか知っています。）」\nの (　　) に入るのは？',
-          options: ['does like', 'like', 'likes', 'is like'],
-          correctIndex: 2,
+          options: ['does like', 'likes', 'like', 'is like'],
+          correctIndex: 1,
           explanation: '間接疑問文では what のあとは「主語 + 動詞」。he は1人だから likes だよ。',
         },
         {
           id: 'eng-iq-q2',
           question: '「Do you know where she (　　)?（彼女がどこに住んでいるか知っていますか？）」\nの (　　) に入るのは？',
-          options: ['does live', 'lives', 'live', 'living'],
-          correctIndex: 1,
+          options: ['lives', 'does live', 'live', 'living'],
+          correctIndex: 0,
           explanation: '間接疑問文では where のあとは「主語 + 動詞」。she は1人だから lives だよ。',
         },
         {
@@ -137,11 +137,11 @@ export const indirectQuestions: Topic = {
           question: '次のうち、正しい英文はどれ？',
           options: [
             'Tell me where does he live.',
-            'Tell me where he lives.',
             'Tell me where he does live.',
+            'Tell me where he lives.',
             'Tell me does he live where.',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation: '間接疑問文では疑問のことばのあとは「主語 + 動詞」の順番。Tell me where he lives. が正解だよ。',
         },
         {
@@ -149,11 +149,11 @@ export const indirectQuestions: Topic = {
           question: '「彼がいつ来るか知っていますか？」を英語にすると？',
           options: [
             'Do you know when will he come?',
-            'Do you know when he will come?',
-            'Do you know when does he come?',
             'Do you know he when will come?',
+            'Do you know when does he come?',
+            'Do you know when he will come?',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation: '間接疑問文では when のあとは「主語 + 動詞」。he will come の順番だよ。',
         },
         {

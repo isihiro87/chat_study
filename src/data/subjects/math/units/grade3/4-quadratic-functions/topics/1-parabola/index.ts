@@ -160,8 +160,8 @@ export const quadFuncParabola: Topic = {
         {
           id: 'math-g3-qf-pb-q1',
           question: '$y = 2x^2$ で、$x = 3$ のとき $y$ の値は？',
-          options: ['$6$', '$9$', '$12$', '$18$'],
-          correctIndex: 3,
+          options: ['$6$', '$18$', '$12$', '$9$'],
+          correctIndex: 1,
           explanation:
             '$y = 2x^2$ に $x = 3$ を代入すると $y = 2 \\times 3^2 = 2 \\times 9 = 18$ だよ。',
         },
@@ -170,11 +170,11 @@ export const quadFuncParabola: Topic = {
           question: '$y = -x^2$ のグラフはどんな形？',
           options: [
             '上に開く放物線',
-            '下に開く放物線',
             '右上がりの直線',
+            '下に開く放物線',
             '原点を通る直線',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             '$a = -1$ で $a < 0$ だから、下に開く放物線（∩字型）になるよ。',
         },
@@ -182,12 +182,12 @@ export const quadFuncParabola: Topic = {
           id: 'math-g3-qf-pb-q3',
           question: '$y = x^2$ と $y = 3x^2$ のグラフを比べると？',
           options: [
-            '$y = 3x^2$ の方が広い',
             '$y = 3x^2$ の方が細い',
+            '$y = 3x^2$ の方が広い',
             '同じ形',
             '向きが逆',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '$|a|$ が大きいほどグラフは細くなるよ。$|3| > |1|$ だから $y = 3x^2$ の方が細いグラフになるんだ。',
         },
@@ -195,16 +195,16 @@ export const quadFuncParabola: Topic = {
           id: 'math-g3-qf-pb-q4',
           question:
             '$y$ は $x$ の2乗に比例し、$x = 3$ のとき $y = 18$。比例定数 $a$ は？',
-          options: ['$a = 1$', '$a = 2$', '$a = 3$', '$a = 6$'],
-          correctIndex: 1,
+          options: ['$a = 1$', '$a = 6$', '$a = 3$', '$a = 2$'],
+          correctIndex: 3,
           explanation:
             '$18 = a \\times 3^2 = 9a$ だから $a = 18 \\div 9 = 2$ だよ。',
         },
         {
           id: 'math-g3-qf-pb-q5',
           question: '$y = ax^2$ のグラフの対称軸はどれ？',
-          options: ['$x$ 軸', '$y$ 軸', '原点', '直線 $y = x$'],
-          correctIndex: 1,
+          options: ['$x$ 軸', '原点', '$y$ 軸', '直線 $y = x$'],
+          correctIndex: 2,
           explanation:
             '$y = ax^2$ のグラフは $y$ 軸（$x = 0$ の直線）について左右対称だよ。',
         },
@@ -212,8 +212,8 @@ export const quadFuncParabola: Topic = {
           id: 'math-g3-qf-pb-q6',
           question:
             '$y = ax^2$ で $x = 2$ のとき $y = 8$、$x = 4$ のとき $y$ は？',
-          options: ['$16$', '$24$', '$32$', '$64$'],
-          correctIndex: 2,
+          options: ['$16$', '$32$', '$24$', '$64$'],
+          correctIndex: 1,
           explanation:
             '$8 = 4a$ より $a = 2$。$y = 2 \\times 4^2 = 2 \\times 16 = 32$ だよ。',
         },
@@ -237,11 +237,11 @@ export const quadFuncParabola: Topic = {
             '次のうち $|a|$ が最も大きく、グラフが最も細い放物線はどれ？',
           options: [
             '$y = x^2$',
-            '$y = -4x^2$',
-            '$y = 2x^2$',
             '$y = -\\dfrac{1}{3}x^2$',
+            '$y = 2x^2$',
+            '$y = -4x^2$',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '$|a|$ の値は順に $1, 4, 2, \\dfrac{1}{3}$。$|-4| = 4$ が最大なので $y = -4x^2$ が最も細いよ。',
         },
@@ -249,8 +249,8 @@ export const quadFuncParabola: Topic = {
           id: 'math-g3-qf-pb-q9',
           question:
             '$y = -2x^2$ で $x = -3$ のとき $y$ の値は？',
-          options: ['$18$', '$-18$', '$12$', '$-12$'],
-          correctIndex: 1,
+          options: ['$18$', '$-12$', '$12$', '$-18$'],
+          correctIndex: 3,
           explanation:
             '$y = -2 \\times (-3)^2 = -2 \\times 9 = -18$。$(-3)^2 = 9$ だから符号に注意だよ。',
         },
@@ -260,11 +260,11 @@ export const quadFuncParabola: Topic = {
             '$y = \\dfrac{1}{2}x^2$ と $y = 2x^2$ を比べると、$y = \\dfrac{1}{2}x^2$ のグラフは？',
           options: [
             'より細い',
-            'より広い',
             '同じ幅',
+            'より広い',
             '下に開く',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             '$|\\dfrac{1}{2}| < |2|$ だから $y = \\dfrac{1}{2}x^2$ の方がグラフは広く（ゆるやか）なるよ。',
         },
@@ -272,8 +272,8 @@ export const quadFuncParabola: Topic = {
           id: 'math-g3-qf-pb-q11',
           question:
             '$y = ax^2$ のグラフが点 $(-2, -12)$ を通る。$a$ の値は？',
-          options: ['$a = -3$', '$a = -2$', '$a = 3$', '$a = 6$'],
-          correctIndex: 0,
+          options: ['$a = -2$', '$a = -3$', '$a = 3$', '$a = 6$'],
+          correctIndex: 1,
           explanation:
             '$-12 = a \\times (-2)^2 = 4a$ だから $a = -3$ だよ。',
         },
@@ -281,8 +281,8 @@ export const quadFuncParabola: Topic = {
           id: 'math-g3-qf-pb-q12',
           question:
             '$y = ax^2$ で $x$ が $n$ 倍になると $y$ は何倍になる？',
-          options: ['$n$ 倍', '$2n$ 倍', '$n^2$ 倍', '$2^n$ 倍'],
-          correctIndex: 2,
+          options: ['$n^2$ 倍', '$2n$ 倍', '$n$ 倍', '$2^n$ 倍'],
+          correctIndex: 0,
           explanation:
             '$y = a(nx)^2 = an^2x^2$ となり、$y$ は $n^2$ 倍になるんだ。',
         },

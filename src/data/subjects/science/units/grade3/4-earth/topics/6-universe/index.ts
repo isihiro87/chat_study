@@ -141,8 +141,8 @@ export const universe: Topic = {
         {
           id: 'sci3-uni-q1',
           question: '太陽系が属する銀河を何というか。',
-          options: ['アンドロメダ銀河', '銀河系（天の川銀河）', 'マゼラン雲', '渦巻き銀河'],
-          correctIndex: 1,
+          options: ['アンドロメダ銀河', 'マゼラン雲', '銀河系（天の川銀河）', '渦巻き銀河'],
+          correctIndex: 2,
           explanation:
             '太陽系は銀河系（天の川銀河）に属しています。渦巻き円盤状の形をしています。',
         },
@@ -157,8 +157,8 @@ export const universe: Topic = {
         {
           id: 'sci3-uni-q3',
           question: '銀河系（天の川銀河）の直径はおよそどれくらいか。',
-          options: ['約1万光年', '約10万光年', '約100万光年', '約1000万光年'],
-          correctIndex: 1,
+          options: ['約1万光年', '約1000万光年', '約100万光年', '約10万光年'],
+          correctIndex: 3,
           explanation:
             '銀河系の直径は約10万光年です。約2000億個の恒星が集まった渦巻き円盤状の銀河です。',
         },

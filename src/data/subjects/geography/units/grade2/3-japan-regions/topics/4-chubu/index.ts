@@ -188,8 +188,8 @@ export const chubu: Topic = {
           id: 'geo2-cb-q1',
           question:
             '中部地方を東海・中央高地・北陸の3つの地域に分ける山脈の総称は何か。',
-          options: ['中国山地', '奥羽山脈', '日本アルプス', '紀伊山地'],
-          correctIndex: 2,
+          options: ['中国山地', '日本アルプス', '奥羽山脈', '紀伊山地'],
+          correctIndex: 1,
           explanation:
             '日本アルプス（飛驒山脈・木曽山脈・赤石山脈）が中部地方を東海・中央高地・北陸の3地域に分けています。',
         },
@@ -211,8 +211,8 @@ export const chubu: Topic = {
           id: 'geo2-cb-q3',
           question:
             '中央高地で冷涼な気候を利用して、出荷時期を遅らせる栽培方法を何というか。',
-          options: ['促成栽培', '二毛作', '抑制栽培', '輪作'],
-          correctIndex: 2,
+          options: ['促成栽培', '二毛作', '輪作', '抑制栽培'],
+          correctIndex: 3,
           explanation:
             '抑制栽培は涼しい高原の気候を利用して、出荷時期を遅らせる栽培方法です。促成栽培（出荷を早める）の反対です。',
         },
@@ -220,8 +220,8 @@ export const chubu: Topic = {
           id: 'geo2-cb-q4',
           question:
             '福井県鯖江市で国内シェア約96%を占める伝統的な産業はどれか。',
-          options: ['陶磁器', '漆器', 'メガネフレーム', '繊維'],
-          correctIndex: 2,
+          options: ['メガネフレーム', '漆器', '陶磁器', '繊維'],
+          correctIndex: 0,
           explanation:
             '福井県鯖江市はメガネフレームの生産で国内シェア約96%を占め、冬の農閑期の副業から発展した伝統産業です。',
         },
@@ -232,10 +232,10 @@ export const chubu: Topic = {
           options: [
             '輪島塗（石川県）',
             '九谷焼（石川県）',
-            '金属洋食器（新潟県燕市）',
             '自動車（愛知県豊田市）',
+            '金属洋食器（新潟県燕市）',
           ],
-          correctIndex: 3,
+          correctIndex: 2,
           explanation:
             '自動車産業は東海地方（愛知県豊田市）の産業です。北陸の冬の副業から発展した産業は輪島塗・九谷焼・金属洋食器などです。',
         },

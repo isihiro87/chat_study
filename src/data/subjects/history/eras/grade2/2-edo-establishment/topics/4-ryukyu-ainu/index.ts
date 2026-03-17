@@ -51,8 +51,8 @@ export const ryukyuAinu: Topic = {
         {
           id: 'q1',
           question: '琉球王国を支配下に置き、貿易の利益を独占した藩は？',
-          options: ['松前藩', '対馬藩', '薩摩藩', '長州藩'],
-          correctIndex: 2,
+          options: ['松前藩', '対馬藩', '長州藩', '薩摩藩'],
+          correctIndex: 3,
           explanation: '薩摩藩は琉球に侵攻して支配下に置き、中国との中継貿易の利益を独占しました。',
         },
         {
@@ -65,8 +65,8 @@ export const ryukyuAinu: Topic = {
         {
           id: 'q3',
           question: 'アイヌとの交易を独占し、蝦夷地の窓口となった藩は？',
-          options: ['対馬藩', '松前藩', '長崎藩', '薩摩藩'],
-          correctIndex: 1,
+          options: ['松前藩', '対馬藩', '長崎藩', '薩摩藩'],
+          correctIndex: 0,
           explanation: '松前藩は蝦夷地に置かれ、アイヌとの交易を独占する窓口の役割を果たしました。',
         },
       ],

@@ -269,10 +269,10 @@ export const climateZones: Topic = {
           options: [
             '三つ',
             '四つ',
-            '五つ',
             '六つ',
+            '五つ',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '世界の気候は熱帯・乾燥帯・温帯・亜寒帯（冷帯）・寒帯の五つの気候帯に分けられます。',
         },
@@ -281,11 +281,11 @@ export const climateZones: Topic = {
           question: '日本の大部分が属する気候区はどれ？',
           options: [
             '西岸海洋性気候',
-            '地中海性気候',
             '温暖湿潤気候',
+            '地中海性気候',
             'サバナ気候',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation:
             '日本の大部分は温帯の中の温暖湿潤気候に属しています。夏に降水量が多く、四季の変化がはっきりしています。',
         },
@@ -293,12 +293,12 @@ export const climateZones: Topic = {
           id: 'geo1-cz-q3',
           question: '夏に乾燥し、冬に雨が多い気候区はどれ？',
           options: [
-            '温暖湿潤気候',
+            '地中海性気候',
             '西岸海洋性気候',
             'サバナ気候',
-            '地中海性気候',
+            '温暖湿潤気候',
           ],
-          correctIndex: 3,
+          correctIndex: 0,
           explanation:
             '地中海性気候は夏に乾燥し冬に雨が多いのが特徴です。地中海沿岸やカリフォルニアなどに分布しています。',
         },
@@ -308,10 +308,10 @@ export const climateZones: Topic = {
           options: [
             'ジャングル',
             'サバナ',
-            'ステップ',
             'タイガ',
+            'ステップ',
           ],
-          correctIndex: 3,
+          correctIndex: 2,
           explanation:
             'タイガは亜寒帯（冷帯）に広がる広大な針葉樹林のことです。ロシアやカナダなどの高緯度地域に分布しています。',
         },
@@ -320,11 +320,11 @@ export const climateZones: Topic = {
           question: '標高が100m上がるごとに気温は約何℃下がるか？',
           options: [
             '約0.3℃',
-            '約0.6℃',
-            '約1.0℃',
             '約1.5℃',
+            '約1.0℃',
+            '約0.6℃',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '標高が100m上がるごとに気温は約0.6℃下がります。そのため赤道付近の高山でも雪が見られることがあります。',
         },
@@ -333,11 +333,11 @@ export const climateZones: Topic = {
           question: '熱帯のうち、雨季と乾季がはっきり分かれている気候区はどれ？',
           options: [
             '熱帯雨林気候',
-            'サバナ気候',
             'ステップ気候',
+            'サバナ気候',
             '温暖湿潤気候',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             'サバナ気候は雨季と乾季がはっきり分かれ、草原が広がるのが特徴です。熱帯雨林気候は一年中雨が多い気候です。',
         },
@@ -345,12 +345,12 @@ export const climateZones: Topic = {
           id: 'geo1-cz-q7',
           question: '一年を通じて気温差が小さい温帯の気候区はどれ？',
           options: [
-            '温暖湿潤気候',
-            '地中海性気候',
             '西岸海洋性気候',
+            '地中海性気候',
+            '温暖湿潤気候',
             'ステップ気候',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             '西岸海洋性気候は偏西風と暖流の影響で一年を通じて気温差が小さいのが特徴です。ヨーロッパ西部に多く見られます。',
         },
@@ -372,11 +372,11 @@ export const climateZones: Topic = {
           question: '寒帯のうち、一年中氷と雪に覆われている気候区はどれ？',
           options: [
             'ツンドラ気候',
-            '氷雪気候',
-            'ステップ気候',
             'サバナ気候',
+            'ステップ気候',
+            '氷雪気候',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '氷雪気候は一年中氷と雪に覆われる気候区で、南極やグリーンランドの内陸部に見られます。ツンドラ気候は短い夏にコケ類が生えます。',
         },
@@ -384,12 +384,12 @@ export const climateZones: Topic = {
           id: 'geo1-cz-q10',
           question: '乾燥帯のうち、わずかに雨が降り短い草が生える気候区はどれ？',
           options: [
-            '砂漠気候',
             'ステップ気候',
+            '砂漠気候',
             'サバナ気候',
             'ツンドラ気候',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             'ステップ気候はわずかに雨が降って短い草が生える乾燥帯の気候区です。砂漠気候はほとんど雨が降りません。',
         },

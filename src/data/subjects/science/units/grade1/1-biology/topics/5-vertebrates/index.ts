@@ -244,8 +244,8 @@ export const vertebrates: Topic = {
         {
           id: 'sci1-vt-q1',
           question: '次のうち、変温動物はどれか？',
-          options: ['スズメ', 'ネコ', 'カエル', 'クジラ'],
-          correctIndex: 2,
+          options: ['カエル', 'ネコ', 'スズメ', 'クジラ'],
+          correctIndex: 0,
           explanation:
             'カエルは両生類で変温動物です。スズメは鳥類、ネコとクジラは哺乳類で、いずれも恒温動物です。',
         },
@@ -280,11 +280,11 @@ export const vertebrates: Topic = {
           question: '殻のある卵を陸上に産むグループの組み合わせとして正しいものはどれか？',
           options: [
             '魚類と両生類',
-            '両生類とハチュウ類',
             'ハチュウ類と鳥類',
+            '両生類とハチュウ類',
             '鳥類と哺乳類',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation:
             'ハチュウ類と鳥類が殻のある卵を陸上に産みます。魚類と両生類は殻のない卵を水中に産みます。哺乳類は胎生です。',
         },
@@ -292,20 +292,20 @@ export const vertebrates: Topic = {
           id: 'sci1-vt-q5',
           question: 'クジラが哺乳類に分類される理由として正しくないものはどれか？',
           options: [
-            '肺で呼吸する',
-            '胎生で子を産む',
             'えらで呼吸する',
+            '胎生で子を産む',
+            '肺で呼吸する',
             '母乳で子を育てる',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             'クジラは水中に住みますが、えらではなく肺で呼吸します。胎生で母乳で子を育てるため哺乳類に分類されます。',
         },
         {
           id: 'sci1-vt-q6',
           question: '次の動物のうち、ハチュウ類に分類されるのはどれか？',
-          options: ['イモリ', 'ヤモリ', 'サンショウウオ', 'カエル'],
-          correctIndex: 1,
+          options: ['イモリ', 'カエル', 'サンショウウオ', 'ヤモリ'],
+          correctIndex: 3,
           explanation:
             'ヤモリはハチュウ類です。イモリ・サンショウウオ・カエルは両生類です。名前が似ていますが分類が異なります。',
         },

@@ -88,8 +88,8 @@ export const higashiyamaCulture: Topic = {
         {
           id: 'q1',
           question: '庶民の間で流行した、「一寸法師」などの挿絵入りの物語本は？',
-          options: ['源氏物語', '御伽草子', '平家物語', '徒然草'],
-          correctIndex: 1,
+          options: ['御伽草子', '源氏物語', '平家物語', '徒然草'],
+          correctIndex: 0,
           explanation: '御伽草子は室町時代に庶民の間で流行した挿絵入りの物語本で、「一寸法師」が代表作です。',
         },
         {
@@ -109,15 +109,15 @@ export const higashiyamaCulture: Topic = {
         {
           id: 'q4',
           question: '明に渡って学び、水墨画を大成した室町時代の画家は？',
-          options: ['雪舟', '狩野永徳', '尾形光琳', '葛飾北斎'],
-          correctIndex: 0,
+          options: ['尾形光琳', '狩野永徳', '雪舟', '葛飾北斎'],
+          correctIndex: 2,
           explanation: '雪舟は明に渡って水墨画を学び、日本独自の水墨画を大成しました。「秋冬山水図」が代表作です。',
         },
         {
           id: 'q5',
           question: '畳・障子・ふすまを使った建築様式で、現在の和室の原型となったものは？',
-          options: ['寝殿造', '書院造', '数寄屋造', '武家造'],
-          correctIndex: 1,
+          options: ['書院造', '寝殿造', '数寄屋造', '武家造'],
+          correctIndex: 0,
           explanation: '書院造は畳・障子・ふすまを使った建築様式で、東山文化を代表し、現在の和室の原型です。',
         },
         {
@@ -130,8 +130,8 @@ export const higashiyamaCulture: Topic = {
         {
           id: 'q7',
           question: '室町時代に始まった、わびの精神を大切にする茶の文化は？',
-          options: ['闘茶', '茶の湯', '番茶', '抹茶'],
-          correctIndex: 1,
+          options: ['闘茶', '抹茶', '番茶', '茶の湯'],
+          correctIndex: 3,
           explanation: '茶の湯は室町時代に始まった、わびの精神を大切にする茶の文化で、後に茶道として発展しました。',
         },
       ],

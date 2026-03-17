@@ -128,10 +128,10 @@ export const asiaSouthWest: Topic = {
           options: [
             '石油産業',
             '自動車産業',
-            'ICT（情報通信技術）産業',
             '繊維産業',
+            'ICT（情報通信技術）産業',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             'インドではバンガロールなどを中心にICT（情報通信技術）産業が急成長しています。英語力や数学教育の水準の高さが背景にあります。',
         },
@@ -139,12 +139,12 @@ export const asiaSouthWest: Topic = {
           id: 'geo1-as3-q2',
           question: '西アジアの産油国が石油の生産量や価格を調整するために結成した組織はどれか。',
           options: [
-            'ASEAN',
             'OPEC',
+            'ASEAN',
             'NATO',
             'WHO',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             'OPEC（石油輸出国機構）は、ペルシャ湾岸の産油国を中心に結成された組織で、石油の生産量や価格に大きな影響力を持っています。',
         },
@@ -154,10 +154,10 @@ export const asiaSouthWest: Topic = {
           options: [
             '仏教',
             'イスラム教',
-            'キリスト教',
             'ヒンドゥー教',
+            'キリスト教',
           ],
-          correctIndex: 3,
+          correctIndex: 2,
           explanation:
             'ヒンドゥー教はインドの人口の約80%が信仰する宗教で、ガンジス川での沐浴が重要な宗教的行為とされています。',
         },

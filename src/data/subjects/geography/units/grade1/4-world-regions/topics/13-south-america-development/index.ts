@@ -149,11 +149,11 @@ export const southAmericaDevelopment: Topic = {
             'ブラジルでサトウキビから作られ、自動車の燃料に使われているものはどれ？',
           options: [
             '天然ガス',
-            'バイオエタノール',
-            'シェールオイル',
             '水素燃料',
+            'シェールオイル',
+            'バイオエタノール',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             'ブラジルではサトウキビからバイオエタノールを生産し、自動車の燃料として広く利用しています。再生可能なエネルギー源として世界的に注目されています。',
         },
@@ -164,10 +164,10 @@ export const southAmericaDevelopment: Topic = {
           options: [
             '鉄鉱石',
             '石炭',
-            'ボーキサイト',
             '銅鉱石',
+            'ボーキサイト',
           ],
-          correctIndex: 3,
+          correctIndex: 2,
           explanation:
             'チリやペルーは世界有数の銅鉱石の産出国です。銅は電線や電子部品など幅広い用途に使われています。',
         },

@@ -192,16 +192,16 @@ export const calcApplications: Topic = {
         {
           id: 'math-g3-ca-q2',
           question: '$35^2 - 25^2$ の値は？',
-          options: ['$100$', '$600$', '$500$', '$1000$'],
-          correctIndex: 1,
+          options: ['$100$', '$1000$', '$500$', '$600$'],
+          correctIndex: 3,
           explanation:
             '$(35+25)(35-25) = 60 \\times 10 = 600$。和と差の積の公式を使おう。',
         },
         {
           id: 'math-g3-ca-q3',
           question: '$101^2$ を公式で計算した結果は？',
-          options: ['$10001$', '$10201$', '$10101$', '$10301$'],
-          correctIndex: 1,
+          options: ['$10201$', '$10001$', '$10101$', '$10301$'],
+          correctIndex: 0,
           explanation:
             '$(100+1)^2 = 100^2 + 2 \\times 100 \\times 1 + 1^2 = 10000+200+1 = 10201$',
         },
@@ -237,8 +237,8 @@ export const calcApplications: Topic = {
         {
           id: 'math-g3-ca-q7',
           question: '$98^2$ を公式で計算した結果は？',
-          options: ['$9604$', '$9504$', '$9404$', '$9804$'],
-          correctIndex: 0,
+          options: ['$9804$', '$9504$', '$9404$', '$9604$'],
+          correctIndex: 3,
           explanation:
             '$(100-2)^2 = 10000 - 400 + 4 = 9604$',
         },
@@ -253,8 +253,8 @@ export const calcApplications: Topic = {
         {
           id: 'math-g3-ca-q9',
           question: '$x=36, y=-24$ のとき $x^2-y^2$ の値は？',
-          options: ['$720$', '$1296$', '$860$', '$576$'],
-          correctIndex: 0,
+          options: ['$860$', '$1296$', '$720$', '$576$'],
+          correctIndex: 2,
           explanation:
             '$x^2-y^2 = (x+y)(x-y) = (36+(-24))(36-(-24)) = 12 \\times 60 = 720$',
         },

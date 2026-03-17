@@ -186,8 +186,8 @@ export const reproduction: Topic = {
         {
           id: 'sci3-rep-q2',
           question: '受精卵が体細胞分裂をくり返して個体になる過程を何という？',
-          options: ['減数分裂', '栄養生殖', '発生', '再生'],
-          correctIndex: 2,
+          options: ['発生', '栄養生殖', '減数分裂', '再生'],
+          correctIndex: 0,
           explanation:
             '受精卵が体細胞分裂をくり返して個体になっていく過程を発生といいます。初期段階の個体を胚といいます。',
         },
@@ -209,11 +209,11 @@ export const reproduction: Topic = {
           question: '被子植物の有性生殖で、精細胞が卵細胞に届くしくみは？',
           options: [
             '風に乗って精細胞が飛ぶ',
-            '花粉管がのびて精細胞が胚珠に届く',
-            '精細胞が自分で泳いでいく',
             '根から精細胞が吸い上げられる',
+            '精細胞が自分で泳いでいく',
+            '花粉管がのびて精細胞が胚珠に届く',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '被子植物では花粉から花粉管がのび、その中を精細胞が移動して胚珠の卵細胞に届き、受精します。',
         },
@@ -223,10 +223,10 @@ export const reproduction: Topic = {
           options: [
             '子は親と全く同じ形質をもつ',
             '受精を行わない',
-            '子に多様な形質が現れる',
             '体細胞分裂だけで子ができる',
+            '子に多様な形質が現れる',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '有性生殖では両親から半分ずつ染色体を受けつぐため、子には多様な形質が現れます。',
         },

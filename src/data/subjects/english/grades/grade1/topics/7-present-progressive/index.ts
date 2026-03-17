@@ -99,15 +99,15 @@ export const presentProgressive: Topic = {
         {
           id: 'eng-pp-q1',
           question: '「I (　　) tennis now.（私は今テニスをしています。）」\nの (　　) に入るのは？',
-          options: ['play', 'plays', 'am playing', 'am play'],
-          correctIndex: 2,
+          options: ['am playing', 'plays', 'play', 'am play'],
+          correctIndex: 0,
           explanation: '「今〜している」は be動詞 + ing だよ。I am playing.',
         },
         {
           id: 'eng-pp-q2',
           question: 'make の ing 形として正しいのは？',
-          options: ['makeing', 'making', 'makking', 'maked'],
-          correctIndex: 1,
+          options: ['makeing', 'makking', 'making', 'maked'],
+          correctIndex: 2,
           explanation: 'make は e で終わるから、e をとって ing をつけるよ。making',
         },
         {
@@ -123,10 +123,10 @@ export const presentProgressive: Topic = {
           options: [
             "He doesn't reading a book.",
             'He not is reading a book.',
-            'He is not reading a book.',
             "He don't reading a book.",
+            'He is not reading a book.',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation: 'be動詞のあとに not をつけるよ。He is not reading a book.',
         },
         {

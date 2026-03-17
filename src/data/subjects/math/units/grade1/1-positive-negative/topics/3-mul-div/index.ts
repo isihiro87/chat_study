@@ -73,24 +73,24 @@ export const mulDiv: Topic = {
         {
           id: 'math-g1-mul-div-q2',
           question: '$(-5) \\times (-6)$ の計算結果は？',
-          options: ['$-30$', '$+30$', '$-11$', '$+11$'],
-          correctIndex: 1,
+          options: ['$+30$', '$-30$', '$-11$', '$+11$'],
+          correctIndex: 0,
           explanation:
             '同符号（負×負）のかけ算だから結果は正。$5 \\times 6 = 30$ に正の符号をつけて $+30$ だよ。',
         },
         {
           id: 'math-g1-mul-div-q3',
           question: '$(-2) \\times (-3) \\times (-4)$ の計算結果は？',
-          options: ['$+24$', '$-24$', '$+9$', '$-9$'],
-          correctIndex: 1,
+          options: ['$+24$', '$+9$', '$-24$', '$-9$'],
+          correctIndex: 2,
           explanation:
             '負の数が $3$ 個（奇数個）だから結果は負。$2 \\times 3 \\times 4 = 24$ に負の符号をつけて $-24$ だよ。',
         },
         {
           id: 'math-g1-mul-div-q4',
           question: '$(-12) \\div (+3)$ の計算結果は？',
-          options: ['$+4$', '$-4$', '$+36$', '$-36$'],
-          correctIndex: 1,
+          options: ['$+4$', '$-36$', '$+36$', '$-4$'],
+          correctIndex: 3,
           explanation:
             '異符号（負÷正）だから結果は負。$12 \\div 3 = 4$ に負の符号をつけて $-4$ だよ。',
         },
@@ -110,16 +110,16 @@ export const mulDiv: Topic = {
         {
           id: 'math-g1-mul-div-q6',
           question: '$0 \\times (-15)$ の計算結果は？',
-          options: ['$+15$', '$-15$', '$0$', '計算できない'],
-          correctIndex: 2,
+          options: ['$+15$', '$-15$', '計算できない', '$0$'],
+          correctIndex: 3,
           explanation:
             '$0$ にどんな数をかけても結果は必ず $0$ になるよ。',
         },
         {
           id: 'math-g1-mul-div-q7',
           question: '$(-0.3) \\times (-2)$ の計算結果は？',
-          options: ['$+0.6$', '$-0.6$', '$+0.06$', '$-0.06$'],
-          correctIndex: 0,
+          options: ['$-0.6$', '$+0.6$', '$+0.06$', '$-0.06$'],
+          correctIndex: 1,
           explanation:
             '同符号（負×負）だから正。$0.3 \\times 2 = 0.6$ で、答えは $+0.6$ だよ。',
         },
@@ -128,27 +128,27 @@ export const mulDiv: Topic = {
           question: '$(-48) \\div (-3)$ を逆数を使った乗法に直すと？',
           options: [
             '$(-48) \\times (-3)$',
-            '$(-48) \\times (-\\frac{1}{3})$',
             '$(-48) \\times (+\\frac{1}{3})$',
+            '$(-48) \\times (-\\frac{1}{3})$',
             '$(-48) \\times (+3)$',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             '$(-3)$ の逆数は $(-\\frac{1}{3})$ だよ。だから $(-48) \\div (-3) = (-48) \\times (-\\frac{1}{3}) = +16$ だね。',
         },
         {
           id: 'math-g1-mul-div-q9',
           question: '$(-15) \\times 9 \\times (-3)$ を工夫して計算すると？',
-          options: ['$+405$', '$-405$', '$+135$', '$-135$'],
-          correctIndex: 0,
+          options: ['$-405$', '$+405$', '$+135$', '$-135$'],
+          correctIndex: 1,
           explanation:
             '交換法則で $(-15) \\times (-3) \\times 9 = (+45) \\times 9 = +405$ と計算すると楽だよ。負の数 $2$ 個（偶数）→正。',
         },
         {
           id: 'math-g1-mul-div-q10',
           question: '$0.5$ の逆数は？',
-          options: ['$0.5$', '$-0.5$', '$2$', '$-2$'],
-          correctIndex: 2,
+          options: ['$2$', '$-0.5$', '$0.5$', '$-2$'],
+          correctIndex: 0,
           explanation:
             '$0.5 = \\frac{1}{2}$ だから、逆数は $\\frac{2}{1} = 2$ だよ。$0.5 \\times 2 = 1$ になるね。',
         },

@@ -205,8 +205,8 @@ export const expansionBasics: Topic = {
         {
           id: 'math-g3-eb-q1',
           question: '$3(x + 4)$ を展開すると？',
-          options: ['$3x + 4$', '$3x + 12$', '$x + 12$', '$3x + 7$'],
-          correctIndex: 1,
+          options: ['$3x + 4$', '$x + 12$', '$3x + 12$', '$3x + 7$'],
+          correctIndex: 2,
           explanation:
             '$3(x + 4) = 3 \\times x + 3 \\times 4 = 3x + 12$。分配法則で3をxにも4にもかけるよ。',
         },
@@ -215,11 +215,11 @@ export const expansionBasics: Topic = {
           question: '$(x + 2)(x + 3)$ を展開すると？',
           options: [
             '$x^2 + 6$',
-            '$x^2 + 5x + 5$',
             '$x^2 + 5x + 6$',
+            '$x^2 + 5x + 5$',
             '$x^2 + 6x + 5$',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation:
             '$(x+2)(x+3) = x^2+3x+2x+6 = x^2+5x+6$。4つの積を求めて同類項をまとめよう。',
         },
@@ -227,20 +227,20 @@ export const expansionBasics: Topic = {
           id: 'math-g3-eb-q3',
           question: '$-2(3x - 5)$ を展開すると？',
           options: [
-            '$-6x - 10$',
             '$-6x + 10$',
+            '$-6x - 10$',
             '$6x - 10$',
             '$-6x - 5$',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '$-2(3x-5) = -2 \\times 3x + (-2) \\times (-5) = -6x + 10$。マイナス×マイナスはプラスになるよ。',
         },
         {
           id: 'math-g3-eb-q4',
           question: '$(8x^2 + 4x) \\div 2x$ を計算すると？',
-          options: ['$4x + 4$', '$4x + 2$', '$4x^2 + 2$', '$8x + 2$'],
-          correctIndex: 1,
+          options: ['$4x + 4$', '$8x + 2$', '$4x^2 + 2$', '$4x + 2$'],
+          correctIndex: 3,
           explanation:
             '各項をそれぞれ $2x$ で割ります。$8x^2 \\div 2x = 4x$、$4x \\div 2x = 2$。答えは $4x + 2$。',
         },
@@ -248,12 +248,12 @@ export const expansionBasics: Topic = {
           id: 'math-g3-eb-q5',
           question: '$-3x(5x - 2)$ を展開すると？',
           options: [
-            '$-15x^2 - 6x$',
             '$-15x^2 + 6x$',
+            '$-15x^2 - 6x$',
             '$15x^2 - 6x$',
             '$-15x^2 + 2$',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '$(-3x) \\times 5x = -15x^2$、$(-3x) \\times (-2) = +6x$。マイナスどうしの積はプラスだよ。',
         },
@@ -289,10 +289,10 @@ export const expansionBasics: Topic = {
           options: [
             '$x^2 + 4x + 21$',
             '$x^2 - 4x - 21$',
-            '$x^2 + 4x - 21$',
             '$x^2 + 10x - 21$',
+            '$x^2 + 4x - 21$',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '$x^2 + 7x - 3x - 21 = x^2 + 4x - 21$。$7x$ と $-3x$ をまとめると $4x$。',
         },
@@ -302,10 +302,10 @@ export const expansionBasics: Topic = {
           options: [
             '$x^2 + 9$',
             '$x^2 - 6x + 9$',
-            '$x^2 - 9$',
             '$x^2 + 6x - 9$',
+            '$x^2 - 9$',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '$x^2 - 3x + 3x - 9 = x^2 - 9$。$-3x$ と $+3x$ が打ち消し合って消えるよ。',
         },

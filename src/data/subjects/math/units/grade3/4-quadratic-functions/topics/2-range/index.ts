@@ -145,16 +145,16 @@ export const quadFuncRange: Topic = {
         {
           id: 'math-g3-qf-rg-q1',
           question: '$y = x^2$ で $-2 \\leq x \\leq 3$ のとき、$y$ の最大値は？',
-          options: ['$4$', '$9$', '$0$', '$3$'],
-          correctIndex: 1,
+          options: ['$4$', '$0$', '$9$', '$3$'],
+          correctIndex: 2,
           explanation:
             '$x = 3$ のとき $y = 9$、$x = -2$ のとき $y = 4$。$|3| > |-2|$ だから最大値は $9$ だよ。',
         },
         {
           id: 'math-g3-qf-rg-q2',
           question: '$y = x^2$ で $-2 \\leq x \\leq 3$ のとき、$y$ の最小値は？',
-          options: ['$4$', '$9$', '$0$', '$1$'],
-          correctIndex: 2,
+          options: ['$0$', '$9$', '$4$', '$1$'],
+          correctIndex: 0,
           explanation:
             '$x$ の変域が $0$ をまたいでいるので、$x = 0$ のとき $y = 0$ が最小値になるよ。$x = -2$ のときの $y = 4$ が最小値ではないことに注意！',
         },
@@ -162,12 +162,12 @@ export const quadFuncRange: Topic = {
           id: 'math-g3-qf-rg-q3',
           question: '$y = -2x^2$ で $1 \\leq x \\leq 3$ のとき、$y$ の変域は？',
           options: [
-            '$-18 \\leq y \\leq -2$',
+            '$2 \\leq y \\leq 18$',
             '$-2 \\leq y \\leq 0$',
             '$-18 \\leq y \\leq 0$',
-            '$2 \\leq y \\leq 18$',
+            '$-18 \\leq y \\leq -2$',
           ],
-          correctIndex: 0,
+          correctIndex: 3,
           explanation:
             '$x = 1$ のとき $y = -2$、$x = 3$ のとき $y = -18$。$x$ の変域が $0$ をまたがないので、端の値だけ比べればOKだよ。',
         },
@@ -187,8 +187,8 @@ export const quadFuncRange: Topic = {
         {
           id: 'math-g3-qf-rg-q5',
           question: '$y = 3x^2$ で $-1 \\leq x \\leq 2$ のとき、$y$ の最大値は？',
-          options: ['$3$', '$12$', '$0$', '$6$'],
-          correctIndex: 1,
+          options: ['$12$', '$3$', '$0$', '$6$'],
+          correctIndex: 0,
           explanation:
             '$x = 0$ を含むので最小値は $0$。$|2| > |-1|$ なので $x = 2$ で最大値 $y = 3 \\times 4 = 12$。',
         },
@@ -197,11 +197,11 @@ export const quadFuncRange: Topic = {
           question: '$y = x^2$ で $2 \\leq x \\leq 5$ のとき、$y$ の変域は？',
           options: [
             '$0 \\leq y \\leq 25$',
-            '$4 \\leq y \\leq 25$',
             '$2 \\leq y \\leq 5$',
+            '$4 \\leq y \\leq 25$',
             '$4 \\leq y \\leq 10$',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             '$x = 0$ を含まないので端の値だけ比べればOK。$x = 2$ で $y = 4$、$x = 5$ で $y = 25$。',
         },
@@ -209,8 +209,8 @@ export const quadFuncRange: Topic = {
           id: 'math-g3-qf-rg-q7',
           question:
             '$y = ax^2$ で $-2 \\leq x \\leq 4$ のとき、$y$ の最大値が $48$。$a > 0$ のとき $a$ は？',
-          options: ['$2$', '$3$', '$4$', '$6$'],
-          correctIndex: 1,
+          options: ['$2$', '$6$', '$4$', '$3$'],
+          correctIndex: 3,
           explanation:
             '$a > 0$ で $x = 0$ を含むので、最大値は $|x|$ が大きい $x = 4$ で実現。$16a = 48$ より $a = 3$。',
         },
@@ -218,8 +218,8 @@ export const quadFuncRange: Topic = {
           id: 'math-g3-qf-rg-q8',
           question:
             '$y = ax^2$ で $-3 \\leq x \\leq 1$ のとき、$y$ の最小値が $-27$。$a$ の値は？',
-          options: ['$-3$', '$-1$', '$3$', '$-9$'],
-          correctIndex: 0,
+          options: ['$-1$', '$-3$', '$3$', '$-9$'],
+          correctIndex: 1,
           explanation:
             '$a < 0$ で $x = 0$ を含むので、最小値は $|x|$ が大きい $x = -3$ で実現。$9a = -27$ より $a = -3$。',
         },
@@ -227,12 +227,12 @@ export const quadFuncRange: Topic = {
           id: 'math-g3-qf-rg-q9',
           question: '$y = 2x^2$ で $-3 \\leq x \\leq -1$ のとき、$y$ の変域は？',
           options: [
-            '$0 \\leq y \\leq 18$',
             '$2 \\leq y \\leq 18$',
+            '$0 \\leq y \\leq 18$',
             '$1 \\leq y \\leq 9$',
             '$-18 \\leq y \\leq -2$',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '$x = 0$ を含まないので端の値を比べる。$x = -1$ で $y = 2$、$x = -3$ で $y = 18$。答え: $2 \\leq y \\leq 18$。',
         },
@@ -248,8 +248,8 @@ export const quadFuncRange: Topic = {
         {
           id: 'math-g3-qf-rg-q11',
           question: '$y = -3x^2$ で $-2 \\leq x \\leq 1$ のとき、$y$ の最小値は？',
-          options: ['$-12$', '$-3$', '$0$', '$-6$'],
-          correctIndex: 0,
+          options: ['$-3$', '$-12$', '$0$', '$-6$'],
+          correctIndex: 1,
           explanation:
             '$x = 0$ を含むので最大値は $0$。$|{-2}| > |1|$ なので $x = -2$ で最小値 $y = -3 \\times 4 = -12$。',
         },
@@ -257,8 +257,8 @@ export const quadFuncRange: Topic = {
           id: 'math-g3-qf-rg-q12',
           question:
             '$y = ax^2$（$a > 0$）で $x$ が増加するとき $y$ が減少する $x$ の範囲は？',
-          options: ['$x > 0$', '$x < 0$', '$x = 0$', 'すべての $x$'],
-          correctIndex: 1,
+          options: ['$x > 0$', 'すべての $x$', '$x = 0$', '$x < 0$'],
+          correctIndex: 3,
           explanation:
             '$a > 0$ のとき、$x < 0$ の範囲で $x$ が増えると $y$ は減少するよ。$x > 0$ では増加する。',
         },

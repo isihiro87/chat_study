@@ -145,15 +145,15 @@ export const ancientCivilizations: Topic = {
         {
           id: 'q1',
           question: 'チグリス・ユーフラテス川流域で発達した文明は？',
-          options: ['エジプト文明', 'インダス文明', '中国文明', 'メソポタミア文明'],
-          correctIndex: 3,
+          options: ['エジプト文明', 'メソポタミア文明', '中国文明', 'インダス文明'],
+          correctIndex: 1,
           explanation: 'メソポタミア文明はチグリス・ユーフラテス川流域で発達しました。',
         },
         {
           id: 'q2',
           question: 'メソポタミアで粘土板に刻まれた文字は何という？',
-          options: ['象形文字', '甲骨文字', 'くさび形文字', 'アルファベット'],
-          correctIndex: 2,
+          options: ['くさび形文字', '甲骨文字', '象形文字', 'アルファベット'],
+          correctIndex: 0,
           explanation: 'くさび形文字はメソポタミア文明で粘土板に刻まれて使われた文字です。',
         },
         {
@@ -173,22 +173,22 @@ export const ancientCivilizations: Topic = {
         {
           id: 'q5',
           question: 'ナイル川流域で発達した文明はどれ？',
-          options: ['メソポタミア文明', 'インダス文明', 'エジプト文明', '中国文明'],
-          correctIndex: 2,
+          options: ['メソポタミア文明', 'インダス文明', '中国文明', 'エジプト文明'],
+          correctIndex: 3,
           explanation: 'エジプト文明はナイル川流域で発達し、ピラミッドや太陽暦が生まれました。',
         },
         {
           id: 'q6',
           question: 'インダス文明の衰退後にインドへ侵入した民族は？',
-          options: ['ゲルマン人', 'アーリヤ人', 'フン族', 'ペルシャ人'],
-          correctIndex: 1,
+          options: ['アーリヤ人', 'ゲルマン人', 'フン族', 'ペルシャ人'],
+          correctIndex: 0,
           explanation: 'アーリヤ人はインダス文明が衰退した後にインドへ侵入した民族です。',
         },
         {
           id: 'q7',
           question: 'メソポタミア文明で発明された、月の満ち欠けを基準にした暦は？',
-          options: ['太陽暦', '太陰暦', '旧暦', 'グレゴリオ暦'],
-          correctIndex: 1,
+          options: ['太陽暦', '旧暦', '太陰暦', 'グレゴリオ暦'],
+          correctIndex: 2,
           explanation: '太陰暦はメソポタミア文明で発明された、月の満ち欠けを基準にした暦です。',
         },
         {
@@ -196,11 +196,11 @@ export const ancientCivilizations: Topic = {
           question: 'エジプトで太陽暦が作られた理由は？',
           options: [
             'ピラミッドの建設のため',
-            '戦争の時期を決めるため',
             'ナイル川の洪水の時期を知るため',
+            '戦争の時期を決めるため',
             '王の誕生日を祝うため',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation:
             'エジプトではナイル川の洪水の時期を正確に予測するために、太陽暦が作られました。',
         },
@@ -208,12 +208,12 @@ export const ancientCivilizations: Topic = {
           id: 'q9',
           question: 'インダス文明の計画都市モヘンジョ＝ダロの特徴は？',
           options: [
-            'ピラミッドが建てられた',
             '整然とした街路と排水設備',
+            'ピラミッドが建てられた',
             'くさび形文字が使われた',
             '万里の長城があった',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             'モヘンジョ＝ダロは整然とした街路や排水設備を持つ計画都市として知られています。',
         },
@@ -223,10 +223,10 @@ export const ancientCivilizations: Topic = {
           options: [
             '金や銀がとれたから',
             '海に近かったから',
-            '農耕に必要な水と肥沃な土壌があったから',
             '敵から守りやすかったから',
+            '農耕に必要な水と肥沃な土壌があったから',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '大河の流域は農耕に必要な水が豊富で、洪水が肥沃な土を運び農業に適していました。',
         },

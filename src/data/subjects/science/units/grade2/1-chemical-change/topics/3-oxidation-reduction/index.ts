@@ -253,16 +253,16 @@ export const oxidationReduction: Topic = {
         {
           id: 'sci2-or-q1',
           question: '物質が酸素と結びつく化学変化を何という？',
-          options: ['還元', '分解', '酸化', '中和'],
-          correctIndex: 2,
+          options: ['酸化', '分解', '還元', '中和'],
+          correctIndex: 0,
           explanation:
             '物質が酸素と結びつく化学変化を酸化といいます。できた物質を酸化物といいます。',
         },
         {
           id: 'sci2-or-q2',
           question: '銅を加熱したときにできる物質は？',
-          options: ['酸化銅', '硫化銅', '塩化銅', '水酸化銅'],
-          correctIndex: 0,
+          options: ['水酸化銅', '硫化銅', '塩化銅', '酸化銅'],
+          correctIndex: 3,
           explanation:
             '銅を空気中で加熱すると酸素と結びついて酸化銅（CuO）ができます。2Cu + O₂ → 2CuO',
         },
@@ -297,11 +297,11 @@ export const oxidationReduction: Topic = {
           question: '有機物を燃やしたとき発生するものの組み合わせは？',
           options: [
             '水素と酸素',
-            '二酸化炭素と水',
-            '一酸化炭素と水素',
             '窒素と水',
+            '一酸化炭素と水素',
+            '二酸化炭素と水',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '有機物にふくまれる炭素が酸化されて二酸化炭素、水素が酸化されて水ができます。',
         },
@@ -310,11 +310,11 @@ export const oxidationReduction: Topic = {
           question: 'スチールウールを燃焼させた後の物質の性質として正しいものは？',
           options: [
             'やわらかくなり、磁石に強く引きつけられる',
-            'もろくなり、磁石に引きつけられにくくなる',
             '硬くなり、電気をよく通すようになる',
+            'もろくなり、磁石に引きつけられにくくなる',
             '性質は変わらず、色だけが変わる',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             '鉄が酸化鉄に変化するため、もろくなり、磁石に引きつけられにくくなります。鉄とは異なる性質の物質に変わったことがわかります。',
         },
@@ -322,20 +322,20 @@ export const oxidationReduction: Topic = {
           id: 'sci2-or-q7',
           question: 'マグネシウムの燃焼を化学反応式で正しく表したものは？',
           options: [
-            'Mg + O₂ → MgO₂',
             '2Mg + O₂ → 2MgO',
+            'Mg + O₂ → MgO₂',
             'Mg + O → MgO',
             'Mg₂ + O₂ → 2MgO',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             'マグネシウム2原子と酸素分子1個が反応して、酸化マグネシウム2個ができます。2Mg + O₂ → 2MgO',
         },
         {
           id: 'sci2-or-q8',
           question: '酸化銅を炭素で還元したとき、試験管に残る赤い物質は何？',
-          options: ['酸化銅', '酸化鉄', '銅', '炭素'],
-          correctIndex: 2,
+          options: ['酸化銅', '銅', '酸化鉄', '炭素'],
+          correctIndex: 1,
           explanation:
             '酸化銅（CuO）が還元されて銅（Cu）に戻ります。銅は赤っぽい光沢のある金属です。',
         },
@@ -344,11 +344,11 @@ export const oxidationReduction: Topic = {
           question: '酸化銅と炭素の還元実験で石灰水が白くにごる理由は？',
           options: [
             '酸素が発生したから',
-            '水蒸気が発生したから',
             '二酸化炭素が発生したから',
+            '水蒸気が発生したから',
             '水素が発生したから',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation:
             '炭素が酸化銅から酸素をうばい二酸化炭素（CO₂）が発生します。石灰水はCO₂に反応して白くにごります。',
         },
@@ -357,11 +357,11 @@ export const oxidationReduction: Topic = {
           question: '酸化銅の還元実験で、火を消す前にしなければならない操作は？',
           options: [
             '試験管を水で冷やす',
-            'ガラス管を石灰水から取り出す',
             '酸化銅をさらに加える',
+            'ガラス管を石灰水から取り出す',
             '試験管のゴム栓をはずす',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             'ガラス管を石灰水から取り出してから火を消します。先に火を消すと、石灰水が逆流して試験管が割れる危険があります。',
         },
@@ -370,19 +370,19 @@ export const oxidationReduction: Topic = {
           question: 'エタノールが燃焼したとき発生するものは？',
           options: [
             '水素と酸素',
-            '二酸化炭素と水',
-            '一酸化炭素と水素',
             '炭素と水',
+            '一酸化炭素と水素',
+            '二酸化炭素と水',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             'エタノールは有機物なので、燃焼するとふくまれる炭素→CO₂、水素→H₂Oが発生します。',
         },
         {
           id: 'sci2-or-q12',
           question: '次のうち、炭素より酸化されやすい金属はどれ？',
-          options: ['銅', '鉄', 'マグネシウム', '銀'],
-          correctIndex: 2,
+          options: ['マグネシウム', '鉄', '銅', '銀'],
+          correctIndex: 0,
           explanation:
             '酸化されやすさはマグネシウム ＞ 炭素 ＞ 水素 ＞ 銅 の順です。マグネシウムは炭素より酸化されやすい金属です。',
         },

@@ -182,8 +182,8 @@ export const fronts: Topic = {
         {
           id: 'sci2-frnt-q1',
           question: '異なる気団の境界面を何という？',
-          options: ['前線', '前線面', '気圧の谷', '等圧線'],
-          correctIndex: 1,
+          options: ['前線面', '前線', '気圧の谷', '等圧線'],
+          correctIndex: 0,
           explanation:
             '異なる性質の気団の境界面を前線面といいます。前線面と地表面が交わる線が前線です。',
         },
@@ -203,8 +203,8 @@ export const fronts: Topic = {
         {
           id: 'sci2-frnt-q3',
           question: '温暖前線付近で発達する雲の種類として正しいものは？',
-          options: ['積乱雲', '乱層雲', '積雲', '巻雲のみ'],
-          correctIndex: 1,
+          options: ['積乱雲', '積雲', '乱層雲', '巻雲のみ'],
+          correctIndex: 2,
           explanation:
             '温暖前線では暖気が寒気の上をゆるやかに這い上がるため、乱層雲や高層雲が広い範囲に発達し、弱い長雨を降らせます。',
         },
@@ -213,11 +213,11 @@ export const fronts: Topic = {
           question: '温帯低気圧に伴う前線の位置として正しいものは？',
           options: [
             '北東に寒冷前線、北西に温暖前線',
-            '南東に温暖前線、南西に寒冷前線',
-            '東に寒冷前線、西に温暖前線',
             '南に温暖前線、北に寒冷前線',
+            '東に寒冷前線、西に温暖前線',
+            '南東に温暖前線、南西に寒冷前線',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '温帯低気圧には南東側に温暖前線、南西側に寒冷前線が伴います。',
         },
@@ -238,12 +238,12 @@ export const fronts: Topic = {
           id: 'sci2-frnt-q6',
           question: '閉そく前線ができると温帯低気圧はどうなるか？',
           options: [
-            '勢力が強まる',
             '衰退する',
+            '勢力が強まる',
             '停滞前線に変わる',
             '台風に発達する',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '閉そく前線ができると暖気が地表から切り離されて上空に押し上げられ、エネルギーの供給が減って低気圧が衰退します。',
         },
@@ -252,11 +252,11 @@ export const fronts: Topic = {
           question: '温暖前線が通過した後の天気の変化として正しいものは？',
           options: [
             '北寄りの風に変わり気温が急低下する',
-            '南寄りの風に変わり気温が上昇する',
             '風向は変わらず気温のみ低下する',
+            '南寄りの風に変わり気温が上昇する',
             '東寄りの風に変わり雨が強まる',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             '温暖前線通過後は暖気に覆われるため、南寄りの風に変わり気温が上昇します。',
         },

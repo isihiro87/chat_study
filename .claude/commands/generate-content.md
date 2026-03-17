@@ -14,6 +14,22 @@ description: contents.mdをもとにchat.ts・index.ts（explanation, flashcards
 - 同ディレクトリに`contents.md`が存在すること（なければステップ1.5でテンプレートを作成して停止）
 - 同ディレクトリに`index.ts`と`chat.ts`が存在する場合は読み込んで既存の設定値（id, eraId, name等）を保持する（存在しない場合は新規作成）
 
+## ステップ0: 教科別分析ファイルの参照（必須）
+
+**コンテンツ生成前に、対象教科の分析ファイルを読み込む。**
+
+パスから教科を判定し、対応するファイルを読む:
+- `/subjects/math/` → `docs/content-analysis/math.md`
+- `/subjects/science/` → `docs/content-analysis/science.md`
+- `/subjects/history/` → `docs/content-analysis/history.md`
+- `/subjects/geography/` → `docs/content-analysis/geography.md`
+- `/subjects/english/` → `docs/content-analysis/english.md`
+
+確認するセクション:
+1. **教材タイプ別の作り方**: ID命名規則、キャラクター設定、構造パターン
+2. **改善案**: 未実施のもので今回取り入れられるものはないか
+3. **フィードバックログ**（存在する場合）: 過去の指摘で注意すべき点
+
 ---
 
 ## ステップ1: ファイルの読み込み
@@ -108,17 +124,25 @@ contents.mdから以下の情報を抽出する:
 date（時代の始まり）
   → narrator（導入、重要語にruby・keyword・strong）
   → message × 2-4（先生が説明、生徒が質問、先生が答える）
+  → image（該当する図・グラフ・資料があれば挿入。セリフだけが続くと飽きるため）
+  → message × 1-2（画像についての対話）
   → summary-point（シーンの要点を1行で）
-  → quiz（理解度チェック1問）
+  → quiz（理解度チェック1問）★ summary-pointの後は必ずquiz
 
 date（次の時代/場面）
   → narrator
   → message × 2-4
+  → image（あれば。なければ省略可）
   → summary-point
-  → quiz
+  → quiz（★ 必須）
 
 end（まとめ4-5点）
 ```
+
+**重要ルール:**
+- **summary-pointの後には必ずquizを配置する**（例外なし）
+- **セリフだけが6〜7つ以上続く場合、可能であれば画像(image)を挟む**（4つ程度なら問題なし。挟める画像がない場合は不要）
+- **中学生が知らない可能性のある用語は、初出時にdata-tooltipまたはカッコ書きで意味を説明する**
 
 ### HTMLタグの使い方
 
@@ -192,7 +216,13 @@ explanation: {
 
 ### flashcards
 
-contents.mdの**太字キーワード**を元に8〜13枚生成:
+contents.mdの**太字キーワード**と **quiz/フォルダ内のichimondittou.md・structured.md** を元に **15〜25枚** 生成。
+quiz/フォルダが存在する場合は必ず読み込み、そこで問われている用語を網羅する。
+
+各フラッシュカードには難易度を付与する:
+- `difficulty: 'basic'` — 基礎（必須用語・定義）
+- `difficulty: 'standard'` — 標準（応用的な用語・関連知識）
+- `difficulty: 'advanced'` — 発展（発展問題レベル）
 
 ```typescript
 flashcards: [
@@ -212,7 +242,8 @@ flashcards: [
 
 ### quiz.questions
 
-太字キーワードを網羅する3〜5問:
+**quiz/フォルダ内のichimondittou.md・structured.md・advanced.md** を元に **15〜25問** 生成。
+問題形式は **4択（choice）と並べ替え（reorder）を原則** とする。
 
 ```typescript
 quiz: {
@@ -223,6 +254,7 @@ quiz: {
       options: ['選択肢A', '選択肢B', '選択肢C', '選択肢D'],
       correctIndex: 0, // 0-indexed
       explanation: '解説文（プレーンテキスト）',
+      difficulty: 'basic', // 'basic' | 'standard' | 'advanced'
     },
     // ...
   ],
@@ -230,9 +262,10 @@ quiz: {
 ```
 
 - chat.tsのクイズと同じ問題を含む（形式変換: letter→correctIndex, HTML→プレーンテキスト）
-- 追加の問題があってもよい
+- quiz/フォルダの問題を積極的に変換・追加する
 - 同じ時代・文脈の紛らわしい選択肢を使う
 - correctIndexの位置は問題ごとにバラけさせる
+- **難易度バランス**: basic 5〜8問、standard 5〜10問、advanced 3〜5問
 
 ### chatId
 

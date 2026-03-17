@@ -50,8 +50,8 @@ export const eqApplications: Topic = {
         {
           id: 'math-g1-eq-apps-q1',
           question: '比例式 $2 : 5 = 6 : x$ の $x$ の値は？',
-          options: ['$x = 12$', '$x = 15$', '$x = 10$', '$x = 60$'],
-          correctIndex: 1,
+          options: ['$x = 12$', '$x = 10$', '$x = 15$', '$x = 60$'],
+          correctIndex: 2,
           explanation:
             '内項の積 = 外項の積より $2x = 5 \\times 6 = 30$、$x = 15$。',
         },
@@ -59,8 +59,8 @@ export const eqApplications: Topic = {
           id: 'math-g1-eq-apps-q2',
           question:
             '1本 $120$ 円の鉛筆を $x$ 本買い、$50$ 円の消しゴムを 1 個買ったら合計 $530$ 円でした。$x$ の値は？',
-          options: ['$x = 3$', '$x = 4$', '$x = 5$', '$x = 6$'],
-          correctIndex: 1,
+          options: ['$x = 3$', '$x = 6$', '$x = 5$', '$x = 4$'],
+          correctIndex: 3,
           explanation:
             '$120x + 50 = 530$、$120x = 480$、$x = 4$。確かめ: $120 \\times 4 + 50 = 530$ ✓',
         },
@@ -68,8 +68,8 @@ export const eqApplications: Topic = {
           id: 'math-g1-eq-apps-q3',
           question:
             'ある数の 3 倍から 5 を引くと 13 になります。ある数はいくつ？',
-          options: ['$4$', '$5$', '$6$', '$7$'],
-          correctIndex: 2,
+          options: ['$4$', '$6$', '$5$', '$7$'],
+          correctIndex: 1,
           explanation:
             'ある数を $x$ とすると $3x - 5 = 13$。$3x = 18$、$x = 6$。',
         },
@@ -77,8 +77,8 @@ export const eqApplications: Topic = {
           id: 'math-g1-eq-apps-q4',
           question:
             'みかんを何人かの子どもに配ります。1人に 5 個ずつ配ると 3 個余り、6 個ずつ配ると 4 個足りません。子どもの人数は？',
-          options: ['$5$ 人', '$7$ 人', '$8$ 人', '$10$ 人'],
-          correctIndex: 1,
+          options: ['$7$ 人', '$5$ 人', '$8$ 人', '$10$ 人'],
+          correctIndex: 0,
           explanation:
             '子どもの人数を $x$ 人とすると、みかんの総数は $5x + 3 = 6x - 4$。移項して $x = 7$。',
         },

@@ -220,16 +220,16 @@ export const invertebrates: Topic = {
         {
           id: 'sci1-iv-q2',
           question: '軟体動物の内臓を包んでいる膜を何というか？',
-          options: ['外骨格', '外とう膜', 'うろこ', '羽毛'],
-          correctIndex: 1,
+          options: ['外とう膜', '外骨格', 'うろこ', '羽毛'],
+          correctIndex: 0,
           explanation:
             '軟体動物は外とう膜という膜で内臓が包まれています。イカ・タコ・アサリなどが軟体動物です。',
         },
         {
           id: 'sci1-iv-q3',
           question: '昆虫類が空気をとり入れて呼吸するための器官を何というか？',
-          options: ['えら', '肺', '気門', '外とう膜'],
-          correctIndex: 2,
+          options: ['えら', '肺', '外とう膜', '気門'],
+          correctIndex: 3,
           explanation:
             '昆虫類は体の横にある気門から空気をとり入れて呼吸します。えらは魚類や甲殻類の呼吸器官です。',
         },
@@ -255,10 +255,10 @@ export const invertebrates: Topic = {
           options: [
             '脊椎動物のほうが種数が多い',
             '無脊椎動物は背骨をもつ動物である',
-            '無脊椎動物のほうが種数が多い',
             '脊椎動物には外骨格がある',
+            '無脊椎動物のほうが種数が多い',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '無脊椎動物は約146万種で、脊椎動物の約7万種よりはるかに多いです。無脊椎動物は背骨をもたない動物です。',
         },

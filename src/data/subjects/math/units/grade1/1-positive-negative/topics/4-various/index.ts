@@ -89,16 +89,16 @@ export const variousCalc: Topic = {
         {
           id: 'math-g1-various-q2',
           question: '$-3^2$ の計算結果は？（かっこなし）',
-          options: ['$-9$', '$+9$', '$-6$', '$+6$'],
-          correctIndex: 0,
+          options: ['$-6$', '$+9$', '$-9$', '$+6$'],
+          correctIndex: 2,
           explanation:
             'かっこがないときは $-(3^2) = -(9) = -9$ だよ。$(-3)^2 = 9$ との違いに注意！',
         },
         {
           id: 'math-g1-various-q3',
           question: '$5 + 3 \\times (-2)$ の計算結果は？',
-          options: ['$-16$', '$-1$', '$+16$', '$+1$'],
-          correctIndex: 1,
+          options: ['$-16$', '$+1$', '$+16$', '$-1$'],
+          correctIndex: 3,
           explanation:
             'かけ算を先に計算するよ。$3 \\times (-2) = -6$ だから、$5 + (-6) = 5 - 6 = -1$ だね。',
         },
@@ -106,12 +106,12 @@ export const variousCalc: Topic = {
           id: 'math-g1-various-q4',
           question: '$36$ を素因数分解すると？',
           options: [
-            '$2 \\times 18$',
-            '$4 \\times 9$',
             '$2^2 \\times 3^2$',
+            '$4 \\times 9$',
+            '$2 \\times 18$',
             '$6^2$',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             '$36 = 4 \\times 9 = 2^2 \\times 3^2$ だよ。素因数分解は素数だけの積で表すんだ。$6^2$ は $6$ が素数でないからダメだね。',
         },
@@ -126,24 +126,24 @@ export const variousCalc: Topic = {
         {
           id: 'math-g1-various-q6',
           question: '$(-2)^4$ の計算結果は？',
-          options: ['$+16$', '$-16$', '$+8$', '$-8$'],
-          correctIndex: 0,
+          options: ['$-16$', '$+16$', '$+8$', '$-8$'],
+          correctIndex: 1,
           explanation:
             '$(-2)^4 = (-2) \\times (-2) \\times (-2) \\times (-2)$。負の数を偶数回（$4$ 回）かけるから結果は正で $+16$ だよ。',
         },
         {
           id: 'math-g1-various-q7',
           question: '$-2^4$ の計算結果は？（かっこなし）',
-          options: ['$+16$', '$-16$', '$+8$', '$-8$'],
-          correctIndex: 1,
+          options: ['$+16$', '$-8$', '$+8$', '$-16$'],
+          correctIndex: 3,
           explanation:
             'かっこがないから $-(2^4) = -(16) = -16$ だよ。$(-2)^4 = +16$ との違いに注意！',
         },
         {
           id: 'math-g1-various-q8',
           question: '$(-1)^2 + (-1)^3$ の計算結果は？',
-          options: ['$+2$', '$-2$', '$0$', '$+1$'],
-          correctIndex: 2,
+          options: ['$0$', '$-2$', '$+2$', '$+1$'],
+          correctIndex: 0,
           explanation:
             '$(-1)^2 = 1$（偶数乗→正）、$(-1)^3 = -1$（奇数乗→負）。$1 + (-1) = 0$ だよ。',
         },
@@ -151,28 +151,28 @@ export const variousCalc: Topic = {
           id: 'math-g1-various-q9',
           question: '$60$ を素因数分解すると？',
           options: [
-            '$2 \\times 30$',
-            '$4 \\times 15$',
             '$2^2 \\times 3 \\times 5$',
+            '$4 \\times 15$',
+            '$2 \\times 30$',
             '$6 \\times 10$',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             '$60 = 2 \\times 2 \\times 3 \\times 5 = 2^2 \\times 3 \\times 5$ だよ。素因数分解は素数だけの積で表すんだ。',
         },
         {
           id: 'math-g1-various-q10',
           question: '$6 - \\{8 \\times (-2 - 5)\\} \\div (-14)$ の計算結果は？',
-          options: ['$2$', '$-2$', '$10$', '$-10$'],
-          correctIndex: 0,
+          options: ['$-2$', '$2$', '$10$', '$-10$'],
+          correctIndex: 1,
           explanation:
             'かっこ内: $-2-5=-7$。$8 \\times (-7) = -56$。$(-56) \\div (-14) = 4$。$6 - 4 = 2$ だよ。',
         },
         {
           id: 'math-g1-various-q11',
           question: '$99 \\times 7$ を分配法則で工夫して計算すると？',
-          options: ['$693$', '$700$', '$706$', '$793$'],
-          correctIndex: 0,
+          options: ['$793$', '$700$', '$706$', '$693$'],
+          correctIndex: 3,
           explanation:
             '$(100 - 1) \\times 7 = 100 \\times 7 - 1 \\times 7 = 700 - 7 = 693$ だよ。',
         },
@@ -181,11 +181,11 @@ export const variousCalc: Topic = {
           question: '次のうち、自然数の集合について正しいのはどれ？',
           options: [
             '自然数 $-$ 自然数は必ず自然数',
-            '自然数 $+$ 自然数は必ず自然数',
             '自然数 $\\div$ 自然数は必ず自然数',
+            '自然数 $+$ 自然数は必ず自然数',
             '$0$ は自然数',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             '自然数＋自然数は必ず自然数になるよ。引き算は $3-5=-2$ のように自然数にならないことがあるし、割り算は $1 \\div 3 = \\frac{1}{3}$ のようになるよ。',
         },

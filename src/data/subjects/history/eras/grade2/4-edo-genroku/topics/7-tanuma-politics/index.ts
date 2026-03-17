@@ -53,24 +53,24 @@ export const tanumaPolitics: Topic = {
         {
           id: 'q1',
           question: '田沼意次が公認した商人の同業者組合を何という？',
-          options: ['座', '両替商', '株仲間', '問屋'],
-          correctIndex: 2,
+          options: ['株仲間', '両替商', '座', '問屋'],
+          correctIndex: 0,
           explanation:
             '田沼は株仲間を認める代わりに税金を徴収し、財政収入を増やそうとしました。',
         },
         {
           id: 'q2',
           question: '田沼意次が長崎貿易で輸出を増やした海産物を何という？',
-          options: ['俵物', '干鰯', '昆布', '塩'],
-          correctIndex: 0,
+          options: ['昆布', '干鰯', '俵物', '塩'],
+          correctIndex: 2,
           explanation:
             '俵物とは干しアワビ、いりこ、ふかひれなどの海産物で、中国へ輸出されました。',
         },
         {
           id: 'q3',
           question: '田沼意次が失脚する一因となった大飢饉は？',
-          options: ['享保のききん', '天明のききん', '天保のききん', '寛永のききん'],
-          correctIndex: 1,
+          options: ['享保のききん', '寛永のききん', '天保のききん', '天明のききん'],
+          correctIndex: 3,
           explanation:
             '浅間山の噴火による凶作と、ワイロ政治への批判から田沼は失脚しました。',
         },

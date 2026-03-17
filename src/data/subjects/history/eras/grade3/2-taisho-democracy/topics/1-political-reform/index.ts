@@ -118,8 +118,8 @@ export const politicalReform: Topic = {
         {
           id: 'q2',
           question: '1918年に全国に広がった米騒動の直接の原因は？',
-          options: ['米の不作', '外国からの輸入停止', '米の価格高騰', '政府の増税'],
-          correctIndex: 2,
+          options: ['米の不作', '米の価格高騰', '外国からの輸入停止', '政府の増税'],
+          correctIndex: 1,
           explanation:
             '大戦景気による物価上昇で米の価格が高騰し、庶民の生活が苦しくなったことが原因です。',
         },
@@ -139,8 +139,8 @@ export const politicalReform: Topic = {
         {
           id: 'q4',
           question: '「民本主義」を唱えた学者は？',
-          options: ['美濃部達吉', '吉野作造', '原敬', '桂太郎'],
-          correctIndex: 1,
+          options: ['美濃部達吉', '原敬', '吉野作造', '桂太郎'],
+          correctIndex: 2,
           explanation:
             '吉野作造は「民本主義」を唱え、民衆のための政治を主張しました。大正デモクラシーの理論的指導者です。',
         },

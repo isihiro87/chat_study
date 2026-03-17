@@ -111,12 +111,12 @@ export const endOfWar: Topic = {
           id: 'q1',
           question: '広島に原子爆弾が投下された日はいつ？',
           options: [
-            '1945年8月6日',
-            '1945年8月9日',
             '1945年8月1日',
+            '1945年8月9日',
+            '1945年8月6日',
             '1945年8月15日',
           ],
-          correctIndex: 0,
+          correctIndex: 2,
           explanation:
             '1945年8月6日に広島に原爆が投下されました。8月9日は長崎への投下です。',
         },
@@ -125,19 +125,19 @@ export const endOfWar: Topic = {
           question: '日本に無条件降伏を求めた1945年7月の宣言は？',
           options: [
             'カイロ宣言',
-            'ヤルタ協定',
-            '大西洋憲章',
             'ポツダム宣言',
+            '大西洋憲章',
+            'ヤルタ協定',
           ],
-          correctIndex: 3,
+          correctIndex: 1,
           explanation:
             'ポツダム宣言はアメリカ・イギリス・中国が日本に無条件降伏を求めたものです。',
         },
         {
           id: 'q3',
           question: '1945年8月15日に天皇がラジオで終戦を伝えた放送を何という？',
-          options: ['玉音放送', '終戦宣言', '大本営発表', '降伏声明'],
-          correctIndex: 0,
+          options: ['降伏声明', '終戦宣言', '大本営発表', '玉音放送'],
+          correctIndex: 3,
           explanation:
             '玉音放送で天皇が国民にポツダム宣言受け入れと終戦を伝えました。',
         },
@@ -152,8 +152,8 @@ export const endOfWar: Topic = {
         {
           id: 'q5',
           question: '1945年8月8日に日ソ中立条約を破って満州に侵攻した国は？',
-          options: ['アメリカ', 'イギリス', '中国', 'ソ連'],
-          correctIndex: 3,
+          options: ['アメリカ', 'ソ連', '中国', 'イギリス'],
+          correctIndex: 1,
           explanation:
             'ソ連は日ソ中立条約を一方的に破り、満州に侵攻しました。',
         },

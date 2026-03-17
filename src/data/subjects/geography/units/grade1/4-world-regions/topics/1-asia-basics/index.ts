@@ -112,12 +112,12 @@ export const asiaBasics: Topic = {
           id: 'geo1-as1-q2',
           question: '1970年代以降に急速な経済成長をとげた韓国・シンガポール・台湾・ホンコンの総称はどれか。',
           options: [
-            'ASEAN',
-            'OPEC',
             'アジアNIES',
+            'OPEC',
+            'ASEAN',
             'APEC',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             'アジアNIES（新興工業経済地域）は、ハイテク産業を中心に急速に工業化した4つの国・地域の総称です。',
         },
@@ -126,11 +126,11 @@ export const asiaBasics: Topic = {
           question: 'ヒマラヤ山脈やチベット高原を含む地域は何とよばれるか。',
           options: [
             '世界の果て',
-            '世界の屋根',
             '世界の庭',
+            '世界の屋根',
             '世界の壁',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             '「世界の屋根」とよばれます。ヒマラヤ山脈には世界最高峰のエベレストがあり、チベット高原は標高4000m以上の広大な高原です。',
         },

@@ -75,16 +75,16 @@ export const addSub: Topic = {
         {
           id: 'math-g1-add-sub-q1',
           question: '$(+6) + (-9)$ の計算結果は？',
-          options: ['$+15$', '$+3$', '$-3$', '$-15$'],
-          correctIndex: 2,
+          options: ['$-3$', '$+3$', '$+15$', '$-15$'],
+          correctIndex: 0,
           explanation:
             '異符号の加法だから、絶対値の差 $9 - 6 = 3$ に、絶対値が大きい $-9$ の符号（負）をつけて $-3$ だよ。',
         },
         {
           id: 'math-g1-add-sub-q2',
           question: '$(-4) + (-7)$ の計算結果は？',
-          options: ['$+11$', '$+3$', '$-3$', '$-11$'],
-          correctIndex: 3,
+          options: ['$+11$', '$-11$', '$-3$', '$+3$'],
+          correctIndex: 1,
           explanation:
             '同符号（負＋負）の加法だから、絶対値の和 $4 + 7 = 11$ に共通の符号（負）をつけて $-11$ だよ。',
         },
@@ -93,11 +93,11 @@ export const addSub: Topic = {
           question: '$(+8) - (-5)$ を加法に直すと？',
           options: [
             '$(+8) + (-5)$',
-            '$(+8) + (+5)$',
             '$(-8) + (+5)$',
+            '$(+8) + (+5)$',
             '$(-8) + (-5)$',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             '減法は「ひく数の符号を変えて加法にする」から、$-(-5)$ は $+(+5)$ になって $(+8) + (+5)$ だよ。',
         },
@@ -114,11 +114,11 @@ export const addSub: Topic = {
           question: '$7 - 12 + 3$ の項をすべて正しく表しているのは？',
           options: [
             '$+7, +12, +3$',
-            '$+7, -12, +3$',
-            '$-7, +12, -3$',
             '$+7, -12, -3$',
+            '$-7, +12, -3$',
+            '$+7, -12, +3$',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '加法だけの式に直すと $(+7) + (-12) + (+3)$ だから、項は $+7, -12, +3$ だよ。',
         },
@@ -141,24 +141,24 @@ export const addSub: Topic = {
         {
           id: 'math-g1-add-sub-q8',
           question: '$-9 + 12 - 6 + 8$ の計算結果は？',
-          options: ['$+5$', '$-5$', '$+11$', '$-11$'],
-          correctIndex: 0,
+          options: ['$+11$', '$-5$', '$+5$', '$-11$'],
+          correctIndex: 2,
           explanation:
             '正の項: $+12, +8 = +20$、負の項: $-9, -6 = -15$。$20 + (-15) = +5$ だよ。',
         },
         {
           id: 'math-g1-add-sub-q9',
           question: '加法の交換法則を使って $(-37) + (+24) + (+37)$ を工夫して計算すると？',
-          options: ['$+24$', '$-24$', '$+98$', '$-50$'],
-          correctIndex: 0,
+          options: ['$+98$', '$-24$', '$+24$', '$-50$'],
+          correctIndex: 2,
           explanation:
             '$(-37) + (+37) + (+24) = 0 + (+24) = +24$。交換法則で $-37$ と $+37$ を先に計算するのがコツ！',
         },
         {
           id: 'math-g1-add-sub-q10',
           question: '朝の気温は $-3°\\text{C}$ で、昼には $8°\\text{C}$ 上がりました。昼の気温は？',
-          options: ['$+5°\\text{C}$', '$-5°\\text{C}$', '$+11°\\text{C}$', '$-11°\\text{C}$'],
-          correctIndex: 0,
+          options: ['$-5°\\text{C}$', '$+5°\\text{C}$', '$+11°\\text{C}$', '$-11°\\text{C}$'],
+          correctIndex: 1,
           explanation:
             '$(-3) + (+8) = +(8 - 3) = +5$ だから、昼の気温は $+5°\\text{C}$ だよ。',
         },

@@ -121,10 +121,10 @@ export const coldWar: Topic = {
           options: [
             'ワルシャワ条約機構',
             '国際連合',
-            'NATO（北大西洋条約機構）',
             '三国同盟',
+            'NATO（北大西洋条約機構）',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             'NATOはアメリカを中心とする西側諸国の軍事同盟で、ソ連を中心とする東側のワルシャワ条約機構と対立しました。',
         },
@@ -132,8 +132,8 @@ export const coldWar: Topic = {
           id: 'q2',
           question:
             '安全保障理事会の常任理事国が持つ、決議を否決できる権利を何という？',
-          options: ['議決権', '拒否権', '発言権', '投票権'],
-          correctIndex: 1,
+          options: ['拒否権', '議決権', '発言権', '投票権'],
+          correctIndex: 0,
           explanation:
             '拒否権により1か国でも反対すれば決議が成立せず、冷戦中は国連が機能不全に陥ることがありました。',
         },
@@ -143,11 +143,11 @@ export const coldWar: Topic = {
             '1960年にアフリカで多くの国が独立し、この年は何と呼ばれた？',
           options: [
             'アジアの年',
-            '革命の年',
             'アフリカの年',
+            '革命の年',
             '独立の年',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation:
             '1960年にはアフリカで17か国が独立し、「アフリカの年」と呼ばれました。',
         },
@@ -157,11 +157,11 @@ export const coldWar: Topic = {
             '1949年に毛沢東が建国した社会主義国家は？',
           options: [
             '大韓民国',
-            '中華人民共和国',
             'ベトナム民主共和国',
+            '中華人民共和国',
             '朝鮮民主主義人民共和国',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             '1949年に中華人民共和国が成立し、社会主義陣営が拡大しました。',
         },
@@ -184,12 +184,12 @@ export const coldWar: Topic = {
           question:
             '東西対立の象徴として建設された壁は何？',
           options: [
-            '万里の長城',
             'ベルリンの壁',
+            '万里の長城',
             '嘆きの壁',
             '鉄のカーテン',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             'ベルリンの壁は1961年に建設され、東西ドイツの分断と冷戦の象徴となりました。',
         },

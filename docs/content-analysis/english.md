@@ -1,0 +1,279 @@
+# 英語（english）教材作成分析と改善案
+
+## 1. ディレクトリ構成
+
+```
+src/data/subjects/english/
+└── grades/
+    ├── grade1/                   # 10トピック（be動詞〜過去形）
+    ├── grade2/                   # 6トピック（文構造〜受動態）
+    └── grade3/                   # 10トピック（現在完了〜仮定法）
+```
+
+**トピック構成:**
+```
+topics/{topic-id}/
+├── index.ts      # Topic定義（explanation, flashcards, quiz, examples）
+├── chat.ts       # 対話形式の解説
+└── quiz/
+    ├── structured.md     # 大問小問形式
+    ├── ichimondittou.md  # 一問一答
+    └── advanced.md       # 発展問題
+```
+
+**注意:** 英語は `grades/` ディレクトリを使用（他教科の `units/` や `eras/` と異なる）
+
+## 2. 教材タイプ別の作り方
+
+### 2.1 解説（explanation）
+
+```typescript
+explanation: {
+  sections: [
+    {
+      title: 'be動詞の基本',
+      content: 'be動詞は主語によって形が変わります...',
+      keyPoints: [
+        'I → am',
+        'you / we / they → are',
+        'he / she / it → is',
+      ],
+    },
+  ],
+  // ※英語にはslidesは未使用
+}
+```
+
+### 2.2 チャット（chat.ts）— 英語特有の機能: speakable
+
+**キャラクター:** 先生 + 生徒の2人構成
+
+**英語特有のコンテンツ要素: `speakable`**
+```typescript
+{
+  type: 'message',
+  side: 'left',
+  characterId: 'teacher',
+  expression: 'explaining',
+  text: 'be動詞を使った文を見てみよう！',
+  speakable: ['I am a student.', 'Are you happy?'],  // 英文の音声再生用
+}
+```
+
+**`speakable`は英語教科のみの機能。** 他教科のchat.tsには存在しない。
+
+**チャットのパターン: 例文先行（example-first）方式**
+1. 例文を先に提示
+2. ルールを説明
+3. クイズで確認
+4. まとめ
+
+### 2.3 フラッシュカード
+
+**構成:** 25〜40枚/トピック（quiz/ichimondittou.mdの全問題をカバー）
+
+```typescript
+{
+  id: 'eng-be-fc1',
+  front: 'am',                    // 解答（裏面に表示）
+  back: 'I ___ a student.\n「私は生徒です。」',  // 穴埋め問題（表面に表示）
+  hint: '主語がIのときのbe動詞は？',
+  explanation: 'Iに対応するbe動詞はamです。',
+}
+```
+
+**英語フラッシュカードの特徴:**
+- `back`: 穴埋め形式（`___`）+ `\n`区切りで和訳
+- `front`: 1〜3語の解答
+- `hint`: ヒント（英語のみ使用、他教科では任意）
+- `explanation`: 1文の解説
+
+### 2.4 クイズ — 2つの問題タイプ
+
+**4択問題（choice）:**
+```typescript
+{
+  id: 'eng-be-q1',
+  question: 'I ___ a teacher.',
+  options: ['am', 'is', 'are', 'be'],
+  correctIndex: 0,
+  explanation: '主語がIの場合はamを使います。',
+}
+```
+
+**語順並べ替え（reorder）— 英語特有:**
+```typescript
+{
+  id: 'eng-be-q6',
+  type: 'reorder',
+  question: '次の単語を正しい順番にならべて、\n「私は生徒です。」という英文を作ろう。',
+  words: ['a', 'I', 'student', 'am'],          // 小文字でバラバラに提示
+  correctOrder: [1, 3, 0, 2],                   // I → am → a → student
+  punctuation: '.',                              // 末尾の句読点
+  options: [],                                   // reorderでは不使用
+  correctIndex: -1,                              // reorderでは不使用
+  explanation: '「I am a student.」が正解。...',
+}
+```
+
+**配分:** 25〜40問/トピック（choice 15〜25問 + reorder 8〜15問）。quiz/フォルダの3ファイルから網羅的に変換する。
+
+### 2.5 例題（examples）
+
+**構成:** 3〜6題/トピック
+
+```typescript
+{
+  id: 'eng-be-ex1',
+  question: '「彼女は先生です。」を英文にしなさい。',
+  steps: [
+    { title: 'Step 1: 主語を確認', content: '「彼女」= She', highlight: 'She' },
+    { title: 'Step 2: be動詞を選ぶ', content: 'Sheは三人称単数→is', highlight: 'is' },
+    { title: 'Step 3: 完成', content: 'She is a teacher.', highlight: 'She is a teacher.' },
+  ],
+  answer: 'She is a teacher.',
+}
+```
+
+### 2.6 quiz/ディレクトリ（index.tsのクイズ・フラッシュカードの主要ソース）
+
+**⚠️ quiz/フォルダ活用ルール:**
+- quiz/フォルダの問題は「追加」ではなく、index.tsのクイズ・フラッシュカードの**主要な出題元**
+- 各ファイルの問題を漏れなくindex.tsに反映する
+- quiz/フォルダに問題があるのにindex.tsに反映されていないのは**不完全な状態**
+
+**ichimondittou.md（一問一答）→ フラッシュカード化 + 4択クイズ化が必須:**
+- サブトピック別に整理（am/is/areの使い分け、短縮形、否定文等）
+- Q/A形式で大量の問題 → **全Q&Aペアをフラッシュカードに変換**
+- 適切な問題は4択クイズにも変換
+
+**structured.md（大問小問形式）→ 4択クイズ + reorder問題に変換:**
+- 空欄補充 → 4択クイズに変換
+- 書きかえ問題（肯定→否定、平叙→疑問） → 4択クイズに変換
+- 語順整序 → **reorder問題に変換（最適）**
+- 対話文完成 → 4択クイズに変換
+- 英作文 → reorder問題に変換
+
+**advanced.md（発展問題）→ difficulty: 'advanced' タグ付きで変換:**
+- 対話文読解 → 4択クイズ化
+- 間違い探し → 4択クイズ化
+- 応用問題 → 4択 or reorder化
+
+### 2.7 ID命名規則
+
+| 要素 | パターン | 例 |
+|------|----------|-----|
+| Era | `english-grade{学年}` | `english-grade1` |
+| Topic | `eng-{topic-slug}` | `eng-be-verbs` |
+| Flashcard | `eng-{略}-fc{番号}` | `eng-be-fc1` |
+| Quiz | `eng-{略}-q{番号}` | `eng-be-q1` |
+| Example | `eng-{略}-ex{番号}` | `eng-be-ex1` |
+
+## 3. 作成パイプライン
+
+1. **スキル参照**: `english-content`スキル（SKILL.md）にガイドラインあり
+2. **Era定義**: `grades/grade{X}/index.ts` にEra + Topic配列
+3. **Topic定義**: `topics/{topic}/index.ts`
+   - explanation（2〜3セクション）
+   - flashcards（25〜40枚、穴埋め形式、quiz/ichimondittou.mdから網羅的に変換）
+   - quiz（choice 15〜25問 + reorder 8〜15問、quiz/フォルダ3ファイルから変換）
+   - examples（3題以上）
+4. **チャット作成**: `topics/{topic}/chat.ts`
+   - speakable配列付き
+   - 例文先行方式
+5. **クイズ拡充**: `topics/{topic}/quiz/`
+6. **⚠️ quiz/→index.ts反映**: quiz/フォルダの全問題をindex.tsのクイズ・フラッシュカードに変換（最重要ステップ）
+6. **品質チェック**: english-contentスキルのチェックリスト
+
+**english-contentスキルの品質基準:**
+- 語彙レベル（学年別）
+- 例文の適切さ
+- チャットの長さ（約40コンテンツ要素）
+- 技術的互換性
+
+## 4. 改善案
+
+### 4.1 スライド（3タップ形式）の導入
+
+**現状:** 英語にはスライドが未実装。
+**提案:** 文法ルールの理解に3タップスライドが有効:
+- Question: 「三単現のsはいつつける？」
+- Reason: 「主語がhe/she/itのとき、一般動詞にsをつける」
+- Conclusion: 「三人称単数現在形 → 動詞にs/esを追加！」
+
+### 4.2 リスニング・発音機能の強化
+
+**現状:** `speakable`フィールドで英文テキストを指定しているが、実際の音声再生機能の充実度が不明。
+**提案:**
+- speakable対応のTTS（Text-to-Speech）品質向上
+- 発音練習モード（ユーザーが発音→フィードバック）
+- リスニングクイズ（音声を聞いて答える形式）
+
+### 4.3 reorder問題の拡充
+
+**現状:** 2〜3問/トピック。
+**提案:**
+- 5〜6問に増量（英語では語順理解が極めて重要）
+- 難易度バリエーション:
+  - 基本: 4語程度の短文
+  - 標準: 6〜7語の文
+  - 発展: 関係詞・不定詞を含む長文
+- `docs/reorder-question-guide.md` が既に存在するので、これに基づいて体系的に作成
+
+### 4.4 ディレクトリ構造の統一
+
+**現状:** 英語は `grades/` を使用、他教科は `units/` を使用。
+**提案:** 構造上の動作に問題はないが、新規開発者の混乱を防ぐためにドキュメントで明示的に説明。または将来的に `units/` に統一。
+
+### 4.5 長文読解コンテンツの追加
+
+**現状:** 単文・短文中心の学習。advanced.mdに対話文読解があるが、index.tsには未反映。
+**提案:**
+- 長文読解用の新コンテンツタイプを追加
+- 段落レベルの英文 + 設問（内容理解、要約、推論）
+- 入試対策として重要度が高い
+
+### 4.6 文法用語の統一管理
+
+**現状:** english-contentスキルに「禁止文法用語」があるが、既存コンテンツとの整合性が不明。
+**提案:**
+- 全トピックで使用する文法用語の統一辞書を作成
+- 学年別に許容する文法用語レベルを定義
+- 自動チェッカーで禁止用語の検出
+
+### 4.7 例文データベースの共有化
+
+**現状:** 例文がトピックごとに独立して作成されている。
+**提案:**
+- 共有例文データベースを作成
+- 同じ例文を複数のコンテンツタイプ（chat, quiz, flashcard）で再利用
+- 文法ポイント別にタグ付け → 横断検索可能に
+
+### 4.8 中2のトピック数拡充
+
+**現状:** 中1（10トピック）・中3（10トピック）に対し、中2は6トピックと少ない。
+**提案:** 中2のカリキュラムを見直し、以下のトピック分割を検討:
+- 不定詞: 名詞的用法 / 副詞的用法 / 形容詞的用法 に分割
+- 比較: 比較級 / 最上級 / as...as に分割
+- 接続詞: when/if / because/that に分割
+
+### 4.9 ライティング練習の強化
+
+**現状:** 例題でのStep-by-step英作文はあるが、自由英作文の練習が不足。
+**提案:**
+- テンプレート英作文（穴埋め → 自由記述への段階的移行）
+- 日記形式の短文ライティング課題
+- 自己紹介・意見表明などの定型パターン練習
+
+## 5. フィードバックログ
+
+### 2026-03-16 全教科共通フィードバック（チャット・クイズ・フラッシュカード品質改善）
+- **対象**: 全トピック共通
+- **指摘1**: セリフだけが続くと飽きる → 6〜7つ以上連続する場合は画像を挟む（4つ程度はOK。挟める画像がない場合は不要）
+- **指摘2**: summary-pointの後には必ずquizを入れる
+- **指摘3**: 未知の可能性がある用語には説明を入れる
+- **指摘4**: quiz/フォルダの一問一答・構造問題・発展問題をもとにフラッシュカード・クイズ・例題の数を充実させる
+- **指摘5**: クイズは選択問題・並べ替え問題を原則とする
+- **指摘6**: フラッシュカード・クイズには難易度タグ（basic/standard/advanced）を付与する
+- **対応**: generate-content, improve-from-pdf, review-contentスキルを更新済み
+- **汎用ルール**: 目標数値をフラッシュカード25〜40枚、クイズ25〜40問に引き上げ。quiz/フォルダの問題を主要ソースとして網羅的に変換する。難易度バランスはbasic40%/standard40%/advanced20%

@@ -63,8 +63,8 @@ export const sakoku: Topic = {
         {
           id: 'q2',
           question: '幕府が海外渡航を許可するために船に与えた証明書は？',
-          options: ['勘合', '朱印状', '御朱印', '渡航状'],
-          correctIndex: 1,
+          options: ['勘合', '御朱印', '朱印状', '渡航状'],
+          correctIndex: 2,
           explanation: '朱印状は幕府が発行した海外渡航の許可証で、これを持つ船は朱印船と呼ばれました。',
         },
         {

@@ -41,8 +41,8 @@ export const newLearning: Topic = {
         {
           id: 'q1',
           question: '「古事記伝」を完成させた国学者は？',
-          options: ['本居宣長', '杉田玄白', '伊能忠敬', '平賀源内'],
-          correctIndex: 0,
+          options: ['伊能忠敬', '杉田玄白', '本居宣長', '平賀源内'],
+          correctIndex: 2,
           explanation:
             '本居宣長は35年をかけて古事記を研究し、国学を大成しました。',
         },
@@ -57,16 +57,16 @@ export const newLearning: Topic = {
         {
           id: 'q3',
           question: '日本全国を測量して精密な日本地図を作ったのは？',
-          options: ['本居宣長', '杉田玄白', '伊能忠敬', '間宮林蔵'],
-          correctIndex: 2,
+          options: ['伊能忠敬', '杉田玄白', '本居宣長', '間宮林蔵'],
+          correctIndex: 0,
           explanation:
             '伊能忠敬は50歳から測量を学び、17年かけて日本全国を測量しました。',
         },
         {
           id: 'q4',
           question: '庶民の子が読み書きを学んだ教育施設は？',
-          options: ['寺子屋', '藩校', '私塾', '昌平坂学問所'],
-          correctIndex: 0,
+          options: ['藩校', '寺子屋', '私塾', '昌平坂学問所'],
+          correctIndex: 1,
           explanation:
             '寺子屋では庶民の子が「読み・書き・そろばん」を学びました。藩校は武士の子が通う学校です。',
         },

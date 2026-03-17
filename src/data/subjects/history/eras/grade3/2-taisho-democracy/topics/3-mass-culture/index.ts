@@ -118,8 +118,8 @@ export const massCulture: Topic = {
         {
           id: 'q2',
           question: '「蟹工船」を書いたプロレタリア文学の作家は？',
-          options: ['小林多喜二', '志賀直哉', '芥川龍之介', '夏目漱石'],
-          correctIndex: 0,
+          options: ['芥川龍之介', '志賀直哉', '小林多喜二', '夏目漱石'],
+          correctIndex: 2,
           explanation:
             '小林多喜二は「蟹工船」で労働者の過酷な生活を描き、プロレタリア文学の代表作となりました。',
         },
@@ -134,8 +134,8 @@ export const massCulture: Topic = {
         {
           id: 'q4',
           question: '「羅生門」「鼻」を書いた大正時代の作家は？',
-          options: ['芥川龍之介', '小林多喜二', '夏目漱石', '志賀直哉'],
-          correctIndex: 0,
+          options: ['小林多喜二', '芥川龍之介', '夏目漱石', '志賀直哉'],
+          correctIndex: 1,
           explanation:
             '芥川龍之介は知的な短編小説を数多く発表し、大正文学を代表する作家の一人です。',
         },

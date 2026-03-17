@@ -149,11 +149,11 @@ export const literalRelations: Topic = {
           question: '「$x$ に $5$ を足すと $12$ になる」を等式で表すと？',
           options: [
             '$x - 5 = 12$',
-            '$x + 5 = 12$',
-            '$5x = 12$',
             '$x = 12 + 5$',
+            '$5x = 12$',
+            '$x + 5 = 12$',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '「$x$ に $5$ を足す」は $x + 5$、「$12$ になる」は $= 12$。だから $x + 5 = 12$ だよ。',
         },
@@ -175,12 +175,12 @@ export const literalRelations: Topic = {
           question:
             '「1本 $x$ 円のジュースを3本買ったら、代金は $500$ 円以下だった」を不等式で表すと？',
           options: [
-            '$3x > 500$',
+            '$3x \\leqq 500$',
             '$3x < 500$',
             '$3x \\geqq 500$',
-            '$3x \\leqq 500$',
+            '$3x > 500$',
           ],
-          correctIndex: 3,
+          correctIndex: 0,
           explanation:
             '代金は $x \\times 3 = 3x$ 円。「$500$ 円以下」だから $3x \\leqq 500$ だよ。',
         },
@@ -230,12 +230,12 @@ export const literalRelations: Topic = {
           question:
             '「定価 $a$ 円の品物を $2$ 割引きで買ったら $b$ 円だった」を等式で表すと？',
           options: [
-            '$a - 2 = b$',
-            '$0.2a = b$',
             '$0.8a = b$',
+            '$0.2a = b$',
+            '$a - 2 = b$',
             '$a + 0.2a = b$',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             '2割引きは定価の $1 - 0.2 = 0.8$ 倍。だから $0.8a = b$ だよ。2割引き ≠ 2円引きに注意！',
         },
@@ -244,12 +244,12 @@ export const literalRelations: Topic = {
           question:
             '$50x + 30y = 410$ はどんな関係を表している？（$x$: あめの個数、$y$: ガムの個数）',
           options: [
-            '1個50円のあめ $x$ 個と1個30円のガム $y$ 個の代金の合計が410円',
+            'あめとガムを合わせて410円のおつりがある',
             'あめ $x$ 個とガム $y$ 個の合計が410個',
             '50円のあめと30円のガムの値段の差が410円',
-            'あめとガムを合わせて410円のおつりがある',
+            '1個50円のあめ $x$ 個と1個30円のガム $y$ 個の代金の合計が410円',
           ],
-          correctIndex: 0,
+          correctIndex: 3,
           explanation:
             '$50x$ は「1個50円のあめ $x$ 個の代金」、$30y$ は「1個30円のガム $y$ 個の代金」。合計が410円という意味だよ。',
         },
@@ -259,11 +259,11 @@ export const literalRelations: Topic = {
             '「$x$ 人の生徒に鉛筆を $4$ 本ずつ配ったら、$10$ 本以上余った」を不等式で表すと？ 鉛筆は全部で $n$ 本ある。',
           options: [
             '$n - 4x > 10$',
-            '$n - 4x \\geqq 10$',
             '$4x - n \\geqq 10$',
+            '$n - 4x \\geqq 10$',
             '$n - 4x < 10$',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             '配った本数は $4x$ 本。残りは $n - 4x$ 本。「10本以上」だから $n - 4x \\geqq 10$ だよ。',
         },
@@ -274,10 +274,10 @@ export const literalRelations: Topic = {
           options: [
             '$ab \\leqq 100$',
             '$ab \\geqq 100$',
-            '$ab < 100$',
             '$ab > 100$',
+            '$ab < 100$',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '長方形の面積は $ab$ cm²。「未満」は「より小さい」なので $<$ を使って $ab < 100$ だよ。$\\leqq$（以下）ではないことに注意！',
         },
@@ -286,11 +286,11 @@ export const literalRelations: Topic = {
           question: '「$x$ は $5$ 以上かつ $15$ 以下」を不等式で表すと？',
           options: [
             '$5 < x < 15$',
-            '$5 > x > 15$',
             '$5 \\leqq x \\leqq 15$',
+            '$5 > x > 15$',
             '$5 \\geqq x \\geqq 15$',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation:
             '「以上」「以下」はその数を含むから $\\leqq$ を使うよ。$5 \\leqq x \\leqq 15$ と書くんだ。',
         },
@@ -299,12 +299,12 @@ export const literalRelations: Topic = {
           question:
             '$\\dfrac{a}{4} = b$ はどんな関係を表している？（$a$: 道のり(km)、$b$: 時間(時間)）',
           options: [
-            '$a$ kmの道のりを4時間で歩くと速さは $b$ km/h',
             '$a$ kmの道のりを時速4kmで歩くと $b$ 時間かかる',
+            '$a$ kmの道のりを4時間で歩くと速さは $b$ km/h',
             '$a$ 時間で $b$ km歩くと時速4km',
             '4kmの道のりを $a$ 時間で歩くと速さは $b$ km/h',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '時間 = 道のり ÷ 速さ なので、$\\dfrac{a}{4} = b$ は「$a$ kmを時速4kmで歩くと $b$ 時間かかる」という意味だよ。',
         },

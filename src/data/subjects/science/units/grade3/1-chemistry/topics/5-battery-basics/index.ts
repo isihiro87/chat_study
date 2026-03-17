@@ -256,12 +256,12 @@ export const batteryBasics: Topic = {
           id: 'sci3-bb-q1',
           question: '電池をつくるために必要な条件として正しいものは？',
           options: [
-            '同じ種類の金属2枚と蒸留水',
             '異なる2種類の金属と電解質水溶液',
+            '同じ種類の金属2枚と蒸留水',
             '1種類の金属と蒸留水',
             '異なる2種類の金属と蒸留水',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '電池には「異なる2種類の金属」と「電解質水溶液」が必要です。蒸留水はイオンを含まないので電池になりません。',
         },
@@ -271,19 +271,19 @@ export const batteryBasics: Topic = {
             '砂糖水に異なる2種類の金属板を入れても電池にならない。その理由は？',
           options: [
             '砂糖水は酸性だから',
-            '砂糖は非電解質で、水に溶けてもイオンにならないから',
-            '砂糖水は電気を通しすぎるから',
             '砂糖が金属を溶かしてしまうから',
+            '砂糖水は電気を通しすぎるから',
+            '砂糖は非電解質で、水に溶けてもイオンにならないから',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '砂糖は非電解質なので、水に溶けても分子のままでイオンに分かれません。イオンがないと電気を運べないので電池になりません。',
         },
         {
           id: 'sci3-bb-q3',
           question: '亜鉛（Zn）と銅（Cu）で電池をつくったとき、−極になるのはどちら？',
-          options: ['銅（Cu）', '亜鉛（Zn）', 'どちらも−極', 'どちらも＋極'],
-          correctIndex: 1,
+          options: ['銅（Cu）', 'どちらも−極', '亜鉛（Zn）', 'どちらも＋極'],
+          correctIndex: 2,
           explanation:
             'イオン化傾向はZn > Cuなので、イオンになりやすい亜鉛が−極になります。',
         },
@@ -326,12 +326,12 @@ export const batteryBasics: Topic = {
           id: 'sci3-bb-q7',
           question: '硫酸銅水溶液に亜鉛板を入れると、亜鉛板の表面に何が起こる？',
           options: [
-            '銀色の物質が付着する',
             '赤色の物質（銅）が付着する',
+            '銀色の物質が付着する',
             '何も変化しない',
             '気泡が発生する',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             'Zn > Cuなので、Znが電子を失ってZn²⁺になり、Cu²⁺が電子を受け取って銅として亜鉛板に析出します（赤色）。',
         },
@@ -342,10 +342,10 @@ export const batteryBasics: Topic = {
           options: [
             '亜鉛片に赤色の物質が付着する',
             '亜鉛片にマグネシウムが付着する',
-            '変化なし',
             '気泡が発生する',
+            '変化なし',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             'イオン化傾向はMg > Znなので、ZnはMg²⁺を置き換えることができず変化なしです。',
         },
@@ -356,10 +356,10 @@ export const batteryBasics: Topic = {
           options: [
             '硫酸銅水溶液 + Zn板',
             '硝酸銀水溶液 + Cu線',
-            '硫酸亜鉛水溶液 + Cu板',
             '硫酸銅水溶液 + Mg片',
+            '硫酸亜鉛水溶液 + Cu板',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             'イオン化傾向はZn > Cuなので、CuはZn²⁺を置き換えることができません。置き換え反応は入れる金属のイオン化傾向が大きいときのみ起こります。',
         },
@@ -369,11 +369,11 @@ export const batteryBasics: Topic = {
             '硝酸銀水溶液に銅線を入れたとき、水溶液の色はどう変わる？',
           options: [
             '青色がうすくなる',
-            '無色から青色になる',
             '赤色になる',
+            '無色から青色になる',
             '変化しない',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             'Cu > Agなので、Cuが電子を失ってCu²⁺（銅イオン）になって水溶液中に溶け出します。Cu²⁺は青色なので水溶液が青色になります。',
         },
@@ -382,12 +382,12 @@ export const batteryBasics: Topic = {
           question:
             'マイクロプレート実験の結果から、Mg・Zn・Cuのイオン化傾向の順番として正しいのは？',
           options: [
-            'Cu > Zn > Mg',
-            'Zn > Mg > Cu',
             'Mg > Zn > Cu',
+            'Zn > Mg > Cu',
+            'Cu > Zn > Mg',
             'Mg > Cu > Zn',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             'MgはZn²⁺もCu²⁺も置き換え、ZnはCu²⁺のみ置き換え、Cuはどれも置き換えなかったことから、Mg > Zn > Cuの順です。',
         },

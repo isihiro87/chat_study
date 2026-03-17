@@ -113,10 +113,10 @@ export const pacificWar: Topic = {
           options: [
             'ミッドウェー攻撃',
             'サイパン攻撃',
-            '東京大空襲',
             '真珠湾攻撃',
+            '東京大空襲',
           ],
-          correctIndex: 3,
+          correctIndex: 2,
           explanation:
             '1941年12月8日の真珠湾攻撃とマレー半島上陸により太平洋戦争が始まりました。',
         },

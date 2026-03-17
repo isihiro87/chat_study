@@ -97,8 +97,8 @@ export const presentPerfectProgressive: Topic = {
         {
           id: 'eng-ppp-q1',
           question: '「I (　　) for three hours.（私は3時間ずっと勉強し続けています。）」\nの (　　) に入るのは？',
-          options: ['have studied', 'have been studying', 'am studying', 'studied'],
-          correctIndex: 1,
+          options: ['have studied', 'studied', 'am studying', 'have been studying'],
+          correctIndex: 3,
           explanation: '「ずっと勉強し続けている」は動作の継続。現在完了進行形 have been studying だよ。',
         },
         {
@@ -111,27 +111,27 @@ export const presentPerfectProgressive: Topic = {
         {
           id: 'eng-ppp-q3',
           question: '「It (　　) since this morning.（今朝からずっと雨が降り続いています。）」\nの (　　) に入るのは？',
-          options: ['has rained', 'has been raining', 'is raining', 'have been raining'],
-          correctIndex: 1,
+          options: ['has rained', 'is raining', 'has been raining', 'have been raining'],
+          correctIndex: 2,
           explanation: '「ずっと降り続いている」は動作の継続。It だから has been raining だよ。',
         },
         {
           id: 'eng-ppp-q4',
           question: '次のうち、現在完了進行形を使うのがふさわしいのは？',
           options: [
-            'I have known her for five years.',
             'I have been running for an hour.',
+            'I have known her for five years.',
             'She has liked chocolate since she was a child.',
             'They have lived in Tokyo for three years.',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation: 'run（走る）は動作だから現在完了進行形がふさわしいよ。know, like, live は状態だから現在完了を使うよ。',
         },
         {
           id: 'eng-ppp-q5',
           question: '「He (　　) tennis since 2 p.m.（彼は午後2時からずっとテニスをしています。）」\nの (　　) に入るのは？',
-          options: ['has been playing', 'have been playing', 'has played', 'is playing'],
-          correctIndex: 0,
+          options: ['has played', 'have been playing', 'has been playing', 'is playing'],
+          correctIndex: 2,
           explanation: 'play は動作だから現在完了進行形。He だから has been playing だよ。',
         },
         {

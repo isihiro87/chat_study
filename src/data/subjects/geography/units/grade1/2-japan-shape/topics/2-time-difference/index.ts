@@ -272,8 +272,8 @@ export const timeDifference: Topic = {
         {
           id: 'geo1-td-q1',
           question: '経度何度ごとに1時間の時差が生じるか？',
-          options: ['経度5度', '経度10度', '経度15度', '経度30度'],
-          correctIndex: 2,
+          options: ['経度5度', '経度10度', '経度30度', '経度15度'],
+          correctIndex: 3,
           explanation:
             '地球は24時間で360度回転するので、360° ÷ 24 = 15度。経度15度ごとに1時間の時差が生じます。',
         },
@@ -288,16 +288,16 @@ export const timeDifference: Topic = {
         {
           id: 'geo1-td-q3',
           question: '本初子午線が通っている国はどこか？',
-          options: ['フランス', 'イギリス', 'ドイツ', 'アメリカ'],
-          correctIndex: 1,
+          options: ['イギリス', 'フランス', 'ドイツ', 'アメリカ'],
+          correctIndex: 0,
           explanation:
             '本初子午線（経度0度）はイギリスのロンドン（旧グリニッジ天文台）を通っています。世界の標準時の基準です。',
         },
         {
           id: 'geo1-td-q4',
           question: '日本とイギリスの時差は何時間か？',
-          options: ['6時間', '7時間', '8時間', '9時間'],
-          correctIndex: 3,
+          options: ['6時間', '9時間', '8時間', '7時間'],
+          correctIndex: 1,
           explanation:
             '日本の標準時子午線は東経135度なので、135° ÷ 15° = 9時間の時差があります。日本の方がイギリスより9時間進んでいます。',
         },
@@ -331,12 +331,12 @@ export const timeDifference: Topic = {
           id: 'geo1-td-q7',
           question: '東経の地点と西経の地点の経度差はどう求めるか？',
           options: [
-            '大きい方から小さい方を引く',
             '両方の値を足し算する',
+            '大きい方から小さい方を引く',
             '両方の値をかけ算する',
             '片方の値を2倍にする',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '東経と西経にまたがる場合は、東経の値と西経の値を足し算します。例えば東経135度と西経75度なら135＋75＝210度です。',
         },
@@ -357,12 +357,12 @@ export const timeDifference: Topic = {
           id: 'geo1-td-q9',
           question: '日本が全国で1つの標準時を使っている理由として最も適切なものはどれか？',
           options: [
-            '日本には東西の幅がないから',
             '東西の幅が比較的小さく、1つの時刻で生活に支障がないから',
+            '日本には東西の幅がないから',
             '法律で1つに決められているから',
             '島国は必ず1つの標準時を使うから',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '日本は東西の経度差が約32度あり計算上は約2時間の差がありますが、社会生活上大きな支障がないため、全国で1つの標準時を採用しています。',
         },
@@ -372,10 +372,10 @@ export const timeDifference: Topic = {
           options: [
             '10度',
             '12度',
-            '15度',
             '20度',
+            '15度',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '360÷24＝15です。地球は24時間で360度回転するため、経度15度ごとに1時間の時差が生じます。',
         },

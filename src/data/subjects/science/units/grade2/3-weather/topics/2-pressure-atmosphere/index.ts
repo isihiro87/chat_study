@@ -149,20 +149,20 @@ export const pressureAtmosphere: Topic = {
           id: 'sci2-patm-q1',
           question: '大気圧について正しいものはどれ？',
           options: [
-            '上向きにだけはたらく',
-            '標高が高いほど大きくなる',
             'あらゆる向きにはたらく',
+            '標高が高いほど大きくなる',
+            '上向きにだけはたらく',
             '水中ではたらかない',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             '大気圧はあらゆる向きにはたらきます。標高が高いほど上空の空気が少なくなるため、大気圧は低くなります。',
         },
         {
           id: 'sci2-patm-q2',
           question: '海面上の標準気圧は約何hPaか？',
-          options: ['約500hPa', '約760hPa', '約1013hPa', '約1500hPa'],
-          correctIndex: 2,
+          options: ['約500hPa', '約760hPa', '約1500hPa', '約1013hPa'],
+          correctIndex: 3,
           explanation:
             '海面上の標準気圧は約1013hPaです。これは約10万Pa（100000Pa）に相当します。',
         },
@@ -182,16 +182,16 @@ export const pressureAtmosphere: Topic = {
         {
           id: 'sci2-patm-q4',
           question: '等圧線は何hPaごとに引かれるか？',
-          options: ['2hPaごと', '4hPaごと', '5hPaごと', '10hPaごと'],
-          correctIndex: 1,
+          options: ['2hPaごと', '5hPaごと', '4hPaごと', '10hPaごと'],
+          correctIndex: 2,
           explanation:
             '等圧線は1000hPaを基準に4hPaごとに引かれます。',
         },
         {
           id: 'sci2-patm-q5',
           question: '天気図記号で矢羽根が4本ついているとき、風力はいくつか？',
-          options: ['風力2', '風力3', '風力4', '風力8'],
-          correctIndex: 2,
+          options: ['風力2', '風力4', '風力3', '風力8'],
+          correctIndex: 1,
           explanation:
             '矢羽根の数が風力を表します。矢羽根4本なら風力4です。',
         },
@@ -200,11 +200,11 @@ export const pressureAtmosphere: Topic = {
           question: '北半球で高気圧の地表付近の風はどのように吹くか？',
           options: [
             '反時計回りに吹き出す',
-            '時計回りに吹き出す',
-            '反時計回りに吹き込む',
             '時計回りに吹き込む',
+            '反時計回りに吹き込む',
+            '時計回りに吹き出す',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '北半球では高気圧から時計回りに風が吹き出します。低気圧には反時計回りに風が吹き込みます。',
         },

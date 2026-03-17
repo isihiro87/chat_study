@@ -187,11 +187,11 @@ export const currentMagnetism: Topic = {
           question: '磁力線の向きとして正しいものはどれか？',
           options: [
             'S極からN極へ向かう',
-            'N極からS極へ向かう',
-            'N極からN極へ向かう',
             'S極からS極へ向かう',
+            'N極からN極へ向かう',
+            'N極からS極へ向かう',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '磁力線はN極から出てS極に入ります。磁界の向きは磁針のN極が指す向きです。',
         },
@@ -208,11 +208,11 @@ export const currentMagnetism: Topic = {
           question: '磁界中の電流が受ける力の向きを逆にする方法として正しいものはどれか？',
           options: [
             '電流を強くする',
-            '電流の向きを逆にする',
             '導線を太くする',
+            '電流の向きを逆にする',
             '導線を長くする',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             '電流の向きを逆にすると、電流が磁界から受ける力の向きも逆になります。磁界の向きを逆にしても同様です。',
         },
@@ -220,12 +220,12 @@ export const currentMagnetism: Topic = {
           id: 'sci2-cm-q6',
           question: '磁力線の間隔がせまい場所について正しいのはどれか？',
           options: [
-            '磁力が弱い',
             '磁力が強い',
+            '磁力が弱い',
             '磁界が存在しない',
             '磁力線が交わっている',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '磁力線の間隔がせまいほど磁界が強いことを意味します。棒磁石では両極付近の磁力線の間隔がせまく、磁界が強くなっています。',
         },
@@ -233,12 +233,12 @@ export const currentMagnetism: Topic = {
           id: 'sci2-cm-q7',
           question: '右手の法則で、右手の親指が表すのはどれか？',
           options: [
-            '磁界の向き',
-            '力の向き',
             '電流の向き',
+            '力の向き',
+            '磁界の向き',
             '磁力線の向き',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             '右手の法則では、親指を電流の向きに合わせ、残りの4本の指を曲げた向きが磁界の向きを表します。',
         },
@@ -274,10 +274,10 @@ export const currentMagnetism: Topic = {
           options: [
             '電流を大きくする',
             '磁界を強くする',
-            '半回転ごとに電流の向きを切りかえる',
             'コイルの回転速度を上げる',
+            '半回転ごとに電流の向きを切りかえる',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '整流子は半回転ごとにコイルに流れる電流の向きを切りかえ、コイルが常に同じ方向に力を受けて連続回転できるようにします。',
         },

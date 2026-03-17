@@ -112,12 +112,12 @@ export const meijiRestoration: Topic = {
           question:
             '1868年に明治天皇が発表した、新しい国づくりの基本方針は？',
           options: [
-            '教育勅語',
+            '五箇条の御誓文',
             '大日本帝国憲法',
             '王政復古の大号令',
-            '五箇条の御誓文',
+            '教育勅語',
           ],
-          correctIndex: 3,
+          correctIndex: 0,
           explanation:
             '五箇条の御誓文は「広く会議を開く」「開国和親」など新しい国づくりの方針を示しました。',
         },
@@ -125,8 +125,8 @@ export const meijiRestoration: Topic = {
           id: 'q2',
           question:
             '1869年、藩主が土地と人民を朝廷に返したことを何という？',
-          options: ['廃藩置県', '大政奉還', '版籍奉還', '地租改正'],
-          correctIndex: 2,
+          options: ['廃藩置県', '大政奉還', '地租改正', '版籍奉還'],
+          correctIndex: 3,
           explanation:
             '版籍奉還は中央集権化の第一歩で、「版」は土地、「籍」は人民を意味します。',
         },
@@ -142,8 +142,8 @@ export const meijiRestoration: Topic = {
           id: 'q4',
           question:
             '明治政府で薩摩・長州など特定の藩出身者が政治を独占したことを何という？',
-          options: ['四民平等', '藩閥政治', '立憲政治', '公武合体'],
-          correctIndex: 1,
+          options: ['四民平等', '立憲政治', '藩閥政治', '公武合体'],
+          correctIndex: 2,
           explanation:
             '藩閥政治は薩摩・長州・土佐・肥前出身者が政治を独占し、後に自由民権運動で批判されました。',
         },
@@ -151,8 +151,8 @@ export const meijiRestoration: Topic = {
           id: 'q5',
           question:
             '江戸時代の身分制度を改め、平等な社会を目指したことを何という？',
-          options: ['解放令', '四民平等', '版籍奉還', '廃藩置県'],
-          correctIndex: 1,
+          options: ['四民平等', '解放令', '版籍奉還', '廃藩置県'],
+          correctIndex: 0,
           explanation:
             '四民平等により、華族・士族・平民に分けられましたが、実際には差別が残りました。',
         },

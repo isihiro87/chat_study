@@ -168,12 +168,12 @@ export const international: Topic = {
           question:
             '1972年に日本と中国の国交を正常化した声明は？',
           options: [
-            '日中共同声明',
+            '日韓基本条約',
             '日中平和友好条約',
             '日ソ共同宣言',
-            '日韓基本条約',
+            '日中共同声明',
           ],
-          correctIndex: 0,
+          correctIndex: 3,
           explanation:
             '1972年に田中角栄首相が訪中し、日中共同声明により中国との国交が正常化しました。',
         },
@@ -192,11 +192,11 @@ export const international: Topic = {
             '1955年にインドネシアのバンドンで開かれた、植民地からの独立国が平和共存を訴えた会議は？',
           options: [
             'サミット（主要国首脳会議）',
-            'アジア・アフリカ会議',
             '国際連合総会',
+            'アジア・アフリカ会議',
             'パリ講和会議',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             'アジア・アフリカ会議（バンドン会議）では、第三世界の国々が連帯し平和共存を訴えました。',
         },
@@ -206,11 +206,11 @@ export const international: Topic = {
             'キューバ危機をきっかけに結ばれた、核実験を制限する条約は？',
           options: [
             '核拡散防止条約',
-            '包括的核実験禁止条約',
             '部分的核実験禁止条約',
+            '包括的核実験禁止条約',
             '中距離核戦力全廃条約',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation:
             '部分的核実験禁止条約は1963年に結ばれ、大気圏・宇宙・水中での核実験が禁止されました。',
         },
@@ -219,12 +219,12 @@ export const international: Topic = {
           question:
             'アメリカで人種差別撤廃を求める公民権運動を指導した人物は？',
           options: [
-            'ケネディ',
             'キング牧師',
+            'ケネディ',
             'リンカーン',
             'ガンディー',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             'キング牧師は「I Have a Dream」の演説で知られ、非暴力主義でアメリカの公民権運動を指導しました。',
         },

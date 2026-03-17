@@ -83,8 +83,8 @@ export const genrokuCulture: Topic = {
         {
           id: 'q1',
           question: '「奥の細道」を書いた俳諧師は？',
-          options: ['菱川師宣', '近松門左衛門', '井原西鶴', '松尾芭蕉'],
-          correctIndex: 3,
+          options: ['菱川師宣', '松尾芭蕉', '井原西鶴', '近松門左衛門'],
+          correctIndex: 1,
           explanation: '松尾芭蕉は俳諧を芸術として確立し、東北・北陸を旅して「奥の細道」を書きました。',
         },
         {
@@ -111,8 +111,8 @@ export const genrokuCulture: Topic = {
         {
           id: 'q5',
           question: '「見返り美人図」で知られ、浮世絵の祖と呼ばれた絵師は？',
-          options: ['尾形光琳', '菱川師宣', '俵屋宗達', '狩野永徳'],
-          correctIndex: 1,
+          options: ['尾形光琳', '狩野永徳', '俵屋宗達', '菱川師宣'],
+          correctIndex: 3,
           explanation: '菱川師宣は町人の風俗を描き、版画技術を用いた浮世絵を広めた「浮世絵の祖」です。',
         },
         {

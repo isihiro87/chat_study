@@ -146,32 +146,32 @@ export const staticElectricity: Topic = {
         {
           id: 'sci2-static-q1',
           question: '異なる物質をこすり合わせたとき、移動するのは何？',
-          options: ['陽子', '中性子', '電子', '原子核'],
-          correctIndex: 2,
+          options: ['陽子', '電子', '中性子', '原子核'],
+          correctIndex: 1,
           explanation:
             'こすり合わせると電子が一方の物質から他方へ移動します。電子を失った側は＋に、受け取った側は−に帯電します。',
         },
         {
           id: 'sci2-static-q2',
           question: '同じ種類の電気を帯びた物体どうしを近づけるとどうなる？',
-          options: ['引き合う', '反発し合う', '変化なし', 'くっつく'],
-          correctIndex: 1,
+          options: ['反発し合う', '引き合う', '変化なし', 'くっつく'],
+          correctIndex: 0,
           explanation:
             '同じ種類の電気（＋と＋、−と−）は反発し合います。異なる種類の電気（＋と−）は引き合います。',
         },
         {
           id: 'sci2-static-q3',
           question: 'たまった電気が空間を移動する現象を何という？',
-          options: ['帯電', '放電', '電離', '充電'],
-          correctIndex: 1,
+          options: ['帯電', '充電', '電離', '放電'],
+          correctIndex: 3,
           explanation:
             'たまった電気が空間を移動する現象を放電といいます。雷は自然界で起こる大規模な放電です。',
         },
         {
           id: 'sci2-static-q4',
           question: '気圧を低くした空間で電圧をかけたとき起こる放電を何という？',
-          options: ['静電気', '真空放電', '帯電', '電離'],
-          correctIndex: 1,
+          options: ['静電気', '帯電', '真空放電', '電離'],
+          correctIndex: 2,
           explanation:
             '気圧を低くした空間で起こる放電を真空放電といいます。蛍光灯やネオンサインに利用されています。',
         },

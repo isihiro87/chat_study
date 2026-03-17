@@ -265,16 +265,16 @@ export const chemicalCombination: Topic = {
         {
           id: 'sci2-cc-q1',
           question: '鉄と硫黄を混ぜて加熱したときにできる物質は？',
-          options: ['酸化鉄', '硫化鉄', '塩化鉄', '水酸化鉄'],
-          correctIndex: 1,
+          options: ['酸化鉄', '水酸化鉄', '塩化鉄', '硫化鉄'],
+          correctIndex: 3,
           explanation:
             '鉄（Fe）と硫黄（S）が化合すると硫化鉄（FeS）ができます。黒色で磁石につきません。',
         },
         {
           id: 'sci2-cc-q2',
           question: '硫化鉄に塩酸を加えたとき発生する気体は？',
-          options: ['水素', '酸素', '硫化水素', '二酸化炭素'],
-          correctIndex: 2,
+          options: ['水素', '硫化水素', '酸素', '二酸化炭素'],
+          correctIndex: 1,
           explanation:
             '硫化鉄に塩酸を加えると、卵の腐った臭いの硫化水素が発生します。鉄に塩酸を加えると水素が発生します。',
         },
@@ -282,12 +282,12 @@ export const chemicalCombination: Topic = {
           id: 'sci2-cc-q3',
           question: '化学反応式で正しいものはどれ？',
           options: [
-            'H₂ + O₂ → H₂O',
             '2H₂ + O₂ → 2H₂O',
+            'H₂ + O₂ → H₂O',
             'H₂ + O → H₂O',
             '2H + O → H₂O',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '2H₂ + O₂ → 2H₂Oが正しい化学反応式です。左辺と右辺で原子の数が一致しています（H=4, O=2）。',
         },
@@ -308,12 +308,12 @@ export const chemicalCombination: Topic = {
           id: 'sci2-cc-q5',
           question: '炭素が燃焼したときの化学反応式は？',
           options: [
-            'C + O → CO',
             'C + O₂ → CO₂',
+            'C + O → CO',
             '2C + O₂ → 2CO',
             'C + 2O → CO₂',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '炭素と酸素が結びついて二酸化炭素ができます。C + O₂ → CO₂（C=1, O=2で一致）。',
         },
@@ -323,10 +323,10 @@ export const chemicalCombination: Topic = {
           options: [
             '試験管に熱がたまっているから',
             '硫黄が燃え続けているから',
-            '反応自体が熱を出す発熱反応だから',
             '鉄が熱を吸収しているから',
+            '反応自体が熱を出す発熱反応だから',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '鉄と硫黄の化合は発熱反応です。反応で発生する熱がまわりの混合物を反応させるため、加熱をやめても反応が続きます。',
         },
@@ -360,12 +360,12 @@ export const chemicalCombination: Topic = {
           id: 'sci2-cc-q9',
           question: '「2H₂」が表しているものとして正しいのは？',
           options: [
-            '水素原子が2個',
             '水素分子が2個',
+            '水素原子が2個',
             '水素原子が4個の1つの分子',
             '水素分子が4個',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '2H₂は水素分子（H₂）が2個あることを意味します。水素原子の総数は4個です。「2H」なら水素原子が2個です。',
         },
@@ -387,11 +387,11 @@ export const chemicalCombination: Topic = {
           question: '水素と酸素が化合して水ができる反応の逆反応は？',
           options: [
             '水を蒸発させる',
-            '水を電気分解する',
-            '水に食塩を溶かす',
             '水を冷却して氷にする',
+            '水に食塩を溶かす',
+            '水を電気分解する',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '水の電気分解は水を水素と酸素に分解する反応で、水素と酸素の化合の逆反応にあたります。2H₂O → 2H₂ + O₂',
         },
@@ -400,11 +400,11 @@ export const chemicalCombination: Topic = {
           question: '炭酸水素ナトリウムの熱分解の化学反応式として正しいものは？',
           options: [
             'NaHCO₃ → NaCO₃ + CO₂ + H₂O',
-            '2NaHCO₃ → Na₂CO₃ + CO₂ + H₂O',
             'NaHCO₃ → Na₂CO₃ + 2CO₂ + H₂O',
+            '2NaHCO₃ → Na₂CO₃ + CO₂ + H₂O',
             '2NaHCO₃ → 2NaCO₃ + CO₂ + H₂O',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             '2NaHCO₃ → Na₂CO₃ + CO₂ + H₂O が正しい化学反応式です。左辺：Na=2, H=2, C=2, O=6、右辺：Na=2, H=2, C=2, O=6 で一致します。',
         },

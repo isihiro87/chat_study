@@ -291,8 +291,8 @@ export const solutionProperties: Topic = {
         {
           id: 'sci1-slp-q1',
           question: '水溶液の特徴として正しくないものはどれ？',
-          options: ['透明である', '濃さがどこでも同じ', '時間がたつと溶質が沈む', 'ろ過しても溶質は通る'],
-          correctIndex: 2,
+          options: ['透明である', '濃さがどこでも同じ', 'ろ過しても溶質は通る', '時間がたつと溶質が沈む'],
+          correctIndex: 3,
           explanation:
             '水溶液は溶質の粒子が非常に小さくなって均一に広がっているため、放置しても溶質が沈むことはありません。',
         },
@@ -308,12 +308,12 @@ export const solutionProperties: Topic = {
           id: 'sci1-slp-q3',
           question: '溶解度について正しいものはどれ？',
           options: [
-            '温度によらず一定である',
             '水100gにとける物質の最大質量である',
+            '温度によらず一定である',
             '水1Lにとける物質の量である',
             '溶媒の種類に関係なく同じである',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '溶解度は水100gにとける物質の最大の質量のことで、温度によって変化します。',
         },
@@ -333,24 +333,24 @@ export const solutionProperties: Topic = {
         {
           id: 'sci1-slp-q5',
           question: '次のうち混合物はどれ？',
-          options: ['食塩', '砂糖', '水', '食塩水'],
-          correctIndex: 3,
+          options: ['食塩', '砂糖', '食塩水', '水'],
+          correctIndex: 2,
           explanation:
             '食塩水は水（溶媒）と食塩（溶質）が混じった混合物です。食塩・砂糖・水はそれぞれ1種類の物質からなる純物質です。',
         },
         {
           id: 'sci1-slp-q6',
           question: 'ろ過の操作で、ガラス棒をあてるのはろ紙の何枚重ねの部分か？',
-          options: ['1枚重ね', '2枚重ね', '3枚重ね', '4枚重ね'],
-          correctIndex: 2,
+          options: ['1枚重ね', '3枚重ね', '2枚重ね', '4枚重ね'],
+          correctIndex: 1,
           explanation:
             'ガラス棒はろ紙の3枚重ねの部分にあてます。厚い部分のほうがろ紙が破れにくいためです。',
         },
         {
           id: 'sci1-slp-q7',
           question: '食塩の結晶はどのような形か？',
-          options: ['針状', '正八面体', '立方体', '六角形'],
-          correctIndex: 2,
+          options: ['立方体', '正八面体', '針状', '六角形'],
+          correctIndex: 0,
           explanation:
             '食塩の結晶は立方体（さいころ形）です。硝酸カリウムは針状、ミョウバンは正八面体の結晶になります。',
         },
@@ -359,27 +359,27 @@ export const solutionProperties: Topic = {
           question: '食塩の結晶を水溶液からとり出すのに最も適した方法はどれか？',
           options: [
             '飽和水溶液を冷やす',
-            '水を蒸発させる',
-            '別の溶媒を加える',
             'ろ過する',
+            '別の溶媒を加える',
+            '水を蒸発させる',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '食塩は温度による溶解度の変化がほとんどないため、冷やしても結晶が出にくく、水を蒸発させて結晶をとり出します。',
         },
         {
           id: 'sci1-slp-q9',
           question: '60℃の水100gに硝酸カリウム110gをとかした飽和水溶液を20℃（溶解度32g）に冷やすと出てくる結晶は何g？',
-          options: ['32g', '78g', '110g', '142g'],
-          correctIndex: 1,
+          options: ['32g', '142g', '110g', '78g'],
+          correctIndex: 3,
           explanation:
             '60℃でとけていた110gから20℃でとける32gを引いた差の78gが結晶として出てきます。',
         },
         {
           id: 'sci1-slp-q10',
           question: '質量パーセント濃度10%の食塩水300gに含まれる食塩は何gか？',
-          options: ['10g', '20g', '30g', '33g'],
-          correctIndex: 2,
+          options: ['10g', '30g', '20g', '33g'],
+          correctIndex: 1,
           explanation:
             '食塩の質量＝300×10÷100＝30gです。',
         },
@@ -387,12 +387,12 @@ export const solutionProperties: Topic = {
           id: 'sci1-slp-q11',
           question: 'ろうとの足の長いほうをビーカーの内壁につける理由はどれか？',
           options: [
-            'ろ液の温度を下げるため',
             'ろ液が壁を伝って静かに流れ落ちるようにするため',
+            'ろ液の温度を下げるため',
             'ろ紙が乾かないようにするため',
             '空気を入れやすくするため',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             'ろうとの足をビーカーの内壁につけることで、ろ液が壁を伝って静かに流れ落ち、飛び散りを防ぎます。',
         },
@@ -401,11 +401,11 @@ export const solutionProperties: Topic = {
           question: '砂糖が水にとけて見えなくなったとき、砂糖水全体の質量はどうなるか？',
           options: [
             '水だけの質量と同じになる',
-            '水の質量＋砂糖の質量と等しい',
             '砂糖がなくなった分だけ軽くなる',
+            '水の質量＋砂糖の質量と等しい',
             '溶解熱で質量が変わる',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             '砂糖が水にとけて見えなくなっても、質量は変わりません。砂糖水の質量＝水の質量＋砂糖の質量です。',
         },

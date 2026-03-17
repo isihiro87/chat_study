@@ -198,8 +198,8 @@ export const circuitOhm: Topic = {
         {
           id: 'sci2-circuit-q1',
           question: '電流計を回路につなぐとき、正しいつなぎ方は？',
-          options: ['並列につなぐ', '直列につなぐ', 'どちらでもよい', 'つながない'],
-          correctIndex: 1,
+          options: ['並列につなぐ', 'つながない', 'どちらでもよい', '直列につなぐ'],
+          correctIndex: 3,
           explanation:
             '電流計は測りたい部分に直列につなぎます。電圧計は並列につなぎます。',
         },
@@ -207,12 +207,12 @@ export const circuitOhm: Topic = {
           id: 'sci2-circuit-q2',
           question: '直列回路の電流について正しいのは？',
           options: [
-            '各部分の電流の和になる',
             'どこでも同じ大きさ',
+            '各部分の電流の和になる',
             '電源に近いほど大きい',
             '電源から遠いほど大きい',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '直列回路では電流はどこでも同じ大きさです（I＝I₁＝I₂）。',
         },
@@ -221,11 +221,11 @@ export const circuitOhm: Topic = {
           question: '並列回路の電圧について正しいのは？',
           options: [
             '各部分の電圧の和になる',
-            'どこでも同じ大きさ',
             '枝分かれすると半分になる',
+            'どこでも同じ大きさ',
             '電源の電圧より大きくなる',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             '並列回路では各部分の電圧はどこでも同じ大きさです（V＝V₁＝V₂）。',
         },
@@ -240,16 +240,16 @@ export const circuitOhm: Topic = {
         {
           id: 'sci2-circuit-q7',
           question: '直列回路で2つの抵抗にかかる電圧がそれぞれ3Vと5Vだった。電源の電圧は？',
-          options: ['3V', '5V', '8V', '15V'],
-          correctIndex: 2,
+          options: ['3V', '8V', '5V', '15V'],
+          correctIndex: 1,
           explanation:
             '直列回路では V＝V₁＋V₂ なので、3＋5＝8V です。',
         },
         {
           id: 'sci2-circuit-q8',
           question: '並列回路で、枝分かれした2つの電流がそれぞれ0.2Aと0.3Aだった。全体の電流は？',
-          options: ['0.2A', '0.3A', '0.5A', '0.6A'],
-          correctIndex: 2,
+          options: ['0.2A', '0.3A', '0.6A', '0.5A'],
+          correctIndex: 3,
           explanation:
             '並列回路では I＝I₁＋I₂ なので、0.2＋0.3＝0.5A です。',
         },

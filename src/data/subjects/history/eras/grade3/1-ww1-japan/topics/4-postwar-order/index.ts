@@ -124,12 +124,12 @@ export const postwarOrder: Topic = {
           id: 'q2',
           question: '1919年に朝鮮で起きた、日本からの独立を求める運動は？',
           options: [
-            '三・一独立運動',
             '五・四運動',
+            '三・一独立運動',
             '辛亥革命',
             '義和団事件',
           ],
-          correctIndex: 0,
+          correctIndex: 1,
           explanation:
             '三・一独立運動は1919年3月1日に始まった朝鮮の大規模な独立運動です。',
         },
@@ -145,8 +145,8 @@ export const postwarOrder: Topic = {
           id: 'q4',
           question:
             '第一次世界大戦後に設立された国際平和機関で、日本が常任理事国となったのは？',
-          options: ['国際連合', '国際連盟', 'NATO', 'EU'],
-          correctIndex: 1,
+          options: ['国際連合', 'NATO', '国際連盟', 'EU'],
+          correctIndex: 2,
           explanation:
             '国際連盟は第一次世界大戦後に設立され、日本はイギリス・フランス・イタリアとともに常任理事国でした。',
         },

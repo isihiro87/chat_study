@@ -113,19 +113,19 @@ export const sinoJapaneseWar: Topic = {
             '日清戦争のきっかけとなった、朝鮮での農民反乱は？',
           options: [
             '義和団事件',
-            '甲午農民戦争',
-            '辛亥革命',
             '太平天国の乱',
+            '辛亥革命',
+            '甲午農民戦争',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '甲午農民戦争（東学党の乱）をきっかけに日本と清が朝鮮に出兵し、日清戦争が始まりました。',
         },
         {
           id: 'q2',
           question: '1895年に日清戦争後に結ばれた講和条約は？',
-          options: ['南京条約', 'ポーツマス条約', '日朝修好条規', '下関条約'],
-          correctIndex: 3,
+          options: ['下関条約', 'ポーツマス条約', '日朝修好条規', '南京条約'],
+          correctIndex: 0,
           explanation:
             '下関条約で日本は遼東半島・台湾などを獲得し、賠償金2億両を得ました。',
         },
@@ -135,11 +135,11 @@ export const sinoJapaneseWar: Topic = {
             'ロシア・ドイツ・フランスが遼東半島の返還を求めた出来事は？',
           options: [
             '日英同盟',
-            '義和団事件',
             '三国干渉',
+            '義和団事件',
             '征韓論',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation:
             '三国干渉により日本は遼東半島を清に返還せざるを得ず、ロシアへの対抗心が高まりました。',
         },
@@ -147,8 +147,8 @@ export const sinoJapaneseWar: Topic = {
           id: 'q4',
           question:
             '三国干渉後、ロシアへの復讐を誓った合言葉は？',
-          options: ['富国強兵', '臥薪嘗胆', '尊王攘夷', '殖産興業'],
-          correctIndex: 1,
+          options: ['富国強兵', '尊王攘夷', '臥薪嘗胆', '殖産興業'],
+          correctIndex: 2,
           explanation:
             '「臥薪嘗胆」は「苦労に耐えて復讐の機会を待つ」という意味で、国民がロシアへの対抗心を表しました。',
         },
@@ -157,12 +157,12 @@ export const sinoJapaneseWar: Topic = {
           question:
             '下関条約で日本が獲得した領土として正しいものは？',
           options: [
-            '南樺太と千島列島',
             '遼東半島と台湾',
+            '南樺太と千島列島',
             '朝鮮半島と満州',
             '沖縄と北海道',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '下関条約で清は遼東半島・台湾・澎湖諸島を日本に譲りました（遼東半島は三国干渉で返還）。',
         },

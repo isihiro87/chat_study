@@ -126,24 +126,24 @@ export const britishRevolution: Topic = {
         {
           id: 'q3',
           question: '立法・行政・司法の三権分立を唱えた思想家は？',
-          options: ['ルソー', 'ロック', 'モンテスキュー', 'クロムウェル'],
-          correctIndex: 2,
+          options: ['モンテスキュー', 'ロック', 'ルソー', 'クロムウェル'],
+          correctIndex: 0,
           explanation:
             'モンテスキューは、権力を三つに分けることで暴走を防ぐと主張しました。',
         },
         {
           id: 'q4',
           question: 'ピューリタン革命で議会派を率いた指導者は？',
-          options: ['クロムウェル', 'ロック', 'ルソー', 'ワシントン'],
-          correctIndex: 0,
+          options: ['ルソー', 'ロック', 'クロムウェル', 'ワシントン'],
+          correctIndex: 2,
           explanation:
             'クロムウェルが率いる議会派が国王軍に勝利し、一時的に共和制となりました。',
         },
         {
           id: 'q5',
           question: '名誉革命後、国王が議会に従うことを約束した文書は？',
-          options: ['人権宣言', '独立宣言', '権利章典', 'ナポレオン法典'],
-          correctIndex: 2,
+          options: ['人権宣言', '権利章典', '独立宣言', 'ナポレオン法典'],
+          correctIndex: 1,
           explanation:
             '権利章典により「国王は議会の認めた法律に従う」ことが定められ、立憲君主制の基礎となりました。',
         },

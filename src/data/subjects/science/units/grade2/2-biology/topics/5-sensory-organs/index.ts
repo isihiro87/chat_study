@@ -117,15 +117,15 @@ export const sensoryOrgans: Topic = {
         {
           id: 'sci2-so-q2',
           question: '目の中でピントを調節するために厚さが変わる部分はどれ？',
-          options: ['角膜', '虹彩', 'レンズ（水晶体）', '網膜'],
-          correctIndex: 2,
+          options: ['角膜', '虹彩', '網膜', 'レンズ（水晶体）'],
+          correctIndex: 3,
           explanation: 'レンズ（水晶体）は厚さを変えてピントを調節します。近くを見るときは厚く、遠くを見るときは薄くなります。',
         },
         {
           id: 'sci2-so-q3',
           question: '耳の中で音の刺激を受け取る細胞がある部分はどれ？',
-          options: ['鼓膜', '耳小骨', 'うずまき管', '外耳'],
-          correctIndex: 2,
+          options: ['うずまき管', '耳小骨', '鼓膜', '外耳'],
+          correctIndex: 0,
           explanation: 'うずまき管に音の刺激を受け取る細胞があります。鼓膜は振動を受け取り、耳小骨は振動を増幅して伝えます。',
         },
         {
@@ -138,8 +138,8 @@ export const sensoryOrgans: Topic = {
         {
           id: 'sci2-so-q5',
           question: '光の量を調節するために、ひとみの大きさを変える部分はどれ？',
-          options: ['網膜', '角膜', 'レンズ', '虹彩'],
-          correctIndex: 3,
+          options: ['虹彩', '角膜', 'レンズ', '網膜'],
+          correctIndex: 0,
           explanation: '虹彩がひとみの大きさを調節して、目に入る光の量を変えます。',
         },
       ],

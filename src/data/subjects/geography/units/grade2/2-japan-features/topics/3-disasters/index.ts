@@ -171,24 +171,24 @@ export const disasters: Topic = {
         {
           id: 'geo2-ds-q1',
           question: '地域ごとの災害リスクや避難場所を示した地図を何というか？',
-          options: ['路線図', 'ハザードマップ', '地形図', '天気図'],
-          correctIndex: 1,
+          options: ['路線図', '地形図', 'ハザードマップ', '天気図'],
+          correctIndex: 2,
           explanation:
             'ハザードマップは地域ごとの災害リスクや避難場所を示した地図で、防災に活用されます。',
         },
         {
           id: 'geo2-ds-q2',
           question: '自分の身は自分で守る防災の取り組みを何というか？',
-          options: ['公助', '自助', '共助', '互助'],
-          correctIndex: 1,
+          options: ['公助', '互助', '共助', '自助'],
+          correctIndex: 3,
           explanation:
             '自助は自分の身は自分で守ることです。公助は国・自治体の支援、共助は地域住民の助け合いです。',
         },
         {
           id: 'geo2-ds-q3',
           question: '集中豪雨が原因で起こりうる災害はどれか？',
-          options: ['地震', '火山の噴火', '土石流・洪水', '冷害'],
-          correctIndex: 2,
+          options: ['土石流・洪水', '火山の噴火', '地震', '冷害'],
+          correctIndex: 0,
           explanation:
             '集中豪雨は短時間に大量の雨が降る現象で、土石流・洪水・がけ崩れの原因になります。',
         },
@@ -203,8 +203,8 @@ export const disasters: Topic = {
         {
           id: 'geo2-ds-q5',
           question: '日本で津波が発生する主な原因は何か？',
-          options: ['台風の暴風', '海底地震', '火山の噴火', '集中豪雨'],
-          correctIndex: 1,
+          options: ['台風の暴風', '火山の噴火', '海底地震', '集中豪雨'],
+          correctIndex: 2,
           explanation:
             '津波は主に海底で大きな地震が起こることで発生します。海底の地盤が動いて海水が持ち上がり、巨大な波となって沿岸部を襲います。',
         },

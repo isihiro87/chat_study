@@ -274,8 +274,8 @@ export const celestialObservation: Topic = {
         {
           id: 'sci3-celo-q1',
           question: '観測者を中心とした仮想の球面を何というか。',
-          options: ['地球儀', '天球', '星座盤', '天体図'],
-          correctIndex: 1,
+          options: ['地球儀', '星座盤', '天球', '天体図'],
+          correctIndex: 2,
           explanation:
             '天球は観測者を中心とした仮想の球面で、天体の位置や動きを表すために使います。天球上の真上の点が天頂です。',
         },
@@ -283,8 +283,8 @@ export const celestialObservation: Topic = {
           id: 'sci3-celo-q2',
           question:
             '日周運動で天体は1時間に約何度動いて見えるか。',
-          options: ['約10度', '約15度', '約30度', '約45度'],
-          correctIndex: 1,
+          options: ['約15度', '約10度', '約30度', '約45度'],
+          correctIndex: 0,
           explanation:
             '地球は24時間で360度自転するので、天体は1時間に360÷24＝約15度動いて見えます。',
         },
@@ -294,11 +294,11 @@ export const celestialObservation: Topic = {
             '北の空の星はどのように動いて見えるか。',
           options: [
             '北極星を中心に時計回り',
-            '北極星を中心に反時計回り',
-            '東から西へ直線的に動く',
             '動かない',
+            '東から西へ直線的に動く',
+            '北極星を中心に反時計回り',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '北の空の星は北極星を中心に反時計回りに動いて見えます。北極星は地軸の延長線上にあるためほとんど動きません。',
         },
@@ -320,8 +320,8 @@ export const celestialObservation: Topic = {
           id: 'sci3-celo-q5',
           question:
             '太陽が天球上を1年かけて移動する見かけの道すじを何というか。',
-          options: ['天の子午線', '黄道', '赤道', '子午線'],
-          correctIndex: 1,
+          options: ['天の子午線', '赤道', '黄道', '子午線'],
+          correctIndex: 2,
           explanation:
             '黄道は地球の公転によって太陽が天球上を1年かけて移動して見える道すじです。黄道上には12の星座（黄道十二星座）が並んでいます。',
         },
@@ -329,8 +329,8 @@ export const celestialObservation: Topic = {
           id: 'sci3-celo-q6',
           question:
             '北緯36度の地点での春分の日の太陽の南中高度は何度か。',
-          options: ['36度', '54度', '77.4度', '30.6度'],
-          correctIndex: 1,
+          options: ['54度', '36度', '77.4度', '30.6度'],
+          correctIndex: 0,
           explanation:
             '春分の日の南中高度＝90度−緯度＝90−36＝54度です。',
         },

@@ -174,8 +174,8 @@ export const literalNotation: Topic = {
         {
           id: 'math-g1-lit-notation-q1',
           question: '$3 \\times a \\times a$ を文字式で表すと？',
-          options: ['$3a$', '$3a^2$', '$3 + a^2$', '$a^3$'],
-          correctIndex: 1,
+          options: ['$3a$', '$a^3$', '$3 + a^2$', '$3a^2$'],
+          correctIndex: 3,
           explanation:
             '$3 \\times a \\times a$ は、数の $3$ を前に、$a$ が2個かけ合わされているので $3a^2$ と表すよ。',
         },
@@ -206,8 +206,8 @@ export const literalNotation: Topic = {
         {
           id: 'math-g1-lit-notation-q5',
           question: '$a \\times 2 \\div b$ を文字式で表すと？',
-          options: ['$\\dfrac{2a}{b}$', '$\\dfrac{a}{2b}$', '$2ab$', '$\\dfrac{ab}{2}$'],
-          correctIndex: 0,
+          options: ['$2ab$', '$\\dfrac{a}{2b}$', '$\\dfrac{2a}{b}$', '$\\dfrac{ab}{2}$'],
+          correctIndex: 2,
           explanation:
             '$a \\times 2 = 2a$（数を前に書く）、$\\div b$ は分母に $b$ を置いて $\\dfrac{2a}{b}$ だよ。',
         },
@@ -222,40 +222,40 @@ export const literalNotation: Topic = {
         {
           id: 'math-g1-lit-notation-q7',
           question: '$x$ km の道のりを $y$ 時間で歩いたときの時速は？',
-          options: ['$xy$ km/時', '$\\dfrac{y}{x}$ km/時', '$\\dfrac{x}{y}$ km/時', '$x - y$ km/時'],
-          correctIndex: 2,
+          options: ['$xy$ km/時', '$\\dfrac{y}{x}$ km/時', '$x - y$ km/時', '$\\dfrac{x}{y}$ km/時'],
+          correctIndex: 3,
           explanation:
             '速さ = 道のり ÷ 時間 だから $\\dfrac{x}{y}$ km/時だよ。',
         },
         {
           id: 'math-g1-lit-notation-q8',
           question: '$5a$ はどんな数量を表す？（$a$ 円の品物について）',
-          options: ['$a$ 円の品物の5%引きの値段', '$a$ 円の品物5個分の代金', '$a$ 円に5円足した値段', '$a$ 円の品物を5で割った値段'],
-          correctIndex: 1,
+          options: ['$a$ 円の品物5個分の代金', '$a$ 円の品物の5%引きの値段', '$a$ 円に5円足した値段', '$a$ 円の品物を5で割った値段'],
+          correctIndex: 0,
           explanation:
             '$5a = 5 \\times a$ だから、$a$ 円の品物を5個買った代金を表しているよ。',
         },
         {
           id: 'math-g1-lit-notation-q9',
           question: '$a^2 - 2a$ に $a = -3$ を代入すると、式の値はいくつ？',
-          options: ['$3$', '$15$', '$-3$', '$-15$'],
-          correctIndex: 1,
+          options: ['$3$', '$-3$', '$15$', '$-15$'],
+          correctIndex: 2,
           explanation:
             '$(-3)^2 - 2 \\times (-3) = 9 + 6 = 15$ だよ。$(-3)^2 = 9$、$-2 \\times (-3) = 6$ に注意！',
         },
         {
           id: 'math-g1-lit-notation-q10',
           question: '$\\dfrac{x}{3}$ に $x = \\dfrac{3}{4}$ を代入すると、式の値はいくつ？',
-          options: ['$\\dfrac{1}{4}$', '$\\dfrac{3}{4}$', '$\\dfrac{4}{3}$', '$4$'],
-          correctIndex: 0,
+          options: ['$4$', '$\\dfrac{3}{4}$', '$\\dfrac{4}{3}$', '$\\dfrac{1}{4}$'],
+          correctIndex: 3,
           explanation:
             '$\\dfrac{x}{3} = x \\div 3 = \\dfrac{3}{4} \\div 3 = \\dfrac{3}{4} \\times \\dfrac{1}{3} = \\dfrac{1}{4}$ だよ。',
         },
         {
           id: 'math-g1-lit-notation-q11',
           question: '$b \\times b \\times b$ を文字式で表すと？',
-          options: ['$3b$', '$b + 3$', '$b^3$', '$3b^2$'],
-          correctIndex: 2,
+          options: ['$b^3$', '$b + 3$', '$3b$', '$3b^2$'],
+          correctIndex: 0,
           explanation:
             '同じ文字を3回かけているので指数を使って $b^3$ と表すよ。',
         },

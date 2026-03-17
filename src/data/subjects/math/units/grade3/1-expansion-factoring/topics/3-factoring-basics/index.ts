@@ -174,16 +174,16 @@ export const factoringBasics: Topic = {
         {
           id: 'math-g3-factoring-basics-q1',
           question: '$4x + 8$ を因数分解すると？',
-          options: ['$2(2x+4)$', '$4(x+2)$', '$4(x+4)$', '$x(4+8)$'],
-          correctIndex: 1,
+          options: ['$2(2x+4)$', '$x(4+8)$', '$4(x+4)$', '$4(x+2)$'],
+          correctIndex: 3,
           explanation:
             '$4x$ と $8$ の共通因数は $4$。$4$ でくくり出すと $4(x+2)$ になるよ。',
         },
         {
           id: 'math-g3-factoring-basics-q2',
           question: '$3x^2 + 6x$ を因数分解すると？',
-          options: ['$3(x^2+2x)$', '$3x(x+2)$', '$x(3x+6)$', '$6x(x+1)$'],
-          correctIndex: 1,
+          options: ['$3(x^2+2x)$', '$x(3x+6)$', '$3x(x+2)$', '$6x(x+1)$'],
+          correctIndex: 2,
           explanation:
             '$3x^2$ と $6x$ の共通因数は $3x$。$3x$ でくくり出すと $3x(x+2)$ だよ。',
         },
@@ -199,12 +199,12 @@ export const factoringBasics: Topic = {
           id: 'math-g3-factoring-basics-q4',
           question: '$2x^2 + 4xy - 6x$ を因数分解すると？',
           options: [
-            '$2(x^2+2xy-3x)$',
             '$2x(x+2y-3)$',
+            '$2(x^2+2xy-3x)$',
             '$x(2x+4y-6)$',
             '$2x(x+2y+3)$',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '共通因数は $2x$。$2x$ でくくり出すと $2x(x+2y-3)$ になるよ。数と文字の両方をくくり出そう。',
         },
@@ -225,12 +225,12 @@ export const factoringBasics: Topic = {
           id: 'math-g3-factoring-basics-q6',
           question: '$4a^2 - 81$ を因数分解すると？',
           options: [
-            '$(2a+9)(2a-9)$',
+            '$(2a-9)^2$',
             '$(4a+81)(4a-81)$',
             '$(2a+9)^2$',
-            '$(2a-9)^2$',
+            '$(2a+9)(2a-9)$',
           ],
-          correctIndex: 0,
+          correctIndex: 3,
           explanation:
             '$4a^2=(2a)^2$、$81=9^2$ なので、$(2a)^2-9^2=(2a+9)(2a-9)$ だよ。',
         },
@@ -238,12 +238,12 @@ export const factoringBasics: Topic = {
           id: 'math-g3-factoring-basics-q7',
           question: '$x^2 + 10x + 25$ を因数分解すると？',
           options: [
-            '$(x+5)(x-5)$',
-            '$(x+25)^2$',
             '$(x+5)^2$',
+            '$(x+25)^2$',
+            '$(x+5)(x-5)$',
             '$(x-5)^2$',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             '$x^2+2 \\cdot x \\cdot 5+5^2$ の形。$a^2+2ab+b^2=(a+b)^2$ より $(x+5)^2$ だよ。',
         },
@@ -265,11 +265,11 @@ export const factoringBasics: Topic = {
           question: '$9x^2 + 6x + 1$ を因数分解すると？',
           options: [
             '$(9x+1)^2$',
-            '$(3x+1)^2$',
-            '$(3x-1)^2$',
             '$(3x+1)(3x-1)$',
+            '$(3x-1)^2$',
+            '$(3x+1)^2$',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '$9x^2=(3x)^2$、$1=1^2$、$6x=2 \\cdot 3x \\cdot 1$。$(3x+1)^2$ だよ。',
         },
@@ -277,12 +277,12 @@ export const factoringBasics: Topic = {
           id: 'math-g3-factoring-basics-q10',
           question: '$4a^2 - 20ab + 25b^2$ を因数分解すると？',
           options: [
-            '$(2a+5b)^2$',
             '$(2a-5b)^2$',
+            '$(2a+5b)^2$',
             '$(4a-25b)^2$',
             '$(2a+5b)(2a-5b)$',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '$4a^2=(2a)^2$、$25b^2=(5b)^2$、$20ab=2 \\cdot 2a \\cdot 5b$。$(2a-5b)^2$ だよ。',
         },

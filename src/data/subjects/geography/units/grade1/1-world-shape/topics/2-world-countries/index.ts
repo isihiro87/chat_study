@@ -277,8 +277,8 @@ export const worldCountries: Topic = {
         {
           id: 'geo1-wc-q1',
           question: 'オーストラリアやニュージーランドの国旗に描かれている星座は？',
-          options: ['北斗七星', '南十字星', 'オリオン座', 'カシオペア座'],
-          correctIndex: 1,
+          options: ['南十字星', '北斗七星', 'オリオン座', 'カシオペア座'],
+          correctIndex: 0,
           explanation:
             '南半球で見える南十字星が国旗に描かれています。イギリスとのつながりを示すユニオンジャックも含まれています。',
         },
@@ -328,20 +328,20 @@ export const worldCountries: Topic = {
           id: 'geo1-wc-q6',
           question: '「エクアドル」という国名の由来は何？',
           options: [
-            '大河の名前',
-            '探検家の名前',
             'スペイン語で「赤道」',
+            '探検家の名前',
+            '大河の名前',
             '先住民の言葉で「金の国」',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             'エクアドルはスペイン語で「赤道」を意味します。赤道が国内を通っていることに由来します。',
         },
         {
           id: 'geo1-wc-q7',
           question: '面積が世界最小の国はどこ？',
-          options: ['モナコ', 'サンマリノ', 'バチカン市国', 'ナウル'],
-          correctIndex: 2,
+          options: ['モナコ', 'バチカン市国', 'サンマリノ', 'ナウル'],
+          correctIndex: 1,
           explanation:
             'バチカン市国（約0.44km²）が世界最小の国です。イタリアのローマ市内にあるカトリック教会の総本山です。',
         },
@@ -351,10 +351,10 @@ export const worldCountries: Topic = {
           options: [
             'アフリカ州',
             'ヨーロッパ州',
-            'アジア州',
             '北アメリカ州',
+            'アジア州',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             'アジア州が世界で最も人口が多く、世界人口の約6割を占めています。インドや中国などの人口大国が含まれます。',
         },
@@ -362,12 +362,12 @@ export const worldCountries: Topic = {
           id: 'geo1-wc-q9',
           question: '「フィリピン」という国名は何に由来する？',
           options: [
-            'フィリピン海の名前',
             'スペインの皇太子フェリペ',
+            'フィリピン海の名前',
             '先住民の言葉',
             'フィリピン島の形',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             'フィリピンはスペインの皇太子フェリペの名前に由来します。スペインの植民地時代につけられた名前です。',
         },

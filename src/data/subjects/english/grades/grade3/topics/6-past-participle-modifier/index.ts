@@ -112,12 +112,12 @@ export const pastParticipleModifier: Topic = {
           id: 'eng-ppm-q1',
           question: '「英語で書かれた本」を英語にすると？',
           options: [
-            'a written in English book',
             'a book written in English',
+            'a written in English book',
             'a book writing in English',
             'a English written book',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation: '過去分詞 + 説明がつくときは名詞のうしろに置くよ。a book written in English が正しいよ。',
         },
         {
@@ -125,11 +125,11 @@ export const pastParticipleModifier: Topic = {
           question: '「ピカソが描いた絵は有名です。」を英語にすると？',
           options: [
             'The picture painting by Picasso is famous.',
-            'The painted by Picasso picture is famous.',
             'The picture painted by Picasso is famous.',
+            'The painted by Picasso picture is famous.',
             'The picture paint by Picasso is famous.',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation: '「描かれた」は過去分詞 painted。picture のうしろに painted by Picasso を置くよ。',
         },
         {
@@ -137,11 +137,11 @@ export const pastParticipleModifier: Topic = {
           question: '次のうち正しい英文はどれ？',
           options: [
             'This is a used by many people language.',
-            'This is a language used by many people.',
             'This is a language using by many people.',
+            'This is a language used by many people.',
             'This is a language use by many people.',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation: '「たくさんの人に使われている」は過去分詞 used。language のうしろに置くよ。',
         },
         {
@@ -150,10 +150,10 @@ export const pastParticipleModifier: Topic = {
           options: [
             'a window broken',
             'a breaking window',
-            'a broken window',
             'a broke window',
+            'a broken window',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation: '過去分詞1語だけなら名詞の前に置けるよ。a broken window が正しいよ。',
         },
         {

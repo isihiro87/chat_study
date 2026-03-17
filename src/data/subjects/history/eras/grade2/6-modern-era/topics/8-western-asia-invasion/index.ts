@@ -111,8 +111,8 @@ export const westernAsiaInvasion: Topic = {
         {
           id: 'q1',
           question: '1840年、アヘンの取り締まりをきっかけにイギリスが清に仕掛けた戦争は？',
-          options: ['アヘン戦争', 'クリミア戦争', '南北戦争', '独立戦争'],
-          correctIndex: 0,
+          options: ['独立戦争', 'クリミア戦争', '南北戦争', 'アヘン戦争'],
+          correctIndex: 3,
           explanation:
             'アヘン戦争は、清がアヘンの密輸を取り締まったことへの報復としてイギリスが起こしました。',
         },
@@ -135,16 +135,16 @@ export const westernAsiaInvasion: Topic = {
         {
           id: 'q4',
           question: '輸入品にかける税率を自国で決める権利を何という？',
-          options: ['領事裁判権', '最恵国待遇', '関税自主権', '治外法権'],
-          correctIndex: 2,
+          options: ['関税自主権', '最恵国待遇', '領事裁判権', '治外法権'],
+          correctIndex: 0,
           explanation:
             '関税自主権を失った清は、安い外国製品の流入を防ぐことができなくなりました。',
         },
         {
           id: 'q5',
           question: '1857年、イギリスの支配に対してインドで起きた大規模な反乱は？',
-          options: ['フランス革命', 'ピューリタン革命', '太平天国の乱', 'インド大反乱'],
-          correctIndex: 3,
+          options: ['フランス革命', 'ピューリタン革命', 'インド大反乱', '太平天国の乱'],
+          correctIndex: 2,
           explanation:
             'インド大反乱（セポイの反乱）は鎮圧され、その後イギリスのインド支配はさらに強まりました。',
         },

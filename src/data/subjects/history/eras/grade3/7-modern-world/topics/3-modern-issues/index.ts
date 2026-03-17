@@ -96,11 +96,11 @@ export const modernIssues: Topic = {
           question: '1997年に採択された温室効果ガス削減の文書は？',
           options: [
             'パリ協定',
-            'ラムサール条約',
             '京都議定書',
+            'ラムサール条約',
             'ワシントン条約',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation:
             '京都議定書は1997年に京都で採択され、先進国に温室効果ガスの削減義務を課しました。',
         },
@@ -109,11 +109,11 @@ export const modernIssues: Topic = {
           question: '2030年までの達成を目指す17の国際目標は？',
           options: [
             'MDGs',
-            'SDGs（持続可能な開発目標）',
             'APEC',
+            'SDGs（持続可能な開発目標）',
             'ODA',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             'SDGs（持続可能な開発目標）は2015年に国連で採択され、貧困・教育・環境など幅広い分野の目標が含まれます。',
         },
@@ -121,12 +121,12 @@ export const modernIssues: Topic = {
           id: 'q3',
           question: '2016年から引き下げられた選挙権の年齢は？',
           options: [
-            '満16歳以上',
             '満18歳以上',
+            '満16歳以上',
             '満20歳以上',
             '満25歳以上',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '2016年から選挙権年齢が満20歳以上から満18歳以上に引き下げられ、若者の政治参加が促進されました。',
         },
@@ -136,11 +136,11 @@ export const modernIssues: Topic = {
             '2015年に発展途上国も含めた全ての国が温室効果ガス削減目標を定めた合意は？',
           options: [
             '京都議定書',
-            'パリ協定',
-            'ワシントン条約',
             'ラムサール条約',
+            'ワシントン条約',
+            'パリ協定',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             'パリ協定は2015年に結ばれ、京都議定書と異なり発展途上国も含めた全ての国が削減目標を定めることになりました。',
         },
@@ -150,11 +150,11 @@ export const modernIssues: Topic = {
             '日本で急速に進んでいる、子供が減り高齢者の割合が高まる現象を何という？',
           options: [
             '過疎化',
-            '都市化',
             '少子高齢化',
+            '都市化',
             'グローバル化',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation:
             '少子高齢化は日本の大きな社会問題であり、持続可能な社会の実現が求められています。',
         },

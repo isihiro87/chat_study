@@ -111,8 +111,8 @@ export const threeReforms: Topic = {
           id: 'q1',
           question:
             '1872年に出された、6歳以上の男女全員に教育を受けさせる制度は？',
-          options: ['教育勅語', '徴兵令', '学制', '地租改正'],
-          correctIndex: 2,
+          options: ['学制', '徴兵令', '教育勅語', '地租改正'],
+          correctIndex: 0,
           explanation:
             '学制により全国に小学校が作られ、国民みんなが学問を受ける近代的な教育が始まりました。',
         },
@@ -120,16 +120,16 @@ export const threeReforms: Topic = {
           id: 'q2',
           question:
             '1873年に出された、満20歳の男子に兵役を課す法律は？',
-          options: ['学制', '地租改正', '廃藩置県', '徴兵令'],
-          correctIndex: 3,
+          options: ['学制', '地租改正', '徴兵令', '廃藩置県'],
+          correctIndex: 2,
           explanation:
             '徴兵令は国民皆兵の原則に基づき、身分に関わらず兵役の義務を課しました。',
         },
         {
           id: 'q3',
           question: '地租改正で、税額の基準とされたのは何の価格？',
-          options: ['米の収穫量', '地価', '年貢', '地券'],
-          correctIndex: 1,
+          options: ['米の収穫量', '地券', '年貢', '地価'],
+          correctIndex: 3,
           explanation:
             '地租改正では地価の3%を現金で納める制度に変わり、政府の収入が安定しました。',
         },
@@ -137,8 +137,8 @@ export const threeReforms: Topic = {
           id: 'q4',
           question:
             '地租改正反対一揆の結果、税率は何%に引き下げられた？',
-          options: ['1%', '2%', '2.5%', '3.5%'],
-          correctIndex: 2,
+          options: ['1%', '2.5%', '2%', '3.5%'],
+          correctIndex: 1,
           explanation:
             '農民の負担が重く反対一揆が起きたため、1877年に税率が3%から2.5%に引き下げられました。',
         },
@@ -146,8 +146,8 @@ export const threeReforms: Topic = {
           id: 'q5',
           question:
             '地租改正で土地所有者に発行された、土地の所有を証明する文書は？',
-          options: ['年貢帳', '地券', '戸籍', '国書'],
-          correctIndex: 1,
+          options: ['年貢帳', '戸籍', '地券', '国書'],
+          correctIndex: 2,
           explanation:
             '地券の発行により土地の所有権が認められ、土地の売買も可能になりました。',
         },
@@ -155,8 +155,8 @@ export const threeReforms: Topic = {
           id: 'q6',
           question:
             '学制・徴兵令・地租改正をまとめて何という？',
-          options: ['殖産興業', '富国強兵', '三大改革', '文明開化'],
-          correctIndex: 2,
+          options: ['殖産興業', '三大改革', '富国強兵', '文明開化'],
+          correctIndex: 1,
           explanation:
             '教育・軍隊・税金の三分野で行われた大きな改革を三大改革と呼びます。',
         },

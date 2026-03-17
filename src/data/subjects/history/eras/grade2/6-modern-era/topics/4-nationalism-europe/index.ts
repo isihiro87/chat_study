@@ -98,8 +98,8 @@ export const nationalismEurope: Topic = {
         {
           id: 'q1',
           question: '「鉄と血」でドイツを統一した「鉄血宰相」は？',
-          options: ['ワシントン', 'ナポレオン', 'ビスマルク', 'リンカン'],
-          correctIndex: 2,
+          options: ['ワシントン', 'ビスマルク', 'ナポレオン', 'リンカン'],
+          correctIndex: 1,
           explanation:
             'ビスマルクはプロイセンの首相として、軍事力を背景にドイツ統一を達成しました。',
         },
@@ -114,32 +114,32 @@ export const nationalismEurope: Topic = {
         {
           id: 'q3',
           question: '国民としての一体感を育むために広まった制度は？',
-          options: ['義務教育', '男性普通選挙', '政党政治', '三権分立'],
-          correctIndex: 0,
+          options: ['三権分立', '男性普通選挙', '政党政治', '義務教育'],
+          correctIndex: 3,
           explanation:
             '義務教育により、同じ言葉や歴史を学ぶことで国民としての一体感が育まれました。',
         },
         {
           id: 'q4',
           question: 'フランスで実現した、財産に関係なく成年男性全員に選挙権を与える制度は？',
-          options: ['徴兵制', '政党政治', '義務教育', '男性普通選挙'],
-          correctIndex: 3,
+          options: ['男性普通選挙', '政党政治', '義務教育', '徴兵制'],
+          correctIndex: 0,
           explanation:
             'フランスでは男性普通選挙が実現し、より多くの国民が政治に参加できるようになりました。',
         },
         {
           id: 'q5',
           question: 'イギリスで発展した、複数の政党が議会で政策を競い合う政治形態は？',
-          options: ['絶対王政', '共和制', '政党政治', '立憲君主制'],
-          correctIndex: 2,
+          options: ['政党政治', '共和制', '絶対王政', '立憲君主制'],
+          correctIndex: 0,
           explanation:
             'イギリスでは二大政党制による政党政治が発展しました。',
         },
         {
           id: 'q6',
           question: 'ヨーロッパの混乱に乗じて、スペインやポルトガルから独立した地域は？',
-          options: ['東南アジア', 'アフリカ', '中南米', 'インド'],
-          correctIndex: 2,
+          options: ['東南アジア', 'アフリカ', 'インド', '中南米'],
+          correctIndex: 3,
           explanation:
             'ナポレオン戦争中のヨーロッパの混乱に乗じて、中南米の国々が次々と独立しました。',
         },

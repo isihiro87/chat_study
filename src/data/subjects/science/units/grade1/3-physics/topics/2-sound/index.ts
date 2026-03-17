@@ -278,12 +278,12 @@ export const sound: Topic = {
           id: 'sci1-sound-q1',
           question: '音が真空中で伝わらない理由として正しいものはどれか？',
           options: [
-            '音が速すぎるから',
             '振動を伝える物質がないから',
+            '音が速すぎるから',
             '温度が低すぎるから',
             '光がないから',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '音は物質の振動が波として伝わる現象です。真空中には振動を伝える物質がないため、音は伝わりません。',
         },
@@ -292,11 +292,11 @@ export const sound: Topic = {
           question: '空気中の音の速さは約何m/sか？',
           options: [
             '約34m/s',
-            '約170m/s',
             '約340m/s',
+            '約170m/s',
             '約680m/s',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation:
             '空気中の音の速さは約340m/sです。温度によって少し変化します。',
         },
@@ -305,11 +305,11 @@ export const sound: Topic = {
           question: '音を大きくするには何を大きくすればよいか？',
           options: [
             '振動数',
-            '振幅',
-            '波長',
             '音速',
+            '波長',
+            '振幅',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '音の大きさは振幅で決まります。振幅が大きいほど大きい音になります。振動数は音の高さに関係します。',
         },
@@ -330,12 +330,12 @@ export const sound: Topic = {
           id: 'sci1-sound-q5',
           question: '弦の音を高くする方法として正しいものはどれか？',
           options: [
-            '弦を長くする',
+            '弦を短くする',
             '弦を太くする',
             '弦をゆるめる',
-            '弦を短くする',
+            '弦を長くする',
           ],
-          correctIndex: 3,
+          correctIndex: 0,
           explanation:
             '弦を短くすると振動数が大きくなり、高い音が出ます。弦を細くしたり強く張ったりしても高い音になります。',
         },
@@ -345,10 +345,10 @@ export const sound: Topic = {
           options: [
             '空気',
             '水',
-            '真空',
             '金属',
+            '真空',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '真空中には振動を伝える物質がないため、音は伝わりません。空気・水・金属などの物質は音を伝えます。',
         },
@@ -384,10 +384,10 @@ export const sound: Topic = {
           options: [
             '85m',
             '680m',
-            '1360m',
             '2720m',
+            '1360m',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '距離＝速さ×時間＝340×4＝1360m。花火は直接音なので往復ではなく、そのまま片道の距離です。',
         },
@@ -396,11 +396,11 @@ export const sound: Topic = {
           question: '1秒間に500回振動する音の振動数は何Hzか？',
           options: [
             '50Hz',
-            '250Hz',
             '500Hz',
+            '250Hz',
             '1000Hz',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation:
             '振動数は1秒間に振動する回数なので、500回振動すれば500Hzです。',
         },
@@ -421,12 +421,12 @@ export const sound: Topic = {
           id: 'sci1-sound-q12',
           question: '山に向かって叫んでから6秒後にこだまが返ってきた。山までの距離は何mか？（音速340m/s）',
           options: [
-            '510m',
             '1020m',
+            '510m',
             '1360m',
             '2040m',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '340×6＝2040mが往復距離なので、片道は2040÷2＝1020mです。反射音は往復するため2で割ります。',
         },

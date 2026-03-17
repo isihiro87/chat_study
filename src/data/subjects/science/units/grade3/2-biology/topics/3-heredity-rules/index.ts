@@ -278,8 +278,8 @@ export const heredityRules: Topic = {
           id: 'sci3-hr-q2',
           question:
             '親の形質が子や孫に伝わることを何という？',
-          options: ['変異', '遺伝', '進化', '適応'],
-          correctIndex: 1,
+          options: ['変異', '適応', '進化', '遺伝'],
+          correctIndex: 3,
           explanation:
             '親の形質が子や孫に伝わることを遺伝といいます。遺伝子が親から子に受けつがれることで起こります。',
         },
@@ -296,8 +296,8 @@ export const heredityRules: Topic = {
           id: 'sci3-hr-q4',
           question:
             '何世代重ねても形質が全て親と同じものを何という？',
-          options: ['対立形質', 'クローン', '純系', '変異体'],
-          correctIndex: 2,
+          options: ['純系', 'クローン', '対立形質', '変異体'],
+          correctIndex: 0,
           explanation:
             '純系とは、親・子・孫と何世代も代を重ねても形質が全て親と同じものをいいます。',
         },
@@ -307,11 +307,11 @@ export const heredityRules: Topic = {
             '純系の丸形（AA）と純系のしわ形（aa）を交配したとき、子の遺伝子型はどうなる？',
           options: [
             'すべてAA',
-            'すべてAa',
             'すべてaa',
+            'すべてAa',
             'AAとaaが半分ずつ',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             'AA × aa の交配では、子はすべてAaになります。Aが顕性なので全て丸形の形質が現れます。',
         },
@@ -319,8 +319,8 @@ export const heredityRules: Topic = {
           id: 'sci3-hr-q6',
           question:
             '孫の代（F2）で顕性形質と潜性形質が現れる比は？',
-          options: ['1：1', '2：1', '3：1', '4：1'],
-          correctIndex: 2,
+          options: ['3：1', '2：1', '1：1', '4：1'],
+          correctIndex: 0,
           explanation:
             '分離の法則により、孫の代では顕性形質：潜性形質＝約3：1の比で現れます。Aa × Aa → AA：Aa：aa＝1：2：1のうち、Aをもつものが顕性形質です。',
         },

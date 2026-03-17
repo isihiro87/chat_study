@@ -158,16 +158,16 @@ export const monomialPolynomial: Topic = {
         {
           id: 'math-g2-monomial-poly-q1',
           question: '次のうち、多項式はどれ？',
-          options: ['$3ab$', '$5x + 2y - 1$', '$-7x^2$', '$4$'],
-          correctIndex: 1,
+          options: ['$3ab$', '$4$', '$-7x^2$', '$5x + 2y - 1$'],
+          correctIndex: 3,
           explanation:
             '$5x + 2y - 1$ は項が3つあるので多項式だよ。$3ab$ や $-7x^2$ は単項式、$4$ も単項式（数だけ）だね。',
         },
         {
           id: 'math-g2-monomial-poly-q2',
           question: '単項式 $4x^2y$ の次数は？',
-          options: ['$1$', '$2$', '$3$', '$4$'],
-          correctIndex: 2,
+          options: ['$1$', '$3$', '$2$', '$4$'],
+          correctIndex: 1,
           explanation:
             '$4x^2y$ では $x$ が2個、$y$ が1個かけ合わされているから、次数は $2 + 1 = 3$ だよ。',
         },
@@ -176,27 +176,27 @@ export const monomialPolynomial: Topic = {
           question: '次のうち、同類項の組み合わせはどれ？',
           options: [
             '$3x$ と $3y$',
-            '$2a^2b$ と $-5a^2b$',
             '$4x$ と $4x^2$',
+            '$2a^2b$ と $-5a^2b$',
             '$7ab$ と $7ba^2$',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             '$2a^2b$ と $-5a^2b$ は文字の部分が同じ（$a^2b$）なので同類項だよ。文字の部分が違う組は同類項ではないよ。',
         },
         {
           id: 'math-g2-mp-q4',
           question: '$-3a^2b$ の係数はどれ？',
-          options: ['$3$', '$-3$', '$a^2b$', '$2$'],
-          correctIndex: 1,
+          options: ['$-3$', '$3$', '$a^2b$', '$2$'],
+          correctIndex: 0,
           explanation:
             '係数は文字にかかっている数のこと。$-3a^2b$ の文字の部分は $a^2b$ で、係数は $-3$ だよ。',
         },
         {
           id: 'math-g2-mp-q5',
           question: '多項式 $2x^2 - 3x + 5$ の次数は？',
-          options: ['$0$', '$1$', '$2$', '$3$'],
-          correctIndex: 2,
+          options: ['$0$', '$1$', '$3$', '$2$'],
+          correctIndex: 3,
           explanation:
             '各項の次数は $2x^2$ が $2$、$-3x$ が $1$、$5$ が $0$。最も大きい $2$ が多項式の次数だよ。',
         },
@@ -204,12 +204,12 @@ export const monomialPolynomial: Topic = {
           id: 'math-g2-mp-q6',
           question: '$5a - 2b + 3a + 4b$ を同類項でまとめると？',
           options: [
-            '$8a + 2b$',
-            '$2a + 6b$',
             '$8a + 6b$',
+            '$2a + 6b$',
+            '$8a + 2b$',
             '$10ab$',
           ],
-          correctIndex: 0,
+          correctIndex: 2,
           explanation:
             '$5a + 3a = 8a$、$-2b + 4b = 2b$ だから、答えは $8a + 2b$ だよ。',
         },
@@ -231,19 +231,19 @@ export const monomialPolynomial: Topic = {
           question: '$\\frac{1}{2}a + \\frac{1}{3}a$ を計算すると？',
           options: [
             '$\\frac{1}{5}a$',
-            '$\\frac{2}{5}a$',
             '$\\frac{5}{6}a$',
+            '$\\frac{2}{5}a$',
             '$\\frac{1}{6}a$',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation:
             '通分して $\\frac{3}{6}a + \\frac{2}{6}a = \\frac{5}{6}a$ だよ。分母どうしを足すのではなく、通分してから計算しよう。',
         },
         {
           id: 'math-g2-mp-q9',
           question: '多項式 $x^2y + 3xy - 2y$ の次数は？',
-          options: ['$1$', '$2$', '$3$', '$4$'],
-          correctIndex: 2,
+          options: ['$1$', '$3$', '$2$', '$4$'],
+          correctIndex: 1,
           explanation:
             '$x^2y$ の次数は $2+1=3$、$3xy$ の次数は $2$、$-2y$ の次数は $1$。最大の $3$ が多項式の次数だよ。',
         },
@@ -253,10 +253,10 @@ export const monomialPolynomial: Topic = {
           options: [
             '$3x + 2y = 5xy$',
             '$x^2 + x = x^3$',
-            '$4a - a = 3a$',
             '$2x + 3x^2 = 5x^3$',
+            '$4a - a = 3a$',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '$4a - a = 3a$ が正しいよ。同類項でない項は足し引きできないし、次数の違う項をまとめることもできないよ。',
         },

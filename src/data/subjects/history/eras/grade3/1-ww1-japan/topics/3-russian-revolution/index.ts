@@ -110,8 +110,8 @@ export const russianRevolution: Topic = {
         {
           id: 'q1',
           question: '1917年のロシア革命を指導した人物は？',
-          options: ['マルクス', 'レーニン', 'スターリン', 'トロツキー'],
-          correctIndex: 1,
+          options: ['マルクス', 'トロツキー', 'スターリン', 'レーニン'],
+          correctIndex: 3,
           explanation:
             'レーニンがロシア革命を指導し、世界初の社会主義政府を樹立しました。',
         },
@@ -126,8 +126,8 @@ export const russianRevolution: Topic = {
         {
           id: 'q3',
           question: 'スターリンが実施した経済計画は？',
-          options: ['大躍進政策', 'ニューディール政策', '殖産興業', '五か年計画'],
-          correctIndex: 3,
+          options: ['大躍進政策', '五か年計画', '殖産興業', 'ニューディール政策'],
+          correctIndex: 1,
           explanation:
             'スターリンは五か年計画を実施し、重工業の発展と農業の集団化を進めました。',
         },

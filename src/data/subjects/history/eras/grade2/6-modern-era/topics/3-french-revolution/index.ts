@@ -118,16 +118,16 @@ export const frenchRevolution: Topic = {
         {
           id: 'q2',
           question: 'フランス革命前、人口の98%を占め重い税に苦しんでいたのは？',
-          options: ['第一身分（聖職者）', '第二身分（貴族）', '第三身分（平民）', '国王'],
-          correctIndex: 2,
+          options: ['第一身分（聖職者）', '第二身分（貴族）', '国王', '第三身分（平民）'],
+          correctIndex: 3,
           explanation:
             '第三身分（平民）だけが重い税を負担し、聖職者や貴族は税を免除されていました。',
         },
         {
           id: 'q3',
           question: 'フランス革命で発表された、自由・平等・国民主権を謳った文書は？',
-          options: ['独立宣言', '権利章典', 'ナポレオン法典', '人権宣言'],
-          correctIndex: 3,
+          options: ['独立宣言', '権利章典', '人権宣言', 'ナポレオン法典'],
+          correctIndex: 2,
           explanation:
             '人権宣言は「人は生まれながらにして自由で平等」という理念を世界に広めました。',
         },
@@ -142,8 +142,8 @@ export const frenchRevolution: Topic = {
         {
           id: 'q5',
           question: '革命後の混乱を収拾し、皇帝となったフランスの軍人は？',
-          options: ['ロベスピエール', 'ビスマルク', 'ナポレオン', 'クロムウェル'],
-          correctIndex: 2,
+          options: ['ナポレオン', 'ビスマルク', 'ロベスピエール', 'クロムウェル'],
+          correctIndex: 0,
           explanation:
             'ナポレオンは国民の支持を得て皇帝に即位し、ヨーロッパの大部分を支配しました。',
         },

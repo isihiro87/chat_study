@@ -111,12 +111,12 @@ export const manchurianIncident: Topic = {
           id: 'q1',
           question: '1931年に満州事変のきっかけとなった事件は？',
           options: [
-            'サラエボ事件',
+            '柳条湖事件',
             '甲午農民戦争',
             '盧溝橋事件',
-            '柳条湖事件',
+            'サラエボ事件',
           ],
-          correctIndex: 3,
+          correctIndex: 0,
           explanation:
             '柳条湖事件は関東軍が南満州鉄道の線路を自ら爆破し、中国側のせいにして軍事行動を開始した事件です。',
         },
@@ -148,11 +148,11 @@ export const manchurianIncident: Topic = {
             '1936年に陸軍の青年将校がクーデターを起こした事件は？',
           options: [
             '五・一五事件',
-            '二・二六事件',
             '西南戦争',
+            '二・二六事件',
             '甲午農民戦争',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             '二・二六事件は陸軍の青年将校約1400名が起こしたクーデターで、事件後は軍部の政治的発言力がさらに強まりました。',
         },

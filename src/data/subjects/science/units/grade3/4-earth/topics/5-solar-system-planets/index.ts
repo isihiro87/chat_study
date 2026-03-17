@@ -262,16 +262,16 @@ export const solarSystemPlanets: Topic = {
         {
           id: 'sci3-ssp-q2',
           question: '木星型惑星に含まれないものはどれか。',
-          options: ['木星', '土星', '火星', '海王星'],
-          correctIndex: 2,
+          options: ['木星', '土星', '海王星', '火星'],
+          correctIndex: 3,
           explanation:
             '火星は地球型惑星です。木星型惑星は木星・土星・天王星・海王星の4つです。',
         },
         {
           id: 'sci3-ssp-q3',
           question: '太陽系の惑星を太陽に近い順に並べたとき、3番目にくる惑星はどれか。',
-          options: ['金星', '地球', '火星', '木星'],
-          correctIndex: 1,
+          options: ['金星', '火星', '地球', '木星'],
+          correctIndex: 2,
           explanation:
             '太陽に近い順に水星・金星・地球・火星…なので、3番目は地球です。',
         },
@@ -279,20 +279,20 @@ export const solarSystemPlanets: Topic = {
           id: 'sci3-ssp-q4',
           question: '太陽系の8つの惑星の公転方向について正しいものはどれか。',
           options: [
-            'それぞれバラバラの方向に公転している',
             'すべて同じ方向に公転している',
+            'それぞれバラバラの方向に公転している',
             '地球型と木星型で反対方向に公転している',
             '太陽に近い惑星だけ同じ方向に公転している',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '太陽系の8つの惑星はすべて同じ方向に公転しています。',
         },
         {
           id: 'sci3-ssp-q5',
           question: '太陽系の惑星のうち、密度が水（1.00g/cm³）より小さい惑星はどれか。',
-          options: ['木星', '土星', '天王星', '海王星'],
-          correctIndex: 1,
+          options: ['木星', '海王星', '天王星', '土星'],
+          correctIndex: 3,
           explanation:
             '土星の密度は0.69g/cm³で、太陽系の惑星の中で唯一水より密度が小さいです。水に浮くほど軽いといえます。',
         },
@@ -312,8 +312,8 @@ export const solarSystemPlanets: Topic = {
         {
           id: 'sci3-ssp-q7',
           question: '惑星のまわりを公転する天体を何というか。',
-          options: ['恒星', '小惑星', '衛星', 'すい星'],
-          correctIndex: 2,
+          options: ['恒星', '衛星', '小惑星', 'すい星'],
+          correctIndex: 1,
           explanation:
             '惑星のまわりを公転する天体を衛星といいます。地球の衛星は月、木星にはガニメデやイオなどがあります。',
         },
@@ -321,12 +321,12 @@ export const solarSystemPlanets: Topic = {
           id: 'sci3-ssp-q8',
           question: '小惑星帯はどの惑星の間に位置しているか。',
           options: [
-            '地球と火星の間',
             '火星と木星の間',
+            '地球と火星の間',
             '木星と土星の間',
             '土星と天王星の間',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '小惑星帯は火星と木星の間に帯状に分布しています。不規則な形の小さな天体が多数あります。',
         },
@@ -335,11 +335,11 @@ export const solarSystemPlanets: Topic = {
           question: 'すい星（彗星）が太陽に近づくと尾を引く理由として正しいものはどれか。',
           options: [
             '太陽の重力で引きのばされるから',
-            '太陽の熱で氷が蒸発してガスや塵が放出されるから',
             '他の惑星との衝突で破片が飛び散るから',
+            '太陽の熱で氷が蒸発してガスや塵が放出されるから',
             '太陽の磁場に引き寄せられるから',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             'すい星は氷と塵でできた天体で、太陽に近づくと熱で氷が蒸発し、ガスや塵の尾ができます。',
         },

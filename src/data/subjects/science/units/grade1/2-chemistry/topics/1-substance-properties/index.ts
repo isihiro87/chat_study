@@ -296,16 +296,16 @@ export const substanceProperties: Topic = {
         {
           id: 'sci1-sp-q1',
           question: '金属の性質として正しくないものはどれ？',
-          options: ['みがくと光る', '電気をよく通す', '燃やすと二酸化炭素が出る', 'たたくとうすく広がる'],
-          correctIndex: 2,
+          options: ['みがくと光る', '燃やすと二酸化炭素が出る', '電気をよく通す', 'たたくとうすく広がる'],
+          correctIndex: 1,
           explanation:
             '燃やすと二酸化炭素が出るのは有機物の性質です。金属の性質は、金属光沢・電気伝導性・展性・延性です。',
         },
         {
           id: 'sci1-sp-q2',
           question: '質量40g、体積5cm³の物質の密度は？',
-          options: ['200g/cm³', '8g/cm³', '45g/cm³', '0.125g/cm³'],
-          correctIndex: 1,
+          options: ['8g/cm³', '200g/cm³', '45g/cm³', '0.125g/cm³'],
+          correctIndex: 0,
           explanation:
             '密度＝質量÷体積＝40g÷5cm³＝8g/cm³です。',
         },
@@ -322,11 +322,11 @@ export const substanceProperties: Topic = {
           question: '水に浮く物質の条件はどれ？',
           options: [
             '密度が水より大きい',
-            '密度が水より小さい',
             '質量が水より小さい',
+            '密度が水より小さい',
             '体積が水より大きい',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             '物質の密度が水の密度（約1.0g/cm³）より小さいと、その物質は水に浮きます。',
         },
@@ -349,10 +349,10 @@ export const substanceProperties: Topic = {
           options: [
             'マッチに火をつける',
             'ガス調節ねじをゆるめる',
-            '元栓を開ける',
             '空気調節ねじを開ける',
+            '元栓を開ける',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             'ガスバーナーの点火手順は、①元栓→②コック→③マッチ→④ガス調節ねじ→⑤空気調節ねじの順です。',
         },
@@ -361,11 +361,11 @@ export const substanceProperties: Topic = {
           question: '白い粉末を加熱したとき黒くこげた。この物質について正しいのはどれ？',
           options: [
             '無機物である',
-            '水に必ず溶ける',
             '炭素をふくむ有機物である',
+            '水に必ず溶ける',
             '金属である',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation:
             '加熱して黒くこげるのは有機物の特徴です。有機物は炭素をふくみ、燃やすと二酸化炭素が発生します。',
         },
@@ -373,12 +373,12 @@ export const substanceProperties: Topic = {
           id: 'sci1-sp-q8',
           question: 'メスシリンダーで水の体積を読むとき、正しい方法はどれ？',
           options: [
-            '液面の最も高い部分を読む',
             '液面の最も低い部分を目の高さで読む',
+            '液面の最も高い部分を読む',
             '上から見下ろして読む',
             '下から見上げて読む',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '目の高さを液面と同じ水平の位置に合わせ、液面の最も低い部分（へこんだ部分）を読みます。',
         },
@@ -387,27 +387,27 @@ export const substanceProperties: Topic = {
           question: 'アルミニウムが飲料缶に使われる主な理由はどれ？',
           options: [
             '密度が大きく丈夫だから',
-            '密度が小さく軽いうえに、さびにくいから',
-            '電気を通さないから',
             '展性がないから',
+            '電気を通さないから',
+            '密度が小さく軽いうえに、さびにくいから',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             'アルミニウムは密度が2.7g/cm³と小さく（鉄は7.9g/cm³）、軽量でさびにくい性質があります。',
         },
         {
           id: 'sci1-sp-q10',
           question: '密度2.7g/cm³、体積10cm³の金属の質量はいくらか？',
-          options: ['0.27g', '2.7g', '27g', '270g'],
-          correctIndex: 2,
+          options: ['0.27g', '27g', '2.7g', '270g'],
+          correctIndex: 1,
           explanation:
             '質量＝密度×体積＝2.7g/cm³×10cm³＝27gです。',
         },
         {
           id: 'sci1-sp-q11',
           question: '有機物を燃やしたとき、二酸化炭素のほかに発生する物質は？',
-          options: ['酸素', '窒素', '水（水蒸気）', '水素'],
-          correctIndex: 2,
+          options: ['水（水蒸気）', '窒素', '酸素', '水素'],
+          correctIndex: 0,
           explanation:
             '有機物は炭素と水素をふくむため、燃やすと二酸化炭素と水（水蒸気）が発生します。',
         },

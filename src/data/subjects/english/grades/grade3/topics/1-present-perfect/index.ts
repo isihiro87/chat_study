@@ -121,15 +121,15 @@ export const presentPerfect: Topic = {
         {
           id: 'eng-pp-q1',
           question: '「I (　　) here for three years.（私は3年間ここに住んでいます。）」\nの (　　) に入るのは？',
-          options: ['live', 'lived', 'have lived', 'has lived'],
-          correctIndex: 2,
+          options: ['have lived', 'lived', 'live', 'has lived'],
+          correctIndex: 0,
           explanation: '「3年間ずっと住んでいる」は継続の現在完了。主語が I だから have lived だよ。',
         },
         {
           id: 'eng-pp-q2',
           question: '「She (　　) Kyoto twice.（彼女は京都を2回訪れたことがあります。）」\nの (　　) に入るのは？',
-          options: ['visited', 'has visited', 'have visited', 'is visited'],
-          correctIndex: 1,
+          options: ['visited', 'is visited', 'have visited', 'has visited'],
+          correctIndex: 3,
           explanation: 'She は1人だから has を使うよ。has visited が正解。',
         },
         {

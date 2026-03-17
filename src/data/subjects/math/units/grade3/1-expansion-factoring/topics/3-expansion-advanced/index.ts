@@ -150,12 +150,12 @@ export const expansionAdvanced: Topic = {
           id: 'math-g3-ea-q2',
           question: '$(a - \\frac{1}{2}b)^2$ を展開すると？',
           options: [
-            '$a^2 - ab + \\frac{1}{4}b^2$',
+            '$a^2 + ab + \\frac{1}{4}b^2$',
             '$a^2 - \\frac{1}{2}ab + \\frac{1}{4}b^2$',
             '$a^2 - ab + \\frac{1}{2}b^2$',
-            '$a^2 + ab + \\frac{1}{4}b^2$',
+            '$a^2 - ab + \\frac{1}{4}b^2$',
           ],
-          correctIndex: 0,
+          correctIndex: 3,
           explanation:
             '$2 \\times a \\times \\frac{1}{2}b = ab$、$(\\frac{1}{2}b)^2 = \\frac{1}{4}b^2$ だから $a^2 - ab + \\frac{1}{4}b^2$。',
         },
@@ -163,12 +163,12 @@ export const expansionAdvanced: Topic = {
           id: 'math-g3-ea-q3',
           question: '$(2a - 7b)(2a + 7b)$ を展開すると？',
           options: [
-            '$4a^2 + 49b^2$',
             '$4a^2 - 49b^2$',
+            '$4a^2 + 49b^2$',
             '$2a^2 - 7b^2$',
             '$4a^2 - 14ab - 49b^2$',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '和と差の積の公式で $(2a)^2 - (7b)^2 = 4a^2 - 49b^2$。',
         },
@@ -177,12 +177,12 @@ export const expansionAdvanced: Topic = {
           question:
             '$(x - 2)^2 + x(x + 1)$ を展開して簡単にすると？',
           options: [
-            '$2x^2 - 3x + 4$',
             '$2x^2 - 5x + 4$',
+            '$2x^2 - 3x + 4$',
             '$x^2 - 3x + 4$',
             '$2x^2 + 3x + 4$',
           ],
-          correctIndex: 0,
+          correctIndex: 1,
           explanation:
             '$(x-2)^2 = x^2-4x+4$、$x(x+1) = x^2+x$。合わせて $2x^2-3x+4$。',
         },
@@ -190,12 +190,12 @@ export const expansionAdvanced: Topic = {
           id: 'math-g3-ea-q5',
           question: '$(x+5)(x+3) - (x+4)^2$ を簡単にすると？',
           options: [
-            '$-1$',
-            '$x - 1$',
             '$-x - 1$',
+            '$x - 1$',
+            '$-1$',
             '$2x^2 + 8x + 15$',
           ],
-          correctIndex: 0,
+          correctIndex: 2,
           explanation:
             '$(x+5)(x+3) = x^2+8x+15$、$(x+4)^2 = x^2+8x+16$。引くと $15-16 = -1$。',
         },
@@ -217,12 +217,12 @@ export const expansionAdvanced: Topic = {
           id: 'math-g3-ea-q7',
           question: '$(4x - 1)^2$ を展開すると？',
           options: [
-            '$4x^2 - 8x + 1$',
             '$16x^2 - 8x + 1$',
+            '$4x^2 - 8x + 1$',
             '$16x^2 - 4x + 1$',
             '$16x^2 + 8x + 1$',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '$(4x)^2 = 16x^2$, $2 \\times 4x \\times 1 = 8x$, $1^2 = 1$。答えは $16x^2 - 8x + 1$。',
         },
@@ -231,11 +231,11 @@ export const expansionAdvanced: Topic = {
           question: '$(x-y+3)(x-y-5)$ を展開するとき、何を置き換える？',
           options: [
             '$M = x + 3$',
-            '$M = x - y$',
-            '$M = y - 5$',
             '$M = x - 5$',
+            '$M = y - 5$',
+            '$M = x - y$',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '$M = x-y$ とおくと $(M+3)(M-5) = M^2-2M-15$ となり公式1が使える。',
         },

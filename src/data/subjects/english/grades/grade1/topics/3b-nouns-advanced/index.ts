@@ -109,20 +109,20 @@ export const nounsAdvanced: Topic = {
         {
           id: 'eng-na-q1',
           question: 'child の「2人以上」の形で正しいのは？',
-          options: ['childs', 'childes', 'children', 'childer'],
-          correctIndex: 2,
+          options: ['childs', 'childes', 'childer', 'children'],
+          correctIndex: 3,
           explanation: 'child → children。不規則変化なのでそのまま覚えよう。s や es をつけるのではないよ。',
         },
         {
           id: 'eng-na-q2',
           question: '「あなたはペンを何本もっていますか？」を英語にすると？',
           options: [
-            'How many pen do you have?',
             'How many pens do you have?',
+            'How many pen do you have?',
             'How much pens do you have?',
             'How many pens are you have?',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation: 'How many のあとは名詞の複数形を使うよ。pen → pens。How much は数えられないものに使うよ。',
         },
         {
@@ -157,8 +157,8 @@ export const nounsAdvanced: Topic = {
         {
           id: 'eng-na-q6',
           question: '「I have three (　　).（私は魚を3匹もっています。）」\nの (　　) に入るのは？',
-          options: ['fishs', 'fishes', 'fish', 'a fish'],
-          correctIndex: 2,
+          options: ['fishs', 'fish', 'fishes', 'a fish'],
+          correctIndex: 1,
           explanation: 'fish は単数形と複数形が同じ形だよ。s をつけなくていいんだ。three fish が正解。',
         },
       ],

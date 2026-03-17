@@ -104,8 +104,8 @@ export const greatDepression: Topic = {
         {
           id: 'q1',
           question: '1929年にアメリカから始まった世界的な経済危機を何という？',
-          options: ['世界恐慌', '昭和恐慌', 'オイルショック', 'バブル崩壊'],
-          correctIndex: 0,
+          options: ['バブル崩壊', '昭和恐慌', 'オイルショック', '世界恐慌'],
+          correctIndex: 3,
           explanation:
             '世界恐慌はニューヨーク株式市場の大暴落をきっかけに、世界中に広がった経済危機です。',
         },
@@ -128,12 +128,12 @@ export const greatDepression: Topic = {
           question:
             'ドイツでナチス（ナチ党）を率いて独裁政治を行った人物は？',
           options: [
-            'ムッソリーニ',
+            'ヒトラー',
             'スターリン',
             'ルーズベルト',
-            'ヒトラー',
+            'ムッソリーニ',
           ],
-          correctIndex: 3,
+          correctIndex: 0,
           explanation:
             'ヒトラーはナチス（ナチ党）を率いてドイツで独裁政治を行い、ユダヤ人の迫害やベルサイユ条約の破棄を進めました。',
         },
@@ -144,10 +144,10 @@ export const greatDepression: Topic = {
           options: [
             '計画経済',
             '自由貿易',
-            'ニューディール政策',
             'ブロック経済',
+            'ニューディール政策',
           ],
-          correctIndex: 3,
+          correctIndex: 2,
           explanation:
             'ブロック経済は自国と植民地の間だけで貿易を行い他国を締め出す政策で、植民地の少ない国に大きな打撃を与えました。',
         },

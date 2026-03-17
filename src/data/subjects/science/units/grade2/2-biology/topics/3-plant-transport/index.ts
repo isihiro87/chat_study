@@ -116,16 +116,16 @@ export const plantTransport: Topic = {
         {
           id: 'sci2-pt-q1',
           question: '根から吸収された水の通り道は？',
-          options: ['師管', '気孔', '道管', '根毛'],
-          correctIndex: 2,
+          options: ['道管', '気孔', '師管', '根毛'],
+          correctIndex: 0,
           explanation:
             '道管は根から吸収された水や肥料分の通り道です。師管は葉で作られた養分の通り道です。',
         },
         {
           id: 'sci2-pt-q2',
           question: '蒸散の実験でワセリンを葉の裏だけにぬったとき、水の減少量はどうなる？',
-          options: ['変わらない', '最も多くなる', '最も少なくなる', '少し減る'],
-          correctIndex: 3,
+          options: ['変わらない', '少し減る', '最も少なくなる', '最も多くなる'],
+          correctIndex: 1,
           explanation:
             '気孔は葉の裏側に多いため、裏にワセリンをぬると蒸散が大幅に減り、水の減少量が最も少なくなります。',
         },
@@ -134,11 +134,11 @@ export const plantTransport: Topic = {
           question: '単子葉類の維管束の特徴はどれ？',
           options: [
             '輪の形に並ぶ',
-            '全体に散らばる',
             '1本だけある',
+            '全体に散らばる',
             '師管がない',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             '単子葉類の維管束は茎の断面で全体に散らばっています。双子葉類は輪の形に並びます。',
         },

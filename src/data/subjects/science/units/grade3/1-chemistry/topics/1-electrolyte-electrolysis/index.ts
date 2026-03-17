@@ -290,8 +290,8 @@ export const electrolyteElectrolysis: Topic = {
         {
           id: 'sci3-ee-q1',
           question: '次のうち、電解質はどれ？',
-          options: ['砂糖', 'エタノール', '塩化ナトリウム', 'デンプン'],
-          correctIndex: 2,
+          options: ['砂糖', 'エタノール', 'デンプン', '塩化ナトリウム'],
+          correctIndex: 3,
           explanation:
             '塩化ナトリウム（NaCl）は水に溶けるとNa⁺とCl⁻に電離するため、電解質です。砂糖・エタノール・デンプンは非電解質です。',
         },
@@ -306,8 +306,8 @@ export const electrolyteElectrolysis: Topic = {
         {
           id: 'sci3-ee-q3',
           question: '塩酸を電気分解したとき、陰極から発生する気体は？',
-          options: ['塩素', '酸素', '水素', '窒素'],
-          correctIndex: 2,
+          options: ['塩素', '水素', '酸素', '窒素'],
+          correctIndex: 1,
           explanation:
             '塩酸の電気分解では、陰極から水素が発生します。火のついたマッチを近づけるとポンと音を立てて燃えます。',
         },
@@ -315,12 +315,12 @@ export const electrolyteElectrolysis: Topic = {
           id: 'sci3-ee-q4',
           question: '塩化銅水溶液の電気分解を長時間続けると、水溶液の色はどうなる？',
           options: [
-            '赤色が濃くなる',
             '青色がうすくなる',
+            '赤色が濃くなる',
             '緑色に変わる',
             '変化しない',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '水溶液中の銅イオン（Cu²⁺）が陰極で銅になって減少するため、青色がしだいにうすくなります。',
         },
@@ -329,11 +329,11 @@ export const electrolyteElectrolysis: Topic = {
           question: '電解質の水溶液に電流が流れる理由として正しいものは？',
           options: [
             '水分子が電気を通すから',
-            '電離して生じたイオンが電気を運ぶから',
-            '電極が溶けるから',
             '水溶液の温度が上がるから',
+            '電極が溶けるから',
+            '電離して生じたイオンが電気を運ぶから',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '電解質が水に溶けて電離し、生じた陽イオンと陰イオンが電気を運ぶため電流が流れます。',
         },
@@ -341,12 +341,12 @@ export const electrolyteElectrolysis: Topic = {
           id: 'sci3-ee-q6',
           question: '塩酸の電気分解の化学反応式として正しいものは？',
           options: [
-            'HCl → H + Cl',
             '2HCl → H₂ + Cl₂',
+            'HCl → H + Cl',
             'HCl → H₂ + Cl₂',
             '2HCl → 2H + 2Cl',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '塩酸（HCl）を電気分解すると水素（H₂）と塩素（Cl₂）が発生します。原子の数を合わせるため左辺は2HClとなります。',
         },
@@ -364,11 +364,11 @@ export const electrolyteElectrolysis: Topic = {
             '塩酸の電気分解で、陽極から発生した気体の確認方法として正しいものは？',
           options: [
             '石灰水に通すと白くにごる',
-            '火のついた線香を近づけると激しく燃える',
             '赤インクで着色した水の色が消える',
+            '火のついた線香を近づけると激しく燃える',
             '火のついたマッチを近づけるとポンと音がする',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation:
             '陽極から発生する塩素には漂白作用があり、赤インクで着色した水の色が消えます。マッチの火でポンと音がするのは水素（陰極側）の確認方法です。',
         },
@@ -378,11 +378,11 @@ export const electrolyteElectrolysis: Topic = {
             '塩化銅水溶液の電気分解で、陰極でのイオンの変化として正しいものは？',
           options: [
             '2Cl⁻ → Cl₂ + 2e⁻',
-            'Cu²⁺ + 2e⁻ → Cu',
             'Cu → Cu²⁺ + 2e⁻',
+            'Cu²⁺ + 2e⁻ → Cu',
             'Cl₂ + 2e⁻ → 2Cl⁻',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             '陰極ではCu²⁺（銅イオン）が電子を2個受け取り、銅原子（Cu）になって電極に付着します。',
         },

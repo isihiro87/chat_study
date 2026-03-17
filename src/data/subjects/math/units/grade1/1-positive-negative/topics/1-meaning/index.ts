@@ -84,8 +84,8 @@ export const posNegMeaning: Topic = {
         {
           id: 'math-g1-pos-neg-meaning-q2',
           question: '$-5$ の絶対値はいくつ？',
-          options: ['$-5$', '$0$', '$5$', '$10$'],
-          correctIndex: 2,
+          options: ['$-5$', '$5$', '$0$', '$10$'],
+          correctIndex: 1,
           explanation:
             '絶対値は数直線上で原点からの距離だから、$-5$ の絶対値は $5$ だよ。符号を取った値になるんだ。',
         },
@@ -114,28 +114,28 @@ export const posNegMeaning: Topic = {
           id: 'math-g1-pos-neg-meaning-q5',
           question: '$-7$ と $-3$ ではどちらが大きい？',
           options: [
-            '$-7$ の方が大きい',
             '$-3$ の方が大きい',
+            '$-7$ の方が大きい',
             '同じ大きさ',
             '比べられない',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '負の数どうしでは絶対値が小さい方が大きいよ。$|-3| = 3 < |-7| = 7$ だから、$-3 > -7$ つまり $-3$ の方が大きいんだ。',
         },
         {
           id: 'math-g1-pos-neg-meaning-q6',
           question: '基準より $6°\\text{C}$ 高いことを $+6°\\text{C}$ と表すとき、基準より $4°\\text{C}$ 低いことはどう表す？',
-          options: ['$+4°\\text{C}$', '$-4°\\text{C}$', '$-6°\\text{C}$', '$+10°\\text{C}$'],
-          correctIndex: 1,
+          options: ['$+4°\\text{C}$', '$+10°\\text{C}$', '$-6°\\text{C}$', '$-4°\\text{C}$'],
+          correctIndex: 3,
           explanation:
             '反対の性質をもつ量は正負の数で表すよ。高い↔低いだから、基準より $4°\\text{C}$ 低いことは $-4°\\text{C}$ だね。',
         },
         {
           id: 'math-g1-pos-neg-meaning-q7',
           question: '次のうち、自然数はどれ？',
-          options: ['$-3$', '$0$', '$+5$', '$-0.7$'],
-          correctIndex: 2,
+          options: ['$-3$', '$+5$', '$0$', '$-0.7$'],
+          correctIndex: 1,
           explanation:
             '自然数は正の整数（$1, 2, 3, \\ldots$）のことだよ。$+5$ は正の整数だから自然数だね。$0$ は自然数ではないよ。',
         },
@@ -150,8 +150,8 @@ export const posNegMeaning: Topic = {
         {
           id: 'math-g1-pos-neg-meaning-q9',
           question: '$-2, +4, -6, 0$ を小さい順に並べたとき、左から $2$ 番目の数は？',
-          options: ['$-6$', '$-2$', '$0$', '$+4$'],
-          correctIndex: 1,
+          options: ['$-6$', '$+4$', '$0$', '$-2$'],
+          correctIndex: 3,
           explanation:
             '小さい順に並べると $-6, -2, 0, +4$ だから、左から $2$ 番目は $-2$ だよ。',
         },

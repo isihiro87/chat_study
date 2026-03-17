@@ -158,10 +158,10 @@ export const quadEqFactoring: Topic = {
           options: [
             '$x = 4, x = 1$',
             '$x = -4, x = 1$',
-            '$x = 4, x = -1$',
             '$x = -4, x = -1$',
+            '$x = 4, x = -1$',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '$x - 4 = 0$ → $x = 4$、$x + 1 = 0$ → $x = -1$。よって $x = 4, -1$ だよ。',
         },
@@ -169,12 +169,12 @@ export const quadEqFactoring: Topic = {
           id: 'math-g3-qef-q2',
           question: '$x^2 - 5x + 6 = 0$ の解は？',
           options: [
-            '$x = 1, x = 6$',
             '$x = 2, x = 3$',
+            '$x = 1, x = 6$',
             '$x = -2, x = -3$',
             '$x = -1, x = -6$',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '$x^2 - 5x + 6 = (x-2)(x-3) = 0$。$x = 2$ または $x = 3$ だよ。',
         },
@@ -182,12 +182,12 @@ export const quadEqFactoring: Topic = {
           id: 'math-g3-qef-q3',
           question: '$x^2 + x - 12 = 0$ の解は？',
           options: [
-            '$x = 3, x = -4$',
-            '$x = -3, x = 4$',
             '$x = 2, x = -6$',
+            '$x = -3, x = 4$',
+            '$x = 3, x = -4$',
             '$x = 6, x = -2$',
           ],
-          correctIndex: 0,
+          correctIndex: 2,
           explanation:
             '$x^2 + x - 12 = (x+4)(x-3) = 0$。$x = -4$ または $x = 3$ だよ。',
         },
@@ -209,11 +209,11 @@ export const quadEqFactoring: Topic = {
           question: '$x^2 - 9 = 0$ の解は？',
           options: [
             '$x = 9$',
-            '$x = 3$',
-            '$x = \\pm 9$',
             '$x = \\pm 3$',
+            '$x = \\pm 9$',
+            '$x = 3$',
           ],
-          correctIndex: 3,
+          correctIndex: 1,
           explanation:
             '$x^2 - 9 = (x+3)(x-3) = 0$。$x = 3$ または $x = -3$ だよ。',
         },
@@ -222,11 +222,11 @@ export const quadEqFactoring: Topic = {
           question: '$x^2 - 2x + 1 = 0$ の解は？',
           options: [
             '$x = 1, x = -1$',
-            '$x = 1$（重解）',
-            '$x = -1$（重解）',
             '$x = 2, x = -1$',
+            '$x = -1$（重解）',
+            '$x = 1$（重解）',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '$(x - 1)^2 = 0$ → $x = 1$（重解）。完全平方式だよ。',
         },
@@ -260,12 +260,12 @@ export const quadEqFactoring: Topic = {
           id: 'math-g3-qef-q9',
           question: '$x^2 + 6x + 9 = 0$ の解は？',
           options: [
-            '$x = 3$（重解）',
             '$x = -3$（重解）',
+            '$x = 3$（重解）',
             '$x = 3, x = -3$',
             '$x = 1, x = 9$',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '$(x + 3)^2 = 0$ → $x = -3$（重解）。完全平方式だよ。',
         },
@@ -274,11 +274,11 @@ export const quadEqFactoring: Topic = {
           question: '$(x - 3)(x - 4) = 2$ の解は？',
           options: [
             '$x = 3, x = 4$',
-            '$x = 1, x = 6$',
             '$x = 2, x = 5$',
+            '$x = 1, x = 6$',
             '$x = -2, x = -5$',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation:
             '展開して $x^2 - 7x + 12 = 2$ → $x^2 - 7x + 10 = 0$ → $(x-2)(x-5) = 0$。$x = 2, 5$。',
         },
@@ -301,10 +301,10 @@ export const quadEqFactoring: Topic = {
           options: [
             '$x = 4$',
             '$x = 0, x = 4$',
-            '$x = 0, x = -4$',
             '$x = -4$',
+            '$x = 0, x = -4$',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '$3x(x + 4) = 0$。$x = 0$ または $x = -4$。共通因数でくくろう！',
         },

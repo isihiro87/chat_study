@@ -233,24 +233,24 @@ export const plantPhotosynthesis: Topic = {
         {
           id: 'sci2-pp-q1',
           question: '光合成が行われる場所はどこ？',
-          options: ['細胞壁', '液胞', '葉緑体', '核'],
-          correctIndex: 2,
+          options: ['細胞壁', '葉緑体', '液胞', '核'],
+          correctIndex: 1,
           explanation:
             '光合成は葉の細胞の中にある緑色の粒、葉緑体で行われます。光を受けてCO₂と水からデンプンと酸素をつくります。',
         },
         {
           id: 'sci2-pp-q2',
           question: 'デンプンができたことを確認するために使う薬品は？',
-          options: ['酢酸オルセイン', 'BTB溶液', 'ヨウ素液', '石灰水'],
-          correctIndex: 2,
+          options: ['ヨウ素液', 'BTB溶液', '酢酸オルセイン', '石灰水'],
+          correctIndex: 0,
           explanation:
             'ヨウ素液はデンプンに反応して青紫色に変化します。これでデンプンが作られたことを確認できます。',
         },
         {
           id: 'sci2-pp-q3',
           question: '蒸散が最も盛んに行われるのはどこ？',
-          options: ['葉の表側', '葉の裏側', '茎', '根'],
-          correctIndex: 1,
+          options: ['葉の表側', '茎', '葉の裏側', '根'],
+          correctIndex: 2,
           explanation:
             '気孔は葉の裏側に多いため、蒸散は主に葉の裏側で盛んに行われます。',
         },
@@ -260,10 +260,10 @@ export const plantPhotosynthesis: Topic = {
           options: [
             '植物は昼だけ呼吸する',
             '植物は夜だけ光合成する',
-            '昼は光合成が呼吸を上回るため、見かけ上は酸素のみ放出する',
             '植物は呼吸を行わない',
+            '昼は光合成が呼吸を上回るため、見かけ上は酸素のみ放出する',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '植物は常に呼吸を行っていますが、昼は光合成が呼吸を上回るため、見かけ上は酸素のみが放出されます。',
         },
@@ -293,11 +293,11 @@ export const plantPhotosynthesis: Topic = {
           question: '対照実験について正しいものはどれ？',
           options: [
             'すべての条件を変える',
-            '調べたい条件だけを変え他の条件を同じにする',
-            '結果が同じになるようにする',
             '1回だけ行う実験のこと',
+            '結果が同じになるようにする',
+            '調べたい条件だけを変え他の条件を同じにする',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '対照実験は、調べたい条件（変数）だけを変え、他の条件をすべて同じにして結果を比較する実験です。',
         },
@@ -305,12 +305,12 @@ export const plantPhotosynthesis: Topic = {
           id: 'sci2-pp-q8',
           question: 'エタノールを加熱するとき湯せんにする理由は？',
           options: [
-            '温度を一定にするため',
             'エタノールが引火しやすいため',
+            '温度を一定にするため',
             '葉が溶けないようにするため',
             '色を抜くのに時間がかかるため',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             'エタノールは引火しやすい液体なので、直接火で加熱せず、お湯の中にビーカーを入れる湯せんで間接的に温めます。',
         },
@@ -319,11 +319,11 @@ export const plantPhotosynthesis: Topic = {
           question: '光合成の実験で、ふ入りの葉を使う理由は？',
           options: [
             '色がきれいだから',
-            '葉緑体がある部分とない部分を比較できるから',
             'デンプンが多いから',
+            '葉緑体がある部分とない部分を比較できるから',
             '蒸散が盛んだから',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             'ふ入りの葉は緑色の部分（葉緑体あり）と白い部分（葉緑体なし）があり、光合成に葉緑体が必要であることを確認する対照実験ができます。',
         },

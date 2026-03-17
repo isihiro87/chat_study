@@ -277,11 +277,11 @@ export const cultureReligion: Topic = {
           question: '熱帯地域で見られる高床式住居の主な目的はどれ？',
           options: [
             '地震に備えるため',
-            '風通しをよくし湿気を防ぐため',
-            '洪水から家財を守るため',
             '敵の侵入を防ぐため',
+            '洪水から家財を守るため',
+            '風通しをよくし湿気を防ぐため',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '熱帯地域の高床式住居は、床を高くすることで風通しをよくし、湿気や害虫を防ぐ工夫です。暑く湿度の高い気候に適した住居です。',
         },
@@ -302,16 +302,16 @@ export const cultureReligion: Topic = {
           id: 'geo1-cr-q3',
           question:
             'イスラームの食事の決まりで、「許されたもの」を意味する言葉はどれ？',
-          options: ['ラマダーン', 'サラート', 'ハラール', 'モスク'],
-          correctIndex: 2,
+          options: ['ハラール', 'サラート', 'ラマダーン', 'モスク'],
+          correctIndex: 0,
           explanation:
             'ハラールとは「許されたもの」を意味し、イスラームの教えに従った食品を指します。ラマダーンは断食月、サラートは礼拝、モスクは礼拝所のことです。',
         },
         {
           id: 'geo1-cr-q4',
           question: 'ヒンドゥー教で神聖な動物とされているのはどれ？',
-          options: ['豚', '馬', '牛', '羊'],
-          correctIndex: 2,
+          options: ['豚', '牛', '馬', '羊'],
+          correctIndex: 1,
           explanation:
             'ヒンドゥー教では牛が神聖な動物とされており、牛肉を食べることは禁じられています。インドでは牛を大切にする文化が根づいています。',
         },
@@ -321,11 +321,11 @@ export const cultureReligion: Topic = {
             '生活のグローバル化が進む中で、各地で取り組まれていることはどれ？',
           options: [
             'すべての伝統文化を廃止すること',
-            '外国の文化をすべて取り入れること',
             '伝統文化の保存や継承',
+            '外国の文化をすべて取り入れること',
             '他国との交流を制限すること',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation:
             'グローバル化が進む中で、伝統的な文化や生活様式が失われることへの懸念から、各地で伝統文化の保存や継承の取り組みが行われています。',
         },
@@ -335,11 +335,11 @@ export const cultureReligion: Topic = {
             'ヒンドゥー教の信者が沐浴を行う聖なる川の名前はどれ？',
           options: [
             'ナイル川',
-            'ガンジス川',
             'インダス川',
+            'ガンジス川',
             'メコン川',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             'ガンジス川はヒンドゥー教で聖なる川とされ、信者はこの川で沐浴して体を清め、罪が洗い流されると信じています。',
         },
@@ -348,12 +348,12 @@ export const cultureReligion: Topic = {
           question:
             'イスラム教の聖典はどれ？',
           options: [
-            '聖書',
             'コーラン',
+            '聖書',
             '般若心経',
             'ヴェーダ',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             'コーランはイスラム教の聖典で、神（アッラー）の教えが記されています。聖書はキリスト教の聖典です。',
         },
@@ -364,10 +364,10 @@ export const cultureReligion: Topic = {
           options: [
             '教会',
             '寺院',
-            'モスク',
             '神社',
+            'モスク',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             'モスクはイスラム教の礼拝施設です。教会はキリスト教、寺院は仏教の礼拝施設です。',
         },
@@ -390,12 +390,12 @@ export const cultureReligion: Topic = {
           question:
             '乾燥帯の住居に使われる日干しれんがの利点はどれ？',
           options: [
-            '風通しがよくなる',
             '厚い壁で暑さや寒さを防げる',
+            '風通しがよくなる',
             '水に強い',
             '軽くて運びやすい',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '日干しれんがで作った厚い壁は、昼の猛暑と夜の冷え込みの両方を防ぐことができます。乾燥帯の大きな寒暖差に適した建材です。',
         },

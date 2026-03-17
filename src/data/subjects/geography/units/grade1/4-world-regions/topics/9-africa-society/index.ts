@@ -128,12 +128,12 @@ export const africaSociety: Topic = {
           question:
             'アフリカで民族紛争が起きやすい原因のひとつとして正しいものはどれ？',
           options: [
-            '大陸が小さく国が密集しているため',
             '植民地時代に民族の分布を無視して国境線が引かれたため',
+            '大陸が小さく国が密集しているため',
             '全ての国が同じ言語を使っているため',
             '鉄道が発達しすぎたため',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '植民地時代にヨーロッパ諸国が民族の分布を無視して直線的に国境を引いたため、独立後に一つの国の中で複数の民族が対立する紛争が起こりやすくなりました。',
         },
@@ -144,10 +144,10 @@ export const africaSociety: Topic = {
           options: [
             'EU（ヨーロッパ連合）',
             'ASEAN（東南アジア諸国連合）',
-            'AU（アフリカ連合）',
             'NATO（北大西洋条約機構）',
+            'AU（アフリカ連合）',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             'AU（アフリカ連合）は2002年に設立され、アフリカ55か国が加盟しています。紛争解決や経済発展などアフリカ全体の課題に取り組んでいます。',
         },
@@ -155,8 +155,8 @@ export const africaSociety: Topic = {
           id: 'geo1-af3-q3',
           question:
             'サヘル地域で進行している深刻な環境問題はどれ？',
-          options: ['酸性雨', '砂漠化', '海面上昇', 'オゾン層の破壊'],
-          correctIndex: 1,
+          options: ['酸性雨', '海面上昇', '砂漠化', 'オゾン層の破壊'],
+          correctIndex: 2,
           explanation:
             'サヘル地域では過放牧や過耕作、気候変動などが原因で砂漠化が進行し、耕作可能な土地が減少しています。',
         },
@@ -164,8 +164,8 @@ export const africaSociety: Topic = {
           id: 'geo1-af3-q4',
           question:
             '1994年にフツ族とツチ族の間で大規模な民族紛争が起きた国はどこ？',
-          options: ['コンゴ民主共和国', 'ケニア', 'ルワンダ', 'ソマリア'],
-          correctIndex: 2,
+          options: ['コンゴ民主共和国', 'ルワンダ', 'ケニア', 'ソマリア'],
+          correctIndex: 1,
           explanation:
             'ルワンダでは1994年に大規模な民族虐殺が起き、約80万人以上が犠牲になりました。その後、和解と復興に取り組んでいます。',
         },

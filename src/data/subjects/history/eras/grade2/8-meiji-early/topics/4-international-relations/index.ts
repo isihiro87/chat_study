@@ -119,8 +119,8 @@ export const internationalRelations: Topic = {
           id: 'q2',
           question:
             '朝鮮に武力で開国を迫ろうとする主張を何という？',
-          options: ['尊王攘夷', '富国強兵', '征韓論', '攘夷論'],
-          correctIndex: 2,
+          options: ['尊王攘夷', '征韓論', '富国強兵', '攘夷論'],
+          correctIndex: 1,
           explanation:
             '征韓論は西郷隆盛や板垣退助らが主張しましたが、岩倉具視や大久保利通らの反対で否決されました。',
         },
@@ -129,12 +129,12 @@ export const internationalRelations: Topic = {
           question:
             '1876年に朝鮮と結んだ不平等条約を何という？',
           options: [
-            '日清修好条規',
-            '日米和親条約',
             '日朝修好条規',
+            '日米和親条約',
+            '日清修好条規',
             '下関条約',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             '日朝修好条規は江華島事件をきっかけに朝鮮を開国させた不平等条約です。',
         },
@@ -144,11 +144,11 @@ export const internationalRelations: Topic = {
             '1875年にロシアと結んだ、北方の国境を確定する条約は？',
           options: [
             'ポーツマス条約',
-            '樺太・千島交換条約',
             '日英同盟',
+            '樺太・千島交換条約',
             '日清修好条規',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             '樺太・千島交換条約で、樺太を放棄し千島列島すべてを日本領としました。',
         },
@@ -166,11 +166,11 @@ export const internationalRelations: Topic = {
             '征韓論が否決された後、政府を去った人物は？',
           options: [
             '岩倉具視',
-            '大久保利通',
-            '伊藤博文',
             '西郷隆盛',
+            '伊藤博文',
+            '大久保利通',
           ],
-          correctIndex: 3,
+          correctIndex: 1,
           explanation:
             '征韓論が否決されたことで西郷隆盛や板垣退助らは政府を去り、後の士族の反乱や自由民権運動につながりました。',
         },

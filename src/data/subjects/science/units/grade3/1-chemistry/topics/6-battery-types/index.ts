@@ -216,12 +216,12 @@ export const batteryTypes: Topic = {
           id: 'sci3-bt-q1',
           question: 'ダニエル電池でセロハン膜の役割は？',
           options: [
-            '電流を流す',
             '2つの水溶液の混合を防ぎながらイオンを通す',
+            '電流を流す',
             '電子を通す',
             '金属を溶かす',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             'セロハン膜は2つの水溶液が直接混ざるのを防ぎつつ、イオンを通して回路を完成させます。',
         },
@@ -231,11 +231,11 @@ export const batteryTypes: Topic = {
             'ダニエル電池で電流を流し続けると、硫酸銅水溶液の青色はどう変わる？',
           options: [
             '濃くなる',
-            'うすくなる',
             '変わらない',
+            'うすくなる',
             '赤色になる',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             'Cu²⁺（銅イオン）が電子を受け取って銅として析出するため、Cu²⁺が減少して青色がうすくなります。',
         },
@@ -252,11 +252,11 @@ export const batteryTypes: Topic = {
           question: '燃料電池の化学反応でできる物質は？',
           options: [
             '二酸化炭素',
-            '水（H₂O）',
-            '水素',
             '酸素',
+            '水素',
+            '水（H₂O）',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '燃料電池は 2H₂ + O₂ → 2H₂O の反応で電気を取り出します。水しか排出しないクリーンエネルギーです。',
         },
@@ -266,11 +266,11 @@ export const batteryTypes: Topic = {
             'ダニエル電池で電流を流し続けると、−極（Zn板）はどうなる？',
           options: [
             '大きくなる',
-            '小さくなる',
-            '変化しない',
             '赤色になる',
+            '変化しない',
+            '小さくなる',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '−極ではZn → Zn²⁺ + 2e⁻の反応が起き、亜鉛が溶け出してZn板が小さくなります。',
         },
@@ -291,12 +291,12 @@ export const batteryTypes: Topic = {
           id: 'sci3-bt-q7',
           question: 'マンガン乾電池は一次電池と二次電池のどちらに分類される？',
           options: [
-            '一次電池',
             '二次電池',
+            '一次電池',
             '燃料電池',
             'どちらにも分類されない',
           ],
-          correctIndex: 0,
+          correctIndex: 1,
           explanation:
             'マンガン乾電池は使い切りの一次電池です。充電して再利用することはできません。',
         },
@@ -304,12 +304,12 @@ export const batteryTypes: Topic = {
           id: 'sci3-bt-q8',
           question: '燃料電池が環境にやさしいと言われる最大の理由は？',
           options: [
-            '安価に製造できるから',
             '水しか排出せず、CO₂などの温室効果ガスを出さないから',
+            '安価に製造できるから',
             '電圧が非常に高いから',
             '充電が不要だから',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '燃料電池は 2H₂ + O₂ → 2H₂O の反応で、生成されるのは水だけ。CO₂を排出しないクリーンエネルギーです。',
         },
@@ -318,12 +318,12 @@ export const batteryTypes: Topic = {
           question:
             'ダニエル電池で電流を流し続けると、＋極（Cu板）はどうなる？',
           options: [
-            '溶けて小さくなる',
             '銅が付着して大きくなる',
+            '溶けて小さくなる',
             '水素が発生する',
             '変化しない',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '＋極ではCu²⁺ + 2e⁻ → Cuの反応が起き、銅がCu板に析出するためCu板が大きくなります。',
         },

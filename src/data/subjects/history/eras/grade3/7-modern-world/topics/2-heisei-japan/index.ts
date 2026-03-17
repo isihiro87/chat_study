@@ -109,11 +109,11 @@ export const heiseiJapan: Topic = {
           question: '1993年に崩壊した自民党と社会党による政治体制は？',
           options: [
             '護憲体制',
-            '55年体制',
-            '大政翼賛体制',
             '二大政党制',
+            '大政翼賛体制',
+            '55年体制',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '55年体制は1955年から続いた自民党の長期政権体制で、1993年に非自民連立政権が誕生して崩壊しました。',
         },
@@ -135,12 +135,12 @@ export const heiseiJapan: Topic = {
           question:
             'PKO協力法に基づき、自衛隊が初めて派遣された国は？',
           options: [
-            'イラク',
             'カンボジア',
+            'イラク',
             '東ティモール',
             'スーダン',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '1992年のPKO協力法成立後、カンボジアへのPKO部隊派遣が初の実績となりました。',
         },
@@ -151,10 +151,10 @@ export const heiseiJapan: Topic = {
           options: [
             '教育基本法',
             '労働基準法',
-            '男女共同参画社会基本法',
             '男女雇用機会均等法',
+            '男女共同参画社会基本法',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '男女共同参画社会基本法は1999年に制定され、男女が対等に社会参画できる社会を目指しています。',
         },
@@ -163,12 +163,12 @@ export const heiseiJapan: Topic = {
           question:
             '2009年に自民党から政権を奪った政党は？',
           options: [
-            '日本社会党',
+            '民主党',
             '公明党',
             '日本共産党',
-            '民主党',
+            '日本社会党',
           ],
-          correctIndex: 3,
+          correctIndex: 0,
           explanation:
             '2009年の衆議院選挙で民主党が勝利し、鳩山由紀夫が首相となる政権交代が実現しました。',
         },

@@ -125,8 +125,8 @@ export const freedomMovement: Topic = {
           id: 'q2',
           question:
             '1877年に西郷隆盛を中心に起きた、最大の士族の反乱は？',
-          options: ['秩父事件', '佐賀の乱', '西南戦争', '神風連の乱'],
-          correctIndex: 2,
+          options: ['西南戦争', '佐賀の乱', '秩父事件', '神風連の乱'],
+          correctIndex: 0,
           explanation:
             '西南戦争は最大・最後の士族の反乱で、政府軍の勝利により武力による抵抗は終わりました。',
         },
@@ -134,8 +134,8 @@ export const freedomMovement: Topic = {
           id: 'q3',
           question:
             '1881年に板垣退助を党首として結成された政党は？',
-          options: ['立憲改進党', '自由党', '立憲政友会', '国民党'],
-          correctIndex: 1,
+          options: ['立憲改進党', '国民党', '立憲政友会', '自由党'],
+          correctIndex: 3,
           explanation:
             '自由党はフランス流の急進的な自由主義を主張した日本初の政党の一つです。',
         },
@@ -145,11 +145,11 @@ export const freedomMovement: Topic = {
             '1882年に大隈重信を党首として結成された政党は？',
           options: [
             '自由党',
-            '立憲政友会',
-            '国民党',
             '立憲改進党',
+            '国民党',
+            '立憲政友会',
           ],
-          correctIndex: 3,
+          correctIndex: 1,
           explanation:
             '立憲改進党はイギリス流の穏健な議会政治を主張した政党です。',
         },
@@ -171,8 +171,8 @@ export const freedomMovement: Topic = {
           id: 'q6',
           question:
             '政府が10年後に国会を開くことを約束したのは何年？',
-          options: ['1874年', '1877年', '1881年', '1889年'],
-          correctIndex: 2,
+          options: ['1881年', '1877年', '1874年', '1889年'],
+          correctIndex: 0,
           explanation:
             '1881年に国会開設の詔が出され、10年後の1890年に国会を開くことが約束されました。',
         },

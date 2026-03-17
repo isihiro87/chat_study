@@ -158,16 +158,16 @@ export const rationalization: Topic = {
         {
           id: 'math-g3-rationalization-q2',
           question: '$\\frac{6}{\\sqrt{2}}$ を有理化すると？',
-          options: ['$6\\sqrt{2}$', '$3\\sqrt{2}$', '$\\frac{\\sqrt{2}}{6}$', '$2\\sqrt{6}$'],
-          correctIndex: 1,
+          options: ['$3\\sqrt{2}$', '$6\\sqrt{2}$', '$\\frac{\\sqrt{2}}{6}$', '$2\\sqrt{6}$'],
+          correctIndex: 0,
           explanation:
             '$\\frac{6}{\\sqrt{2}} = \\frac{6 \\times \\sqrt{2}}{\\sqrt{2} \\times \\sqrt{2}} = \\frac{6\\sqrt{2}}{2} = 3\\sqrt{2}$。有理化してから約分だよ。',
         },
         {
           id: 'math-g3-rationalization-q3',
           question: '$\\frac{2}{\\sqrt{6}}$ を有理化すると？',
-          options: ['$\\frac{2\\sqrt{6}}{6}$', '$\\frac{\\sqrt{6}}{3}$', '$\\frac{\\sqrt{6}}{6}$', '$\\frac{2\\sqrt{6}}{3}$'],
-          correctIndex: 1,
+          options: ['$\\frac{2\\sqrt{6}}{6}$', '$\\frac{2\\sqrt{6}}{3}$', '$\\frac{\\sqrt{6}}{6}$', '$\\frac{\\sqrt{6}}{3}$'],
+          correctIndex: 3,
           explanation:
             '$\\frac{2}{\\sqrt{6}} = \\frac{2 \\times \\sqrt{6}}{\\sqrt{6} \\times \\sqrt{6}} = \\frac{2\\sqrt{6}}{6} = \\frac{\\sqrt{6}}{3}$。約分を忘れずに！',
         },
@@ -190,16 +190,16 @@ export const rationalization: Topic = {
         {
           id: 'math-g3-rationalization-q6',
           question: '$2\\sqrt{15} \\div \\sqrt{5}$ を計算すると？',
-          options: ['$2\\sqrt{3}$', '$2\\sqrt{10}$', '$\\sqrt{3}$', '$6\\sqrt{5}$'],
-          correctIndex: 0,
+          options: ['$6\\sqrt{5}$', '$2\\sqrt{10}$', '$\\sqrt{3}$', '$2\\sqrt{3}$'],
+          correctIndex: 3,
           explanation:
             '$2\\sqrt{15} \\div \\sqrt{5} = \\frac{2\\sqrt{15}}{\\sqrt{5}} = 2\\sqrt{\\frac{15}{5}} = 2\\sqrt{3}$。ルートの中を割り算できるよ！',
         },
         {
           id: 'math-g3-rationalization-q7',
           question: '$\\sqrt{3} = 1.732$ のとき、$\\frac{\\sqrt{3}}{3}$ の値はおよそいくつ？',
-          options: ['$0.577$', '$1.732$', '$5.196$', '$0.333$'],
-          correctIndex: 0,
+          options: ['$1.732$', '$0.577$', '$5.196$', '$0.333$'],
+          correctIndex: 1,
           explanation:
             '$\\frac{\\sqrt{3}}{3} = \\frac{1.732}{3} \\approx 0.577$。これは $\\frac{1}{\\sqrt{3}}$ を有理化したもの。先に有理化してから数値を代入しよう。',
         },
@@ -222,8 +222,8 @@ export const rationalization: Topic = {
         {
           id: 'math-g3-rationalization-q10',
           question: '$\\frac{8}{\\sqrt{2}}$ を有理化すると？',
-          options: ['$8\\sqrt{2}$', '$4\\sqrt{2}$', '$\\frac{8\\sqrt{2}}{2}$', '$2\\sqrt{2}$'],
-          correctIndex: 1,
+          options: ['$8\\sqrt{2}$', '$2\\sqrt{2}$', '$\\frac{8\\sqrt{2}}{2}$', '$4\\sqrt{2}$'],
+          correctIndex: 3,
           explanation:
             '$\\frac{8}{\\sqrt{2}} = \\frac{8\\sqrt{2}}{2} = 4\\sqrt{2}$。$8 \\div 2 = 4$ で約分するよ。',
         },

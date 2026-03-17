@@ -122,8 +122,8 @@ export const fallOfBakufu: Topic = {
         {
           id: 'q1',
           question: '1866年、薩摩藩と長州藩の同盟を仲介した土佐藩出身の人物は？',
-          options: ['西郷隆盛', '木戸孝允', '坂本龍馬', '高杉晋作'],
-          correctIndex: 2,
+          options: ['西郷隆盛', '坂本龍馬', '木戸孝允', '高杉晋作'],
+          correctIndex: 1,
           explanation:
             '坂本龍馬が対立していた薩摩藩と長州藩を仲介し、薩長同盟が結ばれました。',
         },
@@ -155,12 +155,12 @@ export const fallOfBakufu: Topic = {
           question:
             '大政奉還の後、天皇中心の新政府を作ることを宣言した命令は？',
           options: [
-            '五箇条の御誓文',
-            '教育勅語',
             '王政復古の大号令',
+            '教育勅語',
+            '五箇条の御誓文',
             '廃藩置県',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             '王政復古の大号令は倒幕派が出した、天皇中心の新政府樹立を宣言する命令です。',
         },

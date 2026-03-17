@@ -141,8 +141,8 @@ export const openingJapan: Topic = {
           id: 'q4',
           question:
             '1858年に朝廷の許可なく日米修好通商条約を結んだ大老は？',
-          options: ['徳川慶喜', '阿部正弘', '井伊直弼', '松平慶永'],
-          correctIndex: 2,
+          options: ['井伊直弼', '阿部正弘', '徳川慶喜', '松平慶永'],
+          correctIndex: 0,
           explanation:
             '大老・井伊直弼は朝廷の許可を得ないまま条約を結び、その後安政の大獄で反対派を弾圧しました。',
         },
@@ -150,8 +150,8 @@ export const openingJapan: Topic = {
           id: 'q5',
           question:
             '日米修好通商条約で日本になかった、輸入品にかける税率を自国で決める権利は？',
-          options: ['領事裁判権', '関税自主権', '通商権', '外交権'],
-          correctIndex: 1,
+          options: ['領事裁判権', '外交権', '通商権', '関税自主権'],
+          correctIndex: 3,
           explanation:
             '関税自主権がなかったため、日本は輸入品に自由に税をかけることができず、国内産業を保護できませんでした。',
         },

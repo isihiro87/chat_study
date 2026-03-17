@@ -91,10 +91,10 @@ export const inverseProportion: Topic = {
           options: [
             '原点を通る直線である',
             '放物線になる',
-            '座標軸と交わらない双曲線である',
             '$y$ 軸と必ず交わる',
+            '座標軸と交わらない双曲線である',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '反比例のグラフは双曲線で、$x$ 軸にも $y$ 軸にも交わらないよ。',
         },

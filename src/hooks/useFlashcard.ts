@@ -27,6 +27,11 @@ interface UseFlashcardReturn {
   reviewCount: number;
   notRememberedCount: number;
   sessionHistory: SessionHistory;
+  // バッチ制
+  currentBatchIndex: number;
+  totalBatches: number;
+  isBatchComplete: boolean;
+  nextBatch: () => void;
   flip: () => void;
   next: () => void;
   prev: () => void;
@@ -38,7 +43,7 @@ interface UseFlashcardReturn {
   swipeRight: () => void;
 }
 
-export function useFlashcard(cards: Flashcard[]): UseFlashcardReturn {
+export function useFlashcard(cards: Flashcard[], batchSize?: number): UseFlashcardReturn {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
   const [remembered, setRemembered] = useState<Set<string>>(new Set());
@@ -55,13 +60,29 @@ export function useFlashcard(cards: Flashcard[]): UseFlashcardReturn {
   const [isFirstRound, setIsFirstRound] = useState(true);
   const [firstRoundStats, setFirstRoundStats] = useState({ remembered: 0, total: 0 });
 
+  // バッチ制
+  const [currentBatchIndex, setCurrentBatchIndex] = useState(0);
+  const [isBatchComplete, setIsBatchComplete] = useState(false);
+
+  const batches = useMemo(() => {
+    if (!batchSize || batchSize >= cards.length) return [cards];
+    const result: Flashcard[][] = [];
+    for (let i = 0; i < cards.length; i += batchSize) {
+      result.push(cards.slice(i, i + batchSize));
+    }
+    return result;
+  }, [cards, batchSize]);
+
+  const totalBatches = batches.length;
+  const activeBatchCards = batches[currentBatchIndex] ?? [];
+
   // 現在のカードリスト（通常モード or 復習モード）
   const currentCards = useMemo(() => {
     if (isReviewMode) {
-      return cards.filter((card) => reviewQueue.includes(card.id));
+      return activeBatchCards.filter((card) => reviewQueue.includes(card.id));
     }
-    return cards;
-  }, [cards, isReviewMode, reviewQueue]);
+    return activeBatchCards;
+  }, [activeBatchCards, isReviewMode, reviewQueue]);
 
   const currentCard = currentCards[currentIndex] || null;
 
@@ -94,7 +115,12 @@ export function useFlashcard(cards: Flashcard[]): UseFlashcardReturn {
         // 復習ラウンドをインクリメント
         setReviewRounds((prev) => prev + 1);
       } else {
-        setIsComplete(true);
+        // バッチ制: 次のバッチがあればバッチ完了、なければ全体完了
+        if (totalBatches > 1 && currentBatchIndex < totalBatches - 1) {
+          setIsBatchComplete(true);
+        } else {
+          setIsComplete(true);
+        }
       }
     } else {
       if (reviewQueue.length > 0) {
@@ -104,10 +130,15 @@ export function useFlashcard(cards: Flashcard[]): UseFlashcardReturn {
         setIsFirstRound(false);
         setReviewRounds(1);
       } else {
-        setIsComplete(true);
+        // バッチ制: 次のバッチがあればバッチ完了、なければ全体完了
+        if (totalBatches > 1 && currentBatchIndex < totalBatches - 1) {
+          setIsBatchComplete(true);
+        } else {
+          setIsComplete(true);
+        }
       }
     }
-  }, [needsTransition, isReviewMode, reviewQueue.length, pendingReview]);
+  }, [needsTransition, isReviewMode, reviewQueue.length, pendingReview, totalBatches, currentBatchIndex]);
 
   const next = useCallback(() => {
     advanceToNext();
@@ -210,6 +241,24 @@ export function useFlashcard(cards: Flashcard[]): UseFlashcardReturn {
     advanceToNext();
   }, [markRemembered, advanceToNext]);
 
+  // 次のバッチに進む
+  const nextBatch = useCallback(() => {
+    if (currentBatchIndex >= totalBatches - 1) {
+      setIsComplete(true);
+      return;
+    }
+    setCurrentBatchIndex((prev) => prev + 1);
+    setIsBatchComplete(false);
+    setCurrentIndex(0);
+    setIsFlipped(false);
+    // バッチ内の状態のみリセット（remembered は全体で保持）
+    setReviewQueue([]);
+    setPendingReview([]);
+    setIsReviewMode(false);
+    setNeedsTransition(false);
+    setIsFirstRound(true);
+  }, [currentBatchIndex, totalBatches]);
+
   const reset = useCallback(() => {
     setCurrentIndex(0);
     setIsFlipped(false);
@@ -224,6 +273,9 @@ export function useFlashcard(cards: Flashcard[]): UseFlashcardReturn {
     setReviewRounds(0);
     setIsFirstRound(true);
     setFirstRoundStats({ remembered: 0, total: 0 });
+    // バッチもリセット
+    setCurrentBatchIndex(0);
+    setIsBatchComplete(false);
   }, []);
 
   // 復習が必要なカードのみでリスタート
@@ -264,6 +316,11 @@ export function useFlashcard(cards: Flashcard[]): UseFlashcardReturn {
       : reviewQueue.length,
     notRememberedCount: cards.length - remembered.size,
     sessionHistory,
+    // バッチ制
+    currentBatchIndex,
+    totalBatches,
+    isBatchComplete,
+    nextBatch,
     flip,
     next,
     prev,

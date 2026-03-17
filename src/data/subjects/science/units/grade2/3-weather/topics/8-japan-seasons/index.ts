@@ -151,12 +151,12 @@ export const japanSeasons: Topic = {
           id: 'sci2-jsea-q2',
           question: '夏の日本を覆い、高温多湿をもたらす高気圧は？',
           options: [
-            'シベリア高気圧',
             '太平洋高気圧',
+            'シベリア高気圧',
             '移動性高気圧',
             'オホーツク海高気圧',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '夏は太平洋高気圧が日本を覆い、南東の季節風が吹いて高温多湿になります。',
         },
@@ -166,10 +166,10 @@ export const japanSeasons: Topic = {
           options: [
             '最大風速10m/s以上の低気圧',
             '最大風速17m/s以上の温帯低気圧',
-            '最大風速17m/s以上の熱帯低気圧',
             '最大風速25m/s以上の熱帯低気圧',
+            '最大風速17m/s以上の熱帯低気圧',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '台風は熱帯低気圧が発達し、最大風速が17m/s以上になったものです。温帯低気圧とは区別されます。',
         },
@@ -202,16 +202,16 @@ export const japanSeasons: Topic = {
         {
           id: 'sci2-jsea-q6',
           question: '災害の危険がある地域を地図上に示したものを何というか？',
-          options: ['天気図', 'ハザードマップ', '等圧線図', '地形図'],
-          correctIndex: 1,
+          options: ['ハザードマップ', '天気図', '等圧線図', '地形図'],
+          correctIndex: 0,
           explanation:
             'ハザードマップは災害が予想される危険な地域を地図上に示したもので、事前に避難経路を確認するために使います。',
         },
         {
           id: 'sci2-jsea-q7',
           question: '夏の終わりから秋にかけて日本付近に停滞する前線を何というか？',
-          options: ['梅雨前線', '秋雨前線', '寒冷前線', '温暖前線'],
-          correctIndex: 1,
+          options: ['梅雨前線', '寒冷前線', '秋雨前線', '温暖前線'],
+          correctIndex: 2,
           explanation:
             '秋雨前線は夏の終わりから秋にかけて日本付近に停滞する前線で、梅雨前線と同じしくみでできます。',
         },

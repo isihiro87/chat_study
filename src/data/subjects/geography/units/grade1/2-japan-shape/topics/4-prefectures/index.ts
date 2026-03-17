@@ -296,10 +296,10 @@ export const prefectures: Topic = {
           options: [
             '1853年（嘉永6年）',
             '1868年（明治元年）',
-            '1871年（明治4年）',
             '1889年（明治22年）',
+            '1871年（明治4年）',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '廃藩置県は1871年（明治4年）に行われました。約300の藩を廃止し、府・県を置いたことで、現在の47都道府県のもとが作られました。',
         },
@@ -308,11 +308,11 @@ export const prefectures: Topic = {
           question: '日本の「2府」にあたるものの組み合わせとして正しいのはどれ？',
           options: [
             '東京府と大阪府',
-            '京都府と大阪府',
             '京都府と神奈川府',
+            '京都府と大阪府',
             '大阪府と兵庫府',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             '日本の2府は京都府と大阪府です。東京は「都」、北海道は「道」、残りの43が「県」で、合わせて1都1道2府43県になります。',
         },
@@ -320,12 +320,12 @@ export const prefectures: Topic = {
           id: 'geo1-pf-q3',
           question: '7地方区分のうち、含まれる県の数が最も多い地方はどれ？',
           options: [
-            '関東地方（1都6県）',
-            '東北地方（6県）',
             '中部地方（9県）',
+            '東北地方（6県）',
+            '関東地方（1都6県）',
             '九州地方（8県）',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             '中部地方は9県（新潟・富山・石川・福井・山梨・長野・岐阜・静岡・愛知）で構成され、7地方区分の中で最も多い県数です。',
         },
@@ -354,12 +354,12 @@ export const prefectures: Topic = {
           id: 'geo1-pf-q6',
           question: '兵庫県の県庁所在地はどこ？',
           options: [
-            '姫路市',
-            '兵庫市',
             '神戸市',
+            '兵庫市',
+            '姫路市',
             '明石市',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             '兵庫県の県庁所在地は神戸市です。幕末に開港された国際貿易港として発展した歴史をもちます。',
         },
@@ -381,11 +381,11 @@ export const prefectures: Topic = {
           question: '埼玉県の県庁所在地の正しい表記はどれ？',
           options: [
             '埼玉市',
-            'さいたま市',
-            '浦和市',
             '大宮市',
+            '浦和市',
+            'さいたま市',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '埼玉県の県庁所在地はひらがなの「さいたま市」です。2001年に浦和市・大宮市・与野市が合併して誕生した、日本で唯一のひらがな表記の県庁所在地です。',
         },
@@ -394,11 +394,11 @@ export const prefectures: Topic = {
           question: '廃藩置県の直後に置かれた府と県の数として正しいものはどれ？',
           options: [
             '1府47県',
-            '2府100県',
             '3府302県',
+            '2府100県',
             '47都道府県',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation:
             '廃藩置県直後は3府302県が置かれました。その後統合が進み、1888年に現在の47都道府県の形になりました。',
         },
@@ -406,12 +406,12 @@ export const prefectures: Topic = {
           id: 'geo1-pf-q10',
           question: '宮城県の県庁所在地が仙台市になった理由として最も適切なものはどれ？',
           options: [
-            '宮城市が存在しなかったから',
-            '人口が最も少ない都市だったから',
             '伊達家の城下町として東北最大の都市だったから',
+            '人口が最も少ない都市だったから',
+            '宮城市が存在しなかったから',
             '明治政府の首都にする予定だったから',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             '仙台は伊達家の城下町として栄えた東北最大の都市であり、政治・経済の中心地だったため県庁所在地に選ばれました。',
         },
@@ -421,10 +421,10 @@ export const prefectures: Topic = {
           options: [
             '広島県',
             '高知県',
-            '山口県',
             '沖縄県',
+            '山口県',
           ],
-          correctIndex: 3,
+          correctIndex: 2,
           explanation:
             '沖縄県は九州地方に含まれます。広島県は中国地方、高知県は四国地方、山口県は中国地方に属します。',
         },

@@ -140,12 +140,12 @@ export const simulEqAppsAdv: Topic = {
           question:
             '5% の食塩水 $x$ g と 10% の食塩水 $y$ g を混ぜて 400g にした。食塩水の量の式は？',
           options: [
-            '$5x + 10y = 400$',
-            '$0.05x + 0.10y = 400$',
             '$x + y = 400$',
+            '$0.05x + 0.10y = 400$',
+            '$5x + 10y = 400$',
             '$x - y = 400$',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             '食塩水の量の合計 $= x + y = 400$。濃度ではなく食塩水そのものの重さを足す。',
         },
@@ -153,8 +153,8 @@ export const simulEqAppsAdv: Topic = {
           id: 'math-g2-apadv-q3',
           question:
             '5% の食塩水 200g に含まれる食塩の量は何 g？',
-          options: ['5 g', '10 g', '20 g', '100 g'],
-          correctIndex: 1,
+          options: ['5 g', '20 g', '10 g', '100 g'],
+          correctIndex: 2,
           explanation:
             '$200 \\times \\dfrac{5}{100} = 200 \\times 0.05 = 10$ g。',
         },
@@ -162,8 +162,8 @@ export const simulEqAppsAdv: Topic = {
           id: 'math-g2-apadv-q4',
           question:
             'サイクリングで行きは時速 15km、帰りは時速 10km。往復 5 時間。片道の距離は？',
-          options: ['20 km', '25 km', '30 km', '35 km'],
-          correctIndex: 2,
+          options: ['20 km', '25 km', '35 km', '30 km'],
+          correctIndex: 3,
           explanation:
             '行き $x$ 時間, 帰り $y$ 時間。$\\begin{cases} x + y = 5 \\\\ 15x = 10y \\end{cases}$。②: $3x = 2y$, $x = 2$, $y = 3$。距離 $= 15 \\times 2 = 30$ km。',
         },
@@ -171,8 +171,8 @@ export const simulEqAppsAdv: Topic = {
           id: 'math-g2-apadv-q5',
           question:
             '6% の食塩水と 12% の食塩水を混ぜて 9% の食塩水 600g を作る。6% は何 g？',
-          options: ['200 g', '250 g', '300 g', '350 g'],
-          correctIndex: 2,
+          options: ['300 g', '250 g', '200 g', '350 g'],
+          correctIndex: 0,
           explanation:
             '$\\begin{cases} x + y = 600 \\\\ 0.06x + 0.12y = 54 \\end{cases}$。②$\\times 100$: $6x + 12y = 5400$。①$\\times 6$: $6x + 6y = 3600$。引くと $6y = 1800$, $y = 300$, $x = 300$。',
         },
@@ -180,8 +180,8 @@ export const simulEqAppsAdv: Topic = {
           id: 'math-g2-apadv-q6',
           question:
             '家から公園まで分速 60m、公園から駅まで分速 80m。合計 18 分で全体 1200m。家→公園は何 m？',
-          options: ['600 m', '660 m', '720 m', '780 m'],
-          correctIndex: 2,
+          options: ['600 m', '660 m', '780 m', '720 m'],
+          correctIndex: 3,
           explanation:
             '$\\begin{cases} x + y = 1200 \\\\ \\dfrac{x}{60} + \\dfrac{y}{80} = 18 \\end{cases}$。②$\\times 240$: $4x + 3y = 4320$。①$\\times 3$: $3x + 3y = 3600$。引くと $x = 720$。',
         },

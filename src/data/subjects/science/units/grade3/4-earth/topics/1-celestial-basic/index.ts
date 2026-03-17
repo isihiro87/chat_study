@@ -252,8 +252,8 @@ export const celestialBasic: Topic = {
         {
           id: 'sci3-celb-q1',
           question: '自ら光を出す天体を何というか。',
-          options: ['惑星', '衛星', '恒星', 'すい星'],
-          correctIndex: 2,
+          options: ['惑星', '恒星', '衛星', 'すい星'],
+          correctIndex: 1,
           explanation:
             '自ら光を出す天体を恒星といいます。太陽は恒星の一つです。',
         },
@@ -261,12 +261,12 @@ export const celestialBasic: Topic = {
           id: 'sci3-celb-q2',
           question: '太陽の表面にある黒い部分が移動することから何がわかるか。',
           options: [
-            '太陽が公転していること',
             '太陽が自転していること',
+            '太陽が公転していること',
             '地球が自転していること',
             '地球が公転していること',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '黒点の位置が日ごとに移動して見えることから、太陽が自転していることがわかります。',
         },
@@ -275,11 +275,11 @@ export const celestialBasic: Topic = {
           question: '地球の自転の向きとして正しいものはどれか。',
           options: [
             '東から西',
-            '西から東',
-            '北から南',
             '南から北',
+            '北から南',
+            '西から東',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '地球は西から東へ自転しています。そのため天体は東から西へ動いて見えます。',
         },
@@ -295,12 +295,12 @@ export const celestialBasic: Topic = {
           id: 'sci3-celb-q5',
           question: '日本で夏至の日に起こることとして正しいものはどれか。',
           options: [
-            '南中高度が最も低くなり、昼が最も短くなる',
             '南中高度が最も高くなり、昼が最も長くなる',
+            '南中高度が最も低くなり、昼が最も短くなる',
             '昼と夜の長さが等しくなる',
             '太陽が真東からのぼり真西にしずむ',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '夏至の日は太陽の南中高度が最も高く、昼の長さが最も長くなります。地軸が23.4度傾いていることが原因です。',
         },

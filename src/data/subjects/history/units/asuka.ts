@@ -243,8 +243,8 @@ export const asuka: Unit = {
         {
           id: 'q1',
           question: '聖徳太子が定めた、役人の心構えを示したものは？',
-          options: ['大宝律令', '大化の改新', '冠位十二階', '十七条の憲法'],
-          correctIndex: 3,
+          options: ['十七条の憲法', '大化の改新', '冠位十二階', '大宝律令'],
+          correctIndex: 0,
           explanation:
             '十七条の憲法は604年に制定され、「和を以て貴しとなす」など役人の心構えが書かれています。',
         },
@@ -276,8 +276,8 @@ export const asuka: Unit = {
         {
           id: 'q5',
           question: '701年に完成した日本初の本格的な法律集は？',
-          options: ['大宝律令', '養老律令', '十七条の憲法', '御成敗式目'],
-          correctIndex: 0,
+          options: ['御成敗式目', '養老律令', '十七条の憲法', '大宝律令'],
+          correctIndex: 3,
           explanation:
             '大宝律令は701年に完成し、これにより日本は本格的な律令国家となりました。',
         },

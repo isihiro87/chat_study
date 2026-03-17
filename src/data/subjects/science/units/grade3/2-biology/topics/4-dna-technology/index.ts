@@ -171,20 +171,20 @@ export const dnaTechnology: Topic = {
           id: 'sci3-dt-q1',
           question: '遺伝子の本体であるDNAの正式名称は？',
           options: [
-            'デオキシリボ核酸',
+            'アミノ酸',
             'リボ核酸',
             'アデノシン三リン酸',
-            'アミノ酸',
+            'デオキシリボ核酸',
           ],
-          correctIndex: 0,
+          correctIndex: 3,
           explanation:
             'DNA＝デオキシリボ核酸（Deoxyribonucleic Acid）で、二重らせん構造をしています。',
         },
         {
           id: 'sci3-dt-q2',
           question: 'DNAが含まれている場所として正しいものは？',
-          options: ['細胞膜', '細胞質', '染色体', 'リボソーム'],
-          correctIndex: 2,
+          options: ['細胞膜', '染色体', '細胞質', 'リボソーム'],
+          correctIndex: 1,
           explanation:
             'DNAは細胞の核の中にある染色体に含まれています。核→染色体→DNAの関係です。',
         },
@@ -201,8 +201,8 @@ export const dnaTechnology: Topic = {
           id: 'sci3-dt-q4',
           question:
             '起源が同じで、同一の遺伝子をもつ個体の集団を何という？',
-          options: ['純系', 'クローン', '変異体', '雑種'],
-          correctIndex: 1,
+          options: ['クローン', '純系', '変異体', '雑種'],
+          correctIndex: 0,
           explanation:
             'クローンとは、起源が同じで同一の遺伝子をもつ個体の集団のことです。',
         },

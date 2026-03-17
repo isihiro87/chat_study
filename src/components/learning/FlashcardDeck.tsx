@@ -4,6 +4,7 @@ import { RotateCcw, Check, ChevronLeft, ChevronRight, Layers, ArrowLeft, ArrowRi
 import { useFlashcard } from '../../hooks/useFlashcard';
 import type { Flashcard } from '../../data/types';
 import { MathText } from '../common/MathText';
+import FlashcardSetup from './FlashcardSetup';
 
 
 interface FlashcardDeckProps {
@@ -13,6 +14,11 @@ interface FlashcardDeckProps {
 }
 
 export function FlashcardDeck({ cards, onProgressChange, onComplete }: FlashcardDeckProps) {
+  // セットアップ状態
+  const [setupComplete, setSetupComplete] = useState(false);
+  const [activeCards, setActiveCards] = useState<Flashcard[]>(cards);
+  const [activeBatchSize, setActiveBatchSize] = useState<number | undefined>(undefined);
+
   const {
     currentIndex,
     currentCard,
@@ -24,6 +30,10 @@ export function FlashcardDeck({ cards, onProgressChange, onComplete }: Flashcard
     reviewCount,
     notRememberedCount,
     sessionHistory,
+    currentBatchIndex,
+    totalBatches,
+    isBatchComplete,
+    nextBatch,
     flip,
     prev,
     next,
@@ -31,7 +41,7 @@ export function FlashcardDeck({ cards, onProgressChange, onComplete }: Flashcard
     resetWithReviewOnly,
     swipeLeft,
     swipeRight,
-  } = useFlashcard(cards);
+  } = useFlashcard(activeCards, activeBatchSize);
 
   // ドラッグ位置を追跡
   const x = useMotionValue(0);
@@ -234,6 +244,49 @@ export function FlashcardDeck({ cards, onProgressChange, onComplete }: Flashcard
     );
   }
 
+  if (!setupComplete) {
+    return (
+      <FlashcardSetup
+        cards={cards}
+        onStart={(filtered, batchSize) => {
+          setActiveCards(filtered);
+          setActiveBatchSize(batchSize >= filtered.length ? undefined : batchSize);
+          setSetupComplete(true);
+        }}
+      />
+    );
+  }
+
+  // バッチ完了画面（次のバッチへの遷移）
+  if (isBatchComplete) {
+    return (
+      <div className="flex h-full flex-col items-center justify-center px-6 pb-14">
+        <div className="w-full max-w-sm rounded-2xl bg-emerald-50 p-6 shadow-sm">
+          <div className="mb-4 flex items-center justify-center">
+            <div className="flex h-16 w-16 items-center justify-center rounded-full bg-emerald-500 shadow-sm">
+              <Check className="h-8 w-8 text-white" />
+            </div>
+          </div>
+
+          <h2 className="mb-2 text-center text-xl font-bold text-gray-800">
+            バッチ {currentBatchIndex + 1}/{totalBatches} 完了！
+          </h2>
+
+          <p className="mb-6 text-center text-sm text-gray-500">
+            次のカードに進もう
+          </p>
+
+          <button
+            onClick={nextBatch}
+            className="w-full rounded-full bg-amber-500 px-6 py-3 font-bold text-white shadow-sm transition-transform active:scale-95"
+          >
+            次の{Math.min(activeBatchSize ?? activeCards.length, activeCards.length - (currentBatchIndex + 1) * (activeBatchSize ?? activeCards.length))}枚へ進む
+          </button>
+        </div>
+      </div>
+    );
+  }
+
   if (!currentCard) {
     return null;
   }
@@ -256,6 +309,15 @@ export function FlashcardDeck({ cards, onProgressChange, onComplete }: Flashcard
           <h2 className="mb-4 text-center text-xl font-bold text-gray-800">
             🎴 カード学習の使い方
           </h2>
+
+          {/* バッチ情報 */}
+          {totalBatches > 1 && (
+            <div className="mb-4 rounded-xl bg-white/80 p-3 text-center shadow-sm">
+              <p className="text-sm font-medium text-amber-700">
+                バッチ {currentBatchIndex + 1}/{totalBatches}
+              </p>
+            </div>
+          )}
 
           <div className="mb-6 space-y-4">
             <div className="flex items-center gap-3 rounded-xl bg-white/80 p-3 shadow-sm">

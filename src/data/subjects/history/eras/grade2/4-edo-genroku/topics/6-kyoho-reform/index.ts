@@ -116,24 +116,24 @@ export const kyohoReform: Topic = {
           id: 'q2',
           question:
             '大名に米を献上させる代わりに参勤交代の江戸滞在を短くした制度は？',
-          options: ['公事方御定書', '目安箱', '倹約令', '上げ米の制'],
-          correctIndex: 3,
+          options: ['公事方御定書', '上げ米の制', '倹約令', '目安箱'],
+          correctIndex: 1,
           explanation:
             '上げ米の制は、幕府の財政難を助ける代わりに、大名の負担を軽くする制度でした。',
         },
         {
           id: 'q3',
           question: '庶民が政治への意見を投書できるように吉宗が設置したものは？',
-          options: ['投書箱', '意見箱', '目安箱', '訴状箱'],
-          correctIndex: 2,
+          options: ['目安箱', '意見箱', '投書箱', '訴状箱'],
+          correctIndex: 0,
           explanation:
             '目安箱への投書から小石川養生所（病院）が作られるなど、実際に政策に反映されました。',
         },
         {
           id: 'q4',
           question: '裁判の基準となる法律を定めたものは？',
-          options: ['禁中並公家諸法度', '武家諸法度', '公事方御定書', '御成敗式目'],
-          correctIndex: 2,
+          options: ['禁中並公家諸法度', '武家諸法度', '御成敗式目', '公事方御定書'],
+          correctIndex: 3,
           explanation:
             '公事方御定書では、盗みの被害額による刑罰の違いなど、具体的な基準が定められました。',
         },
@@ -141,8 +141,8 @@ export const kyohoReform: Topic = {
           id: 'q5',
           question:
             '問屋が農民に道具やお金を貸して家で製品を作らせる仕組みを何という？',
-          options: ['工場制手工業', '座', '株仲間', '問屋制家内工業'],
-          correctIndex: 3,
+          options: ['工場制手工業', '問屋制家内工業', '株仲間', '座'],
+          correctIndex: 1,
           explanation:
             '問屋制家内工業により、農民は農業以外の収入を得られるようになりました。',
         },
@@ -150,12 +150,12 @@ export const kyohoReform: Topic = {
           id: 'q6',
           question: '作業場に人を集めて分業で製品を作る仕組みを何という？',
           options: [
-            '問屋制家内工業',
-            '座',
             '工場制手工業（マニュファクチュア）',
+            '座',
+            '問屋制家内工業',
             '株仲間',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             '工場制手工業（マニュファクチュア）は、分業により効率的に生産できる仕組みです。',
         },

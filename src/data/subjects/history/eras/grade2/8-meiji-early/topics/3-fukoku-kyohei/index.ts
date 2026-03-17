@@ -129,8 +129,8 @@ export const fukokuKyohei: Topic = {
           id: 'q3',
           question:
             '「学問のすゝめ」を著し、学問の重要性を説いた思想家は？',
-          options: ['中江兆民', '板垣退助', '福沢諭吉', '伊藤博文'],
-          correctIndex: 2,
+          options: ['中江兆民', '福沢諭吉', '板垣退助', '伊藤博文'],
+          correctIndex: 1,
           explanation:
             '福沢諭吉は「天は人の上に人を造らず」で知られ、個人の独立と学問の大切さを訴えました。',
         },
@@ -138,8 +138,8 @@ export const fukokuKyohei: Topic = {
           id: 'q4',
           question:
             '欧米の文化や生活様式が急速に広まった風潮を何という？',
-          options: ['富国強兵', '殖産興業', '四民平等', '文明開化'],
-          correctIndex: 3,
+          options: ['文明開化', '殖産興業', '四民平等', '富国強兵'],
+          correctIndex: 0,
           explanation:
             '文明開化ではガス灯、レンガ造りの建物、洋服、牛鍋、太陽暦の採用など、欧米の文化が急速に広まりました。',
         },
@@ -155,8 +155,8 @@ export const fukokuKyohei: Topic = {
         {
           id: 'q6',
           question: '1872年に新橋・横浜間で開通した交通機関は？',
-          options: ['馬車', '路面電車', '鉄道', '蒸気船'],
-          correctIndex: 2,
+          options: ['鉄道', '路面電車', '馬車', '蒸気船'],
+          correctIndex: 0,
           explanation:
             '日本初の鉄道が新橋・横浜間で開通し、殖産興業の象徴となりました。',
         },

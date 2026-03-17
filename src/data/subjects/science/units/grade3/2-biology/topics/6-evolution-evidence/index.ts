@@ -188,8 +188,8 @@ export const evolutionEvidence: Topic = {
         {
           id: 'sci3-ee-q1',
           question: '始祖鳥がもつ鳥類の特徴はどれ？',
-          options: ['くちばしに歯がある', 'つばさに爪がある', '羽毛がある', '尾骨がある'],
-          correctIndex: 2,
+          options: ['くちばしに歯がある', '羽毛がある', 'つばさに爪がある', '尾骨がある'],
+          correctIndex: 1,
           explanation:
             '始祖鳥は鳥類の特徴である羽毛をもちつつ、歯・爪・尾骨というハチュウ類の特徴も併せもっていました。',
         },
@@ -197,8 +197,8 @@ export const evolutionEvidence: Topic = {
           id: 'sci3-ee-q2',
           question:
             'クジラのひれ・ヒトのうで・コウモリの翼のように、形は違うが骨の基本構造が共通の器官を何という？',
-          options: ['相似器官', '退化器官', '相同器官', '適応器官'],
-          correctIndex: 2,
+          options: ['相同器官', '退化器官', '相似器官', '適応器官'],
+          correctIndex: 0,
           explanation:
             '相同器官は形やはたらきは異なりますが骨格の基本構造が共通しており、共通の祖先から進化した証拠です。',
         },
@@ -208,10 +208,10 @@ export const evolutionEvidence: Topic = {
           options: [
             '生物が同じ環境に住んでいること',
             '生物が同じ食べ物を食べること',
-            '生物が共通の祖先から進化したこと',
             '生物が同時に出現したこと',
+            '生物が共通の祖先から進化したこと',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '相同器官は、異なる生物が共通の祖先から進化したことを示す証拠です。形は環境に合わせて変化しましたが、基本構造は共通しています。',
         },
@@ -229,10 +229,10 @@ export const evolutionEvidence: Topic = {
           options: [
             '古生代初期（約5億年前）',
             '古生代末期（約3億年前）',
-            '中生代（約1.5億年前）',
             '新生代（約6500万年前）',
+            '中生代（約1.5億年前）',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '始祖鳥の化石は中生代（約1億5000万年前）の地層から発見されました。',
         },

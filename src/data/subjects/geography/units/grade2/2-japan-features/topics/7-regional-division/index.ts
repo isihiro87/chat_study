@@ -172,8 +172,8 @@ export const regionalDivision: Topic = {
         {
           id: 'geo2-rd-q2',
           question: '地域区分の基準として使えないものはどれ？',
-          options: ['標高', '人口密度', '個人の好み', '産業別就業者数'],
-          correctIndex: 2,
+          options: ['標高', '人口密度', '産業別就業者数', '個人の好み'],
+          correctIndex: 3,
           explanation:
             '地域区分は客観的な基準で行います。個人の好みは客観的な基準ではないため、地域区分の基準としては不適切です。',
         },
@@ -188,16 +188,16 @@ export const regionalDivision: Topic = {
         {
           id: 'geo2-rd-q4',
           question: '同じ中部地方でも日本海側と太平洋側で大きく異なるものは何か？',
-          options: ['面積', '気候', '人口', '県の数'],
-          correctIndex: 1,
+          options: ['気候', '面積', '人口', '県の数'],
+          correctIndex: 0,
           explanation:
             '中部地方は日本海側と太平洋側で気候が大きく異なります。日本海側は冬に大雪が降り、太平洋側は冬に晴天が多いです。',
         },
         {
           id: 'geo2-rd-q5',
           question: '大都市からの移動時間で地域を分ける区分で何がわかるか？',
-          options: ['気温の違い', '交通の便利さの違い', '人口の多さ', '産業の種類'],
-          correctIndex: 1,
+          options: ['気温の違い', '産業の種類', '人口の多さ', '交通の便利さの違い'],
+          correctIndex: 3,
           explanation:
             '移動時間による地域区分では、大都市からの交通の便利さ（アクセスのしやすさ）の違いがわかります。',
         },

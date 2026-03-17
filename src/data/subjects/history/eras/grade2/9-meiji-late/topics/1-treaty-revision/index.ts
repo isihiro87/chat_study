@@ -111,8 +111,8 @@ export const treatyRevision: Topic = {
           id: 'q1',
           question:
             '鹿鳴館で舞踏会を開くなど欧化政策を進めた外務卿は？',
-          options: ['陸奥宗光', '小村寿太郎', '伊藤博文', '井上馨'],
-          correctIndex: 3,
+          options: ['陸奥宗光', '井上馨', '伊藤博文', '小村寿太郎'],
+          correctIndex: 1,
           explanation:
             '井上馨は鹿鳴館で舞踏会を開いて日本の近代化をアピールしましたが、条約改正交渉は失敗しました。',
         },
@@ -123,10 +123,10 @@ export const treatyRevision: Topic = {
           options: [
             '大津事件',
             '生麦事件',
-            'ノルマントン号事件',
             '江華島事件',
+            'ノルマントン号事件',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             'ノルマントン号事件でイギリス人船長が軽い罪で済んだことで、領事裁判権撤廃の世論が高まりました。',
         },
@@ -134,8 +134,8 @@ export const treatyRevision: Topic = {
           id: 'q3',
           question:
             '1894年にイギリスとの交渉に成功し、領事裁判権を撤廃した外務大臣は？',
-          options: ['井上馨', '小村寿太郎', '伊藤博文', '陸奥宗光'],
-          correctIndex: 3,
+          options: ['井上馨', '小村寿太郎', '陸奥宗光', '伊藤博文'],
+          correctIndex: 2,
           explanation:
             '陸奥宗光は日清戦争直前にイギリスとの交渉に成功し、領事裁判権（治外法権）を撤廃しました。',
         },
@@ -143,8 +143,8 @@ export const treatyRevision: Topic = {
           id: 'q4',
           question:
             '1911年に関税自主権の完全回復を達成した外務大臣は？',
-          options: ['陸奥宗光', '小村寿太郎', '井上馨', '大隈重信'],
-          correctIndex: 1,
+          options: ['小村寿太郎', '陸奥宗光', '井上馨', '大隈重信'],
+          correctIndex: 0,
           explanation:
             '小村寿太郎が関税自主権の完全回復を達成し、不平等条約の改正は完了しました。',
         },

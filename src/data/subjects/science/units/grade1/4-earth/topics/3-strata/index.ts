@@ -311,24 +311,24 @@ export const strata: Topic = {
         {
           id: 'sci1-strata-q1',
           question: '流水で運ばれた土砂のうち、河口近くに堆積するのはどれ？',
-          options: ['泥', '砂', 'れき', '火山灰'],
-          correctIndex: 2,
+          options: ['れき', '砂', '泥', '火山灰'],
+          correctIndex: 0,
           explanation:
             'れきは粒が大きく重いため、河口近くに堆積します。砂はその先に、泥はさらに沖合まで運ばれて堆積します。',
         },
         {
           id: 'sci1-strata-q2',
           question: 'うすい塩酸をかけると二酸化炭素が発生する堆積岩はどれ？',
-          options: ['砂岩', 'チャート', '凝灰岩', '石灰岩'],
-          correctIndex: 3,
+          options: ['砂岩', '石灰岩', '凝灰岩', 'チャート'],
+          correctIndex: 1,
           explanation:
             '石灰岩はサンゴや貝など生物の遺骸が固まったもので、うすい塩酸をかけると二酸化炭素が発生します。チャートは放散虫の遺骸からなり、非常に硬いです。',
         },
         {
           id: 'sci1-strata-q3',
           question: 'アンモナイトの化石が見つかった地層の時代はいつ？',
-          options: ['古生代', '中生代', '新生代', '先カンブリア時代'],
-          correctIndex: 1,
+          options: ['古生代', '先カンブリア時代', '新生代', '中生代'],
+          correctIndex: 3,
           explanation:
             'アンモナイトは中生代の示準化石です。古生代は三葉虫、新生代はビカリア（巻き貝）やナウマンゾウが示準化石です。',
         },
@@ -343,16 +343,16 @@ export const strata: Topic = {
         {
           id: 'sci1-strata-q5',
           question: '離れた場所の地層を対比するときに目印となる層は何？',
-          options: ['砂岩の層', '泥岩の層', '凝灰岩の層', 'れき岩の層'],
-          correctIndex: 2,
+          options: ['砂岩の層', '凝灰岩の層', '泥岩の層', 'れき岩の層'],
+          correctIndex: 1,
           explanation:
             '凝灰岩の層（火山灰が固まったもの）は噴火によって広い範囲に同時に積もるため、離れた場所の地層を対比する目印（鍵層）になります。',
         },
         {
           id: 'sci1-strata-q6',
           question: '岩石が気温の変化や雨風でもろくなる現象を何という？',
-          options: ['侵食', '風化', '堆積', '隆起'],
-          correctIndex: 1,
+          options: ['侵食', '堆積', '風化', '隆起'],
+          correctIndex: 2,
           explanation:
             '風化とは、地表の岩石が気温の変化や雨風の影響でもろくなることです。風化した岩石は流水のはたらきで侵食・運搬・堆積されます。',
         },
@@ -367,8 +367,8 @@ export const strata: Topic = {
         {
           id: 'sci1-strata-q8',
           question: 'サンゴの化石は示相化石と示準化石のどちらに分類される？',
-          options: ['示準化石', '示相化石', 'どちらにも分類されない', 'どちらにも分類される'],
-          correctIndex: 1,
+          options: ['示準化石', 'どちらにも分類される', 'どちらにも分類されない', '示相化石'],
+          correctIndex: 3,
           explanation:
             'サンゴは示相化石で、暖かくて浅い海の環境だったことを示します。限られた環境にのみ生息するため環境の推定に役立ちます。',
         },
@@ -383,8 +383,8 @@ export const strata: Topic = {
         {
           id: 'sci1-strata-q10',
           question: '海底が持ち上がって陸地になることを何という？',
-          options: ['沈降', 'しゅう曲', '隆起', '断層'],
-          correctIndex: 2,
+          options: ['沈降', 'しゅう曲', '断層', '隆起'],
+          correctIndex: 3,
           explanation:
             '隆起とは海底が持ち上がって陸地になることです。山の上で海の生物の化石が見つかるのは隆起の証拠です。',
         },
@@ -392,20 +392,20 @@ export const strata: Topic = {
           id: 'sci1-strata-q11',
           question: '示準化石として適した条件はどれ？',
           options: [
-            '限られた環境にのみ生息した',
             '広い範囲に分布し、短い期間で絶滅した',
+            '限られた環境にのみ生息した',
             '現在も生きている',
             '深海にだけ生息していた',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '示準化石は広い範囲（地域）に分布し、短い期間で絶滅した生物の化石が適しています。これにより、どの時代の地層かを特定できます。',
         },
         {
           id: 'sci1-strata-q12',
           question: '次のうち、新生代の示準化石はどれ？',
-          options: ['三葉虫', 'アンモナイト', 'ビカリア', 'フズリナ'],
-          correctIndex: 2,
+          options: ['三葉虫', 'ビカリア', 'アンモナイト', 'フズリナ'],
+          correctIndex: 1,
           explanation:
             'ビカリア（巻き貝）は新生代の示準化石です。三葉虫とフズリナは古生代、アンモナイトは中生代の示準化石です。',
         },

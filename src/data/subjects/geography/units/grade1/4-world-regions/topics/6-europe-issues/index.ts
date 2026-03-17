@@ -66,8 +66,8 @@ export const europeIssues: Topic = {
         {
           id: 'geo1-eu3-q1',
           question: '2020年にEUを離脱した国はどこか？',
-          options: ['フランス', 'ドイツ', 'イタリア', 'イギリス'],
-          correctIndex: 3,
+          options: ['フランス', 'ドイツ', 'イギリス', 'イタリア'],
+          correctIndex: 2,
           explanation:
             'イギリスは2020年にEUを離脱しました。この出来事はブレグジット（Brexit）と呼ばれています。',
         },
@@ -75,8 +75,8 @@ export const europeIssues: Topic = {
           id: 'geo1-eu3-q2',
           question:
             'ロシアのシベリア地方に広がる広大な針葉樹林を何と呼ぶか？',
-          options: ['サバナ', 'タイガ', 'ツンドラ', 'セルバ'],
-          correctIndex: 1,
+          options: ['タイガ', 'サバナ', 'ツンドラ', 'セルバ'],
+          correctIndex: 0,
           explanation:
             'タイガは、ロシアのシベリア地方などの亜寒帯に広がる広大な針葉樹林です。二酸化炭素を吸収する「地球の肺」としての役割も果たしています。',
         },

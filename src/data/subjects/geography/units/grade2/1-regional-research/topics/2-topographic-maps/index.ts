@@ -209,8 +209,8 @@ export const topographicMaps: Topic = {
         {
           id: 'geo2-tm-q1',
           question: '2万5千分の1地形図で地図上の4cmは、実際の距離では何mか？',
-          options: ['100m', '250m', '500m', '1000m'],
-          correctIndex: 3,
+          options: ['100m', '1000m', '500m', '250m'],
+          correctIndex: 1,
           explanation:
             '4cm × 25,000 = 100,000cm = 1,000m（1km）です。地図上の距離に縮尺の分母（25,000）をかけて計算します。',
         },
@@ -219,27 +219,27 @@ export const topographicMaps: Topic = {
           question: '等高線の間隔がせまい場所の地形として正しいものはどれ？',
           options: [
             'ゆるやかな平地',
-            '急な傾斜の斜面',
             '広い河川',
+            '急な傾斜の斜面',
             '低い台地',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             '等高線の間隔がせまい場所は、短い距離で高さが大きく変わるため、急な傾斜の斜面であることを表しています。',
         },
         {
           id: 'geo2-tm-q3',
           question: '2万5千分の1地形図で、計曲線（太い等高線）は何mごとに引かれる？',
-          options: ['10m', '20m', '50m', '100m'],
-          correctIndex: 2,
+          options: ['10m', '20m', '100m', '50m'],
+          correctIndex: 3,
           explanation:
             '2万5千分の1地形図では、通常の等高線（主曲線）は10mごと、計曲線（太い線）は50mごとに引かれます。',
         },
         {
           id: 'geo2-tm-q4',
           question: '等高線が低い方に突き出している地形を何というか？',
-          options: ['谷', '尾根', '峠', '盆地'],
-          correctIndex: 1,
+          options: ['尾根', '谷', '峠', '盆地'],
+          correctIndex: 0,
           explanation:
             '等高線が低い方に突き出している部分を「尾根」といいます。逆に、等高線が高い方に入り込んでいる部分を「谷」といいます。',
         },

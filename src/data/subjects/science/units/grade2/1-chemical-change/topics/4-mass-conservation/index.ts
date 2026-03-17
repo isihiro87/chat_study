@@ -254,16 +254,16 @@ export const massConservation: Topic = {
         {
           id: 'sci2-mcon-q2',
           question: '銅4gを完全に酸化させると酸化銅は何gできる？（銅:酸素=4:1）',
-          options: ['4g', '4.5g', '5g', '8g'],
-          correctIndex: 2,
+          options: ['4g', '5g', '4.5g', '8g'],
+          correctIndex: 1,
           explanation:
             '銅:酸素=4:1なので、銅4gに酸素1gが結びつきます。酸化銅は4+1=5gです。',
         },
         {
           id: 'sci2-mcon-q3',
           question: 'マグネシウム6gを完全に酸化させるには酸素は何g必要？（Mg:酸素=3:2）',
-          options: ['2g', '3g', '4g', '6g'],
-          correctIndex: 2,
+          options: ['2g', '3g', '6g', '4g'],
+          correctIndex: 3,
           explanation:
             'Mg:酸素=3:2なので、Mg6gに必要な酸素は6×2/3=4gです。',
         },
@@ -271,28 +271,28 @@ export const massConservation: Topic = {
           id: 'sci2-mcon-q4',
           question: '開放容器で炭酸水素ナトリウムと塩酸を混ぜると質量が減ったように見えるのはなぜ？',
           options: [
-            '原子がなくなったから',
             '発生した気体が逃げたから',
+            '原子がなくなったから',
             '質量保存の法則が成り立たないから',
             '水が蒸発したから',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '発生した二酸化炭素が空気中に逃げたため、見かけ上の質量が減りました。密閉容器なら質量は保存されます。',
         },
         {
           id: 'sci2-mcon-q5',
           question: '銅8gと酸素3gを反応させると、反応せずに残る酸素は何g？（銅:酸素=4:1）',
-          options: ['0g', '0.5g', '1g', '2g'],
-          correctIndex: 2,
+          options: ['1g', '0.5g', '0g', '2g'],
+          correctIndex: 0,
           explanation:
             '銅:酸素=4:1なので、銅8gに結びつく酸素は8÷4=2g。酸素3gのうち2gが反応し、残りの1gは余ります。',
         },
         {
           id: 'sci2-mcon-q6',
           question: '銅0.8gと結びつく酸素の質量は何g？（銅:酸素=4:1）',
-          options: ['0.1g', '0.2g', '0.4g', '0.8g'],
-          correctIndex: 1,
+          options: ['0.1g', '0.4g', '0.2g', '0.8g'],
+          correctIndex: 2,
           explanation: '銅:酸素=4:1なので、0.8÷4=0.2g。銅0.8gに酸素0.2gが結びつきます。',
         },
         {
@@ -307,18 +307,18 @@ export const massConservation: Topic = {
           question: '銅の粉末を何度も加熱すると、質量はどうなる？',
           options: [
             '加熱するたびに増え続ける',
-            'はじめは増えるが、やがて一定になる',
-            '変わらない',
             '加熱するたびに減る',
+            '変わらない',
+            'はじめは増えるが、やがて一定になる',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation: 'はじめは酸素が結びつく分だけ増えますが、すべての銅が酸化されると一定になります。',
         },
         {
           id: 'sci2-mcon-q9',
           question: '鉄7gと硫黄4gが過不足なく反応すると硫化鉄は何gできる？',
-          options: ['3g', '7g', '11g', '28g'],
-          correctIndex: 2,
+          options: ['11g', '7g', '3g', '28g'],
+          correctIndex: 0,
           explanation: '質量保存の法則より、硫化鉄=7+4=11g。鉄:硫黄=7:4の比で過不足なく反応します。',
         },
         {
@@ -326,11 +326,11 @@ export const massConservation: Topic = {
           question: '密閉容器と開放容器で気体が発生する反応をすると、質量保存を確認できるのは？',
           options: [
             '開放容器のみ',
-            '密閉容器のみ',
-            'どちらでも確認できる',
             'どちらでも確認できない',
+            'どちらでも確認できる',
+            '密閉容器のみ',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation: '密閉容器なら気体が逃げないので質量保存を直接確認できます。開放容器では気体が逃げて見かけ上減ります。',
         },
         {
@@ -343,8 +343,8 @@ export const massConservation: Topic = {
         {
           id: 'sci2-mcon-q12',
           question: 'マグネシウム9gと酸素8gを反応させると余る酸素は何g？（Mg:酸素=3:2）',
-          options: ['0g', '1g', '2g', '3g'],
-          correctIndex: 2,
+          options: ['0g', '2g', '1g', '3g'],
+          correctIndex: 1,
           explanation: 'Mg:O=3:2よりMg9gに必要な酸素=9×2/3=6g。酸素8gのうち6gが反応し2g余る。',
         },
       ],

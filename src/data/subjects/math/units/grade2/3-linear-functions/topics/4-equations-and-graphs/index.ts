@@ -150,11 +150,11 @@ export const equationsAndGraphs: Topic = {
           question: '$2x + y = 4$ を $y =$ の形に変形すると？',
           options: [
             '$y = 2x + 4$',
-            '$y = -2x + 4$',
-            '$y = 2x - 4$',
             '$y = -2x - 4$',
+            '$y = 2x - 4$',
+            '$y = -2x + 4$',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '$2x + y = 4 \\rightarrow y = -2x + 4$。$y$ 以外の項を右辺に移項するよ。',
         },
@@ -163,11 +163,11 @@ export const equationsAndGraphs: Topic = {
           question: '$y = 3$ のグラフはどんな直線？',
           options: [
             '原点を通る直線',
-            '$x$ 軸に平行な横の直線',
             '$y$ 軸に平行な縦の直線',
+            '$x$ 軸に平行な横の直線',
             '傾き $3$ の直線',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             '$y = 3$ は「$y$ がいつでも $3$」なので、$x$ 軸に平行な横の直線だよ。',
         },
@@ -184,12 +184,12 @@ export const equationsAndGraphs: Topic = {
           id: 'math-g2-eq-and-graphs-q4',
           question: '$3x - y = 9$ を $y =$ の形に変形すると？',
           options: [
-            '$y = 3x + 9$',
-            '$y = -3x + 9$',
             '$y = 3x - 9$',
+            '$y = -3x + 9$',
+            '$y = 3x + 9$',
             '$y = -3x - 9$',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             '$3x - y = 9 \\rightarrow -y = -3x + 9 \\rightarrow y = 3x - 9$。両辺に $-1$ をかけるよ。',
         },
@@ -210,8 +210,8 @@ export const equationsAndGraphs: Topic = {
           id: 'math-g2-eq-and-graphs-q6',
           question:
             '$4x + 2y = 8$ で $x = 0$ のときの $y$ の値は？',
-          options: ['$2$', '$4$', '$6$', '$8$'],
-          correctIndex: 1,
+          options: ['$2$', '$6$', '$4$', '$8$'],
+          correctIndex: 2,
           explanation:
             '$x = 0$ を代入すると $2y = 8$、$y = 4$。グラフは点 $(0, 4)$ を通るよ。',
         },
@@ -219,8 +219,8 @@ export const equationsAndGraphs: Topic = {
           id: 'math-g2-eq-and-graphs-q7',
           question:
             '$y = 2x - 3$ と $y = -x + 6$ の交点の座標は？',
-          options: ['$(2, 1)$', '$(3, 3)$', '$(4, 5)$', '$(1, -1)$'],
-          correctIndex: 1,
+          options: ['$(2, 1)$', '$(1, -1)$', '$(4, 5)$', '$(3, 3)$'],
+          correctIndex: 3,
           explanation:
             '$2x - 3 = -x + 6 \\rightarrow 3x = 9 \\rightarrow x = 3$。$y = 2 \\times 3 - 3 = 3$。交点は $(3, 3)$。',
         },
@@ -228,12 +228,12 @@ export const equationsAndGraphs: Topic = {
           id: 'math-g2-eq-and-graphs-q8',
           question: '2直線が平行なとき、連立方程式の解はどうなる？',
           options: [
-            '解が1つある',
-            '解が2つある',
             '解がない',
+            '解が2つある',
+            '解が1つある',
             '解が無限にある',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             '平行な2直線は交わらないので交点がない。つまり連立方程式の解は存在しないよ。',
         },
@@ -252,11 +252,11 @@ export const equationsAndGraphs: Topic = {
             '三角形の面積を2等分する直線は何を通る？',
           options: [
             '三角形の重心',
-            '1つの頂点と対辺の中点',
             '三角形の外心',
+            '1つの頂点と対辺の中点',
             '辺の3等分点',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             '三角形の面積を2等分するには、1つの頂点とその対辺の中点を通る直線を引くよ。',
         },
@@ -265,12 +265,12 @@ export const equationsAndGraphs: Topic = {
           question:
             '$2y - 10 = 0$ のグラフはどんな直線？',
           options: [
-            '$y$ 軸に平行な縦の直線',
             '$x$ 軸に平行で $y = 5$ の横の直線',
+            '$y$ 軸に平行な縦の直線',
             '$x$ 軸に平行で $y = 10$ の横の直線',
             '傾き $2$ の直線',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '$2y - 10 = 0 \\rightarrow 2y = 10 \\rightarrow y = 5$。$x$ 軸に平行な横の直線だよ。',
         },
@@ -278,8 +278,8 @@ export const equationsAndGraphs: Topic = {
           id: 'math-g2-eq-and-graphs-q12',
           question:
             '2点 $(2, 6)$ と $(8, 0)$ の中点の座標は？',
-          options: ['$(4, 3)$', '$(5, 3)$', '$(6, 3)$', '$(5, 4)$'],
-          correctIndex: 1,
+          options: ['$(4, 3)$', '$(5, 4)$', '$(6, 3)$', '$(5, 3)$'],
+          correctIndex: 3,
           explanation:
             '中点 $= \\left(\\frac{2+8}{2}, \\frac{6+0}{2}\\right) = (5, 3)$。',
         },

@@ -156,56 +156,56 @@ export const monomialMulDiv: Topic = {
         {
           id: 'math-g2-mono-mul-div-q1',
           question: '$4x^2 \\times 3x$ の計算結果は？',
-          options: ['$7x^3$', '$12x^2$', '$12x^3$', '$7x^2$'],
-          correctIndex: 2,
+          options: ['$7x^3$', '$12x^3$', '$12x^2$', '$7x^2$'],
+          correctIndex: 1,
           explanation:
             '係数: $4 \\times 3 = 12$、文字: $x^2 \\times x = x^3$。答えは $12x^3$ だよ。',
         },
         {
           id: 'math-g2-mono-mul-div-q2',
           question: '$12a^3b \\div 4ab$ の計算結果は？',
-          options: ['$3a^2$', '$3a^2b$', '$3ab$', '$8a^2$'],
-          correctIndex: 0,
+          options: ['$8a^2$', '$3a^2b$', '$3ab$', '$3a^2$'],
+          correctIndex: 3,
           explanation:
             '係数: $12 \\div 4 = 3$、文字: $\\frac{a^3}{a} = a^2$, $\\frac{b}{b} = 1$。答えは $3a^2$ だよ。',
         },
         {
           id: 'math-g2-mono-mul-div-q3',
           question: '$(-2x)^3$ の計算結果は？',
-          options: ['$-6x^3$', '$-8x^3$', '$8x^3$', '$6x^3$'],
-          correctIndex: 1,
+          options: ['$-6x^3$', '$8x^3$', '$-8x^3$', '$6x^3$'],
+          correctIndex: 2,
           explanation:
             '$(-2)^3 = -8$、$x^3$ はそのまま。答えは $-8x^3$。マイナスの奇数乗はマイナスになるよ！',
         },
         {
           id: 'math-g2-mmd-q4',
           question: '$(-9x)^2$ の計算結果は？',
-          options: ['$-81x^2$', '$81x^2$', '$-18x^2$', '$18x^2$'],
-          correctIndex: 1,
+          options: ['$81x^2$', '$-81x^2$', '$-18x^2$', '$18x^2$'],
+          correctIndex: 0,
           explanation:
             '$(-9)^2 = 81$（偶数乗なので正になる）。答えは $81x^2$。',
         },
         {
           id: 'math-g2-mmd-q5',
           question: '$-(-5a)^2$ の計算結果は？',
-          options: ['$25a^2$', '$-25a^2$', '$10a^2$', '$-10a^2$'],
-          correctIndex: 1,
+          options: ['$25a^2$', '$10a^2$', '$-25a^2$', '$-10a^2$'],
+          correctIndex: 2,
           explanation:
             'まず $(-5a)^2 = 25a^2$（偶数乗で正）。前のマイナスをつけて $-25a^2$ だよ。',
         },
         {
           id: 'math-g2-mmd-q6',
           question: '$7ab \\div \\frac{1}{3}a$ の計算結果は？',
-          options: ['$\\frac{7}{3}b$', '$21b$', '$\\frac{7b}{3a}$', '$21ab$'],
-          correctIndex: 1,
+          options: ['$\\frac{7}{3}b$', '$21ab$', '$\\frac{7b}{3a}$', '$21b$'],
+          correctIndex: 3,
           explanation:
             '分数で割る → 逆数をかける。$7ab \\times \\frac{3}{a} = 21b$。',
         },
         {
           id: 'math-g2-mmd-q7',
           question: '$(-6xy) \\times 8x \\div (-2y)$ の計算結果は？',
-          options: ['$-24x^2$', '$24x^2$', '$-24xy$', '$24xy$'],
-          correctIndex: 1,
+          options: ['$24x^2$', '$-24x^2$', '$-24xy$', '$24xy$'],
+          correctIndex: 0,
           explanation:
             '$\\frac{(-6xy) \\times 8x}{-2y} = \\frac{-48x^2y}{-2y} = 24x^2$。マイナス÷マイナスで正になるよ。',
         },
@@ -220,16 +220,16 @@ export const monomialMulDiv: Topic = {
         {
           id: 'math-g2-mmd-q9',
           question: '$15a^2b \\div 3a \\div (-5b)$ の計算結果は？',
-          options: ['$a$', '$-a$', '$ab$', '$-ab$'],
-          correctIndex: 1,
+          options: ['$a$', '$ab$', '$-a$', '$-ab$'],
+          correctIndex: 2,
           explanation:
             '$\\frac{15a^2b}{3a \\times (-5b)} = \\frac{15a^2b}{-15ab} = -a$。',
         },
         {
           id: 'math-g2-mmd-q10',
           question: '$3a \\times (-4a)^2$ の計算結果は？',
-          options: ['$-48a^3$', '$48a^3$', '$-12a^3$', '$12a^2$'],
-          correctIndex: 1,
+          options: ['$-48a^3$', '$12a^2$', '$-12a^3$', '$48a^3$'],
+          correctIndex: 3,
           explanation:
             'まず $(-4a)^2 = 16a^2$（偶数乗で正）。次に $3a \\times 16a^2 = 48a^3$。',
         },

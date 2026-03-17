@@ -154,12 +154,12 @@ export const independence: Topic = {
           question:
             '朝鮮戦争によって日本経済が潤ったことを何という？',
           options: [
-            'バブル景気',
-            '高度経済成長',
             '特需景気',
+            '高度経済成長',
+            'バブル景気',
             '神武景気',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             '朝鮮戦争でアメリカ軍の軍需物資を日本企業が受注し、経済復興のきっかけとなりました。',
         },
@@ -170,10 +170,10 @@ export const independence: Topic = {
           options: [
             '自由民権運動',
             '大正デモクラシー',
-            '米騒動',
             '安保闘争',
+            '米騒動',
           ],
-          correctIndex: 3,
+          correctIndex: 2,
           explanation:
             '1960年に岸信介首相のもとで安保条約改定に反対する安保闘争が起こりました。',
         },
@@ -197,11 +197,11 @@ export const independence: Topic = {
             '1954年にアメリカの水爆実験で被ばくし、反核運動のきっかけとなった漁船は？',
           options: [
             '大和丸',
-            '第五福竜丸',
-            '咸臨丸',
             '開陽丸',
+            '咸臨丸',
+            '第五福竜丸',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '第五福竜丸はビキニ環礁でのアメリカの水爆実験により被ばくし、日本での反核運動のきっかけとなりました。',
         },
@@ -210,12 +210,12 @@ export const independence: Topic = {
           question:
             '1956年にソ連との国交を回復し、日本の国連加盟を実現させた宣言は？',
           options: [
-            'ポツダム宣言',
-            'サンフランシスコ平和条約',
             '日ソ共同宣言',
+            'サンフランシスコ平和条約',
+            'ポツダム宣言',
             '日中共同声明',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             '日ソ共同宣言によりソ連との国交が回復し、ソ連が日本の国連加盟を支持することで国際連合加盟が実現しました。',
         },

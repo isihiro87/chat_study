@@ -283,11 +283,11 @@ export const earthShape: Topic = {
           question: '地球の表面における陸地と海洋の割合として正しいものはどれ？',
           options: [
             '陸地が約5割、海洋が約5割',
-            '陸地が約3割、海洋が約7割',
-            '陸地が約7割、海洋が約3割',
             '陸地が約1割、海洋が約9割',
+            '陸地が約7割、海洋が約3割',
+            '陸地が約3割、海洋が約7割',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '地球の表面は陸地が約3割（約29%）、海洋が約7割（約71%）です。海洋の方がはるかに大きな面積を占めています。',
         },
@@ -296,19 +296,19 @@ export const earthShape: Topic = {
           question: '六つの大陸のうち、最も面積が大きいのはどれ？',
           options: [
             'アフリカ大陸',
-            '北アメリカ大陸',
             'ユーラシア大陸',
+            '北アメリカ大陸',
             '南極大陸',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation:
             'ユーラシア大陸は世界で最も大きい大陸で、世界の陸地面積の約3分の1を占めています。アジアとヨーロッパにまたがります。',
         },
         {
           id: 'geo1-es-q3',
           question: '三つの大洋のうち、最も面積が広いのはどれ？',
-          options: ['大西洋', 'インド洋', '北極海', '太平洋'],
-          correctIndex: 3,
+          options: ['太平洋', 'インド洋', '北極海', '大西洋'],
+          correctIndex: 0,
           explanation:
             '太平洋は三大洋の中で最も広く、地球の表面積の約3分の1を占めています。北極海は大洋には含まれません。',
         },
@@ -357,10 +357,10 @@ export const earthShape: Topic = {
           options: [
             '東南アジア',
             '南アジア',
-            '東アジア',
             '西アジア',
+            '東アジア',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '日本は東アジアに含まれます。東アジアには中国・韓国・モンゴルなども含まれます。',
         },
@@ -368,12 +368,12 @@ export const earthShape: Topic = {
           id: 'geo1-es-q8',
           question: '南極大陸はどの州に属する？',
           options: [
-            'オセアニア州',
+            'いずれの州にも属さない',
             '南アメリカ州',
             'アジア州',
-            'いずれの州にも属さない',
+            'オセアニア州',
           ],
-          correctIndex: 3,
+          correctIndex: 0,
           explanation:
             '南極大陸は1年じゅう氷におおわれ、定住する住民がおらず国もないため、いずれの州にも区分されていません。',
         },
@@ -382,11 +382,11 @@ export const earthShape: Topic = {
           question: '1年じゅう氷におおわれている大陸はどれ？',
           options: [
             'オーストラリア大陸',
-            'ユーラシア大陸',
-            'アフリカ大陸',
             '南極大陸',
+            'アフリカ大陸',
+            'ユーラシア大陸',
           ],
-          correctIndex: 3,
+          correctIndex: 1,
           explanation:
             '南極大陸は南極点を含み、1年じゅう氷におおわれた大陸です。',
         },
@@ -394,12 +394,12 @@ export const earthShape: Topic = {
           id: 'geo1-es-q10',
           question: 'アジア州の地域区分として正しくないものはどれ？',
           options: [
-            '東アジア',
             '北アジア',
+            '東アジア',
             '西アジア',
             '中央アジア',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             'アジア州の地域区分は東アジア・東南アジア・南アジア・西アジア・中央アジアの5つです。「北アジア」は一般的な区分名ではありません。',
         },

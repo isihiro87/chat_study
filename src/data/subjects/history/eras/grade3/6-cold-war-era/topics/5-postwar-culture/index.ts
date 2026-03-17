@@ -105,12 +105,12 @@ export const postwarCulture: Topic = {
           question:
             '「漫画の神様」と呼ばれ、「鉄腕アトム」を描いた人物は？',
           options: [
-            '手塚治虫',
+            '川端康成',
             '黒澤明',
             '湯川秀樹',
-            '川端康成',
+            '手塚治虫',
           ],
-          correctIndex: 0,
+          correctIndex: 3,
           explanation:
             '手塚治虫は「鉄腕アトム」をはじめ多くの名作を生み出し、日本の漫画・アニメ文化の基礎を築きました。',
         },
@@ -135,10 +135,10 @@ export const postwarCulture: Topic = {
           options: [
             '夏目漱石',
             '芥川龍之介',
-            '三島由紀夫',
             '川端康成',
+            '三島由紀夫',
           ],
-          correctIndex: 3,
+          correctIndex: 2,
           explanation:
             '川端康成は「雪国」「伊豆の踊子」などの作品で知られ、1968年にノーベル文学賞を受賞しました。',
         },
@@ -147,12 +147,12 @@ export const postwarCulture: Topic = {
           question:
             '日本でテレビ放送が始まったのは何年？',
           options: [
-            '1949年',
             '1953年',
+            '1949年',
             '1960年',
             '1964年',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '1953年にNHKと日本テレビがテレビ放送を開始し、テレビは戦後最大の娯楽メディアとなりました。',
         },
@@ -176,11 +176,11 @@ export const postwarCulture: Topic = {
             '1954年に公開された、核の恐怖を描いた日本の怪獣映画は？',
           options: [
             'モスラ',
-            'ウルトラマン',
-            '鉄腕アトム',
             'ゴジラ',
+            '鉄腕アトム',
+            'ウルトラマン',
           ],
-          correctIndex: 3,
+          correctIndex: 1,
           explanation:
             'ゴジラは第五福竜丸事件を背景に核の恐怖を描いた映画で、世界中で人気を集めました。',
         },

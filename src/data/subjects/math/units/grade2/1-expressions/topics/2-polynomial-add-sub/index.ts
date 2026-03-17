@@ -160,16 +160,16 @@ export const polynomialAddSub: Topic = {
         {
           id: 'math-g2-poly-add-sub-q1',
           question: '$(3x + 2y) + (5x - 3y)$ の計算結果は？',
-          options: ['$8x + 5y$', '$8x - y$', '$8x - 5y$', '$2x + 5y$'],
-          correctIndex: 1,
+          options: ['$8x + 5y$', '$8x - 5y$', '$8x - y$', '$2x + 5y$'],
+          correctIndex: 2,
           explanation:
             '$x$ の項: $3x + 5x = 8x$、$y$ の項: $2y + (-3y) = -y$。だから答えは $8x - y$ だよ。',
         },
         {
           id: 'math-g2-poly-add-sub-q2',
           question: '$(4a - 3b) - (2a - 5b)$ の計算結果は？',
-          options: ['$2a - 8b$', '$6a + 2b$', '$2a + 2b$', '$2a - 2b$'],
-          correctIndex: 2,
+          options: ['$2a + 2b$', '$6a + 2b$', '$2a - 8b$', '$2a - 2b$'],
+          correctIndex: 0,
           explanation:
             'かっこを外すと $4a - 3b - 2a + 5b$。同類項をまとめて $2a + 2b$ だよ。引き算のかっこは符号が変わるのがポイント！',
         },
@@ -178,35 +178,35 @@ export const polynomialAddSub: Topic = {
           question: '$-(2x^2 - 4x + 1)$ を展開すると？',
           options: [
             '$2x^2 - 4x + 1$',
-            '$-2x^2 - 4x + 1$',
             '$-2x^2 + 4x - 1$',
+            '$-2x^2 - 4x + 1$',
             '$-2x^2 + 4x + 1$',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation:
             'かっこの前が「$-$」なので全部の符号が反転！ $2x^2 \\rightarrow -2x^2$, $-4x \\rightarrow +4x$, $+1 \\rightarrow -1$ だよ。',
         },
         {
           id: 'math-g2-pas-q4',
           question: '$2(3x - 7y)$ の計算結果は？',
-          options: ['$6x - 7y$', '$6x - 14y$', '$5x - 9y$', '$6x + 14y$'],
-          correctIndex: 1,
+          options: ['$6x - 7y$', '$6x + 14y$', '$5x - 9y$', '$6x - 14y$'],
+          correctIndex: 3,
           explanation:
             '分配法則で各項に $2$ をかけるよ。$2 \\times 3x = 6x$, $2 \\times (-7y) = -14y$ だから $6x - 14y$ だね。',
         },
         {
           id: 'math-g2-pas-q5',
           question: '$(24a - 15b) \\div (-3)$ の計算結果は？',
-          options: ['$-8a - 5b$', '$8a - 5b$', '$-8a + 5b$', '$8a + 5b$'],
-          correctIndex: 2,
+          options: ['$-8a + 5b$', '$8a - 5b$', '$-8a - 5b$', '$8a + 5b$'],
+          correctIndex: 0,
           explanation:
             '各項を $-3$ で割るよ。$24a \\div (-3) = -8a$, $-15b \\div (-3) = 5b$ だから $-8a + 5b$ だよ。',
         },
         {
           id: 'math-g2-pas-q6',
           question: '$3(7a - 2b) - 5(4a - b)$ の計算結果は？',
-          options: ['$a + 3b$', '$a - b$', '$-a - b$', '$a - 11b$'],
-          correctIndex: 1,
+          options: ['$a + 3b$', '$-a - b$', '$a - b$', '$a - 11b$'],
+          correctIndex: 2,
           explanation:
             '$21a - 6b - 20a + 5b = a - b$ だよ。$-5 \\times (-b) = +5b$ に注意！',
         },
@@ -214,12 +214,12 @@ export const polynomialAddSub: Topic = {
           id: 'math-g2-pas-q7',
           question: '$\\frac{3x - y}{2} - \\frac{3x - 2y}{3}$ の計算結果は？',
           options: [
-            '$\\frac{3x + y}{6}$',
             '$\\frac{3x - y}{6}$',
+            '$\\frac{3x + y}{6}$',
             '$\\frac{3x - 5y}{6}$',
             '$\\frac{3x + 5y}{6}$',
           ],
-          correctIndex: 0,
+          correctIndex: 1,
           explanation:
             '通分して $\\frac{3(3x-y) - 2(3x-2y)}{6} = \\frac{9x - 3y - 6x + 4y}{6} = \\frac{3x + y}{6}$ だよ。',
         },
@@ -228,11 +228,11 @@ export const polynomialAddSub: Topic = {
           question: '$(-x + 2y) \\div \\frac{1}{5}$ の計算結果は？',
           options: [
             '$-\\frac{x}{5} + \\frac{2y}{5}$',
-            '$-5x + 10y$',
-            '$5x - 10y$',
             '$-5x - 10y$',
+            '$5x - 10y$',
+            '$-5x + 10y$',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '$\\div \\frac{1}{5}$ は $\\times 5$ と同じ！$(-x) \\times 5 = -5x$, $2y \\times 5 = 10y$ だから $-5x + 10y$ だよ。',
         },
@@ -240,8 +240,8 @@ export const polynomialAddSub: Topic = {
           id: 'math-g2-pas-q9',
           question:
             '$x = 4, y = -3$ のとき、$(3x - 4y) - (2x - 5y)$ の値は？',
-          options: ['$1$', '$-1$', '$7$', '$-7$'],
-          correctIndex: 0,
+          options: ['$7$', '$-1$', '$1$', '$-7$'],
+          correctIndex: 2,
           explanation:
             'まず式を簡単にするよ。$3x - 4y - 2x + 5y = x + y$。$x + y = 4 + (-3) = 1$ だね。先に簡単にすると楽！',
         },
@@ -251,10 +251,10 @@ export const polynomialAddSub: Topic = {
           options: [
             '$-5a + 20b$',
             '$5a + 20b$',
-            '$5a - 20b$',
             '$-5a - 20b$',
+            '$5a - 20b$',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '$-5 \\times (-a) = 5a$, $-5 \\times 4b = -20b$ だよ。マイナス×マイナスはプラスになるのがポイント！',
         },

@@ -112,11 +112,11 @@ export const ww2Outbreak: Topic = {
           question: '第二次世界大戦が始まったきっかけは？',
           options: [
             'サラエボ事件',
-            '真珠湾攻撃',
-            '満州事変',
             'ドイツのポーランド侵攻',
+            '満州事変',
+            '真珠湾攻撃',
           ],
-          correctIndex: 3,
+          correctIndex: 1,
           explanation:
             '1939年にドイツがポーランドに侵攻したことが第二次世界大戦の始まりです。',
         },
@@ -124,12 +124,12 @@ export const ww2Outbreak: Topic = {
           id: 'q2',
           question: '日独伊三国同盟で日本と同盟を結んだ国の組み合わせは？',
           options: [
-            'ドイツ・イタリア',
-            'ドイツ・イギリス',
             'イタリア・フランス',
+            'ドイツ・イギリス',
+            'ドイツ・イタリア',
             'ドイツ・ソ連',
           ],
-          correctIndex: 0,
+          correctIndex: 2,
           explanation:
             '1940年に日本はドイツ・イタリアと三国同盟を結び、枢軸国を形成しました。',
         },

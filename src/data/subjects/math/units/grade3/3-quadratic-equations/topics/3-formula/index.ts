@@ -163,12 +163,12 @@ export const quadFormula: Topic = {
           id: 'math-g3-qf-q1',
           question: '$x^2 + 6x$ を平方完成すると？',
           options: [
-            '$(x+3)^2 - 9$',
+            '$(x+6)^2 - 6$',
             '$(x+6)^2 - 36$',
             '$(x+3)^2 + 9$',
-            '$(x+6)^2 - 6$',
+            '$(x+3)^2 - 9$',
           ],
-          correctIndex: 0,
+          correctIndex: 3,
           explanation:
             '$x^2 + 6x = (x+3)^2 - 9$。$b$ の半分 $= 3$、$3^2 = 9$ を引くよ。',
         },
@@ -176,20 +176,20 @@ export const quadFormula: Topic = {
           id: 'math-g3-qf-q2',
           question: '$x^2 + 2x - 3 = 0$ を解の公式で解くと？（$a=1, b=2, c=-3$）',
           options: [
-            '$x = 1, x = -3$',
-            '$x = -1, x = 3$',
             '$x = 1, x = 3$',
+            '$x = -1, x = 3$',
+            '$x = 1, x = -3$',
             '$x = -1, x = -3$',
           ],
-          correctIndex: 0,
+          correctIndex: 2,
           explanation:
             '$x = \\frac{-2 \\pm \\sqrt{4+12}}{2} = \\frac{-2 \\pm 4}{2}$。$x = 1$ または $x = -3$ だよ。',
         },
         {
           id: 'math-g3-qf-q3',
           question: '解の公式の判別式 $b^2-4ac$ が $0$ のとき、解はいくつ？',
-          options: ['0個', '1個', '2個', '無限にある'],
-          correctIndex: 1,
+          options: ['1個', '0個', '2個', '無限にある'],
+          correctIndex: 0,
           explanation:
             '$b^2-4ac = 0$ のとき $\\sqrt{0} = 0$ なので $\\pm$ の部分が消えて解は1つ（重解）だよ。',
         },
@@ -197,12 +197,12 @@ export const quadFormula: Topic = {
           id: 'math-g3-qf-q4',
           question: '$x^2 - 10x$ を平方完成すると？',
           options: [
-            '$(x-5)^2 - 25$',
             '$(x-10)^2 - 100$',
+            '$(x-5)^2 - 25$',
             '$(x-5)^2 + 25$',
             '$(x+5)^2 - 25$',
           ],
-          correctIndex: 0,
+          correctIndex: 1,
           explanation:
             '$b = -10$ の半分は $-5$。$(-5)^2 = 25$ を引いて $(x-5)^2 - 25$ だよ。',
         },
@@ -210,12 +210,12 @@ export const quadFormula: Topic = {
           id: 'math-g3-qf-q5',
           question: '$x^2 + 5x + 3 = 0$ を解の公式で解くと？',
           options: [
-            '$x = \\frac{-5 \\pm \\sqrt{13}}{2}$',
+            '$x = \\frac{-5 \\pm \\sqrt{7}}{2}$',
             '$x = \\frac{5 \\pm \\sqrt{13}}{2}$',
             '$x = \\frac{-5 \\pm \\sqrt{37}}{2}$',
-            '$x = \\frac{-5 \\pm \\sqrt{7}}{2}$',
+            '$x = \\frac{-5 \\pm \\sqrt{13}}{2}$',
           ],
-          correctIndex: 0,
+          correctIndex: 3,
           explanation:
             '$a=1, b=5, c=3$。$b^2-4ac = 25-12 = 13$。$x = \\frac{-5 \\pm \\sqrt{13}}{2}$ だよ。',
         },
@@ -235,8 +235,8 @@ export const quadFormula: Topic = {
         {
           id: 'math-g3-qf-q7',
           question: '$x^2 - 6x + 9 = 0$ の判別式の値は？',
-          options: ['$0$', '$72$', '$-72$', '$36$'],
-          correctIndex: 0,
+          options: ['$72$', '$0$', '$-72$', '$36$'],
+          correctIndex: 1,
           explanation:
             '$b^2-4ac = (-6)^2 - 4 \\times 1 \\times 9 = 36 - 36 = 0$。重解 $x = 3$ だよ。',
         },
@@ -244,12 +244,12 @@ export const quadFormula: Topic = {
           id: 'math-g3-qf-q8',
           question: '$x^2 + 4x + 5 = 0$ の判別式が $-4$ のとき、この方程式の解は？',
           options: [
-            '実数解なし',
-            '重解が1つ',
             '異なる2つの実数解',
+            '重解が1つ',
+            '実数解なし',
             '$x = -2$',
           ],
-          correctIndex: 0,
+          correctIndex: 2,
           explanation:
             '判別式 $< 0$ のとき $\\sqrt{}$ の中が負になるので、実数の範囲では解がないよ。',
         },
@@ -257,12 +257,12 @@ export const quadFormula: Topic = {
           id: 'math-g3-qf-q9',
           question: '$x = \\frac{6 \\pm \\sqrt{12}}{2}$ を簡単にすると？',
           options: [
-            '$x = 3 \\pm \\sqrt{3}$',
+            '$x = 3 \\pm 2\\sqrt{3}$',
             '$x = 3 \\pm \\sqrt{6}$',
             '$x = 6 \\pm 2\\sqrt{3}$',
-            '$x = 3 \\pm 2\\sqrt{3}$',
+            '$x = 3 \\pm \\sqrt{3}$',
           ],
-          correctIndex: 0,
+          correctIndex: 3,
           explanation:
             '$\\sqrt{12} = 2\\sqrt{3}$ だから $x = \\frac{6 \\pm 2\\sqrt{3}}{2} = 3 \\pm \\sqrt{3}$ だよ。',
         },
@@ -270,12 +270,12 @@ export const quadFormula: Topic = {
           id: 'math-g3-qf-q10',
           question: '$4x^2 - 3x - 2 = 0$ を解の公式で解くと？',
           options: [
-            '$x = \\frac{3 \\pm \\sqrt{41}}{8}$',
-            '$x = \\frac{-3 \\pm \\sqrt{41}}{8}$',
             '$x = \\frac{3 \\pm \\sqrt{23}}{8}$',
+            '$x = \\frac{-3 \\pm \\sqrt{41}}{8}$',
+            '$x = \\frac{3 \\pm \\sqrt{41}}{8}$',
             '$x = \\frac{3 \\pm \\sqrt{41}}{4}$',
           ],
-          correctIndex: 0,
+          correctIndex: 2,
           explanation:
             '$a=4, b=-3, c=-2$。$-b = 3$、$b^2-4ac = 9+32 = 41$、$2a = 8$。$x = \\frac{3 \\pm \\sqrt{41}}{8}$ だよ。',
         },
@@ -296,8 +296,8 @@ export const quadFormula: Topic = {
           id: 'math-g3-qf-q12',
           question:
             '$x^2 - 4x + k = 0$ が重解をもつとき、$k$ の値は？',
-          options: ['$4$', '$8$', '$2$', '$16$'],
-          correctIndex: 0,
+          options: ['$8$', '$4$', '$2$', '$16$'],
+          correctIndex: 1,
           explanation:
             '重解の条件: $b^2-4ac = 0$。$16 - 4k = 0$ より $k = 4$ だよ。',
         },

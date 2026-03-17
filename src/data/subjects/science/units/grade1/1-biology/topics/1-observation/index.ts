@@ -235,12 +235,12 @@ export const observation: Topic = {
           id: 'sci1-obs-q2',
           question: '生物のスケッチについて正しいものはどれか？',
           options: [
-            '太い線で描く',
+            '細い線で描き、影をつけない',
             '色をぬってわかりやすくする',
             '影をつけて立体的に描く',
-            '細い線で描き、影をつけない',
+            '太い線で描く',
           ],
-          correctIndex: 3,
+          correctIndex: 0,
           explanation:
             'スケッチは細い1本の線で輪郭を描き、影はつけません。ぬりつぶしもしません。',
         },
@@ -249,11 +249,11 @@ export const observation: Topic = {
           question: '顕微鏡のレンズを取り付ける正しい順番は？',
           options: [
             '対物レンズ→接眼レンズ',
-            '接眼レンズ→対物レンズ',
             'どちらからでもよい',
+            '接眼レンズ→対物レンズ',
             '同時に取り付ける',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             '接眼レンズを先に取り付けてから対物レンズを取り付けます。鏡筒の中にほこりが入るのを防ぐためです。',
         },
@@ -263,10 +263,10 @@ export const observation: Topic = {
           options: [
             '高倍率から始める',
             '中倍率から始める',
-            '低倍率から始める',
             'どの倍率でもよい',
+            '低倍率から始める',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '最初は低倍率で広い範囲を見て観察物を探し、見つけたら倍率を上げて詳しく観察します。',
         },
@@ -276,10 +276,10 @@ export const observation: Topic = {
           options: [
             '花の色',
             '生物の大きさ',
-            '体のつくり',
             '生息する場所',
+            '体のつくり',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '科学的な分類では、体のつくりなど変化しにくい特徴を基準にします。花の色や大きさは変化しやすいため基準に向きません。',
         },
@@ -288,11 +288,11 @@ export const observation: Topic = {
           question: '生物を分類するときに注目するのは何か？',
           options: [
             '生物の名前の長さ',
-            '共通点と相違点',
             '発見した順番',
+            '共通点と相違点',
             '観察した日の天気',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             '分類するときは共通点と相違点に注目して、同じ特徴をもつものをグループ分けします。',
         },
@@ -300,12 +300,12 @@ export const observation: Topic = {
           id: 'sci1-obs-q7',
           question: '観察記録に書く項目として適切でないものはどれか？',
           options: [
-            '観察した日時',
-            '観察した場所',
             '昨日の夕食のメニュー',
+            '観察した場所',
+            '観察した日時',
             '天気と気温',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             '観察記録には日時・場所・天気・気温・生物名・スケッチ・気づいたことなど、観察に関連する情報を記入します。',
         },

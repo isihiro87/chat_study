@@ -73,8 +73,8 @@ export const occupation: Topic = {
         {
           id: 'q2',
           question: '日本の戦争指導者を裁いた国際裁判は何と呼ばれる？',
-          options: ['国際司法裁判', 'ニュルンベルク裁判', '東京裁判', '軍事法廷'],
-          correctIndex: 2,
+          options: ['国際司法裁判', 'ニュルンベルク裁判', '軍事法廷', '東京裁判'],
+          correctIndex: 3,
           explanation:
             '東京裁判（極東国際軍事裁判）は1946年から1948年にかけて行われました。',
         },
@@ -90,8 +90,8 @@ export const occupation: Topic = {
         {
           id: 'q4',
           question: 'GHQの最高司令官として日本に来た人物は誰？',
-          options: ['トルーマン', 'チャーチル', 'アイゼンハワー', 'マッカーサー'],
-          correctIndex: 3,
+          options: ['トルーマン', 'マッカーサー', 'アイゼンハワー', 'チャーチル'],
+          correctIndex: 1,
           explanation:
             'マッカーサーはGHQの最高司令官として来日し、日本の民主化改革を指導しました。',
         },

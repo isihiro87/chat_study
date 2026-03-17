@@ -154,8 +154,8 @@ export const electromagneticInduction: Topic = {
         {
           id: 'sci2-ei-q1',
           question: 'コイルに磁石を出し入れして電流が流れる現象を何という？',
-          options: ['電気分解', '電磁誘導', '静電気', '電磁波'],
-          correctIndex: 1,
+          options: ['電気分解', '電磁波', '静電気', '電磁誘導'],
+          correctIndex: 3,
           explanation:
             '電磁誘導は、コイル内の磁界が変化することで電圧が生じ、誘導電流が流れる現象です。',
         },
@@ -163,12 +163,12 @@ export const electromagneticInduction: Topic = {
           id: 'sci2-ei-q2',
           question: '交流の特徴として正しいものはどれか？',
           options: [
-            '常に一定方向に流れる',
-            '電圧を変えることができない',
             '向きが周期的に変化する',
+            '電圧を変えることができない',
+            '常に一定方向に流れる',
             '乾電池から得られる',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             '交流は電流の向きが周期的に変化します。変圧器で電圧を変えやすいため、送電に利用されています。',
         },
@@ -177,11 +177,11 @@ export const electromagneticInduction: Topic = {
           question: '誘導電流の向きが変わるのはどのようなときか？',
           options: [
             'コイルの巻き数を変えたとき',
-            '磁石の動かす向きを逆にしたとき',
             '電流を大きくしたとき',
+            '磁石の動かす向きを逆にしたとき',
             '導線を太くしたとき',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             '磁石をコイルに入れるときと出すときで誘導電流の向きは逆になります。磁石の極を逆にしても向きが変わります。',
         },
@@ -190,11 +190,11 @@ export const electromagneticInduction: Topic = {
           question: '日本の交流の周波数について正しいのはどれか？',
           options: [
             '全国で50Hz',
-            '全国で60Hz',
             '東日本50Hz、西日本60Hz',
+            '全国で60Hz',
             '東日本60Hz、西日本50Hz',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation:
             '日本では東日本が50Hz、西日本が60Hzです。明治時代に東日本はドイツ製、西日本はアメリカ製の発電機を導入したことが原因です。',
         },

@@ -161,11 +161,11 @@ export const northAmericaIndustry: Topic = {
           question: '五大湖周辺の衰退した工業地帯のことを何とよぶ？',
           options: [
             'サンベルト',
-            'シリコンバレー',
             'ラストベルト',
+            'シリコンバレー',
             'コーンベルト',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation:
             'ラストベルト（さびた工業地帯）は、かつて鉄鋼業や自動車工業で栄えた五大湖周辺が国際競争で衰退したことからこうよばれます。',
         },
@@ -173,12 +173,12 @@ export const northAmericaIndustry: Topic = {
           id: 'geo1-na2-q2',
           question: 'カリフォルニア州にあるICT企業の集積地を何という？',
           options: [
-            'ウォール街',
+            'シリコンバレー',
             'ハリウッド',
             'サンベルト',
-            'シリコンバレー',
+            'ウォール街',
           ],
-          correctIndex: 3,
+          correctIndex: 0,
           explanation:
             'シリコンバレーはカリフォルニア州にあり、GoogleやAppleなどのICT企業が集中する世界的な情報産業の中心地です。',
         },
@@ -201,10 +201,10 @@ export const northAmericaIndustry: Topic = {
           options: [
             'ドイツ語',
             'スペイン語',
-            'フランス語',
             'ポルトガル語',
+            'フランス語',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             'ケベック州はかつてフランスの植民地であったため、フランス語が公用語の一つとして使われています。',
         },
@@ -214,10 +214,10 @@ export const northAmericaIndustry: Topic = {
           options: [
             'シリコンバレー',
             'ブロードウェイ',
-            'ウォール街',
             'ハリウッド',
+            'ウォール街',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             'ウォール街はニューヨークにあり、ニューヨーク証券取引所が置かれ、世界中の金融取引の中心地となっています。',
         },

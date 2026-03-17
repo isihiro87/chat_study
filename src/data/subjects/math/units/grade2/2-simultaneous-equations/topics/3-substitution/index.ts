@@ -198,8 +198,8 @@ export const substitution: Topic = {
         {
           id: 'math-g2-sub-q2',
           question: '$x = y + 1$, $2x + y = 8$ を代入法で解くと？',
-          options: ['$x = 3, y = 2$', '$x = 2, y = 1$', '$x = 4, y = 3$', '$x = 5, y = 4$'],
-          correctIndex: 0,
+          options: ['$x = 4, y = 3$', '$x = 2, y = 1$', '$x = 3, y = 2$', '$x = 5, y = 4$'],
+          correctIndex: 2,
           explanation:
             '$x = y + 1$ を②に代入: $2(y + 1) + y = 8 \\rightarrow 3y + 2 = 8 \\rightarrow y = 2$。$x = 2 + 1 = 3$。',
         },
@@ -208,19 +208,19 @@ export const substitution: Topic = {
           question: '代入法を使いやすいのはどんなとき？',
           options: [
             'どちらの式も係数が大きいとき',
-            '一方の式が $y = \\circ\\circ$ や $x = \\circ\\circ$ の形のとき',
-            '分数がたくさんあるとき',
             'どんなときでも加減法の方が良い',
+            '分数がたくさんあるとき',
+            '一方の式が $y = \\circ\\circ$ や $x = \\circ\\circ$ の形のとき',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '一方の式が $y = \\circ\\circ$ や $x = \\circ\\circ$ の形なら、そのまま代入できて簡単だよ！',
         },
         {
           id: 'math-g2-sub-q4',
           question: '$y = 3x$, $2x + y = 10$ を代入法で解くと $x$ は？',
-          options: ['$x = 1$', '$x = 2$', '$x = 3$', '$x = 5$'],
-          correctIndex: 1,
+          options: ['$x = 2$', '$x = 1$', '$x = 3$', '$x = 5$'],
+          correctIndex: 0,
           explanation:
             '$2x + 3x = 10 \\rightarrow 5x = 10 \\rightarrow x = 2$。$y = 3 \\times 2 = 6$。',
         },
@@ -244,11 +244,11 @@ export const substitution: Topic = {
             '$y = x - 1$, $3x - 2y = 7$ を②に代入するとき、正しい式はどれ？',
           options: [
             '$3x - 2x - 1 = 7$',
-            '$3x - 2(x - 1) = 7$',
-            '$3x - 2x + 1 = 7$',
             '$3(x - 1) - 2y = 7$',
+            '$3x - 2x + 1 = 7$',
+            '$3x - 2(x - 1) = 7$',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '代入する式全体にかっこをつけるのがポイント！ $-2(x - 1) = -2x + 2$ と展開するよ。',
         },
@@ -258,11 +258,11 @@ export const substitution: Topic = {
             '$2x + y = 8$, $x - 3y = -3$ を代入法で解くと？',
           options: [
             '$x = 2, y = 4$',
-            '$x = 3, y = 2$',
             '$x = 4, y = 0$',
+            '$x = 3, y = 2$',
             '$x = 1, y = 6$',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             '①より $y = 8 - 2x$。②に代入: $x - 3(8 - 2x) = -3 \\rightarrow 7x - 24 = -3 \\rightarrow x = 3,\\ y = 2$。',
         },
@@ -271,12 +271,12 @@ export const substitution: Topic = {
           question:
             '次のうち、加減法で解くのが適切な連立方程式はどれ？',
           options: [
-            '$y = 5x$, $3x + y = 16$',
-            '$x = y + 1$, $5x - 2y = 18$',
             '$2x + 3y = 12$, $2x - y = 4$',
+            '$x = y + 1$, $5x - 2y = 18$',
+            '$y = 5x$, $3x + y = 16$',
             '$y = -x + 4$, $2x + y = 7$',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             '$2x$ の係数がそろっているので、辺々引けばすぐ $x$ が消える。加減法が楽だよ。',
         },
@@ -286,11 +286,11 @@ export const substitution: Topic = {
             '$x = 3y$, $x + 2y = 10$ を代入法で解くと？',
           options: [
             '$x = 4, y = 3$',
-            '$x = 8, y = 1$',
             '$x = 6, y = 2$',
+            '$x = 8, y = 1$',
             '$x = 5, y = 5$',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation:
             '①を②に代入: $3y + 2y = 10 \\rightarrow 5y = 10 \\rightarrow y = 2$。$x = 3 \\times 2 = 6$。',
         },
@@ -300,11 +300,11 @@ export const substitution: Topic = {
             '$x + y = 4$, $2x - 3y = -2$ を代入法で解くと？',
           options: [
             '$x = 1, y = 3$',
-            '$x = 2, y = 2$',
             '$x = 3, y = 1$',
+            '$x = 2, y = 2$',
             '$x = 0, y = 4$',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             '①より $y = 4 - x$。②に代入: $2x - 3(4 - x) = -2 \\rightarrow 5x - 12 = -2 \\rightarrow x = 2,\\ y = 2$。',
         },

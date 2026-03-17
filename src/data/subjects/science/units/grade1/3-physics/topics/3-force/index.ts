@@ -260,11 +260,11 @@ export const force: Topic = {
           question: '力のはたらきとして正しくないものはどれか？',
           options: [
             '物体の形を変える',
-            '物体の運動の状態を変える',
             '物体の温度を上げる',
+            '物体の運動の状態を変える',
             '物体を支える',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation:
             '力の3つのはたらきは「形を変える」「運動の状態を変える」「支える」です。温度を上げるのは力のはたらきではありません。',
         },
@@ -273,11 +273,11 @@ export const force: Topic = {
           question: '約100gの物体にはたらく重力は約何Nか？',
           options: [
             '約0.1N',
-            '約1N',
             '約10N',
+            '約1N',
             '約100N',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             '約100gの物体にはたらく重力は約1Nです。質量1kgの物体にはたらく重力は約9.8Nです。',
         },
@@ -285,12 +285,12 @@ export const force: Topic = {
           id: 'sci1-force-q3',
           question: 'フックの法則について正しいものはどれか？',
           options: [
-            'ばねの力とのびは反比例する',
             'ばねの力とのびは比例する',
+            'ばねの力とのびは反比例する',
             'ばねの力と長さは比例する',
             'ばねの力と重さは反比例する',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             'フックの法則では、ばねにはたらく力の大きさとばねの「のび」は比例します。自然長からの「のび」であることに注意しましょう。',
         },
@@ -325,11 +325,11 @@ export const force: Topic = {
           question: '面が物体を垂直におし返す力を何というか？',
           options: [
             '摩擦力',
-            '弾性力',
             '垂直抗力',
+            '弾性力',
             '重力',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation:
             '垂直抗力は、面が物体を垂直方向におし返す力です。机の上に物を置くと、机が上向きの垂直抗力を物体に及ぼします。',
         },
@@ -337,12 +337,12 @@ export const force: Topic = {
           id: 'sci1-force-q7',
           question: '質量はどの場所ではかっても変わらないが、重力は場所によって変わる。月面での重力は地球上の約何分の1か？',
           options: [
-            '約1/2',
-            '約1/4',
             '約1/6',
+            '約1/4',
+            '約1/2',
             '約1/10',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             '月面の重力は地球上の約1/6です。質量600gの物体にはたらく重力は、地球上では約6Nですが月面では約1Nになります。',
         },
@@ -351,11 +351,11 @@ export const force: Topic = {
           question: 'ばねに2Nの力を加えたら4cmのびた。このばねの自然長が12cmのとき、5Nの力を加えたときのばねの全長は何cmか？',
           options: [
             '20cm',
-            '22cm',
-            '24cm',
             '17cm',
+            '24cm',
+            '22cm',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '1Nあたりのび2cmなので、5Nでは10cmのびます。全長＝自然長12cm＋のび10cm＝22cmです。',
         },
@@ -364,11 +364,11 @@ export const force: Topic = {
           question: '重力をはかる器具はどれか？',
           options: [
             '上皿てんびん',
-            'ばねばかり',
-            'メスシリンダー',
             '温度計',
+            'メスシリンダー',
+            'ばねばかり',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             'ばねばかりは重力（力）をはかります。上皿てんびんは質量をはかる器具で、場所によらず同じ値を示します。',
         },
@@ -376,12 +376,12 @@ export const force: Topic = {
           id: 'sci1-force-q10',
           question: '変形した物体がもとの形にもどろうとする力を何というか？',
           options: [
-            '重力',
-            '摩擦力',
             '弾性力',
+            '摩擦力',
+            '重力',
             '垂直抗力',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             '弾性力は、変形した物体がもとの形にもどろうとする力です。ばね・ゴム・弓などがその例です。',
         },

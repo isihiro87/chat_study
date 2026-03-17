@@ -52,8 +52,8 @@ export const nanbanTrade: Topic = {
         {
           id: 'q1',
           question: '1543年に種子島に伝わり、戦国時代の戦い方を変えた武器は？',
-          options: ['大砲', '鉄砲', '弓矢', '火薬'],
-          correctIndex: 1,
+          options: ['大砲', '弓矢', '鉄砲', '火薬'],
+          correctIndex: 2,
           explanation: '1543年にポルトガル人によって種子島に鉄砲が伝えられ、戦国時代の合戦を大きく変えました。',
         },
         {
@@ -66,8 +66,8 @@ export const nanbanTrade: Topic = {
         {
           id: 'q3',
           question: '南蛮貿易で日本から主に輸出された品物は？',
-          options: ['生糸', '香辛料', '鉄砲', '銀'],
-          correctIndex: 3,
+          options: ['生糸', '銀', '鉄砲', '香辛料'],
+          correctIndex: 1,
           explanation: '南蛮貿易では日本から銀が大量に輸出され、生糸や火薬などが輸入されました。',
         },
       ],

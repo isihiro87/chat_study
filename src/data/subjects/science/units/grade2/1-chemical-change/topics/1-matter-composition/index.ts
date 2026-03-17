@@ -306,8 +306,8 @@ export const matterComposition: Topic = {
         {
           id: 'sci2-mc-q1',
           question: '炭酸水素ナトリウムを加熱したとき、発生する気体は何か？',
-          options: ['水素', '酸素', '二酸化炭素', '窒素'],
-          correctIndex: 2,
+          options: ['水素', '二酸化炭素', '酸素', '窒素'],
+          correctIndex: 1,
           explanation:
             '炭酸水素ナトリウムを加熱すると、二酸化炭素・水・炭酸ナトリウムに分解されます。発生する気体は二酸化炭素で、石灰水を白くにごらせます。',
         },
@@ -323,12 +323,12 @@ export const matterComposition: Topic = {
           id: 'sci2-mc-q3',
           question: '原子について正しいものはどれ？',
           options: [
-            '化学変化で分割できる',
-            '化学変化で別の原子に変わることがある',
             '種類によって質量と大きさが決まっている',
+            '化学変化で別の原子に変わることがある',
+            '化学変化で分割できる',
             '化学変化でなくなることがある',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             '原子は種類ごとに質量と大きさが決まっています。化学変化で分割されたり、他の原子に変わったり、なくなったりすることはありません。',
         },
@@ -343,8 +343,8 @@ export const matterComposition: Topic = {
         {
           id: 'sci2-mc-q5',
           question: '次のうち、分子をつくらない物質はどれ？',
-          options: ['水素（H₂）', '水（H₂O）', '酸素（O₂）', '銅（Cu）'],
-          correctIndex: 3,
+          options: ['水素（H₂）', '銅（Cu）', '酸素（O₂）', '水（H₂O）'],
+          correctIndex: 1,
           explanation:
             '銅（Cu）は金属で分子をつくらない物質です。水素、水、酸素はいずれも分子をつくる物質です。',
         },
@@ -352,8 +352,8 @@ export const matterComposition: Topic = {
           id: 'sci2-mc-q6',
           question:
             '炭酸水素ナトリウムの加熱で発生した液体の確認に使うものは？',
-          options: ['石灰水', 'リトマス紙', '塩化コバルト紙', 'BTB溶液'],
-          correctIndex: 2,
+          options: ['塩化コバルト紙', 'リトマス紙', '石灰水', 'BTB溶液'],
+          correctIndex: 0,
           explanation:
             '液体（水）の確認には塩化コバルト紙を使います。水がつくと青色から赤色（桃色）に変化します。石灰水は二酸化炭素の検出に使います。',
         },
@@ -364,10 +364,10 @@ export const matterComposition: Topic = {
           options: [
             '水素:酸素 = 1:1',
             '水素:酸素 = 1:2',
-            '水素:酸素 = 2:1',
             '水素:酸素 = 3:1',
+            '水素:酸素 = 2:1',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '水の電気分解では、陰極に水素、陽極に酸素が発生し、体積比は水素:酸素 = 2:1です。水の化学式H₂Oの原子の数の比に対応しています。',
         },
@@ -377,19 +377,19 @@ export const matterComposition: Topic = {
             '炭酸水素ナトリウムの加熱実験で試験管の口を下げる理由は？',
           options: [
             '気体が出やすくするため',
-            '液体が加熱部に流れて試験管が割れるのを防ぐため',
             '粉末がこぼれないようにするため',
+            '液体が加熱部に流れて試験管が割れるのを防ぐため',
             '火が消えないようにするため',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             '発生した液体（水）が加熱部分に流れると、試験管が急に冷えて割れる危険があります。口を下げることで液体が加熱部に戻るのを防ぎます。',
         },
         {
           id: 'sci2-mc-q9',
           question: '元素記号「Fe」は何の元素を表す？',
-          options: ['フッ素', '鉄', '銅', 'フランシウム'],
-          correctIndex: 1,
+          options: ['鉄', 'フッ素', '銅', 'フランシウム'],
+          correctIndex: 0,
           explanation:
             'Feは鉄の元素記号です。ラテン語のFerrumに由来します。フッ素はF、銅はCuです。',
         },
@@ -399,19 +399,19 @@ export const matterComposition: Topic = {
             '水素分子のモデルとして正しいものはどれ？',
           options: [
             '水素原子が1個だけ',
-            '水素原子が2個結びついている',
-            '水素原子と酸素原子が結びついている',
             '水素原子が3個結びついている',
+            '水素原子と酸素原子が結びついている',
+            '水素原子が2個結びついている',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '水素は2個の水素原子が結びついて水素分子（H₂）をつくります。酸素（O₂）や窒素（N₂）も同様に2個の原子で分子をつくります。',
         },
         {
           id: 'sci2-mc-q11',
           question: '化学式「NaCl」が表す物質は何か？',
-          options: ['炭酸ナトリウム', '水酸化ナトリウム', '塩化ナトリウム', '硫酸ナトリウム'],
-          correctIndex: 2,
+          options: ['炭酸ナトリウム', '塩化ナトリウム', '水酸化ナトリウム', '硫酸ナトリウム'],
+          correctIndex: 1,
           explanation:
             'NaClは塩化ナトリウム（食塩）です。Na（ナトリウム）とCl（塩素）からできた化合物で、分子をつくらない物質です。',
         },

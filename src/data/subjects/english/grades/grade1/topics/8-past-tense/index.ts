@@ -114,15 +114,15 @@ export const pastTense: Topic = {
         {
           id: 'eng-past-q2',
           question: '「She (　　) English last night.（彼女は昨夜英語を勉強しました。）」\nの (　　) に入るのは？',
-          options: ['study', 'studies', 'studied', 'studying'],
-          correctIndex: 2,
+          options: ['studied', 'studies', 'study', 'studying'],
+          correctIndex: 0,
           explanation: '昨夜のことだから過去形にするよ。study → studied（y を i にかえて ed）',
         },
         {
           id: 'eng-past-q3',
           question: 'go の過去形として正しいのは？',
-          options: ['goed', 'gos', 'went', 'going'],
-          correctIndex: 2,
+          options: ['goed', 'went', 'gos', 'going'],
+          correctIndex: 1,
           explanation: 'go の過去形はとくべつで went だよ。覚えてしまおう。',
         },
         {
@@ -130,11 +130,11 @@ export const pastTense: Topic = {
           question: '「Did you play tennis yesterday?（あなたは昨日テニスをしましたか？）」に「はい」で答えるとき、正しいのは？',
           options: [
             'Yes, I played.',
-            'Yes, I did.',
-            'Yes, I do.',
             'Yes, I was.',
+            'Yes, I do.',
+            'Yes, I did.',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation: 'Did で聞かれたら did で答えるよ。Yes, I did.',
         },
         {

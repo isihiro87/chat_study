@@ -176,16 +176,16 @@ export const quadEqBasics: Topic = {
         {
           id: 'math-g3-quad-eq-basics-q3',
           question: '$x^2 = 0$ の解はいくつある？',
-          options: ['0個', '1個', '2個', '無限にある'],
-          correctIndex: 1,
+          options: ['0個', '無限にある', '2個', '1個'],
+          correctIndex: 3,
           explanation:
             '$x^2 = 0$ の解は $x = 0$ の1つだけ。$\\pm 0$ は結局 $0$ なので、解は1つだよ。',
         },
         {
           id: 'math-g3-quad-eq-basics-q4',
           question: '$2x^2 = 18$ の解は？',
-          options: ['$x = 3$', '$x = \\pm 3$', '$x = 9$', '$x = \\pm 9$'],
-          correctIndex: 1,
+          options: ['$x = \\pm 3$', '$x = 3$', '$x = 9$', '$x = \\pm 9$'],
+          correctIndex: 0,
           explanation:
             '$2x^2 = 18$ の両辺を2で割ると $x^2 = 9$。$x = \\pm 3$ だよ。',
         },
@@ -214,20 +214,20 @@ export const quadEqBasics: Topic = {
           id: 'math-g3-quad-eq-basics-q7',
           question: '$(x + 5)^2 = 25$ の解は？',
           options: [
-            '$x = 0, x = -10$',
+            '$x = -5, x = -10$',
             '$x = 5, x = -5$',
             '$x = 0, x = 10$',
-            '$x = -5, x = -10$',
+            '$x = 0, x = -10$',
           ],
-          correctIndex: 0,
+          correctIndex: 3,
           explanation:
             '$(x+5)^2 = 25$ より $x+5 = \\pm 5$。$x+5=5$ で $x=0$、$x+5=-5$ で $x=-10$ だよ。',
         },
         {
           id: 'math-g3-quad-eq-basics-q8',
           question: '$x^2 = -9$ の解はいくつ？',
-          options: ['2個', '1個', '0個（解なし）', '$x = \\pm 3$'],
-          correctIndex: 2,
+          options: ['0個（解なし）', '1個', '2個', '$x = \\pm 3$'],
+          correctIndex: 0,
           explanation:
             '$x^2$ は常に0以上なので、$x^2 = -9$ を満たす実数 $x$ は存在しない。解なしだよ。',
         },
@@ -255,8 +255,8 @@ export const quadEqBasics: Topic = {
         {
           id: 'math-g3-quad-eq-basics-q11',
           question: '$5x^2 - 45 = 0$ の解は？',
-          options: ['$x = \\pm 9$', '$x = \\pm 3$', '$x = \\pm \\sqrt{5}$', '$x = \\pm 5$'],
-          correctIndex: 1,
+          options: ['$x = \\pm 9$', '$x = \\pm 5$', '$x = \\pm \\sqrt{5}$', '$x = \\pm 3$'],
+          correctIndex: 3,
           explanation:
             '$5x^2 = 45$ より $x^2 = 9$。$x = \\pm 3$ だよ。',
         },
@@ -264,12 +264,12 @@ export const quadEqBasics: Topic = {
           id: 'math-g3-quad-eq-basics-q12',
           question: '$(x - 4)^2 = 16$ の解は？',
           options: [
-            '$x = 0, x = 8$',
-            '$x = 4, x = -4$',
             '$x = 0, x = -8$',
+            '$x = 4, x = -4$',
+            '$x = 0, x = 8$',
             '$x = 8, x = -8$',
           ],
-          correctIndex: 0,
+          correctIndex: 2,
           explanation:
             '$(x-4)^2 = 16$ より $x-4 = \\pm 4$。$x-4=4$ で $x=8$、$x-4=-4$ で $x=0$ だよ。',
         },

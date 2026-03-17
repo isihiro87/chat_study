@@ -234,11 +234,11 @@ export const japanPosition: Topic = {
           question: '日本の緯度の範囲としておよそ正しいものはどれ？',
           options: [
             '北緯0度〜20度',
-            '北緯20度〜46度',
-            '北緯50度〜70度',
             '南緯20度〜46度',
+            '北緯50度〜70度',
+            '北緯20度〜46度',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '日本は北緯約20度（沖ノ鳥島付近）から約46度（北海道北端付近）の間に位置しています。北半球の中緯度にあたります。',
         },
@@ -260,11 +260,11 @@ export const japanPosition: Topic = {
           question: '日本はどの大陸のどちら側に位置しているか？',
           options: [
             'アフリカ大陸の北側',
-            '北アメリカ大陸の西側',
             'ユーラシア大陸の東側',
+            '北アメリカ大陸の西側',
             'オーストラリア大陸の南側',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation:
             '日本はユーラシア大陸の東側に位置する島国です。大陸との間には日本海や東シナ海があります。',
         },
@@ -272,12 +272,12 @@ export const japanPosition: Topic = {
           id: 'geo1-jp-q4',
           question: '日本は太平洋のどのあたりに位置しているか？',
           options: [
-            '太平洋の南東部',
             '太平洋の北西部',
+            '太平洋の南東部',
             '太平洋の中央部',
             '太平洋の南西部',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '日本は太平洋の北西部に位置しています。日本の東側には広大な太平洋が広がっています。',
         },
@@ -287,10 +287,10 @@ export const japanPosition: Topic = {
           options: [
             '東京都新宿区',
             '京都府京都市',
-            '兵庫県明石市',
             '大阪府大阪市',
+            '兵庫県明石市',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '日本の標準時子午線は東経135度で、兵庫県明石市を通っています。日本の標準時はこの経線をもとに定められています。',
         },
@@ -298,12 +298,12 @@ export const japanPosition: Topic = {
           id: 'geo1-jp-q6',
           question: 'サハラ砂漠の中央付近とほぼ同じ緯度にある日本の地域はどこ？',
           options: [
-            '北海道',
+            '沖縄県',
             '関東地方',
             '近畿地方',
-            '沖縄県',
+            '北海道',
           ],
-          correctIndex: 3,
+          correctIndex: 0,
           explanation:
             'サハラ砂漠の中央付近は北緯約26度で、沖縄県とほぼ同じ緯度です。ただし、島国の沖縄は温暖湿潤で砂漠とは全く異なる気候です。',
         },
@@ -325,11 +325,11 @@ export const japanPosition: Topic = {
           question: '日本列島を構成する4つの大きな島に含まれないのはどれ？',
           options: [
             '北海道',
-            '本州',
             '沖縄本島',
+            '本州',
             '九州',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation:
             '日本列島の4つの大きな島は北海道・本州・四国・九州です。沖縄本島は離島に分類されます。',
         },
@@ -339,10 +339,10 @@ export const japanPosition: Topic = {
           options: [
             '与那国島',
             '択捉島',
-            '沖ノ鳥島',
             '南鳥島',
+            '沖ノ鳥島',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '日本最南端の島は沖ノ鳥島です。与那国島は最西端、択捉島は最北端、南鳥島は最東端です。',
         },
@@ -351,11 +351,11 @@ export const japanPosition: Topic = {
           question: '日本の国土面積としておよそ正しいものはどれ？',
           options: [
             '約18万km²',
-            '約28万km²',
             '約38万km²',
+            '約28万km²',
             '約48万km²',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation:
             '日本の国土面積は約38万km²です。約6,800の島々からなる島国で、世界では約60番目の広さです。',
         },

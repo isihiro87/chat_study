@@ -49,8 +49,8 @@ export const eqFractions: Topic = {
         {
           id: 'math-g1-eq-fractions-q1',
           question: '$0.5x = 3$ の解は？',
-          options: ['$x = 1.5$', '$x = 6$', '$x = 3.5$', '$x = 15$'],
-          correctIndex: 1,
+          options: ['$x = 6$', '$x = 1.5$', '$x = 3.5$', '$x = 15$'],
+          correctIndex: 0,
           explanation:
             '両辺を 10倍すると $5x = 30$、$x = 6$。または直接 $x = \\dfrac{3}{0.5} = 6$。',
         },
@@ -65,16 +65,16 @@ export const eqFractions: Topic = {
         {
           id: 'math-g1-eq-fractions-q3',
           question: '$\\dfrac{x}{3} = 4$ の解は？',
-          options: ['$x = 7$', '$x = \\dfrac{4}{3}$', '$x = 12$', '$x = 1$'],
-          correctIndex: 2,
+          options: ['$x = 7$', '$x = \\dfrac{4}{3}$', '$x = 1$', '$x = 12$'],
+          correctIndex: 3,
           explanation:
             '両辺に 3 をかけると $x = 12$。確かめ: $\\dfrac{12}{3} = 4$ ✓',
         },
         {
           id: 'math-g1-eq-fractions-q4',
           question: '$\\dfrac{x}{2} + \\dfrac{x}{3} = 5$ の解は？',
-          options: ['$x = 5$', '$x = 6$', '$x = 10$', '$x = 15$'],
-          correctIndex: 1,
+          options: ['$x = 5$', '$x = 10$', '$x = 6$', '$x = 15$'],
+          correctIndex: 2,
           explanation:
             '分母 2, 3 の最小公倍数 6 を両辺にかけると $3x + 2x = 30$、$5x = 30$、$x = 6$。',
         },
@@ -82,12 +82,12 @@ export const eqFractions: Topic = {
           id: 'math-g1-eq-fractions-q5',
           question: '分数の方程式を解くとき、最初にやることは？',
           options: [
-            '移項する',
             '分母の最小公倍数を両辺にかける',
+            '移項する',
             '両辺を 2 で割る',
             '分子どうしを足す',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '分数の方程式は、まず分母の最小公倍数を両辺にかけて「分母をはらう」のがコツだよ。',
         },

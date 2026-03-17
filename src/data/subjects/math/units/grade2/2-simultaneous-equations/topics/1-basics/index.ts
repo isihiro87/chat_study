@@ -195,12 +195,12 @@ export const simulEqBasics: Topic = {
           id: 'math-g2-sb-q3',
           question: '連立方程式を「解く」とはどういうこと？',
           options: [
-            '式を展開すること',
-            '1つの式を満たす値を見つけること',
             '2つの式を同時に満たす値を見つけること',
+            '1つの式を満たす値を見つけること',
+            '式を展開すること',
             '式をグラフに描くこと',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             '連立方程式を解くとは、2つの式を同時に満たす $x$, $y$ の値の組を求めることだよ。',
         },
@@ -217,12 +217,12 @@ export const simulEqBasics: Topic = {
           question:
             '$\\begin{cases} 2x + y = 8 \\\\ x + y = 5 \\end{cases}$ で $x = 3, y = 2$ は解か？',
           options: [
-            '解である',
             '式①だけ満たす',
+            '解である',
             '式②だけ満たす',
             'どちらも満たさない',
           ],
-          correctIndex: 0,
+          correctIndex: 1,
           explanation:
             '$2 \\times 3 + 2 = 8$ ✓、$3 + 2 = 5$ ✓。両方の式を満たすので解だよ。',
         },
@@ -230,8 +230,8 @@ export const simulEqBasics: Topic = {
           id: 'math-g2-sb-q6',
           question:
             '$\\begin{cases} x + y = 9 \\\\ x - y = 3 \\end{cases}$ の解は？',
-          options: ['$x = 5, y = 4$', '$x = 6, y = 3$', '$x = 7, y = 2$', '$x = 4, y = 5$'],
-          correctIndex: 1,
+          options: ['$x = 5, y = 4$', '$x = 7, y = 2$', '$x = 6, y = 3$', '$x = 4, y = 5$'],
+          correctIndex: 2,
           explanation:
             '2つの式を足すと $2x = 12$、$x = 6$。$6 + y = 9$ より $y = 3$。確認: $6 - 3 = 3$ ✓。',
         },
@@ -240,20 +240,20 @@ export const simulEqBasics: Topic = {
           question:
             '$\\begin{cases} x + y = 10 \\\\ x - y = 4 \\end{cases}$ で $x = 6, y = 4$ は解か？',
           options: [
-            '解である',
-            '解でない（式①を満たさない）',
             '解でない（式②を満たさない）',
+            '解でない（式①を満たさない）',
+            '解である',
             '解でない（どちらも満たさない）',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             '$6 + 4 = 10$ ✓ だけど、$6 - 4 = 2 \\neq 4$ ✗。式②を満たさないので解ではないよ。',
         },
         {
           id: 'math-g2-sb-q8',
           question: '「二元」の「元」は何を意味する？',
-          options: ['方程式', '未知数', '次数', '係数'],
-          correctIndex: 1,
+          options: ['方程式', '係数', '次数', '未知数'],
+          correctIndex: 3,
           explanation:
             '「元」は未知数（わからない数）のこと。「二元」は未知数が2つあるという意味だよ。',
         },
@@ -271,11 +271,11 @@ export const simulEqBasics: Topic = {
           question: '連立方程式の解が正しいか確かめるとき、何をする？',
           options: [
             '片方の式に代入するだけでOK',
-            '2つの式の両方に代入して確認',
-            'グラフを描いて確認',
             '式を展開して確認',
+            'グラフを描いて確認',
+            '2つの式の両方に代入して確認',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '求めた値を2つの式の両方に代入して、どちらも成り立つか確認するよ。片方だけではダメ！',
         },

@@ -181,8 +181,8 @@ export const elimination: Topic = {
         {
           id: 'math-g2-elim-q1',
           question: '$x + y = 7$, $x - y = 3$ を加減法で解くと？',
-          options: ['$x = 3, y = 4$', '$x = 5, y = 2$', '$x = 4, y = 3$', '$x = 2, y = 5$'],
-          correctIndex: 1,
+          options: ['$x = 3, y = 4$', '$x = 2, y = 5$', '$x = 4, y = 3$', '$x = 5, y = 2$'],
+          correctIndex: 3,
           explanation:
             '$y$ の係数が $+1$ と $-1$ で逆符号。2式を足すと $2x = 10$、$x = 5$。①に代入して $y = 2$。',
         },
@@ -211,20 +211,20 @@ export const elimination: Topic = {
           id: 'math-g2-elim-q4',
           question: '$5x + 3y = 4$, $x - 3y = -10$ を加減法で解くとき、どうするのが最も簡単？',
           options: [
-            '①を3倍して引く',
-            '②を5倍して引く',
             '2つの式を足す',
+            '②を5倍して引く',
+            '①を3倍して引く',
             '②を3倍して足す',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             '$y$ の係数が $+3$ と $-3$ で逆符号。足すだけで $y$ が消えて $6x = -6$ になるよ。',
         },
         {
           id: 'math-g2-elim-q5',
           question: '$2x + 3y = 12$, $3x + 2y = 13$ を加減法で解くと？',
-          options: ['$x = 2, y = 3$', '$x = 3, y = 2$', '$x = 1, y = 5$', '$x = 4, y = 1$'],
-          correctIndex: 1,
+          options: ['$x = 2, y = 3$', '$x = 4, y = 1$', '$x = 1, y = 5$', '$x = 3, y = 2$'],
+          correctIndex: 3,
           explanation:
             '①×3、②×2 で $x$ の係数を6にそろえる。$6x+9y=36$ から $6x+4y=26$ を引くと $5y=10$、$y=2$。②に代入して $x=3$。',
         },
@@ -244,16 +244,16 @@ export const elimination: Topic = {
         {
           id: 'math-g2-elim-q7',
           question: '$4x + y = 14$, $x + 3y = 9$ を加減法で解くと？',
-          options: ['$x = 2, y = 6$', '$x = 4, y = -2$', '$x = 3, y = 2$', '$x = 1, y = 10$'],
-          correctIndex: 2,
+          options: ['$x = 2, y = 6$', '$x = 3, y = 2$', '$x = 4, y = -2$', '$x = 1, y = 10$'],
+          correctIndex: 1,
           explanation:
             '①×3 で $12x+3y=42$。①\'−②で $11x=33$、$x=3$。②に代入して $3+3y=9$、$y=2$。',
         },
         {
           id: 'math-g2-elim-q8',
           question: '$x + y = 10$, $3x - y = 6$ を加減法で解くと？',
-          options: ['$x = 3, y = 7$', '$x = 4, y = 6$', '$x = 2, y = 8$', '$x = 5, y = 5$'],
-          correctIndex: 1,
+          options: ['$x = 4, y = 6$', '$x = 3, y = 7$', '$x = 2, y = 8$', '$x = 5, y = 5$'],
+          correctIndex: 0,
           explanation:
             '$y$ の係数が $+1$ と $-1$ で逆符号。足すと $4x = 16$、$x = 4$。①に代入して $y = 6$。',
         },

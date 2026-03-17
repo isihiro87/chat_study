@@ -78,8 +78,8 @@ export const sekkanPolitics: Topic = {
         {
           id: 'q1',
           question: '藤原氏が天皇の外戚として実権を握った政治は？',
-          options: ['院政', '執権政治', '建武の新政', '摂関政治'],
-          correctIndex: 3,
+          options: ['摂関政治', '執権政治', '建武の新政', '院政'],
+          correctIndex: 0,
           explanation: '摂関政治は藤原氏が摂政・関白として権力を握った政治形態です。',
         },
         {
@@ -92,8 +92,8 @@ export const sekkanPolitics: Topic = {
         {
           id: 'q3',
           question: '平安時代の貴族の住居の建築様式は？',
-          options: ['校倉造', '書院造', '寝殿造', '数寄屋造'],
-          correctIndex: 2,
+          options: ['校倉造', '書院造', '数寄屋造', '寝殿造'],
+          correctIndex: 3,
           explanation: '寝殿造は中央に寝殿を置き、渡り廊下で周囲の建物を結ぶ様式です。',
         },
         {
@@ -106,22 +106,22 @@ export const sekkanPolitics: Topic = {
         {
           id: 'q5',
           question: '藤原頼通が宇治に建立した建物は？',
-          options: ['東大寺', '法隆寺', '平等院鳳凰堂', '唐招提寺'],
-          correctIndex: 2,
+          options: ['平等院鳳凰堂', '法隆寺', '東大寺', '唐招提寺'],
+          correctIndex: 0,
           explanation: '平等院鳳凰堂は藤原頼通が1053年に宇治に建立した、浄土信仰を表す美しい建物です。',
         },
         {
           id: 'q6',
           question: '藤原道長が自らの栄華をたとえた「この世をば…」の歌で、何にたとえた？',
-          options: ['太陽', '望月（満月）', '桜', '富士山'],
-          correctIndex: 1,
+          options: ['太陽', '富士山', '桜', '望月（満月）'],
+          correctIndex: 3,
           explanation: '道長は「この世をば わが世とぞ思ふ 望月の 欠けたることも なしと思へば」と詠み、自分の栄華を欠けることのない満月にたとえました。',
         },
         {
           id: 'q7',
           question: '天皇の母方の親戚のことを何という？',
-          options: ['関白', '摂政', '外戚', '太政大臣'],
-          correctIndex: 2,
+          options: ['関白', '外戚', '摂政', '太政大臣'],
+          correctIndex: 1,
           explanation: '外戚は天皇の母方の親戚で、藤原氏はこの立場を利用して政治の実権を握りました。',
         },
         {
@@ -141,8 +141,8 @@ export const sekkanPolitics: Topic = {
         {
           id: 'q10',
           question: '摂関政治が衰退した後に始まった、上皇が実権を握る政治は？',
-          options: ['武家政治', '院政', '執権政治', '建武の新政'],
-          correctIndex: 1,
+          options: ['武家政治', '建武の新政', '執権政治', '院政'],
+          correctIndex: 3,
           explanation: '院政は退位した天皇（上皇）が直接政治の実権を握る政治形態です。',
         },
       ],

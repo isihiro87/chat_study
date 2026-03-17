@@ -171,8 +171,8 @@ export const yayoiEra: Topic = {
           id: 'q1',
           question:
             '紀元前4世紀頃に九州北部に伝わり、弥生時代のきっかけとなったものは？',
-          options: ['鉄器', '仏教', '稲作', '漢字'],
-          correctIndex: 2,
+          options: ['稲作', '仏教', '鉄器', '漢字'],
+          correctIndex: 0,
           explanation:
             '大陸から九州北部に稲作が伝わり、弥生時代が始まりました。',
         },
@@ -195,24 +195,24 @@ export const yayoiEra: Topic = {
         {
           id: 'q4',
           question: '卑弥呼が魏の皇帝から授かった称号は？',
-          options: ['倭王', '天皇', '親魏倭王', '大王'],
-          correctIndex: 2,
+          options: ['倭王', '天皇', '大王', '親魏倭王'],
+          correctIndex: 3,
           explanation:
             '卑弥呼は魏に朝貢し、「親魏倭王」の称号を授かりました。',
         },
         {
           id: 'q5',
           question: '祭りの宝物として使われたつりがね形の青銅器は？',
-          options: ['金印', '銅鏡', '銅鐸', '銅剣'],
-          correctIndex: 2,
+          options: ['銅鐸', '銅鏡', '金印', '銅剣'],
+          correctIndex: 0,
           explanation:
             '銅鐸は弥生時代に祭りの道具として使われた青銅器です。',
         },
         {
           id: 'q6',
           question: '1世紀に奴国の王が漢の皇帝から授かったものは？',
-          options: ['銅鐸', '鉄剣', '銅鏡', '金印'],
-          correctIndex: 3,
+          options: ['銅鐸', '鉄剣', '金印', '銅鏡'],
+          correctIndex: 2,
           explanation:
             '奴国の王は漢の皇帝から金印を授かりました。福岡県で発見されています。',
         },
@@ -220,8 +220,8 @@ export const yayoiEra: Topic = {
           id: 'q7',
           question:
             '卑弥呼のことが記されている中国の歴史書は？',
-          options: ['漢書地理志', '宋書', '魏志倭人伝', '古事記'],
-          correctIndex: 2,
+          options: ['漢書地理志', '魏志倭人伝', '宋書', '古事記'],
+          correctIndex: 1,
           explanation:
             '魏志倭人伝には邪馬台国の卑弥呼のことが詳しく記されています。',
         },
@@ -242,8 +242,8 @@ export const yayoiEra: Topic = {
         {
           id: 'q9',
           question: '金印に刻まれていた文字は？',
-          options: ['親魏倭王', '漢委奴国王', '倭王武', '大王'],
-          correctIndex: 1,
+          options: ['親魏倭王', '倭王武', '漢委奴国王', '大王'],
+          correctIndex: 2,
           explanation:
             '金印には「漢委奴国王」と刻まれており、漢の皇帝から奴国の王に授けられました。',
         },
@@ -251,8 +251,8 @@ export const yayoiEra: Topic = {
           id: 'q10',
           question:
             '弥生時代に武器や農具として実用的に使われた金属器は？',
-          options: ['青銅器', '金器', '鉄器', '銀器'],
-          correctIndex: 2,
+          options: ['青銅器', '鉄器', '金器', '銀器'],
+          correctIndex: 1,
           explanation:
             '鉄器は硬くて丈夫なため、武器や農具など実用品に使われました。',
         },

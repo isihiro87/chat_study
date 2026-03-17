@@ -218,15 +218,15 @@ export const generalVerbs: Topic = {
         {
           id: 'eng-gv-q1',
           question: '「I (　　) soccer.（私はサッカーをします。）」\nの (　　) に入るのは？',
-          options: ['plays', 'play', 'playing', 'am play'],
-          correctIndex: 1,
+          options: ['plays', 'am play', 'playing', 'play'],
+          correctIndex: 3,
           explanation: 'I のときは動詞はそのままの形だよ。play がそのまま入るよ。',
         },
         {
           id: 'eng-gv-q2',
           question: '「She (　　) English.（彼女は英語を話します。）」\nの (　　) に入るのは？',
-          options: ['speak', 'speaks', 'speaking', 'is speak'],
-          correctIndex: 1,
+          options: ['speaks', 'speak', 'speaking', 'is speak'],
+          correctIndex: 0,
           explanation: 'She は1人だから、動詞のおしりに s をつけるよ。speak → speaks',
         },
         {
@@ -247,12 +247,12 @@ export const generalVerbs: Topic = {
           id: 'eng-gv-q5',
           question: '「Does she like math?（彼女は数学が好きですか？）」に「はい」で答えるとき、正しいのは？',
           options: [
-            'Yes, she does.',
+            'Yes, she do.',
             'Yes, she is.',
             'Yes, she likes.',
-            'Yes, she do.',
+            'Yes, she does.',
           ],
-          correctIndex: 0,
+          correctIndex: 3,
           explanation: 'Does で聞かれたら does で答えるよ。Yes, she does.（はい、好きです。）',
         },
         {
@@ -291,8 +291,8 @@ export const generalVerbs: Topic = {
         {
           id: 'eng-gv-q9',
           question: '「I (　　) play the guitar.（私はギターが弾けます。）」\nの (　　) に入るのは？',
-          options: ['am', 'can', 'do', 'have'],
-          correctIndex: 1,
+          options: ['am', 'do', 'can', 'have'],
+          correctIndex: 2,
           explanation: '「〜できる」は can を使うよ。can のあとの動詞はそのままの形（play）を使うよ。',
         },
         {

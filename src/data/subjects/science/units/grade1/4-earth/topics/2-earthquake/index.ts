@@ -304,24 +304,24 @@ export const earthquake: Topic = {
         {
           id: 'sci1-earthquake-q1',
           question: '地震のゆれのうち、はじめの小さなゆれを何という？',
-          options: ['主要動', '初期微動', '余震', '前震'],
-          correctIndex: 1,
+          options: ['主要動', '余震', '初期微動', '前震'],
+          correctIndex: 2,
           explanation:
             'はじめの小さなゆれを初期微動といい、P波によって伝わります。あとから来る大きなゆれを主要動（S波）といいます。',
         },
         {
           id: 'sci1-earthquake-q2',
           question: '震源からの距離が大きくなると初期微動継続時間はどうなる？',
-          options: ['短くなる', '変わらない', '長くなる', 'ゼロになる'],
-          correctIndex: 2,
+          options: ['短くなる', '変わらない', 'ゼロになる', '長くなる'],
+          correctIndex: 3,
           explanation:
             '震源から遠いほどP波とS波の到着時間の差が大きくなるため、初期微動継続時間は長くなります。',
         },
         {
           id: 'sci1-earthquake-q3',
           question: '地震の規模を表す値は何？',
-          options: ['震度', '震央', 'マグニチュード', '初期微動継続時間'],
-          correctIndex: 2,
+          options: ['マグニチュード', '震央', '震度', '初期微動継続時間'],
+          correctIndex: 0,
           explanation:
             '地震の規模を表す値はマグニチュード（M）です。震度は各地のゆれの強さを表します。1つの地震でマグニチュードは1つですが、震度は場所によって異なります。',
         },
@@ -330,19 +330,19 @@ export const earthquake: Topic = {
           question: '日本に地震が多い理由として正しいものはどれ？',
           options: [
             '火山が多いから',
-            '島国だから',
             '複数のプレートの境界に位置するから',
+            '島国だから',
             '平野が多いから',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation:
             '日本は太平洋プレート、フィリピン海プレート、ユーラシアプレート、北アメリカプレートの境界に位置するため、地震が多く発生します。',
         },
         {
           id: 'sci1-earthquake-q5',
           question: '水分を多く含む地盤が地震のゆれで液体のようにふるまう現象を何という？',
-          options: ['土砂くずれ', '液状化', '地盤沈下', '断層'],
-          correctIndex: 1,
+          options: ['土砂くずれ', '地盤沈下', '液状化', '断層'],
+          correctIndex: 2,
           explanation:
             '液状化は地震のゆれによって水分を多く含む砂の地盤が液体のようにふるまう現象です。建物が傾いたりマンホールが浮き上がったりします。',
         },
@@ -352,18 +352,18 @@ export const earthquake: Topic = {
           options: [
             'P波が先に発生する',
             'S波が先に発生する',
-            '同時に発生する',
             '交互に発生する',
+            '同時に発生する',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             'P波とS波は震源で同時に発生します。P波のほうが速く伝わるため先に届きますが、発生は同時です。',
         },
         {
           id: 'sci1-earthquake-q7',
           question: '地球の表面をおおう厚さ約100kmの岩盤を何という？',
-          options: ['マントル', 'プレート', '地殻', '断層'],
-          correctIndex: 1,
+          options: ['プレート', 'マントル', '地殻', '断層'],
+          correctIndex: 0,
           explanation:
             'プレートは地球の表面をおおう岩盤で、十数枚に分かれています。プレートは少しずつ動いており、境界で地震が多発します。',
         },
@@ -372,27 +372,27 @@ export const earthquake: Topic = {
           question: '日本付近の海洋プレートはどれ？',
           options: [
             'ユーラシアプレート',
-            '北アメリカプレート',
             '太平洋プレート',
+            '北アメリカプレート',
             'インドプレート',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation:
             '太平洋プレートとフィリピン海プレートが海洋プレートです。ユーラシアプレートと北アメリカプレートは大陸プレートです。',
         },
         {
           id: 'sci1-earthquake-q9',
           question: '過去にくり返しずれたことがあり、今後もずれる可能性がある断層を何という？',
-          options: ['正断層', '逆断層', '活断層', '横ずれ断層'],
-          correctIndex: 2,
+          options: ['正断層', '逆断層', '横ずれ断層', '活断層'],
+          correctIndex: 3,
           explanation:
             '活断層は過去にくり返しずれた実績があり、将来も地震を起こす可能性がある断層です。',
         },
         {
           id: 'sci1-earthquake-q10',
           question: 'マグニチュードの値が1大きくなると、地震のエネルギーは約何倍になる？',
-          options: ['約2倍', '約10倍', '約32倍', '約100倍'],
-          correctIndex: 2,
+          options: ['約2倍', '約32倍', '約10倍', '約100倍'],
+          correctIndex: 1,
           explanation:
             'マグニチュードが1大きくなるとエネルギーは約32倍、2大きくなると約1000倍になります。',
         },
@@ -401,19 +401,19 @@ export const earthquake: Topic = {
           question: '地震計でおもりが動かない理由は何？',
           options: [
             '磁力で固定されているから',
-            '慣性があるから',
             '非常に重いから',
+            '慣性があるから',
             '地面に固定されているから',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             'おもりは慣性（そのままの状態を続けようとする性質）によって動かず、地面がゆれることで相対的にゆれが記録されます。',
         },
         {
           id: 'sci1-earthquake-q12',
           question: '海底で大きな地震が起こったとき発生することがある、海水の大きな波を何という？',
-          options: ['高潮', '津波', '波浪', 'うねり'],
-          correctIndex: 1,
+          options: ['津波', '高潮', '波浪', 'うねり'],
+          correctIndex: 0,
           explanation:
             '津波は海底の地震で海底が急に動くことで発生します。海岸に近づくと急激に高くなり、大きな被害をもたらします。',
         },

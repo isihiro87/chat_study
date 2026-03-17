@@ -123,11 +123,11 @@ export const waterPressure: Topic = {
           question: '水圧について正しいのはどれ？',
           options: [
             '深さに関係なく一定',
-            '深いほど小さい',
             '深いほど大きい',
+            '深いほど小さい',
             '上向きだけにはたらく',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation:
             '水圧は水の深さが深いほど大きくなり、あらゆる方向からはたらきます。',
         },
@@ -137,10 +137,10 @@ export const waterPressure: Topic = {
           options: [
             '物体の重さ',
             '水の温度差',
-            '物体の上面と下面にはたらく水圧の差',
             '水の流れ',
+            '物体の上面と下面にはたらく水圧の差',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '浮力は、物体の下面にはたらく上向きの水圧が上面にはたらく下向きの水圧より大きいために生じます。',
         },
@@ -148,12 +148,12 @@ export const waterPressure: Topic = {
           id: 'sci3-wp-q3',
           question: '浮力の大きさに関係するのはどれ？',
           options: [
-            '物体の質量',
             '水中にある物体の体積',
+            '物体の質量',
             '物体を沈める深さ',
             '物体の形',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '浮力は水中にある物体の体積が大きいほど大きくなります。質量や深さには関係しません。',
         },
@@ -162,11 +162,11 @@ export const waterPressure: Topic = {
           question: '空気中で2.0Nの物体を水中に沈めたらばねばかりが1.4Nを示した。浮力はいくら？',
           options: [
             '0.4N',
-            '0.6N',
             '1.4N',
+            '0.6N',
             '3.4N',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             '浮力 = 空気中の重さ − 水中でのばねばかりの値 = 2.0 − 1.4 = 0.6N です。',
         },
@@ -174,12 +174,12 @@ export const waterPressure: Topic = {
           id: 'sci3-wp-q5',
           question: '水面に浮いて静止している物体にはたらく浮力と重力の関係は？',
           options: [
-            '浮力 > 重力',
-            '浮力 < 重力',
             '浮力 = 重力',
+            '浮力 < 重力',
+            '浮力 > 重力',
             '浮力 = 0',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             '水面に浮いて静止しているということは、上向きの浮力と下向きの重力がつり合っている（等しい）ことを意味します。',
         },
@@ -188,11 +188,11 @@ export const waterPressure: Topic = {
           question: '同じ深さにおいて、水圧の大きさが最も大きい方向はどれ？',
           options: [
             '上向き',
-            '下向き',
-            '横向き',
             'どの方向も同じ',
+            '横向き',
+            '下向き',
           ],
-          correctIndex: 3,
+          correctIndex: 1,
           explanation:
             '同じ深さでは水圧はどの方向でも同じ大きさです。水圧はあらゆる方向から等しくはたらきます。',
         },
@@ -202,10 +202,10 @@ export const waterPressure: Topic = {
           options: [
             '大きくなる',
             '小さくなる',
-            '変わらない',
             '0になる',
+            '変わらない',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '完全に水中に沈んでいる場合、深さを変えても浮力は変わりません。浮力は水中にある物体の体積で決まります。',
         },

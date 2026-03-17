@@ -211,11 +211,11 @@ export const northAmericaNature: Topic = {
           question: 'アメリカの農業で、気候や土壌に合わせて作物を栽培する方法を何という？',
           options: [
             '二毛作',
-            '適地適作',
-            '焼畑農業',
             '混合農業',
+            '焼畑農業',
+            '適地適作',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '適地適作とは、その土地の自然条件（気候・土壌など）に最も適した作物を栽培する方法です。アメリカ農業の大きな特徴です。',
         },
@@ -223,12 +223,12 @@ export const northAmericaNature: Topic = {
           id: 'geo1-na1-q2',
           question: '穀物メジャーによる農業の生産から流通・輸出までの一貫経営を何という？',
           options: [
-            'プランテーション',
             'アグリビジネス',
+            'プランテーション',
             'モノカルチャー',
             'フェアトレード',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             'アグリビジネスとは、穀物メジャーなどの巨大企業が農業の生産・加工・流通・輸出を一貫して行うビジネスのことです。',
         },
@@ -276,11 +276,11 @@ export const northAmericaNature: Topic = {
           question: '肉牛を柵のある区画に集めて穀物飼料で肥育する施設を何という？',
           options: [
             'プランテーション',
-            'フィードロット',
-            'センターピボット',
             'サイロ',
+            'センターピボット',
+            'フィードロット',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             'フィードロットは肉牛の肥育場で、大量の穀物飼料を与えて効率的に肥育する施設です。アメリカの大規模な牛肉生産を支えています。',
         },

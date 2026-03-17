@@ -87,8 +87,8 @@ export const heianCapital: Topic = {
         {
           id: 'q2',
           question: '真言宗を開き、高野山に寺を建てた僧は？',
-          options: ['空海', '鑑真', '最澄', '行基'],
-          correctIndex: 0,
+          options: ['行基', '鑑真', '最澄', '空海'],
+          correctIndex: 3,
           explanation: '空海は唐で密教を学び、帰国後に真言宗を開きました。',
         },
         {
@@ -101,15 +101,15 @@ export const heianCapital: Topic = {
         {
           id: 'q4',
           question: '征夷大将軍として蝦夷を平定した人物は？',
-          options: ['中臣鎌足', '坂上田村麻呂', '菅原道真', '藤原道長'],
-          correctIndex: 1,
+          options: ['坂上田村麻呂', '中臣鎌足', '菅原道真', '藤原道長'],
+          correctIndex: 0,
           explanation: '坂上田村麻呂は桓武天皇に征夷大将軍に任命され、蝦夷の指導者アテルイを降伏させました。',
         },
         {
           id: 'q5',
           question: '最澄が比叡山に建てた寺で、天台宗の総本山は？',
-          options: ['金剛峯寺', '東大寺', '延暦寺', '唐招提寺'],
-          correctIndex: 2,
+          options: ['延暦寺', '東大寺', '金剛峯寺', '唐招提寺'],
+          correctIndex: 0,
           explanation: '延暦寺は最澄が比叡山に建てた天台宗の総本山で、のちに多くの名僧を輩出しました。',
         },
         {
@@ -122,22 +122,22 @@ export const heianCapital: Topic = {
         {
           id: 'q7',
           question: '空海が唐で学んだ教えは何か？',
-          options: ['禅', '密教', '浄土教', '律'],
-          correctIndex: 1,
+          options: ['禅', '律', '浄土教', '密教'],
+          correctIndex: 3,
           explanation: '空海は唐で密教を学び、帰国後に真言宗を開きました。',
         },
         {
           id: 'q8',
           question: '最澄と空海が開いた仏教に共通する特徴は？',
-          options: ['都の大寺院で修行', '山奥で修行する山岳仏教', '念仏を唱える', '踊り念仏'],
-          correctIndex: 1,
+          options: ['都の大寺院で修行', '念仏を唱える', '山奥で修行する山岳仏教', '踊り念仏'],
+          correctIndex: 2,
           explanation: 'ともに山奥に寺を建てて修行する山岳仏教です。',
         },
         {
           id: 'q9',
           question: '桓武天皇が平安京の前に遷都した都は？',
-          options: ['藤原京', '平城京', '長岡京', '近江大津宮'],
-          correctIndex: 2,
+          options: ['藤原京', '平城京', '近江大津宮', '長岡京'],
+          correctIndex: 3,
           explanation: '桓武天皇は784年に長岡京に遷都しましたが、暗殺事件を機に794年に平安京へ移りました。',
         },
         {

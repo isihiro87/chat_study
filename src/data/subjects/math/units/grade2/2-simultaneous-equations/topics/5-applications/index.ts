@@ -151,8 +151,8 @@ export const simulEqApps: Topic = {
           id: 'math-g2-app-q1',
           question:
             'えんぴつ 1 本 60 円、ノート 1 冊 120 円。合わせて 8 個買って合計 660 円。えんぴつは何本？',
-          options: ['3 本', '4 本', '5 本', '6 本'],
-          correctIndex: 2,
+          options: ['3 本', '5 本', '4 本', '6 本'],
+          correctIndex: 1,
           explanation:
             '$x + y = 8$、$60x + 120y = 660$。②$\\div 60$: $x + 2y = 11$。引くと $y = 3$, $x = 5$。えんぴつ $5$ 本。',
         },
@@ -160,8 +160,8 @@ export const simulEqApps: Topic = {
           id: 'math-g2-app-q2',
           question:
             '2 つの数の和が 20、差が 6。大きい方の数は？',
-          options: ['$11$', '$12$', '$13$', '$14$'],
-          correctIndex: 2,
+          options: ['$11$', '$12$', '$14$', '$13$'],
+          correctIndex: 3,
           explanation:
             '$\\begin{cases} x + y = 20 \\\\ x - y = 6 \\end{cases}$。足すと $2x = 26$, $x = 13$。',
         },
@@ -171,11 +171,11 @@ export const simulEqApps: Topic = {
             '文章題を連立方程式で解くとき、最初にすることは？',
           options: [
             'すぐに式を立てる',
-            '何を $x$, $y$ にするか決める',
             '答えを予想する',
+            '何を $x$, $y$ にするか決める',
             'グラフを描く',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             'まず「何を $x$, $y$ にするか」を決めることが大切。それから条件を式にしていこう。',
         },
@@ -183,8 +183,8 @@ export const simulEqApps: Topic = {
           id: 'math-g2-app-q4',
           question:
             'ケーキ 1 個 300 円、シュークリーム 1 個 150 円。合わせて 7 個で 1500 円。ケーキは何個？',
-          options: ['2 個', '3 個', '4 個', '5 個'],
-          correctIndex: 1,
+          options: ['3 個', '2 個', '4 個', '5 個'],
+          correctIndex: 0,
           explanation:
             '$\\begin{cases} x + y = 7 \\\\ 300x + 150y = 1500 \\end{cases}$。②$\\div 150$: $2x + y = 10$。引くと $x = 3$。',
         },
@@ -202,12 +202,12 @@ export const simulEqApps: Topic = {
           question:
             '1 年生 $x$ 人の 40% と 2 年生 $y$ 人の 30% の合計が 105 人。この式は？',
           options: [
-            '$40x + 30y = 105$',
             '$0.4x + 0.3y = 105$',
+            '$40x + 30y = 105$',
             '$4x + 3y = 105$',
             '$0.04x + 0.03y = 105$',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '$x$ 人の 40% $= 0.4x$、$y$ 人の 30% $= 0.3y$。よって $0.4x + 0.3y = 105$。',
         },

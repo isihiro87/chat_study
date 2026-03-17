@@ -146,6 +146,9 @@ export interface Video {
   thumbnail?: string;
 }
 
+// 難易度
+export type Difficulty = 'basic' | 'standard' | 'advanced';
+
 // フラッシュカード
 export interface Flashcard {
   id: string;
@@ -153,6 +156,7 @@ export interface Flashcard {
   back: string;
   hint?: string;
   explanation?: string;
+  difficulty?: Difficulty;
 }
 
 // クイズ
@@ -172,6 +176,7 @@ export interface QuizQuestion {
   correctOrder?: number[];
   punctuation?: '.' | '?'; // 文末記号（並べ替え問題で使用）
   explanation?: string;
+  difficulty?: Difficulty;
   sourceTopicId?: string; // まとめクイズ用：出題元トピックID（buildRandomQuizで付与）
 }
 
@@ -196,5 +201,6 @@ export interface TopicProgress {
   exampleCompleted: boolean;
   quizBestScore: number | null;
   quizTotalQuestions: number | null;
+  quizCompletedDifficulties?: Difficulty[];
   lastStudiedAt: string;
 }

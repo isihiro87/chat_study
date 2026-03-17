@@ -99,22 +99,22 @@ export const nouns: Topic = {
         {
           id: 'eng-noun-q1',
           question: '「I have three (　　).（私はペンを3本もっています。）」\nの (　　) に入るのは？',
-          options: ['pen', 'pens', 'a pen', 'penes'],
-          correctIndex: 1,
+          options: ['pens', 'pen', 'a pen', 'penes'],
+          correctIndex: 0,
           explanation: '2つ以上のときはおしりに s をつけるよ。pen → pens',
         },
         {
           id: 'eng-noun-q2',
           question: 'box の「2つ以上」の形で正しいのは？',
-          options: ['boxs', 'boxes', 'boxies', 'box'],
-          correctIndex: 1,
+          options: ['boxs', 'box', 'boxies', 'boxes'],
+          correctIndex: 3,
           explanation: 'x で終わることばには es をつけるよ。box → boxes',
         },
         {
           id: 'eng-noun-q3',
           question: '「(　　) is a dog.（あれはイヌです。）」\n遠くのイヌを指して言うとき、(　　) に入るのは？',
-          options: ['This', 'That', 'It', 'A'],
-          correctIndex: 1,
+          options: ['This', 'It', 'That', 'A'],
+          correctIndex: 2,
           explanation: '遠くのものを指すときは that を使うよ。That is a dog.',
         },
         {
@@ -128,12 +128,12 @@ export const nouns: Topic = {
           id: 'eng-noun-q5',
           question: '「Is this a cat?（これはネコですか？）」に「はい」で答えるとき、正しいのは？',
           options: [
-            'Yes, this is.',
             'Yes, it is.',
+            'Yes, this is.',
             'Yes, that is.',
             'Yes, a cat.',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation: 'this や that の質問に答えるときは it を使うよ。Yes, it is.',
         },
         {

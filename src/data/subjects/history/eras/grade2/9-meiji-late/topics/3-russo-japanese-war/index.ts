@@ -111,8 +111,8 @@ export const russoJapaneseWar: Topic = {
           id: 'q1',
           question:
             '1902年、ロシアの南下に対抗するために日本が結んだ同盟は？',
-          options: ['三国同盟', '日独同盟', '日英同盟', '日清同盟'],
-          correctIndex: 2,
+          options: ['三国同盟', '日独同盟', '日清同盟', '日英同盟'],
+          correctIndex: 3,
           explanation:
             'ロシアの南下を警戒する日本とイギリスの利害が一致し、日英同盟が結ばれました。',
         },
@@ -120,12 +120,12 @@ export const russoJapaneseWar: Topic = {
           id: 'q2',
           question: '1905年に日露戦争後に結ばれた講和条約は？',
           options: [
-            'ポーツマス条約',
-            '下関条約',
             '南京条約',
+            '下関条約',
+            'ポーツマス条約',
             '日朝修好条規',
           ],
-          correctIndex: 0,
+          correctIndex: 2,
           explanation:
             'ポーツマス条約はアメリカ大統領の仲介で結ばれましたが、賠償金は得られませんでした。',
         },
@@ -135,11 +135,11 @@ export const russoJapaneseWar: Topic = {
             'ポーツマス条約への不満から東京で起きた暴動は？',
           options: [
             '西南戦争',
-            '秩父事件',
             '日比谷焼き討ち事件',
+            '秩父事件',
             '安政の大獄',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation:
             '賠償金が得られなかったことに国民の怒りが爆発し、日比谷焼き討ち事件が起きました。',
         },
@@ -148,12 +148,12 @@ export const russoJapaneseWar: Topic = {
           question:
             '「君死にたまふこと勿れ」で弟を案じ、戦争への思いを詠んだ歌人は？',
           options: [
-            '樋口一葉',
-            '正岡子規',
             '与謝野晶子',
+            '正岡子規',
+            '樋口一葉',
             '夏目漱石',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             '与謝野晶子は日露戦争に従軍する弟の身を案じて「君死にたまふこと勿れ」を発表しました。',
         },
@@ -162,12 +162,12 @@ export const russoJapaneseWar: Topic = {
           question:
             'ポーツマス条約で日本が獲得した領土は？',
           options: [
-            '台湾',
-            '遼東半島全体',
             '北緯50度以南の樺太（南樺太）',
+            '遼東半島全体',
+            '台湾',
             '朝鮮半島',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             'ポーツマス条約で日本は韓国の優越権、旅順・大連の租借権、南樺太などを獲得しましたが賠償金はありませんでした。',
         },
@@ -177,11 +177,11 @@ export const russoJapaneseWar: Topic = {
             '日露戦争前にロシアが軍隊を駐留させ続けるきっかけとなった事件は？',
           options: [
             '甲午農民戦争',
-            '辛亥革命',
             '義和団事件',
+            '辛亥革命',
             '三国干渉',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation:
             '1900年の義和団事件の鎮圧後もロシアは満州に軍隊を駐留させ、日本との対立が深まりました。',
         },

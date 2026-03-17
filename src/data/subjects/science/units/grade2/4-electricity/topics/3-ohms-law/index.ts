@@ -145,32 +145,32 @@ export const ohmsLaw: Topic = {
         {
           id: 'sci2-ohms-q2',
           question: '20Ωの抵抗に0.3Aの電流が流れているとき、抵抗にかかる電圧は？',
-          options: ['3V', '6V', '60V', '0.015V'],
-          correctIndex: 1,
+          options: ['3V', '60V', '6V', '0.015V'],
+          correctIndex: 2,
           explanation:
             'V＝R×I＝20Ω×0.3A＝6V です。オームの法則に値を代入して計算します。',
         },
         {
           id: 'sci2-ohms-q3',
           question: '15Ωと25Ωの抵抗を直列につないだときの合成抵抗は？',
-          options: ['10Ω', '25Ω', '40Ω', '375Ω'],
-          correctIndex: 2,
+          options: ['40Ω', '25Ω', '10Ω', '375Ω'],
+          correctIndex: 0,
           explanation:
             '直列回路の合成抵抗は R＝R₁＋R₂＝15＋25＝40Ω です。',
         },
         {
           id: 'sci2-ohms-q4',
           question: '20Ωと20Ωの抵抗を並列につないだときの合成抵抗は？',
-          options: ['5Ω', '10Ω', '20Ω', '40Ω'],
-          correctIndex: 1,
+          options: ['5Ω', '40Ω', '20Ω', '10Ω'],
+          correctIndex: 3,
           explanation:
             '同じ抵抗を2つ並列にすると合成抵抗は半分になります。20÷2＝10Ω。',
         },
         {
           id: 'sci2-ohms-q5',
           question: '次のうち、導体はどれか？',
-          options: ['ガラス', 'ゴム', '銅', 'プラスチック'],
-          correctIndex: 2,
+          options: ['銅', 'ゴム', 'ガラス', 'プラスチック'],
+          correctIndex: 0,
           explanation:
             '銅は金属で、電気をよく通す導体です。ガラス・ゴム・プラスチックは不導体（絶縁体）です。',
         },

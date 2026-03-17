@@ -183,8 +183,8 @@ export const rateOfChange: Topic = {
         {
           id: 'math-g3-rate-of-change-q1',
           question: '$y = x^2$ で $x$ が $1$ から $3$ に変化するとき、変化の割合は？',
-          options: ['$2$', '$4$', '$8$', '$3$'],
-          correctIndex: 1,
+          options: ['$2$', '$8$', '$4$', '$3$'],
+          correctIndex: 2,
           explanation:
             '変化の割合 $= a(p + q) = 1 \\times (1 + 3) = 4$。または $y$ の増加量 $9-1=8$、$x$ の増加量 $3-1=2$ で $8 \\div 2 = 4$ だよ。',
         },
@@ -201,35 +201,35 @@ export const rateOfChange: Topic = {
           question: '$y = ax^2$ の変化の割合と一次関数の変化の割合の違いは？',
           options: [
             'どちらも一定',
-            '$y = ax^2$ は区間によって変わる',
-            'どちらも区間によって変わる',
             '一次関数は区間によって変わる',
+            'どちらも区間によって変わる',
+            '$y = ax^2$ は区間によって変わる',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '一次関数の変化の割合は常に一定（= 傾き $a$）だけど、$y = ax^2$ の変化の割合は区間によって変わるよ。',
         },
         {
           id: 'math-g3-qf-rc-q4',
           question: '$y = -3x^2$ で $x$ が $-2$ から $4$ に変化するとき、変化の割合は？',
-          options: ['$6$', '$-6$', '$18$', '$-18$'],
-          correctIndex: 1,
+          options: ['$-6$', '$6$', '$18$', '$-18$'],
+          correctIndex: 0,
           explanation:
             '変化の割合 $= a(p + q) = -3 \\times (-2 + 4) = -3 \\times 2 = -6$ だよ。',
         },
         {
           id: 'math-g3-qf-rc-q5',
           question: 'ボールが斜面を転がり $y = 2x^2$（cm）で表されるとき、$1$ 秒後から $4$ 秒後までの平均の速さは？',
-          options: ['$6$ cm/秒', '$8$ cm/秒', '$10$ cm/秒', '$12$ cm/秒'],
-          correctIndex: 2,
+          options: ['$6$ cm/秒', '$10$ cm/秒', '$8$ cm/秒', '$12$ cm/秒'],
+          correctIndex: 1,
           explanation:
             '平均の速さ $= a(p + q) = 2(1 + 4) = 10$ cm/秒。移動距離 $32-2=30$、時間 $3$ 秒で $30 \\div 3 = 10$ でも同じだよ。',
         },
         {
           id: 'math-g3-qf-rc-q6',
           question: '$y = ax^2$ で $x$ が $1$ から $5$ に変化するとき、変化の割合が $12$ だった。$a$ の値は？',
-          options: ['$1$', '$2$', '$3$', '$4$'],
-          correctIndex: 1,
+          options: ['$1$', '$3$', '$2$', '$4$'],
+          correctIndex: 2,
           explanation:
             '$a(1 + 5) = 6a = 12$ より $a = 2$ だよ。',
         },
@@ -237,28 +237,28 @@ export const rateOfChange: Topic = {
           id: 'math-g3-qf-rc-q7',
           question: '$y = x^2$ と $y = x + 2$ の交点の $x$ 座標は？',
           options: [
-            '$x = 1, 2$',
             '$x = -1, 2$',
+            '$x = 1, 2$',
             '$x = -2, 1$',
             '$x = -2, 3$',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '$x^2 = x + 2$ → $x^2 - x - 2 = 0$ → $(x - 2)(x + 1) = 0$ → $x = 2, -1$ だよ。',
         },
         {
           id: 'math-g3-qf-rc-q8',
           question: '$y = x^2$ 上の $2$ 点 $A(-1, 1)$、$B(2, 4)$ を通る直線の傾きは？',
-          options: ['$1$', '$2$', '$3$', '$\\dfrac{3}{2}$'],
-          correctIndex: 0,
+          options: ['$\\dfrac{3}{2}$', '$2$', '$3$', '$1$'],
+          correctIndex: 3,
           explanation:
             '傾き $= (4 - 1) \\div (2 - (-1)) = 3 \\div 3 = 1$ だよ。変化の割合 $= 1 \\times (-1 + 2) = 1$ と一致するね。',
         },
         {
           id: 'math-g3-qf-rc-q9',
           question: '$y = x^2$ と $y = 2x + 3$ の交点を $A(-1, 1)$、$B(3, 9)$、原点を $O$ とする。$\\triangle OAB$ の面積は？',
-          options: ['$3$', '$6$', '$9$', '$12$'],
-          correctIndex: 1,
+          options: ['$3$', '$12$', '$9$', '$6$'],
+          correctIndex: 3,
           explanation:
             'y切片 $C(0, 3)$ で分割。$\\triangle OAC = \\dfrac{1}{2} \\times 3 \\times 1 = \\dfrac{3}{2}$、$\\triangle OCB = \\dfrac{1}{2} \\times 3 \\times 3 = \\dfrac{9}{2}$。合計 $= \\dfrac{3}{2} + \\dfrac{9}{2} = 6$ だよ。',
         },
@@ -274,12 +274,12 @@ export const rateOfChange: Topic = {
           id: 'math-g3-qf-rc-q11',
           question: '一次関数 $y = 5x + 1$ と同じ変化の割合になる $y = x^2$ の区間は？（$x$ が $a$ から $a+2$）',
           options: [
-            '$x = 1$ から $3$',
             '$x = \\dfrac{3}{2}$ から $\\dfrac{7}{2}$',
+            '$x = 1$ から $3$',
             '$x = 2$ から $4$',
             '$x = 0$ から $2$',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '$1 \\times (a + a + 2) = 2a + 2 = 5$ より $a = \\dfrac{3}{2}$。区間は $\\dfrac{3}{2}$ から $\\dfrac{7}{2}$ だよ。',
         },
@@ -287,12 +287,12 @@ export const rateOfChange: Topic = {
           id: 'math-g3-qf-rc-q12',
           question: '$y = x^2$ と $y = 3x$ の交点の座標は？',
           options: [
-            '$(0, 0)$ と $(3, 9)$',
             '$(0, 0)$ と $(3, 6)$',
+            '$(0, 0)$ と $(3, 9)$',
             '$(1, 1)$ と $(3, 9)$',
             '$(0, 0)$ と $(-3, 9)$',
           ],
-          correctIndex: 0,
+          correctIndex: 1,
           explanation:
             '$x^2 = 3x$ → $x(x - 3) = 0$ → $x = 0, 3$。$y = 0, 9$ なので $(0, 0)$ と $(3, 9)$ だよ。',
         },

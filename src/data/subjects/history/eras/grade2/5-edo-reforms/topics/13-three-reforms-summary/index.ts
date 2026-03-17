@@ -62,24 +62,24 @@ export const threeReformsSummary: Topic = {
         {
           id: 'q2',
           question: '寛政の改革を行った、吉宗の孫である老中は？',
-          options: ['田沼意次', '水野忠邦', '松平定信', '井伊直弼'],
-          correctIndex: 2,
+          options: ['田沼意次', '水野忠邦', '井伊直弼', '松平定信'],
+          correctIndex: 3,
           explanation:
             '松平定信は吉宗の孫で、祖父の政治をお手本にしましたが厳しすぎて失敗しました。',
         },
         {
           id: 'q3',
           question: '天保の改革を行った老中は？',
-          options: ['松平定信', '田沼意次', '阿部正弘', '水野忠邦'],
-          correctIndex: 3,
+          options: ['水野忠邦', '田沼意次', '阿部正弘', '松平定信'],
+          correctIndex: 0,
           explanation:
             '水野忠邦は幕府最後の改革を行いましたが、株仲間解散や上知令が失敗しました。',
         },
         {
           id: 'q4',
           question: '三大改革で唯一、将軍自らが行い成功した改革は？',
-          options: ['田沼の政治', '享保の改革', '天保の改革', '寛政の改革'],
-          correctIndex: 1,
+          options: ['田沼の政治', '天保の改革', '享保の改革', '寛政の改革'],
+          correctIndex: 2,
           explanation:
             '享保の改革は8代将軍吉宗が自ら行い、一定の成功を収めました。',
         },
@@ -89,18 +89,18 @@ export const threeReformsSummary: Topic = {
           options: [
             '吉宗→忠邦→定信',
             '定信→吉宗→忠邦',
-            '忠邦→定信→吉宗',
             '吉宗→定信→忠邦',
+            '忠邦→定信→吉宗',
           ],
-          correctIndex: 3,
+          correctIndex: 2,
           explanation:
             '享保（1716年〜）→寛政（1787年〜）→天保（1841年〜）の順番です。',
         },
         {
           id: 'q6',
           question: '三大改革と異なり、商業を重視した政治を行ったのは？',
-          options: ['田沼意次', '徳川吉宗', '松平定信', '水野忠邦'],
-          correctIndex: 0,
+          options: ['水野忠邦', '徳川吉宗', '松平定信', '田沼意次'],
+          correctIndex: 3,
           explanation:
             '田沼意次は享保と寛政の間に、株仲間の奨励など商業重視の政策を行いました。',
         },

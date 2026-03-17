@@ -180,24 +180,24 @@ export const sqrtAddExpand: Topic = {
         {
           id: 'math-g3-sqrt-add-expand-q1',
           question: '$3\\sqrt{5} + 2\\sqrt{5}$ はいくつ？',
-          options: ['$5\\sqrt{5}$', '$5\\sqrt{10}$', '$6\\sqrt{5}$', '$\\sqrt{25}$'],
-          correctIndex: 0,
+          options: ['$6\\sqrt{5}$', '$5\\sqrt{10}$', '$5\\sqrt{5}$', '$\\sqrt{25}$'],
+          correctIndex: 2,
           explanation:
             '$3\\sqrt{5} + 2\\sqrt{5} = (3+2)\\sqrt{5} = 5\\sqrt{5}$。同じルートの前の数だけ足すよ。',
         },
         {
           id: 'math-g3-sqrt-add-expand-q2',
           question: '$(\\sqrt{5} + 2)(\\sqrt{5} - 2)$ はいくつ？',
-          options: ['$3$', '$1$', '$\\sqrt{5} - 4$', '$5 - 2\\sqrt{5}$'],
-          correctIndex: 1,
+          options: ['$3$', '$5 - 2\\sqrt{5}$', '$\\sqrt{5} - 4$', '$1$'],
+          correctIndex: 3,
           explanation:
             '$(\\sqrt{5}+2)(\\sqrt{5}-2) = (\\sqrt{5})^2 - 2^2 = 5 - 4 = 1$。和と差の積の公式だよ。',
         },
         {
           id: 'math-g3-sqrt-add-expand-q3',
           question: '$\\sqrt{12} + \\sqrt{3}$ を計算すると？',
-          options: ['$\\sqrt{15}$', '$3\\sqrt{3}$', '$2\\sqrt{3} + \\sqrt{3} = 3\\sqrt{3}$', '$\\sqrt{12}\\sqrt{3}$'],
-          correctIndex: 2,
+          options: ['$\\sqrt{15}$', '$2\\sqrt{3} + \\sqrt{3} = 3\\sqrt{3}$', '$3\\sqrt{3}$', '$\\sqrt{12}\\sqrt{3}$'],
+          correctIndex: 1,
           explanation:
             '$\\sqrt{12} = 2\\sqrt{3}$ だから、$2\\sqrt{3} + \\sqrt{3} = 3\\sqrt{3}$。$\\sqrt{}$ の中を簡単にしてからまとめよう。',
         },
@@ -217,8 +217,8 @@ export const sqrtAddExpand: Topic = {
         {
           id: 'math-g3-sqrt-add-expand-q5',
           question: '$(\\sqrt{3} + 1)^2$ を展開すると？',
-          options: ['$4 + 2\\sqrt{3}$', '$3 + 1$', '$4$', '$3 + 2\\sqrt{3} - 1$'],
-          correctIndex: 0,
+          options: ['$3 + 2\\sqrt{3} - 1$', '$3 + 1$', '$4$', '$4 + 2\\sqrt{3}$'],
+          correctIndex: 3,
           explanation:
             '$(\\sqrt{3})^2 + 2\\times1\\times\\sqrt{3} + 1^2 = 3 + 2\\sqrt{3} + 1 = 4 + 2\\sqrt{3}$。完全平方公式を使おう。',
         },
@@ -234,28 +234,28 @@ export const sqrtAddExpand: Topic = {
           id: 'math-g3-sqrt-add-expand-q7',
           question: '$(\\sqrt{2} + 3)(\\sqrt{2} - 1)$ を展開すると？',
           options: [
-            '$-1 + 2\\sqrt{2}$',
             '$2 - 3$',
+            '$-1 + 2\\sqrt{2}$',
             '$\\sqrt{2} + 3$',
             '$2 + 2\\sqrt{2} + 3$',
           ],
-          correctIndex: 0,
+          correctIndex: 1,
           explanation:
             '$\\sqrt{2}\\cdot\\sqrt{2} - \\sqrt{2} + 3\\sqrt{2} - 3 = 2 + 2\\sqrt{2} - 3 = -1 + 2\\sqrt{2}$。FOIL法で丁寧に展開しよう。',
         },
         {
           id: 'math-g3-sqrt-add-expand-q8',
           question: '$\\sqrt{12} - \\dfrac{6}{\\sqrt{3}}$ を計算すると？',
-          options: ['$0$', '$2\\sqrt{3}$', '$\\sqrt{3}$', '$-2\\sqrt{3}$'],
-          correctIndex: 0,
+          options: ['$\\sqrt{3}$', '$2\\sqrt{3}$', '$0$', '$-2\\sqrt{3}$'],
+          correctIndex: 2,
           explanation:
             '$\\frac{6}{\\sqrt{3}} = \\frac{6\\sqrt{3}}{3} = 2\\sqrt{3}$（有理化）。$\\sqrt{12} = 2\\sqrt{3}$ なので $2\\sqrt{3} - 2\\sqrt{3} = 0$。',
         },
         {
           id: 'math-g3-sqrt-add-expand-q9',
           question: '$x = \\sqrt{5} + 1$ のとき、$x^2 - 2x + 1$ の値は？',
-          options: ['$5$', '$6 + 2\\sqrt{5}$', '$\\sqrt{5}$', '$4$'],
-          correctIndex: 0,
+          options: ['$4$', '$6 + 2\\sqrt{5}$', '$\\sqrt{5}$', '$5$'],
+          correctIndex: 3,
           explanation:
             '$x^2 - 2x + 1 = (x-1)^2$。$x-1 = \\sqrt{5}$ を代入すると $(\\sqrt{5})^2 = 5$。因数分解してから代入すると楽！',
         },
@@ -270,16 +270,16 @@ export const sqrtAddExpand: Topic = {
         {
           id: 'math-g3-sqrt-add-expand-q11',
           question: '$\\sqrt{50} - \\sqrt{32}$ を計算すると？',
-          options: ['$\\sqrt{2}$', '$\\sqrt{18}$', '$3\\sqrt{2}$', '$\\sqrt{50} - \\sqrt{32}$'],
-          correctIndex: 0,
+          options: ['$3\\sqrt{2}$', '$\\sqrt{18}$', '$\\sqrt{2}$', '$\\sqrt{50} - \\sqrt{32}$'],
+          correctIndex: 2,
           explanation:
             '$\\sqrt{50} = 5\\sqrt{2}$、$\\sqrt{32} = 4\\sqrt{2}$ なので、$5\\sqrt{2} - 4\\sqrt{2} = \\sqrt{2}$。',
         },
         {
           id: 'math-g3-sqrt-add-expand-q12',
           question: '$\\sqrt{80a}$ が自然数になる最小の自然数 $a$ はいくつ？',
-          options: ['$5$', '$2$', '$4$', '$10$'],
-          correctIndex: 0,
+          options: ['$2$', '$5$', '$4$', '$10$'],
+          correctIndex: 1,
           explanation:
             '$80 = 16 \\times 5 = 2^4 \\times 5$。$\\sqrt{80a} = 4\\sqrt{5a}$ が整数になるには $5a$ が完全平方数である必要がある。最小は $a = 5$ で $\\sqrt{400} = 20$。',
         },

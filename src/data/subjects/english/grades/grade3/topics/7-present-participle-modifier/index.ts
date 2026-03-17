@@ -112,12 +112,12 @@ export const presentParticipleModifier: Topic = {
           id: 'eng-prpm-q1',
           question: '「ピアノを弾いている女の子はユキです。」を英語にすると？',
           options: [
-            'The girl playing the piano is Yuki.',
+            'The girl play the piano is Yuki.',
             'The playing the piano girl is Yuki.',
             'The girl played the piano is Yuki.',
-            'The girl play the piano is Yuki.',
+            'The girl playing the piano is Yuki.',
           ],
-          correctIndex: 0,
+          correctIndex: 3,
           explanation: '「弾いている」は〜ing形 playing。girl のうしろに playing the piano を置くよ。',
         },
         {
@@ -148,12 +148,12 @@ export const presentParticipleModifier: Topic = {
           id: 'eng-prpm-q4',
           question: '「ボールで壊された窓」を英語にすると？（〜ingと過去分詞のどちら？）',
           options: [
-            'the window breaking by the ball',
             'the window broken by the ball',
+            'the window breaking by the ball',
             'the window broke by the ball',
             'the window breaks by the ball',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation: '窓は「壊された」もの（誰かにされている）だから過去分詞 broken を使うよ。',
         },
         {

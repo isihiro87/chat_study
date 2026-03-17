@@ -135,8 +135,8 @@ export const cathodeElectron: Topic = {
         {
           id: 'sci2-cathode-q1',
           question: 'クルックス管で−極から＋極に向かう粒子の流れを何という？',
-          options: ['陽極線', '陰極線', '赤外線', '紫外線'],
-          correctIndex: 1,
+          options: ['陽極線', '赤外線', '陰極線', '紫外線'],
+          correctIndex: 2,
           explanation:
             '−極（陰極）から出る粒子の流れなので陰極線（電子線）といいます。正体は電子です。',
         },
@@ -145,11 +145,11 @@ export const cathodeElectron: Topic = {
           question: '電流の向きと電子の移動の向きについて正しいのは？',
           options: [
             '同じ向き',
-            '逆向き',
-            '電子は移動しない',
             '向きは関係ない',
+            '電子は移動しない',
+            '逆向き',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '電子は−極→＋極に移動しますが、電流の向きは歴史的に＋極→−極と決められており、逆向きです。',
         },
@@ -158,35 +158,35 @@ export const cathodeElectron: Topic = {
           question: 'クルックス管の陰極線に磁石を近づけるとどうなる？',
           options: [
             '変化しない',
-            '陰極線が消える',
             '陰極線の進む向きが曲がる',
+            '陰極線が消える',
             '陰極線が明るくなる',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation:
             '陰極線の正体は電気をもった粒子（電子）なので、磁石の磁界から力を受けて進む向きが曲がります。',
         },
         {
           id: 'sci2-cathode-q4',
           question: '放射線が物質を通り抜ける性質を何という？',
-          options: ['反射性', '透過性', '帯電性', '導電性'],
-          correctIndex: 1,
+          options: ['透過性', '反射性', '帯電性', '導電性'],
+          correctIndex: 0,
           explanation:
             '放射線が物質を通り抜ける性質を透過性といいます。放射線の種類によって透過性の強さが異なります。',
         },
         {
           id: 'sci2-cathode-q5',
           question: '放射線を出す物質を何という？',
-          options: ['帯電物質', '蛍光物質', '放射性物質', '導電性物質'],
-          correctIndex: 2,
+          options: ['放射性物質', '蛍光物質', '帯電物質', '導電性物質'],
+          correctIndex: 0,
           explanation:
             '放射線を出す物質を放射性物質といいます。ウランやラジウムなどがあり、自然界にも存在します。',
         },
         {
           id: 'sci2-cathode-q6',
           question: 'α線を遮ることができるものはどれ？',
-          options: ['鉛の壁', 'コンクリート', 'アルミニウム板', '紙'],
-          correctIndex: 3,
+          options: ['鉛の壁', '紙', 'アルミニウム板', 'コンクリート'],
+          correctIndex: 1,
           explanation:
             'α線は透過性が最も低く、紙で遮ることができます。β線はアルミニウム板、γ線は鉛やコンクリートが必要です。',
         },

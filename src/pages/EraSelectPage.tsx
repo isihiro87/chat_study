@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { ChevronRight, Check, Shuffle } from 'lucide-react';
+import { ChevronRight, Check, Clock, Shuffle } from 'lucide-react';
 import { Header } from '../components/common/Header';
 import { SEOHead } from '../components/common/SEOHead';
 import { getSubject } from '../data/subjects';
@@ -17,7 +17,7 @@ export function EraSelectPage() {
   const { subjectId } = useParams<{ subjectId: string }>();
   const subject = subjectId ? getSubject(subjectId) : undefined;
   const [selectedGrade, setSelectedGrade] = useState(1);
-  const { getEraProgress, isTopicStudied, getTopicProgress } = useStudyProgress();
+  const { getEraProgress, getCompletionStatus, getTopicProgress } = useStudyProgress();
 
   // 学年切り替え時にスクロール位置をリセット
   useEffect(() => {
@@ -96,7 +96,7 @@ export function EraSelectPage() {
           /* Eraが1つの場合: トピック一覧を直接表示 */
           <div className="space-y-3">
             {directTopics.map((topic) => {
-              const studied = isTopicStudied(topic.id);
+              const status = getCompletionStatus(topic.id);
               const tp = getTopicProgress(topic.id);
               const hasQuizScore = tp.quizBestScore !== null && tp.quizTotalQuestions !== null;
 
@@ -118,9 +118,13 @@ export function EraSelectPage() {
                       </p>
                     )}
                   </div>
-                  {studied ? (
+                  {status === 'completed' ? (
                     <div className="flex h-7 w-7 items-center justify-center rounded-full bg-emerald-500">
                       <Check className="h-4 w-4 text-white" />
+                    </div>
+                  ) : status === 'in-progress' ? (
+                    <div className="flex h-7 w-7 items-center justify-center rounded-full bg-amber-500">
+                      <Clock className="h-4 w-4 text-white" />
                     </div>
                   ) : (
                     <ChevronRight className="h-5 w-5 text-gray-400" />
@@ -153,7 +157,7 @@ export function EraSelectPage() {
                     <div className="flex h-7 w-7 items-center justify-center rounded-full bg-emerald-500">
                       <Check className="h-4 w-4 text-white" />
                     </div>
-                  ) : progress.completed > 0 ? (
+                  ) : (progress.completed > 0 || progress.inProgress > 0) ? (
                     <span className="rounded-full bg-amber-50 px-2.5 py-1 text-xs font-bold text-amber-600">
                       {progress.completed}/{progress.total}
                     </span>

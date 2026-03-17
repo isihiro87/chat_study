@@ -254,19 +254,19 @@ export const atomIon: Topic = {
           question: '原子核を構成する粒子の正しい組み合わせは？',
           options: [
             '陽子と電子',
-            '陽子と中性子',
-            '電子と中性子',
             '陽子と電子と中性子',
+            '電子と中性子',
+            '陽子と中性子',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '原子核は陽子（＋の電気をもつ）と中性子（電気をもたない）からできています。電子は原子核のまわりを回っています。',
         },
         {
           id: 'sci3-ai-q2',
           question: '原子が電子を得てできるイオンを何という？',
-          options: ['陽イオン', '陰イオン', '中性子', '同位体'],
-          correctIndex: 1,
+          options: ['陰イオン', '陽イオン', '中性子', '同位体'],
+          correctIndex: 0,
           explanation:
             '電子（−の電気）を得ると−の電気が多くなり、陰イオンになります。例：Cl⁻、OH⁻',
         },
@@ -274,20 +274,20 @@ export const atomIon: Topic = {
           id: 'sci3-ai-q3',
           question: '塩化水素（HCl）が水に溶けて電離したときのイオンの組み合わせは？',
           options: [
-            'H⁺ と Cl⁻',
             'H⁻ と Cl⁺',
+            'H⁺ と Cl⁻',
             'H₂ と Cl₂',
             'Na⁺ と Cl⁻',
           ],
-          correctIndex: 0,
+          correctIndex: 1,
           explanation:
             '塩化水素は水に溶けるとH⁺（水素イオン）とCl⁻（塩化物イオン）に電離します。HCl → H⁺ + Cl⁻',
         },
         {
           id: 'sci3-ai-q4',
           question: '銅イオンの化学式（イオン式）として正しいものは？',
-          options: ['Cu⁺', 'Cu²⁺', 'Cu⁻', 'Cu²⁻'],
-          correctIndex: 1,
+          options: ['Cu⁺', 'Cu⁻', 'Cu²⁺', 'Cu²⁻'],
+          correctIndex: 2,
           explanation:
             '銅原子は電子を2個失ってCu²⁺（銅イオン）になります。元素記号の右上に2+と書きます。',
         },
@@ -308,12 +308,12 @@ export const atomIon: Topic = {
           id: 'sci3-ai-q6',
           question: 'NH₄⁺（アンモニウムイオン）はどのような種類のイオンか？',
           options: [
-            '単原子の陽イオン',
-            '単原子の陰イオン',
             '多原子の陽イオン',
+            '単原子の陰イオン',
+            '単原子の陽イオン',
             '多原子の陰イオン',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             'NH₄⁺は窒素原子1個と水素原子4個からなる多原子イオンで、＋の電気を帯びた陽イオンです。',
         },
@@ -337,11 +337,11 @@ export const atomIon: Topic = {
             '非電解質の水溶液に電流が流れない理由として正しいものは？',
           options: [
             '水分子が電気の流れをさえぎるから',
-            '水に溶けてもイオンが生じないから',
-            '電極と反応してしまうから',
             '温度が低すぎるから',
+            '電極と反応してしまうから',
+            '水に溶けてもイオンが生じないから',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '非電解質は水に溶けてもイオンに分かれないため、電気を運ぶイオンが存在せず電流が流れません。',
         },
@@ -349,8 +349,8 @@ export const atomIon: Topic = {
           id: 'sci3-ai-q9',
           question:
             '次のうち、2価の陽イオンはどれ？',
-          options: ['Na⁺', 'K⁺', 'Mg²⁺', 'Cl⁻'],
-          correctIndex: 2,
+          options: ['Mg²⁺', 'K⁺', 'Na⁺', 'Cl⁻'],
+          correctIndex: 0,
           explanation:
             'Mg²⁺（マグネシウムイオン）は電子を2個失ってできる2価の陽イオンです。Na⁺やK⁺は1価の陽イオン、Cl⁻は陰イオンです。',
         },

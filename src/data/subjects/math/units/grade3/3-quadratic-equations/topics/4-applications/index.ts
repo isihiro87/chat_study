@@ -161,8 +161,8 @@ export const quadEqApps: Topic = {
           id: 'math-g3-qea-q1',
           question:
             '連続する2つの正の整数の積が56のとき、小さい方の整数は？',
-          options: ['$6$', '$7$', '$8$', '$9$'],
-          correctIndex: 1,
+          options: ['$6$', '$9$', '$8$', '$7$'],
+          correctIndex: 3,
           explanation:
             '$n(n+1) = 56$ → $n^2+n-56 = 0$ → $(n+8)(n-7) = 0$。$n = 7$（正の整数なので $n = -8$ は不適）。',
         },
@@ -170,8 +170,8 @@ export const quadEqApps: Topic = {
           id: 'math-g3-qea-q2',
           question:
             '長方形の縦が横より3cm短く、面積が54cm²。横の長さは？',
-          options: ['$6$ cm', '$7$ cm', '$8$ cm', '$9$ cm'],
-          correctIndex: 3,
+          options: ['$6$ cm', '$7$ cm', '$9$ cm', '$8$ cm'],
+          correctIndex: 2,
           explanation:
             '$x(x-3) = 54$ → $x^2 - 3x - 54 = 0$ → $(x-9)(x+6) = 0$。長さなので $x = 9$。',
         },
@@ -180,12 +180,12 @@ export const quadEqApps: Topic = {
           question:
             '二次方程式の利用で、解が $x = 5$ と $x = -3$ と出た。「長さ」を求める問題のとき、答えは？',
           options: [
-            '$x = 5$ と $x = -3$',
             '$x = 5$ のみ',
+            '$x = 5$ と $x = -3$',
             '$x = -3$ のみ',
             '解なし',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '長さは負にならないので、$x = -3$ は問題の条件に合わない。$x = 5$ が答えだよ。',
         },
@@ -193,8 +193,8 @@ export const quadEqApps: Topic = {
           id: 'math-g3-qea-q4',
           question:
             'ある正の整数の2乗から3倍を引くと10になる。この整数は？',
-          options: ['$3$', '$4$', '$5$', '$6$'],
-          correctIndex: 2,
+          options: ['$3$', '$5$', '$4$', '$6$'],
+          correctIndex: 1,
           explanation:
             '$x^2 - 3x = 10$ → $x^2 - 3x - 10 = 0$ → $(x-5)(x+2) = 0$。正の整数なので $x = 5$。',
         },
@@ -202,8 +202,8 @@ export const quadEqApps: Topic = {
           id: 'math-g3-qea-q5',
           question:
             '縦20m、横30mの土地に幅 $x$ mの道を縦横1本ずつ作り、残りの面積が504m²。道幅は？',
-          options: ['$1$ m', '$2$ m', '$3$ m', '$4$ m'],
-          correctIndex: 1,
+          options: ['$1$ m', '$3$ m', '$2$ m', '$4$ m'],
+          correctIndex: 2,
           explanation:
             '$(20-x)(30-x) = 504$ → $x^2 - 50x + 96 = 0$ → $(x-2)(x-48) = 0$。$x = 2$（$x=48$は不適）。',
         },
@@ -227,11 +227,11 @@ export const quadEqApps: Topic = {
             '1辺12cmの正方形の厚紙の四隅から1辺 $x$ cmの正方形を切って箱を作る。底面の1辺は？',
           options: [
             '$(12 - x)$ cm',
-            '$(12 - 2x)$ cm',
-            '$(6 - x)$ cm',
             '$(12 - 4x)$ cm',
+            '$(6 - x)$ cm',
+            '$(12 - 2x)$ cm',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '両端から $x$ ずつ切り取るので、底面の1辺は $(12 - 2x)$ cm。',
         },
@@ -240,12 +240,12 @@ export const quadEqApps: Topic = {
           question:
             '正方形ABCD（1辺8cm）で、PがA→B、QがB→Cに毎秒1cmで動く。△BPQの面積を表す式は？',
           options: [
-            '$\\dfrac{x^2}{2}$',
             '$\\dfrac{x(8-x)}{2}$',
+            '$\\dfrac{x^2}{2}$',
             '$\\dfrac{8x}{2}$',
             '$\\dfrac{(8-x)^2}{2}$',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             'BP $= 8-x$, BQ $= x$ なので面積 $= \\dfrac{1}{2}(8-x) \\cdot x = \\dfrac{x(8-x)}{2}$。',
         },
@@ -255,11 +255,11 @@ export const quadEqApps: Topic = {
             '上の問題で面積が6cm²になるのはいつか。',
           options: [
             '$2$秒後のみ',
-            '$6$秒後のみ',
             '$2$秒後と$6$秒後',
+            '$6$秒後のみ',
             '$4$秒後のみ',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation:
             '$\\dfrac{x(8-x)}{2} = 6$ → $x^2 - 8x + 12 = 0$ → $(x-2)(x-6) = 0$。両方とも範囲内なので2秒後と6秒後。',
         },
@@ -267,8 +267,8 @@ export const quadEqApps: Topic = {
           id: 'math-g3-qea-q10',
           question:
             '2つの正の整数の差が3、積が40。大きい方の整数は？',
-          options: ['$5$', '$6$', '$7$', '$8$'],
-          correctIndex: 3,
+          options: ['$5$', '$6$', '$8$', '$7$'],
+          correctIndex: 2,
           explanation:
             '$x(x+3) = 40$ → $x^2+3x-40=0$ → $(x+8)(x-5)=0$。$x=5$, 大きい方は $5+3=8$。',
         },
@@ -277,12 +277,12 @@ export const quadEqApps: Topic = {
           question:
             '縦30cm、横20cmの厚紙で箱を作るとき、$x$ の範囲は？',
           options: [
-            '$0 < x < 15$',
             '$0 < x < 10$',
+            '$0 < x < 15$',
             '$0 < x < 20$',
             '$0 < x < 30$',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '短い辺の半分が上限。$20 - 2x > 0$ より $x < 10$。',
         },
@@ -292,11 +292,11 @@ export const quadEqApps: Topic = {
             '長方形の周が26cm、面積が42cm²。横の長さとして考えられるのは？',
           options: [
             '$5$ cmまたは$8$ cm',
-            '$6$ cmまたは$7$ cm',
-            '$4$ cmまたは$9$ cm',
             '$3$ cmまたは$10$ cm',
+            '$4$ cmまたは$9$ cm',
+            '$6$ cmまたは$7$ cm',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '横 $x$, 縦 $(13-x)$ で $x(13-x) = 42$ → $(x-6)(x-7) = 0$。$x = 6$ or $7$。',
         },

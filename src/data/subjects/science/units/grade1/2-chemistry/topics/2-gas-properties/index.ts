@@ -310,16 +310,16 @@ export const gasProperties: Topic = {
         {
           id: 'sci1-gp-q1',
           question: '石灰水を白くにごらせる気体はどれ？',
-          options: ['酸素', '水素', '窒素', '二酸化炭素'],
-          correctIndex: 3,
+          options: ['酸素', '二酸化炭素', '窒素', '水素'],
+          correctIndex: 1,
           explanation:
             '二酸化炭素を石灰水に通すと白くにごります。これは二酸化炭素の確認方法として重要です。',
         },
         {
           id: 'sci1-gp-q2',
           question: '水にとけにくい気体を集める方法はどれ？',
-          options: ['上方置換法', '下方置換法', '水上置換法', 'ろ過'],
-          correctIndex: 2,
+          options: ['上方置換法', '下方置換法', 'ろ過', '水上置換法'],
+          correctIndex: 3,
           explanation:
             '水上置換法は水にとけにくい気体を水中で集める方法です。純粋な気体を集められる利点があります。',
         },
@@ -327,12 +327,12 @@ export const gasProperties: Topic = {
           id: 'sci1-gp-q3',
           question: 'アンモニアの性質として正しいものはどれ？',
           options: [
-            '無臭である',
+            '水に非常にとけやすい',
             '水にとけにくい',
             '水溶液は酸性を示す',
-            '水に非常にとけやすい',
+            '無臭である',
           ],
-          correctIndex: 3,
+          correctIndex: 0,
           explanation:
             'アンモニアは水に非常にとけやすく、刺激臭があり、水溶液はアルカリ性を示します。',
         },
@@ -352,56 +352,56 @@ export const gasProperties: Topic = {
         {
           id: 'sci1-gp-q5',
           question: '空気中に最も多くふくまれる気体はどれ？',
-          options: ['酸素', '二酸化炭素', '水素', '窒素'],
-          correctIndex: 3,
+          options: ['窒素', '二酸化炭素', '水素', '酸素'],
+          correctIndex: 0,
           explanation:
             '空気は約78%が窒素、約21%が酸素で構成されています。窒素は反応しにくい安定した気体です。',
         },
         {
           id: 'sci1-gp-q6',
           question: '酸素の発生実験で二酸化マンガンのはたらきを何という？',
-          options: ['溶媒', '溶質', '触媒', '指示薬'],
-          correctIndex: 2,
+          options: ['溶媒', '触媒', '溶質', '指示薬'],
+          correctIndex: 1,
           explanation:
             '触媒とは自分自身は変化せず、化学変化の速さを速める物質のことです。二酸化マンガンは過酸化水素水の分解を速めます。',
         },
         {
           id: 'sci1-gp-q7',
           question: '水素が燃えるとできる物質は何？',
-          options: ['二酸化炭素', '酸素', '窒素', '水'],
-          correctIndex: 3,
+          options: ['二酸化炭素', '酸素', '水', '窒素'],
+          correctIndex: 2,
           explanation:
             '水素は燃えると酸素と化合して水（H₂O）ができます。ポンと音をたてて燃えるのが水素の特徴です。',
         },
         {
           id: 'sci1-gp-q8',
           question: 'BTB溶液が黄色になるのは何性のとき？',
-          options: ['アルカリ性', '中性', '酸性', 'どの性質でも黄色'],
-          correctIndex: 2,
+          options: ['アルカリ性', '中性', 'どの性質でも黄色', '酸性'],
+          correctIndex: 3,
           explanation:
             'BTB溶液は酸性で黄色、中性で緑色、アルカリ性で青色になります。二酸化炭素の水溶液では黄色を示します。',
         },
         {
           id: 'sci1-gp-q9',
           question: 'アンモニアを集めるのに適した方法はどれ？',
-          options: ['水上置換法', '上方置換法', '下方置換法', 'ろ過'],
-          correctIndex: 1,
+          options: ['上方置換法', '水上置換法', '下方置換法', 'ろ過'],
+          correctIndex: 0,
           explanation:
             'アンモニアは空気より軽いため上方置換法で集めます。水に非常にとけやすいため水上置換法は使えません。',
         },
         {
           id: 'sci1-gp-q10',
           question: 'フェノールフタレイン溶液がアルカリ性で示す色はどれ？',
-          options: ['黄色', '青色', '赤色', '緑色'],
-          correctIndex: 2,
+          options: ['黄色', '青色', '緑色', '赤色'],
+          correctIndex: 3,
           explanation:
             'フェノールフタレイン溶液はアルカリ性で赤色に変色します。中性・酸性では無色のままです。',
         },
         {
           id: 'sci1-gp-q11',
           question: 'すべての気体の中で最も密度が小さい（軽い）のはどれ？',
-          options: ['酸素', '窒素', '水素', 'アンモニア'],
-          correctIndex: 2,
+          options: ['酸素', '水素', '窒素', 'アンモニア'],
+          correctIndex: 1,
           explanation:
             '水素はすべての気体の中で最も密度が小さく、最も軽い気体です。',
         },

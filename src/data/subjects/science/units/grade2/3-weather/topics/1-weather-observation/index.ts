@@ -153,48 +153,48 @@ export const weatherObservation: Topic = {
         {
           id: 'sci2-wobs-q1',
           question: '雲量が7のとき、天気は何か？',
-          options: ['快晴', '晴れ', 'くもり', '雨'],
-          correctIndex: 1,
+          options: ['晴れ', '快晴', 'くもり', '雨'],
+          correctIndex: 0,
           explanation:
             '雲量2〜8は「晴れ」です。雲量0〜1が快晴、9〜10がくもりです。',
         },
         {
           id: 'sci2-wobs-q2',
           question: '気温と湿度を同時に測定できる器具は？',
-          options: ['温度計', '乾湿計', '気圧計', '風速計'],
-          correctIndex: 1,
+          options: ['温度計', '風速計', '気圧計', '乾湿計'],
+          correctIndex: 3,
           explanation:
             '乾湿計は乾球温度計と湿球温度計の2本からなり、気温と湿度を測定できます。',
         },
         {
           id: 'sci2-wobs-q3',
           question: '圧力の単位として正しいものはどれ？',
-          options: ['N（ニュートン）', 'Pa（パスカル）', 'g（グラム）', 'J（ジュール）'],
-          correctIndex: 1,
+          options: ['N（ニュートン）', 'g（グラム）', 'Pa（パスカル）', 'J（ジュール）'],
+          correctIndex: 2,
           explanation:
             '圧力の単位はPa（パスカル）です。1Pa＝1N/m²。N（ニュートン）は力の単位です。',
         },
         {
           id: 'sci2-wobs-q4',
           question: '質量200gの物体を0.004m²の面に置いたとき、圧力は何Paか？（100g＝1N）',
-          options: ['50Pa', '200Pa', '500Pa', '800Pa'],
-          correctIndex: 2,
+          options: ['50Pa', '500Pa', '200Pa', '800Pa'],
+          correctIndex: 1,
           explanation:
             '200g→2N。圧力＝2N÷0.004m²＝500Pa。質量をNに変換してから計算するのがポイントです。',
         },
         {
           id: 'sci2-wobs-q5',
           question: '面積50cm²をm²に変換すると何m²か？',
-          options: ['0.5m²', '0.05m²', '0.005m²', '0.0005m²'],
-          correctIndex: 2,
+          options: ['0.5m²', '0.05m²', '0.0005m²', '0.005m²'],
+          correctIndex: 3,
           explanation:
             '1m²＝10000cm²なので、50cm²÷10000＝0.005m²。圧力の計算では面積をm²に変換することが重要です。',
         },
         {
           id: 'sci2-wobs-q6',
           question: '1hPaは何Paか？',
-          options: ['1Pa', '10Pa', '100Pa', '1000Pa'],
-          correctIndex: 2,
+          options: ['100Pa', '10Pa', '1Pa', '1000Pa'],
+          correctIndex: 0,
           explanation:
             '1hPa＝100Pa。h（ヘクト）は100倍を意味する接頭辞です。',
         },

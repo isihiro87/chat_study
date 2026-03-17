@@ -123,23 +123,23 @@ export const subjunctive: Topic = {
           question: '「もし私があなただったら、もっと勉強するのに。」を英語にすると？',
           options: [
             'If I am you, I will study harder.',
-            'If I were you, I would study harder.',
-            'If I was you, I will study harder.',
             'If I be you, I would study harder.',
+            'If I was you, I will study harder.',
+            'If I were you, I would study harder.',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation: '仮定法では be動詞は全部 were。「〜するのに」は would + 動詞だよ。',
         },
         {
           id: 'eng-subj-q2',
           question: '「空を飛べたらいいのに。」を英語にすると？',
           options: [
-            'I wish I can fly.',
-            'I wish I will fly.',
             'I wish I could fly.',
+            'I wish I will fly.',
+            'I wish I can fly.',
             'I wish I flew.',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation: 'I wish のうしろは過去の形にするよ。can → could だね。',
         },
         {
@@ -147,11 +147,11 @@ export const subjunctive: Topic = {
           question: '仮定法で be動詞はどうなる？',
           options: [
             '主語にあわせて am / is / are を使い分ける',
-            '全部 was にする',
             '全部 were にする',
+            '全部 was にする',
             '全部 be にする',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation: '仮定法では be動詞は主語に関係なく全部 were にするよ。I were, he were, she were... だよ。',
         },
         {
@@ -164,8 +164,8 @@ export const subjunctive: Topic = {
         {
           id: 'eng-subj-q5',
           question: '「I wish I (　　) taller.（もっと背が高ければいいのに。）」の (　　) に入るのは？',
-          options: ['am', 'is', 'was', 'were'],
-          correctIndex: 3,
+          options: ['am', 'is', 'were', 'was'],
+          correctIndex: 2,
           explanation: 'I wish のうしろも仮定法。be動詞は全部 were だよ。',
         },
         {

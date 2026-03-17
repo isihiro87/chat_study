@@ -150,8 +150,8 @@ export const literalCalc: Topic = {
         {
           id: 'math-g1-lit-calc-q1',
           question: '$7x - 3x$ の計算結果は？',
-          options: ['$10x$', '$4x$', '$4$', '$21x$'],
-          correctIndex: 1,
+          options: ['$10x$', '$4$', '$4x$', '$21x$'],
+          correctIndex: 2,
           explanation:
             '同類項の係数をまとめるよ。$7x - 3x = (7 - 3)x = 4x$ だね。',
         },
@@ -166,8 +166,8 @@ export const literalCalc: Topic = {
         {
           id: 'math-g1-lit-calc-q3',
           question: '$(6x + 4) \\div 2$ の計算結果は？',
-          options: ['$6x + 2$', '$3x + 4$', '$3x + 2$', '$12x + 8$'],
-          correctIndex: 2,
+          options: ['$6x + 2$', '$3x + 4$', '$12x + 8$', '$3x + 2$'],
+          correctIndex: 3,
           explanation:
             '各項を $2$ で割るよ。$6x \\div 2 = 3x$、$4 \\div 2 = 2$。答えは $3x + 2$ だね。',
         },
@@ -182,32 +182,32 @@ export const literalCalc: Topic = {
         {
           id: 'math-g1-lit-calc-q5',
           question: '$3(2a - 5)$ の計算結果は？',
-          options: ['$6a - 5$', '$6a - 15$', '$5a - 15$', '$2a - 15$'],
-          correctIndex: 1,
+          options: ['$6a - 5$', '$5a - 15$', '$6a - 15$', '$2a - 15$'],
+          correctIndex: 2,
           explanation:
             '分配法則で各項に $3$ をかけるよ。$3 \\times 2a = 6a$、$3 \\times (-5) = -15$。答えは $6a - 15$ だね。',
         },
         {
           id: 'math-g1-lit-calc-q6',
           question: '$-7a + 3b + 1$ で $a$ の係数は？',
-          options: ['$7$', '$-7$', '$3$', '$1$'],
-          correctIndex: 1,
+          options: ['$-7$', '$7$', '$3$', '$1$'],
+          correctIndex: 0,
           explanation:
             '$-7a$ の数の部分が係数だよ。マイナスも含めて $-7$ が正解。',
         },
         {
           id: 'math-g1-lit-calc-q7',
           question: '次のうち一次式はどれ？',
-          options: ['$x^2 + 3$', '$5$', '$4x - 7$', '$x^2 - x$'],
-          correctIndex: 2,
+          options: ['$x^2 + 3$', '$4x - 7$', '$5$', '$x^2 - x$'],
+          correctIndex: 1,
           explanation:
             '一次式は文字の次数が1の項だけを含む式。$4x - 7$ は $x$ が1次の項だから一次式だね。',
         },
         {
           id: 'math-g1-lit-calc-q8',
           question: '$(-5x) \\times 4$ の計算結果は？',
-          options: ['$-20x$', '$20x$', '$-9x$', '$-x$'],
-          correctIndex: 0,
+          options: ['$-x$', '$20x$', '$-9x$', '$-20x$'],
+          correctIndex: 3,
           explanation:
             '係数どうしをかけるよ。$(-5) \\times 4 = -20$ だから $-20x$ だね。',
         },
@@ -222,16 +222,16 @@ export const literalCalc: Topic = {
         {
           id: 'math-g1-lit-calc-q10',
           question: '$5(2a + 3) - 3(4a - 1)$ の計算結果は？',
-          options: ['$-2a + 18$', '$22a + 12$', '$-2a + 12$', '$2a + 18$'],
-          correctIndex: 0,
+          options: ['$-2a + 12$', '$22a + 12$', '$-2a + 18$', '$2a + 18$'],
+          correctIndex: 2,
           explanation:
             '$5(2a + 3) = 10a + 15$、$3(4a - 1) = 12a - 3$。$10a + 15 - 12a + 3 = -2a + 18$ だよ。',
         },
         {
           id: 'math-g1-lit-calc-q11',
           question: '$\\dfrac{3x + 6}{3}$ を簡単にすると？',
-          options: ['$3x + 2$', '$x + 6$', '$x + 2$', '$3x + 6$'],
-          correctIndex: 2,
+          options: ['$3x + 2$', '$x + 6$', '$3x + 6$', '$x + 2$'],
+          correctIndex: 3,
           explanation:
             '各項を $3$ で割るよ。$3x \\div 3 = x$、$6 \\div 3 = 2$。答えは $x + 2$ だね。',
         },

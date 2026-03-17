@@ -187,8 +187,8 @@ export const variousSimulEq: Topic = {
         {
           id: 'math-g2-var-q1',
           question: '$2(x + 3) + y = 11$ を $ax + by = c$ の形に整理すると？',
-          options: ['$2x + y = 5$', '$2x + y = 11$', '$2x + y = 8$', '$x + y = 5$'],
-          correctIndex: 0,
+          options: ['$x + y = 5$', '$2x + y = 11$', '$2x + y = 8$', '$2x + y = 5$'],
+          correctIndex: 3,
           explanation:
             '展開すると $2x + 6 + y = 11$。$6$ を移項して $2x + y = 5$ になるよ。',
         },
@@ -196,16 +196,16 @@ export const variousSimulEq: Topic = {
           id: 'math-g2-var-q2',
           question:
             '$\\frac{x}{2} + \\frac{y}{3} = 2$ の分数をはらうには両辺に何をかける？',
-          options: ['$2$', '$3$', '$5$', '$6$'],
-          correctIndex: 3,
+          options: ['$2$', '$6$', '$5$', '$3$'],
+          correctIndex: 1,
           explanation:
             '分母が $2$ と $3$ だから、最小公倍数の $6$ を両辺にかけると $3x + 2y = 12$ になるよ。',
         },
         {
           id: 'math-g2-var-q3',
           question: '$0.3x + 0.5y = 2.3$ を整数にするには何倍すればよい？',
-          options: ['$3$ 倍', '$5$ 倍', '$10$ 倍', '$100$ 倍'],
-          correctIndex: 2,
+          options: ['$10$ 倍', '$5$ 倍', '$3$ 倍', '$100$ 倍'],
+          correctIndex: 0,
           explanation:
             '小数第1位までなので、$10$ 倍すると $3x + 5y = 23$ になるよ。',
         },
@@ -214,11 +214,11 @@ export const variousSimulEq: Topic = {
           question: '$3(x - 1) + y = 8$ を整理すると？',
           options: [
             '$3x + y = 8$',
-            '$3x + y = 11$',
             '$3x - y = 11$',
+            '$3x + y = 11$',
             '$3x + y = 9$',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             '$3(x - 1) = 3x - 3$。$3x - 3 + y = 8$ → $3x + y = 11$。',
         },
@@ -226,8 +226,8 @@ export const variousSimulEq: Topic = {
           id: 'math-g2-var-q5',
           question:
             '$\\frac{x}{4} + \\frac{y}{6} = 2$ の分数をはらうには両辺に何をかける？',
-          options: ['$4$', '$6$', '$10$', '$12$'],
-          correctIndex: 3,
+          options: ['$12$', '$6$', '$10$', '$4$'],
+          correctIndex: 0,
           explanation:
             '分母 $4$ と $6$ の最小公倍数は $12$。両辺に $12$ をかけると $3x + 2y = 24$ になるよ。',
         },
@@ -258,8 +258,8 @@ export const variousSimulEq: Topic = {
           id: 'math-g2-var-q8',
           question:
             '$ax + 2y = 7$ の解が $x = 1, y = 2$ のとき、$a$ の値は？',
-          options: ['$1$', '$2$', '$3$', '$5$'],
-          correctIndex: 2,
+          options: ['$1$', '$3$', '$2$', '$5$'],
+          correctIndex: 1,
           explanation:
             '$x = 1, y = 2$ を代入: $a \\cdot 1 + 2 \\cdot 2 = 7$ → $a + 4 = 7$ → $a = 3$。',
         },
@@ -268,12 +268,12 @@ export const variousSimulEq: Topic = {
           question:
             '$5(x - 1) = 3(y + 1)$ を $ax + by = c$ の形に整理すると？',
           options: [
-            '$5x - 3y = 8$',
-            '$5x + 3y = 8$',
             '$5x - 3y = 2$',
+            '$5x + 3y = 8$',
+            '$5x - 3y = 8$',
             '$5x - 3y = -2$',
           ],
-          correctIndex: 0,
+          correctIndex: 2,
           explanation:
             '展開: $5x - 5 = 3y + 3$ → $5x - 3y = 8$。',
         },
@@ -282,12 +282,12 @@ export const variousSimulEq: Topic = {
           question:
             '$1.2x - 0.3y = 0.9$ を $10$ 倍してからさらに簡単にすると？',
           options: [
-            '$12x - 3y = 9$',
             '$4x - y = 3$',
+            '$12x - 3y = 9$',
             '$6x - y = 3$',
             '$4x - 3y = 9$',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '$10$ 倍で $12x - 3y = 9$。$3$ で割ると $4x - y = 3$ になるよ。',
         },
@@ -297,11 +297,11 @@ export const variousSimulEq: Topic = {
             '連立方程式 $\\begin{cases} \\frac{x}{2} + \\frac{y}{3} = 2 \\\\ x + y = 5 \\end{cases}$ の解は？',
           options: [
             '$x = 1, y = 4$',
-            '$x = 2, y = 3$',
-            '$x = 3, y = 2$',
             '$x = 4, y = 1$',
+            '$x = 3, y = 2$',
+            '$x = 2, y = 3$',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '①に $6$ をかけて $3x + 2y = 12$。②を $2$ 倍して引くと $x = 2$。$y = 3$。',
         },

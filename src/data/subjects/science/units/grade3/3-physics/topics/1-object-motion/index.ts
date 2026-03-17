@@ -271,8 +271,8 @@ export const objectMotion: Topic = {
         {
           id: 'sci3-mot-q1',
           question: '東日本の記録タイマーが1秒間に打つ打点の回数は？',
-          options: ['30回', '40回', '50回', '60回'],
-          correctIndex: 2,
+          options: ['30回', '50回', '40回', '60回'],
+          correctIndex: 1,
           explanation:
             '東日本は電源の周波数が50Hzなので、記録タイマーは1秒間に50回打点します。西日本は60回です。',
         },
@@ -282,10 +282,10 @@ export const objectMotion: Topic = {
           options: [
             '打点間隔がだんだん広くなる',
             '打点間隔がだんだんせまくなる',
-            '打点間隔がすべて等しい',
             '打点が1か所に集まる',
+            '打点間隔がすべて等しい',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '等速直線運動では速さが一定なので、同じ時間に同じ距離を移動し、打点間隔はすべて等しくなります。',
         },
@@ -293,20 +293,20 @@ export const objectMotion: Topic = {
           id: 'sci3-mot-q3',
           question: '斜面を下る台車の記録テープはどうなる？',
           options: [
-            '打点間隔がすべて等しい',
             '打点間隔がだんだん広くなる',
+            '打点間隔がすべて等しい',
             '打点間隔がだんだんせまくなる',
             '打点間隔が広い・せまいを繰り返す',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '斜面を下る台車は重力の影響でだんだん速くなるため、打点間隔はだんだん広くなります。',
         },
         {
           id: 'sci3-mot-q4',
           question: '0.4秒間に2m移動した物体の平均の速さは？',
-          options: ['0.2m/s', '0.8m/s', '2m/s', '5m/s'],
-          correctIndex: 3,
+          options: ['0.2m/s', '0.8m/s', '5m/s', '2m/s'],
+          correctIndex: 2,
           explanation:
             '平均の速さ = 移動距離 ÷ 時間 = 2m ÷ 0.4s = 5m/s です。',
         },
@@ -326,8 +326,8 @@ export const objectMotion: Topic = {
         {
           id: 'sci3-mot-q6',
           question: '50Hzの記録タイマーで5打点分の時間は？',
-          options: ['0.02秒', '0.05秒', '0.1秒', '0.5秒'],
-          correctIndex: 2,
+          options: ['0.02秒', '0.1秒', '0.05秒', '0.5秒'],
+          correctIndex: 1,
           explanation:
             '50Hzでは1打点の間隔が0.02秒です。5打点分は 0.02秒 × 5 = 0.1秒 になります。',
         },
@@ -335,12 +335,12 @@ export const objectMotion: Topic = {
           id: 'sci3-mot-q7',
           question: '等速直線運動の距離-時間グラフはどのような形になる？',
           options: [
-            '水平な直線',
             '原点を通る直線',
+            '水平な直線',
             '右下がりの直線',
             '曲線',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '等速直線運動では移動距離が時間に比例するため、距離-時間グラフは原点を通る直線になります。傾きが速さを表します。',
         },
@@ -350,10 +350,10 @@ export const objectMotion: Topic = {
           options: [
             '小さくなる',
             '変わらない',
-            '大きくなる',
             '速さは増えない',
+            '大きくなる',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '斜面の角度が大きいほど重力の斜面方向の成分が大きくなるため、速さの増え方（加速）も大きくなります。',
         },
@@ -361,12 +361,12 @@ export const objectMotion: Topic = {
           id: 'sci3-mot-q9',
           question: '水平面上で摩擦力がはたらかない場合、運動中の物体はどうなる？',
           options: [
-            'しだいに止まる',
-            'だんだん速くなる',
             '等速直線運動を続ける',
+            'だんだん速くなる',
+            'しだいに止まる',
             '向きが変わる',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             '摩擦力がなければ物体にはたらく力の合力は0なので、速さも向きも変わらず等速直線運動を続けます。',
         },
@@ -386,8 +386,8 @@ export const objectMotion: Topic = {
         {
           id: 'sci3-mot-q11',
           question: '36km/hは何m/sか？',
-          options: ['3.6m/s', '10m/s', '36m/s', '360m/s'],
-          correctIndex: 1,
+          options: ['3.6m/s', '360m/s', '36m/s', '10m/s'],
+          correctIndex: 3,
           explanation:
             'km/hからm/sへの変換は ÷ 3.6 です。36 ÷ 3.6 = 10m/s になります。',
         },
@@ -396,11 +396,11 @@ export const objectMotion: Topic = {
           question: 'だんだんおそくなる運動の速さ-時間グラフはどのような形になる？',
           options: [
             '右上がりの直線',
-            '水平な直線',
             '右下がりの直線',
+            '水平な直線',
             '原点を通る直線',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation:
             'だんだんおそくなる運動では速さが時間とともに減少するため、速さ-時間グラフは右下がりの直線になります。',
         },

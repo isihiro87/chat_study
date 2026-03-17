@@ -300,8 +300,8 @@ export const stateChange: Topic = {
         {
           id: 'sci1-sc-q1',
           question: '固体から液体への状態変化を何という？',
-          options: ['蒸発', '凝固', '融解', '凝縮'],
-          correctIndex: 2,
+          options: ['蒸発', '融解', '凝固', '凝縮'],
+          correctIndex: 1,
           explanation:
             '固体から液体に変わることを融解といいます。このときの温度が融点です。',
         },
@@ -310,27 +310,27 @@ export const stateChange: Topic = {
           question: '状態変化について正しいものはどれ？',
           options: [
             '質量が変化する',
-            '体積が変化する',
             '物質の種類が変わる',
+            '体積が変化する',
             '粒子の数が変わる',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             '状態変化では粒子の間隔が変わるため体積は変化しますが、粒子の数は変わらないので質量は変わりません。',
         },
         {
           id: 'sci1-sc-q3',
           question: '水が凍るとき、体積はどうなるか？',
-          options: ['小さくなる', '変わらない', '大きくなる', '半分になる'],
-          correctIndex: 2,
+          options: ['小さくなる', '変わらない', '半分になる', '大きくなる'],
+          correctIndex: 3,
           explanation:
             '水は例外的に、液体→固体（氷）になると体積が大きくなります。これが氷が水に浮く理由です。',
         },
         {
           id: 'sci1-sc-q4',
           question: '沸点の違いを利用して液体の混合物を分離する方法を何という？',
-          options: ['ろ過', '再結晶', '蒸留', '蒸発'],
-          correctIndex: 2,
+          options: ['蒸留', '再結晶', 'ろ過', '蒸発'],
+          correctIndex: 0,
           explanation:
             '蒸留は液体の混合物を加熱し、沸点の違いを利用して物質を分離する方法です。',
         },
@@ -340,19 +340,19 @@ export const stateChange: Topic = {
             '純粋な物質を加熱したとき、状態変化中の温度変化はどうなるか？',
           options: [
             '温度が急激に上がる',
-            '温度が一定に保たれる',
-            '温度が下がる',
             '温度が不規則に変化する',
+            '温度が下がる',
+            '温度が一定に保たれる',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '純粋な物質は融点や沸点で状態変化している間、温度が一定に保たれます。これは加えた熱が状態変化に使われるためです。',
         },
         {
           id: 'sci1-sc-q6',
           question: '気体から液体への状態変化を何という？',
-          options: ['融解', '蒸発', '昇華', '凝縮'],
-          correctIndex: 3,
+          options: ['融解', '凝縮', '昇華', '蒸発'],
+          correctIndex: 1,
           explanation:
             '気体から液体に変わることを凝縮（液化）といいます。冷たいコップに水滴がつくのはこの現象です。',
         },
@@ -360,8 +360,8 @@ export const stateChange: Topic = {
           id: 'sci1-sc-q7',
           question:
             'ドライアイスが液体にならずに直接気体になる変化を何という？',
-          options: ['蒸発', '凝縮', '昇華', '融解'],
-          correctIndex: 2,
+          options: ['昇華', '凝縮', '蒸発', '融解'],
+          correctIndex: 0,
           explanation:
             '固体から直接気体に変化すること（またはその逆）を昇華といいます。ドライアイスやナフタレンが例です。',
         },
@@ -371,19 +371,19 @@ export const stateChange: Topic = {
             'ロウを液体にしてから冷やして固体にすると、表面はどうなる？',
           options: [
             '表面がふくらむ',
-            '表面がへこむ',
             '表面が変わらない',
+            '表面がへこむ',
             '表面が割れる',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             'ロウは一般の物質と同じく液体→固体で体積が小さくなるため、表面が中央にへこみます。',
         },
         {
           id: 'sci1-sc-q9',
           question: 'エタノールの沸点は約何℃か？',
-          options: ['約50℃', '約78℃', '約100℃', '約120℃'],
-          correctIndex: 1,
+          options: ['約50℃', '約100℃', '約78℃', '約120℃'],
+          correctIndex: 2,
           explanation:
             'エタノールの沸点は約78℃です。水（100℃）より低いため、蒸留で先に蒸発して分離できます。',
         },
@@ -392,11 +392,11 @@ export const stateChange: Topic = {
           question: '蒸留の実験でフラスコに沸騰石を入れる理由は？',
           options: [
             '反応を速めるため',
-            '温度を正確に測るため',
             '突沸を防ぐため',
+            '温度を正確に測るため',
             '液体を速く蒸発させるため',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation:
             '沸騰石は突沸（急に激しく沸騰すること）を防ぐために入れます。小さな泡が出て穏やかに沸騰します。',
         },
@@ -406,11 +406,11 @@ export const stateChange: Topic = {
             '混合物を加熱したときの温度変化のグラフの特徴として正しいものは？',
           options: [
             '温度が一定になる部分がある',
-            '温度がなだらかに上昇し続ける',
-            '温度が急に下がる部分がある',
             '温度がまったく変わらない',
+            '温度が急に下がる部分がある',
+            '温度がなだらかに上昇し続ける',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '混合物は純粋な物質と異なり、温度が一定になる部分がなく、なだらかに上昇し続けます。',
         },
@@ -418,12 +418,12 @@ export const stateChange: Topic = {
           id: 'sci1-sc-q12',
           question: '蒸留で温度計の球部はどこに置くのが正しいか？',
           options: [
-            '液体の中に入れる',
             '枝つきフラスコの枝の付け根の高さ',
+            '液体の中に入れる',
             'フラスコの底',
             '試験管の中',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '温度計の球部は枝つきフラスコの枝の付け根の高さに置き、蒸気の温度を正確に測定します。',
         },

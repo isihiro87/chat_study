@@ -129,11 +129,11 @@ export const asiaEastSoutheast: Topic = {
           question: '中国が沿岸部に設けて「世界の工場」とよばれるきっかけとなった地域は何か。',
           options: [
             '自由貿易協定',
-            '経済特区',
-            '工業団地',
             '開発区域',
+            '工業団地',
+            '経済特区',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '中国は沿岸部に経済特区を設けて外国企業を積極的に受け入れ、急速な工業化を実現しました。これにより「世界の工場」とよばれるようになりました。',
         },
@@ -154,12 +154,12 @@ export const asiaEastSoutheast: Topic = {
           id: 'geo1-as2-q3',
           question: '中国がかつて人口増加を抑えるために実施し、2015年に廃止した政策はどれか。',
           options: [
-            '西部大開発',
             '一人っ子政策',
+            '西部大開発',
             '経済特区政策',
             '人口分散計画',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '一人っ子政策は1組の夫婦に子どもを1人だけとする政策で、少子高齢化が深刻になり2015年に廃止されました。',
         },
@@ -168,11 +168,11 @@ export const asiaEastSoutheast: Topic = {
           question: '東南アジアで季節風を利用して年に2回米を収穫する農法を何というか。',
           options: [
             '輪作',
-            '混合農業',
-            '二毛作',
             '二期作',
+            '二毛作',
+            '混合農業',
           ],
-          correctIndex: 3,
+          correctIndex: 1,
           explanation:
             '二期作は同じ田で年に2回同じ作物（米）を栽培・収穫する農法です。二毛作は年に2回異なる作物を作ることで、区別して覚えましょう。',
         },
@@ -180,12 +180,12 @@ export const asiaEastSoutheast: Topic = {
           id: 'geo1-as2-q5',
           question: '中国の沿岸部と内陸部の経済格差を縮小するために進められている政策はどれか。',
           options: [
-            '一人っ子政策',
-            '経済特区の拡大',
             '西部大開発',
+            '経済特区の拡大',
+            '一人っ子政策',
             '人民公社',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             '西部大開発は、内陸部のインフラ整備や産業振興を行い、沿岸部との経済格差を縮小することを目的とした政策です。',
         },

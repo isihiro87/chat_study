@@ -47,16 +47,16 @@ export const kaseiCulture: Topic = {
         {
           id: 'q1',
           question: '「東海道中膝栗毛」を書いた作者は？',
-          options: ['曲亭馬琴', '十返舎一九', '井原西鶴', '式亭三馬'],
-          correctIndex: 1,
+          options: ['曲亭馬琴', '井原西鶴', '十返舎一九', '式亭三馬'],
+          correctIndex: 2,
           explanation:
             '十返舎一九の「東海道中膝栗毛」は弥次さん喜多さんの珍道中を描いた滑稽本です。',
         },
         {
           id: 'q2',
           question: '「南総里見八犬伝」を書いた作者は？',
-          options: ['十返舎一九', '曲亭馬琴', '滝沢馬琴', '式亭三馬'],
-          correctIndex: 1,
+          options: ['曲亭馬琴', '十返舎一九', '滝沢馬琴', '式亭三馬'],
+          correctIndex: 0,
           explanation:
             '曲亭馬琴は28年かけてこの長編小説を完成させました。勧善懲悪の物語です。',
         },
@@ -71,8 +71,8 @@ export const kaseiCulture: Topic = {
         {
           id: 'q4',
           question: '「東海道五十三次」を描いた浮世絵師は？',
-          options: ['葛飾北斎', '喜多川歌麿', '歌川広重', '東洲斎写楽'],
-          correctIndex: 2,
+          options: ['葛飾北斎', '歌川広重', '喜多川歌麿', '東洲斎写楽'],
+          correctIndex: 1,
           explanation:
             '歌川広重は東海道の宿場を描いた風景画で、旅の情景が美しく表現されています。',
         },

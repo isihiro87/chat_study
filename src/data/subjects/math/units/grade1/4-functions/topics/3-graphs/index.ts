@@ -82,12 +82,12 @@ export const funcGraphs: Topic = {
           question:
             '比例のグラフが点 $(4, 12)$ を通るとき、比例の式はどれ？',
           options: [
-            '$y = 4x$',
             '$y = 3x$',
+            '$y = 4x$',
             '$y = 12x$',
             '$y = \\frac{12}{x}$',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '$a = \\frac{y}{x} = \\frac{12}{4} = \\textcolor{#D97706}{3}$ なので $y = 3x$ だよ。',
         },
@@ -97,11 +97,11 @@ export const funcGraphs: Topic = {
             '時速 $60\\text{km}$ で走る車の $x$ 時間後の道のり $y\\text{km}$ を式で表すと？',
           options: [
             '$y = \\frac{60}{x}$',
-            '$y = 60x$',
             '$y = x + 60$',
+            '$y = 60x$',
             '$y = 60 - x$',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             '道のり $=$ 速さ $\\times$ 時間 だから $y = 60x$（比例）だよ。',
         },
@@ -111,11 +111,11 @@ export const funcGraphs: Topic = {
             '歯数 $20$ の歯車Aと歯数 $x$ の歯車Bがかみ合っている。Aが $y$ 回転するとき、Bが $10$ 回転する関係をどう表す？',
           options: [
             '$y = 2x$',
-            '$20y = 10x$',
-            '$20y = x \\times 10$',
             '$y = \\frac{10x}{20}$',
+            '$20y = x \\times 10$',
+            '$20y = 10x$',
           ],
-          correctIndex: 3,
+          correctIndex: 1,
           explanation:
             '歯車では 歯数$\\times$回転数 が一定。$20 \\times y = x \\times 10$ より $y = \\frac{10x}{20} = \\frac{x}{2}$ だよ。',
         },
@@ -125,11 +125,11 @@ export const funcGraphs: Topic = {
             '次のデータは比例？反比例？\n$x$: 1, 2, 3, 6 / $y$: 12, 6, 4, 2',
           options: [
             '比例',
-            '反比例',
-            'どちらでもない',
             '両方に当てはまる',
+            'どちらでもない',
+            '反比例',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '$xy$ を計算すると $1 \\times 12 = 2 \\times 6 = 3 \\times 4 = 6 \\times 2 = \\textcolor{#D97706}{12}$ で一定。反比例だよ！',
         },
@@ -138,12 +138,12 @@ export const funcGraphs: Topic = {
           question:
             '面積 $48\\text{cm}^2$ の長方形で、縦が $8\\text{cm}$ のとき横は何 $\\text{cm}$？',
           options: [
-            '$4\\text{cm}$',
             '$6\\text{cm}$',
+            '$4\\text{cm}$',
             '$8\\text{cm}$',
             '$40\\text{cm}$',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '横 $= \\frac{48}{8} = \\textcolor{#D97706}{6}\\text{cm}$ だよ。面積一定の反比例の問題だね。',
         },

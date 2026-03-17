@@ -90,32 +90,32 @@ export const constitution: Topic = {
         {
           id: 'q1',
           question: '日本国憲法の三大原則に含まれないものはどれ？',
-          options: ['富国強兵', '基本的人権の尊重', '国民主権', '平和主義'],
-          correctIndex: 0,
+          options: ['平和主義', '基本的人権の尊重', '国民主権', '富国強兵'],
+          correctIndex: 3,
           explanation:
             '日本国憲法の三大原則は国民主権・基本的人権の尊重・平和主義です。富国強兵は明治時代のスローガンです。',
         },
         {
           id: 'q2',
           question: '政府が地主の土地を買い上げ、小作人に安く売った改革は？',
-          options: ['財閥解体', '殖産興業', '農地改革', '地租改正'],
-          correctIndex: 2,
+          options: ['財閥解体', '農地改革', '殖産興業', '地租改正'],
+          correctIndex: 1,
           explanation:
             '農地改革により多くの小作人が自分の土地を持つ自作農となりました。',
         },
         {
           id: 'q3',
           question: '日本国憲法において天皇はどのような地位と定められた？',
-          options: ['統治者', '元首', '象徴', '大元帥'],
-          correctIndex: 2,
+          options: ['象徴', '元首', '統治者', '大元帥'],
+          correctIndex: 0,
           explanation:
             '日本国憲法では天皇は「日本国および日本国民統合の象徴」と定められました。',
         },
         {
           id: 'q4',
           question: '日本国憲法が公布された年はいつ？',
-          options: ['1945年', '1946年', '1947年', '1948年'],
-          correctIndex: 1,
+          options: ['1945年', '1947年', '1946年', '1948年'],
+          correctIndex: 2,
           explanation:
             '日本国憲法は1946年11月3日に公布され、翌1947年5月3日に施行されました。',
         },
@@ -123,8 +123,8 @@ export const constitution: Topic = {
           id: 'q5',
           question:
             '日本国憲法で戦争を永久に放棄することを定めた条文は第何条？',
-          options: ['第1条', '第9条', '第25条', '第14条'],
-          correctIndex: 1,
+          options: ['第1条', '第25条', '第9条', '第14条'],
+          correctIndex: 2,
           explanation:
             '第9条は戦争の放棄を定めた条文で、世界でも類を見ない平和憲法として知られています。',
         },
@@ -132,8 +132,8 @@ export const constitution: Topic = {
           id: 'q6',
           question:
             '戦後の民主化改革で、巨大な独占資本を解体した政策は？',
-          options: ['農地改革', '教育基本法の制定', '財閥解体', '労働組合法の制定'],
-          correctIndex: 2,
+          options: ['農地改革', '教育基本法の制定', '労働組合法の制定', '財閥解体'],
+          correctIndex: 3,
           explanation:
             '財閥解体は三井・三菱などの巨大な独占資本を解体し、経済の民主化を進めた改革です。',
         },

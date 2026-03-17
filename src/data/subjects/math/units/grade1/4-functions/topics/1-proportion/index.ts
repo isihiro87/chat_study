@@ -80,8 +80,8 @@ export const proportion: Topic = {
           id: 'math-g1-proportion-q2',
           question:
             '$y$ が $x$ に比例し、$x = 2$ のとき $y = -6$ である。比例定数 $a$ はいくつ？',
-          options: ['$3$', '$-3$', '$-4$', '$4$'],
-          correctIndex: 1,
+          options: ['$3$', '$-4$', '$-3$', '$4$'],
+          correctIndex: 2,
           explanation:
             '$a = \\frac{y}{x} = \\frac{-6}{2} = \\textcolor{#D97706}{-3}$ だよ。',
         },
@@ -89,12 +89,12 @@ export const proportion: Topic = {
           id: 'math-g1-proportion-q3',
           question: '比例のグラフについて正しいものはどれ？',
           options: [
-            '必ず $y$ 軸と交わる',
             '原点を通る直線である',
+            '必ず $y$ 軸と交わる',
             '曲線になることがある',
             '$x$ 軸に平行な直線になる',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '比例 $y = ax$ のグラフは必ず原点 $(0, 0)$ を通る直線だよ。',
         },
@@ -104,11 +104,11 @@ export const proportion: Topic = {
             '$y = -2x$ のグラフはどんな形？',
           options: [
             '原点を通る右上がりの直線',
-            '原点を通る右下がりの直線',
-            '原点を通らない直線',
             '曲線',
+            '原点を通らない直線',
+            '原点を通る右下がりの直線',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '比例定数が $a = -2 < 0$ なので、原点を通る右下がりの直線だよ。',
         },
@@ -117,12 +117,12 @@ export const proportion: Topic = {
           question:
             '次のうち、$y$ が $x$ の関数でないものはどれ？',
           options: [
-            '$x$ の値を決めると $y$ がただ1つ決まる',
             '$x = 1$ のとき $y = 2$ と $y = 3$ の両方がありうる',
+            '$x$ の値を決めると $y$ がただ1つ決まる',
             '$y = 5x$',
             '$y = -x$',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '$x$ の値に対して $y$ の値が2つ以上あると関数ではないよ。関数は「ただ1つ決まる」がポイント！',
         },

@@ -97,15 +97,15 @@ export const makeShow: Topic = {
         {
           id: 'eng-ms-q1',
           question: '「The news made me (　　).（そのニュースは私をうれしくさせました。）」\nの (　　) に入るのは？',
-          options: ['happily', 'happy', 'happiness', 'to happy'],
-          correctIndex: 1,
+          options: ['happy', 'happily', 'happiness', 'to happy'],
+          correctIndex: 0,
           explanation: 'make +「〜を」+「〜に」の形。「〜に」のところには happy がそのまま入るよ。',
         },
         {
           id: 'eng-ms-q2',
           question: '「The rain (　　) us sad.（雨は私たちを悲しくさせました。）」\nの (　　) に入るのは？',
-          options: ['make', 'makes', 'made', 'making'],
-          correctIndex: 2,
+          options: ['make', 'makes', 'making', 'made'],
+          correctIndex: 3,
           explanation: '過去の話だから make の過去形 made を使うよ。',
         },
         {
@@ -119,12 +119,12 @@ export const makeShow: Topic = {
           id: 'eng-ms-q4',
           question: '「彼は私にそれは簡単だと示しました。」を英語にすると？',
           options: [
-            'He showed me that it was easy.',
-            'He showed that me it was easy.',
             'He showed me it easy.',
+            'He showed that me it was easy.',
+            'He showed me that it was easy.',
             'He showed that it was easy me.',
           ],
-          correctIndex: 0,
+          correctIndex: 2,
           explanation: 'show + 人 + that + 文 で「人に〜ということを示す」だよ。',
         },
         {
@@ -132,11 +132,11 @@ export const makeShow: Topic = {
           question: '次のうち、make の使い方として正しいものは？',
           options: [
             'The music made me to happy.',
-            'The music made me happy.',
-            'The music made happy me.',
             'The music made me happily.',
+            'The music made happy me.',
+            'The music made me happy.',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation: 'make +「〜を」+「〜に」のならび。make me happy が正しい形だよ。',
         },
         {

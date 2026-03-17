@@ -22,7 +22,7 @@ import { estimateReadingTime } from '../utils/estimateReadingTime';
 import { trackEvent } from '../utils/gtag';
 import { useStudyProgress } from '../hooks/useStudyProgress';
 import { useTopicNavigation } from '../hooks/useTopicNavigation';
-import type { TabType, TopicContent } from '../data/types';
+import type { TabType, TopicContent, Difficulty } from '../data/types';
 import type { HistoryChat } from '../data/history-chat/types';
 
 export function LearningPage() {
@@ -229,6 +229,15 @@ export function LearningPage() {
           setSummaryTopicIds(getSessionCompletedTopics());
           setShowSummaryPopup(true);
         }
+      }
+    },
+    [topicId, updateQuizScore],
+  );
+
+  const handleQuizCompleteWithDifficulties = useCallback(
+    (score: number, total: number, difficulties: Difficulty[]) => {
+      if (topicId) {
+        updateQuizScore(topicId, score, total, difficulties);
       }
     },
     [topicId, updateQuizScore],
@@ -456,6 +465,7 @@ export function LearningPage() {
             quiz={content.quiz}
             onProgressChange={handleQuizProgressChange}
             onComplete={handleQuizComplete}
+            onCompleteWithDifficulties={handleQuizCompleteWithDifficulties}
             isNewBest={quizNewBest}
             navigation={topicNavigation}
           />

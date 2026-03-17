@@ -195,12 +195,12 @@ export const factoringFormulas: Topic = {
           id: 'math-g3-factoring-formulas-q2',
           question: '$x^2 - 16$ を因数分解すると？',
           options: [
-            '$(x-4)^2$',
-            '$(x+4)^2$',
             '$(x+4)(x-4)$',
+            '$(x+4)^2$',
+            '$(x-4)^2$',
             '$(x-8)(x+2)$',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             '$x^2-16 = x^2-4^2$ の形。$a^2-b^2=(a+b)(a-b)$ の公式で $(x+4)(x-4)$ だよ。',
         },
@@ -208,12 +208,12 @@ export const factoringFormulas: Topic = {
           id: 'math-g3-factoring-formulas-q3',
           question: '$x^2 - 10x + 25$ を因数分解すると？',
           options: [
-            '$(x-5)^2$',
-            '$(x+5)^2$',
             '$(x-5)(x+5)$',
+            '$(x+5)^2$',
+            '$(x-5)^2$',
             '$(x-25)(x-1)$',
           ],
-          correctIndex: 0,
+          correctIndex: 2,
           explanation:
             '$x^2-10x+25 = x^2-2 \\times 5 \\times x+5^2$。$a^2-2ab+b^2=(a-b)^2$ の公式で $(x-5)^2$ だよ。',
         },
@@ -222,11 +222,11 @@ export const factoringFormulas: Topic = {
           question: '$x^2 + 6x + 8$ を因数分解すると？',
           options: [
             '$(x+1)(x+8)$',
-            '$(x+2)(x+4)$',
-            '$(x+3)(x+5)$',
             '$(x+4)^2$',
+            '$(x+3)(x+5)$',
+            '$(x+2)(x+4)$',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             'かけて8、足して6になる2つの数は 2 と 4。だから $(x+2)(x+4)$ だよ。',
         },
@@ -260,12 +260,12 @@ export const factoringFormulas: Topic = {
           id: 'math-g3-ff-q7',
           question: '$y^2 - 3y - 18$ を因数分解すると？',
           options: [
-            '$(y-6)(y+3)$',
+            '$(y-2)(y+9)$',
             '$(y+6)(y-3)$',
             '$(y-9)(y+2)$',
-            '$(y-2)(y+9)$',
+            '$(y-6)(y+3)$',
           ],
-          correctIndex: 0,
+          correctIndex: 3,
           explanation:
             'かけて−18、足して−3 → −6と3。$(y-6)(y+3)$ だよ。',
         },
@@ -273,12 +273,12 @@ export const factoringFormulas: Topic = {
           id: 'math-g3-ff-q8',
           question: '$9x^2 - 25$ を因数分解すると？（どの公式を使う？）',
           options: [
-            '$(9x-25)(x+1)$',
-            '$(3x-5)^2$',
             '$(3x+5)(3x-5)$',
+            '$(3x-5)^2$',
+            '$(9x-25)(x+1)$',
             '$(9x+5)(x-5)$',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             '$(3x)^2-5^2$ の形！$a^2-b^2=(a+b)(a-b)$ の和と差の積で $(3x+5)(3x-5)$ だよ。',
         },
@@ -286,12 +286,12 @@ export const factoringFormulas: Topic = {
           id: 'math-g3-ff-q9',
           question: '$3x^2 + 9x + 6$ を因数分解すると？',
           options: [
-            '$(3x+3)(x+2)$',
-            '$(x+1)(3x+6)$',
             '$3(x+1)(x+2)$',
+            '$(x+1)(3x+6)$',
+            '$(3x+3)(x+2)$',
             '$3(x+3)(x+2)$',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             'まず共通因数3をくくり出す → $3(x^2+3x+2)$。かけて2、足して3 → $3(x+1)(x+2)$ だよ。',
         },
@@ -300,11 +300,11 @@ export const factoringFormulas: Topic = {
           question: '$ax^2 - 8ax + 16a$ を因数分解すると？',
           options: [
             '$a(x-4)(x+4)$',
-            '$a(x-4)^2$',
-            '$a(x-2)(x-8)$',
             '$(ax-4)(x-4a)$',
+            '$a(x-2)(x-8)$',
+            '$a(x-4)^2$',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '共通因数 $a$ でくくると $a(x^2-8x+16)$。$x^2-2 \\times 4 \\times x+4^2 = (x-4)^2$ だよ。',
         },
@@ -326,11 +326,11 @@ export const factoringFormulas: Topic = {
           question: '$ax - ay + bx - by$ を因数分解すると？',
           options: [
             '$(a-b)(x+y)$',
-            '$(a+b)(x+y)$',
             '$(a+b)(x-y)$',
+            '$(a+b)(x+y)$',
             '$(a-b)(x-y)$',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation:
             '$a(x-y)+b(x-y)$ とグループ分け。$(x-y)$ が共通因数で $(a+b)(x-y)$ だよ。',
         },

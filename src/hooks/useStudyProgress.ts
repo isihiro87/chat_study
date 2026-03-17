@@ -8,10 +8,13 @@ import {
 } from '../utils/studyProgressStorage';
 import { allTopics, getTopicsByEra } from '../data/subjects/registry';
 import type { TopicMeta } from '../data/subjects/registry';
-import type { StudyProgress, TopicProgress } from '../data/types';
+import type { StudyProgress, TopicProgress, Difficulty } from '../data/types';
+
+export type CompletionStatus = 'none' | 'in-progress' | 'completed';
 
 interface EraProgress {
   completed: number;
+  inProgress: number;
   total: number;
 }
 
@@ -81,7 +84,7 @@ export function useStudyProgress() {
   );
 
   const updateQuizScore = useCallback(
-    (topicId: string, score: number, total: number): { isNewBest: boolean } => {
+    (topicId: string, score: number, total: number, difficulties?: Difficulty[]): { isNewBest: boolean } => {
       let isNewBest = false;
       recordActivity(topicId, (tp) => {
         const currentBestRate =
@@ -89,16 +92,28 @@ export function useStudyProgress() {
             ? tp.quizBestScore / tp.quizTotalQuestions
             : -1;
         const newRate = total > 0 ? score / total : 0;
+
+        // 完了した難易度を累積的にマージ
+        const prevDifficulties = tp.quizCompletedDifficulties ?? [];
+        const mergedDifficulties = difficulties
+          ? Array.from(new Set([...prevDifficulties, ...difficulties]))
+          : prevDifficulties;
+
         if (newRate > currentBestRate) {
           isNewBest = true;
           return {
             ...tp,
             quizBestScore: score,
             quizTotalQuestions: total,
+            quizCompletedDifficulties: mergedDifficulties.length > 0 ? mergedDifficulties : undefined,
             lastStudiedAt: new Date().toISOString(),
           };
         }
-        return { ...tp, lastStudiedAt: new Date().toISOString() };
+        return {
+          ...tp,
+          quizCompletedDifficulties: mergedDifficulties.length > 0 ? mergedDifficulties : undefined,
+          lastStudiedAt: new Date().toISOString(),
+        };
       });
       return { isNewBest };
     },
@@ -112,25 +127,51 @@ export function useStudyProgress() {
     [progress],
   );
 
-  const isTopicStudied = useCallback(
-    (topicId: string): boolean => {
+  const getCompletionStatus = useCallback(
+    (topicId: string): CompletionStatus => {
       const tp = progress.topics[topicId];
-      if (!tp) return false;
-      return tp.chatRead || tp.flashcardCompleted || tp.exampleCompleted || tp.quizBestScore !== null;
+      if (!tp) return 'none';
+
+      const hasAnyProgress = tp.chatRead || tp.flashcardCompleted ||
+                             tp.exampleCompleted || tp.quizBestScore !== null;
+      if (!hasAnyProgress) return 'none';
+
+      // 完了条件: チャット完了 AND クイズ(基礎+標準)完了
+      const chatDone = tp.chatRead;
+
+      // difficulty対応データ: basic と standard の両方が含まれているか
+      const completedDiffs = tp.quizCompletedDifficulties ?? [];
+      const basicStandardDone = completedDiffs.includes('basic') && completedDiffs.includes('standard');
+
+      // 後方互換: difficulty未設定の既存データは quizBestScore !== null で完了扱い
+      const legacyQuizDone = completedDiffs.length === 0 && tp.quizBestScore !== null;
+
+      if (chatDone && (basicStandardDone || legacyQuizDone)) return 'completed';
+      return 'in-progress';
     },
     [progress],
+  );
+
+  const isTopicStudied = useCallback(
+    (topicId: string): boolean => {
+      return getCompletionStatus(topicId) !== 'none';
+    },
+    [getCompletionStatus],
   );
 
   const getEraProgress = useCallback(
     (eraId: string): EraProgress => {
       const topics = getTopicsByEra(eraId);
-      const completed = topics.filter((t) => {
-        const tp = progress.topics[t.id];
-        return tp && (tp.chatRead || tp.flashcardCompleted || tp.exampleCompleted || tp.quizBestScore !== null);
-      }).length;
-      return { completed, total: topics.length };
+      let completed = 0;
+      let inProgress = 0;
+      for (const t of topics) {
+        const status = getCompletionStatus(t.id);
+        if (status === 'completed') completed++;
+        else if (status === 'in-progress') inProgress++;
+      }
+      return { completed, inProgress, total: topics.length };
     },
-    [progress],
+    [getCompletionStatus],
   );
 
   const streak = progress.streak.currentStreak;
@@ -208,6 +249,7 @@ export function useStudyProgress() {
     markExampleCompleted,
     updateQuizScore,
     getTopicProgress,
+    getCompletionStatus,
     getEraProgress,
     isTopicStudied,
     streak,

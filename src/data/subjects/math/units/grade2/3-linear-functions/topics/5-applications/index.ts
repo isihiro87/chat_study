@@ -167,12 +167,12 @@ export const linearFuncApplications: Topic = {
           question:
             '距離と時間のグラフで、グラフが水平になっている部分は何を意味する？',
           options: [
-            '速さが最大になっている',
             '止まっている（移動していない）',
+            '速さが最大になっている',
             '一定の速さで進んでいる',
             '引き返している',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             'グラフが水平＝時間が経過しても距離が変わらない＝止まっているということだよ。',
         },
@@ -182,11 +182,11 @@ export const linearFuncApplications: Topic = {
             '分速 $60$ m で歩く人が家から $300$ m の地点を出発した。$x$ 分後の家からの距離 $y$ m は？',
           options: [
             '$y = 60x$',
-            '$y = 60x + 300$',
             '$y = 60x - 300$',
+            '$y = 60x + 300$',
             '$y = 300x + 60$',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             '初期位置 $300$ m が切片、分速 $60$ m が傾きなので $y = 60x + 300$ だよ。',
         },
@@ -196,11 +196,11 @@ export const linearFuncApplications: Topic = {
             'Aさんは $y = 80x$、Bさんは $y = -60x + 2100$ で表される移動をしている。2人が出会う時刻は出発から何分後？',
           options: [
             '$10$ 分後',
-            '$12$ 分後',
             '$15$ 分後',
+            '$12$ 分後',
             '$20$ 分後',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation:
             '$80x = -60x + 2100 \\rightarrow 140x = 2100 \\rightarrow x = 15$。$15$ 分後に出会うよ。',
         },
@@ -208,8 +208,8 @@ export const linearFuncApplications: Topic = {
           id: 'math-g2-lfapps-q4',
           question:
             '空の水そうに毎分 $5$ L ずつ水を入れる。$8$ 分後の水量は何 L？',
-          options: ['$35$ L', '$40$ L', '$45$ L', '$50$ L'],
-          correctIndex: 1,
+          options: ['$35$ L', '$50$ L', '$45$ L', '$40$ L'],
+          correctIndex: 3,
           explanation: '$y = 5 \\times 8 = 40$。$40$ L だよ。',
         },
         {
@@ -218,11 +218,11 @@ export const linearFuncApplications: Topic = {
             '$50$ L の水が入った水そうから毎分 $2$ L ずつ水を抜く。水そうが空になるのは何分後？',
           options: [
             '$20$ 分後',
-            '$25$ 分後',
-            '$30$ 分後',
             '$50$ 分後',
+            '$30$ 分後',
+            '$25$ 分後',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '$-2x + 50 = 0 \\rightarrow 2x = 50 \\rightarrow x = 25$。$25$ 分後に空になるよ。',
         },
@@ -246,11 +246,11 @@ export const linearFuncApplications: Topic = {
             '動く点の問題で、グラフが折れ線になる理由は？',
           options: [
             '点の速さが変わるから',
-            '三角形の形が変わらないから',
             '変域ごとに式が変わるから',
+            '三角形の形が変わらないから',
             'グラフが曲線になるから',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation:
             '点がどの辺の上にあるかで式が変わるため、変域の境目でグラフの傾きが変わり折れ線になるよ。',
         },
@@ -258,8 +258,8 @@ export const linearFuncApplications: Topic = {
           id: 'math-g2-lfapps-q8',
           question:
             'グラフが $(0, 10)$ と $(5, 40)$ を通る。このグラフの傾きは？',
-          options: ['$4$', '$5$', '$6$', '$8$'],
-          correctIndex: 2,
+          options: ['$6$', '$5$', '$4$', '$8$'],
+          correctIndex: 0,
           explanation:
             '傾き $= \\dfrac{40 - 10}{5 - 0} = \\dfrac{30}{5} = 6$ だよ。',
         },
@@ -269,11 +269,11 @@ export const linearFuncApplications: Topic = {
             '2人が $3000$ m 離れた地点から向かい合って歩く。Aは分速 $80$ m、Bは分速 $70$ m。出会うまで何分？',
           options: [
             '$15$ 分',
-            '$20$ 分',
-            '$25$ 分',
             '$30$ 分',
+            '$25$ 分',
+            '$20$ 分',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '$3000 \\div (80 + 70) = 3000 \\div 150 = 20$。$20$ 分後に出会うよ。',
         },
@@ -283,11 +283,11 @@ export const linearFuncApplications: Topic = {
             '水そうに $20$ L の水がある。毎分 $4$ L ずつ入れて、水量が $52$ L になるのは何分後？',
           options: [
             '$6$ 分後',
-            '$7$ 分後',
             '$8$ 分後',
+            '$7$ 分後',
             '$13$ 分後',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation:
             '$4x + 20 = 52 \\rightarrow 4x = 32 \\rightarrow x = 8$。$8$ 分後だよ。',
         },

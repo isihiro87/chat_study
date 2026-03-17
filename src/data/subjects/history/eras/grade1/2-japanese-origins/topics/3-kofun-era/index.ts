@@ -185,24 +185,24 @@ export const kofunEra: Topic = {
         {
           id: 'q1',
           question: '奈良盆地を中心に成立した強大な勢力を何という？',
-          options: ['邪馬台国', '大和政権', '鎌倉幕府', '室町幕府'],
-          correctIndex: 1,
+          options: ['邪馬台国', '鎌倉幕府', '大和政権', '室町幕府'],
+          correctIndex: 2,
           explanation:
             '大和政権は奈良盆地を中心に成立し、大王が頂点に立ちました。',
         },
         {
           id: 'q2',
           question: '円形と方形を組み合わせた日本独自の墓は？',
-          options: ['円墳', '方墳', 'ピラミッド', '前方後円墳'],
-          correctIndex: 3,
+          options: ['前方後円墳', '方墳', 'ピラミッド', '円墳'],
+          correctIndex: 0,
           explanation:
             '前方後円墳は日本独自の墓の形式で、鍵穴のような形をしています。',
         },
         {
           id: 'q3',
           question: '古墳の表面に並べられた人や動物の焼き物は？',
-          options: ['土偶', '銅鐸', '埴輪', '須恵器'],
-          correctIndex: 2,
+          options: ['土偶', '銅鐸', '須恵器', '埴輪'],
+          correctIndex: 3,
           explanation:
             '埴輪は古墳の表面や周囲に置かれた焼き物で、人・馬・家などの形がありました。',
         },
@@ -225,8 +225,8 @@ export const kofunEra: Topic = {
         {
           id: 'q6',
           question: '渡来人が6世紀半ばに日本へ伝えた宗教は？',
-          options: ['キリスト教', 'イスラーム', '儒教', '仏教'],
-          correctIndex: 3,
+          options: ['キリスト教', '仏教', '儒教', 'イスラーム'],
+          correctIndex: 1,
           explanation:
             '仏教は6世紀半ばに渡来人を通じて日本に伝えられました。',
         },
@@ -234,8 +234,8 @@ export const kofunEra: Topic = {
           id: 'q7',
           question:
             '稲荷山古墳の鉄剣に刻まれていた大王の名前は？',
-          options: ['ワカタケル大王', '仁徳天皇', '聖徳太子', '推古天皇'],
-          correctIndex: 0,
+          options: ['聖徳太子', '仁徳天皇', 'ワカタケル大王', '推古天皇'],
+          correctIndex: 2,
           explanation:
             'ワカタケル大王（雄略天皇）の名が埼玉県の稲荷山古墳の鉄剣に刻まれていました。',
         },
@@ -243,16 +243,16 @@ export const kofunEra: Topic = {
           id: 'q8',
           question:
             '大和政権が鉄の原料を輸入していた朝鮮半島の地域は？',
-          options: ['高句麗', '百済', '新羅', '伽耶地域'],
-          correctIndex: 3,
+          options: ['伽耶地域', '百済', '新羅', '高句麗'],
+          correctIndex: 0,
           explanation:
             '伽耶地域（朝鮮半島南部）から鉄の原料を輸入していました。',
         },
         {
           id: 'q9',
           question: '大阪府堺市にある日本最大級の前方後円墳は？',
-          options: ['稲荷山古墳', '大仙古墳', '江田船山古墳', '高松塚古墳'],
-          correctIndex: 1,
+          options: ['大仙古墳', '稲荷山古墳', '江田船山古墳', '高松塚古墳'],
+          correctIndex: 0,
           explanation:
             '大仙古墳は大阪府堺市にある日本最大級の前方後円墳です。',
         },

@@ -95,8 +95,8 @@ export const sqrtMeaning: Topic = {
         {
           id: 'math-g3-sqrt-meaning-q1',
           question: '$25$ の平方根はどれ？',
-          options: ['$5$', '$-5$', '$\\pm 5$', '$\\sqrt{5}$'],
-          correctIndex: 2,
+          options: ['$\\pm 5$', '$-5$', '$5$', '$\\sqrt{5}$'],
+          correctIndex: 0,
           explanation:
             '$5^2 = 25$、$(-5)^2 = 25$ なので、$25$ の平方根は $\\pm 5$ だよ。正の方だけでなく負の方も忘れずに！',
         },
@@ -124,8 +124,8 @@ export const sqrtMeaning: Topic = {
         {
           id: 'math-g3-sqrt-meaning-q4',
           question: '$(\\sqrt{7})^2$ はいくつ？',
-          options: ['$7$', '$\\sqrt{7}$', '$49$', '$\\sqrt{49}$'],
-          correctIndex: 0,
+          options: ['$\\sqrt{7}$', '$7$', '$49$', '$\\sqrt{49}$'],
+          correctIndex: 1,
           explanation:
             '$(\\sqrt{7})^2 = 7$。ルートと2乗は打ち消し合うよ。これは平方根の基本だから覚えよう！',
         },
@@ -140,24 +140,24 @@ export const sqrtMeaning: Topic = {
         {
           id: 'math-g3-sqrt-meaning-q6',
           question: '$\\sqrt{(-6)^2}$ はいくつ？',
-          options: ['$-6$', '$6$', '$36$', '$\\sqrt{6}$'],
-          correctIndex: 1,
+          options: ['$-6$', '$36$', '$6$', '$\\sqrt{6}$'],
+          correctIndex: 2,
           explanation:
             '$\\sqrt{(-6)^2} = \\sqrt{36} = 6$。$(-6)^2 = 36$ を先に計算してからルートをとるよ。',
         },
         {
           id: 'math-g3-sqrt-meaning-q7',
           question: '次のうち有理数はどれ？',
-          options: ['$\\sqrt{2}$', '$\\sqrt{3}$', '$\\sqrt{(4/9)}$', '$\\pi$'],
-          correctIndex: 2,
+          options: ['$\\sqrt{(4/9)}$', '$\\sqrt{3}$', '$\\sqrt{2}$', '$\\pi$'],
+          correctIndex: 0,
           explanation:
             '$\\sqrt{4/9} = 2/3$ で分数になるから有理数。$\\sqrt{2}$、$\\sqrt{3}$、$\\pi$ は無理数だよ。',
         },
         {
           id: 'math-g3-sqrt-meaning-q8',
           question: '$1/3$ を小数で表すと何になる？',
-          options: ['有限小数', '循環小数', '無理数', '整数'],
-          correctIndex: 1,
+          options: ['有限小数', '整数', '無理数', '循環小数'],
+          correctIndex: 3,
           explanation:
             '$1 \\div 3 = 0.333\\ldots$ で「3」がくり返す循環小数になるよ。循環小数は有理数だよ。',
         },
@@ -172,8 +172,8 @@ export const sqrtMeaning: Topic = {
         {
           id: 'math-g3-sqrt-meaning-q10',
           question: '近似値 $4500$m を有効数字2けたで $a \\times 10^n$ の形に表すと？',
-          options: ['$45 \\times 10^2$', '$4.5 \\times 10^3$', '$4.50 \\times 10^3$', '$0.45 \\times 10^4$'],
-          correctIndex: 1,
+          options: ['$4.5 \\times 10^3$', '$45 \\times 10^2$', '$4.50 \\times 10^3$', '$0.45 \\times 10^4$'],
+          correctIndex: 0,
           explanation:
             '有効数字2けた（4と5）なので $4.5 \\times 10^3$ m と表すよ。整数部分が1けたの小数にするのがポイント！',
         },

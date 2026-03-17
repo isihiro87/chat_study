@@ -199,8 +199,8 @@ export const workConversion: Topic = {
         {
           id: 'sci3-wc-q1',
           question: '3Nの力で物体を2m持ち上げたときの仕事は？',
-          options: ['1.5J', '5J', '6J', '9J'],
-          correctIndex: 2,
+          options: ['6J', '5J', '1.5J', '9J'],
+          correctIndex: 0,
           explanation:
             '仕事 = 力 × 距離 = 3N × 2m = 6J です。',
         },
@@ -210,26 +210,26 @@ export const workConversion: Topic = {
           options: [
             '道具を使うと仕事が減る',
             '道具を使うと仕事が増える',
-            '道具を使っても仕事の量は変わらない',
             '道具を使うと力も距離も変わらない',
+            '道具を使っても仕事の量は変わらない',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '仕事の原理では、滑車やてこなどの道具を使っても、仕事の総量（力×距離）は変わりません。',
         },
         {
           id: 'sci3-wc-q3',
           question: '10秒間に50Jの仕事をしたときの仕事率は？',
-          options: ['0.2W', '5W', '40W', '500W'],
-          correctIndex: 1,
+          options: ['0.2W', '40W', '5W', '500W'],
+          correctIndex: 2,
           explanation:
             '仕事率 = 仕事 ÷ 時間 = 50J ÷ 10s = 5W です。',
         },
         {
           id: 'sci3-wc-q4',
           question: '熱の伝わり方に含まれないものはどれ？',
-          options: ['伝導', '対流', '放射', '蒸発'],
-          correctIndex: 3,
+          options: ['伝導', '蒸発', '放射', '対流'],
+          correctIndex: 1,
           explanation:
             '熱の伝わり方は伝導（物質中を伝わる）・対流（液体や気体の流れ）・放射（電磁波による）の3つです。蒸発は状態変化です。',
         },
@@ -249,16 +249,16 @@ export const workConversion: Topic = {
         {
           id: 'sci3-wc-q6',
           question: '動滑車を使って10Nの物体を2m持ち上げるとき、ひもを引く距離は？',
-          options: ['1m', '2m', '4m', '10m'],
-          correctIndex: 2,
+          options: ['1m', '2m', '10m', '4m'],
+          correctIndex: 3,
           explanation:
             '動滑車を使うと力は半分（5N）になりますが、ひもを引く距離は2倍の4mになります。仕事は5N×4m=20Jで、直接持ち上げる場合（10N×2m=20J）と同じです。',
         },
         {
           id: 'sci3-wc-q7',
           question: '80Jの電気エネルギーを使い、20Jの光エネルギーが得られた。変換効率は？',
-          options: ['4%', '25%', '60%', '80%'],
-          correctIndex: 1,
+          options: ['25%', '4%', '60%', '80%'],
+          correctIndex: 0,
           explanation:
             '変換効率 = 有効に利用できたエネルギー ÷ 投入したエネルギー × 100 = 20J ÷ 80J × 100 = 25% です。',
         },
@@ -273,8 +273,8 @@ export const workConversion: Topic = {
         {
           id: 'sci3-wc-q9',
           question: '60Jの仕事を10秒間でしたときの仕事率は？',
-          options: ['0.6W', '6W', '50W', '600W'],
-          correctIndex: 1,
+          options: ['0.6W', '50W', '6W', '600W'],
+          correctIndex: 2,
           explanation:
             '仕事率 = 仕事 ÷ 時間 = 60J ÷ 10s = 6W です。',
         },

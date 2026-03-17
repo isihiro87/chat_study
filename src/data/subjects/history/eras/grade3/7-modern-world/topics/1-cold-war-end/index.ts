@@ -113,12 +113,12 @@ export const coldWarEnd: Topic = {
           id: 'q1',
           question: '1989年に米ソ首脳が冷戦の終結を宣言した会談は？',
           options: [
-            'マルタ会談',
             'ポツダム会談',
+            'マルタ会談',
             'ヤルタ会談',
             'ジュネーブ会談',
           ],
-          correctIndex: 0,
+          correctIndex: 1,
           explanation:
             'マルタ会談で、アメリカのブッシュ大統領とソ連のゴルバチョフが冷戦の終結を宣言しました。',
         },
@@ -126,12 +126,12 @@ export const coldWarEnd: Topic = {
           id: 'q2',
           question: '1993年に発足したヨーロッパの地域統合組織は？',
           options: [
-            'NATO',
+            'ヨーロッパ連合（EU）',
             'APEC',
             'ASEAN',
-            'ヨーロッパ連合（EU）',
+            'NATO',
           ],
-          correctIndex: 3,
+          correctIndex: 0,
           explanation:
             'ヨーロッパ連合（EU）は1993年に発足し、共通通貨ユーロの導入など経済・政治の統合を進めました。',
         },
@@ -141,10 +141,10 @@ export const coldWarEnd: Topic = {
           options: [
             '湾岸戦争',
             'イラク戦争',
-            '天安門事件',
             'アメリカ同時多発テロ',
+            '天安門事件',
           ],
-          correctIndex: 3,
+          correctIndex: 2,
           explanation:
             'アメリカ同時多発テロは2001年9月11日にニューヨークなどで起きた大規模テロ事件です。',
         },
@@ -155,10 +155,10 @@ export const coldWarEnd: Topic = {
           options: [
             'スターリン',
             'フルシチョフ',
-            'ゴルバチョフ',
             'エリツィン',
+            'ゴルバチョフ',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             'ゴルバチョフは1985年にソ連の指導者となり、ペレストロイカやグラスノスチを推進して冷戦終結に貢献しました。',
         },
@@ -180,12 +180,12 @@ export const coldWarEnd: Topic = {
           question:
             '1989年に中国の北京で民主化運動が武力で弾圧された事件は？',
           options: [
-            '文化大革命',
             '天安門事件',
+            '文化大革命',
             '辛亥革命',
             '五・四運動',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '天安門事件では、天安門広場に集まった学生や市民による民主化運動が中国政府に武力で鎮圧されました。',
         },

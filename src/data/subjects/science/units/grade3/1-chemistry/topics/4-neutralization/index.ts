@@ -179,8 +179,8 @@ export const neutralization: Topic = {
         {
           id: 'sci3-neut-q1',
           question: '中和反応でH⁺とOH⁻が結びついてできる物質は？',
-          options: ['塩化ナトリウム', '水', '塩素', '水素'],
-          correctIndex: 1,
+          options: ['水', '塩化ナトリウム', '塩素', '水素'],
+          correctIndex: 0,
           explanation:
             '中和反応ではH⁺ + OH⁻ → H₂O（水）ができます。同時に塩（えん）もできます。',
         },
@@ -195,8 +195,8 @@ export const neutralization: Topic = {
         {
           id: 'sci3-neut-q3',
           question: '硫酸と水酸化バリウムの中和でできる白い沈殿は？',
-          options: ['塩化ナトリウム', '硝酸カリウム', '硫酸バリウム', '炭酸カルシウム'],
-          correctIndex: 2,
+          options: ['塩化ナトリウム', '硝酸カリウム', '炭酸カルシウム', '硫酸バリウム'],
+          correctIndex: 3,
           explanation:
             'H₂SO₄ + Ba(OH)₂ → BaSO₄ + 2H₂O。硫酸バリウム（BaSO₄）は水に溶けない塩で、白い沈殿になります。',
         },
@@ -227,12 +227,12 @@ export const neutralization: Topic = {
           question:
             '塩酸にNaOH水溶液を加えていくとき、水溶液中のH⁺の数はどうなる？',
           options: [
-            '増えていく',
             '減っていく',
+            '増えていく',
             '変わらない',
             '最初増えて後で減る',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             'H⁺はOH⁻と結びついて水になるため、NaOH水溶液を加えるほどH⁺は減っていきます。',
         },
@@ -243,10 +243,10 @@ export const neutralization: Topic = {
           options: [
             '水素が発生する',
             '酸素が発生する',
-            '変化しない',
             '沈殿ができる',
+            '変化しない',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             'ちょうど中性ではH⁺がすべてOH⁻と反応して水になっているため、マグネシウムリボンは反応しません。',
         },
@@ -256,11 +256,11 @@ export const neutralization: Topic = {
             '硫酸と水酸化バリウムの中和で生じた白い沈殿が水に溶けないのはなぜ？',
           options: [
             '温度が低いから',
-            '硫酸バリウムは水に溶けにくい塩だから',
             'まだ中和が完了していないから',
+            '硫酸バリウムは水に溶けにくい塩だから',
             'イオンが多すぎるから',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             '硫酸バリウム（BaSO₄）は水に溶けにくい性質を持つ塩であるため、白い沈殿として残ります。',
         },

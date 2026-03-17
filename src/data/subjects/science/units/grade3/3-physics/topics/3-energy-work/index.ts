@@ -117,10 +117,10 @@ export const energyWork: Topic = {
           options: [
             '運動エネルギーは常に一定',
             '位置エネルギーは常に一定',
-            '運動エネルギーと位置エネルギーの和が一定',
             '力学的エネルギーは常に増加する',
+            '運動エネルギーと位置エネルギーの和が一定',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '摩擦や空気抵抗がなければ、運動エネルギーと位置エネルギーの和（力学的エネルギー）は一定に保存されます。',
         },
@@ -128,12 +128,12 @@ export const energyWork: Topic = {
           id: 'sci3-ene-q6',
           question: '運動エネルギーが最も大きいのはどれ？',
           options: [
-            '質量1kg、速さ2m/sの物体',
-            '質量2kg、速さ1m/sの物体',
             '質量2kg、速さ2m/sの物体',
+            '質量2kg、速さ1m/sの物体',
+            '質量1kg、速さ2m/sの物体',
             '質量1kg、速さ1m/sの物体',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             '運動エネルギーは速さが大きいほど、質量が大きいほど大きくなります。質量2kg・速さ2m/sの物体が最も大きい運動エネルギーをもちます。',
         },
@@ -142,11 +142,11 @@ export const energyWork: Topic = {
           question: '摩擦がある面で物体が運動するとき、力学的エネルギーはどうなる？',
           options: [
             '増加する',
-            '一定に保たれる',
             '減少する',
+            '一定に保たれる',
             '0になる',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation:
             '摩擦がある場合、力学的エネルギーの一部が熱エネルギーや音エネルギーに変換されるため、力学的エネルギーは減少します。',
         },

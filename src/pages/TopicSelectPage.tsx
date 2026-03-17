@@ -1,5 +1,5 @@
 import { Link, useParams } from 'react-router-dom';
-import { ChevronRight, Check } from 'lucide-react';
+import { ChevronRight, Check, Clock } from 'lucide-react';
 import { Header } from '../components/common/Header';
 import { SEOHead } from '../components/common/SEOHead';
 import { getEra, getTopicsByEra } from '../data/subjects/registry';
@@ -11,7 +11,7 @@ export function TopicSelectPage() {
   const era = eraId ? getEra(eraId) : undefined;
   const subject = subjectId ? getSubject(subjectId) : undefined;
   const topics = eraId ? getTopicsByEra(eraId) : [];
-  const { isTopicStudied, getTopicProgress, getEraProgress } = useStudyProgress();
+  const { getCompletionStatus, getTopicProgress, getEraProgress } = useStudyProgress();
 
   if (!era || !subjectId) {
     return (
@@ -66,7 +66,7 @@ export function TopicSelectPage() {
 
         <div className="space-y-3">
           {topics.map((topic) => {
-            const studied = isTopicStudied(topic.id);
+            const status = getCompletionStatus(topic.id);
             const tp = getTopicProgress(topic.id);
             const hasQuizScore = tp.quizBestScore !== null && tp.quizTotalQuestions !== null;
 
@@ -90,9 +90,13 @@ export function TopicSelectPage() {
                     </p>
                   )}
                 </div>
-                {studied ? (
+                {status === 'completed' ? (
                   <div className="flex h-7 w-7 items-center justify-center rounded-full bg-emerald-500">
                     <Check className="h-4 w-4 text-white" />
+                  </div>
+                ) : status === 'in-progress' ? (
+                  <div className="flex h-7 w-7 items-center justify-center rounded-full bg-amber-500">
+                    <Clock className="h-4 w-4 text-white" />
                   </div>
                 ) : (
                   <ChevronRight className="h-5 w-5 text-gray-400" />

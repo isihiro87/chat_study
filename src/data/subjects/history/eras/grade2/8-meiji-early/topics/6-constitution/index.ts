@@ -111,16 +111,16 @@ export const constitution: Topic = {
           id: 'q1',
           question:
             '大日本帝国憲法制定のため、ドイツで憲法を調査した人物は？',
-          options: ['大隈重信', '板垣退助', '伊藤博文', '岩倉具視'],
-          correctIndex: 2,
+          options: ['大隈重信', '板垣退助', '岩倉具視', '伊藤博文'],
+          correctIndex: 3,
           explanation:
             '伊藤博文はドイツ（プロイセン）の憲法を学び、大日本帝国憲法の制定に中心的な役割を果たしました。',
         },
         {
           id: 'q2',
           question: '1885年に発足した内閣制度の初代内閣総理大臣は？',
-          options: ['岩倉具視', '大隈重信', '板垣退助', '伊藤博文'],
-          correctIndex: 3,
+          options: ['伊藤博文', '大隈重信', '板垣退助', '岩倉具視'],
+          correctIndex: 0,
           explanation:
             '1885年に内閣制度が発足し、伊藤博文が初代内閣総理大臣に就任しました。',
         },
@@ -128,8 +128,8 @@ export const constitution: Topic = {
           id: 'q3',
           question:
             '大日本帝国憲法で、国の主権者とされたのは？',
-          options: ['国民', '帝国議会', '内閣総理大臣', '天皇'],
-          correctIndex: 3,
+          options: ['国民', '帝国議会', '天皇', '内閣総理大臣'],
+          correctIndex: 2,
           explanation:
             '天皇主権のもと、天皇は国の元首で神聖な存在とされ、国民は「臣民」と呼ばれました。',
         },
@@ -161,11 +161,11 @@ export const constitution: Topic = {
             '1890年に出された、天皇への忠誠と親への孝行を教えた文書は？',
           options: [
             '五箇条の御誓文',
-            '大日本帝国憲法',
-            '学制',
             '教育勅語',
+            '学制',
+            '大日本帝国憲法',
           ],
-          correctIndex: 3,
+          correctIndex: 1,
           explanation:
             '教育勅語は道徳教育の基本を示し、天皇への忠誠と親への孝行を教えました。',
         },

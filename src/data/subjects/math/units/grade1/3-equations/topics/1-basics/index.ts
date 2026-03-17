@@ -60,32 +60,32 @@ export const eqBasics: Topic = {
         {
           id: 'math-g1-eq-basics-q1',
           question: '$x + 3 = 7$ の解は？',
-          options: ['$x = 3$', '$x = 4$', '$x = 10$', '$x = 7$'],
-          correctIndex: 1,
+          options: ['$x = 4$', '$x = 3$', '$x = 10$', '$x = 7$'],
+          correctIndex: 0,
           explanation:
             '両辺から 3 を引く（移項する）と $x = 7 - 3 = 4$。確かめ: $4 + 3 = 7$ ✓',
         },
         {
           id: 'math-g1-eq-basics-q2',
           question: '$3x = 15$ の解は？',
-          options: ['$x = 3$', '$x = 12$', '$x = 5$', '$x = 45$'],
-          correctIndex: 2,
+          options: ['$x = 3$', '$x = 12$', '$x = 45$', '$x = 5$'],
+          correctIndex: 3,
           explanation:
             '両辺を 3 で割ると $x = \\dfrac{15}{3} = 5$。確かめ: $3 \\times 5 = 15$ ✓',
         },
         {
           id: 'math-g1-eq-basics-q3',
           question: '$2x - 4 = 10$ の解は？',
-          options: ['$x = 3$', '$x = 5$', '$x = 7$', '$x = 14$'],
-          correctIndex: 2,
+          options: ['$x = 3$', '$x = 7$', '$x = 5$', '$x = 14$'],
+          correctIndex: 1,
           explanation:
             '$-4$ を移項して $2x = 14$。両辺を 2 で割ると $x = 7$。確かめ: $2 \\times 7 - 4 = 10$ ✓',
         },
         {
           id: 'math-g1-eq-basics-q4',
           question: '$5x + 2 = 3x + 8$ の解は？',
-          options: ['$x = 2$', '$x = 3$', '$x = 5$', '$x = 6$'],
-          correctIndex: 1,
+          options: ['$x = 2$', '$x = 5$', '$x = 3$', '$x = 6$'],
+          correctIndex: 2,
           explanation:
             '$3x$ を移項して $5x - 3x = 8 - 2$、つまり $2x = 6$。$x = 3$。確かめ: $5(3)+2=17$, $3(3)+8=17$ ✓',
         },
@@ -94,11 +94,11 @@ export const eqBasics: Topic = {
           question: '移項するとき、符号はどうなる？',
           options: [
             'そのまま変わらない',
-            '符号が変わる（＋は−に、−は＋に）',
-            'すべて＋になる',
             'すべて−になる',
+            'すべて＋になる',
+            '符号が変わる（＋は−に、−は＋に）',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '移項するときは符号が逆になるよ。＋の項は−に、−の項は＋に変わるんだ。',
         },

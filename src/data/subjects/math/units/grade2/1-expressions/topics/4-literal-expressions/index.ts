@@ -174,8 +174,8 @@ export const literalExpressions: Topic = {
         {
           id: 'math-g2-literal-expr-q1',
           question: '奇数を文字 $n$ を使って表すと？（$n$ は整数）',
-          options: ['$n + 1$', '$2n$', '$2n + 1$', '$n^2$'],
-          correctIndex: 2,
+          options: ['$n + 1$', '$2n + 1$', '$2n$', '$n^2$'],
+          correctIndex: 1,
           explanation:
             '偶数は $2n$ だから、それに $1$ を足した $2n + 1$ が奇数だよ。$n = 0$ なら $1$、$n = 1$ なら $3$、$n = 2$ なら $5$ … となるね。',
         },
@@ -184,19 +184,19 @@ export const literalExpressions: Topic = {
           question: '$y = 3x - 6$ を $x$ について解くと？',
           options: [
             '$x = y + 6$',
-            '$x = \\frac{y + 6}{3}$',
             '$x = 3y - 6$',
+            '$x = \\frac{y + 6}{3}$',
             '$x = \\frac{y}{3} + 6$',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             '$y = 3x - 6 \\rightarrow y + 6 = 3x \\rightarrow x = \\frac{y + 6}{3}$ だよ。まず $-6$ を移項して、$3$ で割ろう。',
         },
         {
           id: 'math-g2-literal-expr-q3',
           question: '連続する3つの整数の和は、どんな数の倍数になる？',
-          options: ['$2$の倍数', '$3$の倍数', '$5$の倍数', '$6$の倍数'],
-          correctIndex: 1,
+          options: ['$3$の倍数', '$2$の倍数', '$5$の倍数', '$6$の倍数'],
+          correctIndex: 0,
           explanation:
             '連続する3整数を $n, n+1, n+2$ とすると、和 $= n + (n+1) + (n+2) = 3n + 3 = 3(n+1)$。$3 \\times$ (整数) の形だから $3$の倍数になるよ！',
         },
@@ -204,8 +204,8 @@ export const literalExpressions: Topic = {
           id: 'math-g2-le-q4',
           question:
             '十の位が $a$、一の位が $b$ の2けたの自然数を式で表すと？',
-          options: ['$a + b$', '$ab$', '$10a + b$', '$10b + a$'],
-          correctIndex: 2,
+          options: ['$a + b$', '$ab$', '$10b + a$', '$10a + b$'],
+          correctIndex: 3,
           explanation:
             '十の位は $10$ 倍するから $10a$、一の位はそのまま $b$ で、$10a + b$ だよ。例えば $a = 3, b = 5$ なら $10 \\times 3 + 5 = 35$ になるね。',
         },
@@ -213,16 +213,16 @@ export const literalExpressions: Topic = {
           id: 'math-g2-le-q5',
           question:
             '2けたの自然数と、十の位と一の位を入れかえた数の和は何の倍数？',
-          options: ['$3$の倍数', '$9$の倍数', '$10$の倍数', '$11$の倍数'],
-          correctIndex: 3,
+          options: ['$3$の倍数', '$9$の倍数', '$11$の倍数', '$10$の倍数'],
+          correctIndex: 2,
           explanation:
             '$(10a + b) + (10b + a) = 11a + 11b = 11(a + b)$。$11 \\times$ (整数) の形だから $11$ の倍数だよ。',
         },
         {
           id: 'math-g2-le-q6',
           question: '連続する3つの偶数の和は何の倍数になる？',
-          options: ['$2$の倍数', '$3$の倍数', '$4$の倍数', '$6$の倍数'],
-          correctIndex: 3,
+          options: ['$2$の倍数', '$6$の倍数', '$4$の倍数', '$3$の倍数'],
+          correctIndex: 1,
           explanation:
             '連続する3偶数を $2n, 2n+2, 2n+4$ とすると、和 $= 6n + 6 = 6(n+1)$。$6 \\times$ (整数) の形だから $6$ の倍数だよ。',
         },
@@ -231,11 +231,11 @@ export const literalExpressions: Topic = {
           question: '$S = \\frac{1}{2}ab$ を $a$ について解くと？',
           options: [
             '$a = \\frac{S}{2b}$',
-            '$a = \\frac{2S}{b}$',
-            '$a = 2Sb$',
             '$a = \\frac{Sb}{2}$',
+            '$a = 2Sb$',
+            '$a = \\frac{2S}{b}$',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '$S = \\frac{1}{2}ab$ の両辺を $2$ 倍すると $2S = ab$。両辺を $b$ で割ると $a = \\frac{2S}{b}$ だよ。',
         },
@@ -243,8 +243,8 @@ export const literalExpressions: Topic = {
           id: 'math-g2-le-q8',
           question:
             '3けたの自然数と百の位と一の位を入れかえた数の差は何の倍数？',
-          options: ['$9$の倍数', '$11$の倍数', '$99$の倍数', '$100$の倍数'],
-          correctIndex: 2,
+          options: ['$99$の倍数', '$11$の倍数', '$9$の倍数', '$100$の倍数'],
+          correctIndex: 0,
           explanation:
             '$(100x + 10y + z) - (100z + 10y + x) = 99x - 99z = 99(x - z)$。$99 \\times$ (整数) だから $99$ の倍数（もちろん $9$ の倍数でもある）だよ。',
         },
@@ -264,8 +264,8 @@ export const literalExpressions: Topic = {
         {
           id: 'math-g2-le-q10',
           question: '奇数と奇数の和はどんな数になる？',
-          options: ['奇数', '偶数', '3の倍数', '必ず素数'],
-          correctIndex: 1,
+          options: ['奇数', '3の倍数', '偶数', '必ず素数'],
+          correctIndex: 2,
           explanation:
             '2つの奇数を $2m + 1, 2n + 1$ とすると、和 $= 2m + 2n + 2 = 2(m + n + 1)$。$2 \\times$ (整数) の形だから偶数になるよ。',
         },

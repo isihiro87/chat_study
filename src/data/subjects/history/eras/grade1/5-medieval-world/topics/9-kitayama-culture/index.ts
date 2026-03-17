@@ -56,15 +56,15 @@ export const kitayamaCulture: Topic = {
         {
           id: 'q2',
           question: '観阿弥・世阿弥親子が猿楽から大成させた伝統芸能は？',
-          options: ['能', '狂言', '歌舞伎', '人形浄瑠璃'],
-          correctIndex: 0,
+          options: ['狂言', '能', '歌舞伎', '人形浄瑠璃'],
+          correctIndex: 1,
           explanation: '能は観阿弥・世阿弥親子が猿楽をもとに大成させた伝統芸能で、足利義満に保護されました。',
         },
         {
           id: 'q3',
           question: '能の合間に演じられる、庶民の日常を面白おかしく描いた喜劇は？',
-          options: ['歌舞伎', '人形浄瑠璃', '狂言', '連歌'],
-          correctIndex: 2,
+          options: ['歌舞伎', '人形浄瑠璃', '連歌', '狂言'],
+          correctIndex: 3,
           explanation: '狂言は能の合間に演じられる喜劇で、庶民の日常をユーモラスに描き民衆にも親しまれました。',
         },
         {
@@ -77,8 +77,8 @@ export const kitayamaCulture: Topic = {
         {
           id: 'q5',
           question: '金閣の正式な寺の名前は？',
-          options: ['慈照寺', '鹿苑寺', '龍安寺', '天龍寺'],
-          correctIndex: 1,
+          options: ['慈照寺', '天龍寺', '龍安寺', '鹿苑寺'],
+          correctIndex: 3,
           explanation: '金閣の正式名称は鹿苑寺（ろくおんじ）です。',
         },
       ],

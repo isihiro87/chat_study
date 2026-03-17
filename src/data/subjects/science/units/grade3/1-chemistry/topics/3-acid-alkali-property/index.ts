@@ -290,8 +290,8 @@ export const acidAlkaliProperty: Topic = {
         {
           id: 'sci3-aap-q1',
           question: 'BTB溶液を加えると青色になる水溶液の性質は？',
-          options: ['酸性', '中性', 'アルカリ性', '判別できない'],
-          correctIndex: 2,
+          options: ['酸性', 'アルカリ性', '中性', '判別できない'],
+          correctIndex: 1,
           explanation:
             'BTB溶液はアルカリ性で青色になります。酸性では黄色、中性では緑色です。',
         },
@@ -324,11 +324,11 @@ export const acidAlkaliProperty: Topic = {
           question: 'リトマス紙について正しいのはどれ？',
           options: [
             '酸性で赤色リトマス紙が青くなる',
-            '酸性で青色リトマス紙が赤くなる',
             'アルカリ性で青色リトマス紙が赤くなる',
+            '酸性で青色リトマス紙が赤くなる',
             '中性で赤色リトマス紙が青くなる',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             '酸性の水溶液は青色リトマス紙を赤色に変えます。アルカリ性は赤色リトマス紙を青色に変えます。',
         },
@@ -344,16 +344,16 @@ export const acidAlkaliProperty: Topic = {
         {
           id: 'sci3-aap-q7',
           question: 'pH 2の水溶液とpH 5の水溶液では、どちらが酸性が強い？',
-          options: ['pH 2', 'pH 5', '同じ', '判別できない'],
-          correctIndex: 0,
+          options: ['pH 5', 'pH 2', '同じ', '判別できない'],
+          correctIndex: 1,
           explanation:
             'pHの値が小さいほど酸性が強くなります。pH 2はpH 5よりもH⁺の濃度が高く、酸性が強いです。',
         },
         {
           id: 'sci3-aap-q8',
           question: '水酸化カルシウム（Ca(OH)₂）が電離したとき、OH⁻は何個生じる？',
-          options: ['1個', '2個', '3個', '4個'],
-          correctIndex: 1,
+          options: ['1個', '4個', '3個', '2個'],
+          correctIndex: 3,
           explanation:
             'Ca(OH)₂ → Ca²⁺ + 2OH⁻ です。(OH)₂なのでOH⁻が2個生じます。',
         },
@@ -361,8 +361,8 @@ export const acidAlkaliProperty: Topic = {
           id: 'sci3-aap-q9',
           question:
             'NaOH水溶液をしみこませたろ紙で赤色リトマス紙に電圧を加えると、変色部分はどちらに広がる？',
-          options: ['陽極側', '陰極側', '両方に均等', '広がらない'],
-          correctIndex: 1,
+          options: ['陰極側', '陽極側', '両方に均等', '広がらない'],
+          correctIndex: 0,
           explanation:
             'OH⁻は−の電気を帯びた陰イオンなので陽極に移動します。そのため、変色部分は陰極側に広がります。',
         },
@@ -372,10 +372,10 @@ export const acidAlkaliProperty: Topic = {
           options: [
             '水素が発生する',
             '酸素が発生する',
-            '変化しない',
             'マグネシウムが燃える',
+            '変化しない',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             'アルカリ性の水溶液にはH⁺がほとんど含まれていないため、マグネシウムリボンを入れても反応は起きません。',
         },

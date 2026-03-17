@@ -110,8 +110,8 @@ export const wartimeLife: Topic = {
         {
           id: 'q1',
           question: '1943年から大学生が戦場に送られたことを何という？',
-          options: ['勤労動員', '疎開', '学徒出陣', '徴兵制'],
-          correctIndex: 2,
+          options: ['勤労動員', '学徒出陣', '疎開', '徴兵制'],
+          correctIndex: 1,
           explanation:
             '学徒出陣により、多くの大学生が学業を中断して戦場に送られました。',
         },
@@ -136,11 +136,11 @@ export const wartimeLife: Topic = {
           question: '戦時中の国民に我慢を求めたスローガンとして正しいのは？',
           options: [
             '富国強兵',
-            '欲しがりません勝つまでは',
-            '殖産興業',
             '脱亜入欧',
+            '殖産興業',
+            '欲しがりません勝つまでは',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '「欲しがりません勝つまでは」は、食糧難の中で国民に耐乏を求めたスローガンです。',
         },

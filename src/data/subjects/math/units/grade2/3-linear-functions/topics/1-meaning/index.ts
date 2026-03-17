@@ -130,24 +130,24 @@ export const linearFuncMeaning: Topic = {
         {
           id: 'math-g2-linear-func-meaning-q1',
           question: '$y = 3x + 5$ で、$x$ が1増えると $y$ はいくつ増える？',
-          options: ['$3$', '$5$', '$8$', '$1$'],
-          correctIndex: 0,
+          options: ['$8$', '$5$', '$3$', '$1$'],
+          correctIndex: 2,
           explanation:
             '$y = ax + b$ の $a$ が変化の割合だよ。$a = 3$ だから、$x$ が1増えると $y$ は3増えるんだ。',
         },
         {
           id: 'math-g2-linear-func-meaning-q2',
           question: '次のうち、一次関数でないものはどれ？',
-          options: ['$y = 2x + 1$', '$y = -x + 3$', '$y = x^2$', '$y = 5x$'],
-          correctIndex: 2,
+          options: ['$y = 2x + 1$', '$y = x^2$', '$y = -x + 3$', '$y = 5x$'],
+          correctIndex: 1,
           explanation:
             '$y = x^2$ は $x$ の二乗が入っているので一次関数ではないよ。一次関数は $y = ax + b$ の形だよ。',
         },
         {
           id: 'math-g2-linear-func-meaning-q3',
           question: '$y = 2x + 3$ で、$x = 0$ のとき $y$ の値は？',
-          options: ['$0$', '$2$', '$3$', '$5$'],
-          correctIndex: 2,
+          options: ['$0$', '$2$', '$5$', '$3$'],
+          correctIndex: 3,
           explanation:
             '$x = 0$ を代入すると $y = 2 \\times 0 + 3 = 3$。この値が切片 $b$ だよ。',
         },
@@ -155,12 +155,12 @@ export const linearFuncMeaning: Topic = {
           id: 'math-g2-linear-func-meaning-q4',
           question: '次のうち、一次関数であるものはどれ？',
           options: [
-            '$y = x^2 + 1$',
-            '$xy = 12$',
             '$y = \\dfrac{x - 4}{3}$',
+            '$xy = 12$',
+            '$y = x^2 + 1$',
             '$y = \\dfrac{6}{x}$',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             '$y = \\dfrac{x - 4}{3} = \\dfrac{1}{3}x - \\dfrac{4}{3}$ と変形でき、$y = ax + b$ の形になるので一次関数だよ。',
         },
@@ -168,8 +168,8 @@ export const linearFuncMeaning: Topic = {
           id: 'math-g2-linear-func-meaning-q5',
           question:
             '$y = -4x + 10$ で、$x$ が $2$ から $5$ に増加するとき、変化の割合はいくつ？',
-          options: ['$-4$', '$4$', '$-12$', '$10$'],
-          correctIndex: 0,
+          options: ['$4$', '$-4$', '$-12$', '$10$'],
+          correctIndex: 1,
           explanation:
             '一次関数の変化の割合は常に $a$ と等しいよ。$a = -4$ だから変化の割合は $-4$。どの区間でも同じ値になるんだ。',
         },
@@ -177,8 +177,8 @@ export const linearFuncMeaning: Topic = {
           id: 'math-g2-linear-func-meaning-q6',
           question:
             '$y = 5x - 2$ で、$x$ の増加量が $3$ のとき、$y$ の増加量はいくつ？',
-          options: ['$3$', '$5$', '$13$', '$15$'],
-          correctIndex: 3,
+          options: ['$3$', '$5$', '$15$', '$13$'],
+          correctIndex: 2,
           explanation:
             '$y$ の増加量 $= a \\times x$ の増加量 $= 5 \\times 3 = 15$ だよ。',
         },
@@ -186,8 +186,8 @@ export const linearFuncMeaning: Topic = {
           id: 'math-g2-linear-func-meaning-q7',
           question:
             'ある一次関数で、$x$ が $4$ 増えると $y$ が $-8$ 変化する。変化の割合はいくつ？',
-          options: ['$2$', '$-2$', '$4$', '$-4$'],
-          correctIndex: 1,
+          options: ['$-2$', '$2$', '$4$', '$-4$'],
+          correctIndex: 0,
           explanation:
             '変化の割合 $= y$ の増加量 $\\div$ $x$ の増加量 $= -8 \\div 4 = -2$ だよ。',
         },
@@ -195,12 +195,12 @@ export const linearFuncMeaning: Topic = {
           id: 'math-g2-linear-func-meaning-q8',
           question: '比例 $y = ax$ は一次関数の特別な場合である。これは正しい？',
           options: [
-            '正しい（$b = 0$ の場合）',
+            '$a = 0$ のとき比例になる',
             '正しくない（比例と一次関数は別物）',
             '正しくない（一次関数が比例の特別な場合）',
-            '$a = 0$ のとき比例になる',
+            '正しい（$b = 0$ の場合）',
           ],
-          correctIndex: 0,
+          correctIndex: 3,
           explanation:
             '比例 $y = ax$ は一次関数 $y = ax + b$ で $b = 0$ の場合だよ。だから比例は一次関数の仲間なんだ。',
         },
@@ -231,8 +231,8 @@ export const linearFuncMeaning: Topic = {
           id: 'math-g2-linear-func-meaning-q11',
           question:
             '一次関数 $y = ax + 3$ で、$x$ が $2$ 増えると $y$ が $6$ 増える。$a$ の値はいくつ？',
-          options: ['$2$', '$3$', '$6$', '$9$'],
-          correctIndex: 1,
+          options: ['$2$', '$6$', '$3$', '$9$'],
+          correctIndex: 2,
           explanation:
             '変化の割合 $= a = y$ の増加量 $\\div$ $x$ の増加量 $= 6 \\div 2 = 3$ だよ。',
         },
@@ -243,10 +243,10 @@ export const linearFuncMeaning: Topic = {
           options: [
             '常に $6$ で一定',
             '常に $-6$ で一定',
-            '区間によって異なり一定ではない',
             '常に $0$ で一定',
+            '区間によって異なり一定ではない',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '反比例の変化の割合は区間によって異なるよ。変化の割合が一定なのは一次関数だけの特徴なんだ。',
         },

@@ -110,8 +110,8 @@ export const postOpening: Topic = {
         {
           id: 'q1',
           question: '井伊直弼が尊王攘夷派を厳しく処罰した事件を何という？',
-          options: ['桜田門外の変', '安政の大獄', '禁門の変', '薩英戦争'],
-          correctIndex: 1,
+          options: ['桜田門外の変', '薩英戦争', '禁門の変', '安政の大獄'],
+          correctIndex: 3,
           explanation:
             '安政の大獄では、吉田松陰らが処刑され、多くの大名や公家が処分されました。',
         },
@@ -119,8 +119,8 @@ export const postOpening: Topic = {
           id: 'q2',
           question:
             '天皇を尊び、外国を追い払おうとする運動を何という？',
-          options: ['倒幕運動', '公武合体', '尊王攘夷', '富国強兵'],
-          correctIndex: 2,
+          options: ['尊王攘夷', '公武合体', '倒幕運動', '富国強兵'],
+          correctIndex: 0,
           explanation:
             '尊王攘夷運動は、開国に反対する人々が「天皇を尊び外国を追い払え」と掲げた運動です。',
         },
@@ -130,10 +130,10 @@ export const postOpening: Topic = {
           options: [
             '安政の大獄',
             '禁門の変',
-            '生麦事件',
             '桜田門外の変',
+            '生麦事件',
           ],
-          correctIndex: 3,
+          correctIndex: 2,
           explanation:
             '桜田門外の変は安政の大獄への反発から水戸藩の浪士らが井伊直弼を襲撃した事件です。',
         },
@@ -141,16 +141,16 @@ export const postOpening: Topic = {
           id: 'q4',
           question:
             '安政の大獄で処刑された、松下村塾で多くの志士を育てた長州藩の思想家は？',
-          options: ['高杉晋作', '伊藤博文', '坂本龍馬', '吉田松陰'],
-          correctIndex: 3,
+          options: ['高杉晋作', '吉田松陰', '坂本龍馬', '伊藤博文'],
+          correctIndex: 1,
           explanation:
             '吉田松陰は松下村塾で高杉晋作や伊藤博文らを育てた長州藩の思想家です。',
         },
         {
           id: 'q5',
           question: '開港後の日本で、最大の貿易港となったのはどこ？',
-          options: ['函館', '横浜', '長崎', '神戸'],
-          correctIndex: 1,
+          options: ['函館', '神戸', '長崎', '横浜'],
+          correctIndex: 3,
           explanation:
             '横浜はイギリスを相手に生糸などを輸出する最大の貿易港となりました。',
         },

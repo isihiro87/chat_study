@@ -98,8 +98,8 @@ export const questionWords: Topic = {
         {
           id: 'eng-qw-q1',
           question: '「彼女はだれですか？」を英語にすると？',
-          options: ['What is she?', 'Who is she?', 'Where is she?', 'How is she?'],
-          correctIndex: 1,
+          options: ['Who is she?', 'What is she?', 'Where is she?', 'How is she?'],
+          correctIndex: 0,
           explanation: '「だれ」は who だよ。Who is she?',
         },
         {
@@ -107,11 +107,11 @@ export const questionWords: Topic = {
           question: '「学校はどこですか？」を英語にすると？',
           options: [
             'What is the school?',
-            'When is the school?',
             'Where is the school?',
+            'When is the school?',
             'Who is the school?',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation: '「どこ」は where だよ。Where is the school?',
         },
         {
@@ -119,18 +119,18 @@ export const questionWords: Topic = {
           question: '「What is this?」に対する答えとして正しいのは？',
           options: [
             'Yes, it is.',
-            'It is a book.',
             'I am fine.',
+            'It is a book.',
             'He is Ken.',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation: '「これは何ですか？」と聞かれたから、具体的に答えるよ。It is a book.（それは本です。）',
         },
         {
           id: 'eng-qw-q4',
           question: '「あなたは何歳ですか？」を英語にするとき、最初にくるのは？',
-          options: ['How many', 'How old', 'What old', 'When old'],
-          correctIndex: 1,
+          options: ['How many', 'When old', 'What old', 'How old'],
+          correctIndex: 3,
           explanation: '「何歳」は how old だよ。How old are you?',
         },
         {
@@ -138,11 +138,11 @@ export const questionWords: Topic = {
           question: '「テストはいつですか？」を英語にすると？',
           options: [
             'What is the test?',
-            'Where is the test?',
             'When is the test?',
+            'Where is the test?',
             'How is the test?',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation: '「いつ」は when だよ。When is the test?',
         },
         {

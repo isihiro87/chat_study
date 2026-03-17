@@ -2,8 +2,9 @@ import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Check, X, RotateCcw, Trophy, RefreshCw, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useQuiz } from '../../hooks/useQuiz';
-import type { Quiz, QuizQuestion } from '../../data/types';
+import type { Quiz, QuizQuestion, Difficulty } from '../../data/types';
 import { MathText } from '../common/MathText';
+import QuizSetup from './QuizSetup';
 
 interface TopicNavigationInfo {
   prev: { name: string; path: string } | null;
@@ -14,6 +15,7 @@ interface QuizViewProps {
   quiz: Quiz;
   onProgressChange?: (current: number, total: number) => void;
   onComplete?: (score: number, total: number) => void;
+  onCompleteWithDifficulties?: (score: number, total: number, difficulties: Difficulty[]) => void;
   onCompleteWithWrongQuestions?: (wrongQuestions: QuizQuestion[]) => void;
   isNewBest?: boolean;
   navigation?: TopicNavigationInfo;
@@ -181,22 +183,16 @@ function ReorderQuestionInput({
   );
 }
 
-export function QuizView({ quiz, onProgressChange, onComplete, onCompleteWithWrongQuestions, isNewBest, navigation, extraResultButtons }: QuizViewProps) {
-  const hasChoiceQuestions = quiz.questions.some((q) => q.type !== 'reorder');
-  const hasReorderQuestions = quiz.questions.some((q) => q.type === 'reorder');
-  const hasBothTypes = hasChoiceQuestions && hasReorderQuestions;
-
-  const [includeChoice, setIncludeChoice] = useState(true);
-  const [includeReorder, setIncludeReorder] = useState(true);
+export function QuizView({ quiz, onProgressChange, onComplete, onCompleteWithDifficulties, onCompleteWithWrongQuestions, isNewBest, navigation, extraResultButtons }: QuizViewProps) {
+  // セットアップ状態
+  const [setupComplete, setSetupComplete] = useState(false);
+  const [activeQuestions, setActiveQuestions] = useState<QuizQuestion[]>([]);
+  const [selectedDifficulties, setSelectedDifficulties] = useState<Difficulty[]>([]);
 
   const filteredQuiz = useMemo<Quiz>(() => {
-    if (!hasBothTypes) return quiz;
-    const filtered = quiz.questions.filter((q) => {
-      const isReorder = q.type === 'reorder';
-      return isReorder ? includeReorder : includeChoice;
-    });
-    return { questions: filtered.length > 0 ? filtered : quiz.questions };
-  }, [quiz, hasBothTypes, includeChoice, includeReorder]);
+    if (!setupComplete) return quiz;
+    return { questions: activeQuestions };
+  }, [quiz, setupComplete, activeQuestions]);
 
   const {
     isStarted,
@@ -227,84 +223,31 @@ export function QuizView({ quiz, onProgressChange, onComplete, onCompleteWithWro
   useEffect(() => {
     if (isComplete && !isReviewMode) {
       onComplete?.(score, filteredQuiz.questions.length);
+      onCompleteWithDifficulties?.(score, filteredQuiz.questions.length, selectedDifficulties);
       if (onCompleteWithWrongQuestions && wrongAnswers.length > 0) {
         const wrongQs = wrongAnswers.map((idx) => filteredQuiz.questions[idx]);
         onCompleteWithWrongQuestions(wrongQs);
       }
     }
-  }, [isComplete, isReviewMode, score, filteredQuiz.questions.length, onComplete, onCompleteWithWrongQuestions, wrongAnswers, filteredQuiz.questions]);
+  }, [isComplete, isReviewMode, score, filteredQuiz.questions.length, onComplete, onCompleteWithDifficulties, onCompleteWithWrongQuestions, wrongAnswers, filteredQuiz.questions, selectedDifficulties]);
 
-  const choiceCount = quiz.questions.filter((q) => q.type !== 'reorder').length;
-  const reorderCount = quiz.questions.filter((q) => q.type === 'reorder').length;
+  // セットアップ画面
+  if (!setupComplete) {
+    return (
+      <QuizSetup
+        questions={quiz.questions}
+        onStart={(filtered, difficulties) => {
+          setActiveQuestions(filtered);
+          setSelectedDifficulties(difficulties);
+          setSetupComplete(true);
+        }}
+      />
+    );
+  }
 
   if (!isStarted) {
-    return (
-      <div className="flex h-full flex-col items-center justify-center px-4 pb-16">
-        <div className="mx-auto flex w-full max-w-md flex-col items-center">
-          <div className="mb-6 flex h-24 w-24 items-center justify-center rounded-full bg-gray-100">
-            <span className="text-4xl">❓</span>
-          </div>
-
-          <h2
-            className="mb-2 text-xl font-bold text-gray-800"
-            style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
-          >
-            クイズに挑戦！
-          </h2>
-
-          <p className="mb-4 text-base text-gray-500">
-            全{filteredQuiz.questions.length}問
-          </p>
-
-          {hasBothTypes && (
-            <div className="mb-6 w-full max-w-xs space-y-2">
-              <p
-                className="text-center text-sm font-bold text-gray-600"
-                style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
-              >
-                出題する問題タイプ
-              </p>
-              <label className="flex cursor-pointer items-center gap-3 rounded-xl border-2 border-gray-200 bg-white p-3 transition-all hover:bg-gray-50">
-                <input
-                  type="checkbox"
-                  checked={includeChoice}
-                  onChange={(e) => {
-                    if (!e.target.checked && !includeReorder) return;
-                    setIncludeChoice(e.target.checked);
-                  }}
-                  className="h-5 w-5 rounded accent-gray-800"
-                />
-                <span className="flex-1 text-sm font-medium text-gray-700">
-                  選択問題（{choiceCount}問）
-                </span>
-              </label>
-              <label className="flex cursor-pointer items-center gap-3 rounded-xl border-2 border-gray-200 bg-white p-3 transition-all hover:bg-gray-50">
-                <input
-                  type="checkbox"
-                  checked={includeReorder}
-                  onChange={(e) => {
-                    if (!e.target.checked && !includeChoice) return;
-                    setIncludeReorder(e.target.checked);
-                  }}
-                  className="h-5 w-5 rounded accent-gray-800"
-                />
-                <span className="flex-1 text-sm font-medium text-gray-700">
-                  並べ替え問題（{reorderCount}問）
-                </span>
-              </label>
-            </div>
-          )}
-
-          <button
-            onClick={start}
-            className="rounded-full bg-gray-800 px-12 py-4 font-bold text-white transition-transform active:scale-95"
-            style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
-          >
-            スタート
-          </button>
-        </div>
-      </div>
-    );
+    // セットアップ完了後、自動的にスタート
+    start();
   }
 
   if (!currentQuestion && !isComplete) {

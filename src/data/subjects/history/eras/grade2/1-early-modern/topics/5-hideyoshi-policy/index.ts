@@ -51,15 +51,15 @@ export const hideyoshiPolicy: Topic = {
         {
           id: 'q1',
           question: '秀吉が全国の土地の面積や収穫量を調査した政策を何という？',
-          options: ['刀狩', '太閤検地', '兵農分離', '楽市・楽座'],
-          correctIndex: 1,
+          options: ['刀狩', '兵農分離', '太閤検地', '楽市・楽座'],
+          correctIndex: 2,
           explanation: '太閤検地は秀吉が全国で実施した土地調査で、面積や石高を統一基準で測量しました。',
         },
         {
           id: 'q2',
           question: '秀吉が百姓から武器を取り上げ、一揆を防いだ政策を何という？',
-          options: ['刀狩', '太閤検地', 'バテレン追放令', '楽市・楽座'],
-          correctIndex: 0,
+          options: ['楽市・楽座', '太閤検地', 'バテレン追放令', '刀狩'],
+          correctIndex: 3,
           explanation: '刀狩は百姓から刀や槍を没収した政策で、兵農分離を推し進める役割を果たしました。',
         },
         {
