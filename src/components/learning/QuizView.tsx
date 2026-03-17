@@ -208,6 +208,7 @@ export function QuizView({ quiz, onProgressChange, onComplete, onCompleteWithDif
     nextQuestion,
     reset,
     wrongAnswers,
+    reviewWrongAnswers,
     isReviewMode,
     startReview,
     totalQuestions,
@@ -260,8 +261,9 @@ export function QuizView({ quiz, onProgressChange, onComplete, onCompleteWithDif
 
   if (isComplete) {
     const displayScore = isReviewMode ? reviewScore : score;
-    const displayTotal = isReviewMode ? wrongAnswers.length : filteredQuiz.questions.length;
+    const displayTotal = isReviewMode ? totalQuestions : filteredQuiz.questions.length;
     const percentage = Math.round((displayScore / displayTotal) * 100);
+    const retryCount = isReviewMode ? reviewWrongAnswers.length : wrongAnswers.length;
 
     return (
       <div className="flex h-full flex-col items-center justify-center px-4 pb-16">
@@ -303,14 +305,14 @@ export function QuizView({ quiz, onProgressChange, onComplete, onCompleteWithDif
             <div className="mt-8">{extraResultButtons}</div>
           ) : (
             <div className="mt-8 flex w-full max-w-xs flex-col gap-3">
-              {!isReviewMode && wrongAnswers.length > 0 && (
+              {retryCount > 0 && (
                 <button
                   onClick={startReview}
                   className="flex items-center justify-center gap-2 rounded-full bg-amber-500 px-6 py-3.5 font-bold text-white transition-transform active:scale-95"
                   style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
                 >
                   <RefreshCw className="h-5 w-5" />
-                  間違えた問題だけ復習（{wrongAnswers.length}問）
+                  間違えた問題だけ復習（{retryCount}問）
                 </button>
               )}
 

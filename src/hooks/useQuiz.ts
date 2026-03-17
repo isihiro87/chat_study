@@ -16,6 +16,7 @@ interface UseQuizReturn {
   nextQuestion: () => void;
   reset: () => void;
   wrongAnswers: number[];
+  reviewWrongAnswers: number[];
   isReviewMode: boolean;
   startReview: () => void;
   totalQuestions: number;
@@ -39,6 +40,7 @@ export function useQuiz(quiz: Quiz): UseQuizReturn {
   const [reviewQuestionIndices, setReviewQuestionIndices] = useState<number[]>([]);
   const [reviewScore, setReviewScore] = useState(0);
   const [reorderAnswer, setReorderAnswer] = useState<number[] | null>(null);
+  const [reviewAnswers, setReviewAnswers] = useState<(boolean | null)[]>([]);
 
   const wrongAnswers = useMemo(() => {
     const wrong: number[] = [];
@@ -54,6 +56,17 @@ export function useQuiz(quiz: Quiz): UseQuizReturn {
     });
     return wrong;
   }, [answers, quiz.questions]);
+
+  const reviewWrongAnswers = useMemo(() => {
+    if (!isReviewMode) return [];
+    const wrong: number[] = [];
+    reviewAnswers.forEach((correct, i) => {
+      if (correct === false) {
+        wrong.push(reviewQuestionIndices[i]);
+      }
+    });
+    return wrong;
+  }, [isReviewMode, reviewAnswers, reviewQuestionIndices]);
 
   const totalQuestions = isReviewMode
     ? reviewQuestionIndices.length
@@ -82,6 +95,11 @@ export function useQuiz(quiz: Quiz): UseQuizReturn {
         if (isCorrect) {
           setReviewScore((prev) => prev + 1);
         }
+        setReviewAnswers((prev) => {
+          const next = [...prev];
+          next[currentIndex] = isCorrect;
+          return next;
+        });
       } else {
         const newAnswers = [...answers];
         newAnswers[currentIndex] = index;
@@ -116,6 +134,11 @@ export function useQuiz(quiz: Quiz): UseQuizReturn {
         if (isCorrect) {
           setReviewScore((prev) => prev + 1);
         }
+        setReviewAnswers((prev) => {
+          const next = [...prev];
+          next[currentIndex] = isCorrect;
+          return next;
+        });
       } else {
         const newAnswers = [...answers];
         newAnswers[currentIndex] = isCorrect ? 0 : -1;
@@ -160,21 +183,24 @@ export function useQuiz(quiz: Quiz): UseQuizReturn {
     setReviewQuestionIndices([]);
     setReviewScore(0);
     setReorderAnswer(null);
+    setReviewAnswers([]);
   }, [quiz.questions.length]);
 
   const startReview = useCallback(() => {
-    if (wrongAnswers.length === 0) return;
+    const indices = isReviewMode ? reviewWrongAnswers : wrongAnswers;
+    if (indices.length === 0) return;
 
     setIsStarted(true);
     setIsReviewMode(true);
-    setReviewQuestionIndices(wrongAnswers);
+    setReviewQuestionIndices(indices);
     setCurrentIndex(0);
     setSelectedAnswer(null);
     setIsAnswered(false);
     setIsComplete(false);
     setReviewScore(0);
     setReorderAnswer(null);
-  }, [wrongAnswers]);
+    setReviewAnswers([]);
+  }, [wrongAnswers, isReviewMode, reviewWrongAnswers]);
 
   return {
     isStarted,
@@ -191,6 +217,7 @@ export function useQuiz(quiz: Quiz): UseQuizReturn {
     nextQuestion,
     reset,
     wrongAnswers,
+    reviewWrongAnswers,
     isReviewMode,
     startReview,
     totalQuestions,
