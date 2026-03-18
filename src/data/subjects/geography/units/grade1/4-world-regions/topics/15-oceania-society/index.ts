@@ -58,9 +58,9 @@ export const oceaniaSociety: Topic = {
     },
     videos: [],
     flashcards: [
-      // basic (12 cards)
+      // basic (13 cards)
       { id: 'geo1-oc2-fc1', front: 'ヨーロッパ系以外の移民を制限する政策。1970年代に廃止され多文化社会へ転換', back: '白豪主義とは何か。その後どう変化したか。', difficulty: 'basic' },
-      { id: 'geo1-oc2-fc2', front: 'アボリジニの聖地である巨大な一枚岩。正式名称がアボリジニの呼び名に変更された', back: 'ウルル（エアーズロック）とは何か。アボリジニとの関わりを説明せよ。', difficulty: 'basic' },
+      { id: 'geo1-oc2-fc2', front: 'ウルル（エアーズロック）', back: 'アボリジニの聖地とされる、オーストラリア内陸部にある巨大な一枚岩を何というか。', difficulty: 'basic' },
       { id: 'geo1-oc2-fc3', front: '地球温暖化による海面上昇で国土水没の危機', back: 'サンゴ礁からなる低い島国ツバルが直面している問題を答えよ。', difficulty: 'basic' },
       { id: 'geo1-oc2-fc4', front: 'アボリジニ（オーストラリア）とマオリ（ニュージーランド）', back: 'オーストラリアとニュージーランドの先住民をそれぞれ答えよ。', difficulty: 'basic' },
       { id: 'geo1-oc2-fc5', front: '多文化社会', back: '白豪主義廃止後、多様な文化や言語が共存するようになったオーストラリアの社会を何とよぶか。', difficulty: 'basic' },
@@ -71,24 +71,27 @@ export const oceaniaSociety: Topic = {
       { id: 'geo1-oc2-fc10', front: 'アジア系の移民', back: '白豪主義の廃止後、オーストラリアが多く受け入れるようになった移民はどの地域からか。', difficulty: 'basic' },
       { id: 'geo1-oc2-fc11', front: 'APEC（アジア太平洋経済協力会議）', back: '1989年に設立された、アジア太平洋地域の経済協力組織の略称を答えよ。', difficulty: 'basic' },
       { id: 'geo1-oc2-fc12', front: 'ツバル', back: 'サンゴ礁からなる低い島国で、海面上昇により国土水没の危機に直面しているオセアニアの国は。', difficulty: 'basic' },
-      // standard (10 cards)
-      { id: 'geo1-oc2-fc13', front: '海面上昇でサンゴ礁の低い島々が水没の危機にさらされている', back: '地球温暖化がオセアニアの島国に与える影響を答えよ。', difficulty: 'standard' },
-      { id: 'geo1-oc2-fc14', front: '海水温上昇でサンゴと共生する藻類がいなくなり、サンゴが死滅する現象', back: 'サンゴ礁の白化とは何か。原因とともに説明せよ。', difficulty: 'standard' },
-      { id: 'geo1-oc2-fc15', front: 'マオリの伝統的な踊り。ニュージーランドのラグビーチームが試合前に披露', back: 'ハカとは何か。どのような場面で有名か。', difficulty: 'standard' },
+      { id: 'geo1-oc2-fc13', front: 'ハカ', back: 'マオリの伝統的な踊りで、ニュージーランドのラグビーチームが試合前に行うものを何というか。', difficulty: 'basic' },
+      // standard (12 cards)
+      { id: 'geo1-oc2-fc14', front: '海面上昇でサンゴ礁の低い島々が水没の危機にさらされている', back: '地球温暖化がオセアニアの島国に与える影響を答えよ。', difficulty: 'standard' },
+      { id: 'geo1-oc2-fc15', front: '海水温上昇でサンゴと共生する藻類がいなくなり、サンゴが死滅する現象', back: 'サンゴ礁の白化とは何か。原因とともに説明せよ。', difficulty: 'standard' },
       { id: 'geo1-oc2-fc16', front: '土地の権利の回復や文化の保護', back: 'オーストラリアで先住民アボリジニの権利を尊重するために行われている取り組みを答えよ。', difficulty: 'standard' },
       { id: 'geo1-oc2-fc17', front: '中国系移民の文化や食が根づき、多様な文化の共存を象徴しているため', back: 'シドニーのチャイナタウンが多文化社会の象徴とされる理由を答えよ。', difficulty: 'standard' },
       { id: 'geo1-oc2-fc18', front: '日本と中国', back: '現在のオーストラリアの主な貿易相手国を2つ答えよ。', difficulty: 'standard' },
       { id: 'geo1-oc2-fc19', front: '1960年代は羊毛が第1位（約40%）、現在は鉄鉱石が第1位', back: 'オーストラリアの輸出品第1位は1960年代と現在でどう変化したか。', difficulty: 'standard' },
       { id: 'geo1-oc2-fc20', front: 'サンゴ礁の島は標高が非常に低いため、わずかな海面上昇でも水没の危険がある', back: 'オセアニアの島国が海面上昇の影響を受けやすい理由を答えよ。', difficulty: 'standard' },
-      { id: 'geo1-oc2-fc21', front: '約5万年前', back: 'アボリジニはおよそ何年前からオーストラリアに暮らしてきたとされるか。', difficulty: 'standard' },
-      { id: 'geo1-oc2-fc22', front: 'アジア太平洋地域の経済成長にともない、経済的結びつきを強める必要があったため', back: '白豪主義を廃止してアジア系移民を受け入れた経済的背景を答えよ。', difficulty: 'standard' },
+      { id: 'geo1-oc2-fc21', front: 'アジア太平洋地域の経済成長にともない、経済的結びつきを強める必要があったため', back: '白豪主義を廃止してアジア系移民を受け入れた経済的背景を答えよ。', difficulty: 'standard' },
+      { id: 'geo1-oc2-fc22', front: '鉄鉱石と石炭', back: 'オーストラリアから日本に輸出される主な資源を2つ答えよ。', difficulty: 'standard' },
+      { id: 'geo1-oc2-fc23', front: '約5m', back: 'ツバルの国土の最高地点はおよそ何mか。', difficulty: 'standard' },
+      { id: 'geo1-oc2-fc24', front: '温室効果ガス', back: '地球温暖化の原因となる気体を総称して何というか。', difficulty: 'standard' },
+      { id: 'geo1-oc2-fc25', front: 'アジア諸国の工業化が進み鉄鉱石の需要が急増したため', back: 'オーストラリアの輸出構造が羊毛中心から鉄鉱石中心へ変化した背景を答えよ。', difficulty: 'standard' },
       // advanced (6 cards)
-      { id: 'geo1-oc2-fc23', front: '島国は人口が少なく排出量もわずかだが、温暖化は先進国の大量排出が原因であるため', back: 'オセアニアの島国が自国だけで温暖化を防げない理由を答えよ。', difficulty: 'advanced' },
-      { id: 'geo1-oc2-fc24', front: '資源価格の変動に左右され、価格下落時に経済全体が打撃を受けるリスクがある', back: 'オーストラリアが鉱産資源の輸出に依存する経済構造のリスクを答えよ。', difficulty: 'advanced' },
-      { id: 'geo1-oc2-fc25', front: '第一次世界大戦後にパラオなどミクロネシアの島々が日本の委任統治領となった', back: '太平洋の島々と日本の歴史的なつながりを答えよ。', difficulty: 'advanced' },
-      { id: 'geo1-oc2-fc26', front: '先住民の文化や歴史を尊重する姿勢の象徴であり、差別や文化軽視への反省の表れ', back: 'ウルルの名称変更がアボリジニの権利回復において持つ意味を答えよ。', difficulty: 'advanced' },
-      { id: 'geo1-oc2-fc27', front: '経済規模が小さく産業が限られ、先進国からの支援や観光業に依存せざるを得ない', back: 'オセアニアの島国が抱える経済的課題を答えよ。', difficulty: 'advanced' },
-      { id: 'geo1-oc2-fc28', front: '伝統的な土地を奪われ生活基盤を失い、英語やキリスト教の普及で固有の言語・文化が衰退した', back: 'イギリスの植民地化がアボリジニの生活に与えた影響を二つ答えよ。', difficulty: 'advanced' },
+      { id: 'geo1-oc2-fc26', front: '島国は人口が少なく排出量もわずかだが、温暖化は先進国の大量排出が原因であるため', back: 'オセアニアの島国が自国だけで温暖化を防げない理由を答えよ。', difficulty: 'advanced' },
+      { id: 'geo1-oc2-fc27', front: '資源価格の変動に左右され、価格下落時に経済全体が打撃を受けるリスクがある', back: 'オーストラリアが鉱産資源の輸出に依存する経済構造のリスクを答えよ。', difficulty: 'advanced' },
+      { id: 'geo1-oc2-fc28', front: '先住民の文化や歴史を尊重する姿勢の象徴であり、差別や文化軽視への反省の表れ', back: 'ウルルの名称変更がアボリジニの権利回復において持つ意味を答えよ。', difficulty: 'advanced' },
+      { id: 'geo1-oc2-fc29', front: '経済規模が小さく産業が限られ、先進国からの支援や観光業に依存せざるを得ない', back: 'オセアニアの島国が抱える経済的課題を答えよ。', difficulty: 'advanced' },
+      { id: 'geo1-oc2-fc30', front: '伝統的な土地を奪われ生活基盤を失い、英語やキリスト教の普及で固有の言語・文化が衰退した', back: 'イギリスの植民地化がアボリジニの生活に与えた影響を二つ答えよ。', difficulty: 'advanced' },
+      { id: 'geo1-oc2-fc31', front: '植民地時代からイギリスとの結びつきが強かったが、アジア諸国の経済成長で日本・中国などが主な相手国に変化', back: 'オーストラリアの貿易相手国がイギリスからアジアへ変化した理由を説明せよ。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -181,39 +184,16 @@ export const oceaniaSociety: Topic = {
         },
         {
           id: 'geo1-oc2-q10',
-          question: 'APECが設立された年はいつか。',
-          options: ['1979年', '1989年', '1999年', '2001年'],
+          question: 'アボリジニの聖地とされる巨大な一枚岩の名称はどれか。',
+          options: ['グレートバリアリーフ', 'ウルル', 'マウントクック', 'タスマニア'],
           correctIndex: 1,
           explanation:
-            'APEC（アジア太平洋経済協力会議）は1989年に設立されました。オーストラリアもこれに参加しています。',
+            'ウルル（エアーズロック）はアボリジニの聖地で、正式名称がアボリジニの呼び名「ウルル」に変更されました。',
           difficulty: 'basic',
         },
         // standard (10 questions)
         {
           id: 'geo1-oc2-q11',
-          question: 'マオリの伝統的な踊り「ハカ」が有名になったきっかけとして正しいものはどれ？',
-          options: [
-            'オリンピックの開会式で披露された',
-            'ユネスコの世界遺産に登録された',
-            'オーストラリアの国歌として採用された',
-            'ニュージーランドのラグビーチームが試合前に行っている',
-          ],
-          correctIndex: 3,
-          explanation:
-            'ハカはマオリの伝統的な踊りで、ニュージーランドのラグビーチーム（オールブラックス）が試合前に行うことで世界的に知られるようになりました。',
-          difficulty: 'standard',
-        },
-        {
-          id: 'geo1-oc2-q12',
-          question: 'アボリジニの聖地とされる巨大な一枚岩の名称はどれか。',
-          options: ['グレートバリアリーフ', 'ウルル', 'マウントクック', 'タスマニア'],
-          correctIndex: 1,
-          explanation:
-            'ウルル（エアーズロック）はアボリジニの聖地で、名称がアボリジニの呼び名に変更されました。',
-          difficulty: 'standard',
-        },
-        {
-          id: 'geo1-oc2-q13',
           question: 'サンゴ礁の白化が起こる原因はどれか。',
           options: [
             '海水温の低下',
@@ -227,7 +207,7 @@ export const oceaniaSociety: Topic = {
           difficulty: 'standard',
         },
         {
-          id: 'geo1-oc2-q14',
+          id: 'geo1-oc2-q12',
           question: 'シドニーのチャイナタウンが多文化社会の象徴とされる理由として正しいものはどれか。',
           options: [
             '中国政府が建設した施設があるから',
@@ -241,7 +221,7 @@ export const oceaniaSociety: Topic = {
           difficulty: 'standard',
         },
         {
-          id: 'geo1-oc2-q15',
+          id: 'geo1-oc2-q13',
           question: 'オセアニアの島国が海面上昇の影響を受けやすい理由はどれか。',
           options: [
             '火山島が多いから',
@@ -255,30 +235,21 @@ export const oceaniaSociety: Topic = {
           difficulty: 'standard',
         },
         {
-          id: 'geo1-oc2-q16',
-          question: 'アボリジニはおよそ何年前からオーストラリアに暮らしてきたとされるか。',
-          options: ['約1000年前', '約5000年前', '約1万年前', '約5万年前'],
-          correctIndex: 3,
-          explanation:
-            'アボリジニは約5万年前からオーストラリアに暮らしてきたとされ、世界最古の文化の一つです。',
-          difficulty: 'standard',
-        },
-        {
-          id: 'geo1-oc2-q17',
+          id: 'geo1-oc2-q14',
           question: 'オーストラリアの貿易相手の変化について正しいものはどれ？',
           options: [
-            'イギリス中心からAPECを通じたアジア太平洋地域へ',
+            'イギリス中心からアジア太平洋地域の国々へ',
             'アジア中心からイギリス中心へ',
             'アメリカ中心からヨーロッパ中心へ',
             'アフリカ中心から南アメリカ中心へ',
           ],
           correctIndex: 0,
           explanation:
-            'オーストラリアはかつてイギリスとの貿易が中心でしたが、現在はアジア太平洋地域の国々との経済的な結びつきを強めています。',
+            'オーストラリアはかつてイギリスとの貿易が中心でしたが、現在は日本や中国などアジア太平洋地域の国々との経済的な結びつきを強めています。',
           difficulty: 'standard',
         },
         {
-          id: 'geo1-oc2-q18',
+          id: 'geo1-oc2-q15',
           question: '1960年代のオーストラリアの輸出品第1位は何だったか。',
           options: ['鉄鉱石', '石炭', '羊毛', '小麦'],
           correctIndex: 2,
@@ -287,7 +258,7 @@ export const oceaniaSociety: Topic = {
           difficulty: 'standard',
         },
         {
-          id: 'geo1-oc2-q19',
+          id: 'geo1-oc2-q16',
           question: 'アボリジニの権利を回復する取り組みとして正しいものはどれか。',
           options: [
             '鉱山の開発を全面禁止した',
@@ -301,12 +272,54 @@ export const oceaniaSociety: Topic = {
           difficulty: 'standard',
         },
         {
-          id: 'geo1-oc2-q20',
+          id: 'geo1-oc2-q17',
           question: '現在のオーストラリアの輸出品第1位は何か。',
           options: ['羊毛', '石炭', '鉄鉱石', '小麦'],
           correctIndex: 2,
           explanation:
             '現在のオーストラリアの輸出品第1位は鉄鉱石です。アジア諸国の工業化で需要が増加しました。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'geo1-oc2-q18',
+          question: 'オーストラリアから日本に輸出される主な資源の組み合わせとして正しいものはどれか。',
+          options: [
+            '羊毛と小麦',
+            '鉄鉱石と石炭',
+            '天然ガスと木材',
+            '金とダイヤモンド',
+          ],
+          correctIndex: 1,
+          explanation:
+            'オーストラリアから日本には鉄鉱石と石炭が多く輸出されています。日本は自国での鉱産資源の産出が少ないため大量に輸入しています。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'geo1-oc2-q19',
+          question: 'オーストラリアの輸出構造が羊毛中心から鉄鉱石中心へ変化した背景として正しいものはどれか。',
+          options: [
+            'ヨーロッパで羊毛の需要が増加したため',
+            'アジア諸国の工業化で鉄鉱石の需要が急増したため',
+            'オーストラリアで羊の飼育が禁止されたため',
+            'アメリカが鉄鉱石の輸入を要請したため',
+          ],
+          correctIndex: 1,
+          explanation:
+            'アジア諸国、特に中国の工業化が急速に進んだことで鉄鉱石の需要が急増し、オーストラリアの輸出構造が大きく変化しました。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'geo1-oc2-q20',
+          question: 'イギリスの植民地化がアボリジニに与えた影響として正しいものはどれか。',
+          options: [
+            '伝統的な土地を奪われ、固有の言語・文化が衰退した',
+            'アボリジニの人口が急増した',
+            'アボリジニの言語が公用語に採用された',
+            'アボリジニが自治権を獲得した',
+          ],
+          correctIndex: 0,
+          explanation:
+            'イギリスの植民地化により、アボリジニは伝統的な土地を奪われて生活基盤を失い、英語やキリスト教の普及で固有の言語・文化が衰退しました。',
           difficulty: 'standard',
         },
         // advanced (6 questions)

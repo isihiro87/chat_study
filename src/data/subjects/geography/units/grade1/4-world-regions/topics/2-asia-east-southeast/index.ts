@@ -65,37 +65,39 @@ export const asiaEastSoutheast: Topic = {
     },
     videos: [],
     flashcards: [
-      // --- basic (12) ---
+      // --- basic (13) ---
       { id: 'geo1-as2-fc1', front: '経済特区', back: '中国が沿岸部に設けた、外国企業を受け入れて工業化を進めた地域を何というか。', difficulty: 'basic' },
       { id: 'geo1-as2-fc2', front: 'ASEAN（東南アジア諸国連合）', back: '東南アジアの10か国が加盟し、経済協力や政治的安定を目指す組織を何というか。', difficulty: 'basic' },
       { id: 'geo1-as2-fc3', front: 'プランテーション', back: '東南アジアなどで天然ゴムやパーム油を大規模農園で栽培する農業を何というか。', difficulty: 'basic' },
       { id: 'geo1-as2-fc4', front: '一人っ子政策', back: '中国が1979年から実施し、少子高齢化の深刻化により2015年に廃止された人口抑制策を何というか。', difficulty: 'basic' },
-      { id: 'geo1-as2-fc9', front: 'K-POP・韓国ドラマ', back: '韓国から世界中に広がった文化的影響の代表例を2つ答えよ。', difficulty: 'basic' },
-      { id: 'geo1-as2-fc11', front: '世界の工場', back: '中国が大量の工業製品を安く生産するようになったことから何とよばれるか。', difficulty: 'basic' },
-      { id: 'geo1-as2-fc12', front: '漢民族（漢族）', back: '中国の人口の約90%を占める民族を何というか。', difficulty: 'basic' },
-      { id: 'geo1-as2-fc13', front: 'パーム油', back: 'マレーシアやインドネシアで油やしから大規模に生産される植物油を何というか。', difficulty: 'basic' },
-      { id: 'geo1-as2-fc14', front: '季節風（モンスーン）', back: '東南アジアの気候に大きな影響を与える、季節によって向きが変わる風を何というか。', difficulty: 'basic' },
-      { id: 'geo1-as2-fc15', front: 'アジアNIES', back: '1960年代以降に急速な経済成長をとげた韓国・シンガポール・台湾・ホンコンの総称を何というか。', difficulty: 'basic' },
-      { id: 'geo1-as2-fc16', front: '少数民族', back: '中国で漢民族以外の民族を総称して何というか。主に西部に暮らしている。', difficulty: 'basic' },
-      { id: 'geo1-as2-fc17', front: '関税の撤廃', back: 'ASEAN加盟国間で貿易を活発にするために進められている取り組みを何というか。', difficulty: 'basic' },
-      // --- standard (10) ---
-      { id: 'geo1-as2-fc5', front: '二期作', back: '東南アジアなどで同じ田で年に2回米を収穫する農法を何というか。', explanation: '二毛作（異なる作物を2回作ること）と区別する。', difficulty: 'standard' },
-      { id: 'geo1-as2-fc6', front: 'マングローブ', back: '東南アジアの海岸線に広がり、えび養殖場への転用で減少が問題となっている熱帯の森林を何というか。', difficulty: 'standard' },
-      { id: 'geo1-as2-fc7', front: '西部大開発', back: '中国が沿岸部と内陸部の経済格差を縮小するため、内陸部のインフラ整備を進める政策を何というか。', difficulty: 'standard' },
-      { id: 'geo1-as2-fc10', front: '大気汚染と経済格差', back: '中国の急速な工業化によって生じた2つの課題を答えよ。', difficulty: 'standard' },
+      { id: 'geo1-as2-fc5', front: 'K-POP・韓国ドラマ', back: '韓国から世界中に広がった文化的影響の代表例を2つ答えよ。', difficulty: 'basic' },
+      { id: 'geo1-as2-fc6', front: '世界の工場', back: '中国が大量の工業製品を安く生産するようになったことから何とよばれるか。', difficulty: 'basic' },
+      { id: 'geo1-as2-fc7', front: '漢民族（漢族）', back: '中国の人口の約90%を占める民族を何というか。', difficulty: 'basic' },
+      { id: 'geo1-as2-fc8', front: 'パーム油', back: 'マレーシアやインドネシアで油やしから大規模に生産される植物油を何というか。', difficulty: 'basic' },
+      { id: 'geo1-as2-fc9', front: '季節風（モンスーン）', back: '東南アジアの気候に大きな影響を与える、季節によって向きが変わる風を何というか。', difficulty: 'basic' },
+      { id: 'geo1-as2-fc10', front: 'アジアNIES', back: '1960年代以降に急速な経済成長をとげた韓国・シンガポール・台湾・ホンコンの総称を何というか。', difficulty: 'basic' },
+      { id: 'geo1-as2-fc11', front: '少数民族', back: '中国で漢民族以外の民族を総称して何というか。主に西部に暮らしている。', difficulty: 'basic' },
+      { id: 'geo1-as2-fc12', front: '約14億3000万人（2023年）', back: '中国の人口はおよそ何人か。', difficulty: 'basic' },
+      { id: 'geo1-as2-fc13', front: '天然ゴム', back: '東南アジアのプランテーションで栽培される、タイヤなどの原料となる農産物を何というか。', difficulty: 'basic' },
+      // --- standard (12) ---
+      { id: 'geo1-as2-fc14', front: '二期作', back: '東南アジアなどで同じ田で年に2回米を収穫する農法を何というか。', explanation: '二毛作（異なる作物を2回作ること）と区別する。', difficulty: 'standard' },
+      { id: 'geo1-as2-fc15', front: 'マングローブ', back: '東南アジアの海岸線に広がり、えび養殖場への転用で減少が問題となっている熱帯の森林を何というか。', difficulty: 'standard' },
+      { id: 'geo1-as2-fc16', front: '西部大開発', back: '中国が沿岸部と内陸部の経済格差を縮小するため、内陸部のインフラ整備を進める政策を何というか。', difficulty: 'standard' },
+      { id: 'geo1-as2-fc17', front: '大気汚染と経済格差', back: '中国の急速な工業化によって生じた2つの課題を答えよ。', difficulty: 'standard' },
       { id: 'geo1-as2-fc18', front: '華人', back: '東南アジアに多く暮らす中国系の人々を何というか。商業・金融で影響力を持つ。', difficulty: 'standard' },
       { id: 'geo1-as2-fc19', front: '二毛作', back: '同じ耕地で年に2回、異なる作物を栽培する農法を何というか。', explanation: '二期作（同じ作物を2回作ること）と区別する。', difficulty: 'standard' },
       { id: 'geo1-as2-fc20', front: 'スラム', back: '東南アジアの都市部で人口急増により形成された、住居や生活基盤が整わない貧困地区を何というか。', difficulty: 'standard' },
-      { id: 'geo1-as2-fc21', front: '天然ゴム', back: '東南アジアのプランテーションで栽培される、タイヤなどの原料となる農産物を何というか。', difficulty: 'standard' },
+      { id: 'geo1-as2-fc21', front: '関税の撤廃', back: 'ASEAN加盟国間で貿易を活発にするために進められている取り組みを何というか。', difficulty: 'standard' },
       { id: 'geo1-as2-fc22', front: '韓国の半導体・スマートフォン', back: '韓国のハイテク工業で世界をリードしている代表的な製品を2つ答えよ。', difficulty: 'standard' },
       { id: 'geo1-as2-fc23', front: '中国の北部：畑作（小麦）、南部：稲作', back: '中国の北部と南部で盛んな農業の違いを答えよ。', difficulty: 'standard' },
-      // --- advanced (6) ---
-      { id: 'geo1-as2-fc8', front: 'シェンチェン（深圳）', back: '1980年に経済特区に指定され、漁村からハイテク産業の中心都市に成長した中国南部の都市はどこか。', difficulty: 'advanced' },
-      { id: 'geo1-as2-fc24', front: 'ソウルへの過密と少子高齢化', back: '韓国が抱える2つの社会問題を答えよ。', explanation: '首都ソウルへの人口集中と出生率の低下が深刻な課題となっている。', difficulty: 'advanced' },
-      { id: 'geo1-as2-fc25', front: '約14億3000万人（2023年）', back: '中国の人口はおよそ何人か。', difficulty: 'advanced' },
-      { id: 'geo1-as2-fc26', front: 'えび養殖場への転用', back: 'マングローブが減少している主な原因を一つ答えよ。', explanation: 'マングローブは魚介類の繁殖地であり海岸浸食を防ぐ役割がある。', difficulty: 'advanced' },
-      { id: 'geo1-as2-fc27', front: '一人っ子政策の廃止（2015年）', back: '中国で少子高齢化が深刻化したことを受けて行われた政策変更を答えよ。', difficulty: 'advanced' },
+      { id: 'geo1-as2-fc24', front: 'ソウルへの過密と少子高齢化', back: '韓国が抱える2つの社会問題を答えよ。', explanation: '首都ソウルへの人口集中と出生率の低下が深刻な課題となっている。', difficulty: 'standard' },
+      { id: 'geo1-as2-fc25', front: '一人っ子政策の廃止（2015年）', back: '中国で少子高齢化が深刻化したことを受けて行われた政策変更を答えよ。', difficulty: 'standard' },
+      // --- advanced (5) ---
+      { id: 'geo1-as2-fc26', front: 'シェンチェン（深圳）', back: '1980年に経済特区に指定され、漁村からハイテク産業の中心都市に成長した中国南部の都市はどこか。', difficulty: 'advanced' },
+      { id: 'geo1-as2-fc27', front: 'えび養殖場への転用', back: 'マングローブが減少している主な原因を一つ答えよ。', explanation: 'マングローブは魚介類の繁殖地であり海岸浸食を防ぐ役割がある。', difficulty: 'advanced' },
       { id: 'geo1-as2-fc28', front: '長江流域', back: '中国で米の一大産地となっている地域はどこか。温暖な気候と豊富な降水量が背景にある。', difficulty: 'advanced' },
+      { id: 'geo1-as2-fc29', front: '沿岸部は港湾に近く貿易に有利', back: '中国の経済特区が内陸部ではなく沿岸部に設置された地理的な理由を答えよ。', difficulty: 'advanced' },
+      { id: 'geo1-as2-fc30', front: '賃金の上昇により安い労働力の優位性が低下', back: '中国が「世界の工場」の地位を失いつつあると言われる主な理由を答えよ。', explanation: '工場がベトナムやカンボジアなど、より賃金の安い東南アジアに移転する動きがある。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -117,7 +119,7 @@ export const asiaEastSoutheast: Topic = {
           difficulty: 'basic',
         },
         {
-          id: 'geo1-as2-q6',
+          id: 'geo1-as2-q3',
           question: '中国の人口の約90%を占める民族はどれか。',
           options: ['チベット族', '漢民族', 'ウイグル族', 'モンゴル族'],
           correctIndex: 1,
@@ -125,7 +127,7 @@ export const asiaEastSoutheast: Topic = {
           difficulty: 'basic',
         },
         {
-          id: 'geo1-as2-q7',
+          id: 'geo1-as2-q4',
           question: '東南アジアで大規模農園によって行われる、輸出向けの農業を何というか。',
           options: ['混合農業', '輪作', 'プランテーション', '自給農業'],
           correctIndex: 2,
@@ -133,7 +135,7 @@ export const asiaEastSoutheast: Topic = {
           difficulty: 'basic',
         },
         {
-          id: 'geo1-as2-q8',
+          id: 'geo1-as2-q5',
           question: 'マレーシアやインドネシアで大規模に生産されている植物油はどれか。',
           options: ['オリーブ油', 'パーム油', 'ごま油', '大豆油'],
           correctIndex: 1,
@@ -141,7 +143,7 @@ export const asiaEastSoutheast: Topic = {
           difficulty: 'basic',
         },
         {
-          id: 'geo1-as2-q9',
+          id: 'geo1-as2-q6',
           question: '1960年代以降に急速な経済成長をとげた韓国・シンガポール・台湾・ホンコンの総称はどれか。',
           options: ['ASEAN', 'OPEC', 'アジアNIES', 'BRICS'],
           correctIndex: 2,
@@ -149,7 +151,7 @@ export const asiaEastSoutheast: Topic = {
           difficulty: 'basic',
         },
         {
-          id: 'geo1-as2-q10',
+          id: 'geo1-as2-q7',
           question: '東南アジアの気候に大きな影響を与える、季節によって向きが変わる風を何というか。',
           options: ['偏西風', '季節風', '貿易風', '海風'],
           correctIndex: 1,
@@ -157,7 +159,7 @@ export const asiaEastSoutheast: Topic = {
           difficulty: 'basic',
         },
         {
-          id: 'geo1-as2-q11',
+          id: 'geo1-as2-q8',
           question: '韓国で特に発展しているハイテク工業の分野として正しいものはどれか。',
           options: ['繊維産業', '半導体・スマートフォン', '石油化学', '食品加工'],
           correctIndex: 1,
@@ -165,32 +167,24 @@ export const asiaEastSoutheast: Topic = {
           difficulty: 'basic',
         },
         {
-          id: 'geo1-as2-q12',
-          question: '東南アジアに多く暮らす中国系の人々を何というか。',
-          options: ['少数民族', '華人', '移民', '先住民'],
-          correctIndex: 1,
-          explanation: '華人は古くから中国南部から東南アジアに移住した中国系の人々で、商業や金融で大きな影響力を持っています。',
-          difficulty: 'basic',
-        },
-        {
-          id: 'geo1-as2-q13',
+          id: 'geo1-as2-q9',
           question: '中国の南部で盛んに行われている農業はどれか。',
           options: ['畑作', '牧畜', '稲作', 'プランテーション'],
           correctIndex: 2,
           explanation: '中国の南部は温暖で降水量が多いため稲作が盛んです。北部は比較的乾燥しているため畑作（小麦）が中心です。',
           difficulty: 'basic',
         },
-        // --- standard (10) ---
         {
-          id: 'geo1-as2-q3',
+          id: 'geo1-as2-q10',
           question: '中国がかつて人口増加を抑えるために実施し、2015年に廃止した政策はどれか。',
           options: ['一人っ子政策', '西部大開発', '経済特区政策', '人口分散計画'],
           correctIndex: 0,
           explanation: '一人っ子政策は1組の夫婦に子どもを1人だけとする政策で、少子高齢化が深刻になり2015年に廃止されました。',
-          difficulty: 'standard',
+          difficulty: 'basic',
         },
+        // --- standard (10) ---
         {
-          id: 'geo1-as2-q4',
+          id: 'geo1-as2-q11',
           question: '東南アジアで季節風を利用して年に2回米を収穫する農法を何というか。',
           options: ['輪作', '二期作', '二毛作', '混合農業'],
           correctIndex: 1,
@@ -198,7 +192,7 @@ export const asiaEastSoutheast: Topic = {
           difficulty: 'standard',
         },
         {
-          id: 'geo1-as2-q14',
+          id: 'geo1-as2-q12',
           question: '東南アジアの海岸部で減少が問題となっている森林はどれか。',
           options: ['針葉樹林', '熱帯雨林', 'マングローブ', '落葉広葉樹林'],
           correctIndex: 2,
@@ -206,7 +200,7 @@ export const asiaEastSoutheast: Topic = {
           difficulty: 'standard',
         },
         {
-          id: 'geo1-as2-q15',
+          id: 'geo1-as2-q13',
           question: '一人っ子政策が廃止された主な理由はどれか。',
           options: ['人口が減りすぎたため', '少子高齢化が深刻化したため', '国際社会からの批判のため', '経済特区が失敗したため'],
           correctIndex: 1,
@@ -214,7 +208,7 @@ export const asiaEastSoutheast: Topic = {
           difficulty: 'standard',
         },
         {
-          id: 'geo1-as2-q16',
+          id: 'geo1-as2-q14',
           question: '韓国の首都ソウルで問題となっている人口に関する課題はどれか。',
           options: ['人口の減少', '人口の分散', '過密（人口集中）', '高齢化のみ'],
           correctIndex: 2,
@@ -222,7 +216,7 @@ export const asiaEastSoutheast: Topic = {
           difficulty: 'standard',
         },
         {
-          id: 'geo1-as2-q17',
+          id: 'geo1-as2-q15',
           question: 'ASEAN加盟国間で進められている貿易に関する取り組みはどれか。',
           options: ['通貨の統一', '関税の撤廃', '共通憲法の制定', '軍事同盟の締結'],
           correctIndex: 1,
@@ -230,7 +224,7 @@ export const asiaEastSoutheast: Topic = {
           difficulty: 'standard',
         },
         {
-          id: 'geo1-as2-q18',
+          id: 'geo1-as2-q16',
           question: 'マングローブが果たしている環境的な役割として正しいものはどれか。',
           options: ['大気中のCO2を全て吸収する', '魚介類の繁殖地となり海岸浸食を防ぐ', '農業用水を供給する', '地震を防止する'],
           correctIndex: 1,
@@ -238,7 +232,7 @@ export const asiaEastSoutheast: Topic = {
           difficulty: 'standard',
         },
         {
-          id: 'geo1-as2-q19',
+          id: 'geo1-as2-q17',
           question: '東南アジアの都市部でスラムが形成される原因として正しいものはどれか。',
           options: ['都市部の人口が減少したため', '農村からの人口流入が急増したため', '外国企業が撤退したため', '自然災害が頻発したため'],
           correctIndex: 1,
@@ -246,7 +240,7 @@ export const asiaEastSoutheast: Topic = {
           difficulty: 'standard',
         },
         {
-          id: 'geo1-as2-q20',
+          id: 'geo1-as2-q18',
           question: '中国の北部で主に栽培されている穀物はどれか。',
           options: ['米', '小麦', 'とうもろこし', '大豆'],
           correctIndex: 1,
@@ -254,7 +248,15 @@ export const asiaEastSoutheast: Topic = {
           difficulty: 'standard',
         },
         {
-          id: 'geo1-as2-q21',
+          id: 'geo1-as2-q19',
+          question: '東南アジアに多く暮らす中国系の人々を何というか。',
+          options: ['少数民族', '華人', '移民', '先住民'],
+          correctIndex: 1,
+          explanation: '華人は古くから中国南部から東南アジアに移住した中国系の人々で、商業や金融で大きな影響力を持っています。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'geo1-as2-q20',
           question: '中国の急速な工業化によって深刻化した環境問題はどれか。',
           options: ['砂漠化', '大気汚染', 'オゾン層破壊', '酸性雨のみ'],
           correctIndex: 1,
@@ -263,7 +265,7 @@ export const asiaEastSoutheast: Topic = {
         },
         // --- advanced (5) ---
         {
-          id: 'geo1-as2-q5',
+          id: 'geo1-as2-q21',
           question: '中国の沿岸部と内陸部の経済格差を縮小するために進められている政策はどれか。',
           options: ['西部大開発', '経済特区の拡大', '一人っ子政策', '人民公社'],
           correctIndex: 0,
@@ -296,10 +298,10 @@ export const asiaEastSoutheast: Topic = {
         },
         {
           id: 'geo1-as2-q25',
-          question: '韓国のK-POPや韓国ドラマの世界的流行が経済に与える影響として正しいものはどれか。',
-          options: ['農業の発展', '韓国ブランドへの好感度上昇と製品の海外売上増加', '軍事力の増強', '人口の増加'],
+          question: '東南アジアに外国企業の工場が多く進出している理由として最も適切なものはどれか。',
+          options: ['天然資源が豊富だから', '安い労働力が豊富でASEANによる貿易自由化も進んでいるから', '先進技術が発達しているから', '消費市場が小さいから'],
           correctIndex: 1,
-          explanation: '文化コンテンツの流行により韓国ブランドの好感度が高まり、化粧品や食品など韓国製品の海外売上増加にもつながっています。',
+          explanation: '安い労働力が豊富にあることに加え、ASEANによる関税撤廃などの貿易自由化により、外国企業にとって魅力的な生産拠点となっています。',
           difficulty: 'advanced',
         },
       ],

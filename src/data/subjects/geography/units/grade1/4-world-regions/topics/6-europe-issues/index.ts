@@ -29,7 +29,7 @@ export const europeIssues: Topic = {
       { id: 'geo1-eu3-fc2', front: 'シベリア地方にタイガ（針葉樹林）、南部にステップ（草原）', back: 'ロシアの自然の特徴を「タイガ」「ステップ」を使って説明せよ。', difficulty: 'basic' },
       { id: 'geo1-eu3-fc3', front: '国民総所得の略。EU加盟国間で最大約8倍の格差', back: 'GNIとは何か。EU加盟国間のGNI格差は最大でどのくらいか。', difficulty: 'standard' },
       { id: 'geo1-eu3-fc4', front: '石油と天然ガス。パイプラインでヨーロッパにエネルギーを供給', back: 'ロシアで豊富に産出される鉱産資源を2つ答え、ヨーロッパとの関係を述べよ。', difficulty: 'standard' },
-      { id: 'geo1-eu3-fc5', front: '2020年のイギリスのEU離脱。移民増加への不満と自国主権の回復が背景', back: 'ブレグジットとは何か。その背景にある理由を2つ答えよ。', difficulty: 'advanced' },
+      { id: 'geo1-eu3-fc5', front: '2020年のイギリスのEU離脱。移民増加への不満と自国主権の回復が背景', back: 'ブレグジットとは何か。その背景にある理由を2つ答えよ。', difficulty: 'standard' },
       { id: 'geo1-eu3-fc6', front: '西ヨーロッパの先進国と東ヨーロッパの新規加盟国の間の所得・生活水準の差', back: 'EU加盟国間の経済格差とは具体的にどのようなものか。', difficulty: 'standard' },
       { id: 'geo1-eu3-fc7', front: 'イギリス', back: '2020年にEUを離脱した国はどこか。', difficulty: 'basic' },
       { id: 'geo1-eu3-fc8', front: '受け入れに積極的な国と消極的な国の間で意見が対立している', back: 'EU加盟国間の難民・移民問題をめぐる対立とはどのようなものか。', difficulty: 'basic' },
@@ -53,8 +53,8 @@ export const europeIssues: Topic = {
       { id: 'geo1-eu3-fc26', front: '植民地時代の言語や文化的つながりがあり、旧宗主国への移住が比較的容易', back: '旧植民地からヨーロッパへの移民が多い理由を答えよ。', difficulty: 'standard' },
       { id: 'geo1-eu3-fc27', front: '加盟国間の格差や意見の対立を乗り越え、共通の目標に向かうための連帯', back: 'EU統合の将来において「連帯」が重要な理由を答えよ。', difficulty: 'advanced' },
       { id: 'geo1-eu3-fc28', front: '旧ソ連圏の国々のEU加盟やNATO拡大をめぐる対立', back: 'ロシアとEUの関係が緊張する原因を1つ答えよ。', difficulty: 'advanced' },
-      { id: 'geo1-eu3-fc29', front: 'ハイテク産業（先端技術産業）', back: '1980年代以降、西ヨーロッパで発展した産業は何か。', difficulty: 'basic' },
-      { id: 'geo1-eu3-fc30', front: '広大な針葉樹林が二酸化炭素を吸収し酸素を放出するため', back: 'タイガが「地球の肺」と呼ばれる理由を答えよ。', explanation: '地球温暖化の抑制に重要な役割を果たしている。', difficulty: 'standard' },
+      { id: 'geo1-eu3-fc29', front: '広大な針葉樹林が二酸化炭素を吸収し酸素を放出するため', back: 'タイガが「地球の肺」と呼ばれる理由を答えよ。', explanation: '地球温暖化の抑制に重要な役割を果たしている。', difficulty: 'standard' },
+      { id: 'geo1-eu3-fc30', front: '労働力不足を補うために移民を必要とする一方、社会保障費の増大が課題', back: 'ヨーロッパの高齢化が移民政策に影響する理由を答えよ。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -72,7 +72,7 @@ export const europeIssues: Topic = {
           options: ['タイガ', 'サバナ', 'ツンドラ', 'セルバ'],
           correctIndex: 0,
           explanation: 'タイガは、ロシアのシベリア地方などの亜寒帯に広がる広大な針葉樹林です。',
-          difficulty: 'standard',
+          difficulty: 'basic',
         },
         {
           id: 'geo1-eu3-q3',
@@ -80,7 +80,7 @@ export const europeIssues: Topic = {
           options: ['約2倍', '約4倍', '約8倍', '約15倍'],
           correctIndex: 2,
           explanation: 'EU加盟国間のGNI（国民総所得）の格差は最大で約8倍もあり、経済格差が大きな課題となっています。',
-          difficulty: 'basic',
+          difficulty: 'standard',
         },
         {
           id: 'geo1-eu3-q4',
@@ -244,11 +244,11 @@ export const europeIssues: Topic = {
         },
         {
           id: 'geo1-eu3-q24',
-          question: '1980年代以降、西ヨーロッパで発展した産業はどれか？',
-          options: ['農業', '漁業', 'ハイテク産業', '鉱業'],
-          correctIndex: 2,
-          explanation: '1980年代以降、西ヨーロッパではハイテク産業（先端技術産業）が大きく発展しました。',
-          difficulty: 'basic',
+          question: 'ヨーロッパの高齢化が移民政策に影響を与える理由として正しいものはどれか？',
+          options: ['高齢者が移民を歓迎するから', '労働力不足を補うために移民が必要だから', '高齢者が海外に移住するから', '年金制度が廃止されるから'],
+          correctIndex: 1,
+          explanation: '高齢化により労働力が不足するため移民の受け入れが経済的に必要となる一方、社会保障費の増大との両立が課題になっています。',
+          difficulty: 'standard',
         },
         {
           id: 'geo1-eu3-q25',
