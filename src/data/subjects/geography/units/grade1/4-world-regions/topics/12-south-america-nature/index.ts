@@ -107,168 +107,29 @@ export const southAmericaNature: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'geo1-sa1-fc1',
-        front: 'アマゾン川',
-        back: 'アマゾン川はどのような特徴を持つ川か？',
-        explanation:
-          'アマゾン川は世界最大の流域面積を持つ川で、その流域には広大な熱帯雨林が広がっています。南アメリカ大陸の北部を東に向かって流れ、大西洋にそそぎます。',
-      },
-      {
-        id: 'geo1-sa1-fc2',
-        front: 'アンデス山脈とインカ帝国',
-        back: 'アンデス山脈の特徴と、かつて栄えた帝国の名前を答えよ。',
-        explanation:
-          'アンデス山脈は南アメリカ大陸の西側を南北約7500kmにわたって連なる世界最長の山脈です。かつてこの高地にはインカ帝国が栄えました。',
-      },
-      {
-        id: 'geo1-sa1-fc3',
-        front: '南アメリカ州の混血文化',
-        back: '南アメリカ州に混血文化が生まれた理由を説明せよ。',
-        explanation:
-          '16世紀にスペインやポルトガルが植民地支配を行い、先住民とヨーロッパ系の人々が混血しました。その結果、言語（スペイン語・ポルトガル語）や宗教（カトリック）が広まり、独自の混血文化が形成されました。',
-      },
-      {
-        id: 'geo1-sa1-fc4',
-        front: 'アグロフォレストリー',
-        back: 'アグロフォレストリーとはどのような農業か？',
-        explanation:
-          'アグロフォレストリー（森林農業）とは、森林を保全しながらカカオやコーヒーなどの農作物を育てる持続的な農業方法です。焼畑農業に代わる手法として注目されています。',
-      },
-      {
-        id: 'geo1-sa1-fc5',
-        front: 'パンパ',
-        back: 'パンパとはどのような地形か？どこに広がっているか？',
-        explanation:
-          'パンパとは、ラプラタ川流域に広がる大草原のことです。主にアルゼンチンに位置し、牛の放牧など大規模な牧畜がさかんに行われています。',
-      },
-      {
-        id: 'geo1-sa1-fc6',
-        front: 'メスティーソ',
-        back: 'メスティーソとはどのような人々か？',
-        explanation:
-          'メスティーソとは、南アメリカの先住民とヨーロッパ系の人々の混血の人々のことです。スペインやポルトガルの植民地支配を通じて混血が進み、独自の文化が形成されました。',
-      },
-      {
-        id: 'geo1-sa1-fc7',
-        front: 'セルバ',
-        back: 'セルバとは何を指す言葉か？',
-        explanation:
-          'セルバとは、アマゾン川流域に広がる広大な熱帯雨林のことです。世界最大の熱帯雨林であり、多様な動植物が生息しています。',
-      },
-      {
-        id: 'geo1-sa1-fc8',
-        front: 'ラプラタ川',
-        back: 'ラプラタ川の流域にはどのような地形が広がっているか？',
-        explanation:
-          'ラプラタ川の流域にはパンパとよばれる大草原が広がっています。ラプラタ川は南アメリカ南東部を流れ、大西洋に注いでいます。',
-      },
-      {
-        id: 'geo1-sa1-fc9',
-        front: 'ギアナ高地',
-        back: 'ギアナ高地はどのような地形的特徴を持つか？',
-        explanation:
-          'ギアナ高地は南アメリカ大陸の北部に位置し、テーブル状の台地が連なる独特の地形を持っています。世界最大の落差を持つ滝（エンジェルフォール）もあります。',
-      },
-      {
-        id: 'geo1-sa1-fc10',
-        front: '日系移民',
-        back: '日系移民はいつ頃、なぜブラジルに渡ったか？',
-        explanation:
-          '日系移民は20世紀初頭からブラジルに移住しました。主にコーヒー農園での労働力として渡り、のちに農業技術を持ち込んで農業の多様化に貢献しました。',
-      },
-      {
-        id: 'geo1-sa1-fc11',
-        front: 'カトリック',
-        back: '南アメリカ州でカトリックが広まった理由は？',
-        explanation:
-          '16世紀以降、スペインとポルトガルが南アメリカを植民地支配し、キリスト教（カトリック）の布教を行ったため、現在でも多くの人々がカトリックを信仰しています。',
-      },
-      {
-        id: 'geo1-sa1-fc12',
-        front: 'ブラジル高原',
-        back: 'ブラジルの国土の大部分を占める広大な高原を何というか。',
-      },
-      {
-        id: 'geo1-sa1-fc13',
-        front: '焼畑農業',
-        back: '森林を伐採して焼き、灰を肥料として農作物を育てる農業を何というか。',
-      },
-      {
-        id: 'geo1-sa1-fc14',
-        front: 'コーヒー豆',
-        back: 'ブラジルが世界有数の生産量を誇る飲料用の農産物は何か。',
-      },
-      {
-        id: 'geo1-sa1-fc15',
-        front: '大豆',
-        back: 'ブラジルが近年、世界最大級の輸出国となっている穀物は何か。',
-      },
-      {
-        id: 'geo1-sa1-fc16',
-        front: '鉄鉱石',
-        back: 'ブラジルで大量に産出される、鉄の原料となる鉱石は何か。',
-      },
-      {
-        id: 'geo1-sa1-fc17',
-        front: '銅鉱石',
-        back: 'チリやペルーで多く産出される、電線などに使われる金属の鉱石は何か。',
-      },
-      {
-        id: 'geo1-sa1-fc18',
-        front: 'バイオエタノール',
-        back: 'サトウキビを原料として作られる再生可能な燃料を何というか。',
-      },
-      {
-        id: 'geo1-sa1-fc19',
-        front: '熱帯雨林の減少',
-        back: '南アメリカ州で熱帯雨林が大規模に減少している主な原因を2つ答えよ。',
-      },
-      {
-        id: 'geo1-sa1-fc20',
-        front: 'エコツーリズム',
-        back: '自然環境を守りながら観光収入を得る取り組みを何というか。',
-      },
-      {
-        id: 'geo1-sa1-fc21',
-        front: '持続可能な開発',
-        back: '経済の発展と環境の保全を両立させる開発のあり方を何というか。',
-      },
-      {
-        id: 'geo1-sa1-fc22',
-        front: 'マチュピチュ',
-        back: 'インカ帝国の有名な遺跡の名前を答えよ。',
-      },
-      {
-        id: 'geo1-sa1-fc23',
-        front: 'スペイン語とポルトガル語',
-        back: 'ブラジルの公用語は何か。また、他の南アメリカの多くの国の公用語は何か。',
-      },
-      {
-        id: 'geo1-sa1-fc24',
-        front: 'サトウキビ',
-        back: 'ブラジルが大量に栽培している砂糖の原料で、バイオエタノールの原料にもなる作物は何か。',
-      },
-      {
-        id: 'geo1-sa1-fc25',
-        front: 'ボーキサイト',
-        back: 'アルミニウムの原料となる鉱石で、南アメリカでも産出されるものは何か。',
-      },
-      {
-        id: 'geo1-sa1-fc26',
-        front: '生物多様性',
-        back: '熱帯雨林が減少すると失われる、植物や動物の多様性のことを何というか。',
-      },
-      {
-        id: 'geo1-sa1-fc27',
-        front: 'アンデス山脈の長さ',
-        back: 'アンデス山脈は南北約何kmにわたって連なるか。',
-      },
-      {
-        id: 'geo1-sa1-fc28',
-        front: 'ラプラタ川',
-        back: 'ラプラタ川はどの大洋に注いでいるか。',
-      },
+      { id: 'geo1-sa1-fc1', front: '世界最大の流域面積を持ち、流域に広大な熱帯雨林が広がる川', back: 'アマゾン川はどのような特徴を持つ川か？', difficulty: 'basic' },
+      { id: 'geo1-sa1-fc2', front: '南北約7500kmの世界最長の山脈。インカ帝国が栄えた', back: 'アンデス山脈の特徴と、かつて高地に栄えた帝国の名前を答えよ。', difficulty: 'basic' },
+      { id: 'geo1-sa1-fc3', front: 'スペイン・ポルトガルの植民地支配で先住民と混血し、言語・宗教が広まった', back: '南アメリカ州に混血文化が生まれた理由を説明せよ。', difficulty: 'basic' },
+      { id: 'geo1-sa1-fc4', front: '森林を保全しながらカカオやコーヒーを育てる持続的農業', back: 'アグロフォレストリー（森林農業）とはどのような農業か？', difficulty: 'basic' },
+      { id: 'geo1-sa1-fc5', front: 'ラプラタ川流域（主にアルゼンチン）の大草原で、牧畜がさかん', back: 'パンパとはどのような地形で、どこに広がっているか？', difficulty: 'basic' },
+      { id: 'geo1-sa1-fc6', front: 'メスティーソ', back: '南アメリカの先住民とヨーロッパ系の人々の混血の人々を何というか？', difficulty: 'basic' },
+      { id: 'geo1-sa1-fc7', front: 'セルバ', back: 'アマゾン川流域に広がる世界最大の熱帯雨林を何というか？', difficulty: 'basic' },
+      { id: 'geo1-sa1-fc8', front: '20世紀初頭、コーヒー農園での労働力として渡った', back: '日系移民はいつ頃、なぜブラジルに渡ったか？', difficulty: 'basic' },
+      { id: 'geo1-sa1-fc9', front: 'ブラジル高原', back: 'ブラジルの国土の大部分を占め、鉄鉱石が豊富に埋蔵される広大な高原を何というか。', difficulty: 'basic' },
+      { id: 'geo1-sa1-fc10', front: '焼畑農業', back: '森林を伐採して焼き、灰を肥料として農作物を育てる伝統的農業を何というか。', difficulty: 'standard' },
+      { id: 'geo1-sa1-fc11', front: 'コーヒー豆', back: 'ブラジルが世界最大の生産量を誇る飲料用の農産物は何か。', difficulty: 'standard' },
+      { id: 'geo1-sa1-fc12', front: '大豆', back: 'ブラジルが近年、世界最大級の輸出国となっている穀物は何か。', difficulty: 'standard' },
+      { id: 'geo1-sa1-fc13', front: '鉄鉱石', back: 'ブラジルで大量に産出され、中国や日本に輸出される鉱石は何か。', difficulty: 'standard' },
+      { id: 'geo1-sa1-fc14', front: '銅鉱石', back: 'チリやペルーで多く産出される、電線などに使われる金属の鉱石は何か。', difficulty: 'standard' },
+      { id: 'geo1-sa1-fc15', front: 'バイオエタノール', back: 'サトウキビを原料として作られ、ブラジルで自動車燃料に使われる再生可能な燃料を何というか。', difficulty: 'standard' },
+      { id: 'geo1-sa1-fc16', front: '大豆畑の開発と牧場の拡大', back: '南アメリカ州で熱帯雨林が大規模に減少している主な原因を2つ答えよ。', difficulty: 'standard' },
+      { id: 'geo1-sa1-fc17', front: 'エコツーリズム', back: '自然環境を守りながら観光収入を得る取り組みを何というか。', difficulty: 'standard' },
+      { id: 'geo1-sa1-fc18', front: 'マチュピチュ', back: 'アンデス山脈の高地にあるインカ帝国の有名な遺跡の名前を答えよ。', difficulty: 'standard' },
+      { id: 'geo1-sa1-fc19', front: 'ブラジルはポルトガル語、他の多くの国はスペイン語', back: 'ブラジルの公用語は何か。他の南アメリカの多くの国の公用語は何か。', difficulty: 'advanced' },
+      { id: 'geo1-sa1-fc20', front: '生物多様性', back: '熱帯雨林が減少すると失われる、植物や動物の種類の豊かさを何というか。', difficulty: 'advanced' },
+      { id: 'geo1-sa1-fc21', front: '約7500km', back: 'アンデス山脈は南北約何kmにわたって連なるか。', difficulty: 'advanced' },
+      { id: 'geo1-sa1-fc22', front: '持続可能な開発', back: '経済の発展と環境の保全を両立させる開発のあり方を何というか。', difficulty: 'standard' },
+      { id: 'geo1-sa1-fc23', front: 'テーブル状の台地が連なり、エンジェルフォール（世界最大落差の滝）がある', back: 'ギアナ高地の地形的特徴を答えよ。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -279,7 +140,8 @@ export const southAmericaNature: Topic = {
           correctIndex: 2,
           explanation:
             'アマゾン川は世界最大の流域面積を持つ川で、南アメリカ大陸の北部を流れています。流域には広大な熱帯雨林が広がっています。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-sa1-q2',
           question: 'アンデス山脈の高地にかつて栄えた帝国はどれ？',
@@ -287,7 +149,8 @@ export const southAmericaNature: Topic = {
           correctIndex: 1,
           explanation:
             'アンデス山脈の高地にはインカ帝国が栄えました。16世紀にスペインによって征服されましたが、マチュピチュなどの遺跡が現在も残っています。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-sa1-q3',
           question:
@@ -301,7 +164,8 @@ export const southAmericaNature: Topic = {
           correctIndex: 3,
           explanation:
             'アグロフォレストリー（森林農業）は、森林の中でカカオやコーヒーなどを栽培する方法です。焼畑農業に代わる持続的な農業として注目されています。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-sa1-q4',
           question:
@@ -315,7 +179,8 @@ export const southAmericaNature: Topic = {
           correctIndex: 0,
           explanation:
             'パンパはラプラタ川流域に広がる大草原で、主にアルゼンチンに位置しています。牛の放牧など大規模な牧畜がさかんです。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-sa1-q5',
           question:
@@ -329,7 +194,8 @@ export const southAmericaNature: Topic = {
           correctIndex: 1,
           explanation:
             'メスティーソは先住民とヨーロッパ系の人々の混血の人々です。スペインやポルトガルの植民地支配を通じて混血が進みました。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-sa1-q6',
           question:
@@ -343,7 +209,8 @@ export const southAmericaNature: Topic = {
           correctIndex: 0,
           explanation:
             'セルバはアマゾン川流域に広がる広大な熱帯雨林のことです。世界最大の熱帯雨林であり、多様な生物が生息しています。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-sa1-q7',
           question:
@@ -357,7 +224,8 @@ export const southAmericaNature: Topic = {
           correctIndex: 3,
           explanation:
             'ブラジルはポルトガルの植民地だった歴史から、公用語はポルトガル語です。南アメリカの他の多くの国ではスペイン語が使われています。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-sa1-q8',
           question:
@@ -371,35 +239,40 @@ export const southAmericaNature: Topic = {
           correctIndex: 2,
           explanation:
             '日系移民は20世紀初頭からコーヒー農園などでの労働力としてブラジルに移住しました。現在もブラジルには多くの日系人コミュニティがあります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-sa1-q9',
           question: 'アンデス山脈は南北約何kmにわたって連なるか。',
           options: ['約2000km', '約5000km', '約7500km', '約10000km'],
           correctIndex: 2,
           explanation: 'アンデス山脈は南アメリカ大陸の西側を南北約7500kmにわたって連なる世界最長の山脈です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-sa1-q10',
           question: 'ブラジルが世界有数の生産量を誇る飲料用農産物はどれか。',
           options: ['紅茶', 'コーヒー豆', 'カカオ', 'ワイン'],
           correctIndex: 1,
           explanation: 'ブラジルは世界最大のコーヒー豆生産国です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-sa1-q11',
           question: 'ブラジルで大量に産出される鉄の原料は何か。',
           options: ['ボーキサイト', '銅鉱石', '鉄鉱石', 'レアメタル'],
           correctIndex: 2,
           explanation: 'ブラジルは世界有数の鉄鉱石産出国です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-sa1-q12',
           question: 'サトウキビを原料として作られる再生可能な燃料を何というか。',
           options: ['天然ガス', 'バイオエタノール', 'ガソリン', '軽油'],
           correctIndex: 1,
           explanation: 'バイオエタノールはサトウキビから作られ、自動車の燃料として使われます。栽培すれば繰り返し収穫できる再生可能エネルギーです。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-sa1-q13',
           question: '南アメリカで熱帯雨林が減少している主な原因はどれか。',
@@ -411,7 +284,8 @@ export const southAmericaNature: Topic = {
           ],
           correctIndex: 1,
           explanation: '大豆畑の開発と牧場の拡大が熱帯雨林の減少の主な原因です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-sa1-q14',
           question: '16世紀以降、南アメリカを植民地支配した2つのヨーロッパの国はどれか。',
@@ -423,70 +297,80 @@ export const southAmericaNature: Topic = {
           ],
           correctIndex: 1,
           explanation: 'スペインとポルトガルが16世紀以降に南アメリカを植民地支配し、言語や宗教に大きな影響を与えました。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-sa1-q15',
           question: 'チリやペルーで多く産出される金属の鉱石はどれか。',
           options: ['鉄鉱石', '金', '銅鉱石', 'ダイヤモンド'],
           correctIndex: 2,
           explanation: 'チリやペルーは銅鉱石の世界的な産出国で、電線などに使われています。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-sa1-q16',
           question: '南アメリカの北部にあるテーブル状の台地が連なる高地を何というか。',
           options: ['ブラジル高原', 'ギアナ高地', 'アンデス台地', 'パタゴニア台地'],
           correctIndex: 1,
           explanation: 'ギアナ高地はテーブル状の台地が連なる独特の地形で、世界最大の落差を持つエンジェルフォールがあります。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-sa1-q17',
           question: '経済の発展と環境の保全を両立させる開発のあり方を何というか。',
           options: ['モノカルチャー経済', '持続可能な開発', '計画経済', '自由貿易'],
           correctIndex: 1,
           explanation: '持続可能な開発は経済発展と環境保全を両立させるあり方で、アグロフォレストリーなどがその例です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-sa1-q18',
           question: 'ブラジルが近年、世界最大級の輸出国となっている穀物はどれか。',
           options: ['小麦', 'とうもろこし', '米', '大豆'],
           correctIndex: 3,
           explanation: 'ブラジルは近年大豆の生産を大幅に拡大し、世界最大級の輸出国となっています。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-sa1-q19',
           question: 'アルゼンチンのパンパで主に行われている農業の形態はどれか。',
           options: ['焼畑農業', '稲作', '牧畜', 'プランテーション'],
           correctIndex: 2,
           explanation: 'パンパでは牛の放牧を中心とした大規模な牧畜がさかんに行われています。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-sa1-q20',
           question: '南アメリカ州で広く信仰されているキリスト教の宗派はどれか。',
           options: ['プロテスタント', 'カトリック', '正教会', '英国国教会'],
           correctIndex: 1,
           explanation: 'スペインとポルトガルの植民地支配を通じてカトリックが広まり、現在も広く信仰されています。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-sa1-q21',
           question: '森林を伐採して焼き、灰を肥料とする農業を何というか。',
           options: ['混合農業', '焼畑農業', 'プランテーション', '二期作'],
           correctIndex: 1,
           explanation: '焼畑農業は森林を焼いて灰を肥料に農作物を育て、地力が落ちたら別の土地に移動する農業です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-sa1-q22',
           question: '自然環境を守りながら観光収入を得る取り組みを何というか。',
           options: ['マスツーリズム', 'ルーラル・ツーリズム', 'エコツーリズム', 'グリーンツーリズム'],
           correctIndex: 2,
           explanation: 'エコツーリズムは自然環境を守りながらその自然を観光資源として活用する取り組みです。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-sa1-q23',
           question: 'インカ帝国の有名な遺跡はどれか。',
           options: ['アンコールワット', 'マチュピチュ', 'ピラミッド', 'コロッセオ'],
           correctIndex: 1,
           explanation: 'マチュピチュはアンデス山脈の高地にあるインカ帝国の有名な遺跡です。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'geo1-sa1-q24',
           question: 'アマゾン川流域の熱帯雨林が減少すると起きる問題はどれか。',
@@ -498,7 +382,8 @@ export const southAmericaNature: Topic = {
           ],
           correctIndex: 2,
           explanation: '熱帯雨林の減少により、植物や動物の多様性（生物多様性）が失われます。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'geo1-sa1-q25',
           question: 'バイオエタノールが再生可能エネルギーとされる理由はどれか。',
@@ -510,28 +395,32 @@ export const southAmericaNature: Topic = {
           ],
           correctIndex: 1,
           explanation: 'バイオエタノールの原料であるサトウキビは栽培すれば繰り返し収穫できるため、再生可能エネルギーとされます。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'geo1-sa1-q26',
           question: 'ブラジルの国土の大部分を占める広大な高原はどれか。',
           options: ['ギアナ高地', 'ブラジル高原', 'チベット高原', 'デカン高原'],
           correctIndex: 1,
           explanation: 'ブラジル高原はブラジルの国土の大部分を占める広大な高原です。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'geo1-sa1-q27',
           question: 'アグロフォレストリーで栽培される代表的な作物の組み合わせはどれか。',
           options: ['米と小麦', 'カカオとコーヒー', '大豆ととうもろこし', 'バナナとパイナップル'],
           correctIndex: 1,
           explanation: 'アグロフォレストリーではカカオやコーヒーなどが森林を保全しながら栽培されます。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'geo1-sa1-q28',
           question: 'セルバが広がる地域の気候帯はどれか。',
           options: ['温帯', '乾燥帯', '冷帯', '熱帯'],
           correctIndex: 3,
           explanation: 'セルバ（アマゾン川流域の熱帯雨林）は熱帯に分布しています。',
-        },
+        difficulty: 'advanced',
+      },
       ],
     },
     examples: {

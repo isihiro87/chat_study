@@ -115,172 +115,30 @@ export const oceaniaNature: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'geo1-oc1-fc1',
-        front: 'オーストラリア大陸の特徴',
-        back: 'オーストラリア大陸が「乾燥大陸」とよばれる理由は？',
-        explanation:
-          '内陸部の大部分が砂漠や草原で占められており、降水量が少ないためです。世界の大陸の中で最も乾燥しています。',
-      },
-      {
-        id: 'geo1-oc1-fc2',
-        front: 'オセアニア州の先住民',
-        back: 'オーストラリアとニュージーランドの先住民をそれぞれ答えよ。',
-        explanation:
-          'オーストラリアの先住民はアボリジニ、ニュージーランドの先住民はマオリです。どちらも独自の文化や伝統を受けついでいます。',
-      },
-      {
-        id: 'geo1-oc1-fc3',
-        front: 'オーストラリアの主な輸出品',
-        back: 'オーストラリアが輸出する主な鉱産資源を2つ答えよ。',
-        explanation:
-          '鉄鉱石と石炭です。日本や中国などアジア諸国へ輸出されており、オーストラリア経済の重要な柱となっています。',
-      },
-      {
-        id: 'geo1-oc1-fc4',
-        front: 'APEC',
-        back: 'APECとは何か。オーストラリアとの関わりを説明せよ。',
-        explanation:
-          'APECはアジア太平洋経済協力会議のことです。オーストラリアはかつてイギリスとの貿易が中心でしたが、APECを通じてアジア太平洋地域の国々との経済的な結び付きを強めています。',
-      },
-      {
-        id: 'geo1-oc1-fc5',
-        front: 'オーストラリアの農畜産業',
-        back: 'オーストラリアでさかんな農畜産業を3つ答えよ。',
-        explanation:
-          '羊の放牧、牛の放牧、小麦の栽培です。広大な土地を利用して大規模に行われています。',
-      },
-      {
-        id: 'geo1-oc1-fc6',
-        front: '太平洋の三つの海域',
-        back: '太平洋の島々を大きく三つの海域に分けたとき、それぞれの名称を答えよ。',
-        explanation:
-          'ミクロネシア（小さな島々）、メラネシア（黒い島々）、ポリネシア（多くの島々）の三つに分けられます。',
-      },
-      {
-        id: 'geo1-oc1-fc7',
-        front: 'グレートバリアリーフ',
-        back: 'グレートバリアリーフとは何か説明せよ。',
-        explanation:
-          'オーストラリアの北東部の海に約2000kmにわたって広がる世界最大のサンゴ礁です。多様な海洋生物が生息しています。',
-      },
-      {
-        id: 'geo1-oc1-fc8',
-        front: 'ボーキサイト',
-        back: 'ボーキサイトとは何か。オーストラリアとの関わりを答えよ。',
-        explanation:
-          'アルミニウムの原料となる鉱石です。オーストラリアは世界有数のボーキサイト産出国で、重要な輸出資源の一つです。',
-      },
-      {
-        id: 'geo1-oc1-fc9',
-        front: '牧羊と輸出品の変化',
-        back: 'オーストラリアの輸出品第1位は1960年代と現在でどう変化したか。',
-        explanation:
-          '1960年代は羊毛が輸出品の第1位でしたが、現在は鉄鉱石が第1位です。アジア諸国の工業化にともなう鉱産資源の需要増加が背景にあります。',
-      },
-      {
-        id: 'geo1-oc1-fc10',
-        front: '鉄道と鉱山',
-        back: 'オーストラリアの内陸部の鉱山から港まで資源をどのように運んでいるか。',
-        explanation:
-          '内陸部の鉱山から沿岸部の港まで長距離の鉄道が敷設されており、大量の鉱産資源を効率的に輸送しています。',
-      },
-      {
-        id: 'geo1-oc1-fc11',
-        front: '火山島とサンゴ礁の島',
-        back: '太平洋の島々に多い二つの種類の島を答え、それぞれの特徴を説明せよ。',
-        explanation:
-          '火山島は海底火山の噴火によってできた島で比較的標高が高い。サンゴ礁の島はサンゴが堆積してできた島で標高が非常に低いです。',
-      },
-      {
-        id: 'geo1-oc1-fc12',
-        front: 'APECの設立年',
-        back: 'APECが設立された年を答えよ。',
-        explanation:
-          '1989年に設立されました。アジア太平洋地域の国々の経済協力を促進する目的で作られた組織です。',
-      },
-      {
-        id: 'geo1-oc1-fc13',
-        front: '乾燥大陸の降水量',
-        back: 'オーストラリア大陸で年間降水量500mm未満の地域はどのくらいの割合を占めるか。',
-        explanation:
-          '大陸の約3分の2の地域で年間降水量が500mm未満です。このため「乾燥大陸」とよばれています。',
-      },
-      {
-        id: 'geo1-oc1-fc14',
-        front: '白豪主義',
-        back: 'オーストラリアが1970年代まで行っていた、ヨーロッパ系以外の移民を制限する政策を何というか。',
-      },
-      {
-        id: 'geo1-oc1-fc15',
-        front: '多文化社会',
-        back: '多様な文化や言語が共存するオーストラリアの社会を何とよぶか。',
-      },
-      {
-        id: 'geo1-oc1-fc16',
-        front: 'ウルル（エアーズロック）',
-        back: 'アボリジニの聖地とされるオーストラリア内陸部にある巨大な一枚岩の名称は。',
-      },
-      {
-        id: 'geo1-oc1-fc17',
-        front: 'マオリとハカ',
-        back: 'ニュージーランドの先住民の名前と、その伝統的な踊りの名前を答えよ。',
-      },
-      {
-        id: 'geo1-oc1-fc18',
-        front: 'ツバル',
-        back: '地球温暖化による海面上昇の影響を最も深刻に受けているオセアニアの島国を答えよ。',
-      },
-      {
-        id: 'geo1-oc1-fc19',
-        front: 'サンゴ礁の白化',
-        back: '地球温暖化の影響でグレートバリアリーフに起きている問題を何というか。',
-      },
-      {
-        id: 'geo1-oc1-fc20',
-        front: 'チャイナタウン',
-        back: 'シドニーにある中国系移民が多く暮らす地区を何というか。',
-      },
-      {
-        id: 'geo1-oc1-fc21',
-        front: 'ニュージーランドの気候',
-        back: 'ニュージーランドの南島はどのような気候帯に属しているか。',
-      },
-      {
-        id: 'geo1-oc1-fc22',
-        front: 'オーストラリアの貿易相手',
-        back: '現在のオーストラリアの主な貿易相手国を2つ答えよ。',
-      },
-      {
-        id: 'geo1-oc1-fc23',
-        front: 'イギリスの植民地',
-        back: 'オーストラリアやニュージーランドがかつてどの国の植民地であったか。',
-      },
-      {
-        id: 'geo1-oc1-fc24',
-        front: '石炭の産地',
-        back: 'オーストラリアの東部で多く産出される鉱産資源は何か。',
-      },
-      {
-        id: 'geo1-oc1-fc25',
-        front: '鉄鉱石の産地',
-        back: 'オーストラリアの北西部で多く産出される鉱産資源は何か。',
-      },
-      {
-        id: 'geo1-oc1-fc26',
-        front: 'アボリジニの歴史',
-        back: 'アボリジニはおよそ何年前からオーストラリアに暮らしてきたとされるか。',
-      },
-      {
-        id: 'geo1-oc1-fc27',
-        front: 'サンゴ礁の島と海面上昇',
-        back: 'オセアニアの島国が海面上昇の影響を受けやすい理由を答えよ。',
-      },
-      {
-        id: 'geo1-oc1-fc28',
-        front: 'アボリジニの権利回復',
-        back: 'エアーズロックに対して行われたアボリジニの権利回復の取り組みを答えよ。',
-      },
+      { id: 'geo1-oc1-fc1', front: '内陸部の大部分が砂漠や草原で、降水量が少ないため', back: 'オーストラリア大陸が「乾燥大陸」とよばれる理由は？', difficulty: 'basic' },
+      { id: 'geo1-oc1-fc2', front: 'アボリジニ（オーストラリア）とマオリ（ニュージーランド）', back: 'オーストラリアとニュージーランドの先住民をそれぞれ答えよ。', difficulty: 'basic' },
+      { id: 'geo1-oc1-fc3', front: '鉄鉱石と石炭', back: 'オーストラリアが日本や中国に輸出する主な鉱産資源を2つ答えよ。', difficulty: 'basic' },
+      { id: 'geo1-oc1-fc4', front: 'アジア太平洋経済協力会議。イギリス中心からアジア太平洋地域への経済関係転換を促進', back: 'APECとは何か。オーストラリアとの関わりを説明せよ。', difficulty: 'basic' },
+      { id: 'geo1-oc1-fc5', front: '羊の放牧、牛の放牧、小麦の栽培', back: 'オーストラリアでさかんな農畜産業を3つ答えよ。', difficulty: 'basic' },
+      { id: 'geo1-oc1-fc6', front: 'ミクロネシア（小さな島々）、メラネシア（黒い島々）、ポリネシア（多くの島々）', back: '太平洋の島々を大きく三つの海域に分けたとき、それぞれの名称を答えよ。', difficulty: 'basic' },
+      { id: 'geo1-oc1-fc7', front: 'オーストラリア北東部に約2000km広がる世界最大のサンゴ礁', back: 'グレートバリアリーフとは何か。', difficulty: 'basic' },
+      { id: 'geo1-oc1-fc8', front: 'アルミニウムの原料。オーストラリアは世界有数の産出国', back: 'ボーキサイトとは何か。オーストラリアとの関わりを答えよ。', difficulty: 'standard' },
+      { id: 'geo1-oc1-fc9', front: '1960年代は羊毛が第1位、現在は鉄鉱石が第1位', back: 'オーストラリアの輸出品第1位は1960年代と現在でどう変化したか。', difficulty: 'standard' },
+      { id: 'geo1-oc1-fc10', front: '長距離の鉄道で内陸部の鉱山から沿岸部の港まで輸送', back: 'オーストラリアの内陸部の鉱山から港まで資源をどのように運んでいるか。', difficulty: 'standard' },
+      { id: 'geo1-oc1-fc11', front: '火山島（標高が高い）とサンゴ礁の島（標高が非常に低い）', back: '太平洋の島々に多い二つの種類の島を答え、それぞれの特徴を説明せよ。', difficulty: 'standard' },
+      { id: 'geo1-oc1-fc12', front: '白豪主義', back: 'オーストラリアが1970年代まで行っていた、ヨーロッパ系以外の移民を制限する政策を何というか。', difficulty: 'standard' },
+      { id: 'geo1-oc1-fc13', front: '多文化社会', back: '白豪主義廃止後、多様な文化や言語が共存するようになったオーストラリアの社会を何とよぶか。', difficulty: 'standard' },
+      { id: 'geo1-oc1-fc14', front: 'ウルル（エアーズロック）', back: 'アボリジニの聖地で、土地の権利がアボリジニに返還されたオーストラリア内陸部の巨大な一枚岩は。', difficulty: 'standard' },
+      { id: 'geo1-oc1-fc15', front: 'マオリ、ハカ', back: 'ニュージーランドの先住民の名前と、ラグビーチームが試合前に行う伝統的な踊りの名前を答えよ。', difficulty: 'standard' },
+      { id: 'geo1-oc1-fc16', front: 'ツバル', back: 'サンゴ礁からなる低い島国で、海面上昇により国土水没の危機に直面しているオセアニアの国は。', difficulty: 'standard' },
+      { id: 'geo1-oc1-fc17', front: 'サンゴ礁の白化', back: '海水温の上昇でサンゴと共生する藻類がいなくなり、サンゴが死滅する現象を何というか。', difficulty: 'standard' },
+      { id: 'geo1-oc1-fc18', front: '日本と中国', back: '現在のオーストラリアの主な貿易相手国を2つ答えよ。', difficulty: 'standard' },
+      { id: 'geo1-oc1-fc19', front: 'イギリス', back: 'オーストラリアやニュージーランドがかつて植民地だった国はどこか。', difficulty: 'advanced' },
+      { id: 'geo1-oc1-fc20', front: '石炭', back: 'オーストラリアの東部で多く産出される鉱産資源は何か。', difficulty: 'advanced' },
+      { id: 'geo1-oc1-fc21', front: '鉄鉱石', back: 'オーストラリアの北西部で多く産出される鉱産資源は何か。', difficulty: 'advanced' },
+      { id: 'geo1-oc1-fc22', front: '約5万年前', back: 'アボリジニはおよそ何年前からオーストラリアに暮らしてきたとされるか。', difficulty: 'advanced' },
+      { id: 'geo1-oc1-fc23', front: 'サンゴ礁の島は標高が非常に低いため、わずかな海面上昇でも水没の危険がある', back: 'オセアニアの島国が海面上昇の影響を受けやすい理由を答えよ。', difficulty: 'advanced' },
+      { id: 'geo1-oc1-fc24', front: '1989年', back: 'APEC（アジア太平洋経済協力会議）が設立された年を答えよ。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -296,7 +154,8 @@ export const oceaniaNature: Topic = {
           correctIndex: 1,
           explanation:
             'オーストラリア大陸は内陸部の大部分が砂漠や草原で占められており、降水量が少ないことから「乾燥大陸」とよばれています。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-oc1-q2',
           question: 'オーストラリアの先住民として正しいものはどれ？',
@@ -304,7 +163,8 @@ export const oceaniaNature: Topic = {
           correctIndex: 2,
           explanation:
             'オーストラリアの先住民はアボリジニです。約5万年前からオーストラリアに暮らしてきたとされています。マオリはニュージーランドの先住民です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-oc1-q3',
           question: 'オーストラリアが日本や中国に輸出している主な鉱産資源の組み合わせとして正しいものはどれ？',
@@ -317,7 +177,8 @@ export const oceaniaNature: Topic = {
           correctIndex: 3,
           explanation:
             'オーストラリアは鉄鉱石と石炭を日本や中国などのアジア諸国に多く輸出しています。これらはオーストラリアの主要な輸出品です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-oc1-q4',
           question: 'オーストラリアの貿易相手の変化について正しいものはどれ？',
@@ -330,7 +191,8 @@ export const oceaniaNature: Topic = {
           correctIndex: 0,
           explanation:
             'オーストラリアはかつてイギリスとの貿易が中心でしたが、現在はAPEC（アジア太平洋経済協力会議）を通じてアジア太平洋地域の国々との経済的な結び付きを強めています。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-oc1-q5',
           question: '太平洋の島々を大きく三つの海域に分けたとき、正しい組み合わせはどれ？',
@@ -343,7 +205,8 @@ export const oceaniaNature: Topic = {
           correctIndex: 0,
           explanation:
             '太平洋の島々はミクロネシア（小さな島々）、メラネシア（黒い島々）、ポリネシア（多くの島々）の三つの海域に分けられます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-oc1-q6',
           question: 'グレートバリアリーフについて正しいものはどれ？',
@@ -356,7 +219,8 @@ export const oceaniaNature: Topic = {
           correctIndex: 1,
           explanation:
             'グレートバリアリーフはオーストラリアの北東部の海に約2000kmにわたって広がる世界最大のサンゴ礁です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-oc1-q7',
           question: '1960年代のオーストラリアの輸出品第1位は何だったか？',
@@ -364,7 +228,8 @@ export const oceaniaNature: Topic = {
           correctIndex: 2,
           explanation:
             '1960年代のオーストラリアの輸出品第1位は羊毛でした。現在は鉄鉱石が第1位となっています。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-oc1-q8',
           question: 'アルミニウムの原料となる、オーストラリアで産出される鉱石は何か？',
@@ -372,42 +237,48 @@ export const oceaniaNature: Topic = {
           correctIndex: 3,
           explanation:
             'ボーキサイトはアルミニウムの原料となる鉱石で、オーストラリアは世界有数の産出国です。鉄鉱石や石炭とともに重要な鉱産資源です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-oc1-q9',
           question: 'オーストラリアが1970年代まで行っていた移民制限政策を何というか。',
           options: ['鎖国政策', '白豪主義', 'アパルトヘイト', '排外主義'],
           correctIndex: 1,
           explanation: '白豪主義はヨーロッパ系以外の移民を制限する政策で、1970年代に廃止されました。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-oc1-q10',
           question: '白豪主義の廃止後、オーストラリアが多く受け入れるようになった移民はどの地域からか。',
           options: ['アフリカ系', 'アジア系', '南米系', '中東系'],
           correctIndex: 1,
           explanation: '白豪主義の廃止後、アジア系の移民が多く受け入れられるようになりました。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-oc1-q11',
           question: '多様な文化や言語が共存するオーストラリアの社会を何とよぶか。',
           options: ['単一文化社会', '多文化社会', '植民地社会', '移民社会'],
           correctIndex: 1,
           explanation: '多文化社会は多様な文化や言語を持つ人々が共存する社会です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-oc1-q12',
           question: 'ニュージーランドの先住民の伝統的な踊りで、ラグビーチームが試合前に行うものは何か。',
           options: ['フラダンス', 'サンバ', 'ハカ', 'カポエイラ'],
           correctIndex: 2,
           explanation: 'ハカはマオリの伝統的な踊りで、ニュージーランドのラグビーチーム（オールブラックス）が試合前に行うことで知られます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-oc1-q13',
           question: '地球温暖化による海面上昇で国土水没の危機に直面している島国はどこか。',
           options: ['フィジー', 'パプアニューギニア', 'ツバル', 'サモア'],
           correctIndex: 2,
           explanation: 'ツバルはサンゴ礁の島で標高が非常に低いため、海面上昇により国土が水没する危機に直面しています。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-oc1-q14',
           question: 'サンゴ礁の白化が起こる原因はどれか。',
@@ -419,42 +290,48 @@ export const oceaniaNature: Topic = {
           ],
           correctIndex: 1,
           explanation: '海水温の上昇によってサンゴと共生する藻類がいなくなり、サンゴが白くなって死滅します。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-oc1-q15',
           question: 'オーストラリアやニュージーランドがかつて植民地だった国はどこか。',
           options: ['フランス', 'オランダ', 'スペイン', 'イギリス'],
           correctIndex: 3,
           explanation: 'オーストラリアやニュージーランドはかつてイギリスの植民地でした。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-oc1-q16',
           question: 'アボリジニの聖地とされる巨大な一枚岩の名称はどれか。',
           options: ['グレートバリアリーフ', 'ウルル', 'マウントクック', 'タスマニア'],
           correctIndex: 1,
           explanation: 'ウルル（エアーズロック）はアボリジニの聖地で、土地の権利がアボリジニに返還されています。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-oc1-q17',
           question: '現在のオーストラリアの輸出品第1位は何か。',
           options: ['羊毛', '石炭', '鉄鉱石', '小麦'],
           correctIndex: 2,
           explanation: '現在の輸出品第1位は鉄鉱石です。1960年代は羊毛が第1位でした。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-oc1-q18',
           question: 'ミクロネシアという名称の意味はどれか。',
           options: ['多くの島々', '黒い島々', '小さな島々', '大きな島々'],
           correctIndex: 2,
           explanation: 'ミクロネシアは「小さな島々」という意味です。メラネシアは「黒い島々」、ポリネシアは「多くの島々」です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-oc1-q19',
           question: 'APECが設立された年はいつか。',
           options: ['1979年', '1989年', '1999年', '2001年'],
           correctIndex: 1,
           explanation: 'APEC（アジア太平洋経済協力会議）は1989年に設立されました。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-oc1-q20',
           question: 'オーストラリアでさかんな農畜産業の正しい組み合わせはどれか。',
@@ -466,7 +343,8 @@ export const oceaniaNature: Topic = {
           ],
           correctIndex: 1,
           explanation: 'オーストラリアでは羊の放牧、牛の放牧、小麦の栽培がさかんです。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-oc1-q21',
           question: 'オセアニアの島国が海面上昇の影響を受けやすい理由はどれか。',
@@ -478,49 +356,56 @@ export const oceaniaNature: Topic = {
           ],
           correctIndex: 1,
           explanation: 'サンゴ礁の島は標高が非常に低いため、わずかな海面上昇でも水没の危険があります。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-oc1-q22',
           question: 'アボリジニはおよそ何年前からオーストラリアに暮らしてきたとされるか。',
           options: ['約1000年前', '約5000年前', '約1万年前', '約5万年前'],
           correctIndex: 3,
           explanation: 'アボリジニは約5万年前からオーストラリアに暮らしてきたとされています。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-oc1-q23',
           question: 'ニュージーランドの南島の気候帯はどれか。',
           options: ['熱帯', '乾燥帯', '温帯', '寒帯'],
           correctIndex: 2,
           explanation: 'ニュージーランドの南島は温帯に属しています。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'geo1-oc1-q24',
           question: 'オーストラリアの内陸部の鉱山から港まで資源を運ぶ主な交通手段はどれか。',
           options: ['トラック', '船舶', '鉄道', 'パイプライン'],
           correctIndex: 2,
           explanation: '内陸部の鉱山から沿岸部の港まで長距離の鉄道が敷設されており、大量の鉱産資源を効率的に輸送しています。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'geo1-oc1-q25',
           question: 'イギリスの植民地化にともなってオセアニアに広まった宗教はどれか。',
           options: ['イスラム教', '仏教', 'キリスト教', 'ヒンドゥー教'],
           correctIndex: 2,
           explanation: 'イギリスの植民地化にともなって、オセアニアにはキリスト教が広まりました。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'geo1-oc1-q26',
           question: 'グレートバリアリーフのおよその長さはどのくらいか。',
           options: ['約500km', '約1000km', '約2000km', '約5000km'],
           correctIndex: 2,
           explanation: 'グレートバリアリーフはオーストラリア北東部の海に約2000kmにわたって広がっています。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'geo1-oc1-q27',
           question: '太平洋の島国が国際社会に訴えている環境問題はどれか。',
           options: ['酸性雨', '砂漠化', 'オゾン層の破壊', '海面上昇への対策'],
           correctIndex: 3,
           explanation: '太平洋の島国は地球温暖化による海面上昇への対策を国際社会に訴えています。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'geo1-oc1-q28',
           question: '太平洋の島々に多い二つの種類の島の正しい組み合わせはどれか。',
@@ -532,7 +417,8 @@ export const oceaniaNature: Topic = {
           ],
           correctIndex: 1,
           explanation: '太平洋の島々には火山島（比較的標高が高い）とサンゴ礁の島（標高が非常に低い）が多くあります。',
-        },
+        difficulty: 'advanced',
+      },
       ],
     },
     examples: {

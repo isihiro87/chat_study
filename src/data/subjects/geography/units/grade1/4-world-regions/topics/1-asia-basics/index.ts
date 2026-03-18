@@ -64,154 +64,32 @@ export const asiaBasics: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'geo1-as1-fc1',
-        front: '季節風（モンスーン）',
-        back: 'アジア州の気候に大きな影響を与える、季節によって向きが変わる風を何というか。',
-        explanation:
-          '季節風（モンスーン）といいます。夏は海から大陸に向かって湿った風が吹き雨季をもたらし、冬は大陸から海に向かって乾いた風が吹きます。',
-      },
-      {
-        id: 'geo1-as1-fc2',
-        front: '華人',
-        back: '東南アジアなどに移住し、経済や文化に大きな影響を与えている中国系の人々を何というか。',
-        explanation:
-          '華人といいます。東南アジアを中心に多くの華人が暮らしており、商業や貿易で大きな影響力を持っています。',
-      },
-      {
-        id: 'geo1-as1-fc3',
-        front: '世界の屋根',
-        back: 'ヒマラヤ山脈やチベット高原を含む、世界で最も標高の高い地域の通称を答えよ。',
-        explanation:
-          '「世界の屋根」とよばれます。ヒマラヤ山脈には世界最高峰のエベレストがあり、チベット高原は標高4000m以上に広がっています。',
-      },
-      {
-        id: 'geo1-as1-fc4',
-        front: 'アジアNIES',
-        back: '1970年代以降に急速な経済成長をとげた韓国・シンガポール・台湾・ホンコンの総称を何というか。',
-        explanation:
-          'アジアNIES（新興工業経済地域）といいます。ハイテク産業を中心に急速に工業化し、先進国に迫る経済発展を遂げました。',
-      },
-      {
-        id: 'geo1-as1-fc5',
-        front: 'ヒマラヤ山脈',
-        back: 'アジアとヨーロッパの境に位置する世界最大の山脈を何というか。',
-      },
-      {
-        id: 'geo1-as1-fc6',
-        front: 'チベット高原',
-        back: 'ヒマラヤ山脈の北側に広がる、標高4000m以上の広大な高原を何というか。',
-      },
-      {
-        id: 'geo1-as1-fc7',
-        front: '黄河と長江',
-        back: '中国を流れる二大河川の名前をそれぞれ答えよ。',
-      },
-      {
-        id: 'geo1-as1-fc8',
-        front: 'メコン川',
-        back: '東南アジアを南北に流れ、複数の国を通過する大河を何というか。',
-      },
-      {
-        id: 'geo1-as1-fc9',
-        front: 'ガンジス川',
-        back: 'インドを流れ、ヒンドゥー教徒にとって聖なる川とされる河川を何というか。',
-      },
-      {
-        id: 'geo1-as1-fc10',
-        front: 'インダス川',
-        back: 'パキスタンを流れ、古代文明が栄えた河川を何というか。',
-      },
-      {
-        id: 'geo1-as1-fc11',
-        front: '漢字・箸・米',
-        back: '東アジアの国々に共通する文化的特徴として、中国文化の影響を受けた三つのものを答えよ。',
-      },
-      {
-        id: 'geo1-as1-fc12',
-        front: '一人っ子政策',
-        back: '中国がかつて人口増加を抑えるために実施していた政策を何というか。',
-      },
-      {
-        id: 'geo1-as1-fc13',
-        front: '経済特区',
-        back: '中国が沿岸部に設けて外国企業を受け入れた地域を何というか。',
-      },
-      {
-        id: 'geo1-as1-fc14',
-        front: '世界の工場',
-        back: '中国が大量の工業製品を生産するようになったことから何とよばれるか。',
-      },
-      {
-        id: 'geo1-as1-fc15',
-        front: 'シェンチェン（深圳）',
-        back: '中国の経済特区の代表的な都市で、急速に発展した南部の都市はどこか。',
-      },
-      {
-        id: 'geo1-as1-fc16',
-        front: '二期作',
-        back: '季節風の影響で年に2回米を収穫できる農法を何というか。',
-      },
-      {
-        id: 'geo1-as1-fc17',
-        front: 'プランテーション',
-        back: '植民地時代から続く、大規模農園で単一作物を栽培する農業を何というか。',
-      },
-      {
-        id: 'geo1-as1-fc18',
-        front: 'ASEAN',
-        back: '東南アジアの10か国が加盟する地域協力組織を何というか。',
-      },
-      {
-        id: 'geo1-as1-fc19',
-        front: 'パーム油',
-        back: '東南アジアで大規模に栽培されている油やしから採れる油を何というか。',
-      },
-      {
-        id: 'geo1-as1-fc20',
-        front: 'バンガロール',
-        back: 'インドでICT産業の中心地として発展している都市はどこか。',
-      },
-      {
-        id: 'geo1-as1-fc21',
-        front: 'OPEC',
-        back: '西アジアの産油国が石油の生産量や価格を調整するために結成した組織を何というか。',
-      },
-      {
-        id: 'geo1-as1-fc22',
-        front: '漢族と少数民族',
-        back: '中国の人口の約90%を占める最大の民族は何か。また、それ以外の民族を何というか。',
-      },
-      {
-        id: 'geo1-as1-fc23',
-        front: '西部大開発',
-        back: '中国が内陸部の発展を促すために進めている政策を何というか。',
-      },
-      {
-        id: 'geo1-as1-fc24',
-        front: '経済格差',
-        back: '中国の沿岸部と内陸部の経済的な違いを何というか。',
-      },
-      {
-        id: 'geo1-as1-fc25',
-        front: 'マングローブ',
-        back: '東南アジアの海岸線に見られる、潮の満ち引きの影響を受ける森林を何というか。',
-      },
-      {
-        id: 'geo1-as1-fc26',
-        front: 'ドバイ',
-        back: '石油の収入を活用してAIなどの先端技術を導入している中東の都市はどこか。',
-      },
-      {
-        id: 'geo1-as1-fc27',
-        front: 'ヒンドゥー教',
-        back: '南アジアで最も多く信仰されている宗教を何というか。',
-      },
-      {
-        id: 'geo1-as1-fc28',
-        front: '産業の多角化',
-        back: '西アジアの産油国が石油に頼らない経済を目指す取り組みを何というか。',
-      },
+      { id: 'geo1-as1-fc1', front: '季節風（モンスーン）', back: 'アジア州の気候に大きな影響を与える、季節によって向きが変わる風を何というか。', explanation: '夏は海から大陸に向かって湿った風が吹き雨季をもたらし、冬は大陸から海に向かって乾いた風が吹く。', difficulty: 'basic' },
+      { id: 'geo1-as1-fc2', front: '華人', back: '東南アジアなどに移住し、商業や貿易で大きな影響力を持つ中国系の人々を何というか。', difficulty: 'basic' },
+      { id: 'geo1-as1-fc3', front: '世界の屋根', back: 'ヒマラヤ山脈やチベット高原を含む、世界で最も標高の高い地域の通称を答えよ。', difficulty: 'basic' },
+      { id: 'geo1-as1-fc4', front: 'アジアNIES（新興工業経済地域）', back: '1970年代以降に急速な経済成長をとげた韓国・シンガポール・台湾・ホンコンの総称を何というか。', explanation: 'ハイテク産業を中心に急速に工業化した。', difficulty: 'basic' },
+      { id: 'geo1-as1-fc5', front: 'ヒマラヤ山脈', back: '世界最高峰のエベレストがある、南アジア北部にそびえる世界最大級の山脈を何というか。', difficulty: 'basic' },
+      { id: 'geo1-as1-fc6', front: 'チベット高原', back: 'ヒマラヤ山脈の北側に広がる、標高4000m以上の広大な高原を何というか。', difficulty: 'basic' },
+      { id: 'geo1-as1-fc7', front: '黄河と長江', back: '中国を流れる二大河川の名前をそれぞれ答えよ。', difficulty: 'basic' },
+      { id: 'geo1-as1-fc8', front: 'メコン川', back: '東南アジアを南北に流れ、複数の国を通過する大河を何というか。', difficulty: 'basic' },
+      { id: 'geo1-as1-fc9', front: 'ガンジス川', back: 'インドを流れ、ヒンドゥー教徒にとって聖なる川とされる河川を何というか。', difficulty: 'basic' },
+      { id: 'geo1-as1-fc10', front: '一人っ子政策', back: '中国がかつて人口増加を抑えるために実施し、2015年に廃止された政策を何というか。', difficulty: 'basic' },
+      { id: 'geo1-as1-fc11', front: '経済特区', back: '中国が沿岸部に設けて外国企業を受け入れた地域を何というか。', explanation: 'シェンチェン（深圳）が代表的な都市。', difficulty: 'basic' },
+      { id: 'geo1-as1-fc12', front: '世界の工場', back: '中国が大量の工業製品を生産するようになったことから何とよばれるか。', difficulty: 'standard' },
+      { id: 'geo1-as1-fc13', front: 'ASEAN（東南アジア諸国連合）', back: '東南アジアの10か国が加盟する地域協力組織を何というか。', difficulty: 'basic' },
+      { id: 'geo1-as1-fc14', front: '二期作', back: '季節風の影響で同じ水田で年に2回米を収穫できる農法を何というか。', explanation: '二毛作（年に2回異なる作物を作ること）と区別する。', difficulty: 'standard' },
+      { id: 'geo1-as1-fc15', front: 'プランテーション', back: '植民地時代から続く、大規模農園で単一の商品作物を栽培する農業を何というか。', difficulty: 'standard' },
+      { id: 'geo1-as1-fc16', front: 'パーム油', back: '東南アジアで大規模に栽培されている油やしから採れる油を何というか。', difficulty: 'standard' },
+      { id: 'geo1-as1-fc17', front: 'バンガロール', back: 'インドでICT産業の中心地として発展している都市はどこか。', explanation: '英語力や数学教育の水準の高さが背景にある。', difficulty: 'standard' },
+      { id: 'geo1-as1-fc18', front: 'OPEC（石油輸出国機構）', back: '西アジアの産油国が石油の生産量や価格を調整するために結成した組織を何というか。', difficulty: 'standard' },
+      { id: 'geo1-as1-fc19', front: '漢族（約90%）と少数民族', back: '中国の人口の約90%を占める最大の民族は何か。また、それ以外の民族を何というか。', difficulty: 'standard' },
+      { id: 'geo1-as1-fc20', front: '西部大開発', back: '中国が沿岸部と内陸部の経済格差を縮小するために進めている政策を何というか。', difficulty: 'advanced' },
+      { id: 'geo1-as1-fc21', front: 'マングローブ', back: '東南アジアの海岸線に見られ、えび養殖場への転用で減少が問題となっている熱帯の森林を何というか。', difficulty: 'standard' },
+      { id: 'geo1-as1-fc22', front: 'ヒンドゥー教', back: '南アジアで最も多く信仰され、牛を神聖な動物とする宗教を何というか。', difficulty: 'basic' },
+      { id: 'geo1-as1-fc23', front: '産業の多角化', back: '西アジアの産油国が石油に頼らない経済を目指す取り組みを何というか。', explanation: 'ドバイなどでは観光業やAI技術の導入が進む。', difficulty: 'advanced' },
+      { id: 'geo1-as1-fc24', front: 'スラム', back: '東南アジアの都市部で急速な人口増加により形成された、衛生環境の悪い貧困地区を何というか。', difficulty: 'advanced' },
+      { id: 'geo1-as1-fc25', front: '夏は海から大陸へ湿った風、冬は大陸から海へ乾いた風', back: '季節風（モンスーン）が吹く夏と冬の方向をそれぞれ答えよ。', difficulty: 'standard' },
+      { id: 'geo1-as1-fc26', front: 'インダス川', back: 'パキスタンを流れ、古代文明（インダス文明）が栄えた河川を何というか。', difficulty: 'standard' },
     ],
     quiz: {
       questions: [
@@ -227,7 +105,8 @@ export const asiaBasics: Topic = {
           correctIndex: 1,
           explanation:
             '季節風（モンスーン）は、夏は海から大陸へ湿った風が吹き、冬は大陸から海へ乾いた風が吹きます。アジアの気候や農業に大きな影響を与えています。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-as1-q2',
           question: '1970年代以降に急速な経済成長をとげた韓国・シンガポール・台湾・ホンコンの総称はどれか。',
@@ -240,7 +119,8 @@ export const asiaBasics: Topic = {
           correctIndex: 0,
           explanation:
             'アジアNIES（新興工業経済地域）は、ハイテク産業を中心に急速に工業化した4つの国・地域の総称です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-as1-q3',
           question: 'ヒマラヤ山脈やチベット高原を含む地域は何とよばれるか。',
@@ -253,7 +133,8 @@ export const asiaBasics: Topic = {
           correctIndex: 2,
           explanation:
             '「世界の屋根」とよばれます。ヒマラヤ山脈には世界最高峰のエベレストがあり、チベット高原は標高4000m以上の広大な高原です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-as1-q4',
           question: '中国を流れる二大河川の正しい組み合わせはどれか。',
@@ -266,7 +147,8 @@ export const asiaBasics: Topic = {
           correctIndex: 2,
           explanation:
             '中国の二大河川は黄河と長江です。黄河は北部を、長江は南部を流れています。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-as1-q5',
           question: '東南アジアに多く暮らす中国系の人々を何というか。',
@@ -279,7 +161,8 @@ export const asiaBasics: Topic = {
           correctIndex: 1,
           explanation:
             '華人は東南アジアを中心に移住した中国系の人々で、商業や貿易で大きな影響力を持っています。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-as1-q6',
           question: '中国がかつて人口増加を抑えるために実施していた政策はどれか。',
@@ -292,7 +175,8 @@ export const asiaBasics: Topic = {
           correctIndex: 2,
           explanation:
             '一人っ子政策は中国が人口増加を抑えるために実施した政策で、2015年に廃止されました。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-as1-q7',
           question: '中国が大量の工業製品を生産するようになったことから何とよばれるか。',
@@ -305,7 +189,8 @@ export const asiaBasics: Topic = {
           correctIndex: 1,
           explanation:
             '中国は安い労働力を活かして大量の工業製品を生産し、「世界の工場」とよばれるようになりました。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-as1-q8',
           question: '東南アジアの10か国が加盟する地域協力組織はどれか。',
@@ -318,7 +203,8 @@ export const asiaBasics: Topic = {
           correctIndex: 3,
           explanation:
             'ASEAN（東南アジア諸国連合）は東南アジアの10か国が加盟する地域協力組織です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-as1-q9',
           question: '季節風の影響で年に2回米を収穫できる農法を何というか。',
@@ -331,7 +217,8 @@ export const asiaBasics: Topic = {
           correctIndex: 2,
           explanation:
             '二期作は同じ水田で年に2回稲を栽培する農法です。温暖で降水量が多い東南アジアなどで行われています。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-as1-q10',
           question: '西アジアの産油国が結成した、石油の生産量や価格を調整する組織はどれか。',
@@ -344,7 +231,8 @@ export const asiaBasics: Topic = {
           correctIndex: 2,
           explanation:
             'OPEC（石油輸出国機構）は産油国が石油の生産量や価格を調整するための国際組織です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-as1-q11',
           question: 'インドでICT産業の中心地として発展している都市はどこか。',
@@ -357,7 +245,8 @@ export const asiaBasics: Topic = {
           correctIndex: 3,
           explanation:
             'バンガロールはインドのICT（情報通信技術）産業の中心地で、多くのIT企業が集まっています。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-as1-q12',
           question: '中国の人口の約90%を占める最大の民族はどれか。',
@@ -370,7 +259,8 @@ export const asiaBasics: Topic = {
           correctIndex: 1,
           explanation:
             '漢族は中国の人口の約90%を占める最大の民族です。それ以外の民族は少数民族とよばれます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-as1-q13',
           question: '中国が沿岸部に設けて外国企業を受け入れた地域を何というか。',
@@ -383,7 +273,8 @@ export const asiaBasics: Topic = {
           correctIndex: 2,
           explanation:
             '経済特区は外国企業を受け入れるための優遇政策が行われる地域で、シェンチェン（深圳）が代表的です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-as1-q14',
           question: '植民地時代から続く、大規模農園で単一作物を栽培する農業を何というか。',
@@ -396,7 +287,8 @@ export const asiaBasics: Topic = {
           correctIndex: 1,
           explanation:
             'プランテーションは植民地時代にヨーロッパ人が開いた大規模農園で、単一の商品作物を栽培する農業です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-as1-q15',
           question: '東南アジアを南北に流れ、複数の国を通過する大河はどれか。',
@@ -409,7 +301,8 @@ export const asiaBasics: Topic = {
           correctIndex: 2,
           explanation:
             'メコン川は中国南部から東南アジアを南北に流れ、ベトナム・カンボジア・タイなど複数の国を通過します。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-as1-q16',
           question: '南アジアで最も多く信仰されている宗教はどれか。',
@@ -422,7 +315,8 @@ export const asiaBasics: Topic = {
           correctIndex: 3,
           explanation:
             'ヒンドゥー教は南アジア、特にインドで最も多く信仰されている宗教です。牛を神聖な動物としています。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-as1-q17',
           question: '東南アジアで大規模に栽培されている油やしから採れる油を何というか。',
@@ -435,7 +329,8 @@ export const asiaBasics: Topic = {
           correctIndex: 2,
           explanation:
             'パーム油は油やしから採れる植物油で、東南アジア（インドネシア・マレーシアなど）が世界最大の生産地です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-as1-q18',
           question: '中国の沿岸部と内陸部の経済的な違いを何というか。',
@@ -448,7 +343,8 @@ export const asiaBasics: Topic = {
           correctIndex: 1,
           explanation:
             '中国では沿岸部の経済発展が進む一方、内陸部は遅れており、経済格差が大きな課題となっています。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-as1-q19',
           question: 'ヒマラヤ山脈の北側に広がる標高4000m以上の高原はどれか。',
@@ -461,7 +357,8 @@ export const asiaBasics: Topic = {
           correctIndex: 1,
           explanation:
             'チベット高原はヒマラヤ山脈の北側に広がる標高4000m以上の広大な高原で、「世界の屋根」の一部です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-as1-q20',
           question: '季節風が夏に吹く方向として正しいものはどれか。',
@@ -474,7 +371,8 @@ export const asiaBasics: Topic = {
           correctIndex: 1,
           explanation:
             '夏の季節風は海から大陸に向かって湿った風が吹き、雨季をもたらします。冬は逆に大陸から海に乾いた風が吹きます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-as1-q21',
           question: '西アジアや中央アジアで広く信仰されている宗教はどれか。',
@@ -487,7 +385,8 @@ export const asiaBasics: Topic = {
           correctIndex: 3,
           explanation:
             '西アジアや中央アジアではイスラム教が広く信仰されています。聖典はコーランです。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-as1-q22',
           question: 'アジアNIESが発展した主な産業分野はどれか。',
@@ -500,7 +399,8 @@ export const asiaBasics: Topic = {
           correctIndex: 2,
           explanation:
             'アジアNIESは半導体や電子機器などのハイテク産業を中心に急速な経済成長をとげました。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-as1-q23',
           question: '中国が内陸部の発展を促すために進めている政策はどれか。',
@@ -513,7 +413,8 @@ export const asiaBasics: Topic = {
           correctIndex: 1,
           explanation:
             '西部大開発は中国が内陸部の経済発展を促すために進めている政策で、インフラ整備などが行われています。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'geo1-as1-q24',
           question: '東南アジアの海岸線に見られるマングローブが減少している主な原因はどれか。',
@@ -526,7 +427,8 @@ export const asiaBasics: Topic = {
           correctIndex: 1,
           explanation:
             'マングローブはえび養殖場への転用や開発による伐採で減少しています。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'geo1-as1-q25',
           question: 'パキスタンを流れ、古代文明が栄えた河川はどれか。',
@@ -539,7 +441,8 @@ export const asiaBasics: Topic = {
           correctIndex: 2,
           explanation:
             'インダス川はパキスタンを流れる大河で、流域ではインダス文明が栄えました。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'geo1-as1-q26',
           question: '西アジアの産油国が石油に頼らない経済を目指す取り組みを何というか。',
@@ -552,7 +455,8 @@ export const asiaBasics: Topic = {
           correctIndex: 1,
           explanation:
             '産業の多角化（脱石油依存）は、石油資源に頼りすぎない経済構造を作るための取り組みです。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'geo1-as1-q27',
           question: '石油の収入を活用して先端技術を導入している中東の都市はどこか。',
@@ -565,7 +469,8 @@ export const asiaBasics: Topic = {
           correctIndex: 2,
           explanation:
             'ドバイはAIなどの先端技術を導入し、観光業や金融業も発展させて石油に頼らない経済を目指しています。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'geo1-as1-q28',
           question: '東南アジアの都市部で急速な人口増加により形成された貧困地区を何というか。',
@@ -578,7 +483,8 @@ export const asiaBasics: Topic = {
           correctIndex: 2,
           explanation:
             'スラムは急速な都市化に住宅整備が追いつかず形成された貧困地区で、衛生環境の悪化が問題になっています。',
-        },
+        difficulty: 'advanced',
+      },
       ],
     },
     examples: {
