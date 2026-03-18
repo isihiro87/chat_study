@@ -110,3 +110,52 @@ To speak clearly is important for a speech.
 
 (5) 次の日本文を It is ... to 構文を使って英語にしなさい。「この物語を理解することは私たちにとって難しかったです。」
 **答え: It was difficult for us to understand this story.**
+
+## 大問6: 疑問詞+to を含む対話文読解（4点×5＝20点）
+
+次の対話文を読んで、あとの問いに答えなさい。
+
+Yuki and Tom are talking at school.
+
+Tom: I want to make a Japanese dish for my family, but I don't know ( ① ) to cook.
+Yuki: How about curry rice? It's easy. I can show you ( ② ) to make it.
+Tom: Really? That's great! But I don't know ( ③ ) to buy the ingredients.
+Yuki: You can find them at the supermarket near the station. I'll tell you ( ④ ) to go.
+Tom: Thank you! When should I start cooking?
+Yuki: Well, I'll teach you ( ⑤ ) to start. Let's go shopping this Saturday!
+
+(1) ①〜⑤の（ ）にそれぞれ適する疑問詞（how / what / where / when）を書きなさい。
+**答え: ① what  ② how  ③ where  ④ where  ⑤ when**
+
+(2) Yuki は Tom に何の料理を提案しましたか。日本語で書きなさい。
+**答え: カレーライス**
+
+(3) Tom が材料を買う場所はどこですか。日本語で書きなさい。
+**答え: 駅の近くのスーパーマーケット**
+
+(4) 下線部 "I can show you how to make it" を日本語に訳しなさい。
+**答え: 私はあなたに作り方を見せることができます（見せてあげますよ）。**
+
+(5) 次のうち、本文の内容に合うものを選びなさい。
+ア Tom already knows how to cook Japanese food.
+イ Yuki will teach Tom when to start cooking.
+ウ They will go shopping on Sunday.
+エ Tom doesn't want to cook for his family.
+**答え: イ（YukiはTomにいつ料理を始めるか教えると言った）**
+
+## 大問7: that節を使った条件英作文（5点×4＝20点）
+
+次の条件にあう英文を that 節を使って書きなさい。
+
+(1) I am glad that ... を使って、「うれしいこと」を表す文を書きなさい。
+**答え例: I am glad that my friend is coming to my birthday party. / I am glad that I passed the test.**
+
+(2) I am sure that ... を使って、「確信していること」を表す文を書きなさい。
+**答え例: I am sure that our team will win the next game. / I am sure that she will be a good teacher.**
+
+(3) I am sorry that ... を使って、「申し訳なく思っていること」を表す文を書きなさい。
+**答え例: I am sorry that I forgot your birthday. / I am sorry that I couldn't come to the party.**
+
+(4) 次の日本文を、疑問詞+to と that 節をそれぞれ使って英語にしなさい。
+「私はこの製品の使い方を知っています。そしてこれらのアイデアが多くの人を助けると確信しています。」
+**答え: I know how to use this product. And I am sure that these ideas help many people.**

@@ -73,6 +73,39 @@ export const infinitives: Topic = {
             'It is difficult to understand this story. = この物語を理解することは難しいです。',
           ],
         },
+        {
+          title: '疑問詞 + to + 動詞の原形',
+          content:
+            'how to / what to / where to / when to のように、疑問詞のあとに to + 動詞の原形をつけると「〜のしかた」「何を〜すべきか」などの意味になるよ。',
+          keyPoints: [
+            'how to 〜 =「〜のしかた・どうやって〜するか」: I know how to cook curry.',
+            'what to 〜 =「何を〜すべきか」: I don\'t know what to do.',
+            'where to 〜 =「どこで（へ）〜すべきか」: Do you know where to go?',
+            'when to 〜 =「いつ〜すべきか」: I don\'t know when to start.',
+          ],
+        },
+        {
+          title: 'tell / show / teach + 人 + 疑問詞 + to',
+          content:
+            '「人に〜のしかたを教える・見せる・伝える」は、tell / show / teach + 人 + 疑問詞 + to + 動詞の原形 の形で表すよ。',
+          keyPoints: [
+            'I can show you how to wear a yukata. = 浴衣の着方を見せてあげるよ。',
+            'My friend told me what to do. = 友だちが何をすべきか教えてくれた。',
+            'Please tell us where to go. = どこに行けばいいか教えてください。',
+            'Who can teach me how to make it? = だれが作り方を教えてくれますか？',
+          ],
+        },
+        {
+          title: 'I am sure / glad that + 文（that節）',
+          content:
+            'I am sure that 〜 は「〜だと確信している」、I am glad that 〜 は「〜でうれしい」という意味。that のあとにはふつうの文（主語 + 動詞）が続くよ。',
+          keyPoints: [
+            'I am sure that he will come. = 彼が来ると確信しています。',
+            'I am glad that you like it. = あなたが気に入ってくれてうれしいです。',
+            'I\'m sorry that I was late. = 遅れてごめんなさい。',
+            'that は省略できることもあるよ: I\'m glad you like it.',
+          ],
+        },
       ],
     },
     videos: [],
@@ -282,6 +315,90 @@ export const infinitives: Topic = {
         back: 'They had an event (　　) money.\n（彼らはお金を集めるためにイベントを開きました。）',
         hint: '「なんのためにイベントを開いた？」',
         explanation: 'to collect money =「お金を集めるために」。副詞的用法（目的）だよ。',
+        difficulty: 'advanced',
+      },
+      // === 疑問詞 + to（basic）===
+      {
+        id: 'eng-inf-fc26',
+        front: 'how to use',
+        back: 'I know (　　) this machine.\n（私はこの機械の使い方を知っています。）',
+        hint: '「〜のしかた」は how to だよ',
+        explanation: 'how to use =「使い方・どうやって使うか」。疑問詞 + to + 動詞の原形だよ。',
+        difficulty: 'basic',
+      },
+      {
+        id: 'eng-inf-fc27',
+        front: 'what to do',
+        back: "I don't know (　　).\n（私は何をすべきかわかりません。）",
+        hint: '「何を〜すべきか」は what to だよ',
+        explanation: 'what to do =「何をすべきか」。疑問詞 + to + 動詞の原形だよ。',
+        difficulty: 'basic',
+      },
+      {
+        id: 'eng-inf-fc28',
+        front: 'where to go',
+        back: 'Do you know (　　)?\n（どこへ行けばいいか知っていますか。）',
+        hint: '「どこへ〜すべきか」は where to だよ',
+        explanation: 'where to go =「どこへ行くべきか」。疑問詞 + to + 動詞の原形だよ。',
+        difficulty: 'basic',
+      },
+      // === 疑問詞 + to（standard）===
+      {
+        id: 'eng-inf-fc29',
+        front: 'when to start',
+        back: "I don't know (　　).\n（いつ始めればいいかわかりません。）",
+        hint: '「いつ〜すべきか」は when to だよ',
+        explanation: 'when to start =「いつ始めるべきか」。疑問詞 + to + 動詞の原形だよ。',
+        difficulty: 'standard',
+      },
+      {
+        id: 'eng-inf-fc30',
+        front: 'how to make',
+        back: 'Please tell me (　　) a pancake.\n（パンケーキの作り方を教えてください。）',
+        hint: 'tell + 人 + 疑問詞 + to の形だよ',
+        explanation: 'tell me how to make =「作り方を教えて」。SVOO + 疑問詞 + to の形だよ。',
+        difficulty: 'standard',
+      },
+      {
+        id: 'eng-inf-fc31',
+        front: 'how to wear',
+        back: 'I can show you (　　) a yukata.\n（浴衣の着方を見せてあげるよ。）',
+        hint: 'show + 人 + 疑問詞 + to の形だよ',
+        explanation: 'show you how to wear =「着方を見せる」。SVOO + 疑問詞 + to の形だよ。',
+        difficulty: 'standard',
+      },
+      // === that節（standard）===
+      {
+        id: 'eng-inf-fc32',
+        front: 'sure that',
+        back: 'I am (　　) he will come.\n（彼が来ると確信しています。）',
+        hint: '「〜と確信している」は I am sure that だよ',
+        explanation: 'I am sure that 〜 =「〜だと確信している」。that のあとに文が続くよ。',
+        difficulty: 'standard',
+      },
+      {
+        id: 'eng-inf-fc33',
+        front: 'glad that',
+        back: 'I am (　　) you like it.\n（あなたが気に入ってくれてうれしいです。）',
+        hint: '「〜でうれしい」は I am glad that だよ',
+        explanation: 'I am glad that 〜 =「〜でうれしい」。that のあとに文が続くよ。',
+        difficulty: 'standard',
+      },
+      // === advanced ===
+      {
+        id: 'eng-inf-fc34',
+        front: 'what to say',
+        back: "I didn't know (　　).\n（何と言えばいいかわかりませんでした。）",
+        hint: '「何を〜すべきか」は what to だよ',
+        explanation: "what to say =「何と言うべきか」。I didn't know what to say. だよ。",
+        difficulty: 'advanced',
+      },
+      {
+        id: 'eng-inf-fc35',
+        front: 'how to cook',
+        back: 'My mother taught me (　　).\n（母が料理の仕方を教えてくれました。）',
+        hint: 'teach + 人 + 疑問詞 + to の形だよ',
+        explanation: 'taught me how to cook =「料理の仕方を教えてくれた」。teach + 人 + how to の形だよ。',
         difficulty: 'advanced',
       },
     ],
@@ -580,6 +697,184 @@ export const infinitives: Topic = {
             '「I was surprised to hear the news.」が正解。感情の原因を表す副詞的用法だよ。',
           difficulty: 'advanced',
         },
+        // === 疑問詞 + to（choice）===
+        {
+          id: 'eng-inf-q24',
+          question:
+            '「I know (　　) to use this machine.」\nの (　　) に入るのは？',
+          options: ['what', 'how', 'where', 'who'],
+          correctIndex: 1,
+          explanation:
+            '「使い方を知っている」→ how to use。how to =「〜のしかた」だよ。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'eng-inf-q25',
+          question:
+            '「I don\'t know (　　) to do next.」\nの (　　) に入るのは？',
+          options: ['how', 'where', 'what', 'when'],
+          correctIndex: 2,
+          explanation:
+            '「次に何をすべきかわからない」→ what to do。what to =「何を〜すべきか」だよ。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'eng-inf-q26',
+          question:
+            '「Do you know (　　) to get a ticket?」\nの (　　) に入るのは？',
+          options: ['what', 'when', 'how', 'where'],
+          correctIndex: 3,
+          explanation:
+            '「どこでチケットを手に入れるか」→ where to get。where to =「どこで〜すべきか」だよ。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'eng-inf-q27',
+          question:
+            '「I don\'t know (　　) to start the project.」\nの (　　) に入るのは？',
+          options: ['what', 'how', 'where', 'when'],
+          correctIndex: 3,
+          explanation:
+            '「いつ始めればいいかわからない」→ when to start。when to =「いつ〜すべきか」だよ。',
+          difficulty: 'standard',
+        },
+        // === that節（choice）===
+        {
+          id: 'eng-inf-q28',
+          question:
+            '「I am sure (　　) he will come tomorrow.」\nの (　　) に入るのは？',
+          options: ['to', 'that', 'what', 'if'],
+          correctIndex: 1,
+          explanation:
+            'I am sure that 〜 =「〜だと確信している」。that のあとに文が続くよ。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'eng-inf-q29',
+          question:
+            '「I\'m glad that you passed the test.」の意味として正しいのは？',
+          options: [
+            'あなたがテストに落ちて残念です。',
+            'あなたがテストに受かってうれしいです。',
+            'あなたがテストを受けたと確信しています。',
+            'あなたにテストを受けてほしいです。',
+          ],
+          correctIndex: 1,
+          explanation:
+            'I\'m glad that 〜 =「〜でうれしい」。passed the test =「テストに受かった」だよ。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'eng-inf-q30',
+          question:
+            '「I\'m sorry (　　) I was late.」\nの (　　) に入るのは？',
+          options: ['to', 'that', 'for', 'because'],
+          correctIndex: 1,
+          explanation:
+            'I\'m sorry that 〜 =「〜してごめんなさい」。that のあとに文が続くよ。',
+          difficulty: 'standard',
+        },
+        // === 疑問詞+to reorder ===
+        {
+          id: 'eng-inf-q31',
+          type: 'reorder',
+          question:
+            '次の単語を正しい順番にならべて、\n「私はパンケーキの作り方を知っています。」という英文を作ろう。',
+          words: ['make', 'how', 'know', 'I', 'to', 'a pancake'],
+          correctOrder: [3, 2, 1, 4, 0, 5],
+          punctuation: '.',
+          options: [],
+          correctIndex: -1,
+          explanation:
+            '「I know how to make a pancake.」が正解。how to make =「作り方」だよ。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'eng-inf-q32',
+          type: 'reorder',
+          question:
+            '次の単語を正しい順番にならべて、\n「私は何を買えばいいかわかりませんでした。」という英文を作ろう。',
+          words: ['to', 'what', "didn't", 'I', 'know', 'buy'],
+          correctOrder: [3, 2, 4, 1, 0, 5],
+          punctuation: '.',
+          options: [],
+          correctIndex: -1,
+          explanation:
+            '「I didn\'t know what to buy.」が正解。what to buy =「何を買うべきか」だよ。',
+          difficulty: 'standard',
+        },
+        // === SVOO + 疑問詞+to reorder ===
+        {
+          id: 'eng-inf-q33',
+          type: 'reorder',
+          question:
+            '次の単語を正しい順番にならべて、\n「浴衣の着方を見せてあげるよ。」という英文を作ろう。\nI can (　　)(　　)(　　)(　　)(　　) a yukata.',
+          words: ['how', 'show', 'to', 'you', 'wear'],
+          correctOrder: [1, 3, 0, 2, 4],
+          punctuation: '.',
+          options: [],
+          correctIndex: -1,
+          explanation:
+            '「I can show you how to wear a yukata.」が正解。show + 人 + how to =「〜のしかたを見せる」だよ。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'eng-inf-q34',
+          type: 'reorder',
+          question:
+            '次の単語を正しい順番にならべて、\n「どこに行けばいいか教えてください。」という英文を作ろう。\nPlease (　　)(　　)(　　)(　　)(　　).',
+          words: ['go', 'tell', 'where', 'me', 'to'],
+          correctOrder: [1, 3, 2, 4, 0],
+          punctuation: '.',
+          options: [],
+          correctIndex: -1,
+          explanation:
+            '「Please tell me where to go.」が正解。tell + 人 + where to =「どこに行くべきか教える」だよ。',
+          difficulty: 'standard',
+        },
+        // === that節 reorder ===
+        {
+          id: 'eng-inf-q35',
+          type: 'reorder',
+          question:
+            '次の単語を正しい順番にならべて、\n「彼が来ると確信しています。」という英文を作ろう。',
+          words: ['that', 'sure', 'will', 'I', 'come', 'am', 'he'],
+          correctOrder: [3, 5, 1, 0, 6, 2, 4],
+          punctuation: '.',
+          options: [],
+          correctIndex: -1,
+          explanation:
+            '「I am sure that he will come.」が正解。I am sure that =「〜と確信している」だよ。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'eng-inf-q36',
+          type: 'reorder',
+          question:
+            '次の単語を正しい順番にならべて、\n「あなたが気に入ってくれてうれしいです。」という英文を作ろう。',
+          words: ['glad', 'that', 'am', 'I', 'it', 'like', 'you'],
+          correctOrder: [3, 2, 0, 1, 6, 5, 4],
+          punctuation: '.',
+          options: [],
+          correctIndex: -1,
+          explanation:
+            '「I am glad that you like it.」が正解。I am glad that =「〜でうれしい」だよ。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'eng-inf-q37',
+          type: 'reorder',
+          question:
+            '次の単語を正しい順番にならべて、\n「母が料理の仕方を教えてくれました。」という英文を作ろう。',
+          words: ['cook', 'my', 'taught', 'how', 'mother', 'me', 'to'],
+          correctOrder: [1, 4, 2, 5, 3, 6, 0],
+          punctuation: '.',
+          options: [],
+          correctIndex: -1,
+          explanation:
+            '「My mother taught me how to cook.」が正解。teach + 人 + how to =「〜の仕方を教える」だよ。',
+          difficulty: 'advanced',
+        },
       ],
     },
     examples: {
@@ -742,6 +1037,84 @@ export const infinitives: Topic = {
           ],
           answer:
             '① 名詞的用法（like の目的語）\n② 副詞的用法・目的（「泳ぐために」）\n③ 形容詞的用法（pool を説明）',
+        },
+        {
+          id: 'eng-inf-ex7',
+          question:
+            '次の日本語を英語にしよう。\n「私はパンケーキの作り方を知っています。」',
+          steps: [
+            {
+              title: 'Step 1: 「知っています」を英語にしよう',
+              content: '「私は知っています」→ I know だね。',
+              highlight: 'I know',
+            },
+            {
+              title: 'Step 2: 「作り方」を疑問詞 + to で表そう',
+              content:
+                '「〜のしかた」は how to 〜。「作る」= make だから how to make だよ。',
+              highlight: 'how to make',
+            },
+            {
+              title: 'Step 3: 「パンケーキ」をつけて完成！',
+              content: 'I know how to make a pancake. だよ。',
+              highlight: 'I know how to make a pancake.',
+            },
+          ],
+          answer:
+            'I know how to make a pancake.\n（私はパンケーキの作り方を知っています。）',
+        },
+        {
+          id: 'eng-inf-ex8',
+          question:
+            '次の日本語を英語にしよう。\n「先生が何をすべきか教えてくれました。」',
+          steps: [
+            {
+              title: 'Step 1: 「先生が教えてくれた」を英語にしよう',
+              content:
+                '「先生が私に教えてくれた」→ My teacher told me。told は tell の過去形だよ。',
+              highlight: 'My teacher told me',
+            },
+            {
+              title: 'Step 2: 「何をすべきか」を疑問詞 + to で表そう',
+              content:
+                '「何を〜すべきか」は what to 〜。「する」= do だから what to do だよ。',
+              highlight: 'what to do',
+            },
+            {
+              title: 'Step 3: つなげて完成！',
+              content:
+                'tell + 人 + 疑問詞 + to + 動詞の原形 の形だよ。',
+              highlight: 'My teacher told me what to do.',
+            },
+          ],
+          answer:
+            'My teacher told me what to do.\n（先生が何をすべきか教えてくれました。）',
+        },
+        {
+          id: 'eng-inf-ex9',
+          question:
+            '次の日本語を英語にしよう。\n「彼が一位になったと聞いてうれしいです。」',
+          steps: [
+            {
+              title: 'Step 1: 「うれしいです」を英語にしよう',
+              content: '「うれしいです」→ I am glad だね。',
+              highlight: 'I am glad',
+            },
+            {
+              title: 'Step 2: 「〜と聞いて」を that節で表そう',
+              content:
+                'that のあとにふつうの文を続けるよ。「彼が一位になった」→ he won first place',
+              highlight: 'that he won first place',
+            },
+            {
+              title: 'Step 3: つなげて完成！',
+              content:
+                'I am glad that 〜 =「〜でうれしい」。that のあとに文（主語 + 動詞）が続くよ。',
+              highlight: 'I am glad that he won first place.',
+            },
+          ],
+          answer:
+            'I am glad that he won first place.\n（彼が一位になったと聞いてうれしいです。）',
         },
       ],
     },

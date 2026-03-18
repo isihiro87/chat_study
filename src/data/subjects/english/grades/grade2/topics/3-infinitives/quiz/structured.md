@@ -117,3 +117,77 @@ He has a lot of work ___ ___ today.
 
 (5) 毎日運動することは体によいです。（It is ... toを使って）
 **答え: It is good to exercise every day. / It is good for your health to exercise every day.**
+
+## 大問6: 疑問詞+to 空欄補充（3点×6＝18点）
+
+次の英文の___に適する疑問詞（how / what / where / when）を書きなさい。
+
+(1) I know ___ to use this machine.
+（私はこの機械の使い方を知っています。）
+**答え: how（「使い方」= how to use）**
+
+(2) I don't know ___ to do next.
+（次に何をすべきかわかりません。）
+**答え: what（「何をすべきか」= what to do）**
+
+(3) Do you know ___ to get a ticket?
+（どこでチケットを手に入れるか知っていますか。）
+**答え: where（「どこで手に入れるか」= where to get）**
+
+(4) I don't know ___ to take this medicine.
+（いつこの薬を飲むべきかわかりません。）
+**答え: when（「いつ飲むか」= when to take）**
+
+(5) She didn't know ___ to say.
+（彼女は何と言えばいいかわかりませんでした。）
+**答え: what（「何を言うか」= what to say）**
+
+(6) Do you know ___ to swim?
+（泳ぎ方を知っていますか。）
+**答え: how（「泳ぎ方」= how to swim）**
+
+## 大問7: SVOO+疑問詞+to 語順整序（4点×5＝20点）
+
+次の日本文にあう英文になるように、（ ）内の語を並べかえなさい。
+
+(1) 浴衣の着方を見せてあげますよ。
+( show / how / can / you / I / to / wear / a yukata ).
+**答え: I can show you how to wear a yukata.**
+
+(2) 友達が何をすべきか教えてくれました。
+( told / what / my friend / to / me / do ).
+**答え: My friend told me what to do.**
+
+(3) 昼食後にどこへ行けばいいか教えてください。
+( tell / where / please / us / to / go / after lunch ).
+**答え: Please tell us where to go after lunch.**
+
+(4) 母が料理の仕方を教えてくれました。
+( taught / how / my mother / to / me / cook ).
+**答え: My mother taught me how to cook.**
+
+(5) いつ日本を訪れるべきか教えてくれませんか。
+( tell / when / can / me / you / to / visit / Japan )?
+**答え: Can you tell me when to visit Japan?**
+
+## 大問8: that節 書きかえ・英作文（4点×5＝20点）
+
+(1) 次の2文を that 節を使って1文にしなさい。
+I am glad. He won first place.
+**答え: I am glad that he won first place.**
+
+(2) 次の2文を that 節を使って1文にしなさい。
+I am sure. These ideas help many people.
+**答え: I am sure that these ideas help many people.**
+
+(3) 次の2文を that 節を使って1文にしなさい。
+I am sorry. I was late.
+**答え: I am sorry that I was late.**
+
+(4) 次の日本文を英語にしなさい。（that節を使って）
+「ホストファミリーが日本に来てくれるのでうれしいです。」
+**答え: I am glad that my host family will come to Japan.**
+
+(5) 次の日本文を英語にしなさい。（that節を使って）
+「明日は晴れると確信しています。」
+**答え: I am sure that it will be sunny tomorrow.**
