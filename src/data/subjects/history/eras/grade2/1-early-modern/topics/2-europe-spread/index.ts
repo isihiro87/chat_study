@@ -34,13 +34,13 @@ export const europeSpread: Topic = {
     },
     videos: [],
     flashcards: [
-      { id: 'fc1', front: '大航海時代', back: '15世紀以降、欧米が世界進出した時代は？' },
-      { id: 'fc2', front: 'バスコ・ダ・ガマ', back: '1498年にインドへ到達した航海者は？' },
-      { id: 'fc3', front: 'コロンブス', back: '1492年にカリブ海の島に到達した人は？' },
-      { id: 'fc4', front: 'マゼラン(の船隊)', back: '1522年に初めて世界一周を達成したのは？' },
-      { id: 'fc5', front: 'インカ帝国', back: 'スペインが滅ぼした南米の帝国は？' },
-      { id: 'fc6', front: '東インド会社', back: 'オランダがアジア貿易のために作った会社は？' },
-      { id: 'fc7', front: '香辛料', back: '欧州人が求めた高価なアジアの産物は？' },
+      { id: 'fc1', front: '大航海時代', back: '15世紀以降、欧米が世界進出した時代は？', difficulty: 'basic' },
+      { id: 'fc2', front: 'バスコ・ダ・ガマ', back: '1498年にインドへ到達した航海者は？', difficulty: 'basic' },
+      { id: 'fc3', front: 'コロンブス', back: '1492年にカリブ海の島に到達した人は？', difficulty: 'basic' },
+      { id: 'fc4', front: 'マゼラン(の船隊)', back: '1522年に初めて世界一周を達成したのは？', difficulty: 'standard' },
+      { id: 'fc5', front: 'インカ帝国', back: 'スペインが滅ぼした南米の帝国は？', difficulty: 'standard' },
+      { id: 'fc6', front: '東インド会社', back: 'オランダがアジア貿易のために作った会社は？', difficulty: 'standard' },
+      { id: 'fc7', front: '香辛料', back: '欧州人が求めた高価なアジアの産物は？', difficulty: 'standard' },
     ],
     quiz: {
       questions: [
@@ -50,6 +50,7 @@ export const europeSpread: Topic = {
           options: ['マゼラン', 'コロンブス', 'バスコ・ダ・ガマ', 'ドレーク'],
           correctIndex: 1,
           explanation: 'コロンブスはスペインの支援を受け、1492年に大西洋を横断してカリブ海の島に到達しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -57,6 +58,7 @@ export const europeSpread: Topic = {
           options: ['イエズス会', '西インド会社', 'ハンザ同盟', '東インド会社'],
           correctIndex: 3,
           explanation: '東インド会社はオランダが17世紀に設立し、アジアとの香辛料貿易で大きな利益を上げました。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -64,6 +66,7 @@ export const europeSpread: Topic = {
           options: ['ドレークの船隊', 'バスコ・ダ・ガマの船隊', 'マゼランの船隊', 'コロンブスの船隊'],
           correctIndex: 2,
           explanation: 'マゼランの船隊は1522年に世界一周を達成し、地球が球体であることを実証しました。',
+          difficulty: 'standard',
         },
       ],
     },

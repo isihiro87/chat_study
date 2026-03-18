@@ -54,34 +54,34 @@ export const taikaReform: Topic = {
     },
     videos: [],
     flashcards: [
-      { id: 'fc1', front: '大化の改新', back: '645年に始まった天皇中心の政治改革を何という？' },
-      { id: 'fc2', front: '中大兄皇子', back: '大化の改新を主導し、後に天智天皇となったのは誰？' },
-      { id: 'fc3', front: '中臣鎌足', back: '改新に協力し、藤原姓を賜り藤原氏の祖となったのは？' },
-      { id: 'fc4', front: '公地・公民', back: '土地と人民を国家が支配する方針は？' },
-      { id: 'fc5', front: '白村江の戦い', back: '663年に唐・新羅の連合軍に敗れた戦いは？' },
-      { id: 'fc6', front: '壬申の乱', back: '672年に起きた皇位継承をめぐる内乱は？' },
-      { id: 'fc7', front: '天武天皇', back: '壬申の乱に勝利し即位した天皇は？' },
-      { id: 'fc8', front: '藤原京', back: '694年に造営された日本初の本格的な都城は？' },
-      { id: 'fc9', front: '持統天皇', back: '天武天皇の皇后で、藤原京を造営した天皇は？' },
-      { id: 'fc10', front: '水城', back: '白村江の戦いの後に九州の防衛のため築かれた堤防は？' },
-      { id: 'fc11', front: '大宰府', back: '九州の外交と防衛を担った役所は？' },
-      { id: 'fc12', front: '近江大津宮', back: '天智天皇が白村江の戦い後に遷都した場所は？' },
-      { id: 'fc13', front: '乙巳の変', back: '645年に蘇我入鹿を暗殺したクーデターを何という？' },
-      { id: 'fc14', front: '蘇我入鹿', back: '大化の改新で倒された蘇我氏の人物は？' },
-      { id: 'fc15', front: '大海人皇子', back: '壬申の乱に勝利した天智天皇の弟は？' },
-      { id: 'fc16', front: '大友皇子', back: '壬申の乱で大海人皇子に敗れた天智天皇の子は？' },
-      { id: 'fc17', front: '百済', back: '白村江の戦いで日本が助けようとした国は？' },
-      { id: 'fc18', front: '新羅', back: '白村江の戦い後に朝鮮半島を統一した国は？' },
-      { id: 'fc19', front: '天智天皇', back: '中大兄皇子が即位して名乗った天皇名は？' },
-      { id: 'fc20', front: '遣唐使', back: '唐に制度や文化を学ぶために派遣した使節は？' },
-      { id: 'fc21', front: '年号（元号）', back: '「大化」は日本で初めて定められた何？' },
-      { id: 'fc22', front: '蘇我蝦夷', back: '蘇我入鹿の父で、蘇我氏の有力者は？' },
-      { id: 'fc23', front: '藤原', back: '中臣鎌足がのちに賜った姓は？' },
-      { id: 'fc24', front: '長安', back: '遣唐使が向かった唐の都はどこ？' },
-      { id: 'fc25', front: '奈良県橿原市', back: '藤原京が置かれた場所は現在のどこ？' },
-      { id: 'fc26', front: '富本銭', back: '日本で最初に作られた銅銭とされるものは？' },
-      { id: 'fc27', front: '班田収授法', back: '大化の改新で導入された公地・公民の考え方を受け継いだ法は？' },
-      { id: 'fc28', front: '国・郡・里', back: '大化の改新で定められた地方の行政区画の仕組みは？' },
+      { id: 'fc1', front: '大化の改新', back: '645年に始まった天皇中心の政治改革を何という？', difficulty: 'basic' },
+      { id: 'fc2', front: '中大兄皇子', back: '大化の改新を主導し、後に天智天皇となったのは誰？', difficulty: 'basic' },
+      { id: 'fc3', front: '中臣鎌足', back: '改新に協力し、藤原姓を賜り藤原氏の祖となったのは？', difficulty: 'basic' },
+      { id: 'fc4', front: '公地・公民', back: '土地と人民を国家が支配する方針は？', difficulty: 'basic' },
+      { id: 'fc5', front: '白村江の戦い', back: '663年に唐・新羅の連合軍に敗れた戦いは？', difficulty: 'basic' },
+      { id: 'fc6', front: '壬申の乱', back: '672年に起きた皇位継承をめぐる内乱は？', difficulty: 'basic' },
+      { id: 'fc7', front: '天武天皇', back: '壬申の乱に勝利し即位した天皇は？', difficulty: 'basic' },
+      { id: 'fc8', front: '藤原京', back: '694年に造営された日本初の本格的な都城は？', difficulty: 'basic' },
+      { id: 'fc9', front: '持統天皇', back: '天武天皇の皇后で、藤原京を造営した天皇は？', difficulty: 'basic' },
+      { id: 'fc10', front: '水城', back: '白村江の戦いの後に九州の防衛のため築かれた堤防は？', difficulty: 'basic' },
+      { id: 'fc11', front: '大宰府', back: '九州の外交と防衛を担った役所は？', difficulty: 'basic' },
+      { id: 'fc12', front: '近江大津宮', back: '天智天皇が白村江の戦い後に遷都した場所は？', difficulty: 'basic' },
+      { id: 'fc13', front: '乙巳の変', back: '645年に蘇我入鹿を暗殺したクーデターを何という？', difficulty: 'standard' },
+      { id: 'fc14', front: '蘇我入鹿', back: '大化の改新で倒された蘇我氏の人物は？', difficulty: 'standard' },
+      { id: 'fc15', front: '大海人皇子', back: '壬申の乱に勝利した天智天皇の弟は？', difficulty: 'standard' },
+      { id: 'fc16', front: '大友皇子', back: '壬申の乱で大海人皇子に敗れた天智天皇の子は？', difficulty: 'standard' },
+      { id: 'fc17', front: '百済', back: '白村江の戦いで日本が助けようとした国は？', difficulty: 'standard' },
+      { id: 'fc18', front: '新羅', back: '白村江の戦い後に朝鮮半島を統一した国は？', difficulty: 'standard' },
+      { id: 'fc19', front: '天智天皇', back: '中大兄皇子が即位して名乗った天皇名は？', difficulty: 'standard' },
+      { id: 'fc20', front: '遣唐使', back: '唐に制度や文化を学ぶために派遣した使節は？', difficulty: 'standard' },
+      { id: 'fc21', front: '年号（元号）', back: '「大化」は日本で初めて定められた何？', difficulty: 'standard' },
+      { id: 'fc22', front: '蘇我蝦夷', back: '蘇我入鹿の父で、蘇我氏の有力者は？', difficulty: 'standard' },
+      { id: 'fc23', front: '藤原', back: '中臣鎌足がのちに賜った姓は？', difficulty: 'advanced' },
+      { id: 'fc24', front: '長安', back: '遣唐使が向かった唐の都はどこ？', difficulty: 'advanced' },
+      { id: 'fc25', front: '奈良県橿原市', back: '藤原京が置かれた場所は現在のどこ？', difficulty: 'advanced' },
+      { id: 'fc26', front: '富本銭', back: '日本で最初に作られた銅銭とされるものは？', difficulty: 'advanced' },
+      { id: 'fc27', front: '班田収授法', back: '大化の改新で導入された公地・公民の考え方を受け継いだ法は？', difficulty: 'advanced' },
+      { id: 'fc28', front: '国・郡・里', back: '大化の改新で定められた地方の行政区画の仕組みは？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -91,6 +91,7 @@ export const taikaReform: Topic = {
           options: ['班田収授法', '建武の新政', '承久の乱', '大化の改新'],
           correctIndex: 3,
           explanation: '大化の改新は中大兄皇子と中臣鎌足が蘇我氏を倒して始めた改革です。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -98,6 +99,7 @@ export const taikaReform: Topic = {
           options: ['白村江の戦い', '壬申の乱', '元寇', '応仁の乱'],
           correctIndex: 0,
           explanation: '白村江の戦いで日本は百済を助けようとしましたが敗北しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -105,6 +107,7 @@ export const taikaReform: Topic = {
           options: ['天智天皇', '天武天皇', '持統天皇', '聖武天皇'],
           correctIndex: 1,
           explanation: '天武天皇は壬申の乱で大友皇子を破り即位しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q4',
@@ -112,6 +115,7 @@ export const taikaReform: Topic = {
           options: ['荘園制', '封建制', '公地・公民', '墾田永年私財法'],
           correctIndex: 2,
           explanation: '公地・公民は、土地と人民を天皇（国家）が支配するという方針です。',
+          difficulty: 'basic',
         },
         {
           id: 'q5',
@@ -119,6 +123,7 @@ export const taikaReform: Topic = {
           options: ['蘇我馬子', '中臣鎌足', '坂上田村麻呂', '藤原道長'],
           correctIndex: 1,
           explanation: '中臣鎌足は大化の改新に協力し、のちに藤原姓を賜り藤原氏の祖となりました。',
+          difficulty: 'basic',
         },
         {
           id: 'q6',
@@ -126,6 +131,7 @@ export const taikaReform: Topic = {
           options: ['藤原京', '平安京', '平城京', '長岡京'],
           correctIndex: 0,
           explanation: '藤原京は694年に持統天皇のもとで造営された日本初の本格的な都城です。',
+          difficulty: 'basic',
         },
         {
           id: 'q7',
@@ -133,6 +139,7 @@ export const taikaReform: Topic = {
           options: ['壬申の乱', '応仁の乱', '承久の乱', '乙巳の変'],
           correctIndex: 3,
           explanation: '乙巳の変は中大兄皇子と中臣鎌足が蘇我入鹿を暗殺した事件で、大化の改新のきっかけとなりました。',
+          difficulty: 'basic',
         },
         {
           id: 'q8',
@@ -140,6 +147,7 @@ export const taikaReform: Topic = {
           options: ['新羅', '唐', '百済', '高句麗'],
           correctIndex: 2,
           explanation: '日本は友好関係にあった百済を助けるために軍を送りましたが、唐・新羅に敗れました。',
+          difficulty: 'basic',
         },
         {
           id: 'q9',
@@ -147,6 +155,7 @@ export const taikaReform: Topic = {
           options: ['中大兄皇子と中臣鎌足', '聖徳太子と蘇我馬子', '大海人皇子と大友皇子', '天智天皇と天武天皇'],
           correctIndex: 2,
           explanation: '壬申の乱は大海人皇子（のちの天武天皇）と大友皇子の皇位継承争いです。',
+          difficulty: 'basic',
         },
         {
           id: 'q10',
@@ -154,6 +163,7 @@ export const taikaReform: Topic = {
           options: ['百済', '高句麗', '唐', '新羅'],
           correctIndex: 3,
           explanation: '新羅は唐と協力して百済・高句麗を滅ぼし、朝鮮半島を統一しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q11',
@@ -161,6 +171,7 @@ export const taikaReform: Topic = {
           options: ['法律', '年号（元号）', '官職', '貨幣'],
           correctIndex: 1,
           explanation: '「大化」は日本で初めて定められた年号（元号）です。',
+          difficulty: 'standard',
         },
         {
           id: 'q12',
@@ -168,6 +179,7 @@ export const taikaReform: Topic = {
           options: ['物部氏', '大伴氏', '蘇我氏', '中臣氏'],
           correctIndex: 2,
           explanation: '蘇我氏は大臣として朝廷の実権を握り、天皇をしのぐ権力を持っていました。',
+          difficulty: 'standard',
         },
         {
           id: 'q13',
@@ -175,6 +187,7 @@ export const taikaReform: Topic = {
           options: ['軍事力を持つ権利', '土地と人民を私有する権利', '外交を行う権利', '仏教を広める権利'],
           correctIndex: 1,
           explanation: '公地・公民は豪族が土地と人民を私有する権利を否定し、国家のものとしました。',
+          difficulty: 'standard',
         },
         {
           id: 'q14',
@@ -182,6 +195,7 @@ export const taikaReform: Topic = {
           options: ['隋', '唐', '新羅', '百済'],
           correctIndex: 1,
           explanation: '大化の改新では唐の制度を手本にして天皇中心の国づくりを進めました。',
+          difficulty: 'standard',
         },
         {
           id: 'q15',
@@ -189,6 +203,7 @@ export const taikaReform: Topic = {
           options: ['蘇我氏', '平氏', '源氏', '藤原氏'],
           correctIndex: 3,
           explanation: '中臣鎌足は藤原姓を賜り、藤原氏の祖となりました。',
+          difficulty: 'standard',
         },
         {
           id: 'q16',
@@ -196,6 +211,7 @@ export const taikaReform: Topic = {
           options: ['大宰府', '多賀城', '水城', '城柵'],
           correctIndex: 2,
           explanation: '水城は白村江の戦いの後に九州の防衛のために築かれた堤防です。',
+          difficulty: 'standard',
         },
         {
           id: 'q17',
@@ -203,6 +219,7 @@ export const taikaReform: Topic = {
           options: ['貴族中心の政治', '天皇に権力を集中させた中央集権国家', '豪族の自治', '仏教による政治'],
           correctIndex: 1,
           explanation: '天武天皇は天皇に権力を集中させた強力な中央集権国家を目指しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q18',
@@ -210,6 +227,7 @@ export const taikaReform: Topic = {
           options: ['平安京', '唐の長安', '朝鮮の慶州', '隋の洛陽'],
           correctIndex: 1,
           explanation: '藤原京は唐の長安をモデルにして造られた日本初の本格的な都城です。',
+          difficulty: 'standard',
         },
         {
           id: 'q19',
@@ -217,6 +235,7 @@ export const taikaReform: Topic = {
           options: ['娘', '妹', '皇后', '母'],
           correctIndex: 2,
           explanation: '持統天皇は天武天皇の皇后（妻）で、藤原京を造営しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q20',
@@ -224,6 +243,7 @@ export const taikaReform: Topic = {
           options: ['藤原京', '平安京', '近江大津宮', '平城京'],
           correctIndex: 2,
           explanation: '天智天皇は白村江の戦いの後、近江大津宮（滋賀県）に都を移しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q21',
@@ -231,6 +251,7 @@ export const taikaReform: Topic = {
           options: ['仏教国家の建設', '天皇中心の律令国家の建設', '豪族連合の国家', '軍事国家の建設'],
           correctIndex: 1,
           explanation: '大化の改新から藤原京造営までの流れは天皇中心の律令国家の建設を目指したものです。',
+          difficulty: 'standard',
         },
         {
           id: 'q22',
@@ -238,6 +259,7 @@ export const taikaReform: Topic = {
           options: ['仏教を廃止した', '国防を強化し律令国家の建設を加速させた', '鎖国政策を始めた', '唐に服従した'],
           correctIndex: 1,
           explanation: '白村江の敗戦後、国防の強化を急ぐとともに律令国家の建設を加速させました。',
+          difficulty: 'standard',
         },
         {
           id: 'q23',
@@ -245,6 +267,7 @@ export const taikaReform: Topic = {
           options: ['都道府県', '国・郡・里', '藩', '領地'],
           correctIndex: 1,
           explanation: '大化の改新では国・郡・里の行政区画の設置が定められました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q24',
@@ -252,6 +275,7 @@ export const taikaReform: Topic = {
           options: ['和同開珎', '富本銭', '永楽通宝', '寛永通宝'],
           correctIndex: 1,
           explanation: '富本銭は日本で最初に作られたとされる銅銭です。',
+          difficulty: 'advanced',
         },
         {
           id: 'q25',
@@ -259,6 +283,7 @@ export const taikaReform: Topic = {
           options: ['万葉集', '風土記', '古事記', '日本書紀'],
           correctIndex: 2,
           explanation: '天武天皇の時代に古事記（および日本書紀の準備）の編纂が始められました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q26',
@@ -266,6 +291,7 @@ export const taikaReform: Topic = {
           options: ['聖徳太子と蘇我馬子', '中大兄皇子と中臣鎌足', '天武天皇と持統天皇', '大海人皇子と大友皇子'],
           correctIndex: 1,
           explanation: '中大兄皇子と中臣鎌足が乙巳の変で蘇我入鹿を暗殺しました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q27',
@@ -273,6 +299,7 @@ export const taikaReform: Topic = {
           options: ['663年', '672年', '694年', '701年'],
           correctIndex: 2,
           explanation: '694年に持統天皇のもとで藤原京が造営されました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q28',
@@ -280,6 +307,7 @@ export const taikaReform: Topic = {
           options: ['645年', '663年', '672年', '694年'],
           correctIndex: 2,
           explanation: '672年に壬申の乱が起き、大海人皇子が勝利して天武天皇となりました。',
+          difficulty: 'advanced',
         },
       ],
     },

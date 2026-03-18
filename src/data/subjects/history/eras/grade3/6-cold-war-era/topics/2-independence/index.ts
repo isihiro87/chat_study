@@ -34,104 +34,18 @@ export const independence: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'fc1',
-        front: 'サンフランシスコ平和条約',
-        back: '1951年に日本が調印し、主権を回復した条約は？',
-        explanation:
-          '吉田茂首相が調印し、1952年に発効して日本は独立を回復した。',
-      },
-      {
-        id: 'fc2',
-        front: '日米安全保障条約',
-        back: 'サンフランシスコ平和条約と同時に結ばれた、アメリカ軍の日本駐留を定めた条約は？',
-        explanation:
-          'アメリカ軍が日本に基地を置き、日本の防衛に関与する取り決め。',
-      },
-      {
-        id: 'fc3',
-        front: '特需景気',
-        back: '朝鮮戦争でアメリカ軍の物資調達により日本経済が潤ったことを何という？',
-        explanation:
-          '朝鮮戦争の軍需物資を日本企業が受注し、経済復興のきっかけとなった。',
-      },
-      {
-        id: 'fc4',
-        front: '自衛隊',
-        back: '1954年に設立された、日本の防衛を担う組織は？',
-        explanation:
-          '警察予備隊・保安隊を経て自衛隊が発足した。',
-      },
-      {
-        id: 'fc5',
-        front: '吉田茂',
-        back: 'サンフランシスコ平和条約に調印し、日本の独立回復を実現した首相は？',
-        explanation:
-          '戦後日本の復興を主導した政治家。',
-      },
-      {
-        id: 'fc6',
-        front: '第五福竜丸',
-        back: '1954年にアメリカの水爆実験で被ばくした日本の漁船は？',
-        explanation:
-          'ビキニ環礁での水爆実験により被ばくし、反核運動のきっかけとなった。',
-      },
-      {
-        id: 'fc7',
-        front: '自由民主党',
-        back: '1955年に結成された、保守合同によって生まれた政党は？',
-        explanation:
-          '以後長期にわたり政権を担い、55年体制の一翼を担った。',
-      },
-      {
-        id: 'fc8',
-        front: '55年体制',
-        back: '自由民主党と社会党が対立する戦後日本の政治体制を何という？',
-        explanation:
-          '1955年から1993年まで続いた政治体制。',
-      },
-      {
-        id: 'fc9',
-        front: '安保闘争',
-        back: '日米安全保障条約の改定に反対する大規模な国民運動を何という？',
-        explanation:
-          '1960年に岸信介首相のもとで激しい反対運動が起こった。',
-      },
-      {
-        id: 'fc10',
-        front: '岸信介',
-        back: '日米安全保障条約の改定を進め、安保闘争を引き起こした首相は？',
-        explanation:
-          '条約改定後に退陣した。',
-      },
-      {
-        id: 'fc11',
-        front: '日ソ共同宣言',
-        back: '1956年にソ連との国交を回復し、日本の国連加盟を実現させた宣言は？',
-        explanation:
-          'ソ連が日本の国連加盟を支持することで合意した。',
-      },
-      {
-        id: 'fc12',
-        front: '非核三原則',
-        back: '核兵器を「持たず、つくらず、持ちこませず」という日本の原則は？',
-        explanation:
-          '佐藤栄作首相が表明し、日本の基本方針となった。',
-      },
-      {
-        id: 'fc13',
-        front: '沖縄',
-        back: 'サンフランシスコ平和条約後もアメリカの施政下に置かれ、1972年に返還された地域は？',
-        explanation:
-          '沖縄返還は佐藤栄作首相のもとで実現した。',
-      },
-      {
-        id: 'fc14',
-        front: '日韓基本条約',
-        back: '1965年に日本と韓国の国交を正常化した条約は？',
-        explanation:
-          '韓国との間で経済協力や請求権の問題が解決された。',
-      },
+      { id: 'fc1', front: 'サンフランシスコ平和条約', back: '1951年に日本が調印し、主権を回復した条約は？', difficulty: 'basic' },
+      { id: 'fc2', front: '日米安全保障条約', back: 'サンフランシスコ平和条約と同時に結ばれた、アメリカ軍の日本駐留を定めた条約は？', difficulty: 'basic' },
+      { id: 'fc3', front: '特需景気', back: '朝鮮戦争でアメリカ軍の物資調達により日本経済が潤ったことを何という？', difficulty: 'basic' },
+      { id: 'fc4', front: '自衛隊', back: '1954年に設立された、日本の防衛を担う組織は？', difficulty: 'basic' },
+      { id: 'fc5', front: '吉田茂', back: 'サンフランシスコ平和条約に調印し、日本の独立回復を実現した首相は？', difficulty: 'basic' },
+      { id: 'fc6', front: '第五福竜丸', back: '1954年にアメリカの水爆実験で被ばくした日本の漁船は？', explanation: 'ビキニ環礁での水爆実験により被ばくし、反核運動のきっかけとなった。', difficulty: 'standard' },
+      { id: 'fc7', front: '55年体制', back: '自由民主党と社会党が対立する戦後日本の政治体制を何という？', explanation: '1955年から1993年まで続いた。', difficulty: 'standard' },
+      { id: 'fc8', front: '安保闘争', back: '日米安全保障条約の改定に反対する大規模な国民運動を何という？', difficulty: 'standard' },
+      { id: 'fc9', front: '日ソ共同宣言', back: '1956年にソ連との国交を回復し、日本の国連加盟を実現させた宣言は？', difficulty: 'standard' },
+      { id: 'fc10', front: '非核三原則', back: '核兵器を「持たず、つくらず、持ちこませず」という日本の原則は？', explanation: '佐藤栄作首相が表明した。', difficulty: 'advanced' },
+      { id: 'fc11', front: '沖縄返還', back: 'サンフランシスコ平和条約後もアメリカの施政下に置かれ、1972年に日本に返還された地域は？', difficulty: 'advanced' },
+      { id: 'fc12', front: '日韓基本条約', back: '1965年に日本と韓国の国交を正常化した条約は？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -148,6 +62,7 @@ export const independence: Topic = {
           correctIndex: 3,
           explanation:
             'サンフランシスコ平和条約により、日本は主権を回復し独立国として国際社会に復帰しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -162,6 +77,7 @@ export const independence: Topic = {
           correctIndex: 0,
           explanation:
             '朝鮮戦争でアメリカ軍の軍需物資を日本企業が受注し、経済復興のきっかけとなりました。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -176,6 +92,7 @@ export const independence: Topic = {
           correctIndex: 2,
           explanation:
             '1960年に岸信介首相のもとで安保条約改定に反対する安保闘争が起こりました。',
+          difficulty: 'basic',
         },
         {
           id: 'q4',
@@ -190,6 +107,7 @@ export const independence: Topic = {
           correctIndex: 1,
           explanation:
             '1955年に自由民主党が結成され、社会党と対立する55年体制が始まりました。',
+          difficulty: 'standard',
         },
         {
           id: 'q5',
@@ -204,6 +122,7 @@ export const independence: Topic = {
           correctIndex: 3,
           explanation:
             '第五福竜丸はビキニ環礁でのアメリカの水爆実験により被ばくし、日本での反核運動のきっかけとなりました。',
+          difficulty: 'standard',
         },
         {
           id: 'q6',
@@ -218,6 +137,7 @@ export const independence: Topic = {
           correctIndex: 0,
           explanation:
             '日ソ共同宣言によりソ連との国交が回復し、ソ連が日本の国連加盟を支持することで国際連合加盟が実現しました。',
+          difficulty: 'standard',
         },
       ],
     },

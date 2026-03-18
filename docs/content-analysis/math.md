@@ -109,7 +109,7 @@ examples: {
 
 ### 2.4 フラッシュカード（flashcards）
 
-**構成:** 25〜40枚/トピック（quiz/ichimondittou.mdの全問題をカバーする量）
+**構成:** quiz/ichimondittou.mdの全問題をカバーする量（問題数はトピックごとに異なってよい）
 
 ```typescript
 {
@@ -121,7 +121,7 @@ examples: {
 
 ### 2.5 クイズ（quiz）
 
-**index.ts内:** 25〜40問の4択問題（quiz/フォルダの3ファイルから網羅的に変換）
+**index.ts内:** quiz/フォルダの3ファイルから作れるだけの4択問題を網羅的に変換（問題数はトピックごとに異なってよい）
 
 ```typescript
 quiz: {
@@ -262,4 +262,4 @@ slides: [
 - **指摘5**: クイズは選択問題・並べ替え問題を原則とする
 - **指摘6**: フラッシュカード・クイズには難易度タグ（basic/standard/advanced）を付与する
 - **対応**: generate-content, improve-from-pdf, review-contentスキルを更新済み
-- **汎用ルール**: 目標数値をフラッシュカード25〜40枚、クイズ25〜40問に引き上げ。quiz/フォルダの問題を主要ソースとして網羅的に変換する。難易度バランスはbasic40%/standard40%/advanced20%
+- **汎用ルール**: フラッシュカード・クイズの問題数は統一不要。quiz/フォルダの問題を主要ソースとして、作れるだけの問題を網羅的に変換する。難易度バランスはbasic40%/standard40%/advanced20%

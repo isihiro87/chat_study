@@ -157,178 +157,34 @@ export const cultureReligion: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'geo1-cr-fc1',
-        front: '高床式住居',
-        back: '熱帯地域で見られる高床式住居は、何のために工夫された住居か？',
-        explanation:
-          '高床式住居は、床を地面から高くすることで風通しをよくし、湿気や害虫を防ぐために工夫された住居です。東南アジアなど熱帯地域で多く見られます。',
-      },
-      {
-        id: 'geo1-cr-fc2',
-        front: '乾燥帯の住居',
-        back: '乾燥帯の住居に使われる「日干しれんが（アドベ）」の特徴は？',
-        explanation:
-          '日干しれんが（アドベ）は、泥を固めて日光で乾燥させたれんがです。厚い壁を作ることで、昼の暑さや夜の寒さを防ぐことができます。西アジアや北アフリカで広く使われています。',
-      },
-      {
-        id: 'geo1-cr-fc3',
-        front: '世界三大宗教',
-        back: '「世界三大宗教」とよばれる三つの宗教を答えよ。',
-        explanation:
-          'キリスト教、イスラーム（イスラム教）、仏教の三つです。いずれも発祥地から世界各地に広がったため「世界三大宗教」とよばれます。',
-      },
-      {
-        id: 'geo1-cr-fc4',
-        front: 'ハラール',
-        back: 'イスラームにおける「ハラール」とは何か？',
-        explanation:
-          'ハラールとは、イスラームの教えで「許されたもの」を意味します。イスラームの決まりに従って処理された食品をハラール食品といい、豚肉やアルコールは禁じられています。',
-      },
-      {
-        id: 'geo1-cr-fc5',
-        front: 'イスラームの礼拝',
-        back: 'イスラームの信者は一日に何回礼拝を行うか？',
-        explanation:
-          '一日五回の礼拝（サラート）を行います。メッカ（聖地）の方角に向かって祈ります。金曜日は集団礼拝の日とされています。',
-      },
-      {
-        id: 'geo1-cr-fc6',
-        front: 'ヒンドゥー教と牛',
-        back: 'ヒンドゥー教で牛はどのように扱われているか？',
-        explanation:
-          'ヒンドゥー教では牛は神聖な動物とされており、牛肉を食べることは禁じられています。インドでは街中を牛が自由に歩いている光景も見られます。',
-      },
-      {
-        id: 'geo1-cr-fc7',
-        front: '生活のグローバル化',
-        back: '生活のグローバル化の具体例を二つ以上挙げよ。',
-        explanation:
-          'ファストフード店やコンビニが世界中に広がったこと、ジーンズやTシャツなど共通の衣服が普及したこと、インターネットやスマートフォンの普及などが挙げられます。',
-      },
-      {
-        id: 'geo1-cr-fc8',
-        front: 'ガンジス川の沐浴',
-        back: 'ヒンドゥー教の信者がガンジス川で沐浴をする理由を答えよ。',
-        explanation:
-          'ガンジス川はヒンドゥー教で聖なる川とされ、その水で体を清めることで罪が洗い流されると信じられています。',
-      },
-      {
-        id: 'geo1-cr-fc9',
-        front: '各宗教の信者数',
-        back: 'キリスト教・イスラム教・ヒンドゥー教・仏教の信者数（概数）を答えよ。',
-        explanation:
-          'キリスト教が約24億人、イスラム教が約19億人、ヒンドゥー教が約12億人、仏教が約5億人です。',
-      },
-      {
-        id: 'geo1-cr-fc10',
-        front: 'ラマダーン',
-        back: 'イスラム教のラマダーン（断食月）について説明せよ。',
-        explanation:
-          'ラマダーンはイスラム教の断食月で、日の出から日没まで食事や飲み物を断ちます。信仰心を深め、貧しい人々への共感を育む行為とされています。',
-      },
-      {
-        id: 'geo1-cr-fc11',
-        front: 'イスラム教の聖地と礼拝所',
-        back: 'イスラム教の聖地と礼拝施設の名称を答えよ。',
-        explanation:
-          '聖地はメッカ（サウジアラビア）で、礼拝施設はモスクとよばれます。信者は一日5回メッカの方角に向かって礼拝します。',
-      },
-      {
-        id: 'geo1-cr-fc12',
-        front: 'キリスト教の行事',
-        back: 'キリスト教の代表的な行事を二つ答えよ。',
-        explanation:
-          'クリスマス（イエス・キリストの誕生を祝う行事）とイースター（復活祭）が代表的です。日曜日に教会で礼拝を行う習慣もあります。',
-      },
-      {
-        id: 'geo1-cr-fc13',
-        front: '仏教の文化',
-        back: '仏教に由来する日本の行事や施設を答えよ。',
-        explanation:
-          'お盆（先祖の霊を迎えて供養する行事）や寺院での修行などがあります。東南アジアでは托鉢の僧侶に食事を施す習慣も見られます。',
-      },
-      {
-        id: 'geo1-cr-fc14',
-        front: 'イスラム教の聖典',
-        back: 'イスラム教の聖典の名称を答えよ。',
-        explanation:
-          'コーランです。アラビア語で書かれた聖典で、神（アッラー）の教えが記されています。',
-      },
-      {
-        id: 'geo1-cr-fc15',
-        front: '宗教の分布',
-        back: 'キリスト教とイスラム教がそれぞれ多く信仰されている地域を答えよ。',
-        explanation:
-          'キリスト教はヨーロッパ・南北アメリカ・オセアニアに多い。イスラム教は西アジア・北アフリカ・東南アジアに多く信仰されています。',
-      },
-      {
-        id: 'geo1-cr-fc16',
-        front: '伝統文化の保存',
-        back: 'グローバル化が進む中で伝統文化の保存が重要とされる理由を答えよ。',
-        explanation:
-          'グローバル化により共通の文化が広がる一方で、各地域の独自の文化や生活様式が失われる恐れがあるため、伝統文化を保存・継承する取り組みが大切です。',
-      },
-      {
-        id: 'geo1-cr-fc17',
-        front: 'キリスト教の信者数',
-        back: 'キリスト教の信者数はおよそ何億人か。',
-      },
-      {
-        id: 'geo1-cr-fc18',
-        front: 'イスラム教の信者数',
-        back: 'イスラム教の信者数はおよそ何億人か。',
-      },
-      {
-        id: 'geo1-cr-fc19',
-        front: 'ヒンドゥー教の信者数',
-        back: 'ヒンドゥー教の信者数はおよそ何億人か。',
-      },
-      {
-        id: 'geo1-cr-fc20',
-        front: '仏教の信者数',
-        back: '仏教の信者数はおよそ何億人か。',
-      },
-      {
-        id: 'geo1-cr-fc21',
-        front: 'ラマダン',
-        back: 'イスラム教における断食が行われる月を何というか。',
-      },
-      {
-        id: 'geo1-cr-fc22',
-        front: 'メッカ',
-        back: 'イスラム教の聖地はどこか。',
-      },
-      {
-        id: 'geo1-cr-fc23',
-        front: 'モスク',
-        back: 'イスラム教の礼拝施設を何というか。',
-      },
-      {
-        id: 'geo1-cr-fc24',
-        front: '教会',
-        back: 'キリスト教の礼拝施設を何というか。',
-      },
-      {
-        id: 'geo1-cr-fc25',
-        front: '寺院',
-        back: '仏教の礼拝施設を何というか。',
-      },
-      {
-        id: 'geo1-cr-fc26',
-        front: 'ハラール',
-        back: 'イスラム教の教えで「許されたもの」を意味する食品基準を何というか。',
-      },
-      {
-        id: 'geo1-cr-fc27',
-        front: '高床式住居',
-        back: '熱帯地域で見られる床の高い住居を何というか。',
-      },
-      {
-        id: 'geo1-cr-fc28',
-        front: 'アジアの米文化',
-        back: 'アジアで米が主食として発達した理由を簡潔に述べよ。',
-      },
+      { id: 'geo1-cr-fc1', front: '風通しをよくし、湿気や害虫を防ぐための住居', back: '熱帯地域で見られる高床式住居は、何のために工夫された住居か？', difficulty: 'basic' },
+      { id: 'geo1-cr-fc2', front: '泥を固めて日光で乾燥させたれんが。厚い壁で昼の暑さや夜の寒さを防ぐ', back: '乾燥帯の住居に使われる「日干しれんが（アドベ）」の特徴は？', difficulty: 'basic' },
+      { id: 'geo1-cr-fc3', front: 'キリスト教・イスラーム（イスラム教）・仏教', back: '「世界三大宗教」とよばれる三つの宗教を答えよ。', difficulty: 'basic' },
+      { id: 'geo1-cr-fc4', front: 'イスラームの教えで「許されたもの」を意味する食品基準。豚肉やアルコールは禁止', back: 'イスラームにおける「ハラール」とは何か？', difficulty: 'basic' },
+      { id: 'geo1-cr-fc5', front: '一日五回（メッカの方角に向かって礼拝する）', back: 'イスラームの信者は一日に何回礼拝を行うか？', difficulty: 'basic' },
+      { id: 'geo1-cr-fc6', front: '神聖な動物とされ、牛肉を食べることが禁じられている', back: 'ヒンドゥー教で牛はどのように扱われているか？', difficulty: 'basic' },
+      { id: 'geo1-cr-fc7', front: 'ファストフード店の世界展開、ジーンズ・Tシャツの普及、インターネットの浸透など', back: '生活のグローバル化の具体例を二つ以上挙げよ。', difficulty: 'basic' },
+      { id: 'geo1-cr-fc8', front: 'ガンジス川は聖なる川で、水で体を清めることで罪が洗い流されると信じられている', back: 'ヒンドゥー教の信者がガンジス川で沐浴をする理由を答えよ。', difficulty: 'standard' },
+      { id: 'geo1-cr-fc9', front: 'キリスト教約24億人、イスラム教約19億人、ヒンドゥー教約12億人、仏教約5億人', back: 'キリスト教・イスラム教・ヒンドゥー教・仏教の信者数（概数）を答えよ。', difficulty: 'standard' },
+      { id: 'geo1-cr-fc10', front: '断食月で、日の出から日没まで食事や飲み物を断つ', back: 'イスラム教のラマダーン（断食月）について説明せよ。', difficulty: 'basic' },
+      { id: 'geo1-cr-fc11', front: '聖地はメッカ（サウジアラビア）、礼拝施設はモスク', back: 'イスラム教の聖地と礼拝施設の名称を答えよ。', difficulty: 'basic' },
+      { id: 'geo1-cr-fc12', front: 'クリスマス（イエスの誕生を祝う）とイースター（復活祭）', back: 'キリスト教の代表的な行事を二つ答えよ。', difficulty: 'basic' },
+      { id: 'geo1-cr-fc13', front: 'お盆（先祖供養）や寺院での修行など', back: '仏教に由来する日本の行事や施設を答えよ。', explanation: '東南アジアでは托鉢の僧侶に食事を施す習慣もある。', difficulty: 'standard' },
+      { id: 'geo1-cr-fc14', front: 'コーラン（アラビア語で書かれた神の教え）', back: 'イスラム教の聖典の名称を答えよ。', difficulty: 'standard' },
+      { id: 'geo1-cr-fc15', front: 'キリスト教はヨーロッパ・南北アメリカ・オセアニア。イスラム教は西アジア・北アフリカ・東南アジア', back: 'キリスト教とイスラム教がそれぞれ多く信仰されている地域を答えよ。', difficulty: 'standard' },
+      { id: 'geo1-cr-fc16', front: '各地域の独自の文化が失われる恐れがあるため', back: 'グローバル化が進む中で伝統文化の保存が重要とされる理由を答えよ。', difficulty: 'standard' },
+      { id: 'geo1-cr-fc17', front: '約24億人', back: 'キリスト教の信者数はおよそ何億人か。', difficulty: 'standard' },
+      { id: 'geo1-cr-fc18', front: '約19億人', back: 'イスラム教の信者数はおよそ何億人か。', difficulty: 'standard' },
+      { id: 'geo1-cr-fc19', front: '約12億人', back: 'ヒンドゥー教の信者数はおよそ何億人か。', difficulty: 'standard' },
+      { id: 'geo1-cr-fc20', front: '約5億人', back: '仏教の信者数はおよそ何億人か。', difficulty: 'standard' },
+      { id: 'geo1-cr-fc21', front: 'ラマダン（ラマダーン）', back: 'イスラム教における断食が行われる月を何というか。', difficulty: 'basic' },
+      { id: 'geo1-cr-fc22', front: 'メッカ（サウジアラビア）', back: 'イスラム教の聖地はどこか。', difficulty: 'basic' },
+      { id: 'geo1-cr-fc23', front: 'モスク', back: 'イスラム教の礼拝施設を何というか。', difficulty: 'standard' },
+      { id: 'geo1-cr-fc24', front: '教会', back: 'キリスト教の礼拝施設を何というか。', difficulty: 'standard' },
+      { id: 'geo1-cr-fc25', front: '寺院', back: '仏教の礼拝施設を何というか。', difficulty: 'standard' },
+      { id: 'geo1-cr-fc26', front: '主にインドで信仰され、世界各地には広がっていないから', back: 'ヒンドゥー教が世界三大宗教に含まれない理由は何か。', difficulty: 'advanced' },
+      { id: 'geo1-cr-fc27', front: 'モンスーン（季節風）の影響で雨が多く、稲作に適した気候であるため', back: 'アジアで米が主食として発達した理由を簡潔に述べよ。', difficulty: 'advanced' },
+      { id: 'geo1-cr-fc28', front: 'キリスト教→イスラム教→ヒンドゥー教→仏教', back: '世界の四大宗教を信者数の多い順に並べよ。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -344,7 +200,8 @@ export const cultureReligion: Topic = {
           correctIndex: 3,
           explanation:
             '熱帯地域の高床式住居は、床を高くすることで風通しをよくし、湿気や害虫を防ぐ工夫です。暑く湿度の高い気候に適した住居です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-cr-q2',
           question: '「世界三大宗教」に含まれないのはどれ？',
@@ -357,7 +214,8 @@ export const cultureReligion: Topic = {
           correctIndex: 2,
           explanation:
             'ヒンドゥー教は信者数が多いですが、主にインドで信仰されており世界各地には広がっていないため、世界三大宗教には含まれません。世界三大宗教はキリスト教・イスラーム・仏教です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-cr-q3',
           question:
@@ -366,7 +224,8 @@ export const cultureReligion: Topic = {
           correctIndex: 0,
           explanation:
             'ハラールとは「許されたもの」を意味し、イスラームの教えに従った食品を指します。ラマダーンは断食月、サラートは礼拝、モスクは礼拝所のことです。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-cr-q4',
           question: 'ヒンドゥー教で神聖な動物とされているのはどれ？',
@@ -374,7 +233,8 @@ export const cultureReligion: Topic = {
           correctIndex: 1,
           explanation:
             'ヒンドゥー教では牛が神聖な動物とされており、牛肉を食べることは禁じられています。インドでは牛を大切にする文化が根づいています。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-cr-q5',
           question:
@@ -388,7 +248,8 @@ export const cultureReligion: Topic = {
           correctIndex: 1,
           explanation:
             'グローバル化が進む中で、伝統的な文化や生活様式が失われることへの懸念から、各地で伝統文化の保存や継承の取り組みが行われています。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-cr-q6',
           question:
@@ -402,7 +263,8 @@ export const cultureReligion: Topic = {
           correctIndex: 2,
           explanation:
             'ガンジス川はヒンドゥー教で聖なる川とされ、信者はこの川で沐浴して体を清め、罪が洗い流されると信じています。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-cr-q7',
           question:
@@ -416,7 +278,8 @@ export const cultureReligion: Topic = {
           correctIndex: 0,
           explanation:
             'コーランはイスラム教の聖典で、神（アッラー）の教えが記されています。聖書はキリスト教の聖典です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-cr-q8',
           question:
@@ -430,7 +293,8 @@ export const cultureReligion: Topic = {
           correctIndex: 3,
           explanation:
             'モスクはイスラム教の礼拝施設です。教会はキリスト教、寺院は仏教の礼拝施設です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-cr-q9',
           question:
@@ -444,7 +308,8 @@ export const cultureReligion: Topic = {
           correctIndex: 3,
           explanation:
             'キリスト教が約24億人で世界最多です。次いでイスラム教が約19億人、ヒンドゥー教が約12億人、仏教が約5億人です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-cr-q10',
           question:
@@ -458,7 +323,8 @@ export const cultureReligion: Topic = {
           correctIndex: 0,
           explanation:
             '日干しれんがで作った厚い壁は、昼の猛暑と夜の冷え込みの両方を防ぐことができます。乾燥帯の大きな寒暖差に適した建材です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-cr-q11',
           question: 'キリスト教の信者数はおよそ何億人か。',
@@ -471,7 +337,8 @@ export const cultureReligion: Topic = {
           correctIndex: 3,
           explanation:
             'キリスト教の信者数は約24億人で、世界最大の宗教です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-cr-q12',
           question: 'イスラム教で食べることが禁じられている肉はどれ？',
@@ -484,7 +351,8 @@ export const cultureReligion: Topic = {
           correctIndex: 2,
           explanation:
             'イスラム教では豚肉を食べることが禁じられています。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-cr-q13',
           question: 'ヒンドゥー教で神聖な動物とされ食べることが禁じられているのは？',
@@ -497,7 +365,8 @@ export const cultureReligion: Topic = {
           correctIndex: 3,
           explanation:
             'ヒンドゥー教では牛が神聖な動物とされています。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-cr-q14',
           question: 'イスラム教の聖典は何か。',
@@ -510,7 +379,8 @@ export const cultureReligion: Topic = {
           correctIndex: 1,
           explanation:
             'イスラム教の聖典はコーランです。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-cr-q15',
           question: 'イスラム教で断食が行われる月を何というか。',
@@ -523,7 +393,8 @@ export const cultureReligion: Topic = {
           correctIndex: 0,
           explanation:
             'ラマダンの間は日の出から日没まで食事を断ちます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-cr-q16',
           question: '仏教が主に信仰されている地域はどれ？',
@@ -536,7 +407,8 @@ export const cultureReligion: Topic = {
           correctIndex: 1,
           explanation:
             '仏教は東南アジアと東アジアで主に信仰されています。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-cr-q17',
           question: 'イスラム教の「許されたもの」を意味する食品基準はどれ？',
@@ -549,7 +421,8 @@ export const cultureReligion: Topic = {
           correctIndex: 1,
           explanation:
             'ハラールはイスラム教の教えで「許されたもの」を意味する食品基準です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-cr-q18',
           question: 'キリスト教の代表的な行事として正しい組み合わせはどれ？',
@@ -562,7 +435,8 @@ export const cultureReligion: Topic = {
           correctIndex: 1,
           explanation:
             'クリスマス（イエスの誕生を祝う）とイースター（復活祭）がキリスト教の代表的な行事です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-cr-q19',
           question: 'ヒンドゥー教の信者が沐浴を行う聖なる川はどれ？',
@@ -575,7 +449,8 @@ export const cultureReligion: Topic = {
           correctIndex: 2,
           explanation:
             'ガンジス川はヒンドゥー教の聖なる川で、沐浴により罪が洗い流されると信じられています。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-cr-q20',
           question: 'イスラム教が多く信仰されている地域として正しくないのはどれ？',
@@ -588,7 +463,8 @@ export const cultureReligion: Topic = {
           correctIndex: 3,
           explanation:
             'イスラム教は西アジア・北アフリカ・東南アジアに多く、南アメリカではカトリックが主流です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-cr-q21',
           question: '世界三大宗教の正しい組み合わせはどれ？',
@@ -601,7 +477,8 @@ export const cultureReligion: Topic = {
           correctIndex: 1,
           explanation:
             '世界三大宗教はキリスト教・イスラム教・仏教です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-cr-q22',
           question: 'ヒンドゥー教が世界三大宗教に含まれない理由はどれ？',
@@ -614,7 +491,8 @@ export const cultureReligion: Topic = {
           correctIndex: 1,
           explanation:
             '信者数は多いですが主にインドで信仰されており、世界各地には広がっていません。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-cr-q23',
           question: 'キリスト教が多く信仰されている地域の正しい組み合わせはどれ？',
@@ -627,7 +505,8 @@ export const cultureReligion: Topic = {
           correctIndex: 1,
           explanation:
             'キリスト教はヨーロッパ・南北アメリカ・オセアニアで広く信仰されています。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'geo1-cr-q24',
           question: 'アジアで米が主食として発達した理由はどれ？',
@@ -640,7 +519,8 @@ export const cultureReligion: Topic = {
           correctIndex: 1,
           explanation:
             'モンスーン（季節風）の影響で雨が多く、稲作に適した気候であるためです。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'geo1-cr-q25',
           question: '熱帯地域で見られる床の高い住居を何というか。',
@@ -653,7 +533,8 @@ export const cultureReligion: Topic = {
           correctIndex: 1,
           explanation:
             '高床式住居は熱帯地域で湿気や虫を避けるために見られます。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'geo1-cr-q26',
           question: 'イスラム教では一日に何回礼拝を行うか。',
@@ -666,7 +547,8 @@ export const cultureReligion: Topic = {
           correctIndex: 2,
           explanation:
             'イスラム教では一日5回礼拝を行います。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'geo1-cr-q27',
           question: '世界の四大宗教を信者数の多い順に並べたとき正しいのはどれ？',
@@ -679,7 +561,8 @@ export const cultureReligion: Topic = {
           correctIndex: 1,
           explanation:
             'キリスト教（約24億人）→イスラム教（約19億人）→ヒンドゥー教（約12億人）→仏教（約5億人）の順です。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'geo1-cr-q28',
           question: '異なる宗教や文化をもつ人々と共に生きるうえで大切なことはどれ？',
@@ -692,7 +575,8 @@ export const cultureReligion: Topic = {
           correctIndex: 1,
           explanation:
             '互いの宗教や文化を理解し尊重することが大切です。',
-        },
+        difficulty: 'advanced',
+      },
       ],
     },
     examples: {

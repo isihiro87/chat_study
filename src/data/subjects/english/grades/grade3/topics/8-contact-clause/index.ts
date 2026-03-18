@@ -41,6 +41,7 @@ export const contactClause: Topic = {
         back: '「私がきのう買った本」を英語にすると？',
         hint: '名詞のうしろに「主語＋動詞」をくっつけるよ',
         explanation: 'book のうしろに I bought yesterday をくっつけるよ。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-cc-fc2',
@@ -48,6 +49,7 @@ export const contactClause: Topic = {
         back: '「彼が好きな女の子」を英語にすると？',
         hint: 'girl のうしろに「彼が好きな」をくっつけよう',
         explanation: 'girl のうしろに he likes をくっつけるよ。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-cc-fc3',
@@ -55,6 +57,7 @@ export const contactClause: Topic = {
         back: '「私たちが見た映画」を英語にすると？',
         hint: 'movie のうしろに「私たちが見た」をくっつけよう',
         explanation: 'movie のうしろに we watched をくっつけるよ。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-cc-fc4',
@@ -62,6 +65,7 @@ export const contactClause: Topic = {
         back: '「彼女が作ったケーキ」を英語にすると？',
         hint: 'cake のうしろに「彼女が作った」をくっつけよう',
         explanation: 'cake のうしろに she made をくっつけるよ。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-cc-fc5',
@@ -69,6 +73,7 @@ export const contactClause: Topic = {
         back: '「私がラジオで聞いた歌」を英語にすると？',
         hint: 'song のうしろに「私がラジオで聞いた」をくっつけよう',
         explanation: 'song のうしろに I heard on the radio をくっつけるよ。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-cc-fc6',
@@ -76,6 +81,7 @@ export const contactClause: Topic = {
         back: '「私がいちばん好きな先生」を英語にすると？',
         hint: 'teacher のうしろに「私がいちばん好きな」をくっつけよう',
         explanation: 'teacher のうしろに I like the best をくっつけるよ。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-cc-fc7',
@@ -83,6 +89,7 @@ export const contactClause: Topic = {
         back: '「彼らが訪れた場所」を英語にすると？',
         hint: 'place のうしろに「彼らが訪れた」をくっつけよう',
         explanation: 'place のうしろに they visited をくっつけるよ。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-cc-fc8',
@@ -90,6 +97,7 @@ export const contactClause: Topic = {
         back: '接触節は何を省略した形？',
         hint: '名詞と「主語＋動詞」の間にあった言葉は…？',
         explanation: '接触節は that / which を省略した形だよ。会話では省略するのがふつう。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-cc-fc9',
@@ -97,6 +105,7 @@ export const contactClause: Topic = {
         back: '「お母さんがくれたカバン」を英語にすると？',
         hint: 'bag のうしろに「お母さんがくれた」をくっつけよう',
         explanation: 'bag のうしろに my mother gave me をくっつけるよ。',
+        difficulty: 'advanced',
       },
       {
         id: 'eng-cc-fc10',
@@ -104,6 +113,7 @@ export const contactClause: Topic = {
         back: '「あなたが撮った写真」を英語にすると？',
         hint: 'picture のうしろに「あなたが撮った」をくっつけよう',
         explanation: 'picture のうしろに you took をくっつけるよ。',
+        difficulty: 'advanced',
       },
     ],
     quiz: {
@@ -119,6 +129,7 @@ export const contactClause: Topic = {
           ],
           correctIndex: 0,
           explanation: '接触節は名詞のうしろに「主語＋動詞」をくっつけるよ。the book I bought yesterday が正しいよ。',
+          difficulty: 'basic',
         },
         {
           id: 'eng-cc-q2',
@@ -131,6 +142,7 @@ export const contactClause: Topic = {
           ],
           correctIndex: 3,
           explanation: 'girl のうしろに he likes をくっつけて The girl he likes is Yuki. だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'eng-cc-q3',
@@ -143,6 +155,7 @@ export const contactClause: Topic = {
           ],
           correctIndex: 2,
           explanation: '名詞のうしろに「主語＋動詞」の順でくっつけるよ。we watched が正しいよ。',
+          difficulty: 'basic',
         },
         {
           id: 'eng-cc-q4',
@@ -155,6 +168,7 @@ export const contactClause: Topic = {
           ],
           correctIndex: 1,
           explanation: 'that を省略すると接触節になるよ。The book I read が正しいよ。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-cc-q5',
@@ -167,6 +181,7 @@ export const contactClause: Topic = {
           ],
           correctIndex: 0,
           explanation: 'cake のうしろに she made をくっつけて The cake she made was delicious. だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-cc-q6',
@@ -178,6 +193,7 @@ export const contactClause: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「This is the cake I made.」が正解。This（これは）+ is（です）+ the cake（ケーキ）+ I made（私が作った）の順番だよ。名詞のうしろに「主語＋動詞」をくっつけるのが接触節だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-cc-q7',
@@ -189,6 +205,7 @@ export const contactClause: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「I like the song she sings.」が正解。the + song（曲）+ she（彼女が）+ sings（歌う）の順番だよ。名詞のうしろに「主語＋動詞」をくっつけるよ。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-cc-q8',
@@ -200,6 +217,7 @@ export const contactClause: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「The man I met was kind.」が正解。The man（男の人）+ I met（私が会った）+ was kind（やさしかった）の順番だよ。',
+          difficulty: 'advanced',
         },
       ],
     },

@@ -82,109 +82,125 @@ export const neutralization: Topic = {
         front: '中和',
         back: '酸性の水溶液とアルカリ性の水溶液を混ぜたとき、H⁺とOH⁻が結びついて水ができる反応を何という？',
         explanation: 'H⁺ + OH⁻ → H₂O。中和は発熱反応でもある。',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-neut-fc2',
         front: '塩（えん）',
         back: '中和反応で水とともにできる、酸の陰イオンとアルカリの陽イオンが結びついた物質を何という？',
         explanation: '例：HCl + NaOH → NaCl（塩）+ H₂O',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-neut-fc3',
         front: '硫酸バリウム（BaSO₄）…水に溶けない白い沈殿',
         back: '硫酸と水酸化バリウムの中和でできる塩は？',
         explanation: 'H₂SO₄ + Ba(OH)₂ → BaSO₄↓ + 2H₂O',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-neut-fc4',
         front: '硝酸カリウム（KNO₃）',
         back: '硝酸と水酸化カリウムの中和でできる塩は？',
         explanation: 'HNO₃ + KOH → KNO₃ + H₂O',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-neut-fc5',
         front: '炭酸カルシウム（CaCO₃）…白い沈殿',
         back: '石灰水に二酸化炭素を通すと白くにごる。この白い沈殿は何？',
         explanation: 'H₂CO₃ + Ca(OH)₂ → CaCO₃↓ + 2H₂O。石灰水が白くにごる正体。',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-neut-fc6',
         front: '塩化ナトリウム（NaCl）＝食塩',
         back: '塩酸と水酸化ナトリウムの中和でできる塩は？',
         explanation: 'HCl + NaOH → NaCl + H₂O',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-neut-fc7',
         front: '発熱反応',
         back: '中和反応は発熱反応？吸熱反応？',
         explanation: '中和反応は発熱反応で、混ぜると温度が上がる。',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-neut-fc8',
         front: '黄色（酸性）→緑色（中性）→青色（アルカリ性）',
         back: 'BTB溶液を加えた塩酸にNaOHを加えていくと、色はどう変化する？',
         explanation: '中和が進むとH⁺が減り、BTBの色が変化する。緑色になったら中性。',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-neut-fc9',
         front: 'H⁺が減っていく（OH⁻と反応して水になる）',
         back: '塩酸にNaOH水溶液を加えていくと、H⁺の数はどうなる？',
         explanation: 'H⁺はOH⁻と結びついて水になるため、NaOHを加えるほどH⁺は減っていく。',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-neut-fc10',
         front: 'Na⁺が増え、Cl⁻は変わらず、H⁺が減る→中性でH⁺=0→OH⁻が増える',
         back: '塩酸にNaOHを加えていくとき、イオンの数はどう変化する？',
         explanation: '中和の進行でH⁺が消費され、NaOHからNa⁺とOH⁻が供給される。中性を超えるとOH⁻が余る。',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-neut-fc11',
         front: 'H₂CO₃ + Ca(OH)₂ → CaCO₃ + 2H₂O',
         back: '炭酸と水酸化カルシウムの中和の化学反応式を書け',
         explanation: '石灰水が白くにごるのは、この中和反応で炭酸カルシウムの沈殿ができるため。',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-neut-fc12',
         front: '変化しない（H⁺がないため反応しない）',
         back: 'ちょうど中性になった水溶液にマグネシウムリボンを入れるとどうなる？',
         explanation: '中性ではH⁺がすべてOH⁻と反応して水になっているため、マグネシウムは反応しない。',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-neut-fc13',
         front: '白い沈殿ができる（水に溶けない塩）',
         back: '硫酸バリウムや炭酸カルシウムが中和でできるとどうなる？',
         explanation: 'BaSO₄やCaCO₃は水に溶けにくい塩なので、白い沈殿として現れる。',
+        difficulty: 'standard',
       },
       {
         id: 'sci3-neut-fc14',
         front: 'Cl⁻（塩化物イオン）…中和の前後で数が変わらない',
         back: '塩酸とNaOHの中和で、最初から最後まで数が変化しないイオンは？',
         explanation: 'Cl⁻はH⁺やOH⁻と反応しないため、中和の過程で数は変わらない。',
+        difficulty: 'standard',
       },
       {
         id: 'sci3-neut-fc15',
         front: 'Ba²⁺がすべて反応すると沈殿は増えなくなる',
         back: '硫酸に水酸化バリウムを加え続けると、沈殿の量はどうなる？',
         explanation: 'Ba²⁺とSO₄²⁻が反応して沈殿するが、一方がなくなると沈殿は増えなくなる。',
+        difficulty: 'standard',
       },
       {
         id: 'sci3-neut-fc16',
         front: 'H₂SO₄ + Ba(OH)₂ → BaSO₄ + 2H₂O',
         back: '硫酸と水酸化バリウムの中和の化学反応式を書け',
         explanation: 'BaSO₄は白い沈殿になる。水は2分子できる（H⁺が2つ、OH⁻が2つ）。',
+        difficulty: 'standard',
       },
-      { id: 'sci3-neut-fc17', front: 'H⁺ + OH⁻ → H₂O', back: '中和反応の本質をイオンの式で表すと？' },
-      { id: 'sci3-neut-fc18', front: 'HCl + NaOH → NaCl + H₂O', back: '塩酸と水酸化ナトリウムの中和の化学反応式を書け' },
-      { id: 'sci3-neut-fc19', front: '酸の陰イオンとアルカリの陽イオンが結びつく', back: '中和で塩（えん）ができるしくみは？' },
-      { id: 'sci3-neut-fc20', front: '温度が上がる', back: '中和反応が起きたとき、水溶液の温度はどうなる？' },
-      { id: 'sci3-neut-fc21', front: '硫酸ナトリウム（Na₂SO₄）', back: '硫酸と水酸化ナトリウムの中和でできる塩は？' },
-      { id: 'sci3-neut-fc22', front: '塩化カルシウム（CaCl₂）', back: '塩酸と水酸化カルシウムの中和でできる塩は？' },
-      { id: 'sci3-neut-fc23', front: 'Na⁺が増え続ける', back: '塩酸にNaOHを加えていくとき、Na⁺の数はどう変化する？' },
-      { id: 'sci3-neut-fc24', front: '中和の確認方法', back: 'BTB溶液が緑色になったとき、中和の状態はどうか？' },
-      { id: 'sci3-neut-fc25', front: 'HNO₃ + KOH → KNO₃ + H₂O', back: '硝酸と水酸化カリウムの中和の化学反応式を書け' },
-      { id: 'sci3-neut-fc26', front: '水に溶ける塩と溶けない塩がある', back: '中和でできる塩はすべて水に溶けるか？' },
-      { id: 'sci3-neut-fc27', front: '2HCl + Ca(OH)₂ → CaCl₂ + 2H₂O', back: '塩酸と水酸化カルシウムの中和の化学反応式を書け' },
-      { id: 'sci3-neut-fc28', front: 'H₂SO₄ + 2NaOH → Na₂SO₄ + 2H₂O', back: '硫酸と水酸化ナトリウムの中和の化学反応式を書け' },
+      { id: 'sci3-neut-fc17', front: 'H⁺ + OH⁻ → H₂O', back: '中和反応の本質をイオンの式で表すと？', difficulty: 'standard' },
+      { id: 'sci3-neut-fc18', front: 'HCl + NaOH → NaCl + H₂O', back: '塩酸と水酸化ナトリウムの中和の化学反応式を書け', difficulty: 'standard' },
+      { id: 'sci3-neut-fc19', front: '酸の陰イオンとアルカリの陽イオンが結びつく', back: '中和で塩（えん）ができるしくみは？', difficulty: 'standard' },
+      { id: 'sci3-neut-fc20', front: '温度が上がる', back: '中和反応が起きたとき、水溶液の温度はどうなる？', difficulty: 'standard' },
+      { id: 'sci3-neut-fc21', front: '硫酸ナトリウム（Na₂SO₄）', back: '硫酸と水酸化ナトリウムの中和でできる塩は？', difficulty: 'standard' },
+      { id: 'sci3-neut-fc22', front: '塩化カルシウム（CaCl₂）', back: '塩酸と水酸化カルシウムの中和でできる塩は？', difficulty: 'standard' },
+      { id: 'sci3-neut-fc23', front: 'Na⁺が増え続ける', back: '塩酸にNaOHを加えていくとき、Na⁺の数はどう変化する？', difficulty: 'advanced' },
+      { id: 'sci3-neut-fc24', front: 'ちょうど中性になった（H⁺とOH⁻が過不足なく反応した状態）', back: 'BTB溶液が緑色になったとき、中和の状態はどうか？', difficulty: 'standard' },
+      { id: 'sci3-neut-fc25', front: 'HNO₃ + KOH → KNO₃ + H₂O', back: '硝酸と水酸化カリウムの中和の化学反応式を書け', difficulty: 'advanced' },
+      { id: 'sci3-neut-fc26', front: '水に溶ける塩と溶けない塩がある', back: '中和でできる塩はすべて水に溶けるか？', difficulty: 'advanced' },
+      { id: 'sci3-neut-fc27', front: '2HCl + Ca(OH)₂ → CaCl₂ + 2H₂O', back: '塩酸と水酸化カルシウムの中和の化学反応式を書け', difficulty: 'advanced' },
+      { id: 'sci3-neut-fc28', front: 'H₂SO₄ + 2NaOH → Na₂SO₄ + 2H₂O', back: '硫酸と水酸化ナトリウムの中和の化学反応式を書け', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -195,7 +211,8 @@ export const neutralization: Topic = {
           correctIndex: 0,
           explanation:
             '中和反応ではH⁺ + OH⁻ → H₂O（水）ができます。同時に塩（えん）もできます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci3-neut-q2',
           question: '塩酸（HCl）と水酸化ナトリウム（NaOH）の中和でできる塩（えん）は？',
@@ -203,7 +220,8 @@ export const neutralization: Topic = {
           correctIndex: 2,
           explanation:
             'HCl + NaOH → NaCl + H₂O。塩酸のCl⁻と水酸化ナトリウムのNa⁺が結びついて塩化ナトリウム（食塩）ができます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci3-neut-q3',
           question: '硫酸と水酸化バリウムの中和でできる白い沈殿は？',
@@ -211,7 +229,8 @@ export const neutralization: Topic = {
           correctIndex: 3,
           explanation:
             'H₂SO₄ + Ba(OH)₂ → BaSO₄ + 2H₂O。硫酸バリウム（BaSO₄）は水に溶けない塩で、白い沈殿になります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci3-neut-q4',
           question: '硝酸（HNO₃）と水酸化カリウム（KOH）の中和でできる塩は？',
@@ -219,7 +238,8 @@ export const neutralization: Topic = {
           correctIndex: 1,
           explanation:
             'HNO₃ + KOH → KNO₃ + H₂O。硝酸のNO₃⁻とカリウムのK⁺が結びついて硝酸カリウムができます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci3-neut-q5',
           question:
@@ -233,7 +253,8 @@ export const neutralization: Topic = {
           correctIndex: 1,
           explanation:
             '最初は酸性で黄色。NaOHを加えていくと中性の緑色になり、さらに加えるとアルカリ性の青色になります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci3-neut-q6',
           question:
@@ -247,7 +268,8 @@ export const neutralization: Topic = {
           correctIndex: 0,
           explanation:
             'H⁺はOH⁻と結びついて水になるため、NaOH水溶液を加えるほどH⁺は減っていきます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci3-neut-q7',
           question:
@@ -261,7 +283,8 @@ export const neutralization: Topic = {
           correctIndex: 3,
           explanation:
             'ちょうど中性ではH⁺がすべてOH⁻と反応して水になっているため、マグネシウムリボンは反応しません。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci3-neut-q8',
           question:
@@ -275,7 +298,8 @@ export const neutralization: Topic = {
           correctIndex: 2,
           explanation:
             '硫酸バリウム（BaSO₄）は水に溶けにくい性質を持つ塩であるため、白い沈殿として残ります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci3-neut-q9',
           question:
@@ -284,7 +308,8 @@ export const neutralization: Topic = {
           correctIndex: 3,
           explanation:
             'Cl⁻はH⁺やOH⁻と反応しないため、中和の過程で数は変わりません。Na⁺はNaOHを加えるたびに増えます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci3-neut-q10',
           question:
@@ -298,25 +323,26 @@ export const neutralization: Topic = {
           correctIndex: 1,
           explanation:
             '中性を超えると余ったOH⁻が増えていくため、水溶液はアルカリ性になります。',
-        },
-        { id: 'sci3-neut-q11', question: '中和反応は発熱反応と吸熱反応のどちらか？', options: ['吸熱反応', '発熱反応', 'どちらでもない', '反応による'], correctIndex: 1, explanation: '中和反応は発熱反応で、混合すると水溶液の温度が上がります。' },
-        { id: 'sci3-neut-q12', question: '塩酸と水酸化カルシウムの中和でできる塩の名称は？', options: ['塩化ナトリウム', '塩化カルシウム', '硫酸カルシウム', '炭酸カルシウム'], correctIndex: 1, explanation: 'HClのCl⁻とCa(OH)₂のCa²⁺が結びついて塩化カルシウム（CaCl₂）ができます。' },
-        { id: 'sci3-neut-q13', question: '中和反応の本質をイオンの式で表すと？', options: ['Na⁺ + Cl⁻ → NaCl', 'H⁺ + OH⁻ → H₂O', 'Cu²⁺ + 2e⁻ → Cu', 'H₂ → 2H⁺ + 2e⁻'], correctIndex: 1, explanation: '中和の本質はH⁺とOH⁻が結びついて水（H₂O）ができる反応です。' },
-        { id: 'sci3-neut-q14', question: '硫酸と水酸化ナトリウムの中和でできる塩は？', options: ['塩化ナトリウム', '硫酸ナトリウム', '硝酸ナトリウム', '炭酸ナトリウム'], correctIndex: 1, explanation: 'H₂SO₄のSO₄²⁻とNaOHのNa⁺が結びついて硫酸ナトリウム（Na₂SO₄）ができます。' },
-        { id: 'sci3-neut-q15', question: '塩酸10cm³をちょうど中性にするのにNaOH水溶液10cm³必要だった。塩酸20cm³を中性にするにはNaOH水溶液は何cm³必要？', options: ['10cm³', '15cm³', '20cm³', '30cm³'], correctIndex: 2, explanation: '塩酸の体積が2倍になるとH⁺も2倍なので、NaOH水溶液も2倍の20cm³必要です。' },
-        { id: 'sci3-neut-q16', question: '中和でできたNaCl水溶液を加熱して水を蒸発させると残る固体は？', options: ['水酸化ナトリウム', '塩化ナトリウム（食塩）', '塩酸', '何も残らない'], correctIndex: 1, explanation: '中和で生じたNa⁺とCl⁻が結びついて塩化ナトリウム（食塩）の白い固体が残ります。' },
-        { id: 'sci3-neut-q17', question: '中和反応で水と同時にできる物質を何という？', options: ['酸', 'アルカリ', '塩（えん）', '酸化物'], correctIndex: 2, explanation: '中和反応ではH⁺とOH⁻から水ができると同時に、残ったイオンから塩（えん）ができます。' },
-        { id: 'sci3-neut-q18', question: '石灰水に二酸化炭素を通すと白くにごる。この白い沈殿の化学式は？', options: ['NaCl', 'BaSO₄', 'CaCO₃', 'KNO₃'], correctIndex: 2, explanation: '炭酸カルシウム（CaCO₃）は水に溶けにくい塩で、白い沈殿になります。' },
-        { id: 'sci3-neut-q19', question: '塩酸にNaOH水溶液を加えていくとき、Na⁺の数はどうなる？', options: ['変わらない', '減っていく', '増えていく', '最初減って後で増える'], correctIndex: 2, explanation: 'NaOH水溶液を加えるたびにNa⁺が供給されるため、Na⁺の数は増え続けます。' },
-        { id: 'sci3-neut-q20', question: '中和で生じた塩が水に溶けにくい場合はどうなる？', options: ['気体が発生する', '白い沈殿ができる', '温度が下がる', '色が変わらない'], correctIndex: 1, explanation: '水に溶けにくい塩（BaSO₄やCaCO₃など）は白い沈殿として現れます。' },
-        { id: 'sci3-neut-q21', question: 'H₂SO₄ + 2NaOH → Na₂SO₄ + 2H₂O で、水が2分子できる理由は？', options: ['Naが2つあるから', 'H⁺が2つとOH⁻が2つ反応するから', '電子が2つ移動するから', '温度が2倍になるから'], correctIndex: 1, explanation: '硫酸からH⁺が2個、水酸化ナトリウム2分子からOH⁻が2個出るため、H₂Oが2分子できます。' },
-        { id: 'sci3-neut-q22', question: '酸性の水溶液（H⁺あり）にNaOHを加えていくと、まずどの反応が起こる？', options: ['Na⁺とCl⁻が結合する', 'H⁺とOH⁻が結合して水になる', 'Na⁺とH⁺が結合する', 'OH⁻とCl⁻が結合する'], correctIndex: 1, explanation: '中和反応の本質はH⁺とOH⁻が結合して水ができることです。残りのイオンは水溶液中に存在し続けます。' },
-        { id: 'sci3-neut-q23', question: 'NaOH水溶液を5cm³加えたとき酸性（まだH⁺が残っている）の水溶液にマグネシウムを入れるとどうなる？', options: ['変化しない', '水素が発生する', '酸素が発生する', '沈殿ができる'], correctIndex: 1, explanation: 'まだ酸性（H⁺が残っている）なので、マグネシウムがH⁺と反応して水素が発生します。' },
-        { id: 'sci3-neut-q24', question: 'ちょうど中性になった水溶液のpHは？', options: ['0', '3', '7', '14'], correctIndex: 2, explanation: '中性の水溶液のpHは7です。H⁺とOH⁻がちょうど過不足なく反応した状態です。' },
-        { id: 'sci3-neut-q25', question: '中和でできる塩（えん）と食塩の関係は？', options: ['塩（えん）と食塩は全く無関係', '食塩（NaCl）は塩（えん）の一種', '食塩が中和で塩（えん）をつくる', '塩（えん）は食塩の別名'], correctIndex: 1, explanation: '塩（えん）は酸の陰イオンとアルカリの陽イオンが結びついた物質の総称で、食塩（NaCl）はその一例です。' },
-        { id: 'sci3-neut-q26', question: '塩酸とNaOHの中和で、NaOH水溶液を加え続けると電流の流れやすさはどう変化する？', options: ['ずっと増え続ける', '最初減ってから増える', 'ずっと減り続ける', '変わらない'], correctIndex: 1, explanation: '中和が進むとイオンが減って電流が流れにくくなり、中性を超えるとNa⁺とOH⁻が増えて再び流れやすくなります。' },
-        { id: 'sci3-neut-q27', question: '硫酸バリウム（BaSO₄）の沈殿が増えなくなった後にBa(OH)₂を加え続けると、水溶液は何性になる？', options: ['酸性', '中性のまま', 'アルカリ性', '判別できない'], correctIndex: 2, explanation: 'SO₄²⁻がすべて反応した後は余ったOH⁻が増え、アルカリ性になります。' },
-        { id: 'sci3-neut-q28', question: '中和反応で生じる水以外の物質（塩）を決めるのは何？', options: ['温度と圧力', '酸の陰イオンとアルカリの陽イオンの組み合わせ', '水の量', '電流の大きさ'], correctIndex: 1, explanation: '塩（えん）の種類は、酸に由来する陰イオンとアルカリに由来する陽イオンの組み合わせで決まります。' },
+        difficulty: 'basic',
+      },
+        { id: 'sci3-neut-q11', question: '中和反応は発熱反応と吸熱反応のどちらか？', options: ['吸熱反応', '発熱反応', 'どちらでもない', '反応による'], correctIndex: 1, explanation: '中和反応は発熱反応で、混合すると水溶液の温度が上がります。', difficulty: 'standard' },
+        { id: 'sci3-neut-q12', question: '塩酸と水酸化カルシウムの中和でできる塩の名称は？', options: ['塩化ナトリウム', '塩化カルシウム', '硫酸カルシウム', '炭酸カルシウム'], correctIndex: 1, explanation: 'HClのCl⁻とCa(OH)₂のCa²⁺が結びついて塩化カルシウム（CaCl₂）ができます。', difficulty: 'standard' },
+        { id: 'sci3-neut-q13', question: '中和反応の本質をイオンの式で表すと？', options: ['Na⁺ + Cl⁻ → NaCl', 'H⁺ + OH⁻ → H₂O', 'Cu²⁺ + 2e⁻ → Cu', 'H₂ → 2H⁺ + 2e⁻'], correctIndex: 1, explanation: '中和の本質はH⁺とOH⁻が結びついて水（H₂O）ができる反応です。', difficulty: 'standard' },
+        { id: 'sci3-neut-q14', question: '硫酸と水酸化ナトリウムの中和でできる塩は？', options: ['塩化ナトリウム', '硫酸ナトリウム', '硝酸ナトリウム', '炭酸ナトリウム'], correctIndex: 1, explanation: 'H₂SO₄のSO₄²⁻とNaOHのNa⁺が結びついて硫酸ナトリウム（Na₂SO₄）ができます。', difficulty: 'standard' },
+        { id: 'sci3-neut-q15', question: '塩酸10cm³をちょうど中性にするのにNaOH水溶液10cm³必要だった。塩酸20cm³を中性にするにはNaOH水溶液は何cm³必要？', options: ['10cm³', '15cm³', '20cm³', '30cm³'], correctIndex: 2, explanation: '塩酸の体積が2倍になるとH⁺も2倍なので、NaOH水溶液も2倍の20cm³必要です。', difficulty: 'standard' },
+        { id: 'sci3-neut-q16', question: '中和でできたNaCl水溶液を加熱して水を蒸発させると残る固体は？', options: ['水酸化ナトリウム', '塩化ナトリウム（食塩）', '塩酸', '何も残らない'], correctIndex: 1, explanation: '中和で生じたNa⁺とCl⁻が結びついて塩化ナトリウム（食塩）の白い固体が残ります。', difficulty: 'standard' },
+        { id: 'sci3-neut-q17', question: '中和反応で水と同時にできる物質を何という？', options: ['酸', 'アルカリ', '塩（えん）', '酸化物'], correctIndex: 2, explanation: '中和反応ではH⁺とOH⁻から水ができると同時に、残ったイオンから塩（えん）ができます。', difficulty: 'standard' },
+        { id: 'sci3-neut-q18', question: '石灰水に二酸化炭素を通すと白くにごる。この白い沈殿の化学式は？', options: ['NaCl', 'BaSO₄', 'CaCO₃', 'KNO₃'], correctIndex: 2, explanation: '炭酸カルシウム（CaCO₃）は水に溶けにくい塩で、白い沈殿になります。', difficulty: 'standard' },
+        { id: 'sci3-neut-q19', question: '塩酸にNaOH水溶液を加えていくとき、Na⁺の数はどうなる？', options: ['変わらない', '減っていく', '増えていく', '最初減って後で増える'], correctIndex: 2, explanation: 'NaOH水溶液を加えるたびにNa⁺が供給されるため、Na⁺の数は増え続けます。', difficulty: 'standard' },
+        { id: 'sci3-neut-q20', question: '中和で生じた塩が水に溶けにくい場合はどうなる？', options: ['気体が発生する', '白い沈殿ができる', '温度が下がる', '色が変わらない'], correctIndex: 1, explanation: '水に溶けにくい塩（BaSO₄やCaCO₃など）は白い沈殿として現れます。', difficulty: 'standard' },
+        { id: 'sci3-neut-q21', question: 'H₂SO₄ + 2NaOH → Na₂SO₄ + 2H₂O で、水が2分子できる理由は？', options: ['Naが2つあるから', 'H⁺が2つとOH⁻が2つ反応するから', '電子が2つ移動するから', '温度が2倍になるから'], correctIndex: 1, explanation: '硫酸からH⁺が2個、水酸化ナトリウム2分子からOH⁻が2個出るため、H₂Oが2分子できます。', difficulty: 'standard' },
+        { id: 'sci3-neut-q22', question: '酸性の水溶液（H⁺あり）にNaOHを加えていくと、まずどの反応が起こる？', options: ['Na⁺とCl⁻が結合する', 'H⁺とOH⁻が結合して水になる', 'Na⁺とH⁺が結合する', 'OH⁻とCl⁻が結合する'], correctIndex: 1, explanation: '中和反応の本質はH⁺とOH⁻が結合して水ができることです。残りのイオンは水溶液中に存在し続けます。', difficulty: 'standard' },
+        { id: 'sci3-neut-q23', question: 'NaOH水溶液を5cm³加えたとき酸性（まだH⁺が残っている）の水溶液にマグネシウムを入れるとどうなる？', options: ['変化しない', '水素が発生する', '酸素が発生する', '沈殿ができる'], correctIndex: 1, explanation: 'まだ酸性（H⁺が残っている）なので、マグネシウムがH⁺と反応して水素が発生します。', difficulty: 'advanced' },
+        { id: 'sci3-neut-q24', question: 'ちょうど中性になった水溶液のpHは？', options: ['0', '3', '7', '14'], correctIndex: 2, explanation: '中性の水溶液のpHは7です。H⁺とOH⁻がちょうど過不足なく反応した状態です。', difficulty: 'advanced' },
+        { id: 'sci3-neut-q25', question: '中和でできる塩（えん）と食塩の関係は？', options: ['塩（えん）と食塩は全く無関係', '食塩（NaCl）は塩（えん）の一種', '食塩が中和で塩（えん）をつくる', '塩（えん）は食塩の別名'], correctIndex: 1, explanation: '塩（えん）は酸の陰イオンとアルカリの陽イオンが結びついた物質の総称で、食塩（NaCl）はその一例です。', difficulty: 'advanced' },
+        { id: 'sci3-neut-q26', question: '塩酸とNaOHの中和で、NaOH水溶液を加え続けると電流の流れやすさはどう変化する？', options: ['ずっと増え続ける', '最初減ってから増える', 'ずっと減り続ける', '変わらない'], correctIndex: 1, explanation: '中和が進むとイオンが減って電流が流れにくくなり、中性を超えるとNa⁺とOH⁻が増えて再び流れやすくなります。', difficulty: 'advanced' },
+        { id: 'sci3-neut-q27', question: '硫酸バリウム（BaSO₄）の沈殿が増えなくなった後にBa(OH)₂を加え続けると、水溶液は何性になる？', options: ['酸性', '中性のまま', 'アルカリ性', '判別できない'], correctIndex: 2, explanation: 'SO₄²⁻がすべて反応した後は余ったOH⁻が増え、アルカリ性になります。', difficulty: 'advanced' },
+        { id: 'sci3-neut-q28', question: '中和反応で生じる水以外の物質（塩）を決めるのは何？', options: ['温度と圧力', '酸の陰イオンとアルカリの陽イオンの組み合わせ', '水の量', '電流の大きさ'], correctIndex: 1, explanation: '塩（えん）の種類は、酸に由来する陰イオンとアルカリに由来する陽イオンの組み合わせで決まります。', difficulty: 'advanced' },
       ],
     },
     examples: {

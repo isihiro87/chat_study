@@ -160,187 +160,34 @@ export const matterComposition: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'sci2-mc-fc1',
-        front: '熱分解',
-        back: '1種類の物質を加熱して2種類以上の物質に分解する化学変化を何という？',
-        explanation:
-          '例：炭酸水素ナトリウム → 炭酸ナトリウム + 水 + 二酸化炭素',
-      },
-      {
-        id: 'sci2-mc-fc2',
-        front: '水の電気分解',
-        back: '水に電流を流すと陰極に何、陽極に何が発生する？',
-        explanation:
-          '陰極に水素、陽極に酸素が発生する。体積比は水素:酸素 = 2:1',
-      },
-      {
-        id: 'sci2-mc-fc3',
-        front: '原子',
-        back: '物質をつくる最小の単位で、化学変化で分割・消滅・変化しないものは？',
-        explanation:
-          'ドルトンが提唱。種類によって質量や大きさが決まっている。',
-      },
-      {
-        id: 'sci2-mc-fc4',
-        front: '元素記号のルール',
-        back: '元素記号の1文字目は大文字、2文字目はどうする？',
-        explanation:
-          '2文字目は小文字にする。例：Cu（銅）、Fe（鉄）、Na（ナトリウム）',
-      },
-      {
-        id: 'sci2-mc-fc5',
-        front: '単体と化合物',
-        back: '1種類の元素だけでできた純粋な物質と、2種類以上の元素でできた物質をそれぞれ何という？',
-        explanation:
-          '1種類 = 単体（例：銅Cu、酸素O₂）。2種類以上 = 化合物（例：水H₂O、二酸化炭素CO₂）',
-      },
-      {
-        id: 'sci2-mc-fc6',
-        front: '石灰水が白くにごる',
-        back: '炭酸水素ナトリウムの加熱で発生する気体を石灰水に通すと白くにごる。この気体は何？',
-        explanation:
-          '二酸化炭素（CO₂）です。石灰水が白くにごるのは二酸化炭素の検出方法です。',
-      },
-      {
-        id: 'sci2-mc-fc7',
-        front: '塩化コバルト紙の色変化',
-        back: '炭酸水素ナトリウムの加熱で発生する液体を確認する方法は？色はどう変わる？',
-        explanation:
-          '塩化コバルト紙を使う。水がつくと青色から赤色（桃色）に変化する。',
-      },
-      {
-        id: 'sci2-mc-fc8',
-        front: '試験管の口を下げる理由',
-        back: '炭酸水素ナトリウムの加熱実験で、試験管の口を下げるのはなぜ？',
-        explanation:
-          '発生した液体（水）が加熱部分に流れると、試験管が急に冷えて割れる危険があるため。',
-      },
-      {
-        id: 'sci2-mc-fc9',
-        front: 'ガラス管を先に水から出す理由',
-        back: '加熱実験でガラス管を水中から取り出してから火を消すのはなぜ？',
-        explanation:
-          '先に火を消すと試験管内の気圧が下がり、水が逆流して加熱された試験管が割れるのを防ぐため。',
-      },
-      {
-        id: 'sci2-mc-fc10',
-        front: '酸化銀の熱分解',
-        back: '酸化銀を加熱すると何が残る？どんな見た目？',
-        explanation:
-          '白い金属の銀（Ag）が残る。同時に酸素（O₂）が発生する。2Ag₂O → 4Ag + O₂',
-      },
-      {
-        id: 'sci2-mc-fc11',
-        front: '水の電気分解と水酸化ナトリウム',
-        back: '水の電気分解で水酸化ナトリウムを少量溶かす理由は？',
-        explanation:
-          '純水は電流が流れにくいため、水酸化ナトリウムを溶かして電流を流れやすくする。',
-      },
-      {
-        id: 'sci2-mc-fc12',
-        front: '陰極の水素の確認方法',
-        back: '水の電気分解で陰極に発生した気体（水素）の確認方法は？',
-        explanation:
-          'マッチの火を近づけると「ポン」と音を立てて燃える。水素は可燃性の気体。',
-      },
-      {
-        id: 'sci2-mc-fc13',
-        front: '陽極の酸素の確認方法',
-        back: '水の電気分解で陽極に発生した気体（酸素）の確認方法は？',
-        explanation:
-          '火のついた線香を入れると、線香が激しく燃える。酸素は助燃性（ものを燃やすはたらき）がある。',
-      },
-      {
-        id: 'sci2-mc-fc14',
-        front: '元素記号（非金属）',
-        back: 'H, He, C, N, O, S, Cl はそれぞれ何の元素記号？',
-        explanation:
-          'H=水素, He=ヘリウム, C=炭素, N=窒素, O=酸素, S=硫黄, Cl=塩素',
-      },
-      {
-        id: 'sci2-mc-fc15',
-        front: '元素記号（金属）',
-        back: 'Na, Mg, Al, K, Ca, Fe, Cu, Zn, Ag, Ba, Au はそれぞれ何の元素記号？',
-        explanation:
-          'Na=ナトリウム, Mg=マグネシウム, Al=アルミニウム, K=カリウム, Ca=カルシウム, Fe=鉄, Cu=銅, Zn=亜鉛, Ag=銀, Ba=バリウム, Au=金',
-      },
-      {
-        id: 'sci2-mc-fc16',
-        front: '分子をつくる物質の化学式',
-        back: '水素・酸素・窒素・塩素・水・二酸化炭素・アンモニアの化学式は？',
-        explanation:
-          'H₂, O₂, N₂, Cl₂, H₂O, CO₂, NH₃。気体の単体（水素・酸素・窒素・塩素）は2個の原子で分子をつくる。',
-      },
-      {
-        id: 'sci2-mc-fc17',
-        front: '分子をつくらない物質の化学式',
-        back: '鉄・銅・銀・塩化ナトリウム・酸化マグネシウム・酸化銅の化学式は？',
-        explanation:
-          'Fe, Cu, Ag, NaCl, MgO, CuO。金属やイオンからなる物質は分子をつくらない。',
-      },
-      {
-        id: 'sci2-mc-fc18',
-        front: '混合物の例',
-        back: '空気と食塩水が混合物である理由は？',
-        explanation:
-          '空気は窒素・酸素など複数の気体が混じったもの、食塩水は水に塩化ナトリウムが溶けたもの。どちらも2種類以上の物質が混じり合っている。',
-      },
-      {
-        id: 'sci2-mc-fc19',
-        front: '電気分解の体積比',
-        back: '水の電気分解で発生する水素と酸素の体積比は？',
-        explanation:
-          '水素:酸素 = 2:1。水の化学式H₂Oから、水素原子が酸素原子の2倍あることと対応している。',
-      },
-      {
-        id: 'sci2-mc-fc20',
-        front: '分子モデル',
-        back: '分子をつくる物質とつくらない物質の違いは？',
-        explanation:
-          '分子をつくる物質は決まった数の原子が結びついた粒子（分子）として存在する。分子をつくらない物質は原子やイオンが規則正しく並んで存在する。',
-      },
-      {
-        id: 'sci2-mc-fc21',
-        front: '周期表',
-        back: '性質の似た元素を整理して並べた表を何という？',
-      },
-      {
-        id: 'sci2-mc-fc22',
-        front: 'NaHCO₃',
-        back: '炭酸水素ナトリウムを化学式で表すと？',
-      },
-      {
-        id: 'sci2-mc-fc23',
-        front: 'Na₂CO₃',
-        back: '炭酸水素ナトリウムの熱分解後に残る白い固体の化学式は？',
-      },
-      {
-        id: 'sci2-mc-fc24',
-        front: '分解',
-        back: '1種類の物質が2種類以上の別の物質に分かれる化学変化を何という？',
-      },
-      {
-        id: 'sci2-mc-fc25',
-        front: 'NH₃',
-        back: 'アンモニアを化学式で表すと？',
-      },
-      {
-        id: 'sci2-mc-fc26',
-        front: 'HCl',
-        back: '塩化水素を化学式で表すと？',
-      },
-      {
-        id: 'sci2-mc-fc27',
-        front: 'CuO',
-        back: '酸化銅を化学式で表すと？',
-      },
-      {
-        id: 'sci2-mc-fc28',
-        front: 'ドルトン',
-        back: '物質は原子からできているという考えを提唱したイギリスの科学者は？',
-      }
-    
+      { id: 'sci2-mc-fc1', front: '熱分解', back: '1種類の物質を加熱して2種類以上に分解する化学変化を何という？', explanation: '例：炭酸水素ナトリウム → 炭酸ナトリウム + 水 + CO₂', difficulty: 'basic' },
+      { id: 'sci2-mc-fc2', front: '陰極に水素、陽極に酸素（体積比2:1）', back: '水の電気分解で陰極・陽極に発生する気体と体積比は？', difficulty: 'basic' },
+      { id: 'sci2-mc-fc3', front: '原子', back: '物質をつくる最小の単位で、化学変化で分割・消滅・変化しないものは？', explanation: 'ドルトンが提唱。種類によって質量や大きさが決まっている。', difficulty: 'basic' },
+      { id: 'sci2-mc-fc4', front: '小文字にする', back: '元素記号の2文字目はどうする？', explanation: '例：Cu（銅）、Fe（鉄）、Na（ナトリウム）', difficulty: 'basic' },
+      { id: 'sci2-mc-fc5', front: '単体と化合物', back: '1種類の元素だけでできた純粋な物質と、2種類以上の元素でできた物質をそれぞれ何という？', explanation: '単体：Cu, O₂。化合物：H₂O, CO₂', difficulty: 'basic' },
+      { id: 'sci2-mc-fc6', front: '二酸化炭素（CO₂）', back: '炭酸水素ナトリウムの加熱で発生し、石灰水を白くにごらせる気体は？', difficulty: 'basic' },
+      { id: 'sci2-mc-fc7', front: '塩化コバルト紙が青色から赤色に変化', back: '炭酸水素ナトリウムの加熱で発生する液体（水）の確認方法と色変化は？', difficulty: 'basic' },
+      { id: 'sci2-mc-fc8', front: '発生した水が加熱部に流れて試験管が割れるのを防ぐため', back: '炭酸水素ナトリウムの加熱実験で試験管の口を下げるのはなぜ？', difficulty: 'basic' },
+      { id: 'sci2-mc-fc9', front: '水が逆流して試験管が割れるのを防ぐため', back: '加熱実験でガラス管を水中から先に取り出してから火を消すのはなぜ？', difficulty: 'standard' },
+      { id: 'sci2-mc-fc10', front: '白い金属の銀（Ag）と酸素（O₂）', back: '酸化銀を加熱すると何が生じる？', difficulty: 'basic' },
+      { id: 'sci2-mc-fc11', front: '純水は電流が流れにくいため', back: '水の電気分解で水酸化ナトリウムを少量溶かす理由は？', difficulty: 'standard' },
+      { id: 'sci2-mc-fc12', front: 'マッチの火を近づけると「ポン」と音を立てて燃える', back: '水素の確認方法は？', difficulty: 'basic' },
+      { id: 'sci2-mc-fc13', front: '火のついた線香を入れると激しく燃える', back: '酸素の確認方法は？', difficulty: 'basic' },
+      { id: 'sci2-mc-fc14', front: 'H=水素, He=ヘリウム, C=炭素, N=窒素, O=酸素, S=硫黄, Cl=塩素', back: 'H, He, C, N, O, S, Cl はそれぞれ何の元素？', difficulty: 'standard' },
+      { id: 'sci2-mc-fc15', front: 'Na=ナトリウム, Mg=マグネシウム, Fe=鉄, Cu=銅, Zn=亜鉛, Ag=銀, Au=金', back: 'Na, Mg, Fe, Cu, Zn, Ag, Au はそれぞれ何の元素？', difficulty: 'standard' },
+      { id: 'sci2-mc-fc16', front: 'H₂, O₂, N₂, Cl₂, H₂O, CO₂, NH₃', back: '水素・酸素・窒素・塩素・水・二酸化炭素・アンモニアの化学式は？', explanation: '気体の単体は2個の原子で分子をつくる', difficulty: 'standard' },
+      { id: 'sci2-mc-fc17', front: 'Fe, Cu, Ag, NaCl, MgO, CuO', back: '鉄・銅・銀・塩化ナトリウム・酸化マグネシウム・酸化銅の化学式は？', explanation: '金属やイオンからなる物質は分子をつくらない', difficulty: 'standard' },
+      { id: 'sci2-mc-fc18', front: '2種類以上の物質が混じり合っているから', back: '空気や食塩水が混合物である理由は？', explanation: '空気＝窒素+酸素等、食塩水＝水+NaCl', difficulty: 'standard' },
+      { id: 'sci2-mc-fc19', front: '水素:酸素 = 2:1', back: '水の電気分解で発生する水素と酸素の体積比は？', difficulty: 'standard' },
+      { id: 'sci2-mc-fc20', front: '分子をつくる物質は原子が結びついた粒子として、つくらない物質は原子やイオンが規則正しく並んで存在', back: '分子をつくる物質とつくらない物質の違いは？', difficulty: 'standard' },
+      { id: 'sci2-mc-fc21', front: '周期表', back: '性質の似た元素を整理して並べた表を何という？', difficulty: 'basic' },
+      { id: 'sci2-mc-fc22', front: 'NaHCO₃', back: '炭酸水素ナトリウムの化学式は？', difficulty: 'standard' },
+      { id: 'sci2-mc-fc23', front: 'Na₂CO₃（炭酸ナトリウム）', back: '炭酸水素ナトリウムの熱分解後に残る白い固体とその化学式は？', difficulty: 'advanced' },
+      { id: 'sci2-mc-fc24', front: '分解', back: '1種類の物質が2種類以上の別の物質に分かれる化学変化を何という？', difficulty: 'basic' },
+      { id: 'sci2-mc-fc25', front: 'NH₃', back: 'アンモニアの化学式は？', difficulty: 'standard' },
+      { id: 'sci2-mc-fc26', front: 'HCl', back: '塩化水素の化学式は？', difficulty: 'standard' },
+      { id: 'sci2-mc-fc27', front: 'CuO', back: '酸化銅の化学式は？', difficulty: 'standard' },
+      { id: 'sci2-mc-fc28', front: 'ドルトン', back: '物質は原子からできているという考えを提唱したイギリスの科学者は？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -351,7 +198,8 @@ export const matterComposition: Topic = {
           correctIndex: 1,
           explanation:
             '炭酸水素ナトリウムを加熱すると、二酸化炭素・水・炭酸ナトリウムに分解されます。発生する気体は二酸化炭素で、石灰水を白くにごらせます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-mc-q2',
           question: '水を電気分解したとき、陰極に発生する気体は？',
@@ -359,7 +207,8 @@ export const matterComposition: Topic = {
           correctIndex: 3,
           explanation:
             '水の電気分解では、陰極に水素、陽極に酸素が発生します。体積比は水素:酸素 = 2:1です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-mc-q3',
           question: '原子について正しいものはどれ？',
@@ -372,7 +221,8 @@ export const matterComposition: Topic = {
           correctIndex: 0,
           explanation:
             '原子は種類ごとに質量と大きさが決まっています。化学変化で分割されたり、他の原子に変わったり、なくなったりすることはありません。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-mc-q4',
           question: '次のうち、化合物はどれ？',
@@ -380,7 +230,8 @@ export const matterComposition: Topic = {
           correctIndex: 2,
           explanation:
             '化合物は2種類以上の元素からできている純粋な物質です。水（H₂O）は水素と酸素の2種類の元素からできています。O₂、Cu、Feは単体です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-mc-q5',
           question: '次のうち、分子をつくらない物質はどれ？',
@@ -388,7 +239,8 @@ export const matterComposition: Topic = {
           correctIndex: 1,
           explanation:
             '銅（Cu）は金属で分子をつくらない物質です。水素、水、酸素はいずれも分子をつくる物質です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-mc-q6',
           question:
@@ -397,7 +249,8 @@ export const matterComposition: Topic = {
           correctIndex: 0,
           explanation:
             '液体（水）の確認には塩化コバルト紙を使います。水がつくと青色から赤色（桃色）に変化します。石灰水は二酸化炭素の検出に使います。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-mc-q7',
           question:
@@ -411,7 +264,8 @@ export const matterComposition: Topic = {
           correctIndex: 3,
           explanation:
             '水の電気分解では、陰極に水素、陽極に酸素が発生し、体積比は水素:酸素 = 2:1です。水の化学式H₂Oの原子の数の比に対応しています。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-mc-q8',
           question:
@@ -425,7 +279,8 @@ export const matterComposition: Topic = {
           correctIndex: 2,
           explanation:
             '発生した液体（水）が加熱部分に流れると、試験管が急に冷えて割れる危険があります。口を下げることで液体が加熱部に戻るのを防ぎます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-mc-q9',
           question: '元素記号「Fe」は何の元素を表す？',
@@ -433,7 +288,8 @@ export const matterComposition: Topic = {
           correctIndex: 0,
           explanation:
             'Feは鉄の元素記号です。ラテン語のFerrumに由来します。フッ素はF、銅はCuです。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-mc-q10',
           question:
@@ -447,7 +303,8 @@ export const matterComposition: Topic = {
           correctIndex: 3,
           explanation:
             '水素は2個の水素原子が結びついて水素分子（H₂）をつくります。酸素（O₂）や窒素（N₂）も同様に2個の原子で分子をつくります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-mc-q11',
           question: '化学式「NaCl」が表す物質は何か？',
@@ -455,7 +312,8 @@ export const matterComposition: Topic = {
           correctIndex: 1,
           explanation:
             'NaClは塩化ナトリウム（食塩）です。Na（ナトリウム）とCl（塩素）からできた化合物で、分子をつくらない物質です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-mc-q12',
           question: '次のうち、混合物はどれ？',
@@ -463,7 +321,8 @@ export const matterComposition: Topic = {
           correctIndex: 2,
           explanation:
             '食塩水は水と塩化ナトリウムの2種類の物質が混じり合った混合物です。水・酸素・銅はそれぞれ1種類の物質だけでできた純粋な物質です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-mc-q13',
           question: '酸化銀を加熱すると何と何に分解されるか？',
@@ -471,7 +330,8 @@ export const matterComposition: Topic = {
           correctIndex: 1,
           explanation:
             '酸化銀（Ag₂O）を加熱すると銀（Ag）と酸素（O₂）に分解されます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-mc-q14',
           question: '水の電気分解で純水に水酸化ナトリウムを溶かす理由は？',
@@ -479,7 +339,8 @@ export const matterComposition: Topic = {
           correctIndex: 2,
           explanation:
             '純水は電流をほとんど通さないため、水酸化ナトリウムを溶かして電流を流れやすくします。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-mc-q15',
           question: '元素記号「Cu」は何の元素を表す？',
@@ -487,7 +348,8 @@ export const matterComposition: Topic = {
           correctIndex: 2,
           explanation:
             'Cuは銅の元素記号です。Caがカルシウム、Clが塩素、Cが炭素です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-mc-q16',
           question: '次のうち、単体はどれ？',
@@ -495,7 +357,8 @@ export const matterComposition: Topic = {
           correctIndex: 2,
           explanation:
             '単体は1種類の元素だけでできている純粋な物質です。酸素（O₂）は酸素元素のみからできた単体です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-mc-q17',
           question: '塩化コバルト紙は水があると何色から何色に変わるか？',
@@ -503,7 +366,8 @@ export const matterComposition: Topic = {
           correctIndex: 1,
           explanation:
             '塩化コバルト紙は水があると青色から赤色（桃色）に変化します。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-mc-q18',
           question: '次のうち、分子をつくる物質はどれ？',
@@ -511,7 +375,8 @@ export const matterComposition: Topic = {
           correctIndex: 3,
           explanation:
             '二酸化炭素（CO₂）は分子をつくる物質です。Cu、Fe、NaClは分子をつくりません。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-mc-q19',
           question: '水素の確認方法として正しいのは？',
@@ -519,7 +384,8 @@ export const matterComposition: Topic = {
           correctIndex: 1,
           explanation:
             '水素にマッチの火を近づけると「ポン」と音を立てて燃えます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-mc-q20',
           question: 'フェノールフタレイン溶液が赤色に変化するのはどんな水溶液か？',
@@ -527,7 +393,8 @@ export const matterComposition: Topic = {
           correctIndex: 2,
           explanation:
             'フェノールフタレイン溶液はアルカリ性の水溶液で赤色に変化します。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-mc-q21',
           question: '酸化銀は何色の粉末か？',
@@ -535,7 +402,8 @@ export const matterComposition: Topic = {
           correctIndex: 1,
           explanation:
             '酸化銀は黒色の粉末です。加熱すると白い金属（銀）と酸素に分解されます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-mc-q22',
           question: 'アンモニアの化学式として正しいのは？',
@@ -543,7 +411,8 @@ export const matterComposition: Topic = {
           correctIndex: 0,
           explanation:
             'アンモニアの化学式はNH₃です。窒素原子1個と水素原子3個からなります。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-mc-q23',
           question: '酸素の確認方法として正しいのは？',
@@ -551,7 +420,8 @@ export const matterComposition: Topic = {
           correctIndex: 2,
           explanation:
             '酸素は助燃性があるため、火のついた線香を入れると激しく燃えます。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci2-mc-q24',
           question: '化学式「MgO」が表す物質は？',
@@ -559,7 +429,8 @@ export const matterComposition: Topic = {
           correctIndex: 1,
           explanation:
             'MgOはMg（マグネシウム）とO（酸素）からなる酸化マグネシウムです。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci2-mc-q25',
           question: 'H₂Oの「₂」は何を意味するか？',
@@ -567,7 +438,8 @@ export const matterComposition: Topic = {
           correctIndex: 2,
           explanation:
             'H₂Oの「₂」は水素原子が2個あることを意味します。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci2-mc-q26',
           question: '原子について正しくないものは？',
@@ -575,7 +447,8 @@ export const matterComposition: Topic = {
           correctIndex: 3,
           explanation:
             '原子は化学変化で別の原子に変わりません。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci2-mc-q27',
           question: '加熱実験でガラス管を水から先に取り出す理由は？',
@@ -583,7 +456,8 @@ export const matterComposition: Topic = {
           correctIndex: 1,
           explanation:
             '先に火を消すと試験管内の気圧が下がり水が逆流して割れる危険があります。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci2-mc-q28',
           question: '次のうち混合物はどれ？',
@@ -591,7 +465,8 @@ export const matterComposition: Topic = {
           correctIndex: 2,
           explanation:
             '空気は窒素・酸素など複数の気体が混じり合った混合物です。',
-        }
+        difficulty: 'advanced',
+      }
       
       ],
     },

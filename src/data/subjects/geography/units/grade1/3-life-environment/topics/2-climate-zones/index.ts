@@ -155,176 +155,34 @@ export const climateZones: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'geo1-cz-fc1',
-        front: '五つの気候帯',
-        back: '世界の気候を大きく分ける五つの気候帯をすべて答えよ。',
-        explanation:
-          '熱帯・乾燥帯・温帯・亜寒帯（冷帯）・寒帯の五つです。赤道から極地に向かって順に並んでいます。',
-      },
-      {
-        id: 'geo1-cz-fc2',
-        front: '熱帯の気候区',
-        back: '熱帯に含まれる二つの気候区を答えよ。',
-        explanation:
-          '熱帯雨林気候とサバナ気候です。熱帯雨林気候は一年中高温多雨で密林が広がり、サバナ気候は雨季と乾季があり草原が広がります。',
-      },
-      {
-        id: 'geo1-cz-fc3',
-        front: '乾燥帯の気候区',
-        back: '乾燥帯に含まれる二つの気候区を答えよ。',
-        explanation:
-          '砂漠気候とステップ気候です。砂漠気候はほとんど雨が降らず、ステップ気候はわずかに雨が降り短い草が生えます。',
-      },
-      {
-        id: 'geo1-cz-fc4',
-        front: '温帯の気候区',
-        back: '温帯に含まれる三つの気候区を答えよ。',
-        explanation:
-          '温暖湿潤気候・西岸海洋性気候・地中海性気候の三つです。日本の大部分は温暖湿潤気候に属します。',
-      },
-      {
-        id: 'geo1-cz-fc5',
-        front: '寒帯の気候区',
-        back: '寒帯に含まれる二つの気候区を答えよ。',
-        explanation:
-          'ツンドラ気候と氷雪気候です。ツンドラ気候は短い夏にコケ類が生え、氷雪気候は一年中氷と雪に覆われます。',
-      },
-      {
-        id: 'geo1-cz-fc6',
-        front: '亜寒帯（冷帯）の特徴',
-        back: '亜寒帯（冷帯）の気候の特徴と広がる植生を答えよ。',
-        explanation:
-          '夏と冬の気温差が非常に大きく、冬は厳しい寒さになります。タイガとよばれる広大な針葉樹林が分布しています。',
-      },
-      {
-        id: 'geo1-cz-fc7',
-        front: '高山気候',
-        back: '高山気候の特徴と気温が下がる割合を答えよ。',
-        explanation:
-          '標高の高い山岳地域に見られる気候で、標高が100m上がるごとに気温は約0.6℃下がります。赤道付近でも高山には雪が見られます。',
-      },
-      {
-        id: 'geo1-cz-fc8',
-        front: 'ケッペンの気候区分',
-        back: '世界の気候区分を考案したドイツの気候学者は誰か。',
-        explanation:
-          'ケッペンです。気温と降水量のデータをもとに世界の気候を体系的に分類し、植生も指標として重視しました。',
-      },
-      {
-        id: 'geo1-cz-fc9',
-        front: '温暖湿潤気候と地中海性気候の違い',
-        back: '温暖湿潤気候と地中海性気候の夏の降水量の違いを答えよ。',
-        explanation:
-          '温暖湿潤気候は夏に降水量が多いのに対し、地中海性気候は夏に乾燥して冬に雨が多くなります。',
-      },
-      {
-        id: 'geo1-cz-fc10',
-        front: '西岸海洋性気候',
-        back: '西岸海洋性気候が一年を通じて気温差が小さい理由を答えよ。',
-        explanation:
-          '偏西風と暖流の影響を受けるため、夏は涼しく冬は比較的温暖で、一年を通じて気温差が小さくなります。',
-      },
-      {
-        id: 'geo1-cz-fc11',
-        front: 'サバナ気候の植生',
-        back: 'サバナ気候の地域にはどのような植生が広がるか。',
-        explanation:
-          '広い草原（サバナ）が広がり、まばらに樹木が点在します。雨季と乾季がはっきり分かれるのが特徴です。',
-      },
-      {
-        id: 'geo1-cz-fc12',
-        front: '氷雪気候',
-        back: '氷雪気候が見られる代表的な場所を二つ答えよ。',
-        explanation:
-          '南極とグリーンランドの内陸部です。一年中氷と雪に覆われ、植物はほとんど育ちません。',
-      },
-      {
-        id: 'geo1-cz-fc13',
-        front: 'ツンドラ気候の永久凍土',
-        back: 'ツンドラ気候の地表と地下の特徴を答えよ。',
-        explanation:
-          '地表は短い夏にわずかにコケ類が生えますが、地下には一年中凍ったままの永久凍土が広がっています。',
-      },
-      {
-        id: 'geo1-cz-fc14',
-        front: '気候帯と緯度の関係',
-        back: '赤道から極地に向かって気温が低くなる理由を答えよ。',
-        explanation:
-          '緯度が高くなるほど太陽の光が斜めに当たるため、地表に届くエネルギーが少なくなり気温が低くなります。',
-      },
-      {
-        id: 'geo1-cz-fc15',
-        front: 'ステップ気候と砂漠気候の違い',
-        back: 'ステップ気候と砂漠気候の違いを答えよ。',
-        explanation:
-          'ステップ気候はわずかに雨が降り短い草が生えますが、砂漠気候はほとんど雨が降らず植物がほとんど育ちません。降水量の差で区分されます。',
-      },
-      {
-        id: 'geo1-cz-fc16',
-        front: 'ケッペン',
-        back: '世界の気候区分を考案したドイツの気候学者は誰か。',
-      },
-      {
-        id: 'geo1-cz-fc17',
-        front: '熱帯雨林気候',
-        back: '一年中気温が高く雨が多い熱帯の気候区を何というか。',
-      },
-      {
-        id: 'geo1-cz-fc18',
-        front: 'サバナ気候',
-        back: '雨季と乾季がはっきり分かれている熱帯の気候区を何というか。',
-      },
-      {
-        id: 'geo1-cz-fc19',
-        front: '砂漠気候',
-        back: 'ほとんど雨が降らず植物がほとんど育たない気候区を何というか。',
-      },
-      {
-        id: 'geo1-cz-fc20',
-        front: 'ステップ気候',
-        back: 'わずかに雨が降り短い草が生える乾燥帯の気候区を何というか。',
-      },
-      {
-        id: 'geo1-cz-fc21',
-        front: '温暖湿潤気候',
-        back: '日本の大部分が属する気候区を答えよ。',
-      },
-      {
-        id: 'geo1-cz-fc22',
-        front: '西岸海洋性気候',
-        back: 'ヨーロッパ西部に多く見られ、気温差が小さい気候区を何というか。',
-      },
-      {
-        id: 'geo1-cz-fc23',
-        front: 'ツンドラ気候',
-        back: '短い夏にわずかにこけ類が生える寒帯の気候区を何というか。',
-      },
-      {
-        id: 'geo1-cz-fc24',
-        front: '氷雪気候',
-        back: '一年中氷と雪に覆われている気候区を何というか。',
-      },
-      {
-        id: 'geo1-cz-fc25',
-        front: '気候帯を決める要素',
-        back: '気候帯を決める主な要素を2つ答えよ。',
-      },
-      {
-        id: 'geo1-cz-fc26',
-        front: '緯度と気温の関係',
-        back: '緯度が高くなるほど気温はどうなる傾向があるか。',
-      },
-      {
-        id: 'geo1-cz-fc27',
-        front: '日本と地中海の夏の違い',
-        back: '日本と地中海性気候の夏の降水量の違いを述べよ。',
-      },
-      {
-        id: 'geo1-cz-fc28',
-        front: '高山気候が五つに含まれない理由',
-        back: '高山気候が五つの気候帯に含まれない理由は何か。',
-      },
+      { id: 'geo1-cz-fc1', front: '熱帯・乾燥帯・温帯・亜寒帯（冷帯）・寒帯', back: '世界の気候を大きく分ける五つの気候帯をすべて答えよ。', difficulty: 'basic' },
+      { id: 'geo1-cz-fc2', front: '熱帯雨林気候（一年中高温多雨）とサバナ気候（雨季・乾季がある）', back: '熱帯に含まれる二つの気候区を答えよ。', difficulty: 'basic' },
+      { id: 'geo1-cz-fc3', front: '砂漠気候（ほとんど雨なし）とステップ気候（わずかに降雨）', back: '乾燥帯に含まれる二つの気候区を答えよ。', difficulty: 'basic' },
+      { id: 'geo1-cz-fc4', front: '温暖湿潤気候・西岸海洋性気候・地中海性気候', back: '温帯に含まれる三つの気候区を答えよ。', explanation: '日本の大部分は温暖湿潤気候に属する。', difficulty: 'basic' },
+      { id: 'geo1-cz-fc5', front: 'ツンドラ気候（短い夏にコケ類）と氷雪気候（一年中氷雪）', back: '寒帯に含まれる二つの気候区を答えよ。', difficulty: 'basic' },
+      { id: 'geo1-cz-fc6', front: '夏冬の気温差が大きく、タイガ（針葉樹林）が広がる', back: '亜寒帯（冷帯）の気候の特徴と広がる植生を答えよ。', difficulty: 'basic' },
+      { id: 'geo1-cz-fc7', front: '標高の高い山岳地域の気候。100m上がるごとに約0.6℃下がる', back: '高山気候の特徴と気温が下がる割合を答えよ。', difficulty: 'basic' },
+      { id: 'geo1-cz-fc8', front: 'ケッペン', back: '世界の気候区分を考案したドイツの気候学者は誰か。', explanation: '気温と降水量をもとに体系的に分類した。', difficulty: 'basic' },
+      { id: 'geo1-cz-fc9', front: '温暖湿潤気候は夏に多雨、地中海性気候は夏に乾燥して冬に多雨', back: '温暖湿潤気候と地中海性気候の夏の降水量の違いを答えよ。', difficulty: 'standard' },
+      { id: 'geo1-cz-fc10', front: '偏西風と暖流の影響で夏は涼しく冬は温暖なため', back: '西岸海洋性気候が一年を通じて気温差が小さい理由を答えよ。', difficulty: 'standard' },
+      { id: 'geo1-cz-fc11', front: '広い草原（サバナ）が広がり、まばらに樹木が点在する', back: 'サバナ気候の地域にはどのような植生が広がるか。', difficulty: 'basic' },
+      { id: 'geo1-cz-fc12', front: '南極とグリーンランドの内陸部', back: '氷雪気候が見られる代表的な場所を二つ答えよ。', difficulty: 'basic' },
+      { id: 'geo1-cz-fc13', front: '地表は夏にわずかにコケ類が生え、地下には永久凍土が広がる', back: 'ツンドラ気候の地表と地下の特徴を答えよ。', difficulty: 'standard' },
+      { id: 'geo1-cz-fc14', front: '緯度が高くなるほど太陽の光が斜めに当たり、地表のエネルギーが減るため', back: '赤道から極地に向かって気温が低くなる理由を答えよ。', difficulty: 'standard' },
+      { id: 'geo1-cz-fc15', front: 'ステップは少量の雨で短い草が生え、砂漠はほぼ雨なしで植物が育たない。降水量の差で区分', back: 'ステップ気候と砂漠気候の違いを答えよ。', difficulty: 'standard' },
+      { id: 'geo1-cz-fc16', front: '熱帯雨林気候', back: '一年中気温が高く雨が多い熱帯の気候区を何というか。', difficulty: 'basic' },
+      { id: 'geo1-cz-fc17', front: 'サバナ気候', back: '雨季と乾季がはっきり分かれている熱帯の気候区を何というか。', difficulty: 'basic' },
+      { id: 'geo1-cz-fc18', front: '砂漠気候', back: 'ほとんど雨が降らず植物がほとんど育たない気候区を何というか。', difficulty: 'basic' },
+      { id: 'geo1-cz-fc19', front: 'ステップ気候', back: 'わずかに雨が降り短い草が生える乾燥帯の気候区を何というか。', difficulty: 'standard' },
+      { id: 'geo1-cz-fc20', front: '温暖湿潤気候', back: '日本の大部分が属する気候区を答えよ。', difficulty: 'basic' },
+      { id: 'geo1-cz-fc21', front: '西岸海洋性気候', back: 'ヨーロッパ西部に多く見られ、気温差が小さい気候区を何というか。', difficulty: 'standard' },
+      { id: 'geo1-cz-fc22', front: 'ツンドラ気候', back: '短い夏にわずかにこけ類が生える寒帯の気候区を何というか。', difficulty: 'standard' },
+      { id: 'geo1-cz-fc23', front: '氷雪気候', back: '一年中氷と雪に覆われている気候区を何というか。', difficulty: 'standard' },
+      { id: 'geo1-cz-fc24', front: '気温と降水量', back: '気候帯を決める主な要素を2つ答えよ。', difficulty: 'standard' },
+      { id: 'geo1-cz-fc25', front: '低くなる傾向がある（太陽の光が斜めに当たるため）', back: '緯度が高くなるほど気温はどうなる傾向があるか。', difficulty: 'basic' },
+      { id: 'geo1-cz-fc26', front: '日本は梅雨や台風で夏に多雨、地中海性気候は夏に乾燥する', back: '日本と地中海性気候の夏の降水量の違いを述べよ。', difficulty: 'advanced' },
+      { id: 'geo1-cz-fc27', front: '緯度ではなく標高に依存する気候であるため', back: '高山気候が五つの気候帯に含まれない理由は何か。', difficulty: 'advanced' },
+      { id: 'geo1-cz-fc28', front: 'ジャングル（密林）', back: '熱帯雨林気候の地域に広がる密林を何というか。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -340,7 +198,8 @@ export const climateZones: Topic = {
           correctIndex: 3,
           explanation:
             '世界の気候は熱帯・乾燥帯・温帯・亜寒帯（冷帯）・寒帯の五つの気候帯に分けられます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-cz-q2',
           question: '日本の大部分が属する気候区はどれ？',
@@ -353,7 +212,8 @@ export const climateZones: Topic = {
           correctIndex: 1,
           explanation:
             '日本の大部分は温帯の中の温暖湿潤気候に属しています。夏に降水量が多く、四季の変化がはっきりしています。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-cz-q3',
           question: '夏に乾燥し、冬に雨が多い気候区はどれ？',
@@ -366,7 +226,8 @@ export const climateZones: Topic = {
           correctIndex: 0,
           explanation:
             '地中海性気候は夏に乾燥し冬に雨が多いのが特徴です。地中海沿岸やカリフォルニアなどに分布しています。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-cz-q4',
           question: '亜寒帯（冷帯）に広がる針葉樹林のことを何というか？',
@@ -379,7 +240,8 @@ export const climateZones: Topic = {
           correctIndex: 2,
           explanation:
             'タイガは亜寒帯（冷帯）に広がる広大な針葉樹林のことです。ロシアやカナダなどの高緯度地域に分布しています。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-cz-q5',
           question: '標高が100m上がるごとに気温は約何℃下がるか？',
@@ -392,7 +254,8 @@ export const climateZones: Topic = {
           correctIndex: 3,
           explanation:
             '標高が100m上がるごとに気温は約0.6℃下がります。そのため赤道付近の高山でも雪が見られることがあります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-cz-q6',
           question: '熱帯のうち、雨季と乾季がはっきり分かれている気候区はどれ？',
@@ -405,7 +268,8 @@ export const climateZones: Topic = {
           correctIndex: 2,
           explanation:
             'サバナ気候は雨季と乾季がはっきり分かれ、草原が広がるのが特徴です。熱帯雨林気候は一年中雨が多い気候です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-cz-q7',
           question: '一年を通じて気温差が小さい温帯の気候区はどれ？',
@@ -418,7 +282,8 @@ export const climateZones: Topic = {
           correctIndex: 0,
           explanation:
             '西岸海洋性気候は偏西風と暖流の影響で一年を通じて気温差が小さいのが特徴です。ヨーロッパ西部に多く見られます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-cz-q8',
           question: '世界の気候区分を考案した気候学者は誰？',
@@ -431,7 +296,8 @@ export const climateZones: Topic = {
           correctIndex: 1,
           explanation:
             'ケッペンはドイツの気候学者で、気温と降水量のデータをもとに世界の気候を体系的に分類しました。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-cz-q9',
           question: '寒帯のうち、一年中氷と雪に覆われている気候区はどれ？',
@@ -444,7 +310,8 @@ export const climateZones: Topic = {
           correctIndex: 3,
           explanation:
             '氷雪気候は一年中氷と雪に覆われる気候区で、南極やグリーンランドの内陸部に見られます。ツンドラ気候は短い夏にコケ類が生えます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-cz-q10',
           question: '乾燥帯のうち、わずかに雨が降り短い草が生える気候区はどれ？',
@@ -457,7 +324,8 @@ export const climateZones: Topic = {
           correctIndex: 0,
           explanation:
             'ステップ気候はわずかに雨が降って短い草が生える乾燥帯の気候区です。砂漠気候はほとんど雨が降りません。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-cz-q11',
           question: '世界の気候区分を考案した気候学者は誰？',
@@ -470,7 +338,8 @@ export const climateZones: Topic = {
           correctIndex: 1,
           explanation:
             'ドイツの気候学者ケッペンが世界の気候区分を考案しました。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-cz-q12',
           question: '雨季と乾季がはっきり分かれている熱帯の気候区はどれ？',
@@ -483,7 +352,8 @@ export const climateZones: Topic = {
           correctIndex: 1,
           explanation:
             'サバナ気候は雨季と乾季がはっきり分かれ、草原（サバナ）が広がります。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-cz-q13',
           question: '砂漠気候とステップ気候の違いはどれ？',
@@ -496,7 +366,8 @@ export const climateZones: Topic = {
           correctIndex: 1,
           explanation:
             'ステップ気候はわずかに降水量が多く、短い草が生えます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-cz-q14',
           question: '日本の大部分が属する気候区はどれ？',
@@ -509,7 +380,8 @@ export const climateZones: Topic = {
           correctIndex: 1,
           explanation:
             '日本の大部分は温暖湿潤気候に属し、夏に降水量が多く四季がはっきりしています。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-cz-q15',
           question: 'ヨーロッパ西部に多い、一年を通じて気温差が小さい気候区はどれ？',
@@ -522,7 +394,8 @@ export const climateZones: Topic = {
           correctIndex: 2,
           explanation:
             '西岸海洋性気候は一年を通じて気温差が小さいのが特徴です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-cz-q16',
           question: '冷帯に広がる広大な針葉樹林を何というか。',
@@ -535,7 +408,8 @@ export const climateZones: Topic = {
           correctIndex: 1,
           explanation:
             'タイガは冷帯のロシア（シベリア）やカナダに広がる広大な針葉樹林です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-cz-q17',
           question: '寒帯に含まれる2つの気候区の正しい組み合わせはどれ？',
@@ -548,7 +422,8 @@ export const climateZones: Topic = {
           correctIndex: 1,
           explanation:
             '寒帯はツンドラ気候と氷雪気候の2つに分けられます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-cz-q18',
           question: '氷雪気候が見られる代表的な場所はどれ？',
@@ -561,7 +436,8 @@ export const climateZones: Topic = {
           correctIndex: 1,
           explanation:
             '氷雪気候は南極とグリーンランドの内陸部で見られます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-cz-q19',
           question: '気候帯を決める主な要素の正しい組み合わせはどれ？',
@@ -574,7 +450,8 @@ export const climateZones: Topic = {
           correctIndex: 1,
           explanation:
             '気候帯は主に気温と降水量によって決められます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-cz-q20',
           question: '高山気候が五つの気候帯に含まれない理由はどれ？',
@@ -587,7 +464,8 @@ export const climateZones: Topic = {
           correctIndex: 2,
           explanation:
             '高山気候は緯度ではなく標高に依存する気候であるため、五つの気候帯には含まれません。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-cz-q21',
           question: '地中海性気候が見られる代表的な地域はどれ？',
@@ -600,7 +478,8 @@ export const climateZones: Topic = {
           correctIndex: 1,
           explanation:
             '地中海性気候は地中海沿岸とカリフォルニアなどで見られます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-cz-q22',
           question: '高山気候の例として挙げられる山脈はどれ？',
@@ -613,7 +492,8 @@ export const climateZones: Topic = {
           correctIndex: 1,
           explanation:
             'アンデス山脈とヒマラヤ山脈が高山気候の代表例です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-cz-q23',
           question: '熱帯雨林気候の地域に広がる密林を何というか。',
@@ -626,7 +506,8 @@ export const climateZones: Topic = {
           correctIndex: 2,
           explanation:
             '熱帯雨林気候の地域にはジャングル（密林）が広がります。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'geo1-cz-q24',
           question: '緯度が高くなるほど気温はどうなるか。',
@@ -639,7 +520,8 @@ export const climateZones: Topic = {
           correctIndex: 1,
           explanation:
             '緯度が高くなるほど気温は低くなる傾向があります。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'geo1-cz-q25',
           question: '日本と地中海性気候の夏の降水量の違いとして正しいものはどれ？',
@@ -652,7 +534,8 @@ export const climateZones: Topic = {
           correctIndex: 1,
           explanation:
             '日本は梅雨や台風で夏に雨が多いですが、地中海性気候は夏に乾燥します。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'geo1-cz-q26',
           question: '冷帯が広がる代表的な地域はどれ？',
@@ -665,7 +548,8 @@ export const climateZones: Topic = {
           correctIndex: 1,
           explanation:
             '冷帯はロシア（シベリア）とカナダに広く分布しています。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'geo1-cz-q27',
           question: 'ツンドラ気候の特徴として正しいものはどれ？',
@@ -678,7 +562,8 @@ export const climateZones: Topic = {
           correctIndex: 1,
           explanation:
             'ツンドラ気候は短い夏にわずかにこけ類が生え、永久凍土が広がります。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'geo1-cz-q28',
           question: '一年中気温が高く雨が多い熱帯の気候区はどれ？',
@@ -691,7 +576,8 @@ export const climateZones: Topic = {
           correctIndex: 2,
           explanation:
             '熱帯雨林気候は一年中気温が高く雨が多い気候です。',
-        },
+        difficulty: 'advanced',
+      },
       ],
     },
     examples: {

@@ -49,48 +49,56 @@ export const americanIndependence: Topic = {
         front: '代表なくして課税なし',
         back: 'アメリカ植民地の人々が掲げたスローガンは？',
         explanation: '自分たちの代表がいないイギリス議会の課税に反発したスローガン。',
+        difficulty: 'basic',
       },
       {
         id: 'fc2',
         front: 'ワシントン',
         back: 'アメリカ独立戦争の総司令官で、初代大統領となった人物は？',
         explanation: '独立戦争を勝利に導き、アメリカ建国の父と呼ばれる。',
+        difficulty: 'basic',
       },
       {
         id: 'fc3',
         front: '独立宣言',
         back: '「すべての人間は平等」という理念を掲げた1776年の文書は？',
         explanation: 'ロックの思想に基づき、生命・自由・幸福追求の権利を謳った。',
+        difficulty: 'basic',
       },
       {
         id: 'fc4',
         front: '独立戦争',
         back: 'アメリカがイギリスからの独立を勝ち取った戦争は？',
         explanation: '1775年に始まり、1783年にイギリスが独立を承認した。',
+        difficulty: 'basic',
       },
       {
         id: 'fc5',
         front: 'ボストン茶会事件',
         back: 'イギリスの茶に対する課税に抗議して茶を海に投げ捨てた事件は？',
         explanation: '独立戦争のきっかけの一つとなった象徴的な事件。',
+        difficulty: 'standard',
       },
       {
         id: 'fc6',
         front: '合衆国憲法',
         back: 'アメリカで1787年に制定された、世界初の近代的成文憲法は？',
         explanation: '三権分立や連邦制などを定め、各国の憲法の模範となった。',
+        difficulty: 'standard',
       },
       {
         id: 'fc7',
         front: 'フランクリン',
         back: '科学者でもあり、独立宣言の起草に関わったアメリカの政治家は？',
         explanation: '雷が電気であることを証明し、独立運動でも活躍した。',
+        difficulty: 'standard',
       },
       {
         id: 'fc8',
         front: 'ジェファソン',
         back: '独立宣言の主な起草者で、第3代大統領となった人物は？',
         explanation: '「すべての人間は平等に創られた」という言葉を書いた。',
+        difficulty: 'advanced',
       },
     ],
     quiz: {
@@ -102,6 +110,7 @@ export const americanIndependence: Topic = {
           correctIndex: 3,
           explanation:
             'ジョージ・ワシントンは独立戦争を勝利に導き、アメリカ合衆国初代大統領となりました。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -110,6 +119,7 @@ export const americanIndependence: Topic = {
           correctIndex: 1,
           explanation:
             '自分たちの代表がいないイギリス議会が税金を課すことに反対するスローガンでした。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -118,6 +128,7 @@ export const americanIndependence: Topic = {
           correctIndex: 2,
           explanation:
             '独立宣言は「すべての人間は平等につくられ、生命・自由・幸福を追求する権利を持つ」と宣言しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q4',
@@ -126,6 +137,7 @@ export const americanIndependence: Topic = {
           correctIndex: 0,
           explanation:
             'ロックの抵抗権や自然権の考えが、独立宣言の「生命・自由・幸福追求の権利」に反映されました。',
+          difficulty: 'standard',
         },
         {
           id: 'q5',
@@ -134,6 +146,7 @@ export const americanIndependence: Topic = {
           correctIndex: 3,
           explanation:
             'フランスはイギリスと対立しており、アメリカ独立戦争でアメリカ側を支援しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q6',
@@ -142,6 +155,7 @@ export const americanIndependence: Topic = {
           correctIndex: 2,
           explanation:
             '1783年のパリ条約でイギリスがアメリカの独立を正式に承認しました。',
+          difficulty: 'standard',
         },
       ],
     },

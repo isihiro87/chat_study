@@ -127,159 +127,74 @@ export const plantGroups: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'sci1-pg-fc1',
-        front: 'シダ植物とコケ植物の違い',
-        back: 'シダ植物とコケ植物で維管束があるのはどちら？',
-        explanation:
-          'シダ植物には維管束があり、根・茎・葉の区別がある。コケ植物には維管束がなく、根・茎・葉の区別もない。どちらも胞子でふえる。',
-      },
-      {
-        id: 'sci1-pg-fc2',
-        front: '地下茎',
-        back: 'シダ植物の茎は地中にあることが多い。これを何という？',
-        explanation:
-          '地下茎という。シダ植物は地下茎から葉と根が出ている。',
-      },
-      {
-        id: 'sci1-pg-fc3',
-        front: '胞子のう',
-        back: 'シダ植物の葉の裏にある胞子が入った袋を何という？',
-        explanation:
-          '胞子のうという。シダ植物はこの胞子のうから胞子を飛ばしてふえる。',
-      },
-      {
-        id: 'sci1-pg-fc4',
-        front: 'シダ植物の例',
-        back: 'シダ植物の例を3つ挙げよ。',
-        explanation:
-          'イヌワラビ、スギナ（ツクシ）、ゼンマイ。根・茎・葉の区別があり、維管束をもつ。',
-      },
+      { id: 'sci1-pg-fc1', front: 'シダ植物', back: 'シダ植物とコケ植物で維管束があるのはどちらか。', difficulty: 'basic' },
+      { id: 'sci1-pg-fc2', front: '地下茎', back: 'シダ植物の茎は地中にあることが多い。これを何というか。', difficulty: 'basic' },
+      { id: 'sci1-pg-fc3', front: '胞子のう', back: 'シダ植物の葉の裏にある胞子が入った袋を何というか。', difficulty: 'basic' },
+      { id: 'sci1-pg-fc4', front: 'イヌワラビ、スギナ（ツクシ）、ゼンマイ', back: 'シダ植物の例を3つ挙げよ。', difficulty: 'basic' },
       {
         id: 'sci1-pg-fc5',
-        front: '仮根の役割',
-        back: 'コケ植物の仮根は何のためにある？水を吸収するか？',
-        explanation:
-          '仮根は体を地面に固定するためにある。水は吸収せず、体の表面全体で水を吸収する。',
+        front: '体を地面に固定するためにある。水は吸収しない（体の表面全体で水を吸収する）',
+        back: 'コケ植物の仮根の役割は何か。水を吸収するか。',
+        difficulty: 'basic',
       },
-      {
-        id: 'sci1-pg-fc6',
-        front: 'コケ植物の雌株・雄株',
-        back: 'コケ植物には雌株と雄株の区別がある。コケ植物の例を2つ挙げよ。',
-        explanation:
-          'ゼニゴケ、コスギゴケ。維管束がなく、根・茎・葉の区別もない。',
-      },
-      {
-        id: 'sci1-pg-fc7',
-        front: '植物の分類フロー',
-        back: '植物を大きく分類するとき、最初の分岐点は何？',
-        explanation:
-          '種子をつくるかどうか。つくる→種子植物（被子植物・裸子植物）、つくらない→シダ植物・コケ植物。',
-      },
-      {
-        id: 'fc8',
-        front: '種子ではなく胞子でふえる',
-        back: 'シダ植物は種子でふえるか。',
-      },
-      {
-        id: 'fc9',
-        front: 'ある',
-        back: 'シダ植物には根・茎・葉の区別があるか。',
-      },
-      {
-        id: 'fc10',
-        front: 'ある',
-        back: 'シダ植物に維管束はあるか。',
-      },
-      {
-        id: 'fc11',
-        front: 'ない',
-        back: 'コケ植物には根・茎・葉の区別があるか。',
-      },
-      {
-        id: 'fc12',
-        front: 'ない',
-        back: 'コケ植物に維管束はあるか。',
-      },
-      {
-        id: 'fc13',
-        front: 'しない（体の表面全体で水を吸収する）',
-        back: 'コケ植物の仮根は水を吸収するか。',
-      },
-      {
-        id: 'fc14',
-        front: 'ゼニゴケ、コスギゴケ',
-        back: 'コケ植物の例を2つ挙げよ。',
-      },
-      {
-        id: 'fc15',
-        front: 'ある',
-        back: 'コケ植物には雌株と雄株の区別があるか。',
-      },
-      {
-        id: 'fc16',
-        front: '胞子をつくる植物',
-        back: '植物を大きく2つに分けると、種子をつくる植物と何をつくる植物か。',
-      },
-      {
-        id: 'fc17',
-        front: 'シダ植物',
-        back: '種子をつくらない植物のうち、維管束があるのはどちらか。',
-      },
-      {
-        id: 'fc18',
-        front: 'コケ植物',
-        back: '種子をつくらない植物のうち、維管束がないのはどちらか。',
-      },
-      {
-        id: 'fc19',
-        front: '日当たりの悪い湿った場所',
-        back: 'シダ植物はどのような場所に生えることが多いか。',
-      },
-      {
-        id: 'fc20',
-        front: '種子植物',
-        back: '種子をつくる植物をまとめて何というか。',
-      },
-      {
-        id: 'fc21',
-        front: '被子植物',
-        back: '胚珠が子房に包まれている植物を何というか。',
-      },
-      {
-        id: 'fc22',
-        front: '裸子植物',
-        back: '胚珠がむき出しの植物を何というか。',
-      },
-      {
-        id: 'fc23',
-        front: '双子葉類（子葉2枚・網状脈・主根と側根）',
-        back: '被子植物の子葉が2枚のグループの名前と特徴を答えよ。',
-      },
-      {
-        id: 'fc24',
-        front: '単子葉類（子葉1枚・平行脈・ひげ根）',
-        back: '被子植物の子葉が1枚のグループの名前と特徴を答えよ。',
-      },
+      { id: 'sci1-pg-fc6', front: 'ゼニゴケ、コスギゴケ', back: 'コケ植物の例を2つ挙げよ。', difficulty: 'basic' },
+      { id: 'sci1-pg-fc7', front: '種子をつくるかどうか', back: '植物を大きく分類するとき、最初の分岐点は何か。', difficulty: 'basic' },
+      { id: 'fc8', front: '種子ではなく胞子でふえる', back: 'シダ植物は種子でふえるか。', difficulty: 'basic' },
+      { id: 'fc9', front: 'ある', back: 'シダ植物には根・茎・葉の区別があるか。', difficulty: 'basic' },
+      { id: 'fc10', front: 'ある', back: 'シダ植物に維管束はあるか。', difficulty: 'basic' },
+      { id: 'fc11', front: 'ない', back: 'コケ植物には根・茎・葉の区別があるか。', difficulty: 'basic' },
+      { id: 'fc12', front: 'ない', back: 'コケ植物に維管束はあるか。', difficulty: 'basic' },
+      { id: 'fc13', front: 'しない（体の表面全体で水を吸収する）', back: 'コケ植物の仮根は水を吸収するか。', difficulty: 'standard' },
+      { id: 'fc14', front: 'ある', back: 'コケ植物には雌株と雄株の区別があるか。', difficulty: 'standard' },
+      { id: 'fc15', front: '胞子をつくる植物', back: '植物を大きく2つに分けると、種子をつくる植物と何をつくる植物か。', difficulty: 'standard' },
+      { id: 'fc16', front: 'シダ植物', back: '種子をつくらない植物のうち、維管束があるのはどちらか。', difficulty: 'standard' },
+      { id: 'fc17', front: 'コケ植物', back: '種子をつくらない植物のうち、維管束がないのはどちらか。', difficulty: 'standard' },
+      { id: 'fc18', front: '日当たりの悪い湿った場所', back: 'シダ植物はどのような場所に生えることが多いか。', difficulty: 'standard' },
+      { id: 'fc19', front: '種子植物', back: '種子をつくる植物をまとめて何というか。', difficulty: 'standard' },
+      { id: 'fc20', front: '被子植物', back: '胚珠が子房に包まれている植物を何というか。', difficulty: 'standard' },
+      { id: 'fc21', front: '裸子植物', back: '胚珠がむき出しの植物を何というか。', difficulty: 'standard' },
+      { id: 'fc22', front: '維管束の有無（根・茎・葉の区別があるか）', back: '種子をつくらない植物をシダ植物とコケ植物に分ける基準は何か。', difficulty: 'standard' },
+      { id: 'fc23', front: '胚珠が子房に包まれるかどうか', back: '種子植物を被子植物と裸子植物に分ける基準は何か。', difficulty: 'standard' },
+      { id: 'fc24', front: '子葉の枚数', back: '被子植物を双子葉類と単子葉類に分ける基準は何か。', difficulty: 'standard' },
       {
         id: 'fc25',
-        front: '維管束がある',
-        back: 'シダ植物がコケ植物と異なる大きな特徴は何か。',
+        front: '双子葉類（子葉2枚・網状脈・主根と側根）',
+        back: '被子植物の子葉が2枚のグループの名前と特徴を答えよ。',
+        difficulty: 'advanced',
       },
       {
         id: 'fc26',
-        front: '体の表面全体で水を吸収する',
-        back: 'コケ植物はどのようにして水を吸収するか。',
+        front: '単子葉類（子葉1枚・平行脈・ひげ根）',
+        back: '被子植物の子葉が1枚のグループの名前と特徴を答えよ。',
+        difficulty: 'advanced',
+      },
+      { id: 'fc27', front: '維管束があり、根・茎・葉の区別がある', back: 'シダ植物がコケ植物と異なる大きな特徴は何か。', difficulty: 'advanced' },
+      { id: 'fc28', front: '体の表面全体で水を吸収する', back: 'コケ植物はどのようにして水を吸収するか。', difficulty: 'advanced' },
+      { id: 'fc29', front: 'スギナ', back: 'ツクシは何というシダ植物の一部か。', difficulty: 'advanced' },
+      { id: 'fc30', front: '胞子でふえる', back: 'シダ植物とコケ植物に共通するふえ方は何か。', difficulty: 'advanced' },
+      {
+        id: 'fc31',
+        front: '種子をつくらない、子房がない、維管束がない',
+        back: 'コケ植物は「種子をつくるか」「子房があるか」「維管束があるか」のそれぞれについてどうか。',
+        difficulty: 'advanced',
       },
       {
-        id: 'fc27',
-        front: 'スギナ（ツクシ）',
-        back: 'ツクシは何というシダ植物の一部か。',
+        id: 'fc32',
+        front: '胞子の発芽に水分が必要なため、水分が十分にある湿った場所に多く生える',
+        back: 'シダ植物が日当たりの悪い湿った場所に多い理由を、胞子の発芽と関連づけて説明せよ。',
+        difficulty: 'advanced',
       },
       {
-        id: 'fc28',
-        front: '胞子でふえる',
-        back: 'シダ植物とコケ植物に共通するふえ方は何か。',
+        id: 'fc33',
+        front: '種子の有無→子房の有無→子葉の枚数',
+        back: '植物の分類フローを3つの分岐点で順に答えよ。',
+        difficulty: 'advanced',
+      },
+      {
+        id: 'fc34',
+        front: '維管束がないため水や養分を効率よく運べず、大きく成長できない',
+        back: 'コケ植物が大きく成長できない理由を維管束と関連づけて説明せよ。',
+        difficulty: 'advanced',
       },
     ],
     quiz: {
@@ -296,7 +211,8 @@ export const plantGroups: Topic = {
           correctIndex: 0,
           explanation:
             'コケ植物は維管束がなく、根・茎・葉の区別もありません。仮根で体を地面に固定し、体の表面全体で水を吸収します。胞子でふえます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-pg-q2',
           question: 'シダ植物の茎が地中にあるとき、これを何というか？',
@@ -304,7 +220,8 @@ export const plantGroups: Topic = {
           correctIndex: 3,
           explanation:
             'シダ植物の茎は地中にあることが多く、地下茎といいます。地下茎から葉と根が出ています。仮根はコケ植物が体を固定するものです。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-pg-q3',
           question: 'コケ植物が水を取り入れる方法として正しいのはどれか？',
@@ -312,7 +229,8 @@ export const plantGroups: Topic = {
           correctIndex: 1,
           explanation:
             'コケ植物は維管束がなく、根もないため、体の表面全体から水を吸収します。仮根は体を地面に固定するだけで、水の吸収は行いません。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-pg-q4',
           question: '次のうち、種子をつくらない植物はどれか？',
@@ -320,7 +238,8 @@ export const plantGroups: Topic = {
           correctIndex: 2,
           explanation:
             'イヌワラビはシダ植物で、種子をつくらず胞子でふえます。マツ、イチョウは裸子植物、アブラナは被子植物で、いずれも種子植物です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'q5',
           question: 'シダ植物の特徴として正しいものはどれか？',
@@ -333,7 +252,8 @@ export const plantGroups: Topic = {
           correctIndex: 1,
           explanation:
             'シダ植物は維管束があり、根・茎・葉の区別があります。種子ではなく胞子でふえます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'q6',
           question: 'コケ植物の仮根の役割として正しいものはどれか？',
@@ -346,7 +266,8 @@ export const plantGroups: Topic = {
           correctIndex: 2,
           explanation:
             '仮根は体を地面に固定するだけの役割です。水は吸収せず、体の表面全体で水を吸収します。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'q7',
           question: 'シダ植物の葉の裏にある胞子が入った袋を何というか？',
@@ -354,7 +275,8 @@ export const plantGroups: Topic = {
           correctIndex: 1,
           explanation:
             '胞子のうといいます。シダ植物の葉の裏にたくさんついており、ここから胞子を飛ばしてふえます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'q8',
           question: '次のうち、シダ植物に分類されるのはどれか？',
@@ -362,7 +284,8 @@ export const plantGroups: Topic = {
           correctIndex: 2,
           explanation:
             'スギナ（ツクシ）はシダ植物です。ゼニゴケ・コスギゴケはコケ植物、マツは裸子植物（種子植物）です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'q9',
           question: 'コケ植物が水を吸収する方法として正しいものはどれか？',
@@ -375,7 +298,8 @@ export const plantGroups: Topic = {
           correctIndex: 3,
           explanation:
             'コケ植物は維管束がなく根もないため、体の表面全体から水を吸収します。仮根は固定のためだけです。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'q10',
           question: 'コケ植物に雌株と雄株の区別はあるか？',
@@ -388,7 +312,8 @@ export const plantGroups: Topic = {
           correctIndex: 1,
           explanation:
             'コケ植物には雌株と雄株の区別があります。胞子でふえます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'q11',
           question: '植物を分類するとき、最初の分岐点として正しいものはどれか？',
@@ -401,7 +326,8 @@ export const plantGroups: Topic = {
           correctIndex: 1,
           explanation:
             '植物はまず「種子をつくるかどうか」で種子植物と胞子でふえる植物に大きく分けられます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q12',
           question: '種子をつくらない植物を「シダ植物」と「コケ植物」に分ける基準は何か？',
@@ -414,7 +340,8 @@ export const plantGroups: Topic = {
           correctIndex: 2,
           explanation:
             '維管束の有無（根・茎・葉の区別があるか）で分けます。シダ植物は維管束あり、コケ植物は維管束なしです。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q13',
           question: 'シダ植物の茎はどこにあることが多いか？',
@@ -427,7 +354,8 @@ export const plantGroups: Topic = {
           correctIndex: 2,
           explanation:
             'シダ植物の茎は地中にあることが多く、地下茎といいます。地下茎から葉と根が出ています。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q14',
           question: 'シダ植物とコケ植物の共通点は何か？',
@@ -440,7 +368,8 @@ export const plantGroups: Topic = {
           correctIndex: 2,
           explanation:
             'シダ植物とコケ植物はどちらも胞子でふえるという共通点があります。維管束や根茎葉の区別はシダのみです。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q15',
           question: '次の分類で正しい組み合わせはどれか？',
@@ -453,7 +382,8 @@ export const plantGroups: Topic = {
           correctIndex: 2,
           explanation:
             'ゼニゴケはコケ植物です。マツは裸子植物、イヌワラビはシダ植物、サクラは被子植物です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q16',
           question: '次のうち、コケ植物に分類されるのはどれか？',
@@ -461,7 +391,8 @@ export const plantGroups: Topic = {
           correctIndex: 2,
           explanation:
             'コスギゴケはコケ植物です。イヌワラビ・ゼンマイ・スギナはすべてシダ植物です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q17',
           question: 'シダ植物が生える場所として多いのはどこか？',
@@ -474,7 +405,8 @@ export const plantGroups: Topic = {
           correctIndex: 1,
           explanation:
             'シダ植物は日当たりの悪い湿った場所に生えることが多いです。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q18',
           question: '種子植物を2つに分ける基準は何か？',
@@ -487,7 +419,8 @@ export const plantGroups: Topic = {
           correctIndex: 1,
           explanation:
             '種子植物は胚珠が子房に包まれるかどうかで被子植物と裸子植物に分けられます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q19',
           question: '被子植物を2つに分ける基準は何か？',
@@ -500,7 +433,8 @@ export const plantGroups: Topic = {
           correctIndex: 2,
           explanation:
             '被子植物は子葉の枚数で双子葉類（2枚）と単子葉類（1枚）に分けられます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q20',
           question: '次の植物のうち、種子植物に分類されるのはどれか？',
@@ -508,7 +442,8 @@ export const plantGroups: Topic = {
           correctIndex: 3,
           explanation:
             'サクラは被子植物（種子植物）です。ゼニゴケ・コスギゴケはコケ植物、イヌワラビはシダ植物で、いずれも種子をつくりません。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q21',
           question: 'コケ植物に維管束がないことからわかる特徴はどれか？',
@@ -521,7 +456,8 @@ export const plantGroups: Topic = {
           correctIndex: 2,
           explanation:
             '維管束がないため水や養分を効率よく運べず、大きく成長することができません。体の表面全体で水を吸収します。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q22',
           question: 'ゼンマイは何植物に分類されるか？',
@@ -529,7 +465,8 @@ export const plantGroups: Topic = {
           correctIndex: 2,
           explanation:
             'ゼンマイはシダ植物です。根・茎・葉の区別があり、維管束をもち、胞子でふえます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q23',
           question: '次のうち、植物の分類フローとして正しいものはどれか？',
@@ -542,7 +479,8 @@ export const plantGroups: Topic = {
           correctIndex: 1,
           explanation:
             '植物の分類フロー：種子をつくるか→胚珠が子房に包まれるか→子葉の枚数の順に分類します。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'q24',
           question: '胞子のうがあるのはシダ植物のどの部分か？',
@@ -550,7 +488,8 @@ export const plantGroups: Topic = {
           correctIndex: 2,
           explanation:
             'シダ植物の葉の裏に胞子のう（胞子が入った袋）がたくさんついています。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'q25',
           question: '次のうち、シダ植物の特徴として正しくないものはどれか？',
@@ -563,7 +502,8 @@ export const plantGroups: Topic = {
           correctIndex: 3,
           explanation:
             '仮根で体を固定するのはコケ植物の特徴です。シダ植物は本当の根をもっています。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'q26',
           question: 'コケ植物とシダ植物を合わせたグループの共通点は何か？',
@@ -576,7 +516,8 @@ export const plantGroups: Topic = {
           correctIndex: 1,
           explanation:
             'コケ植物とシダ植物はどちらも種子をつくらず、胞子でふえる植物です。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'q27',
           question: '次の植物のうち、コケ植物はどれか？',
@@ -584,7 +525,8 @@ export const plantGroups: Topic = {
           correctIndex: 2,
           explanation:
             'ゼニゴケはコケ植物です。スギナ・イヌワラビ・ゼンマイはシダ植物です。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'q28',
           question: 'ツクシは何というシダ植物の一部か？',
@@ -592,7 +534,8 @@ export const plantGroups: Topic = {
           correctIndex: 2,
           explanation:
             'ツクシはスギナの胞子茎（胞子をつくる部分）です。スギナはシダ植物に分類されます。',
-        },
+        difficulty: 'advanced',
+      },
       ],
     },
     examples: {

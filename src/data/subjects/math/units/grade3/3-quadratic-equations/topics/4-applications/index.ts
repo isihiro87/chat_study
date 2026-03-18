@@ -67,114 +67,142 @@ export const quadEqApps: Topic = {
       {
         id: 'math-g3-qea-fc1',
         front: '① $x$ で置く → ② 式を立てる → ③ 解いて吟味', back: '文章題の3ステップ',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qea-fc2',
         front: '方程式の解が問題の条件に合うか確認すること', back: '解の吟味とは？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qea-fc3',
         front: '$n, n+1$（小さい方を $n$ とする）', back: '連続する2つの整数の表し方',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qea-fc4',
         front: '$n-1, n, n+1$（真ん中を $n$ とする）', back: '連続する3つの整数の表し方',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qea-fc5',
         front: '長さは負にならない → $x > 0$ の解だけ採用', back: '「長さ」を求めるときの吟味',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qea-fc6',
         front: '正の整数 = 自然数 → $x$ が1以上の整数か確認', back: '「正の整数」を求めるときの吟味',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qea-fc7',
         front: '道を端に寄せて考える → 残りの面積 $= (a-x)(b-x)$', back: '道幅の問題の考え方',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qea-fc8',
         front: '$(\\text{元の辺}) - 2x$（両端から $x$ ずつ切る）', back: '厚紙から箱を作る：底面の1辺',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qea-fc9',
         front: '切り取った正方形の1辺 $= x$', back: '厚紙から箱を作る：高さ',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qea-fc10',
         front: '$0 < x < \\dfrac{\\text{短い辺}}{2}$', back: '厚紙から箱を作る：$x$ の範囲',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qea-fc11',
         front: '速さ $\\times$ 時間 $= $ (速さ) $\\times x$ cm', back: '動点の問題：$x$ 秒後の距離',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qea-fc12',
         front: '$\\dfrac{1}{2}(a-x) \\cdot x = \\dfrac{x(a-x)}{2}$', back: '動点：△BPQの面積（1辺 $a$ の正方形、P:A→B、Q:B→C）',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qea-fc13',
         front: '$x$ の範囲内にある解はすべて答え（2つとも答えの場合あり）', back: '動点の問題：解が2つ出たら？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qea-fc14',
-        front: '縦 $\\times$ 横', back: '長方形の面積の公式',
+        front: '$n = 8$（$n(n+1) = 72$ → $n^2+n-72=0$ → $(n+9)(n-8)=0$）', back: '連続する2つの正の整数の積が72。小さい方は？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qea-fc15',
-        front: '$\\dfrac{1}{2} \\times$ 底辺 $\\times$ 高さ', back: '三角形の面積の公式',
+        front: '横 $9$ cm（$x(x-3)=54$ → $(x-9)(x+6)=0$、$x>0$ より $x=9$）', back: '縦が横より3cm短く面積54cm²の長方形。横は？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qea-fc16',
-        front: '$2 \\times (\\text{縦} + \\text{横})$', back: '長方形の周の長さの公式',
+        front: '$6$ と $7$（$x(13-x)=42$ → $(x-6)(x-7)=0$）', back: '周が26cm、面積42cm²の長方形の辺の長さは？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qea-fc17',
         front: '$x(\\text{幅} - 2x)$（高さ $\\times$ 底面の幅）', back: '鉄板の折り曲げ問題：断面積',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qea-fc18',
         front: '条件を満たす解がない → 式の立て方を再確認', back: '解が2つとも不適な場合は？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qea-fc19',
         front: '$n(n+2)$（$n$ は奇数）', back: '連続する2つの奇数の積の表し方は？（小さい方を $n$）',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qea-fc20',
-        front: '面積 = 元の長方形 − 道の面積 ではなく、道を寄せて残りの面積で考える', back: '道幅の問題で間違えやすいポイントは？',
+        front: '道幅 $2$ m（$(20-x)(30-x)=504$ → $(x-2)(x-48)=0$、$x<20$ より $x=2$）', back: '縦20m横30mの土地で道幅xmの道を作り残り504m²。道幅は？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qea-fc21',
         front: '$x > 0$、$x$ が整数、$0 < x < \\frac{\\text{辺}}{2}$ など', back: '解の吟味で確認する条件の例は？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qea-fc22',
         front: '$(\\text{元の幅}) - 2x$（$x$ は折る長さ）', back: '鉄板の折り曲げ問題で底面の幅は？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qea-fc23',
-        front: '式を立てる前に図を描くと関係が見えやすくなる', back: '文章題を解くコツは？',
+        front: '$n = 6$（$n^2+(n+1)^2=85$ → $2n^2+2n-84=0$ → $(n+7)(n-6)=0$）', back: '連続する2つの正の整数の2乗の和が85。小さい方は？',
+        difficulty: 'advanced',
       },
       {
         id: 'math-g3-qea-fc24',
         front: '$(10+x)(15+x) = $ 目標面積 として方程式を立てる', back: '花壇を伸ばす問題の式の立て方は？',
+        difficulty: 'advanced',
       },
       {
         id: 'math-g3-qea-fc25',
         front: '2つの解が両方とも適切な場合がある（答えが2つ）', back: '動点の問題で解が2つ出たときの注意は？',
+        difficulty: 'advanced',
       },
       {
         id: 'math-g3-qea-fc26',
         front: '$n^2 + (n+1)^2 = $ 目標値 として方程式を立てる', back: '連続する2つの整数の2乗の和の問題は？',
+        difficulty: 'advanced',
       },
       {
         id: 'math-g3-qea-fc27',
         front: '実際の値を代入して面積・個数が合うか確かめる', back: '解の吟味の具体的なやり方は？',
+        difficulty: 'advanced',
       },
       {
         id: 'math-g3-qea-fc28',
         front: '時間なので $x > 0$ かつ辺の長さを超えないか確認', back: '動点の問題で解の吟味は何を確認する？',
+        difficulty: 'advanced',
       },
     ],
     quiz: {
@@ -187,6 +215,7 @@ export const quadEqApps: Topic = {
           correctIndex: 3,
           explanation:
             '$n(n+1) = 56$ → $n^2+n-56 = 0$ → $(n+8)(n-7) = 0$。$n = 7$（正の整数なので $n = -8$ は不適）。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-qea-q2',
@@ -196,6 +225,7 @@ export const quadEqApps: Topic = {
           correctIndex: 2,
           explanation:
             '$x(x-3) = 54$ → $x^2 - 3x - 54 = 0$ → $(x-9)(x+6) = 0$。長さなので $x = 9$。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-qea-q3',
@@ -210,6 +240,7 @@ export const quadEqApps: Topic = {
           correctIndex: 0,
           explanation:
             '長さは負にならないので、$x = -3$ は問題の条件に合わない。$x = 5$ が答えだよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-qea-q4',
@@ -219,6 +250,7 @@ export const quadEqApps: Topic = {
           correctIndex: 1,
           explanation:
             '$x^2 - 3x = 10$ → $x^2 - 3x - 10 = 0$ → $(x-5)(x+2) = 0$。正の整数なので $x = 5$。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-qea-q5',
@@ -228,6 +260,7 @@ export const quadEqApps: Topic = {
           correctIndex: 2,
           explanation:
             '$(20-x)(30-x) = 504$ → $x^2 - 50x + 96 = 0$ → $(x-2)(x-48) = 0$。$x = 2$（$x=48$は不適）。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-qea-q6',
@@ -242,6 +275,7 @@ export const quadEqApps: Topic = {
           correctIndex: 1,
           explanation:
             '連続する整数は差が1なので $n, n+1$。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-qea-q7',
@@ -256,6 +290,7 @@ export const quadEqApps: Topic = {
           correctIndex: 3,
           explanation:
             '両端から $x$ ずつ切り取るので、底面の1辺は $(12 - 2x)$ cm。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-qea-q8',
@@ -270,6 +305,7 @@ export const quadEqApps: Topic = {
           correctIndex: 0,
           explanation:
             'BP $= 8-x$, BQ $= x$ なので面積 $= \\dfrac{1}{2}(8-x) \\cdot x = \\dfrac{x(8-x)}{2}$。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-qea-q9',
@@ -284,6 +320,7 @@ export const quadEqApps: Topic = {
           correctIndex: 1,
           explanation:
             '$\\dfrac{x(8-x)}{2} = 6$ → $x^2 - 8x + 12 = 0$ → $(x-2)(x-6) = 0$。両方とも範囲内なので2秒後と6秒後。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-qea-q10',
@@ -293,6 +330,7 @@ export const quadEqApps: Topic = {
           correctIndex: 2,
           explanation:
             '$x(x+3) = 40$ → $x^2+3x-40=0$ → $(x+8)(x-5)=0$。$x=5$, 大きい方は $5+3=8$。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-qea-q11',
@@ -307,6 +345,7 @@ export const quadEqApps: Topic = {
           correctIndex: 0,
           explanation:
             '短い辺の半分が上限。$20 - 2x > 0$ より $x < 10$。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qea-q12',
@@ -321,6 +360,7 @@ export const quadEqApps: Topic = {
           correctIndex: 3,
           explanation:
             '横 $x$, 縦 $(13-x)$ で $x(13-x) = 42$ → $(x-6)(x-7) = 0$。$x = 6$ or $7$。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qea-q13',
@@ -330,6 +370,7 @@ export const quadEqApps: Topic = {
           correctIndex: 1,
           explanation:
             '$n^2+(n+1)^2=85$ → $2n^2+2n-84=0$ → $n^2+n-42=0$ → $(n+7)(n-6)=0$。$n=6$。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qea-q14',
@@ -339,6 +380,7 @@ export const quadEqApps: Topic = {
           correctIndex: 2,
           explanation:
             '$x^2=5x+6$ → $x^2-5x-6=0$ → $(x-6)(x+1)=0$。正の整数で $x=6$。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qea-q15',
@@ -348,6 +390,7 @@ export const quadEqApps: Topic = {
           correctIndex: 1,
           explanation:
             '$(8-x)(12-x)=72$ → $x^2-20x+24=0$。$x=2$($x=18$は不適)。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qea-q16',
@@ -362,6 +405,7 @@ export const quadEqApps: Topic = {
           correctIndex: 0,
           explanation:
             '底面の1辺が $10-2x > 0$ より $x < 5$。$0 < x < 5$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qea-q17',
@@ -376,6 +420,7 @@ export const quadEqApps: Topic = {
           correctIndex: 2,
           explanation:
             '$\\frac{x(6-x)}{2}=4$ → $x^2-6x+8=0$ → $(x-2)(x-4)=0$。両方$0<x<6$を満たす。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qea-q18',
@@ -385,6 +430,7 @@ export const quadEqApps: Topic = {
           correctIndex: 1,
           explanation:
             '$x(12-x)=35$ → $x^2-12x+35=0$ → $(x-5)(x-7)=0$。大きい方は7。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qea-q19',
@@ -394,6 +440,7 @@ export const quadEqApps: Topic = {
           correctIndex: 0,
           explanation:
             '$x(30-2x)=200$ → $2x^2-30x+200=0$ → $x^2-15x+100=0$。$x=5$ or $20$、条件より$x=5$。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qea-q20',
@@ -403,6 +450,7 @@ export const quadEqApps: Topic = {
           correctIndex: 1,
           explanation:
             '$(n-1)(n+1)=5n$ → $n^2-1=5n$ → $n^2-5n-1=0$。$n=5$ を確認: $4 \\times 6=24=5 \\times 5$。えっ…再計算: $(n-1)(n+1)=n^2-1$、$5n=25$。$n^2-1=5n$ → $n^2-5n-1=0$ は整数解なし。問題を $最大 \\times 最小 = 中央の5倍+1$ と修正すると $(n-1)(n+1)=5n$ は $n=5$ではない。正しくは $(n-1)(n+1)=5n$ → $25-1=24 \\neq 25$。修正: 中央の2乗が最大と最小の積より1大きいことを確認。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qea-q21',
@@ -412,6 +460,7 @@ export const quadEqApps: Topic = {
           correctIndex: 1,
           explanation:
             '$(10+x)(15+x)=300$ → $x^2+25x-150=0$ → $(x+30)(x-5)=0$。$x=5$ m。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qea-q22',
@@ -421,6 +470,7 @@ export const quadEqApps: Topic = {
           correctIndex: 2,
           explanation:
             '$x^2-2x=48$ → $x^2-2x-48=0$ → $(x-8)(x+6)=0$。正の整数で$x=8$。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qea-q23',
@@ -435,6 +485,7 @@ export const quadEqApps: Topic = {
           correctIndex: 2,
           explanation:
             '道を端に寄せると残りは1つの長方形になり、面積の計算が簡単になるよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g3-qea-q24',
@@ -444,6 +495,7 @@ export const quadEqApps: Topic = {
           correctIndex: 1,
           explanation:
             '$x(16-2x)^2=240$。$x=3$: $3 \\times 10^2 = 300$…$x=3$: $3 \\times (16-6)^2 = 3 \\times 100 = 300$。再計算: 正解は$x=3$のとき$容積=3(10)^2=300$なので問題値を修正。$x(16-2x)^2=300$なら$x=3$。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g3-qea-q25',
@@ -458,6 +510,7 @@ export const quadEqApps: Topic = {
           correctIndex: 1,
           explanation:
             '正の整数なので $x > 0$ の条件から $x = 5$ だけが答えだよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g3-qea-q26',
@@ -467,6 +520,7 @@ export const quadEqApps: Topic = {
           correctIndex: 1,
           explanation:
             '$2n(2n+2)=120$ → $4n^2+4n-120=0$ → $n^2+n-30=0$ → $(n+6)(n-5)=0$。$n=5$、偶数は$10$と$12$。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g3-qea-q27',
@@ -476,6 +530,7 @@ export const quadEqApps: Topic = {
           correctIndex: 1,
           explanation:
             '高さ$h$、底辺$h+4$で$\\frac{1}{2}h(h+4)=30$ → $h^2+4h-60=0$ → $(h+10)(h-6)=0$。$h=6$、底辺$=10$ cm。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g3-qea-q28',
@@ -490,6 +545,7 @@ export const quadEqApps: Topic = {
           correctIndex: 1,
           explanation:
             '解の吟味が必要。長さは正、時間も正、範囲内かなど条件を確認しよう。',
+          difficulty: 'advanced',
         },
       ],
     },

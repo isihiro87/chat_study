@@ -161,182 +161,34 @@ export const prefectures: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'geo1-pf-fc1',
-        front: '廃藩置県',
-        back: '廃藩置県はいつ行われた？何をしたか説明せよ。',
-        explanation:
-          '1871年（明治4年）に行われ、約300の藩を廃止して府・県を置きました。現在の47都道府県のもとになった改革です。',
-      },
-      {
-        id: 'geo1-pf-fc2',
-        front: '1都1道2府43県',
-        back: '「1都1道2府」をすべて答えよ。',
-        explanation:
-          '1都は東京都、1道は北海道、2府は大阪府と京都府です。残りの43が県で、合計47都道府県になります。',
-      },
-      {
-        id: 'geo1-pf-fc3',
-        front: '7地方区分',
-        back: '日本の7地方区分を北から順にすべて答えよ。',
-        explanation:
-          '北海道地方、東北地方、関東地方、中部地方、近畿地方、中国・四国地方、九州地方の7つです。',
-      },
-      {
-        id: 'geo1-pf-fc4',
-        front: '東北地方の6県',
-        back: '東北地方に含まれる6県をすべて答えよ。',
-        explanation:
-          '青森県、岩手県、宮城県、秋田県、山形県、福島県の6県です。東北地方は本州の北東部に位置します。',
-      },
-      {
-        id: 'geo1-pf-fc5',
-        front: '県名と県庁所在地が異なる県（代表例）',
-        back: '宮城県・栃木県・愛知県・兵庫県の県庁所在地をそれぞれ答えよ。',
-        explanation:
-          '宮城県は仙台市、栃木県は宇都宮市、愛知県は名古屋市、兵庫県は神戸市です。県名と県庁所在地名が異なる県は全部で18あります。',
-      },
-      {
-        id: 'geo1-pf-fc6',
-        front: '県境の決まり方',
-        back: '都道府県の境界はどのようにして決められたか？',
-        explanation:
-          '県境は山脈や河川などの自然地形や、江戸時代の旧藩の領域をもとに決められたものが多くあります。',
-      },
-      {
-        id: 'geo1-pf-fc7',
-        front: '中部地方の9県',
-        back: '中部地方に含まれる9県をすべて答えよ。',
-        explanation:
-          '新潟県、富山県、石川県、福井県、山梨県、長野県、岐阜県、静岡県、愛知県の9県です。7地方区分の中で最も県の数が多い地方です。',
-      },
-      {
-        id: 'geo1-pf-fc8',
-        front: '関東地方の構成',
-        back: '関東地方に含まれる1都6県をすべて答えよ。',
-        explanation:
-          '茨城県、栃木県、群馬県、埼玉県、千葉県、東京都、神奈川県の1都6県です。日本の首都である東京を中心とした地方です。',
-      },
-      {
-        id: 'geo1-pf-fc9',
-        front: '近畿地方の構成',
-        back: '近畿地方に含まれる2府5県をすべて答えよ。',
-        explanation:
-          '三重県、滋賀県、京都府、大阪府、兵庫県、奈良県、和歌山県の2府5県です。',
-      },
-      {
-        id: 'geo1-pf-fc10',
-        front: '九州地方の8県',
-        back: '九州地方に含まれる8県をすべて答えよ。',
-        explanation:
-          '福岡県、佐賀県、長崎県、熊本県、大分県、宮崎県、鹿児島県、沖縄県の8県です。',
-      },
-      {
-        id: 'geo1-pf-fc11',
-        front: '廃藩置県の直後',
-        back: '廃藩置県の直後、全国にはいくつの府と県が置かれたか。',
-        explanation:
-          '3府302県です。その後統合が進み、1888年に現在の1都1道2府43県の形になりました。',
-      },
-      {
-        id: 'geo1-pf-fc12',
-        front: '岩手県の県庁所在地',
-        back: '岩手県の県庁所在地はどこか。',
-        explanation:
-          '盛岡市です。南部家の城下町として栄えた歴史があります。',
-      },
-      {
-        id: 'geo1-pf-fc13',
-        front: '石川県の県庁所在地',
-        back: '石川県の県庁所在地はどこか。',
-        explanation:
-          '金沢市です。加賀百万石の前田家の城下町として知られています。',
-      },
-      {
-        id: 'geo1-pf-fc14',
-        front: 'さいたま市の特徴',
-        back: 'さいたま市の表記で注意すべき点は何か。',
-        explanation:
-          '漢字の「埼玉」ではなくひらがなの「さいたま」と書きます。2001年に浦和市・大宮市・与野市が合併してできた、日本で唯一のひらがなの県庁所在地です。',
-      },
-      {
-        id: 'geo1-pf-fc15',
-        front: '沖縄県の返還',
-        back: '沖縄県が日本に復帰したのは何年か。何がきっかけだったか。',
-        explanation:
-          '1972年です。第二次世界大戦後にアメリカの施政権下にあった沖縄が日本に返還され、47番目の都道府県になりました。',
-      },
-      {
-        id: 'geo1-pf-fc16',
-        front: '群馬県の県庁所在地',
-        back: '群馬県の県庁所在地はどこか。',
-        explanation:
-          '前橋市です。群馬市ではないことに注意しましょう。',
-      },
-      {
-        id: 'geo1-pf-fc17',
-        front: '三重県の県庁所在地',
-        back: '三重県の県庁所在地はどこか。',
-        explanation:
-          '津市です。日本の県庁所在地の中で最も短い名前の市です。',
-      },
-      {
-        id: 'geo1-pf-fc18',
-        front: '北海道の道庁所在地',
-        back: '北海道の道庁所在地はどこか。',
-        explanation:
-          '札幌市です。北海道は「県庁」ではなく「道庁」と呼びます。',
-      },
-      {
-        id: 'geo1-pf-fc19',
-        front: '廃藩置県',
-        back: '廃藩置県が行われたのは西暦何年か。',
-      },
-      {
-        id: 'geo1-pf-fc20',
-        front: '3府302県',
-        back: '廃藩置県の直後に置かれた府と県の数を答えよ。',
-      },
-      {
-        id: 'geo1-pf-fc21',
-        front: '1972年沖縄返還',
-        back: '1972年に沖縄が日本に返還されたことで何都道府県になったか。',
-      },
-      {
-        id: 'geo1-pf-fc22',
-        front: '藩',
-        back: '江戸時代に日本が分かれていた政治単位を何というか。',
-      },
-      {
-        id: 'geo1-pf-fc23',
-        front: '中部地方の県数',
-        back: '7地方区分のうち含まれる県の数が最も多い地方はどこか。',
-      },
-      {
-        id: 'geo1-pf-fc24',
-        front: '岩手県の県庁所在地',
-        back: '岩手県の県庁所在地はどこか。',
-      },
-      {
-        id: 'geo1-pf-fc25',
-        front: '石川県の県庁所在地',
-        back: '石川県の県庁所在地はどこか。',
-      },
-      {
-        id: 'geo1-pf-fc26',
-        front: '滋賀県の県庁所在地',
-        back: '滋賀県の県庁所在地はどこか。',
-      },
-      {
-        id: 'geo1-pf-fc27',
-        front: '県庁所在地と県名が異なる理由',
-        back: '県庁所在地が県名と異なる理由として多いものは何か。',
-      },
-      {
-        id: 'geo1-pf-fc28',
-        front: '県の境界の決め方',
-        back: '県の境界はどのようにして決められたか。',
-      },
+      { id: 'geo1-pf-fc1', front: '1871年（明治4年）に約300の藩を廃止して府・県を置いた改革', back: '廃藩置県はいつ行われた？何をしたか説明せよ。', difficulty: 'basic' },
+      { id: 'geo1-pf-fc2', front: '東京都・北海道・大阪府・京都府', back: '「1都1道2府」をすべて答えよ。', difficulty: 'basic' },
+      { id: 'geo1-pf-fc3', front: '北海道・東北・関東・中部・近畿・中国四国・九州', back: '日本の7地方区分を北から順にすべて答えよ。', difficulty: 'basic' },
+      { id: 'geo1-pf-fc4', front: '青森・岩手・宮城・秋田・山形・福島', back: '東北地方に含まれる6県をすべて答えよ。', difficulty: 'basic' },
+      { id: 'geo1-pf-fc5', front: '宮城→仙台市、栃木→宇都宮市、愛知→名古屋市、兵庫→神戸市', back: '宮城県・栃木県・愛知県・兵庫県の県庁所在地をそれぞれ答えよ。', explanation: '県名と県庁所在地名が異なる県は全部で18ある。', difficulty: 'basic' },
+      { id: 'geo1-pf-fc6', front: '山脈や河川などの自然地形や、江戸時代の旧藩の領域をもとに決められた', back: '都道府県の境界はどのようにして決められたか？', difficulty: 'standard' },
+      { id: 'geo1-pf-fc7', front: '新潟・富山・石川・福井・山梨・長野・岐阜・静岡・愛知', back: '中部地方に含まれる9県をすべて答えよ。', explanation: '7地方区分の中で最も県の数が多い。', difficulty: 'basic' },
+      { id: 'geo1-pf-fc8', front: '茨城・栃木・群馬・埼玉・千葉・東京都・神奈川', back: '関東地方に含まれる1都6県をすべて答えよ。', difficulty: 'basic' },
+      { id: 'geo1-pf-fc9', front: '三重・滋賀・京都府・大阪府・兵庫・奈良・和歌山', back: '近畿地方に含まれる2府5県をすべて答えよ。', difficulty: 'basic' },
+      { id: 'geo1-pf-fc10', front: '福岡・佐賀・長崎・熊本・大分・宮崎・鹿児島・沖縄', back: '九州地方に含まれる8県をすべて答えよ。', difficulty: 'basic' },
+      { id: 'geo1-pf-fc11', front: '3府302県', back: '廃藩置県の直後、全国にはいくつの府と県が置かれたか。', explanation: 'その後統合が進み、1888年に現在の形になった。', difficulty: 'standard' },
+      { id: 'geo1-pf-fc12', front: '盛岡市', back: '岩手県の県庁所在地はどこか。', difficulty: 'basic' },
+      { id: 'geo1-pf-fc13', front: '金沢市', back: '石川県の県庁所在地はどこか。', explanation: '加賀百万石の前田家の城下町として知られる。', difficulty: 'standard' },
+      { id: 'geo1-pf-fc14', front: '漢字ではなくひらがなの「さいたま」と書く', back: 'さいたま市の表記で注意すべき点は何か。', explanation: '2001年に浦和市・大宮市・与野市が合併してできた。', difficulty: 'standard' },
+      { id: 'geo1-pf-fc15', front: '1972年（アメリカの施政権下から日本に返還）', back: '沖縄県が日本に復帰したのは何年か。', difficulty: 'standard' },
+      { id: 'geo1-pf-fc16', front: '前橋市', back: '群馬県の県庁所在地はどこか。', difficulty: 'standard' },
+      { id: 'geo1-pf-fc17', front: '津市', back: '三重県の県庁所在地はどこか。', explanation: '日本の県庁所在地の中で最も短い名前。', difficulty: 'standard' },
+      { id: 'geo1-pf-fc18', front: '札幌市', back: '北海道の道庁所在地はどこか。', difficulty: 'standard' },
+      { id: 'geo1-pf-fc19', front: '1871年', back: '廃藩置県が行われたのは西暦何年か。', difficulty: 'basic' },
+      { id: 'geo1-pf-fc20', front: '47都道府県', back: '1972年に沖縄が日本に返還されたことで何都道府県になったか。', difficulty: 'standard' },
+      { id: 'geo1-pf-fc21', front: '藩', back: '江戸時代に日本が分かれていた政治単位を何というか。', difficulty: 'basic' },
+      { id: 'geo1-pf-fc22', front: '中部地方（9県）', back: '7地方区分のうち含まれる県の数が最も多い地方はどこか。', difficulty: 'standard' },
+      { id: 'geo1-pf-fc23', front: '那覇市', back: '沖縄県の県庁所在地はどこか。', difficulty: 'standard' },
+      { id: 'geo1-pf-fc24', front: '大津市', back: '滋賀県の県庁所在地はどこか。', difficulty: 'advanced' },
+      { id: 'geo1-pf-fc25', front: '松江市', back: '島根県の県庁所在地はどこか。', difficulty: 'advanced' },
+      { id: 'geo1-pf-fc26', front: '松山市', back: '愛媛県の県庁所在地はどこか。', difficulty: 'advanced' },
+      { id: 'geo1-pf-fc27', front: '城下町や港町など栄えた都市が県庁所在地に選ばれたが、県名は地域全体の名前だったため', back: '県庁所在地が県名と異なる理由として多いものは何か。', difficulty: 'advanced' },
+      { id: 'geo1-pf-fc28', front: '18県', back: '県名と県庁所在地名が異なる県はいくつあるか。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -352,7 +204,8 @@ export const prefectures: Topic = {
           correctIndex: 3,
           explanation:
             '廃藩置県は1871年（明治4年）に行われました。約300の藩を廃止し、府・県を置いたことで、現在の47都道府県のもとが作られました。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-pf-q2',
           question: '日本の「2府」にあたるものの組み合わせとして正しいのはどれ？',
@@ -365,7 +218,8 @@ export const prefectures: Topic = {
           correctIndex: 2,
           explanation:
             '日本の2府は京都府と大阪府です。東京は「都」、北海道は「道」、残りの43が「県」で、合わせて1都1道2府43県になります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-pf-q3',
           question: '7地方区分のうち、含まれる県の数が最も多い地方はどれ？',
@@ -378,7 +232,8 @@ export const prefectures: Topic = {
           correctIndex: 0,
           explanation:
             '中部地方は9県（新潟・富山・石川・福井・山梨・長野・岐阜・静岡・愛知）で構成され、7地方区分の中で最も多い県数です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-pf-q4',
           question: '栃木県の県庁所在地はどこ？',
@@ -386,7 +241,8 @@ export const prefectures: Topic = {
           correctIndex: 1,
           explanation:
             '栃木県の県庁所在地は宇都宮市です。県名と県庁所在地名が異なる代表的な例の一つです。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-pf-q5',
           question: '県境の決め方として正しいものはどれ？',
@@ -399,7 +255,8 @@ export const prefectures: Topic = {
           correctIndex: 1,
           explanation:
             '県境は山脈や河川などの自然地形や、江戸時代の旧藩の領域をもとに決められたものが多くあります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-pf-q6',
           question: '兵庫県の県庁所在地はどこ？',
@@ -412,7 +269,8 @@ export const prefectures: Topic = {
           correctIndex: 0,
           explanation:
             '兵庫県の県庁所在地は神戸市です。幕末に開港された国際貿易港として発展した歴史をもちます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-pf-q7',
           question: '東北地方に含まれる県の数は？',
@@ -425,7 +283,8 @@ export const prefectures: Topic = {
           correctIndex: 2,
           explanation:
             '東北地方には青森県・岩手県・宮城県・秋田県・山形県・福島県の6県が含まれます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-pf-q8',
           question: '埼玉県の県庁所在地の正しい表記はどれ？',
@@ -438,7 +297,8 @@ export const prefectures: Topic = {
           correctIndex: 3,
           explanation:
             '埼玉県の県庁所在地はひらがなの「さいたま市」です。2001年に浦和市・大宮市・与野市が合併して誕生した、日本で唯一のひらがな表記の県庁所在地です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-pf-q9',
           question: '廃藩置県の直後に置かれた府と県の数として正しいものはどれ？',
@@ -451,7 +311,8 @@ export const prefectures: Topic = {
           correctIndex: 1,
           explanation:
             '廃藩置県直後は3府302県が置かれました。その後統合が進み、1888年に現在の47都道府県の形になりました。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-pf-q10',
           question: '宮城県の県庁所在地が仙台市になった理由として最も適切なものはどれ？',
@@ -464,7 +325,8 @@ export const prefectures: Topic = {
           correctIndex: 0,
           explanation:
             '仙台は伊達家の城下町として栄えた東北最大の都市であり、政治・経済の中心地だったため県庁所在地に選ばれました。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-pf-q11',
           question: '次のうち、九州地方に含まれる県はどれ？',
@@ -477,7 +339,8 @@ export const prefectures: Topic = {
           correctIndex: 2,
           explanation:
             '沖縄県は九州地方に含まれます。広島県は中国地方、高知県は四国地方、山口県は中国地方に属します。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-pf-q12',
           question: '廃藩置県が行われたのは何年か。',
@@ -490,7 +353,8 @@ export const prefectures: Topic = {
           correctIndex: 1,
           explanation:
             '廃藩置県は1871年（明治4年）に行われ、約300の藩が廃止されました。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-pf-q13',
           question: '47都道府県の内訳で正しいものはどれ？',
@@ -503,7 +367,8 @@ export const prefectures: Topic = {
           correctIndex: 1,
           explanation:
             '1都（東京都）1道（北海道）2府（大阪府・京都府）43県です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-pf-q14',
           question: '日本の2府とは何か。',
@@ -516,7 +381,8 @@ export const prefectures: Topic = {
           correctIndex: 1,
           explanation:
             '日本の2府は大阪府と京都府です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-pf-q15',
           question: '東北地方に含まれる県の数はいくつか。',
@@ -529,7 +395,8 @@ export const prefectures: Topic = {
           correctIndex: 2,
           explanation:
             '東北地方は青森・岩手・宮城・秋田・山形・福島の6県です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-pf-q16',
           question: '宮城県の県庁所在地はどこか。',
@@ -542,7 +409,8 @@ export const prefectures: Topic = {
           correctIndex: 1,
           explanation:
             '宮城県の県庁所在地は仙台市です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-pf-q17',
           question: '愛知県の県庁所在地はどこか。',
@@ -555,7 +423,8 @@ export const prefectures: Topic = {
           correctIndex: 2,
           explanation:
             '愛知県の県庁所在地は名古屋市です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-pf-q18',
           question: '兵庫県の県庁所在地はどこか。',
@@ -568,7 +437,8 @@ export const prefectures: Topic = {
           correctIndex: 2,
           explanation:
             '兵庫県の県庁所在地は神戸市です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-pf-q19',
           question: '香川県の県庁所在地はどこか。',
@@ -581,7 +451,8 @@ export const prefectures: Topic = {
           correctIndex: 1,
           explanation:
             '香川県の県庁所在地は高松市です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-pf-q20',
           question: 'さいたま市の表記で注意すべき点はどれ？',
@@ -594,7 +465,8 @@ export const prefectures: Topic = {
           correctIndex: 2,
           explanation:
             'さいたま市は漢字ではなくひらがなの「さいたま」と表記します。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-pf-q21',
           question: '7地方区分で含まれる県の数が最も多いのはどこ？',
@@ -607,7 +479,8 @@ export const prefectures: Topic = {
           correctIndex: 2,
           explanation:
             '中部地方は9県で最も多いです。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-pf-q22',
           question: '関東地方に含まれるのは何都何県か。',
@@ -620,7 +493,8 @@ export const prefectures: Topic = {
           correctIndex: 1,
           explanation:
             '関東地方は茨城・栃木・群馬・埼玉・千葉・東京都・神奈川の1都6県です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-pf-q23',
           question: '北海道の道庁所在地はどこか。',
@@ -633,7 +507,8 @@ export const prefectures: Topic = {
           correctIndex: 2,
           explanation:
             '北海道の道庁所在地は札幌市です。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'geo1-pf-q24',
           question: '県名と県庁所在地名が異なる県はいくつあるか。',
@@ -646,7 +521,8 @@ export const prefectures: Topic = {
           correctIndex: 2,
           explanation:
             '県名と県庁所在地名が異なる県は18県あります。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'geo1-pf-q25',
           question: '沖縄県の県庁所在地はどこか。',
@@ -659,7 +535,8 @@ export const prefectures: Topic = {
           correctIndex: 0,
           explanation:
             '沖縄県の県庁所在地は那覇市です。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'geo1-pf-q26',
           question: '群馬県の県庁所在地はどこか。',
@@ -672,7 +549,8 @@ export const prefectures: Topic = {
           correctIndex: 2,
           explanation:
             '群馬県の県庁所在地は前橋市です。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'geo1-pf-q27',
           question: '県の境界を決めるもとになったものはどれ？',
@@ -685,7 +563,8 @@ export const prefectures: Topic = {
           correctIndex: 1,
           explanation:
             '山脈や河川などの自然地形や江戸時代の旧藩の領域をもとに決められました。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'geo1-pf-q28',
           question: '島根県の県庁所在地はどこか。',
@@ -698,7 +577,8 @@ export const prefectures: Topic = {
           correctIndex: 2,
           explanation:
             '島根県の県庁所在地は松江市です。',
-        },
+        difficulty: 'advanced',
+      },
       ],
     },
     examples: {

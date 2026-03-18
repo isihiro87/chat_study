@@ -68,141 +68,169 @@ export const yayoiEra: Topic = {
         id: 'fc1',
         front: '弥生時代',
         back: '稲作が伝わり金属器が普及したのは何時代？',
+        difficulty: 'basic',
       },
       {
         id: 'fc2',
         front: '稲作',
         back: '九州北部に伝わり東北まで広がった農業は？',
+        difficulty: 'basic',
       },
       {
         id: 'fc3',
         front: '高床倉庫',
         back: '収穫した稲を収め、湿気やねずみを防ぐために建てられた倉庫は？',
+        difficulty: 'basic',
       },
       {
         id: 'fc4',
         front: '弥生土器',
         back: '弥生時代に使われた薄手で硬くシンプルな形の土器は？',
+        difficulty: 'basic',
       },
       {
         id: 'fc5',
         front: '石包丁',
         back: '稲の穂をつみ取るために使われた半月形の石器は？',
+        difficulty: 'basic',
       },
       {
         id: 'fc6',
         front: '鉄器',
         back: '武器や工具、農具に用いられた実用的な金属器は？',
+        difficulty: 'basic',
       },
       {
         id: 'fc7',
         front: '銅鐸',
         back: '祭りの宝物として使われた、つりがね形の青銅器は？',
+        difficulty: 'basic',
       },
       {
         id: 'fc8',
         front: '銅鏡',
         back: '弥生時代に祭りや儀式に使われた青銅製の鏡は？',
+        difficulty: 'basic',
       },
       {
         id: 'fc9',
         front: '銅剣',
         back: '弥生時代に祭りや儀式に使われた青銅製の武器は？',
+        difficulty: 'basic',
       },
       {
         id: 'fc10',
         front: '卑弥呼',
         back: '3世紀ごろ、30あまりの国をまとめた女王は？',
+        difficulty: 'basic',
       },
       {
         id: 'fc11',
         front: '邪馬台国',
         back: '卑弥呼が都を置いていたとされる国は？',
+        difficulty: 'basic',
       },
       {
         id: 'fc12',
         front: '親魏倭王',
         back: '卑弥呼が魏の皇帝から授かった称号は？',
+        difficulty: 'basic',
       },
       {
         id: 'fc13',
         front: '魏志倭人伝',
         back: '卑弥呼と邪馬台国のことが記されている中国の歴史書は？',
+        difficulty: 'standard',
       },
       {
         id: 'fc14',
         front: '金印',
         back: '1世紀に奴国の王が漢の皇帝から授かったものは？',
+        difficulty: 'standard',
       },
       {
         id: 'fc15',
         front: '漢委奴国王',
         back: '金印に刻まれていた文字は？',
+        difficulty: 'standard',
       },
       {
         id: 'fc16',
         front: '朝貢',
         back: '定期的に貢ぎ物を送り王と認めてもらう外交を何という？',
+        difficulty: 'standard',
       },
       {
         id: 'fc17',
         front: '吉野ヶ里遺跡',
         back: '佐賀県にある、堀や柵を備えた大規模な弥生時代の遺跡は？',
+        difficulty: 'standard',
       },
       {
         id: 'fc18',
         front: '登呂遺跡',
         back: '静岡県にある、弥生時代の水田跡が見つかった遺跡は？',
+        difficulty: 'standard',
       },
       {
         id: 'fc19',
         front: '環濠',
         back: '弥生時代の集落の周囲に掘られた防御用の溝は？',
+        difficulty: 'standard',
       },
       {
         id: 'fc20',
         front: '志賀島',
         back: '金印が発見された福岡県の島は？',
+        difficulty: 'standard',
       },
       {
         id: 'fc21',
         front: '奴国',
         back: '金印を授かった1世紀の倭のくにの名前は？',
+        difficulty: 'standard',
       },
       {
         id: 'fc22',
         front: '物見やぐら',
         back: '弥生時代の集落で敵の侵入を監視するために建てられた施設は？',
+        difficulty: 'standard',
       },
       {
         id: 'fc23',
         front: '漢書地理志',
         back: '1世紀に倭に100あまりの「くに」があったと記した中国の歴史書は？',
+        difficulty: 'advanced',
       },
       {
         id: 'fc24',
         front: '畿内説と九州説',
         back: '邪馬台国の場所について議論されている2つの説は？',
+        difficulty: 'advanced',
       },
       {
         id: 'fc25',
         front: '貧富の差',
         back: '稲作による収穫量の違いから生まれた社会の変化は？',
+        difficulty: 'advanced',
       },
       {
         id: 'fc26',
         front: '木製のくわ',
         back: '弥生時代に田植え前に土を耕すために使われた農具は？',
+        difficulty: 'advanced',
       },
       {
         id: 'fc27',
         front: '静岡県',
         back: '登呂遺跡がある県は？',
+        difficulty: 'advanced',
       },
       {
         id: 'fc28',
         front: '佐賀県',
         back: '吉野ヶ里遺跡がある県は？',
+        difficulty: 'advanced',
       },
     ],
     quiz: {
@@ -215,6 +243,7 @@ export const yayoiEra: Topic = {
           correctIndex: 0,
           explanation:
             '大陸から九州北部に稲作が伝わり、弥生時代が始まりました。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -223,6 +252,7 @@ export const yayoiEra: Topic = {
           correctIndex: 1,
           explanation:
             '高床倉庫は床を高くして湿気やねずみから稲を守りました。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -231,6 +261,7 @@ export const yayoiEra: Topic = {
           correctIndex: 2,
           explanation:
             '卑弥呼は邪馬台国の女王で、まじないの力で国々をまとめました。',
+          difficulty: 'basic',
         },
         {
           id: 'q4',
@@ -239,6 +270,7 @@ export const yayoiEra: Topic = {
           correctIndex: 3,
           explanation:
             '卑弥呼は魏に朝貢し、「親魏倭王」の称号を授かりました。',
+          difficulty: 'basic',
         },
         {
           id: 'q5',
@@ -247,6 +279,7 @@ export const yayoiEra: Topic = {
           correctIndex: 0,
           explanation:
             '銅鐸は弥生時代に祭りの道具として使われた青銅器です。',
+          difficulty: 'basic',
         },
         {
           id: 'q6',
@@ -255,6 +288,7 @@ export const yayoiEra: Topic = {
           correctIndex: 2,
           explanation:
             '奴国の王は漢の皇帝から金印を授かりました。福岡県で発見されています。',
+          difficulty: 'basic',
         },
         {
           id: 'q7',
@@ -264,6 +298,7 @@ export const yayoiEra: Topic = {
           correctIndex: 1,
           explanation:
             '魏志倭人伝には邪馬台国の卑弥呼のことが詳しく記されています。',
+          difficulty: 'basic',
         },
         {
           id: 'q8',
@@ -278,6 +313,7 @@ export const yayoiEra: Topic = {
           correctIndex: 3,
           explanation:
             '吉野ヶ里遺跡は佐賀県にある弥生時代の大規模集落で、環濠や物見やぐらが特徴です。',
+          difficulty: 'basic',
         },
         {
           id: 'q9',
@@ -286,6 +322,7 @@ export const yayoiEra: Topic = {
           correctIndex: 2,
           explanation:
             '金印には「漢委奴国王」と刻まれており、漢の皇帝から奴国の王に授けられました。',
+          difficulty: 'basic',
         },
         {
           id: 'q10',
@@ -295,6 +332,7 @@ export const yayoiEra: Topic = {
           correctIndex: 1,
           explanation:
             '鉄器は硬くて丈夫なため、武器や農具など実用品に使われました。',
+          difficulty: 'basic',
         },
         {
           id: 'q11',
@@ -302,6 +340,7 @@ export const yayoiEra: Topic = {
           options: ['銅鐸', '銅鏡', '銅剣', '金印'],
           correctIndex: 1,
           explanation: '銅鏡は弥生時代に祭りや儀式に使われた青銅製の鏡です。',
+          difficulty: 'standard',
         },
         {
           id: 'q12',
@@ -309,6 +348,7 @@ export const yayoiEra: Topic = {
           options: ['打製石器', '磨製石器', '石包丁', '石斧'],
           correctIndex: 2,
           explanation: '石包丁は稲の穂をつみ取るために使われた半月形の石器です。',
+          difficulty: 'standard',
         },
         {
           id: 'q13',
@@ -316,6 +356,7 @@ export const yayoiEra: Topic = {
           options: ['漢', '宋', '魏', '唐'],
           correctIndex: 2,
           explanation: '卑弥呼は魏に使いを送り、親魏倭王の称号を授かりました。',
+          difficulty: 'standard',
         },
         {
           id: 'q14',
@@ -328,6 +369,7 @@ export const yayoiEra: Topic = {
           ],
           correctIndex: 1,
           explanation: '弥生土器は縄文土器と比べて薄手で硬く、シンプルな形をしています。',
+          difficulty: 'standard',
         },
         {
           id: 'q15',
@@ -335,6 +377,7 @@ export const yayoiEra: Topic = {
           options: ['佐賀県の吉野ヶ里', '静岡県の登呂', '福岡県の志賀島', '群馬県の岩宿'],
           correctIndex: 2,
           explanation: '金印は福岡県の志賀島で発見されました。',
+          difficulty: 'standard',
         },
         {
           id: 'q16',
@@ -347,6 +390,7 @@ export const yayoiEra: Topic = {
           ],
           correctIndex: 1,
           explanation: '高床倉庫は床を高くして湿気やねずみから収穫した稲を守りました。',
+          difficulty: 'standard',
         },
         {
           id: 'q17',
@@ -359,6 +403,7 @@ export const yayoiEra: Topic = {
           ],
           correctIndex: 2,
           explanation: '弥生時代には土地や水をめぐる争いが起き、堀や柵は争いに備えた防御施設でした。',
+          difficulty: 'standard',
         },
         {
           id: 'q18',
@@ -371,6 +416,7 @@ export const yayoiEra: Topic = {
           ],
           correctIndex: 1,
           explanation: '邪馬台国の場所については畿内説（近畿地方）と九州説が議論されています。',
+          difficulty: 'standard',
         },
         {
           id: 'q19',
@@ -378,6 +424,7 @@ export const yayoiEra: Topic = {
           options: ['吉野ヶ里遺跡', '三内丸山遺跡', '登呂遺跡', '岩宿遺跡'],
           correctIndex: 2,
           explanation: '登呂遺跡（静岡県）では弥生時代の水田跡が見つかりました。',
+          difficulty: 'standard',
         },
         {
           id: 'q20',
@@ -390,6 +437,7 @@ export const yayoiEra: Topic = {
           ],
           correctIndex: 1,
           explanation: '稲作による収穫量の違いから富を蓄える人と蓄えられない人の差が生じました。',
+          difficulty: 'standard',
         },
         {
           id: 'q21',
@@ -397,6 +445,7 @@ export const yayoiEra: Topic = {
           options: ['魏志倭人伝', '漢書地理志', '宋書', '古事記'],
           correctIndex: 1,
           explanation: '漢書地理志には1世紀ごろ倭に100あまりのくにがあったと記されています。',
+          difficulty: 'standard',
         },
         {
           id: 'q22',
@@ -409,6 +458,7 @@ export const yayoiEra: Topic = {
           ],
           correctIndex: 1,
           explanation: '鉄は硬くて丈夫なので農具や武器に適し、青銅は加工しやすく光沢があるため祭器に適していました。',
+          difficulty: 'standard',
         },
         {
           id: 'q23',
@@ -416,6 +466,7 @@ export const yayoiEra: Topic = {
           options: ['高床倉庫', '物見やぐら', 'たて穴住居', '環濠'],
           correctIndex: 1,
           explanation: '物見やぐらは敵の侵入を監視するために弥生時代の集落に建てられました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q24',
@@ -423,6 +474,7 @@ export const yayoiEra: Topic = {
           options: ['縄文土器', '銅鐸', '矢じりが刺さった人骨', '土偶'],
           correctIndex: 2,
           explanation: '矢じりが刺さった人骨が出土しており、弥生時代に戦いが起きていた証拠となっています。',
+          difficulty: 'advanced',
         },
         {
           id: 'q25',
@@ -430,6 +482,7 @@ export const yayoiEra: Topic = {
           options: ['古事記', '日本書紀', '魏志倭人伝', '漢書地理志'],
           correctIndex: 2,
           explanation: '卑弥呼のことは中国の歴史書「魏志倭人伝」に記されています。',
+          difficulty: 'advanced',
         },
         {
           id: 'q26',
@@ -437,6 +490,7 @@ export const yayoiEra: Topic = {
           options: ['奈良県', '佐賀県', '福岡県博多付近', '静岡県'],
           correctIndex: 2,
           explanation: '奴国は現在の福岡県博多付近にあったとされています。',
+          difficulty: 'advanced',
         },
         {
           id: 'q27',
@@ -444,6 +498,7 @@ export const yayoiEra: Topic = {
           options: ['貿易', '朝貢', '同盟', '征服'],
           correctIndex: 1,
           explanation: '朝貢は定期的に貢ぎ物を送り、王と認めてもらう外交のしくみです。',
+          difficulty: 'advanced',
         },
         {
           id: 'q28',
@@ -456,6 +511,7 @@ export const yayoiEra: Topic = {
           ],
           correctIndex: 1,
           explanation: '弥生時代に大陸から青銅器と鉄器が伝わりました。',
+          difficulty: 'advanced',
         },
       ],
     },

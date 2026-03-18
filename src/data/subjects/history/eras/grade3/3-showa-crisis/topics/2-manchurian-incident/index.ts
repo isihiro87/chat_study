@@ -44,66 +44,16 @@ export const manchurianIncident: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'fc1',
-        front: '柳条湖事件',
-        back: '1931年に関東軍が南満州鉄道の線路を自ら爆破し、満州事変のきっかけとなった事件は？',
-        explanation: '中国側の仕業と偽って軍事行動を開始した。',
-      },
-      {
-        id: 'fc2',
-        front: '満州事変',
-        back: '1931年の柳条湖事件をきっかけに関東軍が中国東北部を占領した事件は？',
-        explanation: '政府の方針を無視して軍が独断で行動した。',
-      },
-      {
-        id: 'fc3',
-        front: '満州国',
-        back: '1932年に日本が中国東北部に建国した国は？',
-        explanation: '清の最後の皇帝・溥儀を元首にしたが実質は日本が支配した。',
-      },
-      {
-        id: 'fc4',
-        front: 'リットン調査団',
-        back: '国際連盟が満州事変を調査するために派遣した調査団は？',
-        explanation: '満州国を認めず日本に撤退を勧告した。',
-      },
-      {
-        id: 'fc5',
-        front: '国際連盟脱退',
-        back: '1933年、リットン調査団の勧告を不服として日本がとった行動は？',
-        explanation: '日本は国際的に孤立していった。',
-      },
-      {
-        id: 'fc6',
-        front: '五・一五事件',
-        back: '1932年に海軍の青年将校らが犬養毅首相を暗殺した事件は？',
-        explanation: 'この事件で政党内閣の時代が終わった。',
-      },
-      {
-        id: 'fc7',
-        front: '犬養毅',
-        back: '五・一五事件で暗殺された首相は誰？',
-        explanation: '「話せばわかる」の言葉が有名。',
-      },
-      {
-        id: 'fc8',
-        front: '二・二六事件',
-        back: '1936年に陸軍の青年将校がクーデターを起こし、政府要人を殺害した事件は？',
-        explanation: 'この事件後、軍部の政治的発言力がさらに強まった。',
-      },
-      {
-        id: 'fc9',
-        front: '政党内閣の終焉',
-        back: '五・一五事件をきっかけに終わりを迎えた、政党が中心となる内閣の仕組みは？',
-        explanation: '以後、軍人や官僚が中心の内閣が組まれるようになった。',
-      },
-      {
-        id: 'fc10',
-        front: '関東軍',
-        back: '満州に駐留し、柳条湖事件や満州事変を起こした日本陸軍の部隊は？',
-        explanation: '政府の方針を無視して独断で軍事行動を行った。',
-      },
+      { id: 'fc1', front: '柳条湖事件', back: '1931年に関東軍が南満州鉄道の線路を自ら爆破し、満州事変のきっかけとなった事件は？', difficulty: 'basic' },
+      { id: 'fc2', front: '満州事変', back: '1931年の柳条湖事件をきっかけに関東軍が中国東北部を占領した事件は？', difficulty: 'basic' },
+      { id: 'fc3', front: '満州国', back: '1932年に日本が中国東北部に建国した国は？', explanation: '清の最後の皇帝・溥儀を元首にしたが実質は日本が支配した。', difficulty: 'basic' },
+      { id: 'fc4', front: 'リットン調査団', back: '国際連盟が満州事変を調査するために派遣した調査団は？', difficulty: 'basic' },
+      { id: 'fc5', front: '国際連盟脱退', back: '1933年、リットン調査団の勧告を不服として日本がとった行動は？', explanation: '日本は国際的に孤立していった。', difficulty: 'standard' },
+      { id: 'fc6', front: '五・一五事件', back: '1932年に海軍の青年将校らが犬養毅首相を暗殺した事件は？', explanation: 'この事件で政党内閣の時代が終わった。', difficulty: 'standard' },
+      { id: 'fc7', front: '犬養毅', back: '五・一五事件で暗殺された首相は誰？', explanation: '「話せばわかる」の言葉が有名。', difficulty: 'standard' },
+      { id: 'fc8', front: '二・二六事件', back: '1936年に陸軍の青年将校がクーデターを起こし、政府要人を殺害した事件は？', difficulty: 'standard' },
+      { id: 'fc9', front: '関東軍', back: '満州に駐留し、柳条湖事件や満州事変を起こした日本陸軍の部隊は？', difficulty: 'advanced' },
+      { id: 'fc10', front: '軍部の暴走が止められなかった理由', back: '五・一五事件や二・二六事件の後、なぜ軍部の政治的発言力がさらに強まったか？', explanation: 'テロを恐れた政治家が軍部に逆らえなくなり、政党内閣に代わり軍人・官僚中心の内閣が組まれるようになった。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -119,6 +69,7 @@ export const manchurianIncident: Topic = {
           correctIndex: 0,
           explanation:
             '柳条湖事件は関東軍が南満州鉄道の線路を自ら爆破し、中国側のせいにして軍事行動を開始した事件です。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -127,6 +78,7 @@ export const manchurianIncident: Topic = {
           correctIndex: 1,
           explanation:
             '犬養毅首相は五・一五事件で暗殺され、この事件をきっかけに政党内閣の時代が終わりました。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -141,6 +93,7 @@ export const manchurianIncident: Topic = {
           correctIndex: 3,
           explanation:
             'リットン調査団の勧告を受け入れず、日本は国際連盟を脱退して国際的に孤立していきました。',
+          difficulty: 'standard',
         },
         {
           id: 'q4',
@@ -155,6 +108,7 @@ export const manchurianIncident: Topic = {
           correctIndex: 2,
           explanation:
             '二・二六事件は陸軍の青年将校約1400名が起こしたクーデターで、事件後は軍部の政治的発言力がさらに強まりました。',
+          difficulty: 'standard',
         },
       ],
     },

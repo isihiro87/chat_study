@@ -34,118 +34,16 @@ export const international: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'fc1',
-        front: 'アジア・アフリカ会議',
-        back: '1955年にインドネシアのバンドンで開かれた、植民地からの独立国が平和共存を訴えた会議は？',
-        explanation:
-          'バンドン会議とも呼ばれ、第三世界の連帯を示した。',
-      },
-      {
-        id: 'fc2',
-        front: 'キューバ危機',
-        back: '1962年にアメリカとソ連が核戦争の瀬戸際に立った事件は？',
-        explanation:
-          'ソ連がキューバにミサイル基地を建設しようとしたことが原因。',
-      },
-      {
-        id: 'fc3',
-        front: 'ベトナム戦争',
-        back: 'アメリカが介入し、世界中で反戦運動が広がった東南アジアの戦争は？',
-        explanation:
-          '南北ベトナムの統一をめぐる戦争で、1975年に終結した。',
-      },
-      {
-        id: 'fc4',
-        front: '日ソ共同宣言',
-        back: '1956年にソ連との国交を回復し、日本の国連加盟への道を開いた宣言は？',
-        explanation:
-          'ソ連が日本の国連加盟を支持することで合意した。',
-      },
-      {
-        id: 'fc5',
-        front: '国際連合',
-        back: '日ソ共同宣言を経て1956年に日本が加盟した国際組織は？',
-        explanation:
-          '日本は80番目の加盟国となった。',
-      },
-      {
-        id: 'fc6',
-        front: '日韓基本条約',
-        back: '1965年に日本と韓国の国交を正常化した条約は？',
-        explanation:
-          '経済協力や請求権の問題が解決された。',
-      },
-      {
-        id: 'fc7',
-        front: '日中共同声明',
-        back: '1972年に日本と中国の国交を正常化した声明は？',
-        explanation:
-          '田中角栄首相が訪中し、中国との国交が正常化した。',
-      },
-      {
-        id: 'fc8',
-        front: '日中平和友好条約',
-        back: '1978年に日本と中国が結んだ、両国の友好関係を定めた条約は？',
-        explanation:
-          '日中共同声明を受けて、正式な平和条約が結ばれた。',
-      },
-      {
-        id: 'fc9',
-        front: '沖縄',
-        back: '1972年にアメリカから日本に返還された地域は？',
-        explanation:
-          '佐藤栄作首相のもとで返還が実現した。',
-      },
-      {
-        id: 'fc10',
-        front: '非核三原則',
-        back: '核兵器を「持たず、つくらず、持ちこませず」という日本の原則は？',
-        explanation:
-          '佐藤栄作首相が表明し、ノーベル平和賞を受賞した。',
-      },
-      {
-        id: 'fc11',
-        front: '日米安全保障条約',
-        back: '戦後日本の外交・安全保障の基軸となった、アメリカとの条約は？',
-        explanation:
-          '日本の防衛をアメリカと共同で行う体制の基盤。',
-      },
-      {
-        id: 'fc12',
-        front: '部分的核実験禁止条約',
-        back: 'キューバ危機をきっかけに1963年に結ばれた、地下以外の核実験を禁止する条約は？',
-        explanation:
-          '大気圏・宇宙・水中での核実験を禁止した。',
-      },
-      {
-        id: 'fc13',
-        front: 'ヨーロッパ共同体（EC）',
-        back: 'ヨーロッパ諸国が経済統合を進めるために結成した組織は？',
-        explanation:
-          '後にEU（ヨーロッパ連合）へと発展した。',
-      },
-      {
-        id: 'fc14',
-        front: '小笠原諸島',
-        back: '1968年にアメリカから日本に返還された太平洋の島々は？',
-        explanation:
-          '沖縄（1972年）に先立って返還された。',
-      },
-      {
-        id: 'fc15',
-        front: 'キング牧師',
-        back: 'アメリカで人種差別撤廃を求める公民権運動を指導した人物は？',
-        explanation:
-          '「I Have a Dream」の演説で知られ、非暴力主義を貫いた。',
-      },
-      {
-        id: 'fc16',
-        front: '朝鮮戦争',
-        back: '1950年に始まり、朝鮮半島を南北に分断したままの戦争は？',
-        explanation:
-          '休戦協定は結ばれたが、正式な終戦には至っていない。',
-      },
+      { id: 'fc1', front: 'アジア・アフリカ会議', back: '1955年にインドネシアのバンドンで開かれた、植民地からの独立国が平和共存を訴えた会議は？', difficulty: 'basic' },
+      { id: 'fc2', front: 'キューバ危機', back: '1962年にアメリカとソ連が核戦争の瀬戸際に立った事件は？', difficulty: 'basic' },
+      { id: 'fc3', front: 'ベトナム戦争', back: 'アメリカが介入し、世界中で反戦運動が広がった東南アジアの戦争は？', explanation: '1975年に終結した。', difficulty: 'basic' },
+      { id: 'fc4', front: '日中共同声明', back: '1972年に日本と中国の国交を正常化した声明は？', explanation: '田中角栄首相が訪中し実現した。', difficulty: 'basic' },
+      { id: 'fc5', front: '部分的核実験禁止条約', back: 'キューバ危機をきっかけに1963年に結ばれた、地下以外の核実験を禁止する条約は？', difficulty: 'standard' },
+      { id: 'fc6', front: '日中平和友好条約', back: '1978年に日本と中国が結んだ、両国の友好関係を定めた条約は？', difficulty: 'standard' },
+      { id: 'fc7', front: 'ヨーロッパ共同体（EC）', back: 'ヨーロッパ諸国が経済統合を進めるために結成した組織は？', explanation: '後にEU（ヨーロッパ連合）へと発展した。', difficulty: 'standard' },
+      { id: 'fc8', front: 'キング牧師', back: 'アメリカで人種差別撤廃を求める公民権運動を指導した人物は？', explanation: '「I Have a Dream」の演説で知られる。', difficulty: 'standard' },
+      { id: 'fc9', front: '小笠原諸島', back: '1968年にアメリカから日本に返還された太平洋の島々は？', difficulty: 'advanced' },
+      { id: 'fc10', front: '戦後日本の外交の展開', back: '日本が戦後に国交を正常化した主な国と、その条約・声明を3つ挙げよ', explanation: 'ソ連＝日ソ共同宣言（1956年）、韓国＝日韓基本条約（1965年）、中国＝日中共同声明（1972年）。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -162,6 +60,7 @@ export const international: Topic = {
           correctIndex: 1,
           explanation:
             'キューバ危機では、ソ連がキューバにミサイル基地を建設しようとし、米ソが核戦争の瀬戸際に立ちました。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -176,6 +75,7 @@ export const international: Topic = {
           correctIndex: 3,
           explanation:
             '1972年に田中角栄首相が訪中し、日中共同声明により中国との国交が正常化しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -185,6 +85,7 @@ export const international: Topic = {
           correctIndex: 0,
           explanation:
             '1972年に佐藤栄作首相のもとで沖縄がアメリカから日本に返還されました。',
+          difficulty: 'basic',
         },
         {
           id: 'q4',
@@ -199,6 +100,7 @@ export const international: Topic = {
           correctIndex: 2,
           explanation:
             'アジア・アフリカ会議（バンドン会議）では、第三世界の国々が連帯し平和共存を訴えました。',
+          difficulty: 'standard',
         },
         {
           id: 'q5',
@@ -213,6 +115,7 @@ export const international: Topic = {
           correctIndex: 1,
           explanation:
             '部分的核実験禁止条約は1963年に結ばれ、大気圏・宇宙・水中での核実験が禁止されました。',
+          difficulty: 'standard',
         },
         {
           id: 'q6',
@@ -227,6 +130,7 @@ export const international: Topic = {
           correctIndex: 0,
           explanation:
             'キング牧師は「I Have a Dream」の演説で知られ、非暴力主義でアメリカの公民権運動を指導しました。',
+          difficulty: 'standard',
         },
       ],
     },

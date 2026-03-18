@@ -36,15 +36,15 @@ export const ryukyuAinu: Topic = {
     },
     videos: [],
     flashcards: [
-      { id: 'fc1', front: '琉球王国', back: '薩摩藩の侵攻を受け支配下に置かれた南方の王国名は？' },
-      { id: 'fc2', front: '薩摩藩', back: '琉球の支配を認められ、貿易の利益を独占したのは何藩？' },
-      { id: 'fc3', front: '琉球使節', back: '琉球国王や将軍の代替わりの際に、江戸へ送られた使節は？' },
-      { id: 'fc4', front: '中継貿易', back: '琉球が中国の品を日本へ送り利益を得た貿易を何という？' },
-      { id: 'fc5', front: '奄美群島', back: '薩摩藩が琉球から取り上げ、直接支配した島々は？' },
-      { id: 'fc6', front: '蝦夷地', back: '江戸時代の北海道や千島列島、樺太の呼び方は？' },
-      { id: 'fc7', front: '松前藩', back: 'アイヌとの交易を独占し、蝦夷地の窓口となった藩は？' },
-      { id: 'fc8', front: 'シャクシャイン', back: '1669年に、不公平な交易に不満を持って蜂起したアイヌの首長は？' },
-      { id: 'fc9', front: 'アイヌ民族', back: '蝦夷地で漁業や狩猟を営み、独自の文化を築いた民族は？' },
+      { id: 'fc1', front: '琉球王国', back: '薩摩藩の侵攻を受け支配下に置かれた南方の王国名は？', difficulty: 'basic' },
+      { id: 'fc2', front: '薩摩藩', back: '琉球の支配を認められ、貿易の利益を独占したのは何藩？', difficulty: 'basic' },
+      { id: 'fc3', front: '琉球使節', back: '琉球国王や将軍の代替わりの際に、江戸へ送られた使節は？', difficulty: 'basic' },
+      { id: 'fc4', front: '中継貿易', back: '琉球が中国の品を日本へ送り利益を得た貿易を何という？', difficulty: 'basic' },
+      { id: 'fc5', front: '奄美群島', back: '薩摩藩が琉球から取り上げ、直接支配した島々は？', difficulty: 'standard' },
+      { id: 'fc6', front: '蝦夷地', back: '江戸時代の北海道や千島列島、樺太の呼び方は？', difficulty: 'standard' },
+      { id: 'fc7', front: '松前藩', back: 'アイヌとの交易を独占し、蝦夷地の窓口となった藩は？', difficulty: 'standard' },
+      { id: 'fc8', front: 'シャクシャイン', back: '1669年に、不公平な交易に不満を持って蜂起したアイヌの首長は？', difficulty: 'standard' },
+      { id: 'fc9', front: 'アイヌ民族', back: '蝦夷地で漁業や狩猟を営み、独自の文化を築いた民族は？', difficulty: 'basic' },
     ],
     quiz: {
       questions: [
@@ -54,6 +54,7 @@ export const ryukyuAinu: Topic = {
           options: ['松前藩', '対馬藩', '長州藩', '薩摩藩'],
           correctIndex: 3,
           explanation: '薩摩藩は琉球に侵攻して支配下に置き、中国との中継貿易の利益を独占しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -61,6 +62,7 @@ export const ryukyuAinu: Topic = {
           options: ['コシャマイン', 'メナシ', 'シャクシャイン', 'クナシリ'],
           correctIndex: 2,
           explanation: 'シャクシャインは松前藩との不公平な交易に不満を持ち、蜂起しましたが鎮圧されました。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -68,6 +70,7 @@ export const ryukyuAinu: Topic = {
           options: ['松前藩', '対馬藩', '長崎藩', '薩摩藩'],
           correctIndex: 0,
           explanation: '松前藩は蝦夷地に置かれ、アイヌとの交易を独占する窓口の役割を果たしました。',
+          difficulty: 'standard',
         },
       ],
     },

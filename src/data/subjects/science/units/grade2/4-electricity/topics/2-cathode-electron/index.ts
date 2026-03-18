@@ -75,60 +75,14 @@ export const cathodeElectron: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'sci2-cathode-fc1',
-        front: '陰極線（電子線）',
-        back: 'クルックス管で−極から＋極へ向かう粒子の流れを何という？',
-        explanation: '陰極線の正体は電子。−の電気をもつ非常に小さな粒子。',
-      },
-      {
-        id: 'sci2-cathode-fc2',
-        front: '電流の向きと電子の移動の向き',
-        back: '電流の向きと電子の移動の向きはどのような関係？',
-        explanation: '電子は−極→＋極に移動するが、電流の向きは歴史的に＋極→−極と決められている（逆向き）。',
-      },
-      {
-        id: 'sci2-cathode-fc3',
-        front: 'クルックス管（真空放電管）',
-        back: '真空放電を調べるために使われるガラス管の装置を何という？',
-        explanation: 'クルックス管で−極から＋極に向かう粒子の流れ（陰極線）を観察できる。',
-      },
-      {
-        id: 'sci2-cathode-fc4',
-        front: '放射線',
-        back: 'X線やα線、β線、γ線などをまとめて何という？',
-        explanation: '目に見えず、物質を透過する性質をもつ。種類によって透過性が異なる。',
-      },
-      {
-        id: 'sci2-cathode-fc5',
-        front: '放射性物質',
-        back: '放射線を出す物質を何という？',
-        explanation: 'ウランやラジウムなどがある。自然界にも存在する。',
-      },
-      {
-        id: 'sci2-cathode-fc6',
-        front: '透過性（とうかせい）',
-        back: '放射線が物質を通り抜ける性質を何という？',
-        explanation: 'α線は紙で遮れるが、γ線は鉛やコンクリートが必要なほど透過性が高い。',
-      },
-      {
-        id: 'sci2-cathode-fc7',
-        front: '電子の性質',
-        back: '電子とはどのような粒子か？',
-        explanation: '−の電気をもつ非常に小さな粒子。すべての物質の原子の中に存在する。',
-      },
-      {
-        id: 'sci2-cathode-fc8',
-        front: '電流の向きの定義',
-        back: '電流の向きはどのように定義されている？',
-        explanation: '歴史的に＋極から−極へ流れると定義されている。電子の移動の向き（−→＋）とは逆。',
-      },
-      {
-        id: 'sci2-cathode-fc9',
-        front: 'アンペア（A）',
-        back: '電流の大きさを表す単位は何？',
-        explanation: '電流の大きさはアンペア（記号：A）で表す。導線の断面を流れる電気の量に比例する。',
-      },
+      { id: 'sci2-cathode-fc1', front: 'クルックス管で−極から＋極へ向かう粒子の流れ。正体は電子', back: '陰極線（電子線）とは何？その正体は？', difficulty: 'basic' },
+      { id: 'sci2-cathode-fc2', front: '逆向き。電子は−極→＋極、電流は歴史的に＋極→−極と定義', back: '電流の向きと電子の移動の向きはどのような関係？', difficulty: 'basic' },
+      { id: 'sci2-cathode-fc3', front: '真空放電を調べるためのガラス管の装置', back: 'クルックス管（真空放電管）とは何？', difficulty: 'basic' },
+      { id: 'sci2-cathode-fc4', front: 'X線やα線、β線、γ線などの総称。物質を透過する性質をもつ', back: '放射線とは何？どのような性質がある？', difficulty: 'basic' },
+      { id: 'sci2-cathode-fc5', front: '放射線を出す物質。ウランやラジウムなど。自然界にも存在する', back: '放射性物質とは何？', difficulty: 'standard' },
+      { id: 'sci2-cathode-fc6', front: '放射線が物質を通り抜ける性質。α線は紙で、γ線は鉛やコンクリートで遮る', back: '透過性とは何？放射線の種類による違いは？', difficulty: 'standard' },
+      { id: 'sci2-cathode-fc7', front: '陰極線が磁石で曲がる→電気をもった粒子。十字形の影→直進性がある', back: 'クルックス管の実験でわかる陰極線の2つの性質は？', difficulty: 'standard' },
+      { id: 'sci2-cathode-fc8', front: 'A（アンペア）', back: '電流の大きさを表す単位は？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -139,7 +93,8 @@ export const cathodeElectron: Topic = {
           correctIndex: 2,
           explanation:
             '−極（陰極）から出る粒子の流れなので陰極線（電子線）といいます。正体は電子です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-cathode-q2',
           question: '電流の向きと電子の移動の向きについて正しいのは？',
@@ -152,7 +107,8 @@ export const cathodeElectron: Topic = {
           correctIndex: 3,
           explanation:
             '電子は−極→＋極に移動しますが、電流の向きは歴史的に＋極→−極と決められており、逆向きです。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-cathode-q3',
           question: 'クルックス管の陰極線に磁石を近づけるとどうなる？',
@@ -165,7 +121,8 @@ export const cathodeElectron: Topic = {
           correctIndex: 1,
           explanation:
             '陰極線の正体は電気をもった粒子（電子）なので、磁石の磁界から力を受けて進む向きが曲がります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-cathode-q4',
           question: '放射線が物質を通り抜ける性質を何という？',
@@ -173,7 +130,8 @@ export const cathodeElectron: Topic = {
           correctIndex: 0,
           explanation:
             '放射線が物質を通り抜ける性質を透過性といいます。放射線の種類によって透過性の強さが異なります。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-cathode-q5',
           question: '放射線を出す物質を何という？',
@@ -181,7 +139,8 @@ export const cathodeElectron: Topic = {
           correctIndex: 0,
           explanation:
             '放射線を出す物質を放射性物質といいます。ウランやラジウムなどがあり、自然界にも存在します。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-cathode-q6',
           question: 'α線を遮ることができるものはどれ？',
@@ -189,7 +148,8 @@ export const cathodeElectron: Topic = {
           correctIndex: 1,
           explanation:
             'α線は透過性が最も低く、紙で遮ることができます。β線はアルミニウム板、γ線は鉛やコンクリートが必要です。',
-        },
+        difficulty: 'standard',
+      },
       ],
     },
     examples: {

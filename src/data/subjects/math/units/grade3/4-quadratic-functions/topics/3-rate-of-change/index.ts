@@ -73,134 +73,162 @@ export const rateOfChange: Topic = {
         id: 'math-g3-qf-rc-fc1',
         front: 'y の増加量 ÷ x の増加量', back: '変化の割合',
         explanation: '一次関数でも y = ax² でも同じ定義。ただし y = ax² では区間によって値が変わる。',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qf-rc-fc2',
         front: '変化後の y の値 − 変化前の y の値', back: 'y の増加量',
         explanation: 'y = x² で x が 1→3 のとき、y の増加量 = 9 − 1 = 8。',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qf-rc-fc3',
         front: '変化後の x の値 − 変化前の x の値', back: 'x の増加量',
         explanation: 'x が 1→3 のとき、x の増加量 = 3 − 1 = 2。',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qf-rc-fc4',
         front: 'y = ax² で x が p から q に変化するときの変化の割合', back: '公式 a(p + q)',
         explanation: 'aq² − ap² = a(q+p)(q−p) を (q−p) で割って導出する。',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qf-rc-fc5',
         front: '1×(1 + 3) = 4', back: 'y = x² で x が 1→3 のとき変化の割合は？',
         explanation: 'y の増加量 8 ÷ x の増加量 2 = 4 でも同じ結果。',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qf-rc-fc6',
         front: '2×(−1 + 4) = 6', back: 'y = 2x² で x が −1→4 のとき変化の割合は？',
         explanation: '公式に代入するだけで素早く求められる。',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qf-rc-fc7',
         front: '常に一定（= 傾き a）', back: '一次関数の変化の割合の特徴',
         explanation: 'グラフが直線だから、どの区間でも傾きが同じ。',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qf-rc-fc8',
         front: '区間によって変わる', back: 'y = ax² の変化の割合の特徴',
         explanation: 'グラフが曲線（放物線）だから、場所によって傾きが異なる。',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qf-rc-fc9',
         front: '移動距離 ÷ かかった時間', back: '平均の速さの公式',
         explanation: 'y = ax² のとき、平均の速さ = 変化の割合 = a(p + q)。',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qf-rc-fc10',
         front: '2×(2 + 5) = 14 cm/秒', back: 'y = 2x² で 2秒後→5秒後の平均の速さは？',
         explanation: '移動距離 42cm ÷ 3秒 = 14cm/秒 でも求められる。',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qf-rc-fc11',
         front: 'だんだん速くなる（加速する）', back: '斜面を転がるボールで時間が経つと速さは？',
         explanation: 'y = ax² の変化の割合は x が大きくなるほど大きくなるため。',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qf-rc-fc12',
         front: 'ax² = mx + n を二次方程式として解く', back: '放物線と直線の交点の求め方',
         explanation: '因数分解して x の値を求め、y に代入する。',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qf-rc-fc13',
         front: '(−1, 1) と (2, 4)', back: 'y = x² と y = x + 2 の交点は？',
         explanation: 'x² − x − 2 = 0 → (x−2)(x+1) = 0 で x = 2, −1。',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qf-rc-fc14',
         front: 'y切片Cで△OACと△OCBに分け、それぞれの面積を足す', back: '△OABの面積（y切片分割法）',
         explanation: '底辺をOC（y軸上）、高さを各点の|x座標|にする。',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qf-rc-fc15',
         front: 'a > 0 で p + q < 0、または a < 0 で p + q > 0 のとき', back: '変化の割合が負になるのはどんなとき？',
         explanation: 'a と (p+q) の符号が異なると変化の割合は負になる。',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qf-rc-fc16',
         front: '変化の割合 = a(p+q) を a について解く', back: '変化の割合から a を逆算する方法',
         explanation: '例: 変化の割合 12、p=1、q=3 なら a = 12÷4 = 3。',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qf-rc-fc17',
         front: '直線', back: '一次関数のグラフの形',
         explanation: '変化の割合が一定だから傾きが変わらない。',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qf-rc-fc18',
         front: '放物線（曲線）', back: 'y = ax² のグラフの形',
         explanation: '変化の割合が区間ごとに変わるから傾きが一定でない。',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qf-rc-fc19',
         front: '3×(−2 + 3) = 3', back: 'y = 3x² で x が −2→3 のとき変化の割合は？',
         explanation: '公式 a(p+q) に代入するだけ。',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qf-rc-fc20',
         front: '−2×(1 + 5) = −12', back: 'y = −2x² で x が 1→5 のとき変化の割合は？',
         explanation: 'a < 0 なので変化の割合も負になる。',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qf-rc-fc21',
         front: '0（p + q = 0 のとき）', back: 'y = ax² で x が −3→3 のとき変化の割合は？',
         explanation: 'a(−3+3) = a×0 = 0。対称な区間では変化の割合は0。',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qf-rc-fc22',
         front: '変化の割合 = a(p+q) を使って a = 変化の割合 ÷ (p+q)', back: '変化の割合と区間から a を求める方法は？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qf-rc-fc23',
         front: '底辺 = y 軸上の線分、高さ = 各点の |x| にする', back: '△OAB の面積を y切片で分割する方法は？',
+        difficulty: 'advanced',
       },
       {
         id: 'math-g3-qf-rc-fc24',
         front: 'x² = 4x → x(x−4) = 0 → (0,0) と (4,16)', back: 'y = x² と y = 4x の交点は？',
+        difficulty: 'advanced',
       },
       {
         id: 'math-g3-qf-rc-fc25',
         front: '2点を通る直線の傾き = 変化の割合と同じ', back: '放物線上の2点を通る直線の傾きの意味は？',
+        difficulty: 'advanced',
       },
       {
         id: 'math-g3-qf-rc-fc26',
         front: '4(0 + 3) = 12 cm/秒', back: 'y = 4x² で 0秒後→3秒後の平均の速さは？',
+        difficulty: 'advanced',
       },
       {
         id: 'math-g3-qf-rc-fc27',
         front: '正しくない。y = ax² では区間によって変わる。', back: 'y = ax² の変化の割合は常に a に等しい？',
+        difficulty: 'advanced',
       },
       {
         id: 'math-g3-qf-rc-fc28',
         front: '2点の y 座標の差 ÷ x 座標の差で直接計算する方法もある', back: '変化の割合を公式なしで求める方法は？',
+        difficulty: 'advanced',
       },
     ],
     quiz: {
@@ -212,6 +240,7 @@ export const rateOfChange: Topic = {
           correctIndex: 2,
           explanation:
             '変化の割合 $= a(p + q) = 1 \\times (1 + 3) = 4$。または $y$ の増加量 $9-1=8$、$x$ の増加量 $3-1=2$ で $8 \\div 2 = 4$ だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-rate-of-change-q2',
@@ -220,6 +249,7 @@ export const rateOfChange: Topic = {
           correctIndex: 1,
           explanation:
             '変化の割合 $= a(p + q) = 2 \\times (-1 + 3) = 2 \\times 2 = 4$ だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-rate-of-change-q3',
@@ -233,6 +263,7 @@ export const rateOfChange: Topic = {
           correctIndex: 3,
           explanation:
             '一次関数の変化の割合は常に一定（= 傾き $a$）だけど、$y = ax^2$ の変化の割合は区間によって変わるよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-qf-rc-q4',
@@ -241,6 +272,7 @@ export const rateOfChange: Topic = {
           correctIndex: 0,
           explanation:
             '変化の割合 $= a(p + q) = -3 \\times (-2 + 4) = -3 \\times 2 = -6$ だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-qf-rc-q5',
@@ -249,6 +281,7 @@ export const rateOfChange: Topic = {
           correctIndex: 1,
           explanation:
             '平均の速さ $= a(p + q) = 2(1 + 4) = 10$ cm/秒。移動距離 $32-2=30$、時間 $3$ 秒で $30 \\div 3 = 10$ でも同じだよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-qf-rc-q6',
@@ -257,6 +290,7 @@ export const rateOfChange: Topic = {
           correctIndex: 2,
           explanation:
             '$a(1 + 5) = 6a = 12$ より $a = 2$ だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-qf-rc-q7',
@@ -270,6 +304,7 @@ export const rateOfChange: Topic = {
           correctIndex: 0,
           explanation:
             '$x^2 = x + 2$ → $x^2 - x - 2 = 0$ → $(x - 2)(x + 1) = 0$ → $x = 2, -1$ だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-qf-rc-q8',
@@ -278,6 +313,7 @@ export const rateOfChange: Topic = {
           correctIndex: 3,
           explanation:
             '傾き $= (4 - 1) \\div (2 - (-1)) = 3 \\div 3 = 1$ だよ。変化の割合 $= 1 \\times (-1 + 2) = 1$ と一致するね。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-qf-rc-q9',
@@ -286,6 +322,7 @@ export const rateOfChange: Topic = {
           correctIndex: 3,
           explanation:
             'y切片 $C(0, 3)$ で分割。$\\triangle OAC = \\dfrac{1}{2} \\times 3 \\times 1 = \\dfrac{3}{2}$、$\\triangle OCB = \\dfrac{1}{2} \\times 3 \\times 3 = \\dfrac{9}{2}$。合計 $= \\dfrac{3}{2} + \\dfrac{9}{2} = 6$ だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-qf-rc-q10',
@@ -294,6 +331,7 @@ export const rateOfChange: Topic = {
           correctIndex: 2,
           explanation:
             '平均の速さ $= a(p + q) = 3(2 + 5) = 21$ cm/秒だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-qf-rc-q11',
@@ -307,6 +345,7 @@ export const rateOfChange: Topic = {
           correctIndex: 0,
           explanation:
             '$1 \\times (a + a + 2) = 2a + 2 = 5$ より $a = \\dfrac{3}{2}$。区間は $\\dfrac{3}{2}$ から $\\dfrac{7}{2}$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qf-rc-q12',
@@ -320,6 +359,7 @@ export const rateOfChange: Topic = {
           correctIndex: 1,
           explanation:
             '$x^2 = 3x$ → $x(x - 3) = 0$ → $x = 0, 3$。$y = 0, 9$ なので $(0, 0)$ と $(3, 9)$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qf-rc-q13',
@@ -328,6 +368,7 @@ export const rateOfChange: Topic = {
           correctIndex: 0,
           explanation:
             '$a(p+q) = 3 \\times (-2+3) = 3 \\times 1 = 3$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qf-rc-q14',
@@ -336,6 +377,7 @@ export const rateOfChange: Topic = {
           correctIndex: 1,
           explanation:
             '$a(p+q) = -2 \\times (1+5) = -2 \\times 6 = -12$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qf-rc-q15',
@@ -344,6 +386,7 @@ export const rateOfChange: Topic = {
           correctIndex: 2,
           explanation:
             '$a(p+q) = a(-3+3) = a \\times 0 = 0$。対称な区間では変化の割合は $0$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qf-rc-q16',
@@ -352,6 +395,7 @@ export const rateOfChange: Topic = {
           correctIndex: 1,
           explanation:
             '$a(2+6) = 8a = 24$ より $a = 3$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qf-rc-q17',
@@ -365,6 +409,7 @@ export const rateOfChange: Topic = {
           correctIndex: 0,
           explanation:
             '$x^2 = 4x$ → $x(x-4) = 0$ → $x = 0, 4$。$y = 0, 16$ なので $(0,0)$ と $(4,16)$。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qf-rc-q18',
@@ -373,6 +418,7 @@ export const rateOfChange: Topic = {
           correctIndex: 1,
           explanation:
             '$a(p+q) = 4(0+3) = 12$ cm/秒だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qf-rc-q19',
@@ -381,6 +427,7 @@ export const rateOfChange: Topic = {
           correctIndex: 0,
           explanation:
             '$a(p+q) = 2 \\times (-3+(-1)) = 2 \\times (-4) = -8$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qf-rc-q20',
@@ -389,6 +436,7 @@ export const rateOfChange: Topic = {
           correctIndex: 1,
           explanation:
             '一次関数の変化の割合は常に傾き $a = 3$ で一定だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qf-rc-q21',
@@ -397,6 +445,7 @@ export const rateOfChange: Topic = {
           correctIndex: 1,
           explanation:
             '傾き $= (16-1) \\div (4-1) = 15 \\div 3 = 5$。変化の割合 $= 1 \\times (1+4) = 5$ でも同じだよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qf-rc-q22',
@@ -410,6 +459,7 @@ export const rateOfChange: Topic = {
           correctIndex: 0,
           explanation:
             '$x^2 = -x+6$ → $x^2+x-6=0$ → $(x+3)(x-2) = 0$ → $x = 2, -3$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qf-rc-q23',
@@ -418,6 +468,7 @@ export const rateOfChange: Topic = {
           correctIndex: 0,
           explanation:
             '$a(p+q) = -1 \\times (-4+2) = -1 \\times (-2) = 2$ だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g3-qf-rc-q24',
@@ -426,6 +477,7 @@ export const rateOfChange: Topic = {
           correctIndex: 2,
           explanation:
             '$a(p+q) = 5(1+3) = 20$ cm/秒だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g3-qf-rc-q25',
@@ -434,6 +486,7 @@ export const rateOfChange: Topic = {
           correctIndex: 1,
           explanation:
             '$a(p+q) = 2(0+4) = 8$ だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g3-qf-rc-q26',
@@ -447,6 +500,7 @@ export const rateOfChange: Topic = {
           correctIndex: 0,
           explanation:
             '$x^2 = -2x+8$ → $x^2+2x-8=0$ → $(x+4)(x-2) = 0$ → $x = -4, 2$。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g3-qf-rc-q27',
@@ -455,6 +509,7 @@ export const rateOfChange: Topic = {
           correctIndex: 1,
           explanation:
             '$a(-1+4) = 3a = 9$ より $a = 3$ だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g3-qf-rc-q28',
@@ -468,6 +523,7 @@ export const rateOfChange: Topic = {
           correctIndex: 0,
           explanation:
             '$a(p+q) = 1 \\times (2 + (2+h)) = 4 + h$ だよ。',
+          difficulty: 'advanced',
         },
       ],
     },

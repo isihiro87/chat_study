@@ -68,34 +68,34 @@ export const kamakuraBakufu: Topic = {
     },
     videos: [],
     flashcards: [
-      { id: 'fc1', front: '鎌倉幕府', back: '源頼朝が鎌倉に開いた武士の政権は？' },
-      { id: 'fc2', front: '守護', back: '鎌倉幕府が国ごとに置き、軍事や警察の仕事をさせた役職は？' },
-      { id: 'fc3', front: '地頭', back: '鎌倉幕府が荘園や公領ごとに置き、年貢の取り立てなどを行った役職は？' },
-      { id: 'fc4', front: '御家人', back: '将軍に忠誠をちかい、家来となった武士は？' },
-      { id: 'fc5', front: '執権', back: '鎌倉幕府で将軍を補佐し、実権をにぎった役職は？' },
-      { id: 'fc6', front: '源頼朝', back: '鎌倉幕府を開き、1192年に征夷大将軍に任命された人物は？' },
-      { id: 'fc7', front: '征夷大将軍', back: '1192年に源頼朝が朝廷から任命された役職は？' },
-      { id: 'fc8', front: '侍所', back: '鎌倉幕府で御家人の統率を行った役所は？' },
-      { id: 'fc9', front: '政所', back: '鎌倉幕府で政務や財政を担当した役所は？' },
-      { id: 'fc10', front: '問注所', back: '鎌倉幕府で裁判を担当した役所は？' },
-      { id: 'fc11', front: '御恩', back: '将軍が御家人の領地を認めたり、新たな土地をあたえたりすることは？' },
-      { id: 'fc12', front: '奉公', back: '御家人が将軍のために戦いや警護を行うことは？' },
-      { id: 'fc13', front: '北条時政', back: '鎌倉幕府の初代執権はだれ？' },
-      { id: 'fc14', front: '源実朝', back: '暗殺された3代将軍で、源氏の将軍が途絶えるきっかけとなったのは？' },
-      { id: 'fc15', front: '承久の乱', back: '1221年、後鳥羽上皇が幕府をたおそうとした事件を何という？' },
-      { id: 'fc16', front: '北条政子', back: '頼朝の妻で、承久の乱のとき御家人の団結をうったえたのはだれ？' },
-      { id: 'fc17', front: '六波羅探題', back: '承久の乱のあと、京都の朝廷を監視するために置かれた機関は？' },
-      { id: 'fc18', front: '後鳥羽上皇', back: '承久の乱で敗れ、隠岐に流された上皇は？' },
-      { id: 'fc19', front: '御成敗式目', back: '1232年、北条泰時が定めた51か条の武士のための法を何という？' },
-      { id: 'fc20', front: '北条泰時', back: '御成敗式目を定めた第3代執権は？' },
-      { id: 'fc21', front: '貞永式目', back: '御成敗式目の別名は？制定年の年号「貞永」に由来する' },
-      { id: 'fc22', front: '本領安堵', back: '御恩のうち、御家人の先祖伝来の領地を将軍が認めることは？' },
-      { id: 'fc23', front: '新恩給与', back: '御恩のうち、将軍が御家人に新たな土地をあたえることは？' },
-      { id: 'fc24', front: '封建制度', back: '将軍と御家人のような、土地を仲立ちとした主従関係を何という？' },
-      { id: 'fc25', front: '隠岐', back: '承久の乱で敗れた後鳥羽上皇が流された場所は？' },
-      { id: 'fc26', front: '51か条', back: '御成敗式目は全部で何か条か？' },
-      { id: 'fc27', front: '1185年', back: '源頼朝が守護・地頭の設置を朝廷に認めさせた年は？' },
-      { id: 'fc28', front: '武士の慣習', back: '御成敗式目はどのようなものを基準にして定められたか？' },
+      { id: 'fc1', front: '鎌倉幕府', back: '源頼朝が鎌倉に開いた武士の政権は？', difficulty: 'basic' },
+      { id: 'fc2', front: '守護', back: '鎌倉幕府が国ごとに置き、軍事や警察の仕事をさせた役職は？', difficulty: 'basic' },
+      { id: 'fc3', front: '地頭', back: '鎌倉幕府が荘園や公領ごとに置き、年貢の取り立てなどを行った役職は？', difficulty: 'basic' },
+      { id: 'fc4', front: '御家人', back: '将軍に忠誠をちかい、家来となった武士は？', difficulty: 'basic' },
+      { id: 'fc5', front: '執権', back: '鎌倉幕府で将軍を補佐し、実権をにぎった役職は？', difficulty: 'basic' },
+      { id: 'fc6', front: '源頼朝', back: '鎌倉幕府を開き、1192年に征夷大将軍に任命された人物は？', difficulty: 'basic' },
+      { id: 'fc7', front: '征夷大将軍', back: '1192年に源頼朝が朝廷から任命された役職は？', difficulty: 'basic' },
+      { id: 'fc8', front: '侍所', back: '鎌倉幕府で御家人の統率を行った役所は？', difficulty: 'basic' },
+      { id: 'fc9', front: '政所', back: '鎌倉幕府で政務や財政を担当した役所は？', difficulty: 'basic' },
+      { id: 'fc10', front: '問注所', back: '鎌倉幕府で裁判を担当した役所は？', difficulty: 'basic' },
+      { id: 'fc11', front: '御恩', back: '将軍が御家人の領地を認めたり、新たな土地をあたえたりすることは？', difficulty: 'basic' },
+      { id: 'fc12', front: '奉公', back: '御家人が将軍のために戦いや警護を行うことは？', difficulty: 'basic' },
+      { id: 'fc13', front: '北条時政', back: '鎌倉幕府の初代執権はだれ？', difficulty: 'standard' },
+      { id: 'fc14', front: '源実朝', back: '暗殺された3代将軍で、源氏の将軍が途絶えるきっかけとなったのは？', difficulty: 'standard' },
+      { id: 'fc15', front: '承久の乱', back: '1221年、後鳥羽上皇が幕府をたおそうとした事件を何という？', difficulty: 'standard' },
+      { id: 'fc16', front: '北条政子', back: '頼朝の妻で、承久の乱のとき御家人の団結をうったえたのはだれ？', difficulty: 'standard' },
+      { id: 'fc17', front: '六波羅探題', back: '承久の乱のあと、京都の朝廷を監視するために置かれた機関は？', difficulty: 'standard' },
+      { id: 'fc18', front: '後鳥羽上皇', back: '承久の乱で敗れ、隠岐に流された上皇は？', difficulty: 'standard' },
+      { id: 'fc19', front: '御成敗式目', back: '1232年、北条泰時が定めた51か条の武士のための法を何という？', difficulty: 'standard' },
+      { id: 'fc20', front: '北条泰時', back: '御成敗式目を定めた第3代執権は？', difficulty: 'standard' },
+      { id: 'fc21', front: '貞永式目', back: '御成敗式目の別名は？制定年の年号「貞永」に由来する', difficulty: 'standard' },
+      { id: 'fc22', front: '本領安堵', back: '御恩のうち、御家人の先祖伝来の領地を将軍が認めることは？', difficulty: 'standard' },
+      { id: 'fc23', front: '新恩給与', back: '御恩のうち、将軍が御家人に新たな土地をあたえることは？', difficulty: 'advanced' },
+      { id: 'fc24', front: '封建制度', back: '将軍と御家人のような、土地を仲立ちとした主従関係を何という？', difficulty: 'advanced' },
+      { id: 'fc25', front: '隠岐', back: '承久の乱で敗れた後鳥羽上皇が流された場所は？', difficulty: 'advanced' },
+      { id: 'fc26', front: '51か条', back: '御成敗式目は全部で何か条か？', difficulty: 'advanced' },
+      { id: 'fc27', front: '1185年', back: '源頼朝が守護・地頭の設置を朝廷に認めさせた年は？', difficulty: 'advanced' },
+      { id: 'fc28', front: '武士の慣習', back: '御成敗式目はどのようなものを基準にして定められたか？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -105,6 +105,7 @@ export const kamakuraBakufu: Topic = {
           options: ['地頭', '六波羅探題', '執権', '守護'],
           correctIndex: 3,
           explanation: '守護は国ごとに置かれ、軍事・警察の仕事を担当しました。荘園ごとに置かれたのは地頭です。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -112,6 +113,7 @@ export const kamakuraBakufu: Topic = {
           options: ['承久の乱', '平治の乱', '保元の乱', '壬申の乱'],
           correctIndex: 0,
           explanation: '承久の乱で幕府が勝利し、朝廷に対する幕府の優位が確立しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -119,6 +121,7 @@ export const kamakuraBakufu: Topic = {
           options: ['十七条の憲法', '大宝律令', '御成敗式目', '武家諸法度'],
           correctIndex: 2,
           explanation: '御成敗式目は武士の慣習にもとづいて定められた51か条の法律で、貞永式目ともいいます。',
+          difficulty: 'basic',
         },
         {
           id: 'q4',
@@ -126,6 +129,7 @@ export const kamakuraBakufu: Topic = {
           options: ['奉公', '御恩', '年貢', '封建'],
           correctIndex: 1,
           explanation: '御恩は将軍が御家人に対して行う恩恵で、領地の保障（本領安堵）や新しい土地の付与（新恩給与）のことです。',
+          difficulty: 'basic',
         },
         {
           id: 'q5',
@@ -133,6 +137,7 @@ export const kamakuraBakufu: Topic = {
           options: ['守護', '六波羅探題', '地頭', '鎮守府'],
           correctIndex: 1,
           explanation: '六波羅探題は承久の乱のあと、京都の朝廷を監視するために幕府が設置した機関です。',
+          difficulty: 'basic',
         },
         {
           id: 'q6',
@@ -140,6 +145,7 @@ export const kamakuraBakufu: Topic = {
           options: ['北条政子', '後鳥羽上皇', '平清盛', '北条泰時'],
           correctIndex: 0,
           explanation: '北条政子は頼朝の妻で、承久の乱の際に御家人たちに頼朝の恩を説き、団結をうったえました。',
+          difficulty: 'basic',
         },
         {
           id: 'q7',
@@ -147,6 +153,7 @@ export const kamakuraBakufu: Topic = {
           options: ['太政大臣', '関白', '征夷大将軍', '執権'],
           correctIndex: 2,
           explanation: '源頼朝は1192年に征夷大将軍に任命され、名実ともに武家の長となりました。',
+          difficulty: 'basic',
         },
         {
           id: 'q8',
@@ -154,6 +161,7 @@ export const kamakuraBakufu: Topic = {
           options: ['政所', '問注所', '六波羅探題', '侍所'],
           correctIndex: 3,
           explanation: '侍所は御家人の統率を行い、政所は政務・財政、問注所は裁判を担当しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q9',
@@ -161,6 +169,7 @@ export const kamakuraBakufu: Topic = {
           options: ['執権', '地頭', '関白', '守護'],
           correctIndex: 0,
           explanation: '執権は将軍を補佐する役職で、北条時政が初代執権となり、以後北条氏が幕府の実権を握りました。',
+          difficulty: 'basic',
         },
         {
           id: 'q10',
@@ -168,6 +177,7 @@ export const kamakuraBakufu: Topic = {
           options: ['源頼家', '源実朝', '源義経', '源義家'],
           correctIndex: 1,
           explanation: '3代将軍の源実朝が暗殺されたことで源氏の将軍は途絶え、以後は北条氏が執権として実権を握りました。',
+          difficulty: 'basic',
         },
         {
           id: 'q11',
@@ -175,6 +185,7 @@ export const kamakuraBakufu: Topic = {
           options: ['侍所', '政所', '問注所', '六波羅探題'],
           correctIndex: 2,
           explanation: '問注所は鎌倉幕府で裁判を担当した役所で、御家人間の訴訟を裁きました。',
+          difficulty: 'standard',
         },
         {
           id: 'q12',
@@ -182,6 +193,7 @@ export const kamakuraBakufu: Topic = {
           options: ['新恩給与', '本領安堵', '封建', '奉公'],
           correctIndex: 1,
           explanation: '本領安堵は将軍が御家人の先祖伝来の領地を認めて保障することで、御恩の一つです。',
+          difficulty: 'standard',
         },
         {
           id: 'q13',
@@ -189,6 +201,7 @@ export const kamakuraBakufu: Topic = {
           options: ['年貢の免除', '戦いや京都・鎌倉の警護', '荘園の開墾', '朝廷への出仕'],
           correctIndex: 1,
           explanation: '奉公とは御家人が将軍のために戦いに参加したり、京都や鎌倉の警護を行ったりすることです。',
+          difficulty: 'standard',
         },
         {
           id: 'q14',
@@ -196,6 +209,7 @@ export const kamakuraBakufu: Topic = {
           options: ['佐渡', '隠岐', '土佐', '対馬'],
           correctIndex: 1,
           explanation: '後鳥羽上皇は承久の乱で敗れた後、隠岐（現在の島根県）に流されました。',
+          difficulty: 'standard',
         },
         {
           id: 'q15',
@@ -203,6 +217,7 @@ export const kamakuraBakufu: Topic = {
           options: ['中国の律令', '朝廷の法律', '武士の慣習や先例', '仏教の教え'],
           correctIndex: 2,
           explanation: '御成敗式目は武士の慣習や先例を基準にして定められた、武士のための法律です。',
+          difficulty: 'standard',
         },
         {
           id: 'q16',
@@ -210,6 +225,7 @@ export const kamakuraBakufu: Topic = {
           options: ['封建制度', '律令制度', '摂関制度', '荘園制度'],
           correctIndex: 0,
           explanation: '封建制度は土地を仲立ちとした主従関係で、御恩と奉公が基本となります。',
+          difficulty: 'standard',
         },
         {
           id: 'q17',
@@ -217,6 +233,7 @@ export const kamakuraBakufu: Topic = {
           options: ['侍所', '政所', '問注所', '鎌倉府'],
           correctIndex: 1,
           explanation: '政所は鎌倉幕府で政務や財政を担当した役所です。',
+          difficulty: 'standard',
         },
         {
           id: 'q18',
@@ -224,6 +241,7 @@ export const kamakuraBakufu: Topic = {
           options: ['1185年', '1192年', '1221年', '1232年'],
           correctIndex: 0,
           explanation: '1185年に源頼朝は守護と地頭の設置を朝廷に認めさせ、全国への支配権を確立しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q19',
@@ -231,6 +249,7 @@ export const kamakuraBakufu: Topic = {
           options: ['北条泰時', '北条義時', '北条時政', '北条時宗'],
           correctIndex: 2,
           explanation: '北条時政は鎌倉幕府の初代執権で、頼朝の妻・北条政子の父にあたります。',
+          difficulty: 'standard',
         },
         {
           id: 'q20',
@@ -238,6 +257,7 @@ export const kamakuraBakufu: Topic = {
           options: ['守護は国ごとで軍事・警察、地頭は荘園ごとで年貢徴収', '守護は荘園ごと、地頭は国ごと', '守護は裁判担当、地頭は財政担当', '守護も地頭も同じ役割'],
           correctIndex: 0,
           explanation: '守護は国ごとに置かれて軍事・警察を担当し、地頭は荘園・公領ごとに置かれて年貢徴収・土地管理を担当しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q21',
@@ -245,6 +265,7 @@ export const kamakuraBakufu: Topic = {
           options: ['幕府が滅亡した', '朝廷に対する幕府の優位が確立した', '御家人の領地が減った', '北条氏が執権から外された'],
           correctIndex: 1,
           explanation: '承久の乱で幕府が勝利し、朝廷に対する幕府の優位が確立、支配が西日本にも広がりました。',
+          difficulty: 'standard',
         },
         {
           id: 'q22',
@@ -252,6 +273,7 @@ export const kamakuraBakufu: Topic = {
           options: ['貴族', '僧侶', '武士（御家人）', '農民'],
           correctIndex: 2,
           explanation: '御成敗式目は武士（御家人）に適用され、貴族や寺社には従来の法律が適用されました。',
+          difficulty: 'standard',
         },
         {
           id: 'q23',
@@ -259,6 +281,7 @@ export const kamakuraBakufu: Topic = {
           options: ['鎌倉に遊びに行くこと', '非常事態に将軍のもとへ駆けつける御家人の覚悟', '鎌倉で商売すること', '鎌倉を攻撃すること'],
           correctIndex: 1,
           explanation: '「いざ鎌倉」は非常事態が起きたとき、御家人が将軍のもと（鎌倉）へすぐに駆けつけるという覚悟を表す言葉です。',
+          difficulty: 'advanced',
         },
         {
           id: 'q24',
@@ -266,6 +289,7 @@ export const kamakuraBakufu: Topic = {
           options: ['17か条', '51か条', '100か条', '200か条'],
           correctIndex: 1,
           explanation: '御成敗式目は全部で51か条あり、武士の慣習に基づいた裁判の基準を示しました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q25',
@@ -273,6 +297,7 @@ export const kamakuraBakufu: Topic = {
           options: ['貿易を促進するため', '全国に幕府の支配を及ぼし武士の統治体制を確立した', '仏教を広めるため', '朝廷を守るため'],
           correctIndex: 1,
           explanation: '守護・地頭の設置により全国の土地に幕府の支配が及び、武士による統治体制が確立しました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q26',
@@ -280,6 +305,7 @@ export const kamakuraBakufu: Topic = {
           options: ['執権と管領', '関白と摂政', '太政大臣と将軍', '守護と地頭'],
           correctIndex: 0,
           explanation: '鎌倉幕府では執権が、室町幕府では管領が将軍を補佐する役職でした。',
+          difficulty: 'advanced',
         },
         {
           id: 'q27',
@@ -287,6 +313,7 @@ export const kamakuraBakufu: Topic = {
           options: ['鎌倉', '京都', '大阪', '博多'],
           correctIndex: 1,
           explanation: '六波羅探題は承久の乱後に京都に置かれ、朝廷の監視と西国の統治を担当しました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q28',
@@ -294,6 +321,7 @@ export const kamakuraBakufu: Topic = {
           options: ['朝廷の貴族', '北条氏（執権）', '源氏の親戚', '御家人の合議'],
           correctIndex: 1,
           explanation: '源氏の将軍が3代で途絶えた後、北条氏が執権として幕府の政治を主導しました。',
+          difficulty: 'advanced',
         },
       ],
     },

@@ -58,141 +58,169 @@ export const ancientCivilizations: Topic = {
         id: 'fc1',
         front: '文明',
         back: '大河のほとりで発達した、都市や文字を持つ社会を何という？',
+        difficulty: 'basic',
       },
       {
         id: 'fc2',
         front: 'メソポタミア文明',
         back: 'チグリス・ユーフラテス川流域で発達したのは何文明？',
+        difficulty: 'basic',
       },
       {
         id: 'fc3',
         front: 'くさび形文字',
         back: 'メソポタミアで粘土板に刻まれたのは何文字？',
+        difficulty: 'basic',
       },
       {
         id: 'fc4',
         front: 'ハンムラビ法典',
         back: '「目には目を」で知られるバビロニアの法律を何という？',
+        difficulty: 'basic',
       },
       {
         id: 'fc5',
         front: 'エジプト文明',
         back: 'ナイル川流域で発達したのは何文明？',
+        difficulty: 'basic',
       },
       {
         id: 'fc6',
         front: '太陽暦',
         back: 'エジプトで作られた1年365日の暦は？',
+        difficulty: 'basic',
       },
       {
         id: 'fc7',
         front: 'ピラミッド',
         back: 'エジプトで死んだ王をまつる大きな石の建造物は？',
+        difficulty: 'basic',
       },
       {
         id: 'fc8',
         front: '象形文字',
         back: 'エジプトで発明された絵のような文字は？',
+        difficulty: 'basic',
       },
       {
         id: 'fc9',
         front: 'インダス文明',
         back: 'インダス川流域で栄えたのは何文明？',
+        difficulty: 'basic',
       },
       {
         id: 'fc10',
         front: 'アーリヤ人',
         back: '衰退したインダス文明の地に侵入した民族は？',
+        difficulty: 'basic',
       },
       {
         id: 'fc11',
         front: '太陰暦',
         back: 'メソポタミアで発明された、月の満ち欠けを基準にした暦は？',
+        difficulty: 'basic',
       },
       {
         id: 'fc12',
         front: '60進法',
         back: 'メソポタミアで発明された、時間や角度のもとになった数え方は？',
+        difficulty: 'basic',
       },
       {
         id: 'fc13',
         front: 'ファラオ',
         back: 'エジプトで王のことを何と呼んだか？',
+        difficulty: 'standard',
       },
       {
         id: 'fc14',
         front: 'モヘンジョ＝ダロ',
         back: 'インダス文明の代表的な計画都市の遺跡は？',
+        difficulty: 'standard',
       },
       {
         id: 'fc15',
         front: '甲骨文字',
         back: '殷で亀の甲羅や牛の骨に刻まれた文字は？',
+        difficulty: 'standard',
       },
       {
         id: 'fc16',
         front: '黄河',
         back: '中国文明が発生した代表的な川は？',
+        difficulty: 'standard',
       },
       {
         id: 'fc17',
         front: 'スフィンクス',
         back: 'ピラミッドの近くに建てられた人の顔とライオンの体を持つ石像は？',
+        difficulty: 'standard',
       },
       {
         id: 'fc18',
         front: 'ヒエログリフ',
         back: 'エジプトの象形文字の別名は？',
+        difficulty: 'standard',
       },
       {
         id: 'fc19',
         front: 'ハンムラビ',
         back: '「目には目を」の法典を作ったバビロニアの王は？',
+        difficulty: 'standard',
       },
       {
         id: 'fc20',
         front: 'ミイラ',
         back: 'エジプトで来世の復活を信じて死者の体を保存した方法は？',
+        difficulty: 'standard',
       },
       {
         id: 'fc21',
         front: 'ナイル川',
         back: 'エジプト文明が発達した川は？',
+        difficulty: 'standard',
       },
       {
         id: 'fc22',
         front: 'チグリス川・ユーフラテス川',
         back: 'メソポタミア文明が発達した2つの川は？',
+        difficulty: 'standard',
       },
       {
         id: 'fc23',
         front: 'インダス川',
         back: 'インダス文明が発達した川は？',
+        difficulty: 'advanced',
       },
       {
         id: 'fc24',
         front: '殷',
         back: '甲骨文字が使われた中国最古の王朝は？',
+        difficulty: 'advanced',
       },
       {
         id: 'fc25',
         front: 'カースト制度',
         back: 'アーリヤ人がインドにもたらした身分制度は？',
+        difficulty: 'advanced',
       },
       {
         id: 'fc26',
         front: '同害復讐法',
         back: '受けた害と同じだけの罰を与えるハンムラビ法典の考え方を何という？',
+        difficulty: 'advanced',
       },
       {
         id: 'fc27',
         front: '長江',
         back: '黄河とともに中国文明が発生した川は？',
+        difficulty: 'advanced',
       },
       {
         id: 'fc28',
         front: 'ハラッパー',
         back: 'モヘンジョ＝ダロとともにインダス文明の代表的な都市遺跡は？',
+        difficulty: 'advanced',
       },
     ],
     quiz: {
@@ -203,6 +231,7 @@ export const ancientCivilizations: Topic = {
           options: ['エジプト文明', 'メソポタミア文明', '中国文明', 'インダス文明'],
           correctIndex: 1,
           explanation: 'メソポタミア文明はチグリス・ユーフラテス川流域で発達しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -210,6 +239,7 @@ export const ancientCivilizations: Topic = {
           options: ['くさび形文字', '甲骨文字', '象形文字', 'アルファベット'],
           correctIndex: 0,
           explanation: 'くさび形文字はメソポタミア文明で粘土板に刻まれて使われた文字です。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -217,6 +247,7 @@ export const ancientCivilizations: Topic = {
           options: ['マグナカルタ', '十二表法', 'ローマ法', 'ハンムラビ法典'],
           correctIndex: 3,
           explanation: 'ハンムラビ法典は「目には目を、歯には歯を」の同害復讐法で知られます。',
+          difficulty: 'basic',
         },
         {
           id: 'q4',
@@ -224,6 +255,7 @@ export const ancientCivilizations: Topic = {
           options: ['コロッセオ', 'パルテノン神殿', 'ピラミッド', '万里の長城'],
           correctIndex: 2,
           explanation: 'ピラミッドはエジプトで王（ファラオ）の墓として建設された巨大建造物です。',
+          difficulty: 'basic',
         },
         {
           id: 'q5',
@@ -231,6 +263,7 @@ export const ancientCivilizations: Topic = {
           options: ['メソポタミア文明', 'インダス文明', '中国文明', 'エジプト文明'],
           correctIndex: 3,
           explanation: 'エジプト文明はナイル川流域で発達し、ピラミッドや太陽暦が生まれました。',
+          difficulty: 'basic',
         },
         {
           id: 'q6',
@@ -238,6 +271,7 @@ export const ancientCivilizations: Topic = {
           options: ['アーリヤ人', 'ゲルマン人', 'フン族', 'ペルシャ人'],
           correctIndex: 0,
           explanation: 'アーリヤ人はインダス文明が衰退した後にインドへ侵入した民族です。',
+          difficulty: 'basic',
         },
         {
           id: 'q7',
@@ -245,6 +279,7 @@ export const ancientCivilizations: Topic = {
           options: ['太陽暦', '旧暦', '太陰暦', 'グレゴリオ暦'],
           correctIndex: 2,
           explanation: '太陰暦はメソポタミア文明で発明された、月の満ち欠けを基準にした暦です。',
+          difficulty: 'basic',
         },
         {
           id: 'q8',
@@ -258,6 +293,7 @@ export const ancientCivilizations: Topic = {
           correctIndex: 1,
           explanation:
             'エジプトではナイル川の洪水の時期を正確に予測するために、太陽暦が作られました。',
+          difficulty: 'basic',
         },
         {
           id: 'q9',
@@ -271,6 +307,7 @@ export const ancientCivilizations: Topic = {
           correctIndex: 0,
           explanation:
             'モヘンジョ＝ダロは整然とした街路や排水設備を持つ計画都市として知られています。',
+          difficulty: 'basic',
         },
         {
           id: 'q10',
@@ -284,6 +321,7 @@ export const ancientCivilizations: Topic = {
           correctIndex: 3,
           explanation:
             '大河の流域は農耕に必要な水が豊富で、洪水が肥沃な土を運び農業に適していました。',
+          difficulty: 'basic',
         },
         {
           id: 'q11',
@@ -291,6 +329,7 @@ export const ancientCivilizations: Topic = {
           options: ['くさび形文字', 'ヒエログリフ', 'アルファベット', '甲骨文字'],
           correctIndex: 1,
           explanation: 'エジプトの象形文字はヒエログリフとも呼ばれ、絵のような形が特徴です。',
+          difficulty: 'standard',
         },
         {
           id: 'q12',
@@ -303,6 +342,7 @@ export const ancientCivilizations: Topic = {
           ],
           correctIndex: 1,
           explanation: '60進法は現在の時間（60分＝1時間）や角度（360度）のもとになりました。',
+          difficulty: 'standard',
         },
         {
           id: 'q13',
@@ -310,6 +350,7 @@ export const ancientCivilizations: Topic = {
           options: ['紙', '粘土板', '竹の簡', '石碑'],
           correctIndex: 1,
           explanation: 'くさび形文字は柔らかい粘土板に葦のペンで刻まれました。',
+          difficulty: 'standard',
         },
         {
           id: 'q14',
@@ -322,6 +363,7 @@ export const ancientCivilizations: Topic = {
           ],
           correctIndex: 1,
           explanation: 'エジプトでは死後の世界での復活を信じていたため、体をミイラとして保存しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q15',
@@ -329,6 +371,7 @@ export const ancientCivilizations: Topic = {
           options: ['皇帝', 'ファラオ', '大王', 'カリフ'],
           correctIndex: 1,
           explanation: 'ファラオはエジプトの王の称号で、「大きな家」という意味があります。',
+          difficulty: 'standard',
         },
         {
           id: 'q16',
@@ -336,6 +379,7 @@ export const ancientCivilizations: Topic = {
           options: ['粘土板', '亀の甲羅や牛の骨', '石碑', '紙'],
           correctIndex: 1,
           explanation: '甲骨文字は亀の甲羅や牛の骨に刻まれ、占いの記録に使われました。',
+          difficulty: 'standard',
         },
         {
           id: 'q17',
@@ -343,6 +387,7 @@ export const ancientCivilizations: Topic = {
           options: ['封建制度', 'カースト制度', '科挙制度', '荘園制度'],
           correctIndex: 1,
           explanation: 'アーリヤ人はインドにカースト制度（バルナ制度）をもたらしました。',
+          difficulty: 'standard',
         },
         {
           id: 'q18',
@@ -355,6 +400,7 @@ export const ancientCivilizations: Topic = {
           ],
           correctIndex: 3,
           explanation: '古代文明の共通特徴は大河のほと、文字の発明、都市の形成です。鉄道は近代の発明です。',
+          difficulty: 'standard',
         },
         {
           id: 'q19',
@@ -367,6 +413,7 @@ export const ancientCivilizations: Topic = {
           ],
           correctIndex: 1,
           explanation: '同害復讐法は「目には目を、歯には歯を」に代表される、受けた害と同等の罰を与える考え方です。',
+          difficulty: 'standard',
         },
         {
           id: 'q20',
@@ -374,6 +421,7 @@ export const ancientCivilizations: Topic = {
           options: ['バビロン', 'ハラッパー', 'メンフィス', '洛陽'],
           correctIndex: 1,
           explanation: 'ハラッパーはモヘンジョ＝ダロとともにインダス文明の代表的な計画都市遺跡です。',
+          difficulty: 'standard',
         },
         {
           id: 'q21',
@@ -381,6 +429,7 @@ export const ancientCivilizations: Topic = {
           options: ['肥沃な土地', '川の間の土地', '太陽の国', '砂漠の国'],
           correctIndex: 1,
           explanation: 'メソポタミアは「川の間の土地」という意味で、チグリス川とユーフラテス川にはさまれた地域を指します。',
+          difficulty: 'standard',
         },
         {
           id: 'q22',
@@ -388,6 +437,7 @@ export const ancientCivilizations: Topic = {
           options: ['ナイル川', 'インダス川', '黄河', 'チグリス川'],
           correctIndex: 2,
           explanation: '中国文明は黄河と長江の流域で発生しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q23',
@@ -400,6 +450,7 @@ export const ancientCivilizations: Topic = {
           ],
           correctIndex: 1,
           explanation: 'ナイル川の洪水は肥沃な土を運び、豊かな農地を作りました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q24',
@@ -412,6 +463,7 @@ export const ancientCivilizations: Topic = {
           ],
           correctIndex: 1,
           explanation: '太陰暦は月の満ち欠けを基準にした暦（メソポタミア）、太陽暦は太陽の動きを基準にした暦（エジプト）です。',
+          difficulty: 'advanced',
         },
         {
           id: 'q25',
@@ -424,6 +476,7 @@ export const ancientCivilizations: Topic = {
           ],
           correctIndex: 1,
           explanation: 'スフィンクスはピラミッドの近くに建てられた、人の顔とライオンの体を持つ巨大な石像です。',
+          difficulty: 'advanced',
         },
         {
           id: 'q26',
@@ -431,6 +484,7 @@ export const ancientCivilizations: Topic = {
           options: ['漢', '秦', '周', '唐'],
           correctIndex: 2,
           explanation: '殷を滅ぼして次に中国を支配したのは周です。',
+          difficulty: 'advanced',
         },
         {
           id: 'q27',
@@ -438,6 +492,7 @@ export const ancientCivilizations: Topic = {
           options: ['アルファベット', 'ひらがな', '漢字', 'アラビア文字'],
           correctIndex: 2,
           explanation: '甲骨文字が次第に簡略化されて漢字へと発展しました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q28',
@@ -450,6 +505,7 @@ export const ancientCivilizations: Topic = {
           ],
           correctIndex: 1,
           explanation: 'モヘンジョ＝ダロは整然とした街路や排水設備を備えた計画都市でした。',
+          difficulty: 'advanced',
         },
       ],
     },

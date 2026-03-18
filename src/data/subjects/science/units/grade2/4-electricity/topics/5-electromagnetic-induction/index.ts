@@ -82,72 +82,16 @@ export const electromagneticInduction: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'sci2-ei-fc1',
-        front: '電磁誘導',
-        back: 'コイルの中の磁界が変化したとき、コイルに電圧が生じて電流が流れる現象を何という？',
-        explanation: '流れる電流を誘導電流という。発電機はこの原理を利用。',
-      },
-      {
-        id: 'sci2-ei-fc2',
-        front: '直流と交流',
-        back: '一定方向に流れる電流と、向きが周期的に変わる電流をそれぞれ何という？',
-        explanation: '直流：乾電池など。交流：コンセントなど。交流は変圧しやすく送電に利用。',
-      },
-      {
-        id: 'sci2-ei-fc3',
-        front: '周波数（Hz）',
-        back: '交流の1秒あたりの振動回数を何という？',
-        explanation: '単位はヘルツ（Hz）。日本では東日本50Hz、西日本60Hz。',
-      },
-      {
-        id: 'sci2-ei-fc4',
-        front: '誘導電流',
-        back: '電磁誘導によってコイルに流れる電流を何という？',
-        explanation: 'コイル内の磁界が変化しているときだけ流れる。磁石が静止すると流れない。',
-      },
-      {
-        id: 'sci2-ei-fc5',
-        front: '誘導電流を大きくする方法',
-        back: '誘導電流を大きくする3つの方法は？',
-        explanation: '①磁石を速く動かす ②コイルの巻き数を増やす ③より強い磁石を使う。',
-      },
-      {
-        id: 'sci2-ei-fc6',
-        front: '発電機',
-        back: '電磁誘導を利用して電気をつくる装置を何という？',
-        explanation: '運動エネルギーを電気エネルギーに変換する。コイルの中で磁石を回転させて発電する。',
-      },
-      {
-        id: 'sci2-ei-fc7',
-        front: '東日本50Hz / 西日本60Hz',
-        back: '日本の交流の周波数は東日本と西日本でそれぞれ何Hz？',
-        explanation: '東日本は50Hz、西日本は60Hz。明治時代に異なる国の発電機を導入したため。',
-      },
-      {
-        id: 'sci2-ei-fc8',
-        front: '交流の送電の利点',
-        back: '送電に交流が使われる理由は？',
-        explanation: '交流は変圧器で電圧を変えやすい。高電圧で送電すると電流が小さくなり、発熱ロスが減る。',
-      },
-      {
-        id: 'sci2-ei-fc9',
-        front: 'オシロスコープ',
-        back: '電流の波形（電圧の時間変化）を画面に表示して観察する装置を何という？',
-        explanation: '直流は直線、交流は正弦波の波形になる。周波数や電圧の変化を確認できる。',
-      },
-      {
-        id: 'sci2-ei-fc10',
-        front: '発光ダイオードの性質',
-        back: '発光ダイオード（LED）はどのような性質をもつ？',
-        explanation: '一方向にしか電流を流さない。直流では連続点灯、交流では点滅する。直流と交流の判別に使える。',
-      },
-      {
-        id: 'sci2-ei-fc11',
-        front: '変圧器（トランス）',
-        back: '交流の電圧を変える装置を何という？',
-        explanation: '変圧器（トランス）。発電所で高電圧に上げて送電し、家庭に届く前に100Vに下げる。',
-      },
+      { id: 'sci2-ei-fc1', front: 'コイルの中の磁界が変化したとき、コイルに電圧が生じて電流が流れる現象', back: '電磁誘導とは何？', difficulty: 'basic' },
+      { id: 'sci2-ei-fc2', front: '電磁誘導によってコイルに流れる電流。磁界が変化しているときだけ流れる', back: '誘導電流とは何？いつ流れる？', difficulty: 'basic' },
+      { id: 'sci2-ei-fc3', front: '①磁石を速く動かす ②コイルの巻き数を増やす ③より強い磁石を使う', back: '誘導電流を大きくする3つの方法は？', difficulty: 'basic' },
+      { id: 'sci2-ei-fc4', front: '直流：一定方向（乾電池など）。交流：向きが周期的に変化（コンセントなど）', back: '直流と交流の違いは？', difficulty: 'basic' },
+      { id: 'sci2-ei-fc5', front: '交流の1秒あたりの振動回数。単位はHz。東日本50Hz、西日本60Hz', back: '周波数とは何？日本の値は？', difficulty: 'standard' },
+      { id: 'sci2-ei-fc6', front: '電磁誘導を利用して運動エネルギーを電気エネルギーに変換する装置', back: '発電機とは何？', difficulty: 'standard' },
+      { id: 'sci2-ei-fc7', front: '変圧器で電圧を変えやすい。高電圧で送電すると発熱ロスが減る', back: '送電に交流が使われる理由は？', difficulty: 'standard' },
+      { id: 'sci2-ei-fc8', front: '電流の波形（電圧の時間変化）を画面に表示して観察する装置', back: 'オシロスコープとは何？', difficulty: 'standard' },
+      { id: 'sci2-ei-fc9', front: '一方向にしか電流を流さない。直流で連続点灯、交流で点滅。直流・交流の判別に使える', back: '発光ダイオード（LED）を直流・交流につなぐとどうなる？', difficulty: 'advanced' },
+      { id: 'sci2-ei-fc10', front: '交流の電圧を変える装置。発電所で高電圧にし、家庭で100Vに下げる', back: '変圧器（トランス）とは何？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -158,7 +102,8 @@ export const electromagneticInduction: Topic = {
           correctIndex: 3,
           explanation:
             '電磁誘導は、コイル内の磁界が変化することで電圧が生じ、誘導電流が流れる現象です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-ei-q2',
           question: '交流の特徴として正しいものはどれか？',
@@ -171,7 +116,8 @@ export const electromagneticInduction: Topic = {
           correctIndex: 0,
           explanation:
             '交流は電流の向きが周期的に変化します。変圧器で電圧を変えやすいため、送電に利用されています。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-ei-q3',
           question: '誘導電流の向きが変わるのはどのようなときか？',
@@ -184,7 +130,8 @@ export const electromagneticInduction: Topic = {
           correctIndex: 2,
           explanation:
             '磁石をコイルに入れるときと出すときで誘導電流の向きは逆になります。磁石の極を逆にしても向きが変わります。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-ei-q4',
           question: '日本の交流の周波数について正しいのはどれか？',
@@ -197,7 +144,8 @@ export const electromagneticInduction: Topic = {
           correctIndex: 1,
           explanation:
             '日本では東日本が50Hz、西日本が60Hzです。明治時代に東日本はドイツ製、西日本はアメリカ製の発電機を導入したことが原因です。',
-        },
+        difficulty: 'standard',
+      },
       ],
     },
     examples: {

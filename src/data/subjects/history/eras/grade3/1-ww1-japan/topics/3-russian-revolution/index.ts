@@ -44,66 +44,16 @@ export const russianRevolution: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'fc1',
-        front: 'ロシア革命',
-        back: '1917年にロシアで起きた、社会主義政府が誕生した革命は？',
-        explanation: '第一次世界大戦の疲弊がきっかけとなった。',
-      },
-      {
-        id: 'fc2',
-        front: 'レーニン',
-        back: 'ロシア革命を指導し、世界初の社会主義政府を樹立した人物は？',
-        explanation: '労働者と農民を中心とした国づくりを目指した。',
-      },
-      {
-        id: 'fc3',
-        front: '社会主義',
-        back: '資本家ではなく労働者・農民が中心となって国を運営する考え方は？',
-        explanation: 'ロシア革命で初めて国家として実現された。',
-      },
-      {
-        id: 'fc4',
-        front: 'シベリア出兵',
-        back: 'ロシア革命の影響を恐れた日本などの列強がシベリアに軍隊を送ったことは？',
-        explanation: '日本は1922年まで駐留を続けた。',
-      },
-      {
-        id: 'fc5',
-        front: 'ソビエト社会主義共和国連邦',
-        back: '1922年に成立した、世界初の社会主義連邦国家の正式名称は？',
-        explanation: '略称はソ連。1991年まで存続した。',
-      },
-      {
-        id: 'fc6',
-        front: 'ソ連',
-        back: 'ソビエト社会主義共和国連邦の略称は？',
-        explanation: '1922年に成立し、1991年に解体した。',
-      },
-      {
-        id: 'fc7',
-        front: 'スターリン',
-        back: 'レーニンの死後にソ連の指導者となり、五か年計画を実施した人物は？',
-        explanation: '強権的な独裁体制を築いた。',
-      },
-      {
-        id: 'fc8',
-        front: '五か年計画',
-        back: 'スターリンが実施した、重工業の発展と農業の集団化を進めた経済計画は？',
-        explanation: 'ソ連の急速な工業化を実現した。',
-      },
-      {
-        id: 'fc9',
-        front: '農業の集団化',
-        back: 'スターリンが五か年計画で進めた、個人の農地を国の管理にまとめた政策は？',
-        explanation: '多くの農民が犠牲になった。',
-      },
-      {
-        id: 'fc10',
-        front: '1922年',
-        back: 'ソ連が成立した年と、日本がシベリアから撤兵した年は？',
-        explanation: 'ソ連成立と日本のシベリア撤兵が同じ年だった。',
-      },
+      { id: 'fc1', front: 'ロシア革命', back: '1917年にロシアで起きた、社会主義政府が誕生した革命は？', difficulty: 'basic' },
+      { id: 'fc2', front: 'レーニン', back: 'ロシア革命を指導し、世界初の社会主義政府を樹立した人物は？', difficulty: 'basic' },
+      { id: 'fc3', front: '社会主義', back: '資本家ではなく労働者・農民が中心となって国を運営する考え方は？', difficulty: 'basic' },
+      { id: 'fc4', front: 'シベリア出兵', back: 'ロシア革命の影響を恐れた日本などの列強がシベリアに軍隊を送ったことは？', explanation: '日本は1922年まで駐留を続けた。', difficulty: 'basic' },
+      { id: 'fc5', front: 'ソ連', back: '1922年に成立した世界初の社会主義連邦国家の略称は？', explanation: '正式名称はソビエト社会主義共和国連邦。1991年に解体。', difficulty: 'standard' },
+      { id: 'fc6', front: 'スターリン', back: 'レーニンの死後にソ連の指導者となり、五か年計画を実施した人物は？', explanation: '強権的な独裁体制を築いた。', difficulty: 'standard' },
+      { id: 'fc7', front: '五か年計画', back: 'スターリンが実施した、重工業の発展と農業の集団化を進めた経済計画は？', difficulty: 'standard' },
+      { id: 'fc8', front: '農業の集団化', back: 'スターリンが五か年計画で進めた、個人の農地を国の管理にまとめた政策は？', explanation: '多くの農民が犠牲になった。', difficulty: 'standard' },
+      { id: 'fc9', front: '1922年', back: 'ソ連が成立し、日本がシベリアから撤兵した年は？', difficulty: 'advanced' },
+      { id: 'fc10', front: 'ロシア革命と列強の対応', back: 'ロシア革命が起きた後、日本を含む列強はなぜシベリア出兵を行ったか？', explanation: '社会主義革命の影響が自国に広がることを恐れたため。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -114,6 +64,7 @@ export const russianRevolution: Topic = {
           correctIndex: 3,
           explanation:
             'レーニンがロシア革命を指導し、世界初の社会主義政府を樹立しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -122,6 +73,7 @@ export const russianRevolution: Topic = {
           correctIndex: 0,
           explanation:
             '1922年にソ連が成立しました。同じ年に日本もシベリアから撤兵しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -130,6 +82,7 @@ export const russianRevolution: Topic = {
           correctIndex: 1,
           explanation:
             'スターリンは五か年計画を実施し、重工業の発展と農業の集団化を進めました。',
+          difficulty: 'standard',
         },
         {
           id: 'q4',
@@ -139,6 +92,7 @@ export const russianRevolution: Topic = {
           correctIndex: 2,
           explanation:
             'シベリア出兵は、社会主義革命の波及を防ぐために行われました。',
+          difficulty: 'standard',
         },
       ],
     },

@@ -145,48 +145,13 @@ export const hokkaido: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'geo2-hk-fc1',
-        front: '客土',
-        back: '土地改良のために、よその土を運んでくる方法を何というか。北海道の稲作発展に貢献。',
-        explanation:
-          '客土といいます。北海道の石狩平野では、泥炭地に他の場所から土を運び入れて土壌改良を行い、稲作が可能になりました。',
-      },
-      {
-        id: 'geo2-hk-fc2',
-        front: '輪作',
-        back: '土地の力を回復させるために、作物を順番に変えて栽培する方法を何というか。',
-        explanation:
-          '輪作といいます。十勝平野ではじゃがいも→小麦→てんさい→豆類のように作物を順番に変えて栽培し、土の栄養を保っています。',
-      },
-      {
-        id: 'geo2-hk-fc3',
-        front: '根釧台地の酪農',
-        back: '北海道東部の冷涼で霧が多い台地で盛んな、乳牛を飼育して乳製品をつくる農業を何というか。',
-        explanation:
-          '酪農といいます。根釧台地は冷涼で霧が多く畑作に不向きなため、広大な牧草地を利用した酪農が発達し、生乳生産量は日本一です。',
-      },
-      {
-        id: 'geo2-hk-fc4',
-        front: 'ウポポイ（民族共生象徴空間）',
-        back: '2020年に北海道白老町に開設された、アイヌ文化を紹介・継承するための施設を何というか。',
-        explanation:
-          'ウポポイ（民族共生象徴空間）といいます。アイヌの人々の歴史や文化を学べる施設で、文化の保存・継承を目的としています。',
-      },
-      {
-        id: 'geo2-hk-fc5',
-        front: 'エコツーリズム',
-        back: '自然環境を守りながら観光を楽しむ形態を何というか。北海道の知床などで推進。',
-        explanation:
-          'エコツーリズムといいます。自然や文化を壊さず、観光客に自然の大切さを伝えながら楽しんでもらう観光の形態です。',
-      },
-      {
-        id: 'geo2-hk-fc6',
-        front: '亜寒帯（冷帯）気候',
-        back: '北海道が属する、冬の寒さが厳しく夏と冬の気温差が大きい気候帯を何というか。',
-        explanation:
-          '亜寒帯（冷帯）気候といいます。北海道は日本で唯一この気候帯に属し、梅雨がなく台風の影響も少ない特徴があります。',
-      },
+      { id: 'geo2-hk-fc1', front: '客土', back: '土地改良のために、よその土を運んでくる方法を何というか。', explanation: '石狩平野の泥炭地を稲作に適した土壌に変えた', difficulty: 'basic' },
+      { id: 'geo2-hk-fc2', front: '輪作', back: '土地の力を回復させるために、作物を順番に変えて栽培する方法を何というか。', explanation: '十勝平野ではじゃがいも→小麦→てんさい→豆類の順', difficulty: 'basic' },
+      { id: 'geo2-hk-fc3', front: '酪農', back: '北海道東部の根釧台地で盛んな、乳牛を飼育して乳製品をつくる農業を何というか。', explanation: '冷涼で霧が多く畑作に不向きなため発達。生乳生産量日本一', difficulty: 'basic' },
+      { id: 'geo2-hk-fc4', front: 'ウポポイ（民族共生象徴空間）', back: '2020年に北海道白老町に開設された、アイヌ文化を紹介・継承するための施設を何というか。', difficulty: 'standard' },
+      { id: 'geo2-hk-fc5', front: 'エコツーリズム', back: '自然環境を守りながら観光を楽しむ形態を何というか。', explanation: '知床（世界自然遺産）などで推進されている', difficulty: 'standard' },
+      { id: 'geo2-hk-fc6', front: '亜寒帯（冷帯）気候', back: '北海道が属する、冬の寒さが厳しく梅雨がない気候帯を何というか。', difficulty: 'standard' },
+      { id: 'geo2-hk-fc7', front: '根釧台地', back: '北海道で生乳の生産量が日本一の、酪農が盛んな台地はどこか。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -198,7 +163,8 @@ export const hokkaido: Topic = {
           correctIndex: 2,
           explanation:
             '客土はよその土を運んでくる土地改良の方法で、石狩平野の泥炭地を稲作に適した土地に変えました。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo2-hk-q2',
           question:
@@ -207,7 +173,8 @@ export const hokkaido: Topic = {
           correctIndex: 1,
           explanation:
             '輪作は土地の力を回復させるために作物を順番に変えて栽培する方法です。十勝平野ではじゃがいも・小麦・てんさい・豆類を順に栽培しています。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo2-hk-q3',
           question:
@@ -216,7 +183,8 @@ export const hokkaido: Topic = {
           correctIndex: 3,
           explanation:
             '根釧台地は冷涼で霧が多く畑作に不向きなため、広大な牧草地を利用した酪農が発達しています。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo2-hk-q4',
           question:
@@ -230,7 +198,8 @@ export const hokkaido: Topic = {
           correctIndex: 0,
           explanation:
             'ウポポイ（民族共生象徴空間）は2020年に白老町に開設され、アイヌの歴史や文化を学べる施設です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo2-hk-q5',
           question:
@@ -244,7 +213,8 @@ export const hokkaido: Topic = {
           correctIndex: 1,
           explanation:
             '北海道は亜寒帯（冷帯）気候に属し、梅雨がなく台風の影響も少ないのが特徴です。冬は非常に寒さが厳しくなります。',
-        },
+        difficulty: 'advanced',
+      },
       ],
     },
     examples: {

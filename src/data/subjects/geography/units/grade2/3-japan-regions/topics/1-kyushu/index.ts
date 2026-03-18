@@ -185,48 +185,13 @@ export const kyushu: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'geo2-ky-fc1',
-        front: 'カルデラ',
-        back: '火山の噴火によってできた巨大なくぼ地を何というか。九州の阿蘇山が代表例。',
-        explanation:
-          'カルデラといいます。阿蘇山のカルデラは世界最大級の大きさで、カルデラの中に町があり、人々が暮らしています。',
-      },
-      {
-        id: 'geo2-ky-fc2',
-        front: 'シラス台地',
-        back: '九州南部に広がる、火山灰が堆積してできた台地を何というか。',
-        explanation:
-          'シラス台地といいます。水はけがよく稲作には不向きですが、畜産やさつまいもの栽培に利用されています。',
-      },
-      {
-        id: 'geo2-ky-fc3',
-        front: '促成栽培',
-        back: '温暖な気候やビニールハウスを利用して、出荷時期を早める栽培方法を何というか。',
-        explanation:
-          '促成栽培といいます。宮崎平野ではきゅうりやピーマンなどを冬に出荷し、高い値段で売ることができます。',
-      },
-      {
-        id: 'geo2-ky-fc4',
-        front: 'エコタウン',
-        back: '北九州市が公害の教訓から取り組んだ、リサイクル産業を集積させた環境事業を何というか。',
-        explanation:
-          'エコタウン事業といいます。北九州市はかつて深刻な公害を経験しましたが、環境改善に取り組み、リサイクル産業の拠点となりました。',
-      },
-      {
-        id: 'geo2-ky-fc5',
-        front: '水俣病',
-        back: '熊本県水俣市で、工場排水に含まれるメチル水銀が原因で発生した公害病を何というか。',
-        explanation:
-          '水俣病といいます。四大公害病の一つで、水俣市はこの教訓を生かして環境モデル都市として再生しました。',
-      },
-      {
-        id: 'geo2-ky-fc6',
-        front: '地熱発電',
-        back: '火山の熱を利用して電気をつくる発電方法を何というか。九州に多い。',
-        explanation:
-          '地熱発電といいます。大分県の八丁原発電所は日本最大級の地熱発電所で、火山の多い九州ならではのエネルギー活用です。',
-      },
+      { id: 'geo2-ky-fc1', front: 'カルデラ', back: '火山の噴火によってできた巨大なくぼ地を何というか。阿蘇山が世界最大級の代表例。', difficulty: 'basic' },
+      { id: 'geo2-ky-fc2', front: 'シラス台地', back: '九州南部に広がる、火山灰が堆積してできた台地を何というか。', explanation: '水はけがよく稲作には不向きだが、畜産やさつまいも栽培に利用されている', difficulty: 'basic' },
+      { id: 'geo2-ky-fc3', front: '促成栽培', back: '温暖な気候やビニールハウスを利用して、出荷時期を早める栽培方法を何というか。', explanation: '宮崎平野ではきゅうりやピーマンを冬に出荷している', difficulty: 'basic' },
+      { id: 'geo2-ky-fc4', front: 'エコタウン事業', back: '北九州市が公害の教訓から取り組んだ、リサイクル産業を集積させた環境事業を何というか。', difficulty: 'standard' },
+      { id: 'geo2-ky-fc5', front: '水俣病', back: '熊本県水俣市で、工場排水に含まれるメチル水銀が原因で発生した公害病を何というか。', explanation: '四大公害病の一つ。水俣市はこの教訓を生かし環境モデル都市に再生', difficulty: 'standard' },
+      { id: 'geo2-ky-fc6', front: '地熱発電', back: '火山の熱を利用して電気をつくる発電方法を何というか。', explanation: '大分県の八丁原発電所は日本最大級の地熱発電所', difficulty: 'standard' },
+      { id: 'geo2-ky-fc7', front: '克灰袋（こくはいぶくろ）', back: '鹿児島市で火山灰を集めて捨てるために配布されている専用袋を何というか。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -238,7 +203,8 @@ export const kyushu: Topic = {
           correctIndex: 2,
           explanation:
             'カルデラは火山の噴火によってできた巨大なくぼ地です。阿蘇山のカルデラは世界最大級で、中に町や農地が広がっています。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo2-ky-q2',
           question:
@@ -247,7 +213,8 @@ export const kyushu: Topic = {
           correctIndex: 3,
           explanation:
             '促成栽培は温暖な気候やビニールハウスを利用して、野菜の出荷時期を早める栽培方法です。宮崎平野ではきゅうりやピーマンなどが冬に出荷されます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo2-ky-q3',
           question:
@@ -256,7 +223,8 @@ export const kyushu: Topic = {
           correctIndex: 1,
           explanation:
             'シラス台地は火山灰が堆積してできた台地で、水はけがよく稲作には不向きですが、畜産やさつまいも栽培に利用されています。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo2-ky-q4',
           question:
@@ -270,7 +238,8 @@ export const kyushu: Topic = {
           correctIndex: 0,
           explanation:
             'エコタウン事業は、北九州市が公害の経験を生かしてリサイクル産業を集積させた取り組みです。環境都市として世界的にも評価されています。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo2-ky-q5',
           question:
@@ -279,7 +248,8 @@ export const kyushu: Topic = {
           correctIndex: 3,
           explanation:
             '克灰袋（こくはいぶくろ）は鹿児島市が市民に配布している火山灰を集めるための専用袋です。桜島の噴火による降灰への独自の対策です。',
-        },
+        difficulty: 'advanced',
+      },
       ],
     },
     examples: {

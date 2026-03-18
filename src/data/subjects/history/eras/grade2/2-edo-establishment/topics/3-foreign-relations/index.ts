@@ -36,15 +36,15 @@ export const foreignRelations: Topic = {
     },
     videos: [],
     flashcards: [
-      { id: 'fc1', front: 'オランダ', back: '出島で貿易を行い、世界情勢を幕府に伝えた国はどこ？' },
-      { id: 'fc2', front: '対馬藩', back: '朝鮮との外交窓口となったのは何藩？' },
-      { id: 'fc3', front: 'オランダ風説書', back: 'オランダが幕府に提出した海外情報の報告書は？' },
-      { id: 'fc4', front: '清', back: '長崎で貿易を行い、独自の居住地を与えられた国は？' },
-      { id: 'fc5', front: '唐人屋敷', back: '長崎に住む中国人を収容するために幕府が造った施設は？' },
-      { id: 'fc6', front: '出島', back: '長崎でオランダ人が滞在を許された場所はどこ？' },
-      { id: 'fc7', front: '倭館', back: '対馬藩が朝鮮の釜山に設けた役人の居留地は？' },
-      { id: 'fc8', front: '俵物', back: '銀の代わりに日本が長崎貿易で輸出した海産物は？' },
-      { id: 'fc9', front: '朝鮮通信使', back: '朝鮮から将軍の代代わりごとに派遣された使節は？' },
+      { id: 'fc1', front: 'オランダ', back: '出島で貿易を行い、世界情勢を幕府に伝えた国はどこ？', difficulty: 'basic' },
+      { id: 'fc2', front: '対馬藩', back: '朝鮮との外交窓口となったのは何藩？', difficulty: 'basic' },
+      { id: 'fc3', front: 'オランダ風説書', back: 'オランダが幕府に提出した海外情報の報告書は？', difficulty: 'basic' },
+      { id: 'fc4', front: '清', back: '長崎で貿易を行い、独自の居住地を与えられた国は？', difficulty: 'basic' },
+      { id: 'fc5', front: '唐人屋敷', back: '長崎に住む中国人を収容するために幕府が造った施設は？', difficulty: 'standard' },
+      { id: 'fc6', front: '出島', back: '長崎でオランダ人が滞在を許された場所はどこ？', difficulty: 'standard' },
+      { id: 'fc7', front: '倭館', back: '対馬藩が朝鮮の釜山に設けた役人の居留地は？', difficulty: 'standard' },
+      { id: 'fc8', front: '俵物', back: '銀の代わりに日本が長崎貿易で輸出した海産物は？', difficulty: 'standard' },
+      { id: 'fc9', front: '朝鮮通信使', back: '朝鮮から将軍の代替わりごとに派遣された使節は？', difficulty: 'standard' },
     ],
     quiz: {
       questions: [
@@ -54,6 +54,7 @@ export const foreignRelations: Topic = {
           options: ['スペイン', 'イギリス', 'オランダ', 'ポルトガル'],
           correctIndex: 2,
           explanation: 'オランダは出島に商館を置き、オランダ風説書を提出しながら貿易を許されました。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -61,6 +62,7 @@ export const foreignRelations: Topic = {
           options: ['長州藩', '対馬藩', '薩摩藩', '松前藩'],
           correctIndex: 1,
           explanation: '対馬藩は朝鮮との外交を担い、釜山に倭館を設けて貿易や外交を行いました。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -68,6 +70,7 @@ export const foreignRelations: Topic = {
           options: ['朝鮮通信使', '遣明使', '琉球使節', '遣唐使'],
           correctIndex: 0,
           explanation: '朝鮮通信使は将軍の代替わりに合わせて派遣され、日本各地で文化交流が行われました。',
+          difficulty: 'standard',
         },
       ],
     },

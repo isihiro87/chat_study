@@ -49,60 +49,70 @@ export const japanIndustrialRevolution: Topic = {
         front: '日本の産業革命',
         back: '1880年代後半から始まった、日本の工業化は？',
         explanation: '軽工業から始まり、日清戦争後に重工業が発展した。',
+        difficulty: 'basic',
       },
       {
         id: 'fc2',
         front: '八幡製鉄所',
         back: '1901年に操業を開始した、官営の製鉄所は？',
         explanation: '日清戦争の賠償金で建設され、重工業発展の基礎となった。',
+        difficulty: 'basic',
       },
       {
         id: 'fc3',
         front: '財閥',
         back: '三井・三菱などの巨大な企業グループは？',
         explanation: '銀行・鉱山・貿易など多角的な経営で日本経済を動かした。',
+        difficulty: 'basic',
       },
       {
         id: 'fc4',
         front: '軽工業',
         back: '綿糸や生糸などを生産する工業は？',
         explanation: '日本の産業革命は軽工業から始まった。',
+        difficulty: 'basic',
       },
       {
         id: 'fc5',
         front: '重化学工業',
         back: '製鉄・機械などの工業は？',
         explanation: '八幡製鉄所の建設で基礎が築かれた。',
+        difficulty: 'standard',
       },
       {
         id: 'fc6',
         front: '労働争議',
         back: '労働者がストライキなどで権利を主張する行動は？',
         explanation: '過酷な労働条件に対する抗議として増加した。',
+        difficulty: 'standard',
       },
       {
         id: 'fc7',
         front: '足尾銅山鉱毒事件',
         back: '銅山の鉱毒が渡良瀬川を汚染した公害事件は？',
         explanation: '田中正造が被害農民のために闘った。',
+        difficulty: 'standard',
       },
       {
         id: 'fc8',
         front: '田中正造',
         back: '足尾銅山鉱毒事件で被害農民のために闘った議員は？',
         explanation: '天皇に直訴しようとしたことでも有名。',
+        difficulty: 'standard',
       },
       {
         id: 'fc9',
         front: '大逆事件',
         back: '1910年に社会主義者が弾圧された事件は？',
         explanation: '幸徳秋水らが天皇暗殺を計画したとされた。',
+        difficulty: 'advanced',
       },
       {
         id: 'fc10',
         front: '幸徳秋水',
         back: '大逆事件で処刑された社会主義者は？',
         explanation: '社会主義思想の弾圧のきっかけとなった。',
+        difficulty: 'advanced',
       },
     ],
     quiz: {
@@ -120,6 +130,7 @@ export const japanIndustrialRevolution: Topic = {
           correctIndex: 2,
           explanation:
             '1880年代後半から綿糸や生糸などの軽工業を中心に日本の産業革命が始まりました。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -129,6 +140,7 @@ export const japanIndustrialRevolution: Topic = {
           correctIndex: 0,
           explanation:
             '八幡製鉄所は日清戦争の賠償金で建設され、重化学工業発展の基礎となりました。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -138,6 +150,7 @@ export const japanIndustrialRevolution: Topic = {
           correctIndex: 1,
           explanation:
             '田中正造は足尾銅山の鉱毒被害を訴え、天皇に直訴しようとしたことでも有名です。',
+          difficulty: 'basic',
         },
         {
           id: 'q4',
@@ -147,6 +160,7 @@ export const japanIndustrialRevolution: Topic = {
           correctIndex: 3,
           explanation:
             '財閥は多角的な経営で日本経済を動かし、産業革命の中で大きく成長しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q5',
@@ -161,6 +175,7 @@ export const japanIndustrialRevolution: Topic = {
           correctIndex: 2,
           explanation:
             '大逆事件では幸徳秋水らが処刑され、政府は社会主義運動への弾圧を強めました。',
+          difficulty: 'standard',
         },
         {
           id: 'q6',
@@ -175,6 +190,7 @@ export const japanIndustrialRevolution: Topic = {
           correctIndex: 0,
           explanation:
             '工女たちの低賃金・長時間労働など労働問題が深刻化し、労働争議（ストライキ）も増えました。',
+          difficulty: 'standard',
         },
       ],
     },

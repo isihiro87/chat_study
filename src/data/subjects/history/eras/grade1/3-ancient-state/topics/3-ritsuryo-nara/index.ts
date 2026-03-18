@@ -54,34 +54,34 @@ export const ritsuryoNara: Topic = {
     },
     videos: [],
     flashcards: [
-      { id: 'fc1', front: '大宝律令', back: '701年に完成した律令を何という？' },
-      { id: 'fc2', front: '平城京', back: '710年に奈良に置かれた都は？' },
-      { id: 'fc3', front: '太政官', back: '律令国家で行政を行う最高機関は？' },
-      { id: 'fc4', front: '国司', back: '都から地方の国に派遣された役職は？' },
-      { id: 'fc5', front: '郡司', back: '地方の有力豪族が任命された役職は？' },
-      { id: 'fc6', front: '律', back: '律令のうち、刑罰に関する決まりは？' },
-      { id: 'fc7', front: '令', back: '律令のうち、政治に関する決まりは？' },
-      { id: 'fc8', front: '和同開珎', back: '708年に鋳造された貨幣を何という？' },
-      { id: 'fc9', front: '大宰府', back: '古代に九州の外交や防衛を担った役所は？' },
-      { id: 'fc10', front: '朱雀大路', back: '平城京の中央を南北に通る大道路は？' },
-      { id: 'fc11', front: '神祇官', back: '神事や祭祀を司り、太政官と並ぶ機関は？' },
-      { id: 'fc12', front: '多賀城', back: '東北地方の政治拠点として置かれた城は？' },
-      { id: 'fc13', front: '駅', back: '地方と都を結ぶ道路に設けられた、馬を乗り継ぐ施設は？' },
-      { id: 'fc14', front: '貴族', back: '律令国家で官職に就き特権を持った高い身分は？' },
-      { id: 'fc15', front: '元明天皇', back: '平城京への遷都を行った天皇は？' },
-      { id: 'fc16', front: '長安', back: '平城京のモデルとなった唐の都は？' },
-      { id: 'fc17', front: '藤原不比等', back: '大宝律令の編纂に中心的に関わった人物は？' },
-      { id: 'fc18', front: '二官八省', back: '太政官・神祇官の二官と八省からなる律令制の中央組織は？' },
-      { id: 'fc19', front: '奈良時代', back: '平城京に都が置かれた約80年間を何時代という？' },
-      { id: 'fc20', front: '蓄銭叙位令', back: '銅銭を貯めた者に位を与え、貨幣流通を促した法は？' },
-      { id: 'fc21', front: '太政大臣', back: '太政官の長官を何という？' },
-      { id: 'fc22', front: '里', back: '律令制で郡の下に置かれた最小の行政単位は？' },
-      { id: 'fc23', front: '左京・右京', back: '朱雀大路の東側・西側をそれぞれ何という？' },
-      { id: 'fc24', front: '平城宮', back: '平城京の北端に置かれた天皇の住居と政治の中心は？' },
-      { id: 'fc25', front: '市（東市・西市）', back: '平城京で商品を売買するために開かれた場所は？' },
-      { id: 'fc26', front: '約10万人', back: '平城京の人口はおよそ何万人とされているか？' },
-      { id: 'fc27', front: '唐律・唐令', back: '大宝律令のお手本とした唐の律令制度は？' },
-      { id: 'fc28', front: '国', back: '律令国家の行政区画のうち、現在の都道府県にあたるものは？' },
+      { id: 'fc1', front: '大宝律令', back: '701年に完成した律令を何という？', difficulty: 'basic' },
+      { id: 'fc2', front: '平城京', back: '710年に奈良に置かれた都は？', difficulty: 'basic' },
+      { id: 'fc3', front: '太政官', back: '律令国家で行政を行う最高機関は？', difficulty: 'basic' },
+      { id: 'fc4', front: '国司', back: '都から地方の国に派遣された役職は？', difficulty: 'basic' },
+      { id: 'fc5', front: '郡司', back: '地方の有力豪族が任命された役職は？', difficulty: 'basic' },
+      { id: 'fc6', front: '律', back: '律令のうち、刑罰に関する決まりは？', difficulty: 'basic' },
+      { id: 'fc7', front: '令', back: '律令のうち、政治に関する決まりは？', difficulty: 'basic' },
+      { id: 'fc8', front: '和同開珎', back: '708年に鋳造された貨幣を何という？', difficulty: 'basic' },
+      { id: 'fc9', front: '大宰府', back: '古代に九州の外交や防衛を担った役所は？', difficulty: 'basic' },
+      { id: 'fc10', front: '朱雀大路', back: '平城京の中央を南北に通る大道路は？', difficulty: 'basic' },
+      { id: 'fc11', front: '神祇官', back: '神事や祭祀を司り、太政官と並ぶ機関は？', difficulty: 'basic' },
+      { id: 'fc12', front: '多賀城', back: '東北地方の政治拠点として置かれた城は？', difficulty: 'basic' },
+      { id: 'fc13', front: '駅', back: '地方と都を結ぶ道路に設けられた、馬を乗り継ぐ施設は？', difficulty: 'standard' },
+      { id: 'fc14', front: '貴族', back: '律令国家で官職に就き特権を持った高い身分は？', difficulty: 'standard' },
+      { id: 'fc15', front: '元明天皇', back: '平城京への遷都を行った天皇は？', difficulty: 'standard' },
+      { id: 'fc16', front: '長安', back: '平城京のモデルとなった唐の都は？', difficulty: 'standard' },
+      { id: 'fc17', front: '藤原不比等', back: '大宝律令の編纂に中心的に関わった人物は？', difficulty: 'standard' },
+      { id: 'fc18', front: '二官八省', back: '太政官・神祇官の二官と八省からなる律令制の中央組織は？', difficulty: 'standard' },
+      { id: 'fc19', front: '奈良時代', back: '平城京に都が置かれた約80年間を何時代という？', difficulty: 'standard' },
+      { id: 'fc20', front: '蓄銭叙位令', back: '銅銭を貯めた者に位を与え、貨幣流通を促した法は？', difficulty: 'standard' },
+      { id: 'fc21', front: '太政大臣', back: '太政官の長官を何という？', difficulty: 'standard' },
+      { id: 'fc22', front: '里', back: '律令制で郡の下に置かれた最小の行政単位は？', difficulty: 'standard' },
+      { id: 'fc23', front: '左京・右京', back: '朱雀大路の東側・西側をそれぞれ何という？', difficulty: 'advanced' },
+      { id: 'fc24', front: '平城宮', back: '平城京の北端に置かれた天皇の住居と政治の中心は？', difficulty: 'advanced' },
+      { id: 'fc25', front: '市（東市・西市）', back: '平城京で商品を売買するために開かれた場所は？', difficulty: 'advanced' },
+      { id: 'fc26', front: '約10万人', back: '平城京の人口はおよそ何万人とされているか？', difficulty: 'advanced' },
+      { id: 'fc27', front: '唐律・唐令', back: '大宝律令のお手本とした唐の律令制度は？', difficulty: 'advanced' },
+      { id: 'fc28', front: '国', back: '律令国家の行政区画のうち、現在の都道府県にあたるものは？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -91,6 +91,7 @@ export const ritsuryoNara: Topic = {
           options: ['十七条の憲法', '御成敗式目', '大宝律令', '武家諸法度'],
           correctIndex: 2,
           explanation: '大宝律令は律（刑罰）と令（政治）からなる法律です。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -98,6 +99,7 @@ export const ritsuryoNara: Topic = {
           options: ['藤原京', '平城京', '平安京', '長岡京'],
           correctIndex: 1,
           explanation: '平城京は710年に遷都された奈良の都です。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -105,6 +107,7 @@ export const ritsuryoNara: Topic = {
           options: ['和同開珎', '富本銭', '寛永通宝', '永楽通宝'],
           correctIndex: 0,
           explanation: '和同開珎は708年に鋳造された日本最古の流通貨幣です。',
+          difficulty: 'basic',
         },
         {
           id: 'q4',
@@ -112,6 +115,7 @@ export const ritsuryoNara: Topic = {
           options: ['大宰府', '神祇官', '国司', '太政官'],
           correctIndex: 3,
           explanation: '太政官は律令国家における行政の最高機関で、国の政治を司りました。',
+          difficulty: 'basic',
         },
         {
           id: 'q5',
@@ -119,6 +123,7 @@ export const ritsuryoNara: Topic = {
           options: ['洛陽', '南京', '開封', '長安'],
           correctIndex: 3,
           explanation: '平城京は唐の都・長安をモデルに碁盤の目のように整備されました。',
+          difficulty: 'basic',
         },
         {
           id: 'q6',
@@ -126,6 +131,7 @@ export const ritsuryoNara: Topic = {
           options: ['郡司', '国司', '防人', '征夷大将軍'],
           correctIndex: 1,
           explanation: '国司は都から地方に派遣されて国を治めた役人で、郡司は地元の豪族が任命されました。',
+          difficulty: 'basic',
         },
         {
           id: 'q7',
@@ -133,6 +139,7 @@ export const ritsuryoNara: Topic = {
           options: ['太政官', '大宰府', '神祇官', '国司'],
           correctIndex: 2,
           explanation: '神祇官は太政官と並び、神事や祭祀を司る機関です。',
+          difficulty: 'basic',
         },
         {
           id: 'q8',
@@ -140,6 +147,7 @@ export const ritsuryoNara: Topic = {
           options: ['多賀城', '水城', '大宰府', '藤原京'],
           correctIndex: 0,
           explanation: '多賀城は東北地方の政治・軍事拠点として設置されました。',
+          difficulty: 'basic',
         },
         {
           id: 'q9',
@@ -147,6 +155,7 @@ export const ritsuryoNara: Topic = {
           options: ['桓武天皇', '元明天皇', '天武天皇', '聖武天皇'],
           correctIndex: 1,
           explanation: '元明天皇のもとで710年に平城京への遷都が行われました。',
+          difficulty: 'basic',
         },
         {
           id: 'q10',
@@ -154,6 +163,7 @@ export const ritsuryoNara: Topic = {
           options: ['律', '令', '法', '則'],
           correctIndex: 0,
           explanation: '律は刑罰に関するきまり、令は政治のきまりを定めています。',
+          difficulty: 'basic',
         },
         {
           id: 'q11',
@@ -161,6 +171,7 @@ export const ritsuryoNara: Topic = {
           options: ['隋', '唐', '新羅', '百済'],
           correctIndex: 1,
           explanation: '大宝律令は唐の律令をお手本にして、日本独自の修正を加えました。',
+          difficulty: 'standard',
         },
         {
           id: 'q12',
@@ -168,6 +179,7 @@ export const ritsuryoNara: Topic = {
           options: ['六省', '八省', '十省', '四省'],
           correctIndex: 1,
           explanation: '太政官のもとには八省が置かれ、二官八省の仕組みが整えられました。',
+          difficulty: 'standard',
         },
         {
           id: 'q13',
@@ -175,6 +187,7 @@ export const ritsuryoNara: Topic = {
           options: ['里', '郡', '県', '藩'],
           correctIndex: 1,
           explanation: '律令制では国の下に郡、郡の下に里が置かれました。',
+          difficulty: 'standard',
         },
         {
           id: 'q14',
@@ -182,6 +195,7 @@ export const ritsuryoNara: Topic = {
           options: ['封建国家', '律令国家', '荘園国家', '武家国家'],
           correctIndex: 1,
           explanation: '大宝律令により天皇を中心とした律令国家の体制が確立しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q15',
@@ -189,6 +203,7 @@ export const ritsuryoNara: Topic = {
           options: ['墾田永年私財法', '蓄銭叙位令', '三世一身法', '班田収授法'],
           correctIndex: 1,
           explanation: '蓄銭叙位令は銅銭を貯めた者に位を与えて貨幣流通を促進しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q16',
@@ -196,6 +211,7 @@ export const ritsuryoNara: Topic = {
           options: ['大宰府', '平城宮', '太政官', '神祇官'],
           correctIndex: 1,
           explanation: '平城宮は平城京の北端に置かれた天皇の住居と政治の中心です。',
+          difficulty: 'standard',
         },
         {
           id: 'q17',
@@ -203,6 +219,7 @@ export const ritsuryoNara: Topic = {
           options: ['国司', '関白', '太政大臣', '征夷大将軍'],
           correctIndex: 2,
           explanation: '太政大臣は太政官の長官で、律令国家の最高位の官職です。',
+          difficulty: 'standard',
         },
         {
           id: 'q18',
@@ -210,6 +227,7 @@ export const ritsuryoNara: Topic = {
           options: ['風土記', '戸籍', '古事記', '木簡'],
           correctIndex: 1,
           explanation: '戸籍は律令国家で人々を把握するために6年ごとに作成されました。',
+          difficulty: 'standard',
         },
         {
           id: 'q19',
@@ -217,6 +235,7 @@ export const ritsuryoNara: Topic = {
           options: ['農民', '貴族', '奴婢', '防人'],
           correctIndex: 2,
           explanation: '奴婢は官庁や個人に属して売買もされた最下層の身分です。',
+          difficulty: 'standard',
         },
         {
           id: 'q20',
@@ -224,6 +243,7 @@ export const ritsuryoNara: Topic = {
           options: ['右京', '左京', '北京', '南京'],
           correctIndex: 1,
           explanation: '朱雀大路の東側を左京、西側を右京と呼びました。',
+          difficulty: 'standard',
         },
         {
           id: 'q21',
@@ -231,6 +251,7 @@ export const ritsuryoNara: Topic = {
           options: ['朱雀大路', '市（東市・西市）', '平城宮', '大宰府'],
           correctIndex: 1,
           explanation: '平城京では東市と西市が開かれ、商品の売買が行われました。',
+          difficulty: 'standard',
         },
         {
           id: 'q22',
@@ -238,6 +259,7 @@ export const ritsuryoNara: Topic = {
           options: ['聖徳太子', '中臣鎌足', '藤原不比等', '桓武天皇'],
           correctIndex: 2,
           explanation: '藤原不比等が大宝律令の編纂の中心的な役割を果たしました。',
+          difficulty: 'standard',
         },
         {
           id: 'q23',
@@ -245,6 +267,7 @@ export const ritsuryoNara: Topic = {
           options: ['軍事同盟のため', '唐を征服するため', '唐の制度・文化を学ぶため', '銅銭を輸入するため'],
           correctIndex: 2,
           explanation: '遣唐使は唐の進んだ制度・文化・学問を学ぶために派遣されました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q24',
@@ -252,6 +275,7 @@ export const ritsuryoNara: Topic = {
           options: ['郡', '里', '国', '藩'],
           correctIndex: 2,
           explanation: '律令国家の「国」は現在の都道府県にあたる行政区画です。',
+          difficulty: 'advanced',
         },
         {
           id: 'q25',
@@ -259,6 +283,7 @@ export const ritsuryoNara: Topic = {
           options: ['約50年間', '約70年間', '約100年間', '約150年間'],
           correctIndex: 1,
           explanation: '平城京に都が置かれたのは710年から784年までの約70年間です。',
+          difficulty: 'advanced',
         },
         {
           id: 'q26',
@@ -266,6 +291,7 @@ export const ritsuryoNara: Topic = {
           options: ['関所', '駅', '城柵', '国府'],
           correctIndex: 1,
           explanation: '駅は地方と都を結ぶ道路に設けられ、馬を乗り継ぐための施設です。',
+          difficulty: 'advanced',
         },
         {
           id: 'q27',
@@ -273,6 +299,7 @@ export const ritsuryoNara: Topic = {
           options: ['701年', '708年', '710年', '723年'],
           correctIndex: 1,
           explanation: '和同開珎は708年に鋳造された日本最古の流通貨幣です。',
+          difficulty: 'advanced',
         },
         {
           id: 'q28',
@@ -280,6 +307,7 @@ export const ritsuryoNara: Topic = {
           options: ['約5万人', '約10万人', '約20万人', '約50万人'],
           correctIndex: 1,
           explanation: '平城京の人口はおよそ10万人とされています。',
+          difficulty: 'advanced',
         },
       ],
     },

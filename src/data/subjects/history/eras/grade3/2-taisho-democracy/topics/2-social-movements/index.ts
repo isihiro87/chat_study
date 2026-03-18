@@ -44,66 +44,16 @@ export const socialMovements: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'fc1',
-        front: '労働争議',
-        back: '労働者が賃上げや労働条件の改善を求めて起こした争いは？',
-        explanation: '大正時代に各地で頻発した。',
-      },
-      {
-        id: 'fc2',
-        front: '小作争議',
-        back: '小作農が地主に対して小作料の引き下げなどを求めた争いは？',
-        explanation: '農民の権利意識が高まり、各地で発生した。',
-      },
-      {
-        id: 'fc3',
-        front: 'メーデー',
-        back: '1920年に日本で初めて行われた、労働者の祭典は？',
-        explanation: '毎年5月1日に行われる。',
-      },
-      {
-        id: 'fc4',
-        front: '日本労働総同盟',
-        back: '労働者の権利を守るために結成された全国的な労働団体は？',
-        explanation: '労働運動の中心的な組織となった。',
-      },
-      {
-        id: 'fc5',
-        front: '日本農民組合',
-        back: '小作農の権利を守るために結成された農民の全国組織は？',
-        explanation: '小作争議を組織的に展開した。',
-      },
-      {
-        id: 'fc6',
-        front: '全国水平社',
-        back: '1922年に被差別部落の人々が差別撤廃を目指して結成した団体は？',
-        explanation: '日本初の人権宣言と言われる水平社宣言を発表した。',
-      },
-      {
-        id: 'fc7',
-        front: '平塚らいてう',
-        back: '「元始、女性は太陽であった」と宣言した女性解放運動の指導者は？',
-        explanation: '新婦人協会を設立し、女性の政治参加を求めた。',
-      },
-      {
-        id: 'fc8',
-        front: '新婦人協会',
-        back: '平塚らいてうらが設立した、女性の政治参加を求めた団体は？',
-        explanation: '女性の権利向上に大きく貢献した。',
-      },
-      {
-        id: 'fc9',
-        front: '水平社宣言',
-        back: '全国水平社が発表した、日本初の人権宣言と言われるものは？',
-        explanation: '「人の世に熱あれ、人間に光あれ」と結ばれている。',
-      },
-      {
-        id: 'fc10',
-        front: '治安維持法',
-        back: '1925年に社会主義運動を取り締まるために制定された法律は？',
-        explanation: '普通選挙法と同時に制定された。',
-      },
+      { id: 'fc1', front: '労働争議', back: '労働者が賃上げや労働条件の改善を求めて起こした争いは？', difficulty: 'basic' },
+      { id: 'fc2', front: '小作争議', back: '小作農が地主に対して小作料の引き下げなどを求めた争いは？', difficulty: 'basic' },
+      { id: 'fc3', front: '全国水平社', back: '1922年に被差別部落の人々が差別撤廃を目指して結成した団体は？', explanation: '日本初の人権宣言と言われる水平社宣言を発表した。', difficulty: 'basic' },
+      { id: 'fc4', front: '平塚らいてう', back: '「元始、女性は太陽であった」と宣言した女性解放運動の指導者は？', difficulty: 'basic' },
+      { id: 'fc5', front: 'メーデー', back: '1920年に日本で初めて行われた、労働者の祭典は？', difficulty: 'standard' },
+      { id: 'fc6', front: '新婦人協会', back: '平塚らいてうらが設立した、女性の政治参加を求めた団体は？', difficulty: 'standard' },
+      { id: 'fc7', front: '日本農民組合', back: '小作農の権利を守るために結成された農民の全国組織は？', difficulty: 'standard' },
+      { id: 'fc8', front: '水平社宣言', back: '全国水平社が発表した、日本初の人権宣言と言われるものは？', explanation: '「人の世に熱あれ、人間に光あれ」と結ばれている。', difficulty: 'standard' },
+      { id: 'fc9', front: '日本労働総同盟', back: '労働者の権利を守るために結成された全国的な労働団体は？', difficulty: 'advanced' },
+      { id: 'fc10', front: '大正時代の社会運動の共通点', back: '労働運動・農民運動・水平社運動・女性解放運動に共通する時代背景は何か？', explanation: '大正デモクラシーの風潮のもと、さまざまな立場の人々が自らの権利を主張し始めた。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -114,6 +64,7 @@ export const socialMovements: Topic = {
           correctIndex: 0,
           explanation:
             '全国水平社は被差別部落の人々が差別撤廃を目指して結成した団体で、日本初の人権宣言と言われる水平社宣言を発表しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -122,6 +73,7 @@ export const socialMovements: Topic = {
           correctIndex: 2,
           explanation:
             '平塚らいてうは女性解放運動の先駆者で、新婦人協会を設立して女性の政治参加を求めました。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -130,6 +82,7 @@ export const socialMovements: Topic = {
           correctIndex: 1,
           explanation:
             '1920年に日本初のメーデーが行われ、労働者が団結して権利を主張しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q4',
@@ -138,6 +91,7 @@ export const socialMovements: Topic = {
           correctIndex: 3,
           explanation:
             '小作争議は小作農が地主に対して小作料の引き下げなどを求めた争いで、大正時代に各地で頻発しました。',
+          difficulty: 'standard',
         },
       ],
     },

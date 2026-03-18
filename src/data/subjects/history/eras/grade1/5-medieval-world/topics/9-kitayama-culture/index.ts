@@ -36,34 +36,34 @@ export const kitayamaCulture: Topic = {
     },
     videos: [],
     flashcards: [
-      { id: 'fc1', front: '北山文化', back: '足利義満の時代の華やかで公家と武家が融合した文化は？' },
-      { id: 'fc2', front: '金閣', back: '足利義満が京都の北山に建てた、3層構造の豪華な建物は？' },
-      { id: 'fc3', front: '能', back: '観阿弥・世阿弥親子が猿楽から大成した舞台芸術は？' },
-      { id: 'fc4', front: '狂言', back: '能の合間に演じられた、庶民の日常を面白おかしく描く喜劇は？' },
-      { id: 'fc5', front: '観阿弥・世阿弥', back: '猿楽から能を大成した親子は？' },
-      { id: 'fc6', front: '鹿苑寺', back: '金閣がある寺の正式名称は？' },
-      { id: 'fc7', front: '猿楽', back: '能のもとになった芸能は？' },
-      { id: 'fc8', front: '足利義満', back: '金閣を建て、能を保護した室町幕府の第3代将軍は？' },
-      { id: 'fc9', front: '日明貿易（勘合貿易）', back: '北山文化が華やかだった背景にある、明との貿易は？' },
-      { id: 'fc10', front: '3層構造', back: '金閣の建物の構造は何層？' },
-      { id: 'fc11', front: '寝殿造', back: '金閣の1層目の建築様式は？' },
-      { id: 'fc12', front: '武家造', back: '金閣の2層目の建築様式は？' },
-      { id: 'fc13', front: '禅宗様', back: '金閣の3層目の建築様式は？' },
-      { id: 'fc14', front: '公家と武家の文化の融合', back: '室町文化の最大の特徴は？' },
-      { id: 'fc15', front: '禅宗', back: '室町文化に大きな影響を与えた仏教の宗派は？' },
-      { id: 'fc16', front: '世阿弥', back: '観阿弥の子で、能を芸術として完成させた人物は？' },
-      { id: 'fc17', front: '観阿弥', back: '能を大成した親子のうち、父親の方は？' },
-      { id: 'fc18', front: '面（おもて）', back: '能で演者がつけるものは？' },
-      { id: 'fc19', front: '謡と囃子', back: '能の舞台で使われる声楽と楽器演奏は？' },
-      { id: 'fc20', front: '華やかで豪華', back: '北山文化の雰囲気を一言で表すと？' },
-      { id: 'fc21', front: '簡素で深みがある', back: '東山文化の雰囲気を一言で表すと？（北山文化と対比）' },
-      { id: 'fc22', front: 'ユネスコ無形文化遺産', back: '能が現在登録されている国際的な文化遺産は？' },
-      { id: 'fc23', front: '京都の北山', back: '金閣が建てられた場所は？' },
-      { id: 'fc24', front: '文化の融合を象徴', back: '金閣の3層それぞれが異なる建築様式であることの意味は？' },
-      { id: 'fc25', front: '莫大な富', back: '足利義満が日明貿易で得たものは？' },
-      { id: 'fc26', front: '庶民的な笑い', back: '狂言のテーマの特徴は？' },
-      { id: 'fc27', front: '面をつけない', back: '狂言が能と異なる点の一つは？（演者の装い）' },
-      { id: 'fc28', front: '幽玄', back: '能が表現する芸術的な世界観を何という？' },
+      { id: 'fc1', front: '北山文化', back: '足利義満の時代の華やかで公家と武家が融合した文化は？', difficulty: 'basic' },
+      { id: 'fc2', front: '金閣', back: '足利義満が京都の北山に建てた、3層構造の豪華な建物は？', difficulty: 'basic' },
+      { id: 'fc3', front: '能', back: '観阿弥・世阿弥親子が猿楽から大成した舞台芸術は？', difficulty: 'basic' },
+      { id: 'fc4', front: '狂言', back: '能の合間に演じられた、庶民の日常を面白おかしく描く喜劇は？', difficulty: 'basic' },
+      { id: 'fc5', front: '観阿弥・世阿弥', back: '猿楽から能を大成した親子は？', difficulty: 'basic' },
+      { id: 'fc6', front: '鹿苑寺', back: '金閣がある寺の正式名称は？', difficulty: 'basic' },
+      { id: 'fc7', front: '猿楽', back: '能のもとになった芸能は？', difficulty: 'basic' },
+      { id: 'fc8', front: '足利義満', back: '金閣を建て、能を保護した室町幕府の第3代将軍は？', difficulty: 'basic' },
+      { id: 'fc9', front: '日明貿易（勘合貿易）', back: '北山文化が華やかだった背景にある、明との貿易は？', difficulty: 'basic' },
+      { id: 'fc10', front: '3層構造', back: '金閣の建物の構造は何層？', difficulty: 'basic' },
+      { id: 'fc11', front: '寝殿造', back: '金閣の1層目の建築様式は？', difficulty: 'basic' },
+      { id: 'fc12', front: '武家造', back: '金閣の2層目の建築様式は？', difficulty: 'basic' },
+      { id: 'fc13', front: '禅宗様', back: '金閣の3層目の建築様式は？', difficulty: 'standard' },
+      { id: 'fc14', front: '公家と武家の文化の融合', back: '室町文化の最大の特徴は？', difficulty: 'standard' },
+      { id: 'fc15', front: '禅宗', back: '室町文化に大きな影響を与えた仏教の宗派は？', difficulty: 'standard' },
+      { id: 'fc16', front: '世阿弥', back: '観阿弥の子で、能を芸術として完成させた人物は？', difficulty: 'standard' },
+      { id: 'fc17', front: '観阿弥', back: '能を大成した親子のうち、父親の方は？', difficulty: 'standard' },
+      { id: 'fc18', front: '面（おもて）', back: '能で演者がつけるものは？', difficulty: 'standard' },
+      { id: 'fc19', front: '謡と囃子', back: '能の舞台で使われる声楽と楽器演奏は？', difficulty: 'standard' },
+      { id: 'fc20', front: '華やかで豪華', back: '北山文化の雰囲気を一言で表すと？', difficulty: 'standard' },
+      { id: 'fc21', front: '簡素で深みがある', back: '東山文化の雰囲気を一言で表すと？（北山文化と対比）', difficulty: 'standard' },
+      { id: 'fc22', front: 'ユネスコ無形文化遺産', back: '能が現在登録されている国際的な文化遺産は？', difficulty: 'standard' },
+      { id: 'fc23', front: '京都の北山', back: '金閣が建てられた場所は？', difficulty: 'advanced' },
+      { id: 'fc24', front: '文化の融合を象徴', back: '金閣の3層それぞれが異なる建築様式であることの意味は？', difficulty: 'advanced' },
+      { id: 'fc25', front: '莫大な富', back: '足利義満が日明貿易で得たものは？', difficulty: 'advanced' },
+      { id: 'fc26', front: '庶民的な笑い', back: '狂言のテーマの特徴は？', difficulty: 'advanced' },
+      { id: 'fc27', front: '面をつけない', back: '狂言が能と異なる点の一つは？（演者の装い）', difficulty: 'advanced' },
+      { id: 'fc28', front: '幽玄', back: '能が表現する芸術的な世界観を何という？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -73,6 +73,7 @@ export const kitayamaCulture: Topic = {
           options: ['金閣', '銀閣', '鹿苑寺', '平等院鳳凰堂'],
           correctIndex: 0,
           explanation: '金閣は足利義満が北山に建てた3層構造の豪華な建物で、北山文化を象徴しています。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -80,6 +81,7 @@ export const kitayamaCulture: Topic = {
           options: ['狂言', '能', '歌舞伎', '人形浄瑠璃'],
           correctIndex: 1,
           explanation: '能は観阿弥・世阿弥親子が猿楽をもとに大成させた伝統芸能で、足利義満に保護されました。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -87,6 +89,7 @@ export const kitayamaCulture: Topic = {
           options: ['歌舞伎', '人形浄瑠璃', '連歌', '狂言'],
           correctIndex: 3,
           explanation: '狂言は能の合間に演じられる喜劇で、庶民の日常をユーモラスに描き民衆にも親しまれました。',
+          difficulty: 'basic',
         },
         {
           id: 'q4',
@@ -94,6 +97,7 @@ export const kitayamaCulture: Topic = {
           options: ['南蛮貿易', '朱印船貿易', '日明貿易（勘合貿易）', '日宋貿易'],
           correctIndex: 2,
           explanation: '足利義満は日明貿易（勘合貿易）で莫大な富を得ており、その経済力が北山文化の華やかさを支えました。',
+          difficulty: 'basic',
         },
         {
           id: 'q5',
@@ -101,6 +105,7 @@ export const kitayamaCulture: Topic = {
           options: ['慈照寺', '天龍寺', '龍安寺', '鹿苑寺'],
           correctIndex: 3,
           explanation: '金閣の正式名称は鹿苑寺（ろくおんじ）です。',
+          difficulty: 'basic',
         },
         {
           id: 'q6',
@@ -108,6 +113,7 @@ export const kitayamaCulture: Topic = {
           options: ['武士だけの文化', '貴族の文化と武士の文化が禅宗の影響で融合した', '外国の文化をそのまま取り入れた', '仏教を否定した文化'],
           correctIndex: 1,
           explanation: '室町時代の文化は、貴族の文化と武士の文化が禅宗の影響を受けて混じり合ったのが特徴です。',
+          difficulty: 'basic',
         },
         {
           id: 'q7',
@@ -115,6 +121,7 @@ export const kitayamaCulture: Topic = {
           options: ['すべて禅宗様', '1層が寝殿造、2層が武家造、3層が禅宗様', 'すべて書院造', '1層が武家造、2層が禅宗様、3層が寝殿造'],
           correctIndex: 1,
           explanation: '金閣は1層が寝殿造（公家の様式）、2層が武家造、3層が禅宗様で、異なる文化の融合を象徴しています。',
+          difficulty: 'basic',
         },
         {
           id: 'q8',
@@ -122,6 +129,7 @@ export const kitayamaCulture: Topic = {
           options: ['能が衰退した', '能が武士の間でのみ広まった', '能が洗練された芸術として大成するきっかけとなった', '能が禁止された'],
           correctIndex: 2,
           explanation: '足利義満の保護により、観阿弥・世阿弥親子は能を洗練された舞台芸術として大成させることができました。',
+          difficulty: 'basic',
         },
         {
           id: 'q9',
@@ -129,6 +137,7 @@ export const kitayamaCulture: Topic = {
           options: ['同じもの', '能は面をつけて幽玄な世界を表現、狂言は庶民的な笑いの劇', '能は喜劇、狂言は悲劇', '能は庶民向け、狂言は貴族向け'],
           correctIndex: 1,
           explanation: '能は面をつけて幽玄な世界を表現する格式高い芸能で、狂言は面をつけないことが多く庶民的な笑いの劇です。',
+          difficulty: 'basic',
         },
         {
           id: 'q10',
@@ -136,6 +145,7 @@ export const kitayamaCulture: Topic = {
           options: ['歌舞伎', '猿楽', '人形浄瑠璃', '田楽'],
           correctIndex: 1,
           explanation: '能は猿楽をもとに観阿弥・世阿弥親子が大成した舞台芸術です。',
+          difficulty: 'basic',
         },
         {
           id: 'q11',
@@ -143,6 +153,7 @@ export const kitayamaCulture: Topic = {
           options: ['どちらも華やか', '北山文化は華やかで豪華、東山文化は簡素で深みがある', '北山文化は簡素、東山文化は豪華', '違いはない'],
           correctIndex: 1,
           explanation: '北山文化は日明貿易の富を背景にした華やかで豪華な文化、東山文化は簡素で深みのある文化です。',
+          difficulty: 'standard',
         },
         {
           id: 'q12',
@@ -150,6 +161,7 @@ export const kitayamaCulture: Topic = {
           options: ['浄土宗', '日蓮宗', '禅宗', '天台宗'],
           correctIndex: 2,
           explanation: '禅宗は室町文化に大きな影響を与え、金閣の3層目や水墨画、枯山水などに反映されています。',
+          difficulty: 'standard',
         },
         {
           id: 'q13',
@@ -157,6 +169,7 @@ export const kitayamaCulture: Topic = {
           options: ['初代', '第3代', '第8代', '第15代'],
           correctIndex: 1,
           explanation: '足利義満は室町幕府の第3代将軍で、南北朝の統一も実現した人物です。',
+          difficulty: 'standard',
         },
         {
           id: 'q14',
@@ -164,6 +177,7 @@ export const kitayamaCulture: Topic = {
           options: ['武士の合戦', '庶民の日常生活や人間の滑稽さ', '仏教の教え', '外国の物語'],
           correctIndex: 1,
           explanation: '狂言は庶民の日常生活や人間の滑稽さを面白おかしく描いた喜劇です。',
+          difficulty: 'standard',
         },
         {
           id: 'q15',
@@ -171,6 +185,7 @@ export const kitayamaCulture: Topic = {
           options: ['観阿弥', '世阿弥', 'どちらも父', 'どちらも子'],
           correctIndex: 1,
           explanation: '世阿弥は観阿弥の子で、能を芸術として完成させた人物です。',
+          difficulty: 'standard',
         },
         {
           id: 'q16',
@@ -178,6 +193,7 @@ export const kitayamaCulture: Topic = {
           options: ['京都の東山', '京都の北山', '奈良', '鎌倉'],
           correctIndex: 1,
           explanation: '金閣は足利義満が京都の北山に建てた建物で、北山文化の名前の由来にもなっています。',
+          difficulty: 'standard',
         },
         {
           id: 'q17',
@@ -185,6 +201,7 @@ export const kitayamaCulture: Topic = {
           options: ['荘園からの年貢', '日明貿易（勘合貿易）で得た莫大な富', '金山の開発', '朝廷からの支援'],
           correctIndex: 1,
           explanation: '足利義満は日明貿易で莫大な富を得ており、その経済力が北山文化の華やかさを支えました。',
+          difficulty: 'standard',
         },
         {
           id: 'q18',
@@ -192,6 +209,7 @@ export const kitayamaCulture: Topic = {
           options: ['帽子', '面（おもて）', 'かつら', '仮装'],
           correctIndex: 1,
           explanation: '能では演者が面（おもて）をつけて舞い、謡と囃子で演じます。',
+          difficulty: 'standard',
         },
         {
           id: 'q19',
@@ -199,6 +217,7 @@ export const kitayamaCulture: Topic = {
           options: ['建築技術が未熟だった', '公家・武家・禅宗の文化の融合を象徴している', '費用を節約した', '異なる時代に建てられた'],
           correctIndex: 1,
           explanation: '金閣の3層は公家（寝殿造）・武家（武家造）・禅宗（禅宗様）の文化の融合を象徴しています。',
+          difficulty: 'standard',
         },
         {
           id: 'q20',
@@ -206,6 +225,7 @@ export const kitayamaCulture: Topic = {
           options: ['世界自然遺産', 'ユネスコ無形文化遺産', '日本の国宝', '国定公園'],
           correctIndex: 1,
           explanation: '能は現在もユネスコ無形文化遺産に登録されており、日本を代表する伝統芸能です。',
+          difficulty: 'standard',
         },
         {
           id: 'q21',
@@ -213,6 +233,7 @@ export const kitayamaCulture: Topic = {
           options: ['能の前に演じた', '能の合間に演じた', '能と別の場所で演じた', '祭りの時だけ演じた'],
           correctIndex: 1,
           explanation: '狂言は能の合間に演じられ、能の格式高い世界と対照的な庶民的な笑いを提供しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q22',
@@ -220,6 +241,7 @@ export const kitayamaCulture: Topic = {
           options: ['自ら能の演者だった', '観阿弥・世阿弥を保護し能の発展を支えた', '能を禁止しようとした', '狂言だけを好んだ'],
           correctIndex: 1,
           explanation: '足利義満は観阿弥・世阿弥親子を保護し、能が舞台芸術として発展する環境を整えました。',
+          difficulty: 'standard',
         },
         {
           id: 'q23',
@@ -227,6 +249,7 @@ export const kitayamaCulture: Topic = {
           options: ['足利義満の別名', '金閣が建てられた京都の地名', '室町幕府の別名', '中国の山の名前'],
           correctIndex: 1,
           explanation: '北山は金閣が建てられた京都の地名で、この時代の文化を北山文化と呼びます。',
+          difficulty: 'advanced',
         },
         {
           id: 'q24',
@@ -234,6 +257,7 @@ export const kitayamaCulture: Topic = {
           options: ['歌と踊り', '謡と囃子', '琵琶と笛', '雅楽と舞'],
           correctIndex: 1,
           explanation: '能の舞台では謡（うたい）と囃子（はやし）が使われます。',
+          difficulty: 'advanced',
         },
         {
           id: 'q25',
@@ -241,6 +265,7 @@ export const kitayamaCulture: Topic = {
           options: ['どちらも足利義満', '金閣は足利義満、銀閣は足利義政', 'どちらも足利義政', '金閣は足利尊氏、銀閣は足利義満'],
           correctIndex: 1,
           explanation: '金閣は第3代将軍足利義満が、銀閣は第8代将軍足利義政が建てました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q26',
@@ -248,6 +273,7 @@ export const kitayamaCulture: Topic = {
           options: ['外国の文化だけを取り入れた', '貴族・武士・禅宗の文化が混じり合った', '仏教だけの文化だった', '農民の文化だった'],
           correctIndex: 1,
           explanation: '貴族（公家）の文化と武士の文化が禅宗の影響を受けて混じり合ったことから「融合」と呼ばれます。',
+          difficulty: 'advanced',
         },
         {
           id: 'q27',
@@ -255,6 +281,7 @@ export const kitayamaCulture: Topic = {
           options: ['雪舟と世阿弥', '観阿弥・世阿弥と足利義満', '足利尊氏と足利義政', '法然と親鸞'],
           correctIndex: 1,
           explanation: '観阿弥・世阿弥親子が猿楽から能を大成し、足利義満がそれを保護しました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q28',
@@ -262,6 +289,7 @@ export const kitayamaCulture: Topic = {
           options: ['法隆寺と東大寺', '金閣と銀閣', '平等院と厳島神社', '中尊寺と鹿苑寺'],
           correctIndex: 1,
           explanation: '北山文化を象徴する金閣と東山文化を象徴する銀閣は、対照的な文化の特徴を表しています。',
+          difficulty: 'advanced',
         },
       ],
     },

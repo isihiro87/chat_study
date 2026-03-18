@@ -49,60 +49,70 @@ export const meijiCulture: Topic = {
         front: '岡倉天心',
         back: 'フェノロサと共に日本の伝統美術を再評価した人物は？',
         explanation: '横山大観などの日本画家を育てた。',
+        difficulty: 'basic',
       },
       {
         id: 'fc2',
         front: '黒田清輝',
         back: 'フランスで印象派を学び、日本に伝えた画家は？',
         explanation: '明るい色使いの西洋画を描いた。',
+        difficulty: 'basic',
       },
       {
         id: 'fc3',
         front: '滝廉太郎',
         back: '「荒城の月」「花」を作曲した音楽家は？',
         explanation: '日本人の心に響く西洋音楽を作った。',
+        difficulty: 'basic',
       },
       {
         id: 'fc4',
         front: '言文一致',
         back: '話し言葉に近い形で文章を書くスタイルは？',
         explanation: '二葉亭四迷などが試み、文学を身近にした。',
+        difficulty: 'basic',
       },
       {
         id: 'fc5',
         front: '夏目漱石',
         back: '「吾輩は猫である」「坊っちゃん」を書いた作家は？',
         explanation: 'イギリスに留学し、近代日本を代表する文豪となった。',
+        difficulty: 'standard',
       },
       {
         id: 'fc6',
         front: '森鷗外',
         back: '「舞姫」を書いた作家は？',
         explanation: 'ドイツに留学し、医師としても活躍した。',
+        difficulty: 'standard',
       },
       {
         id: 'fc7',
         front: '正岡子規',
         back: '俳句・短歌の世界に新風を吹き込んだ人物は？',
         explanation: '写生を重視する新しい俳句・短歌を提唱した。',
+        difficulty: 'standard',
       },
       {
         id: 'fc8',
         front: '北里柴三郎',
         back: '破傷風の治療法を発見した細菌学者は？',
         explanation: '世界的に活躍した日本の科学者。',
+        difficulty: 'standard',
       },
       {
         id: 'fc9',
         front: '野口英世',
         back: '黄熱病の研究で知られる医学者は？',
         explanation: '千円札の肖像にもなっている。',
+        difficulty: 'standard',
       },
       {
         id: 'fc10',
         front: '樋口一葉',
         back: '「たけくらべ」を書いた女性作家は？',
         explanation: '五千円札の肖像にもなっている。',
+        difficulty: 'advanced',
       },
     ],
     quiz: {
@@ -115,6 +125,7 @@ export const meijiCulture: Topic = {
           correctIndex: 2,
           explanation:
             '夏目漱石はイギリスに留学し、近代日本を代表する文豪として多くの名作を残しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -123,6 +134,7 @@ export const meijiCulture: Topic = {
           correctIndex: 0,
           explanation:
             '森鷗外はドイツに留学し、医師としても活躍しながら「舞姫」などの名作を残しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -132,6 +144,7 @@ export const meijiCulture: Topic = {
           correctIndex: 1,
           explanation:
             '北里柴三郎は破傷風の治療法を発見し、千円札の肖像にもなっている世界的な細菌学者です。',
+          difficulty: 'basic',
         },
         {
           id: 'q4',
@@ -141,6 +154,7 @@ export const meijiCulture: Topic = {
           correctIndex: 3,
           explanation:
             '岡倉天心はフェノロサとともに日本美術を再評価し、横山大観のような日本画家を育てました。',
+          difficulty: 'standard',
         },
         {
           id: 'q5',
@@ -150,6 +164,7 @@ export const meijiCulture: Topic = {
           correctIndex: 1,
           explanation:
             '滝廉太郎は日本人の心に響く西洋音楽の名曲を作りました。',
+          difficulty: 'standard',
         },
         {
           id: 'q6',
@@ -159,6 +174,7 @@ export const meijiCulture: Topic = {
           correctIndex: 0,
           explanation:
             '野口英世は黄熱病の研究で世界的に知られ、千円札の肖像にもなりました。',
+          difficulty: 'standard',
         },
       ],
     },

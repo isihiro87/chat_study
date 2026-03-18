@@ -99,120 +99,140 @@ export const atomIon: Topic = {
         front: '陽イオン',
         back: '原子が電子を失ってできる、＋の電気を帯びたイオンを何という？',
         explanation: '例：Na⁺、Cu²⁺、H⁺、Mg²⁺。電子を失うと＋の電気が余る。',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-ai-fc2',
         front: '原子核',
         back: '原子の中心にある、陽子と中性子からなる部分を何という？',
         explanation: '＋の電気をもつ陽子と、電気をもたない中性子から構成される。',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-ai-fc3',
         front: '陽子',
         back: '原子核を構成する粒子のうち、＋の電気をもつものは？',
         explanation: '陽子の数は電子の数と等しく、原子全体を電気的に中性にしている。',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-ai-fc4',
         front: '中性子',
         back: '原子核を構成する粒子のうち、電気をもたないものは？',
         explanation: '同じ元素で中性子の数が異なるものを同位体（アイソトープ）という。',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-ai-fc5',
         front: '電子',
         back: '原子核のまわりに存在する、−の電気をもつ粒子は？',
         explanation: '原子では陽子の数＝電子の数。電子の増減でイオンになる。',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-ai-fc6',
         front: '同位体（アイソトープ）',
         back: '同じ元素で中性子の数が異なる原子どうしを何という？',
         explanation: '陽子の数（原子番号）は同じだが、中性子の数が異なる。',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-ai-fc7',
         front: 'Cu²⁺（銅イオン）',
         back: '銅イオンのイオン式は？',
         explanation: '銅原子が電子を2個失ってできる陽イオン。塩化銅水溶液の青色の原因。',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-ai-fc8',
         front: 'Mg²⁺（マグネシウムイオン）',
         back: 'マグネシウムイオンのイオン式は？',
         explanation: 'マグネシウム原子が電子を2個失ってできる陽イオン。',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-ai-fc9',
         front: 'H⁺（水素イオン）',
         back: '水素イオンのイオン式は？',
         explanation: '水素原子が電子を1個失ってできる陽イオン。酸性の水溶液に含まれる。',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-ai-fc10',
         front: 'Na⁺（ナトリウムイオン）',
         back: 'ナトリウムイオンのイオン式は？',
         explanation: 'ナトリウム原子が電子を1個失ってできる陽イオン。',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-ai-fc11',
         front: 'Cl⁻（塩化物イオン）',
         back: '塩化物イオンのイオン式は？',
         explanation: '塩素原子が電子を1個得てできる陰イオン。',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-ai-fc12',
         front: 'OH⁻（水酸化物イオン）',
         back: '水酸化物イオンのイオン式は？',
         explanation: '多原子イオンの一つ。酸素原子と水素原子が結びついた陰イオン。',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-ai-fc13',
         front: 'SO₄²⁻（硫酸イオン）',
         back: '硫酸イオンのイオン式は？',
         explanation: '多原子イオンの一つ。硫黄原子と酸素原子4個が結びついた陰イオン。',
+        difficulty: 'standard',
       },
       {
         id: 'sci3-ai-fc14',
         front: '多原子イオン',
         back: '1個以上の原子が集まってできたイオンを何という？',
         explanation: '例：OH⁻（水酸化物イオン）、SO₄²⁻（硫酸イオン）、NH₄⁺（アンモニウムイオン）。',
+        difficulty: 'standard',
       },
       {
         id: 'sci3-ai-fc15',
         front: 'CuCl₂ → Cu²⁺ + 2Cl⁻',
         back: '塩化銅の電離式を書くと？',
         explanation: '塩化銅は水に溶けると銅イオンと塩化物イオン2個に電離する。',
+        difficulty: 'standard',
       },
       {
         id: 'sci3-ai-fc16',
         front: 'NaOH → Na⁺ + OH⁻',
         back: '水酸化ナトリウムの電離式を書くと？',
         explanation: '水酸化ナトリウムはナトリウムイオンと水酸化物イオンに電離する。',
+        difficulty: 'standard',
       },
       {
         id: 'sci3-ai-fc17',
         front: 'K⁺（カリウムイオン）',
         back: 'カリウムイオンのイオン式は？',
         explanation: 'カリウム原子が電子を1個失ってできる陽イオン。',
+        difficulty: 'standard',
       },
       {
         id: 'sci3-ai-fc18',
         front: 'Zn²⁺（亜鉛イオン）',
         back: '亜鉛イオンのイオン式は？',
         explanation: '亜鉛原子が電子を2個失ってできる陽イオン。',
+        difficulty: 'standard',
       },
       {
         id: 'sci3-ai-fc19',
         front: 'Ba²⁺（バリウムイオン）',
         back: 'バリウムイオンのイオン式は？',
         explanation: 'バリウム原子が電子を2個失ってできる陽イオン。',
+        difficulty: 'standard',
       },
       {
         id: 'sci3-ai-fc20',
         front: 'Ag⁺（銀イオン）',
         back: '銀イオンのイオン式は？',
         explanation: '銀原子が電子を1個失ってできる陽イオン。',
+        difficulty: 'standard',
       },
       {
         id: 'sci3-ai-fc21',
@@ -220,46 +240,52 @@ export const atomIon: Topic = {
         back: 'アンモニウムイオンのイオン式は？',
         explanation:
           '窒素原子1個と水素原子4個からなる多原子イオン。陽イオンの多原子イオンとして覚える。',
+        difficulty: 'standard',
       },
       {
         id: 'sci3-ai-fc22',
         front: 'S²⁻（硫化物イオン）',
         back: '硫化物イオンのイオン式は？',
         explanation: '硫黄原子が電子を2個得てできる陰イオン。',
+        difficulty: 'standard',
       },
       {
         id: 'sci3-ai-fc23',
         front: 'F⁻（フッ化物イオン）',
         back: 'フッ化物イオンのイオン式は？',
         explanation: 'フッ素原子が電子を1個得てできる陰イオン。',
+        difficulty: 'advanced',
       },
       {
         id: 'sci3-ai-fc24',
         front: 'Fe²⁺（鉄イオン）',
         back: '鉄イオン（2価）のイオン式は？',
         explanation: '鉄原子が電子を2個失ってできる陽イオン。',
+        difficulty: 'advanced',
       },
       {
         id: 'sci3-ai-fc25',
-        front: 'イオンが電気を運ぶ',
+        front: '電解質が電離して生じた陽イオンと陰イオンが水溶液中を移動して電気を運ぶから',
         back: '電解質の水溶液に電流が流れる理由は？',
-        explanation:
-          '電解質が水に溶けて電離し、陽イオンと陰イオンが水溶液中を移動して電気を運ぶため。',
+        difficulty: 'standard',
       },
       {
         id: 'sci3-ai-fc26',
         front: 'HCl → H⁺ + Cl⁻',
         back: '塩化水素の電離式を書くと？',
+        difficulty: 'advanced',
       },
       {
         id: 'sci3-ai-fc27',
         front: 'Ca²⁺（カルシウムイオン）',
         back: 'カルシウムイオンのイオン式は？',
+        difficulty: 'advanced',
       },
       {
         id: 'sci3-ai-fc28',
         front: 'NO₃⁻（硝酸イオン）',
         back: '硝酸イオンのイオン式は？',
+        difficulty: 'advanced',
       },
     ],
     quiz: {
@@ -276,7 +302,8 @@ export const atomIon: Topic = {
           correctIndex: 3,
           explanation:
             '原子核は陽子（＋の電気をもつ）と中性子（電気をもたない）からできています。電子は原子核のまわりを回っています。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci3-ai-q2',
           question: '原子が電子を得てできるイオンを何という？',
@@ -284,7 +311,8 @@ export const atomIon: Topic = {
           correctIndex: 0,
           explanation:
             '電子（−の電気）を得ると−の電気が多くなり、陰イオンになります。例：Cl⁻、OH⁻',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci3-ai-q3',
           question: '塩化水素（HCl）が水に溶けて電離したときのイオンの組み合わせは？',
@@ -297,7 +325,8 @@ export const atomIon: Topic = {
           correctIndex: 1,
           explanation:
             '塩化水素は水に溶けるとH⁺（水素イオン）とCl⁻（塩化物イオン）に電離します。HCl → H⁺ + Cl⁻',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci3-ai-q4',
           question: '銅イオンの化学式（イオン式）として正しいものは？',
@@ -305,7 +334,8 @@ export const atomIon: Topic = {
           correctIndex: 2,
           explanation:
             '銅原子は電子を2個失ってCu²⁺（銅イオン）になります。元素記号の右上に2+と書きます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci3-ai-q5',
           question: '塩化銅の電離式として正しいものは？',
@@ -318,7 +348,8 @@ export const atomIon: Topic = {
           correctIndex: 1,
           explanation:
             '塩化銅は水に溶けるとCu²⁺（銅イオン）と2個のCl⁻（塩化物イオン）に電離します。CuCl₂ → Cu²⁺ + 2Cl⁻',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci3-ai-q6',
           question: 'NH₄⁺（アンモニウムイオン）はどのような種類のイオンか？',
@@ -331,7 +362,8 @@ export const atomIon: Topic = {
           correctIndex: 0,
           explanation:
             'NH₄⁺は窒素原子1個と水素原子4個からなる多原子イオンで、＋の電気を帯びた陽イオンです。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci3-ai-q7',
           question:
@@ -345,7 +377,8 @@ export const atomIon: Topic = {
           correctIndex: 2,
           explanation:
             '塩化カルシウムは水に溶けるとCa²⁺（カルシウムイオン）と2個のCl⁻（塩化物イオン）に電離します。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci3-ai-q8',
           question:
@@ -359,7 +392,8 @@ export const atomIon: Topic = {
           correctIndex: 3,
           explanation:
             '非電解質は水に溶けてもイオンに分かれないため、電気を運ぶイオンが存在せず電流が流れません。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci3-ai-q9',
           question:
@@ -368,7 +402,8 @@ export const atomIon: Topic = {
           correctIndex: 0,
           explanation:
             'Mg²⁺（マグネシウムイオン）は電子を2個失ってできる2価の陽イオンです。Na⁺やK⁺は1価の陽イオン、Cl⁻は陰イオンです。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci3-ai-q10',
           question: '原子が電気的に中性である理由は？',
@@ -381,7 +416,8 @@ export const atomIon: Topic = {
           correctIndex: 1,
           explanation:
             '原子では陽子の数（＋）と電子の数（−）が等しいため、電気が打ち消し合って中性になります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci3-ai-q11',
           question: '水酸化ナトリウムの電離式として正しいものは？',
@@ -394,7 +430,8 @@ export const atomIon: Topic = {
           correctIndex: 1,
           explanation:
             '水酸化ナトリウムは水に溶けるとNa⁺（ナトリウムイオン）とOH⁻（水酸化物イオン）に電離します。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci3-ai-q12',
           question: '次のうち、陰イオンはどれ？',
@@ -402,7 +439,8 @@ export const atomIon: Topic = {
           correctIndex: 3,
           explanation:
             'SO₄²⁻（硫酸イオン）は−の電気を帯びた陰イオンです。Na⁺、Cu²⁺、H⁺はいずれも陽イオンです。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci3-ai-q13',
           question: '同じ元素で中性子の数が異なる原子どうしを何という？',
@@ -410,7 +448,8 @@ export const atomIon: Topic = {
           correctIndex: 2,
           explanation:
             '同位体（アイソトープ）は同じ元素（陽子の数が同じ）で中性子の数が異なる原子です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci3-ai-q14',
           question: '電子を原子核のまわりにもっている粒子の電気の種類は？',
@@ -418,7 +457,8 @@ export const atomIon: Topic = {
           correctIndex: 2,
           explanation:
             '電子は−の電気をもつ粒子です。原子核のまわりに存在しています。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci3-ai-q15',
           question: 'イオン式の書き方として正しいものは？',
@@ -431,7 +471,8 @@ export const atomIon: Topic = {
           correctIndex: 2,
           explanation:
             'イオン式は元素記号の右上に＋や−の符号を書きます。2個なら2+、2−と書きます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci3-ai-q16',
           question: '多原子イオンの例として正しいものは？',
@@ -439,7 +480,8 @@ export const atomIon: Topic = {
           correctIndex: 3,
           explanation:
             'OH⁻（水酸化物イオン）は酸素原子と水素原子が結びついた多原子イオンです。Na⁺、Cl⁻、Cu²⁺は単原子イオンです。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci3-ai-q17',
           question: 'ナトリウム原子がナトリウムイオンになるとき、電子はどうなる？',
@@ -452,7 +494,8 @@ export const atomIon: Topic = {
           correctIndex: 2,
           explanation:
             'ナトリウム原子は電子を1個失ってNa⁺になります。＋の電気が1つ余るため1価の陽イオンです。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci3-ai-q18',
           question: '塩素原子が塩化物イオンになるとき、電子はどうなる？',
@@ -465,7 +508,8 @@ export const atomIon: Topic = {
           correctIndex: 2,
           explanation:
             '塩素原子は電子を1個得てCl⁻になります。−の電気が1つ多くなるため1価の陰イオンです。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci3-ai-q19',
           question: '次のうち、1価の陽イオンをすべて選んだ組み合わせは？',
@@ -478,7 +522,8 @@ export const atomIon: Topic = {
           correctIndex: 0,
           explanation:
             'Na⁺とK⁺はどちらも電子を1個失ってできる1価の陽イオンです。Cu²⁺やMg²⁺は2価の陽イオンです。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci3-ai-q20',
           question: '原子核を構成しない粒子はどれ？',
@@ -486,7 +531,8 @@ export const atomIon: Topic = {
           correctIndex: 2,
           explanation:
             '電子は原子核のまわりを回っており、原子核を構成しません。原子核は陽子と中性子からできています。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci3-ai-q21',
           question: 'H₂SO₄の電離式として正しいものは？',
@@ -499,7 +545,8 @@ export const atomIon: Topic = {
           correctIndex: 1,
           explanation:
             '硫酸は水に溶けると2個のH⁺と1個のSO₄²⁻に電離します。H₂SO₄ → 2H⁺ + SO₄²⁻',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci3-ai-q22',
           question: '銅原子が銅イオンになるとき、失う電子の数は？',
@@ -507,7 +554,8 @@ export const atomIon: Topic = {
           correctIndex: 1,
           explanation:
             '銅原子は電子を2個失ってCu²⁺になります。右上に2+と書くのは電子を2個失ったことを示します。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci3-ai-q23',
           question: 'アンモニウムイオン（NH₄⁺）が陽イオンの多原子イオンである理由は？',
@@ -520,7 +568,8 @@ export const atomIon: Topic = {
           correctIndex: 2,
           explanation:
             'NH₄⁺は窒素原子1個と水素原子4個が集まった多原子イオンで、全体として＋の電気を帯びた陽イオンです。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci3-ai-q24',
           question: '電離式 CuCl₂ → Cu²⁺ + 2Cl⁻ で、右辺のCl⁻の前の2は何を意味する？',
@@ -533,7 +582,8 @@ export const atomIon: Topic = {
           correctIndex: 1,
           explanation:
             '2Cl⁻は塩化物イオンが2個できることを意味します。CuCl₂には塩素原子が2個あるため、Cl⁻も2個生じます。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci3-ai-q25',
           question: '次のイオンのうち、2価の陰イオンはどれ？',
@@ -541,7 +591,8 @@ export const atomIon: Topic = {
           correctIndex: 2,
           explanation:
             'S²⁻（硫化物イオン）は硫黄原子が電子を2個得てできる2価の陰イオンです。Cl⁻、OH⁻、F⁻は1価の陰イオンです。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci3-ai-q26',
           question: '鉄イオン（Fe²⁺）は何価の陽イオンか？',
@@ -549,7 +600,8 @@ export const atomIon: Topic = {
           correctIndex: 1,
           explanation:
             'Fe²⁺は鉄原子が電子を2個失ってできる2価の陽イオンです。右上の2+が2価を示します。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci3-ai-q27',
           question: '電離式の左辺と右辺で必ず等しいものは？',
@@ -562,7 +614,8 @@ export const atomIon: Topic = {
           correctIndex: 2,
           explanation:
             '電離式では左辺と右辺で原子の種類と数、および電荷の合計がそれぞれ等しくなります。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci3-ai-q28',
           question: '原子核の中にある陽子の数で決まるものは？',
@@ -570,7 +623,8 @@ export const atomIon: Topic = {
           correctIndex: 1,
           explanation:
             '陽子の数が原子番号であり、元素の種類を決めます。同じ陽子数で中性子数が違うと同位体になります。',
-        },
+        difficulty: 'advanced',
+      },
       ],
     },
     examples: {

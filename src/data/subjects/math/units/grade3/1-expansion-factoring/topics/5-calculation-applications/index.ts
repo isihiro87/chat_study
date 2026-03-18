@@ -69,141 +69,169 @@ export const calcApplications: Topic = {
         id: 'math-g3-ca-fc1',
         front: '2n−1, 2n+1（nは整数）', back: '整数の性質の証明で「連続する2つの奇数」を文字で表すと？',
         hint: '奇数は2の倍数でない数',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-ca-fc2',
         front: '○ × (整数) の形にまとめる', back: '○の倍数であることを証明するには、式をどんな形にする？',
         hint: '例：8n² なら 8×n² で8の倍数',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-ca-fc3',
         front: '(35+25)(35−25) = 60×10 = 600', back: '35²−25² を公式で計算する方法は？',
         hint: 'a²−b² = (a+b)(a−b)',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-ca-fc4',
         front: '(100+1)² = 10000+200+1 = 10201', back: '101² を展開の公式で計算すると？',
         hint: '(a+b)² = a²+2ab+b²',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-ca-fc5',
         front: '(100−2)² = 10000−400+4 = 9604', back: '98² を展開の公式で計算すると？',
         hint: '(a−b)² = a²−2ab+b²',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-ca-fc6',
         front: '(60−1)(60+1) = 60²−1² = 3600−1 = 3599', back: '59×61 を公式で計算する方法は？',
         hint: '(a+b)(a−b) = a²−b²',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-ca-fc7',
         front: '先に式を因数分解or展開して簡単にしてから代入する', back: '式の値を求めるとき、最初にすべきことは？',
         hint: 'いきなり代入しない！',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-ca-fc8',
         front: '因数分解して (x+4)² = (96+4)² = 100² = 10000', back: 'x=96のとき x²+8x+16 の値を求めるコツは？',
         hint: 'x²+8x+16 = (x+4)²',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-ca-fc9',
         front: '2n, 2n+2（nは整数）', back: '連続する2つの偶数を文字で表すと？',
         hint: '偶数は2の倍数',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-ca-fc10',
         front: '「よって○○は△△である」と結論を明記する', back: '証明の文の最後に必ず書くことは？',
         hint: '証明は結論で締める',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-ca-fc11',
         front: '(10+0.3)(10−0.3) = 100−0.09 = 99.91', back: '10.3×9.7 を公式で計算すると？',
         hint: '和と差の積',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-ca-fc12',
         front: '(x+y)(x−y) に因数分解してから代入', back: 'x²−y² の値を求めるとき、どう変形する？',
         hint: '和と差の積の公式',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-ca-fc13',
         front: '(100−4)² = 10000−800+16 = 9216', back: '96² を公式で計算すると？',
         hint: '(a−b)²',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-ca-fc14',
         front: '道の真ん中を通る線の長さ', back: '道の面積 S = mℓ の「ℓ」は何？',
         hint: '幅m × 真ん中の長さ',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-ca-fc15',
         front: 'n−1, n, n+1', back: '連続する3つの整数の真ん中をnとおくと、3つの整数は？',
         hint: '真ん中を基準にする',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-ca-fc16',
         front: '(43+7)² = 50² = 2500', back: '43²+2×43×7+7² を公式で計算すると？',
         hint: 'a²+2ab+b² = (a+b)²',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-ca-fc17',
         front: '(30+4)(30−4) = 30²−4² = 900−16 = 884', back: '34×26 を公式で計算する方法は？',
         hint: '30を中心に±4',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-ca-fc18',
         front: 'はい。整数×整数＝整数なので n² も整数', back: '「nは整数」のとき、n²は整数か？',
         hint: '証明で「○×(整数)」と書くために重要',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-ca-fc19',
         front: '(50+2)(50−2) = 50²−4 = 2500−4 = 2496', back: '52×48 を公式で計算すると？',
         hint: '50を中心に±2',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-ca-fc20',
         front: '(100+3)² = 10000+600+9 = 10609', back: '103² を公式で計算すると？',
         hint: '(a+b)²',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-ca-fc21',
         front: '(2n+1)² = 4n²+4n+1 = 4n(n+1)+1\nn(n+1)は連続する整数の積で偶数 → 4×偶数+1 = 8の倍数+1', back: '奇数の2乗を8で割った余りは？',
         hint: '1になる',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-ca-fc22',
         front: 'n, n+1, n+2（または n−1, n, n+1）', back: '連続する3つの整数を文字で表す方法は？',
         hint: '真ん中を基準にする方法もある',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-ca-fc23',
         front: '(x+y)(x−y) にして (7+3)(7−3) = 10×4 = 40', back: 'x=7, y=3 のとき x²−y² の値を素早く求めるには？',
         hint: '和と差の積に因数分解',
+        difficulty: 'advanced',
       },
       {
         id: 'math-g3-ca-fc24',
         front: '(100−5)² = 10000−1000+25 = 9025', back: '95² を公式で計算すると？',
         hint: '(a−b)²',
+        difficulty: 'advanced',
       },
       {
         id: 'math-g3-ca-fc25',
         front: '(n+1)²−n² = 2n+1（奇数）', back: '連続する2つの整数の2乗の差は？',
         hint: '展開して引き算',
+        difficulty: 'advanced',
       },
       {
         id: 'math-g3-ca-fc26',
         front: '(70+3)(70−3) = 70²−9 = 4900−9 = 4891', back: '73×67 を公式で計算する方法は？',
         hint: '70を中心に±3',
+        difficulty: 'advanced',
       },
       {
         id: 'math-g3-ca-fc27',
         front: '展開して −3x−18。x=5 なら −15−18 = −33', back: '(x+3)(x−6)−x(x−5) を簡単にしてから代入する方法は？',
         hint: '先に展開して同類項をまとめる',
+        difficulty: 'advanced',
       },
       {
         id: 'math-g3-ca-fc28',
         front: '大きい長方形の面積−小さい長方形の面積', back: '道の面積を求める基本的な方法は？',
         hint: '引き算で求める',
+        difficulty: 'advanced',
       },
     ],
     quiz: {
@@ -220,6 +248,7 @@ export const calcApplications: Topic = {
           correctIndex: 1,
           explanation:
             '奇数は $2n+1$ の形。連続する2つの奇数は $2n+1$ と $2n+3$（または $2n-1$ と $2n+1$）だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-ca-q2',
@@ -228,6 +257,7 @@ export const calcApplications: Topic = {
           correctIndex: 3,
           explanation:
             '$(35+25)(35-25) = 60 \\times 10 = 600$。和と差の積の公式を使おう。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-ca-q3',
@@ -236,6 +266,7 @@ export const calcApplications: Topic = {
           correctIndex: 0,
           explanation:
             '$(100+1)^2 = 100^2 + 2 \\times 100 \\times 1 + 1^2 = 10000+200+1 = 10201$',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-ca-q4',
@@ -244,6 +275,7 @@ export const calcApplications: Topic = {
           correctIndex: 2,
           explanation:
             '$x^2+8x+16 = (x+4)^2$。$x=96$ を代入して $(96+4)^2 = 100^2 = 10000$。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-ca-q5',
@@ -252,6 +284,7 @@ export const calcApplications: Topic = {
           correctIndex: 0,
           explanation:
             '$(60-1)(60+1) = 60^2 - 1^2 = 3600 - 1 = 3599$',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-ca-q6',
@@ -265,6 +298,7 @@ export const calcApplications: Topic = {
           correctIndex: 1,
           explanation:
             'いきなり代入すると計算が大変。先に因数分解や展開で式を簡単にしてから代入しよう！',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-ca-q7',
@@ -273,6 +307,7 @@ export const calcApplications: Topic = {
           correctIndex: 3,
           explanation:
             '$(100-2)^2 = 10000 - 400 + 4 = 9604$',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-ca-q8',
@@ -281,6 +316,7 @@ export const calcApplications: Topic = {
           correctIndex: 2,
           explanation:
             '$(2n-1)^2+(2n+1)^2-2 = 4n^2-4n+1+4n^2+4n+1-2 = 8n^2$。8の倍数！',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-ca-q9',
@@ -289,6 +325,7 @@ export const calcApplications: Topic = {
           correctIndex: 2,
           explanation:
             '$x^2-y^2 = (x+y)(x-y) = (36+(-24))(36-(-24)) = 12 \\times 60 = 720$',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-ca-q10',
@@ -297,6 +334,7 @@ export const calcApplications: Topic = {
           correctIndex: 0,
           explanation:
             '$(10+0.3)(10-0.3) = 10^2 - 0.3^2 = 100 - 0.09 = 99.91$',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-ca-q11',
@@ -305,6 +343,7 @@ export const calcApplications: Topic = {
           correctIndex: 1,
           explanation:
             '$(50+2)(50-2) = 50^2 - 2^2 = 2500 - 4 = 2496$',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-ca-q12',
@@ -313,6 +352,7 @@ export const calcApplications: Topic = {
           correctIndex: 0,
           explanation:
             '$(100+3)^2 = 10000 + 600 + 9 = 10609$',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-ca-q13',
@@ -321,6 +361,7 @@ export const calcApplications: Topic = {
           correctIndex: 0,
           explanation:
             '$(100-5)^2 = 10000 - 1000 + 25 = 9025$',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-ca-q14',
@@ -329,6 +370,7 @@ export const calcApplications: Topic = {
           correctIndex: 1,
           explanation:
             '$(70+3)(70-3) = 70^2 - 9 = 4900 - 9 = 4891$',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-ca-q15',
@@ -342,6 +384,7 @@ export const calcApplications: Topic = {
           correctIndex: 1,
           explanation:
             '$(n+1)^2 - n^2 = 2n+1$ で、これは奇数だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-ca-q16',
@@ -350,6 +393,7 @@ export const calcApplications: Topic = {
           correctIndex: 0,
           explanation:
             '$(x+y)(x-y) = (7+3)(7-3) = 10 \\times 4 = 40$',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-ca-q17',
@@ -363,6 +407,7 @@ export const calcApplications: Topic = {
           correctIndex: 1,
           explanation:
             '真ん中を $n$ とおくと $(n-1)^2 + n^2 + (n+1)^2$ で $-2n$ と $+2n$ が消えてきれいにまとまるよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-ca-q18',
@@ -371,6 +416,7 @@ export const calcApplications: Topic = {
           correctIndex: 0,
           explanation:
             '$(30+4)(30-4) = 900 - 16 = 884$',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-ca-q19',
@@ -379,6 +425,7 @@ export const calcApplications: Topic = {
           correctIndex: 0,
           explanation:
             '$(43+7)^2 = 50^2 = 2500$。$a^2+2ab+b^2 = (a+b)^2$ の公式だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-ca-q20',
@@ -387,6 +434,7 @@ export const calcApplications: Topic = {
           correctIndex: 1,
           explanation:
             '$x^2+4x+4 = (x+2)^2 = (48+2)^2 = 50^2 = 2500$',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-ca-q21',
@@ -400,6 +448,7 @@ export const calcApplications: Topic = {
           correctIndex: 1,
           explanation:
             '$n^2-n = n(n-1)$。$n$ と $n-1$ は連続する整数なのでどちらかが偶数。よって積は偶数。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-ca-q22',
@@ -408,6 +457,7 @@ export const calcApplications: Topic = {
           correctIndex: 1,
           explanation:
             '$(a^2+2ab+b^2)-(a^2-2ab+b^2) = 4ab$。これは証明問題でよく使う公式だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-ca-q23',
@@ -416,6 +466,7 @@ export const calcApplications: Topic = {
           correctIndex: 1,
           explanation:
             '$(x+y)(x-y) = (102+98)(102-98) = 200 \\times 4 = 800$',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g3-ca-q24',
@@ -424,6 +475,7 @@ export const calcApplications: Topic = {
           correctIndex: 2,
           explanation:
             '$(2n+2)^2-(2n)^2 = (2n+2+2n)(2n+2-2n) = (4n+2) \\times 2 = 4(2n+1) \\times 2 = 8(2n+1)$。8の倍数。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g3-ca-q25',
@@ -437,6 +489,7 @@ export const calcApplications: Topic = {
           correctIndex: 0,
           explanation:
             '$(1000-3)^2 = 1000000-6000+9 = 994009$',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g3-ca-q26',
@@ -450,6 +503,7 @@ export const calcApplications: Topic = {
           correctIndex: 1,
           explanation:
             '道を端に寄せることで、残りを1つの長方形として計算できるようになるよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g3-ca-q27',
@@ -458,6 +512,7 @@ export const calcApplications: Topic = {
           correctIndex: 0,
           explanation:
             '展開すると $-3x-18$。$x=-3$ を代入して $9-18 = -9$。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g3-ca-q28',
@@ -471,6 +526,7 @@ export const calcApplications: Topic = {
           correctIndex: 1,
           explanation:
             '$n-1, n, n+1$ とおくと $(n-1)^2+n^2+(n+1)^2-3n^2 = 2$ とシンプルに証明できるよ。',
+          difficulty: 'advanced',
         },
       ],
     },

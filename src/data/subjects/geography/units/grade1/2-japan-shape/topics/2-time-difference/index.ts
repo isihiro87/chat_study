@@ -161,176 +161,34 @@ export const timeDifference: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'geo1-td-fc1',
-        front: '時差と経度の関係',
-        back: '経度何度ごとに1時間の時差が生じるか？',
-        explanation:
-          '経度15度ごとに1時間の時差が生じます。地球は24時間で360度回転するため、360° ÷ 24 = 15度です。',
-      },
-      {
-        id: 'geo1-td-fc2',
-        front: '本初子午線',
-        back: '本初子午線とは何か？どこを通る経線か？',
-        explanation:
-          '本初子午線とは経度0度の経線のことで、イギリスのロンドン（旧グリニッジ天文台）を通ります。世界の時刻の基準となっています。',
-      },
-      {
-        id: 'geo1-td-fc3',
-        front: '日本の標準時子午線',
-        back: '日本の標準時子午線は東経何度？どこを通る？',
-        explanation:
-          '日本の標準時子午線は東経135度で、兵庫県明石市などを通っています。日本の標準時はイギリスより9時間進んでいます。',
-      },
-      {
-        id: 'geo1-td-fc4',
-        front: '日付変更線',
-        back: '日付変更線とは何か？どこに引かれているか？',
-        explanation:
-          '日付変更線は太平洋上のほぼ経度180度の線に引かれています。西から東に越えると日付を1日戻し、東から西に越えると1日進めます。',
-      },
-      {
-        id: 'geo1-td-fc5',
-        front: '日本とイギリスの時差',
-        back: '日本とイギリスの時差は何時間か？計算方法も答えよ。',
-        explanation:
-          '時差は9時間です。日本の標準時子午線は東経135度なので、135° ÷ 15° = 9時間。日本の方が9時間進んでいます。',
-      },
-      {
-        id: 'geo1-td-fc6',
-        front: '日付変更線の越え方',
-        back: '日付変更線を西から東へ越えると日付はどうなるか？',
-        explanation:
-          '日付変更線を西から東へ越えると日付を1日戻します。逆に東から西へ越えると日付を1日進めます。',
-      },
-      {
-        id: 'geo1-td-fc7',
-        front: '時差計算の基本公式',
-        back: '360÷24はいくつか？この計算は何を意味するか。',
-        explanation:
-          '360÷24＝15です。地球は24時間で360度回転するので、経度15度ごとに1時間の時差が生じることを意味します。',
-      },
-      {
-        id: 'geo1-td-fc8',
-        front: '東経と西経の経度差の求め方',
-        back: '東経の地点と西経の地点の経度差はどう求めるか？',
-        explanation:
-          '東経の値と西経の値を足し算します。例：東経135度と西経75度の差は135＋75＝210度です。',
-      },
-      {
-        id: 'geo1-td-fc9',
-        front: 'ロンドンの正午と日本の時刻',
-        back: 'ロンドンが正午12時のとき、日本は何時か？',
-        explanation:
-          '日本はロンドンより9時間進んでいるので、12時＋9時間＝午後9時（21時）です。',
-      },
-      {
-        id: 'geo1-td-fc10',
-        front: '日付変更線が曲がっている理由',
-        back: '日付変更線が直線でなく曲がりくねっている理由は何か？',
-        explanation:
-          '陸地（国の領土）を避けるように引かれているためです。同じ国で日付が異なると生活に支障をきたすからです。',
-      },
-      {
-        id: 'geo1-td-fc11',
-        front: '日本とニューヨークの時差',
-        back: 'ニューヨーク（西経75度）と日本（東経135度）の時差は何時間か？',
-        explanation:
-          '経度の差＝135＋75＝210度。210÷15＝14時間。日本はニューヨークより14時間進んでいます。',
-      },
-      {
-        id: 'geo1-td-fc12',
-        front: 'グリニッジ標準時',
-        back: 'グリニッジ標準時（GMT）とは何か？',
-        explanation:
-          '本初子午線（経度0度、ロンドン）を基準とした時刻のことです。世界の標準時の基準になっています。',
-      },
-      {
-        id: 'geo1-td-fc13',
-        front: '同じ東経の国との時差',
-        back: '同じ東経にある2つの地点の経度差はどう求めるか？',
-        explanation:
-          '大きい方の値から小さい方の値を引き算します。例：東経135度と東経120度の差は135−120＝15度（1時間）です。',
-      },
-      {
-        id: 'geo1-td-fc14',
-        front: '日本の位置と新年',
-        back: '日本が世界でも早く新年を迎える理由を答えよ。',
-        explanation:
-          '日本は日付変更線の西側に位置しているため、世界の中でも早い時刻に新しい1日を迎える国の一つです。',
-      },
-      {
-        id: 'geo1-td-fc15',
-        front: '国内時差のある国',
-        back: '国内に複数の標準時を設けている国の例を2つあげよ。',
-        explanation:
-          'アメリカとロシアです。東西に非常に広い国のため、全国で1つの標準時では太陽の位置と時刻が大きくずれてしまうからです。',
-      },
-      {
-        id: 'geo1-td-fc16',
-        front: '経度30度の時差',
-        back: '経度30度離れた2地点の時差は何時間か。',
-      },
-      {
-        id: 'geo1-td-fc17',
-        front: '日付変更線の位置',
-        back: '日付変更線はどこに引かれているか。',
-      },
-      {
-        id: 'geo1-td-fc18',
-        front: '日付変更線を西→東',
-        back: '日付変更線を西から東に越えると日付はどうなるか。',
-      },
-      {
-        id: 'geo1-td-fc19',
-        front: '日付変更線を東→西',
-        back: '日付変更線を東から西に越えると日付はどうなるか。',
-      },
-      {
-        id: 'geo1-td-fc20',
-        front: '日付変更線が曲がる理由',
-        back: '日付変更線が直線ではなく曲がりくねっている理由は何か。',
-      },
-      {
-        id: 'geo1-td-fc21',
-        front: 'サマータイム',
-        back: 'サマータイムとは何か。',
-      },
-      {
-        id: 'geo1-td-fc22',
-        front: '日本のサマータイム',
-        back: '日本ではサマータイムを採用しているか。',
-      },
-      {
-        id: 'geo1-td-fc23',
-        front: '東に行くと時刻',
-        back: '東に行くと時刻は進むか遅れるか。',
-      },
-      {
-        id: 'geo1-td-fc24',
-        front: 'グリニッジ標準時',
-        back: '世界の標準時の基準となる時刻を何というか。',
-      },
-      {
-        id: 'geo1-td-fc25',
-        front: 'ニューヨークとの時差',
-        back: '西経75度のニューヨークと日本（東経135度）の時差は何時間か。',
-      },
-      {
-        id: 'geo1-td-fc26',
-        front: '時差の計算のコツ',
-        back: '東経と西経にまたがる2地点の経度差はどう求めるか。',
-      },
-      {
-        id: 'geo1-td-fc27',
-        front: '世界で最も早く新年を迎える地域',
-        back: '世界で最も早く新年を迎える地域はどこか。',
-      },
-      {
-        id: 'geo1-td-fc28',
-        front: '日本の位置と新年',
-        back: '日本は日付変更線のどちら側に位置しているか。',
-      },
+      { id: 'geo1-td-fc1', front: '経度15度ごと（360°÷24時間＝15度）', back: '経度何度ごとに1時間の時差が生じるか？', difficulty: 'basic' },
+      { id: 'geo1-td-fc2', front: '経度0度の経線で、イギリスのロンドン（旧グリニッジ天文台）を通る', back: '本初子午線とは何か？どこを通る経線か？', difficulty: 'basic' },
+      { id: 'geo1-td-fc3', front: '東経135度（兵庫県明石市などを通る）', back: '日本の標準時子午線は東経何度？どこを通る？', difficulty: 'basic' },
+      { id: 'geo1-td-fc4', front: '太平洋上のほぼ経度180度の線。日付のずれを調整する線', back: '日付変更線とは何か？どこに引かれているか？', difficulty: 'basic' },
+      { id: 'geo1-td-fc5', front: '9時間（135°÷15°＝9）。日本の方が進んでいる', back: '日本とイギリスの時差は何時間か？計算方法も答えよ。', difficulty: 'basic' },
+      { id: 'geo1-td-fc6', front: '日付を1日戻す', back: '日付変更線を西から東へ越えると日付はどうなるか？', explanation: '逆に東から西へ越えると1日進める。', difficulty: 'basic' },
+      { id: 'geo1-td-fc7', front: '東経の値と西経の値を足し算する', back: '東経の地点と西経の地点の経度差はどう求めるか？', explanation: '例：東経135度と西経75度→135＋75＝210度。', difficulty: 'standard' },
+      { id: 'geo1-td-fc8', front: '午後9時（21時）', back: 'ロンドンが正午12時のとき、日本は何時か？', explanation: '日本はロンドンより9時間進んでいるため。', difficulty: 'basic' },
+      { id: 'geo1-td-fc9', front: '陸地（国の領土）を避けるように引かれているため', back: '日付変更線が直線でなく曲がりくねっている理由は何か？', difficulty: 'standard' },
+      { id: 'geo1-td-fc10', front: '14時間（135＋75＝210度、210÷15＝14）', back: 'ニューヨーク（西経75度）と日本（東経135度）の時差は何時間か？', difficulty: 'standard' },
+      { id: 'geo1-td-fc11', front: 'グリニッジ標準時（GMT）。本初子午線を基準とした時刻', back: '世界の標準時の基準となる時刻を何というか。', difficulty: 'basic' },
+      { id: 'geo1-td-fc12', front: '大きい方の値から小さい方の値を引き算する', back: '同じ東経にある2つの地点の経度差はどう求めるか？', explanation: '例：東経135度と東経120度→135−120＝15度（1時間）。', difficulty: 'standard' },
+      { id: 'geo1-td-fc13', front: '日付変更線の西側に位置しているため', back: '日本が世界でも早く新年を迎える理由を答えよ。', difficulty: 'standard' },
+      { id: 'geo1-td-fc14', front: 'アメリカとロシア', back: '国内に複数の標準時を設けている国の例を2つあげよ。', explanation: '東西に非常に広い国のため。', difficulty: 'standard' },
+      { id: 'geo1-td-fc15', front: '2時間（30÷15＝2）', back: '経度30度離れた2地点の時差は何時間か。', difficulty: 'standard' },
+      { id: 'geo1-td-fc16', front: '日付を1日進める', back: '日付変更線を東から西に越えると日付はどうなるか。', difficulty: 'basic' },
+      { id: 'geo1-td-fc17', front: '夏の間、時計を1時間進めて日照時間を有効に活用する制度', back: 'サマータイムとは何か。', difficulty: 'standard' },
+      { id: 'geo1-td-fc18', front: '採用していない', back: '日本ではサマータイムを採用しているか。', difficulty: 'standard' },
+      { id: 'geo1-td-fc19', front: '進む（太陽が先に昇るため）', back: '東に行くと時刻は進むか遅れるか。', difficulty: 'basic' },
+      { id: 'geo1-td-fc20', front: '日付変更線のすぐ西側の島国（トンガ、キリバスなど）', back: '世界で最も早く新年を迎える地域はどこか。', difficulty: 'advanced' },
+      { id: 'geo1-td-fc21', front: '西側', back: '日本は日付変更線のどちら側に位置しているか。', difficulty: 'basic' },
+      { id: 'geo1-td-fc22', front: '12月31日午後3時', back: '日本が1月1日午前0時のとき、ロンドンは何月何日の何時？', explanation: '日本の方が9時間進んでいるため。', difficulty: 'advanced' },
+      { id: 'geo1-td-fc23', front: '足した結果が24時を超えたら翌日、引いた結果が0時未満なら前日', back: '時差の計算で日付が変わる場合のポイントは何か。', difficulty: 'advanced' },
+      { id: 'geo1-td-fc24', front: '日本より西の国では時刻が遅れるため', back: '日本の正午にテレビで海外の生中継を見て現地が夜だった。その国はどちら側にある？', difficulty: 'advanced' },
+      { id: 'geo1-td-fc25', front: '3月11日午前0時', back: 'ロンドンが3月10日午後3時のとき日本は何月何日何時？', explanation: '午後3時＋9時間＝翌日の午前0時。', difficulty: 'advanced' },
+      { id: 'geo1-td-fc26', front: '1時間（135−120＝15度、15÷15＝1）', back: '東経120度の国と日本（東経135度）の時差は何時間か。', difficulty: 'standard' },
+      { id: 'geo1-td-fc27', front: '時差はない（0時間）', back: '経度が同じ2地点の時差はどうなるか。', difficulty: 'standard' },
+      { id: 'geo1-td-fc28', front: '東西の幅が比較的小さく、1つの時刻で生活に支障がないから', back: '日本が全国で1つの標準時を使っている理由は何か。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -341,7 +199,8 @@ export const timeDifference: Topic = {
           correctIndex: 3,
           explanation:
             '地球は24時間で360度回転するので、360° ÷ 24 = 15度。経度15度ごとに1時間の時差が生じます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-td-q2',
           question: '日本の標準時子午線は東経何度か？',
@@ -349,7 +208,8 @@ export const timeDifference: Topic = {
           correctIndex: 2,
           explanation:
             '日本の標準時子午線は東経135度で、兵庫県明石市などを通っています。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-td-q3',
           question: '本初子午線が通っている国はどこか？',
@@ -357,7 +217,8 @@ export const timeDifference: Topic = {
           correctIndex: 0,
           explanation:
             '本初子午線（経度0度）はイギリスのロンドン（旧グリニッジ天文台）を通っています。世界の標準時の基準です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-td-q4',
           question: '日本とイギリスの時差は何時間か？',
@@ -365,7 +226,8 @@ export const timeDifference: Topic = {
           correctIndex: 1,
           explanation:
             '日本の標準時子午線は東経135度なので、135° ÷ 15° = 9時間の時差があります。日本の方がイギリスより9時間進んでいます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-td-q5',
           question: '日付変更線を西から東に越えるとき、日付はどうなるか？',
@@ -378,7 +240,8 @@ export const timeDifference: Topic = {
           correctIndex: 1,
           explanation:
             '日付変更線を西から東へ越えると日付を1日戻します。逆に東から西へ越えると日付を1日進めます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-td-q6',
           question: 'ロンドンが正午12時のとき、日本の時刻はどれか？',
@@ -391,7 +254,8 @@ export const timeDifference: Topic = {
           correctIndex: 2,
           explanation:
             '日本はロンドンより9時間進んでいます。正午12時＋9時間＝午後9時（21時）です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-td-q7',
           question: '東経の地点と西経の地点の経度差はどう求めるか？',
@@ -404,7 +268,8 @@ export const timeDifference: Topic = {
           correctIndex: 0,
           explanation:
             '東経と西経にまたがる場合は、東経の値と西経の値を足し算します。例えば東経135度と西経75度なら135＋75＝210度です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-td-q8',
           question: '日付変更線がほぼ沿っている経度は何度か？',
@@ -417,7 +282,8 @@ export const timeDifference: Topic = {
           correctIndex: 3,
           explanation:
             '日付変更線は太平洋上のほぼ経度180度の線に沿って引かれています。陸地を避けるように曲がりくねっています。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-td-q9',
           question: '日本が全国で1つの標準時を使っている理由として最も適切なものはどれか？',
@@ -430,7 +296,8 @@ export const timeDifference: Topic = {
           correctIndex: 0,
           explanation:
             '日本は東西の経度差が約32度あり計算上は約2時間の差がありますが、社会生活上大きな支障がないため、全国で1つの標準時を採用しています。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-td-q10',
           question: '360度÷24時間の計算結果として正しいものはどれか？',
@@ -443,7 +310,8 @@ export const timeDifference: Topic = {
           correctIndex: 3,
           explanation:
             '360÷24＝15です。地球は24時間で360度回転するため、経度15度ごとに1時間の時差が生じます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-td-q11',
           question: '経度30度離れた2地点の時差は何時間か。',
@@ -456,7 +324,8 @@ export const timeDifference: Topic = {
           correctIndex: 1,
           explanation:
             '30度÷15度＝2時間です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-td-q12',
           question: '日付変更線はどこに引かれているか。',
@@ -469,7 +338,8 @@ export const timeDifference: Topic = {
           correctIndex: 2,
           explanation:
             '日付変更線は太平洋上のほぼ経度180度の線に沿って引かれています。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-td-q13',
           question: '日付変更線を西から東に越えると日付はどうなるか。',
@@ -482,7 +352,8 @@ export const timeDifference: Topic = {
           correctIndex: 1,
           explanation:
             '日付変更線を西から東に越えると1日戻します。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-td-q14',
           question: '日付変更線が直線でない理由はどれ？',
@@ -495,7 +366,8 @@ export const timeDifference: Topic = {
           correctIndex: 2,
           explanation:
             '陸地（国の領土）を避けるように引かれているため曲がりくねっています。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-td-q15',
           question: 'サマータイムとは何か。',
@@ -508,7 +380,8 @@ export const timeDifference: Topic = {
           correctIndex: 1,
           explanation:
             '夏の間、時計を1時間進めて日照時間を有効に活用する制度です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-td-q16',
           question: '東に行くと時刻はどうなるか。',
@@ -521,7 +394,8 @@ export const timeDifference: Topic = {
           correctIndex: 2,
           explanation:
             '東に行くと太陽が先に昇るため時刻は進みます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-td-q17',
           question: '日本が1月1日午前0時のとき、ロンドンは何月何日の何時？',
@@ -534,7 +408,8 @@ export const timeDifference: Topic = {
           correctIndex: 1,
           explanation:
             '日本の方が9時間進んでいるため、ロンドンは12月31日午後3時です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-td-q18',
           question: 'ニューヨーク（西経75度）と日本の時差は何時間？',
@@ -547,7 +422,8 @@ export const timeDifference: Topic = {
           correctIndex: 2,
           explanation:
             '(135度＋75度)÷15度＝14時間です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-td-q19',
           question: '世界で最も早く新年を迎える地域はどこか。',
@@ -560,7 +436,8 @@ export const timeDifference: Topic = {
           correctIndex: 1,
           explanation:
             '日付変更線のすぐ西側にあるトンガ、キリバスなどが最も早く新年を迎えます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-td-q20',
           question: '東経120度の国と日本の時差は何時間か。',
@@ -573,7 +450,8 @@ export const timeDifference: Topic = {
           correctIndex: 1,
           explanation:
             '(135度−120度)÷15度＝1時間。日本の方が進んでいます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-td-q21',
           question: '日本国内に時差はあるか。',
@@ -586,7 +464,8 @@ export const timeDifference: Topic = {
           correctIndex: 1,
           explanation:
             '日本は全国で1つの標準時を使用しているため国内に時差はありません。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-td-q22',
           question: '経度が同じ2地点の時差はどうなるか。',
@@ -599,7 +478,8 @@ export const timeDifference: Topic = {
           correctIndex: 2,
           explanation:
             '経度が同じ2地点には時差がありません（0時間）。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-td-q23',
           question: '時差の計算で日付が変わる場合のポイントはどれ？',
@@ -612,7 +492,8 @@ export const timeDifference: Topic = {
           correctIndex: 1,
           explanation:
             '足した結果が24時を超えたら翌日に、引いた結果が0時未満になったら前日になります。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'geo1-td-q24',
           question: '日本の正午にテレビで海外の生中継を見たとき現地が夜だった。その国はどちら側？',
@@ -625,7 +506,8 @@ export const timeDifference: Topic = {
           correctIndex: 1,
           explanation:
             '日本より西の国では時刻が遅れるため、日本が昼でも夜の場合があります。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'geo1-td-q25',
           question: 'ロンドンが3月10日午後3時のとき日本は何月何日何時？',
@@ -638,7 +520,8 @@ export const timeDifference: Topic = {
           correctIndex: 2,
           explanation:
             '午後3時＋9時間＝翌日の午前0時。3月11日午前0時です。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'geo1-td-q26',
           question: '360÷24の計算結果はいくつか。この数字の意味は？',
@@ -651,7 +534,8 @@ export const timeDifference: Topic = {
           correctIndex: 1,
           explanation:
             '15が経度1時間分の角度にあたります。経度15度ごとに1時間の時差が生じます。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'geo1-td-q27',
           question: '2つの地点がともに東経にある場合の経度差の求め方はどれ？',
@@ -664,7 +548,8 @@ export const timeDifference: Topic = {
           correctIndex: 1,
           explanation:
             'ともに東経の場合は大きい方から小さい方を引き算します。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'geo1-td-q28',
           question: '日本はイギリスより時刻が進んでいるか遅れているか。理由も正しいのはどれ？',
@@ -677,7 +562,8 @@ export const timeDifference: Topic = {
           correctIndex: 1,
           explanation:
             '日本はイギリスより東に位置するため、時刻が9時間進んでいます。',
-        },
+        difficulty: 'advanced',
+      },
       ],
     },
     examples: {

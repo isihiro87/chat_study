@@ -49,60 +49,70 @@ export const russoJapaneseWar: Topic = {
         front: '日露戦争',
         back: '1904年に始まった、日本とロシアの戦争は？',
         explanation: '日本が勝利し、ポーツマス条約が結ばれた。',
+        difficulty: 'basic',
       },
       {
         id: 'fc2',
         front: '日英同盟',
         back: '1902年に日本とイギリスが結んだ同盟は？',
         explanation: 'ロシアの南下を警戒する両国の利害が一致した。',
+        difficulty: 'basic',
       },
       {
         id: 'fc3',
         front: '義和団事件',
         back: '1900年に清で起きた排外運動は？',
         explanation: 'ロシアはこの鎮圧後も満州に軍隊を駐留させた。',
+        difficulty: 'basic',
       },
       {
         id: 'fc4',
         front: 'ポーツマス条約',
         back: '1905年に日露戦争後に結ばれた講和条約は？',
         explanation: 'アメリカ大統領の仲介で結ばれたが、賠償金はなかった。',
+        difficulty: 'basic',
       },
       {
         id: 'fc5',
         front: '南樺太',
         back: 'ポーツマス条約で日本が獲得した、北緯50度以南の地域は？',
         explanation: '現在のサハリン南部にあたる。',
+        difficulty: 'standard',
       },
       {
         id: 'fc6',
         front: '旅順・大連',
         back: 'ポーツマス条約で日本が租借権を得た、遼東半島の港は？',
         explanation: '満州進出の拠点となった。',
+        difficulty: 'standard',
       },
       {
         id: 'fc7',
         front: '日比谷焼き討ち事件',
         back: 'ポーツマス条約への不満から起きた暴動は？',
         explanation: '賠償金が取れなかったことへの国民の怒りが爆発した。',
+        difficulty: 'standard',
       },
       {
         id: 'fc8',
         front: '与謝野晶子',
         back: '「君死にたまふこと勿れ」を詠んだ歌人は？',
         explanation: '弟の身を案じて戦争への思いを詠んだ。',
+        difficulty: 'standard',
       },
       {
         id: 'fc9',
         front: '満州',
         back: 'ロシアが進出を狙い、日露戦争の舞台となった中国東北部は？',
         explanation: '日本は戦後、南満州鉄道を設立した。',
+        difficulty: 'advanced',
       },
       {
         id: 'fc10',
         front: '韓国統監府',
         back: '日露戦争後、ソウルに設置された日本の機関は？',
         explanation: '初代統監は伊藤博文が務めた。',
+        difficulty: 'advanced',
       },
     ],
     quiz: {
@@ -115,6 +125,7 @@ export const russoJapaneseWar: Topic = {
           correctIndex: 3,
           explanation:
             'ロシアの南下を警戒する日本とイギリスの利害が一致し、日英同盟が結ばれました。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -128,6 +139,7 @@ export const russoJapaneseWar: Topic = {
           correctIndex: 2,
           explanation:
             'ポーツマス条約はアメリカ大統領の仲介で結ばれましたが、賠償金は得られませんでした。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -142,6 +154,7 @@ export const russoJapaneseWar: Topic = {
           correctIndex: 1,
           explanation:
             '賠償金が得られなかったことに国民の怒りが爆発し、日比谷焼き討ち事件が起きました。',
+          difficulty: 'basic',
         },
         {
           id: 'q4',
@@ -156,6 +169,7 @@ export const russoJapaneseWar: Topic = {
           correctIndex: 0,
           explanation:
             '与謝野晶子は日露戦争に従軍する弟の身を案じて「君死にたまふこと勿れ」を発表しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q5',
@@ -170,6 +184,7 @@ export const russoJapaneseWar: Topic = {
           correctIndex: 0,
           explanation:
             'ポーツマス条約で日本は韓国の優越権、旅順・大連の租借権、南樺太などを獲得しましたが賠償金はありませんでした。',
+          difficulty: 'standard',
         },
         {
           id: 'q6',
@@ -184,6 +199,7 @@ export const russoJapaneseWar: Topic = {
           correctIndex: 1,
           explanation:
             '1900年の義和団事件の鎮圧後もロシアは満州に軍隊を駐留させ、日本との対立が深まりました。',
+          difficulty: 'standard',
         },
       ],
     },

@@ -42,6 +42,7 @@ export const questionWords: Topic = {
         back: '(　　) is this?\n（これは何ですか？）',
         hint: '「何」を聞くときに使うことばは…？',
         explanation: '「何」は what だよ。What is this?',
+        difficulty: 'basic',
       },
       {
         id: 'eng-qw-fc2',
@@ -49,6 +50,7 @@ export const questionWords: Topic = {
         back: '(　　) is he?\n（彼はだれですか？）',
         hint: '「だれ」を聞くときに使うことばは…？',
         explanation: '「だれ」は who だよ。Who is he?',
+        difficulty: 'basic',
       },
       {
         id: 'eng-qw-fc3',
@@ -56,6 +58,7 @@ export const questionWords: Topic = {
         back: '(　　) is the library?\n（図書館はどこですか？）',
         hint: '「どこ」を聞くときに使うことばは…？',
         explanation: '「どこ」は where だよ。Where is the library?',
+        difficulty: 'basic',
       },
       {
         id: 'eng-qw-fc4',
@@ -63,6 +66,7 @@ export const questionWords: Topic = {
         back: '(　　) is your birthday?\n（あなたの誕生日はいつですか？）',
         hint: '「いつ」を聞くときに使うことばは…？',
         explanation: '「いつ」は when だよ。When is your birthday?',
+        difficulty: 'basic',
       },
       {
         id: 'eng-qw-fc5',
@@ -70,6 +74,7 @@ export const questionWords: Topic = {
         back: '(　　) are you?\n（調子はどうですか？）',
         hint: '「どう」を聞くときに使うことばは…？',
         explanation: '「どう」は how だよ。How are you?',
+        difficulty: 'basic',
       },
       {
         id: 'eng-qw-fc6',
@@ -77,6 +82,7 @@ export const questionWords: Topic = {
         back: '(　　) books do you have?\n（あなたは本を何冊もっていますか？）',
         hint: '「いくつ」「何冊」を聞くときは how + …？',
         explanation: '「いくつ」は how many だよ。How many books do you have?',
+        difficulty: 'basic',
       },
       {
         id: 'eng-qw-fc7',
@@ -84,6 +90,7 @@ export const questionWords: Topic = {
         back: '(　　) are you?\n（あなたは何歳ですか？）',
         hint: '年齢を聞くときは how + …？',
         explanation: '「何歳」は how old だよ。How old are you?',
+        difficulty: 'basic',
       },
       {
         id: 'eng-qw-fc8',
@@ -91,6 +98,7 @@ export const questionWords: Topic = {
         back: '(　　) is it?\n（今何時ですか？）',
         hint: '時間を聞くときは what + …？',
         explanation: '「何時」は what time だよ。What time is it?',
+        difficulty: 'basic',
       },
       {
         id: 'eng-qw-fc9',
@@ -98,6 +106,7 @@ export const questionWords: Topic = {
         back: '(　　) do you want?\n（あなたは何がほしいですか？）',
         hint: '「何」を聞くときに使うことばは…？',
         explanation: '「何がほしい？」は What do you want? だよ。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-qw-fc10',
@@ -105,6 +114,7 @@ export const questionWords: Topic = {
         back: '(　　) do you get up?\n（あなたは何時に起きますか？）',
         hint: '時刻を聞くときは what + …？',
         explanation: '「何時に～？」は What time do you ...? だよ。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-qw-fc11',
@@ -112,6 +122,7 @@ export const questionWords: Topic = {
         back: '(　　) is that man?\n（あの男の人はだれですか？）',
         hint: '「だれ」を聞くときに使うことばは…？',
         explanation: '「だれ」は who。Who is that man?',
+        difficulty: 'basic',
       },
       {
         id: 'eng-qw-fc12',
@@ -119,6 +130,7 @@ export const questionWords: Topic = {
         back: '(　　) plays the piano?\n（だれがピアノをひきますか？）',
         hint: '「だれが～する？」を聞くときは…？',
         explanation: '「だれが～する？」は Who + 動詞s ...? だよ。主語を聞くときは do/does は使わないよ。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-qw-fc13',
@@ -126,6 +138,7 @@ export const questionWords: Topic = {
         back: '(　　) do you live?\n（あなたはどこに住んでいますか？）',
         hint: '「どこ」を聞くときに使うことばは…？',
         explanation: '「どこに住んでいる？」は Where do you live? だよ。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-qw-fc14',
@@ -133,6 +146,7 @@ export const questionWords: Topic = {
         back: '(　　) is your bag?\n（あなたのかばんはどこですか？）',
         hint: '場所を聞くときに使うことばは…？',
         explanation: '「どこ」は where。Where is your bag?',
+        difficulty: 'standard',
       },
       {
         id: 'eng-qw-fc15',
@@ -140,6 +154,7 @@ export const questionWords: Topic = {
         back: '(　　) do you study?\n（あなたはいつ勉強しますか？）',
         hint: '「いつ」を聞くときに使うことばは…？',
         explanation: '「いつ」は when。When do you study?',
+        difficulty: 'standard',
       },
       {
         id: 'eng-qw-fc16',
@@ -147,6 +162,7 @@ export const questionWords: Topic = {
         back: '(　　) do you go to school?\n（あなたはどうやって学校に行きますか？）',
         hint: '方法・手段を聞くときに使うことばは…？',
         explanation: '「どうやって」は how。How do you go to school?',
+        difficulty: 'standard',
       },
       {
         id: 'eng-qw-fc17',
@@ -154,6 +170,7 @@ export const questionWords: Topic = {
         back: '(　　) students are there?\n（生徒は何人いますか？）',
         hint: '数を聞くときは how + …？',
         explanation: '「何人」は how many。How many students are there?',
+        difficulty: 'standard',
       },
       {
         id: 'eng-qw-fc18',
@@ -161,6 +178,7 @@ export const questionWords: Topic = {
         back: 'I live (　　) Tokyo.\n（私は東京に住んでいます。）',
         hint: '大きな場所（都市・国）の前に置く前置詞は…？',
         explanation: '都市や国のような大きな場所には in を使うよ。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-qw-fc19',
@@ -168,6 +186,7 @@ export const questionWords: Topic = {
         back: 'The book is (　　) the desk.\n（本は机の上にあります。）',
         hint: '面の上にあるときの前置詞は…？',
         explanation: '面に接している「～の上に」は on を使うよ。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-qw-fc20',
@@ -175,6 +194,7 @@ export const questionWords: Topic = {
         back: 'I get up (　　) seven.\n（私は7時に起きます。）',
         hint: '時刻の前に置く前置詞は…？',
         explanation: '時刻の前には at を使うよ。at seven = 7時に。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-qw-fc21',
@@ -182,6 +202,7 @@ export const questionWords: Topic = {
         back: 'The cat is (　　) the table.\n（ネコはテーブルの下にいます。）',
         hint: '「～の下に」を表す前置詞は…？',
         explanation: '「～の下に」は under だよ。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-qw-fc22',
@@ -189,6 +210,7 @@ export const questionWords: Topic = {
         back: 'The park is (　　) my house.\n（公園は私の家の近くにあります。）',
         hint: '「～の近くに」を表す前置詞は…？',
         explanation: '「～の近くに」は near だよ。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-qw-fc23',
@@ -196,6 +218,7 @@ export const questionWords: Topic = {
         back: 'I go to school (　　) bus.\n（私はバスで学校に行きます。）',
         hint: '交通手段を表すときの前置詞は…？',
         explanation: '「～で（手段）」は by を使うよ。by bus = バスで。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-qw-fc24',
@@ -203,6 +226,7 @@ export const questionWords: Topic = {
         back: 'My birthday is (　　) July.\n（私の誕生日は7月です。）',
         hint: '月の前に置く前置詞は…？',
         explanation: '月や季節の前には in を使うよ。in July = 7月に。',
+        difficulty: 'advanced',
       },
       {
         id: 'eng-qw-fc25',
@@ -210,6 +234,7 @@ export const questionWords: Topic = {
         back: 'I play soccer (　　) Sunday.\n（私は日曜日にサッカーをします。）',
         hint: '曜日の前に置く前置詞は…？',
         explanation: '曜日の前には on を使うよ。on Sunday = 日曜日に。',
+        difficulty: 'advanced',
       },
       {
         id: 'eng-qw-fc26',
@@ -217,6 +242,7 @@ export const questionWords: Topic = {
         back: '(　　) sport do you like?\n（あなたは何のスポーツが好きですか？）',
         hint: '「何の～」を聞くときに使うことばは…？',
         explanation: '「何のスポーツ？」は What sport ...? だよ。',
+        difficulty: 'advanced',
       },
       {
         id: 'eng-qw-fc27',
@@ -224,6 +250,7 @@ export const questionWords: Topic = {
         back: '(　　) is your sister?\n（あなたのお姉さんは何歳ですか？）',
         hint: '年齢を聞くときは how + …？',
         explanation: '「何歳」は how old。How old is your sister?',
+        difficulty: 'advanced',
       },
       {
         id: 'eng-qw-fc28',
@@ -231,6 +258,7 @@ export const questionWords: Topic = {
         back: '(　　) is the weather today?\n（今日の天気はどうですか？）',
         hint: '「どう」を聞くときに使うことばは…？',
         explanation: '「天気はどう？」は How is the weather? だよ。',
+        difficulty: 'advanced',
       },
       {
         id: 'eng-qw-fc29',
@@ -238,6 +266,7 @@ export const questionWords: Topic = {
         back: 'This present is (　　) you.\n（このプレゼントはあなたのためのものです。）',
         hint: '「～のために」を表す前置詞は…？',
         explanation: '「～のために」は for だよ。for you = あなたのために。',
+        difficulty: 'advanced',
       },
       {
         id: 'eng-qw-fc30',
@@ -245,6 +274,7 @@ export const questionWords: Topic = {
         back: '(　　) do you go to bed?\n（あなたは何時に寝ますか？）',
         hint: '時刻を聞くときは what + …？',
         explanation: '「何時に寝る？」は What time do you go to bed? だよ。',
+        difficulty: 'advanced',
       },
     ],
     quiz: {
@@ -255,6 +285,7 @@ export const questionWords: Topic = {
           options: ['Who is she?', 'What is she?', 'Where is she?', 'How is she?'],
           correctIndex: 0,
           explanation: '「だれ」は who だよ。Who is she?',
+          difficulty: 'basic',
         },
         {
           id: 'eng-qw-q2',
@@ -267,6 +298,7 @@ export const questionWords: Topic = {
           ],
           correctIndex: 1,
           explanation: '「どこ」は where だよ。Where is the school?',
+          difficulty: 'basic',
         },
         {
           id: 'eng-qw-q3',
@@ -279,6 +311,7 @@ export const questionWords: Topic = {
           ],
           correctIndex: 2,
           explanation: '「これは何ですか？」と聞かれたから、具体的に答えるよ。It is a book.（それは本です。）',
+          difficulty: 'basic',
         },
         {
           id: 'eng-qw-q4',
@@ -286,6 +319,7 @@ export const questionWords: Topic = {
           options: ['How many', 'When old', 'What old', 'How old'],
           correctIndex: 3,
           explanation: '「何歳」は how old だよ。How old are you?',
+          difficulty: 'basic',
         },
         {
           id: 'eng-qw-q5',
@@ -298,6 +332,7 @@ export const questionWords: Topic = {
           ],
           correctIndex: 1,
           explanation: '「いつ」は when だよ。When is the test?',
+          difficulty: 'basic',
         },
         {
           id: 'eng-qw-q6',
@@ -309,6 +344,7 @@ export const questionWords: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「What is this?」が正解。What（何）+ is（ですか）+ this（これ）の順番だよ。疑問詞はいちばん最初に置くよ。',
+          difficulty: 'basic',
         },
         {
           id: 'eng-qw-q7',
@@ -320,6 +356,7 @@ export const questionWords: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「Where is the library?」が正解。Where（どこ）+ is（ですか）+ the library（図書館）の順番だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'eng-qw-q8',
@@ -331,6 +368,7 @@ export const questionWords: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「How old are you?」が正解。How old（何歳）+ are（ですか）+ you（あなたは）の順番だよ。',
+          difficulty: 'basic',
         },
         // --- 追加の choice 問題 ---
         {
@@ -344,6 +382,7 @@ export const questionWords: Topic = {
           ],
           correctIndex: 1,
           explanation: '「何がほしい？」は What do you want? だよ。what =「何」。',
+          difficulty: 'basic',
         },
         {
           id: 'eng-qw-q10',
@@ -356,6 +395,7 @@ export const questionWords: Topic = {
           ],
           correctIndex: 2,
           explanation: '「だれ」は who だよ。Who is that man?',
+          difficulty: 'basic',
         },
         {
           id: 'eng-qw-q11',
@@ -368,6 +408,7 @@ export const questionWords: Topic = {
           ],
           correctIndex: 1,
           explanation: '主語を聞くときは「Who + 動詞s」の形になるよ。do/does はつけないよ。',
+          difficulty: 'basic',
         },
         {
           id: 'eng-qw-q12',
@@ -380,6 +421,7 @@ export const questionWords: Topic = {
           ],
           correctIndex: 2,
           explanation: '「どこに」は where だよ。Where do you live?',
+          difficulty: 'standard',
         },
         {
           id: 'eng-qw-q13',
@@ -392,6 +434,7 @@ export const questionWords: Topic = {
           ],
           correctIndex: 3,
           explanation: '「いつ」は when だよ。When do you study?',
+          difficulty: 'standard',
         },
         {
           id: 'eng-qw-q14',
@@ -404,6 +447,7 @@ export const questionWords: Topic = {
           ],
           correctIndex: 2,
           explanation: '方法・手段を聞くときは how を使うよ。How do you go to school?',
+          difficulty: 'standard',
         },
         {
           id: 'eng-qw-q15',
@@ -416,6 +460,7 @@ export const questionWords: Topic = {
           ],
           correctIndex: 1,
           explanation: '「調子はどう？」と聞かれたから、I am fine, thank you.（元気です、ありがとう。）と答えるよ。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-qw-q16',
@@ -428,6 +473,7 @@ export const questionWords: Topic = {
           ],
           correctIndex: 1,
           explanation: '「どこ？」と聞かれたから、場所を答えるよ。It is on the desk.（机の上です。）',
+          difficulty: 'standard',
         },
         {
           id: 'eng-qw-q17',
@@ -435,6 +481,7 @@ export const questionWords: Topic = {
           options: ['How time', 'When time', 'What time', 'Who time'],
           correctIndex: 2,
           explanation: '「何時に」は what time だよ。What time do you get up?',
+          difficulty: 'standard',
         },
         {
           id: 'eng-qw-q18',
@@ -447,6 +494,7 @@ export const questionWords: Topic = {
           ],
           correctIndex: 1,
           explanation: '「何人」は how many だよ。How many students are there?',
+          difficulty: 'standard',
         },
         {
           id: 'eng-qw-q19',
@@ -454,6 +502,7 @@ export const questionWords: Topic = {
           options: ['on', 'at', 'in', 'by'],
           correctIndex: 2,
           explanation: '都市や国のような大きな場所には in を使うよ。in Tokyo = 東京に。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-qw-q20',
@@ -461,6 +510,7 @@ export const questionWords: Topic = {
           options: ['in', 'on', 'for', 'at'],
           correctIndex: 3,
           explanation: '時刻の前には at を使うよ。at seven = 7時に。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-qw-q21',
@@ -468,6 +518,7 @@ export const questionWords: Topic = {
           options: ['on', 'in', 'under', 'near'],
           correctIndex: 2,
           explanation: '「～の下に」は under だよ。under the table = テーブルの下に。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-qw-q22',
@@ -475,6 +526,7 @@ export const questionWords: Topic = {
           options: ['in', 'on', 'at', 'for'],
           correctIndex: 1,
           explanation: '曜日の前には on を使うよ。on Sunday = 日曜日に。',
+          difficulty: 'standard',
         },
         // --- 追加の reorder 問題 ---
         {
@@ -487,6 +539,7 @@ export const questionWords: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「What do you want?」が正解。What（何）+ do you（あなたは）+ want（ほしい）の順番だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-qw-q24',
@@ -498,6 +551,7 @@ export const questionWords: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「Where do you live?」が正解。Where（どこ）+ do you（あなたは）+ live（住んでいる）の順番だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'eng-qw-q25',
@@ -509,6 +563,7 @@ export const questionWords: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「When do you study?」が正解。When（いつ）+ do you（あなたは）+ study（勉強する）の順番だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'eng-qw-q26',
@@ -520,6 +575,7 @@ export const questionWords: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「How do you go to school?」が正解。How（どうやって）+ do you（あなたは）+ go to school（学校に行く）の順番だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'eng-qw-q27',
@@ -531,6 +587,7 @@ export const questionWords: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「What time do you get up?」が正解。What time（何時）+ do you（あなたは）+ get up（起きる）の順番だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'eng-qw-q28',
@@ -542,6 +599,7 @@ export const questionWords: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「Who plays the piano?」が正解。主語を聞くときは Who + 動詞s の形だよ。do/does は使わないよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'eng-qw-q29',
@@ -553,6 +611,7 @@ export const questionWords: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「How many books do you have?」が正解。How many books（何冊の本）+ do you have（もっていますか）の順番だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'eng-qw-q30',
@@ -564,6 +623,7 @@ export const questionWords: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「How old is your sister?」が正解。How old（何歳）+ is（ですか）+ your sister（あなたのお姉さん）の順番だよ。',
+          difficulty: 'advanced',
         },
       ],
     },

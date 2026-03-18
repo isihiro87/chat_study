@@ -1,9 +1,15 @@
 import { useState, useMemo } from 'react';
 import type { QuizQuestion, Difficulty } from '../../data/types';
 
+export interface QuizSetupConfig {
+  questionCount: number | null;
+  shuffleOrder: boolean;
+  selectedDifficulties: Difficulty[];
+}
+
 interface QuizSetupProps {
   questions: QuizQuestion[];
-  onStart: (filteredQuestions: QuizQuestion[], selectedDifficulties: Difficulty[]) => void;
+  onStart: (filteredQuestions: QuizQuestion[], selectedDifficulties: Difficulty[], config: QuizSetupConfig) => void;
 }
 
 const DIFFICULTY_LABELS: Record<Difficulty, string> = {
@@ -37,11 +43,11 @@ export default function QuizSetup({ questions, onStart }: QuizSetupProps) {
     return questions.filter((q) => selectedDifficulties.has(getDifficulty(q)));
   }, [questions, selectedDifficulties]);
 
-  const finalQuestions = useMemo(() => {
+  const finalQuestionCount = useMemo(() => {
     if (questionCount === null || questionCount >= filteredQuestions.length) {
-      return filteredQuestions;
+      return filteredQuestions.length;
     }
-    return filteredQuestions.slice(0, questionCount);
+    return questionCount;
   }, [filteredQuestions, questionCount]);
 
   const toggleDifficulty = (d: Difficulty) => {
@@ -57,11 +63,20 @@ export default function QuizSetup({ questions, onStart }: QuizSetupProps) {
   };
 
   const handleStart = () => {
-    if (finalQuestions.length === 0) return;
-    const ordered = shuffleOrder
-      ? [...finalQuestions].sort(() => Math.random() - 0.5)
-      : finalQuestions;
-    onStart(ordered, Array.from(selectedDifficulties));
+    if (filteredQuestions.length === 0) return;
+    let selected: QuizQuestion[];
+    if (shuffleOrder) {
+      const shuffled = [...filteredQuestions].sort(() => Math.random() - 0.5);
+      selected = shuffled.slice(0, finalQuestionCount);
+    } else {
+      selected = filteredQuestions.slice(0, finalQuestionCount);
+    }
+    const config: QuizSetupConfig = {
+      questionCount,
+      shuffleOrder,
+      selectedDifficulties: Array.from(selectedDifficulties),
+    };
+    onStart(selected, Array.from(selectedDifficulties), config);
   };
 
   return (
@@ -183,7 +198,7 @@ export default function QuizSetup({ questions, onStart }: QuizSetupProps) {
             <span className="text-red-500">該当する問題がありません</span>
           ) : (
             <span>
-              {finalQuestions.length}問 / {filteredQuestions.length}問中
+              {finalQuestionCount}問 / {filteredQuestions.length}問中
             </span>
           )}
         </div>
@@ -191,7 +206,7 @@ export default function QuizSetup({ questions, onStart }: QuizSetupProps) {
         {/* スタートボタン */}
         <button
           onClick={handleStart}
-          disabled={finalQuestions.length === 0}
+          disabled={filteredQuestions.length === 0}
           className="w-full rounded-xl bg-amber-500 py-3 text-base font-bold text-white transition-colors hover:bg-amber-600 disabled:cursor-not-allowed disabled:bg-gray-300"
         >
           スタート

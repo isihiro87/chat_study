@@ -54,34 +54,34 @@ export const shotokuAsuka: Topic = {
     },
     videos: [],
     flashcards: [
-      { id: 'fc1', front: '聖徳太子', back: '推古天皇の摂政として政治改革を行った人物は？' },
-      { id: 'fc2', front: '冠位十二階', back: '家柄ではなく才能や功績で地位を決める制度は？' },
-      { id: 'fc3', front: '十七条の憲法', back: '役人の心構えを示した、聖徳太子が定めた法は？' },
-      { id: 'fc4', front: '遣隋使', back: '中国の隋へ送られた使節の名称は？' },
-      { id: 'fc5', front: '飛鳥文化', back: '法隆寺に代表される日本初の仏教文化は？' },
-      { id: 'fc6', front: '蘇我馬子', back: '聖徳太子と協力して仏教を広めた有力豪族は？' },
-      { id: 'fc7', front: '法隆寺', back: '聖徳太子が建立した世界最古の木造建築は？' },
-      { id: 'fc8', front: '小野妹子', back: '607年に遣隋使として派遣された人物は？' },
-      { id: 'fc9', front: '厩戸皇子', back: '聖徳太子が生きていた当時の名前は何？' },
-      { id: 'fc10', front: '三宝', back: '十七条の憲法の第2条で敬えとした仏・法・僧は？' },
-      { id: 'fc11', front: '釈迦三尊像', back: '法隆寺金堂にある飛鳥文化の仏像は？' },
-      { id: 'fc12', front: '飛鳥', back: '聖徳太子が政治を行った地域（奈良県）は？' },
-      { id: 'fc13', front: '隋', back: '6世紀末に中国を統一した王朝は？' },
-      { id: 'fc14', front: '推古天皇', back: '日本初の女性天皇で、聖徳太子が摂政を務めたのは？' },
-      { id: 'fc15', front: '物部氏', back: '仏教の受け入れに反対し、蘇我氏に滅ぼされた豪族は？' },
-      { id: 'fc16', front: '摂政', back: '天皇に代わって政治を行う役職は？' },
-      { id: 'fc17', front: '和を以て貴しとなす', back: '十七条の憲法の第一条に示された考え方は？' },
-      { id: 'fc18', front: '日出づる処の天子', back: '聖徳太子が隋の皇帝に送った手紙で日本の天皇をこう称した' },
-      { id: 'fc19', front: '飛鳥寺', back: '蘇我馬子が建てた日本初の本格的な寺院は？' },
-      { id: 'fc20', front: '593年', back: '聖徳太子が推古天皇の摂政になった年は？' },
-      { id: 'fc21', front: '唐', back: '隋のあとに中国を支配した王朝は？' },
-      { id: 'fc22', front: '607年', back: '遣隋使が派遣された年は？' },
-      { id: 'fc23', front: '斑鳩', back: '法隆寺がある場所（奈良県）はどこ？' },
-      { id: 'fc24', front: '仏教', back: '飛鳥文化の中心となった宗教は？' },
-      { id: 'fc25', front: '家柄（氏姓）', back: '冠位十二階が作られる前、地位を決めていた基準は？' },
-      { id: 'fc26', front: '天皇中心の国づくり', back: '聖徳太子の政治改革が目指していたものは？' },
-      { id: 'fc27', front: '詔を承りては必ず謹め', back: '十七条の憲法の第三条で示された天皇の命令に従うべきとする考えは？' },
-      { id: 'fc28', front: '6世紀', back: '百済から日本に仏教が伝わったのはおよそ何世紀？' },
+      { id: 'fc1', front: '聖徳太子', back: '推古天皇の摂政として政治改革を行った人物は？', difficulty: 'basic' },
+      { id: 'fc2', front: '冠位十二階', back: '家柄ではなく才能や功績で地位を決める制度は？', difficulty: 'basic' },
+      { id: 'fc3', front: '十七条の憲法', back: '役人の心構えを示した、聖徳太子が定めた法は？', difficulty: 'basic' },
+      { id: 'fc4', front: '遣隋使', back: '中国の隋へ送られた使節の名称は？', difficulty: 'basic' },
+      { id: 'fc5', front: '飛鳥文化', back: '法隆寺に代表される日本初の仏教文化は？', difficulty: 'basic' },
+      { id: 'fc6', front: '蘇我馬子', back: '聖徳太子と協力して仏教を広めた有力豪族は？', difficulty: 'basic' },
+      { id: 'fc7', front: '法隆寺', back: '聖徳太子が建立した世界最古の木造建築は？', difficulty: 'basic' },
+      { id: 'fc8', front: '小野妹子', back: '607年に遣隋使として派遣された人物は？', difficulty: 'basic' },
+      { id: 'fc9', front: '厩戸皇子', back: '聖徳太子が生きていた当時の名前は何？', difficulty: 'basic' },
+      { id: 'fc10', front: '三宝', back: '十七条の憲法の第2条で敬えとした仏・法・僧は？', difficulty: 'basic' },
+      { id: 'fc11', front: '釈迦三尊像', back: '法隆寺金堂にある飛鳥文化の仏像は？', difficulty: 'basic' },
+      { id: 'fc12', front: '飛鳥', back: '聖徳太子が政治を行った地域（奈良県）は？', difficulty: 'basic' },
+      { id: 'fc13', front: '隋', back: '6世紀末に中国を統一した王朝は？', difficulty: 'standard' },
+      { id: 'fc14', front: '推古天皇', back: '日本初の女性天皇で、聖徳太子が摂政を務めたのは？', difficulty: 'standard' },
+      { id: 'fc15', front: '物部氏', back: '仏教の受け入れに反対し、蘇我氏に滅ぼされた豪族は？', difficulty: 'standard' },
+      { id: 'fc16', front: '摂政', back: '天皇に代わって政治を行う役職は？', difficulty: 'standard' },
+      { id: 'fc17', front: '和を以て貴しとなす', back: '十七条の憲法の第一条に示された考え方は？', difficulty: 'standard' },
+      { id: 'fc18', front: '日出づる処の天子', back: '聖徳太子が隋の皇帝に送った手紙で日本の天皇をこう称した', difficulty: 'standard' },
+      { id: 'fc19', front: '飛鳥寺', back: '蘇我馬子が建てた日本初の本格的な寺院は？', difficulty: 'standard' },
+      { id: 'fc20', front: '593年', back: '聖徳太子が推古天皇の摂政になった年は？', difficulty: 'standard' },
+      { id: 'fc21', front: '唐', back: '隋のあとに中国を支配した王朝は？', difficulty: 'standard' },
+      { id: 'fc22', front: '607年', back: '遣隋使が派遣された年は？', difficulty: 'standard' },
+      { id: 'fc23', front: '斑鳩', back: '法隆寺がある場所（奈良県）はどこ？', difficulty: 'advanced' },
+      { id: 'fc24', front: '仏教', back: '飛鳥文化の中心となった宗教は？', difficulty: 'advanced' },
+      { id: 'fc25', front: '家柄（氏姓）', back: '冠位十二階が作られる前、地位を決めていた基準は？', difficulty: 'advanced' },
+      { id: 'fc26', front: '天皇中心の国づくり', back: '聖徳太子の政治改革が目指していたものは？', difficulty: 'advanced' },
+      { id: 'fc27', front: '詔を承りては必ず謹め', back: '十七条の憲法の第三条で示された天皇の命令に従うべきとする考えは？', difficulty: 'advanced' },
+      { id: 'fc28', front: '6世紀', back: '百済から日本に仏教が伝わったのはおよそ何世紀？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -91,6 +91,7 @@ export const shotokuAsuka: Topic = {
           options: ['十七条の憲法', '冠位十二階', '班田収授法', '大宝律令'],
           correctIndex: 1,
           explanation: '冠位十二階は家柄ではなく才能や功績で地位を決める制度です。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -98,6 +99,7 @@ export const shotokuAsuka: Topic = {
           options: ['小野妹子', '菅原道真', '中臣鎌足', '最澄'],
           correctIndex: 0,
           explanation: '小野妹子は推古天皇の時代に遣隋使として派遣されました。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -105,6 +107,7 @@ export const shotokuAsuka: Topic = {
           options: ['東大寺', '平等院', '唐招提寺', '法隆寺'],
           correctIndex: 3,
           explanation: '法隆寺は世界最古の木造建築として知られています。',
+          difficulty: 'basic',
         },
         {
           id: 'q4',
@@ -112,6 +115,7 @@ export const shotokuAsuka: Topic = {
           options: ['忠義を尽くせ', '仏を敬え', '和を以て貴しとなす', '天皇に従え'],
           correctIndex: 2,
           explanation: '「和を以て貴しとなす」は人々が協調することの大切さを説いた言葉です。',
+          difficulty: 'basic',
         },
         {
           id: 'q5',
@@ -119,6 +123,7 @@ export const shotokuAsuka: Topic = {
           options: ['天武天皇', '桓武天皇', '聖武天皇', '推古天皇'],
           correctIndex: 3,
           explanation: '推古天皇は日本初の女性天皇で、聖徳太子が摂政として政治を支えました。',
+          difficulty: 'basic',
         },
         {
           id: 'q6',
@@ -126,6 +131,7 @@ export const shotokuAsuka: Topic = {
           options: ['物部守屋', '蘇我馬子', '中臣鎌足', '藤原道長'],
           correctIndex: 1,
           explanation: '蘇我馬子は聖徳太子とともに仏教を広め、飛鳥寺を建立しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q7',
@@ -133,6 +139,7 @@ export const shotokuAsuka: Topic = {
           options: ['大伴氏', '中臣氏', '物部氏', '藤原氏'],
           correctIndex: 2,
           explanation: '物部氏は日本古来の神を重んじ、仏教の受け入れに反対しましたが蘇我氏に敗れました。',
+          difficulty: 'basic',
         },
         {
           id: 'q8',
@@ -140,6 +147,7 @@ export const shotokuAsuka: Topic = {
           options: ['隋', '宋', '唐', '漢'],
           correctIndex: 0,
           explanation: '隋は6世紀末に中国を統一し、聖徳太子は遣隋使を送って制度や文化を学びました。',
+          difficulty: 'basic',
         },
         {
           id: 'q9',
@@ -147,6 +155,7 @@ export const shotokuAsuka: Topic = {
           options: ['阿修羅像', '大仏', '阿弥陀如来像', '釈迦三尊像'],
           correctIndex: 3,
           explanation: '釈迦三尊像は法隆寺金堂にある飛鳥文化を代表する仏像です。',
+          difficulty: 'basic',
         },
         {
           id: 'q10',
@@ -154,6 +163,7 @@ export const shotokuAsuka: Topic = {
           options: ['日出づる処の天子', '天子', '大王', '皇帝'],
           correctIndex: 0,
           explanation: '「日出づる処の天子」と称し、隋と対等な関係を主張しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q11',
@@ -161,6 +171,7 @@ export const shotokuAsuka: Topic = {
           options: ['物部氏', '大伴氏', '蘇我氏', '中臣氏'],
           correctIndex: 2,
           explanation: '蘇我氏は仏教の受け入れに賛成し、物部氏は反対しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q12',
@@ -168,6 +179,7 @@ export const shotokuAsuka: Topic = {
           options: ['才能', '功績', '家柄', '年齢'],
           correctIndex: 2,
           explanation: '冠位十二階以前は家柄（豪族の氏姓）によって地位が決まっていました。',
+          difficulty: 'standard',
         },
         {
           id: 'q13',
@@ -175,6 +187,7 @@ export const shotokuAsuka: Topic = {
           options: ['農民', '天皇', '役人（豪族）', '僧侶'],
           correctIndex: 2,
           explanation: '十七条の憲法は役人（豪族）の心構えを示すために作られました。',
+          difficulty: 'standard',
         },
         {
           id: 'q14',
@@ -182,6 +195,7 @@ export const shotokuAsuka: Topic = {
           options: ['天皇', '三宝（仏・法・僧）', '先祖', '自然'],
           correctIndex: 1,
           explanation: '第二条では仏教の三宝（仏・法・僧）を敬うべきとしました。',
+          difficulty: 'standard',
         },
         {
           id: 'q15',
@@ -189,6 +203,7 @@ export const shotokuAsuka: Topic = {
           options: ['隋を攻撃するため', '金を輸入するため', '隋の制度や文化を学ぶため', '仏教を廃止するため'],
           correctIndex: 2,
           explanation: '遣隋使は隋の進んだ制度や文化を学ぶため、また対等な外交を目指して送られました。',
+          difficulty: 'standard',
         },
         {
           id: 'q16',
@@ -196,6 +211,7 @@ export const shotokuAsuka: Topic = {
           options: ['漢', '宋', '唐', '元'],
           correctIndex: 2,
           explanation: '隋のあと唐が中国を統一し、東アジアに大きな影響を与えました。',
+          difficulty: 'standard',
         },
         {
           id: 'q17',
@@ -203,6 +219,7 @@ export const shotokuAsuka: Topic = {
           options: ['日本独自の文化', '中国や朝鮮半島の影響', 'インドの影響', 'ヨーロッパの影響'],
           correctIndex: 1,
           explanation: '飛鳥文化は中国（隋・南北朝）や朝鮮半島の影響を強く受けた国際色豊かな文化です。',
+          difficulty: 'standard',
         },
         {
           id: 'q18',
@@ -210,6 +227,7 @@ export const shotokuAsuka: Topic = {
           options: ['仏教を広めること', '豪族の力を強めること', '天皇中心の政治を実現すること', '農民を保護すること'],
           correctIndex: 2,
           explanation: '両方とも豪族の力を抑えて天皇中心の政治を実現することを目指していました。',
+          difficulty: 'standard',
         },
         {
           id: 'q19',
@@ -217,6 +235,7 @@ export const shotokuAsuka: Topic = {
           options: ['538年', '593年', '607年', '645年'],
           correctIndex: 1,
           explanation: '593年に聖徳太子は推古天皇の摂政になりました。',
+          difficulty: 'standard',
         },
         {
           id: 'q20',
@@ -224,6 +243,7 @@ export const shotokuAsuka: Topic = {
           options: ['5世紀', '6世紀', '7世紀', '8世紀'],
           correctIndex: 2,
           explanation: '飛鳥文化は7世紀（6世紀末〜7世紀前半）に栄えました。',
+          difficulty: 'standard',
         },
         {
           id: 'q21',
@@ -231,6 +251,7 @@ export const shotokuAsuka: Topic = {
           options: ['男性天皇', '女性天皇', '幼帝', '退位した天皇'],
           correctIndex: 1,
           explanation: '推古天皇は日本で初めての女性天皇です。',
+          difficulty: 'standard',
         },
         {
           id: 'q22',
@@ -238,6 +259,7 @@ export const shotokuAsuka: Topic = {
           options: ['法隆寺', '飛鳥寺', '東大寺', '唐招提寺'],
           correctIndex: 1,
           explanation: '飛鳥寺は蘇我馬子が建立した日本初の本格的な寺院です。',
+          difficulty: 'standard',
         },
         {
           id: 'q23',
@@ -245,6 +267,7 @@ export const shotokuAsuka: Topic = {
           options: ['飛鳥', '斑鳩', '奈良', '吉野'],
           correctIndex: 1,
           explanation: '法隆寺は奈良県斑鳩にあり、世界最古の木造建築として知られています。',
+          difficulty: 'advanced',
         },
         {
           id: 'q24',
@@ -252,6 +275,7 @@ export const shotokuAsuka: Topic = {
           options: ['593年', '607年', '645年', '663年'],
           correctIndex: 1,
           explanation: '607年に小野妹子が遣隋使として隋に派遣されました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q25',
@@ -259,6 +283,7 @@ export const shotokuAsuka: Topic = {
           options: ['4世紀', '5世紀', '6世紀', '7世紀'],
           correctIndex: 2,
           explanation: '6世紀（538年または552年）に百済から日本に仏教が伝わりました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q26',
@@ -266,6 +291,7 @@ export const shotokuAsuka: Topic = {
           options: ['仏教を広めること', '農民を保護すること', '天皇中心の政治体制を作ること', '外国との貿易を促進すること'],
           correctIndex: 2,
           explanation: '冠位十二階は才能や功績で地位を決め、天皇中心の政治体制を作ることが目的でした。',
+          difficulty: 'advanced',
         },
         {
           id: 'q27',
@@ -273,6 +299,7 @@ export const shotokuAsuka: Topic = {
           options: ['仏教を禁止しようとした', '政治に取り入れ国を安定させようとした', '外国に布教しようとした', '農業に活用しようとした'],
           correctIndex: 1,
           explanation: '聖徳太子は仏教を政治に取り入れ、国を安定させようとしました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q28',
@@ -280,6 +307,7 @@ export const shotokuAsuka: Topic = {
           options: ['冠位十二階の制定', '十七条の憲法の制定', '遣隋使の派遣', '法隆寺の建立'],
           correctIndex: 2,
           explanation: '聖徳太子は遣隋使を派遣して中国の進んだ制度や文化を学びました。',
+          difficulty: 'advanced',
         },
       ],
     },

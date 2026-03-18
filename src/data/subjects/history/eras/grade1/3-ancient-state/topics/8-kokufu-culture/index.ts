@@ -64,34 +64,34 @@ export const kokufuCulture: Topic = {
     },
     videos: [],
     flashcards: [
-      { id: 'fc1', front: '国風文化', back: '唐の影響をもとに日本独自に発達した文化を何という？' },
-      { id: 'fc2', front: '仮名文字', back: '日本語を書き表すために作られた文字は？' },
-      { id: 'fc3', front: '浄土信仰', back: '念仏を唱えて極楽浄土へ行くことを願う信仰は？' },
-      { id: 'fc4', front: '平等院鳳凰堂', back: '1053年に頼通が宇治に建立した建物は？' },
-      { id: 'fc5', front: '日宋貿易', back: '平安時代に行われた、中国の商人との貿易は？' },
-      { id: 'fc6', front: '源氏物語', back: '紫式部が書いた、貴族社会を描いた長編物語は？' },
-      { id: 'fc7', front: '枕草子', back: '清少納言が宮中での生活などを綴った作品は？' },
-      { id: 'fc8', front: '古今和歌集', back: '天皇の命令でえらんで作られた、最初の和歌集は？' },
-      { id: 'fc9', front: '十二単', back: '平安貴族の女性が身に付けた正装は？' },
-      { id: 'fc10', front: '大和絵', back: '国風文化において描かれた日本風の絵画は？' },
-      { id: 'fc11', front: '紀貫之', back: '古今和歌集の選者で、土佐日記を書いた人物は？' },
-      { id: 'fc12', front: '土佐日記', back: '紀貫之が女性のふりをして仮名文字で書いた日記は？' },
-      { id: 'fc13', front: '光源氏', back: '源氏物語の主人公は？' },
-      { id: 'fc14', front: '末法思想', back: '仏教の教えが衰える時代に入るという考え方は？' },
-      { id: 'fc15', front: '阿弥陀如来', back: '浄土信仰で信仰の対象とされた仏は？' },
-      { id: 'fc16', front: '宋銭', back: '日宋貿易で輸入された銅銭は？' },
-      { id: 'fc17', front: '高麗', back: '朝鮮半島を統一した国は？' },
-      { id: 'fc18', front: 'ひらがな', back: '漢字の草書体をもとに作られた仮名文字は？' },
-      { id: 'fc19', front: 'カタカナ', back: '漢字の一部を切り取って作られた仮名文字は？' },
-      { id: 'fc20', front: '春はあけぼの', back: '枕草子の有名な書き出しは？' },
-      { id: 'fc21', front: '彰子', back: '紫式部が仕えていた藤原道長の娘は？' },
-      { id: 'fc22', front: '定子', back: '清少納言が仕えていた一条天皇の中宮は？' },
-      { id: 'fc23', front: '往生', back: '浄土信仰で極楽浄土に生まれ変わることを何という？' },
-      { id: 'fc24', front: '10〜11世紀', back: '国風文化が栄えたのはおよそ何世紀？' },
-      { id: 'fc25', front: '漢字（万葉仮名）', back: '仮名文字が発達する前に文章を書く際に使われていた文字は？' },
-      { id: 'fc26', front: '勅撰和歌集', back: '天皇の命令で編纂された和歌集のことを何という？' },
-      { id: 'fc27', front: '寝殿造', back: '中央に寝殿を置き渡り廊下で対屋を結ぶ建築様式は？' },
-      { id: 'fc28', front: '宋銭', back: '日宋貿易で輸入された銅銭は？' },
+      { id: 'fc1', front: '国風文化', back: '唐の影響をもとに日本独自に発達した文化を何という？', difficulty: 'basic' },
+      { id: 'fc2', front: '仮名文字', back: '日本語を書き表すために作られた文字は？', difficulty: 'basic' },
+      { id: 'fc3', front: '浄土信仰', back: '念仏を唱えて極楽浄土へ行くことを願う信仰は？', difficulty: 'basic' },
+      { id: 'fc4', front: '平等院鳳凰堂', back: '1053年に頼通が宇治に建立した建物は？', difficulty: 'basic' },
+      { id: 'fc5', front: '日宋貿易', back: '平安時代に行われた、中国の商人との貿易は？', difficulty: 'basic' },
+      { id: 'fc6', front: '源氏物語', back: '紫式部が書いた、貴族社会を描いた長編物語は？', difficulty: 'basic' },
+      { id: 'fc7', front: '枕草子', back: '清少納言が宮中での生活などを綴った作品は？', difficulty: 'basic' },
+      { id: 'fc8', front: '古今和歌集', back: '天皇の命令でえらんで作られた、最初の和歌集は？', difficulty: 'basic' },
+      { id: 'fc9', front: '十二単', back: '平安貴族の女性が身に付けた正装は？', difficulty: 'basic' },
+      { id: 'fc10', front: '大和絵', back: '国風文化において描かれた日本風の絵画は？', difficulty: 'basic' },
+      { id: 'fc11', front: '紀貫之', back: '古今和歌集の選者で、土佐日記を書いた人物は？', difficulty: 'basic' },
+      { id: 'fc12', front: '土佐日記', back: '紀貫之が女性のふりをして仮名文字で書いた日記は？', difficulty: 'basic' },
+      { id: 'fc13', front: '光源氏', back: '源氏物語の主人公は？', difficulty: 'standard' },
+      { id: 'fc14', front: '末法思想', back: '仏教の教えが衰える時代に入るという考え方は？', difficulty: 'standard' },
+      { id: 'fc15', front: '阿弥陀如来', back: '浄土信仰で信仰の対象とされた仏は？', difficulty: 'standard' },
+      { id: 'fc16', front: '宋銭', back: '日宋貿易で輸入された銅銭は？', difficulty: 'standard' },
+      { id: 'fc17', front: '高麗', back: '朝鮮半島を統一した国は？', difficulty: 'standard' },
+      { id: 'fc18', front: 'ひらがな', back: '漢字の草書体をもとに作られた仮名文字は？', difficulty: 'standard' },
+      { id: 'fc19', front: 'カタカナ', back: '漢字の一部を切り取って作られた仮名文字は？', difficulty: 'standard' },
+      { id: 'fc20', front: '春はあけぼの', back: '枕草子の有名な書き出しは？', difficulty: 'standard' },
+      { id: 'fc21', front: '彰子', back: '紫式部が仕えていた藤原道長の娘は？', difficulty: 'standard' },
+      { id: 'fc22', front: '定子', back: '清少納言が仕えていた一条天皇の中宮は？', difficulty: 'standard' },
+      { id: 'fc23', front: '往生', back: '浄土信仰で極楽浄土に生まれ変わることを何という？', difficulty: 'advanced' },
+      { id: 'fc24', front: '10〜11世紀', back: '国風文化が栄えたのはおよそ何世紀？', difficulty: 'advanced' },
+      { id: 'fc25', front: '漢字（万葉仮名）', back: '仮名文字が発達する前に文章を書く際に使われていた文字は？', difficulty: 'advanced' },
+      { id: 'fc26', front: '勅撰和歌集', back: '天皇の命令で編纂された和歌集のことを何という？', difficulty: 'advanced' },
+      { id: 'fc27', front: '寝殿造', back: '中央に寝殿を置き渡り廊下で対屋を結ぶ建築様式は？', difficulty: 'advanced' },
+      { id: 'fc28', front: '紫式部', back: '源氏物語を書いた人物は？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -101,6 +101,7 @@ export const kokufuCulture: Topic = {
           options: ['枕草子', '源氏物語', '古事記', '万葉集'],
           correctIndex: 1,
           explanation: '源氏物語は世界最古の長編小説ともいわれる紫式部の代表作です。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -108,6 +109,7 @@ export const kokufuCulture: Topic = {
           options: ['漢字', '甲骨文字', '仮名文字', 'くさび形文字'],
           correctIndex: 2,
           explanation: '仮名文字（ひらがな・カタカナ）は漢字をもとに日本で作られました。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -115,6 +117,7 @@ export const kokufuCulture: Topic = {
           options: ['東大寺', '唐招提寺', '法隆寺', '平等院鳳凰堂'],
           correctIndex: 3,
           explanation: '平等院鳳凰堂は浄土信仰に基づいて建立された美しい建物です。',
+          difficulty: 'basic',
         },
         {
           id: 'q4',
@@ -122,6 +125,7 @@ export const kokufuCulture: Topic = {
           options: ['枕草子', '古今和歌集', '源氏物語', '万葉集'],
           correctIndex: 0,
           explanation: '枕草子は清少納言が書いた随筆で、「春はあけぼの」の書き出しで有名です。',
+          difficulty: 'basic',
         },
         {
           id: 'q5',
@@ -129,6 +133,7 @@ export const kokufuCulture: Topic = {
           options: ['遣唐使の中止', '大化の改新', '壬申の乱', '大宝律令の制定'],
           correctIndex: 0,
           explanation: '894年に遣唐使が中止されたことで、唐の影響から離れた日本独自の文化が発展しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q6',
@@ -136,6 +141,7 @@ export const kokufuCulture: Topic = {
           options: ['神道', '浄土信仰', '天台宗', '真言宗'],
           correctIndex: 1,
           explanation: '浄土信仰は極楽浄土への往生を願う信仰で、平等院鳳凰堂はその代表的な建物です。',
+          difficulty: 'basic',
         },
         {
           id: 'q7',
@@ -143,6 +149,7 @@ export const kokufuCulture: Topic = {
           options: ['紫式部', '清少納言', '紀貫之', '菅原道真'],
           correctIndex: 2,
           explanation: '紀貫之は古今和歌集の選者であり、仮名文字で土佐日記も書きました。',
+          difficulty: 'basic',
         },
         {
           id: 'q8',
@@ -150,6 +157,7 @@ export const kokufuCulture: Topic = {
           options: ['カタカナ', '万葉仮名', '漢文', 'ひらがな'],
           correctIndex: 3,
           explanation: 'ひらがなは漢字の草書体（くずし字）を簡略化して作られました。',
+          difficulty: 'basic',
         },
         {
           id: 'q9',
@@ -157,6 +165,7 @@ export const kokufuCulture: Topic = {
           options: ['春はあけぼの', '祇園精舎の鐘の声', '月日は百代の過客にして', 'いづれの御時にか'],
           correctIndex: 0,
           explanation: '「春はあけぼの」は清少納言の枕草子の有名な書き出しです。',
+          difficulty: 'basic',
         },
         {
           id: 'q10',
@@ -164,6 +173,7 @@ export const kokufuCulture: Topic = {
           options: ['鎮護国家', '末法思想', '神仏習合', '山岳仏教'],
           correctIndex: 1,
           explanation: '末法思想は1052年に末法の時代に入ると信じられ、浄土信仰の広がりを促しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q11',
@@ -171,6 +181,7 @@ export const kokufuCulture: Topic = {
           options: ['紫式部', '清少納言', '光源氏', '紀貫之'],
           correctIndex: 2,
           explanation: '源氏物語の主人公は光源氏で、貴族社会の人間模様が描かれています。',
+          difficulty: 'standard',
         },
         {
           id: 'q12',
@@ -178,6 +189,7 @@ export const kokufuCulture: Topic = {
           options: ['一条天皇の中宮・定子', '藤原道長の娘・彰子', '桓武天皇', '推古天皇'],
           correctIndex: 1,
           explanation: '紫式部は藤原道長の娘・彰子に仕えていた女房です。',
+          difficulty: 'standard',
         },
         {
           id: 'q13',
@@ -185,6 +197,7 @@ export const kokufuCulture: Topic = {
           options: ['藤原道長の娘・彰子', '一条天皇の中宮・定子', '推古天皇', '持統天皇'],
           correctIndex: 1,
           explanation: '清少納言は一条天皇の中宮・定子に仕えていた女房です。',
+          difficulty: 'standard',
         },
         {
           id: 'q14',
@@ -192,6 +205,7 @@ export const kokufuCulture: Topic = {
           options: ['漢文で書かれた', '男性が女性のふりをして仮名文字で書いた', '天皇が書いた', '和歌だけで構成されている'],
           correctIndex: 1,
           explanation: '土佐日記は男性の紀貫之が女性のふりをして仮名文字で書いた日記です。',
+          difficulty: 'standard',
         },
         {
           id: 'q15',
@@ -199,6 +213,7 @@ export const kokufuCulture: Topic = {
           options: ['8〜9世紀', '9〜10世紀', '10〜11世紀', '11〜12世紀'],
           correctIndex: 2,
           explanation: '国風文化は10〜11世紀に最も栄えました。',
+          difficulty: 'standard',
         },
         {
           id: 'q16',
@@ -206,6 +221,7 @@ export const kokufuCulture: Topic = {
           options: ['草書体', '一部（偏や旁の一部分）', '全体を簡略化', '読み方'],
           correctIndex: 1,
           explanation: 'カタカナは漢字の一部（偏や旁の一部分）をもとに作られました。',
+          difficulty: 'standard',
         },
         {
           id: 'q17',
@@ -213,6 +229,7 @@ export const kokufuCulture: Topic = {
           options: ['外国語を書けるようになった', '日本語の繊細な感情を自由に表現できるようになった', '法律を書けるようになった', '数学を学べるようになった'],
           correctIndex: 1,
           explanation: '仮名文字により日本語の繊細な感情を自由に表現できるようになりました。',
+          difficulty: 'standard',
         },
         {
           id: 'q18',
@@ -220,6 +237,7 @@ export const kokufuCulture: Topic = {
           options: ['成仏', '往生', '悟り', '輪廻'],
           correctIndex: 1,
           explanation: '浄土信仰では極楽浄土に生まれ変わることを往生といいます。',
+          difficulty: 'standard',
         },
         {
           id: 'q19',
@@ -227,6 +245,7 @@ export const kokufuCulture: Topic = {
           options: ['中国の風景を描いた', '仏像を描いた', '日本の風景や貴族の生活を描いた', '戦争の場面を描いた'],
           correctIndex: 2,
           explanation: '大和絵は日本の風景や四季、貴族の生活を描いた日本独自の絵画です。',
+          difficulty: 'standard',
         },
         {
           id: 'q20',
@@ -234,6 +253,7 @@ export const kokufuCulture: Topic = {
           options: ['遣唐使は再開された', '正式な使節は中止されたが民間レベルの交流は続いた', '宋が日本を攻撃した', '貿易は禁止された'],
           correctIndex: 1,
           explanation: '正式な使節は中止されましたが、民間レベルの交流は続いていました。',
+          difficulty: 'standard',
         },
         {
           id: 'q21',
@@ -241,6 +261,7 @@ export const kokufuCulture: Topic = {
           options: ['万葉集', '新古今和歌集', '古今和歌集', '後撰和歌集'],
           correctIndex: 2,
           explanation: '古今和歌集は天皇の命令で編纂された最初の勅撰和歌集です。',
+          difficulty: 'standard',
         },
         {
           id: 'q22',
@@ -248,6 +269,7 @@ export const kokufuCulture: Topic = {
           options: ['ひらがな', 'カタカナ', '漢字（万葉仮名を含む）', 'ローマ字'],
           correctIndex: 2,
           explanation: '仮名文字が発達する前は漢字（万葉仮名を含む）で文章を書いていました。',
+          difficulty: 'standard',
         },
         {
           id: 'q23',
@@ -255,6 +277,7 @@ export const kokufuCulture: Topic = {
           options: ['1016年', '1053年', '1086年', '1100年'],
           correctIndex: 1,
           explanation: '平等院鳳凰堂は1053年に藤原頼通によって建立されました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q24',
@@ -262,6 +285,7 @@ export const kokufuCulture: Topic = {
           options: ['大化の改新', '壬申の乱', '遣唐使の中止', '蝦夷征伐'],
           correctIndex: 2,
           explanation: '遣唐使の中止により唐の文化の直接的な影響が途絶え、日本独自の国風文化が発展しました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q25',
@@ -269,6 +293,7 @@ export const kokufuCulture: Topic = {
           options: ['石造りの城', '中央に寝殿を置き渡り廊下で対屋を結ぶ', '茅葺き屋根の農家', '多層の塔'],
           correctIndex: 1,
           explanation: '寝殿造は中央に寝殿を置き、渡り廊下で対屋を結び、庭に池を配した様式です。',
+          difficulty: 'advanced',
         },
         {
           id: 'q26',
@@ -276,6 +301,7 @@ export const kokufuCulture: Topic = {
           options: ['和同開珎', '永楽通宝', '宋銭', '寛永通宝'],
           correctIndex: 2,
           explanation: '日宋貿易で輸入された銅銭を宋銭といいます。',
+          difficulty: 'advanced',
         },
         {
           id: 'q27',
@@ -283,6 +309,7 @@ export const kokufuCulture: Topic = {
           options: ['784年', '794年', '894年', '935年'],
           correctIndex: 2,
           explanation: '894年に菅原道真の進言で遣唐使が中止されました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q28',
@@ -290,6 +317,7 @@ export const kokufuCulture: Topic = {
           options: ['日本最古の歌集', '世界最古級の長編小説', '最初の勅撰和歌集', '日本最古の歴史書'],
           correctIndex: 1,
           explanation: '源氏物語は世界最古級の長編小説ともいわれる紫式部の代表作です。',
+          difficulty: 'advanced',
         },
       ],
     },

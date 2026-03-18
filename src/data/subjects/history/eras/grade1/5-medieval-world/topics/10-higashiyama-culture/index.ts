@@ -68,34 +68,34 @@ export const higashiyamaCulture: Topic = {
     },
     videos: [],
     flashcards: [
-      { id: 'fc1', front: '東山文化', back: '足利義政の時代の簡素で深みのある文化は？' },
-      { id: 'fc2', front: '銀閣', back: '足利義政が京都の東山に建てた、簡素で落ち着いた建物は？' },
-      { id: 'fc3', front: '水墨画', back: '墨の濃淡だけで自然を表現した、禅宗の影響を受けた絵画は？' },
-      { id: 'fc4', front: '雪舟', back: '明に渡って学び、水墨画を大成した室町時代の画家は？' },
-      { id: 'fc5', front: '枯山水', back: '水を使わず石や砂で山水の風景を表現する庭園様式は？' },
-      { id: 'fc6', front: '書院造', back: '畳・障子・ふすまを使った建築様式で、和室の原型は？' },
-      { id: 'fc7', front: '連歌', back: '複数の人が上の句と下の句を交互に詠み合う文芸は？' },
-      { id: 'fc8', front: '御伽草子', back: '庶民の間で流行した「一寸法師」などの挿絵入り物語は？' },
-      { id: 'fc9', front: '足利学校', back: '栃木県にあり、全国から人材が集まって儒学を学んだ学校は？' },
-      { id: 'fc10', front: '龍安寺', back: '枯山水の石庭で有名な京都の寺は？' },
-      { id: 'fc11', front: '慈照寺', back: '銀閣がある寺の正式名称は？' },
-      { id: 'fc12', front: '茶の湯', back: 'わびの精神を大切にする、室町時代に始まった茶の文化は？' },
-      { id: 'fc13', front: '生け花', back: '室町時代に始まった、花を器に生けて飾る芸術は？' },
-      { id: 'fc14', front: '秋冬山水図', back: '雪舟の代表作として知られる水墨画は？' },
-      { id: 'fc15', front: '足利義政', back: '銀閣を建てた室町幕府の第8代将軍は？' },
-      { id: 'fc16', front: 'わび', back: '茶の湯に込められた、質素で静かな美を追求する精神は？' },
-      { id: 'fc17', front: '明（中国）', back: '雪舟が水墨画の技法を学ぶために渡った国は？' },
-      { id: 'fc18', front: '床の間・違い棚', back: '書院造の特徴として畳・障子・ふすまに加えて挙げられるものは？' },
-      { id: 'fc19', front: '一寸法師', back: '御伽草子の代表的な作品は？' },
-      { id: 'fc20', front: '儒学', back: '足利学校で主に教えられた学問は？' },
-      { id: 'fc21', front: '禅宗の影響', back: '東山文化の簡素で深みのある特徴の背景にある思想は？' },
-      { id: 'fc22', front: '華道', back: '生け花が後に発展した芸道の名前は？' },
-      { id: 'fc23', front: '茶道', back: '茶の湯が後に発展した芸道の名前は？' },
-      { id: 'fc24', front: '墨の濃淡', back: '水墨画で自然を表現するために使う技法は？' },
-      { id: 'fc25', front: '挿絵入り', back: '御伽草子が庶民に親しまれた理由となった本の特徴は？' },
-      { id: 'fc26', front: '和室の原型', back: '書院造が現在のどのような部屋の原型となったか？' },
-      { id: 'fc27', front: '石と砂', back: '枯山水で山水の風景を表現するために使う素材は？' },
-      { id: 'fc28', front: '南北朝時代から室町時代', back: '連歌が大きく発展した時期は？' },
+      { id: 'fc1', front: '東山文化', back: '足利義政の時代の簡素で深みのある文化は？', difficulty: 'basic' },
+      { id: 'fc2', front: '銀閣', back: '足利義政が京都の東山に建てた、簡素で落ち着いた建物は？', difficulty: 'basic' },
+      { id: 'fc3', front: '水墨画', back: '墨の濃淡だけで自然を表現した、禅宗の影響を受けた絵画は？', difficulty: 'basic' },
+      { id: 'fc4', front: '雪舟', back: '明に渡って学び、水墨画を大成した室町時代の画家は？', difficulty: 'basic' },
+      { id: 'fc5', front: '枯山水', back: '水を使わず石や砂で山水の風景を表現する庭園様式は？', difficulty: 'basic' },
+      { id: 'fc6', front: '書院造', back: '畳・障子・ふすまを使った建築様式で、和室の原型は？', difficulty: 'basic' },
+      { id: 'fc7', front: '連歌', back: '複数の人が上の句と下の句を交互に詠み合う文芸は？', difficulty: 'basic' },
+      { id: 'fc8', front: '御伽草子', back: '庶民の間で流行した「一寸法師」などの挿絵入り物語は？', difficulty: 'basic' },
+      { id: 'fc9', front: '足利学校', back: '栃木県にあり、全国から人材が集まって儒学を学んだ学校は？', difficulty: 'basic' },
+      { id: 'fc10', front: '龍安寺', back: '枯山水の石庭で有名な京都の寺は？', difficulty: 'basic' },
+      { id: 'fc11', front: '慈照寺', back: '銀閣がある寺の正式名称は？', difficulty: 'basic' },
+      { id: 'fc12', front: '茶の湯', back: 'わびの精神を大切にする、室町時代に始まった茶の文化は？', difficulty: 'basic' },
+      { id: 'fc13', front: '生け花', back: '室町時代に始まった、花を器に生けて飾る芸術は？', difficulty: 'standard' },
+      { id: 'fc14', front: '秋冬山水図', back: '雪舟の代表作として知られる水墨画は？', difficulty: 'standard' },
+      { id: 'fc15', front: '足利義政', back: '銀閣を建てた室町幕府の第8代将軍は？', difficulty: 'standard' },
+      { id: 'fc16', front: 'わび', back: '茶の湯に込められた、質素で静かな美を追求する精神は？', difficulty: 'standard' },
+      { id: 'fc17', front: '明（中国）', back: '雪舟が水墨画の技法を学ぶために渡った国は？', difficulty: 'standard' },
+      { id: 'fc18', front: '床の間・違い棚', back: '書院造の特徴として畳・障子・ふすまに加えて挙げられるものは？', difficulty: 'standard' },
+      { id: 'fc19', front: '一寸法師', back: '御伽草子の代表的な作品は？', difficulty: 'standard' },
+      { id: 'fc20', front: '儒学', back: '足利学校で主に教えられた学問は？', difficulty: 'standard' },
+      { id: 'fc21', front: '禅宗の影響', back: '東山文化の簡素で深みのある特徴の背景にある思想は？', difficulty: 'standard' },
+      { id: 'fc22', front: '華道', back: '生け花が後に発展した芸道の名前は？', difficulty: 'standard' },
+      { id: 'fc23', front: '茶道', back: '茶の湯が後に発展した芸道の名前は？', difficulty: 'advanced' },
+      { id: 'fc24', front: '墨の濃淡', back: '水墨画で自然を表現するために使う技法は？', difficulty: 'advanced' },
+      { id: 'fc25', front: '挿絵入り', back: '御伽草子が庶民に親しまれた理由となった本の特徴は？', difficulty: 'advanced' },
+      { id: 'fc26', front: '和室の原型', back: '書院造が現在のどのような部屋の原型となったか？', difficulty: 'advanced' },
+      { id: 'fc27', front: '石と砂', back: '枯山水で山水の風景を表現するために使う素材は？', difficulty: 'advanced' },
+      { id: 'fc28', front: '南北朝時代から室町時代', back: '連歌が大きく発展した時期は？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -105,6 +105,7 @@ export const higashiyamaCulture: Topic = {
           options: ['御伽草子', '源氏物語', '平家物語', '徒然草'],
           correctIndex: 0,
           explanation: '御伽草子は室町時代に庶民の間で流行した挿絵入りの物語本で、「一寸法師」が代表作です。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -112,6 +113,7 @@ export const higashiyamaCulture: Topic = {
           options: ['金閣', '中尊寺金色堂', '平等院鳳凰堂', '銀閣'],
           correctIndex: 3,
           explanation: '銀閣（慈照寺）は足利義政が東山に建てた建物で、簡素で落ち着いた東山文化を象徴しています。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -119,6 +121,7 @@ export const higashiyamaCulture: Topic = {
           options: ['回遊式庭園', '枯山水', '浄土庭園', '借景庭園'],
           correctIndex: 1,
           explanation: '枯山水は水を使わず石や砂で山水の風景を表現する庭園様式で、龍安寺の石庭が有名です。',
+          difficulty: 'basic',
         },
         {
           id: 'q4',
@@ -126,6 +129,7 @@ export const higashiyamaCulture: Topic = {
           options: ['尾形光琳', '狩野永徳', '雪舟', '葛飾北斎'],
           correctIndex: 2,
           explanation: '雪舟は明に渡って水墨画を学び、日本独自の水墨画を大成しました。「秋冬山水図」が代表作です。',
+          difficulty: 'basic',
         },
         {
           id: 'q5',
@@ -133,6 +137,7 @@ export const higashiyamaCulture: Topic = {
           options: ['書院造', '寝殿造', '数寄屋造', '武家造'],
           correctIndex: 0,
           explanation: '書院造は畳・障子・ふすまを使った建築様式で、東山文化を代表し、現在の和室の原型です。',
+          difficulty: 'basic',
         },
         {
           id: 'q6',
@@ -140,6 +145,7 @@ export const higashiyamaCulture: Topic = {
           options: ['昌平坂学問所', '足利学校', '松下村塾', '適塾'],
           correctIndex: 1,
           explanation: '足利学校は栃木県にあり、全国から人材が集まって儒学などを学んだ室町時代の学問の中心です。',
+          difficulty: 'basic',
         },
         {
           id: 'q7',
@@ -147,6 +153,7 @@ export const higashiyamaCulture: Topic = {
           options: ['闘茶', '抹茶', '番茶', '茶の湯'],
           correctIndex: 3,
           explanation: '茶の湯は室町時代に始まった、わびの精神を大切にする茶の文化で、後に茶道として発展しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q8',
@@ -154,6 +161,7 @@ export const higashiyamaCulture: Topic = {
           options: ['足利義満', '足利尊氏', '足利義政', '足利義昭'],
           correctIndex: 2,
           explanation: '銀閣は第8代将軍足利義政が京都の東山に建てた建物で、東山文化を象徴しています。',
+          difficulty: 'basic',
         },
         {
           id: 'q9',
@@ -161,6 +169,7 @@ export const higashiyamaCulture: Topic = {
           options: ['どちらも豪華', '北山文化は華やかで豪華、東山文化は簡素で落ち着いた深みがある', '北山文化は簡素、東山文化は豪華', '違いはない'],
           correctIndex: 1,
           explanation: '北山文化は華やかで豪華な文化、東山文化は簡素で落ち着いた深みのある文化です。',
+          difficulty: 'basic',
         },
         {
           id: 'q10',
@@ -168,6 +177,7 @@ export const higashiyamaCulture: Topic = {
           options: ['金閣寺', '龍安寺', '銀閣寺', '東大寺'],
           correctIndex: 1,
           explanation: '龍安寺の石庭は枯山水の代表的な庭園として世界的に有名です。',
+          difficulty: 'basic',
         },
         {
           id: 'q11',
@@ -175,6 +185,7 @@ export const higashiyamaCulture: Topic = {
           options: ['朝鮮', '明（中国）', 'インド', 'ベトナム'],
           correctIndex: 1,
           explanation: '雪舟は明（中国）に渡って水墨画の技法を学び、帰国後に日本独自の水墨画を大成しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q12',
@@ -182,6 +193,7 @@ export const higashiyamaCulture: Topic = {
           options: ['土壁・石・瓦', '畳・障子・ふすま', '柱・梁・屋根', '金・銀・漆'],
           correctIndex: 1,
           explanation: '書院造は畳・障子・ふすまを使った建築様式で、床の間や違い棚も特徴的です。',
+          difficulty: 'standard',
         },
         {
           id: 'q13',
@@ -189,6 +201,7 @@ export const higashiyamaCulture: Topic = {
           options: ['一人で長い歌を詠む', '複数の人が上の句と下の句を交互に詠み合う', '絵と歌を組み合わせる', '踊りながら歌う'],
           correctIndex: 1,
           explanation: '連歌は複数の人が上の句と下の句を交互に詠み合う共同創作の文芸です。',
+          difficulty: 'standard',
         },
         {
           id: 'q14',
@@ -196,6 +209,7 @@ export const higashiyamaCulture: Topic = {
           options: ['多くの色を使って描く', '墨の濃淡だけで自然を表現する', '金箔を使って描く', '写真のように正確に描く'],
           correctIndex: 1,
           explanation: '水墨画は墨の濃淡だけで自然の風景や人物を表現する絵画で、禅の精神性を反映しています。',
+          difficulty: 'standard',
         },
         {
           id: 'q15',
@@ -203,6 +217,7 @@ export const higashiyamaCulture: Topic = {
           options: ['鹿苑寺', '慈照寺', '龍安寺', '天龍寺'],
           correctIndex: 1,
           explanation: '銀閣の正式名称は慈照寺（じしょうじ）です。金閣の鹿苑寺と間違えやすいので注意しましょう。',
+          difficulty: 'standard',
         },
         {
           id: 'q16',
@@ -210,6 +225,7 @@ export const higashiyamaCulture: Topic = {
           options: ['浄土宗', '日蓮宗', '禅宗', '時宗'],
           correctIndex: 2,
           explanation: '禅宗の簡素さと精神性を重んじる教えが東山文化に大きな影響を与えました。',
+          difficulty: 'standard',
         },
         {
           id: 'q17',
@@ -217,6 +233,7 @@ export const higashiyamaCulture: Topic = {
           options: ['高価だったから', '分かりやすい文章と挿絵がついていたため', '武士だけが読めたから', '外国の物語だったから'],
           correctIndex: 1,
           explanation: '御伽草子は分かりやすい文章と挿絵がついていたため、文字を読めない人にも内容が伝わりやすかったのです。',
+          difficulty: 'standard',
         },
         {
           id: 'q18',
@@ -224,6 +241,7 @@ export const higashiyamaCulture: Topic = {
           options: ['仏教', '儒学', '医学', '天文学'],
           correctIndex: 1,
           explanation: '足利学校では主に儒学（中国の古典を学ぶ学問）が教えられました。',
+          difficulty: 'standard',
         },
         {
           id: 'q19',
@@ -231,6 +249,7 @@ export const higashiyamaCulture: Topic = {
           options: ['歌舞伎・浮世絵・俳句', '書院造・茶の湯・生け花', '金閣・銀閣・龍安寺', '能・狂言・連歌'],
           correctIndex: 1,
           explanation: '書院造（和室）・茶の湯（茶道）・生け花（華道）は東山文化から現代に受け継がれている文化です。',
+          difficulty: 'standard',
         },
         {
           id: 'q20',
@@ -238,6 +257,7 @@ export const higashiyamaCulture: Topic = {
           options: ['外国から伝わった', '禅宗の影響で限られた空間で精神世界を表現しようとした', '水がなかったから', '経費を節約するため'],
           correctIndex: 1,
           explanation: '禅宗の影響を受け、限られた空間で精神的な世界を表現しようとする東山文化の精神から生まれました。',
+          difficulty: 'standard',
         },
         {
           id: 'q21',
@@ -245,6 +265,7 @@ export const higashiyamaCulture: Topic = {
           options: ['雅', 'わび', '幽玄', '風流'],
           correctIndex: 1,
           explanation: 'わびは質素で静かな美を追求する精神で、茶の湯の根本的な考え方です。',
+          difficulty: 'standard',
         },
         {
           id: 'q22',
@@ -252,6 +273,7 @@ export const higashiyamaCulture: Topic = {
           options: ['茶道', '華道', '書道', '武道'],
           correctIndex: 1,
           explanation: '生け花は後に華道として発展し、現代まで受け継がれています。',
+          difficulty: 'standard',
         },
         {
           id: 'q23',
@@ -259,6 +281,7 @@ export const higashiyamaCulture: Topic = {
           options: ['源氏物語絵巻', '鳥獣戯画', '秋冬山水図', '風神雷神図'],
           correctIndex: 2,
           explanation: '「秋冬山水図」は雪舟の代表作として知られる水墨画です。',
+          difficulty: 'advanced',
         },
         {
           id: 'q24',
@@ -266,6 +289,7 @@ export const higashiyamaCulture: Topic = {
           options: ['貴族だけ', '武士だけ', '庶民だけ', '貴族から武士・庶民まで幅広く'],
           correctIndex: 3,
           explanation: '連歌は貴族から武士・庶民まで幅広い層に楽しまれ、室町文化を代表する文芸となりました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q25',
@@ -273,6 +297,7 @@ export const higashiyamaCulture: Topic = {
           options: ['全く無関係', '書院造は和室の原型で畳・障子・ふすまなどの基本要素は書院造に由来する', '和室は中国から来た', '書院造は西洋建築の影響'],
           correctIndex: 1,
           explanation: '書院造は現在の和室の原型であり、畳・障子・ふすま・床の間など和室の基本要素は書院造に由来します。',
+          difficulty: 'advanced',
         },
         {
           id: 'q26',
@@ -280,6 +305,7 @@ export const higashiyamaCulture: Topic = {
           options: ['能と連歌', '狂言と御伽草子', '能と御伽草子', '連歌と狂言'],
           correctIndex: 1,
           explanation: '狂言は庶民の日常を描いた喜劇、御伽草子は挿絵入りの分かりやすい物語で、どちらも庶民に親しまれました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q27',
@@ -287,6 +313,7 @@ export const higashiyamaCulture: Topic = {
           options: ['京都の貴族だけ', '全国各地から学問を志す人材', '外国人だけ', '武士だけ'],
           correctIndex: 1,
           explanation: '足利学校には全国各地から学問を志す人材が集まり、僧侶や武士の子弟も多く学びました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q28',
@@ -294,6 +321,7 @@ export const higashiyamaCulture: Topic = {
           options: ['外国', '民衆', '天皇家', '仏教の僧侶だけ'],
           correctIndex: 1,
           explanation: '室町文化は貴族や武士だけでなく民衆にまで広がった文化で、御伽草子や連歌がその象徴です。',
+          difficulty: 'advanced',
         },
       ],
     },

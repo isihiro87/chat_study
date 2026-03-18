@@ -49,60 +49,70 @@ export const threeReforms: Topic = {
         front: '学制',
         back: '1872年に出された、国民全員に教育を受けさせる制度は？',
         explanation: '6歳以上の男女すべてに小学校教育を受けさせることを目指した。',
+        difficulty: 'basic',
       },
       {
         id: 'fc2',
         front: '徴兵令',
         back: '1873年に出された、満20歳の男子に兵役を課す法律は？',
         explanation: '身分に関わらず兵役の義務を課し、国民皆兵を実現した。',
+        difficulty: 'basic',
       },
       {
         id: 'fc3',
         front: '地租改正',
         back: '1873年に行われた、税金の仕組みを変えた改革は？',
         explanation: '地価の3%を現金で納める制度に変更した。',
+        difficulty: 'basic',
       },
       {
         id: 'fc4',
         front: '国民皆兵',
         back: '国民全員が兵役の義務を負うという考え方は？',
         explanation: '徴兵令の基本となる考え方。',
+        difficulty: 'basic',
       },
       {
         id: 'fc5',
         front: '地券',
         back: '地租改正で土地所有者に発行された、土地の所有を証明する文書は？',
         explanation: 'これにより土地の所有権が認められた。',
+        difficulty: 'standard',
       },
       {
         id: 'fc6',
         front: '地価',
         back: '地租改正で税額の基準とされた、土地の価格は？',
         explanation: '地価の3%（後に2.5%）が税金となった。',
+        difficulty: 'standard',
       },
       {
         id: 'fc7',
         front: '地租',
         back: '地租改正で導入された、土地にかかる税金は？',
         explanation: '米ではなく現金で納めるようになった。',
+        difficulty: 'standard',
       },
       {
         id: 'fc8',
         front: '三大改革',
         back: '明治初期に行われた学制・徴兵令・地租改正をまとめて何という？',
         explanation: '教育・軍隊・税金の三分野で大きな改革が行われた。',
+        difficulty: 'standard',
       },
       {
         id: 'fc9',
         front: '血税一揆',
         back: '徴兵令に反対して各地で起きた一揆は？',
         explanation: '「血税」という言葉を誤解して起きた反対運動。',
+        difficulty: 'advanced',
       },
       {
         id: 'fc10',
         front: '地租改正反対一揆',
         back: '地租改正による重い負担に反対して起きた農民の一揆は？',
         explanation: 'この一揆により税率が3%から2.5%に引き下げられた。',
+        difficulty: 'advanced',
       },
     ],
     quiz: {
@@ -115,6 +125,7 @@ export const threeReforms: Topic = {
           correctIndex: 0,
           explanation:
             '学制により全国に小学校が作られ、国民みんなが学問を受ける近代的な教育が始まりました。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -124,6 +135,7 @@ export const threeReforms: Topic = {
           correctIndex: 2,
           explanation:
             '徴兵令は国民皆兵の原則に基づき、身分に関わらず兵役の義務を課しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -132,6 +144,7 @@ export const threeReforms: Topic = {
           correctIndex: 3,
           explanation:
             '地租改正では地価の3%を現金で納める制度に変わり、政府の収入が安定しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q4',
@@ -141,6 +154,7 @@ export const threeReforms: Topic = {
           correctIndex: 1,
           explanation:
             '農民の負担が重く反対一揆が起きたため、1877年に税率が3%から2.5%に引き下げられました。',
+          difficulty: 'standard',
         },
         {
           id: 'q5',
@@ -150,6 +164,7 @@ export const threeReforms: Topic = {
           correctIndex: 2,
           explanation:
             '地券の発行により土地の所有権が認められ、土地の売買も可能になりました。',
+          difficulty: 'standard',
         },
         {
           id: 'q6',
@@ -159,6 +174,7 @@ export const threeReforms: Topic = {
           correctIndex: 1,
           explanation:
             '教育・軍隊・税金の三分野で行われた大きな改革を三大改革と呼びます。',
+          difficulty: 'standard',
         },
       ],
     },

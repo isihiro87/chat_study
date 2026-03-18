@@ -54,34 +54,34 @@ export const sekkanPolitics: Topic = {
     },
     videos: [],
     flashcards: [
-      { id: 'fc1', front: '摂関政治', back: '藤原氏が娘を天皇のきさきにして実権を握った政治を何という？' },
-      { id: 'fc2', front: '摂政', back: '幼い天皇に代わって政治を行う役職は？' },
-      { id: 'fc3', front: '関白', back: '成長した天皇を補佐する役職を何という？' },
-      { id: 'fc4', front: '藤原道長', back: '摂関政治の全盛期を築いた人物は？' },
-      { id: 'fc5', front: '藤原頼通', back: '道長の子で、平等院鳳凰堂を建立した人物は？' },
-      { id: 'fc6', front: '寝殿造', back: '平安時代の貴族の住まいに見られる建築様式は？' },
-      { id: 'fc7', front: '外戚', back: '天皇の母方の親戚のことを何という？' },
-      { id: 'fc8', front: '望月', back: '藤原道長の歌で自分の栄華をたとえたものは？' },
-      { id: 'fc9', front: '浄土信仰', back: '念仏を唱えて極楽浄土に往生することを願う信仰は？' },
-      { id: 'fc10', front: '阿弥陀如来', back: '浄土信仰で信仰の対象とされた仏は？' },
-      { id: 'fc11', front: '宋', back: '10世紀に中国を統一した王朝は？' },
-      { id: 'fc12', front: '高麗', back: '朝鮮半島を統一した国は？' },
-      { id: 'fc13', front: '日宋貿易', back: '宋との間で行われた貿易を何という？' },
-      { id: 'fc14', front: '末法思想', back: '仏教の教えが衰える時代に入るという考え方は？' },
-      { id: 'fc15', front: '十二単', back: '平安貴族の女性が着用した正装は？' },
-      { id: 'fc16', front: '院政', back: '摂関政治の後に上皇が政治の実権を握る制度は？' },
-      { id: 'fc17', front: '白河天皇', back: '院政を始めた天皇は？' },
-      { id: 'fc18', front: '1053年', back: '平等院鳳凰堂が建立された年は？' },
-      { id: 'fc19', front: '中臣氏', back: '摂関政治を行った藤原氏のもとの姓は？' },
-      { id: 'fc20', front: '大化の改新', back: '中臣鎌足が藤原姓を賜る功績の元となった出来事は？' },
-      { id: 'fc21', front: '4人', back: '藤原道長は何人の娘を天皇に嫁がせたか？' },
-      { id: 'fc22', front: '10円硬貨', back: '平等院鳳凰堂のデザインが描かれている日本の硬貨は？' },
-      { id: 'fc23', front: '牛車', back: '貴族たちが日常的に使っていた乗り物は？' },
-      { id: 'fc24', front: '宋銭・陶磁器', back: '日宋貿易でおもに輸入されたものは？' },
-      { id: 'fc25', front: '金・銀・刀剣', back: '日宋貿易でおもに輸出されたものは？' },
-      { id: 'fc26', front: '藤原頼通に天皇の后となる娘がいなかった', back: '藤原頼通以降に摂関政治が弱まった理由は？' },
-      { id: 'fc27', front: '11世紀初頭', back: '藤原道長の時代はおよそ何世紀か？' },
-      { id: 'fc28', front: '宇治（京都府）', back: '平等院鳳凰堂が建てられた場所は？' },
+      { id: 'fc1', front: '摂関政治', back: '藤原氏が娘を天皇のきさきにして実権を握った政治を何という？', difficulty: 'basic' },
+      { id: 'fc2', front: '摂政', back: '幼い天皇に代わって政治を行う役職は？', difficulty: 'basic' },
+      { id: 'fc3', front: '関白', back: '成長した天皇を補佐する役職を何という？', difficulty: 'basic' },
+      { id: 'fc4', front: '藤原道長', back: '摂関政治の全盛期を築いた人物は？', difficulty: 'basic' },
+      { id: 'fc5', front: '藤原頼通', back: '道長の子で、平等院鳳凰堂を建立した人物は？', difficulty: 'basic' },
+      { id: 'fc6', front: '寝殿造', back: '平安時代の貴族の住まいに見られる建築様式は？', difficulty: 'basic' },
+      { id: 'fc7', front: '外戚', back: '天皇の母方の親戚のことを何という？', difficulty: 'basic' },
+      { id: 'fc8', front: '望月', back: '藤原道長の歌で自分の栄華をたとえたものは？', difficulty: 'basic' },
+      { id: 'fc9', front: '浄土信仰', back: '念仏を唱えて極楽浄土に往生することを願う信仰は？', difficulty: 'basic' },
+      { id: 'fc10', front: '阿弥陀如来', back: '浄土信仰で信仰の対象とされた仏は？', difficulty: 'basic' },
+      { id: 'fc11', front: '宋', back: '10世紀に中国を統一した王朝は？', difficulty: 'basic' },
+      { id: 'fc12', front: '高麗', back: '朝鮮半島を統一した国は？', difficulty: 'basic' },
+      { id: 'fc13', front: '日宋貿易', back: '宋との間で行われた貿易を何という？', difficulty: 'standard' },
+      { id: 'fc14', front: '末法思想', back: '仏教の教えが衰える時代に入るという考え方は？', difficulty: 'standard' },
+      { id: 'fc15', front: '十二単', back: '平安貴族の女性が着用した正装は？', difficulty: 'standard' },
+      { id: 'fc16', front: '院政', back: '摂関政治の後に上皇が政治の実権を握る制度は？', difficulty: 'standard' },
+      { id: 'fc17', front: '白河天皇', back: '院政を始めた天皇は？', difficulty: 'standard' },
+      { id: 'fc18', front: '1053年', back: '平等院鳳凰堂が建立された年は？', difficulty: 'standard' },
+      { id: 'fc19', front: '中臣氏', back: '摂関政治を行った藤原氏のもとの姓は？', difficulty: 'standard' },
+      { id: 'fc20', front: '大化の改新', back: '中臣鎌足が藤原姓を賜る功績の元となった出来事は？', difficulty: 'standard' },
+      { id: 'fc21', front: '4人', back: '藤原道長は何人の娘を天皇に嫁がせたか？', difficulty: 'standard' },
+      { id: 'fc22', front: '10円硬貨', back: '平等院鳳凰堂のデザインが描かれている日本の硬貨は？', difficulty: 'standard' },
+      { id: 'fc23', front: '牛車', back: '貴族たちが日常的に使っていた乗り物は？', difficulty: 'advanced' },
+      { id: 'fc24', front: '宋銭・陶磁器', back: '日宋貿易でおもに輸入されたものは？', difficulty: 'advanced' },
+      { id: 'fc25', front: '金・銀・刀剣', back: '日宋貿易でおもに輸出されたものは？', difficulty: 'advanced' },
+      { id: 'fc26', front: '藤原頼通に天皇の后となる娘がいなかった', back: '藤原頼通以降に摂関政治が弱まった理由は？', difficulty: 'advanced' },
+      { id: 'fc27', front: '11世紀初頭', back: '藤原道長の時代はおよそ何世紀か？', difficulty: 'advanced' },
+      { id: 'fc28', front: '宇治（京都府）', back: '平等院鳳凰堂が建てられた場所は？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -91,6 +91,7 @@ export const sekkanPolitics: Topic = {
           options: ['摂関政治', '執権政治', '建武の新政', '院政'],
           correctIndex: 0,
           explanation: '摂関政治は藤原氏が摂政・関白として権力を握った政治形態です。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -98,6 +99,7 @@ export const sekkanPolitics: Topic = {
           options: ['藤原頼通', '藤原道長', '中臣鎌足', '菅原道真'],
           correctIndex: 1,
           explanation: '藤原道長は「この世をば…」の歌で知られる摂関政治の全盛期の人物です。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -105,6 +107,7 @@ export const sekkanPolitics: Topic = {
           options: ['校倉造', '書院造', '数寄屋造', '寝殿造'],
           correctIndex: 3,
           explanation: '寝殿造は中央に寝殿を置き、渡り廊下で周囲の建物を結ぶ様式です。',
+          difficulty: 'basic',
         },
         {
           id: 'q4',
@@ -112,6 +115,7 @@ export const sekkanPolitics: Topic = {
           options: ['関白', '太政大臣', '摂政', '征夷大将軍'],
           correctIndex: 2,
           explanation: '摂政は幼い天皇に代わって政治を行い、関白は成長した天皇を補佐する役職です。',
+          difficulty: 'basic',
         },
         {
           id: 'q5',
@@ -119,6 +123,7 @@ export const sekkanPolitics: Topic = {
           options: ['平等院鳳凰堂', '法隆寺', '東大寺', '唐招提寺'],
           correctIndex: 0,
           explanation: '平等院鳳凰堂は藤原頼通が1053年に宇治に建立した、浄土信仰を表す美しい建物です。',
+          difficulty: 'basic',
         },
         {
           id: 'q6',
@@ -126,6 +131,7 @@ export const sekkanPolitics: Topic = {
           options: ['太陽', '富士山', '桜', '望月（満月）'],
           correctIndex: 3,
           explanation: '道長は「この世をば わが世とぞ思ふ 望月の 欠けたることも なしと思へば」と詠み、自分の栄華を欠けることのない満月にたとえました。',
+          difficulty: 'basic',
         },
         {
           id: 'q7',
@@ -133,6 +139,7 @@ export const sekkanPolitics: Topic = {
           options: ['関白', '外戚', '摂政', '太政大臣'],
           correctIndex: 1,
           explanation: '外戚は天皇の母方の親戚で、藤原氏はこの立場を利用して政治の実権を握りました。',
+          difficulty: 'basic',
         },
         {
           id: 'q8',
@@ -140,6 +147,7 @@ export const sekkanPolitics: Topic = {
           options: ['唐', '隋', '宋', '元'],
           correctIndex: 2,
           explanation: '宋は10世紀に中国を統一し、日宋貿易で宋銭や陶磁器が日本に輸入されました。',
+          difficulty: 'basic',
         },
         {
           id: 'q9',
@@ -147,6 +155,7 @@ export const sekkanPolitics: Topic = {
           options: ['釈迦如来', '大日如来', '阿弥陀如来', '薬師如来'],
           correctIndex: 2,
           explanation: '浄土信仰では阿弥陀如来を信仰し、極楽浄土への往生を願いました。',
+          difficulty: 'basic',
         },
         {
           id: 'q10',
@@ -154,6 +163,7 @@ export const sekkanPolitics: Topic = {
           options: ['武家政治', '建武の新政', '執権政治', '院政'],
           correctIndex: 3,
           explanation: '院政は退位した天皇（上皇）が直接政治の実権を握る政治形態です。',
+          difficulty: 'basic',
         },
         {
           id: 'q11',
@@ -161,6 +171,7 @@ export const sekkanPolitics: Topic = {
           options: ['武力で天皇を支配した', '娘を天皇のきさきにした', '天皇の家臣になった', '天皇の息子を養子にした'],
           correctIndex: 1,
           explanation: '藤原氏は娘を天皇のきさき（后）にすることで外戚の地位を得ました。',
+          difficulty: 'standard',
         },
         {
           id: 'q12',
@@ -168,6 +179,7 @@ export const sekkanPolitics: Topic = {
           options: ['物部氏', '蘇我氏', '中臣氏', '大伴氏'],
           correctIndex: 2,
           explanation: '藤原氏のもとの姓は中臣氏で、中臣鎌足が藤原姓を賜りました。',
+          difficulty: 'standard',
         },
         {
           id: 'q13',
@@ -175,6 +187,7 @@ export const sekkanPolitics: Topic = {
           options: ['2人', '3人', '4人', '5人'],
           correctIndex: 2,
           explanation: '藤原道長は4人の娘を天皇に嫁がせ、摂関政治の全盛期を築きました。',
+          difficulty: 'standard',
         },
         {
           id: 'q14',
@@ -182,6 +195,7 @@ export const sekkanPolitics: Topic = {
           options: ['釈迦如来像', '大日如来像', '阿弥陀如来像', '盧舎那仏像'],
           correctIndex: 2,
           explanation: '平等院鳳凰堂には浄土信仰に基づく阿弥陀如来像が安置されています。',
+          difficulty: 'standard',
         },
         {
           id: 'q15',
@@ -189,6 +203,7 @@ export const sekkanPolitics: Topic = {
           options: ['1円硬貨', '5円硬貨', '10円硬貨', '100円硬貨'],
           correctIndex: 2,
           explanation: '平等院鳳凰堂のデザインは10円硬貨に描かれています。',
+          difficulty: 'standard',
         },
         {
           id: 'q16',
@@ -196,6 +211,7 @@ export const sekkanPolitics: Topic = {
           options: ['田畑', '城壁', '池や築山のある庭園', '市場'],
           correctIndex: 2,
           explanation: '寝殿造の庭には池や築山のある美しい庭園が造られました。',
+          difficulty: 'standard',
         },
         {
           id: 'q17',
@@ -203,6 +219,7 @@ export const sekkanPolitics: Topic = {
           options: ['米と絹', '宋銭・陶磁器・書籍', '武器と馬', '木材と石材'],
           correctIndex: 1,
           explanation: '日宋貿易では宋銭・陶磁器・書籍などが輸入されました。',
+          difficulty: 'standard',
         },
         {
           id: 'q18',
@@ -210,6 +227,7 @@ export const sekkanPolitics: Topic = {
           options: ['桓武天皇', '聖武天皇', '白河天皇', '後三条天皇'],
           correctIndex: 2,
           explanation: '白河天皇（白河上皇）が院政を始めました。',
+          difficulty: 'standard',
         },
         {
           id: 'q19',
@@ -217,6 +235,7 @@ export const sekkanPolitics: Topic = {
           options: ['外国の侵攻', '藤原氏と外戚関係のない天皇が即位したこと', '仏教の衰退', '農民の反乱'],
           correctIndex: 1,
           explanation: '藤原氏と外戚関係のない天皇が即位すると、摂関政治は弱まりました。',
+          difficulty: 'standard',
         },
         {
           id: 'q20',
@@ -224,6 +243,7 @@ export const sekkanPolitics: Topic = {
           options: ['戦争に敗れたから', '頼通には天皇の后となる娘がいなかったから', '天皇が幼帝だったから', '外国からの圧力'],
           correctIndex: 1,
           explanation: '藤原頼通には天皇のきさきとなる娘がおらず、外戚の地位を維持できなくなりました。',
+          difficulty: 'standard',
         },
         {
           id: 'q21',
@@ -231,6 +251,7 @@ export const sekkanPolitics: Topic = {
           options: ['法律で定められていたから', '教養の証であり恋愛や社交の手段だったから', '税の代わりだったから', '宗教的義務だったから'],
           correctIndex: 1,
           explanation: '和歌は教養の証であり、恋愛や社交の手段として貴族社会で重要視されました。',
+          difficulty: 'standard',
         },
         {
           id: 'q22',
@@ -238,6 +259,7 @@ export const sekkanPolitics: Topic = {
           options: ['仏教の普及', '蝦夷征伐', '大化の改新に協力した功績', '遣唐使の派遣'],
           correctIndex: 2,
           explanation: '中臣鎌足は大化の改新に協力した功績により藤原姓を賜りました。',
+          difficulty: 'standard',
         },
         {
           id: 'q23',
@@ -245,6 +267,7 @@ export const sekkanPolitics: Topic = {
           options: ['9世紀', '10世紀', '11世紀初頭', '12世紀'],
           correctIndex: 2,
           explanation: '藤原道長の時代はおよそ11世紀初頭です。',
+          difficulty: 'advanced',
         },
         {
           id: 'q24',
@@ -252,6 +275,7 @@ export const sekkanPolitics: Topic = {
           options: ['奈良', '京都市内', '宇治（京都府）', '大阪'],
           correctIndex: 2,
           explanation: '平等院鳳凰堂は宇治（京都府）に建てられました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q25',
@@ -259,6 +283,7 @@ export const sekkanPolitics: Topic = {
           options: ['宋銭・陶磁器', '金・銀・刀剣・扇', '米・絹', '仏像・経典'],
           correctIndex: 1,
           explanation: '日宋貿易では金・銀・刀剣・扇などが輸出されました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q26',
@@ -266,6 +291,7 @@ export const sekkanPolitics: Topic = {
           options: ['馬車', '牛車', '輿', '船'],
           correctIndex: 1,
           explanation: '貴族たちは日常的に牛車を使って移動しました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q27',
@@ -273,6 +299,7 @@ export const sekkanPolitics: Topic = {
           options: ['摂政は軍事、関白は政治', '摂政は幼い天皇に代わって政治、関白は成長した天皇を補佐', '摂政は地方、関白は都', '違いはない'],
           correctIndex: 1,
           explanation: '摂政は幼い天皇に代わって政治を行い、関白は成長した天皇を補佐します。',
+          difficulty: 'advanced',
         },
         {
           id: 'q28',
@@ -280,6 +307,7 @@ export const sekkanPolitics: Topic = {
           options: ['1016年', '1053年', '1086年', '1100年'],
           correctIndex: 1,
           explanation: '平等院鳳凰堂は1053年に藤原頼通によって建立されました。',
+          difficulty: 'advanced',
         },
       ],
     },

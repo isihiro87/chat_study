@@ -163,164 +163,34 @@ export const worldCountries: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'geo1-wc-fc1',
-        front: 'ユニオンジャック',
-        back: 'オーストラリアなど旧イギリス植民地の国旗に含まれるイギリスの旗のデザインを何という？',
-        explanation: 'イギリスとの歴史的なつながりを示すデザイン。',
-      },
-      {
-        id: 'geo1-wc-fc2',
-        front: '自然的国境',
-        back: '山脈・川・海などの自然の地形を利用して引かれた国境を何という？',
-        explanation: 'ヒマラヤ山脈やライン川が国境になっている例がある。',
-      },
-      {
-        id: 'geo1-wc-fc3',
-        front: '人為的国境',
-        back: '緯線・経線に沿って直線的に引かれた国境を何という？',
-        explanation: 'アフリカ大陸に多く見られ、植民地時代に引かれたものが多い。',
-      },
-      {
-        id: 'geo1-wc-fc4',
-        front: 'ロシア',
-        back: '面積が世界最大（約1,710万km²）の国はどこ？',
-        explanation: '日本の約45倍の面積を持つ。',
-      },
-      {
-        id: 'geo1-wc-fc5',
-        front: 'バチカン市国',
-        back: '面積が世界最小（約0.44km²）の国はどこ？',
-        explanation: 'イタリアのローマ市内にあるカトリック教会の総本山。',
-      },
-      {
-        id: 'geo1-wc-fc6',
-        front: '人口密度',
-        back: '1km²あたりに何人住んでいるかを示す値を何という？ 計算式は「人口÷面積」。',
-        explanation: 'その地域がどれだけ混み合っているかを表す指標。',
-      },
-      {
-        id: 'geo1-wc-fc7',
-        front: '内陸国',
-        back: '海に面していない国（モンゴル・スイスなど）を何という？',
-        explanation: '反対に、日本やイギリスのように海に囲まれた国を島国という。',
-      },
-      {
-        id: 'geo1-wc-fc8',
-        front: '南十字星',
-        back: '南半球の国の国旗に描かれることがある星座は何？',
-        explanation: 'オーストラリアやニュージーランドの国旗に描かれている。南半球でよく見える星座。',
-      },
-      {
-        id: 'geo1-wc-fc9',
-        front: '三日月と星',
-        back: 'トルコやパキスタンなどイスラム教圏の国旗に多いデザインは何？',
-        explanation: 'イスラム教のシンボルとして三日月と星が国旗に使われている。',
-      },
-      {
-        id: 'geo1-wc-fc10',
-        front: 'インドの国名の由来',
-        back: '「インド」という国名は何に由来するか？',
-        explanation: '大河を意味するインダス川に由来する。',
-      },
-      {
-        id: 'geo1-wc-fc11',
-        front: 'フィリピンの国名の由来',
-        back: '「フィリピン」という国名は何に由来するか？',
-        explanation: 'スペインの皇太子フェリペの名前に由来する。',
-      },
-      {
-        id: 'geo1-wc-fc12',
-        front: 'コロンビアの国名の由来',
-        back: '「コロンビア」という国名は何に由来するか？',
-        explanation: '探検家コロンブスの名前に由来する。',
-      },
-      {
-        id: 'geo1-wc-fc13',
-        front: 'エクアドルの国名の由来',
-        back: '「エクアドル」という国名はどういう意味？',
-        explanation: 'スペイン語で「赤道」を意味する。赤道が国内を通っていることに由来する。',
-      },
-      {
-        id: 'geo1-wc-fc14',
-        front: '島国',
-        back: '日本やイギリスのように、海に囲まれた国を何という？',
-        explanation: '島国（海洋国）。全体が海で囲まれていて他の国と陸地で接していない国のこと。',
-      },
-      {
-        id: 'geo1-wc-fc15',
-        front: '世界の人口',
-        back: '2023年現在、世界の人口はおよそ何億人か？',
-        explanation: '約80億人。アジア州の人口が最も多く、国ではインドと中国がそれぞれ約14億人。',
-      },
-      {
-        id: 'geo1-wc-fc16',
-        front: 'モナコの人口密度',
-        back: '世界で人口密度が最も高い国はどこで、約何人/km²か？',
-        explanation: 'モナコ。約2万人/km²。面積が非常に小さい都市国家のため。',
-      },
-      {
-        id: 'geo1-wc-fc17',
-        front: '日本の面積の順位',
-        back: '日本の面積は世界で何番目くらいの大きさか？',
-        explanation: '61番目くらい。決して小さい国ではない。',
-      },
-      {
-        id: 'geo1-wc-fc18',
-        front: '世界の国の数',
-        back: '世界の六つの州にはおよそいくつの国があるか？',
-        explanation: '約190の国がある。',
-      },
-      {
-        id: 'geo1-wc-fc19',
-        front: '約200の国',
-        back: '世界にはおよそいくつの国があるか。',
-      },
-      {
-        id: 'geo1-wc-fc20',
-        front: '国旗',
-        back: '各国が持つ、その国の歴史や文化を反映した旗を何というか。',
-      },
-      {
-        id: 'geo1-wc-fc21',
-        front: 'アイスランド',
-        back: '「アイスランド」という国名はどういう意味か。',
-      },
-      {
-        id: 'geo1-wc-fc22',
-        front: '国境',
-        back: '国と国の境界線のことを何というか。',
-      },
-      {
-        id: 'geo1-wc-fc23',
-        front: 'ライン川の国境',
-        back: '自然的国境の例として使われる川を1つ答えよ。',
-      },
-      {
-        id: 'geo1-wc-fc24',
-        front: 'ヒマラヤ山脈の国境',
-        back: '自然的国境の例として使われる山脈を1つ答えよ。',
-      },
-      {
-        id: 'geo1-wc-fc25',
-        front: 'カナダの面積',
-        back: '面積が世界で2番目に大きい国はどこか。',
-      },
-      {
-        id: 'geo1-wc-fc26',
-        front: 'インドと中国の人口',
-        back: '人口が多い国を2つ答えよ。',
-      },
-      {
-        id: 'geo1-wc-fc27',
-        front: 'オーストラリアの人口密度',
-        back: 'オーストラリアの人口密度はおよそ何人/km²か。',
-      },
-      {
-        id: 'geo1-wc-fc28',
-        front: '国旗に反映されるもの',
-        back: '国旗のデザインに影響を与えるものを3つ答えよ。',
-      },
+      { id: 'geo1-wc-fc1', front: 'ユニオンジャック', back: 'オーストラリアなど旧イギリス植民地の国旗に含まれるイギリスの旗のデザインを何という？', difficulty: 'basic' },
+      { id: 'geo1-wc-fc2', front: '自然的国境', back: '山脈・川・海などの自然の地形を利用して引かれた国境を何という？', explanation: 'ヒマラヤ山脈やライン川が国境になっている例がある。', difficulty: 'basic' },
+      { id: 'geo1-wc-fc3', front: '人為的国境', back: '緯線・経線に沿って直線的に引かれた国境を何という？', explanation: 'アフリカ大陸に多く見られ、植民地時代に引かれたものが多い。', difficulty: 'basic' },
+      { id: 'geo1-wc-fc4', front: 'ロシア（約1,710万km²）', back: '面積が世界最大の国はどこ？', difficulty: 'basic' },
+      { id: 'geo1-wc-fc5', front: 'バチカン市国（約0.44km²）', back: '面積が世界最小の国はどこ？', explanation: 'イタリアのローマ市内にあるカトリック教会の総本山。', difficulty: 'basic' },
+      { id: 'geo1-wc-fc6', front: '人口密度（人口÷面積）', back: '1km²あたりに何人住んでいるかを示す値を何という？', difficulty: 'basic' },
+      { id: 'geo1-wc-fc7', front: '内陸国', back: '海に面していない国（モンゴル・スイスなど）を何という？', explanation: '反対に海に囲まれた国を島国という。', difficulty: 'basic' },
+      { id: 'geo1-wc-fc8', front: '南十字星', back: '南半球の国の国旗に描かれることがある星座は何？', explanation: 'オーストラリアやニュージーランドの国旗に描かれている。', difficulty: 'basic' },
+      { id: 'geo1-wc-fc9', front: '三日月と星', back: 'トルコやパキスタンなどイスラム教圏の国旗に多いデザインは何？', difficulty: 'basic' },
+      { id: 'geo1-wc-fc10', front: 'インダス川に由来', back: '「インド」という国名は何に由来するか？', difficulty: 'standard' },
+      { id: 'geo1-wc-fc11', front: 'スペインの皇太子フェリペの名前', back: '「フィリピン」という国名は何に由来するか？', difficulty: 'standard' },
+      { id: 'geo1-wc-fc12', front: '探検家コロンブスの名前', back: '「コロンビア」という国名は何に由来するか？', difficulty: 'standard' },
+      { id: 'geo1-wc-fc13', front: 'スペイン語で「赤道」という意味', back: '「エクアドル」という国名はどういう意味？', difficulty: 'standard' },
+      { id: 'geo1-wc-fc14', front: '島国（海洋国）', back: '日本やイギリスのように、海に囲まれた国を何という？', difficulty: 'basic' },
+      { id: 'geo1-wc-fc15', front: '約80億人', back: '現在、世界の人口はおよそ何億人か？', explanation: 'アジア州の人口が最も多い。', difficulty: 'standard' },
+      { id: 'geo1-wc-fc16', front: 'モナコ（約2万人/km²）', back: '世界で人口密度が最も高い国はどこで、約何人/km²か？', explanation: '面積が非常に小さい都市国家のため。', difficulty: 'standard' },
+      { id: 'geo1-wc-fc17', front: '世界で61番目くらい', back: '日本の面積は世界で何番目くらいの大きさか？', difficulty: 'standard' },
+      { id: 'geo1-wc-fc18', front: '約200の国', back: '世界にはおよそいくつの国があるか。', difficulty: 'basic' },
+      { id: 'geo1-wc-fc19', front: '「氷の島」という意味', back: '「アイスランド」という国名はどういう意味か。', difficulty: 'standard' },
+      { id: 'geo1-wc-fc20', front: '国境', back: '国と国の境界線のことを何というか。', difficulty: 'basic' },
+      { id: 'geo1-wc-fc21', front: 'ライン川', back: '自然的国境の例として使われるヨーロッパの川を1つ答えよ。', difficulty: 'standard' },
+      { id: 'geo1-wc-fc22', front: 'ヒマラヤ山脈', back: '自然的国境の例として使われる山脈を1つ答えよ。', difficulty: 'standard' },
+      { id: 'geo1-wc-fc23', front: 'カナダ（約998万km²）', back: '面積が世界で2番目に大きい国はどこか。', difficulty: 'standard' },
+      { id: 'geo1-wc-fc24', front: 'インドと中国（それぞれ約14億人）', back: '人口が多い国を2つ答えよ。', difficulty: 'standard' },
+      { id: 'geo1-wc-fc25', front: '約3人/km²', back: 'オーストラリアの人口密度はおよそ何人/km²か。', explanation: '国土面積が広く人口が少ないため非常に低い。', difficulty: 'advanced' },
+      { id: 'geo1-wc-fc26', front: '自然（地形・気候）・歴史・宗教', back: '国旗のデザインに影響を与えるものを3つ答えよ。', difficulty: 'advanced' },
+      { id: 'geo1-wc-fc27', front: '植民地時代にヨーロッパの国が緯線・経線で引いたから', back: 'アフリカ大陸に直線的な国境が多い理由を答えよ。', difficulty: 'advanced' },
+      { id: 'geo1-wc-fc28', front: '人口が少なければ面積あたりの人数が減るため', back: '面積が大きくても人口密度が低くなる理由を答えよ。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -331,7 +201,8 @@ export const worldCountries: Topic = {
           correctIndex: 0,
           explanation:
             '南半球で見える南十字星が国旗に描かれています。イギリスとのつながりを示すユニオンジャックも含まれています。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-wc-q2',
           question: 'アフリカ大陸に直線的な国境が多い理由は？',
@@ -344,7 +215,8 @@ export const worldCountries: Topic = {
           correctIndex: 2,
           explanation:
             'アフリカの直線的な国境の多くは、植民地時代にヨーロッパ諸国が緯線・経線に沿って引いた人為的国境です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-wc-q3',
           question: '面積が世界最大の国はどこ？',
@@ -352,7 +224,8 @@ export const worldCountries: Topic = {
           correctIndex: 3,
           explanation:
             'ロシアの面積は約1,710万km²で世界最大です。2位のカナダ（約998万km²）を大きく上回ります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-wc-q4',
           question: '人口密度の求め方として正しいものは？',
@@ -365,7 +238,8 @@ export const worldCountries: Topic = {
           correctIndex: 1,
           explanation:
             '人口密度は「人口÷面積」で求められます。1km²あたりに何人住んでいるかを示す指標です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-wc-q5',
           question: '海に面していない国を何という？',
@@ -373,7 +247,8 @@ export const worldCountries: Topic = {
           correctIndex: 2,
           explanation:
             '海に面していない国を内陸国といいます。モンゴルやスイスなどが内陸国の例です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-wc-q6',
           question: '「エクアドル」という国名の由来は何？',
@@ -386,7 +261,8 @@ export const worldCountries: Topic = {
           correctIndex: 0,
           explanation:
             'エクアドルはスペイン語で「赤道」を意味します。赤道が国内を通っていることに由来します。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-wc-q7',
           question: '面積が世界最小の国はどこ？',
@@ -394,7 +270,8 @@ export const worldCountries: Topic = {
           correctIndex: 1,
           explanation:
             'バチカン市国（約0.44km²）が世界最小の国です。イタリアのローマ市内にあるカトリック教会の総本山です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-wc-q8',
           question: '世界の人口が最も多い州はどこ？',
@@ -407,7 +284,8 @@ export const worldCountries: Topic = {
           correctIndex: 3,
           explanation:
             'アジア州が世界で最も人口が多く、世界人口の約6割を占めています。インドや中国などの人口大国が含まれます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-wc-q9',
           question: '「フィリピン」という国名は何に由来する？',
@@ -420,7 +298,8 @@ export const worldCountries: Topic = {
           correctIndex: 0,
           explanation:
             'フィリピンはスペインの皇太子フェリペの名前に由来します。スペインの植民地時代につけられた名前です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-wc-q10',
           question: '世界で人口密度が最も高い国はどこ？',
@@ -433,7 +312,8 @@ export const worldCountries: Topic = {
           correctIndex: 2,
           explanation:
             'モナコの人口密度は約2万人/km²で世界最高です。面積が約2km²と非常に小さい都市国家です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-wc-q11',
           question: '世界にはおよそいくつの国があるか。',
@@ -446,7 +326,8 @@ export const worldCountries: Topic = {
           correctIndex: 2,
           explanation:
             '世界の六つの州にはおよそ200の国があります。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-wc-q12',
           question: 'アイスランドという国名の意味はどれ？',
@@ -459,7 +340,8 @@ export const worldCountries: Topic = {
           correctIndex: 1,
           explanation:
             'アイスランドは「氷の島」という意味です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-wc-q13',
           question: 'コロンビアという国名の由来は何？',
@@ -472,7 +354,8 @@ export const worldCountries: Topic = {
           correctIndex: 1,
           explanation:
             'コロンビアは探検家コロンブスの名前に由来します。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-wc-q14',
           question: '自然的国境の例として正しいものはどれ？',
@@ -485,7 +368,8 @@ export const worldCountries: Topic = {
           correctIndex: 1,
           explanation:
             'ヒマラヤ山脈やライン川は自然的国境の代表的な例です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-wc-q15',
           question: '日本やイギリスのように海に囲まれた国を何という？',
@@ -498,7 +382,8 @@ export const worldCountries: Topic = {
           correctIndex: 2,
           explanation:
             '海に囲まれた国を島国（海洋国）といいます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-wc-q16',
           question: '面積が世界で2番目に大きい国はどこ？',
@@ -511,7 +396,8 @@ export const worldCountries: Topic = {
           correctIndex: 3,
           explanation:
             'カナダの面積は約998万km²で、ロシアに次いで世界2位です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-wc-q17',
           question: '内陸国の例として正しくないものはどれ？',
@@ -524,7 +410,8 @@ export const worldCountries: Topic = {
           correctIndex: 3,
           explanation:
             'イギリスは島国であり、内陸国ではありません。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-wc-q18',
           question: '世界の人口が最も多い州の人口は世界の約何割？',
@@ -537,7 +424,8 @@ export const worldCountries: Topic = {
           correctIndex: 2,
           explanation:
             'アジア州は世界人口の約6割を占めています。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-wc-q19',
           question: 'インドという国名の由来はどれ？',
@@ -550,7 +438,8 @@ export const worldCountries: Topic = {
           correctIndex: 2,
           explanation:
             'インドはインダス川に由来する国名です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-wc-q20',
           question: '日本の面積は世界で何番目くらいの大きさ？',
@@ -563,7 +452,8 @@ export const worldCountries: Topic = {
           correctIndex: 2,
           explanation:
             '日本の面積は世界で61番目くらいの大きさです。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-wc-q21',
           question: '面積が大きくても人口密度が低くなる理由はどれ？',
@@ -576,7 +466,8 @@ export const worldCountries: Topic = {
           correctIndex: 1,
           explanation:
             '人口が少なければ面積あたりの人数が減り、人口密度は低くなります。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-wc-q22',
           question: 'オーストラリアの人口密度はおよそ何人/km²か。',
@@ -589,7 +480,8 @@ export const worldCountries: Topic = {
           correctIndex: 0,
           explanation:
             'オーストラリアの人口密度は約3人/km²と非常に低いです。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-wc-q23',
           question: '国旗のデザインに影響を与えるものとして正しくないものはどれ？',
@@ -602,7 +494,8 @@ export const worldCountries: Topic = {
           correctIndex: 3,
           explanation:
             '国旗のデザインには歴史・自然・宗教が反映されますが、面積は関係しません。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'geo1-wc-q24',
           question: 'バチカン市国の面積はおよそいくらか。',
@@ -615,7 +508,8 @@ export const worldCountries: Topic = {
           correctIndex: 2,
           explanation:
             'バチカン市国の面積は約0.44km²で世界最小の国です。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'geo1-wc-q25',
           question: 'ロシアの面積はおよそ何万km²か。',
@@ -628,7 +522,8 @@ export const worldCountries: Topic = {
           correctIndex: 2,
           explanation:
             'ロシアの面積は約1,710万km²で世界最大です。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'geo1-wc-q26',
           question: 'インドと中国の人口はそれぞれ約何億人か。',
@@ -641,7 +536,8 @@ export const worldCountries: Topic = {
           correctIndex: 2,
           explanation:
             'インドと中国の人口はそれぞれ約14億人です。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'geo1-wc-q27',
           question: '2023年現在、世界の人口はおよそ何億人か。',
@@ -654,7 +550,8 @@ export const worldCountries: Topic = {
           correctIndex: 2,
           explanation:
             '世界の人口は約80億人を超えて増加し続けています。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'geo1-wc-q28',
           question: '人口密度が高い国と低い国の例として正しい組み合わせはどれ？',
@@ -667,7 +564,8 @@ export const worldCountries: Topic = {
           correctIndex: 0,
           explanation:
             'モナコは人口密度が最も高く（約2万人/km²）、モンゴルは非常に低いです。',
-        },
+        difficulty: 'advanced',
+      },
       ],
     },
     examples: {

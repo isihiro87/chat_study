@@ -96,6 +96,7 @@ export const batteryTypes: Topic = {
         back: '亜鉛板と銅板をそれぞれの硫酸塩水溶液に入れ、セロハン膜で仕切った電池を何という？',
         explanation:
           'Zn板が−極、Cu板が＋極。セロハン膜はイオンを通すが液の混合を防ぐ。',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-bt-fc2',
@@ -103,6 +104,7 @@ export const batteryTypes: Topic = {
         back: 'ダニエル電池のセロハン膜の役割は？',
         explanation:
           '液が混ざると電圧が不安定になる。セロハン膜でイオンだけ通し、＋極に水素がつく問題も解消。',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-bt-fc3',
@@ -110,6 +112,7 @@ export const batteryTypes: Topic = {
         back: 'ダニエル電池の両極の反応を化学式で書くと？',
         explanation:
           '−極ではZnが溶け、＋極ではCu²⁺が銅として析出する。Zn板は小さく、Cu板は大きくなる。',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-bt-fc4',
@@ -117,6 +120,7 @@ export const batteryTypes: Topic = {
         back: 'ダニエル電池で電流を流し続けると、硫酸銅水溶液の色はどう変わる？',
         explanation:
           'Cu²⁺（銅イオン）が電子を受け取って銅として析出するため、Cu²⁺の濃度が下がり青色がうすくなる。',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-bt-fc5',
@@ -124,6 +128,7 @@ export const batteryTypes: Topic = {
         back: 'マンガン乾電池、アルカリ乾電池は何電池？',
         explanation:
           '化学反応が一方向で、充電できない使い切りタイプの電池。',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-bt-fc6',
@@ -131,6 +136,7 @@ export const batteryTypes: Topic = {
         back: 'リチウムイオン電池、鉛蓄電池、ニッケル水素電池は何電池？',
         explanation:
           '充電とは外部から電気エネルギーを加えて、放電時と逆向きの化学反応を起こす操作。',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-bt-fc7',
@@ -138,6 +144,7 @@ export const batteryTypes: Topic = {
         back: '水素と酸素を反応させて電気を取り出す電池と、その化学反応式は？',
         explanation:
           '水しか排出しないクリーンエネルギー。水の電気分解（2H₂O → 2H₂ + O₂）の逆反応。',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-bt-fc8',
@@ -145,6 +152,7 @@ export const batteryTypes: Topic = {
         back: '電池で−極（負極）になるのは、イオン化傾向がどちらの金属？',
         explanation:
           'イオン化傾向が大きい（イオンになりやすい）金属が−極になり、電子を放出する。',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-bt-fc9',
@@ -152,6 +160,7 @@ export const batteryTypes: Topic = {
         back: '水の電気分解の化学反応式は？',
         explanation:
           '水に電気を流すと水素と酸素に分解される。燃料電池はこの逆反応（2H₂ + O₂ → 2H₂O）を利用。',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-bt-fc10',
@@ -159,6 +168,7 @@ export const batteryTypes: Topic = {
         back: 'ダニエル電池でZn板（−極）が小さくなる理由は？',
         explanation:
           '−極の反応 Zn → Zn²⁺ + 2e⁻ により亜鉛が溶解する。',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-bt-fc11',
@@ -166,6 +176,7 @@ export const batteryTypes: Topic = {
         back: 'ダニエル電池でCu板（＋極）が大きくなる理由は？',
         explanation:
           '＋極の反応 Cu²⁺ + 2e⁻ → Cu により銅が析出してCu板の表面に付く。',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-bt-fc12',
@@ -173,6 +184,7 @@ export const batteryTypes: Topic = {
         back: 'ダニエル電池のセロハン膜を通るものは何？',
         explanation:
           'セロハン膜は半透膜で、水の分子やイオンは通すが、水溶液が直接混ざるのを防ぐ。',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-bt-fc13',
@@ -180,6 +192,7 @@ export const batteryTypes: Topic = {
         back: '放電を続けると電圧が低下するのはなぜ？',
         explanation:
           '電極の金属や水溶液中のイオンが消費されていくことで、化学反応が起こりにくくなる。',
+        difficulty: 'standard',
       },
       {
         id: 'sci3-bt-fc14',
@@ -187,6 +200,7 @@ export const batteryTypes: Topic = {
         back: '鉛蓄電池が主に使われている身近なものは？',
         explanation:
           '鉛蓄電池は大きな電流を取り出せるため、自動車のエンジン始動用バッテリーに使われる。',
+        difficulty: 'standard',
       },
       {
         id: 'sci3-bt-fc15',
@@ -194,6 +208,7 @@ export const batteryTypes: Topic = {
         back: 'リチウムイオン電池が主に使われている身近な製品は？',
         explanation:
           '軽量で大容量のため、スマートフォンやノートパソコン、タブレットなどに広く使われる。',
+        difficulty: 'standard',
       },
       {
         id: 'sci3-bt-fc16',
@@ -201,6 +216,7 @@ export const batteryTypes: Topic = {
         back: '燃料電池の反応は水の電気分解とどのような関係にある？化学反応式も書くと？',
         explanation:
           '水の電気分解は水を水素と酸素に分解し、燃料電池は水素と酸素から水を生成する逆反応。',
+        difficulty: 'standard',
       },
       {
         id: 'sci3-bt-fc17',
@@ -208,18 +224,19 @@ export const batteryTypes: Topic = {
         back: '充電とはどのような操作か？',
         explanation:
           '放電で消費された物質を逆反応で再生させる。これにより二次電池は繰り返し使える。',
+        difficulty: 'standard',
       },
-      { id: 'sci3-bt-fc18', front: 'ダニエル電池はZnとCuの電池', back: 'ダニエル電池に使われる2種類の金属は？' },
-      { id: 'sci3-bt-fc19', front: '水の電気分解の逆反応', back: '燃料電池の反応は何の逆反応にあたる？' },
-      { id: 'sci3-bt-fc20', front: '電気エネルギー → 化学エネルギー', back: '充電のとき、エネルギーはどのように変換される？' },
-      { id: 'sci3-bt-fc21', front: '化学エネルギー → 電気エネルギー', back: '放電のとき、エネルギーはどのように変換される？' },
-      { id: 'sci3-bt-fc22', front: 'ニッケル水素電池', back: 'ハイブリッド自動車に使われる二次電池の一種は？' },
-      { id: 'sci3-bt-fc23', front: 'CO₂を排出しないクリーンエネルギー', back: '燃料電池が環境にやさしいとされる理由は？' },
-      { id: 'sci3-bt-fc24', front: 'Zn板が小さく、Cu板が大きくなる', back: 'ダニエル電池で長時間電流を流すと、両方の電極の大きさはどう変わる？' },
-      { id: 'sci3-bt-fc25', front: '硫酸亜鉛水溶液', back: 'ダニエル電池で−極（Zn板）を浸している水溶液は？' },
-      { id: 'sci3-bt-fc26', front: '硫酸銅水溶液', back: 'ダニエル電池で＋極（Cu板）を浸している水溶液は？' },
-      { id: 'sci3-bt-fc27', front: '電圧が安定する', back: 'ダニエル電池がうすい塩酸の電池より優れている点は？' },
-      { id: 'sci3-bt-fc28', front: '水素と酸素', back: '燃料電池の燃料となる物質は？' },
+      { id: 'sci3-bt-fc18', front: '亜鉛（Zn）と銅（Cu）', back: 'ダニエル電池に使われる2種類の金属は？', difficulty: 'basic' },
+      { id: 'sci3-bt-fc19', front: '水の電気分解の逆反応', back: '燃料電池の反応は何の逆反応にあたる？', difficulty: 'standard' },
+      { id: 'sci3-bt-fc20', front: '電気エネルギー → 化学エネルギー', back: '充電のとき、エネルギーはどのように変換される？', difficulty: 'standard' },
+      { id: 'sci3-bt-fc21', front: '化学エネルギー → 電気エネルギー', back: '放電のとき、エネルギーはどのように変換される？', difficulty: 'standard' },
+      { id: 'sci3-bt-fc22', front: 'ニッケル水素電池', back: 'ハイブリッド自動車に使われる二次電池の一種は？', difficulty: 'standard' },
+      { id: 'sci3-bt-fc23', front: 'CO₂を排出しないクリーンエネルギー', back: '燃料電池が環境にやさしいとされる理由は？', difficulty: 'advanced' },
+      { id: 'sci3-bt-fc24', front: 'Zn板が小さく、Cu板が大きくなる', back: 'ダニエル電池で長時間電流を流すと、両方の電極の大きさはどう変わる？', difficulty: 'advanced' },
+      { id: 'sci3-bt-fc25', front: '硫酸亜鉛水溶液', back: 'ダニエル電池で−極（Zn板）を浸している水溶液は？', difficulty: 'advanced' },
+      { id: 'sci3-bt-fc26', front: '硫酸銅水溶液', back: 'ダニエル電池で＋極（Cu板）を浸している水溶液は？', difficulty: 'advanced' },
+      { id: 'sci3-bt-fc27', front: '電圧が安定する', back: 'ダニエル電池がうすい塩酸の電池より優れている点は？', difficulty: 'advanced' },
+      { id: 'sci3-bt-fc28', front: '水素と酸素', back: '燃料電池の燃料となる物質は？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -235,7 +252,8 @@ export const batteryTypes: Topic = {
           correctIndex: 0,
           explanation:
             'セロハン膜は2つの水溶液が直接混ざるのを防ぎつつ、イオンを通して回路を完成させます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci3-bt-q2',
           question:
@@ -249,7 +267,8 @@ export const batteryTypes: Topic = {
           correctIndex: 2,
           explanation:
             'Cu²⁺（銅イオン）が電子を受け取って銅として析出するため、Cu²⁺が減少して青色がうすくなります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci3-bt-q3',
           question: '充電して繰り返し使える電池を何という？',
@@ -257,7 +276,8 @@ export const batteryTypes: Topic = {
           correctIndex: 1,
           explanation:
             '二次電池は充電により化学反応を逆向きに起こし、繰り返し使えます。リチウムイオン電池などが代表例です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci3-bt-q4',
           question: '燃料電池の化学反応でできる物質は？',
@@ -270,7 +290,8 @@ export const batteryTypes: Topic = {
           correctIndex: 3,
           explanation:
             '燃料電池は 2H₂ + O₂ → 2H₂O の反応で電気を取り出します。水しか排出しないクリーンエネルギーです。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci3-bt-q5',
           question:
@@ -284,7 +305,8 @@ export const batteryTypes: Topic = {
           correctIndex: 3,
           explanation:
             '−極ではZn → Zn²⁺ + 2e⁻の反応が起き、亜鉛が溶け出してZn板が小さくなります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci3-bt-q6',
           question: '二次電池の「充電」とはどのような操作？',
@@ -297,7 +319,8 @@ export const batteryTypes: Topic = {
           correctIndex: 2,
           explanation:
             '充電は外部から電気エネルギーを加え、放電時と逆の化学反応を起こして消費された物質をもとに戻す操作です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci3-bt-q7',
           question: 'マンガン乾電池は一次電池と二次電池のどちらに分類される？',
@@ -310,7 +333,8 @@ export const batteryTypes: Topic = {
           correctIndex: 1,
           explanation:
             'マンガン乾電池は使い切りの一次電池です。充電して再利用することはできません。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci3-bt-q8',
           question: '燃料電池が環境にやさしいと言われる最大の理由は？',
@@ -323,7 +347,8 @@ export const batteryTypes: Topic = {
           correctIndex: 0,
           explanation:
             '燃料電池は 2H₂ + O₂ → 2H₂O の反応で、生成されるのは水だけ。CO₂を排出しないクリーンエネルギーです。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci3-bt-q9',
           question:
@@ -337,26 +362,27 @@ export const batteryTypes: Topic = {
           correctIndex: 0,
           explanation:
             '＋極ではCu²⁺ + 2e⁻ → Cuの反応が起き、銅がCu板に析出するためCu板が大きくなります。',
-        },
-        { id: 'sci3-bt-q10', question: 'ダニエル電池の−極（Zn板）で起こる反応は？', options: ['Cu²⁺ + 2e⁻ → Cu', 'Zn → Zn²⁺ + 2e⁻', '2H⁺ + 2e⁻ → H₂', 'Zn²⁺ + 2e⁻ → Zn'], correctIndex: 1, explanation: '−極ではZnが電子を失ってZn²⁺になり、水溶液中に溶け出します。' },
-        { id: 'sci3-bt-q11', question: 'ダニエル電池の＋極（Cu板）で起こる反応は？', options: ['Zn → Zn²⁺ + 2e⁻', '2H⁺ + 2e⁻ → H₂', 'Cu²⁺ + 2e⁻ → Cu', 'Cu → Cu²⁺ + 2e⁻'], correctIndex: 2, explanation: '＋極ではCu²⁺が電子を受け取って銅としてCu板に析出します。' },
-        { id: 'sci3-bt-q12', question: '次のうち、二次電池はどれ？', options: ['マンガン乾電池', 'アルカリ乾電池', '燃料電池', 'リチウムイオン電池'], correctIndex: 3, explanation: 'リチウムイオン電池は充電して繰り返し使える二次電池です。マンガン乾電池とアルカリ乾電池は一次電池です。' },
-        { id: 'sci3-bt-q13', question: '燃料電池の化学反応式として正しいものは？', options: ['2H₂O → 2H₂ + O₂', '2H₂ + O₂ → 2H₂O', 'H₂ + Cl₂ → 2HCl', 'C + O₂ → CO₂'], correctIndex: 1, explanation: '燃料電池は水素と酸素を反応させて水をつくり、電気エネルギーを取り出します。' },
-        { id: 'sci3-bt-q14', question: '水の電気分解の化学反応式として正しいものは？', options: ['2H₂ + O₂ → 2H₂O', '2H₂O → 2H₂ + O₂', 'H₂O → H₂ + O', 'H₂O₂ → H₂O + O'], correctIndex: 1, explanation: '水の電気分解では水が水素と酸素に分解されます。燃料電池はこの逆反応です。' },
-        { id: 'sci3-bt-q15', question: 'セロハン膜がない場合のダニエル電池の問題点は？', options: ['電流が流れなくなる', '金属が溶けない', '2液が混ざって電圧が不安定になる', '気体が発生しなくなる'], correctIndex: 2, explanation: 'セロハン膜がないと2つの水溶液が直接混ざり、意図しない反応が起こって電圧が不安定になります。' },
-        { id: 'sci3-bt-q16', question: '鉛蓄電池が主に使われるのはどれ？', options: ['スマートフォン', '腕時計', '自動車のバッテリー', 'リモコン'], correctIndex: 2, explanation: '鉛蓄電池は大きな電流を取り出せるため、自動車のエンジン始動用バッテリーに使われます。' },
-        { id: 'sci3-bt-q17', question: 'リチウムイオン電池が携帯機器に広く使われる理由は？', options: ['安価だから', '充電できないから', '軽量で大容量だから', '大きいから'], correctIndex: 2, explanation: 'リチウムイオン電池は軽量で大容量のため、スマートフォンやノートパソコンに広く使われます。' },
-        { id: 'sci3-bt-q18', question: '一次電池と二次電池の違いは？', options: ['大きさの違い', '充電できるかできないかの違い', '電圧の大きさの違い', '金属の種類の違い'], correctIndex: 1, explanation: '一次電池は使い切りで充電できず、二次電池は充電して繰り返し使えます。' },
-        { id: 'sci3-bt-q19', question: 'ダニエル電池のセロハン膜を通るものは？', options: ['金属板', '電子', 'イオン', '気体'], correctIndex: 2, explanation: 'セロハン膜はイオンを通しますが、水溶液が直接混ざるのを防ぎます。' },
-        { id: 'sci3-bt-q20', question: '燃料電池で生成される物質は何種類？', options: ['1種類（水のみ）', '2種類', '3種類', '何も生成されない'], correctIndex: 0, explanation: '燃料電池の反応 2H₂ + O₂ → 2H₂O で生成されるのは水（H₂O）のみです。' },
-        { id: 'sci3-bt-q21', question: 'ダニエル電池で電流を流し続けると、硫酸亜鉛水溶液のZn²⁺はどうなる？', options: ['減少する', '変化しない', '増加する', '0になる'], correctIndex: 2, explanation: '−極でZnが溶けてZn²⁺になるため、硫酸亜鉛水溶液中のZn²⁺は増加します。' },
-        { id: 'sci3-bt-q22', question: '充電で起こる化学反応は、放電時の反応とどのような関係？', options: ['同じ反応', '全く異なる反応', '逆向きの反応', '反応は起こらない'], correctIndex: 2, explanation: '充電では外部から電気エネルギーを加え、放電時と逆向きの化学反応を起こします。' },
-        { id: 'sci3-bt-q23', question: 'ダニエル電池がうすい塩酸を使った電池より優れている点は？', options: ['金属が溶けないこと', '電圧が安定すること', '気体が多く発生すること', '電流が流れないこと'], correctIndex: 1, explanation: 'セロハン膜で2液を仕切ることで＋極に水素が付着する問題が解消され、電圧が安定します。' },
-        { id: 'sci3-bt-q24', question: '次のうち、アルカリ乾電池の分類として正しいものは？', options: ['二次電池', '燃料電池', '一次電池', 'ダニエル電池'], correctIndex: 2, explanation: 'アルカリ乾電池は充電できない使い切りの一次電池です。' },
-        { id: 'sci3-bt-q25', question: '燃料電池と水の電気分解の関係として正しいものは？', options: ['全く関係がない', '同じ反応', '燃料電池は電気分解の逆反応', '燃料電池は電気分解の2倍の反応'], correctIndex: 2, explanation: '水の電気分解（2H₂O → 2H₂ + O₂）と燃料電池（2H₂ + O₂ → 2H₂O）は互いに逆反応です。' },
-        { id: 'sci3-bt-q26', question: '放電を続けると電圧が低下する理由は？', options: ['温度が下がるから', '電極が大きくなるから', '反応に必要な物質が消費されるから', '電流が増えるから'], correctIndex: 2, explanation: '電極の金属や水溶液中のイオンが消費されていくことで化学反応が進みにくくなり、電圧が低下します。' },
-        { id: 'sci3-bt-q27', question: 'ダニエル電池の電子の流れる向きは？', options: ['Cu板→Zn板', 'Zn板→Cu板', 'セロハン膜を通って流れる', '電子は流れない'], correctIndex: 1, explanation: '電子はZn板（−極）から導線を通ってCu板（＋極）へ流れます。' },
-        { id: 'sci3-bt-q28', question: 'ニッケル水素電池は何電池に分類される？', options: ['一次電池', '燃料電池', '二次電池', 'ダニエル電池'], correctIndex: 2, explanation: 'ニッケル水素電池は充電して繰り返し使える二次電池です。ハイブリッド自動車などに使われます。' },
+        difficulty: 'basic',
+      },
+        { id: 'sci3-bt-q10', question: 'ダニエル電池の−極（Zn板）で起こる反応は？', options: ['Cu²⁺ + 2e⁻ → Cu', 'Zn → Zn²⁺ + 2e⁻', '2H⁺ + 2e⁻ → H₂', 'Zn²⁺ + 2e⁻ → Zn'], correctIndex: 1, explanation: '−極ではZnが電子を失ってZn²⁺になり、水溶液中に溶け出します。', difficulty: 'basic' },
+        { id: 'sci3-bt-q11', question: 'ダニエル電池の＋極（Cu板）で起こる反応は？', options: ['Zn → Zn²⁺ + 2e⁻', '2H⁺ + 2e⁻ → H₂', 'Cu²⁺ + 2e⁻ → Cu', 'Cu → Cu²⁺ + 2e⁻'], correctIndex: 2, explanation: '＋極ではCu²⁺が電子を受け取って銅としてCu板に析出します。', difficulty: 'standard' },
+        { id: 'sci3-bt-q12', question: '次のうち、二次電池はどれ？', options: ['マンガン乾電池', 'アルカリ乾電池', '燃料電池', 'リチウムイオン電池'], correctIndex: 3, explanation: 'リチウムイオン電池は充電して繰り返し使える二次電池です。マンガン乾電池とアルカリ乾電池は一次電池です。', difficulty: 'standard' },
+        { id: 'sci3-bt-q13', question: '燃料電池の化学反応式として正しいものは？', options: ['2H₂O → 2H₂ + O₂', '2H₂ + O₂ → 2H₂O', 'H₂ + Cl₂ → 2HCl', 'C + O₂ → CO₂'], correctIndex: 1, explanation: '燃料電池は水素と酸素を反応させて水をつくり、電気エネルギーを取り出します。', difficulty: 'standard' },
+        { id: 'sci3-bt-q14', question: '水の電気分解の化学反応式として正しいものは？', options: ['2H₂ + O₂ → 2H₂O', '2H₂O → 2H₂ + O₂', 'H₂O → H₂ + O', 'H₂O₂ → H₂O + O'], correctIndex: 1, explanation: '水の電気分解では水が水素と酸素に分解されます。燃料電池はこの逆反応です。', difficulty: 'standard' },
+        { id: 'sci3-bt-q15', question: 'セロハン膜がない場合のダニエル電池の問題点は？', options: ['電流が流れなくなる', '金属が溶けない', '2液が混ざって電圧が不安定になる', '気体が発生しなくなる'], correctIndex: 2, explanation: 'セロハン膜がないと2つの水溶液が直接混ざり、意図しない反応が起こって電圧が不安定になります。', difficulty: 'standard' },
+        { id: 'sci3-bt-q16', question: '鉛蓄電池が主に使われるのはどれ？', options: ['スマートフォン', '腕時計', '自動車のバッテリー', 'リモコン'], correctIndex: 2, explanation: '鉛蓄電池は大きな電流を取り出せるため、自動車のエンジン始動用バッテリーに使われます。', difficulty: 'standard' },
+        { id: 'sci3-bt-q17', question: 'リチウムイオン電池が携帯機器に広く使われる理由は？', options: ['安価だから', '充電できないから', '軽量で大容量だから', '大きいから'], correctIndex: 2, explanation: 'リチウムイオン電池は軽量で大容量のため、スマートフォンやノートパソコンに広く使われます。', difficulty: 'standard' },
+        { id: 'sci3-bt-q18', question: '一次電池と二次電池の違いは？', options: ['大きさの違い', '充電できるかできないかの違い', '電圧の大きさの違い', '金属の種類の違い'], correctIndex: 1, explanation: '一次電池は使い切りで充電できず、二次電池は充電して繰り返し使えます。', difficulty: 'standard' },
+        { id: 'sci3-bt-q19', question: 'ダニエル電池のセロハン膜を通るものは？', options: ['金属板', '電子', 'イオン', '気体'], correctIndex: 2, explanation: 'セロハン膜はイオンを通しますが、水溶液が直接混ざるのを防ぎます。', difficulty: 'standard' },
+        { id: 'sci3-bt-q20', question: '燃料電池で生成される物質は何種類？', options: ['1種類（水のみ）', '2種類', '3種類', '何も生成されない'], correctIndex: 0, explanation: '燃料電池の反応 2H₂ + O₂ → 2H₂O で生成されるのは水（H₂O）のみです。', difficulty: 'standard' },
+        { id: 'sci3-bt-q21', question: 'ダニエル電池で電流を流し続けると、硫酸亜鉛水溶液のZn²⁺はどうなる？', options: ['減少する', '変化しない', '増加する', '0になる'], correctIndex: 2, explanation: '−極でZnが溶けてZn²⁺になるため、硫酸亜鉛水溶液中のZn²⁺は増加します。', difficulty: 'standard' },
+        { id: 'sci3-bt-q22', question: '充電で起こる化学反応は、放電時の反応とどのような関係？', options: ['同じ反応', '全く異なる反応', '逆向きの反応', '反応は起こらない'], correctIndex: 2, explanation: '充電では外部から電気エネルギーを加え、放電時と逆向きの化学反応を起こします。', difficulty: 'standard' },
+        { id: 'sci3-bt-q23', question: 'ダニエル電池がうすい塩酸を使った電池より優れている点は？', options: ['金属が溶けないこと', '電圧が安定すること', '気体が多く発生すること', '電流が流れないこと'], correctIndex: 1, explanation: 'セロハン膜で2液を仕切ることで＋極に水素が付着する問題が解消され、電圧が安定します。', difficulty: 'advanced' },
+        { id: 'sci3-bt-q24', question: '次のうち、アルカリ乾電池の分類として正しいものは？', options: ['二次電池', '燃料電池', '一次電池', 'ダニエル電池'], correctIndex: 2, explanation: 'アルカリ乾電池は充電できない使い切りの一次電池です。', difficulty: 'advanced' },
+        { id: 'sci3-bt-q25', question: '燃料電池と水の電気分解の関係として正しいものは？', options: ['全く関係がない', '同じ反応', '燃料電池は電気分解の逆反応', '燃料電池は電気分解の2倍の反応'], correctIndex: 2, explanation: '水の電気分解（2H₂O → 2H₂ + O₂）と燃料電池（2H₂ + O₂ → 2H₂O）は互いに逆反応です。', difficulty: 'advanced' },
+        { id: 'sci3-bt-q26', question: '放電を続けると電圧が低下する理由は？', options: ['温度が下がるから', '電極が大きくなるから', '反応に必要な物質が消費されるから', '電流が増えるから'], correctIndex: 2, explanation: '電極の金属や水溶液中のイオンが消費されていくことで化学反応が進みにくくなり、電圧が低下します。', difficulty: 'advanced' },
+        { id: 'sci3-bt-q27', question: 'ダニエル電池の電子の流れる向きは？', options: ['Cu板→Zn板', 'Zn板→Cu板', 'セロハン膜を通って流れる', '電子は流れない'], correctIndex: 1, explanation: '電子はZn板（−極）から導線を通ってCu板（＋極）へ流れます。', difficulty: 'advanced' },
+        { id: 'sci3-bt-q28', question: 'ニッケル水素電池は何電池に分類される？', options: ['一次電池', '燃料電池', '二次電池', 'ダニエル電池'], correctIndex: 2, explanation: 'ニッケル水素電池は充電して繰り返し使える二次電池です。ハイブリッド自動車などに使われます。', difficulty: 'advanced' },
       ],
     },
     examples: {

@@ -105,161 +105,18 @@ export const electricEnergy: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'sci2-ee-fc1',
-        front: '電力（W）',
-        back: '1秒あたりに消費される電気エネルギーを何という？',
-        explanation: '電力[W] = 電圧[V] × 電流[A] で求められる。',
-      },
-      {
-        id: 'sci2-ee-fc2',
-        front: '電力[W] = 電圧[V] × 電流[A]',
-        back: '電力を求める公式は？',
-        explanation: '例：100Vで2A流れる電熱器の電力は 100×2 = 200W。',
-      },
-      {
-        id: 'sci2-ee-fc3',
-        front: '熱量（J）',
-        back: '電流によって発生する熱エネルギーの量を何という？',
-        explanation: '熱量[J] = 電力[W] × 時間[s] で求められる。',
-      },
-      {
-        id: 'sci2-ee-fc4',
-        front: '熱量[J] = 電力[W] × 時間[s]',
-        back: '熱量を求める公式は？',
-        explanation: '例：200Wの電熱器を5分間（300秒）使うと 200×300 = 60000J。',
-      },
-      {
-        id: 'sci2-ee-fc5',
-        front: '電力量（Wh）',
-        back: '一定時間に消費された電気エネルギーの総量を何という？',
-        explanation: '1Wh = 3600J。家庭の電気料金はkWh（キロワット時）で計算される。',
-      },
-      {
-        id: 'sci2-ee-fc6',
-        front: '電気エネルギー',
-        back: '電気がもっているエネルギーを何という？',
-        explanation: '電気エネルギーは光・熱・音・運動エネルギーなどに変換される。',
-      },
-      {
-        id: 'sci2-ee-fc7',
-        front: '消費電力',
-        back: '電気器具に表示されているW（ワット）数のことを何という？',
-        explanation: '「100V-1200W」のように表示される。その電圧で使ったときの電力を表す。',
-      },
-      {
-        id: 'sci2-ee-fc8',
-        front: '「100V-1200W」の読み方',
-        back: '電気器具の表示「100V-1200W」はどういう意味？',
-        explanation: '100Vの電源で使ったときに消費電力が1200Wであるという意味。',
-      },
-      {
-        id: 'sci2-ee-fc9',
-        front: 'ジュール（J）の定義',
-        back: '電流によって発生する熱エネルギーの量の単位は？',
-        explanation: '熱量[J] = 電力[W] × 時間[s] で求められる。',
-      },
-      {
-        id: 'sci2-ee-fc10',
-        front: 'ワット時（Wh）の定義',
-        back: '1Wの電力を1時間使ったときの電力量の単位は？',
-        explanation: '1Wh = 3600J。電力量をより大きな単位で表すのに使う。',
-      },
-      {
-        id: 'sci2-ee-fc11',
-        front: 'kWh（キロワット時）',
-        back: '1kWhは何Whか？',
-        explanation: '1kWh = 1000Wh。家庭の電気料金はkWhで計算される。',
-      },
-      {
-        id: 'sci2-ee-fc12',
-        front: '水の上昇温度の法則',
-        back: '水の上昇温度は何に比例する？',
-        explanation: '水の上昇温度は電力の大きさと加熱時間の両方に比例する。',
-      },
-      {
-        id: 'sci2-ee-fc13',
-        front: '電熱線の太さと発熱',
-        back: '電熱線が太いほど発熱量はどうなる？',
-        explanation: '太い電熱線は抵抗が小さく、同じ電圧なら電流が大きくなり発熱量が増える。',
-      },
-      {
-        id: 'sci2-ee-fc14',
-        front: '電気料金の計算単位',
-        back: '家庭の電気料金を計算するときに使う電力量の単位は？',
-        explanation: 'kWh（キロワット時）。電気料金 = 使用電力量[kWh] × 単価[円/kWh]。',
-      },
-      {
-        id: 'sci2-ee-fc15',
-        front: 'カロリー（cal）との関係',
-        back: '1calは何Jか？',
-        explanation: '1cal ≒ 4.2J。1calは水1gの温度を1℃上げるのに必要な熱量。',
-      },
-      {
-        id: 'sci2-ee-fc16',
-        front: '電力の公式',
-        back: '電力[W]＝電圧[V]×電流[A]',
-      },
-      {
-        id: 'sci2-ee-fc17',
-        front: '熱量の公式',
-        back: '熱量[J]＝電力[W]×時間[s]',
-      },
-      {
-        id: 'sci2-ee-fc18',
-        front: '電力量',
-        back: '一定時間に消費された電気Eの総量',
-      },
-      {
-        id: 'sci2-ee-fc19',
-        front: '1Wh＝3600J',
-        back: '1W×3600s',
-      },
-      {
-        id: 'sci2-ee-fc20',
-        front: '1kWh＝1000Wh',
-        back: '家庭の電気料金の単位',
-      },
-      {
-        id: 'sci2-ee-fc21',
-        front: '消費電力',
-        back: '電気器具に表示されている電力',
-      },
-      {
-        id: 'sci2-ee-fc22',
-        front: '1cal≒4.2J',
-        back: '水1gを1℃上げるのに必要な熱量',
-      },
-      {
-        id: 'sci2-ee-fc23',
-        front: 'ブレーカー',
-        back: '消費電力超過で電流を遮断する安全装置',
-      },
-      {
-        id: 'sci2-ee-fc24',
-        front: '電力大→発熱量大',
-        back: '電力が大きいほど水の温度上昇が大きい',
-      },
-      {
-        id: 'sci2-ee-fc25',
-        front: '太い電熱線→抵抗小→電流大→発熱大',
-        back: '同じ電圧で太い電熱線の発熱が大きい理由',
-      },
-      {
-        id: 'sci2-ee-fc26',
-        front: '電力量の単位',
-        back: 'J（ジュール）とWh（ワット時）',
-      },
-      {
-        id: 'sci2-ee-fc27',
-        front: '「100V-1200W」の意味',
-        back: '100Vで使うと消費電力1200W',
-      },
-      {
-        id: 'sci2-ee-fc28',
-        front: 'テーブルタップの許容量',
-        back: '合計1500Wまでなどの制限。超過で発熱・火災の危険',
-      }
+      { id: 'sci2-ee-fc1', front: '電力[W]＝電圧[V]×電流[A]', back: '電力を求める公式は？', difficulty: 'basic' },
+      { id: 'sci2-ee-fc2', front: '1秒あたりに消費される電気エネルギーの量。単位はW（ワット）', back: '電力とは何？単位は？', difficulty: 'basic' },
+      { id: 'sci2-ee-fc3', front: '熱量[J]＝電力[W]×時間[s]', back: '熱量を求める公式は？', difficulty: 'basic' },
+      { id: 'sci2-ee-fc4', front: '一定時間に消費された電気エネルギーの総量。1Wh＝3600J', back: '電力量とは何？1Whは何J？', difficulty: 'basic' },
+      { id: 'sci2-ee-fc5', front: '1000Wh。家庭の電気料金はkWhで計算される', back: '1kWhは何Wh？', difficulty: 'basic' },
+      { id: 'sci2-ee-fc6', front: '100Vの電源で使ったときに消費電力が1200Wであるという意味', back: '電気器具の表示「100V-1200W」はどういう意味？', difficulty: 'standard' },
+      { id: 'sci2-ee-fc7', front: '電力の大きさと加熱時間の両方に比例する', back: '水の上昇温度は何に比例する？', difficulty: 'standard' },
+      { id: 'sci2-ee-fc8', front: '太いほど抵抗が小さく、同じ電圧なら電流が大きくなり発熱量が増える', back: '電熱線が太いほど発熱量が大きくなる理由は？', difficulty: 'standard' },
+      { id: 'sci2-ee-fc9', front: '約4.2J。水1gの温度を1℃上げるのに必要な熱量', back: '1calは約何J？', difficulty: 'standard' },
+      { id: 'sci2-ee-fc10', front: 'kWh（キロワット時）', back: '家庭の電気料金を計算するときに使う電力量の単位は？', difficulty: 'standard' },
+      { id: 'sci2-ee-fc11', front: '消費電力が許容量を超えると電流を遮断する安全装置', back: 'ブレーカーとは何？', difficulty: 'advanced' },
+      { id: 'sci2-ee-fc12', front: '合計1500Wまでなどの制限があり、超過するとコードが過熱し火災の危険', back: 'テーブルタップの許容量を超えるとどうなる？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -270,7 +127,8 @@ export const electricEnergy: Topic = {
           correctIndex: 3,
           explanation:
             '電力[W] = 電圧[V] × 電流[A] = 100 × 2 = 200W です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-ee-q2',
           question: '電力の単位として正しいものはどれか？',
@@ -278,7 +136,8 @@ export const electricEnergy: Topic = {
           correctIndex: 0,
           explanation:
             '電力の単位はW（ワット）です。Aは電流、Vは電圧、Jは熱量（エネルギー）の単位です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-ee-q3',
           question: '500Wの電熱器を2分間使用したときの熱量は何Jか？',
@@ -286,7 +145,8 @@ export const electricEnergy: Topic = {
           correctIndex: 2,
           explanation:
             '熱量[J] = 電力[W] × 時間[s] = 500 × 120（2分 = 120秒）= 60000J です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-ee-q4',
           question: '1Whは何Jか？',
@@ -294,7 +154,8 @@ export const electricEnergy: Topic = {
           correctIndex: 1,
           explanation:
             '1Wh = 1W × 1時間 = 1W × 3600s = 3600J です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-ee-q5',
           question: '同じ量の水を同じ電力の電熱器で加熱するとき、水の上昇温度に比例するものはどれか？',
@@ -302,7 +163,8 @@ export const electricEnergy: Topic = {
           correctIndex: 1,
           explanation:
             '水の上昇温度は加熱時間に比例します。時間が2倍になれば、上昇温度も2倍になります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-ee-q6',
           question: '「100V-600W」と表示された電気ストーブを100Vの電源につないだとき、流れる電流は何Aか？',
@@ -310,7 +172,8 @@ export const electricEnergy: Topic = {
           correctIndex: 0,
           explanation:
             '電流[A] = 電力[W] ÷ 電圧[V] = 600 ÷ 100 = 6A です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-ee-q7',
           question: '抵抗が20Ωの電熱線に5Aの電流が流れているとき、電力は何Wか？',
@@ -318,7 +181,8 @@ export const electricEnergy: Topic = {
           correctIndex: 2,
           explanation:
             'まず電圧を求めます。V = IR = 20Ω × 5A = 100V。電力 = 100V × 5A = 500W です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-ee-q8',
           question: '800Wの電子レンジを3分間使ったときの熱量は何Jか？',
@@ -326,7 +190,8 @@ export const electricEnergy: Topic = {
           correctIndex: 3,
           explanation:
             '熱量[J] = 電力[W] × 時間[s] = 800 × 180（3分 = 180秒）= 144000J です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-ee-q9',
           question: '200Wの電気器具を3時間使ったときの電力量は何Whか？',
@@ -334,7 +199,8 @@ export const electricEnergy: Topic = {
           correctIndex: 0,
           explanation:
             '電力量[Wh] = 電力[W] × 時間[h] = 200 × 3 = 600Wh です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-ee-q10',
           question: '1000Wの電気器具を2時間使ったときの電力量は何kWhか？',
@@ -342,7 +208,8 @@ export const electricEnergy: Topic = {
           correctIndex: 2,
           explanation:
             '電力量 = 1000W × 2h = 2000Wh = 2kWh です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-ee-q11',
           question: '同じ電圧をかけたとき、太い電熱線と細い電熱線ではどちらの発熱量が大きいか？',
@@ -350,7 +217,8 @@ export const electricEnergy: Topic = {
           correctIndex: 3,
           explanation:
             '太い電熱線は抵抗が小さいため電流が大きくなり、電力が大きくなるので発熱量も大きくなります。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-ee-q12',
           question: 'テーブルタップに「合計1500Wまで」と表示がある。800Wのポットと600Wのトースターを同時に使っているとき、あと何Wまでの電気器具を追加できるか？',
@@ -358,7 +226,8 @@ export const electricEnergy: Topic = {
           correctIndex: 1,
           explanation:
             '現在の合計は800 + 600 = 1400W。あと1500 - 1400 = 100Wまで追加できます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-ee-q13',
           question: '100Vに3A→電力は？',
@@ -366,7 +235,8 @@ export const electricEnergy: Topic = {
           correctIndex: 3,
           explanation:
             '100×3＝300W。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-ee-q14',
           question: '400Wを2分間→熱量は？',
@@ -374,7 +244,8 @@ export const electricEnergy: Topic = {
           correctIndex: 2,
           explanation:
             '400×120＝48000J。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-ee-q15',
           question: '1Whは何J？',
@@ -382,7 +253,8 @@ export const electricEnergy: Topic = {
           correctIndex: 2,
           explanation:
             '1W×3600s＝3600J。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-ee-q16',
           question: '500Wを2時間→電力量は？',
@@ -390,7 +262,8 @@ export const electricEnergy: Topic = {
           correctIndex: 2,
           explanation:
             '500×2＝1000Wh。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-ee-q17',
           question: '1calは約何J？',
@@ -398,7 +271,8 @@ export const electricEnergy: Topic = {
           correctIndex: 1,
           explanation:
             '約4.2J。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-ee-q18',
           question: '「100V-600W」で流れる電流は？',
@@ -406,7 +280,8 @@ export const electricEnergy: Topic = {
           correctIndex: 1,
           explanation:
             '600÷100＝6A。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-ee-q19',
           question: '電力大→水の温度上昇は？',
@@ -414,7 +289,8 @@ export const electricEnergy: Topic = {
           correctIndex: 1,
           explanation:
             '電力大→発熱量大→温度上昇大。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-ee-q20',
           question: '1kWhは何Wh？',
@@ -422,7 +298,8 @@ export const electricEnergy: Topic = {
           correctIndex: 2,
           explanation:
             '1kWh＝1000Wh。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-ee-q21',
           question: '電気料金の計算単位は？',
@@ -430,7 +307,8 @@ export const electricEnergy: Topic = {
           correctIndex: 2,
           explanation:
             'kWh（キロワット時）。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-ee-q22',
           question: '1200Wドライヤーを100Vで→電流は？',
@@ -438,7 +316,8 @@ export const electricEnergy: Topic = {
           correctIndex: 1,
           explanation:
             '1200÷100＝12A。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-ee-q23',
           question: '水100gを5℃上げる熱量は何cal？',
@@ -446,7 +325,8 @@ export const electricEnergy: Topic = {
           correctIndex: 2,
           explanation:
             '100×5＝500cal。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci2-ee-q24',
           question: 'テーブルタップの許容量超過→何が起きる？',
@@ -454,7 +334,8 @@ export const electricEnergy: Topic = {
           correctIndex: 1,
           explanation:
             'コードが過熱し火災の危険。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci2-ee-q25',
           question: '電力の公式は？',
@@ -462,7 +343,8 @@ export const electricEnergy: Topic = {
           correctIndex: 1,
           explanation:
             '電力＝電圧×電流。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci2-ee-q26',
           question: '熱量の単位は？',
@@ -470,7 +352,8 @@ export const electricEnergy: Topic = {
           correctIndex: 2,
           explanation:
             'J（ジュール）。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci2-ee-q27',
           question: '200Wを100Vで→電流は？',
@@ -478,7 +361,8 @@ export const electricEnergy: Topic = {
           correctIndex: 1,
           explanation:
             '200÷100＝2A。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci2-ee-q28',
           question: '太い電熱線の抵抗は？',
@@ -486,7 +370,8 @@ export const electricEnergy: Topic = {
           correctIndex: 1,
           explanation:
             '太いと抵抗小→電流大→発熱大。',
-        }
+        difficulty: 'advanced',
+      }
       ],
     },
     examples: {

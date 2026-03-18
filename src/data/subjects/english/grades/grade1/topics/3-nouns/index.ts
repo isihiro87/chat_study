@@ -43,6 +43,7 @@ export const nouns: Topic = {
         back: 'I have two (　　).\n（私は本を2冊もっています。）',
         hint: '2つ以上のとき、名詞のおしりに何をつける？',
         explanation: '2つ以上のときはおしりに s をつけるよ。book → books',
+        difficulty: 'basic',
       },
       {
         id: 'eng-noun-fc2',
@@ -50,6 +51,7 @@ export const nouns: Topic = {
         back: 'box の「2つ以上」の形は？',
         hint: 'x で終わることばには s じゃなくて…？',
         explanation: 'x で終わるときは es をつけるよ。box → boxes',
+        difficulty: 'basic',
       },
       {
         id: 'eng-noun-fc3',
@@ -57,6 +59,7 @@ export const nouns: Topic = {
         back: 'city の「2つ以上」の形は？',
         hint: 'y で終わることばはとくべつなつけ方があるよ',
         explanation: 'y を i にかえて es をつけるよ。city → cities',
+        difficulty: 'basic',
       },
       {
         id: 'eng-noun-fc4',
@@ -64,6 +67,7 @@ export const nouns: Topic = {
         back: 'child の「2つ以上」の形は？',
         hint: 'これはとくべつな変わり方をするよ。そのまま覚えよう！',
         explanation: 'child → children。とくべつな形なので覚えてしまおう。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-noun-fc5',
@@ -71,6 +75,7 @@ export const nouns: Topic = {
         back: '(　　) apple\n（リンゴ1つ）',
         hint: 'a, i, u, e, o の音ではじまるときは a じゃなくて…？',
         explanation: 'apple は a の音ではじまるから an をつけるよ。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-noun-fc6',
@@ -78,6 +83,7 @@ export const nouns: Topic = {
         back: '(　　) is a pen.\n（これはペンです。）',
         hint: '近くにあるものを指すときのことばは…？',
         explanation: '近くのものは this を使うよ。This is a pen.',
+        difficulty: 'basic',
       },
       {
         id: 'eng-noun-fc7',
@@ -85,6 +91,7 @@ export const nouns: Topic = {
         back: '(　　) is a school.\n（あれは学校です。）',
         hint: '遠くにあるものを指すときのことばは…？',
         explanation: '遠くのものは that を使うよ。That is a school.',
+        difficulty: 'basic',
       },
       {
         id: 'eng-noun-fc8',
@@ -92,6 +99,7 @@ export const nouns: Topic = {
         back: 'Is that a library? — Yes, (　　) is.\n（あれは図書館ですか？— はい、そうです。）',
         hint: 'this / that に答えるときは何を使う？',
         explanation: 'this や that の質問に答えるときは it を使うよ。',
+        difficulty: 'basic',
       },
       // --- 規則変化の複数形（-s） ---
       {
@@ -100,6 +108,7 @@ export const nouns: Topic = {
         back: 'I like (　　).\n（私はネコが好きです。）',
         hint: 'cat が2つ以上のときは？',
         explanation: 'おしりに s をつけるよ。cat → cats',
+        difficulty: 'basic',
       },
       {
         id: 'eng-noun-fc10',
@@ -107,6 +116,7 @@ export const nouns: Topic = {
         back: 'There are three (　　) in the park.\n（公園にイヌが3匹います。）',
         hint: 'dog の複数形はどうなる？',
         explanation: 'おしりに s をつけるよ。dog → dogs',
+        difficulty: 'basic',
       },
       {
         id: 'eng-noun-fc11',
@@ -114,6 +124,7 @@ export const nouns: Topic = {
         back: 'We have ten (　　).\n（私たちは机を10個もっています。）',
         hint: 'desk が2つ以上のときは？',
         explanation: 'おしりに s をつけるよ。desk → desks',
+        difficulty: 'basic',
       },
       // --- 複数形（-es） ---
       {
@@ -122,6 +133,7 @@ export const nouns: Topic = {
         back: 'class の「2つ以上」の形は？',
         hint: 's で終わることばには s じゃなくて…？',
         explanation: 's で終わるときは es をつけるよ。class → classes',
+        difficulty: 'basic',
       },
       {
         id: 'eng-noun-fc13',
@@ -129,6 +141,7 @@ export const nouns: Topic = {
         back: 'watch の「2つ以上」の形は？',
         hint: 'ch で終わることばには何をつける？',
         explanation: 'ch で終わるときは es をつけるよ。watch → watches',
+        difficulty: 'standard',
       },
       {
         id: 'eng-noun-fc14',
@@ -136,6 +149,7 @@ export const nouns: Topic = {
         back: 'I see two (　　).\n（バスが2台見えます。）',
         hint: 'bus は s で終わるから…？',
         explanation: 's で終わるときは es をつけるよ。bus → buses',
+        difficulty: 'standard',
       },
       {
         id: 'eng-noun-fc15',
@@ -143,6 +157,7 @@ export const nouns: Topic = {
         back: 'dish の「2つ以上」の形は？',
         hint: 'sh で終わることばには何をつける？',
         explanation: 'sh で終わるときは es をつけるよ。dish → dishes',
+        difficulty: 'standard',
       },
       {
         id: 'eng-noun-fc16',
@@ -150,6 +165,7 @@ export const nouns: Topic = {
         back: 'We have two (　　).\n（お弁当が2つあります。）',
         hint: 'lunch は ch で終わるから…？',
         explanation: 'ch で終わるときは es をつけるよ。lunch → lunches',
+        difficulty: 'standard',
       },
       // --- 複数形（-y → -ies） ---
       {
@@ -158,6 +174,7 @@ export const nouns: Topic = {
         back: 'country の「2つ以上」の形は？',
         hint: 'y で終わることばはとくべつなつけ方があるよ',
         explanation: 'y を i にかえて es をつけるよ。country → countries',
+        difficulty: 'standard',
       },
       {
         id: 'eng-noun-fc18',
@@ -165,6 +182,7 @@ export const nouns: Topic = {
         back: 'There are two (　　) in my town.\n（私の町に図書館が2つあります。）',
         hint: 'library の y はどう変わる？',
         explanation: 'y を i にかえて es をつけるよ。library → libraries',
+        difficulty: 'standard',
       },
       {
         id: 'eng-noun-fc19',
@@ -172,6 +190,7 @@ export const nouns: Topic = {
         back: 'family の「2つ以上」の形は？',
         hint: 'y で終わることばはとくべつだよ',
         explanation: 'y を i にかえて es をつけるよ。family → families',
+        difficulty: 'standard',
       },
       {
         id: 'eng-noun-fc20',
@@ -179,6 +198,7 @@ export const nouns: Topic = {
         back: 'baby の「2つ以上」の形は？',
         hint: 'y を別の文字にかえてから es をつけるよ',
         explanation: 'y を i にかえて es をつけるよ。baby → babies',
+        difficulty: 'standard',
       },
       // --- 不規則な複数形 ---
       {
@@ -187,6 +207,7 @@ export const nouns: Topic = {
         back: 'man の「2つ以上」の形は？',
         hint: 's や es はつけないよ。とくべつな形だよ',
         explanation: 'man → men。とくべつな形なので覚えてしまおう。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-noun-fc22',
@@ -194,6 +215,7 @@ export const nouns: Topic = {
         back: 'woman の「2つ以上」の形は？',
         hint: 'man → men と似ているけど…？',
         explanation: 'woman → women。発音も変わるから注意しよう。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-noun-fc23',
@@ -201,6 +223,7 @@ export const nouns: Topic = {
         back: 'tooth の「2つ以上」の形は？',
         hint: 'これもとくべつな変わり方をするよ',
         explanation: 'tooth → teeth。とくべつな形なので覚えてしまおう。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-noun-fc24',
@@ -208,6 +231,7 @@ export const nouns: Topic = {
         back: 'foot の「2つ以上」の形は？',
         hint: 'tooth → teeth と同じパターンだよ',
         explanation: 'foot → feet。とくべつな形なので覚えてしまおう。',
+        difficulty: 'advanced',
       },
       {
         id: 'eng-noun-fc25',
@@ -215,6 +239,7 @@ export const nouns: Topic = {
         back: 'fish の「2つ以上」の形は？',
         hint: '形が変わらないものもあるよ',
         explanation: 'fish はそのまま fish。単数も複数も同じ形だよ。',
+        difficulty: 'advanced',
       },
       {
         id: 'eng-noun-fc26',
@@ -222,6 +247,7 @@ export const nouns: Topic = {
         back: 'sheep の「2つ以上」の形は？',
         hint: 'fish と同じで、形が変わらないよ',
         explanation: 'sheep はそのまま sheep。単数も複数も同じ形だよ。',
+        difficulty: 'advanced',
       },
       // --- a / an の使い分け ---
       {
@@ -230,6 +256,7 @@ export const nouns: Topic = {
         back: '(　　) egg\n（たまご1つ）',
         hint: 'e の音ではじまるから…？',
         explanation: 'egg は e の音ではじまるから an をつけるよ。',
+        difficulty: 'advanced',
       },
       {
         id: 'eng-noun-fc28',
@@ -237,6 +264,7 @@ export const nouns: Topic = {
         back: '(　　) umbrella\n（かさ1本）',
         hint: 'u の音ではじまるから…？',
         explanation: 'umbrella は u の音ではじまるから an をつけるよ。',
+        difficulty: 'advanced',
       },
       {
         id: 'eng-noun-fc29',
@@ -244,6 +272,7 @@ export const nouns: Topic = {
         back: '(　　) dog\n（イヌ1匹）',
         hint: 'd は母音（a, i, u, e, o）じゃないから…？',
         explanation: 'dog は d の音ではじまるから a をつけるよ。',
+        difficulty: 'advanced',
       },
       // --- these / those ---
       {
@@ -252,6 +281,7 @@ export const nouns: Topic = {
         back: '(　　) are my books.\n（これらは私の本です。）',
         hint: 'this の「2つ以上」の形は…？',
         explanation: 'this（これ）の複数形は these（これら）だよ。',
+        difficulty: 'advanced',
       },
     ],
     quiz: {
@@ -262,6 +292,7 @@ export const nouns: Topic = {
           options: ['pens', 'pen', 'a pen', 'penes'],
           correctIndex: 0,
           explanation: '2つ以上のときはおしりに s をつけるよ。pen → pens',
+          difficulty: 'basic',
         },
         {
           id: 'eng-noun-q2',
@@ -269,6 +300,7 @@ export const nouns: Topic = {
           options: ['boxs', 'box', 'boxies', 'boxes'],
           correctIndex: 3,
           explanation: 'x で終わることばには es をつけるよ。box → boxes',
+          difficulty: 'basic',
         },
         {
           id: 'eng-noun-q3',
@@ -276,6 +308,7 @@ export const nouns: Topic = {
           options: ['This', 'It', 'That', 'A'],
           correctIndex: 2,
           explanation: '遠くのものを指すときは that を使うよ。That is a dog.',
+          difficulty: 'basic',
         },
         {
           id: 'eng-noun-q4',
@@ -283,6 +316,7 @@ export const nouns: Topic = {
           options: ['a apple', 'an apple', 'apple', 'one the apple'],
           correctIndex: 1,
           explanation: 'apple は a の音ではじまるから a じゃなくて an をつけるよ。an apple',
+          difficulty: 'basic',
         },
         {
           id: 'eng-noun-q5',
@@ -295,6 +329,7 @@ export const nouns: Topic = {
           ],
           correctIndex: 0,
           explanation: 'this や that の質問に答えるときは it を使うよ。Yes, it is.',
+          difficulty: 'basic',
         },
         {
           id: 'eng-noun-q6',
@@ -306,6 +341,7 @@ export const nouns: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「This is a pen.」が正解。This（これは）+ is（です）+ a pen（ペン）の順番だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'eng-noun-q7',
@@ -317,6 +353,7 @@ export const nouns: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「I have two books.」が正解。I（私は）+ have（もっている）+ two books（本2冊）の順番だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'eng-noun-q8',
@@ -328,6 +365,7 @@ export const nouns: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「That is an orange.」が正解。That（あれは）+ is（です）+ an orange（オレンジ）の順番だよ。orange は母音ではじまるから a じゃなくて an を使うよ。',
+          difficulty: 'basic',
         },
         // --- 規則変化の複数形（-s） ---
         {
@@ -336,6 +374,7 @@ export const nouns: Topic = {
           options: ['cat', 'cats', 'cates', 'caties'],
           correctIndex: 1,
           explanation: '2つ以上のときはおしりに s をつけるよ。cat → cats',
+          difficulty: 'basic',
         },
         {
           id: 'eng-noun-q10',
@@ -343,6 +382,7 @@ export const nouns: Topic = {
           options: ['bag', 'bages', 'bags', 'baggies'],
           correctIndex: 2,
           explanation: 'おしりに s をつけるよ。bag → bags',
+          difficulty: 'basic',
         },
         // --- 複数形（-es） ---
         {
@@ -351,6 +391,7 @@ export const nouns: Topic = {
           options: ['watchs', 'watches', 'watchies', 'watch'],
           correctIndex: 1,
           explanation: 'ch で終わることばには es をつけるよ。watch → watches',
+          difficulty: 'basic',
         },
         {
           id: 'eng-noun-q12',
@@ -358,6 +399,7 @@ export const nouns: Topic = {
           options: ['lunchs', 'lunchies', 'lunches', 'lunch'],
           correctIndex: 2,
           explanation: 'ch で終わることばには es をつけるよ。lunch → lunches',
+          difficulty: 'basic',
         },
         {
           id: 'eng-noun-q13',
@@ -365,6 +407,7 @@ export const nouns: Topic = {
           options: ['classs', 'classes', 'classies', 'class'],
           correctIndex: 1,
           explanation: 's で終わることばには es をつけるよ。class → classes',
+          difficulty: 'standard',
         },
         {
           id: 'eng-noun-q14',
@@ -372,6 +415,7 @@ export const nouns: Topic = {
           options: ['dishs', 'dishes', 'dishies', 'dish'],
           correctIndex: 1,
           explanation: 'sh で終わることばには es をつけるよ。dish → dishes',
+          difficulty: 'standard',
         },
         // --- 複数形（-y → -ies） ---
         {
@@ -380,6 +424,7 @@ export const nouns: Topic = {
           options: ['countrys', 'countres', 'countries', 'countris'],
           correctIndex: 2,
           explanation: 'y を i にかえて es をつけるよ。country → countries',
+          difficulty: 'standard',
         },
         {
           id: 'eng-noun-q16',
@@ -387,6 +432,7 @@ export const nouns: Topic = {
           options: ['librarys', 'libraries', 'libraryes', 'libraris'],
           correctIndex: 1,
           explanation: 'y を i にかえて es をつけるよ。library → libraries',
+          difficulty: 'standard',
         },
         {
           id: 'eng-noun-q17',
@@ -394,6 +440,7 @@ export const nouns: Topic = {
           options: ['babys', 'babyes', 'babies', 'babyies'],
           correctIndex: 2,
           explanation: 'y を i にかえて es をつけるよ。baby → babies',
+          difficulty: 'standard',
         },
         // --- 不規則な複数形 ---
         {
@@ -402,6 +449,7 @@ export const nouns: Topic = {
           options: ['mans', 'manes', 'mens', 'men'],
           correctIndex: 3,
           explanation: 'man → men。とくべつな形なので覚えてしまおう。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-noun-q19',
@@ -409,6 +457,7 @@ export const nouns: Topic = {
           options: ['womans', 'women', 'womens', 'womanes'],
           correctIndex: 1,
           explanation: 'woman → women。とくべつな形なので覚えてしまおう。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-noun-q20',
@@ -416,6 +465,7 @@ export const nouns: Topic = {
           options: ['tooths', 'toothes', 'teeth', 'teeths'],
           correctIndex: 2,
           explanation: 'tooth → teeth。とくべつな形なので覚えてしまおう。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-noun-q21',
@@ -423,6 +473,7 @@ export const nouns: Topic = {
           options: ['fishs', 'fishes', 'fishies', 'fish'],
           correctIndex: 3,
           explanation: 'fish はそのまま fish。単数も複数も同じ形だよ。',
+          difficulty: 'standard',
         },
         // --- a / an の使い分け ---
         {
@@ -431,6 +482,7 @@ export const nouns: Topic = {
           options: ['a', 'an', 'the', 'one'],
           correctIndex: 1,
           explanation: 'egg は e の音ではじまるから an をつけるよ。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-noun-q23',
@@ -438,6 +490,7 @@ export const nouns: Topic = {
           options: ['a', 'an', 'the', 'one'],
           correctIndex: 1,
           explanation: 'umbrella は u の音ではじまるから an をつけるよ。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-noun-q24',
@@ -445,6 +498,7 @@ export const nouns: Topic = {
           options: ['dog', 'book', 'eraser', 'pen'],
           correctIndex: 2,
           explanation: 'eraser は e の音ではじまるから an をつけるよ。an eraser',
+          difficulty: 'standard',
         },
         // --- these / those ---
         {
@@ -453,6 +507,7 @@ export const nouns: Topic = {
           options: ['This', 'That', 'These', 'It'],
           correctIndex: 2,
           explanation: '複数のものが近くにあるときは these を使うよ。these = this の複数形',
+          difficulty: 'standard',
         },
         {
           id: 'eng-noun-q26',
@@ -460,6 +515,7 @@ export const nouns: Topic = {
           options: ['That', 'Those', 'This', 'These'],
           correctIndex: 1,
           explanation: '複数のものが遠くにあるときは those を使うよ。those = that の複数形',
+          difficulty: 'standard',
         },
         // --- How many ---
         {
@@ -473,6 +529,7 @@ export const nouns: Topic = {
           ],
           correctIndex: 2,
           explanation: '数えられるものの数をたずねるときは How many + 複数形 を使うよ。',
+          difficulty: 'advanced',
         },
         // --- reorder 問題 ---
         {
@@ -485,6 +542,7 @@ export const nouns: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「These are my pens.」が正解。These（これらは）+ are（です）+ my pens（私のペン）の順番だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'eng-noun-q29',
@@ -496,6 +554,7 @@ export const nouns: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「Are those birds?」が正解。疑問文は Are を前にもってくるよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'eng-noun-q30',
@@ -507,6 +566,7 @@ export const nouns: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「How many pens do you have?」が正解。How many（いくつ）+ pens（ペン）+ do you have（もっていますか）の順番だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'eng-noun-q31',
@@ -518,6 +578,7 @@ export const nouns: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「This is an egg.」が正解。egg は母音ではじまるから a じゃなくて an を使うよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'eng-noun-q32',
@@ -529,6 +590,7 @@ export const nouns: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「I like three dogs.」が正解。I（私は）+ like（好きです）+ three dogs（イヌ3匹）の順番だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'eng-noun-q33',
@@ -540,6 +602,7 @@ export const nouns: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「Is that a watch?」が正解。疑問文は Is を前にもってくるよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'eng-noun-q34',
@@ -551,6 +614,7 @@ export const nouns: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「Children are in the park.」が正解。child の複数形は children だよ。',
+          difficulty: 'advanced',
         },
       ],
     },

@@ -68,114 +68,142 @@ export const factoringFormulas: Topic = {
       {
         id: 'math-g3-ff-fc1',
         front: '(x+a)(x+b)\nかけて ab、足して a+b になる2つの数を探す', back: 'x²+(a+b)x+ab の因数分解公式は？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-ff-fc2',
         front: 'x²+bx+c を因数分解するとき\nかけて c（定数項）、足して b（xの係数）になる2つの数を探す方法', back: '「かけて○足して△」テクニックとは？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-ff-fc3',
         front: '2つとも＋（正の数）\n例: x²+7x+12 → 3と4（両方プラス）', back: '定数項が＋、xの係数が＋のとき\n2つの数の符号は？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-ff-fc4',
         front: '2つとも−（負の数）\nかけてプラス・足してマイナスだから\n例: x²−8t+15 → −3と−5', back: '定数項が＋、xの係数が−のとき\n2つの数の符号は？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-ff-fc5',
         front: '片方が＋、片方が−\nかけてマイナスになるから\n例: x²+2x−15 → −3と5', back: '定数項が−のとき\n2つの数の符号は？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-ff-fc6',
         front: '(x+2)(x+4)\nかけて8、足して6 → 2と4', back: 'x²+6x+8 を因数分解すると？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-ff-fc7',
         front: '(t−3)(t−5)\nかけて15、足して−8 → −3と−5', back: 't²−8t+15 を因数分解すると？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-ff-fc8',
         front: '(x−1)(x+12)\nかけて−12、足して11 → −1と12', back: 'x²+11x−12 を因数分解すると？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-ff-fc9',
         front: '(y−6)(y+3)\nかけて−18、足して−3 → −6と3', back: 'y²−3y−18 を因数分解すると？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-ff-fc10',
         front: '(3x+5)(3x−5)\na²−b² の形で (3x)²−5²', back: '9x²−25 を因数分解すると？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-ff-fc11',
         front: '(a+6)²\na²+2×6×a+6² → (a+b)² の公式', back: 'a²+12a+36 を因数分解すると？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-ff-fc12',
         front: 'a²−b² の形か確認\n→ (a+b)(a−b) 和と差の積\n例: x²−49 = (x+7)(x−7)', back: '因数分解の公式選択フロー\n（2項のとき）',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-ff-fc13',
         front: '最初と最後が完全平方で\n真ん中が 2ab なら\n→ (a+b)² または (a−b)²', back: '因数分解の公式選択フロー\n（3項で完全平方のとき）',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-ff-fc14',
         front: 'x²+bx+c の形\n→ かけて c、足して b で\n(x+a)(x+b) を探す', back: '因数分解の公式選択フロー\n（3項でそれ以外のとき）',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-ff-fc15',
         front: '共通因数があるか確認！\nあれば先にくくり出す\n例: 3x²+9x+6 → まず3でくくる', back: '因数分解で最初にやるべきことは？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-ff-fc16',
         front: '①共通因数をくくり出す\n②かっこの中を公式で因数分解\n例: 3(x²+3x+2) → 3(x+1)(x+2)', back: '2段階因数分解の手順は？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-ff-fc17',
         front: '3(x+1)(x+2)\n3でくくる → 3(x²+3x+2)\nかけて2、足して3 → (x+1)(x+2)', back: '3x²+9x+6 を因数分解すると？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-ff-fc18',
         front: 'a(x−4)²\naでくくる → a(x²−8x+16)\n(x−4)² の形', back: 'ax²−8ax+16a を因数分解すると？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-ff-fc19',
         front: '同じかたまりを1つの文字に置き換える\n例: (x+2)²+5(x+2)+6\n→ M=x+2 とおいて M²+5M+6', back: '置き換えを使う因数分解とは？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-ff-fc20',
         front: '(x+4)(x+5)\nM=x+2 → M²+5M+6=(M+2)(M+3)\n戻す → (x+4)(x+5)', back: '(x+2)²+5(x+2)+6 を因数分解すると？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-ff-fc21',
         front: '(a+b)(x−y)\nグループ分け: a(x−y)+b(x−y)\n共通因数(x−y)でくくる', back: 'ax−ay+bx−by を因数分解すると？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-ff-fc22',
         front: '−5(a−1)²\n−5でくくる → −5(a²−2a+1)\n(a−1)² の形', back: '−5a²+10a−5 を因数分解すると？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-ff-fc23',
         front: '(x+3)(x+7)\nかけて21、足して10 → 3と7', back: 'x²+10x+21 を因数分解すると？',
+        difficulty: 'advanced',
       },
       {
         id: 'math-g3-ff-fc24',
         front: '(x−4)(x+6)\nかけて−24、足して2 → −4と6', back: 'x²+2x−24 を因数分解すると？',
+        difficulty: 'advanced',
       },
       {
         id: 'math-g3-ff-fc25',
         front: '(x−2)(x−9)\nかけて18、足して−11 → −2と−9', back: 'x²−11x+18 を因数分解すると？',
+        difficulty: 'advanced',
       },
       {
         id: 'math-g3-ff-fc26',
         front: '2(x+3)(x−5)\n2でくくる → 2(x²−2x−15)\nかけて−15、足して−2 → 3と−5', back: '2x²−4x−30 を因数分解すると？',
+        difficulty: 'advanced',
       },
       {
         id: 'math-g3-ff-fc27',
         front: '(x−8)(x+5)\nかけて−40、足して−3 → −8と5', back: 'x²−3x−40 を因数分解すると？',
+        difficulty: 'advanced',
       },
       {
         id: 'math-g3-ff-fc28',
         front: '(a+b)(a+c)\nグループ分け: a(b+c)+(b+c)のように考える', back: 'ab+ac+b²+bc を因数分解すると？',
+        difficulty: 'advanced',
       },
     ],
     quiz: {
@@ -192,6 +220,7 @@ export const factoringFormulas: Topic = {
           correctIndex: 1,
           explanation:
             'かけて6、足して5になる2つの数は 2 と 3。だから $(x+2)(x+3)$ だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-factoring-formulas-q2',
@@ -205,6 +234,7 @@ export const factoringFormulas: Topic = {
           correctIndex: 0,
           explanation:
             '$x^2-16 = x^2-4^2$ の形。$a^2-b^2=(a+b)(a-b)$ の公式で $(x+4)(x-4)$ だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-factoring-formulas-q3',
@@ -218,6 +248,7 @@ export const factoringFormulas: Topic = {
           correctIndex: 2,
           explanation:
             '$x^2-10x+25 = x^2-2 \\times 5 \\times x+5^2$。$a^2-2ab+b^2=(a-b)^2$ の公式で $(x-5)^2$ だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-ff-q4',
@@ -231,6 +262,7 @@ export const factoringFormulas: Topic = {
           correctIndex: 3,
           explanation:
             'かけて8、足して6になる2つの数は 2 と 4。だから $(x+2)(x+4)$ だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-ff-q5',
@@ -244,6 +276,7 @@ export const factoringFormulas: Topic = {
           correctIndex: 2,
           explanation:
             'かけて15、足して−8 → −3と−5。定数項が＋でxの係数が−だから、2つとも負の数だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-ff-q6',
@@ -257,6 +290,7 @@ export const factoringFormulas: Topic = {
           correctIndex: 1,
           explanation:
             'かけて−12、足して11 → −1と12。定数項がマイナスだから片方が＋、片方が−だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-ff-q7',
@@ -270,6 +304,7 @@ export const factoringFormulas: Topic = {
           correctIndex: 3,
           explanation:
             'かけて−18、足して−3 → −6と3。$(y-6)(y+3)$ だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-ff-q8',
@@ -283,6 +318,7 @@ export const factoringFormulas: Topic = {
           correctIndex: 0,
           explanation:
             '$(3x)^2-5^2$ の形！$a^2-b^2=(a+b)(a-b)$ の和と差の積で $(3x+5)(3x-5)$ だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-ff-q9',
@@ -296,6 +332,7 @@ export const factoringFormulas: Topic = {
           correctIndex: 0,
           explanation:
             'まず共通因数3をくくり出す → $3(x^2+3x+2)$。かけて2、足して3 → $3(x+1)(x+2)$ だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-ff-q10',
@@ -309,6 +346,7 @@ export const factoringFormulas: Topic = {
           correctIndex: 3,
           explanation:
             '共通因数 $a$ でくくると $a(x^2-8x+16)$。$x^2-2 \\times 4 \\times x+4^2 = (x-4)^2$ だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-ff-q11',
@@ -322,6 +360,7 @@ export const factoringFormulas: Topic = {
           correctIndex: 2,
           explanation:
             '$M=x+2$ とおくと $M^2+5M+6=(M+2)(M+3)$。戻すと $(x+4)(x+5)$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-ff-q12',
@@ -335,6 +374,7 @@ export const factoringFormulas: Topic = {
           correctIndex: 1,
           explanation:
             '$a(x-y)+b(x-y)$ とグループ分け。$(x-y)$ が共通因数で $(a+b)(x-y)$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-ff-q13',
@@ -348,6 +388,7 @@ export const factoringFormulas: Topic = {
           correctIndex: 2,
           explanation:
             'かけて21、足して10 → 3と7。$(x+3)(x+7)$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-ff-q14',
@@ -361,6 +402,7 @@ export const factoringFormulas: Topic = {
           correctIndex: 0,
           explanation:
             'かけて-24、足して2 → -4と6。$(x-4)(x+6)$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-ff-q15',
@@ -374,6 +416,7 @@ export const factoringFormulas: Topic = {
           correctIndex: 1,
           explanation:
             'かけて18、足して-11 → -2と-9。$(x-2)(x-9)$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-ff-q16',
@@ -387,6 +430,7 @@ export const factoringFormulas: Topic = {
           correctIndex: 1,
           explanation:
             '2でくくって $2(x^2-2x-15)$。かけて-15、足して-2 → 3と-5。$2(x+3)(x-5)$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-ff-q17',
@@ -400,6 +444,7 @@ export const factoringFormulas: Topic = {
           correctIndex: 0,
           explanation:
             'かけて-40、足して-3 → -8と5。$(x-8)(x+5)$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-ff-q18',
@@ -413,6 +458,7 @@ export const factoringFormulas: Topic = {
           correctIndex: 1,
           explanation:
             '$49=7^2$、$14x=2 \\cdot x \\cdot 7$。完全平方式 $(x+7)^2$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-ff-q19',
@@ -426,6 +472,7 @@ export const factoringFormulas: Topic = {
           correctIndex: 0,
           explanation:
             '4でくくって $4(x^2-9) = 4(x+3)(x-3)$。共通因数を先にくくり出そう。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-ff-q20',
@@ -439,6 +486,7 @@ export const factoringFormulas: Topic = {
           correctIndex: 0,
           explanation:
             'かけて-30、足して-1 → -6と5。$(x-6)(x+5)$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-ff-q21',
@@ -452,6 +500,7 @@ export const factoringFormulas: Topic = {
           correctIndex: 1,
           explanation:
             '$-5$ でくくって $-5(a^2-2a+1) = -5(a-1)^2$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-ff-q22',
@@ -465,6 +514,7 @@ export const factoringFormulas: Topic = {
           correctIndex: 1,
           explanation:
             'かけて15、足して8 → 3と5。$(x+3)(x+5)$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-ff-q23',
@@ -478,6 +528,7 @@ export const factoringFormulas: Topic = {
           correctIndex: 2,
           explanation:
             'かけて10、足して-7 → -2と-5。$(x-2)(x-5)$ だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g3-ff-q24',
@@ -491,6 +542,7 @@ export const factoringFormulas: Topic = {
           correctIndex: 0,
           explanation:
             '$M=x-1$ とおくと $M^2+3M+2=(M+1)(M+2)$。戻すと $(x)(x+1) = x(x+1)$ だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g3-ff-q25',
@@ -504,6 +556,7 @@ export const factoringFormulas: Topic = {
           correctIndex: 0,
           explanation:
             'かけて-21、足して4 → -3と7。$(x-3)(x+7)$ だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g3-ff-q26',
@@ -517,6 +570,7 @@ export const factoringFormulas: Topic = {
           correctIndex: 1,
           explanation:
             '5でくくって $5(x^2-4) = 5(x+2)(x-2)$。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g3-ff-q27',
@@ -530,6 +584,7 @@ export const factoringFormulas: Topic = {
           correctIndex: 0,
           explanation:
             '$36=6^2$、$12x=2 \\cdot x \\cdot 6$。$(x-6)^2$ だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g3-ff-q28',
@@ -543,6 +598,7 @@ export const factoringFormulas: Topic = {
           correctIndex: 0,
           explanation:
             'かけて-14、足して5 → -2と7。$(x-2)(x+7)$ だよ。',
+          difficulty: 'advanced',
         },
       ],
     },

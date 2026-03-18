@@ -34,60 +34,15 @@ export const modernIssues: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'fc1',
-        front: 'グローバル化',
-        back: '世界が一体化し、国境を越えた交流が進む現象を何という？',
-        explanation: '経済・文化・情報が国境を越えて広がる現象。',
-      },
-      {
-        id: 'fc2',
-        front: '京都議定書',
-        back: '1997年に採択された温室効果ガス削減の文書は？',
-        explanation: '先進国に温室効果ガスの削減義務を課した。',
-      },
-      {
-        id: 'fc3',
-        front: 'パリ協定',
-        back: '2015年に発展途上国も目標を定めた地球環境の合意は？',
-        explanation: '全ての国が温室効果ガス削減の目標を持つことになった。',
-      },
-      {
-        id: 'fc4',
-        front: 'SDGs（持続可能な開発目標）',
-        back: '2030年までの達成を目指す17の国際目標は？',
-        explanation: '貧困・教育・環境など幅広い分野の目標が含まれる。',
-      },
-      {
-        id: 'fc5',
-        front: '持続可能な社会',
-        back: '現在だけでなく将来の世代のことも考えた社会のあり方は？',
-        explanation: '環境・経済・社会のバランスを考えた社会づくり。',
-      },
-      {
-        id: 'fc6',
-        front: '少子高齢化',
-        back: '子供が減り、高齢者の割合が高まる社会現象を何という？',
-        explanation: '日本の大きな社会問題の一つ。',
-      },
-      {
-        id: 'fc7',
-        front: '再生可能エネルギー',
-        back: '震災後に導入が進んだ太陽光や風力などの電力は？',
-        explanation: '化石燃料に代わるクリーンなエネルギー源。',
-      },
-      {
-        id: 'fc8',
-        front: '満18歳以上',
-        back: '2016年から引き下げられた選挙権の年齢は？',
-        explanation: '以前は20歳以上だった選挙権年齢が引き下げられた。',
-      },
-      {
-        id: 'fc9',
-        front: '多文化共生',
-        back: '異なる文化を持つ人々が共に生きる社会のあり方は？',
-        explanation: '外国人との共生や多様性の尊重を目指す考え方。',
-      },
+      { id: 'fc1', front: 'グローバル化', back: '世界が一体化し、国境を越えた交流が進む現象を何という？', difficulty: 'basic' },
+      { id: 'fc2', front: 'SDGs（持続可能な開発目標）', back: '2015年に国連で採択された、2030年までの達成を目指す17の国際目標は？', difficulty: 'basic' },
+      { id: 'fc3', front: '少子高齢化', back: '子供が減り、高齢者の割合が高まる日本の社会現象を何という？', difficulty: 'basic' },
+      { id: 'fc4', front: '京都議定書', back: '1997年に採択された、先進国に温室効果ガスの削減義務を課した文書は？', difficulty: 'basic' },
+      { id: 'fc5', front: 'パリ協定', back: '2015年に発展途上国も含め全ての国が温室効果ガス削減の目標を定めた合意は？', difficulty: 'standard' },
+      { id: 'fc6', front: '再生可能エネルギー', back: '東日本大震災後に導入が進んだ太陽光や風力などのエネルギーは？', difficulty: 'standard' },
+      { id: 'fc7', front: '満18歳以上', back: '2016年から引き下げられた選挙権の年齢は？', difficulty: 'standard' },
+      { id: 'fc8', front: '多文化共生', back: '異なる文化を持つ人々が共に生きる社会のあり方を何という？', difficulty: 'standard' },
+      { id: 'fc9', front: '京都議定書とパリ協定の違い', back: '京都議定書とパリ協定の最も大きな違いは何か？', explanation: '京都議定書は先進国のみに削減義務を課したが、パリ協定は発展途上国も含めた全ての国が目標を定めた。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -103,6 +58,7 @@ export const modernIssues: Topic = {
           correctIndex: 1,
           explanation:
             '京都議定書は1997年に京都で採択され、先進国に温室効果ガスの削減義務を課しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -116,6 +72,7 @@ export const modernIssues: Topic = {
           correctIndex: 2,
           explanation:
             'SDGs（持続可能な開発目標）は2015年に国連で採択され、貧困・教育・環境など幅広い分野の目標が含まれます。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -129,6 +86,7 @@ export const modernIssues: Topic = {
           correctIndex: 0,
           explanation:
             '2016年から選挙権年齢が満20歳以上から満18歳以上に引き下げられ、若者の政治参加が促進されました。',
+          difficulty: 'basic',
         },
         {
           id: 'q4',
@@ -143,6 +101,7 @@ export const modernIssues: Topic = {
           correctIndex: 3,
           explanation:
             'パリ協定は2015年に結ばれ、京都議定書と異なり発展途上国も含めた全ての国が削減目標を定めることになりました。',
+          difficulty: 'standard',
         },
         {
           id: 'q5',
@@ -157,6 +116,7 @@ export const modernIssues: Topic = {
           correctIndex: 1,
           explanation:
             '少子高齢化は日本の大きな社会問題であり、持続可能な社会の実現が求められています。',
+          difficulty: 'standard',
         },
         {
           id: 'q6',
@@ -171,6 +131,7 @@ export const modernIssues: Topic = {
           correctIndex: 2,
           explanation:
             '2011年の東日本大震災後、太陽光や風力などの再生可能エネルギーの導入が加速しました。',
+          difficulty: 'standard',
         },
       ],
     },

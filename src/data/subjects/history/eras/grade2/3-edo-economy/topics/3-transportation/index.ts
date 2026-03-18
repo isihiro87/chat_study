@@ -28,30 +28,35 @@ export const transportation: Topic = {
         front: '五街道',
         back: '江戸と各地を結ぶ東海道や中山道などの主要な陸路をまとめて何という？',
         explanation: '幕府の全国支配を目的として整備され、起点は日本橋とされた。',
+        difficulty: 'basic',
       },
       {
         id: 'fc2',
         front: '関所',
         back: '江戸を守るために街道に設けられた、通行を取り締まる施設は？',
         explanation: '箱根や碓氷などに置かれ、通行人の身元や武器の持ち込みを厳しく調べた。',
+        difficulty: 'basic',
       },
       {
         id: 'fc3',
         front: '飛脚',
         back: '手紙や荷物を運ぶために街道を走った運送業者は？',
         explanation: '幕府や藩が利用した継飛脚のほか、民間向けの町飛脚も活躍した。',
+        difficulty: 'standard',
       },
       {
         id: 'fc4',
         front: '樽廻船',
         back: '大阪から江戸へ、主に酒などの物資を運んだ貨物船は？',
         explanation: '菱垣廻船よりも運送スピードが速く、江戸の消費生活を支えた。',
+        difficulty: 'standard',
       },
       {
         id: 'fc5',
         front: '西廻り航路',
         back: '日本海を経由して東北の年貢米などを大阪へ運ぶ航路は？',
         explanation: '河村瑞賢によって整備され、北前船が各港に寄りながら往来した。',
+        difficulty: 'advanced',
       },
     ],
     quiz: {
@@ -62,6 +67,7 @@ export const transportation: Topic = {
           options: ['甲州街道', '日光街道', '中山道', '東海道'],
           correctIndex: 3,
           explanation: '東海道は江戸〜京都間を結び、「東海道五十三次」として広重の浮世絵にも描かれました。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -69,6 +75,7 @@ export const transportation: Topic = {
           options: ['五街道', '七街道', '三街道', '十街道'],
           correctIndex: 0,
           explanation: '五街道は東海道・中山道・日光街道・奥州街道・甲州街道の5つで、幕府が整備しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -76,6 +83,7 @@ export const transportation: Topic = {
           options: ['東廻り航路', '南蛮航路', '西廻り航路', '朱印船航路'],
           correctIndex: 2,
           explanation: '西廻り航路は河村瑞賢によって整備され、日本海側から大阪へ物資を運びました。',
+          difficulty: 'basic',
         },
         {
           id: 'q4',
@@ -83,6 +91,7 @@ export const transportation: Topic = {
           options: ['宿場', '関所', '番所', '陣屋'],
           correctIndex: 1,
           explanation: '関所は箱根や碓氷などに置かれ、通行人の身元や武器の持ち込みを厳しく調べました。',
+          difficulty: 'standard',
         },
         {
           id: 'q5',
@@ -90,6 +99,7 @@ export const transportation: Topic = {
           options: ['菱垣廻船', '北前船', '朱印船', '樽廻船'],
           correctIndex: 3,
           explanation: '樽廻船は酒樽を中心に運んだ船で、菱垣廻船よりも速く江戸の消費生活を支えました。',
+          difficulty: 'standard',
         },
         {
           id: 'q6',
@@ -97,6 +107,7 @@ export const transportation: Topic = {
           options: ['飛脚', '問屋', '蔵元', '人足'],
           correctIndex: 0,
           explanation: '飛脚は幕府や藩が利用した継飛脚のほか、民間向けの町飛脚も活躍しました。',
+          difficulty: 'standard',
         },
       ],
     },

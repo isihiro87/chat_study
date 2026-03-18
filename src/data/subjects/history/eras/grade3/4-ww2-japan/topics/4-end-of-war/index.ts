@@ -44,66 +44,16 @@ export const endOfWar: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'fc1',
-        front: '沖縄戦',
-        back: '1945年にアメリカ軍が上陸し、住民を巻き込んだ激しい地上戦が行われた戦いは？',
-        explanation: '約20万人が犠牲になった。住民の集団自決も起きた。',
-      },
-      {
-        id: 'fc2',
-        front: 'ポツダム宣言',
-        back: '1945年7月にアメリカ・イギリス・中国が日本に無条件降伏を求めた宣言は？',
-        explanation: '日本は当初これを黙殺したが、最終的に受け入れた。',
-      },
-      {
-        id: 'fc3',
-        front: '広島への原爆投下',
-        back: '1945年8月6日に世界で初めて実戦で原子爆弾が使用された都市は？',
-        explanation: '「リトルボーイ」と呼ばれるウラン型原爆が投下された。',
-      },
-      {
-        id: 'fc4',
-        front: '長崎への原爆投下',
-        back: '1945年8月9日に二つ目の原子爆弾が投下された都市は？',
-        explanation: '「ファットマン」と呼ばれるプルトニウム型原爆が投下された。',
-      },
-      {
-        id: 'fc5',
-        front: 'ソ連参戦',
-        back: '1945年8月8日に日ソ中立条約を破って満州に侵攻した国は？',
-        explanation: 'ソ連の参戦が日本の降伏決定を早めた。',
-      },
-      {
-        id: 'fc6',
-        front: '玉音放送',
-        back: '1945年8月15日に天皇がラジオで国民に終戦を伝えた放送は？',
-        explanation: '国民の多くが初めて天皇の声を聞いた。',
-      },
-      {
-        id: 'fc7',
-        front: '8月15日',
-        back: '日本が終戦を迎えた日は何月何日？',
-        explanation: '現在も終戦記念日として追悼が行われている。',
-      },
-      {
-        id: 'fc8',
-        front: '無条件降伏',
-        back: 'ポツダム宣言で日本に求められた降伏の条件は？',
-        explanation: '条件をつけずに降伏すること。',
-      },
-      {
-        id: 'fc9',
-        front: '原子爆弾',
-        back: '広島・長崎に投下された、核分裂反応を利用した大量破壊兵器は？',
-        explanation: '一瞬で都市を壊滅させ、放射線被害も長期にわたった。',
-      },
-      {
-        id: 'fc10',
-        front: '日ソ中立条約',
-        back: '1941年に日本とソ連が結び、ソ連が1945年に破った条約は？',
-        explanation: 'ソ連は条約を破って満州に侵攻した。',
-      },
+      { id: 'fc1', front: '沖縄戦', back: '1945年にアメリカ軍が上陸し、住民を巻き込んだ激しい地上戦が行われた戦いは？', explanation: '約20万人が犠牲になった。', difficulty: 'basic' },
+      { id: 'fc2', front: 'ポツダム宣言', back: '1945年7月にアメリカ・イギリス・中国が日本に無条件降伏を求めた宣言は？', difficulty: 'basic' },
+      { id: 'fc3', front: '広島', back: '1945年8月6日に世界で初めて実戦で原子爆弾が投下された都市は？', difficulty: 'basic' },
+      { id: 'fc4', front: '長崎', back: '1945年8月9日に二つ目の原子爆弾が投下された都市は？', difficulty: 'basic' },
+      { id: 'fc5', front: '玉音放送', back: '1945年8月15日に天皇がラジオで国民に終戦を伝えた放送は？', difficulty: 'standard' },
+      { id: 'fc6', front: '8月15日', back: '日本が終戦を迎えた日は何月何日？', difficulty: 'standard' },
+      { id: 'fc7', front: 'ソ連参戦', back: '1945年8月8日に日ソ中立条約を破って満州に侵攻した国は？', explanation: 'ソ連の参戦が日本の降伏決定を早めた。', difficulty: 'standard' },
+      { id: 'fc8', front: '日ソ中立条約', back: '1941年に日本とソ連が結び、ソ連が1945年に破った条約は？', difficulty: 'standard' },
+      { id: 'fc9', front: '日本が降伏を決定した要因', back: '日本政府がポツダム宣言を受け入れ降伏を決めた直接的な要因は何か？', explanation: '広島・長崎への原爆投下とソ連の参戦により、これ以上の抵抗が不可能と判断した。', difficulty: 'advanced' },
+      { id: 'fc10', front: '8月6日と8月9日', back: '広島と長崎にそれぞれ原爆が投下された日付は？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -119,6 +69,7 @@ export const endOfWar: Topic = {
           correctIndex: 2,
           explanation:
             '1945年8月6日に広島に原爆が投下されました。8月9日は長崎への投下です。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -132,6 +83,7 @@ export const endOfWar: Topic = {
           correctIndex: 1,
           explanation:
             'ポツダム宣言はアメリカ・イギリス・中国が日本に無条件降伏を求めたものです。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -140,6 +92,7 @@ export const endOfWar: Topic = {
           correctIndex: 3,
           explanation:
             '玉音放送で天皇が国民にポツダム宣言受け入れと終戦を伝えました。',
+          difficulty: 'standard',
         },
         {
           id: 'q4',
@@ -148,6 +101,7 @@ export const endOfWar: Topic = {
           correctIndex: 0,
           explanation:
             '沖縄戦では約20万人が犠牲になり、住民の集団自決なども起きました。',
+          difficulty: 'standard',
         },
         {
           id: 'q5',
@@ -156,6 +110,7 @@ export const endOfWar: Topic = {
           correctIndex: 1,
           explanation:
             'ソ連は日ソ中立条約を一方的に破り、満州に侵攻しました。',
+          difficulty: 'advanced',
         },
       ],
     },

@@ -58,141 +58,169 @@ export const worldReligions: Topic = {
         id: 'fc1',
         front: '三大宗教',
         back: '仏教・キリスト教・イスラームを合わせて何という？',
+        difficulty: 'basic',
       },
       {
         id: 'fc2',
         front: 'シャカ',
         back: '紀元前5世紀頃のインドで仏教を開いたのはだれ？',
+        difficulty: 'basic',
       },
       {
         id: 'fc3',
         front: 'イエス',
         back: 'パレスチナで神の愛による救いを説いたのはだれ？',
+        difficulty: 'basic',
       },
       {
         id: 'fc4',
         front: 'ムハンマド',
         back: '7世紀のアラビア半島でイスラームを開いたのはだれ？',
+        difficulty: 'basic',
       },
       {
         id: 'fc5',
         front: 'クルアーン(コーラン)',
         back: 'イスラームの聖典を何という？',
+        difficulty: 'basic',
       },
       {
         id: 'fc6',
         front: 'エルサレム',
         back: 'ユダヤ教・キリスト教・イスラーム共通の聖地はどこ？',
+        difficulty: 'basic',
       },
       {
         id: 'fc7',
         front: 'ローマ帝国',
         back: 'キリスト教を国教とした古代の大帝国は何帝国？',
+        difficulty: 'basic',
       },
       {
         id: 'fc8',
         front: 'カーバ神殿',
         back: 'メッカにあるイスラーム最高の聖地は何という神殿？',
+        difficulty: 'basic',
       },
       {
         id: 'fc9',
         front: 'ヒンドゥー教',
         back: 'インドで仏教を吸収して成立した多神教は何という宗教？',
+        difficulty: 'basic',
       },
       {
         id: 'fc10',
         front: '聖書',
         back: 'キリスト教の聖典を何という？',
+        difficulty: 'basic',
       },
       {
         id: 'fc11',
         front: 'ユダヤ教',
         back: '古代イスラエルの民が信仰した、一神教の先駆けとなった宗教は？',
+        difficulty: 'basic',
       },
       {
         id: 'fc12',
         front: '一神教',
         back: '唯一の神だけを信じる宗教の考え方を何という？',
+        difficulty: 'basic',
       },
       {
         id: 'fc13',
         front: 'アッラー',
         back: 'イスラームで信仰する唯一の神を何と呼ぶ？',
+        difficulty: 'standard',
       },
       {
         id: 'fc14',
         front: 'ムスリム',
         back: 'イスラームの信者を何と呼ぶ？',
+        difficulty: 'standard',
       },
       {
         id: 'fc15',
         front: 'カースト制度',
         back: 'ヒンドゥー教と結びついたインドの身分制度は？',
+        difficulty: 'standard',
       },
       {
         id: 'fc16',
         front: '使徒',
         back: 'イエスの12人の弟子たちを何と呼ぶ？',
+        difficulty: 'standard',
       },
       {
         id: 'fc17',
         front: '旧約聖書',
         back: 'ユダヤ教の聖典であり、キリスト教の聖書の一部でもあるのは？',
+        difficulty: 'standard',
       },
       {
         id: 'fc18',
         front: 'メッカ',
         back: 'イスラーム最大の聖地はどこ？',
+        difficulty: 'standard',
       },
       {
         id: 'fc19',
         front: '経典',
         back: '仏教の聖典を総称して何という？',
+        difficulty: 'standard',
       },
       {
         id: 'fc20',
         front: '十字架',
         back: 'イエスが処刑された方法のシンボルは？',
+        difficulty: 'standard',
       },
       {
         id: 'fc21',
         front: 'キリスト',
         back: '「救世主（メシア）」という意味のイエスの称号は？',
+        difficulty: 'standard',
       },
       {
         id: 'fc22',
         front: 'テオドシウス1世',
         back: 'キリスト教を国教化したローマ皇帝は？',
+        difficulty: 'standard',
       },
       {
         id: 'fc23',
         front: 'コンスタンティヌス帝',
         back: 'キリスト教を公認したローマ皇帝は？',
+        difficulty: 'advanced',
       },
       {
         id: 'fc24',
         front: '1日5回',
         back: 'イスラームの信者がメッカの方角に向かって行う礼拝の回数は？',
+        difficulty: 'advanced',
       },
       {
         id: 'fc25',
         front: 'ハッジ',
         back: 'イスラームで信者が生涯に一度は行うべきメッカへの巡礼を何という？',
+        difficulty: 'advanced',
       },
       {
         id: 'fc26',
         front: '多神教',
         back: '複数の神を信じる宗教の考え方を何という？',
+        difficulty: 'advanced',
       },
       {
         id: 'fc27',
         front: 'パレスチナ',
         back: 'イエスが神の愛を説いた地域は？',
+        difficulty: 'advanced',
       },
       {
         id: 'fc28',
         front: 'アラビア半島',
         back: 'ムハンマドがイスラームを開いた地域は？',
+        difficulty: 'advanced',
       },
     ],
     quiz: {
@@ -203,6 +231,7 @@ export const worldReligions: Topic = {
           options: ['ムハンマド', 'イエス', 'シャカ', '孔子'],
           correctIndex: 2,
           explanation: 'シャカ（釈迦）は紀元前5世紀頃のインドで仏教を開きました。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -210,6 +239,7 @@ export const worldReligions: Topic = {
           options: ['シャカ', 'ムハンマド', '孔子', 'イエス'],
           correctIndex: 3,
           explanation: 'イエスはパレスチナで神の愛を説き、キリスト教の始まりとなりました。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -217,6 +247,7 @@ export const worldReligions: Topic = {
           options: ['ムハンマド', 'イエス', 'シャカ', 'アレクサンドロス'],
           correctIndex: 0,
           explanation: 'ムハンマドは7世紀にアラビア半島でイスラームを創始しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q4',
@@ -224,6 +255,7 @@ export const worldReligions: Topic = {
           options: ['聖書', 'クルアーン', 'ヴェーダ', '論語'],
           correctIndex: 1,
           explanation: 'クルアーン（コーラン）はイスラームの聖典で、ムハンマドへの啓示をまとめたものです。',
+          difficulty: 'basic',
         },
         {
           id: 'q5',
@@ -231,6 +263,7 @@ export const worldReligions: Topic = {
           options: ['ローマ帝国', 'ペルシャ帝国', 'モンゴル帝国', 'オスマン帝国'],
           correctIndex: 0,
           explanation: 'ローマ帝国は4世紀にキリスト教を国教として採用しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q6',
@@ -238,6 +271,7 @@ export const worldReligions: Topic = {
           options: ['メッカ', 'バチカン', 'ローマ', 'エルサレム'],
           correctIndex: 3,
           explanation: 'エルサレムは三つの宗教にとって重要な聖地です。',
+          difficulty: 'basic',
         },
         {
           id: 'q7',
@@ -245,6 +279,7 @@ export const worldReligions: Topic = {
           options: ['ヤハウェ', 'シヴァ', 'アッラー', 'ブッダ'],
           correctIndex: 2,
           explanation: 'アッラーはイスラームで信仰する唯一の神です。',
+          difficulty: 'basic',
         },
         {
           id: 'q8',
@@ -252,6 +287,7 @@ export const worldReligions: Topic = {
           options: ['国教として認められた', '迫害された', '保護された', '無視された'],
           correctIndex: 1,
           explanation: 'キリスト教は最初ローマ帝国から迫害されましたが、信者が増え続け4世紀に国教となりました。',
+          difficulty: 'basic',
         },
         {
           id: 'q9',
@@ -264,6 +300,7 @@ export const worldReligions: Topic = {
           ],
           correctIndex: 0,
           explanation: '仏教（紀元前5世紀）→キリスト教（1世紀）→イスラーム（7世紀）の順で成立しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q10',
@@ -271,6 +308,7 @@ export const worldReligions: Topic = {
           options: ['パルテノン神殿', 'カーバ神殿', '嘆きの壁', 'サン・ピエトロ大聖堂'],
           correctIndex: 1,
           explanation: 'カーバ神殿はメッカにあるイスラーム最高の聖殿です。',
+          difficulty: 'basic',
         },
         {
           id: 'q11',
@@ -278,6 +316,7 @@ export const worldReligions: Topic = {
           options: ['海の道', 'シルクロード', '朝貢路', '茶馬古道'],
           correctIndex: 1,
           explanation: '仏教はシルクロードを通じてインドから中国に伝わりました。',
+          difficulty: 'standard',
         },
         {
           id: 'q12',
@@ -285,6 +324,7 @@ export const worldReligions: Topic = {
           options: ['1回', '3回', '5回', '7回'],
           correctIndex: 2,
           explanation: 'イスラームの信者は1日5回メッカの方角に向かって礼拝します。',
+          difficulty: 'standard',
         },
         {
           id: 'q13',
@@ -292,6 +332,7 @@ export const worldReligions: Topic = {
           options: ['クリスチャン', 'ムスリム', 'ブッディスト', 'ヒンドゥー'],
           correctIndex: 1,
           explanation: 'イスラームの信者はムスリムと呼ばれます。',
+          difficulty: 'standard',
         },
         {
           id: 'q14',
@@ -299,6 +340,7 @@ export const worldReligions: Topic = {
           options: ['封建制度', '科挙制度', 'カースト制度', '荘園制度'],
           correctIndex: 2,
           explanation: 'カースト制度はヒンドゥー教と結びついたインドの身分制度です。',
+          difficulty: 'standard',
         },
         {
           id: 'q15',
@@ -306,6 +348,7 @@ export const worldReligions: Topic = {
           options: ['斬首', '毒殺', '十字架にかけられた', '投獄'],
           correctIndex: 2,
           explanation: 'イエスは十字架にかけられて処刑されました。',
+          difficulty: 'standard',
         },
         {
           id: 'q16',
@@ -313,6 +356,7 @@ export const worldReligions: Topic = {
           options: ['預言者', '救世主（メシア）', '聖人', '指導者'],
           correctIndex: 1,
           explanation: '「キリスト」は「救世主（メシア）」という意味で、イエスが神から遣わされた救い主であるという信仰を表します。',
+          difficulty: 'standard',
         },
         {
           id: 'q17',
@@ -325,6 +369,7 @@ export const worldReligions: Topic = {
           ],
           correctIndex: 1,
           explanation: '一神教は唯一の神だけを信じる考え方で、ユダヤ教・キリスト教・イスラームが該当します。',
+          difficulty: 'standard',
         },
         {
           id: 'q18',
@@ -332,6 +377,7 @@ export const worldReligions: Topic = {
           options: ['仏教', 'イスラーム', 'ユダヤ教', 'ヒンドゥー教'],
           correctIndex: 2,
           explanation: 'キリスト教はユダヤ教から分かれて成立しました。イエスはユダヤ教徒でした。',
+          difficulty: 'standard',
         },
         {
           id: 'q19',
@@ -344,6 +390,7 @@ export const worldReligions: Topic = {
           ],
           correctIndex: 1,
           explanation: '仏教の聖典は経典、キリスト教は聖書、イスラームはクルアーン（コーラン）です。',
+          difficulty: 'standard',
         },
         {
           id: 'q20',
@@ -351,6 +398,7 @@ export const worldReligions: Topic = {
           options: ['中国', 'パレスチナ', 'インド', 'アラビア半島'],
           correctIndex: 2,
           explanation: 'シャカはインド（ブッダガヤ）で悟りを開きました。',
+          difficulty: 'standard',
         },
         {
           id: 'q21',
@@ -358,6 +406,7 @@ export const worldReligions: Topic = {
           options: ['ジハード', 'ハッジ', 'ラマダン', 'ザカート'],
           correctIndex: 1,
           explanation: 'ハッジはイスラームで定められた、信者が生涯に一度は行うべきメッカへの巡礼です。',
+          difficulty: 'standard',
         },
         {
           id: 'q22',
@@ -365,6 +414,7 @@ export const worldReligions: Topic = {
           options: ['テオドシウス1世', 'ネロ', 'コンスタンティヌス帝', 'オクタウィアヌス'],
           correctIndex: 2,
           explanation: 'コンスタンティヌス帝がキリスト教を公認し、その後テオドシウス1世が国教化しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q23',
@@ -372,6 +422,7 @@ export const worldReligions: Topic = {
           options: ['ヨーロッパ', 'アフリカ', 'アジア', 'アメリカ'],
           correctIndex: 2,
           explanation: '仏教はアジアを中心に、東南アジアや東アジア（中国・朝鮮・日本）に広まりました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q24',
@@ -384,6 +435,7 @@ export const worldReligions: Topic = {
           ],
           correctIndex: 1,
           explanation: '仏教はインド、キリスト教はパレスチナ、イスラームはアラビア半島で生まれました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q25',
@@ -396,6 +448,7 @@ export const worldReligions: Topic = {
           ],
           correctIndex: 3,
           explanation: 'シャカが悟りを開いたのはインドのブッダガヤで、エルサレムとは関係ありません。',
+          difficulty: 'advanced',
         },
         {
           id: 'q26',
@@ -403,6 +456,7 @@ export const worldReligions: Topic = {
           options: ['中国', 'サウジアラビア', 'インド', '日本'],
           correctIndex: 2,
           explanation: 'ヒンドゥー教はインドで最も信仰されており、人口の約80%が信仰しています。',
+          difficulty: 'advanced',
         },
         {
           id: 'q27',
@@ -415,6 +469,7 @@ export const worldReligions: Topic = {
           ],
           correctIndex: 1,
           explanation: 'イスラームはアラビア半島から西アジア・北アフリカ・中央アジアなどに急速に広まりました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q28',
@@ -427,6 +482,7 @@ export const worldReligions: Topic = {
           ],
           correctIndex: 1,
           explanation: '一神教は唯一の神だけを信じる宗教、多神教は複数の神を信じる宗教です。',
+          difficulty: 'advanced',
         },
       ],
     },

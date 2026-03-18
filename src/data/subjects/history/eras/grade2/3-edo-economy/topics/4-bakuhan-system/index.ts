@@ -28,24 +28,28 @@ export const bakuhanSystem: Topic = {
         front: '徳川綱吉',
         back: '朱子学を奨励し、社会の秩序と礼儀を重視した第5代将軍はだれ？',
         explanation: '儒学による文治政治をすすめ、湯島に聖堂を建てるなど学問を重んじた。',
+        difficulty: 'basic',
       },
       {
         id: 'fc2',
         front: '生類憐みの令',
         back: '綱吉が発令した、極端な動物愛護を命じる法令の総称は？',
         explanation: '犬をはじめとする生き物を保護の対象とし、庶民の生活に混乱を招いた。',
+        difficulty: 'basic',
       },
       {
         id: 'fc3',
         front: '新井白石',
         back: '第6代・7代将軍に仕え、財政再建にあたった儒学者は？',
         explanation: '貨幣の質を元に戻すなど「正徳の治」と呼ばれる改革を行った。',
+        difficulty: 'standard',
       },
       {
         id: 'fc4',
         front: '長崎貿易',
         back: '新井白石が金銀の海外流出を防ぐため制限したのは何貿易？',
         explanation: '海舶互市新例を出し、オランダや清との貿易額に上限を設けた。',
+        difficulty: 'standard',
       },
     ],
     quiz: {
@@ -56,6 +60,7 @@ export const bakuhanSystem: Topic = {
           options: ['参勤交代', '武家諸法度', '鎖国', '禁中並公家諸法度'],
           correctIndex: 0,
           explanation: '参勤交代は3代将軍家光の時に制度化され、大名の経済力を弱めて反乱を防ぐ効果がありました。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -63,6 +68,7 @@ export const bakuhanSystem: Topic = {
           options: ['御成敗式目', '大宝律令', '武家諸法度', '公事方御定書'],
           correctIndex: 2,
           explanation: '武家諸法度は2代将軍秀忠の時に制定され、城の無断修築などを禁じて大名を統制しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -70,6 +76,7 @@ export const bakuhanSystem: Topic = {
           options: ['徳川家光', '徳川家康', '徳川吉宗', '徳川綱吉'],
           correctIndex: 3,
           explanation: '徳川綱吉は儒学による文治政治を進め、湯島に聖堂を建てるなど学問を重んじました。',
+          difficulty: 'basic',
         },
         {
           id: 'q4',
@@ -77,6 +84,7 @@ export const bakuhanSystem: Topic = {
           options: ['武家諸法度', '生類憐みの令', '禁中並公家諸法度', '鎖国令'],
           correctIndex: 1,
           explanation: '生類憐みの令は犬をはじめとする生き物の保護を命じ、庶民の生活に大きな混乱を招きました。',
+          difficulty: 'standard',
         },
         {
           id: 'q5',
@@ -84,6 +92,7 @@ export const bakuhanSystem: Topic = {
           options: ['本居宣長', '荻生徂徠', '林羅山', '新井白石'],
           correctIndex: 3,
           explanation: '新井白石は貨幣の質を元に戻し、長崎貿易を制限して金銀の海外流出を防ぎました。',
+          difficulty: 'standard',
         },
         {
           id: 'q6',
@@ -91,6 +100,7 @@ export const bakuhanSystem: Topic = {
           options: ['律令制', '封建制度', '幕藩体制', '荘園制'],
           correctIndex: 2,
           explanation: '幕藩体制とは幕府と藩による二重の支配体制のことで、約260年の平和を支えました。',
+          difficulty: 'standard',
         },
       ],
     },

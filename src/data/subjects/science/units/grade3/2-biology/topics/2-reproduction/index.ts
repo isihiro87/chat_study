@@ -124,48 +124,79 @@ export const reproduction: Topic = {
         front: '有性生殖',
         back: '受精によって新しい個体をつくる生殖方法を何という？',
         explanation: '卵と精子（生殖細胞）が受精して、多様な形質の子が生まれる。',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-rep-fc2',
-        front: '生殖細胞',
+        front: '生殖細胞（動物：卵と精子、被子植物：卵細胞と精細胞）',
         back: '生殖のための特別な細胞を何という？動物と植物での名称もそれぞれ答えよ。',
-        explanation: '動物：卵と精子。被子植物：卵細胞と精細胞。',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-rep-fc3',
         front: '受精',
         back: '雌雄の生殖細胞が結合し、それぞれの核が合体して1個の細胞になることを何という？',
         explanation: '受精によってつくられる新しい細胞を受精卵という。',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-rep-fc4',
         front: '発生',
         back: '受精卵が体細胞分裂をくり返して個体になっていく過程を何という？',
         explanation: '発生の初期段階のものを胚という。',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-rep-fc5',
         front: '胚',
         back: '受精卵が細胞分裂を始めてから、生物としてのからだができあがる前までのものを何という？',
         explanation: '動物では自分で食物をとれるようになるまで、植物では種子が発芽する前まで。',
+        difficulty: 'standard',
       },
       {
         id: 'sci3-rep-fc6',
-        front: '被子植物の有性生殖',
+        front: '花粉→花粉管がのびる→精細胞が胚珠の卵細胞と受精→受精卵→胚→種子',
         back: '被子植物の受精の過程を順に説明せよ。',
-        explanation: '花粉→花粉管がのびる→精細胞が胚珠の卵細胞と受精→受精卵→胚→種子。',
+        difficulty: 'standard',
       },
       {
         id: 'sci3-rep-fc7',
         front: '減数分裂',
         back: '生殖細胞がつくられるときに行われる、染色体数が半分になる特別な細胞分裂を何という？',
         explanation: '受精で半分＋半分＝もとの数に戻るために、あらかじめ半分にする分裂。',
+        difficulty: 'standard',
       },
       {
         id: 'sci3-rep-fc8',
-        front: '無性生殖と有性生殖の利用',
+        front: '同じ品質→無性生殖（クローンで同じ形質を維持）、新品種→有性生殖（多様な形質を得る）',
         back: '農業で同じ品質のものを作りたいとき・新品種をつくりたいとき、それぞれどちらの生殖を利用する？',
-        explanation: '同じ品質→無性生殖（いちごなど）。新品種→有性生殖（受精でふやす）。',
+        difficulty: 'advanced',
+      },
+      {
+        id: 'sci3-rep-fc9',
+        front: '体細胞の半分',
+        back: '有性生殖で、生殖細胞の染色体数は体細胞と比べてどうなっている？',
+        explanation: '減数分裂でつくられるため半分になる。受精で半分＋半分＝もとの数に戻る。',
+        difficulty: 'basic',
+      },
+      {
+        id: 'sci3-rep-fc10',
+        front: '花粉管がのびて精細胞が胚珠の卵細胞に届く',
+        back: '被子植物の有性生殖で、精細胞が卵細胞に届くしくみは？',
+        difficulty: 'standard',
+      },
+      {
+        id: 'sci3-rep-fc11',
+        front: '子に多様な形質が現れる',
+        back: '有性生殖と無性生殖を比べたとき、有性生殖の特徴は？',
+        explanation: '両親から半分ずつ異なる染色体を受けつぐため、子には多様な形質が現れる。',
+        difficulty: 'standard',
+      },
+      {
+        id: 'sci3-rep-fc12',
+        front: '受精卵',
+        back: '雌雄の生殖細胞が結合し核が合体してできる細胞を何という？',
+        difficulty: 'basic',
       },
     ],
     quiz: {
@@ -182,7 +213,8 @@ export const reproduction: Topic = {
           correctIndex: 2,
           explanation:
             '減数分裂は生殖細胞（卵・精子）がつくられるときに行われ、染色体数が半分になります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci3-rep-q2',
           question: '受精卵が体細胞分裂をくり返して個体になる過程を何という？',
@@ -190,7 +222,8 @@ export const reproduction: Topic = {
           correctIndex: 0,
           explanation:
             '受精卵が体細胞分裂をくり返して個体になっていく過程を発生といいます。初期段階の個体を胚といいます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci3-rep-q3',
           question: '有性生殖で、生殖細胞の染色体数は体細胞と比べてどうなっている？',
@@ -203,7 +236,8 @@ export const reproduction: Topic = {
           correctIndex: 1,
           explanation:
             '生殖細胞は減数分裂でつくられるため、染色体数は体細胞の半分です。受精で半分＋半分＝もとの数に戻ります。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci3-rep-q4',
           question: '被子植物の有性生殖で、精細胞が卵細胞に届くしくみは？',
@@ -216,7 +250,8 @@ export const reproduction: Topic = {
           correctIndex: 3,
           explanation:
             '被子植物では花粉から花粉管がのび、その中を精細胞が移動して胚珠の卵細胞に届き、受精します。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci3-rep-q5',
           question: '有性生殖と無性生殖を比べたとき、有性生殖の特徴として正しいものは？',
@@ -229,7 +264,8 @@ export const reproduction: Topic = {
           correctIndex: 3,
           explanation:
             '有性生殖では両親から半分ずつ染色体を受けつぐため、子には多様な形質が現れます。',
-        },
+        difficulty: 'advanced',
+      },
       ],
     },
     examples: {

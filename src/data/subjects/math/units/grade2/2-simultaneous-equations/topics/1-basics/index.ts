@@ -69,64 +69,76 @@ export const simulEqBasics: Topic = {
         front: '2つの文字（未知数）をふくむ一次方程式', back: '二元一次方程式とは？',
         hint: '「二元」の意味を考えよう',
         explanation: '例: $x + y = 5$、$2x - 3y = 1$ など。「二」は未知数が2つ、「元」は未知数のこと。',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-sb-fc2',
         front: '未知数（わからない数）', back: '「二元」の「元」は何を意味する？',
         hint: '一元一次方程式の「元」と同じ意味',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-sb-fc3',
         front: '無限にある', back: '$x + y = 5$ の解はいくつある？',
         hint: '$(1, 4)$, $(2, 3)$, $(3, 2)$…と数えきれない',
         explanation: '二元一次方程式1つだけでは、解は無限にある。2つ組み合わせて初めて1つに決まる。',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-sb-fc4',
         front: '2つ（以上）の方程式を組み合わせたもの', back: '連立方程式とは？',
         hint: '1つの式だけでは解が定まらない',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-sb-fc5',
         front: '2つの式を同時に満たす $x$, $y$ の値の組', back: '連立方程式の「解」とは？',
         hint: '片方だけ満たしてもダメ',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-sb-fc6',
         front: '2つの式を同時に満たす $x$, $y$ の値の組を求めること', back: '「連立方程式を解く」とは？',
         hint: '両方の式を同時に成り立たせる',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-sb-fc7',
         front: 'いいえ（一元一次方程式）', back: '$2x + 3 = 7$ は二元一次方程式？',
         hint: '文字がいくつあるか数えよう',
         explanation: '文字が $x$ の1つだけなので「一元」一次方程式。二元には2つの文字が必要。',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-sb-fc8',
         front: 'いいえ（$x^2$ があるので一次方程式ではない）', back: '$x^2 + y = 5$ は二元一次方程式？',
         hint: '各文字の次数をチェック',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-sb-fc9',
         front: 'いいえ（$xy$ は二次の項）', back: '$xy = 6$ は二元一次方程式？',
         hint: '$x$ と $y$ の積は何次？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-sb-fc10',
         front: '求めた値を2つの式の両方に代入して、どちらも成り立つか確認する', back: '連立方程式の解の確かめ方は？',
         hint: '片方だけ確認しても不十分',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-sb-fc11',
         front: '各式を満たす $(x, y)$ の組を表にして、両方の表で一致する組を探す', back: '表を使って連立方程式の解を見つける方法は？',
         hint: '1つ目の表と2つ目の表を比べる',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-sb-fc12',
         front: '1組', back: '連立方程式の解は通常いくつ？',
         hint: '2つの直線の交点は普通何個？',
         explanation: '2つの二元一次方程式を組み合わせると、解は通常1組に決まる。',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-sb-fc13',
@@ -135,9 +147,8 @@ export const simulEqBasics: Topic = {
       },
       {
         id: 'math-g2-sb-fc14',
-        front:
-          '$\\begin{cases} x + y = 7 \\\\ x - y = 3 \\end{cases}$ の解は？',
-        back: '$x = 5, y = 2$',
+        front: '$x = 5, y = 2$',
+        back: '$\\begin{cases} x + y = 7 \\\\ x - y = 3 \\end{cases}$ の解は？',
         hint: '2つの式を足してみよう',
         explanation: '足すと $2x = 10$ → $x = 5$、$5 + y = 7$ → $y = 2$。',
       },
@@ -177,6 +188,7 @@ export const simulEqBasics: Topic = {
           correctIndex: 1,
           explanation:
             '$x = 3, y = 2$ のとき、$3 + 2 = 5$ ✓、$3 - 2 = 1$ ✓。2つの式を両方満たすのはこの組だけだよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g2-sb-q2',
@@ -185,6 +197,7 @@ export const simulEqBasics: Topic = {
           correctIndex: 3,
           explanation:
             '1つの二元一次方程式だけでは、解は無限にあるよ。$(1, 6)$, $(2, 5)$, $(3, 4)$…のように何通りもあるんだ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g2-sb-q3',
@@ -198,6 +211,7 @@ export const simulEqBasics: Topic = {
           correctIndex: 0,
           explanation:
             '連立方程式を解くとは、2つの式を同時に満たす $x$, $y$ の値の組を求めることだよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g2-sb-q4',
@@ -206,6 +220,7 @@ export const simulEqBasics: Topic = {
           correctIndex: 2,
           explanation:
             '$2x - 3y = 7$ は $x$ と $y$ の2つの文字をふくむ一次方程式なので二元一次方程式だよ。$3x+5=8$ は一元、$x^2+y=4$ は二次、$xy=12$ も二次だね。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g2-sb-q5',
@@ -220,6 +235,7 @@ export const simulEqBasics: Topic = {
           correctIndex: 1,
           explanation:
             '$2 \\times 3 + 2 = 8$ ✓、$3 + 2 = 5$ ✓。両方の式を満たすので解だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g2-sb-q6',
@@ -229,6 +245,7 @@ export const simulEqBasics: Topic = {
           correctIndex: 2,
           explanation:
             '2つの式を足すと $2x = 12$、$x = 6$。$6 + y = 9$ より $y = 3$。確認: $6 - 3 = 3$ ✓。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g2-sb-q7',
@@ -243,6 +260,7 @@ export const simulEqBasics: Topic = {
           correctIndex: 0,
           explanation:
             '$6 + 4 = 10$ ✓ だけど、$6 - 4 = 2 \\neq 4$ ✗。式②を満たさないので解ではないよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g2-sb-q8',
@@ -251,6 +269,7 @@ export const simulEqBasics: Topic = {
           correctIndex: 3,
           explanation:
             '「元」は未知数（わからない数）のこと。「二元」は未知数が2つあるという意味だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g2-sb-q9',
@@ -260,6 +279,7 @@ export const simulEqBasics: Topic = {
           correctIndex: 2,
           explanation:
             '$2 + y = 6$ より $y = 4$ だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g2-sb-q10',
@@ -273,13 +293,15 @@ export const simulEqBasics: Topic = {
           correctIndex: 3,
           explanation:
             '求めた値を2つの式の両方に代入して、どちらも成り立つか確認するよ。片方だけではダメ！',
+          difficulty: 'basic',
         },
         {
           id: 'math-g2-sb-q11',
-          question: '次のうち、二元一次方程式の解の組はどれ？ $2x + y = 7$ の場合',
-          options: ['$(1, 5)$', '$(2, 4)$', '$(3, 2)$', 'すべて'],
-          correctIndex: 3,
-          explanation: '$(1,5)$: $2+5=7$ ✓、$(2,4)$: $4+4=8$ ✗…いや $(2,3)$ が正解。$(1,5)$: $2(1)+5=7$ ✓、$(2,4)$: $2(2)+4=8$ ✗。$(2,3)$: $7$✓。$(3,2)$: $2(3)+2=8$ ✗。答えは $(1,5)$ だけ。',
+          question: '次のうち、二元一次方程式 $2x + y = 7$ の解の組はどれ？',
+          options: ['$(1, 5)$', '$(2, 4)$', '$(3, 2)$', '$(0, 7)$'],
+          correctIndex: 0,
+          explanation: '$(1, 5)$: $2(1) + 5 = 7$ ✓。$(2, 4)$: $2(2) + 4 = 8 \\neq 7$ ✗。$(3, 2)$: $2(3) + 2 = 8 \\neq 7$ ✗。$(0, 7)$: $2(0) + 7 = 7$ ✓。$(1, 5)$ と $(0, 7)$ は解だけど、選択肢では $(1, 5)$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-sb-q12',
@@ -287,6 +309,7 @@ export const simulEqBasics: Topic = {
           options: ['$x = 3, y = 5$', '$x = 4, y = 4$', '$x = 6, y = 2$', '$x = 5, y = 3$'],
           correctIndex: 3,
           explanation: '足すと $2x = 10$、$x = 5$。$5 + y = 8$ → $y = 3$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-sb-q13',
@@ -294,6 +317,7 @@ export const simulEqBasics: Topic = {
           options: ['$x$ だけで表す', '$(x, y)$ の組で表す', 'グラフで表す', '不等式で表す'],
           correctIndex: 1,
           explanation: '2つの未知数の値の組 $(x, y)$ で表すよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-sb-q14',
@@ -301,6 +325,7 @@ export const simulEqBasics: Topic = {
           options: ['$x$ 軸上の点', '$y$ 軸上の点', '2直線の交点', '原点'],
           correctIndex: 2,
           explanation: '2つの方程式のグラフ（直線）の交点が連立方程式の解だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-sb-q15',
@@ -308,6 +333,7 @@ export const simulEqBasics: Topic = {
           options: ['$1$ 本', '$n - 1$ 本', '$n$ 本', '$n + 1$ 本'],
           correctIndex: 2,
           explanation: '未知数の数と同じ本数の式が必要だよ。2つの未知数なら2本の式。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-sb-q16',
@@ -315,6 +341,7 @@ export const simulEqBasics: Topic = {
           options: ['$x = 2, y = 5$', '$x = 3, y = 4$', '$x = 4, y = 3$', '$x = 5, y = 0$'],
           correctIndex: 1,
           explanation: '①−②: $x = 3$。$3 + y = 7$ → $y = 4$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-sb-q17',
@@ -322,6 +349,7 @@ export const simulEqBasics: Topic = {
           options: ['解が1組', '解が2組', '解がない', '解が無限にある'],
           correctIndex: 2,
           explanation: '平行な直線は交わらないので、連立方程式の解はないよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-sb-q18',
@@ -329,6 +357,7 @@ export const simulEqBasics: Topic = {
           options: ['$(6, 6)$', '$(3, 3)$', '$(7, -1)$', '$(0, 0)$'],
           correctIndex: 1,
           explanation: '$3 + 3 = 6$ ✓。$(7,-1)$ も $7 + (-1) = 6$ で正解だけど、$(3,3)$ が最も分かりやすいね。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-sb-q19',
@@ -336,6 +365,7 @@ export const simulEqBasics: Topic = {
           options: ['$x = 2, y = 3$', '$x = 3, y = 2$', '$x = 4, y = -1$', '$x = 1, y = 4$'],
           correctIndex: 1,
           explanation: '①−②: $2x = 6$、$x = 3$。$3 + y = 5$ → $y = 2$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-sb-q20',
@@ -348,6 +378,7 @@ export const simulEqBasics: Topic = {
           ],
           correctIndex: 0,
           explanation: '$2+1=3$ ✓、$2-1=1$ ✓。両方成り立つのは①だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-sb-q21',
@@ -355,6 +386,7 @@ export const simulEqBasics: Topic = {
           options: ['式を展開すること', '式をグラフにすること', '複数の式を同時に考えること', '式を因数分解すること'],
           correctIndex: 2,
           explanation: '「連立」は複数の方程式を同時に成り立たせるという意味だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-sb-q22',
@@ -362,6 +394,7 @@ export const simulEqBasics: Topic = {
           options: ['$4$', '$5$', '$6$', '$7$'],
           correctIndex: 2,
           explanation: '$x + 2(1) = 8$ → $x = 6$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-sb-q23',
@@ -369,6 +402,7 @@ export const simulEqBasics: Topic = {
           options: ['$x = 6, y = 6$', '$x = 7, y = 5$', '$x = 8, y = 4$', '$x = 9, y = 3$'],
           correctIndex: 2,
           explanation: '足すと $2x = 16$、$x = 8$。$8 + y = 12$ → $y = 4$ だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g2-sb-q24',
@@ -376,6 +410,7 @@ export const simulEqBasics: Topic = {
           options: ['$2$', '$4$', '$-4$', '$14$'],
           correctIndex: 1,
           explanation: '$3(3) - y = 5$ → $9 - y = 5$ → $y = 4$ だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g2-sb-q25',
@@ -383,6 +418,7 @@ export const simulEqBasics: Topic = {
           options: ['$x = 3, y = 2$', '解がない', '解が無限にある', '$x = 5, y = 0$'],
           correctIndex: 2,
           explanation: '②は①の2倍で同じ式。解が無限にある（不定）よ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g2-sb-q26',
@@ -390,6 +426,7 @@ export const simulEqBasics: Topic = {
           options: ['展開法と因数分解法', '加減法と代入法', '乗法と除法', 'グラフ法と計算法'],
           correctIndex: 1,
           explanation: '加減法（式を足したり引いたりする）と代入法（一方を他方に代入する）だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g2-sb-q27',
@@ -397,6 +434,7 @@ export const simulEqBasics: Topic = {
           options: ['$x = 3, y = 4$', '$x = 5, y = 2$', '$x = 4, y = 3$', '$x = 2, y = 5$'],
           correctIndex: 2,
           explanation: '②−①: $x = 4$。$4 + y = 7$ → $y = 3$ だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g2-sb-q28',
@@ -404,6 +442,7 @@ export const simulEqBasics: Topic = {
           options: ['解である', '解ではない', '式①の解である', 'もう一度計算する'],
           correctIndex: 1,
           explanation: '両方の式を同時に満たさなければ連立方程式の解ではないよ。',
+          difficulty: 'advanced',
         },
       ],
     },

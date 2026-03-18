@@ -150,186 +150,34 @@ export const substanceProperties: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'sci1-sp-fc1',
-        front: '物体と物質',
-        back: '「形や用途」に注目した呼び方と「材料」に注目した呼び方をそれぞれ何という？',
-        explanation:
-          '形や用途＝物体（例：缶、スプーン）。材料＝物質（例：アルミニウム、鉄）。',
-      },
-      {
-        id: 'sci1-sp-fc2',
-        front: '金属の4つの性質',
-        back: '金属に共通する4つの性質を答えよ。',
-        explanation:
-          '①金属光沢（みがくと光る）②電気・熱をよく通す③展性（たたくと広がる）④延性（引っ張ると伸びる）',
-      },
-      {
-        id: 'sci1-sp-fc3',
-        front: '密度の公式',
-        back: '密度（g/cm³）の求め方は？',
-        explanation:
-          '密度＝質量（g）÷ 体積（cm³）。物質ごとに決まった値をもつ。',
-      },
-      {
-        id: 'sci1-sp-fc4',
-        front: '有機物',
-        back: '炭素をふくみ、燃やすと二酸化炭素が発生する物質を何という？',
-        explanation:
-          '有機物。例：砂糖、デンプン、エタノール、ろう、プラスチックなど。',
-      },
-      {
-        id: 'sci1-sp-fc5',
-        front: '無機物',
-        back: '有機物以外の物質を何という？',
-        explanation:
-          '無機物。例：食塩、鉄、ガラス、水など。燃やしても二酸化炭素は発生しない。',
-      },
-      {
-        id: 'sci1-sp-fc6',
-        front: '展性と延性',
-        back: '展性と延性のちがいを答えよ。',
-        explanation:
-          '展性＝たたくとうすく広がる性質（金箔など）。延性＝引っ張ると細く伸びる性質（銅線など）。',
-      },
-      {
-        id: 'sci1-sp-fc7',
-        front: '非金属の例',
-        back: '非金属（金属以外の物質）の例を4つあげよ。',
-        explanation:
-          'ガラス、プラスチック、木、ゴムなど。金属光沢・展性・延性をもたない。',
-      },
-      {
-        id: 'sci1-sp-fc8',
-        front: 'メスシリンダーの使い方',
-        back: 'メスシリンダーで液体の体積を読むときの正しい方法は？',
-        explanation:
-          '目の高さを液面と同じ水平の位置に合わせ、液面の最も低い部分（へこんだ部分）を読む。最小目盛りの10分の1まで目分量で読む。',
-      },
-      {
-        id: 'sci1-sp-fc9',
-        front: '電子てんびんの使い方',
-        back: '電子てんびんを使うとき、最初に行う操作は？',
-        explanation:
-          '水平な場所に置き、表示を0にリセット（ゼロ点調整）する。容器を使うときは容器をのせてから0にする。',
-      },
-      {
-        id: 'sci1-sp-fc10',
-        front: '白い粉末の見分け方',
-        back: '白い粉末を見分けるための実験方法を4つ答えよ。',
-        explanation:
-          '①粒のようすを観察②においをかぐ③水に溶かしてみる④燃やしてみる。これらの結果を組み合わせて物質を特定する。',
-      },
-      {
-        id: 'sci1-sp-fc11',
-        front: 'ガスバーナーの火のつけ方',
-        back: 'ガスバーナーに火をつける正しい手順は？',
-        explanation:
-          '①元栓を開ける②コックを開ける③マッチに火をつけて近づける④ガス調節ねじをゆるめて点火⑤空気調節ねじで炎を調節。',
-      },
-      {
-        id: 'sci1-sp-fc12',
-        front: 'ガスバーナーの火の消し方',
-        back: 'ガスバーナーの火を消す正しい手順は？',
-        explanation:
-          '①空気調節ねじを閉める②ガス調節ねじを閉める③コックを閉める④元栓を閉める。つけるときの逆順。',
-      },
-      {
-        id: 'sci1-sp-fc13',
-        front: '各金属の密度',
-        back: 'アルミニウム・鉄・銅の密度をそれぞれ答えよ。',
-        explanation:
-          'アルミニウム＝2.7g/cm³、鉄＝7.9g/cm³、銅＝8.9g/cm³。密度で金属の種類を特定できる。',
-      },
-      {
-        id: 'sci1-sp-fc14',
-        front: '有機物の燃焼',
-        back: '有機物を燃やすと発生する物質を2つ答えよ。',
-        explanation:
-          '二酸化炭素と水（水蒸気）。二酸化炭素は石灰水を白くにごらせることで確認できる。',
-      },
-      {
-        id: 'sci1-sp-fc15',
-        front: '有機物の例',
-        back: '有機物の代表的な例を5つあげよ。',
-        explanation:
-          '砂糖・デンプン・エタノール・ろう・プラスチック。炭素をふくみ燃やすと二酸化炭素が出る。',
-      },
-      {
-        id: 'sci1-sp-fc16',
-        front: '無機物の例',
-        back: '無機物の代表的な例を5つあげよ。',
-        explanation:
-          '食塩・鉄・ガラス・水・二酸化炭素。有機物以外のすべての物質が無機物。',
-      },
-      {
-        id: 'sci1-sp-fc17',
-        front: '質量と重さのちがい',
-        back: '質量と重さはどうちがう？',
-        explanation:
-          '質量＝物質そのものの量で場所によって変わらない。重さ＝物体にはたらく重力の大きさで場所（地球・月など）によって変わる。',
-      },
-      {
-        id: 'sci1-sp-fc18',
-        front: 'ガスバーナーの炎の色',
-        back: 'ガスバーナーの炎がオレンジ色のときと青色のときの違いは？',
-        explanation:
-          'オレンジ色＝空気（酸素）不足。青色＝空気が十分で適正な炎。空気調節ねじで調節する。',
-      },
-      {
-        id: 'sci1-sp-fc19',
-        front: 'プラスチックの分類',
-        back: 'プラスチックは有機物か無機物か。理由もあわせて答えよ。',
-        explanation:
-          '有機物。プラスチックは炭素をふくんでおり、燃やすと二酸化炭素と水が発生するから。',
-      },
-      {
-        id: 'sci1-sp-fc20',
-        front: 'アルミニウムの特徴',
-        back: 'アルミニウムが缶や航空機に使われる理由を答えよ。',
-        explanation:
-          '密度が小さく軽い（2.7g/cm³）うえに、さびにくい性質があるから。',
-      },
-      {
-        id: 'sci1-sp-fc21',
-        front: '電線に銅が使われる理由',
-        back: '電線に銅が使われるのはなぜか？',
-      },
-      {
-        id: 'sci1-sp-fc22',
-        front: '金の用途と性質',
-        back: '金がアクセサリーや電子部品に使われる理由を答えよ。',
-      },
-      {
-        id: 'sci1-sp-fc23',
-        front: 'リチウムの特徴',
-        back: 'リチウムの特徴的な性質を1つ答えよ。',
-      },
-      {
-        id: 'sci1-sp-fc24',
-        front: '鉄の用途',
-        back: '鉄が建築材料やレールに多く使われる理由を答えよ。',
-      },
-      {
-        id: 'sci1-sp-fc25',
-        front: '金箔と延性の関係',
-        back: '金が金箔にできるのは、金属のどの性質を利用しているか？',
-      },
-      {
-        id: 'sci1-sp-fc26',
-        front: '砂糖とデンプンの見分け方',
-        back: '砂糖とデンプンはどちらも有機物だが、水への溶け方はどうちがうか？',
-      },
-      {
-        id: 'sci1-sp-fc27',
-        front: '二酸化炭素の確認方法',
-        back: '二酸化炭素が発生したことを確認する方法を答えよ。',
-      },
-      {
-        id: 'sci1-sp-fc28',
-        front: '水の分類',
-        back: '水は有機物か無機物か。理由もあわせて答えよ。',
-      },
+      { id: 'sci1-sp-fc1', front: '形や用途に注目した呼び方＝物体、材料に注目した呼び方＝物質', back: '「形や用途」に注目した呼び方と「材料」に注目した呼び方をそれぞれ何という？', explanation: '例：「アルミニウムの缶」→ 缶＝物体、アルミニウム＝物質', difficulty: 'basic' },
+      { id: 'sci1-sp-fc2', front: '①金属光沢（みがくと光る）②電気・熱をよく通す③展性（たたくと広がる）④延性（引っ張ると伸びる）', back: '金属に共通する4つの性質を答えよ。', difficulty: 'basic' },
+      { id: 'sci1-sp-fc3', front: '密度（g/cm³）＝ 質量（g）÷ 体積（cm³）', back: '密度（g/cm³）の求め方は？', difficulty: 'basic' },
+      { id: 'sci1-sp-fc4', front: '有機物', back: '炭素をふくみ、燃やすと二酸化炭素が発生する物質を何という？', explanation: '例：砂糖、デンプン、エタノール、ろう、プラスチック', difficulty: 'basic' },
+      { id: 'sci1-sp-fc5', front: '無機物', back: '有機物以外の物質を何という？', explanation: '例：食塩、鉄、ガラス、水など', difficulty: 'basic' },
+      { id: 'sci1-sp-fc6', front: '展性＝たたくとうすく広がる性質、延性＝引っ張ると細く伸びる性質', back: '展性と延性のちがいを答えよ。', explanation: '展性の例：金箔、延性の例：銅線', difficulty: 'basic' },
+      { id: 'sci1-sp-fc7', front: 'ガラス、プラスチック、木、ゴム', back: '非金属（金属以外の物質）の例を4つあげよ。', difficulty: 'basic' },
+      { id: 'sci1-sp-fc8', front: '目の高さを液面と同じ水平の位置に合わせ、液面の最も低い部分（へこんだ部分）を読む', back: 'メスシリンダーで液体の体積を読むときの正しい方法は？', explanation: '最小目盛りの10分の1まで目分量で読む', difficulty: 'basic' },
+      { id: 'sci1-sp-fc9', front: '水平な場所に置き、表示を0にリセット（ゼロ点調整）する', back: '電子てんびんを使うとき、最初に行う操作は？', explanation: '容器を使うときは容器をのせてから0にする', difficulty: 'basic' },
+      { id: 'sci1-sp-fc10', front: '①元栓を開ける②コックを開ける③マッチに火をつけて近づける④ガス調節ねじをゆるめて点火⑤空気調節ねじで炎を調節', back: 'ガスバーナーに火をつける正しい手順は？', difficulty: 'basic' },
+      { id: 'sci1-sp-fc11', front: '①空気調節ねじを閉める②ガス調節ねじを閉める③コックを閉める④元栓を閉める', back: 'ガスバーナーの火を消す正しい手順は？', explanation: 'つけるときの逆順', difficulty: 'standard' },
+      { id: 'sci1-sp-fc12', front: 'アルミニウム＝2.7g/cm³、鉄＝7.9g/cm³、銅＝8.9g/cm³', back: 'アルミニウム・鉄・銅の密度をそれぞれ答えよ。', difficulty: 'standard' },
+      { id: 'sci1-sp-fc13', front: '二酸化炭素と水（水蒸気）', back: '有機物を燃やすと発生する物質を2つ答えよ。', explanation: '二酸化炭素は石灰水を白くにごらせることで確認できる', difficulty: 'standard' },
+      { id: 'sci1-sp-fc14', front: '砂糖・デンプン・エタノール・ろう・プラスチック', back: '有機物の代表的な例を5つあげよ。', difficulty: 'standard' },
+      { id: 'sci1-sp-fc15', front: '食塩・鉄・ガラス・水・二酸化炭素', back: '無機物の代表的な例を5つあげよ。', difficulty: 'standard' },
+      { id: 'sci1-sp-fc16', front: '質量＝物質そのものの量で場所によって変わらない。重さ＝重力の大きさで場所によって変わる', back: '質量と重さはどうちがう？', difficulty: 'standard' },
+      { id: 'sci1-sp-fc17', front: 'オレンジ色＝空気（酸素）不足、青色＝空気が十分で適正な炎', back: 'ガスバーナーの炎がオレンジ色のときと青色のときの違いは？', difficulty: 'standard' },
+      { id: 'sci1-sp-fc18', front: '有機物。炭素をふくんでおり、燃やすと二酸化炭素と水が発生するから', back: 'プラスチックは有機物か無機物か。理由もあわせて答えよ。', difficulty: 'standard' },
+      { id: 'sci1-sp-fc19', front: '密度が小さく軽い（2.7g/cm³）うえに、さびにくい性質があるから', back: 'アルミニウムが缶や航空機に使われる理由を答えよ。', difficulty: 'standard' },
+      { id: 'sci1-sp-fc20', front: '銅は電気をよく通す性質にすぐれており、加工しやすいから', back: '電線に銅が使われるのはなぜか？', difficulty: 'standard' },
+      { id: 'sci1-sp-fc21', front: 'さびにくく、展性・延性にすぐれ、電気をよく通すから', back: '金がアクセサリーや電子部品に使われる理由を答えよ。', difficulty: 'standard' },
+      { id: 'sci1-sp-fc22', front: '①粒のようすを観察②においをかぐ③水に溶かしてみる④燃やしてみる', back: '白い粉末を見分けるための実験方法を4つ答えよ。', difficulty: 'standard' },
+      { id: 'sci1-sp-fc23', front: '判断できない。非金属でも炭素（黒鉛）のように電気を通すものがあるから', back: '電気を通すかどうかだけで金属か非金属かを判断できるか？', difficulty: 'standard' },
+      { id: 'sci1-sp-fc24', front: '強度が高く、大量生産しやすいから', back: '鉄が建築材料やレールに多く使われる理由を答えよ。', difficulty: 'advanced' },
+      { id: 'sci1-sp-fc25', front: '展性（たたくとうすく広がる性質）', back: '金が金箔にできるのは、金属のどの性質を利用しているか？', difficulty: 'advanced' },
+      { id: 'sci1-sp-fc26', front: '砂糖は水によく溶けるが、デンプンは水にほとんど溶けない', back: '砂糖とデンプンはどちらも有機物だが、水への溶け方はどうちがうか？', difficulty: 'advanced' },
+      { id: 'sci1-sp-fc27', front: '石灰水に通すと白くにごる', back: '二酸化炭素が発生したことを確認する方法を答えよ。', difficulty: 'advanced' },
+      { id: 'sci1-sp-fc28', front: '無機物。水は炭素をふくまず、燃えないから', back: '水は有機物か無機物か。理由もあわせて答えよ。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -340,7 +188,8 @@ export const substanceProperties: Topic = {
           correctIndex: 1,
           explanation:
             '燃やすと二酸化炭素が出るのは有機物の性質です。金属の性質は、金属光沢・電気伝導性・展性・延性です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-sp-q2',
           question: '質量40g、体積5cm³の物質の密度は？',
@@ -348,7 +197,8 @@ export const substanceProperties: Topic = {
           correctIndex: 0,
           explanation:
             '密度＝質量÷体積＝40g÷5cm³＝8g/cm³です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-sp-q3',
           question: '次のうち、有機物はどれ？',
@@ -356,7 +206,8 @@ export const substanceProperties: Topic = {
           correctIndex: 3,
           explanation:
             '砂糖は炭素をふくむ有機物です。燃やすと黒くこげて二酸化炭素が発生します。食塩・鉄・ガラスは無機物です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-sp-q4',
           question: '水に浮く物質の条件はどれ？',
@@ -369,7 +220,8 @@ export const substanceProperties: Topic = {
           correctIndex: 2,
           explanation:
             '物質の密度が水の密度（約1.0g/cm³）より小さいと、その物質は水に浮きます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-sp-q5',
           question: '「物体」と「物質」について正しいものはどれ？',
@@ -382,7 +234,8 @@ export const substanceProperties: Topic = {
           correctIndex: 2,
           explanation:
             '同じ物質（例：アルミニウム）でも、缶や鍋など異なる物体になります。物体＝形・用途、物質＝材料に注目した呼び方です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-sp-q6',
           question: 'ガスバーナーに火をつけるとき、最初に行う操作はどれ？',
@@ -395,7 +248,8 @@ export const substanceProperties: Topic = {
           correctIndex: 3,
           explanation:
             'ガスバーナーの点火手順は、①元栓→②コック→③マッチ→④ガス調節ねじ→⑤空気調節ねじの順です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-sp-q7',
           question: '白い粉末を加熱したとき黒くこげた。この物質について正しいのはどれ？',
@@ -408,7 +262,8 @@ export const substanceProperties: Topic = {
           correctIndex: 1,
           explanation:
             '加熱して黒くこげるのは有機物の特徴です。有機物は炭素をふくみ、燃やすと二酸化炭素が発生します。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-sp-q8',
           question: 'メスシリンダーで水の体積を読むとき、正しい方法はどれ？',
@@ -421,7 +276,8 @@ export const substanceProperties: Topic = {
           correctIndex: 0,
           explanation:
             '目の高さを液面と同じ水平の位置に合わせ、液面の最も低い部分（へこんだ部分）を読みます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-sp-q9',
           question: 'アルミニウムが飲料缶に使われる主な理由はどれ？',
@@ -434,7 +290,8 @@ export const substanceProperties: Topic = {
           correctIndex: 3,
           explanation:
             'アルミニウムは密度が2.7g/cm³と小さく（鉄は7.9g/cm³）、軽量でさびにくい性質があります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-sp-q10',
           question: '密度2.7g/cm³、体積10cm³の金属の質量はいくらか？',
@@ -442,7 +299,8 @@ export const substanceProperties: Topic = {
           correctIndex: 1,
           explanation:
             '質量＝密度×体積＝2.7g/cm³×10cm³＝27gです。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-sp-q11',
           question: '有機物を燃やしたとき、二酸化炭素のほかに発生する物質は？',
@@ -450,7 +308,8 @@ export const substanceProperties: Topic = {
           correctIndex: 0,
           explanation:
             '有機物は炭素と水素をふくむため、燃やすと二酸化炭素と水（水蒸気）が発生します。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-sp-q12',
           question: '次のうち、非金属なのに電気を通す物質はどれ？',
@@ -458,7 +317,8 @@ export const substanceProperties: Topic = {
           correctIndex: 2,
           explanation:
             '黒鉛（炭素）は非金属ですが、電気を通す性質があります。電気を通すだけでは金属とは判断できません。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-sp-q13',
           question: '「ガラスのコップ」で物質にあたるのはどちらか？',
@@ -466,7 +326,8 @@ export const substanceProperties: Topic = {
           correctIndex: 1,
           explanation:
             'ガラスは材料に注目した呼び方なので物質です。コップは形・用途に注目した呼び方なので物体です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-sp-q14',
           question: '金属をみがいたときに見られる特有の光り方を何というか？',
@@ -474,7 +335,8 @@ export const substanceProperties: Topic = {
           correctIndex: 1,
           explanation:
             '金属をみがくと表面が光る現象を金属光沢といいます。これは金属に共通する性質の1つです。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-sp-q15',
           question: '銅線が細い線でつくられるのは、金属のどの性質を利用しているか？',
@@ -482,7 +344,8 @@ export const substanceProperties: Topic = {
           correctIndex: 2,
           explanation:
             '延性は引っ張ると細く伸びる性質です。展性はたたくとうすく広がる性質です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-sp-q16',
           question: '質量27g、体積10cm³の物質の密度はいくらか？',
@@ -490,7 +353,8 @@ export const substanceProperties: Topic = {
           correctIndex: 1,
           explanation:
             '密度＝質量÷体積＝27g÷10cm³＝2.7g/cm³です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-sp-q17',
           question: '密度0.9g/cm³の物質を水に入れるとどうなるか？',
@@ -498,7 +362,8 @@ export const substanceProperties: Topic = {
           correctIndex: 1,
           explanation:
             '水の密度は約1.0g/cm³なので、密度0.9g/cm³の物質は水より密度が小さく、水に浮きます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-sp-q18',
           question: 'メスシリンダーの最小目盛りの何分の1まで目分量で読むか？',
@@ -506,7 +371,8 @@ export const substanceProperties: Topic = {
           correctIndex: 2,
           explanation:
             'メスシリンダーは最小目盛りの10分の1まで目分量で読み取ります。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-sp-q19',
           question: 'ガスバーナーの炎が青色になるのはどのような状態か？',
@@ -514,7 +380,8 @@ export const substanceProperties: Topic = {
           correctIndex: 1,
           explanation:
             '青色の炎は空気（酸素）が十分に供給されている適正な状態です。オレンジ色は空気不足を示します。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-sp-q20',
           question: '食塩を燃やすとどうなるか？',
@@ -522,7 +389,8 @@ export const substanceProperties: Topic = {
           correctIndex: 1,
           explanation:
             '食塩は無機物なので燃えません。有機物は炭素をふくみ、燃やすと二酸化炭素と水が発生します。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-sp-q21',
           question: '有機物を燃やしたとき黒くこげるのはなぜか？',
@@ -535,7 +403,8 @@ export const substanceProperties: Topic = {
           correctIndex: 2,
           explanation:
             '有機物には炭素がふくまれており、燃やすと炭素が残って炭になるため黒くこげます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-sp-q22',
           question: '物質は大きく2つに分けられる。何と何か？',
@@ -548,7 +417,8 @@ export const substanceProperties: Topic = {
           correctIndex: 1,
           explanation:
             '物質は金属と非金属に大きく分けられます。有機物と無機物は別の分類方法です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-sp-q23',
           question: 'ガスバーナーに火をつけるとき、マッチとガスはどちらを先に用意するか？',
@@ -561,7 +431,8 @@ export const substanceProperties: Topic = {
           correctIndex: 1,
           explanation:
             'マッチに先に火をつけてからガスを出します。ガスを先に出すと引火の危険があります。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci1-sp-q24',
           question: 'エタノールは有機物か無機物か？',
@@ -569,7 +440,8 @@ export const substanceProperties: Topic = {
           correctIndex: 1,
           explanation:
             'エタノールは有機物です。炭素をふくんでおり、燃やすと二酸化炭素と水が発生します。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci1-sp-q25',
           question: 'ガスバーナーの2つのねじの名前は何か？',
@@ -582,7 +454,8 @@ export const substanceProperties: Topic = {
           correctIndex: 2,
           explanation:
             'ガスバーナーにはガス調節ねじと空気調節ねじがあります。ガス調節ねじでガスの量、空気調節ねじで空気の量を調節します。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci1-sp-q26',
           question: 'グラニュー糖と食塩を見た目で区別する方法は？',
@@ -595,7 +468,8 @@ export const substanceProperties: Topic = {
           correctIndex: 2,
           explanation:
             'グラニュー糖は透明で角ばった結晶、食塩は立方体の結晶です。粒のようすの観察で区別できます。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci1-sp-q27',
           question: '電気を通すかどうかだけで金属か非金属かを判断できるか？',
@@ -608,7 +482,8 @@ export const substanceProperties: Topic = {
           correctIndex: 1,
           explanation:
             '非金属でも炭素（黒鉛）のように電気を通すものがあるため、電気を通すだけでは金属とは判断できません。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci1-sp-q28',
           question: '密度が物質の見分けに使える理由はどれか？',
@@ -621,7 +496,8 @@ export const substanceProperties: Topic = {
           correctIndex: 1,
           explanation:
             '密度は物質ごとに固有の値をもつため、密度がわかれば何の物質か特定できます。',
-        },
+        difficulty: 'advanced',
+      },
       ],
     },
     examples: {

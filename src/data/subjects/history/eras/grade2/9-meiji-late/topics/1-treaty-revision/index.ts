@@ -49,60 +49,70 @@ export const treatyRevision: Topic = {
         front: '条約改正',
         back: '幕末に結ばれた不平等条約を対等なものにする交渉は？',
         explanation: '領事裁判権の撤廃と関税自主権の回復が目標だった。',
+        difficulty: 'basic',
       },
       {
         id: 'fc2',
         front: '井上馨',
         back: '鹿鳴館で舞踏会を開くなど欧化政策を進めた外務卿は？',
         explanation: '条約改正交渉は失敗に終わった。',
+        difficulty: 'basic',
       },
       {
         id: 'fc3',
         front: '鹿鳴館',
         back: '欧化政策の象徴として建てられた、舞踏会が開かれた建物は？',
         explanation: '日本の近代化をアピールするために使われた。',
+        difficulty: 'basic',
       },
       {
         id: 'fc4',
         front: 'ノルマントン号事件',
         back: 'イギリス船の沈没で日本人が見殺しにされた事件は？',
         explanation: '領事裁判権撤廃の世論が高まるきっかけとなった。',
+        difficulty: 'basic',
       },
       {
         id: 'fc5',
         front: '陸奥宗光',
         back: '1894年に領事裁判権の撤廃に成功した外務大臣は？',
         explanation: '日清戦争直前にイギリスとの交渉に成功した。',
+        difficulty: 'standard',
       },
       {
         id: 'fc6',
         front: '領事裁判権の撤廃',
         back: '外国人を日本の法律で裁けるようになった条約改正は？',
         explanation: '1894年に陸奥宗光がイギリスと交渉して実現した。',
+        difficulty: 'standard',
       },
       {
         id: 'fc7',
         front: '小村寿太郎',
         back: '1911年に関税自主権の完全回復を達成した外務大臣は？',
         explanation: 'これで条約改正は完全に達成された。',
+        difficulty: 'standard',
       },
       {
         id: 'fc8',
         front: '関税自主権の回復',
         back: '輸入品にかける税率を日本が自由に決められるようになった改正は？',
         explanation: '1911年に小村寿太郎が達成した。',
+        difficulty: 'standard',
       },
       {
         id: 'fc9',
         front: '治外法権',
         back: '領事裁判権の別名は？',
         explanation: '外国人が日本の法律の外にいることを意味する。',
+        difficulty: 'advanced',
       },
       {
         id: 'fc10',
         front: '欧化政策',
         back: '欧米の文化や制度を積極的に取り入れる政策は？',
         explanation: '井上馨が条約改正のために進めた。',
+        difficulty: 'advanced',
       },
     ],
     quiz: {
@@ -115,6 +125,7 @@ export const treatyRevision: Topic = {
           correctIndex: 1,
           explanation:
             '井上馨は鹿鳴館で舞踏会を開いて日本の近代化をアピールしましたが、条約改正交渉は失敗しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -129,6 +140,7 @@ export const treatyRevision: Topic = {
           correctIndex: 3,
           explanation:
             'ノルマントン号事件でイギリス人船長が軽い罪で済んだことで、領事裁判権撤廃の世論が高まりました。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -138,6 +150,7 @@ export const treatyRevision: Topic = {
           correctIndex: 2,
           explanation:
             '陸奥宗光は日清戦争直前にイギリスとの交渉に成功し、領事裁判権（治外法権）を撤廃しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q4',
@@ -147,6 +160,7 @@ export const treatyRevision: Topic = {
           correctIndex: 0,
           explanation:
             '小村寿太郎が関税自主権の完全回復を達成し、不平等条約の改正は完了しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q5',
@@ -161,6 +175,7 @@ export const treatyRevision: Topic = {
           correctIndex: 1,
           explanation:
             '不平等条約の改正は、領事裁判権の撤廃（1894年）と関税自主権の回復（1911年）の2つが大きな目標でした。',
+          difficulty: 'advanced',
         },
       ],
     },

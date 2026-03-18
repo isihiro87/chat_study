@@ -174,176 +174,34 @@ export const climateLife: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'geo1-cl-fc1',
-        front: '寒帯の暮らし',
-        back: '寒帯に住むイヌイットの暮らしの特徴を答えよ。',
-        explanation:
-          'イヌイットは狩猟や漁を中心とした生活を送り、毛皮の衣服を着て寒さをしのぎます。かつては雪のブロックで作ったイグルーに住んでいました。',
-      },
-      {
-        id: 'geo1-cl-fc2',
-        front: 'タイガと永久凍土',
-        back: '亜寒帯（冷帯）のシベリアに広がる針葉樹林と、地面の下にある凍った土を何というか。',
-        explanation:
-          '針葉樹林をタイガ、一年中凍ったままの土を永久凍土といいます。永久凍土が溶けるのを防ぐため、高床の家が建てられています。',
-      },
-      {
-        id: 'geo1-cl-fc3',
-        front: '地中海沿岸の暮らし',
-        back: '温帯の地中海沿岸で栽培される代表的な作物を二つ答えよ。',
-        explanation:
-          'オリーブとぶどうが代表的です。夏に乾燥する地中海性気候に適した作物で、白い石造りの家で暑さや乾燥をしのぎます。',
-      },
-      {
-        id: 'geo1-cl-fc4',
-        front: '乾燥帯の暮らし',
-        back: '乾燥帯で水が湧き出る場所を何というか。また、家畜を連れて移動する生活を何というか。',
-        explanation:
-          '水が湧き出る場所をオアシスといい、その周辺で農業が行われます。家畜を連れて移動する生活を遊牧といいます。家は日干しれんがで作られます。',
-      },
-      {
-        id: 'geo1-cl-fc5',
-        front: '砂漠化',
-        back: 'サヘル地域などで問題になっている、砂漠が広がる現象を何というか。',
-        explanation:
-          '砂漠化といいます。サハラ砂漠の南のサヘル地域では、過放牧や森林伐採などにより砂漠化が進み、大きな課題となっています。',
-      },
-      {
-        id: 'geo1-cl-fc6',
-        front: '熱帯の暮らし',
-        back: '熱帯のサモアではどのような家に住んでいるか。また、熱帯に広がる森林を何というか。',
-        explanation:
-          'サモアでは壁のない風通しのよい家に住み、暑さをしのいでいます。熱帯には熱帯雨林が広がり、多様な動植物が生息しています。',
-      },
-      {
-        id: 'geo1-cl-fc7',
-        front: '高山地域の暮らし',
-        back: 'アンデス山脈で放牧されている動物と、その毛で作る衣服を答えよ。',
-        explanation:
-          'リャマやアルパカが放牧されています。その毛で織ったポンチョを着て寒さを防ぎます。また、標高に合わせてじゃがいもなどが栽培されています。',
-      },
-      {
-        id: 'geo1-cl-fc8',
-        front: 'イヌイットの現在',
-        back: '現在のイヌイットの生活はかつてとどう変わったか。',
-        explanation:
-          '現在のイヌイットの多くは町に定住し、スノーモービルなど近代的な道具を使った生活に変わっています。かつては移動しながら狩猟・漁を行う暮らしでした。',
-      },
-      {
-        id: 'geo1-cl-fc9',
-        front: 'ダーチャ',
-        back: 'ロシアの人々が短い夏を楽しむための施設を何というか。',
-        explanation:
-          'ダーチャとよばれる別荘です。冷帯では冬が長く厳しいため、短い夏にダーチャで野菜を育てたり自然を楽しんだりします。',
-      },
-      {
-        id: 'geo1-cl-fc10',
-        front: '焼畑農業',
-        back: '樹木を切り払い灰を肥料として穀物を育てる農業を何というか。',
-        explanation:
-          '焼畑農業です。乾燥帯の周辺で行われ、灰に含まれるミネラルが肥料の役割を果たしますが、土地がやせやすい問題もあります。',
-      },
-      {
-        id: 'geo1-cl-fc11',
-        front: '遊牧の家畜',
-        back: '乾燥帯の遊牧で飼育される代表的な家畜を三つ答えよ。',
-        explanation:
-          '羊、やぎ、らくだです。草や水を求めて移動しながらこれらの家畜を飼育し、乳製品や肉を食料にしています。',
-      },
-      {
-        id: 'geo1-cl-fc12',
-        front: 'カリブー（トナカイ）',
-        back: '寒帯の短い夏に移動が見られる大型動物は何か。',
-        explanation:
-          'カリブー（トナカイ）です。寒帯の短い夏に気温が0℃以上になると、こけが生え、カリブーの大移動が見られます。',
-      },
-      {
-        id: 'geo1-cl-fc13',
-        front: '地中海性気候の農業',
-        back: '地中海沿岸の代表的な農産物加工品を二つ答えよ。',
-        explanation:
-          'ワインとオリーブオイルです。地中海性気候は夏に乾燥するため、乾燥に強いぶどうやオリーブの栽培が盛んで、これらの加工品が有名です。',
-      },
-      {
-        id: 'geo1-cl-fc14',
-        front: 'マングローブ',
-        back: '熱帯の海岸沿いに根を張って育つ植物群落を何というか。',
-        explanation:
-          'マングローブです。海水と淡水が混じり合う河口や海岸に生育し、魚の生育場所としても重要な役割を果たしています。',
-      },
-      {
-        id: 'geo1-cl-fc15',
-        front: '高山の栽培作物',
-        back: 'アンデス山脈で標高によって栽培作物が異なる理由を答えよ。',
-        explanation:
-          '標高が100m上がるごとに気温が約0.6℃下がるため、低い場所ではとうもろこし、高い場所ではじゃがいもなど、気温に適した作物が栽培されます。',
-      },
-      {
-        id: 'geo1-cl-fc16',
-        front: 'イヌイット',
-        back: 'カナダ北部の寒帯に住む先住民族を何というか。',
-      },
-      {
-        id: 'geo1-cl-fc17',
-        front: 'イグルー',
-        back: 'イヌイットがかつて住んでいた雪のドーム型の住居を何というか。',
-      },
-      {
-        id: 'geo1-cl-fc18',
-        front: 'スノーモービル',
-        back: '現在のイヌイットの移動手段として使われているものは何か。',
-      },
-      {
-        id: 'geo1-cl-fc19',
-        front: 'ダーチャ',
-        back: 'ロシアの人々が短い夏を過ごすための別荘を何というか。',
-      },
-      {
-        id: 'geo1-cl-fc20',
-        front: '永久凍土と高床式',
-        back: '永久凍土の上に家を建てるとき、なぜ高床式にするのか。',
-      },
-      {
-        id: 'geo1-cl-fc21',
-        front: '日干しれんが',
-        back: '乾燥帯で住居に使われる、泥を固めて日光で乾かした建材を何というか。',
-      },
-      {
-        id: 'geo1-cl-fc22',
-        front: '遊牧',
-        back: '乾燥帯で草や水を求めて移動しながら家畜を飼育する牧畜を何というか。',
-      },
-      {
-        id: 'geo1-cl-fc23',
-        front: 'マングローブ',
-        back: '海岸沿いに根を張って育つ熱帯の植物群落を何というか。',
-      },
-      {
-        id: 'geo1-cl-fc24',
-        front: 'リャマとアルパカ',
-        back: 'ペルーのアンデス山脈で放牧されている動物を2つ答えよ。',
-      },
-      {
-        id: 'geo1-cl-fc25',
-        front: 'ポンチョ',
-        back: 'アンデスの人々が着用する動物の毛で織った衣服を何というか。',
-      },
-      {
-        id: 'geo1-cl-fc26',
-        front: '100mで0.6℃',
-        back: '標高が100m上がるごとに気温はおよそ何℃下がるか。',
-      },
-      {
-        id: 'geo1-cl-fc27',
-        front: 'オアシス',
-        back: '砂漠の中で自然のわき水や井戸がある場所を何というか。',
-      },
-      {
-        id: 'geo1-cl-fc28',
-        front: 'サモアの住居',
-        back: 'サモアの伝統的な住居の特徴を述べよ。',
-      },
+      { id: 'geo1-cl-fc1', front: '狩猟・漁が中心。毛皮の衣服を着用。かつてはイグルー（雪の家）に住んでいた', back: '寒帯に住むイヌイットの暮らしの特徴を答えよ。', difficulty: 'basic' },
+      { id: 'geo1-cl-fc2', front: '針葉樹林をタイガ、凍った土を永久凍土という', back: '亜寒帯のシベリアに広がる針葉樹林と、地面の下にある凍った土を何というか。', explanation: '永久凍土が溶けるのを防ぐため高床の家が建てられている。', difficulty: 'basic' },
+      { id: 'geo1-cl-fc3', front: 'オリーブとぶどう', back: '温帯の地中海沿岸で栽培される代表的な作物を二つ答えよ。', explanation: '夏に乾燥する地中海性気候に適した作物。', difficulty: 'basic' },
+      { id: 'geo1-cl-fc4', front: '水が湧き出る場所をオアシス、家畜を連れて移動する生活を遊牧という', back: '乾燥帯で水が湧き出る場所を何というか。また、家畜を連れて移動する生活を何というか。', difficulty: 'basic' },
+      { id: 'geo1-cl-fc5', front: '砂漠化', back: 'サヘル地域などで問題になっている、砂漠が広がる現象を何というか。', explanation: '過放牧や森林伐採が主な原因。', difficulty: 'basic' },
+      { id: 'geo1-cl-fc6', front: '壁のない風通しのよい家。森林は熱帯雨林', back: '熱帯のサモアではどのような家に住んでいるか。また、熱帯に広がる森林を何というか。', difficulty: 'basic' },
+      { id: 'geo1-cl-fc7', front: 'リャマ・アルパカが放牧され、毛で織ったポンチョを着用', back: 'アンデス山脈で放牧されている動物と、その毛で作る衣服を答えよ。', explanation: '標高に合わせてじゃがいもなどを栽培。', difficulty: 'basic' },
+      { id: 'geo1-cl-fc8', front: '多くは町に定住し、スノーモービルなど近代的な道具を使う生活に変わった', back: '現在のイヌイットの生活はかつてとどう変わったか。', difficulty: 'standard' },
+      { id: 'geo1-cl-fc9', front: 'ダーチャ（別荘）', back: 'ロシアの人々が短い夏を楽しむための施設を何というか。', difficulty: 'basic' },
+      { id: 'geo1-cl-fc10', front: '焼畑農業', back: '樹木を切り払い灰を肥料として穀物を育てる農業を何というか。', difficulty: 'standard' },
+      { id: 'geo1-cl-fc11', front: '羊・やぎ・らくだ', back: '乾燥帯の遊牧で飼育される代表的な家畜を三つ答えよ。', difficulty: 'basic' },
+      { id: 'geo1-cl-fc12', front: 'カリブー（トナカイ）', back: '寒帯の短い夏に大移動が見られる大型動物は何か。', difficulty: 'standard' },
+      { id: 'geo1-cl-fc13', front: 'ワインとオリーブオイル', back: '地中海沿岸の代表的な農産物加工品を二つ答えよ。', difficulty: 'standard' },
+      { id: 'geo1-cl-fc14', front: 'マングローブ', back: '熱帯の海岸沿いに根を張って育つ植物群落を何というか。', explanation: '海水と淡水が混じる河口や海岸に生育する。', difficulty: 'standard' },
+      { id: 'geo1-cl-fc15', front: '標高が100m上がるごとに気温が約0.6℃下がるため', back: 'アンデス山脈で標高によって栽培作物が異なる理由を答えよ。', difficulty: 'standard' },
+      { id: 'geo1-cl-fc16', front: 'イヌイット', back: 'カナダ北部の寒帯に住む先住民族を何というか。', difficulty: 'basic' },
+      { id: 'geo1-cl-fc17', front: 'イグルー', back: 'イヌイットがかつて住んでいた雪のドーム型の住居を何というか。', difficulty: 'basic' },
+      { id: 'geo1-cl-fc18', front: '建物の熱で永久凍土が溶けると地面がしずんで建物がゆがむのを防ぐため', back: '永久凍土の上に家を建てるとき、なぜ高床式にするのか。', difficulty: 'standard' },
+      { id: 'geo1-cl-fc19', front: '日干しれんが（泥を固めて日光で乾かした建材）', back: '乾燥帯で住居に使われる、泥を固めて日光で乾かした建材を何というか。', difficulty: 'basic' },
+      { id: 'geo1-cl-fc20', front: '遊牧', back: '乾燥帯で草や水を求めて移動しながら家畜を飼育する牧畜を何というか。', difficulty: 'basic' },
+      { id: 'geo1-cl-fc21', front: 'リャマとアルパカ', back: 'ペルーのアンデス山脈で放牧されている動物を2つ答えよ。', difficulty: 'standard' },
+      { id: 'geo1-cl-fc22', front: 'ポンチョ', back: 'アンデスの人々が着用する動物の毛で織った衣服を何というか。', difficulty: 'standard' },
+      { id: 'geo1-cl-fc23', front: '約0.6℃', back: '標高が100m上がるごとに気温はおよそ何℃下がるか。', difficulty: 'standard' },
+      { id: 'geo1-cl-fc24', front: 'オアシス', back: '砂漠の中で自然のわき水や井戸がある場所を何というか。', difficulty: 'basic' },
+      { id: 'geo1-cl-fc25', front: '壁がなく開放的で風通しのよい造り（木の支柱とやしの葉の屋根）', back: 'サモアの伝統的な住居の特徴を述べよ。', difficulty: 'advanced' },
+      { id: 'geo1-cl-fc26', front: '夏と冬の気温差が非常に大きい（冬は−30℃以下になることも）', back: '冷帯（亜寒帯）の気候の最大の特徴は何か。', difficulty: 'advanced' },
+      { id: 'geo1-cl-fc27', front: '標高が高いため（赤道付近でも高山は気温が低い）', back: '赤道付近のアンデス山脈でも涼しいのはなぜか。', difficulty: 'advanced' },
+      { id: 'geo1-cl-fc28', front: '人口増加にともなう過度な耕作や放牧により土地がやせたため', back: 'サヘル地域で砂漠化が進む主な原因は何か。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -354,7 +212,8 @@ export const climateLife: Topic = {
           correctIndex: 3,
           explanation:
             'イグルーは雪のブロックを積み上げて作るドーム状の家です。イヌイットはこのほか、毛皮の衣服を着て厳しい寒さに対応していました。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-cl-q2',
           question: '亜寒帯のシベリアに広がる針葉樹林を何というか。',
@@ -362,7 +221,8 @@ export const climateLife: Topic = {
           correctIndex: 1,
           explanation:
             'タイガは亜寒帯（冷帯）に広がる広大な針葉樹林のことです。シベリアの地面の下には永久凍土が広がっています。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-cl-q3',
           question: '地中海沿岸で栽培される作物の組み合わせとして正しいものはどれか。',
@@ -375,7 +235,8 @@ export const climateLife: Topic = {
           correctIndex: 2,
           explanation:
             '地中海沿岸は夏に乾燥する地中海性気候で、乾燥に強いオリーブやぶどうが栽培されています。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-cl-q4',
           question: '乾燥帯で砂漠が広がっていく現象を何というか。',
@@ -383,7 +244,8 @@ export const climateLife: Topic = {
           correctIndex: 0,
           explanation:
             '砂漠化はサハラ砂漠の南のサヘル地域などで深刻な問題となっています。過放牧や森林伐採が主な原因です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-cl-q5',
           question:
@@ -397,7 +259,8 @@ export const climateLife: Topic = {
           correctIndex: 1,
           explanation:
             'アンデス山脈ではリャマやアルパカが放牧されています。その毛で織ったポンチョを着て標高の高い寒冷な気候に対応しています。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-cl-q6',
           question:
@@ -411,7 +274,8 @@ export const climateLife: Topic = {
           correctIndex: 3,
           explanation:
             'サヘル地域では人口増加にともなう過度な耕作や放牧により土地がやせ、砂漠化が進んでいます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-cl-q7',
           question:
@@ -425,7 +289,8 @@ export const climateLife: Topic = {
           correctIndex: 2,
           explanation:
             '遊牧は、草や水を求めて移動しながら羊やらくだなどの家畜を飼育する牧畜のことです。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-cl-q8',
           question:
@@ -439,7 +304,8 @@ export const climateLife: Topic = {
           correctIndex: 0,
           explanation:
             'シベリアでは建物の熱で永久凍土が溶けると地面がしずんで建物がゆがむため、高床式にして熱が地面に伝わりにくくしています。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-cl-q9',
           question:
@@ -453,7 +319,8 @@ export const climateLife: Topic = {
           correctIndex: 3,
           explanation:
             '現在のイヌイットの多くは町に定住し、移動にはスノーモービルを使うなど近代的な生活に変化しています。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-cl-q10',
           question:
@@ -467,7 +334,8 @@ export const climateLife: Topic = {
           correctIndex: 1,
           explanation:
             '地中海性気候は夏に乾燥して雨が少なく、冬に雨が多いのが特徴です。イタリアなど地中海沿岸で見られます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-cl-q11',
           question: 'カナダ北部の寒帯に住む先住民族はどれ？',
@@ -480,7 +348,8 @@ export const climateLife: Topic = {
           correctIndex: 2,
           explanation:
             'イヌイットはカナダ北部の寒帯に住む先住民族です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-cl-q12',
           question: 'イヌイットがかつて住んでいた雪のドーム型住居を何というか。',
@@ -493,7 +362,8 @@ export const climateLife: Topic = {
           correctIndex: 1,
           explanation:
             'イグルーは雪のブロックで作ったドーム型の住居です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-cl-q13',
           question: '永久凍土の上に家を建てるとき高床式にする理由はどれ？',
@@ -506,7 +376,8 @@ export const climateLife: Topic = {
           correctIndex: 2,
           explanation:
             '建物の熱で永久凍土が溶けると地面がしずみ建物がゆがむのを防ぐためです。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-cl-q14',
           question: '亜寒帯に広がる広大な針葉樹の森林を何というか。',
@@ -519,7 +390,8 @@ export const climateLife: Topic = {
           correctIndex: 1,
           explanation:
             'タイガは冷帯（亜寒帯）に広がる広大な針葉樹の森林です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-cl-q15',
           question: '乾燥帯で移動しながら家畜を飼育する牧畜を何というか。',
@@ -532,7 +404,8 @@ export const climateLife: Topic = {
           correctIndex: 2,
           explanation:
             '遊牧は草や水を求めて移動しながら羊・やぎ・らくだなどを飼育する牧畜です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-cl-q16',
           question: '砂漠の中の自然のわき水や井戸がある場所を何というか。',
@@ -545,7 +418,8 @@ export const climateLife: Topic = {
           correctIndex: 2,
           explanation:
             'オアシスは砂漠の中で水が得られる貴重な場所です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-cl-q17',
           question: '地中海性気候では夏と冬のどちらに雨が多いか。',
@@ -558,7 +432,8 @@ export const climateLife: Topic = {
           correctIndex: 1,
           explanation:
             '地中海性気候は冬に雨が多く、夏は乾燥します。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-cl-q18',
           question: '地中海沿岸で広く栽培されている果物として正しくないものはどれ？',
@@ -571,7 +446,8 @@ export const climateLife: Topic = {
           correctIndex: 3,
           explanation:
             'バナナは熱帯の果物です。地中海沿岸ではぶどう・オリーブ・トマトが栽培されています。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-cl-q19',
           question: '標高が100m上がるごとに気温はおよそ何℃下がるか。',
@@ -584,7 +460,8 @@ export const climateLife: Topic = {
           correctIndex: 1,
           explanation:
             '標高が100m上がるごとに気温はおよそ0.6℃下がります。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-cl-q20',
           question: 'アンデス山脈で放牧されている動物の正しい組み合わせはどれ？',
@@ -597,7 +474,8 @@ export const climateLife: Topic = {
           correctIndex: 1,
           explanation:
             'アンデス山脈ではリャマとアルパカが放牧されています。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-cl-q21',
           question: 'サヘル地域で砂漠化が進む主な原因はどれ？',
@@ -610,7 +488,8 @@ export const climateLife: Topic = {
           correctIndex: 1,
           explanation:
             '人口増加にともなう過度な耕作や放牧により土地がやせ、砂漠化が進んでいます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-cl-q22',
           question: '乾燥帯で住居に使われる日干しれんがとは何か。',
@@ -623,7 +502,8 @@ export const climateLife: Topic = {
           correctIndex: 1,
           explanation:
             '日干しれんがは泥を固めて日光で乾かした建材で、乾燥帯の住居に使われます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-cl-q23',
           question: '冷帯の気候の最大の特徴はどれ？',
@@ -636,7 +516,8 @@ export const climateLife: Topic = {
           correctIndex: 2,
           explanation:
             '冷帯は夏と冬の気温差が非常に大きく、冬は−30℃以下になることもあります。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'geo1-cl-q24',
           question: '赤道付近のアンデス山脈でも涼しいのはなぜか。',
@@ -649,7 +530,8 @@ export const climateLife: Topic = {
           correctIndex: 2,
           explanation:
             '標高が高いため、赤道付近でも気温が低くなります。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'geo1-cl-q25',
           question: '熱帯に広がる背の高い樹木が生い茂る森林を何というか。',
@@ -662,7 +544,8 @@ export const climateLife: Topic = {
           correctIndex: 3,
           explanation:
             '熱帯雨林は赤道付近の熱帯に広がる背の高い樹木が生い茂る森林です。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'geo1-cl-q26',
           question: 'ロシアの人々が短い夏を過ごす別荘を何というか。',
@@ -675,7 +558,8 @@ export const climateLife: Topic = {
           correctIndex: 2,
           explanation:
             'ダーチャはロシアの人々が短い夏を郊外で過ごすための別荘です。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'geo1-cl-q27',
           question: '寒帯ではなぜ樹木が育たないのか。',
@@ -688,7 +572,8 @@ export const climateLife: Topic = {
           correctIndex: 2,
           explanation:
             '気温が低く太陽が高くのぼらないため、植物の成長に十分な温度が得られません。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'geo1-cl-q28',
           question: '遊牧民が飼育する代表的な家畜として正しくないものはどれ？',
@@ -701,7 +586,8 @@ export const climateLife: Topic = {
           correctIndex: 3,
           explanation:
             '遊牧民が飼育する代表的な家畜は羊・やぎ・らくだです。',
-        },
+        difficulty: 'advanced',
+      },
       ],
     },
     examples: {

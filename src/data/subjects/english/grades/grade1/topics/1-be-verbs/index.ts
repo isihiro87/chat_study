@@ -72,6 +72,7 @@ export const beVerbs: Topic = {
         back: 'I (　　) a student.\n（私は生徒です。）',
         hint: '「私 = I」のときのbe動詞は…？',
         explanation: 'I のときは、いつも am だよ。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-be-fc2',
@@ -79,6 +80,7 @@ export const beVerbs: Topic = {
         back: 'She (　　) kind.\n（彼女はやさしいです。）',
         hint: '彼女は1人だよね。1人のときは…？',
         explanation: 'he / she / it（1人・1つ）のときは is だよ。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-be-fc3',
@@ -86,6 +88,7 @@ export const beVerbs: Topic = {
         back: 'They (　　) happy.\n（彼らはうれしいです。）',
         hint: '「彼ら」は何人もいるよね。2人いじょうのときは…？',
         explanation: 'you / we / they（あなた・2人いじょう）のときは are だよ。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-be-fc4',
@@ -93,6 +96,7 @@ export const beVerbs: Topic = {
         back: 'I am not をみじかく言うと？',
         hint: "I am は I'm になるよ。そこに not をつけると…？",
         explanation: "I am not → I'm not とみじかくできるよ。",
+        difficulty: 'basic',
       },
       {
         id: 'eng-be-fc5',
@@ -100,6 +104,7 @@ export const beVerbs: Topic = {
         back: 'is not をみじかく言うと？',
         hint: 'is と not をくっつけてみよう',
         explanation: "is not → isn't",
+        difficulty: 'basic',
       },
       {
         id: 'eng-be-fc6',
@@ -107,6 +112,7 @@ export const beVerbs: Topic = {
         back: 'are not をみじかく言うと？',
         hint: 'are と not をくっつけてみよう',
         explanation: "are not → aren't",
+        difficulty: 'basic',
       },
       {
         id: 'eng-be-fc7',
@@ -114,6 +120,7 @@ export const beVerbs: Topic = {
         back: '(　　) you a student?\n（あなたは生徒ですか？）',
         hint: '「〜ですか？」のときは be動詞をいちばん前に！you のときのbe動詞は…？',
         explanation: 'you のbe動詞は are。「〜ですか？」だから Are をいちばん前に出すよ。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-be-fc8',
@@ -121,6 +128,7 @@ export const beVerbs: Topic = {
         back: '(　　) he from Japan?\n（彼は日本しゅっしんですか？）',
         hint: '「彼」は1人だよね。1人のときのbe動詞を、いちばん前に出そう！',
         explanation: 'he は1人なので is。「〜ですか？」だから Is をいちばん前に出すよ。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-be-fc9',
@@ -128,6 +136,7 @@ export const beVerbs: Topic = {
         back: 'This (　　) my pen.\n（これは私のペンです。）',
         hint: 'this（これ）は1つのものを指すよ。1つのときのbe動詞は…？',
         explanation: 'this は1つのものを指すから is を使うよ。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-be-fc10',
@@ -135,6 +144,7 @@ export const beVerbs: Topic = {
         back: 'That (　　) your desk.\n（あれはあなたの机です。）',
         hint: 'that（あれ）も1つだよね。be動詞は…？',
         explanation: 'that も1つのものを指すから is だよ。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-be-fc11',
@@ -142,6 +152,7 @@ export const beVerbs: Topic = {
         back: 'He (　　) from Tokyo.\n（彼は東京しゅっしんです。）',
         hint: '「彼 = he」は1人。1人のときのbe動詞は…？',
         explanation: 'he（彼）は1人だから is を使うよ。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-be-fc12',
@@ -149,6 +160,7 @@ export const beVerbs: Topic = {
         back: 'She (　　) our new teacher.\n（彼女は私たちの新しい先生です。）',
         hint: '「彼女 = she」は1人。be動詞は…？',
         explanation: 'she（彼女）は1人だから is だよ。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-be-fc13',
@@ -156,6 +168,7 @@ export const beVerbs: Topic = {
         back: 'I (　　) twelve.\n（私は12歳です。）',
         hint: '「私 = I」のときのbe動詞は…？',
         explanation: 'I のときは いつも am だよ。年れいを言うときも I am を使うよ。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-be-fc14',
@@ -163,6 +176,7 @@ export const beVerbs: Topic = {
         back: 'I (　　) from Osaka.\n（私は大阪しゅっしんです。）',
         hint: '「私 = I」のbe動詞は？出身を言うときも同じだよ。',
         explanation: 'I am from 〜. で「私は〜出身です」と言えるよ。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-be-fc15',
@@ -170,6 +184,7 @@ export const beVerbs: Topic = {
         back: 'This (　　) not a dog.\n（これは犬ではありません。）',
         hint: 'this のbe動詞は is。否定は is のうしろに not をつけるよ。',
         explanation: 'This is not 〜. で「これは〜じゃない」と言えるよ。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-be-fc16',
@@ -177,6 +192,7 @@ export const beVerbs: Topic = {
         back: '(　　) this your book?\n（これはあなたの本ですか？）',
         hint: 'this のbe動詞は is。「〜ですか？」だから is をいちばん前に出すよ。',
         explanation: 'Is this 〜? で「これは〜ですか？」とたずねられるよ。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-be-fc17',
@@ -184,6 +200,7 @@ export const beVerbs: Topic = {
         back: '(　　) she from America?\n（彼女はアメリカしゅっしんですか？）',
         hint: 'she のbe動詞は is。「〜ですか？」なので is をいちばん前に！',
         explanation: 'Is she 〜? で「彼女は〜ですか？」とたずねられるよ。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-be-fc18',
@@ -191,76 +208,91 @@ export const beVerbs: Topic = {
         back: 'Is he a student? — Yes, (　　) (　　).\n（はい、そうです。）',
         hint: '「彼 = he」について聞かれたら、he を使って答えるよ。',
         explanation: 'he について聞かれたら Yes, he is. と答えるよ。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-be-fc19',
         front: "He's = He is",
         back: '"He\'s" をフルに書くと？',
         hint: "'s は is のみじかい形だよ。",
-        explanation: "He's は He is のみじかい形。「彼は〜です」と言うとき使えるよ。",
+        difficulty: 'basic',
       },
       {
         id: 'eng-be-fc20',
         front: "She's = She is",
         back: '"She\'s" をフルに書くと？',
         hint: "'s は is のみじかい形。She + is = ?",
-        explanation: "She's は She is のみじかい形だよ。",
+        difficulty: 'basic',
       },
       {
         id: 'eng-be-fc21',
         front: "It's = It is",
         back: '"It\'s" をフルに書くと？',
         hint: "it（それ）も 's = is が使えるよ。",
-        explanation: "It's は It is のみじかい形。「それは〜です」と言うとき使うよ。",
+        difficulty: 'basic',
       },
       {
         id: 'eng-be-fc22',
         front: "That's = That is",
         back: '"That\'s" をフルに書くと？',
         hint: "that（あれ）も 's = is でみじかくできるよ。",
-        explanation: "That's は That is のみじかい形だよ。",
+        difficulty: 'basic',
       },
       {
         id: 'eng-be-fc23',
         front: 'are',
         back: 'We (　　) in Class 1-2.\n（私たちは1年2組です。）',
         hint: '「私たち = we」は2人いじょう。2人いじょうのbe動詞は…？',
-        explanation: 'we（私たち）は2人いじょうだから are を使うよ。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-be-fc24',
         front: 'are',
         back: 'You (　　) a rugby fan.\n（あなたはラグビーのファンです。）',
         hint: '「あなた = you」のbe動詞は…？',
-        explanation: 'you（あなた）のときは are だよ。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-be-fc25',
         front: "We're = We are",
         back: '"We\'re" をフルに書くと？',
         hint: "'re は are のみじかい形だよ。",
-        explanation: "We're は We are のみじかい形。「私たちは〜です」と言うとき使えるよ。",
+        difficulty: 'standard',
       },
       {
         id: 'eng-be-fc26',
         front: "They're = They are",
         back: '"They\'re" をフルに書くと？',
         hint: "'re は are のみじかい形。They + are = ?",
-        explanation: "They're は They are のみじかい形だよ。",
+        difficulty: 'standard',
       },
       {
         id: 'eng-be-fc27',
         front: "No, I'm not.",
         back: 'Are you from Osaka?\n（あなたは大阪しゅっしんですか？）\nに「いいえ」で答えると？',
         hint: '「あなたは〜？」と聞かれたら I を使って答えるよ。',
-        explanation: "you → I にかえて、No, I'm not. と答えるよ。",
+        difficulty: 'advanced',
       },
       {
         id: 'eng-be-fc28',
         front: 'am',
         back: 'I (　　) in the basketball club.\n（私はバスケットボール部に入っています。）',
         hint: '「私 = I」のbe動詞は？部活を紹介するときも同じだよ。',
-        explanation: 'I am in the 〜 club. で「私は〜部に入っています」と言えるよ。',
+        difficulty: 'advanced',
+      },
+      {
+        id: 'eng-be-fc29',
+        front: "You're = You are",
+        back: '"You\'re" をフルに書くと？',
+        hint: "'re は are のみじかい形。You + are = ?",
+        difficulty: 'standard',
+      },
+      {
+        id: 'eng-be-fc30',
+        front: "No, they aren't.",
+        back: 'Are they in the gym?\n（彼らは体育館にいますか？）\nに「いいえ」で答えると？',
+        hint: 'they について聞かれたら they で答えるよ。',
+        difficulty: 'advanced',
       },
     ],
     quiz: {
@@ -271,6 +303,7 @@ export const beVerbs: Topic = {
           options: ['is', 'am', 'are', 'do'],
           correctIndex: 1,
           explanation: '「私 = I」のときは、いつも am だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'eng-be-q2',
@@ -278,6 +311,7 @@ export const beVerbs: Topic = {
           options: ['is', 'am', 'are', 'do'],
           correctIndex: 0,
           explanation: 'She（彼女）は1人だから is を使うよ。',
+          difficulty: 'basic',
         },
         {
           id: 'eng-be-q3',
@@ -285,6 +319,7 @@ export const beVerbs: Topic = {
           options: ['Am', 'Is', 'Do', 'Are'],
           correctIndex: 3,
           explanation: 'you のbe動詞は are。「〜ですか？」だからいちばん前に出して Are you happy? だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'eng-be-q4',
@@ -292,6 +327,7 @@ export const beVerbs: Topic = {
           options: ["He aren't tall.", "He amn't tall.", "He's not tall.", "He don't tall."],
           correctIndex: 2,
           explanation: "He is not は He's not や He isn't とみじかくできるよ。",
+          difficulty: 'basic',
         },
         {
           id: 'eng-be-q5',
@@ -304,6 +340,7 @@ export const beVerbs: Topic = {
           ],
           correctIndex: 3,
           explanation: '「彼ら = they」のbe動詞は are だから、Yes, they are. だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'eng-be-q6',
@@ -315,6 +352,7 @@ export const beVerbs: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「I am a student.」が正解。I（私は）+ am（です）+ a student（生徒）の順番だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'eng-be-q7',
@@ -326,6 +364,7 @@ export const beVerbs: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「Is she kind?」が正解。「〜ですか？」のときは be動詞（is）を文の最初に出すよ。',
+          difficulty: 'basic',
         },
         {
           id: 'eng-be-q8',
@@ -337,6 +376,7 @@ export const beVerbs: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「They are not happy.」が正解。否定文は be動詞のうしろに not をつけるよ。',
+          difficulty: 'basic',
         },
         {
           id: 'eng-be-q9',
@@ -344,6 +384,7 @@ export const beVerbs: Topic = {
           options: ['Am', 'Are', 'Is', 'Do'],
           correctIndex: 2,
           explanation: 'this（これ）は1つのものを指すから be動詞は is。「〜ですか？」だから Is をいちばん前に出すよ。',
+          difficulty: 'basic',
         },
         {
           id: 'eng-be-q10',
@@ -351,6 +392,7 @@ export const beVerbs: Topic = {
           options: ['I', 'He', 'She', 'They'],
           correctIndex: 1,
           explanation: 'Mr. Tanaka は男性だから He（彼）を使うよ。He is our English teacher. だね。',
+          difficulty: 'basic',
         },
         {
           id: 'eng-be-q11',
@@ -362,6 +404,7 @@ export const beVerbs: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「Is this your pen?」が正解。「〜ですか？」のときは be動詞（Is）を文の最初に出すよ。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-be-q12',
@@ -374,6 +417,7 @@ export const beVerbs: Topic = {
           ],
           correctIndex: 0,
           explanation: 'she（彼女）について聞かれたら she を使って答えるよ。Yes, she is. が正解だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-be-q13',
@@ -381,6 +425,7 @@ export const beVerbs: Topic = {
           options: ['am', 'is', 'are', 'do'],
           correctIndex: 2,
           explanation: 'we（私たち）は2人いじょうだから are を使うよ。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-be-q14',
@@ -388,6 +433,7 @@ export const beVerbs: Topic = {
           options: ["We's students.", "We're students.", "We students.", "Wer students."],
           correctIndex: 1,
           explanation: "We are → We're とみじかくできるよ。're は are のみじかい形だよ。",
+          difficulty: 'standard',
         },
         {
           id: 'eng-be-q15',
@@ -395,6 +441,7 @@ export const beVerbs: Topic = {
           options: ["They's happy.", "They happy.", "They're happy.", "Theyre happy."],
           correctIndex: 2,
           explanation: "They are → They're とみじかくできるよ。アポストロフィ（'）を忘れないでね。",
+          difficulty: 'standard',
         },
         {
           id: 'eng-be-q16',
@@ -402,6 +449,7 @@ export const beVerbs: Topic = {
           options: ['am', 'are', 'is', 'do'],
           correctIndex: 2,
           explanation: 'that（あれ）は1つのものを指すから is を使うよ。That is not 〜. で否定文だね。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-be-q17',
@@ -414,6 +462,7 @@ export const beVerbs: Topic = {
           ],
           correctIndex: 1,
           explanation: "「あなたは〜？」と聞かれたら I にかえて答えるよ。I am not のみじかい形は I'm not だよ。",
+          difficulty: 'standard',
         },
         {
           id: 'eng-be-q18',
@@ -426,6 +475,7 @@ export const beVerbs: Topic = {
           ],
           correctIndex: 2,
           explanation: "they について聞かれたら they で答えるよ。No, they aren't. が正解だよ。",
+          difficulty: 'standard',
         },
         {
           id: 'eng-be-q19',
@@ -438,6 +488,7 @@ export const beVerbs: Topic = {
           ],
           correctIndex: 2,
           explanation: 'you のbe動詞は are だよ。「You is」はまちがい。正しくは「You are my friend.」だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-be-q20',
@@ -450,6 +501,7 @@ export const beVerbs: Topic = {
           ],
           correctIndex: 2,
           explanation: 'I のbe動詞は am だよ。「I are」はまちがい。正しくは「I am from Tokyo.」だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-be-q21',
@@ -457,6 +509,7 @@ export const beVerbs: Topic = {
           options: ["I'm", "You're", "He's", "It's"],
           correctIndex: 0,
           explanation: "自己紹介で名前を言うときは I'm 〜.（私は〜です）を使うよ。",
+          difficulty: 'standard',
         },
         {
           id: 'eng-be-q22',
@@ -469,6 +522,7 @@ export const beVerbs: Topic = {
           ],
           correctIndex: 0,
           explanation: "Is this 〜? の答えには it を使うよ。No, it isn't. が正解だよ。",
+          difficulty: 'standard',
         },
         {
           id: 'eng-be-q13r',
@@ -480,6 +534,7 @@ export const beVerbs: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「We are friends.」が正解。we（私たちは）+ are（です）+ friends（友だち）の順番だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'eng-be-q14r',
@@ -491,6 +546,7 @@ export const beVerbs: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「Is that your book?」が正解。「〜ですか？」なので Is をいちばん前に出すよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'eng-be-q15r',
@@ -502,6 +558,7 @@ export const beVerbs: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「He is not a soccer fan.」が正解。be動詞のうしろに not をつけて否定文にするよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'eng-be-q16r',
@@ -513,6 +570,7 @@ export const beVerbs: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「I am from Nagoya.」が正解。I am from 〜. で「私は〜出身です」と言えるよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'eng-be-q17r',
@@ -524,6 +582,7 @@ export const beVerbs: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「Are they in the library?」が正解。「〜ですか？」なので Are を最初に出すよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'eng-be-q18r',
@@ -535,6 +594,7 @@ export const beVerbs: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「I am in the tennis club.」が正解。I am in the 〜 club. で部活を紹介できるよ。',
+          difficulty: 'advanced',
         },
       ],
     },

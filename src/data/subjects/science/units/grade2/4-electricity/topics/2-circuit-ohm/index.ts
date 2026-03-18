@@ -120,163 +120,21 @@ export const circuitOhm: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'sci2-circuit-fc1',
-        front: '直列回路',
-        back: '電流の通り道が一本道で枝分かれしない回路を何という？',
-        explanation: '直列回路では電流はどこでも同じで、電圧は各部分の和になる。',
-      },
-      {
-        id: 'sci2-circuit-fc2',
-        front: '並列回路',
-        back: '電流の通り道が途中で枝分かれする回路を何という？',
-        explanation: '並列回路では電流は各部分の和で、電圧はどこでも同じになる。',
-      },
-      {
-        id: 'sci2-circuit-fc3',
-        front: '電流計のつなぎ方',
-        back: '電流計は回路にどのようにつなぐ？',
-        explanation: '電流計は測りたい部分に直列につなぐ。最大の端子（5Aなど）からつなぎ始める。',
-      },
-      {
-        id: 'sci2-circuit-fc6',
-        front: '回路',
-        back: '電気の通り道のことを何という？',
-        explanation: '回路とは電源から出た電流が電源にもどるまでの道すじのこと。',
-      },
-      {
-        id: 'sci2-circuit-fc7',
-        front: '回路図',
-        back: '電気用図記号を使って回路を表した図を何という？',
-        explanation: '電池・豆電球・スイッチなどを決まった記号（電気用図記号）で表した図。',
-      },
-      {
-        id: 'sci2-circuit-fc8',
-        front: '電流の単位',
-        back: '電流の大きさを表す単位は？（2つ答えよ）',
-        explanation: 'A（アンペア）とmA（ミリアンペア）。1A＝1000mA。',
-      },
-      {
-        id: 'sci2-circuit-fc9',
-        front: '電圧の単位',
-        back: '電圧の大きさを表す単位は？',
-        explanation: 'V（ボルト）。電流を流そうとする力の大きさを表す。',
-      },
-      {
-        id: 'sci2-circuit-fc10',
-        front: '直列回路の電流の規則性',
-        back: '直列回路の電流にはどんな規則性がある？',
-        explanation: '直列回路では電流はどこで測っても同じ。I＝I₁＝I₂。',
-      },
-      {
-        id: 'sci2-circuit-fc11',
-        front: '直列回路の電圧の規則性',
-        back: '直列回路の電圧にはどんな規則性がある？',
-        explanation: '各部分の電圧の和が全体の電圧に等しい。V＝V₁＋V₂。',
-      },
-      {
-        id: 'sci2-circuit-fc12',
-        front: '並列回路の電流の規則性',
-        back: '並列回路の電流にはどんな規則性がある？',
-        explanation: '枝分かれ前の電流は各枝の電流の和に等しい。I＝I₁＋I₂。',
-      },
-      {
-        id: 'sci2-circuit-fc13',
-        front: '並列回路の電圧の規則性',
-        back: '並列回路の電圧にはどんな規則性がある？',
-        explanation: '各部分の電圧はすべて等しく、電源の電圧と同じ。V＝V₁＝V₂。',
-      },
-      {
-        id: 'sci2-circuit-fc14',
-        front: '電圧計のつなぎ方',
-        back: '電圧計は回路にどのようにつなぐ？',
-        explanation: '測りたい部分に並列につなぐ。最大の端子（300Vなど）からつなぎ始める。',
-      },
-      {
-        id: 'sci2-circuit-fc15',
-        front: '回路',
-        back: '電気の通り道。電源から出て戻るまでの道すじ',
-      },
-      {
-        id: 'sci2-circuit-fc16',
-        front: '直列回路',
-        back: '電流の通り道が枝分かれしない回路',
-      },
-      {
-        id: 'sci2-circuit-fc17',
-        front: '並列回路',
-        back: '電流の通り道が途中で枝分かれする回路',
-      },
-      {
-        id: 'sci2-circuit-fc18',
-        front: '電流計は直列につなぐ',
-        back: '測りたい部分に直列に',
-      },
-      {
-        id: 'sci2-circuit-fc19',
-        front: '電圧計は並列につなぐ',
-        back: '測りたい部分に並列に',
-      },
-      {
-        id: 'sci2-circuit-fc20',
-        front: '直列回路の電流',
-        back: 'どこでも同じ I＝I₁＝I₂',
-      },
-      {
-        id: 'sci2-circuit-fc21',
-        front: '並列回路の電流',
-        back: '枝分かれ前＝各枝の和 I＝I₁+I₂',
-      },
-      {
-        id: 'sci2-circuit-fc22',
-        front: '直列回路の電圧',
-        back: '各部分の和＝全体 V＝V₁+V₂',
-      },
-      {
-        id: 'sci2-circuit-fc23',
-        front: '並列回路の電圧',
-        back: 'どこも同じ V＝V₁＝V₂',
-      },
-      {
-        id: 'sci2-circuit-fc24',
-        front: 'オームの法則',
-        back: 'V＝R×I',
-      },
-      {
-        id: 'sci2-circuit-fc25',
-        front: '導体',
-        back: '電気を通しやすい物質（金属など）',
-      },
-      {
-        id: 'sci2-circuit-fc26',
-        front: '不導体（絶縁体）',
-        back: '電気を通さない物質（ゴム・ガラスなど）',
-      },
-      {
-        id: 'sci2-circuit-fc27',
-        front: '直列の合成抵抗',
-        back: 'R＝R₁+R₂',
-      },
-      {
-        id: 'sci2-circuit-fc28',
-        front: '並列の合成抵抗',
-        back: '1/R＝1/R₁+1/R₂',
-      },
-      {
-        id: 'sci2-circuit-fc29',
-        front: '抵抗を決める要因',
-        back: '物質の種類、長さ、断面積',
-      },
-      {
-        id: 'sci2-circuit-fc30',
-        front: '長さ2倍→抵抗2倍',
-        back: '抵抗は長さに比例',
-      },
-      {
-        id: 'sci2-circuit-fc31',
-        front: '断面積2倍→抵抗半分',
-        back: '抵抗は断面積に反比例',
-      }
+      { id: 'sci2-circuit-fc1', front: '電気の通り道。電源から出た電流が電源に戻るまでの道すじ', back: '回路とは何？', difficulty: 'basic' },
+      { id: 'sci2-circuit-fc2', front: '電流の通り道が一本道で枝分かれしない回路', back: '直列回路とは何？', difficulty: 'basic' },
+      { id: 'sci2-circuit-fc3', front: '電流の通り道が途中で枝分かれする回路', back: '並列回路とは何？', difficulty: 'basic' },
+      { id: 'sci2-circuit-fc4', front: '測りたい部分に直列につなぐ。最大の端子からつなぎ始める', back: '電流計のつなぎ方は？', difficulty: 'basic' },
+      { id: 'sci2-circuit-fc5', front: '測りたい部分に並列につなぐ。最大の端子からつなぎ始める', back: '電圧計のつなぎ方は？', difficulty: 'basic' },
+      { id: 'sci2-circuit-fc6', front: 'A（アンペア）とmA（ミリアンペア）。1A＝1000mA', back: '電流の単位は？', difficulty: 'basic' },
+      { id: 'sci2-circuit-fc7', front: 'どこで測っても同じ。I＝I₁＝I₂', back: '直列回路の電流の規則性は？', difficulty: 'standard' },
+      { id: 'sci2-circuit-fc8', front: '各部分の電圧の和が全体の電圧。V＝V₁＋V₂', back: '直列回路の電圧の規則性は？', difficulty: 'standard' },
+      { id: 'sci2-circuit-fc9', front: '枝分かれ前の電流＝各枝の電流の和。I＝I₁＋I₂', back: '並列回路の電流の規則性は？', difficulty: 'standard' },
+      { id: 'sci2-circuit-fc10', front: '各部分の電圧はすべて等しく電源の電圧と同じ。V＝V₁＝V₂', back: '並列回路の電圧の規則性は？', difficulty: 'standard' },
+      { id: 'sci2-circuit-fc11', front: '電気を通しやすい物質（金属など）', back: '導体とは何？', difficulty: 'standard' },
+      { id: 'sci2-circuit-fc12', front: '電気を通さない物質（ゴム・ガラスなど）', back: '不導体（絶縁体）とは何？', difficulty: 'standard' },
+      { id: 'sci2-circuit-fc13', front: 'R＝R₁＋R₂（各抵抗の和）', back: '直列回路の合成抵抗の求め方は？', difficulty: 'advanced' },
+      { id: 'sci2-circuit-fc14', front: '1/R＝1/R₁＋1/R₂（逆数の和）', back: '並列回路の合成抵抗の求め方は？', difficulty: 'advanced' },
+      { id: 'sci2-circuit-fc15', front: '物質の種類、長さ、断面積。長さに比例し断面積に反比例', back: '抵抗の大きさを決める3つの要因は？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -287,7 +145,8 @@ export const circuitOhm: Topic = {
           correctIndex: 3,
           explanation:
             '電流計は測りたい部分に直列につなぎます。電圧計は並列につなぎます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-circuit-q2',
           question: '直列回路の電流について正しいのは？',
@@ -300,7 +159,8 @@ export const circuitOhm: Topic = {
           correctIndex: 0,
           explanation:
             '直列回路では電流はどこでも同じ大きさです（I＝I₁＝I₂）。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-circuit-q3',
           question: '並列回路の電圧について正しいのは？',
@@ -313,7 +173,8 @@ export const circuitOhm: Topic = {
           correctIndex: 2,
           explanation:
             '並列回路では各部分の電圧はどこでも同じ大きさです（V＝V₁＝V₂）。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-circuit-q6',
           question: '250mAは何Aか？',
@@ -321,7 +182,8 @@ export const circuitOhm: Topic = {
           correctIndex: 1,
           explanation:
             '1A＝1000mAなので、250mA＝250÷1000＝0.25A です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-circuit-q7',
           question: '直列回路で2つの抵抗にかかる電圧がそれぞれ3Vと5Vだった。電源の電圧は？',
@@ -329,7 +191,8 @@ export const circuitOhm: Topic = {
           correctIndex: 1,
           explanation:
             '直列回路では V＝V₁＋V₂ なので、3＋5＝8V です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-circuit-q8',
           question: '並列回路で、枝分かれした2つの電流がそれぞれ0.2Aと0.3Aだった。全体の電流は？',
@@ -337,7 +200,8 @@ export const circuitOhm: Topic = {
           correctIndex: 3,
           explanation:
             '並列回路では I＝I₁＋I₂ なので、0.2＋0.3＝0.5A です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-circuit-q9',
           question: '直列回路の電流の規則は？',
@@ -345,7 +209,8 @@ export const circuitOhm: Topic = {
           correctIndex: 1,
           explanation:
             'I＝I₁＝I₂。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-circuit-q10',
           question: '並列回路の電流の規則は？',
@@ -353,7 +218,8 @@ export const circuitOhm: Topic = {
           correctIndex: 1,
           explanation:
             'I＝I₁+I₂。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-circuit-q11',
           question: '直列回路の電圧の規則は？',
@@ -361,7 +227,8 @@ export const circuitOhm: Topic = {
           correctIndex: 2,
           explanation:
             'V＝V₁+V₂。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-circuit-q12',
           question: '並列回路の電圧の規則は？',
@@ -369,7 +236,8 @@ export const circuitOhm: Topic = {
           correctIndex: 1,
           explanation:
             'V＝V₁＝V₂。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-circuit-q13',
           question: 'オームの法則は？',
@@ -377,7 +245,8 @@ export const circuitOhm: Topic = {
           correctIndex: 1,
           explanation:
             'V＝R×I（電圧＝抵抗×電流）。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-circuit-q14',
           question: '10Ωに2A→電圧は？',
@@ -385,7 +254,8 @@ export const circuitOhm: Topic = {
           correctIndex: 2,
           explanation:
             '10×2＝20V。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-circuit-q15',
           question: '12Vで0.4A→抵抗は？',
@@ -393,7 +263,8 @@ export const circuitOhm: Topic = {
           correctIndex: 2,
           explanation:
             '12÷0.4＝30Ω。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-circuit-q16',
           question: '25Ωに5V→電流は？',
@@ -401,7 +272,8 @@ export const circuitOhm: Topic = {
           correctIndex: 1,
           explanation:
             '5÷25＝0.2A。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-circuit-q17',
           question: '電流計のつなぎ方は？',
@@ -409,7 +281,8 @@ export const circuitOhm: Topic = {
           correctIndex: 1,
           explanation:
             '直列につなぐ。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-circuit-q18',
           question: '電圧計のつなぎ方は？',
@@ -417,7 +290,8 @@ export const circuitOhm: Topic = {
           correctIndex: 1,
           explanation:
             '並列につなぐ。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-circuit-q19',
           question: '1A＝何mA？',
@@ -425,7 +299,8 @@ export const circuitOhm: Topic = {
           correctIndex: 2,
           explanation:
             '1A＝1000mA。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-circuit-q20',
           question: '電流計を最初につなぐ端子は？',
@@ -433,7 +308,8 @@ export const circuitOhm: Topic = {
           correctIndex: 2,
           explanation:
             '最大端子から。計器保護のため。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-circuit-q21',
           question: '10Ωと20Ωの直列→合成抵抗は？',
@@ -441,7 +317,8 @@ export const circuitOhm: Topic = {
           correctIndex: 2,
           explanation:
             'R＝10+20＝30Ω。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-circuit-q22',
           question: '20Ωと20Ωの並列→合成抵抗は？',
@@ -449,7 +326,8 @@ export const circuitOhm: Topic = {
           correctIndex: 2,
           explanation:
             '同じ抵抗2つの並列→半分＝10Ω。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-circuit-q23',
           question: '電熱線の長さ2倍→抵抗は？',
@@ -457,7 +335,8 @@ export const circuitOhm: Topic = {
           correctIndex: 2,
           explanation:
             '抵抗は長さに比例。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-circuit-q24',
           question: '電熱線の断面積2倍→抵抗は？',
@@ -465,7 +344,8 @@ export const circuitOhm: Topic = {
           correctIndex: 2,
           explanation:
             '抵抗は断面積に反比例。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-circuit-q25',
           question: '導体の例は？',
@@ -473,7 +353,8 @@ export const circuitOhm: Topic = {
           correctIndex: 2,
           explanation:
             '銅は導体。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci2-circuit-q26',
           question: '不導体の例は？',
@@ -481,7 +362,8 @@ export const circuitOhm: Topic = {
           correctIndex: 3,
           explanation:
             'ゴムは不導体（絶縁体）。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci2-circuit-q27',
           question: '並列回路で合成抵抗は各抵抗より？',
@@ -489,7 +371,8 @@ export const circuitOhm: Topic = {
           correctIndex: 1,
           explanation:
             '電流の通り道が増え小さくなる。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci2-circuit-q28',
           question: '直列回路で合成抵抗は各抵抗より？',
@@ -497,7 +380,8 @@ export const circuitOhm: Topic = {
           correctIndex: 0,
           explanation:
             '抵抗が加わり大きくなる。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci2-circuit-q29',
           question: 'V-Iグラフが直線→何の法則？',
@@ -505,7 +389,8 @@ export const circuitOhm: Topic = {
           correctIndex: 1,
           explanation:
             '電圧と電流が比例。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci2-circuit-q30',
           question: '抵抗を決める要因でないのは？',
@@ -513,7 +398,8 @@ export const circuitOhm: Topic = {
           correctIndex: 3,
           explanation:
             '物質の種類・長さ・断面積で決まる。',
-        }
+        difficulty: 'advanced',
+      }
       ],
     },
     examples: {

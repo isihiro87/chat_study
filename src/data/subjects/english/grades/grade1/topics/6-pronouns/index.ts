@@ -75,6 +75,7 @@ export const pronouns: Topic = {
         back: 'This is (　　) book.\n（これは私の本です。）',
         hint: '「私の」は I じゃなくて…？',
         explanation: '「私の」は my だよ。I → my にかわるよ。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-pn-fc2',
@@ -82,6 +83,7 @@ export const pronouns: Topic = {
         back: 'Is this (　　) pen?\n（これはあなたのペンですか？）',
         hint: '「あなたの」は you じゃなくて…？',
         explanation: '「あなたの」は your だよ。you → your にかわるよ。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-pn-fc3',
@@ -89,6 +91,7 @@ export const pronouns: Topic = {
         back: 'That is (　　) bag.\n（あれは彼のカバンです。）',
         hint: '「彼の」は he じゃなくて…？',
         explanation: '「彼の」は his だよ。he → his にかわるよ。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-pn-fc4',
@@ -96,6 +99,7 @@ export const pronouns: Topic = {
         back: 'I like (　　) cat.\n（私は彼女のネコが好きです。）',
         hint: '「彼女の」は she じゃなくて…？',
         explanation: '「彼女の」は her だよ。she → her にかわるよ。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-pn-fc5',
@@ -103,6 +107,7 @@ export const pronouns: Topic = {
         back: 'This is (　　) school.\n（これは私たちの学校です。）',
         hint: '「私たちの」は we じゃなくて…？',
         explanation: '「私たちの」は our だよ。we → our にかわるよ。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-pn-fc6',
@@ -110,6 +115,7 @@ export const pronouns: Topic = {
         back: 'I know (　　) names.\n（私は彼らの名前を知っています。）',
         hint: '「彼らの」は they じゃなくて…？',
         explanation: '「彼らの」は their だよ。they → their にかわるよ。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-pn-fc7',
@@ -117,6 +123,7 @@ export const pronouns: Topic = {
         back: '(　　) are friends.\n（私たちは友達です。）',
         hint: '「私たち」を英語で言うと…？',
         explanation: '「私たち」は we だよ。2人以上だから are を使うよ。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-pn-fc8',
@@ -124,6 +131,7 @@ export const pronouns: Topic = {
         back: '(　　) are students.\n（彼らは生徒です。）',
         hint: '「彼ら」を英語で言うと…？',
         explanation: '「彼ら」は they だよ。2人以上だから are を使うよ。',
+        difficulty: 'basic',
       },
       // --- 目的格（新規） ---
       {
@@ -132,6 +140,7 @@ export const pronouns: Topic = {
         back: 'Please call (　　).\n（私に電話してください。）',
         hint: '「私に」は I じゃなくて…？',
         explanation: '「私を・私に」は me だよ。動詞のあとに置くよ。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-pn-fc10',
@@ -139,6 +148,7 @@ export const pronouns: Topic = {
         back: 'I know (　　).\n（私は彼を知っています。）',
         hint: '「彼を」は he じゃなくて…？',
         explanation: '「彼を」は him だよ。he → him にかわるよ。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-pn-fc11',
@@ -146,6 +156,7 @@ export const pronouns: Topic = {
         back: 'Do you like (　　)?\n（あなたは彼女が好きですか。）',
         hint: '「彼女を」を英語で言うと…？',
         explanation: '「彼女を」は her だよ。所有格「彼女の」と同じ形だけど意味がちがうよ。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-pn-fc12',
@@ -153,6 +164,7 @@ export const pronouns: Topic = {
         back: 'Please help (　　).\n（私たちを手伝ってください。）',
         hint: '「私たちを」は we じゃなくて…？',
         explanation: '「私たちを」は us だよ。we → us にかわるよ。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-pn-fc13',
@@ -160,6 +172,7 @@ export const pronouns: Topic = {
         back: 'I like (　　) very much.\n（私は彼らがとても好きです。）',
         hint: '「彼らを」は they じゃなくて…？',
         explanation: '「彼らを」は them だよ。they → them にかわるよ。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-pn-fc14',
@@ -167,6 +180,7 @@ export const pronouns: Topic = {
         back: 'I have a dog. I love (　　).\n（私は犬を飼っています。大好きです。）',
         hint: '「それを」は英語で…？',
         explanation: '「それを」は it だよ。it は主格と目的格が同じ形だよ。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-pn-fc15',
@@ -174,6 +188,7 @@ export const pronouns: Topic = {
         back: 'I will help (　　).\n（あなたを手伝います。）',
         hint: '「あなたを」は英語で…？',
         explanation: '「あなたを」は you だよ。you は主格と目的格が同じ形だよ。',
+        difficulty: 'standard',
       },
       // --- 所有代名詞（新規） ---
       {
@@ -182,6 +197,7 @@ export const pronouns: Topic = {
         back: 'This pen is (　　).\n（このペンは私のものです。）',
         hint: '「私のもの」を1語で言うと…？',
         explanation: '「私のもの」は mine だよ。名詞をつけずに単独で使えるよ。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-pn-fc17',
@@ -189,6 +205,7 @@ export const pronouns: Topic = {
         back: 'Is this book (　　)?\n（この本はあなたのものですか。）',
         hint: '「あなたのもの」を1語で言うと…？',
         explanation: '「あなたのもの」は yours だよ。your + 名詞 = yours。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-pn-fc18',
@@ -196,6 +213,7 @@ export const pronouns: Topic = {
         back: 'That bag is (　　).\n（あのカバンは彼女のものです。）',
         hint: '「彼女のもの」を1語で言うと…？',
         explanation: '「彼女のもの」は hers だよ。her + 名詞 = hers。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-pn-fc19',
@@ -203,6 +221,7 @@ export const pronouns: Topic = {
         back: 'This classroom is (　　).\n（この教室は私たちのものです。）',
         hint: '「私たちのもの」を1語で言うと…？',
         explanation: '「私たちのもの」は ours だよ。our + 名詞 = ours。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-pn-fc20',
@@ -210,6 +229,7 @@ export const pronouns: Topic = {
         back: 'Those bikes are (　　).\n（あれらの自転車は彼らのものです。）',
         hint: '「彼らのもの」を1語で言うと…？',
         explanation: '「彼らのもの」は theirs だよ。their + 名詞 = theirs。',
+        difficulty: 'standard',
       },
       // --- Whose / Which 関連（新規） ---
       {
@@ -218,6 +238,7 @@ export const pronouns: Topic = {
         back: '(　　) cap is this? — It\'s mine.\n（これはだれの帽子ですか。— 私のです。）',
         hint: '「だれの」を英語で言うと…？',
         explanation: '「だれの」は Whose だよ。Whose + 名詞 is this? の形で使うよ。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-pn-fc22',
@@ -225,6 +246,7 @@ export const pronouns: Topic = {
         back: '(　　) do you like, tea or coffee?\n（紅茶とコーヒー、どちらが好き？）',
         hint: '2つから選ぶときの「どちら」は…？',
         explanation: '「どちら・どれ」は Which だよ。選択肢は A or B の形でつけるよ。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-pn-fc23',
@@ -232,6 +254,7 @@ export const pronouns: Topic = {
         back: '(　　) do you like?\n（あなたはどの季節が好きですか。）',
         hint: '「どの季節」は Which + …？',
         explanation: 'Which + 名詞 で「どの〜」と聞けるよ。Which season = どの季節。',
+        difficulty: 'standard',
       },
       // --- its・Which+名詞・所有代名詞比較・誤文訂正（新規） ---
       {
@@ -240,6 +263,7 @@ export const pronouns: Topic = {
         back: 'The dog is big. (　　) name is Pochi.\n（その犬は大きいです。名前はポチです。）',
         hint: '「それの」は it じゃなくて…？',
         explanation: '「それの」は its だよ。it → its にかわるよ。it\'s（it is）とまちがえないでね。',
+        difficulty: 'advanced',
       },
       {
         id: 'eng-pn-fc25',
@@ -247,6 +271,7 @@ export const pronouns: Topic = {
         back: '(　　) do you like?\n（あなたはどの教科が好きですか。）',
         hint: '「どの教科」は Which + …？',
         explanation: 'Which + 名詞 で「どの〜」と聞けるよ。Which subject = どの教科。',
+        difficulty: 'advanced',
       },
       {
         id: 'eng-pn-fc26',
@@ -254,6 +279,7 @@ export const pronouns: Topic = {
         back: 'This bag is not mine. It is (　　).\n（このカバンは私のものではありません。彼女のものです。）',
         hint: '「彼女のもの」を1語で言うと…？',
         explanation: '「彼女のもの」は hers だよ。her bag = hers。her ではなく hers を使うよ。',
+        difficulty: 'advanced',
       },
       {
         id: 'eng-pn-fc27',
@@ -261,6 +287,7 @@ export const pronouns: Topic = {
         back: 'My mother loves (　　).\n（母は私を愛しています。）',
         hint: '「私を」は I じゃなくて…？',
         explanation: '「私を」は目的格の me だよ。動詞 loves のあとに置くよ。',
+        difficulty: 'advanced',
       },
       {
         id: 'eng-pn-fc28',
@@ -268,6 +295,7 @@ export const pronouns: Topic = {
         back: 'This eraser is (　　).\n（この消しゴムは彼のものです。）',
         hint: '「彼のもの」を1語で言うと…？',
         explanation: '「彼のもの」は所有代名詞の his だよ。所有格と同じ形だよ。',
+        difficulty: 'advanced',
       },
       {
         id: 'eng-pn-fc29',
@@ -275,6 +303,7 @@ export const pronouns: Topic = {
         back: '(　　) do you want, red or blue?\n（赤と青、どちらの色がほしいですか。）',
         hint: '「どの色」は Which + …？',
         explanation: 'Which + 名詞 で「どの〜」と聞けるよ。Which color = どの色。',
+        difficulty: 'advanced',
       },
       {
         id: 'eng-pn-fc30',
@@ -282,6 +311,7 @@ export const pronouns: Topic = {
         back: 'Look at the bird. (　　) wings are beautiful.\n（あの鳥を見て。羽がきれいです。）',
         hint: '「それの」は it じゃなくて…？',
         explanation: '「それの」は its だよ。動物やもののことを「それの〜」と言うときに使うよ。',
+        difficulty: 'advanced',
       },
     ],
     quiz: {
@@ -298,6 +328,7 @@ export const pronouns: Topic = {
           ],
           correctIndex: 3,
           explanation: '「私の」は my だよ。This is my book.',
+          difficulty: 'basic',
         },
         {
           id: 'eng-pn-q2',
@@ -310,6 +341,7 @@ export const pronouns: Topic = {
           ],
           correctIndex: 0,
           explanation: '「彼の」は his だよ。That is his bag.',
+          difficulty: 'basic',
         },
         {
           id: 'eng-pn-q3',
@@ -317,6 +349,7 @@ export const pronouns: Topic = {
           options: ['We', 'They', 'You', 'He'],
           correctIndex: 1,
           explanation: '「彼ら」は they だよ。They are students.',
+          difficulty: 'basic',
         },
         {
           id: 'eng-pn-q4',
@@ -324,6 +357,7 @@ export const pronouns: Topic = {
           options: ['we school', 'us school', 'our school', 'ours school'],
           correctIndex: 2,
           explanation: '「私たちの」は our だよ。our school',
+          difficulty: 'basic',
         },
         {
           id: 'eng-pn-q5',
@@ -331,6 +365,7 @@ export const pronouns: Topic = {
           options: ['she', 'her', 'his', 'hers'],
           correctIndex: 1,
           explanation: '「彼女の」は her だよ。she → her にかわるよ。',
+          difficulty: 'basic',
         },
         // --- 目的格（新規4択） ---
         {
@@ -339,6 +374,7 @@ export const pronouns: Topic = {
           options: ['he', 'his', 'him', 'her'],
           correctIndex: 2,
           explanation: '「彼を」は目的格の him だよ。動詞 know のあとに置くよ。',
+          difficulty: 'basic',
         },
         {
           id: 'eng-pn-q10',
@@ -346,6 +382,7 @@ export const pronouns: Topic = {
           options: ['we', 'our', 'ours', 'us'],
           correctIndex: 3,
           explanation: '「私たちを」は目的格の us だよ。we → us にかわるよ。',
+          difficulty: 'basic',
         },
         // --- 所有代名詞（新規4択） ---
         {
@@ -354,6 +391,7 @@ export const pronouns: Topic = {
           options: ['mine', 'me', 'I', 'my'],
           correctIndex: 0,
           explanation: '「私のもの」は所有代名詞の mine だよ。名詞なしで使えるよ。',
+          difficulty: 'basic',
         },
         {
           id: 'eng-pn-q12',
@@ -361,6 +399,7 @@ export const pronouns: Topic = {
           options: ['hers', 'her', 'she', 'his'],
           correctIndex: 0,
           explanation: '「彼女のもの」は所有代名詞の hers だよ。her bag = hers。',
+          difficulty: 'basic',
         },
         // --- Whose / Which（新規4択） ---
         {
@@ -369,6 +408,7 @@ export const pronouns: Topic = {
           options: ['What', 'Whose', 'Who', 'Which'],
           correctIndex: 1,
           explanation: '「だれの」は Whose だよ。Whose notebook is this?',
+          difficulty: 'basic',
         },
         {
           id: 'eng-pn-q14',
@@ -376,6 +416,7 @@ export const pronouns: Topic = {
           options: ['What', 'Whose', 'Who', 'Which'],
           correctIndex: 3,
           explanation: '2つから選ぶときは Which を使うよ。Which do you want, tea or juice?',
+          difficulty: 'standard',
         },
         // --- 既存の並べ替え ---
         {
@@ -388,6 +429,7 @@ export const pronouns: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「This is my book.」が正解。This（これは）+ is（です）+ my book（私の本）の順番だよ。「私の」は I じゃなくて my を使うよ。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-pn-q7',
@@ -399,6 +441,7 @@ export const pronouns: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「Her name is Yuki.」が正解。Her（彼女の）+ name（名前）+ is（です）+ Yuki（ユキ）の順番だよ。「彼女の」は she じゃなくて her を使うよ。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-pn-q8',
@@ -410,6 +453,7 @@ export const pronouns: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「I know him.」が正解。I（私は）+ know（知っている）+ him（彼を）の順番だよ。「彼を」は he じゃなくて him を使うよ。',
+          difficulty: 'standard',
         },
         // --- 新規の並べ替え ---
         {
@@ -422,6 +466,7 @@ export const pronouns: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「Whose cap is this?」が正解。Whose（だれの）+ cap（帽子）+ is this?（これですか）の順番だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-pn-q16',
@@ -433,6 +478,7 @@ export const pronouns: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「This pen is mine.」が正解。This pen（このペン）+ is（です）+ mine（私のもの）の順番だよ。所有代名詞 mine は名詞なしで使えるよ。',
+          difficulty: 'standard',
         },
         // --- its / Which+名詞 / 所有代名詞比較 / 誤文訂正（新規4択） ---
         {
@@ -441,6 +487,7 @@ export const pronouns: Topic = {
           options: ["It's", 'Its', 'His', 'Her'],
           correctIndex: 1,
           explanation: '「それの」は its だよ。it\'s（= it is）は「それは〜です」なので注意しよう。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-pn-q18',
@@ -448,6 +495,7 @@ export const pronouns: Topic = {
           options: ['What', 'Whose', 'Which', 'Who'],
           correctIndex: 2,
           explanation: '「どの〜」と名詞をつけて聞くときは Which + 名詞 を使うよ。Which sport = どのスポーツ。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-pn-q19',
@@ -455,6 +503,7 @@ export const pronouns: Topic = {
           options: ['her', 'she', 'hers', 'his'],
           correctIndex: 2,
           explanation: '「彼女のもの」は所有代名詞の hers だよ。her は「彼女の〜」と名詞の前に置く形だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-pn-q20',
@@ -467,6 +516,7 @@ export const pronouns: Topic = {
           ],
           correctIndex: 1,
           explanation: '「私のもの」は mine だよ。my は名詞の前に置く形（my book）で、単独では使えないよ。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-pn-q21',
@@ -479,6 +529,7 @@ export const pronouns: Topic = {
           ],
           correctIndex: 2,
           explanation: '動詞 knows のあとは目的格を使うよ。I ではなく me が正しいよ。She knows me.',
+          difficulty: 'standard',
         },
         {
           id: 'eng-pn-q22',
@@ -486,6 +537,7 @@ export const pronouns: Topic = {
           options: ['What', 'Which', 'Whose', 'Who'],
           correctIndex: 1,
           explanation: '2つから「どちらの〜」と選ぶときは Which + 名詞 を使うよ。Which book = どちらの本。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-pn-q23',
@@ -493,6 +545,7 @@ export const pronouns: Topic = {
           options: ["It's", 'Its', 'His', 'Their'],
           correctIndex: 1,
           explanation: '鳥（動物）の「それの」は its だよ。it\'s は it is の短縮形だから注意しよう。',
+          difficulty: 'advanced',
         },
         // --- 新規の並べ替え ---
         {
@@ -505,6 +558,7 @@ export const pronouns: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「Which subject do you like?」が正解。Which subject（どの教科）+ do you like?（が好きですか）の順番だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'eng-pn-q25',
@@ -516,6 +570,7 @@ export const pronouns: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「That bag is hers.」が正解。That bag（あのカバン）+ is（です）+ hers（彼女のもの）の順番だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'eng-pn-q26',
@@ -527,6 +582,7 @@ export const pronouns: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「My mother loves us.」が正解。My mother（私の母）+ loves（愛している）+ us（私たちを）の順番だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'eng-pn-q27',
@@ -538,6 +594,7 @@ export const pronouns: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「Its name is Pochi.」が正解。Its（それの）+ name（名前）+ is（です）+ Pochi の順番だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'eng-pn-q28',
@@ -549,6 +606,7 @@ export const pronouns: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「Please help them.」が正解。Please（〜してください）+ help（手伝う）+ them（彼らを）の順番だよ。',
+          difficulty: 'advanced',
         },
       ],
     },

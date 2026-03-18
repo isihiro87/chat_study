@@ -79,164 +79,21 @@ export const pressureAtmosphere: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'sci2-patm-fc1',
-        front: '大気圧（気圧）',
-        back: '上空にある空気の重さによる圧力。あらゆる向きにはたらく。',
-        explanation:
-          '標高が高いほど上空の空気が少なくなるため、大気圧は低くなります。',
-      },
-      {
-        id: 'sci2-patm-fc2',
-        front: '標準気圧',
-        back: '海面上での大気圧は約1013hPa',
-        explanation:
-          '1hPa＝100Pa。天気予報や天気図では気圧の単位にhPaを使います。',
-      },
-      {
-        id: 'sci2-patm-fc3',
-        front: '風向とは',
-        back: '風が吹いてくる方向のこと。16方位で表す。',
-        explanation:
-          '北から南に吹く風の風向は「北」です。風が「行く方向」ではなく「来る方向」で表す点に注意しましょう。',
-      },
-      {
-        id: 'sci2-patm-fc4',
-        front: '風力の表し方',
-        back: '天気図記号では矢羽根（やばね）の数で風力を表す',
-        explanation:
-          '矢羽根が2本なら風力2、3本なら風力3です。棒が伸びている方向が風向を表します。',
-      },
-      {
-        id: 'sci2-patm-fc5',
-        front: '等圧線',
-        back: '同時刻に観測した気圧が等しい地点を結んだ線。1000hPa基準で4hPaごとに引く。',
-        explanation:
-          '等圧線の間隔がせまいところほど気圧の差が大きく、風が強くなります。',
-      },
-      {
-        id: 'sci2-patm-fc6',
-        front: '高気圧と低気圧',
-        back: '高気圧：中心の気圧が周囲より高い。低気圧：中心の気圧が周囲より低い。',
-        explanation:
-          '高気圧は下降気流→晴れ、低気圧は上昇気流→くもり・雨になりやすいです。',
-      },
-      {
-        id: 'sci2-patm-fc7',
-        front: '高気圧・低気圧の風の吹き方（北半球）',
-        back: '高気圧→時計回りに吹き出す。低気圧→反時計回りに吹き込む。',
-        explanation:
-          '北半球では地球の自転の影響で、風がまっすぐではなく曲がって吹きます。',
-      },
-      {
-        id: 'sci2-patm-fc8',
-        front: '1hPa ＝ 何Pa？',
-        back: '1hPa ＝ 100Pa',
-        explanation:
-          'h（ヘクト）は100倍を意味する接頭辞です。1013hPa ＝ 101300Paとなります。',
-      },
-      {
-        id: 'sci2-patm-fc9',
-        front: '1気圧は約何Pa？',
-        back: '1気圧 ＝ 1013.25hPa ≒ 約100000Pa（10万Pa）',
-        explanation:
-          '海面上の標準大気圧です。1m²あたり約10トンの力に相当する大きな圧力です。',
-      },
-      {
-        id: 'sci2-patm-fc10',
-        front: '大気圧',
-        back: '上空の空気の重さによる圧力。あらゆる向きにはたらく',
-      },
-      {
-        id: 'sci2-patm-fc11',
-        front: '1013hPa',
-        back: '海面上の標準気圧',
-      },
-      {
-        id: 'sci2-patm-fc12',
-        front: '1hPa＝100Pa',
-        back: 'h（ヘクト）は100倍の意味',
-      },
-      {
-        id: 'sci2-patm-fc13',
-        front: '標高が高い→気圧低い',
-        back: '上空の空気量が減り圧力が下がる',
-      },
-      {
-        id: 'sci2-patm-fc14',
-        front: '等圧線',
-        back: '気圧の等しい地点を結んだ線。4hPaごとに引く',
-      },
-      {
-        id: 'sci2-patm-fc15',
-        front: '等圧線の間隔せまい→風強い',
-        back: '短い距離で気圧差が大きいため',
-      },
-      {
-        id: 'sci2-patm-fc16',
-        front: '高気圧',
-        back: '周囲より気圧が高い。下降気流。晴れ',
-      },
-      {
-        id: 'sci2-patm-fc17',
-        front: '低気圧',
-        back: '周囲より気圧が低い。上昇気流。雲・雨',
-      },
-      {
-        id: 'sci2-patm-fc18',
-        front: '高気圧の風（北半球）',
-        back: '中心から外へ時計回りに吹き出す',
-      },
-      {
-        id: 'sci2-patm-fc19',
-        front: '低気圧の風（北半球）',
-        back: '外から中心へ反時計回りに吹き込む',
-      },
-      {
-        id: 'sci2-patm-fc20',
-        front: '風向',
-        back: '風が吹いてくる方向。16方位で表す',
-      },
-      {
-        id: 'sci2-patm-fc21',
-        front: '天気図記号の風向',
-        back: '矢羽根の向き（風が吹いてくる方向）',
-      },
-      {
-        id: 'sci2-patm-fc22',
-        front: '天気図記号の風力',
-        back: '矢羽根の数',
-      },
-      {
-        id: 'sci2-patm-fc23',
-        front: 'ストローで飲み物',
-        back: '大気圧の力で液面が押し上げられる',
-      },
-      {
-        id: 'sci2-patm-fc24',
-        front: '山でお菓子袋膨らむ',
-        back: '外の気圧が低くなり袋内の空気が強く押すから',
-      },
-      {
-        id: 'sci2-patm-fc25',
-        front: '天気図',
-        back: '気圧・天気・風向・風力を記号で表した地図',
-      },
-      {
-        id: 'sci2-patm-fc26',
-        front: '等圧線は1000hPa基準',
-        back: '1000hPaを基準に4hPaごとに引く',
-      },
-      {
-        id: 'sci2-patm-fc27',
-        front: '北から南への風→風向は北',
-        back: '風向は吹いてくる方向',
-      },
-      {
-        id: 'sci2-patm-fc28',
-        front: '1気圧≒100000Pa',
-        back: '約10万Pa',
-      }
+      { id: 'sci2-patm-fc1', front: '上空にある空気の重さによる圧力。あらゆる向きにはたらく', back: '大気圧（気圧）とは何？', difficulty: 'basic' },
+      { id: 'sci2-patm-fc2', front: '約1013hPa', back: '海面上の標準気圧は約何hPa？', difficulty: 'basic' },
+      { id: 'sci2-patm-fc3', front: '風が吹いてくる方向。16方位で表す', back: '風向とは何？', difficulty: 'basic' },
+      { id: 'sci2-patm-fc4', front: '矢羽根の数で風力を、矢羽根の向きで風向を表す', back: '天気図記号で風力と風向はどう表す？', difficulty: 'basic' },
+      { id: 'sci2-patm-fc5', front: '同時刻の気圧が等しい地点を結んだ線。1000hPa基準で4hPaごと', back: '等圧線とは何？どのように引く？', difficulty: 'basic' },
+      { id: 'sci2-patm-fc6', front: '100Pa。h（ヘクト）は100倍を意味する', back: '1hPaは何Pa？', difficulty: 'basic' },
+      { id: 'sci2-patm-fc7', front: '高気圧→時計回りに吹き出す。低気圧→反時計回りに吹き込む', back: '北半球での高気圧・低気圧の風の吹き方は？', difficulty: 'standard' },
+      { id: 'sci2-patm-fc8', front: '高気圧：下降気流→晴れ。低気圧：上昇気流→くもり・雨', back: '高気圧と低気圧ではそれぞれどんな天気になりやすい？', difficulty: 'standard' },
+      { id: 'sci2-patm-fc9', front: '上空の空気の量が減り、圧力が下がるため', back: '標高が高いほど気圧が低くなる理由は？', difficulty: 'standard' },
+      { id: 'sci2-patm-fc10', front: '短い距離で気圧差が大きいため風が強くなる', back: '等圧線の間隔がせまい場所で風が強いのはなぜ？', difficulty: 'standard' },
+      { id: 'sci2-patm-fc11', front: '北。風向は風が吹いてくる方向で表す', back: '北から南に吹く風の風向は？', difficulty: 'standard' },
+      { id: 'sci2-patm-fc12', front: '大気圧が液面を押す力でストロー内の液体が上がる', back: 'ストローで飲み物が吸えるのはなぜ？', difficulty: 'advanced' },
+      { id: 'sci2-patm-fc13', front: '標高が高く外の気圧が低いため、袋内の空気が相対的に強く押す', back: '山の上でお菓子の袋がパンパンにふくらむ理由は？', difficulty: 'advanced' },
+      { id: 'sci2-patm-fc14', front: '気圧・天気・風向・風力を記号で表した地図', back: '天気図とは何？', difficulty: 'advanced' },
+      { id: 'sci2-patm-fc15', front: '約100000Pa（10万Pa）', back: '1気圧は約何Pa？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -252,7 +109,8 @@ export const pressureAtmosphere: Topic = {
           correctIndex: 0,
           explanation:
             '大気圧はあらゆる向きにはたらきます。標高が高いほど上空の空気が少なくなるため、大気圧は低くなります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-patm-q2',
           question: '海面上の標準気圧は約何hPaか？',
@@ -260,7 +118,8 @@ export const pressureAtmosphere: Topic = {
           correctIndex: 3,
           explanation:
             '海面上の標準気圧は約1013hPaです。これは約10万Pa（100000Pa）に相当します。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-patm-q3',
           question: '風向とは何か？',
@@ -273,7 +132,8 @@ export const pressureAtmosphere: Topic = {
           correctIndex: 1,
           explanation:
             '風向は「風が吹いてくる方向」です。北から南に吹く風の風向は「北」になります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-patm-q4',
           question: '等圧線は何hPaごとに引かれるか？',
@@ -281,7 +141,8 @@ export const pressureAtmosphere: Topic = {
           correctIndex: 2,
           explanation:
             '等圧線は1000hPaを基準に4hPaごとに引かれます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-patm-q5',
           question: '天気図記号で矢羽根が4本ついているとき、風力はいくつか？',
@@ -289,7 +150,8 @@ export const pressureAtmosphere: Topic = {
           correctIndex: 1,
           explanation:
             '矢羽根の数が風力を表します。矢羽根4本なら風力4です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-patm-q6',
           question: '北半球で高気圧の地表付近の風はどのように吹くか？',
@@ -302,7 +164,8 @@ export const pressureAtmosphere: Topic = {
           correctIndex: 3,
           explanation:
             '北半球では高気圧から時計回りに風が吹き出します。低気圧には反時計回りに風が吹き込みます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-patm-q7',
           question: '大気圧はどの向きにはたらくか？',
@@ -310,7 +173,8 @@ export const pressureAtmosphere: Topic = {
           correctIndex: 2,
           explanation:
             '上下左右すべての方向。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-patm-q8',
           question: '標高が高い→気圧は？',
@@ -318,7 +182,8 @@ export const pressureAtmosphere: Topic = {
           correctIndex: 1,
           explanation:
             '上空の空気量が減り低くなる。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-patm-q9',
           question: '等圧線の間隔がせまい→風は？',
@@ -326,7 +191,8 @@ export const pressureAtmosphere: Topic = {
           correctIndex: 1,
           explanation:
             '気圧差が大きく風が強い。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-patm-q10',
           question: '高気圧の中心の気流は？',
@@ -334,7 +200,8 @@ export const pressureAtmosphere: Topic = {
           correctIndex: 1,
           explanation:
             '下降気流→晴れやすい。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-patm-q11',
           question: '低気圧の天気は？',
@@ -342,7 +209,8 @@ export const pressureAtmosphere: Topic = {
           correctIndex: 1,
           explanation:
             '上昇気流で雲ができやすい。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-patm-q12',
           question: '等圧線は何hPaごとに引く？',
@@ -350,7 +218,8 @@ export const pressureAtmosphere: Topic = {
           correctIndex: 1,
           explanation:
             '4hPaごと。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-patm-q13',
           question: '高気圧の風の吹き方（北半球）は？',
@@ -358,7 +227,8 @@ export const pressureAtmosphere: Topic = {
           correctIndex: 1,
           explanation:
             '中心から外へ時計回り。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-patm-q14',
           question: '風向とは？',
@@ -366,7 +236,8 @@ export const pressureAtmosphere: Topic = {
           correctIndex: 1,
           explanation:
             '風が吹いてくる方向。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-patm-q15',
           question: '1hPaは何Pa？',
@@ -374,7 +245,8 @@ export const pressureAtmosphere: Topic = {
           correctIndex: 1,
           explanation:
             'h（ヘクト）は100倍。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-patm-q16',
           question: '低気圧の中心の気流は？',
@@ -382,7 +254,8 @@ export const pressureAtmosphere: Topic = {
           correctIndex: 1,
           explanation:
             '上昇気流→雲ができる。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-patm-q17',
           question: '海面の標準気圧は？',
@@ -390,7 +263,8 @@ export const pressureAtmosphere: Topic = {
           correctIndex: 2,
           explanation:
             '約1013hPa。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-patm-q18',
           question: 'ストローで飲み物を吸えるのは何の力？',
@@ -398,7 +272,8 @@ export const pressureAtmosphere: Topic = {
           correctIndex: 1,
           explanation:
             '大気圧が液面を押す。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-patm-q19',
           question: '山でお菓子袋が膨らむ理由は？',
@@ -406,7 +281,8 @@ export const pressureAtmosphere: Topic = {
           correctIndex: 1,
           explanation:
             '外の気圧が低く袋内の空気が相対的に強く押す。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-patm-q20',
           question: '等圧線の基準は何hPa？',
@@ -414,7 +290,8 @@ export const pressureAtmosphere: Topic = {
           correctIndex: 1,
           explanation:
             '1000hPaを基準。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-patm-q21',
           question: '北から南への風の風向は？',
@@ -422,7 +299,8 @@ export const pressureAtmosphere: Topic = {
           correctIndex: 1,
           explanation:
             '風向は吹いてくる方向＝北。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-patm-q22',
           question: '風力は天気図記号で何で表す？',
@@ -430,7 +308,8 @@ export const pressureAtmosphere: Topic = {
           correctIndex: 1,
           explanation:
             '矢羽根の本数。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-patm-q23',
           question: '等圧線の間隔が広い→風は？',
@@ -438,7 +317,8 @@ export const pressureAtmosphere: Topic = {
           correctIndex: 1,
           explanation:
             '気圧変化がゆるやかで弱い。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci2-patm-q24',
           question: '天気図とは？',
@@ -446,7 +326,8 @@ export const pressureAtmosphere: Topic = {
           correctIndex: 1,
           explanation:
             '気圧・天気・風向・風力を記号で表した地図。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci2-patm-q25',
           question: '高気圧の天気は？',
@@ -454,7 +335,8 @@ export const pressureAtmosphere: Topic = {
           correctIndex: 1,
           explanation:
             '下降気流で雲ができにくく晴れ。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci2-patm-q26',
           question: '低気圧の風（北半球）は？',
@@ -462,7 +344,8 @@ export const pressureAtmosphere: Topic = {
           correctIndex: 1,
           explanation:
             '外から中心へ反時計回り。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci2-patm-q27',
           question: '風向は何方位で表す？',
@@ -470,7 +353,8 @@ export const pressureAtmosphere: Topic = {
           correctIndex: 2,
           explanation:
             '16方位。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci2-patm-q28',
           question: '1気圧は約何Pa？',
@@ -478,7 +362,8 @@ export const pressureAtmosphere: Topic = {
           correctIndex: 2,
           explanation:
             '約100000Pa（10万Pa）。',
-        }
+        difficulty: 'advanced',
+      }
       ],
     },
     examples: {

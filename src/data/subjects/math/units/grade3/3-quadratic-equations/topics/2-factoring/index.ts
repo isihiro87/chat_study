@@ -67,114 +67,142 @@ export const quadEqFactoring: Topic = {
       {
         id: 'math-g3-qef-fc1',
         front: 'A = 0 または B = 0\n少なくともどちらか一方が0になる', back: 'A×B=0 のとき何が言える？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qef-fc2',
         front: '① 右辺を0にする（移項して整理）\n② 左辺を因数分解する\n③ 各因数 = 0 として x を求める', back: '因数分解で二次方程式を解く手順（3ステップ）',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qef-fc3',
         front: '共通因数 x でくくる → x(x−6)=0\nx=0 も解になる！両辺を x で割ってはダメ', back: 'x²−6x=0 の解き方のポイントは？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qef-fc4',
         front: '二次方程式の2つの解が同じ値になること\n例: (x−3)²=0 → x=3（重解）', back: '重解とは？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qef-fc5',
         front: 'x=1（重解）\n(x−1)²=0 → 完全平方式', back: 'x²−2x+1=0 の解は？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qef-fc6',
         front: '差の平方の公式を使う\n(x+3)(x−3)=0 → x=±3', back: 'x²−9=0 の解き方は？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qef-fc7',
         front: '(x+a)(x−a)=0\nx = a または x = −a（x = ±a）', back: 'x²−a²=0 の解は？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qef-fc8',
         front: '両辺に−1をかけて x²−5x+6=0 の形にする\nx²の係数を正の1にそろえる', back: '−x²+5x−6=0 を解くにはまず何をする？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qef-fc9',
         front: '両辺を2で割って x²−5x+6=0 にする\n共通因数で割って係数をそろえる', back: '2x²−10x+12=0 を解くにはまず何をする？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qef-fc10',
         front: '解けない！右辺が0でないとA×B=0が使えない\n展開→整理→因数分解の手順で解く', back: '(x−3)(x−4)=2 はそのまま解ける？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qef-fc11',
         front: '(x+a)²\n例: x²+6x+9 = (x+3)²', back: '完全平方式 x²+2ax+a² の因数分解は？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qef-fc12',
         front: '(x−a)²\n例: x²−10x+25 = (x−5)²', back: '完全平方式 x²−2ax+a² の因数分解は？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qef-fc13',
         front: '両辺を x で割って x=0 を見落とすこと\n正解: x=0 または x=a', back: 'x(x−a)=0 の解を求めるとき、よくあるミスは？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qef-fc14',
         front: '左辺が因数分解できる形であること\nできなければ解の公式を使う', back: '因数分解で解ける二次方程式の見分け方は？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qef-fc15',
         front: '−4で割って x²−2x+1=0\n(x−1)²=0 → x=1（重解）', back: '−4x²+8x−4=0 を因数分解で解け',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qef-fc16',
         front: 'x=−3（重解）\n(x+3)²=0', back: 'x²+6x+9=0 の解は？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qef-fc17',
         front: 'x=±5\n(x+5)(x−5)=0', back: 'x²−25=0 の解は？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qef-fc18',
         front: 'x=4, x=−2\n(x−4)(x+2)=0', back: 'x²−2x−8=0 の解は？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qef-fc19',
         front: 'x=5（重解）\n(x−5)²=0', back: 'x²−10x+25=0 の解は？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qef-fc20',
         front: 'x=0, x=−5\nx(x+5)=0', back: 'x²+5x=0 の解は？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qef-fc21',
         front: '3で割って x²−x−6=0\n(x−3)(x+2)=0 → x=3, −2', back: '3x²−3x−18=0 の解は？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qef-fc22',
         front: 'x=1, x=7\n展開→x²−8x+12=5→x²−8x+7=0→(x−1)(x−7)=0', back: '(x−4)²=9−4x の解は？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qef-fc23',
         front: 'x=−4（重解）\n(x+4)²=0', back: 'x²+8x+16=0 の解は？',
+        difficulty: 'advanced',
       },
       {
         id: 'math-g3-qef-fc24',
         front: 'x=±7\n(x+7)(x−7)=0', back: 'x²−49=0 の解は？',
+        difficulty: 'advanced',
       },
       {
         id: 'math-g3-qef-fc25',
         front: 'まず右辺を0にする。因数分解はA×B=0のときだけ使える。', back: '因数分解で解くとき、最初に確認すべきことは？',
+        difficulty: 'advanced',
       },
       {
         id: 'math-g3-qef-fc26',
         front: 'x=2, x=−7\n(x−2)(x+7)=0', back: 'x²+5x−14=0 の解は？',
+        difficulty: 'advanced',
       },
       {
         id: 'math-g3-qef-fc27',
         front: 'x=0, x=8\nx(x−8)=0', back: 'x²=8x の解は？（移項してから）',
+        difficulty: 'advanced',
       },
       {
         id: 'math-g3-qef-fc28',
         front: 'x=6, x=−1\n−1をかけて x²−5x−6=0→(x−6)(x+1)=0', back: '−x²+5x+6=0 の解は？',
+        difficulty: 'advanced',
       },
     ],
     quiz: {
@@ -191,6 +219,7 @@ export const quadEqFactoring: Topic = {
           correctIndex: 3,
           explanation:
             '$x - 4 = 0$ → $x = 4$、$x + 1 = 0$ → $x = -1$。よって $x = 4, -1$ だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-qef-q2',
@@ -204,6 +233,7 @@ export const quadEqFactoring: Topic = {
           correctIndex: 0,
           explanation:
             '$x^2 - 5x + 6 = (x-2)(x-3) = 0$。$x = 2$ または $x = 3$ だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-qef-q3',
@@ -217,6 +247,7 @@ export const quadEqFactoring: Topic = {
           correctIndex: 2,
           explanation:
             '$x^2 + x - 12 = (x+4)(x-3) = 0$。$x = -4$ または $x = 3$ だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-qef-q4',
@@ -230,6 +261,7 @@ export const quadEqFactoring: Topic = {
           correctIndex: 1,
           explanation:
             '$x(x - 6) = 0$ と因数分解。$x = 0$ または $x = 6$。$x = 0$ を忘れないで！',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-qef-q5',
@@ -243,6 +275,7 @@ export const quadEqFactoring: Topic = {
           correctIndex: 1,
           explanation:
             '$x^2 - 9 = (x+3)(x-3) = 0$。$x = 3$ または $x = -3$ だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-qef-q6',
@@ -256,6 +289,7 @@ export const quadEqFactoring: Topic = {
           correctIndex: 3,
           explanation:
             '$(x - 1)^2 = 0$ → $x = 1$（重解）。完全平方式だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-qef-q7',
@@ -269,6 +303,7 @@ export const quadEqFactoring: Topic = {
           correctIndex: 0,
           explanation:
             '両辺に$-1$をかけて $x^2 - 5x + 6 = 0$ → $(x-2)(x-3) = 0$。$x = 2, 3$。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-qef-q8',
@@ -282,6 +317,7 @@ export const quadEqFactoring: Topic = {
           correctIndex: 2,
           explanation:
             '2で割って $x^2 - 5x + 6 = 0$ → $(x-2)(x-3) = 0$。$x = 2, 3$。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-qef-q9',
@@ -295,6 +331,7 @@ export const quadEqFactoring: Topic = {
           correctIndex: 0,
           explanation:
             '$(x + 3)^2 = 0$ → $x = -3$（重解）。完全平方式だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-qef-q10',
@@ -308,6 +345,7 @@ export const quadEqFactoring: Topic = {
           correctIndex: 1,
           explanation:
             '展開して $x^2 - 7x + 12 = 2$ → $x^2 - 7x + 10 = 0$ → $(x-2)(x-5) = 0$。$x = 2, 5$。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-qef-q11',
@@ -321,6 +359,7 @@ export const quadEqFactoring: Topic = {
           correctIndex: 2,
           explanation:
             '$(x+5)(x-5) = 0$。$x = 5$ または $x = -5$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qef-q12',
@@ -334,6 +373,7 @@ export const quadEqFactoring: Topic = {
           correctIndex: 3,
           explanation:
             '$3x(x + 4) = 0$。$x = 0$ または $x = -4$。共通因数でくくろう！',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qef-q13',
@@ -347,6 +387,7 @@ export const quadEqFactoring: Topic = {
           correctIndex: 2,
           explanation:
             '$(x-4)(x+2) = 0$。$x = 4$ または $x = -2$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qef-q14',
@@ -360,6 +401,7 @@ export const quadEqFactoring: Topic = {
           correctIndex: 1,
           explanation:
             '$(x-5)^2 = 0$ → $x = 5$（重解）。完全平方式だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qef-q15',
@@ -373,6 +415,7 @@ export const quadEqFactoring: Topic = {
           correctIndex: 2,
           explanation:
             '$x(x+5) = 0$。$x = 0$ または $x = -5$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qef-q16',
@@ -386,6 +429,7 @@ export const quadEqFactoring: Topic = {
           correctIndex: 2,
           explanation:
             '3で割って $x^2-x-6=0$ → $(x-3)(x+2) = 0$。$x = 3, -2$。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qef-q17',
@@ -399,6 +443,7 @@ export const quadEqFactoring: Topic = {
           correctIndex: 1,
           explanation:
             '$(x+4)^2 = 0$ → $x = -4$（重解）。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qef-q18',
@@ -412,6 +457,7 @@ export const quadEqFactoring: Topic = {
           correctIndex: 2,
           explanation:
             '$(x+7)(x-7) = 0$。$x = 7$ または $x = -7$。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qef-q19',
@@ -425,6 +471,7 @@ export const quadEqFactoring: Topic = {
           correctIndex: 0,
           explanation:
             '$(x+7)(x-2) = 0$。$x = 2$ または $x = -7$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qef-q20',
@@ -438,6 +485,7 @@ export const quadEqFactoring: Topic = {
           correctIndex: 2,
           explanation:
             '$x^2-8x=0$ → $x(x-8) = 0$。$x = 0$ または $x = 8$。移項してから因数分解しよう。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qef-q21',
@@ -451,6 +499,7 @@ export const quadEqFactoring: Topic = {
           correctIndex: 1,
           explanation:
             '$-1$ をかけて $x^2-5x-6=0$ → $(x-6)(x+1) = 0$。$x = 6, -1$。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qef-q22',
@@ -464,6 +513,7 @@ export const quadEqFactoring: Topic = {
           correctIndex: 0,
           explanation:
             '$(x-6)(x+2) = 0$。$x = 6$ または $x = -2$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qef-q23',
@@ -477,6 +527,7 @@ export const quadEqFactoring: Topic = {
           correctIndex: 1,
           explanation:
             '$(x+4)(x-4) = 0$。$x = 4$ または $x = -4$ だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g3-qef-q24',
@@ -490,6 +541,7 @@ export const quadEqFactoring: Topic = {
           correctIndex: 1,
           explanation:
             '$(x+6)^2 = 0$ → $x = -6$（重解）。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g3-qef-q25',
@@ -503,6 +555,7 @@ export const quadEqFactoring: Topic = {
           correctIndex: 1,
           explanation:
             '展開して $x^2+2x-3=5$ → $x^2+2x-8=0$ → $(x+4)(x-2)=0$。$x = 2, -4$。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g3-qef-q26',
@@ -516,6 +569,7 @@ export const quadEqFactoring: Topic = {
           correctIndex: 0,
           explanation:
             '$2(x^2-4) = 0$ → $2(x+2)(x-2) = 0$。$x = \\pm 2$ だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g3-qef-q27',
@@ -529,6 +583,7 @@ export const quadEqFactoring: Topic = {
           correctIndex: 0,
           explanation:
             '$(x-5)(x+2) = 0$。$x = 5$ または $x = -2$ だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g3-qef-q28',
@@ -542,6 +597,7 @@ export const quadEqFactoring: Topic = {
           correctIndex: 2,
           explanation:
             '$x(x-7) = 0$。$x = 0$ または $x = 7$。$x = 0$ を忘れないで。',
+          difficulty: 'advanced',
         },
       ],
     },

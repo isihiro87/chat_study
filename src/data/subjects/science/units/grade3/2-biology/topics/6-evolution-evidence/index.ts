@@ -125,20 +125,19 @@ export const evolutionEvidence: Topic = {
         back: '鳥類とハチュウ類の両方の特徴をもつ中間的な化石生物は？',
         explanation:
           '約1.5億年前（中生代）。鳥類の特徴（羽毛・つばさ）とハチュウ類の特徴（歯・爪・尾骨）をもつ。',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-ee-fc2',
-        front: '始祖鳥の鳥類的特徴',
+        front: '前あしがつばさになっている、羽毛がある',
         back: '始祖鳥がもつ鳥類の特徴を2つ答えよ。',
-        explanation:
-          '前あしがつばさになっている、羽毛がある。これらは現在の鳥類と共通する特徴。',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-ee-fc3',
-        front: '始祖鳥のハチュウ類的特徴',
+        front: 'つばさに爪がある、くちばしに歯がある、尾骨がある',
         back: '始祖鳥がもつハチュウ類の特徴を3つ答えよ。',
-        explanation:
-          'つばさに爪がある、くちばしに歯がある、尾骨がある。現在の鳥類にはない特徴。',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-ee-fc4',
@@ -146,13 +145,14 @@ export const evolutionEvidence: Topic = {
         back: '形やはたらきは違うが、もとは同じものであったと考えられる器官を何という？',
         explanation:
           '例：コウモリの翼、クジラのひれ、ヒトの手。骨格の基本的なつくりが共通。共通の祖先から進化した証拠。',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-ee-fc5',
-        front: '相同器官の例',
+        front: 'コウモリの翼、クジラのひれ、ヒトの手',
         back: '相同器官の代表例を3つ答えよ。',
-        explanation:
-          'コウモリの翼（飛ぶ）、クジラのひれ（泳ぐ）、ヒトの手（つかむ）。形は違うが骨の基本構造は同じ。',
+        explanation: '形やはたらきは違うが、骨格の基本構造は同じ。',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-ee-fc6',
@@ -160,6 +160,7 @@ export const evolutionEvidence: Topic = {
         back: '魚類であるが肺をもつ、中間的な特徴をもつ生物は？',
         explanation:
           'ハイギョは魚類に分類されるが、えらだけでなく肺でも呼吸する。魚類と両生類の中間的な特徴をもつ。',
+        difficulty: 'standard',
       },
       {
         id: 'sci3-ee-fc7',
@@ -167,20 +168,46 @@ export const evolutionEvidence: Topic = {
         back: '哺乳類であるが卵を産む動物は？',
         explanation:
           'カモノハシは哺乳類だが卵で繁殖する。哺乳類とハチュウ類の中間的な特徴をもつ。',
+        difficulty: 'standard',
       },
       {
         id: 'sci3-ee-fc8',
-        front: '進化と遺伝子',
+        front: '遺伝子に変化（突然変異）が生じ、その変化が環境に適応して受け継がれた結果',
         back: '生物の形の違いが生じる理由を進化の観点で説明せよ。',
-        explanation:
-          '遺伝子に変化が生じ、変化した形質がその生物の環境に適応して受け継がれた結果。',
+        difficulty: 'advanced',
       },
       {
         id: 'sci3-ee-fc9',
-        front: '中間的な化石生物',
+        front: 'ユーステノプテロン（魚類↔両生類）、イクチオステガ（魚類↔両生類）、始祖鳥（ハチュウ類↔鳥類）',
         back: '2つの動物群の特徴を併せもつ化石生物の組み合わせを3つ答えよ。',
-        explanation:
-          'ユーステノプテロン（魚類↔両生類）、イクチオステガ（魚類↔両生類）、始祖鳥（ハチュウ類↔鳥類）。',
+        difficulty: 'advanced',
+      },
+      {
+        id: 'sci3-ee-fc10',
+        front: '共通の祖先から進化したこと',
+        back: '相同器官が存在することは、何の証拠になる？',
+        explanation: '形は環境に合わせて変化したが、骨格の基本構造が共通していることが共通の祖先を示す。',
+        difficulty: 'standard',
+      },
+      {
+        id: 'sci3-ee-fc11',
+        front: '中生代（約1億5000万年前）',
+        back: '始祖鳥の化石が発見された時代はいつ？',
+        difficulty: 'standard',
+      },
+      {
+        id: 'sci3-ee-fc12',
+        front: 'ハイギョ',
+        back: '魚類に分類されるが肺ももつ、中間的な特徴をもつ現存する生物は？',
+        explanation: 'えらだけでなく肺でも呼吸する。魚類と両生類の中間的な特徴をもつ。',
+        difficulty: 'standard',
+      },
+      {
+        id: 'sci3-ee-fc13',
+        front: 'カモノハシ',
+        back: '哺乳類に分類されるが卵を産む動物は？',
+        explanation: '哺乳類とハチュウ類の中間的な特徴をもつ。',
+        difficulty: 'standard',
       },
     ],
     quiz: {
@@ -192,7 +219,8 @@ export const evolutionEvidence: Topic = {
           correctIndex: 1,
           explanation:
             '始祖鳥は鳥類の特徴である羽毛をもちつつ、歯・爪・尾骨というハチュウ類の特徴も併せもっていました。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci3-ee-q2',
           question:
@@ -201,7 +229,8 @@ export const evolutionEvidence: Topic = {
           correctIndex: 0,
           explanation:
             '相同器官は形やはたらきは異なりますが骨格の基本構造が共通しており、共通の祖先から進化した証拠です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci3-ee-q3',
           question: '相同器官が存在することは、何の証拠になる？',
@@ -214,7 +243,8 @@ export const evolutionEvidence: Topic = {
           correctIndex: 3,
           explanation:
             '相同器官は、異なる生物が共通の祖先から進化したことを示す証拠です。形は環境に合わせて変化しましたが、基本構造は共通しています。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci3-ee-q4',
           question: '哺乳類であるが卵を産む動物はどれ？',
@@ -222,7 +252,8 @@ export const evolutionEvidence: Topic = {
           correctIndex: 2,
           explanation:
             'カモノハシは哺乳類ですが卵で繁殖します。哺乳類とハチュウ類の中間的な特徴をもつ生物です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci3-ee-q5',
           question: '始祖鳥の化石が発見された時代はどれ？',
@@ -235,7 +266,8 @@ export const evolutionEvidence: Topic = {
           correctIndex: 3,
           explanation:
             '始祖鳥の化石は中生代（約1億5000万年前）の地層から発見されました。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci3-ee-q6',
           question: '魚類だが肺をもつ、中間的な特徴をもつ現存する生物はどれ？',
@@ -243,7 +275,8 @@ export const evolutionEvidence: Topic = {
           correctIndex: 2,
           explanation:
             'ハイギョは魚類に分類されますが、えらだけでなく肺でも呼吸します。魚類と両生類の中間的な特徴をもつ現存する生物です。',
-        },
+        difficulty: 'standard',
+      },
       ],
     },
     examples: {

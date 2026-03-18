@@ -67,114 +67,143 @@ export const quadEqBasics: Topic = {
       {
         id: 'math-g3-qeb-fc1',
         front: 'xの2乗を含む方程式。標準形は ax² + bx + c = 0（a ≠ 0）', back: '二次方程式とは？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qeb-fc2',
         front: '方程式を成り立たせるxの値のこと', back: '二次方程式の「解」とは？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qeb-fc3',
         front: 'ax² + bx + c = 0（a ≠ 0）', back: '二次方程式の標準形',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qeb-fc4',
         front: '最大2つ', back: '二次方程式の解は最大いくつ？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qeb-fc5',
         front: 'x = ±√k（2つの解）', back: 'x² = k（k > 0）の解は？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qeb-fc6',
         front: 'x = 0（解は1つ）', back: 'x² = k で k = 0 のとき解は？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qeb-fc7',
         front: '解なし（2乗して負にはならない）', back: 'x² = k で k < 0 のとき解は？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qeb-fc8',
-        front: 'プラスマイナス。正と負の両方を表す記号', back: '± の読み方は？',
+        front: 'x = ±5', back: 'x² = 25 の解は？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qeb-fc9',
         front: 'x² = b/a にしてから x = ±√(b/a)', back: 'ax² = b の解き方は？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qeb-fc10',
         front: 'x + m = ±√n → x = −m ± √n', back: '(x + m)² = n の解き方は？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qeb-fc11',
         front: '2乗すると a になる数のこと（a の平方根）', back: '平方根とは？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qeb-fc12',
-        front: 'x²の項が消えて一次方程式になる', back: 'a = 0 だと ax²+bx+c=0 はどうなる？',
+        front: 'x = ±4', back: '2x² − 32 = 0 の解は？',
+        hint: 'x² = 16',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qeb-fc13',
         front: 'x² = 9 より x = ±3', back: '3x² = 27 の解は？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qeb-fc14',
         front: 'x = 3 ± √5', back: '(x − 3)² = 5 の解は？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qeb-fc15',
         front: 'x² = 1/4 より x = ±1/2', back: '4x² = 1 の解は？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qeb-fc16',
         front: '解が1つしか求まらず、不正解になる', back: '二次方程式で ± を忘れるとどうなる？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qeb-fc17',
         front: 'xの最高次数が2であること', back: '「二次」とは何の次数が2？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qeb-fc18',
         front: 'x + 2 = ±3 より x = 1 または x = −5', back: '(x + 2)² = 9 の解は？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qeb-fc19',
         front: 'x = ±√7', back: 'x² = 7 の解は？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qeb-fc20',
         front: 'x = −1 ± √6', back: '(x + 1)² = 6 の解は？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qeb-fc21',
         front: 'x² = k の形にして k > 0 か確認する', back: '二次方程式に解があるかの判定法は？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qeb-fc22',
         front: 'x = ±2√3（√12 = 2√3）', back: 'x² = 12 の解は？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qeb-fc23',
         front: 'x = 5 ± √3', back: '(x − 5)² = 3 の解は？',
+        difficulty: 'advanced',
       },
       {
         id: 'math-g3-qeb-fc24',
         front: 'x² = 2/3 より x = ±√(2/3) = ±√6/3', back: '3x² = 2 の解は？',
+        difficulty: 'advanced',
       },
       {
         id: 'math-g3-qeb-fc25',
-        front: '平方根をとること。x² = k → x = ±√k', back: '二次方程式の基本的な解き方は？',
+        front: 'x = −2 ± √10', back: '(x + 2)² = 10 の解は？',
+        difficulty: 'advanced',
       },
       {
         id: 'math-g3-qeb-fc26',
         front: 'x − 4 = ±√7 より x = 4 ± √7', back: '(x − 4)² = 7 の解は？',
+        difficulty: 'advanced',
       },
       {
         id: 'math-g3-qeb-fc27',
         front: 'x = ±3√2（√18 = 3√2）', back: '2x² = 36 の解は？（ルートを簡単に）',
+        difficulty: 'advanced',
       },
       {
         id: 'math-g3-qeb-fc28',
         front: 'x + 3 = ±2 より x = −1 または x = −5', back: '(x + 3)² = 4 の解は？',
+        difficulty: 'advanced',
       },
     ],
     quiz: {
@@ -186,6 +215,7 @@ export const quadEqBasics: Topic = {
           correctIndex: 1,
           explanation:
             '$x^2 - 4 = 0$ は $x$ の2乗があるので二次方程式。$3x+5=0$ は一次、$x^3+1=0$ は三次方程式だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-quad-eq-basics-q2',
@@ -194,6 +224,7 @@ export const quadEqBasics: Topic = {
           correctIndex: 2,
           explanation:
             '$x^2 = 25$ なので $x = \\pm\\sqrt{25} = \\pm 5$。$5^2 = 25$、$(-5)^2 = 25$ だから解は2つあるよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-quad-eq-basics-q3',
@@ -202,6 +233,7 @@ export const quadEqBasics: Topic = {
           correctIndex: 3,
           explanation:
             '$x^2 = 0$ の解は $x = 0$ の1つだけ。$\\pm 0$ は結局 $0$ なので、解は1つだよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-quad-eq-basics-q4',
@@ -210,6 +242,7 @@ export const quadEqBasics: Topic = {
           correctIndex: 0,
           explanation:
             '$2x^2 = 18$ の両辺を2で割ると $x^2 = 9$。$x = \\pm 3$ だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-quad-eq-basics-q5',
@@ -218,6 +251,7 @@ export const quadEqBasics: Topic = {
           correctIndex: 2,
           explanation:
             '$4x^2 = 1$ より $x^2 = \\frac{1}{4}$。$x = \\pm\\frac{1}{2}$ だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-quad-eq-basics-q6',
@@ -231,6 +265,7 @@ export const quadEqBasics: Topic = {
           correctIndex: 1,
           explanation:
             '$(x-3)^2 = 2$ より $x - 3 = \\pm\\sqrt{2}$。よって $x = 3 \\pm \\sqrt{2}$ だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-quad-eq-basics-q7',
@@ -244,6 +279,7 @@ export const quadEqBasics: Topic = {
           correctIndex: 3,
           explanation:
             '$(x+5)^2 = 25$ より $x+5 = \\pm 5$。$x+5=5$ で $x=0$、$x+5=-5$ で $x=-10$ だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-quad-eq-basics-q8',
@@ -252,6 +288,7 @@ export const quadEqBasics: Topic = {
           correctIndex: 0,
           explanation:
             '$x^2$ は常に0以上なので、$x^2 = -9$ を満たす実数 $x$ は存在しない。解なしだよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-quad-eq-basics-q9',
@@ -260,6 +297,7 @@ export const quadEqBasics: Topic = {
           correctIndex: 1,
           explanation:
             '$a = 0$ だと $x^2$ の項が消えて一次方程式になるので、$a \\neq 0$ が条件だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-quad-eq-basics-q10',
@@ -273,6 +311,7 @@ export const quadEqBasics: Topic = {
           correctIndex: 0,
           explanation:
             '$(x+1)^2 = 3$ より $x+1 = \\pm\\sqrt{3}$。$x = -1 \\pm \\sqrt{3}$ だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-quad-eq-basics-q11',
@@ -281,6 +320,7 @@ export const quadEqBasics: Topic = {
           correctIndex: 3,
           explanation:
             '$5x^2 = 45$ より $x^2 = 9$。$x = \\pm 3$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-quad-eq-basics-q12',
@@ -294,6 +334,7 @@ export const quadEqBasics: Topic = {
           correctIndex: 2,
           explanation:
             '$(x-4)^2 = 16$ より $x-4 = \\pm 4$。$x-4=4$ で $x=8$、$x-4=-4$ で $x=0$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qeb-q13',
@@ -302,6 +343,7 @@ export const quadEqBasics: Topic = {
           correctIndex: 2,
           explanation:
             '$x = \\pm\\sqrt{7}$。7は完全平方数でないのでルートのままだよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qeb-q14',
@@ -315,6 +357,7 @@ export const quadEqBasics: Topic = {
           correctIndex: 0,
           explanation:
             '$x + 1 = \\pm\\sqrt{6}$ より $x = -1 \\pm \\sqrt{6}$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qeb-q15',
@@ -328,6 +371,7 @@ export const quadEqBasics: Topic = {
           correctIndex: 1,
           explanation:
             '$x = \\pm\\sqrt{12} = \\pm\\sqrt{4 \\times 3} = \\pm 2\\sqrt{3}$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qeb-q16',
@@ -341,6 +385,7 @@ export const quadEqBasics: Topic = {
           correctIndex: 2,
           explanation:
             '$x - 5 = \\pm\\sqrt{3}$ より $x = 5 \\pm \\sqrt{3}$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qeb-q17',
@@ -354,6 +399,7 @@ export const quadEqBasics: Topic = {
           correctIndex: 2,
           explanation:
             '$x^2 = \\frac{2}{3}$ より $x = \\pm\\sqrt{\\frac{2}{3}} = \\pm\\frac{\\sqrt{6}}{3}$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qeb-q18',
@@ -367,6 +413,7 @@ export const quadEqBasics: Topic = {
           correctIndex: 0,
           explanation:
             '$x + 3 = \\pm 2$。$x = -3+2 = -1$ または $x = -3-2 = -5$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qeb-q19',
@@ -380,6 +427,7 @@ export const quadEqBasics: Topic = {
           correctIndex: 2,
           explanation:
             '$x^2 = 18$ より $x = \\pm\\sqrt{18} = \\pm 3\\sqrt{2}$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qeb-q20',
@@ -393,6 +441,7 @@ export const quadEqBasics: Topic = {
           correctIndex: 2,
           explanation:
             '$x - 4 = \\pm\\sqrt{7}$ より $x = 4 \\pm \\sqrt{7}$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qeb-q21',
@@ -406,6 +455,7 @@ export const quadEqBasics: Topic = {
           correctIndex: 1,
           explanation:
             '$x^2 = 50$ より $x = \\pm\\sqrt{50} = \\pm 5\\sqrt{2}$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qeb-q22',
@@ -419,6 +469,7 @@ export const quadEqBasics: Topic = {
           correctIndex: 1,
           explanation:
             '$(x+6)^2 = 0$ より $x+6 = 0$、$x = -6$。解は1つだよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qeb-q23',
@@ -432,6 +483,7 @@ export const quadEqBasics: Topic = {
           correctIndex: 2,
           explanation:
             '$x^2 = 16$ より $x = \\pm 4$ だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g3-qeb-q24',
@@ -445,6 +497,7 @@ export const quadEqBasics: Topic = {
           correctIndex: 0,
           explanation:
             '$x - 2 = \\pm\\sqrt{12} = \\pm 2\\sqrt{3}$ より $x = 2 \\pm 2\\sqrt{3}$ だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g3-qeb-q25',
@@ -453,6 +506,7 @@ export const quadEqBasics: Topic = {
           correctIndex: 1,
           explanation:
             '二次方程式の解は最大2つ。k>0で2つ、k=0で1つ、k<0で0個だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g3-qeb-q26',
@@ -466,6 +520,7 @@ export const quadEqBasics: Topic = {
           correctIndex: 0,
           explanation:
             '$(x+2)^2 = 16$ より $x+2 = \\pm 4$。$x = 2$ または $x = -6$ だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g3-qeb-q27',
@@ -479,6 +534,7 @@ export const quadEqBasics: Topic = {
           correctIndex: 2,
           explanation:
             '$x^2 = -5$ となり、2乗して負にはならないので解なし。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g3-qeb-q28',
@@ -492,6 +548,7 @@ export const quadEqBasics: Topic = {
           correctIndex: 0,
           explanation:
             '$x + 7 = \\pm 7$。$x = 0$ または $x = -14$ だよ。',
+          difficulty: 'advanced',
         },
       ],
     },

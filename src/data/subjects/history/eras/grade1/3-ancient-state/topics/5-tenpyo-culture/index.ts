@@ -64,34 +64,34 @@ export const tenpyoCulture: Topic = {
     },
     videos: [],
     flashcards: [
-      { id: 'fc1', front: '天平文化', back: '聖武天皇の時代を中心に栄えたのは何文化？' },
-      { id: 'fc2', front: '正倉院', back: '聖武天皇の愛用品が納められた建物は？' },
-      { id: 'fc3', front: '国分寺', back: '仏教で国を守るために各国に建てたお寺を何という？' },
-      { id: 'fc4', front: '鑑真', back: '日本に正式な戒律を伝えた唐の僧は？' },
-      { id: 'fc5', front: '古事記', back: '神話や伝承を基に編纂された歴史書は？' },
-      { id: 'fc6', front: '行基', back: '民間で布教し、橋や池を造った僧は？' },
-      { id: 'fc7', front: '東大寺', back: '聖武天皇が都に建立した巨大な寺は？' },
-      { id: 'fc8', front: '万葉集', back: '8世紀後半にまとめられた日本最古の歌集は？' },
-      { id: 'fc9', front: '風土記', back: '各地の自然や伝承を記録した報告書は？' },
-      { id: 'fc10', front: '校倉造', back: '正倉院で見られる三角形の木材を組む造りは何造り？' },
-      { id: 'fc11', front: '阿修羅像', back: '興福寺にある、3つの顔と6本の腕を持つ有名な仏像は？' },
-      { id: 'fc12', front: '唐招提寺', back: '鑑真が建立した、奈良にあるお寺を何という？' },
-      { id: 'fc13', front: '日本書紀', back: '720年に完成した国の正史として編纂された歴史書は？' },
-      { id: 'fc14', front: '盧舎那仏', back: '東大寺に安置された大仏の正式名称は？' },
-      { id: 'fc15', front: '国分尼寺', back: '国分寺とともに各国に建てられた尼寺は？' },
-      { id: 'fc16', front: '稗田阿礼', back: '古事記の内容を口述した人物は？' },
-      { id: 'fc17', front: '太安万侶', back: '古事記を文字に書き記した人物は？' },
-      { id: 'fc18', front: '万葉仮名', back: '万葉集で使われた、漢字を音に当てはめた表記法は？' },
-      { id: 'fc19', front: '螺鈿紫檀五弦琵琶', back: '正倉院に収蔵されているシルクロード経由の楽器は？' },
-      { id: 'fc20', front: '鎮護国家', back: '仏教の力で国を守り安定させるという考え方は？' },
-      { id: 'fc21', front: '東大寺', back: '正倉院はどの寺の境内にあるか？' },
-      { id: 'fc22', front: '柿本人麻呂', back: '万葉集に歌が収められている代表的な歌人の一人は？' },
-      { id: 'fc23', front: '銅（青銅）', back: '奈良の大仏は何の材料で造られたか？' },
-      { id: 'fc24', front: '乾漆造・塑像', back: '天平文化の写実的な仏像に使われた技法は？' },
-      { id: 'fc25', front: '疫病や反乱', back: '聖武天皇が仏教で国を守ろうとした背景にあった出来事は？' },
-      { id: 'fc26', front: '失明', back: '鑑真が渡航の苦難の中で失ったものは？' },
-      { id: 'fc27', front: '戒律', back: '鑑真が日本に伝えた、僧侶になるための正しい作法は？' },
-      { id: 'fc28', front: '法隆寺', back: '飛鳥文化を代表する寺院は？' },
+      { id: 'fc1', front: '天平文化', back: '聖武天皇の時代を中心に栄えたのは何文化？', difficulty: 'basic' },
+      { id: 'fc2', front: '正倉院', back: '聖武天皇の愛用品が納められた建物は？', difficulty: 'basic' },
+      { id: 'fc3', front: '国分寺', back: '仏教で国を守るために各国に建てたお寺を何という？', difficulty: 'basic' },
+      { id: 'fc4', front: '鑑真', back: '日本に正式な戒律を伝えた唐の僧は？', difficulty: 'basic' },
+      { id: 'fc5', front: '古事記', back: '神話や伝承を基に編纂された歴史書は？', difficulty: 'basic' },
+      { id: 'fc6', front: '行基', back: '民間で布教し、橋や池を造った僧は？', difficulty: 'basic' },
+      { id: 'fc7', front: '東大寺', back: '聖武天皇が都に建立した巨大な寺は？', difficulty: 'basic' },
+      { id: 'fc8', front: '万葉集', back: '8世紀後半にまとめられた日本最古の歌集は？', difficulty: 'basic' },
+      { id: 'fc9', front: '風土記', back: '各地の自然や伝承を記録した報告書は？', difficulty: 'basic' },
+      { id: 'fc10', front: '校倉造', back: '正倉院で見られる三角形の木材を組む造りは何造り？', difficulty: 'basic' },
+      { id: 'fc11', front: '阿修羅像', back: '興福寺にある、3つの顔と6本の腕を持つ有名な仏像は？', difficulty: 'basic' },
+      { id: 'fc12', front: '唐招提寺', back: '鑑真が建立した、奈良にあるお寺を何という？', difficulty: 'basic' },
+      { id: 'fc13', front: '日本書紀', back: '720年に完成した国の正史として編纂された歴史書は？', difficulty: 'standard' },
+      { id: 'fc14', front: '盧舎那仏', back: '東大寺に安置された大仏の正式名称は？', difficulty: 'standard' },
+      { id: 'fc15', front: '国分尼寺', back: '国分寺とともに各国に建てられた尼寺は？', difficulty: 'standard' },
+      { id: 'fc16', front: '稗田阿礼', back: '古事記の内容を口述した人物は？', difficulty: 'standard' },
+      { id: 'fc17', front: '太安万侶', back: '古事記を文字に書き記した人物は？', difficulty: 'standard' },
+      { id: 'fc18', front: '万葉仮名', back: '万葉集で使われた、漢字を音に当てはめた表記法は？', difficulty: 'standard' },
+      { id: 'fc19', front: '螺鈿紫檀五弦琵琶', back: '正倉院に収蔵されているシルクロード経由の楽器は？', difficulty: 'standard' },
+      { id: 'fc20', front: '鎮護国家', back: '仏教の力で国を守り安定させるという考え方は？', difficulty: 'standard' },
+      { id: 'fc21', front: '東大寺', back: '正倉院はどの寺の境内にあるか？', difficulty: 'standard' },
+      { id: 'fc22', front: '柿本人麻呂', back: '万葉集に歌が収められている代表的な歌人の一人は？', difficulty: 'standard' },
+      { id: 'fc23', front: '銅（青銅）', back: '奈良の大仏は何の材料で造られたか？', difficulty: 'advanced' },
+      { id: 'fc24', front: '乾漆造・塑像', back: '天平文化の写実的な仏像に使われた技法は？', difficulty: 'advanced' },
+      { id: 'fc25', front: '疫病や反乱', back: '聖武天皇が仏教で国を守ろうとした背景にあった出来事は？', difficulty: 'advanced' },
+      { id: 'fc26', front: '失明', back: '鑑真が渡航の苦難の中で失ったものは？', difficulty: 'advanced' },
+      { id: 'fc27', front: '戒律', back: '鑑真が日本に伝えた、僧侶になるための正しい作法は？', difficulty: 'advanced' },
+      { id: 'fc28', front: '法隆寺', back: '飛鳥文化を代表する寺院は？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -101,6 +101,7 @@ export const tenpyoCulture: Topic = {
           options: ['唐招提寺', '東大寺', '国分寺', '法隆寺'],
           correctIndex: 2,
           explanation: '聖武天皇が仏教の力で国を守るため、各国に国分寺を建立しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -108,6 +109,7 @@ export const tenpyoCulture: Topic = {
           options: ['行基', '鑑真', '最澄', '空海'],
           correctIndex: 1,
           explanation: '鑑真は何度も渡航に失敗しながらも来日し、唐招提寺を建立しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -115,6 +117,7 @@ export const tenpyoCulture: Topic = {
           options: ['正倉院', '法隆寺', '東大寺', '国分寺'],
           correctIndex: 0,
           explanation: '正倉院は校倉造の建物で、シルクロード経由の国際色豊かな宝物が収められています。',
+          difficulty: 'basic',
         },
         {
           id: 'q4',
@@ -122,6 +125,7 @@ export const tenpyoCulture: Topic = {
           options: ['鑑真', '最澄', '空海', '行基'],
           correctIndex: 3,
           explanation: '行基は民間で布教活動を行い、東大寺の大仏造立にも民衆を率いて協力しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q5',
@@ -129,6 +133,7 @@ export const tenpyoCulture: Topic = {
           options: ['古今和歌集', '風土記', '古事記', '万葉集'],
           correctIndex: 3,
           explanation: '万葉集は天皇から農民まで幅広い人々の歌を集めた日本最古の歌集です。',
+          difficulty: 'basic',
         },
         {
           id: 'q6',
@@ -136,6 +141,7 @@ export const tenpyoCulture: Topic = {
           options: ['東大寺', '唐招提寺', '国分寺', '法隆寺'],
           correctIndex: 0,
           explanation: '東大寺は聖武天皇が都に建立した寺で、巨大な盧舎那仏（大仏）が安置されています。',
+          difficulty: 'basic',
         },
         {
           id: 'q7',
@@ -143,6 +149,7 @@ export const tenpyoCulture: Topic = {
           options: ['万葉集', '古事記', '日本書紀', '風土記'],
           correctIndex: 1,
           explanation: '古事記は712年に完成した、神話から天皇家の歴史をまとめた書物です。',
+          difficulty: 'basic',
         },
         {
           id: 'q8',
@@ -150,6 +157,7 @@ export const tenpyoCulture: Topic = {
           options: ['3度目', '4度目', '6度目', '5度目'],
           correctIndex: 2,
           explanation: '鑑真は5度の失敗を経て、6度目の渡航でついに来日に成功しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q9',
@@ -157,6 +165,7 @@ export const tenpyoCulture: Topic = {
           options: ['寝殿造', '書院造', '校倉造', '城郭造'],
           correctIndex: 2,
           explanation: '校倉造は三角形の木材を組み上げる建築様式で、湿度の調節に優れています。',
+          difficulty: 'basic',
         },
         {
           id: 'q10',
@@ -164,6 +173,7 @@ export const tenpyoCulture: Topic = {
           options: ['日本独自の文化だから', 'シルクロード経由の影響を受けたから', '仏教だけの文化だから', '農民の文化だから'],
           correctIndex: 1,
           explanation: '天平文化は唐を通じてシルクロード経由で西アジアやインドの影響も受けた国際色豊かな文化です。',
+          difficulty: 'basic',
         },
         {
           id: 'q11',
@@ -171,6 +181,7 @@ export const tenpyoCulture: Topic = {
           options: ['外国の侵攻', '疫病や反乱が続いたこと', '天皇の趣味', '貿易の促進'],
           correctIndex: 1,
           explanation: '疫病の流行や反乱が続く不安定な社会を仏教の力で安定させようとしました。',
+          difficulty: 'standard',
         },
         {
           id: 'q12',
@@ -178,6 +189,7 @@ export const tenpyoCulture: Topic = {
           options: ['阿弥陀如来', '釈迦如来', '盧舎那仏', '大日如来'],
           correctIndex: 2,
           explanation: '東大寺の大仏の正式名称は盧舎那仏です。',
+          difficulty: 'standard',
         },
         {
           id: 'q13',
@@ -185,6 +197,7 @@ export const tenpyoCulture: Topic = {
           options: ['漢字', '正式な戒律', '建築技術', '農業技術'],
           correctIndex: 1,
           explanation: '鑑真は正式な戒律（僧侶になるための正しい授戒の作法）を日本に伝えました。',
+          difficulty: 'standard',
         },
         {
           id: 'q14',
@@ -192,6 +205,7 @@ export const tenpyoCulture: Topic = {
           options: ['古事記', '万葉集', '日本書紀', '風土記'],
           correctIndex: 2,
           explanation: '日本書紀は720年に完成した、国の正史として編纂された歴史書です。',
+          difficulty: 'standard',
         },
         {
           id: 'q15',
@@ -199,6 +213,7 @@ export const tenpyoCulture: Topic = {
           options: ['太安万侶', '紀貫之', '稗田阿礼', '柿本人麻呂'],
           correctIndex: 2,
           explanation: '稗田阿礼が古事記の内容を口述し、太安万侶が文字に書き記しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q16',
@@ -206,6 +221,7 @@ export const tenpyoCulture: Topic = {
           options: ['ひらがな', 'カタカナ', '万葉仮名', '漢文'],
           correctIndex: 2,
           explanation: '万葉仮名は漢字を日本語の音に当てはめた表記法で、万葉集で使われました。',
+          difficulty: 'standard',
         },
         {
           id: 'q17',
@@ -213,6 +229,7 @@ export const tenpyoCulture: Topic = {
           options: ['法隆寺', '唐招提寺', '東大寺', '興福寺'],
           correctIndex: 2,
           explanation: '正倉院は東大寺の境内にある校倉造の宝物庫です。',
+          difficulty: 'standard',
         },
         {
           id: 'q18',
@@ -220,6 +237,7 @@ export const tenpyoCulture: Topic = {
           options: ['財産', '家族', '視力', '記憶'],
           correctIndex: 2,
           explanation: '鑑真は渡航の苦難の中で失明しましたが、それでも日本に来日しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q19',
@@ -227,6 +245,7 @@ export const tenpyoCulture: Topic = {
           options: ['鉄', '金', '石', '銅（青銅）'],
           correctIndex: 3,
           explanation: '奈良の大仏は銅（青銅）で造られました。',
+          difficulty: 'standard',
         },
         {
           id: 'q20',
@@ -234,6 +253,7 @@ export const tenpyoCulture: Topic = {
           options: ['東大寺', '唐招提寺', '国分尼寺', '延暦寺'],
           correctIndex: 2,
           explanation: '聖武天皇は国分寺とともに各国に国分尼寺を建てさせました。',
+          difficulty: 'standard',
         },
         {
           id: 'q21',
@@ -241,6 +261,7 @@ export const tenpyoCulture: Topic = {
           options: ['神道', '仏教', 'キリスト教', '道教'],
           correctIndex: 1,
           explanation: '天平文化の中心となった宗教は仏教です。',
+          difficulty: 'standard',
         },
         {
           id: 'q22',
@@ -248,6 +269,7 @@ export const tenpyoCulture: Topic = {
           options: ['阿修羅像', '盧舎那仏', '釈迦三尊像', '阿弥陀如来像'],
           correctIndex: 2,
           explanation: '釈迦三尊像は法隆寺金堂にある飛鳥文化を代表する仏像です。',
+          difficulty: 'standard',
         },
         {
           id: 'q23',
@@ -255,6 +277,7 @@ export const tenpyoCulture: Topic = {
           options: ['稗田阿礼', '太安万侶', '藤原不比等', '紀貫之'],
           correctIndex: 1,
           explanation: '太安万侶が稗田阿礼の口述をもとに古事記を文字に書き記しました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q24',
@@ -262,6 +285,7 @@ export const tenpyoCulture: Topic = {
           options: ['建築技術を学ぶため', '日本の仏教界に正式な戒律を確立するため', '貿易を促進するため', '外交使節として'],
           correctIndex: 1,
           explanation: '鑑真を招いたのは日本の仏教界に正式な戒律を確立するためです。',
+          difficulty: 'advanced',
         },
         {
           id: 'q25',
@@ -269,6 +293,7 @@ export const tenpyoCulture: Topic = {
           options: ['天平文化は仏教と無関係', '飛鳥文化の方が国際的', '天平文化は唐の影響がより強く国際色豊か', '飛鳥文化は日本独自の文化'],
           correctIndex: 2,
           explanation: '天平文化は唐の影響がより強く、シルクロード経由で国際色豊かな文化です。',
+          difficulty: 'advanced',
         },
         {
           id: 'q26',
@@ -276,6 +301,7 @@ export const tenpyoCulture: Topic = {
           options: ['紀貫之', '紫式部', '柿本人麻呂', '清少納言'],
           correctIndex: 2,
           explanation: '柿本人麻呂は万葉集を代表する歌人の一人です。',
+          difficulty: 'advanced',
         },
         {
           id: 'q27',
@@ -283,6 +309,7 @@ export const tenpyoCulture: Topic = {
           options: ['701年', '708年', '710年', '712年'],
           correctIndex: 1,
           explanation: '和同開珎は708年に鋳造された日本最古の流通貨幣です。',
+          difficulty: 'advanced',
         },
         {
           id: 'q28',
@@ -290,6 +317,7 @@ export const tenpyoCulture: Topic = {
           options: ['浄土信仰', '末法思想', '鎮護国家', '神仏習合'],
           correctIndex: 2,
           explanation: '鎮護国家は仏教の力で国を守り安定させるという考え方です。',
+          difficulty: 'advanced',
         },
       ],
     },

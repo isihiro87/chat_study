@@ -58,34 +58,34 @@ export const riseOfBushi: Topic = {
     },
     videos: [],
     flashcards: [
-      { id: 'fc1', front: '武士', back: '弓矢や馬の技術にすぐれ、10世紀ごろに成長した者を何という？' },
-      { id: 'fc2', front: '武士団', back: '武士が一族や家来を従えてつくった軍事組織は？' },
-      { id: 'fc3', front: '惣領', back: '武士団のなかで一族をまとめた長は？' },
-      { id: 'fc4', front: '源義家', back: '前九年合戦・後三年合戦で活躍し、東日本に勢力を広げた人物は？' },
-      { id: 'fc5', front: '奥州藤原氏', back: '東北地方の平泉を拠点に約100年さかえた一族は？' },
-      { id: 'fc6', front: '平将門', back: '935年ごろに関東で反乱を起こしたのはだれ？' },
-      { id: 'fc7', front: '藤原純友', back: '939年ごろ、瀬戸内海で反乱を起こしたのはだれ？' },
-      { id: 'fc8', front: '源氏と平氏', back: '天皇の子孫で、有力な武士団の中心となったのは何氏と何氏？' },
-      { id: 'fc9', front: '前九年合戦・後三年合戦', back: '11世紀後半に東北地方で起こった二つの戦乱は？' },
-      { id: 'fc10', front: '平氏', back: '12世紀前半に瀬戸内海の海賊をしずめ、西日本に勢力をのばしたのは何氏？' },
-      { id: 'fc11', front: '荘園', back: '地方の有力者が開墾し、税をまぬがれた私有地を何という？' },
-      { id: 'fc12', front: '公領', back: '荘園に対して、国司が支配する土地を何という？' },
-      { id: 'fc13', front: '年貢', back: '農民が領主に毎年おさめた、米や布などの税は？' },
-      { id: 'fc14', front: '中尊寺金色堂', back: '奥州藤原氏が建て、金箔でかざられた平泉の建物は？' },
-      { id: 'fc15', front: '不輸の権', back: '荘園の税をまぬがれることができる権利を何という？' },
-      { id: 'fc16', front: '不入の権', back: '国司の役人の立ち入りを拒否できる権利を何という？' },
-      { id: 'fc17', front: '寄進', back: '開発領主が有力な貴族に荘園を差し出すことを何という？' },
-      { id: 'fc18', front: '平泉', back: '奥州藤原氏の拠点で、中尊寺金色堂がある場所は？（現在の岩手県）' },
-      { id: 'fc19', front: '血縁関係と主従関係', back: '武士団を結びつけていた2つの関係は？' },
-      { id: 'fc20', front: '10世紀', back: '武士が成長し始めた時期はいつごろ？' },
-      { id: 'fc21', front: '警備と犯罪の取り締まり', back: '武士が朝廷や国府の役人として行った仕事を2つ答えよ' },
-      { id: 'fc22', front: '東日本（関東中心）', back: '源氏が主に勢力を広げた地方は？' },
-      { id: 'fc23', front: '西日本（瀬戸内海中心）', back: '平氏が主に勢力を広げた地方は？' },
-      { id: 'fc24', front: '新皇', back: '平将門が関東で自ら名乗った称号は？' },
-      { id: 'fc25', front: '地方の治安の乱れ', back: '武士が成長した背景にあった社会の変化は？' },
-      { id: 'fc26', front: '約100年間', back: '奥州藤原氏が東北で栄えたおよその期間は？' },
-      { id: 'fc27', front: '開発領主', back: '地方で土地を開墾し、のちに荘園を寄進した有力者は？' },
-      { id: 'fc28', front: '岩手県', back: '中尊寺金色堂がある現在の都道府県は？' },
+      { id: 'fc1', front: '武士', back: '弓矢や馬の技術にすぐれ、10世紀ごろに成長した者を何という？', difficulty: 'basic' },
+      { id: 'fc2', front: '武士団', back: '武士が一族や家来を従えてつくった軍事組織は？', difficulty: 'basic' },
+      { id: 'fc3', front: '惣領', back: '武士団のなかで一族をまとめた長は？', difficulty: 'basic' },
+      { id: 'fc4', front: '源義家', back: '前九年合戦・後三年合戦で活躍し、東日本に勢力を広げた人物は？', difficulty: 'basic' },
+      { id: 'fc5', front: '奥州藤原氏', back: '東北地方の平泉を拠点に約100年さかえた一族は？', difficulty: 'basic' },
+      { id: 'fc6', front: '平将門', back: '935年ごろに関東で反乱を起こしたのはだれ？', difficulty: 'basic' },
+      { id: 'fc7', front: '藤原純友', back: '939年ごろ、瀬戸内海で反乱を起こしたのはだれ？', difficulty: 'basic' },
+      { id: 'fc8', front: '源氏と平氏', back: '天皇の子孫で、有力な武士団の中心となったのは何氏と何氏？', difficulty: 'basic' },
+      { id: 'fc9', front: '前九年合戦・後三年合戦', back: '11世紀後半に東北地方で起こった二つの戦乱は？', difficulty: 'basic' },
+      { id: 'fc10', front: '平氏', back: '12世紀前半に瀬戸内海の海賊をしずめ、西日本に勢力をのばしたのは何氏？', difficulty: 'basic' },
+      { id: 'fc11', front: '荘園', back: '地方の有力者が開墾し、税をまぬがれた私有地を何という？', difficulty: 'basic' },
+      { id: 'fc12', front: '公領', back: '荘園に対して、国司が支配する土地を何という？', difficulty: 'basic' },
+      { id: 'fc13', front: '年貢', back: '農民が領主に毎年おさめた、米や布などの税は？', difficulty: 'standard' },
+      { id: 'fc14', front: '中尊寺金色堂', back: '奥州藤原氏が建て、金箔でかざられた平泉の建物は？', difficulty: 'standard' },
+      { id: 'fc15', front: '不輸の権', back: '荘園の税をまぬがれることができる権利を何という？', difficulty: 'standard' },
+      { id: 'fc16', front: '不入の権', back: '国司の役人の立ち入りを拒否できる権利を何という？', difficulty: 'standard' },
+      { id: 'fc17', front: '寄進', back: '開発領主が有力な貴族に荘園を差し出すことを何という？', difficulty: 'standard' },
+      { id: 'fc18', front: '平泉', back: '奥州藤原氏の拠点で、中尊寺金色堂がある場所は？（現在の岩手県）', difficulty: 'standard' },
+      { id: 'fc19', front: '血縁関係と主従関係', back: '武士団を結びつけていた2つの関係は？', difficulty: 'standard' },
+      { id: 'fc20', front: '10世紀', back: '武士が成長し始めた時期はいつごろ？', difficulty: 'standard' },
+      { id: 'fc21', front: '警備と犯罪の取り締まり', back: '武士が朝廷や国府の役人として行った仕事を2つ答えよ', difficulty: 'standard' },
+      { id: 'fc22', front: '東日本（関東中心）', back: '源氏が主に勢力を広げた地方は？', difficulty: 'standard' },
+      { id: 'fc23', front: '西日本（瀬戸内海中心）', back: '平氏が主に勢力を広げた地方は？', difficulty: 'advanced' },
+      { id: 'fc24', front: '新皇', back: '平将門が関東で自ら名乗った称号は？', difficulty: 'advanced' },
+      { id: 'fc25', front: '地方の治安の乱れ', back: '武士が成長した背景にあった社会の変化は？', difficulty: 'advanced' },
+      { id: 'fc26', front: '約100年間', back: '奥州藤原氏が東北で栄えたおよその期間は？', difficulty: 'advanced' },
+      { id: 'fc27', front: '開発領主', back: '地方で土地を開墾し、のちに荘園を寄進した有力者は？', difficulty: 'advanced' },
+      { id: 'fc28', front: '岩手県', back: '中尊寺金色堂がある現在の都道府県は？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -95,6 +95,7 @@ export const riseOfBushi: Topic = {
           options: ['公領', '武士団', '荘園', '幕府'],
           correctIndex: 1,
           explanation: '武士団は武士が一族や家来を従えてつくった軍事組織で、惣領が長としてまとめました。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -102,6 +103,7 @@ export const riseOfBushi: Topic = {
           options: ['平将門', '藤原純友', '源義家', '平清盛'],
           correctIndex: 2,
           explanation: '源義家は東北地方の戦乱で活躍し、源氏の勢力を東日本に広げました。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -109,6 +111,7 @@ export const riseOfBushi: Topic = {
           options: ['法隆寺', '平等院鳳凰堂', '金閣', '中尊寺金色堂'],
           correctIndex: 3,
           explanation: '中尊寺金色堂は奥州藤原氏の栄華を示す建物で、全体が金箔でおおわれています。',
+          difficulty: 'basic',
         },
         {
           id: 'q4',
@@ -116,6 +119,7 @@ export const riseOfBushi: Topic = {
           options: ['惣領', '守護', '地頭', '国司'],
           correctIndex: 0,
           explanation: '惣領は武士団の長として一族をまとめ、土地を守る中心的な役割を担いました。',
+          difficulty: 'basic',
         },
         {
           id: 'q5',
@@ -123,6 +127,7 @@ export const riseOfBushi: Topic = {
           options: ['平将門', '源義家', '奥州藤原氏', '源頼朝'],
           correctIndex: 0,
           explanation: '平将門は935年ごろに関東で反乱を起こしました。同じころ瀬戸内海では藤原純友が反乱を起こしています。',
+          difficulty: 'basic',
         },
         {
           id: 'q6',
@@ -130,6 +135,7 @@ export const riseOfBushi: Topic = {
           options: ['私領', '公領', '御領', '神領'],
           correctIndex: 1,
           explanation: '公領は国司が支配する土地で、荘園が税をまぬがれた私有地であるのに対し、公領は国の管理下にありました。',
+          difficulty: 'basic',
         },
         {
           id: 'q7',
@@ -137,6 +143,7 @@ export const riseOfBushi: Topic = {
           options: ['不入の権', '年貢免除', '不輸の権', '寄進'],
           correctIndex: 2,
           explanation: '不輸の権は荘園の税を免除される権利で、有力な貴族が朝廷から認められた特権でした。',
+          difficulty: 'basic',
         },
         {
           id: 'q8',
@@ -144,6 +151,7 @@ export const riseOfBushi: Topic = {
           options: ['平将門', '平清盛', '源義家', '藤原純友'],
           correctIndex: 3,
           explanation: '藤原純友は939年ごろに瀬戸内海で海賊を率いて反乱を起こしました。平将門の関東での反乱とほぼ同時期です。',
+          difficulty: 'basic',
         },
         {
           id: 'q9',
@@ -151,6 +159,7 @@ export const riseOfBushi: Topic = {
           options: ['年貢', '寄進', '奉公', '封建'],
           correctIndex: 1,
           explanation: '寄進とは、開発領主が税をまぬがれるために有力な貴族に荘園を差し出すことです。',
+          difficulty: 'basic',
         },
         {
           id: 'q10',
@@ -158,6 +167,7 @@ export const riseOfBushi: Topic = {
           options: ['不入の権', '不輸の権', '年貢免除', '寄進'],
           correctIndex: 0,
           explanation: '不入の権は国司の役人が荘園に立ち入ることを拒否できる権利で、荘園の自治を守りました。',
+          difficulty: 'basic',
         },
         {
           id: 'q11',
@@ -165,6 +175,7 @@ export const riseOfBushi: Topic = {
           options: ['師弟関係と友情', '血縁関係と主従関係', '商取引と同盟', '地縁関係と宗教'],
           correctIndex: 1,
           explanation: '武士団は血縁関係（一族のつながり）と主従関係（惣領と家来のつながり）で結ばれた組織でした。',
+          difficulty: 'standard',
         },
         {
           id: 'q12',
@@ -172,6 +183,7 @@ export const riseOfBushi: Topic = {
           options: ['貴族の子孫', '僧侶の子孫', '天皇の子孫', '農民の子孫'],
           correctIndex: 2,
           explanation: '源氏と平氏はどちらも天皇の子孫（皇族が臣下に降りた家系）で、その家柄を背景に武士団の中心となりました。',
+          difficulty: 'standard',
         },
         {
           id: 'q13',
@@ -179,6 +191,7 @@ export const riseOfBushi: Topic = {
           options: ['山賊', '瀬戸内海の海賊', '蝦夷の反乱', '農民の一揆'],
           correctIndex: 1,
           explanation: '平氏は12世紀前半に瀬戸内海の海賊をしずめたことで朝廷から認められ、西日本に勢力を広げました。',
+          difficulty: 'standard',
         },
         {
           id: 'q14',
@@ -186,6 +199,7 @@ export const riseOfBushi: Topic = {
           options: ['朝廷から領地をもらった', '荘園を守り管理する役割を担った', '貿易で富を得た', '仏教を広めた'],
           correctIndex: 1,
           explanation: '武士は荘園領主に雇われて荘園を守り管理する中で、土地の実質的な支配者となり力をつけました。',
+          difficulty: 'standard',
         },
         {
           id: 'q15',
@@ -193,6 +207,7 @@ export const riseOfBushi: Topic = {
           options: ['軍隊を持てる', '貿易ができる', '税を納めず役人の介入も受けない', '天皇に直接仕える'],
           correctIndex: 2,
           explanation: '不輸の権で税が免除され、不入の権で役人が立ち入れないため、領主が自由に荘園を支配できました。',
+          difficulty: 'standard',
         },
         {
           id: 'q16',
@@ -200,6 +215,7 @@ export const riseOfBushi: Topic = {
           options: ['宮城県', '秋田県', '岩手県', '山形県'],
           correctIndex: 2,
           explanation: '中尊寺金色堂は現在の岩手県平泉にあり、奥州藤原氏の栄華を今に伝える世界遺産です。',
+          difficulty: 'standard',
         },
         {
           id: 'q17',
@@ -207,6 +223,7 @@ export const riseOfBushi: Topic = {
           options: ['9世紀', '10世紀', '11世紀', '12世紀'],
           correctIndex: 1,
           explanation: '平将門の乱（935年）と藤原純友の乱（939年）はともに10世紀中ごろに起きたほぼ同時期の反乱です。',
+          difficulty: 'standard',
         },
         {
           id: 'q18',
@@ -214,6 +231,7 @@ export const riseOfBushi: Topic = {
           options: ['征夷大将軍', '太政大臣', '新皇', '国司'],
           correctIndex: 2,
           explanation: '平将門は自ら「新皇」を名乗り、関東で独立した国を建てようとしましたが鎮圧されました。',
+          difficulty: 'standard',
         },
         {
           id: 'q19',
@@ -221,6 +239,7 @@ export const riseOfBushi: Topic = {
           options: ['関東地方', '九州地方', '東北地方', '近畿地方'],
           correctIndex: 2,
           explanation: '前九年合戦は東北地方（陸奥国）で起こった戦乱で、源義家が活躍して東国武士の信頼を得ました。',
+          difficulty: 'standard',
         },
         {
           id: 'q20',
@@ -228,6 +247,7 @@ export const riseOfBushi: Topic = {
           options: ['武士の身分が下がった', '武士が都に追放された', '武士の地位が高まった', '武士が農民に戻った'],
           correctIndex: 2,
           explanation: '反乱を鎮圧した武士は朝廷から認められ、武士の地位が向上するきっかけとなりました。',
+          difficulty: 'standard',
         },
         {
           id: 'q21',
@@ -235,6 +255,7 @@ export const riseOfBushi: Topic = {
           options: ['荘園は税が免除、公領は国司が管理し税が課された', '荘園は都に、公領は地方にあった', '荘園は武士の領地、公領は農民の土地', '荘園も公領も税は同じだった'],
           correctIndex: 0,
           explanation: '荘園は貴族や寺社が所有する税免除の私有地で、公領は国司が管理し税が課される土地でした。',
+          difficulty: 'standard',
         },
         {
           id: 'q22',
@@ -242,6 +263,7 @@ export const riseOfBushi: Topic = {
           options: ['天皇が荘園を増やすよう命じた', '地方の開発が進み有力貴族へ寄進する動きが広がった', '外国から土地を購入した', '公領がすべて荘園に変わった'],
           correctIndex: 1,
           explanation: '地方の開発が進み、開発領主が税をまぬがれるために有力な貴族に荘園を寄進する動きが広がりました。',
+          difficulty: 'standard',
         },
         {
           id: 'q23',
@@ -249,6 +271,7 @@ export const riseOfBushi: Topic = {
           options: ['約50年間', '約100年間', '約200年間', '約300年間'],
           correctIndex: 1,
           explanation: '奥州藤原氏は11世紀後半から12世紀後半まで約100年間にわたり、平泉を拠点に東北で繁栄しました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q24',
@@ -256,6 +279,7 @@ export const riseOfBushi: Topic = {
           options: ['税の免除権', '一族の土地管理・軍事指揮・争いの調停', '朝廷への出入り権', '外国との交易権'],
           correctIndex: 1,
           explanation: '惣領は一族の土地の管理、軍事の指揮、一族間の争いの調停などの権限を持っていました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q25',
@@ -263,6 +287,7 @@ export const riseOfBushi: Topic = {
           options: ['銀箔でおおわれた建物', '全体が金箔でおおわれた豪華な仏堂', '石造りの城', '木造の五重塔'],
           correctIndex: 1,
           explanation: '中尊寺金色堂は堂の全体が金箔でおおわれ、内部にも精巧な装飾がほどこされた豪華な仏堂です。',
+          difficulty: 'advanced',
         },
         {
           id: 'q26',
@@ -270,6 +295,7 @@ export const riseOfBushi: Topic = {
           options: ['朝廷への税を集めるため', '土地と農民を外敵や盗賊から守るため', '新しい土地を開墾させるため', '貿易品を運搬させるため'],
           correctIndex: 1,
           explanation: '荘園領主は武士を雇って荘園の土地と農民を外敵や盗賊から守らせました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q27',
@@ -277,6 +303,7 @@ export const riseOfBushi: Topic = {
           options: ['平将門の乱を鎮圧した', '前九年合戦・後三年合戦で源義家が活躍した', '荘園を寄進した', '天皇に直接仕えた'],
           correctIndex: 1,
           explanation: '源義家が東北の前九年合戦・後三年合戦で活躍し、東日本の武士たちから大きな信頼を得ました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q28',
@@ -284,6 +311,7 @@ export const riseOfBushi: Topic = {
           options: ['農業の発展', '仏教の広まり', '武家政権（鎌倉幕府）の成立', '遣唐使の派遣'],
           correctIndex: 2,
           explanation: '武士の成長は後の鎌倉幕府成立の基盤を築き、貴族にかわって武士が政治を行う時代の始まりとなりました。',
+          difficulty: 'advanced',
         },
       ],
     },

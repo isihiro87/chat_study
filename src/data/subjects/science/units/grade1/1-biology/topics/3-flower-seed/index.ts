@@ -166,171 +166,77 @@ export const flowerSeed: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'sci1-fs-fc1',
-        front: '受粉',
-        back: '花粉がめしべの柱頭につくことを何という？受粉後どうなる？',
-        explanation:
-          '受粉という。受粉すると子房が果実に、胚珠が種子になる。',
-      },
-      {
-        id: 'sci1-fs-fc2',
-        front: '離弁花と合弁花',
-        back: '花弁が1枚1枚離れている花と、花弁がくっついている花をそれぞれ何という？',
-        explanation:
-          '離弁花（サクラ、アブラナなど）と合弁花（ツツジ、アサガオなど）。',
-      },
-      {
-        id: 'sci1-fs-fc3',
-        front: '被子植物と裸子植物',
-        back: '胚珠が子房に包まれている植物と、むき出しの植物をそれぞれ何という？',
-        explanation:
-          '被子植物（胚珠が子房に包まれ果実ができる）と裸子植物（胚珠がむき出しで果実はできない）。裸子植物の例：マツ、イチョウ、スギ。',
-      },
-      {
-        id: 'sci1-fs-fc4',
-        front: '双子葉類と単子葉類',
-        back: '網状脈・主根と側根をもつのは双子葉類と単子葉類のどちら？',
-        explanation:
-          '双子葉類。単子葉類は平行脈・ひげ根をもつ。双子葉類の例：アブラナ、サクラ。単子葉類の例：ユリ、トウモロコシ。',
-      },
-      {
-        id: 'sci1-fs-fc5',
-        front: 'やく',
-        back: 'おしべの先端にある、花粉が入っている部分を何という？',
-        explanation:
-          'やくという。おしべの先端にあり、花粉が入っている袋状の部分。',
-      },
-      {
-        id: 'sci1-fs-fc6',
-        front: '柱頭',
-        back: 'めしべの先端部分を何という？なぜねばねばしている？',
-        explanation:
-          '柱頭という。花粉がつきやすくするためにねばねばしている。',
-      },
-      {
-        id: 'sci1-fs-fc7',
-        front: '子房と胚珠',
-        back: '受粉後、子房は何に、胚珠は何になる？',
-        explanation:
-          '子房は果実に、胚珠は種子になる。子房はめしべの根元のふくらんだ部分で、中に胚珠がある。',
-      },
-      {
-        id: 'sci1-fs-fc8',
-        front: '裸子植物の例',
-        back: '裸子植物の例を4つ挙げよ。',
-        explanation:
-          'マツ、イチョウ、スギ、ソテツ。いずれも胚珠がむき出しで、子房がないため果実をつくらない。',
-      },
-      {
-        id: 'sci1-fs-fc9',
-        front: 'マツの雄花と雌花',
-        back: 'マツの雄花のりん片には何がある？雌花のりん片には？',
-        explanation:
-          '雄花のりん片には花粉のう（花粉が入っている）。雌花のりん片には胚珠がむき出しでついている。',
-      },
-      {
-        id: 'sci1-fs-fc10',
-        front: '風媒花',
-        back: '裸子植物の花粉は何によって運ばれる？',
-        explanation:
-          '風によって運ばれる。マツの花粉には空気袋がついており、遠くまで飛ぶことができる。',
-      },
-      {
-        id: 'sci1-fs-fc11',
-        front: '子葉の枚数',
-        back: '双子葉類の子葉は何枚？単子葉類は？',
-        explanation:
-          '双子葉類は子葉2枚、単子葉類は子葉1枚。「双」は2つ、「単」は1つの意味。',
-      },
-      {
-        id: 'sci1-fs-fc12',
-        front: '双子葉類の例',
-        back: '双子葉類の植物を5つ挙げよ。',
-        explanation:
-          'アブラナ、サクラ、タンポポ、アサガオ、ヒマワリなど。網状脈で主根と側根をもつ。',
-      },
-      {
-        id: 'sci1-fs-fc13',
-        front: '単子葉類の例',
-        back: '単子葉類の植物を4つ挙げよ。',
-        explanation:
-          'トウモロコシ、ススメノカタビラ、イネ、ユリなど。平行脈でひげ根をもつ。',
-      },
-      {
-        id: 'fc14',
-        front: 'がく → 花弁 → おしべ → めしべ',
-        back: '花の外側から順に4つの部分を答えよ。',
-      },
-      {
-        id: 'fc15',
-        front: '子房',
-        back: 'めしべの根元のふくらんだ部分を何というか。',
-      },
-      {
-        id: 'fc16',
-        front: '花柱',
-        back: 'めしべの柱頭と子房の間の部分を何というか。',
-      },
-      {
-        id: 'fc17',
-        front: '離弁花',
-        back: 'サクラは離弁花と合弁花のどちらか。',
-      },
-      {
-        id: 'fc18',
-        front: '合弁花',
-        back: 'アサガオは離弁花と合弁花のどちらか。',
-      },
-      {
-        id: 'fc19',
-        front: '合弁花',
-        back: 'タンポポは離弁花と合弁花のどちらか。',
-      },
-      {
-        id: 'fc20',
-        front: '離弁花',
-        back: 'エンドウは離弁花と合弁花のどちらか。',
-      },
-      {
-        id: 'fc21',
-        front: 'つくらない（子房がないため）',
-        back: '裸子植物は果実をつくるか。',
-      },
+      { id: 'sci1-fs-fc1', front: '受粉', back: '花粉がめしべの柱頭につくことを何というか。', difficulty: 'basic' },
+      { id: 'sci1-fs-fc2', front: '子房が果実に、胚珠が種子になる', back: '受粉後、子房と胚珠はそれぞれ何になるか。', difficulty: 'basic' },
+      { id: 'sci1-fs-fc3', front: 'やく', back: 'おしべの先端にある、花粉が入っている部分を何というか。', difficulty: 'basic' },
+      { id: 'sci1-fs-fc4', front: '柱頭', back: 'めしべの先端部分を何というか。', difficulty: 'basic' },
+      { id: 'sci1-fs-fc5', front: '花粉がつきやすくするため', back: 'めしべの柱頭がねばねばしている理由は何か。', difficulty: 'basic' },
+      { id: 'sci1-fs-fc6', front: '子房', back: 'めしべの根元のふくらんだ部分を何というか。', difficulty: 'basic' },
+      { id: 'sci1-fs-fc7', front: '胚珠', back: '子房の中にあるものを何というか。', difficulty: 'basic' },
+      { id: 'sci1-fs-fc8', front: 'がく → 花弁 → おしべ → めしべ', back: '花の外側から順に4つの部分を答えよ。', difficulty: 'basic' },
+      { id: 'sci1-fs-fc9', front: '離弁花', back: '花弁が1枚1枚離れている花を何というか。', difficulty: 'basic' },
+      { id: 'sci1-fs-fc10', front: '合弁花', back: '花弁がくっついている花を何というか。', difficulty: 'basic' },
+      { id: 'sci1-fs-fc11', front: '被子植物', back: '胚珠が子房に包まれている植物を何というか。', difficulty: 'basic' },
+      { id: 'sci1-fs-fc12', front: '裸子植物', back: '胚珠がむき出しになっている植物を何というか。', difficulty: 'basic' },
+      { id: 'sci1-fs-fc13', front: '風によって運ばれる（風媒花）', back: '裸子植物の花粉は何によって運ばれるか。', difficulty: 'basic' },
+      { id: 'fc14', front: '花柱', back: 'めしべの柱頭と子房の間の部分を何というか。', difficulty: 'standard' },
+      { id: 'fc15', front: '離弁花', back: 'サクラは離弁花と合弁花のどちらか。', difficulty: 'standard' },
+      { id: 'fc16', front: '合弁花', back: 'アサガオは離弁花と合弁花のどちらか。', difficulty: 'standard' },
+      { id: 'fc17', front: '合弁花', back: 'タンポポは離弁花と合弁花のどちらか。', difficulty: 'standard' },
+      { id: 'fc18', front: '離弁花', back: 'エンドウは離弁花と合弁花のどちらか。', difficulty: 'standard' },
+      { id: 'fc19', front: 'つくらない（子房がないため）', back: '裸子植物は果実をつくるか。', difficulty: 'standard' },
+      { id: 'fc20', front: '種子植物', back: '種子をつくる植物をまとめて何というか。', difficulty: 'standard' },
+      { id: 'fc21', front: 'マツ、イチョウ、スギ、ソテツ', back: '裸子植物の例を4つ挙げよ。', difficulty: 'standard' },
       {
         id: 'fc22',
-        front: '種子植物',
-        back: '種子をつくる植物をまとめて何というか。',
+        front: '雄花のりん片に花粉のう、雌花のりん片に胚珠がむき出し',
+        back: 'マツの雄花と雌花のりん片にはそれぞれ何があるか。',
+        difficulty: 'standard',
       },
       {
         id: 'fc23',
-        front: '裸子植物',
-        back: 'イチョウは被子植物と裸子植物のどちらか。',
+        front: '空気袋がついていて風で遠くまで飛ぶことができるため',
+        back: 'マツの花粉に空気袋がついている理由を答えよ。',
+        difficulty: 'standard',
+      },
+      { id: 'fc24', front: '双子葉類は2枚、単子葉類は1枚', back: '双子葉類と単子葉類の子葉はそれぞれ何枚か。', difficulty: 'standard' },
+      { id: 'fc25', front: '網状脈', back: '双子葉類の葉脈の形を何というか。', difficulty: 'standard' },
+      { id: 'fc26', front: '平行脈', back: '単子葉類の葉脈の形を何というか。', difficulty: 'standard' },
+      { id: 'fc27', front: '主根と側根', back: '双子葉類の根のつくりは何か。', difficulty: 'standard' },
+      { id: 'fc28', front: 'ひげ根', back: '単子葉類の根のつくりは何か。', difficulty: 'standard' },
+      { id: 'fc29', front: '裸子植物', back: 'イチョウは被子植物と裸子植物のどちらか。', difficulty: 'standard' },
+      { id: 'fc30', front: '裸子植物', back: 'ソテツは被子植物と裸子植物のどちらか。', difficulty: 'standard' },
+      { id: 'fc31', front: '双子葉類', back: '網状脈・主根と側根をもつのは双子葉類と単子葉類のどちらか。', difficulty: 'standard' },
+      {
+        id: 'fc32',
+        front: 'アブラナ、サクラ、タンポポ、ヒマワリ、アサガオ',
+        back: '双子葉類の植物を5つ挙げよ。',
+        difficulty: 'standard',
+      },
+      { id: 'fc33', front: 'トウモロコシ、イネ、ユリ、ススメノカタビラ', back: '単子葉類の植物を4つ挙げよ。', difficulty: 'standard' },
+      {
+        id: 'fc34',
+        front: '果実はできない。果実は子房が変化したものであり、子房がない裸子植物では果実をつくれない',
+        back: '胚珠がむき出しで子房がない植物は受粉後に果実ができるか。理由も答えよ。',
+        difficulty: 'advanced',
       },
       {
-        id: 'fc24',
-        front: '裸子植物',
-        back: 'ソテツは被子植物と裸子植物のどちらか。',
+        id: 'fc35',
+        front: 'サクラは離弁花で花弁が1枚ずつ離れているため1枚ずつ散る。アサガオは合弁花で花弁がくっついているためまとまって落ちる',
+        back: 'サクラの花びらは1枚ずつ散るがアサガオはまとまって落ちる。この違いを花弁のつくりで説明せよ。',
+        difficulty: 'advanced',
       },
       {
-        id: 'fc25',
-        front: '網状脈',
-        back: '双子葉類の葉脈の形を何というか。',
+        id: 'fc36',
+        front: '被子植物だけ。裸子植物には花弁がないためこの分類は適用されない',
+        back: '離弁花と合弁花の分類は、被子植物と裸子植物のどちらだけに使われるか。',
+        difficulty: 'advanced',
       },
       {
-        id: 'fc26',
-        front: '平行脈',
-        back: '単子葉類の葉脈の形を何というか。',
-      },
-      {
-        id: 'fc27',
-        front: '主根と側根',
-        back: '双子葉類の根のつくりは何か。',
-      },
-      {
-        id: 'fc28',
-        front: 'ひげ根',
-        back: '単子葉類の根のつくりは何か。',
+        id: 'fc37',
+        front: '主根と側根。網状脈は双子葉類の特徴であり、双子葉類の根は主根と側根だから',
+        back: '葉脈が網の目のように広がっている植物の根のつくりはどうなっていると予想できるか。理由も答えよ。',
+        difficulty: 'advanced',
       },
     ],
     quiz: {
@@ -342,7 +248,8 @@ export const flowerSeed: Topic = {
           correctIndex: 2,
           explanation:
             '受粉すると胚珠が種子になります。子房は果実になります。柱頭は花粉がつく部分、やくは花粉が入っている部分です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-fs-q2',
           question: '次のうち、裸子植物はどれか？',
@@ -350,7 +257,8 @@ export const flowerSeed: Topic = {
           correctIndex: 3,
           explanation:
             'マツは裸子植物です。胚珠がむき出しで子房がないため、果実をつくりません。サクラ、アブラナ、ツツジは被子植物です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-fs-q3',
           question: '単子葉類の特徴として正しいものはどれか？',
@@ -363,7 +271,8 @@ export const flowerSeed: Topic = {
           correctIndex: 0,
           explanation:
             '単子葉類の葉脈は平行脈です。根はひげ根です。網状脈・主根と側根は双子葉類の特徴です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-fs-q4',
           question: '次のうち、合弁花はどれか？',
@@ -371,7 +280,8 @@ export const flowerSeed: Topic = {
           correctIndex: 1,
           explanation:
             'ツツジは合弁花です。花弁がくっついて1つにつながっています。サクラ、アブラナ、エンドウは花弁が1枚1枚離れている離弁花です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-fs-q5',
           question: 'おしべの先端にある、花粉が入っている部分を何というか？',
@@ -379,7 +289,8 @@ export const flowerSeed: Topic = {
           correctIndex: 1,
           explanation:
             'おしべの先端にある花粉が入っている部分は「やく」です。柱頭はめしべの先端、子房はめしべの根元のふくらみ、花柱は柱頭と子房の間の部分です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-fs-q6',
           question: 'マツの雌花のりん片についている胚珠はどのような状態か？',
@@ -387,7 +298,8 @@ export const flowerSeed: Topic = {
           correctIndex: 0,
           explanation:
             'マツは裸子植物なので、胚珠がむき出しになっています。子房がないため、果実をつくることができません。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-fs-q7',
           question: '次のうち、単子葉類の植物はどれか？',
@@ -395,7 +307,8 @@ export const flowerSeed: Topic = {
           correctIndex: 3,
           explanation:
             'トウモロコシは単子葉類です。子葉1枚、平行脈、ひげ根が特徴です。アブラナ、サクラ、ヒマワリは双子葉類です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-fs-q8',
           question: '裸子植物の花粉はおもに何によって運ばれるか？',
@@ -403,7 +316,8 @@ export const flowerSeed: Topic = {
           correctIndex: 2,
           explanation:
             '裸子植物の花粉は風によって運ばれます。マツの花粉には空気袋がついていて、遠くまで飛ぶことができます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'q9',
           question: '花の外側から順番に並べたとき、正しいものはどれか？',
@@ -416,7 +330,8 @@ export const flowerSeed: Topic = {
           correctIndex: 1,
           explanation:
             '花は外側から、がく→花弁→おしべ→めしべの順についています。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'q10',
           question: 'めしべの柱頭がねばねばしている理由は何か？',
@@ -429,7 +344,8 @@ export const flowerSeed: Topic = {
           correctIndex: 1,
           explanation:
             '柱頭がねばねばしているのは花粉がつきやすくするためです。受粉がスムーズに行われるようになっています。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'q11',
           question: '受粉後、果実になるのは花のどの部分か？',
@@ -437,7 +353,8 @@ export const flowerSeed: Topic = {
           correctIndex: 2,
           explanation:
             '受粉後、子房が果実になります。胚珠は種子になります。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q12',
           question: 'めしべの柱頭と子房の間の部分を何というか？',
@@ -445,7 +362,8 @@ export const flowerSeed: Topic = {
           correctIndex: 1,
           explanation:
             '柱頭と子房の間の部分は花柱です。めしべは柱頭・花柱・子房の3つの部分からなります。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q13',
           question: '次のうち、離弁花はどれか？',
@@ -453,7 +371,8 @@ export const flowerSeed: Topic = {
           correctIndex: 3,
           explanation:
             'アブラナは離弁花です。花弁が1枚1枚離れています。ツツジ・アサガオ・タンポポは花弁がくっついている合弁花です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q14',
           question: '次のうち、合弁花はどれか？',
@@ -461,7 +380,8 @@ export const flowerSeed: Topic = {
           correctIndex: 2,
           explanation:
             'アサガオは合弁花です。花弁がくっついて1つにつながっています。サクラ・エンドウ・アブラナは離弁花です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q15',
           question: '裸子植物が果実をつくらない理由として正しいものはどれか？',
@@ -474,7 +394,8 @@ export const flowerSeed: Topic = {
           correctIndex: 2,
           explanation:
             '裸子植物には子房がないため果実をつくることができません。果実は子房が発達したものです。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q16',
           question: '種子をつくる植物をまとめて何というか？',
@@ -482,7 +403,8 @@ export const flowerSeed: Topic = {
           correctIndex: 1,
           explanation:
             '種子をつくる植物を種子植物といいます。被子植物と裸子植物に分けられます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q17',
           question: '次のうち、裸子植物でないものはどれか？',
@@ -490,7 +412,8 @@ export const flowerSeed: Topic = {
           correctIndex: 3,
           explanation:
             'ツツジは被子植物（合弁花）です。マツ・イチョウ・ソテツは裸子植物です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q18',
           question: 'マツの花粉に空気袋がついている理由として正しいものはどれか？',
@@ -503,7 +426,8 @@ export const flowerSeed: Topic = {
           correctIndex: 2,
           explanation:
             'マツの花粉には空気袋がついていて、風で遠くまで飛ぶことができます。裸子植物は風媒花です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q19',
           question: '双子葉類の特徴の組み合わせとして正しいものはどれか？',
@@ -516,7 +440,8 @@ export const flowerSeed: Topic = {
           correctIndex: 1,
           explanation:
             '双子葉類は子葉2枚・網状脈・主根と側根がセットの特徴です。単子葉類は子葉1枚・平行脈・ひげ根です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q20',
           question: '次のうち、双子葉類の植物はどれか？',
@@ -524,7 +449,8 @@ export const flowerSeed: Topic = {
           correctIndex: 3,
           explanation:
             'ヒマワリは双子葉類です。子葉2枚、網状脈、主根と側根が特徴です。トウモロコシ・イネ・ユリは単子葉類です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q21',
           question: 'サクラは双子葉類と単子葉類のどちらか？',
@@ -532,7 +458,8 @@ export const flowerSeed: Topic = {
           correctIndex: 1,
           explanation:
             'サクラは双子葉類です。子葉が2枚で、葉脈は網状脈、根は主根と側根からなります。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q22',
           question: 'イネは双子葉類と単子葉類のどちらか？',
@@ -540,7 +467,8 @@ export const flowerSeed: Topic = {
           correctIndex: 1,
           explanation:
             'イネは単子葉類です。子葉が1枚で、葉脈は平行脈、根はひげ根です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q23',
           question: '被子植物を子葉の枚数で分けたとき、子葉が1枚のグループを何というか？',
@@ -548,7 +476,8 @@ export const flowerSeed: Topic = {
           correctIndex: 2,
           explanation:
             '子葉が1枚のグループを単子葉類といいます。子葉が2枚のグループは双子葉類です。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'q24',
           question: 'マツの雄花のりん片にあるものは何か？',
@@ -556,7 +485,8 @@ export const flowerSeed: Topic = {
           correctIndex: 2,
           explanation:
             'マツの雄花のりん片には花粉のう（花粉が入っている袋）があります。雌花のりん片には胚珠がむき出しでついています。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'q25',
           question: 'スギは被子植物と裸子植物のどちらか？',
@@ -564,7 +494,8 @@ export const flowerSeed: Topic = {
           correctIndex: 1,
           explanation:
             'スギは裸子植物です。胚珠がむき出しで子房がなく、果実をつくりません。マツ・イチョウ・ソテツも裸子植物です。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'q26',
           question: '離弁花と合弁花の分類は、被子植物と裸子植物のどちらだけに使われるか？',
@@ -572,7 +503,8 @@ export const flowerSeed: Topic = {
           correctIndex: 1,
           explanation:
             '離弁花・合弁花の分類は被子植物だけに使われます。裸子植物には花弁がないためこの分類は適用されません。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'q27',
           question: '胚珠が子房に包まれていない植物の特徴として正しいものはどれか？',
@@ -585,7 +517,8 @@ export const flowerSeed: Topic = {
           correctIndex: 1,
           explanation:
             '胚珠が子房に包まれていない植物は裸子植物で、子房がないため果実ができません。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'q28',
           question: '単子葉類の根のつくりとして正しいものはどれか？',
@@ -598,7 +531,8 @@ export const flowerSeed: Topic = {
           correctIndex: 1,
           explanation:
             '単子葉類の根はひげ根です。双子葉類は主根と側根からなります。',
-        },
+        difficulty: 'advanced',
+      },
       ],
     },
     examples: {

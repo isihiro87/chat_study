@@ -58,141 +58,169 @@ export const chineseCivilization: Topic = {
         id: 'fc1',
         front: '中国文明',
         back: '黄河や長江の流域で発生した文明は？',
+        difficulty: 'basic',
       },
       {
         id: 'fc2',
         front: '甲骨文字',
         back: '殷で占いの結果を記すのに使われた文字は？',
+        difficulty: 'basic',
       },
       {
         id: 'fc3',
         front: '周',
         back: '殷を滅ぼし、その後に支配が弱まった国は？',
+        difficulty: 'basic',
       },
       {
         id: 'fc4',
         front: '孔子',
         back: '紀元前6世紀に「仁」と「礼」を説いた人物は？',
+        difficulty: 'basic',
       },
       {
         id: 'fc5',
         front: '論語',
         back: '孔子の言行を弟子がまとめた書物は？',
+        difficulty: 'basic',
       },
       {
         id: 'fc6',
         front: '始皇帝',
         back: '紀元前3世紀に初めて中国を統一した王は？',
+        difficulty: 'basic',
       },
       {
         id: 'fc7',
         front: '万里の長城',
         back: '始皇帝が北方民族の侵入を防ぐために築いたのは？',
+        difficulty: 'basic',
       },
       {
         id: 'fc8',
         front: '漢',
         back: '秦の次に中国を統一し大帝国となった国は？',
+        difficulty: 'basic',
       },
       {
         id: 'fc9',
         front: 'シルクロード',
         back: '中国と西方を結んだ東西交易路の名称は？',
+        difficulty: 'basic',
       },
       {
         id: 'fc10',
         front: '兵馬俑',
         back: '始皇帝の墓のそばに埋められた兵士の焼き物は？',
+        difficulty: 'basic',
       },
       {
         id: 'fc11',
         front: '儒教',
         back: '孔子の教えをもとにした思想・学問は？',
+        difficulty: 'basic',
       },
       {
         id: 'fc12',
         front: '春秋戦国時代',
         back: '周の支配が弱まった後、多くの国が争った時代は？',
+        difficulty: 'basic',
       },
       {
         id: 'fc13',
         front: '劉邦',
         back: '漢を建国した人物は？',
+        difficulty: 'standard',
       },
       {
         id: 'fc14',
         front: '焚書坑儒',
         back: '始皇帝が書物を焼き儒学者を弾圧した政策は？',
+        difficulty: 'standard',
       },
       {
         id: 'fc15',
         front: '張騫',
         back: '漢の時代に西域に派遣され、シルクロードの開拓に貢献した人物は？',
+        difficulty: 'standard',
       },
       {
         id: 'fc16',
         front: '絹（シルク）',
         back: 'シルクロードを通じて中国から西方に運ばれた主な産物は？',
+        difficulty: 'standard',
       },
       {
         id: 'fc17',
         front: '度量衡の統一',
         back: '始皇帝が中国全土で長さ・重さ・容量の単位を統一したことを何という？',
+        difficulty: 'standard',
       },
       {
         id: 'fc18',
         front: '殷',
         back: '中国最古の王朝とされる国は？',
+        difficulty: 'standard',
       },
       {
         id: 'fc19',
         front: '仁',
         back: '孔子が説いた「人を思いやる心」を表す言葉は？',
+        difficulty: 'standard',
       },
       {
         id: 'fc20',
         front: '礼',
         back: '孔子が説いた「社会の秩序を守ること」を表す言葉は？',
+        difficulty: 'standard',
       },
       {
         id: 'fc21',
         front: '老子',
         back: '孔子と同時代に「無為自然」を説いた思想家は？',
+        difficulty: 'standard',
       },
       {
         id: 'fc22',
         front: '秦',
         back: '始皇帝が中国を統一した国は？',
+        difficulty: 'standard',
       },
       {
         id: 'fc23',
         front: '項羽',
         back: '秦の滅亡後に劉邦と天下を争った人物は？',
+        difficulty: 'advanced',
       },
       {
         id: 'fc24',
         front: '半両銭',
         back: '始皇帝が統一した丸い形の通貨は？',
+        difficulty: 'advanced',
       },
       {
         id: 'fc25',
         front: 'ラクダ',
         back: 'シルクロードの交易で砂漠を移動するのに使われた動物は？',
+        difficulty: 'advanced',
       },
       {
         id: 'fc26',
         front: '漢字',
         back: '甲骨文字が発展して現在使われている文字は？',
+        difficulty: 'advanced',
       },
       {
         id: 'fc27',
         front: '神権政治',
         back: '殷で行われた、占いによって神の意志を確認して政治を決める仕組みは？',
+        difficulty: 'advanced',
       },
       {
         id: 'fc28',
         front: '匈奴',
         back: '万里の長城で侵入を防ごうとした北方の遊牧民族は？',
+        difficulty: 'advanced',
       },
     ],
     quiz: {
@@ -203,6 +231,7 @@ export const chineseCivilization: Topic = {
           options: ['くさび形文字', '象形文字', '甲骨文字', 'アルファベット'],
           correctIndex: 2,
           explanation: '甲骨文字は亀の甲羅や牛の骨に刻まれた中国最古の文字です。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -210,6 +239,7 @@ export const chineseCivilization: Topic = {
           options: ['始皇帝', '孔子', '老子', '劉邦'],
           correctIndex: 1,
           explanation: '孔子は紀元前6世紀に「仁」（思いやり）と「礼」（秩序）を説きました。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -217,6 +247,7 @@ export const chineseCivilization: Topic = {
           options: ['始皇帝', '孔子', '劉邦', 'アレクサンドロス大王'],
           correctIndex: 0,
           explanation: '始皇帝は秦の王で、紀元前221年に初めて中国を統一しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q4',
@@ -224,6 +255,7 @@ export const chineseCivilization: Topic = {
           options: ['ピラミッド', 'コロッセオ', '水道橋', '万里の長城'],
           correctIndex: 3,
           explanation: '万里の長城は始皇帝が北方の遊牧民族の侵入を防ぐために築きました。',
+          difficulty: 'basic',
         },
         {
           id: 'q5',
@@ -232,6 +264,7 @@ export const chineseCivilization: Topic = {
           correctIndex: 3,
           explanation:
             'シルクロードは中国の絹（シルク）が西方に運ばれたことからこの名がつきました。',
+          difficulty: 'basic',
         },
         {
           id: 'q6',
@@ -239,6 +272,7 @@ export const chineseCivilization: Topic = {
           options: ['論語', '古事記', 'クルアーン', '聖書'],
           correctIndex: 0,
           explanation: '論語は孔子の教えや言葉を弟子たちがまとめた書物です。',
+          difficulty: 'basic',
         },
         {
           id: 'q7',
@@ -246,6 +280,7 @@ export const chineseCivilization: Topic = {
           options: ['度量衡の統一', '文字の統一', '焚書坑儒', '万里の長城'],
           correctIndex: 2,
           explanation: '焚書坑儒は始皇帝が思想統制のために行った政策です。',
+          difficulty: 'basic',
         },
         {
           id: 'q8',
@@ -253,6 +288,7 @@ export const chineseCivilization: Topic = {
           options: ['始皇帝', '劉邦', '孔子', '張騫'],
           correctIndex: 1,
           explanation: '劉邦は秦の滅亡後に漢を建国した人物です。',
+          difficulty: 'basic',
         },
         {
           id: 'q9',
@@ -260,6 +296,7 @@ export const chineseCivilization: Topic = {
           options: ['仏教', '道教', '儒教', '法家'],
           correctIndex: 2,
           explanation: '儒教は孔子の教えを基にした思想で、漢の時代に国の学問として採用されました。',
+          difficulty: 'basic',
         },
         {
           id: 'q10',
@@ -267,6 +304,7 @@ export const chineseCivilization: Topic = {
           options: ['粘土板', '亀の甲羅や牛の骨', '竹の簡', '石碑'],
           correctIndex: 1,
           explanation: '甲骨文字は亀の甲羅や牛の骨に刻まれ、占いの記録に使われました。',
+          difficulty: 'basic',
         },
         {
           id: 'q11',
@@ -274,6 +312,7 @@ export const chineseCivilization: Topic = {
           options: ['法律を守ること', '人を思いやる心', '戦いに勝つこと', '自然のままに生きること'],
           correctIndex: 1,
           explanation: '「仁」は人を思いやる心、他者への愛情や慈しみの気持ちを意味します。',
+          difficulty: 'standard',
         },
         {
           id: 'q12',
@@ -281,6 +320,7 @@ export const chineseCivilization: Topic = {
           options: ['縄文時代', '弥生時代', '春秋戦国時代', '古墳時代'],
           correctIndex: 2,
           explanation: '周の支配が弱まると多くの国が争う春秋戦国時代に入りました。',
+          difficulty: 'standard',
         },
         {
           id: 'q13',
@@ -288,6 +328,7 @@ export const chineseCivilization: Topic = {
           options: ['埴輪', '土偶', '兵馬俑', '銅鐸'],
           correctIndex: 2,
           explanation: '兵馬俑は始皇帝の墓のそばに埋められた兵士や馬の焼き物です。',
+          difficulty: 'standard',
         },
         {
           id: 'q14',
@@ -300,6 +341,7 @@ export const chineseCivilization: Topic = {
           ],
           correctIndex: 1,
           explanation: '中国の特産品である絹（シルク）が西方に運ばれたことからシルクロードと名づけられました。',
+          difficulty: 'standard',
         },
         {
           id: 'q15',
@@ -312,6 +354,7 @@ export const chineseCivilization: Topic = {
           ],
           correctIndex: 1,
           explanation: '始皇帝は中国全土で文字と度量衡（長さ・重さ・容量の単位）を統一しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q16',
@@ -324,6 +367,7 @@ export const chineseCivilization: Topic = {
           ],
           correctIndex: 2,
           explanation: '厳しい法律と過酷な労役に民が苦しみ、始皇帝の死後反乱が起きて秦は15年で滅亡しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q17',
@@ -331,6 +375,7 @@ export const chineseCivilization: Topic = {
           options: ['孔子', '始皇帝', '劉邦', '張騫'],
           correctIndex: 3,
           explanation: '張騫は漢の時代に西域に派遣され、シルクロードの開拓に貢献しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q18',
@@ -343,6 +388,7 @@ export const chineseCivilization: Topic = {
           ],
           correctIndex: 1,
           explanation: '殷では戦争・農業・天候など重要事項について、占いで神の意志を確認しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q19',
@@ -350,6 +396,7 @@ export const chineseCivilization: Topic = {
           options: ['始皇帝', '劉邦', '老子', '張騫'],
           correctIndex: 2,
           explanation: '老子は「無為自然」を説き、道教の祖とされる思想家です。',
+          difficulty: 'standard',
         },
         {
           id: 'q20',
@@ -357,6 +404,7 @@ export const chineseCivilization: Topic = {
           options: ['約100年', '約200年', '約400年', '約600年'],
           correctIndex: 2,
           explanation: '漢は前漢・後漢を合わせて約400年（紀元前202年〜紀元220年）続きました。',
+          difficulty: 'standard',
         },
         {
           id: 'q21',
@@ -364,6 +412,7 @@ export const chineseCivilization: Topic = {
           options: ['馬', 'ロバ', 'ラクダ', '象'],
           correctIndex: 2,
           explanation: 'ラクダは砂漠を長距離移動するのに適しており、シルクロードの交易で使われました。',
+          difficulty: 'standard',
         },
         {
           id: 'q22',
@@ -371,6 +420,7 @@ export const chineseCivilization: Topic = {
           options: ['金印', '銅鐸', '半両銭', '銅鏡'],
           correctIndex: 2,
           explanation: '半両銭は円形で中央に四角い穴がある形の通貨で、始皇帝が統一しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q23',
@@ -378,6 +428,7 @@ export const chineseCivilization: Topic = {
           options: ['ひらがな', 'アルファベット', '漢字', 'くさび形文字'],
           correctIndex: 2,
           explanation: '甲骨文字は次第に簡略化されて漢字へと発展しました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q24',
@@ -385,6 +436,7 @@ export const chineseCivilization: Topic = {
           options: ['アーリヤ人', 'ゲルマン人', '匈奴', 'ペルシャ人'],
           correctIndex: 2,
           explanation: '始皇帝は匈奴など北方の遊牧民族の侵入を防ぐために万里の長城を築きました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q25',
@@ -392,6 +444,7 @@ export const chineseCivilization: Topic = {
           options: ['孔子', '始皇帝', '項羽', '張騫'],
           correctIndex: 2,
           explanation: '項羽は楚の貴族出身で、劉邦との戦いに敗れました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q26',
@@ -404,6 +457,7 @@ export const chineseCivilization: Topic = {
           ],
           correctIndex: 1,
           explanation: '殷では占いによって神の意志を確認し政治を決める神権政治が行われました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q27',
@@ -411,6 +465,7 @@ export const chineseCivilization: Topic = {
           options: ['甲骨文字', '絹', '仏教', '万里の長城'],
           correctIndex: 2,
           explanation: 'シルクロードを通じて西方からガラス製品や仏教の教えなどが中国に伝わりました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q28',
@@ -423,6 +478,7 @@ export const chineseCivilization: Topic = {
           ],
           correctIndex: 1,
           explanation: '張騫は匈奴を挟み撃ちにするため大月氏と同盟を結ぶことを目的に派遣されました。',
+          difficulty: 'advanced',
         },
       ],
     },

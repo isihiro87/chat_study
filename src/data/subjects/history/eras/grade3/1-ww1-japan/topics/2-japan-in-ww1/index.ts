@@ -44,66 +44,16 @@ export const japanInWw1: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'fc1',
-        front: '日英同盟',
-        back: '日本が第一次世界大戦に参戦する理由となった同盟は？',
-        explanation: '1902年に結ばれた日本とイギリスの同盟。',
-      },
-      {
-        id: 'fc2',
-        front: '山東省',
-        back: '日本が第一次世界大戦中にドイツから奪った中国の地域は？',
-        explanation: 'ドイツが持っていた権益を日本が引き継いだ。',
-      },
-      {
-        id: 'fc3',
-        front: '南洋諸島',
-        back: '日本が第一次世界大戦中にドイツから占領した太平洋の島々は？',
-        explanation: '赤道以北の太平洋の島々を日本が占領した。',
-      },
-      {
-        id: 'fc4',
-        front: '二十一か条の要求',
-        back: '1915年に日本が中国に突きつけた、中国の主権を侵害する要求は？',
-        explanation: '袁世凱政府に対して出された。中国の反日感情が高まった。',
-      },
-      {
-        id: 'fc5',
-        front: '袁世凱',
-        back: '二十一か条の要求を受けた中国の大統領は？',
-        explanation: '中華民国の初代大統領で、日本の要求の大部分を受け入れた。',
-      },
-      {
-        id: 'fc6',
-        front: '連合国',
-        back: '第一次世界大戦で日本が参加した側の陣営は？',
-        explanation: 'イギリス・フランス・ロシアなどの陣営。',
-      },
-      {
-        id: 'fc7',
-        front: '大戦景気',
-        back: '第一次世界大戦中にアジア市場への輸出が増えて起きた日本の好景気は？',
-        explanation: 'ヨーロッパ諸国が戦争に集中する中で日本の輸出が急増した。',
-      },
-      {
-        id: 'fc8',
-        front: '成金',
-        back: '大戦景気で急に大きな富を得た人々を何と呼んだ？',
-        explanation: '造船業や貿易業で財を成した人々が多かった。',
-      },
-      {
-        id: 'fc9',
-        front: '造船業',
-        back: '大戦景気で特に発展した、船を作る産業は？',
-        explanation: 'ヨーロッパへの輸送需要が増え、日本の造船業が急成長した。',
-      },
-      {
-        id: 'fc10',
-        front: '権益',
-        back: '条約などで認められた、ある地域での経済的・政治的な利益を何という？',
-        explanation: '山東省のドイツ権益を日本が継承しようとした。',
-      },
+      { id: 'fc1', front: '日英同盟', back: '日本が第一次世界大戦に参戦する理由となった同盟は？', difficulty: 'basic' },
+      { id: 'fc2', front: '山東省', back: '日本が第一次世界大戦中にドイツから奪った中国の地域は？', difficulty: 'basic' },
+      { id: 'fc3', front: '二十一か条の要求', back: '1915年に日本が中国に突きつけた、中国の主権を侵害する要求は？', explanation: '袁世凱政府に対して出された。中国の反日感情が高まった。', difficulty: 'basic' },
+      { id: 'fc4', front: '大戦景気', back: '第一次世界大戦中にアジア市場への輸出が増えて起きた日本の好景気は？', difficulty: 'basic' },
+      { id: 'fc5', front: '袁世凱', back: '二十一か条の要求を受けた中国の大統領は？', explanation: '中華民国の初代大統領で、日本の要求の大部分を受け入れた。', difficulty: 'standard' },
+      { id: 'fc6', front: '成金', back: '大戦景気で急に大きな富を得た人々を何と呼んだ？', difficulty: 'standard' },
+      { id: 'fc7', front: '権益', back: '条約などで認められた、ある地域での経済的・政治的な利益を何という？', explanation: '山東省のドイツ権益を日本が継承しようとした。', difficulty: 'standard' },
+      { id: 'fc8', front: '南洋諸島', back: '日本が第一次世界大戦中にドイツから占領した太平洋の島々は？', difficulty: 'standard' },
+      { id: 'fc9', front: '日本参戦の本当の狙い', back: '日本が日英同盟を理由に参戦した背景には、どのような目的があったか？', explanation: 'ヨーロッパの列強が戦争に集中する間にアジアでの勢力拡大を狙った。', difficulty: 'advanced' },
+      { id: 'fc10', front: '二十一か条の要求の影響', back: '二十一か条の要求は中国国内にどのような影響をもたらしたか？', explanation: '中国国民の反日感情が高まり、後の五・四運動につながった。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -114,6 +64,7 @@ export const japanInWw1: Topic = {
           correctIndex: 1,
           explanation:
             '日本は日英同盟を理由に、イギリスの敵国ドイツに対して宣戦布告しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -127,6 +78,7 @@ export const japanInWw1: Topic = {
           correctIndex: 3,
           explanation:
             '二十一か条の要求は、山東省の権益継承や南満州の権益拡大などを含む要求でした。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -135,6 +87,7 @@ export const japanInWw1: Topic = {
           correctIndex: 2,
           explanation:
             '日本は中国の山東省にあったドイツの権益地を占領しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q4',
@@ -143,6 +96,7 @@ export const japanInWw1: Topic = {
           correctIndex: 0,
           explanation:
             'ヨーロッパ諸国が戦争に集中する中、日本はアジア市場への輸出を伸ばし大戦景気を迎えました。',
+          difficulty: 'standard',
         },
       ],
     },

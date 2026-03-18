@@ -65,34 +65,34 @@ export const kamakuraCulture: Topic = {
     },
     videos: [],
     flashcards: [
-      { id: 'fc1', front: '金剛力士像', back: '東大寺南大門にある、運慶・快慶らが作った力強い彫刻は？' },
-      { id: 'fc2', front: '運慶', back: '東大寺南大門の金剛力士像を作った代表的な仏師は？' },
-      { id: 'fc3', front: '快慶', back: '運慶とともに金剛力士像を制作した仏師は？' },
-      { id: 'fc4', front: '平家物語', back: '平氏の繁栄と滅亡をえがき、琵琶法師によって語り広められた軍記物語は？' },
-      { id: 'fc5', front: '琵琶法師', back: '平家物語を琵琶の伴奏で各地に語り歩いた芸能者は？' },
-      { id: 'fc6', front: '方丈記', back: '鴨長明が人生のはかなさや世の中の乱れを書いた随筆は？' },
-      { id: 'fc7', front: '鴨長明', back: '方丈記を書いた人物は？' },
-      { id: 'fc8', front: '徒然草', back: '兼好法師がくらしの中の気づきや世の中の様子を記した随筆は？' },
-      { id: 'fc9', front: '兼好法師', back: '徒然草を書いた人物は？（吉田兼好ともいう）' },
-      { id: 'fc10', front: '新古今和歌集', back: '後鳥羽上皇の命令で編集された和歌集は？' },
-      { id: 'fc11', front: '法然', back: '「南無阿弥陀仏」と念仏を唱えれば救われると説いた浄土宗の開祖は？' },
-      { id: 'fc12', front: '親鸞', back: '法然の弟子で、阿弥陀如来を信じる浄土真宗を開いたのは？' },
-      { id: 'fc13', front: '一遍', back: '「踊念仏」を広め、時宗を開いた人物は？' },
-      { id: 'fc14', front: '日蓮', back: '法華経の題目「南無妙法蓮華経」を唱えて救われると説いたのは？' },
-      { id: 'fc15', front: '栄西', back: '臨済宗を日本に伝え、座禅と問答を重視した人物は？' },
-      { id: 'fc16', front: '道元', back: '曹洞宗を日本に伝え、ひたすら座禅を行うことを説いた人物は？' },
-      { id: 'fc17', front: '臨済宗', back: '栄西が伝えた禅宗の宗派で、座禅と問答を重視するのは？' },
-      { id: 'fc18', front: '曹洞宗', back: '道元が伝えた禅宗の宗派で、ひたすら座禅（只管打坐）を行うのは？' },
-      { id: 'fc19', front: '浄土宗', back: '法然が開いた、念仏を唱えれば救われると説く宗派は？' },
-      { id: 'fc20', front: '浄土真宗', back: '親鸞が開いた、阿弥陀仏を信じる心を重視する宗派は？' },
-      { id: 'fc21', front: '時宗', back: '一遍が開いた、踊念仏で知られる宗派は？' },
-      { id: 'fc22', front: '日蓮宗', back: '日蓮が開いた、法華経の題目を重視する宗派は？（法華宗ともいう）' },
-      { id: 'fc23', front: '南無阿弥陀仏', back: '浄土宗・浄土真宗で唱える念仏は？' },
-      { id: 'fc24', front: '南無妙法蓮華経', back: '日蓮宗で唱える題目は？' },
-      { id: 'fc25', front: '只管打坐', back: '道元が説いた、ひたすら座禅を行うことを何という？' },
-      { id: 'fc26', front: '随筆', back: '方丈記と徒然草に共通する文学のジャンルは？' },
-      { id: 'fc27', front: '軍記物語', back: '平家物語のような武士の戦いを描いた文学のジャンルは？' },
-      { id: 'fc28', front: '祇園精舎の鐘の声', back: '平家物語の冒頭の有名な一節の最初の部分は？' },
+      { id: 'fc1', front: '金剛力士像', back: '東大寺南大門にある、運慶・快慶らが作った力強い彫刻は？', difficulty: 'basic' },
+      { id: 'fc2', front: '運慶', back: '東大寺南大門の金剛力士像を作った代表的な仏師は？', difficulty: 'basic' },
+      { id: 'fc3', front: '快慶', back: '運慶とともに金剛力士像を制作した仏師は？', difficulty: 'basic' },
+      { id: 'fc4', front: '平家物語', back: '平氏の繁栄と滅亡をえがき、琵琶法師によって語り広められた軍記物語は？', difficulty: 'basic' },
+      { id: 'fc5', front: '琵琶法師', back: '平家物語を琵琶の伴奏で各地に語り歩いた芸能者は？', difficulty: 'basic' },
+      { id: 'fc6', front: '方丈記', back: '鴨長明が人生のはかなさや世の中の乱れを書いた随筆は？', difficulty: 'basic' },
+      { id: 'fc7', front: '鴨長明', back: '方丈記を書いた人物は？', difficulty: 'basic' },
+      { id: 'fc8', front: '徒然草', back: '兼好法師がくらしの中の気づきや世の中の様子を記した随筆は？', difficulty: 'basic' },
+      { id: 'fc9', front: '兼好法師', back: '徒然草を書いた人物は？（吉田兼好ともいう）', difficulty: 'basic' },
+      { id: 'fc10', front: '新古今和歌集', back: '後鳥羽上皇の命令で編集された和歌集は？', difficulty: 'basic' },
+      { id: 'fc11', front: '法然', back: '「南無阿弥陀仏」と念仏を唱えれば救われると説いた浄土宗の開祖は？', difficulty: 'basic' },
+      { id: 'fc12', front: '親鸞', back: '法然の弟子で、阿弥陀如来を信じる浄土真宗を開いたのは？', difficulty: 'basic' },
+      { id: 'fc13', front: '一遍', back: '「踊念仏」を広め、時宗を開いた人物は？', difficulty: 'standard' },
+      { id: 'fc14', front: '日蓮', back: '法華経の題目「南無妙法蓮華経」を唱えて救われると説いたのは？', difficulty: 'standard' },
+      { id: 'fc15', front: '栄西', back: '臨済宗を日本に伝え、座禅と問答を重視した人物は？', difficulty: 'standard' },
+      { id: 'fc16', front: '道元', back: '曹洞宗を日本に伝え、ひたすら座禅を行うことを説いた人物は？', difficulty: 'standard' },
+      { id: 'fc17', front: '臨済宗', back: '栄西が伝えた禅宗の宗派で、座禅と問答を重視するのは？', difficulty: 'standard' },
+      { id: 'fc18', front: '曹洞宗', back: '道元が伝えた禅宗の宗派で、ひたすら座禅（只管打坐）を行うのは？', difficulty: 'standard' },
+      { id: 'fc19', front: '浄土宗', back: '法然が開いた、念仏を唱えれば救われると説く宗派は？', difficulty: 'standard' },
+      { id: 'fc20', front: '浄土真宗', back: '親鸞が開いた、阿弥陀仏を信じる心を重視する宗派は？', difficulty: 'standard' },
+      { id: 'fc21', front: '時宗', back: '一遍が開いた、踊念仏で知られる宗派は？', difficulty: 'standard' },
+      { id: 'fc22', front: '日蓮宗', back: '日蓮が開いた、法華経の題目を重視する宗派は？（法華宗ともいう）', difficulty: 'standard' },
+      { id: 'fc23', front: '南無阿弥陀仏', back: '浄土宗・浄土真宗で唱える念仏は？', difficulty: 'advanced' },
+      { id: 'fc24', front: '南無妙法蓮華経', back: '日蓮宗で唱える題目は？', difficulty: 'advanced' },
+      { id: 'fc25', front: '只管打坐', back: '道元が説いた、ひたすら座禅を行うことを何という？', difficulty: 'advanced' },
+      { id: 'fc26', front: '随筆', back: '方丈記と徒然草に共通する文学のジャンルは？', difficulty: 'advanced' },
+      { id: 'fc27', front: '軍記物語', back: '平家物語のような武士の戦いを描いた文学のジャンルは？', difficulty: 'advanced' },
+      { id: 'fc28', front: '祇園精舎の鐘の声', back: '平家物語の冒頭の有名な一節の最初の部分は？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -102,6 +102,7 @@ export const kamakuraCulture: Topic = {
           options: ['釈迦三尊像', '阿修羅像', '金剛力士像', '大仏'],
           correctIndex: 2,
           explanation: '金剛力士像は運慶・快慶らが制作した鎌倉文化を代表する力強い彫刻です。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -109,6 +110,7 @@ export const kamakuraCulture: Topic = {
           options: ['一遍', '親鸞', '日蓮', '法然'],
           correctIndex: 3,
           explanation: '法然は念仏を唱えることで誰でも救われると説き、浄土宗を開きました。弟子の親鸞は浄土真宗を開きました。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -116,6 +118,7 @@ export const kamakuraCulture: Topic = {
           options: ['平家物語', '徒然草', '方丈記', '源氏物語'],
           correctIndex: 0,
           explanation: '平家物語は琵琶法師が琵琶の伴奏にあわせて各地で語り広めた軍記物語です。',
+          difficulty: 'basic',
         },
         {
           id: 'q4',
@@ -123,6 +126,7 @@ export const kamakuraCulture: Topic = {
           options: ['日蓮', '親鸞', '一遍', '栄西'],
           correctIndex: 1,
           explanation: '親鸞は法然の弟子で、阿弥陀如来を信じる心さえあれば救われると説き、浄土真宗を開きました。',
+          difficulty: 'basic',
         },
         {
           id: 'q5',
@@ -130,6 +134,7 @@ export const kamakuraCulture: Topic = {
           options: ['禅宗', '日蓮宗', '時宗', '浄土宗'],
           correctIndex: 0,
           explanation: '禅宗は座禅による修行で悟りを目指す教えで、武士の精神に合い広く支持されました。臨済宗（栄西）と曹洞宗（道元）があります。',
+          difficulty: 'basic',
         },
         {
           id: 'q6',
@@ -137,6 +142,7 @@ export const kamakuraCulture: Topic = {
           options: ['方丈記', '徒然草', '枕草子', '平家物語'],
           correctIndex: 1,
           explanation: '徒然草は兼好法師が書いた随筆で、鴨長明の方丈記とともに鎌倉時代の代表的な文学作品です。',
+          difficulty: 'basic',
         },
         {
           id: 'q7',
@@ -144,6 +150,7 @@ export const kamakuraCulture: Topic = {
           options: ['道元', '法然', '栄西', '日蓮'],
           correctIndex: 2,
           explanation: '栄西は臨済宗を中国から日本に伝えました。座禅に加えて問答（公案）を重視する教えです。',
+          difficulty: 'basic',
         },
         {
           id: 'q8',
@@ -151,6 +158,7 @@ export const kamakuraCulture: Topic = {
           options: ['法然', '親鸞', '日蓮', '一遍'],
           correctIndex: 3,
           explanation: '一遍は踊りながら念仏を唱える踊念仏で全国を巡り、時宗を広めました。',
+          difficulty: 'basic',
         },
         {
           id: 'q9',
@@ -158,6 +166,7 @@ export const kamakuraCulture: Topic = {
           options: ['栄西', '一遍', '道元', '親鸞'],
           correctIndex: 2,
           explanation: '道元は曹洞宗を日本に伝え、ひたすら座禅を行う「只管打坐」を説きました。',
+          difficulty: 'basic',
         },
         {
           id: 'q10',
@@ -165,6 +174,7 @@ export const kamakuraCulture: Topic = {
           options: ['新古今和歌集', '古今和歌集', '万葉集', '百人一首'],
           correctIndex: 0,
           explanation: '新古今和歌集は後鳥羽上皇の命令で編集され、幽玄で余情のある新しい和歌の世界を開きました。',
+          difficulty: 'basic',
         },
         {
           id: 'q11',
@@ -172,6 +182,7 @@ export const kamakuraCulture: Topic = {
           options: ['徒然草', '枕草子', '平家物語', '方丈記'],
           correctIndex: 3,
           explanation: '方丈記は鴨長明が書いた随筆で、災害や社会の乱れを通して人生の無常を記しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q12',
@@ -179,6 +190,7 @@ export const kamakuraCulture: Topic = {
           options: ['法然', '日蓮', '一遍', '親鸞'],
           correctIndex: 1,
           explanation: '日蓮は法華経の題目を唱えることが唯一の救いの道であると説き、日蓮宗（法華宗）を開きました。',
+          difficulty: 'standard',
         },
         {
           id: 'q13',
@@ -186,6 +198,7 @@ export const kamakuraCulture: Topic = {
           options: ['優美でおだやかな表現', '写実的で力強い表現', '抽象的な幾何学模様', '小さく繊細な作品'],
           correctIndex: 1,
           explanation: '金剛力士像は写実的で力強い表現が特徴で、筋肉の描写や動きの表現に優れています。',
+          difficulty: 'standard',
         },
         {
           id: 'q14',
@@ -193,6 +206,7 @@ export const kamakuraCulture: Topic = {
           options: ['戒律系・修行系・信仰系', '念仏系・題目系・座禅系', '天台系・真言系・禅系', '密教系・顕教系・浄土系'],
           correctIndex: 1,
           explanation: '鎌倉新仏教は念仏系（浄土宗・浄土真宗・時宗）、題目系（日蓮宗）、座禅系（臨済宗・曹洞宗）の3系統に分けられます。',
+          difficulty: 'standard',
         },
         {
           id: 'q15',
@@ -200,6 +214,7 @@ export const kamakuraCulture: Topic = {
           options: ['朝廷が広めるよう命じた', '念仏や題目を唱えるだけで救われるという簡潔な教えだったため', '武士が強制した', '外国から伝わったため'],
           correctIndex: 1,
           explanation: '念仏や題目を唱えるだけで救われるという簡潔でわかりやすい教えだったため、庶民にも広まりました。',
+          difficulty: 'standard',
         },
         {
           id: 'q16',
@@ -207,6 +222,7 @@ export const kamakuraCulture: Topic = {
           options: ['どちらも庶民中心', '平安は貴族中心で複雑、鎌倉は簡単な実践で庶民も救われる', '平安は座禅中心', '違いはなかった'],
           correctIndex: 1,
           explanation: '平安時代の仏教は貴族中心で修行や儀式が複雑でしたが、鎌倉新仏教は庶民でもわかりやすい簡単な実践で救われるとしました。',
+          difficulty: 'standard',
         },
         {
           id: 'q17',
@@ -214,6 +230,7 @@ export const kamakuraCulture: Topic = {
           options: ['貴族だけが楽しめた', '文字が読めない人々にも物語を届けた', '仏教を広めるため', '朝廷の命令で行った'],
           correctIndex: 1,
           explanation: '琵琶法師は琵琶の伴奏にあわせて語ることで、文字が読めない人々にも物語を届けました。',
+          difficulty: 'standard',
         },
         {
           id: 'q18',
@@ -221,6 +238,7 @@ export const kamakuraCulture: Topic = {
           options: ['念仏が簡単だったから', '座禅で精神を鍛える教えが武士の生き方に合っていたから', '朝廷が禅宗を推奨したから', '貿易で利益が得られたから'],
           correctIndex: 1,
           explanation: '座禅で自分を鍛え精神を集中させる教えが、武士の生き方や精神に合っていたため好まれました。',
+          difficulty: 'standard',
         },
         {
           id: 'q19',
@@ -228,6 +246,7 @@ export const kamakuraCulture: Topic = {
           options: ['座禅で悟りを開く', '念仏「南無阿弥陀仏」を唱えて救われる', '法華経の題目を唱える', '厳しい修行で悟る'],
           correctIndex: 1,
           explanation: '浄土宗（法然）・浄土真宗（親鸞）・時宗（一遍）はいずれも念仏を唱えることで救われるという教えです。',
+          difficulty: 'standard',
         },
         {
           id: 'q20',
@@ -235,6 +254,7 @@ export const kamakuraCulture: Topic = {
           options: ['浄土宗＝親鸞、浄土真宗＝法然', '臨済宗＝道元、曹洞宗＝栄西', '浄土宗＝法然、浄土真宗＝親鸞', '時宗＝日蓮、日蓮宗＝一遍'],
           correctIndex: 2,
           explanation: '浄土宗の開祖は法然、浄土真宗の開祖は親鸞です。親鸞は法然の弟子でした。',
+          difficulty: 'standard',
         },
         {
           id: 'q21',
@@ -242,6 +262,7 @@ export const kamakuraCulture: Topic = {
           options: ['藤原道長', '後鳥羽上皇', '足利義満', '鴨長明'],
           correctIndex: 1,
           explanation: '新古今和歌集は後鳥羽上皇の命令で編集された和歌集です。',
+          difficulty: 'standard',
         },
         {
           id: 'q22',
@@ -249,6 +270,7 @@ export const kamakuraCulture: Topic = {
           options: ['武士の戦い', '人生のはかなさや世の中の乱れ', '庶民の日常生活', '恋愛の歌'],
           correctIndex: 1,
           explanation: '方丈記は鴨長明が災害や社会の乱れを通して人生のはかなさ（無常）を記した随筆です。',
+          difficulty: 'standard',
         },
         {
           id: 'q23',
@@ -256,6 +278,7 @@ export const kamakuraCulture: Topic = {
           options: ['臨済宗は念仏、曹洞宗は題目', '臨済宗は座禅と問答を重視、曹洞宗はひたすら座禅', '臨済宗は庶民向け、曹洞宗は貴族向け', '違いはない'],
           correctIndex: 1,
           explanation: '臨済宗は座禅に加えて問答（公案）を重視し、曹洞宗はひたすら座禅を行う（只管打坐）ことを重視しました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q24',
@@ -263,6 +286,7 @@ export const kamakuraCulture: Topic = {
           options: ['春はあけぼの', '祇園精舎の鐘の声、諸行無常の響きあり', 'つれづれなるままに', 'ゆく河の流れは絶えずして'],
           correctIndex: 1,
           explanation: '「祇園精舎の鐘の声、諸行無常の響きあり」は平家物語の冒頭の有名な一節です。',
+          difficulty: 'advanced',
         },
         {
           id: 'q25',
@@ -270,6 +294,7 @@ export const kamakuraCulture: Topic = {
           options: ['貴族の優美な作品が多いから', '金剛力士像のような写実的彫刻と平家物語のような軍記物語が生まれたから', '座禅の教えが中心だから', '外国の影響が大きいから'],
           correctIndex: 1,
           explanation: '美術面では写実的で力強い彫刻、文学面では武士の戦いを描いた軍記物語が生まれたため「力強い」と評されます。',
+          difficulty: 'advanced',
         },
         {
           id: 'q26',
@@ -277,6 +302,7 @@ export const kamakuraCulture: Topic = {
           options: ['念仏を唱えること', '問答で修行すること', 'ひたすら座禅を行うこと', '各地を巡ること'],
           correctIndex: 2,
           explanation: '只管打坐は「ひたすら座禅を行う」という意味で、道元の曹洞宗の中心的な教えです。',
+          difficulty: 'advanced',
         },
         {
           id: 'q27',
@@ -284,6 +310,7 @@ export const kamakuraCulture: Topic = {
           options: ['読経念仏', '写経念仏', '踊念仏', '黙想念仏'],
           correctIndex: 2,
           explanation: '一遍は踊りながら念仏を唱える「踊念仏」で全国を巡り、時宗を広めました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q28',
@@ -291,6 +318,7 @@ export const kamakuraCulture: Topic = {
           options: ['紫式部', '清少納言', '鴨長明', '吉田兼好'],
           correctIndex: 3,
           explanation: '兼好法師は吉田兼好ともいい、徒然草を書いた鎌倉時代の随筆家です。',
+          difficulty: 'advanced',
         },
       ],
     },

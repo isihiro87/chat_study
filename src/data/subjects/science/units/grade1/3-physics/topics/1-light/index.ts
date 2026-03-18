@@ -153,182 +153,34 @@ export const light: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'sci1-light-fc1',
-        front: '光源',
-        back: '自ら光を出す物体（太陽・電球・蛍光灯・LEDなど）',
-        explanation:
-          '月やダイヤモンドのように光を反射しているだけの物体は光源ではありません。',
-      },
-      {
-        id: 'sci1-light-fc2',
-        front: '光の直進',
-        back: '光が同じ物質の中をまっすぐ進む性質',
-        explanation:
-          '光源から出た光はまっすぐ進みます。物が見えるのは、光源の光が物体で反射し目に届くからです。',
-      },
-      {
-        id: 'sci1-light-fc3',
-        front: '入射角',
-        back: '入ってくる光と、境界面に垂直な直線（法線）のなす角',
-        explanation:
-          '注意：鏡の面との角度ではなく、面に垂直な直線との角度です。',
-      },
-      {
-        id: 'sci1-light-fc4',
-        front: '反射角',
-        back: '反射した光と、境界面に垂直な直線（法線）のなす角',
-        explanation:
-          '反射の法則により、反射角は常に入射角と等しくなります。',
-      },
-      {
-        id: 'sci1-light-fc5',
-        front: '反射の法則',
-        back: '入射角と反射角は常に等しい',
-        explanation:
-          '光が鏡などの面に当たるとき、入射角と反射角は必ず等しくなります。これは乱反射でも個々の反射では成り立っています。',
-      },
-      {
-        id: 'sci1-light-fc6',
-        front: '乱反射',
-        back: 'ざらざらした面で光がさまざまな方向に反射する現象',
-        explanation:
-          '紙に書いた文字がどの方向からも読めるのは、乱反射のおかげです。個々の反射では反射の法則が成り立っています。',
-      },
-      {
-        id: 'sci1-light-fc7',
-        front: '鏡にうつる像の位置',
-        back: '鏡の面に対して物体と対称（線対称）の位置にできる',
-        explanation:
-          '像の大きさは物体と同じです。全身を映すには身長の半分の高さの鏡があれば十分です。',
-      },
-      {
-        id: 'sci1-light-fc8',
-        front: '光の屈折',
-        back: '光が異なる物質の境界面で進む方向が変わる現象',
-        explanation:
-          '空気からガラスや水に入ると屈折角＜入射角、逆に出るときは屈折角＞入射角になります。',
-      },
-      {
-        id: 'sci1-light-fc9',
-        front: '屈折角',
-        back: '屈折した光と、境界面に垂直な直線（法線）のなす角',
-        explanation:
-          '空気→水では屈折角＜入射角（法線に近づく）、水→空気では屈折角＞入射角（法線から遠ざかる）です。',
-      },
-      {
-        id: 'sci1-light-fc10',
-        front: '全反射',
-        back: '光が境界面ですべて反射し、向こう側に出ない現象',
-        explanation:
-          '水やガラスから空気中に出ようとする光の入射角がある角度以上になると全反射が起こります。光ファイバーに利用されています。',
-      },
-      {
-        id: 'sci1-light-fc11',
-        front: '光ファイバー',
-        back: '全反射を利用して光を遠くまで伝える繊維状の通信ケーブル',
-        explanation:
-          'ファイバー内部で光が全反射を繰り返しながら進むことで、光の信号を遠くまで伝えます。',
-      },
-      {
-        id: 'sci1-light-fc12',
-        front: '凸レンズ',
-        back: '中央がふくらんだレンズ。光を集めるはたらきがある',
-        explanation:
-          '虫めがねやカメラのレンズに使われています。光は凸レンズに入るときと出るときの2回屈折します。',
-      },
-      {
-        id: 'sci1-light-fc13',
-        front: '光軸',
-        back: '凸レンズの中心を通り、レンズの面に垂直な直線',
-        explanation:
-          '光軸に平行に入った光は、レンズを通ったあと焦点に集まります。',
-      },
-      {
-        id: 'sci1-light-fc14',
-        front: '焦点と焦点距離',
-        back: '焦点：平行光線が凸レンズを通って集まる点。焦点距離：レンズ中心から焦点までの距離',
-        explanation:
-          '焦点は凸レンズの両側に1つずつあります。焦点距離はレンズの性質を表す重要な値です。',
-      },
-      {
-        id: 'sci1-light-fc15',
-        front: '凸レンズの実像',
-        back: '焦点より遠くにある物体の像。上下左右が逆（倒立）で、スクリーンに映る',
-        explanation:
-          '焦点距離の2倍の位置で物体と同じ大きさ、2倍より遠いと小さく、焦点との間だと大きい実像ができます。',
-      },
-      {
-        id: 'sci1-light-fc16',
-        front: '凸レンズの虚像',
-        back: '焦点より近くにある物体の像。正立で大きく見え、スクリーンには映らない',
-        explanation:
-          '虫めがねで物を大きく見るのは虚像を利用しています。レンズを通して直接目で見ます。',
-      },
-      {
-        id: 'sci1-light-fc17',
-        front: '焦点距離の2倍の位置での像',
-        back: '物体と同じ大きさの倒立の実像ができる',
-        explanation:
-          '焦点距離の2倍の位置に物体を置くと、レンズの反対側の焦点距離の2倍の位置に、物体と等倍の実像ができます。',
-      },
-      {
-        id: 'sci1-light-fc18',
-        front: '凸レンズの作図で使う3本の光',
-        back: '①光軸に平行→焦点を通る ②中心を通る→直進 ③焦点を通る→光軸に平行',
-        explanation:
-          'この3本の光の道筋を描くことで、像の位置と大きさを作図で求めることができます。',
-      },
-      {
-        id: 'sci1-light-fc19',
-        front: '月は光源か',
-        back: '月は光源ではない。太陽の光を反射しているだけで、自ら光を出していない。',
-      },
-      {
-        id: 'sci1-light-fc20',
-        front: 'りんごが赤く見える理由',
-        back: '赤以外の光を吸収し、赤色の光だけを反射するから。',
-      },
-      {
-        id: 'sci1-light-fc21',
-        front: '黒い物体が黒く見える理由',
-        back: 'すべての色の光を吸収し、ほとんど反射しないため。',
-      },
-      {
-        id: 'sci1-light-fc22',
-        front: '白い物体が白く見える理由',
-        back: 'すべての色の光をほぼ均等に反射するため。',
-      },
-      {
-        id: 'sci1-light-fc23',
-        front: '入射角の定義',
-        back: '入ってくる光と境界面に垂直な直線（法線）のなす角。鏡の面との角度ではない。',
-      },
-      {
-        id: 'sci1-light-fc24',
-        front: '水中の物体の見え方',
-        back: '水中にある物体は実際の位置より浅く見える。水中から空気中に出る光が屈折するため。',
-      },
-      {
-        id: 'sci1-light-fc25',
-        front: '全反射が起こる条件',
-        back: 'ガラスや水から空気中に出ようとする光の入射角がある角度（臨界角）以上になったとき。',
-      },
-      {
-        id: 'sci1-light-fc26',
-        front: 'プリズムと光の分散',
-        back: '三角柱のガラス（プリズム）に白色光を通すとさまざまな色に分かれる（分散）。',
-      },
-      {
-        id: 'sci1-light-fc27',
-        front: '凸レンズの焦点にちょうど物体を置くと',
-        back: '像はできない。光が平行に進むため、どこにも集まらない。',
-      },
-      {
-        id: 'sci1-light-fc28',
-        front: '全身を映す鏡の大きさと距離の関係',
-        back: '全身を映す鏡の大きさは鏡と人の距離によって変わらない。距離にかかわらず身長の半分の鏡で全身が映る。',
-      },
+      { id: 'sci1-light-fc1', front: '光源', back: '自ら光を出す物体を何というか？', explanation: '太陽・電球・蛍光灯・LEDなどが例。月は光を反射しているだけなので光源ではない。', difficulty: 'basic' },
+      { id: 'sci1-light-fc2', front: '光の直進', back: '光が同じ物質の中をまっすぐ進む性質を何というか？', difficulty: 'basic' },
+      { id: 'sci1-light-fc3', front: '入ってくる光と、境界面に垂直な直線（法線）のなす角', back: '入射角とは何か？', explanation: '鏡の面との角度ではなく、法線との角度であることに注意。', difficulty: 'basic' },
+      { id: 'sci1-light-fc4', front: '入射角＝反射角（常に等しい）', back: '反射の法則の内容を答えよ。', explanation: '乱反射でも個々の反射では成り立っている。', difficulty: 'basic' },
+      { id: 'sci1-light-fc5', front: '乱反射', back: 'ざらざらした面で光がさまざまな方向に反射する現象を何というか？', explanation: '紙に書いた文字がどの方向からも読めるのは乱反射のおかげ。', difficulty: 'basic' },
+      { id: 'sci1-light-fc6', front: '鏡の面に対して物体と対称（線対称）の位置', back: '鏡にうつる像はどの位置にできるか？', explanation: '像の大きさは物体と同じ。', difficulty: 'basic' },
+      { id: 'sci1-light-fc7', front: '光が異なる物質の境界面で進む方向が変わる現象', back: '光の屈折とは何か？', difficulty: 'basic' },
+      { id: 'sci1-light-fc8', front: '光が境界面ですべて反射し、向こう側に出ない現象', back: '全反射とは何か？', explanation: '光ファイバーに利用されている。', difficulty: 'basic' },
+      { id: 'sci1-light-fc9', front: '全反射を利用して光を遠くまで伝える繊維状の通信ケーブル', back: '光ファイバーとは何か？', difficulty: 'basic' },
+      { id: 'sci1-light-fc10', front: '中央がふくらんだレンズで、光を集めるはたらきがある', back: '凸レンズとはどのようなレンズか？', difficulty: 'basic' },
+      { id: 'sci1-light-fc11', front: '凸レンズの中心を通り、レンズの面に垂直な直線', back: '光軸とは何か？', difficulty: 'standard' },
+      { id: 'sci1-light-fc12', front: '焦点：平行光線が凸レンズを通って集まる点。焦点距離：レンズ中心から焦点までの距離', back: '凸レンズの焦点と焦点距離をそれぞれ説明せよ。', explanation: '焦点は凸レンズの両側に1つずつある。', difficulty: 'standard' },
+      { id: 'sci1-light-fc13', front: '上下左右が逆（倒立）の実像。スクリーンに映る。', back: '凸レンズの焦点より遠くに物体を置いたとき、できる像はどのような像か？', explanation: '焦点距離の2倍で等倍、2倍より遠いと縮小、焦点との間だと拡大。', difficulty: 'standard' },
+      { id: 'sci1-light-fc14', front: '正立で物体より大きく見える虚像。スクリーンには映らない。', back: '凸レンズの焦点より近くに物体を置いたとき、見える像はどのような像か？', explanation: '虫めがねで物を大きく見るのはこの虚像を利用している。', difficulty: 'standard' },
+      { id: 'sci1-light-fc15', front: '物体と同じ大きさの倒立の実像ができる', back: '物体を焦点距離の2倍の位置に置くと、どのような像ができるか？', difficulty: 'standard' },
+      { id: 'sci1-light-fc16', front: '①光軸に平行→焦点を通る ②中心を通る→直進 ③焦点を通る→光軸に平行', back: '凸レンズの作図で使う3本の光の道筋を答えよ。', difficulty: 'standard' },
+      { id: 'sci1-light-fc17', front: '屈折角＜入射角（法線に近づくように曲がる）', back: '空気中からガラスや水に光が入るとき、入射角と屈折角の関係はどうなるか？', difficulty: 'standard' },
+      { id: 'sci1-light-fc18', front: '屈折角＞入射角（法線から遠ざかるように曲がる）', back: 'ガラスや水から空気中に光が出るとき、入射角と屈折角の関係はどうなるか？', difficulty: 'standard' },
+      { id: 'sci1-light-fc19', front: '光源ではない。太陽の光を反射しているだけで、自ら光を出していない。', back: '月は光源か？理由もあわせて答えよ。', difficulty: 'standard' },
+      { id: 'sci1-light-fc20', front: '赤以外の光を吸収し、赤色の光だけを反射するから', back: 'りんごが赤く見える理由を説明せよ。', difficulty: 'standard' },
+      { id: 'sci1-light-fc21', front: 'すべての色の光を吸収し、ほとんど反射しないため', back: '黒い物体が黒く見える理由を説明せよ。', difficulty: 'standard' },
+      { id: 'sci1-light-fc22', front: 'すべての色の光をほぼ均等に反射するため', back: '白い物体が白く見える理由を説明せよ。', difficulty: 'standard' },
+      { id: 'sci1-light-fc23', front: '実際の位置より浅く（浮き上がって）見える', back: '水中にある物体は実際の位置と比べてどう見えるか？', explanation: '水中から空気中に出る光が屈折するため。', difficulty: 'advanced' },
+      { id: 'sci1-light-fc24', front: 'ガラスや水から空気中に出ようとする光の入射角が臨界角以上になったとき', back: '全反射が起こる条件を述べよ。', explanation: '空気からガラスに入るときには全反射は起こらない。', difficulty: 'advanced' },
+      { id: 'sci1-light-fc25', front: 'さまざまな色（赤・橙・黄・緑・青・藍・紫）に分かれる（分散）', back: '三角柱のガラス（プリズム）に白色光を通すと何が起こるか？', difficulty: 'advanced' },
+      { id: 'sci1-light-fc26', front: '像はできない。光が平行に進むため、どこにも集まらない。', back: '凸レンズの焦点にちょうど物体を置くとどうなるか？', difficulty: 'advanced' },
+      { id: 'sci1-light-fc27', front: '変わらない。距離にかかわらず身長の半分の鏡で全身が映る。', back: '全身を映す鏡の大きさは、鏡と人の距離によって変わるか？', difficulty: 'advanced' },
+      { id: 'sci1-light-fc28', front: '2回（レンズに入るときと出るときで1回ずつ）', back: '光が凸レンズを通るとき、屈折は何回起こるか？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -344,7 +196,8 @@ export const light: Topic = {
           correctIndex: 0,
           explanation:
             '反射の法則により、入射角と反射角は常に等しくなります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-light-q2',
           question: '光が空気中から水中に進むとき、入射角と屈折角の関係はどうなるか？',
@@ -357,7 +210,8 @@ export const light: Topic = {
           correctIndex: 2,
           explanation:
             '空気中から水中に入るとき、光は境界面に近づくように曲がるため、屈折角は入射角より小さくなります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-light-q3',
           question: '全反射を利用しているものはどれか？',
@@ -370,7 +224,8 @@ export const light: Topic = {
           correctIndex: 1,
           explanation:
             '光ファイバーは全反射を利用して光を遠くまで伝えます。光がファイバー内で全反射を繰り返しながら進みます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-light-q4',
           question: '凸レンズの焦点より遠くに物体を置いたとき、できる像はどれか？',
@@ -383,7 +238,8 @@ export const light: Topic = {
           correctIndex: 3,
           explanation:
             '焦点より遠くに物体を置くと、上下左右が逆（倒立）の実像がスクリーンに映ります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-light-q5',
           question: 'ざらざらした面で光がさまざまな方向に反射する現象を何というか？',
@@ -396,7 +252,8 @@ export const light: Topic = {
           correctIndex: 2,
           explanation:
             '乱反射とは、ざらざらした面で光がさまざまな方向に反射する現象です。個々の反射では反射の法則は成り立っています。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-light-q6',
           question: 'りんごが赤く見える理由として正しいものはどれか？',
@@ -409,7 +266,8 @@ export const light: Topic = {
           correctIndex: 0,
           explanation:
             '物体の色は、その物体が反射する光の色で決まります。りんごは赤以外の色の光を吸収し、赤色の光だけを反射するため赤く見えます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-light-q7',
           question: '鏡にうつる像の位置について正しいものはどれか？',
@@ -422,7 +280,8 @@ export const light: Topic = {
           correctIndex: 3,
           explanation:
             '鏡にうつる像（虚像）は、鏡の面に対して物体と線対称の位置にできます。像の大きさは物体と同じです。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-light-q8',
           question: '凸レンズの焦点距離の2倍の位置に物体を置いたとき、できる実像の大きさはどうなるか？',
@@ -435,7 +294,8 @@ export const light: Topic = {
           correctIndex: 1,
           explanation:
             '焦点距離の2倍の位置に物体を置くと、レンズの反対側の2倍の位置に物体と同じ大きさの倒立の実像ができます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-light-q9',
           question: '物体を凸レンズに近づけていくと（焦点の外側で）、実像の大きさと位置はどう変わるか？',
@@ -448,7 +308,8 @@ export const light: Topic = {
           correctIndex: 1,
           explanation:
             '物体をレンズに近づけるほど実像は大きくなり、スクリーンの位置はレンズから遠くなります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-light-q10',
           question: '身長160cmの人が全身を平面鏡にうつすために必要な鏡の最小の高さはいくらか？',
@@ -461,7 +322,8 @@ export const light: Topic = {
           correctIndex: 2,
           explanation:
             '反射の法則から、全身を映すために必要な鏡の高さは身長の半分です。160cm÷2＝80cmあれば全身が映ります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-light-q11',
           question: '凸レンズの焦点の位置にちょうど物体を置くとどうなるか？',
@@ -474,7 +336,8 @@ export const light: Topic = {
           correctIndex: 0,
           explanation:
             '焦点の位置にある物体からの光は凸レンズを通ったあと平行に進むため、どこにも集まらず像はできません。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-light-q12',
           question: '焦点は凸レンズのどこにあるか？',
@@ -487,7 +350,8 @@ export const light: Topic = {
           correctIndex: 3,
           explanation:
             '焦点は凸レンズの両側に1つずつ、合計2つあります。どちらの側からも平行光線は焦点に集まります。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-light-q13',
           question: '月は光源か？',
@@ -495,7 +359,8 @@ export const light: Topic = {
           correctIndex: 1,
           explanation:
             '月は太陽の光を反射しているだけで、自ら光を出していないため光源ではありません。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-light-q14',
           question: '真っ暗な部屋で物が見えない理由はどれか？',
@@ -508,7 +373,8 @@ export const light: Topic = {
           correctIndex: 1,
           explanation:
             '光源がないと物体を反射する光がなく、目に光が届かないため見えません。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-light-q15',
           question: '入射角が40°のとき、反射角は何度か？',
@@ -516,7 +382,8 @@ export const light: Topic = {
           correctIndex: 1,
           explanation:
             '反射の法則により入射角＝反射角なので、入射角40°のとき反射角も40°です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-light-q16',
           question: '紙に書いた文字がどの方向からでも読めるのは、光のどのような現象のためか？',
@@ -524,7 +391,8 @@ export const light: Topic = {
           correctIndex: 2,
           explanation:
             '紙の表面はざらざらしているため乱反射が起こり、光がさまざまな方向に反射するのでどの方向からでも読めます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-light-q17',
           question: 'ガラスから空気中に光が出るとき、入射角と屈折角の関係はどうなるか？',
@@ -537,7 +405,8 @@ export const light: Topic = {
           correctIndex: 2,
           explanation:
             'ガラスから空気中に出るとき、光は境界面から遠ざかるように曲がるため、屈折角＞入射角になります。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-light-q18',
           question: '全反射は光が空気からガラスに入るときにも起こるか？',
@@ -550,7 +419,8 @@ export const light: Topic = {
           correctIndex: 1,
           explanation:
             '全反射は密度の大きい物質（ガラスや水）から小さい物質（空気）に光が出ようとするときだけ起こります。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-light-q19',
           question: '虚像はスクリーンに映すことができるか？',
@@ -558,7 +428,8 @@ export const light: Topic = {
           correctIndex: 1,
           explanation:
             '虚像は実際に光が集まってできるものではないため、スクリーンに映すことはできません。レンズを通して目で直接見ます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-light-q20',
           question: 'コップの水にストローを入れると曲がって見える理由はどれか？',
@@ -571,7 +442,8 @@ export const light: Topic = {
           correctIndex: 1,
           explanation:
             '水中のストローから出た光が水面で屈折して目に届くため、実際とは異なる位置にあるように見えます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-light-q21',
           question: '物体を凸レンズから遠ざけると、実像の大きさと位置はどう変化するか？',
@@ -584,7 +456,8 @@ export const light: Topic = {
           correctIndex: 1,
           explanation:
             '物体をレンズから遠ざけると実像は小さくなり、像の位置は焦点距離に近づきます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-light-q22',
           question: '光が凸レンズを通るとき、屈折は何回起こるか？',
@@ -592,7 +465,8 @@ export const light: Topic = {
           correctIndex: 1,
           explanation:
             '光が凸レンズを通るとき、レンズに入るときと出るときの2回屈折します。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-light-q23',
           question: '三角柱のガラス（プリズム）に白色光を通すと何が起こるか？',
@@ -605,7 +479,8 @@ export const light: Topic = {
           correctIndex: 1,
           explanation:
             'プリズムに白色光を通すと、光がさまざまな色（赤・橙・黄・緑・青・藍・紫）に分かれます。これを分散といいます。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci1-light-q24',
           question: '黒い物体が黒く見える理由はどれか？',
@@ -618,7 +493,8 @@ export const light: Topic = {
           correctIndex: 2,
           explanation:
             '黒い物体はすべての色の光を吸収し、ほとんど反射しないため黒く見えます。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci1-light-q25',
           question: '水中にある物体は実際の位置より浅く見えるか深く見えるか？',
@@ -626,7 +502,8 @@ export const light: Topic = {
           correctIndex: 0,
           explanation:
             '水中から空気中に出る光が屈折するため、水中の物体は実際の位置より浅く（浮き上がって）見えます。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci1-light-q26',
           question: '文字「F」を凸レンズの焦点より外に置いてスクリーンに映すと、どのように見えるか？',
@@ -639,7 +516,8 @@ export const light: Topic = {
           correctIndex: 3,
           explanation:
             '実像は上下左右が逆（倒立）になります。文字「F」は上下左右が逆になって映ります。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci1-light-q27',
           question: '鏡にうつった像を何というか？',
@@ -647,7 +525,8 @@ export const light: Topic = {
           correctIndex: 1,
           explanation:
             '鏡にうつった像は虚像です。実際に光が集まっているのではなく、光が来ているように見える位置にできます。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci1-light-q28',
           question: '物体を焦点距離の2倍より遠くに置いたとき、実像の大きさはどうなるか？',
@@ -660,7 +539,8 @@ export const light: Topic = {
           correctIndex: 2,
           explanation:
             '焦点距離の2倍より遠くに物体を置くと、物体より小さい倒立の実像ができます。',
-        },
+        difficulty: 'advanced',
+      },
       ],
     },
     examples: {

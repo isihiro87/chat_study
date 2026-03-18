@@ -49,60 +49,70 @@ export const constitution: Topic = {
         front: '大日本帝国憲法',
         back: '1889年に発布された、天皇主権の憲法は？',
         explanation: 'ドイツの憲法を参考に作られた。',
+        difficulty: 'basic',
       },
       {
         id: 'fc2',
         front: '伊藤博文',
         back: '初代内閣総理大臣で、憲法制定の中心となった人物は？',
         explanation: 'ドイツで憲法を学び、大日本帝国憲法を作成した。',
+        difficulty: 'basic',
       },
       {
         id: 'fc3',
         front: '内閣制度',
         back: '1885年に発足した、総理大臣と各大臣による政治の仕組みは？',
         explanation: '伊藤博文が初代内閣総理大臣となった。',
+        difficulty: 'basic',
       },
       {
         id: 'fc4',
         front: '天皇主権',
         back: '大日本帝国憲法で、国の主権が天皇にあるとされたことは？',
         explanation: '天皇は国の元首で神聖な存在とされた。',
+        difficulty: 'basic',
       },
       {
         id: 'fc5',
         front: '臣民',
         back: '大日本帝国憲法で国民を指した言葉は？',
         explanation: '法律の範囲内で権利が認められた。',
+        difficulty: 'standard',
       },
       {
         id: 'fc6',
         front: '帝国議会',
         back: '大日本帝国憲法で設置された議会は？',
         explanation: '貴族院と衆議院の二院制だった。',
+        difficulty: 'standard',
       },
       {
         id: 'fc7',
         front: '貴族院',
         back: '皇族・華族・勅選議員からなる議院は？',
         explanation: '帝国議会の上院にあたる。',
+        difficulty: 'standard',
       },
       {
         id: 'fc8',
         front: '衆議院',
         back: '選挙で選ばれた議員からなる議院は？',
         explanation: '帝国議会の下院にあたる。',
+        difficulty: 'standard',
       },
       {
         id: 'fc9',
         front: '教育勅語',
         back: '1890年に出された、道徳教育の基本を示した文書は？',
         explanation: '天皇への忠誠と親への孝行を教えた。',
+        difficulty: 'standard',
       },
       {
         id: 'fc10',
         front: '制限選挙',
         back: '財産や性別などの条件で選挙権を制限する選挙制度は？',
         explanation: '最初の選挙では人口の約1.1%しか選挙権がなかった。',
+        difficulty: 'advanced',
       },
     ],
     quiz: {
@@ -115,6 +125,7 @@ export const constitution: Topic = {
           correctIndex: 3,
           explanation:
             '伊藤博文はドイツ（プロイセン）の憲法を学び、大日本帝国憲法の制定に中心的な役割を果たしました。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -123,6 +134,7 @@ export const constitution: Topic = {
           correctIndex: 0,
           explanation:
             '1885年に内閣制度が発足し、伊藤博文が初代内閣総理大臣に就任しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -132,6 +144,7 @@ export const constitution: Topic = {
           correctIndex: 2,
           explanation:
             '天皇主権のもと、天皇は国の元首で神聖な存在とされ、国民は「臣民」と呼ばれました。',
+          difficulty: 'basic',
         },
         {
           id: 'q4',
@@ -145,6 +158,7 @@ export const constitution: Topic = {
           correctIndex: 1,
           explanation:
             '帝国議会は貴族院（皇族・華族・勅選議員）と衆議院（選挙で選ばれた議員）の二院制でした。',
+          difficulty: 'standard',
         },
         {
           id: 'q5',
@@ -154,6 +168,7 @@ export const constitution: Topic = {
           correctIndex: 2,
           explanation:
             '直接国税15円以上を納める満25歳以上の男子のみが選挙権を持ち、全人口の約1.1%でした。',
+          difficulty: 'standard',
         },
         {
           id: 'q6',
@@ -168,6 +183,7 @@ export const constitution: Topic = {
           correctIndex: 1,
           explanation:
             '教育勅語は道徳教育の基本を示し、天皇への忠誠と親への孝行を教えました。',
+          difficulty: 'standard',
         },
       ],
     },

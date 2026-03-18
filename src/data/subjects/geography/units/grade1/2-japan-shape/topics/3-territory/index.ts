@@ -176,176 +176,34 @@ export const territory: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'geo1-tr-fc1',
-        front: '日本の領域の構成',
-        back: '日本の「領域」を構成する三つの要素は何か。',
-        explanation:
-          '領土（約38万km²）、領海（沿岸から12海里）、領空（領土と領海の上空）の三つです。',
-      },
-      {
-        id: 'geo1-tr-fc2',
-        front: '領海の範囲',
-        back: '日本の領海は沿岸からどこまでの範囲か。',
-        explanation:
-          '領海は沿岸から12海里（約22km）までの海域です。この範囲では日本の主権がおよびます。',
-      },
-      {
-        id: 'geo1-tr-fc3',
-        front: '排他的経済水域（EEZ）',
-        back: '排他的経済水域（EEZ）は沿岸からどこまでの範囲で、どのような権利があるか。',
-        explanation:
-          '沿岸から200海里（約370km）の範囲で、沿岸国が水産資源や鉱産資源を管理する権利をもちます。日本のEEZは領土面積の約12倍です。',
-      },
-      {
-        id: 'geo1-tr-fc4',
-        front: '沖ノ鳥島と南鳥島',
-        back: '沖ノ鳥島と南鳥島はそれぞれ日本のどの端にあり、なぜ重要か。',
-        explanation:
-          '沖ノ鳥島は日本最南端の島で、約40万km²のEEZ確保に貢献しています。南鳥島は日本最東端の島で、周辺にレアアースなどの海底資源があります。',
-      },
-      {
-        id: 'geo1-tr-fc5',
-        front: '北方領土',
-        back: '北方領土を構成する四つの島を答えよ。',
-        explanation:
-          '択捉島・国後島・色丹島・歯舞群島の四つです。日本固有の領土ですが、1945年以降ロシア（旧ソ連）に占拠されています。',
-      },
-      {
-        id: 'geo1-tr-fc6',
-        front: '竹島',
-        back: '竹島はどの都道府県に属し、現在どのような状況にあるか。',
-        explanation:
-          '竹島は島根県に属する日本固有の領土です。現在は韓国が占拠しており、日本は国際法に基づく解決を主張しています。',
-      },
-      {
-        id: 'geo1-tr-fc7',
-        front: '尖閣諸島',
-        back: '尖閣諸島はどの都道府県に属し、周辺海域にはどのような資源があるか。',
-        explanation:
-          '尖閣諸島は沖縄県に属する日本固有の領土で、日本が有効に支配しています。周辺海域には石油や天然ガスなどの地下資源が存在する可能性が指摘されています。',
-      },
-      {
-        id: 'geo1-tr-fc8',
-        front: '日本の国土面積',
-        back: '日本の国土面積はおよそ何万km²か。',
-        explanation:
-          '約38万km²です。約6,800の島々からなる島国で、北海道・本州・四国・九州の4つの大きな島が中心です。',
-      },
-      {
-        id: 'geo1-tr-fc9',
-        front: '沖ノ鳥島の護岸工事',
-        back: '沖ノ鳥島で護岸工事が行われた理由を答えよ。',
-        explanation:
-          '沖ノ鳥島は満潮時にわずかに海面上に出る小さな島で、水没すると約40万km²のEEZが失われるため、コンクリートで補強する護岸工事が行われました。',
-      },
-      {
-        id: 'geo1-tr-fc10',
-        front: '西之島の噴火',
-        back: '小笠原諸島の西之島の噴火は日本にとってどのような意味があるか。',
-        explanation:
-          '2013年からの噴火で西之島の面積が大幅に拡大しました。島の海岸線が広がったことで、排他的経済水域も拡大しました。',
-      },
-      {
-        id: 'geo1-tr-fc11',
-        front: 'EEZが国土の約10倍',
-        back: '日本の排他的経済水域が国土面積の約10倍もある理由を答えよ。',
-        explanation:
-          '日本は約6,800の島が広い範囲に散らばっている島国で、各島を基点に200海里のEEZが設定されるため、国土面積に比べて非常に広大なEEZが確保されています。',
-      },
-      {
-        id: 'geo1-tr-fc12',
-        front: '領海と排他的経済水域の違い',
-        back: '領海と排他的経済水域の範囲と権利の違いを答えよ。',
-        explanation:
-          '領海は沿岸から12海里で主権がおよぶ。排他的経済水域は200海里で、沿岸国が資源を管理する権利をもつが、他国の船の航行は自由です。',
-      },
-      {
-        id: 'geo1-tr-fc13',
-        front: '日本の端の島（4つ）',
-        back: '日本の最北端・最南端・最東端・最西端の島をそれぞれ答えよ。',
-        explanation:
-          '最北端：択捉島、最南端：沖ノ鳥島、最東端：南鳥島、最西端：与那国島。「えおみよ」と覚えます。',
-      },
-      {
-        id: 'geo1-tr-fc14',
-        front: '日本列島の南北の長さ',
-        back: '日本列島の南北の長さはおよそ何kmか。',
-        explanation:
-          '約3000kmです。北海道から沖縄まで南北に長く伸びています。',
-      },
-      {
-        id: 'geo1-tr-fc15',
-        front: '北方領土で最大の島',
-        back: '北方領土を構成する4つの島のうち、最も大きい島はどれか。',
-        explanation:
-          '択捉島です。日本最北端の島でもあり、北方領土の中で最も面積が広い島です。',
-      },
-      {
-        id: 'geo1-tr-fc16',
-        front: '領域の3要素',
-        back: '領域を構成する3つの要素を答えよ。',
-      },
-      {
-        id: 'geo1-tr-fc17',
-        front: '12海里',
-        back: '日本の領海は沿岸から何海里の範囲か。',
-      },
-      {
-        id: 'geo1-tr-fc18',
-        front: '200海里',
-        back: '排他的経済水域は沿岸から何海里の範囲か。',
-      },
-      {
-        id: 'geo1-tr-fc19',
-        front: 'EEZ',
-        back: '排他的経済水域の英語の略称を答えよ。',
-      },
-      {
-        id: 'geo1-tr-fc20',
-        front: '沖ノ鳥島のEEZ',
-        back: '沖ノ鳥島があることで確保される排他的経済水域はおよそ何万km²か。',
-      },
-      {
-        id: 'geo1-tr-fc21',
-        front: '北方領土の4島',
-        back: '北方領土を構成する4つの島を答えよ。',
-      },
-      {
-        id: 'geo1-tr-fc22',
-        front: '竹島の所属県',
-        back: '竹島は何県に属するか。',
-      },
-      {
-        id: 'geo1-tr-fc23',
-        front: '尖閣諸島の所属県',
-        back: '尖閣諸島は何県に属するか。',
-      },
-      {
-        id: 'geo1-tr-fc24',
-        front: '択捉島',
-        back: '北方領土のうち最も大きい島はどれか。',
-      },
-      {
-        id: 'geo1-tr-fc25',
-        front: '西之島',
-        back: '小笠原諸島の西之島ではどのような変化が起き、日本にとってどんな意味を持つか。',
-      },
-      {
-        id: 'geo1-tr-fc26',
-        front: '無害通航',
-        back: '領海では他国の船はどのような条件で通航できるか。',
-      },
-      {
-        id: 'geo1-tr-fc27',
-        front: '沖ノ鳥島の護岸工事',
-        back: '沖ノ鳥島では波による浸食を防ぐためにどのような工事が行われたか。',
-      },
-      {
-        id: 'geo1-tr-fc28',
-        front: '3つの領土問題の共通点',
-        back: '日本の3つの領土問題の共通点は何か。',
-      },
+      { id: 'geo1-tr-fc1', front: '領土・領海・領空', back: '日本の「領域」を構成する三つの要素は何か。', difficulty: 'basic' },
+      { id: 'geo1-tr-fc2', front: '沿岸から12海里（約22km）', back: '日本の領海は沿岸からどこまでの範囲か。', difficulty: 'basic' },
+      { id: 'geo1-tr-fc3', front: '沿岸から200海里（約370km）。水産資源や鉱産資源を管理する権利をもつ', back: '排他的経済水域（EEZ）は沿岸からどこまでの範囲で、どのような権利があるか。', difficulty: 'basic' },
+      { id: 'geo1-tr-fc4', front: '沖ノ鳥島は最南端（EEZ確保）、南鳥島は最東端（レアアース等の海底資源）', back: '沖ノ鳥島と南鳥島はそれぞれ日本のどの端にあり、なぜ重要か。', difficulty: 'basic' },
+      { id: 'geo1-tr-fc5', front: '択捉島・国後島・色丹島・歯舞群島', back: '北方領土を構成する四つの島を答えよ。', explanation: '日本固有の領土だが、1945年以降ロシアに占拠されている。', difficulty: 'basic' },
+      { id: 'geo1-tr-fc6', front: '島根県に属する日本固有の領土。現在韓国が占拠している', back: '竹島はどの都道府県に属し、現在どのような状況にあるか。', difficulty: 'basic' },
+      { id: 'geo1-tr-fc7', front: '沖縄県に属する日本固有の領土。周辺に石油や天然ガスの可能性', back: '尖閣諸島はどの都道府県に属し、周辺海域にはどのような資源があるか。', difficulty: 'basic' },
+      { id: 'geo1-tr-fc8', front: '水没すると約40万km²のEEZが失われるため、コンクリートで護岸工事が行われた', back: '沖ノ鳥島で護岸工事が行われた理由を答えよ。', difficulty: 'standard' },
+      { id: 'geo1-tr-fc9', front: '噴火で面積が大幅に拡大し、排他的経済水域も拡大した', back: '小笠原諸島の西之島の噴火は日本にとってどのような意味があるか。', difficulty: 'standard' },
+      { id: 'geo1-tr-fc10', front: '約6,800の島が広範囲に散らばり、各島を基点に200海里のEEZが設定されるため', back: '日本の排他的経済水域が国土面積の約10倍もある理由を答えよ。', difficulty: 'standard' },
+      { id: 'geo1-tr-fc11', front: '領海は12海里で主権がおよぶ。EEZは200海里で資源管理権があるが他国の船は航行自由', back: '領海と排他的経済水域の範囲と権利の違いを答えよ。', difficulty: 'standard' },
+      { id: 'geo1-tr-fc12', front: '最北端：択捉島、最南端：沖ノ鳥島、最東端：南鳥島、最西端：与那国島', back: '日本の最北端・最南端・最東端・最西端の島をそれぞれ答えよ。', explanation: '「えおみよ」と覚える。', difficulty: 'basic' },
+      { id: 'geo1-tr-fc13', front: '約3000km', back: '日本列島の南北の長さはおよそ何kmか。', difficulty: 'standard' },
+      { id: 'geo1-tr-fc14', front: '択捉島', back: '北方領土を構成する4つの島のうち、最も大きい島はどれか。', difficulty: 'standard' },
+      { id: 'geo1-tr-fc15', front: '約38万km²', back: '日本の国土面積はおよそ何万km²か。', difficulty: 'basic' },
+      { id: 'geo1-tr-fc16', front: '12海里', back: '日本の領海は沿岸から何海里の範囲か。', difficulty: 'basic' },
+      { id: 'geo1-tr-fc17', front: '200海里', back: '排他的経済水域は沿岸から何海里の範囲か。', difficulty: 'basic' },
+      { id: 'geo1-tr-fc18', front: 'EEZ（Exclusive Economic Zone）', back: '排他的経済水域の英語の略称を答えよ。', difficulty: 'standard' },
+      { id: 'geo1-tr-fc19', front: '約40万km²', back: '沖ノ鳥島があることで確保される排他的経済水域はおよそ何万km²か。', difficulty: 'standard' },
+      { id: 'geo1-tr-fc20', front: '島根県', back: '竹島は何県に属するか。', difficulty: 'basic' },
+      { id: 'geo1-tr-fc21', front: '沖縄県', back: '尖閣諸島は何県に属するか。', difficulty: 'basic' },
+      { id: 'geo1-tr-fc22', front: '無害通航（沿岸国の安全を害さない通航のみ認められる）', back: '領海では他国の船はどのような条件で通航できるか。', difficulty: 'advanced' },
+      { id: 'geo1-tr-fc23', front: 'コンクリートやテトラポッドで島を補強する護岸工事', back: '沖ノ鳥島では波による浸食を防ぐためにどのような工事が行われたか。', difficulty: 'advanced' },
+      { id: 'geo1-tr-fc24', front: 'いずれも日本固有の領土であること', back: '日本の3つの領土問題の共通点は何か。', difficulty: 'advanced' },
+      { id: 'geo1-tr-fc25', front: '領土と領海の上空', back: '領空とはどの範囲の上空か。', difficulty: 'standard' },
+      { id: 'geo1-tr-fc26', front: 'ロシア（旧ソ連が1945年以降占拠）', back: '北方領土を現在占拠している国はどこか。', difficulty: 'standard' },
+      { id: 'geo1-tr-fc27', front: '石油や天然ガス', back: '尖閣諸島の周辺海域で存在が指摘されている資源は何か。', difficulty: 'advanced' },
+      { id: 'geo1-tr-fc28', front: 'レアアース（希少金属）', back: '南鳥島周辺の海底で確認されている資源は何か。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -361,7 +219,8 @@ export const territory: Topic = {
           correctIndex: 1,
           explanation:
             '日本の領海は沿岸から12海里（約22km）の範囲です。200海里は排他的経済水域（EEZ）の範囲です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-tr-q2',
           question: '排他的経済水域（EEZ）について正しいものはどれか。',
@@ -374,7 +233,8 @@ export const territory: Topic = {
           correctIndex: 3,
           explanation:
             '排他的経済水域（EEZ）は沿岸から200海里の範囲で、沿岸国が水産資源や鉱産資源を管理する権利をもちます。他国の船の通行は認められています。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-tr-q3',
           question: '日本最南端の島で、広大な排他的経済水域の確保に重要な役割を果たしている島はどれか。',
@@ -382,7 +242,8 @@ export const territory: Topic = {
           correctIndex: 2,
           explanation:
             '沖ノ鳥島は日本最南端の島で、この島があることで日本は約40万km²もの排他的経済水域を確保しています。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-tr-q4',
           question: '北方領土を構成する島の組み合わせとして正しいものはどれか。',
@@ -395,7 +256,8 @@ export const territory: Topic = {
           correctIndex: 0,
           explanation:
             '北方領土は択捉島・国後島・色丹島・歯舞群島の四つからなります。日本固有の領土ですが、ロシアに占拠されています。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-tr-q5',
           question: '尖閣諸島について正しいものはどれか。',
@@ -408,7 +270,8 @@ export const territory: Topic = {
           correctIndex: 2,
           explanation:
             '尖閣諸島は沖縄県に属する日本固有の領土で、日本が有効に支配しています。周辺海域には石油や天然ガスなどの地下資源が存在する可能性が指摘されています。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-tr-q6',
           question: '竹島はどの都道府県に属するか。',
@@ -421,7 +284,8 @@ export const territory: Topic = {
           correctIndex: 1,
           explanation:
             '竹島は島根県に属する日本固有の領土です。現在は韓国が不法に占拠しており、日本は国際法に基づく平和的な解決を主張しています。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-tr-q7',
           question: '日本の排他的経済水域は国土面積のおよそ何倍か。',
@@ -434,7 +298,8 @@ export const territory: Topic = {
           correctIndex: 3,
           explanation:
             '日本の排他的経済水域は国土面積の約10倍です。約6,800の島々が広範囲に散らばっている島国であるため、非常に広大なEEZが確保されています。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-tr-q8',
           question: '西之島の噴火が日本にもたらした影響として正しいものはどれか。',
@@ -447,7 +312,8 @@ export const territory: Topic = {
           correctIndex: 0,
           explanation:
             '小笠原諸島の西之島では2013年からの噴火で島の面積が大幅に拡大しました。その結果、排他的経済水域も拡大しています。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-tr-q9',
           question: '沖ノ鳥島で護岸工事が行われた理由はどれか。',
@@ -460,7 +326,8 @@ export const territory: Topic = {
           correctIndex: 3,
           explanation:
             '沖ノ鳥島は満潮時にわずかに海面上に出る小さな島で、水没すると約40万km²もの排他的経済水域が失われるため、護岸工事で島を保全しています。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-tr-q10',
           question: '領域を構成する3つの要素の組み合わせとして正しいものはどれか。',
@@ -473,7 +340,8 @@ export const territory: Topic = {
           correctIndex: 0,
           explanation:
             '国の主権がおよぶ範囲を領域といい、領土・領海・領空の3つで構成されます。排他的経済水域は領域の外側にある範囲です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-tr-q11',
           question: '領域を構成する3つの要素の正しい組み合わせはどれ？',
@@ -486,7 +354,8 @@ export const territory: Topic = {
           correctIndex: 0,
           explanation:
             '領域は領土、領海、領空の3つで構成されます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-tr-q12',
           question: '日本の領海は沿岸から何海里（約何km）か。',
@@ -499,7 +368,8 @@ export const territory: Topic = {
           correctIndex: 1,
           explanation:
             '日本の領海は沿岸から12海里（約22km）の範囲です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-tr-q13',
           question: '排他的経済水域は沿岸から何海里か。',
@@ -512,7 +382,8 @@ export const territory: Topic = {
           correctIndex: 3,
           explanation:
             '排他的経済水域（EEZ）は沿岸から200海里（約370km）の範囲です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-tr-q14',
           question: '排他的経済水域で沿岸国が持つ権利はどれ？',
@@ -525,7 +396,8 @@ export const territory: Topic = {
           correctIndex: 1,
           explanation:
             '排他的経済水域では水産資源や鉱産資源を調査・開発する権利を持ちます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-tr-q15',
           question: '日本の排他的経済水域が広い理由はどれ？',
@@ -538,7 +410,8 @@ export const territory: Topic = {
           correctIndex: 2,
           explanation:
             '多数の島々が広範囲に散らばる島国であるため、各島を基点にEEZが広がります。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-tr-q16',
           question: '北方領土を現在占拠している国はどこか。',
@@ -551,7 +424,8 @@ export const territory: Topic = {
           correctIndex: 3,
           explanation:
             '北方領土は現在ロシア（旧ソ連が1945年以降占拠）に占拠されています。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-tr-q17',
           question: '竹島を不法に占拠している国はどこか。',
@@ -564,7 +438,8 @@ export const territory: Topic = {
           correctIndex: 2,
           explanation:
             '竹島は現在韓国が不法に占拠しています。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-tr-q18',
           question: '尖閣諸島について日本政府の立場はどれ？',
@@ -577,7 +452,8 @@ export const territory: Topic = {
           correctIndex: 1,
           explanation:
             '日本政府は尖閣諸島は日本固有の領土であり領土問題は存在しないという立場です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-tr-q19',
           question: '沖ノ鳥島が水没した場合どのような影響があるか。',
@@ -590,7 +466,8 @@ export const territory: Topic = {
           correctIndex: 1,
           explanation:
             '沖ノ鳥島が水没すると約40万km²もの排他的経済水域が失われます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-tr-q20',
           question: '北方領土のうち最も大きい島はどれか。',
@@ -603,7 +480,8 @@ export const territory: Topic = {
           correctIndex: 3,
           explanation:
             '択捉島は北方領土のうち最も大きい島です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-tr-q21',
           question: '日本のEEZは国土面積の約何倍か。',
@@ -616,7 +494,8 @@ export const territory: Topic = {
           correctIndex: 2,
           explanation:
             '日本の排他的経済水域は国土面積の約10倍あります。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-tr-q22',
           question: '西之島の火山噴火によるEEZへの影響はどれ？',
@@ -629,7 +508,8 @@ export const territory: Topic = {
           correctIndex: 1,
           explanation:
             '火山の噴火で島の面積が拡大し、周囲の排他的経済水域も拡大しました。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-tr-q23',
           question: '尖閣諸島周辺で存在が指摘されている資源はどれ？',
@@ -642,7 +522,8 @@ export const territory: Topic = {
           correctIndex: 1,
           explanation:
             '尖閣諸島の周辺海域には石油や天然ガスなどの地下資源が存在する可能性が指摘されています。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'geo1-tr-q24',
           question: '沖ノ鳥島と南鳥島が属する都道府県はどこ？',
@@ -655,7 +536,8 @@ export const territory: Topic = {
           correctIndex: 1,
           explanation:
             '沖ノ鳥島と南鳥島はいずれも東京都小笠原村に属しています。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'geo1-tr-q25',
           question: '領空とは何か。正しいものはどれ？',
@@ -668,7 +550,8 @@ export const territory: Topic = {
           correctIndex: 2,
           explanation:
             '領空は領土と領海の上空です。他国の航空機は許可なく通過できません。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'geo1-tr-q26',
           question: '日本はおよそ何個の島からなるか。',
@@ -681,7 +564,8 @@ export const territory: Topic = {
           correctIndex: 2,
           explanation:
             '日本は約6,800の島からなります。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'geo1-tr-q27',
           question: '南鳥島周辺の海底で確認されている資源はどれ？',
@@ -694,7 +578,8 @@ export const territory: Topic = {
           correctIndex: 2,
           explanation:
             '南鳥島の周辺海底ではレアアース（希少金属）などの海底資源が確認されています。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'geo1-tr-q28',
           question: '沖ノ鳥島で行われた護岸工事はどれ？',
@@ -707,7 +592,8 @@ export const territory: Topic = {
           correctIndex: 1,
           explanation:
             '波による浸食を防ぐためコンクリートやテトラポッドで島を補強する護岸工事が行われました。',
-        },
+        difficulty: 'advanced',
+      },
       ],
     },
     examples: {

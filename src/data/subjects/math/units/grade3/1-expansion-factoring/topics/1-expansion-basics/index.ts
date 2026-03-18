@@ -69,158 +69,187 @@ export const expansionBasics: Topic = {
         front: 'かっこを外して、積の形の式をひとつの多項式に変形すること', back: '「展開」とは？',
         hint: 'かっこを「開く」イメージ',
         explanation: '例: 3(x+2) = 3x+6、(x+1)(x+2) = x²+3x+2',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-eb-fc2',
         front: '$a(b+c) = ab + ac$', back: '分配法則の公式は？',
         hint: '外の項を中の各項にかける',
         explanation: '逆向き ab+ac = a(b+c) は「共通因数でくくる」と言うよ',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-eb-fc3',
         front: '文字の部分がまったく同じ項のこと', back: '「同類項」とは？',
         hint: '3x と 5x、2x² と −7x² など',
         explanation: '同類項は係数どうしを足し引きしてまとめることができる',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-eb-fc4',
         front: '$ac + ad + bc + bd$', back: '$(a+b)(c+d)$ を展開すると？',
         hint: '前のかっこの各項を後ろ全体にかける',
         explanation: '全部で4つの積ができる。同類項があればまとめよう',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-eb-fc5',
         front: '$3x + 12$', back: '$3(x+4)$ を展開すると？',
         hint: '3をxにも4にもかける',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-eb-fc6',
         front: '$-2x + 6$', back: '$-2(x-3)$ を展開すると？',
         hint: 'マイナス×マイナスはプラス',
         explanation: '$(-2)\\times x = -2x$、$(-2)\\times(-3) = +6$',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-eb-fc7',
         front: '多項式の各項をそれぞれ単項式で割る', back: '多項式÷単項式のやり方は？',
         hint: '分配法則の逆のイメージ',
         explanation: '$(8x^2+4x)\\div 2x = 4x+2$',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-eb-fc8',
         front: '$x^2 + 5x + 6$', back: '$(x+2)(x+3)$ を展開すると？',
         hint: '4つの積を作って同類項をまとめる',
         explanation: '$x^2+3x+2x+6 = x^2+5x+6$',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-eb-fc9',
         front: '$x^2 + x - 12$', back: '$(x-3)(x+4)$ を展開すると？',
         hint: 'マイナスの符号に注意',
         explanation: '$x^2+4x-3x-12 = x^2+x-12$',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-eb-fc10',
         front: '$8x + 4$', back: '$(8x^2+4x)\\div x$ の答えは？',
         hint: '各項をxで割る',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-eb-fc11',
         front: '$-15x^2 + 6x$', back: '$-3x(5x-2)$ を展開すると？',
         hint: '$(-3x)\\times(-2) = +6x$',
         explanation: 'マイナスどうしの積はプラスになることに注意',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-eb-fc12',
         front: '$ab + 5a + 2b + 10$', back: '$(a+2)(b+5)$ を展開すると？',
         hint: '異なる文字では同類項ができにくい',
         explanation: '4つの積をそのまま書き並べる',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-eb-fc13',
         front: '$-2a + 4b$', back: '$(6a^2b-12ab^2)\\div(-3ab)$ の答えは？',
         hint: '各項を $-3ab$ で割る。符号に注意',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-eb-fc14',
-        front: '符号（プラス・マイナス）の間違い', back: '展開で一番多いミスは？',
-        hint: 'マイナス×マイナス=プラスを忘れがち',
-        explanation: '$(-2)\\times(-3) = +6$ を $-6$ としてしまうミスが多い',
+        front: '$2x^2 + 7x + 3$', back: '$(2x+1)(x+3)$ を展開すると？',
+        hint: '各項を順にかけて同類項をまとめる',
+        explanation: '$2x^2+6x+x+3 = 2x^2+7x+3$',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-eb-fc15',
         front: '$x^2 + (a+b)x + ab$', back: '$(x+a)(x+b)$ を展開すると？',
         hint: 'xの係数は a+b、定数項は a×b',
         explanation: 'この規則を覚えると展開が速くなるよ',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-eb-fc16',
         front: '係数どうしを足し引きする（文字の部分はそのまま）', back: '同類項をまとめるとき、何を足し引きする？',
         hint: '$3x + 5x = (3+5)x = 8x$',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-eb-fc17',
         front: '$x^2 - 9$', back: '$(x+3)(x-3)$ を展開すると？',
         hint: '中間の項が打ち消し合う',
         explanation: '$x^2-3x+3x-9 = x^2-9$。これは「和と差の積」の公式につながるよ',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-eb-fc18',
         front: '$-6xy - 10y^2$', back: '$(3x+5y)\\times(-2y)$ を展開すると？',
         hint: '両方の項に $-2y$ をかける',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-eb-fc19',
         front: '共通因数でくくること（因数分解）', back: '「分配法則の逆」とは？',
         hint: '$ab + ac = a(b+c)$',
         explanation: '展開と因数分解は逆の操作の関係にある',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-eb-fc20',
         front: '$x^2 - 8x + 12$', back: '$(x-2)(x-6)$ を展開すると？',
         hint: 'マイナス×マイナス = プラス（定数項が+12）',
         explanation: '$x^2-6x-2x+12 = x^2-8x+12$',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-eb-fc21',
         front: '$x^2 + 7x + 10$', back: '$(x+2)(x+5)$ を展開すると？',
         hint: '足して7、かけて10',
         explanation: '$x^2+5x+2x+10 = x^2+7x+10$',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-eb-fc22',
         front: '$6x^2 - 4x$', back: '$2x(3x-2)$ を展開すると？',
         hint: '$2x$ を各項にかける',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-eb-fc23',
         front: '$x^2 - 2x - 15$', back: '$(x+3)(x-5)$ を展開すると？',
         hint: '$3 \\times (-5) = -15$',
         explanation: '$x^2-5x+3x-15 = x^2-2x-15$',
+        difficulty: 'advanced',
       },
       {
         id: 'math-g3-eb-fc24',
         front: '$4x + 2$', back: '$(12x^2+6x) \\div 3x$ の答えは？',
         hint: '各項を $3x$ で割る',
+        difficulty: 'advanced',
       },
       {
         id: 'math-g3-eb-fc25',
         front: '$ab - 3a + 4b - 12$', back: '$(a+4)(b-3)$ を展開すると？',
         hint: '4つの積を順に出す',
+        difficulty: 'advanced',
       },
       {
         id: 'math-g3-eb-fc26',
-        front: '展開したあと同類項のまとめ忘れ', back: '展開で2番目に多いミスは？',
-        hint: '4つの積を出した後が大事',
+        front: '$8a^2+10ab-3b^2$', back: '$(2a+3b)(4a-b)$ を展開すると？',
+        hint: '4つの項を順にかけて同類項をまとめる',
+        explanation: '$8a^2-2ab+12ab-3b^2 = 8a^2+10ab-3b^2$',
+        difficulty: 'advanced',
       },
       {
         id: 'math-g3-eb-fc27',
         front: '$x^2 - 4x - 5$', back: '$(x+1)(x-5)$ を展開すると？',
         hint: '$1 \\times (-5) = -5$',
         explanation: '$x^2-5x+x-5 = x^2-4x-5$',
+        difficulty: 'advanced',
       },
       {
         id: 'math-g3-eb-fc28',
         front: '$-3a + 2b$', back: '$(9a^2b - 6ab^2) \\div (-3ab)$ の答えは？',
         hint: '各項を $-3ab$ で割る。符号注意',
+        difficulty: 'advanced',
       },
     ],
     quiz: {
@@ -232,6 +261,7 @@ export const expansionBasics: Topic = {
           correctIndex: 2,
           explanation:
             '$3(x + 4) = 3 \\times x + 3 \\times 4 = 3x + 12$。分配法則で3をxにも4にもかけるよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-eb-q2',
@@ -245,6 +275,7 @@ export const expansionBasics: Topic = {
           correctIndex: 1,
           explanation:
             '$(x+2)(x+3) = x^2+3x+2x+6 = x^2+5x+6$。4つの積を求めて同類項をまとめよう。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-eb-q3',
@@ -258,6 +289,7 @@ export const expansionBasics: Topic = {
           correctIndex: 0,
           explanation:
             '$-2(3x-5) = -2 \\times 3x + (-2) \\times (-5) = -6x + 10$。マイナス×マイナスはプラスになるよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-eb-q4',
@@ -266,6 +298,7 @@ export const expansionBasics: Topic = {
           correctIndex: 3,
           explanation:
             '各項をそれぞれ $2x$ で割ります。$8x^2 \\div 2x = 4x$、$4x \\div 2x = 2$。答えは $4x + 2$。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-eb-q5',
@@ -279,6 +312,7 @@ export const expansionBasics: Topic = {
           correctIndex: 0,
           explanation:
             '$(-3x) \\times 5x = -15x^2$、$(-3x) \\times (-2) = +6x$。マイナスどうしの積はプラスだよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-eb-q6',
@@ -292,6 +326,7 @@ export const expansionBasics: Topic = {
           correctIndex: 1,
           explanation:
             '$a \\times b + a \\times 5 + 2 \\times b + 2 \\times 5 = ab + 5a + 2b + 10$。異なる文字なので同類項はできないよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-eb-q7',
@@ -305,6 +340,7 @@ export const expansionBasics: Topic = {
           correctIndex: 2,
           explanation:
             '$6a^2b \\div (-3ab) = -2a$、$(-12ab^2) \\div (-3ab) = 4b$。答えは $-2a + 4b$。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-eb-q8',
@@ -318,6 +354,7 @@ export const expansionBasics: Topic = {
           correctIndex: 3,
           explanation:
             '$x^2 + 7x - 3x - 21 = x^2 + 4x - 21$。$7x$ と $-3x$ をまとめると $4x$。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-eb-q9',
@@ -331,6 +368,7 @@ export const expansionBasics: Topic = {
           correctIndex: 3,
           explanation:
             '$x^2 - 3x + 3x - 9 = x^2 - 9$。$-3x$ と $+3x$ が打ち消し合って消えるよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-eb-q10',
@@ -344,6 +382,7 @@ export const expansionBasics: Topic = {
           correctIndex: 2,
           explanation:
             '同類項は文字の部分がまったく同じ項のこと。例: $3x$ と $5x$、$2x^2$ と $-7x^2$ など。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-eb-q11',
@@ -357,6 +396,7 @@ export const expansionBasics: Topic = {
           correctIndex: 2,
           explanation:
             '$x^2+5x+2x+10 = x^2+7x+10$。足して7、かけて10だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-eb-q12',
@@ -370,6 +410,7 @@ export const expansionBasics: Topic = {
           correctIndex: 1,
           explanation:
             '$2x \\times 3x = 6x^2$、$2x \\times (-2) = -4x$。答えは $6x^2 - 4x$。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-eb-q13',
@@ -383,6 +424,7 @@ export const expansionBasics: Topic = {
           correctIndex: 2,
           explanation:
             '$x^2-5x+3x-15 = x^2-2x-15$。符号に注意だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-eb-q14',
@@ -391,6 +433,7 @@ export const expansionBasics: Topic = {
           correctIndex: 2,
           explanation:
             '$12x^2 \\div 3x = 4x$、$6x \\div 3x = 2$。答えは $4x + 2$。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-eb-q15',
@@ -404,6 +447,7 @@ export const expansionBasics: Topic = {
           correctIndex: 0,
           explanation:
             '$a \\times b + a \\times (-3) + 4 \\times b + 4 \\times (-3) = ab - 3a + 4b - 12$。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-eb-q16',
@@ -417,6 +461,7 @@ export const expansionBasics: Topic = {
           correctIndex: 2,
           explanation:
             '$x^2-5x+x-5 = x^2-4x-5$。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-eb-q17',
@@ -430,6 +475,7 @@ export const expansionBasics: Topic = {
           correctIndex: 2,
           explanation:
             '$9a^2b \\div (-3ab) = -3a$、$(-6ab^2) \\div (-3ab) = 2b$。答えは $-3a + 2b$。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-eb-q18',
@@ -443,6 +489,7 @@ export const expansionBasics: Topic = {
           correctIndex: 0,
           explanation:
             '$x^2-5x-4x+20 = x^2-9x+20$。マイナス×マイナス=プラスで定数項は+20。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-eb-q19',
@@ -456,6 +503,7 @@ export const expansionBasics: Topic = {
           correctIndex: 1,
           explanation:
             '符号の間違いが最も多い。$(-2) \\times (-3) = +6$ を $-6$ としてしまうミスに注意！',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-eb-q20',
@@ -469,6 +517,7 @@ export const expansionBasics: Topic = {
           correctIndex: 2,
           explanation:
             '$5 \\times 2x = 10x$、$5 \\times (-3) = -15$。答えは $10x - 15$。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-eb-q21',
@@ -482,6 +531,7 @@ export const expansionBasics: Topic = {
           correctIndex: 2,
           explanation:
             '$x^2-2x+6x-12 = x^2+4x-12$。足して4、かけて-12。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-eb-q22',
@@ -495,6 +545,7 @@ export const expansionBasics: Topic = {
           correctIndex: 1,
           explanation:
             '$x^2+8x-x-8 = x^2+7x-8$。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-eb-q23',
@@ -508,6 +559,7 @@ export const expansionBasics: Topic = {
           correctIndex: 0,
           explanation:
             '$8a^2-2ab+12ab-3b^2 = 8a^2+10ab-3b^2$。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g3-eb-q24',
@@ -521,6 +573,7 @@ export const expansionBasics: Topic = {
           correctIndex: 2,
           explanation:
             '$x^2+4x+4x+16 = x^2+8x+16$。同じ式どうしの展開は $(x+4)^2$ と同じだよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g3-eb-q25',
@@ -534,6 +587,7 @@ export const expansionBasics: Topic = {
           correctIndex: 1,
           explanation:
             '$15x^2y \\div 5xy = 3x$、$(-10xy^2) \\div 5xy = -2y$。答えは $3x - 2y$。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g3-eb-q26',
@@ -547,6 +601,7 @@ export const expansionBasics: Topic = {
           correctIndex: 2,
           explanation:
             '$x^2-5x+5x-25 = x^2-25$。$+5x$ と $-5x$ が打ち消し合うよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g3-eb-q27',
@@ -560,6 +615,7 @@ export const expansionBasics: Topic = {
           correctIndex: 2,
           explanation:
             '$x^2+2x-7x-14 = x^2-5x-14$。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g3-eb-q28',
@@ -573,6 +629,7 @@ export const expansionBasics: Topic = {
           correctIndex: 0,
           explanation:
             '$(-4) \\times x^2 = -4x^2$、$(-4) \\times (-3x) = 12x$、$(-4) \\times 2 = -8$。',
+          difficulty: 'advanced',
         },
       ],
     },

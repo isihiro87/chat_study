@@ -49,48 +49,56 @@ export const americaExpansion: Topic = {
         front: '南北戦争',
         back: '1861年に始まった、アメリカの北部と南部の内戦は？',
         explanation: '奴隷制をめぐる対立が原因で、北部の勝利に終わった。',
+        difficulty: 'basic',
       },
       {
         id: 'fc2',
         front: 'リンカン',
         back: '奴隷解放宣言を出した、アメリカ第16代大統領は？',
         explanation: '「人民の、人民による、人民のための政治」という演説でも有名。',
+        difficulty: 'basic',
       },
       {
         id: 'fc3',
         front: '奴隷解放宣言',
         back: '南北戦争中にリンカンが出した、奴隷を解放する宣言は？',
         explanation: '1863年に出され、南部の奴隷の解放を宣言した。',
+        difficulty: 'basic',
       },
       {
         id: 'fc4',
         front: '保護貿易',
         back: '関税をかけて国内産業を守る貿易政策は？',
         explanation: '北部が支持した政策で、輸入品に高い関税をかける。',
+        difficulty: 'basic',
       },
       {
         id: 'fc5',
         front: '自由貿易',
         back: '関税を低くして自由に貿易を行う政策は？',
         explanation: '南部が支持した政策で、綿花を輸出するのに有利。',
+        difficulty: 'standard',
       },
       {
         id: 'fc6',
         front: '西部開拓',
         back: 'アメリカが西へ領土を広げていった動きは？',
         explanation: 'ヨーロッパからの移民を受け入れながら太平洋岸まで拡大した。',
+        difficulty: 'standard',
       },
       {
         id: 'fc7',
         front: '綿花',
         back: 'アメリカ南部の大農場で栽培された主要作物は？',
         explanation: 'イギリスの綿織物工業に輸出され、南部経済を支えた。',
+        difficulty: 'standard',
       },
       {
         id: 'fc8',
         front: 'ゲティスバーグ演説',
         back: 'リンカンが「人民の、人民による、人民のための政治」と述べた演説は？',
         explanation: '南北戦争中の1863年、戦没者墓地で行われた有名な演説。',
+        difficulty: 'advanced',
       },
     ],
     quiz: {
@@ -102,6 +110,7 @@ export const americaExpansion: Topic = {
           correctIndex: 0,
           explanation:
             'リンカンは1863年に奴隷解放宣言を出し、南部の奴隷の解放を宣言しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -110,6 +119,7 @@ export const americaExpansion: Topic = {
           correctIndex: 1,
           explanation:
             '北部は商工業が中心で、輸入品に関税をかけて国内産業を守る保護貿易を支持しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -118,6 +128,7 @@ export const americaExpansion: Topic = {
           correctIndex: 3,
           explanation:
             '南部では綿花を大農場で栽培し、イギリスの綿織物工業に輸出していました。',
+          difficulty: 'basic',
         },
         {
           id: 'q4',
@@ -126,6 +137,7 @@ export const americaExpansion: Topic = {
           correctIndex: 2,
           explanation:
             '1861年、奴隷制に反対するリンカンが大統領になると南部が離脱し、南北戦争が始まりました。',
+          difficulty: 'standard',
         },
         {
           id: 'q5',
@@ -134,6 +146,7 @@ export const americaExpansion: Topic = {
           correctIndex: 2,
           explanation:
             '工業力で勝る北部が勝利し、アメリカの国の統一が維持されました。',
+          difficulty: 'standard',
         },
         {
           id: 'q6',
@@ -142,6 +155,7 @@ export const americaExpansion: Topic = {
           correctIndex: 3,
           explanation:
             '1863年、南北戦争中にゲティスバーグの戦没者墓地で行われた有名な演説です。',
+          difficulty: 'standard',
         },
       ],
     },

@@ -49,48 +49,56 @@ export const nationalismEurope: Topic = {
         front: '国民国家',
         back: '同じ言語・文化を持つ国民による統一的な国家を何という？',
         explanation: '19世紀のヨーロッパで広まり、ドイツやイタリアの統一につながった。',
+        difficulty: 'basic',
       },
       {
         id: 'fc2',
         front: 'ビスマルク',
         back: '「鉄と血」でドイツを統一したプロイセンの首相は？',
         explanation: '軍備と戦争による強力な指導力で「鉄血宰相」と呼ばれた。',
+        difficulty: 'basic',
       },
       {
         id: 'fc3',
         front: '鉄血政策',
         back: 'ビスマルクがドイツ統一のために進めた軍事力重視の政策は？',
         explanation: '「現在の大問題は演説や多数決ではなく、鉄と血によって解決される」と演説した。',
+        difficulty: 'basic',
       },
       {
         id: 'fc4',
         front: '義務教育',
         back: '国民としての一体感を育むため国が定めた学校教育は？',
         explanation: '同じ言葉や歴史を学ぶことで国民意識が育まれた。',
+        difficulty: 'basic',
       },
       {
         id: 'fc5',
         front: '男性普通選挙',
         back: '財産に関係なく成年男性全員に選挙権を与える制度は？',
         explanation: 'フランスで実現し、より多くの国民が政治に参加できるようになった。',
+        difficulty: 'standard',
       },
       {
         id: 'fc6',
         front: '政党政治',
         back: '複数の政党が議会で政策を競い合う政治形態は？',
         explanation: 'イギリスで二大政党制として発展した。',
+        difficulty: 'standard',
       },
       {
         id: 'fc7',
         front: 'ナショナリズム',
         back: '自分たちの民族や国家を大切にする考え方は？',
         explanation: '19世紀ヨーロッパで高まり、国民国家形成の原動力となった。',
+        difficulty: 'standard',
       },
       {
         id: 'fc8',
         front: '中南米の独立',
         back: 'スペイン・ポルトガルの植民地から独立した地域は？',
         explanation: 'ナポレオン戦争中のヨーロッパの混乱に乗じて独立を達成した。',
+        difficulty: 'advanced',
       },
     ],
     quiz: {
@@ -102,6 +110,7 @@ export const nationalismEurope: Topic = {
           correctIndex: 1,
           explanation:
             'ビスマルクはプロイセンの首相として、軍事力を背景にドイツ統一を達成しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -110,6 +119,7 @@ export const nationalismEurope: Topic = {
           correctIndex: 2,
           explanation:
             'フランス革命の理念がナポレオンの遠征によってヨーロッパ各地に広まりました。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -118,6 +128,7 @@ export const nationalismEurope: Topic = {
           correctIndex: 3,
           explanation:
             '義務教育により、同じ言葉や歴史を学ぶことで国民としての一体感が育まれました。',
+          difficulty: 'basic',
         },
         {
           id: 'q4',
@@ -126,6 +137,7 @@ export const nationalismEurope: Topic = {
           correctIndex: 0,
           explanation:
             'フランスでは男性普通選挙が実現し、より多くの国民が政治に参加できるようになりました。',
+          difficulty: 'standard',
         },
         {
           id: 'q5',
@@ -134,6 +146,7 @@ export const nationalismEurope: Topic = {
           correctIndex: 0,
           explanation:
             'イギリスでは二大政党制による政党政治が発展しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q6',
@@ -142,6 +155,7 @@ export const nationalismEurope: Topic = {
           correctIndex: 3,
           explanation:
             'ナポレオン戦争中のヨーロッパの混乱に乗じて、中南米の国々が次々と独立しました。',
+          difficulty: 'standard',
         },
       ],
     },

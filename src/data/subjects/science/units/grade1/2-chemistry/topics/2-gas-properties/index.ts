@@ -164,186 +164,34 @@ export const gasProperties: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'sci1-gp-fc1',
-        front: '酸素の発生方法',
-        back: '酸素を発生させるには、何に何を加えるか？',
-        explanation:
-          '二酸化マンガンにうすい過酸化水素水（オキシドール）を加える。火のついた線香を入れると激しく燃える。',
-      },
-      {
-        id: 'sci1-gp-fc2',
-        front: '二酸化炭素の確認方法',
-        back: '二酸化炭素の発生を確認する方法は？',
-        explanation:
-          '石灰水に通すと白くにごる。石灰石にうすい塩酸を加えると発生する。',
-      },
-      {
-        id: 'sci1-gp-fc3',
-        front: '水上置換法',
-        back: '水にとけにくい気体を集める方法を何という？',
-        explanation:
-          '水上置換法。水中で気体を集めるため、純粋な気体が得られる。酸素・水素・窒素の収集に使う。',
-      },
-      {
-        id: 'sci1-gp-fc4',
-        front: 'アンモニアの性質',
-        back: 'アンモニアの特徴を3つ答えよ。',
-        explanation:
-          '①刺激臭がある ②水に非常にとけやすい ③水溶液はアルカリ性を示す。空気より軽いので上方置換法で集める。',
-      },
-      {
-        id: 'sci1-gp-fc5',
-        front: '水素の性質',
-        back: '水素はどんな気体か？また発生方法は？',
-        explanation:
-          '最も軽い気体で、火をつけるとポンと音をたてて燃え、水ができる。亜鉛にうすい塩酸を加えると発生する。',
-      },
-      {
-        id: 'sci1-gp-fc6',
-        front: '二酸化マンガンの役割',
-        back: '酸素の発生実験で二酸化マンガンはどのようなはたらきをする？',
-        explanation:
-          '触媒としてはたらく。自分自身は変化せず、過酸化水素水の分解を速める役割がある。',
-      },
-      {
-        id: 'sci1-gp-fc7',
-        front: '窒素の性質',
-        back: '窒素はどんな気体か？空気中に何%ふくまれる？',
-        explanation:
-          '空気の約78%をしめる無色無臭の気体。ほかの物質と反応しにくく、非常に安定している。',
-      },
-      {
-        id: 'sci1-gp-fc8',
-        front: '気体の密度比較',
-        back: '酸素・二酸化炭素・水素・アンモニアを空気と比べて重い順に並べよ。',
-        explanation:
-          '二酸化炭素（最も重い）＞酸素＞空気＞窒素＞アンモニア＞水素（最も軽い）。',
-      },
-      {
-        id: 'sci1-gp-fc9',
-        front: 'BTB溶液の色変化',
-        back: 'BTB溶液は酸性・中性・アルカリ性でそれぞれ何色？',
-        explanation:
-          '酸性：黄色、中性：緑色、アルカリ性：青色。二酸化炭素の水溶液では黄色になる。',
-      },
-      {
-        id: 'sci1-gp-fc10',
-        front: 'リトマス紙の変色',
-        back: 'リトマス紙は何性のとき色が変わる？',
-        explanation:
-          '赤色リトマス紙はアルカリ性で青色に変化。青色リトマス紙は酸性で赤色に変化。',
-      },
-      {
-        id: 'sci1-gp-fc11',
-        front: '水上置換法の利点',
-        back: '水上置換法が優れている点は何か？',
-        explanation:
-          '空気が混じらず、純粋な気体を集めることができる。水にとけにくい気体であれば最も正確に集められる方法。',
-      },
-      {
-        id: 'sci1-gp-fc12',
-        front: 'フェノールフタレイン溶液',
-        back: 'フェノールフタレイン溶液は何性のとき何色になる？',
-        explanation:
-          'アルカリ性のとき赤色に変色する。中性・酸性では無色のまま。アンモニアの噴水実験で使う。',
-      },
-      {
-        id: 'sci1-gp-fc13',
-        front: '最初の気体を捨てる理由',
-        back: '水上置換法で最初に出てくる気体を捨てるのはなぜ？',
-        explanation:
-          '最初に出てくる気体にはもともと装置内にあった空気が混じっているため、純粋な気体を得るには捨てる必要がある。',
-      },
-      {
-        id: 'sci1-gp-fc14',
-        front: '空気の組成',
-        back: '空気はどのような気体でできている？割合を答えよ。',
-        explanation:
-          '窒素が約78%、酸素が約21%、その他（アルゴン・二酸化炭素など）が約1%。',
-      },
-      {
-        id: 'sci1-gp-fc15',
-        front: '酸性の気体',
-        back: '水にとかすと酸性を示す気体は？',
-        explanation:
-          '二酸化炭素。水にとけると炭酸水になり、BTB溶液を黄色にする。',
-      },
-      {
-        id: 'sci1-gp-fc16',
-        front: '上方置換法の原理',
-        back: '上方置換法で気体が集まる仕組みは？',
-        explanation:
-          '空気より軽い気体は上に行く性質がある。容器の口を下に向けて軽い気体を上にため、重い空気を下から押し出す。',
-      },
-      {
-        id: 'sci1-gp-fc17',
-        front: '噴水実験の原理',
-        back: 'アンモニアの噴水実験で水が吹き上がる理由は？',
-        explanation:
-          'アンモニアが水に一気にとけてフラスコ内の気圧が下がり、外の気圧との差で水が押し上げられるため。',
-      },
-      {
-        id: 'sci1-gp-fc18',
-        front: '二酸化炭素の集め方',
-        back: '二酸化炭素を集めるのに使える方法を2つ答えよ。',
-        explanation:
-          '水上置換法と下方置換法。水にあまりとけず空気より重いため、どちらの方法でも集められる。',
-      },
-      {
-        id: 'sci1-gp-fc19',
-        front: '水素の燃焼',
-        back: '水素が燃えるとどうなる？',
-        explanation:
-          'ポンと音をたてて燃え、水（H₂O）ができる。水素と酸素が化合する反応。',
-      },
-      {
-        id: 'sci1-gp-fc20',
-        front: 'においのかぎ方',
-        back: '気体のにおいを調べるとき、正しい方法は？',
-        explanation:
-          '容器の口を鼻から離し、手であおぐようにして少しずつにおいをかぐ。直接鼻を近づけてはいけない。',
-      },
-      {
-        id: 'sci1-gp-fc21',
-        front: '酸素の水への溶けやすさ',
-        back: '酸素は水にとけやすいか、とけにくいか？',
-      },
-      {
-        id: 'sci1-gp-fc22',
-        front: '酸素は空気より重いか',
-        back: '酸素は空気より重いか軽いか？',
-      },
-      {
-        id: 'sci1-gp-fc23',
-        front: '二酸化炭素の燃焼性',
-        back: '二酸化炭素にものを燃やすはたらきはあるか？',
-      },
-      {
-        id: 'sci1-gp-fc24',
-        front: '水素の水への溶けやすさ',
-        back: '水素は水にとけやすいか、とけにくいか？',
-      },
-      {
-        id: 'sci1-gp-fc25',
-        front: 'アンモニアの発生方法',
-        back: 'アンモニアを発生させるとき、何に何を加えて加熱するか？',
-      },
-      {
-        id: 'sci1-gp-fc26',
-        front: '窒素の反応性',
-        back: '窒素はほかの物質と反応しやすいか？',
-      },
-      {
-        id: 'sci1-gp-fc27',
-        front: '酸素の確認方法',
-        back: '酸素が発生したことを確認する方法を答えよ。',
-      },
-      {
-        id: 'sci1-gp-fc28',
-        front: '二酸化炭素の水溶液の性質',
-        back: '二酸化炭素を水に溶かすと何性を示すか？',
-      },
+      { id: 'sci1-gp-fc1', front: '二酸化マンガンにうすい過酸化水素水（オキシドール）を加える', back: '酸素を発生させるには、何に何を加えるか？', explanation: '二酸化マンガンは触媒としてはたらく', difficulty: 'basic' },
+      { id: 'sci1-gp-fc2', front: '石灰水に通すと白くにごる', back: '二酸化炭素の発生を確認する方法は？', difficulty: 'basic' },
+      { id: 'sci1-gp-fc3', front: '水上置換法', back: '水にとけにくい気体を集める方法を何という？', explanation: '純粋な気体が得られる。酸素・水素・窒素の収集に使う', difficulty: 'basic' },
+      { id: 'sci1-gp-fc4', front: '①刺激臭がある②水に非常にとけやすい③水溶液はアルカリ性を示す', back: 'アンモニアの特徴を3つ答えよ。', explanation: '空気より軽いので上方置換法で集める', difficulty: 'basic' },
+      { id: 'sci1-gp-fc5', front: '最も軽い気体で、火をつけるとポンと音をたてて燃え、水ができる。亜鉛にうすい塩酸を加えると発生', back: '水素はどんな気体か？また発生方法は？', difficulty: 'basic' },
+      { id: 'sci1-gp-fc6', front: '触媒としてはたらく。自分自身は変化せず、過酸化水素水の分解を速める', back: '酸素の発生実験で二酸化マンガンはどのようなはたらきをする？', difficulty: 'basic' },
+      { id: 'sci1-gp-fc7', front: '空気の約78%をしめる無色無臭の気体。ほかの物質と反応しにくく安定している', back: '窒素はどんな気体か？空気中に何%ふくまれる？', difficulty: 'basic' },
+      { id: 'sci1-gp-fc8', front: '二酸化炭素＞酸素＞空気＞窒素＞アンモニア＞水素', back: '酸素・二酸化炭素・水素・アンモニアを空気と比べて重い順に並べよ。', difficulty: 'standard' },
+      { id: 'sci1-gp-fc9', front: '酸性：黄色、中性：緑色、アルカリ性：青色', back: 'BTB溶液は酸性・中性・アルカリ性でそれぞれ何色？', difficulty: 'basic' },
+      { id: 'sci1-gp-fc10', front: '赤色リトマス紙はアルカリ性で青色に変化。青色リトマス紙は酸性で赤色に変化', back: 'リトマス紙は何性のとき色が変わる？', difficulty: 'basic' },
+      { id: 'sci1-gp-fc11', front: '空気が混じらず、純粋な気体を集めることができる', back: '水上置換法が優れている点は何か？', difficulty: 'basic' },
+      { id: 'sci1-gp-fc12', front: 'アルカリ性のとき赤色に変色する（中性・酸性では無色）', back: 'フェノールフタレイン溶液は何性のとき何色になる？', difficulty: 'basic' },
+      { id: 'sci1-gp-fc13', front: '最初に出てくる気体にはもともと装置内にあった空気が混じっているため', back: '水上置換法で最初に出てくる気体を捨てるのはなぜ？', difficulty: 'standard' },
+      { id: 'sci1-gp-fc14', front: '窒素が約78%、酸素が約21%、その他（アルゴン・二酸化炭素など）が約1%', back: '空気はどのような気体でできている？割合を答えよ。', difficulty: 'standard' },
+      { id: 'sci1-gp-fc15', front: '二酸化炭素。水にとけると炭酸水になり酸性を示す', back: '水にとかすと酸性を示す気体は？', difficulty: 'standard' },
+      { id: 'sci1-gp-fc16', front: '空気より軽い気体が上にたまり、重い空気が下から押し出される', back: '上方置換法で気体が集まる仕組みは？', difficulty: 'standard' },
+      { id: 'sci1-gp-fc17', front: 'アンモニアが水に一気にとけてフラスコ内の気圧が下がり、外の気圧との差で水が押し上げられるため', back: 'アンモニアの噴水実験で水が吹き上がる理由は？', difficulty: 'standard' },
+      { id: 'sci1-gp-fc18', front: '水上置換法と下方置換法', back: '二酸化炭素を集めるのに使える方法を2つ答えよ。', explanation: '水にあまりとけず空気より重いため、どちらでも集められる', difficulty: 'standard' },
+      { id: 'sci1-gp-fc19', front: 'ポンと音をたてて燃え、水（H₂O）ができる', back: '水素が燃えるとどうなる？', difficulty: 'standard' },
+      { id: 'sci1-gp-fc20', front: '容器の口を鼻から離し、手であおぐようにして少しずつにおいをかぐ', back: '気体のにおいを調べるとき、正しい方法は？', difficulty: 'standard' },
+      { id: 'sci1-gp-fc21', front: '水にとけにくい', back: '酸素は水にとけやすいか、とけにくいか？', explanation: 'そのため水上置換法で純粋に集められる', difficulty: 'basic' },
+      { id: 'sci1-gp-fc22', front: '空気よりわずかに重い', back: '酸素は空気より重いか軽いか？', difficulty: 'basic' },
+      { id: 'sci1-gp-fc23', front: 'ない。二酸化炭素の中では火が消える', back: '二酸化炭素にものを燃やすはたらきはあるか？', difficulty: 'standard' },
+      { id: 'sci1-gp-fc24', front: '水にとけにくい', back: '水素は水にとけやすいか、とけにくいか？', difficulty: 'basic' },
+      { id: 'sci1-gp-fc25', front: '塩化アンモニウムと水酸化カルシウムを混ぜて加熱する', back: 'アンモニアを発生させるとき、何に何を加えて加熱するか？', difficulty: 'standard' },
+      { id: 'sci1-gp-fc26', front: '反応しにくい（非常に安定した気体）', back: '窒素はほかの物質と反応しやすいか？', difficulty: 'standard' },
+      { id: 'sci1-gp-fc27', front: '火のついた線香を入れると激しく燃える', back: '酸素が発生したことを確認する方法を答えよ。', difficulty: 'standard' },
+      { id: 'sci1-gp-fc28', front: '酸性を示す（炭酸水になる）', back: '二酸化炭素を水に溶かすと何性を示すか？', difficulty: 'standard' },
     ],
     quiz: {
       questions: [
@@ -354,7 +202,8 @@ export const gasProperties: Topic = {
           correctIndex: 1,
           explanation:
             '二酸化炭素を石灰水に通すと白くにごります。これは二酸化炭素の確認方法として重要です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-gp-q2',
           question: '水にとけにくい気体を集める方法はどれ？',
@@ -362,7 +211,8 @@ export const gasProperties: Topic = {
           correctIndex: 3,
           explanation:
             '水上置換法は水にとけにくい気体を水中で集める方法です。純粋な気体を集められる利点があります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-gp-q3',
           question: 'アンモニアの性質として正しいものはどれ？',
@@ -375,7 +225,8 @@ export const gasProperties: Topic = {
           correctIndex: 0,
           explanation:
             'アンモニアは水に非常にとけやすく、刺激臭があり、水溶液はアルカリ性を示します。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-gp-q4',
           question: '酸素を発生させる組み合わせはどれ？',
@@ -388,7 +239,8 @@ export const gasProperties: Topic = {
           correctIndex: 2,
           explanation:
             '二酸化マンガンにうすい過酸化水素水を加えると酸素が発生します。二酸化マンガンは触媒としてはたらきます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-gp-q5',
           question: '空気中に最も多くふくまれる気体はどれ？',
@@ -396,7 +248,8 @@ export const gasProperties: Topic = {
           correctIndex: 0,
           explanation:
             '空気は約78%が窒素、約21%が酸素で構成されています。窒素は反応しにくい安定した気体です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-gp-q6',
           question: '酸素の発生実験で二酸化マンガンのはたらきを何という？',
@@ -404,7 +257,8 @@ export const gasProperties: Topic = {
           correctIndex: 1,
           explanation:
             '触媒とは自分自身は変化せず、化学変化の速さを速める物質のことです。二酸化マンガンは過酸化水素水の分解を速めます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-gp-q7',
           question: '水素が燃えるとできる物質は何？',
@@ -412,7 +266,8 @@ export const gasProperties: Topic = {
           correctIndex: 2,
           explanation:
             '水素は燃えると酸素と化合して水（H₂O）ができます。ポンと音をたてて燃えるのが水素の特徴です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-gp-q8',
           question: 'BTB溶液が黄色になるのは何性のとき？',
@@ -420,7 +275,8 @@ export const gasProperties: Topic = {
           correctIndex: 3,
           explanation:
             'BTB溶液は酸性で黄色、中性で緑色、アルカリ性で青色になります。二酸化炭素の水溶液では黄色を示します。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-gp-q9',
           question: 'アンモニアを集めるのに適した方法はどれ？',
@@ -428,7 +284,8 @@ export const gasProperties: Topic = {
           correctIndex: 0,
           explanation:
             'アンモニアは空気より軽いため上方置換法で集めます。水に非常にとけやすいため水上置換法は使えません。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-gp-q10',
           question: 'フェノールフタレイン溶液がアルカリ性で示す色はどれ？',
@@ -436,7 +293,8 @@ export const gasProperties: Topic = {
           correctIndex: 3,
           explanation:
             'フェノールフタレイン溶液はアルカリ性で赤色に変色します。中性・酸性では無色のままです。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-gp-q11',
           question: 'すべての気体の中で最も密度が小さい（軽い）のはどれ？',
@@ -444,7 +302,8 @@ export const gasProperties: Topic = {
           correctIndex: 1,
           explanation:
             '水素はすべての気体の中で最も密度が小さく、最も軽い気体です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-gp-q12',
           question: '赤色リトマス紙が青色に変わるのは何性の水溶液？',
@@ -452,7 +311,8 @@ export const gasProperties: Topic = {
           correctIndex: 2,
           explanation:
             '赤色リトマス紙が青色に変わるのはアルカリ性のときです。アンモニアの水溶液はアルカリ性なので青色に変わります。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-gp-q13',
           question: '触媒とは何か？',
@@ -465,7 +325,8 @@ export const gasProperties: Topic = {
           correctIndex: 1,
           explanation:
             '触媒は自分自身は変化しないが、化学変化の速さを速める物質です。二酸化マンガンは酸素の発生実験で触媒としてはたらきます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-gp-q14',
           question: '酸素は水にとけやすいか？',
@@ -473,7 +334,8 @@ export const gasProperties: Topic = {
           correctIndex: 2,
           explanation:
             '酸素は水にとけにくい気体です。そのため水上置換法で純粋な酸素を集めることができます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-gp-q15',
           question: '二酸化炭素にものを燃やすはたらきはあるか？',
@@ -481,7 +343,8 @@ export const gasProperties: Topic = {
           correctIndex: 1,
           explanation:
             '二酸化炭素にはものを燃やすはたらきはありません。二酸化炭素の中では火が消えます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-gp-q16',
           question: '水素を発生させるとき、何に何を加えるか？',
@@ -494,7 +357,8 @@ export const gasProperties: Topic = {
           correctIndex: 2,
           explanation:
             '亜鉛にうすい塩酸を加えると水素が発生します。水素は火を近づけるとポンと音をたてて燃えます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-gp-q17',
           question: 'アンモニアを発生させるとき、何に何を加えて加熱するか？',
@@ -507,7 +371,8 @@ export const gasProperties: Topic = {
           correctIndex: 2,
           explanation:
             '塩化アンモニウムと水酸化カルシウムを混ぜて加熱するとアンモニアが発生します。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-gp-q18',
           question: 'BTB溶液が緑色のときは何性か？',
@@ -515,7 +380,8 @@ export const gasProperties: Topic = {
           correctIndex: 1,
           explanation:
             'BTB溶液は中性で緑色、酸性で黄色、アルカリ性で青色を示します。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-gp-q19',
           question: '無色で刺激臭があり、水溶液がアルカリ性を示す気体は何？',
@@ -523,7 +389,8 @@ export const gasProperties: Topic = {
           correctIndex: 3,
           explanation:
             'アンモニアは無色で特有の刺激臭があり、水に非常にとけやすく、水溶液はアルカリ性を示します。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-gp-q20',
           question: '二酸化炭素を集めるのに水上置換法と下方置換法の両方が使える理由は？',
@@ -536,7 +403,8 @@ export const gasProperties: Topic = {
           correctIndex: 1,
           explanation:
             '二酸化炭素は水にあまりとけず、空気より重いため、水上置換法と下方置換法の両方で集めることができます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-gp-q21',
           question: '酸素を集めるのに最も適した方法はどれ？',
@@ -544,7 +412,8 @@ export const gasProperties: Topic = {
           correctIndex: 2,
           explanation:
             '酸素は水にとけにくいため、水上置換法で純粋な酸素を集めることができます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-gp-q22',
           question: '空気中の酸素の割合はおよそ何%か？',
@@ -552,7 +421,8 @@ export const gasProperties: Topic = {
           correctIndex: 1,
           explanation:
             '空気は約78%が窒素、約21%が酸素で構成されています。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-gp-q23',
           question: '二酸化炭素の水溶液にBTB溶液を加えると何色になるか？',
@@ -560,7 +430,8 @@ export const gasProperties: Topic = {
           correctIndex: 2,
           explanation:
             '二酸化炭素の水溶液（炭酸水）は酸性なので、BTB溶液は黄色になります。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci1-gp-q24',
           question: '窒素はほかの物質と反応しやすいか？',
@@ -568,7 +439,8 @@ export const gasProperties: Topic = {
           correctIndex: 1,
           explanation:
             '窒素はほかの物質と反応しにくく、非常に安定した気体です。空気の約78%を占めています。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci1-gp-q25',
           question: '水素が発生したことを確認する方法はどれ？',
@@ -581,7 +453,8 @@ export const gasProperties: Topic = {
           correctIndex: 3,
           explanation:
             '水素は火を近づけるとポンと音をたてて燃えます。これが水素の確認方法です。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci1-gp-q26',
           question: '青色リトマス紙が赤色に変わるのは何性のときか？',
@@ -589,7 +462,8 @@ export const gasProperties: Topic = {
           correctIndex: 2,
           explanation:
             '青色リトマス紙が赤色に変わるのは酸性のときです。赤色リトマス紙はアルカリ性で青色に変わります。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci1-gp-q27',
           question: 'アンモニアの噴水実験でフェノールフタレイン溶液を加えた水を使うと何色になるか？',
@@ -597,7 +471,8 @@ export const gasProperties: Topic = {
           correctIndex: 3,
           explanation:
             'アンモニアが水にとけるとアルカリ性を示すため、フェノールフタレイン溶液は赤色に変色します。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci1-gp-q28',
           question: '酸素が発生したことを確認する方法はどれ？',
@@ -610,7 +485,8 @@ export const gasProperties: Topic = {
           correctIndex: 1,
           explanation:
             '酸素は火のついた線香を入れると激しく燃えます。これは酸素のものを燃やすはたらきを確認する方法です。',
-        },
+        difficulty: 'advanced',
+      },
       ],
     },
     examples: {

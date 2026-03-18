@@ -81,85 +81,103 @@ export const literalExpressions: Topic = {
       {
         id: 'math-g2-le-fc1',
         front: '$2n$（$n$ は整数）\n2で割り切れる数', back: '偶数を文字で表すと？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-le-fc2',
         front: '$2n + 1$（$n$ は整数）\n偶数に1を足した数', back: '奇数を文字で表すと？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-le-fc3',
         front: '$n, n + 1, n + 2$\n（$n$ は整数）', back: '連続する3つの整数の表し方は？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-le-fc4',
         front: '$2n, 2n + 2, 2n + 4$\n（$n$ は整数）', back: '連続する3つの偶数の表し方は？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-le-fc5',
         front: '$10a + b$\n（$a$: 十の位、$b$: 一の位）', back: '2けたの自然数の表し方は？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-le-fc6',
         front: '$100x + 10y + z$\n（$x$: 百の位、$y$: 十の位、$z$: 一の位）', back: '3けたの自然数の表し方は？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-le-fc7',
         front: '① 文字で表す\n② 式を計算する\n③ 結論を書く', back: '証明の3ステップは？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-le-fc8',
         front: '3の倍数\n$n + (n+1) + (n+2) = 3(n+1)$', back: '連続する3整数の和は何の倍数？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-le-fc9',
         front: '11の倍数\n$(10a+b) + (10b+a) = 11(a+b)$', back: '2けたの数 + 入れかえた数\n= 何の倍数？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-le-fc10',
         front: '9の倍数\n$(10a+b) - (10b+a) = 9(a-b)$', back: '2けたの数 − 入れかえた数\n= 何の倍数？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-le-fc11',
         front: '等式をある文字について解くこと\n$x = \\square$ の形にする', back: '等式の変形とは？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-le-fc12',
         front: '① 移項する\n② 両辺に同じ数をかける/割る\n方程式を解くのと同じ要領！', back: '等式の変形の基本操作は？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-le-fc13',
         front: '$h = \\frac{2S}{a}$\n両辺を2倍してから $a$ で割る', back: '$S = \\frac{1}{2}ah$ を $h$ について解くと？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g2-le-fc14',
         front: '$h = \\frac{V}{\\pi r^2}$\n両辺を $\\pi r^2$ で割る', back: '$V = \\pi r^2 h$ を $h$ について解くと？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g2-le-fc15',
         front: '偶数\n$(2m+1) + (2n+1) = 2(m+n+1)$', back: '奇数 + 奇数 = ？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g2-le-fc16',
         front: '偶数\n$2m \\times (2n+1) = 2m(2n+1)$\n$2 \\times$ 整数の形', back: '偶数 × 奇数 = ？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g2-le-fc17',
         front: '99の倍数（9の倍数）\n$(100x+10y+z) - (100z+10y+x)$\n$= 99(x-z)$', back: '3けたの数と百の位・一の位を\n入れかえた数の差は？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g2-le-fc18',
         front: '$h = \\frac{2S}{a+b}$\n両辺を2倍して $(a+b)$ で割る', back: '$S = \\frac{(a+b)h}{2}$ を $h$ について解くと？',
+        difficulty: 'standard',
       },
-      { id: 'math-g2-le-fc19', front: '偶数 $\times$ 偶数 $= 4mn$（$2m \times 2n = 4mn$）→ $4$ の倍数', back: '偶数 × 偶数は何の倍数？' },
-      { id: 'math-g2-le-fc20', front: '奇数 $- $ 奇数 $= 2(m-n)$ → 偶数', back: '奇数 − 奇数 = ？' },
-      { id: 'math-g2-le-fc21', front: '$c = \dfrac{y - b}{a}$（$y = ax + b$ を $x$ について解いたイメージ）', back: '$y = ax + b$ を $x$ について解くと？→ $x = \dfrac{y - b}{a}$' },
-      { id: 'math-g2-le-fc22', front: '連続する5整数: $n, n+1, n+2, n+3, n+4$。和 $= 5(n+2)$ → 5の倍数', back: '連続する5つの整数の和は何の倍数？' },
-      { id: 'math-g2-le-fc23', front: '$2n + 1, 2n + 3, 2n + 5$（$n$ は整数）', back: '連続する3つの奇数の表し方は？' },
-      { id: 'math-g2-le-fc24', front: '連続3奇数の和 $= 6n + 9 = 3(2n + 3)$ → 3の倍数', back: '連続する3つの奇数の和は何の倍数？' },
-      { id: 'math-g2-le-fc25', front: '$r = \dfrac{C}{2\pi}$（両辺を $2\pi$ で割る）', back: '$C = 2\pi r$ を $r$ について解くと？' },
-      { id: 'math-g2-le-fc26', front: '偶数 $+$ 奇数 $= 2m + (2n+1) = 2(m+n) + 1$ → 奇数', back: '偶数 + 奇数 = ？' },
-      { id: 'math-g2-le-fc27', front: '$a = \dfrac{2S}{h} - b$（$2S = (a+b)h$ → $\dfrac{2S}{h} = a+b$ → $a = \dfrac{2S}{h} - b$）', back: '$S = \dfrac{(a+b)h}{2}$ を $a$ について解くと？' },
-      { id: 'math-g2-le-fc28', front: '整数 $n$ の2乗は $n^2$。$n^2$ を整数で表せるから整数。', back: '整数の2乗は整数？' },
+      { id: 'math-g2-le-fc19', front: '偶数 $\times$ 偶数 $= 4mn$（$2m \times 2n = 4mn$）→ $4$ の倍数', back: '偶数 × 偶数は何の倍数？', difficulty: 'standard' },
+      { id: 'math-g2-le-fc20', front: '奇数 $- $ 奇数 $= 2(m-n)$ → 偶数', back: '奇数 − 奇数 = ？', difficulty: 'standard' },
+      { id: 'math-g2-le-fc21', front: '$c = \dfrac{y - b}{a}$（$y = ax + b$ を $x$ について解いたイメージ）', back: '$y = ax + b$ を $x$ について解くと？→ $x = \dfrac{y - b}{a}$', difficulty: 'standard' },
+      { id: 'math-g2-le-fc22', front: '連続する5整数: $n, n+1, n+2, n+3, n+4$。和 $= 5(n+2)$ → 5の倍数', back: '連続する5つの整数の和は何の倍数？', difficulty: 'standard' },
+      { id: 'math-g2-le-fc23', front: '$2n + 1, 2n + 3, 2n + 5$（$n$ は整数）', back: '連続する3つの奇数の表し方は？', difficulty: 'advanced' },
+      { id: 'math-g2-le-fc24', front: '連続3奇数の和 $= 6n + 9 = 3(2n + 3)$ → 3の倍数', back: '連続する3つの奇数の和は何の倍数？', difficulty: 'advanced' },
+      { id: 'math-g2-le-fc25', front: '$r = \dfrac{C}{2\pi}$（両辺を $2\pi$ で割る）', back: '$C = 2\pi r$ を $r$ について解くと？', difficulty: 'advanced' },
+      { id: 'math-g2-le-fc26', front: '偶数 $+$ 奇数 $= 2m + (2n+1) = 2(m+n) + 1$ → 奇数', back: '偶数 + 奇数 = ？', difficulty: 'advanced' },
+      { id: 'math-g2-le-fc27', front: '$a = \dfrac{2S}{h} - b$（$2S = (a+b)h$ → $\dfrac{2S}{h} = a+b$ → $a = \dfrac{2S}{h} - b$）', back: '$S = \dfrac{(a+b)h}{2}$ を $a$ について解くと？', difficulty: 'advanced' },
+      { id: 'math-g2-le-fc28', front: '整数 $n$ の2乗は $n^2$。$n^2$ を整数で表せるから整数。', back: '整数の2乗は整数？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -170,6 +188,7 @@ export const literalExpressions: Topic = {
           correctIndex: 1,
           explanation:
             '偶数は $2n$ だから、それに $1$ を足した $2n + 1$ が奇数だよ。$n = 0$ なら $1$、$n = 1$ なら $3$、$n = 2$ なら $5$ … となるね。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g2-literal-expr-q2',
@@ -183,6 +202,7 @@ export const literalExpressions: Topic = {
           correctIndex: 2,
           explanation:
             '$y = 3x - 6 \\rightarrow y + 6 = 3x \\rightarrow x = \\frac{y + 6}{3}$ だよ。まず $-6$ を移項して、$3$ で割ろう。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g2-literal-expr-q3',
@@ -191,6 +211,7 @@ export const literalExpressions: Topic = {
           correctIndex: 0,
           explanation:
             '連続する3整数を $n, n+1, n+2$ とすると、和 $= n + (n+1) + (n+2) = 3n + 3 = 3(n+1)$。$3 \\times$ (整数) の形だから $3$の倍数になるよ！',
+          difficulty: 'basic',
         },
         {
           id: 'math-g2-le-q4',
@@ -200,6 +221,7 @@ export const literalExpressions: Topic = {
           correctIndex: 3,
           explanation:
             '十の位は $10$ 倍するから $10a$、一の位はそのまま $b$ で、$10a + b$ だよ。例えば $a = 3, b = 5$ なら $10 \\times 3 + 5 = 35$ になるね。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g2-le-q5',
@@ -209,6 +231,7 @@ export const literalExpressions: Topic = {
           correctIndex: 2,
           explanation:
             '$(10a + b) + (10b + a) = 11a + 11b = 11(a + b)$。$11 \\times$ (整数) の形だから $11$ の倍数だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g2-le-q6',
@@ -217,6 +240,7 @@ export const literalExpressions: Topic = {
           correctIndex: 1,
           explanation:
             '連続する3偶数を $2n, 2n+2, 2n+4$ とすると、和 $= 6n + 6 = 6(n+1)$。$6 \\times$ (整数) の形だから $6$ の倍数だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g2-le-q7',
@@ -230,6 +254,7 @@ export const literalExpressions: Topic = {
           correctIndex: 3,
           explanation:
             '$S = \\frac{1}{2}ab$ の両辺を $2$ 倍すると $2S = ab$。両辺を $b$ で割ると $a = \\frac{2S}{b}$ だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g2-le-q8',
@@ -239,6 +264,7 @@ export const literalExpressions: Topic = {
           correctIndex: 0,
           explanation:
             '$(100x + 10y + z) - (100z + 10y + x) = 99x - 99z = 99(x - z)$。$99 \\times$ (整数) だから $99$ の倍数（もちろん $9$ の倍数でもある）だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g2-le-q9',
@@ -252,6 +278,7 @@ export const literalExpressions: Topic = {
           correctIndex: 1,
           explanation:
             '$V = \\frac{1}{3}x^2 h$ の両辺を $3$ 倍すると $3V = x^2 h$。両辺を $x^2$ で割ると $h = \\frac{3V}{x^2}$ だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g2-le-q10',
@@ -260,6 +287,7 @@ export const literalExpressions: Topic = {
           correctIndex: 2,
           explanation:
             '2つの奇数を $2m + 1, 2n + 1$ とすると、和 $= 2m + 2n + 2 = 2(m + n + 1)$。$2 \\times$ (整数) の形だから偶数になるよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g2-le-q11',
@@ -267,6 +295,7 @@ export const literalExpressions: Topic = {
           options: ['偶数', '奇数', '素数', '3の倍数'],
           correctIndex: 1,
           explanation: '$2m + (2n+1) = 2(m+n) + 1$。$2 \times$(整数) $+ 1$ の形だから奇数だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-le-q12',
@@ -274,6 +303,7 @@ export const literalExpressions: Topic = {
           options: ['$r = \dfrac{2C}{\pi}$', '$r = \dfrac{C}{2\pi}$', '$r = 2\pi C$', '$r = C - 2\pi$'],
           correctIndex: 1,
           explanation: '両辺を $2\pi$ で割ると $r = \dfrac{C}{2\pi}$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-le-q13',
@@ -281,6 +311,7 @@ export const literalExpressions: Topic = {
           options: ['$2$ の倍数', '$3$ の倍数', '$5$ の倍数', '$10$ の倍数'],
           correctIndex: 2,
           explanation: '$n+(n+1)+(n+2)+(n+3)+(n+4) = 5n+10 = 5(n+2)$。$5$ の倍数だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-le-q14',
@@ -288,6 +319,7 @@ export const literalExpressions: Topic = {
           options: ['$x = \dfrac{y - 5}{-2}$', '$x = \dfrac{-y + 5}{2}$', '$x = \dfrac{5 - y}{2}$', 'すべて正しい'],
           correctIndex: 3,
           explanation: 'すべて同じ式を変形したものだよ。$x = \dfrac{5-y}{2}$ が最もシンプル。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-le-q15',
@@ -295,6 +327,7 @@ export const literalExpressions: Topic = {
           options: ['必ず偶数', '必ず奇数', '偶数か奇数かわからない', '必ず素数'],
           correctIndex: 0,
           explanation: '$2m \times (2n+1) = 2m(2n+1)$。$2 \times$(整数)の形だから偶数だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-le-q16',
@@ -302,6 +335,7 @@ export const literalExpressions: Topic = {
           options: ['$2$ の倍数', '$3$ の倍数', '$5$ の倍数', '$6$ の倍数'],
           correctIndex: 1,
           explanation: '$(2n+1)+(2n+3)+(2n+5) = 6n+9 = 3(2n+3)$。$3$ の倍数だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-le-q17',
@@ -309,6 +343,7 @@ export const literalExpressions: Topic = {
           options: ['$a = \dfrac{S}{2h} - b$', '$a = \dfrac{2S}{h} - b$', '$a = 2Sh - b$', '$a = \dfrac{2S - b}{h}$'],
           correctIndex: 1,
           explanation: '$2S = (a+b)h$ → $\dfrac{2S}{h} = a+b$ → $a = \dfrac{2S}{h} - b$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-le-q18',
@@ -316,6 +351,7 @@ export const literalExpressions: Topic = {
           options: ['$9(a-b)$', '$11(a-b)$', '$9(a+b)$', '$11(a+b)$'],
           correctIndex: 0,
           explanation: '$10a+b-10b-a = 9a-9b = 9(a-b)$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-le-q19',
@@ -323,6 +359,7 @@ export const literalExpressions: Topic = {
           options: ['偶数', '奇数', 'どちらもありえる', '素数'],
           correctIndex: 1,
           explanation: '$(2n+1)^2 = 4n^2 + 4n + 1 = 2(2n^2+2n) + 1$。奇数だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-le-q20',
@@ -330,6 +367,7 @@ export const literalExpressions: Topic = {
           options: ['$y = \dfrac{2x - 6}{3}$', '$y = \dfrac{6 - 2x}{3}$', '$y = 2x - 2$', '$y = \dfrac{2x + 6}{3}$'],
           correctIndex: 0,
           explanation: '$-3y = 6 - 2x$ → $y = \dfrac{-(6-2x)}{3} = \dfrac{2x-6}{3}$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-le-q21',
@@ -337,6 +375,7 @@ export const literalExpressions: Topic = {
           options: ['$4$ の倍数', '$8$ の倍数', '$6$ の倍数', '$2$ の倍数'],
           correctIndex: 1,
           explanation: '$2n \times (2n+2) = 4n(n+1)$。$n(n+1)$ は連続整数の積で偶数だから、$4 \times 2k = 8k$ で $8$ の倍数だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-le-q22',
@@ -344,6 +383,7 @@ export const literalExpressions: Topic = {
           options: ['$h = V - lw$', '$h = \dfrac{lw}{V}$', '$h = Vlw$', '$h = \dfrac{V}{lw}$'],
           correctIndex: 3,
           explanation: '両辺を $lw$ で割って $h = \dfrac{V}{lw}$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-le-q23',
@@ -351,6 +391,7 @@ export const literalExpressions: Topic = {
           options: ['$3n + 3$', '$3n$', '$3n - 3$', '$n + 3$'],
           correctIndex: 1,
           explanation: '$(n-1) + n + (n+1) = 3n$ だよ。真ん中の数の $3$ 倍になるんだ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g2-le-q24',
@@ -358,6 +399,7 @@ export const literalExpressions: Topic = {
           options: ['偶数', '奇数', '$0$', 'わからない'],
           correctIndex: 1,
           explanation: '$2m - (2n+1) = 2(m-n) - 1 = 2(m-n-1) + 1$。奇数だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g2-le-q25',
@@ -365,6 +407,7 @@ export const literalExpressions: Topic = {
           options: ['$m = aF$', '$m = \dfrac{a}{F}$', '$m = \dfrac{F}{a}$', '$m = F - a$'],
           correctIndex: 2,
           explanation: '$a = \dfrac{F}{m}$ → $m = \dfrac{F}{a}$ だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g2-le-q26',
@@ -372,6 +415,7 @@ export const literalExpressions: Topic = {
           options: ['奇数', '偶数', '3の倍数', '素数'],
           correctIndex: 1,
           explanation: '$n^2 + n = n(n+1)$。連続整数の積はどちらか偶数だから積は偶数だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g2-le-q27',
@@ -379,6 +423,7 @@ export const literalExpressions: Topic = {
           options: ['$9$ の倍数', '$99$ の倍数', '$11$ の倍数', '$100$ の倍数'],
           correctIndex: 1,
           explanation: '$(100a+10b+c)-(100c+10b+a) = 99(a-c)$。$99$ の倍数だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g2-le-q28',
@@ -386,6 +431,7 @@ export const literalExpressions: Topic = {
           options: ['$x = \dfrac{20 - 5y}{4}$', '$x = 5 - \dfrac{5y}{4}$', '$x = \dfrac{20 + 5y}{4}$', '①と②は同じ'],
           correctIndex: 3,
           explanation: '$4x = 20 - 5y$ → $x = \dfrac{20-5y}{4} = 5 - \dfrac{5y}{4}$。どちらも正しいよ。',
+          difficulty: 'advanced',
         },
       ],
     },

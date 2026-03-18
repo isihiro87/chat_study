@@ -34,83 +34,17 @@ export const coldWar: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'fc1',
-        front: '冷戦',
-        back: 'アメリカとソ連を中心とする二つの陣営が、直接戦争をせずに対立した状態を何という？',
-        explanation:
-          '核兵器による軍拡競争や代理戦争が繰り広げられた。',
-      },
-      {
-        id: 'fc2',
-        front: '国際連合',
-        back: '1945年に世界平和を守るために設立された国際組織は？',
-        explanation:
-          '本部はニューヨークに置かれ、安全保障理事会が中心的な役割を担う。',
-      },
-      {
-        id: 'fc3',
-        front: '安全保障理事会',
-        back: '国際連合で平和と安全の維持に主要な責任を持つ機関は？',
-        explanation:
-          'アメリカ・イギリス・フランス・ロシア・中国の5か国が常任理事国。',
-      },
-      {
-        id: 'fc4',
-        front: '拒否権',
-        back: '安全保障理事会の常任理事国が持つ、決議を否決できる権利は？',
-        explanation:
-          '1か国でも反対すれば決議が成立しないため、冷戦中は機能不全に陥った。',
-      },
-      {
-        id: 'fc5',
-        front: 'NATO',
-        back: 'アメリカを中心とする西側諸国が結成した軍事同盟は？（北大西洋条約機構）',
-        explanation:
-          'ソ連を中心とする東側に対抗するために結成された。',
-      },
-      {
-        id: 'fc6',
-        front: 'ワルシャワ条約機構',
-        back: 'ソ連を中心とする東側諸国が結成した軍事同盟は？',
-        explanation:
-          'NATOに対抗して結成された東側の軍事同盟。',
-      },
-      {
-        id: 'fc7',
-        front: '中華人民共和国',
-        back: '1949年に毛沢東が建国した社会主義国家は？',
-        explanation:
-          '中国共産党が国民党との内戦に勝利して建国した。',
-      },
-      {
-        id: 'fc8',
-        front: '朝鮮戦争',
-        back: '1950年に始まった、朝鮮半島での冷戦の代理戦争は？',
-        explanation:
-          '北朝鮮（ソ連・中国が支援）と韓国（アメリカが支援）が戦った。',
-      },
-      {
-        id: 'fc9',
-        front: 'アフリカの年',
-        back: '1960年にアフリカで17か国が一斉に独立したことから、この年を何という？',
-        explanation:
-          'アジア・アフリカの民族独立運動が活発化した。',
-      },
-      {
-        id: 'fc10',
-        front: '南北問題',
-        back: '先進国（北）と発展途上国（南）の経済格差の問題を何という？',
-        explanation:
-          '独立を果たしたアジア・アフリカの国々が直面した課題。',
-      },
-      {
-        id: 'fc11',
-        front: 'ベルリンの壁',
-        back: '東西ドイツの境界に建設された、冷戦の象徴とされる壁は？',
-        explanation:
-          '1961年に建設され、1989年に崩壊した。',
-      },
+      { id: 'fc1', front: '冷戦', back: 'アメリカとソ連を中心とする二つの陣営が、直接戦争をせずに対立した状態を何という？', difficulty: 'basic' },
+      { id: 'fc2', front: '国際連合', back: '1945年に世界平和を守るために設立された国際組織は？', explanation: '本部はニューヨーク。安全保障理事会が中心的な役割を担う。', difficulty: 'basic' },
+      { id: 'fc3', front: '拒否権', back: '安全保障理事会の常任理事国が持つ、決議を否決できる権利は？', difficulty: 'basic' },
+      { id: 'fc4', front: 'NATO', back: 'アメリカを中心とする西側諸国が結成した軍事同盟は？（北大西洋条約機構）', difficulty: 'basic' },
+      { id: 'fc5', front: 'ワルシャワ条約機構', back: 'ソ連を中心とする東側諸国が結成した軍事同盟は？', difficulty: 'standard' },
+      { id: 'fc6', front: '中華人民共和国', back: '1949年に毛沢東が建国した社会主義国家は？', difficulty: 'standard' },
+      { id: 'fc7', front: '朝鮮戦争', back: '1950年に始まった、朝鮮半島での冷戦の代理戦争は？', explanation: '北朝鮮（ソ連・中国が支援）と韓国（アメリカが支援）が戦った。', difficulty: 'standard' },
+      { id: 'fc8', front: 'アフリカの年', back: '1960年にアフリカで17か国が一斉に独立したことから、この年を何という？', difficulty: 'standard' },
+      { id: 'fc9', front: 'ベルリンの壁', back: '東西ドイツの境界に建設された、冷戦の象徴とされる壁は？', explanation: '1961年に建設され、1989年に崩壊した。', difficulty: 'advanced' },
+      { id: 'fc10', front: '南北問題', back: '先進国（北）と発展途上国（南）の経済格差の問題を何という？', difficulty: 'advanced' },
+      { id: 'fc11', front: '冷戦が「冷たい戦争」と呼ばれた理由', back: '米ソの対立が「冷戦」と呼ばれたのはなぜか？', explanation: '直接の軍事衝突（熱い戦争）はせず、核兵器による軍拡競争や代理戦争で対立したため。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -127,6 +61,7 @@ export const coldWar: Topic = {
           correctIndex: 3,
           explanation:
             'NATOはアメリカを中心とする西側諸国の軍事同盟で、ソ連を中心とする東側のワルシャワ条約機構と対立しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -136,6 +71,7 @@ export const coldWar: Topic = {
           correctIndex: 0,
           explanation:
             '拒否権により1か国でも反対すれば決議が成立せず、冷戦中は国連が機能不全に陥ることがありました。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -150,6 +86,7 @@ export const coldWar: Topic = {
           correctIndex: 1,
           explanation:
             '1960年にはアフリカで17か国が独立し、「アフリカの年」と呼ばれました。',
+          difficulty: 'basic',
         },
         {
           id: 'q4',
@@ -164,6 +101,7 @@ export const coldWar: Topic = {
           correctIndex: 2,
           explanation:
             '1949年に中華人民共和国が成立し、社会主義陣営が拡大しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q5',
@@ -178,6 +116,7 @@ export const coldWar: Topic = {
           correctIndex: 2,
           explanation:
             '朝鮮戦争は北朝鮮（ソ連・中国が支援）と韓国（アメリカが支援）が戦った冷戦の代理戦争です。',
+          difficulty: 'standard',
         },
         {
           id: 'q6',
@@ -192,6 +131,7 @@ export const coldWar: Topic = {
           correctIndex: 0,
           explanation:
             'ベルリンの壁は1961年に建設され、東西ドイツの分断と冷戦の象徴となりました。',
+          difficulty: 'standard',
         },
       ],
     },

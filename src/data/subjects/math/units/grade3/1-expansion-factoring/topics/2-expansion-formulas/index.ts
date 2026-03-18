@@ -54,114 +54,142 @@ export const expansionFormulas: Topic = {
       {
         id: 'math-g3-ef-fc1',
         front: 'x² + (a+b)x + ab\n\n「足して○、かけて△」', back: '公式1: (x+a)(x+b) = ?',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-ef-fc2',
         front: 'a² + 2ab + b²\n\n真ん中は 2ab（2倍を忘れずに！）', back: '公式2: (a+b)² = ?',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-ef-fc3',
         front: 'a² − 2ab + b²\n\n最後の b² はプラス！', back: '公式3: (a−b)² = ?',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-ef-fc4',
         front: 'a² − b²\n\n真ん中の項が消える（和と差の積）', back: '公式4: (a+b)(a−b) = ?',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-ef-fc5',
         front: 'x² + 8x + 15\n\n足して 3+5=8、かけて 3×5=15', back: '(x+3)(x+5) = ?',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-ef-fc6',
         front: 'x² + 4x − 21\n\n足して 7+(−3)=4、かけて 7×(−3)=−21', back: '(x+7)(x−3) = ?',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-ef-fc7',
         front: 'x² + 8x + 16\n\n2×x×4 = 8x を忘れずに！', back: '(x+4)² = ?',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-ef-fc8',
         front: 'x² − 10x + 25\n\n最後は (+25)。(−5)² = 25', back: '(x−5)² = ?',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-ef-fc9',
         front: 'x² − 36\n\n和と差の積で真ん中が消える', back: '(x+6)(x−6) = ?',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-ef-fc10',
         front: '正しくない！\n\n正しくは a² + 2ab + b²\n2ab を忘れるのが一番多いミス！', back: '(a+b)² = a² + b² は正しい？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-ef-fc11',
         front: '(a−b)² = a² − 2ab + b²\n(a+b)(a−b) = a² − b²\n\n混同注意！形をよく見よう', back: '(a−b)² と (a+b)(a−b) の違いは？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-ef-fc12',
         front: 'x² + 5x − 36\n\n足して −4+9=5、かけて −4×9=−36', back: '(x−4)(x+9) = ?',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-ef-fc13',
         front: 'x² − 6x + 9\n\n(x−3)²: 真ん中は −2×x×3 = −6x', back: '(x−3)² = ?',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-ef-fc14',
         front: 'x² − 49\n\n和と差の積で中間項が消える', back: '(x+7)(x−7) = ?',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-ef-fc15',
         front: 'x² + 12x + 36\n\n2×x×6 = 12x', back: '(x+6)² = ?',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-ef-fc16',
         front: 'x² − 2x − 35\n\n足して −7+5=−2、かけて −7×5=−35', back: '(x−7)(x+5) = ?',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-ef-fc17',
         front: 'x² − 14x + 49\n\n(x−7)²: 2×x×7 = 14x', back: '(x−7)² = ?',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-ef-fc18',
         front: '4x² − 25\n\n(2x)² − 5² の形', back: '(2x+5)(2x−5) = ?',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-ef-fc19',
         front: '(a+b)² は必ず a²+2ab+b²\n(a+b)(a−b) は a²−b²\n形を見て区別しよう', back: '(a+b)² と (a+b)(a−b) の結果を混同しないコツは？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-ef-fc20',
         front: 'x² + 2x + 1\n\n(x+1)²: 2×x×1 = 2x', back: '(x+1)² = ?',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-ef-fc21',
         front: 'x² − 100\n\n(x+10)(x−10)', back: '(x+10)(x−10) = ?',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-ef-fc22',
         front: '公式1: (x+a)(x+b)\n公式2: (a+b)²\n公式3: (a−b)²\n公式4: (a+b)(a−b)', back: '展開の4つの公式の名前は？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-ef-fc23',
         front: 'x² + 3x − 28\n\n足して −4+7=3、かけて −4×7=−28', back: '(x−4)(x+7) = ?',
+        difficulty: 'advanced',
       },
       {
         id: 'math-g3-ef-fc24',
         front: 'x² − 16x + 64\n\n(x−8)²: 2×x×8 = 16x', back: '(x−8)² = ?',
+        difficulty: 'advanced',
       },
       {
         id: 'math-g3-ef-fc25',
         front: 'x² − 9x + 20\n\n足して −4+(−5)=−9、かけて (−4)×(−5)=20', back: '(x−4)(x−5) = ?',
+        difficulty: 'advanced',
       },
       {
         id: 'math-g3-ef-fc26',
         front: 'x² − 81\n\n(x+9)(x−9)', back: '(x+9)(x−9) = ?',
+        difficulty: 'advanced',
       },
       {
         id: 'math-g3-ef-fc27',
         front: '同じ式どうしの場合は2乗の公式を使えばよい\n(x+a)(x+a) = (x+a)²', back: '(x+a)(x+b) で a = b のときはどの公式？',
+        difficulty: 'advanced',
       },
       {
         id: 'math-g3-ef-fc28',
         front: 'x² + 18x + 81\n\n(x+9)²: 2×x×9 = 18x', back: '(x+9)² = ?',
+        difficulty: 'advanced',
       },
     ],
     quiz: {
@@ -178,6 +206,7 @@ export const expansionFormulas: Topic = {
           correctIndex: 0,
           explanation:
             '$(x+4)^2 = x^2 + 2 \\times x \\times 4 + 4^2 = x^2 + 8x + 16$。真ん中の項は $2 \\times 4 = 8$ だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-expansion-formulas-q2',
@@ -191,6 +220,7 @@ export const expansionFormulas: Topic = {
           correctIndex: 2,
           explanation:
             '$(x+6)(x-6) = x^2 - 6^2 = x^2 - 36$。和と差の積は $a^2 - b^2$ になるよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-expansion-formulas-q3',
@@ -204,6 +234,7 @@ export const expansionFormulas: Topic = {
           correctIndex: 1,
           explanation:
             '$(x-3)^2 = x^2 - 2 \\times x \\times 3 + 3^2 = x^2 - 6x + 9$。マイナスの2乗は真ん中が−、最後が+だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-expansion-formulas-q4',
@@ -217,6 +248,7 @@ export const expansionFormulas: Topic = {
           correctIndex: 3,
           explanation:
             '公式1で $a=7$, $b=-3$。足して $7+(-3)=4$、かけて $7 \\times (-3)=-21$ だから $x^2+4x-21$。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-expansion-formulas-q5',
@@ -230,6 +262,7 @@ export const expansionFormulas: Topic = {
           correctIndex: 2,
           explanation:
             '$(a+b)^2 = a^2 + 2ab + b^2$ が正しい。$2ab$ の項を忘れるのが最も多い間違い！',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-ef-q6',
@@ -243,6 +276,7 @@ export const expansionFormulas: Topic = {
           correctIndex: 1,
           explanation:
             '$(x+6)^2 = x^2 + 2 \\times x \\times 6 + 6^2 = x^2 + 12x + 36$。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-ef-q7',
@@ -256,6 +290,7 @@ export const expansionFormulas: Topic = {
           correctIndex: 2,
           explanation:
             '$(x-7)^2 = x^2 - 2 \\times x \\times 7 + 7^2 = x^2 - 14x + 49$。最後は $+49$ だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-ef-q8',
@@ -269,6 +304,7 @@ export const expansionFormulas: Topic = {
           correctIndex: 2,
           explanation:
             '$(x+7)(x-7) = x^2 - 7^2 = x^2 - 49$。和と差の積だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-ef-q9',
@@ -282,6 +318,7 @@ export const expansionFormulas: Topic = {
           correctIndex: 1,
           explanation:
             '公式1: 足して $-4+9=5$、かけて $(-4) \\times 9 = -36$。$x^2+5x-36$。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-ef-q10',
@@ -295,6 +332,7 @@ export const expansionFormulas: Topic = {
           correctIndex: 2,
           explanation:
             '$(x+1)^2 = x^2 + 2x + 1$。$2ab = 2 \\times x \\times 1 = 2x$ を忘れないで。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-ef-q11',
@@ -308,6 +346,7 @@ export const expansionFormulas: Topic = {
           correctIndex: 0,
           explanation:
             '$(x+10)(x-10) = x^2 - 100$。和と差の積の公式だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-ef-q12',
@@ -321,6 +360,7 @@ export const expansionFormulas: Topic = {
           correctIndex: 2,
           explanation:
             '$(x-8)^2 = x^2 - 16x + 64$。真ん中 $= 2 \\times x \\times 8 = 16x$、符号はマイナス。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-ef-q13',
@@ -334,6 +374,7 @@ export const expansionFormulas: Topic = {
           correctIndex: 2,
           explanation:
             '足して $(-4)+(-5)=-9$、かけて $(-4) \\times (-5)=20$。$x^2-9x+20$。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-ef-q14',
@@ -347,6 +388,7 @@ export const expansionFormulas: Topic = {
           correctIndex: 0,
           explanation:
             '$(2x)^2 - 5^2 = 4x^2 - 25$。和と差の積の公式だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-ef-q15',
@@ -360,6 +402,7 @@ export const expansionFormulas: Topic = {
           correctIndex: 2,
           explanation:
             '$(x+9)^2 = x^2 + 18x + 81$。$2 \\times x \\times 9 = 18x$。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-ef-q16',
@@ -373,6 +416,7 @@ export const expansionFormulas: Topic = {
           correctIndex: 0,
           explanation:
             '足して $3+(-8)=-5$、かけて $3 \\times (-8) = -24$。$x^2-5x-24$。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-ef-q17',
@@ -386,6 +430,7 @@ export const expansionFormulas: Topic = {
           correctIndex: 1,
           explanation:
             '$(a-b)^2 = a^2-2ab+b^2$（3項）、$(a+b)(a-b) = a^2-b^2$（2項）。混同しないようにしよう。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-ef-q18',
@@ -399,6 +444,7 @@ export const expansionFormulas: Topic = {
           correctIndex: 0,
           explanation:
             '足して $-2+6=4$、かけて $(-2) \\times 6=-12$。$x^2+4x-12$。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-ef-q19',
@@ -412,6 +458,7 @@ export const expansionFormulas: Topic = {
           correctIndex: 1,
           explanation:
             '$(x+9)(x-9) = x^2 - 81$。和と差の積で $9^2 = 81$。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-ef-q20',
@@ -425,6 +472,7 @@ export const expansionFormulas: Topic = {
           correctIndex: 2,
           explanation:
             '$(x-1)^2 = x^2 - 2x + 1$。$b^2 = 1$ で最後はプラスだよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-ef-q21',
@@ -438,6 +486,7 @@ export const expansionFormulas: Topic = {
           correctIndex: 1,
           explanation:
             '足して $5+8=13$、かけて $5 \\times 8=40$。$x^2+13x+40$。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-ef-q22',
@@ -451,6 +500,7 @@ export const expansionFormulas: Topic = {
           correctIndex: 2,
           explanation:
             '足して $2+(-9)=-7$、かけて $2 \\times (-9)=-18$。$x^2-7x-18$。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-ef-q23',
@@ -464,6 +514,7 @@ export const expansionFormulas: Topic = {
           correctIndex: 1,
           explanation:
             '$(x-6)^2 = x^2 - 12x + 36$。$2 \\times x \\times 6 = 12x$。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g3-ef-q24',
@@ -477,6 +528,7 @@ export const expansionFormulas: Topic = {
           correctIndex: 1,
           explanation:
             '$x$ の係数は $a+b$（2つの数の和）、定数項は $ab$（2つの数の積）だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g3-ef-q25',
@@ -490,6 +542,7 @@ export const expansionFormulas: Topic = {
           correctIndex: 1,
           explanation:
             '$(x+3)(x+3) = (x+3)^2$。公式2の形と同じだよ。$x^2+6x+9$ になる。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g3-ef-q26',
@@ -503,6 +556,7 @@ export const expansionFormulas: Topic = {
           correctIndex: 0,
           explanation:
             '$(x-10)(x+10) = x^2 - 10^2 = x^2 - 100$。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g3-ef-q27',
@@ -516,6 +570,7 @@ export const expansionFormulas: Topic = {
           correctIndex: 2,
           explanation:
             '足して $-3+10=7$、かけて $(-3) \\times 10=-30$。$x^2+7x-30$。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g3-ef-q28',
@@ -529,6 +584,7 @@ export const expansionFormulas: Topic = {
           correctIndex: 2,
           explanation:
             '$(x+2)^2 = x^2 + 2 \\times x \\times 2 + 2^2 = x^2 + 4x + 4$。',
+          difficulty: 'advanced',
         },
       ],
     },

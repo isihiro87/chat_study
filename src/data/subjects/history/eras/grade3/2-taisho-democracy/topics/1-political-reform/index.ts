@@ -44,66 +44,16 @@ export const politicalReform: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'fc1',
-        front: '護憲運動',
-        back: '藩閥政治を批判し、憲法に基づく政治を求めた運動は？',
-        explanation: '第一次護憲運動では桂太郎内閣を退陣に追い込んだ。',
-      },
-      {
-        id: 'fc2',
-        front: '桂太郎',
-        back: '第一次護憲運動で退陣に追い込まれた藩閥出身の首相は？',
-        explanation: '民衆の力で内閣が倒された画期的な出来事だった。',
-      },
-      {
-        id: 'fc3',
-        front: '大戦景気',
-        back: '第一次世界大戦中に日本が経験した好景気は？',
-        explanation: '「成金」と呼ばれる大金持ちが現れた。',
-      },
-      {
-        id: 'fc4',
-        front: '米騒動',
-        back: '1918年に米の価格高騰に怒った人々が起こした事件は？',
-        explanation: '全国に広がり、寺内内閣の総辞職につながった。',
-      },
-      {
-        id: 'fc5',
-        front: '原敬',
-        back: '「平民宰相」と呼ばれ、本格的な政党内閣を組織した首相は？',
-        explanation: '米騒動の後に首相となった。',
-      },
-      {
-        id: 'fc6',
-        front: '普通選挙法',
-        back: '1925年に成立し、25歳以上の男性に選挙権を与えた法律は？',
-        explanation: '財産による制限がなくなった。',
-      },
-      {
-        id: 'fc7',
-        front: '治安維持法',
-        back: '1925年に普通選挙法と同時に制定された、社会主義運動を取り締まる法律は？',
-        explanation: '「アメとムチ」の政策と言われた。',
-      },
-      {
-        id: 'fc8',
-        front: '吉野作造',
-        back: '「民本主義」を唱え、民衆のための政治を主張した学者は？',
-        explanation: '大正デモクラシーの理論的指導者の一人。',
-      },
-      {
-        id: 'fc9',
-        front: '美濃部達吉',
-        back: '「天皇機関説」を唱えた憲法学者は？',
-        explanation: '天皇は国家の最高機関として政治を行うと説いた。',
-      },
-      {
-        id: 'fc10',
-        front: '民本主義',
-        back: '吉野作造が唱えた、民衆のための政治を目指す考え方は？',
-        explanation: '大正デモクラシーの理論的支柱となった。',
-      },
+      { id: 'fc1', front: '護憲運動', back: '藩閥政治を批判し、憲法に基づく政治を求めた運動は？', difficulty: 'basic' },
+      { id: 'fc2', front: '桂太郎', back: '第一次護憲運動で退陣に追い込まれた藩閥出身の首相は？', difficulty: 'basic' },
+      { id: 'fc3', front: '米騒動', back: '1918年に米の価格高騰に怒った人々が起こした事件は？', explanation: '全国に広がり、寺内内閣の総辞職につながった。', difficulty: 'basic' },
+      { id: 'fc4', front: '原敬', back: '「平民宰相」と呼ばれ、本格的な政党内閣を組織した首相は？', difficulty: 'basic' },
+      { id: 'fc5', front: '普通選挙法', back: '1925年に成立し、25歳以上の男性に選挙権を与えた法律は？', difficulty: 'standard' },
+      { id: 'fc6', front: '治安維持法', back: '1925年に普通選挙法と同時に制定された、社会主義運動を取り締まる法律は？', explanation: '「アメとムチ」の政策と言われた。', difficulty: 'standard' },
+      { id: 'fc7', front: '吉野作造', back: '「民本主義」を唱え、民衆のための政治を主張した学者は？', difficulty: 'standard' },
+      { id: 'fc8', front: '民本主義', back: '吉野作造が唱えた、民衆のための政治を目指す考え方は？', difficulty: 'standard' },
+      { id: 'fc9', front: '美濃部達吉', back: '「天皇機関説」を唱えた憲法学者は？', explanation: '天皇は国家の最高機関として政治を行うと説いた。', difficulty: 'advanced' },
+      { id: 'fc10', front: '普通選挙法と治安維持法の関係', back: '普通選挙法と治安維持法が同時に制定されたのはなぜか？', explanation: '選挙権拡大で社会主義勢力の議会進出を警戒し、取り締まり強化とセットにした「アメとムチ」の政策。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -114,6 +64,7 @@ export const politicalReform: Topic = {
           correctIndex: 3,
           explanation:
             '桂太郎は藩閥出身の首相で、民衆の護憲運動によって内閣を退陣させられました。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -122,6 +73,7 @@ export const politicalReform: Topic = {
           correctIndex: 1,
           explanation:
             '大戦景気による物価上昇で米の価格が高騰し、庶民の生活が苦しくなったことが原因です。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -135,6 +87,7 @@ export const politicalReform: Topic = {
           correctIndex: 0,
           explanation:
             '普通選挙法では25歳以上のすべての男性に選挙権が与えられました。女性参政権はまだ実現していませんでした。',
+          difficulty: 'standard',
         },
         {
           id: 'q4',
@@ -143,6 +96,7 @@ export const politicalReform: Topic = {
           correctIndex: 2,
           explanation:
             '吉野作造は「民本主義」を唱え、民衆のための政治を主張しました。大正デモクラシーの理論的指導者です。',
+          difficulty: 'standard',
         },
       ],
     },

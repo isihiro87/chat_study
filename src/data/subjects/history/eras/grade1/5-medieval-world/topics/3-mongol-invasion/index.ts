@@ -57,34 +57,34 @@ export const mongolInvasion: Topic = {
     },
     videos: [],
     flashcards: [
-      { id: 'fc1', front: '元寇', back: '13世紀後半に元が二度にわたり日本へ攻めてきたことを何という？' },
-      { id: 'fc2', front: '北条時宗', back: '二度の元寇に際し防衛を指揮した鎌倉幕府の執権は？' },
-      { id: 'fc3', front: '文永の役（1274年）', back: '元軍の最初の襲来で、対馬・壱岐を攻め九州北部に上陸した戦いは？' },
-      { id: 'fc4', front: '弘安の役（1281年）', back: '元軍の2度目の襲来で、暴風雨により元軍が大打撃を受けた戦いは？' },
-      { id: 'fc5', front: 'てつはう', back: '元軍が使用した火薬を用いた武器は？' },
-      { id: 'fc6', front: '集団戦法', back: '元軍が用いた、統制のとれた大勢の兵士による戦い方は？' },
-      { id: 'fc7', front: '石の防壁（石塁）', back: '弘安の役に備えて博多湾に築かれた防衛施設は？' },
-      { id: 'fc8', front: '蒙古襲来絵詞', back: '恩賞を求めて幕府に訴える御家人の様子を描いた絵巻は？' },
-      { id: 'fc9', front: '分割相続', back: '御家人の領地が次第に減少していった原因となった相続方法は？' },
-      { id: 'fc10', front: '永仁の徳政令（1297年）', back: '御家人の借金を帳消しにするために幕府が出した法令は？' },
-      { id: 'fc11', front: '悪党', back: '鎌倉時代末期に現れた、幕府に従わず武力を行使した者たちは？' },
-      { id: 'fc12', front: '後醍醐天皇', back: '朝廷に政治の実権を取り戻そうと倒幕を企てた天皇は？' },
-      { id: 'fc13', front: '足利尊氏', back: '京都の六波羅探題を攻め落とした有力御家人は？' },
-      { id: 'fc14', front: '新田義貞', back: '鎌倉を攻めて幕府を滅ぼした武将は？' },
-      { id: 'fc15', front: '六波羅探題', back: '鎌倉幕府が京都に置いた、朝廷の監視と西国の統治を担当した機関は？' },
-      { id: 'fc16', front: '1333年', back: '鎌倉幕府が滅亡した年は？' },
-      { id: 'fc17', front: '建武の新政', back: '後醍醐天皇が始めた天皇中心の政治は？' },
-      { id: 'fc18', front: '恩賞不足', back: '元寇後に御家人の不満が高まった最大の原因は？' },
-      { id: 'fc19', front: '高麗', back: '元寇で元とともに日本を攻めた朝鮮半島の国は？' },
-      { id: 'fc20', front: '一騎打ち', back: '文永の役で日本の武士がとっていた個人戦の戦い方は？' },
-      { id: 'fc21', front: '博多湾', back: '元軍が九州北部に上陸した場所で、石塁が築かれた湾は？' },
-      { id: 'fc22', front: '対馬・壱岐', back: '文永の役で元軍が最初に攻撃した地域は？' },
-      { id: 'fc23', front: '暴風雨', back: '弘安の役で元軍が大打撃を受けた自然現象は？' },
-      { id: 'fc24', front: '第8代執権', back: '北条時宗は鎌倉幕府の何代目の執権？' },
-      { id: 'fc25', front: '公家中心の政治', back: '建武の新政が武士の不満を招いた最大の理由は？' },
-      { id: 'fc26', front: '楠木正成', back: '後醍醐天皇に味方し、鎌倉幕府倒幕に活躍した武将は？' },
-      { id: 'fc27', front: '1274年と1281年', back: '元寇の文永の役と弘安の役はそれぞれ何年？' },
-      { id: 'fc28', front: '御家人の困窮', back: '元寇後に幕府が衰退した背景にあった社会問題は？' },
+      { id: 'fc1', front: '元寇', back: '13世紀後半に元が二度にわたり日本へ攻めてきたことを何という？', difficulty: 'basic' },
+      { id: 'fc2', front: '北条時宗', back: '二度の元寇に際し防衛を指揮した鎌倉幕府の執権は？', difficulty: 'basic' },
+      { id: 'fc3', front: '文永の役（1274年）', back: '元軍の最初の襲来で、対馬・壱岐を攻め九州北部に上陸した戦いは？', difficulty: 'basic' },
+      { id: 'fc4', front: '弘安の役（1281年）', back: '元軍の2度目の襲来で、暴風雨により元軍が大打撃を受けた戦いは？', difficulty: 'basic' },
+      { id: 'fc5', front: 'てつはう', back: '元軍が使用した火薬を用いた武器は？', difficulty: 'basic' },
+      { id: 'fc6', front: '集団戦法', back: '元軍が用いた、統制のとれた大勢の兵士による戦い方は？', difficulty: 'basic' },
+      { id: 'fc7', front: '石の防壁（石塁）', back: '弘安の役に備えて博多湾に築かれた防衛施設は？', difficulty: 'basic' },
+      { id: 'fc8', front: '蒙古襲来絵詞', back: '恩賞を求めて幕府に訴える御家人の様子を描いた絵巻は？', difficulty: 'basic' },
+      { id: 'fc9', front: '分割相続', back: '御家人の領地が次第に減少していった原因となった相続方法は？', difficulty: 'basic' },
+      { id: 'fc10', front: '永仁の徳政令（1297年）', back: '御家人の借金を帳消しにするために幕府が出した法令は？', difficulty: 'basic' },
+      { id: 'fc11', front: '悪党', back: '鎌倉時代末期に現れた、幕府に従わず武力を行使した者たちは？', difficulty: 'basic' },
+      { id: 'fc12', front: '後醍醐天皇', back: '朝廷に政治の実権を取り戻そうと倒幕を企てた天皇は？', difficulty: 'basic' },
+      { id: 'fc13', front: '足利尊氏', back: '京都の六波羅探題を攻め落とした有力御家人は？', difficulty: 'standard' },
+      { id: 'fc14', front: '新田義貞', back: '鎌倉を攻めて幕府を滅ぼした武将は？', difficulty: 'standard' },
+      { id: 'fc15', front: '六波羅探題', back: '鎌倉幕府が京都に置いた、朝廷の監視と西国の統治を担当した機関は？', difficulty: 'standard' },
+      { id: 'fc16', front: '1333年', back: '鎌倉幕府が滅亡した年は？', difficulty: 'standard' },
+      { id: 'fc17', front: '建武の新政', back: '後醍醐天皇が始めた天皇中心の政治は？', difficulty: 'standard' },
+      { id: 'fc18', front: '恩賞不足', back: '元寇後に御家人の不満が高まった最大の原因は？', difficulty: 'standard' },
+      { id: 'fc19', front: '高麗', back: '元寇で元とともに日本を攻めた朝鮮半島の国は？', difficulty: 'standard' },
+      { id: 'fc20', front: '一騎打ち', back: '文永の役で日本の武士がとっていた個人戦の戦い方は？', difficulty: 'standard' },
+      { id: 'fc21', front: '博多湾', back: '元軍が九州北部に上陸した場所で、石塁が築かれた湾は？', difficulty: 'standard' },
+      { id: 'fc22', front: '対馬・壱岐', back: '文永の役で元軍が最初に攻撃した地域は？', difficulty: 'standard' },
+      { id: 'fc23', front: '暴風雨', back: '弘安の役で元軍が大打撃を受けた自然現象は？', difficulty: 'advanced' },
+      { id: 'fc24', front: '第8代執権', back: '北条時宗は鎌倉幕府の何代目の執権？', difficulty: 'advanced' },
+      { id: 'fc25', front: '公家中心の政治', back: '建武の新政が武士の不満を招いた最大の理由は？', difficulty: 'advanced' },
+      { id: 'fc26', front: '楠木正成', back: '後醍醐天皇に味方し、鎌倉幕府倒幕に活躍した武将は？', difficulty: 'advanced' },
+      { id: 'fc27', front: '1274年と1281年', back: '元寇の文永の役と弘安の役はそれぞれ何年？', difficulty: 'advanced' },
+      { id: 'fc28', front: '御家人の困窮', back: '元寇後に幕府が衰退した背景にあった社会問題は？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -94,6 +94,7 @@ export const mongolInvasion: Topic = {
           options: ['北条時宗', '北条泰時', '北条義時', '北条時頼'],
           correctIndex: 0,
           explanation: '北条時宗は文永の役と弘安の役の二度の元寇に対し、幕府の執権として防衛を指揮しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -101,6 +102,7 @@ export const mongolInvasion: Topic = {
           options: ['弘安の役', '承久の乱', '文永の役', '壇ノ浦の戦い'],
           correctIndex: 2,
           explanation: '文永の役は1274年の元軍の最初の襲来で、対馬・壱岐を攻め九州北部に上陸しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -108,6 +110,7 @@ export const mongolInvasion: Topic = {
           options: ['火縄銃', '大砲', '投石機', 'てつはう'],
           correctIndex: 3,
           explanation: 'てつはうは元軍が用いた火薬を使った武器で、日本の武士にとって初めて経験する兵器でした。',
+          difficulty: 'basic',
         },
         {
           id: 'q4',
@@ -115,6 +118,7 @@ export const mongolInvasion: Topic = {
           options: ['城壁', '石の防壁（石塁）', '堀', '柵'],
           correctIndex: 1,
           explanation: '北条時宗の指示で博多湾に石の防壁（石塁）が築かれ、弘安の役では元軍の上陸を効果的に防ぎました。',
+          difficulty: 'basic',
         },
         {
           id: 'q5',
@@ -122,6 +126,7 @@ export const mongolInvasion: Topic = {
           options: ['年貢が増えたから', '十分な恩賞がもらえなかったから', '農作物が不作だったから', '貿易が禁止されたから'],
           correctIndex: 1,
           explanation: '元寇は防衛戦だったため新しい領地が手に入らず、幕府は御家人に十分な恩賞を与えられませんでした。',
+          difficulty: 'basic',
         },
         {
           id: 'q6',
@@ -129,6 +134,7 @@ export const mongolInvasion: Topic = {
           options: ['御成敗式目', '大宝律令', '永仁の徳政令', '武家諸法度'],
           correctIndex: 2,
           explanation: '永仁の徳政令は御家人の借金を帳消しにする法令でしたが、効果は一時的で、かえって経済が混乱しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q7',
@@ -136,6 +142,7 @@ export const mongolInvasion: Topic = {
           options: ['後醍醐天皇', '後白河天皇', '後嵯峨天皇', '後鳥羽上皇'],
           correctIndex: 0,
           explanation: '後醍醐天皇は足利尊氏らの協力を得て鎌倉幕府を倒し、天皇中心の政治（建武の新政）を目指しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q8',
@@ -143,6 +150,7 @@ export const mongolInvasion: Topic = {
           options: ['源義経', '北条政子', '楠木正成', '足利尊氏'],
           correctIndex: 3,
           explanation: '足利尊氏は北条氏への権力集中に不満を持ち、京都の六波羅探題を攻め落としました。',
+          difficulty: 'basic',
         },
         {
           id: 'q9',
@@ -150,6 +158,7 @@ export const mongolInvasion: Topic = {
           options: ['足利尊氏', '足利義満', '楠木正成', '新田義貞'],
           correctIndex: 3,
           explanation: '新田義貞は1333年に鎌倉を攻め、鎌倉幕府を直接滅ぼしました。',
+          difficulty: 'basic',
         },
         {
           id: 'q10',
@@ -157,6 +166,7 @@ export const mongolInvasion: Topic = {
           options: ['長子相続', '一括相続', '分割相続', '養子相続'],
           correctIndex: 2,
           explanation: '分割相続は親の領地を子供たちに分けて相続させる方法で、世代を重ねるごとに一人あたりの領地が減少しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q11',
@@ -164,6 +174,7 @@ export const mongolInvasion: Topic = {
           options: ['九州北部', '対馬・壱岐', '本州', '四国'],
           correctIndex: 1,
           explanation: '文永の役で元軍はまず対馬と壱岐を攻撃し、その後九州北部の博多湾に上陸しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q12',
@@ -171,6 +182,7 @@ export const mongolInvasion: Topic = {
           options: ['武器がなかったから', '一騎打ちの戦い方に対し元軍は集団戦法と火薬武器で攻めたから', '兵士の数が少なかったから', '天候が悪かったから'],
           correctIndex: 1,
           explanation: '日本の武士は一騎打ちの戦い方でしたが、元軍は集団戦法と「てつはう」で攻めたため苦戦しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q13',
@@ -178,6 +190,7 @@ export const mongolInvasion: Topic = {
           options: ['1281年', '1297年', '1333年', '1338年'],
           correctIndex: 2,
           explanation: '1333年に足利尊氏が六波羅探題を、新田義貞が鎌倉を攻め、鎌倉幕府は滅亡しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q14',
@@ -185,6 +198,7 @@ export const mongolInvasion: Topic = {
           options: ['元が再び攻めてきた', '公家を優遇して武士の功績を評価しなかったため', '天災が起きた', '朝廷内の争い'],
           correctIndex: 1,
           explanation: '建武の新政は公家を優遇して武士の功績を正しく評価しなかったため、武士の不満が高まり崩壊しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q15',
@@ -192,6 +206,7 @@ export const mongolInvasion: Topic = {
           options: ['御家人が増えすぎた', '金貸しが御家人に金を貸さなくなり経済が混乱した', '元が再度攻めてきた', '農業が衰退した'],
           correctIndex: 1,
           explanation: '借金帳消しにより金貸しが御家人に金を貸さなくなり、かえって経済が混乱しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q16',
@@ -199,6 +214,7 @@ export const mongolInvasion: Topic = {
           options: ['足軽', '悪党', '浪人', '僧兵'],
           correctIndex: 1,
           explanation: '悪党は幕府の支配に従わない新しい勢力で、鎌倉時代末期に各地に現れました。',
+          difficulty: 'standard',
         },
         {
           id: 'q17',
@@ -206,6 +222,7 @@ export const mongolInvasion: Topic = {
           options: ['勝利を祝う姿', '恩賞を求めて幕府に訴える姿', '農業をする姿', '元軍と交渉する姿'],
           correctIndex: 1,
           explanation: '蒙古襲来絵詞には恩賞を求めて幕府に訴える御家人の姿が描かれています。',
+          difficulty: 'standard',
         },
         {
           id: 'q18',
@@ -213,6 +230,7 @@ export const mongolInvasion: Topic = {
           options: ['領土が減ったから', '防衛戦のため新領地がなく恩賞を出せなかったから', '元に降伏したから', '天皇が力を持ったから'],
           correctIndex: 1,
           explanation: '元寇は防衛戦だったため新領地を獲得できず、戦費で疲弊した御家人に十分な恩賞を出せませんでした。',
+          difficulty: 'standard',
         },
         {
           id: 'q19',
@@ -220,6 +238,7 @@ export const mongolInvasion: Topic = {
           options: ['第3代', '第5代', '第8代', '第10代'],
           correctIndex: 2,
           explanation: '北条時宗は鎌倉幕府の第8代執権で、二度の元寇に際し防衛を指揮しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q20',
@@ -227,6 +246,7 @@ export const mongolInvasion: Topic = {
           options: ['対馬', '鎌倉', '博多湾', '壇ノ浦'],
           correctIndex: 2,
           explanation: '石の防壁（石塁）は弘安の役に備えて博多湾に築かれ、元軍の上陸を防ぐ役割を果たしました。',
+          difficulty: 'standard',
         },
         {
           id: 'q21',
@@ -234,6 +254,7 @@ export const mongolInvasion: Topic = {
           options: ['日本の騎兵に負けた', '暴風雨に襲われた', '食糧不足', '内部分裂'],
           correctIndex: 1,
           explanation: '弘安の役では暴風雨が元軍に大打撃を与え、日本の防衛に大きく寄与しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q22',
@@ -241,6 +262,7 @@ export const mongolInvasion: Topic = {
           options: ['一騎打ちと弓術', '集団戦法と火薬武器（てつはう）', '海戦と城攻め', '騎馬戦と槍術'],
           correctIndex: 1,
           explanation: '日本の武士は元軍の集団戦法と火薬を使った武器（てつはう）を初めて経験しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q23',
@@ -248,6 +270,7 @@ export const mongolInvasion: Topic = {
           options: ['外国の援助', '北条氏への権力集中に不満を持つ有力御家人が反旗を翻した', '天皇自身の軍事力', '農民の蜂起'],
           correctIndex: 1,
           explanation: '北条氏への権力集中に不満を持つ足利尊氏らの有力御家人が幕府に反旗を翻しました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q24',
@@ -255,6 +278,7 @@ export const mongolInvasion: Topic = {
           options: ['長男がすべてを相続する', '親の領地を子供たちに分けて相続させる', '幕府に領地を返す', '寺社に寄進する'],
           correctIndex: 1,
           explanation: '分割相続は親の領地を子供たちに分けて相続させることで、世代を重ねると一人あたりの領地が減少しました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q25',
@@ -262,6 +286,7 @@ export const mongolInvasion: Topic = {
           options: ['新田義貞', '北条時宗', '足利尊氏', '楠木正成'],
           correctIndex: 2,
           explanation: '足利尊氏は建武の新政の公家中心の政治に不満を持ち、後醍醐天皇に反旗を翻しました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q26',
@@ -269,6 +294,7 @@ export const mongolInvasion: Topic = {
           options: ['すぐに室町幕府が開かれた', 'まず建武の新政が行われ崩壊後に室町幕府が開かれた', '50年間幕府がなかった', '朝廷が直接統治した'],
           correctIndex: 1,
           explanation: 'まず後醍醐天皇による建武の新政が行われましたが崩壊し、その後足利尊氏が室町幕府を開きました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q27',
@@ -276,6 +302,7 @@ export const mongolInvasion: Topic = {
           options: ['保元の乱と平治の乱', '承久の乱と壇ノ浦の戦い', '文永の役と弘安の役', '応仁の乱と南北朝の争い'],
           correctIndex: 2,
           explanation: '1274年が文永の役、1281年が弘安の役で、二度の元寇をまとめて元寇と呼びます。',
+          difficulty: 'advanced',
         },
         {
           id: 'q28',
@@ -283,6 +310,7 @@ export const mongolInvasion: Topic = {
           options: ['新田義貞', '後醍醐天皇自身', '足利尊氏', '北条時宗'],
           correctIndex: 2,
           explanation: '足利尊氏が京都の六波羅探題を攻め落とし、新田義貞が鎌倉を攻めて幕府が滅亡しました。',
+          difficulty: 'advanced',
         },
       ],
     },

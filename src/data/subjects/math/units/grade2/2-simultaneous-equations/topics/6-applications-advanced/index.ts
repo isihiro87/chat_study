@@ -61,67 +61,79 @@ export const simulEqAppsAdv: Topic = {
       {
         id: 'math-g2-apadv-fc1',
         front: '距離 $=$ 速さ $\\times$ 時間', back: '「距離 $=$ ？ $\\times$ ？」',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-apadv-fc2',
         front: '時間 $= \\dfrac{\\text{距離}}{\\text{速さ}}$', back: '時間を求めるには？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-apadv-fc3',
         front: '行きの距離 $=$ 帰りの距離', back: '行きと帰りで速さが違うとき、共通する条件は？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-apadv-fc4',
         front: '濃度 $= \\dfrac{\\text{食塩の量}}{\\text{食塩水の量}} \\times 100$', back: '食塩水の濃度（%）の公式は？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-apadv-fc5',
         front: '$\\dfrac{a}{100} \\times x$ g', back: '濃度 $a$% の食塩水 $x$ g に含まれる食塩の量は？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-apadv-fc6',
         front: '混ぜる前の食塩の合計 $=$ 混ぜた後の食塩の量', back: '2 種類の食塩水を混ぜるとき、食塩に関する式は？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-apadv-fc7',
         front: '両辺に分母の最小公倍数を掛ける', back: '分数を含む方程式を整数にするには？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-apadv-fc8',
         front: '$1\\dfrac{20}{60} = \\dfrac{4}{3}$ 時間', back: '速さの問題で単位をそろえるとき、1 時間 20 分は何時間？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-apadv-fc9',
         front: '$200 \\times \\dfrac{5}{100} = 10$ g', back: '5% の食塩水 200g に含まれる食塩の量は？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-apadv-fc10',
         front: '必ず 2 つの濃度の間の値になる', back: '混合後の食塩水の濃度は、元の 2 つの濃度と比べてどうなる？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-apadv-fc11',
         front: '$4x$ km', back: '時速 4km で $x$ 時間歩いたときの距離は？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-apadv-fc12',
         front: '両辺を 10 倍・100 倍して小数をなくす', back: '小数を含む方程式を整数にするには？',
+        difficulty: 'basic',
       },
-      { id: 'math-g2-apadv-fc13', front: '家→学校の距離を $x$、学校→公園を $y$ のように区間ごとに分ける', back: '2区間の速さの問題での未知数の置き方は？' },
-      { id: 'math-g2-apadv-fc14', front: '合計の食塩水と合計の食塩でそれぞれ式を立てる', back: '食塩水の問題で2式を立てるポイントは？' },
-      { id: 'math-g2-apadv-fc15', front: '行き: $\dfrac{d}{v_1}$ 時間、帰り: $\dfrac{d}{v_2}$ 時間', back: '片道 $d$ km を行き速さ $v_1$、帰り速さ $v_2$ で往復する時間は？' },
-      { id: 'math-g2-apadv-fc16', front: '食塩水に水を加えると濃度は下がる。食塩を加えると濃度は上がる。', back: '食塩水に水を加えるとどうなる？' },
-      { id: 'math-g2-apadv-fc17', front: '$\dfrac{\text{食塩の量}}{\text{食塩水の量}} \times 100 = $ 濃度(%)', back: '濃度の公式は？' },
-      { id: 'math-g2-apadv-fc18', front: '距離の式と時間の式の2つ', back: '速さの問題で立てる2つの式は？' },
-      { id: 'math-g2-apadv-fc19', front: '出発地点が同じか異なるか、追いかけるか向かい合うかで式が変わる', back: '速さの問題で注意すべきことは？' },
-      { id: 'math-g2-apadv-fc20', front: '分速 $\times$ 分 $=$ m。単位を統一することが重要', back: '速さ×時間の単位の注意点は？' },
-      { id: 'math-g2-apadv-fc21', front: '$1$ 時間 $= 60$ 分。$30$ 分 $= 0.5$ 時間。', back: '分を時間に変換するには？$\div 60$' },
-      { id: 'math-g2-apadv-fc22', front: '混合後の食塩の量 $=$ 各食塩水の食塩の量の合計', back: '食塩水を混ぜるときの食塩の量の関係は？' },
-      { id: 'math-g2-apadv-fc23', front: '蒸発させると水だけが減り食塩は残る → 濃度が上がる', back: '食塩水を加熱して蒸発させるとどうなる？' },
-      { id: 'math-g2-apadv-fc24', front: '向かい合って進む→速さの和。追いかける→速さの差。', back: '2人の速さの問題の2パターンは？' },
-      { id: 'math-g2-apadv-fc25', front: '時速 $60$ km $=$ 分速 $1$ km', back: '時速を分速に変換するには？→ $\div 60$' },
-      { id: 'math-g2-apadv-fc26', front: '$300 \times 0.08 = 24$ g', back: '$8$% の食塩水 $300$ g に含まれる食塩は？' },
-      { id: 'math-g2-apadv-fc27', front: '必ず2つの濃度の間になる', back: '混合後の食塩水の濃度の範囲は？' },
-      { id: 'math-g2-apadv-fc28', front: '各区間の距離を求めてから合計する', back: '複数区間の道のり問題の解き方は？' },
+      { id: 'math-g2-apadv-fc13', front: '家→学校の距離を $x$、学校→公園を $y$ のように区間ごとに分ける', back: '2区間の速さの問題での未知数の置き方は？', difficulty: 'standard' },
+      { id: 'math-g2-apadv-fc14', front: '合計の食塩水と合計の食塩でそれぞれ式を立てる', back: '食塩水の問題で2式を立てるポイントは？', difficulty: 'standard' },
+      { id: 'math-g2-apadv-fc15', front: '行き: $\dfrac{d}{v_1}$ 時間、帰り: $\dfrac{d}{v_2}$ 時間', back: '片道 $d$ km を行き速さ $v_1$、帰り速さ $v_2$ で往復する時間は？', difficulty: 'standard' },
+      { id: 'math-g2-apadv-fc16', front: '食塩水に水を加えると濃度は下がる。食塩を加えると濃度は上がる。', back: '食塩水に水を加えるとどうなる？', difficulty: 'standard' },
+      { id: 'math-g2-apadv-fc17', front: '$\dfrac{\text{食塩の量}}{\text{食塩水の量}} \times 100 = $ 濃度(%)', back: '濃度の公式は？', difficulty: 'standard' },
+      { id: 'math-g2-apadv-fc18', front: '距離の式と時間の式の2つ', back: '速さの問題で立てる2つの式は？', difficulty: 'standard' },
+      { id: 'math-g2-apadv-fc19', front: '出発地点が同じか異なるか、追いかけるか向かい合うかで式が変わる', back: '速さの問題で注意すべきことは？', difficulty: 'standard' },
+      { id: 'math-g2-apadv-fc20', front: '分速 $\times$ 分 $=$ m。単位を統一することが重要', back: '速さ×時間の単位の注意点は？', difficulty: 'standard' },
+      { id: 'math-g2-apadv-fc21', front: '$1$ 時間 $= 60$ 分。$30$ 分 $= 0.5$ 時間。', back: '分を時間に変換するには？$\div 60$', difficulty: 'standard' },
+      { id: 'math-g2-apadv-fc22', front: '混合後の食塩の量 $=$ 各食塩水の食塩の量の合計', back: '食塩水を混ぜるときの食塩の量の関係は？', difficulty: 'standard' },
+      { id: 'math-g2-apadv-fc23', front: '蒸発させると水だけが減り食塩は残る → 濃度が上がる', back: '食塩水を加熱して蒸発させるとどうなる？', difficulty: 'advanced' },
+      { id: 'math-g2-apadv-fc24', front: '向かい合って進む→速さの和。追いかける→速さの差。', back: '2人の速さの問題の2パターンは？', difficulty: 'advanced' },
+      { id: 'math-g2-apadv-fc25', front: '時速 $60$ km $=$ 分速 $1$ km', back: '時速を分速に変換するには？→ $\div 60$', difficulty: 'advanced' },
+      { id: 'math-g2-apadv-fc26', front: '$300 \times 0.08 = 24$ g', back: '$8$% の食塩水 $300$ g に含まれる食塩は？', difficulty: 'advanced' },
+      { id: 'math-g2-apadv-fc27', front: '必ず2つの濃度の間になる', back: '混合後の食塩水の濃度の範囲は？', difficulty: 'advanced' },
+      { id: 'math-g2-apadv-fc28', front: '各区間の距離を求めてから合計する', back: '複数区間の道のり問題の解き方は？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -138,6 +150,7 @@ export const simulEqAppsAdv: Topic = {
           correctIndex: 1,
           explanation:
             '行きの距離 $= 4x$、帰りの距離 $= 6y$。距離が同じなので $4x = 6y$。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g2-apadv-q2',
@@ -152,6 +165,7 @@ export const simulEqAppsAdv: Topic = {
           correctIndex: 0,
           explanation:
             '食塩水の量の合計 $= x + y = 400$。濃度ではなく食塩水そのものの重さを足す。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g2-apadv-q3',
@@ -161,6 +175,7 @@ export const simulEqAppsAdv: Topic = {
           correctIndex: 2,
           explanation:
             '$200 \\times \\dfrac{5}{100} = 200 \\times 0.05 = 10$ g。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g2-apadv-q4',
@@ -170,6 +185,7 @@ export const simulEqAppsAdv: Topic = {
           correctIndex: 3,
           explanation:
             '行き $x$ 時間, 帰り $y$ 時間。$\\begin{cases} x + y = 5 \\\\ 15x = 10y \\end{cases}$。②: $3x = 2y$, $x = 2$, $y = 3$。距離 $= 15 \\times 2 = 30$ km。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g2-apadv-q5',
@@ -179,6 +195,7 @@ export const simulEqAppsAdv: Topic = {
           correctIndex: 0,
           explanation:
             '$\\begin{cases} x + y = 600 \\\\ 0.06x + 0.12y = 54 \\end{cases}$。②$\\times 100$: $6x + 12y = 5400$。①$\\times 6$: $6x + 6y = 3600$。引くと $6y = 1800$, $y = 300$, $x = 300$。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g2-apadv-q6',
@@ -188,6 +205,7 @@ export const simulEqAppsAdv: Topic = {
           correctIndex: 3,
           explanation:
             '$\\begin{cases} x + y = 1200 \\\\ \\dfrac{x}{60} + \\dfrac{y}{80} = 18 \\end{cases}$。②$\\times 240$: $4x + 3y = 4320$。①$\\times 3$: $3x + 3y = 3600$。引くと $x = 720$。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g2-apadv-q7',
@@ -195,6 +213,7 @@ export const simulEqAppsAdv: Topic = {
           options: ['$\dfrac{4}{x}$ km', '$\dfrac{x}{4}$ km', '$4x$ km', '$4 + x$ km'],
           correctIndex: 2,
           explanation: '距離 $=$ 速さ $\times$ 時間 $= 4x$ km だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g2-apadv-q8',
@@ -202,6 +221,7 @@ export const simulEqAppsAdv: Topic = {
           options: ['$8$ g', '$30$ g', '$24$ g', '$80$ g'],
           correctIndex: 2,
           explanation: '$300 \times 0.08 = 24$ g だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g2-apadv-q9',
@@ -209,6 +229,7 @@ export const simulEqAppsAdv: Topic = {
           options: ['$1.3$ 時間', '$1.5$ 時間', '$1.03$ 時間', '$130$ 分'],
           correctIndex: 1,
           explanation: '$30$ 分 $= 0.5$ 時間。$1 + 0.5 = 1.5$ 時間だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g2-apadv-q10',
@@ -216,6 +237,7 @@ export const simulEqAppsAdv: Topic = {
           options: ['$5$ 分', '$10$ 分', '$8$ 分', '$4$ 分'],
           correctIndex: 0,
           explanation: '速さの和: $200$ m/分。$1000 \div 200 = 5$ 分だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g2-apadv-q11',
@@ -223,6 +245,7 @@ export const simulEqAppsAdv: Topic = {
           options: ['$10$ 分', '$15$ 分', '$20$ 分', '$12$ 分'],
           correctIndex: 1,
           explanation: '$600 \div 40 = 15$ 分だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-apadv-q12',
@@ -230,6 +253,7 @@ export const simulEqAppsAdv: Topic = {
           options: ['$200$ g', '$400$ g', '$300$ g', '$100$ g'],
           correctIndex: 2,
           explanation: '$0.03x + 0.09y = 36$、$x+y=600$。解くと $x = 300$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-apadv-q13',
@@ -237,6 +261,7 @@ export const simulEqAppsAdv: Topic = {
           options: ['$10$ km', '$12$ km', '$15$ km', '$8$ km'],
           correctIndex: 1,
           explanation: '$\dfrac{d}{6} + \dfrac{d}{4} = 5$ → $d = 12$ km だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-apadv-q14',
@@ -244,6 +269,7 @@ export const simulEqAppsAdv: Topic = {
           options: ['増える', '変わらない', '減る', '2倍になる'],
           correctIndex: 1,
           explanation: '水を加えても食塩の量は変わらないよ。濃度だけ下がる。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-apadv-q15',
@@ -251,6 +277,7 @@ export const simulEqAppsAdv: Topic = {
           options: ['$60x + 80y = 1200$', '$\dfrac{x}{60} + \dfrac{y}{80} = 1200$', '$140xy = 1200$', '$60 + 80 = 1200$'],
           correctIndex: 0,
           explanation: '距離 $=$ 速さ $\times$ 時間。$60x + 80y = 1200$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-apadv-q16',
@@ -258,6 +285,7 @@ export const simulEqAppsAdv: Topic = {
           options: ['$400$ g', '$300$ g', '$500$ g', '$200$ g'],
           correctIndex: 0,
           explanation: '$0.1x = 0.08(x+100)$ → $x = 400$ g だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-apadv-q17',
@@ -265,6 +293,7 @@ export const simulEqAppsAdv: Topic = {
           options: ['$1$ km/分', '$6$ km/分', '$0.1$ km/分', '$3600$ km/分'],
           correctIndex: 0,
           explanation: '$60 \div 60 = 1$ km/分だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-apadv-q18',
@@ -272,6 +301,7 @@ export const simulEqAppsAdv: Topic = {
           options: ['$ax = by$', '$a + x = b + y$', '$\dfrac{a}{x} = \dfrac{b}{y}$', '$ax + by = 0$'],
           correctIndex: 0,
           explanation: '行き距離 $ax$ $=$ 帰り距離 $by$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-apadv-q19',
@@ -279,6 +309,7 @@ export const simulEqAppsAdv: Topic = {
           options: ['$7.6$%', '$7$%', '$6$%', '$8$%'],
           correctIndex: 0,
           explanation: '食塩: $8 + 30 = 38$ g。$\dfrac{38}{500} \times 100 = 7.6$% だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-apadv-q20',
@@ -286,6 +317,7 @@ export const simulEqAppsAdv: Topic = {
           options: ['$10$ 分', '$15$ 分', '$5$ 分', '$20$ 分'],
           correctIndex: 0,
           explanation: '先行: $1000$ m。差: $100$ m/分。$1000 \div 100 = 10$ 分だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-apadv-q21',
@@ -293,6 +325,7 @@ export const simulEqAppsAdv: Topic = {
           options: ['$\dfrac{食塩水}{食塩} \times 100$', '$\dfrac{食塩}{水} \times 100$', '$\dfrac{食塩}{食塩水} \times 100$', '$\dfrac{水}{食塩水} \times 100$'],
           correctIndex: 2,
           explanation: '濃度(%) $= \dfrac{食塩}{食塩水} \times 100$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-apadv-q22',
@@ -300,6 +333,7 @@ export const simulEqAppsAdv: Topic = {
           options: ['$dv$ 時間', '$d + v$ 時間', '$d - v$ 時間', '$\dfrac{d}{v}$ 時間'],
           correctIndex: 3,
           explanation: '時間 $= \dfrac{距離}{速さ} = \dfrac{d}{v}$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-apadv-q23',
@@ -307,6 +341,7 @@ export const simulEqAppsAdv: Topic = {
           options: ['$10$%', '$12.5$%', '$7.5$%', '$20$%'],
           correctIndex: 1,
           explanation: '$\dfrac{5+45}{4} = 12.5$% だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g2-apadv-q24',
@@ -314,6 +349,7 @@ export const simulEqAppsAdv: Topic = {
           options: ['$24$ km', '$20$ km', '$30$ km', '$18$ km'],
           correctIndex: 0,
           explanation: '$\dfrac{d}{15} + \dfrac{d}{10} = 4$ → $d = 24$ km だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g2-apadv-q25',
@@ -321,6 +357,7 @@ export const simulEqAppsAdv: Topic = {
           options: ['$10$ g', '$10.5$ g', '$15$ g', '$20$ g'],
           correctIndex: 1,
           explanation: '$\dfrac{x}{200+x} = 0.05$ → $x \approx 10.5$ g だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g2-apadv-q26',
@@ -328,6 +365,7 @@ export const simulEqAppsAdv: Topic = {
           options: ['小数に直す', 'LCMをかけて整数にする', 'グラフをかく', 'そのまま計算'],
           correctIndex: 1,
           explanation: 'LCMをかけて整数にしてから計算するのが鉄則だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g2-apadv-q27',
@@ -335,6 +373,7 @@ export const simulEqAppsAdv: Topic = {
           options: ['重さが等しい', '濃度が等しい', '食塩の量が等しい', '水の量が等しい'],
           correctIndex: 2,
           explanation: '混ぜる前の食塩の合計 $=$ 混ぜた後の食塩の量を表すよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g2-apadv-q28',
@@ -342,6 +381,7 @@ export const simulEqAppsAdv: Topic = {
           options: ['$1$ km', '$2$ km', '$1.5$ km', '$2.5$ km'],
           correctIndex: 0,
           explanation: '$\dfrac{d}{3} + \dfrac{d}{5} = \dfrac{32}{60}$ → $d = 1$ km だよ。',
+          difficulty: 'advanced',
         },
       ],
     },

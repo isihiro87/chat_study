@@ -125,155 +125,20 @@ export const currentMagnetism: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'sci2-cm-fc1',
-        front: '磁界',
-        back: '磁力がはたらく空間を何という？',
-        explanation: '磁界の向きは磁針のN極が指す向き。磁力線はN極からS極に向かう。',
-      },
-      {
-        id: 'sci2-cm-fc2',
-        front: '右手の法則',
-        back: '導線を流れる電流がつくる磁界の向きを求める方法は？',
-        explanation: '右手の親指を電流の向きに合わせると、4本の指の向きが磁界の向き。',
-      },
-      {
-        id: 'sci2-cm-fc6',
-        front: '磁力',
-        back: '磁石が鉄を引きつけたり、磁石どうしが引き合ったりする力を何という？',
-        explanation: '磁石のN極とS極の間ではたらく力。磁力がはたらく空間を磁界という。',
-      },
-      {
-        id: 'sci2-cm-fc7',
-        front: '磁力線の特徴',
-        back: '磁力線はどちらの極から出てどちらの極に入る？間隔と磁力の関係は？',
-        explanation: 'N極から出てS極に入る。磁力線の間隔がせまいほど磁界が強い。途中で切れたり交わったりしない。',
-      },
-      {
-        id: 'sci2-cm-fc8',
-        front: '導線のまわりの磁界',
-        back: '1本の導線に電流を流すとどのような形の磁界ができる？',
-        explanation: '導線を中心に同心円状の磁界ができる。右手の法則で向きがわかる。',
-      },
-      {
-        id: 'sci2-cm-fc9',
-        front: 'コイルのまわりの磁界',
-        back: 'コイルに電流を流すとどのような磁界ができる？',
-        explanation: '棒磁石と同様の磁界ができる。コイルの一方がN極、もう一方がS極になる。',
-      },
-      {
-        id: 'sci2-cm-fc10',
-        front: '力の向きの変え方',
-        back: '電流が磁界から受ける力の向きを逆にするにはどうする？',
-        explanation: '電流の向きを逆にするか、磁界の向きを逆にする。両方逆にすると力の向きは変わらない。',
-      },
-      {
-        id: 'sci2-cm-fc11',
-        front: 'モーター',
-        back: '電流が磁界から受ける力を利用して回転する装置を何という？',
-        explanation: 'モーター（電動機）。電気エネルギーを運動エネルギーに変換する。整流子で連続回転を実現。',
-      },
-      {
-        id: 'sci2-cm-fc12',
-        front: '整流子',
-        back: 'モーターで半回転ごとに電流の向きを切りかえる部品を何という？',
-        explanation: '整流子がないとコイルは連続回転せず振動してしまう。ブラシが整流子に接触して電流を送る。',
-      },
-      {
-        id: 'sci2-cm-fc13',
-        front: '磁力',
-        back: '磁石が鉄を引きつけたり磁石同士で引き合うしりぞけ合う力',
-      },
-      {
-        id: 'sci2-cm-fc14',
-        front: '磁界',
-        back: '磁力がはたらいている空間',
-      },
-      {
-        id: 'sci2-cm-fc15',
-        front: '磁界の向き',
-        back: '磁針のN極が指す向き',
-      },
-      {
-        id: 'sci2-cm-fc16',
-        front: '磁力線',
-        back: '磁界のようすを線で表したもの。N極→S極',
-      },
-      {
-        id: 'sci2-cm-fc17',
-        front: '導線の磁界＝同心円',
-        back: '電流を流すと同心円状の磁界',
-      },
-      {
-        id: 'sci2-cm-fc18',
-        front: '右手の法則',
-        back: '親指＝電流、4本指＝磁界の向き',
-      },
-      {
-        id: 'sci2-cm-fc19',
-        front: 'コイルの磁界＝棒磁石と同様',
-        back: '一方がN極、もう一方がS極',
-      },
-      {
-        id: 'sci2-cm-fc20',
-        front: '電磁石',
-        back: 'コイルに鉄芯を入れて電流→強い磁界',
-      },
-      {
-        id: 'sci2-cm-fc21',
-        front: '電流が磁界から受ける力',
-        back: '電流と磁界の両方に垂直な力',
-      },
-      {
-        id: 'sci2-cm-fc22',
-        front: 'モーター',
-        back: '電流が磁界から受ける力で回転する装置',
-      },
-      {
-        id: 'sci2-cm-fc23',
-        front: '整流子',
-        back: '半回転ごとに電流の向きを切り替える部品',
-      },
-      {
-        id: 'sci2-cm-fc24',
-        front: '電磁誘導',
-        back: 'コイル中の磁界変化で電圧→電流が流れる現象',
-      },
-      {
-        id: 'sci2-cm-fc25',
-        front: '誘導電流',
-        back: '電磁誘導によってコイルに流れる電流',
-      },
-      {
-        id: 'sci2-cm-fc26',
-        front: '誘導電流を大きくする方法',
-        back: '速く動かす・巻数増やす・強い磁石',
-      },
-      {
-        id: 'sci2-cm-fc27',
-        front: '発電機',
-        back: '電磁誘導で電気をつくる装置',
-      },
-      {
-        id: 'sci2-cm-fc28',
-        front: '直流（DC）',
-        back: '一定方向に流れる電流。乾電池',
-      },
-      {
-        id: 'sci2-cm-fc29',
-        front: '交流（AC）',
-        back: '向きと大きさが周期的に変化する電流。家庭用',
-      },
-      {
-        id: 'sci2-cm-fc30',
-        front: '周波数',
-        back: '交流が1秒間に繰り返す振動回数。単位Hz',
-      },
-      {
-        id: 'sci2-cm-fc31',
-        front: '東日本50Hz、西日本60Hz',
-        back: '日本の交流の周波数',
-      }
+      { id: 'sci2-cm-fc1', front: '磁力がはたらく空間。向きは磁針のN極が指す向き', back: '磁界とは何？向きはどう定まる？', difficulty: 'basic' },
+      { id: 'sci2-cm-fc2', front: 'N極から出てS極に入る。間隔がせまいほど磁力が強い', back: '磁力線の向きと間隔の意味は？', difficulty: 'basic' },
+      { id: 'sci2-cm-fc3', front: '右手の親指を電流の向きに合わせると、4本の指が磁界の向き', back: '右手の法則とは何？', difficulty: 'basic' },
+      { id: 'sci2-cm-fc4', front: '導線を中心に同心円状の磁界ができる', back: '1本の導線に電流を流すとどのような形の磁界ができる？', difficulty: 'basic' },
+      { id: 'sci2-cm-fc5', front: '棒磁石と同様の磁界。一方がN極、もう一方がS極になる', back: 'コイルに電流を流すとどのような磁界ができる？', difficulty: 'basic' },
+      { id: 'sci2-cm-fc6', front: '電流の向きを逆にするか、磁界の向きを逆にする。両方逆にすると力は変わらない', back: '磁界中の電流が受ける力の向きを逆にするにはどうする？', difficulty: 'standard' },
+      { id: 'sci2-cm-fc7', front: '電流が磁界から受ける力を利用して回転する装置', back: 'モーターとは何？', difficulty: 'standard' },
+      { id: 'sci2-cm-fc8', front: '半回転ごとに電流の向きを切りかえて連続回転させる部品', back: '整流子の役割は？', difficulty: 'standard' },
+      { id: 'sci2-cm-fc9', front: 'コイルに鉄芯を入れて電流を流すと強い磁界ができる', back: '電磁石のしくみは？', difficulty: 'standard' },
+      { id: 'sci2-cm-fc10', front: 'コイル中の磁界が変化すると電圧が生じて電流が流れる現象', back: '電磁誘導とは何？', difficulty: 'standard' },
+      { id: 'sci2-cm-fc11', front: '①速く動かす ②巻数を増やす ③強い磁石を使う', back: '誘導電流を大きくする3つの方法は？', difficulty: 'advanced' },
+      { id: 'sci2-cm-fc12', front: '一定方向に流れる電流。乾電池など', back: '直流（DC）とは何？', difficulty: 'advanced' },
+      { id: 'sci2-cm-fc13', front: '向きと大きさが周期的に変化する電流。家庭用コンセント', back: '交流（AC）とは何？', difficulty: 'advanced' },
+      { id: 'sci2-cm-fc14', front: '交流が1秒間に繰り返す振動回数。東日本50Hz、西日本60Hz', back: '周波数とは何？日本の値は？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -289,7 +154,8 @@ export const currentMagnetism: Topic = {
           correctIndex: 3,
           explanation:
             '磁力線はN極から出てS極に入ります。磁界の向きは磁針のN極が指す向きです。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-cm-q2',
           question: '導線に電流を流したとき、まわりにできる磁界の形はどれか？',
@@ -297,7 +163,8 @@ export const currentMagnetism: Topic = {
           correctIndex: 1,
           explanation:
             '1本の導線に電流を流すと、導線を中心に同心円状の磁界ができます。右手の法則で向きがわかります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-cm-q3',
           question: '磁界中の電流が受ける力の向きを逆にする方法として正しいものはどれか？',
@@ -310,7 +177,8 @@ export const currentMagnetism: Topic = {
           correctIndex: 2,
           explanation:
             '電流の向きを逆にすると、電流が磁界から受ける力の向きも逆になります。磁界の向きを逆にしても同様です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-cm-q6',
           question: '磁力線の間隔がせまい場所について正しいのはどれか？',
@@ -323,7 +191,8 @@ export const currentMagnetism: Topic = {
           correctIndex: 0,
           explanation:
             '磁力線の間隔がせまいほど磁界が強いことを意味します。棒磁石では両極付近の磁力線の間隔がせまく、磁界が強くなっています。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-cm-q7',
           question: '右手の法則で、右手の親指が表すのはどれか？',
@@ -336,7 +205,8 @@ export const currentMagnetism: Topic = {
           correctIndex: 0,
           explanation:
             '右手の法則では、親指を電流の向きに合わせ、残りの4本の指を曲げた向きが磁界の向きを表します。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-cm-q8',
           question: 'コイルに電流を流したとき、コイルのN極を右手の法則で求めるにはどうするか？',
@@ -349,7 +219,8 @@ export const currentMagnetism: Topic = {
           correctIndex: 1,
           explanation:
             'コイルの場合、右手の4本の指を電流の流れる向きに曲げたとき、親指が指す方向がN極の側になります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-cm-q9',
           question: '磁界中の電流が受ける力について、電流と磁界の向きを両方逆にするとどうなるか？',
@@ -362,7 +233,8 @@ export const currentMagnetism: Topic = {
           correctIndex: 2,
           explanation:
             '電流の向きを逆にすると力は逆になりますが、さらに磁界の向きも逆にすると力は元に戻ります。片方だけ逆にすると力が逆になります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-cm-q10',
           question: 'モーターの整流子の役割として正しいのはどれか？',
@@ -375,7 +247,8 @@ export const currentMagnetism: Topic = {
           correctIndex: 3,
           explanation:
             '整流子は半回転ごとにコイルに流れる電流の向きを切りかえ、コイルが常に同じ方向に力を受けて連続回転できるようにします。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-cm-q11',
           question: '磁力線はどこから出てどこに入る？',
@@ -383,7 +256,8 @@ export const currentMagnetism: Topic = {
           correctIndex: 1,
           explanation:
             'N極から出てS極に入る。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-cm-q12',
           question: '導線に電流→磁界の形は？',
@@ -391,7 +265,8 @@ export const currentMagnetism: Topic = {
           correctIndex: 1,
           explanation:
             '同心円状の磁界。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-cm-q13',
           question: '右手の法則で親指の向きは？',
@@ -399,7 +274,8 @@ export const currentMagnetism: Topic = {
           correctIndex: 1,
           explanation:
             '親指＝電流の向き。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-cm-q14',
           question: 'コイルの電流を逆に→磁界は？',
@@ -407,7 +283,8 @@ export const currentMagnetism: Topic = {
           correctIndex: 1,
           explanation:
             '極が入れ替わる。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-cm-q15',
           question: '電流が磁界から力を逆にするには？',
@@ -415,7 +292,8 @@ export const currentMagnetism: Topic = {
           correctIndex: 1,
           explanation:
             '電流の向きか磁界の向きを逆に。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-cm-q16',
           question: 'モーターで整流子がないと？',
@@ -423,7 +301,8 @@ export const currentMagnetism: Topic = {
           correctIndex: 1,
           explanation:
             '半回転ごとに力が逆→振動。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-cm-q17',
           question: '電磁誘導とは？',
@@ -431,7 +310,8 @@ export const currentMagnetism: Topic = {
           correctIndex: 1,
           explanation:
             'コイル中の磁界変化で電圧→電流。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-cm-q18',
           question: '誘導電流を大きくするには？',
@@ -439,7 +319,8 @@ export const currentMagnetism: Topic = {
           correctIndex: 1,
           explanation:
             '速く動かすと誘導電流が大。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-cm-q19',
           question: 'コイル中で磁石を静止→誘導電流は？',
@@ -447,7 +328,8 @@ export const currentMagnetism: Topic = {
           correctIndex: 1,
           explanation:
             '磁界変化がないと流れない。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-cm-q20',
           question: '発電機のエネルギー変換は？',
@@ -455,7 +337,8 @@ export const currentMagnetism: Topic = {
           correctIndex: 1,
           explanation:
             '運動E→電気E。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-cm-q21',
           question: '直流とは？',
@@ -463,7 +346,8 @@ export const currentMagnetism: Topic = {
           correctIndex: 1,
           explanation:
             '常に一定方向。乾電池。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-cm-q22',
           question: '交流とは？',
@@ -471,7 +355,8 @@ export const currentMagnetism: Topic = {
           correctIndex: 1,
           explanation:
             '周期的に変化。家庭のコンセント。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-cm-q23',
           question: '東日本の交流周波数は？',
@@ -479,7 +364,8 @@ export const currentMagnetism: Topic = {
           correctIndex: 0,
           explanation:
             '東日本50Hz、西日本60Hz。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-cm-q24',
           question: '送電に交流が使われる理由は？',
@@ -487,7 +373,8 @@ export const currentMagnetism: Topic = {
           correctIndex: 1,
           explanation:
             '変圧器で電圧を変えやすい。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-cm-q25',
           question: 'LEDに直流をつなぐと？',
@@ -495,7 +382,8 @@ export const currentMagnetism: Topic = {
           correctIndex: 1,
           explanation:
             '一方向の電流で一定の明るさ。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci2-cm-q26',
           question: 'LEDに交流をつなぐと？',
@@ -503,7 +391,8 @@ export const currentMagnetism: Topic = {
           correctIndex: 1,
           explanation:
             '電流の向きが変わり点滅。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci2-cm-q27',
           question: 'コイルの巻数を増やすと磁界は？',
@@ -511,7 +400,8 @@ export const currentMagnetism: Topic = {
           correctIndex: 2,
           explanation:
             '巻数増→磁界強。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci2-cm-q28',
           question: '電磁石の原理は？',
@@ -519,7 +409,8 @@ export const currentMagnetism: Topic = {
           correctIndex: 1,
           explanation:
             'コイル＋鉄芯＋電流。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci2-cm-q29',
           question: '磁力線の間隔がせまい→磁力は？',
@@ -527,7 +418,8 @@ export const currentMagnetism: Topic = {
           correctIndex: 1,
           explanation:
             '間隔せまい→磁力強い。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci2-cm-q30',
           question: '周波数の単位は？',
@@ -535,7 +427,8 @@ export const currentMagnetism: Topic = {
           correctIndex: 3,
           explanation:
             'Hz（ヘルツ）。',
-        }
+        difficulty: 'advanced',
+      }
       ],
     },
     examples: {

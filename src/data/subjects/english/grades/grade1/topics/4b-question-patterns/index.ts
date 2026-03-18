@@ -35,6 +35,7 @@ export const questionPatterns: Topic = {
         back: 'The park is (　　) the station.\n（公園は駅の近くにあります。）',
         hint: '「〜の近くに」を表す前置詞は…？',
         explanation: '「〜の近くに」は near だよ。near the station = 駅の近くに',
+        difficulty: 'basic',
       },
       {
         id: 'eng-qp-fc2',
@@ -42,6 +43,7 @@ export const questionPatterns: Topic = {
         back: 'I come to school (　　) bus.\n（私はバスで学校に来ます。）',
         hint: '交通手段を表すときに使う前置詞は…？',
         explanation: '交通手段は by を使うよ。by bus = バスで、by bike = 自転車で',
+        difficulty: 'basic',
       },
       {
         id: 'eng-qp-fc3',
@@ -49,6 +51,7 @@ export const questionPatterns: Topic = {
         back: 'The cat is (　　) the table.\n（ネコはテーブルの下にいます。）',
         hint: '「〜の下に」を表す前置詞は…？',
         explanation: '「〜の下に」は under だよ。under the table = テーブルの下に',
+        difficulty: 'basic',
       },
       {
         id: 'eng-qp-fc4',
@@ -56,6 +59,7 @@ export const questionPatterns: Topic = {
         back: '(　　　　　　) do you play?\n（あなたは何のスポーツをしますか？）',
         hint: '「何のスポーツ」= What + …？',
         explanation: 'What + 名詞 で「何の〜」になるよ。What sport = 何のスポーツ',
+        difficulty: 'basic',
       },
       {
         id: 'eng-qp-fc5',
@@ -63,6 +67,7 @@ export const questionPatterns: Topic = {
         back: '(　　　　　　) do you like?\n（あなたは何の教科が好きですか？）',
         hint: '「何の教科」= What + …？',
         explanation: 'What subject = 何の教科。What subject do you like? で「何の教科が好き？」',
+        difficulty: 'basic',
       },
       {
         id: 'eng-qp-fc6',
@@ -70,6 +75,7 @@ export const questionPatterns: Topic = {
         back: 'How do you come to school?\n→ I come to school (　　).\n（自転車で学校に来ます。）',
         hint: '「自転車で」= by + …？',
         explanation: 'by bike = 自転車で。How do you ~? は「どうやって〜しますか？」だよ。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-qp-fc7',
@@ -77,6 +83,7 @@ export const questionPatterns: Topic = {
         back: 'How do you come to school?\n→ I come to school (　　).\n（歩いて学校に来ます。）',
         hint: '「歩いて」は on + …？ ※ by は使わないよ！',
         explanation: '「歩いて」は on foot だよ。by foot ではないので注意！',
+        difficulty: 'basic',
       },
       {
         id: 'eng-qp-fc8',
@@ -84,6 +91,7 @@ export const questionPatterns: Topic = {
         back: 'I live (　　) Tokyo.\n（私は東京に住んでいます。）',
         hint: '「〜の中に」「〜に」を表す前置詞は…？',
         explanation: '「〜の中に」「〜に」は in だよ。in Tokyo = 東京に、in the box = 箱の中に',
+        difficulty: 'basic',
       },
       {
         id: 'eng-qp-fc9',
@@ -91,6 +99,7 @@ export const questionPatterns: Topic = {
         back: 'I get up (　　) seven.\n（私は7時に起きます。）',
         hint: '時刻の前に置く前置詞は…？',
         explanation: '時刻の前には at を使うよ。at seven = 7時に、at noon = 正午に',
+        difficulty: 'basic',
       },
       {
         id: 'eng-qp-fc10',
@@ -98,6 +107,7 @@ export const questionPatterns: Topic = {
         back: 'I play soccer (　　) Sunday.\n（私は日曜日にサッカーをします。）',
         hint: '曜日の前に置く前置詞は…？',
         explanation: '曜日の前には on を使うよ。on Sunday = 日曜日に、on Monday = 月曜日に',
+        difficulty: 'basic',
       },
       {
         id: 'eng-qp-fc11',
@@ -105,6 +115,7 @@ export const questionPatterns: Topic = {
         back: 'I study English (　　　　).\n（私は午前中に英語を勉強します。）',
         hint: '「午前中に」= in the …？',
         explanation: '「午前中に」は in the morning だよ。in the afternoon = 午後に、in the evening = 夕方に',
+        difficulty: 'basic',
       },
       {
         id: 'eng-qp-fc12',
@@ -112,6 +123,7 @@ export const questionPatterns: Topic = {
         back: '(　　　　　　)?\n（今何時ですか？）',
         hint: '「何時」= What + …？',
         explanation: 'What time is it? で「今何時ですか？」。答えは It is three. のように言うよ。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-qp-fc13',
@@ -119,6 +131,7 @@ export const questionPatterns: Topic = {
         back: '(　　　　　　) do you like?\n（あなたは何の食べ物が好きですか？）',
         hint: '「何の食べ物」= What + …？',
         explanation: 'What food = 何の食べ物。What + 名詞 で「何の〜」という意味になるよ。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-qp-fc14',
@@ -126,6 +139,7 @@ export const questionPatterns: Topic = {
         back: '(　　　　　　) do you like?\n（あなたは何色が好きですか？）',
         hint: '「何色」= What + …？',
         explanation: 'What color = 何色。I like blue. のように答えるよ。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-qp-fc15',
@@ -133,6 +147,7 @@ export const questionPatterns: Topic = {
         back: 'How do you go to Tokyo?\n→ I go to Tokyo (　　).\n（電車で東京に行きます。）',
         hint: '「電車で」= by + …？',
         explanation: 'by train = 電車で。交通手段は by + 乗り物 で表すよ。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-qp-fc16',
@@ -140,6 +155,7 @@ export const questionPatterns: Topic = {
         back: 'How do you go to the library?\n→ I go to the library (　　).\n（バスで図書館に行きます。）',
         hint: '「バスで」= by + …？',
         explanation: 'by bus = バスで。by のあとに a や the はつけないよ。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-qp-fc17',
@@ -147,6 +163,7 @@ export const questionPatterns: Topic = {
         back: 'She is (　　) school now.\n（彼女は今学校にいます。）',
         hint: '「学校に」のときに使う前置詞は…？',
         explanation: '「学校に」は at school だよ。at は特定の場所を表すときに使うよ。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-qp-fc18',
@@ -154,6 +171,7 @@ export const questionPatterns: Topic = {
         back: 'The milk is (　　) the fridge.\n（牛乳は冷蔵庫の中にあります。）',
         hint: '「〜の中に」を表す前置詞は…？',
         explanation: '「〜の中に」は in だよ。in the fridge = 冷蔵庫の中に',
+        difficulty: 'standard',
       },
       {
         id: 'eng-qp-fc19',
@@ -161,6 +179,7 @@ export const questionPatterns: Topic = {
         back: '(　　　　　　) do you go to bed?\n（あなたは何時に寝ますか？）',
         hint: '「何時に」= What + …？',
         explanation: 'What time = 何時。go to bed = 寝る。I go to bed at ten. のように答えるよ。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-qp-fc20',
@@ -168,6 +187,7 @@ export const questionPatterns: Topic = {
         back: '(　　　　　　) go to the park?\n（あなたはどうやって公園に行きますか？）',
         hint: '「どうやって」= How、「あなたは〜しますか」= do you',
         explanation: 'How do you ~? で「どうやって〜しますか？」。答えは I go to the park by bike. のように。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-qp-fc21',
@@ -175,6 +195,7 @@ export const questionPatterns: Topic = {
         back: 'The cat is (　　) the window.\n（ネコは窓のそばにいます。）',
         hint: '「〜のそばに」を表す前置詞は…？',
         explanation: 'by には「〜のそばに」という意味もあるよ。by the window = 窓のそばに',
+        difficulty: 'standard',
       },
       {
         id: 'eng-qp-fc22',
@@ -182,6 +203,7 @@ export const questionPatterns: Topic = {
         back: '(　　　　　　) today?\n（今日は何曜日ですか？）',
         hint: '「何曜日」= What + …？',
         explanation: 'What day is it today? = 今日は何曜日ですか？ It is Monday. のように答えるよ。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-qp-fc23',
@@ -189,6 +211,7 @@ export const questionPatterns: Topic = {
         back: 'The cup is (　　) the table.\n（コップはテーブルの上にあります。）',
         hint: '「〜の上に」を表す前置詞は…？',
         explanation: '「〜の上に」は on だよ。on the table = テーブルの上に',
+        difficulty: 'advanced',
       },
       {
         id: 'eng-qp-fc24',
@@ -196,6 +219,7 @@ export const questionPatterns: Topic = {
         back: '(　　　　　　) do you listen to?\n（あなたは何の音楽を聴きますか？）',
         hint: '「何の音楽」= What + …？',
         explanation: 'What music = 何の音楽。What + 名詞 + do you ~? のパターンだよ。',
+        difficulty: 'advanced',
       },
       {
         id: 'eng-qp-fc25',
@@ -203,6 +227,7 @@ export const questionPatterns: Topic = {
         back: 'We have math (　　　　).\n（私たちは午後に数学があります。）',
         hint: '「午後に」= in the …？',
         explanation: '「午後に」は in the afternoon だよ。時間帯は in を使うよ。',
+        difficulty: 'advanced',
       },
       {
         id: 'eng-qp-fc26',
@@ -210,6 +235,7 @@ export const questionPatterns: Topic = {
         back: 'What time is it?\n→ (　　　　　　).\n（3時30分です。）',
         hint: '時刻を答えるときは It is + 時間 だよ。',
         explanation: 'It is three thirty. = 3時30分です。thirty = 30（分）だよ。',
+        difficulty: 'advanced',
       },
       {
         id: 'eng-qp-fc27',
@@ -217,6 +243,7 @@ export const questionPatterns: Topic = {
         back: '(　　　　　　) do you like?\n（あなたは何の動物が好きですか？）',
         hint: '「何の動物」= What + …？',
         explanation: 'What animal = 何の動物。I like dogs. のように答えるよ。',
+        difficulty: 'advanced',
       },
       {
         id: 'eng-qp-fc28',
@@ -224,6 +251,7 @@ export const questionPatterns: Topic = {
         back: 'Is there a post office (　　) here?\n（この近くに郵便局はありますか？）',
         hint: '「〜の近くに」を表す前置詞は…？',
         explanation: 'near here = この近くに。near は「〜の近くに」という意味だよ。',
+        difficulty: 'advanced',
       },
     ],
     quiz: {
@@ -234,6 +262,7 @@ export const questionPatterns: Topic = {
           options: ['on', 'in', 'at', 'by'],
           correctIndex: 0,
           explanation: '「〜の上に」は on だよ。on the desk = 机の上に',
+          difficulty: 'basic',
         },
         {
           id: 'eng-qp-q2',
@@ -246,6 +275,7 @@ export const questionPatterns: Topic = {
           ],
           correctIndex: 3,
           explanation: '「何時」は what time だよ。What time do you get up?',
+          difficulty: 'basic',
         },
         {
           id: 'eng-qp-q3',
@@ -258,6 +288,7 @@ export const questionPatterns: Topic = {
           ],
           correctIndex: 2,
           explanation: '交通手段は by を使うよ。by bike = 自転車で。by のあとに a / the はつけないよ。',
+          difficulty: 'basic',
         },
         {
           id: 'eng-qp-q4',
@@ -265,6 +296,7 @@ export const questionPatterns: Topic = {
           options: ['on', 'near', 'under', 'in'],
           correctIndex: 1,
           explanation: '「〜の近くに」は near だよ。near the station = 駅の近くに',
+          difficulty: 'basic',
         },
         {
           id: 'eng-qp-q5',
@@ -276,6 +308,7 @@ export const questionPatterns: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「What time do you get up?」が正解。What time（何時）+ do you（あなたは〜しますか）+ get up（起きる）の順番だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'eng-qp-q6',
@@ -287,6 +320,7 @@ export const questionPatterns: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「How do you come to school?」が正解。How（どうやって）+ do you（あなたは〜しますか）+ come to school（学校に来る）の順番だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'eng-qp-q7',
@@ -294,6 +328,7 @@ export const questionPatterns: Topic = {
           options: ['in', 'on', 'at', 'by'],
           correctIndex: 2,
           explanation: '時刻の前には at を使うよ。at six = 6時に',
+          difficulty: 'basic',
         },
         {
           id: 'eng-qp-q8',
@@ -301,6 +336,7 @@ export const questionPatterns: Topic = {
           options: ['at', 'in', 'on', 'by'],
           correctIndex: 2,
           explanation: '曜日の前には on を使うよ。on Saturday = 土曜日に',
+          difficulty: 'basic',
         },
         {
           id: 'eng-qp-q9',
@@ -313,6 +349,7 @@ export const questionPatterns: Topic = {
           ],
           correctIndex: 1,
           explanation: '「何の食べ物」は What food だよ。What + 名詞 + do you ~? の形を使おう。',
+          difficulty: 'basic',
         },
         {
           id: 'eng-qp-q10',
@@ -320,6 +357,7 @@ export const questionPatterns: Topic = {
           options: ['on', 'at', 'in', 'by'],
           correctIndex: 2,
           explanation: '「午前中に」は in the morning だよ。時間帯（morning / afternoon / evening）には in を使うよ。',
+          difficulty: 'basic',
         },
         {
           id: 'eng-qp-q11',
@@ -332,6 +370,7 @@ export const questionPatterns: Topic = {
           ],
           correctIndex: 1,
           explanation: '「歩いて」は on foot だよ。by foot ではないので注意！',
+          difficulty: 'standard',
         },
         {
           id: 'eng-qp-q12',
@@ -344,6 +383,7 @@ export const questionPatterns: Topic = {
           ],
           correctIndex: 2,
           explanation: '「今何時ですか？」は What time is it? だよ。it は「今の時間」を表すよ。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-qp-q13',
@@ -351,6 +391,7 @@ export const questionPatterns: Topic = {
           options: ['on', 'in', 'near', 'under'],
           correctIndex: 3,
           explanation: '「〜の下に」は under だよ。under the chair = いすの下に',
+          difficulty: 'standard',
         },
         {
           id: 'eng-qp-q14',
@@ -363,6 +404,7 @@ export const questionPatterns: Topic = {
           ],
           correctIndex: 2,
           explanation: '交通手段は by + 乗り物 だよ。by のあとに a や the はつけないよ。by train = 電車で',
+          difficulty: 'standard',
         },
         {
           id: 'eng-qp-q15',
@@ -375,6 +417,7 @@ export const questionPatterns: Topic = {
           ],
           correctIndex: 0,
           explanation: 'What color = 何色。What color do you like? の語順が正しいよ。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-qp-q16',
@@ -382,6 +425,7 @@ export const questionPatterns: Topic = {
           options: ['in', 'on', 'at', 'under'],
           correctIndex: 2,
           explanation: '「学校に」は at school だよ。at は特定の場所を表すときに使うよ。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-qp-q17',
@@ -394,6 +438,7 @@ export const questionPatterns: Topic = {
           ],
           correctIndex: 0,
           explanation: 'What time = 何時。go to bed = 寝る。What time do you go to bed? が正解だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-qp-q18',
@@ -401,6 +446,7 @@ export const questionPatterns: Topic = {
           options: ['on', 'at', 'in', 'near'],
           correctIndex: 2,
           explanation: '「〜の中に」は in だよ。in the box = 箱の中に',
+          difficulty: 'standard',
         },
         {
           id: 'eng-qp-q19',
@@ -413,6 +459,7 @@ export const questionPatterns: Topic = {
           ],
           correctIndex: 1,
           explanation: '「どうやって」は How だよ。How do you go to the library? が正解。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-qp-q20',
@@ -420,6 +467,7 @@ export const questionPatterns: Topic = {
           options: ['in', 'on', 'by', 'under'],
           correctIndex: 2,
           explanation: '「〜のそばに」は by だよ。by the door = ドアのそばに',
+          difficulty: 'standard',
         },
         {
           id: 'eng-qp-q21',
@@ -431,6 +479,7 @@ export const questionPatterns: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「What time is it?」が正解。What time（何時）+ is it（ですか）の順番だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-qp-q22',
@@ -442,6 +491,7 @@ export const questionPatterns: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「What subject do you like?」が正解。What subject（何の教科）+ do you（あなたは〜しますか）+ like（好き）の順番だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-qp-q23',
@@ -453,6 +503,7 @@ export const questionPatterns: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「What food do you like?」が正解。What food（何の食べ物）+ do you like（あなたは好きですか）の順番だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'eng-qp-q24',
@@ -464,6 +515,7 @@ export const questionPatterns: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「I go to school by bus.」が正解。I go（私は行く）+ to school（学校に）+ by bus（バスで）の順番だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'eng-qp-q25',
@@ -475,6 +527,7 @@ export const questionPatterns: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「What time do you go to bed?」が正解。What time（何時に）+ do you（あなたは〜しますか）+ go to bed（寝る）の順番だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'eng-qp-q26',
@@ -486,6 +539,7 @@ export const questionPatterns: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「I come to school on foot.」が正解。I come（私は来る）+ to school（学校に）+ on foot（歩いて）の順番だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'eng-qp-q27',
@@ -497,6 +551,7 @@ export const questionPatterns: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「How do you go to Tokyo?」が正解。How（どうやって）+ do you（あなたは〜しますか）+ go to Tokyo（東京に行く）の順番だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'eng-qp-q28',
@@ -508,6 +563,7 @@ export const questionPatterns: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「What animal do you like?」が正解。What animal（何の動物）+ do you like（あなたは好きですか）の順番だよ。',
+          difficulty: 'advanced',
         },
       ],
     },

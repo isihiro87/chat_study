@@ -77,79 +77,95 @@ export const polynomialAddSub: Topic = {
       {
         id: 'math-g2-pas-fc1',
         front: '多項式どうしを足す計算。かっこを外して同類項をまとめる。$(A) + (B)$ の形。', back: '多項式の加法とは？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-pas-fc2',
         front: '多項式どうしを引く計算。$(A) - (B)$ のかっこを外すとき、$B$ の全ての項の符号を反転する。', back: '多項式の減法とは？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-pas-fc3',
         front: 'そのまま外す。$+(3x - 2y) = 3x - 2y$', back: '「+」のかっこを外すとき',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-pas-fc4',
         front: '全部の項の符号を反転する。$-(3x - 2y) = -3x + 2y$', back: '「−」のかっこを外すとき',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-pas-fc5',
         front: '$m(a + b) = ma + mb$。かっこの中の全部の項に $m$ をかける。', back: '分配法則 $m(a + b)$ は？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-pas-fc6',
         front: '符号が変わる！$-3(2a - 4b) = -6a + 12b$', back: '数×多項式で負の数をかけるとき',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-pas-fc7',
         front: '各項をその数で割る。$(10x + 6y) \\div 2 = 5x + 3y$', back: '多項式÷数の計算方法は？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-pas-fc8',
         front: '逆数をかける。$\\div \\frac{1}{5} = \\times 5$', back: '分数で割る計算 $\\div \\frac{1}{5}$',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-pas-fc9',
         front: '分母を同じ数にそろえること。$\\frac{1}{2}$ と $\\frac{1}{3}$ なら分母を $6$ にする。', back: '通分とは？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-pas-fc10',
         front: '1. 通分する → 2. 分子のかっこを外す → 3. 同類項をまとめる → 4. 約分できれば約分', back: '分数の形の式の加減の手順',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-pas-fc11',
         front: 'まず式を簡単にしてから値を代入する。先に代入すると計算ミスが起きやすい！', back: '式の値を求める手順は？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-pas-fc12',
         front: '同類項を縦にそろえて書き、上下の係数を足す計算方法。', back: '縦書き（筆算）の加法とは？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-pas-fc13',
         front: '引く方の式の全ての項の符号を反転してから足し算する。', back: '縦書き（筆算）の減法の注意点',
+        difficulty: 'standard',
       },
       {
         id: 'math-g2-pas-fc14',
         front: '$\\times$ $-3x - 2$（間違い）、$\\bigcirc$ $-3x + 2$（正解）。$-2$ も $+2$ に変わる！', back: 'よくある間違い: $-(3x - 2)$',
+        difficulty: 'standard',
       },
       {
         id: 'math-g2-pas-fc15',
         front: '$= 21a - 6b - 20a + 5b = a - b$', back: '$3(7a - 2b) - 5(4a - b)$ の計算',
+        difficulty: 'standard',
       },
       {
         id: 'math-g2-pas-fc16',
         front: '文字の部分が同じ項の係数どうしを足し引きすること。$3x + 5x = 8x$', back: '同類項をまとめるとは？',
+        difficulty: 'standard',
       },
-      { id: 'math-g2-pas-fc17', front: '式を簡単にしてから代入すると計算ミスが減る', back: '式の値を求めるときのコツは？' },
-      { id: 'math-g2-pas-fc18', front: '各項に数をかける。$-4(2x - y) = -8x + 4y$', back: '負の数 × 多項式の計算方法は？' },
-      { id: 'math-g2-pas-fc19', front: '分母の最小公倍数で通分してから分子を計算', back: '分数形式の多項式の加減法の手順は？' },
-      { id: 'math-g2-pas-fc20', front: '$(12a + 8b) \div (-4) = -3a - 2b$（各項を $-4$ で割る）', back: '$(12a + 8b) \div (-4)$ の計算は？' },
-      { id: 'math-g2-pas-fc21', front: '$6x - 14y$（$2 \times 3x = 6x$, $2 \times (-7y) = -14y$）', back: '$2(3x - 7y)$ を展開すると？' },
-      { id: 'math-g2-pas-fc22', front: '① 分配法則でかっこを外す → ② 同類項をまとめる', back: '数×多項式を含む式の計算手順は？' },
-      { id: 'math-g2-pas-fc23', front: '$\dfrac{2(3x-y) - 3(x+y)}{6} = \dfrac{3x - 5y}{6}$', back: '$\dfrac{3x-y}{3} - \dfrac{x+y}{2}$ を計算すると？' },
-      { id: 'math-g2-pas-fc24', front: '割り算は各項をその数で割る。分数で割る場合は逆数をかける。', back: '多項式÷数の2つの計算方法は？' },
-      { id: 'math-g2-pas-fc25', front: '引く式のすべての符号を反転させてから足す', back: '多項式の減法で最も大切なポイントは？' },
-      { id: 'math-g2-pas-fc26', front: '$= 4a + 10b - 9a + 3b = -5a + 13b$', back: '$2(2a + 5b) - 3(3a - b)$ の計算は？' },
-      { id: 'math-g2-pas-fc27', front: '両辺にすべての分母の最小公倍数をかけて分数をなくす', back: '分数を含む方程式を解く最初のステップは？' },
-      { id: 'math-g2-pas-fc28', front: '加法の交換法則と結合法則を使って同類項を隣り合わせにする', back: '多項式の計算を効率化するコツは？' },
+      { id: 'math-g2-pas-fc17', front: '式を簡単にしてから代入すると計算ミスが減る', back: '式の値を求めるときのコツは？', difficulty: 'standard' },
+      { id: 'math-g2-pas-fc18', front: '各項に数をかける。$-4(2x - y) = -8x + 4y$', back: '負の数 × 多項式の計算方法は？', difficulty: 'standard' },
+      { id: 'math-g2-pas-fc19', front: '分母の最小公倍数で通分してから分子を計算', back: '分数形式の多項式の加減法の手順は？', difficulty: 'standard' },
+      { id: 'math-g2-pas-fc20', front: '$(12a + 8b) \div (-4) = -3a - 2b$（各項を $-4$ で割る）', back: '$(12a + 8b) \div (-4)$ の計算は？', difficulty: 'standard' },
+      { id: 'math-g2-pas-fc21', front: '$6x - 14y$（$2 \times 3x = 6x$, $2 \times (-7y) = -14y$）', back: '$2(3x - 7y)$ を展開すると？', difficulty: 'standard' },
+      { id: 'math-g2-pas-fc22', front: '① 分配法則でかっこを外す → ② 同類項をまとめる', back: '数×多項式を含む式の計算手順は？', difficulty: 'standard' },
+      { id: 'math-g2-pas-fc23', front: '$\dfrac{2(3x-y) - 3(x+y)}{6} = \dfrac{3x - 5y}{6}$', back: '$\dfrac{3x-y}{3} - \dfrac{x+y}{2}$ を計算すると？', difficulty: 'advanced' },
+      { id: 'math-g2-pas-fc24', front: '割り算は各項をその数で割る。分数で割る場合は逆数をかける。', back: '多項式÷数の2つの計算方法は？', difficulty: 'advanced' },
+      { id: 'math-g2-pas-fc25', front: '引く式のすべての符号を反転させてから足す', back: '多項式の減法で最も大切なポイントは？', difficulty: 'advanced' },
+      { id: 'math-g2-pas-fc26', front: '$= 4a + 10b - 9a + 3b = -5a + 13b$', back: '$2(2a + 5b) - 3(3a - b)$ の計算は？', difficulty: 'advanced' },
+      { id: 'math-g2-pas-fc27', front: '両辺にすべての分母の最小公倍数をかけて分数をなくす', back: '分数を含む方程式を解く最初のステップは？', difficulty: 'advanced' },
+      { id: 'math-g2-pas-fc28', front: '加法の交換法則と結合法則を使って同類項を隣り合わせにする', back: '多項式の計算を効率化するコツは？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -160,6 +176,7 @@ export const polynomialAddSub: Topic = {
           correctIndex: 2,
           explanation:
             '$x$ の項: $3x + 5x = 8x$、$y$ の項: $2y + (-3y) = -y$。だから答えは $8x - y$ だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g2-poly-add-sub-q2',
@@ -168,6 +185,7 @@ export const polynomialAddSub: Topic = {
           correctIndex: 0,
           explanation:
             'かっこを外すと $4a - 3b - 2a + 5b$。同類項をまとめて $2a + 2b$ だよ。引き算のかっこは符号が変わるのがポイント！',
+          difficulty: 'basic',
         },
         {
           id: 'math-g2-poly-add-sub-q3',
@@ -181,6 +199,7 @@ export const polynomialAddSub: Topic = {
           correctIndex: 1,
           explanation:
             'かっこの前が「$-$」なので全部の符号が反転！ $2x^2 \\rightarrow -2x^2$, $-4x \\rightarrow +4x$, $+1 \\rightarrow -1$ だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g2-pas-q4',
@@ -189,6 +208,7 @@ export const polynomialAddSub: Topic = {
           correctIndex: 3,
           explanation:
             '分配法則で各項に $2$ をかけるよ。$2 \\times 3x = 6x$, $2 \\times (-7y) = -14y$ だから $6x - 14y$ だね。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g2-pas-q5',
@@ -197,6 +217,7 @@ export const polynomialAddSub: Topic = {
           correctIndex: 0,
           explanation:
             '各項を $-3$ で割るよ。$24a \\div (-3) = -8a$, $-15b \\div (-3) = 5b$ だから $-8a + 5b$ だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g2-pas-q6',
@@ -205,6 +226,7 @@ export const polynomialAddSub: Topic = {
           correctIndex: 2,
           explanation:
             '$21a - 6b - 20a + 5b = a - b$ だよ。$-5 \\times (-b) = +5b$ に注意！',
+          difficulty: 'basic',
         },
         {
           id: 'math-g2-pas-q7',
@@ -218,6 +240,7 @@ export const polynomialAddSub: Topic = {
           correctIndex: 1,
           explanation:
             '通分して $\\frac{3(3x-y) - 2(3x-2y)}{6} = \\frac{9x - 3y - 6x + 4y}{6} = \\frac{3x + y}{6}$ だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g2-pas-q8',
@@ -231,6 +254,7 @@ export const polynomialAddSub: Topic = {
           correctIndex: 3,
           explanation:
             '$\\div \\frac{1}{5}$ は $\\times 5$ と同じ！$(-x) \\times 5 = -5x$, $2y \\times 5 = 10y$ だから $-5x + 10y$ だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g2-pas-q9',
@@ -240,6 +264,7 @@ export const polynomialAddSub: Topic = {
           correctIndex: 2,
           explanation:
             'まず式を簡単にするよ。$3x - 4y - 2x + 5y = x + y$。$x + y = 4 + (-3) = 1$ だね。先に簡単にすると楽！',
+          difficulty: 'basic',
         },
         {
           id: 'math-g2-pas-q10',
@@ -253,6 +278,7 @@ export const polynomialAddSub: Topic = {
           correctIndex: 3,
           explanation:
             '$-5 \\times (-a) = 5a$, $-5 \\times 4b = -20b$ だよ。マイナス×マイナスはプラスになるのがポイント！',
+          difficulty: 'basic',
         },
         {
           id: 'math-g2-poly-add-sub-q11',
@@ -260,6 +286,7 @@ export const polynomialAddSub: Topic = {
           options: ['$-6x + 15y$', '$-6x - 15y$', '$6x - 15y$', '$6x + 15y$'],
           correctIndex: 0,
           explanation: '$-3 \times 2x = -6x$、$-3 \times (-5y) = +15y$。答え $-6x + 15y$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-poly-add-sub-q12',
@@ -267,6 +294,7 @@ export const polynomialAddSub: Topic = {
           options: ['$6x + 3y$', '$2x + 3y$', '$2x + 9y$', '$3x + 3y$'],
           correctIndex: 1,
           explanation: '各項を $3$ で割る。$6x \div 3 = 2x$、$9y \div 3 = 3y$。答え $2x + 3y$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-poly-add-sub-q13',
@@ -274,6 +302,7 @@ export const polynomialAddSub: Topic = {
           options: ['$7x + 4y$', '$3x + 4y$', '$7x - 10y$', '$3x - 10y$'],
           correctIndex: 0,
           explanation: '$x$: $5+2=7$、$y$: $-3+7=4$。答え $7x + 4y$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-poly-add-sub-q14',
@@ -281,6 +310,7 @@ export const polynomialAddSub: Topic = {
           options: ['$-2a + 3b$', '$8a + b$', '$-2a + b$', '$-2a - 3b$'],
           correctIndex: 0,
           explanation: '符号反転: $3a + 2b - 5a + b = -2a + 3b$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-poly-add-sub-q15',
@@ -288,6 +318,7 @@ export const polynomialAddSub: Topic = {
           options: ['$x + y$', '$x - y$', '$x + 9y$', '$x - 17y$'],
           correctIndex: 0,
           explanation: '$4x - 8y - 3x + 9y = x + y$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-poly-add-sub-q16',
@@ -295,6 +326,7 @@ export const polynomialAddSub: Topic = {
           options: ['$3a - 2b$', '$-3a - 2b$', '$-3a + 2b$', '$3a + 2b$'],
           correctIndex: 2,
           explanation: '$12a \div (-4) = -3a$、$-8b \div (-4) = 2b$。答え $-3a + 2b$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-poly-add-sub-q17',
@@ -302,6 +334,7 @@ export const polynomialAddSub: Topic = {
           options: ['$x$', '$y$', '$\dfrac{2x}{4}$', '$0$'],
           correctIndex: 0,
           explanation: '分母が同じなので分子を足す: $\dfrac{(x+y)+(x-y)}{2} = \dfrac{2x}{2} = x$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-poly-add-sub-q18',
@@ -309,6 +342,7 @@ export const polynomialAddSub: Topic = {
           options: ['$8a + 3b$', '$4a + 9b$', '$8a + 9b$', '$4a + 3b$'],
           correctIndex: 0,
           explanation: '$2a + 6b + 6a - 3b = 8a + 3b$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-poly-add-sub-q19',
@@ -316,13 +350,15 @@ export const polynomialAddSub: Topic = {
           options: ['$10x + 5y$', '$10x - 5y$', '$-10x + 5y$', '$-10x - 5y$'],
           correctIndex: 1,
           explanation: '$(-2x) \times (-5) = 10x$、$y \times (-5) = -5y$。答え $10x - 5y$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-poly-add-sub-q20',
           question: '$x = -2, y = 3$ のとき $(4x - y) + (x + 3y)$ の値は？',
           options: ['$0$', '$-2$', '$2$', '$-4$'],
-          correctIndex: 0,
-          explanation: '式を整理: $5x + 2y$。$5(-2) + 2(3) = -10 + 6 = -4$…いや、$4x - y + x + 3y = 5x + 2y$。$5(-2) + 2(3) = -10 + 6 = -4$ だよ。',
+          correctIndex: 3,
+          explanation: '式を整理: $4x - y + x + 3y = 5x + 2y$。$5(-2) + 2(3) = -10 + 6 = -4$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-poly-add-sub-q21',
@@ -330,6 +366,7 @@ export const polynomialAddSub: Topic = {
           options: ['$\dfrac{x - 2y}{3}$', '$\dfrac{x}{3}$', '$\dfrac{3x}{3}$', '$\dfrac{x + 2y}{3}$'],
           correctIndex: 0,
           explanation: '分母同じ: $\dfrac{(2x-y)-(x+y)}{3} = \dfrac{x - 2y}{3}$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-poly-add-sub-q22',
@@ -337,6 +374,7 @@ export const polynomialAddSub: Topic = {
           options: ['$3a - 2b + 1$', '$3a - 10b + 5$', '$15a - 2b + 1$', '$3a - 2b + 5$'],
           correctIndex: 0,
           explanation: '各項を $5$ で割る。$3a - 2b + 1$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-poly-add-sub-q23',
@@ -344,6 +382,7 @@ export const polynomialAddSub: Topic = {
           options: ['$\dfrac{x+y}{3}$', '$3x + 3y$', '$\dfrac{3}{x+y}$', '$x + 3y$'],
           correctIndex: 1,
           explanation: '$\div \dfrac{1}{3} = \times 3$。$(x+y) \times 3 = 3x + 3y$ だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g2-poly-add-sub-q24',
@@ -351,6 +390,7 @@ export const polynomialAddSub: Topic = {
           options: ['$-4x + 3y - 2$', '$-4x - 3y + 2$', '$4x - 3y + 2$', '$-4x + 3y + 2$'],
           correctIndex: 0,
           explanation: '全ての符号が変わる。$-4x + 3y - 2$ だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g2-poly-add-sub-q25',
@@ -358,6 +398,7 @@ export const polynomialAddSub: Topic = {
           options: ['$-a + 3b$', '$11a + 3b$', '$-a - 3b$', '$a + 3b$'],
           correctIndex: 0,
           explanation: '$5a + 5b - 6a - 2b = -a + 3b$ だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g2-poly-add-sub-q26',
@@ -365,6 +406,7 @@ export const polynomialAddSub: Topic = {
           options: ['$a$', '$\dfrac{4a}{4}$', '$\dfrac{a}{2}$', '$2a$'],
           correctIndex: 0,
           explanation: '$\dfrac{(a+2b)+(3a-2b)}{4} = \dfrac{4a}{4} = a$ だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g2-poly-add-sub-q27',
@@ -372,6 +414,7 @@ export const polynomialAddSub: Topic = {
           options: ['$x + 0$', '$-x + 0$', '$-x$', '$x$'],
           correctIndex: 2,
           explanation: '$-3x + 6y + 2x - 6y = -x$ だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g2-poly-add-sub-q28',
@@ -379,6 +422,7 @@ export const polynomialAddSub: Topic = {
           options: ['$5x - 2y$', '$5x + 2y$', '$4x - 3y$', '$5x - 4y$'],
           correctIndex: 0,
           explanation: '$4x - 3y + x + y = 5x - 2y$ だよ。',
+          difficulty: 'advanced',
         },
       ],
     },

@@ -49,60 +49,70 @@ export const postOpening: Topic = {
         front: '尊王攘夷',
         back: '天皇を尊び、外国を追い払おうとする運動は？',
         explanation: '開国に反対する人々が掲げたスローガン。',
+        difficulty: 'basic',
       },
       {
         id: 'fc2',
         front: '安政の大獄',
         back: '井伊直弼が尊王攘夷派を厳しく処罰した事件は？',
         explanation: '吉田松陰らが処刑され、多くの大名・公家が処分された。',
+        difficulty: 'basic',
       },
       {
         id: 'fc3',
         front: '桜田門外の変',
         back: '1860年、井伊直弼が暗殺された事件は？',
         explanation: '安政の大獄への反発から、水戸藩の浪士らが襲撃した。',
+        difficulty: 'basic',
       },
       {
         id: 'fc4',
         front: '吉田松陰',
         back: '安政の大獄で処刑された長州藩の思想家は？',
         explanation: '松下村塾で高杉晋作や伊藤博文らを育てた。',
+        difficulty: 'basic',
       },
       {
         id: 'fc5',
         front: '公武合体',
         back: '幕府と朝廷が協力しようとする政策は？',
         explanation: '幕府が権威を取り戻そうとしたが、うまくいかなかった。',
+        difficulty: 'standard',
       },
       {
         id: 'fc6',
         front: '生糸',
         back: '開港後の日本の主要な輸出品は？',
         explanation: '横浜からイギリスなどに大量に輸出された。',
+        difficulty: 'standard',
       },
       {
         id: 'fc7',
         front: '金の流出',
         back: '日本と外国の金銀交換比率の違いで起きた問題は？',
         explanation: '日本では金が銀に対して安く、大量の金が海外に流出した。',
+        difficulty: 'standard',
       },
       {
         id: 'fc8',
         front: '物価高騰',
         back: '開港後、貿易の影響で起きた経済問題は？',
         explanation: '輸出増加で国内の品不足が起き、物価が上がった。',
+        difficulty: 'standard',
       },
       {
         id: 'fc9',
         front: '横浜',
         back: '開港後に最大の貿易港となった場所は？',
         explanation: '日米修好通商条約で開かれた5港の一つ。',
+        difficulty: 'standard',
       },
       {
         id: 'fc10',
         front: '攘夷',
         back: '外国の勢力を排除しようとする考えを何という？',
         explanation: '「夷」は外国人を指す言葉。',
+        difficulty: 'standard',
       },
     ],
     quiz: {
@@ -114,6 +124,7 @@ export const postOpening: Topic = {
           correctIndex: 3,
           explanation:
             '安政の大獄では、吉田松陰らが処刑され、多くの大名や公家が処分されました。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -123,6 +134,7 @@ export const postOpening: Topic = {
           correctIndex: 0,
           explanation:
             '尊王攘夷運動は、開国に反対する人々が「天皇を尊び外国を追い払え」と掲げた運動です。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -136,6 +148,7 @@ export const postOpening: Topic = {
           correctIndex: 2,
           explanation:
             '桜田門外の変は安政の大獄への反発から水戸藩の浪士らが井伊直弼を襲撃した事件です。',
+          difficulty: 'basic',
         },
         {
           id: 'q4',
@@ -145,6 +158,7 @@ export const postOpening: Topic = {
           correctIndex: 1,
           explanation:
             '吉田松陰は松下村塾で高杉晋作や伊藤博文らを育てた長州藩の思想家です。',
+          difficulty: 'standard',
         },
         {
           id: 'q5',
@@ -153,6 +167,7 @@ export const postOpening: Topic = {
           correctIndex: 3,
           explanation:
             '横浜はイギリスを相手に生糸などを輸出する最大の貿易港となりました。',
+          difficulty: 'standard',
         },
         {
           id: 'q6',
@@ -167,6 +182,7 @@ export const postOpening: Topic = {
           correctIndex: 1,
           explanation:
             '日本では金が銀に対して安かったため大量の金が海外に流出し、物価が高騰して人々の生活は苦しくなりました。',
+          difficulty: 'standard',
         },
       ],
     },

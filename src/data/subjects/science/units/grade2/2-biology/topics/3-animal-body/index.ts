@@ -176,106 +176,34 @@ export const animalBody: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'sci2-animal-fc1',
-        front: '消化管の順序',
-        back: '食物が通る消化管を口から順に答えよ。',
-        explanation: '口→食道→胃→小腸→大腸→肛門の順。',
-      },
-      {
-        id: 'sci2-animal-fc2',
-        front: 'アミラーゼ',
-        back: 'だ液に含まれる消化酵素で、デンプンを分解するものは？',
-        explanation: 'アミラーゼ。デンプンを麦芽糖などに分解する。',
-      },
-      {
-        id: 'sci2-animal-fc3',
-        front: '胆汁',
-        back: '肝臓で作られ、消化酵素を含まないが脂肪の分解を助ける液は？',
-        explanation: '胆汁。胆のうにためられ、すい液のリパーゼのはたらきを助ける。',
-      },
-      {
-        id: 'sci2-animal-fc4',
-        front: '柔毛',
-        back: '小腸の壁にある、養分の吸収を効率よくするための突起を何という？',
-        explanation: '柔毛。表面積を大きくして効率よく吸収する。',
-      },
-      {
-        id: 'sci2-animal-fc5',
-        front: '肺胞',
-        back: '肺の中にある小さなふくろで、気体の交換を行う場所は？',
-        explanation: '肺胞。たくさんあることで表面積が大きくなり効率よく気体交換できる。',
-      },
-      {
-        id: 'sci2-animal-fc6',
-        front: '体循環と肺循環',
-        back: '心臓から全身を回る循環と、心臓から肺を回る循環をそれぞれ何という？',
-        explanation: '体循環＝心臓→全身→心臓。肺循環＝心臓→肺→心臓。',
-      },
-      {
-        id: 'sci2-animal-fc7',
-        front: '赤血球（ヘモグロビン）',
-        back: '血液の成分で、酸素を運ぶはたらきをするものは？',
-        explanation: '赤血球。赤い色素ヘモグロビンが酸素と結びつく。',
-      },
-      {
-        id: 'sci2-animal-fc8',
-        front: '肝臓と腎臓の役割',
-        back: 'アンモニアを尿素に変える器官と、尿を作る器官をそれぞれ答えよ。',
-        explanation: '肝臓＝アンモニアを無害な尿素に変える。腎臓＝血液から不要物をこし出して尿を作る。',
-      },
-      {id:'sci2-animal-fc9', front:'ベネジクト液', back:'麦芽糖やブドウ糖の検出に使う試薬は？', explanation:'ベネジクト液。加熱すると赤褐色に変化する。糖があることを確認できる。'},
-      {id:'sci2-animal-fc10', front:'だ液の実験条件', back:'だ液の消化実験で約37℃に保温する理由は？', explanation:'体温に近い温度で消化酵素がよくはたらくため。5〜10分間保温する。'},
-      {id:'sci2-animal-fc11', front:'すい液の特徴', back:'すい液に含まれる消化酵素を3つ答えよ。', explanation:'アミラーゼ（デンプン分解）、トリプシン（タンパク質分解）、リパーゼ（脂肪分解）の3種類。すい液は3大栄養素すべてを分解できる。'},
-      {id:'sci2-animal-fc12', front:'肝臓の3つのはたらき', back:'肝臓のはたらきを3つ答えよ。', explanation:'①ブドウ糖をグリコーゲンとして蓄え必要なとき放出 ②有害なアンモニアを無害な尿素に変える ③胆汁を作る。'},
-      {id:'sci2-animal-fc13', front:'横隔膜と呼吸', back:'息を吸うとき横隔膜はどう動くか？', explanation:'横隔膜が下がる→胸腔が広がる→肺がふくらむ→空気が入る。吐くときは横隔膜が上がる。'},
-      {id:'sci2-animal-fc14', front:'動脈血と静脈血', back:'動脈血と静脈血の違いは？', explanation:'動脈血＝酸素を多く含み鮮やかな赤色。静脈血＝二酸化炭素を多く含み暗い赤色。'},
-      {id:'sci2-animal-fc15', front:'心臓の弁', back:'心臓の弁のはたらきは何か？', explanation:'血液の逆流を防ぐ。心房と心室の間、心室と動脈の間にある。'},
-      {id:'sci2-animal-fc16', front:'血管の3種類', back:'血管を3種類答え、それぞれの特徴を述べよ。', explanation:'動脈＝壁が厚く弾力がある。静脈＝壁が薄く弁がある。毛細血管＝壁が1層の細胞で薄く物質交換を行う。'},
-      {id:'sci2-animal-fc17', front:'組織液', back:'血しょうの一部が毛細血管からしみ出てできた液を何という？', explanation:'組織液。細胞のまわりを満たし、血液と細胞の間で養分や不要物のやり取りをする。'},
-      {id:'sci2-animal-fc18', front:'食物の3大栄養素', back:'食物に含まれる有機物の3大栄養素は何か？', explanation:'炭水化物（デンプンなど）、タンパク質、脂肪。炭水化物と脂肪は主にエネルギー源、タンパク質は体をつくる材料。'},
-      {id:'sci2-animal-fc19', front:'大腸のはたらき', back:'大腸の主なはたらきは何か？', explanation:'消化されなかった食物から水分を吸収する。残りは便として肛門から排出される。'},
-      {id:'sci2-animal-fc20', front:'吸う息と吐く息の違い', back:'吸う息と比べて、吐く息に多く含まれる気体は？', explanation:'二酸化炭素。肺胞で血液中のCO₂が放出されるため、吐く息にはCO₂が多く含まれる。O₂は減少する。'},
-      {
-        id: 'sci2-animal-fc21',
-        front: '腎臓',
-        back: '不要物をこし取り尿をつくる器官',
-      },
-      {
-        id: 'sci2-animal-fc22',
-        front: '輸尿管',
-        back: '腎臓→ぼうこうの管',
-      },
-      {
-        id: 'sci2-animal-fc23',
-        front: '組織液',
-        back: '血しょうがしみ出て細胞を満たす液',
-      },
-      {
-        id: 'sci2-animal-fc24',
-        front: 'ベネジクト液',
-        back: '糖に反応し加熱で赤褐色に変化する薬品',
-      },
-      {
-        id: 'sci2-animal-fc25',
-        front: '胆のう',
-        back: '胆汁が蓄えられる器官',
-      },
-      {
-        id: 'sci2-animal-fc26',
-        front: '横隔膜の動き',
-        back: '吸気時は下がり、呼気時は上がる',
-      },
-      {
-        id: 'sci2-animal-fc27',
-        front: 'ヘモグロビン',
-        back: '赤血球に含まれO₂と結びつく物質',
-      },
-      {
-        id: 'sci2-animal-fc28',
-        front: '体循環と肺循環',
-        back: '心臓→全身→心臓＝体循環、心臓→肺→心臓＝肺循環',
-      }
+      { id: 'sci2-animal-fc1', front: '口→食道→胃→小腸→大腸→肛門', back: '食物が通る消化管を口から順に答えよ', difficulty: 'basic' },
+      { id: 'sci2-animal-fc2', front: 'アミラーゼ', back: 'だ液に含まれる消化酵素で、デンプンを麦芽糖に分解するものは？', difficulty: 'basic' },
+      { id: 'sci2-animal-fc3', front: '胆汁', back: '肝臓で作られ、消化酵素を含まないが脂肪の分解を助ける液は？', explanation: '胆のうにためられる', difficulty: 'basic' },
+      { id: 'sci2-animal-fc4', front: '柔毛', back: '小腸の壁にある養分の吸収を効率よくするための突起を何という？', difficulty: 'basic' },
+      { id: 'sci2-animal-fc5', front: '肺胞', back: '肺の中にある小さなふくろで気体の交換を行う場所は？', explanation: '表面積が大きく効率よく気体交換', difficulty: 'basic' },
+      { id: 'sci2-animal-fc6', front: '体循環＝心臓→全身→心臓、肺循環＝心臓→肺→心臓', back: '心臓からの2つの血液循環の経路を答えよ', difficulty: 'basic' },
+      { id: 'sci2-animal-fc7', front: '赤血球（ヘモグロビン）', back: '血液の成分で酸素を運ぶはたらきをするものは？', difficulty: 'basic' },
+      { id: 'sci2-animal-fc8', front: '肝臓＝アンモニアを尿素に変える、腎臓＝尿を作る', back: 'アンモニアを尿素に変える器官と尿を作る器官をそれぞれ答えよ', difficulty: 'basic' },
+      { id: 'sci2-animal-fc9', front: 'ベネジクト液', back: '麦芽糖やブドウ糖の検出に使い、加熱すると赤褐色に変化する試薬は？', difficulty: 'basic' },
+      { id: 'sci2-animal-fc10', front: '体温に近い温度で消化酵素がよくはたらくため', back: 'だ液の消化実験で約37℃に保温する理由は？', difficulty: 'basic' },
+      { id: 'sci2-animal-fc11', front: 'アミラーゼ、トリプシン、リパーゼ', back: 'すい液に含まれる消化酵素を3つ答えよ', explanation: '3大栄養素すべてを分解できる', difficulty: 'standard' },
+      { id: 'sci2-animal-fc12', front: '①グリコーゲンの貯蔵・放出 ②アンモニア→尿素 ③胆汁の生成', back: '肝臓のはたらきを3つ答えよ', difficulty: 'standard' },
+      { id: 'sci2-animal-fc13', front: '横隔膜が下がり胸腔が広がって肺がふくらむ', back: '息を吸うとき横隔膜はどう動くか？', difficulty: 'standard' },
+      { id: 'sci2-animal-fc14', front: '動脈血＝O₂多く鮮やかな赤、静脈血＝CO₂多く暗い赤', back: '動脈血と静脈血の違いは？', difficulty: 'standard' },
+      { id: 'sci2-animal-fc15', front: '血液の逆流を防ぐ', back: '心臓の弁のはたらきは何か？', difficulty: 'standard' },
+      { id: 'sci2-animal-fc16', front: '動脈＝壁厚く弾力、静脈＝壁薄く弁あり、毛細血管＝1層の薄い壁で物質交換', back: '血管を3種類答え、それぞれの特徴を述べよ', difficulty: 'standard' },
+      { id: 'sci2-animal-fc17', front: '組織液', back: '血しょうの一部が毛細血管からしみ出てできた液を何という？', explanation: '細胞と血液の間で物質のやり取りをする', difficulty: 'standard' },
+      { id: 'sci2-animal-fc18', front: '炭水化物、タンパク質、脂肪', back: '食物に含まれる有機物の3大栄養素は何か？', difficulty: 'basic' },
+      { id: 'sci2-animal-fc19', front: '消化されなかった食物から水分を吸収する', back: '大腸の主なはたらきは何か？', difficulty: 'standard' },
+      { id: 'sci2-animal-fc20', front: '二酸化炭素', back: '吸う息と比べて吐く息に多く含まれる気体は？', explanation: '肺胞で血液中のCO₂が放出されるため', difficulty: 'basic' },
+      { id: 'sci2-animal-fc21', front: '腎臓', back: '血液から不要物をこし取り尿をつくる器官は？', difficulty: 'basic' },
+      { id: 'sci2-animal-fc22', front: '輸尿管', back: '腎臓からぼうこうへ尿を運ぶ管は？', difficulty: 'standard' },
+      { id: 'sci2-animal-fc23', front: '胆のう', back: '胆汁が蓄えられる器官は？', difficulty: 'standard' },
+      { id: 'sci2-animal-fc24', front: 'ヘモグロビン', back: '赤血球に含まれO₂と結びつく赤い色素は？', difficulty: 'standard' },
+      { id: 'sci2-animal-fc25', front: '吸気時は下がり、呼気時は上がる', back: '横隔膜は吸うとき・吐くときそれぞれどう動く？', difficulty: 'standard' },
+      { id: 'sci2-animal-fc26', front: '血小板', back: '出血時に血液を固めるはたらきをする血液の成分は？', difficulty: 'standard' },
+      { id: 'sci2-animal-fc27', front: 'グリコーゲン', back: 'ブドウ糖は肝臓で何として蓄えられる？', difficulty: 'advanced' },
+      { id: 'sci2-animal-fc28', front: '毛細血管→肝臓（ブドウ糖・アミノ酸）、リンパ管（脂肪）', back: '柔毛で吸収された養分の2つの吸収経路を答えよ', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -286,7 +214,8 @@ export const animalBody: Topic = {
           correctIndex: 1,
           explanation:
             'アミラーゼはだ液に含まれる消化酵素で、デンプンを麦芽糖などに分解します。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-animal-q2',
           question: '胆汁について正しいものはどれ？',
@@ -299,7 +228,8 @@ export const animalBody: Topic = {
           correctIndex: 3,
           explanation:
             '胆汁は肝臓で作られ胆のうにためられます。消化酵素は含みませんが、リパーゼのはたらきを助けて脂肪の分解を促します。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-animal-q3',
           question: '小腸の柔毛で吸収されたブドウ糖とアミノ酸は、最初にどこへ運ばれる？',
@@ -307,7 +237,8 @@ export const animalBody: Topic = {
           correctIndex: 0,
           explanation:
             'ブドウ糖とアミノ酸は柔毛の毛細血管に入り、まず肝臓へ運ばれます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-animal-q4',
           question: '体循環の正しい順序はどれ？',
@@ -320,7 +251,8 @@ export const animalBody: Topic = {
           correctIndex: 2,
           explanation:
             '体循環は左心室から全身を回って右心房に戻ります。肺循環は右心室から肺を通って左心房に戻ります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-animal-q5',
           question: '有害なアンモニアを無害な尿素に変える器官はどれ？',
@@ -328,20 +260,33 @@ export const animalBody: Topic = {
           correctIndex: 1,
           explanation:
             '肝臓は有害なアンモニアを無害な尿素に変えます。その後、腎臓で血液中から尿素などの不要物がこし出されて尿が作られます。',
-        },
+        difficulty: 'basic',
+      },
         {id:'sci2-animal-q6', question:'だ液のはたらきを調べる実験で、約37℃に保温する理由は？', options: ['実験を早く終わらせるため', 'デンプンを溶かすため', '消化酵素が体温付近でよくはたらくため', 'ベネジクト液を反応させるため'],
-        correctIndex: 2, explanation:'消化酵素は体温に近い約37℃で最もよくはたらきます。'},
+        correctIndex: 2, explanation:'消化酵素は体温に近い約37℃で最もよくはたらきます。',
+        difficulty: 'basic',
+      },
         {id:'sci2-animal-q7', question:'すい液について正しいものはどれ？', options: ['3種類の消化酵素を含む', 'デンプンだけを分解する', '消化酵素を含まない', '肝臓で作られる'],
-        correctIndex: 0, explanation:'すい液にはアミラーゼ（デンプン）、トリプシン（タンパク質）、リパーゼ（脂肪）の3種類が含まれます。'},
+        correctIndex: 0, explanation:'すい液にはアミラーゼ（デンプン）、トリプシン（タンパク質）、リパーゼ（脂肪）の3種類が含まれます。',
+        difficulty: 'basic',
+      },
         {id:'sci2-animal-q8', question:'息を吸うとき横隔膜はどう動く？', options: ['上がる', '左右に動く', '変わらない', '下がる'],
-        correctIndex: 3, explanation:'横隔膜が下がると胸腔が広がり、肺がふくらんで空気が入ります。'},
+        correctIndex: 3, explanation:'横隔膜が下がると胸腔が広がり、肺がふくらんで空気が入ります。',
+        difficulty: 'basic',
+      },
         {id:'sci2-animal-q9', question:'動脈血について正しいものはどれ？', options: ['二酸化炭素を多く含む', '酸素を多く含み鮮やかな赤色', '暗い赤色をしている', '静脈だけを流れる'],
-        correctIndex: 1, explanation:'動脈血は酸素を多く含み鮮やかな赤色です。肺静脈にも動脈血が流れています。'},
+        correctIndex: 1, explanation:'動脈血は酸素を多く含み鮮やかな赤色です。肺静脈にも動脈血が流れています。',
+        difficulty: 'basic',
+      },
         {id:'sci2-animal-q10', question:'ベネジクト液を使ってだ液のはたらきを確認する実験で、赤褐色に変化するのはどちらの試験管？', options: ['どちらも変化しない', '水＋デンプン溶液', 'だ液＋水', 'だ液＋デンプン溶液'],
-        correctIndex: 3, explanation:'だ液のアミラーゼがデンプンを麦芽糖に分解するため、ベネジクト液で加熱すると赤褐色に変化します。'},
-        {id:'sci2-animal-q11', question:'毛細血管の壁が非常に薄い理由は？', options:['血液がゆっくり流れるため','血圧が高いため','物質の交換を効率よく行うため','弁が不要だから'], correctIndex:2, explanation:'毛細血管の壁は1層の薄い細胞でできており、養分やO₂、CO₂などの物質交換を効率よく行えます。'},
+        correctIndex: 3, explanation:'だ液のアミラーゼがデンプンを麦芽糖に分解するため、ベネジクト液で加熱すると赤褐色に変化します。',
+        difficulty: 'basic',
+      },
+        {id:'sci2-animal-q11', question:'毛細血管の壁が非常に薄い理由は？', options:['血液がゆっくり流れるため','血圧が高いため','物質の交換を効率よく行うため','弁が不要だから'], correctIndex:2, explanation:'毛細血管の壁は1層の薄い細胞でできており、養分やO₂、CO₂などの物質交換を効率よく行えます。', difficulty: 'standard' },
         {id:'sci2-animal-q12', question:'肝臓のはたらきでないものはどれ？', options: ['尿を作る', '胆汁を作る', 'グリコーゲンを蓄える', 'アンモニアを尿素に変える'],
-        correctIndex: 0, explanation:'尿を作るのは腎臓のはたらきです。肝臓はグリコーゲンの貯蔵、胆汁の生成、アンモニアの無害化を行います。'},
+        correctIndex: 0, explanation:'尿を作るのは腎臓のはたらきです。肝臓はグリコーゲンの貯蔵、胆汁の生成、アンモニアの無害化を行います。',
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-animal-q13',
           question: '尿をつくる器官は？',
@@ -349,7 +294,8 @@ export const animalBody: Topic = {
           correctIndex: 1,
           explanation:
             '腎臓で尿をつくる。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-animal-q14',
           question: 'ベネジクト液+加熱→糖あり→色は？',
@@ -357,7 +303,8 @@ export const animalBody: Topic = {
           correctIndex: 1,
           explanation:
             '赤褐色に変化。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-animal-q15',
           question: '脂肪酸+モノグリセリド→柔毛中で？',
@@ -365,7 +312,8 @@ export const animalBody: Topic = {
           correctIndex: 2,
           explanation:
             '脂肪に戻りリンパ管へ。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-animal-q16',
           question: '胆汁に消化酵素は？',
@@ -373,7 +321,8 @@ export const animalBody: Topic = {
           correctIndex: 1,
           explanation:
             'なし。脂肪を細かくしてリパーゼを助ける。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-animal-q17',
           question: '吸気時の横隔膜は？',
@@ -381,7 +330,8 @@ export const animalBody: Topic = {
           correctIndex: 1,
           explanation:
             '下がって胸腔拡大。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-animal-q18',
           question: '体循環の経路は？',
@@ -389,7 +339,8 @@ export const animalBody: Topic = {
           correctIndex: 1,
           explanation:
             '心臓→全身→心臓。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-animal-q19',
           question: 'すい液の特徴は？',
@@ -397,7 +348,8 @@ export const animalBody: Topic = {
           correctIndex: 1,
           explanation:
             '3種の酵素で全て消化。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-animal-q20',
           question: '動脈血の特徴は？',
@@ -405,7 +357,8 @@ export const animalBody: Topic = {
           correctIndex: 1,
           explanation:
             'O₂多く鮮やかな赤。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-animal-q21',
           question: '毛細血管壁の特徴は？',
@@ -413,7 +366,8 @@ export const animalBody: Topic = {
           correctIndex: 2,
           explanation:
             '1層の細胞で物質交換。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-animal-q22',
           question: '肝臓でアンモニアは？',
@@ -421,7 +375,8 @@ export const animalBody: Topic = {
           correctIndex: 1,
           explanation:
             '尿素に変換。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-animal-q23',
           question: 'だ液実験で何℃に保つ？',
@@ -429,7 +384,8 @@ export const animalBody: Topic = {
           correctIndex: 1,
           explanation:
             '体温と同じ37℃。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci2-animal-q24',
           question: '血小板のはたらきは？',
@@ -437,7 +393,8 @@ export const animalBody: Topic = {
           correctIndex: 2,
           explanation:
             '出血時に血液を固める。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci2-animal-q25',
           question: 'ブドウ糖は肝臓で何に？',
@@ -445,7 +402,8 @@ export const animalBody: Topic = {
           correctIndex: 1,
           explanation:
             'グリコーゲンとして蓄える。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci2-animal-q26',
           question: '消化管の正しい順は？',
@@ -453,7 +411,8 @@ export const animalBody: Topic = {
           correctIndex: 2,
           explanation:
             '口→食道→胃→小腸→大腸→肛門。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci2-animal-q27',
           question: '静脈の特徴は？',
@@ -461,7 +420,8 @@ export const animalBody: Topic = {
           correctIndex: 1,
           explanation:
             '壁薄く弁あり。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci2-animal-q28',
           question: '肺胞が多い利点は？',
@@ -469,7 +429,8 @@ export const animalBody: Topic = {
           correctIndex: 1,
           explanation:
             '表面積大で効率よく気体交換。',
-        }
+        difficulty: 'advanced',
+      }
       ],
     },
     examples: {

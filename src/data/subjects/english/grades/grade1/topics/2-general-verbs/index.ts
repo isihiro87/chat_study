@@ -71,6 +71,7 @@ export const generalVerbs: Topic = {
         back: 'I (　　) tennis.\n（私はテニスをします。）',
         hint: '「する」って英語でなんだっけ？',
         explanation: 'I のときは動詞はそのままの形で使うよ。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-gv-fc2',
@@ -78,6 +79,7 @@ export const generalVerbs: Topic = {
         back: 'He (　　) tennis.\n（彼はテニスをします。）',
         hint: 'He は1人だよね。1人のときは動詞のおしりに…？',
         explanation: 'he / she / it（1人）のときは動詞のおしりに s をつけるよ。play → plays',
+        difficulty: 'basic',
       },
       {
         id: 'eng-gv-fc3',
@@ -85,6 +87,7 @@ export const generalVerbs: Topic = {
         back: 'She (　　) music.\n（彼女は音楽が好きです。）',
         hint: 'She は1人だよね。like のおしりに…？',
         explanation: 'She は1人なので like → likes。おしりに s がつくよ。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-gv-fc4',
@@ -92,6 +95,7 @@ export const generalVerbs: Topic = {
         back: "I (　　) like math.\n（私は数学が好きじゃない。）",
         hint: '一般動詞の「〜しない」でつかうことばは？',
         explanation: "I / you / we / they の「〜しない」は don't + 動詞のもとの形だよ。",
+        difficulty: 'basic',
       },
       {
         id: 'eng-gv-fc5',
@@ -99,6 +103,7 @@ export const generalVerbs: Topic = {
         back: "He (　　) like math.\n（彼は数学が好きじゃない。）",
         hint: 'He（1人の人）の「〜しない」でつかうことばは？',
         explanation: "he / she / it の「〜しない」は doesn't。動詞のおしりの s は消えてもとの形にもどるよ。",
+        difficulty: 'basic',
       },
       {
         id: 'eng-gv-fc6',
@@ -106,6 +111,7 @@ export const generalVerbs: Topic = {
         back: '(　　) you play soccer?\n（あなたはサッカーをしますか？）',
         hint: '一般動詞の「〜しますか？」でいちばん最初に置くことばは？',
         explanation: 'you / we / they の「〜しますか？」は Do をいちばん最初に置くよ。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-gv-fc7',
@@ -113,6 +119,7 @@ export const generalVerbs: Topic = {
         back: '(　　) she speak English?\n（彼女は英語を話しますか？）',
         hint: 'She（1人の人）の「〜しますか？」でいちばん最初に置くことばは？',
         explanation: 'he / she / it の「〜しますか？」は Does をいちばん最初に置くよ。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-gv-fc8',
@@ -120,6 +127,7 @@ export const generalVerbs: Topic = {
         back: 'study を he/she のときの形にすると？',
         hint: 'y で終わることばにはとくべつなルールがあるよ',
         explanation: 'y を i にかえて es をつけるよ。study → studies',
+        difficulty: 'basic',
       },
       {
         id: 'eng-gv-fc9',
@@ -127,6 +135,7 @@ export const generalVerbs: Topic = {
         back: 'I (　　) sushi.\n（私はすしが好きです。）',
         hint: '「好き」や「大好き」って英語でなんだっけ？',
         explanation: 'like は「好き」、love は「大好き」。どちらでも正解だよ。I like sushi. / I love sushi.',
+        difficulty: 'basic',
       },
       {
         id: 'eng-gv-fc10',
@@ -134,6 +143,7 @@ export const generalVerbs: Topic = {
         back: 'I (　　) baseball.\n（私は野球をします。）',
         hint: 'スポーツを「する」って英語でなんだっけ？',
         explanation: 'スポーツや楽器などに使う「する・弾く」は play だよ。I のときはそのままの形。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-gv-fc11',
@@ -141,6 +151,7 @@ export const generalVerbs: Topic = {
         back: 'I (　　) anime.\n（私はアニメを見ます。）',
         hint: 'テレビや動画を「見る」って英語でなんだっけ？',
         explanation: 'テレビや動画など画面を「見る」は watch。see は目に入る感じ、look はじっと見る感じだよ。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-gv-fc12',
@@ -148,6 +159,7 @@ export const generalVerbs: Topic = {
         back: 'I (　　) manga.\n（私はマンガを読みます / 描きます。）',
         hint: '「読む」と「描く」って英語でなんだっけ？',
         explanation: '読むは read（リード）、描くは draw（ドロー）。どちらでも文脈に合えばOKだよ。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-gv-fc13',
@@ -155,6 +167,7 @@ export const generalVerbs: Topic = {
         back: 'I (　　) ramen.\n（私はラーメンを食べます / 作ります。）',
         hint: '「食べる」と「料理する」って英語でなんだっけ？',
         explanation: '食べるは eat、料理するは cook だよ。I eat ramen.（食べる）/ I cook ramen.（作る）',
+        difficulty: 'standard',
       },
       {
         id: 'eng-gv-fc14',
@@ -162,6 +175,7 @@ export const generalVerbs: Topic = {
         back: 'I (　　) play the piano.\n（私はピアノが弾けます。）',
         hint: '「〜できる」って英語でなんだっけ？',
         explanation: 'can は「〜できる」という意味で動詞の前に置くよ。can のあとは動詞のもとの形を使うよ。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-gv-fc15',
@@ -169,6 +183,7 @@ export const generalVerbs: Topic = {
         back: "I (　　) swim.\n（私は泳げません。）",
         hint: '「〜できない」って英語でなんだっけ？',
         explanation: "「〜できない」は cannot または can't（短縮形）を使うよ。どちらも同じ意味だよ。",
+        difficulty: 'standard',
       },
       {
         id: 'eng-gv-fc16',
@@ -176,6 +191,7 @@ export const generalVerbs: Topic = {
         back: '(　　) you read kanji?\n（あなたは漢字が読めますか？）',
         hint: '「〜できますか？」でいちばん最初に置くことばは？',
         explanation: 'Can を文のいちばん最初に置くと「〜できますか？」になるよ。he / she でも Can のまま！',
+        difficulty: 'standard',
       },
       {
         id: 'eng-gv-fc17',
@@ -183,6 +199,7 @@ export const generalVerbs: Topic = {
         back: 'Can you cook? — Yes, I (　　).\n（料理できますか？ — はい、できます。）',
         hint: 'Can で聞かれたら何で答えるんだっけ？',
         explanation: 'Can で聞かれたら can で答えるよ。Yes, I can.（はい、できます。）',
+        difficulty: 'standard',
       },
       {
         id: 'eng-gv-fc18',
@@ -190,6 +207,7 @@ export const generalVerbs: Topic = {
         back: "Can she sing? — No, she (　　).\n（彼女は歌えますか？ — いいえ、歌えません。）",
         hint: 'Can で聞かれて「いいえ」のとき何を使うんだっけ？',
         explanation: "「いいえ」のときは can't（cannot の短縮形）を使うよ。No, she can't.",
+        difficulty: 'standard',
       },
       {
         id: 'eng-gv-fc19',
@@ -197,6 +215,7 @@ export const generalVerbs: Topic = {
         back: '(　　) you have a pet?\n（あなたはペットを飼っていますか？）',
         hint: 'you の「〜しますか？」でいちばん最初に置くことばは？',
         explanation: 'you の「〜しますか？」は Do を文のいちばん最初に置くよ。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-gv-fc20',
@@ -204,6 +223,7 @@ export const generalVerbs: Topic = {
         back: "I (　　) like spiders.\n（私はクモが好きじゃない。）",
         hint: 'I の「〜しない」でつかうことばは？',
         explanation: "I の「〜しない」は don't + 動詞のもとの形だよ。don't like でOK！",
+        difficulty: 'standard',
       },
       {
         id: 'eng-gv-fc21',
@@ -211,6 +231,7 @@ export const generalVerbs: Topic = {
         back: 'I play (　　) piano.\n（私はピアノを弾きます。）',
         hint: '楽器の名前の前につけることばは？',
         explanation: '楽器の前には the をつけるよ。the piano / the guitar / the violin。スポーツにはつけないよ（I play baseball. ← the なし）。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-gv-fc22',
@@ -218,6 +239,7 @@ export const generalVerbs: Topic = {
         back: 'I (　　) milk every morning.\n（私は毎朝牛乳を飲みます。）',
         hint: '「飲む」って英語でなんだっけ？',
         explanation: '「飲む」は drink だよ。I のときは動詞はそのままの形で使うよ。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-gv-fc23',
@@ -225,6 +247,7 @@ export const generalVerbs: Topic = {
         back: 'I (　　) a cake.\n（私はケーキを作ります。）',
         hint: '「作る」って英語でなんだっけ？',
         explanation: 'make は「作る」。cook は料理するときに使うけど、make はもっと広く「作る」に使えるよ。',
+        difficulty: 'advanced',
       },
       {
         id: 'eng-gv-fc24',
@@ -232,6 +255,7 @@ export const generalVerbs: Topic = {
         back: 'I (　　) the soccer team.\n（私はサッカーチームに参加します。）',
         hint: '「参加する」って英語でなんだっけ？',
         explanation: 'join は「参加する・入る」という意味だよ。join the team で「チームに入る」。',
+        difficulty: 'advanced',
       },
       {
         id: 'eng-gv-fc25',
@@ -239,6 +263,7 @@ export const generalVerbs: Topic = {
         back: 'I (　　) Japanese.\n（私は日本語を話します。）',
         hint: '言語を「話す」って英語でなんだっけ？',
         explanation: 'speak は「話す」。言語を話すときによく使うよ。I speak Japanese. / I speak English.',
+        difficulty: 'advanced',
       },
       {
         id: 'eng-gv-fc26',
@@ -246,6 +271,7 @@ export const generalVerbs: Topic = {
         back: "She (　　) play the piano.\n（彼女はピアノを弾きません。）",
         hint: 'She（1人の人）の「〜しない」でつかうことばは？',
         explanation: "he / she / it の「〜しない」は doesn't + 動詞のもとの形だよ。plays ではなく play になるよ。",
+        difficulty: 'advanced',
       },
       {
         id: 'eng-gv-fc27',
@@ -253,6 +279,7 @@ export const generalVerbs: Topic = {
         back: "He (　　) speak French.\n（彼はフランス語を話せません。）",
         hint: '「〜できない」の短縮形は？',
         explanation: "「〜できない」は can't（cannot の短縮形）。He でも can't のままで、doesn't は使わないよ。",
+        difficulty: 'advanced',
       },
       {
         id: 'eng-gv-fc28',
@@ -260,6 +287,7 @@ export const generalVerbs: Topic = {
         back: 'I am (　　) tennis. ← この文は正しい？\n正しくないなら直してみよう。',
         hint: 'be動詞と一般動詞をいっしょに使えるかな？',
         explanation: 'I am like tennis. はまちがい！ be動詞（am）と一般動詞（like）はいっしょに使えないよ。正しくは I like tennis.',
+        difficulty: 'advanced',
       },
     ],
     quiz: {
@@ -270,6 +298,7 @@ export const generalVerbs: Topic = {
           options: ['plays', 'am play', 'playing', 'play'],
           correctIndex: 3,
           explanation: 'I のときは動詞はそのままの形だよ。play がそのまま入るよ。',
+          difficulty: 'basic',
         },
         {
           id: 'eng-gv-q2',
@@ -277,6 +306,7 @@ export const generalVerbs: Topic = {
           options: ['speaks', 'speak', 'speaking', 'is speak'],
           correctIndex: 0,
           explanation: 'She は1人だから、動詞のおしりに s をつけるよ。speak → speaks',
+          difficulty: 'basic',
         },
         {
           id: 'eng-gv-q3',
@@ -284,6 +314,7 @@ export const generalVerbs: Topic = {
           options: ["don't", "doesn't", "isn't", 'not'],
           correctIndex: 1,
           explanation: "He は1人だから doesn't を使うよ。likes → like にもどるのもポイント！",
+          difficulty: 'basic',
         },
         {
           id: 'eng-gv-q4',
@@ -291,6 +322,7 @@ export const generalVerbs: Topic = {
           options: ['Are', 'Is', 'Do', 'Does'],
           correctIndex: 2,
           explanation: 'they は2人いじょうだから Do を使うよ。',
+          difficulty: 'basic',
         },
         {
           id: 'eng-gv-q5',
@@ -303,6 +335,7 @@ export const generalVerbs: Topic = {
           ],
           correctIndex: 3,
           explanation: 'Does で聞かれたら does で答えるよ。Yes, she does.（はい、好きです。）',
+          difficulty: 'basic',
         },
         {
           id: 'eng-gv-q6',
@@ -314,6 +347,7 @@ export const generalVerbs: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「I like music.」が正解。I（私は）+ like（好き）+ music（音楽）の順番だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'eng-gv-q7',
@@ -325,6 +359,7 @@ export const generalVerbs: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「I don\'t play tennis.」が正解。I（私は）+ don\'t（〜しない）+ play（する）+ tennis（テニス）の順番だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'eng-gv-q8',
@@ -336,6 +371,7 @@ export const generalVerbs: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「Do you like English?」が正解。Do（〜しますか）+ you（あなたは）+ like（好き）+ English（英語）の順番だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'eng-gv-q9',
@@ -343,6 +379,7 @@ export const generalVerbs: Topic = {
           options: ['am', 'do', 'can', 'have'],
           correctIndex: 2,
           explanation: '「〜できる」は can を使うよ。can のあとの動詞はそのままの形（play）を使うよ。',
+          difficulty: 'basic',
         },
         {
           id: 'eng-gv-q10',
@@ -355,6 +392,7 @@ export const generalVerbs: Topic = {
           ],
           correctIndex: 0,
           explanation: 'Can で聞かれたら can で答えるよ。Yes, I can.（はい、できます。）',
+          difficulty: 'basic',
         },
         {
           id: 'eng-gv-q11',
@@ -366,6 +404,7 @@ export const generalVerbs: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「Can you play the guitar?」が正解。Can + you + play + the + guitar の順番だよ。楽器の前には the をつけるよ！',
+          difficulty: 'standard',
         },
         {
           id: 'eng-gv-q12',
@@ -378,6 +417,7 @@ export const generalVerbs: Topic = {
           ],
           correctIndex: 1,
           explanation: 'be動詞（am）と一般動詞（like）を同じ文でいっしょに使ってはいけないよ。「I like tennis.」が正解！',
+          difficulty: 'standard',
         },
         {
           id: 'eng-gv-q13',
@@ -385,6 +425,7 @@ export const generalVerbs: Topic = {
           options: ['drinks', 'am drink', 'drink', 'drinking'],
           correctIndex: 2,
           explanation: 'I のときは動詞はそのままの形。drink がそのまま入るよ。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-gv-q14',
@@ -392,6 +433,7 @@ export const generalVerbs: Topic = {
           options: ['make', 'makes', 'making', 'is make'],
           correctIndex: 1,
           explanation: 'She は1人だから、動詞のおしりに s をつけるよ。make → makes',
+          difficulty: 'standard',
         },
         {
           id: 'eng-gv-q15',
@@ -399,6 +441,7 @@ export const generalVerbs: Topic = {
           options: ['join', 'joining', 'joins', 'is join'],
           correctIndex: 2,
           explanation: 'He は1人だから、動詞のおしりに s をつけるよ。join → joins',
+          difficulty: 'standard',
         },
         {
           id: 'eng-gv-q16',
@@ -406,6 +449,7 @@ export const generalVerbs: Topic = {
           options: ["doesn't", "don't", "aren't", 'not'],
           correctIndex: 1,
           explanation: "We は2人いじょうだから don't を使うよ。don't + 動詞のもとの形だね。",
+          difficulty: 'standard',
         },
         {
           id: 'eng-gv-q17',
@@ -413,6 +457,7 @@ export const generalVerbs: Topic = {
           options: ["don't", "isn't", "doesn't", 'not'],
           correctIndex: 2,
           explanation: "She は1人だから doesn't を使うよ。watch はもとの形のままだよ。",
+          difficulty: 'standard',
         },
         {
           id: 'eng-gv-q18',
@@ -420,6 +465,7 @@ export const generalVerbs: Topic = {
           options: ['Do', 'Is', 'Does', 'Can'],
           correctIndex: 2,
           explanation: 'He は1人だから Does を使うよ。Does のあとの動詞は speak（もとの形）になるよ。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-gv-q19',
@@ -432,6 +478,7 @@ export const generalVerbs: Topic = {
           ],
           correctIndex: 0,
           explanation: "Do で聞かれたら do で答えるよ。「いいえ」のときは don't をつけるよ。No, I don't.",
+          difficulty: 'standard',
         },
         {
           id: 'eng-gv-q20',
@@ -439,6 +486,7 @@ export const generalVerbs: Topic = {
           options: ['cans', 'can', 'does', 'is'],
           correctIndex: 1,
           explanation: '「〜できる」は can だよ。He でも can のままで cans にはならないよ！',
+          difficulty: 'standard',
         },
         {
           id: 'eng-gv-q21',
@@ -446,6 +494,7 @@ export const generalVerbs: Topic = {
           options: ["doesn't", "don't", "can't", "isn't"],
           correctIndex: 2,
           explanation: "「〜できない」は can't（cannot）だよ。doesn't は「〜しない」で意味がちがうよ。",
+          difficulty: 'standard',
         },
         {
           id: 'eng-gv-q22',
@@ -458,6 +507,7 @@ export const generalVerbs: Topic = {
           ],
           correctIndex: 2,
           explanation: '「He am like math.」はまちがい！ be動詞（am）と一般動詞（like）をいっしょに使ってはいけないよ。正しくは「He likes math.」',
+          difficulty: 'standard',
         },
         {
           id: 'eng-gv-q13r',
@@ -469,6 +519,7 @@ export const generalVerbs: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「She drinks milk every day.」が正解。She（彼女は）+ drinks（飲む）+ milk（牛乳）+ every day（毎日）の順番だよ。She は1人だから drink → drinks！',
+          difficulty: 'advanced',
         },
         {
           id: 'eng-gv-q14r',
@@ -480,6 +531,7 @@ export const generalVerbs: Topic = {
           options: [],
           correctIndex: -1,
           explanation: "「He doesn't like math.」が正解。He + doesn't + like + math の順番だよ。doesn't のあとは動詞のもとの形（like）を使うよ。",
+          difficulty: 'advanced',
         },
         {
           id: 'eng-gv-q15r',
@@ -491,6 +543,7 @@ export const generalVerbs: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「Does she speak English?」が正解。Does + she + speak + English の順番だよ。Does を使うとき動詞は speak（もとの形）だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'eng-gv-q16r',
@@ -502,6 +555,7 @@ export const generalVerbs: Topic = {
           options: [],
           correctIndex: -1,
           explanation: "「I can't play the piano.」が正解。I + can't + play + the + piano の順番だよ。楽器の前には the をつけるよ！",
+          difficulty: 'advanced',
         },
         {
           id: 'eng-gv-q17r',
@@ -513,6 +567,7 @@ export const generalVerbs: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「Can he swim fast?」が正解。Can + he + swim + fast の順番だよ。can のあとの動詞はもとの形（swim）だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'eng-gv-q18r',
@@ -524,6 +579,7 @@ export const generalVerbs: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「I join the soccer team.」が正解。I + join + the + soccer team の順番だよ。',
+          difficulty: 'advanced',
         },
       ],
     },

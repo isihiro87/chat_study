@@ -49,60 +49,70 @@ export const frenchRevolution: Topic = {
         front: 'フランス革命',
         back: '1789年に始まった、絶対王政を打倒した市民革命は？',
         explanation: 'バスティーユ牢獄襲撃をきっかけに始まり、国王を処刑した。',
+        difficulty: 'basic',
       },
       {
         id: 'fc2',
         front: '人権宣言',
         back: 'フランス革命で発表された、自由・平等・国民主権を謳った宣言は？',
         explanation: '「人は生まれながらにして自由で平等な権利を持つ」と宣言した。',
+        difficulty: 'basic',
       },
       {
         id: 'fc3',
         front: 'バスティーユ牢獄',
         back: '1789年7月14日に市民が襲撃した、パリの監獄は？',
         explanation: 'フランス革命の始まりを象徴する事件となった。',
+        difficulty: 'basic',
       },
       {
         id: 'fc4',
         front: '第三身分',
         back: 'フランス革命前、人口の98%を占め重い税に苦しんでいた平民は？',
         explanation: '聖職者（第一身分）や貴族（第二身分）と違い税を負担していた。',
+        difficulty: 'basic',
       },
       {
         id: 'fc5',
         front: 'ルイ16世',
         back: 'フランス革命で処刑されたフランス国王は？',
         explanation: '絶対王政の象徴として、1793年にギロチンで処刑された。',
+        difficulty: 'standard',
       },
       {
         id: 'fc6',
         front: 'ナポレオン',
         back: '革命後の混乱を収拾し、皇帝となったフランスの軍人は？',
         explanation: 'ヨーロッパの大部分を征服し、ナポレオン法典を制定した。',
+        difficulty: 'standard',
       },
       {
         id: 'fc7',
         front: 'ナポレオン法典',
         back: 'ナポレオンが制定した、個人の自由と財産権を保障した民法は？',
         explanation: '近代市民社会のルールとして各国の法律に影響を与えた。',
+        difficulty: 'standard',
       },
       {
         id: 'fc8',
         front: '三部会',
         back: '聖職者・貴族・平民の代表で構成されるフランスの身分制議会は？',
         explanation: '1789年に175年ぶりに召集され、革命のきっかけとなった。',
+        difficulty: 'standard',
       },
       {
         id: 'fc9',
         front: '国民主権',
         back: '国の政治を決める権利は国民にあるという考え方は？',
         explanation: 'ルソーが唱え、人権宣言にも盛り込まれた。',
+        difficulty: 'advanced',
       },
       {
         id: 'fc10',
         front: '徴兵制',
         back: '国民に兵役の義務を課す制度は？',
         explanation: 'フランス革命期に導入され、国民軍が組織された。',
+        difficulty: 'advanced',
       },
     ],
     quiz: {
@@ -114,6 +124,7 @@ export const frenchRevolution: Topic = {
           correctIndex: 0,
           explanation:
             '1789年7月14日のバスティーユ牢獄襲撃がフランス革命の始まりとなりました。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -122,6 +133,7 @@ export const frenchRevolution: Topic = {
           correctIndex: 3,
           explanation:
             '第三身分（平民）だけが重い税を負担し、聖職者や貴族は税を免除されていました。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -130,6 +142,7 @@ export const frenchRevolution: Topic = {
           correctIndex: 2,
           explanation:
             '人権宣言は「人は生まれながらにして自由で平等」という理念を世界に広めました。',
+          difficulty: 'basic',
         },
         {
           id: 'q4',
@@ -138,6 +151,7 @@ export const frenchRevolution: Topic = {
           correctIndex: 1,
           explanation:
             'ルイ16世は1793年にギロチンで処刑され、絶対王政は終わりを迎えました。',
+          difficulty: 'standard',
         },
         {
           id: 'q5',
@@ -146,6 +160,7 @@ export const frenchRevolution: Topic = {
           correctIndex: 0,
           explanation:
             'ナポレオンは国民の支持を得て皇帝に即位し、ヨーロッパの大部分を支配しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q6',
@@ -154,6 +169,7 @@ export const frenchRevolution: Topic = {
           correctIndex: 3,
           explanation:
             'ナポレオン法典は近代市民社会のルールとして各国の法律に大きな影響を与えました。',
+          difficulty: 'standard',
         },
       ],
     },

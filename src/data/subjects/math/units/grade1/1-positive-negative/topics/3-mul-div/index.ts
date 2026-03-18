@@ -44,34 +44,34 @@ export const mulDiv: Topic = {
     },
     videos: [],
     flashcards: [
-      { id: 'math-g1-md-fc1', front: '乗法（じょうほう）', back: 'かけ算のことを数学では何という？' },
-      { id: 'math-g1-md-fc2', front: '除法（じょほう）', back: 'わり算のことを数学では何という？' },
-      { id: 'math-g1-md-fc3', front: '正（$+$）。$(+)\\times(+)=+$、$(-)\\times(-)=+$', back: '同符号の乗法の結果の符号は？' },
-      { id: 'math-g1-md-fc4', front: '負（$-$）。$(+)\\times(-)=-$、$(-)\\times(+)=-$', back: '異符号の乗法の結果の符号は？' },
-      { id: 'math-g1-md-fc5', front: '正（$+$）', back: '3つ以上の数の乗法で、負の数が偶数個のとき結果は？' },
-      { id: 'math-g1-md-fc6', front: '負（$-$）', back: '3つ以上の数の乗法で、負の数が奇数個のとき結果は？' },
-      { id: 'math-g1-md-fc7', front: '$0$', back: '$0$ にどんな数をかけても結果は？' },
-      { id: 'math-g1-md-fc8', front: '逆数（ぎゃくすう）', back: '2つの数の積が $1$ になるとき、一方を他方の何という？' },
-      { id: 'math-g1-md-fc9', front: '$\\frac{3}{2}$（分子と分母を入れかえる）', back: '$\\frac{2}{3}$ の逆数は？' },
-      { id: 'math-g1-md-fc10', front: '$\\frac{1}{5}$', back: '$5$ の逆数は？' },
-      { id: 'math-g1-md-fc11', front: 'ない（$0$ で割ることはできない）', back: '$0$ に逆数はある？' },
-      { id: 'math-g1-md-fc12', front: 'わる数の逆数をかける。$a \\div b = a \\times \\frac{1}{b}$', back: '除法を乗法に変換する方法は？' },
-      { id: 'math-g1-md-fc13', front: '同じ。同符号→正、異符号→負', back: '除法の符号ルールは乗法と同じ？' },
-      { id: 'math-g1-md-fc14', front: '負。例: $-\\frac{2}{3}$ の逆数は $-\\frac{3}{2}$', back: '負の数の逆数の符号は？' },
-      { id: 'math-g1-md-fc15', front: '$a \\times b = b \\times a$', back: '乗法の交換法則とは？' },
-      { id: 'math-g1-md-fc16', front: '$(a \times b) \times c = a \times (b \times c)$', back: '乗法の結合法則とは？' },
-      { id: 'math-g1-md-fc17', front: '積（せき）', back: 'かけ算の結果を何という？' },
-      { id: 'math-g1-md-fc18', front: '商（しょう）', back: 'わり算の結果を何という？' },
-      { id: 'math-g1-md-fc19', front: 'ない。$0$ で割ることはできない。', back: '$0$ の逆数はある？' },
-      { id: 'math-g1-md-fc20', front: '符号を先に決め、絶対値をかける（またはわる）', back: '正負の乗除の計算手順は？' },
-      { id: 'math-g1-md-fc21', front: '$(-1) \times a = -a$。$-1$ をかけると符号が変わる。', back: '$-1$ をかけるとどうなる？' },
-      { id: 'math-g1-md-fc22', front: '$1$。どんな数も $1$ 乗はその数自身。', back: '$(-3)^1$ はいくつ？→ $-3$。指数が $1$ のとき結果は？' },
-      { id: 'math-g1-md-fc23', front: 'どちらも正。$(-a)^2 = a^2$、$(+a)^2 = a^2$', back: '任意の数の $2$ 乗の符号は？' },
-      { id: 'math-g1-md-fc24', front: '逆数どうしの積は $1$。$\frac{a}{b} \times \frac{b}{a} = 1$', back: '逆数の定義から成り立つ等式は？' },
-      { id: 'math-g1-md-fc25', front: '$a \div b \div c = a \times \frac{1}{b} \times \frac{1}{c} = \frac{a}{bc}$', back: '連続する除法を乗法に直すと？' },
-      { id: 'math-g1-md-fc26', front: '累乗→かっこ→乗除→加減の順', back: '四則混合計算の優先順位は？' },
-      { id: 'math-g1-md-fc27', front: '$a \times (b + c) = ab + ac$。かけ算を足し算に分配する。', back: '分配法則とは？' },
-      { id: 'math-g1-md-fc28', front: '交換法則で計算しやすい組み合わせを作る。例: $(-4) \times 25 = -100$', back: '乗法の工夫の例は？' },
+      { id: 'math-g1-md-fc1', front: '乗法（じょうほう）', back: 'かけ算のことを数学では何という？', difficulty: 'basic' },
+      { id: 'math-g1-md-fc2', front: '除法（じょほう）', back: 'わり算のことを数学では何という？', difficulty: 'basic' },
+      { id: 'math-g1-md-fc3', front: '正（$+$）。$(+)\\times(+)=+$、$(-)\\times(-)=+$', back: '同符号の乗法の結果の符号は？', difficulty: 'basic' },
+      { id: 'math-g1-md-fc4', front: '負（$-$）。$(+)\\times(-)=-$、$(-)\\times(+)=-$', back: '異符号の乗法の結果の符号は？', difficulty: 'basic' },
+      { id: 'math-g1-md-fc5', front: '正（$+$）', back: '3つ以上の数の乗法で、負の数が偶数個のとき結果は？', difficulty: 'basic' },
+      { id: 'math-g1-md-fc6', front: '負（$-$）', back: '3つ以上の数の乗法で、負の数が奇数個のとき結果は？', difficulty: 'basic' },
+      { id: 'math-g1-md-fc7', front: '$0$', back: '$0$ にどんな数をかけても結果は？', difficulty: 'basic' },
+      { id: 'math-g1-md-fc8', front: '逆数（ぎゃくすう）', back: '2つの数の積が $1$ になるとき、一方を他方の何という？', difficulty: 'basic' },
+      { id: 'math-g1-md-fc9', front: '$\\frac{3}{2}$（分子と分母を入れかえる）', back: '$\\frac{2}{3}$ の逆数は？', difficulty: 'basic' },
+      { id: 'math-g1-md-fc10', front: '$\\frac{1}{5}$', back: '$5$ の逆数は？', difficulty: 'basic' },
+      { id: 'math-g1-md-fc11', front: 'ない（$0$ で割ることはできない）', back: '$0$ に逆数はある？', difficulty: 'basic' },
+      { id: 'math-g1-md-fc12', front: 'わる数の逆数をかける。$a \\div b = a \\times \\frac{1}{b}$', back: '除法を乗法に変換する方法は？', difficulty: 'basic' },
+      { id: 'math-g1-md-fc13', front: '同じ。同符号→正、異符号→負', back: '除法の符号ルールは乗法と同じ？', difficulty: 'standard' },
+      { id: 'math-g1-md-fc14', front: '負。例: $-\\frac{2}{3}$ の逆数は $-\\frac{3}{2}$', back: '負の数の逆数の符号は？', difficulty: 'standard' },
+      { id: 'math-g1-md-fc15', front: '$a \\times b = b \\times a$', back: '乗法の交換法則とは？', difficulty: 'standard' },
+      { id: 'math-g1-md-fc16', front: '$(a \times b) \times c = a \times (b \times c)$', back: '乗法の結合法則とは？', difficulty: 'standard' },
+      { id: 'math-g1-md-fc17', front: '積（せき）', back: 'かけ算の結果を何という？', difficulty: 'standard' },
+      { id: 'math-g1-md-fc18', front: '商（しょう）', back: 'わり算の結果を何という？', difficulty: 'standard' },
+      { id: 'math-g1-md-fc19', front: '絶対値で計算し、負の数の個数で符号を決める。偶数個→正、奇数個→負。', back: '乗除が混じった計算の手順は？', difficulty: 'standard' },
+      { id: 'math-g1-md-fc20', front: '符号を先に決め、絶対値をかける（またはわる）', back: '正負の乗除の計算手順は？', difficulty: 'standard' },
+      { id: 'math-g1-md-fc21', front: '$(-1) \times a = -a$。$-1$ をかけると符号が変わる。', back: '$-1$ をかけるとどうなる？', difficulty: 'standard' },
+      { id: 'math-g1-md-fc22', front: '$1$。どんな数も $1$ 乗はその数自身。', back: '$(-3)^1$ はいくつ？→ $-3$。指数が $1$ のとき結果は？', difficulty: 'standard' },
+      { id: 'math-g1-md-fc23', front: 'どちらも正。$(-a)^2 = a^2$、$(+a)^2 = a^2$', back: '任意の数の $2$ 乗の符号は？', difficulty: 'advanced' },
+      { id: 'math-g1-md-fc24', front: '逆数どうしの積は $1$。$\frac{a}{b} \times \frac{b}{a} = 1$', back: '逆数の定義から成り立つ等式は？', difficulty: 'advanced' },
+      { id: 'math-g1-md-fc25', front: '$a \div b \div c = a \times \frac{1}{b} \times \frac{1}{c} = \frac{a}{bc}$', back: '連続する除法を乗法に直すと？', difficulty: 'advanced' },
+      { id: 'math-g1-md-fc26', front: '累乗→かっこ→乗除→加減の順', back: '四則混合計算の優先順位は？', difficulty: 'advanced' },
+      { id: 'math-g1-md-fc27', front: '$a \times (b + c) = ab + ac$。かけ算を足し算に分配する。', back: '分配法則とは？', difficulty: 'advanced' },
+      { id: 'math-g1-md-fc28', front: '交換法則で計算しやすい組み合わせを作る。例: $(-4) \times 25 = -100$', back: '乗法の工夫の例は？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -82,6 +82,7 @@ export const mulDiv: Topic = {
           correctIndex: 1,
           explanation:
             '異符号（負×正）のかけ算だから結果は負。$4 \\times 3 = 12$ に負の符号をつけて $-12$ だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g1-mul-div-q2',
@@ -90,6 +91,7 @@ export const mulDiv: Topic = {
           correctIndex: 0,
           explanation:
             '同符号（負×負）のかけ算だから結果は正。$5 \\times 6 = 30$ に正の符号をつけて $+30$ だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g1-mul-div-q3',
@@ -98,6 +100,7 @@ export const mulDiv: Topic = {
           correctIndex: 2,
           explanation:
             '負の数が $3$ 個（奇数個）だから結果は負。$2 \\times 3 \\times 4 = 24$ に負の符号をつけて $-24$ だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g1-mul-div-q4',
@@ -106,6 +109,7 @@ export const mulDiv: Topic = {
           correctIndex: 3,
           explanation:
             '異符号（負÷正）だから結果は負。$12 \\div 3 = 4$ に負の符号をつけて $-4$ だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g1-mul-div-q5',
@@ -119,6 +123,7 @@ export const mulDiv: Topic = {
           correctIndex: 0,
           explanation:
             '逆数は分子と分母を入れかえた数だよ。$\\frac{3}{4}$ の逆数は $\\frac{4}{3}$ だね。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g1-mul-div-q6',
@@ -127,6 +132,7 @@ export const mulDiv: Topic = {
           correctIndex: 3,
           explanation:
             '$0$ にどんな数をかけても結果は必ず $0$ になるよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g1-mul-div-q7',
@@ -135,6 +141,7 @@ export const mulDiv: Topic = {
           correctIndex: 1,
           explanation:
             '同符号（負×負）だから正。$0.3 \\times 2 = 0.6$ で、答えは $+0.6$ だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g1-mul-div-q8',
@@ -148,6 +155,7 @@ export const mulDiv: Topic = {
           correctIndex: 2,
           explanation:
             '$(-3)$ の逆数は $(-\\frac{1}{3})$ だよ。だから $(-48) \\div (-3) = (-48) \\times (-\\frac{1}{3}) = +16$ だね。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g1-mul-div-q9',
@@ -156,6 +164,7 @@ export const mulDiv: Topic = {
           correctIndex: 1,
           explanation:
             '交換法則で $(-15) \\times (-3) \\times 9 = (+45) \\times 9 = +405$ と計算すると楽だよ。負の数 $2$ 個（偶数）→正。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g1-mul-div-q10',
@@ -164,6 +173,7 @@ export const mulDiv: Topic = {
           correctIndex: 0,
           explanation:
             '$0.5 = \\frac{1}{2}$ だから、逆数は $\\frac{2}{1} = 2$ だよ。$0.5 \\times 2 = 1$ になるね。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g1-mul-div-q11',
@@ -171,6 +181,7 @@ export const mulDiv: Topic = {
           options: ['$+1$', '$-1$', '$+4$', '$-4$'],
           correctIndex: 0,
           explanation: '負の数が $4$ 個（偶数個）だから結果は正。$1 \times 1 \times 1 \times 1 = 1$ で $+1$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g1-mul-div-q12',
@@ -178,6 +189,7 @@ export const mulDiv: Topic = {
           options: ['$+8$', '$+2$', '$-2$', '$-8$'],
           correctIndex: 1,
           explanation: '$(-8) \div (-2) = +4$、$4 \div 2 = +2$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g1-mul-div-q13',
@@ -185,6 +197,7 @@ export const mulDiv: Topic = {
           options: ['$+24$', '$-24$', '$+9$', '$-9$'],
           correctIndex: 0,
           explanation: '負の数が $2$ 個（偶数）だから正。$3 \times 4 \times 2 = 24$ で $+24$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g1-mul-div-q14',
@@ -192,6 +205,7 @@ export const mulDiv: Topic = {
           options: ['$a$', '$-a$', '$0$', '$1$'],
           correctIndex: 1,
           explanation: '$-1$ をかけると符号が変わるよ。$(-1) \times a = -a$ だね。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g1-mul-div-q15',
@@ -199,6 +213,7 @@ export const mulDiv: Topic = {
           options: ['$+\frac{3}{2}$', '$-\frac{3}{2}$', '$+\frac{6}{12}$', '$-\frac{6}{7}$'],
           correctIndex: 1,
           explanation: '異符号→負。$\frac{2}{3} \times \frac{9}{4} = \frac{18}{12} = \frac{3}{2}$。答え $-\frac{3}{2}$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g1-mul-div-q16',
@@ -206,6 +221,7 @@ export const mulDiv: Topic = {
           options: ['$-21$', '$+21$', '$0$', '$-10$'],
           correctIndex: 2,
           explanation: '$0$ をかけると結果は必ず $0$ になるよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g1-mul-div-q17',
@@ -213,6 +229,7 @@ export const mulDiv: Topic = {
           options: ['$\frac{4}{5}$', '$-\frac{5}{4}$', '$\frac{5}{4}$', '$-\frac{4}{5}$'],
           correctIndex: 1,
           explanation: '逆数は分子と分母を入れかえた数。符号はそのまま。$-\frac{4}{5}$ の逆数は $-\frac{5}{4}$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g1-mul-div-q18',
@@ -220,6 +237,7 @@ export const mulDiv: Topic = {
           options: ['$+12$', '$-12$', '$+6$', '$-6$'],
           correctIndex: 1,
           explanation: '$(-2)^2 = 4$。$4 \times (-3) = -12$ だよ。累乗を先に計算するのがポイント。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g1-mul-div-q19',
@@ -227,6 +245,7 @@ export const mulDiv: Topic = {
           options: ['$+300$', '$-300$', '$+100$', '$-100$'],
           correctIndex: 0,
           explanation: '$(-25) \times (-4) = +100$ を先に計算。$100 \times 3 = 300$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g1-mul-div-q20',
@@ -234,6 +253,7 @@ export const mulDiv: Topic = {
           options: ['$-6$', '$+6$', '$-1.5$', '$+1.5$'],
           correctIndex: 1,
           explanation: '$18 \div (-6) = -3$。$(-3) \times (-2) = +6$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g1-mul-div-q21',
@@ -241,6 +261,7 @@ export const mulDiv: Topic = {
           options: ['$-4$', '$+4$', '$-0.4$', '$+0.4$'],
           correctIndex: 1,
           explanation: '同符号→正。$0.5 \times 8 = 4$ で $+4$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g1-mul-div-q22',
@@ -248,6 +269,7 @@ export const mulDiv: Topic = {
           options: ['$\frac{6}{5}$', '$-\frac{5}{6}$', '$\frac{5}{6}$', '$-\frac{6}{5}$'],
           correctIndex: 0,
           explanation: '逆数は分子と分母を入れかえるだけ。$\frac{5}{6}$ の逆数は $\frac{6}{5}$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g1-mul-div-q23',
@@ -255,6 +277,7 @@ export const mulDiv: Topic = {
           options: ['$+6$', '$-6$', '$+\frac{50}{3}$', '$-\frac{50}{3}$'],
           correctIndex: 1,
           explanation: '$(-10) \times \frac{3}{5} = -\frac{30}{5} = -6$ だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g1-mul-div-q24',
@@ -262,6 +285,7 @@ export const mulDiv: Topic = {
           options: ['$-25$', '$+25$', '$-10$', '$+10$'],
           correctIndex: 1,
           explanation: '$(-5)^2 = (-5) \times (-5) = +25$。偶数乗は正になるよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g1-mul-div-q25',
@@ -269,6 +293,7 @@ export const mulDiv: Topic = {
           options: ['$+81$', '$-81$', '$+12$', '$-12$'],
           correctIndex: 0,
           explanation: '負の数 $4$ 個（偶数）→正。$3^4 = 81$ で $+81$ だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g1-mul-div-q26',
@@ -276,13 +301,15 @@ export const mulDiv: Topic = {
           options: ['$0$', '$+1$', '$-1$', '$+\frac{1}{16}$'],
           correctIndex: 1,
           explanation: '同じ数で割ると $1$。同符号→正で $+1$ だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g1-mul-div-q27',
           question: '$4 \times (-5) \times (-2) \times (-1)$ の計算結果は？',
           options: ['$-40$', '$+40$', '$+20$', '$-20$'],
-          correctIndex: 1,
-          explanation: '負の数 $3$ 個（奇数）→負…ではなく、$4$は正なので負は3個→結果は負。$4 \times 5 \times 2 \times 1 = 40$ で $-40$…いや。$(-5)\times(-2)=10$, $10\times(-1)=-10$, $4\times(-10)=-40$。答え $-40$。',
+          correctIndex: 0,
+          explanation: '負の数が $3$ 個（奇数個）だから結果は負。$4 \times 5 \times 2 \times 1 = 40$ に負の符号をつけて $-40$ だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g1-mul-div-q28',
@@ -290,6 +317,7 @@ export const mulDiv: Topic = {
           options: ['$+2$', '$-2$', '$+8$', '$-8$'],
           correctIndex: 0,
           explanation: '$(-36) \div 9 = -4$、$(-4) \div (-2) = +2$ だよ。',
+          difficulty: 'advanced',
         },
       ],
     },

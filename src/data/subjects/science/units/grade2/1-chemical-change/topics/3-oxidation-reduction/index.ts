@@ -114,185 +114,34 @@ export const oxidationReduction: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'sci2-or-fc1',
-        front: '酸化',
-        back: '物質が酸素と結びつく化学変化を何という？',
-        explanation:
-          'できた物質を酸化物という。例：2Cu + O₂ → 2CuO（酸化銅）',
-      },
-      {
-        id: 'sci2-or-fc2',
-        front: '燃焼',
-        back: '熱や光を出しながら激しく酸化される現象を何という？',
-        explanation:
-          '燃焼は酸化の一種。木やガスが燃えるのも、マグネシウムが激しく光を出すのも燃焼。',
-      },
-      {
-        id: 'sci2-or-fc3',
-        front: '還元',
-        back: '酸化物から酸素がうばわれる化学変化を何という？',
-        explanation:
-          '例：2CuO + C → 2Cu + CO₂。酸化銅が銅に戻る（還元）。',
-      },
-      {
-        id: 'sci2-or-fc4',
-        front: '酸化と還元の関係',
-        back: '酸化と還元はどのような関係にある？',
-        explanation:
-          '常に同時に起こる。一方が酸化されるとき、もう一方は還元される。',
-      },
-      {
-        id: 'sci2-or-fc5',
-        front: '有機物の燃焼',
-        back: '有機物を燃やすと何が発生する？',
-        explanation:
-          'ふくまれる炭素が酸化されて二酸化炭素、水素が酸化されて水ができる。',
-      },
-      {
-        id: 'sci2-or-fc6',
-        front: 'スチールウールの燃焼後の性質',
-        back: 'スチールウールを燃やすと、燃焼後の物質はどのような性質になる？',
-        explanation:
-          'もろくなる、磁石に引きつけられにくくなる。鉄が酸化鉄に変化したため、性質が変わる。',
-      },
-      {
-        id: 'sci2-or-fc7',
-        front: '燃焼後の質量増加',
-        back: 'スチールウールを酸素中で燃やすと質量はどうなる？その理由は？',
-        explanation:
-          '質量は増える。結びついた酸素の分だけ質量が増加するため。',
-      },
-      {
-        id: 'sci2-or-fc8',
-        front: '集気びんの水面上昇',
-        back: 'スチールウールを集気びんの中で燃やすと、水面が上昇するのはなぜ？',
-        explanation:
-          'びんの中の酸素がスチールウールとの酸化に使われて減少し、気圧が下がるため。',
-      },
-      {
-        id: 'sci2-or-fc9',
-        front: 'マグネシウムの燃焼',
-        back: 'マグネシウムを燃やすとどのような光が出て、何色の粉末ができる？',
-        explanation:
-          '白い光（まぶしい光）を出して燃え、白い粉末の酸化マグネシウム（MgO）ができる。',
-      },
-      {
-        id: 'sci2-or-fc10',
-        front: 'マグネシウムの燃焼の化学反応式',
-        back: 'マグネシウムの燃焼を化学反応式で表しなさい。',
-        explanation:
-          '2Mg + O₂ → 2MgO。マグネシウム原子2個と酸素分子1個が反応して酸化マグネシウム2個ができる。',
-      },
-      {
-        id: 'sci2-or-fc11',
-        front: '銅の酸化',
-        back: '銅を空気中で加熱すると何色になり、何という物質ができる？',
-        explanation:
-          '黒くなる。酸化銅（CuO）ができる。化学反応式：2Cu + O₂ → 2CuO',
-      },
-      {
-        id: 'sci2-or-fc12',
-        front: '銅の酸化の化学反応式',
-        back: '銅の酸化を化学反応式で表しなさい。',
-        explanation:
-          '2Cu + O₂ → 2CuO。銅原子2個と酸素分子1個が反応して酸化銅2個ができる。',
-      },
-      {
-        id: 'sci2-or-fc13',
-        front: '炭素の燃焼の化学反応式',
-        back: '炭素の燃焼を化学反応式で表しなさい。',
-        explanation:
-          'C + O₂ → CO₂。炭素が酸素と結びついて二酸化炭素になる。',
-      },
-      {
-        id: 'sci2-or-fc14',
-        front: '水素の燃焼の化学反応式',
-        back: '水素の燃焼を化学反応式で表しなさい。',
-        explanation:
-          '2H₂ + O₂ → 2H₂O。水素が酸素と結びついて水になる。',
-      },
-      {
-        id: 'sci2-or-fc15',
-        front: '還元実験での石灰水の変化',
-        back: '酸化銅と炭素の還元実験で、石灰水が白くにごるのはなぜ？',
-        explanation:
-          '酸化銅から炭素が酸素をうばい、二酸化炭素（CO₂）が発生するため。石灰水はCO₂の検出に使う。',
-      },
-      {
-        id: 'sci2-or-fc16',
-        front: '還元実験で残る物質',
-        back: '酸化銅の還元実験で、試験管に残る赤い物質は何？',
-        explanation:
-          '銅（Cu）。酸化銅が還元されて金属の銅に戻る。赤っぽい光沢のある物質。',
-      },
-      {
-        id: 'sci2-or-fc17',
-        front: '酸化銅と水素の反応',
-        back: '酸化銅と水素の反応を化学反応式で表しなさい。',
-        explanation:
-          'CuO + H₂ → Cu + H₂O。酸化銅が水素によって還元され、銅と水ができる。',
-      },
-      {
-        id: 'sci2-or-fc18',
-        front: '製鉄での還元',
-        back: '製鉄所では鉄鉱石（酸化鉄）をどのように鉄にしている？',
-        explanation:
-          'コークス（炭素）を使って酸化鉄を還元し、鉄を取り出している。炭素が酸素をうばう。',
-      },
-      {
-        id: 'sci2-or-fc19',
-        front: '酸化されやすさの順番',
-        back: 'マグネシウム・炭素・水素・銅を酸化されやすい順に並べなさい。',
-        explanation:
-          'マグネシウム ＞ 炭素 ＞ 水素 ＞ 銅。酸化されやすい物質ほど、他の物質から酸素をうばいやすい（還元力が強い）。',
-      },
-      {
-        id: 'sci2-or-fc20',
-        front: '燃焼',
-        back: '熱や光を出しながら激しく酸素と結びつく酸化を何という？',
-      },
-      {
-        id: 'sci2-or-fc21',
-        front: '酸化物',
-        back: '酸化によってできた酸素を含む化合物を何という？',
-      },
-      {
-        id: 'sci2-or-fc22',
-        front: 'スチールウールの燃焼後の質量',
-        back: 'スチールウールを燃焼させた後、質量はどうなる？その理由は？',
-      },
-      {
-        id: 'sci2-or-fc23',
-        front: '還元',
-        back: '酸化物から酸素を取り除く化学変化を何という？',
-      },
-      {
-        id: 'sci2-or-fc24',
-        front: '2CuO + C → 2Cu + CO₂',
-        back: '酸化銅と炭素の反応の化学反応式は？',
-      },
-      {
-        id: 'sci2-or-fc25',
-        front: '有機物の燃焼',
-        back: '有機物を燃やすと発生する2つの物質は？',
-      },
-      {
-        id: 'sci2-or-fc26',
-        front: '酸化と還元の関係',
-        back: 'ある物質が酸化されるとき同時に起こる化学変化は？',
-      },
-      {
-        id: 'sci2-or-fc27',
-        front: 'コークス',
-        back: '製鉄所で鉄鉱石を還元するために使われる物質は？原料は？',
-      },
-      {
-        id: 'sci2-or-fc28',
-        front: 'マグネシウムの燃焼の光',
-        back: 'マグネシウムを燃焼させると何色の光を出す？',
-      }
-    
+      { id: 'sci2-or-fc1', front: '酸化', back: '物質が酸素と結びつく化学変化を何という？', explanation: 'できた物質を酸化物という', difficulty: 'basic' },
+      { id: 'sci2-or-fc2', front: '燃焼', back: '熱や光を出しながら激しく酸化される現象を何という？', difficulty: 'basic' },
+      { id: 'sci2-or-fc3', front: '還元', back: '酸化物から酸素がうばわれる化学変化を何という？', difficulty: 'basic' },
+      { id: 'sci2-or-fc4', front: '常に同時に起こる', back: '酸化と還元はどのような関係にある？', difficulty: 'basic' },
+      { id: 'sci2-or-fc5', front: '二酸化炭素と水', back: '有機物を燃やすと何が発生する？', explanation: '炭素→CO₂、水素→H₂O', difficulty: 'basic' },
+      { id: 'sci2-or-fc6', front: 'もろくなり、磁石に引きつけられにくくなる', back: 'スチールウールを燃やした後の物質はどのような性質になる？', difficulty: 'basic' },
+      { id: 'sci2-or-fc7', front: '結びついた酸素の分だけ質量が増加する', back: 'スチールウールを酸素中で燃やすと質量が増える理由は？', difficulty: 'basic' },
+      { id: 'sci2-or-fc8', front: '酸素が使われて減少し、びん内の気圧が下がるため', back: 'スチールウールを集気びんの中で燃やすと水面が上昇するのはなぜ？', difficulty: 'standard' },
+      { id: 'sci2-or-fc9', front: '白い光を出して燃え、白い粉末の酸化マグネシウム（MgO）ができる', back: 'マグネシウムを燃やすとどうなる？', difficulty: 'basic' },
+      { id: 'sci2-or-fc10', front: '2Mg + O₂ → 2MgO', back: 'マグネシウムの燃焼を化学反応式で表しなさい', difficulty: 'standard' },
+      { id: 'sci2-or-fc11', front: '黒くなり、酸化銅（CuO）ができる', back: '銅を空気中で加熱すると何色になり何ができる？', difficulty: 'basic' },
+      { id: 'sci2-or-fc12', front: '2Cu + O₂ → 2CuO', back: '銅の酸化を化学反応式で表しなさい', difficulty: 'standard' },
+      { id: 'sci2-or-fc13', front: 'C + O₂ → CO₂', back: '炭素の燃焼を化学反応式で表しなさい', difficulty: 'standard' },
+      { id: 'sci2-or-fc14', front: '2H₂ + O₂ → 2H₂O', back: '水素の燃焼を化学反応式で表しなさい', difficulty: 'standard' },
+      { id: 'sci2-or-fc15', front: '炭素が酸素をうばい二酸化炭素が発生するため', back: '酸化銅と炭素の還元実験で石灰水が白くにごるのはなぜ？', difficulty: 'standard' },
+      { id: 'sci2-or-fc16', front: '銅（Cu）', back: '酸化銅の還元実験で試験管に残る赤い物質は何？', difficulty: 'basic' },
+      { id: 'sci2-or-fc17', front: 'CuO + H₂ → Cu + H₂O', back: '酸化銅と水素の反応を化学反応式で表しなさい', difficulty: 'advanced' },
+      { id: 'sci2-or-fc18', front: 'コークス（炭素）で酸化鉄を還元して鉄を取り出す', back: '製鉄所では鉄鉱石からどのように鉄を得ている？', difficulty: 'standard' },
+      { id: 'sci2-or-fc19', front: 'マグネシウム ＞ 炭素 ＞ 水素 ＞ 銅', back: 'マグネシウム・炭素・水素・銅を酸化されやすい順に並べよ', difficulty: 'advanced' },
+      { id: 'sci2-or-fc20', front: '酸化物', back: '酸化によってできた酸素を含む化合物を何という？', difficulty: 'basic' },
+      { id: 'sci2-or-fc21', front: '増える。結びついた酸素の分だけ増加する', back: 'スチールウールを燃焼させた後、質量はどうなる？理由も答えよ', difficulty: 'standard' },
+      { id: 'sci2-or-fc22', front: '2CuO + C → 2Cu + CO₂', back: '酸化銅と炭素の反応の化学反応式は？', difficulty: 'advanced' },
+      { id: 'sci2-or-fc23', front: '別の物質の還元が起こる', back: 'ある物質が酸化されるとき同時に起こる化学変化は？', difficulty: 'standard' },
+      { id: 'sci2-or-fc24', front: 'コークス（原料は石炭）', back: '製鉄所で鉄鉱石を還元するために使われる物質とその原料は？', difficulty: 'advanced' },
+      { id: 'sci2-or-fc25', front: '白い光', back: 'マグネシウムを燃焼させると何色の光を出す？', difficulty: 'basic' },
+      { id: 'sci2-or-fc26', front: '炭素（C → CO₂で酸素と結びついた）', back: '酸化銅と炭素の反応で、酸化された物質はどちら？', difficulty: 'advanced' },
+      { id: 'sci2-or-fc27', front: '穏やかな反応（燃焼ではない）', back: '銅の酸化は激しい反応か穏やかな反応か？', difficulty: 'standard' },
+      { id: 'sci2-or-fc28', front: '冷たいガラス板を炎にかざすと水滴がつく', back: 'ろうそく（有機物）の燃焼で水の発生を確認する方法は？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -303,7 +152,8 @@ export const oxidationReduction: Topic = {
           correctIndex: 0,
           explanation:
             '物質が酸素と結びつく化学変化を酸化といいます。できた物質を酸化物といいます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-or-q2',
           question: '銅を加熱したときにできる物質は？',
@@ -311,7 +161,8 @@ export const oxidationReduction: Topic = {
           correctIndex: 3,
           explanation:
             '銅を空気中で加熱すると酸素と結びついて酸化銅（CuO）ができます。2Cu + O₂ → 2CuO',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-or-q3',
           question: '酸化銅を炭素と混ぜて加熱すると何が起こる？',
@@ -324,7 +175,8 @@ export const oxidationReduction: Topic = {
           correctIndex: 1,
           explanation:
             '炭素が酸化銅から酸素をうばい、酸化銅は還元されて銅に戻ります。2CuO + C → 2Cu + CO₂',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-or-q4',
           question: '酸化と還元について正しいものはどれ？',
@@ -337,7 +189,8 @@ export const oxidationReduction: Topic = {
           correctIndex: 2,
           explanation:
             '一方の物質が酸化されるとき、もう一方の物質は必ず還元されます。酸化と還元は常に同時に起こります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-or-q5',
           question: '有機物を燃やしたとき発生するものの組み合わせは？',
@@ -350,7 +203,8 @@ export const oxidationReduction: Topic = {
           correctIndex: 3,
           explanation:
             '有機物にふくまれる炭素が酸化されて二酸化炭素、水素が酸化されて水ができます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-or-q6',
           question: 'スチールウールを燃焼させた後の物質の性質として正しいものは？',
@@ -363,7 +217,8 @@ export const oxidationReduction: Topic = {
           correctIndex: 2,
           explanation:
             '鉄が酸化鉄に変化するため、もろくなり、磁石に引きつけられにくくなります。鉄とは異なる性質の物質に変わったことがわかります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-or-q7',
           question: 'マグネシウムの燃焼を化学反応式で正しく表したものは？',
@@ -376,7 +231,8 @@ export const oxidationReduction: Topic = {
           correctIndex: 0,
           explanation:
             'マグネシウム2原子と酸素分子1個が反応して、酸化マグネシウム2個ができます。2Mg + O₂ → 2MgO',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-or-q8',
           question: '酸化銅を炭素で還元したとき、試験管に残る赤い物質は何？',
@@ -384,7 +240,8 @@ export const oxidationReduction: Topic = {
           correctIndex: 1,
           explanation:
             '酸化銅（CuO）が還元されて銅（Cu）に戻ります。銅は赤っぽい光沢のある金属です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-or-q9',
           question: '酸化銅と炭素の還元実験で石灰水が白くにごる理由は？',
@@ -397,7 +254,8 @@ export const oxidationReduction: Topic = {
           correctIndex: 1,
           explanation:
             '炭素が酸化銅から酸素をうばい二酸化炭素（CO₂）が発生します。石灰水はCO₂に反応して白くにごります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-or-q10',
           question: '酸化銅の還元実験で、火を消す前にしなければならない操作は？',
@@ -410,7 +268,8 @@ export const oxidationReduction: Topic = {
           correctIndex: 2,
           explanation:
             'ガラス管を石灰水から取り出してから火を消します。先に火を消すと、石灰水が逆流して試験管が割れる危険があります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-or-q11',
           question: 'エタノールが燃焼したとき発生するものは？',
@@ -423,7 +282,8 @@ export const oxidationReduction: Topic = {
           correctIndex: 3,
           explanation:
             'エタノールは有機物なので、燃焼するとふくまれる炭素→CO₂、水素→H₂Oが発生します。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-or-q12',
           question: '次のうち、炭素より酸化されやすい金属はどれ？',
@@ -431,7 +291,8 @@ export const oxidationReduction: Topic = {
           correctIndex: 0,
           explanation:
             '酸化されやすさはマグネシウム ＞ 炭素 ＞ 水素 ＞ 銅 の順です。マグネシウムは炭素より酸化されやすい金属です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-or-q13',
           question: 'スチールウール燃焼後に質量が増加する理由は？',
@@ -439,7 +300,8 @@ export const oxidationReduction: Topic = {
           correctIndex: 1,
           explanation:
             '空気中の酸素と結びつくため質量が増加します。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-or-q14',
           question: 'マグネシウムの燃焼の化学反応式は？',
@@ -447,7 +309,8 @@ export const oxidationReduction: Topic = {
           correctIndex: 2,
           explanation:
             '2Mg + O₂ → 2MgO です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-or-q15',
           question: '酸化銅の炭素還元で残る赤い物質は？',
@@ -455,7 +318,8 @@ export const oxidationReduction: Topic = {
           correctIndex: 1,
           explanation:
             '酸化銅から酸素が奪われ銅が残ります。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-or-q16',
           question: '酸化銅と炭素の反応で酸化されたのは？',
@@ -463,7 +327,8 @@ export const oxidationReduction: Topic = {
           correctIndex: 1,
           explanation:
             '炭素が酸素と結びついて二酸化炭素になったので酸化されたのは炭素です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-or-q17',
           question: '還元の正しい説明は？',
@@ -471,7 +336,8 @@ export const oxidationReduction: Topic = {
           correctIndex: 1,
           explanation:
             '還元は酸化物から酸素を取り除く化学変化です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-or-q18',
           question: '鉄燃焼後の物質に電気は流れるか？',
@@ -479,7 +345,8 @@ export const oxidationReduction: Topic = {
           correctIndex: 1,
           explanation:
             '酸化鉄は金属光沢がなくもろく電気を通しません。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-or-q19',
           question: '銅を加熱時にかき混ぜる理由は？',
@@ -487,7 +354,8 @@ export const oxidationReduction: Topic = {
           correctIndex: 1,
           explanation:
             '銅粉全体に酸素を触れさせるためです。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-or-q20',
           question: '水素の燃焼の化学反応式は？',
@@ -495,7 +363,8 @@ export const oxidationReduction: Topic = {
           correctIndex: 1,
           explanation:
             '2H₂ + O₂ → 2H₂O です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-or-q21',
           question: 'コークスの原料は？',
@@ -503,7 +372,8 @@ export const oxidationReduction: Topic = {
           correctIndex: 1,
           explanation:
             'コークスは石炭を蒸し焼きにしてつくります。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-or-q22',
           question: '有機物燃焼後に石灰水が白くにごるのは何が発生したから？',
@@ -511,7 +381,8 @@ export const oxidationReduction: Topic = {
           correctIndex: 2,
           explanation:
             '有機物の燃焼で二酸化炭素が発生します。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-or-q23',
           question: '酸化と還元の関係で正しいのは？',
@@ -519,7 +390,8 @@ export const oxidationReduction: Topic = {
           correctIndex: 1,
           explanation:
             '酸化と還元は常に同時に起こります。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci2-or-q24',
           question: '炭素の燃焼の化学反応式は？',
@@ -527,7 +399,8 @@ export const oxidationReduction: Topic = {
           correctIndex: 1,
           explanation:
             'C + O₂ → CO₂ です。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci2-or-q25',
           question: '酸化マグネシウムは何色？',
@@ -535,7 +408,8 @@ export const oxidationReduction: Topic = {
           correctIndex: 2,
           explanation:
             '酸化マグネシウムは白色の粉末です。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci2-or-q26',
           question: 'ろうそくの燃焼で水の発生を確認する方法は？',
@@ -543,7 +417,8 @@ export const oxidationReduction: Topic = {
           correctIndex: 2,
           explanation:
             '冷たいガラス板を炎にかざすと水滴がつきます。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci2-or-q27',
           question: '銅の酸化は穏やかか激しいか？',
@@ -551,7 +426,8 @@ export const oxidationReduction: Topic = {
           correctIndex: 0,
           explanation:
             '銅の酸化はゆっくり進む穏やかな反応です。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci2-or-q28',
           question: '酸化銅還元で石灰水が白くにごるのは何の発生？',
@@ -559,7 +435,8 @@ export const oxidationReduction: Topic = {
           correctIndex: 2,
           explanation:
             '2CuO + C → 2Cu + CO₂ で二酸化炭素が発生します。',
-        }
+        difficulty: 'advanced',
+      }
       
       ],
     },

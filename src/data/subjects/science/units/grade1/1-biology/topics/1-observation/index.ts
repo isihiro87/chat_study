@@ -159,162 +159,33 @@ export const observation: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'sci1-obs-fc1',
-        front: 'スケッチのルール',
-        back: '生物のスケッチで守るべきルールは？',
-        explanation:
-          '細い1本の線で輪郭を描く。影をつけない。ぬりつぶさない。',
-      },
-      {
-        id: 'sci1-obs-fc2',
-        front: 'ルーペの使い方',
-        back: 'ルーペで観察するとき、ルーペと観察物のどちらを動かす？',
-        explanation:
-          'ルーペは目に近づけて固定し、観察するものを前後に動かしてピントを合わせる。',
-      },
-      {
-        id: 'sci1-obs-fc3',
-        front: '双眼実体顕微鏡',
-        back: '双眼実体顕微鏡の特徴と倍率は？',
-        explanation:
-          '立体的に観察でき、倍率は20〜40倍程度。プレパラートを使わずに観察できる。',
-      },
-      {
-        id: 'sci1-obs-fc4',
-        front: '顕微鏡のレンズの取り付け順',
-        back: '顕微鏡のレンズはどの順番で取り付ける？',
-        explanation:
-          '接眼レンズを先に取り付けてから対物レンズを取り付ける。ほこりが入るのを防ぐため。',
-      },
-      {
-        id: 'sci1-obs-fc5',
-        front: '分類の基準',
-        back: '科学的な分類で基準にするのはどのような特徴？',
-        explanation:
-          '体のつくりなど変化しにくい特徴を基準にする。花の色や大きさなど変化しやすいものは使わない。',
-      },
-      {
-        id: 'sci1-obs-fc6',
-        front: '観察記録の項目',
-        back: '生物の観察記録に書くべき項目は？',
-        explanation:
-          '日時・場所・天気・気温・生物名・大きさ・色・形・特徴・スケッチ・気づいたこと。',
-      },
-      {
-        id: 'sci1-obs-fc7',
-        front: 'スケッチの注意点',
-        back: 'スケッチで描いてはいけないものは？',
-        explanation:
-          '影、ぬりつぶし、背景、器具の視野の円は描かない。細い1本の線で輪郭だけを正確に描く。',
-      },
-      {
-        id: 'sci1-obs-fc8',
-        front: '動かせないものの観察',
-        back: 'ルーペで動かせないもの（花壇の花など）を観察するときはどうする？',
-        explanation:
-          'ルーペを目に近づけたまま、自分の顔（体）を前後に動かしてピントを合わせる。',
-      },
-      {
-        id: 'fc9',
-        front: '日当たりと湿り気',
-        back: '観察する場所で注目すべき環境の条件を2つ答えよ。',
-      },
-      {
-        id: 'fc10',
-        front: '生物の生活と環境の関係を調べるため',
-        back: '観察記録に天気や気温を書くのはなぜか。',
-      },
-      {
-        id: 'fc11',
-        front: '生物カード',
-        back: '観察した生物の情報をまとめるカードを何というか。',
-      },
-      {
-        id: 'fc12',
-        front: '細い1本の線',
-        back: '理科のスケッチで使う線はどのような線か。',
-      },
-      {
-        id: 'fc13',
-        front: '描いてはいけない',
-        back: 'スケッチで背景を描いてよいか。',
-      },
-      {
-        id: 'fc14',
-        front: '描いてはいけない',
-        back: 'スケッチで器具や顕微鏡の視野の円を描いてよいか。',
-      },
-      {
-        id: 'fc15',
-        front: 'ぬらない。色の情報は文字で記録する。',
-        back: 'スケッチで色をぬってよいか。',
-      },
-      {
-        id: 'fc16',
-        front: '色の濃淡や模様を表現するとき',
-        back: 'スケッチで点々（点描）を使うのはどのようなときか。',
-      },
-      {
-        id: 'fc17',
-        front: '理科は影なし・細い線で輪郭、美術は陰影をつけて立体感を表現',
-        back: '美術のデッサンと理科のスケッチの違いを1つ答えよ。',
-      },
-      {
-        id: 'fc18',
-        front: '目に近づけて固定して持つ',
-        back: 'ルーペで観察するとき、ルーペはどのように持つか。',
-      },
-      {
-        id: 'fc19',
-        front: '視野が狭くなり、ピントも合わせにくくなるため',
-        back: 'ルーペを目から離して使ってはいけない理由を答えよ。',
-      },
-      {
-        id: 'fc20',
-        front: '光が集まって目を傷めるおそれがあるから',
-        back: 'ルーペで太陽を見てはいけない理由を答えよ。',
-      },
-      {
-        id: 'fc21',
-        front: '共通点と相違点に注目して生物をグループ分けすること',
-        back: '分類とは何か。',
-      },
-      {
-        id: 'fc22',
-        front: '環境や個体によって変化しやすい特徴だから',
-        back: '花の色や大きさは分類の基準に向かない。その理由を答えよ。',
-      },
-      {
-        id: 'fc23',
-        front: '移動する＝動物、移動しない＝植物',
-        back: '「移動する」か「移動しない」かで生物を分けるとどうなるか。',
-      },
-      {
-        id: 'fc24',
-        front: '1つだけでなく、目的に応じてさまざまな基準で分類できる',
-        back: '分類の基準は1つだけでよいか。',
-      },
-      {
-        id: 'fc25',
-        front: '生物名・発見日時・発見場所・スケッチ',
-        back: '生物カードに記入する項目を4つ答えよ。',
-      },
-      {
-        id: 'fc26',
-        front: '観察するものを前後に動かしてピントを合わせる',
-        back: 'ルーペで観察するとき、ピントを合わせるにはどうするか。',
-      },
-      {
-        id: 'fc27',
-        front: '影は観察者によって異なり、生物の形を正確に記録できなくなるから',
-        back: 'スケッチで影をつけてはいけない理由を答えよ。',
-      },
-      {
-        id: 'fc28',
-        front: '体のつくりなど変化しにくい特徴',
-        back: '科学的な分類で基準にするのはどのような特徴か。',
-      },
+      // --- 観察記録・スケッチの基本（basic） ---
+      { id: 'sci1-obs-fc1', front: '日時・場所・天気・気温・生物名・スケッチ・気づいたこと', back: '生物の観察記録に書くべき項目を答えよ。', difficulty: 'basic' },
+      { id: 'sci1-obs-fc2', front: '細い1本の線', back: '理科のスケッチで使う線はどのような線か。', difficulty: 'basic' },
+      { id: 'sci1-obs-fc3', front: '影、ぬりつぶし、背景、器具の視野の円', back: 'スケッチで描いてはいけないものを4つ答えよ。', difficulty: 'basic' },
+      { id: 'sci1-obs-fc4', front: '生物カード', back: '観察した生物の情報を1種類ずつまとめるカードを何というか。', difficulty: 'basic' },
+      { id: 'sci1-obs-fc5', front: '日当たりと湿り気', back: '観察する場所で注目すべき環境の条件を2つ答えよ。', difficulty: 'basic' },
+      { id: 'sci1-obs-fc6', front: '目に近づけて固定して持つ', back: 'ルーペで観察するとき、ルーペはどのように持つか。', difficulty: 'basic' },
+      { id: 'sci1-obs-fc7', front: '観察するものを前後に動かす', back: 'ルーペで観察するとき、ピントを合わせるにはどうするか。', difficulty: 'basic' },
+      { id: 'sci1-obs-fc8', front: '体のつくりなど変化しにくい特徴', back: '科学的な分類で基準にするのはどのような特徴か。', difficulty: 'basic' },
+      { id: 'sci1-obs-fc9', front: '共通点と相違点に注目して生物をグループ分けすること', back: '分類とは何か。', difficulty: 'basic' },
+      // --- 観察・器具の詳細（standard） ---
+      { id: 'sci1-obs-fc10', front: '生物の生活と環境の関係を調べるため', back: '観察記録に天気や気温を書くのはなぜか。', difficulty: 'standard' },
+      { id: 'sci1-obs-fc11', front: 'ぬらない。色の情報は文字で記録する', back: 'スケッチで色をぬってよいか。', difficulty: 'standard' },
+      { id: 'sci1-obs-fc12', front: '理科は影なし・細い線で輪郭のみ。美術は陰影をつけて立体感を表現する', back: '美術のデッサンと理科のスケッチの違いを答えよ。', difficulty: 'standard' },
+      { id: 'sci1-obs-fc13', front: '視野が狭くなり、ピントも合わせにくくなるため', back: 'ルーペを目から離して使ってはいけない理由を答えよ。', difficulty: 'standard' },
+      { id: 'sci1-obs-fc14', front: '光が集まって目を傷めるおそれがあるから', back: 'ルーペで太陽を見てはいけない理由を答えよ。', difficulty: 'standard' },
+      { id: 'sci1-obs-fc15', front: 'ルーペを目に近づけたまま、自分の体を前後に動かしてピントを合わせる', back: 'ルーペで動かせないもの（花壇の花など）を観察するにはどうするか。', difficulty: 'standard' },
+      { id: 'sci1-obs-fc16', front: '立体的に観察でき、倍率は20〜40倍。プレパラートなしで観察できる', back: '双眼実体顕微鏡の特徴と倍率を答えよ。', difficulty: 'standard' },
+      { id: 'sci1-obs-fc17', front: '接眼レンズを先に、次に対物レンズを取り付ける。鏡筒にほこりが入るのを防ぐため', back: '顕微鏡のレンズはどの順番で取り付けるか。その理由も答えよ。', difficulty: 'standard' },
+      { id: 'sci1-obs-fc18', front: '環境や個体によって変化しやすい特徴だから', back: '花の色や大きさは分類の基準に向かない。その理由を答えよ。', difficulty: 'standard' },
+      // --- 応用・発展（advanced） ---
+      { id: 'sci1-obs-fc19', front: '影は観察者によって異なり、生物の形を正確に記録できなくなるから', back: 'スケッチで影をつけてはいけない理由を答えよ。', difficulty: 'advanced' },
+      { id: 'sci1-obs-fc20', front: '生物名・発見日時・発見場所・スケッチ', back: '生物カードに記入する項目を4つ答えよ。', difficulty: 'advanced' },
+      { id: 'sci1-obs-fc21', front: '1つだけでなく、目的に応じてさまざまな基準で分類できる', back: '分類の基準は1つだけでよいか。', difficulty: 'advanced' },
+      { id: 'sci1-obs-fc22', front: '移動する＝動物、移動しない＝植物', back: '「移動するか・しないか」で生物を分けるとどうなるか。', difficulty: 'advanced' },
+      { id: 'sci1-obs-fc23', front: '低倍率から観察を始める。広い範囲で観察物を探してから倍率を上げる', back: '顕微鏡で観察を始めるとき、最初の倍率はどうするか。その理由も答えよ。', difficulty: 'advanced' },
+      { id: 'sci1-obs-fc24', front: 'スライドガラスの上に観察物をのせ、カバーガラスをかぶせて作る', back: 'プレパラートとは何か。作り方を答えよ。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -330,7 +201,8 @@ export const observation: Topic = {
           correctIndex: 1,
           explanation:
             'ルーペは目に近づけて固定し、観察するものを前後に動かしてピントを合わせます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-obs-q2',
           question: '生物のスケッチについて正しいものはどれか？',
@@ -343,7 +215,8 @@ export const observation: Topic = {
           correctIndex: 0,
           explanation:
             'スケッチは細い1本の線で輪郭を描き、影はつけません。ぬりつぶしもしません。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-obs-q3',
           question: '顕微鏡のレンズを取り付ける正しい順番は？',
@@ -356,7 +229,8 @@ export const observation: Topic = {
           correctIndex: 2,
           explanation:
             '接眼レンズを先に取り付けてから対物レンズを取り付けます。鏡筒の中にほこりが入るのを防ぐためです。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-obs-q4',
           question: '顕微鏡で観察を始めるときの倍率はどうするか？',
@@ -369,7 +243,8 @@ export const observation: Topic = {
           correctIndex: 3,
           explanation:
             '最初は低倍率で広い範囲を見て観察物を探し、見つけたら倍率を上げて詳しく観察します。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-obs-q5',
           question: '科学的な分類で基準にするのに適しているのはどれか？',
@@ -382,7 +257,8 @@ export const observation: Topic = {
           correctIndex: 3,
           explanation:
             '科学的な分類では、体のつくりなど変化しにくい特徴を基準にします。花の色や大きさは変化しやすいため基準に向きません。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-obs-q6',
           question: '生物を分類するときに注目するのは何か？',
@@ -395,7 +271,8 @@ export const observation: Topic = {
           correctIndex: 2,
           explanation:
             '分類するときは共通点と相違点に注目して、同じ特徴をもつものをグループ分けします。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-obs-q7',
           question: '観察記録に書く項目として適切でないものはどれか？',
@@ -408,7 +285,8 @@ export const observation: Topic = {
           correctIndex: 0,
           explanation:
             '観察記録には日時・場所・天気・気温・生物名・スケッチ・気づいたことなど、観察に関連する情報を記入します。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'q8',
           question: '観察する場所で注目すべき環境の条件として正しいものはどれか？',
@@ -421,7 +299,8 @@ export const observation: Topic = {
           correctIndex: 1,
           explanation:
             '日当たり（日なた・日かげ）と湿り気（湿っている・乾いている）に注目します。環境によって見られる生物が異なります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'q9',
           question: 'スケッチで背景を描いてもよいか？',
@@ -434,7 +313,8 @@ export const observation: Topic = {
           correctIndex: 1,
           explanation:
             'スケッチでは背景を描きません。観察対象だけを細い線で正確に描きます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'q10',
           question: 'スケッチで色の濃淡や模様を表すときに使う方法はどれか？',
@@ -447,7 +327,8 @@ export const observation: Topic = {
           correctIndex: 2,
           explanation:
             '色の濃淡や模様は点描（細かい点）で表現します。色をぬったり影をつけたりはしません。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'q11',
           question: '理科のスケッチと美術のデッサンの違いとして正しいものはどれか？',
@@ -460,7 +341,8 @@ export const observation: Topic = {
           correctIndex: 2,
           explanation:
             '理科のスケッチは影をつけず細い1本の線で輪郭を描きます。美術のデッサンは陰影をつけて立体感を表現します。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q12',
           question: 'ルーペを目から離して使うとどうなるか？',
@@ -473,7 +355,8 @@ export const observation: Topic = {
           correctIndex: 1,
           explanation:
             'ルーペを目から離すと視野が狭くなり、ピントも合わせにくくなります。ルーペは目に近づけて固定して使います。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q13',
           question: 'ルーペで太陽を見てはいけない理由はどれか？',
@@ -486,7 +369,8 @@ export const observation: Topic = {
           correctIndex: 2,
           explanation:
             'ルーペのレンズで光が集められて目に入り、目を傷めるおそれがあります。絶対に太陽を見てはいけません。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q14',
           question: '観察した生物の情報を1種類ずつまとめるカードを何というか？',
@@ -499,7 +383,8 @@ export const observation: Topic = {
           correctIndex: 2,
           explanation:
             '生物カードといいます。生物名・発見日時・発見場所・スケッチ・特徴や気づいたことを記入します。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q15',
           question: '観察記録に天気や気温を書く理由として正しいものはどれか？',
@@ -512,7 +397,8 @@ export const observation: Topic = {
           correctIndex: 1,
           explanation:
             '同じ場所でも天気や気温によって見られる生物が変わることがあるため、生物の生活と環境の関係を調べるために記録します。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q16',
           question: 'スケッチで色の情報を記録するにはどうするか？',
@@ -525,7 +411,8 @@ export const observation: Topic = {
           correctIndex: 1,
           explanation:
             'スケッチでは色をぬりません。色の情報は文字で記録します（例：「花弁は黄色」など）。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q17',
           question: '「花の色」は分類の基準に向かない。その理由として正しいものはどれか？',
@@ -538,7 +425,8 @@ export const observation: Topic = {
           correctIndex: 1,
           explanation:
             '花の色は環境や個体によって変化しやすい特徴なので、科学的な分類の基準には向きません。体のつくりなど変化しにくい特徴を基準にします。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q18',
           question: '分類の基準を変えると同じ生物でも違うグループに入ることがある。これから言えることはどれか？',
@@ -551,7 +439,8 @@ export const observation: Topic = {
           correctIndex: 2,
           explanation:
             '分類の基準は1つではなく、目的に応じてさまざまな基準で分類できます。どの基準を選ぶかによってグループ分けの結果が変わります。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q19',
           question: '双眼実体顕微鏡の特徴として正しいのはどれか？',
@@ -564,7 +453,8 @@ export const observation: Topic = {
           correctIndex: 2,
           explanation:
             '双眼実体顕微鏡は両目でのぞくため、観察物を立体的に見ることができます。倍率は20〜40倍で、プレパラートは不要です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q20',
           question: 'スケッチのルールとして正しいものの組み合わせはどれか？',
@@ -577,7 +467,8 @@ export const observation: Topic = {
           correctIndex: 1,
           explanation:
             'スケッチは細い1本の線で輪郭を描き、ぬりつぶしません。影・背景・色ぬり・視野の円も描きません。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q21',
           question: '生物カードに記入する項目として適切でないものはどれか？',
@@ -590,7 +481,8 @@ export const observation: Topic = {
           correctIndex: 2,
           explanation:
             '生物カードには生物名・発見日時・発見場所・スケッチ・特徴や気づいたことを記入します。「好きな食べ物」は観察記録の項目ではありません。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q22',
           question: '動かせない花壇の花をルーペで観察するとき、正しい方法はどれか？',
@@ -603,7 +495,8 @@ export const observation: Topic = {
           correctIndex: 2,
           explanation:
             'ルーペを目に近づけたまま、自分の顔（体）を前後に動かしてピントを合わせます。ルーペの基本は「目に近づけて固定」です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q23',
           question: '「移動するか、しないか」で生物を分けたとき、移動しないグループに入るのはどれか？',
@@ -616,7 +509,8 @@ export const observation: Topic = {
           correctIndex: 2,
           explanation:
             'タンポポは植物で移動しません。チョウ・カエル・ダンゴムシは動物で移動します。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'q24',
           question: 'スケッチで顕微鏡の視野の円を描いてよいか？',
@@ -629,7 +523,8 @@ export const observation: Topic = {
           correctIndex: 1,
           explanation:
             '顕微鏡の視野の円は描きません。観察対象だけを細い線で正確にスケッチします。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'q25',
           question: '観察で環境に注目するのはなぜか？',
@@ -642,7 +537,8 @@ export const observation: Topic = {
           correctIndex: 1,
           explanation:
             '日当たりや湿り気などの環境によって、そこに生息する生物の種類が異なります。環境と生物の関係を調べるために注目します。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'q26',
           question: '顕微鏡の倍率は40〜600倍程度である。これに対して双眼実体顕微鏡の倍率はどのくらいか？',
@@ -655,7 +551,8 @@ export const observation: Topic = {
           correctIndex: 1,
           explanation:
             '双眼実体顕微鏡の倍率は20〜40倍程度です。顕微鏡（40〜600倍）よりかなり低い倍率ですが、立体的に観察できます。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'q27',
           question: '顕微鏡で観察するときに使う、スライドガラスとカバーガラスで作るものを何というか？',
@@ -668,7 +565,8 @@ export const observation: Topic = {
           correctIndex: 1,
           explanation:
             'プレパラートです。スライドガラスの上に観察するものをのせ、カバーガラスをかぶせて作ります。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'q28',
           question: '科学的な分類で基準にすべき特徴はどれか？',
@@ -681,7 +579,8 @@ export const observation: Topic = {
           correctIndex: 3,
           explanation:
             '科学的な分類では体のつくりなど変化しにくい特徴を基準にします。場所・大きさ・色は環境で変わりやすいです。',
-        },
+        difficulty: 'advanced',
+      },
       ],
     },
     examples: {

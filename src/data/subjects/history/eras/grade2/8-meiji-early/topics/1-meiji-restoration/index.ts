@@ -49,60 +49,70 @@ export const meijiRestoration: Topic = {
         front: '明治維新',
         back: '明治政府が行った政治・社会の大改革を何という？',
         explanation: '江戸幕府に代わる天皇中心の新しい国づくりが始まった。',
+        difficulty: 'basic',
       },
       {
         id: 'fc2',
         front: '五箇条の御誓文',
         back: '1868年に明治天皇が発表した、新しい国づくりの基本方針は？',
         explanation: '広く会議を開く、開国和親などの方針を示した。',
+        difficulty: 'basic',
       },
       {
         id: 'fc3',
         front: '版籍奉還',
         back: '1869年、藩主が土地（版）と人民（籍）を朝廷に返したことを何という？',
         explanation: '中央集権化の第一歩となった。',
+        difficulty: 'basic',
       },
       {
         id: 'fc4',
         front: '廃藩置県',
         back: '1871年、藩を廃止して県を設置した改革を何という？',
         explanation: '政府が任命した役人が治めるようになった。',
+        difficulty: 'basic',
       },
       {
         id: 'fc5',
         front: '四民平等',
         back: '江戸時代の身分制度を改め、平等な社会を目指したことを何という？',
         explanation: '華族・士族・平民に分けられた。',
+        difficulty: 'standard',
       },
       {
         id: 'fc6',
         front: '解放令',
         back: '1871年、えた・ひにんと呼ばれた人々を平民としたお触れは？',
         explanation: '形式上は平民となったが、差別は根強く残った。',
+        difficulty: 'standard',
       },
       {
         id: 'fc7',
         front: '藩閥政治',
         back: '薩摩・長州など特定の藩出身者が政治を独占したことを何という？',
         explanation: '自由民権運動で批判の対象となった。',
+        difficulty: 'standard',
       },
       {
         id: 'fc8',
         front: '華族',
         back: '明治時代に公家や大名がなった身分は？',
         explanation: '皇族の下、士族の上に位置づけられた。',
+        difficulty: 'standard',
       },
       {
         id: 'fc9',
         front: '士族',
         back: '明治時代にもと武士がなった身分は？',
         explanation: '特権を失い、不満を持つ者も多かった。',
+        difficulty: 'standard',
       },
       {
         id: 'fc10',
         front: '中央集権',
         back: '中央政府に権力を集中させる政治体制は？',
         explanation: '廃藩置県で確立された。',
+        difficulty: 'standard',
       },
     ],
     quiz: {
@@ -120,6 +130,7 @@ export const meijiRestoration: Topic = {
           correctIndex: 0,
           explanation:
             '五箇条の御誓文は「広く会議を開く」「開国和親」など新しい国づくりの方針を示しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -129,6 +140,7 @@ export const meijiRestoration: Topic = {
           correctIndex: 3,
           explanation:
             '版籍奉還は中央集権化の第一歩で、「版」は土地、「籍」は人民を意味します。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -137,6 +149,7 @@ export const meijiRestoration: Topic = {
           correctIndex: 1,
           explanation:
             '廃藩置県により、日本全国が政府の直接支配下に置かれ、中央集権国家が確立しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q4',
@@ -146,6 +159,7 @@ export const meijiRestoration: Topic = {
           correctIndex: 2,
           explanation:
             '藩閥政治は薩摩・長州・土佐・肥前出身者が政治を独占し、後に自由民権運動で批判されました。',
+          difficulty: 'standard',
         },
         {
           id: 'q5',
@@ -155,6 +169,7 @@ export const meijiRestoration: Topic = {
           correctIndex: 0,
           explanation:
             '四民平等により、華族・士族・平民に分けられましたが、実際には差別が残りました。',
+          difficulty: 'advanced',
         },
       ],
     },

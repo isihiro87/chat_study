@@ -64,34 +64,34 @@ export const eastAsiaTrade: Topic = {
     },
     videos: [],
     flashcards: [
-      { id: 'fc1', front: '明', back: '漢民族が元（モンゴル民族）を倒して建てた中国の王朝は？' },
-      { id: 'fc2', front: '倭寇', back: '朝鮮や中国の沿岸を荒らした日本の海賊的集団は？' },
-      { id: 'fc3', front: '日明貿易（勘合貿易）', back: '足利義満が明との間で始めた、勘合を用いる正式な貿易は？' },
-      { id: 'fc4', front: '勘合', back: '正式な貿易船と倭寇を区別するための合い札は？' },
-      { id: 'fc5', front: '足利義満', back: '日明貿易を始めた室町幕府の第3代将軍は？' },
-      { id: 'fc6', front: '銅・刀剣・硫黄', back: '日明貿易で日本から輸出された主な品物は？' },
-      { id: 'fc7', front: '銅銭・生糸・絹織物', back: '日明貿易で明から輸入された主な品物は？' },
-      { id: 'fc8', front: '李成桂', back: '1392年に高麗を滅ぼして朝鮮国を建てた人物は？' },
-      { id: 'fc9', front: '朝鮮国', back: '李成桂が高麗を滅ぼして建てた国は？' },
-      { id: 'fc10', front: 'ハングル（訓民正音）', back: '朝鮮国で作られた独自の文字は？' },
-      { id: 'fc11', front: '琉球王国', back: '15世紀前半に尚氏が沖縄島を統一して建てた国は？' },
-      { id: 'fc12', front: '尚氏', back: '沖縄島を統一して琉球王国を建てた一族は？' },
-      { id: 'fc13', front: '首里', back: '琉球王国の都はどこ？' },
-      { id: 'fc14', front: '中継貿易', back: '琉球王国が各地の産物を仲介して繁栄した貿易形態は？' },
-      { id: 'fc15', front: 'アイヌ民族', back: '北海道で狩りや漁を行い、独自の文化と交易を行っていた民族は？' },
-      { id: 'fc16', front: 'コシャマインの戦い', back: '和人の進出に反発したアイヌの首長コシャマインが起こした戦いは？' },
-      { id: 'fc17', front: '安藤氏', back: '青森県の十三湊を拠点にアイヌとの交易を仲立ちした一族は？' },
-      { id: 'fc18', front: '十三湊', back: '安藤氏がアイヌとの交易の拠点とした青森県の港は？' },
-      { id: 'fc19', front: '蝦夷地', back: 'アイヌ民族が暮らしていた北海道の昔の呼び名は？' },
-      { id: 'fc20', front: '高麗', back: '朝鮮国が建国される前に朝鮮半島にあった国は？' },
-      { id: 'fc21', front: '訓民正音', back: 'ハングルの正式名称は？「民を教える正しい音」という意味' },
-      { id: 'fc22', front: '沖縄県那覇市', back: '琉球王国の首里がある現在の都道府県と市は？' },
-      { id: 'fc23', front: '漢民族', back: '明を建国した民族は？' },
-      { id: 'fc24', front: '1392年', back: '朝鮮国が建国された年は？' },
-      { id: 'fc25', front: '日本・中国・東南アジア', back: '琉球王国が中継貿易で結んでいた主な3つの地域は？' },
-      { id: 'fc26', front: '和人の進出と不公平な扱い', back: 'コシャマインの戦いが起きた原因は？' },
-      { id: 'fc27', front: '銅銭の大量輸入', back: '日明貿易で日本の商取引に最も影響を与えた輸入品は？' },
-      { id: 'fc28', front: '15世紀', back: '琉球王国が成立した世紀は？' },
+      { id: 'fc1', front: '明', back: '漢民族が元（モンゴル民族）を倒して建てた中国の王朝は？', difficulty: 'basic' },
+      { id: 'fc2', front: '倭寇', back: '朝鮮や中国の沿岸を荒らした日本の海賊的集団は？', difficulty: 'basic' },
+      { id: 'fc3', front: '日明貿易（勘合貿易）', back: '足利義満が明との間で始めた、勘合を用いる正式な貿易は？', difficulty: 'basic' },
+      { id: 'fc4', front: '勘合', back: '正式な貿易船と倭寇を区別するための合い札は？', difficulty: 'basic' },
+      { id: 'fc5', front: '足利義満', back: '日明貿易を始めた室町幕府の第3代将軍は？', difficulty: 'basic' },
+      { id: 'fc6', front: '銅・刀剣・硫黄', back: '日明貿易で日本から輸出された主な品物は？', difficulty: 'basic' },
+      { id: 'fc7', front: '銅銭・生糸・絹織物', back: '日明貿易で明から輸入された主な品物は？', difficulty: 'basic' },
+      { id: 'fc8', front: '李成桂', back: '1392年に高麗を滅ぼして朝鮮国を建てた人物は？', difficulty: 'basic' },
+      { id: 'fc9', front: '朝鮮国', back: '李成桂が高麗を滅ぼして建てた国は？', difficulty: 'basic' },
+      { id: 'fc10', front: 'ハングル（訓民正音）', back: '朝鮮国で作られた独自の文字は？', difficulty: 'basic' },
+      { id: 'fc11', front: '琉球王国', back: '15世紀前半に尚氏が沖縄島を統一して建てた国は？', difficulty: 'basic' },
+      { id: 'fc12', front: '尚氏', back: '沖縄島を統一して琉球王国を建てた一族は？', difficulty: 'basic' },
+      { id: 'fc13', front: '首里', back: '琉球王国の都はどこ？', difficulty: 'standard' },
+      { id: 'fc14', front: '中継貿易', back: '琉球王国が各地の産物を仲介して繁栄した貿易形態は？', difficulty: 'standard' },
+      { id: 'fc15', front: 'アイヌ民族', back: '北海道で狩りや漁を行い、独自の文化と交易を行っていた民族は？', difficulty: 'standard' },
+      { id: 'fc16', front: 'コシャマインの戦い', back: '和人の進出に反発したアイヌの首長コシャマインが起こした戦いは？', difficulty: 'standard' },
+      { id: 'fc17', front: '安藤氏', back: '青森県の十三湊を拠点にアイヌとの交易を仲立ちした一族は？', difficulty: 'standard' },
+      { id: 'fc18', front: '十三湊', back: '安藤氏がアイヌとの交易の拠点とした青森県の港は？', difficulty: 'standard' },
+      { id: 'fc19', front: '蝦夷地', back: 'アイヌ民族が暮らしていた北海道の昔の呼び名は？', difficulty: 'standard' },
+      { id: 'fc20', front: '高麗', back: '朝鮮国が建国される前に朝鮮半島にあった国は？', difficulty: 'standard' },
+      { id: 'fc21', front: '訓民正音', back: 'ハングルの正式名称は？「民を教える正しい音」という意味', difficulty: 'standard' },
+      { id: 'fc22', front: '沖縄県那覇市', back: '琉球王国の首里がある現在の都道府県と市は？', difficulty: 'standard' },
+      { id: 'fc23', front: '漢民族', back: '明を建国した民族は？', difficulty: 'advanced' },
+      { id: 'fc24', front: '1392年', back: '朝鮮国が建国された年は？', difficulty: 'advanced' },
+      { id: 'fc25', front: '日本・中国・東南アジア', back: '琉球王国が中継貿易で結んでいた主な3つの地域は？', difficulty: 'advanced' },
+      { id: 'fc26', front: '和人の進出と不公平な扱い', back: 'コシャマインの戦いが起きた原因は？', difficulty: 'advanced' },
+      { id: 'fc27', front: '銅銭の大量輸入', back: '日明貿易で日本の商取引に最も影響を与えた輸入品は？', difficulty: 'advanced' },
+      { id: 'fc28', front: '15世紀', back: '琉球王国が成立した世紀は？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -101,6 +101,7 @@ export const eastAsiaTrade: Topic = {
           options: ['朱印船貿易', '南蛮貿易', '日宋貿易', '日明貿易'],
           correctIndex: 3,
           explanation: '日明貿易は足利義満が明との間で始めた正式な貿易で、勘合という合い札を用いたため勘合貿易とも呼ばれます。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -108,6 +109,7 @@ export const eastAsiaTrade: Topic = {
           options: ['朱印状', '勘合', '渡航証', '通行手形'],
           correctIndex: 1,
           explanation: '勘合は一枚の札を二つに割って日本と明で半分ずつ持ち、合わせることで正式な船であることを証明しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -115,6 +117,7 @@ export const eastAsiaTrade: Topic = {
           options: ['倭寇', '元寇', '水軍', '悪党'],
           correctIndex: 0,
           explanation: '倭寇は朝鮮や中国の沿岸を荒らした海賊的な集団で、明や朝鮮は日本に取り締まりを求めました。',
+          difficulty: 'basic',
         },
         {
           id: 'q4',
@@ -122,6 +125,7 @@ export const eastAsiaTrade: Topic = {
           options: ['尚氏', 'チンギス・ハン', '李成桂', 'フビライ・ハン'],
           correctIndex: 2,
           explanation: '李成桂は1392年に高麗を滅ぼして朝鮮国を建てました。',
+          difficulty: 'basic',
         },
         {
           id: 'q5',
@@ -129,6 +133,7 @@ export const eastAsiaTrade: Topic = {
           options: ['漢字', '仮名', 'アルファベット', 'ハングル'],
           correctIndex: 3,
           explanation: 'ハングル（訓民正音）は朝鮮国で作られた独自の文字で、漢字を読めない民衆の教育に利用されました。',
+          difficulty: 'basic',
         },
         {
           id: 'q6',
@@ -136,6 +141,7 @@ export const eastAsiaTrade: Topic = {
           options: ['薩摩国', '琉球王国', '蝦夷国', '朝鮮国'],
           correctIndex: 1,
           explanation: '琉球王国は尚氏が沖縄島を統一して建てた国で、首里を都とし中継貿易によって大いに繁栄しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q7',
@@ -143,6 +149,7 @@ export const eastAsiaTrade: Topic = {
           options: ['朝貢貿易', '自由貿易', '中継貿易', '勘合貿易'],
           correctIndex: 2,
           explanation: '琉球王国は日本・中国・東南アジアの間に位置する地理的利点を活かし、中継貿易で大いに繁栄しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q8',
@@ -150,6 +157,7 @@ export const eastAsiaTrade: Topic = {
           options: ['コシャマイン', 'シャクシャイン', '安藤氏', 'アテルイ'],
           correctIndex: 0,
           explanation: 'コシャマインは和人の北海道への進出と不公平な扱いに反発して蜂起したアイヌの首長です。',
+          difficulty: 'basic',
         },
         {
           id: 'q9',
@@ -157,6 +165,7 @@ export const eastAsiaTrade: Topic = {
           options: ['北条氏', '足利氏', '尚氏', '安藤氏'],
           correctIndex: 3,
           explanation: '安藤氏は青森県の十三湊を拠点として、アイヌ民族との交易を仲立ちしていた一族です。',
+          difficulty: 'basic',
         },
         {
           id: 'q10',
@@ -164,6 +173,7 @@ export const eastAsiaTrade: Topic = {
           options: ['銅銭', '生糸', '書画', '陶磁器'],
           correctIndex: 0,
           explanation: '銅銭は日明貿易で日本が明から大量に輸入し、当時通貨が不足していた日本国内の商取引に広く流通しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q11',
@@ -171,6 +181,7 @@ export const eastAsiaTrade: Topic = {
           options: ['モンゴル民族', '満州民族', '漢民族', 'トルコ民族'],
           correctIndex: 2,
           explanation: '明は漢民族が元（モンゴル民族）を北方に退けて建国した王朝です。',
+          difficulty: 'standard',
         },
         {
           id: 'q12',
@@ -178,6 +189,7 @@ export const eastAsiaTrade: Topic = {
           options: ['金属の印を押す', '一枚の札を二つに割って合わせて確認する', '暗号を使う', '旗の色で区別する'],
           correctIndex: 1,
           explanation: '勘合は一枚の札を二つに割って日本と明で半分ずつ持ち、合わせることで正式な船と証明しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q13',
@@ -185,6 +197,7 @@ export const eastAsiaTrade: Topic = {
           options: ['漢字', '万葉仮名', '訓民正音', '梵字'],
           correctIndex: 2,
           explanation: 'ハングルの正式名称は訓民正音で、「民を教える正しい音」という意味です。',
+          difficulty: 'standard',
         },
         {
           id: 'q14',
@@ -192,6 +205,7 @@ export const eastAsiaTrade: Topic = {
           options: ['銅銭・生糸・絹織物', '銅・刀剣・硫黄', '茶・米・塩', '金・銀・真珠'],
           correctIndex: 1,
           explanation: '日明貿易では日本から銅・刀剣・硫黄が輸出され、明から銅銭・生糸・絹織物が輸入されました。',
+          difficulty: 'standard',
         },
         {
           id: 'q15',
@@ -199,6 +213,7 @@ export const eastAsiaTrade: Topic = {
           options: ['那覇', '首里', '名護', '宮古'],
           correctIndex: 1,
           explanation: '琉球王国の都は首里で、現在の沖縄県那覇市にあります。',
+          difficulty: 'standard',
         },
         {
           id: 'q16',
@@ -206,6 +221,7 @@ export const eastAsiaTrade: Topic = {
           options: ['外国との交渉のため', '漢字を読めない民衆の教育のため', '仏教の経典を書くため', '軍事命令を伝えるため'],
           correctIndex: 1,
           explanation: 'ハングルは漢字を読めない民衆にも学問を広めるために作られた独自の文字です。',
+          difficulty: 'standard',
         },
         {
           id: 'q17',
@@ -213,6 +229,7 @@ export const eastAsiaTrade: Topic = {
           options: ['直接輸出入する貿易', '各地の産物を集めて別の地域に仲介する貿易', '物々交換の貿易', '朝貢貿易'],
           correctIndex: 1,
           explanation: '中継貿易は各地の産物を集めて別の地域に転売する貿易形態で、琉球王国はこれで繁栄しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q18',
@@ -220,6 +237,7 @@ export const eastAsiaTrade: Topic = {
           options: ['東北地方', '北海道', '九州', '沖縄'],
           correctIndex: 1,
           explanation: '蝦夷地は現在の北海道のことで、アイヌ民族が暮らしていました。',
+          difficulty: 'standard',
         },
         {
           id: 'q19',
@@ -227,6 +245,7 @@ export const eastAsiaTrade: Topic = {
           options: ['税金を計算するため', '正式な貿易船と倭寇を区別するため', '船の大きさを測るため', '積荷を記録するため'],
           correctIndex: 1,
           explanation: '勘合は正式な貿易船と海賊の倭寇を区別するために必要でした。',
+          difficulty: 'standard',
         },
         {
           id: 'q20',
@@ -234,6 +253,7 @@ export const eastAsiaTrade: Topic = {
           options: ['1368年', '1392年', '1428年', '1467年'],
           correctIndex: 1,
           explanation: '朝鮮国は1392年に李成桂が高麗を滅ぼして建国しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q21',
@@ -241,6 +261,7 @@ export const eastAsiaTrade: Topic = {
           options: ['軍事力が強かったから', '日本・中国・東南アジアの中間に位置する地理的利点', '大量の銀を産出したから', '朝廷の保護を受けたから'],
           correctIndex: 1,
           explanation: '琉球王国は日本・中国・東南アジアのほぼ中間に位置する地理的利点を活かして中継貿易で繁栄しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q22',
@@ -248,6 +269,7 @@ export const eastAsiaTrade: Topic = {
           options: ['北海道', '秋田県', '青森県', '岩手県'],
           correctIndex: 2,
           explanation: '十三湊は青森県にあり、安藤氏がアイヌとの交易の拠点としていました。',
+          difficulty: 'standard',
         },
         {
           id: 'q23',
@@ -255,6 +277,7 @@ export const eastAsiaTrade: Topic = {
           options: ['どちらも幕府に従った', 'どちらも独自の文化を持ち交易で生活していた', 'どちらも農耕民族だった', 'どちらも中国に服属した'],
           correctIndex: 1,
           explanation: '琉球もアイヌもそれぞれ独自の文化を持ち、交易で生活していた点が共通しています。',
+          difficulty: 'advanced',
         },
         {
           id: 'q24',
@@ -262,6 +285,7 @@ export const eastAsiaTrade: Topic = {
           options: ['東南アジアの内陸部', '朝鮮半島や中国の沿岸', 'ヨーロッパの沿岸', 'インド洋の島々'],
           correctIndex: 1,
           explanation: '倭寇は朝鮮半島や中国の沿岸を荒らし、明や朝鮮は日本に取り締まりを求めました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q25',
@@ -269,6 +293,7 @@ export const eastAsiaTrade: Topic = {
           options: ['稲作と養蚕', '狩りや漁と独自の交易', '都市での商業', '牧畜と遊牧'],
           correctIndex: 1,
           explanation: 'アイヌ民族は狩りや漁を行い、独自の交易活動を展開していました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q26',
@@ -276,6 +301,7 @@ export const eastAsiaTrade: Topic = {
           options: ['仏像の材料', '商取引に流通する貨幣として使われた', '装飾品の材料', '武器の材料'],
           correctIndex: 1,
           explanation: '銅銭は国内の商取引に広く流通する貨幣として使われ、貨幣経済の発展に寄与しました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q27',
@@ -283,6 +309,7 @@ export const eastAsiaTrade: Topic = {
           options: ['敵対していた', '交流・貿易を行い、倭寇の取り締まりも求めた', '全く交流がなかった', '日本が朝鮮を支配した'],
           correctIndex: 1,
           explanation: '朝鮮国は日本と交流・貿易を行い、同時に倭寇の取り締まりも求めていました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q28',
@@ -290,6 +317,7 @@ export const eastAsiaTrade: Topic = {
           options: ['九州', '朝鮮半島', '沖縄島', '台湾'],
           correctIndex: 2,
           explanation: '尚氏は沖縄島を統一して琉球王国を建て、首里を都としました。',
+          difficulty: 'advanced',
         },
       ],
     },

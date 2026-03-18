@@ -44,66 +44,16 @@ export const pacificWar: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'fc1',
-        front: '真珠湾攻撃',
-        back: '1941年12月8日に日本海軍がハワイで行った奇襲攻撃は？',
-        explanation: 'アメリカ太平洋艦隊に大きな打撃を与え、太平洋戦争が始まった。',
-      },
-      {
-        id: 'fc2',
-        front: 'マレー半島上陸',
-        back: '真珠湾攻撃と同時に日本陸軍が行った作戦は？',
-        explanation: '東南アジアの資源確保を目指した。',
-      },
-      {
-        id: 'fc3',
-        front: '太平洋戦争',
-        back: '1941年から1945年まで、日本とアメリカを中心に太平洋地域で戦われた戦争は？',
-        explanation: '日本では大東亜戦争とも呼ばれた。',
-      },
-      {
-        id: 'fc4',
-        front: 'ミッドウェー海戦',
-        back: '1942年に日本海軍が大敗し、戦局の転換点となった海戦は？',
-        explanation: '日本は主力空母4隻を失った。',
-      },
-      {
-        id: 'fc5',
-        front: 'サイパン島',
-        back: '1944年に陥落し、日本本土への空襲が可能になった島は？',
-        explanation: 'B-29爆撃機の航続距離内に日本本土が入った。',
-      },
-      {
-        id: 'fc6',
-        front: 'B-29',
-        back: 'アメリカ軍が日本本土への空襲に使用した大型爆撃機は？',
-        explanation: 'サイパン島などから飛び立ち、日本各地を爆撃した。',
-      },
-      {
-        id: 'fc7',
-        front: '東京大空襲',
-        back: '1945年3月10日に東京が受けた大規模な空襲は？',
-        explanation: '約10万人が犠牲になったとされる。',
-      },
-      {
-        id: 'fc8',
-        front: '島飛び作戦',
-        back: 'アメリカ軍が太平洋の島々を飛び石のように奪還した戦略は？',
-        explanation: '重要な島だけを攻略し、効率的に日本に迫った。',
-      },
-      {
-        id: 'fc9',
-        front: '1941年12月8日',
-        back: '真珠湾攻撃が行われ、太平洋戦争が始まった日は？',
-        explanation: '日本時間では12月8日、アメリカ時間では12月7日。',
-      },
-      {
-        id: 'fc10',
-        front: '制空権',
-        back: '空の支配権のことで、日本が失ったことで本土空襲を許すことになったものは？',
-        explanation: '制空権と制海権を失った日本の敗戦は決定的になった。',
-      },
+      { id: 'fc1', front: '真珠湾攻撃', back: '1941年12月8日に日本海軍がハワイで行った奇襲攻撃は？', difficulty: 'basic' },
+      { id: 'fc2', front: '太平洋戦争', back: '1941年から1945年まで、日本とアメリカを中心に太平洋地域で戦われた戦争は？', difficulty: 'basic' },
+      { id: 'fc3', front: 'ミッドウェー海戦', back: '1942年に日本海軍が大敗し、戦局の転換点となった海戦は？', explanation: '日本は主力空母4隻を失った。', difficulty: 'basic' },
+      { id: 'fc4', front: '東京大空襲', back: '1945年3月10日に東京が受けた大規模な空襲は？', explanation: '約10万人が犠牲になったとされる。', difficulty: 'basic' },
+      { id: 'fc5', front: 'サイパン島', back: '1944年に陥落し、日本本土への空襲が可能になった島は？', explanation: 'B-29爆撃機の航続距離内に日本本土が入った。', difficulty: 'standard' },
+      { id: 'fc6', front: '1941年12月8日', back: '真珠湾攻撃が行われ、太平洋戦争が始まった日は？', difficulty: 'standard' },
+      { id: 'fc7', front: 'B-29', back: 'アメリカ軍が日本本土への空襲に使用した大型爆撃機は？', difficulty: 'standard' },
+      { id: 'fc8', front: '島飛び作戦', back: 'アメリカ軍が太平洋の島々を飛び石のように奪還した戦略は？', explanation: '重要な島だけを攻略し、効率的に日本に迫った。', difficulty: 'standard' },
+      { id: 'fc9', front: 'ミッドウェー海戦の意義', back: 'ミッドウェー海戦が太平洋戦争の転換点となったのはなぜか？', explanation: '主力空母4隻を失い、日本は攻勢から守勢に転じた。以後アメリカ軍の反攻が始まった。', difficulty: 'advanced' },
+      { id: 'fc10', front: '制空権・制海権', back: '日本が失ったことで本土空襲を許し、敗戦が決定的になった二つの支配権は？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -119,6 +69,7 @@ export const pacificWar: Topic = {
           correctIndex: 2,
           explanation:
             '1941年12月8日の真珠湾攻撃とマレー半島上陸により太平洋戦争が始まりました。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -132,6 +83,7 @@ export const pacificWar: Topic = {
           correctIndex: 3,
           explanation:
             'ミッドウェー海戦で日本は主力空母4隻を失い、以後守勢に回りました。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -140,6 +92,7 @@ export const pacificWar: Topic = {
           correctIndex: 0,
           explanation:
             'サイパン島の陥落により、B-29爆撃機による日本本土空襲が可能になりました。',
+          difficulty: 'standard',
         },
         {
           id: 'q4',
@@ -153,6 +106,7 @@ export const pacificWar: Topic = {
           correctIndex: 1,
           explanation:
             '1941年12月8日に真珠湾攻撃とマレー半島上陸が行われ、太平洋戦争が始まりました。',
+          difficulty: 'standard',
         },
       ],
     },

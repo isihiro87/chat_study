@@ -49,60 +49,70 @@ export const industrialRevolution: Topic = {
         front: '産業革命',
         back: '技術革新によって社会や経済が大きく変わることを何という？',
         explanation: '18世紀後半にイギリスで始まり、世界中に広がった。',
+        difficulty: 'basic',
       },
       {
         id: 'fc2',
         front: 'ワット',
         back: '蒸気機関を改良し、産業革命を推進したイギリスの技術者は？',
         explanation: '改良された蒸気機関は工場の動力や交通機関に使われた。',
+        difficulty: 'basic',
       },
       {
         id: 'fc3',
         front: '蒸気機関',
         back: '石炭を燃やして蒸気の力で動く装置は？',
         explanation: 'ワットが改良し、工場や蒸気機関車・蒸気船の動力となった。',
+        difficulty: 'basic',
       },
       {
         id: 'fc4',
         front: '世界の工場',
         back: '産業革命後、圧倒的な工業力を持ったイギリスの呼び名は？',
         explanation: '工業製品を世界中に輸出し、世界経済の中心となった。',
+        difficulty: 'basic',
       },
       {
         id: 'fc5',
         front: '資本主義',
         back: '資本家が労働者を雇い、利益を追求する経済の仕組みは？',
         explanation: '産業革命によって成立した新しい経済体制。',
+        difficulty: 'standard',
       },
       {
         id: 'fc6',
         front: '資本家',
         back: '工場や機械などの生産手段を持ち、労働者を雇う人は？',
         explanation: '産業革命後の社会で経済的な力を持った階級。',
+        difficulty: 'standard',
       },
       {
         id: 'fc7',
         front: '労働組合',
         back: '労働者が権利を守るために作った団体は？',
         explanation: '長時間労働や低賃金に対抗するため結成された。',
+        difficulty: 'standard',
       },
       {
         id: 'fc8',
         front: '蒸気機関車',
         back: '蒸気機関を使って走る陸上交通機関は？',
         explanation: 'スティーブンソンが実用化し、鉄道網が広がった。',
+        difficulty: 'standard',
       },
       {
         id: 'fc9',
         front: '綿織物工業',
         back: 'イギリスの産業革命が最初に始まった工業分野は？',
         explanation: '紡績機や力織機の発明で大量生産が可能になった。',
+        difficulty: 'standard',
       },
       {
         id: 'fc10',
-        front: '労働問題',
-        back: '長時間労働や低賃金など、産業革命で生まれた問題は？',
-        explanation: '子どもや女性も過酷な条件で働かされた。',
+        front: '社会主義',
+        back: '資本主義の矛盾を批判し、平等な社会を目指す思想は？',
+        explanation: 'マルクスらが提唱し、労働者の権利を重視した。',
+        difficulty: 'advanced',
       },
     ],
     quiz: {
@@ -114,6 +124,7 @@ export const industrialRevolution: Topic = {
           correctIndex: 1,
           explanation:
             'ワットは蒸気機関を改良し、工場の動力や交通機関の発展に貢献しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -122,6 +133,7 @@ export const industrialRevolution: Topic = {
           correctIndex: 0,
           explanation:
             '18世紀後半にイギリスの綿織物工業から産業革命が始まりました。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -130,6 +142,7 @@ export const industrialRevolution: Topic = {
           correctIndex: 3,
           explanation:
             'イギリスは産業革命により圧倒的な生産力を持ち、「世界の工場」と呼ばれました。',
+          difficulty: 'basic',
         },
         {
           id: 'q4',
@@ -138,6 +151,7 @@ export const industrialRevolution: Topic = {
           correctIndex: 2,
           explanation:
             '資本主義は産業革命によって成立した新しい経済体制で、資本家が工場で商品を生産して利益を追求します。',
+          difficulty: 'standard',
         },
         {
           id: 'q5',
@@ -146,6 +160,7 @@ export const industrialRevolution: Topic = {
           correctIndex: 0,
           explanation:
             '労働者は労働組合を結成し、資本家と交渉して労働条件の改善を求めました。',
+          difficulty: 'standard',
         },
         {
           id: 'q6',
@@ -154,6 +169,7 @@ export const industrialRevolution: Topic = {
           correctIndex: 2,
           explanation:
             '紡績機や力織機の発明により綿織物の大量生産が可能になり、ここから産業革命が始まりました。',
+          difficulty: 'standard',
         },
       ],
     },

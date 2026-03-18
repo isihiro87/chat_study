@@ -79,34 +79,34 @@ export const sengokuEra: Topic = {
     },
     videos: [],
     flashcards: [
-      { id: 'fc1', front: '下剋上', back: '身分が低い者が実力で上の者を倒してのし上がる風潮は？' },
-      { id: 'fc2', front: '応仁の乱', back: '1467年に将軍の跡継ぎ問題などから京都で始まった11年間の戦乱は？' },
-      { id: 'fc3', front: '戦国大名', back: '幕府の権威によらず実力で領国を支配した者は？' },
-      { id: 'fc4', front: '分国法', back: '戦国大名が領国内の武士や民衆を統制するために定めた独自の法律は？' },
-      { id: 'fc5', front: '城下町', back: '戦国大名が城の周辺に家臣や商工業者を集めて作った町は？' },
-      { id: 'fc6', front: '石見銀山', back: '島根県にあり、大量の銀が産出されて世界経済に影響した鉱山は？' },
-      { id: 'fc7', front: '足軽', back: '応仁の乱で動員された、足の軽快な雇い兵を何という？' },
-      { id: 'fc8', front: '山城の国一揆', back: '1485年に武士と農民が守護大名を追い払った出来事は？' },
-      { id: 'fc9', front: '一向一揆', back: '浄土真宗（一向宗）の信者が団結して起こした蜂起は？' },
-      { id: 'fc10', front: '足利義政', back: '応仁の乱のとき第8代将軍だった人物は？' },
-      { id: 'fc11', front: '細川勝元', back: '応仁の乱で東軍の大将を務めた守護大名は？' },
-      { id: 'fc12', front: '山名宗全', back: '応仁の乱で西軍の大将を務めた守護大名は？' },
-      { id: 'fc13', front: 'けんか両成敗', back: '分国法に含まれる、けんかした双方を罰する規定は？' },
-      { id: 'fc14', front: '楽市・楽座', back: '戦国大名が座を廃止して自由な商売を認めた政策は？' },
-      { id: 'fc15', front: '加賀の一向一揆', back: '守護大名を倒し約100年間自治を行った一揆は？' },
-      { id: 'fc16', front: '北条早雲', back: '一介の浪人から戦国大名にのし上がった下剋上の代表的人物は？' },
-      { id: 'fc17', front: '浄土真宗', back: '一向一揆を起こした信者が信仰していた仏教の宗派は？' },
-      { id: 'fc18', front: '本願寺', back: '一向一揆の中心的な宗教施設は？' },
-      { id: 'fc19', front: '1467年〜1477年', back: '応仁の乱が続いた期間は？' },
-      { id: 'fc20', front: '幕府の権威の低下', back: '応仁の乱が幕府に与えた最大の影響は？' },
-      { id: 'fc21', front: '実力主義', back: '戦国大名が家臣団を組織する際に重視したことは？' },
-      { id: 'fc22', front: '門前町', back: '寺社の門前に発展した町は？' },
-      { id: 'fc23', front: '約100年', back: '戦国時代がおよそ何年間続いたか？' },
-      { id: 'fc24', front: '山城から平地', back: '戦国大名が城を築く場所はどう変化した？' },
-      { id: 'fc25', front: '約8年間', back: '山城の国一揆の自治がおよそ何年間続いたか？' },
-      { id: 'fc26', front: '銀', back: '石見銀山で主に産出された鉱物は？' },
-      { id: 'fc27', front: '経済力の強化', back: '戦国大名が城下町に商工業者を集めた目的は？' },
-      { id: 'fc28', front: '世界遺産', back: '石見銀山の現在の登録状況は？' },
+      { id: 'fc1', front: '下剋上', back: '身分が低い者が実力で上の者を倒してのし上がる風潮は？', difficulty: 'basic' },
+      { id: 'fc2', front: '応仁の乱', back: '1467年に将軍の跡継ぎ問題などから京都で始まった11年間の戦乱は？', difficulty: 'basic' },
+      { id: 'fc3', front: '戦国大名', back: '幕府の権威によらず実力で領国を支配した者は？', difficulty: 'basic' },
+      { id: 'fc4', front: '分国法', back: '戦国大名が領国内の武士や民衆を統制するために定めた独自の法律は？', difficulty: 'basic' },
+      { id: 'fc5', front: '城下町', back: '戦国大名が城の周辺に家臣や商工業者を集めて作った町は？', difficulty: 'basic' },
+      { id: 'fc6', front: '石見銀山', back: '島根県にあり、大量の銀が産出されて世界経済に影響した鉱山は？', difficulty: 'basic' },
+      { id: 'fc7', front: '足軽', back: '応仁の乱で動員された、足の軽快な雇い兵を何という？', difficulty: 'basic' },
+      { id: 'fc8', front: '山城の国一揆', back: '1485年に武士と農民が守護大名を追い払った出来事は？', difficulty: 'basic' },
+      { id: 'fc9', front: '一向一揆', back: '浄土真宗（一向宗）の信者が団結して起こした蜂起は？', difficulty: 'basic' },
+      { id: 'fc10', front: '足利義政', back: '応仁の乱のとき第8代将軍だった人物は？', difficulty: 'basic' },
+      { id: 'fc11', front: '細川勝元', back: '応仁の乱で東軍の大将を務めた守護大名は？', difficulty: 'basic' },
+      { id: 'fc12', front: '山名宗全', back: '応仁の乱で西軍の大将を務めた守護大名は？', difficulty: 'basic' },
+      { id: 'fc13', front: 'けんか両成敗', back: '分国法に含まれる、けんかした双方を罰する規定は？', difficulty: 'standard' },
+      { id: 'fc14', front: '楽市・楽座', back: '戦国大名が座を廃止して自由な商売を認めた政策は？', difficulty: 'standard' },
+      { id: 'fc15', front: '加賀の一向一揆', back: '守護大名を倒し約100年間自治を行った一揆は？', difficulty: 'standard' },
+      { id: 'fc16', front: '北条早雲', back: '一介の浪人から戦国大名にのし上がった下剋上の代表的人物は？', difficulty: 'standard' },
+      { id: 'fc17', front: '浄土真宗', back: '一向一揆を起こした信者が信仰していた仏教の宗派は？', difficulty: 'standard' },
+      { id: 'fc18', front: '本願寺', back: '一向一揆の中心的な宗教施設は？', difficulty: 'standard' },
+      { id: 'fc19', front: '1467年〜1477年', back: '応仁の乱が続いた期間は？', difficulty: 'standard' },
+      { id: 'fc20', front: '幕府の権威の低下', back: '応仁の乱が幕府に与えた最大の影響は？', difficulty: 'standard' },
+      { id: 'fc21', front: '実力主義', back: '戦国大名が家臣団を組織する際に重視したことは？', difficulty: 'standard' },
+      { id: 'fc22', front: '門前町', back: '寺社の門前に発展した町は？', difficulty: 'standard' },
+      { id: 'fc23', front: '約100年', back: '戦国時代がおよそ何年間続いたか？', difficulty: 'advanced' },
+      { id: 'fc24', front: '山城から平地', back: '戦国大名が城を築く場所はどう変化した？', difficulty: 'advanced' },
+      { id: 'fc25', front: '約8年間', back: '山城の国一揆の自治がおよそ何年間続いたか？', difficulty: 'advanced' },
+      { id: 'fc26', front: '銀', back: '石見銀山で主に産出された鉱物は？', difficulty: 'advanced' },
+      { id: 'fc27', front: '経済力の強化', back: '戦国大名が城下町に商工業者を集めた目的は？', difficulty: 'advanced' },
+      { id: 'fc28', front: '世界遺産', back: '石見銀山の現在の登録状況は？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -116,6 +116,7 @@ export const sengokuEra: Topic = {
           options: ['承久の乱', '応仁の乱', '壬申の乱', '保元の乱'],
           correctIndex: 1,
           explanation: '応仁の乱は1467年に京都で始まった戦乱で、11年にも及び京都は焼け野原となりました。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -123,6 +124,7 @@ export const sengokuEra: Topic = {
           options: ['御成敗式目', '大宝律令', '武家諸法度', '分国法'],
           correctIndex: 3,
           explanation: '分国法は戦国大名が独自に定めた法律で、領国内の武士や民衆を統制するために用いられました。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -130,6 +132,7 @@ export const sengokuEra: Topic = {
           options: ['石見銀山', '生野銀山', '佐渡金山', '別子銅山'],
           correctIndex: 0,
           explanation: '石見銀山は島根県にある鉱山で、大量の銀が産出され中国への輸出品として世界経済に影響を与えました。',
+          difficulty: 'basic',
         },
         {
           id: 'q4',
@@ -137,6 +140,7 @@ export const sengokuEra: Topic = {
           options: ['門前町', '港町', '城下町', '宿場町'],
           correctIndex: 2,
           explanation: '城下町は戦国大名が城の周辺に家臣や商工業者を集めて作った町で、領国の政治と経済の中心でした。',
+          difficulty: 'basic',
         },
         {
           id: 'q5',
@@ -144,6 +148,7 @@ export const sengokuEra: Topic = {
           options: ['土一揆', '国一揆', '百姓一揆', '一向一揆'],
           correctIndex: 3,
           explanation: '一向一揆は浄土真宗の信徒が信仰で結びついて起こした一揆で、加賀では約100年にわたり自治を行いました。',
+          difficulty: 'basic',
         },
         {
           id: 'q6',
@@ -151,6 +156,7 @@ export const sengokuEra: Topic = {
           options: ['下剋上', '御恩と奉公', '惣無事令', '守護不入'],
           correctIndex: 0,
           explanation: '下剋上は身分の低い者が実力で上の者を倒す風潮で、戦国時代を象徴する社会現象でした。',
+          difficulty: 'basic',
         },
         {
           id: 'q7',
@@ -158,6 +164,7 @@ export const sengokuEra: Topic = {
           options: ['足利義満', '足利義政', '足利義教', '足利義昭'],
           correctIndex: 1,
           explanation: '足利義政は第8代将軍で、有力守護大名の争いと将軍の跡継ぎ問題が応仁の乱のきっかけとなりました。',
+          difficulty: 'basic',
         },
         {
           id: 'q8',
@@ -165,6 +172,7 @@ export const sengokuEra: Topic = {
           options: ['山名宗全', '足利義視', '細川勝元', '畠山政長'],
           correctIndex: 2,
           explanation: '細川勝元は応仁の乱で東軍の大将を務めた守護大名です。西軍の山名宗全と対立しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q9',
@@ -172,6 +180,7 @@ export const sengokuEra: Topic = {
           options: ['楽市・楽座', '徳政令', '検地', '刀狩り'],
           correctIndex: 0,
           explanation: '楽市・楽座は座の独占を廃止し、自由な商業活動を認める政策で、城下町の経済を活性化させました。',
+          difficulty: 'basic',
         },
         {
           id: 'q10',
@@ -179,6 +188,7 @@ export const sengokuEra: Topic = {
           options: ['正長の土一揆', '加賀の一向一揆', '嘉吉の土一揆', '山城の国一揆'],
           correctIndex: 3,
           explanation: '山城の国一揆は1485年に発生し、地元の武士（国人）と農民が協力して守護大名を追い払い、約8年間自治を行いました。',
+          difficulty: 'basic',
         },
         {
           id: 'q11',
@@ -186,6 +196,7 @@ export const sengokuEra: Topic = {
           options: ['3年間', '7年間', '11年間', '20年間'],
           correctIndex: 2,
           explanation: '応仁の乱は1467年から11年間続き（1477年まで）、京都は焼け野原となりました。',
+          difficulty: 'standard',
         },
         {
           id: 'q12',
@@ -193,6 +204,7 @@ export const sengokuEra: Topic = {
           options: ['細川勝元', '足利義政', '山名宗全', '北条早雲'],
           correctIndex: 2,
           explanation: '山名宗全は応仁の乱で西軍の大将を務めた守護大名です。東軍は細川勝元が率いました。',
+          difficulty: 'standard',
         },
         {
           id: 'q13',
@@ -200,6 +212,7 @@ export const sengokuEra: Topic = {
           options: ['けんかの原因を調べて裁く', '理由に関わらず双方を罰する', '強い方だけを罰する', '弱い方を保護する'],
           correctIndex: 1,
           explanation: 'けんか両成敗は理由に関わらず、けんかした双方を罰するという厳しい規定です。',
+          difficulty: 'standard',
         },
         {
           id: 'q14',
@@ -207,6 +220,7 @@ export const sengokuEra: Topic = {
           options: ['領地の広さ', '守護大名は幕府任命、戦国大名は実力で支配し幕府に依存しない', '守護大名の方が強い', '違いはない'],
           correctIndex: 1,
           explanation: '守護大名は幕府から任命された職ですが、戦国大名は実力で領国を支配し幕府の権威に依存しませんでした。',
+          difficulty: 'standard',
         },
         {
           id: 'q15',
@@ -214,6 +228,7 @@ export const sengokuEra: Topic = {
           options: ['幕府が支援した', '浄土真宗の信仰による強い結束力があったため', '外国の支援を受けた', '戦国大名が弱かった'],
           correctIndex: 1,
           explanation: '浄土真宗の信仰による強い結束力があり、武装した信者が組織的に行動できたため約100年間続きました。',
+          difficulty: 'standard',
         },
         {
           id: 'q16',
@@ -221,6 +236,7 @@ export const sengokuEra: Topic = {
           options: ['朝鮮', '中国（明）', 'ヨーロッパ', '東南アジア'],
           correctIndex: 1,
           explanation: '石見銀山の銀は主に中国（明）に輸出され、世界経済にも大きな影響を与えました。',
+          difficulty: 'standard',
         },
         {
           id: 'q17',
@@ -228,6 +244,7 @@ export const sengokuEra: Topic = {
           options: ['一騎打ちが増えた', '大規模な歩兵集団による組織的な戦闘に変わった', '戦いが減った', '弓術中心になった'],
           correctIndex: 1,
           explanation: '足軽の動員により、一騎打ち中心から大規模な歩兵集団による組織的な戦闘に変わりました。',
+          difficulty: 'standard',
         },
         {
           id: 'q18',
@@ -235,6 +252,7 @@ export const sengokuEra: Topic = {
           options: ['文化を発展させるため', '領国の経済力を高め軍事力の基盤となる物資を確保するため', '朝廷に寄付するため', '僧侶を養うため'],
           correctIndex: 1,
           explanation: '領国の経済力を高め、軍事力の基盤となる物資の生産と流通を確保するために商工業者を集めました。',
+          difficulty: 'standard',
         },
         {
           id: 'q19',
@@ -242,6 +260,7 @@ export const sengokuEra: Topic = {
           options: ['家柄', '実力', '年齢', '宗教'],
           correctIndex: 1,
           explanation: '戦国大名は実力主義で能力のある者を登用し、土地を与えて忠誠を求めました。',
+          difficulty: 'standard',
         },
         {
           id: 'q20',
@@ -249,6 +268,7 @@ export const sengokuEra: Topic = {
           options: ['同じ宗教の運動', 'どちらも守護大名の支配に対抗し民衆が自治を行おうとした', '同じ年に起きた', '同じ地域で起きた'],
           correctIndex: 1,
           explanation: 'どちらも守護大名の支配に対抗し、民衆（武士・農民・信者）が自治を行おうとした点が共通しています。',
+          difficulty: 'standard',
         },
         {
           id: 'q21',
@@ -256,6 +276,7 @@ export const sengokuEra: Topic = {
           options: ['内容が全く同じ', '御成敗式目は全国向け、分国法は各大名の領国内だけに適用', '分国法は朝廷が作った', '御成敗式目の方が新しい'],
           correctIndex: 1,
           explanation: '御成敗式目は幕府が全国の武士に向けて定めましたが、分国法は各戦国大名が自分の領国内だけに適用した独自の法律です。',
+          difficulty: 'standard',
         },
         {
           id: 'q22',
@@ -263,6 +284,7 @@ export const sengokuEra: Topic = {
           options: ['鉱山は美しい景観だから', '銀や金の産出が軍資金となり領国経営の財源だったから', '朝廷が命じたから', '仏教の聖地だったから'],
           correctIndex: 1,
           explanation: '銀や金の産出は軍資金の源泉であり、領国経営の重要な財源でした。',
+          difficulty: 'standard',
         },
         {
           id: 'q23',
@@ -270,6 +292,7 @@ export const sengokuEra: Topic = {
           options: ['承久の乱', '保元の乱', '応仁の乱', '元寇'],
           correctIndex: 2,
           explanation: '応仁の乱（1467年）を境に下剋上の風潮が広まり、戦国時代に突入しました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q24',
@@ -277,6 +300,7 @@ export const sengokuEra: Topic = {
           options: ['山の上から平地へ変化した', '平地から山の上へ変化した', '変化はなかった', '海辺に築くようになった'],
           correctIndex: 0,
           explanation: 'それまでの山城から平地に城を築くようになり、周辺に城下町を作りました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q25',
@@ -284,6 +308,7 @@ export const sengokuEra: Topic = {
           options: ['下剋上→応仁の乱→戦国大名', '応仁の乱→下剋上→戦国大名の登場', '戦国大名→応仁の乱→下剋上', '下剋上→戦国大名→応仁の乱'],
           correctIndex: 1,
           explanation: '応仁の乱（1467年）→下剋上の風潮が広まる→各地に戦国大名が登場、という流れです。',
+          difficulty: 'advanced',
         },
         {
           id: 'q26',
@@ -291,6 +316,7 @@ export const sengokuEra: Topic = {
           options: ['延暦寺', '金閣寺', '本願寺', '東大寺'],
           correctIndex: 2,
           explanation: '本願寺は浄土真宗の総本山で、一向一揆の中心的な宗教施設でした。',
+          difficulty: 'advanced',
         },
         {
           id: 'q27',
@@ -298,6 +324,7 @@ export const sengokuEra: Topic = {
           options: ['約50年', '約100年', '約200年', '約300年'],
           correctIndex: 1,
           explanation: '戦国時代は約100年間（15世紀後半〜16世紀後半）続き、織田信長の台頭まで続きました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q28',
@@ -305,6 +332,7 @@ export const sengokuEra: Topic = {
           options: ['さらに繁栄した', '多くの寺社が焼失し焼け野原になった', '外国に占領された', '遷都が行われた'],
           correctIndex: 1,
           explanation: '応仁の乱で京都の多くの寺社が焼失し、町は焼け野原となりました。',
+          difficulty: 'advanced',
         },
       ],
     },

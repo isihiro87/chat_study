@@ -49,60 +49,70 @@ export const internationalRelations: Topic = {
         front: '岩倉使節団',
         back: '1871年に欧米に派遣された、岩倉具視を大使とする使節団は？',
         explanation: '条約改正交渉と欧米の調査が目的だった。',
+        difficulty: 'basic',
       },
       {
         id: 'fc2',
         front: '岩倉具視',
         back: '岩倉使節団の大使を務めた政治家は？',
         explanation: '帰国後、征韓論に反対して西郷らと対立した。',
+        difficulty: 'basic',
       },
       {
         id: 'fc3',
         front: '征韓論',
         back: '朝鮮に武力で開国を迫ろうとする主張は？',
         explanation: '西郷隆盛や板垣退助らが主張したが否決された。',
+        difficulty: 'basic',
       },
       {
         id: 'fc4',
         front: '日清修好条規',
         back: '1871年に清と結んだ対等な条約は？',
         explanation: 'お互いの独立と主権を尊重する内容だった。',
+        difficulty: 'basic',
       },
       {
         id: 'fc5',
         front: '江華島事件',
         back: '1875年に日本の軍艦が朝鮮で起こした武力衝突は？',
         explanation: '日朝修好条規を結ぶきっかけとなった。',
+        difficulty: 'standard',
       },
       {
         id: 'fc6',
         front: '日朝修好条規',
         back: '1876年に朝鮮と結んだ不平等条約は？',
         explanation: '江華島事件をきっかけに朝鮮を開国させた。',
+        difficulty: 'standard',
       },
       {
         id: 'fc7',
         front: '樺太・千島交換条約',
         back: '1875年にロシアと結んだ、国境を確定する条約は？',
         explanation: '樺太を放棄し、千島列島全てを日本領とした。',
+        difficulty: 'standard',
       },
       {
         id: 'fc8',
         front: '屯田兵',
         back: '北海道開拓のために送られた、農業と軍務を兼ねる兵士は？',
         explanation: 'ロシアの脅威に備えて配置された。',
+        difficulty: 'standard',
       },
       {
         id: 'fc9',
         front: '琉球処分',
         back: '1879年、琉球を沖縄県とした一連の動きを何という？',
         explanation: '清の反対を押し切って沖縄県を設置した。',
+        difficulty: 'advanced',
       },
       {
         id: 'fc10',
         front: '北海道',
         back: '蝦夷地から改称された、明治政府が開拓を進めた地域は？',
         explanation: 'ロシアの脅威に備えて本格的な開拓が行われた。',
+        difficulty: 'advanced',
       },
     ],
     quiz: {
@@ -114,6 +124,7 @@ export const internationalRelations: Topic = {
           correctIndex: 3,
           explanation:
             '岩倉具視を大使とする岩倉使節団は、条約改正交渉と欧米の調査のために派遣されました。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -123,6 +134,7 @@ export const internationalRelations: Topic = {
           correctIndex: 1,
           explanation:
             '征韓論は西郷隆盛や板垣退助らが主張しましたが、岩倉具視や大久保利通らの反対で否決されました。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -137,6 +149,7 @@ export const internationalRelations: Topic = {
           correctIndex: 0,
           explanation:
             '日朝修好条規は江華島事件をきっかけに朝鮮を開国させた不平等条約です。',
+          difficulty: 'basic',
         },
         {
           id: 'q4',
@@ -151,6 +164,7 @@ export const internationalRelations: Topic = {
           correctIndex: 2,
           explanation:
             '樺太・千島交換条約で、樺太を放棄し千島列島すべてを日本領としました。',
+          difficulty: 'standard',
         },
         {
           id: 'q5',
@@ -159,6 +173,7 @@ export const internationalRelations: Topic = {
           correctIndex: 2,
           explanation:
             '琉球処分で清の反対を押し切って沖縄県を設置し、日本の領土としました。',
+          difficulty: 'standard',
         },
         {
           id: 'q6',
@@ -173,6 +188,7 @@ export const internationalRelations: Topic = {
           correctIndex: 1,
           explanation:
             '征韓論が否決されたことで西郷隆盛や板垣退助らは政府を去り、後の士族の反乱や自由民権運動につながりました。',
+          difficulty: 'standard',
         },
       ],
     },

@@ -43,7 +43,20 @@ export const eqFractions: Topic = {
       ],
     },
     videos: [],
-    flashcards: [],
+    flashcards: [
+      { id: 'math-g1-eq-f-fc1', front: '両辺を $10$ 倍、$100$ 倍して整数にしてから解く', back: '小数を含む方程式の解き方は？', difficulty: 'basic' },
+      { id: 'math-g1-eq-f-fc2', front: '小数第1位まで → $10$ 倍。小数第2位まで → $100$ 倍。', back: '何倍すれば小数がなくなる？', difficulty: 'basic' },
+      { id: 'math-g1-eq-f-fc3', front: '分母の最小公倍数を両辺にかけて分母をなくすこと', back: '「分母をはらう」とは？', difficulty: 'basic' },
+      { id: 'math-g1-eq-f-fc4', front: '$x = 6$（$10$ 倍して $5x = 30$、$x = 6$）', back: '$0.5x = 3$ の解は？', difficulty: 'basic' },
+      { id: 'math-g1-eq-f-fc5', front: '$x = 4$（$10$ 倍して $2x + 3 = 11$、$2x = 8$）', back: '$0.2x + 0.3 = 1.1$ の解は？', difficulty: 'basic' },
+      { id: 'math-g1-eq-f-fc6', front: '$x = 12$（両辺に $3$ をかけて $x = 12$）', back: '$\\dfrac{x}{3} = 4$ の解は？', difficulty: 'standard' },
+      { id: 'math-g1-eq-f-fc7', front: '$x = 6$（分母 $2,3$ の最小公倍数 $6$ を両辺にかけて $3x + 2x = 30$）', back: '$\\dfrac{x}{2} + \\dfrac{x}{3} = 5$ の解は？', difficulty: 'standard' },
+      { id: 'math-g1-eq-f-fc8', front: '分母の最小公倍数を求め、すべての項にもれなくかける', back: '分数の方程式を解くときのポイントは？', difficulty: 'standard' },
+      { id: 'math-g1-eq-f-fc9', front: '$x = 6$（$10$ 倍して $3x - 5 = 13$、$3x = 18$）', back: '$0.3x - 0.5 = 1.3$ の解は？', difficulty: 'standard' },
+      { id: 'math-g1-eq-f-fc10', front: '$x = 8$（最小公倍数 $6$ をかけて $2(2x-1) = 3(x+2)$、展開して $4x-2 = 3x+6$）', back: '$\\dfrac{2x-1}{3} = \\dfrac{x+2}{2}$ の解は？', difficulty: 'advanced' },
+      { id: 'math-g1-eq-f-fc11', front: '小数 → 整数化、分数 → 分母をはらう。最終目標は $ax = b$ の形にすること', back: '小数・分数の方程式の最終ゴールは？', difficulty: 'advanced' },
+      { id: 'math-g1-eq-f-fc12', front: '$x = 12$（最小公倍数 $12$ をかけて $3x - 2x = 12$）', back: '$\\dfrac{x}{4} - \\dfrac{x}{6} = 1$ の解は？', difficulty: 'advanced' },
+    ],
     quiz: {
       questions: [
         {
@@ -53,6 +66,7 @@ export const eqFractions: Topic = {
           correctIndex: 0,
           explanation:
             '両辺を 10倍すると $5x = 30$、$x = 6$。または直接 $x = \\dfrac{3}{0.5} = 6$。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g1-eq-fractions-q2',
@@ -61,6 +75,7 @@ export const eqFractions: Topic = {
           correctIndex: 1,
           explanation:
             '両辺を 10倍: $2x + 3 = 11$。移項して $2x = 8$、$x = 4$。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g1-eq-fractions-q3',
@@ -69,6 +84,7 @@ export const eqFractions: Topic = {
           correctIndex: 3,
           explanation:
             '両辺に 3 をかけると $x = 12$。確かめ: $\\dfrac{12}{3} = 4$ ✓',
+          difficulty: 'standard',
         },
         {
           id: 'math-g1-eq-fractions-q4',
@@ -77,6 +93,7 @@ export const eqFractions: Topic = {
           correctIndex: 2,
           explanation:
             '分母 2, 3 の最小公倍数 6 を両辺にかけると $3x + 2x = 30$、$5x = 30$、$x = 6$。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g1-eq-fractions-q5',
@@ -90,6 +107,7 @@ export const eqFractions: Topic = {
           correctIndex: 0,
           explanation:
             '分数の方程式は、まず分母の最小公倍数を両辺にかけて「分母をはらう」のがコツだよ。',
+          difficulty: 'advanced',
         },
       ],
     },

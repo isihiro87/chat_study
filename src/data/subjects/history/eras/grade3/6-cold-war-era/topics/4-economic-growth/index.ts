@@ -34,132 +34,20 @@ export const economicGrowth: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'fc1',
-        front: '高度経済成長',
-        back: '1950年代半ばから1970年代初めにかけて日本が経験した急速な経済発展を何という？',
-        explanation:
-          '年平均10%以上の経済成長を遂げ、GNPは世界第2位に。',
-      },
-      {
-        id: 'fc2',
-        front: '所得倍増',
-        back: '池田勇人首相が掲げた、10年間で国民所得を2倍にする計画は？',
-        explanation:
-          '1960年に発表され、高度経済成長を牽引した。',
-      },
-      {
-        id: 'fc3',
-        front: '重化学工業',
-        back: '高度経済成長期に発展した、鉄鋼・造船・化学などの工業は？',
-        explanation:
-          '太平洋ベルト地帯を中心に発展した。',
-      },
-      {
-        id: 'fc4',
-        front: 'エネルギー革命',
-        back: '高度経済成長期に起きた、主要エネルギー源が石炭から石油に変わったことを何という？',
-        explanation:
-          '石油の輸入が増大し、後の石油危機につながった。',
-      },
-      {
-        id: 'fc5',
-        front: '国民総生産（GNP）',
-        back: '一国の経済規模を示す指標で、日本が世界第2位になったものは？',
-        explanation:
-          '高度経済成長により日本はアメリカに次ぐ経済大国に。',
-      },
-      {
-        id: 'fc6',
-        front: 'テレビ・洗濯機・冷蔵庫',
-        back: '高度経済成長期に「三種の神器」と呼ばれた家電製品は？',
-        explanation:
-          '国民生活が豊かになった象徴的な製品。',
-      },
-      {
-        id: 'fc7',
-        front: '東海道新幹線',
-        back: '1964年に東京・大阪間で開通した、世界初の高速鉄道は？',
-        explanation:
-          '東京オリンピックに合わせて開通した。',
-      },
-      {
-        id: 'fc8',
-        front: '東京オリンピック',
-        back: '1964年にアジアで初めて開催されたオリンピックは？',
-        explanation:
-          '日本の戦後復興と経済成長を世界に示した。',
-      },
-      {
-        id: 'fc9',
-        front: '日本万国博覧会（大阪万博）',
-        back: '1970年に大阪で開催された、アジア初の万国博覧会は？',
-        explanation:
-          '「人類の進歩と調和」がテーマ。約6400万人が来場した。',
-      },
-      {
-        id: 'fc10',
-        front: '公害',
-        back: '急速な工業化により発生した、環境汚染による健康被害の問題を何という？',
-        explanation:
-          '水俣病やイタイイタイ病など深刻な被害が出た。',
-      },
-      {
-        id: 'fc11',
-        front: '公害対策基本法',
-        back: '1967年に制定された、公害防止のための基本的な法律は？',
-        explanation:
-          '公害問題の深刻化を受けて制定された。',
-      },
-      {
-        id: 'fc12',
-        front: '環境庁',
-        back: '1971年に公害対策のために設置された政府機関は？',
-        explanation:
-          '後に環境省に格上げされた。',
-      },
-      {
-        id: 'fc13',
-        front: 'イタイイタイ病',
-        back: '富山県の神通川流域で発生した、カドミウムが原因の公害病は？',
-        explanation:
-          '骨がもろくなり激しい痛みを伴う病気。',
-      },
-      {
-        id: 'fc14',
-        front: '水俣病',
-        back: '熊本県水俣市で発生した、有機水銀が原因の公害病は？',
-        explanation:
-          '工場排水に含まれる有機水銀が原因で、神経系が侵された。',
-      },
-      {
-        id: 'fc15',
-        front: '四日市ぜんそく',
-        back: '三重県四日市市で発生した、大気汚染が原因の公害病は？',
-        explanation:
-          '石油化学コンビナートからの排煙が原因。',
-      },
-      {
-        id: 'fc16',
-        front: '石油危機（オイル・ショック）',
-        back: '1973年に中東戦争をきっかけに石油価格が急騰した出来事は？',
-        explanation:
-          '高度経済成長が終わり、日本経済は安定成長期に移行した。',
-      },
-      {
-        id: 'fc17',
-        front: '貿易摩擦',
-        back: '日本の輸出増加により、アメリカなどとの間で生じた経済的な対立は？',
-        explanation:
-          '自動車や半導体などの分野で深刻化した。',
-      },
-      {
-        id: 'fc18',
-        front: '政府開発援助（ODA）',
-        back: '先進国が発展途上国に対して行う経済的・技術的な支援は？',
-        explanation:
-          '日本は経済大国としてODAを拡大した。',
-      },
+      { id: 'fc1', front: '高度経済成長', back: '1950年代半ばから1970年代初めにかけて日本が経験した急速な経済発展を何という？', difficulty: 'basic' },
+      { id: 'fc2', front: '所得倍増計画', back: '池田勇人首相が掲げた、10年間で国民所得を2倍にする計画は？', difficulty: 'basic' },
+      { id: 'fc3', front: '三種の神器', back: '高度経済成長期に普及したテレビ・洗濯機・冷蔵庫の総称は？', difficulty: 'basic' },
+      { id: 'fc4', front: '東海道新幹線', back: '1964年に東京・大阪間で開通した、世界初の高速鉄道は？', difficulty: 'basic' },
+      { id: 'fc5', front: '東京オリンピック', back: '1964年にアジアで初めて開催されたオリンピックは？', difficulty: 'basic' },
+      { id: 'fc6', front: '水俣病', back: '熊本県水俣市で発生した、有機水銀が原因の公害病は？', difficulty: 'standard' },
+      { id: 'fc7', front: 'イタイイタイ病', back: '富山県の神通川流域で発生した、カドミウムが原因の公害病は？', difficulty: 'standard' },
+      { id: 'fc8', front: '四日市ぜんそく', back: '三重県四日市市で発生した、大気汚染が原因の公害病は？', difficulty: 'standard' },
+      { id: 'fc9', front: 'エネルギー革命', back: '高度経済成長期に起きた、主要エネルギー源が石炭から石油に変わったことを何という？', difficulty: 'standard' },
+      { id: 'fc10', front: '石油危機（オイル・ショック）', back: '1973年に中東戦争をきっかけに石油価格が急騰し、高度経済成長が終わった出来事は？', difficulty: 'standard' },
+      { id: 'fc11', front: '公害対策基本法', back: '1967年に制定された、公害防止のための基本的な法律は？', difficulty: 'standard' },
+      { id: 'fc12', front: '日本万国博覧会（大阪万博）', back: '1970年に大阪で開催された、アジア初の万国博覧会は？', difficulty: 'standard' },
+      { id: 'fc13', front: '高度経済成長の光と影', back: '高度経済成長がもたらした負の側面は何か？', explanation: '急速な工業化により水俣病・イタイイタイ病・四日市ぜんそくなどの深刻な公害問題が発生した。', difficulty: 'advanced' },
+      { id: 'fc14', front: '政府開発援助（ODA）', back: '経済大国となった日本が発展途上国に対して行う経済的・技術的な支援は？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -176,6 +64,7 @@ export const economicGrowth: Topic = {
           correctIndex: 2,
           explanation:
             'テレビ・洗濯機・冷蔵庫は「三種の神器」と呼ばれ、高度経済成長期に家庭に普及しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -190,6 +79,7 @@ export const economicGrowth: Topic = {
           correctIndex: 3,
           explanation:
             '1973年の中東戦争をきっかけに産油国が石油価格を大幅に引き上げ、石油危機が起こりました。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -204,6 +94,7 @@ export const economicGrowth: Topic = {
           correctIndex: 0,
           explanation:
             '水俣病は工場排水に含まれる有機水銀が原因で発生した公害病です。',
+          difficulty: 'basic',
         },
         {
           id: 'q4',
@@ -218,6 +109,7 @@ export const economicGrowth: Topic = {
           correctIndex: 1,
           explanation:
             '東海道新幹線は1964年の東京オリンピックに合わせて開通し、日本の技術力を世界に示しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q5',
@@ -232,6 +124,7 @@ export const economicGrowth: Topic = {
           correctIndex: 0,
           explanation:
             '池田勇人首相が掲げた所得倍増計画のもと、高度経済成長が加速しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q6',
@@ -246,6 +139,7 @@ export const economicGrowth: Topic = {
           correctIndex: 2,
           explanation:
             'エネルギー革命により石油の輸入が増大し、後の石油危機の遠因にもなりました。',
+          difficulty: 'standard',
         },
       ],
     },

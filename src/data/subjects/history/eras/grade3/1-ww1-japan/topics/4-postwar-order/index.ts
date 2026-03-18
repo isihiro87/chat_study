@@ -44,66 +44,16 @@ export const postwarOrder: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'fc1',
-        front: 'パリ講和会議',
-        back: '1919年に第一次世界大戦の講和のために開かれた国際会議は？',
-        explanation: 'ベルサイユ条約が結ばれた。',
-      },
-      {
-        id: 'fc2',
-        front: 'ベルサイユ条約',
-        back: 'パリ講和会議で敗戦国ドイツに対して結ばれた講和条約は？',
-        explanation: '多額の賠償金や領土の割譲がドイツに課された。',
-      },
-      {
-        id: 'fc3',
-        front: '国際連盟',
-        back: '第一次世界大戦後に世界平和を目指して設立された国際機関は？',
-        explanation: '日本はイギリス・フランス・イタリアとともに常任理事国だった。',
-      },
-      {
-        id: 'fc4',
-        front: '民族自決',
-        back: '民族が自分たちのことを自分たちで決める権利という考え方は？',
-        explanation: 'ウィルソン大統領が提唱したが、アジアには適用されなかった。',
-      },
-      {
-        id: 'fc5',
-        front: '三・一独立運動',
-        back: '1919年に朝鮮で起きた、日本からの独立を求める運動は？',
-        explanation: '民族自決の影響を受けた大規模な独立運動。',
-      },
-      {
-        id: 'fc6',
-        front: '五・四運動',
-        back: '1919年に中国で起きた、日本の二十一か条の要求撤廃などを求めた運動は？',
-        explanation: 'パリ講和会議で山東省の権益が日本に渡ることへの抗議から始まった。',
-      },
-      {
-        id: 'fc7',
-        front: 'ガンディー',
-        back: 'インドで非暴力・不服従運動を指導した指導者は？',
-        explanation: 'イギリスからの独立を目指して活動した。',
-      },
-      {
-        id: 'fc8',
-        front: '非暴力・不服従',
-        back: 'ガンディーが唱えた、暴力を使わずに不当な支配に従わない運動方法は？',
-        explanation: 'インドの独立運動の基本方針となった。',
-      },
-      {
-        id: 'fc9',
-        front: 'ウィルソン',
-        back: '民族自決を提唱したアメリカの大統領は？',
-        explanation: '国際連盟の設立も提唱したが、アメリカ自身は不参加だった。',
-      },
-      {
-        id: 'fc10',
-        front: '常任理事国',
-        back: '国際連盟で日本が就任した、主要国に与えられた役職は？',
-        explanation: '日本・イギリス・フランス・イタリアの4か国が常任理事国だった。',
-      },
+      { id: 'fc1', front: 'パリ講和会議', back: '1919年に第一次世界大戦の講和のために開かれた国際会議は？', difficulty: 'basic' },
+      { id: 'fc2', front: 'ベルサイユ条約', back: 'パリ講和会議で敗戦国ドイツに対して結ばれた講和条約は？', explanation: '多額の賠償金や領土の割譲がドイツに課された。', difficulty: 'basic' },
+      { id: 'fc3', front: '国際連盟', back: '第一次世界大戦後に世界平和を目指して設立された国際機関は？', explanation: '日本はイギリス・フランス・イタリアとともに常任理事国だった。', difficulty: 'basic' },
+      { id: 'fc4', front: '民族自決', back: '民族が自分たちのことを自分たちで決める権利という考え方は？', explanation: 'ウィルソン大統領が提唱したが、アジアには適用されなかった。', difficulty: 'basic' },
+      { id: 'fc5', front: '三・一独立運動', back: '1919年に朝鮮で起きた、日本からの独立を求める運動は？', difficulty: 'standard' },
+      { id: 'fc6', front: '五・四運動', back: '1919年に中国で起きた、日本の二十一か条の要求撤廃などを求めた運動は？', explanation: 'パリ講和会議で山東省の権益が日本に渡ることへの抗議から始まった。', difficulty: 'standard' },
+      { id: 'fc7', front: 'ガンディー', back: 'インドで非暴力・不服従運動を指導した指導者は？', difficulty: 'standard' },
+      { id: 'fc8', front: 'ウィルソン', back: '民族自決を提唱したアメリカの大統領は？', explanation: '国際連盟の設立も提唱したが、アメリカ自身は不参加だった。', difficulty: 'standard' },
+      { id: 'fc9', front: '非暴力・不服従', back: 'ガンディーが唱えた、暴力を使わずに不当な支配に従わない運動方法は？', difficulty: 'advanced' },
+      { id: 'fc10', front: '民族自決の限界', back: 'ウィルソンが提唱した民族自決が東ヨーロッパでは実現したのに、アジア・アフリカでは適用されなかったのはなぜか？', explanation: '列強が植民地の独立を認めず、民族自決はヨーロッパ限定にとどまった。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -119,6 +69,7 @@ export const postwarOrder: Topic = {
           correctIndex: 3,
           explanation:
             '1919年のパリ講和会議でベルサイユ条約が結ばれ、ドイツに厳しい条件が課されました。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -132,6 +83,7 @@ export const postwarOrder: Topic = {
           correctIndex: 1,
           explanation:
             '三・一独立運動は1919年3月1日に始まった朝鮮の大規模な独立運動です。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -140,6 +92,7 @@ export const postwarOrder: Topic = {
           correctIndex: 0,
           explanation:
             'ガンディーは非暴力・不服従の手段でイギリスからの独立を目指しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q4',
@@ -149,6 +102,7 @@ export const postwarOrder: Topic = {
           correctIndex: 2,
           explanation:
             '国際連盟は第一次世界大戦後に設立され、日本はイギリス・フランス・イタリアとともに常任理事国でした。',
+          difficulty: 'standard',
         },
         {
           id: 'q5',
@@ -162,6 +116,7 @@ export const postwarOrder: Topic = {
           correctIndex: 0,
           explanation:
             '五・四運動は、パリ講和会議で山東省の権益が日本に渡ることへの抗議から始まりました。',
+          difficulty: 'advanced',
         },
       ],
     },

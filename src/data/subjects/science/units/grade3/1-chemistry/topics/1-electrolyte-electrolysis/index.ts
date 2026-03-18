@@ -171,62 +171,68 @@ export const electrolyteElectrolysis: Topic = {
         front: '電解質',
         back: '水に溶かすと電流が流れる物質を何という？',
         explanation: '塩化ナトリウムや塩化水素などが電解質。水に溶けるとイオンに分かれる。',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-ee-fc2',
         front: '非電解質',
         back: '水に溶かしても電流が流れない物質を何という？',
         explanation: '砂糖やエタノールなどが非電解質。水に溶けてもイオンにならない。',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-ee-fc3',
         front: '陰極に銅、陽極に塩素',
         back: '塩化銅水溶液を電気分解すると、それぞれの極に何が現れる？',
         explanation: 'Cu²⁺が陰極で銅に、Cl⁻が陽極で塩素ガスになる。',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-ee-fc4',
         front: '電離',
         back: '電解質が水に溶けて陽イオンと陰イオンに分かれることを何という？',
         explanation: '例：NaCl → Na⁺ + Cl⁻',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-ee-fc5',
         front: 'CuCl₂ → Cu + Cl₂',
         back: '塩化銅水溶液の電気分解を化学反応式で書くと？',
         explanation: '塩化銅が銅と塩素に分解される。陰極に銅が付着し、陽極から塩素が発生する。',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-ee-fc6',
         front: '陰極に水素、陽極に塩素',
         back: '塩酸を電気分解すると、それぞれの極から何が発生する？',
         explanation: '陰極の水素はマッチの火でポンと音がする。陽極の塩素は刺激臭があり漂白作用がある。',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-ee-fc7',
         front: '陽極',
         back: '電源装置の＋極につないだ電極を何という？',
         explanation: '陰イオン（Cl⁻など）が引きつけられる電極。',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-ee-fc8',
         front: '陰極',
         back: '電源装置の−極につないだ電極を何という？',
         explanation: '陽イオン（Cu²⁺、H⁺など）が引きつけられる電極。',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-ee-fc9',
-        front: 'スポーツドリンクは電気を通す',
+        front: 'ナトリウムイオンやカリウムイオンなどの電解質がイオンとして溶けているから',
         back: 'スポーツドリンクに電流が流れるのはなぜ？',
-        explanation:
-          'ナトリウムイオンやカリウムイオンなど、電解質が溶けてイオンが含まれているため。',
+        difficulty: 'standard',
       },
       {
         id: 'sci3-ee-fc10',
-        front: 'レモン汁は電気を通す',
+        front: 'クエン酸などの電解質が水中でイオンに電離しているから',
         back: 'レモン汁に電流が流れるのはなぜ？',
-        explanation:
-          'クエン酸などの電解質が含まれており、水中でイオンに電離しているため。',
+        difficulty: 'standard',
       },
       {
         id: 'sci3-ee-fc11',
@@ -234,6 +240,7 @@ export const electrolyteElectrolysis: Topic = {
         back: '電解質の水溶液に電流を流して物質を分解することを何という？',
         explanation:
           '電源装置の＋極側が陽極、−極側が陰極。イオンがそれぞれの電極に引きつけられて反応する。',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-ee-fc12',
@@ -241,6 +248,7 @@ export const electrolyteElectrolysis: Topic = {
         back: '塩酸の電気分解で使用する、陰極側と陽極側の気体を別々に集められる装置は？',
         explanation:
           'H字の形をしたガラス管。両方の管の上部に気体がたまる構造になっている。',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-ee-fc13',
@@ -248,6 +256,7 @@ export const electrolyteElectrolysis: Topic = {
         back: '塩化銅水溶液の電気分解で、陰極での変化をイオン式で表すと？',
         explanation:
           '銅イオンが陰極に引きつけられ、電子を2個受け取って銅原子になり電極に付着する。',
+        difficulty: 'standard',
       },
       {
         id: 'sci3-ee-fc14',
@@ -255,6 +264,7 @@ export const electrolyteElectrolysis: Topic = {
         back: '塩化銅水溶液の電気分解で、陽極での変化をイオン式で表すと？',
         explanation:
           '塩化物イオンが陽極に引きつけられ、電子を失って塩素ガスになる。',
+        difficulty: 'standard',
       },
       {
         id: 'sci3-ee-fc15',
@@ -262,6 +272,7 @@ export const electrolyteElectrolysis: Topic = {
         back: '塩素がもつ、色素を分解して脱色する性質を何という？',
         explanation:
           '赤インクで着色した水の色が消える。プールの消毒にも利用される。',
+        difficulty: 'standard',
       },
       {
         id: 'sci3-ee-fc16',
@@ -269,6 +280,7 @@ export const electrolyteElectrolysis: Topic = {
         back: '塩化銅を電気分解したとき、陰極に付着した銅と陽極で発生した塩素の質量比は？',
         explanation:
           '銅が5.0g付着したとき、塩素は5.5g発生する。',
+        difficulty: 'standard',
       },
       {
         id: 'sci3-ee-fc17',
@@ -276,6 +288,7 @@ export const electrolyteElectrolysis: Topic = {
         back: '塩酸の電気分解を化学反応式で書くと？',
         explanation:
           '塩酸（塩化水素の水溶液）が水素と塩素に分解される。',
+        difficulty: 'standard',
       },
       {
         id: 'sci3-ee-fc18',
@@ -283,56 +296,69 @@ export const electrolyteElectrolysis: Topic = {
         back: '塩酸の電気分解で、陰極と陽極で集まる気体の量に差があるのはなぜ？',
         explanation:
           '塩素は水に溶けやすい性質があるため、一部が水に溶けて陽極側の気体の量が少なくなる。',
+        difficulty: 'standard',
       },
       {
         id: 'sci3-ee-fc19',
-        front: '蒸留水には電流が流れない',
+        front: 'イオンが存在しないため、電気を運ぶ粒子がないから',
         back: '蒸留水（純水）に電流が流れない理由は？',
+        difficulty: 'standard',
       },
       {
         id: 'sci3-ee-fc20',
-        front: '電解質の例：塩化水素（HCl）',
+        front: '電解質（水に溶けるとH⁺とCl⁻に電離する）',
         back: '塩化水素は電解質？非電解質？',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-ee-fc21',
-        front: '非電解質の例：デンプン',
+        front: '非電解質（水に溶けてもイオンにならない）',
         back: 'デンプンは電解質？非電解質？',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-ee-fc22',
         front: 'NaCl → Na⁺ + Cl⁻',
         back: '塩化ナトリウムの電離式を書くと？',
+        difficulty: 'standard',
       },
       {
         id: 'sci3-ee-fc23',
-        front: '赤色の固体が付着する',
+        front: '赤色の固体（銅）が付着する',
         back: '塩化銅水溶液の電気分解で、陰極に現れる物質の色と状態は？',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-ee-fc24',
-        front: '刺激臭がある気体',
+        front: '刺激臭があり漂白作用をもつ気体（塩素）',
         back: '塩化銅水溶液の電気分解で、陽極から発生する気体の特徴は？',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-ee-fc25',
-        front: 'ポンと音を立てて燃える',
+        front: '火のついたマッチを近づけるとポンと音を立てて燃える',
         back: '水素の確認方法は？',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-ee-fc26',
         front: '炭素棒（黒鉛）',
         back: '電気分解の実験で電極に使われる物質は何？',
+        explanation: '電気をよく通し、化学反応に関与しにくいため電極に適している。',
+        difficulty: 'standard',
       },
       {
         id: 'sci3-ee-fc27',
         front: 'HCl → H⁺ + Cl⁻',
         back: '塩化水素の電離式を書くと？',
+        difficulty: 'standard',
       },
       {
         id: 'sci3-ee-fc28',
-        front: 'イオンが存在しないから',
-        back: '蒸留水に電流が流れない理由をイオンの観点から説明すると？',
+        front: '塩化銅水溶液の青色はCu²⁺（銅イオン）の色',
+        back: '塩化銅水溶液が青色をしている理由は？',
+        explanation: '電気分解でCu²⁺が減ると青色がうすくなる。',
+        difficulty: 'standard',
       },
     ],
     quiz: {
@@ -344,7 +370,8 @@ export const electrolyteElectrolysis: Topic = {
           correctIndex: 3,
           explanation:
             '塩化ナトリウム（NaCl）は水に溶けるとNa⁺とCl⁻に電離するため、電解質です。砂糖・エタノール・デンプンは非電解質です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci3-ee-q2',
           question: '塩化銅水溶液を電気分解したとき、陰極に現れる物質は？',
@@ -352,7 +379,8 @@ export const electrolyteElectrolysis: Topic = {
           correctIndex: 2,
           explanation:
             '陰極にはCu²⁺が引きつけられ、電子を受け取って銅（赤色の固体）が付着します。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci3-ee-q3',
           question: '塩酸を電気分解したとき、陰極から発生する気体は？',
@@ -360,7 +388,8 @@ export const electrolyteElectrolysis: Topic = {
           correctIndex: 1,
           explanation:
             '塩酸の電気分解では、陰極から水素が発生します。火のついたマッチを近づけるとポンと音を立てて燃えます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci3-ee-q4',
           question: '塩化銅水溶液の電気分解を長時間続けると、水溶液の色はどうなる？',
@@ -373,7 +402,8 @@ export const electrolyteElectrolysis: Topic = {
           correctIndex: 0,
           explanation:
             '水溶液中の銅イオン（Cu²⁺）が陰極で銅になって減少するため、青色がしだいにうすくなります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci3-ee-q5',
           question: '電解質の水溶液に電流が流れる理由として正しいものは？',
@@ -386,7 +416,8 @@ export const electrolyteElectrolysis: Topic = {
           correctIndex: 3,
           explanation:
             '電解質が水に溶けて電離し、生じた陽イオンと陰イオンが電気を運ぶため電流が流れます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci3-ee-q6',
           question: '塩酸の電気分解の化学反応式として正しいものは？',
@@ -399,7 +430,8 @@ export const electrolyteElectrolysis: Topic = {
           correctIndex: 0,
           explanation:
             '塩酸（HCl）を電気分解すると水素（H₂）と塩素（Cl₂）が発生します。原子の数を合わせるため左辺は2HClとなります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci3-ee-q7',
           question: '次のうち、非電解質はどれ？',
@@ -407,7 +439,8 @@ export const electrolyteElectrolysis: Topic = {
           correctIndex: 2,
           explanation:
             'エタノールは水に溶けてもイオンに分かれない非電解質です。塩化水素・水酸化ナトリウム・硫酸はいずれも電解質です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci3-ee-q8',
           question:
@@ -421,7 +454,8 @@ export const electrolyteElectrolysis: Topic = {
           correctIndex: 1,
           explanation:
             '陽極から発生する塩素には漂白作用があり、赤インクで着色した水の色が消えます。マッチの火でポンと音がするのは水素（陰極側）の確認方法です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci3-ee-q9',
           question:
@@ -435,7 +469,8 @@ export const electrolyteElectrolysis: Topic = {
           correctIndex: 2,
           explanation:
             '陰極ではCu²⁺（銅イオン）が電子を2個受け取り、銅原子（Cu）になって電極に付着します。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci3-ee-q10',
           question: '蒸留水に電流が流れない理由として正しいものは？',
@@ -448,7 +483,8 @@ export const electrolyteElectrolysis: Topic = {
           correctIndex: 1,
           explanation:
             '蒸留水にはイオンが存在しないため、電気を運ぶ粒子がなく電流が流れません。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci3-ee-q11',
           question: '塩化銅水溶液の電気分解で、陽極でのイオンの変化として正しいものは？',
@@ -461,7 +497,8 @@ export const electrolyteElectrolysis: Topic = {
           correctIndex: 1,
           explanation:
             '陽極ではCl⁻（塩化物イオン）が電子を失い、塩素ガス（Cl₂）として発生します。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci3-ee-q12',
           question: '次のうち、電解質の水溶液をすべて選んだ組み合わせはどれ？',
@@ -474,7 +511,8 @@ export const electrolyteElectrolysis: Topic = {
           correctIndex: 2,
           explanation:
             '食塩（NaCl）と塩酸（HCl）はどちらも電解質です。砂糖とエタノールは非電解質です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci3-ee-q13',
           question: '塩化銅水溶液の電気分解で、電源の＋極につないだ電極を何という？',
@@ -482,7 +520,8 @@ export const electrolyteElectrolysis: Topic = {
           correctIndex: 3,
           explanation:
             '電源の＋極につないだ電極を陽極、−極につないだ電極を陰極といいます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci3-ee-q14',
           question: '塩化銅水溶液が青色をしている理由は？',
@@ -495,7 +534,8 @@ export const electrolyteElectrolysis: Topic = {
           correctIndex: 1,
           explanation:
             '塩化銅水溶液の青色はCu²⁺（銅イオン）の色です。電気分解でCu²⁺が減ると青色がうすくなります。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci3-ee-q15',
           question: '塩酸の電気分解で使用するH字管の役割は？',
@@ -508,7 +548,8 @@ export const electrolyteElectrolysis: Topic = {
           correctIndex: 2,
           explanation:
             'H字管はH字の形をしたガラス管で、陰極側と陽極側で発生する気体を別々に集めることができます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci3-ee-q16',
           question: '電解質が水に溶けてイオンに分かれることを何という？',
@@ -516,7 +557,8 @@ export const electrolyteElectrolysis: Topic = {
           correctIndex: 3,
           explanation:
             '電解質が水に溶けて陽イオンと陰イオンに分かれることを電離といいます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci3-ee-q17',
           question: '塩化銅を電気分解したとき、陰極に銅が5.0g付着した。発生した塩素は何g？（銅：塩素＝10：11）',
@@ -524,7 +566,8 @@ export const electrolyteElectrolysis: Topic = {
           correctIndex: 2,
           explanation:
             '銅：塩素＝10：11なので、5.0×11÷10＝5.5gの塩素が発生します。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci3-ee-q18',
           question: '次のうち、電気分解の説明として正しいものは？',
@@ -537,7 +580,8 @@ export const electrolyteElectrolysis: Topic = {
           correctIndex: 1,
           explanation:
             '電気分解とは、電解質の水溶液に電流を流して化学変化を起こし、物質を分解することです。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci3-ee-q19',
           question: 'スポーツドリンクに電流が流れるのはなぜ？',
@@ -550,7 +594,8 @@ export const electrolyteElectrolysis: Topic = {
           correctIndex: 1,
           explanation:
             'スポーツドリンクにはNa⁺やK⁺などの電解質が含まれ、イオンが電気を運ぶため電流が流れます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci3-ee-q20',
           question: '塩酸の電気分解の化学反応式 2HCl → H₂ + Cl₂ で、左辺を2HClとする理由は？',
@@ -563,7 +608,8 @@ export const electrolyteElectrolysis: Topic = {
           correctIndex: 1,
           explanation:
             '右辺のH₂にはH原子2個、Cl₂にはCl原子2個が含まれるため、左辺も2HCl（H原子2個、Cl原子2個）にして原子の数を合わせます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci3-ee-q21',
           question: '塩化銅の電気分解で陽極に引きつけられるイオンは？',
@@ -571,7 +617,8 @@ export const electrolyteElectrolysis: Topic = {
           correctIndex: 2,
           explanation:
             '陽極（＋極）には陰イオンであるCl⁻（塩化物イオン）が引きつけられます。Cu²⁺は陰極に引きつけられます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci3-ee-q22',
           question: 'レモン汁に電流が流れる理由として正しいものは？',
@@ -584,7 +631,8 @@ export const electrolyteElectrolysis: Topic = {
           correctIndex: 2,
           explanation:
             'レモン汁にはクエン酸などの電解質が含まれ、水中でイオンに電離しているため電流が流れます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci3-ee-q23',
           question: '塩化銅水溶液の電気分解で、陰極に引きつけられるイオンは？',
@@ -592,7 +640,8 @@ export const electrolyteElectrolysis: Topic = {
           correctIndex: 2,
           explanation:
             '陰極（−極）には陽イオンであるCu²⁺（銅イオン）が引きつけられ、電子を受け取って銅になります。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci3-ee-q24',
           question: '次のうち、塩酸の電気分解で陽極から発生する塩素の性質として正しいものは？',
@@ -605,7 +654,8 @@ export const electrolyteElectrolysis: Topic = {
           correctIndex: 2,
           explanation:
             '塩素は刺激臭があり、漂白作用（色素を分解する）をもつ気体です。水に溶けやすい性質もあります。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci3-ee-q25',
           question: '塩化銅の電気分解の化学反応式として正しいものは？',
@@ -618,7 +668,8 @@ export const electrolyteElectrolysis: Topic = {
           correctIndex: 1,
           explanation:
             '塩化銅水溶液の電気分解では CuCl₂ → Cu + Cl₂ の反応が起きます。陰極に銅、陽極に塩素が発生します。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci3-ee-q26',
           question: '塩化銅水溶液を電気分解したとき、陰極に付着した銅が10gだった。発生した塩素は何g？（銅：塩素＝10：11）',
@@ -626,7 +677,8 @@ export const electrolyteElectrolysis: Topic = {
           correctIndex: 2,
           explanation:
             '銅：塩素＝10：11なので、10×11÷10＝11gの塩素が発生します。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci3-ee-q27',
           question: '電気分解の実験で電極に炭素棒（黒鉛）を使う理由は？',
@@ -639,7 +691,8 @@ export const electrolyteElectrolysis: Topic = {
           correctIndex: 1,
           explanation:
             '炭素棒は電気をよく通し、電気分解の反応で自身が溶けたり反応したりしにくいため電極に適しています。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci3-ee-q28',
           question: '塩酸の電気分解で、水素のほうが塩素より多く集まる理由は？',
@@ -652,7 +705,8 @@ export const electrolyteElectrolysis: Topic = {
           correctIndex: 2,
           explanation:
             '塩素は水に溶けやすい性質があるため、発生した塩素の一部が水に溶けて陽極側の気体の量が少なくなります。',
-        },
+        difficulty: 'advanced',
+      },
       ],
     },
     examples: {

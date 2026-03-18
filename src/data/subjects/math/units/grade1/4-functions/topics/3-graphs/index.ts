@@ -54,22 +54,20 @@ export const funcGraphs: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'math-g1-graphs-fc1',
-        front: 'グラフ上の点 $(x, y)$ を読み取り、$a = \\frac{y}{x}$ で比例定数を求める', back: 'グラフから比例の式を求めるには？',
-      },
-      {
-        id: 'math-g1-graphs-fc2',
-        front: '比例の関係（道のり $= $ 速さ $\\times$ 時間）', back: '速さ一定のとき、道のりと時間はどんな関係？',
-      },
-      {
-        id: 'math-g1-graphs-fc3',
-        front: '反比例の関係（縦 $\\times$ 横 $=$ 面積で積が一定）', back: '面積一定の長方形で縦と横はどんな関係？',
-      },
-      {
-        id: 'math-g1-graphs-fc4',
-        front: '$\\frac{y}{x}$ が一定なら比例、$xy$ が一定なら反比例', back: '比例か反比例かの見分け方は？',
-      },
+      { id: 'math-g1-graphs-fc1', front: 'グラフ上の点 $(x, y)$ を読み取り、$a = \\frac{y}{x}$ で比例定数を求める', back: 'グラフから比例の式を求めるには？', difficulty: 'basic' },
+      { id: 'math-g1-graphs-fc2', front: '比例の関係（道のり $=$ 速さ $\\times$ 時間）', back: '速さ一定のとき、道のりと時間はどんな関係？', difficulty: 'basic' },
+      { id: 'math-g1-graphs-fc3', front: '代金 $=$ 単価 $\\times$ 個数（比例の関係）', back: '単価一定のとき、代金と個数はどんな関係？', difficulty: 'basic' },
+      { id: 'math-g1-graphs-fc4', front: '$y = 3x$（$a = \\frac{12}{4} = 3$）', back: '比例のグラフが点 $(4, 12)$ を通るとき、式は？', difficulty: 'basic' },
+      { id: 'math-g1-graphs-fc5', front: '$y = 60x$（道のり $=$ 速さ $\\times$ 時間）', back: '時速 $60$ km で走る車の $x$ 時間後の道のり $y$ の式は？', difficulty: 'basic' },
+      { id: 'math-g1-graphs-fc6', front: 'グラフ上の点 $(x, y)$ を読み取り、$a = xy$ で比例定数を求める', back: 'グラフから反比例の式を求めるには？', difficulty: 'basic' },
+      { id: 'math-g1-graphs-fc7', front: '反比例の関係（縦 $\\times$ 横 $=$ 面積で積が一定）', back: '面積一定の長方形で縦と横はどんな関係？', difficulty: 'standard' },
+      { id: 'math-g1-graphs-fc8', front: '$\\frac{y}{x}$ が一定なら比例、$xy$ が一定なら反比例', back: '比例か反比例かの見分け方は？', difficulty: 'standard' },
+      { id: 'math-g1-graphs-fc9', front: '仕事量一定のとき、人数 $\\times$ 日数 $=$ 一定（反比例）', back: '仕事量の問題で、人数と日数はどんな関係？', difficulty: 'standard' },
+      { id: 'math-g1-graphs-fc10', front: 'まず表を作って $x$ と $y$ の関係を整理し、$\\frac{y}{x}$ か $xy$ のどちらが一定か調べる', back: '問題が比例か反比例か判断する方法は？', difficulty: 'standard' },
+      { id: 'math-g1-graphs-fc11', front: '$y = \\frac{60}{x}$（$xy = 60$ → 反比例）。$x = 20$ のとき $y = 3$ 日。', back: '$12$ 人で $5$ 日の仕事を $20$ 人ですると何日？', difficulty: 'standard' },
+      { id: 'math-g1-graphs-fc12', front: 'グラフを使って途中の値を読み取ったり、未知の値を予測できる', back: 'グラフを使う利点は？', difficulty: 'standard' },
+      { id: 'math-g1-graphs-fc13', front: '2つのグラフの交点を読み取ることで、両方の条件を同時に満たす値がわかる', back: '2つのグラフの交点は何を表す？', difficulty: 'advanced' },
+      { id: 'math-g1-graphs-fc14', front: '$6$ cm（$\\frac{48}{8} = 6$。面積一定の反比例の問題）', back: '面積 $48$ cm$^2$ の長方形で縦 $8$ cm のとき横は？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -86,6 +84,7 @@ export const funcGraphs: Topic = {
           correctIndex: 0,
           explanation:
             '$a = \\frac{y}{x} = \\frac{12}{4} = \\textcolor{#D97706}{3}$ なので $y = 3x$ だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g1-graphs-q2',
@@ -100,6 +99,7 @@ export const funcGraphs: Topic = {
           correctIndex: 2,
           explanation:
             '道のり $=$ 速さ $\\times$ 時間 だから $y = 60x$（比例）だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g1-graphs-q3',
@@ -114,6 +114,7 @@ export const funcGraphs: Topic = {
           correctIndex: 1,
           explanation:
             '歯車では 歯数$\\times$回転数 が一定。$20 \\times y = x \\times 10$ より $y = \\frac{10x}{20} = \\frac{x}{2}$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g1-graphs-q4',
@@ -128,6 +129,7 @@ export const funcGraphs: Topic = {
           correctIndex: 3,
           explanation:
             '$xy$ を計算すると $1 \\times 12 = 2 \\times 6 = 3 \\times 4 = 6 \\times 2 = \\textcolor{#D97706}{12}$ で一定。反比例だよ！',
+          difficulty: 'standard',
         },
         {
           id: 'math-g1-graphs-q5',
@@ -142,6 +144,7 @@ export const funcGraphs: Topic = {
           correctIndex: 0,
           explanation:
             '横 $= \\frac{48}{8} = \\textcolor{#D97706}{6}\\text{cm}$ だよ。面積一定の反比例の問題だね。',
+          difficulty: 'advanced',
         },
       ],
     },

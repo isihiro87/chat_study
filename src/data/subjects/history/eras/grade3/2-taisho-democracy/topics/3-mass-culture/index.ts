@@ -44,66 +44,16 @@ export const massCulture: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'fc1',
-        front: 'ラジオ放送',
-        back: '1925年に日本で始まった、音声による新しいメディアは？',
-        explanation: '全国の家庭にニュースや音楽、娯楽を届けた。',
-      },
-      {
-        id: 'fc2',
-        front: '文化住宅',
-        back: '大正時代に都市部で広まった洋風の住宅を何という？',
-        explanation: '和洋折衷の生活スタイルが定着した。',
-      },
-      {
-        id: 'fc3',
-        front: '洋食',
-        back: 'カレーライスやコロッケなど、大正時代に庶民に定着した食文化は？',
-        explanation: '和食に加えて洋風の食事が身近になった。',
-      },
-      {
-        id: 'fc4',
-        front: 'バスガール',
-        back: '大正時代に登場した、女性の社会進出を象徴する職業の一つは？',
-        explanation: 'バスの車掌として働く女性のこと。',
-      },
-      {
-        id: 'fc5',
-        front: '芥川龍之介',
-        back: '「羅生門」「鼻」など知的な短編小説を書いた作家は？',
-        explanation: '大正文学を代表する作家の一人。',
-      },
-      {
-        id: 'fc6',
-        front: '志賀直哉',
-        back: '「暗夜行路」などの名作を残した作家は？',
-        explanation: '「小説の神様」と呼ばれた。',
-      },
-      {
-        id: 'fc7',
-        front: '小林多喜二',
-        back: '「蟹工船」を書いたプロレタリア文学の作家は？',
-        explanation: '労働者の苦しい生活を描いた。',
-      },
-      {
-        id: 'fc8',
-        front: 'プロレタリア文学',
-        back: '労働者や農民の生活を描き、社会の矛盾を告発する文学は？',
-        explanation: '小林多喜二の「蟹工船」が代表作。',
-      },
-      {
-        id: 'fc9',
-        front: '関東大震災',
-        back: '1923年に東京・横浜に壊滅的な被害をもたらした大地震は？',
-        explanation: '復興を通じて都市の近代化がさらに進んだ。',
-      },
-      {
-        id: 'fc10',
-        front: '野球',
-        back: '大正時代に国民的スポーツとして定着した球技は？',
-        explanation: '中等学校の全国大会も始まり、人気が高まった。',
-      },
+      { id: 'fc1', front: 'ラジオ放送', back: '1925年に日本で始まった、音声による新しいメディアは？', difficulty: 'basic' },
+      { id: 'fc2', front: '文化住宅', back: '大正時代に都市部で広まった洋風の住宅を何という？', difficulty: 'basic' },
+      { id: 'fc3', front: '関東大震災', back: '1923年に東京・横浜に壊滅的な被害をもたらした大地震は？', explanation: '復興を通じて都市の近代化がさらに進んだ。', difficulty: 'basic' },
+      { id: 'fc4', front: '芥川龍之介', back: '「羅生門」「鼻」など知的な短編小説を書いた大正時代の作家は？', difficulty: 'basic' },
+      { id: 'fc5', front: '小林多喜二', back: '「蟹工船」を書いたプロレタリア文学の作家は？', difficulty: 'standard' },
+      { id: 'fc6', front: 'プロレタリア文学', back: '労働者や農民の生活を描き、社会の矛盾を告発する文学は？', explanation: '小林多喜二の「蟹工船」が代表作。', difficulty: 'standard' },
+      { id: 'fc7', front: '志賀直哉', back: '「暗夜行路」などの名作を残し、「小説の神様」と呼ばれた作家は？', difficulty: 'standard' },
+      { id: 'fc8', front: '大衆文化', back: '大正時代に新聞・雑誌・映画・ラジオなどを通じて広まった文化を何という？', difficulty: 'standard' },
+      { id: 'fc9', front: '1923年', back: '関東大震災が発生した年は？', difficulty: 'advanced' },
+      { id: 'fc10', front: '大正文化の特徴', back: '大正時代の文化が明治時代と異なる点は何か？', explanation: 'メディアの発達により文化が一部の知識人から大衆へと広がり、洋風の生活様式も庶民に定着した。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -114,6 +64,7 @@ export const massCulture: Topic = {
           correctIndex: 0,
           explanation:
             '1925年にラジオ放送が始まり、全国の家庭にニュースや娯楽が届けられるようになりました。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -122,6 +73,7 @@ export const massCulture: Topic = {
           correctIndex: 2,
           explanation:
             '小林多喜二は「蟹工船」で労働者の過酷な生活を描き、プロレタリア文学の代表作となりました。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -130,6 +82,7 @@ export const massCulture: Topic = {
           correctIndex: 3,
           explanation:
             '関東大震災は1923年9月1日に発生し、東京・横浜に壊滅的な被害をもたらしました。',
+          difficulty: 'standard',
         },
         {
           id: 'q4',
@@ -138,6 +91,7 @@ export const massCulture: Topic = {
           correctIndex: 1,
           explanation:
             '芥川龍之介は知的な短編小説を数多く発表し、大正文学を代表する作家の一人です。',
+          difficulty: 'standard',
         },
       ],
     },

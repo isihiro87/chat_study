@@ -147,176 +147,34 @@ export const force: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'sci1-force-fc1',
-        front: '力の3つのはたらき',
-        back: '(1)物体の形を変える (2)物体の運動の状態を変える (3)物体を支える',
-        explanation:
-          'ばねを伸ばす（形を変える）、ボールを投げる（運動を変える）、本を手で支える（支える）などが例です。',
-      },
-      {
-        id: 'sci1-force-fc2',
-        front: '力の単位 N（ニュートン）',
-        back: '約100gの物体にはたらく重力が約1N',
-        explanation:
-          '正確には質量1kgの物体にはたらく重力が約9.8Nですが、中学では100g＝約1Nと覚えます。',
-      },
-      {
-        id: 'sci1-force-fc3',
-        front: 'フックの法則',
-        back: 'ばねにはたらく力の大きさとばねののびは比例する',
-        explanation:
-          '力が2倍になるとのびも2倍になります。ばねばかりはこの法則を利用しています。',
-      },
-      {
-        id: 'sci1-force-fc4',
-        front: '力の3要素',
-        back: '力のはたらく点（作用点）・力の向き・力の大きさ',
-        explanation:
-          '力を矢印で表すとき、始点が作用点、矢印の向きが力の向き、矢印の長さが力の大きさを表します。',
-      },
-      {
-        id: 'sci1-force-fc5',
-        front: '2力のつり合いの3条件',
-        back: '(1)一直線上にある (2)大きさが等しい (3)向きが反対',
-        explanation:
-          '机の上の本には重力と垂直抗力がつり合ってはたらいており、この3条件をすべて満たしています。',
-      },
-      {
-        id: 'sci1-force-fc6',
-        front: '重力',
-        back: '地球が物体をその中心に向かって引く力',
-        explanation:
-          '重力の方向は鉛直下向き（地球の中心方向）です。単位はN（ニュートン）で、場所によって値が変わります。',
-      },
-      {
-        id: 'sci1-force-fc7',
-        front: '垂直抗力',
-        back: '面が物体を垂直におし返す力',
-        explanation:
-          '机の上に本を置くと、机が本を上向きにおし返す力が垂直抗力です。重力とつり合って本が静止します。',
-      },
-      {
-        id: 'sci1-force-fc8',
-        front: '摩擦力',
-        back: '物体どうしが接する面で、運動をさまたげる向きにはたらく力',
-        explanation:
-          '床の上で物体を押すと、動きと反対方向に摩擦力がはたらきます。摩擦がなければ物体は止まりません。',
-      },
-      {
-        id: 'sci1-force-fc9',
-        front: '弾性力（弾性の力）',
-        back: '変形した物体がもとの形に戻ろうとする力',
-        explanation:
-          'ばねを引くと元に戻ろうとする力が弾性力です。ゴムや弓なども弾性力を利用しています。',
-      },
-      {
-        id: 'sci1-force-fc10',
-        front: '磁力と電気の力',
-        back: '磁力は磁石が引き合う・反発する力。電気の力は静電気などによる力。',
-        explanation:
-          '磁力は離れていてもはたらきます。下じきで髪の毛が引きつけられるのは電気の力です。',
-      },
-      {
-        id: 'sci1-force-fc11',
-        front: '重力と質量の違い',
-        back: '重力は力（単位N、場所で変わる）。質量は物質の量（単位kg/g、場所で変わらない）。',
-        explanation:
-          '月面の重力は地球の約1/6ですが、質量は月でも地球でも同じです。',
-      },
-      {
-        id: 'sci1-force-fc12',
-        front: 'ばねばかりと上皿てんびんの違い',
-        back: 'ばねばかり＝重力をはかる（場所で値が変わる）。上皿てんびん＝質量をはかる（場所で変わらない）。',
-        explanation:
-          '上皿てんびんは分銅と比較するため、月面でも同じ値を示します。ばねばかりは重力を利用するため月面では値が小さくなります。',
-      },
-      {
-        id: 'sci1-force-fc13',
-        front: '月面の重力',
-        back: '地球上の約1/6',
-        explanation:
-          '地球で6Nの重力がはたらく物体は、月面では約1Nの重力しかはたらきません。質量は変わりません。',
-      },
-      {
-        id: 'sci1-force-fc14',
-        front: '重力の作用点',
-        back: '物体の中心',
-        explanation:
-          '力を矢印で表すとき、重力の矢印は物体の中心から鉛直下向きに描きます。',
-      },
-      {
-        id: 'sci1-force-fc15',
-        front: 'ばねの自然長',
-        back: '何もつるさないときのばねの長さ',
-        explanation:
-          'フックの法則の「のび」は自然長からの変化量です。ばねの全長＝自然長＋のびで求められます。',
-      },
-      {
-        id: 'sci1-force-fc16',
-        front: '「運動の状態を変える」の具体例',
-        back: '物体を動かす・止める・運動の向きを変える。',
-      },
-      {
-        id: 'sci1-force-fc17',
-        front: '下じきで髪の毛が引きつけられる力',
-        back: '電気の力。静電気によって引きつけられる。',
-      },
-      {
-        id: 'sci1-force-fc18',
-        front: 'ばねにおもりをつるして静止しているときの2力',
-        back: '重力とばねの弾性力がつり合っている。',
-      },
-      {
-        id: 'sci1-force-fc19',
-        front: '質量1kgの物体にはたらく重力',
-        back: '約9.8N（中学では約10Nとすることもある）。',
-      },
-      {
-        id: 'sci1-force-fc20',
-        front: '力を矢印で表す方法',
-        back: '矢印の始点＝作用点、矢印の向き＝力の向き、矢印の長さ＝力の大きさ。',
-      },
-      {
-        id: 'sci1-force-fc21',
-        front: 'ばねののびと力のグラフ',
-        back: 'フックの法則により原点を通る直線になる。',
-      },
-      {
-        id: 'sci1-force-fc22',
-        front: '2力の向きが同じとき',
-        back: '2力の向きが同じでは物体は動いてしまい、つり合うことはない。',
-      },
-      {
-        id: 'sci1-force-fc23',
-        front: '約3Nの重力がはたらく物体の質量',
-        back: '約300g。100gの物体にはたらく重力が約1Nだから。',
-      },
-      {
-        id: 'sci1-force-fc24',
-        front: '机の上で本が静止しているときの2力',
-        back: '重力（下向き）と垂直抗力（上向き）がつり合っている。',
-      },
-      {
-        id: 'sci1-force-fc25',
-        front: 'ゴムを引いてのばす力のはたらき',
-        back: '物体の形を変える（力の3つのはたらきの1つ）。',
-      },
-      {
-        id: 'sci1-force-fc26',
-        front: 'ばねの伸びやすさが異なるグラフ',
-        back: '傾きが異なる。伸びやすいばねほど傾きが大きい。',
-      },
-      {
-        id: 'sci1-force-fc27',
-        front: '上皿てんびんが月面でも同じ値を示す理由',
-        back: '上皿てんびんは分銅と比較するため、重力が変わっても質量は同じ値を示す。',
-      },
-      {
-        id: 'sci1-force-fc28',
-        front: '重力の作用点と向き',
-        back: '作用点は物体の中心、向きは鉛直下向き（真下）。',
-      },
+      { id: 'sci1-force-fc1', front: '(1)物体の形を変える (2)物体の運動の状態を変える (3)物体を支える', back: '力の3つのはたらきを答えよ。', difficulty: 'basic' },
+      { id: 'sci1-force-fc2', front: '約100gの物体にはたらく重力が約1N', back: '力の単位N（ニュートン）の大きさの目安を答えよ。', difficulty: 'basic' },
+      { id: 'sci1-force-fc3', front: 'ばねにはたらく力の大きさとばねののびは比例する', back: 'フックの法則の内容を答えよ。', difficulty: 'basic' },
+      { id: 'sci1-force-fc4', front: '力のはたらく点（作用点）・力の向き・力の大きさ', back: '力の3要素を答えよ。', difficulty: 'basic' },
+      { id: 'sci1-force-fc5', front: '(1)一直線上にある (2)大きさが等しい (3)向きが反対', back: '2力のつり合いの3条件を答えよ。', difficulty: 'basic' },
+      { id: 'sci1-force-fc6', front: '地球が物体をその中心に向かって引く力', back: '重力とは何か？', difficulty: 'basic' },
+      { id: 'sci1-force-fc7', front: '面が物体を垂直におし返す力', back: '垂直抗力とは何か？', difficulty: 'basic' },
+      { id: 'sci1-force-fc8', front: '物体どうしが接する面で、運動をさまたげる向きにはたらく力', back: '摩擦力とは何か？', difficulty: 'basic' },
+      { id: 'sci1-force-fc9', front: '変形した物体がもとの形に戻ろうとする力', back: '弾性力（弾性の力）とは何か？', explanation: 'ばね・ゴム・弓などが例。', difficulty: 'basic' },
+      { id: 'sci1-force-fc10', front: '重力は力（単位N、場所で変わる）。質量は物質の量（単位kg/g、場所で変わらない）。', back: '重力と質量の違いを述べよ。', difficulty: 'basic' },
+      { id: 'sci1-force-fc11', front: 'ばねばかり＝重力をはかる（場所で値が変わる）。上皿てんびん＝質量をはかる（場所で変わらない）。', back: 'ばねばかりと上皿てんびんの違いを述べよ。', difficulty: 'basic' },
+      { id: 'sci1-force-fc12', front: '地球上の約1/6', back: '月面の重力は地球上の約何分の1か？', difficulty: 'standard' },
+      { id: 'sci1-force-fc13', front: '物体の中心', back: '重力を矢印で表すとき、作用点はどこにとるか？', difficulty: 'standard' },
+      { id: 'sci1-force-fc14', front: '何もつるさないときのばねの長さ', back: 'ばねの自然長とは何か？', explanation: 'ばねの全長＝自然長＋のびで求められる。', difficulty: 'standard' },
+      { id: 'sci1-force-fc15', front: '電気の力（静電気による力）', back: '下じきでこすった髪の毛が引きつけられるのは何の力か？', difficulty: 'standard' },
+      { id: 'sci1-force-fc16', front: '重力とばねの弾性力がつり合っている', back: 'ばねにおもりをつるして静止しているとき、はたらいている2力は何か？', difficulty: 'standard' },
+      { id: 'sci1-force-fc17', front: '約9.8N（中学では約10Nとすることもある）', back: '質量1kgの物体にはたらく重力は約何Nか？', difficulty: 'standard' },
+      { id: 'sci1-force-fc18', front: '矢印の始点＝作用点、矢印の向き＝力の向き、矢印の長さ＝力の大きさ', back: '力を矢印で表すとき、各部分は何を表すか？', difficulty: 'standard' },
+      { id: 'sci1-force-fc19', front: 'フックの法則により原点を通る直線になる', back: 'ばねののびと力の大きさの関係をグラフにするとどのような形になるか？', difficulty: 'standard' },
+      { id: 'sci1-force-fc20', front: 'つり合うことはない。物体が動いてしまう。', back: '2力の向きが同じ方向のとき、つり合うことはあるか？', difficulty: 'standard' },
+      { id: 'sci1-force-fc21', front: '約300g（100gの物体にはたらく重力が約1Nだから）', back: '約3Nの重力がはたらく物体の質量は約何gか？', difficulty: 'standard' },
+      { id: 'sci1-force-fc22', front: '重力（下向き）と垂直抗力（上向き）がつり合っている', back: '机の上で本が静止しているとき、はたらいている2つの力は何か？', difficulty: 'advanced' },
+      { id: 'sci1-force-fc23', front: '物体の形を変える（力の3つのはたらきの1つ）', back: 'ゴムを引いてのばすのは、力のどのはたらきか？', difficulty: 'advanced' },
+      { id: 'sci1-force-fc24', front: '傾きが異なる。伸びやすいばねほど傾きが大きい。', back: '伸びやすさが異なるばねのグラフはどう違うか？', difficulty: 'advanced' },
+      { id: 'sci1-force-fc25', front: '分銅と比較するため、重力が変わっても質量は同じ値を示す', back: '上皿てんびんが月面でも地球と同じ値を示す理由を説明せよ。', difficulty: 'advanced' },
+      { id: 'sci1-force-fc26', front: '作用点は物体の中心、向きは鉛直下向き（真下）', back: '重力を矢印で表すとき、作用点と向きはどうなるか？', difficulty: 'advanced' },
+      { id: 'sci1-force-fc27', front: '物体を動かす・止める・運動の向きを変える', back: '力のはたらき「運動の状態を変える」の具体例を3つ答えよ。', difficulty: 'advanced' },
+      { id: 'sci1-force-fc28', front: '磁力は磁石が引き合う・反発する力。電気の力は静電気などによる力。どちらも離れていてもはたらく。', back: '磁力と電気の力はそれぞれどのような力か？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -332,7 +190,8 @@ export const force: Topic = {
           correctIndex: 1,
           explanation:
             '力の3つのはたらきは「形を変える」「運動の状態を変える」「支える」です。温度を上げるのは力のはたらきではありません。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-force-q2',
           question: '約100gの物体にはたらく重力は約何Nか？',
@@ -345,7 +204,8 @@ export const force: Topic = {
           correctIndex: 2,
           explanation:
             '約100gの物体にはたらく重力は約1Nです。質量1kgの物体にはたらく重力は約9.8Nです。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-force-q3',
           question: 'フックの法則について正しいものはどれか？',
@@ -358,7 +218,8 @@ export const force: Topic = {
           correctIndex: 0,
           explanation:
             'フックの法則では、ばねにはたらく力の大きさとばねの「のび」は比例します。自然長からの「のび」であることに注意しましょう。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-force-q4',
           question: '力の3要素に含まれないものはどれか？',
@@ -371,7 +232,8 @@ export const force: Topic = {
           correctIndex: 3,
           explanation:
             '力の3要素は「作用点」「力の向き」「力の大きさ」です。「力の速さ」という概念はありません。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-force-q5',
           question: '2力がつり合う条件として正しくないものはどれか？',
@@ -384,7 +246,8 @@ export const force: Topic = {
           correctIndex: 2,
           explanation:
             '2力のつり合いの3条件は「一直線上」「大きさが等しい」「向きが反対」です。向きが同じでは物体は動いてしまいます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-force-q6',
           question: '面が物体を垂直におし返す力を何というか？',
@@ -397,7 +260,8 @@ export const force: Topic = {
           correctIndex: 1,
           explanation:
             '垂直抗力は、面が物体を垂直方向におし返す力です。机の上に物を置くと、机が上向きの垂直抗力を物体に及ぼします。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-force-q7',
           question: '質量はどの場所ではかっても変わらないが、重力は場所によって変わる。月面での重力は地球上の約何分の1か？',
@@ -410,7 +274,8 @@ export const force: Topic = {
           correctIndex: 0,
           explanation:
             '月面の重力は地球上の約1/6です。質量600gの物体にはたらく重力は、地球上では約6Nですが月面では約1Nになります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-force-q8',
           question: 'ばねに2Nの力を加えたら4cmのびた。このばねの自然長が12cmのとき、5Nの力を加えたときのばねの全長は何cmか？',
@@ -423,7 +288,8 @@ export const force: Topic = {
           correctIndex: 3,
           explanation:
             '1Nあたりのび2cmなので、5Nでは10cmのびます。全長＝自然長12cm＋のび10cm＝22cmです。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-force-q9',
           question: '重力をはかる器具はどれか？',
@@ -436,7 +302,8 @@ export const force: Topic = {
           correctIndex: 3,
           explanation:
             'ばねばかりは重力（力）をはかります。上皿てんびんは質量をはかる器具で、場所によらず同じ値を示します。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-force-q10',
           question: '変形した物体がもとの形にもどろうとする力を何というか？',
@@ -449,7 +316,8 @@ export const force: Topic = {
           correctIndex: 0,
           explanation:
             '弾性力は、変形した物体がもとの形にもどろうとする力です。ばね・ゴム・弓などがその例です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-force-q11',
           question: 'ゴムを引いてのばすのは、力のどのはたらきか？',
@@ -462,7 +330,8 @@ export const force: Topic = {
           correctIndex: 2,
           explanation:
             'ゴムを引いてのばすのは「物体の形を変える」はたらきです。力の3つのはたらきの1つです。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-force-q12',
           question: '下じきでこすった髪の毛が引きつけられるのは何の力か？',
@@ -470,7 +339,8 @@ export const force: Topic = {
           correctIndex: 3,
           explanation:
             '下じきで髪の毛が引きつけられるのは電気の力（静電気による力）です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-force-q13',
           question: '質量1kgの物体にはたらく重力は約何Nか？',
@@ -478,7 +348,8 @@ export const force: Topic = {
           correctIndex: 2,
           explanation:
             '質量1kgの物体にはたらく重力は約9.8Nです。中学では約10Nとすることもあります。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-force-q14',
           question: '1Nの力で3cmのびるばねに2Nの力を加えると何cmのびるか？',
@@ -486,7 +357,8 @@ export const force: Topic = {
           correctIndex: 3,
           explanation:
             'フックの法則より力とのびは比例するので、2Nでは3×2＝6cmのびます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-force-q15',
           question: '0.5Nの力で2cmのびるばねの自然長が10cmのとき、1.5Nの力を加えたときのばねの長さは何cmか？',
@@ -494,7 +366,8 @@ export const force: Topic = {
           correctIndex: 2,
           explanation:
             '0.5Nで2cmのびるので、1.5N（3倍）では6cmのびます。全長＝自然長10cm＋のび6cm＝16cmです。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-force-q16',
           question: 'ばねにおもりをつるして静止しているとき、はたらいている2つの力は何か？',
@@ -507,7 +380,8 @@ export const force: Topic = {
           correctIndex: 1,
           explanation:
             'ばねにおもりをつるして静止しているとき、重力（下向き）とばねの弾性力（上向き）がつり合っています。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-force-q17',
           question: '2力の向きが同じ方向のとき、つり合うことはあるか？',
@@ -515,7 +389,8 @@ export const force: Topic = {
           correctIndex: 1,
           explanation:
             'つり合いには向きが反対であることが必要です。同じ向きの2力では物体が動いてしまいつり合いません。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-force-q18',
           question: '約3Nの重力がはたらく物体の質量は約何gか？',
@@ -523,7 +398,8 @@ export const force: Topic = {
           correctIndex: 2,
           explanation:
             '100gの物体にはたらく重力が約1Nなので、3Nの重力がはたらく物体の質量は約300gです。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-force-q19',
           question: '重力の向きはどの方向か？',
@@ -536,7 +412,8 @@ export const force: Topic = {
           correctIndex: 2,
           explanation:
             '重力は地球が物体をその中心に向かって引く力なので、鉛直下向き（真下）にはたらきます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-force-q20',
           question: '月面でばねばかりで重力をはかると地球の1/6になるが、上皿てんびんで質量をはかるとどうなるか？',
@@ -549,7 +426,8 @@ export const force: Topic = {
           correctIndex: 1,
           explanation:
             '上皿てんびんは分銅と比較するため、月面でも地球でも同じ値を示します。質量は場所によらず一定です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-force-q21',
           question: '質量200gの物体にはたらく重力は約何Nか？',
@@ -557,7 +435,8 @@ export const force: Topic = {
           correctIndex: 2,
           explanation:
             '100gの物体にはたらく重力が約1Nなので、200gでは約2Nです。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-force-q22',
           question: 'ばねののびと力の大きさの関係をグラフにすると、どのような形になるか？',
@@ -565,7 +444,8 @@ export const force: Topic = {
           correctIndex: 1,
           explanation:
             'フックの法則より、力の大きさとばねののびは比例するため、グラフは原点を通る直線になります。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-force-q23',
           question: '机が本を支える力は何か？',
@@ -573,7 +453,8 @@ export const force: Topic = {
           correctIndex: 3,
           explanation:
             '机が本を支える力は垂直抗力です。面が物体を垂直方向におし返す力です。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci1-force-q24',
           question: '力を矢印で表すとき、矢印の長さは何を表すか？',
@@ -581,7 +462,8 @@ export const force: Topic = {
           correctIndex: 2,
           explanation:
             '矢印の長さは力の大きさを表します。始点は作用点、向きは力の向きを表します。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci1-force-q25',
           question: 'バーベルを持ち上げて静止させるのは、力のどのはたらきか？',
@@ -589,7 +471,8 @@ export const force: Topic = {
           correctIndex: 2,
           explanation:
             'バーベルを持ち上げて静止させるのは「物体を支える」はたらきです。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci1-force-q26',
           question: '地球上で6Nの重力がはたらく物体は、月面では約何Nの重力がはたらくか？',
@@ -597,7 +480,8 @@ export const force: Topic = {
           correctIndex: 0,
           explanation:
             '月面の重力は地球の約1/6なので、6N×1/6＝約1Nです。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci1-force-q27',
           question: 'ばねが元に戻ろうとする力は何の一種か？',
@@ -605,7 +489,8 @@ export const force: Topic = {
           correctIndex: 2,
           explanation:
             'ばねが元に戻ろうとする力は弾性力の一種です。変形した物体がもとの形に戻ろうとする力です。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci1-force-q28',
           question: '重力を矢印で表すとき、作用点はどこにとるか？',
@@ -613,7 +498,8 @@ export const force: Topic = {
           correctIndex: 1,
           explanation:
             '重力を矢印で表すとき、作用点は物体の中心にとり、矢印は鉛直下向きに描きます。',
-        },
+        difficulty: 'advanced',
+      },
       ],
     },
     examples: {

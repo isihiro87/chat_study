@@ -78,141 +78,169 @@ export const kofunEra: Topic = {
         id: 'fc1',
         front: '古墳時代',
         back: '巨大な墓が各地で盛んに造られたのは何時代？',
+        difficulty: 'basic',
       },
       {
         id: 'fc2',
         front: '大和政権',
         back: '奈良盆地を中心に現れた強大な勢力は？',
+        difficulty: 'basic',
       },
       {
         id: 'fc3',
         front: '大王',
         back: '大和政権の頂点に立つ王を何と呼んだ？',
+        difficulty: 'basic',
       },
       {
         id: 'fc4',
         front: '前方後円墳',
         back: '円形と方形を組み合わせた日本独自の大きな墓は？',
+        difficulty: 'basic',
       },
       {
         id: 'fc5',
         front: '大仙古墳',
         back: '堺市にある日本最大級の前方後円墳は？',
+        difficulty: 'basic',
       },
       {
         id: 'fc6',
         front: '埴輪',
         back: '古墳の表面に並べられた人や動物の焼き物は？',
+        difficulty: 'basic',
       },
       {
         id: 'fc7',
         front: 'ワカタケル大王',
         back: '稲荷山古墳の鉄剣に刻まれた大王の名は？',
+        difficulty: 'basic',
       },
       {
         id: 'fc8',
         front: '雄略天皇',
         back: 'ワカタケル大王は後の何天皇にあたるか？',
+        difficulty: 'basic',
       },
       {
         id: 'fc9',
         front: '稲荷山古墳',
         back: '埼玉県にある、ワカタケル大王の名が刻まれた鉄剣が出土した古墳は？',
+        difficulty: 'basic',
       },
       {
         id: 'fc10',
         front: '倭の五王',
         back: '5世紀に中国の宋に使いを送った5人の倭の王は？',
+        difficulty: 'basic',
       },
       {
         id: 'fc11',
         front: '宋書',
         back: '倭の五王の活動が記録されている中国の歴史書は？',
+        difficulty: 'basic',
       },
       {
         id: 'fc12',
         front: '渡来人',
         back: '大陸から移り住み技術や文化を伝えた人々は？',
+        difficulty: 'basic',
       },
       {
         id: 'fc13',
         front: '須恵器',
         back: '渡来人が伝えた高温で焼く硬い灰色の土器は？',
+        difficulty: 'standard',
       },
       {
         id: 'fc14',
         front: '漢字',
         back: '渡来人が書類作成や記録のために伝えた文字は？',
+        difficulty: 'standard',
       },
       {
         id: 'fc15',
         front: '仏教',
         back: '渡来人が6世紀半ばに日本へ伝えた宗教は？',
+        difficulty: 'standard',
       },
       {
         id: 'fc16',
         front: '高句麗',
         back: '古墳時代に朝鮮半島北部にあった強国は？',
+        difficulty: 'standard',
       },
       {
         id: 'fc17',
         front: '百済',
         back: '大和政権と友好関係を結んでいた朝鮮半島の国は？',
+        difficulty: 'standard',
       },
       {
         id: 'fc18',
         front: '新羅',
         back: '古墳時代に朝鮮半島東南部にあった国は？',
+        difficulty: 'standard',
       },
       {
         id: 'fc19',
         front: '伽耶地域',
         back: '鉄の原料を輸入していた朝鮮半島南部の地域は？',
+        difficulty: 'standard',
       },
       {
         id: 'fc20',
         front: '土師器',
         back: '古墳時代に日常で使われた素焼きの赤茶色の土器は？',
+        difficulty: 'standard',
       },
       {
         id: 'fc21',
         front: '勾玉',
         back: '古墳時代の代表的な曲がった形の装飾品は？',
+        difficulty: 'standard',
       },
       {
         id: 'fc22',
         front: '江田船山古墳',
         back: '熊本県にある、ワカタケル大王の名が刻まれた鉄刀が出土した古墳は？',
+        difficulty: 'standard',
       },
       {
         id: 'fc23',
         front: '三種の神器',
         back: '古墳時代に鏡・玉・剣の3つを合わせて何と呼ぶ？',
+        difficulty: 'advanced',
       },
       {
         id: 'fc24',
         front: '機織り',
         back: '渡来人が伝えた布を織る技術は？',
+        difficulty: 'advanced',
       },
       {
         id: 'fc25',
         front: '甲冑',
         back: '古墳の副葬品として出土する、戦いの時に身につけたよろいとかぶとは？',
+        difficulty: 'advanced',
       },
       {
         id: 'fc26',
         front: '豪族',
         back: '大和政権で大王のもとにまとめられた各地の有力者は？',
+        difficulty: 'advanced',
       },
       {
         id: 'fc27',
         front: '3世紀後半〜7世紀',
         back: '古墳時代が続いたおよその期間は？',
+        difficulty: 'advanced',
       },
       {
         id: 'fc28',
         front: '鍵穴形',
         back: '前方後円墳を上から見たときの形は？',
+        difficulty: 'advanced',
       },
     ],
     quiz: {
@@ -224,6 +252,7 @@ export const kofunEra: Topic = {
           correctIndex: 2,
           explanation:
             '大和政権は奈良盆地を中心に成立し、大王が頂点に立ちました。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -232,6 +261,7 @@ export const kofunEra: Topic = {
           correctIndex: 0,
           explanation:
             '前方後円墳は日本独自の墓の形式で、鍵穴のような形をしています。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -240,6 +270,7 @@ export const kofunEra: Topic = {
           correctIndex: 3,
           explanation:
             '埴輪は古墳の表面や周囲に置かれた焼き物で、人・馬・家などの形がありました。',
+          difficulty: 'basic',
         },
         {
           id: 'q4',
@@ -248,6 +279,7 @@ export const kofunEra: Topic = {
           correctIndex: 1,
           explanation:
             '渡来人は須恵器・漢字・仏教などの技術や文化を日本に伝えました。',
+          difficulty: 'basic',
         },
         {
           id: 'q5',
@@ -256,6 +288,7 @@ export const kofunEra: Topic = {
           correctIndex: 3,
           explanation:
             '須恵器は渡来人が伝えた高温で焼く硬い灰色の土器です。',
+          difficulty: 'basic',
         },
         {
           id: 'q6',
@@ -264,6 +297,7 @@ export const kofunEra: Topic = {
           correctIndex: 1,
           explanation:
             '仏教は6世紀半ばに渡来人を通じて日本に伝えられました。',
+          difficulty: 'basic',
         },
         {
           id: 'q7',
@@ -273,6 +307,7 @@ export const kofunEra: Topic = {
           correctIndex: 2,
           explanation:
             'ワカタケル大王（雄略天皇）の名が埼玉県の稲荷山古墳の鉄剣に刻まれていました。',
+          difficulty: 'basic',
         },
         {
           id: 'q8',
@@ -282,6 +317,7 @@ export const kofunEra: Topic = {
           correctIndex: 0,
           explanation:
             '伽耶地域（朝鮮半島南部）から鉄の原料を輸入していました。',
+          difficulty: 'basic',
         },
         {
           id: 'q9',
@@ -290,6 +326,7 @@ export const kofunEra: Topic = {
           correctIndex: 0,
           explanation:
             '大仙古墳は大阪府堺市にある日本最大級の前方後円墳です。',
+          difficulty: 'basic',
         },
         {
           id: 'q10',
@@ -299,6 +336,7 @@ export const kofunEra: Topic = {
           correctIndex: 2,
           explanation:
             '倭の五王は5世紀に中国の宋に使いを送り、宋書にその活動が記録されています。',
+          difficulty: 'basic',
         },
         {
           id: 'q11',
@@ -306,6 +344,7 @@ export const kofunEra: Topic = {
           options: ['将軍', '天皇', '摂政', '関白'],
           correctIndex: 1,
           explanation: '大王は後の天皇にあたる存在です。',
+          difficulty: 'standard',
         },
         {
           id: 'q12',
@@ -313,6 +352,7 @@ export const kofunEra: Topic = {
           options: ['円形', '四角形', '鍵穴のような形', '三角形'],
           correctIndex: 2,
           explanation: '前方後円墳は円形と方形を組み合わせた鍵穴のような形をしています。',
+          difficulty: 'standard',
         },
         {
           id: 'q13',
@@ -320,6 +360,7 @@ export const kofunEra: Topic = {
           options: ['須恵器の製作', '機織り', '漢字', '稲作'],
           correctIndex: 3,
           explanation: '稲作は弥生時代に伝わったもので、古墳時代の渡来人が伝えたものではありません。',
+          difficulty: 'standard',
         },
         {
           id: 'q14',
@@ -332,6 +373,7 @@ export const kofunEra: Topic = {
           ],
           correctIndex: 1,
           explanation: '埴輪は死者の魂を守り、あの世での生活に役立てるために並べられたと考えられています。',
+          difficulty: 'standard',
         },
         {
           id: 'q15',
@@ -339,6 +381,7 @@ export const kofunEra: Topic = {
           options: ['時代が古いこと', '墓の主の権力の大きさ', '外国との交流', '人口の多さ'],
           correctIndex: 1,
           explanation: '古墳が巨大であるほど、墓の主の権力が大きかったことを示すと考えられます。',
+          difficulty: 'standard',
         },
         {
           id: 'q16',
@@ -351,6 +394,7 @@ export const kofunEra: Topic = {
           ],
           correctIndex: 0,
           explanation: '江田船山古墳からはワカタケル大王の名が刻まれた鉄刀が出土しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q17',
@@ -363,6 +407,7 @@ export const kofunEra: Topic = {
           ],
           correctIndex: 1,
           explanation: '前方後円墳が各地に分布していることから、大和政権の勢力が日本各地に及んでいたことがわかります。',
+          difficulty: 'standard',
         },
         {
           id: 'q18',
@@ -375,6 +420,7 @@ export const kofunEra: Topic = {
           ],
           correctIndex: 1,
           explanation: '大和政権は鉄の資源を確保するために朝鮮半島に進出しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q19',
@@ -382,6 +428,7 @@ export const kofunEra: Topic = {
           options: ['三種の神器', '副葬品', '埴輪', '宝物'],
           correctIndex: 0,
           explanation: '古墳時代に鏡・玉・剣の3つを合わせて三種の神器と呼びます。',
+          difficulty: 'standard',
         },
         {
           id: 'q20',
@@ -389,6 +436,7 @@ export const kofunEra: Topic = {
           options: ['魏志倭人伝', '漢書地理志', '宋書', '古事記'],
           correctIndex: 2,
           explanation: '倭の五王の活動は中国の宋書に記録されています。',
+          difficulty: 'standard',
         },
         {
           id: 'q21',
@@ -401,6 +449,7 @@ export const kofunEra: Topic = {
           ],
           correctIndex: 1,
           explanation: '儒教は礼儀や道徳、人間関係のあり方に関する教えです。',
+          difficulty: 'standard',
         },
         {
           id: 'q22',
@@ -413,6 +462,7 @@ export const kofunEra: Topic = {
           ],
           correctIndex: 2,
           explanation: '須恵器は高温で焼くため硬くて丈夫で、灰色をしています。',
+          difficulty: 'standard',
         },
         {
           id: 'q23',
@@ -425,6 +475,7 @@ export const kofunEra: Topic = {
           ],
           correctIndex: 1,
           explanation: '古墳時代に朝鮮半島には高句麗・百済・新羅の3国がありました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q24',
@@ -437,6 +488,7 @@ export const kofunEra: Topic = {
           ],
           correctIndex: 1,
           explanation: '関東（稲荷山古墳）と九州（江田船山古墳）の両方で名が見つかったことから、大和政権の広範な支配がわかります。',
+          difficulty: 'advanced',
         },
         {
           id: 'q25',
@@ -444,6 +496,7 @@ export const kofunEra: Topic = {
           options: ['縄文土器', '弥生土器', '須恵器', '土師器'],
           correctIndex: 3,
           explanation: '土師器は古墳時代に日常で使われた素焼きの赤茶色の土器です。',
+          difficulty: 'advanced',
         },
         {
           id: 'q26',
@@ -451,6 +504,7 @@ export const kofunEra: Topic = {
           options: ['中国大陸のみ', '朝鮮半島（百済・伽耶など）', '東南アジア', 'インド'],
           correctIndex: 1,
           explanation: '渡来人は主に朝鮮半島（百済・伽耶など）から日本に移り住みました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q27',
@@ -463,6 +517,7 @@ export const kofunEra: Topic = {
           ],
           correctIndex: 1,
           explanation: '古墳時代は3世紀後半から7世紀ごろまで続きました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q28',
@@ -470,6 +525,7 @@ export const kofunEra: Topic = {
           options: ['高句麗', '新羅', '百済', '伽耶'],
           correctIndex: 2,
           explanation: '大和政権は百済と友好関係を結んでいました。',
+          difficulty: 'advanced',
         },
       ],
     },

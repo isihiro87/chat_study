@@ -49,72 +49,84 @@ export const fallOfBakufu: Topic = {
         front: '薩長同盟',
         back: '1866年、薩摩藩と長州藩が結んだ同盟は？',
         explanation: '坂本龍馬の仲立ちで結ばれ、倒幕の中心勢力となった。',
+        difficulty: 'basic',
       },
       {
         id: 'fc2',
         front: '坂本龍馬',
         back: '薩長同盟を仲介した土佐藩出身の志士は？',
         explanation: '海援隊を結成し、日本の近代化に尽力した。',
+        difficulty: 'basic',
       },
       {
         id: 'fc3',
         front: '大政奉還',
         back: '1867年、徳川慶喜が政権を朝廷に返したことを何という？',
         explanation: '約260年続いた江戸幕府の政権が終わった。',
+        difficulty: 'basic',
       },
       {
         id: 'fc4',
         front: '徳川慶喜',
         back: '大政奉還を行った江戸幕府最後の将軍は？',
         explanation: '15代将軍として、幕府の終わりを迎えた。',
+        difficulty: 'basic',
       },
       {
         id: 'fc5',
         front: '王政復古の大号令',
         back: '天皇中心の新政府を作ることを宣言した命令は？',
         explanation: '1867年、大政奉還の後に出された。',
+        difficulty: 'basic',
       },
       {
         id: 'fc6',
         front: '戊辰戦争',
         back: '旧幕府軍と新政府軍が戦った内戦は？',
         explanation: '1868年から約1年半続き、新政府軍が勝利した。',
+        difficulty: 'standard',
       },
       {
         id: 'fc7',
         front: '西郷隆盛',
         back: '薩摩藩出身で、倒幕運動の中心となった人物は？',
         explanation: '戊辰戦争では新政府軍を指揮した。',
+        difficulty: 'standard',
       },
       {
         id: 'fc8',
         front: '大久保利通',
         back: '薩摩藩出身で、明治政府の中心となった人物は？',
         explanation: '西郷隆盛とともに倒幕運動を進めた。',
+        difficulty: 'standard',
       },
       {
         id: 'fc9',
         front: '高杉晋作',
         back: '長州藩で奇兵隊を組織した志士は？',
         explanation: '身分に関係なく有志を集めた新しい軍隊を作った。',
+        difficulty: 'standard',
       },
       {
         id: 'fc10',
         front: '木戸孝允',
         back: '長州藩出身で、薩長同盟を結んだ人物は？',
         explanation: '桂小五郎とも呼ばれ、明治政府で活躍した。',
+        difficulty: 'standard',
       },
       {
         id: 'fc11',
         front: 'ええじゃないか',
         back: '幕末に民衆の間で流行した踊りは？',
         explanation: '世直しへの期待を込めて、各地で踊りが広がった。',
+        difficulty: 'advanced',
       },
       {
         id: 'fc12',
         front: '薩英戦争',
         back: '1863年、イギリスと薩摩藩が戦った戦争は？',
         explanation: '生麦事件をきっかけに起こり、薩摩は近代軍の強さを知った。',
+        difficulty: 'advanced',
       },
     ],
     quiz: {
@@ -126,6 +138,7 @@ export const fallOfBakufu: Topic = {
           correctIndex: 1,
           explanation:
             '坂本龍馬が対立していた薩摩藩と長州藩を仲介し、薩長同盟が結ばれました。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -135,6 +148,7 @@ export const fallOfBakufu: Topic = {
           correctIndex: 3,
           explanation:
             '大政奉還により約260年続いた江戸幕府の政権が終わりました。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -149,6 +163,7 @@ export const fallOfBakufu: Topic = {
           correctIndex: 2,
           explanation:
             '下関戦争（長州藩）と薩英戦争（薩摩藩）で欧米の軍事力の強さを思い知り、攘夷から倒幕へ方針を転換しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q4',
@@ -163,6 +178,7 @@ export const fallOfBakufu: Topic = {
           correctIndex: 0,
           explanation:
             '王政復古の大号令は倒幕派が出した、天皇中心の新政府樹立を宣言する命令です。',
+          difficulty: 'standard',
         },
         {
           id: 'q5',
@@ -171,6 +187,7 @@ export const fallOfBakufu: Topic = {
           correctIndex: 3,
           explanation:
             '戊辰戦争は1868年から約1年半続き、新政府軍が勝利して江戸時代は完全に終わりました。',
+          difficulty: 'standard',
         },
         {
           id: 'q6',
@@ -180,6 +197,7 @@ export const fallOfBakufu: Topic = {
           correctIndex: 1,
           explanation:
             '「ええじゃないか」は社会の大変動の中で民衆が世直しへの期待を込めて各地で踊った運動です。',
+          difficulty: 'standard',
         },
       ],
     },

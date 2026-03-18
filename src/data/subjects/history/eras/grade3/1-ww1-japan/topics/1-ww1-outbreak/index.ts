@@ -44,66 +44,16 @@ export const ww1Outbreak: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'fc1',
-        front: '三国協商',
-        back: 'イギリス・フランス・ロシアが結んだ協力関係は？',
-        explanation: '三国同盟に対抗して結ばれた。',
-      },
-      {
-        id: 'fc2',
-        front: '三国同盟',
-        back: 'ドイツ・オーストリア・イタリアが結んだ軍事同盟は？',
-        explanation: '三国協商と対立した。',
-      },
-      {
-        id: 'fc3',
-        front: 'サラエボ事件',
-        back: '1914年にオーストリア皇太子が暗殺され、第一次世界大戦のきっかけとなった事件は？',
-        explanation: 'セルビア人の青年がオーストリアの皇太子夫妻を暗殺した。',
-      },
-      {
-        id: 'fc4',
-        front: '第一次世界大戦',
-        back: '1914年から1918年まで続いた、ヨーロッパ全体を巻き込んだ大戦争は？',
-        explanation: 'サラエボ事件をきっかけに始まった。',
-      },
-      {
-        id: 'fc5',
-        front: '総力戦',
-        back: '国の全ての力（軍事・経済・国民生活）を動員して行う戦争のことを何という？',
-        explanation: '第一次世界大戦で初めて本格的に行われた。',
-      },
-      {
-        id: 'fc6',
-        front: '戦車',
-        back: '第一次世界大戦で初めて実戦に投入された装甲車両は？',
-        explanation: 'イギリスが開発し、塹壕戦を突破するために使われた。',
-      },
-      {
-        id: 'fc7',
-        front: '毒ガス',
-        back: '第一次世界大戦で使われた、化学物質を利用した新兵器は？',
-        explanation: '多くの兵士が被害を受けた非人道的な兵器。',
-      },
-      {
-        id: 'fc8',
-        front: '潜水艦',
-        back: '第一次世界大戦でドイツが活用した、海中から攻撃する新兵器は？',
-        explanation: 'ドイツのUボートが連合国の輸送船を攻撃した。',
-      },
-      {
-        id: 'fc9',
-        front: '連合国',
-        back: '三国協商を中心とした第一次世界大戦の一方の陣営は？',
-        explanation: 'イギリス・フランス・ロシアなどが含まれた。',
-      },
-      {
-        id: 'fc10',
-        front: '同盟国',
-        back: 'ドイツ・オーストリアを中心とした第一次世界大戦の一方の陣営は？',
-        explanation: 'イタリアは途中で連合国側に移った。',
-      },
+      { id: 'fc1', front: '三国協商', back: 'イギリス・フランス・ロシアが結んだ協力関係は？', difficulty: 'basic' },
+      { id: 'fc2', front: '三国同盟', back: 'ドイツ・オーストリア・イタリアが結んだ軍事同盟は？', difficulty: 'basic' },
+      { id: 'fc3', front: 'サラエボ事件', back: '1914年にオーストリア皇太子が暗殺され、第一次世界大戦のきっかけとなった事件は？', difficulty: 'basic' },
+      { id: 'fc4', front: '第一次世界大戦', back: '1914年から1918年まで続いた、ヨーロッパ全体を巻き込んだ大戦争は？', difficulty: 'basic' },
+      { id: 'fc5', front: '総力戦', back: '国の全ての力（軍事・経済・国民生活）を動員して行う戦争のことを何という？', difficulty: 'standard' },
+      { id: 'fc6', front: '連合国', back: '三国協商を中心とした第一次世界大戦の一方の陣営は？', explanation: 'イギリス・フランス・ロシアなどが含まれた。', difficulty: 'standard' },
+      { id: 'fc7', front: '同盟国', back: 'ドイツ・オーストリアを中心とした第一次世界大戦の一方の陣営は？', explanation: 'イタリアは途中で連合国側に移った。', difficulty: 'standard' },
+      { id: 'fc8', front: '1914年', back: 'サラエボ事件が起き、第一次世界大戦が始まった年は？', difficulty: 'standard' },
+      { id: 'fc9', front: '新兵器の登場', back: '第一次世界大戦で初めて実戦投入された兵器を4つ挙げよ', explanation: '戦車・飛行機・毒ガス・潜水艦が登場した。', difficulty: 'advanced' },
+      { id: 'fc10', front: '総力戦が社会を変えた理由', back: '第一次世界大戦が「総力戦」と呼ばれた結果、国民生活にどのような影響が出たか？', explanation: '経済・産業・国民生活すべてが戦争に動員され、女性の社会進出も進んだ。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -114,6 +64,7 @@ export const ww1Outbreak: Topic = {
           correctIndex: 0,
           explanation:
             'サラエボ事件でオーストリアの皇太子が暗殺され、第一次世界大戦が始まりました。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -127,6 +78,7 @@ export const ww1Outbreak: Topic = {
           correctIndex: 3,
           explanation:
             '三国協商はイギリス・フランス・ロシアの3か国で構成されました。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -135,6 +87,7 @@ export const ww1Outbreak: Topic = {
           correctIndex: 2,
           explanation:
             '原子爆弾は第二次世界大戦で使われたもので、第一次世界大戦では戦車・飛行機・毒ガス・潜水艦が新兵器として登場しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q4',
@@ -143,6 +96,7 @@ export const ww1Outbreak: Topic = {
           correctIndex: 1,
           explanation:
             '総力戦とは、軍事力だけでなく経済力や国民生活のすべてを動員して戦う戦争です。',
+          difficulty: 'standard',
         },
       ],
     },

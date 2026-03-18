@@ -143,164 +143,36 @@ export const invertebrates: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'sci1-iv-fc1',
-        front: '節足動物の特徴',
-        back: '節足動物の体のつくりの特徴を2つ答えよ。',
-        explanation:
-          '体が外骨格でおおわれていること、体やあしに節があること。昆虫類・甲殻類などが含まれる。',
-      },
-      {
-        id: 'sci1-iv-fc2',
-        front: '軟体動物',
-        back: '軟体動物の内臓を包んでいる膜を何という？例を挙げよ。',
-        explanation:
-          '外とう膜という。イカ・タコ・アサリ・ハマグリなどが軟体動物。背骨がなく外骨格もない。',
-      },
-      {
-        id: 'sci1-iv-fc3',
-        front: '脊椎動物と無脊椎動物の種数',
-        back: '脊椎動物と無脊椎動物では、どちらの種数が多いか。それぞれ約何万種か。',
-        explanation:
-          '無脊椎動物が圧倒的に多い。脊椎動物は約7万種、無脊椎動物は約146万種。',
-      },
-      {
-        id: 'sci1-iv-fc4',
-        front: '外骨格',
-        back: '節足動物の体をおおうかたい殻を何というか。',
-        explanation:
-          '外骨格という。体の外側にあるかたい殻で、体を支え守る役割がある。昆虫類・甲殻類などが持つ。',
-      },
-      {
-        id: 'sci1-iv-fc5',
-        front: '甲殻類',
-        back: '甲殻類の例を3つ挙げ、呼吸法を答えよ。',
-        explanation:
-          'エビ・カニ・ミジンコなど。えらで呼吸する。節足動物に分類される。',
-      },
-      {
-        id: 'sci1-iv-fc6',
-        front: '昆虫類の呼吸',
-        back: '昆虫類はどのようにして呼吸するか。',
-        explanation:
-          '体の横にある気門から空気をとり入れて呼吸する。肺やえらは持っていない。',
-      },
-      {
-        id: 'sci1-iv-fc7',
-        front: 'クモの分類',
-        back: 'クモは昆虫類か？あしは何対何本か。',
-        explanation:
-          'クモは昆虫類ではない。あしは4対8本。昆虫類は3対6本。どちらも節足動物に分類される。',
-      },
-      {
-        id: 'sci1-iv-fc8',
-        front: 'イカの体のつくり',
-        back: 'イカのあし（腕）は何本あるか。移動方法は？',
-        explanation:
-          'あし（腕）は10本。水を噴き出して移動する（噴射）。外とう膜で内臓が包まれている軟体動物。',
-      },
-      {
-        id: 'sci1-iv-fc9',
-        front: '棘皮動物',
-        back: 'ウニやヒトデは何動物に分類されるか。',
-        explanation:
-          '棘皮動物。無脊椎動物の一種で、節足動物にも軟体動物にも分類されない。',
-      },
-      {
-        id: 'fc10',
-        front: '無脊椎動物',
-        back: '背骨をもたない動物を何というか。',
-      },
-      {
-        id: 'fc11',
-        front: '頭・胸・腹',
-        back: '昆虫類の体は何という3つの部分に分かれているか。',
-      },
-      {
-        id: 'fc12',
-        front: '胸から3対6本',
-        back: '昆虫類のあしは体のどの部分から何本出ているか。',
-      },
-      {
-        id: 'fc13',
-        front: '気門',
-        back: '昆虫類は何から空気をとり入れて呼吸するか。',
-      },
-      {
-        id: 'fc14',
-        front: '甲殻類',
-        back: 'エビ・カニ・ミジンコなどの節足動物を何類というか。',
-      },
-      {
-        id: 'fc15',
-        front: 'えら',
-        back: '甲殻類は何で呼吸するか。',
-      },
-      {
-        id: 'fc16',
-        front: 'されない（あしが4対8本で、体は頭胸部と腹部の2部分）',
-        back: 'クモは昆虫類に分類されるか。',
-      },
-      {
-        id: 'fc17',
-        front: '軟体動物',
-        back: '内臓が外とう膜で包まれている動物を何というか。',
-      },
-      {
-        id: 'fc18',
-        front: 'イカ・タコ・アサリ・マイマイ（カタツムリ）・ハマグリ',
-        back: '軟体動物を3つ以上挙げよ。',
-      },
-      {
-        id: 'fc19',
-        front: '10本',
-        back: 'イカのあし（腕）は何本あるか。',
-      },
-      {
-        id: 'fc20',
-        front: '水を噴き出して移動する（噴射）',
-        back: 'イカはどのようにして水中を移動するか。',
-      },
-      {
-        id: 'fc21',
-        front: 'えら',
-        back: 'アサリは何で呼吸するか。',
-      },
-      {
-        id: 'fc22',
-        front: '筋肉',
-        back: '軟体動物のあしは何でできているか。',
-      },
-      {
-        id: 'fc23',
-        front: '環形動物',
-        back: 'ミミズは何動物に分類されるか。',
-      },
-      {
-        id: 'fc24',
-        front: '背骨（脊椎）の有無',
-        back: '動物を分類するとき、最初に調べるポイントは何か。',
-      },
-      {
-        id: 'fc25',
-        front: '約7万種',
-        back: '脊椎動物は約何万種いるか。',
-      },
-      {
-        id: 'fc26',
-        front: '約146万種',
-        back: '無脊椎動物は約何万種いるか。',
-      },
-      {
-        id: 'fc27',
-        front: '哺乳類（胎生で母乳で子を育てるため）',
-        back: 'クジラは水中で生活するが何類に分類されるか。',
-      },
-      {
-        id: 'fc28',
-        front: '外骨格でおおわれ、体やあしに節がある（共通する特徴）',
-        back: 'バッタとカニの体のつくりで共通する特徴を答えよ。',
-      },
+      { id: 'sci1-iv-fc1', front: '体が外骨格でおおわれていること、体やあしに節があること', back: '節足動物の体のつくりの特徴を2つ答えよ。', difficulty: 'basic' },
+      { id: 'sci1-iv-fc2', front: '外とう膜。例：イカ・タコ・アサリ・ハマグリなど', back: '軟体動物の内臓を包んでいる膜を何という？例を挙げよ。', difficulty: 'basic' },
+      { id: 'sci1-iv-fc3', front: '無脊椎動物が多い。脊椎動物は約7万種、無脊椎動物は約146万種', back: '脊椎動物と無脊椎動物では、どちらの種数が多いか。それぞれ約何万種か。', difficulty: 'standard' },
+      { id: 'sci1-iv-fc4', front: '外骨格', back: '節足動物の体をおおうかたい殻を何というか。', difficulty: 'basic' },
+      { id: 'sci1-iv-fc5', front: 'エビ・カニ・ミジンコなど。えらで呼吸する', back: '甲殻類の例を3つ挙げ、呼吸法を答えよ。', difficulty: 'standard' },
+      { id: 'sci1-iv-fc6', front: '体の横にある気門から空気をとり入れて呼吸する', back: '昆虫類はどのようにして呼吸するか。', difficulty: 'basic' },
+      { id: 'sci1-iv-fc7', front: '昆虫類ではない。あしは4対8本（昆虫類は3対6本）', back: 'クモは昆虫類か？あしは何対何本か。', difficulty: 'standard' },
+      { id: 'sci1-iv-fc8', front: '10本。水を噴き出して移動する（噴射）', back: 'イカのあし（腕）は何本あるか。移動方法は？', difficulty: 'standard' },
+      { id: 'sci1-iv-fc9', front: '棘皮動物', back: 'ウニやヒトデは何動物に分類されるか。', difficulty: 'standard' },
+      { id: 'fc10', front: '無脊椎動物', back: '背骨をもたない動物を何というか。', difficulty: 'basic' },
+      { id: 'fc11', front: '頭・胸・腹', back: '昆虫類の体は何という3つの部分に分かれているか。', difficulty: 'basic' },
+      { id: 'fc12', front: '胸から3対6本', back: '昆虫類のあしは体のどの部分から何本出ているか。', difficulty: 'basic' },
+      { id: 'fc13', front: '気門', back: '昆虫類は何から空気をとり入れて呼吸するか。', difficulty: 'basic' },
+      { id: 'fc14', front: '甲殻類', back: 'エビ・カニ・ミジンコなどの節足動物を何類というか。', difficulty: 'basic' },
+      { id: 'fc15', front: 'えら', back: '甲殻類は何で呼吸するか。', difficulty: 'basic' },
+      { id: 'fc16', front: 'されない（あしが4対8本で、体は頭胸部と腹部の2部分）', back: 'クモは昆虫類に分類されるか。', difficulty: 'standard' },
+      { id: 'fc17', front: '軟体動物', back: '内臓が外とう膜で包まれている動物を何というか。', difficulty: 'basic' },
+      { id: 'fc18', front: 'イカ・タコ・アサリ・マイマイ（カタツムリ）・ハマグリ', back: '軟体動物を3つ以上挙げよ。', difficulty: 'standard' },
+      { id: 'fc19', front: '10本', back: 'イカのあし（腕）は何本あるか。', difficulty: 'basic' },
+      { id: 'fc20', front: '水を噴き出して移動する（噴射）', back: 'イカはどのようにして水中を移動するか。', difficulty: 'standard' },
+      { id: 'fc21', front: 'えら', back: 'アサリは何で呼吸するか。', difficulty: 'standard' },
+      { id: 'fc22', front: '筋肉', back: '軟体動物のあしは何でできているか。', difficulty: 'standard' },
+      { id: 'fc23', front: '環形動物', back: 'ミミズは何動物に分類されるか。', difficulty: 'standard' },
+      { id: 'fc24', front: '背骨（脊椎）の有無', back: '動物を分類するとき、最初に調べるポイントは何か。', difficulty: 'basic' },
+      { id: 'fc25', front: '約7万種', back: '脊椎動物は約何万種いるか。', difficulty: 'advanced' },
+      { id: 'fc26', front: '約146万種', back: '無脊椎動物は約何万種いるか。', difficulty: 'advanced' },
+      { id: 'fc27', front: '外骨格でおおわれ、体やあしに節がある', back: 'バッタとカニの体のつくりで共通する特徴を答えよ。', difficulty: 'advanced' },
+      { id: 'fc28', front: '昆虫類は気門で呼吸（陸上生活）、甲殻類はえらで呼吸（水中生活）', back: '同じ節足動物でも昆虫類と甲殻類の呼吸法はどう違うか。', difficulty: 'advanced' },
+      { id: 'fc29', front: '外とう膜', back: '軟体動物の内臓を包んでいる膜を何というか。', difficulty: 'basic' },
+      { id: 'fc30', front: '節足動物と軟体動物', back: '無脊椎動物の主なグループを2つ答えよ。', difficulty: 'standard' },
     ],
     quiz: {
       questions: [
@@ -311,7 +183,8 @@ export const invertebrates: Topic = {
           correctIndex: 1,
           explanation:
             '昆虫類のあしは胸から3対6本出ています。体は頭・胸・腹の3つの部分に分かれています。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-iv-q2',
           question: '軟体動物の内臓を包んでいる膜を何というか？',
@@ -319,7 +192,8 @@ export const invertebrates: Topic = {
           correctIndex: 0,
           explanation:
             '軟体動物は外とう膜という膜で内臓が包まれています。イカ・タコ・アサリなどが軟体動物です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-iv-q3',
           question: '昆虫類が空気をとり入れて呼吸するための器官を何というか？',
@@ -327,7 +201,8 @@ export const invertebrates: Topic = {
           correctIndex: 3,
           explanation:
             '昆虫類は体の横にある気門から空気をとり入れて呼吸します。えらは魚類や甲殻類の呼吸器官です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-iv-q4',
           question: 'クモのあしは何対何本か？',
@@ -335,7 +210,8 @@ export const invertebrates: Topic = {
           correctIndex: 2,
           explanation:
             'クモは4対8本のあしをもちます。昆虫類は3対6本なので、クモは昆虫類ではありません。どちらも節足動物です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-iv-q5',
           question: '次のうち、甲殻類に分類される動物はどれか？',
@@ -343,7 +219,8 @@ export const invertebrates: Topic = {
           correctIndex: 2,
           explanation:
             'ミジンコはエビやカニと同じ甲殻類です。バッタは昆虫類、クモは節足動物（昆虫でも甲殻でもない）、イカは軟体動物です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-iv-q6',
           question: '脊椎動物と無脊椎動物について正しいものはどれか？',
@@ -356,7 +233,8 @@ export const invertebrates: Topic = {
           correctIndex: 3,
           explanation:
             '無脊椎動物は約146万種で、脊椎動物の約7万種よりはるかに多いです。無脊椎動物は背骨をもたない動物です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'q7',
           question: '背骨をもたない動物を何というか？',
@@ -364,7 +242,8 @@ export const invertebrates: Topic = {
           correctIndex: 1,
           explanation:
             '背骨をもたない動物を無脊椎動物といいます。約146万種と脊椎動物（約7万種）より圧倒的に多いです。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'q8',
           question: '節足動物の体をおおうかたい殻を何というか？',
@@ -372,7 +251,8 @@ export const invertebrates: Topic = {
           correctIndex: 2,
           explanation:
             '節足動物の体をおおうかたい殻を外骨格といいます。体を支え守る役割があります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'q9',
           question: '昆虫類の体は何つの部分に分かれているか？',
@@ -380,7 +260,8 @@ export const invertebrates: Topic = {
           correctIndex: 1,
           explanation:
             '昆虫類の体は頭・胸・腹の3つの部分に分かれています。あしは胸から3対6本出ています。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'q10',
           question: '甲殻類の呼吸法として正しいものはどれか？',
@@ -388,7 +269,8 @@ export const invertebrates: Topic = {
           correctIndex: 2,
           explanation:
             '甲殻類（エビ・カニ・ミジンコなど）はえらで呼吸します。昆虫類は気門で呼吸します。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'q11',
           question: 'クモが昆虫類ではない理由として正しいものはどれか？',
@@ -401,7 +283,8 @@ export const invertebrates: Topic = {
           correctIndex: 1,
           explanation:
             'クモはあしが4対8本で体が頭胸部と腹部の2部分に分かれます。昆虫類は3対6本で3部分です。どちらも節足動物です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q12',
           question: '軟体動物の特徴として正しいものはどれか？',
@@ -414,7 +297,8 @@ export const invertebrates: Topic = {
           correctIndex: 2,
           explanation:
             '軟体動物は外とう膜という膜で内臓が包まれています。外骨格はなく、体に節もありません。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q13',
           question: 'イカの腕は何本あるか？',
@@ -422,7 +306,8 @@ export const invertebrates: Topic = {
           correctIndex: 2,
           explanation:
             'イカの腕は10本あります。水を噴き出して移動する（噴射）ことも特徴です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q14',
           question: 'アサリの呼吸法として正しいものはどれか？',
@@ -430,7 +315,8 @@ export const invertebrates: Topic = {
           correctIndex: 2,
           explanation:
             'アサリはえらで呼吸します。アサリは軟体動物に分類されます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q15',
           question: '軟体動物のあしは何でできているか？',
@@ -438,7 +324,8 @@ export const invertebrates: Topic = {
           correctIndex: 2,
           explanation:
             '軟体動物のあしは筋肉でできています。外骨格や骨はありません。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q16',
           question: 'ウニやヒトデは何動物に分類されるか？',
@@ -446,7 +333,8 @@ export const invertebrates: Topic = {
           correctIndex: 2,
           explanation:
             'ウニやヒトデは棘皮動物に分類されます。無脊椎動物ですが、節足動物にも軟体動物にも分類されません。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q17',
           question: 'ミミズは何動物に分類されるか？',
@@ -454,7 +342,8 @@ export const invertebrates: Topic = {
           correctIndex: 1,
           explanation:
             'ミミズは環形動物に分類されます。無脊椎動物ですが節足動物にも軟体動物にも分類されません。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q18',
           question: '動物を分類するとき、最初に調べるポイントは何か？',
@@ -467,7 +356,8 @@ export const invertebrates: Topic = {
           correctIndex: 3,
           explanation:
             '動物はまず背骨（脊椎）の有無で脊椎動物と無脊椎動物に大きく分けられます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q19',
           question: '次のうち、節足動物に分類されるものはどれか？',
@@ -475,7 +365,8 @@ export const invertebrates: Topic = {
           correctIndex: 2,
           explanation:
             'カニは甲殻類で節足動物です。イカは軟体動物、ミミズは環形動物、ヒトデは棘皮動物です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q20',
           question: '次のうち、軟体動物に分類されるものはどれか？',
@@ -483,7 +374,8 @@ export const invertebrates: Topic = {
           correctIndex: 3,
           explanation:
             'タコは軟体動物です。外とう膜で内臓が包まれています。バッタ・クモ・エビは節足動物です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q21',
           question: 'イカの移動方法として正しいものはどれか？',
@@ -496,7 +388,8 @@ export const invertebrates: Topic = {
           correctIndex: 1,
           explanation:
             'イカは水を噴き出して移動します（噴射）。外とう膜で内臓が包まれている軟体動物です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q22',
           question: 'バッタとカニの体のつくりで共通する特徴はどれか？',
@@ -509,7 +402,8 @@ export const invertebrates: Topic = {
           correctIndex: 2,
           explanation:
             'バッタ（昆虫類）もカニ（甲殻類）も節足動物で、外骨格でおおわれ体やあしに節があるという共通点があります。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q23',
           question: '次のうち、昆虫類に分類されないものはどれか？',
@@ -517,7 +411,8 @@ export const invertebrates: Topic = {
           correctIndex: 3,
           explanation:
             'クモは昆虫類ではありません。あしが4対8本で体が2部分に分かれます。バッタ・チョウ・アリは昆虫類です。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'q24',
           question: 'マイマイ（カタツムリ）は何動物に分類されるか？',
@@ -525,7 +420,8 @@ export const invertebrates: Topic = {
           correctIndex: 2,
           explanation:
             'マイマイ（カタツムリ）は軟体動物です。外とう膜で内臓が包まれています。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'q25',
           question: '脊椎動物は約何万種いるか？',
@@ -533,7 +429,8 @@ export const invertebrates: Topic = {
           correctIndex: 0,
           explanation:
             '脊椎動物は約7万種です。無脊椎動物は約146万種で、無脊椎動物のほうが圧倒的に多いです。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'q26',
           question: '次の動物のうち、脊椎動物に分類されるのはどれか？',
@@ -541,7 +438,8 @@ export const invertebrates: Topic = {
           correctIndex: 3,
           explanation:
             'カメはハチュウ類で脊椎動物です。バッタは節足動物、イカは軟体動物、ミミズは環形動物で、すべて無脊椎動物です。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'q27',
           question: '昆虫類の呼吸器官（気門）はどこにあるか？',
@@ -554,7 +452,8 @@ export const invertebrates: Topic = {
           correctIndex: 1,
           explanation:
             '気門は体の横（腹部や胸部の側面）にあります。ここから空気をとり入れて呼吸します。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'q28',
           question: '無脊椎動物の主なグループとして正しい組み合わせはどれか？',
@@ -567,7 +466,8 @@ export const invertebrates: Topic = {
           correctIndex: 2,
           explanation:
             '無脊椎動物の主なグループは節足動物と軟体動物です。魚類・両生類・ハチュウ類・鳥類・哺乳類は脊椎動物です。',
-        },
+        difficulty: 'advanced',
+      },
       ],
     },
     examples: {

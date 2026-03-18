@@ -49,6 +49,7 @@ export const westernAsiaInvasion: Topic = {
         front: 'アヘン戦争',
         back: '1840年、イギリスが清（中国）に仕掛けた戦争は？',
         explanation: '清がアヘンの密輸を取り締まったことをきっかけに始まった。',
+        difficulty: 'basic',
       },
       {
         id: 'fc2',
@@ -56,54 +57,63 @@ export const westernAsiaInvasion: Topic = {
         back: 'イギリス・インド・清の間で行われた貿易は？',
         explanation:
           'イギリス→インド（綿織物）→清（アヘン）→イギリス（茶・絹）という流れ。',
+        difficulty: 'basic',
       },
       {
         id: 'fc3',
         front: '南京条約',
         back: 'アヘン戦争後に清がイギリスと結んだ不平等条約は？',
         explanation: '香港の割譲、関税自主権の喪失などを定めた。',
+        difficulty: 'basic',
       },
       {
         id: 'fc4',
         front: '関税自主権',
         back: '輸入品にかける税率を自国で決める権利は？',
         explanation: '清は南京条約でこの権利を失った。',
+        difficulty: 'basic',
       },
       {
         id: 'fc5',
         front: '領事裁判権',
         back: '外国人が犯罪を犯してもその国の法律で裁く権利は？',
         explanation: '清は南京条約でイギリスにこの権利を認めた。',
+        difficulty: 'standard',
       },
       {
         id: 'fc6',
         front: '香港',
         back: 'アヘン戦争後、イギリスに割譲された中国南部の地域は？',
         explanation: '1997年まで約150年間イギリスの植民地だった。',
+        difficulty: 'standard',
       },
       {
         id: 'fc7',
         front: 'インド大反乱',
         back: '1857年、イギリス支配に対してインドで起きた大規模な反乱は？',
         explanation: 'セポイの反乱とも呼ばれ、鎮圧後イギリスの支配が強化された。',
+        difficulty: 'standard',
       },
       {
         id: 'fc8',
         front: 'アヘン',
         back: 'イギリスがインドから清に密輸した麻薬は？',
         explanation: '中毒者が増え、清の社会問題となった。',
+        difficulty: 'standard',
       },
       {
         id: 'fc9',
         front: '不平等条約',
         back: '一方に不利な条件を押し付けた条約を何という？',
         explanation: '関税自主権の喪失や領事裁判権の承認などが特徴。',
+        difficulty: 'advanced',
       },
       {
         id: 'fc10',
         front: '清',
-        back: '当時の中国の国名は？',
-        explanation: 'アヘン戦争でイギリスに敗れた。',
+        back: 'アヘン戦争でイギリスに敗れた当時の中国の国名は？',
+        explanation: '南京条約で香港を割譲するなど不平等条約を結ばされた。',
+        difficulty: 'basic',
       },
     ],
     quiz: {
@@ -115,6 +125,7 @@ export const westernAsiaInvasion: Topic = {
           correctIndex: 3,
           explanation:
             'アヘン戦争は、清がアヘンの密輸を取り締まったことへの報復としてイギリスが起こしました。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -123,6 +134,7 @@ export const westernAsiaInvasion: Topic = {
           correctIndex: 2,
           explanation:
             'イギリスはインドで栽培したアヘンを清に密輸し、茶や絹を輸入する三角貿易を行いました。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -131,6 +143,7 @@ export const westernAsiaInvasion: Topic = {
           correctIndex: 1,
           explanation:
             '南京条約で清は香港を割譲し、関税自主権を失い、領事裁判権を認めさせられました。',
+          difficulty: 'basic',
         },
         {
           id: 'q4',
@@ -139,6 +152,7 @@ export const westernAsiaInvasion: Topic = {
           correctIndex: 0,
           explanation:
             '関税自主権を失った清は、安い外国製品の流入を防ぐことができなくなりました。',
+          difficulty: 'standard',
         },
         {
           id: 'q5',
@@ -147,6 +161,7 @@ export const westernAsiaInvasion: Topic = {
           correctIndex: 2,
           explanation:
             'インド大反乱（セポイの反乱）は鎮圧され、その後イギリスのインド支配はさらに強まりました。',
+          difficulty: 'standard',
         },
         {
           id: 'q6',
@@ -155,6 +170,7 @@ export const westernAsiaInvasion: Topic = {
           correctIndex: 3,
           explanation:
             '香港は南京条約によりイギリスに割譲され、1997年まで約150年間イギリスの植民地でした。',
+          difficulty: 'standard',
         },
       ],
     },

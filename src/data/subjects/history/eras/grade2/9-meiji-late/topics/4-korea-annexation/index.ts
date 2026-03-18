@@ -49,60 +49,70 @@ export const koreaAnnexation: Topic = {
         front: '韓国併合',
         back: '1910年に日本が韓国を植民地にしたことは？',
         explanation: '朝鮮総督府を置いて支配した。',
+        difficulty: 'basic',
       },
       {
         id: 'fc2',
         front: '韓国統監府',
         back: '1906年にソウルに設置された、韓国を監督する日本の機関は？',
         explanation: '初代統監は伊藤博文が務めた。',
+        difficulty: 'basic',
       },
       {
         id: 'fc3',
         front: '朝鮮総督府',
         back: '韓国併合後に設置された、朝鮮を統治する機関は？',
         explanation: '日本の植民地支配の中心となった。',
+        difficulty: 'basic',
       },
       {
         id: 'fc4',
         front: '南満州鉄道',
         back: '日露戦争後に設立された、満州での鉄道会社は？',
         explanation: '「満鉄」と呼ばれ、大陸進出の拠点となった。',
+        difficulty: 'basic',
       },
       {
         id: 'fc5',
         front: '辛亥革命',
         back: '1911年に清を倒した中国の革命は？',
         explanation: '中華民国が建国され、孫文が臨時大総統になった。',
+        difficulty: 'standard',
       },
       {
         id: 'fc6',
         front: '孫文',
         back: '三民主義を掲げ、辛亥革命を指導した人物は？',
         explanation: '中華民国の臨時大総統となった。',
+        difficulty: 'standard',
       },
       {
         id: 'fc7',
         front: '三民主義',
         back: '孫文が掲げた、民族・民権・民生の理念は？',
         explanation: '中国革命の指導理念となった。',
+        difficulty: 'standard',
       },
       {
         id: 'fc8',
         front: '中華民国',
         back: '1912年に建国されたアジア初の共和国は？',
         explanation: '清が滅亡し、孫文を臨時大総統として建国された。',
+        difficulty: 'standard',
       },
       {
         id: 'fc9',
         front: '袁世凱',
         back: '辛亥革命後に実権を握った、清の軍人は？',
         explanation: '孫文に代わって大総統となった。',
+        difficulty: 'advanced',
       },
       {
         id: 'fc10',
         front: '伊藤博文',
         back: '韓国統監府の初代統監を務めた政治家は？',
         explanation: '1909年に安重根に暗殺された。',
+        difficulty: 'advanced',
       },
     ],
     quiz: {
@@ -114,6 +124,7 @@ export const koreaAnnexation: Topic = {
           correctIndex: 0,
           explanation:
             '韓国併合により朝鮮総督府が設置され、韓国は日本の植民地として支配されました。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -123,6 +134,7 @@ export const koreaAnnexation: Topic = {
           correctIndex: 1,
           explanation:
             '伊藤博文が初代韓国統監として就任しましたが、1909年に安重根に暗殺されました。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -132,6 +144,7 @@ export const koreaAnnexation: Topic = {
           correctIndex: 3,
           explanation:
             '南満州鉄道株式会社（満鉄）はポーツマス条約で得た利権をもとに設立され、大陸進出の拠点となりました。',
+          difficulty: 'basic',
         },
         {
           id: 'q4',
@@ -141,6 +154,7 @@ export const koreaAnnexation: Topic = {
           correctIndex: 2,
           explanation:
             '辛亥革命により清が滅亡し、アジア初の共和国である中華民国が建国されました。',
+          difficulty: 'standard',
         },
         {
           id: 'q5',
@@ -150,6 +164,7 @@ export const koreaAnnexation: Topic = {
           correctIndex: 2,
           explanation:
             '孫文は三民主義を掲げて革命を指導し、中華民国の臨時大総統となりました。',
+          difficulty: 'standard',
         },
         {
           id: 'q6',
@@ -159,6 +174,7 @@ export const koreaAnnexation: Topic = {
           correctIndex: 1,
           explanation:
             '袁世凱は孫文に代わって大総統となり、中華民国の実権を握りました。',
+          difficulty: 'standard',
         },
       ],
     },

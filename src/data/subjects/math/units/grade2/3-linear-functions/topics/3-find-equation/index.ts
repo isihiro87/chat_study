@@ -61,79 +61,95 @@ export const findLinearEquation: Topic = {
       {
         id: 'math-g2-find-linear-eq-fc1',
         front: '$y = ax + b$（$a$ は傾き、$b$ は切片）', back: '一次関数の式の基本形は？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-find-linear-eq-fc2',
         front: '$y = ax + b$ にそのまま $a$ と $b$ を代入するだけ', back: '傾きと切片がわかっているときの式の求め方は？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-find-linear-eq-fc3',
         front: '① $y = ax + b$ に傾き $a$ を代入\n② 通る点 $(p, q)$ を代入して $b$ を求める\n③ 式を完成させる', back: '傾きと1点の座標がわかっているときの手順は？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-find-linear-eq-fc4',
         front: '$a = \\dfrac{y_2 - y_1}{x_2 - x_1}$（$y$ の増加量 $\\div$ $x$ の増加量）', back: '2点 $(x_1, y_1)$、$(x_2, y_2)$ から傾き $a$ を求める公式は？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-find-linear-eq-fc5',
         front: '① 傾き $a = (y_2 - y_1) \\div (x_2 - x_1)$ を計算\n② $y = ax + b$ にどちらか1点を代入して $b$ を求める\n③ 式を完成させる', back: '2点から式を求める方法（傾きから）の手順は？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-find-linear-eq-fc6',
         front: '① 2点をそれぞれ $y = ax + b$ に代入して2つの式をつくる\n② 連立方程式を加減法で解いて $a$ と $b$ を求める', back: '2点から式を求める方法（連立方程式）の手順は？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-find-linear-eq-fc7',
         front: '一次関数では、変化の割合 $=$ 傾き $a$（常に一定）', back: '「変化の割合」と「傾き」の関係は？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-find-linear-eq-fc8',
         front: '傾き $3$。平行な直線は傾きが等しい（切片だけが異なる）', back: '「$y = 3x + 1$ に平行な直線」の傾きはいくつ？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-find-linear-eq-fc9',
         front: 'グラフが $y$ 軸と交わる点の $y$ 座標のこと。$x = 0$ のときの $y$ の値。', back: '切片とは何か？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-find-linear-eq-fc10',
         front: '$a = 6 \\div 3 = 2$。傾き $=$ $y$ の増加量 $\\div$ $x$ の増加量。', back: '「$x$ が $3$ 増加すると $y$ が $6$ 増加する」とき、傾きは？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-find-linear-eq-fc11',
         front: '傾きの計算で分数が出そうなとき、または2つの式に代入してまとめて解きたいとき', back: '連立方程式法はどんなときに便利？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-find-linear-eq-fc12',
         front: '$a + b = 4$ と $3a + b = 10$。それぞれ $y = ax + b$ に代入してつくる。', back: '2点 $(1, 4)$ と $(3, 10)$ から連立方程式をつくると？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-find-linear-eq-fc13',
         front: '$y = 0$ を式に代入して $x$ について解く。この $x$ の値を $x$ 切片という。', back: 'グラフが $x$ 軸と交わる点の座標の求め方は？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g2-find-linear-eq-fc14',
         front: '平行な2直線の傾きは等しい（$a_1 = a_2$）。切片 $b$ だけが異なる。', back: '平行な2直線の傾きの関係は？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g2-find-linear-eq-fc15',
         front: '求めた式に、もう1つの点の座標を代入して等式が成り立つか確かめる', back: '式を求めた後、答えが正しいか確認する方法は？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g2-find-linear-eq-fc16',
         front: '$y = -2x + b$ に $(3, 1)$ を代入: $1 = -6 + b$ → $b = 7$', back: '「傾き $-2$、点 $(3, 1)$ を通る」→ 切片 $b$ の求め方は？',
+        difficulty: 'standard',
       },
-      { id: 'math-g2-find-linear-eq-fc17', front: '① $y$ 軸との交点→切片 $b$ ② 2点間の変化→傾き $a$ ③ $y = ax + b$ に当てはめる', back: 'グラフから式を読み取る手順は？' },
-      { id: 'math-g2-find-linear-eq-fc18', front: '$y = 0$ を代入して $x$ を求める。$0 = ax + b$ → $x = -\dfrac{b}{a}$', back: '$x$ 切片の求め方は？' },
-      { id: 'math-g2-find-linear-eq-fc19', front: '「$x$ が $5$ 増えると $y$ が $10$ 増える」→ $a = \dfrac{10}{5} = 2$', back: '「$x$ の増加量と $y$ の増加量」から傾きを求めるには？' },
-      { id: 'math-g2-find-linear-eq-fc20', front: '$a = \dfrac{y_2 - y_1}{x_2 - x_1}$。どちらの点を $(x_1, y_1)$ にしても結果は同じ。', back: '傾きの公式で、2点の順番は関係ある？' },
-      { id: 'math-g2-find-linear-eq-fc21', front: '① 傾きと切片 → 直接代入 ② 傾きと1点 → $b$ を求める ③ 2点 → 傾き計算→$b$ ④ 2点 → 連立方程式', back: '一次関数の式を求める4パターンは？' },
-      { id: 'math-g2-find-linear-eq-fc22', front: '平行な直線は傾きが同じ。$y = 3x + 1$ に平行 → $a = 3$。', back: '「平行な直線」と言われたら傾きは？' },
-      { id: 'math-g2-find-linear-eq-fc23', front: '$(0, b)$ を通るなら切片がすぐわかる。あとは傾きだけ求めればOK。', back: 'グラフが $y$ 軸上の点を通る場合の有利な点は？' },
-      { id: 'math-g2-find-linear-eq-fc24', front: '求めた式にもう1つの点を代入して等式が成り立つか確認', back: '式を求めた後の検算方法は？' },
-      { id: 'math-g2-find-linear-eq-fc25', front: '変化の割合 $=$ 傾き $a$（一次関数では常に一定）', back: '「変化の割合が $-2$」と言われたら $a$ は？→ $a = -2$' },
-      { id: 'math-g2-find-linear-eq-fc26', front: '傾きの計算で分数が出やすいとき。2点を代入して連立方程式を解く方が楽。', back: '連立方程式法が特に便利なのはどんなとき？' },
-      { id: 'math-g2-find-linear-eq-fc27', front: '$y$ 切片がグラフから読み取りやすく、傾きも目盛りから計算しやすい', back: 'グラフから式を求めるのが楽な理由は？' },
-      { id: 'math-g2-find-linear-eq-fc28', front: '$y = ax + b$ に $(p, q)$ を代入: $q = ap + b$ を解く', back: '傾き $a$ が分かっていて通る点 $(p, q)$ から $b$ を求める手順は？' },
+      { id: 'math-g2-find-linear-eq-fc17', front: '① $y$ 軸との交点→切片 $b$ ② 2点間の変化→傾き $a$ ③ $y = ax + b$ に当てはめる', back: 'グラフから式を読み取る手順は？', difficulty: 'standard' },
+      { id: 'math-g2-find-linear-eq-fc18', front: '$y = 0$ を代入して $x$ を求める。$0 = ax + b$ → $x = -\dfrac{b}{a}$', back: '$x$ 切片の求め方は？', difficulty: 'standard' },
+      { id: 'math-g2-find-linear-eq-fc19', front: '「$x$ が $5$ 増えると $y$ が $10$ 増える」→ $a = \dfrac{10}{5} = 2$', back: '「$x$ の増加量と $y$ の増加量」から傾きを求めるには？', difficulty: 'standard' },
+      { id: 'math-g2-find-linear-eq-fc20', front: '$a = \dfrac{y_2 - y_1}{x_2 - x_1}$。どちらの点を $(x_1, y_1)$ にしても結果は同じ。', back: '傾きの公式で、2点の順番は関係ある？', difficulty: 'standard' },
+      { id: 'math-g2-find-linear-eq-fc21', front: '① 傾きと切片 → 直接代入 ② 傾きと1点 → $b$ を求める ③ 2点 → 傾き計算→$b$ ④ 2点 → 連立方程式', back: '一次関数の式を求める4パターンは？', difficulty: 'standard' },
+      { id: 'math-g2-find-linear-eq-fc22', front: '平行な直線は傾きが同じ。$y = 3x + 1$ に平行 → $a = 3$。', back: '「平行な直線」と言われたら傾きは？', difficulty: 'standard' },
+      { id: 'math-g2-find-linear-eq-fc23', front: '$(0, b)$ を通るなら切片がすぐわかる。あとは傾きだけ求めればOK。', back: 'グラフが $y$ 軸上の点を通る場合の有利な点は？', difficulty: 'advanced' },
+      { id: 'math-g2-find-linear-eq-fc24', front: '求めた式にもう1つの点を代入して等式が成り立つか確認', back: '式を求めた後の検算方法は？', difficulty: 'advanced' },
+      { id: 'math-g2-find-linear-eq-fc25', front: '変化の割合 $=$ 傾き $a$（一次関数では常に一定）', back: '「変化の割合が $-2$」と言われたら $a$ は？→ $a = -2$', difficulty: 'advanced' },
+      { id: 'math-g2-find-linear-eq-fc26', front: '傾きの計算で分数が出やすいとき。2点を代入して連立方程式を解く方が楽。', back: '連立方程式法が特に便利なのはどんなとき？', difficulty: 'advanced' },
+      { id: 'math-g2-find-linear-eq-fc27', front: '$y$ 切片がグラフから読み取りやすく、傾きも目盛りから計算しやすい', back: 'グラフから式を求めるのが楽な理由は？', difficulty: 'advanced' },
+      { id: 'math-g2-find-linear-eq-fc28', front: '$y = ax + b$ に $(p, q)$ を代入: $q = ap + b$ を解く', back: '傾き $a$ が分かっていて通る点 $(p, q)$ から $b$ を求める手順は？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -144,6 +160,7 @@ export const findLinearEquation: Topic = {
           correctIndex: 3,
           explanation:
             '$y = ax + b$ に $a = 2$、$b = 5$ を代入して $y = 2x + 5$ だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g2-find-linear-eq-q2',
@@ -153,6 +170,7 @@ export const findLinearEquation: Topic = {
           correctIndex: 0,
           explanation:
             '$y = 3x + b$ に $(1, 7)$ を代入: $7 = 3 \\times 1 + b \\rightarrow b = 4$。よって $y = 3x + 4$。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g2-find-linear-eq-q3',
@@ -162,6 +180,7 @@ export const findLinearEquation: Topic = {
           correctIndex: 1,
           explanation:
             '傾き $a = (7 - 3) \\div (3 - 1) = 4 \\div 2 = 2$。$y = 2x + b$ に $(1, 3)$ を代入: $3 = 2 + b \\rightarrow b = 1$。よって $y = 2x + 1$。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g2-find-linear-eq-q4',
@@ -171,6 +190,7 @@ export const findLinearEquation: Topic = {
           correctIndex: 2,
           explanation:
             '平行なので傾きは同じ $-3$。$y = -3x + b$ に $(2, 1)$ を代入: $1 = -6 + b \\rightarrow b = 7$。よって $y = -3x + 7$。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g2-find-linear-eq-q5',
@@ -180,6 +200,7 @@ export const findLinearEquation: Topic = {
           correctIndex: 3,
           explanation:
             '一次関数の変化の割合 $=$ 傾きだから $a = 4$。$y = 4x + b$ に $(2, 11)$ を代入: $11 = 8 + b \\rightarrow b = 3$。よって $y = 4x + 3$。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g2-find-linear-eq-q6',
@@ -189,6 +210,7 @@ export const findLinearEquation: Topic = {
           correctIndex: 0,
           explanation:
             '$(-1, 5)$: $-a + b = 5$、$(2, -1)$: $2a + b = -1$。引くと $3a = -6$、$a = -2$、$b = 3$。よって $y = -2x + 3$。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g2-find-linear-eq-q7',
@@ -198,6 +220,7 @@ export const findLinearEquation: Topic = {
           correctIndex: 2,
           explanation:
             '傾き $a = (11 - 5) \\div (4 - 2) = 6 \\div 2 = 3$。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g2-find-linear-eq-q8',
@@ -212,6 +235,7 @@ export const findLinearEquation: Topic = {
           correctIndex: 1,
           explanation:
             '$y = \\dfrac{1}{2}x + b$ に $(4, 5)$ を代入: $5 = 2 + b \\rightarrow b = 3$。よって $y = \\dfrac{1}{2}x + 3$。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g2-find-linear-eq-q9',
@@ -221,6 +245,7 @@ export const findLinearEquation: Topic = {
           correctIndex: 2,
           explanation:
             '傾き $= (8 - (-1)) \\div (4 - 1) = 9 \\div 3 = 3$。$y = 3x + b$ に $(1, -1)$ を代入: $-1 = 3 + b \\rightarrow b = -4$。よって $y = 3x - 4$。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g2-find-linear-eq-q10',
@@ -235,6 +260,7 @@ export const findLinearEquation: Topic = {
           correctIndex: 1,
           explanation:
             '$(1, 4)$ を $y = ax + b$ に代入: $4 = a \\cdot 1 + b$ → $a + b = 4$。$(3, 10)$ を代入: $10 = a \\cdot 3 + b$ → $3a + b = 10$。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g2-find-linear-eq-q11',
@@ -244,6 +270,7 @@ export const findLinearEquation: Topic = {
           correctIndex: 3,
           explanation:
             '傾き $= -6 \\div 2 = -3$。$y = -3x + b$ に $(1, 5)$ を代入: $5 = -3 + b \\rightarrow b = 8$。よって $y = -3x + 8$。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-find-linear-eq-q12',
@@ -253,6 +280,7 @@ export const findLinearEquation: Topic = {
           correctIndex: 0,
           explanation:
             '$(0, -3)$ を通るので切片は $-3$。傾き $= (1 - (-3)) \\div (2 - 0) = 4 \\div 2 = 2$。よって $y = 2x - 3$。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-find-linear-eq-q13',
@@ -260,6 +288,7 @@ export const findLinearEquation: Topic = {
           options: ['$y = x + 4$', '$y = -x + 4$', '$y = 4x - 1$', '$y = -4x + 1$'],
           correctIndex: 1,
           explanation: '$y = ax + b$ に $a = -1$、$b = 4$ を代入。$y = -x + 4$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-find-linear-eq-q14',
@@ -267,6 +296,7 @@ export const findLinearEquation: Topic = {
           options: ['$y = -2x + 3$', '$y = 2x + 3$', '$y = -2x - 3$', '$y = 2x - 3$'],
           correctIndex: 0,
           explanation: '切片 $= 3$。傾き $= \dfrac{-5-3}{4-0} = -2$。$y = -2x + 3$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-find-linear-eq-q15',
@@ -274,6 +304,7 @@ export const findLinearEquation: Topic = {
           options: ['$y = -3x + 7$', '$y = -3x + 1$', '$y = -3x - 5$', '$y = 3x - 5$'],
           correctIndex: 0,
           explanation: '$y = -3x + b$ に $(2,1)$: $1 = -6 + b$ → $b = 7$。$y = -3x + 7$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-find-linear-eq-q16',
@@ -281,6 +312,7 @@ export const findLinearEquation: Topic = {
           options: ['$y = 2x + 2$', '$y = -2x + 14$', '$y = 2x - 8$', '$y = 2x + 8$'],
           correctIndex: 0,
           explanation: '平行→ $a = 2$。$8 = 6 + b$ → $b = 2$。$y = 2x + 2$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-find-linear-eq-q17',
@@ -288,6 +320,7 @@ export const findLinearEquation: Topic = {
           options: ['$1$', '$2$', '$3$', '$\dfrac{1}{2}$'],
           correctIndex: 1,
           explanation: '$a = \dfrac{7-1}{5-2} = \dfrac{6}{3} = 2$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-find-linear-eq-q18',
@@ -295,6 +328,7 @@ export const findLinearEquation: Topic = {
           options: ['$y = 2x - 1$', '$y = -2x + 5$', '$y = 2x + 1$', '$y = \dfrac{1}{2}x - 1$'],
           correctIndex: 0,
           explanation: '切片 $-1$。傾き $= \dfrac{6}{3} = 2$。$y = 2x - 1$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-find-linear-eq-q19',
@@ -302,6 +336,7 @@ export const findLinearEquation: Topic = {
           options: ['$y = -2x + 6$', '$y = 2x + 6$', '$y = -2x - 6$', '$y = -8x + 6$'],
           correctIndex: 0,
           explanation: '$a = \dfrac{-8}{4} = -2$。切片 $6$。$y = -2x + 6$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-find-linear-eq-q20',
@@ -309,6 +344,7 @@ export const findLinearEquation: Topic = {
           options: ['$y = 3$', '$x = 3$', '$y = x$', '$y = 3x$'],
           correctIndex: 0,
           explanation: '$y$ が常に $3$。傾き $= 0$。$y = 3$（$x$ 軸に平行な直線）だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-find-linear-eq-q21',
@@ -316,6 +352,7 @@ export const findLinearEquation: Topic = {
           options: ['$y = \dfrac{2}{3}x + 3$', '$y = \dfrac{2}{3}x + 7$', '$y = \dfrac{2}{3}x - 3$', '$y = \dfrac{3}{2}x + 3$'],
           correctIndex: 0,
           explanation: '$7 = \dfrac{2}{3} \times 6 + b = 4 + b$ → $b = 3$。$y = \dfrac{2}{3}x + 3$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-find-linear-eq-q22',
@@ -323,6 +360,7 @@ export const findLinearEquation: Topic = {
           options: ['$y = -2x + 3$', '$y = 2x + 11$', '$y = -2x + 7$', '$y = -3x + 1$'],
           correctIndex: 0,
           explanation: '$a = \dfrac{1-7}{1-(-2)} = \dfrac{-6}{3} = -2$。$1 = -2 + b$ → $b = 3$。$y = -2x + 3$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-find-linear-eq-q23',
@@ -330,6 +368,7 @@ export const findLinearEquation: Topic = {
           options: ['$y = 3x - 1$', '$y = 2x + 1$', '$y = -3x + 11$', '$y = x + 3$'],
           correctIndex: 0,
           explanation: '切片 $-1$。$5 = 2a - 1$ → $a = 3$。$y = 3x - 1$ だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g2-find-linear-eq-q24',
@@ -337,6 +376,7 @@ export const findLinearEquation: Topic = {
           options: ['$a + b = 2, 3a + b = 8$', '$a + 2b = 1, 3a + 8b = 3$', '$2a + b = 1, 8a + b = 3$', '$b = 2, b = 8$'],
           correctIndex: 0,
           explanation: '$(1,2)$: $a + b = 2$。$(3,8)$: $3a + b = 8$。これを解くよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g2-find-linear-eq-q25',
@@ -344,6 +384,7 @@ export const findLinearEquation: Topic = {
           options: ['$-3$', '$3$', '$-8$', '$2$'],
           correctIndex: 0,
           explanation: '$a = -5$。$-8 = -5 + b$ → $b = -3$ だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g2-find-linear-eq-q26',
@@ -351,6 +392,7 @@ export const findLinearEquation: Topic = {
           options: ['$y = -2x + 8$', '$y = 2x + 8$', '$y = -2x - 8$', '$y = 2x - 8$'],
           correctIndex: 0,
           explanation: '切片 $8$。傾き $= \dfrac{0-8}{4-0} = -2$。$y = -2x + 8$ だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g2-find-linear-eq-q27',
@@ -358,6 +400,7 @@ export const findLinearEquation: Topic = {
           options: ['$2$', '$10$', '$5$', '$20$'],
           correctIndex: 2,
           explanation: '$a = \dfrac{10}{2} = 5$ だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g2-find-linear-eq-q28',
@@ -365,6 +408,7 @@ export const findLinearEquation: Topic = {
           options: ['$y = 4$（$a = 0$）で一次関数ではない', '$y = 4$ で一次関数', '$y = x + 1$', '$x = 4$'],
           correctIndex: 0,
           explanation: '$y$ が常に $4$。$a = 0$ なので一次関数の定義($a \neq 0$)を満たさないよ。',
+          difficulty: 'advanced',
         },
       ],
     },

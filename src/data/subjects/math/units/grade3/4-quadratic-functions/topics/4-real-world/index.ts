@@ -67,114 +67,142 @@ export const quadFuncRealWorld: Topic = {
       {
         id: 'math-g3-qf-rw-fc1',
         front: 'ブレーキをかけてから車が止まるまでに進む距離のこと。速度の2乗に比例する（y = av²）', back: '制動距離とは何か？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qf-rw-fc2',
         front: '危険を感じてからブレーキを踏むまでに進む距離。速度に比例する（1次関数）', back: '空走距離とは何か？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qf-rw-fc3',
         front: '停止距離 ＝ 空走距離 ＋ 制動距離', back: '停止距離の求め方は？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qf-rw-fc4',
         front: '4倍（2² = 4）。速度が3倍なら9倍になる', back: '速度が2倍になると制動距離は何倍？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qf-rw-fc5',
         front: '具体的な速度vと制動距離yの値を代入して a = y ÷ v² で求める', back: '制動距離 y = av² で比例定数 a の求め方は？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qf-rw-fc6',
         front: 'ふりこが1往復する時間のこと（秒で表す）', back: 'ふりこの周期とは？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qf-rw-fc7',
         front: 'T² = aL（周期の2乗がひもの長さに比例）', back: 'ふりこの周期Tとひもの長さLの関係式は？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qf-rw-fc8',
         front: '2倍（T²が4倍→T=√4=2倍）', back: 'ふりこの長さが4倍になると周期は何倍？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qf-rw-fc9',
         front: '3倍（T²が9倍→T=√9=3倍）', back: 'ふりこの長さが9倍になると周期は何倍？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qf-rw-fc10',
         front: '正方形や三角形などが重なり始めるとき、重なる部分が二等辺三角形になるケースなど', back: '図形の移動で面積がx²に比例するのはどんなとき？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qf-rw-fc11',
         front: '料金表のように、ある区間で値が一定で、区間が変わると段階的に値が変わるグラフ', back: '階段状グラフとはどんなグラフ？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qf-rw-fc12',
         front: '時間の2乗に比例する（y = ax²の形）', back: '斜面を転がるボールの移動距離は時間とどんな関係？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qf-rw-fc13',
         front: '同じxの値に対してyが大きくなる。制動距離なら「止まりにくい車」ということ', back: 'y = ax² で「aが大きい」とはどういう意味？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qf-rw-fc14',
         front: '一次関数（直線のグラフ）になる', back: '水そうの底面積が一定のとき、水面の高さと時間の関係は？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qf-rw-fc15',
         front: '底面が広くなるところで水面の上昇が遅くなる（グラフの傾きが小さくなる）', back: '水そうの底面が途中で太くなると水面の上がり方はどうなる？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qf-rw-fc16',
         front: '0.006 × 50² = 0.006 × 2500 = 15m', back: 'y = 0.006x² の制動距離で、時速50kmのとき何m？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qf-rw-fc17',
-        front: 'yはxの関数であるという', back: '「xの値が決まるとyの値が1つに決まる」とき、yはxの何であるといえるか？',
+        front: '時速50km: $0.01 \\times 2500 = 25$ m\n時速100km: $0.01 \\times 10000 = 100$ m（4倍！）', back: '$y = 0.01v^2$ で時速50kmと100kmの制動距離を比べると？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qf-rw-fc18',
         front: '9倍（3² = 9）。速度3倍で制動距離9倍。', back: '速度が3倍になると制動距離は何倍？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qf-rw-fc19',
         front: '0.006 × 80² = 0.006 × 6400 = 38.4m', back: 'y = 0.006x² の制動距離で、時速80kmのとき何m？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qf-rw-fc20',
-        front: '4倍（長さ4倍→T²も4倍→T=2倍）', back: 'ふりこの長さが4倍のとき、周期は何倍？（再確認）',
+        front: '$L = 100$ cm（$T^2 = 0.04L$ に $T=2$ を代入: $4 = 0.04L$ → $L = 100$）', back: '$T^2 = 0.04L$ で周期を2秒にするにはひもの長さは？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qf-rw-fc21',
         front: 'T² = aL に L と T を代入して a を求める', back: 'ふりこの比例定数 a の求め方は？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qf-rw-fc22',
         front: '底面の形が変わるところで水面の上昇速度が変わる', back: '段付き水そうで水面の上がり方が変わる理由は？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qf-rw-fc23',
         front: '空走距離は速度の1次関数、制動距離は2次関数\n速度が大きいほど制動距離の割合が増える', back: '停止距離で空走距離と制動距離の増え方の違いは？',
+        difficulty: 'advanced',
       },
       {
         id: 'math-g3-qf-rw-fc24',
         front: '移動距離 y = ax² の変化の割合 = a(p+q)', back: '斜面を転がるボールの平均の速さの求め方は？',
+        difficulty: 'advanced',
       },
       {
         id: 'math-g3-qf-rw-fc25',
         front: '比例 y = ax は直線、2乗に比例 y = ax² は放物線\n反比例 y = a/x は双曲線', back: 'これまでに学んだ関数の種類と特徴は？',
+        difficulty: 'advanced',
       },
       {
         id: 'math-g3-qf-rw-fc26',
         front: '0.01 × 100² = 0.01 × 10000 = 100m', back: 'y = 0.01v² で時速100kmの制動距離は？',
+        difficulty: 'advanced',
       },
       {
         id: 'math-g3-qf-rw-fc27',
         front: 'T² = 0.04 × 400 = 16 → T = 4秒', back: 'T² = 0.04L で L = 400cm のとき周期は？',
+        difficulty: 'advanced',
       },
       {
         id: 'math-g3-qf-rw-fc28',
         front: '速度を √(y/a) で求める\n例: y = 0.01v² で y = 25 → v² = 2500 → v = 50km/h', back: '制動距離から速度を逆算する方法は？',
+        difficulty: 'advanced',
       },
     ],
     quiz: {
@@ -186,6 +214,7 @@ export const quadFuncRealWorld: Topic = {
           correctIndex: 3,
           explanation:
             '速度が2倍($30$ → $60$)になると制動距離は $2^2=4$ 倍。$9 \\times 4 = 36$ m だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-quad-func-real-q2',
@@ -194,6 +223,7 @@ export const quadFuncRealWorld: Topic = {
           correctIndex: 0,
           explanation:
             '$8 = a \\times 20^2$ → $8 = 400a$ → $a = \\frac{8}{400} = 0.02$ だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-quad-func-real-q3',
@@ -202,6 +232,7 @@ export const quadFuncRealWorld: Topic = {
           correctIndex: 2,
           explanation:
             '$T^2$ が $L$ に比例するから、$L$ が4倍 → $T^2$ も4倍 → $T$ は $\\sqrt{4} = 2$ 倍になるよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-qf-rw-q4',
@@ -210,6 +241,7 @@ export const quadFuncRealWorld: Topic = {
           correctIndex: 1,
           explanation:
             '$T^2 = 0.04 \\times 225 = 9$ → $T = \\sqrt{9} = 3$ 秒だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-qf-rw-q5',
@@ -218,6 +250,7 @@ export const quadFuncRealWorld: Topic = {
           correctIndex: 0,
           explanation:
             '空走距離 $= 0.6 \\times 60 = 36$ m、制動距離 $= 0.01 \\times 3600 = 36$ m。停止距離 $= 36 + 36 = 72$ m だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-qf-rw-q6',
@@ -226,6 +259,7 @@ export const quadFuncRealWorld: Topic = {
           correctIndex: 3,
           explanation:
             '$32 = 2x^2$ → $x^2 = 16$ → $x = 4$ cm（$x > 0$）だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-qf-rw-q7',
@@ -234,6 +268,7 @@ export const quadFuncRealWorld: Topic = {
           correctIndex: 1,
           explanation:
             '$x = 4$: $y = 48$、$x = 2$: $y = 12$。移動距離 $= 48 - 12 = 36$ cm だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-qf-rw-q8',
@@ -242,6 +277,7 @@ export const quadFuncRealWorld: Topic = {
           correctIndex: 2,
           explanation:
             '最初の1時間: $300$ 円。残り1時間30分 = 30分 × 3回 → $100 \\times 3 = 300$ 円。合計 $300 + 300 = 600$ 円だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-qf-rw-q9',
@@ -250,6 +286,7 @@ export const quadFuncRealWorld: Topic = {
           correctIndex: 3,
           explanation:
             '$36 = 0.01v^2$ → $v^2 = 3600$ → $v = \\sqrt{3600} = 60$。時速 $60$ km だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-qf-rw-q10',
@@ -258,6 +295,7 @@ export const quadFuncRealWorld: Topic = {
           correctIndex: 2,
           explanation:
             '時速60: $0.005 \\times 3600 = 18$ m、時速30: $0.005 \\times 900 = 4.5$ m。差は $18 - 4.5 = 13.5$ m だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-qf-rw-q11',
@@ -266,6 +304,7 @@ export const quadFuncRealWorld: Topic = {
           correctIndex: 1,
           explanation:
             '$T^2$ は $L$ に比例するから、$L$ が $\\frac{1}{4}$ 倍 → $T^2$ も $\\frac{1}{4}$ 倍 → $T$ は $\\frac{1}{2}$ 倍になるよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qf-rw-q12',
@@ -274,6 +313,7 @@ export const quadFuncRealWorld: Topic = {
           correctIndex: 0,
           explanation:
             '底面積が一定で毎分同じ量を入れるから、高さは一定の割合で増加する。つまり一次関数で直線のグラフになるよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qf-rw-q13',
@@ -282,6 +322,7 @@ export const quadFuncRealWorld: Topic = {
           correctIndex: 2,
           explanation:
             '$3^2 = 9$ 倍。速度の2乗に比例するから $n$ 倍で $n^2$ 倍だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qf-rw-q14',
@@ -290,6 +331,7 @@ export const quadFuncRealWorld: Topic = {
           correctIndex: 0,
           explanation:
             '$0.006 \\times 80^2 = 0.006 \\times 6400 = 38.4$ m だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qf-rw-q15',
@@ -298,6 +340,7 @@ export const quadFuncRealWorld: Topic = {
           correctIndex: 1,
           explanation:
             '$T^2 = 0.04 \\times 400 = 16$ → $T = \\sqrt{16} = 4$ 秒だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qf-rw-q16',
@@ -306,6 +349,7 @@ export const quadFuncRealWorld: Topic = {
           correctIndex: 1,
           explanation:
             '$25 = 0.01v^2$ → $v^2 = 2500$ → $v = 50$。時速 $50$ km だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qf-rw-q17',
@@ -314,6 +358,7 @@ export const quadFuncRealWorld: Topic = {
           correctIndex: 0,
           explanation:
             '空走 $= 0.5 \\times 80 = 40$ m、制動 $= 0.01 \\times 6400 = 64$ m。停止 $= 40 + 64 = 104$ m。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qf-rw-q18',
@@ -322,6 +367,7 @@ export const quadFuncRealWorld: Topic = {
           correctIndex: 1,
           explanation:
             '$L$ が $\\frac{1}{9}$ 倍 → $T^2$ も $\\frac{1}{9}$ 倍 → $T$ は $\\sqrt{\\frac{1}{9}} = \\frac{1}{3}$ 倍。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qf-rw-q19',
@@ -330,6 +376,7 @@ export const quadFuncRealWorld: Topic = {
           correctIndex: 1,
           explanation:
             '$x=4$: $y=48$、$x=2$: $y=12$。移動距離 $= 48-12 = 36$ cm。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qf-rw-q20',
@@ -338,6 +385,7 @@ export const quadFuncRealWorld: Topic = {
           correctIndex: 2,
           explanation:
             '速度2倍で制動距離 $2^2 = 4$ 倍。$8 \\times 4 = 32$ m。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qf-rw-q21',
@@ -346,6 +394,7 @@ export const quadFuncRealWorld: Topic = {
           correctIndex: 1,
           explanation:
             '$4 = 0.04L$ → $L = 100$ cm だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qf-rw-q22',
@@ -359,6 +408,7 @@ export const quadFuncRealWorld: Topic = {
           correctIndex: 1,
           explanation:
             '空走距離は速度に比例する1次関数だよ。制動距離が2次関数。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qf-rw-q23',
@@ -367,6 +417,7 @@ export const quadFuncRealWorld: Topic = {
           correctIndex: 0,
           explanation:
             '$0.005 \\times 100^2 = 0.005 \\times 10000 = 50$ m だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g3-qf-rw-q24',
@@ -380,6 +431,7 @@ export const quadFuncRealWorld: Topic = {
           correctIndex: 1,
           explanation:
             '底面が広くなると同じ量の水でも高さの増え方が小さくなる。グラフの傾きが緩やかになるよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g3-qf-rw-q25',
@@ -393,6 +445,7 @@ export const quadFuncRealWorld: Topic = {
           correctIndex: 2,
           explanation:
             '関数は「$x$ が決まると $y$ が1つに決まる」もの。$y$ が2つ決まるのは関数ではないよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g3-qf-rw-q26',
@@ -401,6 +454,7 @@ export const quadFuncRealWorld: Topic = {
           correctIndex: 1,
           explanation:
             '$a(p+q) = 2(3+5) = 16$ cm/秒だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g3-qf-rw-q27',
@@ -414,6 +468,7 @@ export const quadFuncRealWorld: Topic = {
           correctIndex: 0,
           explanation:
             '$a$ が大きいと同じ速度 $v$ に対して $y$ も大きくなる。つまり止まりにくい車ということだよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g3-qf-rw-q28',
@@ -422,6 +477,7 @@ export const quadFuncRealWorld: Topic = {
           correctIndex: 1,
           explanation:
             '$T$ が2倍 → $T^2$ は4倍 → $L$ も4倍にする必要があるよ。',
+          difficulty: 'advanced',
         },
       ],
     },

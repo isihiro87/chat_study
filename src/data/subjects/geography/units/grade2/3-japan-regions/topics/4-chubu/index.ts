@@ -146,41 +146,12 @@ export const chubu: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'geo2-cb-fc1',
-        front: '中京工業地帯',
-        back: '愛知県を中心に広がる、自動車産業が盛んで製造品出荷額が日本最大の工業地帯を何というか。',
-        explanation:
-          '中京工業地帯といいます。豊田市のトヨタ自動車を中心に自動車関連の工場が多く集まっています。',
-      },
-      {
-        id: 'geo2-cb-fc2',
-        front: '抑制栽培',
-        back: '涼しい高原の気候を利用して、出荷時期を遅らせる栽培方法を何というか。',
-        explanation:
-          '抑制栽培といいます。中央高地の長野県などでレタスやキャベツなどの高原野菜を夏に出荷しています。促成栽培の反対です。',
-      },
-      {
-        id: 'geo2-cb-fc3',
-        front: '日本アルプス',
-        back: '中部地方を3つの地域に分ける飛驒山脈・木曽山脈・赤石山脈の総称を何というか。',
-        explanation:
-          '日本アルプスといいます。これらの山脈を境に、東海（太平洋側）・中央高地・北陸（日本海側）の3つの地域に分かれます。',
-      },
-      {
-        id: 'geo2-cb-fc4',
-        front: '鯖江市のメガネフレーム',
-        back: '福井県の都市で、メガネフレームの国内シェア約96%を占める伝統産業があるのはどこか。',
-        explanation:
-          '福井県鯖江市です。冬の農閑期の副業としてメガネ産業が始まり、現在は国内シェア約96%を誇る一大産地です。',
-      },
-      {
-        id: 'geo2-cb-fc5',
-        front: '甲府盆地の果樹栽培',
-        back: '山梨県の盆地で盛んな、ぶどうや桃などの栽培を何というか。',
-        explanation:
-          '果樹栽培といいます。甲府盆地は水はけがよい扇状地が広がり、日照時間が長いため、ぶどうや桃の栽培に適しています。',
-      },
+      { id: 'geo2-cb-fc1', front: '中京工業地帯', back: '愛知県を中心に広がる、自動車産業が盛んで製造品出荷額が日本最大の工業地帯を何というか。', difficulty: 'basic' },
+      { id: 'geo2-cb-fc2', front: '抑制栽培', back: '涼しい高原の気候を利用して出荷時期を遅らせる栽培方法を何というか。', explanation: '促成栽培の反対。長野県で高原野菜を夏に出荷', difficulty: 'basic' },
+      { id: 'geo2-cb-fc3', front: '日本アルプス（飛驒山脈・木曽山脈・赤石山脈）', back: '中部地方を東海・中央高地・北陸の3つの地域に分ける山脈の総称は何か。', difficulty: 'basic' },
+      { id: 'geo2-cb-fc4', front: '福井県鯖江市', back: 'メガネフレームの国内シェア約96%を占める伝統産業がある都市はどこか。', explanation: '冬の農閑期の副業から発展した産業', difficulty: 'standard' },
+      { id: 'geo2-cb-fc5', front: '果樹栽培（ぶどう・桃）', back: '山梨県の甲府盆地で盛んな農業は何か。', explanation: '水はけがよい扇状地と長い日照時間が栽培に適する', difficulty: 'standard' },
+      { id: 'geo2-cb-fc6', front: '冬の豪雪で農作業ができず、副業として手工業が発達し伝統工芸品につながった', back: '北陸地方で伝統的工芸品が発達した背景は何か。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -192,7 +163,8 @@ export const chubu: Topic = {
           correctIndex: 1,
           explanation:
             '日本アルプス（飛驒山脈・木曽山脈・赤石山脈）が中部地方を東海・中央高地・北陸の3地域に分けています。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo2-cb-q2',
           question:
@@ -206,7 +178,8 @@ export const chubu: Topic = {
           correctIndex: 2,
           explanation:
             '中京工業地帯は愛知県の豊田市を中心に自動車関連工場が集積し、製造品出荷額で日本最大です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo2-cb-q3',
           question:
@@ -215,7 +188,8 @@ export const chubu: Topic = {
           correctIndex: 3,
           explanation:
             '抑制栽培は涼しい高原の気候を利用して、出荷時期を遅らせる栽培方法です。促成栽培（出荷を早める）の反対です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo2-cb-q4',
           question:
@@ -224,7 +198,8 @@ export const chubu: Topic = {
           correctIndex: 0,
           explanation:
             '福井県鯖江市はメガネフレームの生産で国内シェア約96%を占め、冬の農閑期の副業から発展した伝統産業です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo2-cb-q5',
           question:
@@ -238,7 +213,8 @@ export const chubu: Topic = {
           correctIndex: 2,
           explanation:
             '自動車産業は東海地方（愛知県豊田市）の産業です。北陸の冬の副業から発展した産業は輪島塗・九谷焼・金属洋食器などです。',
-        },
+        difficulty: 'advanced',
+      },
       ],
     },
     examples: {

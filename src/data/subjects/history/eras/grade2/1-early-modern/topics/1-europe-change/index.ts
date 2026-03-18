@@ -34,13 +34,13 @@ export const europeChange: Topic = {
     },
     videos: [],
     flashcards: [
-      { id: 'fc1', front: 'ルネサンス', back: '14世紀にイタリアで始まった文芸復興は？' },
-      { id: 'fc2', front: '免罪符（贖宥状）', back: '教皇が販売した、罪が許されるとする札は？' },
-      { id: 'fc3', front: '宗教改革', back: '16世紀にルターらが始めた教会の改革は？' },
-      { id: 'fc4', front: 'プロテスタント', back: '聖書を重視し教皇に抗議した新教徒は？' },
-      { id: 'fc5', front: 'イエズス会', back: '海外布教のためカトリックが作った組織は？' },
-      { id: 'fc6', front: '羅針盤', back: '遠洋航海を可能にした、方位を示す道具は？' },
-      { id: 'fc7', front: '活版印刷', back: '知識の普及を助けた、文字の印刷技術は？' },
+      { id: 'fc1', front: 'ルネサンス', back: '14世紀にイタリアで始まった文芸復興は？', difficulty: 'basic' },
+      { id: 'fc2', front: '免罪符（贖宥状）', back: '教皇が販売した、罪が許されるとする札は？', difficulty: 'basic' },
+      { id: 'fc3', front: '宗教改革', back: '16世紀にルターらが始めた教会の改革は？', difficulty: 'basic' },
+      { id: 'fc4', front: 'プロテスタント', back: '聖書を重視し教皇に抗議した新教徒は？', difficulty: 'standard' },
+      { id: 'fc5', front: 'イエズス会', back: '海外布教のためカトリックが作った組織は？', difficulty: 'standard' },
+      { id: 'fc6', front: '羅針盤', back: '遠洋航海を可能にした、方位を示す道具は？', difficulty: 'standard' },
+      { id: 'fc7', front: '活版印刷', back: '知識の普及を助けた、文字の印刷技術は？', difficulty: 'standard' },
     ],
     quiz: {
       questions: [
@@ -50,6 +50,7 @@ export const europeChange: Topic = {
           options: ['ルネサンス', '産業革命', '宗教改革', '啓蒙思想'],
           correctIndex: 0,
           explanation: 'ルネサンスは14世紀にイタリアで始まり、古代の文化を手本に人間らしさを追求した文芸復興運動です。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -57,6 +58,7 @@ export const europeChange: Topic = {
           options: ['聖書', '御朱印', '免罪符（贖宥状）', '踏み絵'],
           correctIndex: 2,
           explanation: '免罪符（贖宥状）はローマ教皇が資金集めのために販売し、ルターの宗教改革の直接のきっかけとなりました。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -64,6 +66,7 @@ export const europeChange: Topic = {
           options: ['プロテスタント', '東インド会社', 'テンプル騎士団', 'イエズス会'],
           correctIndex: 3,
           explanation: 'イエズス会はカトリック教会の改革運動の中で設立され、アジアなど海外での布教活動を積極的に行いました。',
+          difficulty: 'standard',
         },
       ],
     },

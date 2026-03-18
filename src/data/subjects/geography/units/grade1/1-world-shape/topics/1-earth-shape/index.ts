@@ -163,178 +163,34 @@ export const earthShape: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'geo1-es-fc1',
-        front: '陸地と海洋の割合',
-        back: '地球の表面における陸地と海洋の割合はそれぞれ何割？',
-        explanation:
-          '陸地は約3割（約29%）、海洋は約7割（約71%）です。地球は「水の惑星」ともよばれます。',
-      },
-      {
-        id: 'geo1-es-fc2',
-        front: '六つの大陸',
-        back: '地球上の六つの大陸をすべて答えよ。',
-        explanation:
-          'ユーラシア大陸、アフリカ大陸、北アメリカ大陸、南アメリカ大陸、オーストラリア大陸、南極大陸の六つです。最大はユーラシア大陸。',
-      },
-      {
-        id: 'geo1-es-fc3',
-        front: '三つの大洋',
-        back: '地球上の三つの大洋をすべて答えよ。',
-        explanation:
-          '太平洋、大西洋、インド洋の三つです。面積が最も大きいのは太平洋で、地球の表面積の約3分の1を占めます。',
-      },
-      {
-        id: 'geo1-es-fc4',
-        front: '世界の六つの州',
-        back: '世界を構成する六つの州をすべて答えよ。',
-        explanation:
-          'アジア州、ヨーロッパ州、アフリカ州、北アメリカ州、南アメリカ州、オセアニア州の六つです。',
-      },
-      {
-        id: 'geo1-es-fc5',
-        front: '最大の大陸と大洋',
-        back: '最も面積が大きい大陸と大洋をそれぞれ答えよ。',
-        explanation:
-          '最大の大陸はユーラシア大陸（世界の陸地面積の約3分の1）、最大の大洋は太平洋（地球の表面積の約3分の1）です。',
-      },
-      {
-        id: 'geo1-es-fc6',
-        front: 'ユーラシア大陸の州区分',
-        back: 'ユーラシア大陸はどの州に分けられる？',
-        explanation:
-          'ユーラシア大陸はアジア州とヨーロッパ州に分けられています。大陸としては一つですが、文化や歴史的なまとまりから二つの州に区分されます。',
-      },
-      {
-        id: 'geo1-es-fc7',
-        front: 'オセアニア州の構成',
-        back: 'オセアニア州はどのような地域から構成されるか？',
-        explanation:
-          'オーストラリア大陸と太平洋の島々（ニュージーランド、メラネシア、ミクロネシア、ポリネシアなど）で構成されています。',
-      },
-      {
-        id: 'geo1-es-fc8',
-        front: '南極大陸の特徴',
-        back: '南極大陸はなぜどの州にも属さないのか？',
-        explanation:
-          '南極大陸は1年じゅう氷におおわれ、定住する住民がおらず国もないため、いずれの州にも区分されません。',
-      },
-      {
-        id: 'geo1-es-fc9',
-        front: '水の惑星',
-        back: '地球が「水の惑星」とよばれる理由は？',
-        explanation:
-          '地球の表面の約7割（約71%）が海洋で覆われ、宇宙から見ると青く見えるためです。',
-      },
-      {
-        id: 'geo1-es-fc10',
-        front: '北半球と南半球の陸地分布',
-        back: '北半球と南半球で陸地の分布はどう異なるか？',
-        explanation:
-          '北半球には陸地が多く、南半球には海洋が多く分布しています。',
-      },
-      {
-        id: 'geo1-es-fc11',
-        front: 'アジア州の地域区分',
-        back: 'アジア州をさらに細かく分けると、どのような地域がある？（5つ）',
-        explanation:
-          '東アジア・東南アジア・南アジア・西アジア・中央アジアの5つに区分されます。日本は東アジアに含まれます。',
-      },
-      {
-        id: 'geo1-es-fc12',
-        front: '東アジアの国々',
-        back: '東アジアに含まれる国を3つ以上答えよ。',
-        explanation:
-          '日本・中国・韓国・モンゴル・北朝鮮などが東アジアに含まれます。',
-      },
-      {
-        id: 'geo1-es-fc13',
-        front: '赤道が通る大陸',
-        back: '赤道が通る大陸を2つ答えよ。',
-        explanation:
-          'アフリカ大陸と南アメリカ大陸です。赤道は緯度0度の線です。',
-      },
-      {
-        id: 'geo1-es-fc14',
-        front: '太平洋の位置',
-        back: '太平洋はどの大陸の間に広がっているか？',
-        explanation:
-          'ユーラシア大陸・オーストラリア大陸の東側と、北アメリカ大陸・南アメリカ大陸の西側の間に広がっています。',
-      },
-      {
-        id: 'geo1-es-fc15',
-        front: '大西洋の位置',
-        back: '大西洋はどの大陸の間に広がっているか？',
-        explanation:
-          'ヨーロッパ・アフリカ大陸の西側と、北アメリカ大陸・南アメリカ大陸の東側の間に広がっています。',
-      },
-      {
-        id: 'geo1-es-fc16',
-        front: '西アジアと中央アジア',
-        back: '西アジア・中央アジアに含まれる国をそれぞれ1つ答えよ。',
-        explanation:
-          '西アジア：サウジアラビア、イラン、イラクなど。中央アジア：カザフスタン、ウズベキスタンなど。',
-      },
-      {
-        id: 'geo1-es-fc17',
-        front: 'インド洋の位置',
-        back: 'インド洋はどの大陸の間に広がっているか。',
-      },
-      {
-        id: 'geo1-es-fc18',
-        front: '六大陸の面積順',
-        back: '六大陸を面積の大きい順に並べよ。',
-      },
-      {
-        id: 'geo1-es-fc19',
-        front: 'オーストラリア大陸',
-        back: '六大陸のうち最も面積が小さい大陸はどこか。',
-      },
-      {
-        id: 'geo1-es-fc20',
-        front: 'アフリカ大陸の面積順位',
-        back: 'アフリカ大陸は六大陸のうち面積が何番目に大きいか。',
-      },
-      {
-        id: 'geo1-es-fc21',
-        front: '南半球の大陸',
-        back: '南半球に位置する大陸を3つ答えよ。',
-      },
-      {
-        id: 'geo1-es-fc22',
-        front: 'スエズ地峡',
-        back: 'ユーラシア大陸とアフリカ大陸を結ぶ地峡付近の地域はどこか。',
-      },
-      {
-        id: 'geo1-es-fc23',
-        front: 'パナマ地峡',
-        back: '北アメリカ大陸と南アメリカ大陸を結ぶ細い陸地は何とよばれるか。',
-      },
-      {
-        id: 'geo1-es-fc24',
-        front: '北アメリカ大陸の大国',
-        back: '北アメリカ大陸にある2つの大きな国を答えよ。',
-      },
-      {
-        id: 'geo1-es-fc25',
-        front: '州の区分の基準',
-        back: '州の区分は何をもとにして分けられているか。',
-      },
-      {
-        id: 'geo1-es-fc26',
-        front: '東南アジアの地域',
-        back: 'タイやインドネシア、ベトナムなどが含まれるアジアの地域区分は何か。',
-      },
-      {
-        id: 'geo1-es-fc27',
-        front: '南アジアの地域',
-        back: 'インドやバングラデシュが含まれるアジアの地域区分は何か。',
-      },
-      {
-        id: 'geo1-es-fc28',
-        front: '南極大陸に近い州',
-        back: '六つの州のうち南極大陸に最も近い州はどこか。',
-      },
+      { id: 'geo1-es-fc1', front: '陸地が約3割（約29%）、海洋が約7割（約71%）', back: '地球の表面における陸地と海洋の割合はそれぞれ何割？', difficulty: 'basic' },
+      { id: 'geo1-es-fc2', front: 'ユーラシア・アフリカ・北アメリカ・南アメリカ・オーストラリア・南極', back: '地球上の六つの大陸をすべて答えよ。', explanation: '最大はユーラシア大陸。', difficulty: 'basic' },
+      { id: 'geo1-es-fc3', front: '太平洋・大西洋・インド洋', back: '地球上の三つの大洋をすべて答えよ。', explanation: '面積が最も大きいのは太平洋。', difficulty: 'basic' },
+      { id: 'geo1-es-fc4', front: 'アジア・ヨーロッパ・アフリカ・北アメリカ・南アメリカ・オセアニア', back: '世界を構成する六つの州をすべて答えよ。', difficulty: 'basic' },
+      { id: 'geo1-es-fc5', front: '大陸はユーラシア大陸、大洋は太平洋', back: '最も面積が大きい大陸と大洋をそれぞれ答えよ。', explanation: 'ともに世界の面積の約3分の1を占める。', difficulty: 'basic' },
+      { id: 'geo1-es-fc6', front: 'アジア州とヨーロッパ州', back: 'ユーラシア大陸はどの州に分けられる？', explanation: '文化や歴史的なまとまりから二つの州に区分される。', difficulty: 'basic' },
+      { id: 'geo1-es-fc7', front: 'オーストラリア大陸と太平洋の島々', back: 'オセアニア州はどのような地域から構成されるか？', explanation: 'ニュージーランド、メラネシア、ミクロネシア、ポリネシアなどを含む。', difficulty: 'basic' },
+      { id: 'geo1-es-fc8', front: '定住する住民がおらず国もないため', back: '南極大陸はなぜどの州にも属さないのか？', explanation: '1年じゅう氷におおわれている。', difficulty: 'standard' },
+      { id: 'geo1-es-fc9', front: '表面の約7割が海洋で覆われ、宇宙から青く見えるため', back: '地球が「水の惑星」とよばれる理由は？', difficulty: 'basic' },
+      { id: 'geo1-es-fc10', front: '北半球に陸地が多く、南半球に海洋が多い', back: '北半球と南半球で陸地の分布はどう異なるか？', difficulty: 'basic' },
+      { id: 'geo1-es-fc11', front: '東アジア・東南アジア・南アジア・西アジア・中央アジア', back: 'アジア州をさらに細かく分けると、どのような地域がある？（5つ）', explanation: '日本は東アジアに含まれる。', difficulty: 'standard' },
+      { id: 'geo1-es-fc12', front: '日本・中国・韓国・モンゴル・北朝鮮', back: '東アジアに含まれる国を3つ以上答えよ。', difficulty: 'basic' },
+      { id: 'geo1-es-fc13', front: 'アフリカ大陸と南アメリカ大陸', back: '赤道が通る大陸を2つ答えよ。', difficulty: 'standard' },
+      { id: 'geo1-es-fc14', front: 'ユーラシア・オーストラリアの東側と、北アメリカ・南アメリカの西側の間', back: '太平洋はどの大陸の間に広がっているか？', difficulty: 'standard' },
+      { id: 'geo1-es-fc15', front: 'ヨーロッパ・アフリカの西側と、北アメリカ・南アメリカの東側の間', back: '大西洋はどの大陸の間に広がっているか？', difficulty: 'standard' },
+      { id: 'geo1-es-fc16', front: 'アフリカ大陸の東側とオーストラリア大陸・南アジアの間', back: 'インド洋はどの大陸の間に広がっているか。', difficulty: 'standard' },
+      { id: 'geo1-es-fc17', front: 'ユーラシア・アフリカ・北アメリカ・南アメリカ・南極・オーストラリア', back: '六大陸を面積の大きい順に並べよ。', difficulty: 'standard' },
+      { id: 'geo1-es-fc18', front: 'オーストラリア大陸', back: '六大陸のうち最も面積が小さい大陸はどこか。', difficulty: 'basic' },
+      { id: 'geo1-es-fc19', front: '2番目', back: 'アフリカ大陸は六大陸のうち面積が何番目に大きいか。', difficulty: 'standard' },
+      { id: 'geo1-es-fc20', front: '南アメリカ大陸・オーストラリア大陸・南極大陸', back: '南半球に位置する大陸を3つ答えよ。', difficulty: 'standard' },
+      { id: 'geo1-es-fc21', front: 'スエズ地峡付近（エジプト周辺）', back: 'ユーラシア大陸とアフリカ大陸を結ぶ地峡付近の地域はどこか。', difficulty: 'standard' },
+      { id: 'geo1-es-fc22', front: 'パナマ地峡', back: '北アメリカ大陸と南アメリカ大陸を結ぶ細い陸地は何とよばれるか。', difficulty: 'advanced' },
+      { id: 'geo1-es-fc23', front: 'アメリカ合衆国とカナダ', back: '北アメリカ大陸にある2つの大きな国を答えよ。', difficulty: 'standard' },
+      { id: 'geo1-es-fc24', front: '大陸の位置や文化・歴史的なまとまり', back: '州の区分は何をもとにして分けられているか。', difficulty: 'advanced' },
+      { id: 'geo1-es-fc25', front: '東南アジア', back: 'タイやインドネシア、ベトナムなどが含まれるアジアの地域区分は何か。', difficulty: 'standard' },
+      { id: 'geo1-es-fc26', front: '南アジア', back: 'インドやバングラデシュが含まれるアジアの地域区分は何か。', difficulty: 'standard' },
+      { id: 'geo1-es-fc27', front: '西アジア：サウジアラビア・イランなど、中央アジア：カザフスタン・ウズベキスタンなど', back: '西アジア・中央アジアに含まれる国をそれぞれ1つ答えよ。', difficulty: 'advanced' },
+      { id: 'geo1-es-fc28', front: '南アメリカ州（オセアニア州）', back: '六つの州のうち南極大陸に最も近い州はどこか。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -350,7 +206,8 @@ export const earthShape: Topic = {
           correctIndex: 3,
           explanation:
             '地球の表面は陸地が約3割（約29%）、海洋が約7割（約71%）です。海洋の方がはるかに大きな面積を占めています。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-es-q2',
           question: '六つの大陸のうち、最も面積が大きいのはどれ？',
@@ -363,7 +220,8 @@ export const earthShape: Topic = {
           correctIndex: 1,
           explanation:
             'ユーラシア大陸は世界で最も大きい大陸で、世界の陸地面積の約3分の1を占めています。アジアとヨーロッパにまたがります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-es-q3',
           question: '三つの大洋のうち、最も面積が広いのはどれ？',
@@ -371,7 +229,8 @@ export const earthShape: Topic = {
           correctIndex: 0,
           explanation:
             '太平洋は三大洋の中で最も広く、地球の表面積の約3分の1を占めています。北極海は大洋には含まれません。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-es-q4',
           question: '日本が属している州はどれ？',
@@ -384,7 +243,8 @@ export const earthShape: Topic = {
           correctIndex: 2,
           explanation:
             '日本はアジア州に属しています。アジア州は六つの州の中で最も面積が広く、人口も最も多い州です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-es-q5',
           question: 'ユーラシア大陸が含まれる州の組み合わせとして正しいものはどれ？',
@@ -397,7 +257,8 @@ export const earthShape: Topic = {
           correctIndex: 1,
           explanation:
             'ユーラシア大陸は大陸としては一つですが、アジア州とヨーロッパ州の二つの州に区分されています。文化や歴史的なまとまりによる区分です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-es-q6',
           question: 'オセアニア州に含まれるのはどれ？',
@@ -410,7 +271,8 @@ export const earthShape: Topic = {
           correctIndex: 2,
           explanation:
             'オセアニア州はオーストラリア大陸と太平洋の島々（ニュージーランドなど）で構成されています。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-es-q7',
           question: '日本が含まれるアジア州の地域区分はどれ？',
@@ -423,7 +285,8 @@ export const earthShape: Topic = {
           correctIndex: 3,
           explanation:
             '日本は東アジアに含まれます。東アジアには中国・韓国・モンゴルなども含まれます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-es-q8',
           question: '南極大陸はどの州に属する？',
@@ -436,7 +299,8 @@ export const earthShape: Topic = {
           correctIndex: 0,
           explanation:
             '南極大陸は1年じゅう氷におおわれ、定住する住民がおらず国もないため、いずれの州にも区分されていません。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-es-q9',
           question: '1年じゅう氷におおわれている大陸はどれ？',
@@ -449,7 +313,8 @@ export const earthShape: Topic = {
           correctIndex: 1,
           explanation:
             '南極大陸は南極点を含み、1年じゅう氷におおわれた大陸です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-es-q10',
           question: 'アジア州の地域区分として正しくないものはどれ？',
@@ -462,7 +327,8 @@ export const earthShape: Topic = {
           correctIndex: 0,
           explanation:
             'アジア州の地域区分は東アジア・東南アジア・南アジア・西アジア・中央アジアの5つです。「北アジア」は一般的な区分名ではありません。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-es-q11',
           question: '六大陸のうち最も面積が小さいのはどれ？',
@@ -475,7 +341,8 @@ export const earthShape: Topic = {
           correctIndex: 1,
           explanation:
             'オーストラリア大陸は六大陸のうち最も面積が小さい大陸です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-es-q12',
           question: '赤道が通る大陸として正しい組み合わせはどれ？',
@@ -488,7 +355,8 @@ export const earthShape: Topic = {
           correctIndex: 1,
           explanation:
             '赤道はアフリカ大陸と南アメリカ大陸を通っています。赤道は緯度0度の線です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-es-q13',
           question: '太平洋の位置として正しいものはどれ？',
@@ -501,7 +369,8 @@ export const earthShape: Topic = {
           correctIndex: 1,
           explanation:
             '太平洋はユーラシア大陸・オーストラリア大陸の東側と、北アメリカ・南アメリカ大陸の西側の間に広がっています。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-es-q14',
           question: '大西洋はどの大陸の間に広がっているか？',
@@ -514,7 +383,8 @@ export const earthShape: Topic = {
           correctIndex: 1,
           explanation:
             '大西洋はヨーロッパ・アフリカ大陸とアメリカ大陸の間に広がっています。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-es-q15',
           question: 'インドの南側に広がる大洋はどれ？',
@@ -527,7 +397,8 @@ export const earthShape: Topic = {
           correctIndex: 3,
           explanation:
             'インド洋はインドの南側に広がる大洋です。三大洋の中では最も面積が小さいです。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-es-q16',
           question: 'タイやインドネシアが含まれるアジアの地域区分はどれ？',
@@ -540,7 +411,8 @@ export const earthShape: Topic = {
           correctIndex: 2,
           explanation:
             'タイやインドネシア、ベトナムなどは東南アジアに含まれます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-es-q17',
           question: 'インドやバングラデシュが含まれるアジアの地域区分はどれ？',
@@ -553,7 +425,8 @@ export const earthShape: Topic = {
           correctIndex: 1,
           explanation:
             'インドやバングラデシュは南アジアに含まれます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-es-q18',
           question: 'ユーラシア大陸とアフリカ大陸を結ぶ地域はどこか？',
@@ -566,7 +439,8 @@ export const earthShape: Topic = {
           correctIndex: 1,
           explanation:
             'スエズ地峡付近（エジプト周辺）でユーラシア大陸とアフリカ大陸がつながっています。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-es-q19',
           question: '北アメリカ大陸と南アメリカ大陸を結ぶ細い陸地は何か？',
@@ -579,7 +453,8 @@ export const earthShape: Topic = {
           correctIndex: 2,
           explanation:
             'パナマ地峡は北アメリカ大陸と南アメリカ大陸を結ぶ細い陸地です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-es-q20',
           question: '北アメリカ大陸にある2つの大きな国はどれ？',
@@ -592,7 +467,8 @@ export const earthShape: Topic = {
           correctIndex: 1,
           explanation:
             '北アメリカ大陸にはアメリカ合衆国とカナダという2つの大きな国があります。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-es-q21',
           question: 'アフリカ大陸は六大陸のうち面積が何番目に大きいか？',
@@ -605,7 +481,8 @@ export const earthShape: Topic = {
           correctIndex: 1,
           explanation:
             'アフリカ大陸は六大陸のうち、ユーラシア大陸に次いで2番目に面積が大きい大陸です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-es-q22',
           question: '南半球に位置する大陸として正しくないものはどれ？',
@@ -618,7 +495,8 @@ export const earthShape: Topic = {
           correctIndex: 2,
           explanation:
             '北アメリカ大陸は北半球に位置しています。南アメリカ・オーストラリア・南極大陸は南半球です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-es-q23',
           question: '太平洋に多くの島が点在する地域を含む州はどこ？',
@@ -631,7 +509,8 @@ export const earthShape: Topic = {
           correctIndex: 3,
           explanation:
             'オセアニア州はオーストラリア大陸と太平洋の島々で構成されています。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'geo1-es-q24',
           question: '州の区分の基準として正しいものはどれ？',
@@ -644,7 +523,8 @@ export const earthShape: Topic = {
           correctIndex: 2,
           explanation:
             '州の区分は大陸の位置や文化・歴史的なまとまりをもとに分けられています。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'geo1-es-q25',
           question: '六つの大陸と六つの州で内容が異なる理由として正しいものはどれ？',
@@ -657,7 +537,8 @@ export const earthShape: Topic = {
           correctIndex: 1,
           explanation:
             'ユーラシア大陸がアジア州とヨーロッパ州に分かれ、南極大陸は州に含まれず、かわりにオセアニア州があります。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'geo1-es-q26',
           question: 'サウジアラビアやイランが含まれるアジアの地域区分はどれ？',
@@ -670,7 +551,8 @@ export const earthShape: Topic = {
           correctIndex: 2,
           explanation:
             'サウジアラビアやイランは西アジアに含まれます。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'geo1-es-q27',
           question: 'カザフスタンやウズベキスタンが含まれるアジアの地域区分はどれ？',
@@ -683,7 +565,8 @@ export const earthShape: Topic = {
           correctIndex: 3,
           explanation:
             'カザフスタンやウズベキスタンは中央アジアに含まれます。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'geo1-es-q28',
           question: 'アジア州とヨーロッパ州が同じ大陸上にあるのは何大陸か？',
@@ -696,7 +579,8 @@ export const earthShape: Topic = {
           correctIndex: 1,
           explanation:
             'ユーラシア大陸の上にアジア州とヨーロッパ州があります。',
-        },
+        difficulty: 'advanced',
+      },
       ],
     },
     examples: {

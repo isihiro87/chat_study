@@ -1,10 +1,10 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Check, X, RotateCcw, Trophy, RefreshCw, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Check, X, RotateCcw, Trophy, RefreshCw, ChevronLeft, ChevronRight, Shuffle, Settings } from 'lucide-react';
 import { useQuiz } from '../../hooks/useQuiz';
 import type { Quiz, QuizQuestion, Difficulty } from '../../data/types';
 import { MathText } from '../common/MathText';
-import QuizSetup from './QuizSetup';
+import QuizSetup, { type QuizSetupConfig } from './QuizSetup';
 
 interface TopicNavigationInfo {
   prev: { name: string; path: string } | null;
@@ -188,6 +188,8 @@ export function QuizView({ quiz, onProgressChange, onComplete, onCompleteWithDif
   const [setupComplete, setSetupComplete] = useState(false);
   const [activeQuestions, setActiveQuestions] = useState<QuizQuestion[]>([]);
   const [selectedDifficulties, setSelectedDifficulties] = useState<Difficulty[]>([]);
+  const [setupConfig, setSetupConfig] = useState<QuizSetupConfig | null>(null);
+  const [quizGeneration, setQuizGeneration] = useState(0);
 
   const filteredQuiz = useMemo<Quiz>(() => {
     if (!setupComplete) return quiz;
@@ -220,6 +222,20 @@ export function QuizView({ quiz, onProgressChange, onComplete, onCompleteWithDif
     onProgressChange?.(currentIndex + 1, totalQuestions);
   }, [currentIndex, totalQuestions, onProgressChange]);
 
+  // 「別の問題を解く」で問題セットが変わったら、新しいquizでreset
+  useEffect(() => {
+    if (quizGeneration > 0) {
+      reset();
+    }
+  }, [quizGeneration, reset]);
+
+  // セットアップ完了後、自動的にスタート
+  useEffect(() => {
+    if (setupComplete && !isStarted && !isComplete) {
+      start();
+    }
+  }, [setupComplete, isStarted, isComplete, start]);
+
   // クイズ完了時のコールバック（復習モードでない初回完了時のみ）
   useEffect(() => {
     if (isComplete && !isReviewMode) {
@@ -232,23 +248,47 @@ export function QuizView({ quiz, onProgressChange, onComplete, onCompleteWithDif
     }
   }, [isComplete, isReviewMode, score, filteredQuiz.questions.length, onComplete, onCompleteWithDifficulties, onCompleteWithWrongQuestions, wrongAnswers, filteredQuiz.questions, selectedDifficulties]);
 
+  // 別の問題を解く: 同じ設定で再選定
+  const handleNewQuestions = () => {
+    if (!setupConfig) return;
+    const allQuestions = quiz.questions;
+    const filtered = allQuestions.filter((q) =>
+      setupConfig.selectedDifficulties.includes(q.difficulty ?? 'standard'),
+    );
+    const count = setupConfig.questionCount === null || setupConfig.questionCount >= filtered.length
+      ? filtered.length
+      : setupConfig.questionCount;
+    let selected: QuizQuestion[];
+    if (setupConfig.shuffleOrder) {
+      const shuffled = [...filtered].sort(() => Math.random() - 0.5);
+      selected = shuffled.slice(0, count);
+    } else {
+      selected = filtered.slice(0, count);
+    }
+    setActiveQuestions(selected);
+    setQuizGeneration((g) => g + 1);
+  };
+
+  // 問題数を選択しなおす: セットアップ画面に戻る
+  const handleReturnToSetup = () => {
+    reset();
+    setSetupComplete(false);
+    setSetupConfig(null);
+  };
+
   // セットアップ画面
   if (!setupComplete) {
     return (
       <QuizSetup
         questions={quiz.questions}
-        onStart={(filtered, difficulties) => {
+        onStart={(filtered, difficulties, config) => {
           setActiveQuestions(filtered);
           setSelectedDifficulties(difficulties);
+          setSetupConfig(config);
           setSetupComplete(true);
         }}
       />
     );
-  }
-
-  if (!isStarted) {
-    // セットアップ完了後、自動的にスタート
-    start();
   }
 
   if (!currentQuestion && !isComplete) {
@@ -323,6 +363,26 @@ export function QuizView({ quiz, onProgressChange, onComplete, onCompleteWithDif
               >
                 <RotateCcw className="h-5 w-5" />
                 最初からやり直す
+              </button>
+
+              {setupConfig && (
+                <button
+                  onClick={handleNewQuestions}
+                  className="flex items-center justify-center gap-2 rounded-full border-2 border-gray-200 bg-white px-6 py-3.5 font-bold text-gray-700 transition-transform active:scale-95"
+                  style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+                >
+                  <Shuffle className="h-5 w-5" />
+                  別の問題を解く
+                </button>
+              )}
+
+              <button
+                onClick={handleReturnToSetup}
+                className="flex items-center justify-center gap-2 rounded-full border-2 border-gray-200 bg-white px-6 py-3.5 font-bold text-gray-700 transition-transform active:scale-95"
+                style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+              >
+                <Settings className="h-5 w-5" />
+                問題数を選択しなおす
               </button>
             </div>
           )}

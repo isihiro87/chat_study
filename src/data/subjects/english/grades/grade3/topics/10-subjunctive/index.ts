@@ -51,6 +51,7 @@ export const subjunctive: Topic = {
         back: '「もし私があなただったら、もっと一生懸命\n勉強するのに。」を英語にすると？',
         hint: '仮定法では be動詞は全部 were だよ',
         explanation: 'If I were 〜, I would 〜. の形で「もし〜だったら、〜するのに」だよ。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-subj-fc2',
@@ -58,6 +59,7 @@ export const subjunctive: Topic = {
         back: '「空を飛べたらいいのに。」を英語にすると？',
         hint: 'I wish のうしろは過去の形。can → ???',
         explanation: 'can の過去の形は could。I wish I could fly. だよ。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-subj-fc3',
@@ -65,6 +67,7 @@ export const subjunctive: Topic = {
         back: '「もしたくさんお金があったら、旅するのに。」\nを英語にすると？',
         hint: 'have の過去の形は？',
         explanation: 'have → had。If I had 〜, I would 〜. の形だよ。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-subj-fc4',
@@ -72,6 +75,7 @@ export const subjunctive: Topic = {
         back: '仮定法で be動詞はぜんぶ何になる？',
         hint: 'I were, he were, she were... ぜんぶ同じ形！',
         explanation: '仮定法では be動詞は主語に関係なく全部 were にするよ。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-subj-fc5',
@@ -79,6 +83,7 @@ export const subjunctive: Topic = {
         back: '仮定法で「〜するのに」を表す言葉は？\n（would / could / should）',
         hint: '「もし〜だったら、〜するのに」の「するのに」は？',
         explanation: 'would + 動詞で「〜するのに」を表すよ。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-subj-fc6',
@@ -86,6 +91,7 @@ export const subjunctive: Topic = {
         back: '「もっと背が高ければいいのに。」を英語にすると？',
         hint: 'I wish のうしろ、be動詞は？',
         explanation: '仮定法では be動詞は全部 were。I wish I were taller. だよ。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-subj-fc7',
@@ -93,6 +99,7 @@ export const subjunctive: Topic = {
         back: '「車を持っていたらいいのに。」を英語にすると？',
         hint: 'have の過去の形は had だよ',
         explanation: 'I wish I had a car. で「車を持っていたらいいのに」だよ。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-subj-fc8',
@@ -100,6 +107,7 @@ export const subjunctive: Topic = {
         back: '「もし答えを知っていたら、教えるのに。」\nを英語にすると？',
         hint: 'know の過去の形は？',
         explanation: 'know → knew。If I knew 〜, I would tell 〜. の形だよ。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-subj-fc9',
@@ -107,6 +115,7 @@ export const subjunctive: Topic = {
         back: '仮定法で can を過去の形にすると？',
         hint: 'can → ???（「〜できた」の形と同じ）',
         explanation: 'can の過去の形は could だよ。',
+        difficulty: 'advanced',
       },
       {
         id: 'eng-subj-fc10',
@@ -114,6 +123,7 @@ export const subjunctive: Topic = {
         back: '「もし彼女がここにいたら、助けてくれるのに。」\nを英語にすると？',
         hint: 'she のときも be動詞は were だよ',
         explanation: '仮定法では主語に関係なく be動詞は全部 were だよ。',
+        difficulty: 'advanced',
       },
     ],
     quiz: {
@@ -129,6 +139,7 @@ export const subjunctive: Topic = {
           ],
           correctIndex: 3,
           explanation: '仮定法では be動詞は全部 were。「〜するのに」は would + 動詞だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'eng-subj-q2',
@@ -141,6 +152,7 @@ export const subjunctive: Topic = {
           ],
           correctIndex: 0,
           explanation: 'I wish のうしろは過去の形にするよ。can → could だね。',
+          difficulty: 'basic',
         },
         {
           id: 'eng-subj-q3',
@@ -153,6 +165,7 @@ export const subjunctive: Topic = {
           ],
           correctIndex: 1,
           explanation: '仮定法では be動詞は主語に関係なく全部 were にするよ。I were, he were, she were... だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'eng-subj-q4',
@@ -160,6 +173,7 @@ export const subjunctive: Topic = {
           options: ['have', 'has', 'had', 'having'],
           correctIndex: 2,
           explanation: '仮定法では過去の形を使うよ。have → had だね。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-subj-q5',
@@ -167,6 +181,7 @@ export const subjunctive: Topic = {
           options: ['am', 'is', 'were', 'was'],
           correctIndex: 2,
           explanation: 'I wish のうしろも仮定法。be動詞は全部 were だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-subj-q6',
@@ -178,6 +193,7 @@ export const subjunctive: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「If I were you, I would study.」が正解。If（もし）+ I（私が）+ were（〜だったら）+ you（あなた）の順番だよ。仮定法では be動詞は全部 were だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-subj-q7',
@@ -189,6 +205,7 @@ export const subjunctive: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「I wish I could fly.」が正解。I（私が）+ could（〜できたら）+ fly（飛ぶ）の順番だよ。can の仮定法は could だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-subj-q8',
@@ -200,6 +217,7 @@ export const subjunctive: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「If I had more time, I would travel.」が正解。If（もし）+ I（私が）+ had（持っていたら）+ more（もっと）+ time（時間）の順番だよ。',
+          difficulty: 'advanced',
         },
       ],
     },

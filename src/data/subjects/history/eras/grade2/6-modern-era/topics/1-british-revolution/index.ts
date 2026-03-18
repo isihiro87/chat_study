@@ -49,60 +49,70 @@ export const britishRevolution: Topic = {
         front: '啓蒙思想',
         back: '人間の理性で政治や社会をより良くできるという考え方は？',
         explanation: '17〜18世紀のヨーロッパで広まり、革命に大きな影響を与えた。',
+        difficulty: 'basic',
       },
       {
         id: 'fc2',
         front: 'ロック',
         back: '抵抗権を主張し、アメリカ独立に影響を与えたイギリスの思想家は？',
         explanation: '「政府が国民の権利を守らないなら、国民は政府を変える権利がある」と主張。',
+        difficulty: 'basic',
       },
       {
         id: 'fc3',
         front: 'モンテスキュー',
         back: '三権分立を提唱したフランスの思想家は？',
         explanation: '立法・行政・司法の三つに権力を分けることで暴走を防ぐと主張した。',
+        difficulty: 'basic',
       },
       {
         id: 'fc4',
         front: 'ルソー',
         back: '国民主権を唱えたフランスの思想家は？',
         explanation: '「国の政治を決める権利（主権）は国民にある」と主張した。',
+        difficulty: 'basic',
       },
       {
         id: 'fc5',
         front: 'ピューリタン革命',
         back: 'クロムウェルが率いる議会派が国王軍に勝利した革命は？',
         explanation: '1649年に国王チャールズ1世を処刑し、一時的に共和制となった。',
+        difficulty: 'standard',
       },
       {
         id: 'fc6',
         front: 'クロムウェル',
         back: 'ピューリタン革命で議会派を率いた指導者は？',
         explanation: '議会派を勝利に導き、共和制時代のイギリスを指導した。',
+        difficulty: 'standard',
       },
       {
         id: 'fc7',
         front: '名誉革命',
         back: '血を流さずに国王を追放したイギリスの革命は？',
         explanation: '1688年、議会が国王ジェームズ2世を追放した無血革命。',
+        difficulty: 'standard',
       },
       {
         id: 'fc8',
         front: '権利章典',
         back: '国王が議会の認めた法律に従うことを約束した文書は？',
         explanation: '名誉革命後に制定され、立憲君主制の基礎となった。',
+        difficulty: 'standard',
       },
       {
         id: 'fc9',
         front: '立憲君主制',
         back: '憲法に基づいて君主の権力が制限される政治体制は？',
         explanation: 'イギリスで確立され、国王は「君臨すれども統治せず」となった。',
+        difficulty: 'standard',
       },
       {
         id: 'fc10',
         front: '三権分立',
         back: '立法・行政・司法の三つに権力を分ける仕組みは？',
         explanation: 'モンテスキューが提唱し、権力の集中による暴走を防ぐ仕組み。',
+        difficulty: 'standard',
       },
     ],
     quiz: {
@@ -114,6 +124,7 @@ export const britishRevolution: Topic = {
           correctIndex: 3,
           explanation:
             '名誉革命は1688年に起こり、武力衝突なしに国王を追放した革命です。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -122,6 +133,7 @@ export const britishRevolution: Topic = {
           correctIndex: 1,
           explanation:
             'ロックは抵抗権を主張し、後のアメリカ独立やフランス革命に大きな影響を与えました。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -130,6 +142,7 @@ export const britishRevolution: Topic = {
           correctIndex: 0,
           explanation:
             'モンテスキューは、権力を三つに分けることで暴走を防ぐと主張しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q4',
@@ -138,6 +151,7 @@ export const britishRevolution: Topic = {
           correctIndex: 2,
           explanation:
             'クロムウェルが率いる議会派が国王軍に勝利し、一時的に共和制となりました。',
+          difficulty: 'standard',
         },
         {
           id: 'q5',
@@ -146,6 +160,7 @@ export const britishRevolution: Topic = {
           correctIndex: 1,
           explanation:
             '権利章典により「国王は議会の認めた法律に従う」ことが定められ、立憲君主制の基礎となりました。',
+          difficulty: 'standard',
         },
         {
           id: 'q6',
@@ -154,6 +169,7 @@ export const britishRevolution: Topic = {
           correctIndex: 3,
           explanation:
             'ルソーは国民主権を唱え、フランス革命の人権宣言にも大きな影響を与えました。',
+          difficulty: 'standard',
         },
       ],
     },

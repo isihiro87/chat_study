@@ -182,41 +182,12 @@ export const chugokuShikoku: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'geo2-cs-fc1',
-        front: 'ストロー現象',
-        back: '交通網の整備によって地方の人口や消費が大都市に吸い取られる現象を何というか。',
-        explanation:
-          'ストロー現象といいます。本州四国連絡橋の開通で、四国の人々が大阪などの大都市へ買い物に行くようになり、地方の商店街が衰退する問題が起きています。',
-      },
-      {
-        id: 'geo2-cs-fc2',
-        front: '本州四国連絡橋',
-        back: '本州と四国を結ぶ3つのルートの橋を総称して何というか。',
-        explanation:
-          '本州四国連絡橋といいます。瀬戸大橋（児島・坂出ルート）、明石海峡大橋（神戸・鳴門ルート）、しまなみ海道（尾道・今治ルート）の3ルートがあります。',
-      },
-      {
-        id: 'geo2-cs-fc3',
-        front: '瀬戸内工業地域',
-        back: '瀬戸内海沿岸に発達した、石油化学コンビナートを中心とする工業地域を何というか。',
-        explanation:
-          '瀬戸内工業地域といいます。倉敷市水島地区や周南市などに石油化学コンビナートが立地し、重化学工業が盛んです。',
-      },
-      {
-        id: 'geo2-cs-fc4',
-        front: '葉っぱビジネス',
-        back: '徳島県上勝町で高齢者がタブレットを使って行っている、料理の「つまもの」の葉っぱを出荷するビジネスを何というか。',
-        explanation:
-          '葉っぱビジネスといいます。高齢者がICTを活用して市場の情報を確認し、葉っぱを出荷することで収入と生きがいを得ています。',
-      },
-      {
-        id: 'geo2-cs-fc5',
-        front: '山陰・瀬戸内・南四国の気候',
-        back: '中国・四国地方を3つの気候区分に分ける要因となる2つの山地は何か。',
-        explanation:
-          '中国山地と四国山地です。これらの山地によって、冬に雪が多い山陰、降水量が少ない瀬戸内、夏に多雨の南四国の3つの気候に分かれます。',
-      },
+      { id: 'geo2-cs-fc1', front: 'ストロー現象', back: '交通網の整備によって地方の人口や消費が大都市に吸い取られる現象を何というか。', difficulty: 'basic' },
+      { id: 'geo2-cs-fc2', front: '本州四国連絡橋（瀬戸大橋・明石海峡大橋・しまなみ海道の3ルート）', back: '本州と四国を結ぶ3つのルートの橋を総称して何というか。3ルートも答えよ。', difficulty: 'basic' },
+      { id: 'geo2-cs-fc3', front: '瀬戸内工業地域', back: '瀬戸内海沿岸に発達した、石油化学コンビナートを中心とする工業地域を何というか。', explanation: '倉敷市水島地区や周南市が代表的', difficulty: 'standard' },
+      { id: 'geo2-cs-fc4', front: '葉っぱビジネス', back: '徳島県上勝町で高齢者がタブレットを使い、料理の「つまもの」の葉っぱを出荷するビジネスを何というか。', difficulty: 'standard' },
+      { id: 'geo2-cs-fc5', front: '中国山地と四国山地', back: '中国・四国地方を山陰・瀬戸内・南四国の3つの気候に分ける2つの山地は何か。', difficulty: 'standard' },
+      { id: 'geo2-cs-fc6', front: '山陰は冬に雪が多い、瀬戸内は降水量が少なく温暖、南四国は夏に降水量が非常に多い', back: '中国・四国地方の山陰・瀬戸内・南四国の気候の特徴をそれぞれ答えよ。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -233,7 +204,8 @@ export const chugokuShikoku: Topic = {
           correctIndex: 2,
           explanation:
             '中国山地と四国山地が季節風をさえぎることで、山陰（冬に雪）、瀬戸内（少雨・温暖）、南四国（夏に多雨）の3つの気候が生まれます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo2-cs-q2',
           question:
@@ -247,7 +219,8 @@ export const chugokuShikoku: Topic = {
           correctIndex: 3,
           explanation:
             'ストロー現象は、高速道路や橋の開通で交通が便利になった結果、地方の人口や消費が大都市に流出してしまう現象です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo2-cs-q3',
           question:
@@ -261,7 +234,8 @@ export const chugokuShikoku: Topic = {
           correctIndex: 0,
           explanation:
             '石油化学コンビナートは、原油の精製から化学製品の製造までを一貫して行う工場群のことです。瀬戸内海沿岸に多く立地しています。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo2-cs-q4',
           question:
@@ -275,7 +249,8 @@ export const chugokuShikoku: Topic = {
           correctIndex: 1,
           explanation:
             '上勝町の葉っぱビジネスは、料理の「つまもの」に使う葉っぱを高齢者がタブレットで受注・出荷するICT活用ビジネスです。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo2-cs-q5',
           question:
@@ -289,7 +264,8 @@ export const chugokuShikoku: Topic = {
           correctIndex: 3,
           explanation:
             '関門橋は本州（山口県）と九州（福岡県）を結ぶ橋であり、本州四国連絡橋ではありません。本四連絡橋は瀬戸大橋・明石海峡大橋・しまなみ海道の3ルートです。',
-        },
+        difficulty: 'advanced',
+      },
       ],
     },
     examples: {

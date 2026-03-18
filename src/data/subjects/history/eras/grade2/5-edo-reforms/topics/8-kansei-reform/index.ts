@@ -28,36 +28,54 @@ export const kanseiReform: Topic = {
         front: '寛政の改革',
         back: '松平定信が吉宗の政治を手本に行ったのは何の改革？',
         explanation: '1787年に始まり、質素・倹約や農村の立て直しを目指した。',
+        difficulty: 'basic',
       },
       {
         id: 'fc2',
         front: 'ラクスマン',
         back: '1792年に根室へ来航し、通商を求めたロシアの使節はだれ？',
         explanation: '漂流民の大黒屋光太夫を送り届けるとともに交渉を求めた。',
+        difficulty: 'basic',
       },
       {
         id: 'fc3',
         front: 'レザノフ',
         back: '1804年に長崎へ来航し、交渉を拒絶されたロシア使節は？',
         explanation: '幕府に断られたため、部下に命じて蝦夷地などを襲撃させた。',
+        difficulty: 'basic',
       },
       {
         id: 'fc4',
         front: '間宮林蔵',
         back: '幕府の命で北方を探検し、樺太が島であることを確認した人は？',
         explanation: '伊能忠敬に測量を学び、サハリンが島であることを突き止めた。',
+        difficulty: 'standard',
       },
       {
         id: 'fc5',
         front: '藩校',
         back: '各藩が人材育成のために領内に設立した教育機関は？',
         explanation: '熊本藩の時習館などが有名で、藩士の子弟の教育にあたった。',
+        difficulty: 'standard',
       },
       {
         id: 'fc6',
         front: '藩札',
         back: '財政難の藩が経済立て直しのために独自に発行した紙幣は？',
         explanation: '各藩が金銀の流出を防ぎ、財政を支えるために流通させた。',
+        difficulty: 'standard',
+      },
+      {
+        id: 'fc7',
+        front: '棄捐令',
+        back: '寛政の改革で旗本・御家人の借金を帳消しにした法令は？',
+        difficulty: 'standard',
+      },
+      {
+        id: 'fc8',
+        front: '寛政異学の禁',
+        back: '松平定信が朱子学以外の学問を禁じた政策は？',
+        difficulty: 'standard',
       },
     ],
     quiz: {
@@ -69,6 +87,7 @@ export const kanseiReform: Topic = {
           correctIndex: 2,
           explanation:
             '松平定信は徳川吉宗の孫で、祖父の政治をお手本に厳しい改革を行いました。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -77,6 +96,7 @@ export const kanseiReform: Topic = {
           correctIndex: 0,
           explanation:
             '棄捐令により、生活に困る旗本や御家人の借金を帳消しにして救済しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -85,6 +105,7 @@ export const kanseiReform: Topic = {
           correctIndex: 1,
           explanation:
             'ラクスマンは通商を求めて来航しましたが、幕府は拒否しました。',
+          difficulty: 'standard',
         },
       ],
     },

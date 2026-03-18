@@ -58,114 +58,142 @@ export const expansionAdvanced: Topic = {
       {
         id: 'math-g3-ea-fc1',
         front: 'a=3x, b=1 とおいて公式2を使う\n\n(3x)² + 2×3x×1 + 1²\n= 9x² + 6x + 1', back: '(3x+1)² の展開のコツは？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-ea-fc2',
         front: '16x² − 8x + 1\n\n(4x)²=16x², 2×4x×1=8x, 1²=1', back: '(4x−1)² = ?',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-ea-fc3',
         front: '25x² − 20xy + 4y²\n\n(5x)²=25x², 2×5x×2y=20xy, (2y)²=4y²', back: '(5x−2y)² = ?',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-ea-fc4',
         front: '4a² − 49b²\n\n和と差の積: (2a)²−(7b)²', back: '(2a+7b)(2a−7b) = ?',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-ea-fc5',
         front: 'a² − ab + ¼b²\n\n2×a×½b = ab, (½b)² = ¼b²', back: '(a−½b)² = ?',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-ea-fc6',
         front: '9x²\n\n3²×x² = 9x²（3x² ではない！）', back: '(3x)² はいくつ？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-ea-fc7',
         front: '公式4（和と差の積）を使う\n→ □² − △²', back: '公式の見分け方:\n(□+△)(□−△) の形は？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-ea-fc8',
         front: '公式2を使う\n→ □² + 2×□×△ + △²', back: '公式の見分け方:\n(□+△)² の形は？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-ea-fc9',
         front: '①公式で展開\n②カッコを外す（符号注意）\n③同類項をまとめる', back: '式を簡単にする手順は？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-ea-fc10',
         front: '−x² + 10x − 25\n\nマイナスのカッコを外すと全項の符号が変わる', back: '−(x²−10x+25) のカッコを外すと？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-ea-fc11',
         front: '12x\n\n(x²+6x+9)−(x²−6x+9) = 12x', back: '(x+3)² − (x−3)² を\n簡単にすると？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-ea-fc12',
         front: '4ab\n\n便利な公式として覚えておこう！', back: '(a+b)² − (a−b)² = ?',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-ea-fc13',
         front: 'M = x+y とおく\n→ (M+4)(M+3) = M²+7M+12\n→ x²+2xy+y²+7x+7y+12', back: '式のおきかえ:\n(x+y+4)(x+y+3) のやり方は？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-ea-fc14',
         front: 'M = a+b とおく\n→ (M−1)² = M²−2M+1\n→ a²+2ab+b²−2a−2b+1', back: '式のおきかえ:\n(a+b−1)² のやり方は？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-ea-fc15',
         front: 'M=2x+y とおく\n→ (M+1)(M−1) = M²−1\n→ 4x²+4xy+y²−1', back: '式のおきかえ:\n(2x+y+1)(2x+y−1) = ?',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-ea-fc16',
         front: '9x² + 30xy + 25y²\n\n(3x)²+2×3x×5y+(5y)²', back: '(3x+5y)² = ?',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-ea-fc17',
         front: '4x² + 12x + 9\n\n(2x)²+2×2x×3+3²', back: '(2x+3)² = ?',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-ea-fc18',
         front: '(x+3)² − (x+2)²\n= (x²+6x+9)−(x²+4x+4) = 2x+5', back: '(x+3)² − (x+2)² を簡単にすると？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-ea-fc19',
         front: '2(a²+b²)\n(a²+2ab+b²)+(a²−2ab+b²)', back: '(a+b)² + (a−b)² = ?',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-ea-fc20',
         front: '公式3を使う\n→ □² − 2×□×△ + △²', back: '公式の見分け方:\n(□−△)² の形は？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-ea-fc21',
         front: '36a² − 49b²\n\n(6a)²−(7b)²', back: '(6a+7b)(6a−7b) = ?',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-ea-fc22',
         front: '9x²−24xy+16y²\n\n(3x)²−2×3x×4y+(4y)²', back: '(3x−4y)² = ?',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-ea-fc23',
         front: '①共通部分を見つけて置き換え\n②公式で展開\n③元に戻して展開', back: '式のおきかえの3ステップは？',
+        difficulty: 'advanced',
       },
       {
         id: 'math-g3-ea-fc24',
         front: '2x²−3x+4\n(x²−4x+4)+(x²+x) = 2x²−3x+4', back: '(x−2)²+x(x+1) を簡単にすると？',
+        difficulty: 'advanced',
       },
       {
         id: 'math-g3-ea-fc25',
         front: 'x²+½x+1/16\n\n2×x×¼=½x, (¼)²=1/16', back: '(x+¼)² = ?',
+        difficulty: 'advanced',
       },
       {
         id: 'math-g3-ea-fc26',
         front: 'M=x−2y とおく\n→ (M+3)(M−3) = M²−9\n→ x²−4xy+4y²−9', back: '(x−2y+3)(x−2y−3) = ?',
+        difficulty: 'advanced',
       },
       {
         id: 'math-g3-ea-fc27',
         front: '16x²+8x+1\n\n(4x)²+2×4x×1+1²', back: '(4x+1)² = ?',
+        difficulty: 'advanced',
       },
       {
         id: 'math-g3-ea-fc28',
         front: '−1\n(x²+8x+15)−(x²+8x+16) = −1', back: '(x+3)(x+5) − (x+4)² を簡単にすると？',
+        difficulty: 'advanced',
       },
     ],
     quiz: {
@@ -182,6 +210,7 @@ export const expansionAdvanced: Topic = {
           correctIndex: 2,
           explanation:
             '$a=3x$, $b=1$ とおいて公式2。$(3x)^2 + 2 \\times 3x \\times 1 + 1^2 = 9x^2 + 6x + 1$。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-ea-q2',
@@ -195,6 +224,7 @@ export const expansionAdvanced: Topic = {
           correctIndex: 3,
           explanation:
             '$2 \\times a \\times \\frac{1}{2}b = ab$、$(\\frac{1}{2}b)^2 = \\frac{1}{4}b^2$ だから $a^2 - ab + \\frac{1}{4}b^2$。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-ea-q3',
@@ -208,6 +238,7 @@ export const expansionAdvanced: Topic = {
           correctIndex: 0,
           explanation:
             '和と差の積の公式で $(2a)^2 - (7b)^2 = 4a^2 - 49b^2$。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-ea-q4',
@@ -222,6 +253,7 @@ export const expansionAdvanced: Topic = {
           correctIndex: 1,
           explanation:
             '$(x-2)^2 = x^2-4x+4$、$x(x+1) = x^2+x$。合わせて $2x^2-3x+4$。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-ea-q5',
@@ -235,6 +267,7 @@ export const expansionAdvanced: Topic = {
           correctIndex: 2,
           explanation:
             '$(x+5)(x+3) = x^2+8x+15$、$(x+4)^2 = x^2+8x+16$。引くと $15-16 = -1$。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-ea-q6',
@@ -249,6 +282,7 @@ export const expansionAdvanced: Topic = {
           correctIndex: 1,
           explanation:
             '$M = x+y$ とおくと $(M+4)(M+3)$ となり公式1が使える。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-ea-q7',
@@ -262,6 +296,7 @@ export const expansionAdvanced: Topic = {
           correctIndex: 0,
           explanation:
             '$(4x)^2 = 16x^2$, $2 \\times 4x \\times 1 = 8x$, $1^2 = 1$。答えは $16x^2 - 8x + 1$。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-ea-q8',
@@ -275,6 +310,7 @@ export const expansionAdvanced: Topic = {
           correctIndex: 3,
           explanation:
             '$M = x-y$ とおくと $(M+3)(M-5) = M^2-2M-15$ となり公式1が使える。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-ea-q9',
@@ -288,6 +324,7 @@ export const expansionAdvanced: Topic = {
           correctIndex: 1,
           explanation:
             '$(3x)^2 + 2 \\times 3x \\times 5y + (5y)^2 = 9x^2 + 30xy + 25y^2$。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-ea-q10',
@@ -301,6 +338,7 @@ export const expansionAdvanced: Topic = {
           correctIndex: 1,
           explanation:
             '$(2x)^2 + 2 \\times 2x \\times 3 + 3^2 = 4x^2 + 12x + 9$。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-ea-q11',
@@ -314,6 +352,7 @@ export const expansionAdvanced: Topic = {
           correctIndex: 1,
           explanation:
             '$(5x)^2 - 2 \\times 5x \\times 2y + (2y)^2 = 25x^2 - 20xy + 4y^2$。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-ea-q12',
@@ -327,6 +366,7 @@ export const expansionAdvanced: Topic = {
           correctIndex: 0,
           explanation:
             '$(6a)^2 - (7b)^2 = 36a^2 - 49b^2$。和と差の積。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-ea-q13',
@@ -340,6 +380,7 @@ export const expansionAdvanced: Topic = {
           correctIndex: 2,
           explanation:
             '$(x^2+6x+9) - (x^2+4x+4) = 2x + 5$。$x^2$ が消えるよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-ea-q14',
@@ -353,6 +394,7 @@ export const expansionAdvanced: Topic = {
           correctIndex: 2,
           explanation:
             '$(a^2+2ab+b^2)+(a^2-2ab+b^2) = 2a^2+2b^2$。$2ab$ と $-2ab$ が打ち消し合う。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-ea-q15',
@@ -366,6 +408,7 @@ export const expansionAdvanced: Topic = {
           correctIndex: 2,
           explanation:
             '$(3x)^2 - 2 \\times 3x \\times 4y + (4y)^2 = 9x^2 - 24xy + 16y^2$。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-ea-q16',
@@ -379,6 +422,7 @@ export const expansionAdvanced: Topic = {
           correctIndex: 1,
           explanation:
             '$(x^2-4x+4) + (x^2+x) = 2x^2 - 3x + 4$。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-ea-q17',
@@ -392,6 +436,7 @@ export const expansionAdvanced: Topic = {
           correctIndex: 1,
           explanation:
             '$M = x-2y$ とおくと $(M+3)(M-3) = M^2-9$ となり和と差の積の公式が使える。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-ea-q18',
@@ -405,6 +450,7 @@ export const expansionAdvanced: Topic = {
           correctIndex: 1,
           explanation:
             '$(4x)^2 + 2 \\times 4x \\times 1 + 1^2 = 16x^2 + 8x + 1$。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-ea-q19',
@@ -418,6 +464,7 @@ export const expansionAdvanced: Topic = {
           correctIndex: 2,
           explanation:
             '足して $\\frac{1}{3}+\\frac{2}{3}=1$、かけて $\\frac{1}{3} \\times \\frac{2}{3}=\\frac{2}{9}$。$x^2+x+\\frac{2}{9}$。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-ea-q20',
@@ -431,6 +478,7 @@ export const expansionAdvanced: Topic = {
           correctIndex: 2,
           explanation:
             '$(3x)^2 = 3^2 \\times x^2 = 9x^2$。$3x^2$ としないように注意！',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-ea-q21',
@@ -444,6 +492,7 @@ export const expansionAdvanced: Topic = {
           correctIndex: 2,
           explanation:
             '$M = x+a$ とおくと $(M+b)(M-b) = M^2-b^2$ となり和と差の積が使える。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-ea-q22',
@@ -457,6 +506,7 @@ export const expansionAdvanced: Topic = {
           correctIndex: 1,
           explanation:
             '$(x^2+6x+9)-(x^2-6x+9) = 12x$。$(a+b)^2-(a-b)^2 = 4ab$ で $4 \\times x \\times 3 = 12x$。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-ea-q23',
@@ -470,6 +520,7 @@ export const expansionAdvanced: Topic = {
           correctIndex: 0,
           explanation:
             '$2(x^2+2x+1) - (x^2+2x-3) = 2x^2+4x+2-x^2-2x+3 = x^2+2x+5$。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g3-ea-q24',
@@ -483,6 +534,7 @@ export const expansionAdvanced: Topic = {
           correctIndex: 1,
           explanation:
             '$(2a)^2 + 2 \\times 2a \\times 3b + (3b)^2 = 4a^2 + 12ab + 9b^2$。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g3-ea-q25',
@@ -496,6 +548,7 @@ export const expansionAdvanced: Topic = {
           correctIndex: 1,
           explanation:
             '$(M+2)^2 = M^2 + 4M + 4$。これを元に戻すと $x^2+2xy+y^2+4x+4y+4$。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g3-ea-q26',
@@ -509,6 +562,7 @@ export const expansionAdvanced: Topic = {
           correctIndex: 1,
           explanation:
             '$2 \\times x \\times \\frac{1}{4} = \\frac{1}{2}x$、$(\\frac{1}{4})^2 = \\frac{1}{16}$。$x^2 + \\frac{1}{2}x + \\frac{1}{16}$。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g3-ea-q27',
@@ -522,6 +576,7 @@ export const expansionAdvanced: Topic = {
           correctIndex: 1,
           explanation:
             '$(5x)^2 - 1^2 = 25x^2 - 1$。和と差の積。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g3-ea-q28',
@@ -535,6 +590,7 @@ export const expansionAdvanced: Topic = {
           correctIndex: 2,
           explanation:
             'マイナスのカッコを外すと全項の符号が変わる。$-x^2 + 10x - 25$。',
+          difficulty: 'advanced',
         },
       ],
     },

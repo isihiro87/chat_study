@@ -54,34 +54,34 @@ export const posNegMeaning: Topic = {
     },
     videos: [],
     flashcards: [
-      { id: 'math-g1-pn-m-fc1', front: '正の数（せいのかず）。正の符号 $+$ をつけて表す。', back: '$0$ より大きい数を何という？' },
-      { id: 'math-g1-pn-m-fc2', front: '負の数（ふのかず）。負の符号 $-$ をつけて表す。', back: '$0$ より小さい数を何という？' },
-      { id: 'math-g1-pn-m-fc3', front: '正の数でも負の数でもない。', back: '$0$ は正の数？負の数？' },
-      { id: 'math-g1-pn-m-fc4', front: '自然数（$1, 2, 3, \\ldots$）', back: '正の整数の別名は？' },
-      { id: 'math-g1-pn-m-fc5', front: '自然数（正の整数）、$0$、負の整数をまとめた数のこと。', back: '整数とはどんな数？' },
-      { id: 'math-g1-pn-m-fc6', front: '原点（げんてん）', back: '数直線上で $0$ を表す点を何という？' },
-      { id: 'math-g1-pn-m-fc7', front: '絶対値（ぜったいち）。符号をとった値になる。', back: '数直線上で原点からある数までの距離を何という？' },
-      { id: 'math-g1-pn-m-fc8', front: '$5$（原点から左に $5$ の距離）', back: '$-5$ の絶対値は？' },
-      { id: 'math-g1-pn-m-fc9', front: '$+4$ と $-4$ の2つ', back: '絶対値が $4$ の数は？' },
-      { id: 'math-g1-pn-m-fc10', front: '大きくなる', back: '数直線で右にいくほど数はどうなる？' },
-      { id: 'math-g1-pn-m-fc11', front: '絶対値が大きいほど小さい（例: $-5 < -2$）', back: '負の数どうしの大小比較のコツは？' },
-      { id: 'math-g1-pn-m-fc12', front: '「小なり」。左の数が右の数より小さい。', back: '不等号 $<$ の読み方と意味は？' },
-      { id: 'math-g1-pn-m-fc13', front: '「大なり」。左の数が右の数より大きい。', back: '不等号 $>$ の読み方と意味は？' },
-      { id: 'math-g1-pn-m-fc14', front: '「$-500$ 円の支出」。正負の数で反対の性質を表せる。', back: '「$+500$ 円の収入」の反対は？' },
-      { id: 'math-g1-pn-m-fc15', front: '$0$（原点そのもの）', back: '$0$ の絶対値は？' },
-      { id: 'math-g1-pn-m-fc16', front: '負の数 $< 0 <$ 正の数', back: '正の数と負の数の大小関係は？' },
-      { id: 'math-g1-pn-m-fc17', front: '有理数（ゆうりすう）。整数と分数をまとめた数。', back: '整数と分数を合わせて何という？' },
-      { id: 'math-g1-pn-m-fc18', front: '$+4$ と $-4$（符号だけが違い、絶対値が同じ数）', back: '「$+4$ の反数」とは？' },
-      { id: 'math-g1-pn-m-fc19', front: '数直線上で右側にある数ほど大きい', back: '数直線で大小を比べるコツは？' },
-      { id: 'math-g1-pn-m-fc20', front: '正の数：$+3, +\\frac{1}{2}$　負の数：$-2, -0.7$　どちらでもない：$0$', back: '$+3, -2, 0, +\\frac{1}{2}, -0.7$ を正・負・どちらでもないに分類すると？' },
-      { id: 'math-g1-pn-m-fc21', front: '温度の上下、海抜と海面下、収入と支出、東と西など', back: '正負の数で表せる反対の量の具体例を3つ挙げると？' },
-      { id: 'math-g1-pn-m-fc22', front: '$-5 < -3 < -1 < 0 < 2 < 4$', back: '$4, -3, 0, -5, 2, -1$ を小さい順に並べると？' },
-      { id: 'math-g1-pn-m-fc23', front: '必ず $0$ 以上（$0$ または正の数）', back: '絶対値はどんな値になる？' },
-      { id: 'math-g1-pn-m-fc24', front: '正の整数 $5$ 個（$1,2,3,4,5$）＋ $0$ ＋ 負の整数 $5$ 個（$-1,-2,-3,-4,-5$）＝ $11$ 個', back: '絶対値が $5$ 以下の整数は何個？' },
-      { id: 'math-g1-pn-m-fc25', front: '$0$（$0$ より小さい整数はない自然数の中には $0$ を含まない）', back: '最も小さい自然数は？' },
-      { id: 'math-g1-pn-m-fc26', front: '負の数は $0$ より小さい数。負の分数（$-\\frac{1}{3}$）や負の小数（$-0.5$）もある', back: '負の数は整数だけ？' },
-      { id: 'math-g1-pn-m-fc27', front: '基準の選び方で正負が変わる。基準 $= 0$ の位置を決めることが大切', back: '正負の数で量を表すとき、基準はどうやって決める？' },
-      { id: 'math-g1-pn-m-fc28', front: '$+5$ m（基準より高い）と $-3$ m（基準より低い）の差は $8$ m', back: '海抜 $+5$ m と海抜 $-3$ m の高さの差は？' },
+      { id: 'math-g1-pn-m-fc1', front: '正の数（せいのかず）。正の符号 $+$ をつけて表す。', back: '$0$ より大きい数を何という？', difficulty: 'basic' },
+      { id: 'math-g1-pn-m-fc2', front: '負の数（ふのかず）。負の符号 $-$ をつけて表す。', back: '$0$ より小さい数を何という？', difficulty: 'basic' },
+      { id: 'math-g1-pn-m-fc3', front: '正の数でも負の数でもない。', back: '$0$ は正の数？負の数？', difficulty: 'basic' },
+      { id: 'math-g1-pn-m-fc4', front: '自然数（$1, 2, 3, \\ldots$）', back: '正の整数の別名は？', difficulty: 'basic' },
+      { id: 'math-g1-pn-m-fc5', front: '自然数（正の整数）、$0$、負の整数をまとめた数のこと。', back: '整数とはどんな数？', difficulty: 'basic' },
+      { id: 'math-g1-pn-m-fc6', front: '原点（げんてん）', back: '数直線上で $0$ を表す点を何という？', difficulty: 'basic' },
+      { id: 'math-g1-pn-m-fc7', front: '絶対値（ぜったいち）。符号をとった値になる。', back: '数直線上で原点からある数までの距離を何という？', difficulty: 'basic' },
+      { id: 'math-g1-pn-m-fc8', front: '$5$（原点から左に $5$ の距離）', back: '$-5$ の絶対値は？', difficulty: 'basic' },
+      { id: 'math-g1-pn-m-fc9', front: '$+4$ と $-4$ の2つ', back: '絶対値が $4$ の数は？', difficulty: 'basic' },
+      { id: 'math-g1-pn-m-fc10', front: '大きくなる', back: '数直線で右にいくほど数はどうなる？', difficulty: 'basic' },
+      { id: 'math-g1-pn-m-fc11', front: '絶対値が大きいほど小さい（例: $-5 < -2$）', back: '負の数どうしの大小比較のコツは？', difficulty: 'basic' },
+      { id: 'math-g1-pn-m-fc12', front: '「小なり」。左の数が右の数より小さい。', back: '不等号 $<$ の読み方と意味は？', difficulty: 'basic' },
+      { id: 'math-g1-pn-m-fc13', front: '「大なり」。左の数が右の数より大きい。', back: '不等号 $>$ の読み方と意味は？', difficulty: 'standard' },
+      { id: 'math-g1-pn-m-fc14', front: '「$-500$ 円の支出」。正負の数で反対の性質を表せる。', back: '「$+500$ 円の収入」の反対は？', difficulty: 'standard' },
+      { id: 'math-g1-pn-m-fc15', front: '$0$（原点そのもの）', back: '$0$ の絶対値は？', difficulty: 'standard' },
+      { id: 'math-g1-pn-m-fc16', front: '負の数 $< 0 <$ 正の数', back: '正の数と負の数の大小関係は？', difficulty: 'standard' },
+      { id: 'math-g1-pn-m-fc17', front: '有理数（ゆうりすう）。整数と分数をまとめた数。', back: '整数と分数を合わせて何という？', difficulty: 'standard' },
+      { id: 'math-g1-pn-m-fc18', front: '$+4$ と $-4$（符号だけが違い、絶対値が同じ数）', back: '「$+4$ の反数」とは？', difficulty: 'standard' },
+      { id: 'math-g1-pn-m-fc19', front: '数直線上で右側にある数ほど大きい', back: '数直線で大小を比べるコツは？', difficulty: 'standard' },
+      { id: 'math-g1-pn-m-fc20', front: '正の数：$+3, +\\frac{1}{2}$　負の数：$-2, -0.7$　どちらでもない：$0$', back: '$+3, -2, 0, +\\frac{1}{2}, -0.7$ を正・負・どちらでもないに分類すると？', difficulty: 'standard' },
+      { id: 'math-g1-pn-m-fc21', front: '温度の上下、海抜と海面下、収入と支出、東と西など', back: '正負の数で表せる反対の量の具体例を3つ挙げると？', difficulty: 'standard' },
+      { id: 'math-g1-pn-m-fc22', front: '$-5 < -3 < -1 < 0 < 2 < 4$', back: '$4, -3, 0, -5, 2, -1$ を小さい順に並べると？', difficulty: 'standard' },
+      { id: 'math-g1-pn-m-fc23', front: '必ず $0$ 以上（$0$ または正の数）', back: '絶対値はどんな値になる？', difficulty: 'advanced' },
+      { id: 'math-g1-pn-m-fc24', front: '正の整数 $5$ 個（$1,2,3,4,5$）＋ $0$ ＋ 負の整数 $5$ 個（$-1,-2,-3,-4,-5$）＝ $11$ 個', back: '絶対値が $5$ 以下の整数は何個？', difficulty: 'advanced' },
+      { id: 'math-g1-pn-m-fc25', front: '$1$（自然数は $1, 2, 3, \\ldots$ で、$0$ は自然数に含まない）', back: '最も小さい自然数は？', difficulty: 'advanced' },
+      { id: 'math-g1-pn-m-fc26', front: '負の数は $0$ より小さい数。負の分数（$-\\frac{1}{3}$）や負の小数（$-0.5$）もある', back: '負の数は整数だけ？', difficulty: 'advanced' },
+      { id: 'math-g1-pn-m-fc27', front: '基準の選び方で正負が変わる。基準 $= 0$ の位置を決めることが大切', back: '正負の数で量を表すとき、基準はどうやって決める？', difficulty: 'advanced' },
+      { id: 'math-g1-pn-m-fc28', front: '$+5$ m（基準より高い）と $-3$ m（基準より低い）の差は $8$ m', back: '海抜 $+5$ m と海抜 $-3$ m の高さの差は？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -92,6 +92,7 @@ export const posNegMeaning: Topic = {
           correctIndex: 2,
           explanation:
             '$-3$ は $0$ より小さい数なので負の数だよ。$+7$ と $\\frac{1}{2}$ は正の数、$0$ は正でも負でもないね。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g1-pos-neg-meaning-q2',
@@ -100,6 +101,7 @@ export const posNegMeaning: Topic = {
           correctIndex: 1,
           explanation:
             '絶対値は数直線上で原点からの距離だから、$-5$ の絶対値は $5$ だよ。符号を取った値になるんだ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g1-pos-neg-meaning-q3',
@@ -113,6 +115,7 @@ export const posNegMeaning: Topic = {
           correctIndex: 0,
           explanation:
             '負の数 $< 0 <$ 正の数だから、$-2 < 0 < +3$ が正しいよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g1-pos-neg-meaning-q4',
@@ -121,6 +124,7 @@ export const posNegMeaning: Topic = {
           correctIndex: 3,
           explanation:
             '$-0.5$ は小数なので整数ではないよ。整数は $\\ldots, -2, -1, 0, 1, 2, \\ldots$ のように小数部分がない数だね。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g1-pos-neg-meaning-q5',
@@ -134,6 +138,7 @@ export const posNegMeaning: Topic = {
           correctIndex: 0,
           explanation:
             '負の数どうしでは絶対値が小さい方が大きいよ。$|-3| = 3 < |-7| = 7$ だから、$-3 > -7$ つまり $-3$ の方が大きいんだ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g1-pos-neg-meaning-q6',
@@ -142,6 +147,7 @@ export const posNegMeaning: Topic = {
           correctIndex: 3,
           explanation:
             '反対の性質をもつ量は正負の数で表すよ。高い↔低いだから、基準より $4°\\text{C}$ 低いことは $-4°\\text{C}$ だね。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g1-pos-neg-meaning-q7',
@@ -150,6 +156,7 @@ export const posNegMeaning: Topic = {
           correctIndex: 1,
           explanation:
             '自然数は正の整数（$1, 2, 3, \\ldots$）のことだよ。$+5$ は正の整数だから自然数だね。$0$ は自然数ではないよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g1-pos-neg-meaning-q8',
@@ -158,6 +165,7 @@ export const posNegMeaning: Topic = {
           correctIndex: 2,
           explanation:
             '絶対値が $3$ より小さい整数は $-2, -1, 0, +1, +2$ の $5$ 個だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g1-pos-neg-meaning-q9',
@@ -166,6 +174,7 @@ export const posNegMeaning: Topic = {
           correctIndex: 3,
           explanation:
             '小さい順に並べると $-6, -2, 0, +4$ だから、左から $2$ 番目は $-2$ だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g1-pos-neg-meaning-q10',
@@ -174,6 +183,7 @@ export const posNegMeaning: Topic = {
           correctIndex: 1,
           explanation:
             '負の数どうしでは絶対値が大きい方が小さいよ。$|-4.5| = 4.5 > |-1.2| = 1.2$ だから $-4.5 < -1.2$ だね。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g1-pos-neg-meaning-q11',
@@ -182,6 +192,7 @@ export const posNegMeaning: Topic = {
           correctIndex: 2,
           explanation:
             '$0$ は正の数でも負の数でもないよ。正の数は $0$ より大きく、負の数は $0$ より小さい数だね。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g1-pos-neg-meaning-q12',
@@ -190,6 +201,7 @@ export const posNegMeaning: Topic = {
           correctIndex: 1,
           explanation:
             '絶対値が $3$ の数は $+3$ と $-3$ の $2$ 個だよ。原点からの距離が $3$ の点は左右に1つずつあるんだ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g1-pos-neg-meaning-q13',
@@ -198,6 +210,7 @@ export const posNegMeaning: Topic = {
           correctIndex: 1,
           explanation:
             '自然数は正の整数（$1, 2, 3, \\ldots$）のこと。$+3$ と $+5$ だけが自然数だよ。$0$ は自然数ではないよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g1-pos-neg-meaning-q14',
@@ -206,6 +219,7 @@ export const posNegMeaning: Topic = {
           correctIndex: 1,
           explanation:
             '高さの差は $|15 - (-8)| = |15 + 8| = 23$ m だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g1-pos-neg-meaning-q15',
@@ -214,6 +228,7 @@ export const posNegMeaning: Topic = {
           correctIndex: 2,
           explanation:
             '原点にもっとも近い数は絶対値がもっとも小さい数。$|-1| = 1$ が最小だから $-1$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g1-pos-neg-meaning-q16',
@@ -222,6 +237,7 @@ export const posNegMeaning: Topic = {
           correctIndex: 1,
           explanation:
             '「$+500$ 円の収入」の反対は「$-500$ 円の収入」だよ。正負を使えば収入と支出を同じ単語で表せるんだ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g1-pos-neg-meaning-q17',
@@ -230,6 +246,7 @@ export const posNegMeaning: Topic = {
           correctIndex: 1,
           explanation:
             '絶対値が $6$ より小さい整数は $-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5$ の $11$ 個だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g1-pos-neg-meaning-q18',
@@ -238,6 +255,7 @@ export const posNegMeaning: Topic = {
           correctIndex: 2,
           explanation:
             '負の数は $-3$ と $-\\frac{3}{2}$ の $2$ 個だよ。$0$ は負の数ではないね。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g1-pos-neg-meaning-q19',
@@ -246,6 +264,7 @@ export const posNegMeaning: Topic = {
           correctIndex: 1,
           explanation:
             '2つの数の距離は $|5 - (-3)| = |5 + 3| = 8$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g1-pos-neg-meaning-q20',
@@ -254,6 +273,7 @@ export const posNegMeaning: Topic = {
           correctIndex: 2,
           explanation:
             '負の数どうしでは絶対値が小さい方が大きい。$|-1| = 1 < |-6| = 6$ だから $-1 > -6$ が正しいよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g1-pos-neg-meaning-q21',
@@ -262,6 +282,7 @@ export const posNegMeaning: Topic = {
           correctIndex: 2,
           explanation:
             '$\\sqrt{2}$ は分数で表せないから有理数ではないよ（無理数という）。他はすべて有理数だね。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g1-pos-neg-meaning-q22',
@@ -270,6 +291,7 @@ export const posNegMeaning: Topic = {
           correctIndex: 1,
           explanation:
             '$-3$ より大きい数は $+8, +1, 0, -2$ の $4$ 個だよ。$-2 > -3$ であることに注意！',
+          difficulty: 'standard',
         },
         {
           id: 'math-g1-pos-neg-meaning-q23',
@@ -278,6 +300,7 @@ export const posNegMeaning: Topic = {
           correctIndex: 1,
           explanation:
             '今日が昨日より $5°\\text{C}$ 低いので、昨日は今日より $5°\\text{C}$ 高い。$-2 + 5 = +3°\\text{C}$ だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g1-pos-neg-meaning-q24',
@@ -286,6 +309,7 @@ export const posNegMeaning: Topic = {
           correctIndex: 1,
           explanation:
             '大きい順に $+7, +3, 0, -2, -5$ だから、左から $3$ 番目は $0$ だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g1-pos-neg-meaning-q25',
@@ -294,6 +318,7 @@ export const posNegMeaning: Topic = {
           correctIndex: 3,
           explanation:
             '東を正とすると西は負だから、西へ $7$ km は $-7$ km だよ。反対の方向を負の数で表すんだ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g1-pos-neg-meaning-q26',
@@ -302,6 +327,7 @@ export const posNegMeaning: Topic = {
           correctIndex: 2,
           explanation:
             '例えば $+5 + (-5) = 0$。絶対値が同じで符号が逆の2つの数を足すと必ず $0$ になるよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g1-pos-neg-meaning-q27',
@@ -310,6 +336,7 @@ export const posNegMeaning: Topic = {
           correctIndex: 0,
           explanation:
             '絶対値は符号を取った値だから、$-\\frac{1}{2}$ の絶対値は $\\frac{1}{2}$ だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g1-pos-neg-meaning-q28',
@@ -318,6 +345,7 @@ export const posNegMeaning: Topic = {
           correctIndex: 1,
           explanation:
             '整数は $-4, 0, +8, -1$ の $4$ 個だよ。$+2.5$ は小数、$-\\frac{7}{3}$ は分数なので整数ではないね。',
+          difficulty: 'advanced',
         },
       ],
     },

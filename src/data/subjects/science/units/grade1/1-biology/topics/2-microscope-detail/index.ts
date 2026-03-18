@@ -104,165 +104,89 @@ export const microscopeDetail: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'sci1-md-fc1',
-        front: 'プレパラート',
-        back: 'プレパラートは何と何を使って作る？',
-        explanation:
-          'スライドガラスの上に観察するものをのせ、カバーガラスをかぶせて作る。気泡が入らないように注意する。',
-      },
-      {
-        id: 'sci1-md-fc2',
-        front: '倍率の計算',
-        back: '顕微鏡の倍率はどのように求める？',
-        explanation:
-          '倍率＝接眼レンズの倍率×対物レンズの倍率。例：接眼10倍×対物40倍＝400倍。',
-      },
-      {
-        id: 'sci1-md-fc3',
-        front: '反射鏡',
-        back: '顕微鏡の反射鏡の役割は？',
-        explanation:
-          '光を集めて視野を明るくする。平面鏡と凹面鏡があり、凹面鏡のほうがより多くの光を集められる。',
-      },
-      {
-        id: 'sci1-md-fc4',
-        front: 'しぼり',
-        back: '顕微鏡のしぼりの役割は？',
-        explanation:
-          '視野に入る光の量を調節する装置。倍率を上げて暗くなったときに開いて明るくする。',
-      },
-      {
-        id: 'sci1-md-fc5',
-        front: 'ステージ',
-        back: '顕微鏡のステージとは何か？',
-        explanation:
-          'プレパラートをのせる台のこと。ステージ上下式顕微鏡ではステージを上下に動かしてピントを合わせる。',
-      },
-      {
-        id: 'sci1-md-fc6',
-        front: '調節ねじ',
-        back: '顕微鏡の調節ねじの役割は？',
-        explanation:
-          'ピントを合わせるために回すねじ。鏡筒またはステージを上下に動かす。',
-      },
-      {
-        id: 'sci1-md-fc7',
-        front: '倍率と視野の関係',
-        back: '倍率を上げると視野の広さと明るさはどう変わる？',
-        explanation:
-          '倍率を上げると視野は狭くなり、暗くなる。しぼりを開いたり反射鏡を凹面鏡に変えて明るくする。',
-      },
-      {
-        id: 'sci1-md-fc8',
-        front: '双眼実体顕微鏡の使い方',
-        back: '双眼実体顕微鏡のピント合わせの手順は？',
-        explanation:
-          '眼幅を自分の目の幅に合わせ、粗動ねじで大まかにピントを合わせた後、微動ねじで細かく調節する。',
-      },
-      {
-        id: 'sci1-md-fc9',
-        front: 'レボルバー',
-        back: 'レボルバーとは何か？',
-        explanation:
-          '対物レンズを切りかえるための回転式の装置。倍率を変えるときに回して別の対物レンズに切りかえる。',
-      },
+      { id: 'sci1-md-fc1', front: 'スライドガラスとカバーガラス', back: 'プレパラートは何と何を使って作るか。', difficulty: 'basic' },
+      { id: 'sci1-md-fc2', front: '接眼レンズの倍率×対物レンズの倍率', back: '顕微鏡の倍率を求める式を答えよ。', difficulty: 'basic' },
+      { id: 'sci1-md-fc3', front: '光を集めて視野を明るくする', back: '顕微鏡の反射鏡の役割は何か。', difficulty: 'basic' },
+      { id: 'sci1-md-fc4', front: '視野に入る光の量を調節する装置', back: '顕微鏡のしぼりの役割は何か。', difficulty: 'basic' },
+      { id: 'sci1-md-fc5', front: 'プレパラートをのせる台', back: '顕微鏡のステージとは何か。', difficulty: 'basic' },
+      { id: 'sci1-md-fc6', front: 'ピントを合わせるために鏡筒またはステージを上下に動かすねじ', back: '顕微鏡の調節ねじの役割は何か。', difficulty: 'basic' },
+      { id: 'sci1-md-fc7', front: '接眼レンズ', back: '顕微鏡でのぞく側のレンズを何というか。', difficulty: 'basic' },
+      { id: 'sci1-md-fc8', front: '対物レンズ', back: '顕微鏡で観察するものに近い側のレンズを何というか。', difficulty: 'basic' },
+      { id: 'sci1-md-fc9', front: '対物レンズを切りかえるための回転式の装置', back: 'レボルバーとは何か。', difficulty: 'basic' },
       {
         id: 'sci1-md-fc10',
-        front: 'カバーガラスのかぶせ方',
-        back: 'カバーガラスで気泡が入らないようにするにはどうする？',
-        explanation:
-          'カバーガラスの端をスライドガラスにつけて、ゆっくりと静かに下ろす。一気に落とすと気泡が入る。',
+        front: 'カバーガラスの端をスライドガラスにつけて、ゆっくりと静かに下ろす',
+        back: 'カバーガラスで気泡が入らないようにするにはどうするか。',
+        difficulty: 'basic',
       },
-      {
-        id: 'fc11',
-        front: '接眼レンズ',
-        back: '顕微鏡でのぞく側のレンズを何というか。',
-      },
-      {
-        id: 'fc12',
-        front: '対物レンズ',
-        back: '顕微鏡で観察するものに近い側のレンズを何というか。',
-      },
-      {
-        id: 'fc13',
-        front: '鏡筒上下式顕微鏡',
-        back: '鏡筒を上下に動かしてピントを合わせるタイプの顕微鏡を何というか。',
-      },
-      {
-        id: 'fc14',
-        front: 'ステージ上下式顕微鏡',
-        back: 'ステージを上下に動かしてピントを合わせるタイプの顕微鏡を何というか。',
-      },
-      {
-        id: 'fc15',
-        front: '鏡筒の中にほこりが入るのを防ぐため',
-        back: '接眼レンズを先に取り付ける理由は何か。',
-      },
-      {
-        id: 'fc16',
-        front: '視野が広いため、観察するものを見つけやすいから',
-        back: '低倍率から観察を始める理由を答えよ。',
-      },
+      { id: 'fc11', front: '狭くなる', back: '顕微鏡の倍率を上げると視野の広さはどうなるか。', difficulty: 'basic' },
+      { id: 'fc12', front: '暗くなる', back: '顕微鏡の倍率を上げると視野の明るさはどうなるか。', difficulty: 'basic' },
+      { id: 'fc13', front: '鏡筒上下式顕微鏡', back: '鏡筒を上下に動かしてピントを合わせるタイプの顕微鏡を何というか。', difficulty: 'standard' },
+      { id: 'fc14', front: 'ステージ上下式顕微鏡', back: 'ステージを上下に動かしてピントを合わせるタイプの顕微鏡を何というか。', difficulty: 'standard' },
+      { id: 'fc15', front: '鏡筒の中にほこりが入るのを防ぐため', back: '接眼レンズを先に取り付ける理由は何か。', difficulty: 'standard' },
+      { id: 'fc16', front: '視野が広いため、観察するものを見つけやすいから', back: '低倍率から観察を始める理由を答えよ。', difficulty: 'standard' },
       {
         id: 'fc17',
         front: '横から見ながら近づけ、のぞきながら離してピントを合わせる',
         back: '顕微鏡のピント合わせの手順を答えよ。',
+        difficulty: 'standard',
       },
       {
         id: 'fc18',
         front: 'プレパラートにぶつけてレンズを傷つけるおそれがあるため',
         back: 'ピントを合わせるとき近づけた状態から離す方向に動かすのはなぜか。',
+        difficulty: 'standard',
       },
-      {
-        id: 'fc19',
-        front: 'スポイト（またはピペット）',
-        back: '観察するものに水を加えるとき何を使って1滴たらすか。',
-      },
-      {
-        id: 'fc20',
-        front: '40倍（10×4）',
-        back: '接眼レンズが10倍、対物レンズが4倍のとき倍率は何倍か。',
-      },
-      {
-        id: 'fc21',
-        front: '100倍（10×10）',
-        back: '接眼レンズが10倍、対物レンズが10倍のとき倍率は何倍か。',
-      },
-      {
-        id: 'fc22',
-        front: '600倍（15×40）',
-        back: '接眼レンズが15倍、対物レンズが40倍のとき倍率は何倍か。',
-      },
-      {
-        id: 'fc23',
-        front: '狭くなる',
-        back: '顕微鏡の倍率を上げると視野の広さはどうなるか。',
-      },
-      {
-        id: 'fc24',
-        front: '暗くなる',
-        back: '顕微鏡の倍率を上げると視野の明るさはどうなるか。',
-      },
-      {
-        id: 'fc25',
-        front: 'しぼりを開く、または反射鏡を凹面鏡に変える',
-        back: '倍率を上げて暗くなったとき、どうすれば明るくできるか。',
-      },
-      {
-        id: 'fc26',
-        front: '高倍率のほうが大きく見える',
-        back: '低倍率と高倍率で1つの細胞はどちらが大きく見えるか。',
-      },
+      { id: 'fc19', front: 'スポイト（またはピペット）', back: '観察するものに水を加えるとき何を使って1滴たらすか。', difficulty: 'basic' },
+      { id: 'fc20', front: '40倍（10×4）', back: '接眼レンズが10倍、対物レンズが4倍のとき倍率は何倍か。', difficulty: 'standard' },
+      { id: 'fc21', front: '100倍（10×10）', back: '接眼レンズが10倍、対物レンズが10倍のとき倍率は何倍か。', difficulty: 'standard' },
+      { id: 'fc22', front: '600倍（15×40）', back: '接眼レンズが15倍、対物レンズが40倍のとき倍率は何倍か。', difficulty: 'standard' },
+      { id: 'fc23', front: 'しぼりを開く、または反射鏡を凹面鏡に変える', back: '倍率を上げて暗くなったとき、どうすれば明るくできるか。', difficulty: 'standard' },
+      { id: 'fc24', front: '高倍率のほうが大きく見える', back: '低倍率と高倍率で1つの細胞はどちらが大きく見えるか。', difficulty: 'standard' },
+      { id: 'fc25', front: '平面鏡と凹面鏡', back: '反射鏡には2種類ある。それぞれ何というか。', difficulty: 'standard' },
+      { id: 'fc26', front: '眼幅調節', back: '双眼実体顕微鏡で両目の間隔を合わせる操作を何というか。', difficulty: 'standard' },
       {
         id: 'fc27',
-        front: '眼幅調節',
-        back: '双眼実体顕微鏡で両目の間隔を合わせる操作を何というか。',
+        front: '粗動ねじで大まかに合わせ、微動ねじで細かく調節する',
+        back: '双眼実体顕微鏡のピント合わせの手順を答えよ。',
+        difficulty: 'standard',
+      },
+      { id: 'fc28', front: '20〜40倍程度', back: '双眼実体顕微鏡の倍率はどのくらいか。', difficulty: 'standard' },
+      {
+        id: 'fc29',
+        front: '観察するものを立体的（三次元的）に見ることができる',
+        back: '双眼実体顕微鏡の最大の特徴は何か。',
+        difficulty: 'standard',
       },
       {
-        id: 'fc28',
-        front: '平面鏡と凹面鏡',
-        back: '反射鏡には2種類ある。それぞれ何というか。',
+        id: 'fc30',
+        front: '必要ない。観察するものをそのままステージにのせて観察できる',
+        back: '双眼実体顕微鏡でプレパラートは必要か。',
+        difficulty: 'standard',
+      },
+      {
+        id: 'fc31',
+        front: '上下左右が逆（180度回転した像）になっている',
+        back: '顕微鏡で見える像は、実物と比べてどのような向きになっているか。',
+        difficulty: 'advanced',
+      },
+      {
+        id: 'fc32',
+        front: 'プレパラートを右上に動かす（像の移動方向と逆）',
+        back: '顕微鏡の視野の右上に見たい部分があるとき、中央に移動させるにはプレパラートをどちらに動かすか。',
+        difficulty: 'advanced',
+      },
+      {
+        id: 'fc33',
+        front: '倍率が10倍になると視野の直径は10分の1になる（0.4mm）',
+        back: '40倍で視野の直径が4mmのとき、400倍に変えると視野の直径は約何mmになるか。',
+        difficulty: 'advanced',
+      },
+      {
+        id: 'fc34',
+        front: '接眼レンズ→対物レンズの順に取り付け→反射鏡としぼりで明るさ調節→低倍率でピント合わせ',
+        back: '顕微鏡の操作手順を、レンズ取り付けからピント合わせまで順に答えよ。',
+        difficulty: 'advanced',
       },
     ],
     quiz: {
@@ -279,7 +203,8 @@ export const microscopeDetail: Topic = {
           correctIndex: 0,
           explanation:
             'カバーガラスの端をスライドガラスにつけて、ゆっくりと静かに下ろします。気泡が入らないようにするためです。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-md-q2',
           question: '接眼レンズが10倍、対物レンズが40倍のとき、顕微鏡の倍率は何倍か？',
@@ -292,7 +217,8 @@ export const microscopeDetail: Topic = {
           correctIndex: 1,
           explanation:
             '倍率＝接眼レンズの倍率×対物レンズの倍率＝10×40＝400倍です。足し算ではなくかけ算で求めます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-md-q3',
           question: '顕微鏡の倍率を上げると、視野はどうなるか？',
@@ -305,7 +231,8 @@ export const microscopeDetail: Topic = {
           correctIndex: 2,
           explanation:
             '倍率を上げると視野は狭くなり、暗くなります。しぼりを開いたり反射鏡を凹面鏡に変えて明るくします。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-md-q4',
           question: '双眼実体顕微鏡の特徴として正しいのはどれか？',
@@ -318,7 +245,8 @@ export const microscopeDetail: Topic = {
           correctIndex: 3,
           explanation:
             '双眼実体顕微鏡は両目でのぞくため、観察物を立体的に見ることができます。倍率は20〜40倍で、プレパラートは不要です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-md-q5',
           question: '顕微鏡で視野が暗いとき、明るくする方法として正しいのはどれか？',
@@ -331,7 +259,8 @@ export const microscopeDetail: Topic = {
           correctIndex: 2,
           explanation:
             'しぼりを開くと視野に入る光の量が増えて明るくなります。反射鏡を凹面鏡に変える方法もあります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'q6',
           question: '顕微鏡でのぞく側のレンズを何というか？',
@@ -344,7 +273,8 @@ export const microscopeDetail: Topic = {
           correctIndex: 1,
           explanation:
             '顕微鏡でのぞく側（目に近い側）のレンズを接眼レンズといいます。観察物に近い側は対物レンズです。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'q7',
           question: '対物レンズを切りかえるための回転式の装置を何というか？',
@@ -357,7 +287,8 @@ export const microscopeDetail: Topic = {
           correctIndex: 2,
           explanation:
             'レボルバーは対物レンズを切りかえるための回転式の装置です。倍率を変えるときに回して別の対物レンズに切りかえます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'q8',
           question: '接眼レンズを先に取り付ける理由は何か？',
@@ -370,7 +301,8 @@ export const microscopeDetail: Topic = {
           correctIndex: 2,
           explanation:
             '接眼レンズを先に取り付けることで、鏡筒の上部がふさがれ、中にほこりが入るのを防ぐことができます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'q9',
           question: '低倍率から観察を始める理由として正しいものはどれか？',
@@ -383,7 +315,8 @@ export const microscopeDetail: Topic = {
           correctIndex: 1,
           explanation:
             '低倍率は視野が広いため、観察するものを見つけやすいです。見つけたら倍率を上げて詳しく観察します。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'q10',
           question: 'ピント合わせで対物レンズとプレパラートを近づけた状態から離す方向に動かすのはなぜか？',
@@ -396,7 +329,8 @@ export const microscopeDetail: Topic = {
           correctIndex: 1,
           explanation:
             '接眼レンズをのぞきながら近づけると距離が見えないため、プレパラートにぶつけてレンズを傷つけるおそれがあります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'q11',
           question: 'プレパラートに気泡が入るとどうなるか？',
@@ -409,7 +343,8 @@ export const microscopeDetail: Topic = {
           correctIndex: 1,
           explanation:
             '気泡が入ると観察のじゃまになります。カバーガラスは端からゆっくり下ろして気泡が入らないようにします。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q12',
           question: '接眼レンズが15倍、対物レンズが10倍のとき、倍率は何倍か？',
@@ -422,7 +357,8 @@ export const microscopeDetail: Topic = {
           correctIndex: 1,
           explanation:
             '倍率＝接眼レンズの倍率×対物レンズの倍率＝15×10＝150倍です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q13',
           question: '顕微鏡のステージとは何か？',
@@ -435,7 +371,8 @@ export const microscopeDetail: Topic = {
           correctIndex: 1,
           explanation:
             'ステージはプレパラートをのせる台です。ステージ上下式顕微鏡ではステージを上下に動かしてピントを合わせます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q14',
           question: '反射鏡の凹面鏡と平面鏡では、どちらが多くの光を集められるか？',
@@ -448,7 +385,8 @@ export const microscopeDetail: Topic = {
           correctIndex: 1,
           explanation:
             '凹面鏡のほうがより多くの光を集められます。倍率を上げて暗くなったときは凹面鏡に変えて明るくします。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q15',
           question: 'しぼりの役割として正しいものはどれか？',
@@ -461,7 +399,8 @@ export const microscopeDetail: Topic = {
           correctIndex: 1,
           explanation:
             'しぼりは視野に入る光の量を調節する装置です。しぼりを開くと光が多く入り明るくなります。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q16',
           question: '鏡筒上下式顕微鏡とステージ上下式顕微鏡の違いは何か？',
@@ -474,7 +413,8 @@ export const microscopeDetail: Topic = {
           correctIndex: 1,
           explanation:
             '鏡筒上下式は鏡筒を動かし、ステージ上下式はステージを動かしてピントを合わせます。原理は同じです。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q17',
           question: '双眼実体顕微鏡のピント合わせで正しい手順はどれか？',
@@ -487,7 +427,8 @@ export const microscopeDetail: Topic = {
           correctIndex: 1,
           explanation:
             '粗動ねじで大まかにピントを合わせた後、微動ねじで細かく調節します。左右の視度差は視度調節リングで合わせます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q18',
           question: '観察するものに水を加えるときに使う器具はどれか？',
@@ -500,7 +441,8 @@ export const microscopeDetail: Topic = {
           correctIndex: 2,
           explanation:
             'スポイト（またはピペット）で水を1滴たらします。水が多すぎるとカバーガラスが浮いてしまいます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q19',
           question: '倍率を上げると見える範囲が狭くなるのはなぜか？',
@@ -513,7 +455,8 @@ export const microscopeDetail: Topic = {
           correctIndex: 2,
           explanation:
             'レンズの拡大率が上がると、同じ視野の中により少ない範囲しか映らなくなるため、見える範囲が狭くなります。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q20',
           question: '接眼レンズ10倍と15倍、対物レンズ4倍・10倍・40倍がある顕微鏡で最も高い倍率は何倍か？',
@@ -526,7 +469,8 @@ export const microscopeDetail: Topic = {
           correctIndex: 2,
           explanation:
             '最も高い倍率の組み合わせは接眼レンズ15倍×対物レンズ40倍＝600倍です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q21',
           question: '調節ねじの役割として正しいものはどれか？',
@@ -539,7 +483,8 @@ export const microscopeDetail: Topic = {
           correctIndex: 1,
           explanation:
             '調節ねじはピントを合わせるために回すねじです。鏡筒またはステージを上下に動かします。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q22',
           question: '双眼実体顕微鏡でプレパラートは必要か？',
@@ -552,7 +497,8 @@ export const microscopeDetail: Topic = {
           correctIndex: 1,
           explanation:
             '双眼実体顕微鏡ではプレパラートは不要です。観察するものをそのままステージにのせて観察できます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q23',
           question: '倍率を40倍から400倍に上げたとき、視野の広さと明るさはどう変化するか？',
@@ -565,7 +511,8 @@ export const microscopeDetail: Topic = {
           correctIndex: 1,
           explanation:
             '倍率を上げると視野は狭くなり、明るさは暗くなります。しぼりを開いたり凹面鏡にして明るくします。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'q24',
           question: '顕微鏡の操作手順として正しい順番はどれか？',
@@ -578,7 +525,8 @@ export const microscopeDetail: Topic = {
           correctIndex: 1,
           explanation:
             '正しい手順は①レンズ取り付け（接眼→対物）②明るさ調節（反射鏡・しぼり）③ピント合わせです。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'q25',
           question: 'プレパラートを作るとき水を加える量はどのくらいか？',
@@ -591,7 +539,8 @@ export const microscopeDetail: Topic = {
           correctIndex: 2,
           explanation:
             'スポイトで水を1滴たらします。水が多すぎるとカバーガラスが浮いてしまいます。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'q26',
           question: '顕微鏡の反射鏡の役割として正しいものはどれか？',
@@ -604,7 +553,8 @@ export const microscopeDetail: Topic = {
           correctIndex: 1,
           explanation:
             '反射鏡は光を集めて視野を明るくする役割があります。平面鏡と凹面鏡があり、凹面鏡のほうが多くの光を集められます。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'q27',
           question: '接眼レンズが10倍、対物レンズが4倍のとき、倍率は何倍か？',
@@ -617,7 +567,8 @@ export const microscopeDetail: Topic = {
           correctIndex: 1,
           explanation:
             '倍率＝接眼レンズの倍率×対物レンズの倍率＝10×4＝40倍です。足し算ではなくかけ算で求めます。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'q28',
           question: '双眼実体顕微鏡で両目の間隔を合わせる操作を何というか？',
@@ -630,7 +581,8 @@ export const microscopeDetail: Topic = {
           correctIndex: 1,
           explanation:
             '眼幅調節といいます。接眼レンズの間隔を自分の目の幅に合わせる操作です。',
-        },
+        difficulty: 'advanced',
+      },
       ],
     },
     examples: {

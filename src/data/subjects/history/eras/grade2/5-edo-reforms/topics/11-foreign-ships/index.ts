@@ -23,24 +23,11 @@ export const foreignShips: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'fc1',
-        front: '異国船打払令',
-        back: '外国船を追い払う命令（1825年）',
-        explanation: '外国船を見つけ次第砲撃して追い払う強硬な政策。',
-      },
-      {
-        id: 'fc2',
-        front: 'フェートン号事件',
-        back: 'イギリス軍艦が長崎に侵入した事件',
-        explanation: '1808年にイギリス軍艦が長崎に侵入し、オランダ商館員を人質にした。',
-      },
-      {
-        id: 'fc3',
-        front: 'アヘン戦争',
-        back: '清がイギリスに敗れた戦争（1840-42年）',
-        explanation: '清の敗北を知った幕府は、異国船打払令を緩和した。',
-      },
+      { id: 'fc1', front: '異国船打払令', back: '1825年に幕府が出した外国船を砲撃して追い払う命令は？', difficulty: 'basic' },
+      { id: 'fc2', front: 'フェートン号事件', back: '1808年にイギリス軍艦が長崎に侵入した事件は？', difficulty: 'standard' },
+      { id: 'fc3', front: 'アヘン戦争', back: '1840年に清がイギリスに敗れ、幕府に衝撃を与えた戦争は？', difficulty: 'standard' },
+      { id: 'fc4', front: '蛮社の獄', back: '異国船打払令を批判した渡辺崋山・高野長英らが処罰された事件は？', difficulty: 'standard' },
+      { id: 'fc5', front: '大塩平八郎', back: '1837年にききんに苦しむ民を救うため大阪で乱を起こした元幕府役人は？', difficulty: 'standard' },
     ],
     quiz: {
       questions: [
@@ -51,6 +38,7 @@ export const foreignShips: Topic = {
           correctIndex: 3,
           explanation:
             '異国船打払令は外国船を見つけ次第砲撃して追い払う強硬な政策でした。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -59,6 +47,7 @@ export const foreignShips: Topic = {
           correctIndex: 1,
           explanation:
             '蛮社の獄では渡辺崋山や高野長英らが処罰され、幕府の厳しい姿勢が示されました。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -67,6 +56,7 @@ export const foreignShips: Topic = {
           correctIndex: 2,
           explanation:
             '大塩平八郎はききんに苦しむ民を救うため乱を起こしました。元幕府役人の反乱は大きな衝撃でした。',
+          difficulty: 'standard',
         },
       ],
     },

@@ -105,153 +105,22 @@ export const atmosphericCirculation: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'sci2-atmc-fc1',
-        front: '偏西風',
-        back: '中緯度帯を西から東に吹く風を何という？',
-        explanation: '偏西風の影響で、日本付近の天気は西から東へ移り変わる。',
-      },
-      {
-        id: 'sci2-atmc-fc2',
-        front: '季節風（モンスーン）',
-        back: '大陸と海洋の温度差によって季節ごとに向きが変わる風を何という？',
-        explanation: '冬は北西（大陸→海洋）、夏は南東（海洋→大陸）の季節風が吹く。',
-      },
-      {
-        id: 'sci2-atmc-fc3',
-        front: '海風（うみかぜ）',
-        back: '昼間に海から陸に向かって吹く風',
-        explanation: '昼は陸が温まって気圧が低くなるため、気圧が高い海から陸へ風が吹く。',
-      },
-      {
-        id: 'sci2-atmc-fc4',
-        front: '陸風（りくかぜ）',
-        back: '夜間に陸から海に向かって吹く風',
-        explanation: '夜は陸が冷えて気圧が高くなるため、陸から気圧の低い海へ風が吹く。',
-      },
-      {
-        id: 'sci2-atmc-fc5',
-        front: 'シベリア気団',
-        back: '冬に大陸上で発達する寒冷・乾燥の気団',
-        explanation: 'シベリア高気圧のもととなる気団で、冬の西高東低の気圧配置をつくる。',
-      },
-      {
-        id: 'sci2-atmc-fc6',
-        front: '小笠原気団',
-        back: '夏に太平洋上で発達する温暖・湿潤の気団',
-        explanation: '太平洋高気圧のもととなる気団で、日本に高温多湿の夏をもたらす。',
-      },
-      {
-        id: 'sci2-atmc-fc7',
-        front: 'オホーツク海気団',
-        back: '北太平洋で発達する寒冷・湿潤の気団',
-        explanation: '梅雨の時期に小笠原気団とぶつかって梅雨前線をつくる。',
-      },
-      {
-        id: 'sci2-atmc-fc8',
-        front: '偏西風',
-        back: '中緯度上空を西から東に吹く風',
-      },
-      {
-        id: 'sci2-atmc-fc9',
-        front: '天気が西から東',
-        back: '偏西風の影響で日本の天気は西→東',
-      },
-      {
-        id: 'sci2-atmc-fc10',
-        front: '赤道付近＝上昇気流',
-        back: '赤道は太陽エネルギーが大きく上昇気流',
-      },
-      {
-        id: 'sci2-atmc-fc11',
-        front: '極付近＝下降気流',
-        back: '極は冷たく下降気流',
-      },
-      {
-        id: 'sci2-atmc-fc12',
-        front: '季節風（モンスーン）',
-        back: '季節によって異なる方向から吹く風',
-      },
-      {
-        id: 'sci2-atmc-fc13',
-        front: '冬の季節風＝北西',
-        back: '大陸から吹く寒冷乾燥の風',
-      },
-      {
-        id: 'sci2-atmc-fc14',
-        front: '夏の季節風＝南東',
-        back: '海洋から吹く温暖湿潤の風',
-      },
-      {
-        id: 'sci2-atmc-fc15',
-        front: '大陸は温まりやすく冷めやすい',
-        back: '大陸と海洋の温まりやすさの違い',
-      },
-      {
-        id: 'sci2-atmc-fc16',
-        front: '海風',
-        back: '昼間に海→陸に吹く風',
-      },
-      {
-        id: 'sci2-atmc-fc17',
-        front: '陸風',
-        back: '夜間に陸→海に吹く風',
-      },
-      {
-        id: 'sci2-atmc-fc18',
-        front: 'シベリア気団',
-        back: '冬に発達。寒冷・乾燥',
-      },
-      {
-        id: 'sci2-atmc-fc19',
-        front: '小笠原気団',
-        back: '夏に発達。温暖・湿潤',
-      },
-      {
-        id: 'sci2-atmc-fc20',
-        front: 'オホーツク海気団',
-        back: '梅雨に影響。寒冷・湿潤',
-      },
-      {
-        id: 'sci2-atmc-fc21',
-        front: '大気循環の原因',
-        back: '赤道と極の温度差',
-      },
-      {
-        id: 'sci2-atmc-fc22',
-        front: '対流圏の厚さ',
-        back: '気象現象が起こる範囲は約10km',
-      },
-      {
-        id: 'sci2-atmc-fc23',
-        front: '冬に大陸に高気圧が発達する理由',
-        back: '大陸が冷え下降気流が生じるから',
-      },
-      {
-        id: 'sci2-atmc-fc24',
-        front: '夏に大陸に低気圧が発達する理由',
-        back: '大陸が温まり上昇気流が生じるから',
-      },
-      {
-        id: 'sci2-atmc-fc25',
-        front: '海陸風＝季節風と同じ原理',
-        back: '温まりやすさの違いで風が吹く',
-      },
-      {
-        id: 'sci2-atmc-fc26',
-        front: '海風が吹く理由',
-        back: '昼は陸の気圧低→海→陸へ風',
-      },
-      {
-        id: 'sci2-atmc-fc27',
-        front: '陸風が吹く理由',
-        back: '夜は陸の気圧高→陸→海へ風',
-      },
-      {
-        id: 'sci2-atmc-fc28',
-        front: '大気循環のエネルギー源',
-        back: '太陽のエネルギー',
-      }
+      { id: 'sci2-atmc-fc1', front: '中緯度帯を西から東に吹く風', back: '偏西風とは何？', difficulty: 'basic' },
+      { id: 'sci2-atmc-fc2', front: '偏西風の影響で低気圧や高気圧が西→東に移動するため', back: '日本の天気が西から東へ移り変わる理由は？', difficulty: 'basic' },
+      { id: 'sci2-atmc-fc3', front: '大陸と海洋の温度差で季節ごとに向きが変わる風', back: '季節風（モンスーン）とは何？', difficulty: 'basic' },
+      { id: 'sci2-atmc-fc4', front: '昼間に海から陸に向かって吹く風', back: '海風とは何？', difficulty: 'basic' },
+      { id: 'sci2-atmc-fc5', front: '夜間に陸から海に向かって吹く風', back: '陸風とは何？', difficulty: 'basic' },
+      { id: 'sci2-atmc-fc6', front: '冬に発達する寒冷・乾燥の気団', back: 'シベリア気団の性質は？', difficulty: 'basic' },
+      { id: 'sci2-atmc-fc7', front: '夏に発達する温暖・湿潤の気団', back: '小笠原気団の性質は？', difficulty: 'standard' },
+      { id: 'sci2-atmc-fc8', front: '寒冷・湿潤。梅雨に小笠原気団とぶつかって梅雨前線をつくる', back: 'オホーツク海気団の性質と梅雨への影響は？', difficulty: 'standard' },
+      { id: 'sci2-atmc-fc9', front: '冬は北西（大陸→海洋）、夏は南東（海洋→大陸）', back: '日本の季節風の風向は冬と夏でどう変わる？', difficulty: 'standard' },
+      { id: 'sci2-atmc-fc10', front: '大陸は温まりやすく冷めやすい。海洋は温まりにくく冷めにくい', back: '大陸と海洋の温まりやすさの違いは？', difficulty: 'standard' },
+      { id: 'sci2-atmc-fc11', front: '赤道と極の温度差', back: '地球規模の大気循環の原因は？', difficulty: 'standard' },
+      { id: 'sci2-atmc-fc12', front: '約10km（対流圏）', back: '気象現象が起こる範囲は地表から約何km？', difficulty: 'standard' },
+      { id: 'sci2-atmc-fc13', front: '大陸が冷えて下降気流が生じるため高気圧になる', back: '冬に大陸に高気圧が発達する理由は？', difficulty: 'advanced' },
+      { id: 'sci2-atmc-fc14', front: '大陸が温まり上昇気流が生じるため低気圧になる', back: '夏に大陸に低気圧が発達する理由は？', difficulty: 'advanced' },
+      { id: 'sci2-atmc-fc15', front: '昼は陸が温まり気圧が低くなるため、気圧が高い海から陸へ風が吹く', back: '海風が吹く理由は？', difficulty: 'advanced' },
+      { id: 'sci2-atmc-fc16', front: '太陽のエネルギー', back: '大気循環のエネルギー源は何？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -262,7 +131,8 @@ export const atmosphericCirculation: Topic = {
           correctIndex: 2,
           explanation:
             '中緯度帯を西から東に吹く偏西風の影響で、低気圧や高気圧が西から東へ移動し、天気も西から東へ変わります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-atmc-q2',
           question: '昼間に海から陸に向かって吹く風を何というか？',
@@ -270,7 +140,8 @@ export const atmosphericCirculation: Topic = {
           correctIndex: 1,
           explanation:
             '昼は陸が温まって気圧が低くなり、気圧が高い海から陸へ風が吹きます。これを海風といいます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-atmc-q3',
           question: 'シベリア気団の性質として正しいものは？',
@@ -283,7 +154,8 @@ export const atmosphericCirculation: Topic = {
           correctIndex: 0,
           explanation:
             'シベリア気団は大陸上で発達するため寒冷・乾燥です。冬の西高東低の気圧配置の原因になります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-atmc-q4',
           question: '梅雨前線ができる原因となる2つの気団の組み合わせは？',
@@ -296,7 +168,8 @@ export const atmosphericCirculation: Topic = {
           correctIndex: 3,
           explanation:
             '梅雨前線は南の小笠原気団（温暖湿潤）と北のオホーツク海気団（寒冷湿潤）がぶつかってできる停滞前線です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-atmc-q5',
           question: '偏西風とは？',
@@ -304,7 +177,8 @@ export const atmosphericCirculation: Topic = {
           correctIndex: 1,
           explanation:
             '中緯度上空を西→東に吹く。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-atmc-q6',
           question: '日本の天気が西→東に移る理由は？',
@@ -312,7 +186,8 @@ export const atmosphericCirculation: Topic = {
           correctIndex: 1,
           explanation:
             '偏西風の影響。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-atmc-q7',
           question: '冬の季節風の風向は？',
@@ -320,7 +195,8 @@ export const atmosphericCirculation: Topic = {
           correctIndex: 1,
           explanation:
             '北西の季節風。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-atmc-q8',
           question: '夏の季節風の風向は？',
@@ -328,7 +204,8 @@ export const atmosphericCirculation: Topic = {
           correctIndex: 1,
           explanation:
             '南東の季節風。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-atmc-q9',
           question: '昼間に海→陸に吹く風は？',
@@ -336,7 +213,8 @@ export const atmosphericCirculation: Topic = {
           correctIndex: 1,
           explanation:
             '海風。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-atmc-q10',
           question: '夜間に陸→海に吹く風は？',
@@ -344,7 +222,8 @@ export const atmosphericCirculation: Topic = {
           correctIndex: 1,
           explanation:
             '陸風。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-atmc-q11',
           question: 'シベリア気団の性質は？',
@@ -352,7 +231,8 @@ export const atmosphericCirculation: Topic = {
           correctIndex: 1,
           explanation:
             '寒冷・乾燥。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-atmc-q12',
           question: '小笠原気団の性質は？',
@@ -360,7 +240,8 @@ export const atmosphericCirculation: Topic = {
           correctIndex: 1,
           explanation:
             '温暖・湿潤。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-atmc-q13',
           question: 'オホーツク海気団の性質は？',
@@ -368,7 +249,8 @@ export const atmosphericCirculation: Topic = {
           correctIndex: 2,
           explanation:
             '寒冷・湿潤。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-atmc-q14',
           question: '赤道付近の気流は？',
@@ -376,7 +258,8 @@ export const atmosphericCirculation: Topic = {
           correctIndex: 1,
           explanation:
             '赤道は温暖で上昇気流。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-atmc-q15',
           question: '極付近の気流は？',
@@ -384,7 +267,8 @@ export const atmosphericCirculation: Topic = {
           correctIndex: 1,
           explanation:
             '極は寒冷で下降気流。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-atmc-q16',
           question: '大気循環のエネルギー源は？',
@@ -392,7 +276,8 @@ export const atmosphericCirculation: Topic = {
           correctIndex: 2,
           explanation:
             '太陽のエネルギー。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-atmc-q17',
           question: '大陸と海洋で温まりやすいのは？',
@@ -400,7 +285,8 @@ export const atmosphericCirculation: Topic = {
           correctIndex: 1,
           explanation:
             '大陸は温まりやすく冷めやすい。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-atmc-q18',
           question: '冬に大陸に高気圧→理由は？',
@@ -408,7 +294,8 @@ export const atmosphericCirculation: Topic = {
           correctIndex: 1,
           explanation:
             '大陸が冷え下降気流→高気圧。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-atmc-q19',
           question: '夏に大陸に低気圧→理由は？',
@@ -416,7 +303,8 @@ export const atmosphericCirculation: Topic = {
           correctIndex: 1,
           explanation:
             '大陸が温まり上昇気流→低気圧。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-atmc-q20',
           question: '海風が吹く理由は？',
@@ -424,7 +312,8 @@ export const atmosphericCirculation: Topic = {
           correctIndex: 1,
           explanation:
             '昼は陸の気圧が低くなり海→陸へ。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-atmc-q21',
           question: '大気循環の根本原因は？',
@@ -432,7 +321,8 @@ export const atmosphericCirculation: Topic = {
           correctIndex: 2,
           explanation:
             '赤道と極の温度差。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-atmc-q22',
           question: '海陸風と季節風の原理は？',
@@ -440,7 +330,8 @@ export const atmosphericCirculation: Topic = {
           correctIndex: 1,
           explanation:
             '温まりやすさの違いで同じ原理。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-atmc-q23',
           question: '気象現象が起こる範囲は？',
@@ -448,7 +339,8 @@ export const atmosphericCirculation: Topic = {
           correctIndex: 1,
           explanation:
             '約10km（対流圏）。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci2-atmc-q24',
           question: '梅雨に影響する気団は？',
@@ -456,7 +348,8 @@ export const atmosphericCirculation: Topic = {
           correctIndex: 2,
           explanation:
             'オホーツク海気団。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci2-atmc-q25',
           question: '陸風が吹く理由は？',
@@ -464,7 +357,8 @@ export const atmosphericCirculation: Topic = {
           correctIndex: 1,
           explanation:
             '夜は陸の気圧が高くなり陸→海へ。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci2-atmc-q26',
           question: '冬の季節風をもたらす気団は？',
@@ -472,7 +366,8 @@ export const atmosphericCirculation: Topic = {
           correctIndex: 2,
           explanation:
             'シベリア気団（寒冷乾燥）。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci2-atmc-q27',
           question: '夏の季節風をもたらす気団は？',
@@ -480,7 +375,8 @@ export const atmosphericCirculation: Topic = {
           correctIndex: 1,
           explanation:
             '小笠原気団（温暖湿潤）。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci2-atmc-q28',
           question: '偏西風が吹く地域は？',
@@ -488,7 +384,8 @@ export const atmosphericCirculation: Topic = {
           correctIndex: 2,
           explanation:
             '中緯度帯の上空。',
-        }
+        difficulty: 'advanced',
+      }
       ],
     },
     examples: {

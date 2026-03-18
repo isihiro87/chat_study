@@ -49,60 +49,70 @@ export const sinoJapaneseWar: Topic = {
         front: '日清戦争',
         back: '1894年に日本と清が朝鮮をめぐって戦った戦争は？',
         explanation: '日本の勝利で下関条約が結ばれた。',
+        difficulty: 'basic',
       },
       {
         id: 'fc2',
         front: '甲午農民戦争',
         back: '日清戦争のきっかけとなった朝鮮の農民反乱は？',
         explanation: '東学党の乱とも呼ばれる。',
+        difficulty: 'basic',
       },
       {
         id: 'fc3',
         front: '下関条約',
         back: '1895年に日清戦争後に結ばれた講和条約は？',
         explanation: '遼東半島・台湾の割譲、賠償金などが定められた。',
+        difficulty: 'basic',
       },
       {
         id: 'fc4',
         front: '遼東半島',
         back: '下関条約で日本が獲得したが、三国干渉で返還した半島は？',
         explanation: '中国東北部の南端にある半島。',
+        difficulty: 'basic',
       },
       {
         id: 'fc5',
         front: '台湾',
         back: '下関条約で日本が獲得した島は？',
         explanation: '日本初の植民地となった。',
+        difficulty: 'standard',
       },
       {
         id: 'fc6',
         front: '三国干渉',
         back: 'ロシア・ドイツ・フランスが遼東半島の返還を求めた出来事は？',
         explanation: '日本は屈辱を感じ、ロシアへの対抗心を強めた。',
+        difficulty: 'standard',
       },
       {
         id: 'fc7',
         front: '臥薪嘗胆',
         back: '三国干渉後、ロシアへの復讐を誓った合言葉は？',
         explanation: '「苦労に耐えて復讐の機会を待つ」という意味。',
+        difficulty: 'standard',
       },
       {
         id: 'fc8',
         front: '賠償金',
         back: '下関条約で清が日本に支払った金額は？',
         explanation: '2億両（当時の日本の国家予算の約3倍）。',
+        difficulty: 'standard',
       },
       {
         id: 'fc9',
         front: '立憲政友会',
         back: '日清戦争後に伊藤博文が結成した政党は？',
         explanation: '議会での政党の力が強まった。',
+        difficulty: 'advanced',
       },
       {
         id: 'fc10',
-        front: '朝鮮の独立',
-        back: '下関条約で清が認めたこと 是？',
+        front: '朝鮮の独立承認',
+        back: '下関条約で清が認めた、朝鮮に関する内容は？',
         explanation: '朝鮮は清の属国ではなくなった。',
+        difficulty: 'standard',
       },
     ],
     quiz: {
@@ -120,6 +130,7 @@ export const sinoJapaneseWar: Topic = {
           correctIndex: 3,
           explanation:
             '甲午農民戦争（東学党の乱）をきっかけに日本と清が朝鮮に出兵し、日清戦争が始まりました。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -128,6 +139,7 @@ export const sinoJapaneseWar: Topic = {
           correctIndex: 0,
           explanation:
             '下関条約で日本は遼東半島・台湾などを獲得し、賠償金2億両を得ました。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -142,6 +154,7 @@ export const sinoJapaneseWar: Topic = {
           correctIndex: 1,
           explanation:
             '三国干渉により日本は遼東半島を清に返還せざるを得ず、ロシアへの対抗心が高まりました。',
+          difficulty: 'basic',
         },
         {
           id: 'q4',
@@ -151,6 +164,7 @@ export const sinoJapaneseWar: Topic = {
           correctIndex: 2,
           explanation:
             '「臥薪嘗胆」は「苦労に耐えて復讐の機会を待つ」という意味で、国民がロシアへの対抗心を表しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q5',
@@ -165,6 +179,7 @@ export const sinoJapaneseWar: Topic = {
           correctIndex: 0,
           explanation:
             '下関条約で清は遼東半島・台湾・澎湖諸島を日本に譲りました（遼東半島は三国干渉で返還）。',
+          difficulty: 'standard',
         },
         {
           id: 'q6',
@@ -179,6 +194,7 @@ export const sinoJapaneseWar: Topic = {
           correctIndex: 1,
           explanation:
             '賠償金2億両は当時の日本の国家予算の約3倍で、その多くは軍備拡大に使われました。',
+          difficulty: 'standard',
         },
       ],
     },

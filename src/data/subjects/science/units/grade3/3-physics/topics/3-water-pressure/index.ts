@@ -73,48 +73,18 @@ export const waterPressure: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'sci3-wp-fc1',
-        front: '水圧',
-        back: '水中の物体にあらゆる方向からはたらく圧力を何という？',
-        explanation: '深いほど大きくなる。上下の水圧の差が浮力を生む。',
-      },
-      {
-        id: 'sci3-wp-fc2',
-        front: '浮力',
-        back: '水中の物体にはたらく上向きの力を何という？',
-        explanation: '浮力 = 物体の上面にはたらく水圧と下面にはたらく水圧の差。',
-      },
-      {
-        id: 'sci3-wp-fc3',
-        front: 'パスカル（Pa）',
-        back: '水圧の単位は何？',
-        explanation: 'パスカル（Pa）。水圧は深いほど大きくなり、あらゆる方向からはたらく。',
-      },
-      {
-        id: 'sci3-wp-fc4',
-        front: '浮力の計算',
-        back: '浮力の大きさを実験で求める式は？',
-        explanation: '浮力 = 空気中でのばねばかりの値 − 水中でのばねばかりの値。',
-      },
-      {
-        id: 'sci3-wp-fc5',
-        front: '浮力と体積',
-        back: '浮力の大きさは物体の何が大きいほど大きくなる？',
-        explanation: '水中にある物体の体積が大きいほど浮力は大きくなる。質量や深さには関係しない。',
-      },
-      {
-        id: 'sci3-wp-fc6',
-        front: '浮力と質量',
-        back: '浮力の大きさは物体の質量（重さ）に関係する？しない？',
-        explanation: '関係しない。浮力は水中にある体積で決まり、同じ体積なら質量が違っても浮力は同じ。',
-      },
-      {
-        id: 'sci3-wp-fc7',
-        front: '水面に浮く条件',
-        back: '物体が水面に浮いて静止しているとき、浮力と重力の関係は？',
-        explanation: '浮力 = 重力（つり合っている）。浮力が重力より大きければ浮き上がる。',
-      },
+      { id: 'sci3-wp-fc1', front: '水圧', back: '水中の物体にあらゆる方向からはたらく圧力を何という？', difficulty: 'basic' },
+      { id: 'sci3-wp-fc2', front: '浮力', back: '水中の物体にはたらく上向きの力を何という？', difficulty: 'basic' },
+      { id: 'sci3-wp-fc3', front: 'パスカル（Pa）', back: '圧力（水圧）の単位は何？', difficulty: 'basic' },
+      { id: 'sci3-wp-fc4', front: '深いほど大きくなる', back: '水圧は水の深さによってどう変わる？', difficulty: 'basic' },
+      { id: 'sci3-wp-fc5', front: 'どの方向も同じ大きさ', back: '同じ深さにおいて、水圧は方向によって異なるか？', difficulty: 'basic' },
+      { id: 'sci3-wp-fc6', front: '上面と下面にはたらく水圧の差', back: '浮力が生じる原因は何？', difficulty: 'basic' },
+      { id: 'sci3-wp-fc7', front: '浮力＝空気中の値−水中の値', back: 'ばねばかりを使った浮力の求め方は？', difficulty: 'standard' },
+      { id: 'sci3-wp-fc8', front: '水中にある物体の体積（質量や深さには無関係）', back: '浮力の大きさは何によって決まる？', difficulty: 'standard' },
+      { id: 'sci3-wp-fc9', front: '関係しない（同じ体積なら同じ浮力）', back: '浮力の大きさは物体の質量（重さ）に関係するか？', difficulty: 'standard' },
+      { id: 'sci3-wp-fc10', front: '浮力＝重力（つり合っている）', back: '物体が水面に浮いて静止しているとき、浮力と重力の関係は？', difficulty: 'standard' },
+      { id: 'sci3-wp-fc11', front: '変わらない（浮力は体積で決まり、深さには関係しない）', back: '完全に水中に沈んでいる物体をさらに深く沈めると、浮力はどうなる？', difficulty: 'advanced' },
+      { id: 'sci3-wp-fc12', front: '0.6N（2.0N−1.4N）', back: '空気中で2.0Nの物体を水中に沈めたらばねばかりが1.4Nを示した。浮力は？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -130,7 +100,8 @@ export const waterPressure: Topic = {
           correctIndex: 1,
           explanation:
             '水圧は水の深さが深いほど大きくなり、あらゆる方向からはたらきます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci3-wp-q2',
           question: '浮力が生じる原因は？',
@@ -143,7 +114,8 @@ export const waterPressure: Topic = {
           correctIndex: 3,
           explanation:
             '浮力は、物体の下面にはたらく上向きの水圧が上面にはたらく下向きの水圧より大きいために生じます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci3-wp-q3',
           question: '浮力の大きさに関係するのはどれ？',
@@ -156,7 +128,8 @@ export const waterPressure: Topic = {
           correctIndex: 0,
           explanation:
             '浮力は水中にある物体の体積が大きいほど大きくなります。質量や深さには関係しません。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci3-wp-q4',
           question: '空気中で2.0Nの物体を水中に沈めたらばねばかりが1.4Nを示した。浮力はいくら？',
@@ -169,7 +142,8 @@ export const waterPressure: Topic = {
           correctIndex: 2,
           explanation:
             '浮力 = 空気中の重さ − 水中でのばねばかりの値 = 2.0 − 1.4 = 0.6N です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci3-wp-q5',
           question: '水面に浮いて静止している物体にはたらく浮力と重力の関係は？',
@@ -182,7 +156,8 @@ export const waterPressure: Topic = {
           correctIndex: 0,
           explanation:
             '水面に浮いて静止しているということは、上向きの浮力と下向きの重力がつり合っている（等しい）ことを意味します。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci3-wp-q6',
           question: '同じ深さにおいて、水圧の大きさが最も大きい方向はどれ？',
@@ -195,7 +170,8 @@ export const waterPressure: Topic = {
           correctIndex: 1,
           explanation:
             '同じ深さでは水圧はどの方向でも同じ大きさです。水圧はあらゆる方向から等しくはたらきます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci3-wp-q7',
           question: '完全に水中に沈んでいる物体をさらに深く沈めると、浮力はどうなる？',
@@ -208,7 +184,8 @@ export const waterPressure: Topic = {
           correctIndex: 3,
           explanation:
             '完全に水中に沈んでいる場合、深さを変えても浮力は変わりません。浮力は水中にある物体の体積で決まります。',
-        },
+        difficulty: 'advanced',
+      },
       ],
     },
     examples: {

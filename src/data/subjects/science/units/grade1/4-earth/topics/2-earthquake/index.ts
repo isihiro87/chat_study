@@ -158,186 +158,34 @@ export const earthquake: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'sci1-earthquake-fc1',
-        front: '震源と震央',
-        back: '地震が発生した地下の場所と、その真上の地表の点をそれぞれ何という？',
-        explanation:
-          '地下の場所を震源、震源の真上の地表の点を震央という。',
-      },
-      {
-        id: 'sci1-earthquake-fc2',
-        front: 'P波とS波',
-        back: '地震の2種類のゆれを伝える波の名前と特徴を答えよ。',
-        explanation:
-          'P波（速い・初期微動）とS波（遅い・主要動）。P波が先に届くため、はじめに小さなゆれが来る。',
-      },
-      {
-        id: 'sci1-earthquake-fc3',
-        front: '初期微動継続時間',
-        back: '初期微動継続時間は、震源からの距離が大きくなるとどうなる？',
-        explanation:
-          '震源からの距離が大きいほど初期微動継続時間は長くなる。P波とS波の到着時間の差が広がるため。',
-      },
-      {
-        id: 'sci1-earthquake-fc4',
-        front: 'マグニチュードと震度',
-        back: '地震の規模を表すものと、各地のゆれの強さを表すものをそれぞれ何という？',
-        explanation:
-          '地震の規模＝マグニチュード（M）。各地のゆれの強さ＝震度（0～7の10段階）。',
-      },
-      {
-        id: 'sci1-earthquake-fc5',
-        front: '緊急地震速報',
-        back: '緊急地震速報はどのような仕組みで大きなゆれの前に警告を出す？',
-        explanation:
-          'P波（速い波）をいち早く検知し、大きなゆれ（S波）が届く前に警告を出す。',
-      },
-      {
-        id: 'sci1-earthquake-fc6',
-        front: 'プレートとは',
-        back: 'プレートとは何か。厚さはどのくらいか。',
-        explanation:
-          '地球の表面をおおう岩盤のこと。厚さは約100km。十数枚に分かれ少しずつ動いている。',
-      },
-      {
-        id: 'sci1-earthquake-fc7',
-        front: '日本付近の4つのプレート',
-        back: '日本付近にある4つのプレートの名前を答えよ。',
-        explanation:
-          '大陸プレート：ユーラシアプレート、北アメリカプレート。海洋プレート：太平洋プレート、フィリピン海プレート。',
-      },
-      {
-        id: 'sci1-earthquake-fc8',
-        front: '大陸プレートと海洋プレート',
-        back: '大陸プレートと海洋プレートの違いを述べよ。',
-        explanation:
-          '大陸プレートは陸地をのせるプレート。海洋プレートは海底のプレートで、大陸プレートの下にしずみこむ。',
-      },
-      {
-        id: 'sci1-earthquake-fc9',
-        front: '海溝',
-        back: '海溝とは何か。',
-        explanation:
-          'プレートがしずみこむ場所にできる、海底の深い溝のような地形。日本海溝など。',
-      },
-      {
-        id: 'sci1-earthquake-fc10',
-        front: '海溝型地震',
-        back: '海溝型地震のしくみを説明せよ。',
-        explanation:
-          '海洋プレートが大陸プレートの下にしずみこみ、引きずりこまれた大陸プレートがはね上がることで地震が発生する。津波を伴うことがある。',
-      },
-      {
-        id: 'sci1-earthquake-fc11',
-        front: '内陸型地震',
-        back: '内陸型（直下型）地震とはどのような地震か。',
-        explanation:
-          '陸の浅い場所で活断層がずれて起こる地震。震源が浅いため、狭い範囲で大きな被害が出やすい。',
-      },
-      {
-        id: 'sci1-earthquake-fc12',
-        front: '断層と活断層',
-        back: '断層と活断層の違いを述べよ。',
-        explanation:
-          '断層：岩盤がずれた跡。活断層：過去にくり返しずれたことがあり、今後もずれる可能性がある断層。',
-      },
-      {
-        id: 'sci1-earthquake-fc13',
-        front: '津波の発生',
-        back: '津波はどのようにして発生するか。',
-        explanation:
-          '海底で大きな地震が起こり、海底が急に持ち上がったりしずんだりすることで、海水が大きく動かされて波として広がる。',
-      },
-      {
-        id: 'sci1-earthquake-fc14',
-        front: '液状化',
-        back: '液状化とは何か。どのような被害が生じるか。',
-        explanation:
-          '水分を多くふくむ砂の地盤が地震のゆれで液体のようにふるまう現象。建物が傾いたりマンホールが浮き上がったりする。',
-      },
-      {
-        id: 'sci1-earthquake-fc15',
-        front: '土砂くずれ',
-        back: '地震による土砂くずれとはどのような現象か。',
-        explanation:
-          '地震のゆれで山やがけが崩壊する災害。大雨のあとに地震が起こるとさらに危険性が高まる。',
-      },
-      {
-        id: 'sci1-earthquake-fc16',
-        front: 'ハザードマップ',
-        back: 'ハザードマップとは何か。',
-        explanation:
-          '災害の被害予測や避難場所・避難経路などを記した地図。自治体が作成し、防災に活用する。',
-      },
-      {
-        id: 'sci1-earthquake-fc17',
-        front: '地震計のしくみ',
-        back: '地震計はどのようなしくみでゆれを記録するか。',
-        explanation:
-          'おもりは慣性で動かず、地面（記録紙）が動くことで、ペンが地面のゆれを記録する。',
-      },
-      {
-        id: 'sci1-earthquake-fc18',
-        front: 'P波の速さの求め方',
-        back: 'P波やS波の速さはどのように求めるか。',
-        explanation:
-          '速さ（km/s）= 波が伝わった距離（km）÷ 波が届くまでの時間（秒）。',
-      },
-      {
-        id: 'sci1-earthquake-fc19',
-        front: '震源の深さと震度分布',
-        back: '震源が浅い地震と深い地震で、震度分布はどう違うか。',
-        explanation:
-          '震源が浅いと震央付近で震度が大きく、遠くでは小さい。震源が深いと広い範囲でゆれるが、震央直上の震度は比較的小さい。',
-      },
-      {
-        id: 'sci1-earthquake-fc20',
-        front: '隆起と沈降',
-        back: '地震による隆起と沈降とは何か。',
-        explanation:
-          '隆起：大地が持ち上がること。沈降：大地がしずむこと。大地震のあとに海岸線が変化することがある。',
-      },
-      {
-        id: 'sci1-earthquake-fc21',
-        front: '震度の段階',
-        back: '日本の震度は何段階あるか？',
-      },
-      {
-        id: 'sci1-earthquake-fc22',
-        front: 'マグニチュードの数と地震',
-        back: '1つの地震でマグニチュードはいくつあるか？',
-      },
-      {
-        id: 'sci1-earthquake-fc23',
-        front: '内陸型地震',
-        back: '陸の浅い場所で活断層がずれて起こる地震を何というか？',
-      },
-      {
-        id: 'sci1-earthquake-fc24',
-        front: '海溝型地震のしくみ',
-        back: '海洋プレートが大陸プレートの下にしずみこむことで起こる地震。津波を伴うことがある。',
-      },
-      {
-        id: 'sci1-earthquake-fc25',
-        front: '地震のゆれの広がり方',
-        back: '地震のゆれは震源から同心円状に広がる。',
-      },
-      {
-        id: 'sci1-earthquake-fc26',
-        front: '震源の深さと震度分布の傾向',
-        back: '日本列島と太平洋側の海溝の間で、震源の深さは太平洋側から日本海側に向かって深くなる。',
-      },
-      {
-        id: 'sci1-earthquake-fc27',
-        front: '初期微動継続時間と距離の比例',
-        back: '地震の波の速さが一定であれば、初期微動継続時間は震源からの距離に比例する。',
-      },
-      {
-        id: 'sci1-earthquake-fc28',
-        front: 'マグニチュードが2大きくなると',
-        back: 'マグニチュードが2大きくなると地震のエネルギーは約1000倍になる。',
-      },
+      { id: 'sci1-earthquake-fc1', front: '地下の場所を震源、震源の真上の地表の点を震央という', back: '地震が発生した地下の場所と、その真上の地表の点をそれぞれ何というか？', difficulty: 'basic' },
+      { id: 'sci1-earthquake-fc2', front: 'P波（速い・初期微動）とS波（遅い・主要動）。P波が先に届く。', back: '地震の2種類の波の名前と特徴を答えよ。', difficulty: 'basic' },
+      { id: 'sci1-earthquake-fc3', front: '長くなる（P波とS波の到着時間の差が広がるため）', back: '初期微動継続時間は、震源からの距離が大きくなるとどうなるか？', difficulty: 'basic' },
+      { id: 'sci1-earthquake-fc4', front: '地震の規模＝マグニチュード（M）。各地のゆれの強さ＝震度（0～7の10段階）。', back: '地震の規模を表すものと、各地のゆれの強さを表すものをそれぞれ何というか？', difficulty: 'basic' },
+      { id: 'sci1-earthquake-fc5', front: 'P波（速い波）をいち早く検知し、大きなゆれ（S波）が届く前に警告を出す', back: '緊急地震速報はどのような仕組みで大きなゆれの前に警告を出すか？', difficulty: 'basic' },
+      { id: 'sci1-earthquake-fc6', front: '地球の表面をおおう岩盤。厚さは約100km。十数枚に分かれ少しずつ動いている。', back: 'プレートとは何か？', difficulty: 'basic' },
+      { id: 'sci1-earthquake-fc7', front: 'ユーラシアプレート、北アメリカプレート（大陸）、太平洋プレート、フィリピン海プレート（海洋）', back: '日本付近にある4つのプレートの名前を答えよ。', difficulty: 'basic' },
+      { id: 'sci1-earthquake-fc8', front: '大陸プレートは陸地をのせるプレート。海洋プレートは海底のプレートで、大陸プレートの下にしずみこむ。', back: '大陸プレートと海洋プレートの違いを述べよ。', difficulty: 'basic' },
+      { id: 'sci1-earthquake-fc9', front: 'プレートがしずみこむ場所にできる、海底の深い溝のような地形', back: '海溝とは何か？', difficulty: 'basic' },
+      { id: 'sci1-earthquake-fc10', front: '断層：岩盤がずれた跡。活断層：過去にくり返しずれ、今後もずれる可能性がある断層。', back: '断層と活断層の違いを述べよ。', difficulty: 'basic' },
+      { id: 'sci1-earthquake-fc11', front: '陸の浅い場所で活断層がずれて起こる地震。震源が浅いため狭い範囲で大きな被害が出やすい。', back: '内陸型（直下型）地震とはどのような地震か？', difficulty: 'basic' },
+      { id: 'sci1-earthquake-fc12', front: '海底が急に持ち上がったりしずんだりすることで、海水が大きく動かされて波として広がる', back: '津波はどのようにして発生するか？', difficulty: 'standard' },
+      { id: 'sci1-earthquake-fc13', front: '水分を多くふくむ砂の地盤が地震のゆれで液体のようにふるまう現象。建物が傾いたりマンホールが浮き上がる。', back: '液状化とは何か？どのような被害が生じるか？', difficulty: 'standard' },
+      { id: 'sci1-earthquake-fc14', front: '地震のゆれで山やがけが崩壊する災害', back: '地震による土砂くずれとはどのような現象か？', difficulty: 'standard' },
+      { id: 'sci1-earthquake-fc15', front: '災害の被害予測や避難場所・避難経路などを記した地図', back: 'ハザードマップとは何か？', difficulty: 'standard' },
+      { id: 'sci1-earthquake-fc16', front: 'おもりは慣性で動かず、地面（記録紙）が動くことで、ペンが地面のゆれを記録する', back: '地震計はどのようなしくみでゆれを記録するか？', difficulty: 'standard' },
+      { id: 'sci1-earthquake-fc17', front: '速さ（km/s）＝ 波が伝わった距離（km）÷ 波が届くまでの時間（秒）', back: 'P波やS波の速さはどのように求めるか？', difficulty: 'standard' },
+      { id: 'sci1-earthquake-fc18', front: '浅いと震央付近で震度が大きく遠くでは小さい。深いと広い範囲でゆれるが震央直上の震度は比較的小さい。', back: '震源が浅い地震と深い地震で、震度分布はどう違うか？', difficulty: 'standard' },
+      { id: 'sci1-earthquake-fc19', front: '隆起：大地が持ち上がること。沈降：大地がしずむこと。', back: '地震による隆起と沈降とは何か？', difficulty: 'standard' },
+      { id: 'sci1-earthquake-fc20', front: '10段階（0～7で、5と6は弱・強に分かれる）', back: '日本の震度は何段階あるか？', difficulty: 'standard' },
+      { id: 'sci1-earthquake-fc21', front: '1つ（地震ごとに1つの値。震度は場所によって異なる）', back: '1つの地震でマグニチュードはいくつあるか？', difficulty: 'standard' },
+      { id: 'sci1-earthquake-fc22', front: '海洋プレートが大陸プレートの下にしずみこみ、引きずりこまれた大陸プレートがはね上がることで発生。津波を伴うことがある。', back: '海溝型地震のしくみを説明せよ。', difficulty: 'advanced' },
+      { id: 'sci1-earthquake-fc23', front: '震源から同心円状に広がる', back: '地震のゆれはどのような形で広がるか？', difficulty: 'advanced' },
+      { id: 'sci1-earthquake-fc24', front: '太平洋側から日本海側に向かって深くなる', back: '日本列島付近で、震源の深さはどのような傾向があるか？', difficulty: 'advanced' },
+      { id: 'sci1-earthquake-fc25', front: '地震の波の速さが一定であれば、初期微動継続時間は震源からの距離に比例する', back: '初期微動継続時間と震源距離の関係を述べよ。', difficulty: 'advanced' },
+      { id: 'sci1-earthquake-fc26', front: '約1000倍になる（1大きくなると約32倍）', back: 'マグニチュードが2大きくなると地震のエネルギーは約何倍になるか？', difficulty: 'advanced' },
+      { id: 'sci1-earthquake-fc27', front: 'P波のほうがS波より速く伝わるという速度差を利用している', back: '緊急地震速報はP波とS波のどのような性質を利用しているか？', difficulty: 'advanced' },
+      { id: 'sci1-earthquake-fc28', front: '慣性（そのままの状態を続けようとする性質）があるため', back: '地震計のおもりが地面がゆれても動かないのはなぜか？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -348,7 +196,8 @@ export const earthquake: Topic = {
           correctIndex: 2,
           explanation:
             'はじめの小さなゆれを初期微動といい、P波によって伝わります。あとから来る大きなゆれを主要動（S波）といいます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-earthquake-q2',
           question: '震源からの距離が大きくなると初期微動継続時間はどうなる？',
@@ -356,7 +205,8 @@ export const earthquake: Topic = {
           correctIndex: 3,
           explanation:
             '震源から遠いほどP波とS波の到着時間の差が大きくなるため、初期微動継続時間は長くなります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-earthquake-q3',
           question: '地震の規模を表す値は何？',
@@ -364,7 +214,8 @@ export const earthquake: Topic = {
           correctIndex: 0,
           explanation:
             '地震の規模を表す値はマグニチュード（M）です。震度は各地のゆれの強さを表します。1つの地震でマグニチュードは1つですが、震度は場所によって異なります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-earthquake-q4',
           question: '日本に地震が多い理由として正しいものはどれ？',
@@ -377,7 +228,8 @@ export const earthquake: Topic = {
           correctIndex: 1,
           explanation:
             '日本は太平洋プレート、フィリピン海プレート、ユーラシアプレート、北アメリカプレートの境界に位置するため、地震が多く発生します。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-earthquake-q5',
           question: '水分を多く含む地盤が地震のゆれで液体のようにふるまう現象を何という？',
@@ -385,7 +237,8 @@ export const earthquake: Topic = {
           correctIndex: 2,
           explanation:
             '液状化は地震のゆれによって水分を多く含む砂の地盤が液体のようにふるまう現象です。建物が傾いたりマンホールが浮き上がったりします。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-earthquake-q6',
           question: 'P波とS波は震源でどのように発生する？',
@@ -398,7 +251,8 @@ export const earthquake: Topic = {
           correctIndex: 3,
           explanation:
             'P波とS波は震源で同時に発生します。P波のほうが速く伝わるため先に届きますが、発生は同時です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-earthquake-q7',
           question: '地球の表面をおおう厚さ約100kmの岩盤を何という？',
@@ -406,7 +260,8 @@ export const earthquake: Topic = {
           correctIndex: 0,
           explanation:
             'プレートは地球の表面をおおう岩盤で、十数枚に分かれています。プレートは少しずつ動いており、境界で地震が多発します。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-earthquake-q8',
           question: '日本付近の海洋プレートはどれ？',
@@ -419,7 +274,8 @@ export const earthquake: Topic = {
           correctIndex: 1,
           explanation:
             '太平洋プレートとフィリピン海プレートが海洋プレートです。ユーラシアプレートと北アメリカプレートは大陸プレートです。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-earthquake-q9',
           question: '過去にくり返しずれたことがあり、今後もずれる可能性がある断層を何という？',
@@ -427,7 +283,8 @@ export const earthquake: Topic = {
           correctIndex: 3,
           explanation:
             '活断層は過去にくり返しずれた実績があり、将来も地震を起こす可能性がある断層です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-earthquake-q10',
           question: 'マグニチュードの値が1大きくなると、地震のエネルギーは約何倍になる？',
@@ -435,7 +292,8 @@ export const earthquake: Topic = {
           correctIndex: 1,
           explanation:
             'マグニチュードが1大きくなるとエネルギーは約32倍、2大きくなると約1000倍になります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-earthquake-q11',
           question: '地震計でおもりが動かない理由は何？',
@@ -448,7 +306,8 @@ export const earthquake: Topic = {
           correctIndex: 2,
           explanation:
             'おもりは慣性（そのままの状態を続けようとする性質）によって動かず、地面がゆれることで相対的にゆれが記録されます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-earthquake-q12',
           question: '海底で大きな地震が起こったとき発生することがある、海水の大きな波を何という？',
@@ -456,7 +315,8 @@ export const earthquake: Topic = {
           correctIndex: 0,
           explanation:
             '津波は海底の地震で海底が急に動くことで発生します。海岸に近づくと急激に高くなり、大きな被害をもたらします。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-earthquake-q13',
           question: '日本の震度は何段階あるか？',
@@ -464,7 +324,8 @@ export const earthquake: Topic = {
           correctIndex: 2,
           explanation:
             '日本の震度は10段階です。0～7で、5と6は弱・強に分かれるため合計10段階になります。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-earthquake-q14',
           question: '1つの地震で震度は場所によって異なるか？',
@@ -472,7 +333,8 @@ export const earthquake: Topic = {
           correctIndex: 1,
           explanation:
             '震度は場所によって異なります。一般に震源に近いほど震度が大きくなります。マグニチュードは1つの地震に1つです。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-earthquake-q15',
           question: '陸の浅い場所で活断層がずれて起こる地震を何というか？',
@@ -480,7 +342,8 @@ export const earthquake: Topic = {
           correctIndex: 1,
           explanation:
             '内陸型地震（直下型地震）は陸の浅い場所で活断層がずれて起こります。震源が浅いため狭い範囲で大きな被害が出やすいです。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-earthquake-q16',
           question: '地震のゆれは震源からどのような形で広がるか？',
@@ -488,7 +351,8 @@ export const earthquake: Topic = {
           correctIndex: 1,
           explanation:
             '地震のゆれは震源から同心円状に広がります。震源に近いほどゆれが大きくなります。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-earthquake-q17',
           question: '海洋プレートが大陸プレートの下にしずみこむ場所にできる深い溝を何というか？',
@@ -496,7 +360,8 @@ export const earthquake: Topic = {
           correctIndex: 2,
           explanation:
             '海溝はプレートがしずみこむ場所にできる海底の深い溝のような地形です。日本海溝などが有名です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-earthquake-q18',
           question: '地震計でおもりが動かないのはなぜか？',
@@ -504,7 +369,8 @@ export const earthquake: Topic = {
           correctIndex: 2,
           explanation:
             'おもりは慣性（そのままの状態を続けようとする性質）によって動かず、地面がゆれることで相対的にゆれが記録されます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-earthquake-q19',
           question: '緊急地震速報はP波とS波のどのような性質を利用しているか？',
@@ -517,7 +383,8 @@ export const earthquake: Topic = {
           correctIndex: 1,
           explanation:
             '緊急地震速報はP波がS波より速く伝わるという速度差を利用しています。P波を検知してS波が届く前に警告を出します。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-earthquake-q20',
           question: '震源から60kmの地点にP波が6秒後に届いた。P波の速さは秒速何kmか？',
@@ -525,7 +392,8 @@ export const earthquake: Topic = {
           correctIndex: 1,
           explanation:
             '速さ＝距離÷時間＝60km÷6秒＝秒速10kmです。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-earthquake-q21',
           question: '津波が発生するしくみとして正しいものはどれ？',
@@ -538,7 +406,8 @@ export const earthquake: Topic = {
           correctIndex: 1,
           explanation:
             '海底で大きな地震が起こり、海底が急に持ち上がったりしずんだりすることで海水が大きく動かされ、津波が発生します。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-earthquake-q22',
           question: '地震によって大地がしずむことを何というか？',
@@ -546,7 +415,8 @@ export const earthquake: Topic = {
           correctIndex: 2,
           explanation:
             '大地がしずむことを沈降、持ち上がることを隆起といいます。大地震のあとに海岸線が変化することがあります。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-earthquake-q23',
           question: 'マグニチュードが2大きくなると地震のエネルギーは約何倍になるか？',
@@ -554,7 +424,8 @@ export const earthquake: Topic = {
           correctIndex: 2,
           explanation:
             'マグニチュードが1大きくなるとエネルギーは約32倍、2大きくなると約1000倍になります。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci1-earthquake-q24',
           question: '日本付近にある大陸プレートはどれか？',
@@ -567,7 +438,8 @@ export const earthquake: Topic = {
           correctIndex: 1,
           explanation:
             'ユーラシアプレートと北アメリカプレートが大陸プレートです。太平洋プレートとフィリピン海プレートは海洋プレートです。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci1-earthquake-q25',
           question: '地震の波の速さはどのように求めるか？',
@@ -580,7 +452,8 @@ export const earthquake: Topic = {
           correctIndex: 2,
           explanation:
             '波の速さ（km/s）＝波が伝わった距離（km）÷波が届くまでの時間（秒）で求めます。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci1-earthquake-q26',
           question: '震源に近い場所ほどゆれの大きさ（震度）はどうなるか？',
@@ -588,7 +461,8 @@ export const earthquake: Topic = {
           correctIndex: 2,
           explanation:
             '震源に近い場所ほど震度は大きくなります。震源から遠いほどゆれは弱くなります。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci1-earthquake-q27',
           question: '断層とは何か？',
@@ -601,7 +475,8 @@ export const earthquake: Topic = {
           correctIndex: 1,
           explanation:
             '断層は岩石の一部が破壊されてずれることです。過去に繰り返しずれた断層で今後もずれる可能性があるものを活断層といいます。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci1-earthquake-q28',
           question: '地震などによる土砂くずれとはどのような災害か？',
@@ -614,7 +489,8 @@ export const earthquake: Topic = {
           correctIndex: 2,
           explanation:
             '土砂くずれは地震のゆれで山やがけが崩壊する災害です。大雨のあとに地震が起こるとさらに危険性が高まります。',
-        },
+        difficulty: 'advanced',
+      },
       ],
     },
     examples: {

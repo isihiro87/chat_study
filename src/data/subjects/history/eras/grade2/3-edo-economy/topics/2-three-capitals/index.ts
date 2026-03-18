@@ -28,42 +28,49 @@ export const threeCapitals: Topic = {
         front: '三都',
         back: '江戸・大阪・京都の三つの大都市をまとめて何という？',
         explanation: '17世紀後半に大きく発展し、それぞれ政治・商業・文化の中心となった。',
+        difficulty: 'basic',
       },
       {
         id: 'fc2',
         front: '大阪',
         back: '「天下の台所」と呼ばれ商業の中心地だった都市は？',
         explanation: '全国から年貢米や特産物が集まり、経済の要所として栄えた。',
+        difficulty: 'basic',
       },
       {
         id: 'fc3',
         front: '江戸',
         back: '「将軍のおひざもと」と呼ばれた政治の中心地は？',
         explanation: '人口が約100万人を数え、当時としては世界最大級の都市だった。',
+        difficulty: 'basic',
       },
       {
         id: 'fc4',
         front: '蔵屋敷',
         back: '諸藩が年貢米や特産物を販売するために置いた施設は？',
         explanation: '大阪に集中して設けられ、各藩の経済活動の拠点となった。',
+        difficulty: 'standard',
       },
       {
         id: 'fc5',
         front: '両替商',
         back: '金銀の交換や預金、貸付などの業務を行った商人は？',
         explanation: '貨幣経済の発展に伴い大きな力を持ち、藩の財政にも深く関わった。',
+        difficulty: 'standard',
       },
       {
         id: 'fc6',
         front: '株仲間',
         back: '江戸時代に、幕府から営業の独占を認められた商人の同業者組合を何という？',
         explanation: '幕府や藩に税を納めることで、特権的な販売や仕入れの権利を得た。',
+        difficulty: 'standard',
       },
       {
         id: 'fc7',
         front: '西陣織',
         back: '京都を中心に、伝統技術で生産された有名な絹織物は？',
         explanation: '京都が学問・文化の中心として栄える中で、高度な工芸技術が発達した。',
+        difficulty: 'advanced',
       },
     ],
     quiz: {
@@ -74,6 +81,7 @@ export const threeCapitals: Topic = {
           options: ['江戸', '大阪', '京都', '堺'],
           correctIndex: 1,
           explanation: '大阪は全国から米や特産物が集まり、「天下の台所」と呼ばれる経済の中心地でした。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -81,6 +89,7 @@ export const threeCapitals: Topic = {
           options: ['江戸', '堺', '大阪', '京都'],
           correctIndex: 0,
           explanation: '江戸は「将軍のお膝元」として政治の中心地であり、当時世界最大級の都市でした。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -88,6 +97,7 @@ export const threeCapitals: Topic = {
           options: ['問屋', '株仲間', '蔵屋敷', '両替商'],
           correctIndex: 2,
           explanation: '蔵屋敷は各藩が大阪に設置した施設で、年貢米や特産物の売買を行いました。',
+          difficulty: 'basic',
         },
         {
           id: 'q4',
@@ -95,6 +105,7 @@ export const threeCapitals: Topic = {
           options: ['五畿', '畿内', '三国', '三都'],
           correctIndex: 3,
           explanation: '三都とは江戸・大阪・京都の3つの大都市のことで、それぞれ政治・経済・文化の中心として栄えました。',
+          difficulty: 'standard',
         },
         {
           id: 'q5',
@@ -102,6 +113,7 @@ export const threeCapitals: Topic = {
           options: ['有田焼', '博多織', '南部鉄器', '西陣織'],
           correctIndex: 3,
           explanation: '西陣織は京都を代表する伝統工芸で、天皇のいる都として文化・工芸が発展しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q6',
@@ -109,6 +121,7 @@ export const threeCapitals: Topic = {
           options: ['両替商', '問屋', '飛脚', '蔵元'],
           correctIndex: 0,
           explanation: '両替商は金銀の交換や預金・貸付を行い、貨幣経済の発展とともに大きな力を持ちました。',
+          difficulty: 'standard',
         },
       ],
     },

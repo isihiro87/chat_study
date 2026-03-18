@@ -53,6 +53,7 @@ export const nounsAdvanced: Topic = {
         back: 'man の「2人以上」の形は？',
         hint: 'これはとくべつな変わり方をするよ。a が別の文字にかわるよ。',
         explanation: 'man → men。a が e にかわる不規則変化だよ。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-na-fc2',
@@ -60,6 +61,7 @@ export const nounsAdvanced: Topic = {
         back: 'tooth の「2つ以上」の形は？',
         hint: 'これはとくべつな変わり方をするよ。そのまま覚えよう！',
         explanation: 'tooth → teeth。不規則変化なのでそのまま覚えよう。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-na-fc3',
@@ -67,6 +69,7 @@ export const nounsAdvanced: Topic = {
         back: 'fish の「2匹以上」の形は？',
         hint: '単数形とまったく同じ形だよ！',
         explanation: 'fish → fish。単数形と複数形が同じ形の名詞もあるよ。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-na-fc4',
@@ -74,6 +77,7 @@ export const nounsAdvanced: Topic = {
         back: '「あなたは本を何冊もっていますか？」\nを英語にすると？',
         hint: '「いくつ」は How many。そのあとの名詞は複数形にするよ。',
         explanation: 'How many + 複数形の名詞 + do you have? の形だよ。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-na-fc5',
@@ -81,6 +85,7 @@ export const nounsAdvanced: Topic = {
         back: '(　　) are my pens.\n（これらは私のペンです。）',
         hint: 'this の複数形で、近くにある「これら」を意味することばは？',
         explanation: 'this の複数形は these だよ。be動詞は are を使うよ。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-na-fc6',
@@ -88,6 +93,7 @@ export const nounsAdvanced: Topic = {
         back: '(　　) are cats.\n（あれらはネコです。）',
         hint: 'that の複数形で、遠くにある「あれら」を意味することばは？',
         explanation: 'that の複数形は those だよ。be動詞は are を使うよ。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-na-fc7',
@@ -95,6 +101,7 @@ export const nounsAdvanced: Topic = {
         back: 'class の「2つ以上」の形は？',
         hint: 's で終わることばには s じゃなくて…？',
         explanation: 's で終わるときは es をつけるよ。class → classes',
+        difficulty: 'basic',
       },
       {
         id: 'eng-na-fc8',
@@ -102,6 +109,7 @@ export const nounsAdvanced: Topic = {
         back: 'dish の「2つ以上」の形は？',
         hint: 'sh で終わることばには s じゃなくて…？',
         explanation: 'sh で終わるときは es をつけるよ。dish → dishes',
+        difficulty: 'basic',
       },
       {
         id: 'eng-na-fc9',
@@ -109,6 +117,7 @@ export const nounsAdvanced: Topic = {
         back: 'child の「2人以上」の形は？',
         hint: 's をつけるのではなく、形がガラッとかわるよ。',
         explanation: 'child → children。不規則変化なのでそのまま覚えよう。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-na-fc10',
@@ -116,6 +125,7 @@ export const nounsAdvanced: Topic = {
         back: 'woman の「2人以上」の形は？',
         hint: 'a が別の文字にかわるよ。man → men と同じパターン！',
         explanation: 'woman → women。a が e にかわる不規則変化だよ。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-na-fc11',
@@ -123,6 +133,7 @@ export const nounsAdvanced: Topic = {
         back: 'foot の「2つ以上」の形は？',
         hint: 'tooth → teeth と同じパターンだよ。',
         explanation: 'foot → feet。oo が ee にかわる不規則変化だよ。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-na-fc12',
@@ -130,6 +141,7 @@ export const nounsAdvanced: Topic = {
         back: 'sheep の「2匹以上」の形は？',
         hint: 'fish と同じで、形がかわらないよ！',
         explanation: 'sheep → sheep。単数形と複数形が同じ形の名詞だよ。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-na-fc13',
@@ -137,6 +149,7 @@ export const nounsAdvanced: Topic = {
         back: '「あなたは犬を何匹かっていますか？」\nを英語にすると？',
         hint: '「何匹」は How many。そのあとの名詞は複数形にするよ。',
         explanation: 'How many dogs do you have? が正解。dogs は複数形だよ。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-na-fc14',
@@ -144,6 +157,7 @@ export const nounsAdvanced: Topic = {
         back: '「私は本を2冊もっています。」\nを英語にすると？',
         hint: '数字 + 名詞の複数形の形にするよ。',
         explanation: '数が2以上のときは名詞を複数形にするよ。two books が正解。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-na-fc15',
@@ -151,6 +165,7 @@ export const nounsAdvanced: Topic = {
         back: 'Are those your cats?\nに Yes で答えるとき、those のかわりに使うことばは？',
         hint: '答えるときは those ではなく、「それら」を意味する代名詞を使うよ。',
         explanation: '答えるときは they を使うよ。Yes, they are. が正解。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-na-fc16',
@@ -158,6 +173,7 @@ export const nounsAdvanced: Topic = {
         back: '「あれらはオレンジです。」\nを英語にすると？',
         hint: '「あれら」は that の複数形を使うよ。',
         explanation: 'that の複数形は those だよ。Those are oranges. が正解。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-na-fc17',
@@ -165,6 +181,7 @@ export const nounsAdvanced: Topic = {
         back: 'These (　　) my pencils.\nに入る be動詞は？',
         hint: 'these は複数だから、be動詞は何を使うかな？',
         explanation: 'these は複数形だから be動詞は are を使うよ。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-na-fc18',
@@ -172,6 +189,7 @@ export const nounsAdvanced: Topic = {
         back: '「あなたはマンガを何冊もっていますか？」\nを英語にすると？',
         hint: '「何冊」は How many。comic の複数形は comics だよ。',
         explanation: 'How many comics do you have? が正解。comics は複数形だよ。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-na-fc19',
@@ -179,6 +197,7 @@ export const nounsAdvanced: Topic = {
         back: '「これらは私のかばんではありません。」\nを英語にすると？',
         hint: 'These are ... の否定文だよ。are のうしろに not をつけよう。',
         explanation: 'These are not (aren\'t) my bags. が正解。否定文は are not だよ。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-na-fc20',
@@ -186,6 +205,7 @@ export const nounsAdvanced: Topic = {
         back: '「あれらは何ですか？」\nを英語にすると？',
         hint: '「何」は What、「あれら」は those を使うよ。',
         explanation: 'What are those? が正解。those を使った疑問文だよ。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-na-fc21',
@@ -193,6 +213,7 @@ export const nounsAdvanced: Topic = {
         back: 'What are those? と聞かれて、\n「それらは鳥です。」と答えるには？',
         hint: '答えるときは those ではなく they を使うよ。',
         explanation: 'They are birds. が正解。答えるときは they を使うよ。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-na-fc22',
@@ -200,6 +221,7 @@ export const nounsAdvanced: Topic = {
         back: 'How many CDs do you have?\n— I have (　　) CDs.（5枚）\n(　　) に入る数字は？',
         hint: '5を英語で言うと？',
         explanation: 'Five が正解。I have five CDs. だよ。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-na-fc23',
@@ -207,6 +229,7 @@ export const nounsAdvanced: Topic = {
         back: 'There are three (　　) in the park.\n（公園に3人の子どもがいます。）\n(　　) に入るのは？',
         hint: 'child の複数形を思い出そう。childs ではないよ。',
         explanation: 'child の複数形は children だよ。three children が正解。',
+        difficulty: 'advanced',
       },
       {
         id: 'eng-na-fc24',
@@ -214,6 +237,7 @@ export const nounsAdvanced: Topic = {
         back: '「これらはあなたのえんぴつですか？」\nを英語にすると？',
         hint: '「これら」は these。疑問文は are を前に出すよ。',
         explanation: 'Are these your pencils? が正解。Are + these + ...? の語順だよ。',
+        difficulty: 'advanced',
       },
       {
         id: 'eng-na-fc25',
@@ -221,6 +245,7 @@ export const nounsAdvanced: Topic = {
         back: 'box の「2つ以上」の形は？',
         hint: 'x で終わることばには s じゃなくて…？',
         explanation: 'x で終わるときは es をつけるよ。box → boxes',
+        difficulty: 'advanced',
       },
       {
         id: 'eng-na-fc26',
@@ -228,6 +253,7 @@ export const nounsAdvanced: Topic = {
         back: 'knife の「2つ以上」の形は？',
         hint: 'fe を別の文字にかえてから s をつけるよ。',
         explanation: 'knife → knives。fe を ve にかえて s をつけるよ。',
+        difficulty: 'advanced',
       },
       {
         id: 'eng-na-fc27',
@@ -235,6 +261,7 @@ export const nounsAdvanced: Topic = {
         back: 'leaf の「2つ以上」の形は？',
         hint: 'f を別の文字にかえてから es をつけるよ。',
         explanation: 'leaf → leaves。f を v にかえて es をつけるよ。',
+        difficulty: 'advanced',
       },
       {
         id: 'eng-na-fc28',
@@ -242,6 +269,7 @@ export const nounsAdvanced: Topic = {
         back: 'that の複数形は？',
         hint: '遠くにある「あれら」を意味することばだよ。',
         explanation: 'that → those。「あれ」の複数形が「あれら」だよ。',
+        difficulty: 'advanced',
       },
     ],
     quiz: {
@@ -252,6 +280,7 @@ export const nounsAdvanced: Topic = {
           options: ['childs', 'childes', 'childer', 'children'],
           correctIndex: 3,
           explanation: 'child → children。不規則変化なのでそのまま覚えよう。s や es をつけるのではないよ。',
+          difficulty: 'basic',
         },
         {
           id: 'eng-na-q2',
@@ -264,6 +293,7 @@ export const nounsAdvanced: Topic = {
           ],
           correctIndex: 0,
           explanation: 'How many のあとは名詞の複数形を使うよ。pen → pens。How much は数えられないものに使うよ。',
+          difficulty: 'basic',
         },
         {
           id: 'eng-na-q3',
@@ -271,6 +301,7 @@ export const nounsAdvanced: Topic = {
           options: ['This', 'That', 'These', 'It'],
           correctIndex: 2,
           explanation: '「これら」は this の複数形 these を使うよ。複数だから be動詞は are になるよ。',
+          difficulty: 'basic',
         },
         {
           id: 'eng-na-q4',
@@ -282,6 +313,7 @@ export const nounsAdvanced: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「How many pens do you have?」が正解。How many（いくつ）+ pens（ペン）+ do you have?（もっていますか）の順番だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'eng-na-q5',
@@ -293,6 +325,7 @@ export const nounsAdvanced: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「These are my books.」が正解。These（これらは）+ are（です）+ my books（私の本）の順番だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'eng-na-q6',
@@ -300,6 +333,7 @@ export const nounsAdvanced: Topic = {
           options: ['fishs', 'fish', 'fishes', 'a fish'],
           correctIndex: 1,
           explanation: 'fish は単数形と複数形が同じ形だよ。s をつけなくていいんだ。three fish が正解。',
+          difficulty: 'basic',
         },
         {
           id: 'eng-na-q7',
@@ -307,6 +341,7 @@ export const nounsAdvanced: Topic = {
           options: ['womans', 'womens', 'women', 'womanes'],
           correctIndex: 2,
           explanation: 'woman → women。a が e にかわる不規則変化だよ。man → men と同じパターンだね。',
+          difficulty: 'basic',
         },
         {
           id: 'eng-na-q8',
@@ -314,6 +349,7 @@ export const nounsAdvanced: Topic = {
           options: ['foots', 'feet', 'footes', 'feets'],
           correctIndex: 1,
           explanation: 'foot → feet。oo が ee にかわる不規則変化だよ。tooth → teeth と同じパターンだね。',
+          difficulty: 'basic',
         },
         {
           id: 'eng-na-q9',
@@ -321,6 +357,7 @@ export const nounsAdvanced: Topic = {
           options: ['That', 'This', 'Those', 'They'],
           correctIndex: 2,
           explanation: '「あれらは」は that の複数形 those を使うよ。遠くにあるものを指すときに使うよ。',
+          difficulty: 'basic',
         },
         {
           id: 'eng-na-q10',
@@ -333,6 +370,7 @@ export const nounsAdvanced: Topic = {
           ],
           correctIndex: 2,
           explanation: 'these / those で聞かれたら、答えるときは they を使うよ。Yes, they are. が正解。',
+          difficulty: 'basic',
         },
         {
           id: 'eng-na-q11',
@@ -340,6 +378,7 @@ export const nounsAdvanced: Topic = {
           options: ['sheeps', 'sheepes', 'sheep', 'sheepies'],
           correctIndex: 2,
           explanation: 'sheep → sheep。fish と同じで、単数形と複数形が同じ形の名詞だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-na-q12',
@@ -352,6 +391,7 @@ export const nounsAdvanced: Topic = {
           ],
           correctIndex: 2,
           explanation: 'child の複数形は childs ではなく children だよ。I have two children. が正解。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-na-q13',
@@ -364,6 +404,7 @@ export const nounsAdvanced: Topic = {
           ],
           correctIndex: 1,
           explanation: 'How many のあとは名詞の複数形を使うよ。book → books が正解。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-na-q14',
@@ -371,6 +412,7 @@ export const nounsAdvanced: Topic = {
           options: ['cat', 'cats', 'a cat', 'the cat'],
           correctIndex: 1,
           explanation: 'How many のあとはかならず名詞の複数形を使うよ。cats が正解。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-na-q15',
@@ -383,6 +425,7 @@ export const nounsAdvanced: Topic = {
           ],
           correctIndex: 1,
           explanation: 'these は複数だから be動詞は are を使うよ。These are my bags. が正解。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-na-q16',
@@ -390,6 +433,7 @@ export const nounsAdvanced: Topic = {
           options: ['knifes', 'knifes', 'knives', 'knifs'],
           correctIndex: 2,
           explanation: 'knife → knives。fe を ve にかえて s をつけるよ。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-na-q17',
@@ -402,6 +446,7 @@ export const nounsAdvanced: Topic = {
           ],
           correctIndex: 2,
           explanation: 'those で聞かれたら、答えるときは they を使うよ。They are apples. が正解。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-na-q18',
@@ -414,6 +459,7 @@ export const nounsAdvanced: Topic = {
           ],
           correctIndex: 3,
           explanation: 'tooth の複数形は tooths ではなく teeth だよ。I have five teeth. が正解。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-na-q19',
@@ -421,6 +467,7 @@ export const nounsAdvanced: Topic = {
           options: ['three', 'a three', 'three of', 'third'],
           correctIndex: 0,
           explanation: '数 + 名詞の複数形の形にするよ。sheep は複数形も sheep だから three sheep が正解。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-na-q20',
@@ -428,6 +475,7 @@ export const nounsAdvanced: Topic = {
           options: ['my bag', 'my bags', 'a my bag', 'I bags'],
           correctIndex: 1,
           explanation: 'These は複数だから、名詞も複数形にするよ。my bags が正解。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-na-q21',
@@ -439,6 +487,7 @@ export const nounsAdvanced: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「Those are cats.」が正解。Those（あれらは）+ are（です）+ cats（ネコ）の順番だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-na-q22',
@@ -450,6 +499,7 @@ export const nounsAdvanced: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「How many dogs do you have?」が正解。How many（何匹）+ dogs（犬）+ do you have?（かっていますか）の順番だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-na-q23',
@@ -461,6 +511,7 @@ export const nounsAdvanced: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「Are these your pencils?」が正解。疑問文は Are を文頭に出すよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'eng-na-q24',
@@ -472,6 +523,7 @@ export const nounsAdvanced: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「I have two books.」が正解。I（私は）+ have（もっています）+ two books（2冊の本）の順番だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'eng-na-q25',
@@ -483,6 +535,7 @@ export const nounsAdvanced: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「They are birds.」が正解。They（それらは）+ are（です）+ birds（鳥）の順番だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'eng-na-q26',
@@ -494,6 +547,7 @@ export const nounsAdvanced: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「What are those?」が正解。What（何）+ are（ですか）+ those（あれら）の順番だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'eng-na-q27',
@@ -505,6 +559,7 @@ export const nounsAdvanced: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「These are not my pens.」が正解。These + are not + my pens の順番だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'eng-na-q28',
@@ -516,6 +571,7 @@ export const nounsAdvanced: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「How many comics do you have?」が正解。How many（何冊）+ comics（マンガ）+ do you have?（もっていますか）の順番だよ。',
+          difficulty: 'advanced',
         },
       ],
     },

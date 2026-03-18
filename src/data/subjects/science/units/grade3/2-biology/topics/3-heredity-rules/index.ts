@@ -177,6 +177,7 @@ export const heredityRules: Topic = {
         back: '親の形質が子や孫に伝わることを何という？',
         explanation:
           '細胞の染色体にある遺伝子が親から子に受けつがれることで形質が伝わる。',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-hr-fc2',
@@ -184,6 +185,7 @@ export const heredityRules: Topic = {
         back: '生物の形や性質のことを何という？',
         explanation:
           '例えばエンドウの種子の「丸形」「しわ形」、さやの「緑色」「黄色」などが形質にあたる。',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-hr-fc3',
@@ -191,6 +193,7 @@ export const heredityRules: Topic = {
         back: '生物の形質を決めるもので、染色体の中に存在するものは何？',
         explanation:
           '遺伝子は染色体のDNAに含まれており、親から子へ受けつがれる。',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-hr-fc4',
@@ -198,6 +201,7 @@ export const heredityRules: Topic = {
         back: '何世代重ねても形質が全て親と同じものを何という？',
         explanation:
           '例えば丸形の純系（AA）は何代交配しても全て丸形になる。',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-hr-fc5',
@@ -205,6 +209,7 @@ export const heredityRules: Topic = {
         back: 'どちらか一方の形質しか現れない2つの形質の関係を何という？',
         explanation:
           '例：エンドウの種子の「丸形」と「しわ形」。中間の形質は現れない。',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-hr-fc6',
@@ -212,6 +217,7 @@ export const heredityRules: Topic = {
         back: '対立形質の遺伝子の両方が子に受けつがれたとき、子に現れる形質を何という？',
         explanation:
           '以前は「優性形質」と呼ばれていた。「優れている」という意味ではない。',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-hr-fc7',
@@ -219,6 +225,7 @@ export const heredityRules: Topic = {
         back: '対になる遺伝子が異なるとき、子の代で現れない形質を何という？',
         explanation:
           '消えたわけではなく隠れているだけ。孫の代で再び現れる。以前は「劣性形質」と呼ばれていた。',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-hr-fc8',
@@ -226,6 +233,7 @@ export const heredityRules: Topic = {
         back: '花粉をその花のめしべにつけることを何という？',
         explanation:
           'メンデルはエンドウの自家受粉を利用して孫の代の形質を調べた。',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-hr-fc9',
@@ -233,27 +241,26 @@ export const heredityRules: Topic = {
         back: '対になっている遺伝子が減数分裂によって分かれ、それぞれ別の生殖細胞に入ることを何という？',
         explanation:
           'メンデルが発見した遺伝の基本法則。孫の代で顕性：潜性＝約3：1になる。',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-hr-fc10',
-        front: '顕性の遺伝子の表し方',
+        front: '大文字（A）で表す',
         back: '顕性形質の遺伝子をアルファベットでどう表す？',
-        explanation:
-          '大文字（A）で表す。潜性形質の遺伝子は小文字（a）で表す。',
+        explanation: '潜性形質の遺伝子は小文字（a）で表す。',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-hr-fc11',
-        front: 'AA × aa の子の遺伝子型',
+        front: 'すべてAa（顕性形質の丸形が現れる）',
         back: '純系の丸形（AA）と純系のしわ形（aa）を交配すると、子の遺伝子型は？',
-        explanation:
-          '子はすべてAaとなり、顕性形質（丸形）が現れる。',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-hr-fc12',
-        front: 'Aa × Aa の孫の遺伝子型の比',
+        front: 'AA：Aa：aa＝1：2：1（形質の比は顕性3：潜性1）',
         back: '子（Aa）同士を交配したとき、孫の遺伝子型の比は？',
-        explanation:
-          'AA：Aa：aa＝1：2：1。形質の比は顕性（丸形）：潜性（しわ形）＝3：1。',
+        difficulty: 'standard',
       },
       {
         id: 'sci3-hr-fc13',
@@ -261,22 +268,23 @@ export const heredityRules: Topic = {
         back: '形や大きさが同じで、2本（1対）の染色体を何という？',
         explanation:
           '減数分裂のとき、相同染色体が分かれてそれぞれ別の生殖細胞に入る。',
+        difficulty: 'standard',
       },
-      { id: 'sci3-hr-fc14', front: 'DNA', back: '遺伝子の本体である物質を何という？' },
-      { id: 'sci3-hr-fc15', front: '検定交雑', back: '調べたい個体と潜性の純系（aa）を交配して遺伝子型を調べる方法を何という？' },
-      { id: 'sci3-hr-fc16', front: 'Aa × aa → Aa：aa＝1：1', back: '遺伝子型Aaの個体と遺伝子型aaの個体を交配したとき、子の遺伝子型の比は？' },
-      { id: 'sci3-hr-fc17', front: '子はすべて赤色（Bb）', back: '赤色の純系（BB）と白色の純系（bb）を交配したとき、子の形質は？' },
-      { id: 'sci3-hr-fc18', front: '丸5474：しわ1850（約3：1）', back: 'メンデルの実験で孫の代の種子の形の実験結果は？' },
-      { id: 'sci3-hr-fc19', front: '優性・劣性は「優れている」「劣っている」を意味しない', back: '顕性形質（優性形質）の名称で注意すべき点は？' },
-      { id: 'sci3-hr-fc20', front: 'AAまたはAa', back: '顕性形質が現れている個体の遺伝子型として考えられるものは？' },
-      { id: 'sci3-hr-fc21', front: 'aaのみ', back: '潜性形質が現れている個体の遺伝子型は？' },
-      { id: 'sci3-hr-fc22', front: '3：1', back: 'Aa × Aa の孫の代で、顕性形質：潜性形質の比は？' },
-      { id: 'sci3-hr-fc23', front: '1：2：1', back: 'Aa × Aa の孫の代で、AA：Aa：aaの遺伝子型の比は？' },
-      { id: 'sci3-hr-fc24', front: 'エンドウの種子の丸形としわ形', back: 'メンデルの実験で調べた対立形質の代表例は？' },
-      { id: 'sci3-hr-fc25', front: '受精で再び対になる', back: '減数分裂で分かれた遺伝子はいつ再び対になる？' },
-      { id: 'sci3-hr-fc26', front: '1：1', back: 'Aa × aa の子の遺伝子型の比は？（Aa：aa）' },
-      { id: 'sci3-hr-fc27', front: '子がすべて赤色→BB、赤と白が半々→Bb', back: '検定交雑で赤色の個体がBBかBbかを見分ける方法は？' },
-      { id: 'sci3-hr-fc28', front: 'メンデル', back: 'エンドウを使って遺伝の法則を発見した科学者は誰？' },
+      { id: 'sci3-hr-fc14', front: 'DNA', back: '遺伝子の本体である物質を何という？', difficulty: 'standard' },
+      { id: 'sci3-hr-fc15', front: '検定交雑', back: '調べたい個体と潜性の純系（aa）を交配して遺伝子型を調べる方法を何という？', difficulty: 'standard' },
+      { id: 'sci3-hr-fc16', front: 'Aa × aa → Aa：aa＝1：1', back: '遺伝子型Aaの個体と遺伝子型aaの個体を交配したとき、子の遺伝子型の比は？', difficulty: 'standard' },
+      { id: 'sci3-hr-fc17', front: '子はすべて赤色（Bb）', back: '赤色の純系（BB）と白色の純系（bb）を交配したとき、子の形質は？', difficulty: 'standard' },
+      { id: 'sci3-hr-fc18', front: '丸5474：しわ1850（約3：1）', back: 'メンデルの実験で孫の代の種子の形の実験結果は？', difficulty: 'standard' },
+      { id: 'sci3-hr-fc19', front: '優性・劣性は「優れている」「劣っている」を意味しない', back: '顕性形質（優性形質）の名称で注意すべき点は？', difficulty: 'standard' },
+      { id: 'sci3-hr-fc20', front: 'AAまたはAa', back: '顕性形質が現れている個体の遺伝子型として考えられるものは？', difficulty: 'standard' },
+      { id: 'sci3-hr-fc21', front: 'aaのみ', back: '潜性形質が現れている個体の遺伝子型は？', difficulty: 'standard' },
+      { id: 'sci3-hr-fc22', front: '3：1', back: 'Aa × Aa の孫の代で、顕性形質：潜性形質の比は？', difficulty: 'standard' },
+      { id: 'sci3-hr-fc23', front: '1：2：1', back: 'Aa × Aa の孫の代で、AA：Aa：aaの遺伝子型の比は？', difficulty: 'advanced' },
+      { id: 'sci3-hr-fc24', front: 'エンドウの種子の丸形としわ形', back: 'メンデルの実験で調べた対立形質の代表例は？', difficulty: 'advanced' },
+      { id: 'sci3-hr-fc25', front: '受精で再び対になる', back: '減数分裂で分かれた遺伝子はいつ再び対になる？', difficulty: 'advanced' },
+      { id: 'sci3-hr-fc26', front: '1：1', back: 'Aa × aa の子の遺伝子型の比は？（Aa：aa）', difficulty: 'advanced' },
+      { id: 'sci3-hr-fc27', front: '子がすべて赤色→BB、赤と白が半々→Bb', back: '検定交雑で赤色の個体がBBかBbかを見分ける方法は？', difficulty: 'advanced' },
+      { id: 'sci3-hr-fc28', front: 'メンデル', back: 'エンドウを使って遺伝の法則を発見した科学者は誰？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -288,7 +296,8 @@ export const heredityRules: Topic = {
           correctIndex: 1,
           explanation:
             'メンデルはエンドウの種子の形や色などの形質を調べ、遺伝の法則を発見しました。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci3-hr-q2',
           question:
@@ -297,7 +306,8 @@ export const heredityRules: Topic = {
           correctIndex: 3,
           explanation:
             '親の形質が子や孫に伝わることを遺伝といいます。遺伝子が親から子に受けつがれることで起こります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci3-hr-q3',
           question:
@@ -306,7 +316,8 @@ export const heredityRules: Topic = {
           correctIndex: 2,
           explanation:
             '顕性形質（以前は優性形質）は、対になる遺伝子が異なるときに子の代で現れる形質です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci3-hr-q4',
           question:
@@ -315,7 +326,8 @@ export const heredityRules: Topic = {
           correctIndex: 0,
           explanation:
             '純系とは、親・子・孫と何世代も代を重ねても形質が全て親と同じものをいいます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci3-hr-q5',
           question:
@@ -329,7 +341,8 @@ export const heredityRules: Topic = {
           correctIndex: 2,
           explanation:
             'AA × aa の交配では、子はすべてAaになります。Aが顕性なので全て丸形の形質が現れます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci3-hr-q6',
           question:
@@ -338,7 +351,8 @@ export const heredityRules: Topic = {
           correctIndex: 0,
           explanation:
             '分離の法則により、孫の代では顕性形質：潜性形質＝約3：1の比で現れます。Aa × Aa → AA：Aa：aa＝1：2：1のうち、Aをもつものが顕性形質です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci3-hr-q7',
           question:
@@ -352,7 +366,8 @@ export const heredityRules: Topic = {
           correctIndex: 3,
           explanation:
             '分離の法則は、対になっている遺伝子が減数分裂によって分かれてそれぞれ別の生殖細胞に入ることをいいます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci3-hr-q8',
           question:
@@ -366,27 +381,28 @@ export const heredityRules: Topic = {
           correctIndex: 1,
           explanation:
             '相同染色体とは、形や大きさが同じで2本（1対）の染色体のことです。減数分裂で分かれます。',
-        },
-        { id: 'sci3-hr-q9', question: '遺伝子型Aaの個体とaaの個体を交配したとき、子の形質の比は？（A が顕性）', options: ['すべて顕性', '顕性：潜性＝3：1', '顕性：潜性＝1：1', 'すべて潜性'], correctIndex: 2, explanation: 'Aa × aa → Aa（顕性）：aa（潜性）＝1：1 になります。' },
-        { id: 'sci3-hr-q10', question: '潜性形質が現れている個体の遺伝子型は？', options: ['AA', 'Aa', 'AAまたはAa', 'aa'], correctIndex: 3, explanation: '潜性形質が現れるのは遺伝子型がaaのときだけです。Aが1つでもあると顕性形質が現れます。' },
-        { id: 'sci3-hr-q11', question: '遺伝子の本体である物質は何？', options: ['タンパク質', '脂質', 'DNA', '炭水化物'], correctIndex: 2, explanation: '遺伝子の本体はDNA（デオキシリボ核酸）で、染色体の中に含まれています。' },
-        { id: 'sci3-hr-q12', question: 'Aa × Aa で孫の代にaaの遺伝子型が現れる確率は？', options: ['1/2', '1/3', '1/4', '3/4'], correctIndex: 2, explanation: 'AA：Aa：aa＝1：2：1なので、aaが現れる確率は1/4です。' },
-        { id: 'sci3-hr-q13', question: '検定交雑で赤色の個体（B_）と白色の純系（bb）を交配した。子がすべて赤色だった場合、親の遺伝子型は？', options: ['Bb', 'BB', 'bb', 'わからない'], correctIndex: 1, explanation: 'BB × bb → すべてBb（赤色）になるので、親の遺伝子型はBBです。' },
-        { id: 'sci3-hr-q14', question: '検定交雑で赤色と白色が1：1で現れた場合、赤色の親の遺伝子型は？', options: ['BB', 'Bb', 'bb', 'わからない'], correctIndex: 1, explanation: 'Bb × bb → Bb：bb＝1：1なので、赤色の親の遺伝子型はBbです。' },
-        { id: 'sci3-hr-q15', question: '顕性形質（優性形質）という名称の「優性」はどういう意味？', options: ['優れた形質という意味', '現れやすいという意味で、優劣ではない', '生存に有利という意味', '大きいという意味'], correctIndex: 1, explanation: '「優性」は現れやすいという意味で、「優れている」「劣っている」という意味ではありません。' },
-        { id: 'sci3-hr-q16', question: 'エンドウの種子の「丸形」と「しわ形」の関係を何という？', options: ['相同形質', '対立形質', '純系形質', '変異形質'], correctIndex: 1, explanation: 'どちらか一方しか現れない2つの形質の関係を対立形質といいます。' },
-        { id: 'sci3-hr-q17', question: '子の代（F1）ですべて顕性形質が現れるのは、親の組み合わせがどれのとき？', options: ['AA × Aa', 'AA × aa', 'Aa × Aa', 'Aa × aa'], correctIndex: 1, explanation: 'AA × aa → 子はすべてAa（顕性形質）になります。' },
-        { id: 'sci3-hr-q18', question: '自家受粉とは何か？', options: ['他の花の花粉で受粉すること', '風で受粉すること', '花粉をその花のめしべにつけること', '虫が花粉を運ぶこと'], correctIndex: 2, explanation: '自家受粉とは花粉をその花のめしべにつけることです。メンデルはエンドウの自家受粉を利用しました。' },
-        { id: 'sci3-hr-q19', question: 'Aa × Aa で顕性形質が現れる遺伝子型の組み合わせは？', options: ['AAだけ', 'AAとAa', 'Aaだけ', 'aaだけ'], correctIndex: 1, explanation: 'Aを1つでも持つ AA と Aa が顕性形質を示します。aaのみが潜性形質です。' },
-        { id: 'sci3-hr-q20', question: '分離の法則はどの細胞分裂のときに起こる？', options: ['体細胞分裂', '減数分裂', '受精', '成長'], correctIndex: 1, explanation: '分離の法則は減数分裂のとき、対になった遺伝子が分かれてそれぞれ別の生殖細胞に入ることです。' },
-        { id: 'sci3-hr-q21', question: 'メンデルの実験で、茎の長さの孫の代の結果は？', options: ['長い：短い＝1：1', '長い：短い＝約3：1', 'すべて長い', 'すべて短い'], correctIndex: 1, explanation: '茎の長さでも顕性：潜性＝約3：1（長い787：短い277≒2.84：1）の比で現れました。' },
-        { id: 'sci3-hr-q22', question: '顕性形質の遺伝子をA、潜性形質をaとしたとき、純系の丸形の遺伝子型は？', options: ['Aa', 'AA', 'aa', 'aA'], correctIndex: 1, explanation: '純系は何世代重ねても同じ形質なので、丸形の純系はAAです。' },
-        { id: 'sci3-hr-q23', question: '潜性形質の遺伝子をアルファベットでどう表す？', options: ['大文字（A）', '小文字（a）', '数字', '記号'], correctIndex: 1, explanation: '潜性形質の遺伝子は小文字（a）で表し、顕性形質の遺伝子は大文字（A）で表します。' },
-        { id: 'sci3-hr-q24', question: '子の代（F1）で潜性形質が現れないのはなぜ？', options: ['潜性形質の遺伝子が消えたから', '顕性形質の遺伝子（A）が潜性形質（a）を隠すから', '環境が変わったから', '突然変異が起きたから'], correctIndex: 1, explanation: '潜性形質の遺伝子は消えたわけではなく、顕性形質の遺伝子Aに隠されているだけです。孫の代で再び現れます。' },
-        { id: 'sci3-hr-q25', question: 'ある個体の遺伝子型がAAかAaかわからない。調べるにはどうする？', options: ['顕微鏡で観察する', '温度を変えて育てる', '潜性の純系（aa）と交配する', '同じ個体ともう一度交配する'], correctIndex: 2, explanation: '潜性の純系（aa）と交配する検定交雑で、子がすべて顕性ならAA、顕性と潜性が1：1ならAaとわかります。' },
-        { id: 'sci3-hr-q26', question: '孫の代で3：1の比が生まれるために必要な条件は？', options: ['親が両方とも純系', '子の遺伝子型がAaであること', '子の遺伝子型がAAであること', '環境が一定であること'], correctIndex: 1, explanation: '子の遺伝子型がAaのとき、Aa × Aa → AA：Aa：aa＝1：2：1 で、表現型は3：1になります。' },
-        { id: 'sci3-hr-q27', question: 'メンデルの実験結果で、丸形5474：しわ形1850の比は約何対何？', options: ['約2：1', '約3：1', '約4：1', '約1：1'], correctIndex: 1, explanation: '5474÷1850≒2.96で、約3：1になります。これは分離の法則の理論値と一致します。' },
-        { id: 'sci3-hr-q28', question: 'AA × Aa の子の遺伝子型の比は？', options: ['AA：Aa＝1：1', 'すべてAA', 'すべてAa', 'AA：Aa：aa＝1：2：1'], correctIndex: 0, explanation: 'AAからAの生殖細胞、AaからAとaの生殖細胞ができるので、子はAA：Aa＝1：1になります。' },
+        difficulty: 'basic',
+      },
+        { id: 'sci3-hr-q9', question: '遺伝子型Aaの個体とaaの個体を交配したとき、子の形質の比は？（A が顕性）', options: ['すべて顕性', '顕性：潜性＝3：1', '顕性：潜性＝1：1', 'すべて潜性'], correctIndex: 2, explanation: 'Aa × aa → Aa（顕性）：aa（潜性）＝1：1 になります。', difficulty: 'basic' },
+        { id: 'sci3-hr-q10', question: '潜性形質が現れている個体の遺伝子型は？', options: ['AA', 'Aa', 'AAまたはAa', 'aa'], correctIndex: 3, explanation: '潜性形質が現れるのは遺伝子型がaaのときだけです。Aが1つでもあると顕性形質が現れます。', difficulty: 'basic' },
+        { id: 'sci3-hr-q11', question: '遺伝子の本体である物質は何？', options: ['タンパク質', '脂質', 'DNA', '炭水化物'], correctIndex: 2, explanation: '遺伝子の本体はDNA（デオキシリボ核酸）で、染色体の中に含まれています。', difficulty: 'standard' },
+        { id: 'sci3-hr-q12', question: 'Aa × Aa で孫の代にaaの遺伝子型が現れる確率は？', options: ['1/2', '1/3', '1/4', '3/4'], correctIndex: 2, explanation: 'AA：Aa：aa＝1：2：1なので、aaが現れる確率は1/4です。', difficulty: 'standard' },
+        { id: 'sci3-hr-q13', question: '検定交雑で赤色の個体（B_）と白色の純系（bb）を交配した。子がすべて赤色だった場合、親の遺伝子型は？', options: ['Bb', 'BB', 'bb', 'わからない'], correctIndex: 1, explanation: 'BB × bb → すべてBb（赤色）になるので、親の遺伝子型はBBです。', difficulty: 'standard' },
+        { id: 'sci3-hr-q14', question: '検定交雑で赤色と白色が1：1で現れた場合、赤色の親の遺伝子型は？', options: ['BB', 'Bb', 'bb', 'わからない'], correctIndex: 1, explanation: 'Bb × bb → Bb：bb＝1：1なので、赤色の親の遺伝子型はBbです。', difficulty: 'standard' },
+        { id: 'sci3-hr-q15', question: '顕性形質（優性形質）という名称の「優性」はどういう意味？', options: ['優れた形質という意味', '現れやすいという意味で、優劣ではない', '生存に有利という意味', '大きいという意味'], correctIndex: 1, explanation: '「優性」は現れやすいという意味で、「優れている」「劣っている」という意味ではありません。', difficulty: 'standard' },
+        { id: 'sci3-hr-q16', question: 'エンドウの種子の「丸形」と「しわ形」の関係を何という？', options: ['相同形質', '対立形質', '純系形質', '変異形質'], correctIndex: 1, explanation: 'どちらか一方しか現れない2つの形質の関係を対立形質といいます。', difficulty: 'standard' },
+        { id: 'sci3-hr-q17', question: '子の代（F1）ですべて顕性形質が現れるのは、親の組み合わせがどれのとき？', options: ['AA × Aa', 'AA × aa', 'Aa × Aa', 'Aa × aa'], correctIndex: 1, explanation: 'AA × aa → 子はすべてAa（顕性形質）になります。', difficulty: 'standard' },
+        { id: 'sci3-hr-q18', question: '自家受粉とは何か？', options: ['他の花の花粉で受粉すること', '風で受粉すること', '花粉をその花のめしべにつけること', '虫が花粉を運ぶこと'], correctIndex: 2, explanation: '自家受粉とは花粉をその花のめしべにつけることです。メンデルはエンドウの自家受粉を利用しました。', difficulty: 'standard' },
+        { id: 'sci3-hr-q19', question: 'Aa × Aa で顕性形質が現れる遺伝子型の組み合わせは？', options: ['AAだけ', 'AAとAa', 'Aaだけ', 'aaだけ'], correctIndex: 1, explanation: 'Aを1つでも持つ AA と Aa が顕性形質を示します。aaのみが潜性形質です。', difficulty: 'standard' },
+        { id: 'sci3-hr-q20', question: '分離の法則はどの細胞分裂のときに起こる？', options: ['体細胞分裂', '減数分裂', '受精', '成長'], correctIndex: 1, explanation: '分離の法則は減数分裂のとき、対になった遺伝子が分かれてそれぞれ別の生殖細胞に入ることです。', difficulty: 'standard' },
+        { id: 'sci3-hr-q21', question: 'メンデルの実験で、茎の長さの孫の代の結果は？', options: ['長い：短い＝1：1', '長い：短い＝約3：1', 'すべて長い', 'すべて短い'], correctIndex: 1, explanation: '茎の長さでも顕性：潜性＝約3：1（長い787：短い277≒2.84：1）の比で現れました。', difficulty: 'standard' },
+        { id: 'sci3-hr-q22', question: '顕性形質の遺伝子をA、潜性形質をaとしたとき、純系の丸形の遺伝子型は？', options: ['Aa', 'AA', 'aa', 'aA'], correctIndex: 1, explanation: '純系は何世代重ねても同じ形質なので、丸形の純系はAAです。', difficulty: 'standard' },
+        { id: 'sci3-hr-q23', question: '潜性形質の遺伝子をアルファベットでどう表す？', options: ['大文字（A）', '小文字（a）', '数字', '記号'], correctIndex: 1, explanation: '潜性形質の遺伝子は小文字（a）で表し、顕性形質の遺伝子は大文字（A）で表します。', difficulty: 'advanced' },
+        { id: 'sci3-hr-q24', question: '子の代（F1）で潜性形質が現れないのはなぜ？', options: ['潜性形質の遺伝子が消えたから', '顕性形質の遺伝子（A）が潜性形質（a）を隠すから', '環境が変わったから', '突然変異が起きたから'], correctIndex: 1, explanation: '潜性形質の遺伝子は消えたわけではなく、顕性形質の遺伝子Aに隠されているだけです。孫の代で再び現れます。', difficulty: 'advanced' },
+        { id: 'sci3-hr-q25', question: 'ある個体の遺伝子型がAAかAaかわからない。調べるにはどうする？', options: ['顕微鏡で観察する', '温度を変えて育てる', '潜性の純系（aa）と交配する', '同じ個体ともう一度交配する'], correctIndex: 2, explanation: '潜性の純系（aa）と交配する検定交雑で、子がすべて顕性ならAA、顕性と潜性が1：1ならAaとわかります。', difficulty: 'advanced' },
+        { id: 'sci3-hr-q26', question: '孫の代で3：1の比が生まれるために必要な条件は？', options: ['親が両方とも純系', '子の遺伝子型がAaであること', '子の遺伝子型がAAであること', '環境が一定であること'], correctIndex: 1, explanation: '子の遺伝子型がAaのとき、Aa × Aa → AA：Aa：aa＝1：2：1 で、表現型は3：1になります。', difficulty: 'advanced' },
+        { id: 'sci3-hr-q27', question: 'メンデルの実験結果で、丸形5474：しわ形1850の比は約何対何？', options: ['約2：1', '約3：1', '約4：1', '約1：1'], correctIndex: 1, explanation: '5474÷1850≒2.96で、約3：1になります。これは分離の法則の理論値と一致します。', difficulty: 'advanced' },
+        { id: 'sci3-hr-q28', question: 'AA × Aa の子の遺伝子型の比は？', options: ['AA：Aa＝1：1', 'すべてAA', 'すべてAa', 'AA：Aa：aa＝1：2：1'], correctIndex: 0, explanation: 'AAからAの生殖細胞、AaからAとaの生殖細胞ができるので、子はAA：Aa＝1：1になります。', difficulty: 'advanced' },
       ],
     },
     examples: {

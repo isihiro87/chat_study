@@ -49,60 +49,70 @@ export const fukokuKyohei: Topic = {
         front: '富国強兵',
         back: '国を豊かにし、軍隊を強くするという明治政府のスローガンは？',
         explanation: '欧米列強に対抗するための国家目標だった。',
+        difficulty: 'basic',
       },
       {
         id: 'fc2',
         front: '殖産興業',
         back: '近代的な産業を育成する政策を何という？',
         explanation: '官営模範工場の建設や鉄道の開通などが行われた。',
+        difficulty: 'basic',
       },
       {
         id: 'fc3',
         front: '富岡製糸場',
         back: 'フランスの技術を導入した群馬県の官営模範工場は？',
         explanation: '高品質な生糸を生産し、民間の手本となった。',
+        difficulty: 'basic',
       },
       {
         id: 'fc4',
         front: '官営模範工場',
         back: '政府が直接運営し、民間の手本とした工場は？',
         explanation: '富岡製糸場などが代表例。',
+        difficulty: 'basic',
       },
       {
         id: 'fc5',
         front: '文明開化',
         back: '欧米の文化や生活様式が急速に広まった風潮を何という？',
         explanation: 'ガス灯、レンガ造り、洋服などが広まった。',
+        difficulty: 'standard',
       },
       {
         id: 'fc6',
         front: '福沢諭吉',
         back: '「学問のすゝめ」を著した思想家は？',
         explanation: '「天は人の上に人を造らず」で有名。',
+        difficulty: 'standard',
       },
       {
         id: 'fc7',
         front: '学問のすゝめ',
         back: '福沢諭吉が著した、学問の重要性を説いた本は？',
         explanation: '個人の独立と学問の大切さを訴えた。',
+        difficulty: 'standard',
       },
       {
         id: 'fc8',
         front: '中江兆民',
         back: 'ルソーの思想を紹介し、自由民権運動に影響を与えた思想家は？',
         explanation: '「東洋のルソー」とも呼ばれた。',
+        difficulty: 'standard',
       },
       {
         id: 'fc9',
         front: '太陽暦',
         back: '明治政府が採用した、1日24時間・1週間7日の暦は？',
         explanation: '従来の太陰暦に代わって採用された。',
+        difficulty: 'advanced',
       },
       {
         id: 'fc10',
         front: '鉄道',
         back: '1872年に新橋・横浜間で開通した交通機関は？',
         explanation: '日本初の鉄道で、殖産興業の象徴となった。',
+        difficulty: 'advanced',
       },
     ],
     quiz: {
@@ -115,6 +125,7 @@ export const fukokuKyohei: Topic = {
           correctIndex: 2,
           explanation:
             '富国強兵は欧米列強に対抗するための国家目標で、殖産興業政策を推し進めました。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -124,6 +135,7 @@ export const fukokuKyohei: Topic = {
           correctIndex: 3,
           explanation:
             '富岡製糸場は高品質な生糸を生産し、民間の手本となった官営模範工場です。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -133,6 +145,7 @@ export const fukokuKyohei: Topic = {
           correctIndex: 1,
           explanation:
             '福沢諭吉は「天は人の上に人を造らず」で知られ、個人の独立と学問の大切さを訴えました。',
+          difficulty: 'basic',
         },
         {
           id: 'q4',
@@ -142,6 +155,7 @@ export const fukokuKyohei: Topic = {
           correctIndex: 0,
           explanation:
             '文明開化ではガス灯、レンガ造りの建物、洋服、牛鍋、太陽暦の採用など、欧米の文化が急速に広まりました。',
+          difficulty: 'standard',
         },
         {
           id: 'q5',
@@ -151,6 +165,7 @@ export const fukokuKyohei: Topic = {
           correctIndex: 1,
           explanation:
             '中江兆民は「東洋のルソー」とも呼ばれ、ルソーの思想を紹介して自由民権運動に影響を与えました。',
+          difficulty: 'standard',
         },
         {
           id: 'q6',
@@ -159,6 +174,7 @@ export const fukokuKyohei: Topic = {
           correctIndex: 0,
           explanation:
             '日本初の鉄道が新橋・横浜間で開通し、殖産興業の象徴となりました。',
+          difficulty: 'standard',
         },
       ],
     },

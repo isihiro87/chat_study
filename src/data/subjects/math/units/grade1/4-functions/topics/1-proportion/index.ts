@@ -45,22 +45,20 @@ export const proportion: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'math-g1-proportion-fc1',
-        front: '$x$ の値を決めると $y$ の値がただ1つ決まる関係', back: '関数とは？',
-      },
-      {
-        id: 'math-g1-proportion-fc2',
-        front: '$y = ax$（$a$ は比例定数）', back: '比例の式は？',
-      },
-      {
-        id: 'math-g1-proportion-fc3',
-        front: '原点を通る直線。$a > 0$ で右上がり、$a < 0$ で右下がり', back: '比例のグラフの特徴は？',
-      },
-      {
-        id: 'math-g1-proportion-fc4',
-        front: '$y$ も2倍になる', back: '比例で $x$ が2倍になると $y$ は？',
-      },
+      { id: 'math-g1-proportion-fc1', front: '$x$ の値を決めると $y$ の値がただ1つ決まる関係', back: '関数とは？', difficulty: 'basic' },
+      { id: 'math-g1-proportion-fc2', front: '$y = ax$（$a$ は比例定数、$a \\neq 0$）', back: '比例の式は？', difficulty: 'basic' },
+      { id: 'math-g1-proportion-fc3', front: '比例定数。$y = ax$ の $a$ のこと。$a = \\dfrac{y}{x}$ で求まる。', back: '$y = ax$ の $a$ を何という？', difficulty: 'basic' },
+      { id: 'math-g1-proportion-fc4', front: 'いろいろな値をとる文字（$x$, $y$ など）', back: '変数とは？', difficulty: 'basic' },
+      { id: 'math-g1-proportion-fc5', front: '変数のとりうる値の範囲', back: '変域とは？', difficulty: 'basic' },
+      { id: 'math-g1-proportion-fc6', front: '$y$ も $n$ 倍になる。$\\dfrac{y}{x} = a$ が常に一定。', back: '比例で $x$ が $n$ 倍になると $y$ は？', difficulty: 'basic' },
+      { id: 'math-g1-proportion-fc7', front: '原点を通る直線。$a > 0$ で右上がり、$a < 0$ で右下がり。', back: '比例のグラフの特徴は？', difficulty: 'basic' },
+      { id: 'math-g1-proportion-fc8', front: '$y = 12$（$y = 3 \\times 4 = 12$）', back: '$y = 3x$ で $x = 4$ のとき $y$ は？', difficulty: 'basic' },
+      { id: 'math-g1-proportion-fc9', front: '$a = -3$（$a = \\dfrac{y}{x} = \\dfrac{-6}{2} = -3$）', back: '$x = 2$ のとき $y = -6$ の比例定数は？', difficulty: 'standard' },
+      { id: 'math-g1-proportion-fc10', front: '横の軸（$x$ 軸）と縦の軸（$y$ 軸）で点の位置を表す平面', back: '座標平面とは？', difficulty: 'standard' },
+      { id: 'math-g1-proportion-fc11', front: '2つの軸の交点 $(0, 0)$', back: '原点 $O$ とは？', difficulty: 'standard' },
+      { id: 'math-g1-proportion-fc12', front: '横の位置が $x$ 座標、縦の位置が $y$ 座標。$(x, y)$ で表す。', back: '座標の表し方は？', difficulty: 'standard' },
+      { id: 'math-g1-proportion-fc13', front: '$|a|$ が大きいほど急な直線、$|a|$ が小さいほどゆるやかな直線', back: '比例定数の大きさとグラフの傾きの関係は？', difficulty: 'advanced' },
+      { id: 'math-g1-proportion-fc14', front: '必ず原点を通る。$x = 0$ のとき $y = 0$。', back: '比例のグラフが必ず通る点は？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -71,6 +69,7 @@ export const proportion: Topic = {
           correctIndex: 1,
           explanation:
             '$y = 3 \\times 4 = \\textcolor{#D97706}{12}$ だよ。比例定数 $3$ に $x = 4$ をかけるだけ！',
+          difficulty: 'basic',
         },
         {
           id: 'math-g1-proportion-q2',
@@ -80,6 +79,7 @@ export const proportion: Topic = {
           correctIndex: 2,
           explanation:
             '$a = \\frac{y}{x} = \\frac{-6}{2} = \\textcolor{#D97706}{-3}$ だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g1-proportion-q3',
@@ -93,6 +93,7 @@ export const proportion: Topic = {
           correctIndex: 0,
           explanation:
             '比例 $y = ax$ のグラフは必ず原点 $(0, 0)$ を通る直線だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g1-proportion-q4',
@@ -107,6 +108,7 @@ export const proportion: Topic = {
           correctIndex: 3,
           explanation:
             '比例定数が $a = -2 < 0$ なので、原点を通る右下がりの直線だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g1-proportion-q5',
@@ -121,6 +123,7 @@ export const proportion: Topic = {
           correctIndex: 0,
           explanation:
             '$x$ の値に対して $y$ の値が2つ以上あると関数ではないよ。関数は「ただ1つ決まる」がポイント！',
+          difficulty: 'advanced',
         },
       ],
     },

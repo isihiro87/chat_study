@@ -47,34 +47,34 @@ export const muromachiPeople: Topic = {
     },
     videos: [],
     flashcards: [
-      { id: 'fc1', front: '惣', back: '村の有力な農民を中心に作られた、村の自治組織を何という？' },
-      { id: 'fc2', front: '土一揆', back: '農民や馬借が借金帳消しを求めて蜂起した運動は？' },
-      { id: 'fc3', front: '町衆', back: '京都の自治を担い、祇園祭を運営した裕福な商工業者は？' },
-      { id: 'fc4', front: '正長の土一揆', back: '1428年に起こった日本最初の大規模な土一揆は？' },
-      { id: 'fc5', front: '寄合', back: '惣の村人が集まって村の運営を話し合う会議は？' },
-      { id: 'fc6', front: '徳政令', back: '土一揆で農民が幕府に求めた、借金帳消しの法令は？' },
-      { id: 'fc7', front: 'おきて（掟）', back: '惣が定めた村の規約を何という？' },
-      { id: 'fc8', front: '会合衆', back: '堺で合議制の自治を行った有力商人の組織は？' },
-      { id: 'fc9', front: '入会地', back: '惣が共同で管理・利用した山林や野原は？' },
-      { id: 'fc10', front: '祇園祭', back: '町衆が復興・運営した京都の有名な祭りは？' },
-      { id: 'fc11', front: '堺', back: '会合衆による合議制の自治で「自由都市」として知られた大阪府の港町は？' },
-      { id: 'fc12', front: '博多', back: '年行司が自治を行った福岡県の港町は？' },
-      { id: 'fc13', front: '年行司', back: '博多で自治を担った有力商人の組織は？' },
-      { id: 'fc14', front: '1428年', back: '正長の土一揆が起こった年は？' },
-      { id: 'fc15', front: '近畿地方', back: '正長の土一揆が広がった地域は？' },
-      { id: 'fc16', front: '土倉・酒屋', back: '土一揆の攻撃対象となった高利貸しの業者を2つ答えよ' },
-      { id: 'fc17', front: '嘉吉の土一揆', back: '1441年に起こり、幕府が初めて徳政令を出した土一揆は？' },
-      { id: 'fc18', front: '馬借', back: '土一揆に農民とともに参加した、運送業者は？' },
-      { id: 'fc19', front: '用水の共同管理', back: '惣が行った、農業に欠かせない水を公平に分配する仕組みは？' },
-      { id: 'fc20', front: '応仁の乱', back: '京都が焼け野原になり、町衆が復興に力を発揮した戦乱は？' },
-      { id: 'fc21', front: '濠（ほり）', back: '堺の周りに掘られた防御設備は？' },
-      { id: 'fc22', front: '自由都市', back: '堺のように有力商人が自治で運営する都市を何と呼ぶ？' },
-      { id: 'fc23', front: '合議制', back: '堺の会合衆が自治を行った際の意思決定の方法は？' },
-      { id: 'fc24', front: '民衆の団結と自治の力', back: '惣・土一揆・町衆に共通する特徴は？' },
-      { id: 'fc25', front: '借金帳消し', back: '徳政令の具体的な内容は？' },
-      { id: 'fc26', front: '文書で定めた', back: '惣の掟（おきて）の特徴として重要な点は？' },
-      { id: 'fc27', front: '薪や草の採取', back: '入会地で村人が共同で行っていた主な活動は？' },
-      { id: 'fc28', front: '室町時代', back: '民衆の力が大きく成長し、自治が広まった時代は？' },
+      { id: 'fc1', front: '惣', back: '村の有力な農民を中心に作られた、村の自治組織を何という？', difficulty: 'basic' },
+      { id: 'fc2', front: '土一揆', back: '農民や馬借が借金帳消しを求めて蜂起した運動は？', difficulty: 'basic' },
+      { id: 'fc3', front: '町衆', back: '京都の自治を担い、祇園祭を運営した裕福な商工業者は？', difficulty: 'basic' },
+      { id: 'fc4', front: '正長の土一揆', back: '1428年に起こった日本最初の大規模な土一揆は？', difficulty: 'basic' },
+      { id: 'fc5', front: '寄合', back: '惣の村人が集まって村の運営を話し合う会議は？', difficulty: 'basic' },
+      { id: 'fc6', front: '徳政令', back: '土一揆で農民が幕府に求めた、借金帳消しの法令は？', difficulty: 'basic' },
+      { id: 'fc7', front: 'おきて（掟）', back: '惣が定めた村の規約を何という？', difficulty: 'basic' },
+      { id: 'fc8', front: '会合衆', back: '堺で合議制の自治を行った有力商人の組織は？', difficulty: 'basic' },
+      { id: 'fc9', front: '入会地', back: '惣が共同で管理・利用した山林や野原は？', difficulty: 'basic' },
+      { id: 'fc10', front: '祇園祭', back: '町衆が復興・運営した京都の有名な祭りは？', difficulty: 'basic' },
+      { id: 'fc11', front: '堺', back: '会合衆による合議制の自治で「自由都市」として知られた大阪府の港町は？', difficulty: 'basic' },
+      { id: 'fc12', front: '博多', back: '年行司が自治を行った福岡県の港町は？', difficulty: 'basic' },
+      { id: 'fc13', front: '年行司', back: '博多で自治を担った有力商人の組織は？', difficulty: 'standard' },
+      { id: 'fc14', front: '1428年', back: '正長の土一揆が起こった年は？', difficulty: 'standard' },
+      { id: 'fc15', front: '近畿地方', back: '正長の土一揆が広がった地域は？', difficulty: 'standard' },
+      { id: 'fc16', front: '土倉・酒屋', back: '土一揆の攻撃対象となった高利貸しの業者を2つ答えよ', difficulty: 'standard' },
+      { id: 'fc17', front: '嘉吉の土一揆', back: '1441年に起こり、幕府が初めて徳政令を出した土一揆は？', difficulty: 'standard' },
+      { id: 'fc18', front: '馬借', back: '土一揆に農民とともに参加した、運送業者は？', difficulty: 'standard' },
+      { id: 'fc19', front: '用水の共同管理', back: '惣が行った、農業に欠かせない水を公平に分配する仕組みは？', difficulty: 'standard' },
+      { id: 'fc20', front: '応仁の乱', back: '京都が焼け野原になり、町衆が復興に力を発揮した戦乱は？', difficulty: 'standard' },
+      { id: 'fc21', front: '濠（ほり）', back: '堺の周りに掘られた防御設備は？', difficulty: 'standard' },
+      { id: 'fc22', front: '自由都市', back: '堺のように有力商人が自治で運営する都市を何と呼ぶ？', difficulty: 'standard' },
+      { id: 'fc23', front: '合議制', back: '堺の会合衆が自治を行った際の意思決定の方法は？', difficulty: 'advanced' },
+      { id: 'fc24', front: '民衆の団結と自治の力', back: '惣・土一揆・町衆に共通する特徴は？', difficulty: 'advanced' },
+      { id: 'fc25', front: '借金帳消し', back: '徳政令の具体的な内容は？', difficulty: 'advanced' },
+      { id: 'fc26', front: '文書で定めた', back: '惣の掟（おきて）の特徴として重要な点は？', difficulty: 'advanced' },
+      { id: 'fc27', front: '薪や草の採取', back: '入会地で村人が共同で行っていた主な活動は？', difficulty: 'advanced' },
+      { id: 'fc28', front: '室町時代', back: '民衆の力が大きく成長し、自治が広まった時代は？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -84,6 +84,7 @@ export const muromachiPeople: Topic = {
           options: ['座', '町衆', '惣', '寄合'],
           correctIndex: 2,
           explanation: '惣は村の有力な農民を中心に作られた自治組織で、寄合を開いて村の運営を話し合いました。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -91,6 +92,7 @@ export const muromachiPeople: Topic = {
           options: ['正長の土一揆', '山城の国一揆', '加賀の一向一揆', '嘉吉の土一揆'],
           correctIndex: 0,
           explanation: '正長の土一揆は1428年に近畿地方で起こった日本最初の大規模な土一揆です。農民が徳政令を求めて蜂起しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -98,6 +100,7 @@ export const muromachiPeople: Topic = {
           options: ['馬借', '地頭', '御家人', '町衆'],
           correctIndex: 3,
           explanation: '町衆は京都の裕福な商工業者で、応仁の乱で荒れた京都の復興に力を発揮し、祇園祭を復活させました。',
+          difficulty: 'basic',
         },
         {
           id: 'q4',
@@ -105,6 +108,7 @@ export const muromachiPeople: Topic = {
           options: ['分国法', '徳政令', '御成敗式目', '武家諸法度'],
           correctIndex: 1,
           explanation: '徳政令は借金の帳消しを命じる法令で、土一揆の農民たちが幕府に発布を求めました。',
+          difficulty: 'basic',
         },
         {
           id: 'q5',
@@ -112,6 +116,7 @@ export const muromachiPeople: Topic = {
           options: ['会合衆', '年行司', '町衆', '座'],
           correctIndex: 0,
           explanation: '会合衆は堺で合議制の自治を行った有力商人の組織で、堺は「自由都市」として知られました。',
+          difficulty: 'basic',
         },
         {
           id: 'q6',
@@ -119,6 +124,7 @@ export const muromachiPeople: Topic = {
           options: ['座', '寄合', '一揆', '評定'],
           correctIndex: 1,
           explanation: '寄合は惣の村人が集まって村の重要な問題を合議で決定する会議です。',
+          difficulty: 'basic',
         },
         {
           id: 'q7',
@@ -126,6 +132,7 @@ export const muromachiPeople: Topic = {
           options: ['分国法', 'おきて（掟）', '御成敗式目', '徳政令'],
           correctIndex: 1,
           explanation: 'おきて（掟）は惣が定めた村の規約で、文書で明確にされました。',
+          difficulty: 'basic',
         },
         {
           id: 'q8',
@@ -133,6 +140,7 @@ export const muromachiPeople: Topic = {
           options: ['武士', '僧侶', '馬借', '貴族'],
           correctIndex: 2,
           explanation: '土一揆には農民のほかに馬借（運送業者）も参加し、借金帳消しを求めて蜂起しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q9',
@@ -140,6 +148,7 @@ export const muromachiPeople: Topic = {
           options: ['幕府の武士', '朝廷の貴族', '町衆', '僧侶'],
           correctIndex: 2,
           explanation: '応仁の乱で荒れた京都を復興させたのは町衆（裕福な商工業者）の力でした。',
+          difficulty: 'basic',
         },
         {
           id: 'q10',
@@ -147,6 +156,7 @@ export const muromachiPeople: Topic = {
           options: ['荘園', '公領', '入会地', '私有地'],
           correctIndex: 2,
           explanation: '入会地は惣が共同で管理・利用した山林や野原で、薪や草などを採取しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q11',
@@ -154,6 +164,7 @@ export const muromachiPeople: Topic = {
           options: ['正長の土一揆', '嘉吉の土一揆', '山城の国一揆', '加賀の一向一揆'],
           correctIndex: 1,
           explanation: '嘉吉の土一揆（1441年）では幕府が初めて徳政令を出して農民の要求に応じました。',
+          difficulty: 'standard',
         },
         {
           id: 'q12',
@@ -161,6 +172,7 @@ export const muromachiPeople: Topic = {
           options: ['会合衆', '町衆', '年行司', '座'],
           correctIndex: 2,
           explanation: '年行司は博多で自治を担った有力商人の組織です。',
+          difficulty: 'standard',
         },
         {
           id: 'q13',
@@ -168,6 +180,7 @@ export const muromachiPeople: Topic = {
           options: ['幕府に命じられたから', '農業に欠かせない水を公平に分配するため', '宗教的な理由', '戦いに備えるため'],
           correctIndex: 1,
           explanation: '農業に欠かせない水を公平に分配し、効率的に利用するために共同管理が行われました。',
+          difficulty: 'standard',
         },
         {
           id: 'q14',
@@ -175,6 +188,7 @@ export const muromachiPeople: Topic = {
           options: ['幕府が直接統治した', '会合衆による合議制の自治で「自由都市」と呼ばれた', '天皇が支配した', '寺社が統治した'],
           correctIndex: 1,
           explanation: '堺は会合衆による合議制の自治が行われ、濠で囲まれた「自由都市」として知られました。',
+          difficulty: 'standard',
         },
         {
           id: 'q15',
@@ -182,6 +196,7 @@ export const muromachiPeople: Topic = {
           options: ['京都と奈良', '堺と博多', '鎌倉と平泉', '大宰府と長崎'],
           correctIndex: 1,
           explanation: '堺（大阪府）と博多（福岡県）はともに貿易で栄えた港町で、有力商人による自治が行われました。',
+          difficulty: 'standard',
         },
         {
           id: 'q16',
@@ -189,6 +204,7 @@ export const muromachiPeople: Topic = {
           options: ['幕府が主導した', '民衆が団結して自分たちの力で社会を運営しようとした', '外国の影響を受けた', '仏教が中心だった'],
           correctIndex: 1,
           explanation: '民衆が団結して自分たちの力で社会を運営しようとした点が共通しています。',
+          difficulty: 'standard',
         },
         {
           id: 'q17',
@@ -196,6 +212,7 @@ export const muromachiPeople: Topic = {
           options: ['寺社と神社', '土倉と酒屋', '城と砦', '朝廷と幕府'],
           correctIndex: 1,
           explanation: '正長の土一揆では近畿地方一帯で高利貸しの土倉や酒屋が襲撃されました。',
+          difficulty: 'standard',
         },
         {
           id: 'q18',
@@ -203,6 +220,7 @@ export const muromachiPeople: Topic = {
           options: ['石垣', '城壁', '濠（ほり）', '土塁'],
           correctIndex: 2,
           explanation: '堺は周囲に濠を掘って防御し、自治を守る「自由都市」として独自の運営を行いました。',
+          difficulty: 'standard',
         },
         {
           id: 'q19',
@@ -210,6 +228,7 @@ export const muromachiPeople: Topic = {
           options: ['惣による村の自治', '土一揆による徳政令の要求', '町衆による京都の復興', '貴族による荘園の拡大'],
           correctIndex: 3,
           explanation: '貴族による荘園の拡大は平安時代の現象であり、室町時代の民衆の力の成長には含まれません。',
+          difficulty: 'standard',
         },
         {
           id: 'q20',
@@ -217,6 +236,7 @@ export const muromachiPeople: Topic = {
           options: ['年貢の増税', '借金の帳消し', '土地の没収', '農業の禁止'],
           correctIndex: 1,
           explanation: '徳政令は借金の帳消しを命じる法令で、土一揆の農民たちが幕府に発布を求めました。',
+          difficulty: 'standard',
         },
         {
           id: 'q21',
@@ -224,6 +244,7 @@ export const muromachiPeople: Topic = {
           options: ['天神祭', '祇園祭', '葵祭', '時代祭'],
           correctIndex: 1,
           explanation: '祇園祭は応仁の乱で中断した後、町衆の力で復活した京都の有名な祭りです。',
+          difficulty: 'standard',
         },
         {
           id: 'q22',
@@ -231,6 +252,7 @@ export const muromachiPeople: Topic = {
           options: ['口頭で伝えた', '幕府が作成した', '文書で明確に定めた', '仏教の教えに基づいた'],
           correctIndex: 2,
           explanation: '惣の掟は文書で明確に定められた村の規約で、農民の自治意識の高さを示しています。',
+          difficulty: 'standard',
         },
         {
           id: 'q23',
@@ -238,6 +260,7 @@ export const muromachiPeople: Topic = {
           options: ['幕府が民衆に権限を与えた', '農業や商業の発展で経済力が向上し団結力が強まった', '外国からの影響', '天皇が命じた'],
           correctIndex: 1,
           explanation: '農業や商業の発展で経済力が向上し、農民や商人が団結して自治を行う力を持つようになりました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q24',
@@ -245,6 +268,7 @@ export const muromachiPeople: Topic = {
           options: ['稲作', '薪や草などの採取', '商業活動', '軍事訓練'],
           correctIndex: 1,
           explanation: '入会地では村人が共同で薪や草などを採取し、農業や生活に必要な資源を確保しました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q25',
@@ -252,6 +276,7 @@ export const muromachiPeople: Topic = {
           options: ['幕府が組織した', '惣の自治経験で団結力が育っていたため', '外国の支援', '寺社の命令'],
           correctIndex: 1,
           explanation: '惣による自治の経験で農民の団結力が育っており、それが土一揆での組織的な行動につながりました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q26',
@@ -259,6 +284,7 @@ export const muromachiPeople: Topic = {
           options: ['同じもの', '土一揆は借金帳消し要求、一向一揆は宗教的な団結', '土一揆は武士の運動', '一向一揆は農業の改善運動'],
           correctIndex: 1,
           explanation: '土一揆は借金帳消し（徳政令）を求める経済的な運動で、一向一揆は浄土真宗の信仰による宗教的な団結です。',
+          difficulty: 'advanced',
         },
         {
           id: 'q27',
@@ -266,6 +292,7 @@ export const muromachiPeople: Topic = {
           options: ['独裁制', '合議制', '世襲制', '選挙制'],
           correctIndex: 1,
           explanation: '会合衆は合議制で堺の自治を行い、有力商人が話し合いで方針を決定しました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q28',
@@ -273,6 +300,7 @@ export const muromachiPeople: Topic = {
           options: ['貴族が衰退しただけ', '農村では惣、都市では町衆が自治を行い、不満があれば一揆を起こすなど社会を動かした', '外国からの支援があった', '幕府が民衆を優遇した'],
           correctIndex: 1,
           explanation: '農村では惣、都市では町衆が自治を行い、不満があれば土一揆を起こすなど、民衆が社会を動かす力を持ちました。',
+          difficulty: 'advanced',
         },
       ],
     },

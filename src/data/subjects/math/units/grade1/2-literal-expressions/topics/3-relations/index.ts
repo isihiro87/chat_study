@@ -59,82 +59,99 @@ export const literalRelations: Topic = {
       {
         id: 'math-g1-lit-relations-fc1',
         front: '2つの数量が等しいことを、等号（=）を使って表した式。\n例: $x + 3 = 10$', back: '等式とは？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g1-lit-relations-fc2',
         front: '等号（=）の左側の部分。\n例: $x + 3 = 10$ の左辺は $x + 3$', back: '左辺とは？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g1-lit-relations-fc3',
         front: '等号（=）の右側の部分。\n例: $x + 3 = 10$ の右辺は $10$', back: '右辺とは？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g1-lit-relations-fc4',
         front: '左辺と右辺を合わせた呼び方。\n等式の両辺に同じ数を足しても等式は成り立つ。', back: '両辺とは？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g1-lit-relations-fc5',
         front: '2つの数量の大小関係を、不等号を使って表した式。\n不等号: $>$, $<$, $\\geqq$, $\\leqq$', back: '不等式とは？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g1-lit-relations-fc6',
         front: '$a$ は $b$ より大きい\n（$b$ は含まない）', back: '$a > b$ の意味は？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g1-lit-relations-fc7',
         front: '$a$ は $b$ より小さい\n（$b$ は含まない）', back: '$a < b$ の意味は？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g1-lit-relations-fc8',
         front: '$a$ は $b$ 以上\n（$b$ と等しいか、$b$ より大きい）', back: '$a \\geqq b$ の意味は？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g1-lit-relations-fc9',
         front: '$a$ は $b$ 以下\n（$b$ と等しいか、$b$ より小さい）', back: '$a \\leqq b$ の意味は？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g1-lit-relations-fc10',
         front: '「以上」→ その数を含む（$\\geqq$）\n「より大きい」→ その数を含まない（$>$）\n例: 10以上 → 10, 11, 12...\n10より大きい → 11, 12...', back: '「以上」と「より大きい」の違いは？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g1-lit-relations-fc11',
         front: '「以下」→ その数を含む（$\\leqq$）\n「未満」「より小さい」→ その数を含まない（$<$）\n例: 10以下 → ..., 9, 10\n10未満 → ..., 8, 9', back: '「以下」と「より小さい（未満）」の違いは？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g1-lit-relations-fc12',
         front: '$<$（より小さい）を使う。\n例: 「$x$ は30未満」→ $x < 30$\n「未満」=「より小さい」と同じ意味。', back: '「未満」を不等号で表すと？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g1-lit-relations-fc13',
         front: '「1個 $x$ 円のりんごを4個で600円」\n→ $4x = 600$\n代金 = 単価 × 個数', back: '代金の等式の例を1つ挙げよう',
+        difficulty: 'standard',
       },
       {
         id: 'math-g1-lit-relations-fc14',
         front: '「1本 $a$ 円のペンを5本で1000円以下」\n→ $5a \\leqq 1000$', back: '不等式の例（以下）を1つ挙げよう',
+        difficulty: 'standard',
       },
       {
         id: 'math-g1-lit-relations-fc15',
         front: '以上 → $\\geqq$\n以下 → $\\leqq$\nより大きい → $>$\nより小さい・未満 → $<$\nポイント: 「以」がつくとその数を含む！', back: '日本語と不等号の対応表',
+        difficulty: 'standard',
       },
       {
         id: 'math-g1-lit-relations-fc16',
         front: '道のり = 速さ × 時間\n速さ = 道のり ÷ 時間\n時間 = 道のり ÷ 速さ', back: '速さ・時間・道のりの関係式は？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g1-lit-relations-fc17',
         front: '$x$ 割引き → 定価の $(1 - 0.x)$ 倍\n例: 3割引き → 定価の $0.7$ 倍\n定価 $a$ 円の3割引き = $0.7a$ 円', back: '割引きの等式の立て方は？',
+        difficulty: 'standard',
       },
-      { id: 'math-g1-lit-relations-fc18', front: '$a \times b = S$（縦 $a$、横 $b$、面積 $S$）', back: '長方形の面積を等式で表すと？' },
-      { id: 'math-g1-lit-relations-fc19', front: '$\dfrac{a}{b}$（$a$ を $b$ で割った商）', back: '文字式で割り算を表す方法は？→ 分数で書く' },
-      { id: 'math-g1-lit-relations-fc20', front: '$a < x < b$（$a$ より大きく $b$ より小さい。$a, b$ は含まない）', back: '「$x$ は $a$ より大きく $b$ より小さい」を不等式で表すと？' },
-      { id: 'math-g1-lit-relations-fc21', front: '等式: 2つの量が等しい($=$)。不等式: 2つの量に大小関係がある($<, >, \leqq, \geqq$)', back: '等式と不等式の違いは？' },
-      { id: 'math-g1-lit-relations-fc22', front: '両辺に同じ数を足しても引いても、かけても割っても等式は成り立つ', back: '等式の性質とは？' },
-      { id: 'math-g1-lit-relations-fc23', front: '「～以上」→ $\geqq$（含む）。「～より大きい」→ $>$（含まない）。含むか含まないかがポイント', back: '「以上」と「より大きい」の使い分けのポイントは？' },
-      { id: 'math-g1-lit-relations-fc24', front: '$2 \pi r$（半径 $r$ の円の円周）', back: '円周の公式を文字式で表すと？' },
-      { id: 'math-g1-lit-relations-fc25', front: '$V = \dfrac{4}{3}\pi r^3$（半径 $r$ の球の体積）', back: '球の体積の公式を文字式で表すと？' },
-      { id: 'math-g1-lit-relations-fc26', front: '文字がどんな値でも成り立つ等式（恒等式）。例: $a + b = b + a$', back: '恒等式とは？' },
-      { id: 'math-g1-lit-relations-fc27', front: '特定の値のときだけ成り立つ等式。例: $x + 3 = 7$（$x = 4$ のときだけ成立）', back: '方程式とは？' },
-      { id: 'math-g1-lit-relations-fc28', front: '$a + b + c \leqq 30$（3つの辺の長さの合計が $30$ 以下）', back: '「三角形の周の長さが $30$ cm 以下」を不等式で表すと？' },
+      { id: 'math-g1-lit-relations-fc18', front: '$a \times b = S$（縦 $a$、横 $b$、面積 $S$）', back: '長方形の面積を等式で表すと？', difficulty: 'standard' },
+      { id: 'math-g1-lit-relations-fc19', front: '$\dfrac{a}{b}$（$a$ を $b$ で割った商）', back: '文字式で割り算を表す方法は？→ 分数で書く', difficulty: 'standard' },
+      { id: 'math-g1-lit-relations-fc20', front: '$a < x < b$（$a$ より大きく $b$ より小さい。$a, b$ は含まない）', back: '「$x$ は $a$ より大きく $b$ より小さい」を不等式で表すと？', difficulty: 'standard' },
+      { id: 'math-g1-lit-relations-fc21', front: '等式: 2つの量が等しい($=$)。不等式: 2つの量に大小関係がある($<, >, \leqq, \geqq$)', back: '等式と不等式の違いは？', difficulty: 'standard' },
+      { id: 'math-g1-lit-relations-fc22', front: '両辺に同じ数を足しても引いても、かけても割っても等式は成り立つ', back: '等式の性質とは？', difficulty: 'standard' },
+      { id: 'math-g1-lit-relations-fc23', front: '「～以上」→ $\geqq$（含む）。「～より大きい」→ $>$（含まない）。含むか含まないかがポイント', back: '「以上」と「より大きい」の使い分けのポイントは？', difficulty: 'advanced' },
+      { id: 'math-g1-lit-relations-fc24', front: '$2 \pi r$（半径 $r$ の円の円周）', back: '円周の公式を文字式で表すと？', difficulty: 'advanced' },
+      { id: 'math-g1-lit-relations-fc25', front: '$V = \dfrac{4}{3}\pi r^3$（半径 $r$ の球の体積）', back: '球の体積の公式を文字式で表すと？', difficulty: 'advanced' },
+      { id: 'math-g1-lit-relations-fc26', front: '文字がどんな値でも成り立つ等式（恒等式）。例: $a + b = b + a$', back: '恒等式とは？', difficulty: 'advanced' },
+      { id: 'math-g1-lit-relations-fc27', front: '特定の値のときだけ成り立つ等式。例: $x + 3 = 7$（$x = 4$ のときだけ成立）', back: '方程式とは？', difficulty: 'advanced' },
+      { id: 'math-g1-lit-relations-fc28', front: '$a + b + c \leqq 30$（3つの辺の長さの合計が $30$ 以下）', back: '「三角形の周の長さが $30$ cm 以下」を不等式で表すと？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -150,6 +167,7 @@ export const literalRelations: Topic = {
           correctIndex: 3,
           explanation:
             '「$x$ に $5$ を足す」は $x + 5$、「$12$ になる」は $= 12$。だから $x + 5 = 12$ だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g1-lit-relations-q2',
@@ -163,6 +181,7 @@ export const literalRelations: Topic = {
           correctIndex: 1,
           explanation:
             '「$a$ は $100$ より大きい」は $a > 100$ だよ。「以上」ではなく「より大きい」なので $\\geqq$ ではなく $>$ を使うんだ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g1-lit-relations-q3',
@@ -177,6 +196,7 @@ export const literalRelations: Topic = {
           correctIndex: 0,
           explanation:
             '代金は $x \\times 3 = 3x$ 円。「$500$ 円以下」だから $3x \\leqq 500$ だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g1-lit-relations-q4',
@@ -190,6 +210,7 @@ export const literalRelations: Topic = {
           correctIndex: 2,
           explanation:
             '不等号（$>$, $<$, $\\geqq$, $\\leqq$）を使っている式が不等式だよ。$5a - 3 > 7$ は $>$ を使っているから不等式だね。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g1-lit-relations-q5',
@@ -204,6 +225,7 @@ export const literalRelations: Topic = {
           correctIndex: 1,
           explanation:
             '2個買った代金は $2a$ 円。1000円から引いたおつりが $b$ 円だから、$1000 - 2a = b$ だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g1-lit-relations-q6',
@@ -218,6 +240,7 @@ export const literalRelations: Topic = {
           correctIndex: 2,
           explanation:
             '道のり = 速さ × 時間 だから、$vt = d$ が正しいよ。$\\dfrac{d}{v} = t$ も正しい等式だけど、問題の文に合う形は $vt = d$ だね。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g1-lit-relations-q7',
@@ -232,6 +255,7 @@ export const literalRelations: Topic = {
           correctIndex: 0,
           explanation:
             '2割引きは定価の $1 - 0.2 = 0.8$ 倍。だから $0.8a = b$ だよ。2割引き ≠ 2円引きに注意！',
+          difficulty: 'basic',
         },
         {
           id: 'math-g1-lit-relations-q8',
@@ -246,6 +270,7 @@ export const literalRelations: Topic = {
           correctIndex: 3,
           explanation:
             '$50x$ は「1個50円のあめ $x$ 個の代金」、$30y$ は「1個30円のガム $y$ 個の代金」。合計が410円という意味だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g1-lit-relations-q9',
@@ -260,6 +285,7 @@ export const literalRelations: Topic = {
           correctIndex: 2,
           explanation:
             '配った本数は $4x$ 本。残りは $n - 4x$ 本。「10本以上」だから $n - 4x \\geqq 10$ だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g1-lit-relations-q10',
@@ -274,6 +300,7 @@ export const literalRelations: Topic = {
           correctIndex: 3,
           explanation:
             '長方形の面積は $ab$ cm²。「未満」は「より小さい」なので $<$ を使って $ab < 100$ だよ。$\\leqq$（以下）ではないことに注意！',
+          difficulty: 'basic',
         },
         {
           id: 'math-g1-lit-relations-q11',
@@ -287,6 +314,7 @@ export const literalRelations: Topic = {
           correctIndex: 1,
           explanation:
             '「以上」「以下」はその数を含むから $\\leqq$ を使うよ。$5 \\leqq x \\leqq 15$ と書くんだ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g1-lit-relations-q12',
@@ -301,6 +329,7 @@ export const literalRelations: Topic = {
           correctIndex: 0,
           explanation:
             '時間 = 道のり ÷ 速さ なので、$\\dfrac{a}{4} = b$ は「$a$ kmを時速4kmで歩くと $b$ 時間かかる」という意味だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g1-lit-relations-q13',
@@ -308,6 +337,7 @@ export const literalRelations: Topic = {
           options: ['$3 < x < 10$', '$3 \leqq x \leqq 10$', '$3 \leqq x < 10$', '$3 < x \leqq 10$'],
           correctIndex: 2,
           explanation: '「以上」は $\leqq$、「未満」は $<$ だから $3 \leqq x < 10$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g1-lit-relations-q14',
@@ -315,6 +345,7 @@ export const literalRelations: Topic = {
           options: ['$b - 5a = c$', '$5a - b = c$', '$5a + c = b$', '$a - 5b = c$'],
           correctIndex: 0,
           explanation: 'おつり $=$ 支払い $-$ 代金。$b - 5a = c$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g1-lit-relations-q15',
@@ -322,6 +353,7 @@ export const literalRelations: Topic = {
           options: ['$a + b = b + a$', '$x + 3 = 10$', '$2(a + b) = 2a + 2b$', '$a \times 1 = a$'],
           correctIndex: 1,
           explanation: '$x + 3 = 10$ は $x = 7$ のときだけ成り立つので方程式だよ。他は恒等式。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g1-lit-relations-q16',
@@ -329,6 +361,7 @@ export const literalRelations: Topic = {
           options: ['$S = 2\pi r$', '$S = \pi r^2$', '$S = \pi r$', '$S = 2\pi r^2$'],
           correctIndex: 1,
           explanation: '円の面積 $= \pi r^2$ だから $S = \pi r^2$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g1-lit-relations-q17',
@@ -336,6 +369,7 @@ export const literalRelations: Topic = {
           options: ['$a > 50$', '$a < 50$', '$a \geqq 50$', '$a \leqq 50$'],
           correctIndex: 3,
           explanation: '「以下」はその数を含むから $\leqq$ を使って $a \leqq 50$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g1-lit-relations-q18',
@@ -343,6 +377,7 @@ export const literalRelations: Topic = {
           options: ['$12$', '$3x$', '$3x + 2y$', '$2y$'],
           correctIndex: 2,
           explanation: '等号の左側が左辺。$3x + 2y$ が左辺だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g1-lit-relations-q19',
@@ -350,6 +385,7 @@ export const literalRelations: Topic = {
           options: ['$5n - 3 = m$', '$5n + 3 = m$', '$5n = m + 3$', '$n + 5 = m - 3$'],
           correctIndex: 1,
           explanation: '配った枚数 $5n$ と余り $3$ の合計がカード全部 $m$ 枚。$5n + 3 = m$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g1-lit-relations-q20',
@@ -357,6 +393,7 @@ export const literalRelations: Topic = {
           options: ['$y \geqq 0$', '$y > 0$', '$y < 0$', '$y \leqq 0$'],
           correctIndex: 1,
           explanation: '「より大きい」は $>$ を使うよ。$0$ は含まないから $y > 0$ だね。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g1-lit-relations-q21',
@@ -364,6 +401,7 @@ export const literalRelations: Topic = {
           options: ['$4x + 300 \leqq 2000$', '$4x + 300 < 2000$', '$4x + 300 > 2000$', '$4x + 300 \geqq 2000$'],
           correctIndex: 0,
           explanation: '$2$ kg $= 2000$ g。「以下」は $\leqq$ だから $4x + 300 \leqq 2000$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g1-lit-relations-q22',
@@ -371,6 +409,7 @@ export const literalRelations: Topic = {
           options: ['$S = ah$', '$S = \dfrac{ah}{2}$', '$S = 2ah$', '$S = \dfrac{a + h}{2}$'],
           correctIndex: 1,
           explanation: '三角形の面積 $= \dfrac{底辺 \times 高さ}{2} = \dfrac{ah}{2}$ だから $S = \dfrac{ah}{2}$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g1-lit-relations-q23',
@@ -378,6 +417,7 @@ export const literalRelations: Topic = {
           options: ['$-5 < x < 5$', '$-5 \leqq x \leqq 5$', '$-5 \leqq x < 5$', '$x \leqq 5$'],
           correctIndex: 1,
           explanation: '「以上」「以下」はともに $\leqq$ を使うよ。$-5 \leqq x \leqq 5$ だね。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g1-lit-relations-q24',
@@ -385,6 +425,7 @@ export const literalRelations: Topic = {
           options: ['不等式', '方程式', '恒等式', '不等号'],
           correctIndex: 1,
           explanation: '$x = 5$ のときだけ成り立つから方程式だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g1-lit-relations-q25',
@@ -392,6 +433,7 @@ export const literalRelations: Topic = {
           options: ['$vt \leqq 1000$', '$vt > 1000$', '$vt \geqq 1000$', '$vt < 1000$'],
           correctIndex: 2,
           explanation: '道のり $= vt$。「以上」は $\geqq$ だから $vt \geqq 1000$ だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g1-lit-relations-q26',
@@ -399,6 +441,7 @@ export const literalRelations: Topic = {
           options: ['$a + b$ は $c$ と等しい', '$a + b$ は $c$ 以上', '$a + b$ は $c$ と等しくない', '$a + b$ は $c$ 以下'],
           correctIndex: 2,
           explanation: '$\neq$ は「等しくない」を表す記号だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g1-lit-relations-q27',
@@ -406,6 +449,7 @@ export const literalRelations: Topic = {
           options: ['$an > 1000$', '$an \leqq 1000$', '$an < 1000$', '$an \geqq 1000$'],
           correctIndex: 1,
           explanation: '「以内」は「以下」と同じ意味。$an \leqq 1000$ だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g1-lit-relations-q28',
@@ -413,6 +457,7 @@ export const literalRelations: Topic = {
           options: ['$x + 3 = y$', '$x - y = 3$', '$x - 3 = y$', '$y - x = 3$'],
           correctIndex: 2,
           explanation: '出席者 $=$ 全体 $-$ 欠席者。$x - 3 = y$ だよ。',
+          difficulty: 'advanced',
         },
       ],
     },

@@ -34,56 +34,16 @@ export const constitution: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'fc1',
-        front: '日本国憲法',
-        back: '1946年に公布された日本の基本法を何という？',
-      },
-      {
-        id: 'fc2',
-        front: '国民主権',
-        back: '政治のあり方を決める最高権力が国民にある原則は？',
-      },
-      {
-        id: 'fc3',
-        front: '基本的人権の尊重',
-        back: '憲法で、人が生まれながらに持つ権利を大切にする原則は？',
-      },
-      {
-        id: 'fc4',
-        front: '平和主義',
-        back: '憲法で定められた、戦争を永久に放棄する原則は？',
-      },
-      {
-        id: 'fc5',
-        front: '（日本国および日本国民統合の）象徴',
-        back: '日本国憲法において天皇が定められた地位は？',
-      },
-      {
-        id: 'fc6',
-        front: '農地改革',
-        back: '政府が地主の土地を買い上げ小作人に売った改革を何という？',
-      },
-      {
-        id: 'fc7',
-        front: '財閥解体',
-        back: '日本経済を支配した巨大独占資本を解体する改革は？',
-      },
-      {
-        id: 'fc8',
-        front: '労働組合法',
-        back: '労働者の団結権や団体交渉権を認めた法律は？',
-      },
-      {
-        id: 'fc9',
-        front: '教育基本法',
-        back: '1947年に公布された、民主教育の土台となる法は？',
-      },
-      {
-        id: 'fc10',
-        front: '労働基準法',
-        back: '労働条件の最低基準を定めるために制定された法は？',
-      },
+      { id: 'fc1', front: '日本国憲法', back: '1946年に公布され、1947年に施行された日本の基本法は？', difficulty: 'basic' },
+      { id: 'fc2', front: '国民主権', back: '日本国憲法の三大原則の一つで、政治のあり方を決める最高権力が国民にある原則は？', difficulty: 'basic' },
+      { id: 'fc3', front: '基本的人権の尊重', back: '日本国憲法の三大原則の一つで、人が生まれながらに持つ権利を大切にする原則は？', difficulty: 'basic' },
+      { id: 'fc4', front: '平和主義', back: '日本国憲法の三大原則の一つで、戦争を永久に放棄する原則は？', explanation: '第9条に定められている。', difficulty: 'basic' },
+      { id: 'fc5', front: '象徴天皇', back: '日本国憲法において天皇は「日本国および日本国民統合の象徴」と定められたが、この地位を何という？', difficulty: 'standard' },
+      { id: 'fc6', front: '農地改革', back: '政府が地主の土地を買い上げ小作人に売った改革を何という？', explanation: '多くの小作人が自作農となった。', difficulty: 'standard' },
+      { id: 'fc7', front: '労働組合法', back: '労働者の団結権や団体交渉権を認めた法律は？', difficulty: 'standard' },
+      { id: 'fc8', front: '教育基本法', back: '1947年に公布された、民主教育の土台となる法律は？', difficulty: 'standard' },
+      { id: 'fc9', front: '第9条', back: '日本国憲法で戦争の放棄を定めた、世界でも類を見ない条文は第何条？', difficulty: 'advanced' },
+      { id: 'fc10', front: '戦後の民主化改革の全体像', back: '日本国憲法の制定以外に、GHQ主導で行われた主な社会改革を3つ挙げよ', explanation: '農地改革・財閥解体・労働三法（労働組合法・労働基準法など）の整備。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -94,6 +54,7 @@ export const constitution: Topic = {
           correctIndex: 3,
           explanation:
             '日本国憲法の三大原則は国民主権・基本的人権の尊重・平和主義です。富国強兵は明治時代のスローガンです。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -102,6 +63,7 @@ export const constitution: Topic = {
           correctIndex: 1,
           explanation:
             '農地改革により多くの小作人が自分の土地を持つ自作農となりました。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -110,6 +72,7 @@ export const constitution: Topic = {
           correctIndex: 0,
           explanation:
             '日本国憲法では天皇は「日本国および日本国民統合の象徴」と定められました。',
+          difficulty: 'basic',
         },
         {
           id: 'q4',
@@ -118,6 +81,7 @@ export const constitution: Topic = {
           correctIndex: 2,
           explanation:
             '日本国憲法は1946年11月3日に公布され、翌1947年5月3日に施行されました。',
+          difficulty: 'standard',
         },
         {
           id: 'q5',
@@ -127,6 +91,7 @@ export const constitution: Topic = {
           correctIndex: 2,
           explanation:
             '第9条は戦争の放棄を定めた条文で、世界でも類を見ない平和憲法として知られています。',
+          difficulty: 'standard',
         },
         {
           id: 'q6',
@@ -136,6 +101,7 @@ export const constitution: Topic = {
           correctIndex: 3,
           explanation:
             '財閥解体は三井・三菱などの巨大な独占資本を解体し、経済の民主化を進めた改革です。',
+          difficulty: 'standard',
         },
       ],
     },

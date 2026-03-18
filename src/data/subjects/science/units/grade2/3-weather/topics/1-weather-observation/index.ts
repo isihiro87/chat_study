@@ -105,158 +105,24 @@ export const weatherObservation: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'sci2-wobs-fc1',
-        front: '雲量と天気の関係',
-        back: '雲量0〜1は快晴、2〜8は晴れ、9〜10はくもり',
-        explanation:
-          '天気は空全体を10としたときの雲の割合（雲量）で決まります。',
-      },
-      {
-        id: 'sci2-wobs-fc2',
-        front: '乾湿計',
-        back: '乾球温度計と湿球温度計の2本を使って気温と湿度を測定する器具',
-        explanation:
-          '湿球温度計はガーゼで包まれており、水が蒸発するときに熱を奪うため乾球より低い値を示します。乾球と湿球の差から湿度を求めます。',
-      },
-      {
-        id: 'sci2-wobs-fc3',
-        front: '圧力の公式',
-        back: '圧力〔Pa〕＝ 力〔N〕÷ 面積〔m²〕',
-        explanation:
-          '1Paは1m²の面を1Nの力で垂直に押すときの圧力です。',
-      },
-      {
-        id: 'sci2-wobs-fc4',
-        front: '圧力と面積の関係',
-        back: '同じ力でも面積が小さいほど圧力は大きくなる',
-        explanation:
-          'スキー板は面積が大きいため雪に沈みにくく、ハイヒールは面積が小さいため圧力が大きくなります。',
-      },
-      {
-        id: 'sci2-wobs-fc5',
-        front: '100g ＝ 何N？',
-        back: '100gの物体にはたらく重力は約1N',
-        explanation:
-          '圧力の計算では、まず質量（g）を重力（N）に変換する必要があります。500g → 5N、1kg → 10Nです。',
-      },
-      {
-        id: 'sci2-wobs-fc6',
-        front: '天気図記号（天気）',
-        back: '○＝快晴、◎＝晴れ、●＝くもり',
-        explanation:
-          '天気図では天気を記号で表します。○の中心から伸びる棒と矢羽根で風向・風力も表します。',
-      },
-      {
-        id: 'sci2-wobs-fc7',
-        front: '雲量',
-        back: '空全体を10としたときの雲の割合',
-      },
-      {
-        id: 'sci2-wobs-fc8',
-        front: '快晴',
-        back: '雲量0〜1の天気',
-      },
-      {
-        id: 'sci2-wobs-fc9',
-        front: '晴れ',
-        back: '雲量2〜8の天気',
-      },
-      {
-        id: 'sci2-wobs-fc10',
-        front: 'くもり',
-        back: '雲量9〜10の天気',
-      },
-      {
-        id: 'sci2-wobs-fc11',
-        front: '乾湿計',
-        back: '気温と湿度を同時測定する器具',
-      },
-      {
-        id: 'sci2-wobs-fc12',
-        front: '乾球と湿球の差が大→湿度は？',
-        back: '低い。乾燥して蒸発盛ん→湿球温度が下がる',
-      },
-      {
-        id: 'sci2-wobs-fc13',
-        front: '圧力の公式',
-        back: '圧力[Pa]＝力[N]÷面積[m²]',
-      },
-      {
-        id: 'sci2-wobs-fc14',
-        front: 'パスカル（Pa）',
-        back: '1m²を1Nで押す圧力',
-      },
-      {
-        id: 'sci2-wobs-fc15',
-        front: '100g≒1N',
-        back: '質量100gの重力は約1N',
-      },
-      {
-        id: 'sci2-wobs-fc16',
-        front: '面積半分→圧力2倍',
-        back: '同じ力で面積半分なら圧力は2倍',
-      },
-      {
-        id: 'sci2-wobs-fc17',
-        front: 'スキー板の原理',
-        back: '接地面積大→圧力小→沈みにくい',
-      },
-      {
-        id: 'sci2-wobs-fc18',
-        front: '乾球＝湿球→湿度100%',
-        back: '蒸発しなくなり示度の差がなくなる',
-      },
-      {
-        id: 'sci2-wobs-fc19',
-        front: '湿球が低い理由',
-        back: 'ガーゼの水の蒸発で熱がうばわれるため',
-      },
-      {
-        id: 'sci2-wobs-fc20',
-        front: '湿度の求め方',
-        back: '乾球と湿球の差＋湿度表',
-      },
-      {
-        id: 'sci2-wobs-fc21',
-        front: '力2倍→圧力2倍',
-        back: '圧力は力に比例',
-      },
-      {
-        id: 'sci2-wobs-fc22',
-        front: 'ハイヒールの原理',
-        back: '接地面積小→同じ体重でも圧力大',
-      },
-      {
-        id: 'sci2-wobs-fc23',
-        front: '雲量5の天気',
-        back: '晴れ（雲量2〜8）',
-      },
-      {
-        id: 'sci2-wobs-fc24',
-        front: '湿球温度計のガーゼ',
-        back: '水で濡らしたガーゼが巻かれている',
-      },
-      {
-        id: 'sci2-wobs-fc25',
-        front: '500g≒5N',
-        back: '質量500gの重力は約5N',
-      },
-      {
-        id: 'sci2-wobs-fc26',
-        front: '1Pa＝1m²に1N',
-        back: '1m²の面を1Nの力で垂直に押す圧力',
-      },
-      {
-        id: 'sci2-wobs-fc27',
-        front: '雲量1の天気',
-        back: '快晴（雲量0〜1）',
-      },
-      {
-        id: 'sci2-wobs-fc28',
-        front: '乾湿計の構成',
-        back: '乾球温度計と湿球温度計の2本',
-      }
+      { id: 'sci2-wobs-fc1', front: '雲量0〜1は快晴、2〜8は晴れ、9〜10はくもり', back: '天気は雲量でどのように決まる？', difficulty: 'basic' },
+      { id: 'sci2-wobs-fc2', front: '乾球温度計と湿球温度計の2本で気温と湿度を測定する器具', back: '乾湿計とはどのような器具？', difficulty: 'basic' },
+      { id: 'sci2-wobs-fc3', front: '圧力〔Pa〕＝力〔N〕÷面積〔m²〕', back: '圧力を求める公式は？', difficulty: 'basic' },
+      { id: 'sci2-wobs-fc4', front: '空全体を10としたときの雲の割合', back: '雲量とは何？', difficulty: 'basic' },
+      { id: 'sci2-wobs-fc5', front: '約1N', back: '100gの物体にはたらく重力は約何N？', difficulty: 'basic' },
+      { id: 'sci2-wobs-fc6', front: '○＝快晴、◎＝晴れ、●＝くもり', back: '天気図記号で天気はどう表す？', difficulty: 'basic' },
+      { id: 'sci2-wobs-fc7', front: '低い。乾燥して蒸発が盛んなため湿球温度が下がる', back: '乾球と湿球の差が大きいとき、湿度は高い？低い？', difficulty: 'basic' },
+      { id: 'sci2-wobs-fc8', front: '同じ力でも面積が小さいほど圧力は大きくなる', back: '圧力と面積の関係は？', difficulty: 'standard' },
+      { id: 'sci2-wobs-fc9', front: '1m²の面を1Nの力で垂直に押すときの圧力', back: '1Pa（パスカル）とはどのような圧力？', difficulty: 'standard' },
+      { id: 'sci2-wobs-fc10', front: '接地面積が大きいため圧力が小さくなり沈みにくい', back: 'スキー板で雪に沈みにくいのはなぜ？', difficulty: 'standard' },
+      { id: 'sci2-wobs-fc11', front: '100%。蒸発しなくなり示度の差がゼロになる', back: '乾球と湿球の温度が等しいとき、湿度は何%？', difficulty: 'standard' },
+      { id: 'sci2-wobs-fc12', front: 'ガーゼの水が蒸発するときに熱をうばうため', back: '湿球温度計が乾球温度計より低い値を示す理由は？', difficulty: 'standard' },
+      { id: 'sci2-wobs-fc13', front: '乾球と湿球の示度の差を求め、湿度表で読み取る', back: '乾湿計で湿度はどのように求める？', difficulty: 'standard' },
+      { id: 'sci2-wobs-fc14', front: '2倍になる。圧力は力に比例する', back: '力を2倍にすると圧力はどうなる？', difficulty: 'standard' },
+      { id: 'sci2-wobs-fc15', front: '接地面積が小さいため同じ体重でも圧力が大きくなる', back: 'ハイヒールで足が痛くなるのはなぜ？', difficulty: 'standard' },
+      { id: 'sci2-wobs-fc16', front: '晴れ（雲量2〜8）', back: '雲量5のとき天気は何？', difficulty: 'advanced' },
+      { id: 'sci2-wobs-fc17', front: '50cm²÷10000＝0.005m²', back: '面積50cm²をm²に変換すると？（1m²＝10000cm²）', difficulty: 'advanced' },
+      { id: 'sci2-wobs-fc18', front: '気象観測の要素ではない（地震は地質現象）', back: '気温・湿度・風力・地震の大きさのうち、気象観測要素でないのは？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -267,7 +133,8 @@ export const weatherObservation: Topic = {
           correctIndex: 0,
           explanation:
             '雲量2〜8は「晴れ」です。雲量0〜1が快晴、9〜10がくもりです。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-wobs-q2',
           question: '気温と湿度を同時に測定できる器具は？',
@@ -275,7 +142,8 @@ export const weatherObservation: Topic = {
           correctIndex: 3,
           explanation:
             '乾湿計は乾球温度計と湿球温度計の2本からなり、気温と湿度を測定できます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-wobs-q3',
           question: '圧力の単位として正しいものはどれ？',
@@ -283,7 +151,8 @@ export const weatherObservation: Topic = {
           correctIndex: 2,
           explanation:
             '圧力の単位はPa（パスカル）です。1Pa＝1N/m²。N（ニュートン）は力の単位です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-wobs-q4',
           question: '質量200gの物体を0.004m²の面に置いたとき、圧力は何Paか？（100g＝1N）',
@@ -291,7 +160,8 @@ export const weatherObservation: Topic = {
           correctIndex: 1,
           explanation:
             '200g→2N。圧力＝2N÷0.004m²＝500Pa。質量をNに変換してから計算するのがポイントです。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-wobs-q5',
           question: '面積50cm²をm²に変換すると何m²か？',
@@ -299,7 +169,8 @@ export const weatherObservation: Topic = {
           correctIndex: 3,
           explanation:
             '1m²＝10000cm²なので、50cm²÷10000＝0.005m²。圧力の計算では面積をm²に変換することが重要です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-wobs-q6',
           question: '1hPaは何Paか？',
@@ -307,7 +178,8 @@ export const weatherObservation: Topic = {
           correctIndex: 0,
           explanation:
             '1hPa＝100Pa。h（ヘクト）は100倍を意味する接頭辞です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-wobs-q7',
           question: '雲量5の天気は？',
@@ -315,7 +187,8 @@ export const weatherObservation: Topic = {
           correctIndex: 1,
           explanation:
             '雲量2〜8は晴れ。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-wobs-q8',
           question: '乾球と湿球の差が大→湿度は？',
@@ -323,7 +196,8 @@ export const weatherObservation: Topic = {
           correctIndex: 1,
           explanation:
             '乾燥で蒸発盛ん→差大→湿度低い。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-wobs-q9',
           question: '100gの重力は約何N？',
@@ -331,7 +205,8 @@ export const weatherObservation: Topic = {
           correctIndex: 1,
           explanation:
             '約1N。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-wobs-q10',
           question: '面積半分→圧力は？',
@@ -339,7 +214,8 @@ export const weatherObservation: Topic = {
           correctIndex: 2,
           explanation:
             '力÷面積で面積半分→2倍。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-wobs-q11',
           question: 'スキー板で沈みにくい理由は？',
@@ -347,7 +223,8 @@ export const weatherObservation: Topic = {
           correctIndex: 1,
           explanation:
             '接地面積大→圧力小。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-wobs-q12',
           question: '乾球＝湿球→湿度は？',
@@ -355,7 +232,8 @@ export const weatherObservation: Topic = {
           correctIndex: 3,
           explanation:
             '蒸発しなくなり100%。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-wobs-q13',
           question: 'Paの読み方は？',
@@ -363,7 +241,8 @@ export const weatherObservation: Topic = {
           correctIndex: 1,
           explanation:
             'パスカル。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-wobs-q14',
           question: '湿球温度計に巻かれているのは？',
@@ -371,7 +250,8 @@ export const weatherObservation: Topic = {
           correctIndex: 1,
           explanation:
             '水で濡らしたガーゼ。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-wobs-q15',
           question: '雲量0の天気は？',
@@ -379,7 +259,8 @@ export const weatherObservation: Topic = {
           correctIndex: 1,
           explanation:
             '雲量0〜1は快晴。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-wobs-q16',
           question: '力2倍→圧力は？',
@@ -387,7 +268,8 @@ export const weatherObservation: Topic = {
           correctIndex: 2,
           explanation:
             '圧力は力に比例。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-wobs-q17',
           question: '雲量9の天気は？',
@@ -395,7 +277,8 @@ export const weatherObservation: Topic = {
           correctIndex: 2,
           explanation:
             '雲量9〜10はくもり。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-wobs-q18',
           question: '湿球が乾球より低い理由は？',
@@ -403,7 +286,8 @@ export const weatherObservation: Topic = {
           correctIndex: 1,
           explanation:
             '水の蒸発で温度低下。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-wobs-q19',
           question: 'ハイヒールが痛い理由は？',
@@ -411,7 +295,8 @@ export const weatherObservation: Topic = {
           correctIndex: 1,
           explanation:
             '接地面積小→圧力大。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-wobs-q20',
           question: '500gの重力は約何N？',
@@ -419,7 +304,8 @@ export const weatherObservation: Topic = {
           correctIndex: 1,
           explanation:
             '約5N。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-wobs-q21',
           question: '圧力の公式は？',
@@ -427,7 +313,8 @@ export const weatherObservation: Topic = {
           correctIndex: 2,
           explanation:
             '圧力＝力÷面積。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-wobs-q22',
           question: '天気を決める基準は？',
@@ -435,7 +322,8 @@ export const weatherObservation: Topic = {
           correctIndex: 2,
           explanation:
             '雲量で決まる。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-wobs-q23',
           question: '湿度を求めるために使うのは？',
@@ -443,7 +331,8 @@ export const weatherObservation: Topic = {
           correctIndex: 1,
           explanation:
             '乾球と湿球の差＋湿度表。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci2-wobs-q24',
           question: '差が小さい→湿度は？',
@@ -451,7 +340,8 @@ export const weatherObservation: Topic = {
           correctIndex: 1,
           explanation:
             '水蒸気多→蒸発少→差小→湿度高。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci2-wobs-q25',
           question: '雲量2の天気は？',
@@ -459,7 +349,8 @@ export const weatherObservation: Topic = {
           correctIndex: 1,
           explanation:
             '雲量2〜8は晴れ。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci2-wobs-q26',
           question: '乾湿計は何本の温度計？',
@@ -467,7 +358,8 @@ export const weatherObservation: Topic = {
           correctIndex: 1,
           explanation:
             '乾球と湿球の2本。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci2-wobs-q27',
           question: '雲量10の天気は？',
@@ -475,7 +367,8 @@ export const weatherObservation: Topic = {
           correctIndex: 2,
           explanation:
             '雲量9〜10はくもり。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci2-wobs-q28',
           question: '気象観測要素でないのは？',
@@ -483,7 +376,8 @@ export const weatherObservation: Topic = {
           correctIndex: 2,
           explanation:
             '地震は気象要素でない。',
-        }
+        difficulty: 'advanced',
+      }
       ],
     },
     examples: {

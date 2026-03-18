@@ -49,60 +49,70 @@ export const freedomMovement: Topic = {
         front: '自由民権運動',
         back: '国会開設と国民の権利拡大を求めた運動は？',
         explanation: '板垣退助らが中心となって全国に広まった。',
+        difficulty: 'basic',
       },
       {
         id: 'fc2',
         front: '板垣退助',
         back: '自由民権運動の中心となり、自由党を結成した政治家は？',
         explanation: '「板垣死すとも自由は死せず」の言葉で有名。',
+        difficulty: 'basic',
       },
       {
         id: 'fc3',
         front: '民撰議院設立の建白書',
         back: '1874年に板垣退助らが提出した、国会開設を求める文書は？',
         explanation: '自由民権運動の始まりとなった。',
+        difficulty: 'basic',
       },
       {
         id: 'fc4',
         front: '西南戦争',
         back: '1877年に西郷隆盛を中心に起きた、最大の士族の反乱は？',
         explanation: '政府軍の勝利で武力による抵抗は終わった。',
+        difficulty: 'basic',
       },
       {
         id: 'fc5',
         front: '国会期成同盟',
         back: '自由民権運動で結成された、国会開設を求める組織は？',
         explanation: '全国から2000人以上の代表が集まった。',
+        difficulty: 'standard',
       },
       {
         id: 'fc6',
         front: '自由党',
         back: '1881年に板垣退助を党首として結成された政党は？',
         explanation: 'フランス流の急進的な自由主義を主張した。',
+        difficulty: 'standard',
       },
       {
         id: 'fc7',
         front: '立憲改進党',
         back: '1882年に大隈重信を党首として結成された政党は？',
         explanation: 'イギリス流の穏健な議会政治を主張した。',
+        difficulty: 'standard',
       },
       {
         id: 'fc8',
         front: '大隈重信',
         back: '立憲改進党を結成した政治家は？',
         explanation: 'イギリス流の議会政治を主張した。',
+        difficulty: 'standard',
       },
       {
         id: 'fc9',
         front: '士族',
         back: '明治維新で特権を失い、不満を持った旧武士階級は？',
         explanation: '西南戦争などの反乱を起こした。',
+        difficulty: 'advanced',
       },
       {
         id: 'fc10',
         front: '国会開設の詔',
         back: '1881年に出された、10年後に国会を開くことを約束した詔は？',
         explanation: '政府が自由民権運動に押されて出した。',
+        difficulty: 'advanced',
       },
     ],
     quiz: {
@@ -120,6 +130,7 @@ export const freedomMovement: Topic = {
           correctIndex: 2,
           explanation:
             '民撰議院設立の建白書は藩閥政治を批判し、国会開設を求める自由民権運動の始まりとなりました。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -129,6 +140,7 @@ export const freedomMovement: Topic = {
           correctIndex: 0,
           explanation:
             '西南戦争は最大・最後の士族の反乱で、政府軍の勝利により武力による抵抗は終わりました。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -138,6 +150,7 @@ export const freedomMovement: Topic = {
           correctIndex: 3,
           explanation:
             '自由党はフランス流の急進的な自由主義を主張した日本初の政党の一つです。',
+          difficulty: 'basic',
         },
         {
           id: 'q4',
@@ -152,6 +165,7 @@ export const freedomMovement: Topic = {
           correctIndex: 1,
           explanation:
             '立憲改進党はイギリス流の穏健な議会政治を主張した政党です。',
+          difficulty: 'standard',
         },
         {
           id: 'q5',
@@ -166,6 +180,7 @@ export const freedomMovement: Topic = {
           correctIndex: 2,
           explanation:
             '西南戦争後、武力抵抗は終わり、自由民権運動は言論による国会開設要求が中心になりました。',
+          difficulty: 'standard',
         },
         {
           id: 'q6',
@@ -175,6 +190,7 @@ export const freedomMovement: Topic = {
           correctIndex: 0,
           explanation:
             '1881年に国会開設の詔が出され、10年後の1890年に国会を開くことが約束されました。',
+          difficulty: 'standard',
         },
       ],
     },

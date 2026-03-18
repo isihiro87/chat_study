@@ -56,34 +56,34 @@ export const mongolEmpire: Topic = {
     },
     videos: [],
     flashcards: [
-      { id: 'fc1', front: 'チンギス・ハン', back: '13世紀初めにモンゴルの遊牧民を統一し、モンゴル帝国を建てた人物は？' },
-      { id: 'fc2', front: 'フビライ・ハン', back: 'モンゴル帝国の第5代皇帝で、国号を元と定めた人物は？' },
-      { id: 'fc3', front: '元', back: 'フビライ・ハンが定めた国号は？' },
-      { id: 'fc4', front: '大都（現在の北京）', back: 'フビライ・ハンが元の都を置いた場所は？' },
-      { id: 'fc5', front: '騎兵', back: 'モンゴル軍の主力で、機動力で他国の軍を圧倒した兵種は？' },
-      { id: 'fc6', front: '遊牧民', back: 'チンギス・ハンが統一した、モンゴル高原の人々の生活形態は？' },
-      { id: 'fc7', front: '高麗', back: 'フビライ・ハンが従えた朝鮮半島の国は？' },
-      { id: 'fc8', front: 'マルコ・ポーロ', back: '元に仕え「世界の記述（東方見聞録）」を著したイタリア人は？' },
-      { id: 'fc9', front: '黄金の国ジパング', back: 'マルコ・ポーロが「世界の記述」で日本を紹介した呼び名は？' },
-      { id: 'fc10', front: '世界の記述（東方見聞録）', back: 'マルコ・ポーロが帰国後に著した、アジアの様子を伝える書物は？' },
-      { id: 'fc11', front: '交通路の整備', back: 'モンゴル帝国が東西交流を活発にするために行ったことは？' },
-      { id: 'fc12', front: 'ムスリム商人', back: 'インド洋交易の主要な担い手となった人々は？' },
-      { id: 'fc13', front: 'オスマン帝国', back: '13世紀末にモンゴル帝国が分裂した後、トルコで成立した国は？' },
-      { id: 'fc14', front: '柔軟な統治', back: 'モンゴル帝国が他民族の宗教や言語を認めた統治方針は？' },
-      { id: 'fc15', front: '大航海時代', back: '東方見聞録がヨーロッパに与えた影響で、のちにつながった時代は？' },
-      { id: 'fc16', front: 'ユーラシア大陸', back: 'モンゴル帝国がまたがった大陸の名前は？' },
-      { id: 'fc17', front: '朝貢', back: 'フビライ・ハンが日本や高麗に求めたことの一つは？' },
-      { id: 'fc18', front: '13世紀初め', back: 'チンギス・ハンがモンゴル帝国を建てた時期は？' },
-      { id: 'fc19', front: 'チンギス・ハンの孫', back: 'フビライ・ハンはチンギス・ハンとどのような関係？' },
-      { id: 'fc20', front: '史上最大級の帝国', back: 'モンゴル帝国はどのくらいの規模だった？' },
-      { id: 'fc21', front: '北京', back: '元の大都は現在のどの都市にあたる？' },
-      { id: 'fc22', front: '13世紀末', back: 'モンゴル帝国が分裂した時期は？' },
-      { id: 'fc23', front: 'イタリア', back: 'マルコ・ポーロの出身国は？' },
-      { id: 'fc24', front: '騎兵の機動力', back: 'モンゴル軍が強かった最大の理由は？' },
-      { id: 'fc25', front: '東西の人・物・文化の交流', back: 'モンゴル帝国の広大な領域と交通路整備がもたらした効果は？' },
-      { id: 'fc26', front: '朝鮮半島', back: '高麗があった地域は現在のどこ？' },
-      { id: 'fc27', front: 'インド洋交易', back: 'ムスリム商人が主な担い手として活躍した交易は？' },
-      { id: 'fc28', front: 'ヴェネツィア', back: 'マルコ・ポーロの出身都市は？' },
+      { id: 'fc1', front: 'チンギス・ハン', back: '13世紀初めにモンゴルの遊牧民を統一し、モンゴル帝国を建てた人物は？', difficulty: 'basic' },
+      { id: 'fc2', front: 'フビライ・ハン', back: 'モンゴル帝国の第5代皇帝で、国号を元と定めた人物は？', difficulty: 'basic' },
+      { id: 'fc3', front: '元', back: 'フビライ・ハンが定めた国号は？', difficulty: 'basic' },
+      { id: 'fc4', front: '大都（現在の北京）', back: 'フビライ・ハンが元の都を置いた場所は？', difficulty: 'basic' },
+      { id: 'fc5', front: '騎兵', back: 'モンゴル軍の主力で、機動力で他国の軍を圧倒した兵種は？', difficulty: 'basic' },
+      { id: 'fc6', front: '遊牧民', back: 'チンギス・ハンが統一した、モンゴル高原の人々の生活形態は？', difficulty: 'basic' },
+      { id: 'fc7', front: '高麗', back: 'フビライ・ハンが従えた朝鮮半島の国は？', difficulty: 'basic' },
+      { id: 'fc8', front: 'マルコ・ポーロ', back: '元に仕え「世界の記述（東方見聞録）」を著したイタリア人は？', difficulty: 'basic' },
+      { id: 'fc9', front: '黄金の国ジパング', back: 'マルコ・ポーロが「世界の記述」で日本を紹介した呼び名は？', difficulty: 'basic' },
+      { id: 'fc10', front: '世界の記述（東方見聞録）', back: 'マルコ・ポーロが帰国後に著した、アジアの様子を伝える書物は？', difficulty: 'basic' },
+      { id: 'fc11', front: '交通路の整備', back: 'モンゴル帝国が東西交流を活発にするために行ったことは？', difficulty: 'basic' },
+      { id: 'fc12', front: 'ムスリム商人', back: 'インド洋交易の主要な担い手となった人々は？', difficulty: 'basic' },
+      { id: 'fc13', front: 'オスマン帝国', back: '13世紀末にモンゴル帝国が分裂した後、トルコで成立した国は？', difficulty: 'standard' },
+      { id: 'fc14', front: '柔軟な統治', back: 'モンゴル帝国が他民族の宗教や言語を認めた統治方針は？', difficulty: 'standard' },
+      { id: 'fc15', front: '大航海時代', back: '東方見聞録がヨーロッパに与えた影響で、のちにつながった時代は？', difficulty: 'standard' },
+      { id: 'fc16', front: 'ユーラシア大陸', back: 'モンゴル帝国がまたがった大陸の名前は？', difficulty: 'standard' },
+      { id: 'fc17', front: '朝貢', back: 'フビライ・ハンが日本や高麗に求めたことの一つは？', difficulty: 'standard' },
+      { id: 'fc18', front: '13世紀初め', back: 'チンギス・ハンがモンゴル帝国を建てた時期は？', difficulty: 'standard' },
+      { id: 'fc19', front: 'チンギス・ハンの孫', back: 'フビライ・ハンはチンギス・ハンとどのような関係？', difficulty: 'standard' },
+      { id: 'fc20', front: '史上最大級の帝国', back: 'モンゴル帝国はどのくらいの規模だった？', difficulty: 'standard' },
+      { id: 'fc21', front: '北京', back: '元の大都は現在のどの都市にあたる？', difficulty: 'standard' },
+      { id: 'fc22', front: '13世紀末', back: 'モンゴル帝国が分裂した時期は？', difficulty: 'standard' },
+      { id: 'fc23', front: 'イタリア', back: 'マルコ・ポーロの出身国は？', difficulty: 'advanced' },
+      { id: 'fc24', front: '騎兵の機動力', back: 'モンゴル軍が強かった最大の理由は？', difficulty: 'advanced' },
+      { id: 'fc25', front: '東西の人・物・文化の交流', back: 'モンゴル帝国の広大な領域と交通路整備がもたらした効果は？', difficulty: 'advanced' },
+      { id: 'fc26', front: '朝鮮半島', back: '高麗があった地域は現在のどこ？', difficulty: 'advanced' },
+      { id: 'fc27', front: 'インド洋交易', back: 'ムスリム商人が主な担い手として活躍した交易は？', difficulty: 'advanced' },
+      { id: 'fc28', front: 'ヴェネツィア', back: 'マルコ・ポーロの出身都市は？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -93,6 +93,7 @@ export const mongolEmpire: Topic = {
           options: ['フビライ・ハン', 'チンギス・ハン', 'オスマン1世', 'アレクサンドロス大王'],
           correctIndex: 1,
           explanation: 'チンギス・ハンは13世紀初めにモンゴルの遊牧民を統一し、強力な騎兵を率いてユーラシア大陸にまたがる大帝国を築きました。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -100,6 +101,7 @@ export const mongolEmpire: Topic = {
           options: ['ティムール', 'オゴタイ・ハン', 'チンギス・ハン', 'フビライ・ハン'],
           correctIndex: 3,
           explanation: 'フビライ・ハンはチンギス・ハンの孫で、モンゴル帝国の第5代皇帝として国号を元と定め、大都（現在の北京）に都を置きました。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -107,6 +109,7 @@ export const mongolEmpire: Topic = {
           options: ['長安', '南京', '大都', '開封'],
           correctIndex: 2,
           explanation: '大都は現在の北京にあたる都市で、フビライ・ハンが元の都として整備しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q4',
@@ -114,6 +117,7 @@ export const mongolEmpire: Topic = {
           options: ['マルコ・ポーロ', 'コロンブス', 'バスコ・ダ・ガマ', 'マゼラン'],
           correctIndex: 0,
           explanation: 'マルコ・ポーロはフビライ・ハンに仕え、帰国後に日本を「黄金の国ジパング」として紹介しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q5',
@@ -121,6 +125,7 @@ export const mongolEmpire: Topic = {
           options: ['東方の楽園', '日の出ずる国', '黄金の国ジパング', '絹の国'],
           correctIndex: 2,
           explanation: 'マルコ・ポーロは「世界の記述」（東方見聞録）の中で、日本を「黄金の国ジパング」と紹介し、ヨーロッパの人々にアジアへの関心を広めました。',
+          difficulty: 'basic',
         },
         {
           id: 'q6',
@@ -128,6 +133,7 @@ export const mongolEmpire: Topic = {
           options: ['歩兵', '弓兵', '水兵', '騎兵'],
           correctIndex: 3,
           explanation: '騎兵はモンゴル軍の主力で、幼い頃から馬に乗り慣れた遊牧民で構成され、その機動力は他国の軍を圧倒しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q7',
@@ -135,6 +141,7 @@ export const mongolEmpire: Topic = {
           options: ['高麗', '百済', '新羅', '朝鮮国'],
           correctIndex: 0,
           explanation: 'フビライ・ハンは高麗を従え、貿易や朝貢を求めました。高麗は元寇の際にも元とともに日本を攻撃しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q8',
@@ -142,6 +149,7 @@ export const mongolEmpire: Topic = {
           options: ['騎馬民族', 'ムスリム商人', 'モンゴル兵', 'ヨーロッパ商人'],
           correctIndex: 1,
           explanation: 'ムスリム商人はインド洋交易のネットワークを築き、東西の物資を結ぶ重要な役割を果たしました。',
+          difficulty: 'basic',
         },
         {
           id: 'q9',
@@ -149,6 +157,7 @@ export const mongolEmpire: Topic = {
           options: ['すべての宗教を禁止した', '宗教や言語を認める柔軟な統治', 'モンゴル語の使用を強制した', '被征服民を奴隷にした'],
           correctIndex: 1,
           explanation: 'モンゴル帝国は征服した地域の宗教や言語を認める柔軟な統治を行い、帝国の安定を図りました。',
+          difficulty: 'basic',
         },
         {
           id: 'q10',
@@ -156,6 +165,7 @@ export const mongolEmpire: Topic = {
           options: ['ペルシア帝国', 'ビザンツ帝国', 'オスマン帝国', 'ムガル帝国'],
           correctIndex: 2,
           explanation: 'オスマン帝国は13世紀末にモンゴル帝国が分裂した後、トルコで成立したイスラム世界の大帝国です。',
+          difficulty: 'basic',
         },
         {
           id: 'q11',
@@ -163,6 +173,7 @@ export const mongolEmpire: Topic = {
           options: ['農耕生活', '遊牧生活', '漁業生活', '都市生活'],
           correctIndex: 1,
           explanation: 'モンゴル高原の人々は家畜を連れて草原を移動しながら暮らす遊牧生活を送っていました。',
+          difficulty: 'standard',
         },
         {
           id: 'q12',
@@ -170,6 +181,7 @@ export const mongolEmpire: Topic = {
           options: ['父子', '兄弟', '祖父と孫', '叔父と甥'],
           correctIndex: 2,
           explanation: 'フビライ・ハンはチンギス・ハンの孫にあたり、モンゴル帝国の第5代皇帝として国号を元と定めました。',
+          difficulty: 'standard',
         },
         {
           id: 'q13',
@@ -177,6 +189,7 @@ export const mongolEmpire: Topic = {
           options: ['海軍を整備した', '交通路を整備した', '宗教を統一した', '言語を統一した'],
           correctIndex: 1,
           explanation: 'モンゴル帝国は広大な領域内の交通路を整備し、東西の人・物・文化の交流を活発にしました。',
+          difficulty: 'standard',
         },
         {
           id: 'q14',
@@ -184,6 +197,7 @@ export const mongolEmpire: Topic = {
           options: ['何度も来日した', '一度だけ来た', '来ていない（伝聞をもとに紹介）', '来日して天皇に謁見した'],
           correctIndex: 2,
           explanation: 'マルコ・ポーロは実際には日本に来ておらず、伝聞をもとに日本を「黄金の国ジパング」と紹介しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q15',
@@ -191,6 +205,7 @@ export const mongolEmpire: Topic = {
           options: ['ヨーロッパの鎖国を進めた', 'アジアへの興味を抱かせ大航海時代につながった', 'モンゴルとの戦争を引き起こした', '影響はなかった'],
           correctIndex: 1,
           explanation: '「世界の記述」はヨーロッパの人々にアジアへの興味を抱かせ、のちの大航海時代にもつながりました。',
+          difficulty: 'standard',
         },
         {
           id: 'q16',
@@ -198,6 +213,7 @@ export const mongolEmpire: Topic = {
           options: ['鉄製の武器を持っていたから', '幼い頃から馬に乗り慣れた遊牧民で機動力があったから', '人数が少なく精鋭だったから', '城壁が堅固だったから'],
           correctIndex: 1,
           explanation: 'モンゴル軍の騎兵は幼い頃から馬に乗り慣れた遊牧民で構成され、その機動力で他国の軍を圧倒しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q17',
@@ -205,6 +221,7 @@ export const mongolEmpire: Topic = {
           options: ['軍事同盟', '貿易と朝貢（服属）', '仏教の布教', '技術者の派遣'],
           correctIndex: 1,
           explanation: 'フビライ・ハンは日本に使者を送り、貿易や朝貢（服属）を求めました。',
+          difficulty: 'standard',
         },
         {
           id: 'q18',
@@ -212,6 +229,7 @@ export const mongolEmpire: Topic = {
           options: ['韓国のソウル', '日本の東京', '中国の北京', 'モンゴルのウランバートル'],
           correctIndex: 2,
           explanation: '元の大都は現在の中国の首都・北京にあたります。',
+          difficulty: 'standard',
         },
         {
           id: 'q19',
@@ -219,6 +237,7 @@ export const mongolEmpire: Topic = {
           options: ['全民族にモンゴル語を強制した', '他民族の宗教や言語を認める柔軟な統治を行った', '征服した民族をすべて奴隷にした', '宗教を禁止した'],
           correctIndex: 1,
           explanation: 'モンゴル帝国は征服した地域の宗教や言語を認める柔軟な統治方針をとり、帝国の安定を図りました。',
+          difficulty: 'standard',
         },
         {
           id: 'q20',
@@ -226,6 +245,7 @@ export const mongolEmpire: Topic = {
           options: ['アフリカ大陸', 'ユーラシア大陸', 'アメリカ大陸', 'オーストラリア大陸'],
           correctIndex: 1,
           explanation: 'モンゴル帝国は東アジアからヨーロッパにいたるユーラシア大陸にまたがる史上最大級の帝国でした。',
+          difficulty: 'standard',
         },
         {
           id: 'q21',
@@ -233,6 +253,7 @@ export const mongolEmpire: Topic = {
           options: ['世界の記述', '天竺物語', '西遊記', '大航海日誌'],
           correctIndex: 0,
           explanation: '東方見聞録は「世界の記述」ともいい、マルコ・ポーロの旅の記録をまとめたものです。',
+          difficulty: 'standard',
         },
         {
           id: 'q22',
@@ -240,6 +261,7 @@ export const mongolEmpire: Topic = {
           options: ['11世紀', '12世紀', '13世紀', '14世紀'],
           correctIndex: 2,
           explanation: 'モンゴル帝国は13世紀の初めにチンギス・ハンが遊牧民を統一して建てました。',
+          difficulty: 'standard',
         },
         {
           id: 'q23',
@@ -247,6 +269,7 @@ export const mongolEmpire: Topic = {
           options: ['中国', '朝鮮半島（韓国・北朝鮮）', 'モンゴル', '日本'],
           correctIndex: 1,
           explanation: '高麗は朝鮮半島にあった国で、現在の韓国・北朝鮮にあたる地域にありました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q24',
@@ -254,6 +277,7 @@ export const mongolEmpire: Topic = {
           options: ['全地域の統一言語', '東西の人・物・文化の交流の活発化', '鎖国政策', '仏教の統一'],
           correctIndex: 1,
           explanation: 'モンゴル帝国の広大な領域と交通路整備により、東西の人・物・文化の交流が飛躍的に活発化しました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q25',
@@ -261,6 +285,7 @@ export const mongolEmpire: Topic = {
           options: ['モンゴル高原のみ', '中国全土', 'ユーラシア大陸の大部分', 'アフリカまで'],
           correctIndex: 2,
           explanation: 'チンギス・ハンの子孫はユーラシア大陸の大部分を支配するまでに領土を広げました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q26',
@@ -268,6 +293,7 @@ export const mongolEmpire: Topic = {
           options: ['フランス', 'スペイン', 'イギリス', 'イタリア'],
           correctIndex: 3,
           explanation: 'マルコ・ポーロはイタリア（ヴェネツィア）出身で、元の大都を訪れフビライ・ハンに仕えました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q27',
@@ -275,6 +301,7 @@ export const mongolEmpire: Topic = {
           options: ['12世紀末', '13世紀末', '14世紀末', '15世紀末'],
           correctIndex: 1,
           explanation: 'モンゴル帝国は13世紀末にフビライ・ハンの死後、複数の国に分裂しました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q28',
@@ -282,6 +309,7 @@ export const mongolEmpire: Topic = {
           options: ['モンゴル騎兵', 'ヨーロッパ商人', 'ムスリム商人', '日本の倭寇'],
           correctIndex: 2,
           explanation: 'ムスリム商人はインド洋交易のネットワークを築き、東西の物資を結ぶ重要な役割を果たしました。',
+          difficulty: 'advanced',
         },
       ],
     },

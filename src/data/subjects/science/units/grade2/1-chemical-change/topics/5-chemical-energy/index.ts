@@ -116,166 +116,34 @@ export const chemicalEnergy: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'sci2-ce-fc1',
-        front: '発熱反応',
-        back: '周囲に熱を出し、温度が上がる化学変化を何という？',
-        explanation:
-          '例：鉄粉の酸化（化学かいろ）、ガスの燃焼など。',
-      },
-      {
-        id: 'sci2-ce-fc2',
-        front: '吸熱反応',
-        back: '周囲から熱をうばい、温度が下がる化学変化を何という？',
-        explanation:
-          '例：水酸化バリウム+塩化アンモニウム、炭酸水素ナトリウム+クエン酸の反応。',
-      },
-      {
-        id: 'sci2-ce-fc3',
-        front: '化学エネルギー',
-        back: '物質がもっているエネルギーのことを何という？',
-        explanation:
-          '化学変化によって、このエネルギーの差が熱や光として放出されたり吸収されたりする。',
-      },
-      {
-        id: 'sci2-ce-fc4',
-        front: '化学かいろのしくみ',
-        back: '使い捨てカイロが温かくなるのはなぜ？',
-        explanation:
-          '鉄粉が空気中の酸素と結びつく酸化（発熱反応）の熱を利用している。',
-      },
-      {
-        id: 'sci2-ce-fc5',
-        front: '炭酸水素ナトリウムの利用',
-        back: '胃薬に使われる炭酸水素ナトリウム（重そう）はどのように作用する？',
-        explanation:
-          '胃酸（塩酸）のはたらきを弱める（中和する）ことで胃を守る。',
-      },
-      {
-        id: 'sci2-ce-fc6',
-        front: '酸化カルシウムと水',
-        back: '酸化カルシウム（生石灰）に水を加えるとどうなる？',
-        explanation: '激しく発熱する（発熱反応）。水酸化カルシウムができる。加熱式弁当に利用。',
-      },
-      {
-        id: 'sci2-ce-fc7',
-        front: '鉄粉の酸化の条件',
-        back: '化学かいろで鉄粉の酸化を進めるために混ぜるものは？',
-        explanation: '活性炭と食塩水。活性炭は空気中の酸素を吸着し、食塩水は酸化を促進する触媒的役割。',
-      },
-      {
-        id: 'sci2-ce-fc8',
-        front: '炭酸水素ナトリウムとクエン酸',
-        back: '炭酸水素ナトリウムとクエン酸を混ぜると温度はどうなる？',
-        explanation: '温度が下がる（吸熱反応）。二酸化炭素が発生する。冷却パックに利用。',
-      },
-      {
-        id: 'sci2-ce-fc9',
-        front: '水酸化バリウムと塩化アンモニウム',
-        back: '水酸化バリウムと塩化アンモニウムを混ぜるとどうなる？',
-        explanation: '温度が下がる（吸熱反応）。アンモニア（刺激臭）が発生する。',
-      },
-      {
-        id: 'sci2-ce-fc10',
-        front: '発熱反応のエネルギー',
-        back: '発熱反応では、反応前と反応後で化学エネルギーはどちらが大きい？',
-        explanation: '反応前の化学エネルギーのほうが大きい。差が熱や光として放出される。',
-      },
-      {
-        id: 'sci2-ce-fc11',
-        front: '吸熱反応のエネルギー',
-        back: '吸熱反応では、エネルギーの不足分はどこから得る？',
-        explanation: '周囲の熱エネルギーを吸収する。そのため周囲の温度が下がる。',
-      },
-      {
-        id: 'sci2-ce-fc12',
-        front: '火力発電のエネルギー変換',
-        back: '火力発電でのエネルギー変換の順序は？',
-        explanation: '化学エネルギー → 熱エネルギー → 運動エネルギー → 電気エネルギー',
-      },
-      {
-        id: 'sci2-ce-fc13',
-        front: '有機物の燃焼',
-        back: '石油や天然ガスを燃焼させると何ができる？',
-        explanation: '二酸化炭素と水。炭素がCO₂に、水素がH₂Oになる。発熱反応。',
-      },
-      {
-        id: 'sci2-ce-fc14',
-        front: '発熱反応の判定',
-        back: '周囲の温度が上がる化学変化は発熱反応か吸熱反応か？',
-        explanation: '発熱反応。化学変化が周囲に熱を出すため温度が上がる。',
-      },
-      {
-        id: 'sci2-ce-fc15',
-        front: '吸熱反応の利用',
-        back: '瞬間冷却剤（冷却パック）は何反応を利用している？',
-        explanation: '吸熱反応。硝酸アンモニウムが水に溶けるときの吸熱や、化学反応の吸熱を利用。',
-      },
-      {
-        id: 'sci2-ce-fc16',
-        front: '発熱反応',
-        back: '周囲に熱を放出する化学変化は？',
-      },
-      {
-        id: 'sci2-ce-fc17',
-        front: '吸熱反応',
-        back: '周囲から熱をうばう化学変化は？',
-      },
-      {
-        id: 'sci2-ce-fc18',
-        front: '化学エネルギー',
-        back: '物質がもっているエネルギーは？',
-      },
-      {
-        id: 'sci2-ce-fc19',
-        front: '使い捨てカイロ',
-        back: 'カイロが温まるのは何の化学変化？',
-      },
-      {
-        id: 'sci2-ce-fc20',
-        front: '水酸化Ba+塩化NH₄',
-        back: 'この反応は発熱？吸熱？何が発生？',
-      },
-      {
-        id: 'sci2-ce-fc21',
-        front: '酸化Ca+水',
-        back: '酸化Caに水→温度はどうなる？',
-      },
-      {
-        id: 'sci2-ce-fc22',
-        front: '電池のエネルギー変換',
-        back: '電池は何を何に変換する装置？',
-      },
-      {
-        id: 'sci2-ce-fc23',
-        front: '火力発電',
-        back: '化学エネルギーは最終的に何に変換？',
-      },
-      {
-        id: 'sci2-ce-fc24',
-        front: '発熱反応の化学エネルギー',
-        back: '発熱反応では反応前後どちらの化学Eが大？',
-      },
-      {
-        id: 'sci2-ce-fc25',
-        front: '吸熱反応の化学エネルギー',
-        back: '吸熱反応では反応前後どちらの化学Eが大？',
-      },
-      {
-        id: 'sci2-ce-fc26',
-        front: 'メタン燃焼の生成物',
-        back: 'メタン燃焼→何ができる？',
-      },
-      {
-        id: 'sci2-ce-fc27',
-        front: '瞬間冷却パック',
-        back: '瞬間冷却パックは何反応を利用？',
-      },
-      {
-        id: 'sci2-ce-fc28',
-        front: 'NaHCO₃+クエン酸',
-        back: 'この反応→温度は？何が発生？',
-      }
+      { id: 'sci2-ce-fc1', front: '発熱反応', back: '周囲に熱を出し温度が上がる化学変化を何という？', explanation: '例：鉄粉の酸化、ガスの燃焼', difficulty: 'basic' },
+      { id: 'sci2-ce-fc2', front: '吸熱反応', back: '周囲から熱をうばい温度が下がる化学変化を何という？', explanation: '例：水酸化バリウム+塩化アンモニウム', difficulty: 'basic' },
+      { id: 'sci2-ce-fc3', front: '化学エネルギー', back: '物質がもっているエネルギーを何という？', difficulty: 'basic' },
+      { id: 'sci2-ce-fc4', front: '鉄粉が空気中の酸素と結びつく酸化（発熱反応）の熱を利用', back: '使い捨てカイロが温かくなるのはなぜ？', difficulty: 'basic' },
+      { id: 'sci2-ce-fc5', front: '胃酸（塩酸）を中和する', back: '胃薬に使われる炭酸水素ナトリウム（重そう）はどのように作用する？', difficulty: 'basic' },
+      { id: 'sci2-ce-fc6', front: '激しく発熱する（発熱反応）', back: '酸化カルシウム（生石灰）に水を加えるとどうなる？', explanation: '加熱式弁当に利用', difficulty: 'basic' },
+      { id: 'sci2-ce-fc7', front: '活性炭と食塩水', back: '化学かいろで鉄粉の酸化を進めるために混ぜるものは？', difficulty: 'standard' },
+      { id: 'sci2-ce-fc8', front: '温度が下がる（吸熱反応）。CO₂が発生', back: '炭酸水素ナトリウムとクエン酸を混ぜるとどうなる？', difficulty: 'basic' },
+      { id: 'sci2-ce-fc9', front: '温度が下がる（吸熱反応）。アンモニア（刺激臭）が発生', back: '水酸化バリウムと塩化アンモニウムを混ぜるとどうなる？', difficulty: 'basic' },
+      { id: 'sci2-ce-fc10', front: '反応前の化学エネルギーが大きい', back: '発熱反応では反応前と反応後で化学エネルギーはどちらが大きい？', explanation: '差が熱や光として放出される', difficulty: 'standard' },
+      { id: 'sci2-ce-fc11', front: '周囲の熱エネルギーを吸収する', back: '吸熱反応ではエネルギーの不足分はどこから得る？', difficulty: 'standard' },
+      { id: 'sci2-ce-fc12', front: '化学E→熱E→運動E→電気E', back: '火力発電でのエネルギー変換の順序は？', difficulty: 'standard' },
+      { id: 'sci2-ce-fc13', front: '二酸化炭素と水', back: '石油や天然ガスを燃焼させると何ができる？', difficulty: 'basic' },
+      { id: 'sci2-ce-fc14', front: '発熱反応', back: '周囲の温度が上がる化学変化は何反応？', difficulty: 'basic' },
+      { id: 'sci2-ce-fc15', front: '吸熱反応', back: '瞬間冷却剤（冷却パック）は何反応を利用している？', difficulty: 'standard' },
+      { id: 'sci2-ce-fc16', front: '鉄粉の酸化（発熱反応）', back: 'カイロが温まるのはどんな化学変化？', difficulty: 'basic' },
+      { id: 'sci2-ce-fc17', front: '吸熱反応。アンモニアが発生', back: '水酸化バリウム+塩化アンモニウムは何反応？何が発生？', difficulty: 'standard' },
+      { id: 'sci2-ce-fc18', front: '上がる（発熱反応）', back: '酸化カルシウムに水を加えると温度はどうなる？', difficulty: 'basic' },
+      { id: 'sci2-ce-fc19', front: '化学エネルギーを電気エネルギーに変換する装置', back: '電池は何をする装置？', difficulty: 'standard' },
+      { id: 'sci2-ce-fc20', front: '電気エネルギー', back: '火力発電で化学エネルギーは最終的に何に変換される？', difficulty: 'standard' },
+      { id: 'sci2-ce-fc21', front: '反応前が大きい', back: '発熱反応では反応前後どちらの化学エネルギーが大きい？', difficulty: 'standard' },
+      { id: 'sci2-ce-fc22', front: '反応後が大きい', back: '吸熱反応では反応前後どちらの化学エネルギーが大きい？', difficulty: 'advanced' },
+      { id: 'sci2-ce-fc23', front: 'CO₂と水', back: 'メタンを燃焼させると何ができる？', difficulty: 'standard' },
+      { id: 'sci2-ce-fc24', front: '温度が下がる。CO₂が発生', back: 'NaHCO₃+クエン酸の反応で温度はどうなる？何が発生？', difficulty: 'standard' },
+      { id: 'sci2-ce-fc25', front: '酸化カルシウム+水の発熱反応', back: '加熱式弁当が温まるしくみは？', difficulty: 'advanced' },
+      { id: 'sci2-ce-fc26', front: 'ガソリンの化学エネルギー', back: '自動車のエンジンは何エネルギーを利用している？', difficulty: 'advanced' },
+      { id: 'sci2-ce-fc27', front: 'CO₂排出による地球温暖化', back: '化石燃料の利用による主な環境問題は？', difficulty: 'advanced' },
+      { id: 'sci2-ce-fc28', front: '吸熱反応で水が凍りつくため', back: '水酸化バリウム+塩化アンモニウムの実験でろ紙がはりつく理由は？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -291,7 +159,8 @@ export const chemicalEnergy: Topic = {
           correctIndex: 0,
           explanation:
             '鉄粉の酸化は発熱反応で、化学かいろに利用されています。他の選択肢は吸熱反応または化学変化ではありません。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-ce-q2',
           question: '吸熱反応の特徴はどれ？',
@@ -304,7 +173,8 @@ export const chemicalEnergy: Topic = {
           correctIndex: 3,
           explanation:
             '吸熱反応は周囲から熱をうばうため、温度が下がります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-ce-q3',
           question: '物質がもっているエネルギーを何という？',
@@ -312,7 +182,8 @@ export const chemicalEnergy: Topic = {
           correctIndex: 1,
           explanation:
             '物質がもっているエネルギーを化学エネルギーといいます。化学変化でこのエネルギーの差が熱や光として現れます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-ce-q4',
           question: '使い捨てカイロが温まるのは何という化学変化を利用している？',
@@ -325,7 +196,8 @@ export const chemicalEnergy: Topic = {
           correctIndex: 2,
           explanation:
             '化学かいろは鉄粉が空気中の酸素と結びつく酸化（発熱反応）の熱を利用しています。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-ce-q5',
           question: '胃薬に使われる炭酸水素ナトリウム（重そう）のはたらきは？',
@@ -338,28 +210,32 @@ export const chemicalEnergy: Topic = {
           correctIndex: 2,
           explanation:
             '炭酸水素ナトリウムは塩酸（胃酸）のはたらきを弱める（中和する）ことで胃を守ります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-ce-q6',
           question: '酸化カルシウム（生石灰）に水を加えたときの反応は？',
           options: ['発熱反応', '吸熱反応', '分解反応', '還元反応'],
           correctIndex: 0,
           explanation: '酸化カルシウムに水を加えると激しく発熱します。加熱式弁当に利用されています。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-ce-q7',
           question: '水酸化バリウムと塩化アンモニウムを混ぜたとき発生する気体は？',
           options: ['二酸化炭素', '水素', '酸素', 'アンモニア'],
           correctIndex: 3,
           explanation: '刺激臭のあるアンモニアが発生します。この反応は吸熱反応で温度が下がります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-ce-q8',
           question: '鉄粉と活性炭と食塩水を混ぜると温度は？',
           options: ['下がる', '上がる', '変わらない', '一度下がってから上がる'],
           correctIndex: 1,
           explanation: '鉄粉が酸素と結びつく酸化（発熱反応）が起こり、温度が上がります。化学かいろの原理です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-ce-q9',
           question: '発熱反応について正しいものはどれ？',
@@ -371,7 +247,8 @@ export const chemicalEnergy: Topic = {
           ],
           correctIndex: 2,
           explanation: '発熱反応では反応後の化学エネルギーが小さく、差が熱として放出されます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-ce-q10',
           question: '次のうち、吸熱反応はどれ？',
@@ -383,7 +260,8 @@ export const chemicalEnergy: Topic = {
           ],
           correctIndex: 1,
           explanation: '水酸化バリウムと塩化アンモニウムの反応は吸熱反応で温度が下がります。他はすべて発熱反応です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-ce-q11',
           question: 'カイロが温まる化学変化は？',
@@ -391,7 +269,8 @@ export const chemicalEnergy: Topic = {
           correctIndex: 0,
           explanation:
             '鉄粉の酸化（発熱反応）を利用。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-ce-q12',
           question: '水酸化Ba+塩化NH₄→発生気体は？',
@@ -399,7 +278,8 @@ export const chemicalEnergy: Topic = {
           correctIndex: 2,
           explanation:
             'アンモニアが発生する吸熱反応。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-ce-q13',
           question: '酸化Ca+水→温度は？',
@@ -407,7 +287,8 @@ export const chemicalEnergy: Topic = {
           correctIndex: 0,
           explanation:
             '発熱反応で温度上昇。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-ce-q14',
           question: '発熱反応の化学エネルギーの変化は？',
@@ -415,7 +296,8 @@ export const chemicalEnergy: Topic = {
           correctIndex: 0,
           explanation:
             '熱放出で反応前が大。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-ce-q15',
           question: '吸熱反応→周囲温度は？',
@@ -423,7 +305,8 @@ export const chemicalEnergy: Topic = {
           correctIndex: 1,
           explanation:
             '周囲から熱をうばい温度低下。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-ce-q16',
           question: '電池の変換は？',
@@ -431,7 +314,8 @@ export const chemicalEnergy: Topic = {
           correctIndex: 1,
           explanation:
             '化学E→電気E。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-ce-q17',
           question: '化学E利用の環境問題は？',
@@ -439,7 +323,8 @@ export const chemicalEnergy: Topic = {
           correctIndex: 1,
           explanation:
             '化石燃料でCO₂排出→温暖化。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-ce-q18',
           question: 'NaHCO₃+クエン酸→温度は？',
@@ -447,7 +332,8 @@ export const chemicalEnergy: Topic = {
           correctIndex: 1,
           explanation:
             '吸熱反応で温度低下。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-ce-q19',
           question: '火力発電でタービンを回すのは？',
@@ -455,7 +341,8 @@ export const chemicalEnergy: Topic = {
           correctIndex: 1,
           explanation:
             '蒸気でタービンを回す。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-ce-q20',
           question: 'ろうそく燃焼は何反応？',
@@ -463,7 +350,8 @@ export const chemicalEnergy: Topic = {
           correctIndex: 1,
           explanation:
             '有機物酸化で発熱反応。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-ce-q21',
           question: 'メタン燃焼生成物は？',
@@ -471,7 +359,8 @@ export const chemicalEnergy: Topic = {
           correctIndex: 1,
           explanation:
             'CO₂と水が生成。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-ce-q22',
           question: '水酸化Ba+塩化NH₄でろ紙はどうなる？',
@@ -479,7 +368,8 @@ export const chemicalEnergy: Topic = {
           correctIndex: 2,
           explanation:
             '吸熱反応で水が凍りはりつく。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-ce-q23',
           question: '火力発電の主燃料は？',
@@ -487,7 +377,8 @@ export const chemicalEnergy: Topic = {
           correctIndex: 1,
           explanation:
             '化石燃料を使用。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci2-ce-q24',
           question: '瞬間冷却パックの反応は？',
@@ -495,7 +386,8 @@ export const chemicalEnergy: Topic = {
           correctIndex: 1,
           explanation:
             '吸熱反応で冷却。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci2-ce-q25',
           question: '胃薬のNaHCO₃は胃の何と反応？',
@@ -503,7 +395,8 @@ export const chemicalEnergy: Topic = {
           correctIndex: 1,
           explanation:
             '胃酸（塩酸）と反応。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci2-ce-q26',
           question: '化学Eは目に見える？',
@@ -511,7 +404,8 @@ export const chemicalEnergy: Topic = {
           correctIndex: 1,
           explanation:
             '化学変化で初めて取り出される。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci2-ce-q27',
           question: '加熱式弁当の反応は？',
@@ -519,7 +413,8 @@ export const chemicalEnergy: Topic = {
           correctIndex: 1,
           explanation:
             '酸化Caと水の発熱反応。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci2-ce-q28',
           question: '自動車エンジンは何Eを利用？',
@@ -527,7 +422,8 @@ export const chemicalEnergy: Topic = {
           correctIndex: 2,
           explanation:
             'ガソリンの化学E。',
-        }
+        difficulty: 'advanced',
+      }
       ],
     },
     examples: {

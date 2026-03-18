@@ -34,31 +34,13 @@ export const occupation: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'fc1',
-        front: 'GHQ',
-        back: '占領下の日本に指令を出した組織を何という？',
-      },
-      {
-        id: 'fc2',
-        front: 'マッカーサー',
-        back: 'GHQの最高司令官として来日した人物は？',
-      },
-      {
-        id: 'fc3',
-        front: 'ポツダム宣言',
-        back: '日本に無条件降伏を求めた連合国の宣言は？',
-      },
-      {
-        id: 'fc4',
-        front: '北方領土',
-        back: '第二次大戦後にソ連が占領した色丹島などの島々は？',
-      },
-      {
-        id: 'fc5',
-        front: '東京裁判',
-        back: '日本の戦争指導者を裁いた国際裁判は？',
-      },
+      { id: 'fc1', front: 'GHQ', back: '占領下の日本に指令を出した連合国軍最高司令官総司令部の略称は？', difficulty: 'basic' },
+      { id: 'fc2', front: 'マッカーサー', back: 'GHQの最高司令官として来日した人物は？', difficulty: 'basic' },
+      { id: 'fc3', front: '東京裁判', back: '1946年から1948年にかけて日本の戦争指導者を裁いた国際裁判は？', difficulty: 'basic' },
+      { id: 'fc4', front: '財閥解体', back: 'GHQの指導で行われた、巨大な独占資本を解体する経済改革は？', explanation: '三井・三菱などの財閥が対象となった。', difficulty: 'standard' },
+      { id: 'fc5', front: '北方領土', back: '第二次大戦後にソ連が占領し、現在もロシアとの間で未解決の領土問題が続く島々は？', explanation: '歯舞群島・色丹島・国後島・択捉島の4島。', difficulty: 'standard' },
+      { id: 'fc6', front: '民主化', back: 'GHQが占領下で進めた、軍国主義の排除や財閥解体など日本社会を変える改革の総称は？', difficulty: 'standard' },
+      { id: 'fc7', front: 'GHQの占領政策の目的', back: 'GHQが日本を占領し民主化改革を進めた主な目的は何か？', explanation: '軍国主義を排除し、二度と戦争を起こさない平和で民主的な国家に変えること。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -69,6 +51,7 @@ export const occupation: Topic = {
           correctIndex: 0,
           explanation:
             'GHQ（連合国軍最高司令官総司令部）がマッカーサーのもとで日本の民主化を進めました。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -77,6 +60,7 @@ export const occupation: Topic = {
           correctIndex: 3,
           explanation:
             '東京裁判（極東国際軍事裁判）は1946年から1948年にかけて行われました。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -86,6 +70,7 @@ export const occupation: Topic = {
           correctIndex: 2,
           explanation:
             'ポツダム宣言は1945年7月に出され、日本は8月にこれを受け入れて降伏しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q4',
@@ -94,6 +79,7 @@ export const occupation: Topic = {
           correctIndex: 1,
           explanation:
             'マッカーサーはGHQの最高司令官として来日し、日本の民主化改革を指導しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q5',
@@ -103,6 +89,7 @@ export const occupation: Topic = {
           correctIndex: 2,
           explanation:
             'ソ連は歯舞群島・色丹島・国後島・択捉島からなる北方領土を占領し、現在もロシアとの間で未解決の問題です。',
+          difficulty: 'standard',
         },
         {
           id: 'q6',
@@ -116,6 +103,7 @@ export const occupation: Topic = {
           correctIndex: 1,
           explanation:
             '東京裁判（極東国際軍事裁判）は1946年から1948年にかけて行われ、戦争指導者が裁かれました。',
+          difficulty: 'standard',
         },
       ],
     },

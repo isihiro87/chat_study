@@ -36,14 +36,14 @@ export const socialClasses: Topic = {
     },
     videos: [],
     flashcards: [
-      { id: 'fc1', front: '武士', back: '江戸時代に名字・帯刀などの特権を持ち、政治を担った身分を何という？' },
-      { id: 'fc2', front: '百姓', back: '全人口の約85％を占め、村に住んで年貢を納めた身分を何という？' },
-      { id: 'fc3', front: '町人', back: '城下町に住み、商工業に従事して営業税を納めた身分は？' },
-      { id: 'fc4', front: '五人組', back: '幕府が農民を支配するために作った5戸1組の組織は？' },
-      { id: 'fc5', front: '年貢', back: '百姓が収穫した米などを領主に納める税を何という？' },
-      { id: 'fc6', front: '本百姓', back: '自分の土地を持ち、村役人として村の自治を行った百姓は？' },
-      { id: 'fc7', front: '水のみ百姓', back: '土地を持たず、小作などを行っていた百姓は？' },
-      { id: 'fc8', front: 'えた身分・ひにん身分', back: '居住や職業、服装を厳しく制限され差別を受けた身分は？' },
+      { id: 'fc1', front: '武士', back: '江戸時代に名字・帯刀などの特権を持ち、政治を担った身分を何という？', difficulty: 'basic' },
+      { id: 'fc2', front: '百姓', back: '全人口の約85％を占め、村に住んで年貢を納めた身分を何という？', difficulty: 'basic' },
+      { id: 'fc3', front: '町人', back: '城下町に住み、商工業に従事して営業税を納めた身分は？', difficulty: 'basic' },
+      { id: 'fc4', front: '五人組', back: '幕府が農民を支配するために作った5戸1組の組織は？', difficulty: 'basic' },
+      { id: 'fc5', front: '年貢', back: '百姓が収穫した米などを領主に納める税を何という？', difficulty: 'standard' },
+      { id: 'fc6', front: '本百姓', back: '自分の土地を持ち、村役人として村の自治を行った百姓は？', difficulty: 'standard' },
+      { id: 'fc7', front: '水のみ百姓', back: '土地を持たず、小作などを行っていた百姓は？', difficulty: 'standard' },
+      { id: 'fc8', front: 'えた身分・ひにん身分', back: '居住や職業、服装を厳しく制限され差別を受けた身分は？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -53,6 +53,7 @@ export const socialClasses: Topic = {
           options: ['公家', '武士', '町人', '百姓'],
           correctIndex: 3,
           explanation: '百姓は全人口の約85％を占め、村に住んで米などの年貢を領主に納めました。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -60,6 +61,7 @@ export const socialClasses: Topic = {
           options: ['座', '株仲間', '五人組', '惣'],
           correctIndex: 2,
           explanation: '五人組は5戸を1組とし、年貢の納入や犯罪防止について互いに監視・連帯責任を負わせました。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -67,6 +69,7 @@ export const socialClasses: Topic = {
           options: ['本百姓', '名主', '水のみ百姓', '小作人'],
           correctIndex: 0,
           explanation: '本百姓は自分の土地を持ち、年貢を直接納め、村の自治を担う中心的な存在でした。',
+          difficulty: 'standard',
         },
       ],
     },

@@ -143,48 +143,13 @@ export const kinki: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'geo2-kk-fc1',
-        front: '景観条例',
-        back: '京都市などで歴史的な町並みを守るために制定された、建物の高さや看板を規制する条例を何というか。',
-        explanation:
-          '景観条例といいます。京都市では建物の高さ制限や看板の色・大きさの規制を行い、歴史的な景観を守っています。',
-      },
-      {
-        id: 'geo2-kk-fc2',
-        front: '阪神工業地帯',
-        back: '大阪から神戸にかけて広がる、中小企業が多く技術力が高い工業地帯を何というか。',
-        explanation:
-          '阪神工業地帯といいます。東大阪市は「ものづくりの町」として知られ、町工場の高い技術力が特徴です。',
-      },
-      {
-        id: 'geo2-kk-fc3',
-        front: 'ポートアイランド',
-        back: '神戸市の海を埋め立てて造られた人工島で、住宅・商業・研究施設が集まる地区を何というか。',
-        explanation:
-          'ポートアイランドといいます。先進的な都市として開発されましたが、現在は施設の老朽化や少子高齢化が課題になっています。',
-      },
-      {
-        id: 'geo2-kk-fc4',
-        front: '吉野杉',
-        back: '奈良県吉野地方で生産される高品質の杉の木材を何というか。',
-        explanation:
-          '吉野杉といいます。日本を代表する林業地域ですが、安い外国産木材の輸入により林業の衰退が進んでいます。',
-      },
-      {
-        id: 'geo2-kk-fc5',
-        front: '伊根町の舟屋',
-        back: '京都府伊根町にある、海に面して1階が船の格納庫、2階が住居になっている伝統的な建物を何というか。',
-        explanation:
-          '舟屋といいます。海と一体となった独特の町並みが観光資源として注目され、伝統的な景観を生かした地域振興が行われています。',
-      },
-      {
-        id: 'geo2-kk-fc6',
-        front: 'オーバーツーリズム',
-        back: '観光客が増えすぎて、地域住民の生活や環境に悪影響が出る問題を何というか。',
-        explanation:
-          'オーバーツーリズム（観光公害）といいます。京都などの人気観光地で、交通渋滞やごみ問題、住民の生活への影響が課題になっています。',
-      },
+      { id: 'geo2-kk-fc1', front: '景観条例', back: '京都市で歴史的な町並みを守るため、建物の高さや看板を規制する条例を何というか。', difficulty: 'basic' },
+      { id: 'geo2-kk-fc2', front: '阪神工業地帯', back: '大阪から神戸にかけて広がる、中小企業が多く技術力が高い工業地帯を何というか。', explanation: '東大阪市は「ものづくりの町」として有名', difficulty: 'basic' },
+      { id: 'geo2-kk-fc3', front: 'ポートアイランド', back: '神戸市の海を埋め立てて造られた、住宅・商業・研究施設が集まる人工島を何というか。', difficulty: 'basic' },
+      { id: 'geo2-kk-fc4', front: 'オーバーツーリズム（観光公害）', back: '観光客が増えすぎて、地域住民の生活や環境に悪影響が出る問題を何というか。', difficulty: 'standard' },
+      { id: 'geo2-kk-fc5', front: '舟屋', back: '京都府伊根町にある、1階が船の格納庫・2階が住居の伝統的な建物を何というか。', difficulty: 'standard' },
+      { id: 'geo2-kk-fc6', front: '吉野杉', back: '奈良県吉野地方で生産される高品質の杉材を何というか。', explanation: '安い外国産木材の輸入で林業の衰退が課題', difficulty: 'standard' },
+      { id: 'geo2-kk-fc7', front: 'まいど1号', back: '東大阪市の中小企業が協力して開発した人工衛星の愛称は何か。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -196,7 +161,8 @@ export const kinki: Topic = {
           correctIndex: 0,
           explanation:
             '京都市の景観条例は、建物の高さ制限や看板の色・大きさを規制して、歴史的な町並みの景観を守る取り組みです。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo2-kk-q2',
           question:
@@ -210,7 +176,8 @@ export const kinki: Topic = {
           correctIndex: 3,
           explanation:
             '阪神工業地帯は大阪から神戸にかけて広がり、中小企業が多く高い技術力を持っていることが特徴です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo2-kk-q3',
           question:
@@ -219,7 +186,8 @@ export const kinki: Topic = {
           correctIndex: 1,
           explanation:
             '「まいど1号」は東大阪市の中小企業が協力して開発した人工衛星で、町工場の高い技術力を示す象徴となりました。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo2-kk-q4',
           question:
@@ -233,7 +201,8 @@ export const kinki: Topic = {
           correctIndex: 2,
           explanation:
             'ポートアイランドは神戸市が海を埋め立てて造った人工島で、住宅・商業・研究施設が集まる先進的な都市として開発されました。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo2-kk-q5',
           question:
@@ -247,7 +216,8 @@ export const kinki: Topic = {
           correctIndex: 3,
           explanation:
             '安い外国産木材が大量に輸入されるようになり、国産の吉野杉の需要が減少して林業が衰退しています。',
-        },
+        difficulty: 'advanced',
+      },
       ],
     },
     examples: {

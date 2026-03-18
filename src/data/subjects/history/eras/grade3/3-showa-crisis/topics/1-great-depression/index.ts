@@ -44,60 +44,16 @@ export const greatDepression: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'fc1',
-        front: '世界恐慌',
-        back: '1929年にアメリカから始まった世界的な経済危機は？',
-        explanation: 'ニューヨーク株式市場の大暴落がきっかけとなった。',
-      },
-      {
-        id: 'fc2',
-        front: 'ニューディール政策',
-        back: 'ルーズベルト大統領が世界恐慌に対して行った、公共事業中心の経済政策は？',
-        explanation: 'ダムや道路の建設などの公共事業で雇用を創出した。',
-      },
-      {
-        id: 'fc3',
-        front: 'ブロック経済',
-        back: '自国と植民地の間だけで貿易を行い、他国を締め出す経済政策は？',
-        explanation: 'イギリス・フランスが採用し、植民地の少ない国は大打撃を受けた。',
-      },
-      {
-        id: 'fc4',
-        front: 'ファシズム',
-        back: '民主主義を否定し、独裁的な指導者のもとで国民を統制する政治体制は？',
-        explanation: 'イタリアのムッソリーニ、ドイツのヒトラーが代表的。',
-      },
-      {
-        id: 'fc5',
-        front: 'ムッソリーニ',
-        back: 'イタリアでファシスト党を率いて独裁政治を行った人物は？',
-        explanation: 'ファシズムの語源はイタリアのファシスト党に由来する。',
-      },
-      {
-        id: 'fc6',
-        front: 'ヒトラー',
-        back: 'ドイツでナチス（ナチ党）を率いて独裁政治を行った人物は？',
-        explanation: 'ユダヤ人の迫害やベルサイユ条約の破棄を推進した。',
-      },
-      {
-        id: 'fc7',
-        front: 'ナチス（ナチ党）',
-        back: 'ヒトラーが率いたドイツの政党は？',
-        explanation: '国民社会主義ドイツ労働者党の略称。',
-      },
-      {
-        id: 'fc8',
-        front: '昭和恐慌',
-        back: '世界恐慌の影響で日本が陥った深刻な不況は？',
-        explanation: '農村の困窮や失業者の増大を招いた。',
-      },
-      {
-        id: 'fc9',
-        front: 'ルーズベルト',
-        back: 'ニューディール政策を実施したアメリカ大統領は？',
-        explanation: '公共事業の拡大で経済の立て直しを図った。',
-      },
+      { id: 'fc1', front: '世界恐慌', back: '1929年にアメリカから始まった世界的な経済危機は？', difficulty: 'basic' },
+      { id: 'fc2', front: 'ニューディール政策', back: 'ルーズベルト大統領が世界恐慌に対して行った、公共事業中心の経済政策は？', difficulty: 'basic' },
+      { id: 'fc3', front: 'ブロック経済', back: '自国と植民地の間だけで貿易を行い、他国を締め出す経済政策は？', explanation: 'イギリス・フランスが採用し、植民地の少ない国は大打撃を受けた。', difficulty: 'basic' },
+      { id: 'fc4', front: 'ファシズム', back: '民主主義を否定し、独裁的な指導者のもとで国民を統制する政治体制は？', difficulty: 'basic' },
+      { id: 'fc5', front: 'ヒトラー', back: 'ドイツでナチス（ナチ党）を率いて独裁政治を行った人物は？', explanation: 'ユダヤ人の迫害やベルサイユ条約の破棄を推進した。', difficulty: 'standard' },
+      { id: 'fc6', front: 'ムッソリーニ', back: 'イタリアでファシスト党を率いて独裁政治を行った人物は？', difficulty: 'standard' },
+      { id: 'fc7', front: 'ナチス（ナチ党）', back: 'ヒトラーが率いたドイツの政党は？', explanation: '国民社会主義ドイツ労働者党の略称。', difficulty: 'standard' },
+      { id: 'fc8', front: '昭和恐慌', back: '世界恐慌の影響で日本が陥った深刻な不況は？', explanation: '農村の困窮や失業者の増大を招いた。', difficulty: 'standard' },
+      { id: 'fc9', front: 'ルーズベルト', back: 'ニューディール政策を実施したアメリカ大統領は？', difficulty: 'advanced' },
+      { id: 'fc10', front: 'ファシズム台頭の背景', back: '世界恐慌後にドイツやイタリアでファシズムが台頭した理由は何か？', explanation: '経済的な苦境の中で、強い指導者が国民に秩序と復興を約束し、民主主義への不信感から支持を集めた。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -108,6 +64,7 @@ export const greatDepression: Topic = {
           correctIndex: 3,
           explanation:
             '世界恐慌はニューヨーク株式市場の大暴落をきっかけに、世界中に広がった経済危機です。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -122,6 +79,7 @@ export const greatDepression: Topic = {
           correctIndex: 1,
           explanation:
             'ニューディール政策では、公共事業で雇用を創出し、経済の立て直しを図りました。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -136,6 +94,7 @@ export const greatDepression: Topic = {
           correctIndex: 0,
           explanation:
             'ヒトラーはナチス（ナチ党）を率いてドイツで独裁政治を行い、ユダヤ人の迫害やベルサイユ条約の破棄を進めました。',
+          difficulty: 'standard',
         },
         {
           id: 'q4',
@@ -150,6 +109,7 @@ export const greatDepression: Topic = {
           correctIndex: 2,
           explanation:
             'ブロック経済は自国と植民地の間だけで貿易を行い他国を締め出す政策で、植民地の少ない国に大きな打撃を与えました。',
+          difficulty: 'standard',
         },
       ],
     },

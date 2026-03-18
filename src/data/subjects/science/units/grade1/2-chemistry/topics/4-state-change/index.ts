@@ -154,186 +154,34 @@ export const stateChange: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'sci1-sc-fc1',
-        front: '状態変化',
-        back: '物質が温度によって固体・液体・気体と状態を変えることを何という？',
-        explanation:
-          '状態変化。物質そのものは変わらず、粒子の運動のようすが変わるだけ。',
-      },
-      {
-        id: 'sci1-sc-fc2',
-        front: '融解と凝固',
-        back: '固体→液体の変化と、液体→固体の変化をそれぞれ何という？',
-        explanation:
-          '固体→液体＝融解、液体→固体＝凝固。それぞれの温度を融点という。',
-      },
-      {
-        id: 'sci1-sc-fc3',
-        front: '沸点と融点',
-        back: '液体→気体になる温度と、固体→液体になる温度をそれぞれ何という？',
-        explanation:
-          '液体→気体の温度＝沸点。固体→液体の温度＝融点。物質ごとに固有の値をもつ。',
-      },
-      {
-        id: 'sci1-sc-fc4',
-        front: '蒸留',
-        back: '液体の混合物を加熱して沸点の違いを利用して分離する方法を何という？',
-        explanation:
-          '蒸留。沸点の低い物質が先に蒸発するので、冷やして液体に戻すことで分離できる。',
-      },
-      {
-        id: 'sci1-sc-fc5',
-        front: '水の特殊性',
-        back: '水が凍ると体積はどうなるか？',
-        explanation:
-          '体積が増える（膨張する）。ほとんどの物質は固体になると体積が小さくなるが、水は例外。だから氷は水に浮く。',
-      },
-      {
-        id: 'sci1-sc-fc6',
-        front: '凝縮（液化）',
-        back: '気体から液体への状態変化を何という？',
-        explanation:
-          '凝縮（液化）。例：冷たいコップの表面に水滴がつくのは、空気中の水蒸気が凝縮したもの。',
-      },
-      {
-        id: 'sci1-sc-fc7',
-        front: '昇華',
-        back: '固体から直接気体に変わる状態変化（またはその逆）を何という？',
-        explanation:
-          '昇華。ドライアイス（固体の二酸化炭素）やナフタレン（防虫剤）が例。',
-      },
-      {
-        id: 'sci1-sc-fc8',
-        front: 'ロウの状態変化の特徴',
-        back: 'ロウを液体にして冷やすと表面はどうなるか？',
-        explanation:
-          '表面がへこむ（中央がくぼむ）。液体→固体で体積が小さくなるため。一般的な物質と同じ変化。',
-      },
-      {
-        id: 'sci1-sc-fc9',
-        front: '水と氷の密度',
-        back: '水の密度と氷の密度はどちらが大きいか？',
-        explanation:
-          '水（約1.00 g/cm³）のほうが氷（約0.92 g/cm³）より密度が大きい。だから氷は水に浮く。',
-      },
-      {
-        id: 'sci1-sc-fc10',
-        front: '加熱曲線の読み方',
-        back: '純粋な物質の加熱曲線で、グラフが水平になる部分は何を表す？',
-        explanation:
-          '状態変化が起こっている部分。加えた熱が状態変化に使われるため温度が上がらない。',
-      },
-      {
-        id: 'sci1-sc-fc11',
-        front: '純粋な物質の加熱グラフ',
-        back: '純粋な物質を加熱すると、状態変化中の温度変化はどうなる？',
-        explanation:
-          '温度が一定に保たれる。融点や沸点で水平な部分が現れる。混合物との違いを見分けるポイント。',
-      },
-      {
-        id: 'sci1-sc-fc12',
-        front: '混合物の加熱グラフ',
-        back: '混合物を加熱すると、温度変化のグラフはどうなる？',
-        explanation:
-          '温度が一定になる部分がなく、なだらかに上昇し続ける。純粋な物質との違い。',
-      },
-      {
-        id: 'sci1-sc-fc13',
-        front: 'エタノールの沸点',
-        back: 'エタノールの沸点は約何℃か？',
-        explanation:
-          '約78℃。水（100℃）より低いため、蒸留で水との混合物から先に蒸発して分離できる。',
-      },
-      {
-        id: 'sci1-sc-fc14',
-        front: '蒸留の装置',
-        back: '蒸留で使うフラスコの名前と、温度計を置く位置は？',
-        explanation:
-          '枝つきフラスコを使う。温度計の球部は枝の付け根の高さに置き、蒸気の温度を測る。',
-      },
-      {
-        id: 'sci1-sc-fc15',
-        front: '沸騰石の役割',
-        back: '蒸留で液体に沸騰石を入れる理由は？',
-        explanation:
-          '突沸（急に激しく沸騰すること）を防ぐため。沸騰石から小さな泡が出て穏やかに沸騰する。',
-      },
-      {
-        id: 'sci1-sc-fc16',
-        front: '原油の蒸留',
-        back: '原油を蒸留すると何が得られるか？沸点の低い順に答えよ。',
-        explanation:
-          'ガソリン→灯油→軽油→重油の順に分離される。沸点の低い成分は蒸留塔の上部から取り出される。',
-      },
-      {
-        id: 'sci1-sc-fc17',
-        front: '液体窒素',
-        back: '窒素の沸点は約何℃か？液体窒素はどのような場面で使われるか？',
-        explanation:
-          '窒素の沸点は約-196℃。食品の急速冷凍や医療分野での保存などに使われる。',
-      },
-      {
-        id: 'sci1-sc-fc18',
-        front: '粒子の運動と温度',
-        back: '温度が高くなると粒子の運動はどうなるか？',
-        explanation:
-          '粒子の運動が激しくなる。温度が高い＝粒子の運動が激しい。これが状態変化の原因。',
-      },
-      {
-        id: 'sci1-sc-fc19',
-        front: 'ドライアイスの昇華',
-        back: 'ドライアイスが白い煙を出しながら小さくなる現象は何という変化？',
-        explanation:
-          '昇華（固体→気体）。白い煙は二酸化炭素の気体ではなく、冷気で冷やされた空気中の水蒸気が水滴になったもの。',
-      },
-      {
-        id: 'sci1-sc-fc20',
-        front: '蒸留で集める液体の確認法',
-        back: '蒸留で集めた液体がエタノールかどうか確認する方法は？',
-        explanation:
-          '脱脂綿にしみこませて火をつける。エタノールを多くふくむ液体は燃える。水は燃えない。',
-      },
-      {
-        id: 'sci1-sc-fc21',
-        front: '固体の粒子の状態',
-        back: '固体の粒子はどのような状態か？',
-      },
-      {
-        id: 'sci1-sc-fc22',
-        front: '液体の粒子の状態',
-        back: '液体の粒子はどのような状態か？',
-      },
-      {
-        id: 'sci1-sc-fc23',
-        front: '気体の粒子の状態',
-        back: '気体の粒子はどのような状態か？',
-      },
-      {
-        id: 'sci1-sc-fc24',
-        front: '水の融点と沸点',
-        back: '水の融点と沸点はそれぞれ何℃か？',
-      },
-      {
-        id: 'sci1-sc-fc25',
-        front: '氷が水に浮く理由',
-        back: '氷が水に浮く理由を密度を使って説明せよ。',
-      },
-      {
-        id: 'sci1-sc-fc26',
-        front: '冬の水道管破裂',
-        back: '冬に水道管が破裂することがあるのはなぜか？',
-      },
-      {
-        id: 'sci1-sc-fc27',
-        front: '分留',
-        back: '原油を蒸留して分離することを何というか？',
-      },
-      {
-        id: 'sci1-sc-fc28',
-        front: '赤ワインの蒸留',
-        back: '赤ワインを蒸留すると最初に出てくる液体は何を多くふくむか？',
-      },
+      { id: 'sci1-sc-fc1', front: '状態変化', back: '物質が温度によって固体・液体・気体と状態を変えることを何という？', explanation: '物質そのものは変わらず、粒子の運動のようすが変わるだけ', difficulty: 'basic' },
+      { id: 'sci1-sc-fc2', front: '固体→液体＝融解、液体→固体＝凝固', back: '固体→液体の変化と、液体→固体の変化をそれぞれ何という？', difficulty: 'basic' },
+      { id: 'sci1-sc-fc3', front: '液体→気体の温度＝沸点、固体→液体の温度＝融点', back: '液体→気体になる温度と、固体→液体になる温度をそれぞれ何という？', explanation: '物質ごとに固有の値をもつ', difficulty: 'basic' },
+      { id: 'sci1-sc-fc4', front: '蒸留', back: '液体の混合物を加熱して沸点の違いを利用して分離する方法を何という？', explanation: '沸点の低い物質が先に蒸発し、冷やして液体に戻すことで分離できる', difficulty: 'basic' },
+      { id: 'sci1-sc-fc5', front: '体積が増える（膨張する）。ほとんどの物質は固体になると体積が小さくなるが、水は例外', back: '水が凍ると体積はどうなるか？', difficulty: 'basic' },
+      { id: 'sci1-sc-fc6', front: '凝縮（液化）', back: '気体から液体への状態変化を何という？', explanation: '例：冷たいコップの表面に水滴がつく現象', difficulty: 'basic' },
+      { id: 'sci1-sc-fc7', front: '昇華', back: '固体から直接気体に変わる状態変化（またはその逆）を何という？', explanation: '例：ドライアイス、ナフタレン（防虫剤）', difficulty: 'basic' },
+      { id: 'sci1-sc-fc8', front: '表面がへこむ（中央がくぼむ）。液体→固体で体積が小さくなるため', back: 'ロウを液体にして冷やすと表面はどうなるか？', difficulty: 'basic' },
+      { id: 'sci1-sc-fc9', front: '水（約1.00g/cm³）のほうが氷（約0.92g/cm³）より密度が大きい', back: '水の密度と氷の密度はどちらが大きいか？', difficulty: 'basic' },
+      { id: 'sci1-sc-fc10', front: '状態変化が起こっている部分。加えた熱が状態変化に使われるため温度が上がらない', back: '純粋な物質の加熱曲線で、グラフが水平になる部分は何を表す？', difficulty: 'standard' },
+      { id: 'sci1-sc-fc11', front: '温度が一定に保たれる。融点や沸点で水平な部分が現れる', back: '純粋な物質を加熱すると、状態変化中の温度変化はどうなる？', difficulty: 'basic' },
+      { id: 'sci1-sc-fc12', front: '温度が一定になる部分がなく、なだらかに上昇し続ける', back: '混合物を加熱すると、温度変化のグラフはどうなる？', difficulty: 'standard' },
+      { id: 'sci1-sc-fc13', front: '約78℃', back: 'エタノールの沸点は約何℃か？', explanation: '水（100℃）より低いため、蒸留で先に蒸発して分離できる', difficulty: 'basic' },
+      { id: 'sci1-sc-fc14', front: '枝つきフラスコを使う。温度計の球部は枝の付け根の高さに置く', back: '蒸留で使うフラスコの名前と、温度計を置く位置は？', difficulty: 'standard' },
+      { id: 'sci1-sc-fc15', front: '突沸（急に激しく沸騰すること）を防ぐため', back: '蒸留で液体に沸騰石を入れる理由は？', difficulty: 'standard' },
+      { id: 'sci1-sc-fc16', front: 'ガソリン→灯油→軽油→重油', back: '原油を蒸留すると何が得られるか？沸点の低い順に答えよ。', difficulty: 'standard' },
+      { id: 'sci1-sc-fc17', front: '約-196℃。食品の急速冷凍や医療分野での保存などに使われる', back: '窒素の沸点は約何℃か？液体窒素はどのような場面で使われるか？', difficulty: 'advanced' },
+      { id: 'sci1-sc-fc18', front: '粒子の運動が激しくなる', back: '温度が高くなると粒子の運動はどうなるか？', explanation: '温度が高い＝粒子の運動が激しい。これが状態変化の原因', difficulty: 'standard' },
+      { id: 'sci1-sc-fc19', front: '昇華（固体→気体）', back: 'ドライアイスが白い煙を出しながら小さくなる現象は何という変化？', explanation: '白い煙は冷気で冷やされた空気中の水蒸気が水滴になったもの', difficulty: 'standard' },
+      { id: 'sci1-sc-fc20', front: '脱脂綿にしみこませて火をつける。エタノールを多くふくむ液体は燃える', back: '蒸留で集めた液体がエタノールかどうか確認する方法は？', difficulty: 'standard' },
+      { id: 'sci1-sc-fc21', front: '粒子が規則正しく並び、その場で振動している状態', back: '固体の粒子はどのような状態か？', difficulty: 'standard' },
+      { id: 'sci1-sc-fc22', front: '粒子が自由に動き回っているが、ある程度まとまっている状態', back: '液体の粒子はどのような状態か？', difficulty: 'standard' },
+      { id: 'sci1-sc-fc23', front: '粒子が激しく飛び回り、互いに離れている状態', back: '気体の粒子はどのような状態か？', difficulty: 'standard' },
+      { id: 'sci1-sc-fc24', front: '融点＝0℃、沸点＝100℃', back: '水の融点と沸点はそれぞれ何℃か？', difficulty: 'basic' },
+      { id: 'sci1-sc-fc25', front: '氷は水より密度が小さい（氷：約0.92g/cm³、水：約1.00g/cm³）ため水に浮く', back: '氷が水に浮く理由を密度を使って説明せよ。', difficulty: 'advanced' },
+      { id: 'sci1-sc-fc26', front: '水が凍ると体積が大きくなり、水道管を内側から押し広げて破裂するから', back: '冬に水道管が破裂することがあるのはなぜか？', difficulty: 'advanced' },
+      { id: 'sci1-sc-fc27', front: '分留', back: '原油を蒸留して分離することを何というか？', difficulty: 'advanced' },
+      { id: 'sci1-sc-fc28', front: 'エタノール（沸点が水より低いため先に蒸発する）', back: '赤ワインを蒸留すると最初に出てくる液体は何を多くふくむか？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -344,7 +192,8 @@ export const stateChange: Topic = {
           correctIndex: 1,
           explanation:
             '固体から液体に変わることを融解といいます。このときの温度が融点です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-sc-q2',
           question: '状態変化について正しいものはどれ？',
@@ -357,7 +206,8 @@ export const stateChange: Topic = {
           correctIndex: 2,
           explanation:
             '状態変化では粒子の間隔が変わるため体積は変化しますが、粒子の数は変わらないので質量は変わりません。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-sc-q3',
           question: '水が凍るとき、体積はどうなるか？',
@@ -365,7 +215,8 @@ export const stateChange: Topic = {
           correctIndex: 3,
           explanation:
             '水は例外的に、液体→固体（氷）になると体積が大きくなります。これが氷が水に浮く理由です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-sc-q4',
           question: '沸点の違いを利用して液体の混合物を分離する方法を何という？',
@@ -373,7 +224,8 @@ export const stateChange: Topic = {
           correctIndex: 0,
           explanation:
             '蒸留は液体の混合物を加熱し、沸点の違いを利用して物質を分離する方法です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-sc-q5',
           question:
@@ -387,7 +239,8 @@ export const stateChange: Topic = {
           correctIndex: 3,
           explanation:
             '純粋な物質は融点や沸点で状態変化している間、温度が一定に保たれます。これは加えた熱が状態変化に使われるためです。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-sc-q6',
           question: '気体から液体への状態変化を何という？',
@@ -395,7 +248,8 @@ export const stateChange: Topic = {
           correctIndex: 1,
           explanation:
             '気体から液体に変わることを凝縮（液化）といいます。冷たいコップに水滴がつくのはこの現象です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-sc-q7',
           question:
@@ -404,7 +258,8 @@ export const stateChange: Topic = {
           correctIndex: 0,
           explanation:
             '固体から直接気体に変化すること（またはその逆）を昇華といいます。ドライアイスやナフタレンが例です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-sc-q8',
           question:
@@ -418,7 +273,8 @@ export const stateChange: Topic = {
           correctIndex: 2,
           explanation:
             'ロウは一般の物質と同じく液体→固体で体積が小さくなるため、表面が中央にへこみます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-sc-q9',
           question: 'エタノールの沸点は約何℃か？',
@@ -426,7 +282,8 @@ export const stateChange: Topic = {
           correctIndex: 2,
           explanation:
             'エタノールの沸点は約78℃です。水（100℃）より低いため、蒸留で先に蒸発して分離できます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-sc-q10',
           question: '蒸留の実験でフラスコに沸騰石を入れる理由は？',
@@ -439,7 +296,8 @@ export const stateChange: Topic = {
           correctIndex: 1,
           explanation:
             '沸騰石は突沸（急に激しく沸騰すること）を防ぐために入れます。小さな泡が出て穏やかに沸騰します。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-sc-q11',
           question:
@@ -453,7 +311,8 @@ export const stateChange: Topic = {
           correctIndex: 3,
           explanation:
             '混合物は純粋な物質と異なり、温度が一定になる部分がなく、なだらかに上昇し続けます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-sc-q12',
           question: '蒸留で温度計の球部はどこに置くのが正しいか？',
@@ -466,7 +325,8 @@ export const stateChange: Topic = {
           correctIndex: 0,
           explanation:
             '温度計の球部は枝つきフラスコの枝の付け根の高さに置き、蒸気の温度を正確に測定します。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-sc-q13',
           question: '状態変化しても物質の種類は変わるか？',
@@ -474,7 +334,8 @@ export const stateChange: Topic = {
           correctIndex: 1,
           explanation:
             '状態変化しても物質の種類は変わりません。粒子そのものは変化せず、運動のようすが変わるだけです。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-sc-q14',
           question: '水が凍ると体積が大きくなるのはなぜか？',
@@ -487,7 +348,8 @@ export const stateChange: Topic = {
           correctIndex: 2,
           explanation:
             '水が凍ると、氷の結晶構造がすき間の多い構造をとるため、体積が大きくなります。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-sc-q15',
           question: '状態変化で質量が変わらない理由を粒子の考え方で説明したものはどれ？',
@@ -500,7 +362,8 @@ export const stateChange: Topic = {
           correctIndex: 1,
           explanation:
             '状態変化では粒子の数が変わらないため、質量は変化しません。変わるのは粒子の間隔や運動の激しさです。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-sc-q16',
           question: '水の融点は何℃か？',
@@ -508,7 +371,8 @@ export const stateChange: Topic = {
           correctIndex: 1,
           explanation:
             '水の融点は0℃、沸点は100℃です。融点は固体から液体に変わる温度です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-sc-q17',
           question: '昇華する物質の例として正しいものはどれ？',
@@ -516,7 +380,8 @@ export const stateChange: Topic = {
           correctIndex: 2,
           explanation:
             'ドライアイス（固体の二酸化炭素）は液体にならず直接気体になります。ナフタレンも昇華する物質です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-sc-q18',
           question: 'ロウが固体になると表面がへこむ理由はどれ？',
@@ -529,7 +394,8 @@ export const stateChange: Topic = {
           correctIndex: 1,
           explanation:
             'ロウは一般の物質と同じく液体→固体で体積が小さくなるため、表面が内側にへこみます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-sc-q19',
           question: '加熱曲線を見て純粋な物質か混合物かを判断するにはどこに注目するか？',
@@ -542,7 +408,8 @@ export const stateChange: Topic = {
           correctIndex: 1,
           explanation:
             'グラフに水平な部分（温度が一定の部分）があれば純粋な物質、なければ混合物と判断できます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-sc-q20',
           question: '冬に水道管が破裂することがある理由はどれ？',
@@ -555,7 +422,8 @@ export const stateChange: Topic = {
           correctIndex: 1,
           explanation:
             '水は凍ると体積が約1.1倍に膨張するため、水道管を内側から押し広げて破裂させることがあります。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-sc-q21',
           question: '原油を蒸留して得られるものを沸点の低い順に並べたものはどれ？',
@@ -568,7 +436,8 @@ export const stateChange: Topic = {
           correctIndex: 1,
           explanation:
             '原油の蒸留ではガソリン→灯油→軽油→重油の順（沸点の低い順）に分離されます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-sc-q22',
           question: '蒸留の実験で使うフラスコの名前は何か？',
@@ -576,7 +445,8 @@ export const stateChange: Topic = {
           correctIndex: 2,
           explanation:
             '蒸留では枝つきフラスコを使います。温度計の球部は枝の付け根の高さに置きます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-sc-q23',
           question: '赤ワインを蒸留すると最初に出てくる液体は何を多くふくむか？',
@@ -584,7 +454,8 @@ export const stateChange: Topic = {
           correctIndex: 1,
           explanation:
             'エタノールの沸点（約78℃）は水の沸点（100℃）より低いため、先に蒸発してエタノールを多くふくむ液体が最初に集まります。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci1-sc-q24',
           question: '温度が高くなると粒子の運動はどうなるか？',
@@ -597,7 +468,8 @@ export const stateChange: Topic = {
           correctIndex: 1,
           explanation:
             '温度が高くなると粒子の運動が激しくなります。これが状態変化の原因です。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci1-sc-q25',
           question: '純粋な物質の加熱で温度が一定になるのはなぜか？',
@@ -610,7 +482,8 @@ export const stateChange: Topic = {
           correctIndex: 1,
           explanation:
             '純粋な物質の加熱中、状態変化が起こっている間は加えた熱が状態変化に使われるため、温度が上昇しません。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci1-sc-q26',
           question: 'ドライアイスは何という物質の固体か？',
@@ -618,7 +491,8 @@ export const stateChange: Topic = {
           correctIndex: 3,
           explanation:
             'ドライアイスは二酸化炭素の固体です。昇華して直接気体になります。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci1-sc-q27',
           question: '鉄の融点は約何℃か？',
@@ -626,7 +500,8 @@ export const stateChange: Topic = {
           correctIndex: 2,
           explanation:
             '鉄の融点は約1535℃です。非常に高い温度でないと溶けません。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci1-sc-q28',
           question: 'エタノールの融点は約何℃か？',
@@ -634,7 +509,8 @@ export const stateChange: Topic = {
           correctIndex: 1,
           explanation:
             'エタノールの融点は約−115℃です。沸点は約78℃で、水（沸点100℃）より低い温度で蒸発します。',
-        },
+        difficulty: 'advanced',
+      },
       ],
     },
     examples: {

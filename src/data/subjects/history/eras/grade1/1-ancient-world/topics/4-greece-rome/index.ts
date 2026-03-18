@@ -58,141 +58,169 @@ export const greeceRome: Topic = {
         id: 'fc1',
         front: 'ポリス',
         back: 'ギリシャで形成された都市国家を何という？',
+        difficulty: 'basic',
       },
       {
         id: 'fc2',
         front: '民主政',
         back: 'アテネで行われた、市民全員が参加して行う政治を何という？',
+        difficulty: 'basic',
       },
       {
         id: 'fc3',
         front: 'アレクサンドロス大王',
         back: 'マケドニアの王で東方遠征を行った人物は？',
+        difficulty: 'basic',
       },
       {
         id: 'fc4',
         front: 'ヘレニズム',
         back: 'ギリシャ文化とオリエント文化が融合した文化は？',
+        difficulty: 'basic',
       },
       {
         id: 'fc5',
         front: '共和政',
         back: '古代ローマで行われた、王がいない政治を何という？',
+        difficulty: 'basic',
       },
       {
         id: 'fc6',
         front: 'コロッセオ',
         back: 'ローマ市内に造られた巨大な円形闘技場は？',
+        difficulty: 'basic',
       },
       {
         id: 'fc7',
         front: '帝政',
         back: 'ローマで行われた、皇帝が支配する政治の仕組みを何という？',
+        difficulty: 'basic',
       },
       {
         id: 'fc8',
         front: '水道橋',
         back: 'ローマ帝国が各地に建設した、水を運ぶ橋を何という？',
+        difficulty: 'basic',
       },
       {
         id: 'fc9',
         front: 'パルテノン神殿',
         back: 'アテネの丘に建てられた、守護神をまつる神殿は？',
+        difficulty: 'basic',
       },
       {
         id: 'fc10',
         front: 'ペルシャ',
         back: 'ギリシャのポリス連合軍が撃退した西アジアの大国はどこ？',
+        difficulty: 'basic',
       },
       {
         id: 'fc11',
         front: 'アクロポリス',
         back: 'ポリスの中心にある丘の上の城塞を何という？',
+        difficulty: 'basic',
       },
       {
         id: 'fc12',
         front: 'ペルシャ戦争',
         back: 'ギリシャのポリスとペルシャ帝国の戦いを何という？',
+        difficulty: 'basic',
       },
       {
         id: 'fc13',
         front: 'ローマ法',
         back: 'ローマ帝国が整備した、ヨーロッパの法律の基礎となった法は？',
+        difficulty: 'standard',
       },
       {
         id: 'fc14',
         front: '直接民主政',
         back: 'アテネで市民が直接集会に参加して政治を決めた仕組みは？',
+        difficulty: 'standard',
       },
       {
         id: 'fc15',
         front: 'オリンピア',
         back: '古代ギリシャで4年に1度行われた、オリンピックの起源となった祭典は？',
+        difficulty: 'standard',
       },
       {
         id: 'fc16',
         front: 'スパルタ',
         back: '軍事を重視した厳しい訓練で知られるギリシャのポリスは？',
+        difficulty: 'standard',
       },
       {
         id: 'fc17',
         front: '476年',
         back: '西ローマ帝国が滅亡した年は？',
+        difficulty: 'standard',
       },
       {
         id: 'fc18',
         front: 'ゲルマン民族',
         back: '大移動により西ローマ帝国を滅亡に導いた民族は？',
+        difficulty: 'standard',
       },
       {
         id: 'fc19',
         front: 'オクタウィアヌス',
         back: 'ローマで最初の皇帝とされる人物は？',
+        difficulty: 'standard',
       },
       {
         id: 'fc20',
         front: 'カエサル',
         back: '共和政末期のローマで独裁権を握ったが暗殺された政治家は？',
+        difficulty: 'standard',
       },
       {
         id: 'fc21',
         front: 'タレス',
         back: '「万物の根源は水である」と説いたギリシャの哲学者は？',
+        difficulty: 'standard',
       },
       {
         id: 'fc22',
         front: 'ソクラテス',
         back: '問答法（対話法）を重視したギリシャの哲学者は？',
+        difficulty: 'standard',
       },
       {
         id: 'fc23',
         front: 'ヘロドトス',
         back: 'ペルシャ戦争の歴史を記録した「歴史の父」と呼ばれる人物は？',
+        difficulty: 'advanced',
       },
       {
         id: 'fc24',
         front: 'コンスタンティノープル',
         back: '東ローマ帝国（ビザンツ帝国）の首都は？',
+        difficulty: 'advanced',
       },
       {
         id: 'fc25',
         front: '395年',
         back: 'ローマ帝国が東西に分裂した年は？',
+        difficulty: 'advanced',
       },
       {
         id: 'fc26',
         front: 'キリスト教',
         back: '4世紀にローマ帝国の国教となった宗教は？',
+        difficulty: 'advanced',
       },
       {
         id: 'fc27',
         front: '道路網',
         back: '「すべての道はローマに通ず」と言われたローマ帝国の交通基盤は？',
+        difficulty: 'advanced',
       },
       {
         id: 'fc28',
         front: 'パンとサーカス',
         back: 'ローマの皇帝が市民に食料と娯楽を無料で提供して支持を得た政策は？',
+        difficulty: 'advanced',
       },
     ],
     quiz: {
@@ -203,6 +231,7 @@ export const greeceRome: Topic = {
           options: ['帝国', '藩', 'ポリス', '荘園'],
           correctIndex: 2,
           explanation: 'ポリスはギリシャで形成された都市国家で、アテネやスパルタが代表的です。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -210,6 +239,7 @@ export const greeceRome: Topic = {
           options: ['民主政', '封建制', '共和政', '帝政'],
           correctIndex: 0,
           explanation: 'アテネでは成年男性の市民全員が参加する直接民主政が行われました。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -218,6 +248,7 @@ export const greeceRome: Topic = {
           correctIndex: 1,
           explanation:
             'マケドニアのアレクサンドロス大王の東方遠征によりギリシャとオリエントの文化が融合しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q4',
@@ -225,6 +256,7 @@ export const greeceRome: Topic = {
           options: ['民主政', '封建制', '貴族政', '帝政'],
           correctIndex: 3,
           explanation: 'ローマは共和政から帝政へ移行し、皇帝が広大な領土を支配しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q5',
@@ -232,6 +264,7 @@ export const greeceRome: Topic = {
           options: ['パルテノン神殿', 'ピラミッド', '万里の長城', 'コロッセオ'],
           correctIndex: 3,
           explanation: 'コロッセオは約5万人を収容できた巨大な円形闘技場です。',
+          difficulty: 'basic',
         },
         {
           id: 'q6',
@@ -239,6 +272,7 @@ export const greeceRome: Topic = {
           options: ['ローマ', 'エジプト', 'ペルシャ', 'マケドニア'],
           correctIndex: 2,
           explanation: 'ペルシャの大軍に対し、ギリシャのポリスが連合して撃退しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q7',
@@ -246,6 +280,7 @@ export const greeceRome: Topic = {
           options: ['アクロポリス', 'パルテノン', 'コロッセオ', 'フォルム'],
           correctIndex: 0,
           explanation: 'アクロポリスはポリスの中心の丘で、神殿が建てられました。',
+          difficulty: 'basic',
         },
         {
           id: 'q8',
@@ -253,6 +288,7 @@ export const greeceRome: Topic = {
           options: ['凱旋門', '水道橋', '万里の長城', 'ピラミッド'],
           correctIndex: 1,
           explanation: '水道橋はローマ帝国が各地に建設し、遠くの水源から都市に水を運びました。',
+          difficulty: 'basic',
         },
         {
           id: 'q9',
@@ -260,6 +296,7 @@ export const greeceRome: Topic = {
           options: ['仏教', 'キリスト教', 'イスラーム', 'ユダヤ教'],
           correctIndex: 1,
           explanation: 'キリスト教は4世紀にローマ帝国の国教として採用されました。',
+          difficulty: 'basic',
         },
         {
           id: 'q10',
@@ -272,6 +309,7 @@ export const greeceRome: Topic = {
           ],
           correctIndex: 3,
           explanation: 'アテネの民主政に参加できたのは成年男性の市民のみで、女性や奴隷は除かれました。',
+          difficulty: 'basic',
         },
         {
           id: 'q11',
@@ -279,6 +317,7 @@ export const greeceRome: Topic = {
           options: ['395年', '476年', '610年', '800年'],
           correctIndex: 1,
           explanation: '西ローマ帝国は476年にゲルマン民族の大移動により滅亡しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q12',
@@ -291,6 +330,7 @@ export const greeceRome: Topic = {
           ],
           correctIndex: 2,
           explanation: 'アレクサンドロス大王の東方遠征はエジプトからインド北西部にまで及びました。',
+          difficulty: 'standard',
         },
         {
           id: 'q13',
@@ -298,6 +338,7 @@ export const greeceRome: Topic = {
           options: ['アテネ', 'スパルタ', 'テーベ', 'コリント'],
           correctIndex: 1,
           explanation: 'スパルタは軍事を重視し、市民に厳しい訓練を課す軍事国家でした。',
+          difficulty: 'standard',
         },
         {
           id: 'q14',
@@ -305,6 +346,7 @@ export const greeceRome: Topic = {
           options: ['ローマ風', 'ギリシャ風', 'エジプト風', 'ペルシャ風'],
           correctIndex: 1,
           explanation: 'ヘレニズムは「ギリシャ風」という意味で、ギリシャ文化が東方に広まったことを表します。',
+          difficulty: 'standard',
         },
         {
           id: 'q15',
@@ -317,6 +359,7 @@ export const greeceRome: Topic = {
           ],
           correctIndex: 1,
           explanation: 'ローマ帝国は広大な領土を統治するために優れた道路網を整備しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q16',
@@ -324,6 +367,7 @@ export const greeceRome: Topic = {
           options: ['312年', '395年', '476年', '527年'],
           correctIndex: 1,
           explanation: 'ローマ帝国は395年にテオドシウス帝の死後、東西に分裂しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q17',
@@ -331,6 +375,7 @@ export const greeceRome: Topic = {
           options: ['カエサル', 'オクタウィアヌス', 'ネロ', 'コンスタンティヌス'],
           correctIndex: 1,
           explanation: 'オクタウィアヌス（アウグストゥス）はカエサルの養子で初代皇帝となりました。',
+          difficulty: 'standard',
         },
         {
           id: 'q18',
@@ -338,6 +383,7 @@ export const greeceRome: Topic = {
           options: ['ソクラテス', 'タレス', 'アリストテレス', 'プラトン'],
           correctIndex: 1,
           explanation: 'タレスは自然哲学の祖とされ、「万物の根源は水である」と説きました。',
+          difficulty: 'standard',
         },
         {
           id: 'q19',
@@ -345,6 +391,7 @@ export const greeceRome: Topic = {
           options: ['ソクラテス', 'タレス', 'ヘロドトス', 'アレクサンドロス'],
           correctIndex: 2,
           explanation: 'ヘロドトスはペルシャ戦争の歴史を記録し、「歴史の父」と呼ばれています。',
+          difficulty: 'standard',
         },
         {
           id: 'q20',
@@ -352,6 +399,7 @@ export const greeceRome: Topic = {
           options: ['ペルシャ人', 'フン族', 'ゲルマン民族', 'アラブ人'],
           correctIndex: 2,
           explanation: 'ゲルマン民族の大移動により西ローマ帝国は476年に滅亡しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q21',
@@ -359,6 +407,7 @@ export const greeceRome: Topic = {
           options: ['ローマ', 'アテネ', 'コンスタンティノープル', 'アレクサンドリア'],
           correctIndex: 2,
           explanation: 'コンスタンティノープルは東ローマ帝国の首都で、現在のイスタンブールです。',
+          difficulty: 'standard',
         },
         {
           id: 'q22',
@@ -371,6 +420,7 @@ export const greeceRome: Topic = {
           ],
           correctIndex: 2,
           explanation: '市民が代表者を選ぶのではなく、自ら直接集会に参加して政治の決定を行ったためです。',
+          difficulty: 'standard',
         },
         {
           id: 'q23',
@@ -383,6 +433,7 @@ export const greeceRome: Topic = {
           ],
           correctIndex: 1,
           explanation: '優れた道路網を整備して交通を確保し、法律を整備して統治の基盤を作りました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q24',
@@ -395,6 +446,7 @@ export const greeceRome: Topic = {
           ],
           correctIndex: 1,
           explanation: 'カエサルは共和政末期のローマの政治家・軍人で、独裁権を握ったが暗殺されました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q25',
@@ -402,6 +454,7 @@ export const greeceRome: Topic = {
           options: ['パルテノン祭', 'オリンピア', 'アクロポリス祭', 'ヘレニズム祭'],
           correctIndex: 1,
           explanation: 'オリンピアは古代ギリシャで4年に1度ゼウス神に捧げて行われた祭典です。',
+          difficulty: 'advanced',
         },
         {
           id: 'q26',
@@ -414,6 +467,7 @@ export const greeceRome: Topic = {
           ],
           correctIndex: 1,
           explanation: 'ソクラテスは問いかけを通じて真理を探究する問答法（対話法）を重視しました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q27',
@@ -426,6 +480,7 @@ export const greeceRome: Topic = {
           ],
           correctIndex: 1,
           explanation: 'ローマの皇帝が市民に食料（パン）と娯楽（サーカス）を無料で提供し、支持を得た政策です。',
+          difficulty: 'advanced',
         },
         {
           id: 'q28',
@@ -438,6 +493,7 @@ export const greeceRome: Topic = {
           ],
           correctIndex: 1,
           explanation: 'アテネは市民が参加する民主政、スパルタは軍事を重視した寡頭政でした。',
+          difficulty: 'advanced',
         },
       ],
     },

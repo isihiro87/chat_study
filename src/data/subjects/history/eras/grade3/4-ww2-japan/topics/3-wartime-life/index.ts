@@ -44,66 +44,16 @@ export const wartimeLife: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'fc1',
-        front: '学徒出陣',
-        back: '1943年から大学生が学業を中断して戦場に送られたことを何という？',
-        explanation: '兵力不足を補うため、文系学生を中心に出征させた。',
-      },
-      {
-        id: 'fc2',
-        front: '勤労動員',
-        back: '中学生や女学生が軍需工場で働かされたことを何という？',
-        explanation: '労働力不足を補うため、学生が工場で働いた。',
-      },
-      {
-        id: 'fc3',
-        front: '疎開',
-        back: '空襲を避けるため、都市部の子どもたちが地方に移り住むことを何という？',
-        explanation: '親元を離れた生活は子どもたちにとって辛いものだった。',
-      },
-      {
-        id: 'fc4',
-        front: '金属供出',
-        back: '家庭の鍋や寺の鐘を政府に差し出すことを何という？',
-        explanation: '兵器を作るための金属が不足し、あらゆる金属が回収された。',
-      },
-      {
-        id: 'fc5',
-        front: '配給制',
-        back: '戦時中に食料や日用品を国が管理して分配した制度は？',
-        explanation: '配給切符がなければ米や味噌が手に入らなかった。',
-      },
-      {
-        id: 'fc6',
-        front: '欲しがりません勝つまでは',
-        back: '戦時中に国民に我慢を求めた有名なスローガンは？',
-        explanation: '食糧難や物資不足の中で、国民に耐乏を求めた。',
-      },
-      {
-        id: 'fc7',
-        front: '国家総動員法',
-        back: '1938年に制定され、国のすべての人と物を戦争に動員できるようにした法律は？',
-        explanation: '議会の承認なしに労働力や物資を動員できた。',
-      },
-      {
-        id: 'fc8',
-        front: '軍需工場',
-        back: '戦争に必要な武器や弾薬を作る工場を何という？',
-        explanation: '勤労動員で学生も働かされた。',
-      },
-      {
-        id: 'fc9',
-        front: '隣組',
-        back: '戦時中に地域の相互監視や防空活動を行った組織は？',
-        explanation: '10世帯程度で構成され、配給の受け取りなども行った。',
-      },
-      {
-        id: 'fc10',
-        front: '灯火管制',
-        back: '空襲時に敵の爆撃目標にならないよう、夜間に明かりを消すことを何という？',
-        explanation: '窓を黒い布で覆うなどして光が外に漏れないようにした。',
-      },
+      { id: 'fc1', front: '学徒出陣', back: '1943年から大学生が学業を中断して戦場に送られたことを何という？', difficulty: 'basic' },
+      { id: 'fc2', front: '勤労動員', back: '中学生や女学生が軍需工場で働かされたことを何という？', difficulty: 'basic' },
+      { id: 'fc3', front: '疎開', back: '空襲を避けるため、都市部の子どもたちが地方に移り住むことを何という？', difficulty: 'basic' },
+      { id: 'fc4', front: '金属供出', back: '家庭の鍋や寺の鐘を政府に差し出すことを何という？', explanation: '兵器を作るための金属が不足し、あらゆる金属が回収された。', difficulty: 'basic' },
+      { id: 'fc5', front: '配給制', back: '戦時中に食料や日用品を国が管理して分配した制度は？', difficulty: 'standard' },
+      { id: 'fc6', front: '欲しがりません勝つまでは', back: '戦時中に国民に我慢を求めた有名なスローガンは？', difficulty: 'standard' },
+      { id: 'fc7', front: '灯火管制', back: '空襲時に敵の爆撃目標にならないよう、夜間に明かりを消すことを何という？', difficulty: 'standard' },
+      { id: 'fc8', front: '隣組', back: '戦時中に地域の相互監視や防空活動を行った組織は？', explanation: '10世帯程度で構成され、配給の受け取りなども行った。', difficulty: 'standard' },
+      { id: 'fc9', front: '総動員体制', back: '学徒出陣・勤労動員・配給制・金属供出など、国民すべてを戦争に動員する体制を何という？', difficulty: 'advanced' },
+      { id: 'fc10', front: '戦時下の国民生活', back: '戦争が長引くにつれ、国民生活はどのように変化したか？', explanation: '食料・物資が配給制となり、子どもは疎開、学生は学徒出陣・勤労動員、家庭からは金属供出が求められた。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -114,6 +64,7 @@ export const wartimeLife: Topic = {
           correctIndex: 1,
           explanation:
             '学徒出陣により、多くの大学生が学業を中断して戦場に送られました。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -122,6 +73,7 @@ export const wartimeLife: Topic = {
           correctIndex: 0,
           explanation:
             '金属供出では、兵器を作るために家庭の鍋や寺の鐘まで回収されました。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -130,6 +82,7 @@ export const wartimeLife: Topic = {
           correctIndex: 2,
           explanation:
             '疎開では、親元を離れた子どもたちが地方で不慣れな生活を送りました。',
+          difficulty: 'standard',
         },
         {
           id: 'q4',
@@ -143,6 +96,7 @@ export const wartimeLife: Topic = {
           correctIndex: 3,
           explanation:
             '「欲しがりません勝つまでは」は、食糧難の中で国民に耐乏を求めたスローガンです。',
+          difficulty: 'standard',
         },
       ],
     },

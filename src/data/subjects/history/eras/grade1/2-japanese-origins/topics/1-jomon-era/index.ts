@@ -58,141 +58,169 @@ export const jomonEra: Topic = {
         id: 'fc1',
         front: '旧石器時代',
         back: '打製石器を使い移動しながら生活した最も古い時代は？',
+        difficulty: 'basic',
       },
       {
         id: 'fc2',
         front: '氷期（氷河時代）',
         back: '日本が大陸と陸続きだった寒い時期を何という？',
+        difficulty: 'basic',
       },
       {
         id: 'fc3',
         front: 'ナウマンゾウ',
         back: '氷河時代に大陸から渡ってきた大型のゾウは？',
+        difficulty: 'basic',
       },
       {
         id: 'fc4',
         front: 'オオツノジカ',
         back: '氷河時代に大陸から渡ってきた大きな角を持つシカは？',
+        difficulty: 'basic',
       },
       {
         id: 'fc5',
         front: '打製石器',
         back: '石を打ち欠いて作った旧石器時代の石器は？',
+        difficulty: 'basic',
       },
       {
         id: 'fc6',
         front: '岩宿遺跡',
         back: '群馬県で打製石器が発見され、日本の旧石器時代を証明した遺跡は？',
+        difficulty: 'basic',
       },
       {
         id: 'fc7',
         front: '相沢忠洋',
         back: '岩宿遺跡で打製石器を発見した人物は？',
+        difficulty: 'basic',
       },
       {
         id: 'fc8',
         front: '黒曜石',
         back: '石器の材料として重宝された黒いガラス質の石は？',
+        difficulty: 'basic',
       },
       {
         id: 'fc9',
         front: 'サヌカイト',
         back: '旧石器時代の石器の材料となった香川県の石は？',
+        difficulty: 'basic',
       },
       {
         id: 'fc10',
         front: '縄文時代',
         back: '約1万数千年前から土器を使い始めた時代は？',
+        difficulty: 'basic',
       },
       {
         id: 'fc11',
         front: '縄文土器',
         back: '表面に縄目のような文様がある土器は？',
+        difficulty: 'basic',
       },
       {
         id: 'fc12',
         front: 'たて穴住居',
         back: '縄文人が地面を掘り柱を立てて造った家は？',
+        difficulty: 'basic',
       },
       {
         id: 'fc13',
         front: '貝塚',
         back: '食べ終わった貝殻や魚の骨を捨てた場所は？',
+        difficulty: 'standard',
       },
       {
         id: 'fc14',
         front: '土偶',
         back: '祈りや魔よけのために作られた土の人形は？',
+        difficulty: 'standard',
       },
       {
         id: 'fc15',
         front: '三内丸山遺跡',
         back: '青森県にある縄文時代の大規模な集落遺跡は？',
+        difficulty: 'standard',
       },
       {
         id: 'fc16',
         front: '屈葬',
         back: '死者の手足を折り曲げて埋葬する方法は？',
+        difficulty: 'standard',
       },
       {
         id: 'fc17',
         front: '磨製石器',
         back: '縄文時代に磨いて作られた石器は？',
+        difficulty: 'standard',
       },
       {
         id: 'fc18',
         front: '野尻湖',
         back: 'ナウマンゾウの化石が発見された長野県の湖は？',
+        difficulty: 'standard',
       },
       {
         id: 'fc19',
         front: 'マンモス',
         back: '氷河時代に大陸から渡ってきた長い毛を持つゾウは？',
+        difficulty: 'standard',
       },
       {
         id: 'fc20',
         front: '貯蔵穴',
         back: 'ドングリやクルミなどの木の実を保存するために掘った穴は？',
+        difficulty: 'standard',
       },
       {
         id: 'fc21',
         front: '群馬県',
         back: '岩宿遺跡がある県は？',
+        difficulty: 'standard',
       },
       {
         id: 'fc22',
         front: '青森県',
         back: '三内丸山遺跡がある県は？',
+        difficulty: 'standard',
       },
       {
         id: 'fc23',
         front: 'ヒスイ（翡翠）',
         back: '縄文時代にアクセサリーとして使われた勾玉の材料は？',
+        difficulty: 'advanced',
       },
       {
         id: 'fc24',
         front: '釣り針',
         back: '縄文時代に骨や角で作られた魚をとるための道具は？',
+        difficulty: 'advanced',
       },
       {
         id: 'fc25',
         front: '海面上昇',
         back: '氷河時代が終わり気候が温暖になった結果、日本列島が大陸から切り離された原因は？',
+        difficulty: 'advanced',
       },
       {
         id: 'fc26',
         front: 'クリの木',
         back: '三内丸山遺跡の大型建物に使われていた木材は？',
+        difficulty: 'advanced',
       },
       {
         id: 'fc27',
         front: '交易（物の交換）',
         back: '遠方から黒曜石が見つかることで明らかになった縄文時代の活動は？',
+        difficulty: 'advanced',
       },
       {
         id: 'fc28',
         front: '狩り・漁・採集',
         back: '縄文人が食料を得ていた3つの方法は？',
+        difficulty: 'advanced',
       },
     ],
     quiz: {
@@ -204,6 +232,7 @@ export const jomonEra: Topic = {
           correctIndex: 1,
           explanation:
             '氷期には大陸と日本が陸続きで、ナウマンゾウやオオツノジカを狩っていました。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -211,6 +240,7 @@ export const jomonEra: Topic = {
           options: ['弥生土器', '須恵器', '土師器', '縄文土器'],
           correctIndex: 3,
           explanation: '縄文土器は縄を転がしてつけた文様が特徴的な土器です。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -219,6 +249,7 @@ export const jomonEra: Topic = {
           correctIndex: 2,
           explanation:
             'たて穴住居は地面を掘り下げて柱を立て、屋根をかけた住居です。',
+          difficulty: 'basic',
         },
         {
           id: 'q4',
@@ -227,6 +258,7 @@ export const jomonEra: Topic = {
           correctIndex: 0,
           explanation:
             '土偶は縄文時代に祈りや魔よけの目的で作られた土製の人形です。',
+          difficulty: 'basic',
         },
         {
           id: 'q5',
@@ -235,6 +267,7 @@ export const jomonEra: Topic = {
           correctIndex: 0,
           explanation:
             '貝塚は縄文人が食べた貝殻や骨を捨てた場所で、当時の生活を知る手がかりになります。',
+          difficulty: 'basic',
         },
         {
           id: 'q6',
@@ -244,6 +277,7 @@ export const jomonEra: Topic = {
           correctIndex: 2,
           explanation:
             '黒曜石は旧石器時代に石器の材料として重宝された黒いガラス質の石です。',
+          difficulty: 'basic',
         },
         {
           id: 'q7',
@@ -253,6 +287,7 @@ export const jomonEra: Topic = {
           correctIndex: 3,
           explanation:
             '岩宿遺跡は相沢忠洋が打製石器を発見し、日本に旧石器時代があったことを証明しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q8',
@@ -266,6 +301,7 @@ export const jomonEra: Topic = {
           correctIndex: 1,
           explanation:
             '三内丸山遺跡は青森県にある縄文時代の大規模な集落遺跡で、大型建物やクリの栽培跡が発見されました。',
+          difficulty: 'basic',
         },
         {
           id: 'q9',
@@ -274,6 +310,7 @@ export const jomonEra: Topic = {
           correctIndex: 2,
           explanation:
             '打製石器は石を打ち欠いて作った石器で、旧石器時代に使われました。',
+          difficulty: 'basic',
         },
         {
           id: 'q10',
@@ -288,6 +325,7 @@ export const jomonEra: Topic = {
           correctIndex: 0,
           explanation:
             '氷河時代が終わり気候が温暖になると、食料が豊富になり定住生活が始まりました。',
+          difficulty: 'basic',
         },
         {
           id: 'q11',
@@ -295,6 +333,7 @@ export const jomonEra: Topic = {
           options: ['相沢忠洋', '本居宣長', '杉田玄白', '伊能忠敬'],
           correctIndex: 0,
           explanation: '相沢忠洋が群馬県の岩宿遺跡で打製石器を発見しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q12',
@@ -302,6 +341,7 @@ export const jomonEra: Topic = {
           options: ['使われていた', '使われていなかった', '金属器が使われていた', '磁器が使われていた'],
           correctIndex: 1,
           explanation: '旧石器時代にはまだ土器を作る技術がなく、使われていませんでした。',
+          difficulty: 'standard',
         },
         {
           id: 'q13',
@@ -309,6 +349,7 @@ export const jomonEra: Topic = {
           options: ['黒曜石', 'サヌカイト', 'ヒスイ', '花崗岩'],
           correctIndex: 1,
           explanation: 'サヌカイトは香川県特産の石で、旧石器時代に石器の材料として使われました。',
+          difficulty: 'standard',
         },
         {
           id: 'q14',
@@ -316,6 +357,7 @@ export const jomonEra: Topic = {
           options: ['伸展葬', '屈葬', '火葬', '水葬'],
           correctIndex: 1,
           explanation: '縄文時代には死者の手足を折り曲げて埋葬する屈葬が行われました。',
+          difficulty: 'standard',
         },
         {
           id: 'q15',
@@ -323,6 +365,7 @@ export const jomonEra: Topic = {
           options: ['諏訪湖', '野尻湖', '琵琶湖', '浜名湖'],
           correctIndex: 1,
           explanation: '野尻湖（長野県）でナウマンゾウの化石が発見されました。',
+          difficulty: 'standard',
         },
         {
           id: 'q16',
@@ -330,6 +373,7 @@ export const jomonEra: Topic = {
           options: ['弥生土器', '縄文土器', '須恵器', '土師器'],
           correctIndex: 1,
           explanation: '縄文土器は厚みがあり装飾が豊かで、弥生土器は薄手でシンプルです。',
+          difficulty: 'standard',
         },
         {
           id: 'q17',
@@ -342,6 +386,7 @@ export const jomonEra: Topic = {
           ],
           correctIndex: 1,
           explanation: '気候が温暖になると海面が上昇し、日本列島は大陸から切り離されました。',
+          difficulty: 'standard',
         },
         {
           id: 'q18',
@@ -354,6 +399,7 @@ export const jomonEra: Topic = {
           ],
           correctIndex: 1,
           explanation: '遠方の黒曜石が見つかることから、すでに広い範囲での物の交換（交易）が行われていたとわかります。',
+          difficulty: 'standard',
         },
         {
           id: 'q19',
@@ -361,6 +407,7 @@ export const jomonEra: Topic = {
           options: ['スギ', 'ヒノキ', 'クリの木', 'マツ'],
           correctIndex: 2,
           explanation: '三内丸山遺跡の大型建物にはクリの木が使われていました。',
+          difficulty: 'standard',
         },
         {
           id: 'q20',
@@ -368,6 +415,7 @@ export const jomonEra: Topic = {
           options: ['金', '銅', 'ヒスイ（翡翠）', '鉄'],
           correctIndex: 2,
           explanation: '縄文時代の勾玉にはヒスイ（翡翠）が使われました。',
+          difficulty: 'standard',
         },
         {
           id: 'q21',
@@ -380,6 +428,7 @@ export const jomonEra: Topic = {
           ],
           correctIndex: 1,
           explanation: '氷河時代は海面が低下し、大陸と日本がつながった場所がありました。',
+          difficulty: 'standard',
         },
         {
           id: 'q22',
@@ -392,6 +441,7 @@ export const jomonEra: Topic = {
           ],
           correctIndex: 0,
           explanation: '縄文人は海岸や河川の近くで貝や魚をとって食べ、その残りを貝塚に捨てました。',
+          difficulty: 'standard',
         },
         {
           id: 'q23',
@@ -399,6 +449,7 @@ export const jomonEra: Topic = {
           options: ['数百人程度', '数千人程度', '数十人程度', '数万人程度'],
           correctIndex: 2,
           explanation: '縄文時代の集落は数十人程度の小さな規模でした。',
+          difficulty: 'advanced',
         },
         {
           id: 'q24',
@@ -411,6 +462,7 @@ export const jomonEra: Topic = {
           ],
           correctIndex: 1,
           explanation: '氷河時代が終わり気候が温暖になったことが、旧石器時代から縄文時代への転換点でした。',
+          difficulty: 'advanced',
         },
         {
           id: 'q25',
@@ -418,6 +470,7 @@ export const jomonEra: Topic = {
           options: ['打製石器', '磨製石器', '釣り針', '銅鐸'],
           correctIndex: 2,
           explanation: '縄文時代には骨や角で作った釣り針で魚をとっていました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q26',
@@ -430,6 +483,7 @@ export const jomonEra: Topic = {
           ],
           correctIndex: 1,
           explanation: '旧石器時代にはまだ土器を作る技術がなかったため、遺跡から土器は出土しません。',
+          difficulty: 'advanced',
         },
         {
           id: 'q27',
@@ -437,6 +491,7 @@ export const jomonEra: Topic = {
           options: ['青森県', '静岡県', '群馬県', '佐賀県'],
           correctIndex: 2,
           explanation: '岩宿遺跡は群馬県にあり、日本の旧石器時代を証明した重要な遺跡です。',
+          difficulty: 'advanced',
         },
         {
           id: 'q28',
@@ -444,6 +499,7 @@ export const jomonEra: Topic = {
           options: ['たて穴住居', '貝塚', '貯蔵穴', '古墳'],
           correctIndex: 2,
           explanation: '貯蔵穴は木の実を保存するために掘った穴です。',
+          difficulty: 'advanced',
         },
       ],
     },

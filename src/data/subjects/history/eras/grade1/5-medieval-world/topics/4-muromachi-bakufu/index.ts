@@ -57,34 +57,34 @@ export const muromachiBakufu: Topic = {
     },
     videos: [],
     flashcards: [
-      { id: 'fc1', front: '建武の新政', back: '後醍醐天皇が始めた天皇中心の政治は？' },
-      { id: 'fc2', front: '南北朝時代', back: '京都の北朝と吉野の南朝が約60年間対立した時代は？' },
-      { id: 'fc3', front: '北朝', back: '足利尊氏が京都に立てた天皇の朝廷は？' },
-      { id: 'fc4', front: '南朝', back: '後醍醐天皇が吉野（奈良県）に開いた朝廷は？' },
-      { id: 'fc5', front: '足利尊氏', back: '建武の新政に反旗を翻し、1338年に室町幕府を開いた人物は？' },
-      { id: 'fc6', front: '室町幕府', back: '足利尊氏が京都に開き、約230年続いた武家政権は？' },
-      { id: 'fc7', front: '足利義満', back: '室町幕府の第3代将軍で、1392年に南北朝を統一した人物は？' },
-      { id: 'fc8', front: '花の御所', back: '足利義満が京都の室町に建てた豪華な邸宅は？→室町幕府の名前の由来' },
-      { id: 'fc9', front: '太政大臣', back: '足利義満が就任した、朝廷の最高の官職は？' },
-      { id: 'fc10', front: '管領', back: '室町幕府で将軍を補佐する最高職は？' },
-      { id: 'fc11', front: '侍所', back: '室町幕府で軍事・警察を担当した機関は？' },
-      { id: 'fc12', front: '政所', back: '室町幕府で財政・事務を管理した機関は？' },
-      { id: 'fc13', front: '問注所', back: '室町幕府で裁判・訴訟を扱った機関は？' },
-      { id: 'fc14', front: '守護大名', back: '南北朝の動乱で領地を拡大し、一国を支配するほどの力を持った守護は？' },
-      { id: 'fc15', front: '鎌倉府', back: '関東8か国などの統治のために幕府が鎌倉に置いた機関は？' },
-      { id: 'fc16', front: '土倉・酒屋', back: '京都で金貸しを行い、幕府の財源となった業者は？' },
-      { id: 'fc17', front: '1338年', back: '足利尊氏が征夷大将軍に任命された年は？' },
-      { id: 'fc18', front: '1392年', back: '足利義満が南北朝を統一した年は？' },
-      { id: 'fc19', front: '約60年', back: '南北朝時代がおよそ何年間続いたか？' },
-      { id: 'fc20', front: '公家中心の政治', back: '建武の新政が武士の不満を招いた最大の理由は？' },
-      { id: 'fc21', front: '細川・斯波・畠山', back: '管領に交代で就任した三家は？' },
-      { id: 'fc22', front: '約230年', back: '室町幕府がおよそ何年間続いたか？' },
-      { id: 'fc23', front: '吉野（奈良県）', back: '後醍醐天皇が南朝を開いた場所は？' },
-      { id: 'fc24', front: '約2年', back: '建武の新政はおよそ何年で崩壊したか？' },
-      { id: 'fc25', front: '第3代将軍', back: '足利義満は室町幕府の第何代将軍か？' },
-      { id: 'fc26', front: '武家と公家の両方の権威', back: '足利義満が太政大臣にもなったことで手にしたものは？' },
-      { id: 'fc27', front: '征夷大将軍', back: '1338年に足利尊氏が任命された役職は？' },
-      { id: 'fc28', front: '執権と管領', back: '鎌倉幕府と室町幕府で将軍を補佐する役職名をそれぞれ答えよ' },
+      { id: 'fc1', front: '建武の新政', back: '後醍醐天皇が始めた天皇中心の政治は？', difficulty: 'basic' },
+      { id: 'fc2', front: '南北朝時代', back: '京都の北朝と吉野の南朝が約60年間対立した時代は？', difficulty: 'basic' },
+      { id: 'fc3', front: '北朝', back: '足利尊氏が京都に立てた天皇の朝廷は？', difficulty: 'basic' },
+      { id: 'fc4', front: '南朝', back: '後醍醐天皇が吉野（奈良県）に開いた朝廷は？', difficulty: 'basic' },
+      { id: 'fc5', front: '足利尊氏', back: '建武の新政に反旗を翻し、1338年に室町幕府を開いた人物は？', difficulty: 'basic' },
+      { id: 'fc6', front: '室町幕府', back: '足利尊氏が京都に開き、約230年続いた武家政権は？', difficulty: 'basic' },
+      { id: 'fc7', front: '足利義満', back: '室町幕府の第3代将軍で、1392年に南北朝を統一した人物は？', difficulty: 'basic' },
+      { id: 'fc8', front: '花の御所', back: '足利義満が京都の室町に建てた豪華な邸宅は？→室町幕府の名前の由来', difficulty: 'basic' },
+      { id: 'fc9', front: '太政大臣', back: '足利義満が就任した、朝廷の最高の官職は？', difficulty: 'basic' },
+      { id: 'fc10', front: '管領', back: '室町幕府で将軍を補佐する最高職は？', difficulty: 'basic' },
+      { id: 'fc11', front: '侍所', back: '室町幕府で軍事・警察を担当した機関は？', difficulty: 'basic' },
+      { id: 'fc12', front: '政所', back: '室町幕府で財政・事務を管理した機関は？', difficulty: 'basic' },
+      { id: 'fc13', front: '問注所', back: '室町幕府で裁判・訴訟を扱った機関は？', difficulty: 'standard' },
+      { id: 'fc14', front: '守護大名', back: '南北朝の動乱で領地を拡大し、一国を支配するほどの力を持った守護は？', difficulty: 'standard' },
+      { id: 'fc15', front: '鎌倉府', back: '関東8か国などの統治のために幕府が鎌倉に置いた機関は？', difficulty: 'standard' },
+      { id: 'fc16', front: '土倉・酒屋', back: '京都で金貸しを行い、幕府の財源となった業者は？', difficulty: 'standard' },
+      { id: 'fc17', front: '1338年', back: '足利尊氏が征夷大将軍に任命された年は？', difficulty: 'standard' },
+      { id: 'fc18', front: '1392年', back: '足利義満が南北朝を統一した年は？', difficulty: 'standard' },
+      { id: 'fc19', front: '約60年', back: '南北朝時代がおよそ何年間続いたか？', difficulty: 'standard' },
+      { id: 'fc20', front: '公家中心の政治', back: '建武の新政が武士の不満を招いた最大の理由は？', difficulty: 'standard' },
+      { id: 'fc21', front: '細川・斯波・畠山', back: '管領に交代で就任した三家は？', difficulty: 'standard' },
+      { id: 'fc22', front: '約230年', back: '室町幕府がおよそ何年間続いたか？', difficulty: 'standard' },
+      { id: 'fc23', front: '吉野（奈良県）', back: '後醍醐天皇が南朝を開いた場所は？', difficulty: 'advanced' },
+      { id: 'fc24', front: '約2年', back: '建武の新政はおよそ何年で崩壊したか？', difficulty: 'advanced' },
+      { id: 'fc25', front: '第3代将軍', back: '足利義満は室町幕府の第何代将軍か？', difficulty: 'advanced' },
+      { id: 'fc26', front: '武家と公家の両方の権威', back: '足利義満が太政大臣にもなったことで手にしたものは？', difficulty: 'advanced' },
+      { id: 'fc27', front: '征夷大将軍', back: '1338年に足利尊氏が任命された役職は？', difficulty: 'advanced' },
+      { id: 'fc28', front: '執権と管領', back: '鎌倉幕府と室町幕府で将軍を補佐する役職名をそれぞれ答えよ', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -94,6 +94,7 @@ export const muromachiBakufu: Topic = {
           options: ['摂関政治', '院政', '親政', '建武の新政'],
           correctIndex: 3,
           explanation: '建武の新政は後醍醐天皇が天皇中心の政治を目指して始めましたが、公家中心の政治に武士の不満が高まり短期間で崩壊しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -101,6 +102,7 @@ export const muromachiBakufu: Topic = {
           options: ['足利尊氏', '足利義満', '源頼朝', '北条時宗'],
           correctIndex: 0,
           explanation: '足利尊氏は建武の新政が公家を優遇して武士の功績を正しく評価しないことに不満を持ち、挙兵して室町幕府を開きました。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -108,6 +110,7 @@ export const muromachiBakufu: Topic = {
           options: ['戦国時代', '鎌倉時代', '南北朝時代', '平安時代'],
           correctIndex: 2,
           explanation: '南北朝時代は京都の北朝と吉野の南朝が約60年間対立した時代で、1392年に足利義満が統一しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q4',
@@ -115,6 +118,7 @@ export const muromachiBakufu: Topic = {
           options: ['足利尊氏', '足利義満', '足利義政', '足利義昭'],
           correctIndex: 1,
           explanation: '足利義満は1392年に約60年続いた南北朝の分裂を統一し、室町幕府の全盛期を築きました。',
+          difficulty: 'basic',
         },
         {
           id: 'q5',
@@ -122,6 +126,7 @@ export const muromachiBakufu: Topic = {
           options: ['執権', '守護', '地頭', '管領'],
           correctIndex: 3,
           explanation: '管領は室町幕府で将軍を補佐する最高職で、細川・斯波・畠山の三家が交代で就任しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q6',
@@ -129,6 +134,7 @@ export const muromachiBakufu: Topic = {
           options: ['地頭', '戦国大名', '守護大名', '国司'],
           correctIndex: 2,
           explanation: '守護大名は南北朝の動乱の中で領地を拡大し、武士を家来にして一国を支配するほど大きな権限を持つようになりました。',
+          difficulty: 'basic',
         },
         {
           id: 'q7',
@@ -136,6 +142,7 @@ export const muromachiBakufu: Topic = {
           options: ['金閣', '花の御所', '銀閣', '二条城'],
           correctIndex: 1,
           explanation: '花の御所は足利義満が京都の室町に建てた豪華な邸宅で、「室町幕府」の名前の由来にもなりました。',
+          difficulty: 'basic',
         },
         {
           id: 'q8',
@@ -143,6 +150,7 @@ export const muromachiBakufu: Topic = {
           options: ['吉野（奈良県）', '京都', '鎌倉', '大宰府'],
           correctIndex: 0,
           explanation: '後醍醐天皇は足利尊氏が京都に北朝を立てたため、吉野（奈良県）に逃れて南朝を開きました。',
+          difficulty: 'basic',
         },
         {
           id: 'q9',
@@ -150,6 +158,7 @@ export const muromachiBakufu: Topic = {
           options: ['太政大臣', '摂政', '関白', '征夷大将軍'],
           correctIndex: 0,
           explanation: '足利義満は太政大臣に就任し、武家の棟梁でありながら朝廷の最高位にも就いて武家と公家の両方の権威を手にしました。',
+          difficulty: 'basic',
         },
         {
           id: 'q10',
@@ -157,6 +166,7 @@ export const muromachiBakufu: Topic = {
           options: ['問屋と商人', '土倉と酒屋', '寺社と公家', '港と市場'],
           correctIndex: 1,
           explanation: '土倉と酒屋は京都で金貸しを行って利益を得ており、幕府はこれらの業者に税を課して財源としました。',
+          difficulty: 'basic',
         },
         {
           id: 'q11',
@@ -164,6 +174,7 @@ export const muromachiBakufu: Topic = {
           options: ['約10年', '約5年', '約2年', '約20年'],
           correctIndex: 2,
           explanation: '建武の新政は約2年で崩壊し、足利尊氏が後醍醐天皇に反旗を翻しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q12',
@@ -171,6 +182,7 @@ export const muromachiBakufu: Topic = {
           options: ['北条・足利・源', '細川・斯波・畠山', '山名・大内・赤松', '上杉・武田・今川'],
           correctIndex: 1,
           explanation: '管領には細川・斯波・畠山の三家が交代で就任し、将軍を補佐しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q13',
@@ -178,6 +190,7 @@ export const muromachiBakufu: Topic = {
           options: ['日明貿易の開始', '約60年続いた南北朝の統一', '鎌倉幕府の打倒', '御成敗式目の制定'],
           correctIndex: 1,
           explanation: '足利義満の最大の功績は1392年に約60年続いた南北朝の分裂を統一したことです。',
+          difficulty: 'standard',
         },
         {
           id: 'q14',
@@ -185,6 +198,7 @@ export const muromachiBakufu: Topic = {
           options: ['六波羅探題', '鎌倉府', '問注所', '政所'],
           correctIndex: 1,
           explanation: '鎌倉府は関東8か国などの統治を担当するために幕府が鎌倉に置いた出先機関です。',
+          difficulty: 'standard',
         },
         {
           id: 'q15',
@@ -192,6 +206,7 @@ export const muromachiBakufu: Topic = {
           options: ['違いはない', '守護大名は幕府が任命しなかった', '守護大名は軍事・警察権だけでなく土地支配や年貢徴収も行った', '守護大名は朝廷に仕えた'],
           correctIndex: 2,
           explanation: '鎌倉時代の守護は軍事・警察権のみでしたが、守護大名は土地の支配や年貢の徴収など広い権限を持ちました。',
+          difficulty: 'standard',
         },
         {
           id: 'q16',
@@ -199,6 +214,7 @@ export const muromachiBakufu: Topic = {
           options: ['1333年', '1336年', '1338年', '1392年'],
           correctIndex: 2,
           explanation: '足利尊氏は1338年に征夷大将軍に任命され、京都に室町幕府を開きました。',
+          difficulty: 'standard',
         },
         {
           id: 'q17',
@@ -206,6 +222,7 @@ export const muromachiBakufu: Topic = {
           options: ['約30年', '約60年', '約100年', '約200年'],
           correctIndex: 1,
           explanation: '南北朝時代は約60年間（1336年頃〜1392年）続き、足利義満が統一しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q18',
@@ -213,6 +230,7 @@ export const muromachiBakufu: Topic = {
           options: ['吉野が経済の中心だったから', '足利尊氏が京都に別の天皇を立てたため', '仏教の聖地だったから', '朝廷の伝統だったから'],
           correctIndex: 1,
           explanation: '足利尊氏が京都に別の天皇を立てたため、後醍醐天皇は自身こそ正統と主張して吉野に逃れました。',
+          difficulty: 'standard',
         },
         {
           id: 'q19',
@@ -220,6 +238,7 @@ export const muromachiBakufu: Topic = {
           options: ['どちらも執権', '室町は管領、鎌倉は執権', 'どちらも管領', '室町は執権、鎌倉は管領'],
           correctIndex: 1,
           explanation: '室町幕府では管領が、鎌倉幕府では執権が将軍を補佐しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q20',
@@ -227,6 +246,7 @@ export const muromachiBakufu: Topic = {
           options: ['室町幕府→建武の新政→南北朝時代', '建武の新政→足利尊氏が幕府を開く→南北朝統一', '南北朝統一→建武の新政→室町幕府', '建武の新政→南北朝統一→足利尊氏が幕府を開く'],
           correctIndex: 1,
           explanation: '建武の新政が崩壊→足利尊氏が室町幕府を開く（1338年）→南北朝統一（1392年）の順です。',
+          difficulty: 'standard',
         },
         {
           id: 'q21',
@@ -234,6 +254,7 @@ export const muromachiBakufu: Topic = {
           options: ['約100年', '約150年', '約230年', '約300年'],
           correctIndex: 2,
           explanation: '室町幕府は約230年間続きました。',
+          difficulty: 'standard',
         },
         {
           id: 'q22',
@@ -241,6 +262,7 @@ export const muromachiBakufu: Topic = {
           options: ['幕府に軍事力を提供した', '金貸しの利益に幕府が税を課した', '幕府の土地を管理した', '朝廷との仲介をした'],
           correctIndex: 1,
           explanation: '土倉と酒屋は金貸しで利益を得ており、幕府はこれらの業者に税を課して財源としました。',
+          difficulty: 'standard',
         },
         {
           id: 'q23',
@@ -248,6 +270,7 @@ export const muromachiBakufu: Topic = {
           options: ['鎌倉', '奈良', '京都の室町', '大阪'],
           correctIndex: 2,
           explanation: '花の御所は京都の室町に建てられ、「室町幕府」の名前の由来となりました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q24',
@@ -255,6 +278,7 @@ export const muromachiBakufu: Topic = {
           options: ['朝廷が任命した', '南北朝の動乱で領地を拡大し武士を家来化した', '外国との貿易で富を得た', '仏教の力で支持を集めた'],
           correctIndex: 1,
           explanation: '南北朝の動乱の中で守護は領地を拡大し武士を家来化して、一国を支配する守護大名に成長しました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q25',
@@ -262,6 +286,7 @@ export const muromachiBakufu: Topic = {
           options: ['武家の棟梁として当然のこと', '武家と公家の両方の権威を手にした', '朝廷を廃止した', '鎌倉に移った'],
           correctIndex: 1,
           explanation: '武士の棟梁でありながら朝廷の最高位にも就くことで、武家と公家の両方の権威を手にしました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q26',
@@ -269,6 +294,7 @@ export const muromachiBakufu: Topic = {
           options: ['戦がなくなったから', '武士が大きな功績を果たしたのに公家ばかりが優遇されたから', '税が増えたから', '土地を没収されたから'],
           correctIndex: 1,
           explanation: '幕府を倒す際に武士が大きな功績を果たしたにもかかわらず、公家ばかりが優遇されたため不満が高まりました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q27',
@@ -276,6 +302,7 @@ export const muromachiBakufu: Topic = {
           options: ['守護・地頭・問注所', '侍所・政所・問注所', '管領・執権・六波羅探題', '鎌倉府・守護・国司'],
           correctIndex: 1,
           explanation: '室町幕府には侍所（軍事・警察）、政所（財政）、問注所（裁判）の3つの主要機関が置かれました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q28',
@@ -283,6 +310,7 @@ export const muromachiBakufu: Topic = {
           options: ['尊氏が南北朝統一、義満が幕府開設', '尊氏が室町幕府を開き、義満が南北朝を統一', '尊氏が鎌倉幕府を開き、義満が応仁の乱を収めた', 'どちらも同じ功績'],
           correctIndex: 1,
           explanation: '足利尊氏は室町幕府を開き、第3代将軍の足利義満は南北朝を統一して幕府の全盛期を築きました。',
+          difficulty: 'advanced',
         },
       ],
     },

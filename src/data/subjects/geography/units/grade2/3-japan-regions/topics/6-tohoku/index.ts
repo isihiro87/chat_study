@@ -143,48 +143,13 @@ export const tohoku: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'geo2-th-fc1',
-        front: 'やませ',
-        back: '東北地方の太平洋側に夏に吹く、冷たく湿った北東の風を何というか。',
-        explanation:
-          'やませといいます。太平洋側に霧や低温をもたらし、日照不足で稲の生育を妨げる冷害の原因になります。',
-      },
-      {
-        id: 'geo2-th-fc2',
-        front: 'リアス海岸',
-        back: '三陸海岸に見られる、出入りの複雑な海岸線を何というか。',
-        explanation:
-          'リアス海岸といいます。波が穏やかな入り江を利用して、わかめ・かき・ほたてなどの養殖漁業が盛んに行われています。',
-      },
-      {
-        id: 'geo2-th-fc3',
-        front: '潮目（潮境）',
-        back: '三陸沖で暖流（黒潮）と寒流（親潮）がぶつかる場所を何というか。',
-        explanation:
-          '潮目（潮境）といいます。プランクトンが豊富で魚が多く集まるため、世界有数の好漁場となっています。',
-      },
-      {
-        id: 'geo2-th-fc4',
-        front: '南部鉄器',
-        back: '岩手県の伝統的工芸品で、近年海外でもデザイン性が評価されている鋳鉄製品を何というか。',
-        explanation:
-          '南部鉄器といいます。急須や鉄瓶が海外でも人気を集め、伝統産業のグローバル化の成功例として知られています。',
-      },
-      {
-        id: 'geo2-th-fc5',
-        front: '東北四大祭り',
-        back: '東北地方の代表的な4つの夏祭りを答えなさい。',
-        explanation:
-          '青森のねぶた祭、秋田の竿燈まつり、仙台の七夕まつり、山形の花笠まつりです。稲作の豊作を願う行事がルーツです。',
-      },
-      {
-        id: 'geo2-th-fc6',
-        front: '東日本大震災の復興まちづくり',
-        back: '2011年の東日本大震災の教訓から進められている、新しいまちづくりの取り組みを3つ答えなさい。',
-        explanation:
-          '防潮堤の建設、高台移転、防災教育の充実の3つです。津波の被害を減らすための取り組みが進められています。',
-      },
+      { id: 'geo2-th-fc1', front: 'やませ', back: '東北地方の太平洋側に夏に吹く、冷たく湿った北東の風を何というか。', explanation: '霧や低温をもたらし、日照不足で冷害の原因になる', difficulty: 'basic' },
+      { id: 'geo2-th-fc2', front: 'リアス海岸', back: '三陸海岸に見られる、出入りの複雑な海岸線を何というか。', explanation: '入り江を利用してわかめ・かき・ほたてなどの養殖漁業が盛ん', difficulty: 'basic' },
+      { id: 'geo2-th-fc3', front: '潮目（潮境）', back: '三陸沖で暖流（黒潮）と寒流（親潮）がぶつかる場所を何というか。', explanation: 'プランクトンが豊富で世界有数の好漁場', difficulty: 'basic' },
+      { id: 'geo2-th-fc4', front: '南部鉄器', back: '岩手県の伝統的工芸品で、近年海外でもデザイン性が評価されている鋳鉄製品を何というか。', difficulty: 'standard' },
+      { id: 'geo2-th-fc5', front: '青森のねぶた祭、秋田の竿燈まつり、仙台の七夕まつり、山形の花笠まつり', back: '東北四大祭りを答えなさい。', explanation: '稲作の豊作を願う行事がルーツ', difficulty: 'standard' },
+      { id: 'geo2-th-fc6', front: '防潮堤の建設、高台移転、防災教育の充実', back: '東日本大震災の教訓から進められている復興まちづくりの取り組みを3つ答えよ。', difficulty: 'standard' },
+      { id: 'geo2-th-fc7', front: '養殖漁業', back: '三陸海岸のリアス海岸の入り江を利用して行われている漁業の形態は何か。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -196,7 +161,8 @@ export const tohoku: Topic = {
           correctIndex: 0,
           explanation:
             'やませは東北地方の太平洋側に吹く冷たく湿った北東の風で、霧や低温をもたらし冷害の原因になります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo2-th-q2',
           question:
@@ -210,7 +176,8 @@ export const tohoku: Topic = {
           correctIndex: 2,
           explanation:
             '三陸沖は暖流（黒潮）と寒流（親潮）がぶつかる潮目にあたり、プランクトンが豊富で魚が多く集まります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo2-th-q3',
           question:
@@ -219,7 +186,8 @@ export const tohoku: Topic = {
           correctIndex: 1,
           explanation:
             'リアス海岸の波が穏やかな入り江を利用して、わかめ・かき・ほたてなどの養殖漁業が盛んに行われています。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo2-th-q4',
           question:
@@ -228,7 +196,8 @@ export const tohoku: Topic = {
           correctIndex: 3,
           explanation:
             '南部鉄器は岩手県の伝統的工芸品で、急須や鉄瓶のデザイン性が海外で評価され、グローバル化に成功しています。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo2-th-q5',
           question:
@@ -242,7 +211,8 @@ export const tohoku: Topic = {
           correctIndex: 1,
           explanation:
             '東日本大震災では福島第一原発の事故も起きたため、原子力発電所の増設ではなく、防潮堤の建設・高台移転・防災教育などが進められています。',
-        },
+        difficulty: 'advanced',
+      },
       ],
     },
     examples: {

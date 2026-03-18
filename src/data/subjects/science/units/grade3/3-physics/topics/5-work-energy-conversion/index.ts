@@ -109,90 +109,24 @@ export const workConversion: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'sci3-wc-fc1',
-        front: '仕事[J]',
-        back: '力の大きさ[N] × 力の向きに動いた距離[m] で求められるものは？',
-        explanation: '単位はジュール[J]。1Nの力で1m動かすと1J。',
-      },
-      {
-        id: 'sci3-wc-fc2',
-        front: '仕事の原理',
-        back: '道具を使っても使わなくても仕事の総量は変わらないという原理を何という？',
-        explanation: '動滑車で力が半分になっても、引く距離が2倍になり仕事は同じ。',
-      },
-      {
-        id: 'sci3-wc-fc3',
-        front: '仕事率[W]',
-        back: '単位時間あたりの仕事の大きさを何という？',
-        explanation: '仕事率[W] = 仕事[J] ÷ 時間[s]。ワットは電力の単位と同じ。',
-      },
-      {
-        id: 'sci3-wc-fc4',
-        front: 'エネルギー保存の法則',
-        back: 'エネルギーはさまざまな形に変換されても、その総量は一定であるという法則は？',
-        explanation: 'エネルギーが消滅するのではなく、熱などの別の形に変換されている。',
-      },
-      {
-        id: 'sci3-wc-fc5',
-        front: '仕事が0になる条件',
-        back: '理科で仕事が0になるのはどんなとき？（3つ）',
-        explanation: '(1)力を加えていないとき、(2)力を加えても動かないとき、(3)力の向きと移動の向きが垂直のとき。',
-      },
-      {
-        id: 'sci3-wc-fc6',
-        front: '定滑車',
-        back: '定滑車を使うと力の大きさと距離はどうなる？',
-        explanation: '力の向きだけが変わり、力の大きさも引く距離も変わらない。下に引いて物を上に持ち上げることができる。',
-      },
-      {
-        id: 'sci3-wc-fc7',
-        front: '動滑車',
-        back: '動滑車を使うと力と距離はどうなる？',
-        explanation: '力は半分になるが、ひもを引く距離は2倍になる。仕事の原理により、仕事の総量は変わらない。',
-      },
-      {
-        id: 'sci3-wc-fc8',
-        front: '斜面を使った仕事',
-        back: '斜面を使って物体を持ち上げると、力と距離はどうなる？',
-        explanation: '斜面を使うとまっすぐ持ち上げるより小さい力ですむが、移動距離が長くなる。仕事の総量は同じ。',
-      },
-      {
-        id: 'sci3-wc-fc9',
-        front: 'てこの仕事',
-        back: 'てこを使って仕事をするとき、力×距離の関係はどうなる？',
-        explanation: 'てこを使うと力は小さくてすむが、力点の移動距離が大きくなる。力×距離は常に同じ（仕事の原理）。',
-      },
-      {
-        id: 'sci3-wc-fc10',
-        front: '変換効率',
-        back: '有効に利用できたエネルギーの割合を何という？計算式は？',
-        explanation: '変換効率[%] = 有効に利用できたエネルギー ÷ 投入したエネルギー × 100。LEDは白熱電球より光への変換効率が高い。',
-      },
-      {
-        id: 'sci3-wc-fc11',
-        front: '伝導',
-        back: '固体の中を熱が伝わる現象を何という？',
-        explanation: '金属は熱伝導率が高く、熱が伝わりやすい。フライパンの取っ手が熱くなるのが例。',
-      },
-      {
-        id: 'sci3-wc-fc12',
-        front: '対流',
-        back: '液体や気体が移動して熱が伝わる現象を何という？',
-        explanation: '温められた液体や気体は上昇し、冷たい部分が下降することで熱が伝わる。お湯を沸かすときなどに見られる。',
-      },
-      {
-        id: 'sci3-wc-fc13',
-        front: '放射',
-        back: '電磁波によって空間をへだてて熱が伝わる現象を何という？',
-        explanation: '真空中でも伝わるのが特徴。太陽の熱が宇宙空間を通って地球に届くのは放射による。',
-      },
-      {
-        id: 'sci3-wc-fc14',
-        front: '化学エネルギー',
-        back: '燃料や食べ物がもっているエネルギーを何という？',
-        explanation: '物質の化学変化によって取り出せるエネルギー。燃焼や消化によって熱エネルギーなどに変換される。',
-      },
+      { id: 'sci3-wc-fc1', front: '仕事（単位：J）', back: '力の大きさ[N] × 力の向きに動いた距離[m] で求められるものは？', difficulty: 'basic' },
+      { id: 'sci3-wc-fc2', front: '仕事の原理', back: '道具を使っても使わなくても仕事の総量は変わらないという原理を何という？', difficulty: 'basic' },
+      { id: 'sci3-wc-fc3', front: '仕事率（単位：W）', back: '単位時間あたりの仕事の大きさを何という？', difficulty: 'basic' },
+      { id: 'sci3-wc-fc4', front: 'エネルギー保存の法則', back: 'エネルギーはさまざまな形に変換されても、その総量は一定であるという法則は？', difficulty: 'basic' },
+      { id: 'sci3-wc-fc5', front: '(1)力が0 (2)動かない (3)力と移動が垂直', back: '理科で仕事が0になるのはどんなとき？（3つ）', difficulty: 'standard' },
+      { id: 'sci3-wc-fc6', front: '力の向きだけ変わる（大きさも距離も同じ）', back: '定滑車を使うと力の大きさと距離はどうなる？', difficulty: 'basic' },
+      { id: 'sci3-wc-fc7', front: '力は半分、距離は2倍（仕事の総量は同じ）', back: '動滑車を使うと力と距離はどうなる？', difficulty: 'standard' },
+      { id: 'sci3-wc-fc8', front: '力は小さくなるが、移動距離が長くなる（仕事は同じ）', back: '斜面を使って物体を持ち上げると、力と距離はどうなる？', difficulty: 'standard' },
+      { id: 'sci3-wc-fc9', front: '力は小さくなるが力点の移動距離が大きくなる（力×距離は同じ）', back: 'てこを使って仕事をするとき、力×距離の関係はどうなる？', difficulty: 'standard' },
+      { id: 'sci3-wc-fc10', front: '変換効率[%]＝有効なエネルギー÷投入エネルギー×100', back: '有効に利用できたエネルギーの割合を何という？計算式は？', difficulty: 'standard' },
+      { id: 'sci3-wc-fc11', front: '伝導', back: '固体の中を熱が伝わる現象を何という？', explanation: 'フライパンの取っ手が熱くなるのが例。', difficulty: 'standard' },
+      { id: 'sci3-wc-fc12', front: '対流', back: '液体や気体が移動して熱が伝わる現象を何という？', explanation: 'お湯を沸かすときに見られる。', difficulty: 'standard' },
+      { id: 'sci3-wc-fc13', front: '放射（真空中でも伝わる）', back: '電磁波によって空間をへだてて熱が伝わる現象を何という？', explanation: '太陽の熱が宇宙空間を通って地球に届くのは放射。', difficulty: 'advanced' },
+      { id: 'sci3-wc-fc14', front: '化学エネルギー', back: '燃料や食べ物がもっているエネルギーを何という？', difficulty: 'advanced' },
+      { id: 'sci3-wc-fc15', front: '6J（3N×2m）', back: '3Nの力で物体を2m持ち上げたときの仕事は？', difficulty: 'standard' },
+      { id: 'sci3-wc-fc16', front: '5W（50J÷10s）', back: '10秒間に50Jの仕事をしたときの仕事率は？', difficulty: 'advanced' },
+      { id: 'sci3-wc-fc17', front: '25%（20J÷80J×100）', back: '80Jの電気エネルギーから20Jの光エネルギーが得られた。変換効率は？', difficulty: 'advanced' },
+      { id: 'sci3-wc-fc18', front: '4m（距離が2倍になるため）', back: '動滑車を使って10Nの物体を2m持ち上げるとき、ひもを引く距離は？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -203,7 +137,8 @@ export const workConversion: Topic = {
           correctIndex: 0,
           explanation:
             '仕事 = 力 × 距離 = 3N × 2m = 6J です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci3-wc-q2',
           question: '仕事の原理について正しいのはどれ？',
@@ -216,7 +151,8 @@ export const workConversion: Topic = {
           correctIndex: 3,
           explanation:
             '仕事の原理では、滑車やてこなどの道具を使っても、仕事の総量（力×距離）は変わりません。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci3-wc-q3',
           question: '10秒間に50Jの仕事をしたときの仕事率は？',
@@ -224,7 +160,8 @@ export const workConversion: Topic = {
           correctIndex: 2,
           explanation:
             '仕事率 = 仕事 ÷ 時間 = 50J ÷ 10s = 5W です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci3-wc-q4',
           question: '熱の伝わり方に含まれないものはどれ？',
@@ -232,7 +169,8 @@ export const workConversion: Topic = {
           correctIndex: 1,
           explanation:
             '熱の伝わり方は伝導（物質中を伝わる）・対流（液体や気体の流れ）・放射（電磁波による）の3つです。蒸発は状態変化です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci3-wc-q5',
           question: '理科で「仕事が0」になる例はどれ？',
@@ -245,7 +183,8 @@ export const workConversion: Topic = {
           correctIndex: 1,
           explanation:
             '荷物を持ったまま水平に歩く場合、持ち上げる力（上向き）と移動方向（水平）が垂直なので、理科では仕事は0です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci3-wc-q6',
           question: '動滑車を使って10Nの物体を2m持ち上げるとき、ひもを引く距離は？',
@@ -253,7 +192,8 @@ export const workConversion: Topic = {
           correctIndex: 3,
           explanation:
             '動滑車を使うと力は半分（5N）になりますが、ひもを引く距離は2倍の4mになります。仕事は5N×4m=20Jで、直接持ち上げる場合（10N×2m=20J）と同じです。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci3-wc-q7',
           question: '80Jの電気エネルギーを使い、20Jの光エネルギーが得られた。変換効率は？',
@@ -261,7 +201,8 @@ export const workConversion: Topic = {
           correctIndex: 0,
           explanation:
             '変換効率 = 有効に利用できたエネルギー ÷ 投入したエネルギー × 100 = 20J ÷ 80J × 100 = 25% です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci3-wc-q8',
           question: '太陽の熱が宇宙空間を通って地球に届く伝わり方は？',
@@ -269,7 +210,8 @@ export const workConversion: Topic = {
           correctIndex: 2,
           explanation:
             '放射は電磁波によって熱が伝わる方法で、真空中でも伝わります。太陽の熱が宇宙空間を通って届くのは放射です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci3-wc-q9',
           question: '60Jの仕事を10秒間でしたときの仕事率は？',
@@ -277,7 +219,8 @@ export const workConversion: Topic = {
           correctIndex: 2,
           explanation:
             '仕事率 = 仕事 ÷ 時間 = 60J ÷ 10s = 6W です。',
-        },
+        difficulty: 'advanced',
+      },
       ],
     },
     examples: {

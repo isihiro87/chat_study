@@ -72,114 +72,142 @@ export const quadFuncParabola: Topic = {
       {
         id: 'math-g3-qf-pb-fc1',
         front: '$y$ は $x$ の2乗に比例する（$a$ は比例定数、$a \\neq 0$）', back: '$y = ax^2$ の関係を何というか？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qf-pb-fc2',
         front: '放物線（ほうぶつせん）', back: '$y = ax^2$ のグラフの名前は？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qf-pb-fc3',
         front: '比例定数（ひれいていすう）', back: '$y = ax^2$ の $a$ のことを何という？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qf-pb-fc4',
         front: '$y$ 軸（$x = 0$ の直線）', back: '$y = ax^2$ のグラフの対称軸は？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qf-pb-fc5',
         front: '原点 $(0, 0)$', back: '$y = ax^2$ のグラフの頂点は？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qf-pb-fc6',
         front: '上に開く（U字型）', back: '$a > 0$ のとき、放物線はどちらに開く？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qf-pb-fc7',
         front: '下に開く（$\\cap$字型）', back: '$a < 0$ のとき、放物線はどちらに開く？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qf-pb-fc8',
         front: '細くなる（急になる）', back: '$|a|$ が大きいとき、放物線の開き方はどうなる？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qf-pb-fc9',
         front: '広くなる（ゆるやかになる）', back: '$|a|$ が小さいとき、放物線の開き方はどうなる？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qf-pb-fc10',
         front: '4倍（$2^2 = 4$）', back: '$y = ax^2$ で $x$ が2倍になると $y$ は何倍？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qf-pb-fc11',
         front: '9倍（$3^2 = 9$）', back: '$y = ax^2$ で $x$ が3倍になると $y$ は何倍？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qf-pb-fc12',
         front: '$y = a(-x)^2 = ax^2$ となり、$x$ を $-x$ に置き換えても式が変わらないから。', back: '放物線が $y$ 軸対称である理由を式で説明すると？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qf-pb-fc13',
         front: '$y = ax^2$ に通る点 $(x, y)$ を代入して $a = y \\div x^2$ で求める。', back: '比例定数 $a$ の求め方は？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qf-pb-fc14',
         front: '$y = 3x^2$（$|a|$ が大きいほど細い）', back: '$y = x^2$ と $y = 3x^2$ ではどちらが細いグラフ？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qf-pb-fc15',
         front: '比例は直線のグラフ、$y = ax^2$ は放物線（曲線）のグラフになる。', back: '比例 $y = ax$ と $y = ax^2$ の違いは？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qf-pb-fc16',
         front: '等しくなる（$a \\cdot x^2 = a \\cdot (-x)^2$）', back: '$y = ax^2$ のグラフで、$x$ と $-x$ の $y$ の値はどうなる？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qf-pb-fc17',
         front: '$y = x^2$（$y$ は $x$ の2乗に比例、$a = 1$）', back: '正方形の1辺 $x$ cm と面積 $y$ cm² の関係式は？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qf-pb-fc18',
         front: '$a = -\\frac{2}{3}$。$-6 = a \\times 9$ より。', back: '放物線 $y = ax^2$ が点 $(3, -6)$ を通る。$a$ は？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qf-pb-fc19',
         front: '$y = -50$。$-2 \\times (-5)^2 = -2 \\times 25 = -50$。', back: '$y = -2x^2$ で $x = -5$ のとき $y$ は？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qf-pb-fc20',
         front: '$n^2$ 倍になる。$y = a(nx)^2 = an^2x^2$。', back: '$y = ax^2$ で $x$ が $n$ 倍になると $y$ は？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qf-pb-fc21',
         front: '16倍（$4^2 = 16$）', back: '$y = ax^2$ で $x$ が4倍になると $y$ は何倍？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qf-pb-fc22',
         front: '$y = 5x^2$。$20 = a \\times 4 = 4a$ より $a = 5$。', back: '$y = ax^2$ で $x = 2, y = 20$ のとき式は？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qf-pb-fc23',
         front: '下に開く広い放物線。$|a| < 1$ で広い。', back: '$y = -\\frac{1}{4}x^2$ のグラフの特徴は？',
+        difficulty: 'advanced',
       },
       {
         id: 'math-g3-qf-pb-fc24',
         front: '$y = x^2$。円の面積は $y = \\pi x^2$ で2乗に比例。', back: '半径 $x$ の円の面積 $y$ は $x$ の2乗に比例する？',
+        difficulty: 'advanced',
       },
       {
         id: 'math-g3-qf-pb-fc25',
         front: '$a$ の符号で開く方向、$|a|$ の大小で幅がわかる', back: '$y = ax^2$ で $a$ からわかる情報は？',
+        difficulty: 'advanced',
       },
       {
         id: 'math-g3-qf-pb-fc26',
         front: '通らない。$x = 0$ のとき $y = 0$ で原点しか通らない。', back: '$y = ax^2$ のグラフは $x$ 軸と原点以外で交わる？',
+        difficulty: 'advanced',
       },
       {
         id: 'math-g3-qf-pb-fc27',
-        front: '$a = 4$。$-16 = a \\times (-2)^2 = 4a$…$a = -4$。$a = -4$ が正しい。', back: '$y = ax^2$ が $(-2, -16)$ を通るとき $a$ は？',
+        front: '$a = -4$（$-16 = a \\times (-2)^2 = 4a$ より $a = -4$）', back: '$y = ax^2$ が $(-2, -16)$ を通るとき $a$ は？',
+        difficulty: 'advanced',
       },
       {
         id: 'math-g3-qf-pb-fc28',
         front: '$y = 2x^2$ の方が大きい（$|2| > |\\frac{1}{2}|$）', back: '同じ $x$ の値で $y = 2x^2$ と $y = \\frac{1}{2}x^2$ どちらが $y$ が大きい？',
+        difficulty: 'advanced',
       },
     ],
     quiz: {
@@ -191,6 +219,7 @@ export const quadFuncParabola: Topic = {
           correctIndex: 1,
           explanation:
             '$y = 2x^2$ に $x = 3$ を代入すると $y = 2 \\times 3^2 = 2 \\times 9 = 18$ だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-qf-pb-q2',
@@ -204,6 +233,7 @@ export const quadFuncParabola: Topic = {
           correctIndex: 2,
           explanation:
             '$a = -1$ で $a < 0$ だから、下に開く放物線（∩字型）になるよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-qf-pb-q3',
@@ -217,6 +247,7 @@ export const quadFuncParabola: Topic = {
           correctIndex: 0,
           explanation:
             '$|a|$ が大きいほどグラフは細くなるよ。$|3| > |1|$ だから $y = 3x^2$ の方が細いグラフになるんだ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-qf-pb-q4',
@@ -226,6 +257,7 @@ export const quadFuncParabola: Topic = {
           correctIndex: 3,
           explanation:
             '$18 = a \\times 3^2 = 9a$ だから $a = 18 \\div 9 = 2$ だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-qf-pb-q5',
@@ -234,6 +266,7 @@ export const quadFuncParabola: Topic = {
           correctIndex: 2,
           explanation:
             '$y = ax^2$ のグラフは $y$ 軸（$x = 0$ の直線）について左右対称だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-qf-pb-q6',
@@ -243,6 +276,7 @@ export const quadFuncParabola: Topic = {
           correctIndex: 1,
           explanation:
             '$8 = 4a$ より $a = 2$。$y = 2 \\times 4^2 = 2 \\times 16 = 32$ だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-qf-pb-q7',
@@ -257,6 +291,7 @@ export const quadFuncParabola: Topic = {
           correctIndex: 0,
           explanation:
             '$8 = a \\times 16$ だから $a = \\dfrac{8}{16} = \\dfrac{1}{2}$ だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-qf-pb-q8',
@@ -271,6 +306,7 @@ export const quadFuncParabola: Topic = {
           correctIndex: 3,
           explanation:
             '$|a|$ の値は順に $1, 4, 2, \\dfrac{1}{3}$。$|-4| = 4$ が最大なので $y = -4x^2$ が最も細いよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-qf-pb-q9',
@@ -280,6 +316,7 @@ export const quadFuncParabola: Topic = {
           correctIndex: 3,
           explanation:
             '$y = -2 \\times (-3)^2 = -2 \\times 9 = -18$。$(-3)^2 = 9$ だから符号に注意だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-qf-pb-q10',
@@ -294,6 +331,7 @@ export const quadFuncParabola: Topic = {
           correctIndex: 2,
           explanation:
             '$|\\dfrac{1}{2}| < |2|$ だから $y = \\dfrac{1}{2}x^2$ の方がグラフは広く（ゆるやか）なるよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-qf-pb-q11',
@@ -303,6 +341,7 @@ export const quadFuncParabola: Topic = {
           correctIndex: 1,
           explanation:
             '$-12 = a \\times (-2)^2 = 4a$ だから $a = -3$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qf-pb-q12',
@@ -312,6 +351,7 @@ export const quadFuncParabola: Topic = {
           correctIndex: 0,
           explanation:
             '$y = a(nx)^2 = an^2x^2$ となり、$y$ は $n^2$ 倍になるんだ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qf-pb-q13',
@@ -320,6 +360,7 @@ export const quadFuncParabola: Topic = {
           correctIndex: 1,
           explanation:
             '$y = -2 \\times (-5)^2 = -2 \\times 25 = -50$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qf-pb-q14',
@@ -328,6 +369,7 @@ export const quadFuncParabola: Topic = {
           correctIndex: 1,
           explanation:
             '$20 = a \\times 4$ より $a = 5$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qf-pb-q15',
@@ -336,6 +378,7 @@ export const quadFuncParabola: Topic = {
           correctIndex: 2,
           explanation:
             '$y = a(4x)^2 = 16ax^2$。$4^2 = 16$ 倍だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qf-pb-q16',
@@ -349,6 +392,7 @@ export const quadFuncParabola: Topic = {
           correctIndex: 1,
           explanation:
             '$a < 0$ で下に開く。$|a| = \\frac{1}{4} < 1$ で広い放物線だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qf-pb-q17',
@@ -357,6 +401,7 @@ export const quadFuncParabola: Topic = {
           correctIndex: 1,
           explanation:
             '$-16 = a \\times (-2)^2 = 4a$ より $a = -4$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qf-pb-q18',
@@ -370,6 +415,7 @@ export const quadFuncParabola: Topic = {
           correctIndex: 1,
           explanation:
             '$y = ax^2$ は $x = 0$ のとき $y = 0$。原点以外では $y \\neq 0$（$a \\neq 0$）なので交わらないよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qf-pb-q19',
@@ -383,6 +429,7 @@ export const quadFuncParabola: Topic = {
           correctIndex: 2,
           explanation:
             '$|a|$ が大きい方が同じ $x$ で $|y|$ も大きい。$a > 0$ なので $y = 2x^2$ の方が大きいよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qf-pb-q20',
@@ -391,6 +438,7 @@ export const quadFuncParabola: Topic = {
           correctIndex: 1,
           explanation:
             '$y = 5 \\times (-2)^2 = 5 \\times 4 = 20$。$(-2)^2 = 4$ は正だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qf-pb-q21',
@@ -404,6 +452,7 @@ export const quadFuncParabola: Topic = {
           correctIndex: 1,
           explanation:
             '円の面積 $y = \\pi x^2$ は $x$ の2乗に比例するよ。他は1次（比例）の関係。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qf-pb-q22',
@@ -417,6 +466,7 @@ export const quadFuncParabola: Topic = {
           correctIndex: 0,
           explanation:
             '$12 = a \\times 36$ より $a = \\frac{12}{36} = \\frac{1}{3}$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qf-pb-q23',
@@ -430,6 +480,7 @@ export const quadFuncParabola: Topic = {
           correctIndex: 2,
           explanation:
             '$a = -3 < 0$ で下に開く。$|a| = 3 > 1$ で細い放物線だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g3-qf-pb-q24',
@@ -438,6 +489,7 @@ export const quadFuncParabola: Topic = {
           correctIndex: 0,
           explanation:
             '$27 = a \\times (-3)^2 = 9a$ より $a = 3$ だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g3-qf-pb-q25',
@@ -451,6 +503,7 @@ export const quadFuncParabola: Topic = {
           correctIndex: 2,
           explanation:
             '$y = ax^2$ のグラフの頂点は常に原点 $(0, 0)$ だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g3-qf-pb-q26',
@@ -459,6 +512,7 @@ export const quadFuncParabola: Topic = {
           correctIndex: 2,
           explanation:
             '$y = \\frac{1}{3} \\times 36 = 12$ だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g3-qf-pb-q27',
@@ -472,6 +526,7 @@ export const quadFuncParabola: Topic = {
           correctIndex: 2,
           explanation:
             '$|4| > |\\frac{1}{4}|$ だから $y = 4x^2$ の方が細いグラフになるよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g3-qf-pb-q28',
@@ -485,6 +540,7 @@ export const quadFuncParabola: Topic = {
           correctIndex: 1,
           explanation:
             '$y = a \\times 1^2 = a$。$x = 1$ を代入すると $y = a$ なので、比例定数が直接わかるよ。',
+          difficulty: 'advanced',
         },
       ],
     },

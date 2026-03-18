@@ -45,22 +45,20 @@ export const inverseProportion: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'math-g1-inverse-fc1',
-        front: '$y = \\frac{a}{x}$（$a$ は比例定数）', back: '反比例の式は？',
-      },
-      {
-        id: 'math-g1-inverse-fc2',
-        front: '$y$ は $\\frac{1}{2}$ 倍になる', back: '反比例で $x$ が2倍になると $y$ は？',
-      },
-      {
-        id: 'math-g1-inverse-fc3',
-        front: '$x \\times y = a$（積が一定）なら反比例', back: '反比例の判別法は？',
-      },
-      {
-        id: 'math-g1-inverse-fc4',
-        front: '双曲線。座標軸と交わらない2つのなめらかな曲線', back: '反比例のグラフの名前と特徴は？',
-      },
+      { id: 'math-g1-inverse-fc1', front: '$y = \\frac{a}{x}$（$a$ は比例定数、$a \\neq 0$）', back: '反比例の式は？', difficulty: 'basic' },
+      { id: 'math-g1-inverse-fc2', front: '$y$ は $\\frac{1}{2}$ 倍になる（$x$ が $n$ 倍なら $y$ は $\\frac{1}{n}$ 倍）', back: '反比例で $x$ が2倍になると $y$ は？', difficulty: 'basic' },
+      { id: 'math-g1-inverse-fc3', front: '$x \\times y = a$（積が一定）なら反比例', back: '反比例の判別法は？', difficulty: 'basic' },
+      { id: 'math-g1-inverse-fc4', front: '$a = x \\times y$（対応する $x$ と $y$ の積）', back: '反比例の比例定数 $a$ の求め方は？', difficulty: 'basic' },
+      { id: 'math-g1-inverse-fc5', front: '代入できない。$0$ で割ることはできない。', back: '反比例 $y = \\frac{a}{x}$ で $x = 0$ を代入できる？', difficulty: 'basic' },
+      { id: 'math-g1-inverse-fc6', front: '$y = 4$（$y = \\frac{12}{3} = 4$）', back: '$y = \\frac{12}{x}$ で $x = 3$ のとき $y$ は？', difficulty: 'basic' },
+      { id: 'math-g1-inverse-fc7', front: '$a = -20$（$a = 4 \\times (-5) = -20$）', back: '$x = 4$, $y = -5$ のとき、反比例の比例定数は？', difficulty: 'standard' },
+      { id: 'math-g1-inverse-fc8', front: '双曲線。座標軸（$x$ 軸・$y$ 軸）と交わらない2つのなめらかな曲線。', back: '反比例のグラフの名前と特徴は？', difficulty: 'standard' },
+      { id: 'math-g1-inverse-fc9', front: '$a > 0$: 右上と左下の領域。$a < 0$: 左上と右下の領域。', back: '反比例のグラフはどの領域にある？', difficulty: 'standard' },
+      { id: 'math-g1-inverse-fc10', front: '面積 $=$ 縦 $\\times$ 横 で積が一定 → 反比例の関係', back: '面積一定の長方形で縦と横はどんな関係？', difficulty: 'standard' },
+      { id: 'math-g1-inverse-fc11', front: '比例: $\\dfrac{y}{x} = a$（商が一定）。反比例: $xy = a$（積が一定）。', back: '比例と反比例の見分け方は？', difficulty: 'standard' },
+      { id: 'math-g1-inverse-fc12', front: '$y = \\frac{24}{x}$（$a = 6 \\times 4 = 24$）', back: '$x = 6$ のとき $y = 4$ の反比例の式は？', difficulty: 'standard' },
+      { id: 'math-g1-inverse-fc13', front: '原点に近づくが、座標軸には永遠に交わらない（漸近線）', back: '双曲線がどこまでも軸に近づく特徴は？', difficulty: 'advanced' },
+      { id: 'math-g1-inverse-fc14', front: '歯数 $\\times$ 回転数 $=$ 一定。歯車の歯数と回転数は反比例の関係。', back: '歯車の反比例の例は？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -71,6 +69,7 @@ export const inverseProportion: Topic = {
           correctIndex: 1,
           explanation:
             '$y = \\frac{12}{3} = \\textcolor{#D97706}{4}$ だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g1-inverse-q2',
@@ -80,6 +79,7 @@ export const inverseProportion: Topic = {
           correctIndex: 0,
           explanation:
             '$a = x \\times y = 4 \\times (-5) = \\textcolor{#D97706}{-20}$ だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g1-inverse-q3',
@@ -93,6 +93,7 @@ export const inverseProportion: Topic = {
           correctIndex: 3,
           explanation:
             '反比例のグラフは双曲線で、$x$ 軸にも $y$ 軸にも交わらないよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g1-inverse-q4',
@@ -106,6 +107,7 @@ export const inverseProportion: Topic = {
           correctIndex: 2,
           explanation:
             '$y = \\frac{-6}{x}$ は $y = \\frac{a}{x}$ の形なので反比例だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g1-inverse-q5',
@@ -120,6 +122,7 @@ export const inverseProportion: Topic = {
           correctIndex: 1,
           explanation:
             '$a > 0$ のとき、$x > 0$ なら $y > 0$（右上）、$x < 0$ なら $y < 0$（左下）だよ。',
+          difficulty: 'advanced',
         },
       ],
     },

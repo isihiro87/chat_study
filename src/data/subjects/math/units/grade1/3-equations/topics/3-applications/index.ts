@@ -44,7 +44,22 @@ export const eqApplications: Topic = {
       ],
     },
     videos: [],
-    flashcards: [],
+    flashcards: [
+      { id: 'math-g1-eq-a-fc1', front: '$a : b = c : d$ の形の等式', back: '比例式とは？', difficulty: 'basic' },
+      { id: 'math-g1-eq-a-fc2', front: '$ad = bc$（外側の積 $=$ 内側の積）', back: '比例式の「内項の積 $=$ 外項の積」とは？', difficulty: 'basic' },
+      { id: 'math-g1-eq-a-fc3', front: '$x = 15$（$2 \\times 9 = 3 \\times x$ → $18 = 3x$ → $x = 6$…ではなく $2x = 30$ → $x = 15$）', back: '$2 : 5 = 6 : x$ の $x$ の値は？', difficulty: 'basic' },
+      { id: 'math-g1-eq-a-fc4', front: '① 求めたいものを $x$ とおく → ② 等しい関係を式にする → ③ 方程式を解く → ④ 解の吟味', back: '文章題を方程式で解く手順は？', difficulty: 'basic' },
+      { id: 'math-g1-eq-a-fc5', front: '求めた解が問題の条件に合っているか確認すること', back: '「解の吟味」とは？', difficulty: 'basic' },
+      { id: 'math-g1-eq-a-fc6', front: '個数・人数は自然数（正の整数）でなければならない', back: '解の吟味で特に注意すべきことは？', difficulty: 'basic' },
+      { id: 'math-g1-eq-a-fc7', front: '$x = 4$（$120x + 50 = 530$ → $120x = 480$）', back: '1本 $120$ 円の鉛筆 $x$ 本と $50$ 円の消しゴム1個で $530$ 円。$x$ は？', difficulty: 'standard' },
+      { id: 'math-g1-eq-a-fc8', front: '$x = 6$（$3x - 5 = 13$ → $3x = 18$）', back: '「ある数の3倍から5を引くと13」。ある数は？', difficulty: 'standard' },
+      { id: 'math-g1-eq-a-fc9', front: '総数が一定 → 2通りの配り方の式が等しい', back: '過不足の問題の立式のコツは？', difficulty: 'standard' },
+      { id: 'math-g1-eq-a-fc10', front: '$7$ 人（$5x + 3 = 6x - 4$ → $x = 7$）', back: '1人5個ずつ配ると3個余り、6個ずつ配ると4個不足。人数は？', difficulty: 'standard' },
+      { id: 'math-g1-eq-a-fc11', front: '$x = 9$（$3 \\times 12 = 4 \\times x$ → $36 = 4x$）', back: '比例式 $3 : 4 = x : 12$ の $x$ は？', difficulty: 'standard' },
+      { id: 'math-g1-eq-a-fc12', front: '弟 $600$ 円、兄 $1200$ 円（$x + 2x = 1800$ → $x = 600$）', back: '兄と弟で合計 $1800$ 円、兄は弟の2倍。それぞれいくら？', difficulty: 'advanced' },
+      { id: 'math-g1-eq-a-fc13', front: '$12$ km（$\\dfrac{x}{4} + \\dfrac{x}{6} = 5$ → $5x = 60$ → $x = 12$）', back: '行き時速4km、帰り時速6km、往復5時間。片道の距離は？', difficulty: 'advanced' },
+      { id: 'math-g1-eq-a-fc14', front: '速さ・距離・時間 → 距離 $=$ 速さ $\\times$ 時間。等しい関係を見つけて式を立てる', back: '速さの文章題のポイントは？', difficulty: 'advanced' },
+    ],
     quiz: {
       questions: [
         {
@@ -54,6 +69,7 @@ export const eqApplications: Topic = {
           correctIndex: 2,
           explanation:
             '内項の積 = 外項の積より $2x = 5 \\times 6 = 30$、$x = 15$。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g1-eq-apps-q2',
@@ -63,6 +79,7 @@ export const eqApplications: Topic = {
           correctIndex: 3,
           explanation:
             '$120x + 50 = 530$、$120x = 480$、$x = 4$。確かめ: $120 \\times 4 + 50 = 530$ ✓',
+          difficulty: 'basic',
         },
         {
           id: 'math-g1-eq-apps-q3',
@@ -72,6 +89,7 @@ export const eqApplications: Topic = {
           correctIndex: 1,
           explanation:
             'ある数を $x$ とすると $3x - 5 = 13$。$3x = 18$、$x = 6$。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g1-eq-apps-q4',
@@ -81,6 +99,7 @@ export const eqApplications: Topic = {
           correctIndex: 0,
           explanation:
             '子どもの人数を $x$ 人とすると、みかんの総数は $5x + 3 = 6x - 4$。移項して $x = 7$。',
+          difficulty: 'standard',
         },
       ],
     },

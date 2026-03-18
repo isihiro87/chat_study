@@ -56,34 +56,34 @@ export const inseiTaira: Topic = {
     },
     videos: [],
     flashcards: [
-      { id: 'fc1', front: '上皇', back: '天皇が位をしりぞいたあとの称号を何という？' },
-      { id: 'fc2', front: '院政', back: '上皇が中心となって政治を動かす仕組みを何という？' },
-      { id: 'fc3', front: '白河上皇', back: '院政を最初に始めた上皇はだれ？' },
-      { id: 'fc4', front: '北面の武士', back: '白河上皇が院の警備のために置いた武士を何という？' },
-      { id: 'fc5', front: '後三条天皇', back: '荘園の増加をおさえる政策を行った天皇は？' },
-      { id: 'fc6', front: '保元の乱', back: '1156年、崇徳上皇と後白河天皇の対立から起こった内乱は？' },
-      { id: 'fc7', front: '平治の乱', back: '1159年、清盛と義朝が戦った内乱は？' },
-      { id: 'fc8', front: '平清盛', back: '武士として初めて太政大臣になったのはだれ？' },
-      { id: 'fc9', front: '太政大臣', back: '平清盛が1167年に就任した、武士初の最高の官職は？' },
-      { id: 'fc10', front: '大輪田泊', back: '平清盛が整備した兵庫県神戸市の港は？' },
-      { id: 'fc11', front: '日宋貿易', back: '平清盛が大輪田泊を拠点に行った宋との貿易は？' },
-      { id: 'fc12', front: '源頼朝', back: '鎌倉を本拠地に平氏打倒のため挙兵した人物は？' },
-      { id: 'fc13', front: '源義経', back: '源頼朝の弟で、壇ノ浦の戦いで平氏を破った人物は？' },
-      { id: 'fc14', front: '壇ノ浦の戦い', back: '1185年、平氏が源氏に敗れてほろんだ戦いは？（山口県）' },
-      { id: 'fc15', front: '厳島神社', back: '平清盛が航海の安全を祈り、整備した広島県の神社は？' },
-      { id: 'fc16', front: '僧兵', back: '寺社が武装させた僧で、朝廷に強訴を行った者たちは？' },
-      { id: 'fc17', front: '強訴', back: '僧兵が武力を背景に朝廷に要求を通そうとすることは？' },
-      { id: 'fc18', front: '崇徳上皇', back: '保元の乱で後白河天皇と対立した上皇は？' },
-      { id: 'fc19', front: '後白河天皇', back: '保元の乱で崇徳上皇と対立した天皇は？' },
-      { id: 'fc20', front: '鳥羽上皇', back: '死後に天皇家の対立が表面化し、保元の乱のきっかけとなった上皇は？' },
-      { id: 'fc21', front: '源義朝', back: '平治の乱で平清盛に敗れた源氏の武将は？（源頼朝の父）' },
-      { id: 'fc22', front: '摂関政治', back: '院政が始まる前に藤原氏が行っていた政治を何という？' },
-      { id: 'fc23', front: '1167年', back: '平清盛が太政大臣に就任した年は？' },
-      { id: 'fc24', front: '宋銭と陶磁器', back: '日宋貿易で日本に輸入されたおもな品物を2つ答えよ' },
-      { id: 'fc25', front: '平氏にあらずんば人にあらず', back: '平氏の権力が絶大だったことを表す有名な言葉は？' },
-      { id: 'fc26', front: '山口県下関市', back: '壇ノ浦の戦いがあった場所は現在のどこ？' },
-      { id: 'fc27', front: '兄弟', back: '源頼朝と源義経の関係は？' },
-      { id: 'fc28', front: '1185年', back: '壇ノ浦の戦いで平氏が滅亡した年は？' },
+      { id: 'fc1', front: '上皇', back: '天皇が位をしりぞいたあとの称号を何という？', difficulty: 'basic' },
+      { id: 'fc2', front: '院政', back: '上皇が中心となって政治を動かす仕組みを何という？', difficulty: 'basic' },
+      { id: 'fc3', front: '白河上皇', back: '院政を最初に始めた上皇はだれ？', difficulty: 'basic' },
+      { id: 'fc4', front: '北面の武士', back: '白河上皇が院の警備のために置いた武士を何という？', difficulty: 'basic' },
+      { id: 'fc5', front: '後三条天皇', back: '荘園の増加をおさえる政策を行った天皇は？', difficulty: 'basic' },
+      { id: 'fc6', front: '保元の乱', back: '1156年、崇徳上皇と後白河天皇の対立から起こった内乱は？', difficulty: 'basic' },
+      { id: 'fc7', front: '平治の乱', back: '1159年、清盛と義朝が戦った内乱は？', difficulty: 'basic' },
+      { id: 'fc8', front: '平清盛', back: '武士として初めて太政大臣になったのはだれ？', difficulty: 'basic' },
+      { id: 'fc9', front: '太政大臣', back: '平清盛が1167年に就任した、武士初の最高の官職は？', difficulty: 'basic' },
+      { id: 'fc10', front: '大輪田泊', back: '平清盛が整備した兵庫県神戸市の港は？', difficulty: 'basic' },
+      { id: 'fc11', front: '日宋貿易', back: '平清盛が大輪田泊を拠点に行った宋との貿易は？', difficulty: 'basic' },
+      { id: 'fc12', front: '源頼朝', back: '鎌倉を本拠地に平氏打倒のため挙兵した人物は？', difficulty: 'basic' },
+      { id: 'fc13', front: '源義経', back: '源頼朝の弟で、壇ノ浦の戦いで平氏を破った人物は？', difficulty: 'standard' },
+      { id: 'fc14', front: '壇ノ浦の戦い', back: '1185年、平氏が源氏に敗れてほろんだ戦いは？（山口県）', difficulty: 'standard' },
+      { id: 'fc15', front: '厳島神社', back: '平清盛が航海の安全を祈り、整備した広島県の神社は？', difficulty: 'standard' },
+      { id: 'fc16', front: '僧兵', back: '寺社が武装させた僧で、朝廷に強訴を行った者たちは？', difficulty: 'standard' },
+      { id: 'fc17', front: '強訴', back: '僧兵が武力を背景に朝廷に要求を通そうとすることは？', difficulty: 'standard' },
+      { id: 'fc18', front: '崇徳上皇', back: '保元の乱で後白河天皇と対立した上皇は？', difficulty: 'standard' },
+      { id: 'fc19', front: '後白河天皇', back: '保元の乱で崇徳上皇と対立した天皇は？', difficulty: 'standard' },
+      { id: 'fc20', front: '鳥羽上皇', back: '死後に天皇家の対立が表面化し、保元の乱のきっかけとなった上皇は？', difficulty: 'standard' },
+      { id: 'fc21', front: '源義朝', back: '平治の乱で平清盛に敗れた源氏の武将は？（源頼朝の父）', difficulty: 'standard' },
+      { id: 'fc22', front: '摂関政治', back: '院政が始まる前に藤原氏が行っていた政治を何という？', difficulty: 'standard' },
+      { id: 'fc23', front: '1167年', back: '平清盛が太政大臣に就任した年は？', difficulty: 'advanced' },
+      { id: 'fc24', front: '宋銭と陶磁器', back: '日宋貿易で日本に輸入されたおもな品物を2つ答えよ', difficulty: 'advanced' },
+      { id: 'fc25', front: '平氏にあらずんば人にあらず', back: '平氏の権力が絶大だったことを表す有名な言葉は？', difficulty: 'advanced' },
+      { id: 'fc26', front: '山口県下関市', back: '壇ノ浦の戦いがあった場所は現在のどこ？', difficulty: 'advanced' },
+      { id: 'fc27', front: '兄弟', back: '源頼朝と源義経の関係は？', difficulty: 'advanced' },
+      { id: 'fc28', front: '1185年', back: '壇ノ浦の戦いで平氏が滅亡した年は？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -93,6 +93,7 @@ export const inseiTaira: Topic = {
           options: ['源義家', '藤原道長', '源頼朝', '平清盛'],
           correctIndex: 3,
           explanation: '平清盛は平治の乱に勝利したのち、1167年に武士として初めて太政大臣にのぼりつめました。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -100,6 +101,7 @@ export const inseiTaira: Topic = {
           options: ['平治の乱', '壬申の乱', '保元の乱', '承久の乱'],
           correctIndex: 2,
           explanation: '保元の乱は天皇家や藤原氏内部の対立に武士が動員された戦いです。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -107,6 +109,7 @@ export const inseiTaira: Topic = {
           options: ['一ノ谷', '壇ノ浦', '屋島', '鎌倉'],
           correctIndex: 1,
           explanation: '壇ノ浦（現在の山口県下関市）で源氏が平氏をやぶり、平氏は滅亡しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q4',
@@ -114,6 +117,7 @@ export const inseiTaira: Topic = {
           options: ['院政', '摂関政治', '執権政治', '親政'],
           correctIndex: 0,
           explanation: '院政は上皇が院で政治を行うしくみで、白河上皇が始めました。藤原氏の摂関政治にかわる新しい政治のかたちでした。',
+          difficulty: 'basic',
         },
         {
           id: 'q5',
@@ -121,6 +125,7 @@ export const inseiTaira: Topic = {
           options: ['朱印船貿易', '勘合貿易', '日宋貿易', '南蛮貿易'],
           correctIndex: 2,
           explanation: '日宋貿易は平清盛が大輪田泊（現在の神戸）を整備して積極的に行った宋との貿易で、平氏繁栄の基盤となりました。',
+          difficulty: 'basic',
         },
         {
           id: 'q6',
@@ -128,6 +133,7 @@ export const inseiTaira: Topic = {
           options: ['平治の乱', '承久の乱', '壇ノ浦の戦い', '保元の乱'],
           correctIndex: 0,
           explanation: '平治の乱で平清盛が源義朝に勝利し、平氏が武士の頂点に立つきっかけとなりました。',
+          difficulty: 'basic',
         },
         {
           id: 'q7',
@@ -135,6 +141,7 @@ export const inseiTaira: Topic = {
           options: ['後三条天皇', '後白河天皇', '鳥羽上皇', '白河上皇'],
           correctIndex: 3,
           explanation: '白河上皇が退位後も政治の実権を握り、院政を始めました。北面の武士を置いて武士の力を利用しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q8',
@@ -142,6 +149,7 @@ export const inseiTaira: Topic = {
           options: ['博多', '大輪田泊', '堺', '難波'],
           correctIndex: 1,
           explanation: '大輪田泊は現在の兵庫県神戸市にあり、平清盛が日宋貿易のために大規模に整備しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q9',
@@ -149,6 +157,7 @@ export const inseiTaira: Topic = {
           options: ['御家人', '守護', '地頭', '北面の武士'],
           correctIndex: 3,
           explanation: '北面の武士は院の北側を警備したことに由来する名前で、上皇の私的な武力として機能しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q10',
@@ -156,6 +165,7 @@ export const inseiTaira: Topic = {
           options: ['源義経', '源義家', '源頼朝', '源義朝'],
           correctIndex: 2,
           explanation: '源頼朝は鎌倉（神奈川県）を本拠地に挙兵し、弟の義経らとともに平氏をほろぼしました。',
+          difficulty: 'basic',
         },
         {
           id: 'q11',
@@ -163,6 +173,7 @@ export const inseiTaira: Topic = {
           options: ['源頼朝', '源義経', '源義朝', '源義家'],
           correctIndex: 2,
           explanation: '源義朝は平治の乱で平清盛に敗れました。義朝の子・源頼朝はのちに鎌倉で挙兵します。',
+          difficulty: 'standard',
         },
         {
           id: 'q12',
@@ -170,6 +181,7 @@ export const inseiTaira: Topic = {
           options: ['武士が政権を握った', '藤原氏の摂関政治がおとろえた', '外国からの侵略があった', '天皇が政治を放棄した'],
           correctIndex: 1,
           explanation: '藤原氏の摂関政治がおとろえ、天皇（上皇）が自ら政治の実権を握ろうとして院政が始まりました。',
+          difficulty: 'standard',
         },
         {
           id: 'q13',
@@ -177,6 +189,7 @@ export const inseiTaira: Topic = {
           options: ['白河上皇', '後醍醐天皇', '鳥羽上皇', '後白河天皇'],
           correctIndex: 2,
           explanation: '鳥羽上皇の死後に天皇家の対立が表面化し、保元の乱が起こりました。',
+          difficulty: 'standard',
         },
         {
           id: 'q14',
@@ -184,6 +197,7 @@ export const inseiTaira: Topic = {
           options: ['荘園を開墾した', '娘を天皇のきさきにし一族を要職に就けた', '僧兵を組織した', '仏教を広めた'],
           correctIndex: 1,
           explanation: '平清盛は娘を天皇のきさきにし、一族を政府の要職に就けることで権力を独占しました。藤原氏と同じ手法です。',
+          difficulty: 'standard',
         },
         {
           id: 'q15',
@@ -191,6 +205,7 @@ export const inseiTaira: Topic = {
           options: ['源頼朝', '源義家', '北条政子', '源義経'],
           correctIndex: 3,
           explanation: '源義経は源頼朝の弟で、壇ノ浦の戦いで源氏の軍を率いて平氏を破りました。',
+          difficulty: 'standard',
         },
         {
           id: 'q16',
@@ -198,6 +213,7 @@ export const inseiTaira: Topic = {
           options: ['米と布', '刀剣と馬', '宋銭と陶磁器', '絹と香辛料'],
           correctIndex: 2,
           explanation: '日宋貿易では宋銭と陶磁器が主に輸入されました。宋銭は日本の貨幣経済の発展を促しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q17',
@@ -205,6 +221,7 @@ export const inseiTaira: Topic = {
           options: ['日宋貿易の推進', '荘園の増加をおさえる政策', '武士の反乱の鎮圧', '遣唐使の廃止'],
           correctIndex: 1,
           explanation: '後三条天皇は藤原氏と関係が薄く、荘園の増加をおさえる政策を独自に進めました。',
+          difficulty: 'standard',
         },
         {
           id: 'q18',
@@ -212,6 +229,7 @@ export const inseiTaira: Topic = {
           options: ['荘園からの年貢', '日宋貿易による利益', '金山の経営', '米の生産'],
           correctIndex: 1,
           explanation: '平氏は大輪田泊を拠点に日宋貿易で莫大な利益を得て、繁栄の経済的基盤としました。',
+          difficulty: 'standard',
         },
         {
           id: 'q19',
@@ -219,6 +237,7 @@ export const inseiTaira: Topic = {
           options: ['父と子', '上皇と天皇', '兄弟の将軍', '貴族と武士'],
           correctIndex: 1,
           explanation: '崇徳上皇（退位した天皇）と後白河天皇（現職の天皇）が対立し、保元の乱が起こりました。',
+          difficulty: 'standard',
         },
         {
           id: 'q20',
@@ -226,6 +245,7 @@ export const inseiTaira: Topic = {
           options: ['出雲大社', '厳島神社', '伊勢神宮', '春日大社'],
           correctIndex: 1,
           explanation: '厳島神社は広島県にあり、平清盛が航海の安全を祈って整備しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q21',
@@ -233,6 +253,7 @@ export const inseiTaira: Topic = {
           options: ['一族で要職を独占した', '他の武士や貴族の不満を無視した', '日宋貿易で利益を得た', '娘を天皇のきさきにした'],
           correctIndex: 2,
           explanation: '日宋貿易で利益を得たこと自体は反感の原因ではありません。一族での要職独占と他の勢力への無視が不満の原因でした。',
+          difficulty: 'standard',
         },
         {
           id: 'q22',
@@ -240,6 +261,7 @@ export const inseiTaira: Topic = {
           options: ['広島県', '福岡県', '山口県下関市', '大分県'],
           correctIndex: 2,
           explanation: '壇ノ浦の戦いは現在の山口県下関市で行われ、1185年に平氏が滅亡しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q23',
@@ -247,6 +269,7 @@ export const inseiTaira: Topic = {
           options: ['保元の乱→院政開始→壇ノ浦→平治の乱', '院政開始→保元の乱→平治の乱→壇ノ浦の戦い', '平治の乱→保元の乱→院政開始→壇ノ浦', '壇ノ浦→院政開始→保元の乱→平治の乱'],
           correctIndex: 1,
           explanation: '白河上皇が院政を開始→保元の乱（1156年）→平治の乱（1159年）→壇ノ浦の戦い（1185年）の順です。',
+          difficulty: 'advanced',
         },
         {
           id: 'q24',
@@ -254,6 +277,7 @@ export const inseiTaira: Topic = {
           options: ['軍事力を持っていた', '天皇の位を退くことで形式的制約から解放された', '外国の支援を受けた', '荘園を多く所有した'],
           correctIndex: 1,
           explanation: '天皇の位から退くことで形式的な制約から解放され、自由に政治を動かすことができました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q25',
@@ -261,6 +285,7 @@ export const inseiTaira: Topic = {
           options: ['一揆', '強訴', '倒幕', '下剋上'],
           correctIndex: 1,
           explanation: '強訴は大きな寺社の僧兵が武力を背景に朝廷へ要求を突きつけることです。',
+          difficulty: 'advanced',
         },
         {
           id: 'q26',
@@ -268,6 +293,7 @@ export const inseiTaira: Topic = {
           options: ['父と子', '師弟', '兄弟（頼朝が兄）', '従兄弟'],
           correctIndex: 2,
           explanation: '源頼朝と源義経は兄弟で、頼朝が兄、義経が弟です。',
+          difficulty: 'advanced',
         },
         {
           id: 'q27',
@@ -275,6 +301,7 @@ export const inseiTaira: Topic = {
           options: ['1156年', '1159年', '1167年', '1185年'],
           correctIndex: 2,
           explanation: '平清盛は1167年に武士として初めて太政大臣に就任しました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q28',
@@ -282,6 +309,7 @@ export const inseiTaira: Topic = {
           options: ['大阪府', '兵庫県神戸市', '広島県', '京都府'],
           correctIndex: 1,
           explanation: '大輪田泊は現在の兵庫県神戸市にあり、平清盛が日宋貿易のために大規模に整備しました。',
+          difficulty: 'advanced',
         },
       ],
     },

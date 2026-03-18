@@ -177,118 +177,30 @@ export const moonVenusDetail: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'sci3-mvd-fc1',
-        front: '月の公転の向き',
-        back: '月は地球のまわりをどの向きに公転している？（北極側から見て）',
-        explanation:
-          '反時計回り（西から東）に公転している。毎日同時刻に見ると月の位置が東へ移動する。',
-      },
-      {
-        id: 'sci3-mvd-fc2',
-        front: '約50分',
-        back: '月の南中時刻は毎日どれくらい遅くなる？',
-        explanation:
-          '月が公転により東へ移動するため、地球が約50分余分に自転しないと月が南中しない。',
-      },
-      {
-        id: 'sci3-mvd-fc3',
-        front: '約27.3日',
-        back: '月の自転周期と公転周期はともに約何日？',
-        explanation:
-          '自転と公転の周期が同じため、月は常に同じ面を地球に向けている。',
-      },
-      {
-        id: 'sci3-mvd-fc4',
-        front: '上弦の月',
-        back: '右半分が光って見える半月を何という？',
-        explanation:
-          '新月から満月に向かう途中の半月。夕方に南中し、真夜中に西に沈む。',
-      },
-      {
-        id: 'sci3-mvd-fc5',
-        front: '下弦の月',
-        back: '左半分が光って見える半月を何という？',
-        explanation:
-          '満月から新月に向かう途中の半月。真夜中に南中し、昼ごろに西に沈む。',
-      },
-      {
-        id: 'sci3-mvd-fc6',
-        front: '金星が近いときの見え方',
-        back: '金星が地球に近いとき、大きさと形はどう見える？',
-        explanation:
-          '大きく見えるが、欠けて見える部分が大きい（細い三日月のような形）。',
-      },
-      {
-        id: 'sci3-mvd-fc7',
-        front: '金星が遠いときの見え方',
-        back: '金星が地球から遠いとき、大きさと形はどう見える？',
-        explanation:
-          '小さく見えるが、丸く（満ちて）見える。',
-      },
-      {
-        id: 'sci3-mvd-fc8',
-        front: '外惑星',
-        back: '地球より外側を公転する惑星を何という？',
-        explanation:
-          '火星・木星・土星・天王星・海王星が外惑星。真夜中にも見える。',
-      },
-      {
-        id: 'sci3-mvd-fc9',
-        front: '外惑星の見え方',
-        back: '外惑星は真夜中にも見えるか？また、満ち欠けするか？',
-        explanation:
-          '外惑星は太陽の反対方向にも位置できるため真夜中にも見える。ほぼ丸く見え、大きな満ち欠けはしない。',
-      },
-      {
-        id: 'sci3-mvd-fc10',
-        front: '皆既日食',
-        back: '太陽が月に完全にかくされる日食を何という？',
-        explanation:
-          '月が太陽をちょうど覆い隠し、コロナやプロミネンスが見える。',
-      },
-      {
-        id: 'sci3-mvd-fc11',
-        front: '金環日食',
-        back: '月が太陽より小さく見え、太陽のふちがリング状に見える日食を何という？',
-        explanation:
-          '月の公転軌道が楕円で、月が地球から遠いときに見かけが太陽より小さくなるため起こる。',
-      },
-      {
-        id: 'sci3-mvd-fc12',
-        front: '皆既月食',
-        back: '月が地球の影に完全に入る月食を何という？',
-        explanation:
-          '月全体が地球の影に入る。赤銅色に見えることがある。',
-      },
-      {
-        id: 'sci3-mvd-fc13',
-        front: '太陽と月の見かけの大きさ',
-        back: '太陽と月の見かけの大きさがほぼ同じ理由は？',
-        explanation:
-          '太陽の直径は月の約400倍だが、地球からの距離も約400倍なので、見かけの大きさがほぼ等しくなる。',
-      },
-      {
-        id: 'sci3-mvd-fc14',
-        front: '日食の見える範囲',
-        back: '日食が限られた場所でしか見えないのはなぜ？',
-        explanation:
-          '月の影が地球上のごく限られた範囲にしか落ちないため。月食は月が見える場所ならどこでも見える。',
-      },
-      { id: 'sci3-mvd-fc15', front: '常に同じ面を地球に向けている', back: '月の自転周期と公転周期が同じことから何がわかる？' },
-      { id: 'sci3-mvd-fc16', front: '月の公転方向と同じ（西→東）', back: '毎日同時刻に月を見ると月の位置はどちらにずれる？' },
-      { id: 'sci3-mvd-fc17', front: '火星・木星・土星・天王星・海王星', back: '外惑星を5つ答えよ' },
-      { id: 'sci3-mvd-fc18', front: '部分日食', back: '太陽の一部だけが月に隠される日食を何という？' },
-      { id: 'sci3-mvd-fc19', front: '太陽の直径は月の約400倍', back: '太陽と月の大きさの比は？' },
-      { id: 'sci3-mvd-fc20', front: '太陽と地球の距離は月と地球の距離の約400倍', back: '太陽と月の見かけの大きさがほぼ同じになる距離の関係は？' },
-      { id: 'sci3-mvd-fc21', front: '満月から新月に向かう途中', back: '下弦の月は満ち欠けのどの段階？' },
-      { id: 'sci3-mvd-fc22', front: '新月から満月に向かう途中', back: '上弦の月は満ち欠けのどの段階？' },
-      { id: 'sci3-mvd-fc23', front: '赤銅色に見える', back: '皆既月食のとき月はどのように見える？' },
-      { id: 'sci3-mvd-fc24', front: '夕方に南中し真夜中に西に沈む', back: '上弦の月の南中時刻と沈む時刻は？' },
-      { id: 'sci3-mvd-fc25', front: '真夜中に南中し昼ごろに西に沈む', back: '下弦の月の南中時刻と沈む時刻は？' },
-      { id: 'sci3-mvd-fc26', front: '内惑星は大きく満ち欠けする', back: '内惑星と外惑星の満ち欠けの違いは？' },
-      { id: 'sci3-mvd-fc27', front: '楕円軌道', back: '月の公転軌道の形は？' },
-      { id: 'sci3-mvd-fc28', front: 'コロナやプロミネンスが見える', back: '皆既日食のときに観察できる太陽の構造は？' },
+      { id: 'sci3-mvd-fc1', front: '反時計回り（西から東）', back: '月は地球のまわりをどの向きに公転している？（北極側から見て）', difficulty: 'basic' },
+      { id: 'sci3-mvd-fc2', front: '約50分ずつ遅くなる', back: '月の南中時刻は毎日どれくらい変化する？', explanation: '月が公転で東へ移動するため。', difficulty: 'basic' },
+      { id: 'sci3-mvd-fc3', front: '約27.3日（常に同じ面を地球に向ける）', back: '月の自転周期と公転周期はともに約何日？', difficulty: 'basic' },
+      { id: 'sci3-mvd-fc4', front: '大きく見えるが、大きく欠けて見える', back: '金星が地球に近いとき、大きさと形はどう見える？', difficulty: 'basic' },
+      { id: 'sci3-mvd-fc5', front: '小さく見えるが、丸く（満ちて）見える', back: '金星が地球から遠いとき、大きさと形はどう見える？', difficulty: 'basic' },
+      { id: 'sci3-mvd-fc6', front: '外惑星（真夜中にも見え、ほぼ丸い）', back: '地球より外側を公転する惑星を何という？', difficulty: 'basic' },
+      { id: 'sci3-mvd-fc7', front: '皆既日食', back: '太陽が月に完全にかくされる日食を何という？', difficulty: 'basic' },
+      { id: 'sci3-mvd-fc8', front: '金環日食', back: '月が太陽より小さく見え、太陽のふちがリング状に見える日食を何という？', difficulty: 'basic' },
+      { id: 'sci3-mvd-fc9', front: '皆既月食（赤銅色に見えることがある）', back: '月が地球の影に完全に入る月食を何という？', difficulty: 'basic' },
+      { id: 'sci3-mvd-fc10', front: '太陽の直径は月の約400倍、距離も約400倍だから', back: '太陽と月の見かけの大きさがほぼ同じ理由は？', difficulty: 'standard' },
+      { id: 'sci3-mvd-fc11', front: '月の影が地球上のごく限られた範囲にしか落ちないため', back: '日食が限られた場所でしか見えないのはなぜ？', difficulty: 'standard' },
+      { id: 'sci3-mvd-fc12', front: '常に同じ面を地球に向けている', back: '月の自転周期と公転周期が同じことから何がわかる？', difficulty: 'standard' },
+      { id: 'sci3-mvd-fc13', front: '東へずれる（月の公転方向と同じ）', back: '毎日同時刻に月を見ると月の位置はどちらにずれる？', difficulty: 'standard' },
+      { id: 'sci3-mvd-fc14', front: '火星・木星・土星・天王星・海王星', back: '外惑星を5つ答えよ', difficulty: 'standard' },
+      { id: 'sci3-mvd-fc15', front: '部分日食', back: '太陽の一部だけが月に隠される日食を何という？', difficulty: 'standard' },
+      { id: 'sci3-mvd-fc16', front: '月の公転軌道が楕円で地球からの距離が変わるから', back: '皆既日食と金環日食の違いが生まれる原因は？', difficulty: 'standard' },
+      { id: 'sci3-mvd-fc17', front: '太陽光がほぼ正面から当たる面が常に見えるから', back: '外惑星が大きく満ち欠けしない理由は？', difficulty: 'standard' },
+      { id: 'sci3-mvd-fc18', front: '夕方に南中し、真夜中に西に沈む', back: '上弦の月の南中時刻と沈む時刻は？', difficulty: 'advanced' },
+      { id: 'sci3-mvd-fc19', front: '真夜中に南中し、昼ごろに西に沈む', back: '下弦の月の南中時刻と沈む時刻は？', difficulty: 'advanced' },
+      { id: 'sci3-mvd-fc20', front: '赤銅色に見える（地球の大気で屈折した赤い光が届くため）', back: '皆既月食のとき月はどのように見える？', difficulty: 'advanced' },
+      { id: 'sci3-mvd-fc21', front: '正午ごろ（太陽と同じ方向にあるため）', back: '新月が南中する時刻は？', difficulty: 'advanced' },
+      { id: 'sci3-mvd-fc22', front: '地球も公転しているため同じ位置関係に戻るのにさらに約2日かかる', back: '月の満ち欠けの周期（約29.5日）と公転周期（約27.3日）が異なる理由は？', difficulty: 'advanced' },
+      { id: 'sci3-mvd-fc23', front: 'コロナやプロミネンスが見える', back: '皆既日食のときに観察できる太陽の構造は？', difficulty: 'advanced' },
+      { id: 'sci3-mvd-fc24', front: '太陽の西側にあるとき', back: '金星が明けの明星として見えるとき、金星は太陽のどちら側にある？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -304,7 +216,8 @@ export const moonVenusDetail: Topic = {
           correctIndex: 0,
           explanation:
             '上弦の月は右半分が光って見えます。新月から満月に向かう途中の半月です。下弦の月は左半分が光ります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci3-mvd-q2',
           question: '月の公転の向きを北極側から見るとどちらか。',
@@ -317,7 +230,8 @@ export const moonVenusDetail: Topic = {
           correctIndex: 1,
           explanation:
             '月は北極側から見て反時計回り（西から東）に公転しています。そのため毎日同時刻に見ると月の位置が東へ移動します。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci3-mvd-q3',
           question: '外惑星の特徴として正しいものはどれか。',
@@ -330,7 +244,8 @@ export const moonVenusDetail: Topic = {
           correctIndex: 3,
           explanation:
             '外惑星は地球より外側を公転するため、太陽の反対方向にも位置でき真夜中にも見えます。また、ほぼ丸く見え大きな満ち欠けはしません。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci3-mvd-q4',
           question: '金星が地球に近いとき、金星はどのように見えるか。',
@@ -343,7 +258,8 @@ export const moonVenusDetail: Topic = {
           correctIndex: 2,
           explanation:
             '金星が地球に近いときは大きく見えますが、太陽光が当たっている面の大部分が地球側を向かないため、大きく欠けて見えます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci3-mvd-q5',
           question: '皆既日食と金環日食の違いの原因として正しいものはどれか。',
@@ -356,7 +272,8 @@ export const moonVenusDetail: Topic = {
           correctIndex: 1,
           explanation:
             '月の公転軌道は楕円のため、月が地球から遠いときは見かけの大きさが太陽より小さくなり、太陽のふちがリング状に見える金環日食になります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci3-mvd-q6',
           question: '月食が日食に比べて広い範囲で見える理由として正しいものはどれか。',
@@ -369,29 +286,30 @@ export const moonVenusDetail: Topic = {
           correctIndex: 3,
           explanation:
             '月食では地球の影に月が入るため、月が地平線の上にある場所ならどこからでも観測できます。日食は月の影が地球上の限られた範囲にしか落ちないため、観測場所が限定されます。',
-        },
-        { id: 'sci3-mvd-q7', question: '月の南中時刻が毎日約50分遅くなる理由は？', options: ['地球の自転が遅くなるから', '月が公転で東にずれるから', '太陽が動くから', '月が小さくなるから'], correctIndex: 1, explanation: '月が西から東に公転しているため、地球が約50分余分に自転しないと月が南中しません。' },
-        { id: 'sci3-mvd-q8', question: '月が常に同じ面を地球に向けている理由は？', options: ['月が自転していないから', '月の自転周期と公転周期が同じだから', '地球が自転していないから', '月が地球から離れているから'], correctIndex: 1, explanation: '月の自転周期と公転周期がどちらも約27.3日で同じため、常に同じ面を地球に向けています。' },
-        { id: 'sci3-mvd-q9', question: '金星が地球から遠いとき、どのように見える？', options: ['大きくて欠ける', '小さくて丸い', '大きくて丸い', '小さくて欠ける'], correctIndex: 1, explanation: '金星が遠いときは小さく見えますが、太陽光が当たる面がほぼ正面に見えるため丸く見えます。' },
-        { id: 'sci3-mvd-q10', question: '下弦の月が南中する時刻は？', options: ['正午', '夕方', '真夜中', '明け方'], correctIndex: 2, explanation: '下弦の月は真夜中に南中し、昼ごろに西に沈みます。' },
-        { id: 'sci3-mvd-q11', question: '上弦の月が南中する時刻は？', options: ['正午', '夕方', '真夜中', '明け方'], correctIndex: 1, explanation: '上弦の月は夕方に南中し、真夜中に西に沈みます。' },
-        { id: 'sci3-mvd-q12', question: '金環日食が起こる条件は？', options: ['月が太陽より大きいとき', '月が地球から遠く見かけが太陽より小さいとき', '月が太陽に近いとき', '満月のとき'], correctIndex: 1, explanation: '月が地球から遠いとき、見かけの大きさが太陽より小さくなり、太陽のふちがリング状に見えます。' },
-        { id: 'sci3-mvd-q13', question: '皆既日食が起こる条件は？', options: ['月が地球から遠いとき', '満月のとき', '月が地球に近く見かけが太陽とほぼ同じか大きいとき', '月食のとき'], correctIndex: 2, explanation: '月が地球に近いとき、見かけが太陽とほぼ同じか少し大きくなり、太陽を完全に覆い隠します。' },
-        { id: 'sci3-mvd-q14', question: '太陽と月の見かけの大きさがほぼ同じ理由は？', options: ['実際の大きさが同じだから', '太陽の直径が月の約400倍で距離も約400倍だから', '月が太陽を反射しているから', '地球が丸いから'], correctIndex: 1, explanation: '太陽の直径は月の約400倍ですが、地球からの距離も約400倍なので、見かけの大きさがほぼ同じになります。' },
-        { id: 'sci3-mvd-q15', question: '外惑星が大きく満ち欠けしない理由は？', options: ['外惑星が光を出すから', '太陽光がほぼ正面から当たる面が常に見えるから', '外惑星が小さいから', '外惑星に大気がないから'], correctIndex: 1, explanation: '外惑星は地球より外側にあるため、太陽光が当たる面がほぼ正面に見え、大きな満ち欠けは起こりません。' },
-        { id: 'sci3-mvd-q16', question: '外惑星が真夜中にも見える理由は？', options: ['外惑星が光を出すから', '太陽の反対方向にも位置できるから', '月が照らすから', '外惑星が地球に近いから'], correctIndex: 1, explanation: '外惑星は地球より外側を公転するため、太陽の反対方向にも位置でき、真夜中にも見えます。' },
-        { id: 'sci3-mvd-q17', question: '月の自転周期は約何日？', options: ['約1日', '約7日', '約27.3日', '約29.5日'], correctIndex: 2, explanation: '月の自転周期は約27.3日で、公転周期と同じです。そのため常に同じ面を地球に向けています。' },
-        { id: 'sci3-mvd-q18', question: '皆既月食のとき月はどのように見える？', options: ['完全に見えなくなる', '白く光る', '赤銅色に見える', '青く光る'], correctIndex: 2, explanation: '皆既月食のとき月は赤銅色に見えます。地球の大気で屈折した赤い光が月に届くためです。' },
-        { id: 'sci3-mvd-q19', question: '満月が南中する時刻は？', options: ['正午', '夕方', '真夜中', '明け方'], correctIndex: 2, explanation: '満月は太陽の反対方向にあるため、真夜中ごろに南中します。' },
-        { id: 'sci3-mvd-q20', question: '月の公転の向き（北極側から見て）は？', options: ['時計回り', '反時計回り', '上から下', '下から上'], correctIndex: 1, explanation: '月は北極側から見て反時計回り（西から東）に公転しています。' },
-        { id: 'sci3-mvd-q21', question: '金星が明けの明星として見えるとき、金星は太陽のどちら側にある？', options: ['太陽の東側', '太陽の西側', '太陽の真上', '太陽の真下'], correctIndex: 1, explanation: '金星が太陽の西側にあるとき、日の出前の東の空に見え、明けの明星となります。' },
-        { id: 'sci3-mvd-q22', question: '金星がよいの明星として見えるとき、金星は太陽のどちら側にある？', options: ['太陽の西側', '太陽の東側', '太陽の真上', '太陽の真下'], correctIndex: 1, explanation: '金星が太陽の東側にあるとき、日没後の西の空に見え、よいの明星となります。' },
-        { id: 'sci3-mvd-q23', question: '新月が南中する時刻は？', options: ['正午', '夕方', '真夜中', '明け方'], correctIndex: 0, explanation: '新月は太陽と同じ方向にあるため、太陽とともに正午ごろに南中します（見えません）。' },
-        { id: 'sci3-mvd-q24', question: '毎日同時刻に月を見ると位置がどちらにずれる？', options: ['西', '東', '上', '下'], correctIndex: 1, explanation: '月の公転（西→東）により、毎日同時刻に見ると月の位置は東へずれていきます。' },
-        { id: 'sci3-mvd-q25', question: '月の公転軌道が楕円であることは何に影響する？', options: ['月の色', '月の見かけの大きさ（皆既日食か金環日食か）', '月の温度', '月の自転'], correctIndex: 1, explanation: '月の公転軌道が楕円のため地球との距離が変わり、月の見かけの大きさが変化して皆既日食か金環日食かが決まります。' },
-        { id: 'sci3-mvd-q26', question: '月の満ち欠けの周期（約29.5日）と月の公転周期（約27.3日）が異なる理由は？', options: ['月の自転が影響する', '地球が公転している分ずれる', '太陽が動くから', '月が変形するから'], correctIndex: 1, explanation: '月が地球のまわりを1周する間に地球も太陽のまわりを公転するため、同じ位置関係に戻るのにさらに約2日かかります。' },
-        { id: 'sci3-mvd-q27', question: '部分月食とは何か？', options: ['月の一部が地球の影に入る現象', '月が完全に地球の影に入る現象', '太陽の一部が隠れる現象', '月が半分光る現象'], correctIndex: 0, explanation: '部分月食は月の一部だけが地球の影に入る現象です。完全に入るのは皆既月食です。' },
-        { id: 'sci3-mvd-q28', question: '皆既日食のときに見えるようになる太陽の構造は？', options: ['黒点', 'コロナやプロミネンス', '太陽風', '太陽フレア'], correctIndex: 1, explanation: '皆既日食で太陽が完全に隠れると、ふだん太陽の明るさに隠されているコロナやプロミネンスが見えます。' },
+        difficulty: 'basic',
+      },
+        { id: 'sci3-mvd-q7', question: '月の南中時刻が毎日約50分遅くなる理由は？', options: ['地球の自転が遅くなるから', '月が公転で東にずれるから', '太陽が動くから', '月が小さくなるから'], correctIndex: 1, explanation: '月が西から東に公転しているため、地球が約50分余分に自転しないと月が南中しません。', difficulty: 'basic' },
+        { id: 'sci3-mvd-q8', question: '月が常に同じ面を地球に向けている理由は？', options: ['月が自転していないから', '月の自転周期と公転周期が同じだから', '地球が自転していないから', '月が地球から離れているから'], correctIndex: 1, explanation: '月の自転周期と公転周期がどちらも約27.3日で同じため、常に同じ面を地球に向けています。', difficulty: 'basic' },
+        { id: 'sci3-mvd-q9', question: '金星が地球から遠いとき、どのように見える？', options: ['大きくて欠ける', '小さくて丸い', '大きくて丸い', '小さくて欠ける'], correctIndex: 1, explanation: '金星が遠いときは小さく見えますが、太陽光が当たる面がほぼ正面に見えるため丸く見えます。', difficulty: 'basic' },
+        { id: 'sci3-mvd-q10', question: '下弦の月が南中する時刻は？', options: ['正午', '夕方', '真夜中', '明け方'], correctIndex: 2, explanation: '下弦の月は真夜中に南中し、昼ごろに西に沈みます。', difficulty: 'basic' },
+        { id: 'sci3-mvd-q11', question: '上弦の月が南中する時刻は？', options: ['正午', '夕方', '真夜中', '明け方'], correctIndex: 1, explanation: '上弦の月は夕方に南中し、真夜中に西に沈みます。', difficulty: 'standard' },
+        { id: 'sci3-mvd-q12', question: '金環日食が起こる条件は？', options: ['月が太陽より大きいとき', '月が地球から遠く見かけが太陽より小さいとき', '月が太陽に近いとき', '満月のとき'], correctIndex: 1, explanation: '月が地球から遠いとき、見かけの大きさが太陽より小さくなり、太陽のふちがリング状に見えます。', difficulty: 'standard' },
+        { id: 'sci3-mvd-q13', question: '皆既日食が起こる条件は？', options: ['月が地球から遠いとき', '満月のとき', '月が地球に近く見かけが太陽とほぼ同じか大きいとき', '月食のとき'], correctIndex: 2, explanation: '月が地球に近いとき、見かけが太陽とほぼ同じか少し大きくなり、太陽を完全に覆い隠します。', difficulty: 'standard' },
+        { id: 'sci3-mvd-q14', question: '太陽と月の見かけの大きさがほぼ同じ理由は？', options: ['実際の大きさが同じだから', '太陽の直径が月の約400倍で距離も約400倍だから', '月が太陽を反射しているから', '地球が丸いから'], correctIndex: 1, explanation: '太陽の直径は月の約400倍ですが、地球からの距離も約400倍なので、見かけの大きさがほぼ同じになります。', difficulty: 'standard' },
+        { id: 'sci3-mvd-q15', question: '外惑星が大きく満ち欠けしない理由は？', options: ['外惑星が光を出すから', '太陽光がほぼ正面から当たる面が常に見えるから', '外惑星が小さいから', '外惑星に大気がないから'], correctIndex: 1, explanation: '外惑星は地球より外側にあるため、太陽光が当たる面がほぼ正面に見え、大きな満ち欠けは起こりません。', difficulty: 'standard' },
+        { id: 'sci3-mvd-q16', question: '外惑星が真夜中にも見える理由は？', options: ['外惑星が光を出すから', '太陽の反対方向にも位置できるから', '月が照らすから', '外惑星が地球に近いから'], correctIndex: 1, explanation: '外惑星は地球より外側を公転するため、太陽の反対方向にも位置でき、真夜中にも見えます。', difficulty: 'standard' },
+        { id: 'sci3-mvd-q17', question: '月の自転周期は約何日？', options: ['約1日', '約7日', '約27.3日', '約29.5日'], correctIndex: 2, explanation: '月の自転周期は約27.3日で、公転周期と同じです。そのため常に同じ面を地球に向けています。', difficulty: 'standard' },
+        { id: 'sci3-mvd-q18', question: '皆既月食のとき月はどのように見える？', options: ['完全に見えなくなる', '白く光る', '赤銅色に見える', '青く光る'], correctIndex: 2, explanation: '皆既月食のとき月は赤銅色に見えます。地球の大気で屈折した赤い光が月に届くためです。', difficulty: 'standard' },
+        { id: 'sci3-mvd-q19', question: '満月が南中する時刻は？', options: ['正午', '夕方', '真夜中', '明け方'], correctIndex: 2, explanation: '満月は太陽の反対方向にあるため、真夜中ごろに南中します。', difficulty: 'standard' },
+        { id: 'sci3-mvd-q20', question: '月の公転の向き（北極側から見て）は？', options: ['時計回り', '反時計回り', '上から下', '下から上'], correctIndex: 1, explanation: '月は北極側から見て反時計回り（西から東）に公転しています。', difficulty: 'standard' },
+        { id: 'sci3-mvd-q21', question: '金星が明けの明星として見えるとき、金星は太陽のどちら側にある？', options: ['太陽の東側', '太陽の西側', '太陽の真上', '太陽の真下'], correctIndex: 1, explanation: '金星が太陽の西側にあるとき、日の出前の東の空に見え、明けの明星となります。', difficulty: 'standard' },
+        { id: 'sci3-mvd-q22', question: '金星がよいの明星として見えるとき、金星は太陽のどちら側にある？', options: ['太陽の西側', '太陽の東側', '太陽の真上', '太陽の真下'], correctIndex: 1, explanation: '金星が太陽の東側にあるとき、日没後の西の空に見え、よいの明星となります。', difficulty: 'standard' },
+        { id: 'sci3-mvd-q23', question: '新月が南中する時刻は？', options: ['正午', '夕方', '真夜中', '明け方'], correctIndex: 0, explanation: '新月は太陽と同じ方向にあるため、太陽とともに正午ごろに南中します（見えません）。', difficulty: 'advanced' },
+        { id: 'sci3-mvd-q24', question: '毎日同時刻に月を見ると位置がどちらにずれる？', options: ['西', '東', '上', '下'], correctIndex: 1, explanation: '月の公転（西→東）により、毎日同時刻に見ると月の位置は東へずれていきます。', difficulty: 'advanced' },
+        { id: 'sci3-mvd-q25', question: '月の公転軌道が楕円であることは何に影響する？', options: ['月の色', '月の見かけの大きさ（皆既日食か金環日食か）', '月の温度', '月の自転'], correctIndex: 1, explanation: '月の公転軌道が楕円のため地球との距離が変わり、月の見かけの大きさが変化して皆既日食か金環日食かが決まります。', difficulty: 'advanced' },
+        { id: 'sci3-mvd-q26', question: '月の満ち欠けの周期（約29.5日）と月の公転周期（約27.3日）が異なる理由は？', options: ['月の自転が影響する', '地球が公転している分ずれる', '太陽が動くから', '月が変形するから'], correctIndex: 1, explanation: '月が地球のまわりを1周する間に地球も太陽のまわりを公転するため、同じ位置関係に戻るのにさらに約2日かかります。', difficulty: 'advanced' },
+        { id: 'sci3-mvd-q27', question: '部分月食とは何か？', options: ['月の一部が地球の影に入る現象', '月が完全に地球の影に入る現象', '太陽の一部が隠れる現象', '月が半分光る現象'], correctIndex: 0, explanation: '部分月食は月の一部だけが地球の影に入る現象です。完全に入るのは皆既月食です。', difficulty: 'advanced' },
+        { id: 'sci3-mvd-q28', question: '皆既日食のときに見えるようになる太陽の構造は？', options: ['黒点', 'コロナやプロミネンス', '太陽風', '太陽フレア'], correctIndex: 1, explanation: '皆既日食で太陽が完全に隠れると、ふだん太陽の明るさに隠されているコロナやプロミネンスが見えます。', difficulty: 'advanced' },
       ],
     },
     examples: {

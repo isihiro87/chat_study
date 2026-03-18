@@ -165,186 +165,34 @@ export const strata: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'sci1-strata-fc1',
-        front: '風化と流水のはたらき',
-        back: '岩石がもろくなる現象と、流水による3つのはたらきを答えよ。',
-        explanation:
-          '風化：気温の変化や雨風で岩石がもろくなること。流水のはたらき：侵食（削る）→ 運搬（運ぶ）→ 堆積（積もる）。',
-      },
-      {
-        id: 'sci1-strata-fc2',
-        front: '堆積岩の種類',
-        back: '粒の大きさで分類される堆積岩を3つ答えよ。',
-        explanation:
-          'れき岩（れきが固まったもの）、砂岩（砂が固まったもの）、泥岩（泥が固まったもの）。',
-      },
-      {
-        id: 'sci1-strata-fc3',
-        front: '石灰岩の特徴',
-        back: '石灰岩にうすい塩酸をかけると何が発生する？',
-        explanation:
-          '二酸化炭素が発生する。石灰岩はサンゴや貝などの生物の遺骸が固まってできた堆積岩。',
-      },
-      {
-        id: 'sci1-strata-fc4',
-        front: '示相化石と示準化石',
-        back: '当時の環境がわかる化石と、地層の時代がわかる化石をそれぞれ何という？',
-        explanation:
-          '示相化石＝環境がわかる（サンゴ→暖かく浅い海）。示準化石＝時代がわかる（三葉虫→古生代、アンモナイト→中生代）。',
-      },
-      {
-        id: 'sci1-strata-fc5',
-        front: 'しゅう曲と断層',
-        back: '地層が波打つように曲がることと、地層がずれることをそれぞれ何という？',
-        explanation:
-          'しゅう曲：横からの力で地層が波打つように曲がること。断層：力を受けて地層がずれること。',
-      },
-      {
-        id: 'sci1-strata-fc6',
-        front: 'れき岩の特徴',
-        back: 'れき岩はどのような堆積岩か。',
-        explanation:
-          '直径2mm以上のれき（丸みをおびた粒）が固まった堆積岩。流水で運ばれるうちに角が取れて丸くなる。',
-      },
-      {
-        id: 'sci1-strata-fc7',
-        front: '砂岩の特徴',
-        back: '砂岩はどのような堆積岩か。',
-        explanation:
-          '直径0.06～2mmの砂が固まった堆積岩。ざらざらした手触りが特徴。',
-      },
-      {
-        id: 'sci1-strata-fc8',
-        front: '泥岩の特徴',
-        back: '泥岩はどのような堆積岩か。',
-        explanation:
-          '直径0.06mm以下の泥が固まった堆積岩。なめらかな手触りで、層状にはがれやすい。',
-      },
-      {
-        id: 'sci1-strata-fc9',
-        front: 'チャートの特徴',
-        back: 'チャートはどのような特徴をもつか。',
-        explanation:
-          '放散虫などの遺骸が固まった堆積岩。非常に硬く、うすい塩酸には反応しない。石灰岩との違い。',
-      },
-      {
-        id: 'sci1-strata-fc10',
-        front: '凝灰岩の特徴',
-        back: '凝灰岩はどのような堆積岩か。',
-        explanation:
-          '火山灰が固まった堆積岩。角ばった粒が見られる。鍵層として地層の対比に重要。',
-      },
-      {
-        id: 'sci1-strata-fc11',
-        front: '古生代の示準化石',
-        back: '古生代を示す示準化石を2つ挙げよ。',
-        explanation:
-          '三葉虫、フズリナ。古生代は約5.4億年前～2.5億年前の時代。',
-      },
-      {
-        id: 'sci1-strata-fc12',
-        front: '中生代の示準化石',
-        back: '中生代を示す示準化石を2つ挙げよ。',
-        explanation:
-          'アンモナイト、恐竜。中生代は約2.5億年前～6600万年前の時代。',
-      },
-      {
-        id: 'sci1-strata-fc13',
-        front: '新生代の示準化石',
-        back: '新生代を示す示準化石を2つ挙げよ。',
-        explanation:
-          'ビカリア（巻き貝）、ナウマンゾウ。新生代は約6600万年前～現在の時代。',
-      },
-      {
-        id: 'sci1-strata-fc14',
-        front: 'サンゴの示相化石',
-        back: 'サンゴの化石が見つかると、どのような環境だったとわかるか。',
-        explanation:
-          '暖かくて浅い海。サンゴは限られた環境にのみ生息するため、示相化石として当時の環境を推定できる。',
-      },
-      {
-        id: 'sci1-strata-fc15',
-        front: 'シジミの示相化石',
-        back: 'シジミの化石が見つかると、どのような環境だったとわかるか。',
-        explanation:
-          '淡水（河口付近）の環境。シジミは淡水域に生息する生物。',
-      },
-      {
-        id: 'sci1-strata-fc16',
-        front: '示準化石の条件',
-        back: '示準化石として適した条件を2つ述べよ。',
-        explanation:
-          '①広い範囲（地域）に分布していること。②生存した期間が短い（限られた時代にのみ生息した）こと。',
-      },
-      {
-        id: 'sci1-strata-fc17',
-        front: '柱状図',
-        back: '柱状図とは何か。',
-        explanation:
-          'ボーリング試料（地下から取り出した円柱状の試料）をもとに作成した地層の断面図。地層の重なり方や厚さがわかる。',
-      },
-      {
-        id: 'sci1-strata-fc18',
-        front: '鍵層',
-        back: '鍵層とは何か。最もよく使われるのはどの岩石か。',
-        explanation:
-          '離れた場所の地層を対比するときの目印になる層。凝灰岩の層が最もよく使われる（噴火で広い範囲に同時に積もるため）。',
-      },
-      {
-        id: 'sci1-strata-fc19',
-        front: '隆起と沈降',
-        back: '隆起と沈降の違いを述べよ。',
-        explanation:
-          '隆起：海底が持ち上がって陸地になること。沈降：陸地がしずんで海中に沈むこと。',
-      },
-      {
-        id: 'sci1-strata-fc20',
-        front: '地層累重の法則',
-        back: '地層の上下関係から何がわかるか。',
-        explanation:
-          '下にある地層ほど古く、上にある地層ほど新しい（地層累重の法則）。ただし、しゅう曲や断層で逆転することもある。',
-      },
-      {
-        id: 'sci1-strata-fc21',
-        front: '地層が縞模様に見える理由',
-        back: '粒の大きさや種類の異なる層が繰り返し積み重なるため。',
-      },
-      {
-        id: 'sci1-strata-fc22',
-        front: '石灰岩とチャートの見分け方',
-        back: 'うすい塩酸をかけると石灰岩は二酸化炭素を発生するが、チャートは反応しない。',
-      },
-      {
-        id: 'sci1-strata-fc23',
-        front: 'シダの化石の示す環境',
-        back: 'シダの化石が見つかると、温暖で湿潤な陸地だったとわかる。',
-      },
-      {
-        id: 'sci1-strata-fc24',
-        front: 'ブナの化石の示す環境',
-        back: 'ブナの化石が見つかると、やや寒冷な陸地だったとわかる。',
-      },
-      {
-        id: 'sci1-strata-fc25',
-        front: '示相化石の条件',
-        back: '限られた環境にのみ生息する（生活環境が限定されている）生物の化石であること。',
-      },
-      {
-        id: 'sci1-strata-fc26',
-        front: '不整合面',
-        back: '地層の中に不整合面が見られるとき、一度堆積が止まり侵食を受けてから再び堆積が起こった。',
-      },
-      {
-        id: 'sci1-strata-fc27',
-        front: '恐竜の化石の時代',
-        back: '恐竜の化石が見つかった地層の時代は中生代。',
-      },
-      {
-        id: 'sci1-strata-fc28',
-        front: 'フズリナの化石の時代',
-        back: 'フズリナの化石が見つかった地層の時代は古生代。',
-      },
+      { id: 'sci1-strata-fc1', front: '風化：気温の変化や雨風で岩石がもろくなること。流水のはたらき：侵食→運搬→堆積。', back: '岩石がもろくなる現象と、流水による3つのはたらきを答えよ。', difficulty: 'basic' },
+      { id: 'sci1-strata-fc2', front: 'れき岩（れきが固まったもの）、砂岩（砂）、泥岩（泥）', back: '粒の大きさで分類される堆積岩を3つ答えよ。', difficulty: 'basic' },
+      { id: 'sci1-strata-fc3', front: '二酸化炭素が発生する', back: '石灰岩にうすい塩酸をかけると何が発生するか？', explanation: '石灰岩はサンゴや貝などの生物の遺骸が固まってできた堆積岩。', difficulty: 'basic' },
+      { id: 'sci1-strata-fc4', front: '示相化石＝当時の環境がわかる化石。示準化石＝地層の時代がわかる化石。', back: '当時の環境がわかる化石と、地層の時代がわかる化石をそれぞれ何というか？', difficulty: 'basic' },
+      { id: 'sci1-strata-fc5', front: 'しゅう曲：横からの力で地層が波打つように曲がる。断層：力を受けて地層がずれる。', back: '地層が波打つように曲がることと、地層がずれることをそれぞれ何というか？', difficulty: 'basic' },
+      { id: 'sci1-strata-fc6', front: '直径2mm以上のれき（丸みをおびた粒）が固まった堆積岩', back: 'れき岩はどのような堆積岩か？', difficulty: 'basic' },
+      { id: 'sci1-strata-fc7', front: '直径0.06～2mmの砂が固まった堆積岩。ざらざらした手触り。', back: '砂岩はどのような堆積岩か？', difficulty: 'basic' },
+      { id: 'sci1-strata-fc8', front: '放散虫などの遺骸が固まった堆積岩。非常に硬く、うすい塩酸には反応しない。', back: 'チャートはどのような特徴をもつ堆積岩か？', difficulty: 'basic' },
+      { id: 'sci1-strata-fc9', front: '火山灰が固まった堆積岩。角ばった粒が見られる。鍵層として地層の対比に重要。', back: '凝灰岩はどのような堆積岩か？', difficulty: 'basic' },
+      { id: 'sci1-strata-fc10', front: '三葉虫、フズリナ', back: '古生代を示す示準化石を2つ挙げよ。', difficulty: 'basic' },
+      { id: 'sci1-strata-fc11', front: 'アンモナイト、恐竜', back: '中生代を示す示準化石を2つ挙げよ。', difficulty: 'basic' },
+      { id: 'sci1-strata-fc12', front: 'ビカリア（巻き貝）、ナウマンゾウ', back: '新生代を示す示準化石を2つ挙げよ。', difficulty: 'standard' },
+      { id: 'sci1-strata-fc13', front: '暖かくて浅い海', back: 'サンゴの化石が見つかると、どのような環境だったとわかるか？', difficulty: 'standard' },
+      { id: 'sci1-strata-fc14', front: '淡水（河口付近）の環境', back: 'シジミの化石が見つかると、どのような環境だったとわかるか？', difficulty: 'standard' },
+      { id: 'sci1-strata-fc15', front: '①広い範囲に分布していること ②生存した期間が短いこと', back: '示準化石として適した条件を2つ述べよ。', difficulty: 'standard' },
+      { id: 'sci1-strata-fc16', front: 'ボーリング試料をもとに作成した地層の断面図。地層の重なり方や厚さがわかる。', back: '柱状図とは何か？', difficulty: 'standard' },
+      { id: 'sci1-strata-fc17', front: '離れた場所の地層を対比する目印になる層。凝灰岩の層が最もよく使われる。', back: '鍵層とは何か？最もよく使われるのはどの岩石か？', explanation: '噴火で広い範囲に同時に積もるため目印になる。', difficulty: 'standard' },
+      { id: 'sci1-strata-fc18', front: '隆起：海底が持ち上がって陸地になる。沈降：陸地がしずんで海中に沈む。', back: '隆起と沈降の違いを述べよ。', difficulty: 'standard' },
+      { id: 'sci1-strata-fc19', front: '下にある地層ほど古く、上にある地層ほど新しい', back: '地層累重の法則とは何か？', explanation: 'しゅう曲や断層で逆転することもある。', difficulty: 'standard' },
+      { id: 'sci1-strata-fc20', front: '粒の大きさや種類の異なる層が繰り返し積み重なるため', back: '地層が縞模様に見えるのはなぜか？', difficulty: 'standard' },
+      { id: 'sci1-strata-fc21', front: 'うすい塩酸をかけると石灰岩は二酸化炭素を発生するが、チャートは反応しない', back: '石灰岩とチャートの見分け方を述べよ。', difficulty: 'standard' },
+      { id: 'sci1-strata-fc22', front: '直径0.06mm以下の泥が固まった堆積岩。なめらかな手触りで層状にはがれやすい。', back: '泥岩はどのような堆積岩か？', difficulty: 'standard' },
+      { id: 'sci1-strata-fc23', front: '温暖で湿潤な陸地', back: 'シダの化石が見つかると、どのような環境だったとわかるか？', difficulty: 'advanced' },
+      { id: 'sci1-strata-fc24', front: 'やや寒冷な陸地', back: 'ブナの化石が見つかると、どのような環境だったとわかるか？', difficulty: 'advanced' },
+      { id: 'sci1-strata-fc25', front: '限られた環境にのみ生息する（生活環境が限定されている）生物の化石であること', back: '示相化石として適した条件を述べよ。', difficulty: 'advanced' },
+      { id: 'sci1-strata-fc26', front: '一度堆積が止まり、侵食を受けてから再び堆積が起こったことを示す', back: '地層の中に不整合面が見られるとき、何があったと考えられるか？', difficulty: 'advanced' },
+      { id: 'sci1-strata-fc27', front: '中生代', back: '恐竜の化石が見つかった地層の時代はいつか？', difficulty: 'advanced' },
+      { id: 'sci1-strata-fc28', front: '古生代', back: 'フズリナの化石が見つかった地層の時代はいつか？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -355,7 +203,8 @@ export const strata: Topic = {
           correctIndex: 0,
           explanation:
             'れきは粒が大きく重いため、河口近くに堆積します。砂はその先に、泥はさらに沖合まで運ばれて堆積します。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-strata-q2',
           question: 'うすい塩酸をかけると二酸化炭素が発生する堆積岩はどれ？',
@@ -363,7 +212,8 @@ export const strata: Topic = {
           correctIndex: 1,
           explanation:
             '石灰岩はサンゴや貝など生物の遺骸が固まったもので、うすい塩酸をかけると二酸化炭素が発生します。チャートは放散虫の遺骸からなり、非常に硬いです。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-strata-q3',
           question: 'アンモナイトの化石が見つかった地層の時代はいつ？',
@@ -371,7 +221,8 @@ export const strata: Topic = {
           correctIndex: 3,
           explanation:
             'アンモナイトは中生代の示準化石です。古生代は三葉虫、新生代はビカリア（巻き貝）やナウマンゾウが示準化石です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-strata-q4',
           question: '地層が横からの力を受けて波打つように曲がることを何という？',
@@ -379,7 +230,8 @@ export const strata: Topic = {
           correctIndex: 2,
           explanation:
             'しゅう曲は地層が横からの大きな力を受けて波打つように曲がることです。断層は地層がずれることです。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-strata-q5',
           question: '離れた場所の地層を対比するときに目印となる層は何？',
@@ -387,7 +239,8 @@ export const strata: Topic = {
           correctIndex: 1,
           explanation:
             '凝灰岩の層（火山灰が固まったもの）は噴火によって広い範囲に同時に積もるため、離れた場所の地層を対比する目印（鍵層）になります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-strata-q6',
           question: '岩石が気温の変化や雨風でもろくなる現象を何という？',
@@ -395,7 +248,8 @@ export const strata: Topic = {
           correctIndex: 2,
           explanation:
             '風化とは、地表の岩石が気温の変化や雨風の影響でもろくなることです。風化した岩石は流水のはたらきで侵食・運搬・堆積されます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-strata-q7',
           question: '三葉虫の化石が見つかった地層の時代はいつ？',
@@ -403,7 +257,8 @@ export const strata: Topic = {
           correctIndex: 0,
           explanation:
             '三葉虫は古生代の示準化石です。フズリナも古生代の示準化石として知られています。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-strata-q8',
           question: 'サンゴの化石は示相化石と示準化石のどちらに分類される？',
@@ -411,7 +266,8 @@ export const strata: Topic = {
           correctIndex: 3,
           explanation:
             'サンゴは示相化石で、暖かくて浅い海の環境だったことを示します。限られた環境にのみ生息するため環境の推定に役立ちます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-strata-q9',
           question: '放散虫の遺骸が固まってできた、非常に硬い堆積岩は何？',
@@ -419,7 +275,8 @@ export const strata: Topic = {
           correctIndex: 2,
           explanation:
             'チャートは放散虫などの遺骸が固まった堆積岩で、非常に硬いのが特徴です。うすい塩酸に反応しないので石灰岩と区別できます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-strata-q10',
           question: '海底が持ち上がって陸地になることを何という？',
@@ -427,7 +284,8 @@ export const strata: Topic = {
           correctIndex: 3,
           explanation:
             '隆起とは海底が持ち上がって陸地になることです。山の上で海の生物の化石が見つかるのは隆起の証拠です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-strata-q11',
           question: '示準化石として適した条件はどれ？',
@@ -440,7 +298,8 @@ export const strata: Topic = {
           correctIndex: 0,
           explanation:
             '示準化石は広い範囲（地域）に分布し、短い期間で絶滅した生物の化石が適しています。これにより、どの時代の地層かを特定できます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-strata-q12',
           question: '次のうち、新生代の示準化石はどれ？',
@@ -448,7 +307,8 @@ export const strata: Topic = {
           correctIndex: 1,
           explanation:
             'ビカリア（巻き貝）は新生代の示準化石です。三葉虫とフズリナは古生代、アンモナイトは中生代の示準化石です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-strata-q13',
           question: '地層が縞模様に見えるのはなぜか？',
@@ -461,7 +321,8 @@ export const strata: Topic = {
           correctIndex: 1,
           explanation:
             '粒の大きさや種類の異なる層が繰り返し積み重なることで、地層が縞模様に見えます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-strata-q14',
           question: 'れき岩のれきの特徴として正しいものはどれ？',
@@ -474,7 +335,8 @@ export const strata: Topic = {
           correctIndex: 1,
           explanation:
             'れきは流水で運ばれるうちに角が取れて丸みをおびます。直径2mm以上の粒がれきです。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-strata-q15',
           question: 'フズリナの化石が見つかった地層の時代はいつ？',
@@ -482,7 +344,8 @@ export const strata: Topic = {
           correctIndex: 2,
           explanation:
             'フズリナは古生代の示準化石です。三葉虫も古生代の示準化石として知られています。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-strata-q16',
           question: '恐竜の化石が見つかった地層の時代はいつ？',
@@ -490,7 +353,8 @@ export const strata: Topic = {
           correctIndex: 1,
           explanation:
             '恐竜は中生代の示準化石です。アンモナイトも中生代の示準化石です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-strata-q17',
           question: 'シジミの化石から推定できる環境はどれ？',
@@ -498,7 +362,8 @@ export const strata: Topic = {
           correctIndex: 2,
           explanation:
             'シジミは淡水域に生息する生物なので、シジミの化石は淡水（河口付近）の環境だったことを示します。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-strata-q18',
           question: '凝灰岩はどのような堆積岩か？',
@@ -511,7 +376,8 @@ export const strata: Topic = {
           correctIndex: 2,
           explanation:
             '凝灰岩は火山灰が堆積し固まった岩石です。角ばった粒が見られ、鍵層として地層の対比に使われます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-strata-q19',
           question: '示相化石として適した条件はどれ？',
@@ -524,7 +390,8 @@ export const strata: Topic = {
           correctIndex: 1,
           explanation:
             '示相化石は限られた環境にのみ生息する生物の化石が適しています。サンゴ（暖かく浅い海）などが代表例です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-strata-q20',
           question: 'ナウマンゾウの化石が見つかった地層の時代はいつ？',
@@ -532,7 +399,8 @@ export const strata: Topic = {
           correctIndex: 2,
           explanation:
             'ナウマンゾウは新生代の示準化石です。ビカリアも新生代の示準化石です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-strata-q21',
           question: '石灰岩とチャートの見分け方として正しいものはどれ？',
@@ -545,7 +413,8 @@ export const strata: Topic = {
           correctIndex: 1,
           explanation:
             'うすい塩酸をかけると石灰岩は二酸化炭素を発生しますが、チャートは反応しません。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-strata-q22',
           question: '地層の上下関係について正しいものはどれ？',
@@ -558,7 +427,8 @@ export const strata: Topic = {
           correctIndex: 1,
           explanation:
             '地層累重の法則により、下にある地層ほど古く、上にある地層ほど新しいです。ただし、しゅう曲や断層で逆転することもあります。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-strata-q23',
           question: 'シダの化石から推定できる環境はどれ？',
@@ -566,7 +436,8 @@ export const strata: Topic = {
           correctIndex: 1,
           explanation:
             'シダは温暖で湿潤な環境に生育するため、シダの化石は温暖で湿潤な陸地だったことを示す示相化石です。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci1-strata-q24',
           question: '泥岩の特徴として正しいものはどれ？',
@@ -579,7 +450,8 @@ export const strata: Topic = {
           correctIndex: 1,
           explanation:
             '泥岩は直径0.06mm以下の泥が固まった堆積岩で、なめらかな手触りと層状にはがれやすい性質があります。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci1-strata-q25',
           question: '地層の中に不整合面が見られるとき、何があったと考えられるか？',
@@ -592,7 +464,8 @@ export const strata: Topic = {
           correctIndex: 1,
           explanation:
             '不整合面は一度堆積が止まり、侵食を受けてから再び堆積が起こったことを示します。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci1-strata-q26',
           question: 'ブナの化石から推定できる環境はどれ？',
@@ -600,7 +473,8 @@ export const strata: Topic = {
           correctIndex: 2,
           explanation:
             'ブナの化石が見つかると、やや寒冷な陸地の環境だったことがわかります。示相化石の一つです。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci1-strata-q27',
           question: '直径0.06mm～2mmの粒を何というか？',
@@ -608,7 +482,8 @@ export const strata: Topic = {
           correctIndex: 1,
           explanation:
             '直径0.06mm～2mmの粒を砂といいます。2mm以上がれき、0.06mm以下が泥です。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci1-strata-q28',
           question: '陸地がしずんで海中に沈むことを何というか？',
@@ -616,7 +491,8 @@ export const strata: Topic = {
           correctIndex: 2,
           explanation:
             '陸地がしずんで海中に沈むことを沈降といいます。逆に海底が持ち上がって陸地になることを隆起といいます。',
-        },
+        difficulty: 'advanced',
+      },
       ],
     },
     examples: {

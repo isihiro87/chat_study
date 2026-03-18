@@ -121,20 +121,20 @@ export const dnaTechnology: Topic = {
         back: '遺伝子の本体となる物質は何？',
         explanation:
           'デオキシリボ核酸の略称。二重らせん構造をしており、染色体に含まれている。',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-dt-fc2',
-        front: 'DNAの構造',
+        front: '二重らせん構造',
         back: 'DNAはどのような形をしている？',
-        explanation:
-          '二重らせん構造。2本の鎖がらせん状にからみ合った形をしている。',
+        explanation: '2本の鎖がらせん状にからみ合った形をしている。',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-dt-fc3',
-        front: '遺伝子の変化',
+        front: '突然変異',
         back: '遺伝子（DNA）が放射線や紫外線などで変化することを何という？',
-        explanation:
-          '突然変異。遺伝子は不変ではなく、外的要因によって変化することがある。',
+        difficulty: 'basic',
       },
       {
         id: 'sci3-dt-fc4',
@@ -142,13 +142,13 @@ export const dnaTechnology: Topic = {
         back: '異なる個体の遺伝子を他の個体に導入する技術を何という？',
         explanation:
           '農業（害虫に強い作物、青いバラなど）や医療（インスリン生産）に利用される。',
+        difficulty: 'standard',
       },
       {
         id: 'sci3-dt-fc5',
-        front: '遺伝子組換えの農業への応用',
+        front: '害虫に強い作物、日持ちの良いトマト、青色のバラやカーネーション',
         back: '遺伝子組換え技術で作られた農作物の例を挙げよ',
-        explanation:
-          '害虫に強い作物、日持ちの良いトマト、青色のバラやカーネーションなど。',
+        difficulty: 'standard',
       },
       {
         id: 'sci3-dt-fc6',
@@ -156,13 +156,35 @@ export const dnaTechnology: Topic = {
         back: '遺伝子組換え技術を使って細菌に作らせている糖尿病治療薬は？',
         explanation:
           'インスリン。ヒトのインスリン遺伝子を細菌に組み込んで大量生産する。',
+        difficulty: 'standard',
       },
       {
         id: 'sci3-dt-fc7',
         front: 'クローン',
         back: '起源が同じで、同一の遺伝子をもつ個体の集団を何という？',
-        explanation:
-          'クローン技術は遺伝子工学の一分野で、同じ遺伝情報をもつ個体を作り出す。',
+        explanation: 'クローン技術は遺伝子工学の一分野で、同じ遺伝情報をもつ個体を作り出す。',
+        difficulty: 'standard',
+      },
+      {
+        id: 'sci3-dt-fc8',
+        front: '染色体',
+        back: 'DNAが含まれている細胞内の構造は？',
+        explanation: '核→染色体→DNAの階層構造になっている。',
+        difficulty: 'basic',
+      },
+      {
+        id: 'sci3-dt-fc9',
+        front: 'インスリン',
+        back: '遺伝子組換え技術を使って細菌に作らせている糖尿病の治療薬は？',
+        explanation: 'ヒトのインスリン遺伝子を細菌に組み込んで大量生産する。',
+        difficulty: 'standard',
+      },
+      {
+        id: 'sci3-dt-fc10',
+        front: '安全性や倫理面での課題がある',
+        back: '遺伝子組換え技術やクローン技術の問題点は？',
+        explanation: '便利な技術だが、安全性や生命倫理の観点から世界中で議論されている。',
+        difficulty: 'advanced',
       },
     ],
     quiz: {
@@ -179,7 +201,8 @@ export const dnaTechnology: Topic = {
           correctIndex: 3,
           explanation:
             'DNA＝デオキシリボ核酸（Deoxyribonucleic Acid）で、二重らせん構造をしています。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci3-dt-q2',
           question: 'DNAが含まれている場所として正しいものは？',
@@ -187,7 +210,8 @@ export const dnaTechnology: Topic = {
           correctIndex: 1,
           explanation:
             'DNAは細胞の核の中にある染色体に含まれています。核→染色体→DNAの関係です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci3-dt-q3',
           question:
@@ -196,7 +220,8 @@ export const dnaTechnology: Topic = {
           correctIndex: 2,
           explanation:
             'ヒトのインスリン遺伝子を細菌に組み込んで大量生産し、糖尿病の治療薬として利用しています。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci3-dt-q4',
           question:
@@ -205,7 +230,8 @@ export const dnaTechnology: Topic = {
           correctIndex: 0,
           explanation:
             'クローンとは、起源が同じで同一の遺伝子をもつ個体の集団のことです。',
-        },
+        difficulty: 'standard',
+      },
       ],
     },
     chatId: 'sci3-dna-technology',

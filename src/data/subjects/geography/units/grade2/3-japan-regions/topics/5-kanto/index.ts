@@ -145,48 +145,13 @@ export const kanto: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'geo2-kt-fc1',
-        front: '関東ローム層',
-        back: '関東平野の台地を覆う、火山灰が堆積してできた赤土の層を何というか。',
-        explanation:
-          '関東ローム層といいます。富士山や箱根山などの火山灰が堆積してできた赤土で、水はけがよいため畑作に利用されています。',
-      },
-      {
-        id: 'geo2-kt-fc2',
-        front: 'ヒートアイランド現象',
-        back: '都市部の気温が郊外よりも高くなる現象を何というか。',
-        explanation:
-          'ヒートアイランド現象といいます。アスファルトやコンクリートが熱を吸収し、エアコンの排熱も加わって都市部の気温が上昇します。',
-      },
-      {
-        id: 'geo2-kt-fc3',
-        front: '近郊農業',
-        back: '大都市の近くで新鮮な野菜や花などを供給する農業を何というか。',
-        explanation:
-          '近郊農業といいます。千葉県や茨城県では大消費地の東京に新鮮な野菜を素早く届けることができます。',
-      },
-      {
-        id: 'geo2-kt-fc4',
-        front: '昼間人口と夜間人口',
-        back: '東京都心で昼間人口が夜間人口を大幅に上回る理由は何か。',
-        explanation:
-          '郊外の神奈川・埼玉・千葉から都心に通勤・通学する人が多いため、昼間は人口が増え夜間は減少します。',
-      },
-      {
-        id: 'geo2-kt-fc5',
-        front: '京浜工業地帯',
-        back: '東京から横浜にかけて広がる、出版・印刷業や情報産業のウエイトが高い工業地帯を何というか。',
-        explanation:
-          '京浜工業地帯といいます。首都に近い立地から出版・印刷業や情報産業が発達しているのが特徴です。',
-      },
-      {
-        id: 'geo2-kt-fc6',
-        front: '東京への一極集中',
-        back: '政治・経済・情報の機能が東京に偏って集まることを何というか。その課題も答えなさい。',
-        explanation:
-          '東京への一極集中といいます。課題は地方の過疎化の加速と、首都直下型地震が起きた場合のリスクの集中です。',
-      },
+      { id: 'geo2-kt-fc1', front: '関東ローム層', back: '関東平野の台地を覆う、火山灰が堆積してできた赤土の層を何というか。', explanation: '水はけがよく畑作に利用されている', difficulty: 'basic' },
+      { id: 'geo2-kt-fc2', front: 'ヒートアイランド現象', back: '都市部の気温が郊外よりも高くなる現象を何というか。', difficulty: 'basic' },
+      { id: 'geo2-kt-fc3', front: '近郊農業', back: '大都市の近くで新鮮な野菜や花などを供給する農業を何というか。', difficulty: 'basic' },
+      { id: 'geo2-kt-fc4', front: '郊外の神奈川・埼玉・千葉から都心に通勤・通学する人が多いため', back: '東京都心で昼間人口が夜間人口を大幅に上回る理由は何か。', difficulty: 'standard' },
+      { id: 'geo2-kt-fc5', front: '京浜工業地帯', back: '東京から横浜にかけて広がる、出版・印刷業や情報産業が特徴の工業地帯を何というか。', difficulty: 'standard' },
+      { id: 'geo2-kt-fc6', front: '東京への一極集中。課題は地方の過疎化と首都直下型地震のリスク集中', back: '政治・経済・情報の機能が東京に偏って集まることを何というか。課題も答えよ。', difficulty: 'standard' },
+      { id: 'geo2-kt-fc7', front: '京葉工業地域', back: '千葉県の臨海部に石油化学コンビナートが集まる工業地域を何というか。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -198,7 +163,8 @@ export const kanto: Topic = {
           correctIndex: 2,
           explanation:
             '関東ローム層は火山灰が堆積してできた赤土の層で、関東平野の台地を覆っています。水はけがよく畑作に利用されます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo2-kt-q2',
           question:
@@ -212,7 +178,8 @@ export const kanto: Topic = {
           correctIndex: 0,
           explanation:
             'ヒートアイランド現象は、アスファルトやコンクリートの蓄熱やエアコンの排熱で都市部の気温が郊外より高くなる現象です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo2-kt-q3',
           question:
@@ -221,7 +188,8 @@ export const kanto: Topic = {
           correctIndex: 1,
           explanation:
             '近郊農業は大都市の近くで行う農業で、新鮮な野菜や花を大消費地に素早く届けることができます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo2-kt-q4',
           question:
@@ -235,7 +203,8 @@ export const kanto: Topic = {
           correctIndex: 3,
           explanation:
             '周辺の神奈川・埼玉・千葉から都心に通勤・通学する人が多いため、昼間人口が夜間人口を大幅に上回ります。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo2-kt-q5',
           question:
@@ -249,7 +218,8 @@ export const kanto: Topic = {
           correctIndex: 2,
           explanation:
             '京葉工業地域は千葉県の東京湾沿岸に広がり、石油化学コンビナートや製鉄所が立地しています。',
-        },
+        difficulty: 'advanced',
+      },
       ],
     },
     examples: {

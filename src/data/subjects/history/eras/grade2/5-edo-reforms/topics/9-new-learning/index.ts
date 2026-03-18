@@ -23,18 +23,26 @@ export const newLearning: Topic = {
     },
     videos: [],
     flashcards: [
+      { id: 'fc1', front: '国学', back: '日本の古典を研究し、日本固有の精神を探る学問は？', difficulty: 'basic' },
+      { id: 'fc2', front: '本居宣長', back: '35年かけて「古事記伝」を著した国学者は？', difficulty: 'basic' },
+      { id: 'fc3', front: '蘭学', back: 'オランダ語を通じて西洋の学問を学ぶ学問は？', difficulty: 'basic' },
+      { id: 'fc4', front: '解体新書', back: '杉田玄白らがオランダ語の解剖書を翻訳した医学書は？', difficulty: 'basic' },
+      { id: 'fc5', front: '伊能忠敬', back: '日本全国を測量して精密な日本地図を作った人物は？', difficulty: 'basic' },
       {
-        id: 'fc1',
+        id: 'fc6',
         front: '適塾',
         back: '緒方洪庵が大阪に開いた私塾は？',
         explanation: '蘭学や医学を教え、福沢諭吉などの有能な人材を輩出した。',
+        difficulty: 'standard',
       },
       {
-        id: 'fc2',
+        id: 'fc7',
         front: '鳴滝塾',
         back: 'シーボルトが長崎に開いた私塾は？',
         explanation: 'オランダ商館医が直接指導し、日本の西洋医学の発展に寄与した。',
+        difficulty: 'standard',
       },
+      { id: 'fc8', front: '杉田玄白', back: '前野良沢とともに「解体新書」を翻訳した蘭学者は？', difficulty: 'standard' },
     ],
     quiz: {
       questions: [
@@ -45,6 +53,7 @@ export const newLearning: Topic = {
           correctIndex: 2,
           explanation:
             '本居宣長は35年をかけて古事記を研究し、国学を大成しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -53,6 +62,7 @@ export const newLearning: Topic = {
           correctIndex: 3,
           explanation:
             '解体新書はオランダ語の解剖書を翻訳したもので、西洋医学を日本に紹介しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -61,6 +71,7 @@ export const newLearning: Topic = {
           correctIndex: 0,
           explanation:
             '伊能忠敬は50歳から測量を学び、17年かけて日本全国を測量しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q4',
@@ -69,6 +80,7 @@ export const newLearning: Topic = {
           correctIndex: 1,
           explanation:
             '寺子屋では庶民の子が「読み・書き・そろばん」を学びました。藩校は武士の子が通う学校です。',
+          difficulty: 'standard',
         },
       ],
     },

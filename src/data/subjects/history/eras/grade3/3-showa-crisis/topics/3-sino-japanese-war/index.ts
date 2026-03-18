@@ -44,66 +44,16 @@ export const sinoJapaneseWar: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'fc1',
-        front: '盧溝橋事件',
-        back: '1937年に北京郊外で日本軍と中国軍が衝突し、日中戦争のきっかけとなった事件は？',
-        explanation: '盧溝橋付近での軍事衝突から全面戦争に発展した。',
-      },
-      {
-        id: 'fc2',
-        front: '日中戦争',
-        back: '1937年に始まった日本と中国の全面戦争は？',
-        explanation: '盧溝橋事件がきっかけで、1945年まで続いた。',
-      },
-      {
-        id: 'fc3',
-        front: '南京事件',
-        back: '日本軍が南京を占領した際に多くの捕虜や民間人を殺害した事件は？',
-        explanation: '国際的に強い非難を受けた。',
-      },
-      {
-        id: 'fc4',
-        front: '抗日民族統一戦線',
-        back: '日本の侵略に対抗するため、国民党と共産党が手を結んで結成した組織は？',
-        explanation: '蔣介石（国民党）と毛沢東（共産党）が協力した。',
-      },
-      {
-        id: 'fc5',
-        front: '蔣介石',
-        back: '中国国民党の指導者で、首都を重慶に移して日本に抵抗した人物は？',
-        explanation: '共産党の毛沢東と手を結び抗日民族統一戦線を結成した。',
-      },
-      {
-        id: 'fc6',
-        front: '国家総動員法',
-        back: '1938年に制定された、議会の承認なしに人や物資を動員できるようにした法律は？',
-        explanation: '戦争遂行のために国民生活を統制する法律。',
-      },
-      {
-        id: 'fc7',
-        front: '大政翼賛会',
-        back: '全ての政党が解散して統合された組織は？',
-        explanation: '政府の方針に国民全体を動員するために作られた。',
-      },
-      {
-        id: 'fc8',
-        front: '配給制',
-        back: '戦時中に米や砂糖などを切符で配る制度は？',
-        explanation: '物資の不足に対応するため政府が管理した。',
-      },
-      {
-        id: 'fc9',
-        front: '隣組',
-        back: '戦時中に地域で組織され、相互監視や物資配給の単位となった組織は？',
-        explanation: '約10戸を1組とし、生活のあらゆる面を管理した。',
-      },
-      {
-        id: 'fc10',
-        front: '皇民化政策',
-        back: '植民地で日本語の使用や日本式の名前への改名を強制した政策は？',
-        explanation: '朝鮮や台湾などの植民地で行われた。',
-      },
+      { id: 'fc1', front: '盧溝橋事件', back: '1937年に北京郊外で日本軍と中国軍が衝突し、日中戦争のきっかけとなった事件は？', difficulty: 'basic' },
+      { id: 'fc2', front: '日中戦争', back: '1937年に始まった日本と中国の全面戦争は？', difficulty: 'basic' },
+      { id: 'fc3', front: '南京事件', back: '日本軍が南京を占領した際に多くの捕虜や民間人を殺害した事件は？', difficulty: 'basic' },
+      { id: 'fc4', front: '抗日民族統一戦線', back: '日本の侵略に対抗するため、国民党と共産党が手を結んで結成した組織は？', difficulty: 'basic' },
+      { id: 'fc5', front: '蔣介石', back: '中国国民党の指導者で、首都を重慶に移して日本に抵抗した人物は？', difficulty: 'standard' },
+      { id: 'fc6', front: '国家総動員法', back: '1938年に制定された、議会の承認なしに人や物資を動員できるようにした法律は？', difficulty: 'standard' },
+      { id: 'fc7', front: '大政翼賛会', back: '全ての政党が解散して統合された組織は？', difficulty: 'standard' },
+      { id: 'fc8', front: '皇民化政策', back: '植民地で日本語の使用や日本式の名前への改名を強制した政策は？', explanation: '朝鮮や台湾などの植民地で行われた。', difficulty: 'standard' },
+      { id: 'fc9', front: '隣組', back: '戦時中に地域で組織され、相互監視や物資配給の単位となった組織は？', explanation: '約10戸を1組とし、生活のあらゆる面を管理した。', difficulty: 'advanced' },
+      { id: 'fc10', front: '日中戦争が泥沼化した理由', back: '日本が短期間で日中戦争を終わらせられなかったのはなぜか？', explanation: '国民党と共産党が抗日民族統一戦線を結成し、蔣介石が首都を重慶に移して長期抗戦を続けたため。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -119,6 +69,7 @@ export const sinoJapaneseWar: Topic = {
           correctIndex: 0,
           explanation:
             '盧溝橋事件は1937年に北京郊外の盧溝橋で日本軍と中国軍が衝突した事件で、日中戦争のきっかけとなりました。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -133,6 +84,7 @@ export const sinoJapaneseWar: Topic = {
           correctIndex: 2,
           explanation:
             '抗日民族統一戦線は、蔣介石（国民党）と毛沢東（共産党）が日本に対抗するために結成した協力関係です。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -147,6 +99,7 @@ export const sinoJapaneseWar: Topic = {
           correctIndex: 1,
           explanation:
             '国家総動員法により、政府は議会の承認なしに人的・物的資源を戦争に動員できるようになりました。',
+          difficulty: 'standard',
         },
         {
           id: 'q4',
@@ -161,6 +114,7 @@ export const sinoJapaneseWar: Topic = {
           correctIndex: 3,
           explanation:
             '大政翼賛会は全ての政党が解散して統合された組織で、政府の方針に国民全体を動員するために作られました。',
+          difficulty: 'standard',
         },
         {
           id: 'q5',
@@ -175,6 +129,7 @@ export const sinoJapaneseWar: Topic = {
           correctIndex: 0,
           explanation:
             '皇民化政策は朝鮮や台湾などの植民地で行われ、日本語の使用や創氏改名が強制されました。',
+          difficulty: 'advanced',
         },
       ],
     },

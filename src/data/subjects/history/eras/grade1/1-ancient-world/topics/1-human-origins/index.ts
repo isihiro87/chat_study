@@ -58,141 +58,169 @@ export const humanOrigins: Topic = {
         id: 'fc1',
         front: '猿人',
         back: '約700万年前にアフリカで現れた最古の人類は？',
+        difficulty: 'basic',
       },
       {
         id: 'fc2',
         front: '二足歩行',
         back: '猿人が始めた、人類の大きな特徴となる歩き方は？',
+        difficulty: 'basic',
       },
       {
         id: 'fc3',
         front: '原人',
         back: '約240万年前に現れ火を使うようになった人類は？',
+        difficulty: 'basic',
       },
       {
         id: 'fc4',
         front: '新人（ホモ・サピエンス）',
         back: '約20万年前に現れた現在の人類の直接の祖先は？',
+        difficulty: 'basic',
       },
       {
         id: 'fc5',
         front: '打製石器',
         back: '石を打ち欠いて作った石器は？',
+        difficulty: 'basic',
       },
       {
         id: 'fc6',
         front: '旧石器時代',
         back: '打製石器を使い狩猟・採集をしていた時代は？',
+        difficulty: 'basic',
       },
       {
         id: 'fc7',
         front: '磨製石器',
         back: '表面をみがいて作った石器は？',
+        difficulty: 'basic',
       },
       {
         id: 'fc8',
         front: '新石器時代',
         back: '磨製石器や土器を使い始め、農耕が始まった時代は？',
+        difficulty: 'basic',
       },
       {
         id: 'fc9',
         front: '土器',
         back: '新石器時代に使われ始めた、食物の煮炊きや貯蔵に用いた容器は？',
+        difficulty: 'basic',
       },
       {
         id: 'fc10',
         front: 'ラスコー',
         back: 'フランスで発見された旧石器時代の洞窟壁画は？',
+        difficulty: 'basic',
       },
       {
         id: 'fc11',
         front: 'アルタミラ',
         back: 'スペインで発見された旧石器時代の洞窟壁画は？',
+        difficulty: 'basic',
       },
       {
         id: 'fc12',
         front: '氷河時代',
         back: '旧石器時代にあたる、寒冷な時期が繰り返された時代は？',
+        difficulty: 'basic',
       },
       {
         id: 'fc13',
         front: '農耕・牧畜',
         back: '新石器時代に始まった新しい食料の生産方法は？',
+        difficulty: 'standard',
       },
       {
         id: 'fc14',
         front: '定住生活',
         back: '農耕の開始によって可能になった、移動しない暮らし方は？',
+        difficulty: 'standard',
       },
       {
         id: 'fc15',
         front: '骨角器',
         back: '骨や角で作った針や釣り針などの道具を何という？',
+        difficulty: 'standard',
       },
       {
         id: 'fc16',
         front: '北京原人',
         back: '中国で発見された原人の代表例は？',
+        difficulty: 'standard',
       },
       {
         id: 'fc17',
         front: 'ジャワ原人',
         back: 'インドネシアで発見された原人の代表例は？',
+        difficulty: 'standard',
       },
       {
         id: 'fc18',
         front: 'ホモ・サピエンス',
         back: '「知恵のある人」という意味の新人の学名は？',
+        difficulty: 'standard',
       },
       {
         id: 'fc19',
         front: '狩猟・採集',
         back: '旧石器時代の人々の食料を得る方法は？',
+        difficulty: 'standard',
       },
       {
         id: 'fc20',
         front: '移動生活',
         back: '旧石器時代の人々が獲物を追いながら行った暮らし方は？',
+        difficulty: 'standard',
       },
       {
         id: 'fc21',
         front: '洞窟壁画',
         back: 'ラスコーやアルタミラに残る旧石器時代の絵を何という？',
+        difficulty: 'standard',
       },
       {
         id: 'fc22',
         front: '農業革命',
         back: '新石器時代に農耕が始まったことを何と呼ぶ？',
+        difficulty: 'standard',
       },
       {
         id: 'fc23',
         front: '集落',
         back: '定住生活が始まり人々が集まって住んだ場所を何という？',
+        difficulty: 'advanced',
       },
       {
         id: 'fc24',
         front: '出アフリカ',
         back: '新人がアフリカから世界各地に広がったことを何と呼ぶ？',
+        difficulty: 'advanced',
       },
       {
         id: 'fc25',
         front: '火の使用',
         back: '原人から始まった、暖をとったり食物を加熱したりする技術は？',
+        difficulty: 'advanced',
       },
       {
         id: 'fc26',
         front: '約700万年前',
         back: '猿人が出現したのはおよそいつ頃？',
+        difficulty: 'advanced',
       },
       {
         id: 'fc27',
         front: '約20万年前',
         back: '新人（ホモ・サピエンス）が出現したのはおよそいつ頃？',
+        difficulty: 'advanced',
       },
       {
         id: 'fc28',
         front: 'アフリカ大陸',
         back: '人類が最初に出現した大陸は？',
+        difficulty: 'advanced',
       },
     ],
     quiz: {
@@ -203,6 +231,7 @@ export const humanOrigins: Topic = {
           options: ['原人', '猿人', '新人', '旧人'],
           correctIndex: 1,
           explanation: '猿人はアフリカで約700万年前に出現した最古の人類です。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -210,6 +239,7 @@ export const humanOrigins: Topic = {
           options: ['猿人', '新人', '旧人', '原人'],
           correctIndex: 3,
           explanation: '原人は約240万年前に出現し、火を使い始めた人類です。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -217,6 +247,7 @@ export const humanOrigins: Topic = {
           options: ['旧石器時代', '縄文時代', '新石器時代', '青銅器時代'],
           correctIndex: 0,
           explanation: '旧石器時代は、石を打ち欠いて作った打製石器を使っていた時代です。',
+          difficulty: 'basic',
         },
         {
           id: 'q4',
@@ -224,6 +255,7 @@ export const humanOrigins: Topic = {
           options: ['ストーンヘンジ', 'ナスカ', 'ラスコー', 'アルタミラ'],
           correctIndex: 2,
           explanation: 'ラスコーの洞窟壁画はフランスで発見された旧石器時代の代表的な壁画です。',
+          difficulty: 'basic',
         },
         {
           id: 'q5',
@@ -231,6 +263,7 @@ export const humanOrigins: Topic = {
           options: ['磨製石器', '打製石器', '鉄器', '青銅器'],
           correctIndex: 0,
           explanation: '磨製石器は表面をみがいて作った石器で、新石器時代に使われました。',
+          difficulty: 'basic',
         },
         {
           id: 'q6',
@@ -238,6 +271,7 @@ export const humanOrigins: Topic = {
           options: ['旧石器時代', '青銅器時代', '鉄器時代', '新石器時代'],
           correctIndex: 3,
           explanation: '新石器時代は磨製石器や土器を使い始め、農耕や牧畜が始まった時代です。',
+          difficulty: 'basic',
         },
         {
           id: 'q7',
@@ -245,6 +279,7 @@ export const humanOrigins: Topic = {
           options: ['火を使うこと', '言葉を話すこと', '二足歩行をすること', '農耕を行うこと'],
           correctIndex: 2,
           explanation: '猿人は二足歩行を始めた最初の人類で、手が自由になり道具を使えるようになりました。',
+          difficulty: 'basic',
         },
         {
           id: 'q8',
@@ -252,6 +287,7 @@ export const humanOrigins: Topic = {
           options: ['ヨーロッパ', 'アフリカ', 'アジア', 'アメリカ'],
           correctIndex: 1,
           explanation: '新人はアフリカで約20万年前に出現し、世界各地に広がりました。',
+          difficulty: 'basic',
         },
         {
           id: 'q9',
@@ -259,6 +295,7 @@ export const humanOrigins: Topic = {
           options: ['農耕と牧畜', '漁労と航海', '狩猟と採集', '交易と貿易'],
           correctIndex: 0,
           explanation: '新石器時代に農耕と牧畜が始まり、食料を安定して得られるようになりました。',
+          difficulty: 'basic',
         },
         {
           id: 'q10',
@@ -266,6 +303,7 @@ export const humanOrigins: Topic = {
           options: ['温暖だった', '氷河時代だった', '乾燥していた', '現在と同じだった'],
           correctIndex: 1,
           explanation: '旧石器時代は氷河時代にあたり、寒冷な時期が繰り返されました。',
+          difficulty: 'basic',
         },
         {
           id: 'q11',
@@ -278,6 +316,7 @@ export const humanOrigins: Topic = {
           ],
           correctIndex: 2,
           explanation: '猿人（約700万年前）→原人（約240万年前）→新人（約20万年前）の順で進化しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q12',
@@ -285,6 +324,7 @@ export const humanOrigins: Topic = {
           options: ['暖をとれた', '獣から身を守れた', '農耕ができた', '食物を加熱できた'],
           correctIndex: 2,
           explanation: '農耕は新石器時代に始まったもので、原人の時代にはまだ行われていませんでした。',
+          difficulty: 'standard',
         },
         {
           id: 'q13',
@@ -292,6 +332,7 @@ export const humanOrigins: Topic = {
           options: ['最初の人', '知恵のある人', '火を使う人', '歩く人'],
           correctIndex: 1,
           explanation: 'ホモ・サピエンスは「知恵のある人」という意味のラテン語です。',
+          difficulty: 'standard',
         },
         {
           id: 'q14',
@@ -299,6 +340,7 @@ export const humanOrigins: Topic = {
           options: ['人間の顔', '植物', '動物', '文字'],
           correctIndex: 2,
           explanation: '洞窟壁画には牛・馬・鹿などの動物が描かれ、狩りの成功を祈ったと考えられています。',
+          difficulty: 'standard',
         },
         {
           id: 'q15',
@@ -306,6 +348,7 @@ export const humanOrigins: Topic = {
           options: ['ラスコー', 'アルタミラ', 'ストーンヘンジ', 'ナスカ'],
           correctIndex: 1,
           explanation: 'アルタミラの洞窟壁画はスペインで発見された旧石器時代の代表的な壁画です。',
+          difficulty: 'standard',
         },
         {
           id: 'q16',
@@ -313,6 +356,7 @@ export const humanOrigins: Topic = {
           options: ['二足歩行', '火の使用', '煮炊きと食料の貯蔵', '洞窟壁画の制作'],
           correctIndex: 2,
           explanation: '土器の発明により、食物の煮炊きや貯蔵が可能になりました。',
+          difficulty: 'standard',
         },
         {
           id: 'q17',
@@ -320,6 +364,7 @@ export const humanOrigins: Topic = {
           options: ['洞窟壁画', '打製石器', '国のもと', '氷河'],
           correctIndex: 2,
           explanation: '農耕で集落が拡大し指導者が生まれ、やがて国のもとが形成されました。',
+          difficulty: 'standard',
         },
         {
           id: 'q18',
@@ -332,6 +377,7 @@ export const humanOrigins: Topic = {
           ],
           correctIndex: 1,
           explanation: '新人は精巧な道具を作る技術を持ち、言葉で仲間と協力し合えたため世界各地に広がりました。',
+          difficulty: 'standard',
         },
         {
           id: 'q19',
@@ -339,6 +385,7 @@ export const humanOrigins: Topic = {
           options: ['打製石器', '磨製石器', '骨角器', '土器'],
           correctIndex: 2,
           explanation: '骨角器は骨や角で作った道具で、針や釣り針などがありました。',
+          difficulty: 'standard',
         },
         {
           id: 'q20',
@@ -351,6 +398,7 @@ export const humanOrigins: Topic = {
           ],
           correctIndex: 2,
           explanation: '海面の低下で大陸と島が陸続きになり、人類が新しい地域に移動できるようになりました。',
+          difficulty: 'standard',
         },
         {
           id: 'q21',
@@ -363,6 +411,7 @@ export const humanOrigins: Topic = {
           ],
           correctIndex: 2,
           explanation: '旧石器時代は狩猟・採集の移動生活、新石器時代は農耕・牧畜の定住生活という点が最大の違いです。',
+          difficulty: 'standard',
         },
         {
           id: 'q22',
@@ -370,6 +419,7 @@ export const humanOrigins: Topic = {
           options: ['猿人', '原人', '新人', '現代人'],
           correctIndex: 1,
           explanation: '北京原人やジャワ原人は原人の段階にあたり、火を使い始めた人類です。',
+          difficulty: 'standard',
         },
         {
           id: 'q23',
@@ -382,6 +432,7 @@ export const humanOrigins: Topic = {
           ],
           correctIndex: 2,
           explanation: '旧石器時代の人々は定住せず、洞穴やテント状の住まいで移動生活をしていました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q24',
@@ -394,6 +445,7 @@ export const humanOrigins: Topic = {
           ],
           correctIndex: 1,
           explanation: '農耕・牧畜が始まり食料を安定して得られるようになったことで、定住生活が可能になりました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q25',
@@ -406,6 +458,7 @@ export const humanOrigins: Topic = {
           ],
           correctIndex: 1,
           explanation: '二足歩行により両手が自由になり、道具を使えるようになりました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q26',
@@ -418,6 +471,7 @@ export const humanOrigins: Topic = {
           ],
           correctIndex: 1,
           explanation: '打製石器を使った時代を旧石器時代、磨製石器を使い始めた時代を新石器時代と呼びます。',
+          difficulty: 'advanced',
         },
         {
           id: 'q27',
@@ -430,6 +484,7 @@ export const humanOrigins: Topic = {
           ],
           correctIndex: 2,
           explanation: '氷河時代の終わりによる気候変動と、人類による狩猟の影響で絶滅したと考えられています。',
+          difficulty: 'advanced',
         },
         {
           id: 'q28',
@@ -442,6 +497,7 @@ export const humanOrigins: Topic = {
           ],
           correctIndex: 1,
           explanation: '農耕の開始は食料生産への転換であり、人類の歴史における大きな転換点だったため農業革命と呼ばれます。',
+          difficulty: 'advanced',
         },
       ],
     },

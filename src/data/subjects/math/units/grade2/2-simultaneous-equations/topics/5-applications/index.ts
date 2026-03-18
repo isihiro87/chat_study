@@ -72,76 +72,91 @@ export const simulEqApps: Topic = {
       {
         id: 'math-g2-app-fc1',
         front: '何を $x$, $y$ にするか決めること', back: '連立方程式の文章題で最初にすることは？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-app-fc2',
         front: '2 本（未知数が 2 つなので 2 つの式が必要）', back: '文章題を連立方程式で解くには、何本の式が必要？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-app-fc3',
         front: '答えが問題の条件に合っているか確認する（検算）', back: '連立方程式を解いた後にすることは？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-app-fc4',
         front: '$x + y = 10$', back: '「合わせて 10 個」を式にすると？（$x$ 個と $y$ 個）',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-app-fc5',
         front: '$ax + by = S$', back: '1 個 $a$ 円の品を $x$ 個、1 個 $b$ 円の品を $y$ 個買って合計 $S$ 円。金額の式は？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-app-fc6',
         front: '$10x + y$', back: '2 けたの自然数を、十の位 $x$・一の位 $y$ で表すと？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-app-fc7',
         front: '$10y + x$', back: '十の位と一の位を入れかえた数は？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-app-fc8',
         front: '$A \\times \\dfrac{p}{100}$', back: '「$A$ の $p$%」を式で表すと？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-app-fc9',
         front: '$1.05x$（$= x \\times \\dfrac{105}{100}$）', back: '「$x$ 人の 5% 増」を式で表すと？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-app-fc10',
         front: '$0.8y$（$= y \\times \\dfrac{80}{100}$）', back: '「$y$ 円の 20% 引き」を式で表すと？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-app-fc11',
         front: '$\\left(1 + \\dfrac{p}{100}\\right)$ 倍', back: '「$p$% 増加」は元の何倍？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-app-fc12',
         front: '$\\left(1 - \\dfrac{p}{100}\\right)$ 倍', back: '「$p$% 減少」は元の何倍？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g2-app-fc13',
         front: '両辺を 10 倍・100 倍して小数をなくす', back: '小数を含む方程式を整数にするには？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g2-app-fc14',
         front: '足し算（$x + y = \\text{合計}$）の式になる', back: '文章題で「合計」という言葉が出たら、どんな式？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g2-app-fc15',
         front: '引き算（$x - y = \\text{差}$）の式になる', back: '文章題で「差」という言葉が出たら、どんな式？',
+        difficulty: 'standard',
       },
-      { id: 'math-g2-app-fc16', front: '割引 $p$% → 定価の $(100-p)$% $= (1 - \dfrac{p}{100})$ 倍', back: '割引きの計算式は？' },
-      { id: 'math-g2-app-fc17', front: '代金の合計と個数の合計で2式を立てるのが基本', back: '代金の文章題で2式を立てるコツは？' },
-      { id: 'math-g2-app-fc18', front: '未知数を明確に定義 → 2つの条件から式を立てる → 解く → 検算', back: '文章題の解法の流れは？' },
-      { id: 'math-g2-app-fc19', front: '十の位を $x$、一の位を $y$ として $10x + y$ で表す', back: '2けたの整数の文章題の立式法は？' },
-      { id: 'math-g2-app-fc20', front: '$A$ の $p$% 増 $= A \times (1 + \dfrac{p}{100})$', back: '増加率 $p$% の計算式は？' },
-      { id: 'math-g2-app-fc21', front: '人数 × 単価 $=$ 金額。人数の合計と金額の合計で2式', back: '入場料の文章題のパターンは？' },
-      { id: 'math-g2-app-fc22', front: '答えが自然数になるか、問題の条件に合うか確認する', back: '文章題で解いた後に確認することは？' },
-      { id: 'math-g2-app-fc23', front: '$x + y = $ 全体の量、$(条件式1)x + (条件式2)y = $ 結果の量', back: '典型的な連立方程式の文章題の2式のパターンは？' },
-      { id: 'math-g2-app-fc24', front: '距離 $=$ 速さ $\times$ 時間', back: '速さの問題で使う基本公式は？' },
-      { id: 'math-g2-app-fc25', front: '「合計」「差」「割合」「代金」のキーワードに注目する', back: '文章題で式を立てるとき、どんな言葉に注目する？' },
-      { id: 'math-g2-app-fc26', front: '単位をそろえてから式を立てる（分→時間、cm→m など）', back: '文章題で単位が異なるときは？' },
-      { id: 'math-g2-app-fc27', front: '$(10x + y) + (10y + x) = 11(x + y)$', back: '2けたの数と入れかえた数の和は $11$ の倍数。この式は？' },
-      { id: 'math-g2-app-fc28', front: '求めた値が整数かつ正の数であること（個数や人数は自然数）', back: '文章題の答えに必要な条件は？' },
+      { id: 'math-g2-app-fc16', front: '割引 $p$% → 定価の $(100-p)$% $= (1 - \dfrac{p}{100})$ 倍', back: '割引きの計算式は？', difficulty: 'standard' },
+      { id: 'math-g2-app-fc17', front: '代金の合計と個数の合計で2式を立てるのが基本', back: '代金の文章題で2式を立てるコツは？', difficulty: 'standard' },
+      { id: 'math-g2-app-fc18', front: '未知数を明確に定義 → 2つの条件から式を立てる → 解く → 検算', back: '文章題の解法の流れは？', difficulty: 'standard' },
+      { id: 'math-g2-app-fc19', front: '十の位を $x$、一の位を $y$ として $10x + y$ で表す', back: '2けたの整数の文章題の立式法は？', difficulty: 'standard' },
+      { id: 'math-g2-app-fc20', front: '$A$ の $p$% 増 $= A \times (1 + \dfrac{p}{100})$', back: '増加率 $p$% の計算式は？', difficulty: 'standard' },
+      { id: 'math-g2-app-fc21', front: '人数 × 単価 $=$ 金額。人数の合計と金額の合計で2式', back: '入場料の文章題のパターンは？', difficulty: 'standard' },
+      { id: 'math-g2-app-fc22', front: '答えが自然数になるか、問題の条件に合うか確認する', back: '文章題で解いた後に確認することは？', difficulty: 'standard' },
+      { id: 'math-g2-app-fc23', front: '$x + y = $ 全体の量、$(条件式1)x + (条件式2)y = $ 結果の量', back: '典型的な連立方程式の文章題の2式のパターンは？', difficulty: 'advanced' },
+      { id: 'math-g2-app-fc24', front: '距離 $=$ 速さ $\times$ 時間', back: '速さの問題で使う基本公式は？', difficulty: 'advanced' },
+      { id: 'math-g2-app-fc25', front: '「合計」「差」「割合」「代金」のキーワードに注目する', back: '文章題で式を立てるとき、どんな言葉に注目する？', difficulty: 'advanced' },
+      { id: 'math-g2-app-fc26', front: '単位をそろえてから式を立てる（分→時間、cm→m など）', back: '文章題で単位が異なるときは？', difficulty: 'advanced' },
+      { id: 'math-g2-app-fc27', front: '$(10x + y) + (10y + x) = 11(x + y)$', back: '2けたの数と入れかえた数の和は $11$ の倍数。この式は？', difficulty: 'advanced' },
+      { id: 'math-g2-app-fc28', front: '求めた値が整数かつ正の数であること（個数や人数は自然数）', back: '文章題の答えに必要な条件は？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -153,6 +168,7 @@ export const simulEqApps: Topic = {
           correctIndex: 1,
           explanation:
             '$x + y = 8$、$60x + 120y = 660$。②$\\div 60$: $x + 2y = 11$。引くと $y = 3$, $x = 5$。えんぴつ $5$ 本。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g2-app-q2',
@@ -162,6 +178,7 @@ export const simulEqApps: Topic = {
           correctIndex: 3,
           explanation:
             '$\\begin{cases} x + y = 20 \\\\ x - y = 6 \\end{cases}$。足すと $2x = 26$, $x = 13$。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g2-app-q3',
@@ -176,6 +193,7 @@ export const simulEqApps: Topic = {
           correctIndex: 2,
           explanation:
             'まず「何を $x$, $y$ にするか」を決めることが大切。それから条件を式にしていこう。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g2-app-q4',
@@ -185,6 +203,7 @@ export const simulEqApps: Topic = {
           correctIndex: 0,
           explanation:
             '$\\begin{cases} x + y = 7 \\\\ 300x + 150y = 1500 \\end{cases}$。②$\\div 150$: $2x + y = 10$。引くと $x = 3$。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g2-app-q5',
@@ -194,6 +213,7 @@ export const simulEqApps: Topic = {
           correctIndex: 2,
           explanation:
             '$\\begin{cases} x + y = 15 \\\\ 500x + 200y = 5400 \\end{cases}$。①$\\times 200$ を②から引くと $300x = 2400$, $x = 8$。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g2-app-q6',
@@ -208,6 +228,7 @@ export const simulEqApps: Topic = {
           correctIndex: 0,
           explanation:
             '$x$ 人の 40% $= 0.4x$、$y$ 人の 30% $= 0.3y$。よって $0.4x + 0.3y = 105$。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g2-app-q7',
@@ -217,6 +238,7 @@ export const simulEqApps: Topic = {
           correctIndex: 1,
           explanation:
             '20% 引き $=$ 定価の $(100 - 20) = 80$% $= 0.8$ 倍。支払い $= 0.8x$ 円。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g2-app-q8',
@@ -224,6 +246,7 @@ export const simulEqApps: Topic = {
           options: ['$15$', '$25$', '$20$', '$10$'],
           correctIndex: 2,
           explanation: '$\begin{cases} x+y=30 \\ x-y=10 \end{cases}$。足すと $2x=40$、$x=20$ だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g2-app-q9',
@@ -231,6 +254,7 @@ export const simulEqApps: Topic = {
           options: ['$3$ 本', '$5$ 本', '$4$ 本', '$6$ 本'],
           correctIndex: 1,
           explanation: '$x + y = 10$、$80x + 120y = 1000$。②$\div 40$: $2x + 3y = 25$。$y = 5$、$x = 5$ だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g2-app-q10',
@@ -238,6 +262,7 @@ export const simulEqApps: Topic = {
           options: ['$10$ 人', '$8$ 人', '$12$ 人', '$15$ 人'],
           correctIndex: 0,
           explanation: '$x + y = 20$、$800x + 400y = 12000$。②$\div 400$: $2x + y = 30$。$x = 10$ だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g2-app-q11',
@@ -245,6 +270,7 @@ export const simulEqApps: Topic = {
           options: ['$30x$', '$\dfrac{x}{30}$', '$0.3x$', '$3x$'],
           correctIndex: 2,
           explanation: '$x$ の $30$% $= x \times \dfrac{30}{100} = 0.3x$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-app-q12',
@@ -252,6 +278,7 @@ export const simulEqApps: Topic = {
           options: ['$0.15x$ 円', '$0.85x$ 円', '$1.15x$ 円', '$15x$ 円'],
           correctIndex: 1,
           explanation: '$15$% 引き $= (100-15)$% $= 85$% $= 0.85$ 倍。$0.85x$ 円だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-app-q13',
@@ -259,6 +286,7 @@ export const simulEqApps: Topic = {
           options: ['$36$', '$45$', '$27$', '$54$'],
           correctIndex: 0,
           explanation: '$x+y=9$、$(10y+x)-(10x+y)=27$ → $9(y-x)=27$ → $y-x=3$。$x=3, y=6$。もとの数 $36$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-app-q14',
@@ -266,6 +294,7 @@ export const simulEqApps: Topic = {
           options: ['$4$ 個', '$6$ 個', '$5$ 個', '$8$ 個'],
           correctIndex: 1,
           explanation: '$y = 12 - x$。$150x + 80(12-x) = 1340$ → $70x = 380$…$x = \frac{380}{70}$。正解は $x = 6$: $900 + 480 = 1380 \neq 1340$。式を修正して解く。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-app-q15',
@@ -273,6 +302,7 @@ export const simulEqApps: Topic = {
           options: ['$100$ 人', '$120$ 人', '$80$ 人', '$150$ 人'],
           correctIndex: 1,
           explanation: '$x + y = 200$、$1.05x + 0.97y = 204$。②×100: $105x + 97y = 20400$。①×97: $97x + 97y = 19400$。引くと $8x = 1000$…$x = 125$。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-app-q16',
@@ -280,6 +310,7 @@ export const simulEqApps: Topic = {
           options: ['答えとして正しい', '答えとして不適切（個数は正の数）', '別の式を使う', '0で割ったため無効'],
           correctIndex: 1,
           explanation: '個数は正の整数。$-3$ は不適切なので、式の立て方に誤りがないか確認しよう。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-app-q17',
@@ -287,6 +318,7 @@ export const simulEqApps: Topic = {
           options: ['$x + y = 500$', '$xy = 500$', '$x - y = 500$', '$\dfrac{x}{y} = 500$'],
           correctIndex: 2,
           explanation: '差 $= x - y = 500$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-app-q18',
@@ -294,6 +326,7 @@ export const simulEqApps: Topic = {
           options: ['$60$ 円', '$50$ 円', '$70$ 円', '$80$ 円'],
           correctIndex: 0,
           explanation: '$\begin{cases} 5x + 3y = 660 \\ 3x + 2y = 410 \end{cases}$。①×2, ②×3: $10x+6y=1320$, $9x+6y=1230$。引くと $x=90$…正解は $x=60$: $300+3y=660$ → $y=120$。$180+240=420 \neq 410$。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-app-q19',
@@ -301,6 +334,7 @@ export const simulEqApps: Topic = {
           options: ['未知数2つなら解ける', '未知数3つなら式が3本必要', '連立方程式では解けない', '常に解ける'],
           correctIndex: 1,
           explanation: '未知数が $n$ 個なら $n$ 本の式が必要。3種類なら3元連立方程式が必要だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-app-q20',
@@ -308,6 +342,7 @@ export const simulEqApps: Topic = {
           options: ['$40x + 30y = 100$', '$0.4x + 0.3y = 100$', '$4x + 3y = 100$', '$\dfrac{x}{40} + \dfrac{y}{30} = 100$'],
           correctIndex: 1,
           explanation: '$x$ の $40$% $= 0.4x$、$y$ の $30$% $= 0.3y$。合計: $0.4x + 0.3y = 100$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-app-q21',
@@ -315,6 +350,7 @@ export const simulEqApps: Topic = {
           options: ['$43$', '$34$', '$52$', '$25$'],
           correctIndex: 0,
           explanation: '$x+y=7$、$(10x+y)-(10y+x)=9$ → $9(x-y)=9$ → $x-y=1$。$x=4, y=3$。もとの数 $43$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-app-q22',
@@ -322,6 +358,7 @@ export const simulEqApps: Topic = {
           options: ['$8ab$ 円', '$3a + 5b$ 円', '$15ab$ 円', '$(a+b) \times 8$ 円'],
           correctIndex: 1,
           explanation: '大人 $3$ 人の料金 $3a$ + 子ども $5$ 人の料金 $5b$ $= 3a + 5b$ 円だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g2-app-q23',
@@ -329,6 +366,7 @@ export const simulEqApps: Topic = {
           options: ['$x \times y = 15$', '$x + y = 2000$', '$x + y = 15$', '$x - y = 15$'],
           correctIndex: 2,
           explanation: '「合わせて」は合計。$x + y = 15$ だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g2-app-q24',
@@ -336,6 +374,7 @@ export const simulEqApps: Topic = {
           options: ['$1.1x = y$', '$0.9x = y$', '$x + 10 = y$', '$10x = y$'],
           correctIndex: 0,
           explanation: '$10$% 増 $= 1.1$ 倍。$1.1x = y$ だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g2-app-q25',
@@ -343,6 +382,7 @@ export const simulEqApps: Topic = {
           options: ['$A + B = 500$', '$A - B = 500$', '$B - A = 500$', '$A = B + 500$'],
           correctIndex: 3,
           explanation: '「A は B より $500$ 円高い」→ $A = B + 500$。$A - B = 500$ とも同じだよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g2-app-q26',
@@ -350,6 +390,7 @@ export const simulEqApps: Topic = {
           options: ['答えを大きくするため', '整数にして計算ミスを減らすため', '問題の条件だから', '先生に言われたから'],
           correctIndex: 1,
           explanation: '整数の計算の方がミスが少ないから。等式の両辺に同じ数をかけても等式は保たれるよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g2-app-q27',
@@ -357,6 +398,7 @@ export const simulEqApps: Topic = {
           options: ['$8$ 枚', '$12$ 枚', '$10$ 枚', '$6$ 枚'],
           correctIndex: 1,
           explanation: '$x+y=20$、$50x+80y=1240$。$y=20-x$。$50x+80(20-x)=1240$ → $-30x=-360$ → $x=12$ だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g2-app-q28',
@@ -364,6 +406,7 @@ export const simulEqApps: Topic = {
           options: ['グラフをかく', '式を因数分解する', '答えを問題文に戻して条件を満たすか確認する', '別の解法で解き直す'],
           correctIndex: 2,
           explanation: '求めた値が問題の条件を満たすか、元の文に戻って確認するのが大切だよ。',
+          difficulty: 'advanced',
         },
       ],
     },

@@ -28,24 +28,28 @@ export const tanumaPolitics: Topic = {
         front: '田沼意次',
         back: '商工業を重視し、株仲間の奨励などで財政再建を図った老中はだれ？',
         explanation: '18世紀後半に実権を握り、貨幣経済を利用した政治を進めた。',
+        difficulty: 'basic',
       },
       {
         id: 'fc2',
         front: '株仲間',
         back: '田沼意次が推奨した、幕府から特権を得る代わりに営業税を納めた組織は？',
         explanation: '田沼意次が推奨したが、のちに水野忠邦が解散を命じた。',
+        difficulty: 'basic',
       },
       {
         id: 'fc3',
         front: '俵物',
         back: '長崎貿易で輸出が拡大した、干しアワビなどの海産物は？',
         explanation: '中国への支払いに使われた、銅とともに重要な輸出品。',
+        difficulty: 'standard',
       },
       {
         id: 'fc4',
         front: '天明のききん',
         back: '1783年の浅間山噴火などで起きた江戸時代最大のききんを何という？',
         explanation: '全国に餓死者が広がり、百姓一揆や打ちこわしが激増した。',
+        difficulty: 'standard',
       },
     ],
     quiz: {
@@ -57,6 +61,7 @@ export const tanumaPolitics: Topic = {
           correctIndex: 0,
           explanation:
             '田沼は株仲間を認める代わりに税金を徴収し、財政収入を増やそうとしました。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -65,6 +70,7 @@ export const tanumaPolitics: Topic = {
           correctIndex: 2,
           explanation:
             '俵物とは干しアワビ、いりこ、ふかひれなどの海産物で、中国へ輸出されました。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -73,6 +79,7 @@ export const tanumaPolitics: Topic = {
           correctIndex: 3,
           explanation:
             '浅間山の噴火による凶作と、ワイロ政治への批判から田沼は失脚しました。',
+          difficulty: 'standard',
         },
       ],
     },

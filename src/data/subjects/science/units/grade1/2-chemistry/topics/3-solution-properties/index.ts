@@ -145,186 +145,34 @@ export const solutionProperties: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'sci1-slp-fc1',
-        front: '溶質・溶媒・溶液',
-        back: 'とけている物質、とかしている液体、その混合液をそれぞれ何という？',
-        explanation:
-          'とけている物質＝溶質、とかしている液体＝溶媒、混合液＝溶液。溶媒が水のとき溶液を水溶液という。',
-      },
-      {
-        id: 'sci1-slp-fc2',
-        front: '質量パーセント濃度',
-        back: '水溶液の濃さを表す計算式は？',
-        explanation:
-          '質量パーセント濃度（%）＝溶質の質量（g）÷溶液の質量（g）×100。溶液＝溶質＋溶媒。',
-      },
-      {
-        id: 'sci1-slp-fc3',
-        front: '溶解度',
-        back: '水100gにとける物質の最大の質量を何という？',
-        explanation:
-          '溶解度。温度によって変化し、その関係をグラフにしたものを溶解度曲線という。',
-      },
-      {
-        id: 'sci1-slp-fc4',
-        front: '飽和水溶液',
-        back: '溶解度いっぱいまで物質がとけた水溶液を何という？',
-        explanation:
-          '飽和水溶液。これ以上物質をとかすことができない状態。温度が下がるととけきれなくなる。',
-      },
-      {
-        id: 'sci1-slp-fc5',
-        front: '再結晶',
-        back: '飽和水溶液を冷やして結晶をとり出す方法を何という？',
-        explanation:
-          '再結晶。温度による溶解度の差を利用して純粋な結晶を取り出す。混合物から純物質を分離できる。',
-      },
-      {
-        id: 'sci1-slp-fc6',
-        front: 'ろ過の操作',
-        back: 'ろ過で液を注ぐとき、何を使ってどのように注ぐ？',
-        explanation:
-          'ガラス棒を伝わらせて注ぐ。ろ紙が破れるのを防ぎ、液が飛び散らないようにするため。',
-      },
-      {
-        id: 'sci1-slp-fc7',
-        front: 'ろ過のしくみ',
-        back: 'ろ過でろ紙を通り抜けるのは？ ろ紙上に残るのは？',
-        explanation:
-          '水にとけている物質（溶質の粒子）はろ紙を通り抜け、とけていない固体はろ紙上に残る。',
-      },
-      {
-        id: 'sci1-slp-fc8',
-        front: '結晶の形（食塩）',
-        back: '食塩の結晶はどんな形？',
-        explanation:
-          '立方体（さいころ形）。物質ごとに粒子の並び方が決まっているため、結晶の形も決まっている。',
-      },
-      {
-        id: 'sci1-slp-fc9',
-        front: '結晶の形（硝酸カリウム・ミョウバン）',
-        back: '硝酸カリウムとミョウバンの結晶はそれぞれどんな形？',
-        explanation:
-          '硝酸カリウム＝針状（細長い棒のような形）。ミョウバン＝正八面体。',
-      },
-      {
-        id: 'sci1-slp-fc10',
-        front: '水溶液の3つの特徴',
-        back: '水溶液に共通する3つの特徴は？',
-        explanation:
-          '1. 透明である 2. 濃さがどこでも均一 3. 放置しても溶質が沈まない。',
-      },
-      {
-        id: 'sci1-slp-fc11',
-        front: '純物質の例',
-        back: '純物質とは何か？ 例を2つ挙げよ',
-        explanation:
-          '1種類の物質だけでできているもの。例：食塩、砂糖、水、酸素など。',
-      },
-      {
-        id: 'sci1-slp-fc12',
-        front: '混合物の例',
-        back: '混合物とは何か？ 例を2つ挙げよ',
-        explanation:
-          '2種類以上の物質が混じり合ったもの。例：食塩水、空気、泥水など。',
-      },
-      {
-        id: 'sci1-slp-fc13',
-        front: '溶液の質量の公式',
-        back: '溶液の質量はどう求める？',
-        explanation:
-          '溶液の質量＝溶質の質量＋溶媒の質量。質量パーセント濃度の計算で「溶液」の質量で割ることがポイント。',
-      },
-      {
-        id: 'sci1-slp-fc14',
-        front: '溶解度曲線',
-        back: '溶解度曲線とは何を表すグラフ？',
-        explanation:
-          '温度と溶解度の関係を表したグラフ。温度が上がると溶解度が大きくなる物質が多い。',
-      },
-      {
-        id: 'sci1-slp-fc15',
-        front: '食塩の溶解度の特徴',
-        back: '食塩の溶解度は温度によってどう変化する？',
-        explanation:
-          '温度が変わってもほとんど変化しない。そのため再結晶ではなく、水を蒸発させて結晶をとり出す。',
-      },
-      {
-        id: 'sci1-slp-fc16',
-        front: '水を蒸発させる方法',
-        back: '溶解度が温度で変わらない物質の結晶をとり出すには？',
-        explanation:
-          '水を蒸発させる。食塩のように温度による溶解度の差が小さい物質に使う方法。',
-      },
-      {
-        id: 'sci1-slp-fc17',
-        front: '結晶とは',
-        back: '結晶とはどのようなものか？',
-        explanation:
-          '物質の粒子が規則正しく並んでできた固体。物質ごとに決まった形をしている。',
-      },
-      {
-        id: 'sci1-slp-fc18',
-        front: 'ろ紙の折り方',
-        back: 'ろ紙をろうとにセットするとき、どう折る？',
-        explanation:
-          '半分に折り、さらにもう半分に折ってから、1枚と3枚に開いて円すい形にする。',
-      },
-      {
-        id: 'sci1-slp-fc19',
-        front: 'ガラス棒の役割（ろ過）',
-        back: 'ろ過でガラス棒を使う理由は？',
-        explanation:
-          '液がろ紙に直接あたって破れるのを防ぎ、液が飛び散らないようにするため。ろ紙の3枚重ねの部分にあてる。',
-      },
-      {
-        id: 'sci1-slp-fc20',
-        front: '質量保存（溶解）',
-        back: '物質が水にとけると質量は変わる？',
-        explanation:
-          '変わらない。砂糖が水にとけて見えなくなっても、溶液の質量＝水の質量＋砂糖の質量。',
-      },
-      {
-        id: 'sci1-slp-fc21',
-        front: '色がついた水溶液は透明か',
-        back: '色がついた水溶液は透明といえるか？',
-      },
-      {
-        id: 'sci1-slp-fc22',
-        front: '水溶液をろ過すると',
-        back: '水溶液をろ過すると溶質はどうなるか？',
-      },
-      {
-        id: 'sci1-slp-fc23',
-        front: '蒸留水の分類',
-        back: '蒸留水は純物質か混合物か？',
-      },
-      {
-        id: 'sci1-slp-fc24',
-        front: '空気の分類',
-        back: '空気は純物質か混合物か？',
-      },
-      {
-        id: 'sci1-slp-fc25',
-        front: '飽和水溶液に溶質を加えると',
-        back: '飽和水溶液にさらに溶質を加えるとどうなるか？',
-      },
-      {
-        id: 'sci1-slp-fc26',
-        front: '硝酸カリウムの溶解度の特徴',
-        back: '硝酸カリウムの溶解度は温度が変わるとどう変化するか？',
-      },
-      {
-        id: 'sci1-slp-fc27',
-        front: '再結晶の利用目的',
-        back: '再結晶は何から何を分離する方法として使われるか？',
-      },
-      {
-        id: 'sci1-slp-fc28',
-        front: '結晶の形が物質ごとに決まる理由',
-        back: '物質によって結晶の形が決まっているのはなぜか？',
-      },
+      { id: 'sci1-slp-fc1', front: '溶質（とけている物質）、溶媒（とかしている液体）、溶液（その混合液）', back: 'とけている物質、とかしている液体、その混合液をそれぞれ何という？', explanation: '溶媒が水のとき溶液を水溶液という', difficulty: 'basic' },
+      { id: 'sci1-slp-fc2', front: '質量パーセント濃度（%）＝ 溶質の質量（g）÷ 溶液の質量（g）× 100', back: '水溶液の濃さを表す計算式は？', explanation: '溶液の質量＝溶質＋溶媒であることに注意', difficulty: 'basic' },
+      { id: 'sci1-slp-fc3', front: '溶解度', back: '水100gにとける物質の最大の質量を何という？', explanation: '温度によって変化し、その関係をグラフにしたものを溶解度曲線という', difficulty: 'basic' },
+      { id: 'sci1-slp-fc4', front: '飽和水溶液', back: '溶解度いっぱいまで物質がとけた水溶液を何という？', difficulty: 'basic' },
+      { id: 'sci1-slp-fc5', front: '再結晶', back: '飽和水溶液を冷やして結晶をとり出す方法を何という？', explanation: '温度による溶解度の差を利用して純粋な結晶を取り出す方法', difficulty: 'basic' },
+      { id: 'sci1-slp-fc6', front: 'ガラス棒を伝わらせて注ぐ', back: 'ろ過で液を注ぐとき、何を使ってどのように注ぐ？', explanation: 'ろ紙が破れるのを防ぎ、液が飛び散らないようにするため', difficulty: 'basic' },
+      { id: 'sci1-slp-fc7', front: '溶質の粒子はろ紙を通り抜け、とけていない固体はろ紙上に残る', back: 'ろ過でろ紙を通り抜けるのは？ ろ紙上に残るのは？', difficulty: 'basic' },
+      { id: 'sci1-slp-fc8', front: '立方体（さいころ形）', back: '食塩の結晶はどんな形？', difficulty: 'basic' },
+      { id: 'sci1-slp-fc9', front: '硝酸カリウム＝針状、ミョウバン＝正八面体', back: '硝酸カリウムとミョウバンの結晶はそれぞれどんな形？', difficulty: 'basic' },
+      { id: 'sci1-slp-fc10', front: '①透明である②濃さがどこでも均一③放置しても溶質が沈まない', back: '水溶液に共通する3つの特徴は？', difficulty: 'basic' },
+      { id: 'sci1-slp-fc11', front: '1種類の物質だけでできているもの。例：食塩、砂糖、水、酸素', back: '純物質とは何か？ 例を2つ挙げよ', difficulty: 'basic' },
+      { id: 'sci1-slp-fc12', front: '2種類以上の物質が混じり合ったもの。例：食塩水、空気', back: '混合物とは何か？ 例を2つ挙げよ', difficulty: 'basic' },
+      { id: 'sci1-slp-fc13', front: '溶液の質量＝溶質の質量＋溶媒の質量', back: '溶液の質量はどう求める？', explanation: '質量パーセント濃度の計算で「溶液」の質量で割ることがポイント', difficulty: 'standard' },
+      { id: 'sci1-slp-fc14', front: '温度と溶解度の関係を表したグラフ', back: '溶解度曲線とは何を表すグラフ？', explanation: '温度が上がると溶解度が大きくなる物質が多い', difficulty: 'standard' },
+      { id: 'sci1-slp-fc15', front: '温度が変わってもほとんど変化しない', back: '食塩の溶解度は温度によってどう変化する？', explanation: 'そのため再結晶ではなく、水を蒸発させて結晶をとり出す', difficulty: 'standard' },
+      { id: 'sci1-slp-fc16', front: '水を蒸発させる', back: '溶解度が温度で変わらない物質の結晶をとり出すには？', explanation: '食塩のように温度による溶解度の差が小さい物質に使う方法', difficulty: 'standard' },
+      { id: 'sci1-slp-fc17', front: '物質の粒子が規則正しく並んでできた固体。物質ごとに決まった形をしている', back: '結晶とはどのようなものか？', difficulty: 'standard' },
+      { id: 'sci1-slp-fc18', front: '半分に折り、さらにもう半分に折ってから、1枚と3枚に開いて円すい形にする', back: 'ろ紙をろうとにセットするとき、どう折る？', difficulty: 'standard' },
+      { id: 'sci1-slp-fc19', front: '液がろ紙に直接あたって破れるのを防ぎ、液が飛び散らないようにするため', back: 'ろ過でガラス棒を使う理由は？', explanation: 'ろ紙の3枚重ねの部分にあてる', difficulty: 'standard' },
+      { id: 'sci1-slp-fc20', front: '変わらない。溶液の質量＝水の質量＋砂糖の質量', back: '物質が水にとけると質量は変わる？', difficulty: 'standard' },
+      { id: 'sci1-slp-fc21', front: 'いえる。透明とは向こう側が透けて見えることで、無色とは異なる', back: '色がついた水溶液は透明といえるか？', difficulty: 'standard' },
+      { id: 'sci1-slp-fc22', front: 'ろ紙を通り抜ける（溶質の粒子が非常に小さいため）', back: '水溶液をろ過すると溶質はどうなるか？', difficulty: 'standard' },
+      { id: 'sci1-slp-fc23', front: '純物質（水という1種類の物質だけでできているため）', back: '蒸留水は純物質か混合物か？', difficulty: 'advanced' },
+      { id: 'sci1-slp-fc24', front: '混合物（窒素・酸素・アルゴンなど複数の気体が混じり合っているため）', back: '空気は純物質か混合物か？', difficulty: 'advanced' },
+      { id: 'sci1-slp-fc25', front: 'とけ残る（それ以上とけない）', back: '飽和水溶液にさらに溶質を加えるとどうなるか？', difficulty: 'advanced' },
+      { id: 'sci1-slp-fc26', front: '温度が高くなると大きく増加する', back: '硝酸カリウムの溶解度は温度が変わるとどう変化するか？', explanation: '再結晶に適した物質の代表例', difficulty: 'advanced' },
+      { id: 'sci1-slp-fc27', front: '混合物から純粋な物質（純物質）を分離する方法', back: '再結晶は何から何を分離する方法として使われるか？', difficulty: 'advanced' },
+      { id: 'sci1-slp-fc28', front: '粒子の並び方が物質ごとに決まっているため', back: '物質によって結晶の形が決まっているのはなぜか？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -335,7 +183,8 @@ export const solutionProperties: Topic = {
           correctIndex: 3,
           explanation:
             '水溶液は溶質の粒子が非常に小さくなって均一に広がっているため、放置しても溶質が沈むことはありません。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-slp-q2',
           question: '水200gに食塩50gをとかした水溶液の質量パーセント濃度は？',
@@ -343,7 +192,8 @@ export const solutionProperties: Topic = {
           correctIndex: 1,
           explanation:
             '溶液の質量＝50g＋200g＝250g。質量パーセント濃度＝50÷250×100＝20%です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-slp-q3',
           question: '溶解度について正しいものはどれ？',
@@ -356,7 +206,8 @@ export const solutionProperties: Topic = {
           correctIndex: 0,
           explanation:
             '溶解度は水100gにとける物質の最大の質量のことで、温度によって変化します。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-slp-q4',
           question: '再結晶とはどのような操作か？',
@@ -369,7 +220,8 @@ export const solutionProperties: Topic = {
           correctIndex: 2,
           explanation:
             '再結晶は飽和水溶液を冷やして、溶解度の差を利用して結晶を取り出す操作です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-slp-q5',
           question: '次のうち混合物はどれ？',
@@ -377,7 +229,8 @@ export const solutionProperties: Topic = {
           correctIndex: 2,
           explanation:
             '食塩水は水（溶媒）と食塩（溶質）が混じった混合物です。食塩・砂糖・水はそれぞれ1種類の物質からなる純物質です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-slp-q6',
           question: 'ろ過の操作で、ガラス棒をあてるのはろ紙の何枚重ねの部分か？',
@@ -385,7 +238,8 @@ export const solutionProperties: Topic = {
           correctIndex: 1,
           explanation:
             'ガラス棒はろ紙の3枚重ねの部分にあてます。厚い部分のほうがろ紙が破れにくいためです。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-slp-q7',
           question: '食塩の結晶はどのような形か？',
@@ -393,7 +247,8 @@ export const solutionProperties: Topic = {
           correctIndex: 0,
           explanation:
             '食塩の結晶は立方体（さいころ形）です。硝酸カリウムは針状、ミョウバンは正八面体の結晶になります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-slp-q8',
           question: '食塩の結晶を水溶液からとり出すのに最も適した方法はどれか？',
@@ -406,7 +261,8 @@ export const solutionProperties: Topic = {
           correctIndex: 3,
           explanation:
             '食塩は温度による溶解度の変化がほとんどないため、冷やしても結晶が出にくく、水を蒸発させて結晶をとり出します。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-slp-q9',
           question: '60℃の水100gに硝酸カリウム110gをとかした飽和水溶液を20℃（溶解度32g）に冷やすと出てくる結晶は何g？',
@@ -414,7 +270,8 @@ export const solutionProperties: Topic = {
           correctIndex: 3,
           explanation:
             '60℃でとけていた110gから20℃でとける32gを引いた差の78gが結晶として出てきます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-slp-q10',
           question: '質量パーセント濃度10%の食塩水300gに含まれる食塩は何gか？',
@@ -422,7 +279,8 @@ export const solutionProperties: Topic = {
           correctIndex: 1,
           explanation:
             '食塩の質量＝300×10÷100＝30gです。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-slp-q11',
           question: 'ろうとの足の長いほうをビーカーの内壁につける理由はどれか？',
@@ -435,7 +293,8 @@ export const solutionProperties: Topic = {
           correctIndex: 0,
           explanation:
             'ろうとの足をビーカーの内壁につけることで、ろ液が壁を伝って静かに流れ落ち、飛び散りを防ぎます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-slp-q12',
           question: '砂糖が水にとけて見えなくなったとき、砂糖水全体の質量はどうなるか？',
@@ -448,7 +307,8 @@ export const solutionProperties: Topic = {
           correctIndex: 2,
           explanation:
             '砂糖が水にとけて見えなくなっても、質量は変わりません。砂糖水の質量＝水の質量＋砂糖の質量です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-slp-q13',
           question: '水溶液が透明であるのは溶質の粒子がどのような状態になっているからか？',
@@ -461,7 +321,8 @@ export const solutionProperties: Topic = {
           correctIndex: 1,
           explanation:
             '溶質の粒子が非常に小さくなって均一に広がっているため、水溶液は透明に見えます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-slp-q14',
           question: '水150gに砂糖50gをとかした水溶液の質量パーセント濃度は何%か？',
@@ -469,7 +330,8 @@ export const solutionProperties: Topic = {
           correctIndex: 2,
           explanation:
             '溶液の質量＝50g＋150g＝200g。質量パーセント濃度＝50÷200×100＝25%です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-slp-q15',
           question: '質量パーセント濃度の計算で、溶質の質量を溶媒の質量で割ってはいけない理由は？',
@@ -482,7 +344,8 @@ export const solutionProperties: Topic = {
           correctIndex: 1,
           explanation:
             '質量パーセント濃度は溶液（溶質＋溶媒）全体に対する溶質の割合なので、溶液の質量で割る必要があります。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-slp-q16',
           question: '食塩水における溶質は何か？',
@@ -490,7 +353,8 @@ export const solutionProperties: Topic = {
           correctIndex: 1,
           explanation:
             '食塩水では食塩が溶質（とけている物質）、水が溶媒（とかしている液体）です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-slp-q17',
           question: '蒸留水は純物質か混合物か？',
@@ -498,7 +362,8 @@ export const solutionProperties: Topic = {
           correctIndex: 1,
           explanation:
             '蒸留水は水という1種類の物質だけでできているため純物質です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-slp-q18',
           question: '硝酸カリウムの結晶の形はどれか？',
@@ -506,7 +371,8 @@ export const solutionProperties: Topic = {
           correctIndex: 1,
           explanation:
             '硝酸カリウムの結晶は針状（細長い棒のような形）です。食塩は立方体、ミョウバンは正八面体です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-slp-q19',
           question: '飽和水溶液の温度を上げると、溶質をさらにとかすことができるか？',
@@ -519,7 +385,8 @@ export const solutionProperties: Topic = {
           correctIndex: 1,
           explanation:
             '多くの固体の物質は温度が上がると溶解度が大きくなるため、飽和水溶液の温度を上げるとさらにとかすことができます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-slp-q20',
           question: '再結晶でとり出される結晶は純粋な物質か混合物か？',
@@ -527,7 +394,8 @@ export const solutionProperties: Topic = {
           correctIndex: 1,
           explanation:
             '再結晶でとり出される結晶は純粋な物質（純物質）です。温度による溶解度の差を利用して純粋な結晶を取り出します。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-slp-q21',
           question: 'ろうとに注ぐ液の量はろ紙の高さに対してどのくらいまでにするか？',
@@ -535,7 +403,8 @@ export const solutionProperties: Topic = {
           correctIndex: 2,
           explanation:
             'ろうとに注ぐ液はろ紙の8分目（ろ紙の端より低く）までにします。あふれるのを防ぐためです。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-slp-q22',
           question: '多くの固体の物質は、温度が上がると溶解度はどうなるか？',
@@ -543,7 +412,8 @@ export const solutionProperties: Topic = {
           correctIndex: 2,
           explanation:
             '多くの固体の物質は温度が上がると溶解度が大きくなります（とける量が増えます）。食塩は例外でほとんど変化しません。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-slp-q23',
           question: '空気は純物質か混合物か？',
@@ -551,7 +421,8 @@ export const solutionProperties: Topic = {
           correctIndex: 1,
           explanation:
             '空気は窒素・酸素・アルゴンなど複数の気体が混じり合った混合物です。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci1-slp-q24',
           question: '水溶液をろ過したとき、溶質はろ紙を通り抜けるか？',
@@ -564,7 +435,8 @@ export const solutionProperties: Topic = {
           correctIndex: 1,
           explanation:
             '溶質の粒子は非常に小さいため、ろ紙の穴を通り抜けます。水にとけていない固体はろ紙の上に残ります。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci1-slp-q25',
           question: '質量パーセント濃度15%の砂糖水200gに水を100g加えた。新しい濃度は何%か？',
@@ -572,7 +444,8 @@ export const solutionProperties: Topic = {
           correctIndex: 1,
           explanation:
             '砂糖の質量＝200×15÷100＝30g。新しい溶液の質量＝200＋100＝300g。新しい濃度＝30÷300×100＝10%。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci1-slp-q26',
           question: '物質によって結晶の形が決まっているのはなぜか？',
@@ -585,7 +458,8 @@ export const solutionProperties: Topic = {
           correctIndex: 1,
           explanation:
             '結晶は粒子が規則正しく並んだ固体で、粒子の並び方が物質ごとに決まっているため、結晶の形も決まっています。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci1-slp-q27',
           question: 'ろ過でガラス棒を使ってろ紙に液を注ぐ理由はどれか？',
@@ -598,7 +472,8 @@ export const solutionProperties: Topic = {
           correctIndex: 1,
           explanation:
             'ガラス棒を伝わらせて注ぐことで、ろ紙が破れるのを防ぎ、液が飛び散らないようにします。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci1-slp-q28',
           question: '色がついた水溶液（例：硫酸銅水溶液）は透明か？',
@@ -611,7 +486,8 @@ export const solutionProperties: Topic = {
           correctIndex: 1,
           explanation:
             '透明とは「向こう側が透けて見える」ことで、「無色」とは異なります。色がついていても透けて見えれば透明です。',
-        },
+        difficulty: 'advanced',
+      },
       ],
     },
     examples: {

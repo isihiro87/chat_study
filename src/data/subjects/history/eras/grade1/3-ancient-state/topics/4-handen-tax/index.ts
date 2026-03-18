@@ -54,34 +54,34 @@ export const handenTax: Topic = {
     },
     videos: [],
     flashcards: [
-      { id: 'fc1', front: '班田収授法', back: '人々に土地を与え、死後返還させる制度を何という？' },
-      { id: 'fc2', front: '三世一身法', back: '723年に開墾した土地の私有を認めた法は？' },
-      { id: 'fc3', front: '口分田', back: '班田収授法で人々に与えられた田は？' },
-      { id: 'fc4', front: '租', back: '収穫量の約3%を稲で納める税は？' },
-      { id: 'fc5', front: '調', back: '布や各地の特産物を都へ納める税は？' },
-      { id: 'fc6', front: '防人', back: '九州の警備に当たった兵士の名称は？' },
-      { id: 'fc7', front: '墾田永年私財法', back: '743年に土地の永久私有を認めた法を何という？' },
-      { id: 'fc8', front: '荘園', back: '古代後半の貴族や大寺院が持つ私有地の名称は？' },
-      { id: 'fc9', front: '戸籍', back: '6歳以上の人々を登録した台帳は？' },
-      { id: 'fc10', front: '木簡', back: '税を納めた際に品物に付けた木札は？' },
-      { id: 'fc11', front: '雑徭', back: '地方で年間60日を限度とした労役は？' },
-      { id: 'fc12', front: '奴婢', back: '官庁や個人に所属して売買もされた身分は？' },
-      { id: 'fc13', front: '庸', back: '都での労役の代わりに布を納める税は？' },
-      { id: 'fc14', front: '聖武天皇', back: '墾田永年私財法を出した天皇は？' },
-      { id: 'fc15', front: '6年', back: '戸籍は何年ごとに作成されたか？' },
-      { id: 'fc16', front: '均田制', back: '班田収授法のお手本となった唐の制度は？' },
-      { id: 'fc17', front: '逃亡', back: '重い税負担に耐えかねた農民がとった行動は？' },
-      { id: 'fc18', front: '東国', back: '防人はおもにどの地方の農民から選ばれたか？' },
-      { id: 'fc19', front: '3年', back: '防人が任務に就く期間はおよそ何年か？' },
-      { id: 'fc20', front: '万葉集', back: '防人たちの望郷の歌が収められた歌集は？' },
-      { id: 'fc21', front: '約3分の2', back: '口分田の面積は女性は男性のどのくらいだったか？' },
-      { id: 'fc22', front: '農民自身', back: '調や庸を都まで運ぶ費用は誰が負担したか？' },
-      { id: 'fc23', front: '本人（自弁）', back: '防人の旅費や食料は誰が負担したか？' },
-      { id: 'fc24', front: '開墾の奨励', back: '三世一身法が出された目的は？' },
-      { id: 'fc25', front: '人口の増加と農民の逃亡', back: '口分田が不足した根本的な原因は？' },
-      { id: 'fc26', front: '土地の私有', back: '班田収授法から墾田永年私財法への変化で認められるようになったことは？' },
-      { id: 'fc27', front: '税の免除', back: '農民が貴族や寺院に土地を寄進した理由は？' },
-      { id: 'fc28', front: '723年', back: '三世一身法が出された年は？' },
+      { id: 'fc1', front: '班田収授法', back: '人々に土地を与え、死後返還させる制度を何という？', difficulty: 'basic' },
+      { id: 'fc2', front: '三世一身法', back: '723年に開墾した土地の私有を認めた法は？', difficulty: 'basic' },
+      { id: 'fc3', front: '口分田', back: '班田収授法で人々に与えられた田は？', difficulty: 'basic' },
+      { id: 'fc4', front: '租', back: '収穫量の約3%を稲で納める税は？', difficulty: 'basic' },
+      { id: 'fc5', front: '調', back: '布や各地の特産物を都へ納める税は？', difficulty: 'basic' },
+      { id: 'fc6', front: '防人', back: '九州の警備に当たった兵士の名称は？', difficulty: 'basic' },
+      { id: 'fc7', front: '墾田永年私財法', back: '743年に土地の永久私有を認めた法を何という？', difficulty: 'basic' },
+      { id: 'fc8', front: '荘園', back: '古代後半の貴族や大寺院が持つ私有地の名称は？', difficulty: 'basic' },
+      { id: 'fc9', front: '戸籍', back: '6歳以上の人々を登録した台帳は？', difficulty: 'basic' },
+      { id: 'fc10', front: '木簡', back: '税を納めた際に品物に付けた木札は？', difficulty: 'basic' },
+      { id: 'fc11', front: '雑徭', back: '地方で年間60日を限度とした労役は？', difficulty: 'basic' },
+      { id: 'fc12', front: '奴婢', back: '官庁や個人に所属して売買もされた身分は？', difficulty: 'basic' },
+      { id: 'fc13', front: '庸', back: '都での労役の代わりに布を納める税は？', difficulty: 'standard' },
+      { id: 'fc14', front: '聖武天皇', back: '墾田永年私財法を出した天皇は？', difficulty: 'standard' },
+      { id: 'fc15', front: '6年', back: '戸籍は何年ごとに作成されたか？', difficulty: 'standard' },
+      { id: 'fc16', front: '均田制', back: '班田収授法のお手本となった唐の制度は？', difficulty: 'standard' },
+      { id: 'fc17', front: '逃亡', back: '重い税負担に耐えかねた農民がとった行動は？', difficulty: 'standard' },
+      { id: 'fc18', front: '東国', back: '防人はおもにどの地方の農民から選ばれたか？', difficulty: 'standard' },
+      { id: 'fc19', front: '3年', back: '防人が任務に就く期間はおよそ何年か？', difficulty: 'standard' },
+      { id: 'fc20', front: '万葉集', back: '防人たちの望郷の歌が収められた歌集は？', difficulty: 'standard' },
+      { id: 'fc21', front: '約3分の2', back: '口分田の面積は女性は男性のどのくらいだったか？', difficulty: 'standard' },
+      { id: 'fc22', front: '農民自身', back: '調や庸を都まで運ぶ費用は誰が負担したか？', difficulty: 'standard' },
+      { id: 'fc23', front: '本人（自弁）', back: '防人の旅費や食料は誰が負担したか？', difficulty: 'advanced' },
+      { id: 'fc24', front: '開墾の奨励', back: '三世一身法が出された目的は？', difficulty: 'advanced' },
+      { id: 'fc25', front: '人口の増加と農民の逃亡', back: '口分田が不足した根本的な原因は？', difficulty: 'advanced' },
+      { id: 'fc26', front: '土地の私有', back: '班田収授法から墾田永年私財法への変化で認められるようになったことは？', difficulty: 'advanced' },
+      { id: 'fc27', front: '税の免除', back: '農民が貴族や寺院に土地を寄進した理由は？', difficulty: 'advanced' },
+      { id: 'fc28', front: '723年', back: '三世一身法が出された年は？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -91,6 +91,7 @@ export const handenTax: Topic = {
           options: ['墾田永年私財法', '三世一身法', '公地・公民', '班田収授法'],
           correctIndex: 3,
           explanation: '班田収授法は6歳以上の人々に口分田を与え、死後に国に返還させました。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -98,6 +99,7 @@ export const handenTax: Topic = {
           options: ['班田収授法', '三世一身法', '墾田永年私財法', '大宝律令'],
           correctIndex: 2,
           explanation: '墾田永年私財法により荘園が広がるきっかけとなりました。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -105,6 +107,7 @@ export const handenTax: Topic = {
           options: ['防人', '征夷大将軍', '国司', '武士'],
           correctIndex: 0,
           explanation: '防人は東国の農民から選ばれ、九州北部の防衛にあたりました。',
+          difficulty: 'basic',
         },
         {
           id: 'q4',
@@ -112,6 +115,7 @@ export const handenTax: Topic = {
           options: ['調', '租', '庸', '雑徭'],
           correctIndex: 1,
           explanation: '租は収穫量の約3%を稲で納める税で、調（特産物）・庸（労役の代わりの布）と合わせて農民の負担でした。',
+          difficulty: 'basic',
         },
         {
           id: 'q5',
@@ -119,6 +123,7 @@ export const handenTax: Topic = {
           options: ['口分田', '公地', '国府', '荘園'],
           correctIndex: 3,
           explanation: '荘園は貴族や大寺院が開墾して所有した私有地で、律令制が崩れる原因となりました。',
+          difficulty: 'basic',
         },
         {
           id: 'q6',
@@ -126,6 +131,7 @@ export const handenTax: Topic = {
           options: ['三世一身法', '大宝律令', '公地・公民', '班田収授法'],
           correctIndex: 0,
           explanation: '三世一身法（723年）は開墾地を3代まで私有できるとしましたが、効果が薄かったため墾田永年私財法が出されました。',
+          difficulty: 'basic',
         },
         {
           id: 'q7',
@@ -133,6 +139,7 @@ export const handenTax: Topic = {
           options: ['租', '調', '庸', '雑徭'],
           correctIndex: 2,
           explanation: '庸は都での労役の代わりに布を納める税です。',
+          difficulty: 'basic',
         },
         {
           id: 'q8',
@@ -140,6 +147,7 @@ export const handenTax: Topic = {
           options: ['木簡', '戸籍', '風土記', '古事記'],
           correctIndex: 1,
           explanation: '戸籍は6年ごとに作成され、口分田の配分の基礎資料となりました。',
+          difficulty: 'basic',
         },
         {
           id: 'q9',
@@ -147,6 +155,7 @@ export const handenTax: Topic = {
           options: ['公地・公民', '冠位十二階', '十七条の憲法', '墾田永年私財法'],
           correctIndex: 0,
           explanation: '荘園の拡大で土地と人民が国家のものという公地・公民の原則が崩壊していきました。',
+          difficulty: 'basic',
         },
         {
           id: 'q10',
@@ -154,6 +163,7 @@ export const handenTax: Topic = {
           options: ['畿内', '北陸', '九州', '東国'],
           correctIndex: 3,
           explanation: '防人は主に東国（関東地方など）の農民から選ばれ、九州北部の防衛にあたりました。',
+          difficulty: 'basic',
         },
         {
           id: 'q11',
@@ -161,6 +171,7 @@ export const handenTax: Topic = {
           options: ['3歳以上', '6歳以上', '10歳以上', '15歳以上'],
           correctIndex: 1,
           explanation: '口分田は6歳以上のすべての人に与えられました。',
+          difficulty: 'standard',
         },
         {
           id: 'q12',
@@ -168,6 +179,7 @@ export const handenTax: Topic = {
           options: ['同じ面積', '女性は男性の約半分', '女性は男性の約3分の2', '女性には与えられなかった'],
           correctIndex: 2,
           explanation: '口分田は女性には男性の約3分の2の面積が与えられました。',
+          difficulty: 'standard',
         },
         {
           id: 'q13',
@@ -175,6 +187,7 @@ export const handenTax: Topic = {
           options: ['隋', '唐', '宋', '漢'],
           correctIndex: 1,
           explanation: '班田収授法は唐の均田制をお手本にして作られました。',
+          difficulty: 'standard',
         },
         {
           id: 'q14',
@@ -182,6 +195,7 @@ export const handenTax: Topic = {
           options: ['国家', '国司', '農民自身', '豪族'],
           correctIndex: 2,
           explanation: '調や庸の運搬費は農民自身が負担し、大きな負担となっていました。',
+          difficulty: 'standard',
         },
         {
           id: 'q15',
@@ -189,6 +203,7 @@ export const handenTax: Topic = {
           options: ['1年', '3年', '5年', '10年'],
           correctIndex: 1,
           explanation: '防人は約3年間、家族と離れて九州北部の防衛にあたりました。',
+          difficulty: 'standard',
         },
         {
           id: 'q16',
@@ -196,6 +211,7 @@ export const handenTax: Topic = {
           options: ['国家', '国司', '本人（自弁）', '地方の豪族'],
           correctIndex: 2,
           explanation: '防人の旅費や食料は本人が負担する自弁制でした。',
+          difficulty: 'standard',
         },
         {
           id: 'q17',
@@ -203,6 +219,7 @@ export const handenTax: Topic = {
           options: ['農民を保護するため', '新しい土地の開墾を奨励するため', '税を増やすため', '荘園を禁止するため'],
           correctIndex: 1,
           explanation: '三世一身法は新しい土地の開墾を奨励し、耕地を増やすために出されました。',
+          difficulty: 'standard',
         },
         {
           id: 'q18',
@@ -210,6 +227,7 @@ export const handenTax: Topic = {
           options: ['税が重すぎたから', '3代で土地を返さなければならないから', '戦争が続いたから', '農民が少なかったから'],
           correctIndex: 1,
           explanation: '3代で土地を返さなければならないため、開墾の意欲が十分に高まりませんでした。',
+          difficulty: 'standard',
         },
         {
           id: 'q19',
@@ -217,6 +235,7 @@ export const handenTax: Topic = {
           options: ['法律で認められていたから', '多くの労働力と資金を持っていたから', '天皇の命令があったから', '外国の援助があったから'],
           correctIndex: 1,
           explanation: '貴族や大寺院は多くの労働力と資金を持っていたため、大規模な開墾が可能でした。',
+          difficulty: 'standard',
         },
         {
           id: 'q20',
@@ -224,6 +243,7 @@ export const handenTax: Topic = {
           options: ['仏教を信仰していたから', '法律で義務付けられていたから', '税の負担を逃れるため', '報酬をもらえたから'],
           correctIndex: 2,
           explanation: '荘園は課税が免除される場合があり、農民は税の負担を逃れるために土地を寄進しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q21',
@@ -231,6 +251,7 @@ export const handenTax: Topic = {
           options: ['古今和歌集', '万葉集', '古事記', '日本書紀'],
           correctIndex: 1,
           explanation: '万葉集に防人たちの望郷の歌が多く収められています。',
+          difficulty: 'standard',
         },
         {
           id: 'q22',
@@ -238,6 +259,7 @@ export const handenTax: Topic = {
           options: ['反乱を起こした', '逃亡した', '外国に移住した', '僧侶になった'],
           correctIndex: 1,
           explanation: '重い税負担に耐えかねた農民は戸籍から逃れて別の土地に逃亡しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q23',
@@ -245,6 +267,7 @@ export const handenTax: Topic = {
           options: ['701年', '710年', '723年', '743年'],
           correctIndex: 2,
           explanation: '三世一身法は723年に出され、開墾地の3代までの私有を認めました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q24',
@@ -252,6 +275,7 @@ export const handenTax: Topic = {
           options: ['710年', '723年', '743年', '752年'],
           correctIndex: 2,
           explanation: '墾田永年私財法は743年に出され、開墾した土地の永久私有を認めました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q25',
@@ -259,6 +283,7 @@ export const handenTax: Topic = {
           options: ['外国の侵攻', '天皇の退位', '荘園の拡大で公地・公民制が崩壊', '仏教の衰退'],
           correctIndex: 2,
           explanation: '墾田永年私財法による荘園の拡大で公地・公民制が崩壊し、律令制度が衰退しました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q26',
@@ -266,6 +291,7 @@ export const handenTax: Topic = {
           options: ['租', '調', '庸', '雑徭'],
           correctIndex: 1,
           explanation: '調は布や各地の特産物を都に運んで納める税です。',
+          difficulty: 'advanced',
         },
         {
           id: 'q27',
@@ -273,6 +299,7 @@ export const handenTax: Topic = {
           options: ['防人', '庸', '雑徭', '調'],
           correctIndex: 2,
           explanation: '雑徭は地方で年間60日を限度に課された労役です。',
+          difficulty: 'advanced',
         },
         {
           id: 'q28',
@@ -280,6 +307,7 @@ export const handenTax: Topic = {
           options: ['律令制', '均田制', '科挙', '封建制'],
           correctIndex: 1,
           explanation: '班田収授法は唐の均田制をお手本にして作られました。',
+          difficulty: 'advanced',
         },
       ],
     },

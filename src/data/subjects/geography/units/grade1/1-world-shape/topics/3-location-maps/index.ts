@@ -174,180 +174,34 @@ export const locationMaps: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'geo1-lm-fc1',
-        front: '緯度の基準',
-        back: '緯度の基準となる線は何か？また、緯度は何度まである？',
-        explanation:
-          '緯度の基準は赤道（0度）です。赤道から北を北緯、南を南緯とし、それぞれ90度まであります。',
-      },
-      {
-        id: 'geo1-lm-fc2',
-        front: '経度の基準',
-        back: '経度の基準となる線は何か？また、経度は何度まである？',
-        explanation:
-          '経度の基準は本初子午線（0度）です。イギリスのロンドンを通る経線で、東を東経、西を西経とし、それぞれ180度まであります。',
-      },
-      {
-        id: 'geo1-lm-fc3',
-        front: '白夜と極夜',
-        back: '白夜と極夜とはそれぞれどのような現象か？',
-        explanation:
-          '白夜は夏に太陽が一日中沈まない現象、極夜は冬に太陽が一日中昇らない現象です。北極圏（北緯66.6度以北）・南極圏（南緯66.6度以南）で見られます。',
-      },
-      {
-        id: 'geo1-lm-fc4',
-        front: '地球儀の特徴',
-        back: '地球儀はどのような点で世界地図より優れているか？',
-        explanation:
-          '地球儀は面積・距離・方位・形のすべてを正しく表すことができます。ただし持ち運びが不便で、地球全体を一度に見ることが難しい欠点があります。',
-      },
-      {
-        id: 'geo1-lm-fc5',
-        front: 'メルカトル図法',
-        back: 'メルカトル図法の長所と短所は何か？',
-        explanation:
-          'メルカトル図法は角度（航海の方位）が正しく表されるのが長所です。短所は、高緯度地域ほど面積が実際より大きく表されることです。',
-      },
-      {
-        id: 'geo1-lm-fc6',
-        front: 'モルワイデ図法と正距方位図法',
-        back: 'モルワイデ図法と正距方位図法はそれぞれ何が正しく表される？',
-        explanation:
-          'モルワイデ図法は面積が正しく表され、分布図などに適しています。正距方位図法は中心からの距離と方位が正しく表され、航空図などに使われます。',
-      },
-      {
-        id: 'geo1-lm-fc7',
-        front: '対蹠点',
-        back: '地球上のある地点の正反対にある地点を何という？',
-        explanation:
-          '対蹠点（たいせきてん）。東京の対蹠点は南アメリカのウルグアイ沖の大西洋上にあります。',
-      },
-      {
-        id: 'geo1-lm-fc8',
-        front: '東京の対蹠点',
-        back: '東京の対蹠点はどこ付近にあるか？',
-        explanation:
-          '南アメリカのウルグアイ沖の大西洋上です。北緯→南緯、東経→西経に変わります。',
-      },
-      {
-        id: 'geo1-lm-fc9',
-        front: '対蹠点の求め方',
-        back: '対蹠点の緯度と経度はどのように求めるか？',
-        explanation:
-          '緯度は北緯⇔南緯を反転し数値は同じ。経度は東経⇔西経を反転し、180度からもとの経度を引いた値になります。',
-      },
-      {
-        id: 'geo1-lm-fc10',
-        front: '赤道',
-        back: '緯度0度の線は何か？',
-        explanation:
-          '赤道です。地球を北半球と南半球に二等分する線で、緯度の基準となります。',
-      },
-      {
-        id: 'geo1-lm-fc11',
-        front: '本初子午線',
-        back: '経度0度の線は何か？どこを通る？',
-        explanation:
-          '本初子午線です。イギリスのロンドンにある旧グリニッジ天文台を通ります。',
-      },
-      {
-        id: 'geo1-lm-fc12',
-        front: '北極圏',
-        back: '北極圏とは北緯何度以北の地域か？',
-        explanation:
-          '北緯66.6度以北の地域です。夏に白夜、冬に極夜が見られます。',
-      },
-      {
-        id: 'geo1-lm-fc13',
-        front: '16方位',
-        back: '8方位をさらに細かくした方位の表し方を何という？例を2つ答えよ。',
-        explanation:
-          '16方位。北北東（NNE）、東南東（ESE）、南南西（SSW）、西北西（WNW）などがあります。',
-      },
-      {
-        id: 'geo1-lm-fc14',
-        front: '方位の細かさ',
-        back: '4方位・8方位・16方位はそれぞれ何度刻みか？',
-        explanation:
-          '4方位は90度刻み、8方位は45度刻み、16方位は22.5度刻みです。',
-      },
-      {
-        id: 'geo1-lm-fc15',
-        front: 'メルカトル図法の緯線と経線',
-        back: 'メルカトル図法の地図で、緯線と経線はどのように交わるか？',
-        explanation:
-          '直角に交わります。そのため角度が正しく表され、航海に適しています。',
-      },
-      {
-        id: 'geo1-lm-fc16',
-        front: '地軸の傾き',
-        back: '地球の地軸は何度傾いているか？',
-        explanation:
-          '約23.4度です。この傾きが白夜・極夜や四季が生じる原因となっています。',
-      },
-      {
-        id: 'geo1-lm-fc17',
-        front: '正距方位図法の用途',
-        back: '正距方位図法はどのような場面で使われるか？',
-        explanation:
-          '航空図に使われます。中心からの距離と方位が正しいため、最短ルート（大圏航路）を調べるのに適しています。',
-      },
-      {
-        id: 'geo1-lm-fc18',
-        front: '東京の緯度と経度',
-        back: '日本の東京の位置をおおよその緯度と経度で答えよ。',
-      },
-      {
-        id: 'geo1-lm-fc19',
-        front: '北極点の緯度',
-        back: '北極点の緯度を答えよ。',
-      },
-      {
-        id: 'geo1-lm-fc20',
-        front: '南極点の緯度',
-        back: '南極点の緯度を答えよ。',
-      },
-      {
-        id: 'geo1-lm-fc21',
-        front: '4方位',
-        back: '東西南北の4つの方位を何というか。',
-      },
-      {
-        id: 'geo1-lm-fc22',
-        front: '8方位',
-        back: '4方位をさらに細かくした方位で、北と東の間は何か。',
-      },
-      {
-        id: 'geo1-lm-fc23',
-        front: '東南東',
-        back: '16方位で東と南東の間の方位は何か。',
-      },
-      {
-        id: 'geo1-lm-fc24',
-        front: '世界地図の限界',
-        back: '世界地図で面積・距離・方位・形のすべてを同時に正しく表せるか。',
-      },
-      {
-        id: 'geo1-lm-fc25',
-        front: '地球儀の短所',
-        back: '地球儀の短所を2つ答えよ。',
-      },
-      {
-        id: 'geo1-lm-fc26',
-        front: '赤道が通る大陸',
-        back: '赤道が通る大陸を2つ答えよ。',
-      },
-      {
-        id: 'geo1-lm-fc27',
-        front: 'モルワイデ図法の用途',
-        back: 'モルワイデ図法はどのような場面に適しているか。',
-      },
-      {
-        id: 'geo1-lm-fc28',
-        front: '地球の公転',
-        back: '地球は地軸が約23.4度傾いた状態でどのような運動をしているか。',
-      },
+      { id: 'geo1-lm-fc1', front: '赤道（0度）が基準。北緯・南緯それぞれ90度まで', back: '緯度の基準となる線は何か？また、緯度は何度まである？', difficulty: 'basic' },
+      { id: 'geo1-lm-fc2', front: '本初子午線（0度・ロンドン）が基準。東経・西経それぞれ180度まで', back: '経度の基準となる線は何か？また、経度は何度まである？', difficulty: 'basic' },
+      { id: 'geo1-lm-fc3', front: '白夜は夏に太陽が一日中沈まない現象、極夜は冬に太陽が一日中昇らない現象', back: '白夜と極夜とはそれぞれどのような現象か？', explanation: '北極圏（北緯66.6度以北）・南極圏（南緯66.6度以南）で見られる。', difficulty: 'basic' },
+      { id: 'geo1-lm-fc4', front: '面積・距離・方位・形のすべてを正しく表せる', back: '地球儀はどのような点で世界地図より優れているか？', explanation: '持ち運びが不便で全体を一度に見られない欠点がある。', difficulty: 'basic' },
+      { id: 'geo1-lm-fc5', front: '長所：角度（航海の方位）が正しい。短所：高緯度の面積が拡大される', back: 'メルカトル図法の長所と短所は何か？', difficulty: 'basic' },
+      { id: 'geo1-lm-fc6', front: 'モルワイデ図法は面積、正距方位図法は中心からの距離と方位', back: 'モルワイデ図法と正距方位図法はそれぞれ何が正しく表される？', difficulty: 'standard' },
+      { id: 'geo1-lm-fc7', front: '対蹠点（たいせきてん）', back: '地球上のある地点の正反対にある地点を何という？', difficulty: 'basic' },
+      { id: 'geo1-lm-fc8', front: '南アメリカのウルグアイ沖の大西洋上', back: '東京の対蹠点はどこ付近にあるか？', difficulty: 'standard' },
+      { id: 'geo1-lm-fc9', front: '緯度は北緯⇔南緯を反転（数値は同じ）、経度は東経⇔西経を反転し180度から引く', back: '対蹠点の緯度と経度はどのように求めるか？', difficulty: 'standard' },
+      { id: 'geo1-lm-fc10', front: '赤道', back: '緯度0度の線は何か？', difficulty: 'basic' },
+      { id: 'geo1-lm-fc11', front: '本初子午線（イギリス・ロンドンの旧グリニッジ天文台を通る）', back: '経度0度の線は何か？どこを通る？', difficulty: 'basic' },
+      { id: 'geo1-lm-fc12', front: '北緯66.6度以北', back: '北極圏とは北緯何度以北の地域か？', explanation: '夏に白夜、冬に極夜が見られる。', difficulty: 'basic' },
+      { id: 'geo1-lm-fc13', front: '16方位（例：北北東、東南東）', back: '8方位をさらに細かくした方位の表し方を何という？例を2つ答えよ。', difficulty: 'standard' },
+      { id: 'geo1-lm-fc14', front: '4方位は90度、8方位は45度、16方位は22.5度刻み', back: '4方位・8方位・16方位はそれぞれ何度刻みか？', difficulty: 'standard' },
+      { id: 'geo1-lm-fc15', front: '直角に交わる', back: 'メルカトル図法の地図で、緯線と経線はどのように交わるか？', explanation: 'そのため角度が正しく表され、航海に適している。', difficulty: 'standard' },
+      { id: 'geo1-lm-fc16', front: '約23.4度', back: '地球の地軸は何度傾いているか？', explanation: 'この傾きが白夜・極夜や四季が生じる原因。', difficulty: 'standard' },
+      { id: 'geo1-lm-fc17', front: '航空図（最短ルート・大圏航路を調べるのに適する）', back: '正距方位図法はどのような場面で使われるか？', difficulty: 'standard' },
+      { id: 'geo1-lm-fc18', front: '北緯約36度・東経約140度', back: '日本の東京の位置をおおよその緯度と経度で答えよ。', difficulty: 'standard' },
+      { id: 'geo1-lm-fc19', front: '北緯90度', back: '北極点の緯度を答えよ。', difficulty: 'basic' },
+      { id: 'geo1-lm-fc20', front: '南緯90度', back: '南極点の緯度を答えよ。', difficulty: 'basic' },
+      { id: 'geo1-lm-fc21', front: '4方位', back: '東西南北の4つの方位を何というか。', difficulty: 'basic' },
+      { id: 'geo1-lm-fc22', front: '北東', back: '8方位で、北と東の間は何か。', difficulty: 'basic' },
+      { id: 'geo1-lm-fc23', front: '東南東', back: '16方位で東と南東の間の方位は何か。', difficulty: 'advanced' },
+      { id: 'geo1-lm-fc24', front: '表せない（球体を平面にするため何かが必ずゆがむ）', back: '世界地図で面積・距離・方位・形のすべてを同時に正しく表せるか。', difficulty: 'standard' },
+      { id: 'geo1-lm-fc25', front: '持ち運びが不便・地球全体を一度に見ることが難しい', back: '地球儀の短所を2つ答えよ。', difficulty: 'standard' },
+      { id: 'geo1-lm-fc26', front: 'アフリカ大陸と南アメリカ大陸', back: '赤道が通る大陸を2つ答えよ。', difficulty: 'standard' },
+      { id: 'geo1-lm-fc27', front: '分布図や各国の面積比較', back: 'モルワイデ図法はどのような場面に適しているか。', explanation: '面積が正しく表されるため。', difficulty: 'advanced' },
+      { id: 'geo1-lm-fc28', front: '太陽のまわりを公転している', back: '地球は地軸が約23.4度傾いた状態でどのような運動をしているか。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -358,7 +212,8 @@ export const locationMaps: Topic = {
           correctIndex: 0,
           explanation:
             '緯度の基準は赤道（0度）です。赤道から北が北緯、南が南緯で、それぞれ90度まであります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-lm-q2',
           question: '本初子午線が通る都市はどこ？',
@@ -366,7 +221,8 @@ export const locationMaps: Topic = {
           correctIndex: 2,
           explanation:
             '本初子午線（経度0度）はイギリスのロンドン（旧グリニッジ天文台）を通ります。これが経度の基準です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-lm-q3',
           question: '高緯度地域で夏に太陽が一日中沈まない現象を何という？',
@@ -374,7 +230,8 @@ export const locationMaps: Topic = {
           correctIndex: 3,
           explanation:
             '白夜とは、高緯度地域で夏に太陽が一日中沈まない現象です。冬に太陽が一日中昇らない現象は極夜といいます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-lm-q4',
           question:
@@ -388,7 +245,8 @@ export const locationMaps: Topic = {
           correctIndex: 1,
           explanation:
             '地球儀は地球を縮小した模型なので、面積・距離・方位・形のすべてを正しく表すことができます。世界地図はすべてを同時に正しく表せません。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-lm-q5',
           question:
@@ -402,7 +260,8 @@ export const locationMaps: Topic = {
           correctIndex: 1,
           explanation:
             'メルカトル図法は角度が正しく表されるため、航海の方位を調べるのに適しています。ただし高緯度地域の面積が拡大されます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-lm-q6',
           question: '地球上のある地点の正反対の地点を何という？',
@@ -410,7 +269,8 @@ export const locationMaps: Topic = {
           correctIndex: 3,
           explanation:
             '対蹠点（たいせきてん）は地球上のある地点の正反対にある地点のことです。東京の対蹠点はウルグアイ沖にあります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-lm-q7',
           question: '面積が正しく表される図法はどれ？',
@@ -423,7 +283,8 @@ export const locationMaps: Topic = {
           correctIndex: 0,
           explanation:
             'モルワイデ図法は面積が正しく表されます。各国の面積を比較したり、分布図を作成したりするのに適しています。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-lm-q8',
           question: '16方位で、北と北東の間の方位は何？',
@@ -431,7 +292,8 @@ export const locationMaps: Topic = {
           correctIndex: 2,
           explanation:
             '北と北東の間は北北東です。16方位は8方位をさらに細かくした表し方で、22.5度刻みになります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-lm-q9',
           question: '北緯35度・東経140度の対蹠点として正しいものはどれ？',
@@ -444,7 +306,8 @@ export const locationMaps: Topic = {
           correctIndex: 1,
           explanation:
             '対蹠点は緯度が北緯⇔南緯（数値は同じ）、経度は180度−140度＝40度で東経⇔西経になります。よって南緯35度・西経40度です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-lm-q10',
           question: '白夜と極夜が起こる原因として正しいものはどれ？',
@@ -457,7 +320,8 @@ export const locationMaps: Topic = {
           correctIndex: 0,
           explanation:
             '地球の地軸が約23.4度傾いた状態で太陽のまわりを公転しているため、高緯度地域では夏に太陽が沈まない白夜や冬に太陽が昇らない極夜が起こります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-lm-q11',
           question: '東京の位置をおおよその緯度・経度で表すとどれか。',
@@ -470,7 +334,8 @@ export const locationMaps: Topic = {
           correctIndex: 0,
           explanation:
             '東京は北緯約36度・東経約140度に位置しています。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-lm-q12',
           question: '南極点の緯度はどれか。',
@@ -483,7 +348,8 @@ export const locationMaps: Topic = {
           correctIndex: 1,
           explanation:
             '南極点の緯度は南緯90度です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-lm-q13',
           question: '東経・西経はそれぞれ最大で何度まであるか。',
@@ -496,7 +362,8 @@ export const locationMaps: Topic = {
           correctIndex: 3,
           explanation:
             '東経・西経はそれぞれ180度まであります。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-lm-q14',
           question: '地球をそのまま縮めた模型を何というか。',
@@ -509,7 +376,8 @@ export const locationMaps: Topic = {
           correctIndex: 1,
           explanation:
             '地球儀は地球をそのまま縮小した模型です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-lm-q15',
           question: '世界地図が地球儀と異なる理由として正しいものはどれ？',
@@ -522,7 +390,8 @@ export const locationMaps: Topic = {
           correctIndex: 1,
           explanation:
             '世界地図は球体の地球を平面にするため、すべてを同時に正しく表すことはできません。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-lm-q16',
           question: '南緯66.6度以南の地域を何というか。',
@@ -535,7 +404,8 @@ export const locationMaps: Topic = {
           correctIndex: 1,
           explanation:
             '南緯66.6度以南は南極圏で、白夜や極夜が見られます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-lm-q17',
           question: '地球上の位置を正確に表すために組み合わせるものはどれ？',
@@ -548,7 +418,8 @@ export const locationMaps: Topic = {
           correctIndex: 2,
           explanation:
             '緯度と経度を組み合わせれば地球上のどの地点でも正確に表せます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-lm-q18',
           question: 'モルワイデ図法はどのような場面に適しているか。',
@@ -561,7 +432,8 @@ export const locationMaps: Topic = {
           correctIndex: 2,
           explanation:
             'モルワイデ図法は面積が正しく表されるため、分布図や各国の面積比較に適しています。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-lm-q19',
           question: '地軸の傾きによって起こる現象として正しくないものはどれ？',
@@ -574,7 +446,8 @@ export const locationMaps: Topic = {
           correctIndex: 3,
           explanation:
             '地軸の傾きは白夜・極夜・四季をもたらしますが、地震とは関係ありません。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-lm-q20',
           question: '8方位で南と西の間の方位は何か。',
@@ -587,7 +460,8 @@ export const locationMaps: Topic = {
           correctIndex: 1,
           explanation:
             '南と西の間は南西です。8方位は45度刻みです。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-lm-q21',
           question: 'メルカトル図法の短所はどれか。',
@@ -600,7 +474,8 @@ export const locationMaps: Topic = {
           correctIndex: 0,
           explanation:
             'メルカトル図法は高緯度地域ほど面積が実際より大きく表される短所があります。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-lm-q22',
           question: '赤道が通る大陸の正しい組み合わせはどれ？',
@@ -613,7 +488,8 @@ export const locationMaps: Topic = {
           correctIndex: 1,
           explanation:
             '赤道はアフリカ大陸と南アメリカ大陸を通っています。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-lm-q23',
           question: 'メルカトル図法で緯線と経線はどのように交わるか。',
@@ -626,7 +502,8 @@ export const locationMaps: Topic = {
           correctIndex: 1,
           explanation:
             'メルカトル図法では緯線と経線が直角に交わるため、角度が正しく表されます。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'geo1-lm-q24',
           question: '地球儀の短所として正しくないものはどれ？',
@@ -639,7 +516,8 @@ export const locationMaps: Topic = {
           correctIndex: 2,
           explanation:
             '地球儀は面積を含むすべてが正しく表されます。短所は持ち運びの不便さと全体を一度に見られないことです。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'geo1-lm-q25',
           question: '4方位・8方位・16方位の刻みの正しい組み合わせはどれ？',
@@ -652,7 +530,8 @@ export const locationMaps: Topic = {
           correctIndex: 1,
           explanation:
             '4方位は90度刻み、8方位は45度刻み、16方位は22.5度刻みです。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'geo1-lm-q26',
           question: '東京の対蹠点はどこ付近にあるか。',
@@ -665,7 +544,8 @@ export const locationMaps: Topic = {
           correctIndex: 2,
           explanation:
             '東京の対蹠点は南アメリカのウルグアイ沖の大西洋上にあります。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'geo1-lm-q27',
           question: '北緯40度・東経130度の対蹠点の経度はどれか。',
@@ -678,7 +558,8 @@ export const locationMaps: Topic = {
           correctIndex: 1,
           explanation:
             '対蹠点の経度は180度−130度＝50度で、東経⇔西経なので西経50度になります。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'geo1-lm-q28',
           question: '正距方位図法で調べることができるのはどれか。',
@@ -691,7 +572,8 @@ export const locationMaps: Topic = {
           correctIndex: 2,
           explanation:
             '正距方位図法は中心からの距離と方位が正しいため、最短ルート（大圏航路）を調べるのに適しています。',
-        },
+        difficulty: 'advanced',
+      },
       ],
     },
     examples: {

@@ -73,6 +73,7 @@ export const thirdPersonSingular: Topic = {
         back: 'He (　　) soccer.\n（彼はサッカーをします。）',
         hint: 'He は1人だよね。動詞のおしりに…？',
         explanation: 'He は1人なので play → plays。s をつけるよ。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-tps-fc2',
@@ -80,6 +81,7 @@ export const thirdPersonSingular: Topic = {
         back: 'She (　　) music.\n（彼女は音楽が好きです。）',
         hint: 'She は1人。like のおしりに…？',
         explanation: 'She は1人なので like → likes。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-tps-fc3',
@@ -87,6 +89,7 @@ export const thirdPersonSingular: Topic = {
         back: 'He (　　) TV.\n（彼はテレビを見ます。）',
         hint: 'watch は ch で終わるよ。s じゃなくて…？',
         explanation: 'ch で終わるから es をつけるよ。watch → watches',
+        difficulty: 'basic',
       },
       {
         id: 'eng-tps-fc4',
@@ -94,6 +97,7 @@ export const thirdPersonSingular: Topic = {
         back: 'She (　　) to school.\n（彼女は学校に行きます。）',
         hint: 'go は o で終わるよ。s じゃなくて…？',
         explanation: 'o で終わるから es をつけるよ。go → goes',
+        difficulty: 'basic',
       },
       {
         id: 'eng-tps-fc5',
@@ -101,6 +105,7 @@ export const thirdPersonSingular: Topic = {
         back: 'He (　　) English.\n（彼は英語を勉強します。）',
         hint: 'study は y で終わるよ。y を…？',
         explanation: 'y を i にかえて es をつけるよ。study → studies',
+        difficulty: 'basic',
       },
       {
         id: 'eng-tps-fc6',
@@ -108,6 +113,7 @@ export const thirdPersonSingular: Topic = {
         back: 'She (　　) a cat.\n（彼女はネコを飼っています。）',
         hint: 'have はとくべつな形になるよ',
         explanation: 'have は has にかわるよ。She has a cat.',
+        difficulty: 'basic',
       },
       {
         id: 'eng-tps-fc7',
@@ -115,6 +121,7 @@ export const thirdPersonSingular: Topic = {
         back: 'He (　　) like fish.\n（彼は魚が好きじゃないです。）',
         hint: 'He（1人）の「〜しない」は…？',
         explanation: "he / she / it の「〜しない」は doesn't だよ。動詞はもとの形にもどるよ。",
+        difficulty: 'basic',
       },
       {
         id: 'eng-tps-fc8',
@@ -122,6 +129,7 @@ export const thirdPersonSingular: Topic = {
         back: '(　　) he speak English?\n（彼は英語を話しますか？）',
         hint: 'He（1人）の「〜しますか？」は…？',
         explanation: 'he / she / it の「〜しますか？」は Does をいちばん前に置くよ。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-tps-fc9',
@@ -129,6 +137,7 @@ export const thirdPersonSingular: Topic = {
         back: 'Mr. Tanaka (　　) math.\n（田中先生は数学を教えます。）',
         hint: 'teach は ch で終わるよ。人名も三人称単数！',
         explanation: '人名（Mr. Tanaka）は三人称単数。teach は ch で終わるから es → teaches',
+        difficulty: 'basic',
       },
       {
         id: 'eng-tps-fc10',
@@ -136,6 +145,7 @@ export const thirdPersonSingular: Topic = {
         back: 'Ken (　　) the piano.\n（ケンはピアノをひきます。）',
         hint: 'Ken は1人の人。play に…？',
         explanation: 'Ken は三人称単数。play → plays',
+        difficulty: 'basic',
       },
       {
         id: 'eng-tps-fc11',
@@ -143,6 +153,7 @@ export const thirdPersonSingular: Topic = {
         back: 'She (　　) the dishes.\n（彼女はお皿を洗います。）',
         hint: 'wash は sh で終わるよ。',
         explanation: 'sh で終わるから es をつけるよ。wash → washes',
+        difficulty: 'basic',
       },
       {
         id: 'eng-tps-fc12',
@@ -150,6 +161,7 @@ export const thirdPersonSingular: Topic = {
         back: 'Does she like dogs?\n— (　　　　)\n（はい、好きです。）',
         hint: 'Does で聞かれたら does で答えるよ。',
         explanation: 'Does...? には Yes, 主語 + does. で答えるよ。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-tps-fc13',
@@ -157,6 +169,7 @@ export const thirdPersonSingular: Topic = {
         back: 'Does he play tennis?\n— (　　　　)\n（いいえ、しません。）',
         hint: "Does で聞かれて No なら doesn't を使うよ。",
         explanation: "Does...? に No で答えるときは No, 主語 + doesn't. だよ。",
+        difficulty: 'standard',
       },
       {
         id: 'eng-tps-fc14',
@@ -164,6 +177,7 @@ export const thirdPersonSingular: Topic = {
         back: 'He (　　)(　　) TV.\n（彼はよくテレビを見ます。）',
         hint: '「よく」= often。watch は ch で終わるよ。',
         explanation: 'often は動詞の前。watch → watches（ch で終わるから es）',
+        difficulty: 'standard',
       },
       {
         id: 'eng-tps-fc15',
@@ -171,6 +185,7 @@ export const thirdPersonSingular: Topic = {
         back: 'My brother (　　) soccer.\n（私の弟はサッカーが好きです。）',
         hint: 'My brother は1人 → 三人称単数だよ。',
         explanation: 'My brother は三人称単数（= he）。like → likes',
+        difficulty: 'standard',
       },
       {
         id: 'eng-tps-fc16',
@@ -178,6 +193,7 @@ export const thirdPersonSingular: Topic = {
         back: 'She (　　)(　　) a bike.\n（彼女は自転車を持っていません。）',
         hint: "三人称単数の否定文。has じゃなくて…？",
         explanation: "否定文は doesn't + 原形。has ではなく have にもどるよ。",
+        difficulty: 'standard',
       },
       {
         id: 'eng-tps-fc17',
@@ -185,6 +201,7 @@ export const thirdPersonSingular: Topic = {
         back: 'The baby (　　) at night.\n（赤ちゃんは夜に泣きます。）',
         hint: 'cry は y で終わるよ。y を…？',
         explanation: 'y を i にかえて es をつけるよ。cry → cries',
+        difficulty: 'standard',
       },
       {
         id: 'eng-tps-fc18',
@@ -192,6 +209,7 @@ export const thirdPersonSingular: Topic = {
         back: 'He (　　) a big bag.\n（彼は大きなカバンを持ち運びます。）',
         hint: 'carry は y で終わるよ。y を…？',
         explanation: 'y を i にかえて es をつけるよ。carry → carries',
+        difficulty: 'standard',
       },
       {
         id: 'eng-tps-fc19',
@@ -199,6 +217,7 @@ export const thirdPersonSingular: Topic = {
         back: 'My father (　　) the car.\n（私の父は車を修理します。）',
         hint: 'fix は x で終わるよ。s じゃなくて…？',
         explanation: 'x で終わるから es をつけるよ。fix → fixes',
+        difficulty: 'standard',
       },
       {
         id: 'eng-tps-fc20',
@@ -206,6 +225,7 @@ export const thirdPersonSingular: Topic = {
         back: 'She (　　) the colors.\n（彼女は色をまぜます。）',
         hint: 'mix は x で終わるよ。s じゃなくて…？',
         explanation: 'x で終わるから es をつけるよ。mix → mixes',
+        difficulty: 'standard',
       },
       {
         id: 'eng-tps-fc21',
@@ -213,6 +233,7 @@ export const thirdPersonSingular: Topic = {
         back: 'He (　　) his homework after school.\n（彼は放課後に宿題をします。）',
         hint: 'do は o で終わるよ。s じゃなくて…？',
         explanation: 'o で終わるから es をつけるよ。do → does',
+        difficulty: 'standard',
       },
       {
         id: 'eng-tps-fc22',
@@ -220,6 +241,7 @@ export const thirdPersonSingular: Topic = {
         back: 'She (　　)(　　) to school.\n（彼女はふだん歩いて学校に行きます。）',
         hint: '「ふだん」= usually は動詞の前。walk に s をつけるよ。',
         explanation: 'usually は動詞の前に置くよ。She は三人称単数だから walk → walks',
+        difficulty: 'standard',
       },
       {
         id: 'eng-tps-fc23',
@@ -227,6 +249,7 @@ export const thirdPersonSingular: Topic = {
         back: 'Ms. Green (　　) three languages.\n（グリーン先生は3つの言語を話します。）',
         hint: 'Ms. Green は1人の人。speak に…？',
         explanation: 'Ms. Green は三人称単数。speak → speaks',
+        difficulty: 'advanced',
       },
       {
         id: 'eng-tps-fc24',
@@ -234,6 +257,7 @@ export const thirdPersonSingular: Topic = {
         back: 'Ken (　　)(　　) baseball.\n（ケンは野球をしません。）',
         hint: "Ken は三人称単数。「〜しない」は doesn't + 原形だよ。",
         explanation: "三人称単数の否定文は doesn't + 動詞の原形。plays ではなく play にもどるよ。",
+        difficulty: 'advanced',
       },
       {
         id: 'eng-tps-fc25',
@@ -241,6 +265,7 @@ export const thirdPersonSingular: Topic = {
         back: '(　　) she (　　) dinner?\n（彼女は夕食を作りますか？）',
         hint: '三人称単数の疑問文。Does のあとの動詞は原形だよ。',
         explanation: '三人称単数の疑問文は Does + 主語 + 動詞の原形。cooks ではなく cook にもどるよ。',
+        difficulty: 'advanced',
       },
       {
         id: 'eng-tps-fc26',
@@ -248,6 +273,7 @@ export const thirdPersonSingular: Topic = {
         back: 'He (　　)(　　) manga.\n（彼はときどきマンガを読みます。）',
         hint: '「ときどき」= sometimes は動詞の前。read に s をつけるよ。',
         explanation: 'sometimes は動詞の前に置くよ。He は三人称単数だから read → reads',
+        difficulty: 'advanced',
       },
       {
         id: 'eng-tps-fc27',
@@ -255,6 +281,7 @@ export const thirdPersonSingular: Topic = {
         back: 'The bird (　　) in the sky.\n（その鳥は空を飛びます。）',
         hint: 'fly は y で終わるよ。y を…？',
         explanation: 'y を i にかえて es をつけるよ。fly → flies',
+        difficulty: 'advanced',
       },
       {
         id: 'eng-tps-fc28',
@@ -262,6 +289,7 @@ export const thirdPersonSingular: Topic = {
         back: 'She always (　　) the test.\n（彼女はいつもテストに受かります。）',
         hint: 'pass は ss で終わるよ。s じゃなくて…？',
         explanation: 's で終わるから es をつけるよ。pass → passes',
+        difficulty: 'advanced',
       },
     ],
     quiz: {
@@ -272,6 +300,7 @@ export const thirdPersonSingular: Topic = {
           options: ['plays', 'play', 'playing', 'to play'],
           correctIndex: 0,
           explanation: 'He は1人だから、動詞のおしりに s をつけるよ。play → plays',
+          difficulty: 'basic',
         },
         {
           id: 'eng-tps-q2',
@@ -279,6 +308,7 @@ export const thirdPersonSingular: Topic = {
           options: ['go', 'goes', 'gos', 'going'],
           correctIndex: 1,
           explanation: 'She は1人。go は o で終わるから es をつけて goes だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'eng-tps-q3',
@@ -286,6 +316,7 @@ export const thirdPersonSingular: Topic = {
           options: ['have', 'haves', 'having', 'has'],
           correctIndex: 3,
           explanation: 'have はとくべつで、he / she / it のときは has になるよ。',
+          difficulty: 'basic',
         },
         {
           id: 'eng-tps-q4',
@@ -298,6 +329,7 @@ export const thirdPersonSingular: Topic = {
           ],
           correctIndex: 2,
           explanation: 'She は1人なので Does を使うよ。likes の s は消えて like にもどるよ。',
+          difficulty: 'basic',
         },
         {
           id: 'eng-tps-q5',
@@ -310,6 +342,7 @@ export const thirdPersonSingular: Topic = {
           ],
           correctIndex: 3,
           explanation: "Does で聞かれたら doesn't で答えるよ。No, he doesn't.",
+          difficulty: 'basic',
         },
         {
           id: 'eng-tps-q6',
@@ -317,6 +350,7 @@ export const thirdPersonSingular: Topic = {
           options: ['study', 'studies', 'studys', 'studying'],
           correctIndex: 1,
           explanation: 'Ken は三人称単数。study は y を i にかえて es をつけて studies だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'eng-tps-q7',
@@ -324,6 +358,7 @@ export const thirdPersonSingular: Topic = {
           options: ["don't", "isn't", "doesn't", 'not'],
           correctIndex: 2,
           explanation: "My sister は三人称単数（= she）なので doesn't を使うよ。",
+          difficulty: 'basic',
         },
         {
           id: 'eng-tps-q8',
@@ -331,6 +366,7 @@ export const thirdPersonSingular: Topic = {
           options: ['Does', 'Do', 'Is', 'Are'],
           correctIndex: 0,
           explanation: 'your father は三人称単数（= he）なので Does を使うよ。',
+          difficulty: 'basic',
         },
         {
           id: 'eng-tps-q9',
@@ -338,6 +374,7 @@ export const thirdPersonSingular: Topic = {
           options: ['watch', 'watchs', 'watching', 'watches'],
           correctIndex: 3,
           explanation: 'He は三人称単数。watch は ch で終わるから es をつけて watches だよ。often があっても動詞の形は変わらないよ。',
+          difficulty: 'basic',
         },
         {
           id: 'eng-tps-q10',
@@ -350,6 +387,7 @@ export const thirdPersonSingular: Topic = {
           ],
           correctIndex: 2,
           explanation: "三人称単数の否定文は doesn't + 動詞の原形。has ではなく have にもどるよ。",
+          difficulty: 'basic',
         },
         {
           id: 'eng-tps-q11',
@@ -362,6 +400,7 @@ export const thirdPersonSingular: Topic = {
           ],
           correctIndex: 1,
           explanation: 'Does で聞かれたら does で答えるよ。Amy は she に置きかえて Yes, she does.',
+          difficulty: 'standard',
         },
         {
           id: 'eng-tps-q12',
@@ -373,6 +412,7 @@ export const thirdPersonSingular: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「She plays the piano.」が正解。She（彼女は）+ plays（ひく）+ the piano（ピアノ）の順番だよ。She は1人だから play に s がつくよ。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-tps-q13',
@@ -384,6 +424,7 @@ export const thirdPersonSingular: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「He doesn\'t like math.」が正解。He（彼は）+ doesn\'t（〜しない）+ like（好き）+ math（数学）の順番だよ。doesn\'t のあとは動詞のもとの形を使うよ。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-tps-q14',
@@ -395,6 +436,7 @@ export const thirdPersonSingular: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「Does she speak English?」が正解。Does（〜しますか）+ she（彼女は）+ speak（話す）+ English（英語）の順番だよ。Does のあとは動詞のもとの形を使うよ。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-tps-q15',
@@ -406,6 +448,7 @@ export const thirdPersonSingular: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「Ken often plays soccer after school.」が正解。頻度の副詞 often は動詞 plays の前に置くよ。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-tps-q16',
@@ -413,6 +456,7 @@ export const thirdPersonSingular: Topic = {
           options: ['crys', 'cryes', 'cries', 'cry'],
           correctIndex: 2,
           explanation: 'The baby は三人称単数。cry は y を i にかえて es をつけて cries だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-tps-q17',
@@ -420,6 +464,7 @@ export const thirdPersonSingular: Topic = {
           options: ['carrys', 'carries', 'carry', 'carryes'],
           correctIndex: 1,
           explanation: 'He は三人称単数。carry は y を i にかえて es をつけて carries だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-tps-q18',
@@ -427,6 +472,7 @@ export const thirdPersonSingular: Topic = {
           options: ['fixs', 'fix', 'fixies', 'fixes'],
           correctIndex: 3,
           explanation: 'My father は三人称単数。fix は x で終わるから es をつけて fixes だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-tps-q19',
@@ -439,6 +485,7 @@ export const thirdPersonSingular: Topic = {
           ],
           correctIndex: 2,
           explanation: "My mother は三人称単数（= she）なので don't ではなく doesn't を使うよ。正しくは My mother doesn't like fish.",
+          difficulty: 'standard',
         },
         {
           id: 'eng-tps-q20',
@@ -451,6 +498,7 @@ export const thirdPersonSingular: Topic = {
           ],
           correctIndex: 0,
           explanation: 'Does のあとの動詞は原形にもどすよ。plays ではなく play が正しい。Does he play tennis?',
+          difficulty: 'standard',
         },
         {
           id: 'eng-tps-q21',
@@ -458,6 +506,7 @@ export const thirdPersonSingular: Topic = {
           options: ['mix', 'mixs', 'mixes', 'mixies'],
           correctIndex: 2,
           explanation: 'She は三人称単数。mix は x で終わるから es をつけて mixes だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-tps-q22',
@@ -465,6 +514,7 @@ export const thirdPersonSingular: Topic = {
           options: ['eat', 'eats', 'eating', 'to eat'],
           correctIndex: 1,
           explanation: 'He は三人称単数だから eat → eats。usually があっても動詞の形は変わらないよ。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-tps-q23',
@@ -476,6 +526,7 @@ export const thirdPersonSingular: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「She sometimes studies in the library.」が正解。sometimes は動詞 studies の前に置くよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'eng-tps-q24',
@@ -487,6 +538,7 @@ export const thirdPersonSingular: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「Does your brother listen to music?」が正解。Does のあとは動詞の原形 listen を使うよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'eng-tps-q25',
@@ -498,6 +550,7 @@ export const thirdPersonSingular: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「My mother doesn\'t make cakes.」が正解。doesn\'t のあとは動詞の原形 make を使うよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'eng-tps-q26',
@@ -509,6 +562,7 @@ export const thirdPersonSingular: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「Emi usually walks to school.」が正解。usually は動詞 walks の前に置くよ。Emi は三人称単数だから walk → walks だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'eng-tps-q27',
@@ -520,6 +574,7 @@ export const thirdPersonSingular: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「Does he do his homework every day?」が正解。Does のあとは動詞の原形 do を使うよ。every day は文の最後に置くよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'eng-tps-q28',
@@ -531,6 +586,7 @@ export const thirdPersonSingular: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「Mr. Tanaka speaks three languages.」が正解。Mr. Tanaka は三人称単数だから speak → speaks だよ。',
+          difficulty: 'advanced',
         },
       ],
     },

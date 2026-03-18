@@ -51,6 +51,7 @@ export const relativePronouns: Topic = {
         back: '「人」を説明する関係代名詞は？',
         hint: 'ふだん「誰？」と聞くときに使う言葉だよ',
         explanation: '人を説明するときは who を使うよ。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-rp-fc2',
@@ -58,6 +59,7 @@ export const relativePronouns: Topic = {
         back: '「もの」を説明する関係代名詞は？',
         hint: 'ふだん「どれ？」と聞くときに使う言葉だよ',
         explanation: 'ものを説明するときは which を使うよ。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-rp-fc3',
@@ -65,6 +67,7 @@ export const relativePronouns: Topic = {
         back: '人にもものにも使える関係代名詞は？',
         hint: '万能な関係代名詞だよ',
         explanation: 'that は人でもものでもOK。迷ったら that を使おう！',
+        difficulty: 'basic',
       },
       {
         id: 'eng-rp-fc4',
@@ -72,6 +75,7 @@ export const relativePronouns: Topic = {
         back: '「サッカーをする男の子はケンです。」を英語にすると？',
         hint: '男の子は「人」だから who を使うよ',
         explanation: 'boy のうしろに who plays soccer をくっつけるよ。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-rp-fc5',
@@ -79,6 +83,7 @@ export const relativePronouns: Topic = {
         back: '「私が読んだ本はおもしろかった。」を英語にすると？',
         hint: '本は「もの」だから which を使うよ',
         explanation: 'book のうしろに which I read をくっつけるよ。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-rp-fc6',
@@ -86,6 +91,7 @@ export const relativePronouns: Topic = {
         back: '「私にはアメリカに住んでいる友達がいます。」を英語にすると？',
         hint: '友達は「人」だから who を使うよ',
         explanation: 'friend のうしろに who lives in America をくっつけるよ。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-rp-fc7',
@@ -93,6 +99,7 @@ export const relativePronouns: Topic = {
         back: '「これは私が見つけた猫です。」を英語にすると？',
         hint: '猫は「もの」扱い。which でも that でもOKだよ',
         explanation: 'cat のうしろに that I found をくっつけるよ。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-rp-fc8',
@@ -100,6 +107,7 @@ export const relativePronouns: Topic = {
         back: 'I know a girl (　　) can speak French.\n（フランス語を話せる女の子を知っています。）\n(　　) に入るのは？',
         hint: 'girl は「人」だよ',
         explanation: '女の子は「人」だから who を使うよ。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-rp-fc9',
@@ -107,6 +115,7 @@ export const relativePronouns: Topic = {
         back: 'This is the movie (　　) I watched yesterday.\n（これは私がきのう見た映画です。）\n(　　) に入るのは？',
         hint: 'movie は「もの」だよ',
         explanation: '映画は「もの」だから which を使うよ（that でもOK）。',
+        difficulty: 'advanced',
       },
       {
         id: 'eng-rp-fc10',
@@ -114,6 +123,7 @@ export const relativePronouns: Topic = {
         back: '「私たちに英語を教えてくれた先生はやさしかった。」を英語にすると？',
         hint: '先生は「人」だから who を使うよ',
         explanation: 'teacher のうしろに who taught us English をくっつけるよ。',
+        difficulty: 'advanced',
       },
     ],
     quiz: {
@@ -129,6 +139,7 @@ export const relativePronouns: Topic = {
           ],
           correctIndex: 0,
           explanation: '男の子は「人」だから who を使うよ。The boy who plays soccer is Ken. が正しいよ。',
+          difficulty: 'basic',
         },
         {
           id: 'eng-rp-q2',
@@ -141,6 +152,7 @@ export const relativePronouns: Topic = {
           ],
           correctIndex: 1,
           explanation: '本は「もの」だから which を使うよ。The book which I read was interesting. が正しいよ。',
+          difficulty: 'basic',
         },
         {
           id: 'eng-rp-q3',
@@ -148,6 +160,7 @@ export const relativePronouns: Topic = {
           options: ['which', 'where', 'what', 'who'],
           correctIndex: 3,
           explanation: 'girl は「人」だから who を使うよ。',
+          difficulty: 'basic',
         },
         {
           id: 'eng-rp-q4',
@@ -160,6 +173,7 @@ export const relativePronouns: Topic = {
           ],
           correctIndex: 2,
           explanation: 'that は人でもものでも使えるよ。全部の文で that が使えるんだ！',
+          difficulty: 'standard',
         },
         {
           id: 'eng-rp-q5',
@@ -172,6 +186,7 @@ export const relativePronouns: Topic = {
           ],
           correctIndex: 0,
           explanation: '先生は「人」だから who を使うよ。This is the teacher who taught us English. が正しいよ。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-rp-q6',
@@ -183,6 +198,7 @@ export const relativePronouns: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「I have a friend who lives in London.」が正解。who（関係代名詞）+ lives（住んでいる）+ in + London（ロンドン）の順番だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-rp-q7',
@@ -194,6 +210,7 @@ export const relativePronouns: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「This is the book that I want.」が正解。that（関係代名詞）+ I（私が）+ want（ほしい）の順番だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-rp-q8',
@@ -205,6 +222,7 @@ export const relativePronouns: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「The dog which is running is mine.」が正解。which（関係代名詞）+ is + running（走っている）の順番だよ。',
+          difficulty: 'advanced',
         },
       ],
     },

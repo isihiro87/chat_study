@@ -69,114 +69,142 @@ export const quadFormula: Topic = {
       {
         id: 'math-g3-qf-fc1',
         front: 'x² + bx = (x + b/2)² − (b/2)²\nb の半分を2乗して足して引く', back: '平方完成の公式',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qf-fc2',
         front: '(x+3)² − 9\n6の半分=3、3²=9', back: 'x² + 6x を平方完成',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qf-fc3',
         front: '(x−4)² − 16\n−8の半分=−4、(−4)²=16', back: 'x² − 8x を平方完成',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qf-fc4',
         front: 'x = (−b ± √(b²−4ac)) / 2a\nax²+bx+c=0 の万能解法', back: '解の公式',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qf-fc5',
         front: 'b² − 4ac\n解の公式のルートの中身', back: '判別式とは？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qf-fc6',
         front: '異なる2つの実数解がある', back: '判別式 > 0 のとき',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qf-fc7',
         front: '重解（解が1つだけ）\nx = −b / 2a', back: '判別式 = 0 のとき',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qf-fc8',
         front: '実数解なし\n（ルートの中が負になる）', back: '判別式 < 0 のとき',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qf-fc9',
         front: '2つの解が同じ値になること\n判別式 b²−4ac = 0 のとき起こる', back: '重解とは？',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qf-fc10',
         front: '2a\n（a は x² の係数）', back: '解の公式の分母',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qf-fc11',
         front: '−b は正になる（−(−5) = 5）\n符号ミスに注意！', back: '解の公式で b が負のとき\n（例: x²−5x+3=0）',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qf-fc12',
         front: '√12 = √(4×3) = 2√3\n素因数分解して外に出す', back: '√の中身の簡単化\n√12 = ?',
+        difficulty: 'basic',
       },
       {
         id: 'math-g3-qf-fc13',
         front: '分子全体と分母で約分する\n例: (6±2√3)/4 = (3±√3)/2', back: '解の公式の約分のコツ',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qf-fc14',
         front: '①定数項を移項\n②(p/2)²を足して引く\n③(x+p/2)²=nの形にする\n④平方根をとる', back: 'x²+px+q=0 を\n平方完成で解く手順',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qf-fc15',
         front: '因数分解できない二次方程式のとき\nどんな二次方程式にも使える万能公式', back: '解の公式はいつ使う？',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qf-fc16',
         front: 'a=1, b=1, c=−4\nx = (−1 ± √17) / 2', back: 'x² + x − 4 = 0 の解',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qf-fc17',
         front: 'a=2, b=5, c=−3\nx = (−5±7)/4 → x=1/2, −3', back: '2x²+5x−3=0 の解',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qf-fc18',
         front: 'b²−4ac = 36−36 = 0（重解）\nx = 6/2 = 3', back: 'x²−6x+9=0 の判別式と解',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qf-fc19',
         front: '(x−2)² − 7\n−4の半分=−2、(−2)²=4、移項して(x−2)²=7', back: 'x²−4x−3=0 を平方完成',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qf-fc20',
         front: 'a=1, b=−3, c=−2\nx = (3±√17)/2', back: 'x²−3x−2=0 の解',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qf-fc21',
         front: 'b²−4ac = 4−20 = −16 < 0\n実数解なし', back: 'x²+2x+5=0 の判別式と解の個数',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qf-fc22',
         front: '(x+5)² − 25\n10の半分=5、5²=25', back: 'x²+10x を平方完成',
+        difficulty: 'standard',
       },
       {
         id: 'math-g3-qf-fc23',
         front: 'a=3, b=−2, c=−1\nx = (2±4)/6 → x=1, −1/3', back: '3x²−2x−1=0 の解',
+        difficulty: 'advanced',
       },
       {
         id: 'math-g3-qf-fc24',
         front: '因数分解できれば因数分解、できなければ解の公式', back: '二次方程式の解き方の使い分け',
+        difficulty: 'advanced',
       },
       {
         id: 'math-g3-qf-fc25',
         front: 'a=1, b=−1, c=−5\nx = (1±√21)/2', back: 'x²−x−5=0 の解',
+        difficulty: 'advanced',
       },
       {
         id: 'math-g3-qf-fc26',
         front: '(x+3/2)² − 9/4\n3の半分=3/2、(3/2)²=9/4', back: 'x²+3x を平方完成',
+        difficulty: 'advanced',
       },
       {
         id: 'math-g3-qf-fc27',
         front: '√20 = √(4×5) = 2√5\n√8 = √(4×2) = 2√2', back: '√の中身の簡単化: √20, √8',
+        difficulty: 'advanced',
       },
       {
         id: 'math-g3-qf-fc28',
         front: '分子全体を約分する\n(4±2√3)/2 = 2±√3', back: '解の公式で約分するコツ（もう1つ）',
+        difficulty: 'advanced',
       },
     ],
     quiz: {
@@ -193,6 +221,7 @@ export const quadFormula: Topic = {
           correctIndex: 3,
           explanation:
             '$x^2 + 6x = (x+3)^2 - 9$。$b$ の半分 $= 3$、$3^2 = 9$ を引くよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-qf-q2',
@@ -206,6 +235,7 @@ export const quadFormula: Topic = {
           correctIndex: 2,
           explanation:
             '$x = \\frac{-2 \\pm \\sqrt{4+12}}{2} = \\frac{-2 \\pm 4}{2}$。$x = 1$ または $x = -3$ だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-qf-q3',
@@ -214,6 +244,7 @@ export const quadFormula: Topic = {
           correctIndex: 0,
           explanation:
             '$b^2-4ac = 0$ のとき $\\sqrt{0} = 0$ なので $\\pm$ の部分が消えて解は1つ（重解）だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-qf-q4',
@@ -227,6 +258,7 @@ export const quadFormula: Topic = {
           correctIndex: 1,
           explanation:
             '$b = -10$ の半分は $-5$。$(-5)^2 = 25$ を引いて $(x-5)^2 - 25$ だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-qf-q5',
@@ -240,6 +272,7 @@ export const quadFormula: Topic = {
           correctIndex: 3,
           explanation:
             '$a=1, b=5, c=3$。$b^2-4ac = 25-12 = 13$。$x = \\frac{-5 \\pm \\sqrt{13}}{2}$ だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-qf-q6',
@@ -253,6 +286,7 @@ export const quadFormula: Topic = {
           correctIndex: 0,
           explanation:
             '$ax^2 + bx + c = 0$ の形にあてはめて $a=3, b=-7, c=-1$ だよ。符号もそのまま読み取ろう。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-qf-q7',
@@ -261,6 +295,7 @@ export const quadFormula: Topic = {
           correctIndex: 1,
           explanation:
             '$b^2-4ac = (-6)^2 - 4 \\times 1 \\times 9 = 36 - 36 = 0$。重解 $x = 3$ だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-qf-q8',
@@ -274,6 +309,7 @@ export const quadFormula: Topic = {
           correctIndex: 2,
           explanation:
             '判別式 $< 0$ のとき $\\sqrt{}$ の中が負になるので、実数の範囲では解がないよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-qf-q9',
@@ -287,6 +323,7 @@ export const quadFormula: Topic = {
           correctIndex: 3,
           explanation:
             '$\\sqrt{12} = 2\\sqrt{3}$ だから $x = \\frac{6 \\pm 2\\sqrt{3}}{2} = 3 \\pm \\sqrt{3}$ だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-qf-q10',
@@ -300,6 +337,7 @@ export const quadFormula: Topic = {
           correctIndex: 2,
           explanation:
             '$a=4, b=-3, c=-2$。$-b = 3$、$b^2-4ac = 9+32 = 41$、$2a = 8$。$x = \\frac{3 \\pm \\sqrt{41}}{8}$ だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g3-qf-q11',
@@ -313,6 +351,7 @@ export const quadFormula: Topic = {
           correctIndex: 0,
           explanation:
             '$x = \\frac{4 \\pm \\sqrt{16-4}}{2} = \\frac{4 \\pm \\sqrt{12}}{2} = \\frac{4 \\pm 2\\sqrt{3}}{2} = 2 \\pm \\sqrt{3}$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qf-q12',
@@ -322,6 +361,7 @@ export const quadFormula: Topic = {
           correctIndex: 1,
           explanation:
             '重解の条件: $b^2-4ac = 0$。$16 - 4k = 0$ より $k = 4$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qf-q13',
@@ -335,6 +375,7 @@ export const quadFormula: Topic = {
           correctIndex: 2,
           explanation:
             '10の半分=5、$5^2=25$ を引いて $(x+5)^2 - 25$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qf-q14',
@@ -348,6 +389,7 @@ export const quadFormula: Topic = {
           correctIndex: 0,
           explanation:
             '$a=1, b=-3, c=-2$。$b^2-4ac=9+8=17$。$x = \\frac{3 \\pm \\sqrt{17}}{2}$。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qf-q15',
@@ -361,6 +403,7 @@ export const quadFormula: Topic = {
           correctIndex: 0,
           explanation:
             '$b^2-4ac = 4-20 = -16 < 0$。実数解なしだよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qf-q16',
@@ -374,6 +417,7 @@ export const quadFormula: Topic = {
           correctIndex: 0,
           explanation:
             '$x = \\frac{2 \\pm \\sqrt{4+12}}{6} = \\frac{2 \\pm 4}{6}$。$x = 1$ または $x = -\\frac{1}{3}$。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qf-q17',
@@ -387,6 +431,7 @@ export const quadFormula: Topic = {
           correctIndex: 2,
           explanation:
             '$a=1, b=-1, c=-5$。$b^2-4ac=1+20=21$。$x = \\frac{1 \\pm \\sqrt{21}}{2}$。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qf-q18',
@@ -400,6 +445,7 @@ export const quadFormula: Topic = {
           correctIndex: 1,
           explanation:
             '3の半分=$\\frac{3}{2}$、$(\\frac{3}{2})^2=\\frac{9}{4}$ を引いて $(x+\\frac{3}{2})^2 - \\frac{9}{4}$。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qf-q19',
@@ -413,6 +459,7 @@ export const quadFormula: Topic = {
           correctIndex: 0,
           explanation:
             '$a=2, b=-3, c=-1$。$b^2-4ac=9+8=17$、$2a=4$。$x = \\frac{3 \\pm \\sqrt{17}}{4}$。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qf-q20',
@@ -426,6 +473,7 @@ export const quadFormula: Topic = {
           correctIndex: 2,
           explanation:
             '$\\sqrt{20} = \\sqrt{4 \\times 5} = 2\\sqrt{5}$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qf-q21',
@@ -439,6 +487,7 @@ export const quadFormula: Topic = {
           correctIndex: 0,
           explanation:
             '$x = \\frac{-6 \\pm \\sqrt{36-8}}{2} = \\frac{-6 \\pm \\sqrt{28}}{2} = \\frac{-6 \\pm 2\\sqrt{7}}{2} = -3 \\pm \\sqrt{7}$。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qf-q22',
@@ -447,6 +496,7 @@ export const quadFormula: Topic = {
           correctIndex: 2,
           explanation:
             '$b^2-4ac = 64-4k = 0$ より $k = 16$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g3-qf-q23',
@@ -460,6 +510,7 @@ export const quadFormula: Topic = {
           correctIndex: 0,
           explanation:
             '$(x-2)^2 = 7$ → $x = 2 \\pm \\sqrt{7}$ だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g3-qf-q24',
@@ -473,6 +524,7 @@ export const quadFormula: Topic = {
           correctIndex: 1,
           explanation:
             '解の公式 $x = \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}$ の分母は $2a$ だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g3-qf-q25',
@@ -486,6 +538,7 @@ export const quadFormula: Topic = {
           correctIndex: 1,
           explanation:
             '$\\sqrt{8} = 2\\sqrt{2}$ だから $x = \\frac{4 \\pm 2\\sqrt{2}}{2} = 2 \\pm \\sqrt{2}$。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g3-qf-q26',
@@ -499,6 +552,7 @@ export const quadFormula: Topic = {
           correctIndex: 2,
           explanation:
             '$ax^2+bx+c=0$ の形にあてはめて $a=5, b=2, c=-1$ だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g3-qf-q27',
@@ -512,6 +566,7 @@ export const quadFormula: Topic = {
           correctIndex: 2,
           explanation:
             '因数分解できないときは解の公式を使おう。どんな二次方程式でも解ける万能公式だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g3-qf-q28',
@@ -525,6 +580,7 @@ export const quadFormula: Topic = {
           correctIndex: 1,
           explanation:
             '$(x+4)(x-2) = 0$ と因数分解できるので、因数分解の方が速いよ。',
+          difficulty: 'advanced',
         },
       ],
     },

@@ -54,7 +54,22 @@ export const eqBasics: Topic = {
       ],
     },
     videos: [],
-    flashcards: [],
+    flashcards: [
+      { id: 'math-g1-eq-b-fc1', front: '未知数を含む等式で、特定の値のときだけ成り立つ式', back: '方程式とは？', difficulty: 'basic' },
+      { id: 'math-g1-eq-b-fc2', front: '方程式を成り立たせる未知数の値', back: '方程式の「解」とは？', difficulty: 'basic' },
+      { id: 'math-g1-eq-b-fc3', front: '解を求めること', back: '「方程式を解く」とは？', difficulty: 'basic' },
+      { id: 'math-g1-eq-b-fc4', front: '等式の一方の辺の項を、符号を変えて他方の辺に移すこと', back: '移項とは？', difficulty: 'basic' },
+      { id: 'math-g1-eq-b-fc5', front: '$+$ の項を移項すると $-$ に、$-$ の項を移項すると $+$ になる', back: '移項するとき符号はどうなる？', difficulty: 'basic' },
+      { id: 'math-g1-eq-b-fc6', front: '両辺に同じ数を加えても、引いても、かけても、割っても等式は成り立つ', back: '等式の性質とは？', difficulty: 'basic' },
+      { id: 'math-g1-eq-b-fc7', front: '① 移項して $ax = b$ の形にする → ② 両辺を $a$ で割る → $x = \\dfrac{b}{a}$', back: '方程式を解く基本手順は？', difficulty: 'basic' },
+      { id: 'math-g1-eq-b-fc8', front: '$x = 4$（両辺から $3$ を引く → $x = 7 - 3$）', back: '$x + 3 = 7$ の解は？', difficulty: 'basic' },
+      { id: 'math-g1-eq-b-fc9', front: '$x = 5$（両辺を $3$ で割る → $x = 15 \\div 3$）', back: '$3x = 15$ の解は？', difficulty: 'basic' },
+      { id: 'math-g1-eq-b-fc10', front: '$x = 7$（$-4$ を移項して $2x = 14$、両辺を $2$ で割る）', back: '$2x - 4 = 10$ の解は？', difficulty: 'standard' },
+      { id: 'math-g1-eq-b-fc11', front: '$x$ の項を左辺、数の項を右辺にまとめてから $ax = b$ の形にする', back: '$x$ が両辺にある方程式の解き方は？', difficulty: 'standard' },
+      { id: 'math-g1-eq-b-fc12', front: '求めた解を元の方程式に代入して、等式が成り立つか確認する', back: '方程式の解の確かめ方は？', difficulty: 'standard' },
+      { id: 'math-g1-eq-b-fc13', front: '$x = 3$（$3x$ を移項して $2x = 6$、$x = 3$）', back: '$5x + 2 = 3x + 8$ の解は？', difficulty: 'standard' },
+      { id: 'math-g1-eq-b-fc14', front: '$x = -2$（$5$ を移項して $-3x = 6$、$x = -2$）', back: '$-3x + 5 = 11$ の解は？', difficulty: 'advanced' },
+    ],
     quiz: {
       questions: [
         {
@@ -64,6 +79,7 @@ export const eqBasics: Topic = {
           correctIndex: 0,
           explanation:
             '両辺から 3 を引く（移項する）と $x = 7 - 3 = 4$。確かめ: $4 + 3 = 7$ ✓',
+          difficulty: 'basic',
         },
         {
           id: 'math-g1-eq-basics-q2',
@@ -72,6 +88,7 @@ export const eqBasics: Topic = {
           correctIndex: 3,
           explanation:
             '両辺を 3 で割ると $x = \\dfrac{15}{3} = 5$。確かめ: $3 \\times 5 = 15$ ✓',
+          difficulty: 'basic',
         },
         {
           id: 'math-g1-eq-basics-q3',
@@ -80,6 +97,7 @@ export const eqBasics: Topic = {
           correctIndex: 1,
           explanation:
             '$-4$ を移項して $2x = 14$。両辺を 2 で割ると $x = 7$。確かめ: $2 \\times 7 - 4 = 10$ ✓',
+          difficulty: 'standard',
         },
         {
           id: 'math-g1-eq-basics-q4',
@@ -88,6 +106,7 @@ export const eqBasics: Topic = {
           correctIndex: 2,
           explanation:
             '$3x$ を移項して $5x - 3x = 8 - 2$、つまり $2x = 6$。$x = 3$。確かめ: $5(3)+2=17$, $3(3)+8=17$ ✓',
+          difficulty: 'standard',
         },
         {
           id: 'math-g1-eq-basics-q5',
@@ -101,6 +120,7 @@ export const eqBasics: Topic = {
           correctIndex: 3,
           explanation:
             '移項するときは符号が逆になるよ。＋の項は−に、−の項は＋に変わるんだ。',
+          difficulty: 'advanced',
         },
       ],
     },

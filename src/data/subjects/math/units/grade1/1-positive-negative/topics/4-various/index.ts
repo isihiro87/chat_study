@@ -55,34 +55,34 @@ export const variousCalc: Topic = {
     },
     videos: [],
     flashcards: [
-      { id: 'math-g1-var-fc1', front: '累乗（るいじょう）。例: $3^2 = 3 \\times 3 = 9$', back: '同じ数を何回もかけ合わせたものを何という？' },
-      { id: 'math-g1-var-fc2', front: '指数（しすう）。$3^2$ の $2$ が指数。', back: '累乗でかけ合わせた回数を表す数字を何という？' },
-      { id: 'math-g1-var-fc3', front: '$(-3)^2 = 9$（$-3$ 全体を $2$ 回かける）、$-3^2 = -9$（$3^2$ を計算してから $-$ をつける）', back: '$(-3)^2$ と $-3^2$ の違いは？' },
-      { id: 'math-g1-var-fc4', front: '$(-2)^3 = (-2) \\times (-2) \\times (-2) = -8$', back: '$(-2)^3$ の計算結果は？' },
-      { id: 'math-g1-var-fc5', front: '① 累乗 → ② かっこの中 → ③ 乗除 → ④ 加減', back: '四則混合計算の順番は？' },
-      { id: 'math-g1-var-fc6', front: '$a \\times (b + c) = a \\times b + a \\times c$', back: '分配法則の公式は？' },
-      { id: 'math-g1-var-fc7', front: '共通因数でくくる。例: $3 \\times 8 + 3 \\times 2 = 3 \\times (8+2) = 30$', back: '分配法則を逆に使うとは？' },
-      { id: 'math-g1-var-fc8', front: '$1$ とその数自身以外に約数がない自然数（$1$ は素数ではない）', back: '素数とは？' },
-      { id: 'math-g1-var-fc9', front: '素数ではない', back: '$1$ は素数か？' },
-      { id: 'math-g1-var-fc10', front: '素数。唯一の偶数の素数。', back: '$2$ は素数か？' },
-      { id: 'math-g1-var-fc11', front: '$2, 3, 5, 7, 11, 13, 17, 19$', back: '$20$ 以下の素数をすべて挙げると？' },
-      { id: 'math-g1-var-fc12', front: '自然数を素数だけの積で表すこと。例: $12 = 2^2 \\times 3$', back: '素因数分解とは？' },
-      { id: 'math-g1-var-fc13', front: '小さい素数（$2, 3, 5, 7, \\ldots$）から順に割っていく', back: '素因数分解の方法は？' },
-      { id: 'math-g1-var-fc14', front: '$a + b = b + a$', back: '加法の交換法則とは？' },
-      { id: 'math-g1-var-fc15', front: '$(a + b) + c = a + (b + c)$', back: '加法の結合法則とは？' },
-      { id: 'math-g1-var-fc16', front: '$a \\times b = b \\times a$', back: '乗法の交換法則とは？' },
-      { id: 'math-g1-var-fc17', front: '$(a \\times b) \\times c = a \\times (b \\times c)$', back: '乗法の結合法則とは？' },
-      { id: 'math-g1-var-fc18', front: '自然数 $\\subset$ 整数 $\\subset$ 数全体', back: '自然数・整数・数全体の集合の関係は？' },
-      { id: 'math-g1-var-fc19', front: '底（てい）。$3^2$ の $3$ が底。', back: '累乗で、かけ合わせる元の数を何という？' },
-      { id: 'math-g1-var-fc20', front: '合成数。例: $4, 6, 8, 9, 10, \\ldots$', back: '$1$ とその数自身以外の約数がある自然数を何という？' },
-      { id: 'math-g1-var-fc21', front: '$2^3 = 8$ だが $3^2 = 9$。底と指数を入れかえると結果が変わる。', back: '$2^3$ と $3^2$ は同じ？' },
-      { id: 'math-g1-var-fc22', front: '$1$ は素数ではない（約数が $1$ だけだから）', back: 'なぜ $1$ は素数ではないの？' },
-      { id: 'math-g1-var-fc23', front: '$a^m \times a^n = a^{m+n}$', back: '同じ底の累乗のかけ算は？' },
-      { id: 'math-g1-var-fc24', front: '$(-1)^{100} = +1$（偶数乗→正）、$(-1)^{99} = -1$（奇数乗→負）', back: '$(-1)$ の大きな累乗はどうなる？' },
-      { id: 'math-g1-var-fc25', front: '最大公約数と最小公倍数を求めるのに使う', back: '素因数分解は何に役立つ？' },
-      { id: 'math-g1-var-fc26', front: '最大公約数＝共通する素因数の積。最小公倍数＝すべての素因数の最大累乗の積', back: '素因数分解を使った最大公約数・最小公倍数の求め方は？' },
-      { id: 'math-g1-var-fc27', front: '$90 = 2 \times 3^2 \times 5$', back: '$90$ を素因数分解すると？' },
-      { id: 'math-g1-var-fc28', front: '先に素数を見つけてから割ると効率的。偶数なら $2$ で割る。', back: '素因数分解を速くするコツは？' },
+      { id: 'math-g1-var-fc1', front: '累乗（るいじょう）。例: $3^2 = 3 \\times 3 = 9$', back: '同じ数を何回もかけ合わせたものを何という？', difficulty: 'basic' },
+      { id: 'math-g1-var-fc2', front: '指数（しすう）。$3^2$ の $2$ が指数。', back: '累乗でかけ合わせた回数を表す数字を何という？', difficulty: 'basic' },
+      { id: 'math-g1-var-fc3', front: '$(-3)^2 = 9$（$-3$ 全体を $2$ 回かける）、$-3^2 = -9$（$3^2$ を計算してから $-$ をつける）', back: '$(-3)^2$ と $-3^2$ の違いは？', difficulty: 'basic' },
+      { id: 'math-g1-var-fc4', front: '$(-2)^3 = (-2) \\times (-2) \\times (-2) = -8$', back: '$(-2)^3$ の計算結果は？', difficulty: 'basic' },
+      { id: 'math-g1-var-fc5', front: '① 累乗 → ② かっこの中 → ③ 乗除 → ④ 加減', back: '四則混合計算の順番は？', difficulty: 'basic' },
+      { id: 'math-g1-var-fc6', front: '$a \\times (b + c) = a \\times b + a \\times c$', back: '分配法則の公式は？', difficulty: 'basic' },
+      { id: 'math-g1-var-fc7', front: '共通因数でくくる。例: $3 \\times 8 + 3 \\times 2 = 3 \\times (8+2) = 30$', back: '分配法則を逆に使うとは？', difficulty: 'basic' },
+      { id: 'math-g1-var-fc8', front: '$1$ とその数自身以外に約数がない自然数（$1$ は素数ではない）', back: '素数とは？', difficulty: 'basic' },
+      { id: 'math-g1-var-fc9', front: '素数ではない', back: '$1$ は素数か？', difficulty: 'basic' },
+      { id: 'math-g1-var-fc10', front: '素数。唯一の偶数の素数。', back: '$2$ は素数か？', difficulty: 'basic' },
+      { id: 'math-g1-var-fc11', front: '$2, 3, 5, 7, 11, 13, 17, 19$', back: '$20$ 以下の素数をすべて挙げると？', difficulty: 'basic' },
+      { id: 'math-g1-var-fc12', front: '自然数を素数だけの積で表すこと。例: $12 = 2^2 \\times 3$', back: '素因数分解とは？', difficulty: 'basic' },
+      { id: 'math-g1-var-fc13', front: '小さい素数（$2, 3, 5, 7, \\ldots$）から順に割っていく', back: '素因数分解の方法は？', difficulty: 'standard' },
+      { id: 'math-g1-var-fc14', front: '$a + b = b + a$', back: '加法の交換法則とは？', difficulty: 'standard' },
+      { id: 'math-g1-var-fc15', front: '$(a + b) + c = a + (b + c)$', back: '加法の結合法則とは？', difficulty: 'standard' },
+      { id: 'math-g1-var-fc16', front: '$a \\times b = b \\times a$', back: '乗法の交換法則とは？', difficulty: 'standard' },
+      { id: 'math-g1-var-fc17', front: '$(a \\times b) \\times c = a \\times (b \\times c)$', back: '乗法の結合法則とは？', difficulty: 'standard' },
+      { id: 'math-g1-var-fc18', front: '自然数 $\\subset$ 整数 $\\subset$ 数全体', back: '自然数・整数・数全体の集合の関係は？', difficulty: 'standard' },
+      { id: 'math-g1-var-fc19', front: '底（てい）。$3^2$ の $3$ が底。', back: '累乗で、かけ合わせる元の数を何という？', difficulty: 'standard' },
+      { id: 'math-g1-var-fc20', front: '合成数。例: $4, 6, 8, 9, 10, \\ldots$', back: '$1$ とその数自身以外の約数がある自然数を何という？', difficulty: 'standard' },
+      { id: 'math-g1-var-fc21', front: '$2^3 = 8$ だが $3^2 = 9$。底と指数を入れかえると結果が変わる。', back: '$2^3$ と $3^2$ は同じ？', difficulty: 'standard' },
+      { id: 'math-g1-var-fc22', front: '$1$ は素数ではない（約数が $1$ だけだから）', back: 'なぜ $1$ は素数ではないの？', difficulty: 'standard' },
+      { id: 'math-g1-var-fc23', front: '$a^m \times a^n = a^{m+n}$', back: '同じ底の累乗のかけ算は？', difficulty: 'advanced' },
+      { id: 'math-g1-var-fc24', front: '$(-1)^{100} = +1$（偶数乗→正）、$(-1)^{99} = -1$（奇数乗→負）', back: '$(-1)$ の大きな累乗はどうなる？', difficulty: 'advanced' },
+      { id: 'math-g1-var-fc25', front: '最大公約数と最小公倍数を求めるのに使う', back: '素因数分解は何に役立つ？', difficulty: 'advanced' },
+      { id: 'math-g1-var-fc26', front: '最大公約数＝共通する素因数の積。最小公倍数＝すべての素因数の最大累乗の積', back: '素因数分解を使った最大公約数・最小公倍数の求め方は？', difficulty: 'advanced' },
+      { id: 'math-g1-var-fc27', front: '$90 = 2 \times 3^2 \times 5$', back: '$90$ を素因数分解すると？', difficulty: 'advanced' },
+      { id: 'math-g1-var-fc28', front: '先に素数を見つけてから割ると効率的。偶数なら $2$ で割る。', back: '素因数分解を速くするコツは？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -93,6 +93,7 @@ export const variousCalc: Topic = {
           correctIndex: 1,
           explanation:
             '$(-3)^2 = (-3) \\times (-3) = +9$ だよ。負の数を偶数回かけると正になるんだ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g1-various-q2',
@@ -101,6 +102,7 @@ export const variousCalc: Topic = {
           correctIndex: 2,
           explanation:
             'かっこがないときは $-(3^2) = -(9) = -9$ だよ。$(-3)^2 = 9$ との違いに注意！',
+          difficulty: 'basic',
         },
         {
           id: 'math-g1-various-q3',
@@ -109,6 +111,7 @@ export const variousCalc: Topic = {
           correctIndex: 3,
           explanation:
             'かけ算を先に計算するよ。$3 \\times (-2) = -6$ だから、$5 + (-6) = 5 - 6 = -1$ だね。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g1-various-q4',
@@ -122,6 +125,7 @@ export const variousCalc: Topic = {
           correctIndex: 0,
           explanation:
             '$36 = 4 \\times 9 = 2^2 \\times 3^2$ だよ。素因数分解は素数だけの積で表すんだ。$6^2$ は $6$ が素数でないからダメだね。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g1-various-q5',
@@ -130,6 +134,7 @@ export const variousCalc: Topic = {
           correctIndex: 2,
           explanation:
             '$11$ は $1$ と $11$ 以外に約数がないから素数だよ。$1$ は素数ではなく、$9 = 3^2$、$15 = 3 \\times 5$ は素数ではないよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g1-various-q6',
@@ -138,6 +143,7 @@ export const variousCalc: Topic = {
           correctIndex: 1,
           explanation:
             '$(-2)^4 = (-2) \\times (-2) \\times (-2) \\times (-2)$。負の数を偶数回（$4$ 回）かけるから結果は正で $+16$ だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g1-various-q7',
@@ -146,6 +152,7 @@ export const variousCalc: Topic = {
           correctIndex: 3,
           explanation:
             'かっこがないから $-(2^4) = -(16) = -16$ だよ。$(-2)^4 = +16$ との違いに注意！',
+          difficulty: 'basic',
         },
         {
           id: 'math-g1-various-q8',
@@ -154,6 +161,7 @@ export const variousCalc: Topic = {
           correctIndex: 0,
           explanation:
             '$(-1)^2 = 1$（偶数乗→正）、$(-1)^3 = -1$（奇数乗→負）。$1 + (-1) = 0$ だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g1-various-q9',
@@ -167,6 +175,7 @@ export const variousCalc: Topic = {
           correctIndex: 0,
           explanation:
             '$60 = 2 \\times 2 \\times 3 \\times 5 = 2^2 \\times 3 \\times 5$ だよ。素因数分解は素数だけの積で表すんだ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g1-various-q10',
@@ -175,6 +184,7 @@ export const variousCalc: Topic = {
           correctIndex: 1,
           explanation:
             'かっこ内: $-2-5=-7$。$8 \\times (-7) = -56$。$(-56) \\div (-14) = 4$。$6 - 4 = 2$ だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'math-g1-various-q11',
@@ -183,6 +193,7 @@ export const variousCalc: Topic = {
           correctIndex: 3,
           explanation:
             '$(100 - 1) \\times 7 = 100 \\times 7 - 1 \\times 7 = 700 - 7 = 693$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g1-various-q12',
@@ -196,6 +207,7 @@ export const variousCalc: Topic = {
           correctIndex: 2,
           explanation:
             '自然数＋自然数は必ず自然数になるよ。引き算は $3-5=-2$ のように自然数にならないことがあるし、割り算は $1 \\div 3 = \\frac{1}{3}$ のようになるよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g1-various-q13',
@@ -203,6 +215,7 @@ export const variousCalc: Topic = {
           options: ['$-10$', '$+10$', '$-1$', '$+1$'],
           correctIndex: 3,
           explanation: '$(-1)$ を偶数回（$10$ 回）かけるから $+1$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g1-various-q14',
@@ -210,6 +223,7 @@ export const variousCalc: Topic = {
           options: ['$-20$', '$+14$', '$-10$', '$+10$'],
           correctIndex: 2,
           explanation: '乗法を先に。$3 \times (-4) = -12$。$2 + (-12) = -10$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g1-various-q15',
@@ -217,6 +231,7 @@ export const variousCalc: Topic = {
           options: ['$2 \times 3^2 \times 5$', '$2 \times 45$', '$9 \times 10$', '$3 \times 30$'],
           correctIndex: 0,
           explanation: '$90 = 2 \times 45 = 2 \times 9 \times 5 = 2 \times 3^2 \times 5$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g1-various-q16',
@@ -224,6 +239,7 @@ export const variousCalc: Topic = {
           options: ['$+150$', '$-100$', '$-150$', '$+100$'],
           correctIndex: 1,
           explanation: '$(-5)^2 = 25$（偶数乗→正）、$(-5)^3 = -125$（奇数乗→負）。$25 + (-125) = -100$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g1-various-q17',
@@ -231,6 +247,7 @@ export const variousCalc: Topic = {
           options: ['$-4$', '$+4$', '$-16$', '$+16$'],
           correctIndex: 0,
           explanation: 'かっこの中: $(-3) + 5 = 2$。$2 \times (-2) = -4$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g1-various-q18',
@@ -238,6 +255,7 @@ export const variousCalc: Topic = {
           options: ['$2$', '$7$', '$21$', '$13$'],
           correctIndex: 2,
           explanation: '$21 = 3 \times 7$ だから素数ではないよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g1-various-q19',
@@ -245,6 +263,7 @@ export const variousCalc: Topic = {
           options: ['$+16$', '$-16$', '$+12$', '$-12$'],
           correctIndex: 1,
           explanation: '$4^2 = 16$、$(-1)^3 = -1$。$16 \times (-1) = -16$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g1-various-q20',
@@ -252,6 +271,7 @@ export const variousCalc: Topic = {
           options: ['$2^3 \times 3 \times 5$', '$2^2 \times 3 \times 10$', '$4 \times 30$', '$2^3 \times 15$'],
           correctIndex: 0,
           explanation: '$120 = 2^3 \times 15 = 2^3 \times 3 \times 5$ だよ。素数の積だけで表すのが素因数分解。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g1-various-q21',
@@ -259,6 +279,7 @@ export const variousCalc: Topic = {
           options: ['$1$', '$5$', '$-1$', '$7$'],
           correctIndex: 1,
           explanation: '$(-4)^2 = 16$。$16 \div 8 = 2$。$2 + 3 = 5$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g1-various-q22',
@@ -266,6 +287,7 @@ export const variousCalc: Topic = {
           options: ['$+32$', '$-32$', '$+10$', '$-10$'],
           correctIndex: 1,
           explanation: '負の数を奇数回（$5$ 回）かけるから負。$2^5 = 32$ で $-32$ だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'math-g1-various-q23',
@@ -273,6 +295,7 @@ export const variousCalc: Topic = {
           options: ['$-30$', '$-150$', '$+150$', '$+30$'],
           correctIndex: 1,
           explanation: '$15 \times \{(-6) + (-4)\} = 15 \times (-10) = -150$ だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g1-various-q24',
@@ -280,6 +303,7 @@ export const variousCalc: Topic = {
           options: ['等しい（ともに $12$）', '等しくない（$12$ と $18$）', '等しくない（$6$ と $9$）', '等しい（ともに $18$）'],
           correctIndex: 1,
           explanation: '$2^2 \times 3 = 4 \times 3 = 12$、$2 \times 3^2 = 2 \times 9 = 18$ で異なるよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g1-various-q25',
@@ -287,6 +311,7 @@ export const variousCalc: Topic = {
           options: ['$12$ 個', '$15$ 個', '$10$ 個', '$20$ 個'],
           correctIndex: 1,
           explanation: '$2,3,5,7,11,13,17,19,23,29,31,37,41,43,47$ の $15$ 個だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g1-various-q26',
@@ -294,6 +319,7 @@ export const variousCalc: Topic = {
           options: ['$0$', '$24$', '$-24$', '$12$'],
           correctIndex: 1,
           explanation: '$(-2)^2 = 4$。$3 \times 4 = 12$。$4 \times (-3) = -12$。$12 - (-12) = 12 + 12 = 24$ だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g1-various-q27',
@@ -301,6 +327,7 @@ export const variousCalc: Topic = {
           options: ['$2^2 \times 3^2 \times 5$', '$2 \times 3 \times 30$', '$4 \times 45$', '$2^3 \times 3 \times 5$'],
           correctIndex: 0,
           explanation: '$180 = 4 \times 45 = 2^2 \times 9 \times 5 = 2^2 \times 3^2 \times 5$ だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'math-g1-various-q28',
@@ -308,6 +335,7 @@ export const variousCalc: Topic = {
           options: ['$+4$', '$-4$', '$+2$', '$-2$'],
           correctIndex: 0,
           explanation: '$(-6)^2 = 36$、$(-3)^2 = 9$。$36 \div 9 = 4$。偶数乗は正だから $+4$ だよ。',
+          difficulty: 'advanced',
         },
       ],
     },

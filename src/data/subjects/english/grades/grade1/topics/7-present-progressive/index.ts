@@ -43,6 +43,7 @@ export const presentProgressive: Topic = {
         back: 'I am (　　) tennis now.\n（私は今テニスをしています。）',
         hint: 'play に ing をつけると…？',
         explanation: 'ふつうはそのまま ing をつけるよ。play → playing',
+        difficulty: 'basic',
       },
       {
         id: 'eng-pp-fc2',
@@ -50,6 +51,7 @@ export const presentProgressive: Topic = {
         back: 'He (　　) a book.\n（彼は本を読んでいます。）',
         hint: 'He のbe動詞は is。read + ing は…？',
         explanation: '「今〜している」は be動詞 + ing。He is reading.',
+        difficulty: 'basic',
       },
       {
         id: 'eng-pp-fc3',
@@ -57,6 +59,7 @@ export const presentProgressive: Topic = {
         back: 'make の ing 形は？',
         hint: 'e で終わるときは e をとってから ing をつけるよ',
         explanation: 'make は e で終わるから e をとって ing → making',
+        difficulty: 'basic',
       },
       {
         id: 'eng-pp-fc4',
@@ -64,6 +67,7 @@ export const presentProgressive: Topic = {
         back: 'run の ing 形は？',
         hint: '短い母音 + 子音で終わるときは子音を重ねるよ',
         explanation: 'run は n を重ねて running。子音が2つになるよ。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-pp-fc5',
@@ -71,6 +75,7 @@ export const presentProgressive: Topic = {
         back: 'swim の ing 形は？',
         hint: '短い母音 + 子音で終わるときは子音を重ねるよ',
         explanation: 'swim は m を重ねて swimming。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-pp-fc6',
@@ -78,6 +83,7 @@ export const presentProgressive: Topic = {
         back: 'use の ing 形は？',
         hint: 'e で終わるときは e をとってから ing をつけるよ',
         explanation: 'use は e で終わるから e をとって ing → using',
+        difficulty: 'basic',
       },
       {
         id: 'eng-pp-fc7',
@@ -85,6 +91,7 @@ export const presentProgressive: Topic = {
         back: 'He (　　) sleeping.\n（彼は眠っていないです。）',
         hint: '「〜していない」は be動詞のあとに…？',
         explanation: 'be動詞のあとに not をつけるよ。He is not sleeping.',
+        difficulty: 'basic',
       },
       {
         id: 'eng-pp-fc8',
@@ -92,6 +99,7 @@ export const presentProgressive: Topic = {
         back: '(　　) you studying now?\n（あなたは今勉強していますか？）',
         hint: '「〜していますか？」は be動詞をいちばん前に！',
         explanation: 'be動詞を前にもってきて Are you studying now?',
+        difficulty: 'basic',
       },
       // --- ing form: regular ---
       {
@@ -99,42 +107,42 @@ export const presentProgressive: Topic = {
         front: 'eating',
         back: 'eat の ing 形は？',
         hint: 'ふつうにそのまま ing をつけるよ',
-        explanation: 'eat はそのまま ing をつけて eating だよ。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-pp-fc10',
         front: 'watching',
         back: 'watch の ing 形は？',
         hint: 'ふつうにそのまま ing をつけるよ',
-        explanation: 'watch はそのまま ing をつけて watching だよ。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-pp-fc11',
         front: 'listening',
         back: 'listen の ing 形は？',
         hint: 'ふつうにそのまま ing をつけるよ',
-        explanation: 'listen はそのまま ing をつけて listening だよ。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-pp-fc12',
         front: 'cooking',
         back: 'cook の ing 形は？',
         hint: 'ふつうにそのまま ing をつけるよ',
-        explanation: 'cook はそのまま ing をつけて cooking だよ。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-pp-fc13',
         front: 'singing',
         back: 'sing の ing 形は？',
         hint: 'ふつうにそのまま ing をつけるよ',
-        explanation: 'sing はそのまま ing をつけて singing だよ。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-pp-fc14',
         front: 'sleeping',
         back: 'sleep の ing 形は？',
         hint: 'ふつうにそのまま ing をつけるよ',
-        explanation: 'sleep はそのまま ing をつけて sleeping だよ。',
+        difficulty: 'basic',
       },
       // --- ing form: e-ending ---
       {
@@ -143,6 +151,7 @@ export const presentProgressive: Topic = {
         back: 'have の ing 形は？',
         hint: 'e で終わるときは e をとってから ing をつけるよ',
         explanation: 'have は e で終わるから e をとって ing → having',
+        difficulty: 'standard',
       },
       {
         id: 'eng-pp-fc16',
@@ -150,6 +159,7 @@ export const presentProgressive: Topic = {
         back: 'come の ing 形は？',
         hint: 'e で終わるときは e をとってから ing をつけるよ',
         explanation: 'come は e で終わるから e をとって ing → coming',
+        difficulty: 'standard',
       },
       {
         id: 'eng-pp-fc17',
@@ -157,6 +167,7 @@ export const presentProgressive: Topic = {
         back: 'take の ing 形は？',
         hint: 'e で終わるときは e をとってから ing をつけるよ',
         explanation: 'take は e で終わるから e をとって ing → taking',
+        difficulty: 'standard',
       },
       {
         id: 'eng-pp-fc18',
@@ -164,6 +175,7 @@ export const presentProgressive: Topic = {
         back: 'dance の ing 形は？',
         hint: 'e で終わるときは e をとってから ing をつけるよ',
         explanation: 'dance は e で終わるから e をとって ing → dancing',
+        difficulty: 'standard',
       },
       {
         id: 'eng-pp-fc19',
@@ -171,6 +183,7 @@ export const presentProgressive: Topic = {
         back: 'live の ing 形は？',
         hint: 'e で終わるときは e をとってから ing をつけるよ',
         explanation: 'live は e で終わるから e をとって ing → living',
+        difficulty: 'standard',
       },
       // --- ing form: consonant doubling ---
       {
@@ -179,6 +192,7 @@ export const presentProgressive: Topic = {
         back: 'sit の ing 形は？',
         hint: '短い母音 + 子音で終わるときは子音を重ねるよ',
         explanation: 'sit は t を重ねて sitting だよ。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-pp-fc21',
@@ -186,6 +200,7 @@ export const presentProgressive: Topic = {
         back: 'cut の ing 形は？',
         hint: '短い母音 + 子音で終わるときは子音を重ねるよ',
         explanation: 'cut は t を重ねて cutting だよ。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-pp-fc22',
@@ -193,6 +208,7 @@ export const presentProgressive: Topic = {
         back: 'get の ing 形は？',
         hint: '短い母音 + 子音で終わるときは子音を重ねるよ',
         explanation: 'get は t を重ねて getting だよ。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-pp-fc23',
@@ -200,6 +216,7 @@ export const presentProgressive: Topic = {
         back: 'stop の ing 形は？',
         hint: '短い母音 + 子音で終わるときは子音を重ねるよ',
         explanation: 'stop は p を重ねて stopping だよ。',
+        difficulty: 'advanced',
       },
       // --- be動詞 + ing with different subjects ---
       {
@@ -208,6 +225,7 @@ export const presentProgressive: Topic = {
         back: 'I (　　) dinner now.\n（私は今夕食を作っています。）',
         hint: 'I のbe動詞は am。cook + ing は…？',
         explanation: '「今〜している」は be動詞 + ing。I am cooking.',
+        difficulty: 'advanced',
       },
       {
         id: 'eng-pp-fc25',
@@ -215,6 +233,7 @@ export const presentProgressive: Topic = {
         back: 'They (　　) soccer.\n（彼らはサッカーをしています。）',
         hint: 'They のbe動詞は are。play + ing は…？',
         explanation: '「今〜している」は be動詞 + ing。They are playing.',
+        difficulty: 'advanced',
       },
       {
         id: 'eng-pp-fc26',
@@ -222,6 +241,7 @@ export const presentProgressive: Topic = {
         back: 'She (　　) a song.\n（彼女は歌を歌っています。）',
         hint: 'She のbe動詞は is。sing + ing は…？',
         explanation: '「今〜している」は be動詞 + ing。She is singing.',
+        difficulty: 'advanced',
       },
       // --- Negative / Questions / Answers ---
       {
@@ -230,6 +250,7 @@ export const presentProgressive: Topic = {
         back: "He (　　) watching TV.\n（彼はテレビを見ていません。）",
         hint: 'is not の短い形は…？',
         explanation: "is not は isn't と短くできるよ。He isn't watching TV.",
+        difficulty: 'advanced',
       },
       {
         id: 'eng-pp-fc28',
@@ -237,6 +258,7 @@ export const presentProgressive: Topic = {
         back: '"What are you doing?" と聞かれて\n「英語を勉強しています」と答えるとき？',
         hint: 'I am = I\'m と短くして答えよう',
         explanation: "What are you doing? — I'm studying English.",
+        difficulty: 'advanced',
       },
     ],
     quiz: {
@@ -247,6 +269,7 @@ export const presentProgressive: Topic = {
           options: ['am playing', 'plays', 'play', 'am play'],
           correctIndex: 0,
           explanation: '「今〜している」は be動詞 + ing だよ。I am playing.',
+          difficulty: 'basic',
         },
         {
           id: 'eng-pp-q2',
@@ -254,6 +277,7 @@ export const presentProgressive: Topic = {
           options: ['makeing', 'makking', 'making', 'maked'],
           correctIndex: 2,
           explanation: 'make は e で終わるから、e をとって ing をつけるよ。making',
+          difficulty: 'basic',
         },
         {
           id: 'eng-pp-q3',
@@ -261,6 +285,7 @@ export const presentProgressive: Topic = {
           options: ['runing', 'running', 'runeing', 'runing'],
           correctIndex: 1,
           explanation: 'run は「短い母音 + 子音」で終わるから、n を重ねて running だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'eng-pp-q4',
@@ -273,6 +298,7 @@ export const presentProgressive: Topic = {
           ],
           correctIndex: 3,
           explanation: 'be動詞のあとに not をつけるよ。He is not reading a book.',
+          difficulty: 'basic',
         },
         {
           id: 'eng-pp-q5',
@@ -285,6 +311,7 @@ export const presentProgressive: Topic = {
           ],
           correctIndex: 1,
           explanation: 'Is で聞かれたら be動詞で答えるよ。No, she is not.',
+          difficulty: 'basic',
         },
         {
           id: 'eng-pp-q6',
@@ -296,6 +323,7 @@ export const presentProgressive: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「I am reading a book.」が正解。I（私は）+ am（be動詞）+ reading（読んでいる）+ a book（本）の順番だよ。現在進行形は be動詞 + ing だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'eng-pp-q7',
@@ -307,6 +335,7 @@ export const presentProgressive: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「She is not running.」が正解。She（彼女は）+ is not（〜していない）+ running（走っている）の順番だよ。否定文は be動詞のあとに not を置くよ。',
+          difficulty: 'basic',
         },
         {
           id: 'eng-pp-q8',
@@ -318,6 +347,7 @@ export const presentProgressive: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「Are you studying now?」が正解。Are（〜していますか）+ you（あなたは）+ studying（勉強している）+ now（今）の順番だよ。疑問文は be動詞をいちばん前に置くよ。',
+          difficulty: 'basic',
         },
         // --- choice: ing form rules ---
         {
@@ -326,6 +356,7 @@ export const presentProgressive: Topic = {
           options: ['swiming', 'swimming', 'swimmming', 'swimeing'],
           correctIndex: 1,
           explanation: 'swim は「短い母音 + 子音」で終わるから、m を重ねて swimming だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'eng-pp-q10',
@@ -333,6 +364,7 @@ export const presentProgressive: Topic = {
           options: ['haveing', 'havving', 'having', 'haveeing'],
           correctIndex: 2,
           explanation: 'have は e で終わるから、e をとって ing をつけるよ。having',
+          difficulty: 'basic',
         },
         {
           id: 'eng-pp-q11',
@@ -340,6 +372,7 @@ export const presentProgressive: Topic = {
           options: ['siting', 'sittting', 'siteing', 'sitting'],
           correctIndex: 3,
           explanation: 'sit は「短い母音 + 子音」で終わるから、t を重ねて sitting だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'eng-pp-q12',
@@ -347,6 +380,7 @@ export const presentProgressive: Topic = {
           options: ['danceing', 'dancing', 'danccing', 'danceeing'],
           correctIndex: 1,
           explanation: 'dance は e で終わるから、e をとって ing をつけるよ。dancing',
+          difficulty: 'basic',
         },
         {
           id: 'eng-pp-q13',
@@ -354,6 +388,7 @@ export const presentProgressive: Topic = {
           options: ['comeing', 'comming', 'coming', 'comeeing'],
           correctIndex: 2,
           explanation: 'come は e で終わるから、e をとって ing をつけるよ。coming',
+          difficulty: 'standard',
         },
         {
           id: 'eng-pp-q14',
@@ -361,6 +396,7 @@ export const presentProgressive: Topic = {
           options: ['stoping', 'stopeing', 'stoppeing', 'stopping'],
           correctIndex: 3,
           explanation: 'stop は「短い母音 + 子音」で終わるから、p を重ねて stopping だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-pp-q15',
@@ -368,6 +404,7 @@ export const presentProgressive: Topic = {
           options: ['geting', 'getting', 'geteing', 'gettting'],
           correctIndex: 1,
           explanation: 'get は「短い母音 + 子音」で終わるから、t を重ねて getting だよ。',
+          difficulty: 'standard',
         },
         // --- choice: be動詞 + ing with subjects ---
         {
@@ -376,6 +413,7 @@ export const presentProgressive: Topic = {
           options: ['is singing', 'are singing', 'am singing', 'singing'],
           correctIndex: 0,
           explanation: 'She のbe動詞は is だよ。She is singing.',
+          difficulty: 'standard',
         },
         {
           id: 'eng-pp-q17',
@@ -383,6 +421,7 @@ export const presentProgressive: Topic = {
           options: ['am studying', 'is studying', 'are studying', 'studying'],
           correctIndex: 2,
           explanation: 'We のbe動詞は are だよ。We are studying English now.',
+          difficulty: 'standard',
         },
         {
           id: 'eng-pp-q18',
@@ -390,6 +429,7 @@ export const presentProgressive: Topic = {
           options: ['is playing', 'am playing', 'plays', 'are playing'],
           correctIndex: 3,
           explanation: 'They のbe動詞は are だよ。They are playing.',
+          difficulty: 'standard',
         },
         // --- choice: negative ---
         {
@@ -398,6 +438,7 @@ export const presentProgressive: Topic = {
           options: ['cook', 'cooks', 'cooking', 'cooked'],
           correctIndex: 2,
           explanation: "be動詞 + not + ing の形だよ。She isn't cooking.",
+          difficulty: 'standard',
         },
         {
           id: 'eng-pp-q20',
@@ -405,6 +446,7 @@ export const presentProgressive: Topic = {
           options: ["don't", "doesn't", 'am not', 'not am'],
           correctIndex: 2,
           explanation: '現在進行形の否定は be動詞 + not だよ。I am not sleeping.',
+          difficulty: 'standard',
         },
         // --- choice: questions and answers ---
         {
@@ -413,6 +455,7 @@ export const presentProgressive: Topic = {
           options: ['Does', 'Do', 'Is', 'Are'],
           correctIndex: 2,
           explanation: '現在進行形の疑問文は be動詞を前に出すよ。He → Is。Is he swimming now?',
+          difficulty: 'standard',
         },
         {
           id: 'eng-pp-q22',
@@ -420,6 +463,7 @@ export const presentProgressive: Topic = {
           options: ['Yes, they do.', 'Yes, they are.', 'Yes, they is.', 'Yes, they running.'],
           correctIndex: 1,
           explanation: 'Are で聞かれたら be動詞で答えるよ。Yes, they are.',
+          difficulty: 'standard',
         },
         {
           id: 'eng-pp-q23',
@@ -432,6 +476,7 @@ export const presentProgressive: Topic = {
           ],
           correctIndex: 2,
           explanation: "「今何をしていますか？」に対しては現在進行形で答えるよ。I'm listening to music.",
+          difficulty: 'standard',
         },
         {
           id: 'eng-pp-q24',
@@ -444,6 +489,7 @@ export const presentProgressive: Topic = {
           ],
           correctIndex: 0,
           explanation: "Is で聞かれたら be動詞で答えるよ。No, she isn't.",
+          difficulty: 'standard',
         },
         // --- reorder ---
         {
@@ -456,6 +502,7 @@ export const presentProgressive: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「He is watching TV now.」が正解。He + is + watching + TV + now の順番だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-pp-q10r',
@@ -467,6 +514,7 @@ export const presentProgressive: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「We are studying English.」が正解。We + are + studying + English の順番だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-pp-q11r',
@@ -478,6 +526,7 @@ export const presentProgressive: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「She is not cooking now.」が正解。She + is + not + cooking + now の順番だよ。否定文は be動詞のあとに not を置くよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'eng-pp-q12r',
@@ -489,6 +538,7 @@ export const presentProgressive: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「Is he swimming?」が正解。Is + he + swimming の順番だよ。疑問文は be動詞を前に出すよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'eng-pp-q13r',
@@ -500,6 +550,7 @@ export const presentProgressive: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「What are you doing?」が正解。What + are + you + doing の順番だよ。疑問詞がいちばん前に来るよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'eng-pp-q14r',
@@ -511,6 +562,7 @@ export const presentProgressive: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「They are running in the park now.」が正解。They + are + running + in + the + park + now の順番だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'eng-pp-q15r',
@@ -522,6 +574,7 @@ export const presentProgressive: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「I am listening to music now.」が正解。I + am + listening + to + music + now の順番だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'eng-pp-q16r',
@@ -533,6 +586,7 @@ export const presentProgressive: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「She is making a cake now.」が正解。She + is + making + a + cake + now の順番だよ。make は e をとって ing をつけるよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'eng-pp-q17r',
@@ -544,6 +598,7 @@ export const presentProgressive: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「He is not doing his homework now.」が正解。He + is + not + doing + his + homework + now の順番だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'eng-pp-q18r',
@@ -555,6 +610,7 @@ export const presentProgressive: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「What are you eating now?」が正解。What + are + you + eating + now の順番だよ。疑問詞 + be動詞 + 主語 + ing の順番だよ。',
+          difficulty: 'advanced',
         },
       ],
     },

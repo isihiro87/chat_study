@@ -44,6 +44,7 @@ export const pastTense: Topic = {
         back: 'I (　　) busy yesterday.\n（私は昨日忙しかったです。）',
         hint: '「昔のこと」だから am の過去形は…？',
         explanation: 'am の過去形は was だよ。I was busy.',
+        difficulty: 'basic',
       },
       {
         id: 'eng-past-fc2',
@@ -51,6 +52,7 @@ export const pastTense: Topic = {
         back: 'They (　　) happy yesterday.\n（彼らは昨日うれしかったです。）',
         hint: 'They のbe動詞 are の過去形は…？',
         explanation: 'are の過去形は were だよ。They were happy.',
+        difficulty: 'basic',
       },
       {
         id: 'eng-past-fc3',
@@ -58,6 +60,7 @@ export const pastTense: Topic = {
         back: 'I (　　) tennis yesterday.\n（私は昨日テニスをしました。）',
         hint: '昨日のことだから play の過去形は…？',
         explanation: 'play + ed = played。ふつうは ed をつけるよ。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-past-fc4',
@@ -65,6 +68,7 @@ export const pastTense: Topic = {
         back: 'She (　　) English last night.\n（彼女は昨夜英語を勉強しました。）',
         hint: 'study は y で終わるから…？',
         explanation: 'y を i にかえて ed をつけるよ。study → studied',
+        difficulty: 'basic',
       },
       {
         id: 'eng-past-fc5',
@@ -72,6 +76,7 @@ export const pastTense: Topic = {
         back: 'I (　　) to the park.\n（私は公園に行きました。）',
         hint: 'go の過去形はとくべつな形だよ',
         explanation: 'go → went。とくべつな形なので覚えよう。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-past-fc6',
@@ -79,6 +84,7 @@ export const pastTense: Topic = {
         back: 'She (　　) a dog.\n（彼女はイヌを飼っていました。）',
         hint: 'have の過去形はとくべつな形だよ',
         explanation: 'have → had。とくべつな形なので覚えよう。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-past-fc7',
@@ -86,6 +92,7 @@ export const pastTense: Topic = {
         back: 'I (　　) play tennis yesterday.\n（私は昨日テニスをしませんでした。）',
         hint: '過去の「〜しなかった」は…？',
         explanation: "don't の過去は didn't だよ。動詞はもとの形にもどるよ。",
+        difficulty: 'basic',
       },
       {
         id: 'eng-past-fc8',
@@ -93,6 +100,7 @@ export const pastTense: Topic = {
         back: '(　　) you study last night?\n（あなたは昨夜勉強しましたか？）',
         hint: '過去の「〜しましたか？」は…？',
         explanation: 'Do の過去は Did だよ。いちばん前に置くよ。',
+        difficulty: 'basic',
       },
       {
         id: 'eng-past-fc9',
@@ -100,6 +108,7 @@ export const pastTense: Topic = {
         back: 'I (　　) TV at 9.\n（私は9時にテレビを見ていました。）',
         hint: '「そのとき〜していた」は was/were + ing だよ',
         explanation: '過去進行形は was/were + ing。I was watching.',
+        difficulty: 'basic',
       },
       {
         id: 'eng-past-fc10',
@@ -107,6 +116,7 @@ export const pastTense: Topic = {
         back: 'She (　　) a student last year.\n（彼女は去年、生徒でした。）',
         hint: 'She のbe動詞 is の過去形は…？',
         explanation: 'is の過去形は was だよ。She was a student.',
+        difficulty: 'basic',
       },
       {
         id: 'eng-past-fc11',
@@ -114,6 +124,7 @@ export const pastTense: Topic = {
         back: 'We (　　) in the park yesterday.\n（私たちは昨日公園にいました。）',
         hint: 'We のbe動詞 are の過去形は…？',
         explanation: 'are の過去形は were だよ。We were in the park.',
+        difficulty: 'basic',
       },
       {
         id: 'eng-past-fc12',
@@ -121,6 +132,7 @@ export const pastTense: Topic = {
         back: 'He (　　) at home last night.\n（彼は昨夜、家にいませんでした。）',
         hint: 'was の否定は…？',
         explanation: 'was の否定は was not（短く wasn\'t）だよ。He wasn\'t at home.',
+        difficulty: 'basic',
       },
       {
         id: 'eng-past-fc13',
@@ -128,6 +140,7 @@ export const pastTense: Topic = {
         back: '(　　) you tired yesterday?\n（あなたは昨日つかれていましたか？）',
         hint: 'be動詞の過去の疑問文は、was/were を前に出すよ',
         explanation: 'You → were を文頭に出して Were you...? にするよ。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-past-fc14',
@@ -135,6 +148,7 @@ export const pastTense: Topic = {
         back: '(　　) he a teacher?\n（彼は先生でしたか？）',
         hint: 'He のbe動詞の過去形を文頭に置くよ',
         explanation: 'He → was を文頭に出して Was he...? にするよ。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-past-fc15',
@@ -142,6 +156,7 @@ export const pastTense: Topic = {
         back: 'She (　　) music.\n（彼女は音楽が好きでした。）',
         hint: 'like は e で終わるから…？',
         explanation: 'e で終わる動詞は d だけつけるよ。like → liked',
+        difficulty: 'standard',
       },
       {
         id: 'eng-past-fc16',
@@ -149,6 +164,7 @@ export const pastTense: Topic = {
         back: 'The bus (　　) here.\n（バスはここで止まりました。）',
         hint: 'stop は最後の文字を重ねて ed をつけるよ',
         explanation: '短母音 + 子音で終わる動詞は、最後の子音を重ねて ed。stop → stopped',
+        difficulty: 'standard',
       },
       {
         id: 'eng-past-fc17',
@@ -156,6 +172,7 @@ export const pastTense: Topic = {
         back: 'We (　　) the party.\n（私たちはパーティーを楽しみました。）',
         hint: 'enjoy は y の前が母音だから…？',
         explanation: '母音 + y で終わる動詞はそのまま ed をつけるよ。enjoy → enjoyed',
+        difficulty: 'standard',
       },
       {
         id: 'eng-past-fc18',
@@ -163,6 +180,7 @@ export const pastTense: Topic = {
         back: 'I (　　) a movie last night.\n（私は昨夜映画を見ました。）',
         hint: 'watch に ed をつけるだけだよ',
         explanation: 'watch → watched。そのまま ed をつけるよ。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-past-fc19',
@@ -170,6 +188,7 @@ export const pastTense: Topic = {
         back: 'I (　　) sushi yesterday.\n（私は昨日すしを食べました。）',
         hint: 'eat の過去形はとくべつな形だよ',
         explanation: 'eat → ate。とくべつな形だから覚えよう。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-past-fc20',
@@ -177,6 +196,7 @@ export const pastTense: Topic = {
         back: 'I (　　) a bird in the garden.\n（私は庭で鳥を見ました。）',
         hint: 'see の過去形はとくべつな形だよ',
         explanation: 'see → saw。とくべつな形だから覚えよう。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-past-fc21',
@@ -184,6 +204,7 @@ export const pastTense: Topic = {
         back: 'She (　　) to my house yesterday.\n（彼女は昨日私の家に来ました。）',
         hint: 'come の過去形はとくべつな形だよ',
         explanation: 'come → came。とくべつな形だから覚えよう。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-past-fc22',
@@ -191,6 +212,7 @@ export const pastTense: Topic = {
         back: 'My mother (　　) a cake.\n（母はケーキを作りました。）',
         hint: 'make の過去形はとくべつな形だよ',
         explanation: 'make → made。とくべつな形だから覚えよう。',
+        difficulty: 'standard',
       },
       {
         id: 'eng-past-fc23',
@@ -198,6 +220,7 @@ export const pastTense: Topic = {
         back: 'He (　　) a picture.\n（彼は写真をとりました。）',
         hint: 'take の過去形はとくべつな形だよ',
         explanation: 'take → took。とくべつな形だから覚えよう。',
+        difficulty: 'advanced',
       },
       {
         id: 'eng-past-fc24',
@@ -205,6 +228,7 @@ export const pastTense: Topic = {
         back: 'She (　　) a letter.\n（彼女は手紙を書きました。）',
         hint: 'write の過去形はとくべつな形だよ',
         explanation: 'write → wrote。とくべつな形だから覚えよう。',
+        difficulty: 'advanced',
       },
       {
         id: 'eng-past-fc25',
@@ -212,6 +236,7 @@ export const pastTense: Topic = {
         back: 'I (　　) a new book.\n（私は新しい本を買いました。）',
         hint: 'buy の過去形はとくべつな形だよ',
         explanation: 'buy → bought。とくべつな形だから覚えよう。',
+        difficulty: 'advanced',
       },
       {
         id: 'eng-past-fc26',
@@ -219,6 +244,7 @@ export const pastTense: Topic = {
         back: 'He (　　) in the park.\n（彼は公園で走りました。）',
         hint: 'run の過去形はとくべつな形だよ',
         explanation: 'run → ran。とくべつな形だから覚えよう。',
+        difficulty: 'advanced',
       },
       {
         id: 'eng-past-fc27',
@@ -226,6 +252,7 @@ export const pastTense: Topic = {
         back: 'They (　　) soccer at 3 p.m.\n（彼らは午後3時にサッカーをしていました。）',
         hint: 'They だから were + ing だよ',
         explanation: '過去進行形。They → were + playing。They were playing.',
+        difficulty: 'advanced',
       },
       {
         id: 'eng-past-fc28',
@@ -233,6 +260,7 @@ export const pastTense: Topic = {
         back: 'He (　　) at that time.\n（彼はそのとき勉強していませんでした。）',
         hint: '過去進行形の否定は was not + ing だよ',
         explanation: "過去進行形の否定は wasn't + ing。He wasn't studying.",
+        difficulty: 'advanced',
       },
     ],
     quiz: {
@@ -243,6 +271,7 @@ export const pastTense: Topic = {
           options: ['am', 'is', 'was', 'were'],
           correctIndex: 2,
           explanation: 'I のbe動詞 am の過去形は was だよ。I was busy.',
+          difficulty: 'basic',
         },
         {
           id: 'eng-past-q2',
@@ -250,6 +279,7 @@ export const pastTense: Topic = {
           options: ['studied', 'studies', 'study', 'studying'],
           correctIndex: 0,
           explanation: '昨夜のことだから過去形にするよ。study → studied（y を i にかえて ed）',
+          difficulty: 'basic',
         },
         {
           id: 'eng-past-q3',
@@ -257,6 +287,7 @@ export const pastTense: Topic = {
           options: ['goed', 'went', 'gos', 'going'],
           correctIndex: 1,
           explanation: 'go の過去形はとくべつで went だよ。覚えてしまおう。',
+          difficulty: 'basic',
         },
         {
           id: 'eng-past-q4',
@@ -269,6 +300,7 @@ export const pastTense: Topic = {
           ],
           correctIndex: 3,
           explanation: 'Did で聞かれたら did で答えるよ。Yes, I did.',
+          difficulty: 'basic',
         },
         {
           id: 'eng-past-q5',
@@ -276,6 +308,7 @@ export const pastTense: Topic = {
           options: ['is', 'was', 'were', 'did'],
           correctIndex: 1,
           explanation: '「そのとき〜していた」は過去進行形。He だから was + ing だよ。He was reading.',
+          difficulty: 'basic',
         },
         {
           id: 'eng-past-q6',
@@ -287,6 +320,7 @@ export const pastTense: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「I went to school.」が正解。I（私は）+ went（行った）+ to school（学校に）の順番だよ。go の過去形は went だよ。',
+          difficulty: 'basic',
         },
         {
           id: 'eng-past-q7',
@@ -298,6 +332,7 @@ export const pastTense: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「She didn\'t eat lunch.」が正解。She（彼女は）+ didn\'t（〜しなかった）+ eat（食べる）+ lunch（昼食）の順番だよ。didn\'t のあとは動詞のもとの形を使うよ。',
+          difficulty: 'basic',
         },
         {
           id: 'eng-past-q8',
@@ -309,6 +344,7 @@ export const pastTense: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「Did you play soccer?」が正解。Did（〜しましたか）+ you（あなたは）+ play（する）+ soccer（サッカー）の順番だよ。Did のあとは動詞のもとの形を使うよ。',
+          difficulty: 'basic',
         },
         // --- 追加: choice 問題 q9〜q24 ---
         {
@@ -317,6 +353,7 @@ export const pastTense: Topic = {
           options: ['are', 'was', 'were', 'is'],
           correctIndex: 2,
           explanation: 'They のbe動詞 are の過去形は were だよ。They were in Tokyo.',
+          difficulty: 'basic',
         },
         {
           id: 'eng-past-q10',
@@ -324,6 +361,7 @@ export const pastTense: Topic = {
           options: ['is', 'are', 'were', 'was'],
           correctIndex: 3,
           explanation: 'She のbe動詞 is の過去形は was だよ。She was a student.',
+          difficulty: 'basic',
         },
         {
           id: 'eng-past-q11',
@@ -331,6 +369,7 @@ export const pastTense: Topic = {
           options: ["wasn't", "didn't", "weren't", "isn't"],
           correctIndex: 0,
           explanation: "He のbe動詞 was の否定は wasn't だよ。He wasn't at home.",
+          difficulty: 'standard',
         },
         {
           id: 'eng-past-q12',
@@ -338,6 +377,7 @@ export const pastTense: Topic = {
           options: ['Did', 'Are', 'Were', 'Do'],
           correctIndex: 2,
           explanation: 'be動詞の過去の疑問文は were を前に出すよ。Were you tired?',
+          difficulty: 'standard',
         },
         {
           id: 'eng-past-q13',
@@ -345,6 +385,7 @@ export const pastTense: Topic = {
           options: ['likeed', 'liked', 'liking', 'likes'],
           correctIndex: 1,
           explanation: 'e で終わる動詞は d だけつけるよ。like → liked',
+          difficulty: 'standard',
         },
         {
           id: 'eng-past-q14',
@@ -352,6 +393,7 @@ export const pastTense: Topic = {
           options: ['stoped', 'stoping', 'stopped', 'stops'],
           correctIndex: 2,
           explanation: '短母音 + 子音で終わる動詞は最後の子音を重ねて ed をつけるよ。stop → stopped',
+          difficulty: 'standard',
         },
         {
           id: 'eng-past-q15',
@@ -359,6 +401,7 @@ export const pastTense: Topic = {
           options: ['eated', 'ate', 'eaten', 'eating'],
           correctIndex: 1,
           explanation: 'eat の過去形はとくべつで ate だよ。覚えてしまおう。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-past-q16',
@@ -366,6 +409,7 @@ export const pastTense: Topic = {
           options: ['seed', 'seen', 'saw', 'seeing'],
           correctIndex: 2,
           explanation: 'see の過去形はとくべつで saw だよ。覚えてしまおう。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-past-q17',
@@ -373,6 +417,7 @@ export const pastTense: Topic = {
           options: ['comed', 'coming', 'cames', 'came'],
           correctIndex: 3,
           explanation: 'come の過去形はとくべつで came だよ。覚えてしまおう。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-past-q18',
@@ -380,6 +425,7 @@ export const pastTense: Topic = {
           options: ['writed', 'wrote', 'written', 'writing'],
           correctIndex: 1,
           explanation: 'write の過去形はとくべつで wrote だよ。覚えてしまおう。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-past-q19',
@@ -387,6 +433,7 @@ export const pastTense: Topic = {
           options: ['buyed', 'buys', 'buying', 'bought'],
           correctIndex: 3,
           explanation: 'buy の過去形はとくべつで bought だよ。覚えてしまおう。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-past-q20',
@@ -394,6 +441,7 @@ export const pastTense: Topic = {
           options: ["don't", "wasn't", "didn't", 'not'],
           correctIndex: 2,
           explanation: "一般動詞の過去の否定は didn't + もとの形だよ。I didn't eat.",
+          difficulty: 'standard',
         },
         {
           id: 'eng-past-q21',
@@ -406,6 +454,7 @@ export const pastTense: Topic = {
           ],
           correctIndex: 1,
           explanation: "Did で聞かれたら did で答えるよ。No, she didn't.",
+          difficulty: 'standard',
         },
         {
           id: 'eng-past-q22',
@@ -413,6 +462,7 @@ export const pastTense: Topic = {
           options: ['are playing', 'was playing', 'were playing', 'played'],
           correctIndex: 2,
           explanation: '「そのとき〜していた」は過去進行形。We だから were + playing だよ。',
+          difficulty: 'standard',
         },
         {
           id: 'eng-past-q23',
@@ -420,6 +470,7 @@ export const pastTense: Topic = {
           options: ['Did', 'Is', 'Was', 'Does'],
           correctIndex: 2,
           explanation: '過去進行形の疑問文は was/were を前に出すよ。Was he sleeping?',
+          difficulty: 'advanced',
         },
         {
           id: 'eng-past-q24',
@@ -427,6 +478,7 @@ export const pastTense: Topic = {
           options: ["didn't watch", "doesn't watch", "wasn't watching", "isn't watching"],
           correctIndex: 2,
           explanation: "過去進行形の否定は wasn't/weren't + ing だよ。She wasn't watching.",
+          difficulty: 'advanced',
         },
         // --- 追加: reorder 問題 q25〜q28 ---
         {
@@ -439,6 +491,7 @@ export const pastTense: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「She made a cake yesterday.」が正解。She（彼女は）+ made（作った）+ a cake（ケーキを）+ yesterday（昨日）の順番だよ。make の過去形は made だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'eng-past-q26',
@@ -450,6 +503,7 @@ export const pastTense: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「Were they happy yesterday?」が正解。Were（〜でしたか）+ they（彼らは）+ happy（うれしい）+ yesterday（昨日）の順番だよ。be動詞の過去の疑問文は were を前に出すよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'eng-past-q27',
@@ -461,6 +515,7 @@ export const pastTense: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「I was reading a book then.」が正解。I（私は）+ was reading（読んでいた）+ a book（本を）+ then（そのとき）の順番だよ。過去進行形は was/were + ing だよ。',
+          difficulty: 'advanced',
         },
         {
           id: 'eng-past-q28',
@@ -472,6 +527,7 @@ export const pastTense: Topic = {
           options: [],
           correctIndex: -1,
           explanation: '「He didn\'t write a letter last night.」が正解。He（彼は）+ didn\'t（〜しなかった）+ write（書く）+ a letter（手紙を）+ last night（昨夜）の順番だよ。didn\'t のあとは動詞のもとの形を使うよ。',
+          difficulty: 'advanced',
         },
       ],
     },

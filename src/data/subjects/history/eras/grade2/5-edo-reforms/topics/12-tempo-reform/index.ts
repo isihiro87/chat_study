@@ -28,24 +28,28 @@ export const tempoReform: Topic = {
         front: '水野忠邦',
         back: '天保の改革を行った老中は？',
         explanation: '江戸幕府最後の幕政改革を行ったが、厳しすぎて失敗した。',
+        difficulty: 'basic',
       },
       {
         id: 'fc2',
         front: '株仲間の解散',
         back: '物価を下げるため同業組合を解散させた政策は？',
         explanation: '株仲間を物価高の原因として解散させたが、かえって流通が混乱した。',
+        difficulty: 'basic',
       },
       {
         id: 'fc3',
         front: '人返し令',
         back: '江戸に流入した農民を農村に帰す命令は？',
         explanation: '農村の復興を目指したが、効果は限定的だった。',
+        difficulty: 'standard',
       },
       {
         id: 'fc4',
         front: '上知令',
         back: '江戸・大阪周辺の土地を幕府領にする計画（撤回）は？',
         explanation: '大名たちの猛反対にあい、水野忠邦は失脚した。',
+        difficulty: 'standard',
       },
     ],
     quiz: {
@@ -57,6 +61,7 @@ export const tempoReform: Topic = {
           correctIndex: 2,
           explanation:
             '水野忠邦は江戸幕府最後の幕政改革を行いましたが、厳しすぎて失敗しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -65,6 +70,7 @@ export const tempoReform: Topic = {
           correctIndex: 3,
           explanation:
             '株仲間を物価高の原因として解散させましたが、かえって流通が混乱しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -73,6 +79,7 @@ export const tempoReform: Topic = {
           correctIndex: 0,
           explanation:
             '上知令は大名たちの猛反対にあい、水野忠邦は失脚しました。',
+          difficulty: 'standard',
         },
       ],
     },

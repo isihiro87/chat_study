@@ -49,60 +49,70 @@ export const openingJapan: Topic = {
         front: 'ペリー',
         back: '1853年に黒船で浦賀に来航し、開国を要求したアメリカの軍人は？',
         explanation: '翌年、日米和親条約を結ばせ、日本の鎖国を終わらせた。',
+        difficulty: 'basic',
       },
       {
         id: 'fc2',
         front: '黒船',
         back: 'ペリーが率いた蒸気船の呼び名は？',
         explanation: '黒い船体と蒸気の煙で「黒船」と呼ばれ、人々を驚かせた。',
+        difficulty: 'basic',
       },
       {
         id: 'fc3',
         front: '日米和親条約',
         back: '1854年に日本とアメリカが結んだ、下田・函館を開く条約は？',
         explanation: 'この条約で約200年続いた鎖国が終わった。',
+        difficulty: 'basic',
       },
       {
         id: 'fc4',
         front: '日米修好通商条約',
         back: '1858年に井伊直弼が結んだ、不平等な通商条約は？',
         explanation: '領事裁判権を認め、関税自主権がない不平等条約。',
+        difficulty: 'basic',
       },
       {
         id: 'fc5',
         front: '井伊直弼',
         back: '日米修好通商条約を朝廷の許可なく結んだ大老は？',
         explanation: 'その後、安政の大獄で反対派を弾圧したが、桜田門外で暗殺された。',
+        difficulty: 'standard',
       },
       {
         id: 'fc6',
         front: '領事裁判権',
         back: '外国人が日本で罪を犯しても日本の法律で裁けない権利は？',
         explanation: '不平等条約の内容の一つで、治外法権とも呼ばれる。',
+        difficulty: 'standard',
       },
       {
         id: 'fc7',
         front: '関税自主権',
         back: '輸入品にかける税率を自国で決める権利は？',
         explanation: '日本はこの権利がなく、国内産業を保護できなかった。',
+        difficulty: 'standard',
       },
       {
         id: 'fc8',
         front: '安政の五か国条約',
         back: 'アメリカ・オランダ・ロシア・イギリス・フランスと結んだ不平等条約の総称は？',
         explanation: '1858年、井伊直弼のもとで5か国と結ばれた。',
+        difficulty: 'standard',
       },
       {
         id: 'fc9',
         front: '下田',
         back: '日米和親条約で開かれた静岡県の港は？',
         explanation: '函館とともに最初に開かれた港。',
+        difficulty: 'standard',
       },
       {
         id: 'fc10',
         front: '横浜',
         back: '日米修好通商条約後に最大の貿易港となった港は？',
         explanation: '開港後、外国との貿易の中心地となった。',
+        difficulty: 'standard',
       },
     ],
     quiz: {
@@ -114,6 +124,7 @@ export const openingJapan: Topic = {
           correctIndex: 3,
           explanation:
             'ペリーは1853年に浦賀に来航し、翌年日米和親条約を結ばせました。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -127,6 +138,7 @@ export const openingJapan: Topic = {
           correctIndex: 1,
           explanation:
             '日米和親条約で下田と函館の2港が開かれ、約200年続いた鎖国が終わりました。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -136,6 +148,7 @@ export const openingJapan: Topic = {
           correctIndex: 2,
           explanation:
             '領事裁判権（治外法権）は不平等条約の内容の一つで、外国人の犯罪をその国の法律で裁く権利です。',
+          difficulty: 'basic',
         },
         {
           id: 'q4',
@@ -145,6 +158,7 @@ export const openingJapan: Topic = {
           correctIndex: 0,
           explanation:
             '大老・井伊直弼は朝廷の許可を得ないまま条約を結び、その後安政の大獄で反対派を弾圧しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q5',
@@ -154,6 +168,7 @@ export const openingJapan: Topic = {
           correctIndex: 3,
           explanation:
             '関税自主権がなかったため、日本は輸入品に自由に税をかけることができず、国内産業を保護できませんでした。',
+          difficulty: 'standard',
         },
         {
           id: 'q6',
@@ -168,6 +183,7 @@ export const openingJapan: Topic = {
           correctIndex: 1,
           explanation:
             '1858年に井伊直弼のもとで5か国と結ばれた不平等条約をまとめて安政の五か国条約と呼びます。',
+          difficulty: 'standard',
         },
       ],
     },

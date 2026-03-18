@@ -121,176 +121,34 @@ export const japanPosition: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'geo1-jp-fc1',
-        front: '日本の緯度の範囲',
-        back: '日本は緯度でいうとおよそ何度から何度の間に位置しているか？',
-        explanation:
-          '日本は北緯約20度から約46度の間に位置しています。北半球の中緯度にあたり、四季の変化がはっきりしています。',
-      },
-      {
-        id: 'geo1-jp-fc2',
-        front: '日本の経度の範囲',
-        back: '日本は経度でいうとおよそ何度から何度の間に位置しているか？',
-        explanation:
-          '日本は東経約123度から約154度の間に位置しています。標準時子午線は東経135度で、兵庫県明石市を通っています。',
-      },
-      {
-        id: 'geo1-jp-fc3',
-        front: '日本と大陸の位置関係',
-        back: '日本はどの大陸のどちら側に位置しているか？',
-        explanation:
-          '日本はユーラシア大陸の東側に位置する島国です。大陸と太平洋の間に弧状に連なっています。',
-      },
-      {
-        id: 'geo1-jp-fc4',
-        front: '日本と海洋の位置関係',
-        back: '日本は太平洋のどのあたりに位置しているか？',
-        explanation:
-          '日本は太平洋の北西部に位置しています。東側に太平洋、西側に日本海・東シナ海、北にオホーツク海があります。',
-      },
-      {
-        id: 'geo1-jp-fc5',
-        front: '日本の標準時子午線',
-        back: '日本の標準時子午線は何度で、どこを通っているか？',
-        explanation:
-          '日本の標準時子午線は東経135度で、兵庫県明石市を通っています。日本全体の標準時はこの経線をもとに定められています。',
-      },
-      {
-        id: 'geo1-jp-fc6',
-        front: '日本最南端の島',
-        back: '日本最南端の島の名前を答えよ。',
-        explanation:
-          '沖ノ鳥島です。東京都に属し、排他的経済水域の確保に重要な役割を果たしています。',
-      },
-      {
-        id: 'geo1-jp-fc7',
-        front: '日本最東端の島',
-        back: '日本最東端の島の名前を答えよ。',
-        explanation:
-          '南鳥島です。東京都小笠原村に属し、周辺海底にレアアースなどの資源が確認されています。',
-      },
-      {
-        id: 'geo1-jp-fc8',
-        front: '日本最西端の島',
-        back: '日本最西端の島の名前を答えよ。',
-        explanation:
-          '与那国島です。沖縄県に属し、東経約122度に位置しています。',
-      },
-      {
-        id: 'geo1-jp-fc9',
-        front: '日本列島の4つの大きな島',
-        back: '日本列島を構成する4つの大きな島を北から順に答えよ。',
-        explanation:
-          '北海道・本州・四国・九州の4つです。これらの島と周辺の約6,800の島々で日本列島が構成されています。',
-      },
-      {
-        id: 'geo1-jp-fc10',
-        front: '日本の南北の長さ',
-        back: '日本列島の南北の長さはおよそ何kmか？',
-        explanation:
-          '約3000kmです。北海道から沖縄まで南北に長く伸びており、多様な気候が見られます。',
-      },
-      {
-        id: 'geo1-jp-fc11',
-        front: 'サハラ砂漠と同緯度の日本',
-        back: 'サハラ砂漠の中央付近と同じ緯度にある日本の地域はどこか？',
-        explanation:
-          '沖縄県です。北緯約26度付近が共通していますが、島国の沖縄は温暖湿潤で、砂漠のサハラとは全く異なる気候です。',
-      },
-      {
-        id: 'geo1-jp-fc12',
-        front: '地中海と同緯度の日本',
-        back: 'アフリカ大陸北端の地中海沿岸と同じ緯度にある日本の地方はどこか？',
-        explanation:
-          '関東地方です。北緯約35度付近が共通しています。',
-      },
-      {
-        id: 'geo1-jp-fc13',
-        front: '日本の国土面積',
-        back: '日本の国土面積はおよそ何万km²か？',
-        explanation:
-          '約38万km²です。世界では約60番目の広さで、ドイツとほぼ同じ規模です。',
-      },
-      {
-        id: 'geo1-jp-fc14',
-        front: '同緯度で気候が違う理由',
-        back: '同じ緯度にある日本とカイロで気候が大きく異なる理由を答えよ。',
-        explanation:
-          '日本は海に囲まれた島国で湿った空気が流れ込みやすいのに対し、カイロはアフリカ大陸の内部にあり海からの湿気が届きにくいためです。',
-      },
-      {
-        id: 'geo1-jp-fc15',
-        front: '日本の周囲の海',
-        back: '日本の東西南北にある海をそれぞれ答えよ。',
-        explanation:
-          '東：太平洋、西：日本海・東シナ海、北：オホーツク海、南：フィリピン海。四方を海に囲まれた島国です。',
-      },
-      {
-        id: 'geo1-jp-fc16',
-        front: '日本の周囲の海',
-        back: '日本列島の西側にある海を2つ答えよ。',
-      },
-      {
-        id: 'geo1-jp-fc17',
-        front: 'オホーツク海',
-        back: '日本列島の北側にある海を答えよ。',
-      },
-      {
-        id: 'geo1-jp-fc18',
-        front: '中緯度と四季',
-        back: '日本が中緯度に位置していることと四季の変化にはどのような関係があるか。',
-      },
-      {
-        id: 'geo1-jp-fc19',
-        front: '日本の島の数',
-        back: '日本はおよそ何個の島からなるか。',
-      },
-      {
-        id: 'geo1-jp-fc20',
-        front: 'えおみよ',
-        back: '日本の端の島を覚える語呂合わせ「えおみよ」のそれぞれの頭文字は何か。',
-      },
-      {
-        id: 'geo1-jp-fc21',
-        front: '北緯46度',
-        back: '日本の北端付近の緯度はおよそ何度か。',
-      },
-      {
-        id: 'geo1-jp-fc22',
-        front: '東経154度',
-        back: '日本の東端付近の経度はおよそ何度か。',
-      },
-      {
-        id: 'geo1-jp-fc23',
-        front: '南鳥島の所属',
-        back: '南鳥島は何都道府県に属しているか。',
-      },
-      {
-        id: 'geo1-jp-fc24',
-        front: 'ワシントンD.C.と同緯度',
-        back: '日本と同緯度にあるアメリカの都市を1つ答えよ。',
-      },
-      {
-        id: 'geo1-jp-fc25',
-        front: 'カイロとの気候差',
-        back: '同じ緯度でもカイロと東京では気候が大きく違う理由は。',
-      },
-      {
-        id: 'geo1-jp-fc26',
-        front: '海洋国の利点',
-        back: '日本が海洋国（島国）であることの利点を1つ答えよ。',
-      },
-      {
-        id: 'geo1-jp-fc27',
-        front: '上海と同緯度',
-        back: '日本と同緯度にある中国の代表的な都市を答えよ。',
-      },
-      {
-        id: 'geo1-jp-fc28',
-        front: '日本の気候が温暖な理由',
-        back: '日本の気候が温暖で降水量が多い理由を位置の特徴と関連づけて答えよ。',
-      },
+      { id: 'geo1-jp-fc1', front: '北緯約20度〜約46度', back: '日本は緯度でいうとおよそ何度から何度の間に位置しているか？', explanation: '北半球の中緯度にあたり、四季の変化がはっきりしている。', difficulty: 'basic' },
+      { id: 'geo1-jp-fc2', front: '東経約123度〜約154度', back: '日本は経度でいうとおよそ何度から何度の間に位置しているか？', difficulty: 'basic' },
+      { id: 'geo1-jp-fc3', front: 'ユーラシア大陸の東側', back: '日本はどの大陸のどちら側に位置しているか？', difficulty: 'basic' },
+      { id: 'geo1-jp-fc4', front: '太平洋の北西部', back: '日本は太平洋のどのあたりに位置しているか？', difficulty: 'basic' },
+      { id: 'geo1-jp-fc5', front: '東経135度（兵庫県明石市を通る）', back: '日本の標準時子午線は何度で、どこを通っているか？', difficulty: 'basic' },
+      { id: 'geo1-jp-fc6', front: '沖ノ鳥島（東京都）', back: '日本最南端の島の名前を答えよ。', explanation: '排他的経済水域の確保に重要な役割を果たしている。', difficulty: 'basic' },
+      { id: 'geo1-jp-fc7', front: '南鳥島（東京都小笠原村）', back: '日本最東端の島の名前を答えよ。', difficulty: 'basic' },
+      { id: 'geo1-jp-fc8', front: '与那国島（沖縄県）', back: '日本最西端の島の名前を答えよ。', difficulty: 'basic' },
+      { id: 'geo1-jp-fc9', front: '北海道・本州・四国・九州', back: '日本列島を構成する4つの大きな島を北から順に答えよ。', difficulty: 'basic' },
+      { id: 'geo1-jp-fc10', front: '約3000km', back: '日本列島の南北の長さはおよそ何kmか？', difficulty: 'basic' },
+      { id: 'geo1-jp-fc11', front: '沖縄県（北緯約26度付近）', back: 'サハラ砂漠の中央付近と同じ緯度にある日本の地域はどこか？', explanation: '島国の沖縄は温暖湿潤で、砂漠のサハラとは全く異なる気候。', difficulty: 'standard' },
+      { id: 'geo1-jp-fc12', front: '関東地方（北緯約35度付近）', back: 'アフリカ大陸北端の地中海沿岸と同じ緯度にある日本の地方はどこか？', difficulty: 'standard' },
+      { id: 'geo1-jp-fc13', front: '約38万km²（世界で約60番目）', back: '日本の国土面積はおよそ何万km²か？', difficulty: 'standard' },
+      { id: 'geo1-jp-fc14', front: '日本は海に囲まれた島国で湿潤、カイロは大陸内部で乾燥しているため', back: '同じ緯度にある日本とカイロで気候が大きく異なる理由を答えよ。', difficulty: 'standard' },
+      { id: 'geo1-jp-fc15', front: '東：太平洋、西：日本海・東シナ海、北：オホーツク海、南：フィリピン海', back: '日本の東西南北にある海をそれぞれ答えよ。', difficulty: 'standard' },
+      { id: 'geo1-jp-fc16', front: '日本海と東シナ海', back: '日本列島の西側にある海を2つ答えよ。', difficulty: 'standard' },
+      { id: 'geo1-jp-fc17', front: 'オホーツク海', back: '日本列島の北側にある海を答えよ。', difficulty: 'basic' },
+      { id: 'geo1-jp-fc18', front: '中緯度は太陽の高さが季節で変化しやすく、四季が生まれる', back: '日本が中緯度に位置していることと四季の変化にはどのような関係があるか。', difficulty: 'advanced' },
+      { id: 'geo1-jp-fc19', front: '約6,800の島', back: '日本はおよそ何個の島からなるか。', difficulty: 'standard' },
+      { id: 'geo1-jp-fc20', front: 'え＝択捉島（北）、お＝沖ノ鳥島（南）、み＝南鳥島（東）、よ＝与那国島（西）', back: '日本の端の島を覚える語呂合わせ「えおみよ」のそれぞれの頭文字は何か。', difficulty: 'standard' },
+      { id: 'geo1-jp-fc21', front: '北緯約46度', back: '日本の北端付近の緯度はおよそ何度か。', difficulty: 'standard' },
+      { id: 'geo1-jp-fc22', front: '東経約154度', back: '日本の東端付近の経度はおよそ何度か。', difficulty: 'standard' },
+      { id: 'geo1-jp-fc23', front: '東京都（小笠原村）', back: '南鳥島は何都道府県に属しているか。', difficulty: 'standard' },
+      { id: 'geo1-jp-fc24', front: 'ワシントンD.C.（北緯約39度）', back: '日本と同緯度にあるアメリカの都市を1つ答えよ。', difficulty: 'advanced' },
+      { id: 'geo1-jp-fc25', front: '日本は海に囲まれた島国で湿潤、カイロは大陸内部で乾燥しているため', back: '同じ緯度でもカイロと東京では気候が大きく違う理由は。', difficulty: 'advanced' },
+      { id: 'geo1-jp-fc26', front: '広大な排他的経済水域（漁業資源や海底資源）を確保できる', back: '日本が海洋国（島国）であることの利点を1つ答えよ。', difficulty: 'advanced' },
+      { id: 'geo1-jp-fc27', front: '上海（北緯約31度）', back: '日本と同緯度にある中国の代表的な都市を答えよ。', difficulty: 'advanced' },
+      { id: 'geo1-jp-fc28', front: '中緯度の島国で、周囲の海洋から暖かく湿った空気が流れ込むため', back: '日本の気候が温暖で降水量が多い理由を位置の特徴と関連づけて答えよ。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -306,7 +164,8 @@ export const japanPosition: Topic = {
           correctIndex: 3,
           explanation:
             '日本は北緯約20度（沖ノ鳥島付近）から約46度（北海道北端付近）の間に位置しています。北半球の中緯度にあたります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-jp-q2',
           question: '日本の経度の範囲としておよそ正しいものはどれ？',
@@ -319,7 +178,8 @@ export const japanPosition: Topic = {
           correctIndex: 2,
           explanation:
             '日本は東経約123度（与那国島付近）から約154度（南鳥島付近）の間に位置しています。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-jp-q3',
           question: '日本はどの大陸のどちら側に位置しているか？',
@@ -332,7 +192,8 @@ export const japanPosition: Topic = {
           correctIndex: 1,
           explanation:
             '日本はユーラシア大陸の東側に位置する島国です。大陸との間には日本海や東シナ海があります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-jp-q4',
           question: '日本は太平洋のどのあたりに位置しているか？',
@@ -345,7 +206,8 @@ export const japanPosition: Topic = {
           correctIndex: 0,
           explanation:
             '日本は太平洋の北西部に位置しています。日本の東側には広大な太平洋が広がっています。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-jp-q5',
           question: '日本の標準時子午線が通る都市はどこ？',
@@ -358,7 +220,8 @@ export const japanPosition: Topic = {
           correctIndex: 3,
           explanation:
             '日本の標準時子午線は東経135度で、兵庫県明石市を通っています。日本の標準時はこの経線をもとに定められています。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-jp-q6',
           question: 'サハラ砂漠の中央付近とほぼ同じ緯度にある日本の地域はどこ？',
@@ -371,7 +234,8 @@ export const japanPosition: Topic = {
           correctIndex: 0,
           explanation:
             'サハラ砂漠の中央付近は北緯約26度で、沖縄県とほぼ同じ緯度です。ただし、島国の沖縄は温暖湿潤で砂漠とは全く異なる気候です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-jp-q7',
           question: '日本列島の南北の長さとして正しいものはどれ？',
@@ -384,7 +248,8 @@ export const japanPosition: Topic = {
           correctIndex: 2,
           explanation:
             '日本列島は北海道から沖縄まで南北に約3000kmの長さがあります。この長さが多様な気候を生み出しています。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-jp-q8',
           question: '日本列島を構成する4つの大きな島に含まれないのはどれ？',
@@ -397,7 +262,8 @@ export const japanPosition: Topic = {
           correctIndex: 1,
           explanation:
             '日本列島の4つの大きな島は北海道・本州・四国・九州です。沖縄本島は離島に分類されます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-jp-q9',
           question: '日本最南端の島はどれ？',
@@ -410,7 +276,8 @@ export const japanPosition: Topic = {
           correctIndex: 3,
           explanation:
             '日本最南端の島は沖ノ鳥島です。与那国島は最西端、択捉島は最北端、南鳥島は最東端です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-jp-q10',
           question: '日本の国土面積としておよそ正しいものはどれ？',
@@ -423,7 +290,8 @@ export const japanPosition: Topic = {
           correctIndex: 1,
           explanation:
             '日本の国土面積は約38万km²です。約6,800の島々からなる島国で、世界では約60番目の広さです。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo1-jp-q11',
           question: '日本列島の西側にある海として正しい組み合わせはどれ？',
@@ -436,7 +304,8 @@ export const japanPosition: Topic = {
           correctIndex: 1,
           explanation:
             '日本列島の西側には日本海と東シナ海があります。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-jp-q12',
           question: '日本の北端付近の緯度はおよそ何度か。',
@@ -449,7 +318,8 @@ export const japanPosition: Topic = {
           correctIndex: 3,
           explanation:
             '日本の北端付近は北緯約46度です。北海道の北端付近にあたります。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-jp-q13',
           question: '日本の南北の緯度差はおよそ何度あるか。',
@@ -462,7 +332,8 @@ export const japanPosition: Topic = {
           correctIndex: 2,
           explanation:
             '日本は北緯約20度〜約46度で、南北の緯度差は約26度あります。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-jp-q14',
           question: '日本の端の島「えおみよ」のうち、東を表す島はどれ？',
@@ -475,7 +346,8 @@ export const japanPosition: Topic = {
           correctIndex: 2,
           explanation:
             '「み」は南鳥島で東端を表します。え＝択捉島（北）、お＝沖ノ鳥島（南）、よ＝与那国島（西）。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-jp-q15',
           question: '南鳥島は何都道府県に属しているか。',
@@ -488,7 +360,8 @@ export const japanPosition: Topic = {
           correctIndex: 2,
           explanation:
             '南鳥島は東京都小笠原村に属しています。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-jp-q16',
           question: '日本はおよそ何個の島からなるか。',
@@ -501,7 +374,8 @@ export const japanPosition: Topic = {
           correctIndex: 2,
           explanation:
             '日本は約6,800の島々からなります。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-jp-q17',
           question: '日本の東西の経度差はおよそ何度あるか。',
@@ -514,7 +388,8 @@ export const japanPosition: Topic = {
           correctIndex: 2,
           explanation:
             '日本は東経約122度〜約154度で、経度差は約32度です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-jp-q18',
           question: '日本と同緯度にあるアメリカの都市はどれ？',
@@ -527,7 +402,8 @@ export const japanPosition: Topic = {
           correctIndex: 1,
           explanation:
             'ワシントンD.C.は北緯約39度で日本と同緯度帯にあります。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-jp-q19',
           question: '日本列島の北側にある海はどれ？',
@@ -540,7 +416,8 @@ export const japanPosition: Topic = {
           correctIndex: 3,
           explanation:
             '日本列島の北側にはオホーツク海があります。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-jp-q20',
           question: '同じ緯度でもカイロと東京の気候が違う主な理由はどれ？',
@@ -553,7 +430,8 @@ export const japanPosition: Topic = {
           correctIndex: 1,
           explanation:
             '日本は海に囲まれた島国で湿潤、カイロは大陸内部にあり乾燥しているためです。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-jp-q21',
           question: '日本の国土面積はおよそ何万km²か。',
@@ -566,7 +444,8 @@ export const japanPosition: Topic = {
           correctIndex: 1,
           explanation:
             '日本の国土面積は約38万km²です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-jp-q22',
           question: '日本の標準時子午線は東経何度か。',
@@ -579,7 +458,8 @@ export const japanPosition: Topic = {
           correctIndex: 2,
           explanation:
             '日本の標準時子午線は東経135度で、兵庫県明石市を通っています。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo1-jp-q23',
           question: '日本の気候が温暖で降水量が多い理由はどれ？',
@@ -592,7 +472,8 @@ export const japanPosition: Topic = {
           correctIndex: 1,
           explanation:
             '中緯度の島国であり、周囲の海洋から暖かく湿った空気が流れ込むためです。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'geo1-jp-q24',
           question: '日本列島の南北の長さはおよそ何kmか。',
@@ -605,7 +486,8 @@ export const japanPosition: Topic = {
           correctIndex: 2,
           explanation:
             '日本列島の南北の長さは約3000kmです。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'geo1-jp-q25',
           question: '日本は太平洋のどの方角に位置しているか。',
@@ -618,7 +500,8 @@ export const japanPosition: Topic = {
           correctIndex: 2,
           explanation:
             '日本は太平洋の北西部に位置しています。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'geo1-jp-q26',
           question: '日本の近くにある大陸側の国を2つ含む組み合わせはどれ？',
@@ -631,7 +514,8 @@ export const japanPosition: Topic = {
           correctIndex: 1,
           explanation:
             '日本の近くには中国と韓国が日本海や東シナ海をへだてて隣接しています。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'geo1-jp-q27',
           question: '与那国島は何県に属しているか。',
@@ -644,7 +528,8 @@ export const japanPosition: Topic = {
           correctIndex: 2,
           explanation:
             '日本最西端の与那国島は沖縄県に属しています。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'geo1-jp-q28',
           question: '日本はどの大陸の東側に位置しているか。',
@@ -657,7 +542,8 @@ export const japanPosition: Topic = {
           correctIndex: 3,
           explanation:
             '日本はユーラシア大陸の東側に位置する島国です。',
-        },
+        difficulty: 'advanced',
+      },
       ],
     },
     examples: {

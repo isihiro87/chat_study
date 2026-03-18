@@ -55,34 +55,34 @@ export const kamakuraSociety: Topic = {
     },
     videos: [],
     flashcards: [
-      { id: 'fc1', front: '二毛作', back: '秋に米をとったあと、冬に麦を作る農業のやり方は？（西日本中心）' },
-      { id: 'fc2', front: '下地中分', back: '地頭と荘園領主が土地を半分ずつ分けることを何という？' },
-      { id: 'fc3', front: '武士道', back: '名誉を大切にし、はじをきらう武士の心がまえは？' },
-      { id: 'fc4', front: '定期市', back: '寺社の門前や交通の要所で、定期的に開かれた市は？' },
-      { id: 'fc5', front: '宋銭', back: '日宋貿易で日本に流入し、年貢の支払いにも使われたお金は？' },
-      { id: 'fc6', front: '鉄製農具', back: '鎌倉時代に普及した、耕作効率を大幅に上げた道具は？' },
-      { id: 'fc7', front: '牛馬耕', back: '牛や馬を使って田を耕す方法を何という？' },
-      { id: 'fc8', front: '草木灰', back: '草木を焼いた灰で、鎌倉時代に肥料として使われたのは？' },
-      { id: 'fc9', front: '三斎市', back: '鎌倉時代に月3回開催された定期市の呼び方は？' },
-      { id: 'fc10', front: '馬借', back: '鎌倉時代に馬を利用して荷物を運んだ運送業者は？' },
-      { id: 'fc11', front: '弓馬の道', back: '鎌倉時代の武士が重んじた武芸の精神を何という？' },
-      { id: 'fc12', front: '貨幣経済', back: '宋銭の流通で物々交換から変化した、お金を使う経済のしくみは？' },
-      { id: 'fc13', front: '板葺きの住まい', back: '鎌倉時代の武士の質素な住まいの特徴は？' },
-      { id: 'fc14', front: '年貢', back: '農民が領主に毎年おさめた米や布などの税は？' },
-      { id: 'fc15', front: '問注所', back: '鎌倉幕府で地頭と荘園領主の争いを裁判で解決した機関は？' },
-      { id: 'fc16', front: '三斎市', back: '鎌倉時代の定期市で、月に3回開催されたものは？' },
-      { id: 'fc17', front: 'いざ鎌倉', back: '非常事態に将軍のもとへ駆けつけるという御家人の覚悟を表す言葉は？' },
-      { id: 'fc18', front: '寺社の門前と交通の要所', back: '定期市が開かれた代表的な場所を2つ答えよ' },
-      { id: 'fc19', front: '弓術と馬術', back: '鎌倉時代の武士が行った代表的な武芸の訓練を2つ答えよ' },
-      { id: 'fc20', front: '名こそ惜しけれ', back: '武士道の精神で、名誉を重んじる考え方を表す言葉は？' },
-      { id: 'fc21', front: '農業の生産力向上', back: '二毛作が広まったことで農業にどのような影響があった？' },
-      { id: 'fc22', front: '余剰作物の販売', back: '農業の発展と商業の活性化をつなぐ要因は？' },
-      { id: 'fc23', front: '地頭の年貢横領', back: '地頭と荘園領主の対立が深まった主な原因は？' },
-      { id: 'fc24', front: '物々交換から貨幣取引へ', back: '宋銭の流通で経済のしくみはどのように変化した？' },
-      { id: 'fc25', front: '結（ゆい）', back: '農村で田植えや稲刈りなどを村人が共同で行うことを何という？' },
-      { id: 'fc26', front: '武芸の訓練', back: '鎌倉時代の武士がふだんの生活で最も重視したことは？' },
-      { id: 'fc27', front: '鉄製農具・牛馬耕・二毛作', back: '鎌倉時代の農業の発展を支えた3つの要素は？' },
-      { id: 'fc28', front: '贅沢を避けた質素な生活', back: '鎌倉時代の武士の生活が質素だった理由と関わる特徴は？' },
+      { id: 'fc1', front: '二毛作', back: '秋に米をとったあと、冬に麦を作る農業のやり方は？（西日本中心）', difficulty: 'basic' },
+      { id: 'fc2', front: '下地中分', back: '地頭と荘園領主が土地を半分ずつ分けることを何という？', difficulty: 'basic' },
+      { id: 'fc3', front: '武士道', back: '名誉を大切にし、はじをきらう武士の心がまえは？', difficulty: 'basic' },
+      { id: 'fc4', front: '定期市', back: '寺社の門前や交通の要所で、定期的に開かれた市は？', difficulty: 'basic' },
+      { id: 'fc5', front: '宋銭', back: '日宋貿易で日本に流入し、年貢の支払いにも使われたお金は？', difficulty: 'basic' },
+      { id: 'fc6', front: '鉄製農具', back: '鎌倉時代に普及した、耕作効率を大幅に上げた道具は？', difficulty: 'basic' },
+      { id: 'fc7', front: '牛馬耕', back: '牛や馬を使って田を耕す方法を何という？', difficulty: 'basic' },
+      { id: 'fc8', front: '草木灰', back: '草木を焼いた灰で、鎌倉時代に肥料として使われたのは？', difficulty: 'basic' },
+      { id: 'fc9', front: '三斎市', back: '鎌倉時代に月3回開催された定期市の呼び方は？', difficulty: 'basic' },
+      { id: 'fc10', front: '馬借', back: '鎌倉時代に馬を利用して荷物を運んだ運送業者は？', difficulty: 'basic' },
+      { id: 'fc11', front: '弓馬の道', back: '鎌倉時代の武士が重んじた武芸の精神を何という？', difficulty: 'basic' },
+      { id: 'fc12', front: '貨幣経済', back: '宋銭の流通で物々交換から変化した、お金を使う経済のしくみは？', difficulty: 'basic' },
+      { id: 'fc13', front: '板葺きの住まい', back: '鎌倉時代の武士の質素な住まいの特徴は？', difficulty: 'standard' },
+      { id: 'fc14', front: '年貢', back: '農民が領主に毎年おさめた米や布などの税は？', difficulty: 'standard' },
+      { id: 'fc15', front: '問注所', back: '鎌倉幕府で地頭と荘園領主の争いを裁判で解決した機関は？', difficulty: 'standard' },
+      { id: 'fc16', front: '行商人', back: '定期市が開かれない日に村々を回って商品を売り歩いた商人は？', difficulty: 'standard' },
+      { id: 'fc17', front: 'いざ鎌倉', back: '非常事態に将軍のもとへ駆けつけるという御家人の覚悟を表す言葉は？', difficulty: 'standard' },
+      { id: 'fc18', front: '寺社の門前と交通の要所', back: '定期市が開かれた代表的な場所を2つ答えよ', difficulty: 'standard' },
+      { id: 'fc19', front: '弓術と馬術', back: '鎌倉時代の武士が行った代表的な武芸の訓練を2つ答えよ', difficulty: 'standard' },
+      { id: 'fc20', front: '名こそ惜しけれ', back: '武士道の精神で、名誉を重んじる考え方を表す言葉は？', difficulty: 'standard' },
+      { id: 'fc21', front: '農業の生産力向上', back: '二毛作が広まったことで農業にどのような影響があった？', difficulty: 'standard' },
+      { id: 'fc22', front: '余剰作物の販売', back: '農業の発展と商業の活性化をつなぐ要因は？', difficulty: 'standard' },
+      { id: 'fc23', front: '地頭の年貢横領', back: '地頭と荘園領主の対立が深まった主な原因は？', difficulty: 'advanced' },
+      { id: 'fc24', front: '物々交換から貨幣取引へ', back: '宋銭の流通で経済のしくみはどのように変化した？', difficulty: 'advanced' },
+      { id: 'fc25', front: '結（ゆい）', back: '農村で田植えや稲刈りなどを村人が共同で行うことを何という？', difficulty: 'advanced' },
+      { id: 'fc26', front: '武芸の訓練', back: '鎌倉時代の武士がふだんの生活で最も重視したことは？', difficulty: 'advanced' },
+      { id: 'fc27', front: '鉄製農具・牛馬耕・二毛作', back: '鎌倉時代の農業の発展を支えた3つの要素は？', difficulty: 'advanced' },
+      { id: 'fc28', front: '贅沢を避けた質素な生活', back: '鎌倉時代の武士の生活が質素だった理由と関わる特徴は？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -92,6 +92,7 @@ export const kamakuraSociety: Topic = {
           options: ['輪作', '三毛作', '二期作', '二毛作'],
           correctIndex: 3,
           explanation: '二毛作は同じ土地で米と麦など異なる作物を年に二度つくる農法で、西日本を中心に広まりました。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -99,6 +100,7 @@ export const kamakuraSociety: Topic = {
           options: ['宋銭', '永楽通宝', '和同開珎', '寛永通宝'],
           correctIndex: 0,
           explanation: '宋銭は中国から大量に輸入され、年貢の支払いにも使われるほど普及しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -106,6 +108,7 @@ export const kamakuraSociety: Topic = {
           options: ['御恩', '下地中分', '荘園整理', '奉公'],
           correctIndex: 1,
           explanation: '下地中分は地頭と荘園領主の土地争いを解決するために行われた妥協策です。',
+          difficulty: 'basic',
         },
         {
           id: 'q4',
@@ -113,6 +116,7 @@ export const kamakuraSociety: Topic = {
           options: ['朝市', '楽市', '定期市', '座'],
           correctIndex: 2,
           explanation: '定期市は寺社の門前や交通の要所で定期的に開かれ、月3回の三斎市が一般的でした。',
+          difficulty: 'basic',
         },
         {
           id: 'q5',
@@ -120,6 +124,7 @@ export const kamakuraSociety: Topic = {
           options: ['犬と猫', '鶏と豚', '鹿と猪', '牛と馬'],
           correctIndex: 3,
           explanation: '牛や馬を使って田を耕す牛馬耕が広まり、人の力だけで耕すよりも効率がよくなりました。',
+          difficulty: 'basic',
         },
         {
           id: 'q6',
@@ -127,6 +132,7 @@ export const kamakuraSociety: Topic = {
           options: ['武士道', '忠義', '礼節', '大義'],
           correctIndex: 0,
           explanation: '武士道は名誉を重んじ、はじをきらう武士の精神的なよりどころとなった心がまえです。',
+          difficulty: 'basic',
         },
         {
           id: 'q7',
@@ -134,6 +140,7 @@ export const kamakuraSociety: Topic = {
           options: ['石製農具', '鉄製農具', '木製農具', '青銅器'],
           correctIndex: 1,
           explanation: '鉄製農具は木製や石製に比べて硬くて丈夫で、土を深く耕すことができたため効率が大幅に向上しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q8',
@@ -141,6 +148,7 @@ export const kamakuraSociety: Topic = {
           options: ['茶の湯', '文武両道', '弓馬の道', '和歌の道'],
           correctIndex: 2,
           explanation: '弓馬の道は弓術と馬術を中心とした武芸の道で、鎌倉時代の武士が最も重視した精神でした。',
+          difficulty: 'basic',
         },
         {
           id: 'q9',
@@ -148,6 +156,7 @@ export const kamakuraSociety: Topic = {
           options: ['馬借', '問屋', '飛脚', '行商人'],
           correctIndex: 0,
           explanation: '馬借は馬を利用して商品を各地に運ぶ運送業者で、商業の発展を支えました。',
+          difficulty: 'basic',
         },
         {
           id: 'q10',
@@ -155,6 +164,7 @@ export const kamakuraSociety: Topic = {
           options: ['寝殿造の豪華な住まい', '高床式の住まい', '石造りの城', '質素な板葺きの住まい'],
           correctIndex: 3,
           explanation: '鎌倉時代の武士は質素な板葺きの住まいに暮らし、武芸の訓練を最優先とする生活を送りました。',
+          difficulty: 'basic',
         },
         {
           id: 'q11',
@@ -162,6 +172,7 @@ export const kamakuraSociety: Topic = {
           options: ['米と大豆', '米と麦', '麦と野菜', '米と綿'],
           correctIndex: 1,
           explanation: '二毛作では秋に米をとったあと冬に麦を作り、同じ土地で年に二度の収穫を得ました。',
+          difficulty: 'standard',
         },
         {
           id: 'q12',
@@ -169,6 +180,7 @@ export const kamakuraSociety: Topic = {
           options: ['東北地方', '関東地方', '西日本', '北海道'],
           correctIndex: 2,
           explanation: '二毛作は気候が温暖な西日本を中心に広まりました。',
+          difficulty: 'standard',
         },
         {
           id: 'q13',
@@ -176,6 +188,7 @@ export const kamakuraSociety: Topic = {
           options: ['牛馬の糞', '草木を焼いた灰', '海藻を乾燥させたもの', '魚の骨を砕いたもの'],
           correctIndex: 1,
           explanation: '草木灰は草木を焼いた灰で、土地の養分を補う肥料として鎌倉時代に利用されました。',
+          difficulty: 'standard',
         },
         {
           id: 'q14',
@@ -183,6 +196,7 @@ export const kamakuraSociety: Topic = {
           options: ['年貢の支払いがなくなった', '米や布から宋銭での支払いも行われるようになった', '労働で支払うようになった', '変化はなかった'],
           correctIndex: 1,
           explanation: '宋銭の流通により、年貢の支払いにも米や布だけでなく宋銭が使われるようになりました。',
+          difficulty: 'standard',
         },
         {
           id: 'q15',
@@ -190,6 +204,7 @@ export const kamakuraSociety: Topic = {
           options: ['朝廷が地頭を支援した', '武力を持ち年貢徴収を担当するうちに支配力を増した', '荘園領主が土地を寄進した', '農民が地頭を選んだ'],
           correctIndex: 1,
           explanation: '武力を持つ地頭が年貢の徴収を担当するうちに、農民や土地への支配力を増していきました。',
+          difficulty: 'standard',
         },
         {
           id: 'q16',
@@ -197,6 +212,7 @@ export const kamakuraSociety: Topic = {
           options: ['荘園全体を守れた', '半分を失ったが残り半分の支配権を確保できた', '地頭を追い出せた', '年貢が増えた'],
           correctIndex: 1,
           explanation: '下地中分は荘園の半分を失うことになりましたが、残り半分の支配権を確保できるという妥協策でした。',
+          difficulty: 'standard',
         },
         {
           id: 'q17',
@@ -204,6 +220,7 @@ export const kamakuraSociety: Topic = {
           options: ['農業の発展と商業は無関係だった', '余剰作物が生まれ、市で売買するようになり商業が活発化した', '商業が先に発展し農業を促した', '農業の発展で商業は衰退した'],
           correctIndex: 1,
           explanation: '農業の生産力が向上して余剰作物が生まれ、それを市で売買するようになったことで商業が活発化しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q18',
@@ -211,6 +228,7 @@ export const kamakuraSociety: Topic = {
           options: ['金閣・能・茶の湯', '荘園・遣唐使・律令', '二毛作・定期市・御恩と奉公', '下剋上・戦国大名・城下町'],
           correctIndex: 2,
           explanation: '鎌倉時代の社会は二毛作（農業）、定期市（商業）、御恩と奉公（武士社会）で特徴づけられます。',
+          difficulty: 'standard',
         },
         {
           id: 'q19',
@@ -218,6 +236,7 @@ export const kamakuraSociety: Topic = {
           options: ['農業が衰退した', '物々交換から貨幣経済への移行と商業の活発化', '武士の数が減った', '荘園が増えた'],
           correctIndex: 1,
           explanation: '宋銭の流通により物々交換から貨幣経済への移行が進み、商業活動が活発化しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q20',
@@ -225,6 +244,7 @@ export const kamakuraSociety: Topic = {
           options: ['都で貴族と交流した', '領地で農業を指導しながら武芸の訓練を行った', '寺で仏教を学んだ', '海外へ貿易に出かけた'],
           correctIndex: 1,
           explanation: '鎌倉時代の武士はふだん自分の領地で農業を指導しながら武芸の訓練に励みました。',
+          difficulty: 'standard',
         },
         {
           id: 'q21',
@@ -232,6 +252,7 @@ export const kamakuraSociety: Topic = {
           options: ['商業が衰退した', '馬借などの運送業が発達し各地の産物が市場に運ばれ商業が活発になった', '交通は商業と無関係だった', '港だけが発展した'],
           correctIndex: 1,
           explanation: '馬借などの運送業が発達し、各地の産物が市場に運ばれるようになったことで商業が活発になりました。',
+          difficulty: 'standard',
         },
         {
           id: 'q22',
@@ -239,6 +260,7 @@ export const kamakuraSociety: Topic = {
           options: ['月に1回', '月に3回', '月に6回', '毎日'],
           correctIndex: 1,
           explanation: '鎌倉時代の定期市は月に3回開催される三斎市が一般的でした。室町時代には月6回の六斎市に増えます。',
+          difficulty: 'standard',
         },
         {
           id: 'q23',
@@ -246,6 +268,7 @@ export const kamakuraSociety: Topic = {
           options: ['法律で贅沢が禁じられていた', '武芸を最優先にし常に戦いに備えていたため', '収入がなかったため', '仏教で質素を説いたため'],
           correctIndex: 1,
           explanation: '武芸を磨くことを第一とし、常に戦いに備える生活をしていたため贅沢を避けました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q24',
@@ -253,6 +276,7 @@ export const kamakuraSociety: Topic = {
           options: ['座', '結', '惣', '奉公'],
           correctIndex: 1,
           explanation: '結（ゆい）は農村で田植えや稲刈りなどを村人が共同で行う仕組みです。',
+          difficulty: 'advanced',
         },
         {
           id: 'q25',
@@ -260,6 +284,7 @@ export const kamakuraSociety: Topic = {
           options: ['二毛作の普及', '水車の利用', '鉄製農具の普及', '三毛作の普及'],
           correctIndex: 3,
           explanation: '三毛作は室町時代以降に一部地域で行われたもので、鎌倉時代の農業技術の進歩には含まれません。',
+          difficulty: 'advanced',
         },
         {
           id: 'q26',
@@ -267,6 +292,7 @@ export const kamakuraSociety: Topic = {
           options: ['貴族の礼儀', '武士道', '仏教の教え', '商人の道徳'],
           correctIndex: 1,
           explanation: '「名こそ惜しけれ」は名誉を大切にし恥をきらう武士道の精神を表す言葉です。',
+          difficulty: 'advanced',
         },
         {
           id: 'q27',
@@ -274,6 +300,7 @@ export const kamakuraSociety: Topic = {
           options: ['荘園を拡大するため', '地頭と荘園領主の土地争いが裁判でも解決しにくかったため', '朝廷が命じたため', '農民が求めたため'],
           correctIndex: 1,
           explanation: '地頭と荘園領主の土地争いが裁判でも解決しにくく、土地を半分に分けて支配権を明確にする方法がとられました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q28',
@@ -281,6 +308,7 @@ export const kamakuraSociety: Topic = {
           options: ['武士と農民は無関係だった', '武士は地頭として農村を管理し農民は年貢を納めた', '農民が武士を雇った', '武士も農民も同じ身分だった'],
           correctIndex: 1,
           explanation: '武士は地頭として農村を管理し、農民は年貢を納めて武士の支配下で農業を行いました。',
+          difficulty: 'advanced',
         },
       ],
     },

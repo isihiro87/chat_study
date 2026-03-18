@@ -34,78 +34,17 @@ export const coldWarEnd: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'fc1',
-        front: 'マルタ会談',
-        back: '米ソ首脳が冷戦の終結を宣言した会談を何という？',
-        explanation: '1989年12月にアメリカのブッシュ大統領とソ連のゴルバチョフが会談した。',
-      },
-      {
-        id: 'fc2',
-        front: 'ゴルバチョフ',
-        back: '1985年にソ連で改革を始めた指導者は？',
-        explanation: 'ペレストロイカ（改革）やグラスノスチ（情報公開）を推進した。',
-      },
-      {
-        id: 'fc3',
-        front: 'ベルリンの壁',
-        back: '1989年に取り壊された冷戦の象徴は？',
-        explanation: '東西ドイツを隔てていた壁で、冷戦終結の象徴となった。',
-      },
-      {
-        id: 'fc4',
-        front: 'ソ連',
-        back: '1991年に多くの共和国が独立し消滅した国は？',
-        explanation: 'ソビエト社会主義共和国連邦が解体された。',
-      },
-      {
-        id: 'fc5',
-        front: 'ヨーロッパ連合（EU）',
-        back: '1993年に発足したヨーロッパの地域統合組織は？',
-        explanation: '経済・政治の統合を進め、加盟国間の協力を深めた。',
-      },
-      {
-        id: 'fc6',
-        front: 'ユーロ',
-        back: 'EUで導入されている共通通貨の名称は？',
-        explanation: '国境を越えた経済活動を円滑にするために導入された。',
-      },
-      {
-        id: 'fc7',
-        front: '湾岸戦争',
-        back: '1991年に多国籍軍がイラクを攻撃した戦争を何という？',
-        explanation: 'イラクのクウェート侵攻に対し、国連決議に基づいて行われた。',
-      },
-      {
-        id: 'fc8',
-        front: '天安門事件',
-        back: '1989年に北京で民主化運動が弾圧された事件は？',
-        explanation: '中国政府が天安門広場に集まった学生や市民を武力で鎮圧した。',
-      },
-      {
-        id: 'fc9',
-        front: 'アメリカ同時多発テロ',
-        back: '2001年にアメリカで起きた大規模テロ事件は？',
-        explanation: '9月11日にニューヨークの世界貿易センタービルなどが攻撃された。',
-      },
-      {
-        id: 'fc10',
-        front: 'イラク戦争',
-        back: '2003年にアメリカなどがイラクを攻撃した戦争は？',
-        explanation: '大量破壊兵器の保有を理由に開戦されたが、兵器は発見されなかった。',
-      },
-      {
-        id: 'fc11',
-        front: 'APEC',
-        back: 'アジア太平洋経済協力会議の略称は？',
-        explanation: 'アジア太平洋地域の経済協力を推進する枠組み。',
-      },
-      {
-        id: 'fc12',
-        front: 'サミット',
-        back: '主要国首脳会議をカタカナで何という？',
-        explanation: '主要先進国の首脳が集まり、国際的な課題を話し合う会議。',
-      },
+      { id: 'fc1', front: 'マルタ会談', back: '1989年に米ソ首脳が冷戦の終結を宣言した会談は？', difficulty: 'basic' },
+      { id: 'fc2', front: 'ゴルバチョフ', back: 'ペレストロイカ（改革）やグラスノスチ（情報公開）を進めたソ連の指導者は？', difficulty: 'basic' },
+      { id: 'fc3', front: 'ベルリンの壁崩壊', back: '1989年に取り壊された、東西ドイツを隔てていた冷戦の象徴は？', difficulty: 'basic' },
+      { id: 'fc4', front: 'ソ連解体', back: '1991年に多くの共和国が独立し消滅した国は？', difficulty: 'basic' },
+      { id: 'fc5', front: 'ヨーロッパ連合（EU）', back: '1993年に発足したヨーロッパの地域統合組織は？', difficulty: 'standard' },
+      { id: 'fc6', front: 'ユーロ', back: 'EUで導入されている共通通貨の名称は？', difficulty: 'standard' },
+      { id: 'fc7', front: '湾岸戦争', back: '1991年にイラクのクウェート侵攻に対し、多国籍軍がイラクを攻撃した戦争は？', difficulty: 'standard' },
+      { id: 'fc8', front: '天安門事件', back: '1989年に北京で民主化運動が弾圧された事件は？', difficulty: 'standard' },
+      { id: 'fc9', front: 'アメリカ同時多発テロ', back: '2001年9月11日にアメリカで起きた大規模テロ事件は？', difficulty: 'standard' },
+      { id: 'fc10', front: 'イラク戦争', back: '2003年にアメリカなどがイラクを攻撃した戦争は？', explanation: '大量破壊兵器の保有を理由に開戦されたが、兵器は発見されなかった。', difficulty: 'advanced' },
+      { id: 'fc11', front: '冷戦終結後の世界の変化', back: '冷戦終結後、世界ではどのような新たな課題が生じたか？', explanation: '民族紛争・地域紛争・テロの脅威が広がり、湾岸戦争やアメリカ同時多発テロなど新たな安全保障上の課題が生まれた。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -121,6 +60,7 @@ export const coldWarEnd: Topic = {
           correctIndex: 1,
           explanation:
             'マルタ会談で、アメリカのブッシュ大統領とソ連のゴルバチョフが冷戦の終結を宣言しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -134,6 +74,7 @@ export const coldWarEnd: Topic = {
           correctIndex: 0,
           explanation:
             'ヨーロッパ連合（EU）は1993年に発足し、共通通貨ユーロの導入など経済・政治の統合を進めました。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -147,6 +88,7 @@ export const coldWarEnd: Topic = {
           correctIndex: 2,
           explanation:
             'アメリカ同時多発テロは2001年9月11日にニューヨークなどで起きた大規模テロ事件です。',
+          difficulty: 'basic',
         },
         {
           id: 'q4',
@@ -161,6 +103,7 @@ export const coldWarEnd: Topic = {
           correctIndex: 3,
           explanation:
             'ゴルバチョフは1985年にソ連の指導者となり、ペレストロイカやグラスノスチを推進して冷戦終結に貢献しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q5',
@@ -174,6 +117,7 @@ export const coldWarEnd: Topic = {
           correctIndex: 3,
           explanation:
             '1991年にソビエト社会主義共和国連邦が解体し、ロシアをはじめ多くの共和国が独立しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q6',
@@ -188,6 +132,7 @@ export const coldWarEnd: Topic = {
           correctIndex: 0,
           explanation:
             '天安門事件では、天安門広場に集まった学生や市民による民主化運動が中国政府に武力で鎮圧されました。',
+          difficulty: 'standard',
         },
       ],
     },

@@ -164,186 +164,34 @@ export const volcano: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'sci1-volcano-fc1',
-        front: 'マグマのねばりけと火山の形',
-        back: 'マグマのねばりけが強い火山はどんな形になる？',
-        explanation:
-          'ねばりけが強いと溶岩ドーム（おわん型）になり、爆発的な噴火をする。溶岩は白っぽい色。',
-      },
-      {
-        id: 'sci1-volcano-fc2',
-        front: '無色鉱物と有色鉱物',
-        back: '無色鉱物の代表的なものを2つ答えよ。',
-        explanation:
-          '石英（透明・ガラスのような光沢）と長石（白色・割れ口が平ら）。有色鉱物は黒雲母・角閃石・輝石・カンラン石。',
-      },
-      {
-        id: 'sci1-volcano-fc3',
-        front: '火山岩と深成岩の組織の違い',
-        back: '火山岩と深成岩では、それぞれどんな組織をもつ？',
-        explanation:
-          '火山岩は斑状組織（大きな斑晶と細かい石基）。深成岩は等粒状組織（同じくらいの大きさの結晶の集まり）。',
-      },
-      {
-        id: 'sci1-volcano-fc4',
-        front: '火成岩の種類（火山岩）',
-        back: '火山岩を白っぽいものから順に3つ答えよ。',
-        explanation:
-          '流紋岩（白っぽい）→ 安山岩（灰色）→ 玄武岩（黒っぽい）。ねばりけが強い順と同じ。',
-      },
-      {
-        id: 'sci1-volcano-fc5',
-        front: '火山の恵みと災害',
-        back: '火山活動による恵みを2つ以上挙げよ。',
-        explanation:
-          '温泉、地熱発電、美しい景観、肥沃な土壌など。災害にはハザードマップで備える。',
-      },
-      {
-        id: 'sci1-volcano-fc6',
-        front: '溶岩ドームの具体例',
-        back: '溶岩ドーム型の火山の具体例を挙げよ。',
-        explanation:
-          '昭和新山、雲仙普賢岳など。ねばりけの強いマグマが盛り上がってできる。',
-      },
-      {
-        id: 'sci1-volcano-fc7',
-        front: '楯状火山の具体例',
-        back: '楯状火山の具体例を挙げよ。',
-        explanation:
-          'マウナケア、マウナロア（ハワイ）など。ねばりけの弱いマグマが流れ広がってできる。',
-      },
-      {
-        id: 'sci1-volcano-fc8',
-        front: '火山灰の観察方法',
-        back: '火山灰を観察する手順を述べよ。',
-        explanation:
-          '①蒸発皿に火山灰を入れる ②水を加えて指先でおし洗いし、にごった水を流す ③②を繰り返す ④残った粒を乾燥させて双眼実体顕微鏡で観察する。',
-      },
-      {
-        id: 'sci1-volcano-fc9',
-        front: '石英の特徴',
-        back: '石英はどのような特徴をもつ鉱物か。',
-        explanation:
-          '無色透明でガラスのような光沢がある。不規則に割れる。無色鉱物に分類される。',
-      },
-      {
-        id: 'sci1-volcano-fc10',
-        front: '長石の特徴',
-        back: '長石はどのような特徴をもつ鉱物か。',
-        explanation:
-          '白色か少し色がつく。決まった方向に割れる（へき開）。無色鉱物に分類される。',
-      },
-      {
-        id: 'sci1-volcano-fc11',
-        front: '黒雲母の特徴',
-        back: '黒雲母はどのような特徴をもつ鉱物か。',
-        explanation:
-          '黒色でうすくはがれる（板状）。有色鉱物に分類される。',
-      },
-      {
-        id: 'sci1-volcano-fc12',
-        front: 'カンラン石の特徴',
-        back: 'カンラン石はどのような特徴をもつ鉱物か。',
-        explanation:
-          '緑色（黄緑色）で不規則な形をしている。有色鉱物に分類される。',
-      },
-      {
-        id: 'sci1-volcano-fc13',
-        front: '角閃石と輝石',
-        back: '角閃石と輝石の共通点と違いは何か。',
-        explanation:
-          '共通点：どちらも有色鉱物で柱状の結晶。違い：角閃石は暗緑色～黒色で長い柱状、輝石は暗緑色で短い柱状。',
-      },
-      {
-        id: 'sci1-volcano-fc14',
-        front: '火山噴出物の種類',
-        back: '火山噴出物を5つ挙げよ。',
-        explanation:
-          '溶岩、火山灰、火山弾、軽石、火山ガス。火山ガスの主成分は水蒸気。',
-      },
-      {
-        id: 'sci1-volcano-fc15',
-        front: '軽石の特徴',
-        back: '軽石はなぜ穴が多く軽いのか。',
-        explanation:
-          'マグマの中のガスが抜けた跡が穴になっている。白っぽく非常に軽いため水に浮く。',
-      },
-      {
-        id: 'sci1-volcano-fc16',
-        front: '火山弾の特徴',
-        back: '火山弾はどのような形をしているか。',
-        explanation:
-          '紡錘形（ラグビーボールのような形）をしている。マグマが空中で冷えて固まったもの。',
-      },
-      {
-        id: 'sci1-volcano-fc17',
-        front: '流紋岩と花こう岩',
-        back: '流紋岩と花こう岩の共通点と違いは何か。',
-        explanation:
-          '共通点：どちらも白っぽい火成岩で、ねばりけの強いマグマからできる。違い：流紋岩は火山岩（斑状組織）、花こう岩は深成岩（等粒状組織）。',
-      },
-      {
-        id: 'sci1-volcano-fc18',
-        front: '玄武岩とはんれい岩',
-        back: '玄武岩とはんれい岩の共通点と違いは何か。',
-        explanation:
-          '共通点：どちらも黒っぽい火成岩で、ねばりけの弱いマグマからできる。違い：玄武岩は火山岩（斑状組織）、はんれい岩は深成岩（等粒状組織）。',
-      },
-      {
-        id: 'sci1-volcano-fc19',
-        front: '活火山の定義',
-        back: '活火山とはどのような火山か。',
-        explanation:
-          '現在活動している火山や、およそ1万年以内に噴火した記録がある火山。日本には100以上ある。',
-      },
-      {
-        id: 'sci1-volcano-fc20',
-        front: '火砕流',
-        back: '火砕流とはどのような現象か。',
-        explanation:
-          '高温の火山ガスや火山灰が一体となって山の斜面を高速で流れ下る現象。非常に危険。',
-      },
-      {
-        id: 'sci1-volcano-fc21',
-        front: '溶岩とマグマの違い',
-        back: 'マグマが地表に流れ出たものを溶岩という。',
-      },
-      {
-        id: 'sci1-volcano-fc22',
-        front: '円すい型（成層火山）の例',
-        back: '富士山、桜島など。ねばりけが中程度のマグマからできる。',
-      },
-      {
-        id: 'sci1-volcano-fc23',
-        front: '斑晶と石基',
-        back: '火山岩に見られる大きな結晶を斑晶、斑晶のまわりの細かい部分を石基という。',
-      },
-      {
-        id: 'sci1-volcano-fc24',
-        front: '火山灰の鍵層',
-        back: '火山灰の層は広い範囲に同時に積もるため、離れた場所の地層を対比する鍵層になる。',
-      },
-      {
-        id: 'sci1-volcano-fc25',
-        front: '白っぽい火成岩とねばりけ',
-        back: '白っぽい火成岩ほど、もとになったマグマのねばりけは強い。',
-      },
-      {
-        id: 'sci1-volcano-fc26',
-        front: '花こう岩のつくり',
-        back: '等粒状組織をもつ白っぽい深成岩。',
-      },
-      {
-        id: 'sci1-volcano-fc27',
-        front: '玄武岩のつくり',
-        back: '斑状組織をもつ黒っぽい火山岩。',
-      },
-      {
-        id: 'sci1-volcano-fc28',
-        front: 'ハザードマップ',
-        back: '噴火の予想や災害の被害予測を記入した地図。防災に活用する。',
-      },
+      { id: 'sci1-volcano-fc1', front: '溶岩ドーム（おわん型）になり、爆発的な噴火をする。溶岩は白っぽい色。', back: 'マグマのねばりけが強い火山はどんな形になるか？', difficulty: 'basic' },
+      { id: 'sci1-volcano-fc2', front: '石英（透明・ガラスのような光沢）と長石（白色・割れ口が平ら）', back: '無色鉱物の代表的なものを2つ答えよ。', difficulty: 'basic' },
+      { id: 'sci1-volcano-fc3', front: '火山岩は斑状組織（斑晶＋石基）。深成岩は等粒状組織（同じ大きさの結晶の集まり）。', back: '火山岩と深成岩では、それぞれどんな組織をもつか？', difficulty: 'basic' },
+      { id: 'sci1-volcano-fc4', front: '流紋岩（白っぽい）→ 安山岩（灰色）→ 玄武岩（黒っぽい）', back: '火山岩を白っぽいものから順に3つ答えよ。', difficulty: 'basic' },
+      { id: 'sci1-volcano-fc5', front: '温泉、地熱発電、美しい景観、肥沃な土壌など', back: '火山活動による恵みを2つ以上挙げよ。', difficulty: 'basic' },
+      { id: 'sci1-volcano-fc6', front: '昭和新山、雲仙普賢岳など', back: '溶岩ドーム型の火山の具体例を挙げよ。', difficulty: 'basic' },
+      { id: 'sci1-volcano-fc7', front: 'マウナケア、マウナロア（ハワイ）など', back: '楯状火山の具体例を挙げよ。', difficulty: 'basic' },
+      { id: 'sci1-volcano-fc8', front: '無色透明でガラスのような光沢がある。不規則に割れる。無色鉱物。', back: '石英はどのような特徴をもつ鉱物か？', difficulty: 'basic' },
+      { id: 'sci1-volcano-fc9', front: '白色か少し色がつく。決まった方向に割れる（へき開）。無色鉱物。', back: '長石はどのような特徴をもつ鉱物か？', difficulty: 'basic' },
+      { id: 'sci1-volcano-fc10', front: '黒色でうすくはがれる（板状）。有色鉱物。', back: '黒雲母はどのような特徴をもつ鉱物か？', difficulty: 'basic' },
+      { id: 'sci1-volcano-fc11', front: '緑色（黄緑色）で不規則な形。有色鉱物。', back: 'カンラン石はどのような特徴をもつ鉱物か？', difficulty: 'basic' },
+      { id: 'sci1-volcano-fc12', front: '溶岩、火山灰、火山弾、軽石、火山ガス', back: '火山噴出物を5つ挙げよ。', explanation: '火山ガスの主成分は水蒸気。', difficulty: 'standard' },
+      { id: 'sci1-volcano-fc13', front: '共通点：有色鉱物で柱状の結晶。違い：角閃石は暗緑色～黒色で長い柱状、輝石は暗緑色で短い柱状。', back: '角閃石と輝石の共通点と違いは何か？', difficulty: 'standard' },
+      { id: 'sci1-volcano-fc14', front: 'マグマの中のガスが抜けた跡が穴になっている。白っぽく非常に軽いため水に浮く。', back: '軽石はなぜ穴が多く軽いのか？', difficulty: 'standard' },
+      { id: 'sci1-volcano-fc15', front: '紡錘形（ラグビーボールのような形）。マグマが空中で冷えて固まったもの。', back: '火山弾はどのような形をしているか？', difficulty: 'standard' },
+      { id: 'sci1-volcano-fc16', front: '共通点：白っぽい火成岩でねばりけの強いマグマからできる。違い：流紋岩は火山岩（斑状組織）、花こう岩は深成岩（等粒状組織）。', back: '流紋岩と花こう岩の共通点と違いは何か？', difficulty: 'standard' },
+      { id: 'sci1-volcano-fc17', front: '共通点：黒っぽい火成岩でねばりけの弱いマグマからできる。違い：玄武岩は火山岩（斑状組織）、はんれい岩は深成岩（等粒状組織）。', back: '玄武岩とはんれい岩の共通点と違いは何か？', difficulty: 'standard' },
+      { id: 'sci1-volcano-fc18', front: '現在活動している火山や、およそ1万年以内に噴火した記録がある火山。日本には100以上ある。', back: '活火山とはどのような火山か？', difficulty: 'standard' },
+      { id: 'sci1-volcano-fc19', front: '高温の火山ガスや火山灰が一体となって山の斜面を高速で流れ下る現象。非常に危険。', back: '火砕流とはどのような現象か？', difficulty: 'standard' },
+      { id: 'sci1-volcano-fc20', front: '溶岩とはマグマが地表に流れ出たもの', back: 'マグマと溶岩の違いは何か？', difficulty: 'standard' },
+      { id: 'sci1-volcano-fc21', front: '富士山、桜島など。ねばりけが中程度のマグマからできる。', back: '円すい型（成層火山）の例を挙げよ。', difficulty: 'standard' },
+      { id: 'sci1-volcano-fc22', front: '水蒸気', back: '火山ガスの主成分は何か？', difficulty: 'standard' },
+      { id: 'sci1-volcano-fc23', front: '①蒸発皿に火山灰を入れる ②水を加えておし洗いし、にごった水を流す（繰り返す）③乾燥させて双眼実体顕微鏡で観察', back: '火山灰を観察する手順を述べよ。', difficulty: 'standard' },
+      { id: 'sci1-volcano-fc24', front: '斑晶：火山岩に見られる大きな結晶。石基：斑晶のまわりの細かい部分。', back: '火山岩の斑状組織を構成する斑晶と石基とは何か？', difficulty: 'advanced' },
+      { id: 'sci1-volcano-fc25', front: '広い範囲に同時に積もるため、離れた場所の地層を対比する目印（鍵層）になる', back: '火山灰の層が鍵層として使える理由を述べよ。', difficulty: 'advanced' },
+      { id: 'sci1-volcano-fc26', front: '強い（無色鉱物を多く含むため白っぽくなる）', back: '白っぽい火成岩ほど、もとになったマグマのねばりけはどうか？', difficulty: 'advanced' },
+      { id: 'sci1-volcano-fc27', front: '等粒状組織をもつ白っぽい深成岩', back: '花こう岩はどのようなつくりと色の岩石か？', difficulty: 'advanced' },
+      { id: 'sci1-volcano-fc28', front: '斑状組織をもつ黒っぽい火山岩', back: '玄武岩はどのようなつくりと色の岩石か？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -354,7 +202,8 @@ export const volcano: Topic = {
           correctIndex: 1,
           explanation:
             'ねばりけが弱いマグマは流れやすいため、傾斜がゆるやかな楯状火山（たて状火山）をつくります。噴火はおだやかで、溶岩は黒っぽい色になります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-volcano-q2',
           question: '次のうち、無色鉱物はどれ？',
@@ -362,7 +211,8 @@ export const volcano: Topic = {
           correctIndex: 2,
           explanation:
             '石英は無色透明でガラスのような光沢がある無色鉱物です。黒雲母・角閃石・カンラン石は有色鉱物です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-volcano-q3',
           question: '深成岩の組織の特徴はどれ？',
@@ -375,7 +225,8 @@ export const volcano: Topic = {
           correctIndex: 0,
           explanation:
             '深成岩はマグマが地下深くでゆっくり冷えて固まるため、すべての結晶が大きく成長した等粒状組織になります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-volcano-q4',
           question: '次のうち、深成岩はどれ？',
@@ -383,7 +234,8 @@ export const volcano: Topic = {
           correctIndex: 3,
           explanation:
             '花こう岩は深成岩です。流紋岩・安山岩・玄武岩は火山岩です。花こう岩は白っぽく、等粒状組織をもちます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-volcano-q5',
           question: '火山噴出物のうち、白っぽく穴が多い軽い石は何？',
@@ -391,7 +243,8 @@ export const volcano: Topic = {
           correctIndex: 0,
           explanation:
             '軽石は白っぽく穴がたくさんあいた軽い石です。マグマの中のガスが抜けた跡が穴になっています。水に浮くほど軽いのが特徴です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-volcano-q6',
           question: '火山灰を水で洗って観察すると見える、マグマが冷えてできた結晶を何という？',
@@ -399,7 +252,8 @@ export const volcano: Topic = {
           correctIndex: 3,
           explanation:
             '火山灰を水で洗うと鉱物の粒が観察できます。鉱物はマグマが冷えてできた結晶で、無色鉱物と有色鉱物に分類されます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-volcano-q7',
           question: '黒色でうすくはがれる特徴をもつ有色鉱物はどれ？',
@@ -407,7 +261,8 @@ export const volcano: Topic = {
           correctIndex: 1,
           explanation:
             '黒雲母は黒色で板状にうすくはがれる特徴があります。有色鉱物に分類されます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-volcano-q8',
           question: 'マグマが地表付近で急に冷えてできた岩石のつくりはどれ？',
@@ -415,7 +270,8 @@ export const volcano: Topic = {
           correctIndex: 2,
           explanation:
             '急に冷えると一部だけ結晶（斑晶）に成長し、残りは細かい石基になります。これを斑状組織といい、火山岩の特徴です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-volcano-q9',
           question: '次のうち、火山岩はどれ？',
@@ -423,7 +279,8 @@ export const volcano: Topic = {
           correctIndex: 1,
           explanation:
             '安山岩は火山岩です。花こう岩・せん緑岩・はんれい岩は深成岩です。安山岩は灰色で、円すい型の成層火山と関係があります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-volcano-q10',
           question: 'ねばりけの強いマグマの火山灰に多くふくまれるのはどちら？',
@@ -431,7 +288,8 @@ export const volcano: Topic = {
           correctIndex: 0,
           explanation:
             'ねばりけの強いマグマは無色鉱物（石英・長石）を多くふくみ、溶岩や火山灰は白っぽくなります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-volcano-q11',
           question: '火山ガスの主成分は何？',
@@ -439,7 +297,8 @@ export const volcano: Topic = {
           correctIndex: 2,
           explanation:
             '火山ガスの主成分は水蒸気です。ほかに二酸化炭素、二酸化硫黄、硫化水素なども含まれます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-volcano-q12',
           question: '現在活動している火山や約1万年以内に噴火記録がある火山を何という？',
@@ -447,7 +306,8 @@ export const volcano: Topic = {
           correctIndex: 3,
           explanation:
             '活火山とは、現在活動している火山や、およそ1万年以内に噴火した記録がある火山のことです。日本には100以上の活火山があります。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-volcano-q13',
           question: 'マグマが地表に流れ出たものを何というか？',
@@ -455,7 +315,8 @@ export const volcano: Topic = {
           correctIndex: 1,
           explanation:
             'マグマが地表に流れ出たものを溶岩といいます。ねばりけの強いマグマの溶岩は白っぽく、弱いマグマの溶岩は黒っぽくなります。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-volcano-q14',
           question: '円すい型（成層火山）の例として正しいものはどれ？',
@@ -463,7 +324,8 @@ export const volcano: Topic = {
           correctIndex: 1,
           explanation:
             '富士山は円すい型（成層火山）の代表例です。ねばりけが中程度のマグマからできます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-volcano-q15',
           question: '火山岩に見られる大きな結晶を何というか？',
@@ -471,7 +333,8 @@ export const volcano: Topic = {
           correctIndex: 1,
           explanation:
             '火山岩に見られる大きな結晶を斑晶といいます。斑晶のまわりの細かい部分を石基といいます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-volcano-q16',
           question: 'ねばりけの弱いマグマの火山は、どのような噴火をするか？',
@@ -479,7 +342,8 @@ export const volcano: Topic = {
           correctIndex: 1,
           explanation:
             'ねばりけの弱いマグマの火山はおだやかな噴火をし、溶岩が流れやすいため楯状火山をつくります。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-volcano-q17',
           question: '火山灰の観察で水で洗う操作を繰り返す目的は何か？',
@@ -492,7 +356,8 @@ export const volcano: Topic = {
           correctIndex: 1,
           explanation:
             '水で洗う操作を繰り返すことで、細かい泥などの不要な粒を取り除き、鉱物の粒を観察しやすくします。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-volcano-q18',
           question: '白っぽい火成岩ほど、もとになったマグマのねばりけはどうか？',
@@ -500,7 +365,8 @@ export const volcano: Topic = {
           correctIndex: 2,
           explanation:
             '白っぽい火成岩ほど無色鉱物を多くふくみ、もとになったマグマのねばりけは強いです。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-volcano-q19',
           question: '花こう岩はどのようなつくりをもつか？',
@@ -508,7 +374,8 @@ export const volcano: Topic = {
           correctIndex: 1,
           explanation:
             '花こう岩は深成岩なので等粒状組織をもちます。マグマが地下深くでゆっくり冷えてできたためです。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-volcano-q20',
           question: '玄武岩はどのようなつくりをもつか？',
@@ -516,7 +383,8 @@ export const volcano: Topic = {
           correctIndex: 2,
           explanation:
             '玄武岩は火山岩なので斑状組織をもちます。マグマが地表付近で急に冷えてできたためです。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-volcano-q21',
           question: '深成岩を白っぽい順に並べたものはどれ？',
@@ -529,7 +397,8 @@ export const volcano: Topic = {
           correctIndex: 1,
           explanation:
             '深成岩は白っぽい順に花こう岩→せん緑岩→はんれい岩です。火山岩は流紋岩→安山岩→玄武岩です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-volcano-q22',
           question: '火山灰を観察するとき使う器具はどれ？',
@@ -537,7 +406,8 @@ export const volcano: Topic = {
           correctIndex: 1,
           explanation:
             '火山灰の鉱物は双眼実体顕微鏡で観察します。立体的に見ることができます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci1-volcano-q23',
           question: 'カンラン石の色は何色か？',
@@ -545,7 +415,8 @@ export const volcano: Topic = {
           correctIndex: 2,
           explanation:
             'カンラン石は緑色（黄緑色）の有色鉱物で、不規則な形をしています。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci1-volcano-q24',
           question: '高温のガスや火山灰が山の斜面を高速で流れ下る現象を何というか？',
@@ -553,7 +424,8 @@ export const volcano: Topic = {
           correctIndex: 1,
           explanation:
             '火砕流は高温の火山ガスや火山灰が一体となって山の斜面を高速で流れ下る非常に危険な現象です。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci1-volcano-q25',
           question: '火山活動による恵みとして正しいものはどれ？',
@@ -561,7 +433,8 @@ export const volcano: Topic = {
           correctIndex: 1,
           explanation:
             '火山活動の恵みには温泉、地熱発電、美しい景観、肥沃な土壌などがあります。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci1-volcano-q26',
           question: '長石の特徴として正しいものはどれ？',
@@ -574,7 +447,8 @@ export const volcano: Topic = {
           correctIndex: 2,
           explanation:
             '長石は白色か少し色がつき、決まった方向に割れる（へき開）特徴があります。無色鉱物に分類されます。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci1-volcano-q27',
           question: 'ねばりけの弱いマグマの溶岩は何色か？',
@@ -582,7 +456,8 @@ export const volcano: Topic = {
           correctIndex: 2,
           explanation:
             'ねばりけの弱いマグマの溶岩は有色鉱物を多くふくむため黒っぽい色になります。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci1-volcano-q28',
           question: '火山弾の形の特徴はどれ？',
@@ -590,7 +465,8 @@ export const volcano: Topic = {
           correctIndex: 1,
           explanation:
             '火山弾は紡錘形（ラグビーボールのような形）をしています。マグマが空中で冷えて固まったものです。',
-        },
+        difficulty: 'advanced',
+      },
       ],
     },
     examples: {

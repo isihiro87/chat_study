@@ -154,170 +154,34 @@ export const cells: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'sci2-cells-fc1',
-        front: '細胞の共通のつくり',
-        back: 'すべての細胞に共通する3つのつくりは何？',
-        explanation: '細胞膜、細胞質、核の3つ。核は酢酸オルセインや酢酸カーミンで赤く染まる。',
-      },
-      {
-        id: 'sci2-cells-fc2',
-        front: '植物細胞に特徴的なつくり',
-        back: '植物の細胞にだけあるつくりを3つ答えよ。',
-        explanation: '細胞壁（丈夫な壁）、葉緑体（光合成を行う緑色の粒）、液胞（水や物質が入った袋）。',
-      },
-      {
-        id: 'sci2-cells-fc3',
-        front: '単細胞生物',
-        back: 'からだが1つの細胞からできている生物を何という？',
-        explanation: '例：ゾウリムシ、ミカヅキモ。1個の細胞で全ての生命活動を行う。',
-      },
-      {
-        id: 'sci2-cells-fc4',
-        front: '多細胞生物の体の階層',
-        back: '多細胞生物の体は、細胞から始まってどのような順で構成される？',
-        explanation: '細胞 → 組織（形やはたらきが同じ細胞の集まり） → 器官 → 個体。',
-      },
-      {
-        id: 'sci2-cells-fc5',
-        front: '細胞の呼吸',
-        back: '細胞の中で酸素を使って養分を分解し、エネルギーを取り出すはたらきを何という？',
-        explanation: '細胞の呼吸。二酸化炭素が放出される。すべての生物の細胞で常に行われている。',
-      },
-      {
-        id: 'sci2-cells-fc6',
-        front: '顕微鏡のレンズの取りつけ順',
-        back: '顕微鏡のレンズはどちらを先につける？',
-        explanation:
-          '接眼レンズを先につける。対物レンズを先につけると鏡筒の中にほこりが入りやすくなるため。',
-      },
-      {
-        id: 'sci2-cells-fc7',
-        front: 'レボルバーとステージ',
-        back: '対物レンズを回転させて切りかえる装置と、プレパラートをのせる台をそれぞれ何という？',
-        explanation:
-          'レボルバー（対物レンズを切りかえる回転装置）とステージ（プレパラートをのせる台）。',
-      },
-      {
-        id: 'sci2-cells-fc8',
-        front: 'プレパラートの作り方',
-        back: 'カバーガラスをかけるとき気をつけることは？',
-        explanation:
-          'カバーガラスの一方の端を水に触れさせ、静かに下ろす。気泡が入らないようにするため。',
-      },
-      {
-        id: 'sci2-cells-fc9',
-        front: '顕微鏡の倍率の求め方',
-        back: '顕微鏡の倍率はどのように計算する？',
-        explanation:
-          '接眼レンズの倍率 × 対物レンズの倍率。例：接眼10倍 × 対物40倍 = 400倍。',
-      },
-      {
-        id: 'sci2-cells-fc10',
-        front: '染色液の種類と用途',
-        back: '核を染める染色液を3つとその色を答えよ。',
-        explanation:
-          '酢酸オルセイン（赤色）、酢酸カーミン（赤色）、メチレンブルー（青色）。いずれも核を染める。',
-      },
-      {
-        id: 'sci2-cells-fc11',
-        front: '倍率と視野の関係',
-        back: '顕微鏡の倍率を高くすると、視野の明るさと広さはどうなる？',
-        explanation:
-          '明るさは暗くなり、広さはせまくなる。高倍率ほど暗くてせまい視野になる。そのため最初は低倍率で観察する。',
-      },
-      {
-        id: 'sci2-cells-fc12',
-        front: 'プランクトン',
-        back: '水中に生息する小さな生物を総称して何という？代表例も答えよ。',
-        explanation:
-          'プランクトン。例：ミジンコ、ケンミジンコ、ゾウリムシ、アメーバ、ミカヅキモなど。',
-      },
-      {
-        id: 'sci2-cells-fc13',
-        front: '組織の種類',
-        back: '動物の組織を2つ、植物の組織を2つ答えよ。',
-        explanation:
-          '動物：上皮組織（体の表面をおおう）、筋組織（体を動かす）。植物：表皮組織（表面をおおう）、葉肉組織（光合成を行う）。',
-      },
-      {
-        id: 'sci2-cells-fc14',
-        front: 'ミドリムシ',
-        back: '葉緑体をもつ単細胞生物で、動物的な運動もする生物は？',
-        explanation: 'ミドリムシ。べん毛で泳ぎながら、葉緑体で光合成も行う。',
-      },
-      {
-        id: 'sci2-cells-fc15',
-        front: '顕微鏡の像の動き',
-        back: 'プレパラートを右に動かすと視野の像はどう動く？',
-        explanation: '左に動く。顕微鏡の像は上下左右が逆になるため。',
-      },
-      {
-        id: 'sci2-cells-fc16',
-        front: '液胞の役割',
-        back: '植物細胞にある液胞にはどのようなものが含まれるか？',
-        explanation: '水や養分、不要物などが溶けた細胞液。成長した細胞ほど大きくなる。',
-      },
-      {
-        id: 'sci2-cells-fc17',
-        front: 'レボルバー',
-        back: '顕微鏡で対物レンズを切り替える回転部品は？',
-      },
-      {
-        id: 'sci2-cells-fc18',
-        front: '顕微鏡の倍率',
-        back: '顕微鏡の倍率＝接眼レンズの倍率×対物レンズの倍率',
-      },
-      {
-        id: 'sci2-cells-fc19',
-        front: 'プレパラート',
-        back: 'スライドガラスに試料をのせカバーガラスをかけたものは？',
-      },
-      {
-        id: 'sci2-cells-fc20',
-        front: '酢酸オルセイン・酢酸カーミン',
-        back: '核を赤く染める染色液を2つ答えよ',
-      },
-      {
-        id: 'sci2-cells-fc21',
-        front: '組織',
-        back: '形やはたらきが同じ細胞の集まりは？',
-      },
-      {
-        id: 'sci2-cells-fc22',
-        front: '器官',
-        back: '複数の組織が集まって特定のはたらきをするものは？',
-      },
-      {
-        id: 'sci2-cells-fc23',
-        front: '細胞の呼吸',
-        back: '細胞内で酸素で養分を分解しEを取り出すはたらきは？',
-      },
-      {
-        id: 'sci2-cells-fc24',
-        front: '単細胞生物の例',
-        back: 'ゾウリムシ、アメーバ、ミカヅキモ',
-      },
-      {
-        id: 'sci2-cells-fc25',
-        front: 'ピント合わせの手順',
-        back: '対物レンズをプレパラートに近づけてから遠ざける理由は？',
-      },
-      {
-        id: 'sci2-cells-fc26',
-        front: '視野の上下左右',
-        back: 'プレパラートを右に動かすと像は左に動く',
-      },
-      {
-        id: 'sci2-cells-fc27',
-        front: '細胞呼吸で放出される気体',
-        back: 'CO₂が放出される',
-      },
-      {
-        id: 'sci2-cells-fc28',
-        front: '多細胞生物の体の構成',
-        back: '細胞→組織→器官→個体',
-      }
+      { id: 'sci2-cells-fc1', front: '細胞膜、細胞質、核', back: 'すべての細胞に共通する3つのつくりは何？', explanation: '核は酢酸オルセインや酢酸カーミンで赤く染まる', difficulty: 'basic' },
+      { id: 'sci2-cells-fc2', front: '細胞壁、葉緑体、液胞', back: '植物の細胞にだけあるつくりを3つ答えよ', difficulty: 'basic' },
+      { id: 'sci2-cells-fc3', front: '単細胞生物', back: 'からだが1つの細胞からできている生物を何という？', explanation: '例：ゾウリムシ、ミカヅキモ', difficulty: 'basic' },
+      { id: 'sci2-cells-fc4', front: '細胞→組織→器官→個体', back: '多細胞生物の体は、細胞から始まってどのような順で構成される？', difficulty: 'basic' },
+      { id: 'sci2-cells-fc5', front: '細胞の呼吸（細胞呼吸）', back: '細胞の中で酸素を使って養分を分解しエネルギーを取り出すはたらきを何という？', explanation: 'CO₂が放出される。すべての生物で常に行われる', difficulty: 'basic' },
+      { id: 'sci2-cells-fc6', front: '接眼レンズを先につける', back: '顕微鏡のレンズはどちらを先につける？', explanation: '対物レンズを先につけると鏡筒にほこりが入りやすい', difficulty: 'basic' },
+      { id: 'sci2-cells-fc7', front: 'レボルバーとステージ', back: '対物レンズを切りかえる回転装置と、プレパラートをのせる台をそれぞれ何という？', difficulty: 'basic' },
+      { id: 'sci2-cells-fc8', front: '一方の端を水に触れさせ静かに下ろす（気泡が入らないように）', back: 'カバーガラスをかけるとき気をつけることは？', difficulty: 'basic' },
+      { id: 'sci2-cells-fc9', front: '接眼レンズの倍率×対物レンズの倍率', back: '顕微鏡の倍率はどのように計算する？', explanation: '例：接眼10倍×対物40倍=400倍', difficulty: 'basic' },
+      { id: 'sci2-cells-fc10', front: '酢酸オルセイン（赤）、酢酸カーミン（赤）、メチレンブルー（青）', back: '核を染める染色液を3つとその色を答えよ', difficulty: 'basic' },
+      { id: 'sci2-cells-fc11', front: '暗くなり、せまくなる', back: '顕微鏡の倍率を高くすると視野の明るさと広さはどうなる？', explanation: '最初は低倍率で観察する', difficulty: 'basic' },
+      { id: 'sci2-cells-fc12', front: 'プランクトン', back: '水中に生息する小さな生物を総称して何という？', explanation: '例：ミジンコ、ゾウリムシ、アメーバ', difficulty: 'basic' },
+      { id: 'sci2-cells-fc13', front: '動物：上皮組織・筋組織、植物：表皮組織・葉肉組織', back: '動物の組織を2つ、植物の組織を2つ答えよ', difficulty: 'standard' },
+      { id: 'sci2-cells-fc14', front: 'ミドリムシ', back: '葉緑体をもつ単細胞生物で、動物的な運動もする生物は？', explanation: 'べん毛で泳ぎながら光合成も行う', difficulty: 'standard' },
+      { id: 'sci2-cells-fc15', front: '左に動く', back: 'プレパラートを右に動かすと視野の像はどう動く？', explanation: '顕微鏡の像は上下左右が逆', difficulty: 'standard' },
+      { id: 'sci2-cells-fc16', front: '水や養分、不要物などが溶けた細胞液', back: '植物細胞にある液胞にはどのようなものが含まれるか？', explanation: '成長した細胞ほど大きくなる', difficulty: 'standard' },
+      { id: 'sci2-cells-fc17', front: 'レボルバー', back: '顕微鏡で対物レンズを切り替える回転部品は？', difficulty: 'basic' },
+      { id: 'sci2-cells-fc18', front: 'プレパラート', back: 'スライドガラスに試料をのせカバーガラスをかけたものは？', difficulty: 'basic' },
+      { id: 'sci2-cells-fc19', front: '酢酸オルセイン・酢酸カーミン', back: '核を赤く染める染色液を2つ答えよ', difficulty: 'basic' },
+      { id: 'sci2-cells-fc20', front: '組織', back: '形やはたらきが同じ細胞の集まりを何という？', difficulty: 'basic' },
+      { id: 'sci2-cells-fc21', front: '器官', back: '複数の組織が集まって特定のはたらきをするものは？', difficulty: 'basic' },
+      { id: 'sci2-cells-fc22', front: 'ゾウリムシ、アメーバ、ミカヅキモ', back: '単細胞生物の例を3つ答えよ', difficulty: 'standard' },
+      { id: 'sci2-cells-fc23', front: 'プレパラートにぶつけて壊すのを防ぐため', back: '対物レンズをプレパラートに近づけてから遠ざけてピントを合わせる理由は？', difficulty: 'standard' },
+      { id: 'sci2-cells-fc24', front: 'CO₂（二酸化炭素）', back: '細胞呼吸で放出される気体は？', difficulty: 'basic' },
+      { id: 'sci2-cells-fc25', front: '目を傷める危険があるため', back: '顕微鏡で直射日光を避ける理由は？', difficulty: 'standard' },
+      { id: 'sci2-cells-fc26', front: '視野が広く明るく、試料を見つけやすいため', back: '顕微鏡で低倍率から観察を始める理由は？', difficulty: 'standard' },
+      { id: 'sci2-cells-fc27', front: '運動・成長・物質合成など細胞の活動', back: '細胞呼吸で取り出したエネルギーは何に使われる？', difficulty: 'standard' },
+      { id: 'sci2-cells-fc28', front: '常に行う（昼も夜も）', back: '植物は細胞呼吸を行うか？いつ？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -328,7 +192,8 @@ export const cells: Topic = {
           correctIndex: 0,
           explanation:
             '細胞壁は植物の細胞膜の外側にある丈夫なつくりで、動物の細胞にはありません。核、細胞膜、細胞質はすべての細胞に共通です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-cells-q2',
           question: '核を赤く染めるために使う染色液はどれ？',
@@ -336,7 +201,8 @@ export const cells: Topic = {
           correctIndex: 1,
           explanation:
             '酢酸オルセインや酢酸カーミンは核を赤く染める染色液です。ヨウ素液はデンプンの検出に使います。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-cells-q3',
           question: '次のうち、単細胞生物はどれ？',
@@ -344,7 +210,8 @@ export const cells: Topic = {
           correctIndex: 2,
           explanation:
             'ゾウリムシは1つの細胞からできている単細胞生物です。1個の細胞の中に全ての生命活動を行うしくみが備わっています。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-cells-q4',
           question: '多細胞生物の体の構成で正しい順序はどれ？',
@@ -357,7 +224,8 @@ export const cells: Topic = {
           correctIndex: 3,
           explanation:
             '多細胞生物の体は、細胞が集まって組織を、組織が集まって器官を、器官が集まって個体をつくります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-cells-q5',
           question: '細胞の呼吸について正しいものはどれ？',
@@ -370,7 +238,8 @@ export const cells: Topic = {
           correctIndex: 2,
           explanation:
             '細胞の呼吸は、酸素を使って養分を分解しエネルギーを取り出すはたらきです。植物も含めすべての生物の細胞で常に行われています。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-cells-q6',
           question: '接眼レンズ15倍、対物レンズ40倍のとき顕微鏡の倍率は？',
@@ -378,7 +247,8 @@ export const cells: Topic = {
           correctIndex: 0,
           explanation:
             '顕微鏡の倍率＝接眼×対物＝15×40＝600倍。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-cells-q7',
           question: 'プレパラートを作るとき、カバーガラスを端からかぶせる理由は？',
@@ -391,7 +261,8 @@ export const cells: Topic = {
           correctIndex: 3,
           explanation:
             '端からゆっくりかぶせると、気泡（空気の泡）が入りにくくなります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-cells-q8',
           question: '顕微鏡の倍率を高くしたとき、正しいものはどれ？',
@@ -404,7 +275,8 @@ export const cells: Topic = {
           correctIndex: 1,
           explanation:
             '高倍率にすると視野に入る光が少なくなり暗くなり、見える範囲も狭くなります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-cells-q9',
           question: '次のうち、単細胞生物でないものはどれ？',
@@ -412,7 +284,8 @@ export const cells: Topic = {
           correctIndex: 1,
           explanation:
             'ミジンコは多くの細胞からなる多細胞生物です。ゾウリムシ・アメーバ・ミカヅキモは単細胞生物です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-cells-q10',
           question: '形やはたらきが同じ細胞の集まりを何という？',
@@ -420,7 +293,8 @@ export const cells: Topic = {
           correctIndex: 2,
           explanation:
             '組織は形やはたらきが同じ細胞の集まりです。組織が集まって器官になります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-cells-q11',
           question: '細胞の呼吸で使われるものと放出されるものの組み合わせで正しいのは？',
@@ -433,7 +307,8 @@ export const cells: Topic = {
           correctIndex: 0,
           explanation:
             '細胞の呼吸では酸素（O₂）を使って養分を分解し、二酸化炭素（CO₂）を放出します。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-cells-q12',
           question: '顕微鏡で対物レンズを切り替える部品はどれ？',
@@ -441,7 +316,8 @@ export const cells: Topic = {
           correctIndex: 3,
           explanation:
             'レボルバーを回して対物レンズを切り替えます。ステージはプレパラートを置く台です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-cells-q13',
           question: 'レンズを先につけるのは？',
@@ -449,7 +325,8 @@ export const cells: Topic = {
           correctIndex: 1,
           explanation:
             '接眼を先に。ほこり防止。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-cells-q14',
           question: '倍率上げると視野の明るさは？',
@@ -457,7 +334,8 @@ export const cells: Topic = {
           correctIndex: 1,
           explanation:
             '視野が狭くなり暗くなる。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-cells-q15',
           question: 'カバーガラスを端からかぶせる理由は？',
@@ -465,7 +343,8 @@ export const cells: Topic = {
           correctIndex: 1,
           explanation:
             '気泡が入るのを防ぐ。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-cells-q16',
           question: '動物の細胞にもあるつくりは？',
@@ -473,7 +352,8 @@ export const cells: Topic = {
           correctIndex: 2,
           explanation:
             '細胞膜は全細胞に共通。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-cells-q17',
           question: 'プレパラートを右→像は？',
@@ -481,7 +361,8 @@ export const cells: Topic = {
           correctIndex: 1,
           explanation:
             '上下左右が逆。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-cells-q18',
           question: '単細胞生物は？',
@@ -489,7 +370,8 @@ export const cells: Topic = {
           correctIndex: 1,
           explanation:
             '体が1つの細胞。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-cells-q19',
           question: '体の構成の正しい順は？',
@@ -497,7 +379,8 @@ export const cells: Topic = {
           correctIndex: 1,
           explanation:
             '細胞→組織→器官→個体。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-cells-q20',
           question: '細胞呼吸のEは何に使われる？',
@@ -505,7 +388,8 @@ export const cells: Topic = {
           correctIndex: 1,
           explanation:
             '運動・成長・物質合成など。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-cells-q21',
           question: '接眼10倍×対物40倍＝？',
@@ -513,7 +397,8 @@ export const cells: Topic = {
           correctIndex: 1,
           explanation:
             '10×40＝400倍。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-cells-q22',
           question: '植物も細胞呼吸を行う？',
@@ -521,7 +406,8 @@ export const cells: Topic = {
           correctIndex: 3,
           explanation:
             '全生物の細胞で常に行われる。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-cells-q23',
           question: '細胞呼吸に必要なものは？',
@@ -529,7 +415,8 @@ export const cells: Topic = {
           correctIndex: 1,
           explanation:
             '酸素と養分。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci2-cells-q24',
           question: 'メチレンブルーで染まる部分は？',
@@ -537,7 +424,8 @@ export const cells: Topic = {
           correctIndex: 2,
           explanation:
             '核を染める。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci2-cells-q25',
           question: '直射日光を避ける理由は？',
@@ -545,7 +433,8 @@ export const cells: Topic = {
           correctIndex: 1,
           explanation:
             '目を傷める危険。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci2-cells-q26',
           question: '光合成を行う緑色の粒は？',
@@ -553,7 +442,8 @@ export const cells: Topic = {
           correctIndex: 2,
           explanation:
             '葉緑体で光合成。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci2-cells-q27',
           question: '水中の小さな生物の総称は？',
@@ -561,7 +451,8 @@ export const cells: Topic = {
           correctIndex: 1,
           explanation:
             'プランクトン。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci2-cells-q28',
           question: '低倍率から始める理由は？',
@@ -569,7 +460,8 @@ export const cells: Topic = {
           correctIndex: 1,
           explanation:
             '広く明るく見つけやすい。',
-        }
+        difficulty: 'advanced',
+      }
       ],
     },
     examples: {

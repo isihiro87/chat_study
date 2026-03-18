@@ -74,152 +74,34 @@ export const plantTransport: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'sci2-pt-fc1',
-        front: '道管と師管',
-        back: '根から水を運ぶ管と、葉から養分を運ぶ管をそれぞれ何という？',
-        explanation: '道管＝水と肥料分の通り道、師管＝養分の通り道。2つ合わせて維管束。',
-      },
-      {
-        id: 'sci2-pt-fc2',
-        front: 'BTB溶液の色変化',
-        back: 'BTB溶液は酸性・中性・アルカリ性でそれぞれ何色になる？',
-        explanation: '黄色（酸性、CO₂が多い）→緑色（中性）→青色（アルカリ性、CO₂が少ない）。',
-      },
-      {
-        id: 'sci2-pt-fc3',
-        front: 'ワセリンを使った蒸散実験',
-        back: '葉にワセリンをぬって蒸散量を調べる方法を説明せよ。',
-        explanation: '葉の表だけ/裏だけ/両方/なしの条件で水の減少量を比較する。裏にぬると最も減少量が減る→裏からの蒸散が盛ん。',
-      },
-      {
-        id: 'sci2-pt-fc4',
-        front: '単子葉類と双子葉類の根',
-        back: '単子葉類と双子葉類の根のつくりの違いは？',
-        explanation: '単子葉類＝ひげ根（多数の細い根）。双子葉類＝主根と側根。',
-      },
-      {
-        id: 'sci2-pt-fc5',
-        front: '葉の断面のつくり',
-        back: '葉の断面に見られるつくりを3つ答えよ。',
-        explanation: '表皮（表面を覆う）、葉肉（光合成を行う細胞が多い）、維管束（葉脈として見える）。',
-      },
-      {
-        id: 'sci2-pt-fc6',
-        front: '師管が運ぶ物質',
-        back: '師管を通って運ばれるのはどんな物質か？',
-        explanation: '光合成でできたデンプンが水に溶けやすい物質（ショ糖など）に変化したもの。',
-      },
-      {
-        id: 'sci2-pt-fc7',
-        front: 'BTB黄色',
-        back: '酸性（CO₂多い）',
-      },
-      {
-        id: 'sci2-pt-fc8',
-        front: 'BTB緑色',
-        back: '中性',
-      },
-      {
-        id: 'sci2-pt-fc9',
-        front: 'BTB青色',
-        back: 'アルカリ性（CO₂少ない）',
-      },
-      {
-        id: 'sci2-pt-fc10',
-        front: 'オオカナダモ+光→BTB',
-        back: '黄→青。光合成でCO₂使用',
-      },
-      {
-        id: 'sci2-pt-fc11',
-        front: 'オオカナダモ+暗所→BTB',
-        back: '黄のまま。光合成なく呼吸でCO₂出る',
-      },
-      {
-        id: 'sci2-pt-fc12',
-        front: '道管',
-        back: '根から水や無機物が通る管',
-      },
-      {
-        id: 'sci2-pt-fc13',
-        front: '師管',
-        back: '葉の養分（有機物）が通る管',
-      },
-      {
-        id: 'sci2-pt-fc14',
-        front: '維管束',
-        back: '道管と師管の束',
-      },
-      {
-        id: 'sci2-pt-fc15',
-        front: '道管=内側、師管=外側',
-        back: '茎の維管束での位置関係',
-      },
-      {
-        id: 'sci2-pt-fc16',
-        front: '双子葉類の維管束',
-        back: '輪の形（環状）に並ぶ',
-      },
-      {
-        id: 'sci2-pt-fc17',
-        front: '単子葉類の維管束',
-        back: '散らばっている',
-      },
-      {
-        id: 'sci2-pt-fc18',
-        front: '根毛',
-        back: '根の先端近くの毛状つくり。表面積を大きくする',
-      },
-      {
-        id: 'sci2-pt-fc19',
-        front: '油を浮かべる理由',
-        back: '水面蒸発を防ぎ蒸散量だけ測る',
-      },
-      {
-        id: 'sci2-pt-fc20',
-        front: 'ワセリンの目的',
-        back: '気孔をふさぎ蒸散を防いで比較',
-      },
-      {
-        id: 'sci2-pt-fc21',
-        front: '網状脈と平行脈',
-        back: '双子葉類=網状脈、単子葉類=平行脈',
-      },
-      {
-        id: 'sci2-pt-fc22',
-        front: '水草の気泡',
-        back: '光合成で発生する酸素',
-      },
-      {
-        id: 'sci2-pt-fc23',
-        front: 'O₂確認法',
-        back: '火のついた線香→激しく燃える',
-      },
-      {
-        id: 'sci2-pt-fc24',
-        front: '水は道管を上昇',
-        back: '根から吸い上げた水は道管を通る',
-      },
-      {
-        id: 'sci2-pt-fc25',
-        front: 'CO₂必要の確認法',
-        back: 'CO₂有無の水で気泡発生を比較',
-      },
-      {
-        id: 'sci2-pt-fc26',
-        front: '蒸散の対照実験',
-        back: 'ワセリンを表裏塗り分けて比較',
-      },
-      {
-        id: 'sci2-pt-fc27',
-        front: 'BTBの色変化原理',
-        back: 'CO₂の量（酸性度）で変わる',
-      },
-      {
-        id: 'sci2-pt-fc28',
-        front: '蒸散の場所',
-        back: '気孔から水蒸気が出る',
-      }
+      { id: 'sci2-pt-fc1', front: '道管＝水と肥料分、師管＝養分', back: '根から水を運ぶ管と葉から養分を運ぶ管をそれぞれ何という？', explanation: '2つ合わせて維管束', difficulty: 'basic' },
+      { id: 'sci2-pt-fc2', front: '黄色（酸性）→緑色（中性）→青色（アルカリ性）', back: 'BTB溶液は酸性・中性・アルカリ性でそれぞれ何色？', difficulty: 'basic' },
+      { id: 'sci2-pt-fc3', front: '表だけ/裏だけ/両方/なしの条件で水の減少量を比較する', back: 'ワセリンを使った蒸散実験の方法を説明せよ', explanation: '裏にぬると減少量が最も減る→裏からの蒸散が盛ん', difficulty: 'standard' },
+      { id: 'sci2-pt-fc4', front: '単子葉類＝ひげ根、双子葉類＝主根と側根', back: '単子葉類と双子葉類の根のつくりの違いは？', difficulty: 'basic' },
+      { id: 'sci2-pt-fc5', front: '表皮、葉肉、維管束（葉脈）', back: '葉の断面に見られるつくりを3つ答えよ', difficulty: 'basic' },
+      { id: 'sci2-pt-fc6', front: '光合成でできたデンプンが水に溶けやすい物質（ショ糖など）に変化したもの', back: '師管を通って運ばれるのはどんな物質か？', difficulty: 'standard' },
+      { id: 'sci2-pt-fc7', front: '酸性（CO₂が多い）', back: 'BTB溶液が黄色のとき液性は？', difficulty: 'basic' },
+      { id: 'sci2-pt-fc8', front: '中性', back: 'BTB溶液が緑色のとき液性は？', difficulty: 'basic' },
+      { id: 'sci2-pt-fc9', front: 'アルカリ性（CO₂が少ない）', back: 'BTB溶液が青色のとき液性は？', difficulty: 'basic' },
+      { id: 'sci2-pt-fc10', front: '黄→青（光合成でCO₂が使われたため）', back: 'BTB黄色の液にオオカナダモを入れ光を当てると色はどうなる？', difficulty: 'basic' },
+      { id: 'sci2-pt-fc11', front: '黄のまま（光合成なく呼吸でCO₂が出るため）', back: 'BTB黄色の液にオオカナダモを入れ暗所に置くと色はどうなる？', difficulty: 'standard' },
+      { id: 'sci2-pt-fc12', front: '道管', back: '根から水や無機物が通る管を何という？', difficulty: 'basic' },
+      { id: 'sci2-pt-fc13', front: '師管', back: '葉の養分（有機物）が通る管を何という？', difficulty: 'basic' },
+      { id: 'sci2-pt-fc14', front: '維管束', back: '道管と師管の束を何という？', difficulty: 'basic' },
+      { id: 'sci2-pt-fc15', front: '道管＝内側、師管＝外側', back: '茎の維管束での道管と師管の位置関係は？', difficulty: 'standard' },
+      { id: 'sci2-pt-fc16', front: '輪の形（環状）に並ぶ', back: '双子葉類の維管束の並び方は？', difficulty: 'standard' },
+      { id: 'sci2-pt-fc17', front: '全体に散らばっている', back: '単子葉類の維管束の並び方は？', difficulty: 'standard' },
+      { id: 'sci2-pt-fc18', front: '根毛', back: '根の先端近くにある毛状のつくりで、表面積を大きくして吸水効率を上げるものは？', difficulty: 'basic' },
+      { id: 'sci2-pt-fc19', front: '水面からの蒸発を防ぎ蒸散量だけを正確に測るため', back: '蒸散実験で水面に油を浮かべる理由は？', difficulty: 'standard' },
+      { id: 'sci2-pt-fc20', front: '気孔をふさぎ蒸散を防いで比較するため', back: 'ワセリンを葉にぬる目的は？', difficulty: 'standard' },
+      { id: 'sci2-pt-fc21', front: '双子葉類＝網状脈、単子葉類＝平行脈', back: '双子葉類と単子葉類の葉脈の違いは？', difficulty: 'standard' },
+      { id: 'sci2-pt-fc22', front: '光合成で発生する酸素', back: '水草に光を当てたとき出る気泡は何？', difficulty: 'basic' },
+      { id: 'sci2-pt-fc23', front: '火のついた線香を入れると激しく燃える', back: '酸素の確認方法は？', difficulty: 'basic' },
+      { id: 'sci2-pt-fc24', front: '道管', back: '根から吸い上げた水はどの管を通って上昇する？', difficulty: 'basic' },
+      { id: 'sci2-pt-fc25', front: 'CO₂のある水とない水で気泡の発生量を比較する', back: '光合成にCO₂が必要であることの確認方法は？', difficulty: 'advanced' },
+      { id: 'sci2-pt-fc26', front: 'ワセリンを表・裏・両方・なしで塗り分けて水の減少量を比較', back: '蒸散の対照実験の方法は？', difficulty: 'advanced' },
+      { id: 'sci2-pt-fc27', front: 'CO₂の量（酸性度）によって変わる', back: 'BTB溶液の色変化は何によって決まる？', difficulty: 'advanced' },
+      { id: 'sci2-pt-fc28', front: '気孔', back: '蒸散で水蒸気が出ていく場所は？', difficulty: 'basic' },
     ],
     quiz: {
       questions: [
@@ -230,7 +112,8 @@ export const plantTransport: Topic = {
           correctIndex: 0,
           explanation:
             '道管は根から吸収された水や肥料分の通り道です。師管は葉で作られた養分の通り道です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-pt-q2',
           question: '蒸散の実験でワセリンを葉の裏だけにぬったとき、水の減少量はどうなる？',
@@ -238,7 +121,8 @@ export const plantTransport: Topic = {
           correctIndex: 1,
           explanation:
             '気孔は葉の裏側に多いため、裏にワセリンをぬると蒸散が大幅に減り、水の減少量が最も少なくなります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-pt-q3',
           question: '単子葉類の維管束の特徴はどれ？',
@@ -251,7 +135,8 @@ export const plantTransport: Topic = {
           correctIndex: 2,
           explanation:
             '単子葉類の維管束は茎の断面で全体に散らばっています。双子葉類は輪の形に並びます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-pt-q4',
           question: 'BTB黄+オオカナダモ+光→色は？',
@@ -259,7 +144,8 @@ export const plantTransport: Topic = {
           correctIndex: 2,
           explanation:
             '光合成でCO₂使用→青。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-pt-q5',
           question: '道管は茎のどちら側？',
@@ -267,7 +153,8 @@ export const plantTransport: Topic = {
           correctIndex: 1,
           explanation:
             '内側。師管は外側。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-pt-q6',
           question: '根毛の利点は？',
@@ -275,7 +162,8 @@ export const plantTransport: Topic = {
           correctIndex: 1,
           explanation:
             '表面積大で効率的吸水。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-pt-q7',
           question: '養分が通る管は？',
@@ -283,7 +171,8 @@ export const plantTransport: Topic = {
           correctIndex: 1,
           explanation:
             '師管で養分が通る。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-pt-q8',
           question: '双子葉類の維管束は？',
@@ -291,7 +180,8 @@ export const plantTransport: Topic = {
           correctIndex: 1,
           explanation:
             '輪の形に並ぶ。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-pt-q9',
           question: '水面に油を浮かべる理由は？',
@@ -299,7 +189,8 @@ export const plantTransport: Topic = {
           correctIndex: 1,
           explanation:
             '蒸散量だけ正確に測る。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-pt-q10',
           question: 'O₂確認方法は？',
@@ -307,7 +198,8 @@ export const plantTransport: Topic = {
           correctIndex: 2,
           explanation:
             '火のついた線香→激しく燃える。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-pt-q11',
           question: 'BTB黄色の液性は？',
@@ -315,7 +207,8 @@ export const plantTransport: Topic = {
           correctIndex: 2,
           explanation:
             '黄色＝酸性。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-pt-q12',
           question: '単子葉類の葉脈は？',
@@ -323,7 +216,8 @@ export const plantTransport: Topic = {
           correctIndex: 1,
           explanation:
             '平行脈。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-pt-q13',
           question: 'ワセリンを塗る目的は？',
@@ -331,7 +225,8 @@ export const plantTransport: Topic = {
           correctIndex: 1,
           explanation:
             '気孔をふさいで蒸散量比較。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-pt-q14',
           question: 'BTB黄+オオカナダモ+暗所→色は？',
@@ -339,7 +234,8 @@ export const plantTransport: Topic = {
           correctIndex: 2,
           explanation:
             '光合成なく呼吸でCO₂→黄のまま。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-pt-q15',
           question: '道管を通るものは？',
@@ -347,7 +243,8 @@ export const plantTransport: Topic = {
           correctIndex: 1,
           explanation:
             '水と無機物。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-pt-q16',
           question: '維管束とは？',
@@ -355,7 +252,8 @@ export const plantTransport: Topic = {
           correctIndex: 1,
           explanation:
             '道管と師管の束。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-pt-q17',
           question: '蒸散が裏側で盛んな理由は？',
@@ -363,7 +261,8 @@ export const plantTransport: Topic = {
           correctIndex: 1,
           explanation:
             '気孔が裏に多い。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-pt-q18',
           question: 'CO₂が光合成に必要な確認法は？',
@@ -371,7 +270,8 @@ export const plantTransport: Topic = {
           correctIndex: 1,
           explanation:
             'CO₂有無で気泡発生比較。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-pt-q19',
           question: '根の水はどの管を上昇？',
@@ -379,7 +279,8 @@ export const plantTransport: Topic = {
           correctIndex: 1,
           explanation:
             '道管。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-pt-q20',
           question: 'BTB緑色の液性は？',
@@ -387,7 +288,8 @@ export const plantTransport: Topic = {
           correctIndex: 1,
           explanation:
             '緑＝中性。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-pt-q21',
           question: '双子葉類の葉脈は？',
@@ -395,7 +297,8 @@ export const plantTransport: Topic = {
           correctIndex: 1,
           explanation:
             '網状脈。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-pt-q22',
           question: '単子葉類の維管束は？',
@@ -403,7 +306,8 @@ export const plantTransport: Topic = {
           correctIndex: 1,
           explanation:
             '散らばっている。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-pt-q23',
           question: '水草+光→気泡は何？',
@@ -411,7 +315,8 @@ export const plantTransport: Topic = {
           correctIndex: 3,
           explanation:
             '光合成でO₂発生。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci2-pt-q24',
           question: '師管の位置は？',
@@ -419,7 +324,8 @@ export const plantTransport: Topic = {
           correctIndex: 1,
           explanation:
             '外側。道管は内側。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci2-pt-q25',
           question: 'BTBの色変化は何の量で？',
@@ -427,7 +333,8 @@ export const plantTransport: Topic = {
           correctIndex: 2,
           explanation:
             'CO₂の量で変わる。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci2-pt-q26',
           question: '根毛とは？',
@@ -435,7 +342,8 @@ export const plantTransport: Topic = {
           correctIndex: 1,
           explanation:
             '根先端近くの毛状つくり。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci2-pt-q27',
           question: '蒸散の水蒸気が出る場所は？',
@@ -443,7 +351,8 @@ export const plantTransport: Topic = {
           correctIndex: 2,
           explanation:
             '気孔から出る。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci2-pt-q28',
           question: 'BTBが青色→条件は？',
@@ -451,7 +360,8 @@ export const plantTransport: Topic = {
           correctIndex: 1,
           explanation:
             'CO₂減少→アルカリ性→青。',
-        }
+        difficulty: 'advanced',
+      }
       ],
     },
     examples: {

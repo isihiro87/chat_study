@@ -161,168 +161,37 @@ export const vertebrates: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'sci1-vt-fc1',
-        front: '脊椎動物の5グループ',
-        back: '脊椎動物は何という5つのグループに分けられる？',
-        explanation:
-          '魚類・両生類・ハチュウ類・鳥類・哺乳類の5つ。体表・呼吸法・子の生まれ方などで分類する。',
-      },
-      {
-        id: 'sci1-vt-fc2',
-        front: '恒温動物と変温動物',
-        back: '恒温動物はどのグループ？変温動物は？',
-        explanation:
-          '恒温動物は鳥類と哺乳類。変温動物は魚類・両生類・ハチュウ類。恒温動物は体温を一定に保てる。',
-      },
-      {
-        id: 'sci1-vt-fc3',
-        front: '胎生',
-        back: '親の体内である程度育ってから生まれることを何という？どのグループ？',
-        explanation:
-          '胎生という。哺乳類だけが胎生。他のグループ（魚類・両生類・ハチュウ類・鳥類）は卵生。',
-      },
-      {
-        id: 'sci1-vt-fc4',
-        front: '魚類の特徴',
-        back: '魚類の体表・呼吸法・子の生まれ方をそれぞれ答えよ。',
-        explanation:
-          '体表はうろこ、えらで呼吸、卵生（殻のない卵を水中に産む）。変温動物。メダカ・サケなどが含まれる。',
-      },
-      {
-        id: 'sci1-vt-fc5',
-        front: '両生類の変態',
-        back: '両生類の子と親では呼吸法がどう変わるか。',
-        explanation:
-          '子（オタマジャクシなど）はえらで呼吸し水中で生活。親（カエルなど）は肺と皮膚で呼吸し水中と陸上で生活する。',
-      },
-      {
-        id: 'sci1-vt-fc6',
-        front: 'ハチュウ類の特徴',
-        back: 'ハチュウ類の体表・呼吸法・子の生まれ方をそれぞれ答えよ。',
-        explanation:
-          '体表はうろこやこうら、肺で呼吸、卵生（殻のある卵を陸上に産む）。変温動物。カナヘビ・カメ・ワニ・ヘビなど。',
-      },
-      {
-        id: 'sci1-vt-fc7',
-        front: '殻のある卵と殻のない卵',
-        back: '殻のある卵を産むグループと殻のない卵を産むグループをそれぞれ答えよ。',
-        explanation:
-          '殻のある卵：ハチュウ類・鳥類（陸上に産む）。殻のない卵：魚類・両生類（水中に産む）。殻は乾燥から卵を守る役割がある。',
-      },
-      {
-        id: 'sci1-vt-fc8',
-        front: '鳥類の特徴',
-        back: '鳥類の体表・呼吸法・子の生まれ方・体温を答えよ。',
-        explanation:
-          '体表は羽毛、肺で呼吸、卵生（殻のある卵を陸上に産む）、恒温動物。つばさで飛ぶ。',
-      },
-      {
-        id: 'sci1-vt-fc9',
-        front: '哺乳類の母乳',
-        back: '母乳で子を育てるのは脊椎動物のどのグループだけか。',
-        explanation:
-          '哺乳類だけ。「哺乳」とは乳で育てるという意味。胎生で生まれた後、母乳で育てる。',
-      },
-      {
-        id: 'sci1-vt-fc10',
-        front: '両生類の体表',
-        back: '両生類の皮膚がしめっている理由を答えよ。',
-        explanation:
-          '皮膚呼吸をするため。ガス交換には皮膚がしめっている必要がある。乾燥した場所では生きにくい。',
-      },
-      {
-        id: 'sci1-vt-fc11',
-        front: 'クジラの分類',
-        back: 'クジラは水中に住むが何類か。その理由を答えよ。',
-        explanation:
-          '哺乳類。肺で呼吸し、胎生で子を産み、母乳で育てる。恒温動物。見た目でなく体のつくりで分類する。',
-      },
-      {
-        id: 'fc12',
-        front: '脊椎動物',
-        back: '背骨（脊椎）をもつ動物を何というか。',
-      },
-      {
-        id: 'fc13',
-        front: '魚類',
-        back: 'メダカ、サケ、タツノオトシゴは何類に分類されるか。',
-      },
-      {
-        id: 'fc14',
-        front: '両生類',
-        back: 'カエル、イモリ、サンショウウオは何類に分類されるか。',
-      },
-      {
-        id: 'fc15',
-        front: 'ハチュウ類',
-        back: 'カナヘビ、カメ、ワニ、ヘビは何類に分類されるか。',
-      },
-      {
-        id: 'fc16',
-        front: 'えら',
-        back: '魚類は何で呼吸するか。',
-      },
-      {
-        id: 'fc17',
-        front: '肺と皮膚',
-        back: '両生類の親（カエルなど）は何で呼吸するか。',
-      },
-      {
-        id: 'fc18',
-        front: 'うろこ',
-        back: '魚類の体の表面は何でおおわれているか。',
-      },
-      {
-        id: 'fc19',
-        front: 'しめった皮膚（粘液でぬれている）',
-        back: '両生類の体の表面はどのような特徴があるか。',
-      },
-      {
-        id: 'fc20',
-        front: 'うろこやこうら',
-        back: 'ハチュウ類の体の表面は何でおおわれているか。',
-      },
-      {
-        id: 'fc21',
-        front: '羽毛',
-        back: '鳥類の体の表面は何でおおわれているか。',
-      },
-      {
-        id: 'fc22',
-        front: '毛',
-        back: '哺乳類の体の表面は何でおおわれているか。',
-      },
-      {
-        id: 'fc23',
-        front: '卵生',
-        back: '親が卵を産んでなかまをふやすことを何というか。',
-      },
-      {
-        id: 'fc24',
-        front: 'ない（殻のない卵を水中に産む）',
-        back: '魚類と両生類の卵に殻はあるか。',
-      },
-      {
-        id: 'fc25',
-        front: 'ある（殻のある卵を陸上に産む）',
-        back: 'ハチュウ類と鳥類の卵に殻はあるか。',
-      },
-      {
-        id: 'fc26',
-        front: '水中',
-        back: 'カエルの子（オタマジャクシ）はどこで生活するか。',
-      },
-      {
-        id: 'fc27',
-        front: '水中と陸上の両方',
-        back: '両生類の「両生」は何と何の両方で生きるという意味か。',
-      },
-      {
-        id: 'fc28',
-        front: '哺乳類（胎生で毛がある）',
-        back: 'コウモリは空を飛ぶが何類に分類されるか。',
-      },
+      { id: 'sci1-vt-fc1', front: '魚類・両生類・ハチュウ類・鳥類・哺乳類の5つ', back: '脊椎動物は何という5つのグループに分けられる？', difficulty: 'basic' },
+      { id: 'sci1-vt-fc2', front: '恒温動物：鳥類と哺乳類。変温動物：魚類・両生類・ハチュウ類', back: '恒温動物はどのグループ？変温動物は？', difficulty: 'standard' },
+      { id: 'sci1-vt-fc3', front: '胎生。哺乳類だけが胎生', back: '親の体内である程度育ってから生まれることを何という？どのグループ？', difficulty: 'basic' },
+      { id: 'sci1-vt-fc4', front: '体表はうろこ、えらで呼吸、卵生（殻のない卵を水中に産む）、変温動物', back: '魚類の体表・呼吸法・子の生まれ方をそれぞれ答えよ。', difficulty: 'standard' },
+      { id: 'sci1-vt-fc5', front: '子はえらで呼吸（水中生活）、親は肺と皮膚で呼吸（水中と陸上で生活）', back: '両生類の子と親では呼吸法がどう変わるか。', difficulty: 'standard' },
+      { id: 'sci1-vt-fc6', front: '体表はうろこやこうら、肺で呼吸、卵生（殻のある卵を陸上に産む）、変温動物', back: 'ハチュウ類の体表・呼吸法・子の生まれ方をそれぞれ答えよ。', difficulty: 'standard' },
+      { id: 'sci1-vt-fc7', front: '殻あり：ハチュウ類・鳥類（陸上）。殻なし：魚類・両生類（水中）', back: '殻のある卵を産むグループと殻のない卵を産むグループをそれぞれ答えよ。', difficulty: 'standard' },
+      { id: 'sci1-vt-fc8', front: '体表は羽毛、肺で呼吸、卵生（殻のある卵を陸上に産む）、恒温動物', back: '鳥類の体表・呼吸法・子の生まれ方・体温を答えよ。', difficulty: 'standard' },
+      { id: 'sci1-vt-fc9', front: '哺乳類だけ', back: '母乳で子を育てるのは脊椎動物のどのグループだけか。', explanation: '「哺乳」とは乳で育てるという意味。', difficulty: 'basic' },
+      { id: 'sci1-vt-fc10', front: '皮膚呼吸をするため（ガス交換には皮膚がしめっている必要がある）', back: '両生類の皮膚がしめっている理由を答えよ。', difficulty: 'standard' },
+      { id: 'sci1-vt-fc11', front: '哺乳類。肺で呼吸し、胎生で子を産み、母乳で育てるため', back: 'クジラは水中に住むが何類か。その理由を答えよ。', difficulty: 'advanced' },
+      { id: 'fc12', front: '脊椎動物', back: '背骨（脊椎）をもつ動物を何というか。', difficulty: 'basic' },
+      { id: 'fc13', front: '魚類', back: 'メダカ、サケ、タツノオトシゴは何類に分類されるか。', difficulty: 'basic' },
+      { id: 'fc14', front: '両生類', back: 'カエル、イモリ、サンショウウオは何類に分類されるか。', difficulty: 'basic' },
+      { id: 'fc15', front: 'ハチュウ類', back: 'カナヘビ、カメ、ワニ、ヘビは何類に分類されるか。', difficulty: 'basic' },
+      { id: 'fc16', front: 'えら', back: '魚類は何で呼吸するか。', difficulty: 'basic' },
+      { id: 'fc17', front: '肺と皮膚', back: '両生類の親（カエルなど）は何で呼吸するか。', difficulty: 'basic' },
+      { id: 'fc18', front: 'うろこ', back: '魚類の体の表面は何でおおわれているか。', difficulty: 'basic' },
+      { id: 'fc19', front: 'しめった皮膚（粘液でぬれている）', back: '両生類の体の表面はどのような特徴があるか。', difficulty: 'standard' },
+      { id: 'fc20', front: 'うろこやこうら', back: 'ハチュウ類の体の表面は何でおおわれているか。', difficulty: 'basic' },
+      { id: 'fc21', front: '羽毛', back: '鳥類の体の表面は何でおおわれているか。', difficulty: 'basic' },
+      { id: 'fc22', front: '毛', back: '哺乳類の体の表面は何でおおわれているか。', difficulty: 'basic' },
+      { id: 'fc23', front: '卵生', back: '親が卵を産んでなかまをふやすことを何というか。', difficulty: 'basic' },
+      { id: 'fc24', front: 'ない（殻のない卵を水中に産む）', back: '魚類と両生類の卵に殻はあるか。', difficulty: 'standard' },
+      { id: 'fc25', front: 'ある（殻のある卵を陸上に産む）', back: 'ハチュウ類と鳥類の卵に殻はあるか。', difficulty: 'standard' },
+      { id: 'fc26', front: '水中と陸上の両方', back: '両生類の「両生」は何と何の両方で生きるという意味か。', difficulty: 'standard' },
+      { id: 'fc27', front: '哺乳類（胎生で毛がある恒温動物）', back: 'コウモリは空を飛ぶが何類に分類されるか。', difficulty: 'advanced' },
+      { id: 'fc28', front: '恒温動物', back: '体温を一定に保つことができる動物を何というか。', difficulty: 'basic' },
+      { id: 'fc29', front: '変温動物', back: '周りの温度によって体温が変わる動物を何というか。', difficulty: 'basic' },
+      { id: 'fc30', front: '鳥類（羽毛があり殻のある卵を産む恒温動物）', back: 'ペンギンは飛べないが何類に分類されるか。', difficulty: 'advanced' },
+      { id: 'fc31', front: 'ヤモリはハチュウ類、イモリは両生類', back: 'ヤモリとイモリはそれぞれ何類に分類されるか。', explanation: '「イモリ＝井守＝水辺＝両生類」「ヤモリ＝家守＝陸上＝ハチュウ類」と覚える。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -333,7 +202,8 @@ export const vertebrates: Topic = {
           correctIndex: 0,
           explanation:
             'カエルは両生類で変温動物です。スズメは鳥類、ネコとクジラは哺乳類で、いずれも恒温動物です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-vt-q2',
           question: '哺乳類の特徴として正しいものはどれか？',
@@ -346,7 +216,8 @@ export const vertebrates: Topic = {
           correctIndex: 3,
           explanation:
             '哺乳類は胎生で、親の体内である程度育ってから生まれます。肺で呼吸し、体は毛でおおわれ、恒温動物です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-vt-q3',
           question: '両生類の呼吸のしかたで正しいものはどれか？',
@@ -359,7 +230,8 @@ export const vertebrates: Topic = {
           correctIndex: 2,
           explanation:
             '両生類は子（オタマジャクシなど）のときはえらで呼吸し、親になると肺と皮膚で呼吸します。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-vt-q4',
           question: '殻のある卵を陸上に産むグループの組み合わせとして正しいものはどれか？',
@@ -372,7 +244,8 @@ export const vertebrates: Topic = {
           correctIndex: 1,
           explanation:
             'ハチュウ類と鳥類が殻のある卵を陸上に産みます。魚類と両生類は殻のない卵を水中に産みます。哺乳類は胎生です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-vt-q5',
           question: 'クジラが哺乳類に分類される理由として正しくないものはどれか？',
@@ -385,7 +258,8 @@ export const vertebrates: Topic = {
           correctIndex: 0,
           explanation:
             'クジラは水中に住みますが、えらではなく肺で呼吸します。胎生で母乳で子を育てるため哺乳類に分類されます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci1-vt-q6',
           question: '次の動物のうち、ハチュウ類に分類されるのはどれか？',
@@ -393,7 +267,8 @@ export const vertebrates: Topic = {
           correctIndex: 3,
           explanation:
             'ヤモリはハチュウ類です。イモリ・サンショウウオ・カエルは両生類です。名前が似ていますが分類が異なります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'q7',
           question: '脊椎動物は何つのグループに分けられるか？',
@@ -401,7 +276,8 @@ export const vertebrates: Topic = {
           correctIndex: 2,
           explanation:
             '脊椎動物は魚類・両生類・ハチュウ類・鳥類・哺乳類の5つのグループに分けられます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'q8',
           question: '魚類の呼吸法として正しいものはどれか？',
@@ -409,7 +285,8 @@ export const vertebrates: Topic = {
           correctIndex: 1,
           explanation:
             '魚類はえらで呼吸します。水中の酸素をえらで取り入れています。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'q9',
           question: '恒温動物の組み合わせとして正しいものはどれか？',
@@ -422,7 +299,8 @@ export const vertebrates: Topic = {
           correctIndex: 2,
           explanation:
             '恒温動物は鳥類と哺乳類です。体温を一定に保つことができ、寒い環境でも活動できます。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'q10',
           question: '変温動物の特徴として正しいものはどれか？',
@@ -435,7 +313,8 @@ export const vertebrates: Topic = {
           correctIndex: 1,
           explanation:
             '変温動物は周りの温度によって体温が変わります。温度が低くなると活動が鈍くなります。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'q11',
           question: '魚類の体表の特徴として正しいものはどれか？',
@@ -443,7 +322,8 @@ export const vertebrates: Topic = {
           correctIndex: 2,
           explanation:
             '魚類の体表はうろこでおおわれています。両生類はしめった皮膚、鳥類は羽毛、哺乳類は毛です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q12',
           question: 'ハチュウ類の体表の特徴として正しいものはどれか？',
@@ -451,7 +331,8 @@ export const vertebrates: Topic = {
           correctIndex: 3,
           explanation:
             'ハチュウ類の体表はうろこやこうらでおおわれています。カメのこうらもハチュウ類の体表の特徴です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q13',
           question: '両生類の皮膚がしめっている理由として正しいものはどれか？',
@@ -464,7 +345,8 @@ export const vertebrates: Topic = {
           correctIndex: 1,
           explanation:
             '両生類は皮膚呼吸をするため、皮膚がしめっている必要があります。ガス交換には皮膚が湿っていることが大切です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q14',
           question: '殻のない卵を水中に産む脊椎動物の組み合わせはどれか？',
@@ -477,7 +359,8 @@ export const vertebrates: Topic = {
           correctIndex: 1,
           explanation:
             '魚類と両生類が殻のない卵を水中に産みます。殻がないため乾燥に弱く、水中で産む必要があります。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q15',
           question: '卵の殻の役割として正しいものはどれか？',
@@ -490,7 +373,8 @@ export const vertebrates: Topic = {
           correctIndex: 1,
           explanation:
             '殻は卵を乾燥から守る役割があります。殻があることで陸上でも発生できます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q16',
           question: '母乳で子を育てるのは脊椎動物のどのグループだけか？',
@@ -498,7 +382,8 @@ export const vertebrates: Topic = {
           correctIndex: 3,
           explanation:
             '母乳で子を育てるのは哺乳類だけです。「哺乳」とは乳で育てるという意味です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q17',
           question: 'コウモリが哺乳類に分類される理由として正しいものはどれか？',
@@ -511,7 +396,8 @@ export const vertebrates: Topic = {
           correctIndex: 2,
           explanation:
             'コウモリは空を飛びますが、胎生で毛があり恒温動物なので哺乳類に分類されます。見た目でなく体のつくりで分類します。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q18',
           question: 'ペンギンが鳥類に分類される理由として正しいものはどれか？',
@@ -524,7 +410,8 @@ export const vertebrates: Topic = {
           correctIndex: 2,
           explanation:
             'ペンギンは飛べませんが、羽毛があり殻のある卵を産むので鳥類に分類されます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q19',
           question: 'オタマジャクシがカエルに変態すると、ひれはどう変わるか？',
@@ -537,7 +424,8 @@ export const vertebrates: Topic = {
           correctIndex: 1,
           explanation:
             'オタマジャクシが変態するとひれがあし（四肢）になります。えら呼吸から肺と皮膚での呼吸に変わります。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q20',
           question: '両生類の「両生」の意味として正しいものはどれか？',
@@ -550,7 +438,8 @@ export const vertebrates: Topic = {
           correctIndex: 1,
           explanation:
             '「両生」は水中と陸上の両方で生きるという意味です。子は水中、親は水中と陸上で生活します。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q21',
           question: 'うろこでおおわれている脊椎動物のグループの組み合わせはどれか？',
@@ -563,7 +452,8 @@ export const vertebrates: Topic = {
           correctIndex: 1,
           explanation:
             '魚類とハチュウ類がうろこでおおわれています。ただしハチュウ類にはこうらをもつものもいます。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q22',
           question: '肺で呼吸する脊椎動物のグループとして正しくないものはどれか？',
@@ -571,7 +461,8 @@ export const vertebrates: Topic = {
           correctIndex: 3,
           explanation:
             '魚類はえらで呼吸します。ハチュウ類・鳥類・哺乳類は肺で呼吸します（両生類の親も肺と皮膚で呼吸）。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'q23',
           question: '次の動物のうち、魚類に分類されるのはどれか？',
@@ -579,7 +470,8 @@ export const vertebrates: Topic = {
           correctIndex: 2,
           explanation:
             'サケは魚類です。クジラ・イルカ・アシカは水中や水辺で生活しますが、すべて哺乳類です。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'q24',
           question: '胎生で生まれた後、母乳で育てられるのはどのグループか？',
@@ -587,7 +479,8 @@ export const vertebrates: Topic = {
           correctIndex: 3,
           explanation:
             '哺乳類だけが胎生で生まれ、母乳で育てられます。他の4グループは卵生です。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'q25',
           question: '皮膚呼吸を行う脊椎動物のグループはどれか？',
@@ -595,7 +488,8 @@ export const vertebrates: Topic = {
           correctIndex: 1,
           explanation:
             '両生類は肺と皮膚で呼吸します。皮膚呼吸のために皮膚がしめっている必要があります。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'q26',
           question: '次のうち、両生類に分類されるのはどれか？',
@@ -603,7 +497,8 @@ export const vertebrates: Topic = {
           correctIndex: 3,
           explanation:
             'イモリは両生類です。ヤモリ・カメ・トカゲはハチュウ類です。「イモリ＝井守＝水辺＝両生類」と覚えましょう。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'q27',
           question: 'ハチュウ類の子の生まれ方として正しいものはどれか？',
@@ -616,7 +511,8 @@ export const vertebrates: Topic = {
           correctIndex: 2,
           explanation:
             'ハチュウ類は殻のある卵を陸上に産みます。殻が乾燥から卵を守ります。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'q28',
           question: '鳥類の特徴の組み合わせとして正しいものはどれか？',
@@ -629,7 +525,8 @@ export const vertebrates: Topic = {
           correctIndex: 1,
           explanation:
             '鳥類は恒温動物で、肺で呼吸し、殻のある卵を陸上に産む卵生です。体は羽毛でおおわれています。',
-        },
+        difficulty: 'advanced',
+      },
       ],
     },
     examples: {

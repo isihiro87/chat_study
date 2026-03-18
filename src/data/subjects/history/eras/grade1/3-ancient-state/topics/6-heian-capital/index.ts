@@ -54,34 +54,34 @@ export const heianCapital: Topic = {
     },
     videos: [],
     flashcards: [
-      { id: 'fc1', front: '平安京', back: '794年に遷都された京都の都を何という？' },
-      { id: 'fc2', front: '征夷大将軍', back: '東北の蝦夷を征討した役職を何という？' },
-      { id: 'fc3', front: 'アテルイ', back: '朝廷に激しく抵抗した蝦夷の指導者は？' },
-      { id: 'fc4', front: '最澄', back: '唐から帰国し、天台宗を開いた僧は？' },
-      { id: 'fc5', front: '空海', back: '真言宗を始め、高野山に寺を建てた僧は？' },
-      { id: 'fc6', front: '菅原道真', back: '894年に遣唐使の派遣中止を提案したのはだれ？' },
-      { id: 'fc7', front: '羅城門', back: '平安京の朱雀大路の南端に建つ門は？' },
-      { id: 'fc8', front: '坂上田村麻呂', back: '征夷大将軍として東北を平定した人物は？' },
-      { id: 'fc9', front: '山岳仏教', back: '山奥で修行を行う新しい仏教の形態は？' },
-      { id: 'fc10', front: '神仏習合', back: '仏教と日本古来の神が混じり合う信仰は？' },
-      { id: 'fc11', front: '延暦寺', back: '最澄が比叡山に建てた天台宗の総本山は？' },
-      { id: 'fc12', front: '金剛峯寺', back: '空海が高野山に建てた真言宗の総本山は？' },
-      { id: 'fc13', front: '密教', back: '空海が唐で学んだ秘密の教えは？' },
-      { id: 'fc14', front: '長岡京', back: '桓武天皇が平安京の前に遷都した都は？' },
-      { id: 'fc15', front: '弘法大師', back: '空海の死後の尊称は？' },
-      { id: 'fc16', front: '多賀城', back: '東北地方の軍事・政治拠点として設置された城は？' },
-      { id: 'fc17', front: '894年', back: '菅原道真の進言で遣唐使が中止された年は？' },
-      { id: 'fc18', front: '天台宗', back: '最澄が比叡山で開いた宗派は？' },
-      { id: 'fc19', front: '真言宗', back: '空海が高野山で開いた宗派は？' },
-      { id: 'fc20', front: '平安時代', back: '平安京に都が置かれた約400年間を何時代という？' },
-      { id: 'fc21', front: '京都市', back: '平安京は現在のどの都市にあたるか？' },
-      { id: 'fc22', front: '蝦夷', back: '東北地方に住み朝廷の支配に従わなかった人々は？' },
-      { id: 'fc23', front: '征夷', back: '「征夷大将軍」の「征夷」の意味は？' },
-      { id: 'fc24', front: '滋賀県', back: '延暦寺は現在のどの都道府県にあるか？' },
-      { id: 'fc25', front: '学問の神', back: '菅原道真は死後に何として祀られたか？' },
-      { id: 'fc26', front: '国風文化', back: '遣唐使の中止後に日本で発展した文化は？' },
-      { id: 'fc27', front: '約400年間', back: '平安時代はおよそ何年間続いたか？' },
-      { id: 'fc28', front: '平城京（奈良）', back: '桓武天皇が即位した当時の都はどこ？' },
+      { id: 'fc1', front: '平安京', back: '794年に遷都された京都の都を何という？', difficulty: 'basic' },
+      { id: 'fc2', front: '征夷大将軍', back: '東北の蝦夷を征討した役職を何という？', difficulty: 'basic' },
+      { id: 'fc3', front: 'アテルイ', back: '朝廷に激しく抵抗した蝦夷の指導者は？', difficulty: 'basic' },
+      { id: 'fc4', front: '最澄', back: '唐から帰国し、天台宗を開いた僧は？', difficulty: 'basic' },
+      { id: 'fc5', front: '空海', back: '真言宗を始め、高野山に寺を建てた僧は？', difficulty: 'basic' },
+      { id: 'fc6', front: '菅原道真', back: '894年に遣唐使の派遣中止を提案したのはだれ？', difficulty: 'basic' },
+      { id: 'fc7', front: '羅城門', back: '平安京の朱雀大路の南端に建つ門は？', difficulty: 'basic' },
+      { id: 'fc8', front: '坂上田村麻呂', back: '征夷大将軍として東北を平定した人物は？', difficulty: 'basic' },
+      { id: 'fc9', front: '山岳仏教', back: '山奥で修行を行う新しい仏教の形態は？', difficulty: 'basic' },
+      { id: 'fc10', front: '神仏習合', back: '仏教と日本古来の神が混じり合う信仰は？', difficulty: 'basic' },
+      { id: 'fc11', front: '延暦寺', back: '最澄が比叡山に建てた天台宗の総本山は？', difficulty: 'basic' },
+      { id: 'fc12', front: '金剛峯寺', back: '空海が高野山に建てた真言宗の総本山は？', difficulty: 'basic' },
+      { id: 'fc13', front: '密教', back: '空海が唐で学んだ秘密の教えは？', difficulty: 'standard' },
+      { id: 'fc14', front: '長岡京', back: '桓武天皇が平安京の前に遷都した都は？', difficulty: 'standard' },
+      { id: 'fc15', front: '弘法大師', back: '空海の死後の尊称は？', difficulty: 'standard' },
+      { id: 'fc16', front: '多賀城', back: '東北地方の軍事・政治拠点として設置された城は？', difficulty: 'standard' },
+      { id: 'fc17', front: '894年', back: '菅原道真の進言で遣唐使が中止された年は？', difficulty: 'standard' },
+      { id: 'fc18', front: '天台宗', back: '最澄が比叡山で開いた宗派は？', difficulty: 'standard' },
+      { id: 'fc19', front: '真言宗', back: '空海が高野山で開いた宗派は？', difficulty: 'standard' },
+      { id: 'fc20', front: '平安時代', back: '平安京に都が置かれた約400年間を何時代という？', difficulty: 'standard' },
+      { id: 'fc21', front: '京都市', back: '平安京は現在のどの都市にあたるか？', difficulty: 'standard' },
+      { id: 'fc22', front: '蝦夷', back: '東北地方に住み朝廷の支配に従わなかった人々は？', difficulty: 'standard' },
+      { id: 'fc23', front: '征夷', back: '「征夷大将軍」の「征夷」の意味は？', difficulty: 'advanced' },
+      { id: 'fc24', front: '滋賀県', back: '延暦寺は現在のどの都道府県にあるか？', difficulty: 'advanced' },
+      { id: 'fc25', front: '学問の神', back: '菅原道真は死後に何として祀られたか？', difficulty: 'advanced' },
+      { id: 'fc26', front: '国風文化', back: '遣唐使の中止後に日本で発展した文化は？', difficulty: 'advanced' },
+      { id: 'fc27', front: '約400年間', back: '平安時代はおよそ何年間続いたか？', difficulty: 'advanced' },
+      { id: 'fc28', front: '平城京（奈良）', back: '桓武天皇が即位した当時の都はどこ？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -91,6 +91,7 @@ export const heianCapital: Topic = {
           options: ['平城京', '平安京', '藤原京', '長岡京'],
           correctIndex: 1,
           explanation: '平安京は794年に桓武天皇が遷都した京都の都です。',
+          difficulty: 'basic',
         },
         {
           id: 'q2',
@@ -98,6 +99,7 @@ export const heianCapital: Topic = {
           options: ['行基', '鑑真', '最澄', '空海'],
           correctIndex: 3,
           explanation: '空海は唐で密教を学び、帰国後に真言宗を開きました。',
+          difficulty: 'basic',
         },
         {
           id: 'q3',
@@ -105,6 +107,7 @@ export const heianCapital: Topic = {
           options: ['小野妹子', '藤原道長', '菅原道真', '坂上田村麻呂'],
           correctIndex: 2,
           explanation: '菅原道真は唐の衰退を理由に遣唐使の中止を提案しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q4',
@@ -112,6 +115,7 @@ export const heianCapital: Topic = {
           options: ['坂上田村麻呂', '中臣鎌足', '菅原道真', '藤原道長'],
           correctIndex: 0,
           explanation: '坂上田村麻呂は桓武天皇に征夷大将軍に任命され、蝦夷の指導者アテルイを降伏させました。',
+          difficulty: 'basic',
         },
         {
           id: 'q5',
@@ -119,6 +123,7 @@ export const heianCapital: Topic = {
           options: ['延暦寺', '東大寺', '金剛峯寺', '唐招提寺'],
           correctIndex: 0,
           explanation: '延暦寺は最澄が比叡山に建てた天台宗の総本山で、のちに多くの名僧を輩出しました。',
+          difficulty: 'basic',
         },
         {
           id: 'q6',
@@ -126,6 +131,7 @@ export const heianCapital: Topic = {
           options: ['唐との貿易のため', '奈良の寺院の政治介入を避けるため', '蝦夷の攻撃から逃れるため', '地震の被害を避けるため'],
           correctIndex: 1,
           explanation: '桓武天皇は奈良の大寺院が政治に介入することを嫌い、新しい都・平安京で政治を一新しようとしました。',
+          difficulty: 'basic',
         },
         {
           id: 'q7',
@@ -133,6 +139,7 @@ export const heianCapital: Topic = {
           options: ['禅', '律', '浄土教', '密教'],
           correctIndex: 3,
           explanation: '空海は唐で密教を学び、帰国後に真言宗を開きました。',
+          difficulty: 'basic',
         },
         {
           id: 'q8',
@@ -140,6 +147,7 @@ export const heianCapital: Topic = {
           options: ['都の大寺院で修行', '念仏を唱える', '山奥で修行する山岳仏教', '踊り念仏'],
           correctIndex: 2,
           explanation: 'ともに山奥に寺を建てて修行する山岳仏教です。',
+          difficulty: 'basic',
         },
         {
           id: 'q9',
@@ -147,6 +155,7 @@ export const heianCapital: Topic = {
           options: ['藤原京', '平城京', '近江大津宮', '長岡京'],
           correctIndex: 3,
           explanation: '桓武天皇は784年に長岡京に遷都しましたが、暗殺事件を機に794年に平安京へ移りました。',
+          difficulty: 'basic',
         },
         {
           id: 'q10',
@@ -154,6 +163,7 @@ export const heianCapital: Topic = {
           options: ['坂上田村麻呂', 'アテルイ', '菅原道真', '空海'],
           correctIndex: 1,
           explanation: 'アテルイは蝦夷の指導者として朝廷に激しく抵抗しましたが、坂上田村麻呂に降伏させられました。',
+          difficulty: 'basic',
         },
         {
           id: 'q11',
@@ -161,6 +171,7 @@ export const heianCapital: Topic = {
           options: ['奈良市', '大阪市', '京都市', '東京都'],
           correctIndex: 2,
           explanation: '平安京は現在の京都市にあたります。',
+          difficulty: 'standard',
         },
         {
           id: 'q12',
@@ -168,6 +179,7 @@ export const heianCapital: Topic = {
           options: ['九州に住む農民', '東北地方に住み朝廷に従わなかった人々', '朝鮮半島から来た人々', '都の貴族'],
           correctIndex: 1,
           explanation: '蝦夷は東北地方に住み、朝廷の支配に従わなかった人々です。',
+          difficulty: 'standard',
         },
         {
           id: 'q13',
@@ -175,6 +187,7 @@ export const heianCapital: Topic = {
           options: ['都を守ること', '蝦夷を征伐すること', '外国と交易すること', '仏教を広めること'],
           correctIndex: 1,
           explanation: '「征夷」は蝦夷を征伐するという意味で、蝦夷討伐の最高司令官が征夷大将軍です。',
+          difficulty: 'standard',
         },
         {
           id: 'q14',
@@ -182,6 +195,7 @@ export const heianCapital: Topic = {
           options: ['地震があったため', '外国の侵攻', '暗殺事件が起き不吉とされたため', '水害が多かったため'],
           correctIndex: 2,
           explanation: '長岡京の造営中に暗殺事件が起き、不吉とされたため平安京に移りました。',
+          difficulty: 'standard',
         },
         {
           id: 'q15',
@@ -189,6 +203,7 @@ export const heianCapital: Topic = {
           options: ['京都府', '滋賀県', '奈良県', '大阪府'],
           correctIndex: 1,
           explanation: '延暦寺は滋賀県の比叡山にある天台宗の総本山です。',
+          difficulty: 'standard',
         },
         {
           id: 'q16',
@@ -196,6 +211,7 @@ export const heianCapital: Topic = {
           options: ['費用がかかりすぎたから', '唐が衰退し航海が危険だったから', '日本が唐より進んでいたから', '天皇の命令だったから'],
           correctIndex: 1,
           explanation: '菅原道真は唐の衰退と航海の危険を理由に遣唐使の中止を提案しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q17',
@@ -203,6 +219,7 @@ export const heianCapital: Topic = {
           options: ['約100年間', '約200年間', '約300年間', '約400年間'],
           correctIndex: 3,
           explanation: '平安時代は約400年間（794年〜1185年頃）続きました。',
+          difficulty: 'standard',
         },
         {
           id: 'q18',
@@ -210,6 +227,7 @@ export const heianCapital: Topic = {
           options: ['飛鳥文化', '天平文化', '国風文化', '鎌倉文化'],
           correctIndex: 2,
           explanation: '遣唐使の中止後、唐の影響から離れた日本独自の国風文化が発展しました。',
+          difficulty: 'standard',
         },
         {
           id: 'q19',
@@ -217,6 +235,7 @@ export const heianCapital: Topic = {
           options: ['伝教大師', '弘法大師', '慈覚大師', '円仁大師'],
           correctIndex: 1,
           explanation: '空海は死後に弘法大師の尊称を贈られました。',
+          difficulty: 'standard',
         },
         {
           id: 'q20',
@@ -224,6 +243,7 @@ export const heianCapital: Topic = {
           options: ['戦の神', '商売の神', '学問の神', '農業の神'],
           correctIndex: 2,
           explanation: '菅原道真は太宰府に左遷された後、死後に学問の神として祀られました。',
+          difficulty: 'standard',
         },
         {
           id: 'q21',
@@ -231,6 +251,7 @@ export const heianCapital: Topic = {
           options: ['国家の保護を受けた', '山奥での修行を重視する山岳仏教となった', '庶民に広まった', '海外に布教した'],
           correctIndex: 1,
           explanation: '平安時代初期の仏教は山奥での修行を重視する山岳仏教で、奈良の旧仏教とは異なりました。',
+          difficulty: 'standard',
         },
         {
           id: 'q22',
@@ -238,6 +259,7 @@ export const heianCapital: Topic = {
           options: ['藤原京', '長岡京', '平城京', '平安京'],
           correctIndex: 2,
           explanation: '桓武天皇が即位した当時の都は平城京（奈良）でした。',
+          difficulty: 'standard',
         },
         {
           id: 'q23',
@@ -245,6 +267,7 @@ export const heianCapital: Topic = {
           options: ['貿易の拠点', '多くの名僧を輩出する日本仏教の中心', '軍事拠点', '皇居'],
           correctIndex: 1,
           explanation: '比叡山延暦寺はのちに多くの名僧を輩出する日本仏教の中心的な存在となりました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q24',
@@ -252,6 +275,7 @@ export const heianCapital: Topic = {
           options: ['浄土信仰', '密教', '神仏習合', '山岳仏教'],
           correctIndex: 2,
           explanation: '神仏習合は仏教と日本古来の神が混じり合う信仰の形態です。',
+          difficulty: 'advanced',
         },
         {
           id: 'q25',
@@ -259,6 +283,7 @@ export const heianCapital: Topic = {
           options: ['仏教の禁止と貿易促進', '遷都と蝦夷征伐', '貨幣の発行と税制改革', '遣唐使の派遣と大仏建立'],
           correctIndex: 1,
           explanation: '桓武天皇は遷都（長岡京→平安京）と蝦夷征伐で政治の立て直しを図りました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q26',
@@ -266,6 +291,7 @@ export const heianCapital: Topic = {
           options: ['密教', '禅', '天台の教え', '浄土の教え'],
           correctIndex: 2,
           explanation: '最澄は唐でおもに天台の教えを学び、帰国後に天台宗を開きました。',
+          difficulty: 'advanced',
         },
         {
           id: 'q27',
@@ -273,6 +299,7 @@ export const heianCapital: Topic = {
           options: ['伝教大師', '弘法大師', '文殊菩薩', '書聖'],
           correctIndex: 1,
           explanation: '空海は弘法大師と呼ばれ、「弘法も筆の誤り」のことわざでも知られます。',
+          difficulty: 'advanced',
         },
         {
           id: 'q28',
@@ -280,6 +307,7 @@ export const heianCapital: Topic = {
           options: ['水城', '大宰府', '多賀城', '藤原京'],
           correctIndex: 2,
           explanation: '多賀城は東北地方の軍事・政治拠点として蝦夷征伐に利用されました。',
+          difficulty: 'advanced',
         },
       ],
     },

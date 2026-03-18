@@ -104,152 +104,20 @@ export const staticElectricity: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'sci2-static-fc1',
-        front: '静電気',
-        back: '異なる物質をこすり合わせたときに生じる電気を何という？',
-        explanation: '電子が一方から他方へ移動することで帯電し、静電気が生じる。',
-      },
-      {
-        id: 'sci2-static-fc2',
-        front: '帯電',
-        back: '物体が電気を帯びることを何という？',
-        explanation: '電子を失うと＋に帯電、電子を受け取ると−に帯電する。',
-      },
-      {
-        id: 'sci2-static-fc3',
-        front: '放電',
-        back: 'たまった電気が空間を移動する現象を何という？',
-        explanation: '雷は自然界で起こる大規模な放電現象。',
-      },
-      {
-        id: 'sci2-static-fc4',
-        front: '真空放電',
-        back: '気圧を低くした空間で電圧をかけたとき起こる放電を何という？',
-        explanation: '蛍光灯やネオンサインは真空放電を利用して光を出している。',
-      },
-      {
-        id: 'sci2-static-fc5',
-        front: '蛍光灯のしくみ',
-        back: '蛍光灯が光る原理は何を利用している？',
-        explanation: 'ガラス管内の気圧を低くした状態で真空放電を起こし、管内の物質に電子がぶつかって発光する。',
-      },
-      {
-        id: 'sci2-static-fc6',
-        front: '電気の力の法則',
-        back: '同じ種類の電気どうし・異なる種類の電気どうしではどのような力がはたらく？',
-        explanation: '同じ種類の電気どうしは反発し合い（＋と＋、−と−）、異なる種類の電気どうしは引き合う（＋と−）。',
-      },
-      {
-        id: 'sci2-static-fc7',
-        front: '静電気',
-        back: '摩擦で電子が移動し物質が帯電して生じる電気',
-      },
-      {
-        id: 'sci2-static-fc8',
-        front: '帯電',
-        back: '物体が電気を帯びること',
-      },
-      {
-        id: 'sci2-static-fc9',
-        front: '電子',
-        back: '−の電気をもつ非常に小さな粒子',
-      },
-      {
-        id: 'sci2-static-fc10',
-        front: '＋帯電',
-        back: '電子を失うと＋に帯電',
-      },
-      {
-        id: 'sci2-static-fc11',
-        front: '−帯電',
-        back: '電子を受け取ると−に帯電',
-      },
-      {
-        id: 'sci2-static-fc12',
-        front: '同じ種類→反発',
-        back: '＋と＋、−と−は反発し合う',
-      },
-      {
-        id: 'sci2-static-fc13',
-        front: '異なる種類→引き合う',
-        back: '＋と−は引き合う',
-      },
-      {
-        id: 'sci2-static-fc14',
-        front: '放電',
-        back: 'たまった電気が空間を移動する現象。雷が例',
-      },
-      {
-        id: 'sci2-static-fc15',
-        front: '真空放電',
-        back: '気圧を低くした空間での放電。蛍光灯・ネオンサインに応用',
-      },
-      {
-        id: 'sci2-static-fc16',
-        front: 'クルックス管',
-        back: '真空放電を調べるガラス管',
-      },
-      {
-        id: 'sci2-static-fc17',
-        front: '陰極線（電子線）',
-        back: 'クルックス管で−極→＋極に飛ぶ粒子の流れ',
-      },
-      {
-        id: 'sci2-static-fc18',
-        front: '陰極線の正体＝電子',
-        back: '−の電気をもつ粒子',
-      },
-      {
-        id: 'sci2-static-fc19',
-        front: '陰極線は直進する',
-        back: '十字形の金属板で影ができることから',
-      },
-      {
-        id: 'sci2-static-fc20',
-        front: '陰極線は磁石で曲がる',
-        back: '電気をもった粒子だから磁界から力を受ける',
-      },
-      {
-        id: 'sci2-static-fc21',
-        front: '電流の正体＝電子の移動',
-        back: '導線中を電子が移動すること',
-      },
-      {
-        id: 'sci2-static-fc22',
-        front: '電流の向きと電子の向きは逆',
-        back: '電流＋→−、電子−→＋',
-      },
-      {
-        id: 'sci2-static-fc23',
-        front: '放射線',
-        back: 'X線・α線・β線・γ線などの総称',
-      },
-      {
-        id: 'sci2-static-fc24',
-        front: 'X線の利用',
-        back: 'レントゲン検査',
-      },
-      {
-        id: 'sci2-static-fc25',
-        front: 'α線は紙で遮れる',
-        back: '透過性が最も低い',
-      },
-      {
-        id: 'sci2-static-fc26',
-        front: 'γ線は鉛やコンクリートが必要',
-        back: '透過性が非常に高い',
-      },
-      {
-        id: 'sci2-static-fc27',
-        front: '自然放射線',
-        back: '自然界にも微量の放射線が存在',
-      },
-      {
-        id: 'sci2-static-fc28',
-        front: '電流の単位＝アンペア',
-        back: 'A（アンペア）',
-      }
+      { id: 'sci2-static-fc1', front: '異なる物質をこすり合わせたときに電子が移動して生じる電気', back: '静電気とは何？', difficulty: 'basic' },
+      { id: 'sci2-static-fc2', front: '物体が電気を帯びること。電子を失うと＋、受け取ると−に帯電', back: '帯電とは何？＋と−はどう決まる？', difficulty: 'basic' },
+      { id: 'sci2-static-fc3', front: '−の電気をもつ非常に小さな粒子', back: '電子とは何？', difficulty: 'basic' },
+      { id: 'sci2-static-fc4', front: '同じ種類（＋と＋、−と−）は反発し合い、異なる種類（＋と−）は引き合う', back: '電気の力の法則は？', difficulty: 'basic' },
+      { id: 'sci2-static-fc5', front: 'たまった電気が空間を移動する現象。雷が代表例', back: '放電とは何？', difficulty: 'basic' },
+      { id: 'sci2-static-fc6', front: '気圧を低くした空間で電圧をかけたとき起こる放電。蛍光灯やネオンサインに応用', back: '真空放電とは何？どう利用される？', difficulty: 'standard' },
+      { id: 'sci2-static-fc7', front: '真空放電を調べるためのガラス管の装置', back: 'クルックス管とは何？', difficulty: 'standard' },
+      { id: 'sci2-static-fc8', front: 'クルックス管で−極から＋極に飛ぶ粒子の流れ。正体は電子', back: '陰極線（電子線）とは何？その正体は？', difficulty: 'standard' },
+      { id: 'sci2-static-fc9', front: '電気をもった粒子（電子）だから磁界から力を受けて曲がる', back: '陰極線が磁石で曲がることから何がわかる？', difficulty: 'standard' },
+      { id: 'sci2-static-fc10', front: '導線中を電子が−極から＋極へ移動すること', back: '電流の正体は何？', difficulty: 'standard' },
+      { id: 'sci2-static-fc11', front: '逆向き。電流は＋→−、電子は−→＋', back: '電流の向きと電子の移動の向きの関係は？', difficulty: 'standard' },
+      { id: 'sci2-static-fc12', front: 'X線・α線・β線・γ線などの総称', back: '放射線とは何？', difficulty: 'advanced' },
+      { id: 'sci2-static-fc13', front: 'α線は紙で遮れる。γ線は鉛やコンクリートが必要なほど透過性が高い', back: '放射線の種類による透過性の違いは？', difficulty: 'advanced' },
+      { id: 'sci2-static-fc14', front: '電子発見前に歴史的に＋極→−極と決められた', back: '電流の向きが電子の移動と逆に決められた理由は？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -260,7 +128,8 @@ export const staticElectricity: Topic = {
           correctIndex: 1,
           explanation:
             'こすり合わせると電子が一方の物質から他方へ移動します。電子を失った側は＋に、受け取った側は−に帯電します。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-static-q2',
           question: '同じ種類の電気を帯びた物体どうしを近づけるとどうなる？',
@@ -268,7 +137,8 @@ export const staticElectricity: Topic = {
           correctIndex: 0,
           explanation:
             '同じ種類の電気（＋と＋、−と−）は反発し合います。異なる種類の電気（＋と−）は引き合います。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-static-q3',
           question: 'たまった電気が空間を移動する現象を何という？',
@@ -276,7 +146,8 @@ export const staticElectricity: Topic = {
           correctIndex: 3,
           explanation:
             'たまった電気が空間を移動する現象を放電といいます。雷は自然界で起こる大規模な放電です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-static-q4',
           question: '気圧を低くした空間で電圧をかけたとき起こる放電を何という？',
@@ -284,7 +155,8 @@ export const staticElectricity: Topic = {
           correctIndex: 2,
           explanation:
             '気圧を低くした空間で起こる放電を真空放電といいます。蛍光灯やネオンサインに利用されています。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-static-q5',
           question: '静電気は何によって生じる？',
@@ -292,7 +164,8 @@ export const staticElectricity: Topic = {
           correctIndex: 1,
           explanation:
             '摩擦で電子が移動し帯電。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-static-q6',
           question: '電子を失った物体は？',
@@ -300,7 +173,8 @@ export const staticElectricity: Topic = {
           correctIndex: 1,
           explanation:
             '−の電子を失うと＋に帯電。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-static-q7',
           question: '同じ種類の電気→どうなる？',
@@ -308,7 +182,8 @@ export const staticElectricity: Topic = {
           correctIndex: 1,
           explanation:
             '同種は反発、異種は引き合う。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-static-q8',
           question: '雷はどんな現象？',
@@ -316,7 +191,8 @@ export const staticElectricity: Topic = {
           correctIndex: 1,
           explanation:
             '雲にたまった静電気の放電。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-static-q9',
           question: '陰極線の正体は？',
@@ -324,7 +200,8 @@ export const staticElectricity: Topic = {
           correctIndex: 1,
           explanation:
             '−の電気をもつ電子。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-static-q10',
           question: '陰極線は何極から飛ぶ？',
@@ -332,7 +209,8 @@ export const staticElectricity: Topic = {
           correctIndex: 1,
           explanation:
             '−極（陰極）から＋極へ飛ぶ。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-static-q11',
           question: '陰極線が磁石で曲がることから何がわかる？',
@@ -340,7 +218,8 @@ export const staticElectricity: Topic = {
           correctIndex: 1,
           explanation:
             '電気をもった粒子（＝電子）だとわかる。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-static-q12',
           question: '電流の向きと電子の移動は？',
@@ -348,7 +227,8 @@ export const staticElectricity: Topic = {
           correctIndex: 1,
           explanation:
             '電流＋→−、電子−→＋で逆。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-static-q13',
           question: '電流の向きは？',
@@ -356,7 +236,8 @@ export const staticElectricity: Topic = {
           correctIndex: 1,
           explanation:
             '＋極から−極と決められている。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-static-q14',
           question: '真空放電が利用されている製品は？',
@@ -364,7 +245,8 @@ export const staticElectricity: Topic = {
           correctIndex: 1,
           explanation:
             '蛍光灯やネオンサイン。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-static-q15',
           question: 'クルックス管で十字形の影ができることから何がわかる？',
@@ -372,7 +254,8 @@ export const staticElectricity: Topic = {
           correctIndex: 2,
           explanation:
             '陰極線が直進する性質。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-static-q16',
           question: '放電とは？',
@@ -380,7 +263,8 @@ export const staticElectricity: Topic = {
           correctIndex: 1,
           explanation:
             'たまった電気が空間を移動する現象。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-static-q17',
           question: '帯電した下じきで髪が逆立つ理由は？',
@@ -388,7 +272,8 @@ export const staticElectricity: Topic = {
           correctIndex: 1,
           explanation:
             '異種の電気が引き合うため。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-static-q18',
           question: '電気の種類は何種類？',
@@ -396,7 +281,8 @@ export const staticElectricity: Topic = {
           correctIndex: 1,
           explanation:
             '＋と−の2種類。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-static-q19',
           question: '摩擦で移動するのは？',
@@ -404,7 +290,8 @@ export const staticElectricity: Topic = {
           correctIndex: 1,
           explanation:
             '−の電気をもった電子が移動。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-static-q20',
           question: 'X線の利用は？',
@@ -412,7 +299,8 @@ export const staticElectricity: Topic = {
           correctIndex: 1,
           explanation:
             '医療のレントゲン検査。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-static-q21',
           question: 'α線を遮るものは？',
@@ -420,7 +308,8 @@ export const staticElectricity: Topic = {
           correctIndex: 0,
           explanation:
             'α線は紙で遮れる。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-static-q22',
           question: 'γ線を遮るには？',
@@ -428,7 +317,8 @@ export const staticElectricity: Topic = {
           correctIndex: 3,
           explanation:
             '透過性が非常に高く鉛等が必要。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-static-q23',
           question: '自然界に放射線は存在する？',
@@ -436,7 +326,8 @@ export const staticElectricity: Topic = {
           correctIndex: 1,
           explanation:
             '自然放射線として微量存在。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci2-static-q24',
           question: '蛍光灯が光るしくみは？',
@@ -444,7 +335,8 @@ export const staticElectricity: Topic = {
           correctIndex: 1,
           explanation:
             '気圧の低い管内での放電で光る。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci2-static-q25',
           question: 'セーターを脱ぐときパチパチする理由は？',
@@ -452,7 +344,8 @@ export const staticElectricity: Topic = {
           correctIndex: 1,
           explanation:
             '静電気の放電。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci2-static-q26',
           question: '電流の正体は？',
@@ -460,7 +353,8 @@ export const staticElectricity: Topic = {
           correctIndex: 2,
           explanation:
             '導線中の電子の移動。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci2-static-q27',
           question: '電流が＋→−と決められた理由は？',
@@ -468,7 +362,8 @@ export const staticElectricity: Topic = {
           correctIndex: 1,
           explanation:
             '電子発見前に歴史的に決定。',
-        },
+        difficulty: 'advanced',
+      },
         {
           id: 'sci2-static-q28',
           question: '放射性物質の例は？',
@@ -476,7 +371,8 @@ export const staticElectricity: Topic = {
           correctIndex: 2,
           explanation:
             'ウランやラジウムなど。',
-        }
+        difficulty: 'advanced',
+      }
       ],
     },
     examples: {

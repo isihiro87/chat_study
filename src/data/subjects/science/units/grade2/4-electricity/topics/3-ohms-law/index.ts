@@ -77,60 +77,14 @@ export const ohmsLaw: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'sci2-ohms-fc1',
-        front: 'オームの法則',
-        back: '電圧（V）・電流（I）・抵抗（R）の関係を表す法則は？',
-        explanation: 'V＝R×I（電圧＝抵抗×電流）。電圧と電流は比例する。',
-      },
-      {
-        id: 'sci2-ohms-fc2',
-        front: '導体と不導体（絶縁体）',
-        back: '電気を通しやすい物質と通しにくい物質をそれぞれ何という？',
-        explanation: '導体：金属など電気を通しやすい物質。不導体（絶縁体）：ゴム・ガラスなど電気を通しにくい物質。',
-      },
-      {
-        id: 'sci2-ohms-fc3',
-        front: '抵抗の単位',
-        back: '抵抗の大きさを表す単位は？',
-        explanation: 'Ω（オーム）。電流の流れにくさを表す。',
-      },
-      {
-        id: 'sci2-ohms-fc4',
-        front: 'R＝V÷I',
-        back: '抵抗を求める式は？',
-        explanation: 'R＝V÷I。電圧を電流で割ると抵抗が求まる。',
-      },
-      {
-        id: 'sci2-ohms-fc5',
-        front: 'I＝V÷R',
-        back: '電流を求める式は？',
-        explanation: 'I＝V÷R。電圧を抵抗で割ると電流が求まる。',
-      },
-      {
-        id: 'sci2-ohms-fc6',
-        front: '直列回路の合成抵抗',
-        back: '直列回路の合成抵抗を求める式は？',
-        explanation: 'R＝R₁＋R₂。各抵抗の和が合成抵抗になる。',
-      },
-      {
-        id: 'sci2-ohms-fc7',
-        front: '並列回路の合成抵抗',
-        back: '並列回路の合成抵抗を求める式は？',
-        explanation: '1/R＝1/R₁＋1/R₂。各抵抗の逆数の和が合成抵抗の逆数。',
-      },
-      {
-        id: 'sci2-ohms-fc8',
-        front: '発光ダイオード（LED）',
-        back: '一方向にしか電流を流さない電子部品を何という？',
-        explanation: '発光ダイオード（LED）は電流が一方向にしか流れず、逆向きにつなぐと光らない。',
-      },
-      {
-        id: 'sci2-ohms-fc9',
-        front: '電熱線の抵抗と太さの関係',
-        back: '電熱線が太くなると抵抗はどうなる？',
-        explanation: '電熱線が太い（断面積が大きい）ほど抵抗は小さくなる。抵抗は断面積に反比例する。',
-      },
+      { id: 'sci2-ohms-fc1', front: 'V＝R×I（電圧＝抵抗×電流）。電圧と電流は比例する', back: 'オームの法則とは？', difficulty: 'basic' },
+      { id: 'sci2-ohms-fc2', front: 'Ω（オーム）。電流の流れにくさを表す', back: '抵抗の単位は？', difficulty: 'basic' },
+      { id: 'sci2-ohms-fc3', front: 'R＝V÷I。電圧を電流で割ると求まる', back: '抵抗を求める式は？', difficulty: 'basic' },
+      { id: 'sci2-ohms-fc4', front: 'I＝V÷R。電圧を抵抗で割ると求まる', back: '電流を求める式は？', difficulty: 'standard' },
+      { id: 'sci2-ohms-fc5', front: 'R＝R₁＋R₂（各抵抗の和）', back: '直列回路の合成抵抗を求める式は？', difficulty: 'standard' },
+      { id: 'sci2-ohms-fc6', front: '1/R＝1/R₁＋1/R₂（逆数の和）。合成抵抗はどの抵抗よりも小さくなる', back: '並列回路の合成抵抗を求める式は？特徴は？', difficulty: 'standard' },
+      { id: 'sci2-ohms-fc7', front: '一方向にしか電流を流さない電子部品。逆向きにつなぐと光らない', back: '発光ダイオード（LED）の特徴は？', difficulty: 'standard' },
+      { id: 'sci2-ohms-fc8', front: '太い（断面積が大きい）ほど抵抗は小さくなる。抵抗は断面積に反比例', back: '電熱線が太くなると抵抗はどうなる？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -141,7 +95,8 @@ export const ohmsLaw: Topic = {
           correctIndex: 1,
           explanation:
             'オームの法則はV＝R×I（電圧＝抵抗×電流）です。電圧と電流は比例します。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-ohms-q2',
           question: '20Ωの抵抗に0.3Aの電流が流れているとき、抵抗にかかる電圧は？',
@@ -149,7 +104,8 @@ export const ohmsLaw: Topic = {
           correctIndex: 2,
           explanation:
             'V＝R×I＝20Ω×0.3A＝6V です。オームの法則に値を代入して計算します。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-ohms-q3',
           question: '15Ωと25Ωの抵抗を直列につないだときの合成抵抗は？',
@@ -157,7 +113,8 @@ export const ohmsLaw: Topic = {
           correctIndex: 0,
           explanation:
             '直列回路の合成抵抗は R＝R₁＋R₂＝15＋25＝40Ω です。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'sci2-ohms-q4',
           question: '20Ωと20Ωの抵抗を並列につないだときの合成抵抗は？',
@@ -165,7 +122,8 @@ export const ohmsLaw: Topic = {
           correctIndex: 3,
           explanation:
             '同じ抵抗を2つ並列にすると合成抵抗は半分になります。20÷2＝10Ω。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-ohms-q5',
           question: '次のうち、導体はどれか？',
@@ -173,7 +131,8 @@ export const ohmsLaw: Topic = {
           correctIndex: 0,
           explanation:
             '銅は金属で、電気をよく通す導体です。ガラス・ゴム・プラスチックは不導体（絶縁体）です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'sci2-ohms-q6',
           question: '6Vの電圧をかけて0.2Aの電流が流れた。抵抗は何Ωか？',
@@ -181,7 +140,8 @@ export const ohmsLaw: Topic = {
           correctIndex: 2,
           explanation:
             'R＝V÷I＝6÷0.2＝30Ω です。オームの法則を変形して求めます。',
-        },
+        difficulty: 'standard',
+      },
       ],
     },
     examples: {
