@@ -161,48 +161,34 @@ export const landforms: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'geo2-lf-fc1',
-        front: '環太平洋造山帯',
-        back: '日本が位置する造山帯の名前と特徴は？',
-        explanation:
-          '環太平洋造山帯です。太平洋を取り囲むように火山や地震の多い地域が連なっており、日本もその一部に位置しています。',
-      },
-      {
-        id: 'geo2-lf-fc2',
-        front: 'フォッサマグナ',
-        back: 'フォッサマグナとは何か？',
-        explanation:
-          'フォッサマグナは本州中央部にある大きな地溝帯で、東日本と西日本の地質の境目になっています。',
-      },
-      {
-        id: 'geo2-lf-fc3',
-        front: '日本の河川の特徴',
-        back: '日本の河川は大陸の河川と比べてどんな特徴がある？',
-        explanation:
-          '日本の河川は大陸の河川と比べて距離が短く、流れが急で、流域面積が狭いのが特徴です。国土が細長く山地が海の近くまで迫っているためです。',
-      },
-      {
-        id: 'geo2-lf-fc4',
-        front: '扇状地と三角州',
-        back: '扇状地と三角州はそれぞれどこにできる地形か？',
-        explanation:
-          '扇状地は河川が山地から平地に出るところに、三角州は河口付近にできます。どちらも河川が運んだ土砂が堆積してできる地形です。',
-      },
-      {
-        id: 'geo2-lf-fc5',
-        front: 'リアス海岸',
-        back: 'リアス海岸とはどんな海岸か？日本のどこに見られるか？',
-        explanation:
-          'リアス海岸は山地が海に沈んでできた入り組んだ海岸線のことで、三陸海岸や志摩半島などに見られます。',
-      },
-      {
-        id: 'geo2-lf-fc6',
-        front: '潮目（しおめ）',
-        back: '潮目とは何か？なぜ好漁場になるのか？',
-        explanation:
-          '潮目は暖流と寒流がぶつかる場所のことです。プランクトンが豊富に集まるため、それを食べる魚も集まり好漁場になります。',
-      },
+      { id: 'geo2-lf-fc1', front: '環太平洋造山帯。太平洋を取り囲むように火山や地震の多い地域が連なる', back: '日本が位置する造山帯の名前と特徴は？', difficulty: 'basic' },
+      { id: 'geo2-lf-fc2', front: '本州中央部にある大きな地溝帯で、東日本と西日本の地質の境目', back: 'フォッサマグナとは何か？', difficulty: 'basic' },
+      { id: 'geo2-lf-fc3', front: '距離が短く、流れが急で、流域面積が狭い（国土が細長く山地が海近くまで迫るため）', back: '日本の河川は大陸の河川と比べてどんな特徴がある？', difficulty: 'basic' },
+      { id: 'geo2-lf-fc4', front: '約4分の3（約75%）', back: '日本の国土のうち、山地・丘陵地が占める割合はどれくらいか？', difficulty: 'basic' },
+      { id: 'geo2-lf-fc5', front: '扇状地は山地から平地に出るところ、三角州は河口付近にできる', back: '扇状地と三角州はそれぞれどこにできる地形か？', difficulty: 'standard' },
+      { id: 'geo2-lf-fc6', front: '山地が海に沈んでできた入り組んだ海岸線。三陸海岸や志摩半島に見られる', back: 'リアス海岸とはどんな海岸か？日本のどこに見られるか？', difficulty: 'standard' },
+      { id: 'geo2-lf-fc7', front: '暖流と寒流がぶつかる場所。プランクトンが豊富で魚が集まり好漁場になる', back: '潮目とは何か？なぜ好漁場になるのか？', difficulty: 'standard' },
+      { id: 'geo2-lf-fc8', front: '飛騨山脈・木曽山脈・赤石山脈の3つの山脈の総称', back: '日本アルプスとは何か？', difficulty: 'basic' },
+      { id: 'geo2-lf-fc9', front: '複数のプレートが押し合う場所にあり、マグマが上昇しやすいため', back: '日本で火山活動や地震が活発な理由は？', difficulty: 'basic' },
+      { id: 'geo2-lf-fc10', front: '河川が山地から平地に出る所に砂礫が扇形に堆積した地形。果樹園に利用されることが多い', back: '扇状地とはどんな地形か？どんな土地利用がされるか？', difficulty: 'basic' },
+      { id: 'geo2-lf-fc11', front: '河口付近に細かい土砂が堆積してできた三角形の低湿地。水田に利用される', back: '三角州とはどんな地形か？どんな土地利用がされるか？', difficulty: 'basic' },
+      { id: 'geo2-lf-fc12', front: '周囲より一段高い平らな土地。水が得にくいため畑作に利用されることが多い', back: '台地とはどんな地形か？なぜ畑作が多いか？', difficulty: 'basic' },
+      { id: 'geo2-lf-fc13', front: '黒潮（日本海流）と対馬海流', back: '日本周辺を流れる暖流を2つ答えよ', difficulty: 'standard' },
+      { id: 'geo2-lf-fc14', front: '親潮（千島海流）とリマン海流', back: '日本周辺を流れる寒流を2つ答えよ', difficulty: 'standard' },
+      { id: 'geo2-lf-fc15', front: '大陸の周辺に広がる深さ約200mまでの浅い海底', back: '大陸棚とは何か？', difficulty: 'standard' },
+      { id: 'geo2-lf-fc16', front: '海底にある細長く深い溝で、深さ8000m以上に達するものもある', back: '海溝とは何か？', difficulty: 'standard' },
+      { id: 'geo2-lf-fc17', front: '伊豆・小笠原海溝、南西諸島海溝', back: '日本周辺の代表的な海溝を2つ答えよ', difficulty: 'standard' },
+      { id: 'geo2-lf-fc18', front: '関東平野（日本最大の平野）', back: '日本で最も大きい平野はどこか？', difficulty: 'basic' },
+      { id: 'geo2-lf-fc19', front: '鳥取砂丘（鳥取県）', back: '日本で最も有名な砂丘はどこか？', difficulty: 'basic' },
+      { id: 'geo2-lf-fc20', front: '奥羽山脈（東北地方の中央を南北に走る）', back: '東北地方を南北に走る主な山脈は何か？', difficulty: 'standard' },
+      { id: 'geo2-lf-fc21', front: '桜島（鹿児島県）・雲仙岳（長崎県）・大雪山（北海道）・箱根山（神奈川県）', back: '日本の代表的な火山を4つ答えよ', difficulty: 'standard' },
+      { id: 'geo2-lf-fc22', front: '低地は水が得やすいため水田、台地は水が得にくいため畑作が中心', back: '低地と台地で農業が異なる理由は？', difficulty: 'standard' },
+      { id: 'geo2-lf-fc23', front: '長野盆地（りんごなど）・甲府盆地（ぶどう・もも）。水はけがよく昼夜の寒暖差が果物の糖度を高める', back: '盆地で果樹栽培が盛んな具体例と理由は？', difficulty: 'advanced' },
+      { id: 'geo2-lf-fc24', front: '入り江が深く波が穏やかで養殖のいかだを設置しやすい。三陸海岸ではわかめ・かき等の養殖が盛ん', back: 'リアス海岸で養殖業が盛んな理由は？', difficulty: 'advanced' },
+      { id: 'geo2-lf-fc25', front: '太平洋プレート・フィリピン海プレートが大陸側プレートの下に沈み込み、マグマが発生して火山が形成される', back: '日本の太平洋側に海溝と火山が多い理由をプレートの動きで説明せよ', difficulty: 'advanced' },
+      { id: 'geo2-lf-fc26', front: '平野は海に面した平らな低地、盆地は山に囲まれた平らな低地', back: '平野と盆地の違いは何か？', difficulty: 'basic' },
+      { id: 'geo2-lf-fc27', front: '日高山脈（北海道）、四国山地（四国）、中国山地（中国地方）、紀伊山地（紀伊半島）', back: '日本アルプス以外の主な山脈・山地を4つ答えよ', difficulty: 'advanced' },
+      { id: 'geo2-lf-fc28', front: '埋め立てや護岸工事で人工的につくられた海岸。都市部や工業地帯の沿岸に多い', back: '人工海岸とは何か？どこに多いか？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -213,7 +199,8 @@ export const landforms: Topic = {
           correctIndex: 0,
           explanation:
             '日本の国土の約4分の3（約75%）は山地・丘陵地で占められています。平地は約25%しかありません。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo2-lf-q2',
           question: '本州中央部にある大きな地溝帯を何というか？',
@@ -221,7 +208,8 @@ export const landforms: Topic = {
           correctIndex: 2,
           explanation:
             'フォッサマグナは本州中央部にある大地溝帯で、東日本と西日本の地質の境目になっています。',
-        },
+        difficulty: 'basic',
+      },
         {
           id: 'geo2-lf-q3',
           question: '日本の河川の特徴として正しいものはどれ？',
@@ -234,7 +222,8 @@ export const landforms: Topic = {
           correctIndex: 1,
           explanation:
             '日本の河川は大陸の河川と比べて距離が短く、流れが急で、流域面積が狭いのが特徴です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo2-lf-q4',
           question: '河川が山地から平地に出るところにできる地形を何というか？',
@@ -242,7 +231,8 @@ export const landforms: Topic = {
           correctIndex: 3,
           explanation:
             '扇状地は河川が山地から平地に出るところに扇形に広がる地形です。河口付近にできるのは三角州です。',
-        },
+        difficulty: 'standard',
+      },
         {
           id: 'geo2-lf-q5',
           question: '暖流と寒流がぶつかる場所を何というか？',
@@ -250,7 +240,251 @@ export const landforms: Topic = {
           correctIndex: 3,
           explanation:
             '潮目は暖流と寒流がぶつかる場所のことで、プランクトンが豊富なため好漁場になります。',
-        },
+        difficulty: 'advanced',
+      },
+        {
+          id: 'geo2-lf-q6',
+          question: '日本列島が位置する造山帯の名前はどれか？',
+          options: ['アルプス・ヒマラヤ造山帯', '環太平洋造山帯', '大西洋中央海嶺', 'ウラル造山帯'],
+          correctIndex: 1,
+          explanation:
+            '日本列島は環太平洋造山帯に位置しています。太平洋を取り囲むように火山や地震の多い地域が帯状に連なっています。',
+        difficulty: 'basic',
+      },
+        {
+          id: 'geo2-lf-q7',
+          question: '日本アルプスに含まれない山脈はどれか？',
+          options: ['飛騨山脈', '木曽山脈', '赤石山脈', '奥羽山脈'],
+          correctIndex: 3,
+          explanation:
+            '日本アルプスは飛騨山脈・木曽山脈・赤石山脈の3つです。奥羽山脈は東北地方を南北に走る山脈です。',
+        difficulty: 'basic',
+      },
+        {
+          id: 'geo2-lf-q8',
+          question: '日本で火山や地震が多い理由として正しいものはどれか？',
+          options: [
+            '赤道に近い位置にあるため',
+            '複数のプレートが押し合う場所にあるため',
+            '国土が島国であるため',
+            '標高の高い山が多いため',
+          ],
+          correctIndex: 1,
+          explanation:
+            '日本は複数のプレート（ユーラシア・北アメリカ・太平洋・フィリピン海）が押し合う場所にあるため、火山活動や地震が活発です。',
+        difficulty: 'basic',
+      },
+        {
+          id: 'geo2-lf-q9',
+          question: '河口付近に土砂が堆積してできる三角形の地形を何というか？',
+          options: ['扇状地', '台地', '三角州', '盆地'],
+          correctIndex: 2,
+          explanation:
+            '三角州は河口付近に細かい土砂が堆積してできる低湿な三角形の地形です。水田に利用されることが多いです。',
+        difficulty: 'basic',
+      },
+        {
+          id: 'geo2-lf-q10',
+          question: '日本最大の平野はどこか？',
+          options: ['大阪平野', '濃尾平野', '関東平野', '石狩平野'],
+          correctIndex: 2,
+          explanation:
+            '関東平野は日本最大の平野で、東京をはじめとする首都圏が広がっています。',
+        difficulty: 'basic',
+      },
+        {
+          id: 'geo2-lf-q11',
+          question: '台地で畑作が多い理由として正しいものはどれか？',
+          options: [
+            '日当たりが悪いため',
+            '土壌が肥沃すぎるため',
+            '周囲より高い位置にあり水が得にくいため',
+            '風が強すぎるため',
+          ],
+          correctIndex: 2,
+          explanation:
+            '台地は周囲より一段高い平らな土地で、水が得にくいため水田には向かず、畑作が行われることが多いです。',
+        difficulty: 'standard',
+      },
+        {
+          id: 'geo2-lf-q12',
+          question: '日本の太平洋側を流れる暖流の別名はどれか？',
+          options: ['対馬海流', '千島海流', '日本海流', 'リマン海流'],
+          correctIndex: 2,
+          explanation:
+            '黒潮の別名は日本海流です。日本の太平洋側を北上する暖流で、沿岸を温暖にする効果があります。',
+        difficulty: 'standard',
+      },
+        {
+          id: 'geo2-lf-q13',
+          question: '日本の太平洋側を流れる寒流はどれか？',
+          options: ['黒潮', '対馬海流', 'リマン海流', '親潮'],
+          correctIndex: 3,
+          explanation:
+            '親潮（千島海流）は日本の太平洋側を南下する寒流です。栄養分が豊富で「潮を親のように育む」ことから名前がつきました。',
+        difficulty: 'standard',
+      },
+        {
+          id: 'geo2-lf-q14',
+          question: '大陸棚の深さの目安として正しいものはどれか？',
+          options: ['約50m', '約200m', '約1000m', '約5000m'],
+          correctIndex: 1,
+          explanation:
+            '大陸棚は大陸の周辺に広がる浅い海底で、深さ約200mまでの範囲を指します。漁業資源が豊富な場所です。',
+        difficulty: 'standard',
+      },
+        {
+          id: 'geo2-lf-q15',
+          question: '鳥取県にある有名な海岸地形はどれか？',
+          options: ['リアス海岸', '砂丘', '人工海岸', '大陸棚'],
+          correctIndex: 1,
+          explanation:
+            '鳥取砂丘は鳥取県にある日本最大級の砂丘で、海岸沿いの砂が風で運ばれてできた地形です。',
+        difficulty: 'basic',
+      },
+        {
+          id: 'geo2-lf-q16',
+          question: 'リアス海岸が見られる場所として正しい組み合わせはどれか？',
+          options: [
+            '三陸海岸と志摩半島',
+            '九十九里浜と能登半島',
+            '鳥取砂丘と天橋立',
+            '湘南海岸と松島',
+          ],
+          correctIndex: 0,
+          explanation:
+            'リアス海岸は三陸海岸（東北地方の太平洋側）と志摩半島（三重県）に代表的に見られます。',
+        difficulty: 'standard',
+      },
+        {
+          id: 'geo2-lf-q17',
+          question: '扇状地で果樹栽培が盛んな理由として正しいものはどれか？',
+          options: [
+            '水分が豊富で稲作にも向くため',
+            '水はけがよく日当たりもよいため',
+            '標高が高く涼しいため',
+            '海に近く潮風があたるため',
+          ],
+          correctIndex: 1,
+          explanation:
+            '扇状地は砂礫が堆積した地形で水はけがよく、傾斜があるため日当たりもよく、果樹栽培に適しています。',
+        difficulty: 'standard',
+      },
+        {
+          id: 'geo2-lf-q18',
+          question: '鹿児島県にある活火山はどれか？',
+          options: ['雲仙岳', '大雪山', '箱根山', '桜島'],
+          correctIndex: 3,
+          explanation:
+            '桜島は鹿児島県にある活火山で、現在も噴火活動を続けています。鹿児島湾（錦江湾）に位置しています。',
+        difficulty: 'basic',
+      },
+        {
+          id: 'geo2-lf-q19',
+          question: '東北地方を南北に走る主要な山脈はどれか？',
+          options: ['飛騨山脈', '日高山脈', '奥羽山脈', '紀伊山地'],
+          correctIndex: 2,
+          explanation:
+            '奥羽山脈は東北地方の中央を南北に走る日本最長の山脈で、東北地方を太平洋側と日本海側に分けています。',
+        difficulty: 'standard',
+      },
+        {
+          id: 'geo2-lf-q20',
+          question: '甲府盆地で盛んに栽培されている果物として最も有名なものはどれか？',
+          options: ['みかん', 'りんご', 'ぶどう', 'なし'],
+          correctIndex: 2,
+          explanation:
+            '甲府盆地（山梨県）はぶどうの生産量日本一で知られています。水はけのよい扇状地と昼夜の寒暖差が栽培に適しています。',
+        difficulty: 'standard',
+      },
+        {
+          id: 'geo2-lf-q21',
+          question: '潮目が好漁場になる理由として正しいものはどれか？',
+          options: [
+            '海底が浅く太陽光が届きやすいため',
+            '暖流と寒流がぶつかりプランクトンが豊富になるため',
+            '波が穏やかで漁船が操業しやすいため',
+            '海水の塩分濃度が低いため',
+          ],
+          correctIndex: 1,
+          explanation:
+            '潮目では暖流と寒流がぶつかって海水がかき混ぜられ、栄養分が運ばれてプランクトンが大量に繁殖します。それを求めて魚が集まるため好漁場になります。',
+        difficulty: 'advanced',
+      },
+        {
+          id: 'geo2-lf-q22',
+          question: '海溝の深さとして正しいものはどれか？',
+          options: ['約200m以上', '約1000m以上', '約4000m以上', '約8000m以上'],
+          correctIndex: 3,
+          explanation:
+            '海溝は海底にある細長く深い溝で、深さ8000m以上に達するものもあります。プレートが沈み込む場所に形成されます。',
+        difficulty: 'advanced',
+      },
+        {
+          id: 'geo2-lf-q23',
+          question: '三陸海岸のリアス海岸で津波被害が大きくなりやすい理由はどれか？',
+          options: [
+            '砂浜が広く波が高くなるため',
+            '入り江が狭く奥深い形状のため波が集中するため',
+            '大陸棚が広いため波が増幅するため',
+            '暖流の影響で海水温が高いため',
+          ],
+          correctIndex: 1,
+          explanation:
+            'リアス海岸は入り江が狭く奥深い形状のため、津波が入り江に入ると奥に行くほど波が集中して水位が急激に高くなり、大きな被害をもたらします。',
+        difficulty: 'advanced',
+      },
+        {
+          id: 'geo2-lf-q24',
+          question: 'フォッサマグナの西縁にあたる構造線はどれか？',
+          options: ['中央構造線', '糸魚川静岡構造線', '柏崎千葉構造線', '仏像構造線'],
+          correctIndex: 1,
+          explanation:
+            '糸魚川静岡構造線はフォッサマグナの西縁にあたる構造線で、新潟県の糸魚川から静岡まで南北に走っています。',
+        difficulty: 'advanced',
+      },
+        {
+          id: 'geo2-lf-q25',
+          question: '日本の太平洋側に海溝が形成される理由として正しいものはどれか？',
+          options: [
+            '暖流が海底を削るため',
+            '大陸棚の端が崩れるため',
+            '海洋プレートが大陸プレートの下に沈み込むため',
+            '火山の噴火で海底が陥没するため',
+          ],
+          correctIndex: 2,
+          explanation:
+            '太平洋プレートやフィリピン海プレートが日本列島側のプレートの下に沈み込む場所に海溝が形成されます。',
+        difficulty: 'advanced',
+      },
+        {
+          id: 'geo2-lf-q26',
+          question: '日本の河川が急流である理由として最も適切なものはどれか？',
+          options: [
+            '降水量が非常に多いため',
+            '山地が海の近くまで迫り、短い距離で標高差が大きいため',
+            '河川の幅が狭いため',
+            '地盤が固い岩石でできているため',
+          ],
+          correctIndex: 1,
+          explanation:
+            '日本は山地が海のすぐ近くまで迫っているため、源流から河口までの距離が短いにもかかわらず標高差が大きく、急な流れになります。',
+        difficulty: 'standard',
+      },
+        {
+          id: 'geo2-lf-q27',
+          question: '日本で人口が平野部に集中している理由として正しいものはどれか？',
+          options: [
+            '平野部は地震が起きにくいため',
+            '山地は法律で居住が禁止されているため',
+            '平野は生活や農業・交通に便利な平らな土地であるため',
+            '山地は年中気温が低すぎるため',
+          ],
+          correctIndex: 2,
+          explanation:
+            '平野は平らで水が得やすく、農業・交通・住居に適した土地であるため、人口が集中しています。日本の国土の約25%の平地に大部分の人口が暮らしています。',
+        difficulty: 'advanced',
+      },
       ],
     },
     examples: {
