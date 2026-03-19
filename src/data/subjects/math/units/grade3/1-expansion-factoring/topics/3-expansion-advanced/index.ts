@@ -57,32 +57,38 @@ export const expansionAdvanced: Topic = {
     flashcards: [
       {
         id: 'math-g3-ea-fc1',
-        front: 'a=3x, b=1 とおいて公式2を使う\n\n(3x)² + 2×3x×1 + 1²\n= 9x² + 6x + 1', back: '(3x+1)² の展開のコツは？',
+        front: '9x² + 6x + 1', back: '(3x+1)² の展開のコツは？',
+        explanation: 'a=3x, b=1 とおいて公式2を使う。(3x)² + 2×3x×1 + 1² = 9x² + 6x + 1',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-ea-fc2',
-        front: '16x² − 8x + 1\n\n(4x)²=16x², 2×4x×1=8x, 1²=1', back: '(4x−1)² = ?',
+        front: '16x² − 8x + 1', back: '(4x−1)² = ?',
+        explanation: '(4x)²=16x², 2×4x×1=8x, 1²=1',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-ea-fc3',
-        front: '25x² − 20xy + 4y²\n\n(5x)²=25x², 2×5x×2y=20xy, (2y)²=4y²', back: '(5x−2y)² = ?',
+        front: '25x² − 20xy + 4y²', back: '(5x−2y)² = ?',
+        explanation: '(5x)²=25x², 2×5x×2y=20xy, (2y)²=4y²',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-ea-fc4',
-        front: '4a² − 49b²\n\n和と差の積: (2a)²−(7b)²', back: '(2a+7b)(2a−7b) = ?',
+        front: '4a² − 49b²', back: '(2a+7b)(2a−7b) = ?',
+        explanation: '和と差の積: (2a)²−(7b)²',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-ea-fc5',
-        front: 'a² − ab + ¼b²\n\n2×a×½b = ab, (½b)² = ¼b²', back: '(a−½b)² = ?',
+        front: 'a² − ab + ¼b²', back: '(a−½b)² = ?',
+        explanation: '2×a×½b = ab, (½b)² = ¼b²',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-ea-fc6',
-        front: '9x²\n\n3²×x² = 9x²（3x² ではない！）', back: '(3x)² はいくつ？',
+        front: '9x²', back: '(3x)² はいくつ？',
+        explanation: '3²×x² = 9x²（3x² ではない！）',
         difficulty: 'basic',
       },
       {
@@ -102,52 +108,62 @@ export const expansionAdvanced: Topic = {
       },
       {
         id: 'math-g3-ea-fc10',
-        front: '−x² + 10x − 25\n\nマイナスのカッコを外すと全項の符号が変わる', back: '−(x²−10x+25) のカッコを外すと？',
+        front: '−x² + 10x − 25', back: '−(x²−10x+25) のカッコを外すと？',
+        explanation: 'マイナスのカッコを外すと全項の符号が変わる',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-ea-fc11',
-        front: '12x\n\n(x²+6x+9)−(x²−6x+9) = 12x', back: '(x+3)² − (x−3)² を\n簡単にすると？',
+        front: '12x', back: '(x+3)² − (x−3)² を\n簡単にすると？',
+        explanation: '(x²+6x+9)−(x²−6x+9) = 12x',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-ea-fc12',
-        front: '4ab\n\n便利な公式として覚えておこう！', back: '(a+b)² − (a−b)² = ?',
+        front: '4ab', back: '(a+b)² − (a−b)² = ?',
+        explanation: '便利な公式として覚えておこう！',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-ea-fc13',
-        front: 'M = x+y とおく\n→ (M+4)(M+3) = M²+7M+12\n→ x²+2xy+y²+7x+7y+12', back: '式のおきかえ:\n(x+y+4)(x+y+3) のやり方は？',
+        front: 'M = x+y とおく', back: '式のおきかえ:\n(x+y+4)(x+y+3) のやり方は？',
+        explanation: '(M+4)(M+3) = M²+7M+12 → x²+2xy+y²+7x+7y+12',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-ea-fc14',
-        front: 'M = a+b とおく\n→ (M−1)² = M²−2M+1\n→ a²+2ab+b²−2a−2b+1', back: '式のおきかえ:\n(a+b−1)² のやり方は？',
+        front: 'M = a+b とおく', back: '式のおきかえ:\n(a+b−1)² のやり方は？',
+        explanation: '(M−1)² = M²−2M+1 → a²+2ab+b²−2a−2b+1',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-ea-fc15',
-        front: 'M=2x+y とおく\n→ (M+1)(M−1) = M²−1\n→ 4x²+4xy+y²−1', back: '式のおきかえ:\n(2x+y+1)(2x+y−1) = ?',
+        front: 'M=2x+y とおく', back: '式のおきかえ:\n(2x+y+1)(2x+y−1) = ?',
+        explanation: '(M+1)(M−1) = M²−1 → 4x²+4xy+y²−1',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-ea-fc16',
-        front: '9x² + 30xy + 25y²\n\n(3x)²+2×3x×5y+(5y)²', back: '(3x+5y)² = ?',
+        front: '9x² + 30xy + 25y²', back: '(3x+5y)² = ?',
+        explanation: '(3x)²+2×3x×5y+(5y)²',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-ea-fc17',
-        front: '4x² + 12x + 9\n\n(2x)²+2×2x×3+3²', back: '(2x+3)² = ?',
+        front: '4x² + 12x + 9', back: '(2x+3)² = ?',
+        explanation: '(2x)²+2×2x×3+3²',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-ea-fc18',
-        front: '(x+3)² − (x+2)²\n= (x²+6x+9)−(x²+4x+4) = 2x+5', back: '(x+3)² − (x+2)² を簡単にすると？',
+        front: '2x+5', back: '(x+3)² − (x+2)² を簡単にすると？',
+        explanation: '(x²+6x+9)−(x²+4x+4) = 2x+5',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-ea-fc19',
-        front: '2(a²+b²)\n(a²+2ab+b²)+(a²−2ab+b²)', back: '(a+b)² + (a−b)² = ?',
+        front: '2(a²+b²)', back: '(a+b)² + (a−b)² = ?',
+        explanation: '(a²+2ab+b²)+(a²−2ab+b²) = 2a²+2b²',
         difficulty: 'standard',
       },
       {
@@ -157,12 +173,14 @@ export const expansionAdvanced: Topic = {
       },
       {
         id: 'math-g3-ea-fc21',
-        front: '36a² − 49b²\n\n(6a)²−(7b)²', back: '(6a+7b)(6a−7b) = ?',
+        front: '36a² − 49b²', back: '(6a+7b)(6a−7b) = ?',
+        explanation: '(6a)²−(7b)²',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-ea-fc22',
-        front: '9x²−24xy+16y²\n\n(3x)²−2×3x×4y+(4y)²', back: '(3x−4y)² = ?',
+        front: '9x²−24xy+16y²', back: '(3x−4y)² = ?',
+        explanation: '(3x)²−2×3x×4y+(4y)²',
         difficulty: 'standard',
       },
       {
@@ -172,27 +190,32 @@ export const expansionAdvanced: Topic = {
       },
       {
         id: 'math-g3-ea-fc24',
-        front: '2x²−3x+4\n(x²−4x+4)+(x²+x) = 2x²−3x+4', back: '(x−2)²+x(x+1) を簡単にすると？',
+        front: '2x²−3x+4', back: '(x−2)²+x(x+1) を簡単にすると？',
+        explanation: '(x²−4x+4)+(x²+x) = 2x²−3x+4',
         difficulty: 'advanced',
       },
       {
         id: 'math-g3-ea-fc25',
-        front: 'x²+½x+1/16\n\n2×x×¼=½x, (¼)²=1/16', back: '(x+¼)² = ?',
+        front: 'x²+½x+1/16', back: '(x+¼)² = ?',
+        explanation: '2×x×¼=½x, (¼)²=1/16',
         difficulty: 'advanced',
       },
       {
         id: 'math-g3-ea-fc26',
-        front: 'M=x−2y とおく\n→ (M+3)(M−3) = M²−9\n→ x²−4xy+4y²−9', back: '(x−2y+3)(x−2y−3) = ?',
+        front: 'M=x−2y とおく', back: '(x−2y+3)(x−2y−3) = ?',
+        explanation: '(M+3)(M−3) = M²−9 → x²−4xy+4y²−9',
         difficulty: 'advanced',
       },
       {
         id: 'math-g3-ea-fc27',
-        front: '16x²+8x+1\n\n(4x)²+2×4x×1+1²', back: '(4x+1)² = ?',
+        front: '16x²+8x+1', back: '(4x+1)² = ?',
+        explanation: '(4x)²+2×4x×1+1²',
         difficulty: 'advanced',
       },
       {
         id: 'math-g3-ea-fc28',
-        front: '−1\n(x²+8x+15)−(x²+8x+16) = −1', back: '(x+3)(x+5) − (x+4)² を簡単にすると？',
+        front: '−1', back: '(x+3)(x+5) − (x+4)² を簡単にすると？',
+        explanation: '(x²+8x+15)−(x²+8x+16) = −1',
         difficulty: 'advanced',
       },
     ],
@@ -209,7 +232,7 @@ export const expansionAdvanced: Topic = {
           ],
           correctIndex: 2,
           explanation:
-            '$a=3x$, $b=1$ とおいて公式2。$(3x)^2 + 2 \\times 3x \\times 1 + 1^2 = 9x^2 + 6x + 1$。',
+            '$a=3x$, $b=1$ とおいて公式2。\n$(3x)^2 + 2 \\times 3x \\times 1 + 1^2 = 9x^2 + 6x + 1$',
           difficulty: 'basic',
         },
         {
@@ -237,7 +260,7 @@ export const expansionAdvanced: Topic = {
           ],
           correctIndex: 0,
           explanation:
-            '和と差の積の公式で $(2a)^2 - (7b)^2 = 4a^2 - 49b^2$。',
+            '$(2a)^2 - (7b)^2 = 4a^2 - 49b^2$\n和と差の積の公式。',
           difficulty: 'basic',
         },
         {
@@ -246,11 +269,11 @@ export const expansionAdvanced: Topic = {
             '$(x - 2)^2 + x(x + 1)$ を展開して簡単にすると？',
           options: [
             '$2x^2 - 5x + 4$',
-            '$2x^2 - 3x + 4$',
-            '$x^2 - 3x + 4$',
             '$2x^2 + 3x + 4$',
+            '$x^2 - 3x + 4$',
+            '$2x^2 - 3x + 4$',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '$(x-2)^2 = x^2-4x+4$、$x(x+1) = x^2+x$。合わせて $2x^2-3x+4$。',
           difficulty: 'basic',
@@ -275,13 +298,13 @@ export const expansionAdvanced: Topic = {
             '$(x + y + 4)(x + y + 3)$ を展開するとき、何を置き換えるとよいか？',
           options: [
             '$M = x + 4$ とおく',
-            '$M = x + y$ とおく',
             '$M = y + 4$ とおく',
             '$M = x + 3$ とおく',
+            '$M = x + y$ とおく',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
-            '$M = x+y$ とおくと $(M+4)(M+3)$ となり公式1が使える。',
+            '$M = x+y$ とおくと $(M+4)(M+3)$ となる。\n公式1が使える。',
           difficulty: 'basic',
         },
         {
@@ -316,12 +339,12 @@ export const expansionAdvanced: Topic = {
           id: 'math-g3-ea-q9',
           question: '$(3x + 5y)^2$ を展開すると？',
           options: [
-            '$9x^2 + 15xy + 25y^2$',
             '$9x^2 + 30xy + 25y^2$',
+            '$9x^2 + 15xy + 25y^2$',
             '$3x^2 + 30xy + 5y^2$',
             '$9x^2 + 25y^2$',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '$(3x)^2 + 2 \\times 3x \\times 5y + (5y)^2 = 9x^2 + 30xy + 25y^2$。',
           difficulty: 'basic',
@@ -330,12 +353,12 @@ export const expansionAdvanced: Topic = {
           id: 'math-g3-ea-q10',
           question: '$(2x + 3)^2$ を展開すると？',
           options: [
-            '$4x^2 + 6x + 9$',
             '$4x^2 + 12x + 9$',
+            '$4x^2 + 6x + 9$',
             '$2x^2 + 12x + 9$',
             '$4x^2 + 12x + 6$',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '$(2x)^2 + 2 \\times 2x \\times 3 + 3^2 = 4x^2 + 12x + 9$。',
           difficulty: 'basic',
@@ -345,11 +368,11 @@ export const expansionAdvanced: Topic = {
           question: '$(5x - 2y)^2$ を展開すると？',
           options: [
             '$25x^2 - 10xy + 4y^2$',
-            '$25x^2 - 20xy + 4y^2$',
             '$25x^2 + 20xy + 4y^2$',
             '$5x^2 - 20xy + 4y^2$',
+            '$25x^2 - 20xy + 4y^2$',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '$(5x)^2 - 2 \\times 5x \\times 2y + (2y)^2 = 25x^2 - 20xy + 4y^2$。',
           difficulty: 'standard',
@@ -414,12 +437,12 @@ export const expansionAdvanced: Topic = {
           id: 'math-g3-ea-q16',
           question: '$(x - 2)^2 + x(x + 1)$ を簡単にすると？',
           options: [
-            '$2x^2 + 3x + 4$',
             '$2x^2 - 3x + 4$',
+            '$2x^2 + 3x + 4$',
             '$x^2 - 3x + 4$',
             '$2x^2 - 5x + 4$',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '$(x^2-4x+4) + (x^2+x) = 2x^2 - 3x + 4$。',
           difficulty: 'standard',
@@ -429,11 +452,11 @@ export const expansionAdvanced: Topic = {
           question: '$(x - 2y + 3)(x - 2y - 3)$ を展開するとき、何を置き換える？',
           options: [
             '$M = x + 3$',
-            '$M = x - 2y$',
             '$M = 2y - 3$',
+            '$M = x - 2y$',
             '$M = x - 3$',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             '$M = x-2y$ とおくと $(M+3)(M-3) = M^2-9$ となり和と差の積の公式が使える。',
           difficulty: 'standard',
@@ -477,7 +500,7 @@ export const expansionAdvanced: Topic = {
           ],
           correctIndex: 2,
           explanation:
-            '$(3x)^2 = 3^2 \\times x^2 = 9x^2$。$3x^2$ としないように注意！',
+            '$(3x)^2 = 3^2 \\times x^2 = 9x^2$\n$3x^2$ としないように注意！',
           difficulty: 'standard',
         },
         {
@@ -491,7 +514,7 @@ export const expansionAdvanced: Topic = {
           ],
           correctIndex: 2,
           explanation:
-            '$M = x+a$ とおくと $(M+b)(M-b) = M^2-b^2$ となり和と差の積が使える。',
+            '$M = x+a$ とおくと $(M+b)(M-b) = M^2-b^2$ となる。\n和と差の積が使える。',
           difficulty: 'standard',
         },
         {
@@ -505,7 +528,7 @@ export const expansionAdvanced: Topic = {
           ],
           correctIndex: 1,
           explanation:
-            '$(x^2+6x+9)-(x^2-6x+9) = 12x$。$(a+b)^2-(a-b)^2 = 4ab$ で $4 \\times x \\times 3 = 12x$。',
+            '$(x^2+6x+9)-(x^2-6x+9) = 12x$\n$(a+b)^2-(a-b)^2 = 4ab$ で $4 \\times x \\times 3 = 12x$。',
           difficulty: 'standard',
         },
         {
@@ -589,7 +612,7 @@ export const expansionAdvanced: Topic = {
           ],
           correctIndex: 2,
           explanation:
-            'マイナスのカッコを外すと全項の符号が変わる。$-x^2 + 10x - 25$。',
+            'マイナスのカッコを外すと全項の符号が変わる。\n$-x^2 + 10x - 25$',
           difficulty: 'advanced',
         },
       ],

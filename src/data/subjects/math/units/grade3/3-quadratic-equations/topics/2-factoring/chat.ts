@@ -196,7 +196,7 @@ export const quadEqFactoringChat: HistoryChat = {
         { letter: 'D', text: '$x = 6, x = -2$', correct: false },
       ],
       explanation:
-        '$x^2 + x - 12 = (x + 4)(x - 3) = 0$。$x = -4$ または $x = 3$ だよ。かけて$-12$、たして$+1$になる<ruby>数<rt>すう</rt></ruby>は $+4$ と $-3$！',
+        '$x^2 + x - 12 = (x + 4)(x - 3) = 0$。\n$x = -4$ または $x = 3$ だよ。かけて$-12$、たして$+1$になる<ruby>数<rt>すう</rt></ruby>は $+4$ と $-3$！',
     },
     {
       type: 'summary-point',
@@ -313,7 +313,7 @@ export const quadEqFactoringChat: HistoryChat = {
         { letter: 'D', text: '$x = 25$', correct: false },
       ],
       explanation:
-        '$x^2 - 25 = (x + 5)(x - 5) = 0$。$x = 5$ または $x = -5$ だよ。',
+        '$x^2 - 25 = (x + 5)(x - 5) = 0$。\n$x = 5$ または $x = -5$ だよ。',
     },
     {
       type: 'date',

@@ -216,7 +216,7 @@ export const expansionAdvancedChat: HistoryChat = {
         { letter: 'D', text: '$M = x - 5$', correct: false },
       ],
       explanation:
-        '$M = x-y$ とおくと $(M+3)(M-5) = M^2-2M-15$ となり<ruby>公式<rt>こうしき</rt></ruby>1が<ruby>使<rt>つか</rt></ruby>える！',
+        '$M = x-y$ とおくと $(M+3)(M-5) = M^2-2M-15$ となる。\n<ruby>公式<rt>こうしき</rt></ruby>1が<ruby>使<rt>つか</rt></ruby>える！',
     },
     {
       type: 'summary-point',

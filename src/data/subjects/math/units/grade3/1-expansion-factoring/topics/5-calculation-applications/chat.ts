@@ -170,7 +170,7 @@ export const calcApplicationsChat: HistoryChat = {
         { letter: 'D', text: '$(50-2)^2 = 2500-200+4 = 2304$', correct: false },
       ],
       explanation:
-        '$98 = 100-2$ とおいて $(100-2)^2 = 100^2 - 2 \\times 100 \\times 2 + 2^2 = \\textcolor{#D97706}{9604}$',
+        '$98 = 100-2$ とおいて\n$(100-2)^2 = 100^2 - 2 \\times 100 \\times 2 + 2^2 = \\textcolor{#D97706}{9604}$',
     },
     {
       type: 'summary-point',

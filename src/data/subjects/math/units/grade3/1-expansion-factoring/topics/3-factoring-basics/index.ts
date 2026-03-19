@@ -85,7 +85,8 @@ export const factoringBasics: Topic = {
       },
       {
         id: 'math-g3-fb-fc04',
-        front: '①数の最大公約数を求める ②共通する文字を見つける ③まとめてくくり出す\n例: 6x²+9x → 3x(2x+3)', back: '共通因数のくくり出し方は？',
+        front: '①数の最大公約数を求める ②共通する文字を見つける ③まとめてくくり出す', back: '共通因数のくくり出し方は？',
+        explanation: '例: 6x²+9x → 3x(2x+3)',
         difficulty: 'basic',
       },
       {
@@ -95,52 +96,62 @@ export const factoringBasics: Topic = {
       },
       {
         id: 'math-g3-fb-fc06',
-        front: 'a²−b² = (a+b)(a−b)\n和と差の積の公式', back: 'a²−b² の因数分解は？',
+        front: '(a+b)(a−b)', back: 'a²−b² の因数分解は？',
+        explanation: 'a²−b² = (a+b)(a−b) 和と差の積の公式',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-fb-fc07',
-        front: '(x+5)(x−5)\nx²−5² の形なので和と差の積', back: 'x²−25 を因数分解すると？',
+        front: '(x+5)(x−5)', back: 'x²−25 を因数分解すると？',
+        explanation: 'x²−5² の形なので和と差の積',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-fb-fc08',
-        front: '(2a+9)(2a−9)\n(2a)²−9² の形', back: '4a²−81 を因数分解すると？',
+        front: '(2a+9)(2a−9)', back: '4a²−81 を因数分解すると？',
+        explanation: '(2a)²−9² の形',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-fb-fc09',
-        front: 'a²+2ab+b² = (a+b)²\n完全平方式（和の2乗）', back: 'a²+2ab+b² の因数分解は？',
+        front: '(a+b)²', back: 'a²+2ab+b² の因数分解は？',
+        explanation: 'a²+2ab+b² = (a+b)² 完全平方式（和の2乗）',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-fb-fc10',
-        front: 'a²−2ab+b² = (a−b)²\n完全平方式（差の2乗）', back: 'a²−2ab+b² の因数分解は？',
+        front: '(a−b)²', back: 'a²−2ab+b² の因数分解は？',
+        explanation: 'a²−2ab+b² = (a−b)² 完全平方式（差の2乗）',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-fb-fc11',
-        front: '①両端が2乗の形 ②真ん中の項がその2つの積の2倍\n例: x²+10x+25 → x²=○², 25=5²=△², 10x=2×x×5 ✓', back: '完全平方式の見分け方は？',
+        front: '①両端が2乗の形 ②真ん中の項がその2つの積の2倍', back: '完全平方式の見分け方は？',
+        explanation: '例: x²+10x+25 → x²=○², 25=5²=△², 10x=2×x×5 ✓',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-fb-fc12',
-        front: '(x+8)²\nx²+2·x·8+8² の形', back: 'x²+16x+64 を因数分解すると？',
+        front: '(x+8)²', back: 'x²+16x+64 を因数分解すると？',
+        explanation: 'x²+2·x·8+8² の形',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-fb-fc13',
-        front: '(y−9)²\ny²−2·y·9+9² の形', back: 'y²−18y+81 を因数分解すると？',
+        front: '(y−9)²', back: 'y²−18y+81 を因数分解すると？',
+        explanation: 'y²−2·y·9+9² の形',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-fb-fc14',
-        front: '(3x+1)²\n(3x)²+2·3x·1+1² の形', back: '9x²+6x+1 を因数分解すると？',
+        front: '(3x+1)²', back: '9x²+6x+1 を因数分解すると？',
+        explanation: '(3x)²+2·3x·1+1² の形',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-fb-fc15',
-        front: '(2a−5b)²\n(2a)²−2·2a·5b+(5b)² の形', back: '4a²−20ab+25b² を因数分解すると？',
+        front: '(2a−5b)²', back: '4a²−20ab+25b² を因数分解すると？',
+        explanation: '(2a)²−2·2a·5b+(5b)² の形',
         difficulty: 'standard',
       },
       {
@@ -155,42 +166,50 @@ export const factoringBasics: Topic = {
       },
       {
         id: 'math-g3-fb-fc18',
-        front: '(2+y)(2−y)\n2²−y² の形なので和と差の積', back: '4−y² を因数分解すると？',
+        front: '(2+y)(2−y)', back: '4−y² を因数分解すると？',
+        explanation: '2²−y² の形なので和と差の積',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-fb-fc19',
-        front: '(4x−3y)²\n(4x)²−2·4x·3y+(3y)² の形', back: '16x²−24xy+9y² を因数分解すると？',
+        front: '(4x−3y)²', back: '16x²−24xy+9y² を因数分解すると？',
+        explanation: '(4x)²−2·4x·3y+(3y)² の形',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-fb-fc20',
-        front: '(x+b/3)(x−b/3)\nx²−(b/3)² の形', back: 'x²−b²/9 を因数分解すると？',
+        front: '(x+b/3)(x−b/3)', back: 'x²−b²/9 を因数分解すると？',
+        explanation: 'x²−(b/3)² の形',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-fb-fc21',
-        front: '(x+12)²\nx²+2·x·12+12² の形', back: 'x²+24x+144 を因数分解すると？',
+        front: '(x+12)²', back: 'x²+24x+144 を因数分解すると？',
+        explanation: 'x²+2·x·12+12² の形',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-fb-fc22',
-        front: '(5x+2)(5x−2)\n(5x)²−2² の形', back: '25x²−4 を因数分解すると？',
+        front: '(5x+2)(5x−2)', back: '25x²−4 を因数分解すると？',
+        explanation: '(5x)²−2² の形',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-fb-fc23',
-        front: '(y−7)²\ny²−2·y·7+7² の形', back: 'y²−14y+49 を因数分解すると？',
+        front: '(y−7)²', back: 'y²−14y+49 を因数分解すると？',
+        explanation: 'y²−2·y·7+7² の形',
         difficulty: 'advanced',
       },
       {
         id: 'math-g3-fb-fc24',
-        front: '(x+11)(x−11)\nx²−11² の形', back: 'x²−121 を因数分解すると？',
+        front: '(x+11)(x−11)', back: 'x²−121 を因数分解すると？',
+        explanation: 'x²−11² の形',
         difficulty: 'advanced',
       },
       {
         id: 'math-g3-fb-fc25',
-        front: '(6x+1)²\n(6x)²+2·6x·1+1² の形', back: '36x²+12x+1 を因数分解すると？',
+        front: '(6x+1)²', back: '36x²+12x+1 を因数分解すると？',
+        explanation: '(6x)²+2·6x·1+1² の形',
         difficulty: 'advanced',
       },
       {
@@ -200,12 +219,14 @@ export const factoringBasics: Topic = {
       },
       {
         id: 'math-g3-fb-fc27',
-        front: '3a(2a−3b)\n数の共通因数3、文字の共通因数a', back: '6a²−9ab を因数分解すると？',
+        front: '3a(2a−3b)', back: '6a²−9ab を因数分解すると？',
+        explanation: '数の共通因数3、文字の共通因数a',
         difficulty: 'advanced',
       },
       {
         id: 'math-g3-fb-fc28',
-        front: '(3a+7b)(3a−7b)\n(3a)²−(7b)² の形', back: '9a²−49b² を因数分解すると？',
+        front: '(3a+7b)(3a−7b)', back: '9a²−49b² を因数分解すると？',
+        explanation: '(3a)²−(7b)² の形',
         difficulty: 'advanced',
       },
     ],
@@ -235,7 +256,7 @@ export const factoringBasics: Topic = {
           options: ['移項', '展開', '代入', '通分'],
           correctIndex: 1,
           explanation:
-            '因数分解は展開の逆。展開がかっこを外す作業なら、因数分解はかっこにまとめる作業だよ。',
+            '因数分解は展開の逆。\n展開がかっこを外す作業なら、因数分解はかっこにまとめる作業だよ。',
           difficulty: 'basic',
         },
         {
@@ -249,7 +270,7 @@ export const factoringBasics: Topic = {
           ],
           correctIndex: 0,
           explanation:
-            '共通因数は $2x$。$2x$ でくくり出すと $2x(x+2y-3)$ になるよ。数と文字の両方をくくり出そう。',
+            '共通因数は $2x$。$2x$ でくくり出すと $2x(x+2y-3)$ になるよ。\n数と文字の両方をくくり出そう。',
           difficulty: 'basic',
         },
         {
@@ -263,7 +284,7 @@ export const factoringBasics: Topic = {
           ],
           correctIndex: 2,
           explanation:
-            '$x^2-49 = x^2-7^2$。$a^2-b^2=(a+b)(a-b)$ の公式で $(x+7)(x-7)$ だよ。',
+            '$x^2-49 = x^2-7^2$\n$a^2-b^2=(a+b)(a-b)$ の公式で $(x+7)(x-7)$ だよ。',
           difficulty: 'basic',
         },
         {
@@ -291,7 +312,7 @@ export const factoringBasics: Topic = {
           ],
           correctIndex: 0,
           explanation:
-            '$x^2+2 \\cdot x \\cdot 5+5^2$ の形。$a^2+2ab+b^2=(a+b)^2$ より $(x+5)^2$ だよ。',
+            '$x^2+2 \\cdot x \\cdot 5+5^2$ の形。\n$a^2+2ab+b^2=(a+b)^2$ より $(x+5)^2$ だよ。',
           difficulty: 'basic',
         },
         {
@@ -305,7 +326,7 @@ export const factoringBasics: Topic = {
           ],
           correctIndex: 1,
           explanation:
-            '$a^2-2 \\cdot a \\cdot 3+3^2$ の形。$a^2-2ab+b^2=(a-b)^2$ より $(a-3)^2$ だよ。',
+            '$a^2-2 \\cdot a \\cdot 3+3^2$ の形。\n$a^2-2ab+b^2=(a-b)^2$ より $(a-3)^2$ だよ。',
           difficulty: 'basic',
         },
         {

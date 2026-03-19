@@ -79,25 +79,29 @@ export const calcApplications: Topic = {
       },
       {
         id: 'math-g3-ca-fc3',
-        front: '(35+25)(35−25) = 60×10 = 600', back: '35²−25² を公式で計算する方法は？',
+        front: '600', back: '35²−25² を公式で計算する方法は？',
+        explanation: '(35+25)(35−25) = 60×10 = 600',
         hint: 'a²−b² = (a+b)(a−b)',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-ca-fc4',
-        front: '(100+1)² = 10000+200+1 = 10201', back: '101² を展開の公式で計算すると？',
+        front: '10201', back: '101² を展開の公式で計算すると？',
+        explanation: '(100+1)² = 10000+200+1 = 10201',
         hint: '(a+b)² = a²+2ab+b²',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-ca-fc5',
-        front: '(100−2)² = 10000−400+4 = 9604', back: '98² を展開の公式で計算すると？',
+        front: '9604', back: '98² を展開の公式で計算すると？',
+        explanation: '(100−2)² = 10000−400+4 = 9604',
         hint: '(a−b)² = a²−2ab+b²',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-ca-fc6',
-        front: '(60−1)(60+1) = 60²−1² = 3600−1 = 3599', back: '59×61 を公式で計算する方法は？',
+        front: '3599', back: '59×61 を公式で計算する方法は？',
+        explanation: '(60−1)(60+1) = 60²−1² = 3600−1 = 3599',
         hint: '(a+b)(a−b) = a²−b²',
         difficulty: 'basic',
       },
@@ -109,7 +113,8 @@ export const calcApplications: Topic = {
       },
       {
         id: 'math-g3-ca-fc8',
-        front: '因数分解して (x+4)² = (96+4)² = 100² = 10000', back: 'x=96のとき x²+8x+16 の値を求めるコツは？',
+        front: '10000', back: 'x=96のとき x²+8x+16 の値を求めるコツは？',
+        explanation: '因数分解して (x+4)² = (96+4)² = 100² = 10000',
         hint: 'x²+8x+16 = (x+4)²',
         difficulty: 'basic',
       },
@@ -127,7 +132,8 @@ export const calcApplications: Topic = {
       },
       {
         id: 'math-g3-ca-fc11',
-        front: '(10+0.3)(10−0.3) = 100−0.09 = 99.91', back: '10.3×9.7 を公式で計算すると？',
+        front: '99.91', back: '10.3×9.7 を公式で計算すると？',
+        explanation: '(10+0.3)(10−0.3) = 100−0.09 = 99.91',
         hint: '和と差の積',
         difficulty: 'basic',
       },
@@ -139,7 +145,8 @@ export const calcApplications: Topic = {
       },
       {
         id: 'math-g3-ca-fc13',
-        front: '(100−4)² = 10000−800+16 = 9216', back: '96² を公式で計算すると？',
+        front: '9216', back: '96² を公式で計算すると？',
+        explanation: '(100−4)² = 10000−800+16 = 9216',
         hint: '(a−b)²',
         difficulty: 'standard',
       },
@@ -157,13 +164,15 @@ export const calcApplications: Topic = {
       },
       {
         id: 'math-g3-ca-fc16',
-        front: '(43+7)² = 50² = 2500', back: '43²+2×43×7+7² を公式で計算すると？',
+        front: '2500', back: '43²+2×43×7+7² を公式で計算すると？',
+        explanation: '(43+7)² = 50² = 2500。a²+2ab+b² = (a+b)²',
         hint: 'a²+2ab+b² = (a+b)²',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-ca-fc17',
-        front: '(30+4)(30−4) = 30²−4² = 900−16 = 884', back: '34×26 を公式で計算する方法は？',
+        front: '884', back: '34×26 を公式で計算する方法は？',
+        explanation: '(30+4)(30−4) = 30²−4² = 900−16 = 884',
         hint: '30を中心に±4',
         difficulty: 'standard',
       },
@@ -175,19 +184,22 @@ export const calcApplications: Topic = {
       },
       {
         id: 'math-g3-ca-fc19',
-        front: '(50+2)(50−2) = 50²−4 = 2500−4 = 2496', back: '52×48 を公式で計算すると？',
+        front: '2496', back: '52×48 を公式で計算すると？',
+        explanation: '(50+2)(50−2) = 50²−4 = 2500−4 = 2496',
         hint: '50を中心に±2',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-ca-fc20',
-        front: '(100+3)² = 10000+600+9 = 10609', back: '103² を公式で計算すると？',
+        front: '10609', back: '103² を公式で計算すると？',
+        explanation: '(100+3)² = 10000+600+9 = 10609',
         hint: '(a+b)²',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-ca-fc21',
-        front: '(2n+1)² = 4n²+4n+1 = 4n(n+1)+1\nn(n+1)は連続する整数の積で偶数 → 4×偶数+1 = 8の倍数+1', back: '奇数の2乗を8で割った余りは？',
+        front: '1', back: '奇数の2乗を8で割った余りは？',
+        explanation: '(2n+1)² = 4n²+4n+1 = 4n(n+1)+1。n(n+1)は連続する整数の積で偶数 → 4×偶数+1 = 8の倍数+1',
         hint: '1になる',
         difficulty: 'standard',
       },
@@ -199,31 +211,36 @@ export const calcApplications: Topic = {
       },
       {
         id: 'math-g3-ca-fc23',
-        front: '(x+y)(x−y) にして (7+3)(7−3) = 10×4 = 40', back: 'x=7, y=3 のとき x²−y² の値を素早く求めるには？',
+        front: '40', back: 'x=7, y=3 のとき x²−y² の値を素早く求めるには？',
+        explanation: '(x+y)(x−y) にして (7+3)(7−3) = 10×4 = 40',
         hint: '和と差の積に因数分解',
         difficulty: 'advanced',
       },
       {
         id: 'math-g3-ca-fc24',
-        front: '(100−5)² = 10000−1000+25 = 9025', back: '95² を公式で計算すると？',
+        front: '9025', back: '95² を公式で計算すると？',
+        explanation: '(100−5)² = 10000−1000+25 = 9025',
         hint: '(a−b)²',
         difficulty: 'advanced',
       },
       {
         id: 'math-g3-ca-fc25',
-        front: '(n+1)²−n² = 2n+1（奇数）', back: '連続する2つの整数の2乗の差は？',
+        front: '奇数になる', back: '連続する2つの整数の2乗の差は？',
+        explanation: '(n+1)²−n² = 2n+1（奇数）',
         hint: '展開して引き算',
         difficulty: 'advanced',
       },
       {
         id: 'math-g3-ca-fc26',
-        front: '(70+3)(70−3) = 70²−9 = 4900−9 = 4891', back: '73×67 を公式で計算する方法は？',
+        front: '4891', back: '73×67 を公式で計算する方法は？',
+        explanation: '(70+3)(70−3) = 70²−9 = 4900−9 = 4891',
         hint: '70を中心に±3',
         difficulty: 'advanced',
       },
       {
         id: 'math-g3-ca-fc27',
-        front: '展開して −3x−18。x=5 なら −15−18 = −33', back: '(x+3)(x−6)−x(x−5) を簡単にしてから代入する方法は？',
+        front: '−3x−18', back: '(x+3)(x−6)−x(x−5) を簡単にしてから代入する方法は？',
+        explanation: '展開して −3x−18 にしてから代入。x=5 なら −15−18 = −33',
         hint: '先に展開して同類項をまとめる',
         difficulty: 'advanced',
       },
@@ -262,10 +279,10 @@ export const calcApplications: Topic = {
         {
           id: 'math-g3-ca-q3',
           question: '$101^2$ を公式で計算した結果は？',
-          options: ['$10201$', '$10001$', '$10101$', '$10301$'],
-          correctIndex: 0,
+          options: ['$10001$', '$10101$', '$10201$', '$10301$'],
+          correctIndex: 2,
           explanation:
-            '$(100+1)^2 = 100^2 + 2 \\times 100 \\times 1 + 1^2 = 10000+200+1 = 10201$',
+            '$(100+1)^2 = 100^2 + 2 \\times 100 \\times 1 + 1^2$\n$= 10000+200+1 = 10201$',
           difficulty: 'basic',
         },
         {
@@ -274,7 +291,7 @@ export const calcApplications: Topic = {
           options: ['$9604$', '$9800$', '$10000$', '$10016$'],
           correctIndex: 2,
           explanation:
-            '$x^2+8x+16 = (x+4)^2$。$x=96$ を代入して $(96+4)^2 = 100^2 = 10000$。',
+            '$x^2+8x+16 = (x+4)^2$\n$x=96$ を代入して $(96+4)^2 = 100^2 = 10000$',
           difficulty: 'basic',
         },
         {
@@ -291,13 +308,13 @@ export const calcApplications: Topic = {
           question: '式の値を求めるとき、最初にすべきことは？',
           options: [
             'すぐに数を代入する',
-            '先に式を簡単にする（因数分解・展開）',
             '電卓で計算する',
+            '先に式を簡単にする（因数分解・展開）',
             'グラフを書く',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
-            'いきなり代入すると計算が大変。先に因数分解や展開で式を簡単にしてから代入しよう！',
+            'いきなり代入すると計算が大変。\n先に因数分解や展開で式を簡単にしてから代入しよう！',
           difficulty: 'basic',
         },
         {
@@ -315,7 +332,7 @@ export const calcApplications: Topic = {
           options: ['$4$', '$6$', '$8$', '$10$'],
           correctIndex: 2,
           explanation:
-            '$(2n-1)^2+(2n+1)^2-2 = 4n^2-4n+1+4n^2+4n+1-2 = 8n^2$。8の倍数！',
+            '$(2n-1)^2+(2n+1)^2-2 = 4n^2-4n+1+4n^2+4n+1-2 = 8n^2$\n8の倍数！',
           difficulty: 'basic',
         },
         {
@@ -324,7 +341,7 @@ export const calcApplications: Topic = {
           options: ['$860$', '$1296$', '$720$', '$576$'],
           correctIndex: 2,
           explanation:
-            '$x^2-y^2 = (x+y)(x-y) = (36+(-24))(36-(-24)) = 12 \\times 60 = 720$',
+            '$x^2-y^2 = (x+y)(x-y)$\n$= (36+(-24))(36-(-24)) = 12 \\times 60 = 720$',
           difficulty: 'basic',
         },
         {
@@ -339,8 +356,8 @@ export const calcApplications: Topic = {
         {
           id: 'math-g3-ca-q11',
           question: '$52 \\times 48$ を公式で計算した結果は？',
-          options: ['$2500$', '$2496$', '$2504$', '$2400$'],
-          correctIndex: 1,
+          options: ['$2500$', '$2504$', '$2400$', '$2496$'],
+          correctIndex: 3,
           explanation:
             '$(50+2)(50-2) = 50^2 - 2^2 = 2500 - 4 = 2496$',
           difficulty: 'standard',
@@ -366,8 +383,8 @@ export const calcApplications: Topic = {
         {
           id: 'math-g3-ca-q14',
           question: '$73 \\times 67$ を公式で計算した結果は？',
-          options: ['$4900$', '$4891$', '$4899$', '$4911$'],
-          correctIndex: 1,
+          options: ['$4900$', '$4899$', '$4911$', '$4891$'],
+          correctIndex: 3,
           explanation:
             '$(70+3)(70-3) = 70^2 - 9 = 4900 - 9 = 4891$',
           difficulty: 'standard',
@@ -377,11 +394,11 @@ export const calcApplications: Topic = {
           question: '連続する2つの整数の2乗の差は？',
           options: [
             '偶数になる',
-            '奇数になる',
             '4の倍数になる',
+            '奇数になる',
             '決まらない',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             '$(n+1)^2 - n^2 = 2n+1$ で、これは奇数だよ。',
           difficulty: 'standard',
@@ -400,11 +417,11 @@ export const calcApplications: Topic = {
           question: '「連続する3つの整数の2乗の和から…」を考えるとき、3つの整数を $n-1, n, n+1$ とおく利点は？',
           options: [
             '計算が簡単になる',
-            '展開したとき打ち消し合う項ができやすい',
             '整数条件の確認が不要になる',
             '公式を使わなくてよい',
+            '展開したとき打ち消し合う項ができやすい',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '真ん中を $n$ とおくと $(n-1)^2 + n^2 + (n+1)^2$ で $-2n$ と $+2n$ が消えてきれいにまとまるよ。',
           difficulty: 'standard',
@@ -447,16 +464,16 @@ export const calcApplications: Topic = {
           ],
           correctIndex: 1,
           explanation:
-            '$n^2-n = n(n-1)$。$n$ と $n-1$ は連続する整数なのでどちらかが偶数。よって積は偶数。',
+            '$n^2-n = n(n-1)$\n$n$ と $n-1$ は連続する整数なのでどちらかが偶数。よって積は偶数。',
           difficulty: 'standard',
         },
         {
           id: 'math-g3-ca-q22',
           question: '$(a+b)^2 - (a-b)^2$ を簡単にすると？',
-          options: ['$2a^2+2b^2$', '$4ab$', '$2ab$', '$0$'],
-          correctIndex: 1,
+          options: ['$2a^2+2b^2$', '$2ab$', '$4ab$', '$0$'],
+          correctIndex: 2,
           explanation:
-            '$(a^2+2ab+b^2)-(a^2-2ab+b^2) = 4ab$。これは証明問題でよく使う公式だよ。',
+            '$(a^2+2ab+b^2)-(a^2-2ab+b^2) = 4ab$\nこれは証明問題でよく使う公式だよ。',
           difficulty: 'standard',
         },
         {

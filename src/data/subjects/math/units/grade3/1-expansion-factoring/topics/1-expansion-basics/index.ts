@@ -260,7 +260,7 @@ export const expansionBasics: Topic = {
           options: ['$3x + 4$', '$x + 12$', '$3x + 12$', '$3x + 7$'],
           correctIndex: 2,
           explanation:
-            '$3(x + 4) = 3 \\times x + 3 \\times 4 = 3x + 12$。分配法則で3をxにも4にもかけるよ。',
+            '$3(x + 4) = 3 \\times x + 3 \\times 4 = 3x + 12$\n分配法則で3をxにも4にもかけるよ。',
           difficulty: 'basic',
         },
         {
@@ -274,7 +274,7 @@ export const expansionBasics: Topic = {
           ],
           correctIndex: 1,
           explanation:
-            '$(x+2)(x+3) = x^2+3x+2x+6 = x^2+5x+6$。4つの積を求めて同類項をまとめよう。',
+            '$(x+2)(x+3) = x^2+3x+2x+6 = x^2+5x+6$\n4つの積を求めて同類項をまとめよう。',
           difficulty: 'basic',
         },
         {
@@ -288,7 +288,7 @@ export const expansionBasics: Topic = {
           ],
           correctIndex: 0,
           explanation:
-            '$-2(3x-5) = -2 \\times 3x + (-2) \\times (-5) = -6x + 10$。マイナス×マイナスはプラスになるよ。',
+            '$-2(3x-5) = -2 \\times 3x + (-2) \\times (-5) = -6x + 10$\nマイナス×マイナスはプラスになるよ。',
           difficulty: 'basic',
         },
         {
@@ -297,7 +297,7 @@ export const expansionBasics: Topic = {
           options: ['$4x + 4$', '$8x + 2$', '$4x^2 + 2$', '$4x + 2$'],
           correctIndex: 3,
           explanation:
-            '各項をそれぞれ $2x$ で割ります。$8x^2 \\div 2x = 4x$、$4x \\div 2x = 2$。答えは $4x + 2$。',
+            '$8x^2 \\div 2x = 4x$、$4x \\div 2x = 2$\n各項をそれぞれ $2x$ で割る。答えは $4x + 2$。',
           difficulty: 'basic',
         },
         {
@@ -311,7 +311,7 @@ export const expansionBasics: Topic = {
           ],
           correctIndex: 0,
           explanation:
-            '$(-3x) \\times 5x = -15x^2$、$(-3x) \\times (-2) = +6x$。マイナスどうしの積はプラスだよ。',
+            '$(-3x) \\times 5x = -15x^2$、$(-3x) \\times (-2) = +6x$\nマイナスどうしの積はプラスだよ。',
           difficulty: 'basic',
         },
         {
@@ -325,7 +325,7 @@ export const expansionBasics: Topic = {
           ],
           correctIndex: 1,
           explanation:
-            '$a \\times b + a \\times 5 + 2 \\times b + 2 \\times 5 = ab + 5a + 2b + 10$。異なる文字なので同類項はできないよ。',
+            '$a \\times b + a \\times 5 + 2 \\times b + 2 \\times 5 = ab + 5a + 2b + 10$\n異なる文字なので同類項はできないよ。',
           difficulty: 'basic',
         },
         {
@@ -353,7 +353,7 @@ export const expansionBasics: Topic = {
           ],
           correctIndex: 3,
           explanation:
-            '$x^2 + 7x - 3x - 21 = x^2 + 4x - 21$。$7x$ と $-3x$ をまとめると $4x$。',
+            '$x^2 + 7x - 3x - 21 = x^2 + 4x - 21$\n$7x$ と $-3x$ をまとめると $4x$。',
           difficulty: 'basic',
         },
         {
@@ -367,7 +367,7 @@ export const expansionBasics: Topic = {
           ],
           correctIndex: 3,
           explanation:
-            '$x^2 - 3x + 3x - 9 = x^2 - 9$。$-3x$ と $+3x$ が打ち消し合って消えるよ。',
+            '$x^2 - 3x + 3x - 9 = x^2 - 9$\n$-3x$ と $+3x$ が打ち消し合って消えるよ。',
           difficulty: 'basic',
         },
         {
@@ -381,7 +381,7 @@ export const expansionBasics: Topic = {
           ],
           correctIndex: 2,
           explanation:
-            '同類項は文字の部分がまったく同じ項のこと。例: $3x$ と $5x$、$2x^2$ と $-7x^2$ など。',
+            '同類項は文字の部分がまったく同じ項のこと。\n例: $3x$ と $5x$、$2x^2$ と $-7x^2$ など。',
           difficulty: 'basic',
         },
         {
@@ -502,7 +502,7 @@ export const expansionBasics: Topic = {
           ],
           correctIndex: 1,
           explanation:
-            '符号の間違いが最も多い。$(-2) \\times (-3) = +6$ を $-6$ としてしまうミスに注意！',
+            '符号の間違いが最も多い。\n$(-2) \\times (-3) = +6$ を $-6$ としてしまうミスに注意！',
           difficulty: 'standard',
         },
         {
@@ -572,7 +572,7 @@ export const expansionBasics: Topic = {
           ],
           correctIndex: 2,
           explanation:
-            '$x^2+4x+4x+16 = x^2+8x+16$。同じ式どうしの展開は $(x+4)^2$ と同じだよ。',
+            '$x^2+4x+4x+16 = x^2+8x+16$\n同じ式どうしの展開は $(x+4)^2$ と同じだよ。',
           difficulty: 'advanced',
         },
         {

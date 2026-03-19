@@ -166,7 +166,7 @@ export const quadFuncParabolaChat: HistoryChat = {
         { letter: 'D', text: '<ruby>下<rt>した</rt></ruby>に<ruby>開<rt>ひら</rt></ruby>く<ruby>広<rt>ひろ</rt></ruby>い<ruby>放物線<rt>ほうぶつせん</rt></ruby>', correct: false },
       ],
       explanation:
-        '$a = -3$ なので $a < 0$ → <ruby>下<rt>した</rt></ruby><ruby>開<rt>びら</rt></ruby>き。$|a| = 3$ は<ruby>大<rt>おお</rt></ruby>きいので<ruby>細<rt>ほそ</rt></ruby>い<ruby>放物線<rt>ほうぶつせん</rt></ruby>になるよ。',
+        '$a = -3$ なので $a < 0$ → <ruby>下<rt>した</rt></ruby><ruby>開<rt>びら</rt></ruby>き。\n$|a| = 3$ は<ruby>大<rt>おお</rt></ruby>きいので<ruby>細<rt>ほそ</rt></ruby>い<ruby>放物線<rt>ほうぶつせん</rt></ruby>になるよ。',
     },
     {
       type: 'summary-point',
@@ -345,7 +345,7 @@ export const quadFuncParabolaChat: HistoryChat = {
         { letter: 'D', text: '$a = 4$', correct: false },
       ],
       explanation:
-        '$8 = a \\times 4^2 = 16a$ → $a = \\dfrac{8}{16} = \\dfrac{1}{2}$ だよ。$|a| < 1$ なので<ruby>広<rt>ひろ</rt></ruby>い<ruby>放物線<rt>ほうぶつせん</rt></ruby>だね。',
+        '$8 = a \\times 4^2 = 16a$ → $a = \\dfrac{8}{16} = \\dfrac{1}{2}$。\n$|a| < 1$ なので<ruby>広<rt>ひろ</rt></ruby>い<ruby>放物線<rt>ほうぶつせん</rt></ruby>だね。',
     },
     {
       type: 'summary-point',

@@ -180,7 +180,7 @@ export const linearFuncApplicationsChat: HistoryChat = {
         { letter: 'D', text: '$20$ <ruby>分後<rt>ふんご</rt></ruby>', correct: false },
       ],
       explanation:
-        '$80x = -60x + 2100 \\rightarrow 140x = 2100 \\rightarrow x = \\textcolor{#D97706}{15}$。15<ruby>分後<rt>ふんご</rt></ruby>に<ruby>出会<rt>であ</rt></ruby>うよ！',
+        '$80x = -60x + 2100 \\rightarrow 140x = 2100 \\rightarrow x = \\textcolor{#D97706}{15}$。\\n15<ruby>分後<rt>ふんご</rt></ruby>に<ruby>出会<rt>であ</rt></ruby>うよ！',
     },
     {
       type: 'summary-point',

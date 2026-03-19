@@ -201,7 +201,7 @@ export const factoringFormulasChat: HistoryChat = {
         { letter: 'D', text: '$(x+4)^2$', correct: false },
       ],
       explanation:
-        '$x^2 - 8x + 16 = x^2 - 2 \\times 4 \\times x + 4^2$。$(a-b)^2$ の<ruby>形<rt>かたち</rt></ruby>で $\\textcolor{#D97706}{(x-4)^2}$ だよ。',
+        '$x^2 - 8x + 16 = x^2 - 2 \\times 4 \\times x + 4^2$\n$(a-b)^2$ の<ruby>形<rt>かたち</rt></ruby>で $\\textcolor{#D97706}{(x-4)^2}$ だよ。',
     },
     {
       type: 'summary-point',
@@ -263,7 +263,7 @@ export const factoringFormulasChat: HistoryChat = {
         { letter: 'D', text: '$2(x-4)(x+1)$', correct: false },
       ],
       explanation:
-        'まず $2$ をくくって $2(x^2+3x-4)$。かけて$-4$、<ruby>足<rt>た</rt></ruby>して$3$ → $4$ と $-1$。$\\textcolor{#D97706}{2(x+4)(x-1)}$',
+        'まず $2$ をくくって $2(x^2+3x-4)$\nかけて$-4$、<ruby>足<rt>た</rt></ruby>して$3$ → $4$ と $-1$。$\\textcolor{#D97706}{2(x+4)(x-1)}$',
     },
     {
       type: 'summary-point',

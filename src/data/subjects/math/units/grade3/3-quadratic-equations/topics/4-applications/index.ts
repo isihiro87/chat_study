@@ -66,7 +66,8 @@ export const quadEqApps: Topic = {
     flashcards: [
       {
         id: 'math-g3-qea-fc1',
-        front: '① $x$ で置く → ② 式を立てる → ③ 解いて吟味', back: '文章題の3ステップ',
+        front: '① $x$ で置く\n② 式を立てる\n③ 解いて吟味', back: '文章題の3ステップ',
+        explanation: '求めるものをxと置き、条件から式を立て、解が問題の条件に合うか確認する',
         difficulty: 'basic',
       },
       {
@@ -96,17 +97,19 @@ export const quadEqApps: Topic = {
       },
       {
         id: 'math-g3-qea-fc7',
-        front: '道を端に寄せて考える → 残りの面積 $= (a-x)(b-x)$', back: '道幅の問題の考え方',
+        front: '残りの面積 $= (a-x)(b-x)$', back: '道幅の問題の考え方',
+        explanation: '道を端に寄せて考えると残りが長方形になる',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-qea-fc8',
-        front: '$(\\text{元の辺}) - 2x$（両端から $x$ ずつ切る）', back: '厚紙から箱を作る：底面の1辺',
+        front: '$(\\text{元の辺}) - 2x$', back: '厚紙から箱を作る：底面の1辺',
+        explanation: '両端から $x$ ずつ切り取るため',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-qea-fc9',
-        front: '切り取った正方形の1辺 $= x$', back: '厚紙から箱を作る：高さ',
+        front: '$x$（切り取った正方形の1辺）', back: '厚紙から箱を作る：高さ',
         difficulty: 'basic',
       },
       {
@@ -116,7 +119,8 @@ export const quadEqApps: Topic = {
       },
       {
         id: 'math-g3-qea-fc11',
-        front: '速さ $\\times$ 時間 $= $ (速さ) $\\times x$ cm', back: '動点の問題：$x$ 秒後の距離',
+        front: '(速さ) $\\times x$ cm', back: '動点の問題：$x$ 秒後の距離',
+        explanation: '速さ $\\times$ 時間 で求める',
         difficulty: 'basic',
       },
       {
@@ -211,10 +215,10 @@ export const quadEqApps: Topic = {
           id: 'math-g3-qea-q1',
           question:
             '連続する2つの正の整数の積が56のとき、小さい方の整数は？',
-          options: ['$6$', '$9$', '$8$', '$7$'],
-          correctIndex: 3,
+          options: ['$7$', '$6$', '$8$', '$9$'],
+          correctIndex: 0,
           explanation:
-            '$n(n+1) = 56$ → $n^2+n-56 = 0$ → $(n+8)(n-7) = 0$。$n = 7$（正の整数なので $n = -8$ は不適）。',
+            '$n(n+1) = 56$ → $n^2+n-56 = 0$ → $(n+8)(n-7) = 0$。\n$n = 7$（正の整数なので $n = -8$ は不適）。',
           difficulty: 'basic',
         },
         {
@@ -224,7 +228,7 @@ export const quadEqApps: Topic = {
           options: ['$6$ cm', '$7$ cm', '$9$ cm', '$8$ cm'],
           correctIndex: 2,
           explanation:
-            '$x(x-3) = 54$ → $x^2 - 3x - 54 = 0$ → $(x-9)(x+6) = 0$。長さなので $x = 9$。',
+            '$x(x-3) = 54$ → $x^2 - 3x - 54 = 0$ → $(x-9)(x+6) = 0$。\n長さなので $x = 9$。',
           difficulty: 'basic',
         },
         {
@@ -249,7 +253,7 @@ export const quadEqApps: Topic = {
           options: ['$3$', '$5$', '$4$', '$6$'],
           correctIndex: 1,
           explanation:
-            '$x^2 - 3x = 10$ → $x^2 - 3x - 10 = 0$ → $(x-5)(x+2) = 0$。正の整数なので $x = 5$。',
+            '$x^2 - 3x = 10$ → $x^2 - 3x - 10 = 0$ → $(x-5)(x+2) = 0$。\n正の整数なので $x = 5$。',
           difficulty: 'basic',
         },
         {
@@ -259,7 +263,7 @@ export const quadEqApps: Topic = {
           options: ['$1$ m', '$3$ m', '$2$ m', '$4$ m'],
           correctIndex: 2,
           explanation:
-            '$(20-x)(30-x) = 504$ → $x^2 - 50x + 96 = 0$ → $(x-2)(x-48) = 0$。$x = 2$（$x=48$は不適）。',
+            '$(20-x)(30-x) = 504$ → $x^2 - 50x + 96 = 0$ → $(x-2)(x-48) = 0$。\n$x = 2$（$x=48$は不適）。',
           difficulty: 'basic',
         },
         {
@@ -268,11 +272,11 @@ export const quadEqApps: Topic = {
             '連続する2つの整数を文字で表すと？（小さい方を $n$ とする）',
           options: [
             '$n, n+2$',
-            '$n, n+1$',
             '$n-1, n+1$',
             '$2n, 2n+1$',
+            '$n, n+1$',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '連続する整数は差が1なので $n, n+1$。',
           difficulty: 'basic',
@@ -366,8 +370,8 @@ export const quadEqApps: Topic = {
           id: 'math-g3-qea-q13',
           question:
             '連続する2つの正の整数の2乗の和が85。小さい方の整数は？',
-          options: ['$5$', '$6$', '$7$', '$8$'],
-          correctIndex: 1,
+          options: ['$5$', '$7$', '$6$', '$8$'],
+          correctIndex: 2,
           explanation:
             '$n^2+(n+1)^2=85$ → $2n^2+2n-84=0$ → $n^2+n-42=0$ → $(n+7)(n-6)=0$。$n=6$。',
           difficulty: 'standard',
@@ -426,8 +430,8 @@ export const quadEqApps: Topic = {
           id: 'math-g3-qea-q18',
           question:
             '2つの正の整数の和が12、積が35。大きい方は？',
-          options: ['$5$', '$7$', '$8$', '$9$'],
-          correctIndex: 1,
+          options: ['$5$', '$8$', '$9$', '$7$'],
+          correctIndex: 3,
           explanation:
             '$x(12-x)=35$ → $x^2-12x+35=0$ → $(x-5)(x-7)=0$。大きい方は7。',
           difficulty: 'standard',
@@ -516,8 +520,8 @@ export const quadEqApps: Topic = {
           id: 'math-g3-qea-q26',
           question:
             '連続する2つの正の偶数の積が120。小さい方の偶数は？',
-          options: ['$8$', '$10$', '$12$', '$14$'],
-          correctIndex: 1,
+          options: ['$10$', '$8$', '$12$', '$14$'],
+          correctIndex: 0,
           explanation:
             '$2n(2n+2)=120$ → $4n^2+4n-120=0$ → $n^2+n-30=0$ → $(n+6)(n-5)=0$。$n=5$、偶数は$10$と$12$。',
           difficulty: 'advanced',

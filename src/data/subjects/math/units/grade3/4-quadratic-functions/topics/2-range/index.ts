@@ -56,17 +56,20 @@ export const quadFuncRange: Topic = {
     flashcards: [
       {
         id: 'math-g3-qf-rg-fc1',
-        front: '$x$ や $y$ がとりうる値の範囲のこと。不等号を使って $a \\leq x \\leq b$ のように表す。', back: '$y = ax^2$ の「変域」とは？',
+        front: '$x$ や $y$ がとりうる値の範囲のこと', back: '$y = ax^2$ の「変域」とは？',
+        explanation: '不等号を使って $a \\leq x \\leq b$ のように表す',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-qf-rg-fc2',
-        front: '最小値 $0$ をとる。グラフの頂点が原点にあり、上に開いているため。', back: '$y = ax^2$（$a > 0$）で $x = 0$ のとき $y$ は？',
+        front: '最小値 $0$ をとる', back: '$y = ax^2$（$a > 0$）で $x = 0$ のとき $y$ は？',
+        explanation: 'グラフの頂点が原点にあり、上に開いているため',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-qf-rg-fc3',
-        front: '最大値 $0$ をとる。グラフの頂点が原点にあり、下に開いているため。', back: '$y = ax^2$（$a < 0$）で $x = 0$ のとき $y$ は？',
+        front: '最大値 $0$ をとる', back: '$y = ax^2$（$a < 0$）で $x = 0$ のとき $y$ は？',
+        explanation: 'グラフの頂点が原点にあり、下に開いているため',
         difficulty: 'basic',
       },
       {
@@ -111,7 +114,8 @@ export const quadFuncRange: Topic = {
       },
       {
         id: 'math-g3-qf-rg-fc12',
-        front: '$x = -2$ の端の値だけ見て $y = 4$ としてしまう。実際は $x = 0$ で $y = 0$ が最小値。', back: 'よくある間違い: $y = x^2$ で $-2 \\leq x \\leq 3$ のとき $y$ の最小値を $4$ としてしまう理由は？',
+        front: '端の値だけ見て $y = 4$ としてしまうこと', back: 'よくある間違い: $y = x^2$ で $-2 \\leq x \\leq 3$ のとき $y$ の最小値を $4$ としてしまう理由は？',
+        explanation: '実際は $x = 0$ で $y = 0$ が最小値',
         difficulty: 'basic',
       },
       {
@@ -121,17 +125,20 @@ export const quadFuncRange: Topic = {
       },
       {
         id: 'math-g3-qf-rg-fc14',
-        front: '$a = 3$。$x = 3$ で最大値 $9a = 27$ より $a = 3$。', back: '$y = ax^2$ で $1 \\leq x \\leq 3$ のとき最大値が $27$。$a$ は？',
+        front: '$a = 3$', back: '$y = ax^2$ で $1 \\leq x \\leq 3$ のとき最大値が $27$。$a$ は？',
+        explanation: '$x = 3$ で最大値 $9a = 27$ より $a = 3$',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-qf-rg-fc15',
-        front: '一次関数は常に一定の割合で変化するが、$y = ax^2$ は $x = 0$ を境に変化の向きが逆になる。', back: '一次関数 $y = ax + b$ と $y = ax^2$ の変化の仕方の違いは？',
+        front: '$y = ax^2$ は $x = 0$ を境に変化の向きが逆になる', back: '一次関数 $y = ax + b$ と $y = ax^2$ の変化の仕方の違いは？',
+        explanation: '一次関数は常に一定の割合で変化する',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-qf-rg-fc16',
-        front: '原点 $O(0, 0)$。$y$ の最小値（$a > 0$）または最大値（$a < 0$）をとる点。', back: '$y = ax^2$ のグラフで「頂点」はどこ？',
+        front: '原点 $O(0, 0)$', back: '$y = ax^2$ のグラフで「頂点」はどこ？',
+        explanation: '$y$ の最小値（$a > 0$）または最大値（$a < 0$）をとる点',
         difficulty: 'standard',
       },
       {

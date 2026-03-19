@@ -173,7 +173,7 @@ export const quadFuncRealWorldChat: HistoryChat = {
         { letter: 'D', text: '$128$ m', correct: false },
       ],
       explanation:
-        '<ruby>速度<rt>そくど</rt></ruby>が2<ruby>倍<rt>ばい</rt></ruby>（40→80）→ <ruby>制動距離<rt>せいどうきょり</rt></ruby>は $2^2 = 4$<ruby>倍<rt>ばい</rt></ruby>。$16 \\times 4 = \\textcolor{#D97706}{64}$ m',
+        '<ruby>速度<rt>そくど</rt></ruby>が2<ruby>倍<rt>ばい</rt></ruby>（40→80）→ <ruby>制動距離<rt>せいどうきょり</rt></ruby>は $2^2 = 4$<ruby>倍<rt>ばい</rt></ruby>。\n$16 \\times 4 = \\textcolor{#D97706}{64}$ m',
     },
     {
       type: 'summary-point',
@@ -284,7 +284,7 @@ export const quadFuncRealWorldChat: HistoryChat = {
         { letter: 'D', text: '$1500$ <ruby>円<rt>えん</rt></ruby>', correct: false },
       ],
       explanation:
-        '<ruby>最初<rt>さいしょ</rt></ruby>1<ruby>時間<rt>じかん</rt></ruby>: $500$<ruby>円<rt>えん</rt></ruby>。<ruby>残<rt>のこ</rt></ruby>り1<ruby>時間<rt>じかん</rt></ruby>30<ruby>分<rt>ぷん</rt></ruby> = 30<ruby>分<rt>ぷん</rt></ruby>×3<ruby>回<rt>かい</rt></ruby> → $200 \\times 3 = 600$<ruby>円<rt>えん</rt></ruby>。<ruby>合計<rt>ごうけい</rt></ruby> $500 + 600 = \\textcolor{#D97706}{1100}$<ruby>円<rt>えん</rt></ruby>',
+        '<ruby>最初<rt>さいしょ</rt></ruby>1<ruby>時間<rt>じかん</rt></ruby>: $500$<ruby>円<rt>えん</rt></ruby>。<ruby>残<rt>のこ</rt></ruby>り1<ruby>時間<rt>じかん</rt></ruby>30<ruby>分<rt>ぷん</rt></ruby> = 30<ruby>分<rt>ぷん</rt></ruby>×3<ruby>回<rt>かい</rt></ruby> → $200 \\times 3 = 600$<ruby>円<rt>えん</rt></ruby>。\n<ruby>合計<rt>ごうけい</rt></ruby> $500 + 600 = \\textcolor{#D97706}{1100}$<ruby>円<rt>えん</rt></ruby>',
     },
     {
       type: 'summary-point',

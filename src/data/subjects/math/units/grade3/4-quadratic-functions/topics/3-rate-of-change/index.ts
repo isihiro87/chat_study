@@ -72,7 +72,7 @@ export const rateOfChange: Topic = {
       {
         id: 'math-g3-qf-rc-fc1',
         front: 'y の増加量 ÷ x の増加量', back: '変化の割合',
-        explanation: '一次関数でも y = ax² でも同じ定義。ただし y = ax² では区間によって値が変わる。',
+        explanation: '一次関数でも y = ax² でも同じ定義。\nただし y = ax² では区間によって値が変わる。',
         difficulty: 'basic',
       },
       {
@@ -89,7 +89,7 @@ export const rateOfChange: Topic = {
       },
       {
         id: 'math-g3-qf-rc-fc4',
-        front: 'y = ax² で x が p から q に変化するときの変化の割合', back: '公式 a(p + q)',
+        front: 'a(p + q)', back: 'y = ax² で x が p から q に変化するときの変化の割合の公式',
         explanation: 'aq² − ap² = a(q+p)(q−p) を (q−p) で割って導出する。',
         difficulty: 'basic',
       },
@@ -138,7 +138,7 @@ export const rateOfChange: Topic = {
       {
         id: 'math-g3-qf-rc-fc12',
         front: 'ax² = mx + n を二次方程式として解く', back: '放物線と直線の交点の求め方',
-        explanation: '因数分解して x の値を求め、y に代入する。',
+        explanation: '因数分解して x の値を求め、y に代入する',
         difficulty: 'basic',
       },
       {

@@ -66,12 +66,14 @@ export const quadFuncRealWorld: Topic = {
     flashcards: [
       {
         id: 'math-g3-qf-rw-fc1',
-        front: 'ブレーキをかけてから車が止まるまでに進む距離のこと。速度の2乗に比例する（y = av²）', back: '制動距離とは何か？',
+        front: 'ブレーキをかけてから車が止まるまでに進む距離', back: '制動距離とは何か？',
+        explanation: '速度の2乗に比例する（y = av²）',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-qf-rw-fc2',
-        front: '危険を感じてからブレーキを踏むまでに進む距離。速度に比例する（1次関数）', back: '空走距離とは何か？',
+        front: '危険を感じてからブレーキを踏むまでに進む距離', back: '空走距離とは何か？',
+        explanation: '速度に比例する（1次関数）',
         difficulty: 'basic',
       },
       {
@@ -81,12 +83,14 @@ export const quadFuncRealWorld: Topic = {
       },
       {
         id: 'math-g3-qf-rw-fc4',
-        front: '4倍（2² = 4）。速度が3倍なら9倍になる', back: '速度が2倍になると制動距離は何倍？',
+        front: '4倍', back: '速度が2倍になると制動距離は何倍？',
+        explanation: '$2^2 = 4$。速度が3倍なら9倍になる',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-qf-rw-fc5',
-        front: '具体的な速度vと制動距離yの値を代入して a = y ÷ v² で求める', back: '制動距離 y = av² で比例定数 a の求め方は？',
+        front: 'a = y ÷ v² で求める', back: '制動距離 y = av² で比例定数 a の求め方は？',
+        explanation: '具体的な速度vと制動距離yの値を代入する',
         difficulty: 'basic',
       },
       {
@@ -101,12 +105,14 @@ export const quadFuncRealWorld: Topic = {
       },
       {
         id: 'math-g3-qf-rw-fc8',
-        front: '2倍（T²が4倍→T=√4=2倍）', back: 'ふりこの長さが4倍になると周期は何倍？',
+        front: '2倍', back: 'ふりこの長さが4倍になると周期は何倍？',
+        explanation: 'T²が4倍→T=√4=2倍',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-qf-rw-fc9',
-        front: '3倍（T²が9倍→T=√9=3倍）', back: 'ふりこの長さが9倍になると周期は何倍？',
+        front: '3倍', back: 'ふりこの長さが9倍になると周期は何倍？',
+        explanation: 'T²が9倍→T=√9=3倍',
         difficulty: 'basic',
       },
       {
@@ -237,8 +243,8 @@ export const quadFuncRealWorld: Topic = {
         {
           id: 'math-g3-qf-rw-q4',
           question: '$T^2 = 0.04L$ のとき、$L = 225$ cm ならばふりこの周期 $T$ は何秒？',
-          options: ['$2$ 秒', '$3$ 秒', '$4$ 秒', '$5$ 秒'],
-          correctIndex: 1,
+          options: ['$2$ 秒', '$4$ 秒', '$3$ 秒', '$5$ 秒'],
+          correctIndex: 2,
           explanation:
             '$T^2 = 0.04 \\times 225 = 9$ → $T = \\sqrt{9} = 3$ 秒だよ。',
           difficulty: 'basic',
@@ -318,8 +324,8 @@ export const quadFuncRealWorld: Topic = {
         {
           id: 'math-g3-qf-rw-q13',
           question: '速度が3倍になると制動距離は何倍？',
-          options: ['$3$ 倍', '$6$ 倍', '$9$ 倍', '$27$ 倍'],
-          correctIndex: 2,
+          options: ['$3$ 倍', '$6$ 倍', '$27$ 倍', '$9$ 倍'],
+          correctIndex: 3,
           explanation:
             '$3^2 = 9$ 倍。速度の2乗に比例するから $n$ 倍で $n^2$ 倍だよ。',
           difficulty: 'standard',

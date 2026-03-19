@@ -292,7 +292,7 @@ export const rateOfChangeChat: HistoryChat = {
         { letter: 'D', text: '$x = 16$ と $x = -16$', correct: false },
       ],
       explanation:
-        '$x^2 = 4$ → $x = \\pm 2$。<ruby>放物線<rt>ほうぶつせん</rt></ruby>は y <ruby>軸<rt>じく</rt></ruby><ruby>対称<rt>たいしょう</rt></ruby>だから、<ruby>交点<rt>こうてん</rt></ruby>も<ruby>対称<rt>たいしょう</rt></ruby>になるよ。',
+        '$x^2 = 4$ → $x = \\pm 2$。\n<ruby>放物線<rt>ほうぶつせん</rt></ruby>は y <ruby>軸<rt>じく</rt></ruby><ruby>対称<rt>たいしょう</rt></ruby>だから、<ruby>交点<rt>こうてん</rt></ruby>も<ruby>対称<rt>たいしょう</rt></ruby>になるよ。',
     },
     {
       type: 'summary-point',

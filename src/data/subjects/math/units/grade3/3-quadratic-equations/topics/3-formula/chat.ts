@@ -230,7 +230,7 @@ export const quadFormulaChat: HistoryChat = {
         { letter: 'D', text: '$x = -2, x = 3$', correct: false },
       ],
       explanation:
-        '$x = \\frac{-2 \\pm \\sqrt{4+12}}{2} = \\frac{-2 \\pm 4}{2}$。$x = \\frac{2}{2} = 1$ または $x = \\frac{-6}{2} = -3$ だよ。',
+        '$x = \\frac{-2 \\pm \\sqrt{4+12}}{2} = \\frac{-2 \\pm 4}{2}$。\n$x = \\frac{2}{2} = 1$ または $x = \\frac{-6}{2} = -3$ だよ。',
     },
     {
       type: 'summary-point',
@@ -331,7 +331,7 @@ export const quadFormulaChat: HistoryChat = {
         { letter: 'D', text: '$x = 4 \\pm \\sqrt{3}$', correct: false },
       ],
       explanation:
-        '$x = \\frac{4 \\pm \\sqrt{16-4}}{2} = \\frac{4 \\pm 2\\sqrt{3}}{2} = 2 \\pm \\sqrt{3}$ だよ。$\\sqrt{12} = 2\\sqrt{3}$ の<ruby>約分<rt>やくぶん</rt></ruby>を<ruby>忘<rt>わす</rt></ruby>れずに！',
+        '$x = \\frac{4 \\pm \\sqrt{16-4}}{2} = \\frac{4 \\pm 2\\sqrt{3}}{2} = 2 \\pm \\sqrt{3}$。\n$\\sqrt{12} = 2\\sqrt{3}$ の<ruby>約分<rt>やくぶん</rt></ruby>を<ruby>忘<rt>わす</rt></ruby>れずに！',
     },
     {
       type: 'summary-point',

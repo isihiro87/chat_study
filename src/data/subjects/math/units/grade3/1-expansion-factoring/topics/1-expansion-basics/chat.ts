@@ -188,7 +188,7 @@ export const expansionBasicsChat: HistoryChat = {
         { letter: 'D', text: '$x^2 - 6x - 5$', correct: false },
       ],
       explanation:
-        '$(x+1)(x-5) = x^2 - 5x + x - 5 = x^2 - 4x - 5$。$-5x$ と $+x$ をまとめると $\\textcolor{#D97706}{-4x}$ だよ。',
+        '$(x+1)(x-5) = x^2 - 5x + x - 5 = x^2 - 4x - 5$\n$-5x$ と $+x$ をまとめると $\\textcolor{#D97706}{-4x}$ だよ。',
     },
     {
       type: 'summary-point',
@@ -383,7 +383,7 @@ export const expansionBasicsChat: HistoryChat = {
         { letter: 'D', text: '$xy + x - 5y + 5$', correct: false },
       ],
       explanation:
-        '$x \\times y + x \\times (-1) + 5 \\times y + 5 \\times (-1) = xy - x + 5y - 5$。A と B は<ruby>同<rt>おな</rt></ruby>じ<ruby>式<rt>しき</rt></ruby>だけど、<ruby>項<rt>こう</rt></ruby>の<ruby>順番<rt>じゅんばん</rt></ruby>の<ruby>書<rt>か</rt></ruby>き<ruby>方<rt>かた</rt></ruby>がポイントだよ。',
+        '$x \\times y + x \\times (-1) + 5 \\times y + 5 \\times (-1) = xy - x + 5y - 5$\nA と B は<ruby>同<rt>おな</rt></ruby>じ<ruby>式<rt>しき</rt></ruby>だけど、<ruby>項<rt>こう</rt></ruby>の<ruby>順番<rt>じゅんばん</rt></ruby>の<ruby>書<rt>か</rt></ruby>き<ruby>方<rt>かた</rt></ruby>がポイントだよ。',
     },
     {
       type: 'summary-point',

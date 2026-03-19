@@ -203,7 +203,7 @@ export const equationsAndGraphsChat: HistoryChat = {
         { letter: 'D', text: '$(6, 0)$', correct: false },
       ],
       explanation:
-        '$2x = -x + 6 \\rightarrow 3x = 6 \\rightarrow x = 2$。$y = 2 \\times 2 = 4$。<ruby>交点<rt>こうてん</rt></ruby>は $\\textcolor{#D97706}{(2, 4)}$',
+        '$2x = -x + 6 \\rightarrow 3x = 6 \\rightarrow x = 2$。\\n$y = 2 \\times 2 = 4$。\\n<ruby>交点<rt>こうてん</rt></ruby>は $\\textcolor{#D97706}{(2, 4)}$',
     },
     {
       type: 'end',

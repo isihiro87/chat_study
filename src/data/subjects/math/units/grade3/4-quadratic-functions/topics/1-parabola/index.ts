@@ -126,12 +126,14 @@ export const quadFuncParabola: Topic = {
       },
       {
         id: 'math-g3-qf-pb-fc12',
-        front: '$y = a(-x)^2 = ax^2$ となり、$x$ を $-x$ に置き換えても式が変わらないから。', back: '放物線が $y$ 軸対称である理由を式で説明すると？',
+        front: '$y = a(-x)^2 = ax^2$ で式が変わらないから', back: '放物線が $y$ 軸対称である理由を式で説明すると？',
+        explanation: '$x$ を $-x$ に置き換えても同じ式になるため左右対称',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-qf-pb-fc13',
-        front: '$y = ax^2$ に通る点 $(x, y)$ を代入して $a = y \\div x^2$ で求める。', back: '比例定数 $a$ の求め方は？',
+        front: '$a = y \\div x^2$', back: '比例定数 $a$ の求め方は？',
+        explanation: '$y = ax^2$ に通る点 $(x, y)$ を代入して求める',
         difficulty: 'standard',
       },
       {
@@ -156,17 +158,20 @@ export const quadFuncParabola: Topic = {
       },
       {
         id: 'math-g3-qf-pb-fc18',
-        front: '$a = -\\frac{2}{3}$。$-6 = a \\times 9$ より。', back: '放物線 $y = ax^2$ が点 $(3, -6)$ を通る。$a$ は？',
+        front: '$a = -\\frac{2}{3}$', back: '放物線 $y = ax^2$ が点 $(3, -6)$ を通る。$a$ は？',
+        explanation: '$-6 = a \\times 9$ より $a = -\\frac{2}{3}$',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-qf-pb-fc19',
-        front: '$y = -50$。$-2 \\times (-5)^2 = -2 \\times 25 = -50$。', back: '$y = -2x^2$ で $x = -5$ のとき $y$ は？',
+        front: '$y = -50$', back: '$y = -2x^2$ で $x = -5$ のとき $y$ は？',
+        explanation: '$-2 \\times (-5)^2 = -2 \\times 25 = -50$',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-qf-pb-fc20',
-        front: '$n^2$ 倍になる。$y = a(nx)^2 = an^2x^2$。', back: '$y = ax^2$ で $x$ が $n$ 倍になると $y$ は？',
+        front: '$n^2$ 倍になる', back: '$y = ax^2$ で $x$ が $n$ 倍になると $y$ は？',
+        explanation: '$y = a(nx)^2 = an^2x^2$ より',
         difficulty: 'standard',
       },
       {
@@ -176,17 +181,20 @@ export const quadFuncParabola: Topic = {
       },
       {
         id: 'math-g3-qf-pb-fc22',
-        front: '$y = 5x^2$。$20 = a \\times 4 = 4a$ より $a = 5$。', back: '$y = ax^2$ で $x = 2, y = 20$ のとき式は？',
+        front: '$y = 5x^2$', back: '$y = ax^2$ で $x = 2, y = 20$ のとき式は？',
+        explanation: '$20 = a \\times 4 = 4a$ より $a = 5$',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-qf-pb-fc23',
-        front: '下に開く広い放物線。$|a| < 1$ で広い。', back: '$y = -\\frac{1}{4}x^2$ のグラフの特徴は？',
+        front: '下に開く広い放物線', back: '$y = -\\frac{1}{4}x^2$ のグラフの特徴は？',
+        explanation: '$a < 0$ で下に開き、$|a| < 1$ で広い',
         difficulty: 'advanced',
       },
       {
         id: 'math-g3-qf-pb-fc24',
-        front: '$y = x^2$。円の面積は $y = \\pi x^2$ で2乗に比例。', back: '半径 $x$ の円の面積 $y$ は $x$ の2乗に比例する？',
+        front: 'はい、$y = \\pi x^2$ で2乗に比例する', back: '半径 $x$ の円の面積 $y$ は $x$ の2乗に比例する？',
+        explanation: '比例定数は $\\pi$',
         difficulty: 'advanced',
       },
       {
@@ -196,17 +204,20 @@ export const quadFuncParabola: Topic = {
       },
       {
         id: 'math-g3-qf-pb-fc26',
-        front: '通らない。$x = 0$ のとき $y = 0$ で原点しか通らない。', back: '$y = ax^2$ のグラフは $x$ 軸と原点以外で交わる？',
+        front: '通らない', back: '$y = ax^2$ のグラフは $x$ 軸と原点以外で交わる？',
+        explanation: '$x = 0$ のとき $y = 0$ で原点しか通らない',
         difficulty: 'advanced',
       },
       {
         id: 'math-g3-qf-pb-fc27',
-        front: '$a = -4$（$-16 = a \\times (-2)^2 = 4a$ より $a = -4$）', back: '$y = ax^2$ が $(-2, -16)$ を通るとき $a$ は？',
+        front: '$a = -4$', back: '$y = ax^2$ が $(-2, -16)$ を通るとき $a$ は？',
+        explanation: '$-16 = a \\times (-2)^2 = 4a$ より $a = -4$',
         difficulty: 'advanced',
       },
       {
         id: 'math-g3-qf-pb-fc28',
-        front: '$y = 2x^2$ の方が大きい（$|2| > |\\frac{1}{2}|$）', back: '同じ $x$ の値で $y = 2x^2$ と $y = \\frac{1}{2}x^2$ どちらが $y$ が大きい？',
+        front: '$y = 2x^2$ の方が大きい', back: '同じ $x$ の値で $y = 2x^2$ と $y = \\frac{1}{2}x^2$ どちらが $y$ が大きい？',
+        explanation: '$|2| > |\\frac{1}{2}|$ なので',
         difficulty: 'advanced',
       },
     ],
@@ -337,8 +348,8 @@ export const quadFuncParabola: Topic = {
           id: 'math-g3-qf-pb-q11',
           question:
             '$y = ax^2$ のグラフが点 $(-2, -12)$ を通る。$a$ の値は？',
-          options: ['$a = -2$', '$a = -3$', '$a = 3$', '$a = 6$'],
-          correctIndex: 1,
+          options: ['$a = -2$', '$a = 3$', '$a = -3$', '$a = 6$'],
+          correctIndex: 2,
           explanation:
             '$-12 = a \\times (-2)^2 = 4a$ だから $a = -3$ だよ。',
           difficulty: 'standard',
@@ -365,8 +376,8 @@ export const quadFuncParabola: Topic = {
         {
           id: 'math-g3-qf-pb-q14',
           question: '$y = ax^2$ が $(2, 20)$ を通る。$a$ は？',
-          options: ['$a = 10$', '$a = 5$', '$a = 4$', '$a = 2$'],
-          correctIndex: 1,
+          options: ['$a = 10$', '$a = 4$', '$a = 2$', '$a = 5$'],
+          correctIndex: 3,
           explanation:
             '$20 = a \\times 4$ より $a = 5$ だよ。',
           difficulty: 'standard',
@@ -397,8 +408,8 @@ export const quadFuncParabola: Topic = {
         {
           id: 'math-g3-qf-pb-q17',
           question: '$y = ax^2$ が $(-2, -16)$ を通る。$a$ は？',
-          options: ['$a = 4$', '$a = -4$', '$a = 8$', '$a = -8$'],
-          correctIndex: 1,
+          options: ['$a = 4$', '$a = 8$', '$a = -8$', '$a = -4$'],
+          correctIndex: 3,
           explanation:
             '$-16 = a \\times (-2)^2 = 4a$ より $a = -4$ だよ。',
           difficulty: 'standard',

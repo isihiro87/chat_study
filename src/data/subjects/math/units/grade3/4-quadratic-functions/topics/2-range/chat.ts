@@ -162,7 +162,7 @@ export const quadFuncRangeChat: HistoryChat = {
         { letter: 'D', text: '$-4 \\leq y \\leq 1$', correct: false },
       ],
       explanation:
-        '$x = 0$ を<ruby>含<rt>ふく</rt></ruby>むので $a < 0$ → $y$ の<ruby>最大値<rt>さいだいち</rt></ruby>は $0$。$x = 2$ で $y = -4$、$x = -1$ で $y = -1$。$|2| > |-1|$ だから<ruby>最小値<rt>さいしょうち</rt></ruby>は $-4$。<ruby>答<rt>こた</rt></ruby>え：$-4 \\leq y \\leq 0$',
+        '$x = 0$ を<ruby>含<rt>ふく</rt></ruby>むので $a < 0$ → $y$ の<ruby>最大値<rt>さいだいち</rt></ruby>は $0$。\n$x = 2$ で $y = -4$、$x = -1$ で $y = -1$。$|2| > |-1|$ だから<ruby>最小値<rt>さいしょうち</rt></ruby>は $-4$。\n<ruby>答<rt>こた</rt></ruby>え：$-4 \\leq y \\leq 0$',
     },
     {
       type: 'summary-point',

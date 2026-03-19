@@ -192,7 +192,7 @@ export const findLinearEquationChat: HistoryChat = {
         { letter: 'D', text: '$y = 4x - 3$', correct: false },
       ],
       explanation:
-        '$y = 4x + b$ に $(2, 11)$ を<ruby>代入<rt>だいにゅう</rt></ruby>: $11 = 4 \\times 2 + b \\rightarrow 11 = 8 + b \\rightarrow b = \\textcolor{#D97706}{3}$。よって $y = 4x + 3$',
+        '$y = 4x + b$ に $(2, 11)$ を<ruby>代入<rt>だいにゅう</rt></ruby>: $11 = 4 \\times 2 + b \\rightarrow 11 = 8 + b \\rightarrow b = \\textcolor{#D97706}{3}$。\\nよって $y = 4x + 3$',
     },
     {
       type: 'end',

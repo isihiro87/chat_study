@@ -214,7 +214,7 @@ export const quadEqAppsChat: HistoryChat = {
         { letter: 'D', text: '$6$', correct: false },
       ],
       explanation:
-        '$x^2 - 3x = 10 \\rightarrow x^2 - 3x - 10 = 0 \\rightarrow (x-5)(x+2) = 0$。<ruby>正<rt>せい</rt></ruby>の<ruby>整数<rt>せいすう</rt></ruby>なので $x = 5$。',
+        '$x^2 - 3x = 10 \\rightarrow x^2 - 3x - 10 = 0 \\rightarrow (x-5)(x+2) = 0$。\n<ruby>正<rt>せい</rt></ruby>の<ruby>整数<rt>せいすう</rt></ruby>なので $x = 5$。',
     },
     {
       type: 'summary-point',
@@ -371,7 +371,7 @@ export const quadEqAppsChat: HistoryChat = {
         { letter: 'D', text: '$5$ cmのみ', correct: false },
       ],
       explanation:
-        '$x(20-2x) = 48 \\rightarrow x^2 - 10x + 24 = 0 \\rightarrow (x-4)(x-6) = 0$。$x = 4$ cm または $x = 6$ cm。',
+        '$x(20-2x) = 48 \\rightarrow x^2 - 10x + 24 = 0 \\rightarrow (x-4)(x-6) = 0$。\n$x = 4$ cm または $x = 6$ cm。',
     },
     {
       type: 'summary-point',

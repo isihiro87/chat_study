@@ -64,7 +64,7 @@ export const equationsAndGraphs: Topic = {
     flashcards: [
       {
         id: 'math-g2-eq-and-graphs-fc1',
-        front: '直線になる。$y$ について解くと一次関数の形 $y = (-a/b)x + c/b$ になる。', back: '二元一次方程式 $ax + by = c$ のグラフはどんな図形？',
+        front: '直線になる', explanation: '$y$ について解くと $y = (-a/b)x + c/b$ の一次関数の形になる', back: '二元一次方程式 $ax + by = c$ のグラフはどんな図形？',
         difficulty: 'basic',
       },
       {
@@ -79,27 +79,27 @@ export const equationsAndGraphs: Topic = {
       },
       {
         id: 'math-g2-eq-and-graphs-fc4',
-        front: '$x$ 軸に平行な横の直線。すべての点の $y$ 座標が $k$。', back: '$y = k$（$k$ は定数）のグラフはどんな直線？',
+        front: '$x$ 軸に平行な横の直線', explanation: 'すべての点の $y$ 座標が $k$', back: '$y = k$（$k$ は定数）のグラフはどんな直線？',
         difficulty: 'basic',
       },
       {
         id: 'math-g2-eq-and-graphs-fc5',
-        front: '$y$ 軸に平行な縦の直線。すべての点の $x$ 座標が $h$。', back: '$x = h$（$h$ は定数）のグラフはどんな直線？',
+        front: '$y$ 軸に平行な縦の直線', explanation: 'すべての点の $x$ 座標が $h$', back: '$x = h$（$h$ は定数）のグラフはどんな直線？',
         difficulty: 'basic',
       },
       {
         id: 'math-g2-eq-and-graphs-fc6',
-        front: '一次関数ではない。$y = ax + b$ の形に表せないが、グラフはかける。', back: '$x = h$ は一次関数？',
+        front: '一次関数ではない', explanation: '$y = ax + b$ の形に表せないが、グラフはかける', back: '$x = h$ は一次関数？',
         difficulty: 'basic',
       },
       {
         id: 'math-g2-eq-and-graphs-fc7',
-        front: '$y = 4$ に変形。$x$ 軸に平行な横の直線。', back: '$2y - 8 = 0$ のグラフは？',
+        front: '$y = 4$ に変形', explanation: '$x$ 軸に平行な横の直線', back: '$2y - 8 = 0$ のグラフは？',
         difficulty: 'basic',
       },
       {
         id: 'math-g2-eq-and-graphs-fc8',
-        front: '2つの式を連立方程式として解いた解と一致する。', back: '2つの直線の交点の座標は何と一致する？',
+        front: '連立方程式の解と一致する', explanation: '2つの式を連立方程式として解いた解', back: '2つの直線の交点の座標は何と一致する？',
         difficulty: 'basic',
       },
       {
@@ -109,17 +109,17 @@ export const equationsAndGraphs: Topic = {
       },
       {
         id: 'math-g2-eq-and-graphs-fc10',
-        front: '交点がないので、解なし。', back: '2直線が平行なとき、連立方程式の解は？',
+        front: '解なし', explanation: '交点がないので解が存在しない', back: '2直線が平行なとき、連立方程式の解は？',
         difficulty: 'basic',
       },
       {
         id: 'math-g2-eq-and-graphs-fc11',
-        front: '2直線の交点と各直線の $x$ 切片を求め、底辺($x$ 軸上) × 高さ(交点の $y$ 座標) ÷ 2。', back: '2直線と $x$ 軸で囲まれた三角形の面積の求め方は？',
+        front: '底辺 $\\times$ 高さ $\\div 2$', explanation: '底辺は $x$ 軸上の2点間距離、高さは交点の $y$ 座標', back: '2直線と $x$ 軸で囲まれた三角形の面積の求め方は？',
         difficulty: 'basic',
       },
       {
         id: 'math-g2-eq-and-graphs-fc12',
-        front: '1つの頂点と、その対辺の中点を通る直線を引く。', back: '三角形の面積を2等分する直線の引き方は？',
+        front: '1つの頂点と対辺の中点を通る直線', explanation: 'この直線で面積が2等分される', back: '三角形の面積を2等分する直線の引き方は？',
         difficulty: 'basic',
       },
       {
@@ -142,18 +142,18 @@ export const equationsAndGraphs: Topic = {
         front: '$x + 1 = -x + 5$ → $2x = 4$ → $x = 2, y = 3$。交点 $(2, 3)$。', back: '直線 $y = x + 1$ と $y = -x + 5$ の交点は？',
         difficulty: 'standard',
       },
-      { id: 'math-g2-eq-and-graphs-fc17', front: '$y = 0$ を代入して $x$ を求めると $x$ 切片。$x = 0$ を代入して $y$ を求めると $y$ 切片。', back: '切片の2つの求め方は？', difficulty: 'standard' },
-      { id: 'math-g2-eq-and-graphs-fc18', front: '2つの式を連立方程式として解く。$y$ を等しいとおいて $x$ を求める。', back: '2直線の交点の座標を求めるには？', difficulty: 'standard' },
-      { id: 'math-g2-eq-and-graphs-fc19', front: '2直線が平行（傾きが同じで切片が異なる）のとき', back: '連立方程式に解がないのはどんなとき？', difficulty: 'standard' },
-      { id: 'math-g2-eq-and-graphs-fc20', front: '2直線が一致する（傾きも切片も同じ）のとき', back: '連立方程式の解が無限にあるのはどんなとき？', difficulty: 'standard' },
-      { id: 'math-g2-eq-and-graphs-fc21', front: '底辺 $\times$ 高さ $\div 2$。底辺は $x$ 軸上の2点間距離、高さは交点の $y$ 座標。', back: '2直線と $x$ 軸で作る三角形の面積の求め方は？', difficulty: 'standard' },
-      { id: 'math-g2-eq-and-graphs-fc22', front: '$ax + by = c$ を $y = $ の形に変形する。$y = -\dfrac{a}{b}x + \dfrac{c}{b}$', back: '二元一次方程式のグラフを描く手順は？', difficulty: 'standard' },
-      { id: 'math-g2-eq-and-graphs-fc23', front: '$y = k$（定数）のグラフは $x$ 軸に平行な横線。すべての点の $y$ 座標が $k$。', back: '$y = 3$ のグラフの特徴は？', difficulty: 'advanced' },
-      { id: 'math-g2-eq-and-graphs-fc24', front: '$x = h$（定数）のグラフは $y$ 軸に平行な縦線。一次関数ではない。', back: '$x = 2$ のグラフの特徴は？', difficulty: 'advanced' },
-      { id: 'math-g2-eq-and-graphs-fc25', front: '三角形の頂点の座標をすべて求めてから面積を計算する', back: '直線で囲まれた図形の面積を求める手順は？', difficulty: 'advanced' },
-      { id: 'math-g2-eq-and-graphs-fc26', front: '$\left(\dfrac{x_1+x_2}{2}, \dfrac{y_1+y_2}{2}\right)$', back: '2点の中点の公式は？', difficulty: 'advanced' },
-      { id: 'math-g2-eq-and-graphs-fc27', front: '1つの頂点と対辺の中点を結ぶ直線で面積を2等分できる', back: '三角形の面積を2等分する直線の引き方は？', difficulty: 'advanced' },
-      { id: 'math-g2-eq-and-graphs-fc28', front: '傾きが同じかどうかで判定する。同じ→平行（または一致）。異なる→交わる。', back: '2直線が平行か交わるかの判定方法は？', difficulty: 'advanced' },
+      { id: 'math-g2-eq-and-graphs-fc17', front: '$y = 0$ →$x$ 切片、$x = 0$ →$y$ 切片', explanation: 'それぞれ代入して求める', back: '切片の2つの求め方は？', difficulty: 'standard' },
+      { id: 'math-g2-eq-and-graphs-fc18', front: '連立方程式として解く', explanation: '$y$ を等しいとおいて $x$ を求める', back: '2直線の交点の座標を求めるには？', difficulty: 'standard' },
+      { id: 'math-g2-eq-and-graphs-fc19', front: '2直線が平行のとき', explanation: '傾きが同じで切片が異なる場合', back: '連立方程式に解がないのはどんなとき？', difficulty: 'standard' },
+      { id: 'math-g2-eq-and-graphs-fc20', front: '2直線が一致するとき', explanation: '傾きも切片も同じ場合', back: '連立方程式の解が無限にあるのはどんなとき？', difficulty: 'standard' },
+      { id: 'math-g2-eq-and-graphs-fc21', front: '底辺 $\\times$ 高さ $\\div 2$', explanation: '底辺は $x$ 軸上の2点間距離、高さは交点の $y$ 座標', back: '2直線と $x$ 軸で作る三角形の面積の求め方は？', difficulty: 'standard' },
+      { id: 'math-g2-eq-and-graphs-fc22', front: '$y =$ の形に変形する', explanation: '$ax + by = c$ → $y = -\\dfrac{a}{b}x + \\dfrac{c}{b}$', back: '二元一次方程式のグラフを描く手順は？', difficulty: 'standard' },
+      { id: 'math-g2-eq-and-graphs-fc23', front: '$x$ 軸に平行な横線', explanation: 'すべての点の $y$ 座標が $k$（定数）', back: '$y = 3$ のグラフの特徴は？', difficulty: 'advanced' },
+      { id: 'math-g2-eq-and-graphs-fc24', front: '$y$ 軸に平行な縦線', explanation: '一次関数ではないがグラフはかける', back: '$x = 2$ のグラフの特徴は？', difficulty: 'advanced' },
+      { id: 'math-g2-eq-and-graphs-fc25', front: '頂点の座標をすべて求めてから計算', explanation: '交点や切片から頂点を求め、底辺×高さ÷2', back: '直線で囲まれた図形の面積を求める手順は？', difficulty: 'advanced' },
+      { id: 'math-g2-eq-and-graphs-fc26', front: '$\\left(\\dfrac{x_1+x_2}{2}, \\dfrac{y_1+y_2}{2}\\right)$', explanation: '各座標の平均をとる', back: '2点の中点の公式は？', difficulty: 'advanced' },
+      { id: 'math-g2-eq-and-graphs-fc27', front: '頂点と対辺の中点を結ぶ', explanation: 'この直線で三角形の面積が2等分される', back: '三角形の面積を2等分する直線の引き方は？', difficulty: 'advanced' },
+      { id: 'math-g2-eq-and-graphs-fc28', front: '傾きが同じかどうかで判定', explanation: '同じ→平行（または一致）、異なる→交わる', back: '2直線が平行か交わるかの判定方法は？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -192,7 +192,7 @@ export const equationsAndGraphs: Topic = {
           options: ['$(1, 2)$', '$(2, 3)$', '$(3, 4)$', '$(4, 5)$'],
           correctIndex: 1,
           explanation:
-            '$x + 1 = -x + 5 \\rightarrow 2x = 4 \\rightarrow x = 2$。$y = 2 + 1 = 3$。よって交点は $(2, 3)$。',
+            '$x + 1 = -x + 5 \\rightarrow 2x = 4 \\rightarrow x = 2$。\\n$y = 2 + 1 = 3$。\\nよって交点は $(2, 3)$。',
           difficulty: 'basic',
         },
         {
@@ -240,7 +240,7 @@ export const equationsAndGraphs: Topic = {
           options: ['$(2, 1)$', '$(1, -1)$', '$(4, 5)$', '$(3, 3)$'],
           correctIndex: 3,
           explanation:
-            '$2x - 3 = -x + 6 \\rightarrow 3x = 9 \\rightarrow x = 3$。$y = 2 \\times 3 - 3 = 3$。交点は $(3, 3)$。',
+            '$2x - 3 = -x + 6 \\rightarrow 3x = 9 \\rightarrow x = 3$。\\n$y = 2 \\times 3 - 3 = 3$。\\n交点は $(3, 3)$。',
           difficulty: 'basic',
         },
         {
@@ -264,7 +264,7 @@ export const equationsAndGraphs: Topic = {
           options: ['$2$', '$4$', '$6$', '$8$'],
           correctIndex: 1,
           explanation:
-            '交点 $(2, 2)$、$x$ 切片 $(0, 0)$ と $(4, 0)$。底辺 $4$、高さ $2$。面積 $= \\frac{1}{2} \\times 4 \\times 2 = 4$。',
+            '交点 $(2, 2)$、$x$ 切片 $(0, 0)$ と $(4, 0)$。\\n底辺 $4$、高さ $2$。\\n面積 $= \\frac{1}{2} \\times 4 \\times 2 = 4$。',
           difficulty: 'basic',
         },
         {
@@ -342,8 +342,8 @@ export const equationsAndGraphs: Topic = {
         {
           id: 'math-g2-eq-and-graphs-q17',
           question: '$2y - 6 = 0$ のグラフは？',
-          options: ['$x = 3$ の縦線', '$y = 3$ の横線', '$y = 6$ の横線', '原点を通る直線'],
-          correctIndex: 1,
+          options: ['$x = 3$ の縦線', '原点を通る直線', '$y = 6$ の横線', '$y = 3$ の横線'],
+          correctIndex: 3,
           explanation: '$2y = 6$ → $y = 3$。$x$ 軸に平行な横線だよ。',
           difficulty: 'standard',
         },
@@ -366,32 +366,32 @@ export const equationsAndGraphs: Topic = {
         {
           id: 'math-g2-eq-and-graphs-q20',
           question: '$5x - y = 10$ を $y =$ の形にすると？',
-          options: ['$y = 5x - 10$', '$y = -5x + 10$', '$y = 5x + 10$', '$y = -5x - 10$'],
-          correctIndex: 0,
+          options: ['$y = 5x + 10$', '$y = -5x + 10$', '$y = 5x - 10$', '$y = -5x - 10$'],
+          correctIndex: 2,
           explanation: '$-y = -5x + 10$ → $y = 5x - 10$ だよ。',
           difficulty: 'standard',
         },
         {
           id: 'math-g2-eq-and-graphs-q21',
           question: '2点 $(4, 0)$ と $(10, 6)$ の中点は？',
-          options: ['$(7, 3)$', '$(6, 3)$', '$(7, 6)$', '$(5, 3)$'],
-          correctIndex: 0,
+          options: ['$(7, 6)$', '$(6, 3)$', '$(7, 3)$', '$(5, 3)$'],
+          correctIndex: 2,
           explanation: '$\left(\dfrac{4+10}{2}, \dfrac{0+6}{2}\right) = (7, 3)$ だよ。',
           difficulty: 'standard',
         },
         {
           id: 'math-g2-eq-and-graphs-q22',
           question: '$y = x + 1$ と $y = x + 4$ の連立方程式の解は？',
-          options: ['$x = 3$', '解なし', '$(0, 1)$', '解が無限にある'],
-          correctIndex: 1,
+          options: ['$x = 3$', '解が無限にある', '$(0, 1)$', '解なし'],
+          correctIndex: 3,
           explanation: '傾きが同じ $1$ で切片が違う→平行。交点がないので解なしだよ。',
           difficulty: 'standard',
         },
         {
           id: 'math-g2-eq-and-graphs-q23',
           question: '$3x + 4y = 12$ のグラフが $x$ 軸と交わる点は？',
-          options: ['$(4, 0)$', '$(3, 0)$', '$(0, 3)$', '$(12, 0)$'],
-          correctIndex: 0,
+          options: ['$(12, 0)$', '$(3, 0)$', '$(0, 3)$', '$(4, 0)$'],
+          correctIndex: 3,
           explanation: '$y = 0$: $3x = 12$ → $x = 4$。$(4, 0)$ だよ。',
           difficulty: 'advanced',
         },
@@ -430,8 +430,8 @@ export const equationsAndGraphs: Topic = {
         {
           id: 'math-g2-eq-and-graphs-q28',
           question: '三角形の面積を $2$ 等分する直線は、頂点と対辺の何を結ぶ？',
-          options: ['端点', '中点', '$\dfrac{1}{3}$ 点', '垂直二等分線'],
-          correctIndex: 1,
+          options: ['端点', '垂直二等分線', '中点', '$\\dfrac{1}{3}$ 点'],
+          correctIndex: 2,
           explanation: '1つの頂点と対辺の中点を結ぶ直線で面積が2等分されるよ。',
           difficulty: 'advanced',
         },

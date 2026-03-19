@@ -162,7 +162,7 @@ export const quadEqBasicsChat: HistoryChat = {
         { letter: 'D', text: '$x = 49$', correct: false },
       ],
       explanation:
-        '$x^2 = 49$ なので $x = \\pm\\sqrt{49} = \\pm 7$。$7^2 = 49$ も $(-7)^2 = 49$ も<ruby>成<rt>な</rt></ruby>り<ruby>立<rt>た</rt></ruby>つよ！',
+        '$x^2 = 49$ なので $x = \\pm\\sqrt{49} = \\pm 7$。\n$7^2 = 49$ も $(-7)^2 = 49$ も<ruby>成<rt>な</rt></ruby>り<ruby>立<rt>た</rt></ruby>つよ！',
     },
     {
       type: 'message',
@@ -238,7 +238,7 @@ export const quadEqBasicsChat: HistoryChat = {
         { letter: 'D', text: '$x = \\pm \\frac{1}{4}$', correct: false },
       ],
       explanation:
-        '$x^2 = \\frac{1}{4}$ なので $x = \\pm\\frac{1}{2}$。<ruby>分数<rt>ぶんすう</rt></ruby>になるパターンも<ruby>覚<rt>おぼ</rt></ruby>えておこう！',
+        '$x^2 = \\frac{1}{4}$ なので $x = \\pm\\frac{1}{2}$。\n<ruby>分数<rt>ぶんすう</rt></ruby>になるパターンも<ruby>覚<rt>おぼ</rt></ruby>えておこう！',
     },
     {
       type: 'summary-point',
