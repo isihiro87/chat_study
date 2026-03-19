@@ -35,6 +35,7 @@ export const subjunctiveChat: HistoryChat = {
     },
   ],
   content: [
+    // ===== セクション1: If I were 〜 / 仮定法過去 =====
     {
       type: 'date',
       text: 'If I were 〜 / <ruby>仮定法<rt>かていほう</rt></ruby><ruby>過去<rt>かこ</rt></ruby>',
@@ -102,6 +103,7 @@ export const subjunctiveChat: HistoryChat = {
       ],
       explanation: '<ruby>仮定法<rt>かていほう</rt></ruby>ではbe<ruby>動詞<rt>どうし</rt></ruby>は<ruby>全部<rt>ぜんぶ</rt></ruby> <strong>were</strong>。「〜するのに」は <strong>would + <ruby>動詞<rt>どうし</rt></ruby></strong> だよ。',
     },
+    // ===== セクション2: I wish 〜 =====
     {
       type: 'date',
       text: 'I wish 〜',
@@ -162,6 +164,158 @@ export const subjunctiveChat: HistoryChat = {
       ],
       explanation: 'I wish のうしろは<ruby>過去<rt>かこ</rt></ruby>の形にするよ。can → <strong>could</strong> だね。I wish I could fly. が<ruby>正<rt>ただ</rt></ruby>しいよ。',
     },
+    // ===== セクション3: If + 一般動詞の過去形 =====
+    {
+      type: 'date',
+      text: 'If + <ruby>一般動詞<rt>いっぱんどうし</rt></ruby>の<ruby>過去形<rt>かこけい</rt></ruby>',
+    },
+    {
+      type: 'narrator',
+      text: '<ruby>仮定法<rt>かていほう</rt></ruby>は be<ruby>動詞<rt>どうし</rt></ruby>の were だけじゃない！ <ruby>一般動詞<rt>いっぱんどうし</rt></ruby>も<ruby>過去形<rt>かこけい</rt></ruby>にして使えるよ。いろんなパターンを見てみよう！',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<ruby>一般動詞<rt>いっぱんどうし</rt></ruby>を<ruby>過去形<rt>かこけい</rt></ruby>にする<ruby>仮定法<rt>かていほう</rt></ruby>を見てみよう！<br/><br/><strong>If I had a school backpack, I would donate it.</strong><br/>（もしランドセルがあれば、<ruby>寄付<rt>きふ</rt></ruby>するのに。）<br/><br/><strong>If we had a car, we would go to more places.</strong><br/>（もし<ruby>車<rt>くるま</rt></ruby>があれば、もっと<ruby>色々<rt>いろいろ</rt></ruby>な<ruby>場所<rt>ばしょ</rt></ruby>に<ruby>行<rt>い</rt></ruby>くのに。）<br/><br/>have → <strong>had</strong> にしているね。「<ruby>今<rt>いま</rt></ruby>は<ruby>持<rt>も</rt></ruby>っていないけど、もし<ruby>持<rt>も</rt></ruby>っていたら」という<ruby>想像<rt>そうぞう</rt></ruby>だよ。',
+      speakable: [
+        'If I had a school backpack, I would donate it.',
+        'If we had a car, we would go to more places.',
+      ],
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: 'have → had はわかりました！ほかの<ruby>動詞<rt>どうし</rt></ruby>ではどうなりますか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: 'いい<ruby>質問<rt>しつもん</rt></ruby>！ほかの<ruby>動詞<rt>どうし</rt></ruby>も<ruby>過去形<rt>かこけい</rt></ruby>にするよ。<br/><br/><strong>If I lived in Hawaii, I would surf every day.</strong><br/>（もしハワイに<ruby>住<rt>す</rt></ruby>んでいたら、<ruby>毎日<rt>まいにち</rt></ruby>サーフィンするのに。）<br/><br/><strong>If they had school, they could learn to read or write.</strong><br/>（もし<ruby>学校<rt>がっこう</rt></ruby>があれば、<ruby>読<rt>よ</rt></ruby>み<ruby>書<rt>か</rt></ruby>きを<ruby>学<rt>まな</rt></ruby>べるのに。）<br/><br/>live → <strong>lived</strong>、have → <strong>had</strong>。それと、would だけじゃなく <strong>could</strong>（〜できるのに）も使えるよ！',
+      speakable: [
+        'If I lived in Hawaii, I would surf every day.',
+        'If they had school, they could learn to read or write.',
+      ],
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'happy',
+      text: 'could も使えるんですね！ would は「〜するのに」、could は「〜できるのに」ってことですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'encouraging',
+      text: 'そのとおり！<ruby>整理<rt>せいり</rt></ruby>すると、<br/><br/>📌 If + <ruby>主語<rt>しゅご</rt></ruby> + <ruby>一般動詞<rt>いっぱんどうし</rt></ruby>の<ruby>過去形<rt>かこけい</rt></ruby> 〜, <ruby>主語<rt>しゅご</rt></ruby> + <strong>would / could</strong> + <ruby>動詞<rt>どうし</rt></ruby> 〜.<br/><br/>💭 <ruby>動詞<rt>どうし</rt></ruby>の<ruby>変化<rt>へんか</rt></ruby>：<br/>・have → <strong>had</strong><br/>・live → <strong>lived</strong><br/>・know → <strong>knew</strong><br/>・speak → <strong>spoke</strong><br/><br/>ふつうの<ruby>動詞<rt>どうし</rt></ruby>も<ruby>過去形<rt>かこけい</rt></ruby>にすればOK！',
+    },
+    {
+      type: 'summary-point',
+      text: 'If + <ruby>主語<rt>しゅご</rt></ruby> + <strong><ruby>一般動詞<rt>いっぱんどうし</rt></ruby>の<ruby>過去形<rt>かこけい</rt></ruby></strong> 〜, <ruby>主語<rt>しゅご</rt></ruby> + would/could + <ruby>動詞<rt>どうし</rt></ruby> 〜. → have→had, live→lived, know→knew など',
+    },
+    {
+      type: 'quiz',
+      question: '「もしハワイに住んでいたら、毎日サーフィンするのに。」If I (　) in Hawaii, I would surf every day. の (　) に入るのは？',
+      options: [
+        { letter: 'A', text: 'live', correct: false },
+        { letter: 'B', text: 'lives', correct: false },
+        { letter: 'C', text: 'lived', correct: true },
+        { letter: 'D', text: 'living', correct: false },
+      ],
+      explanation: '<ruby>仮定法<rt>かていほう</rt></ruby>では<ruby>一般動詞<rt>いっぱんどうし</rt></ruby>も<ruby>過去形<rt>かこけい</rt></ruby>にするよ。live → <strong>lived</strong> だね。',
+    },
+    // ===== セクション4: 現実の文との比較 =====
+    {
+      type: 'date',
+      text: '<ruby>現実<rt>げんじつ</rt></ruby>の<ruby>文<rt>ぶん</rt></ruby>との<ruby>比較<rt>ひかく</rt></ruby>',
+    },
+    {
+      type: 'narrator',
+      text: '<ruby>現実<rt>げんじつ</rt></ruby>の<ruby>文<rt>ぶん</rt></ruby>（<ruby>否定文<rt>ひていぶん</rt></ruby>）を I wish で<ruby>仮定法<rt>かていほう</rt></ruby>にする<ruby>練習<rt>れんしゅう</rt></ruby>をしよう！テストでよく出るパターンだよ。',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<ruby>現実<rt>げんじつ</rt></ruby>の<ruby>文<rt>ぶん</rt></ruby>と<ruby>仮定法<rt>かていほう</rt></ruby>の<ruby>文<rt>ぶん</rt></ruby>を<ruby>比<rt>くら</rt></ruby>べてみよう！<br/><br/>🔴 <ruby>現実<rt>げんじつ</rt></ruby>: <strong>I\'m not good at math.</strong><br/>（<ruby>数学<rt>すうがく</rt></ruby>が<ruby>得意<rt>とくい</rt></ruby>じゃない。）<br/><br/>🔵 <ruby>仮定法<rt>かていほう</rt></ruby>: <strong>I wish I were good at math.</strong><br/>（<ruby>数学<rt>すうがく</rt></ruby>が<ruby>得意<rt>とくい</rt></ruby>だったらいいのに。）<br/><br/>ポイントは2つ！<br/>① <ruby>否定<rt>ひてい</rt></ruby>を<strong><ruby>外<rt>はず</rt></ruby>す</strong><br/>② am → <strong>were</strong> にする',
+      speakable: [
+        'I\'m not good at math.',
+        'I wish I were good at math.',
+      ],
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'surprised',
+      text: '<ruby>否定<rt>ひてい</rt></ruby>を<ruby>外<rt>はず</rt></ruby>すんですか！「<ruby>得意<rt>とくい</rt></ruby>じゃない」→「<ruby>得意<rt>とくい</rt></ruby>だったらいいのに」ってことですね。',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: 'そう！もっと<ruby>例<rt>れい</rt></ruby>を見よう。<br/><br/>🔴 <ruby>現実<rt>げんじつ</rt></ruby>: <strong>We can\'t help you.</strong><br/>（あなたを<ruby>助<rt>たす</rt></ruby>けられない。）<br/><br/>🔵 <ruby>仮定法<rt>かていほう</rt></ruby>: <strong>I wish we could help you.</strong><br/>（<ruby>助<rt>たす</rt></ruby>けられたらいいのに。）<br/><br/><ruby>否定<rt>ひてい</rt></ruby>を<ruby>外<rt>はず</rt></ruby>して、can\'t → <strong>could</strong> にしているよ。',
+      speakable: [
+        'We can\'t help you.',
+        'I wish we could help you.',
+      ],
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: 'can\'t → could にして<ruby>否定<rt>ひてい</rt></ruby>を<ruby>外<rt>はず</rt></ruby>す…。じゃあ don\'t have のときは？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: 'いい<ruby>質問<rt>しつもん</rt></ruby>！<br/><br/>🔴 <ruby>現実<rt>げんじつ</rt></ruby>: <strong>I don\'t know her phone number.</strong><br/>（<ruby>彼女<rt>かのじょ</rt></ruby>の<ruby>電話番号<rt>でんわばんごう</rt></ruby>を<ruby>知<rt>し</rt></ruby>らない。）<br/><br/>🔵 <ruby>仮定法<rt>かていほう</rt></ruby>: <strong>I wish I knew her phone number.</strong><br/>（<ruby>知<rt>し</rt></ruby>っていたらいいのに。）<br/><br/>don\'t know → <strong>knew</strong>。<ruby>否定<rt>ひてい</rt></ruby>を<ruby>外<rt>はず</rt></ruby>して、<ruby>動詞<rt>どうし</rt></ruby>を<ruby>過去形<rt>かこけい</rt></ruby>にするよ！',
+      speakable: [
+        'I don\'t know her phone number.',
+        'I wish I knew her phone number.',
+      ],
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'happy',
+      text: 'パターンがわかってきました！ <ruby>否定<rt>ひてい</rt></ruby>を<ruby>外<rt>はず</rt></ruby>して<ruby>過去形<rt>かこけい</rt></ruby>にすればいいんですね！',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'encouraging',
+      text: 'まとめると、<ruby>変換<rt>へんかん</rt></ruby>のルールはこうだよ！<br/><br/>📝 <ruby>現実<rt>げんじつ</rt></ruby> → <ruby>仮定法<rt>かていほう</rt></ruby>のルール：<br/>① <strong><ruby>否定<rt>ひてい</rt></ruby>を<ruby>外<rt>はず</rt></ruby>す</strong>（not を取る）<br/>② <strong><ruby>動詞<rt>どうし</rt></ruby>を<ruby>過去形<rt>かこけい</rt></ruby>にする</strong><br/><br/>・am not → <strong>were</strong><br/>・can\'t → <strong>could</strong><br/>・don\'t have → <strong>had</strong><br/>・don\'t know → <strong>knew</strong><br/>・don\'t live → <strong>lived</strong><br/><br/>テストでよく出るからしっかり<ruby>覚<rt>おぼ</rt></ruby>えよう！',
+    },
+    {
+      type: 'summary-point',
+      text: '<ruby>現実<rt>げんじつ</rt></ruby>→<ruby>仮定法<rt>かていほう</rt></ruby>の<ruby>変換<rt>へんかん</rt></ruby>: ① <ruby>否定<rt>ひてい</rt></ruby>を<ruby>外<rt>はず</rt></ruby>す ② <ruby>動詞<rt>どうし</rt></ruby>を<ruby>過去形<rt>かこけい</rt></ruby>にする（am not→were, can\'t→could, don\'t have→had）',
+    },
+    {
+      type: 'quiz',
+      question: '現実の文「I\'m not good at math.」を I wish を使って仮定法にすると？',
+      options: [
+        { letter: 'A', text: 'I wish I am good at math.', correct: false },
+        { letter: 'B', text: 'I wish I was good at math.', correct: false },
+        { letter: 'C', text: 'I wish I were good at math.', correct: true },
+        { letter: 'D', text: 'I wish I weren\'t good at math.', correct: false },
+      ],
+      explanation: 'am not → <strong>were</strong> にして<ruby>否定<rt>ひてい</rt></ruby>を<ruby>外<rt>はず</rt></ruby>す。<ruby>仮定法<rt>かていほう</rt></ruby>では be<ruby>動詞<rt>どうし</rt></ruby>は<ruby>全部<rt>ぜんぶ</rt></ruby> were だよ。',
+    },
     {
       type: 'end',
       points: [
@@ -169,7 +323,8 @@ export const subjunctiveChat: HistoryChat = {
         '<ruby>仮定法<rt>かていほう</rt></ruby><ruby>過去<rt>かこ</rt></ruby>: If + <ruby>主語<rt>しゅご</rt></ruby> + <ruby>過去<rt>かこ</rt></ruby>の形 〜, <ruby>主語<rt>しゅご</rt></ruby> + would + <ruby>動詞<rt>どうし</rt></ruby> 〜.',
         'I wish + <ruby>主語<rt>しゅご</rt></ruby> + <ruby>過去<rt>かこ</rt></ruby>の形 〜. で「〜だったらいいのに」',
         'be<ruby>動詞<rt>どうし</rt></ruby>は<ruby>全部<rt>ぜんぶ</rt></ruby> were にする（I were, he were, she were...）',
-        '<ruby>過去<rt>かこ</rt></ruby>の形を使うけど<ruby>過去<rt>かこ</rt></ruby>の<ruby>話<rt>はなし</rt></ruby>ではない →「<ruby>現実<rt>げんじつ</rt></ruby>じゃない」を<ruby>表<rt>あらわ</rt></ruby>す',
+        'If + <ruby>一般動詞<rt>いっぱんどうし</rt></ruby>の<ruby>過去形<rt>かこけい</rt></ruby>もOK（had, lived, knew...）',
+        '<ruby>現実<rt>げんじつ</rt></ruby>→<ruby>仮定法<rt>かていほう</rt></ruby>: <ruby>否定<rt>ひてい</rt></ruby>を<ruby>外<rt>はず</rt></ruby>す + <ruby>過去形<rt>かこけい</rt></ruby>にする',
       ],
     },
   ],

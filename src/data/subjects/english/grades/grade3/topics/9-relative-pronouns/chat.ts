@@ -35,6 +35,7 @@ export const relativePronounsChat: HistoryChat = {
     },
   ],
   content: [
+    // === セクション1: who で「人」を説明しよう ===
     {
       type: 'date',
       text: 'who で「人」を<ruby>説明<rt>せつめい</rt></ruby>しよう',
@@ -95,6 +96,7 @@ export const relativePronounsChat: HistoryChat = {
       ],
       explanation: '「<ruby>友達<rt>ともだち</rt></ruby>」は人だから <strong>who</strong> を使うよ。who のうしろは<ruby>動詞<rt>どうし</rt></ruby>がくるよ。a friend who lives in America が<ruby>正<rt>ただ</rt></ruby>しいよ。',
     },
+    // === セクション2: which / that で「もの」を説明しよう ===
     {
       type: 'date',
       text: 'which / that で「もの」を<ruby>説明<rt>せつめい</rt></ruby>しよう',
@@ -169,6 +171,135 @@ export const relativePronounsChat: HistoryChat = {
       ],
       explanation: '<ruby>猫<rt>ねこ</rt></ruby>は「もの」だから which か that を使えるよ。who は人にしか使えないよ。which でもOKだけど、<strong>that</strong> が一番よく使われるよ。',
     },
+    // === セクション3: 目的格の関係代名詞 ===
+    {
+      type: 'date',
+      text: '<ruby>目的格<rt>もくてきかく</rt></ruby>の<ruby>関係代名詞<rt>かんけいだいめいし</rt></ruby>を使おう',
+    },
+    {
+      type: 'narrator',
+      text: '<ruby>次<rt>つぎ</rt></ruby>は<ruby>目的格<rt>もくてきかく</rt></ruby>の<ruby>関係代名詞<rt>かんけいだいめいし</rt></ruby>を<ruby>覚<rt>おぼ</rt></ruby>えよう！<ruby>目的格<rt>もくてきかく</rt></ruby>は「〜を」「〜が（した）もの」という<ruby>意味<rt>いみ</rt></ruby>で使うよ。',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<ruby>今<rt>いま</rt></ruby>まで見てきた who plays soccer（サッカーを<strong>する</strong>）のような文は<strong><ruby>主格<rt>しゅかく</rt></ruby></strong>だったね。<br/><br/><ruby>今度<rt>こんど</rt></ruby>は<strong><ruby>目的格<rt>もくてきかく</rt></ruby></strong>を見てみよう！<br/><br/><strong>This is the shirt that I got.</strong><br/>（これは<ruby>私<rt>わたし</rt></ruby>がもらったシャツです。）<br/><br/>I got <strong>the shirt</strong> → the shirt <strong>that</strong> I got のように、「もらった<ruby>対象<rt>たいしょう</rt></ruby>」を<ruby>説明<rt>せつめい</rt></ruby>しているよ。',
+      speakable: ['This is the shirt that I got.'],
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: '<ruby>主格<rt>しゅかく</rt></ruby>と<ruby>目的格<rt>もくてきかく</rt></ruby>ってどう<ruby>見分<rt>みわ</rt></ruby>けるんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: 'いいポイント！<ruby>簡単<rt>かんたん</rt></ruby>な<ruby>見分<rt>みわ</rt></ruby>け方があるよ。<br/><br/>📌 <strong><ruby>主格<rt>しゅかく</rt></ruby></strong>：<ruby>関係代名詞<rt>かんけいだいめいし</rt></ruby>のうしろに<strong><ruby>動詞<rt>どうし</rt></ruby></strong>がくる<br/>→ the boy <strong>who plays</strong> soccer<br/><br/>📌 <strong><ruby>目的格<rt>もくてきかく</rt></ruby></strong>：<ruby>関係代名詞<rt>かんけいだいめいし</rt></ruby>のうしろに<strong><ruby>主語<rt>しゅご</rt></ruby>+<ruby>動詞<rt>どうし</rt></ruby></strong>がくる<br/>→ the shirt <strong>that I got</strong>',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'surprised',
+      text: 'うしろに「<ruby>主語<rt>しゅご</rt></ruby>+<ruby>動詞<rt>どうし</rt></ruby>」が来たら<ruby>目的格<rt>もくてきかく</rt></ruby>！わかりやすい！',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: 'そして<ruby>目的格<rt>もくてきかく</rt></ruby>には<ruby>大事<rt>だいじ</rt></ruby>なルールがあるよ！<br/><br/><strong><ruby>目的格<rt>もくてきかく</rt></ruby>の<ruby>関係代名詞<rt>かんけいだいめいし</rt></ruby>は<ruby>省略<rt>しょうりゃく</rt></ruby>できる！</strong><br/><br/>The anime <strong>which</strong> my sister likes is popular.<br/>= The anime my sister likes is popular.<br/><br/>This is the best pizza <strong>(that)</strong> I\'ve ever had.<br/>= This is the best pizza I\'ve ever had.<br/><br/><ruby>会話<rt>かいわ</rt></ruby>では<ruby>省略<rt>しょうりゃく</rt></ruby>するのがふつうだよ。',
+      speakable: ['The anime which my sister likes is popular.', 'This is the best pizza I\'ve ever had.'],
+    },
+    {
+      type: 'summary-point',
+      text: '<ruby>目的格<rt>もくてきかく</rt></ruby>の<ruby>関係代名詞<rt>かんけいだいめいし</rt></ruby>は<strong><ruby>省略<rt>しょうりゃく</rt></ruby>できる</strong>！うしろに「<ruby>主語<rt>しゅご</rt></ruby>+<ruby>動詞<rt>どうし</rt></ruby>」が来たら<ruby>目的格<rt>もくてきかく</rt></ruby>のサイン',
+    },
+    {
+      type: 'quiz',
+      question: '「姉が好きなアニメは人気があります。」を英語にすると？',
+      options: [
+        { letter: 'A', text: 'The anime who my sister likes is popular.', correct: false },
+        { letter: 'B', text: 'The anime which my sister likes is popular.', correct: true },
+        { letter: 'C', text: 'The anime whose my sister likes is popular.', correct: false },
+        { letter: 'D', text: 'The anime what my sister likes is popular.', correct: false },
+      ],
+      explanation: 'アニメは「もの」だから <strong>which</strong> か that を使うよ。my sister likes の<ruby>目的語<rt>もくてきご</rt></ruby>になっているから<ruby>目的格<rt>もくてきかく</rt></ruby>。<ruby>省略<rt>しょうりゃく</rt></ruby>もOKだよ。',
+    },
+    // === セクション4: 関係代名詞節が主語になる文 ===
+    {
+      type: 'date',
+      text: '<ruby>関係代名詞節<rt>かんけいだいめいしせつ</rt></ruby>が<ruby>主語<rt>しゅご</rt></ruby>になる文',
+    },
+    {
+      type: 'narrator',
+      text: '<ruby>最後<rt>さいご</rt></ruby>に、<ruby>関係代名詞<rt>かんけいだいめいし</rt></ruby>のついた<ruby>部分<rt>ぶぶん</rt></ruby>が<ruby>文全体<rt>ぶんぜんたい</rt></ruby>の<ruby>主語<rt>しゅご</rt></ruby>になるパターンを<ruby>覚<rt>おぼ</rt></ruby>えよう！',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: 'この<ruby>例文<rt>れいぶん</rt></ruby>を見てみよう！<br/><br/><strong>The picture that you took is beautiful.</strong><br/>（あなたが<ruby>撮<rt>と</rt></ruby>った<ruby>写真<rt>しゃしん</rt></ruby>は<ruby>美<rt>うつく</rt></ruby>しいです。）<br/><br/>この文の<ruby>主語<rt>しゅご</rt></ruby>はどこまでだと<ruby>思<rt>おも</rt></ruby>う？',
+      speakable: ['The picture that you took is beautiful.'],
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: 'えっと… The picture that you took までが<ruby>主語<rt>しゅご</rt></ruby>ですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: '<ruby>正解<rt>せいかい</rt></ruby>！<strong>The picture that you took</strong>（あなたが<ruby>撮<rt>と</rt></ruby>った<ruby>写真<rt>しゃしん</rt></ruby>）が<ruby>主語<rt>しゅご</rt></ruby>で、<strong>is beautiful</strong> が<ruby>述語<rt>じゅつご</rt></ruby>なんだ。<br/><br/><ruby>関係代名詞節<rt>かんけいだいめいしせつ</rt></ruby>（that you took）がついた<ruby>名詞<rt>めいし</rt></ruby>が<ruby>長<rt>なが</rt></ruby>い<ruby>主語<rt>しゅご</rt></ruby>になるんだよ。',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: 'もう1つ見てみよう！<br/><br/><strong>The bus that goes to the zoo has already left.</strong><br/>（<ruby>動物園<rt>どうぶつえん</rt></ruby>に行くバスはもう<ruby>出発<rt>しゅっぱつ</rt></ruby>しました。）<br/><br/><ruby>主語<rt>しゅご</rt></ruby>：<strong>The bus that goes to the zoo</strong><br/><ruby>述語<rt>じゅつご</rt></ruby>：<strong>has already left</strong><br/><br/><ruby>関係代名詞節<rt>かんけいだいめいしせつ</rt></ruby>が<ruby>主語<rt>しゅご</rt></ruby>を<ruby>修飾<rt>しゅうしょく</rt></ruby>しているから、<ruby>述語<rt>じゅつご</rt></ruby>の<ruby>動詞<rt>どうし</rt></ruby>が<ruby>遠<rt>とお</rt></ruby>くなるのがポイントだよ。',
+      speakable: ['The bus that goes to the zoo has already left.'],
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'surprised',
+      text: '<ruby>主語<rt>しゅご</rt></ruby>が<ruby>長<rt>なが</rt></ruby>くなるから、<ruby>述語<rt>じゅつご</rt></ruby>の<ruby>動詞<rt>どうし</rt></ruby>を<ruby>見失<rt>みうしな</rt></ruby>いそうですね…！',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'encouraging',
+      text: 'コツは「<ruby>関係代名詞節<rt>かんけいだいめいしせつ</rt></ruby>をカッコでくくって考える」こと！<br/><br/>The bus <strong>[that goes to the zoo]</strong> | has already left.<br/>The picture <strong>[that you took]</strong> | is beautiful.<br/><br/>カッコの<ruby>外<rt>そと</rt></ruby>にある<ruby>動詞<rt>どうし</rt></ruby>が<ruby>文全体<rt>ぶんぜんたい</rt></ruby>の<ruby>述語<rt>じゅつご</rt></ruby>だよ！',
+    },
+    {
+      type: 'summary-point',
+      text: '<ruby>関係代名詞節<rt>かんけいだいめいしせつ</rt></ruby>が<ruby>主語<rt>しゅご</rt></ruby>を<ruby>修飾<rt>しゅうしょく</rt></ruby>する文では、<ruby>述語<rt>じゅつご</rt></ruby>の<ruby>動詞<rt>どうし</rt></ruby>が<ruby>遠<rt>とお</rt></ruby>くなる → カッコでくくって<ruby>考<rt>かんが</rt></ruby>えよう',
+    },
+    {
+      type: 'quiz',
+      question: '「動物園に行くバスはもう出発しました。」の主語はどこまで？',
+      options: [
+        { letter: 'A', text: 'The bus', correct: false },
+        { letter: 'B', text: 'The bus that goes', correct: false },
+        { letter: 'C', text: 'The bus that goes to the zoo', correct: true },
+        { letter: 'D', text: 'The bus that goes to the zoo has', correct: false },
+      ],
+      explanation: '「<ruby>動物園<rt>どうぶつえん</rt></ruby>に行くバス」= <strong>The bus that goes to the zoo</strong> が<ruby>主語<rt>しゅご</rt></ruby>だよ。has already left が<ruby>述語<rt>じゅつご</rt></ruby>。<ruby>関係代名詞節<rt>かんけいだいめいしせつ</rt></ruby>をカッコでくくって<ruby>考<rt>かんが</rt></ruby>えよう！',
+    },
     {
       type: 'end',
       points: [
@@ -176,7 +307,8 @@ export const relativePronounsChat: HistoryChat = {
         'who → 「人」を<ruby>説明<rt>せつめい</rt></ruby>するとき',
         'which → 「もの」を<ruby>説明<rt>せつめい</rt></ruby>するとき',
         'that → 人でもものでもOK。<ruby>迷<rt>まよ</rt></ruby>ったら that を使おう',
-        '<ruby>前回<rt>ぜんかい</rt></ruby>の<ruby>接触節<rt>せっしょくせつ</rt></ruby>は、that/which を<ruby>省略<rt>しょうりゃく</rt></ruby>した形だったよ',
+        '<ruby>目的格<rt>もくてきかく</rt></ruby>の<ruby>関係代名詞<rt>かんけいだいめいし</rt></ruby>は<ruby>省略<rt>しょうりゃく</rt></ruby>できる（<ruby>主格<rt>しゅかく</rt></ruby>は<ruby>省略<rt>しょうりゃく</rt></ruby>不可）',
+        '<ruby>関係代名詞節<rt>かんけいだいめいしせつ</rt></ruby>が<ruby>主語<rt>しゅご</rt></ruby>になると<ruby>述語<rt>じゅつご</rt></ruby>が<ruby>遠<rt>とお</rt></ruby>くなる → カッコでくくって<ruby>考<rt>かんが</rt></ruby>えよう',
       ],
     },
   ],
