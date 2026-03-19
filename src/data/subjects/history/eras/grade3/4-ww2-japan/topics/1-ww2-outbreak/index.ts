@@ -54,6 +54,18 @@ export const ww2Outbreak: Topic = {
       { id: 'fc8', front: '連合国', back: 'アメリカ・イギリス・ソ連・中国などを中心とする陣営を何という？', difficulty: 'standard' },
       { id: 'fc9', front: '1939年', back: 'ドイツのポーランド侵攻により第二次世界大戦が始まった年は？', difficulty: 'advanced' },
       { id: 'fc10', front: '日本が開戦に至った経緯', back: 'ABCD包囲陣による経済封鎖が日本の開戦決意にどのように影響したか？', explanation: '石油などの資源を断たれた日本は、東南アジアの資源確保のため開戦へと追い込まれた。', difficulty: 'advanced' },
+      { id: 'fc11', front: '電撃戦', back: 'ドイツが素早い攻撃で次々とヨーロッパ諸国を占領した戦法は？', difficulty: 'basic' },
+      { id: 'fc12', front: 'フランスの降伏', back: '1940年にドイツの電撃戦により占領・降伏した大国は？', difficulty: 'basic' },
+      { id: 'fc13', front: 'レジスタンス', back: 'ヨーロッパ各地でドイツの支配に対して行われた抵抗運動を何という？', difficulty: 'standard' },
+      { id: 'fc14', front: '強制収容所', back: 'ナチス・ドイツがユダヤ人を送った施設を何という？', difficulty: 'standard' },
+      { id: 'fc15', front: 'アウシュビッツ', back: 'ナチス・ドイツの強制収容所として最も有名なものは？', explanation: '約100万人以上が犠牲になったとされる。', difficulty: 'standard' },
+      { id: 'fc16', front: 'フランス領インドシナ', back: '日本が南進して進駐した東南アジアの地域は？', explanation: '現在のベトナム・ラオス・カンボジアにあたる。', difficulty: 'standard' },
+      { id: 'fc17', front: '石油輸出禁止', back: 'ABCD包囲陣で日本に対して行われた最も深刻な経済制裁は？', difficulty: 'standard' },
+      { id: 'fc18', front: '「大東亜共栄圏」', back: '日本がアジアへの侵出を正当化するために掲げたスローガンは？', explanation: '実態はアジアの資源を確保し支配するためのものだった。', difficulty: 'advanced' },
+      { id: 'fc19', front: 'イギリス・フランス', back: 'ドイツのポーランド侵攻に対して宣戦布告した2つの国は？', difficulty: 'basic' },
+      { id: 'fc20', front: '1940年', back: '日独伊三国同盟が結ばれた年は？', difficulty: 'advanced' },
+      { id: 'fc21', front: 'A=アメリカ B=イギリス C=中国 D=オランダ', back: 'ABCD包囲陣のA・B・C・Dはそれぞれどの国を指すか？', difficulty: 'standard' },
+      { id: 'fc22', front: '東部戦線', back: 'ドイツが独ソ不可侵条約を破ってソ連に侵攻したことで開かれた戦線は？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -102,6 +114,174 @@ export const ww2Outbreak: Topic = {
           explanation:
             'ホロコーストでは、強制収容所で約600万人のユダヤ人が犠牲になりました。',
           difficulty: 'standard',
+        },
+        {
+          id: 'q5',
+          question: '第二次世界大戦が始まった年は？',
+          options: [
+            '1937年',
+            '1938年',
+            '1939年',
+            '1941年',
+          ],
+          correctIndex: 2,
+          explanation:
+            '1939年にドイツがポーランドに侵攻し、第二次世界大戦が始まりました。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'q6',
+          question: 'ドイツが素早い攻撃でヨーロッパ諸国を占領した戦法を何という？',
+          options: [
+            '島飛び作戦',
+            '電撃戦',
+            'ゲリラ戦',
+            '持久戦',
+          ],
+          correctIndex: 1,
+          explanation:
+            '電撃戦は戦車や航空機を集中的に使った素早い攻撃で、ドイツはこの戦法でフランスなどを次々と占領しました。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'q7',
+          question: '日本・ドイツ・イタリアを中心とする陣営を何という？',
+          options: [
+            '連合国',
+            '同盟国',
+            '枢軸国',
+            '協商国',
+          ],
+          correctIndex: 2,
+          explanation:
+            '日独伊三国同盟を結んだ日本・ドイツ・イタリアを中心とする陣営を枢軸国と呼びます。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'q8',
+          question: 'ヨーロッパ各地でドイツの支配に対して行われた抵抗運動を何という？',
+          options: [
+            'ファシズム',
+            'レジスタンス',
+            'プロパガンダ',
+            'ホロコースト',
+          ],
+          correctIndex: 1,
+          explanation:
+            'レジスタンスはドイツに占領されたフランスなどで行われた抵抗運動です。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'q9',
+          question: '1939年にドイツとソ連が結んだ条約は？',
+          options: [
+            '日独伊三国同盟',
+            'ポツダム宣言',
+            '独ソ不可侵条約',
+            'ベルサイユ条約',
+          ],
+          correctIndex: 2,
+          explanation:
+            '独ソ不可侵条約はドイツとソ連が互いに攻撃しないと約束した条約ですが、のちにドイツが破りました。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'q10',
+          question: 'ABCD包囲陣で日本に対して禁止されたものは？',
+          options: [
+            '食料の輸出',
+            '武器の輸出',
+            '石油の輸出',
+            '繊維の輸出',
+          ],
+          correctIndex: 2,
+          explanation:
+            'ABCD包囲陣では日本への石油輸出が禁止され、資源を断たれた日本は開戦へと追い込まれました。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'q11',
+          question: 'アメリカ・イギリス・ソ連・中国などを中心とする陣営を何という？',
+          options: [
+            '枢軸国',
+            '連合国',
+            '同盟国',
+            '協商国',
+          ],
+          correctIndex: 1,
+          explanation:
+            '連合国はアメリカ・イギリス・ソ連・中国などを中心とする陣営で、枢軸国と対立しました。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'q12',
+          question: 'ナチス・ドイツがユダヤ人を送った施設として最も有名なものは？',
+          options: [
+            'ダッハウ',
+            'アウシュビッツ',
+            'ベルゲン・ベルゼン',
+            'トレブリンカ',
+          ],
+          correctIndex: 1,
+          explanation:
+            'アウシュビッツはナチス・ドイツの強制収容所として最も有名で、100万人以上が犠牲になったとされます。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'q13',
+          question: '日本が東南アジアに進出して確保しようとした主な資源は？',
+          options: [
+            '金',
+            '鉄',
+            '石油',
+            '石炭',
+          ],
+          correctIndex: 2,
+          explanation:
+            '日本は石油やゴムなどの資源確保を目的に東南アジアへの南進を進めました。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'q14',
+          question: '独ソ不可侵条約を結んだにもかかわらずドイツがソ連に侵攻したことが戦争に与えた影響は？',
+          options: [
+            'ソ連が枢軸国に参加した',
+            '東部戦線が開かれドイツは二正面作戦を強いられた',
+            'ソ連が中立を維持した',
+            'フランスが再独立した',
+          ],
+          correctIndex: 1,
+          explanation:
+            'ドイツがソ連に侵攻したことで東部戦線が開かれ、ドイツは東西の二正面作戦を強いられることになりました。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'q15',
+          question: '日独伊三国同盟の締結が日本にとって不利に働いた面は？',
+          options: [
+            'ドイツから武器を輸入できなくなった',
+            'アメリカなどとの対立が決定的になりABCD包囲陣を招いた',
+            'イタリアが日本を裏切った',
+            'ソ連と戦争になった',
+          ],
+          correctIndex: 1,
+          explanation:
+            'ドイツ・イタリアと同盟を結んだことで民主主義国との対立が決定的になり、ABCD包囲陣のような経済封鎖を招きました。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'q16',
+          question: '「大東亜共栄圏」の実態として正しいのは？',
+          options: [
+            'アジアの民族が対等に協力する経済圏',
+            '日本がアジアの資源を確保し支配するためのもの',
+            'アメリカが主導したアジアの経済圏',
+            '中国と日本の自由貿易圏',
+          ],
+          correctIndex: 1,
+          explanation:
+            '「大東亜共栄圏」は建前ではアジアの民族の繁栄を掲げましたが、実態は日本がアジアの資源を確保し支配するためのものでした。',
+          difficulty: 'advanced',
         },
       ],
     },

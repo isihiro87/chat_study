@@ -38,11 +38,26 @@ export const modernIssues: Topic = {
       { id: 'fc2', front: 'SDGs（持続可能な開発目標）', back: '2015年に国連で採択された、2030年までの達成を目指す17の国際目標は？', difficulty: 'basic' },
       { id: 'fc3', front: '少子高齢化', back: '子供が減り、高齢者の割合が高まる日本の社会現象を何という？', difficulty: 'basic' },
       { id: 'fc4', front: '京都議定書', back: '1997年に採択された、先進国に温室効果ガスの削減義務を課した文書は？', difficulty: 'basic' },
-      { id: 'fc5', front: 'パリ協定', back: '2015年に発展途上国も含め全ての国が温室効果ガス削減の目標を定めた合意は？', difficulty: 'standard' },
-      { id: 'fc6', front: '再生可能エネルギー', back: '東日本大震災後に導入が進んだ太陽光や風力などのエネルギーは？', difficulty: 'standard' },
-      { id: 'fc7', front: '満18歳以上', back: '2016年から引き下げられた選挙権の年齢は？', difficulty: 'standard' },
-      { id: 'fc8', front: '多文化共生', back: '異なる文化を持つ人々が共に生きる社会のあり方を何という？', difficulty: 'standard' },
-      { id: 'fc9', front: '京都議定書とパリ協定の違い', back: '京都議定書とパリ協定の最も大きな違いは何か？', explanation: '京都議定書は先進国のみに削減義務を課したが、パリ協定は発展途上国も含めた全ての国が目標を定めた。', difficulty: 'advanced' },
+      { id: 'fc5', front: '地球温暖化', back: '温室効果ガスの排出により起こる地球規模の環境問題は？', difficulty: 'basic' },
+      { id: 'fc6', front: '持続可能な社会', back: '将来の世代のことも考えた社会づくりを何という？', difficulty: 'basic' },
+      { id: 'fc7', front: '17のゴール', back: 'SDGsに定められている目標の数は？', difficulty: 'basic' },
+      { id: 'fc8', front: '2030年', back: 'SDGsの達成期限は何年？', difficulty: 'basic' },
+      { id: 'fc9', front: 'パリ協定', back: '2015年に発展途上国も含め全ての国が温室効果ガス削減の目標を定めた合意は？', difficulty: 'standard' },
+      { id: 'fc10', front: '再生可能エネルギー', back: '東日本大震災後に導入が進んだ太陽光や風力などのエネルギーは？', difficulty: 'standard' },
+      { id: 'fc11', front: '満18歳以上', back: '2016年から引き下げられた選挙権の年齢は？', difficulty: 'standard' },
+      { id: 'fc12', front: '多文化共生', back: '異なる文化を持つ人々が共に生きる社会のあり方を何という？', difficulty: 'standard' },
+      { id: 'fc13', front: '平和維持活動（PKO）', back: '国連が行う紛争解決のための活動を何という？', difficulty: 'standard' },
+      { id: 'fc14', front: 'NGO（非政府組織）', back: '民間の立場で国際協力を行う組織を何という？', difficulty: 'standard' },
+      { id: 'fc15', front: '主要国首脳会議（サミット）', back: '主要国の首脳が集まって国際問題を話し合う会議を何という？', difficulty: 'standard' },
+      { id: 'fc16', front: '世界金融危機', back: '2008年に世界的な経済の混乱を引き起こした出来事は？', difficulty: 'standard' },
+      { id: 'fc17', front: '核軍縮・核不拡散', back: '核兵器の削減と拡散防止を目指す世界的な課題は？', difficulty: 'standard' },
+      { id: 'fc18', front: '情報化社会', back: '携帯電話やインターネットの普及により進んだ社会の変化は？', difficulty: 'standard' },
+      { id: 'fc19', front: '自由貿易', back: 'グローバル化の進展により拡大した、関税などの障壁を減らす貿易を何という？', difficulty: 'standard' },
+      { id: 'fc20', front: '京都議定書とパリ協定の違い', back: '京都議定書とパリ協定の最も大きな違いは何か？', explanation: '京都議定書は先進国のみに削減義務を課したが、パリ協定は発展途上国も含めた全ての国が目標を定めた。', difficulty: 'advanced' },
+      { id: 'fc21', front: 'グローバル化の課題', back: 'グローバル化がもたらす課題にはどのようなものがあるか？', explanation: '経済格差の拡大、自国産業の衰退、文化の画一化、移民問題など、グローバル化の恩恵が均等に行き渡らないことが課題。', difficulty: 'advanced' },
+      { id: 'fc22', front: '少子高齢化と社会保障', back: '少子高齢化が日本の社会保障制度に与える影響は？', explanation: '現役世代の減少と高齢者の増加により年金制度の維持が困難になり、医療費も増大して国の財政を圧迫している。', difficulty: 'advanced' },
+      { id: 'fc23', front: 'SDGsの包括性', back: 'SDGsが環境だけでなく貧困・教育など幅広い分野を含む理由は？', explanation: '環境問題は貧困や教育と密接に関連しており、持続可能な社会の実現には包括的なアプローチが必要なため。', difficulty: 'advanced' },
+      { id: 'fc24', front: '核抑止論', back: '核軍縮が進まない背景にある考え方は？', explanation: '核兵器を保有することで他国からの攻撃を抑止できるという考え方で、核保有国が核兵器を手放さない理由となっている。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -90,6 +105,48 @@ export const modernIssues: Topic = {
         },
         {
           id: 'q4',
+          question: '世界が一体化し、国境を越えた交流が進む現象を何という？',
+          options: [
+            '情報化',
+            'グローバル化',
+            '都市化',
+            '工業化',
+          ],
+          correctIndex: 1,
+          explanation:
+            'グローバル化とは、情報やヒト・モノ・カネが国境を越えて移動し、世界が一体化する現象です。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'q5',
+          question: '温室効果ガスの排出により起こる地球規模の環境問題は？',
+          options: [
+            'オゾン層破壊',
+            '酸性雨',
+            '地球温暖化',
+            '砂漠化',
+          ],
+          correctIndex: 2,
+          explanation:
+            '地球温暖化は温室効果ガスの排出が原因で、京都議定書やパリ協定で削減の取り組みが進められています。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'q6',
+          question: '子供が減り高齢者の割合が高まる日本の社会現象は？',
+          options: [
+            '過疎化',
+            '少子高齢化',
+            '都市化',
+            'グローバル化',
+          ],
+          correctIndex: 1,
+          explanation:
+            '少子高齢化は日本の大きな社会問題であり、持続可能な社会の実現が求められています。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'q7',
           question:
             '2015年に発展途上国も含めた全ての国が温室効果ガス削減目標を定めた合意は？',
           options: [
@@ -104,22 +161,7 @@ export const modernIssues: Topic = {
           difficulty: 'standard',
         },
         {
-          id: 'q5',
-          question:
-            '日本で急速に進んでいる、子供が減り高齢者の割合が高まる現象を何という？',
-          options: [
-            '過疎化',
-            '少子高齢化',
-            '都市化',
-            'グローバル化',
-          ],
-          correctIndex: 1,
-          explanation:
-            '少子高齢化は日本の大きな社会問題であり、持続可能な社会の実現が求められています。',
-          difficulty: 'standard',
-        },
-        {
-          id: 'q6',
+          id: 'q8',
           question:
             '東日本大震災後に導入が進んだ、太陽光や風力などのエネルギーを何という？',
           options: [
@@ -132,6 +174,160 @@ export const modernIssues: Topic = {
           explanation:
             '2011年の東日本大震災後、太陽光や風力などの再生可能エネルギーの導入が加速しました。',
           difficulty: 'standard',
+        },
+        {
+          id: 'q9',
+          question: '国連が行う紛争地域での平和維持のための活動を何という？',
+          options: [
+            'ODA',
+            'PKO（平和維持活動）',
+            'NGO',
+            'NPO',
+          ],
+          correctIndex: 1,
+          explanation:
+            'PKO（平和維持活動）は国連が紛争地域の平和と安全を維持するために行う活動です。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'q10',
+          question: '民間の立場で国際協力を行う組織を何という？',
+          options: [
+            'NPO',
+            'ODA',
+            'NGO（非政府組織）',
+            'IMF',
+          ],
+          correctIndex: 2,
+          explanation:
+            'NGO（非政府組織）は政府から独立した立場で国際協力や人道支援を行う民間組織です。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'q11',
+          question: '2008年に世界的な経済の混乱を引き起こした出来事は？',
+          options: [
+            'バブル崩壊',
+            'オイルショック',
+            '世界金融危機',
+            'アジア通貨危機',
+          ],
+          correctIndex: 2,
+          explanation:
+            '世界金融危機は2008年にアメリカの住宅バブル崩壊に端を発し、グローバル化した金融市場を通じて世界中に波及しました。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'q12',
+          question: '主要国の首脳が集まって国際問題を話し合う会議を何という？',
+          options: [
+            '国連総会',
+            '安全保障理事会',
+            '主要国首脳会議（サミット）',
+            'APEC',
+          ],
+          correctIndex: 2,
+          explanation:
+            '主要国首脳会議（サミット）はG7やG20などの枠組みで、主要国の首脳が国際的な課題を議論する会議です。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'q13',
+          question: '異なる文化を持つ人々が共に生きる社会のあり方を何という？',
+          options: [
+            '国際化',
+            '多文化共生',
+            'グローバル化',
+            '民主化',
+          ],
+          correctIndex: 1,
+          explanation:
+            '多文化共生は、異なる文化背景を持つ人々が互いを認め合い、共に生きる社会のあり方です。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'q14',
+          question: '核兵器に関する世界的な課題の2つの柱は？',
+          options: [
+            '核開発と核実験',
+            '核軍縮と核不拡散',
+            '核廃棄と核融合',
+            '核保有と核共有',
+          ],
+          correctIndex: 1,
+          explanation:
+            '核軍縮（核兵器の削減）と核不拡散（核兵器の広がりを防ぐ）が核兵器に関する世界的な課題の2つの柱です。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'q15',
+          question: '京都議定書とパリ協定の最も大きな違いは何か？',
+          options: [
+            '京都議定書は環境問題、パリ協定は経済問題を扱う',
+            '京都議定書は先進国のみ対象、パリ協定は全ての国が対象',
+            '京都議定書は国連、パリ協定はEUが採択した',
+            '京都議定書は温暖化、パリ協定はオゾン層に関する合意',
+          ],
+          correctIndex: 1,
+          explanation:
+            '京都議定書は先進国のみに温室効果ガスの削減義務を課しましたが、パリ協定は発展途上国も含めた全ての国が自主的な削減目標を定めました。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'q16',
+          question: 'SDGsが環境問題だけでなく貧困・教育など幅広い分野を含んでいる理由として最も適切なものは？',
+          options: [
+            '国連の予算を増やすため',
+            '環境問題は貧困や教育と密接に関連し、包括的な取り組みが必要なため',
+            '各国が好きな目標だけ達成すればよいため',
+            '環境問題はすでに解決したため',
+          ],
+          correctIndex: 1,
+          explanation:
+            '環境問題は貧困・教育・経済格差などと密接に関連しており、持続可能な社会の実現には環境だけでなく社会全体の課題に包括的に取り組む必要があります。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'q17',
+          question: '少子高齢化が日本の年金制度に与える影響として最も適切なものは？',
+          options: [
+            '年金の受給額が増える',
+            '現役世代が増えて負担が減る',
+            '支え手が減り受給者が増えるため制度維持が困難になる',
+            '年金制度が不要になる',
+          ],
+          correctIndex: 2,
+          explanation:
+            '少子高齢化により年金の支え手（現役世代）が減少し受給者（高齢者）が増加するため、年金制度の維持が困難になります。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'q18',
+          question: '核軍縮が進まない背景にある「核抑止論」とはどのような考え方か？',
+          options: [
+            '核兵器は環境に良いという考え方',
+            '核兵器を持つことで他国からの攻撃を抑止できるという考え方',
+            '核兵器は安価に製造できるという考え方',
+            '核兵器は防御にのみ使用できるという考え方',
+          ],
+          correctIndex: 1,
+          explanation:
+            '核抑止論は核兵器を保有することで相互に攻撃を思いとどまらせるという考え方で、核保有国が核兵器を手放さない理由の一つです。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'q19',
+          question: 'グローバル化に対する「反グローバリズム」が生まれた理由として最も適切なものは？',
+          options: [
+            'インターネットが普及したため',
+            '各国の文化が多様化したため',
+            'グローバル化の恩恵が均等に行き渡らず格差が広がったため',
+            '国際的な協力が不要になったため',
+          ],
+          correctIndex: 2,
+          explanation:
+            'グローバル化により自国産業の衰退や移民問題、経済格差の拡大などが生じ、グローバル化の恩恵が均等に行き渡らないことへの不満から反グローバリズムの動きが生まれました。',
+          difficulty: 'advanced',
         },
       ],
     },

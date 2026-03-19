@@ -38,13 +38,24 @@ export const coldWarEnd: Topic = {
       { id: 'fc2', front: 'ゴルバチョフ', back: 'ペレストロイカ（改革）やグラスノスチ（情報公開）を進めたソ連の指導者は？', difficulty: 'basic' },
       { id: 'fc3', front: 'ベルリンの壁崩壊', back: '1989年に取り壊された、東西ドイツを隔てていた冷戦の象徴は？', difficulty: 'basic' },
       { id: 'fc4', front: 'ソ連解体', back: '1991年に多くの共和国が独立し消滅した国は？', difficulty: 'basic' },
-      { id: 'fc5', front: 'ヨーロッパ連合（EU）', back: '1993年に発足したヨーロッパの地域統合組織は？', difficulty: 'standard' },
-      { id: 'fc6', front: 'ユーロ', back: 'EUで導入されている共通通貨の名称は？', difficulty: 'standard' },
-      { id: 'fc7', front: '湾岸戦争', back: '1991年にイラクのクウェート侵攻に対し、多国籍軍がイラクを攻撃した戦争は？', difficulty: 'standard' },
-      { id: 'fc8', front: '天安門事件', back: '1989年に北京で民主化運動が弾圧された事件は？', difficulty: 'standard' },
-      { id: 'fc9', front: 'アメリカ同時多発テロ', back: '2001年9月11日にアメリカで起きた大規模テロ事件は？', difficulty: 'standard' },
-      { id: 'fc10', front: 'イラク戦争', back: '2003年にアメリカなどがイラクを攻撃した戦争は？', explanation: '大量破壊兵器の保有を理由に開戦されたが、兵器は発見されなかった。', difficulty: 'advanced' },
-      { id: 'fc11', front: '冷戦終結後の世界の変化', back: '冷戦終結後、世界ではどのような新たな課題が生じたか？', explanation: '民族紛争・地域紛争・テロの脅威が広がり、湾岸戦争やアメリカ同時多発テロなど新たな安全保障上の課題が生まれた。', difficulty: 'advanced' },
+      { id: 'fc5', front: 'ヨーロッパ連合（EU）', back: '1993年に発足したヨーロッパの地域統合組織は？', difficulty: 'basic' },
+      { id: 'fc6', front: 'ペレストロイカ', back: 'ゴルバチョフが推進した、ソ連の経済・政治の「立て直し」を意味する改革は？', difficulty: 'basic' },
+      { id: 'fc7', front: 'グラスノスチ', back: 'ゴルバチョフが進めた「情報公開」を意味する政策は？', difficulty: 'basic' },
+      { id: 'fc8', front: '1990年', back: '東西ドイツが統一された年は？', difficulty: 'basic' },
+      { id: 'fc9', front: 'アフガニスタン侵攻', back: '1979年にソ連が軍事介入し、国力低下の原因となった出来事は？', difficulty: 'standard' },
+      { id: 'fc10', front: 'ユーロ', back: 'EUで導入されている共通通貨の名称は？', difficulty: 'standard' },
+      { id: 'fc11', front: '湾岸戦争', back: '1991年にイラクのクウェート侵攻に対し、多国籍軍がイラクを攻撃した戦争は？', difficulty: 'standard' },
+      { id: 'fc12', front: '天安門事件', back: '1989年に北京で民主化運動が弾圧された事件は？', difficulty: 'standard' },
+      { id: 'fc13', front: 'アメリカ同時多発テロ', back: '2001年9月11日にアメリカで起きた大規模テロ事件は？', difficulty: 'standard' },
+      { id: 'fc14', front: 'APEC', back: '1989年に設立されたアジア太平洋地域の経済協力の枠組みは？', difficulty: 'standard' },
+      { id: 'fc15', front: 'アメリカ', back: 'ソ連解体後、唯一の超大国となった国は？', difficulty: 'standard' },
+      { id: 'fc16', front: '東ヨーロッパの民主化', back: '1989年に東ヨーロッパ諸国で共産党政権が次々と崩壊した動きを何という？', difficulty: 'standard' },
+      { id: 'fc17', front: 'ブッシュ大統領', back: 'マルタ会談でゴルバチョフと冷戦終結を宣言したアメリカの大統領は？', difficulty: 'standard' },
+      { id: 'fc18', front: 'イラク戦争', back: '2003年にアメリカなどがイラクを攻撃した戦争は？', explanation: '大量破壊兵器の保有を理由に開戦されたが、兵器は発見されなかった。', difficulty: 'advanced' },
+      { id: 'fc19', front: '冷戦終結後の世界の変化', back: '冷戦終結後、世界ではどのような新たな課題が生じたか？', explanation: '民族紛争・地域紛争・テロの脅威が広がり、湾岸戦争やアメリカ同時多発テロなど新たな安全保障上の課題が生まれた。', difficulty: 'advanced' },
+      { id: 'fc20', front: 'ソ連解体の背景', back: 'ゴルバチョフの改革がソ連解体につながった理由は？', explanation: '情報公開により各共和国の独立運動が活発化し、経済改革も成果を上げられず、共産党の求心力が失われて各共和国が独立を宣言した。', difficulty: 'advanced' },
+      { id: 'fc21', front: '大量破壊兵器', back: 'イラク戦争の開戦理由とされたが、実際には発見されなかったものは？', explanation: 'アメリカはイラクが大量破壊兵器を保有していると主張して開戦したが、戦後の調査で兵器は発見されなかった。', difficulty: 'advanced' },
+      { id: 'fc22', front: 'クウェート侵攻', back: '1991年の湾岸戦争のきっかけとなった、イラクの行動は？', explanation: 'イラクのフセイン大統領が隣国クウェートに侵攻し、国連安保理決議に基づく多国籍軍がイラクを攻撃した。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -92,6 +103,48 @@ export const coldWarEnd: Topic = {
         },
         {
           id: 'q4',
+          question: '1989年に取り壊された、冷戦の象徴とされた壁は？',
+          options: [
+            '万里の長城',
+            'ベルリンの壁',
+            '鉄のカーテン',
+            'ハドリアヌスの長城',
+          ],
+          correctIndex: 1,
+          explanation:
+            'ベルリンの壁は東西ドイツを隔てていた冷戦の象徴で、1989年11月に取り壊されました。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'q5',
+          question: 'ゴルバチョフが推進した経済・政治改革を何という？',
+          options: [
+            'グラスノスチ',
+            'ペレストロイカ',
+            'コルホーズ',
+            '五か年計画',
+          ],
+          correctIndex: 1,
+          explanation:
+            'ペレストロイカは「立て直し」を意味し、ゴルバチョフがソ連の経済・政治改革として推進しました。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'q6',
+          question: '1991年に解体し、多くの共和国が独立した国は？',
+          options: [
+            'ユーゴスラビア',
+            'チェコスロバキア',
+            '東ドイツ',
+            'ソ連',
+          ],
+          correctIndex: 3,
+          explanation:
+            '1991年にソビエト社会主義共和国連邦が解体し、ロシアをはじめ多くの共和国が独立しました。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'q7',
           question:
             'ソ連でペレストロイカ（改革）やグラスノスチ（情報公開）を進めた指導者は？',
           options: [
@@ -106,21 +159,21 @@ export const coldWarEnd: Topic = {
           difficulty: 'standard',
         },
         {
-          id: 'q5',
-          question: '1991年に解体し、多くの共和国が独立した国は？',
+          id: 'q8',
+          question: '1979年にソ連が軍事介入し、国力低下の原因となった国は？',
           options: [
-            'ユーゴスラビア',
-            'チェコスロバキア',
-            '東ドイツ',
-            'ソ連',
+            'イラク',
+            'アフガニスタン',
+            'ポーランド',
+            'ベトナム',
           ],
-          correctIndex: 3,
+          correctIndex: 1,
           explanation:
-            '1991年にソビエト社会主義共和国連邦が解体し、ロシアをはじめ多くの共和国が独立しました。',
+            'ソ連は1979年にアフガニスタンに軍事介入し、長期化する戦争により国力が大きく低下しました。',
           difficulty: 'standard',
         },
         {
-          id: 'q6',
+          id: 'q9',
           question:
             '1989年に中国の北京で民主化運動が武力で弾圧された事件は？',
           options: [
@@ -133,6 +186,132 @@ export const coldWarEnd: Topic = {
           explanation:
             '天安門事件では、天安門広場に集まった学生や市民による民主化運動が中国政府に武力で鎮圧されました。',
           difficulty: 'standard',
+        },
+        {
+          id: 'q10',
+          question: 'EUで導入されている共通通貨の名称は？',
+          options: [
+            'ポンド',
+            'マルク',
+            'フラン',
+            'ユーロ',
+          ],
+          correctIndex: 3,
+          explanation:
+            'ユーロはEU加盟国の多くで使用されている共通通貨で、経済的な結びつきを強めています。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'q11',
+          question: '東西ドイツが統一されたのは何年か？',
+          options: [
+            '1989年',
+            '1990年',
+            '1991年',
+            '1993年',
+          ],
+          correctIndex: 1,
+          explanation:
+            '1989年にベルリンの壁が崩壊した後、1990年に東西ドイツが統一されました。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'q12',
+          question: '1989年に設立されたアジア太平洋地域の経済協力の枠組みは？',
+          options: [
+            'ASEAN',
+            'EU',
+            'APEC',
+            'NATO',
+          ],
+          correctIndex: 2,
+          explanation:
+            'APEC（アジア太平洋経済協力会議）は1989年に設立され、アジア太平洋地域の経済協力を推進しています。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'q13',
+          question: '1991年にイラクがクウェートに侵攻したことで起きた戦争は？',
+          options: [
+            'イラク戦争',
+            '湾岸戦争',
+            'アフガニスタン戦争',
+            '朝鮮戦争',
+          ],
+          correctIndex: 1,
+          explanation:
+            '湾岸戦争は1991年にイラクのクウェート侵攻に対し、国連安保理決議に基づく多国籍軍がイラクを攻撃した戦争です。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'q14',
+          question: 'ソ連解体後、唯一の超大国となった国はどこか？',
+          options: [
+            '中国',
+            'イギリス',
+            'ロシア',
+            'アメリカ',
+          ],
+          correctIndex: 3,
+          explanation:
+            'ソ連解体後、軍事力・経済力で圧倒的な力を持つアメリカが唯一の超大国となりました。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'q15',
+          question: '2003年のイラク戦争の開戦理由とされたものは何か？',
+          options: [
+            'クウェート侵攻',
+            '大量破壊兵器の保有',
+            '民主化運動の弾圧',
+            '核実験の実施',
+          ],
+          correctIndex: 1,
+          explanation:
+            'アメリカはイラクが大量破壊兵器を保有していると主張して開戦しましたが、戦後の調査で兵器は発見されませんでした。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'q16',
+          question: 'ゴルバチョフの改革が結果的にソ連解体につながった理由として最も適切なものは？',
+          options: [
+            '軍事力を大幅に増強したため',
+            '西側諸国との貿易を全面禁止したため',
+            '情報公開により各共和国の独立運動が活発化したため',
+            '核兵器を全廃したため',
+          ],
+          correctIndex: 2,
+          explanation:
+            'グラスノスチ（情報公開）により国民が自由に発言できるようになり、各共和国で独立運動が活発化してソ連解体につながりました。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'q17',
+          question: '冷戦終結後にヨーロッパ統合が加速した背景として適切なものは？',
+          options: [
+            'アメリカがヨーロッパから完全撤退したため',
+            '東西の壁がなくなりヨーロッパ全体の協力が可能になったため',
+            'ソ連がEUに加盟したため',
+            '核戦争の脅威が完全になくなったため',
+          ],
+          correctIndex: 1,
+          explanation:
+            '冷戦構造の消滅により東西の壁がなくなり、経済的競争力を高めるためにヨーロッパ全体の統合が加速しました。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'q18',
+          question: '湾岸戦争とイラク戦争の違いとして最も適切なものは？',
+          options: [
+            '湾岸戦争は中東で、イラク戦争はヨーロッパで起きた',
+            '湾岸戦争は国連決議に基づく多国籍軍、イラク戦争はアメリカ主導の行動',
+            '湾岸戦争はソ連が主導、イラク戦争は中国が主導',
+            '両方ともクウェート侵攻が原因だった',
+          ],
+          correctIndex: 1,
+          explanation:
+            '湾岸戦争は国連安保理決議に基づく国際協調による行動でしたが、イラク戦争はアメリカ主導の行動で、国際的な反対も多くありました。',
+          difficulty: 'advanced',
         },
       ],
     },

@@ -54,6 +54,21 @@ export const manchurianIncident: Topic = {
       { id: 'fc8', front: '二・二六事件', back: '1936年に陸軍の青年将校がクーデターを起こし、政府要人を殺害した事件は？', difficulty: 'standard' },
       { id: 'fc9', front: '関東軍', back: '満州に駐留し、柳条湖事件や満州事変を起こした日本陸軍の部隊は？', difficulty: 'advanced' },
       { id: 'fc10', front: '軍部の暴走が止められなかった理由', back: '五・一五事件や二・二六事件の後、なぜ軍部の政治的発言力がさらに強まったか？', explanation: 'テロを恐れた政治家が軍部に逆らえなくなり、政党内閣に代わり軍人・官僚中心の内閣が組まれるようになった。', difficulty: 'advanced' },
+      { id: 'fc11', front: '1931年', back: '満州事変が起きた年は？', difficulty: 'basic' },
+      { id: 'fc12', front: '溥儀', back: '満州国の元首に据えられた清の最後の皇帝は？', difficulty: 'basic' },
+      { id: 'fc13', front: 'ファシズム', back: '個人の自由や民主主義を否定し、独裁的な指導者のもとで国民を統制する政治体制は？', difficulty: 'basic' },
+      { id: 'fc14', front: 'ムッソリーニ', back: 'イタリアでファシスト党を率いて独裁政治を行った人物は？', difficulty: 'standard' },
+      { id: 'fc15', front: 'ヒトラー', back: 'ドイツでナチス（ナチ党）を率いて独裁政治を行った人物は？', explanation: 'ユダヤ人の迫害を推進した。', difficulty: 'standard' },
+      { id: 'fc16', front: 'ファシスト党', back: 'ムッソリーニが率いたイタリアの政党は？', difficulty: 'standard' },
+      { id: 'fc17', front: 'エチオピア侵攻', back: 'ムッソリーニのイタリアが侵攻したアフリカの国への軍事行動は？', difficulty: 'standard' },
+      { id: 'fc18', front: '政党内閣の終わり', back: '五・一五事件の結果、終わりを迎えた日本の政治制度は？', difficulty: 'standard' },
+      { id: 'fc19', front: '1932年5月15日', back: '五・一五事件が起きた日付は？', difficulty: 'advanced' },
+      { id: 'fc20', front: '1936年2月26日', back: '二・二六事件が起きた日付は？', difficulty: 'advanced' },
+      { id: 'fc21', front: '海軍の青年将校', back: '五・一五事件を起こしたのはどのような人々か？', difficulty: 'standard' },
+      { id: 'fc22', front: '陸軍の青年将校', back: '二・二六事件を起こしたのはどのような人々か？', difficulty: 'standard' },
+      { id: 'fc23', front: '「話せばわかる」', back: '犬養毅首相が暗殺される直前に述べたとされる有名な言葉は？', difficulty: 'advanced' },
+      { id: 'fc24', front: '国民社会主義ドイツ労働者党', back: 'ヒトラーが率いたナチス（ナチ党）の正式名称は？', difficulty: 'advanced' },
+      { id: 'fc25', front: 'ユダヤ人迫害', back: 'ヒトラーが政権獲得後に推進した特定の民族に対する弾圧は？', difficulty: 'standard' },
     ],
     quiz: {
       questions: [
@@ -109,6 +124,174 @@ export const manchurianIncident: Topic = {
           explanation:
             '二・二六事件は陸軍の青年将校約1400名が起こしたクーデターで、事件後は軍部の政治的発言力がさらに強まりました。',
           difficulty: 'standard',
+        },
+        {
+          id: 'q5',
+          question: '満州国の元首に据えられた清の最後の皇帝は？',
+          options: [
+            '溥儀',
+            '蔣介石',
+            '毛沢東',
+            '孫文',
+          ],
+          correctIndex: 0,
+          explanation:
+            '溥儀は清の最後の皇帝で、満州国の元首に据えられましたが、実際の権力は日本の関東軍が握っていました。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'q6',
+          question: '国際連盟が満州事変を調査するために派遣した調査団は？',
+          options: [
+            'ポーツマス調査団',
+            'ワシントン調査団',
+            'リットン調査団',
+            'パリ調査団',
+          ],
+          correctIndex: 2,
+          explanation:
+            'リットン調査団は満州国を認めず日本に撤退を勧告しましたが、日本はこれを不服として国際連盟を脱退しました。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'q7',
+          question: '個人の自由や民主主義を否定する全体主義的な政治体制を何という？',
+          options: [
+            'ファシズム',
+            '共産主義',
+            '民主主義',
+            '帝国主義',
+          ],
+          correctIndex: 0,
+          explanation:
+            'ファシズムは民主主義を否定し、強い指導者のもとで国民を統制する全体主義的な政治体制です。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'q8',
+          question: 'イタリアでファシスト党を率いて独裁政治を行った人物は？',
+          options: [
+            'ヒトラー',
+            'ムッソリーニ',
+            'スターリン',
+            'チャーチル',
+          ],
+          correctIndex: 1,
+          explanation:
+            'ムッソリーニはイタリアでファシスト党を率い、エチオピアに侵攻するなど対外侵略を進めました。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'q9',
+          question: '五・一五事件を起こしたのはどのような人々？',
+          options: [
+            '陸軍の青年将校',
+            '海軍の青年将校',
+            '政党の政治家',
+            '民間の活動家',
+          ],
+          correctIndex: 1,
+          explanation:
+            '五・一五事件は海軍の青年将校らが首相官邸を襲い、犬養毅首相を暗殺した事件です。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'q10',
+          question: '二・二六事件を起こしたのはどのような人々？',
+          options: [
+            '海軍の青年将校',
+            '民間の活動家',
+            '陸軍の青年将校',
+            '政党の政治家',
+          ],
+          correctIndex: 2,
+          explanation:
+            '二・二六事件は陸軍の青年将校約1400名がクーデターを起こし、政府要人を殺害した事件です。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'q11',
+          question: '五・一五事件の結果、終わりを迎えたものは？',
+          options: [
+            '天皇制',
+            '藩閥政治',
+            '政党内閣',
+            '国際連盟への参加',
+          ],
+          correctIndex: 2,
+          explanation:
+            '五・一五事件で犬養毅首相が暗殺され、以後は政党出身の首相に代わり軍人・官僚が首相を務めるようになりました。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'q12',
+          question: '満州事変を起こした日本の軍隊は？',
+          options: [
+            '近衛師団',
+            '関東軍',
+            '海軍陸戦隊',
+            '第一師団',
+          ],
+          correctIndex: 1,
+          explanation:
+            '関東軍は満州に駐留していた日本陸軍の部隊で、政府の方針を無視して柳条湖事件を起こし満州事変を開始しました。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'q13',
+          question: 'ヒトラーが迫害した民族は？',
+          options: [
+            'スラブ人',
+            'ゲルマン人',
+            'ユダヤ人',
+            'アングロサクソン人',
+          ],
+          correctIndex: 2,
+          explanation:
+            'ヒトラーはユダヤ人を迫害し、やがてホロコースト（大量虐殺）を引き起こしました。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'q14',
+          question: 'ムッソリーニのイタリアが侵攻したアフリカの国は？',
+          options: [
+            'エジプト',
+            'エチオピア',
+            '南アフリカ',
+            'モロッコ',
+          ],
+          correctIndex: 1,
+          explanation:
+            'ムッソリーニのイタリアは1935年にエチオピアに侵攻し、植民地化しました。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'q15',
+          question: '柳条湖事件が「自作自演」と呼ばれる理由は？',
+          options: [
+            '中国軍が日本のせいにしたから',
+            '関東軍が自ら線路を爆破し中国のせいにしたから',
+            '国際連盟が計画したから',
+            '日本政府が命令したから',
+          ],
+          correctIndex: 1,
+          explanation:
+            '関東軍が南満州鉄道の線路を自ら爆破しておきながら、中国側の仕業として軍事行動を開始しました。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'q16',
+          question: '日本の国際連盟脱退がその後の日本に与えた影響として正しいのは？',
+          options: [
+            '国際的に信頼を回復した',
+            '経済が回復した',
+            '国際的に孤立し軍部の暴走が加速した',
+            '植民地を手放した',
+          ],
+          correctIndex: 2,
+          explanation:
+            '国際連盟脱退により日本は国際的に孤立し、国際社会の歯止めがなくなったことで軍部の暴走がさらに加速しました。',
+          difficulty: 'advanced',
         },
       ],
     },

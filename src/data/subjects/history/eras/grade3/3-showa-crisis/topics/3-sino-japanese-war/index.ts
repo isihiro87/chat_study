@@ -54,6 +54,18 @@ export const sinoJapaneseWar: Topic = {
       { id: 'fc8', front: '皇民化政策', back: '植民地で日本語の使用や日本式の名前への改名を強制した政策は？', explanation: '朝鮮や台湾などの植民地で行われた。', difficulty: 'standard' },
       { id: 'fc9', front: '隣組', back: '戦時中に地域で組織され、相互監視や物資配給の単位となった組織は？', explanation: '約10戸を1組とし、生活のあらゆる面を管理した。', difficulty: 'advanced' },
       { id: 'fc10', front: '日中戦争が泥沼化した理由', back: '日本が短期間で日中戦争を終わらせられなかったのはなぜか？', explanation: '国民党と共産党が抗日民族統一戦線を結成し、蔣介石が首都を重慶に移して長期抗戦を続けたため。', difficulty: 'advanced' },
+      { id: 'fc11', front: '1937年', back: '盧溝橋事件が起き、日中戦争が始まった年は？', difficulty: 'basic' },
+      { id: 'fc12', front: '重慶', back: '蔣介石が南京陥落後に首都を移した内陸の都市は？', difficulty: 'basic' },
+      { id: 'fc13', front: '毛沢東', back: '中国共産党の指導者で、蔣介石と協力して抗日民族統一戦線を結成した人物は？', difficulty: 'standard' },
+      { id: 'fc14', front: '1938年', back: '国家総動員法が制定された年は？', difficulty: 'standard' },
+      { id: 'fc15', front: '配給制', back: '戦時中に食料や日用品を国が管理して分配した制度は？', difficulty: 'standard' },
+      { id: 'fc16', front: '切符制', back: '配給で品物を受け取るために必要だった仕組みは？', explanation: '米や砂糖などの生活必需品が切符で配られた。', difficulty: 'standard' },
+      { id: 'fc17', front: '創氏改名', back: '皇民化政策で朝鮮の人々に日本式の姓名に変えさせたことを何というか？', difficulty: 'standard' },
+      { id: 'fc18', front: '日独防共協定', back: '1936年に日本とドイツが共産主義に対抗するために結んだ協定は？', explanation: 'のちにイタリアも参加した。', difficulty: 'standard' },
+      { id: 'fc19', front: '1940年', back: '大政翼賛会が結成された年は？', difficulty: 'advanced' },
+      { id: 'fc20', front: '軍需品の優先生産', back: '戦時中に兵器や軍用品の生産が優先され、国民の日用品が不足した政策は？', difficulty: 'advanced' },
+      { id: 'fc21', front: '南京', back: '日中戦争で日本軍が占領した中国の首都は？', difficulty: 'basic' },
+      { id: 'fc22', front: '国民党と共産党の協力', back: '本来対立していた中国の二大政党が日本に対抗するために行ったことは？', explanation: '抗日民族統一戦線を結成し共同で日本に抵抗した。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -129,6 +141,160 @@ export const sinoJapaneseWar: Topic = {
           correctIndex: 0,
           explanation:
             '皇民化政策は朝鮮や台湾などの植民地で行われ、日本語の使用や創氏改名が強制されました。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'q6',
+          question: '蔣介石が南京陥落後に首都を移した都市は？',
+          options: [
+            '上海',
+            '北京',
+            '重慶',
+            '広州',
+          ],
+          correctIndex: 2,
+          explanation:
+            '蔣介石は首都を内陸の重慶に移し、広大な中国の国土を利用した長期抗戦を続けました。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'q7',
+          question: '日中戦争が始まった年は？',
+          options: [
+            '1931年',
+            '1937年',
+            '1939年',
+            '1941年',
+          ],
+          correctIndex: 1,
+          explanation:
+            '1937年の盧溝橋事件をきっかけに日中戦争が始まりました。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'q8',
+          question: '中国共産党の指導者で、抗日民族統一戦線を結成した人物は？',
+          options: [
+            '蔣介石',
+            '孫文',
+            '毛沢東',
+            '袁世凱',
+          ],
+          correctIndex: 2,
+          explanation:
+            '毛沢東は中国共産党の指導者で、蔣介石の国民党と協力して抗日民族統一戦線を結成しました。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'q9',
+          question: '戦時中に食料や日用品を国が管理して分配した制度は？',
+          options: [
+            '配給制',
+            '年貢制',
+            '自由貿易',
+            '地租改正',
+          ],
+          correctIndex: 0,
+          explanation:
+            '配給制では米や砂糖などの生活必需品が切符で配られ、国民の生活は厳しく統制されました。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'q10',
+          question: '皇民化政策で朝鮮の人々に日本式の姓名に変えさせたことを何という？',
+          options: [
+            '文明開化',
+            '創氏改名',
+            '殖産興業',
+            '富国強兵',
+          ],
+          correctIndex: 1,
+          explanation:
+            '創氏改名は皇民化政策の一環で、朝鮮の人々に先祖代々の名前を捨てさせ日本式の名前に変えることを強制しました。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'q11',
+          question: '1936年に日本とドイツが結んだ協定は？',
+          options: [
+            '日独伊三国同盟',
+            '日独防共協定',
+            '独ソ不可侵条約',
+            'ポーツマス条約',
+          ],
+          correctIndex: 1,
+          explanation:
+            '日独防共協定は1936年に共産主義に対抗するために結ばれ、のちにイタリアも参加しました。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'q12',
+          question: '日中戦争で日本軍が占領した中国の首都は？',
+          options: [
+            '北京',
+            '上海',
+            '南京',
+            '重慶',
+          ],
+          correctIndex: 2,
+          explanation:
+            '日本軍は中国の首都・南京を占領しましたが、その際に南京事件が起こりました。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'q13',
+          question: '戦時中に地域の相互監視や配給を行った約10世帯の組織は？',
+          options: [
+            '大政翼賛会',
+            '隣組',
+            '町内会',
+            '青年団',
+          ],
+          correctIndex: 1,
+          explanation:
+            '隣組は約10世帯を1組とし、配給の受け取りや防空活動、相互監視などを行いました。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'q14',
+          question: '日中戦争が泥沼化した最大の理由は？',
+          options: [
+            '日本の軍事力が不足していたから',
+            '国際連盟が介入したから',
+            '抗日民族統一戦線の結成と蔣介石の長期抗戦',
+            'ソ連が中国に侵攻したから',
+          ],
+          correctIndex: 2,
+          explanation:
+            '国民党と共産党が協力して抗日民族統一戦線を結成し、蔣介石が首都を重慶に移して長期抗戦を続けたため、日本は短期決着できませんでした。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'q15',
+          question: '国家総動員法が民主主義に与えた影響として正しいのは？',
+          options: [
+            '議会の権限が強化された',
+            '国民の自由が拡大された',
+            '議会の承認なしに動員が可能になり民主主義が形骸化した',
+            '選挙権が拡大された',
+          ],
+          correctIndex: 2,
+          explanation:
+            '国家総動員法により政府は議会を通さず人や物資を動員できるようになり、議会制民主主義が事実上無力化されました。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'q16',
+          question: '日独防共協定にのちに加わった国は？',
+          options: [
+            'ソ連',
+            'イタリア',
+            'フランス',
+            'イギリス',
+          ],
+          correctIndex: 1,
+          explanation:
+            '日独防共協定にはのちにイタリアも加わり、日独伊の枢軸国の関係が強まっていきました。',
           difficulty: 'advanced',
         },
       ],

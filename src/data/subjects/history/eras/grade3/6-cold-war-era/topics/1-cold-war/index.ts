@@ -38,13 +38,23 @@ export const coldWar: Topic = {
       { id: 'fc2', front: '国際連合', back: '1945年に世界平和を守るために設立された国際組織は？', explanation: '本部はニューヨーク。安全保障理事会が中心的な役割を担う。', difficulty: 'basic' },
       { id: 'fc3', front: '拒否権', back: '安全保障理事会の常任理事国が持つ、決議を否決できる権利は？', difficulty: 'basic' },
       { id: 'fc4', front: 'NATO', back: 'アメリカを中心とする西側諸国が結成した軍事同盟は？（北大西洋条約機構）', difficulty: 'basic' },
-      { id: 'fc5', front: 'ワルシャワ条約機構', back: 'ソ連を中心とする東側諸国が結成した軍事同盟は？', difficulty: 'standard' },
-      { id: 'fc6', front: '中華人民共和国', back: '1949年に毛沢東が建国した社会主義国家は？', difficulty: 'standard' },
-      { id: 'fc7', front: '朝鮮戦争', back: '1950年に始まった、朝鮮半島での冷戦の代理戦争は？', explanation: '北朝鮮（ソ連・中国が支援）と韓国（アメリカが支援）が戦った。', difficulty: 'standard' },
-      { id: 'fc8', front: 'アフリカの年', back: '1960年にアフリカで17か国が一斉に独立したことから、この年を何という？', difficulty: 'standard' },
-      { id: 'fc9', front: 'ベルリンの壁', back: '東西ドイツの境界に建設された、冷戦の象徴とされる壁は？', explanation: '1961年に建設され、1989年に崩壊した。', difficulty: 'advanced' },
-      { id: 'fc10', front: '南北問題', back: '先進国（北）と発展途上国（南）の経済格差の問題を何という？', difficulty: 'advanced' },
-      { id: 'fc11', front: '冷戦が「冷たい戦争」と呼ばれた理由', back: '米ソの対立が「冷戦」と呼ばれたのはなぜか？', explanation: '直接の軍事衝突（熱い戦争）はせず、核兵器による軍拡競争や代理戦争で対立したため。', difficulty: 'advanced' },
+      { id: 'fc5', front: '安全保障理事会', back: '国際連合で平和と安全の維持を担う中心的な機関は？', explanation: '常任理事国5か国に拒否権がある。', difficulty: 'basic' },
+      { id: 'fc6', front: '常任理事国', back: '安全保障理事会で拒否権を持つ5か国を何という？', explanation: 'アメリカ・イギリス・フランス・ソ連（ロシア）・中国。', difficulty: 'basic' },
+      { id: 'fc7', front: '資本主義', back: '冷戦でアメリカを中心とする西側陣営の経済体制は？', difficulty: 'basic' },
+      { id: 'fc8', front: 'ワルシャワ条約機構', back: 'ソ連を中心とする東側諸国が結成した軍事同盟は？', difficulty: 'standard' },
+      { id: 'fc9', front: '中華人民共和国', back: '1949年に毛沢東が建国した社会主義国家は？', difficulty: 'standard' },
+      { id: 'fc10', front: '毛沢東', back: '中華人民共和国を建国した指導者は？', explanation: '共産党が内戦に勝利し建国した。', difficulty: 'standard' },
+      { id: 'fc11', front: '朝鮮戦争', back: '1950年に始まった、朝鮮半島での冷戦の代理戦争は？', explanation: '北朝鮮（ソ連・中国が支援）と韓国（アメリカが支援）が戦った。', difficulty: 'standard' },
+      { id: 'fc12', front: '朝鮮民主主義人民共和国', back: '朝鮮半島の北に成立した社会主義国家は？', difficulty: 'standard' },
+      { id: 'fc13', front: '大韓民国', back: '朝鮮半島の南に成立した資本主義国家は？', difficulty: 'standard' },
+      { id: 'fc14', front: 'アフリカの年', back: '1960年にアフリカで17か国が一斉に独立したことから、この年を何という？', difficulty: 'standard' },
+      { id: 'fc15', front: 'ドイツの東西分裂', back: '冷戦により東ドイツと西ドイツに分裂した国は？', difficulty: 'standard' },
+      { id: 'fc16', front: '社会主義', back: '冷戦でソ連を中心とする東側陣営の経済体制は？', difficulty: 'standard' },
+      { id: 'fc17', front: 'ベルリンの壁', back: '東西ドイツの境界に建設された、冷戦の象徴とされる壁は？', explanation: '1961年に建設され、1989年に崩壊した。', difficulty: 'advanced' },
+      { id: 'fc18', front: '南北問題', back: '先進国（北）と発展途上国（南）の経済格差の問題を何という？', difficulty: 'advanced' },
+      { id: 'fc19', front: '冷戦が「冷たい戦争」と呼ばれた理由', back: '米ソの対立が「冷戦」と呼ばれたのはなぜか？', explanation: '直接の軍事衝突（熱い戦争）はせず、核兵器による軍拡競争や代理戦争で対立したため。', difficulty: 'advanced' },
+      { id: 'fc20', front: '代理戦争', back: '米ソが直接戦わず、それぞれの陣営を支援して間接的に争った戦争を何という？', explanation: '朝鮮戦争やベトナム戦争が代表例。', difficulty: 'advanced' },
+      { id: 'fc21', front: '国連の機能不全', back: '冷戦中に国際連合が十分に機能しなかった理由は？', explanation: '米ソが常任理事国として互いに拒否権を行使し、重要な決議が成立しなかった。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -90,6 +100,34 @@ export const coldWar: Topic = {
         },
         {
           id: 'q4',
+          question: '1945年に設立された、世界平和を守る国際組織は？',
+          options: ['国際連盟', '国際連合', 'NATO', 'EU'],
+          correctIndex: 1,
+          explanation:
+            '国際連合は1945年10月に設立され、安全保障理事会が中心的な役割を担います。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'q5',
+          question: '冷戦でアメリカを中心とする西側の経済体制は？',
+          options: ['社会主義', '共産主義', '資本主義', '封建制'],
+          correctIndex: 2,
+          explanation:
+            '冷戦ではアメリカを中心とする資本主義陣営（西側）と、ソ連を中心とする社会主義陣営（東側）が対立しました。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'q6',
+          question:
+            '1950年に北朝鮮が韓国に侵攻して始まった戦争は？',
+          options: ['ベトナム戦争', '朝鮮戦争', '中東戦争', '日中戦争'],
+          correctIndex: 1,
+          explanation:
+            '朝鮮戦争は1950年に始まり、冷戦の代理戦争となりました。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'q7',
           question:
             '1949年に毛沢東が建国した社会主義国家は？',
           options: [
@@ -104,22 +142,22 @@ export const coldWar: Topic = {
           difficulty: 'standard',
         },
         {
-          id: 'q5',
+          id: 'q8',
           question:
-            '1950年に始まった、冷戦の代理戦争と呼ばれる戦争は？',
+            'ソ連を中心とする東側諸国が結成した軍事同盟は？',
           options: [
-            'ベトナム戦争',
-            '中東戦争',
-            '朝鮮戦争',
-            'キューバ危機',
+            'NATO',
+            'ワルシャワ条約機構',
+            '三国協商',
+            '国際連合',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation:
-            '朝鮮戦争は北朝鮮（ソ連・中国が支援）と韓国（アメリカが支援）が戦った冷戦の代理戦争です。',
+            'ワルシャワ条約機構はソ連を中心とする東側諸国の軍事同盟で、NATOに対抗しました。',
           difficulty: 'standard',
         },
         {
-          id: 'q6',
+          id: 'q9',
           question:
             '東西対立の象徴として建設された壁は何？',
           options: [
@@ -132,6 +170,94 @@ export const coldWar: Topic = {
           explanation:
             'ベルリンの壁は1961年に建設され、東西ドイツの分断と冷戦の象徴となりました。',
           difficulty: 'standard',
+        },
+        {
+          id: 'q10',
+          question: '先進工業国と発展途上国の経済格差の問題を何という？',
+          options: ['東西問題', '南北問題', '貿易摩擦', '格差社会'],
+          correctIndex: 1,
+          explanation:
+            '南北問題は、主に北半球に多い先進工業国と南半球に多い発展途上国の経済格差の問題です。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'q11',
+          question: '朝鮮半島の北に成立した国は？',
+          options: [
+            '大韓民国',
+            '中華人民共和国',
+            '朝鮮民主主義人民共和国',
+            'ベトナム民主共和国',
+          ],
+          correctIndex: 2,
+          explanation:
+            '朝鮮半島の北にはソ連の支援で朝鮮民主主義人民共和国（北朝鮮）が成立しました。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'q12',
+          question: '中華人民共和国を建国した指導者は誰？',
+          options: ['蒋介石', '毛沢東', '孫文', '鄧小平'],
+          correctIndex: 1,
+          explanation:
+            '毛沢東は共産党を率いて内戦に勝利し、1949年に中華人民共和国を建国しました。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'q13',
+          question: '冷戦中に国際連合が機能不全に陥った主な原因は？',
+          options: [
+            '加盟国が少なかったため',
+            '常任理事国が拒否権を行使し合ったため',
+            '予算が不足していたため',
+            '事務総長が辞任したため',
+          ],
+          correctIndex: 1,
+          explanation:
+            '冷戦中はアメリカとソ連が互いに拒否権を行使し合ったため、重要な決議が成立しませんでした。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'q14',
+          question: '朝鮮戦争が「冷戦の代理戦争」と呼ばれる理由として正しいのは？',
+          options: [
+            '米ソが直接戦ったため',
+            '核兵器が使用されたため',
+            '米ソがそれぞれの陣営を支援して間接的に争ったため',
+            '国際連合が仲介したため',
+          ],
+          correctIndex: 2,
+          explanation:
+            '朝鮮戦争では北朝鮮をソ連・中国が、韓国をアメリカが支援し、米ソが間接的に争ったため代理戦争と呼ばれます。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'q15',
+          question: '冷戦が「冷たい戦争」と呼ばれた理由として最も適切なのは？',
+          options: [
+            '寒冷地で戦争が行われたため',
+            '米ソが友好的な関係だったため',
+            '直接の軍事衝突はなく核軍拡競争や代理戦争で対立したため',
+            '経済的な対立のみだったため',
+          ],
+          correctIndex: 2,
+          explanation:
+            '米ソは核兵器を持つ超大国同士で直接対決すれば人類滅亡につながるため、直接の「熱い戦争」はせず「冷たい戦争」となりました。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'q16',
+          question: '1960年の「アフリカの年」後に生じた国際的な課題は？',
+          options: [
+            '東西問題',
+            '南北問題',
+            '人口問題',
+            '環境問題',
+          ],
+          correctIndex: 1,
+          explanation:
+            '多くのアフリカ諸国が独立したものの、植民地時代の経済基盤の脆弱さから先進国との経済格差（南北問題）が国際課題となりました。',
+          difficulty: 'advanced',
         },
       ],
     },

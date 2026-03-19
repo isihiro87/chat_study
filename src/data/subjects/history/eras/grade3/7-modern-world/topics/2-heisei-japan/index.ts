@@ -38,11 +38,26 @@ export const heiseiJapan: Topic = {
       { id: 'fc2', front: 'バブル経済', back: '1980年代後半に株価や地価が急上昇した異常な好景気は？', difficulty: 'basic' },
       { id: 'fc3', front: '55年体制の崩壊', back: '1993年に非自民連立政権が誕生し、終わりを迎えた政治体制は？', difficulty: 'basic' },
       { id: 'fc4', front: 'カンボジア', back: '自衛隊のPKO部隊が初めて派遣された国は？', difficulty: 'basic' },
-      { id: 'fc5', front: '平成不況', back: 'バブル崩壊後に始まった長期的な不況を何という？', explanation: '「失われた10年（20年）」とも呼ばれる。', difficulty: 'standard' },
-      { id: 'fc6', front: '男女共同参画社会基本法', back: '1999年に男女平等を目指して制定された法律は？', difficulty: 'standard' },
-      { id: 'fc7', front: '拉致問題', back: '北朝鮮が日本人を不当に連れ去った外交課題は？', difficulty: 'standard' },
-      { id: 'fc8', front: '2009年の政権交代', back: '2009年に自民党から政権を奪い、鳩山由紀夫が首相となった政党は？', difficulty: 'standard' },
-      { id: 'fc9', front: 'バブル経済の影響', back: 'バブル経済の崩壊は日本社会にどのような影響を与えたか？', explanation: '株価・地価が暴落し、銀行の不良債権が増大、「失われた10年」と呼ばれる長期不況に突入した。', difficulty: 'advanced' },
+      { id: 'fc5', front: '阪神・淡路大震災', back: '1995年1月に発生した、6400人以上が死亡した大震災は？', difficulty: 'basic' },
+      { id: 'fc6', front: '東日本大震災', back: '2011年3月に発生した、地震・津波・原発事故を伴った大震災は？', difficulty: 'basic' },
+      { id: 'fc7', front: '細川護熙', back: '55年体制崩壊後、初めて誕生した非自民内閣の首相は？', difficulty: 'basic' },
+      { id: 'fc8', front: '拉致問題', back: '北朝鮮が日本人を不法に連れ去った外交課題は？', difficulty: 'basic' },
+      { id: 'fc9', front: '平成不況', back: 'バブル崩壊後に始まった長期的な不況を何という？', explanation: '「失われた10年（20年）」とも呼ばれる。', difficulty: 'standard' },
+      { id: 'fc10', front: '男女共同参画社会基本法', back: '1999年に男女平等を目指して制定された法律は？', difficulty: 'standard' },
+      { id: 'fc11', front: '民主党', back: '2009年に自民党から政権を奪い、鳩山由紀夫が首相となった政党は？', difficulty: 'standard' },
+      { id: 'fc12', front: '福島第一原子力発電所', back: '東日本大震災で事故を起こした原子力発電所は？', difficulty: 'standard' },
+      { id: 'fc13', front: 'NPO（非営利組織）', back: '阪神・淡路大震災を機に活動が認知された非営利組織は？', difficulty: 'standard' },
+      { id: 'fc14', front: 'ボランティア', back: '阪神・淡路大震災を機に重要性が認識された、自発的な支援活動は？', difficulty: 'standard' },
+      { id: 'fc15', front: '北方領土問題', back: '日本がロシアに返還を求めている領土問題は？', difficulty: 'standard' },
+      { id: 'fc16', front: '竹島', back: '韓国との間で領有権が争われている島は？', difficulty: 'standard' },
+      { id: 'fc17', front: '尖閣諸島', back: '中国との間で問題となっている、日本が実効支配している諸島は？', difficulty: 'standard' },
+      { id: 'fc18', front: '不良債権', back: 'バブル崩壊後に銀行が大量に抱えた、回収不能な貸付金は？', difficulty: 'standard' },
+      { id: 'fc19', front: '株式と土地', back: 'バブル経済で価格が急上昇した2つの資産は？', difficulty: 'standard' },
+      { id: 'fc20', front: 'バブル経済の影響', back: 'バブル経済の崩壊は日本社会にどのような影響を与えたか？', explanation: '株価・地価が暴落し、銀行の不良債権が増大、「失われた10年」と呼ばれる長期不況に突入した。', difficulty: 'advanced' },
+      { id: 'fc21', front: '東日本大震災の影響', back: '東日本大震災後、日本のエネルギー政策はどう変化したか？', explanation: '原発事故により原子力への信頼が揺らぎ、全国の原発が停止された。再生可能エネルギーの導入が加速し、エネルギー政策の転換が進んだ。', difficulty: 'advanced' },
+      { id: 'fc22', front: 'PKO協力法の意義', back: 'PKO協力法の成立が日本の安全保障政策にとって持つ意義は？', explanation: '憲法9条のもとで自衛隊が国連平和維持活動に参加できるようになり、「専守防衛」から国際的な平和活動への参加へと拡大する転機となった。', difficulty: 'advanced' },
+      { id: 'fc23', front: '55年体制崩壊の背景', back: '55年体制が崩壊した背景にある国民の不満は何か？', explanation: '政治腐敗や汚職事件が相次ぎ、国民の政治不信が高まったことが55年体制崩壊の背景にある。', difficulty: 'advanced' },
+      { id: 'fc24', front: '自助・共助・公助', back: '2つの大震災の経験から広まった防災の考え方は？', explanation: '自分で身を守る「自助」、地域で助け合う「共助」、行政による支援の「公助」を組み合わせた防災の考え方。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -90,6 +105,48 @@ export const heiseiJapan: Topic = {
         },
         {
           id: 'q4',
+          question: '1995年1月に発生し、6400人以上が死亡した大震災は？',
+          options: [
+            '東日本大震災',
+            '阪神・淡路大震災',
+            '新潟県中越地震',
+            '関東大震災',
+          ],
+          correctIndex: 1,
+          explanation:
+            '阪神・淡路大震災は1995年1月に発生し、6400人以上が亡くなりました。ボランティア活動の重要性が認識されました。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'q5',
+          question: '2011年3月に発生した大震災は？',
+          options: [
+            '阪神・淡路大震災',
+            '関東大震災',
+            '東日本大震災',
+            '熊本地震',
+          ],
+          correctIndex: 2,
+          explanation:
+            '東日本大震災は2011年3月に発生し、地震・津波に加え福島第一原子力発電所の事故も引き起こしました。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'q6',
+          question: '55年体制崩壊後、初めて誕生した非自民内閣の首相は？',
+          options: [
+            '鳩山由紀夫',
+            '小泉純一郎',
+            '細川護熙',
+            '村山富市',
+          ],
+          correctIndex: 2,
+          explanation:
+            '1993年に細川護熙を首相とする非自民連立政権が誕生し、55年体制が崩壊しました。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'q7',
           question:
             'PKO協力法に基づき、自衛隊が初めて派遣された国は？',
           options: [
@@ -104,7 +161,7 @@ export const heiseiJapan: Topic = {
           difficulty: 'standard',
         },
         {
-          id: 'q5',
+          id: 'q8',
           question:
             '1999年に制定された、男女平等を目指す法律は？',
           options: [
@@ -119,7 +176,7 @@ export const heiseiJapan: Topic = {
           difficulty: 'standard',
         },
         {
-          id: 'q6',
+          id: 'q9',
           question:
             '2009年に自民党から政権を奪った政党は？',
           options: [
@@ -132,6 +189,146 @@ export const heiseiJapan: Topic = {
           explanation:
             '2009年の衆議院選挙で民主党が勝利し、鳩山由紀夫が首相となる政権交代が実現しました。',
           difficulty: 'standard',
+        },
+        {
+          id: 'q10',
+          question: '東日本大震災で事故を起こした原子力発電所は？',
+          options: [
+            '柏崎刈羽原子力発電所',
+            '浜岡原子力発電所',
+            '福島第一原子力発電所',
+            '大飯原子力発電所',
+          ],
+          correctIndex: 2,
+          explanation:
+            '東日本大震災の津波により福島第一原子力発電所が重大な事故を起こし、放射性物質が放出されました。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'q11',
+          question: '阪神・淡路大震災を機に活動が認知された非営利組織は？',
+          options: [
+            'ODA',
+            'NPO',
+            'IMF',
+            'WHO',
+          ],
+          correctIndex: 1,
+          explanation:
+            '阪神・淡路大震災では多くのボランティアが活動し、NPO（非営利組織）の重要性が認識されました。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'q12',
+          question: '日本がロシアに返還を求めている領土問題は？',
+          options: [
+            '竹島問題',
+            '尖閣諸島問題',
+            '北方領土問題',
+            '沖縄返還問題',
+          ],
+          correctIndex: 2,
+          explanation:
+            '北方領土問題は、第二次世界大戦末期にソ連が占領した択捉島・国後島・色丹島・歯舞群島の返還を日本が求めている問題です。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'q13',
+          question: '北朝鮮との間で大きな外交課題となっている問題は？',
+          options: [
+            '領土問題',
+            '貿易摩擦',
+            '拉致問題',
+            '漁業権問題',
+          ],
+          correctIndex: 2,
+          explanation:
+            '北朝鮮による日本人拉致問題は、日本が北朝鮮に被害者の帰国を求めている重要な外交課題です。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'q14',
+          question: 'バブル崩壊後の長期不況の別名として適切なものは？',
+          options: [
+            '昭和恐慌',
+            '失われた10年',
+            'オイルショック',
+            'デフレスパイラル',
+          ],
+          correctIndex: 1,
+          explanation:
+            'バブル崩壊後の長期不況は「失われた10年」（さらに長引き「失われた20年」とも）と呼ばれました。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'q15',
+          question: 'バブル崩壊後に銀行が大量に抱えた問題は何か？',
+          options: [
+            '外貨準備の不足',
+            '不良債権',
+            'インフレーション',
+            '貿易赤字',
+          ],
+          correctIndex: 1,
+          explanation:
+            'バブル崩壊により担保としていた不動産の価値が暴落し、銀行に回収不能な不良債権が大量に発生しました。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'q16',
+          question: '東日本大震災後の日本のエネルギー政策の変化として最も適切なものは？',
+          options: [
+            '原子力発電所の大幅な新設',
+            '火力発電の全面廃止',
+            '再生可能エネルギーの導入加速',
+            '石炭火力への全面転換',
+          ],
+          correctIndex: 2,
+          explanation:
+            '福島第一原発事故を受けて原子力への信頼が揺らぎ、太陽光や風力などの再生可能エネルギーの導入が加速しました。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'q17',
+          question: 'PKO協力法の成立が日本の安全保障政策にとって重要な理由として最も適切なものは？',
+          options: [
+            '憲法9条を改正したため',
+            '自衛隊が国連平和維持活動に参加可能になったため',
+            '日米安保条約を破棄したため',
+            '核兵器の保有を認めたため',
+          ],
+          correctIndex: 1,
+          explanation:
+            'PKO協力法により自衛隊が国連の平和維持活動に参加できるようになり、日本の国際貢献の幅が広がりました。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'q18',
+          question: '阪神・淡路大震災がNPOの発展に与えた影響として適切なものは？',
+          options: [
+            '政府がNPOの活動を全面禁止した',
+            'ボランティア活動が注目され、1998年にNPO法が制定された',
+            '自衛隊がNPOに改組された',
+            '国連がNPOの解散を求めた',
+          ],
+          correctIndex: 1,
+          explanation:
+            '阪神・淡路大震災でのボランティア活動の経験を踏まえ、1998年にNPO法（特定非営利活動促進法）が制定されました。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'q19',
+          question: '日本が抱える3つの領土問題の相手国の組み合わせとして正しいものは？',
+          options: [
+            '北方領土-中国、竹島-ロシア、尖閣諸島-韓国',
+            '北方領土-ロシア、竹島-韓国、尖閣諸島-中国',
+            '北方領土-韓国、竹島-中国、尖閣諸島-ロシア',
+            '北方領土-アメリカ、竹島-ロシア、尖閣諸島-中国',
+          ],
+          correctIndex: 1,
+          explanation:
+            '北方領土はロシア、竹島は韓国、尖閣諸島は中国（台湾）との領土問題です。',
+          difficulty: 'advanced',
         },
       ],
     },

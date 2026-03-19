@@ -54,6 +54,18 @@ export const greatDepression: Topic = {
       { id: 'fc8', front: '昭和恐慌', back: '世界恐慌の影響で日本が陥った深刻な不況は？', explanation: '農村の困窮や失業者の増大を招いた。', difficulty: 'standard' },
       { id: 'fc9', front: 'ルーズベルト', back: 'ニューディール政策を実施したアメリカ大統領は？', difficulty: 'advanced' },
       { id: 'fc10', front: 'ファシズム台頭の背景', back: '世界恐慌後にドイツやイタリアでファシズムが台頭した理由は何か？', explanation: '経済的な苦境の中で、強い指導者が国民に秩序と復興を約束し、民主主義への不信感から支持を集めた。', difficulty: 'advanced' },
+      { id: 'fc11', front: 'ニューヨーク株式市場', back: '1929年に株価の大暴落が起き、世界恐慌のきっかけとなった場所は？', difficulty: 'basic' },
+      { id: 'fc12', front: '1929年', back: '世界恐慌が始まった年は？', difficulty: 'basic' },
+      { id: 'fc13', front: '公共事業', back: 'ニューディール政策で失業者に仕事を与えるために拡大された事業は？', explanation: 'ダムや道路の建設などを行い雇用を創出した。', difficulty: 'basic' },
+      { id: 'fc14', front: '高関税', back: 'ブロック経済で外国の商品に対してかけられたものは？', explanation: '外国品を締め出して自国経済圏を守った。', difficulty: 'standard' },
+      { id: 'fc15', front: '五か年計画', back: 'ソ連が実施した計画経済で、世界恐慌の影響を受けなかった理由となった政策は？', explanation: 'ソ連は計画経済により世界市場との結びつきが弱く、恐慌の影響を免れた。', difficulty: 'standard' },
+      { id: 'fc16', front: 'ソ連', back: '五か年計画を実施し、世界恐慌の影響をほとんど受けなかった国は？', difficulty: 'standard' },
+      { id: 'fc17', front: '「持たざる国」', back: '植民地が少なく、ブロック経済の外に置かれた日本・ドイツ・イタリアを指す言葉は？', difficulty: 'standard' },
+      { id: 'fc18', front: '身売り', back: '昭和恐慌のとき、貧しい家庭の娘が働かされることを指す言葉は？', difficulty: 'advanced' },
+      { id: 'fc19', front: '欠食児童', back: '昭和恐慌のとき、貧しさから食事がとれない子どもを指す言葉は？', difficulty: 'advanced' },
+      { id: 'fc20', front: '生産調整', back: 'ニューディール政策で行われた、農業や工業の生産量を調整して価格を安定させる政策は？', difficulty: 'advanced' },
+      { id: 'fc21', front: '連鎖倒産', back: '世界恐慌で銀行や企業が次々と倒れた現象を何というか？', difficulty: 'standard' },
+      { id: 'fc22', front: 'ベルサイユ条約の破棄', back: 'ヒトラーが進めた、第一次世界大戦の講和条約を一方的にやめた行動は？', explanation: '軍備の拡大や領土の回復を進めた。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -110,6 +122,174 @@ export const greatDepression: Topic = {
           explanation:
             'ブロック経済は自国と植民地の間だけで貿易を行い他国を締め出す政策で、植民地の少ない国に大きな打撃を与えました。',
           difficulty: 'standard',
+        },
+        {
+          id: 'q5',
+          question: '世界恐慌のきっかけとなった株価の大暴落が起きた場所は？',
+          options: [
+            'ロンドン証券取引所',
+            'ニューヨーク株式市場',
+            '東京証券取引所',
+            'パリ証券取引所',
+          ],
+          correctIndex: 1,
+          explanation:
+            '1929年にニューヨーク株式市場（ウォール街）で株価が大暴落し、世界恐慌が始まりました。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'q6',
+          question: 'ニューディール政策で失業者を救済するために行われたことは？',
+          options: [
+            '軍備の拡大',
+            '植民地の獲得',
+            '公共事業の拡大',
+            '鎖国政策',
+          ],
+          correctIndex: 2,
+          explanation:
+            'ニューディール政策ではダムや道路の建設などの公共事業で雇用を創出しました。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'q7',
+          question: 'イタリアでファシスト党を率いて独裁政治を行った人物は？',
+          options: [
+            'ヒトラー',
+            'ムッソリーニ',
+            'スターリン',
+            'チャーチル',
+          ],
+          correctIndex: 1,
+          explanation:
+            'ムッソリーニはイタリアでファシスト党を率いて独裁政治を行い、エチオピアに侵攻しました。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'q8',
+          question: '世界恐慌の影響をほとんど受けなかった国はどこ？',
+          options: [
+            'イギリス',
+            'ドイツ',
+            'ソ連',
+            '日本',
+          ],
+          correctIndex: 2,
+          explanation:
+            'ソ連は五か年計画による計画経済を実施しており、資本主義圏の恐慌の影響を受けませんでした。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'q9',
+          question: 'ソ連が世界恐慌の影響を受けなかった理由として正しいのは？',
+          options: [
+            'ブロック経済を採用していたから',
+            '植民地が多かったから',
+            '五か年計画（計画経済）を実施していたから',
+            'アメリカと同盟を結んでいたから',
+          ],
+          correctIndex: 2,
+          explanation:
+            'ソ連は計画経済により世界市場との結びつきが弱く、恐慌の影響を免れました。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'q10',
+          question: '世界恐慌の影響で1930年に日本が陥った不況を何という？',
+          options: [
+            '大正デモクラシー',
+            '昭和恐慌',
+            'バブル崩壊',
+            'オイルショック',
+          ],
+          correctIndex: 1,
+          explanation:
+            '昭和恐慌では農村の困窮が深刻化し、「身売り」や「欠食児童」が社会問題になりました。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'q11',
+          question: 'ブロック経済によって大きな打撃を受けた国の組み合わせとして正しいのは？',
+          options: [
+            'アメリカ・イギリス・フランス',
+            '日本・ドイツ・イタリア',
+            'ソ連・中国・インド',
+            'イギリス・ドイツ・ソ連',
+          ],
+          correctIndex: 1,
+          explanation:
+            '植民地を持たない日本・ドイツ・イタリアは「持たざる国」としてブロック経済の外に置かれ、大きな打撃を受けました。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'q12',
+          question: 'ヒトラーが迫害した民族は？',
+          options: [
+            'スラブ人',
+            'ゲルマン人',
+            'ユダヤ人',
+            'アングロサクソン人',
+          ],
+          correctIndex: 2,
+          explanation:
+            'ヒトラーはユダヤ人をドイツの困難の原因として迫害し、やがてホロコースト（大量虐殺）に至りました。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'q13',
+          question: '昭和恐慌で特に深刻な影響を受けたのはどのような地域？',
+          options: [
+            '都市部の工業地帯',
+            '農村',
+            '港町',
+            '鉱山地帯',
+          ],
+          correctIndex: 1,
+          explanation:
+            '昭和恐慌では農産物の価格が暴落し、農村が特に深刻な困窮に陥りました。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'q14',
+          question: 'ナチス（ナチ党）の正式名称は？',
+          options: [
+            'ドイツ社会民主党',
+            '国民社会主義ドイツ労働者党',
+            'ドイツ共産党',
+            'ドイツ国民党',
+          ],
+          correctIndex: 1,
+          explanation:
+            'ナチス（ナチ党）の正式名称は国民社会主義ドイツ労働者党です。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'q15',
+          question: 'ブロック経済が結果的に世界大戦の原因となった理由として正しいのは？',
+          options: [
+            'すべての国が豊かになったから',
+            '植民地を持たない国が資源を求めて侵略に向かったから',
+            'ソ連が経済的に孤立したから',
+            'アメリカが世界征服を目指したから',
+          ],
+          correctIndex: 1,
+          explanation:
+            'ブロック経済により「持たざる国」が資源・市場を確保できなくなり、対外侵略に向かったことが世界大戦の原因の一つとなりました。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'q16',
+          question: 'ニューディール政策がそれまでの資本主義と異なっていた点は？',
+          options: [
+            '政府が経済に積極的に介入した点',
+            '自由貿易を推進した点',
+            '軍備を拡大した点',
+            '植民地を獲得した点',
+          ],
+          correctIndex: 0,
+          explanation:
+            'それまでの自由放任主義と異なり、政府が公共事業や生産調整で経済に積極的に介入した点が画期的でした。',
+          difficulty: 'advanced',
         },
       ],
     },

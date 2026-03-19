@@ -38,12 +38,24 @@ export const constitution: Topic = {
       { id: 'fc2', front: '国民主権', back: '日本国憲法の三大原則の一つで、政治のあり方を決める最高権力が国民にある原則は？', difficulty: 'basic' },
       { id: 'fc3', front: '基本的人権の尊重', back: '日本国憲法の三大原則の一つで、人が生まれながらに持つ権利を大切にする原則は？', difficulty: 'basic' },
       { id: 'fc4', front: '平和主義', back: '日本国憲法の三大原則の一つで、戦争を永久に放棄する原則は？', explanation: '第9条に定められている。', difficulty: 'basic' },
-      { id: 'fc5', front: '象徴天皇', back: '日本国憲法において天皇は「日本国および日本国民統合の象徴」と定められたが、この地位を何という？', difficulty: 'standard' },
-      { id: 'fc6', front: '農地改革', back: '政府が地主の土地を買い上げ小作人に売った改革を何という？', explanation: '多くの小作人が自作農となった。', difficulty: 'standard' },
-      { id: 'fc7', front: '労働組合法', back: '労働者の団結権や団体交渉権を認めた法律は？', difficulty: 'standard' },
-      { id: 'fc8', front: '教育基本法', back: '1947年に公布された、民主教育の土台となる法律は？', difficulty: 'standard' },
-      { id: 'fc9', front: '第9条', back: '日本国憲法で戦争の放棄を定めた、世界でも類を見ない条文は第何条？', difficulty: 'advanced' },
-      { id: 'fc10', front: '戦後の民主化改革の全体像', back: '日本国憲法の制定以外に、GHQ主導で行われた主な社会改革を3つ挙げよ', explanation: '農地改革・財閥解体・労働三法（労働組合法・労働基準法など）の整備。', difficulty: 'advanced' },
+      { id: 'fc5', front: '三大原則', back: '日本国憲法が掲げる3つの基本原則は？', explanation: '国民主権・基本的人権の尊重・平和主義。', difficulty: 'basic' },
+      { id: 'fc6', front: '1946年11月3日', back: '日本国憲法が公布された日付は？', explanation: '現在の「文化の日」。', difficulty: 'basic' },
+      { id: 'fc7', front: '1947年5月3日', back: '日本国憲法が施行された日付は？', explanation: '現在の「憲法記念日」。', difficulty: 'basic' },
+      { id: 'fc8', front: '象徴天皇', back: '日本国憲法において天皇は「日本国および日本国民統合の象徴」と定められたが、この地位を何という？', difficulty: 'standard' },
+      { id: 'fc9', front: '農地改革', back: '政府が地主の土地を買い上げ小作人に売った改革を何という？', explanation: '多くの小作人が自作農となった。', difficulty: 'standard' },
+      { id: 'fc10', front: '労働組合法', back: '労働者の団結権や団体交渉権を認めた法律は？', difficulty: 'standard' },
+      { id: 'fc11', front: '教育基本法', back: '1947年に公布された、民主教育の土台となる法律は？', difficulty: 'standard' },
+      { id: 'fc12', front: '地方自治法', back: '地方の政治を住民が自主的に行うことを定めた法律は？', difficulty: 'standard' },
+      { id: 'fc13', front: '労働基準法', back: '賃金や労働時間など労働条件の最低基準を定めた法律は？', difficulty: 'standard' },
+      { id: 'fc14', front: '財閥解体', back: '三井・三菱などの巨大な資本家集団を解体し、経済の独占を排除した改革は？', difficulty: 'standard' },
+      { id: 'fc15', front: '文化の日', back: '日本国憲法の公布日（11月3日）を記念した祝日は？', difficulty: 'standard' },
+      { id: 'fc16', front: '憲法記念日', back: '日本国憲法の施行日（5月3日）を記念した祝日は？', difficulty: 'standard' },
+      { id: 'fc17', front: '天皇主権から国民主権へ', back: '大日本帝国憲法と日本国憲法の主権の違いは？', explanation: '大日本帝国憲法では天皇が主権者だったが、日本国憲法では国民が主権者となった。', difficulty: 'standard' },
+      { id: 'fc18', front: '第9条', back: '日本国憲法で戦争の放棄を定めた、世界でも類を見ない条文は第何条？', difficulty: 'advanced' },
+      { id: 'fc19', front: '戦争放棄と戦力不保持', back: '第9条で定められている2つの内容は？', explanation: '戦争を永久に放棄し、戦力を保持しないこと。', difficulty: 'advanced' },
+      { id: 'fc20', front: '戦後の民主化改革の全体像', back: '日本国憲法の制定以外に、GHQ主導で行われた主な社会改革を3つ挙げよ', explanation: '農地改革・財閥解体・労働三法（労働組合法・労働基準法など）の整備。', difficulty: 'advanced' },
+      { id: 'fc21', front: '大日本帝国憲法との比較', back: '大日本帝国憲法と日本国憲法の最大の違いは何か？', explanation: '主権が天皇から国民に移り、天皇は象徴的な地位となった。基本的人権が永久の権利として保障された。', difficulty: 'advanced' },
+      { id: 'fc22', front: '臣民の権利と基本的人権', back: '大日本帝国憲法の「臣民の権利」と日本国憲法の「基本的人権」の違いは？', explanation: '臣民の権利は法律の範囲内で認められたが、基本的人権は侵すことのできない永久の権利として保障された。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -76,6 +88,33 @@ export const constitution: Topic = {
         },
         {
           id: 'q4',
+          question: '日本国憲法で戦争の放棄を定めた条文は第何条？',
+          options: ['第1条', '第25条', '第9条', '第14条'],
+          correctIndex: 2,
+          explanation:
+            '第9条は戦争の放棄と戦力の不保持を定めた条文です。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'q5',
+          question: '日本国憲法が公布された日は現在何の祝日か？',
+          options: ['建国記念の日', '憲法記念日', '文化の日', '天皇誕生日'],
+          correctIndex: 2,
+          explanation:
+            '日本国憲法の公布日である11月3日は「文化の日」として祝日になっています。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'q6',
+          question: '民主主義の教育の基本を定めた法律は？',
+          options: ['教育基本法', '学校教育法', '地方自治法', '労働基準法'],
+          correctIndex: 0,
+          explanation:
+            '教育基本法は1947年に制定され、民主教育の土台を築きました。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'q7',
           question: '日本国憲法が公布された年はいつ？',
           options: ['1945年', '1947年', '1946年', '1948年'],
           correctIndex: 2,
@@ -84,17 +123,16 @@ export const constitution: Topic = {
           difficulty: 'standard',
         },
         {
-          id: 'q5',
-          question:
-            '日本国憲法で戦争を永久に放棄することを定めた条文は第何条？',
-          options: ['第1条', '第25条', '第9条', '第14条'],
-          correctIndex: 2,
+          id: 'q8',
+          question: '日本国憲法が施行された年はいつ？',
+          options: ['1946年', '1947年', '1948年', '1949年'],
+          correctIndex: 1,
           explanation:
-            '第9条は戦争の放棄を定めた条文で、世界でも類を見ない平和憲法として知られています。',
+            '日本国憲法は1947年5月3日に施行されました。この日は現在「憲法記念日」です。',
           difficulty: 'standard',
         },
         {
-          id: 'q6',
+          id: 'q9',
           question:
             '戦後の民主化改革で、巨大な独占資本を解体した政策は？',
           options: ['農地改革', '教育基本法の制定', '労働組合法の制定', '財閥解体'],
@@ -102,6 +140,89 @@ export const constitution: Topic = {
           explanation:
             '財閥解体は三井・三菱などの巨大な独占資本を解体し、経済の民主化を進めた改革です。',
           difficulty: 'standard',
+        },
+        {
+          id: 'q10',
+          question: '大日本帝国憲法では主権は誰にあったか？',
+          options: ['国民', '天皇', '議会', '内閣'],
+          correctIndex: 1,
+          explanation:
+            '大日本帝国憲法では天皇主権であり、天皇が統治権の総攬者でした。日本国憲法で国民主権に変わりました。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'q11',
+          question: '地方の政治を住民が自主的に行うことを定めた法律は？',
+          options: ['教育基本法', '地方自治法', '労働組合法', '公職選挙法'],
+          correctIndex: 1,
+          explanation:
+            '地方自治法は、地方の政治を中央集権ではなく住民が自主的に行うことを定めました。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'q12',
+          question: '労働条件の最低基準を定めた法律は？',
+          options: ['労働組合法', '労働基準法', '工場法', '最低賃金法'],
+          correctIndex: 1,
+          explanation:
+            '労働基準法は賃金・労働時間などの労働条件の最低基準を定めた法律です。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'q13',
+          question: '第9条で定められている2つの内容は？',
+          options: [
+            '国民主権と基本的人権',
+            '戦争放棄と戦力不保持',
+            '象徴天皇と国民主権',
+            '平和主義と地方自治',
+          ],
+          correctIndex: 1,
+          explanation:
+            '第9条は戦争を永久に放棄し、戦力を保持しないことを定めています。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'q14',
+          question: '大日本帝国憲法の「臣民の権利」と日本国憲法の「基本的人権」の違いとして正しいのは？',
+          options: [
+            '臣民の権利は法律で制限でき、基本的人権は永久の権利',
+            'どちらも同じ内容である',
+            '臣民の権利のほうが広く保障されていた',
+            '基本的人権は天皇が与える権利',
+          ],
+          correctIndex: 0,
+          explanation:
+            '臣民の権利は法律の範囲内で認められたが、基本的人権は侵すことのできない永久の権利として保障されました。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'q15',
+          question: '日本国憲法の制定・農地改革・財閥解体・教育基本法の制定に共通する目的は？',
+          options: [
+            '経済成長を促進すること',
+            '日本を民主的な国家に変えること',
+            '天皇の権限を強化すること',
+            '軍事力を増強すること',
+          ],
+          correctIndex: 1,
+          explanation:
+            'これらの改革はすべて、日本を平和で民主的な国家に変えるという共通の目的のもとで行われました。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'q16',
+          question: '日本国憲法が「平和憲法」と呼ばれる理由として最も適切なのは？',
+          options: [
+            '国際連合に加盟したため',
+            '第9条で戦争放棄と戦力不保持を定めた世界的にも珍しい憲法だから',
+            '天皇が平和を宣言したため',
+            '他国との同盟関係を禁止したため',
+          ],
+          correctIndex: 1,
+          explanation:
+            '第9条で戦争の放棄と戦力の不保持を憲法の基本原則として明確に定めた国はほとんどなく、「平和憲法」と呼ばれます。',
+          difficulty: 'advanced',
         },
       ],
     },
