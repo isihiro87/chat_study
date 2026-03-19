@@ -100,7 +100,7 @@ export const sqrtMeaningChat: HistoryChat = {
         { letter: 'D', text: '$\\pm 6$', correct: false },
       ],
       explanation:
-        '$6^2 = 36$ なので $\\sqrt{36} = 6$。$\\sqrt{}$ は<ruby>正<rt>せい</rt></ruby>の<ruby>平方根<rt>へいほうこん</rt></ruby>を<ruby>表<rt>あらわ</rt></ruby>すよ。',
+        '$6^2 = 36$ なので $\\sqrt{36} = 6$\n$\\sqrt{}$ は<ruby>正<rt>せい</rt></ruby>の<ruby>平方根<rt>へいほうこん</rt></ruby>を<ruby>表<rt>あらわ</rt></ruby>すよ。',
     },
     {
       type: 'date',
@@ -174,7 +174,7 @@ export const sqrtMeaningChat: HistoryChat = {
       side: 'right',
       characterId: 'student',
       expression: 'happy',
-      text: 'ルートの<ruby>中<rt>なか</rt></ruby>の<ruby>数<rt>かず</rt></ruby>をはさむ<ruby>完全平方数<rt>かんぜんへいほうすう</rt></ruby>を<ruby>探<rt>さが</rt></ruby>せばいいんですね！',
+      text: 'ルートの<ruby>中<rt>なか</rt></ruby>の<ruby>数<rt>かず</rt></ruby>をはさむ<ruby>整数<rt>せいすう</rt></ruby>の2<ruby>乗<rt>じょう</rt></ruby>を<ruby>探<rt>さが</rt></ruby>せばいいんですね！',
     },
     {
       type: 'message',
@@ -193,7 +193,7 @@ export const sqrtMeaningChat: HistoryChat = {
         { letter: 'D', text: '$\\sqrt{16}$', correct: false },
       ],
       explanation:
-        '$\\sqrt{4} = 2$、$\\sqrt{9} = 3$、$\\sqrt{16} = 4$ は<ruby>整数<rt>せいすう</rt></ruby>だから<ruby>有理数<rt>ゆうりすう</rt></ruby>。$\\sqrt{7}$ は<ruby>分数<rt>ぶんすう</rt></ruby>で<ruby>表<rt>あらわ</rt></ruby>せないから<ruby>無理数<rt>むりすう</rt></ruby>だよ。',
+        '$\\sqrt{4} = 2$、$\\sqrt{9} = 3$、$\\sqrt{16} = 4$ は<ruby>整数<rt>せいすう</rt></ruby>だから<ruby>有理数<rt>ゆうりすう</rt></ruby>。\n$\\sqrt{7}$ は<ruby>分数<rt>ぶんすう</rt></ruby>で<ruby>表<rt>あらわ</rt></ruby>せないから<ruby>無理数<rt>むりすう</rt></ruby>だよ。',
     },
     {
       type: 'summary-point',
@@ -209,7 +209,7 @@ export const sqrtMeaningChat: HistoryChat = {
         { letter: 'D', text: '<ruby>判断<rt>はんだん</rt></ruby>できない', correct: false },
       ],
       explanation:
-        '$\\sqrt{16} = 4$ で<ruby>整数<rt>せいすう</rt></ruby>になるから<ruby>有理数<rt>ゆうりすう</rt></ruby>。$\\sqrt{}$ がついていても<ruby>中身<rt>なかみ</rt></ruby>が<ruby>完全平方数<rt>かんぜんへいほうすう</rt></ruby>なら<ruby>有理数<rt>ゆうりすう</rt></ruby>だよ。',
+        '$\\sqrt{16} = 4$ で<ruby>整数<rt>せいすう</rt></ruby>になるから<ruby>有理数<rt>ゆうりすう</rt></ruby>。\n$\\sqrt{}$ がついていても<ruby>中身<rt>なかみ</rt></ruby>が<ruby>整数<rt>せいすう</rt></ruby>の2<ruby>乗<rt>じょう</rt></ruby>なら<ruby>有理数<rt>ゆうりすう</rt></ruby>だよ。',
     },
     {
       type: 'date',
@@ -271,7 +271,7 @@ export const sqrtMeaningChat: HistoryChat = {
         { letter: 'D', text: '$121$', correct: false },
       ],
       explanation:
-        '$(-\\sqrt{11})^2 = (-\\sqrt{11}) \\times (-\\sqrt{11}) = 11$。<ruby>負<rt>ふ</rt></ruby>の<ruby>数<rt>かず</rt></ruby>を2<ruby>乗<rt>じょう</rt></ruby>すると<ruby>正<rt>せい</rt></ruby>になるよ。',
+        '$(-\\sqrt{11})^2 = (-\\sqrt{11}) \\times (-\\sqrt{11}) = 11$\n<ruby>負<rt>ふ</rt></ruby>の<ruby>数<rt>かず</rt></ruby>を2<ruby>乗<rt>じょう</rt></ruby>すると<ruby>正<rt>せい</rt></ruby>になるよ。',
     },
     {
       type: 'date',
@@ -332,7 +332,7 @@ export const sqrtMeaningChat: HistoryChat = {
         { letter: 'D', text: '<ruby>整数<rt>せいすう</rt></ruby>', correct: false },
       ],
       explanation:
-        '$0.333\\ldots$ は「3」がくり<ruby>返<rt>かえ</rt></ruby>す<ruby>循環<rt>じゅんかん</rt></ruby><ruby>小数<rt>しょうすう</rt></ruby>。<ruby>分数<rt>ぶんすう</rt></ruby>で<ruby>表<rt>あらわ</rt></ruby>せるから<ruby>有理数<rt>ゆうりすう</rt></ruby>だよ。',
+        '$0.333\\ldots$ は「3」がくり<ruby>返<rt>かえ</rt></ruby>す<ruby>循環<rt>じゅんかん</rt></ruby><ruby>小数<rt>しょうすう</rt></ruby>。\n<ruby>分数<rt>ぶんすう</rt></ruby>で<ruby>表<rt>あらわ</rt></ruby>せるから<ruby>有理数<rt>ゆうりすう</rt></ruby>だよ。',
     },
     {
       type: 'date',
@@ -385,7 +385,7 @@ export const sqrtMeaningChat: HistoryChat = {
         { letter: 'D', text: '$0.52 \\times 10^4$', correct: false },
       ],
       explanation:
-        '<ruby>有効数字<rt>ゆうこうすうじ</rt></ruby>2けた（5と2）なので $5.2 \\times 10^3$ m。<ruby>整数<rt>せいすう</rt></ruby><ruby>部分<rt>ぶぶん</rt></ruby>が1けたの<ruby>小数<rt>しょうすう</rt></ruby>にするよ。',
+        '<ruby>有効数字<rt>ゆうこうすうじ</rt></ruby>2けた（5と2）なので $5.2 \\times 10^3$ m\n<ruby>整数<rt>せいすう</rt></ruby><ruby>部分<rt>ぶぶん</rt></ruby>が1けたの<ruby>小数<rt>しょうすう</rt></ruby>にするよ。',
     },
     {
       type: 'summary-point',

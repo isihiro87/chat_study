@@ -66,202 +66,282 @@ export const sqrtAddExpand: Topic = {
     flashcards: [
       {
         id: 'math-g3-sqrt-add-expand-fc1',
-        front: '$8\\sqrt{2}$。同じ $\\sqrt{2}$ の係数を足す: $(3+5)\\sqrt{2} = 8\\sqrt{2}$', back: '$3\\sqrt{2} + 5\\sqrt{2}$ を計算すると？',
+        front: '$8\\sqrt{2}$',
+        back: '$3\\sqrt{2} + 5\\sqrt{2}$ を計算すると？',
+        explanation: '同じ $\\sqrt{2}$ の係数を足す: $(3+5)\\sqrt{2} = 8\\sqrt{2}$',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-sqrt-add-expand-fc2',
-        front: 'まとめられない。根号の中が違う（2と3）ので、そのまま $\\sqrt{2} + \\sqrt{3}$ と表す', back: '$\\sqrt{2} + \\sqrt{3}$ はまとめられる？',
+        front: 'まとめられない',
+        back: '$\\sqrt{2} + \\sqrt{3}$ はまとめられる？',
+        explanation: '根号の中が違う（2と3）ので、そのまま $\\sqrt{2} + \\sqrt{3}$ と表す',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-sqrt-add-expand-fc3',
-        front: '先に $\\sqrt{8} = 2\\sqrt{2}$ と簡単にしてから、$2\\sqrt{2} + \\sqrt{2} = 3\\sqrt{2}$', back: '$\\sqrt{8} + \\sqrt{2}$ を計算する手順は？',
+        front: '$3\\sqrt{2}$',
+        back: '$\\sqrt{8} + \\sqrt{2}$ を計算する手順は？',
+        explanation: '先に $\\sqrt{8} = 2\\sqrt{2}$ と簡単にしてから、$2\\sqrt{2} + \\sqrt{2} = 3\\sqrt{2}$',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-sqrt-add-expand-fc4',
-        front: '$\\sqrt{ab} + \\sqrt{ac}$。分配法則をそのままルートに適用する', back: '$\\sqrt{a}(\\sqrt{b} + \\sqrt{c})$ を展開すると？',
+        front: '$\\sqrt{ab} + \\sqrt{ac}$',
+        back: '$\\sqrt{a}(\\sqrt{b} + \\sqrt{c})$ を展開すると？',
+        explanation: '分配法則をそのままルートに適用する',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-sqrt-add-expand-fc5',
-        front: '$\\sqrt{12} + \\sqrt{6} = 2\\sqrt{3} + \\sqrt{6}$。$\\sqrt{2}\\times\\sqrt{6}=\\sqrt{12}=2\\sqrt{3}$', back: '$\\sqrt{2}(\\sqrt{6} + \\sqrt{3})$ を展開すると？',
+        front: '$2\\sqrt{3} + \\sqrt{6}$',
+        back: '$\\sqrt{2}(\\sqrt{6} + \\sqrt{3})$ を展開すると？',
+        explanation: '$\\sqrt{2}\\times\\sqrt{6}=\\sqrt{12}=2\\sqrt{3}$、$\\sqrt{2}\\times\\sqrt{3}=\\sqrt{6}$',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-sqrt-add-expand-fc6',
-        front: '$a - b^2$。和と差の積の公式: $(\\sqrt{a})^2 - b^2 = a - b^2$', back: '$(\\sqrt{a} + b)(\\sqrt{a} - b)$ を展開すると？',
+        front: '$a - b^2$',
+        back: '$(\\sqrt{a} + b)(\\sqrt{a} - b)$ を展開すると？',
+        explanation: '和と差の積の公式: $(\\sqrt{a})^2 - b^2 = a - b^2$',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-sqrt-add-expand-fc7',
-        front: '$a + 2b\\sqrt{a} + b^2$。完全平方公式: $(\\sqrt{a})^2 + 2 \\cdot b \\cdot \\sqrt{a} + b^2$', back: '$(\\sqrt{a} + b)^2$ を展開すると？',
+        front: '$a + 2b\\sqrt{a} + b^2$',
+        back: '$(\\sqrt{a} + b)^2$ を展開すると？',
+        explanation: '完全平方公式: $(\\sqrt{a})^2 + 2 \\cdot b \\cdot \\sqrt{a} + b^2$',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-sqrt-add-expand-fc8',
-        front: '$a - 2b\\sqrt{a} + b^2$。符号に注意: 真ん中の項がマイナスになる', back: '$(\\sqrt{a} - b)^2$ を展開すると？',
+        front: '$a - 2b\\sqrt{a} + b^2$',
+        back: '$(\\sqrt{a} - b)^2$ を展開すると？',
+        explanation: '符号に注意: 真ん中の項がマイナスになる',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-sqrt-add-expand-fc9',
-        front: '$9 + 4\\sqrt{5}$。$(\\sqrt{5})^2 + 2\\times2\\times\\sqrt{5} + 2^2 = 5 + 4\\sqrt{5} + 4$', back: '$(\\sqrt{5} + 2)^2$ を展開すると？',
+        front: '$9 + 4\\sqrt{5}$',
+        back: '$(\\sqrt{5} + 2)^2$ を展開すると？',
+        explanation: '$(\\sqrt{5})^2 + 2\\times2\\times\\sqrt{5} + 2^2 = 5 + 4\\sqrt{5} + 4$',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-sqrt-add-expand-fc10',
-        front: '$4 - 2\\sqrt{3}$。$(\\sqrt{3})^2 - 2\\times1\\times\\sqrt{3} + 1^2 = 3 - 2\\sqrt{3} + 1$', back: '$(\\sqrt{3} - 1)^2$ を展開すると？',
+        front: '$4 - 2\\sqrt{3}$',
+        back: '$(\\sqrt{3} - 1)^2$ を展開すると？',
+        explanation: '$(\\sqrt{3})^2 - 2\\times1\\times\\sqrt{3} + 1^2 = 3 - 2\\sqrt{3} + 1$',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-sqrt-add-expand-fc11',
-        front: '$a$（$a \\geq 0$）。2乗とルートは打ち消し合う。例: $(\\sqrt{7})^2 = 7$', back: '$(\\sqrt{a})^2$ はいくつ？',
+        front: '$a$（$a \\geq 0$）',
+        back: '$(\\sqrt{a})^2$ はいくつ？',
+        explanation: '2乗とルートは打ち消し合う。例: $(\\sqrt{7})^2 = 7$',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-sqrt-add-expand-fc12',
-        front: '有理化: $\\frac{6}{\\sqrt{3}} = \\frac{6\\sqrt{3}}{3} = 2\\sqrt{3}$。次に $2\\sqrt{3} - 2\\sqrt{3} = 0$', back: '$\\sqrt{12} - \\frac{6}{\\sqrt{3}}$ を計算するには？',
+        front: '$0$',
+        back: '$\\sqrt{12} - \\frac{6}{\\sqrt{3}}$ を計算するには？',
+        explanation: '有理化: $\\frac{6}{\\sqrt{3}} = \\frac{6\\sqrt{3}}{3} = 2\\sqrt{3}$。次に $2\\sqrt{3} - 2\\sqrt{3} = 0$',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-sqrt-add-expand-fc13',
-        front: '$5\\sqrt{3}$。$\\sqrt{48} = 4\\sqrt{3}$ なので $4\\sqrt{3} + \\sqrt{3} = 5\\sqrt{3}$', back: '$\\sqrt{48} + \\sqrt{3}$ を計算すると？',
+        front: '$5\\sqrt{3}$',
+        back: '$\\sqrt{48} + \\sqrt{3}$ を計算すると？',
+        explanation: '$\\sqrt{48} = 4\\sqrt{3}$ なので $4\\sqrt{3} + \\sqrt{3} = 5\\sqrt{3}$',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-sqrt-add-expand-fc14',
-        front: '$\\sqrt{2}$。$\\sqrt{50}=5\\sqrt{2}$、$\\sqrt{32}=4\\sqrt{2}$ なので $5\\sqrt{2}-4\\sqrt{2}=\\sqrt{2}$', back: '$\\sqrt{50} - \\sqrt{32}$ を計算すると？',
+        front: '$\\sqrt{2}$',
+        back: '$\\sqrt{50} - \\sqrt{32}$ を計算すると？',
+        explanation: '$\\sqrt{50}=5\\sqrt{2}$、$\\sqrt{32}=4\\sqrt{2}$ なので $5\\sqrt{2}-4\\sqrt{2}=\\sqrt{2}$',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-sqrt-add-expand-fc15',
-        front: '①分数の分母を有理化する ②√の中を簡単にする ③同じ√をまとめる、の順に計算する', back: '有理化を含む和差の手順は？',
+        front: '①有理化 → ②√の中を簡単に → ③同じ√をまとめる',
+        back: '有理化を含む和差の手順は？',
+        explanation: '①分数の分母を有理化する ②√の中を簡単にする ③同じ√をまとめる、の順に計算する',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-sqrt-add-expand-fc16',
-        front: '$5$。$x^2-2x+1=(x-1)^2$、$x-1=\\sqrt{5}$ を代入して $(\\sqrt{5})^2 = 5$', back: '$x = \\sqrt{5} + 1$ のとき $x^2 - 2x + 1$ の値は？',
+        front: '$5$',
+        back: '$x = \\sqrt{5} + 1$ のとき $x^2 - 2x + 1$ の値は？',
+        explanation: '$x^2-2x+1=(x-1)^2$、$x-1=\\sqrt{5}$ を代入して $(\\sqrt{5})^2 = 5$',
         difficulty: 'advanced',
       },
       {
         id: 'math-g3-sqrt-add-expand-fc17',
-        front: '代入後の計算が簡単になるから。特に $x = \\sqrt{5}+1$ のような形は直接代入より変形して代入する方が楽', back: '式の値を求めるとき、なぜ因数分解が有効？',
+        front: '代入後の計算が簡単になるから',
+        back: '式の値を求めるとき、なぜ因数分解が有効？',
+        explanation: '特に $x = \\sqrt{5}+1$ のような形は直接代入より変形して代入する方が楽',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-sqrt-add-expand-fc18',
-        front: '$-1 + 2\\sqrt{2}$。$\\sqrt{2}\\cdot\\sqrt{2} - \\sqrt{2} + 3\\sqrt{2} - 3 = 2 + 2\\sqrt{2} - 3 = -1 + 2\\sqrt{2}$', back: '$(\\sqrt{2} + 3)(\\sqrt{2} - 1)$ を展開すると？',
+        front: '$-1 + 2\\sqrt{2}$',
+        back: '$(\\sqrt{2} + 3)(\\sqrt{2} - 1)$ を展開すると？',
+        explanation: '$\\sqrt{2}\\cdot\\sqrt{2} - \\sqrt{2} + 3\\sqrt{2} - 3 = 2 + 2\\sqrt{2} - 3 = -1 + 2\\sqrt{2}$',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-sqrt-add-expand-fc19',
-        front: '$3$。$\\sqrt{3}\\times\\sqrt{12} - \\sqrt{3}\\times\\sqrt{3} = \\sqrt{36} - 3 = 6 - 3 = 3$', back: '$\\sqrt{3}(\\sqrt{12} - \\sqrt{3})$ を展開すると？',
+        front: '$3$',
+        back: '$\\sqrt{3}(\\sqrt{12} - \\sqrt{3})$ を展開すると？',
+        explanation: '$\\sqrt{3}\\times\\sqrt{12} - \\sqrt{3}\\times\\sqrt{3} = \\sqrt{36} - 3 = 6 - 3 = 3$',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-sqrt-add-expand-fc20',
-        front: '$4$。$(\\sqrt{6})^2 - (\\sqrt{2})^2 = 6 - 2 = 4$。和と差の積でルートが消える', back: '$(\\sqrt{6} + \\sqrt{2})(\\sqrt{6} - \\sqrt{2})$ を展開すると？',
+        front: '$4$',
+        back: '$(\\sqrt{6} + \\sqrt{2})(\\sqrt{6} - \\sqrt{2})$ を展開すると？',
+        explanation: '$(\\sqrt{6})^2 - (\\sqrt{2})^2 = 6 - 2 = 4$。和と差の積でルートが消える',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-sqrt-add-expand-fc21',
-        front: '$a=5$。$\\sqrt{80a} = \\sqrt{16 \\times 5 \\times a}$。$a=5$ のとき $\\sqrt{400} = 20$ となる', back: '$\\sqrt{80a}$ が自然数になる最小の自然数 $a$ は？',
+        front: '$a=5$',
+        back: '$\\sqrt{80a}$ が自然数になる最小の自然数 $a$ は？',
+        explanation: '$\\sqrt{80a} = \\sqrt{16 \\times 5 \\times a}$。$a=5$ のとき $\\sqrt{400} = 20$ となる',
         difficulty: 'advanced',
       },
       {
         id: 'math-g3-sqrt-add-expand-fc22',
-        front: '$0$。$(2 - 3 + 1)\\sqrt{3} = 0\\sqrt{3} = 0$。係数の和がゼロになるとルートが消える', back: '$2\\sqrt{3} - 3\\sqrt{3} + \\sqrt{3}$ を計算すると？',
+        front: '$0$',
+        back: '$2\\sqrt{3} - 3\\sqrt{3} + \\sqrt{3}$ を計算すると？',
+        explanation: '$(2 - 3 + 1)\\sqrt{3} = 0\\sqrt{3} = 0$。係数の和がゼロになるとルートが消える',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-sqrt-add-expand-fc23',
-        front: '$3\\sqrt{3}$。$(7-4)\\sqrt{3} = 3\\sqrt{3}$', back: '$7\\sqrt{3} - 4\\sqrt{3}$ を計算すると？',
+        front: '$3\\sqrt{3}$',
+        back: '$7\\sqrt{3} - 4\\sqrt{3}$ を計算すると？',
+        explanation: '$(7-4)\\sqrt{3} = 3\\sqrt{3}$',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-sqrt-add-expand-fc24',
-        front: '$8\\sqrt{5}$。$(2+6)\\sqrt{5} = 8\\sqrt{5}$', back: '$2\\sqrt{5} + 6\\sqrt{5}$ を計算すると？',
+        front: '$8\\sqrt{5}$',
+        back: '$2\\sqrt{5} + 6\\sqrt{5}$ を計算すると？',
+        explanation: '$(2+6)\\sqrt{5} = 8\\sqrt{5}$',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-sqrt-add-expand-fc25',
-        front: '$8\\sqrt{7}$。$(9-1)\\sqrt{7} = 8\\sqrt{7}$。$\\sqrt{7}$ の係数は $1$ であることに注意', back: '$9\\sqrt{7} - \\sqrt{7}$ を計算すると？',
+        front: '$8\\sqrt{7}$',
+        back: '$9\\sqrt{7} - \\sqrt{7}$ を計算すると？',
+        explanation: '$(9-1)\\sqrt{7} = 8\\sqrt{7}$。$\\sqrt{7}$ の係数は $1$ であることに注意',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-sqrt-add-expand-fc26',
-        front: '$-3\\sqrt{3}$。$(-8+5)\\sqrt{3} = -3\\sqrt{3}$。負の数の足し算に注意', back: '$-8\\sqrt{3} + 5\\sqrt{3}$ を計算すると？',
+        front: '$-3\\sqrt{3}$',
+        back: '$-8\\sqrt{3} + 5\\sqrt{3}$ を計算すると？',
+        explanation: '$(-8+5)\\sqrt{3} = -3\\sqrt{3}$。負の数の足し算に注意',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-sqrt-add-expand-fc27',
-        front: '$2\\sqrt{2}$。$\\sqrt{18} = 3\\sqrt{2}$ なので $3\\sqrt{2} - \\sqrt{2} = 2\\sqrt{2}$', back: '$\\sqrt{18} - \\sqrt{2}$ を計算すると？',
+        front: '$2\\sqrt{2}$',
+        back: '$\\sqrt{18} - \\sqrt{2}$ を計算すると？',
+        explanation: '$\\sqrt{18} = 3\\sqrt{2}$ なので $3\\sqrt{2} - \\sqrt{2} = 2\\sqrt{2}$',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-sqrt-add-expand-fc28',
-        front: '$\\sqrt{3}$。$\\sqrt{27}=3\\sqrt{3}$、$\\sqrt{12}=2\\sqrt{3}$ なので $3\\sqrt{3}-2\\sqrt{3}=\\sqrt{3}$', back: '$\\sqrt{27} - \\sqrt{12}$ を計算すると？',
+        front: '$\\sqrt{3}$',
+        back: '$\\sqrt{27} - \\sqrt{12}$ を計算すると？',
+        explanation: '$\\sqrt{27}=3\\sqrt{3}$、$\\sqrt{12}=2\\sqrt{3}$ なので $3\\sqrt{3}-2\\sqrt{3}=\\sqrt{3}$',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-sqrt-add-expand-fc29',
-        front: '$3\\sqrt{3}$。$\\sqrt{75}=5\\sqrt{3}$、$\\sqrt{12}=2\\sqrt{3}$ なので $5\\sqrt{3}-2\\sqrt{3}=3\\sqrt{3}$', back: '$\\sqrt{75} - \\sqrt{12}$ を計算すると？',
+        front: '$3\\sqrt{3}$',
+        back: '$\\sqrt{75} - \\sqrt{12}$ を計算すると？',
+        explanation: '$\\sqrt{75}=5\\sqrt{3}$、$\\sqrt{12}=2\\sqrt{3}$ なので $5\\sqrt{3}-2\\sqrt{3}=3\\sqrt{3}$',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-sqrt-add-expand-fc30',
-        front: '$\\sqrt{5}$。$\\sqrt{45}=3\\sqrt{5}$、$\\sqrt{20}=2\\sqrt{5}$ なので $3\\sqrt{5}-2\\sqrt{5}=\\sqrt{5}$', back: '$\\sqrt{45} - \\sqrt{20}$ を計算すると？',
+        front: '$\\sqrt{5}$',
+        back: '$\\sqrt{45} - \\sqrt{20}$ を計算すると？',
+        explanation: '$\\sqrt{45}=3\\sqrt{5}$、$\\sqrt{20}=2\\sqrt{5}$ なので $3\\sqrt{5}-2\\sqrt{5}=\\sqrt{5}$',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-sqrt-add-expand-fc31',
-        front: '$4\\sqrt{2}$。$6\\sqrt{2} + 2\\sqrt{2} - 4\\sqrt{2} = (6+2-4)\\sqrt{2} = 4\\sqrt{2}$', back: '$\\sqrt{72} + \\sqrt{8} - \\sqrt{32}$ を計算すると？',
+        front: '$4\\sqrt{2}$',
+        back: '$\\sqrt{72} + \\sqrt{8} - \\sqrt{32}$ を計算すると？',
+        explanation: '$6\\sqrt{2} + 2\\sqrt{2} - 4\\sqrt{2} = (6+2-4)\\sqrt{2} = 4\\sqrt{2}$',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-sqrt-add-expand-fc32',
-        front: '$9\\sqrt{2}$。$\\sqrt{50}=5\\sqrt{2}$、$\\sqrt{32}=4\\sqrt{2}$ なので $5\\sqrt{2}+4\\sqrt{2}=9\\sqrt{2}$', back: '$\\sqrt{50} + \\sqrt{32}$ を計算すると？',
+        front: '$9\\sqrt{2}$',
+        back: '$\\sqrt{50} + \\sqrt{32}$ を計算すると？',
+        explanation: '$\\sqrt{50}=5\\sqrt{2}$、$\\sqrt{32}=4\\sqrt{2}$ なので $5\\sqrt{2}+4\\sqrt{2}=9\\sqrt{2}$',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-sqrt-add-expand-fc33',
-        front: '$\\sqrt{6}$。$\\sqrt{54}=3\\sqrt{6}$、$\\frac{12}{\\sqrt{6}}=2\\sqrt{6}$ なので $3\\sqrt{6}-2\\sqrt{6}=\\sqrt{6}$', back: '$\\sqrt{54} - \\frac{12}{\\sqrt{6}}$ を計算すると？',
+        front: '$\\sqrt{6}$',
+        back: '$\\sqrt{54} - \\frac{12}{\\sqrt{6}}$ を計算すると？',
+        explanation: '$\\sqrt{54}=3\\sqrt{6}$、$\\frac{12}{\\sqrt{6}}=2\\sqrt{6}$ なので $3\\sqrt{6}-2\\sqrt{6}=\\sqrt{6}$',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-sqrt-add-expand-fc34',
-        front: '$15$。$\\sqrt{5}\\times\\sqrt{20}=\\sqrt{100}=10$、$\\sqrt{5}\\times\\sqrt{5}=5$ なので $10+5=15$', back: '$\\sqrt{5}(\\sqrt{20} + \\sqrt{5})$ を展開すると？',
+        front: '$15$',
+        back: '$\\sqrt{5}(\\sqrt{20} + \\sqrt{5})$ を展開すると？',
+        explanation: '$\\sqrt{5}\\times\\sqrt{20}=\\sqrt{100}=10$、$\\sqrt{5}\\times\\sqrt{5}=5$ なので $10+5=15$',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-sqrt-add-expand-fc35',
-        front: '$-2$。$(\\sqrt{7})^2 - 3^2 = 7 - 9 = -2$。和と差の積で結果が負になることもある', back: '$(\\sqrt{7} + 3)(\\sqrt{7} - 3)$ を展開すると？',
+        front: '$-2$',
+        back: '$(\\sqrt{7} + 3)(\\sqrt{7} - 3)$ を展開すると？',
+        explanation: '$(\\sqrt{7})^2 - 3^2 = 7 - 9 = -2$。和と差の積で結果が負になることもある',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-sqrt-add-expand-fc36',
-        front: '$5 + 2\\sqrt{6}$。$(\\sqrt{2})^2 + 2\\sqrt{2}\\sqrt{3} + (\\sqrt{3})^2 = 2 + 2\\sqrt{6} + 3$', back: '$(\\sqrt{2} + \\sqrt{3})^2$ を展開すると？',
+        front: '$5 + 2\\sqrt{6}$',
+        back: '$(\\sqrt{2} + \\sqrt{3})^2$ を展開すると？',
+        explanation: '$(\\sqrt{2})^2 + 2\\sqrt{2}\\sqrt{3} + (\\sqrt{3})^2 = 2 + 2\\sqrt{6} + 3$',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-sqrt-add-expand-fc37',
-        front: '$3$。$x^2+4x+4=(x+2)^2$、$x+2=\\sqrt{3}$ を代入して $(\\sqrt{3})^2 = 3$', back: '$x = \\sqrt{3} - 2$ のとき $x^2 + 4x + 4$ の値は？',
+        front: '$3$',
+        back: '$x = \\sqrt{3} - 2$ のとき $x^2 + 4x + 4$ の値は？',
+        explanation: '$x^2+4x+4=(x+2)^2$、$x+2=\\sqrt{3}$ を代入して $(\\sqrt{3})^2 = 3$',
         difficulty: 'advanced',
       },
       {
         id: 'math-g3-sqrt-add-expand-fc38',
-        front: '$a=2$、$b=\\sqrt{7}-2$。$2 < \\sqrt{7} < 3$ なので整数部分は $2$、小数部分は $\\sqrt{7}-2$', back: '$\\sqrt{7}$ の整数部分 $a$ と小数部分 $b$ は？',
+        front: '$a=2$、$b=\\sqrt{7}-2$',
+        back: '$\\sqrt{7}$ の整数部分 $a$ と小数部分 $b$ は？',
+        explanation: '$2 < \\sqrt{7} < 3$ なので整数部分は $2$、小数部分は $\\sqrt{7}-2$',
         difficulty: 'advanced',
       },
       {
         id: 'math-g3-sqrt-add-expand-fc39',
-        front: '$6\\sqrt{2} + 6$。$2\\sqrt{3}\\times\\sqrt{6}=2\\sqrt{18}=6\\sqrt{2}$、$2\\sqrt{3}\\times\\sqrt{3}=2\\times3=6$', back: '$2\\sqrt{3}(\\sqrt{6} + \\sqrt{3})$ を展開すると？',
+        front: '$6\\sqrt{2} + 6$',
+        back: '$2\\sqrt{3}(\\sqrt{6} + \\sqrt{3})$ を展開すると？',
+        explanation: '$2\\sqrt{3}\\times\\sqrt{6}=2\\sqrt{18}=6\\sqrt{2}$、$2\\sqrt{3}\\times\\sqrt{3}=2\\times3=6$',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-sqrt-add-expand-fc40',
-        front: '$7$。$(2\\sqrt{3})^2 - (\\sqrt{5})^2 = 12 - 5 = 7$。和と差の積の公式を使う', back: '$(2\\sqrt{3} + \\sqrt{5})(2\\sqrt{3} - \\sqrt{5})$ を展開すると？',
+        front: '$7$',
+        back: '$(2\\sqrt{3} + \\sqrt{5})(2\\sqrt{3} - \\sqrt{5})$ を展開すると？',
+        explanation: '$(2\\sqrt{3})^2 - (\\sqrt{5})^2 = 12 - 5 = 7$。和と差の積の公式を使う',
         difficulty: 'standard',
       },
     ],
@@ -273,7 +353,7 @@ export const sqrtAddExpand: Topic = {
           options: ['$6\\sqrt{5}$', '$5\\sqrt{10}$', '$5\\sqrt{5}$', '$\\sqrt{25}$'],
           correctIndex: 2,
           explanation:
-            '$3\\sqrt{5} + 2\\sqrt{5} = (3+2)\\sqrt{5} = 5\\sqrt{5}$。同じルートの前の数だけ足すよ。',
+            '$3\\sqrt{5} + 2\\sqrt{5} = (3+2)\\sqrt{5} = 5\\sqrt{5}$\n同じルートの前の数だけ足すよ。',
           difficulty: 'basic',
         },
         {
@@ -282,7 +362,7 @@ export const sqrtAddExpand: Topic = {
           options: ['$3$', '$5 - 2\\sqrt{5}$', '$\\sqrt{5} - 4$', '$1$'],
           correctIndex: 3,
           explanation:
-            '$(\\sqrt{5}+2)(\\sqrt{5}-2) = (\\sqrt{5})^2 - 2^2 = 5 - 4 = 1$。和と差の積の公式だよ。',
+            '$(\\sqrt{5}+2)(\\sqrt{5}-2) = (\\sqrt{5})^2 - 2^2 = 5 - 4 = 1$\n和と差の積の公式だよ。',
           difficulty: 'standard',
         },
         {
@@ -291,7 +371,7 @@ export const sqrtAddExpand: Topic = {
           options: ['$\\sqrt{15}$', '$3\\sqrt{3}$', '$4\\sqrt{3}$', '$2\\sqrt{6}$'],
           correctIndex: 1,
           explanation:
-            '$\\sqrt{12} = 2\\sqrt{3}$ だから、$2\\sqrt{3} + \\sqrt{3} = 3\\sqrt{3}$。$\\sqrt{}$ の中を簡単にしてからまとめよう。',
+            '$\\sqrt{12} = 2\\sqrt{3}$ だから、$2\\sqrt{3} + \\sqrt{3} = 3\\sqrt{3}$\n$\\sqrt{}$ の中を簡単にしてからまとめよう。',
           difficulty: 'basic',
         },
         {
@@ -305,7 +385,7 @@ export const sqrtAddExpand: Topic = {
           ],
           correctIndex: 0,
           explanation:
-            '$\\sqrt{2}\\times\\sqrt{6} = \\sqrt{12} = 2\\sqrt{3}$、$\\sqrt{2}\\times\\sqrt{3} = \\sqrt{6}$。よって $2\\sqrt{3} + \\sqrt{6}$。',
+            '$\\sqrt{2}\\times\\sqrt{6} = \\sqrt{12} = 2\\sqrt{3}$、$\\sqrt{2}\\times\\sqrt{3} = \\sqrt{6}$\nよって $2\\sqrt{3} + \\sqrt{6}$。',
           difficulty: 'basic',
         },
         {
@@ -314,7 +394,7 @@ export const sqrtAddExpand: Topic = {
           options: ['$3 + 2\\sqrt{3} - 1$', '$3 + 1$', '$4$', '$4 + 2\\sqrt{3}$'],
           correctIndex: 3,
           explanation:
-            '$(\\sqrt{3})^2 + 2\\times1\\times\\sqrt{3} + 1^2 = 3 + 2\\sqrt{3} + 1 = 4 + 2\\sqrt{3}$。完全平方公式を使おう。',
+            '$(\\sqrt{3})^2 + 2\\times1\\times\\sqrt{3} + 1^2 = 3 + 2\\sqrt{3} + 1 = 4 + 2\\sqrt{3}$\n完全平方公式を使おう。',
           difficulty: 'standard',
         },
         {
@@ -323,7 +403,7 @@ export const sqrtAddExpand: Topic = {
           options: ['$9 - 4\\sqrt{5}$', '$9 + 4\\sqrt{5}$', '$1$', '$5 + 4$'],
           correctIndex: 0,
           explanation:
-            '$(\\sqrt{5})^2 - 2\\times2\\times\\sqrt{5} + 2^2 = 5 - 4\\sqrt{5} + 4 = 9 - 4\\sqrt{5}$。符号に注意！',
+            '$(\\sqrt{5})^2 - 2\\times2\\times\\sqrt{5} + 2^2 = 5 - 4\\sqrt{5} + 4 = 9 - 4\\sqrt{5}$\n符号に注意！',
           difficulty: 'standard',
         },
         {
@@ -337,7 +417,7 @@ export const sqrtAddExpand: Topic = {
           ],
           correctIndex: 1,
           explanation:
-            '$\\sqrt{2}\\cdot\\sqrt{2} - \\sqrt{2} + 3\\sqrt{2} - 3 = 2 + 2\\sqrt{2} - 3 = -1 + 2\\sqrt{2}$。FOIL法で丁寧に展開しよう。',
+            '$\\sqrt{2}\\cdot\\sqrt{2} - \\sqrt{2} + 3\\sqrt{2} - 3 = 2 + 2\\sqrt{2} - 3 = -1 + 2\\sqrt{2}$\nFOIL法で丁寧に展開しよう。',
           difficulty: 'standard',
         },
         {
@@ -346,7 +426,7 @@ export const sqrtAddExpand: Topic = {
           options: ['$\\sqrt{3}$', '$2\\sqrt{3}$', '$0$', '$-2\\sqrt{3}$'],
           correctIndex: 2,
           explanation:
-            '$\\frac{6}{\\sqrt{3}} = \\frac{6\\sqrt{3}}{3} = 2\\sqrt{3}$（有理化）。$\\sqrt{12} = 2\\sqrt{3}$ なので $2\\sqrt{3} - 2\\sqrt{3} = 0$。',
+            '$\\frac{6}{\\sqrt{3}} = \\frac{6\\sqrt{3}}{3} = 2\\sqrt{3}$（有理化）\n$\\sqrt{12} = 2\\sqrt{3}$ なので $2\\sqrt{3} - 2\\sqrt{3} = 0$。',
           difficulty: 'standard',
         },
         {
@@ -355,14 +435,14 @@ export const sqrtAddExpand: Topic = {
           options: ['$4$', '$6 + 2\\sqrt{5}$', '$\\sqrt{5}$', '$5$'],
           correctIndex: 3,
           explanation:
-            '$x^2 - 2x + 1 = (x-1)^2$。$x-1 = \\sqrt{5}$ を代入すると $(\\sqrt{5})^2 = 5$。因数分解してから代入すると楽！',
+            '$x^2 - 2x + 1 = (x-1)^2$\n$x-1 = \\sqrt{5}$ を代入すると $(\\sqrt{5})^2 = 5$\n因数分解してから代入すると楽！',
           difficulty: 'advanced',
         },
         {
           id: 'math-g3-sqrt-add-expand-q10',
           question: '$\\sqrt{48} + \\sqrt{3}$ を計算すると？',
-          options: ['$5\\sqrt{3}$', '$\\sqrt{51}$', '$4\\sqrt{3}$', '$7\\sqrt{3}$'],
-          correctIndex: 0,
+          options: ['$7\\sqrt{3}$', '$\\sqrt{51}$', '$4\\sqrt{3}$', '$5\\sqrt{3}$'],
+          correctIndex: 3,
           explanation:
             '$\\sqrt{48} = \\sqrt{16 \\times 3} = 4\\sqrt{3}$ なので、$4\\sqrt{3} + \\sqrt{3} = 5\\sqrt{3}$。',
           difficulty: 'basic',
@@ -382,7 +462,7 @@ export const sqrtAddExpand: Topic = {
           options: ['$2$', '$5$', '$4$', '$10$'],
           correctIndex: 1,
           explanation:
-            '$80 = 16 \\times 5 = 2^4 \\times 5$。$\\sqrt{80a} = 4\\sqrt{5a}$ が整数になるには $5a$ が完全平方数である必要がある。最小は $a = 5$ で $\\sqrt{400} = 20$。',
+            '$80 = 16 \\times 5 = 2^4 \\times 5$\n$\\sqrt{80a} = 4\\sqrt{5a}$ が整数になるには $5a$ が整数の2乗の数である必要がある。\n最小は $a = 5$ で $\\sqrt{400} = 20$。',
           difficulty: 'advanced',
         },
         {
@@ -391,7 +471,7 @@ export const sqrtAddExpand: Topic = {
           options: ['$3\\sqrt{3}$', '$3\\sqrt{6}$', '$11\\sqrt{3}$', '$3$'],
           correctIndex: 0,
           explanation:
-            '$(7-4)\\sqrt{3} = 3\\sqrt{3}$。同じ $\\sqrt{3}$ の係数を引き算するだけだよ。',
+            '$(7-4)\\sqrt{3} = 3\\sqrt{3}$\n同じ $\\sqrt{3}$ の係数を引き算するだけだよ。',
           difficulty: 'basic',
         },
         {
@@ -400,7 +480,7 @@ export const sqrtAddExpand: Topic = {
           options: ['$\\sqrt{10}$', '$3\\sqrt{2}$', '$4\\sqrt{2}$', '$2\\sqrt{4}$'],
           correctIndex: 1,
           explanation:
-            '$\\sqrt{8} = 2\\sqrt{2}$ なので $2\\sqrt{2} + \\sqrt{2} = 3\\sqrt{2}$。√の中を簡単にしてからまとめよう。',
+            '$\\sqrt{8} = 2\\sqrt{2}$ なので $2\\sqrt{2} + \\sqrt{2} = 3\\sqrt{2}$\n√の中を簡単にしてからまとめよう。',
           difficulty: 'basic',
         },
         {
@@ -424,8 +504,8 @@ export const sqrtAddExpand: Topic = {
         {
           id: 'math-g3-sqrt-add-expand-q17',
           question: '$\\sqrt{50} + \\sqrt{32}$ を計算すると？',
-          options: ['$9\\sqrt{2}$', '$\\sqrt{82}$', '$7\\sqrt{2}$', '$3\\sqrt{2}$'],
-          correctIndex: 0,
+          options: ['$3\\sqrt{2}$', '$\\sqrt{82}$', '$7\\sqrt{2}$', '$9\\sqrt{2}$'],
+          correctIndex: 3,
           explanation:
             '$\\sqrt{50}=5\\sqrt{2}$、$\\sqrt{32}=4\\sqrt{2}$ なので $5\\sqrt{2}+4\\sqrt{2}=9\\sqrt{2}$。',
           difficulty: 'basic',
@@ -442,10 +522,10 @@ export const sqrtAddExpand: Topic = {
         {
           id: 'math-g3-sqrt-add-expand-q19',
           question: '$\\sqrt{72} + \\sqrt{8} - \\sqrt{32}$ を計算すると？',
-          options: ['$4\\sqrt{2}$', '$6\\sqrt{2}$', '$2\\sqrt{2}$', '$8\\sqrt{2}$'],
-          correctIndex: 0,
+          options: ['$2\\sqrt{2}$', '$6\\sqrt{2}$', '$4\\sqrt{2}$', '$8\\sqrt{2}$'],
+          correctIndex: 2,
           explanation:
-            '$6\\sqrt{2} + 2\\sqrt{2} - 4\\sqrt{2} = (6+2-4)\\sqrt{2} = 4\\sqrt{2}$。3つ以上の項もまとめて計算できるよ。',
+            '$6\\sqrt{2} + 2\\sqrt{2} - 4\\sqrt{2} = (6+2-4)\\sqrt{2} = 4\\sqrt{2}$\n3つ以上の項もまとめて計算できるよ。',
           difficulty: 'standard',
         },
         {
@@ -460,17 +540,17 @@ export const sqrtAddExpand: Topic = {
         {
           id: 'math-g3-sqrt-add-expand-q21',
           question: '$6\\sqrt{3} + 8\\sqrt{3}$ を計算すると？',
-          options: ['$14\\sqrt{3}$', '$14\\sqrt{6}$', '$48\\sqrt{3}$', '$2\\sqrt{3}$'],
-          correctIndex: 0,
+          options: ['$2\\sqrt{3}$', '$14\\sqrt{6}$', '$48\\sqrt{3}$', '$14\\sqrt{3}$'],
+          correctIndex: 3,
           explanation:
-            '$(6+8)\\sqrt{3} = 14\\sqrt{3}$。同じ $\\sqrt{3}$ の係数を足すだけだよ。',
+            '$(6+8)\\sqrt{3} = 14\\sqrt{3}$\n同じ $\\sqrt{3}$ の係数を足すだけだよ。',
           difficulty: 'basic',
         },
         {
           id: 'math-g3-sqrt-add-expand-q22',
           question: '$\\sqrt{3}(\\sqrt{5} - \\sqrt{2})$ を計算すると？',
-          options: ['$\\sqrt{15} - \\sqrt{6}$', '$\\sqrt{8} - \\sqrt{5}$', '$\\sqrt{15} + \\sqrt{6}$', '$3\\sqrt{5} - 3\\sqrt{2}$'],
-          correctIndex: 0,
+          options: ['$\\sqrt{15} + \\sqrt{6}$', '$\\sqrt{8} - \\sqrt{5}$', '$\\sqrt{15} - \\sqrt{6}$', '$3\\sqrt{5} - 3\\sqrt{2}$'],
+          correctIndex: 2,
           explanation:
             '$\\sqrt{3}\\times\\sqrt{5}=\\sqrt{15}$、$\\sqrt{3}\\times\\sqrt{2}=\\sqrt{6}$ なので $\\sqrt{15}-\\sqrt{6}$。',
           difficulty: 'basic',
@@ -505,10 +585,10 @@ export const sqrtAddExpand: Topic = {
         {
           id: 'math-g3-sqrt-add-expand-q26',
           question: '$(\\sqrt{7} + 3)(\\sqrt{7} - 3)$ を計算すると？',
-          options: ['$-2$', '$7 + 9$', '$4$', '$\\sqrt{7}$'],
-          correctIndex: 0,
+          options: ['$\\sqrt{7}$', '$7 + 9$', '$4$', '$-2$'],
+          correctIndex: 3,
           explanation:
-            '$(\\sqrt{7})^2 - 3^2 = 7 - 9 = -2$。和と差の積の公式で、結果が負になることもあるよ。',
+            '$(\\sqrt{7})^2 - 3^2 = 7 - 9 = -2$\n和と差の積の公式で、結果が負になることもあるよ。',
           difficulty: 'standard',
         },
         {
@@ -517,7 +597,7 @@ export const sqrtAddExpand: Topic = {
           options: ['$\\sqrt{6}$', '$5$', '$1$', '$\\sqrt{3} - \\sqrt{2}$'],
           correctIndex: 2,
           explanation:
-            '$(\\sqrt{3})^2 - (\\sqrt{2})^2 = 3 - 2 = 1$。和と差の積でルートが消えるよ。',
+            '$(\\sqrt{3})^2 - (\\sqrt{2})^2 = 3 - 2 = 1$\n和と差の積でルートが消えるよ。',
           difficulty: 'standard',
         },
         {
@@ -526,16 +606,16 @@ export const sqrtAddExpand: Topic = {
           options: ['$12$', '$10$', '$\\sqrt{11}$', '$11$'],
           correctIndex: 1,
           explanation:
-            '$(\\sqrt{11})^2 - 1^2 = 11 - 1 = 10$。和と差の積の公式だよ。',
+            '$(\\sqrt{11})^2 - 1^2 = 11 - 1 = 10$\n和と差の積の公式だよ。',
           difficulty: 'standard',
         },
         {
           id: 'math-g3-sqrt-add-expand-q29',
           question: '$(2\\sqrt{3} + \\sqrt{5})(2\\sqrt{3} - \\sqrt{5})$ を計算すると？',
-          options: ['$7$', '$17$', '$1$', '$12 + 5$'],
-          correctIndex: 0,
+          options: ['$17$', '$7$', '$1$', '$12 + 5$'],
+          correctIndex: 1,
           explanation:
-            '$(2\\sqrt{3})^2 - (\\sqrt{5})^2 = 12 - 5 = 7$。$2\\sqrt{3}$ の2乗は $4 \\times 3 = 12$ だよ。',
+            '$(2\\sqrt{3})^2 - (\\sqrt{5})^2 = 12 - 5 = 7$\n$2\\sqrt{3}$ の2乗は $4 \\times 3 = 12$ だよ。',
           difficulty: 'standard',
         },
         {
@@ -568,8 +648,8 @@ export const sqrtAddExpand: Topic = {
         {
           id: 'math-g3-sqrt-add-expand-q33',
           question: '$(\\sqrt{3} + 4)(\\sqrt{3} + 2)$ を展開すると？',
-          options: ['$11 + 6\\sqrt{3}$', '$5 + 6\\sqrt{3}$', '$14 + 6\\sqrt{3}$', '$11 + 2\\sqrt{3}$'],
-          correctIndex: 0,
+          options: ['$11 + 2\\sqrt{3}$', '$5 + 6\\sqrt{3}$', '$14 + 6\\sqrt{3}$', '$11 + 6\\sqrt{3}$'],
+          correctIndex: 3,
           explanation:
             '$\\sqrt{3}\\cdot\\sqrt{3} + 2\\sqrt{3} + 4\\sqrt{3} + 8 = 3 + 6\\sqrt{3} + 8 = 11 + 6\\sqrt{3}$。',
           difficulty: 'standard',
@@ -577,8 +657,8 @@ export const sqrtAddExpand: Topic = {
         {
           id: 'math-g3-sqrt-add-expand-q34',
           question: '$(\\sqrt{5} + 1)(\\sqrt{5} + 3)$ を展開すると？',
-          options: ['$8 + 4\\sqrt{5}$', '$6 + 4\\sqrt{5}$', '$8 + 2\\sqrt{5}$', '$15 + 4\\sqrt{5}$'],
-          correctIndex: 0,
+          options: ['$8 + 2\\sqrt{5}$', '$6 + 4\\sqrt{5}$', '$8 + 4\\sqrt{5}$', '$15 + 4\\sqrt{5}$'],
+          correctIndex: 2,
           explanation:
             '$\\sqrt{5}\\cdot\\sqrt{5} + 3\\sqrt{5} + \\sqrt{5} + 3 = 5 + 4\\sqrt{5} + 3 = 8 + 4\\sqrt{5}$。',
           difficulty: 'standard',
@@ -589,7 +669,7 @@ export const sqrtAddExpand: Topic = {
           options: ['$-10$', '$2$', '$10$', '$-2$'],
           correctIndex: 0,
           explanation:
-            '$(\\sqrt{6})^2 - 4^2 = 6 - 16 = -10$。$(\\sqrt{6}+4)(-4+\\sqrt{6})$ と同じ形だよ。',
+            '$(\\sqrt{6})^2 - 4^2 = 6 - 16 = -10$\n$(\\sqrt{6}+4)(-4+\\sqrt{6})$ と同じ形だよ。',
           difficulty: 'standard',
         },
         {
@@ -598,7 +678,7 @@ export const sqrtAddExpand: Topic = {
           options: ['$\\sqrt{3}$', '$3$', '$7 - 4\\sqrt{3}$', '$1$'],
           correctIndex: 1,
           explanation:
-            '$x^2 + 4x + 4 = (x+2)^2$。$x+2 = \\sqrt{3}$ を代入すると $(\\sqrt{3})^2 = 3$。',
+            '$x^2 + 4x + 4 = (x+2)^2$\n$x+2 = \\sqrt{3}$ を代入すると $(\\sqrt{3})^2 = 3$。',
           difficulty: 'advanced',
         },
         {
@@ -607,16 +687,16 @@ export const sqrtAddExpand: Topic = {
           options: ['$2$', '$8$', '$\\sqrt{15}$', '$4$'],
           correctIndex: 0,
           explanation:
-            '$xy = (\\sqrt{5}+\\sqrt{3})(\\sqrt{5}-\\sqrt{3}) = 5 - 3 = 2$。和と差の積の形だよ。',
+            '$xy = (\\sqrt{5}+\\sqrt{3})(\\sqrt{5}-\\sqrt{3}) = 5 - 3 = 2$\n和と差の積の形だよ。',
           difficulty: 'advanced',
         },
         {
           id: 'math-g3-sqrt-add-expand-q38',
           question: '$x = \\sqrt{7} + 3$ のとき、$x^2 - 6x + 8$ の値は？',
-          options: ['$6$', '$7$', '$8$', '$-1$'],
-          correctIndex: 0,
+          options: ['$7$', '$6$', '$8$', '$-1$'],
+          correctIndex: 1,
           explanation:
-            '$x^2 - 6x + 8 = (x-3)^2 - 1$。$x-3=\\sqrt{7}$ を代入すると $(\\sqrt{7})^2 - 1 = 7 - 1 = 6$。',
+            '$x^2 - 6x + 8 = (x-3)^2 - 1$\n$x-3=\\sqrt{7}$ を代入すると $(\\sqrt{7})^2 - 1 = 7 - 1 = 6$。',
           difficulty: 'advanced',
         },
         {
@@ -631,8 +711,8 @@ export const sqrtAddExpand: Topic = {
         {
           id: 'math-g3-sqrt-add-expand-q40',
           question: '$(\\sqrt{5} + 7)(\\sqrt{5} - 4)$ を展開すると？',
-          options: ['$-23 + 3\\sqrt{5}$', '$-28 + 3\\sqrt{5}$', '$33 + 3\\sqrt{5}$', '$-23 - 3\\sqrt{5}$'],
-          correctIndex: 0,
+          options: ['$-23 - 3\\sqrt{5}$', '$-28 + 3\\sqrt{5}$', '$33 + 3\\sqrt{5}$', '$-23 + 3\\sqrt{5}$'],
+          correctIndex: 3,
           explanation:
             '$5 - 4\\sqrt{5} + 7\\sqrt{5} - 28 = -23 + 3\\sqrt{5}$。',
           difficulty: 'advanced',
@@ -649,8 +729,8 @@ export const sqrtAddExpand: Topic = {
         {
           id: 'math-g3-sqrt-add-expand-q42',
           question: '$(4\\sqrt{3} - 1)^2$ を展開すると？',
-          options: ['$49 - 8\\sqrt{3}$', '$47 - 8\\sqrt{3}$', '$49 + 8\\sqrt{3}$', '$48 - 8\\sqrt{3}$'],
-          correctIndex: 0,
+          options: ['$48 - 8\\sqrt{3}$', '$47 - 8\\sqrt{3}$', '$49 + 8\\sqrt{3}$', '$49 - 8\\sqrt{3}$'],
+          correctIndex: 3,
           explanation:
             '$(4\\sqrt{3})^2 - 2\\times4\\sqrt{3}\\times1 + 1^2 = 48 - 8\\sqrt{3} + 1 = 49 - 8\\sqrt{3}$。',
           difficulty: 'advanced',
@@ -658,10 +738,10 @@ export const sqrtAddExpand: Topic = {
         {
           id: 'math-g3-sqrt-add-expand-q43',
           question: '$(\\sqrt{6} + \\sqrt{15})^2$ を展開すると？',
-          options: ['$21 + 6\\sqrt{10}$', '$21 + 2\\sqrt{90}$', '$21 + 2\\sqrt{15}$', '$21$'],
-          correctIndex: 0,
+          options: ['$21 + 2\\sqrt{15}$', '$21 + 2\\sqrt{90}$', '$21 + 6\\sqrt{10}$', '$21$'],
+          correctIndex: 2,
           explanation:
-            '$6 + 2\\sqrt{6}\\sqrt{15} + 15 = 21 + 2\\sqrt{90} = 21 + 6\\sqrt{10}$。$\\sqrt{90}=3\\sqrt{10}$ だよ。',
+            '$6 + 2\\sqrt{6}\\sqrt{15} + 15 = 21 + 2\\sqrt{90} = 21 + 6\\sqrt{10}$\n$\\sqrt{90}=3\\sqrt{10}$ だよ。',
           difficulty: 'advanced',
         },
         {
@@ -670,23 +750,23 @@ export const sqrtAddExpand: Topic = {
           options: ['$2$', '$3$', '$6$', '$15$'],
           correctIndex: 2,
           explanation:
-            '$150 = 2 \\times 3 \\times 5^2$。$\\sqrt{150a}$ が自然数になるには $a = 2 \\times 3 = 6$。$\\sqrt{900} = 30$。',
+            '$150 = 2 \\times 3 \\times 5^2$\n$\\sqrt{150a}$ が自然数になるには $a = 2 \\times 3 = 6$\n$\\sqrt{900} = 30$。',
           difficulty: 'advanced',
         },
         {
           id: 'math-g3-sqrt-add-expand-q45',
           question: '$\\sqrt{7}$ の整数部分が $a$、小数部分が $b$ のとき、$b^2 + 4b + 4$ の値は？',
-          options: ['$7$', '$3$', '$9$', '$4$'],
-          correctIndex: 0,
+          options: ['$9$', '$3$', '$7$', '$4$'],
+          correctIndex: 2,
           explanation:
-            '$2 < \\sqrt{7} < 3$ より $a=2$, $b=\\sqrt{7}-2$。$b^2+4b+4=(b+2)^2=(\\sqrt{7})^2=7$。',
+            '$2 < \\sqrt{7} < 3$ より $a=2$, $b=\\sqrt{7}-2$\n$b^2+4b+4=(b+2)^2=(\\sqrt{7})^2=7$。',
           difficulty: 'advanced',
         },
         {
           id: 'math-g3-sqrt-add-expand-q46',
           question: '対角線の長さが $6$ cm の正方形の1辺の長さは？',
-          options: ['$3\\sqrt{2}$ cm', '$3$ cm', '$2\\sqrt{3}$ cm', '$6\\sqrt{2}$ cm'],
-          correctIndex: 0,
+          options: ['$6\\sqrt{2}$ cm', '$3$ cm', '$2\\sqrt{3}$ cm', '$3\\sqrt{2}$ cm'],
+          correctIndex: 3,
           explanation:
             '1辺を $a$ とすると $a\\sqrt{2}=6$ なので $a=\\frac{6}{\\sqrt{2}}=\\frac{6\\sqrt{2}}{2}=3\\sqrt{2}$ cm。',
           difficulty: 'advanced',

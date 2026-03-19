@@ -38,11 +38,11 @@ export const sqrtMeaning: Topic = {
         {
           title: '平方根の値（近似値）',
           content:
-            '√2 ≈ 1.414、√3 ≈ 1.732、√5 ≈ 2.236 のように覚えておくと便利だよ。√の中の数が大きいほど値も大きい。また、√200 = 10√2 のように変形すれば、近似値から計算できるんだ。',
+            '√2 = 1.414…、√3 = 1.732…、√5 = 2.236… のように覚えておくと便利だよ。√の中の数が大きいほど値も大きい。また、√200 = 10√2 のように変形すれば、近似値から計算できるんだ。',
           keyPoints: [
-            '√2 ≈ 1.414（ひとよひとよにひとみごろ）',
-            '√3 ≈ 1.732（ひとなみにおごれや）',
-            '√5 ≈ 2.236（ふじさんろく）',
+            '√2 = 1.414…（ひとよひとよにひとみごろ）',
+            '√3 = 1.732…（ひとなみにおごれや）',
+            '√5 = 2.236…（ふじさんろく）',
           ],
         },
         {
@@ -70,57 +70,57 @@ export const sqrtMeaning: Topic = {
     videos: [],
     flashcards: [
       // --- 平方根の定義（basic） ---
-      { id: 'math-g3-sqrt-meaning-fc1', front: '2乗すると a になる数のこと。a の平方根は $\\pm\\sqrt{a}$ の2つある', back: '平方根とは？', difficulty: 'basic' },
-      { id: 'math-g3-sqrt-meaning-fc2', front: '正の平方根を表す記号。$\\sqrt{9} = 3$（正の方だけ）', back: '$\\sqrt{\\phantom{0}}$（ルート）記号の意味', difficulty: 'basic' },
-      { id: 'math-g3-sqrt-meaning-fc3', front: '$\\pm 3$（$3^2 = 9$、$(-3)^2 = 9$）', back: '$9$ の平方根は？', difficulty: 'basic' },
-      { id: 'math-g3-sqrt-meaning-fc4', front: '$a$（ルートと2乗は打ち消し合う）', back: '$(\\sqrt{a})^2 = ?$', difficulty: 'basic' },
-      { id: 'math-g3-sqrt-meaning-fc5', front: '$a$（負の数の2乗は正になる）', back: '$(-\\sqrt{a})^2 = ?$', difficulty: 'basic' },
-      { id: 'math-g3-sqrt-meaning-fc6', front: '$0$ だけ（$0^2 = 0$）', back: '$0$ の平方根は？', difficulty: 'basic' },
-      { id: 'math-g3-sqrt-meaning-fc7', front: '存在しない（2乗は必ず0以上）', back: '負の数の平方根は？', difficulty: 'basic' },
-      { id: 'math-g3-sqrt-meaning-fc8', front: '整数 $m$ と 0でない整数 $n$ で $\\frac{m}{n}$ と表せる数', back: '有理数とは？', difficulty: 'basic' },
-      { id: 'math-g3-sqrt-meaning-fc9', front: '分数で表せない数（$\\sqrt{2}$、$\\sqrt{3}$、$\\pi$ など）', back: '無理数とは？', difficulty: 'basic' },
-      { id: 'math-g3-sqrt-meaning-fc10', front: '$1.41421356\\ldots$（ひとよひとよにひとみごろ）', back: '$\\sqrt{2}$ の近似値は？', difficulty: 'basic' },
-      { id: 'math-g3-sqrt-meaning-fc11', front: '$1.7320508\\ldots$（ひとなみにおごれや）', back: '$\\sqrt{3}$ の近似値は？', difficulty: 'basic' },
-      { id: 'math-g3-sqrt-meaning-fc12', front: '$2.2360679\\ldots$（ふじさんろくおうむなく）', back: '$\\sqrt{5}$ の近似値は？', difficulty: 'basic' },
-      { id: 'math-g3-sqrt-meaning-fc13', front: '$a < b$ ならば $\\sqrt{a} < \\sqrt{b}$（中の数が大きいほど$\\sqrt{\\phantom{0}}$も大きい）', back: '平方根の大小比較のルール', difficulty: 'standard' },
-      { id: 'math-g3-sqrt-meaning-fc14', front: '$a < b$ ならば $-\\sqrt{a} > -\\sqrt{b}$（負になると不等号が逆転）', back: '負の平方根の大小比較', difficulty: 'standard' },
-      { id: 'math-g3-sqrt-meaning-fc15', front: '小数点以下が有限で終わる小数（例: $0.125$）', back: '有限小数とは？', difficulty: 'basic' },
-      { id: 'math-g3-sqrt-meaning-fc16', front: '同じ数字の並びがくり返される小数（例: $0.333\\ldots$）', back: '循環小数とは？', difficulty: 'basic' },
+      { id: 'math-g3-sqrt-meaning-fc1', front: '2乗すると $a$ になる数', back: '平方根とは？', explanation: '$a$ の平方根は $\\pm\\sqrt{a}$ の2つある。正の方を $\\sqrt{a}$、負の方を $-\\sqrt{a}$ と書く。', difficulty: 'basic' },
+      { id: 'math-g3-sqrt-meaning-fc2', front: '正の平方根を表す記号', back: '$\\sqrt{\\phantom{0}}$（ルート）記号の意味', explanation: '$\\sqrt{9} = 3$ のように、正の方だけを表す。', difficulty: 'basic' },
+      { id: 'math-g3-sqrt-meaning-fc3', front: '$\\pm 3$', back: '$9$ の平方根は？', explanation: '$3^2 = 9$、$(-3)^2 = 9$ なので $\\pm 3$。', difficulty: 'basic' },
+      { id: 'math-g3-sqrt-meaning-fc4', front: '$a$', back: '$(\\sqrt{a})^2 = ?$', explanation: 'ルートと2乗は打ち消し合う。', difficulty: 'basic' },
+      { id: 'math-g3-sqrt-meaning-fc5', front: '$a$', back: '$(-\\sqrt{a})^2 = ?$', explanation: '負の数の2乗は正になるので $(-\\sqrt{a})^2 = a$。', difficulty: 'basic' },
+      { id: 'math-g3-sqrt-meaning-fc6', front: '$0$ だけ', back: '$0$ の平方根は？', explanation: '$0^2 = 0$ なので、平方根は $0$ の1つだけ。', difficulty: 'basic' },
+      { id: 'math-g3-sqrt-meaning-fc7', front: '存在しない', back: '負の数の平方根は？', explanation: '2乗は必ず0以上になるので、負の数にはならない。', difficulty: 'basic' },
+      { id: 'math-g3-sqrt-meaning-fc8', front: '$\\frac{m}{n}$ と表せる数', back: '有理数とは？', explanation: '整数 $m$ と 0でない整数 $n$ を使って分数で表せる数のこと。', difficulty: 'basic' },
+      { id: 'math-g3-sqrt-meaning-fc9', front: '分数で表せない数', back: '無理数とは？', explanation: '$\\sqrt{2}$、$\\sqrt{3}$、$\\pi$ などが無理数。小数にすると規則性なく永遠に続く。', difficulty: 'basic' },
+      { id: 'math-g3-sqrt-meaning-fc10', front: '$1.41421356\\ldots$', back: '$\\sqrt{2}$ の近似値は？', explanation: '語呂合わせ：ひとよひとよにひとみごろ。', difficulty: 'basic' },
+      { id: 'math-g3-sqrt-meaning-fc11', front: '$1.7320508\\ldots$', back: '$\\sqrt{3}$ の近似値は？', explanation: '語呂合わせ：ひとなみにおごれや。', difficulty: 'basic' },
+      { id: 'math-g3-sqrt-meaning-fc12', front: '$2.2360679\\ldots$', back: '$\\sqrt{5}$ の近似値は？', explanation: '語呂合わせ：ふじさんろくおうむなく。', difficulty: 'basic' },
+      { id: 'math-g3-sqrt-meaning-fc13', front: '$a < b$ ならば $\\sqrt{a} < \\sqrt{b}$', back: '平方根の大小比較のルール', explanation: '中の数が大きいほど $\\sqrt{\\phantom{0}}$ も大きい。', difficulty: 'standard' },
+      { id: 'math-g3-sqrt-meaning-fc14', front: '$a < b$ ならば $-\\sqrt{a} > -\\sqrt{b}$', back: '負の平方根の大小比較', explanation: '負になると不等号が逆転する。', difficulty: 'standard' },
+      { id: 'math-g3-sqrt-meaning-fc15', front: '小数点以下が有限で終わる小数', back: '有限小数とは？', explanation: '例: $0.125$。分数で表せるから有理数。', difficulty: 'basic' },
+      { id: 'math-g3-sqrt-meaning-fc16', front: '同じ数字の並びがくり返される小数', back: '循環小数とは？', explanation: '例: $0.333\\ldots$。分数で表せるから有理数。', difficulty: 'basic' },
       { id: 'math-g3-sqrt-meaning-fc17', front: '真の値に近い値として得られた値', back: '近似値とは？', difficulty: 'basic' },
       { id: 'math-g3-sqrt-meaning-fc18', front: '誤差 $=$ 近似値 $-$ 真の値', back: '誤差の求め方', difficulty: 'basic' },
-      { id: 'math-g3-sqrt-meaning-fc19', front: '近似値を表すとき、信頼できる意味のある数字', back: '有効数字とは？', difficulty: 'basic' },
-      { id: 'math-g3-sqrt-meaning-fc20', front: '$a \\times 10^n$ の形（例: $4500$ を有効数字2けた → $4.5 \\times 10^3$）', back: '有効数字の表し方', difficulty: 'standard' },
+      { id: 'math-g3-sqrt-meaning-fc19', front: '信頼できる意味のある数字', back: '有効数字とは？', explanation: '近似値を表すとき、意味のある数字の桁数のこと。', difficulty: 'basic' },
+      { id: 'math-g3-sqrt-meaning-fc20', front: '$a \\times 10^n$ の形', back: '有効数字の表し方', explanation: '例: $4500$ を有効数字2けた → $4.5 \\times 10^3$。', difficulty: 'standard' },
       // --- 以下、ichimondittou.md から追加 ---
-      { id: 'math-g3-sqrt-meaning-fc21', front: '$\\pm 5$（$5^2 = 25$、$(-5)^2 = 25$）', back: '$25$ の平方根は？', difficulty: 'basic' },
-      { id: 'math-g3-sqrt-meaning-fc22', front: '$\\pm 8$（$8^2 = 64$、$(-8)^2 = 64$）', back: '$64$ の平方根は？', difficulty: 'basic' },
-      { id: 'math-g3-sqrt-meaning-fc23', front: '$\\pm 0.2$（$0.2^2 = 0.04$）', back: '$0.04$ の平方根は？', difficulty: 'standard' },
-      { id: 'math-g3-sqrt-meaning-fc24', front: '$\\pm\\frac{4}{5}$（$\\left(\\frac{4}{5}\\right)^2 = \\frac{16}{25}$）', back: '$\\frac{16}{25}$ の平方根は？', difficulty: 'standard' },
-      { id: 'math-g3-sqrt-meaning-fc25', front: '$4$（$4^2 = 16$）', back: '$\\sqrt{16} = ?$', difficulty: 'basic' },
-      { id: 'math-g3-sqrt-meaning-fc26', front: '$-7$（$\\sqrt{49} = 7$ の負の方）', back: '$-\\sqrt{49} = ?$', difficulty: 'basic' },
-      { id: 'math-g3-sqrt-meaning-fc27', front: '$0.3$（$0.3^2 = 0.09$）', back: '$\\sqrt{0.09} = ?$', difficulty: 'standard' },
-      { id: 'math-g3-sqrt-meaning-fc28', front: '$-\\frac{1}{2}$（$\\sqrt{\\frac{1}{4}} = \\frac{1}{2}$）', back: '$-\\sqrt{\\frac{1}{4}} = ?$', difficulty: 'advanced' },
-      { id: 'math-g3-sqrt-meaning-fc29', front: '$11$（$11^2 = 121$）', back: '$\\sqrt{121} = ?$', difficulty: 'standard' },
-      { id: 'math-g3-sqrt-meaning-fc30', front: '$12$（$12^2 = 144$）', back: '$\\sqrt{144} = ?$', difficulty: 'standard' },
-      { id: 'math-g3-sqrt-meaning-fc31', front: '$20$（$20^2 = 400$）', back: '$\\sqrt{400} = ?$', difficulty: 'standard' },
-      { id: 'math-g3-sqrt-meaning-fc32', front: '$0.3$（$(-\\sqrt{a})^2 = a$）', back: '$(-\\sqrt{0.3})^2 = ?$', difficulty: 'standard' },
-      { id: 'math-g3-sqrt-meaning-fc33', front: '$\\frac{2}{3}$（$(\\sqrt{a})^2 = a$）', back: '$\\left(\\sqrt{\\frac{2}{3}}\\right)^2 = ?$', difficulty: 'standard' },
-      { id: 'math-g3-sqrt-meaning-fc34', front: '$8$（$8^2 = 64$）', back: '$\\sqrt{64}$ を $\\sqrt{\\phantom{0}}$ を使わずに表すと？', difficulty: 'basic' },
-      { id: 'math-g3-sqrt-meaning-fc35', front: '$-9$（$9^2 = 81$）', back: '$-\\sqrt{81}$ を $\\sqrt{\\phantom{0}}$ を使わずに表すと？', difficulty: 'basic' },
-      { id: 'math-g3-sqrt-meaning-fc36', front: '$\\frac{3}{5}$（$\\left(\\frac{3}{5}\\right)^2 = \\frac{9}{25}$）', back: '$\\sqrt{\\frac{9}{25}}$ を $\\sqrt{\\phantom{0}}$ を使わずに表すと？', difficulty: 'standard' },
-      { id: 'math-g3-sqrt-meaning-fc37', front: '$6$（$(-6)^2 = 36$、$\\sqrt{36} = 6$）', back: '$\\sqrt{(-6)^2} = ?$', difficulty: 'advanced' },
-      { id: 'math-g3-sqrt-meaning-fc38', front: '$\\sqrt{11} < \\sqrt{13}$（$11 < 13$）', back: '$\\sqrt{11}$ と $\\sqrt{13}$ の大小は？', difficulty: 'standard' },
-      { id: 'math-g3-sqrt-meaning-fc39', front: '$-\\sqrt{7} < -\\sqrt{5}$（負の数は絶対値が大きいほど小さい）', back: '$-\\sqrt{5}$ と $-\\sqrt{7}$ の大小は？', difficulty: 'advanced' },
-      { id: 'math-g3-sqrt-meaning-fc40', front: '$6 < \\sqrt{37}$（$6^2 = 36 < 37$）', back: '$6$ と $\\sqrt{37}$ の大小は？', difficulty: 'advanced' },
-      { id: 'math-g3-sqrt-meaning-fc41', front: '$7 < \\sqrt{50}$（$7^2 = 49 < 50$）', back: '$\\sqrt{50}$ と $7$ の大小は？', difficulty: 'advanced' },
-      { id: 'math-g3-sqrt-meaning-fc42', front: '$6$ 個（$a = 10, 11, 12, 13, 14, 15$）。$3^2 = 9$、$4^2 = 16$ より $9 < a < 16$', back: '$3 < \\sqrt{a} < 4$ となる自然数 $a$ はいくつ？', difficulty: 'advanced' },
-      { id: 'math-g3-sqrt-meaning-fc43', front: '無理数（$5$ は完全平方数でないので分数で表せない）', back: '$\\sqrt{5}$ は有理数？無理数？', difficulty: 'basic' },
-      { id: 'math-g3-sqrt-meaning-fc44', front: '有理数（$\\sqrt{9} = 3$ で整数になる）', back: '$\\sqrt{9}$ は有理数？無理数？', difficulty: 'basic' },
-      { id: 'math-g3-sqrt-meaning-fc45', front: '無理数（分数で表せない）', back: '円周率 $\\pi$ は有理数？無理数？', difficulty: 'basic' },
-      { id: 'math-g3-sqrt-meaning-fc46', front: '有限小数（$\\frac{5}{8} = 0.625$）', back: '$\\frac{5}{8}$ は有限小数？循環小数？', difficulty: 'standard' },
-      { id: 'math-g3-sqrt-meaning-fc47', front: '循環小数（$\\frac{1}{3} = 0.333\\ldots$）', back: '$\\frac{1}{3}$ は有限小数？循環小数？', difficulty: 'standard' },
-      { id: 'math-g3-sqrt-meaning-fc48', front: '有理数（どちらも分数で表せる）', back: '有限小数・循環小数は有理数？無理数？', difficulty: 'basic' },
-      { id: 'math-g3-sqrt-meaning-fc49', front: '$4.51 \\times 10^3$ m', back: '近似値 $4507$m を有効数字3けたで $a \\times 10^n$ の形にすると？', difficulty: 'advanced' },
-      { id: 'math-g3-sqrt-meaning-fc50', front: '$3$ けた（$2, 9, 6$）', back: '近似値 $2.96$km の有効数字は何けた？', difficulty: 'standard' },
+      { id: 'math-g3-sqrt-meaning-fc21', front: '$\\pm 5$', back: '$25$ の平方根は？', explanation: '$5^2 = 25$、$(-5)^2 = 25$ なので $\\pm 5$。', difficulty: 'basic' },
+      { id: 'math-g3-sqrt-meaning-fc22', front: '$\\pm 8$', back: '$64$ の平方根は？', explanation: '$8^2 = 64$、$(-8)^2 = 64$ なので $\\pm 8$。', difficulty: 'basic' },
+      { id: 'math-g3-sqrt-meaning-fc23', front: '$\\pm 0.2$', back: '$0.04$ の平方根は？', explanation: '$0.2^2 = 0.04$ なので $\\pm 0.2$。', difficulty: 'standard' },
+      { id: 'math-g3-sqrt-meaning-fc24', front: '$\\pm\\frac{4}{5}$', back: '$\\frac{16}{25}$ の平方根は？', explanation: '$\\left(\\frac{4}{5}\\right)^2 = \\frac{16}{25}$ なので $\\pm\\frac{4}{5}$。', difficulty: 'standard' },
+      { id: 'math-g3-sqrt-meaning-fc25', front: '$4$', back: '$\\sqrt{16} = ?$', explanation: '$4^2 = 16$ なので $\\sqrt{16} = 4$。', difficulty: 'basic' },
+      { id: 'math-g3-sqrt-meaning-fc26', front: '$-7$', back: '$-\\sqrt{49} = ?$', explanation: '$\\sqrt{49} = 7$ の負の方なので $-7$。', difficulty: 'basic' },
+      { id: 'math-g3-sqrt-meaning-fc27', front: '$0.3$', back: '$\\sqrt{0.09} = ?$', explanation: '$0.3^2 = 0.09$ なので $\\sqrt{0.09} = 0.3$。', difficulty: 'standard' },
+      { id: 'math-g3-sqrt-meaning-fc28', front: '$-\\frac{1}{2}$', back: '$-\\sqrt{\\frac{1}{4}} = ?$', explanation: '$\\sqrt{\\frac{1}{4}} = \\frac{1}{2}$ なので $-\\frac{1}{2}$。', difficulty: 'advanced' },
+      { id: 'math-g3-sqrt-meaning-fc29', front: '$11$', back: '$\\sqrt{121} = ?$', explanation: '$11^2 = 121$ なので $\\sqrt{121} = 11$。', difficulty: 'standard' },
+      { id: 'math-g3-sqrt-meaning-fc30', front: '$12$', back: '$\\sqrt{144} = ?$', explanation: '$12^2 = 144$ なので $\\sqrt{144} = 12$。', difficulty: 'standard' },
+      { id: 'math-g3-sqrt-meaning-fc31', front: '$20$', back: '$\\sqrt{400} = ?$', explanation: '$20^2 = 400$ なので $\\sqrt{400} = 20$。', difficulty: 'standard' },
+      { id: 'math-g3-sqrt-meaning-fc32', front: '$0.3$', back: '$(-\\sqrt{0.3})^2 = ?$', explanation: '$(-\\sqrt{a})^2 = a$ なので $0.3$。', difficulty: 'standard' },
+      { id: 'math-g3-sqrt-meaning-fc33', front: '$\\frac{2}{3}$', back: '$\\left(\\sqrt{\\frac{2}{3}}\\right)^2 = ?$', explanation: '$(\\sqrt{a})^2 = a$ なので $\\frac{2}{3}$。', difficulty: 'standard' },
+      { id: 'math-g3-sqrt-meaning-fc34', front: '$8$', back: '$\\sqrt{64}$ を $\\sqrt{\\phantom{0}}$ を使わずに表すと？', explanation: '$8^2 = 64$ なので $\\sqrt{64} = 8$。', difficulty: 'basic' },
+      { id: 'math-g3-sqrt-meaning-fc35', front: '$-9$', back: '$-\\sqrt{81}$ を $\\sqrt{\\phantom{0}}$ を使わずに表すと？', explanation: '$9^2 = 81$ なので $-\\sqrt{81} = -9$。', difficulty: 'basic' },
+      { id: 'math-g3-sqrt-meaning-fc36', front: '$\\frac{3}{5}$', back: '$\\sqrt{\\frac{9}{25}}$ を $\\sqrt{\\phantom{0}}$ を使わずに表すと？', explanation: '$\\left(\\frac{3}{5}\\right)^2 = \\frac{9}{25}$ なので $\\frac{3}{5}$。', difficulty: 'standard' },
+      { id: 'math-g3-sqrt-meaning-fc37', front: '$6$', back: '$\\sqrt{(-6)^2} = ?$', explanation: '$(-6)^2 = 36$、$\\sqrt{36} = 6$ なので $6$。', difficulty: 'advanced' },
+      { id: 'math-g3-sqrt-meaning-fc38', front: '$\\sqrt{11} < \\sqrt{13}$', back: '$\\sqrt{11}$ と $\\sqrt{13}$ の大小は？', explanation: '$11 < 13$ なのでルートの中が大きい方が大きい。', difficulty: 'standard' },
+      { id: 'math-g3-sqrt-meaning-fc39', front: '$-\\sqrt{7} < -\\sqrt{5}$', back: '$-\\sqrt{5}$ と $-\\sqrt{7}$ の大小は？', explanation: '負の数は絶対値が大きいほど小さい。', difficulty: 'advanced' },
+      { id: 'math-g3-sqrt-meaning-fc40', front: '$6 < \\sqrt{37}$', back: '$6$ と $\\sqrt{37}$ の大小は？', explanation: '$6^2 = 36 < 37$ なので $6 < \\sqrt{37}$。', difficulty: 'advanced' },
+      { id: 'math-g3-sqrt-meaning-fc41', front: '$7 < \\sqrt{50}$', back: '$\\sqrt{50}$ と $7$ の大小は？', explanation: '$7^2 = 49 < 50$ なので $7 < \\sqrt{50}$。', difficulty: 'advanced' },
+      { id: 'math-g3-sqrt-meaning-fc42', front: '$6$ 個', back: '$3 < \\sqrt{a} < 4$ となる自然数 $a$ はいくつ？', explanation: '$3^2 = 9$、$4^2 = 16$ より $9 < a < 16$。$a = 10, 11, 12, 13, 14, 15$ の $6$ 個。', difficulty: 'advanced' },
+      { id: 'math-g3-sqrt-meaning-fc43', front: '無理数', back: '$\\sqrt{5}$ は有理数？無理数？', explanation: '$5$ は整数の2乗の数でないので分数で表せない。', difficulty: 'basic' },
+      { id: 'math-g3-sqrt-meaning-fc44', front: '有理数', back: '$\\sqrt{9}$ は有理数？無理数？', explanation: '$\\sqrt{9} = 3$ で整数になるから有理数。', difficulty: 'basic' },
+      { id: 'math-g3-sqrt-meaning-fc45', front: '無理数', back: '円周率 $\\pi$ は有理数？無理数？', explanation: '分数で表せないから無理数。', difficulty: 'basic' },
+      { id: 'math-g3-sqrt-meaning-fc46', front: '有限小数', back: '$\\frac{5}{8}$ は有限小数？循環小数？', explanation: '$\\frac{5}{8} = 0.625$ で割り切れるから有限小数。', difficulty: 'standard' },
+      { id: 'math-g3-sqrt-meaning-fc47', front: '循環小数', back: '$\\frac{1}{3}$ は有限小数？循環小数？', explanation: '$\\frac{1}{3} = 0.333\\ldots$ で「3」がくり返す。', difficulty: 'standard' },
+      { id: 'math-g3-sqrt-meaning-fc48', front: '有理数', back: '有限小数・循環小数は有理数？無理数？', explanation: 'どちらも分数で表せるから有理数。', difficulty: 'basic' },
+      { id: 'math-g3-sqrt-meaning-fc49', front: '$4.51 \\times 10^3$ m', back: '近似値 $4507$m を有効数字3けたで $a \\times 10^n$ の形にすると？', explanation: '有効数字は $4, 5, 0$ の3けた。整数部分を1けたの小数にする。', difficulty: 'advanced' },
+      { id: 'math-g3-sqrt-meaning-fc50', front: '$3$ けた', back: '近似値 $2.96$km の有効数字は何けた？', explanation: '$2, 9, 6$ はすべて意味のある数字なので3けた。', difficulty: 'standard' },
     ],
     quiz: {
       questions: [
@@ -160,19 +160,19 @@ export const sqrtMeaning: Topic = {
         {
           id: 'math-g3-sqrt-meaning-q4',
           question: '$(\\sqrt{7})^2$ はいくつ？',
-          options: ['$\\sqrt{7}$', '$7$', '$49$', '$\\sqrt{49}$'],
-          correctIndex: 1,
+          options: ['$7$', '$\\sqrt{7}$', '$49$', '$\\sqrt{49}$'],
+          correctIndex: 0,
           explanation:
-            '$(\\sqrt{7})^2 = 7$。ルートと2乗は打ち消し合うよ。これは平方根の基本だから覚えよう！',
+            '$(\\sqrt{7})^2 = 7$\nルートと2乗は打ち消し合うよ。これは平方根の基本だから覚えよう！',
           difficulty: 'basic',
         },
         {
           id: 'math-g3-sqrt-meaning-q5',
           question: '$(-\\sqrt{5})^2$ はいくつ？',
-          options: ['$-5$', '$5$', '$-\\sqrt{5}$', '$25$'],
-          correctIndex: 1,
+          options: ['$5$', '$-5$', '$-\\sqrt{5}$', '$25$'],
+          correctIndex: 0,
           explanation:
-            '$(-\\sqrt{5})^2 = (-\\sqrt{5}) \\times (-\\sqrt{5}) = 5$。負の数を2乗すると正になるよ。',
+            '$(-\\sqrt{5})^2 = (-\\sqrt{5}) \\times (-\\sqrt{5}) = 5$\n負の数を2乗すると正になるよ。',
           difficulty: 'basic',
         },
         {
@@ -181,7 +181,7 @@ export const sqrtMeaning: Topic = {
           options: ['$-6$', '$36$', '$6$', '$\\sqrt{6}$'],
           correctIndex: 2,
           explanation:
-            '$\\sqrt{(-6)^2} = \\sqrt{36} = 6$。$(-6)^2 = 36$ を先に計算してからルートをとるよ。',
+            '$\\sqrt{(-6)^2} = \\sqrt{36} = 6$\n$(-6)^2 = 36$ を先に計算してからルートをとるよ。',
           difficulty: 'standard',
         },
         {
@@ -205,8 +205,8 @@ export const sqrtMeaning: Topic = {
         {
           id: 'math-g3-sqrt-meaning-q9',
           question: '$1 < \\sqrt{a} < 2$ となる自然数 $a$ はいくつある？',
-          options: ['$1$ 個', '$2$ 個', '$3$ 個', '$4$ 個'],
-          correctIndex: 1,
+          options: ['$2$ 個', '$1$ 個', '$3$ 個', '$4$ 個'],
+          correctIndex: 0,
           explanation:
             '$1^2 < a < 2^2$ → $1 < a < 4$ なので $a = 2, 3$ の2個だよ。',
           difficulty: 'standard',
@@ -224,8 +224,8 @@ export const sqrtMeaning: Topic = {
         {
           id: 'math-g3-sqrt-meaning-q11',
           question: '$0.04$ の平方根はどれ？',
-          options: ['$\\pm 0.2$', '$0.2$', '$\\pm 0.02$', '$0.4$'],
-          correctIndex: 0,
+          options: ['$\\pm 0.02$', '$0.2$', '$\\pm 0.2$', '$0.4$'],
+          correctIndex: 2,
           explanation:
             '$0.2^2 = 0.04$、$(-0.2)^2 = 0.04$ なので $0.04$ の平方根は $\\pm 0.2$ だよ。',
           difficulty: 'standard',
@@ -233,8 +233,8 @@ export const sqrtMeaning: Topic = {
         {
           id: 'math-g3-sqrt-meaning-q12',
           question: '$\\frac{16}{25}$ の平方根はどれ？',
-          options: ['$\\pm\\frac{4}{5}$', '$\\frac{4}{5}$', '$\\pm\\frac{8}{25}$', '$\\frac{16}{5}$'],
-          correctIndex: 0,
+          options: ['$\\pm\\frac{8}{25}$', '$\\frac{4}{5}$', '$\\pm\\frac{4}{5}$', '$\\frac{16}{5}$'],
+          correctIndex: 2,
           explanation:
             '$\\left(\\frac{4}{5}\\right)^2 = \\frac{16}{25}$ なので、平方根は $\\pm\\frac{4}{5}$ だよ。',
           difficulty: 'standard',
@@ -242,8 +242,8 @@ export const sqrtMeaning: Topic = {
         {
           id: 'math-g3-sqrt-meaning-q13',
           question: '$6$ と $\\sqrt{37}$ の大小関係は？',
-          options: ['$6 < \\sqrt{37}$', '$6 > \\sqrt{37}$', '$6 = \\sqrt{37}$', '比較できない'],
-          correctIndex: 0,
+          options: ['$6 = \\sqrt{37}$', '$6 > \\sqrt{37}$', '$6 < \\sqrt{37}$', '比較できない'],
+          correctIndex: 2,
           explanation:
             '$6^2 = 36 < 37$ なので $\\sqrt{36} < \\sqrt{37}$、つまり $6 < \\sqrt{37}$ だよ。',
           difficulty: 'standard',
@@ -269,8 +269,8 @@ export const sqrtMeaning: Topic = {
         {
           id: 'math-g3-sqrt-meaning-q16',
           question: '$0.6$, $-\\frac{5}{8}$, $\\sqrt{10}$, $-\\sqrt{3}$ のうち無理数をすべて選ぶと？',
-          options: ['$\\sqrt{10}$ と $-\\sqrt{3}$', '$\\sqrt{10}$ のみ', '$-\\frac{5}{8}$ と $-\\sqrt{3}$', '$0.6$ と $\\sqrt{10}$'],
-          correctIndex: 0,
+          options: ['$-\\frac{5}{8}$ と $-\\sqrt{3}$', '$\\sqrt{10}$ のみ', '$\\sqrt{10}$ と $-\\sqrt{3}$', '$0.6$ と $\\sqrt{10}$'],
+          correctIndex: 2,
           explanation:
             '$0.6$ と $-\\frac{5}{8}$ は分数で表せるから有理数。$\\sqrt{10}$ と $-\\sqrt{3}$ は分数で表せないから無理数だよ。',
           difficulty: 'standard',
@@ -278,8 +278,8 @@ export const sqrtMeaning: Topic = {
         {
           id: 'math-g3-sqrt-meaning-q17',
           question: '$\\frac{5}{8}$ を小数で表すと有限小数？循環小数？',
-          options: ['有限小数', '循環小数', '無限小数（非循環）', '整数'],
-          correctIndex: 0,
+          options: ['整数', '循環小数', '無限小数（非循環）', '有限小数'],
+          correctIndex: 3,
           explanation:
             '$\\frac{5}{8} = 0.625$ で割り切れるから有限小数だよ。',
           difficulty: 'basic',
@@ -305,8 +305,8 @@ export const sqrtMeaning: Topic = {
         {
           id: 'math-g3-sqrt-meaning-q20',
           question: '近似値 $5200$m を有効数字2けたで $a \\times 10^n$ の形に表すと？',
-          options: ['$5.2 \\times 10^3$', '$52 \\times 10^2$', '$5.20 \\times 10^3$', '$0.52 \\times 10^4$'],
-          correctIndex: 0,
+          options: ['$5.20 \\times 10^3$', '$52 \\times 10^2$', '$5.2 \\times 10^3$', '$0.52 \\times 10^4$'],
+          correctIndex: 2,
           explanation:
             '有効数字2けた（$5$ と $2$）なので $5.2 \\times 10^3$ m と表すよ。',
           difficulty: 'standard',
@@ -324,17 +324,17 @@ export const sqrtMeaning: Topic = {
         {
           id: 'math-g3-sqrt-meaning-q22',
           question: '$15$ の平方根はどれ？',
-          options: ['$\\pm\\sqrt{15}$', '$\\pm 15$', '$\\sqrt{15}$', '$\\pm 3$'],
-          correctIndex: 0,
+          options: ['$\\pm 3$', '$\\pm 15$', '$\\sqrt{15}$', '$\\pm\\sqrt{15}$'],
+          correctIndex: 3,
           explanation:
-            '$15$ は完全平方数ではないので、平方根は $\\pm\\sqrt{15}$ と $\\sqrt{\\phantom{0}}$ を使って表すよ。',
+            '$15$ は整数の2乗の数ではないので、平方根は $\\pm\\sqrt{15}$ と $\\sqrt{\\phantom{0}}$ を使って表すよ。',
           difficulty: 'standard',
         },
         {
           id: 'math-g3-sqrt-meaning-q23',
           question: '$0.81$ の平方根はどれ？',
-          options: ['$\\pm 0.9$', '$0.9$', '$\\pm 0.81$', '$\\pm 0.09$'],
-          correctIndex: 0,
+          options: ['$\\pm 0.81$', '$0.9$', '$\\pm 0.9$', '$\\pm 0.09$'],
+          correctIndex: 2,
           explanation:
             '$0.9^2 = 0.81$ なので、$0.81$ の平方根は $\\pm 0.9$ だよ。',
           difficulty: 'standard',
@@ -342,8 +342,8 @@ export const sqrtMeaning: Topic = {
         {
           id: 'math-g3-sqrt-meaning-q24',
           question: '$-\\sqrt{\\frac{1}{9}}$ の値はどれ？',
-          options: ['$-\\frac{1}{3}$', '$\\frac{1}{3}$', '$-\\frac{1}{9}$', '$-3$'],
-          correctIndex: 0,
+          options: ['$-\\frac{1}{9}$', '$\\frac{1}{3}$', '$-\\frac{1}{3}$', '$-3$'],
+          correctIndex: 2,
           explanation:
             '$\\sqrt{\\frac{1}{9}} = \\frac{1}{3}$ なので $-\\sqrt{\\frac{1}{9}} = -\\frac{1}{3}$ だよ。',
           difficulty: 'standard',
@@ -352,8 +352,8 @@ export const sqrtMeaning: Topic = {
         {
           id: 'math-g3-sqrt-meaning-q25',
           question: '$-\\sqrt{\\frac{4}{49}}$ を $\\sqrt{\\phantom{0}}$ を使わずに表すと？',
-          options: ['$-\\frac{2}{7}$', '$\\frac{2}{7}$', '$-\\frac{4}{7}$', '$-\\frac{2}{49}$'],
-          correctIndex: 0,
+          options: ['$-\\frac{4}{7}$', '$\\frac{2}{7}$', '$-\\frac{2}{7}$', '$-\\frac{2}{49}$'],
+          correctIndex: 2,
           explanation:
             '$\\sqrt{\\frac{4}{49}} = \\frac{\\sqrt{4}}{\\sqrt{49}} = \\frac{2}{7}$ なので $-\\frac{2}{7}$ だよ。',
           difficulty: 'standard',
@@ -371,8 +371,8 @@ export const sqrtMeaning: Topic = {
         {
           id: 'math-g3-sqrt-meaning-q27',
           question: '$\\sqrt{50}$ と $\\sqrt{41}$ の大小関係は？',
-          options: ['$\\sqrt{41} < \\sqrt{50}$', '$\\sqrt{50} < \\sqrt{41}$', '$\\sqrt{41} = \\sqrt{50}$', '比較できない'],
-          correctIndex: 0,
+          options: ['比較できない', '$\\sqrt{50} < \\sqrt{41}$', '$\\sqrt{41} = \\sqrt{50}$', '$\\sqrt{41} < \\sqrt{50}$'],
+          correctIndex: 3,
           explanation:
             '$41 < 50$ なので $\\sqrt{41} < \\sqrt{50}$ だよ。ルートの中が大きいほど値も大きい！',
           difficulty: 'basic',
@@ -381,12 +381,12 @@ export const sqrtMeaning: Topic = {
           id: 'math-g3-sqrt-meaning-q28',
           question: '$\\sqrt{3}$, $2$, $\\sqrt{7}$ を小さい順に並べると？',
           options: [
-            '$\\sqrt{3} < 2 < \\sqrt{7}$',
+            '$\\sqrt{7} < 2 < \\sqrt{3}$',
             '$2 < \\sqrt{3} < \\sqrt{7}$',
             '$\\sqrt{3} < \\sqrt{7} < 2$',
-            '$\\sqrt{7} < 2 < \\sqrt{3}$',
+            '$\\sqrt{3} < 2 < \\sqrt{7}$',
           ],
-          correctIndex: 0,
+          correctIndex: 3,
           explanation:
             '$2 = \\sqrt{4}$ と変換すると、$\\sqrt{3} < \\sqrt{4} < \\sqrt{7}$ つまり $\\sqrt{3} < 2 < \\sqrt{7}$ だよ。',
           difficulty: 'standard',
@@ -394,8 +394,8 @@ export const sqrtMeaning: Topic = {
         {
           id: 'math-g3-sqrt-meaning-q29',
           question: '$-5$ と $-\\sqrt{24}$ の大小関係は？',
-          options: ['$-5 < -\\sqrt{24}$', '$-\\sqrt{24} < -5$', '$-5 = -\\sqrt{24}$', '比較できない'],
-          correctIndex: 0,
+          options: ['比較できない', '$-\\sqrt{24} < -5$', '$-5 = -\\sqrt{24}$', '$-5 < -\\sqrt{24}$'],
+          correctIndex: 3,
           explanation:
             '$5^2 = 25 > 24$ なので $\\sqrt{25} > \\sqrt{24}$、負にすると $-5 < -\\sqrt{24}$ だよ。',
           difficulty: 'advanced',
@@ -413,8 +413,8 @@ export const sqrtMeaning: Topic = {
         {
           id: 'math-g3-sqrt-meaning-q31',
           question: '次のうち無理数はどれ？ $0$, $-1$, $\\sqrt{16}$, $-\\sqrt{11}$, $\\frac{3}{5}$, $\\sqrt{5}$',
-          options: ['$-\\sqrt{11}$ と $\\sqrt{5}$', '$\\sqrt{16}$ と $\\sqrt{5}$', '$-1$ と $-\\sqrt{11}$', '$\\sqrt{5}$ のみ'],
-          correctIndex: 0,
+          options: ['$\\sqrt{5}$ のみ', '$\\sqrt{16}$ と $\\sqrt{5}$', '$-1$ と $-\\sqrt{11}$', '$-\\sqrt{11}$ と $\\sqrt{5}$'],
+          correctIndex: 3,
           explanation:
             '$\\sqrt{16} = 4$ は整数で有理数。$-\\sqrt{11}$ と $\\sqrt{5}$ は分数で表せないから無理数だよ。',
           difficulty: 'standard',
@@ -432,10 +432,10 @@ export const sqrtMeaning: Topic = {
         {
           id: 'math-g3-sqrt-meaning-q33',
           question: 'ある数 $a$ の小数第1位を四捨五入した近似値が $312$ のとき、誤差の絶対値は最大いくつ？',
-          options: ['$0.5$', '$1$', '$5$', '$0.05$'],
-          correctIndex: 0,
+          options: ['$5$', '$1$', '$0.5$', '$0.05$'],
+          correctIndex: 2,
           explanation:
-            '小数第1位を四捨五入しているので $311.5 \\le a < 312.5$。誤差の絶対値は最大 $0.5$ だよ。',
+            '小数第1位を四捨五入しているので $311.5 \\le a < 312.5$\n誤差の絶対値は最大 $0.5$ だよ。',
           difficulty: 'standard',
         },
         {
@@ -450,8 +450,8 @@ export const sqrtMeaning: Topic = {
         {
           id: 'math-g3-sqrt-meaning-q35',
           question: '近似値 $63000$kg を有効数字3けたで $a \\times 10^n$ の形に表すと？',
-          options: ['$6.30 \\times 10^4$', '$6.3 \\times 10^4$', '$63.0 \\times 10^3$', '$630 \\times 10^2$'],
-          correctIndex: 0,
+          options: ['$630 \\times 10^2$', '$6.3 \\times 10^4$', '$63.0 \\times 10^3$', '$6.30 \\times 10^4$'],
+          correctIndex: 3,
           explanation:
             '有効数字3けた（$6, 3, 0$）なので $6.30 \\times 10^4$ kg と表すよ。$6.3$ では2けたになってしまうから注意！',
           difficulty: 'advanced',
@@ -463,7 +463,7 @@ export const sqrtMeaning: Topic = {
           options: ['$10$ 個', '$11$ 個', '$12$ 個', '$9$ 個'],
           correctIndex: 1,
           explanation:
-            '$4^2 = 16$, $5.2^2 = 27.04$ より $16 < a \\le 27$。$a = 17, 18, \\ldots, 27$ で $11$ 個だよ。',
+            '$4^2 = 16$, $5.2^2 = 27.04$ より $16 < a \\le 27$\n$a = 17, 18, \\ldots, 27$ で $11$ 個だよ。',
           difficulty: 'advanced',
         },
         {
@@ -472,7 +472,7 @@ export const sqrtMeaning: Topic = {
           options: ['$4$ 個', '$5$ 個', '$6$ 個', '$7$ 個'],
           correctIndex: 2,
           explanation:
-            '$\\sqrt{a}$ が自然数 → $a$ は完全平方数。2けたの完全平方数は $16, 25, 36, 49, 64, 81$ の $6$ 個だよ。',
+            '$\\sqrt{a}$ が自然数 → $a$ は整数の2乗の数。2けたで整数の2乗の数は $16, 25, 36, 49, 64, 81$ の $6$ 個だよ。',
           difficulty: 'advanced',
         },
         {
@@ -481,15 +481,15 @@ export const sqrtMeaning: Topic = {
           options: ['$10$ 個', '$11$ 個', '$12$ 個', '$15$ 個'],
           correctIndex: 1,
           explanation:
-            '両辺を2乗して $a + 4 < 16$ → $a < 12$。$a \\ge 1$ なので $a = 1, 2, \\ldots, 11$ の $11$ 個だよ。',
+            '両辺を2乗して $a + 4 < 16$ → $a < 12$\n$a \\ge 1$ なので $a = 1, 2, \\ldots, 11$ の $11$ 個だよ。',
           difficulty: 'advanced',
         },
         // --- advanced.md 発展2: 平方根の値 ---
         {
           id: 'math-g3-sqrt-meaning-q39',
           question: '$\\sqrt{7} = 2.646$ として、$\\sqrt{700}$ の値は？',
-          options: ['$26.46$', '$264.6$', '$2.646$', '$20.46$'],
-          correctIndex: 0,
+          options: ['$20.46$', '$264.6$', '$2.646$', '$26.46$'],
+          correctIndex: 3,
           explanation:
             '$\\sqrt{700} = \\sqrt{100 \\times 7} = 10\\sqrt{7} = 10 \\times 2.646 = 26.46$ だよ。',
           difficulty: 'advanced',
@@ -500,15 +500,15 @@ export const sqrtMeaning: Topic = {
           options: ['$5$', '$6$', '$7$', '$8$'],
           correctIndex: 1,
           explanation:
-            '$\\sqrt{6.76} = 2.6$, $\\sqrt{7.29} = 2.7$ なので $2.6 < \\sqrt{7} < 2.7$。小数第1位は $6$ だよ。',
+            '$\\sqrt{6.76} = 2.6$, $\\sqrt{7.29} = 2.7$ なので $2.6 < \\sqrt{7} < 2.7$\n小数第1位は $6$ だよ。',
           difficulty: 'advanced',
         },
         // --- advanced.md 発展3: 近似値と誤差の範囲 ---
         {
           id: 'math-g3-sqrt-meaning-q41',
           question: '小数第2位を四捨五入した近似値が $5.7$ のとき、真の値 $a$ の範囲は？',
-          options: ['$5.65 \\le a < 5.75$', '$5.60 \\le a < 5.80$', '$5.69 \\le a < 5.71$', '$5.7 \\le a < 5.8$'],
-          correctIndex: 0,
+          options: ['$5.7 \\le a < 5.8$', '$5.60 \\le a < 5.80$', '$5.69 \\le a < 5.71$', '$5.65 \\le a < 5.75$'],
+          correctIndex: 3,
           explanation:
             '小数第2位を四捨五入しているので $5.65 \\le a < 5.75$ だよ。誤差の絶対値は最大 $0.05$ だね。',
           difficulty: 'advanced',
@@ -578,7 +578,7 @@ export const sqrtMeaning: Topic = {
           question: '$\\sqrt{7}$ の値は、どの整数とどの整数の間にある？',
           steps: [
             {
-              title: 'Step 1: $7$ に近い完全平方数を探そう',
+              title: 'Step 1: $7$ に近い整数の2乗を探そう',
               content: '$2^2 = 4$、$3^2 = 9$。$4 < 7 < 9$ だね。',
               highlight: '$4 < 7 < 9$',
             },
@@ -613,7 +613,7 @@ export const sqrtMeaning: Topic = {
           question: '次の数を有理数と無理数に分類しよう。\n$0$, $-1$, $\\sqrt{16}$, $\\sqrt{5}$, $3/7$, $\\pi$',
           steps: [
             {
-              title: 'Step 1: √の中が完全平方数かチェック',
+              title: 'Step 1: √の中が整数の2乗かチェック',
               content: '$\\sqrt{16} = 4$ で整数になるから有理数。$\\sqrt{5}$ は整数にならないから無理数。',
               highlight: '$\\sqrt{16} = 4$（有理数）、$\\sqrt{5}$（無理数）',
             },

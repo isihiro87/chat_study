@@ -48,14 +48,14 @@ export const rationalizationChat: HistoryChat = {
       side: 'left',
       characterId: 'teacher',
       expression: 'explaining',
-      text: '$\\frac{1}{\\sqrt{2}}$ という<ruby>式<rt>しき</rt></ruby>があるとするよ。<ruby>分母<rt>ぶんぼ</rt></ruby>にルートがあると<ruby>計算<rt>けいさん</rt></ruby>しにくいよね。',
+      text: '$\\frac{1}{\\sqrt{2}}$ という<ruby>式<rt>しき</rt></ruby>があるとするよ。<ruby>分母<rt>ぶんぼ</rt></ruby>が $\\sqrt{2} = 1.414...$ みたいな<ruby>無限小数<rt>むげんしょうすう</rt></ruby>だと、<ruby>割<rt>わ</rt></ruby>り<ruby>算<rt>ざん</rt></ruby>がとても<ruby>大変<rt>たいへん</rt></ruby>だよね。',
     },
     {
       type: 'message',
       side: 'right',
       characterId: 'student',
       expression: 'confused',
-      text: 'たしかに、<ruby>分母<rt>ぶんぼ</rt></ruby>が $\\sqrt{2}$ だと<ruby>大<rt>おお</rt></ruby>きさがわかりにくいです……。',
+      text: 'たしかに、$1 \\div 1.414...$ は<ruby>計算<rt>けいさん</rt></ruby>しにくいです……。<ruby>分母<rt>ぶんぼ</rt></ruby>が<ruby>整数<rt>せいすう</rt></ruby>ならもっと<ruby>楽<rt>らく</rt></ruby>なのに。',
     },
     {
       type: 'message',
@@ -124,7 +124,7 @@ export const rationalizationChat: HistoryChat = {
         { letter: 'D', text: '$\\frac{\\sqrt{5}}{25}$', correct: false },
       ],
       explanation:
-        '$\\frac{1}{\\sqrt{5}} = \\frac{1 \\times \\sqrt{5}}{\\sqrt{5} \\times \\sqrt{5}} = \\frac{\\sqrt{5}}{5}$。<ruby>分母<rt>ぶんぼ</rt></ruby><ruby>分子<rt>ぶんし</rt></ruby>に $\\sqrt{5}$ をかけるよ。',
+        '$\\frac{1}{\\sqrt{5}} = \\frac{1 \\times \\sqrt{5}}{\\sqrt{5} \\times \\sqrt{5}} = \\frac{\\sqrt{5}}{5}$\n<ruby>分母<rt>ぶんぼ</rt></ruby><ruby>分子<rt>ぶんし</rt></ruby>に $\\sqrt{5}$ をかけるよ。',
     },
     {
       type: 'date',
@@ -196,7 +196,7 @@ export const rationalizationChat: HistoryChat = {
         { letter: 'D', text: '$\\frac{4\\sqrt{2}}{4}$', correct: false },
       ],
       explanation:
-        '$\\frac{4}{\\sqrt{2}} = \\frac{4 \\times \\sqrt{2}}{\\sqrt{2} \\times \\sqrt{2}} = \\frac{4\\sqrt{2}}{2} = 2\\sqrt{2}$。<ruby>有理化<rt>ゆうりか</rt></ruby>してから<ruby>約分<rt>やくぶん</rt></ruby>！',
+        '$\\frac{4}{\\sqrt{2}} = \\frac{4 \\times \\sqrt{2}}{\\sqrt{2} \\times \\sqrt{2}} = \\frac{4\\sqrt{2}}{2} = 2\\sqrt{2}$\n<ruby>有理化<rt>ゆうりか</rt></ruby>してから<ruby>約分<rt>やくぶん</rt></ruby>！',
     },
     {
       type: 'summary-point',
@@ -204,7 +204,7 @@ export const rationalizationChat: HistoryChat = {
     },
     {
       type: 'quiz',
-      question: '$\\frac{10}{\\sqrt{5}}$ を<ruby>有理化<rt>ゆうりか</rt></ruby>・<ruby>約分<rt>やくぶん</rt></ruby>すると？',
+      question: '$\\frac{10}{\\sqrt{5}}$ を<ruby>有理化<rt>ゆうりか</rt></ruby>すると？',
       options: [
         { letter: 'A', text: '$\\frac{10\\sqrt{5}}{5}$', correct: false },
         { letter: 'B', text: '$2\\sqrt{5}$', correct: true },
@@ -212,7 +212,7 @@ export const rationalizationChat: HistoryChat = {
         { letter: 'D', text: '$5\\sqrt{2}$', correct: false },
       ],
       explanation:
-        '$\\frac{10}{\\sqrt{5}} = \\frac{10\\sqrt{5}}{5} = 2\\sqrt{5}$。<ruby>有理化<rt>ゆうりか</rt></ruby>のあと $10 \\div 5 = 2$ で<ruby>約分<rt>やくぶん</rt></ruby>！',
+        '$\\frac{10}{\\sqrt{5}} = \\frac{10\\sqrt{5}}{5} = 2\\sqrt{5}$\n<ruby>有理化<rt>ゆうりか</rt></ruby>のあと $10 \\div 5 = 2$ で<ruby>約分<rt>やくぶん</rt></ruby>！',
     },
     {
       type: 'date',
@@ -320,7 +320,7 @@ export const rationalizationChat: HistoryChat = {
         { letter: 'D', text: '$0.577$', correct: false },
       ],
       explanation:
-        '$\\frac{6}{\\sqrt{3}} = \\frac{6\\sqrt{3}}{3} = 2\\sqrt{3} = 2 \\times 1.732 = 3.464$。<ruby>有理化<rt>ゆうりか</rt></ruby>→<ruby>約分<rt>やくぶん</rt></ruby>→<ruby>代入<rt>だいにゅう</rt></ruby>の<ruby>順<rt>じゅん</rt></ruby>！',
+        '$\\frac{6}{\\sqrt{3}} = \\frac{6\\sqrt{3}}{3} = 2\\sqrt{3} = 2 \\times 1.732 = 3.464$\n<ruby>有理化<rt>ゆうりか</rt></ruby>→<ruby>約分<rt>やくぶん</rt></ruby>→<ruby>代入<rt>だいにゅう</rt></ruby>の<ruby>順<rt>じゅん</rt></ruby>！',
     },
     {
       type: 'summary-point',

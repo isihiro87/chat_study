@@ -105,7 +105,7 @@ export const sqrtAddExpandChat: HistoryChat = {
         { letter: 'D', text: '$11\\sqrt{3}$', correct: false },
       ],
       explanation:
-        '$(7 - 4)\\sqrt{3} = 3\\sqrt{3}$。<ruby>同<rt>おな</rt></ruby>じ $\\sqrt{3}$ の<ruby>前<rt>まえ</rt></ruby>の<ruby>数<rt>かず</rt></ruby>だけ<ruby>引<rt>ひ</rt></ruby>き<ruby>算<rt>ざん</rt></ruby>するよ。',
+        '$(7 - 4)\\sqrt{3} = 3\\sqrt{3}$\n<ruby>同<rt>おな</rt></ruby>じ $\\sqrt{3}$ の<ruby>前<rt>まえ</rt></ruby>の<ruby>数<rt>かず</rt></ruby>だけ<ruby>引<rt>ひ</rt></ruby>き<ruby>算<rt>ざん</rt></ruby>するよ。',
     },
     {
       type: 'date',
@@ -201,7 +201,7 @@ export const sqrtAddExpandChat: HistoryChat = {
         { letter: 'D', text: '$16$', correct: false },
       ],
       explanation:
-        '$(\\sqrt{7})^2 - 3^2 = 7 - 9 = -2$。<ruby>和<rt>わ</rt></ruby>と<ruby>差<rt>さ</rt></ruby>の<ruby>積<rt>せき</rt></ruby>の<ruby>公式<rt>こうしき</rt></ruby>で<ruby>一発<rt>いっぱつ</rt></ruby>！',
+        '$(\\sqrt{7})^2 - 3^2 = 7 - 9 = -2$\n<ruby>和<rt>わ</rt></ruby>と<ruby>差<rt>さ</rt></ruby>の<ruby>積<rt>せき</rt></ruby>の<ruby>公式<rt>こうしき</rt></ruby>で<ruby>一発<rt>いっぱつ</rt></ruby>！',
     },
     {
       type: 'summary-point',
@@ -217,7 +217,7 @@ export const sqrtAddExpandChat: HistoryChat = {
         { letter: 'D', text: '$\\sqrt{11}$', correct: false },
       ],
       explanation:
-        '$(\\sqrt{11})^2 - 1^2 = 11 - 1 = 10$。<ruby>和<rt>わ</rt></ruby>と<ruby>差<rt>さ</rt></ruby>の<ruby>積<rt>せき</rt></ruby>の<ruby>公式<rt>こうしき</rt></ruby>でルートが<ruby>消<rt>き</rt></ruby>えるよ！',
+        '$(\\sqrt{11})^2 - 1^2 = 11 - 1 = 10$\n<ruby>和<rt>わ</rt></ruby>と<ruby>差<rt>さ</rt></ruby>の<ruby>積<rt>せき</rt></ruby>の<ruby>公式<rt>こうしき</rt></ruby>でルートが<ruby>消<rt>き</rt></ruby>えるよ！',
     },
     {
       type: 'date',
@@ -272,7 +272,7 @@ export const sqrtAddExpandChat: HistoryChat = {
         { letter: 'D', text: '$10 + \\sqrt{5}$', correct: false },
       ],
       explanation:
-        '$\\sqrt{5} \\times \\sqrt{20} + \\sqrt{5} \\times \\sqrt{5} = \\sqrt{100} + \\sqrt{25} = 10 + 5 = 15$。ルートが<ruby>全部<rt>ぜんぶ</rt></ruby><ruby>消<rt>き</rt></ruby>えた！',
+        '$\\sqrt{5} \\times \\sqrt{20} + \\sqrt{5} \\times \\sqrt{5} = \\sqrt{100} + \\sqrt{25} = 10 + 5 = 15$\nルートが<ruby>全部<rt>ぜんぶ</rt></ruby><ruby>消<rt>き</rt></ruby>えた！',
     },
     {
       type: 'date',
@@ -396,7 +396,7 @@ export const sqrtAddExpandChat: HistoryChat = {
         { letter: 'D', text: '$1$', correct: false },
       ],
       explanation:
-        '$x^2 + 4x + 4 = (x + 2)^2$。$x + 2 = \\sqrt{3} - 2 + 2 = \\sqrt{3}$ を<ruby>代入<rt>だいにゅう</rt></ruby>して $(\\sqrt{3})^2 = 3$！',
+        '$x^2 + 4x + 4 = (x + 2)^2$\n$x + 2 = \\sqrt{3} - 2 + 2 = \\sqrt{3}$ を<ruby>代入<rt>だいにゅう</rt></ruby>して $(\\sqrt{3})^2 = 3$！',
     },
     {
       type: 'end',
