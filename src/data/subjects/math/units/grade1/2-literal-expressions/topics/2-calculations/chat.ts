@@ -309,7 +309,7 @@ export const literalCalcChat: HistoryChat = {
         { letter: 'D', text: '$6x + 8$', correct: false },
       ],
       explanation:
-        '<ruby>各<rt>かく</rt></ruby><ruby>項<rt>こう</rt></ruby>に $2$ をかけるよ。$4x \\times 2 = 8x$、$6 \\times 2 = 12$。<ruby>答<rt>こた</rt></ruby>えは $\\textcolor{#D97706}{8x + 12}$ だね。',
+        '$4x \\times 2 = 8x$、$6 \\times 2 = 12$\n<ruby>各<rt>かく</rt></ruby><ruby>項<rt>こう</rt></ruby>に $2$ をかけて $\\textcolor{#D97706}{8x + 12}$ だね。',
     },
     {
       type: 'end',

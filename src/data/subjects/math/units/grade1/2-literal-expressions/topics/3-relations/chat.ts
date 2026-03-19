@@ -248,7 +248,7 @@ export const literalRelationsChat: HistoryChat = {
         { letter: 'D', text: '$a \\geqq 1000$', correct: false },
       ],
       explanation:
-        '「<ruby>未満<rt>みまん</rt></ruby>」は「より<ruby>小<rt>ちい</rt></ruby>さい」という<ruby>意味<rt>いみ</rt></ruby>。$1000$ を<ruby>含<rt>ふく</rt></ruby>まないから $\\textcolor{#D97706}{a < 1000}$ だよ。$\\leqq$ は「<ruby>以下<rt>いか</rt></ruby>」のときに<ruby>使<rt>つか</rt></ruby>うから<ruby>注意<rt>ちゅうい</rt></ruby>！',
+        '「<ruby>未満<rt>みまん</rt></ruby>」は「より<ruby>小<rt>ちい</rt></ruby>さい」という<ruby>意味<rt>いみ</rt></ruby>。$1000$ を<ruby>含<rt>ふく</rt></ruby>まないから $\\textcolor{#D97706}{a < 1000}$\n$\\leqq$ は「<ruby>以下<rt>いか</rt></ruby>」のときに<ruby>使<rt>つか</rt></ruby>うから<ruby>注意<rt>ちゅうい</rt></ruby>！',
     },
     {
       type: 'end',

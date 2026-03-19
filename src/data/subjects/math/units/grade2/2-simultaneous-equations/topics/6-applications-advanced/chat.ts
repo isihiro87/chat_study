@@ -162,7 +162,7 @@ export const simulEqAppsAdvChat: HistoryChat = {
         { letter: 'D', text: '$\\dfrac{x}{4} = \\dfrac{y}{6}$', correct: false },
       ],
       explanation:
-        '<ruby>行<rt>い</rt></ruby>きの<ruby>距離<rt>きょり</rt></ruby> $= 4x$、<ruby>帰<rt>かえ</rt></ruby>りの<ruby>距離<rt>きょり</rt></ruby> $= 6y$。<ruby>距離<rt>きょり</rt></ruby>が<ruby>同<rt>おな</rt></ruby>じなので $4x = \\textcolor{#D97706}{6y}$。',
+        '<ruby>行<rt>い</rt></ruby>きの<ruby>距離<rt>きょり</rt></ruby> $= 4x$、<ruby>帰<rt>かえ</rt></ruby>りの<ruby>距離<rt>きょり</rt></ruby> $= 6y$。\n<ruby>距離<rt>きょり</rt></ruby>が<ruby>同<rt>おな</rt></ruby>じなので $4x = \\textcolor{#D97706}{6y}$。',
     },
 
     // ─── セクション2: 食塩水の濃度の問題 ───
@@ -281,7 +281,7 @@ export const simulEqAppsAdvChat: HistoryChat = {
         { letter: 'D', text: '100 g', correct: false },
       ],
       explanation:
-        '$200 \\times \\dfrac{5}{100} = 200 \\times 0.05 = \\textcolor{#D97706}{10}$ g。<ruby>濃度<rt>のうど</rt></ruby>を 100 で<ruby>割<rt>わ</rt></ruby>って<ruby>食塩水<rt>しょくえんすい</rt></ruby>の<ruby>量<rt>りょう</rt></ruby>に<ruby>掛<rt>か</rt></ruby>けるだけ！',
+        '$200 \\times \\dfrac{5}{100} = 200 \\times 0.05 = \\textcolor{#D97706}{10}$ g。\n<ruby>濃度<rt>のうど</rt></ruby>を 100 で<ruby>割<rt>わ</rt></ruby>って<ruby>食塩水<rt>しょくえんすい</rt></ruby>の<ruby>量<rt>りょう</rt></ruby>に<ruby>掛<rt>か</rt></ruby>けるだけ！',
     },
 
     // ─── まとめ ───

@@ -229,7 +229,7 @@ export const literalNotationChat: HistoryChat = {
         { letter: 'D', text: '$5a^2b^2$', correct: false },
       ],
       explanation:
-        '$b$ が2<ruby>個<rt>こ</rt></ruby>かけ<ruby>合<rt>あ</rt></ruby>わされているから $b^2$。$a$ は1<ruby>個<rt>こ</rt></ruby>なのでそのまま。<ruby>答<rt>こた</rt></ruby>えは $\\textcolor{#D97706}{5ab^2}$ だよ。',
+        '$b$ が2<ruby>個<rt>こ</rt></ruby>かけ<ruby>合<rt>あ</rt></ruby>わされているから $b^2$。$a$ は1<ruby>個<rt>こ</rt></ruby>なのでそのまま。\n<ruby>答<rt>こた</rt></ruby>えは $\\textcolor{#D97706}{5ab^2}$ だよ。',
     },
     {
       type: 'end',

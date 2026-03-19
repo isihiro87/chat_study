@@ -404,7 +404,7 @@ export const simulEqBasicsChat: HistoryChat = {
         { letter: 'D', text: '$x = 10$', correct: false },
       ],
       explanation:
-        '<ruby>表<rt>ひょう</rt></ruby>で<ruby>調<rt>しら</rt></ruby>べると、$x + y = 10$ で $x = 7$ → $y = 3$。$x - y = 4$ で $x = 7$ → $y = 3$。<ruby>一致<rt>いっち</rt></ruby>！よって $x = \\textcolor{#D97706}{7}$。',
+        '$x + y = 10$ で $x = 7$ → $y = 3$。\n$x - y = 4$ で $x = 7$ → $y = 3$。\n<ruby>一致<rt>いっち</rt></ruby>！よって $x = \\textcolor{#D97706}{7}$。',
     },
     {
       type: 'end',

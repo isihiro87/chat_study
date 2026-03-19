@@ -234,7 +234,7 @@ export const eqBasicsChat: HistoryChat = {
         { letter: 'D', text: '$x = 16$', correct: false },
       ],
       explanation:
-        '$-5$ を<ruby>移項<rt>いこう</rt></ruby>して $4x = 16$。<ruby>両辺<rt>りょうへん</rt></ruby>を 4 で<ruby>割<rt>わ</rt></ruby>ると $x = \\textcolor{#D97706}{4}$。<ruby>確<rt>たし</rt></ruby>かめ: $4(4)-5=11$ ✓',
+        '$-5$ を<ruby>移項<rt>いこう</rt></ruby>して $4x = 16$。<ruby>両辺<rt>りょうへん</rt></ruby>を 4 で<ruby>割<rt>わ</rt></ruby>ると $x = \\textcolor{#D97706}{4}$。\n<ruby>確<rt>たし</rt></ruby>かめ: $4(4)-5=11$ ✓',
     },
     {
       type: 'end',

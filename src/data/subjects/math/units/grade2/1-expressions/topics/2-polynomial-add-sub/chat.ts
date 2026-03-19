@@ -137,7 +137,7 @@ export const polynomialAddSubChat: HistoryChat = {
         { letter: 'D', text: '$4x + 7y$', correct: false },
       ],
       explanation:
-        'かっこを<ruby>外<rt>はず</rt></ruby>すと $6x - 4y - 2x - 3y$。<ruby>同類項<rt>どうるいこう</rt></ruby>をまとめて $(6-2)x + (-4-3)y = \\textcolor{#D97706}{4x - 7y}$',
+        'かっこを<ruby>外<rt>はず</rt></ruby>すと $6x - 4y - 2x - 3y$。\n<ruby>同類項<rt>どうるいこう</rt></ruby>をまとめて $(6-2)x + (-4-3)y = \\textcolor{#D97706}{4x - 7y}$',
     },
     // ===== 3. 数×多項式（分配法則） =====
     {
@@ -249,7 +249,7 @@ export const polynomialAddSubChat: HistoryChat = {
         { letter: 'D', text: '$4a - 3b$', correct: false },
       ],
       explanation:
-        '$6a - 3b - 2a + 6b$。<ruby>同類項<rt>どうるいこう</rt></ruby>をまとめて $(6-2)a + (-3+6)b = \\textcolor{#D97706}{4a + 3b}$。$-2 \\times (-3b) = +6b$ の<ruby>符号<rt>ふごう</rt></ruby>に<ruby>注意<rt>ちゅうい</rt></ruby>！',
+        '$6a - 3b - 2a + 6b$。\n<ruby>同類項<rt>どうるいこう</rt></ruby>をまとめて $(6-2)a + (-3+6)b = \\textcolor{#D97706}{4a + 3b}$。\n$-2 \\times (-3b) = +6b$ の<ruby>符号<rt>ふごう</rt></ruby>に<ruby>注意<rt>ちゅうい</rt></ruby>！',
     },
     // ===== 6. 分数の形の式 =====
     {
@@ -341,7 +341,7 @@ export const polynomialAddSubChat: HistoryChat = {
         { letter: 'D', text: '$-\\frac{5}{2}$', correct: false },
       ],
       explanation:
-        'まず<ruby>整理<rt>せいり</rt></ruby>: $6a - 2b + a + 5b = 7a + 3b$。<ruby>代入<rt>だいにゅう</rt></ruby>: $7 \\times \\frac{1}{2} + 3 \\times (-1) = \\frac{7}{2} - 3 = \\textcolor{#D97706}{\\frac{1}{2}}$',
+        'まず<ruby>整理<rt>せいり</rt></ruby>: $6a - 2b + a + 5b = 7a + 3b$。\n<ruby>代入<rt>だいにゅう</rt></ruby>: $7 \\times \\frac{1}{2} + 3 \\times (-1) = \\frac{7}{2} - 3 = \\textcolor{#D97706}{\\frac{1}{2}}$',
     },
     // ===== まとめ =====
     {

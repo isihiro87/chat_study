@@ -60,7 +60,7 @@ export const findLinearEquation: Topic = {
     flashcards: [
       {
         id: 'math-g2-find-linear-eq-fc1',
-        front: '$y = ax + b$（$a$ は傾き、$b$ は切片）', back: '一次関数の式の基本形は？',
+        front: '$y = ax + b$', explanation: '$a$ は傾き、$b$ は切片', back: '一次関数の式の基本形は？',
         difficulty: 'basic',
       },
       {
@@ -95,17 +95,17 @@ export const findLinearEquation: Topic = {
       },
       {
         id: 'math-g2-find-linear-eq-fc8',
-        front: '傾き $3$。平行な直線は傾きが等しい（切片だけが異なる）', back: '「$y = 3x + 1$ に平行な直線」の傾きはいくつ？',
+        front: '傾き $3$', explanation: '平行な直線は傾きが等しい（切片だけが異なる）', back: '「$y = 3x + 1$ に平行な直線」の傾きはいくつ？',
         difficulty: 'basic',
       },
       {
         id: 'math-g2-find-linear-eq-fc9',
-        front: 'グラフが $y$ 軸と交わる点の $y$ 座標のこと。$x = 0$ のときの $y$ の値。', back: '切片とは何か？',
+        front: 'グラフが $y$ 軸と交わる点の $y$ 座標', explanation: '$x = 0$ のときの $y$ の値', back: '切片とは何か？',
         difficulty: 'basic',
       },
       {
         id: 'math-g2-find-linear-eq-fc10',
-        front: '$a = 6 \\div 3 = 2$。傾き $=$ $y$ の増加量 $\\div$ $x$ の増加量。', back: '「$x$ が $3$ 増加すると $y$ が $6$ 増加する」とき、傾きは？',
+        front: '$a = 6 \\div 3 = 2$', explanation: '傾き $=$ $y$ の増加量 $\\div$ $x$ の増加量', back: '「$x$ が $3$ 増加すると $y$ が $6$ 増加する」とき、傾きは？',
         difficulty: 'basic',
       },
       {

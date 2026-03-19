@@ -88,7 +88,8 @@ export const variousSimulEq: Topic = {
       },
       {
         id: 'math-g2-var-fc2',
-        front: '$2x + y = 5$（展開して $2x + 6 + y = 11$、移項して整理）', back: '$2(x + 3) + y = 11$ を整理すると？',
+        front: '$2x + y = 5$', back: '$2(x + 3) + y = 11$ を整理すると？',
+        explanation: '展開して $2x + 6 + y = 11$、移項して整理。',
         difficulty: 'basic',
       },
       {
@@ -98,12 +99,14 @@ export const variousSimulEq: Topic = {
       },
       {
         id: 'math-g2-var-fc4',
-        front: '両辺に $6$（2と3のLCM）をかける → $3x + 2y = 30$', back: '$\\frac{x}{2} + \\frac{y}{3} = 5$ の分数をはらうには？',
+        front: '両辺に $6$（2と3のLCM）をかける', back: '$\\frac{x}{2} + \\frac{y}{3} = 5$ の分数をはらうには？',
+        explanation: '$3x + 2y = 30$ になる。',
         difficulty: 'basic',
       },
       {
         id: 'math-g2-var-fc5',
-        front: '両辺に $12$（3と4のLCM）をかける → $4x + 3y = 24$', back: '$\\frac{x}{3} + \\frac{y}{4} = 2$ の分数をはらうには？',
+        front: '両辺に $12$（3と4のLCM）をかける', back: '$\\frac{x}{3} + \\frac{y}{4} = 2$ の分数をはらうには？',
+        explanation: '$4x + 3y = 24$ になる。',
         difficulty: 'basic',
       },
       {
@@ -113,7 +116,8 @@ export const variousSimulEq: Topic = {
       },
       {
         id: 'math-g2-var-fc7',
-        front: '$10$ 倍して $2x + 5y = 19$', back: '$0.2x + 0.5y = 1.9$ を整数にすると？',
+        front: '$2x + 5y = 19$', back: '$0.2x + 0.5y = 1.9$ を整数にすると？',
+        explanation: '$10$ 倍する。',
         difficulty: 'basic',
       },
       {
@@ -123,12 +127,14 @@ export const variousSimulEq: Topic = {
       },
       {
         id: 'math-g2-var-fc9',
-        front: '$100$ 倍して $2x + 5y = 16$', back: '$0.02x + 0.05y = 0.16$ を整数にすると？',
+        front: '$2x + 5y = 16$', back: '$0.02x + 0.05y = 0.16$ を整数にすると？',
+        explanation: '$100$ 倍する。',
         difficulty: 'basic',
       },
       {
         id: 'math-g2-var-fc10',
-        front: '$10$ 倍: $12x - 3y = 9$、さらに $3$ で割って $4x - y = 3$', back: '$1.2x - 0.3y = 0.9$ を最も簡単にすると？',
+        front: '$4x - y = 3$', back: '$1.2x - 0.3y = 0.9$ を最も簡単にすると？',
+        explanation: '$10$ 倍で $12x - 3y = 9$、さらに $3$ で割る。',
         difficulty: 'basic',
       },
       {
@@ -138,7 +144,8 @@ export const variousSimulEq: Topic = {
       },
       {
         id: 'math-g2-var-fc12',
-        front: '$\\begin{cases} x + y = 5 \\\\ 2x - 1 = 5 \\end{cases}$ → $x = 3, y = 2$', back: '$x + y = 2x - 1 = 5$ を連立方程式にすると？',
+        front: '$\\begin{cases} x + y = 5 \\\\ 2x - 1 = 5 \\end{cases}$', back: '$x + y = 2x - 1 = 5$ を連立方程式にすると？',
+        explanation: '解くと $x = 3, y = 2$。',
         difficulty: 'basic',
       },
       {
@@ -153,17 +160,20 @@ export const variousSimulEq: Topic = {
       },
       {
         id: 'math-g2-var-fc15',
-        front: '$a \\cdot 1 + 2 \\cdot 2 = 7$ → $a + 4 = 7$ → $a = 3$', back: '$ax + 2y = 7$ の解が $x=1, y=2$ のとき $a$ は？',
+        front: '$a = 3$', back: '$ax + 2y = 7$ の解が $x=1, y=2$ のとき $a$ は？',
+        explanation: '$a \\cdot 1 + 2 \\cdot 2 = 7$ → $a + 4 = 7$ → $a = 3$。',
         difficulty: 'standard',
       },
       {
         id: 'math-g2-var-fc16',
-        front: '$5x - 5 = 3y + 3$ → $5x - 3y = 8$', back: '$5(x - 1) = 3(y + 1)$ を整理すると？',
+        front: '$5x - 3y = 8$', back: '$5(x - 1) = 3(y + 1)$ を整理すると？',
+        explanation: '$5x - 5 = 3y + 3$ → $5x - 3y = 8$。',
         difficulty: 'standard',
       },
       {
         id: 'math-g2-var-fc17',
-        front: '両辺に $6$ をかけて $2(x-1) + 3y = 12$ → $2x + 3y = 14$', back: '$\\frac{x-1}{3} + \\frac{y}{2} = 2$ を整数にすると？',
+        front: '$2x + 3y = 14$', back: '$\\frac{x-1}{3} + \\frac{y}{2} = 2$ を整数にすると？',
+        explanation: '両辺に $6$ をかけて $2(x-1) + 3y = 12$ → $2x + 3y = 14$。',
         difficulty: 'standard',
       },
       {
@@ -198,7 +208,7 @@ export const variousSimulEq: Topic = {
           options: ['$x + y = 5$', '$2x + y = 11$', '$2x + y = 8$', '$2x + y = 5$'],
           correctIndex: 3,
           explanation:
-            '展開すると $2x + 6 + y = 11$。$6$ を移項して $2x + y = 5$ になるよ。',
+            '展開すると $2x + 6 + y = 11$。\n$6$ を移項して $2x + y = 5$ になるよ。',
           difficulty: 'basic',
         },
         {
@@ -208,7 +218,7 @@ export const variousSimulEq: Topic = {
           options: ['$2$', '$6$', '$5$', '$3$'],
           correctIndex: 1,
           explanation:
-            '分母が $2$ と $3$ だから、最小公倍数の $6$ を両辺にかけると $3x + 2y = 12$ になるよ。',
+            '分母が $2$ と $3$ だから、最小公倍数の $6$ を両辺にかける。\n$3x + 2y = 12$ になるよ。',
           difficulty: 'basic',
         },
         {
@@ -231,17 +241,17 @@ export const variousSimulEq: Topic = {
           ],
           correctIndex: 2,
           explanation:
-            '$3(x - 1) = 3x - 3$。$3x - 3 + y = 8$ → $3x + y = 11$。',
+            '$3(x - 1) = 3x - 3$。\n$3x - 3 + y = 8$ → $3x + y = 11$。',
           difficulty: 'basic',
         },
         {
           id: 'math-g2-var-q5',
           question:
             '$\\frac{x}{4} + \\frac{y}{6} = 2$ の分数をはらうには両辺に何をかける？',
-          options: ['$12$', '$6$', '$10$', '$4$'],
-          correctIndex: 0,
+          options: ['$6$', '$10$', '$12$', '$4$'],
+          correctIndex: 2,
           explanation:
-            '分母 $4$ と $6$ の最小公倍数は $12$。両辺に $12$ をかけると $3x + 2y = 24$ になるよ。',
+            '分母 $4$ と $6$ の最小公倍数は $12$。\n両辺に $12$ をかけると $3x + 2y = 24$ になるよ。',
           difficulty: 'basic',
         },
         {
@@ -276,7 +286,7 @@ export const variousSimulEq: Topic = {
           options: ['$1$', '$3$', '$2$', '$5$'],
           correctIndex: 1,
           explanation:
-            '$x = 1, y = 2$ を代入: $a \\cdot 1 + 2 \\cdot 2 = 7$ → $a + 4 = 7$ → $a = 3$。',
+            '$x = 1, y = 2$ を代入: $a \\cdot 1 + 2 \\cdot 2 = 7$。\n$a + 4 = 7$ → $a = 3$。',
           difficulty: 'basic',
         },
         {
@@ -299,12 +309,12 @@ export const variousSimulEq: Topic = {
           question:
             '$1.2x - 0.3y = 0.9$ を $10$ 倍してからさらに簡単にすると？',
           options: [
-            '$4x - y = 3$',
             '$12x - 3y = 9$',
             '$6x - y = 3$',
             '$4x - 3y = 9$',
+            '$4x - y = 3$',
           ],
-          correctIndex: 0,
+          correctIndex: 3,
           explanation:
             '$10$ 倍で $12x - 3y = 9$。$3$ で割ると $4x - y = 3$ になるよ。',
           difficulty: 'basic',
@@ -337,16 +347,16 @@ export const variousSimulEq: Topic = {
         {
           id: 'math-g2-var-q13',
           question: '$\begin{cases} 0.2x + 0.3y = 1.3 \\ x - y = 1 \end{cases}$ の解は？',
-          options: ['$x = 4, y = 3$', '$x = 2, y = 1$', '$x = 3, y = 2$', '$x = 5, y = 4$'],
-          correctIndex: 0,
+          options: ['$x = 2, y = 1$', '$x = 3, y = 2$', '$x = 4, y = 3$', '$x = 5, y = 4$'],
+          correctIndex: 2,
           explanation: '①を10倍: $2x + 3y = 13$。②より $x = y + 1$。代入: $2(y+1) + 3y = 13$ → $5y = 11$…$y = \frac{11}{5}$。正解は $x = 4, y = 3$: $0.8+0.9=1.7 \neq 1.3$。問題修正必要。',
           difficulty: 'standard',
         },
         {
           id: 'math-g2-var-q14',
           question: '$3(x + 1) - y = 8$ を整理すると？',
-          options: ['$3x - y = 5$', '$3x + y = 5$', '$3x - y = 8$', '$3x - y = 11$'],
-          correctIndex: 0,
+          options: ['$3x + y = 5$', '$3x - y = 5$', '$3x - y = 8$', '$3x - y = 11$'],
+          correctIndex: 1,
           explanation: '展開: $3x + 3 - y = 8$。移項: $3x - y = 5$ だよ。',
           difficulty: 'standard',
         },
@@ -361,32 +371,32 @@ export const variousSimulEq: Topic = {
         {
           id: 'math-g2-var-q16',
           question: '$0.5x - 0.2y = 0.4$ を10倍すると？',
-          options: ['$5x - 2y = 4$', '$50x - 20y = 40$', '$5x - 2y = 0.4$', '$0.5x - 0.2y = 4$'],
-          correctIndex: 0,
+          options: ['$50x - 20y = 40$', '$5x - 2y = 0.4$', '$5x - 2y = 4$', '$0.5x - 0.2y = 4$'],
+          correctIndex: 2,
           explanation: '全ての項を10倍: $5x - 2y = 4$ だよ。',
           difficulty: 'standard',
         },
         {
           id: 'math-g2-var-q17',
           question: '$2(x - 1) = 3(y + 2)$ を整理すると？',
-          options: ['$2x - 3y = 8$', '$2x + 3y = 8$', '$2x - 3y = 4$', '$2x - 3y = -8$'],
-          correctIndex: 0,
+          options: ['$2x + 3y = 8$', '$2x - 3y = 4$', '$2x - 3y = -8$', '$2x - 3y = 8$'],
+          correctIndex: 3,
           explanation: '$2x - 2 = 3y + 6$ → $2x - 3y = 8$ だよ。',
           difficulty: 'standard',
         },
         {
           id: 'math-g2-var-q18',
           question: '$ax + by = 10$ の解が $x = 2, y = 3$ のとき $2a + 3b = ?$',
-          options: ['$10$', '$5$', '$6$', '$12$'],
-          correctIndex: 0,
+          options: ['$5$', '$10$', '$6$', '$12$'],
+          correctIndex: 1,
           explanation: '$a \times 2 + b \times 3 = 10$ → $2a + 3b = 10$ だよ。',
           difficulty: 'standard',
         },
         {
           id: 'math-g2-var-q19',
           question: '$\begin{cases} \dfrac{x}{2} + y = 5 \\ x + y = 7 \end{cases}$ の解は？',
-          options: ['$x = 4, y = 3$', '$x = 2, y = 5$', '$x = 6, y = 1$', '$x = 3, y = 4$'],
-          correctIndex: 0,
+          options: ['$x = 2, y = 5$', '$x = 6, y = 1$', '$x = 3, y = 4$', '$x = 4, y = 3$'],
+          correctIndex: 3,
           explanation: '①×2: $x + 2y = 10$。① − ②: $y = 3$。$x = 4$ だよ。',
           difficulty: 'standard',
         },

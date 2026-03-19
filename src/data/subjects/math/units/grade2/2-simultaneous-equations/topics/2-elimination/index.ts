@@ -91,14 +91,16 @@ export const elimination: Topic = {
       },
       {
         id: 'math-g2-elim-fc5',
-        front: '足す！ $y$ が消えて $2x = 10$, $x = 5$', back: '$x + y = 7$, $x - y = 3$ → 加減法でどうする？',
+        front: '足す！', back: '$x + y = 7$, $x - y = 3$ → 加減法でどうする？',
         hint: '$y$ の係数は $+1$ と $-1$',
+        explanation: '$y$ が消えて $2x = 10$, $x = 5$。',
         difficulty: 'basic',
       },
       {
         id: 'math-g2-elim-fc6',
-        front: '①−②で $y$ が消えて $2x = 6$, $x = 3$', back: '$3x + 2y = 16$, $x + 2y = 10$ → 加減法でどうする？',
+        front: '①−②で引く', back: '$3x + 2y = 16$, $x + 2y = 10$ → 加減法でどうする？',
         hint: '$y$ の係数がどちらも $+2$',
+        explanation: '$y$ が消えて $2x = 6$, $x = 3$。',
         difficulty: 'basic',
       },
       {
@@ -122,8 +124,9 @@ export const elimination: Topic = {
       },
       {
         id: 'math-g2-elim-fc10',
-        front: '①×3, ②×2 → $6x+9y=36$, $6x+4y=26$ にして引く', back: '$2x + 3y = 12$, $3x + 2y = 13$ で $x$ を消すには？',
+        front: '①×3, ②×2 にして引く', back: '$2x + 3y = 12$, $3x + 2y = 13$ で $x$ を消すには？',
         hint: '$x$ の係数 2と3 → 最小公倍数は6',
+        explanation: '$6x+9y=36$, $6x+4y=26$ にして引くと $5y=10$。',
         difficulty: 'basic',
       },
       {
@@ -140,8 +143,9 @@ export const elimination: Topic = {
       },
       {
         id: 'math-g2-elim-fc13',
-        front: '足す！ $+3y$ と $-3y$ が消えて $6x = -6$, $x = -1$', back: '$5x + 3y = 4$, $x - 3y = -10$ → 加減法でどうする？',
+        front: '足す！', back: '$5x + 3y = 4$, $x - 3y = -10$ → 加減法でどうする？',
         hint: '$y$ の係数は $+3$ と $-3$',
+        explanation: '$+3y$ と $-3y$ が消えて $6x = -6$, $x = -1$。',
         difficulty: 'standard',
       },
       {
@@ -152,14 +156,16 @@ export const elimination: Topic = {
       },
       {
         id: 'math-g2-elim-fc15',
-        front: '①×3 → $12x+3y=42$。①−② で $11x=33$, $x=3$', back: '$4x + y = 14$, $x + 3y = 9$ で $y$ を消すには？',
+        front: '①×3 にして引く', back: '$4x + y = 14$, $x + 3y = 9$ で $y$ を消すには？',
         hint: '$y$ の係数を $3$ にそろえる',
+        explanation: '①×3 → $12x+3y=42$。①−② で $11x=33$, $x=3$。',
         difficulty: 'standard',
       },
       {
         id: 'math-g2-elim-fc16',
-        front: '①係数をそろえる → ②足すか引くかで1文字消す → ③残った式を解く → ④代入してもう1文字を求める', back: '加減法の手順（4ステップ）',
-        hint: 'そろえる→消す→解く→代入',
+        front: 'そろえる→消す→解く→代入', back: '加減法の手順（4ステップ）',
+        hint: '4つの動作を順番に',
+        explanation: '①係数をそろえる → ②足すか引くかで1文字消す → ③残った式を解く → ④代入してもう1文字を求める。',
         difficulty: 'standard',
       },
       {
@@ -176,15 +182,15 @@ export const elimination: Topic = {
         difficulty: 'standard',
       },
       { id: 'math-g2-elim-fc19', front: '消去する文字の係数の最小公倍数を求め、その値にそろえる', back: '係数をそろえるとき、何の最小公倍数を使う？', difficulty: 'standard' },
-      { id: 'math-g2-elim-fc20', front: '$y$ の係数が $3$ と $-3$ → 足す。$y$ の係数が $3$ と $3$ → 引く。', back: '足すか引くかの判断例を挙げると？', difficulty: 'standard' },
-      { id: 'math-g2-elim-fc21', front: 'まず10倍して整数にしてから加減法。$0.2x + 0.3y = 1.3$ → $2x + 3y = 13$', back: '小数係数の連立方程式の処理法は？', difficulty: 'standard' },
+      { id: 'math-g2-elim-fc20', front: '逆符号→足す、同符号→引く', back: '足すか引くかの判断例を挙げると？', explanation: '$y$ の係数が $3$ と $-3$ → 足す。$y$ の係数が $3$ と $3$ → 引く。', difficulty: 'standard' },
+      { id: 'math-g2-elim-fc21', front: 'まず10倍して整数にしてから加減法', back: '小数係数の連立方程式の処理法は？', explanation: '例: $0.2x + 0.3y = 1.3$ → $2x + 3y = 13$。', difficulty: 'standard' },
       { id: 'math-g2-elim-fc22', front: '分母の最小公倍数を両辺にかけて分数をはらってから加減法', back: '分数係数の連立方程式の処理法は？', difficulty: 'standard' },
       { id: 'math-g2-elim-fc23', front: '求めた値を元の式に代入して等式が成り立つか確認する', back: '加減法で解いた後の検算方法は？', difficulty: 'advanced' },
-      { id: 'math-g2-elim-fc24', front: '①×2, ②×3 → $y$ の係数をそろえる。②×2, ①×3 → $x$ の係数をそろえる。', back: '$3x + 2y = 8, 2x + 3y = 7$ で係数をそろえる方法は？', difficulty: 'advanced' },
+      { id: 'math-g2-elim-fc24', front: '①×2, ②×3 または ②×2, ①×3', back: '$3x + 2y = 8, 2x + 3y = 7$ で係数をそろえる方法は？', explanation: '①×2, ②×3 → $y$ の係数をそろえる。②×2, ①×3 → $x$ の係数をそろえる。', difficulty: 'advanced' },
       { id: 'math-g2-elim-fc25', front: '係数が小さい方や、そのまま消せる文字を選ぶと計算が楽', back: '消去する文字の選び方のコツは？', difficulty: 'advanced' },
       { id: 'math-g2-elim-fc26', front: '連立方程式を解く際、2式の差をとって新しい式を作ること', back: '辺々引くとは？', difficulty: 'advanced' },
-      { id: 'math-g2-elim-fc27', front: '①足すか引くかで1文字消去 → ②残った式を解く → ③代入して残り → ④検算', back: '加減法の4ステップは？', difficulty: 'advanced' },
-      { id: 'math-g2-elim-fc28', front: '正負に注意！引く式の全項の符号が変わる。よくあるミスは定数項の符号忘れ。', back: '加減法でよくある計算ミスは？', difficulty: 'advanced' },
+      { id: 'math-g2-elim-fc27', front: '消去→解く→代入→検算', back: '加減法の4ステップは？', explanation: '①足すか引くかで1文字消去 → ②残った式を解く → ③代入して残り → ④検算。' },
+      { id: 'math-g2-elim-fc28', front: '定数項の符号忘れ', back: '加減法でよくある計算ミスは？', explanation: '正負に注意！引く式の全項の符号が変わる。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -194,7 +200,7 @@ export const elimination: Topic = {
           options: ['$x = 3, y = 4$', '$x = 2, y = 5$', '$x = 4, y = 3$', '$x = 5, y = 2$'],
           correctIndex: 3,
           explanation:
-            '$y$ の係数が $+1$ と $-1$ で逆符号。2式を足すと $2x = 10$、$x = 5$。①に代入して $y = 2$。',
+            '$y$ の係数が $+1$ と $-1$ で逆符号。\n2式を足すと $2x = 10$、$x = 5$。\n①に代入して $y = 2$。',
           difficulty: 'basic',
         },
         {
@@ -208,7 +214,7 @@ export const elimination: Topic = {
           ],
           correctIndex: 1,
           explanation:
-            '$y$ の係数が両方 $+2$ で同じ。①−②で $y$ が消えて $2x = 6$、$x = 3$ になるよ。',
+            '$y$ の係数が両方 $+2$ で同じ。\n①−②で $y$ が消えて $2x = 6$、$x = 3$ になるよ。',
           difficulty: 'basic',
         },
         {
@@ -217,7 +223,7 @@ export const elimination: Topic = {
           options: ['$x = 4, y = 2$', '$x = 1, y = 5$', '$x = 2, y = 4$', '$x = 3, y = 3$'],
           correctIndex: 2,
           explanation:
-            '②を2倍して $2x + 2y = 12$。①−② で $y = 4$。②に代入して $x = 2$。',
+            '②を2倍して $2x + 2y = 12$。\n①−② で $y = 4$。\n②に代入して $x = 2$。',
           difficulty: 'basic',
         },
         {
@@ -231,7 +237,7 @@ export const elimination: Topic = {
           ],
           correctIndex: 0,
           explanation:
-            '$y$ の係数が $+3$ と $-3$ で逆符号。足すだけで $y$ が消えて $6x = -6$ になるよ。',
+            '$y$ の係数が $+3$ と $-3$ で逆符号。\n足すだけで $y$ が消えて $6x = -6$ になるよ。',
           difficulty: 'basic',
         },
         {
@@ -240,7 +246,7 @@ export const elimination: Topic = {
           options: ['$x = 2, y = 3$', '$x = 4, y = 1$', '$x = 1, y = 5$', '$x = 3, y = 2$'],
           correctIndex: 3,
           explanation:
-            '①×3、②×2 で $x$ の係数を6にそろえる。$6x+9y=36$ から $6x+4y=26$ を引くと $5y=10$、$y=2$。②に代入して $x=3$。',
+            '①×3、②×2 で $x$ の係数を6にそろえる。\n$6x+9y=36$ から $6x+4y=26$ を引くと $5y=10$、$y=2$。\n②に代入して $x=3$。',
           difficulty: 'basic',
         },
         {
@@ -263,7 +269,7 @@ export const elimination: Topic = {
           options: ['$x = 2, y = 6$', '$x = 3, y = 2$', '$x = 4, y = -2$', '$x = 1, y = 10$'],
           correctIndex: 1,
           explanation:
-            '①×3 で $12x+3y=42$。①−②で $11x=33$、$x=3$。②に代入して $3+3y=9$、$y=2$。',
+            '①×3 で $12x+3y=42$。\n①−②で $11x=33$、$x=3$。\n②に代入して $3+3y=9$、$y=2$。',
           difficulty: 'basic',
         },
         {
@@ -286,7 +292,7 @@ export const elimination: Topic = {
           ],
           correctIndex: 0,
           explanation:
-            '$y$ の係数は2と5。最小公倍数10にそろえるため、①×5（$10y$）、②×2（$10y$）にして引く。',
+            '$y$ の係数は2と5。\n最小公倍数10にそろえるため、①×5（$10y$）、②×2（$10y$）にして引く。',
           difficulty: 'basic',
         },
         {
@@ -295,14 +301,14 @@ export const elimination: Topic = {
           options: ['$x = 1, y = 5$', '$x = 2, y = 3$', '$x = 3, y = 1$', '$x = 4, y = -1$'],
           correctIndex: 1,
           explanation:
-            '$x$ の係数がどちらも $+2$。①−②で $(y) - (-3y) = 4y = 12$、$y = 3$。①に代入して $2x = 4$、$x = 2$。',
+            '$x$ の係数がどちらも $+2$。\n①−②で $(y) - (-3y) = 4y = 12$、$y = 3$。\n①に代入して $2x = 4$、$x = 2$。',
           difficulty: 'basic',
         },
         {
           id: 'math-g2-elim-q11',
           question: '$\\begin{cases} 3x + 2y = 8 \\ 2x + 2y = 6 \\end{cases}$ を加減法で解くと？',
-          options: ['$x = 2, y = 1$', '$x = 1, y = 2$', '$x = 3, y = 0$', '$x = 0, y = 3$'],
-          correctIndex: 0,
+          options: ['$x = 1, y = 2$', '$x = 3, y = 0$', '$x = 2, y = 1$', '$x = 0, y = 3$'],
+          correctIndex: 2,
           explanation: '$y$ の係数が同じ。①−②: $x = 2$。$2(2) + 2y = 6$ → $y = 1$ だよ。',
           difficulty: 'standard',
         },
@@ -317,8 +323,8 @@ export const elimination: Topic = {
         {
           id: 'math-g2-elim-q13',
           question: '$\\begin{cases} 4x + 3y = 18 \\ 2x + 3y = 12 \\end{cases}$ を加減法で解くと？',
-          options: ['$x = 3, y = 2$', '$x = 2, y = 3$', '$x = 6, y = 0$', '$x = 0, y = 6$'],
-          correctIndex: 0,
+          options: ['$x = 2, y = 3$', '$x = 3, y = 2$', '$x = 6, y = 0$', '$x = 0, y = 6$'],
+          correctIndex: 1,
           explanation: '①−②: $2x = 6$、$x = 3$。$2(3) + 3y = 12$ → $y = 2$ だよ。',
           difficulty: 'standard',
         },
@@ -349,32 +355,32 @@ export const elimination: Topic = {
         {
           id: 'math-g2-elim-q17',
           question: '$\\begin{cases} x + 2y = 5 \\ 3x + 4y = 11 \\end{cases}$ を加減法で解くと？',
-          options: ['$x = 1, y = 2$', '$x = 3, y = 1$', '$x = -1, y = 3$', '$x = 2, y = 1$'],
-          correctIndex: 0,
+          options: ['$x = 3, y = 1$', '$x = -1, y = 3$', '$x = 2, y = 1$', '$x = 1, y = 2$'],
+          correctIndex: 3,
           explanation: '①×2: $2x+4y=10$。②−① で $x = 1$。$1+2y=5$ → $y=2$ だよ。',
           difficulty: 'standard',
         },
         {
           id: 'math-g2-elim-q18',
           question: '$\\begin{cases} 5x + y = 13 \\ 2x + y = 7 \\end{cases}$ の解は？',
-          options: ['$x = 2, y = 3$', '$x = 3, y = 1$', '$x = 1, y = 5$', '$x = 4, y = -1$'],
-          correctIndex: 0,
+          options: ['$x = 3, y = 1$', '$x = 1, y = 5$', '$x = 2, y = 3$', '$x = 4, y = -1$'],
+          correctIndex: 2,
           explanation: '①−②: $3x = 6$、$x = 2$。$2(2) + y = 7$ → $y = 3$ だよ。',
           difficulty: 'standard',
         },
         {
           id: 'math-g2-elim-q19',
           question: '$\\begin{cases} 4x - y = 5 \\ x + y = 5 \\end{cases}$ の解は？',
-          options: ['$x = 2, y = 3$', '$x = 3, y = 2$', '$x = 1, y = 4$', '$x = 4, y = 1$'],
-          correctIndex: 0,
+          options: ['$x = 3, y = 2$', '$x = 2, y = 3$', '$x = 1, y = 4$', '$x = 4, y = 1$'],
+          correctIndex: 1,
           explanation: '足すと $5x = 10$、$x = 2$。$2 + y = 5$ → $y = 3$ だよ。',
           difficulty: 'standard',
         },
         {
           id: 'math-g2-elim-q20',
           question: '$\\begin{cases} 3x + 5y = 21 \\ 3x + 2y = 12 \\end{cases}$ の解は？',
-          options: ['$x = 2, y = 3$', '$x = 3, y = 2$', '$x = 4, y = 0$', '$x = 1, y = 4$'],
-          correctIndex: 0,
+          options: ['$x = 3, y = 2$', '$x = 4, y = 0$', '$x = 1, y = 4$', '$x = 2, y = 3$'],
+          correctIndex: 3,
           explanation: '①−②: $3y = 9$、$y = 3$。$3x + 6 = 12$ → $x = 2$ だよ。',
           difficulty: 'standard',
         },
@@ -397,8 +403,8 @@ export const elimination: Topic = {
         {
           id: 'math-g2-elim-q23',
           question: '$\\begin{cases} 2x + y = 9 \\ x - 2y = -3 \\end{cases}$ の解は？',
-          options: ['$x = 3, y = 3$', '$x = 2, y = 5$', '$x = 1, y = 7$', '$x = 4, y = 1$'],
-          correctIndex: 0,
+          options: ['$x = 2, y = 5$', '$x = 1, y = 7$', '$x = 4, y = 1$', '$x = 3, y = 3$'],
+          correctIndex: 3,
           explanation: '①×2: $4x+2y=18$。①+②: $5x = 15$、$x = 3$。$6+y=9$ → $y=3$ だよ。',
           difficulty: 'advanced',
         },

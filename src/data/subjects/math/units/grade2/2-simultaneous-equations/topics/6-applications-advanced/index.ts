@@ -95,12 +95,14 @@ export const simulEqAppsAdv: Topic = {
       },
       {
         id: 'math-g2-apadv-fc8',
-        front: '$1\\dfrac{20}{60} = \\dfrac{4}{3}$ 時間', back: '速さの問題で単位をそろえるとき、1 時間 20 分は何時間？',
+        front: '$\\dfrac{4}{3}$ 時間', back: '速さの問題で単位をそろえるとき、1 時間 20 分は何時間？',
+        explanation: '$1 + \\dfrac{20}{60} = \\dfrac{4}{3}$ 時間。',
         difficulty: 'basic',
       },
       {
         id: 'math-g2-apadv-fc9',
-        front: '$200 \\times \\dfrac{5}{100} = 10$ g', back: '5% の食塩水 200g に含まれる食塩の量は？',
+        front: '$10$ g', back: '5% の食塩水 200g に含まれる食塩の量は？',
+        explanation: '$200 \\times \\dfrac{5}{100} = 10$ g。',
         difficulty: 'basic',
       },
       {
@@ -121,17 +123,17 @@ export const simulEqAppsAdv: Topic = {
       { id: 'math-g2-apadv-fc13', front: '家→学校の距離を $x$、学校→公園を $y$ のように区間ごとに分ける', back: '2区間の速さの問題での未知数の置き方は？', difficulty: 'standard' },
       { id: 'math-g2-apadv-fc14', front: '合計の食塩水と合計の食塩でそれぞれ式を立てる', back: '食塩水の問題で2式を立てるポイントは？', difficulty: 'standard' },
       { id: 'math-g2-apadv-fc15', front: '行き: $\dfrac{d}{v_1}$ 時間、帰り: $\dfrac{d}{v_2}$ 時間', back: '片道 $d$ km を行き速さ $v_1$、帰り速さ $v_2$ で往復する時間は？', difficulty: 'standard' },
-      { id: 'math-g2-apadv-fc16', front: '食塩水に水を加えると濃度は下がる。食塩を加えると濃度は上がる。', back: '食塩水に水を加えるとどうなる？', difficulty: 'standard' },
+      { id: 'math-g2-apadv-fc16', front: '濃度が下がる', back: '食塩水に水を加えるとどうなる？', explanation: '食塩水に水を加えると濃度は下がる。食塩を加えると濃度は上がる。', difficulty: 'standard' },
       { id: 'math-g2-apadv-fc17', front: '$\dfrac{\text{食塩の量}}{\text{食塩水の量}} \times 100 = $ 濃度(%)', back: '濃度の公式は？', difficulty: 'standard' },
       { id: 'math-g2-apadv-fc18', front: '距離の式と時間の式の2つ', back: '速さの問題で立てる2つの式は？', difficulty: 'standard' },
       { id: 'math-g2-apadv-fc19', front: '出発地点が同じか異なるか、追いかけるか向かい合うかで式が変わる', back: '速さの問題で注意すべきことは？', difficulty: 'standard' },
-      { id: 'math-g2-apadv-fc20', front: '分速 $\times$ 分 $=$ m。単位を統一することが重要', back: '速さ×時間の単位の注意点は？', difficulty: 'standard' },
-      { id: 'math-g2-apadv-fc21', front: '$1$ 時間 $= 60$ 分。$30$ 分 $= 0.5$ 時間。', back: '分を時間に変換するには？$\div 60$', difficulty: 'standard' },
+      { id: 'math-g2-apadv-fc20', front: '分速 $\times$ 分 $=$ m', back: '速さ×時間の単位の注意点は？', explanation: '単位を統一することが重要。', difficulty: 'standard' },
+      { id: 'math-g2-apadv-fc21', front: '$\div 60$ する', back: '分を時間に変換するには？', explanation: '$1$ 時間 $= 60$ 分。$30$ 分 $= 0.5$ 時間。', difficulty: 'standard' },
       { id: 'math-g2-apadv-fc22', front: '混合後の食塩の量 $=$ 各食塩水の食塩の量の合計', back: '食塩水を混ぜるときの食塩の量の関係は？', difficulty: 'standard' },
-      { id: 'math-g2-apadv-fc23', front: '蒸発させると水だけが減り食塩は残る → 濃度が上がる', back: '食塩水を加熱して蒸発させるとどうなる？', difficulty: 'advanced' },
-      { id: 'math-g2-apadv-fc24', front: '向かい合って進む→速さの和。追いかける→速さの差。', back: '2人の速さの問題の2パターンは？', difficulty: 'advanced' },
-      { id: 'math-g2-apadv-fc25', front: '時速 $60$ km $=$ 分速 $1$ km', back: '時速を分速に変換するには？→ $\div 60$', difficulty: 'advanced' },
-      { id: 'math-g2-apadv-fc26', front: '$300 \times 0.08 = 24$ g', back: '$8$% の食塩水 $300$ g に含まれる食塩は？', difficulty: 'advanced' },
+      { id: 'math-g2-apadv-fc23', front: '濃度が上がる', back: '食塩水を加熱して蒸発させるとどうなる？', explanation: '蒸発させると水だけが減り食塩は残る → 濃度が上がる。', difficulty: 'advanced' },
+      { id: 'math-g2-apadv-fc24', front: '向かい合う→速さの和、追いかける→速さの差', back: '2人の速さの問題の2パターンは？', difficulty: 'advanced' },
+      { id: 'math-g2-apadv-fc25', front: '$\div 60$ する', back: '時速を分速に変換するには？', explanation: '時速 $60$ km $=$ 分速 $1$ km。', difficulty: 'advanced' },
+      { id: 'math-g2-apadv-fc26', front: '$24$ g', back: '$8$% の食塩水 $300$ g に含まれる食塩は？', explanation: '$300 \times 0.08 = 24$ g。', difficulty: 'advanced' },
       { id: 'math-g2-apadv-fc27', front: '必ず2つの濃度の間になる', back: '混合後の食塩水の濃度の範囲は？', difficulty: 'advanced' },
       { id: 'math-g2-apadv-fc28', front: '各区間の距離を求めてから合計する', back: '複数区間の道のり問題の解き方は？', difficulty: 'advanced' },
     ],
@@ -149,7 +151,7 @@ export const simulEqAppsAdv: Topic = {
           ],
           correctIndex: 1,
           explanation:
-            '行きの距離 $= 4x$、帰りの距離 $= 6y$。距離が同じなので $4x = 6y$。',
+            '行きの距離 $= 4x$、帰りの距離 $= 6y$。\n距離が同じなので $4x = 6y$。',
           difficulty: 'basic',
         },
         {
@@ -184,7 +186,7 @@ export const simulEqAppsAdv: Topic = {
           options: ['20 km', '25 km', '35 km', '30 km'],
           correctIndex: 3,
           explanation:
-            '行き $x$ 時間, 帰り $y$ 時間。$\\begin{cases} x + y = 5 \\\\ 15x = 10y \\end{cases}$。②: $3x = 2y$, $x = 2$, $y = 3$。距離 $= 15 \\times 2 = 30$ km。',
+            '行き $x$ 時間, 帰り $y$ 時間。\n$\\begin{cases} x + y = 5 \\\\ 15x = 10y \\end{cases}$。\n②: $3x = 2y$, $x = 2$, $y = 3$。\n距離 $= 15 \\times 2 = 30$ km。',
           difficulty: 'basic',
         },
         {
@@ -194,7 +196,7 @@ export const simulEqAppsAdv: Topic = {
           options: ['300 g', '250 g', '200 g', '350 g'],
           correctIndex: 0,
           explanation:
-            '$\\begin{cases} x + y = 600 \\\\ 0.06x + 0.12y = 54 \\end{cases}$。②$\\times 100$: $6x + 12y = 5400$。①$\\times 6$: $6x + 6y = 3600$。引くと $6y = 1800$, $y = 300$, $x = 300$。',
+            '$\\begin{cases} x + y = 600 \\\\ 0.06x + 0.12y = 54 \\end{cases}$。\n②$\\times 100$: $6x + 12y = 5400$。\n①$\\times 6$: $6x + 6y = 3600$。\n引くと $6y = 1800$, $y = 300$, $x = 300$。',
           difficulty: 'basic',
         },
         {
@@ -204,7 +206,7 @@ export const simulEqAppsAdv: Topic = {
           options: ['600 m', '660 m', '780 m', '720 m'],
           correctIndex: 3,
           explanation:
-            '$\\begin{cases} x + y = 1200 \\\\ \\dfrac{x}{60} + \\dfrac{y}{80} = 18 \\end{cases}$。②$\\times 240$: $4x + 3y = 4320$。①$\\times 3$: $3x + 3y = 3600$。引くと $x = 720$。',
+            '$\\begin{cases} x + y = 1200 \\\\ \\dfrac{x}{60} + \\dfrac{y}{80} = 18 \\end{cases}$。\n②$\\times 240$: $4x + 3y = 4320$。\n①$\\times 3$: $3x + 3y = 3600$。\n引くと $x = 720$。',
           difficulty: 'basic',
         },
         {

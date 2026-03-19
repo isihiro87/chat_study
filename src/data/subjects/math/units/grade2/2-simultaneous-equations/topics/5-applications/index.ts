@@ -111,12 +111,14 @@ export const simulEqApps: Topic = {
       },
       {
         id: 'math-g2-app-fc9',
-        front: '$1.05x$（$= x \\times \\dfrac{105}{100}$）', back: '「$x$ 人の 5% 増」を式で表すと？',
+        front: '$1.05x$', back: '「$x$ 人の 5% 増」を式で表すと？',
+        explanation: '$x \\times \\dfrac{105}{100} = 1.05x$。',
         difficulty: 'basic',
       },
       {
         id: 'math-g2-app-fc10',
-        front: '$0.8y$（$= y \\times \\dfrac{80}{100}$）', back: '「$y$ 円の 20% 引き」を式で表すと？',
+        front: '$0.8y$', back: '「$y$ 円の 20% 引き」を式で表すと？',
+        explanation: '$y \\times \\dfrac{80}{100} = 0.8y$。',
         difficulty: 'basic',
       },
       {
@@ -155,7 +157,7 @@ export const simulEqApps: Topic = {
       { id: 'math-g2-app-fc24', front: '距離 $=$ 速さ $\times$ 時間', back: '速さの問題で使う基本公式は？', difficulty: 'advanced' },
       { id: 'math-g2-app-fc25', front: '「合計」「差」「割合」「代金」のキーワードに注目する', back: '文章題で式を立てるとき、どんな言葉に注目する？', difficulty: 'advanced' },
       { id: 'math-g2-app-fc26', front: '単位をそろえてから式を立てる（分→時間、cm→m など）', back: '文章題で単位が異なるときは？', difficulty: 'advanced' },
-      { id: 'math-g2-app-fc27', front: '$(10x + y) + (10y + x) = 11(x + y)$', back: '2けたの数と入れかえた数の和は $11$ の倍数。この式は？', difficulty: 'advanced' },
+      { id: 'math-g2-app-fc27', front: '$11(x + y)$', back: '2けたの数と入れかえた数の和は $11$ の倍数。この式は？', explanation: '$(10x + y) + (10y + x) = 11(x + y)$。', difficulty: 'advanced' },
       { id: 'math-g2-app-fc28', front: '求めた値が整数かつ正の数であること（個数や人数は自然数）', back: '文章題の答えに必要な条件は？', difficulty: 'advanced' },
     ],
     quiz: {
@@ -167,7 +169,7 @@ export const simulEqApps: Topic = {
           options: ['3 本', '5 本', '4 本', '6 本'],
           correctIndex: 1,
           explanation:
-            '$x + y = 8$、$60x + 120y = 660$。②$\\div 60$: $x + 2y = 11$。引くと $y = 3$, $x = 5$。えんぴつ $5$ 本。',
+            '$x + y = 8$、$60x + 120y = 660$。\n②$\\div 60$: $x + 2y = 11$。\n引くと $y = 3$, $x = 5$。えんぴつ $5$ 本。',
           difficulty: 'basic',
         },
         {
@@ -177,7 +179,7 @@ export const simulEqApps: Topic = {
           options: ['$11$', '$12$', '$14$', '$13$'],
           correctIndex: 3,
           explanation:
-            '$\\begin{cases} x + y = 20 \\\\ x - y = 6 \\end{cases}$。足すと $2x = 26$, $x = 13$。',
+            '$\\begin{cases} x + y = 20 \\\\ x - y = 6 \\end{cases}$。\n足すと $2x = 26$, $x = 13$。',
           difficulty: 'basic',
         },
         {
@@ -202,7 +204,7 @@ export const simulEqApps: Topic = {
           options: ['3 個', '2 個', '4 個', '5 個'],
           correctIndex: 0,
           explanation:
-            '$\\begin{cases} x + y = 7 \\\\ 300x + 150y = 1500 \\end{cases}$。②$\\div 150$: $2x + y = 10$。引くと $x = 3$。',
+            '$\\begin{cases} x + y = 7 \\\\ 300x + 150y = 1500 \\end{cases}$。\n②$\\div 150$: $2x + y = 10$。\n引くと $x = 3$。',
           difficulty: 'basic',
         },
         {
@@ -212,7 +214,7 @@ export const simulEqApps: Topic = {
           options: ['6 人', '7 人', '8 人', '9 人'],
           correctIndex: 2,
           explanation:
-            '$\\begin{cases} x + y = 15 \\\\ 500x + 200y = 5400 \\end{cases}$。①$\\times 200$ を②から引くと $300x = 2400$, $x = 8$。',
+            '$\\begin{cases} x + y = 15 \\\\ 500x + 200y = 5400 \\end{cases}$。\n①$\\times 200$ を②から引くと $300x = 2400$, $x = 8$。',
           difficulty: 'basic',
         },
         {

@@ -474,7 +474,7 @@ export const substitutionChat: HistoryChat = {
         { letter: 'D', text: '$x = 5$', correct: false },
       ],
       explanation:
-        '$y = 3x$ を$\\textcircled{2}$に<ruby>代入<rt>だいにゅう</rt></ruby>: $2x + 3x = 10 \\rightarrow 5x = 10 \\rightarrow x = \\textcolor{#D97706}{2}$。$y = 6$ だよ。',
+        '$y = 3x$ を$\\textcircled{2}$に<ruby>代入<rt>だいにゅう</rt></ruby>: $2x + 3x = 10 \\rightarrow 5x = 10 \\rightarrow x = \\textcolor{#D97706}{2}$。\n$y = 6$ だよ。',
     },
     {
       type: 'quiz',
@@ -486,7 +486,7 @@ export const substitutionChat: HistoryChat = {
         { letter: 'D', text: '$x = 1$', correct: false },
       ],
       explanation:
-        '①を $y = 5 - x$ に<ruby>変形<rt>へんけい</rt></ruby>して②に<ruby>代入<rt>だいにゅう</rt></ruby>: $3x + 2(5 - x) = 13 \\rightarrow x = \\textcolor{#D97706}{3}$。$y = 2$ だよ。',
+        '①を $y = 5 - x$ に<ruby>変形<rt>へんけい</rt></ruby>して②に<ruby>代入<rt>だいにゅう</rt></ruby>:\n$3x + 2(5 - x) = 13 \\rightarrow x = \\textcolor{#D97706}{3}$。\n$y = 2$ だよ。',
     },
     {
       type: 'quiz',

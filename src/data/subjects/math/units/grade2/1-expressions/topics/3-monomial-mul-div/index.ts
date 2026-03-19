@@ -77,27 +77,32 @@ export const monomialMulDiv: Topic = {
     flashcards: [
       {
         id: 'math-g2-mmd-fc1',
-        front: '係数は係数どうしをかけ、同じ文字は指数を足す。例: $3x^2 \\times 5x^3 = 15x^5$', back: '単項式のかけ算の基本ルールは？',
+        front: '係数は係数どうしをかけ、同じ文字は指数を足す', back: '単項式のかけ算の基本ルールは？',
+        explanation: '例: $3x^2 \\times 5x^3 = 15x^5$',
         difficulty: 'basic',
       },
       {
         id: 'math-g2-mmd-fc2',
-        front: '分数の形にして約分する。係数は普通に割り、同じ文字は指数を引く。例: $\\frac{12a^3}{4a} = 3a^2$', back: '単項式の割り算の基本ルールは？',
+        front: '分数の形にして約分する。係数は普通に割り、同じ文字は指数を引く', back: '単項式の割り算の基本ルールは？',
+        explanation: '例: $\\frac{12a^3}{4a} = 3a^2$',
         difficulty: 'basic',
       },
       {
         id: 'math-g2-mmd-fc3',
-        front: '$9x^2$。偶数乗なので係数は正になる。$(-3)^2 = 9$', back: '$(-3x)^2$ はいくつ？',
+        front: '$9x^2$', back: '$(-3x)^2$ はいくつ？',
+        explanation: '偶数乗なので係数は正になる。$(-3)^2 = 9$',
         difficulty: 'basic',
       },
       {
         id: 'math-g2-mmd-fc4',
-        front: '$-8a^3$。奇数乗なので係数は負のまま。$(-2)^3 = -8$', back: '$(-2a)^3$ はいくつ？',
+        front: '$-8a^3$', back: '$(-2a)^3$ はいくつ？',
+        explanation: '奇数乗なので係数は負のまま。$(-2)^3 = -8$',
         difficulty: 'basic',
       },
       {
         id: 'math-g2-mmd-fc5',
-        front: '$(-a)^2 = a^2$（正）、$-a^2 = -(a^2)$（負）。カッコの位置で符号が変わる！', back: '$(-a)^2$ と $-a^2$ の違いは？',
+        front: '$(-a)^2 = a^2$（正）、$-a^2 = -(a^2)$（負）', back: '$(-a)^2$ と $-a^2$ の違いは？',
+        explanation: 'カッコの位置で符号が変わる！',
         difficulty: 'basic',
       },
       {
@@ -112,12 +117,14 @@ export const monomialMulDiv: Topic = {
       },
       {
         id: 'math-g2-mmd-fc8',
-        front: '逆数をかける！ $A \\div \\frac{b}{c} = A \\times \\frac{c}{b}$', back: '分数係数の単項式で割るときのコツは？',
+        front: '逆数をかける！', back: '分数係数の単項式で割るときのコツは？',
+        explanation: '$A \\div \\frac{b}{c} = A \\times \\frac{c}{b}$',
         difficulty: 'basic',
       },
       {
         id: 'math-g2-mmd-fc9',
-        front: '1つの分数にまとめる。かけ算は分子、割り算は分母に置く。$A \\times B \\div C = \\frac{A \\times B}{C}$', back: '3つの式の乗除を計算するコツは？',
+        front: '1つの分数にまとめる。かけ算は分子、割り算は分母に置く', back: '3つの式の乗除を計算するコツは？',
+        explanation: '$A \\times B \\div C = \\frac{A \\times B}{C}$',
         difficulty: 'basic',
       },
       {
@@ -127,42 +134,47 @@ export const monomialMulDiv: Topic = {
       },
       {
         id: 'math-g2-mmd-fc11',
-        front: '$x^6$ と答えてしまうこと。正しくは指数を足して $x^5$。指数をかけるのは $(x^2)^3 = x^6$ のとき。', back: '$x^2 \\times x^3$ の計算でよくある間違いは？',
+        front: '$x^6$ と答えてしまうこと', back: '$x^2 \\times x^3$ の計算でよくある間違いは？',
+        explanation: '正しくは指数を足して $x^5$。指数をかけるのは $(x^2)^3 = x^6$ のとき',
         difficulty: 'basic',
       },
       {
         id: 'math-g2-mmd-fc12',
-        front: '$-25a^2$。まず $(-5a)^2 = 25a^2$（偶数乗で正）、次に前のマイナスをつけて $-25a^2$。', back: '$-(-5a)^2$ の答えは？',
+        front: '$-25a^2$', back: '$-(-5a)^2$ の答えは？',
+        explanation: 'まず $(-5a)^2 = 25a^2$（偶数乗で正）、次に前のマイナスをつけて $-25a^2$',
         difficulty: 'basic',
       },
       {
         id: 'math-g2-mmd-fc13',
-        front: '$\\frac{A}{B \\times C}$（割り算が連続するときは分母にまとめる）', back: '$A \\div B \\div C$ を分数で表すと？',
+        front: '$\\frac{A}{B \\times C}$', back: '$A \\div B \\div C$ を分数で表すと？',
+        explanation: '割り算が連続するときは分母にまとめる',
         difficulty: 'standard',
       },
       {
         id: 'math-g2-mmd-fc14',
-        front: '分子と分母で同じ文字の指数が等しいとき。例: $\\frac{6ab}{3ab} = 2$（$a, b$ ともに消える）', back: '単項式の割り算で文字が消えるのはどんなとき？',
+        front: '分子と分母で同じ文字の指数が等しいとき', back: '単項式の割り算で文字が消えるのはどんなとき？',
+        explanation: '例: $\\frac{6ab}{3ab} = 2$（$a, b$ ともに消える）',
         difficulty: 'standard',
       },
       {
         id: 'math-g2-mmd-fc15',
-        front: '$2y$。$\\frac{6xy}{3x} = 2y$。$x$ が約分されて $y$ だけ残る。', back: '$6xy \\div 3x$ の答えは？',
+        front: '$2y$', back: '$6xy \\div 3x$ の答えは？',
+        explanation: '$\\frac{6xy}{3x} = 2y$。$x$ が約分されて $y$ だけ残る',
         difficulty: 'standard',
       },
-      { id: 'math-g2-mmd-fc16', front: '$(a^m)^n = a^{mn}$（累乗の累乗は指数をかける）', back: '指数法則: $(a^m)^n = ?$', difficulty: 'standard' },
-      { id: 'math-g2-mmd-fc17', front: '$a^0 = 1$（$a \neq 0$）。$0$ 乗は必ず $1$。', back: '指数が $0$ のとき、$a^0$ は？', difficulty: 'standard' },
-      { id: 'math-g2-mmd-fc18', front: '係数: $(-6) \times 5 = -30$、文字: $a^2 \times a = a^3$、$b \times b = b^2$ → $-30a^3b^2$', back: '$(-6a^2b) \times (5ab)$ の計算は？', difficulty: 'standard' },
-      { id: 'math-g2-mmd-fc19', front: '$4x^2y$（$\dfrac{12}{3} = 4$、$\dfrac{x^3}{x} = x^2$、$\dfrac{y^2}{y} = y$）', back: '$12x^3y^2 \div 3xy$ の計算は？', difficulty: 'standard' },
-      { id: 'math-g2-mmd-fc20', front: '$16a^4$（$(-2a)^4 = (-2)^4 \times a^4 = 16a^4$。偶数乗で正）', back: '$(-2a)^4$ の計算は？', difficulty: 'standard' },
+      { id: 'math-g2-mmd-fc16', front: '$(a^m)^n = a^{mn}$', back: '指数法則: $(a^m)^n = ?$', explanation: '累乗の累乗は指数をかける', difficulty: 'standard' },
+      { id: 'math-g2-mmd-fc17', front: '$a^0 = 1$', back: '指数が $0$ のとき、$a^0$ は？', explanation: '$a \\neq 0$ のとき。$0$ 乗は必ず $1$', difficulty: 'standard' },
+      { id: 'math-g2-mmd-fc18', front: '$-30a^3b^2$', back: '$(-6a^2b) \\times (5ab)$ の計算は？', explanation: '係数: $(-6) \\times 5 = -30$、文字: $a^2 \\times a = a^3$、$b \\times b = b^2$', difficulty: 'standard' },
+      { id: 'math-g2-mmd-fc19', front: '$4x^2y$', back: '$12x^3y^2 \\div 3xy$ の計算は？', explanation: '$\\dfrac{12}{3} = 4$、$\\dfrac{x^3}{x} = x^2$、$\\dfrac{y^2}{y} = y$', difficulty: 'standard' },
+      { id: 'math-g2-mmd-fc20', front: '$16a^4$', back: '$(-2a)^4$ の計算は？', explanation: '$(-2)^4 \\times a^4 = 16a^4$。偶数乗で正', difficulty: 'standard' },
       { id: 'math-g2-mmd-fc21', front: '全体を1つの分数にまとめてから約分する', back: '乗除が混合した計算のコツは？', difficulty: 'standard' },
       { id: 'math-g2-mmd-fc22', front: '符号を先に決める（同符号→正、異符号→負）→ 絶対値を計算', back: '単項式の乗除で最初にすることは？', difficulty: 'standard' },
-      { id: 'math-g2-mmd-fc23', front: '$a^1 = a$。指数 $1$ は書かないのが普通。', back: '$a^1$ はいくつ？', difficulty: 'advanced' },
-      { id: 'math-g2-mmd-fc24', front: '$-27x^3$（$(-3)^3 = -27$、$x^3$。奇数乗で負）', back: '$(-3x)^3$ の計算は？', difficulty: 'advanced' },
-      { id: 'math-g2-mmd-fc25', front: '分数で割る → 逆数をかける。$6a \div \dfrac{2}{3} = 6a \times \dfrac{3}{2} = 9a$', back: '$6a \div \dfrac{2}{3}$ の計算は？', difficulty: 'advanced' },
-      { id: 'math-g2-mmd-fc26', front: '$\dfrac{A \times B}{C}$。かけ算→分子、わり算→分母に配置', back: '$A \times B \div C$ を分数で表すと？', difficulty: 'advanced' },
-      { id: 'math-g2-mmd-fc27', front: '$(2a)^2 = 4a^2$ だが $2a^2 = 2 \times a^2$。かっこの有無で意味が違う！', back: '$(2a)^2$ と $2a^2$ の違いは？', difficulty: 'advanced' },
-      { id: 'math-g2-mmd-fc28', front: '約分後に残った文字と数で答えを構成する。例: $\dfrac{10a^3b}{5a^2} = 2ab$', back: '単項式の除法で約分した後の答えの書き方は？', difficulty: 'advanced' },
+      { id: 'math-g2-mmd-fc23', front: '$a^1 = a$', back: '$a^1$ はいくつ？', explanation: '指数 $1$ は書かないのが普通', difficulty: 'advanced' },
+      { id: 'math-g2-mmd-fc24', front: '$-27x^3$', back: '$(-3x)^3$ の計算は？', explanation: '$(-3)^3 = -27$、$x^3$。奇数乗で負', difficulty: 'advanced' },
+      { id: 'math-g2-mmd-fc25', front: '$9a$', back: '$6a \\div \\dfrac{2}{3}$ の計算は？', explanation: '分数で割る → 逆数をかける。$6a \\times \\dfrac{3}{2} = 9a$', difficulty: 'advanced' },
+      { id: 'math-g2-mmd-fc26', front: '$\\dfrac{A \\times B}{C}$', back: '$A \\times B \\div C$ を分数で表すと？', explanation: 'かけ算→分子、わり算→分母に配置', difficulty: 'advanced' },
+      { id: 'math-g2-mmd-fc27', front: '$(2a)^2 = 4a^2$ だが $2a^2 = 2 \\times a^2$', back: '$(2a)^2$ と $2a^2$ の違いは？', explanation: 'かっこの有無で意味が違う！', difficulty: 'advanced' },
+      { id: 'math-g2-mmd-fc28', front: '約分後に残った文字と数で答えを構成する', back: '単項式の除法で約分した後の答えの書き方は？', explanation: '例: $\\dfrac{10a^3b}{5a^2} = 2ab$', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -172,7 +184,7 @@ export const monomialMulDiv: Topic = {
           options: ['$7x^3$', '$12x^3$', '$12x^2$', '$7x^2$'],
           correctIndex: 1,
           explanation:
-            '係数: $4 \\times 3 = 12$、文字: $x^2 \\times x = x^3$。答えは $12x^3$ だよ。',
+            '係数: $4 \\times 3 = 12$、文字: $x^2 \\times x = x^3$。\n答えは $12x^3$ だよ。',
           difficulty: 'basic',
         },
         {
@@ -181,7 +193,7 @@ export const monomialMulDiv: Topic = {
           options: ['$8a^2$', '$3a^2b$', '$3ab$', '$3a^2$'],
           correctIndex: 3,
           explanation:
-            '係数: $12 \\div 4 = 3$、文字: $\\frac{a^3}{a} = a^2$, $\\frac{b}{b} = 1$。答えは $3a^2$ だよ。',
+            '係数: $12 \\div 4 = 3$、文字: $\\frac{a^3}{a} = a^2$, $\\frac{b}{b} = 1$。\n答えは $3a^2$ だよ。',
           difficulty: 'basic',
         },
         {
@@ -190,7 +202,7 @@ export const monomialMulDiv: Topic = {
           options: ['$-6x^3$', '$8x^3$', '$-8x^3$', '$6x^3$'],
           correctIndex: 2,
           explanation:
-            '$(-2)^3 = -8$、$x^3$ はそのまま。答えは $-8x^3$。マイナスの奇数乗はマイナスになるよ！',
+            '$(-2)^3 = -8$、$x^3$ はそのまま。答えは $-8x^3$。\nマイナスの奇数乗はマイナスになるよ！',
           difficulty: 'basic',
         },
         {
@@ -199,7 +211,7 @@ export const monomialMulDiv: Topic = {
           options: ['$81x^2$', '$-81x^2$', '$-18x^2$', '$18x^2$'],
           correctIndex: 0,
           explanation:
-            '$(-9)^2 = 81$（偶数乗なので正になる）。答えは $81x^2$。',
+            '$(-9)^2 = 81$（偶数乗なので正になる）。\n答えは $81x^2$。',
           difficulty: 'basic',
         },
         {
@@ -208,7 +220,7 @@ export const monomialMulDiv: Topic = {
           options: ['$25a^2$', '$10a^2$', '$-25a^2$', '$-10a^2$'],
           correctIndex: 2,
           explanation:
-            'まず $(-5a)^2 = 25a^2$（偶数乗で正）。前のマイナスをつけて $-25a^2$ だよ。',
+            'まず $(-5a)^2 = 25a^2$（偶数乗で正）。\n前のマイナスをつけて $-25a^2$ だよ。',
           difficulty: 'basic',
         },
         {
@@ -217,7 +229,7 @@ export const monomialMulDiv: Topic = {
           options: ['$\\frac{7}{3}b$', '$21ab$', '$\\frac{7b}{3a}$', '$21b$'],
           correctIndex: 3,
           explanation:
-            '分数で割る → 逆数をかける。$7ab \\times \\frac{3}{a} = 21b$。',
+            '分数で割る → 逆数をかける。\n$7ab \\times \\frac{3}{a} = 21b$。',
           difficulty: 'basic',
         },
         {
@@ -226,7 +238,7 @@ export const monomialMulDiv: Topic = {
           options: ['$24x^2$', '$-24x^2$', '$-24xy$', '$24xy$'],
           correctIndex: 0,
           explanation:
-            '$\\frac{(-6xy) \\times 8x}{-2y} = \\frac{-48x^2y}{-2y} = 24x^2$。マイナス÷マイナスで正になるよ。',
+            '$\\frac{(-6xy) \\times 8x}{-2y} = \\frac{-48x^2y}{-2y} = 24x^2$。\nマイナス÷マイナスで正になるよ。',
           difficulty: 'basic',
         },
         {
@@ -235,7 +247,7 @@ export const monomialMulDiv: Topic = {
           options: ['$x^6$', '$x^5$', '$2x^5$', '$x^{23}$'],
           correctIndex: 1,
           explanation:
-            '同じ底のかけ算は指数を足す！$x^{2+3} = x^5$。$x^6$ にするのはよくある間違いだよ。',
+            '同じ底のかけ算は指数を足す！$x^{2+3} = x^5$。\n$x^6$ にするのはよくある間違いだよ。',
           difficulty: 'basic',
         },
         {
@@ -253,31 +265,31 @@ export const monomialMulDiv: Topic = {
           options: ['$-48a^3$', '$12a^2$', '$-12a^3$', '$48a^3$'],
           correctIndex: 3,
           explanation:
-            'まず $(-4a)^2 = 16a^2$（偶数乗で正）。次に $3a \\times 16a^2 = 48a^3$。',
+            'まず $(-4a)^2 = 16a^2$（偶数乗で正）。\n次に $3a \\times 16a^2 = 48a^3$。',
           difficulty: 'basic',
         },
         {
           id: 'math-g2-mmd-q11',
           question: '$(-2a)^4$ の計算結果は？',
-          options: ['$16a^4$', '$-16a^4$', '$-8a^4$', '$8a^4$'],
-          correctIndex: 0,
-          explanation: '$(-2)^4 = 16$（偶数乗→正）。答え $16a^4$ だよ。',
+          options: ['$-16a^4$', '$-8a^4$', '$16a^4$', '$8a^4$'],
+          correctIndex: 2,
+          explanation: '$(-2)^4 = 16$（偶数乗→正）。\n答え $16a^4$ だよ。',
           difficulty: 'standard',
         },
         {
           id: 'math-g2-mmd-q12',
           question: '$6a^2b \times (-3ab^2)$ の計算結果は？',
-          options: ['$-18a^3b^3$', '$18a^3b^3$', '$-18a^2b^2$', '$-9a^3b^3$'],
-          correctIndex: 0,
-          explanation: '係数: $6 \times (-3) = -18$。文字: $a^3b^3$。答え $-18a^3b^3$ だよ。',
+          options: ['$18a^3b^3$', '$-18a^2b^2$', '$-9a^3b^3$', '$-18a^3b^3$'],
+          correctIndex: 3,
+          explanation: '係数: $6 \\times (-3) = -18$。文字: $a^3b^3$。\n答え $-18a^3b^3$ だよ。',
           difficulty: 'standard',
         },
         {
           id: 'math-g2-mmd-q13',
           question: '$20a^3b^2 \div 5a^2b$ の計算結果は？',
-          options: ['$4ab$', '$4a^2b$', '$15ab$', '$4a$'],
-          correctIndex: 0,
-          explanation: '係数: $20 \div 5 = 4$。$a^3 \div a^2 = a$、$b^2 \div b = b$。答え $4ab$ だよ。',
+          options: ['$4a^2b$', '$15ab$', '$4ab$', '$4a$'],
+          correctIndex: 2,
+          explanation: '係数: $20 \\div 5 = 4$。$a^3 \\div a^2 = a$、$b^2 \\div b = b$。\n答え $4ab$ だよ。',
           difficulty: 'standard',
         },
         {
@@ -291,9 +303,9 @@ export const monomialMulDiv: Topic = {
         {
           id: 'math-g2-mmd-q15',
           question: '$(-5x^2y) \times 2xy^3$ の計算結果は？',
-          options: ['$-10x^3y^4$', '$10x^3y^4$', '$-10x^2y^3$', '$-7x^3y^4$'],
-          correctIndex: 0,
-          explanation: '係数: $-5 \times 2 = -10$。文字: $x^3y^4$。答え $-10x^3y^4$ だよ。',
+          options: ['$10x^3y^4$', '$-10x^2y^3$', '$-7x^3y^4$', '$-10x^3y^4$'],
+          correctIndex: 3,
+          explanation: '係数: $-5 \\times 2 = -10$。文字: $x^3y^4$。\n答え $-10x^3y^4$ だよ。',
           difficulty: 'standard',
         },
         {
@@ -301,15 +313,15 @@ export const monomialMulDiv: Topic = {
           question: '$18x^2y \div (-6xy)$ の計算結果は？',
           options: ['$3x$', '$-3x$', '$-3xy$', '$3xy$'],
           correctIndex: 1,
-          explanation: '係数: $18 \div (-6) = -3$。$x^2 \div x = x$、$y \div y = 1$。答え $-3x$ だよ。',
+          explanation: '係数: $18 \\div (-6) = -3$。$x^2 \\div x = x$、$y \\div y = 1$。\n答え $-3x$ だよ。',
           difficulty: 'standard',
         },
         {
           id: 'math-g2-mmd-q17',
           question: '$(-3a)^2 \times 2a$ の計算結果は？',
-          options: ['$18a^3$', '$-18a^3$', '$-6a^3$', '$12a^3$'],
-          correctIndex: 0,
-          explanation: '$(-3a)^2 = 9a^2$。$9a^2 \times 2a = 18a^3$ だよ。',
+          options: ['$-18a^3$', '$-6a^3$', '$18a^3$', '$12a^3$'],
+          correctIndex: 2,
+          explanation: '$(-3a)^2 = 9a^2$。\n$9a^2 \\times 2a = 18a^3$ だよ。',
           difficulty: 'standard',
         },
         {
@@ -317,7 +329,7 @@ export const monomialMulDiv: Topic = {
           question: '$8a^2b \\div 2a \\div 2b$ の計算結果は？',
           options: ['$2a$', '$2ab$', '$2$', '$2b$'],
           correctIndex: 0,
-          explanation: '$\dfrac{8a^2b}{2a \times 2b} = \dfrac{8a^2b}{4ab} = 2a^{2-1}b^{1-1} = 2a \cdot 1 = 2a$…いや $\dfrac{8a^2b}{4ab} = 2a$ だね。',
+          explanation: '$\\dfrac{8a^2b}{2a \\times 2b} = \\dfrac{8a^2b}{4ab} = 2a$\n$b$ は約分で消えるよ。',
           difficulty: 'standard',
         },
         {
@@ -333,7 +345,7 @@ export const monomialMulDiv: Topic = {
           question: '$(-2x)^2 \times (-x)^3$ の計算結果は？',
           options: ['$4x^5$', '$-4x^5$', '$-8x^5$', '$8x^5$'],
           correctIndex: 1,
-          explanation: '$(-2x)^2 = 4x^2$、$(-x)^3 = -x^3$。$4x^2 \times (-x^3) = -4x^5$ だよ。',
+          explanation: '$(-2x)^2 = 4x^2$、$(-x)^3 = -x^3$。\n$4x^2 \\times (-x^3) = -4x^5$ だよ。',
           difficulty: 'standard',
         },
         {
@@ -347,9 +359,9 @@ export const monomialMulDiv: Topic = {
         {
           id: 'math-g2-mmd-q22',
           question: '$(xy)^3$ を展開すると？',
-          options: ['$x^3y^3$', '$xy^3$', '$x^3y$', '$3xy$'],
-          correctIndex: 0,
-          explanation: '$(xy)^3 = x^3 \times y^3 = x^3y^3$ だよ。',
+          options: ['$xy^3$', '$x^3y$', '$x^3y^3$', '$3xy$'],
+          correctIndex: 2,
+          explanation: '$(xy)^3 = x^3 \\times y^3 = x^3y^3$ だよ。',
           difficulty: 'standard',
         },
         {
@@ -357,15 +369,15 @@ export const monomialMulDiv: Topic = {
           question: '$(-4ab)^2 \div 8a^2b$ の計算結果は？',
           options: ['$2b$', '$-2b$', '$2ab$', '$-2ab$'],
           correctIndex: 0,
-          explanation: '$(-4ab)^2 = 16a^2b^2$。$\dfrac{16a^2b^2}{8a^2b} = 2b$ だよ。',
+          explanation: '$(-4ab)^2 = 16a^2b^2$。\n$\\dfrac{16a^2b^2}{8a^2b} = 2b$ だよ。',
           difficulty: 'advanced',
         },
         {
           id: 'math-g2-mmd-q24',
           question: '$2x^3 \times 3x^2$ の計算結果は？',
-          options: ['$6x^5$', '$6x^6$', '$5x^5$', '$6x^3$'],
-          correctIndex: 0,
-          explanation: '係数: $2 \times 3 = 6$。指数を足す: $x^{3+2} = x^5$。答え $6x^5$ だよ。',
+          options: ['$6x^6$', '$5x^5$', '$6x^3$', '$6x^5$'],
+          correctIndex: 3,
+          explanation: '係数: $2 \\times 3 = 6$。指数を足す: $x^{3+2} = x^5$。\n答え $6x^5$ だよ。',
           difficulty: 'advanced',
         },
         {
@@ -373,7 +385,7 @@ export const monomialMulDiv: Topic = {
           question: '$\dfrac{(-3a)^2 \times 2b}{6ab}$ の計算結果は？',
           options: ['$3a$', '$-3a$', '$3b$', '$-3b$'],
           correctIndex: 0,
-          explanation: '$(-3a)^2 = 9a^2$。$\dfrac{9a^2 \times 2b}{6ab} = \dfrac{18a^2b}{6ab} = 3a$ だよ。',
+          explanation: '$(-3a)^2 = 9a^2$。\n$\\dfrac{9a^2 \\times 2b}{6ab} = \\dfrac{18a^2b}{6ab} = 3a$ だよ。',
           difficulty: 'advanced',
         },
         {
@@ -389,7 +401,7 @@ export const monomialMulDiv: Topic = {
           question: '$(-x)^4 \times x^2$ の計算結果は？',
           options: ['$x^6$', '$-x^6$', '$x^8$', '$-x^8$'],
           correctIndex: 0,
-          explanation: '$(-x)^4 = x^4$（偶数乗→正）。$x^4 \times x^2 = x^6$ だよ。',
+          explanation: '$(-x)^4 = x^4$（偶数乗→正）。\n$x^4 \\times x^2 = x^6$ だよ。',
           difficulty: 'advanced',
         },
         {
@@ -397,7 +409,7 @@ export const monomialMulDiv: Topic = {
           question: '$10a^2b^3 \div (-5ab) \times 3a$ の計算結果は？',
           options: ['$6a^2b^2$', '$-6a^2b^2$', '$6ab^2$', '$-6ab^2$'],
           correctIndex: 1,
-          explanation: '$\dfrac{10a^2b^3 \times 3a}{-5ab} = \dfrac{30a^3b^3}{-5ab} = -6a^2b^2$ だよ。',
+          explanation: '$\\dfrac{10a^2b^3 \\times 3a}{-5ab} = \\dfrac{30a^3b^3}{-5ab}$\n$= -6a^2b^2$ だよ。',
           difficulty: 'advanced',
         },
       ],

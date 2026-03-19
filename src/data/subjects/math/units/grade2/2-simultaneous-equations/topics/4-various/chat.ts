@@ -609,7 +609,7 @@ export const variousSimulEqChat: HistoryChat = {
         { letter: 'D', text: '$12$', correct: false },
       ],
       explanation:
-        '<ruby>分母<rt>ぶんぼ</rt></ruby>が $3$ と $2$。<ruby>最小公倍数<rt>さいしょうこうばいすう</rt></ruby>は $\\textcolor{#D97706}{6}$。<ruby>両辺<rt>りょうへん</rt></ruby>に $6$ をかけると $2x + 3y = 24$ になるよ。',
+        '<ruby>分母<rt>ぶんぼ</rt></ruby>が $3$ と $2$。<ruby>最小公倍数<rt>さいしょうこうばいすう</rt></ruby>は $\\textcolor{#D97706}{6}$。\n<ruby>両辺<rt>りょうへん</rt></ruby>に $6$ をかけると $2x + 3y = 24$ になるよ。',
     },
     {
       type: 'quiz',
@@ -621,7 +621,7 @@ export const variousSimulEqChat: HistoryChat = {
         { letter: 'D', text: '$1000$ <ruby>倍<rt>ばい</rt></ruby>', correct: false },
       ],
       explanation:
-        '<ruby>小数第<rt>しょうすうだい</rt></ruby>2<ruby>位<rt>い</rt></ruby>まであるので $\\textcolor{#D97706}{100}$ <ruby>倍<rt>ばい</rt></ruby>！$4x + 12y = 80$ になるよ。さらに $4$ で<ruby>割<rt>わ</rt></ruby>ると $x + 3y = 20$。',
+        '<ruby>小数第<rt>しょうすうだい</rt></ruby>2<ruby>位<rt>い</rt></ruby>まであるので $\\textcolor{#D97706}{100}$ <ruby>倍<rt>ばい</rt></ruby>！\n$4x + 12y = 80$ になるよ。\nさらに $4$ で<ruby>割<rt>わ</rt></ruby>ると $x + 3y = 20$。',
     },
     {
       type: 'quiz',

@@ -69,100 +69,117 @@ export const monomialPolynomial: Topic = {
     flashcards: [
       {
         id: 'math-g2-mp-fc1',
-        front: '数や文字のかけ算だけでできている式\n（例: $3x$, $-5ab$, $7$）', back: '単項式とは？',
+        front: '数や文字のかけ算だけでできている式', back: '単項式とは？',
+        explanation: '例: $3x$, $-5ab$, $7$',
         difficulty: 'basic',
       },
       {
         id: 'math-g2-mp-fc2',
-        front: '単項式の和の形になっている式\n（例: $3x + 2y - 5$）', back: '多項式とは？',
+        front: '単項式の和の形になっている式', back: '多項式とは？',
+        explanation: '例: $3x + 2y - 5$',
         difficulty: 'basic',
       },
       {
         id: 'math-g2-mp-fc3',
-        front: '多項式を構成する一つひとつの単項式\n（例: $3x + 2y - 5$ の項は $3x$, $2y$, $-5$）', back: '項とは？',
+        front: '多項式を構成する一つひとつの単項式', back: '項とは？',
+        explanation: '例: $3x + 2y - 5$ の項は $3x$, $2y$, $-5$',
         difficulty: 'basic',
       },
       {
         id: 'math-g2-mp-fc4',
-        front: '文字を含まない、数だけの項\n（例: $3x + 2y - 5$ の定数項は $-5$）', back: '定数項とは？',
+        front: '文字を含まない、数だけの項', back: '定数項とは？',
+        explanation: '例: $3x + 2y - 5$ の定数項は $-5$',
         difficulty: 'basic',
       },
       {
         id: 'math-g2-mp-fc5',
-        front: 'かけ合わされている文字の個数\n（例: $4x^2y$ → $x$ が $2$ 個 + $y$ が $1$ 個 = 次数 $3$）', back: '単項式の次数とは？',
+        front: 'かけ合わされている文字の個数', back: '単項式の次数とは？',
+        explanation: '例: $4x^2y$ → $x$ が $2$ 個 + $y$ が $1$ 個 = 次数 $3$',
         difficulty: 'basic',
       },
       {
         id: 'math-g2-mp-fc6',
-        front: '単項式で文字にかかっている数\n（例: $-3x^2$ の係数は $-3$、$x^2$ の係数は $1$）', back: '係数とは？',
+        front: '単項式で文字にかかっている数', back: '係数とは？',
+        explanation: '例: $-3x^2$ の係数は $-3$、$x^2$ の係数は $1$',
         difficulty: 'basic',
       },
       {
         id: 'math-g2-mp-fc7',
-        front: '各項の次数のうち、もっとも大きいものが多項式の次数\n（例: $3x^2 + 5x - 1$ → 最高次数は $2$ → $2$ 次式）', back: '多項式の次数の求め方は？',
+        front: '各項の次数のうち、もっとも大きいもの', back: '多項式の次数の求め方は？',
+        explanation: '例: $3x^2 + 5x - 1$ → 最高次数は $2$ → $2$ 次式',
         difficulty: 'basic',
       },
       {
         id: 'math-g2-mp-fc8',
-        front: '文字の部分が同じ項どうし\n（例: $3x$ と $-5x$、$2a^2b$ と $-7a^2b$）', back: '同類項とは？',
+        front: '文字の部分が同じ項どうし', back: '同類項とは？',
+        explanation: '例: $3x$ と $-5x$、$2a^2b$ と $-7a^2b$',
         difficulty: 'basic',
       },
       {
         id: 'math-g2-mp-fc9',
-        front: '同類項ではない！\n$x$ と $x^2$ は文字の部分が異なる', back: '$3x$ と $3x^2$ は同類項？',
+        front: '同類項ではない！', back: '$3x$ と $3x^2$ は同類項？',
+        explanation: '$x$ と $x^2$ は文字の部分が異なる',
         difficulty: 'basic',
       },
       {
         id: 'math-g2-mp-fc10',
-        front: '$ma + na = (m+n)a$\n係数どうしを足し引きして、文字はそのまま', back: '同類項のまとめ方の公式は？',
+        front: '$ma + na = (m+n)a$', back: '同類項のまとめ方の公式は？',
+        explanation: '係数どうしを足し引きして、文字はそのまま',
         difficulty: 'basic',
       },
       {
         id: 'math-g2-mp-fc11',
-        front: '$8x$\n（係数 $5 + 3 = 8$ をかけて $8x$）', back: '$5x + 3x$ の答えは？',
+        front: '$8x$', back: '$5x + 3x$ の答えは？',
+        explanation: '係数 $5 + 3 = 8$ をかけて $8x$',
         difficulty: 'basic',
       },
       {
         id: 'math-g2-mp-fc12',
-        front: '$\\frac{5}{6}a$\n（通分して $\\frac{3}{6}a + \\frac{2}{6}a = \\frac{5}{6}a$）', back: '$\\frac{1}{2}a + \\frac{1}{3}a$ の答えは？',
+        front: '$\\frac{5}{6}a$', back: '$\\frac{1}{2}a + \\frac{1}{3}a$ の答えは？',
+        explanation: '通分して $\\frac{3}{6}a + \\frac{2}{6}a = \\frac{5}{6}a$',
         difficulty: 'basic',
       },
       {
         id: 'math-g2-mp-fc13',
-        front: '次数: $3$（$a$ が $2$ 個 + $b$ が $1$ 個）\n係数: $-6$', back: '$-6a^2b$ の次数と係数は？',
+        front: '次数: $3$、係数: $-6$', back: '$-6a^2b$ の次数と係数は？',
+        explanation: '$a$ が $2$ 個 + $b$ が $1$ 個 = 次数 $3$',
         difficulty: 'standard',
       },
       {
         id: 'math-g2-mp-fc14',
-        front: '同類項！\n$ab$ と $ba$ は同じ（かけ算の順番は関係ない）', back: '$4ab$ と $-2ba$ は同類項？',
+        front: '同類項！', back: '$4ab$ と $-2ba$ は同類項？',
+        explanation: '$ab$ と $ba$ は同じ（かけ算の順番は関係ない）',
         difficulty: 'standard',
       },
       {
         id: 'math-g2-mp-fc15',
-        front: '多項式の次数（最高次数）で決まる\n$1$ 次式: 最高次数 $1$\n$2$ 次式: 最高次数 $2$', back: '何次式かの見分け方は？',
+        front: '多項式の次数（最高次数）で決まる', back: '何次式かの見分け方は？',
+        explanation: '$1$ 次式: 最高次数 $1$、$2$ 次式: 最高次数 $2$',
         difficulty: 'standard',
       },
       {
         id: 'math-g2-mp-fc16',
-        front: '$0$\n文字が含まれていないので次数は $0$', back: '数だけの項（例: $7$）の次数は？',
+        front: '$0$', back: '数だけの項（例: $7$）の次数は？',
+        explanation: '文字が含まれていないので次数は $0$',
         difficulty: 'standard',
       },
       {
         id: 'math-g2-mp-fc17',
-        front: '$4x^2 + 5x$\n（$x^2 + 3x^2 = 4x^2$、$9x - 4x = 5x$）', back: '$x^2 + 9x + 3x^2 - 4x$ を整理すると？',
+        front: '$4x^2 + 5x$', back: '$x^2 + 9x + 3x^2 - 4x$ を整理すると？',
+        explanation: '$x^2 + 3x^2 = 4x^2$、$9x - 4x = 5x$',
         difficulty: 'standard',
       },
-      { id: 'math-g2-mp-fc18', front: '$1$ 次式: 最高次数が $1$。例: $3x + 2$', back: '1次式とは？', difficulty: 'standard' },
-      { id: 'math-g2-mp-fc19', front: '$2$ 次式: 最高次数が $2$。例: $x^2 + 3x - 1$', back: '2次式とは？', difficulty: 'standard' },
-      { id: 'math-g2-mp-fc20', front: '単項式（$-5ab$ は数と文字のかけ算だけ）', back: '$-5ab$ は単項式？多項式？', difficulty: 'standard' },
-      { id: 'math-g2-mp-fc21', front: '多項式（$3x^2 - 2x + 1$ は3つの単項式の和）', back: '$3x^2 - 2x + 1$ は単項式？多項式？', difficulty: 'standard' },
-      { id: 'math-g2-mp-fc22', front: '$1$。$x$ は $x^1$ と同じで、文字が1個かけ合わされている。', back: '$x$ の次数は？', difficulty: 'standard' },
-      { id: 'math-g2-mp-fc23', front: '次数が高い順に並べるのが一般的。例: $x^2 + 3x - 1$（降べきの順）', back: '多項式を整理するとき、項はどう並べる？', difficulty: 'advanced' },
-      { id: 'math-g2-mp-fc24', front: '同類項ではない。$ab$ は2次、$a$ は1次で次数が違う。', back: '$3ab$ と $2a$ は同類項？', difficulty: 'advanced' },
-      { id: 'math-g2-mp-fc25', front: '$7$。定数項は数だけの項で、係数という概念は適用されない（あえて言えば $7 \times 1$ の係数 $7$）。', back: '$2x + 7$ の定数項の値は？', difficulty: 'advanced' },
-      { id: 'math-g2-mp-fc26', front: '$6a - b$（$a$: $2+4=6$、$b$: $3+(-4)=-1$）', back: '$2a + 3b + 4a - 4b$ を整理すると？', difficulty: 'advanced' },
+      { id: 'math-g2-mp-fc18', front: '$1$ 次式: 最高次数が $1$', back: '1次式とは？', explanation: '例: $3x + 2$', difficulty: 'standard' },
+      { id: 'math-g2-mp-fc19', front: '$2$ 次式: 最高次数が $2$', back: '2次式とは？', explanation: '例: $x^2 + 3x - 1$', difficulty: 'standard' },
+      { id: 'math-g2-mp-fc20', front: '単項式', back: '$-5ab$ は単項式？多項式？', explanation: '$-5ab$ は数と文字のかけ算だけ', difficulty: 'standard' },
+      { id: 'math-g2-mp-fc21', front: '多項式', back: '$3x^2 - 2x + 1$ は単項式？多項式？', explanation: '$3x^2 - 2x + 1$ は3つの単項式の和', difficulty: 'standard' },
+      { id: 'math-g2-mp-fc22', front: '$1$', back: '$x$ の次数は？', explanation: '$x$ は $x^1$ と同じで、文字が1個かけ合わされている', difficulty: 'standard' },
+      { id: 'math-g2-mp-fc23', front: '次数が高い順に並べるのが一般的', back: '多項式を整理するとき、項はどう並べる？', explanation: '例: $x^2 + 3x - 1$（降べきの順）', difficulty: 'advanced' },
+      { id: 'math-g2-mp-fc24', front: '同類項ではない', back: '$3ab$ と $2a$ は同類項？', explanation: '$ab$ は2次、$a$ は1次で次数が違う', difficulty: 'advanced' },
+      { id: 'math-g2-mp-fc25', front: '$7$', back: '$2x + 7$ の定数項の値は？', explanation: '定数項は数だけの項で、係数という概念は適用されない（あえて言えば $7 \\times 1$ の係数 $7$）', difficulty: 'advanced' },
+      { id: 'math-g2-mp-fc26', front: '$6a - b$', back: '$2a + 3b + 4a - 4b$ を整理すると？', explanation: '$a$: $2+4=6$、$b$: $3+(-4)=-1$', difficulty: 'advanced' },
       { id: 'math-g2-mp-fc27', front: '「項」→「次数」→「同類項」の順で理解するのがコツ', back: '式の分類を理解する手順は？', difficulty: 'advanced' },
-      { id: 'math-g2-mp-fc28', front: '$x^2y$ と $3x^2y$ は同類項（文字部分が同じ $x^2y$）', back: '$x^2y$ と $3x^2y$ は同類項？', difficulty: 'advanced' },
+      { id: 'math-g2-mp-fc28', front: '同類項', back: '$x^2y$ と $3x^2y$ は同類項？', explanation: '文字部分が同じ $x^2y$', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -181,7 +198,7 @@ export const monomialPolynomial: Topic = {
           options: ['$1$', '$3$', '$2$', '$4$'],
           correctIndex: 1,
           explanation:
-            '$4x^2y$ では $x$ が2個、$y$ が1個かけ合わされているから、次数は $2 + 1 = 3$ だよ。',
+            '$4x^2y$ では $x$ が2個、$y$ が1個かけ合わされている。\n次数は $2 + 1 = 3$ だよ。',
           difficulty: 'basic',
         },
         {
@@ -204,7 +221,7 @@ export const monomialPolynomial: Topic = {
           options: ['$-3$', '$3$', '$a^2b$', '$2$'],
           correctIndex: 0,
           explanation:
-            '係数は文字にかかっている数のこと。$-3a^2b$ の文字の部分は $a^2b$ で、係数は $-3$ だよ。',
+            '係数は文字にかかっている数のこと。\n$-3a^2b$ の文字の部分は $a^2b$ で、係数は $-3$ だよ。',
           difficulty: 'basic',
         },
         {
@@ -213,7 +230,7 @@ export const monomialPolynomial: Topic = {
           options: ['$0$', '$1$', '$3$', '$2$'],
           correctIndex: 3,
           explanation:
-            '各項の次数は $2x^2$ が $2$、$-3x$ が $1$、$5$ が $0$。最も大きい $2$ が多項式の次数だよ。',
+            '各項の次数は $2x^2$ が $2$、$-3x$ が $1$、$5$ が $0$。\n最も大きい $2$ が多項式の次数だよ。',
           difficulty: 'basic',
         },
         {
@@ -227,7 +244,7 @@ export const monomialPolynomial: Topic = {
           ],
           correctIndex: 2,
           explanation:
-            '$5a + 3a = 8a$、$-2b + 4b = 2b$ だから、答えは $8a + 2b$ だよ。',
+            '$5a + 3a = 8a$、$-2b + 4b = 2b$\nだから、答えは $8a + 2b$ だよ。',
           difficulty: 'basic',
         },
         {
@@ -241,7 +258,7 @@ export const monomialPolynomial: Topic = {
           ],
           correctIndex: 0,
           explanation:
-            '$x^2$ の同類項: $x^2 + 3x^2 = 4x^2$、$x$ の同類項: $9x - 4x = 5x$。答えは $4x^2 + 5x$ だよ。',
+            '$x^2$ の同類項: $x^2 + 3x^2 = 4x^2$、$x$ の同類項: $9x - 4x = 5x$。\n答えは $4x^2 + 5x$ だよ。',
           difficulty: 'basic',
         },
         {
@@ -255,7 +272,7 @@ export const monomialPolynomial: Topic = {
           ],
           correctIndex: 1,
           explanation:
-            '通分して $\\frac{3}{6}a + \\frac{2}{6}a = \\frac{5}{6}a$ だよ。分母どうしを足すのではなく、通分してから計算しよう。',
+            '通分して $\\frac{3}{6}a + \\frac{2}{6}a = \\frac{5}{6}a$ だよ。\n分母どうしを足すのではなく、通分してから計算しよう。',
           difficulty: 'basic',
         },
         {
@@ -264,7 +281,7 @@ export const monomialPolynomial: Topic = {
           options: ['$1$', '$3$', '$2$', '$4$'],
           correctIndex: 1,
           explanation:
-            '$x^2y$ の次数は $2+1=3$、$3xy$ の次数は $2$、$-2y$ の次数は $1$。最大の $3$ が多項式の次数だよ。',
+            '$x^2y$ の次数は $2+1=3$、$3xy$ の次数は $2$、$-2y$ の次数は $1$。\n最大の $3$ が多項式の次数だよ。',
           difficulty: 'basic',
         },
         {
@@ -278,7 +295,7 @@ export const monomialPolynomial: Topic = {
           ],
           correctIndex: 3,
           explanation:
-            '$4a - a = 3a$ が正しいよ。同類項でない項は足し引きできないし、次数の違う項をまとめることもできないよ。',
+            '$4a - a = 3a$ が正しいよ。\n同類項でない項は足し引きできないし、次数の違う項をまとめることもできないよ。',
           difficulty: 'basic',
         },
         {
@@ -294,7 +311,7 @@ export const monomialPolynomial: Topic = {
           question: '次のうち、2次式はどれ？',
           options: ['$3x + 1$', '$5$', '$x^2 - 2x + 3$', '$2xy$'],
           correctIndex: 2,
-          explanation: '$x^2 - 2x + 3$ の最高次数は $2$ だから2次式だよ。$2xy$ も次数2だけど単項式。',
+          explanation: '$x^2 - 2x + 3$ の最高次数は $2$ だから2次式だよ。\n$2xy$ も次数2だけど単項式。',
           difficulty: 'standard',
         },
         {
@@ -334,7 +351,7 @@ export const monomialPolynomial: Topic = {
           question: '$3x^2 + 2x - x^2 + 5x - 3$ を整理すると？',
           options: ['$2x^2 + 7x - 3$', '$4x^2 + 7x - 3$', '$2x^2 + 3x - 3$', '$4x^2 + 3x - 3$'],
           correctIndex: 0,
-          explanation: '$x^2$: $3-1=2$、$x$: $2+5=7$、定数: $-3$。答え $2x^2 + 7x - 3$ だよ。',
+          explanation: '$x^2$: $3-1=2$、$x$: $2+5=7$、定数: $-3$。\n答え $2x^2 + 7x - 3$ だよ。',
           difficulty: 'standard',
         },
         {
@@ -366,7 +383,7 @@ export const monomialPolynomial: Topic = {
           question: '$5ab - 2ba + 3ab$ を計算すると？',
           options: ['$6ab$', '$8ab$', '$10ab$', '$0$'],
           correctIndex: 0,
-          explanation: '$ba = ab$ だから全て同類項。$5 - 2 + 3 = 6$ で $6ab$ だよ。',
+          explanation: '$ba = ab$ だから全て同類項。\n$5 - 2 + 3 = 6$ で $6ab$ だよ。',
           difficulty: 'standard',
         },
         {
@@ -374,7 +391,7 @@ export const monomialPolynomial: Topic = {
           question: '多項式 $3x^2y - 2xy^2 + xy$ の次数は？',
           options: ['$2$', '$3$', '$4$', '$1$'],
           correctIndex: 1,
-          explanation: '$3x^2y$: 次数 $3$、$-2xy^2$: 次数 $3$、$xy$: 次数 $2$。最大は $3$ だよ。',
+          explanation: '$3x^2y$: 次数 $3$、$-2xy^2$: 次数 $3$、$xy$: 次数 $2$。\n最大は $3$ だよ。',
           difficulty: 'standard',
         },
         {
@@ -398,7 +415,7 @@ export const monomialPolynomial: Topic = {
           question: '$a^2 + 2ab + b^2$ は何次式？',
           options: ['$1$ 次式', '$2$ 次式', '$3$ 次式', '$4$ 次式'],
           correctIndex: 1,
-          explanation: '各項の次数: $a^2$ は $2$、$2ab$ は $2$、$b^2$ は $2$。最高次数 $2$ で $2$ 次式だよ。',
+          explanation: '各項の次数: $a^2$ は $2$、$2ab$ は $2$、$b^2$ は $2$。\n最高次数 $2$ で $2$ 次式だよ。',
           difficulty: 'advanced',
         },
         {
@@ -406,7 +423,7 @@ export const monomialPolynomial: Topic = {
           question: '$x$ の係数が $1$ である項はどれ？',
           options: ['$x$', '$2x$', '$x^2$', '$-x$'],
           correctIndex: 0,
-          explanation: '$x = 1 \cdot x$ だから $x$ の係数は $1$ だよ。',
+          explanation: '$x = 1 \\cdot x$\nだから $x$ の係数は $1$ だよ。',
           difficulty: 'advanced',
         },
         {
@@ -414,7 +431,7 @@ export const monomialPolynomial: Topic = {
           question: '$-3a + 5b + 7a - 2b - 4$ を整理すると？',
           options: ['$4a + 3b - 4$', '$-10a + 3b - 4$', '$4a + 7b - 4$', '$10a + 3b - 4$'],
           correctIndex: 0,
-          explanation: '$a$: $-3+7=4$、$b$: $5-2=3$、定数: $-4$。答え $4a + 3b - 4$ だよ。',
+          explanation: '$a$: $-3+7=4$、$b$: $5-2=3$、定数: $-4$。\n答え $4a + 3b - 4$ だよ。',
           difficulty: 'advanced',
         },
         {
@@ -422,7 +439,7 @@ export const monomialPolynomial: Topic = {
           question: '数 $5$ は何次の単項式？',
           options: ['$1$ 次', '$5$ 次', '$0$ 次', '単項式ではない'],
           correctIndex: 2,
-          explanation: '数だけの項（定数項）の次数は $0$ だよ。$5 = 5 \times 1$ で文字が0個。',
+          explanation: '数だけの項（定数項）の次数は $0$ だよ。\n$5 = 5 \\times 1$ で文字が0個。',
           difficulty: 'advanced',
         },
       ],

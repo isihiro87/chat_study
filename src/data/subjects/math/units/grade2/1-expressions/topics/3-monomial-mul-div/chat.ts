@@ -185,7 +185,7 @@ export const monomialMulDivChat: HistoryChat = {
         { letter: 'D', text: '$-6x^5$', correct: false },
       ],
       explanation:
-        '$(-2x)^3 = -8x^3$。$-8x^3 \\times 3x^2 = \\textcolor{#D97706}{-24x^5}$。$(-)^3 = (-)$ だから<ruby>負<rt>ふ</rt></ruby>になる！',
+        '$(-2x)^3 = -8x^3$。$-8x^3 \\times 3x^2 = \\textcolor{#D97706}{-24x^5}$。\n$(-)^3 = (-)$ だから<ruby>負<rt>ふ</rt></ruby>になる！',
     },
     // ===== 4. 単項式の割り算 =====
     {
@@ -304,7 +304,7 @@ export const monomialMulDivChat: HistoryChat = {
         { letter: 'D', text: '$-4xy$', correct: false },
       ],
       explanation:
-        '$\\frac{8xy \\times (-5y)}{-10x} = \\frac{-40xy^2}{-10x} = \\textcolor{#D97706}{4y^2}$。(−)÷(−)=(+)、$x$ が<ruby>約分<rt>やくぶん</rt></ruby>で<ruby>消<rt>き</rt></ruby>える。',
+        '$\\frac{8xy \\times (-5y)}{-10x} = \\frac{-40xy^2}{-10x} = \\textcolor{#D97706}{4y^2}$。\n(−)÷(−)=(+)、$x$ が<ruby>約分<rt>やくぶん</rt></ruby>で<ruby>消<rt>き</rt></ruby>える。',
     },
     // ===== まとめ =====
     {

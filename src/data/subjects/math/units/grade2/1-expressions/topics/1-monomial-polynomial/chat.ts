@@ -218,7 +218,7 @@ export const monomialPolynomialChat: HistoryChat = {
         { letter: 'D', text: '4', correct: false },
       ],
       explanation:
-        '$x^2y$ の<ruby>次数<rt>じすう</rt></ruby>は $2+1=3$、$3xy$ は $2$、$-2y$ は $1$。<ruby>最大<rt>さいだい</rt></ruby>の $\\textcolor{#D97706}{3}$ が<ruby>多項式<rt>たこうしき</rt></ruby>の<ruby>次数<rt>じすう</rt></ruby>だよ。',
+        '$x^2y$ の<ruby>次数<rt>じすう</rt></ruby>は $2+1=3$、$3xy$ は $2$、$-2y$ は $1$。\n<ruby>最大<rt>さいだい</rt></ruby>の $\\textcolor{#D97706}{3}$ が<ruby>多項式<rt>たこうしき</rt></ruby>の<ruby>次数<rt>じすう</rt></ruby>だよ。',
     },
     {
       type: 'date',
@@ -329,7 +329,7 @@ export const monomialPolynomialChat: HistoryChat = {
         { letter: 'D', text: '$7x - 3y$', correct: false },
       ],
       explanation:
-        '$x$ の<ruby>同類項<rt>どうるいこう</rt></ruby>: $2x + 5x = 7x$、$y$ の<ruby>同類項<rt>どうるいこう</rt></ruby>: $-y + 4y = 3y$。<ruby>答<rt>こた</rt></ruby>えは $\\textcolor{#D97706}{7x + 3y}$。',
+        '$x$ の<ruby>同類項<rt>どうるいこう</rt></ruby>: $2x + 5x = 7x$、$y$ の<ruby>同類項<rt>どうるいこう</rt></ruby>: $-y + 4y = 3y$。\n<ruby>答<rt>こた</rt></ruby>えは $\\textcolor{#D97706}{7x + 3y}$。',
     },
     {
       type: 'date',
@@ -411,7 +411,7 @@ export const monomialPolynomialChat: HistoryChat = {
         { letter: 'D', text: '$\\frac{2}{12}x$', correct: false },
       ],
       explanation:
-        '<ruby>通分<rt>つうぶん</rt></ruby>して $\\frac{8}{12}x - \\frac{3}{12}x = \\textcolor{#D97706}{\\frac{5}{12}x}$ だよ。<ruby>分母<rt>ぶんぼ</rt></ruby>どうしを<ruby>引<rt>ひ</rt></ruby>くのではなく<ruby>通分<rt>つうぶん</rt></ruby>するのがポイント！',
+        '<ruby>通分<rt>つうぶん</rt></ruby>して $\\frac{8}{12}x - \\frac{3}{12}x = \\textcolor{#D97706}{\\frac{5}{12}x}$ だよ。\n<ruby>分母<rt>ぶんぼ</rt></ruby>どうしを<ruby>引<rt>ひ</rt></ruby>くのではなく<ruby>通分<rt>つうぶん</rt></ruby>するのがポイント！',
     },
     {
       type: 'end',

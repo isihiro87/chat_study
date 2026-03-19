@@ -181,7 +181,7 @@ export const proportionChat: HistoryChat = {
         { letter: 'D', text: '$1$', correct: false },
       ],
       explanation:
-        '$y = -4 \\times 5 = \\textcolor{#D97706}{-20}$ だよ。<ruby>符号<rt>ふごう</rt></ruby>に<ruby>注意<rt>ちゅうい</rt></ruby>！',
+        '$y = -4 \\times 5 = \\textcolor{#D97706}{-20}$ だよ。\n<ruby>符号<rt>ふごう</rt></ruby>に<ruby>注意<rt>ちゅうい</rt></ruby>！',
     },
     {
       type: 'summary-point',

@@ -283,7 +283,7 @@ export const eqApplicationsChat: HistoryChat = {
         { letter: 'D', text: '$x = 36$', correct: false },
       ],
       explanation:
-        '<ruby>内項<rt>ないこう</rt></ruby>の<ruby>積<rt>せき</rt></ruby> = <ruby>外項<rt>がいこう</rt></ruby>の<ruby>積<rt>せき</rt></ruby>より $3 \\times 12 = 4x$、$36 = 4x$、$x = \\textcolor{#D97706}{9}$。',
+        '<ruby>内項<rt>ないこう</rt></ruby>の<ruby>積<rt>せき</rt></ruby> = <ruby>外項<rt>がいこう</rt></ruby>の<ruby>積<rt>せき</rt></ruby>より $3 \\times 12 = 4x$。\n$36 = 4x$、$x = \\textcolor{#D97706}{9}$。',
     },
     {
       type: 'end',

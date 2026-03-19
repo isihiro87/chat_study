@@ -353,7 +353,7 @@ export const eliminationChat: HistoryChat = {
         { letter: 'D', text: '①×5、②×3', correct: false },
       ],
       explanation:
-        '$y$ の<ruby>係数<rt>けいすう</rt></ruby>は $2$ と $5$。<ruby>最小公倍数<rt>さいしょうこうばいすう</rt></ruby> $10$ にそろえるため、①×$5$（$10y$）、②×$2$（$10y$）にして<ruby>引<rt>ひ</rt></ruby>く。$\\textcolor{#D97706}{11x = 22 \\Rightarrow x = 2, y = 1}$。',
+        '$y$ の<ruby>係数<rt>けいすう</rt></ruby>は $2$ と $5$。\n<ruby>最小公倍数<rt>さいしょうこうばいすう</rt></ruby> $10$ にそろえるため、①×$5$（$10y$）、②×$2$（$10y$）にして<ruby>引<rt>ひ</rt></ruby>く。\n$\\textcolor{#D97706}{11x = 22 \\Rightarrow x = 2, y = 1}$。',
     },
     {
       type: 'summary-point',

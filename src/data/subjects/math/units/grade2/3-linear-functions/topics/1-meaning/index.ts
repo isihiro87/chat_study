@@ -46,17 +46,17 @@ export const linearFuncMeaning: Topic = {
     flashcards: [
       {
         id: 'math-g2-linear-func-meaning-fc1',
-        front: '$y = ax + b$（$a \\neq 0$、$a$, $b$ は定数）', back: '一次関数の一般式は？',
+        front: '$y = ax + b$（$a \\neq 0$）', explanation: '$a$, $b$ は定数', back: '一次関数の一般式は？',
         difficulty: 'basic',
       },
       {
         id: 'math-g2-linear-func-meaning-fc2',
-        front: '変化の割合（傾き）。$x$ が1増えるときの $y$ の増加量。', back: '$y = ax + b$ の $a$ は何を表す？',
+        front: '変化の割合（傾き）', explanation: '$x$ が1増えるときの $y$ の増加量', back: '$y = ax + b$ の $a$ は何を表す？',
         difficulty: 'basic',
       },
       {
         id: 'math-g2-linear-func-meaning-fc3',
-        front: '切片。$x = 0$ のときの $y$ の値。', back: '$y = ax + b$ の $b$ は何を表す？',
+        front: '切片', explanation: '$x = 0$ のときの $y$ の値', back: '$y = ax + b$ の $b$ は何を表す？',
         difficulty: 'basic',
       },
       {
@@ -66,27 +66,27 @@ export const linearFuncMeaning: Topic = {
       },
       {
         id: 'math-g2-linear-func-meaning-fc5',
-        front: '増加量 $=$ 変化後の値 $-$ 変化前の値', back: '増加量の求め方は？',
+        front: '増加量 $=$ 変化後の値 $-$ 変化前の値', explanation: '変化後から変化前を引く', back: '増加量の求め方は？',
         difficulty: 'basic',
       },
       {
         id: 'math-g2-linear-func-meaning-fc6',
-        front: 'どの区間で計算しても常に一定（$= a$）になる。', back: '一次関数の変化の割合にはどんな特徴がある？',
+        front: '常に一定（$= a$）', explanation: 'どの区間で計算しても同じ値になる', back: '一次関数の変化の割合にはどんな特徴がある？',
         difficulty: 'basic',
       },
       {
         id: 'math-g2-linear-func-meaning-fc7',
-        front: '比例は一次関数の $b = 0$ の特別な場合。比例は一次関数の仲間。', back: '比例 $y = ax$ と一次関数 $y = ax + b$ の関係は？',
+        front: '比例は一次関数の $b = 0$ の特別な場合', explanation: '比例は一次関数の仲間', back: '比例 $y = ax$ と一次関数 $y = ax + b$ の関係は？',
         difficulty: 'basic',
       },
       {
         id: 'math-g2-linear-func-meaning-fc8',
-        front: '$y$ も増える（右上がりのグラフ）。', back: '$y = ax + b$ で $a > 0$ のとき、$x$ が増えると $y$ はどうなる？',
+        front: '$y$ も増える', explanation: '右上がりのグラフになる', back: '$y = ax + b$ で $a > 0$ のとき、$x$ が増えると $y$ はどうなる？',
         difficulty: 'basic',
       },
       {
         id: 'math-g2-linear-func-meaning-fc9',
-        front: '$y$ は減る（右下がりのグラフ）。', back: '$y = ax + b$ で $a < 0$ のとき、$x$ が増えると $y$ はどうなる？',
+        front: '$y$ は減る', explanation: '右下がりのグラフになる', back: '$y = ax + b$ で $a < 0$ のとき、$x$ が増えると $y$ はどうなる？',
         difficulty: 'basic',
       },
       {
@@ -96,46 +96,46 @@ export const linearFuncMeaning: Topic = {
       },
       {
         id: 'math-g2-linear-func-meaning-fc11',
-        front: 'どちらも一次関数ではない。$y = ax + b$ の形にならないから。', back: '$y = x^2$ や $y = \\dfrac{6}{x}$ は一次関数？',
+        front: 'どちらも一次関数ではない', explanation: '$y = ax + b$ の形にならないから', back: '$y = x^2$ や $y = \\dfrac{6}{x}$ は一次関数？',
         difficulty: 'basic',
       },
       {
         id: 'math-g2-linear-func-meaning-fc12',
-        front: '一定ではない。区間によって変化の割合が異なる。', back: '反比例の変化の割合は一定？',
+        front: '一定ではない', explanation: '区間によって変化の割合が異なる', back: '反比例の変化の割合は一定？',
         difficulty: 'basic',
       },
       {
         id: 'math-g2-linear-func-meaning-fc13',
-        front: '一次関数ではない。$a = 0$ なので $y$ が $x$ によって変化しない。', back: '$y = 7$ は一次関数？',
+        front: '一次関数ではない', explanation: '$a = 0$ なので $y$ が $x$ によって変化しない', back: '$y = 7$ は一次関数？',
         difficulty: 'standard',
       },
       {
         id: 'math-g2-linear-func-meaning-fc14',
-        front: 'どちらでもある。$a = -5$, $b = 0$ の一次関数であり、比例でもある。', back: '$y = -5x$ は一次関数？ 比例？',
+        front: 'どちらでもある', explanation: '$a = -5$, $b = 0$ の一次関数であり、比例でもある', back: '$y = -5x$ は一次関数？ 比例？',
         difficulty: 'standard',
       },
       {
         id: 'math-g2-linear-func-meaning-fc15',
-        front: '$a = 0$ だと $y = b$（定数）になり、$x$ が変わっても $y$ が変化しないから。', back: '一次関数 $y = ax + b$ で $a \\neq 0$ が必要な理由は？',
+        front: '$y = b$（定数）になり変化しないから', explanation: '$a = 0$ だと $x$ が変わっても $y$ が変化しない', back: '一次関数 $y = ax + b$ で $a \\neq 0$ が必要な理由は？',
         difficulty: 'standard',
       },
       {
         id: 'math-g2-linear-func-meaning-fc16',
-        front: '$a$ は「1単位あたりの変化量」、$b$ は「最初の値（初期値）」と考える。', back: '文章題で一次関数を立式するコツは？',
+        front: '$a$ は「1単位あたりの変化量」、$b$ は「初期値」', explanation: '$a$ は1単位あたりの変化量、$b$ は最初の値と考える', back: '文章題で一次関数を立式するコツは？',
         difficulty: 'standard',
       },
-      { id: 'math-g2-linear-func-meaning-fc17', front: '$y = 3x$ は一次関数でもあり比例でもある（$b = 0$）', back: '$y = 3x$ は一次関数？比例？', difficulty: 'standard' },
-      { id: 'math-g2-linear-func-meaning-fc18', front: '$y$ の増加量 $= a \times x$ の増加量。$a = 2$ で $x$ が $5$ 増えると $y$ は $10$ 増える。', back: '$y$ の増加量を素早く求める方法は？', difficulty: 'standard' },
-      { id: 'math-g2-linear-func-meaning-fc19', front: '一次関数ではない。$a = 0$ だと $y = b$（定数）で $x$ が変わっても $y$ が変化しない。', back: '$y = 5$ は一次関数？', difficulty: 'standard' },
-      { id: 'math-g2-linear-func-meaning-fc20', front: '変形して $y = ax + b$ の形になるか確認する。$y = \dfrac{x+6}{2} = \dfrac{1}{2}x + 3$ → 一次関数', back: '式が一次関数かどうか判定するには？', difficulty: 'standard' },
+      { id: 'math-g2-linear-func-meaning-fc17', front: '一次関数でもあり比例でもある', explanation: '$b = 0$ の一次関数 $=$ 比例', back: '$y = 3x$ は一次関数？比例？', difficulty: 'standard' },
+      { id: 'math-g2-linear-func-meaning-fc18', front: '$y$ の増加量 $= a \\times x$ の増加量', explanation: '$a = 2$ で $x$ が $5$ 増えると $y$ は $10$ 増える', back: '$y$ の増加量を素早く求める方法は？', difficulty: 'standard' },
+      { id: 'math-g2-linear-func-meaning-fc19', front: '一次関数ではない', explanation: '$a = 0$ だと $y = b$（定数）で $x$ が変わっても $y$ が変化しない', back: '$y = 5$ は一次関数？', difficulty: 'standard' },
+      { id: 'math-g2-linear-func-meaning-fc20', front: '$y = ax + b$ の形になるか確認する', explanation: '$y = \\dfrac{x+6}{2} = \\dfrac{1}{2}x + 3$ → 一次関数', back: '式が一次関数かどうか判定するには？', difficulty: 'standard' },
       { id: 'math-g2-linear-func-meaning-fc21', front: '温度の変化、水そうの水量、料金など', back: '一次関数の身近な例は？', difficulty: 'standard' },
-      { id: 'math-g2-linear-func-meaning-fc22', front: '$a$（傾き）は1あたりの変化量、$b$（切片）は初期値と考える', back: '文章題で $a$ と $b$ を見つけるコツは？', difficulty: 'standard' },
-      { id: 'math-g2-linear-func-meaning-fc23', front: '一定ではない。区間によって変化の割合が変わる。', back: '$y = x^2$ の変化の割合は一定？', difficulty: 'advanced' },
-      { id: 'math-g2-linear-func-meaning-fc24', front: '傾き $a$ が正なら右上がり、負なら右下がり', back: '一次関数のグラフの向きは何で決まる？', difficulty: 'advanced' },
-      { id: 'math-g2-linear-func-meaning-fc25', front: '$y = ax + b$ の $b$ は $x = 0$ のときの $y$ の値（$y$ 軸との交点）', back: '切片をグラフ上で見つけるには？', difficulty: 'advanced' },
-      { id: 'math-g2-linear-func-meaning-fc26', front: '$a$ の絶対値が大きいほどグラフは急になる', back: '傾きの大きさとグラフの関係は？', difficulty: 'advanced' },
-      { id: 'math-g2-linear-func-meaning-fc27', front: '表を作って $y$ の増え方が一定かチェックする', back: '一次関数かどうかを表で確認するには？', difficulty: 'advanced' },
-      { id: 'math-g2-linear-func-meaning-fc28', front: '一次関数の変化の割合は常に一定（$= a$）。二次関数は区間で変わる。', back: '一次関数と二次関数の変化の割合の違いは？', difficulty: 'advanced' },
+      { id: 'math-g2-linear-func-meaning-fc22', front: '$a$ は1あたりの変化量、$b$ は初期値', explanation: '傾き $a$ と切片 $b$ をそれぞれ見つける', back: '文章題で $a$ と $b$ を見つけるコツは？', difficulty: 'standard' },
+      { id: 'math-g2-linear-func-meaning-fc23', front: '一定ではない', explanation: '区間によって変化の割合が変わる', back: '$y = x^2$ の変化の割合は一定？', difficulty: 'advanced' },
+      { id: 'math-g2-linear-func-meaning-fc24', front: '傾き $a$ の正負で決まる', explanation: '$a > 0$ なら右上がり、$a < 0$ なら右下がり', back: '一次関数のグラフの向きは何で決まる？', difficulty: 'advanced' },
+      { id: 'math-g2-linear-func-meaning-fc25', front: '$x = 0$ のときの $y$ の値', explanation: '$y$ 軸との交点の $y$ 座標が切片 $b$', back: '切片をグラフ上で見つけるには？', difficulty: 'advanced' },
+      { id: 'math-g2-linear-func-meaning-fc26', front: '$|a|$ が大きいほど急になる', explanation: '$a$ の絶対値がグラフの急さを決める', back: '傾きの大きさとグラフの関係は？', difficulty: 'advanced' },
+      { id: 'math-g2-linear-func-meaning-fc27', front: '$y$ の増え方が一定かチェック', explanation: '表を作って $y$ の差が一定なら一次関数', back: '一次関数かどうかを表で確認するには？', difficulty: 'advanced' },
+      { id: 'math-g2-linear-func-meaning-fc28', front: '一次関数は常に一定（$= a$）', explanation: '二次関数は区間によって変化の割合が変わる', back: '一次関数と二次関数の変化の割合の違いは？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -163,7 +163,7 @@ export const linearFuncMeaning: Topic = {
           options: ['$0$', '$2$', '$5$', '$3$'],
           correctIndex: 3,
           explanation:
-            '$x = 0$ を代入すると $y = 2 \\times 0 + 3 = 3$。この値が切片 $b$ だよ。',
+            '$x = 0$ を代入すると $y = 2 \\times 0 + 3 = 3$。\\nこの値が切片 $b$ だよ。',
           difficulty: 'basic',
         },
         {
@@ -187,7 +187,7 @@ export const linearFuncMeaning: Topic = {
           options: ['$4$', '$-4$', '$-12$', '$10$'],
           correctIndex: 1,
           explanation:
-            '一次関数の変化の割合は常に $a$ と等しいよ。$a = -4$ だから変化の割合は $-4$。どの区間でも同じ値になるんだ。',
+            '一次関数の変化の割合は常に $a$ と等しいよ。\\n$a = -4$ だから変化の割合は $-4$。\\nどの区間でも同じ値になるんだ。',
           difficulty: 'basic',
         },
         {
@@ -236,7 +236,7 @@ export const linearFuncMeaning: Topic = {
           ],
           correctIndex: 1,
           explanation:
-            '毎分3L増えるので $a = 3$、最初の量が $b = 10$。だから $y = 3x + 10$ だよ。',
+            '毎分3L増えるので $a = 3$、最初の量が $b = 10$。\\nだから $y = 3x + 10$ だよ。',
           difficulty: 'basic',
         },
         {
@@ -301,8 +301,8 @@ export const linearFuncMeaning: Topic = {
         {
           id: 'math-g2-linear-func-meaning-q16',
           question: '一次関数 $y = ax + b$ で $a$ のことを何という？（2つの呼び方）',
-          options: ['切片と定数', '傾きと変化の割合', '初期値と増加量', '係数と指数'],
-          correctIndex: 1,
+          options: ['切片と定数', '係数と指数', '初期値と増加量', '傾きと変化の割合'],
+          correctIndex: 3,
           explanation: '$a$ は「傾き」とも「変化の割合」とも呼ばれるよ。',
           difficulty: 'standard',
         },
@@ -343,14 +343,14 @@ export const linearFuncMeaning: Topic = {
           question: '長さ $30$ cm のろうそくが毎分 $0.5$ cm ずつ短くなる。$x$ 分後の長さ $y$ cm は？',
           options: ['$y = 0.5x + 30$', '$y = 30x - 0.5$', '$y = -0.5x + 30$', '$y = -30x + 0.5$'],
           correctIndex: 2,
-          explanation: '短くなるので $a = -0.5$。初期値 $30$ が切片。$y = -0.5x + 30$ だよ。',
+          explanation: '短くなるので $a = -0.5$。初期値 $30$ が切片。\\n$y = -0.5x + 30$ だよ。',
           difficulty: 'standard',
         },
         {
           id: 'math-g2-linear-func-meaning-q22',
           question: '一次関数 $y = ax + 3$ で $x$ が $4$ 増えたら $y$ が $-12$ 変化した。$a$ は？',
-          options: ['$3$', '$-3$', '$4$', '$-4$'],
-          correctIndex: 1,
+          options: ['$3$', '$4$', '$-3$', '$-4$'],
+          correctIndex: 2,
           explanation: '$a = \dfrac{-12}{4} = -3$ だよ。',
           difficulty: 'standard',
         },
@@ -359,7 +359,7 @@ export const linearFuncMeaning: Topic = {
           question: '$y = 6x$ は一次関数？比例？',
           options: ['一次関数だけ', '比例だけ', '一次関数でもあり比例でもある', 'どちらでもない'],
           correctIndex: 2,
-          explanation: '$b = 0$ の一次関数 $=$ 比例。どちらでもあるよ。',
+          explanation: '$b = 0$ の一次関数 $=$ 比例。\\nどちらでもあるよ。',
           difficulty: 'advanced',
         },
         {
@@ -381,8 +381,8 @@ export const linearFuncMeaning: Topic = {
         {
           id: 'math-g2-linear-func-meaning-q26',
           question: '一次関数で変化の割合が一定であることの意味は？',
-          options: ['$y$ が常に同じ値', '$x$ が増えるとき $y$ の増え方がいつも同じ', 'グラフが曲線', '$b$ が変わらない'],
-          correctIndex: 1,
+          options: ['$y$ が常に同じ値', '$b$ が変わらない', 'グラフが曲線', '$x$ が増えるとき $y$ の増え方がいつも同じ'],
+          correctIndex: 3,
           explanation: '$x$ が1増えるごとに $y$ はいつも同じ量 $a$ だけ変化するということだよ。',
           difficulty: 'advanced',
         },
@@ -399,7 +399,7 @@ export const linearFuncMeaning: Topic = {
           question: '次の表で $y$ が $x$ の一次関数であるのはどれ？\n$x$: 1,2,3,4 → $y$: 3,5,7,9',
           options: ['一次関数（$y$ が $2$ ずつ増加）', '比例（$y = 2x$）', '一次関数ではない', '反比例'],
           correctIndex: 0,
-          explanation: '$y$ は $2$ ずつ増加（一定）→ 一次関数。$y = 2x + 1$ だよ（$x=1$ で $y=3$）。',
+          explanation: '$y$ は $2$ ずつ増加（一定）→ 一次関数。\\n$y = 2x + 1$ だよ（$x=1$ で $y=3$）。',
           difficulty: 'advanced',
         },
       ],

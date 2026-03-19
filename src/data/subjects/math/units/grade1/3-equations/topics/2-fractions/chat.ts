@@ -223,7 +223,7 @@ export const eqFractionsChat: HistoryChat = {
         { letter: 'D', text: '$x = 24$', correct: false },
       ],
       explanation:
-        '<ruby>分母<rt>ぶんぼ</rt></ruby> 4, 6 の<ruby>最小公倍数<rt>さいしょうこうばいすう</rt></ruby> 12 をかけると $3x - 2x = 12$、つまり $x = \\textcolor{#D97706}{12}$。',
+        '<ruby>分母<rt>ぶんぼ</rt></ruby> 4, 6 の<ruby>最小公倍数<rt>さいしょうこうばいすう</rt></ruby> 12 をかけると $3x - 2x = 12$。\nつまり $x = \\textcolor{#D97706}{12}$。',
     },
     {
       type: 'end',

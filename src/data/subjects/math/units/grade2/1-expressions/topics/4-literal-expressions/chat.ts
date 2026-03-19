@@ -228,7 +228,7 @@ export const literalExpressionsChat: HistoryChat = {
         { letter: 'D', text: '13の<ruby>倍数<rt>ばいすう</rt></ruby>', correct: false },
       ],
       explanation:
-        '$(10a+b) - (10b+a) = 9a - 9b = \\textcolor{#D97706}{9(a-b)}$。$9 \\times$ (<ruby>整数<rt>せいすう</rt></ruby>) なので<strong>9の<ruby>倍数<rt>ばいすう</rt></ruby></strong>！',
+        '$(10a+b) - (10b+a) = 9a - 9b = \\textcolor{#D97706}{9(a-b)}$。\n$9 \\times$ (<ruby>整数<rt>せいすう</rt></ruby>) なので<strong>9の<ruby>倍数<rt>ばいすう</rt></ruby></strong>！',
     },
     // === Section 5: 等式の変形 ===
     {
@@ -294,7 +294,7 @@ export const literalExpressionsChat: HistoryChat = {
         { letter: 'D', text: '6の<ruby>倍数<rt>ばいすう</rt></ruby>', correct: false },
       ],
       explanation:
-        '$n + (n+1) + (n+2) = 3n + 3 = \\textcolor{#D97706}{3(n+1)}$。$3 \\times$ (<ruby>整数<rt>せいすう</rt></ruby>) の<ruby>形<rt>かたち</rt></ruby>なので<strong>3の<ruby>倍数<rt>ばいすう</rt></ruby></strong>！',
+        '$n + (n+1) + (n+2) = 3n + 3 = \\textcolor{#D97706}{3(n+1)}$。\n$3 \\times$ (<ruby>整数<rt>せいすう</rt></ruby>) の<ruby>形<rt>かたち</rt></ruby>なので<strong>3の<ruby>倍数<rt>ばいすう</rt></ruby></strong>！',
     },
     {
       type: 'quiz',
@@ -306,7 +306,7 @@ export const literalExpressionsChat: HistoryChat = {
         { letter: 'D', text: '$h = 2S(a+b)$', correct: false },
       ],
       explanation:
-        '$2S = (a+b)h$ → $h = \\textcolor{#D97706}{\\frac{2S}{a+b}}$。まず<ruby>両辺<rt>りょうへん</rt></ruby>に 2 をかけてから $(a+b)$ で<ruby>割<rt>わ</rt></ruby>る！',
+        '$2S = (a+b)h$ → $h = \\textcolor{#D97706}{\\frac{2S}{a+b}}$。\nまず<ruby>両辺<rt>りょうへん</rt></ruby>に 2 をかけてから $(a+b)$ で<ruby>割<rt>わ</rt></ruby>る！',
     },
     {
       type: 'end',

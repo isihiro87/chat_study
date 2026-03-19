@@ -169,7 +169,7 @@ export const funcGraphsChat: HistoryChat = {
         { letter: 'D', text: '$800\\text{m}$', correct: false },
       ],
       explanation:
-        '$y = 80 \\times 5 = \\textcolor{#D97706}{400}\\text{m}$ だよ。<ruby>速<rt>はや</rt></ruby>さ $\\times$ <ruby>時間<rt>じかん</rt></ruby>！',
+        '$y = 80 \\times 5 = \\textcolor{#D97706}{400}\\text{m}$ だよ。\n<ruby>速<rt>はや</rt></ruby>さ $\\times$ <ruby>時間<rt>じかん</rt></ruby>！',
     },
     {
       type: 'date',
@@ -315,7 +315,7 @@ export const funcGraphsChat: HistoryChat = {
         { letter: 'D', text: '<ruby>判断<rt>はんだん</rt></ruby>できない', correct: false },
       ],
       explanation:
-        '$xy$ を<ruby>計算<rt>けいさん</rt></ruby>: $2 \\times 15 = 30$, $3 \\times 10 = 30$, $6 \\times 5 = 30$。<ruby>積<rt>せき</rt></ruby>が $\\textcolor{#D97706}{30}$ で<ruby>一定<rt>いってい</rt></ruby>なので<ruby>反比例<rt>はんぴれい</rt></ruby>だよ。',
+        '$xy$ を<ruby>計算<rt>けいさん</rt></ruby>: $2 \\times 15 = 30$, $3 \\times 10 = 30$, $6 \\times 5 = 30$。\n<ruby>積<rt>せき</rt></ruby>が $\\textcolor{#D97706}{30}$ で<ruby>一定<rt>いってい</rt></ruby>なので<ruby>反比例<rt>はんぴれい</rt></ruby>だよ。',
     },
     {
       type: 'summary-point',

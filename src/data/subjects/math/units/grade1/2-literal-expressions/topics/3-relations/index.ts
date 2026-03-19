@@ -58,100 +58,117 @@ export const literalRelations: Topic = {
     flashcards: [
       {
         id: 'math-g1-lit-relations-fc1',
-        front: '2つの数量が等しいことを、等号（=）を使って表した式。\n例: $x + 3 = 10$', back: '等式とは？',
+        front: '2つの数量が等しいことを、等号（=）を使って表した式', back: '等式とは？',
+        explanation: '例: $x + 3 = 10$',
         difficulty: 'basic',
       },
       {
         id: 'math-g1-lit-relations-fc2',
-        front: '等号（=）の左側の部分。\n例: $x + 3 = 10$ の左辺は $x + 3$', back: '左辺とは？',
+        front: '等号（=）の左側の部分', back: '左辺とは？',
+        explanation: '例: $x + 3 = 10$ の左辺は $x + 3$',
         difficulty: 'basic',
       },
       {
         id: 'math-g1-lit-relations-fc3',
-        front: '等号（=）の右側の部分。\n例: $x + 3 = 10$ の右辺は $10$', back: '右辺とは？',
+        front: '等号（=）の右側の部分', back: '右辺とは？',
+        explanation: '例: $x + 3 = 10$ の右辺は $10$',
         difficulty: 'basic',
       },
       {
         id: 'math-g1-lit-relations-fc4',
-        front: '左辺と右辺を合わせた呼び方。\n等式の両辺に同じ数を足しても等式は成り立つ。', back: '両辺とは？',
+        front: '左辺と右辺を合わせた呼び方', back: '両辺とは？',
+        explanation: '等式の両辺に同じ数を足しても等式は成り立つ。',
         difficulty: 'basic',
       },
       {
         id: 'math-g1-lit-relations-fc5',
-        front: '2つの数量の大小関係を、不等号を使って表した式。\n不等号: $>$, $<$, $\\geqq$, $\\leqq$', back: '不等式とは？',
+        front: '2つの数量の大小関係を、不等号を使って表した式', back: '不等式とは？',
+        explanation: '不等号: $>$, $<$, $\\geqq$, $\\leqq$',
         difficulty: 'basic',
       },
       {
         id: 'math-g1-lit-relations-fc6',
-        front: '$a$ は $b$ より大きい\n（$b$ は含まない）', back: '$a > b$ の意味は？',
+        front: '$a$ は $b$ より大きい', back: '$a > b$ の意味は？',
+        explanation: '$b$ は含まない。$a = b$ のときは成り立たない。',
         difficulty: 'basic',
       },
       {
         id: 'math-g1-lit-relations-fc7',
-        front: '$a$ は $b$ より小さい\n（$b$ は含まない）', back: '$a < b$ の意味は？',
+        front: '$a$ は $b$ より小さい', back: '$a < b$ の意味は？',
+        explanation: '$b$ は含まない。$a = b$ のときは成り立たない。',
         difficulty: 'basic',
       },
       {
         id: 'math-g1-lit-relations-fc8',
-        front: '$a$ は $b$ 以上\n（$b$ と等しいか、$b$ より大きい）', back: '$a \\geqq b$ の意味は？',
+        front: '$a$ は $b$ 以上', back: '$a \\geqq b$ の意味は？',
+        explanation: '$b$ と等しいか、$b$ より大きい。$a = b$ のときも成り立つ。',
         difficulty: 'basic',
       },
       {
         id: 'math-g1-lit-relations-fc9',
-        front: '$a$ は $b$ 以下\n（$b$ と等しいか、$b$ より小さい）', back: '$a \\leqq b$ の意味は？',
+        front: '$a$ は $b$ 以下', back: '$a \\leqq b$ の意味は？',
+        explanation: '$b$ と等しいか、$b$ より小さい。$a = b$ のときも成り立つ。',
         difficulty: 'basic',
       },
       {
         id: 'math-g1-lit-relations-fc10',
-        front: '「以上」→ その数を含む（$\\geqq$）\n「より大きい」→ その数を含まない（$>$）\n例: 10以上 → 10, 11, 12...\n10より大きい → 11, 12...', back: '「以上」と「より大きい」の違いは？',
+        front: '「以上」はその数を含む、「より大きい」は含まない', back: '「以上」と「より大きい」の違いは？',
+        explanation: '「以上」→ $\\geqq$（例: 10以上 → 10, 11, 12...）\n「より大きい」→ $>$（例: 10より大きい → 11, 12...）',
         difficulty: 'basic',
       },
       {
         id: 'math-g1-lit-relations-fc11',
-        front: '「以下」→ その数を含む（$\\leqq$）\n「未満」「より小さい」→ その数を含まない（$<$）\n例: 10以下 → ..., 9, 10\n10未満 → ..., 8, 9', back: '「以下」と「より小さい（未満）」の違いは？',
+        front: '「以下」はその数を含む、「未満」は含まない', back: '「以下」と「より小さい（未満）」の違いは？',
+        explanation: '「以下」→ $\\leqq$（例: 10以下 → ..., 9, 10）\n「未満」「より小さい」→ $<$（例: 10未満 → ..., 8, 9）',
         difficulty: 'basic',
       },
       {
         id: 'math-g1-lit-relations-fc12',
-        front: '$<$（より小さい）を使う。\n例: 「$x$ は30未満」→ $x < 30$\n「未満」=「より小さい」と同じ意味。', back: '「未満」を不等号で表すと？',
+        front: '$<$（より小さい）を使う', back: '「未満」を不等号で表すと？',
+        explanation: '例: 「$x$ は30未満」→ $x < 30$\n「未満」=「より小さい」と同じ意味。',
         difficulty: 'basic',
       },
       {
         id: 'math-g1-lit-relations-fc13',
-        front: '「1個 $x$ 円のりんごを4個で600円」\n→ $4x = 600$\n代金 = 単価 × 個数', back: '代金の等式の例を1つ挙げよう',
+        front: '$4x = 600$', back: '代金の等式の例を1つ挙げよう',
+        explanation: '「1個 $x$ 円のりんごを4個で600円」\n代金 = 単価 $\\times$ 個数',
         difficulty: 'standard',
       },
       {
         id: 'math-g1-lit-relations-fc14',
-        front: '「1本 $a$ 円のペンを5本で1000円以下」\n→ $5a \\leqq 1000$', back: '不等式の例（以下）を1つ挙げよう',
+        front: '$5a \\leqq 1000$', back: '不等式の例（以下）を1つ挙げよう',
+        explanation: '「1本 $a$ 円のペンを5本で1000円以下」',
         difficulty: 'standard',
       },
       {
         id: 'math-g1-lit-relations-fc15',
-        front: '以上 → $\\geqq$\n以下 → $\\leqq$\nより大きい → $>$\nより小さい・未満 → $<$\nポイント: 「以」がつくとその数を含む！', back: '日本語と不等号の対応表',
+        front: '以上 → $\\geqq$、以下 → $\\leqq$、より大きい → $>$、未満 → $<$', back: '日本語と不等号の対応表',
+        explanation: 'ポイント: 「以」がつくとその数を含む！',
         difficulty: 'standard',
       },
       {
         id: 'math-g1-lit-relations-fc16',
-        front: '道のり = 速さ × 時間\n速さ = 道のり ÷ 時間\n時間 = 道のり ÷ 速さ', back: '速さ・時間・道のりの関係式は？',
+        front: '道のり = 速さ $\\times$ 時間', back: '速さ・時間・道のりの関係式は？',
+        explanation: '速さ = 道のり $\\div$ 時間\n時間 = 道のり $\\div$ 速さ',
         difficulty: 'standard',
       },
       {
         id: 'math-g1-lit-relations-fc17',
-        front: '$x$ 割引き → 定価の $(1 - 0.x)$ 倍\n例: 3割引き → 定価の $0.7$ 倍\n定価 $a$ 円の3割引き = $0.7a$ 円', back: '割引きの等式の立て方は？',
+        front: '$x$ 割引き → 定価の $(1 - 0.x)$ 倍', back: '割引きの等式の立て方は？',
+        explanation: '例: 3割引き → 定価の $0.7$ 倍\n定価 $a$ 円の3割引き = $0.7a$ 円',
         difficulty: 'standard',
       },
-      { id: 'math-g1-lit-relations-fc18', front: '$a \times b = S$（縦 $a$、横 $b$、面積 $S$）', back: '長方形の面積を等式で表すと？', difficulty: 'standard' },
-      { id: 'math-g1-lit-relations-fc19', front: '$\dfrac{a}{b}$（$a$ を $b$ で割った商）', back: '文字式で割り算を表す方法は？→ 分数で書く', difficulty: 'standard' },
-      { id: 'math-g1-lit-relations-fc20', front: '$a < x < b$（$a$ より大きく $b$ より小さい。$a, b$ は含まない）', back: '「$x$ は $a$ より大きく $b$ より小さい」を不等式で表すと？', difficulty: 'standard' },
-      { id: 'math-g1-lit-relations-fc21', front: '等式: 2つの量が等しい($=$)。不等式: 2つの量に大小関係がある($<, >, \leqq, \geqq$)', back: '等式と不等式の違いは？', difficulty: 'standard' },
-      { id: 'math-g1-lit-relations-fc22', front: '両辺に同じ数を足しても引いても、かけても割っても等式は成り立つ', back: '等式の性質とは？', difficulty: 'standard' },
-      { id: 'math-g1-lit-relations-fc23', front: '「～以上」→ $\geqq$（含む）。「～より大きい」→ $>$（含まない）。含むか含まないかがポイント', back: '「以上」と「より大きい」の使い分けのポイントは？', difficulty: 'advanced' },
-      { id: 'math-g1-lit-relations-fc24', front: '$2 \pi r$（半径 $r$ の円の円周）', back: '円周の公式を文字式で表すと？', difficulty: 'advanced' },
-      { id: 'math-g1-lit-relations-fc25', front: '$V = \dfrac{4}{3}\pi r^3$（半径 $r$ の球の体積）', back: '球の体積の公式を文字式で表すと？', difficulty: 'advanced' },
-      { id: 'math-g1-lit-relations-fc26', front: '文字がどんな値でも成り立つ等式（恒等式）。例: $a + b = b + a$', back: '恒等式とは？', difficulty: 'advanced' },
-      { id: 'math-g1-lit-relations-fc27', front: '特定の値のときだけ成り立つ等式。例: $x + 3 = 7$（$x = 4$ のときだけ成立）', back: '方程式とは？', difficulty: 'advanced' },
-      { id: 'math-g1-lit-relations-fc28', front: '$a + b + c \leqq 30$（3つの辺の長さの合計が $30$ 以下）', back: '「三角形の周の長さが $30$ cm 以下」を不等式で表すと？', difficulty: 'advanced' },
+      { id: 'math-g1-lit-relations-fc18', front: '$ab = S$', back: '長方形の面積を等式で表すと？', explanation: '縦 $a$、横 $b$、面積 $S$。', difficulty: 'standard' },
+      { id: 'math-g1-lit-relations-fc19', front: '$\\dfrac{a}{b}$', back: '文字式で割り算を表す方法は？→ 分数で書く', explanation: '$a$ を $b$ で割った商を分数で表す。', difficulty: 'standard' },
+      { id: 'math-g1-lit-relations-fc20', front: '$a < x < b$', back: '「$x$ は $a$ より大きく $b$ より小さい」を不等式で表すと？', explanation: '$a$ より大きく $b$ より小さい。$a, b$ は含まない。', difficulty: 'standard' },
+      { id: 'math-g1-lit-relations-fc21', front: '等式は $=$、不等式は $<, >, \\leqq, \\geqq$', back: '等式と不等式の違いは？', explanation: '等式: 2つの量が等しい。\n不等式: 2つの量に大小関係がある。', difficulty: 'standard' },
+      { id: 'math-g1-lit-relations-fc22', front: '両辺に同じ数を足しても引いても、かけても割っても等式は成り立つ', back: '等式の性質とは？', explanation: 'ただし、0で割ることはできない。', difficulty: 'standard' },
+      { id: 'math-g1-lit-relations-fc23', front: '含むか含まないかがポイント', back: '「以上」と「より大きい」の使い分けのポイントは？', explanation: '「～以上」→ $\\geqq$（含む）。\n「～より大きい」→ $>$（含まない）。', difficulty: 'advanced' },
+      { id: 'math-g1-lit-relations-fc24', front: '$2 \\pi r$', back: '円周の公式を文字式で表すと？', explanation: '半径 $r$ の円の円周。直径 $\\times \\pi$ と同じ。', difficulty: 'advanced' },
+      { id: 'math-g1-lit-relations-fc25', front: '$V = \\dfrac{4}{3}\\pi r^3$', back: '球の体積の公式を文字式で表すと？', explanation: '半径 $r$ の球の体積。', difficulty: 'advanced' },
+      { id: 'math-g1-lit-relations-fc26', front: '文字がどんな値でも成り立つ等式', back: '恒等式とは？', explanation: '例: $a + b = b + a$（交換法則）', difficulty: 'advanced' },
+      { id: 'math-g1-lit-relations-fc27', front: '特定の値のときだけ成り立つ等式', back: '方程式とは？', explanation: '例: $x + 3 = 7$（$x = 4$ のときだけ成立）', difficulty: 'advanced' },
+      { id: 'math-g1-lit-relations-fc28', front: '$a + b + c \\leqq 30$', back: '「三角形の周の長さが $30$ cm 以下」を不等式で表すと？', explanation: '3つの辺の長さ $a, b, c$ の合計が $30$ 以下。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -159,12 +176,12 @@ export const literalRelations: Topic = {
           id: 'math-g1-lit-relations-q1',
           question: '「$x$ に $5$ を足すと $12$ になる」を等式で表すと？',
           options: [
-            '$x - 5 = 12$',
+            '$x + 5 = 12$',
             '$x = 12 + 5$',
             '$5x = 12$',
-            '$x + 5 = 12$',
+            '$x - 5 = 12$',
           ],
-          correctIndex: 3,
+          correctIndex: 0,
           explanation:
             '「$x$ に $5$ を足す」は $x + 5$、「$12$ になる」は $= 12$。だから $x + 5 = 12$ だよ。',
           difficulty: 'basic',
@@ -180,7 +197,7 @@ export const literalRelations: Topic = {
           ],
           correctIndex: 1,
           explanation:
-            '「$a$ は $100$ より大きい」は $a > 100$ だよ。「以上」ではなく「より大きい」なので $\\geqq$ ではなく $>$ を使うんだ。',
+            '$a > 100$\n「以上」ではなく「より大きい」なので $\\geqq$ ではなく $>$ を使うんだ。',
           difficulty: 'basic',
         },
         {
@@ -195,7 +212,7 @@ export const literalRelations: Topic = {
           ],
           correctIndex: 0,
           explanation:
-            '代金は $x \\times 3 = 3x$ 円。「$500$ 円以下」だから $3x \\leqq 500$ だよ。',
+            '$x \\times 3 = 3x$ 円\n「$500$ 円以下」だから $3x \\leqq 500$ だよ。',
           difficulty: 'basic',
         },
         {
@@ -232,14 +249,14 @@ export const literalRelations: Topic = {
           question:
             '「時速 $v$ km で $t$ 時間歩いた道のりは $d$ km」を等式で表すと？',
           options: [
-            '$\\dfrac{v}{t} = d$',
-            '$v + t = d$',
             '$vt = d$',
+            '$v + t = d$',
+            '$\\dfrac{v}{t} = d$',
             '$\\dfrac{d}{v} = t$',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
-            '道のり = 速さ × 時間 だから、$vt = d$ が正しいよ。$\\dfrac{d}{v} = t$ も正しい等式だけど、問題の文に合う形は $vt = d$ だね。',
+            '道のり $=$ 速さ $\\times$ 時間 だから $vt = d$\n$\\dfrac{d}{v} = t$ も正しいが、問題の文に合う形は $vt = d$ だね。',
           difficulty: 'basic',
         },
         {
@@ -254,7 +271,7 @@ export const literalRelations: Topic = {
           ],
           correctIndex: 0,
           explanation:
-            '2割引きは定価の $1 - 0.2 = 0.8$ 倍。だから $0.8a = b$ だよ。2割引き ≠ 2円引きに注意！',
+            '$1 - 0.2 = 0.8$ 倍だから $0.8a = b$\n2割引き $\\neq$ 2円引きに注意！',
           difficulty: 'basic',
         },
         {
@@ -269,7 +286,7 @@ export const literalRelations: Topic = {
           ],
           correctIndex: 3,
           explanation:
-            '$50x$ は「1個50円のあめ $x$ 個の代金」、$30y$ は「1個30円のガム $y$ 個の代金」。合計が410円という意味だよ。',
+            '$50x$: 1個50円のあめ $x$ 個の代金、$30y$: 1個30円のガム $y$ 個の代金\n合計が410円という意味だよ。',
           difficulty: 'basic',
         },
         {
@@ -277,14 +294,14 @@ export const literalRelations: Topic = {
           question:
             '「$x$ 人の生徒に鉛筆を $4$ 本ずつ配ったら、$10$ 本以上余った」を不等式で表すと？ 鉛筆は全部で $n$ 本ある。',
           options: [
-            '$n - 4x > 10$',
-            '$4x - n \\geqq 10$',
             '$n - 4x \\geqq 10$',
+            '$4x - n \\geqq 10$',
+            '$n - 4x > 10$',
             '$n - 4x < 10$',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
-            '配った本数は $4x$ 本。残りは $n - 4x$ 本。「10本以上」だから $n - 4x \\geqq 10$ だよ。',
+            '配った本数 $4x$ 本、残り $n - 4x$ 本\n「10本以上」だから $n - 4x \\geqq 10$ だよ。',
           difficulty: 'basic',
         },
         {
@@ -299,7 +316,7 @@ export const literalRelations: Topic = {
           ],
           correctIndex: 3,
           explanation:
-            '長方形の面積は $ab$ cm²。「未満」は「より小さい」なので $<$ を使って $ab < 100$ だよ。$\\leqq$（以下）ではないことに注意！',
+            '面積 $ab$ cm²。「未満」は「より小さい」なので $ab < 100$\n$\\leqq$（以下）ではないことに注意！',
           difficulty: 'basic',
         },
         {
@@ -328,7 +345,7 @@ export const literalRelations: Topic = {
           ],
           correctIndex: 0,
           explanation:
-            '時間 = 道のり ÷ 速さ なので、$\\dfrac{a}{4} = b$ は「$a$ kmを時速4kmで歩くと $b$ 時間かかる」という意味だよ。',
+            '時間 $=$ 道のり $\\div$ 速さ\n$\\dfrac{a}{4} = b$ は「$a$ kmを時速4kmで歩くと $b$ 時間かかる」という意味だよ。',
           difficulty: 'standard',
         },
         {

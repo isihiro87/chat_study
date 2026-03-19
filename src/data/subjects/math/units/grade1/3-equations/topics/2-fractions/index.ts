@@ -45,39 +45,39 @@ export const eqFractions: Topic = {
     videos: [],
     flashcards: [
       // --- basic (12) ---
-      { id: 'math-g1-eq-f-fc1', front: '両辺を $10$ 倍、$100$ 倍して整数にしてから解く', back: '小数を含む方程式の解き方は？', difficulty: 'basic' },
-      { id: 'math-g1-eq-f-fc2', front: '小数第1位まで → $10$ 倍。小数第2位まで → $100$ 倍。', back: '何倍すれば小数がなくなる？', difficulty: 'basic' },
+      { id: 'math-g1-eq-f-fc1', front: '両辺を $10$ 倍、$100$ 倍して整数にしてから解く', back: '小数を含む方程式の解き方は？', explanation: '整数にすれば計算ミスが減る', difficulty: 'basic' },
+      { id: 'math-g1-eq-f-fc2', front: '小数第1位まで → $10$ 倍、小数第2位まで → $100$ 倍', back: '何倍すれば小数がなくなる？', explanation: '最も小数の桁が深いものに合わせる', difficulty: 'basic' },
       { id: 'math-g1-eq-f-fc3', front: '分母の最小公倍数を両辺にかけて分母をなくすこと', back: '「分母をはらう」とは？', difficulty: 'basic' },
-      { id: 'math-g1-eq-f-fc4', front: '$x = 6$（$10$ 倍して $5x = 30$、$x = 6$）', back: '$0.5x = 3$ の解は？', difficulty: 'basic' },
-      { id: 'math-g1-eq-f-fc5', front: '$x = 4$（$10$ 倍して $2x + 3 = 11$、$2x = 8$）', back: '$0.2x + 0.3 = 1.1$ の解は？', difficulty: 'basic' },
-      { id: 'math-g1-eq-f-fc6', front: '$x = 5$（$10$ 倍して $4x = 20$）', back: '$0.4x = 2$ の解は？', difficulty: 'basic' },
-      { id: 'math-g1-eq-f-fc7', front: '$x = 3$（$10$ 倍して $7x = 21$）', back: '$0.7x = 2.1$ の解は？', difficulty: 'basic' },
-      { id: 'math-g1-eq-f-fc8', front: '$x = 2$（$10$ 倍して $6x - 12 = 0$、$6x = 12$）', back: '$0.6x - 1.2 = 0$ の解は？', difficulty: 'basic' },
-      { id: 'math-g1-eq-f-fc9', front: '$x = 15$（両辺に $5$ をかけて $x = 15$）', back: '$\\dfrac{x}{5} = 3$ の解は？', difficulty: 'basic' },
+      { id: 'math-g1-eq-f-fc4', front: '$x = 6$', back: '$0.5x = 3$ の解は？', explanation: '$10$ 倍して $5x = 30$、$x = 6$', difficulty: 'basic' },
+      { id: 'math-g1-eq-f-fc5', front: '$x = 4$', back: '$0.2x + 0.3 = 1.1$ の解は？', explanation: '$10$ 倍して $2x + 3 = 11$、$2x = 8$', difficulty: 'basic' },
+      { id: 'math-g1-eq-f-fc6', front: '$x = 5$', back: '$0.4x = 2$ の解は？', explanation: '$10$ 倍して $4x = 20$', difficulty: 'basic' },
+      { id: 'math-g1-eq-f-fc7', front: '$x = 3$', back: '$0.7x = 2.1$ の解は？', explanation: '$10$ 倍して $7x = 21$', difficulty: 'basic' },
+      { id: 'math-g1-eq-f-fc8', front: '$x = 2$', back: '$0.6x - 1.2 = 0$ の解は？', explanation: '$10$ 倍して $6x - 12 = 0$、$6x = 12$', difficulty: 'basic' },
+      { id: 'math-g1-eq-f-fc9', front: '$x = 15$', back: '$\\dfrac{x}{5} = 3$ の解は？', explanation: '両辺に $5$ をかけて $x = 15$', difficulty: 'basic' },
       { id: 'math-g1-eq-f-fc10', front: '$6$', back: '$2$ と $3$ の最小公倍数は？', difficulty: 'basic' },
       { id: 'math-g1-eq-f-fc11', front: '$12$', back: '$3$ と $4$ の最小公倍数は？', difficulty: 'basic' },
       { id: 'math-g1-eq-f-fc12', front: '整数のほうが計算ミスが少なく解きやすいから', back: 'なぜ小数を整数にしてから解くの？', difficulty: 'basic' },
       // --- standard (12) ---
-      { id: 'math-g1-eq-f-fc13', front: '$x = 12$（両辺に $3$ をかけて $x = 12$）', back: '$\\dfrac{x}{3} = 4$ の解は？', difficulty: 'standard' },
-      { id: 'math-g1-eq-f-fc14', front: '$x = 6$（分母 $2,3$ の最小公倍数 $6$ をかけて $3x + 2x = 30$）', back: '$\\dfrac{x}{2} + \\dfrac{x}{3} = 5$ の解は？', difficulty: 'standard' },
+      { id: 'math-g1-eq-f-fc13', front: '$x = 12$', back: '$\\dfrac{x}{3} = 4$ の解は？', explanation: '両辺に $3$ をかけて $x = 12$', difficulty: 'standard' },
+      { id: 'math-g1-eq-f-fc14', front: '$x = 6$', back: '$\\dfrac{x}{2} + \\dfrac{x}{3} = 5$ の解は？', explanation: '分母 $2,3$ の最小公倍数 $6$ をかけて $3x + 2x = 30$', difficulty: 'standard' },
       { id: 'math-g1-eq-f-fc15', front: '分母の最小公倍数を求め、すべての項にもれなくかける', back: '分数の方程式を解くときのポイントは？', difficulty: 'standard' },
-      { id: 'math-g1-eq-f-fc16', front: '$x = 6$（$10$ 倍して $3x - 5 = 13$、$3x = 18$）', back: '$0.3x - 0.5 = 1.3$ の解は？', difficulty: 'standard' },
-      { id: 'math-g1-eq-f-fc17', front: '$x = 12$（最小公倍数 $12$ をかけて $4x - 3x = 12$）', back: '$\\dfrac{x}{3} - \\dfrac{x}{4} = 1$ の解は？', difficulty: 'standard' },
-      { id: 'math-g1-eq-f-fc18', front: '$x = 6$（両辺に $3$ をかけて $2x = 12$）', back: '$\\dfrac{2x}{3} = 4$ の解は？', difficulty: 'standard' },
-      { id: 'math-g1-eq-f-fc19', front: '$x = 5$（両辺に $2$ をかけて $x + 1 = 6$）', back: '$\\dfrac{x + 1}{2} = 3$ の解は？', difficulty: 'standard' },
-      { id: 'math-g1-eq-f-fc20', front: '$x = 11$（両辺に $4$ をかけて $x - 3 = 8$）', back: '$\\dfrac{x - 3}{4} = 2$ の解は？', difficulty: 'standard' },
-      { id: 'math-g1-eq-f-fc21', front: '$x = 10$（最小公倍数 $10$ をかけて $5x + 2x = 70$、$7x = 70$）', back: '$\\dfrac{x}{2} + \\dfrac{x}{5} = 7$ の解は？', difficulty: 'standard' },
-      { id: 'math-g1-eq-f-fc22', front: '$x = 20$（$100$ 倍して $5x = 100$）', back: '$0.05x = 1$ の解は？', difficulty: 'standard' },
-      { id: 'math-g1-eq-f-fc23', front: '$x = 10$（$100$ 倍して $25x - 50 = 200$、$25x = 250$）', back: '$0.25x - 0.5 = 2$ の解は？', difficulty: 'standard' },
+      { id: 'math-g1-eq-f-fc16', front: '$x = 6$', back: '$0.3x - 0.5 = 1.3$ の解は？', explanation: '$10$ 倍して $3x - 5 = 13$、$3x = 18$', difficulty: 'standard' },
+      { id: 'math-g1-eq-f-fc17', front: '$x = 12$', back: '$\\dfrac{x}{3} - \\dfrac{x}{4} = 1$ の解は？', explanation: '最小公倍数 $12$ をかけて $4x - 3x = 12$', difficulty: 'standard' },
+      { id: 'math-g1-eq-f-fc18', front: '$x = 6$', back: '$\\dfrac{2x}{3} = 4$ の解は？', explanation: '両辺に $3$ をかけて $2x = 12$', difficulty: 'standard' },
+      { id: 'math-g1-eq-f-fc19', front: '$x = 5$', back: '$\\dfrac{x + 1}{2} = 3$ の解は？', explanation: '両辺に $2$ をかけて $x + 1 = 6$', difficulty: 'standard' },
+      { id: 'math-g1-eq-f-fc20', front: '$x = 11$', back: '$\\dfrac{x - 3}{4} = 2$ の解は？', explanation: '両辺に $4$ をかけて $x - 3 = 8$', difficulty: 'standard' },
+      { id: 'math-g1-eq-f-fc21', front: '$x = 10$', back: '$\\dfrac{x}{2} + \\dfrac{x}{5} = 7$ の解は？', explanation: '最小公倍数 $10$ をかけて $5x + 2x = 70$、$7x = 70$', difficulty: 'standard' },
+      { id: 'math-g1-eq-f-fc22', front: '$x = 20$', back: '$0.05x = 1$ の解は？', explanation: '$100$ 倍して $5x = 100$', difficulty: 'standard' },
+      { id: 'math-g1-eq-f-fc23', front: '$x = 10$', back: '$0.25x - 0.5 = 2$ の解は？', explanation: '$100$ 倍して $25x - 50 = 200$、$25x = 250$', difficulty: 'standard' },
       { id: 'math-g1-eq-f-fc24', front: '①かっこをはずす ②分母をはらう ③移項して整理 ④$ax = b$ の形 ⑤両辺を $a$ で割る', back: '一次方程式を解く5つの手順は？', difficulty: 'standard' },
       // --- advanced (7) ---
-      { id: 'math-g1-eq-f-fc25', front: '$x = 8$（最小公倍数 $6$ をかけて $2(2x-1) = 3(x+2)$、$4x-2 = 3x+6$）', back: '$\\dfrac{2x-1}{3} = \\dfrac{x+2}{2}$ の解は？', difficulty: 'advanced' },
-      { id: 'math-g1-eq-f-fc26', front: '小数 → 整数化、分数 → 分母をはらう。最終目標は $ax = b$ の形にすること', back: '小数・分数の方程式の最終ゴールは？', difficulty: 'advanced' },
-      { id: 'math-g1-eq-f-fc27', front: '$x = 12$（最小公倍数 $12$ をかけて $3x - 2x = 12$）', back: '$\\dfrac{x}{4} - \\dfrac{x}{6} = 1$ の解は？', difficulty: 'advanced' },
-      { id: 'math-g1-eq-f-fc28', front: '$x = 7$（最小公倍数 $6$ をかけて $2(x+2) = 3(x-1)$、$2x+4 = 3x-3$）', back: '$\\dfrac{x+2}{3} = \\dfrac{x-1}{2}$ の解は？', difficulty: 'advanced' },
-      { id: 'math-g1-eq-f-fc29', front: '$x = 8$（$\\dfrac{x}{2} - \\dfrac{x+1}{3} = 1$ → 最小公倍数 $6$: $3x - 2(x+1) = 6$、$x - 2 = 6$）', back: '$0.5x - \\dfrac{x+1}{3} = 1$ の解は？', difficulty: 'advanced' },
-      { id: 'math-g1-eq-f-fc30', front: '$x = 6$（最小公倍数 $6$: $3x + 2x + x = 36$、$6x = 36$）', back: '$\\dfrac{x}{2} + \\dfrac{x}{3} + \\dfrac{x}{6} = 6$ の解は？', difficulty: 'advanced' },
-      { id: 'math-g1-eq-f-fc31', front: '$a = 2$（$x = 4$ を代入: $\\dfrac{4+a}{3} = 2$、$4 + a = 6$）', back: '$\\dfrac{x+a}{3} = 2$ の解が $x = 4$ のとき $a$ は？', difficulty: 'advanced' },
+      { id: 'math-g1-eq-f-fc25', front: '$x = 8$', back: '$\\dfrac{2x-1}{3} = \\dfrac{x+2}{2}$ の解は？', explanation: '最小公倍数 $6$ をかけて $2(2x-1) = 3(x+2)$、$4x-2 = 3x+6$', difficulty: 'advanced' },
+      { id: 'math-g1-eq-f-fc26', front: '小数 → 整数化、分数 → 分母をはらう', back: '小数・分数の方程式の最終ゴールは？', explanation: '最終目標は $ax = b$ の形にすること', difficulty: 'advanced' },
+      { id: 'math-g1-eq-f-fc27', front: '$x = 12$', back: '$\\dfrac{x}{4} - \\dfrac{x}{6} = 1$ の解は？', explanation: '最小公倍数 $12$ をかけて $3x - 2x = 12$', difficulty: 'advanced' },
+      { id: 'math-g1-eq-f-fc28', front: '$x = 7$', back: '$\\dfrac{x+2}{3} = \\dfrac{x-1}{2}$ の解は？', explanation: '最小公倍数 $6$ をかけて $2(x+2) = 3(x-1)$、$2x+4 = 3x-3$', difficulty: 'advanced' },
+      { id: 'math-g1-eq-f-fc29', front: '$x = 8$', back: '$0.5x - \\dfrac{x+1}{3} = 1$ の解は？', explanation: '$\\dfrac{x}{2} - \\dfrac{x+1}{3} = 1$ → 最小公倍数 $6$: $3x - 2(x+1) = 6$、$x - 2 = 6$', difficulty: 'advanced' },
+      { id: 'math-g1-eq-f-fc30', front: '$x = 6$', back: '$\\dfrac{x}{2} + \\dfrac{x}{3} + \\dfrac{x}{6} = 6$ の解は？', explanation: '最小公倍数 $6$: $3x + 2x + x = 36$、$6x = 36$', difficulty: 'advanced' },
+      { id: 'math-g1-eq-f-fc31', front: '$a = 2$', back: '$\\dfrac{x+a}{3} = 2$ の解が $x = 4$ のとき $a$ は？', explanation: '$x = 4$ を代入: $\\dfrac{4+a}{3} = 2$、$4 + a = 6$', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -88,7 +88,7 @@ export const eqFractions: Topic = {
           options: ['$x = 6$', '$x = 1.5$', '$x = 3.5$', '$x = 15$'],
           correctIndex: 0,
           explanation:
-            '両辺を 10倍すると $5x = 30$、$x = 6$。',
+            '両辺を 10倍すると $5x = 30$。\n$x = 6$。',
           difficulty: 'basic',
         },
         {
@@ -97,7 +97,7 @@ export const eqFractions: Topic = {
           options: ['$x = 2$', '$x = 4$', '$x = 5.5$', '$x = 7$'],
           correctIndex: 1,
           explanation:
-            '両辺を 10倍: $2x + 3 = 11$。移項して $2x = 8$、$x = 4$。',
+            '両辺を 10倍: $2x + 3 = 11$。\n移項して $2x = 8$、$x = 4$。',
           difficulty: 'basic',
         },
         {
@@ -106,7 +106,7 @@ export const eqFractions: Topic = {
           options: ['$2$ 倍', '$5$ 倍', '$10$ 倍', '$100$ 倍'],
           correctIndex: 2,
           explanation:
-            '小数第1位までなので 10倍して $4x = 20$、$x = 5$。',
+            '小数第1位までなので 10倍して $4x = 20$。\n$x = 5$。',
           difficulty: 'basic',
         },
         {
@@ -115,7 +115,7 @@ export const eqFractions: Topic = {
           options: ['$x = 0.2$', '$x = 2$', '$x = 12$', '$x = 20$'],
           correctIndex: 1,
           explanation:
-            '10倍: $6x - 12 = 0$、$6x = 12$、$x = 2$。',
+            '10倍: $6x - 12 = 0$。\n$6x = 12$、$x = 2$。',
           difficulty: 'basic',
         },
         {
@@ -147,7 +147,7 @@ export const eqFractions: Topic = {
           options: ['$5$ 倍', '$10$ 倍', '$50$ 倍', '$100$ 倍'],
           correctIndex: 3,
           explanation:
-            '小数第2位までなので 100倍して $5x = 100$、$x = 20$。',
+            '小数第2位までなので 100倍して $5x = 100$。\n$x = 20$。',
           difficulty: 'basic',
         },
         {
@@ -175,7 +175,7 @@ export const eqFractions: Topic = {
           options: ['$x = 5$', '$x = 10$', '$x = 6$', '$x = 15$'],
           correctIndex: 2,
           explanation:
-            '最小公倍数 6 をかけて $3x + 2x = 30$、$5x = 30$、$x = 6$。',
+            '最小公倍数 6 をかけて $3x + 2x = 30$。\n$5x = 30$、$x = 6$。',
           difficulty: 'standard',
         },
         {
@@ -193,7 +193,7 @@ export const eqFractions: Topic = {
           options: ['$x = 7$', '$x = 1$', '$x = 12$', '$x = \\dfrac{1}{12}$'],
           correctIndex: 2,
           explanation:
-            '最小公倍数 12 をかけて $4x - 3x = 12$、$x = 12$。',
+            '最小公倍数 12 をかけて $4x - 3x = 12$。\n$x = 12$。',
           difficulty: 'standard',
         },
         {
@@ -202,7 +202,7 @@ export const eqFractions: Topic = {
           options: ['$x = 4$', '$x = 6$', '$x = 3$', '$x = 9$'],
           correctIndex: 1,
           explanation:
-            '10倍: $3x - 5 = 13$、$3x = 18$、$x = 6$。',
+            '10倍: $3x - 5 = 13$。\n$3x = 18$、$x = 6$。',
           difficulty: 'standard',
         },
         {
@@ -229,7 +229,7 @@ export const eqFractions: Topic = {
           options: ['$x = 6$', '$x = 8$', '$x = 10$', '$x = 12$'],
           correctIndex: 2,
           explanation:
-            '100倍: $25x - 50 = 200$、$25x = 250$、$x = 10$。',
+            '100倍: $25x - 50 = 200$。\n$25x = 250$、$x = 10$。',
           difficulty: 'standard',
         },
         {
@@ -238,7 +238,7 @@ export const eqFractions: Topic = {
           options: ['$x = 10$', '$x = 14$', '$x = 7$', '$x = 35$'],
           correctIndex: 0,
           explanation:
-            '最小公倍数 10 をかけて $5x + 2x = 70$、$7x = 70$、$x = 10$。',
+            '最小公倍数 10 をかけて $5x + 2x = 70$。\n$7x = 70$、$x = 10$。',
           difficulty: 'standard',
         },
         {
@@ -252,7 +252,7 @@ export const eqFractions: Topic = {
           ],
           correctIndex: 1,
           explanation:
-            '①かっこをはずす → ②分母をはらう → ③移項して整理 → ④$ax = b$ → ⑤両辺を $a$ で割る。',
+            '①かっこをはずす → ②分母をはらう → ③移項して整理\n→ ④$ax = b$ → ⑤両辺を $a$ で割る。',
           difficulty: 'standard',
         },
         {
@@ -280,7 +280,7 @@ export const eqFractions: Topic = {
           options: ['$x = 5$', '$x = 7$', '$x = 8$', '$x = \\dfrac{7}{2}$'],
           correctIndex: 2,
           explanation:
-            '最小公倍数 6 をかけて $2(2x-1) = 3(x+2)$、$4x-2 = 3x+6$、$x = 8$。',
+            '最小公倍数 6 をかけて $2(2x-1) = 3(x+2)$。\n$4x-2 = 3x+6$、$x = 8$。',
           difficulty: 'advanced',
         },
         {
@@ -289,7 +289,7 @@ export const eqFractions: Topic = {
           options: ['$x = 5$', '$x = 7$', '$x = 8$', '$x = 1$'],
           correctIndex: 1,
           explanation:
-            '最小公倍数 6 をかけて $2(x+2) = 3(x-1)$、$2x+4 = 3x-3$、$x = 7$。',
+            '最小公倍数 6 をかけて $2(x+2) = 3(x-1)$。\n$2x+4 = 3x-3$、$x = 7$。',
           difficulty: 'advanced',
         },
         {
@@ -298,7 +298,7 @@ export const eqFractions: Topic = {
           options: ['$x = 4$', '$x = 6$', '$x = 8$', '$x = 12$'],
           correctIndex: 2,
           explanation:
-            '$0.5x = \\dfrac{x}{2}$ なので $\\dfrac{x}{2} + \\dfrac{x}{4} = 6$。最小公倍数 4: $2x + x = 24$、$3x = 24$、$x = 8$。',
+            '$0.5x = \\dfrac{x}{2}$ なので $\\dfrac{x}{2} + \\dfrac{x}{4} = 6$。\n最小公倍数 4: $2x + x = 24$、$3x = 24$、$x = 8$。',
           difficulty: 'advanced',
         },
         {
@@ -307,7 +307,7 @@ export const eqFractions: Topic = {
           options: ['$x = 3$', '$x = 6$', '$x = 12$', '$x = 18$'],
           correctIndex: 1,
           explanation:
-            '最小公倍数 6 をかけて $3x + 2x + x = 36$、$6x = 36$、$x = 6$。',
+            '最小公倍数 6 をかけて $3x + 2x + x = 36$。\n$6x = 36$、$x = 6$。',
           difficulty: 'advanced',
         },
         {
