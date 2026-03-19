@@ -80,3 +80,28 @@ In 1950, Kinkaku-ji was destroyed by a fire. It was rebuilt in 1955. The temple 
 
 (5) She was surprised (　　) the news.
 **答え: at（be surprised at 〜 =「〜に驚く」）**
+
+## 大問5: 世界遺産に関する長文読解（4点×5＝20点）
+
+次の英文を読んで、あとの問いに答えなさい。
+
+Mt. Fuji was listed as a cultural World Heritage site in 2013. It is the highest mountain in Japan. It often appears in pictures, paintings, and stories. It can be seen on the walls of public baths. More and more tourists climb Mt. Fuji every year. They can enjoy a wonderful sunrise and a sea of clouds. Some of them walk around the crater. However, Mt. Fuji has a big problem. A large amount of garbage is left on the mountain trails by tourists.
+
+(1) 富士山はいつ世界遺産に登録されましたか。
+**答え: 2013年に登録された。（It was listed in 2013.）**
+
+(2) 「It can be seen on the walls of public baths.」を日本語に訳しなさい。
+**答え: それは銭湯の壁に見ることができます。（銭湯の壁に描かれている）**
+
+(3) 富士山の問題は何ですか。日本語で答えなさい。
+**答え: 観光客によって登山道にたくさんのゴミが残されていること。**
+
+(4) 本文中から受け身の文を2つ抜き出しなさい。
+**答え:（例）Mt. Fuji was listed as a cultural World Heritage site in 2013. / A large amount of garbage is left on the mountain trails by tourists.**
+
+(5) 本文の内容にあうものを1つ選びなさい。
+ア Mt. Fuji is a natural World Heritage site.
+イ The number of tourists to Mt. Fuji is decreasing.
+ウ People can enjoy a sunrise on Mt. Fuji.
+エ Mt. Fuji has no problems.
+**答え: ウ**

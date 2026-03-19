@@ -112,3 +112,26 @@ My dog ( than / bigger / is ) your dog.
 
 (6) This problem is ( bad / worse / worst ) than that one.
 **答え: worse（bad の比較級は worse）**
+
+## 大問6: データ読み取り問題（4点×4＝16点）
+
+次の表を参考に、英文を完成させなさい。
+
+| Sport | Number of students |
+|-------|-------------------|
+| basketball | 12 |
+| soccer | 7 |
+| tennis | 7 |
+| volleyball | 5 |
+
+(1) Basketball is the ___ ___ sport in our class.
+**答え: most popular**
+
+(2) Soccer is ___ popular ___ tennis.
+**答え: as, as**
+
+(3) Volleyball is the ___ popular ___ the four sports.
+**答え: least, of**
+
+(4) ___ students like basketball ___ volleyball.
+**答え: More, than**

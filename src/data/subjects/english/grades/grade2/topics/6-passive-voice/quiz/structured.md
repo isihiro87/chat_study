@@ -112,3 +112,31 @@ This chair ___ ___ of wood.
 
 (5) ワインはぶどうから作られます。
 **答え: Wine is made from grapes.**
+
+## 大問6: 助動詞のある受け身（3点×6＝18点）
+
+次の日本文にあう英文になるように、___に適する語を書きなさい。
+
+(1) この建物は世界遺産として訪れるべきです。
+This building ___ ___ visited as a World Heritage site.
+**答え: should be**
+
+(2) ゴミは持ち帰らなければなりません。
+Your garbage ___ ___ taken away.
+**答え: must be**
+
+(3) この美しい景色は楽しむことができます。
+This beautiful view ___ ___ enjoyed.
+**答え: can be**
+
+(4) 富士山は人々に永遠に楽しまれるでしょう。
+Mt. Fuji ___ ___ enjoyed by people forever.
+**答え: will be**
+
+(5) この料理はお好み焼きと呼ばれています。
+This dish ___ ___ okonomiyaki.
+**答え: is called**
+
+(6) たくさんの食べ物がお皿の上に残されていました。
+A large amount of food ___ ___ on the plate.
+**答え: was left**

@@ -172,3 +172,63 @@ A: I am interested in science.
 
 Q: 「彼はそのニュースに驚きました。」を英語で？
 A: He was surprised at the news.
+
+## 助動詞のある受け身（will be / can be / must be / should be）
+
+Q: 「富士山は人々に永遠に楽しまれるでしょう。」を英語で？
+A: Mt. Fuji will be enjoyed by people forever.
+
+Q: 「この箱は簡単に動かすことができます。」を英語で？（受け身で）
+A: These boxes can be moved easily.
+
+Q: 「校則は守られなければなりません。」を英語で？
+A: School rules must be followed.
+
+Q: 「教室は毎日きれいにされるべきです。」を英語で？
+A: Classrooms should be cleaned every day.
+
+Q: 「この植物は寒い場所で見つけることができます。」を英語で？（受け身で）
+A: This plant can be found in cold places.
+
+Q: 「この靴は水で洗ってはいけません。」を英語で？（受け身で）
+A: This kind of shoes must not be washed with water.
+
+Q: 助動詞のある受け身の文の形は？
+A: 助動詞 + be + 過去分詞（will be enjoyed, can be seen, must be followed など）
+
+Q: 「彼の新製品は多くの人に愛されるでしょう。」を英語で？
+A: His new product will be loved by many people.
+
+## 「〜と呼ばれている」（be called）
+
+Q: 「この料理はお好み焼きと呼ばれています。」を英語で？
+A: This dish is called okonomiyaki.
+
+Q: 「そのイヌはポチと呼ばれていますか？」を英語で？
+A: Is the dog called Pochi?
+
+Q: 「あなたは友だちに何と呼ばれていますか？」を英語で？
+A: What are you called by your friends?
+
+Q: 「この場所は世界遺産に選ばれています。」を英語で？
+A: This place is selected as a World Heritage site.
+
+## World Heritage関連の語彙
+
+Q: site（サイト）の意味は？
+A: 場所、遺跡
+
+Q: heritage（ヘリテージ）の意味は？
+A: 遺産
+
+Q: select（セレクト）の意味は？
+A: 選ぶ
+
+Q: protect（プロテクト）の意味は？
+A: 守る、保護する
+
+Q: natural の意味は？
+A: 自然の
+
+Q: cultural の意味は？
+A: 文化的な

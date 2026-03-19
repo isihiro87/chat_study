@@ -17,6 +17,12 @@ A: My dog is bigger than your dog.
 Q: 「この映画はあの映画より人気がある。」を英語で？
 A: This movie is more popular than that one.
 
+Q: 「理科は数学より簡単です。」を英語で？
+A: Science is easier than math.
+
+Q: 「アイスホッケーは他のスポーツよりおもしろい。」を英語で？
+A: Ice hockey is more interesting than other sports.
+
 ## 最上級の基本（-est / most）
 
 Q: 「彼はクラスでいちばん背が高い。」を英語で？
@@ -34,6 +40,12 @@ A: Tokyo is the biggest city in Japan.
 Q: 「彼女は3人の中でいちばん若い。」を英語で？
 A: She is the youngest of the three.
 
+Q: 「琵琶湖は日本でいちばん大きい湖です。」を英語で？
+A: Lake Biwa is the largest lake in Japan.
+
+Q: 「英語はいちばん役に立つ言語です。」を英語で？
+A: English is the most useful language.
+
 ## as〜as（同等比較）/ not as〜as
 
 Q: 「彼女はお母さんと同じくらい背が高い。」を英語で？
@@ -50,6 +62,12 @@ A: This question is not as difficult as that one.
 
 Q: 「私の部屋はあなたの部屋と同じくらい広い。」を英語で？
 A: My room is as large as yours.
+
+Q: 「私の鉛筆はあなたの鉛筆と同じくらい短い。」を英語で？
+A: My pencil is as short as yours.
+
+Q: 「サッカーはテニスと同じくらい人気がある。」を英語で？
+A: Soccer is as popular as tennis.
 
 ## 不規則変化（good-better-best, bad-worse-worst, many/much-more-most）
 
@@ -77,6 +95,9 @@ A: better（goodと同じ変化）
 Q: 「彼女は私より上手にピアノを弾く。」を英語で？
 A: She plays the piano better than I.
 
+Q: 「ラーメンはカレーや御飯よりいちばん好きです。」を英語で？
+A: Randy likes ramen better than curry and rice. (Note: 比較級 better の使用)
+
 ## 比較級・最上級のつづり変化
 
 Q: big の比較級は？
@@ -93,6 +114,15 @@ A: earliest（y を i にかえて est をつける）
 
 Q: large の比較級は？
 A: larger（e で終わるときは r だけつける）
+
+Q: famous の比較級は？
+A: more famous（長い語なので more をつける）
+
+Q: busy の比較級は？
+A: busier（y を i にかえて er をつける）
+
+Q: nice の比較級は？
+A: nicer（e で終わるときは r だけつける）
 
 ## than / in / of の使い分け
 
@@ -155,3 +185,26 @@ A: This flower is as beautiful as that one.
 
 Q: 「ケンはトムより背が高い。」を not as〜as を使って書きかえると？
 A: Tom is not as tall as Ken.
+
+Q: 「ますます多くの葉が赤くなっています。」を英語で？
+A: More and more leaves are turning red.
+
+Q: 「彼女は独特な演技のために有名になりつつあります。」を英語で？
+A: She is becoming famous for her unique performance.
+
+## プレゼンテーション・アンケートの語彙
+
+Q: quiz（クイズ）のつづりは？
+A: q-u-i-z
+
+Q: survey（調査）の意味は？
+A: アンケート、調査
+
+Q: conclusion（結論）の意味は？
+A: 結論、結び
+
+Q: graph（グラフ）のつづりは？
+A: g-r-a-p-h
+
+Q: percent（パーセント）のつづりは？
+A: p-e-r-c-e-n-t

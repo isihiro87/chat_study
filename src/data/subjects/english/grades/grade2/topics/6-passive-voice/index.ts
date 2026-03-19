@@ -268,6 +268,103 @@ export const passiveVoice: Topic = {
         explanation: 'be interested in 〜 =「〜に興味がある」。',
         difficulty: 'advanced',
       },
+      // --- 助動詞+受け身 / be called (12枚) ---
+      {
+        id: 'eng-pass-fc29',
+        front: 'will be enjoyed',
+        back: 'Mt. Fuji (　　) by people forever.\n（富士山は人々に永遠に楽しまれるでしょう。）',
+        hint: '「〜されるでしょう」は助動詞 + be + 過去分詞だよ',
+        explanation: 'will be + 過去分詞で「〜されるでしょう」。enjoy の過去分詞は enjoyed。',
+        difficulty: 'standard',
+      },
+      {
+        id: 'eng-pass-fc30',
+        front: 'can be seen',
+        back: 'It (　　) on the walls of public baths.\n（それは銭湯の壁に見ることができます。）',
+        hint: '「見ることができる」を受け身にすると…？ can + be + ???',
+        explanation: 'can be + 過去分詞で「〜されることができる」。see の過去分詞は seen。',
+        difficulty: 'standard',
+      },
+      {
+        id: 'eng-pass-fc31',
+        front: 'must be followed',
+        back: 'School rules (　　).\n（校則は守られなければなりません。）',
+        hint: '「守られなければならない」= must + be + ???',
+        explanation: 'must be + 過去分詞で「〜されなければならない」。follow の過去分詞は followed。',
+        difficulty: 'standard',
+      },
+      {
+        id: 'eng-pass-fc32',
+        front: 'should be cleaned',
+        back: 'Classrooms (　　) every day.\n（教室は毎日きれいにされるべきです。）',
+        hint: '「きれいにされるべき」= should + be + ???',
+        explanation: 'should be + 過去分詞で「〜されるべき」。clean の過去分詞は cleaned。',
+        difficulty: 'standard',
+      },
+      {
+        id: 'eng-pass-fc33',
+        front: 'is called',
+        back: 'This dish (　　) okonomiyaki.\n（この料理はお好み焼きと呼ばれています。）',
+        hint: '「〜と呼ばれている」は受け身だよ。be + ???',
+        explanation: 'be called 〜 =「〜と呼ばれている」。call の過去分詞は called。',
+        difficulty: 'basic',
+      },
+      {
+        id: 'eng-pass-fc34',
+        front: 'was listed',
+        back: 'Mt. Fuji (　　) as a World Heritage site in 2013.\n（富士山は2013年に世界遺産に登録されました。）',
+        hint: '「リストに載せられた」= 過去の受け身。list の過去分詞は…？',
+        explanation: 'list の過去分詞は listed。過去の受け身は was + 過去分詞。',
+        difficulty: 'standard',
+      },
+      {
+        id: 'eng-pass-fc35',
+        front: 'is covered',
+        back: 'The mountain (　　) with snow.\n（その山は雪でおおわれています。）',
+        hint: '「おおわれている」は受け身。cover の過去分詞は…？',
+        explanation: 'cover の過去分詞は covered。is covered with 〜 =「〜でおおわれている」。',
+        difficulty: 'standard',
+      },
+      {
+        id: 'eng-pass-fc36',
+        front: 'must not be washed',
+        back: 'This kind of shoes (　　) with water.\n（この種類の靴は水で洗ってはいけません。）',
+        hint: '「洗ってはいけない」= must not + be + ???',
+        explanation: 'must not be + 過去分詞で「〜されてはいけない」。wash の過去分詞は washed。',
+        difficulty: 'advanced',
+      },
+      {
+        id: 'eng-pass-fc37',
+        front: 'selected',
+        back: 'select（選ぶ）の過去分詞は？',
+        hint: 'ふつうの動詞は -ed をつけるよ',
+        explanation: 'select → selected。This place is selected as a World Heritage site.',
+        difficulty: 'basic',
+      },
+      {
+        id: 'eng-pass-fc38',
+        front: 'protected',
+        back: 'protect（守る・保護する）の過去分詞は？',
+        hint: 'ふつうの動詞は -ed をつけるよ',
+        explanation: 'protect → protected。These forests must be protected.',
+        difficulty: 'basic',
+      },
+      {
+        id: 'eng-pass-fc39',
+        front: 'can be found',
+        back: 'This plant (　　) in cold places.\n（この植物は寒い場所で見つけることができます。）',
+        hint: '「見つけることができる」を受け身にすると…？ can + be + ???',
+        explanation: 'can be + 過去分詞。find の過去分詞は found。can be found =「見つけることができる」。',
+        difficulty: 'standard',
+      },
+      {
+        id: 'eng-pass-fc40',
+        front: 'will be needed',
+        back: 'More volunteers (　　) next year.\n（来年はもっと多くのボランティアが必要とされるでしょう。）',
+        hint: '「必要とされるでしょう」= will + be + ???',
+        explanation: 'will be + 過去分詞で「〜されるでしょう」。need の過去分詞は needed。',
+        difficulty: 'advanced',
+      },
     ],
     quiz: {
       questions: [
@@ -567,6 +664,148 @@ export const passiveVoice: Topic = {
             '「Kyoto is known for its temples.」が正解。be known for 〜 =「〜で有名」だよ。',
           difficulty: 'advanced',
         },
+        // --- choice: 助動詞+受け身 / be called (7問) ---
+        {
+          id: 'eng-pass-q27',
+          question:
+            '「Mt. Fuji (　　) by people forever.（富士山は人々に永遠に楽しまれるでしょう。）」\nの (　　) に入るのは？',
+          options: ['will enjoy', 'will be enjoyed', 'is enjoyed', 'enjoys'],
+          correctIndex: 1,
+          explanation:
+            '「〜されるでしょう」は助動詞 + be + 過去分詞。will be enjoyed が正解だよ。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'eng-pass-q28',
+          question:
+            '「School rules (　　).（校則は守られなければなりません。）」\nの (　　) に入るのは？',
+          options: ['must follow', 'must be followed', 'are followed', 'must following'],
+          correctIndex: 1,
+          explanation:
+            '「守られなければならない」は must + be + 過去分詞。must be followed が正解。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'eng-pass-q29',
+          question:
+            '「This dish (　　) okonomiyaki.（この料理はお好み焼きと呼ばれています。）」\nの (　　) に入るのは？',
+          options: ['calls', 'is calling', 'is called', 'called'],
+          correctIndex: 2,
+          explanation:
+            '「〜と呼ばれている」は受け身の be called。is called が正解だよ。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'eng-pass-q30',
+          question:
+            '「This plant (　　) in cold places.（この植物は寒い場所で見つけることができます。）」\nの (　　) に入るのは？',
+          options: ['can find', 'can be found', 'is found', 'can found'],
+          correctIndex: 1,
+          explanation:
+            '「見つけることができる」を受け身にすると can be found。can + be + 過去分詞の形だよ。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'eng-pass-q31',
+          question: '助動詞のある受け身の文の形として正しいのは？',
+          options: [
+            '助動詞 + 過去分詞',
+            '助動詞 + be + 過去分詞',
+            'be動詞 + 助動詞 + 過去分詞',
+            '助動詞 + being + 過去分詞',
+          ],
+          correctIndex: 1,
+          explanation:
+            '助動詞のある受け身は「助動詞 + be + 過去分詞」の形。will be enjoyed, can be found など。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'eng-pass-q32',
+          question:
+            '「Nurses help doctors.」を受け身にすると正しいのは？',
+          options: [
+            'Doctors are helped by nurses.',
+            'Doctors is helped by nurses.',
+            'Doctors helped by nurses.',
+            'Doctors are help by nurses.',
+          ],
+          correctIndex: 0,
+          explanation:
+            '目的語 doctors を主語にして、be動詞 + 過去分詞 + by 〜。Doctors（複数）だから are helped by nurses.',
+          difficulty: 'standard',
+        },
+        {
+          id: 'eng-pass-q33',
+          question:
+            '「His violin was made 300 years ago.」の下線部（300 years ago）をたずねる疑問文は？',
+          options: [
+            'What was his violin made?',
+            'When was his violin made?',
+            'Where was his violin made?',
+            'Who was his violin made?',
+          ],
+          correctIndex: 1,
+          explanation:
+            '「300年前に」は「いつ」をたずねているから When を使うよ。When was his violin made?',
+          difficulty: 'advanced',
+        },
+        // --- reorder: 助動詞+受け身 / be called (4問) ---
+        {
+          id: 'eng-pass-q34',
+          type: 'reorder',
+          question:
+            '次の単語を正しい順番にならべて、\n「富士山は人々に永遠に楽しまれるでしょう。」という英文を作ろう。',
+          words: ['be', 'Mt. Fuji', 'will', 'enjoyed', 'by', 'people', 'forever'],
+          correctOrder: [1, 2, 0, 3, 4, 5, 6],
+          punctuation: '.',
+          options: [],
+          correctIndex: -1,
+          explanation:
+            '「Mt. Fuji will be enjoyed by people forever.」が正解。助動詞 + be + 過去分詞の形だよ。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'eng-pass-q35',
+          type: 'reorder',
+          question:
+            '次の単語を正しい順番にならべて、\n「この料理はお好み焼きと呼ばれています。」という英文を作ろう。',
+          words: ['called', 'this', 'is', 'dish', 'okonomiyaki'],
+          correctOrder: [1, 3, 2, 0, 4],
+          punctuation: '.',
+          options: [],
+          correctIndex: -1,
+          explanation:
+            '「This dish is called okonomiyaki.」が正解。be called 〜 =「〜と呼ばれている」。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'eng-pass-q36',
+          type: 'reorder',
+          question:
+            '次の単語を正しい順番にならべて、\n「なぜその都市は花の都と呼ばれているのですか。」という英文を作ろう。',
+          words: ['the City', 'is', 'why', 'called', 'of Flowers', 'the city'],
+          correctOrder: [2, 1, 5, 3, 0, 4],
+          punctuation: '?',
+          options: [],
+          correctIndex: -1,
+          explanation:
+            '「Why is the city called the City of Flowers?」が正解。疑問詞 + be動詞 + 主語 + called 〜 の語順だよ。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'eng-pass-q37',
+          type: 'reorder',
+          question:
+            '次の単語を正しい順番にならべて、\n「これらの森は保護されなければなりません。」という英文を作ろう。',
+          words: ['must', 'these', 'be', 'forests', 'protected'],
+          correctOrder: [1, 3, 0, 2, 4],
+          punctuation: '.',
+          options: [],
+          correctIndex: -1,
+          explanation:
+            '「These forests must be protected.」が正解。助動詞 + be + 過去分詞の形だよ。',
+          difficulty: 'standard',
+        },
       ],
     },
     examples: {
@@ -730,6 +969,58 @@ export const passiveVoice: Topic = {
           ],
           answer:
             'be made of 〜 = 材料が見てわかるとき\nbe made from 〜 = 原料が変化して見えないとき',
+        },
+        {
+          id: 'eng-pass-ex7',
+          question:
+            '次の日本語を英語にしよう。\n「校則は守られなければなりません。」',
+          steps: [
+            {
+              title: 'Step 1: 主語を確認しよう',
+              content: '「校則は」= School rules だね。',
+              highlight: 'School rules',
+            },
+            {
+              title: 'Step 2: 助動詞+受け身の形にしよう',
+              content:
+                '「守られなければならない」= must + be + 過去分詞。follow（守る）の過去分詞は followed だよ。',
+              highlight: 'must be followed',
+            },
+            {
+              title: 'Step 3: 完成！',
+              content:
+                '助動詞のある受け身は「助動詞 + be + 過去分詞」の形。beを忘れないようにしよう！',
+              highlight: 'School rules must be followed.',
+            },
+          ],
+          answer:
+            'School rules must be followed.（校則は守られなければなりません。）',
+        },
+        {
+          id: 'eng-pass-ex8',
+          question:
+            '次の日本語を英語にしよう。\n「この料理はお好み焼きと呼ばれています。」',
+          steps: [
+            {
+              title: 'Step 1: 主語を確認しよう',
+              content: '「この料理は」= This dish だね。',
+              highlight: 'This dish',
+            },
+            {
+              title: 'Step 2: 「呼ばれている」を受け身にしよう',
+              content:
+                '「〜と呼ばれている」= is called（受け身）。call の過去分詞は called だよ。',
+              highlight: 'is called',
+            },
+            {
+              title: 'Step 3: 名前をつけて完成！',
+              content:
+                'うしろに呼ばれている名前をそのまま置くだけ。okonomiyaki をつけて完成！',
+              highlight: 'okonomiyaki',
+            },
+          ],
+          answer:
+            'This dish is called okonomiyaki.（この料理はお好み焼きと呼ばれています。）',
         },
       ],
     },

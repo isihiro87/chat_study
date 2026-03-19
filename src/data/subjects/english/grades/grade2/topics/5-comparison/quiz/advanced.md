@@ -90,3 +90,26 @@
 
 (4) 「one of the + 最上級 + 複数名詞」を使って、好きなものについて英文を1つ書きなさい。
 **答え:（例）Tokyo Tower is one of the most famous places in Japan. / He is one of the best players in the world.**
+
+## 大問5: プレゼンテーション・スピーチ文の読解（4点×4＝16点）
+
+次の英文を読んで、あとの問いに答えなさい。
+
+According to our results, 80 percent of our classmates like sports. For favorite sports, 12 of our classmates like basketball the best. Seven of them like tennis the best, and soccer got the same number. Six like other sports, such as baseball, volleyball, or curling. In conclusion, we found that basketball is the most popular sport in our class.
+
+(1) 下線部 "In conclusion" の意味に最も近いものを選びなさい。
+ア はじめに  イ 次に  ウ 結論として  エ 例えば
+**答え: ウ**
+
+(2) いちばん人気があるスポーツは何ですか。英語で答えなさい。
+**答え: Basketball (is the most popular sport).**
+
+(3) テニスとサッカーの人気はどうですか。英語で答えなさい。
+**答え: Tennis is as popular as soccer. / They got the same number.**
+
+(4) 本文の内容にあうものを選びなさい。
+ア 80 percent of the classmates like basketball.
+イ Soccer is more popular than tennis.
+ウ Basketball is the most popular sport.
+エ More students like volleyball than curling.
+**答え: ウ**

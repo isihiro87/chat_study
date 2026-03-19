@@ -296,6 +296,91 @@ export const comparison: Topic = {
         explanation: 'bad → worse → worst。不規則変化のセットで覚えよう。',
         difficulty: 'advanced',
       },
+      // === つづり変化の追加 (basic / standard) ===
+      {
+        id: 'eng-comp-fc31',
+        front: 'larger',
+        back: 'large の比較級は？',
+        hint: 'e で終わるときは r だけつけるよ',
+        explanation: 'large → larger。e で終わるときは r だけつけるよ。',
+        difficulty: 'basic',
+      },
+      {
+        id: 'eng-comp-fc32',
+        front: 'busier',
+        back: 'busy の比較級は？',
+        hint: 'y で終わるときは y を i にかえて er をつけるよ',
+        explanation: 'busy → busier。y を i にかえて er をつけるよ。',
+        difficulty: 'standard',
+      },
+      {
+        id: 'eng-comp-fc33',
+        front: 'earliest',
+        back: 'early の最上級は？',
+        hint: 'y で終わるときは y を i にかえて est をつけるよ',
+        explanation: 'early → earliest。y を i にかえて est をつけるよ。',
+        difficulty: 'standard',
+      },
+      {
+        id: 'eng-comp-fc34',
+        front: 'nicer',
+        back: 'nice の比較級は？',
+        hint: 'e で終わるときは r だけつけるよ',
+        explanation: 'nice → nicer。e で終わるときは r だけつけるよ。',
+        difficulty: 'basic',
+      },
+      {
+        id: 'eng-comp-fc35',
+        front: 'most useful',
+        back: 'useful の最上級は？',
+        hint: '長いことばだから前に most をつけるよ',
+        explanation: 'useful → most useful。長いことばの最上級は前に most をつけるよ。',
+        difficulty: 'standard',
+      },
+      {
+        id: 'eng-comp-fc36',
+        front: 'least',
+        back: '「少ない」の最上級で「最も少ない」は？',
+        hint: 'little の最上級だよ',
+        explanation: 'little → less → least。「最も少ない」は least だよ。',
+        difficulty: 'advanced',
+      },
+      {
+        id: 'eng-comp-fc37',
+        front: 'more and more beautiful',
+        back: '「だんだん美しくなる」を英語で？',
+        hint: '長いことばの「だんだん〜」は more and more + 形容詞 だよ',
+        explanation:
+          '長いことばの「だんだん〜」は more and more + 形容詞。more and more beautiful',
+        difficulty: 'advanced',
+      },
+      // === 文レベルのフラッシュカード (basic / standard) ===
+      {
+        id: 'eng-comp-fc38',
+        front: 'Science is easier than math.',
+        back: '「理科は数学よりかんたんです。」を英語で？',
+        hint: 'easy の比較級は？ y を i にかえて er',
+        explanation: 'easy → easier。比較級 + than の形だよ。',
+        difficulty: 'basic',
+      },
+      {
+        id: 'eng-comp-fc39',
+        front: 'Lake Biwa is the largest lake in Japan.',
+        back: '「琵琶湖は日本でいちばん大きい湖です。」を英語で？',
+        hint: 'large の最上級は largest。場所には in を使うよ',
+        explanation:
+          'large → largest。場所（Japan）には in を使うよ。the largest lake in Japan',
+        difficulty: 'standard',
+      },
+      {
+        id: 'eng-comp-fc40',
+        front: 'Soccer is as popular as tennis.',
+        back: '「サッカーはテニスと同じくらい人気がある。」を英語で？',
+        hint: '「同じくらい〜」は as〜as の形だよ',
+        explanation:
+          '「同じくらい〜」は as〜as。as popular as tennis だよ。',
+        difficulty: 'standard',
+      },
     ],
     quiz: {
       questions: [
@@ -614,6 +699,122 @@ export const comparison: Topic = {
           correctIndex: -1,
           explanation:
             '「Ken is not as tall as Tom.」が正解。not as〜as =「〜ほど…でない」の形だよ。',
+          difficulty: 'advanced',
+        },
+        // === 追加4択問題 ===
+        {
+          id: 'eng-comp-q26',
+          question:
+            '「Science is (　　) than math.（理科は数学よりかんたんです。）」\nの (　　) に入るのは？',
+          options: ['easy', 'easier', 'easiest', 'more easy'],
+          correctIndex: 1,
+          explanation:
+            'easy の比較級は easier。y を i にかえて er をつけるよ。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'eng-comp-q27',
+          question:
+            '「Lake Biwa is the (　　) lake in Japan.（琵琶湖は日本でいちばん大きい湖です。）」\nの (　　) に入るのは？',
+          options: ['large', 'larger', 'largest', 'most large'],
+          correctIndex: 2,
+          explanation:
+            '「いちばん〜」は最上級。large の最上級は largest だよ。e で終わるときは st だけつけるよ。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'eng-comp-q28',
+          question:
+            '「She is becoming (　　) famous.（彼女はだんだん有名になっている。）」\nの (　　) に入るのは？',
+          options: ['more and more', 'most and most', 'famouser and', 'very and very'],
+          correctIndex: 0,
+          explanation:
+            '長いことばの「だんだん〜」は more and more + 形容詞 の形だよ。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'eng-comp-q29',
+          question:
+            '「According to the survey, basketball is (　　) in our class.（調査によると、バスケットボールがクラスでいちばん人気があります。）」\nの (　　) に入るのは？',
+          options: ['popular', 'more popular', 'most popular', 'the most popular'],
+          correctIndex: 3,
+          explanation:
+            '「いちばん〜」は最上級。popular は長いことばだから the most popular の形にするよ。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'eng-comp-q30',
+          question: 'nice の比較級として正しいのは？',
+          options: ['nicer', 'niceer', 'more nice', 'niceier'],
+          correctIndex: 0,
+          explanation:
+            'nice → nicer。e で終わるときは r だけつけるよ。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'eng-comp-q31',
+          question: 'busy の比較級として正しいのは？',
+          options: ['busyer', 'busier', 'more busy', 'bussier'],
+          correctIndex: 1,
+          explanation:
+            'busy → busier。y を i にかえて er をつけるよ。',
+          difficulty: 'standard',
+        },
+        // === 追加並べ替え問題 ===
+        {
+          id: 'eng-comp-q32',
+          type: 'reorder',
+          question:
+            '次の単語を正しい順番にならべて、\n「私はほかのクラスメートよりも早く学校に着きます。」という英文を作ろう。',
+          words: ['at', 'I', 'earlier', 'other', 'than', 'classmates', 'arrive', 'school'],
+          correctOrder: [1, 6, 0, 7, 2, 4, 3, 5],
+          punctuation: '.',
+          options: [],
+          correctIndex: -1,
+          explanation:
+            '「I arrive at school earlier than other classmates.」が正解。early の比較級は earlier だよ。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'eng-comp-q33',
+          type: 'reorder',
+          question:
+            '次の単語を正しい順番にならべて、\n「ユウタの考えが全ての中でいちばんよいです。」という英文を作ろう。',
+          words: ["Yuta's", 'is', 'the', 'idea', 'of', 'best', 'all'],
+          correctOrder: [0, 3, 1, 2, 5, 4, 6],
+          punctuation: '.',
+          options: [],
+          correctIndex: -1,
+          explanation:
+            '「Yuta\'s idea is the best of all.」が正解。good の最上級は best。of all =「すべての中で」だよ。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'eng-comp-q34',
+          type: 'reorder',
+          question:
+            '次の単語を正しい順番にならべて、\n「彼にとって最も大切なものはお金です。」という英文を作ろう。',
+          words: ['is', 'most', 'thing', 'for', 'the', 'important', 'money', 'him'],
+          correctOrder: [4, 1, 5, 2, 3, 7, 0, 6],
+          punctuation: '.',
+          options: [],
+          correctIndex: -1,
+          explanation:
+            '「The most important thing for him is money.」が正解。important は長いことばだから most をつけるよ。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'eng-comp-q35',
+          type: 'reorder',
+          question:
+            '次の単語を正しい順番にならべて、\n「私はあなたのスピーチがよりよくなると確信しています。」という英文を完成させよう。\nI\'m sure (　　).',
+          words: ['speech', 'be', 'your', 'better', 'will', 'that'],
+          correctOrder: [5, 2, 0, 4, 1, 3],
+          punctuation: '.',
+          options: [],
+          correctIndex: -1,
+          explanation:
+            '「I\'m sure that your speech will be better.」が正解。good の比較級は better だよ。',
           difficulty: 'advanced',
         },
       ],
