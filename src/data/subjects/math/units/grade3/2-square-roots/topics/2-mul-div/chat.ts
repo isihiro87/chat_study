@@ -101,15 +101,15 @@ export const sqrtMulDivChat: HistoryChat = {
     },
     {
       type: 'quiz',
-      question: '$\\sqrt{3} \\times \\sqrt{12}$ はいくつ？',
+      question: '$\\sqrt{5} \\times \\sqrt{7}$ はいくつ？',
       options: [
-        { letter: 'A', text: '$\\sqrt{15}$', correct: false },
-        { letter: 'B', text: '$6$', correct: true },
-        { letter: 'C', text: '$\\sqrt{36}$のまま', correct: false },
-        { letter: 'D', text: '$36$', correct: false },
+        { letter: 'A', text: '$\\sqrt{12}$', correct: false },
+        { letter: 'B', text: '$\\sqrt{35}$', correct: true },
+        { letter: 'C', text: '$35$', correct: false },
+        { letter: 'D', text: '$\\sqrt{57}$', correct: false },
       ],
       explanation:
-        '$\\sqrt{3} \\times \\sqrt{12} = \\sqrt{3 \\times 12} = \\sqrt{36} = 6$。<ruby>中身<rt>なかみ</rt></ruby>をかけたら<ruby>完全平方数<rt>かんぜんへいほうすう</rt></ruby>になったよ！',
+        '$\\sqrt{5} \\times \\sqrt{7} = \\sqrt{5 \\times 7} = \\sqrt{35}$\n<ruby>中身<rt>なかみ</rt></ruby>どうしをかけるだけだよ！',
     },
     {
       type: 'date',
@@ -128,7 +128,7 @@ export const sqrtMulDivChat: HistoryChat = {
       steps: [
         {
           formula: '$\\sqrt{12} = \\sqrt{4 \\times 3}$',
-          annotation: '12を<ruby>素因数分解<rt>そいんすうぶんかい</rt></ruby>して<ruby>完全平方数<rt>かんぜんへいほうすう</rt></ruby>を<ruby>見<rt>み</rt></ruby>つける',
+          annotation: '12を<ruby>素因数分解<rt>そいんすうぶんかい</rt></ruby>して<ruby>整数<rt>せいすう</rt></ruby>の2<ruby>乗<rt>じょう</rt></ruby>を<ruby>見<rt>み</rt></ruby>つける',
         },
         {
           formula: '$= \\sqrt{4} \\times \\sqrt{3}$',
@@ -148,7 +148,7 @@ export const sqrtMulDivChat: HistoryChat = {
       side: 'right',
       characterId: 'student',
       expression: 'thinking',
-      text: '<ruby>完全平方数<rt>かんぜんへいほうすう</rt></ruby>（4とか9とか16）を<ruby>見<rt>み</rt></ruby>つけて<ruby>外<rt>そと</rt></ruby>に<ruby>出<rt>だ</rt></ruby>すんですね！',
+      text: '<ruby>整数<rt>せいすう</rt></ruby>の2<ruby>乗<rt>じょう</rt></ruby>（4とか9とか16）を<ruby>見<rt>み</rt></ruby>つけて<ruby>外<rt>そと</rt></ruby>に<ruby>出<rt>だ</rt></ruby>すんですね！',
     },
     {
       type: 'message',
@@ -177,7 +177,7 @@ export const sqrtMulDivChat: HistoryChat = {
       side: 'right',
       characterId: 'student',
       expression: 'happy',
-      text: 'できた！<ruby>素因数分解<rt>そいんすうぶんかい</rt></ruby>して<ruby>完全平方数<rt>かんぜんへいほうすう</rt></ruby>を<ruby>探<rt>さが</rt></ruby>すのがコツですね！',
+      text: 'できた！<ruby>素因数分解<rt>そいんすうぶんかい</rt></ruby>して<ruby>整数<rt>せいすう</rt></ruby>の2<ruby>乗<rt>じょう</rt></ruby>を<ruby>探<rt>さが</rt></ruby>すのがコツですね！',
     },
     {
       type: 'quiz',
@@ -189,11 +189,11 @@ export const sqrtMulDivChat: HistoryChat = {
         { letter: 'D', text: '$10\\sqrt{5}$', correct: false },
       ],
       explanation:
-        '$\\sqrt{50} = \\sqrt{25 \\times 2} = \\sqrt{25} \\times \\sqrt{2} = 5\\sqrt{2}$。$25 = 5^2$ を<ruby>外<rt>そと</rt></ruby>に<ruby>出<rt>だ</rt></ruby>すよ。',
+        '$\\sqrt{50} = \\sqrt{25 \\times 2} = \\sqrt{25} \\times \\sqrt{2} = 5\\sqrt{2}$\n$25 = 5^2$ を<ruby>外<rt>そと</rt></ruby>に<ruby>出<rt>だ</rt></ruby>すよ。',
     },
     {
       type: 'summary-point',
-      text: '$\\sqrt{}$の<ruby>中<rt>なか</rt></ruby>を<ruby>小<rt>ちい</rt></ruby>さくするには、<ruby>完全平方数<rt>かんぜんへいほうすう</rt></ruby>を<ruby>見<rt>み</rt></ruby>つけて<ruby>外<rt>そと</rt></ruby>に<ruby>出<rt>だ</rt></ruby>す！',
+      text: '$\\sqrt{}$の<ruby>中<rt>なか</rt></ruby>を<ruby>小<rt>ちい</rt></ruby>さくするには、<ruby>整数<rt>せいすう</rt></ruby>の2<ruby>乗<rt>じょう</rt></ruby>を<ruby>見<rt>み</rt></ruby>つけて<ruby>外<rt>そと</rt></ruby>に<ruby>出<rt>だ</rt></ruby>す！',
     },
     {
       type: 'quiz',
@@ -205,7 +205,7 @@ export const sqrtMulDivChat: HistoryChat = {
         { letter: 'D', text: '$3\\sqrt{8}$', correct: false },
       ],
       explanation:
-        '$\\sqrt{72} = \\sqrt{36 \\times 2} = 6\\sqrt{2}$。$72 = 6^2 \\times 2$ なので $6$ を<ruby>外<rt>そと</rt></ruby>に<ruby>出<rt>だ</rt></ruby>すよ。',
+        '$\\sqrt{72} = \\sqrt{36 \\times 2} = 6\\sqrt{2}$\n$72 = 6^2 \\times 2$ なので $6$ を<ruby>外<rt>そと</rt></ruby>に<ruby>出<rt>だ</rt></ruby>すよ。',
     },
     {
       type: 'date',
@@ -266,7 +266,7 @@ export const sqrtMulDivChat: HistoryChat = {
         { letter: 'D', text: '$\\sqrt{36}$', correct: false },
       ],
       explanation:
-        '$4\\sqrt{3} = \\sqrt{4^2 \\times 3} = \\sqrt{16 \\times 3} = \\sqrt{48}$。<ruby>外<rt>そと</rt></ruby>の $4$ を2<ruby>乗<rt>じょう</rt></ruby>して<ruby>中<rt>なか</rt></ruby>に<ruby>入<rt>い</rt></ruby>れるよ。',
+        '$4\\sqrt{3} = \\sqrt{4^2 \\times 3} = \\sqrt{16 \\times 3} = \\sqrt{48}$\n<ruby>外<rt>そと</rt></ruby>の $4$ を2<ruby>乗<rt>じょう</rt></ruby>して<ruby>中<rt>なか</rt></ruby>に<ruby>入<rt>い</rt></ruby>れるよ。',
     },
     {
       type: 'date',
@@ -324,7 +324,7 @@ export const sqrtMulDivChat: HistoryChat = {
         { letter: 'D', text: '$18.522$', correct: false },
       ],
       explanation:
-        '$\\sqrt{63} = \\sqrt{9 \\times 7} = 3\\sqrt{7} = 3 \\times 2.646 = 7.938$。<ruby>先<rt>さき</rt></ruby>に $\\sqrt{}$ の<ruby>中<rt>なか</rt></ruby>を<ruby>簡単<rt>かんたん</rt></ruby>にしてから<ruby>代入<rt>だいにゅう</rt></ruby>！',
+        '$\\sqrt{63} = \\sqrt{9 \\times 7} = 3\\sqrt{7} = 3 \\times 2.646 = 7.938$\n<ruby>先<rt>さき</rt></ruby>に $\\sqrt{}$ の<ruby>中<rt>なか</rt></ruby>を<ruby>簡単<rt>かんたん</rt></ruby>にしてから<ruby>代入<rt>だいにゅう</rt></ruby>！',
     },
     {
       type: 'summary-point',
@@ -335,7 +335,7 @@ export const sqrtMulDivChat: HistoryChat = {
       points: [
         '$\\sqrt{a} \\times \\sqrt{b} = \\sqrt{ab}$（<ruby>中身<rt>なかみ</rt></ruby>をかける）',
         '$\\sqrt{a} \\div \\sqrt{b} = \\sqrt{\\frac{a}{b}}$（<ruby>中身<rt>なかみ</rt></ruby>をわる）',
-        '$\\sqrt{12} = 2\\sqrt{3}$（<ruby>完全平方数<rt>かんぜんへいほうすう</rt></ruby>を<ruby>外<rt>そと</rt></ruby>に<ruby>出<rt>だ</rt></ruby>す）',
+        '$\\sqrt{12} = 2\\sqrt{3}$（<ruby>整数<rt>せいすう</rt></ruby>の2<ruby>乗<rt>じょう</rt></ruby>を<ruby>外<rt>そと</rt></ruby>に<ruby>出<rt>だ</rt></ruby>す）',
         '$a\\sqrt{b} = \\sqrt{a^2 b}$（<ruby>外<rt>そと</rt></ruby>の<ruby>数<rt>かず</rt></ruby>を<ruby>中<rt>なか</rt></ruby>に<ruby>入<rt>い</rt></ruby>れる）',
         '<ruby>近似値<rt>きんじち</rt></ruby>を<ruby>代入<rt>だいにゅう</rt></ruby>して<ruby>式<rt>しき</rt></ruby>の<ruby>値<rt>あたい</rt></ruby>を<ruby>求<rt>もと</rt></ruby>められる',
       ],

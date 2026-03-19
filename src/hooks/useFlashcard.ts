@@ -27,7 +27,7 @@ interface UseFlashcardReturn {
   reviewCount: number;
   notRememberedCount: number;
   sessionHistory: SessionHistory;
-  // バッチ制
+  // セット制
   currentBatchIndex: number;
   totalBatches: number;
   isBatchComplete: boolean;
@@ -60,7 +60,7 @@ export function useFlashcard(cards: Flashcard[], batchSize?: number): UseFlashca
   const [isFirstRound, setIsFirstRound] = useState(true);
   const [firstRoundStats, setFirstRoundStats] = useState({ remembered: 0, total: 0 });
 
-  // バッチ制
+  // セット制
   const [currentBatchIndex, setCurrentBatchIndex] = useState(0);
   const [isBatchComplete, setIsBatchComplete] = useState(false);
 
@@ -115,7 +115,7 @@ export function useFlashcard(cards: Flashcard[], batchSize?: number): UseFlashca
         // 復習ラウンドをインクリメント
         setReviewRounds((prev) => prev + 1);
       } else {
-        // バッチ制: 次のバッチがあればバッチ完了、なければ全体完了
+        // セット制: 次のセットがあればセット完了、なければ全体完了
         if (totalBatches > 1 && currentBatchIndex < totalBatches - 1) {
           setIsBatchComplete(true);
         } else {
@@ -130,7 +130,7 @@ export function useFlashcard(cards: Flashcard[], batchSize?: number): UseFlashca
         setIsFirstRound(false);
         setReviewRounds(1);
       } else {
-        // バッチ制: 次のバッチがあればバッチ完了、なければ全体完了
+        // セット制: 次のセットがあればセット完了、なければ全体完了
         if (totalBatches > 1 && currentBatchIndex < totalBatches - 1) {
           setIsBatchComplete(true);
         } else {
@@ -241,7 +241,7 @@ export function useFlashcard(cards: Flashcard[], batchSize?: number): UseFlashca
     advanceToNext();
   }, [markRemembered, advanceToNext]);
 
-  // 次のバッチに進む
+  // 次のセットに進む
   const nextBatch = useCallback(() => {
     if (currentBatchIndex >= totalBatches - 1) {
       setIsComplete(true);
@@ -251,7 +251,7 @@ export function useFlashcard(cards: Flashcard[], batchSize?: number): UseFlashca
     setIsBatchComplete(false);
     setCurrentIndex(0);
     setIsFlipped(false);
-    // バッチ内の状態のみリセット（remembered は全体で保持）
+    // セット内の状態のみリセット（remembered は全体で保持）
     setReviewQueue([]);
     setPendingReview([]);
     setIsReviewMode(false);
@@ -273,7 +273,7 @@ export function useFlashcard(cards: Flashcard[], batchSize?: number): UseFlashca
     setReviewRounds(0);
     setIsFirstRound(true);
     setFirstRoundStats({ remembered: 0, total: 0 });
-    // バッチもリセット
+    // セットもリセット
     setCurrentBatchIndex(0);
     setIsBatchComplete(false);
   }, []);
@@ -316,7 +316,7 @@ export function useFlashcard(cards: Flashcard[], batchSize?: number): UseFlashca
       : reviewQueue.length,
     notRememberedCount: cards.length - remembered.size,
     sessionHistory,
-    // バッチ制
+    // セット制
     currentBatchIndex,
     totalBatches,
     isBatchComplete,

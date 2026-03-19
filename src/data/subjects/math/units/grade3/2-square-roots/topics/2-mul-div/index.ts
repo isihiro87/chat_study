@@ -23,7 +23,7 @@ export const sqrtMulDiv: Topic = {
         {
           title: '√の中を小さくする（素因数分解）',
           content:
-            '√12 のように中身が大きいときは、素因数分解して簡単にしよう。√12 = √(4×3) = √4 × √3 = 2√3。完全平方数を外に出すのがポイントだよ。',
+            '√12 のように中身が大きいときは、素因数分解して簡単にしよう。√12 = √(4×3) = √4 × √3 = 2√3。整数の2乗を外に出すのがポイントだよ。',
           keyPoints: [
             '√12 = √(4×3) = 2√3（4 = 2² を外に出す）',
             '√48 = √(16×3) = 4√3（16 = 4² を外に出す）',
@@ -36,7 +36,7 @@ export const sqrtMulDiv: Topic = {
             '$a\\sqrt{b}$ の形と $\\sqrt{c}$ の形は相互に変形できるよ。$a\\sqrt{b} = \\sqrt{a^2 \\times b}$ の関係を使おう。たとえば $3\\sqrt{2} = \\sqrt{9 \\times 2} = \\sqrt{18}$。逆に $\\sqrt{18} = \\sqrt{9 \\times 2} = 3\\sqrt{2}$ と簡単にできるね。',
           keyPoints: [
             '$a\\sqrt{b} = \\sqrt{a^2 b}$（外の数を2乗して中に入れる）',
-            '$\\sqrt{c} = a\\sqrt{b}$（中から完全平方数を取り出す）',
+            '$\\sqrt{c} = a\\sqrt{b}$（中から整数の2乗を取り出す）',
             '例: $3\\sqrt{5} = \\sqrt{45}$、$4\\sqrt{3} = \\sqrt{48}$',
           ],
         },
@@ -56,182 +56,254 @@ export const sqrtMulDiv: Topic = {
     flashcards: [
       {
         id: 'math-g3-sqrt-mul-div-fc1',
-        front: '$\\sqrt{a} \\times \\sqrt{b} = \\sqrt{ab}$\nルートの中身どうしをかけるだけ！\n例: $\\sqrt{2} \\times \\sqrt{3} = \\sqrt{6}$', back: '$\\sqrt{a} \\times \\sqrt{b}$ の計算方法は？',
+        front: '$\\sqrt{a} \\times \\sqrt{b} = \\sqrt{ab}$',
+        back: '$\\sqrt{a} \\times \\sqrt{b}$ の計算方法は？',
+        explanation: 'ルートの中身どうしをかけるだけ！\n例: $\\sqrt{2} \\times \\sqrt{3} = \\sqrt{6}$',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-sqrt-mul-div-fc2',
-        front: '$\\sqrt{a} \\div \\sqrt{b} = \\sqrt{\\dfrac{a}{b}}$\nルートの中身どうしをわるだけ！\n例: $\\sqrt{10} \\div \\sqrt{2} = \\sqrt{5}$', back: '$\\sqrt{a} \\div \\sqrt{b}$ の計算方法は？',
+        front: '$\\sqrt{a} \\div \\sqrt{b} = \\sqrt{\\dfrac{a}{b}}$',
+        back: '$\\sqrt{a} \\div \\sqrt{b}$ の計算方法は？',
+        explanation: 'ルートの中身どうしをわるだけ！\n例: $\\sqrt{10} \\div \\sqrt{2} = \\sqrt{5}$',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-sqrt-mul-div-fc3',
-        front: '自然数を素数（2, 3, 5, 7, …）のかけ算に分解すること。\n例: $12 = 2^2 \\times 3$、$18 = 2 \\times 3^2$、$50 = 2 \\times 5^2$\n√を簡単にする基本ステップ！', back: '素因数分解とは？',
+        front: '自然数を素数（2, 3, 5, 7, …）のかけ算に分解すること。',
+        back: '素因数分解とは？',
+        explanation: '例: $12 = 2^2 \\times 3$、$18 = 2 \\times 3^2$、$50 = 2 \\times 5^2$\n√を簡単にする基本ステップ！',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-sqrt-mul-div-fc4',
-        front: '$4, 9, 16, 25, 36, 49, 64, 81, 100$\n（$2^2, 3^2, 4^2, 5^2, 6^2, 7^2, 8^2, 9^2, 10^2$）\nこれらがルートの外に出せる数のもと！', back: '完全平方数を小さい順に10個答えよ。',
+        front: '$4, 9, 16, 25, 36, 49, 64, 81, 100$',
+        back: '整数の2乗の数（ルートの外に出せる数）を小さい順に10個答えよ。',
+        explanation: '$2^2, 3^2, 4^2, 5^2, 6^2, 7^2, 8^2, 9^2, 10^2$\nこれらがルートの外に出せる数のもと！',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-sqrt-mul-div-fc5',
-        front: '$\\sqrt{12} = \\sqrt{4 \\times 3} = 2\\sqrt{3}$\n$12 = 2^2 \\times 3$ なので $2^2$ を外に出す。', back: '$\\sqrt{12}$ を簡単にすると？',
+        front: '$2\\sqrt{3}$',
+        back: '$\\sqrt{12}$ を簡単にすると？',
+        explanation: '$\\sqrt{12} = \\sqrt{4 \\times 3} = 2\\sqrt{3}$\n$12 = 2^2 \\times 3$ なので $2^2$ を外に出す。',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-sqrt-mul-div-fc6',
-        front: '$\\sqrt{18} = \\sqrt{9 \\times 2} = 3\\sqrt{2}$\n$18 = 3^2 \\times 2$ なので $3^2$ を外に出す。', back: '$\\sqrt{18}$ を簡単にすると？',
+        front: '$3\\sqrt{2}$',
+        back: '$\\sqrt{18}$ を簡単にすると？',
+        explanation: '$\\sqrt{18} = \\sqrt{9 \\times 2} = 3\\sqrt{2}$\n$18 = 3^2 \\times 2$ なので $3^2$ を外に出す。',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-sqrt-mul-div-fc7',
-        front: '$\\sqrt{20} = \\sqrt{4 \\times 5} = 2\\sqrt{5}$\n$20 = 2^2 \\times 5$ なので $2^2$ を外に出す。', back: '$\\sqrt{20}$ を簡単にすると？',
+        front: '$2\\sqrt{5}$',
+        back: '$\\sqrt{20}$ を簡単にすると？',
+        explanation: '$\\sqrt{20} = \\sqrt{4 \\times 5} = 2\\sqrt{5}$\n$20 = 2^2 \\times 5$ なので $2^2$ を外に出す。',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-sqrt-mul-div-fc8',
-        front: '$\\sqrt{27} = 3\\sqrt{3}$（$27 = 3^2 \\times 3$）\n$\\sqrt{32} = 4\\sqrt{2}$（$32 = 4^2 \\times 2$）\n$\\sqrt{45} = 3\\sqrt{5}$（$45 = 3^2 \\times 5$）', back: '$\\sqrt{27}$、$\\sqrt{32}$、$\\sqrt{45}$ を簡単にすると？',
+        front: '$\\sqrt{27} = 3\\sqrt{3}$\n$\\sqrt{32} = 4\\sqrt{2}$\n$\\sqrt{45} = 3\\sqrt{5}$',
+        back: '$\\sqrt{27}$、$\\sqrt{32}$、$\\sqrt{45}$ を簡単にすると？',
+        explanation: '$27 = 3^2 \\times 3$、$32 = 4^2 \\times 2$、$45 = 3^2 \\times 5$\nそれぞれ整数の2乗を外に出す。',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-sqrt-mul-div-fc9',
-        front: '$\\sqrt{50} = 5\\sqrt{2}$（$50 = 5^2 \\times 2$）\n$\\sqrt{72} = 6\\sqrt{2}$（$72 = 6^2 \\times 2$）\n$\\sqrt{75} = 5\\sqrt{3}$（$75 = 5^2 \\times 3$）', back: '$\\sqrt{50}$、$\\sqrt{72}$、$\\sqrt{75}$ を簡単にすると？',
+        front: '$\\sqrt{50} = 5\\sqrt{2}$\n$\\sqrt{72} = 6\\sqrt{2}$\n$\\sqrt{75} = 5\\sqrt{3}$',
+        back: '$\\sqrt{50}$、$\\sqrt{72}$、$\\sqrt{75}$ を簡単にすると？',
+        explanation: '$50 = 5^2 \\times 2$、$72 = 6^2 \\times 2$、$75 = 5^2 \\times 3$\nそれぞれ整数の2乗を外に出す。',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-sqrt-mul-div-fc10',
-        front: '$\\sqrt{98} = \\sqrt{49 \\times 2} = 7\\sqrt{2}$\n$98 = 7^2 \\times 2$ なので $7^2$ を外に出す。', back: '$\\sqrt{98}$ を簡単にすると？',
+        front: '$7\\sqrt{2}$',
+        back: '$\\sqrt{98}$ を簡単にすると？',
+        explanation: '$\\sqrt{98} = \\sqrt{49 \\times 2} = 7\\sqrt{2}$\n$98 = 7^2 \\times 2$ なので $7^2$ を外に出す。',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-sqrt-mul-div-fc11',
-        front: '① 中身を素因数分解する\n② 完全平方数（$a^2$）を見つける\n③ $\\sqrt{a^2 \\times b} = a\\sqrt{b}$ で外に出す\n例: $\\sqrt{48} = \\sqrt{16 \\times 3} = 4\\sqrt{3}$', back: '√の中を簡単にする手順は？',
+        front: '① 中身を素因数分解する\n② 整数の2乗（$a^2$）を見つける\n③ $\\sqrt{a^2 \\times b} = a\\sqrt{b}$ で外に出す',
+        back: '√の中を簡単にする手順は？',
+        explanation: '例: $\\sqrt{48} = \\sqrt{16 \\times 3} = 4\\sqrt{3}$',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-sqrt-mul-div-fc12',
-        front: '$a\\sqrt{b} = \\sqrt{a^2 \\times b}$\n外の $a$ を2乗してルートの中に入れる！\n例: $3\\sqrt{2} = \\sqrt{9 \\times 2} = \\sqrt{18}$', back: '$a\\sqrt{b}$ を $\\sqrt{c}$ の形にするには？',
+        front: '$a\\sqrt{b} = \\sqrt{a^2 \\times b}$',
+        back: '$a\\sqrt{b}$ を $\\sqrt{c}$ の形にするには？',
+        explanation: '外の $a$ を2乗してルートの中に入れる！\n例: $3\\sqrt{2} = \\sqrt{9 \\times 2} = \\sqrt{18}$',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-sqrt-mul-div-fc13',
-        front: '$3\\sqrt{3} = \\sqrt{3^2 \\times 3} = \\sqrt{27}$\n$3^2 = 9$ をルートの中に入れる。', back: '$3\\sqrt{3}$ を $\\sqrt{c}$ の形にすると？',
+        front: '$\\sqrt{27}$',
+        back: '$3\\sqrt{3}$ を $\\sqrt{c}$ の形にすると？',
+        explanation: '$3\\sqrt{3} = \\sqrt{3^2 \\times 3} = \\sqrt{27}$\n$3^2 = 9$ をルートの中に入れる。',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-sqrt-mul-div-fc14',
-        front: '$5\\sqrt{2} = \\sqrt{5^2 \\times 2} = \\sqrt{50}$\n$5^2 = 25$ をルートの中に入れる。', back: '$5\\sqrt{2}$ を $\\sqrt{c}$ の形にすると？',
+        front: '$\\sqrt{50}$',
+        back: '$5\\sqrt{2}$ を $\\sqrt{c}$ の形にすると？',
+        explanation: '$5\\sqrt{2} = \\sqrt{5^2 \\times 2} = \\sqrt{50}$\n$5^2 = 25$ をルートの中に入れる。',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-sqrt-mul-div-fc15',
-        front: '$\\sqrt{200} = \\sqrt{100 \\times 2} = 10\\sqrt{2} = 10 \\times 1.414 = 14.14$\n$\\sqrt{2}$ の形に変形してから代入！', back: '$\\sqrt{2} = 1.414$ のとき $\\sqrt{200}$ の値は？',
+        front: '$14.14$',
+        back: '$\\sqrt{2} = 1.414$ のとき $\\sqrt{200}$ の値は？',
+        explanation: '$\\sqrt{200} = \\sqrt{100 \\times 2} = 10\\sqrt{2} = 10 \\times 1.414 = 14.14$\n$\\sqrt{2}$ の形に変形してから代入！',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-sqrt-mul-div-fc16',
-        front: '$\\sqrt{75} = \\sqrt{25 \\times 3} = 5\\sqrt{3} = 5 \\times 1.732 = 8.660$\n$\\sqrt{3}$ の形に変形してから代入！', back: '$\\sqrt{3} = 1.732$ のとき $\\sqrt{75}$ の値は？',
+        front: '$8.660$',
+        back: '$\\sqrt{3} = 1.732$ のとき $\\sqrt{75}$ の値は？',
+        explanation: '$\\sqrt{75} = \\sqrt{25 \\times 3} = 5\\sqrt{3} = 5 \\times 1.732 = 8.660$\n$\\sqrt{3}$ の形に変形してから代入！',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-sqrt-mul-div-fc17',
-        front: '$a\\sqrt{b} \\times c\\sqrt{d} = (a \\times c)\\sqrt{b \\times d} = ac\\sqrt{bd}$\n係数どうし・ルートどうしを別々にかける！\n例: $2\\sqrt{3} \\times 3\\sqrt{5} = 6\\sqrt{15}$', back: '係数付きのかけ算 $a\\sqrt{b} \\times c\\sqrt{d}$ の方法は？',
+        front: '$a\\sqrt{b} \\times c\\sqrt{d} = ac\\sqrt{bd}$',
+        back: '係数付きのかけ算 $a\\sqrt{b} \\times c\\sqrt{d}$ の方法は？',
+        explanation: '係数どうし・ルートどうしを別々にかける！\n例: $2\\sqrt{3} \\times 3\\sqrt{5} = 6\\sqrt{15}$',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-sqrt-mul-div-fc18',
-        front: '方法①: $\\sqrt{12} \\times \\sqrt{3} = \\sqrt{36} = 6$\n方法②: $2\\sqrt{3} \\times \\sqrt{3} = 2 \\times 3 = 6$\nどちらの方法でも答えは $6$！', back: '$\\sqrt{12} \\times \\sqrt{3}$ を計算すると？',
+        front: '$6$',
+        back: '$\\sqrt{12} \\times \\sqrt{3}$ を計算すると？',
+        explanation: '方法①: $\\sqrt{12} \\times \\sqrt{3} = \\sqrt{36} = 6$\n方法②: $2\\sqrt{3} \\times \\sqrt{3} = 2 \\times 3 = 6$\nどちらの方法でもOK！',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-sqrt-mul-div-fc19',
-        front: '素因数分解で同じ素数が2個以上あれば外に出せる！\n$\\sqrt{72}$: $72 = 2^3 \\times 3^2$ → $6^2 = 36$ を外へ → $6\\sqrt{2}$\n「2乗になる部分」を探そう。', back: '完全平方数が含まれているかを確認するコツは？',
+        front: '素因数分解で同じ素数が2個以上あれば外に出せる！\n「2乗になる部分」を探そう。',
+        back: '整数の2乗が含まれているかを確認するコツは？',
+        explanation: '$\\sqrt{72}$: $72 = 2^3 \\times 3^2$ → $6^2 = 36$ を外へ → $6\\sqrt{2}$',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-sqrt-mul-div-fc20',
-        front: '$\\sqrt{12} \\times \\sqrt{50} = \\sqrt{12 \\times 50} = \\sqrt{600}$\n$= \\sqrt{100 \\times 6} = 10\\sqrt{6}$\nまたは $2\\sqrt{3} \\times 5\\sqrt{2} = 10\\sqrt{6}$', back: '$\\sqrt{12} \\times \\sqrt{50}$ を工夫して計算すると？',
+        front: '$10\\sqrt{6}$',
+        back: '$\\sqrt{12} \\times \\sqrt{50}$ を工夫して計算すると？',
+        explanation: '工夫: $2\\sqrt{3} \\times 5\\sqrt{2} = 10\\sqrt{6}$\nまたは $\\sqrt{12 \\times 50} = \\sqrt{600} = \\sqrt{100 \\times 6} = 10\\sqrt{6}$',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-sqrt-mul-div-fc21',
-        front: '$\\sqrt{108} = \\sqrt{36 \\times 3} = 6\\sqrt{3}$\n$108 = 6^2 \\times 3$ なので $6^2 = 36$ を外に出す。', back: '$\\sqrt{108}$ を簡単にすると？',
+        front: '$6\\sqrt{3}$',
+        back: '$\\sqrt{108}$ を簡単にすると？',
+        explanation: '$\\sqrt{108} = \\sqrt{36 \\times 3} = 6\\sqrt{3}$\n$108 = 6^2 \\times 3$ なので $6^2 = 36$ を外に出す。',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-sqrt-mul-div-fc22',
-        front: '$\\sqrt{0.03} = \\sqrt{\\dfrac{3}{100}} = \\dfrac{\\sqrt{3}}{10}$\n小数はまず分数に直してからルートを簡単にしよう。', back: '$\\sqrt{0.03}$ を簡単にすると？',
+        front: '$\\dfrac{\\sqrt{3}}{10}$',
+        back: '$\\sqrt{0.03}$ を簡単にすると？',
+        explanation: '$\\sqrt{0.03} = \\sqrt{\\dfrac{3}{100}} = \\dfrac{\\sqrt{3}}{10}$\n小数はまず分数に直してからルートを簡単にしよう。',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-sqrt-mul-div-fc23',
-        front: '$\\sqrt{\\dfrac{45}{49}} = \\dfrac{\\sqrt{45}}{\\sqrt{49}} = \\dfrac{3\\sqrt{5}}{7}$\n分数のルートは分子・分母を別々に計算！', back: '$\\sqrt{\\dfrac{45}{49}}$ を簡単にすると？',
+        front: '$\\dfrac{3\\sqrt{5}}{7}$',
+        back: '$\\sqrt{\\dfrac{45}{49}}$ を簡単にすると？',
+        explanation: '$\\sqrt{\\dfrac{45}{49}} = \\dfrac{\\sqrt{45}}{\\sqrt{49}} = \\dfrac{3\\sqrt{5}}{7}$\n分数のルートは分子・分母を別々に計算！',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-sqrt-mul-div-fc24',
-        front: '$\\sqrt{2} \\times (-\\sqrt{15}) = -\\sqrt{2 \\times 15} = -\\sqrt{30}$\n符号に注意！正×負＝負だよ。', back: '$\\sqrt{2} \\times (-\\sqrt{15})$ を計算すると？',
+        front: '$-\\sqrt{30}$',
+        back: '$\\sqrt{2} \\times (-\\sqrt{15})$ を計算すると？',
+        explanation: '$\\sqrt{2} \\times (-\\sqrt{15}) = -\\sqrt{2 \\times 15} = -\\sqrt{30}$\n符号に注意！正×負＝負だよ。',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-sqrt-mul-div-fc25',
-        front: '$\\sqrt{\\dfrac{2}{3}} \\times \\sqrt{\\dfrac{3}{5}} = \\sqrt{\\dfrac{2}{3} \\times \\dfrac{3}{5}} = \\sqrt{\\dfrac{2}{5}}$\n分数どうしも中身をかけるだけ！', back: '$\\sqrt{\\dfrac{2}{3}} \\times \\sqrt{\\dfrac{3}{5}}$ を計算すると？',
+        front: '$\\sqrt{\\dfrac{2}{5}}$',
+        back: '$\\sqrt{\\dfrac{2}{3}} \\times \\sqrt{\\dfrac{3}{5}}$ を計算すると？',
+        explanation: '$\\sqrt{\\dfrac{2}{3}} \\times \\sqrt{\\dfrac{3}{5}} = \\sqrt{\\dfrac{2}{3} \\times \\dfrac{3}{5}} = \\sqrt{\\dfrac{2}{5}}$\n分数どうしも中身をかけるだけ！',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-sqrt-mul-div-fc26',
-        front: '$(-\\sqrt{18}) \\div (-\\sqrt{2}) = \\sqrt{\\dfrac{18}{2}} = \\sqrt{9} = 3$\n負÷負＝正。中身をわって $\\sqrt{9} = 3$！', back: '$(-\\sqrt{18}) \\div (-\\sqrt{2})$ を計算すると？',
+        front: '$3$',
+        back: '$(-\\sqrt{18}) \\div (-\\sqrt{2})$ を計算すると？',
+        explanation: '$(-\\sqrt{18}) \\div (-\\sqrt{2}) = \\sqrt{\\dfrac{18}{2}} = \\sqrt{9} = 3$\n負÷負＝正。中身をわって $\\sqrt{9} = 3$！',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-sqrt-mul-div-fc27',
-        front: '$6\\sqrt{2} = \\sqrt{6^2 \\times 2} = \\sqrt{72}$\n$6^2 = 36$ をルートの中に入れる。', back: '$6\\sqrt{2}$ を $\\sqrt{c}$ の形にすると？',
+        front: '$\\sqrt{72}$',
+        back: '$6\\sqrt{2}$ を $\\sqrt{c}$ の形にすると？',
+        explanation: '$6\\sqrt{2} = \\sqrt{6^2 \\times 2} = \\sqrt{72}$\n$6^2 = 36$ をルートの中に入れる。',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-sqrt-mul-div-fc28',
-        front: '$2\\sqrt{7} = \\sqrt{2^2 \\times 7} = \\sqrt{28}$\n$2^2 = 4$ をルートの中に入れる。', back: '$2\\sqrt{7}$ を $\\sqrt{c}$ の形にすると？',
+        front: '$\\sqrt{28}$',
+        back: '$2\\sqrt{7}$ を $\\sqrt{c}$ の形にすると？',
+        explanation: '$2\\sqrt{7} = \\sqrt{2^2 \\times 7} = \\sqrt{28}$\n$2^2 = 4$ をルートの中に入れる。',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-sqrt-mul-div-fc29',
-        front: '$7\\sqrt{3} = \\sqrt{7^2 \\times 3} = \\sqrt{147}$\n$7^2 = 49$ をルートの中に入れる。', back: '$7\\sqrt{3}$ を $\\sqrt{c}$ の形にすると？',
+        front: '$\\sqrt{147}$',
+        back: '$7\\sqrt{3}$ を $\\sqrt{c}$ の形にすると？',
+        explanation: '$7\\sqrt{3} = \\sqrt{7^2 \\times 3} = \\sqrt{147}$\n$7^2 = 49$ をルートの中に入れる。',
         difficulty: 'advanced',
       },
       {
         id: 'math-g3-sqrt-mul-div-fc30',
-        front: '$\\sqrt{300} = \\sqrt{100 \\times 3} = 10\\sqrt{3} = 10 \\times 1.732 = 17.32$\n$\\sqrt{3}$ の形に変形してから代入！', back: '$\\sqrt{3} = 1.732$ のとき $\\sqrt{300}$ の値は？',
+        front: '$17.32$',
+        back: '$\\sqrt{3} = 1.732$ のとき $\\sqrt{300}$ の値は？',
+        explanation: '$\\sqrt{300} = \\sqrt{100 \\times 3} = 10\\sqrt{3} = 10 \\times 1.732 = 17.32$\n$\\sqrt{3}$ の形に変形してから代入！',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-sqrt-mul-div-fc31',
-        front: '$\\sqrt{0.05} = \\sqrt{\\dfrac{5}{100}} = \\dfrac{\\sqrt{5}}{10} = \\dfrac{2.236}{10} = 0.2236$\n小数を分数に直して $\\sqrt{5}$ の形にする！', back: '$\\sqrt{5} = 2.236$ のとき $\\sqrt{0.05}$ の値は？',
+        front: '$0.2236$',
+        back: '$\\sqrt{5} = 2.236$ のとき $\\sqrt{0.05}$ の値は？',
+        explanation: '$\\sqrt{0.05} = \\sqrt{\\dfrac{5}{100}} = \\dfrac{\\sqrt{5}}{10} = \\dfrac{2.236}{10} = 0.2236$\n小数を分数に直して $\\sqrt{5}$ の形にする！',
         difficulty: 'advanced',
       },
       {
         id: 'math-g3-sqrt-mul-div-fc32',
-        front: '$\\sqrt{\\dfrac{1}{2}} = \\dfrac{\\sqrt{1}}{\\sqrt{2}} = \\dfrac{1}{\\sqrt{2}} = \\dfrac{\\sqrt{2}}{2} = \\dfrac{1.414}{2} = 0.707$\n有理化してから代入するのがポイント！', back: '$\\sqrt{2} = 1.414$ のとき $\\sqrt{\\dfrac{1}{2}}$ の値は？',
+        front: '$0.707$',
+        back: '$\\sqrt{2} = 1.414$ のとき $\\sqrt{\\dfrac{1}{2}}$ の値は？',
+        explanation: '$\\sqrt{\\dfrac{1}{2}} = \\dfrac{1}{\\sqrt{2}} = \\dfrac{\\sqrt{2}}{2} = \\dfrac{1.414}{2} = 0.707$\n有理化してから代入するのがポイント！',
         difficulty: 'advanced',
       },
       {
         id: 'math-g3-sqrt-mul-div-fc33',
-        front: '$\\sqrt{28} = \\sqrt{4 \\times 7} = 2\\sqrt{7}$\n$28 = 2^2 \\times 7$ なので $2^2$ を外に出す。', back: '$\\sqrt{28}$ を簡単にすると？',
+        front: '$2\\sqrt{7}$',
+        back: '$\\sqrt{28}$ を簡単にすると？',
+        explanation: '$\\sqrt{28} = \\sqrt{4 \\times 7} = 2\\sqrt{7}$\n$28 = 2^2 \\times 7$ なので $2^2$ を外に出す。',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-sqrt-mul-div-fc34',
-        front: '$\\sqrt{48} = \\sqrt{16 \\times 3} = 4\\sqrt{3}$\n$48 = 4^2 \\times 3$ なので $4^2 = 16$ を外に出す。', back: '$\\sqrt{48}$ を簡単にすると？',
+        front: '$4\\sqrt{3}$',
+        back: '$\\sqrt{48}$ を簡単にすると？',
+        explanation: '$\\sqrt{48} = \\sqrt{16 \\times 3} = 4\\sqrt{3}$\n$48 = 4^2 \\times 3$ なので $4^2 = 16$ を外に出す。',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-sqrt-mul-div-fc35',
-        front: '$\\sqrt{0.05} = \\sqrt{\\dfrac{5}{100}} = \\dfrac{\\sqrt{5}}{10}$\n小数はまず分数に直す！$\\dfrac{5}{100}$ の分母 $100 = 10^2$ を外に出す。', back: '$\\sqrt{0.05}$ を簡単にすると？',
+        front: '$\\dfrac{\\sqrt{5}}{10}$',
+        back: '$\\sqrt{0.05}$ を簡単にすると？',
+        explanation: '$\\sqrt{0.05} = \\sqrt{\\dfrac{5}{100}} = \\dfrac{\\sqrt{5}}{10}$\n小数はまず分数に直す！$\\dfrac{5}{100}$ の分母 $100 = 10^2$ を外に出す。',
         difficulty: 'advanced',
       },
       {
         id: 'math-g3-sqrt-mul-div-fc36',
-        front: '$\\sqrt{\\dfrac{48}{25}} = \\dfrac{\\sqrt{48}}{\\sqrt{25}} = \\dfrac{4\\sqrt{3}}{5}$\n分子と分母を別々に簡単にしよう。', back: '$\\sqrt{\\dfrac{48}{25}}$ を簡単にすると？',
+        front: '$\\dfrac{4\\sqrt{3}}{5}$',
+        back: '$\\sqrt{\\dfrac{48}{25}}$ を簡単にすると？',
+        explanation: '$\\sqrt{\\dfrac{48}{25}} = \\dfrac{\\sqrt{48}}{\\sqrt{25}} = \\dfrac{4\\sqrt{3}}{5}$\n分子と分母を別々に簡単にしよう。',
         difficulty: 'advanced',
       },
     ],
@@ -243,7 +315,7 @@ export const sqrtMulDiv: Topic = {
           options: ['$\\sqrt{8}$', '$15$', '$\\sqrt{35}$', '$\\sqrt{15}$'],
           correctIndex: 3,
           explanation:
-            '$\\sqrt{3} \\times \\sqrt{5} = \\sqrt{3 \\times 5} = \\sqrt{15}$。ルートの中身どうしをかけるだけだよ。',
+            '$\\sqrt{3} \\times \\sqrt{5} = \\sqrt{3 \\times 5} = \\sqrt{15}$\nルートの中身どうしをかけるだけだよ。',
           difficulty: 'basic',
         },
         {
@@ -252,7 +324,7 @@ export const sqrtMulDiv: Topic = {
           options: ['$2\\sqrt{9}$', '$3\\sqrt{2}$', '$9\\sqrt{2}$', '$2\\sqrt{3}$'],
           correctIndex: 1,
           explanation:
-            '$\\sqrt{18} = \\sqrt{9 \\times 2} = \\sqrt{9} \\times \\sqrt{2} = 3\\sqrt{2}$。$9 = 3^2$ を外に出すよ。',
+            '$\\sqrt{18} = \\sqrt{9 \\times 2} = \\sqrt{9} \\times \\sqrt{2} = 3\\sqrt{2}$\n$9 = 3^2$ を外に出すよ。',
           difficulty: 'basic',
         },
         {
@@ -261,7 +333,7 @@ export const sqrtMulDiv: Topic = {
           options: ['$\\sqrt{24}$', '$5$', '$\\sqrt{5}$', '$\\sqrt{36}$'],
           correctIndex: 2,
           explanation:
-            '$\\sqrt{30} \\div \\sqrt{6} = \\sqrt{30 \\div 6} = \\sqrt{5}$。ルートの中身どうしをわるだけだよ。',
+            '$\\sqrt{30} \\div \\sqrt{6} = \\sqrt{30 \\div 6} = \\sqrt{5}$\nルートの中身どうしをわるだけだよ。',
           difficulty: 'basic',
         },
         {
@@ -270,7 +342,7 @@ export const sqrtMulDiv: Topic = {
           options: ['$6$', '$2\\sqrt{9}$', '$\\sqrt{15}$', '$3\\sqrt{4}$'],
           correctIndex: 0,
           explanation:
-            '$\\sqrt{12} \\times \\sqrt{3} = \\sqrt{12 \\times 3} = \\sqrt{36} = 6$。中身をかけたら完全平方数になったよ。',
+            '$\\sqrt{12} \\times \\sqrt{3} = \\sqrt{12 \\times 3} = \\sqrt{36} = 6$\n中身をかけたら整数の2乗になったよ。',
           difficulty: 'basic',
         },
         {
@@ -279,7 +351,7 @@ export const sqrtMulDiv: Topic = {
           options: ['$8\\sqrt{3}$', '$9\\sqrt{2}$', '$4\\sqrt{18}$', '$6\\sqrt{2}$'],
           correctIndex: 3,
           explanation:
-            '$\\sqrt{72} = \\sqrt{36 \\times 2} = 6\\sqrt{2}$。$72 = 6^2 \\times 2$ なので $6^2 = 36$ を外に出すよ。',
+            '$\\sqrt{72} = \\sqrt{36 \\times 2} = 6\\sqrt{2}$\n$72 = 6^2 \\times 2$ なので $6^2 = 36$ を外に出すよ。',
           difficulty: 'basic',
         },
         {
@@ -288,7 +360,7 @@ export const sqrtMulDiv: Topic = {
           options: ['$2\\sqrt{5}$', '$10\\sqrt{5}$', '$5\\sqrt{2}$', '$5\\sqrt{10}$'],
           correctIndex: 2,
           explanation:
-            '$\\sqrt{50} = \\sqrt{25 \\times 2} = 5\\sqrt{2}$。$50 = 5^2 \\times 2$ なので $5^2 = 25$ を外に出すよ。',
+            '$\\sqrt{50} = \\sqrt{25 \\times 2} = 5\\sqrt{2}$\n$50 = 5^2 \\times 2$ なので $5^2 = 25$ を外に出すよ。',
           difficulty: 'basic',
         },
         {
@@ -297,25 +369,25 @@ export const sqrtMulDiv: Topic = {
           options: ['$\\sqrt{18}$', '$\\sqrt{12}$', '$\\sqrt{6}$', '$\\sqrt{24}$'],
           correctIndex: 0,
           explanation:
-            '$3\\sqrt{2} = \\sqrt{3^2 \\times 2} = \\sqrt{9 \\times 2} = \\sqrt{18}$。外の $3$ を2乗してルートの中に入れるよ。',
+            '$3\\sqrt{2} = \\sqrt{3^2 \\times 2} = \\sqrt{9 \\times 2} = \\sqrt{18}$\n外の $3$ を2乗してルートの中に入れるよ。',
           difficulty: 'basic',
         },
         {
           id: 'math-g3-sqrt-mul-div-q8',
           question: '$2\\sqrt{10} \\times 3\\sqrt{5}$ はいくつ？',
-          options: ['$5\\sqrt{50}$', '$30\\sqrt{2}$', '$6\\sqrt{50}$', '$6\\sqrt{15}$'],
-          correctIndex: 1,
+          options: ['$5\\sqrt{50}$', '$6\\sqrt{15}$', '$6\\sqrt{50}$', '$30\\sqrt{2}$'],
+          correctIndex: 3,
           explanation:
-            '$2\\sqrt{10} \\times 3\\sqrt{5} = (2 \\times 3)\\sqrt{10 \\times 5} = 6\\sqrt{50} = 6 \\times 5\\sqrt{2} = 30\\sqrt{2}$。係数どうし・ルートどうしを別々にかけるよ。',
+            '$2\\sqrt{10} \\times 3\\sqrt{5} = (2 \\times 3)\\sqrt{10 \\times 5} = 6\\sqrt{50} = 6 \\times 5\\sqrt{2} = 30\\sqrt{2}$\n係数どうし・ルートどうしを別々にかけるよ。',
           difficulty: 'standard',
         },
         {
           id: 'math-g3-sqrt-mul-div-q9',
           question: '$\\sqrt{2} = 1.414$ のとき、$\\sqrt{200}$ の値は？',
-          options: ['$1.414$', '$14.14$', '$141.4$', '$4.243$'],
-          correctIndex: 1,
+          options: ['$1.414$', '$4.243$', '$141.4$', '$14.14$'],
+          correctIndex: 3,
           explanation:
-            '$\\sqrt{200} = \\sqrt{100 \\times 2} = 10\\sqrt{2} = 10 \\times 1.414 = 14.14$。まず $10\\sqrt{2}$ の形に変形してから代入するよ。',
+            '$\\sqrt{200} = \\sqrt{100 \\times 2} = 10\\sqrt{2} = 10 \\times 1.414 = 14.14$\nまず $10\\sqrt{2}$ の形に変形してから代入するよ。',
           difficulty: 'standard',
         },
         {
@@ -324,37 +396,34 @@ export const sqrtMulDiv: Topic = {
           options: ['$\\sqrt{62}$', '$6\\sqrt{10}$', '$60\\sqrt{2}$', '$10\\sqrt{6}$'],
           correctIndex: 3,
           explanation:
-            '$\\sqrt{12} \\times \\sqrt{50} = \\sqrt{600} = \\sqrt{100 \\times 6} = 10\\sqrt{6}$。または $2\\sqrt{3} \\times 5\\sqrt{2} = 10\\sqrt{6}$。',
+            '$\\sqrt{12} \\times \\sqrt{50} = \\sqrt{600} = \\sqrt{100 \\times 6} = 10\\sqrt{6}$\nまたは $2\\sqrt{3} \\times 5\\sqrt{2} = 10\\sqrt{6}$',
           difficulty: 'standard',
         },
-        // --- 一問一答 Q6: 負の符号付き積 ---
         {
           id: 'math-g3-sqrt-mul-div-q11',
           question: '$\\sqrt{2} \\times (-\\sqrt{15})$ はいくつ？',
           options: ['$\\sqrt{30}$', '$-\\sqrt{30}$', '$-\\sqrt{17}$', '$\\sqrt{17}$'],
           correctIndex: 1,
           explanation:
-            '$\\sqrt{2} \\times (-\\sqrt{15}) = -\\sqrt{2 \\times 15} = -\\sqrt{30}$。正×負＝負に注意しよう。',
+            '$\\sqrt{2} \\times (-\\sqrt{15}) = -\\sqrt{2 \\times 15} = -\\sqrt{30}$\n正×負＝負に注意しよう。',
           difficulty: 'basic',
         },
-        // --- 一問一答 Q7: 分数のルートの積 ---
         {
           id: 'math-g3-sqrt-mul-div-q12',
           question: '$\\sqrt{\\dfrac{2}{3}} \\times \\sqrt{\\dfrac{3}{5}}$ はいくつ？',
-          options: ['$\\sqrt{\\dfrac{2}{5}}$', '$\\sqrt{\\dfrac{6}{15}}$', '$\\sqrt{\\dfrac{1}{5}}$', '$\\sqrt{\\dfrac{6}{8}}$'],
-          correctIndex: 0,
+          options: ['$\\sqrt{\\dfrac{6}{8}}$', '$\\sqrt{\\dfrac{6}{15}}$', '$\\sqrt{\\dfrac{1}{5}}$', '$\\sqrt{\\dfrac{2}{5}}$'],
+          correctIndex: 3,
           explanation:
-            '$\\sqrt{\\dfrac{2}{3}} \\times \\sqrt{\\dfrac{3}{5}} = \\sqrt{\\dfrac{2 \\times 3}{3 \\times 5}} = \\sqrt{\\dfrac{6}{15}} = \\sqrt{\\dfrac{2}{5}}$。分数の中身どうしをかけて約分するよ。',
+            '$\\sqrt{\\dfrac{2}{3}} \\times \\sqrt{\\dfrac{3}{5}} = \\sqrt{\\dfrac{2 \\times 3}{3 \\times 5}} = \\sqrt{\\dfrac{6}{15}} = \\sqrt{\\dfrac{2}{5}}$\n分数の中身どうしをかけて約分するよ。',
           difficulty: 'standard',
         },
-        // --- 一問一答 Q8-Q12: 商の計算 ---
         {
           id: 'math-g3-sqrt-mul-div-q13',
           question: '$\\sqrt{60} \\div \\sqrt{6}$ はいくつ？',
-          options: ['$\\sqrt{54}$', '$\\sqrt{10}$', '$10$', '$\\sqrt{6}$'],
-          correctIndex: 1,
+          options: ['$\\sqrt{54}$', '$\\sqrt{6}$', '$10$', '$\\sqrt{10}$'],
+          correctIndex: 3,
           explanation:
-            '$\\sqrt{60} \\div \\sqrt{6} = \\sqrt{60 \\div 6} = \\sqrt{10}$。ルートの中身どうしをわるだけだよ。',
+            '$\\sqrt{60} \\div \\sqrt{6} = \\sqrt{60 \\div 6} = \\sqrt{10}$\nルートの中身どうしをわるだけだよ。',
           difficulty: 'basic',
         },
         {
@@ -363,7 +432,7 @@ export const sqrtMulDiv: Topic = {
           options: ['$\\sqrt{35}$', '$\\sqrt{7}$', '$\\sqrt{6}$', '$7$'],
           correctIndex: 2,
           explanation:
-            '$\\sqrt{42} \\div \\sqrt{7} = \\sqrt{42 \\div 7} = \\sqrt{6}$。中身をわるだけでOK。',
+            '$\\sqrt{42} \\div \\sqrt{7} = \\sqrt{42 \\div 7} = \\sqrt{6}$\n中身をわるだけでOK。',
           difficulty: 'basic',
         },
         {
@@ -372,17 +441,16 @@ export const sqrtMulDiv: Topic = {
           options: ['$-3$', '$3$', '$-\\sqrt{9}$', '$\\sqrt{16}$'],
           correctIndex: 1,
           explanation:
-            '$(-\\sqrt{18}) \\div (-\\sqrt{2}) = \\sqrt{18 \\div 2} = \\sqrt{9} = 3$。負÷負＝正だよ。',
+            '$(-\\sqrt{18}) \\div (-\\sqrt{2}) = \\sqrt{18 \\div 2} = \\sqrt{9} = 3$\n負÷負＝正だよ。',
           difficulty: 'basic',
         },
-        // --- 一問一答 Q24-Q26: √の中を簡単にする ---
         {
           id: 'math-g3-sqrt-mul-div-q16',
           question: '$\\sqrt{108}$ を簡単にすると？',
-          options: ['$3\\sqrt{12}$', '$6\\sqrt{3}$', '$12\\sqrt{3}$', '$9\\sqrt{2}$'],
-          correctIndex: 1,
+          options: ['$3\\sqrt{12}$', '$9\\sqrt{2}$', '$12\\sqrt{3}$', '$6\\sqrt{3}$'],
+          correctIndex: 3,
           explanation:
-            '$\\sqrt{108} = \\sqrt{36 \\times 3} = 6\\sqrt{3}$。$108 = 6^2 \\times 3$ なので $6^2 = 36$ を外に出すよ。',
+            '$\\sqrt{108} = \\sqrt{36 \\times 3} = 6\\sqrt{3}$\n$108 = 6^2 \\times 3$ なので $6^2 = 36$ を外に出すよ。',
           difficulty: 'standard',
         },
         {
@@ -391,26 +459,25 @@ export const sqrtMulDiv: Topic = {
           options: ['$4\\sqrt{7}$', '$7\\sqrt{2}$', '$2\\sqrt{7}$', '$2\\sqrt{14}$'],
           correctIndex: 2,
           explanation:
-            '$\\sqrt{28} = \\sqrt{4 \\times 7} = 2\\sqrt{7}$。$28 = 2^2 \\times 7$ なので $2^2 = 4$ を外に出すよ。',
+            '$\\sqrt{28} = \\sqrt{4 \\times 7} = 2\\sqrt{7}$\n$28 = 2^2 \\times 7$ なので $2^2 = 4$ を外に出すよ。',
           difficulty: 'basic',
         },
-        // --- 大問2: 商の計算 ---
         {
           id: 'math-g3-sqrt-mul-div-q18',
           question: '$\\sqrt{42} \\div \\sqrt{6}$ はいくつ？',
-          options: ['$\\sqrt{36}$', '$\\sqrt{7}$', '$6$', '$\\sqrt{48}$'],
-          correctIndex: 1,
+          options: ['$\\sqrt{36}$', '$6$', '$\\sqrt{7}$', '$\\sqrt{48}$'],
+          correctIndex: 2,
           explanation:
-            '$\\sqrt{42} \\div \\sqrt{6} = \\sqrt{42 \\div 6} = \\sqrt{7}$。中身どうしをわるだけだよ。',
+            '$\\sqrt{42} \\div \\sqrt{6} = \\sqrt{42 \\div 6} = \\sqrt{7}$\n中身どうしをわるだけだよ。',
           difficulty: 'basic',
         },
         {
           id: 'math-g3-sqrt-mul-div-q19',
           question: '$\\sqrt{56} \\div \\sqrt{8}$ はいくつ？',
-          options: ['$\\sqrt{48}$', '$\\sqrt{7}$', '$\\sqrt{14}$', '$8$'],
-          correctIndex: 1,
+          options: ['$\\sqrt{48}$', '$8$', '$\\sqrt{14}$', '$\\sqrt{7}$'],
+          correctIndex: 3,
           explanation:
-            '$\\sqrt{56} \\div \\sqrt{8} = \\sqrt{56 \\div 8} = \\sqrt{7}$。中身をわって $\\sqrt{7}$ になるよ。',
+            '$\\sqrt{56} \\div \\sqrt{8} = \\sqrt{56 \\div 8} = \\sqrt{7}$\n中身をわって $\\sqrt{7}$ になるよ。',
           difficulty: 'basic',
         },
         {
@@ -419,7 +486,7 @@ export const sqrtMulDiv: Topic = {
           options: ['$-3$', '$3$', '$-\\sqrt{9}$', '$\\sqrt{56}$'],
           correctIndex: 0,
           explanation:
-            '$(-\\sqrt{63}) \\div \\sqrt{7} = -\\sqrt{63 \\div 7} = -\\sqrt{9} = -3$。負÷正＝負に注意しよう。',
+            '$(-\\sqrt{63}) \\div \\sqrt{7} = -\\sqrt{63 \\div 7} = -\\sqrt{9} = -3$\n負÷正＝負に注意しよう。',
           difficulty: 'standard',
         },
         {
@@ -428,17 +495,16 @@ export const sqrtMulDiv: Topic = {
           options: ['$5$', '$-\\sqrt{25}$', '$-5$', '$\\sqrt{144}$'],
           correctIndex: 2,
           explanation:
-            '$\\sqrt{150} \\div (-\\sqrt{6}) = -\\sqrt{150 \\div 6} = -\\sqrt{25} = -5$。正÷負＝負で、$\\sqrt{25} = 5$ だよ。',
+            '$\\sqrt{150} \\div (-\\sqrt{6}) = -\\sqrt{150 \\div 6} = -\\sqrt{25} = -5$\n正÷負＝負で、$\\sqrt{25} = 5$ だよ。',
           difficulty: 'standard',
         },
-        // --- 大問3: √の中を簡単にする / a√b → √c ---
         {
           id: 'math-g3-sqrt-mul-div-q22',
           question: '$4\\sqrt{3}$ を $\\sqrt{c}$ の形にすると？',
-          options: ['$\\sqrt{12}$', '$\\sqrt{48}$', '$\\sqrt{36}$', '$\\sqrt{24}$'],
-          correctIndex: 1,
+          options: ['$\\sqrt{12}$', '$\\sqrt{36}$', '$\\sqrt{48}$', '$\\sqrt{24}$'],
+          correctIndex: 2,
           explanation:
-            '$4\\sqrt{3} = \\sqrt{4^2 \\times 3} = \\sqrt{16 \\times 3} = \\sqrt{48}$。外の $4$ を2乗してルートの中に入れるよ。',
+            '$4\\sqrt{3} = \\sqrt{4^2 \\times 3} = \\sqrt{16 \\times 3} = \\sqrt{48}$\n外の $4$ を2乗してルートの中に入れるよ。',
           difficulty: 'standard',
         },
         {
@@ -447,7 +513,7 @@ export const sqrtMulDiv: Topic = {
           options: ['$\\sqrt{15}$', '$\\sqrt{75}$', '$\\sqrt{45}$', '$\\sqrt{30}$'],
           correctIndex: 2,
           explanation:
-            '$3\\sqrt{5} = \\sqrt{3^2 \\times 5} = \\sqrt{9 \\times 5} = \\sqrt{45}$。外の $3$ を2乗してルートの中に入れるよ。',
+            '$3\\sqrt{5} = \\sqrt{3^2 \\times 5} = \\sqrt{9 \\times 5} = \\sqrt{45}$\n外の $3$ を2乗してルートの中に入れるよ。',
           difficulty: 'standard',
         },
         {
@@ -456,7 +522,7 @@ export const sqrtMulDiv: Topic = {
           options: ['$\\dfrac{\\sqrt{5}}{10}$', '$\\dfrac{\\sqrt{5}}{100}$', '$\\dfrac{\\sqrt{50}}{10}$', '$\\dfrac{1}{\\sqrt{5}}$'],
           correctIndex: 0,
           explanation:
-            '$\\sqrt{0.05} = \\sqrt{\\dfrac{5}{100}} = \\dfrac{\\sqrt{5}}{\\sqrt{100}} = \\dfrac{\\sqrt{5}}{10}$。小数は分数に直してから計算しよう。',
+            '$\\sqrt{0.05} = \\sqrt{\\dfrac{5}{100}} = \\dfrac{\\sqrt{5}}{\\sqrt{100}} = \\dfrac{\\sqrt{5}}{10}$\n小数は分数に直してから計算しよう。',
           difficulty: 'standard',
         },
         {
@@ -465,17 +531,16 @@ export const sqrtMulDiv: Topic = {
           options: ['$\\dfrac{4\\sqrt{3}}{5}$', '$\\dfrac{2\\sqrt{12}}{5}$', '$\\dfrac{\\sqrt{48}}{5}$', '$\\dfrac{4\\sqrt{3}}{25}$'],
           correctIndex: 0,
           explanation:
-            '$\\sqrt{\\dfrac{48}{25}} = \\dfrac{\\sqrt{48}}{\\sqrt{25}} = \\dfrac{4\\sqrt{3}}{5}$。分子と分母を別々に簡単にするよ。',
+            '$\\sqrt{\\dfrac{48}{25}} = \\dfrac{\\sqrt{48}}{\\sqrt{25}} = \\dfrac{4\\sqrt{3}}{5}$\n分子と分母を別々に簡単にするよ。',
           difficulty: 'standard',
         },
-        // --- 大問4: くふうして計算 ---
         {
           id: 'math-g3-sqrt-mul-div-q26',
           question: '$\\sqrt{8} \\times \\sqrt{12}$ を計算すると？',
           options: ['$4\\sqrt{6}$', '$2\\sqrt{24}$', '$\\sqrt{96}$', '$8\\sqrt{3}$'],
           correctIndex: 0,
           explanation:
-            '$\\sqrt{8} \\times \\sqrt{12} = \\sqrt{96} = \\sqrt{16 \\times 6} = 4\\sqrt{6}$。中身をかけてから簡単にするよ。',
+            '$\\sqrt{8} \\times \\sqrt{12} = \\sqrt{96} = \\sqrt{16 \\times 6} = 4\\sqrt{6}$\n中身をかけてから簡単にするよ。',
           difficulty: 'standard',
         },
         {
@@ -484,7 +549,7 @@ export const sqrtMulDiv: Topic = {
           options: ['$-24$', '$24$', '$-\\sqrt{576}$', '$18\\sqrt{2}$'],
           correctIndex: 1,
           explanation:
-            '$(-\\sqrt{18}) \\times (-\\sqrt{32}) = \\sqrt{18 \\times 32} = \\sqrt{576} = 24$。負×負＝正で、$576 = 24^2$ だよ。',
+            '$(-\\sqrt{18}) \\times (-\\sqrt{32}) = \\sqrt{18 \\times 32} = \\sqrt{576} = 24$\n負×負＝正で、$576 = 24^2$ だよ。',
           difficulty: 'standard',
         },
         {
@@ -493,7 +558,7 @@ export const sqrtMulDiv: Topic = {
           options: ['$6\\sqrt{5}$', '$3\\sqrt{20}$', '$2\\sqrt{45}$', '$\\sqrt{180}$'],
           correctIndex: 0,
           explanation:
-            '$\\sqrt{12} \\times \\sqrt{15} = \\sqrt{180} = \\sqrt{36 \\times 5} = 6\\sqrt{5}$。$180 = 6^2 \\times 5$ だよ。',
+            '$\\sqrt{12} \\times \\sqrt{15} = \\sqrt{180} = \\sqrt{36 \\times 5} = 6\\sqrt{5}$\n$180 = 6^2 \\times 5$ だよ。',
           difficulty: 'standard',
         },
         {
@@ -502,17 +567,16 @@ export const sqrtMulDiv: Topic = {
           options: ['$10\\sqrt{12}$', '$20\\sqrt{3}$', '$12\\sqrt{10}$', '$5\\sqrt{48}$'],
           correctIndex: 1,
           explanation:
-            '$\\sqrt{24} \\times \\sqrt{50} = \\sqrt{1200} = \\sqrt{400 \\times 3} = 20\\sqrt{3}$。$1200 = 20^2 \\times 3$ だよ。',
+            '$\\sqrt{24} \\times \\sqrt{50} = \\sqrt{1200} = \\sqrt{400 \\times 3} = 20\\sqrt{3}$\n$1200 = 20^2 \\times 3$ だよ。',
           difficulty: 'standard',
         },
-        // --- 大問5: 係数付き乗除 ---
         {
           id: 'math-g3-sqrt-mul-div-q30',
           question: '$3\\sqrt{14} \\times \\sqrt{7}$ はいくつ？',
-          options: ['$3\\sqrt{21}$', '$21\\sqrt{2}$', '$3\\sqrt{98}$', '$7\\sqrt{6}$'],
-          correctIndex: 1,
+          options: ['$3\\sqrt{21}$', '$7\\sqrt{6}$', '$3\\sqrt{98}$', '$21\\sqrt{2}$'],
+          correctIndex: 3,
           explanation:
-            '$3\\sqrt{14} \\times \\sqrt{7} = 3\\sqrt{14 \\times 7} = 3\\sqrt{98} = 3 \\times 7\\sqrt{2} = 21\\sqrt{2}$。',
+            '$3\\sqrt{14} \\times \\sqrt{7} = 3\\sqrt{14 \\times 7} = 3\\sqrt{98} = 3 \\times 7\\sqrt{2} = 21\\sqrt{2}$',
           difficulty: 'standard',
         },
         {
@@ -521,7 +585,7 @@ export const sqrtMulDiv: Topic = {
           options: ['$6\\sqrt{150}$', '$-30\\sqrt{6}$', '$-6\\sqrt{25}$', '$30\\sqrt{6}$'],
           correctIndex: 1,
           explanation:
-            '$2\\sqrt{10} \\times (-3\\sqrt{15}) = -6\\sqrt{150} = -6 \\times 5\\sqrt{6} = -30\\sqrt{6}$。符号に気をつけよう。',
+            '$2\\sqrt{10} \\times (-3\\sqrt{15}) = -6\\sqrt{150} = -6 \\times 5\\sqrt{6} = -30\\sqrt{6}$\n符号に気をつけよう。',
           difficulty: 'advanced',
         },
         {
@@ -530,17 +594,16 @@ export const sqrtMulDiv: Topic = {
           options: ['$-60$', '$60$', '$-3\\sqrt{400}$', '$-15\\sqrt{16}$'],
           correctIndex: 0,
           explanation:
-            '$3\\sqrt{8} \\times (-\\sqrt{50}) = -3\\sqrt{400} = -3 \\times 20 = -60$。$\\sqrt{400} = 20$ だよ。',
+            '$3\\sqrt{8} \\times (-\\sqrt{50}) = -3\\sqrt{400} = -3 \\times 20 = -60$\n$\\sqrt{400} = 20$ だよ。',
           difficulty: 'advanced',
         },
-        // --- 式の値 ---
         {
           id: 'math-g3-sqrt-mul-div-q33',
           question: '$\\sqrt{3} = 1.732$ のとき、$\\sqrt{300}$ の値は？',
-          options: ['$5.196$', '$17.32$', '$1.732$', '$173.2$'],
-          correctIndex: 1,
+          options: ['$5.196$', '$1.732$', '$17.32$', '$173.2$'],
+          correctIndex: 2,
           explanation:
-            '$\\sqrt{300} = \\sqrt{100 \\times 3} = 10\\sqrt{3} = 10 \\times 1.732 = 17.32$。$\\sqrt{3}$ の形に変形してから代入するよ。',
+            '$\\sqrt{300} = \\sqrt{100 \\times 3} = 10\\sqrt{3} = 10 \\times 1.732 = 17.32$\n$\\sqrt{3}$ の形に変形してから代入するよ。',
           difficulty: 'standard',
         },
         {
@@ -549,7 +612,7 @@ export const sqrtMulDiv: Topic = {
           options: ['$0.02236$', '$2.236$', '$0.2236$', '$22.36$'],
           correctIndex: 2,
           explanation:
-            '$\\sqrt{0.05} = \\sqrt{\\dfrac{5}{100}} = \\dfrac{\\sqrt{5}}{10} = \\dfrac{2.236}{10} = 0.2236$。',
+            '$\\sqrt{0.05} = \\sqrt{\\dfrac{5}{100}} = \\dfrac{\\sqrt{5}}{10} = \\dfrac{2.236}{10} = 0.2236$',
           difficulty: 'advanced',
         },
         {
@@ -558,17 +621,16 @@ export const sqrtMulDiv: Topic = {
           options: ['$1.414$', '$0.5$', '$0.707$', '$2.828$'],
           correctIndex: 2,
           explanation:
-            '$\\sqrt{\\dfrac{1}{2}} = \\dfrac{1}{\\sqrt{2}} = \\dfrac{\\sqrt{2}}{2} = \\dfrac{1.414}{2} = 0.707$。有理化してから代入しよう。',
+            '$\\sqrt{\\dfrac{1}{2}} = \\dfrac{1}{\\sqrt{2}} = \\dfrac{\\sqrt{2}}{2} = \\dfrac{1.414}{2} = 0.707$\n有理化してから代入しよう。',
           difficulty: 'advanced',
         },
-        // --- 発展1: 複雑な乗除混合 ---
         {
           id: 'math-g3-sqrt-mul-div-q36',
           question: '$\\sqrt{8} \\times \\sqrt{6} \\div \\sqrt{27}$ はいくつ？',
           options: ['$\\dfrac{4}{3}$', '$\\dfrac{2\\sqrt{2}}{3}$', '$\\sqrt{2}$', '$\\dfrac{\\sqrt{48}}{\\sqrt{27}}$'],
           correctIndex: 0,
           explanation:
-            '$\\sqrt{8} \\times \\sqrt{6} \\div \\sqrt{27} = \\sqrt{\\dfrac{8 \\times 6}{27}} = \\sqrt{\\dfrac{48}{27}} = \\sqrt{\\dfrac{16}{9}} = \\dfrac{4}{3}$。',
+            '$\\sqrt{8} \\times \\sqrt{6} \\div \\sqrt{27} = \\sqrt{\\dfrac{8 \\times 6}{27}} = \\sqrt{\\dfrac{48}{27}} = \\sqrt{\\dfrac{16}{9}} = \\dfrac{4}{3}$',
           difficulty: 'advanced',
         },
         {
@@ -577,17 +639,16 @@ export const sqrtMulDiv: Topic = {
           options: ['$\\sqrt{21}$', '$7$', '$\\dfrac{7\\sqrt{3}}{3}$', '$49$'],
           correctIndex: 1,
           explanation:
-            '$7\\sqrt{3} \\div \\sqrt{21} \\times \\sqrt{7} = \\dfrac{7\\sqrt{3} \\times \\sqrt{7}}{\\sqrt{21}} = \\dfrac{7\\sqrt{21}}{\\sqrt{21}} = 7$。',
+            '$7\\sqrt{3} \\div \\sqrt{21} \\times \\sqrt{7} = \\dfrac{7\\sqrt{3} \\times \\sqrt{7}}{\\sqrt{21}} = \\dfrac{7\\sqrt{21}}{\\sqrt{21}} = 7$',
           difficulty: 'advanced',
         },
-        // --- 発展3: 式の値（応用） ---
         {
           id: 'math-g3-sqrt-mul-div-q38',
           question: '$\\sqrt{2} = 1.414$ のとき、$\\sqrt{800}$ の値は？',
           options: ['$14.14$', '$28.28$', '$2.828$', '$141.4$'],
           correctIndex: 1,
           explanation:
-            '$\\sqrt{800} = \\sqrt{400 \\times 2} = 20\\sqrt{2} = 20 \\times 1.414 = 28.28$。',
+            '$\\sqrt{800} = \\sqrt{400 \\times 2} = 20\\sqrt{2} = 20 \\times 1.414 = 28.28$',
           difficulty: 'advanced',
         },
         {
@@ -596,27 +657,25 @@ export const sqrtMulDiv: Topic = {
           options: ['$0.1732$', '$0.3464$', '$1.732$', '$0.5196$'],
           correctIndex: 1,
           explanation:
-            '$\\sqrt{0.12} = \\sqrt{\\dfrac{12}{100}} = \\dfrac{2\\sqrt{3}}{10} = \\dfrac{2 \\times 1.732}{10} = 0.3464$。',
+            '$\\sqrt{0.12} = \\sqrt{\\dfrac{12}{100}} = \\dfrac{2\\sqrt{3}}{10} = \\dfrac{2 \\times 1.732}{10} = 0.3464$',
           difficulty: 'advanced',
         },
-        // --- 発展4: √150aが自然数 ---
         {
           id: 'math-g3-sqrt-mul-div-q40',
           question: '$\\sqrt{150a}$ が自然数になる最小の自然数 $a$ は？',
           options: ['$2$', '$3$', '$6$', '$10$'],
           correctIndex: 2,
           explanation:
-            '$150 = 2 \\times 3 \\times 5^2$。$\\sqrt{150a}$ が自然数になるには $150a$ が完全平方数になればよい。$a = 2 \\times 3 = 6$ のとき $150 \\times 6 = 900 = 30^2$。',
+            '$150 = 2 \\times 3 \\times 5^2$\n$\\sqrt{150a}$ が自然数になるには $150a$ が整数の2乗になればよい。\n$a = 2 \\times 3 = 6$ のとき $150 \\times 6 = 900 = 30^2$。',
           difficulty: 'advanced',
         },
-        // --- 発展5: 面積から1辺 ---
         {
           id: 'math-g3-sqrt-mul-div-q41',
           question: '面積が $54\\text{cm}^2$ の正方形の1辺の長さは？',
           options: ['$3\\sqrt{6}\\text{ cm}$', '$6\\sqrt{3}\\text{ cm}$', '$9\\sqrt{6}\\text{ cm}$', '$\\sqrt{27}\\text{ cm}$'],
           correctIndex: 0,
           explanation:
-            '1辺 $= \\sqrt{54} = \\sqrt{9 \\times 6} = 3\\sqrt{6}$ cm。$54 = 3^2 \\times 6$ だよ。',
+            '1辺 $= \\sqrt{54} = \\sqrt{9 \\times 6} = 3\\sqrt{6}$ cm\n$54 = 3^2 \\times 6$ だよ。',
           difficulty: 'advanced',
         },
         {
@@ -625,7 +684,7 @@ export const sqrtMulDiv: Topic = {
           options: ['$\\sqrt{12}\\text{ cm}$', '$2\\sqrt{3}\\text{ cm}$', '$\\sqrt{6}\\text{ cm}$', '$6\\text{ cm}$'],
           correctIndex: 1,
           explanation:
-            '対角線 $= \\sqrt{6} \\times \\sqrt{2} = \\sqrt{12} = 2\\sqrt{3}$ cm。正方形の対角線は1辺×$\\sqrt{2}$ だよ。',
+            '対角線 $= \\sqrt{6} \\times \\sqrt{2} = \\sqrt{12} = 2\\sqrt{3}$ cm\n正方形の対角線は1辺×$\\sqrt{2}$ だよ。',
           difficulty: 'advanced',
         },
       ],
@@ -659,7 +718,7 @@ export const sqrtMulDiv: Topic = {
               highlight: '$12 = 2^2 \\times 3$',
             },
             {
-              title: 'Step 2: 完全平方数を外に出す',
+              title: 'Step 2: 整数の2乗を外に出す',
               content:
                 '$\\sqrt{12} = \\sqrt{2^2 \\times 3} = 2\\sqrt{3}$。$2^2$ が外に出て $2$ になるよ。',
               highlight: '$2\\sqrt{3}$',

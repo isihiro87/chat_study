@@ -257,7 +257,7 @@ export function FlashcardDeck({ cards, onProgressChange, onComplete }: Flashcard
     );
   }
 
-  // バッチ完了画面（次のバッチへの遷移）
+  // セット完了画面（次のセットへの遷移）
   if (isBatchComplete) {
     return (
       <div className="flex h-full flex-col items-center justify-center px-6 pb-14">
@@ -269,7 +269,7 @@ export function FlashcardDeck({ cards, onProgressChange, onComplete }: Flashcard
           </div>
 
           <h2 className="mb-2 text-center text-xl font-bold text-gray-800">
-            バッチ {currentBatchIndex + 1}/{totalBatches} 完了！
+            セット {currentBatchIndex + 1}/{totalBatches} 完了！
           </h2>
 
           <p className="mb-6 text-center text-sm text-gray-500">
@@ -310,11 +310,11 @@ export function FlashcardDeck({ cards, onProgressChange, onComplete }: Flashcard
             🎴 カード学習の使い方
           </h2>
 
-          {/* バッチ情報 */}
+          {/* セット情報 */}
           {totalBatches > 1 && (
             <div className="mb-4 rounded-xl bg-white/80 p-3 text-center shadow-sm">
               <p className="text-sm font-medium text-amber-700">
-                バッチ {currentBatchIndex + 1}/{totalBatches}
+                セット {currentBatchIndex + 1}/{totalBatches}
               </p>
             </div>
           )}

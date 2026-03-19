@@ -90,7 +90,7 @@ export default function FlashcardSetup({ cards, onStart }: FlashcardSetupProps) 
           </div>
         </div>
 
-        {/* バッチサイズ選択 */}
+        {/* セットサイズ選択 */}
         <div className="mb-5">
           <p className="mb-2 text-sm font-medium text-gray-600">1回に覚える枚数</p>
           <div className="flex flex-wrap gap-2">
