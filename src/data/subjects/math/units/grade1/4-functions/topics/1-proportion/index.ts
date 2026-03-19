@@ -45,6 +45,7 @@ export const proportion: Topic = {
     },
     videos: [],
     flashcards: [
+      // --- basic (12枚) ---
       { id: 'math-g1-proportion-fc1', front: '$x$ の値を決めると $y$ の値がただ1つ決まる関係', back: '関数とは？', difficulty: 'basic' },
       { id: 'math-g1-proportion-fc2', front: '$y = ax$（$a$ は比例定数、$a \\neq 0$）', back: '比例の式は？', difficulty: 'basic' },
       { id: 'math-g1-proportion-fc3', front: '比例定数。$y = ax$ の $a$ のこと。$a = \\dfrac{y}{x}$ で求まる。', back: '$y = ax$ の $a$ を何という？', difficulty: 'basic' },
@@ -53,15 +54,34 @@ export const proportion: Topic = {
       { id: 'math-g1-proportion-fc6', front: '$y$ も $n$ 倍になる。$\\dfrac{y}{x} = a$ が常に一定。', back: '比例で $x$ が $n$ 倍になると $y$ は？', difficulty: 'basic' },
       { id: 'math-g1-proportion-fc7', front: '原点を通る直線。$a > 0$ で右上がり、$a < 0$ で右下がり。', back: '比例のグラフの特徴は？', difficulty: 'basic' },
       { id: 'math-g1-proportion-fc8', front: '$y = 12$（$y = 3 \\times 4 = 12$）', back: '$y = 3x$ で $x = 4$ のとき $y$ は？', difficulty: 'basic' },
+      { id: 'math-g1-proportion-fc15', front: '不等号（$\\leq$, $<$）を使って表す。例: $3 \\leq x \\leq 6$', back: '変域の表し方は？', difficulty: 'basic' },
+      { id: 'math-g1-proportion-fc16', front: '$y = ax$ の形になっていれば比例。定数項や他の項があると比例ではない。', back: '比例かどうかの見分け方は？', difficulty: 'basic' },
+      { id: 'math-g1-proportion-fc17', front: '$y = -8$（$y = -2 \\times 4 = -8$）', back: '$y = -2x$ で $x = 4$ のとき $y$ は？', difficulty: 'basic' },
+      { id: 'math-g1-proportion-fc18', front: '$x = 5$（$15 = 3x$ より $x = 5$）', back: '$y = 3x$ で $y = 15$ のとき $x$ は？', difficulty: 'basic' },
+      // --- standard (12枚) ---
       { id: 'math-g1-proportion-fc9', front: '$a = -3$（$a = \\dfrac{y}{x} = \\dfrac{-6}{2} = -3$）', back: '$x = 2$ のとき $y = -6$ の比例定数は？', difficulty: 'standard' },
       { id: 'math-g1-proportion-fc10', front: '横の軸（$x$ 軸）と縦の軸（$y$ 軸）で点の位置を表す平面', back: '座標平面とは？', difficulty: 'standard' },
       { id: 'math-g1-proportion-fc11', front: '2つの軸の交点 $(0, 0)$', back: '原点 $O$ とは？', difficulty: 'standard' },
       { id: 'math-g1-proportion-fc12', front: '横の位置が $x$ 座標、縦の位置が $y$ 座標。$(x, y)$ で表す。', back: '座標の表し方は？', difficulty: 'standard' },
+      { id: 'math-g1-proportion-fc19', front: '$3 \\leq x \\leq 6$（3以上6以下）', back: '$x$ の変域が3以上6以下のとき、不等号で表すと？', difficulty: 'standard' },
+      { id: 'math-g1-proportion-fc20', front: '$y = 5x$（$a = \\dfrac{-15}{-3} = 5$）', back: '$x = -3$ のとき $y = -15$ となる比例の式は？', difficulty: 'standard' },
+      { id: 'math-g1-proportion-fc21', front: '比例ではない。$y = ax$ の形ではなく $+1$ がある。', back: '$y = 4x + 1$ は比例か？', difficulty: 'standard' },
+      { id: 'math-g1-proportion-fc22', front: '$y$ 座標は $0$。$x$ 軸上の点は $(a, 0)$ の形。', back: '$x$ 軸上にある点の $y$ 座標はいくつ？', difficulty: 'standard' },
+      { id: 'math-g1-proportion-fc23', front: '$x$ 座標は $0$。$y$ 軸上の点は $(0, b)$ の形。', back: '$y$ 軸上にある点の $x$ 座標はいくつ？', difficulty: 'standard' },
+      { id: 'math-g1-proportion-fc24', front: '$y = -\\dfrac{1}{2}x$（$a = \\dfrac{-2}{4} = -\\dfrac{1}{2}$）', back: '$x = 4$ のとき $y = -2$ となる比例の式は？', difficulty: 'standard' },
+      { id: 'math-g1-proportion-fc25', front: '原点ともう1点の合計2点をとって直線で結ぶ。', back: '比例のグラフのかき方は？', difficulty: 'standard' },
+      { id: 'math-g1-proportion-fc26', front: '$y = 2x$（グラフ上の点の座標から $a = \\dfrac{y}{x}$ で求める）', back: 'グラフが原点と点 $(3, 6)$ を通る比例の式は？', difficulty: 'standard' },
+      // --- advanced (6枚) ---
       { id: 'math-g1-proportion-fc13', front: '$|a|$ が大きいほど急な直線、$|a|$ が小さいほどゆるやかな直線', back: '比例定数の大きさとグラフの傾きの関係は？', difficulty: 'advanced' },
       { id: 'math-g1-proportion-fc14', front: '必ず原点を通る。$x = 0$ のとき $y = 0$。', back: '比例のグラフが必ず通る点は？', difficulty: 'advanced' },
+      { id: 'math-g1-proportion-fc27', front: '$-6 \\leq y \\leq 12$（$x = -2$ で $y = -6$、$x = 4$ で $y = 12$）', back: '$y = 3x$ で $-2 \\leq x \\leq 4$ のとき $y$ の変域は？', difficulty: 'advanced' },
+      { id: 'math-g1-proportion-fc28', front: '$a < 0$（右下がりの直線は第2象限と第4象限を通る）', back: '比例のグラフが第2象限と第4象限を通るとき $a$ の符号は？', difficulty: 'advanced' },
+      { id: 'math-g1-proportion-fc29', front: '$y = -4x$（$a = \\dfrac{8}{-2} = -4$）', back: 'グラフが原点と点 $(-2, 8)$ を通る比例の式は？', difficulty: 'advanced' },
+      { id: 'math-g1-proportion-fc30', front: '$y = 5x$ の方が急。$|5| > |3|$ なので $y = 5x$ の方が傾きが大きい。', back: '$y = 3x$ と $y = 5x$ のグラフではどちらが急？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
+        // --- basic (10問) ---
         {
           id: 'math-g1-proportion-q1',
           question: '$y = 3x$ のとき、$x = 4$ なら $y$ はいくつ？',
@@ -82,6 +102,84 @@ export const proportion: Topic = {
           difficulty: 'basic',
         },
         {
+          id: 'math-g1-proportion-q6',
+          question: '関数とはどのような関係か？',
+          options: [
+            '$x$ の値を決めると $y$ の値がただ1つ決まる関係',
+            '$x$ と $y$ が同じ値になる関係',
+            '$x$ の値に対して $y$ が2つ以上決まる関係',
+            '$x$ と $y$ の和が一定になる関係',
+          ],
+          correctIndex: 0,
+          explanation:
+            '関数とは「$x$ の値を決めると $y$ の値が\\textcolor{#D97706}{ただ1つ}決まる」関係だよ。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'math-g1-proportion-q7',
+          question: '変数のとりうる値の範囲を何というか？',
+          options: ['比例定数', '変域', '座標', '関数'],
+          correctIndex: 1,
+          explanation:
+            '変数のとりうる値の範囲を\\textcolor{#D97706}{変域}というよ。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'math-g1-proportion-q8',
+          question: '$x$ の変域が $3$ 以上 $6$ 以下のとき、正しい表し方はどれ？',
+          options: ['$3 < x < 6$', '$3 \\leq x \\leq 6$', '$x \\leq 3$', '$6 \\leq x \\leq 3$'],
+          correctIndex: 1,
+          explanation:
+            '「以上」「以下」は $\\leq$ を使うよ。$\\textcolor{#D97706}{3 \\leq x \\leq 6}$ が正しい。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'math-g1-proportion-q9',
+          question: '$y = 5x$ の比例定数はいくつ？',
+          options: ['$x$', '$y$', '$5$', '$5x$'],
+          correctIndex: 2,
+          explanation:
+            '$y = ax$ の $a$ が比例定数。$y = 5x$ では $a = \\textcolor{#D97706}{5}$ だよ。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'math-g1-proportion-q10',
+          question: '比例 $y = ax$ で、$\\dfrac{y}{x}$ の値はどうなるか？',
+          options: ['$x$ によって変わる', '常に $0$', '常に $1$', '常に一定の値 $a$'],
+          correctIndex: 3,
+          explanation:
+            '比例では $\\frac{y}{x} = \\textcolor{#D97706}{a}$（比例定数）で常に一定だよ。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'math-g1-proportion-q11',
+          question: '$y = -4x$ で $x = -3$ のとき $y$ はいくつ？',
+          options: ['$-12$', '$12$', '$-7$', '$7$'],
+          correctIndex: 1,
+          explanation:
+            '$y = -4 \\times (-3) = \\textcolor{#D97706}{12}$。マイナス×マイナスでプラスだよ。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'math-g1-proportion-q12',
+          question: '$y = 6x$ で $y = 30$ のとき $x$ はいくつ？',
+          options: ['$6$', '$5$', '$24$', '$36$'],
+          correctIndex: 1,
+          explanation:
+            '$30 = 6x$ より $x = \\frac{30}{6} = \\textcolor{#D97706}{5}$ だよ。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'math-g1-proportion-q13',
+          question: '次のうち比例の式はどれ？',
+          options: ['$y = 3x + 2$', '$y = x^2$', '$y = -7x$', '$y = \\dfrac{6}{x}$'],
+          correctIndex: 2,
+          explanation:
+            '$y = ax$ の形になっているのは $\\textcolor{#D97706}{y = -7x}$ だけ。他は定数項や $x^2$ があるから比例ではないよ。',
+          difficulty: 'basic',
+        },
+        // --- standard (10問) ---
+        {
           id: 'math-g1-proportion-q3',
           question: '比例のグラフについて正しいものはどれ？',
           options: [
@@ -92,7 +190,7 @@ export const proportion: Topic = {
           ],
           correctIndex: 0,
           explanation:
-            '比例 $y = ax$ のグラフは必ず原点 $(0, 0)$ を通る直線だよ。',
+            '比例 $y = ax$ のグラフは必ず\\textcolor{#D97706}{原点 $(0, 0)$ を通る直線}だよ。',
           difficulty: 'standard',
         },
         {
@@ -107,9 +205,82 @@ export const proportion: Topic = {
           ],
           correctIndex: 3,
           explanation:
-            '比例定数が $a = -2 < 0$ なので、原点を通る右下がりの直線だよ。',
+            '比例定数が $a = -2 < 0$ なので、\\textcolor{#D97706}{原点を通る右下がりの直線}だよ。',
           difficulty: 'standard',
         },
+        {
+          id: 'math-g1-proportion-q14',
+          question: '座標平面で、2つの軸が交わる点を何というか？',
+          options: ['座標', '交点', '原点', '頂点'],
+          correctIndex: 2,
+          explanation:
+            '$x$ 軸と $y$ 軸が交わる点を\\textcolor{#D97706}{原点 $O$}（座標 $(0, 0)$）というよ。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'math-g1-proportion-q15',
+          question: '点 $(-3, 5)$ の $x$ 座標と $y$ 座標はそれぞれいくつ？',
+          options: ['$x = 5$, $y = -3$', '$x = -3$, $y = 5$', '$x = 3$, $y = -5$', '$x = -3$, $y = -5$'],
+          correctIndex: 1,
+          explanation:
+            '座標 $(x, y)$ の順番だから、$\\textcolor{#D97706}{x = -3, y = 5}$ だよ。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'math-g1-proportion-q16',
+          question: '$y$ が $x$ に比例し、$x = -4$ のとき $y = 8$ である。比例の式は？',
+          options: ['$y = 2x$', '$y = -2x$', '$y = 4x$', '$y = -4x$'],
+          correctIndex: 1,
+          explanation:
+            '$a = \\frac{8}{-4} = -2$ より、$\\textcolor{#D97706}{y = -2x}$ だよ。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'math-g1-proportion-q17',
+          question: '$x$ 軸上にある点の $y$ 座標はいくつ？',
+          options: ['$1$', '$-1$', '$0$', '決まらない'],
+          correctIndex: 2,
+          explanation:
+            '$x$ 軸上の点は必ず $y$ 座標が $\\textcolor{#D97706}{0}$ になるよ。$(a, 0)$ の形だね。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'math-g1-proportion-q18',
+          question: '比例のグラフが点 $(2, 6)$ を通るとき、比例の式はどれ？',
+          options: ['$y = 2x$', '$y = 3x$', '$y = 6x$', '$y = 4x$'],
+          correctIndex: 1,
+          explanation:
+            '$a = \\frac{6}{2} = 3$ より、$\\textcolor{#D97706}{y = 3x}$ だよ。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'math-g1-proportion-q19',
+          question: '$y = \\dfrac{1}{3}x$ で $x = 6$ のとき $y$ はいくつ？',
+          options: ['$18$', '$3$', '$2$', '$\\dfrac{1}{2}$'],
+          correctIndex: 2,
+          explanation:
+            '$y = \\frac{1}{3} \\times 6 = \\textcolor{#D97706}{2}$ だよ。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'math-g1-proportion-q20',
+          question: '$y = 2x$ と $y = 5x$ のグラフではどちらが急か？',
+          options: ['$y = 2x$', '$y = 5x$', '同じ', '比べられない'],
+          correctIndex: 1,
+          explanation:
+            '$|5| > |2|$ だから $\\textcolor{#D97706}{y = 5x}$ の方が急だよ。$|a|$ が大きいほどグラフは急になるんだ。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'math-g1-proportion-q21',
+          question: '比例のグラフをかくには、最低何点をとればよいか？',
+          options: ['$1$ 点', '$2$ 点', '$3$ 点', '$4$ 点'],
+          correctIndex: 1,
+          explanation:
+            '原点ともう $\\textcolor{#D97706}{1}$ 点の合計 $\\textcolor{#D97706}{2}$ 点をとって直線で結ぶよ。',
+          difficulty: 'standard',
+        },
+        // --- advanced (5問) ---
         {
           id: 'math-g1-proportion-q5',
           question:
@@ -122,7 +293,43 @@ export const proportion: Topic = {
           ],
           correctIndex: 0,
           explanation:
-            '$x$ の値に対して $y$ の値が2つ以上あると関数ではないよ。関数は「ただ1つ決まる」がポイント！',
+            '$x$ の値に対して $y$ の値が2つ以上あると関数ではないよ。関数は「\\textcolor{#D97706}{ただ1つ決まる}」がポイント！',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'math-g1-proportion-q22',
+          question: '$y = 3x$ で $x$ の変域が $-2 \\leq x \\leq 4$ のとき、$y$ の変域は？',
+          options: ['$-6 \\leq y \\leq 12$', '$-2 \\leq y \\leq 4$', '$0 \\leq y \\leq 12$', '$-12 \\leq y \\leq 6$'],
+          correctIndex: 0,
+          explanation:
+            '$x = -2$ で $y = -6$、$x = 4$ で $y = 12$ だから $\\textcolor{#D97706}{-6 \\leq y \\leq 12}$ だよ。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'math-g1-proportion-q23',
+          question: '比例のグラフが第2象限と第4象限を通るとき、比例定数 $a$ について正しいのは？',
+          options: ['$a > 0$', '$a < 0$', '$a = 0$', '$a = 1$'],
+          correctIndex: 1,
+          explanation:
+            '第2象限（$x < 0, y > 0$）と第4象限（$x > 0, y < 0$）を通るのは右下がりの直線。つまり $\\textcolor{#D97706}{a < 0}$ だよ。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'math-g1-proportion-q24',
+          question: '比例 $y = ax$ のグラフが点 $(-2, 5)$ を通る。このグラフが点 $(6, b)$ も通るとき、$b$ はいくつ？',
+          options: ['$15$', '$-15$', '$10$', '$-10$'],
+          correctIndex: 1,
+          explanation:
+            '$a = \\frac{5}{-2} = -\\frac{5}{2}$ より $b = -\\frac{5}{2} \\times 6 = \\textcolor{#D97706}{-15}$ だよ。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'math-g1-proportion-q25',
+          question: '1本 $15\\text{g}$ のくぎがある。くぎの重さが $360\\text{g}$ のとき、くぎは何本？',
+          options: ['$20$ 本', '$24$ 本', '$30$ 本', '$18$ 本'],
+          correctIndex: 1,
+          explanation:
+            '$y = 15x$ に $y = 360$ を代入して $360 = 15x$ より $x = \\textcolor{#D97706}{24}$（本）だよ。',
           difficulty: 'advanced',
         },
       ],
@@ -198,6 +405,71 @@ export const proportion: Topic = {
             },
           ],
           answer: '$y = 80x$、$15$ 分後の道のりは $1200\\text{m}$',
+        },
+        {
+          id: 'math-g1-proportion-ex4',
+          question:
+            '比例のグラフが点 $(-3, 12)$ を通る。この比例の式を求め、$x = 5$ のときの $y$ の値を求めなさい。',
+          steps: [
+            {
+              title: 'Step 1: 比例の式を立てよう',
+              content:
+                '比例だから $y = ax$ と表せる。グラフが通る点の座標を代入して $a$ を求めよう。',
+              highlight: '$y = ax$',
+            },
+            {
+              title: 'Step 2: 比例定数 $a$ を求めよう',
+              content:
+                '$x = -3$, $y = 12$ を代入すると $12 = a \\times (-3)$ だから $a = \\frac{12}{-3} = -4$',
+              highlight: '$a = -4$',
+            },
+            {
+              title: 'Step 3: $x = 5$ のときの $y$ を求めよう',
+              content:
+                '$y = -4 \\times 5 = -20$',
+              highlight: '$y = -20$',
+            },
+          ],
+          answer: '$y = -4x$、$x = 5$ のとき $y = -20$',
+        },
+        {
+          id: 'math-g1-proportion-ex5',
+          question:
+            '$y = 3x$ で、$x$ の変域が $-2 \\leq x \\leq 4$ のとき、$y$ の変域を求めなさい。',
+          steps: [
+            {
+              title: 'Step 1: 変域の端の値を代入しよう',
+              content:
+                '$x$ の変域の両端を $y = 3x$ に代入するよ。\n$x = -2$ のとき $y = 3 \\times (-2) = -6$\n$x = 4$ のとき $y = 3 \\times 4 = 12$',
+            },
+            {
+              title: 'Step 2: $y$ の変域を不等号で表そう',
+              content:
+                '$a = 3 > 0$ だから、$x$ が最小のとき $y$ も最小、$x$ が最大のとき $y$ も最大になるよ。',
+              highlight: '$-6 \\leq y \\leq 12$',
+            },
+          ],
+          answer: '$-6 \\leq y \\leq 12$',
+        },
+        {
+          id: 'math-g1-proportion-ex6',
+          question:
+            '水そうに毎分 $3\\text{L}$ ずつ水を入れる。$x$ 分後に入った水の量を $y\\text{L}$ とするとき、$y$ を $x$ の式で表しなさい。また、水が $45\\text{L}$ たまるのは何分後か求めなさい。',
+          steps: [
+            {
+              title: 'Step 1: 比例の式を立てよう',
+              content:
+                '毎分 $3\\text{L}$ ずつ入るから、$x$ 分後には $3 \\times x$ リットル入る。',
+              highlight: '$y = 3x$',
+            },
+            {
+              title: 'Step 2: $y = 45$ を代入して $x$ を求めよう',
+              content:
+                '$45 = 3x$ だから $x = \\frac{45}{3} = 15$',
+              highlight: '$x = 15$',
+            },
+          ],
+          answer: '$y = 3x$、$45\\text{L}$ たまるのは $15$ 分後',
         },
       ],
     },

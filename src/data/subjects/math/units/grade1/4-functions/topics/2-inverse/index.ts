@@ -45,23 +45,43 @@ export const inverseProportion: Topic = {
     },
     videos: [],
     flashcards: [
+      // === basic (12枚) ===
       { id: 'math-g1-inverse-fc1', front: '$y = \\frac{a}{x}$（$a$ は比例定数、$a \\neq 0$）', back: '反比例の式は？', difficulty: 'basic' },
       { id: 'math-g1-inverse-fc2', front: '$y$ は $\\frac{1}{2}$ 倍になる（$x$ が $n$ 倍なら $y$ は $\\frac{1}{n}$ 倍）', back: '反比例で $x$ が2倍になると $y$ は？', difficulty: 'basic' },
       { id: 'math-g1-inverse-fc3', front: '$x \\times y = a$（積が一定）なら反比例', back: '反比例の判別法は？', difficulty: 'basic' },
       { id: 'math-g1-inverse-fc4', front: '$a = x \\times y$（対応する $x$ と $y$ の積）', back: '反比例の比例定数 $a$ の求め方は？', difficulty: 'basic' },
       { id: 'math-g1-inverse-fc5', front: '代入できない。$0$ で割ることはできない。', back: '反比例 $y = \\frac{a}{x}$ で $x = 0$ を代入できる？', difficulty: 'basic' },
       { id: 'math-g1-inverse-fc6', front: '$y = 4$（$y = \\frac{12}{3} = 4$）', back: '$y = \\frac{12}{x}$ で $x = 3$ のとき $y$ は？', difficulty: 'basic' },
+      { id: 'math-g1-inverse-fc15', front: '$y$ は3倍になる（$x$ が $\\frac{1}{n}$ 倍なら $y$ は $n$ 倍）', back: '反比例で $x$ が $\\frac{1}{3}$ 倍になると $y$ は？', difficulty: 'basic' },
+      { id: 'math-g1-inverse-fc16', front: '$y = -6$（$y = \\frac{-18}{3} = -6$）', back: '$y = \\frac{-18}{x}$ で $x = 3$ のとき $y$ は？', difficulty: 'basic' },
+      { id: 'math-g1-inverse-fc17', front: '$a = 30$（$a = 5 \\times 6 = 30$）', back: '$x = 5$, $y = 6$ のとき、反比例の比例定数は？', difficulty: 'basic' },
+      { id: 'math-g1-inverse-fc18', front: '反比例している。$xy = 48$（積が一定）だから。', back: '48個のあめを $x$ 人で分けると1人 $y$ 個。反比例？', difficulty: 'basic' },
+      { id: 'math-g1-inverse-fc19', front: '$x = 5$（$y = \\frac{20}{x}$ より $4 = \\frac{20}{x}$、$x = 5$）', back: '$y = \\frac{20}{x}$ で $y = 4$ のとき $x$ は？', difficulty: 'basic' },
+      { id: 'math-g1-inverse-fc20', front: '反比例していない。$y = 4x$ で比例の関係。', back: '1辺 $x$ cmの正方形の周の長さ $y$ cmは反比例？', difficulty: 'basic' },
+      // === standard (12枚) ===
       { id: 'math-g1-inverse-fc7', front: '$a = -20$（$a = 4 \\times (-5) = -20$）', back: '$x = 4$, $y = -5$ のとき、反比例の比例定数は？', difficulty: 'standard' },
       { id: 'math-g1-inverse-fc8', front: '双曲線。座標軸（$x$ 軸・$y$ 軸）と交わらない2つのなめらかな曲線。', back: '反比例のグラフの名前と特徴は？', difficulty: 'standard' },
       { id: 'math-g1-inverse-fc9', front: '$a > 0$: 右上と左下の領域。$a < 0$: 左上と右下の領域。', back: '反比例のグラフはどの領域にある？', difficulty: 'standard' },
       { id: 'math-g1-inverse-fc10', front: '面積 $=$ 縦 $\\times$ 横 で積が一定 → 反比例の関係', back: '面積一定の長方形で縦と横はどんな関係？', difficulty: 'standard' },
       { id: 'math-g1-inverse-fc11', front: '比例: $\\dfrac{y}{x} = a$（商が一定）。反比例: $xy = a$（積が一定）。', back: '比例と反比例の見分け方は？', difficulty: 'standard' },
       { id: 'math-g1-inverse-fc12', front: '$y = \\frac{24}{x}$（$a = 6 \\times 4 = 24$）', back: '$x = 6$ のとき $y = 4$ の反比例の式は？', difficulty: 'standard' },
+      { id: 'math-g1-inverse-fc21', front: '$y = \\frac{-24}{x}$（$a = (-3) \\times 8 = -24$）', back: '$y$ が $x$ に反比例し $x = -3$ のとき $y = 8$。式は？', difficulty: 'standard' },
+      { id: 'math-g1-inverse-fc22', front: '左上と右下の領域（$a = -10 < 0$）', back: '$y = \\frac{-10}{x}$ のグラフはどの領域にある？', difficulty: 'standard' },
+      { id: 'math-g1-inverse-fc23', front: '反比例。道のり $= $ 速さ $\\times$ 時間で、道のりが一定なら $xy = $ 一定。', back: '150kmの道のりを時速 $x$ kmで走ると $y$ 時間かかる。反比例？', difficulty: 'standard' },
+      { id: 'math-g1-inverse-fc24', front: '$y = 3$（$y = \\frac{-18}{-6} = 3$）', back: '$y = \\frac{-18}{x}$ で $x = -6$ のとき $y$ は？', difficulty: 'standard' },
+      { id: 'math-g1-inverse-fc25', front: '比例定数 $a$ が正（$a > 0$）', back: '反比例のグラフが右上と左下にあるとき $a$ の符号は？', difficulty: 'standard' },
+      { id: 'math-g1-inverse-fc26', front: '通らない。$x = 0$ のとき $y$ が定義されず、$y = 0$ になる $x$ もないから。', back: '反比例のグラフは原点を通る？', difficulty: 'standard' },
+      // === advanced (6枚) ===
       { id: 'math-g1-inverse-fc13', front: '原点に近づくが、座標軸には永遠に交わらない（漸近線）', back: '双曲線がどこまでも軸に近づく特徴は？', difficulty: 'advanced' },
       { id: 'math-g1-inverse-fc14', front: '歯数 $\\times$ 回転数 $=$ 一定。歯車の歯数と回転数は反比例の関係。', back: '歯車の反比例の例は？', difficulty: 'advanced' },
+      { id: 'math-g1-inverse-fc27', front: '$2 \\leq y \\leq 6$（$x = 2$ のとき $y = 6$、$x = 6$ のとき $y = 2$）', back: '$y = \\frac{12}{x}$ で $2 \\leq x \\leq 6$ のとき $y$ の変域は？', difficulty: 'advanced' },
+      { id: 'math-g1-inverse-fc28', front: '面積は $\\frac{1}{2} \\times |a|$ で常に一定。', back: '反比例 $y = \\frac{a}{x}$ のグラフ上の点から軸に下ろした垂線でできる三角形の面積は？', difficulty: 'advanced' },
+      { id: 'math-g1-inverse-fc29', front: '$(1, 12), (2, 6), (3, 4), (4, 3), (6, 2), (12, 1)$ の6個', back: '$y = \\frac{12}{x}$ で $x > 0$ かつ $x$, $y$ がともに整数の点は？', difficulty: 'advanced' },
+      { id: 'math-g1-inverse-fc30', front: '$2x = \\frac{18}{x}$ より $x^2 = 9$、$x = 3$（$x > 0$）で交点 $(3, 6)$', back: '$y = 2x$ と $y = \\frac{18}{x}$ の交点は？（$x > 0$）', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
+        // === basic (8問) ===
         {
           id: 'math-g1-inverse-q1',
           question: '$y = \\frac{12}{x}$ のとき、$x = 3$ なら $y$ はいくつ？',
@@ -81,6 +101,61 @@ export const inverseProportion: Topic = {
             '$a = x \\times y = 4 \\times (-5) = \\textcolor{#D97706}{-20}$ だよ。',
           difficulty: 'basic',
         },
+        {
+          id: 'math-g1-inverse-q6',
+          question: '反比例で $x$ が3倍になると $y$ はどうなる？',
+          options: ['$3$ 倍', '$\\frac{1}{3}$ 倍', '$9$ 倍', '変わらない'],
+          correctIndex: 1,
+          explanation:
+            '反比例では $x$ が $n$ 倍になると $y$ は $\\textcolor{#D97706}{\\frac{1}{n}}$ 倍になるよ。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'math-g1-inverse-q7',
+          question: '$y = \\frac{-15}{x}$ で $x = 5$ のとき $y$ はいくつ？',
+          options: ['$3$', '$-3$', '$-75$', '$75$'],
+          correctIndex: 1,
+          explanation:
+            '$y = \\frac{-15}{5} = \\textcolor{#D97706}{-3}$ だよ。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'math-g1-inverse-q8',
+          question: '$y$ が $x$ に反比例し、$x = 5$ のとき $y = 8$。$y$ を $x$ の式で表すと？',
+          options: ['$y = \\frac{40}{x}$', '$y = \\frac{8}{x}$', '$y = \\frac{5}{x}$', '$y = \\frac{13}{x}$'],
+          correctIndex: 0,
+          explanation:
+            '$a = 5 \\times 8 = 40$ だから $y = \\textcolor{#D97706}{\\frac{40}{x}}$ だよ。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'math-g1-inverse-q9',
+          question: '反比例の式 $y = \\frac{a}{x}$ に $x = 0$ を代入するとどうなる？',
+          options: ['$y = 0$', '$y = a$', '代入できない', '$y = 1$'],
+          correctIndex: 2,
+          explanation:
+            '$0$ で割ることはできないので、$x = 0$ は\\textcolor{#D97706}{代入できない}よ。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'math-g1-inverse-q10',
+          question: '48枚の折り紙を $x$ 人で等しく分けると1人 $y$ 枚もらえる。$y$ を $x$ の式で表すと？',
+          options: ['$y = 48x$', '$y = \\frac{48}{x}$', '$y = 48 - x$', '$y = \\frac{x}{48}$'],
+          correctIndex: 1,
+          explanation:
+            '$x \\times y = 48$ だから $y = \\textcolor{#D97706}{\\frac{48}{x}}$（反比例）だよ。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'math-g1-inverse-q11',
+          question: '$y = \\frac{20}{x}$ で $y = 4$ のとき $x$ はいくつ？',
+          options: ['$4$', '$5$', '$16$', '$80$'],
+          correctIndex: 1,
+          explanation:
+            '$4 = \\frac{20}{x}$ より $x = \\frac{20}{4} = \\textcolor{#D97706}{5}$ だよ。',
+          difficulty: 'basic',
+        },
+        // === standard (12問) ===
         {
           id: 'math-g1-inverse-q3',
           question: '反比例のグラフについて正しいものはどれ？',
@@ -110,6 +185,98 @@ export const inverseProportion: Topic = {
           difficulty: 'standard',
         },
         {
+          id: 'math-g1-inverse-q12',
+          question: '$y$ が $x$ に反比例し、$x = -3$ のとき $y = 8$。$x = 6$ のとき $y$ はいくつ？',
+          options: ['$4$', '$-4$', '$-16$', '$16$'],
+          correctIndex: 1,
+          explanation:
+            '$a = (-3) \\times 8 = -24$、$y = \\frac{-24}{6} = \\textcolor{#D97706}{-4}$ だよ。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'math-g1-inverse-q13',
+          question: '$y = \\frac{-10}{x}$ のグラフはどの領域にある？',
+          options: ['右上と左下', '左上と右下', '右上と右下', '左上と左下'],
+          correctIndex: 1,
+          explanation:
+            '$a = -10 < 0$ なので、グラフは\\textcolor{#D97706}{左上と右下}の領域にあるよ。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'math-g1-inverse-q14',
+          question: '面積が $60\\text{cm}^2$ の三角形で、底辺 $x\\text{cm}$、高さ $y\\text{cm}$ のとき $y$ を $x$ の式で表すと？',
+          options: ['$y = \\frac{60}{x}$', '$y = \\frac{120}{x}$', '$y = 30x$', '$y = \\frac{30}{x}$'],
+          correctIndex: 1,
+          explanation:
+            '$\\frac{1}{2} \\times x \\times y = 60$ より $xy = 120$、$y = \\textcolor{#D97706}{\\frac{120}{x}}$ だよ。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'math-g1-inverse-q15',
+          question: '比例と反比例の見分け方として正しいのはどれ？',
+          options: [
+            '$x + y$ が一定なら反比例',
+            '$x \\times y$ が一定なら反比例',
+            '$\\frac{x}{y}$ が一定なら反比例',
+            '$x - y$ が一定なら反比例',
+          ],
+          correctIndex: 1,
+          explanation:
+            '$\\textcolor{#D97706}{x \\times y = a}$（積が一定）なら反比例だよ。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'math-g1-inverse-q16',
+          question: '反比例のグラフが点 $(4, 9)$ を通るとき、比例定数 $a$ はいくつ？',
+          options: ['$13$', '$36$', '$5$', '$\\frac{9}{4}$'],
+          correctIndex: 1,
+          explanation:
+            '$a = 4 \\times 9 = \\textcolor{#D97706}{36}$ だよ。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'math-g1-inverse-q17',
+          question: '$y = \\frac{-18}{x}$ で $x = -6$ のとき $y$ はいくつ？',
+          options: ['$-3$', '$3$', '$-108$', '$108$'],
+          correctIndex: 1,
+          explanation:
+            '$y = \\frac{-18}{-6} = \\textcolor{#D97706}{3}$ だよ。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'math-g1-inverse-q18',
+          question: '次のうち、$y$ が $x$ に反比例していないものはどれ？',
+          options: [
+            '速さ $x$ km/hで $y$ 時間かかる一定距離',
+            '$x$ 人で $y$ 個ずつ分ける一定個数',
+            '1辺 $x$ cmの正方形の面積 $y$ cm$^2$',
+            '底辺 $x$ cm、高さ $y$ cmの一定面積の平行四辺形',
+          ],
+          correctIndex: 2,
+          explanation:
+            '正方形の面積は $y = x^2$ で、反比例ではないよ。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'math-g1-inverse-q19',
+          question: '反比例 $y = \\frac{a}{x}$ のグラフが左上と右下にあるとき $a$ の値は？',
+          options: ['$a > 0$', '$a < 0$', '$a = 0$', '$a = 1$'],
+          correctIndex: 1,
+          explanation:
+            '左上と右下にあるのは $\\textcolor{#D97706}{a < 0}$ のときだよ。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'math-g1-inverse-q20',
+          question: '600mの道のりを分速 $x$ mで歩くと $y$ 分かかる。$x = 50$ のとき $y$ は？',
+          options: ['$10$', '$12$', '$30$', '$550$'],
+          correctIndex: 1,
+          explanation:
+            '$xy = 600$ で $y = \\frac{600}{50} = \\textcolor{#D97706}{12}$ 分だよ。',
+          difficulty: 'standard',
+        },
+        // === advanced (5問) ===
+        {
           id: 'math-g1-inverse-q5',
           question:
             '反比例 $y = \\frac{a}{x}$ で、$a > 0$ のときグラフはどの領域にある？',
@@ -122,6 +289,47 @@ export const inverseProportion: Topic = {
           correctIndex: 1,
           explanation:
             '$a > 0$ のとき、$x > 0$ なら $y > 0$（右上）、$x < 0$ なら $y < 0$（左下）だよ。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'math-g1-inverse-q21',
+          question: '$y = \\frac{12}{x}$ で $2 \\leq x \\leq 6$ のとき、$y$ の変域は？',
+          options: [
+            '$2 \\leq y \\leq 6$',
+            '$6 \\leq y \\leq 12$',
+            '$\\frac{1}{6} \\leq y \\leq \\frac{1}{2}$',
+            '$0 \\leq y \\leq 6$',
+          ],
+          correctIndex: 0,
+          explanation:
+            '$x = 2$ のとき $y = 6$、$x = 6$ のとき $y = 2$。よって $\\textcolor{#D97706}{2 \\leq y \\leq 6}$ だよ。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'math-g1-inverse-q22',
+          question: '反比例 $y = \\frac{a}{x}$ のグラフ上の点 $P(p, q)$（$p > 0, q > 0$）から $x$ 軸に垂線を下ろした三角形の面積が $8$ のとき $a$ は？',
+          options: ['$4$', '$8$', '$16$', '$32$'],
+          correctIndex: 2,
+          explanation:
+            '三角形の面積 $= \\frac{1}{2} \\times p \\times q = \\frac{a}{2} = 8$ より $a = \\textcolor{#D97706}{16}$ だよ。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'math-g1-inverse-q23',
+          question: '$y = 3x$ と $y = \\frac{27}{x}$ の交点の座標は？（$x > 0$）',
+          options: ['$(3, 9)$', '$(9, 3)$', '$(27, 1)$', '$(1, 27)$'],
+          correctIndex: 0,
+          explanation:
+            '$3x = \\frac{27}{x}$ より $3x^2 = 27$、$x^2 = 9$、$x = 3$。$y = 9$。交点は $\\textcolor{#D97706}{(3, 9)}$ だよ。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'math-g1-inverse-q24',
+          question: '$y = \\frac{a}{x}$ で $x$ の変域が $3 \\leq x \\leq 9$ のとき $y$ の変域が $2 \\leq y \\leq 6$。$a$ の値は？',
+          options: ['$12$', '$18$', '$27$', '$54$'],
+          correctIndex: 1,
+          explanation:
+            '$x = 3$ のとき $y = 6$ だから $a = 3 \\times 6 = \\textcolor{#D97706}{18}$。確認: $x = 9$ のとき $y = \\frac{18}{9} = 2$ ✓',
           difficulty: 'advanced',
         },
       ],
@@ -197,6 +405,77 @@ export const inverseProportion: Topic = {
           ],
           answer:
             '$x = -2$ のとき $y = 4$、$x = -1$ のとき $y = 8$、$x = 1$ のとき $y = -8$、$x = 2$ のとき $y = -4$、$x = 4$ のとき $y = -2$',
+        },
+        {
+          id: 'math-g1-inverse-ex4',
+          question:
+            '反比例のグラフが点 $(−4, 6)$ を通る。この反比例の式を求め、$x = 8$ のときの $y$ の値を求めなさい。',
+          steps: [
+            {
+              title: 'Step 1: 比例定数を求めよう',
+              content:
+                'グラフが点 $(-4, 6)$ を通るから、$a = (-4) \\times 6 = -24$',
+              highlight: '$a = -24$',
+            },
+            {
+              title: 'Step 2: 反比例の式を書こう',
+              content:
+                '$y = \\frac{-24}{x}$',
+              highlight: '$y = \\frac{-24}{x}$',
+            },
+            {
+              title: 'Step 3: $x = 8$ を代入しよう',
+              content:
+                '$y = \\frac{-24}{8} = -3$',
+              highlight: '$y = -3$',
+            },
+          ],
+          answer: '式: $y = \\frac{-24}{x}$、$x = 8$ のとき $y = -3$',
+        },
+        {
+          id: 'math-g1-inverse-ex5',
+          question:
+            '$y = \\frac{18}{x}$ で、$x$ の変域が $3 \\leq x \\leq 9$ のとき、$y$ の変域を求めなさい。',
+          steps: [
+            {
+              title: 'Step 1: 変域の端の値を代入しよう',
+              content:
+                '$x = 3$ のとき $y = \\frac{18}{3} = 6$\n$x = 9$ のとき $y = \\frac{18}{9} = 2$',
+            },
+            {
+              title: 'Step 2: $y$ の変域を求めよう',
+              content:
+                '$a > 0$ で $x > 0$ の範囲では、$x$ が大きくなると $y$ は小さくなるよ。だから $y$ の最大値は $6$、最小値は $2$ だね。',
+              highlight: '$2 \\leq y \\leq 6$',
+            },
+          ],
+          answer: '$2 \\leq y \\leq 6$',
+        },
+        {
+          id: 'math-g1-inverse-ex6',
+          question:
+            '比例 $y = 2x$ のグラフと反比例 $y = \\frac{8}{x}$ のグラフの交点の座標を求めなさい（$x > 0$）。',
+          steps: [
+            {
+              title: 'Step 1: 2つの式を等しくしよう',
+              content:
+                '$2x = \\frac{8}{x}$ と置くよ。',
+              highlight: '$2x = \\frac{8}{x}$',
+            },
+            {
+              title: 'Step 2: $x$ を求めよう',
+              content:
+                '両辺に $x$ をかけると $2x^2 = 8$\n$x^2 = 4$\n$x > 0$ だから $x = 2$',
+              highlight: '$x = 2$',
+            },
+            {
+              title: 'Step 3: $y$ を求めよう',
+              content:
+                '$y = 2 \\times 2 = 4$',
+              highlight: '交点 $(2, 4)$',
+            },
+          ],
+          answer: '交点の座標は $(2, 4)$',
         },
       ],
     },
