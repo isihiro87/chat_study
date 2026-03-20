@@ -378,11 +378,11 @@ export const microscopeDetail: Topic = {
           question: '反射鏡の凹面鏡と平面鏡では、どちらが多くの光を集められるか？',
           options: [
             '平面鏡',
-            '凹面鏡',
-            'どちらも同じ',
             '光は集められない',
+            'どちらも同じ',
+            '凹面鏡',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '凹面鏡のほうがより多くの光を集められます。倍率を上げて暗くなったときは凹面鏡に変えて明るくします。',
         difficulty: 'standard',
@@ -392,11 +392,11 @@ export const microscopeDetail: Topic = {
           question: 'しぼりの役割として正しいものはどれか？',
           options: [
             '倍率を変える',
-            '視野に入る光の量を調節する',
-            'レンズを固定する',
             'プレパラートを固定する',
+            'レンズを固定する',
+            '視野に入る光の量を調節する',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             'しぼりは視野に入る光の量を調節する装置です。しぼりを開くと光が多く入り明るくなります。',
         difficulty: 'standard',
@@ -406,11 +406,11 @@ export const microscopeDetail: Topic = {
           question: '鏡筒上下式顕微鏡とステージ上下式顕微鏡の違いは何か？',
           options: [
             '使うレンズが違う',
-            'ピントを合わせるとき動かす部分が違う',
-            '倍率が違う',
             '使うプレパラートが違う',
+            '倍率が違う',
+            'ピントを合わせるとき動かす部分が違う',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '鏡筒上下式は鏡筒を動かし、ステージ上下式はステージを動かしてピントを合わせます。原理は同じです。',
         difficulty: 'standard',
@@ -420,11 +420,11 @@ export const microscopeDetail: Topic = {
           question: '双眼実体顕微鏡のピント合わせで正しい手順はどれか？',
           options: [
             '微動ねじ→粗動ねじの順で合わせる',
-            '粗動ねじで大まかに合わせ、微動ねじで細かく合わせる',
-            '調節ねじだけで合わせる',
             'レボルバーで合わせる',
+            '調節ねじだけで合わせる',
+            '粗動ねじで大まかに合わせ、微動ねじで細かく合わせる',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '粗動ねじで大まかにピントを合わせた後、微動ねじで細かく調節します。左右の視度差は視度調節リングで合わせます。',
         difficulty: 'standard',
@@ -475,12 +475,12 @@ export const microscopeDetail: Topic = {
           id: 'q21',
           question: '調節ねじの役割として正しいものはどれか？',
           options: [
-            '対物レンズを切りかえる',
             'ピントを合わせるために鏡筒またはステージを上下に動かす',
+            '対物レンズを切りかえる',
             '光の量を調節する',
             'プレパラートを固定する',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '調節ねじはピントを合わせるために回すねじです。鏡筒またはステージを上下に動かします。',
         difficulty: 'standard',
@@ -489,12 +489,12 @@ export const microscopeDetail: Topic = {
           id: 'q22',
           question: '双眼実体顕微鏡でプレパラートは必要か？',
           options: [
-            '必ず必要である',
             '必要ない。観察するものをそのままステージにのせて観察できる',
+            '必ず必要である',
             '高倍率のときだけ必要',
             'カバーガラスだけ必要',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '双眼実体顕微鏡ではプレパラートは不要です。観察するものをそのままステージにのせて観察できます。',
         difficulty: 'standard',
@@ -503,12 +503,12 @@ export const microscopeDetail: Topic = {
           id: 'q23',
           question: '倍率を40倍から400倍に上げたとき、視野の広さと明るさはどう変化するか？',
           options: [
-            '広くなり、明るくなる',
             '狭くなり、暗くなる',
+            '広くなり、明るくなる',
             '広くなり、暗くなる',
             '変わらない',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '倍率を上げると視野は狭くなり、明るさは暗くなります。しぼりを開いたり凹面鏡にして明るくします。',
         difficulty: 'advanced',
@@ -517,12 +517,12 @@ export const microscopeDetail: Topic = {
           id: 'q24',
           question: '顕微鏡の操作手順として正しい順番はどれか？',
           options: [
-            'ピント合わせ→レンズ取り付け→明るさ調節',
             'レンズ取り付け→明るさ調節→ピント合わせ',
+            'ピント合わせ→レンズ取り付け→明るさ調節',
             '明るさ調節→ピント合わせ→レンズ取り付け',
             'レンズ取り付け→ピント合わせ→明るさ調節',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '正しい手順は①レンズ取り付け（接眼→対物）②明るさ調節（反射鏡・しぼり）③ピント合わせです。',
         difficulty: 'advanced',
@@ -533,10 +533,10 @@ export const microscopeDetail: Topic = {
           options: [
             'たっぷり入れる',
             '3滴入れる',
-            '1滴',
             '水は入れない',
+            '1滴',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             'スポイトで水を1滴たらします。水が多すぎるとカバーガラスが浮いてしまいます。',
         difficulty: 'advanced',
@@ -545,12 +545,12 @@ export const microscopeDetail: Topic = {
           id: 'q26',
           question: '顕微鏡の反射鏡の役割として正しいものはどれか？',
           options: [
-            '倍率を上げる',
             '光を集めて視野を明るくする',
+            '倍率を上げる',
             'プレパラートを固定する',
             'レンズの汚れを防ぐ',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '反射鏡は光を集めて視野を明るくする役割があります。平面鏡と凹面鏡があり、凹面鏡のほうが多くの光を集められます。',
         difficulty: 'advanced',
@@ -559,12 +559,12 @@ export const microscopeDetail: Topic = {
           id: 'q27',
           question: '接眼レンズが10倍、対物レンズが4倍のとき、倍率は何倍か？',
           options: [
-            '14倍',
             '40倍',
+            '14倍',
             '6倍',
             '2.5倍',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '倍率＝接眼レンズの倍率×対物レンズの倍率＝10×4＝40倍です。足し算ではなくかけ算で求めます。',
         difficulty: 'advanced',
@@ -573,12 +573,12 @@ export const microscopeDetail: Topic = {
           id: 'q28',
           question: '双眼実体顕微鏡で両目の間隔を合わせる操作を何というか？',
           options: [
-            '視度調節',
             '眼幅調節',
+            '視度調節',
             'ピント合わせ',
             '倍率調節',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '眼幅調節といいます。接眼レンズの間隔を自分の目の幅に合わせる操作です。',
         difficulty: 'advanced',

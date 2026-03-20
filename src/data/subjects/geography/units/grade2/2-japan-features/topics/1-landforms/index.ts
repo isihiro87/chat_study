@@ -245,8 +245,8 @@ export const landforms: Topic = {
         {
           id: 'geo2-lf-q6',
           question: '日本列島が位置する造山帯の名前はどれか？',
-          options: ['アルプス・ヒマラヤ造山帯', '環太平洋造山帯', '大西洋中央海嶺', 'ウラル造山帯'],
-          correctIndex: 1,
+          options: ['環太平洋造山帯', 'アルプス・ヒマラヤ造山帯', '大西洋中央海嶺', 'ウラル造山帯'],
+          correctIndex: 0,
           explanation:
             '日本列島は環太平洋造山帯に位置しています。太平洋を取り囲むように火山や地震の多い地域が帯状に連なっています。',
         difficulty: 'basic',
@@ -264,12 +264,12 @@ export const landforms: Topic = {
           id: 'geo2-lf-q8',
           question: '日本で火山や地震が多い理由として正しいものはどれか？',
           options: [
-            '赤道に近い位置にあるため',
             '複数のプレートが押し合う場所にあるため',
+            '赤道に近い位置にあるため',
             '国土が島国であるため',
             '標高の高い山が多いため',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '日本は複数のプレート（ユーラシア・北アメリカ・太平洋・フィリピン海）が押し合う場所にあるため、火山活動や地震が活発です。',
         difficulty: 'basic',
@@ -296,12 +296,12 @@ export const landforms: Topic = {
           id: 'geo2-lf-q11',
           question: '台地で畑作が多い理由として正しいものはどれか？',
           options: [
-            '日当たりが悪いため',
-            '土壌が肥沃すぎるため',
             '周囲より高い位置にあり水が得にくいため',
+            '土壌が肥沃すぎるため',
+            '日当たりが悪いため',
             '風が強すぎるため',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             '台地は周囲より一段高い平らな土地で、水が得にくいため水田には向かず、畑作が行われることが多いです。',
         difficulty: 'standard',
@@ -327,8 +327,8 @@ export const landforms: Topic = {
         {
           id: 'geo2-lf-q14',
           question: '大陸棚の深さの目安として正しいものはどれか？',
-          options: ['約50m', '約200m', '約1000m', '約5000m'],
-          correctIndex: 1,
+          options: ['約200m', '約50m', '約1000m', '約5000m'],
+          correctIndex: 0,
           explanation:
             '大陸棚は大陸の周辺に広がる浅い海底で、深さ約200mまでの範囲を指します。漁業資源が豊富な場所です。',
         difficulty: 'standard',
@@ -382,8 +382,8 @@ export const landforms: Topic = {
         {
           id: 'geo2-lf-q19',
           question: '東北地方を南北に走る主要な山脈はどれか？',
-          options: ['飛騨山脈', '日高山脈', '奥羽山脈', '紀伊山地'],
-          correctIndex: 2,
+          options: ['奥羽山脈', '日高山脈', '飛騨山脈', '紀伊山地'],
+          correctIndex: 0,
           explanation:
             '奥羽山脈は東北地方の中央を南北に走る日本最長の山脈で、東北地方を太平洋側と日本海側に分けています。',
         difficulty: 'standard',

@@ -276,12 +276,12 @@ export const territory: Topic = {
           id: 'geo1-tr-q6',
           question: '竹島はどの都道府県に属するか。',
           options: [
-            '北海道',
             '島根県',
+            '北海道',
             '東京都',
             '沖縄県',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '竹島は島根県に属する日本固有の領土です。現在は韓国が不法に占拠しており、日本は国際法に基づく平和的な解決を主張しています。',
         difficulty: 'basic',
@@ -389,11 +389,11 @@ export const territory: Topic = {
           question: '排他的経済水域で沿岸国が持つ権利はどれ？',
           options: [
             '軍事的支配権',
-            '水産資源や鉱産資源の調査・開発権',
             '他国の船の通行禁止権',
             '空域の管理権',
+            '水産資源や鉱産資源の調査・開発権',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '排他的経済水域では水産資源や鉱産資源を調査・開発する権利を持ちます。',
         difficulty: 'standard',
@@ -501,11 +501,11 @@ export const territory: Topic = {
           question: '西之島の火山噴火によるEEZへの影響はどれ？',
           options: [
             'EEZが縮小した',
-            'EEZが拡大した',
             '変化なし',
             '領海のみ変化',
+            'EEZが拡大した',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '火山の噴火で島の面積が拡大し、周囲の排他的経済水域も拡大しました。',
         difficulty: 'standard',

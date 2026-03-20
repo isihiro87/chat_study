@@ -208,8 +208,8 @@ export const fieldwork: Topic = {
         {
           id: 'geo2-fw-q5',
           question: '写真撮影と比べたときのスケッチの利点として正しいものはどれ？',
-          options: ['客観的な記録ができる', '短時間で記録できる', '注目した点を強調して記録できる', '色が正確に記録できる'],
-          correctIndex: 2,
+          options: ['注目した点を強調して記録できる', '短時間で記録できる', '客観的な記録ができる', '色が正確に記録できる'],
+          correctIndex: 0,
           explanation: 'スケッチは写真では伝わりにくい特徴や注目した点を強調して記録できます。',
           difficulty: 'standard',
         },
@@ -224,8 +224,8 @@ export const fieldwork: Topic = {
         {
           id: 'geo2-fw-q7',
           question: '量の比較を表すのに最も適したグラフはどれ？',
-          options: ['円グラフ', '棒グラフ', '折れ線グラフ', '帯グラフ'],
-          correctIndex: 1,
+          options: ['棒グラフ', '円グラフ', '折れ線グラフ', '帯グラフ'],
+          correctIndex: 0,
           explanation: '棒グラフは量の大小を比較するのに適しています。',
           difficulty: 'standard',
         },

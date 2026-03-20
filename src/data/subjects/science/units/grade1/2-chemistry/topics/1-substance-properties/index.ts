@@ -385,8 +385,13 @@ export const substanceProperties: Topic = {
         {
           id: 'sci1-sp-q20',
           question: '食塩を燃やすとどうなるか？',
-          options: ['黒くこげる', '燃えない', '二酸化炭素が出る', '水蒸気が出る'],
-          correctIndex: 1,
+          options: [
+            '黒くこげる',
+            '水蒸気が出る',
+            '二酸化炭素が出る',
+            '燃えない',
+          ],
+          correctIndex: 3,
           explanation:
             '食塩は無機物なので燃えません。有機物は炭素をふくみ、燃やすと二酸化炭素と水が発生します。',
         difficulty: 'standard',
@@ -410,11 +415,11 @@ export const substanceProperties: Topic = {
           question: '物質は大きく2つに分けられる。何と何か？',
           options: [
             '有機物と無機物',
-            '金属と非金属',
-            '固体と液体',
             '純物質と混合物',
+            '固体と液体',
+            '金属と非金属',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '物質は金属と非金属に大きく分けられます。有機物と無機物は別の分類方法です。',
         difficulty: 'standard',
@@ -423,12 +428,12 @@ export const substanceProperties: Topic = {
           id: 'sci1-sp-q23',
           question: 'ガスバーナーに火をつけるとき、マッチとガスはどちらを先に用意するか？',
           options: [
-            'ガスを先に出してからマッチに火をつける',
             'マッチに先に火をつけてからガスを出す',
+            'ガスを先に出してからマッチに火をつける',
             '同時に行う',
             '順序は関係ない',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             'マッチに先に火をつけてからガスを出します。ガスを先に出すと引火の危険があります。',
         difficulty: 'advanced',
@@ -436,8 +441,13 @@ export const substanceProperties: Topic = {
         {
           id: 'sci1-sp-q24',
           question: 'エタノールは有機物か無機物か？',
-          options: ['無機物', '有機物', '金属', '純物質ではない'],
-          correctIndex: 1,
+          options: [
+            '有機物',
+            '無機物',
+            '金属',
+            '純物質ではない',
+          ],
+          correctIndex: 0,
           explanation:
             'エタノールは有機物です。炭素をふくんでおり、燃やすと二酸化炭素と水が発生します。',
         difficulty: 'advanced',
@@ -462,10 +472,10 @@ export const substanceProperties: Topic = {
           options: [
             '色のちがいで区別する',
             '水に溶かして区別する',
-            '粒のようすを観察する',
             '燃やして区別する',
+            '粒のようすを観察する',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             'グラニュー糖は透明で角ばった結晶、食塩は立方体の結晶です。粒のようすの観察で区別できます。',
         difficulty: 'advanced',
@@ -474,12 +484,12 @@ export const substanceProperties: Topic = {
           id: 'sci1-sp-q27',
           question: '電気を通すかどうかだけで金属か非金属かを判断できるか？',
           options: [
-            'できる',
             'できない。非金属でも黒鉛のように電気を通すものがあるから',
+            'できる',
             'できる。金属だけが電気を通すから',
             'できない。金属は電気を通さないものがあるから',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '非金属でも炭素（黒鉛）のように電気を通すものがあるため、電気を通すだけでは金属とは判断できません。',
         difficulty: 'advanced',
@@ -488,12 +498,12 @@ export const substanceProperties: Topic = {
           id: 'sci1-sp-q28',
           question: '密度が物質の見分けに使える理由はどれか？',
           options: [
-            '密度は温度で変わるから',
             '密度は物質ごとに固有の値をもつから',
+            '密度は温度で変わるから',
             '密度は体積と同じだから',
             '密度は色で決まるから',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '密度は物質ごとに固有の値をもつため、密度がわかれば何の物質か特定できます。',
         difficulty: 'advanced',

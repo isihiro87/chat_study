@@ -95,8 +95,8 @@ export const sensoryOrgans: Topic = {
         {
           id: 'sci2-so-q1',
           question: '感覚器官でないものはどれ？',
-          options: ['目', '心臓', '耳', '皮膚'],
-          correctIndex: 1,
+          options: [ '心臓','目', '耳', '皮膚'],
+          correctIndex: 0,
           explanation:
             '心臓は循環器官です。感覚器官は目、耳、鼻、皮膚、舌の5つで、外界の刺激を受けとります。',
         difficulty: 'basic',
@@ -120,8 +120,8 @@ export const sensoryOrgans: Topic = {
         {
           id: 'sci2-so-q4',
           question: 'ライオンの目が前向きについている利点はどれ？',
-          options: ['暗い場所でも見える', '広い範囲が見える', '立体的に見えて距離がわかる', '色がよく見える'],
-          correctIndex: 2,
+          options: [ '立体的に見えて距離がわかる', '広い範囲が見える','暗い場所でも見える', '色がよく見える'],
+          correctIndex: 0,
           explanation: '前向きの目は両目の視野が重なり、立体的に見えるため距離がわかります。獲物をとらえるのに有利です。',
         difficulty: 'basic',
       },
@@ -136,8 +136,8 @@ export const sensoryOrgans: Topic = {
         {
           id: 'sci2-so-q6',
           question: '光の量を調節するつくりは？',
-          options: ['水晶体', '網膜', '虹彩', '角膜'],
-          correctIndex: 2,
+          options: ['水晶体', '網膜', '角膜', '虹彩'],
+          correctIndex: 3,
           explanation:
             '虹彩がひとみの大きさを変える。',
         difficulty: 'basic',
@@ -145,8 +145,8 @@ export const sensoryOrgans: Topic = {
         {
           id: 'sci2-so-q7',
           question: '暗い場所でひとみは？',
-          options: ['小さく', '大きく', '変わらない', '閉じる'],
-          correctIndex: 1,
+          options: [ '大きく','小さく', '変わらない', '閉じる'],
+          correctIndex: 0,
           explanation:
             '大きくなり光を多く取り入れる。',
         difficulty: 'basic',
@@ -154,8 +154,8 @@ export const sensoryOrgans: Topic = {
         {
           id: 'sci2-so-q8',
           question: '近くを見るとき水晶体は？',
-          options: ['薄く', '厚く', '変わらない', '硬く'],
-          correctIndex: 1,
+          options: [ '厚く','薄く', '変わらない', '硬く'],
+          correctIndex: 0,
           explanation:
             '厚くなりピント調節。',
         difficulty: 'basic',

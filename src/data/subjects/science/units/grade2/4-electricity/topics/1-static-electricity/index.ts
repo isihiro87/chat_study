@@ -160,8 +160,8 @@ export const staticElectricity: Topic = {
         {
           id: 'sci2-static-q5',
           question: '静電気は何によって生じる？',
-          options: ['加熱', '摩擦', '溶解', '蒸発'],
-          correctIndex: 1,
+          options: ['摩擦', '加熱', '溶解', '蒸発'],
+          correctIndex: 0,
           explanation:
             '摩擦で電子が移動し帯電。',
         difficulty: 'basic',
@@ -169,8 +169,8 @@ export const staticElectricity: Topic = {
         {
           id: 'sci2-static-q6',
           question: '電子を失った物体は？',
-          options: ['−に帯電', '＋に帯電', '帯電しない', '中性'],
-          correctIndex: 1,
+          options: ['−に帯電', '中性', '帯電しない', '＋に帯電'],
+          correctIndex: 3,
           explanation:
             '−の電子を失うと＋に帯電。',
         difficulty: 'basic',
@@ -178,8 +178,8 @@ export const staticElectricity: Topic = {
         {
           id: 'sci2-static-q7',
           question: '同じ種類の電気→どうなる？',
-          options: ['引き合う', '反発し合う', '何もない', '消える'],
-          correctIndex: 1,
+          options: ['反発し合う', '引き合う', '何もない', '消える'],
+          correctIndex: 0,
           explanation:
             '同種は反発、異種は引き合う。',
         difficulty: 'basic',
@@ -187,8 +187,8 @@ export const staticElectricity: Topic = {
         {
           id: 'sci2-static-q8',
           question: '雷はどんな現象？',
-          options: ['光の屈折', '放電', '帯電', '蒸発'],
-          correctIndex: 1,
+          options: ['光の屈折', '蒸発', '帯電', '放電'],
+          correctIndex: 3,
           explanation:
             '雲にたまった静電気の放電。',
         difficulty: 'basic',
@@ -196,8 +196,8 @@ export const staticElectricity: Topic = {
         {
           id: 'sci2-static-q9',
           question: '陰極線の正体は？',
-          options: ['光', '電子', '空気', '原子'],
-          correctIndex: 1,
+          options: ['電子', '光', '空気', '原子'],
+          correctIndex: 0,
           explanation:
             '−の電気をもつ電子。',
         difficulty: 'basic',
@@ -205,8 +205,8 @@ export const staticElectricity: Topic = {
         {
           id: 'sci2-static-q10',
           question: '陰極線は何極から飛ぶ？',
-          options: ['＋極', '−極', '両方', 'どちらでもない'],
-          correctIndex: 1,
+          options: ['＋極', '両方', '−極', 'どちらでもない'],
+          correctIndex: 2,
           explanation:
             '−極（陰極）から＋極へ飛ぶ。',
         difficulty: 'basic',
@@ -223,8 +223,8 @@ export const staticElectricity: Topic = {
         {
           id: 'sci2-static-q12',
           question: '電流の向きと電子の移動は？',
-          options: ['同じ向き', '逆向き', '直角', '無関係'],
-          correctIndex: 1,
+          options: ['逆向き', '同じ向き', '直角', '無関係'],
+          correctIndex: 0,
           explanation:
             '電流＋→−、電子−→＋で逆。',
         difficulty: 'standard',
@@ -232,8 +232,8 @@ export const staticElectricity: Topic = {
         {
           id: 'sci2-static-q13',
           question: '電流の向きは？',
-          options: ['−極→＋極', '＋極→−極', '両方向', '不定'],
-          correctIndex: 1,
+          options: ['−極→＋極', '両方向', '＋極→−極', '不定'],
+          correctIndex: 2,
           explanation:
             '＋極から−極と決められている。',
         difficulty: 'standard',
@@ -241,8 +241,8 @@ export const staticElectricity: Topic = {
         {
           id: 'sci2-static-q14',
           question: '真空放電が利用されている製品は？',
-          options: ['乾電池', '蛍光灯', 'モーター', 'スピーカー'],
-          correctIndex: 1,
+          options: ['乾電池', 'スピーカー', 'モーター', '蛍光灯'],
+          correctIndex: 3,
           explanation:
             '蛍光灯やネオンサイン。',
         difficulty: 'standard',
@@ -259,8 +259,8 @@ export const staticElectricity: Topic = {
         {
           id: 'sci2-static-q16',
           question: '放電とは？',
-          options: ['電池が切れること', 'たまった電気が空間を移動', '電流が流れること', '電圧が下がること'],
-          correctIndex: 1,
+          options: ['たまった電気が空間を移動', '電池が切れること', '電流が流れること', '電圧が下がること'],
+          correctIndex: 0,
           explanation:
             'たまった電気が空間を移動する現象。',
         difficulty: 'standard',
@@ -268,8 +268,8 @@ export const staticElectricity: Topic = {
         {
           id: 'sci2-static-q17',
           question: '帯電した下じきで髪が逆立つ理由は？',
-          options: ['風', '異なる電気で引き合う', '同じ電気で反発', '静電気で帯電しない'],
-          correctIndex: 1,
+          options: ['風', '静電気で帯電しない', '同じ電気で反発', '異なる電気で引き合う'],
+          correctIndex: 3,
           explanation:
             '異種の電気が引き合うため。',
         difficulty: 'standard',
@@ -277,8 +277,8 @@ export const staticElectricity: Topic = {
         {
           id: 'sci2-static-q18',
           question: '電気の種類は何種類？',
-          options: ['1種類', '2種類', '3種類', '4種類'],
-          correctIndex: 1,
+          options: ['1種類', '3種類', '2種類', '4種類'],
+          correctIndex: 2,
           explanation:
             '＋と−の2種類。',
         difficulty: 'standard',
@@ -286,8 +286,8 @@ export const staticElectricity: Topic = {
         {
           id: 'sci2-static-q19',
           question: '摩擦で移動するのは？',
-          options: ['＋の電気', '−の電気（電子）', '両方', '中性子'],
-          correctIndex: 1,
+          options: ['＋の電気', '中性子', '両方', '−の電気（電子）'],
+          correctIndex: 3,
           explanation:
             '−の電気をもった電子が移動。',
         difficulty: 'standard',

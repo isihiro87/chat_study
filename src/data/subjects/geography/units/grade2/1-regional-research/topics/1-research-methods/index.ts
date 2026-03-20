@@ -226,12 +226,12 @@ export const researchMethods: Topic = {
           id: 'geo2-rm-q4',
           question: '地域調査の発表の順序として最も適切なものはどれ？',
           options: [
-            '結果 → テーマ → 仮説 → 考察',
-            '考察 → 結果 → テーマ → 仮説',
             'テーマ → 仮説 → 調査方法 → 結果 → 考察',
+            '考察 → 結果 → テーマ → 仮説',
+            '結果 → テーマ → 仮説 → 考察',
             '調査方法 → 結果 → テーマ → 考察',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             '「テーマ → 仮説 → 調査方法 → 結果 → 考察 → まとめ」の順で発表すると、論理的でわかりやすい発表になります。',
         difficulty: 'standard',
@@ -263,12 +263,12 @@ export const researchMethods: Topic = {
           id: 'geo2-rm-q7',
           question: '仮説を立てるときの正しい形式はどれ？',
           options: [
-            '「〜である」と断定する形',
             '「〜だから〜だろう」と根拠をつけて予想する形',
+            '「〜である」と断定する形',
             '「〜かもしれない」と不安を述べる形',
             '「〜してほしい」と願望を述べる形',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '仮説は「〜だから〜だろう」のように、根拠（理由）をつけて予想する形式で立てます。',
         difficulty: 'basic',
@@ -377,10 +377,10 @@ export const researchMethods: Topic = {
           options: [
             '量の大小を柱の長さで比較するグラフ',
             '時間的な変化を線で表すグラフ',
-            '複数のデータの割合を横に並べて比較するグラフ',
             '地図上に点を打って分布を表すグラフ',
+            '複数のデータの割合を横に並べて比較するグラフ',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '帯グラフは、複数のデータの全体に対する割合を横に並べて比較するのに適したグラフです。',
         difficulty: 'standard',
@@ -389,12 +389,12 @@ export const researchMethods: Topic = {
           id: 'geo2-rm-q16',
           question: '「この地域は高齢化が進んでいる」という事実に注目した場合、どの視点からテーマを設定しているか？',
           options: [
-            '産業・土地利用',
             '人口',
+            '産業・土地利用',
             '自然環境・防災',
             '作品・文化',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '高齢化は「人口」に関する問題であり、人口の視点からテーマを設定しています。',
         difficulty: 'standard',
@@ -432,11 +432,11 @@ export const researchMethods: Topic = {
           question: '地域調査で複数の調査方法を組み合わせる利点として最も適切なものはどれ？',
           options: [
             '調査にかかる時間が短くなる',
-            '客観的データと背景事情の両面から多角的に理解できる',
-            '発表の原稿が短くなる',
             '調査テーマを変更しなくてよくなる',
+            '発表の原稿が短くなる',
+            '客観的データと背景事情の両面から多角的に理解できる',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '文献調査で客観的な数値データ、聞き取り調査で背景事情を得ることで、多角的に地域を理解できます。',
         difficulty: 'advanced',
@@ -460,11 +460,11 @@ export const researchMethods: Topic = {
           question: '「新しいバイパス道路ができて地域がどう変わったか」というテーマは、7つの視点のどれにあたるか？',
           options: [
             '環境問題・環境保全',
-            '地域の歴史・景観',
             '他地域との結びつき',
+            '地域の歴史・景観',
             '作品・文化',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation:
             '交通の変化と地域への影響は「交通の発達や他地域との結びつき」の視点に分類されます。',
         difficulty: 'advanced',

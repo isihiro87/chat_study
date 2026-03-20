@@ -415,11 +415,11 @@ export const stateChange: Topic = {
           question: '冬に水道管が破裂することがある理由はどれ？',
           options: [
             '金属が縮むから',
-            '水が凍ると体積が大きくなり内側から押し広げるから',
-            '気温で管が溶けるから',
             '水圧が高くなるから',
+            '気温で管が溶けるから',
+            '水が凍ると体積が大きくなり内側から押し広げるから',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '水は凍ると体積が約1.1倍に膨張するため、水道管を内側から押し広げて破裂させることがあります。',
         difficulty: 'standard',
@@ -429,11 +429,11 @@ export const stateChange: Topic = {
           question: '原油を蒸留して得られるものを沸点の低い順に並べたものはどれ？',
           options: [
             '重油→軽油→灯油→ガソリン',
-            'ガソリン→灯油→軽油→重油',
-            '灯油→ガソリン→重油→軽油',
             '軽油→重油→ガソリン→灯油',
+            '灯油→ガソリン→重油→軽油',
+            'ガソリン→灯油→軽油→重油',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '原油の蒸留ではガソリン→灯油→軽油→重油の順（沸点の低い順）に分離されます。',
         difficulty: 'standard',
@@ -450,8 +450,13 @@ export const stateChange: Topic = {
         {
           id: 'sci1-sc-q23',
           question: '赤ワインを蒸留すると最初に出てくる液体は何を多くふくむか？',
-          options: ['水', 'エタノール', '砂糖', '色素'],
-          correctIndex: 1,
+          options: [
+            'エタノール',
+            '水',
+            '砂糖',
+            '色素',
+          ],
+          correctIndex: 0,
           explanation:
             'エタノールの沸点（約78℃）は水の沸点（100℃）より低いため、先に蒸発してエタノールを多くふくむ液体が最初に集まります。',
         difficulty: 'advanced',
@@ -460,12 +465,12 @@ export const stateChange: Topic = {
           id: 'sci1-sc-q24',
           question: '温度が高くなると粒子の運動はどうなるか？',
           options: [
-            '粒子の運動が穏やかになる',
             '粒子の運動が激しくなる',
+            '粒子の運動が穏やかになる',
             '粒子の数が増える',
             '粒子が消える',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '温度が高くなると粒子の運動が激しくなります。これが状態変化の原因です。',
         difficulty: 'advanced',
@@ -474,12 +479,12 @@ export const stateChange: Topic = {
           id: 'sci1-sc-q25',
           question: '純粋な物質の加熱で温度が一定になるのはなぜか？',
           options: [
-            '熱が逃げるから',
             '加えた熱が状態変化に使われるため',
+            '熱が逃げるから',
             '物質が冷えるから',
             '加熱が止まるから',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '純粋な物質の加熱中、状態変化が起こっている間は加えた熱が状態変化に使われるため、温度が上昇しません。',
         difficulty: 'advanced',
@@ -505,8 +510,13 @@ export const stateChange: Topic = {
         {
           id: 'sci1-sc-q28',
           question: 'エタノールの融点は約何℃か？',
-          options: ['約0℃', '約−115℃', '約78℃', '約−50℃'],
-          correctIndex: 1,
+          options: [
+            '約−115℃',
+            '約0℃',
+            '約78℃',
+            '約−50℃',
+          ],
+          correctIndex: 0,
           explanation:
             'エタノールの融点は約−115℃です。沸点は約78℃で、水（沸点100℃）より低い温度で蒸発します。',
         difficulty: 'advanced',

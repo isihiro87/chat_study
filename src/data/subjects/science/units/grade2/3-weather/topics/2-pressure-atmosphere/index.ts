@@ -178,8 +178,8 @@ export const pressureAtmosphere: Topic = {
         {
           id: 'sci2-patm-q8',
           question: '標高が高い→気圧は？',
-          options: ['高くなる', '低くなる', '変わらない', '一定'],
-          correctIndex: 1,
+          options: ['低くなる', '高くなる', '変わらない', '一定'],
+          correctIndex: 0,
           explanation:
             '上空の空気量が減り低くなる。',
         difficulty: 'basic',
@@ -187,8 +187,8 @@ export const pressureAtmosphere: Topic = {
         {
           id: 'sci2-patm-q9',
           question: '等圧線の間隔がせまい→風は？',
-          options: ['弱い', '強い', '変わらない', '無風'],
-          correctIndex: 1,
+          options: ['強い', '弱い', '変わらない', '無風'],
+          correctIndex: 0,
           explanation:
             '気圧差が大きく風が強い。',
         difficulty: 'basic',
@@ -205,8 +205,8 @@ export const pressureAtmosphere: Topic = {
         {
           id: 'sci2-patm-q11',
           question: '低気圧の天気は？',
-          options: ['晴れ', 'くもりや雨', '快晴', '変化なし'],
-          correctIndex: 1,
+          options: ['くもりや雨', '晴れ', '快晴', '変化なし'],
+          correctIndex: 0,
           explanation:
             '上昇気流で雲ができやすい。',
         difficulty: 'standard',
@@ -214,8 +214,8 @@ export const pressureAtmosphere: Topic = {
         {
           id: 'sci2-patm-q12',
           question: '等圧線は何hPaごとに引く？',
-          options: ['2hPa', '4hPa', '5hPa', '10hPa'],
-          correctIndex: 1,
+          options: ['2hPa', '5hPa', '4hPa', '10hPa'],
+          correctIndex: 2,
           explanation:
             '4hPaごと。',
         difficulty: 'standard',
@@ -232,8 +232,8 @@ export const pressureAtmosphere: Topic = {
         {
           id: 'sci2-patm-q14',
           question: '風向とは？',
-          options: ['風が吹いていく方向', '風が吹いてくる方向', '風の強さ', '風の高さ'],
-          correctIndex: 1,
+          options: ['風が吹いてくる方向', '風が吹いていく方向', '風の強さ', '風の高さ'],
+          correctIndex: 0,
           explanation:
             '風が吹いてくる方向。',
         difficulty: 'standard',
@@ -241,8 +241,8 @@ export const pressureAtmosphere: Topic = {
         {
           id: 'sci2-patm-q15',
           question: '1hPaは何Pa？',
-          options: ['10Pa', '100Pa', '1000Pa', '10000Pa'],
-          correctIndex: 1,
+          options: ['10Pa', '10000Pa', '1000Pa', '100Pa'],
+          correctIndex: 3,
           explanation:
             'h（ヘクト）は100倍。',
         difficulty: 'standard',
@@ -250,8 +250,8 @@ export const pressureAtmosphere: Topic = {
         {
           id: 'sci2-patm-q16',
           question: '低気圧の中心の気流は？',
-          options: ['下降気流', '上昇気流', '水平', '無風'],
-          correctIndex: 1,
+          options: ['下降気流', '水平', '上昇気流', '無風'],
+          correctIndex: 2,
           explanation:
             '上昇気流→雲ができる。',
         difficulty: 'standard',
@@ -268,8 +268,8 @@ export const pressureAtmosphere: Topic = {
         {
           id: 'sci2-patm-q18',
           question: 'ストローで飲み物を吸えるのは何の力？',
-          options: ['重力', '大気圧', '表面張力', '毛細管現象'],
-          correctIndex: 1,
+          options: ['大気圧', '重力', '表面張力', '毛細管現象'],
+          correctIndex: 0,
           explanation:
             '大気圧が液面を押す。',
         difficulty: 'standard',
@@ -277,8 +277,8 @@ export const pressureAtmosphere: Topic = {
         {
           id: 'sci2-patm-q19',
           question: '山でお菓子袋が膨らむ理由は？',
-          options: ['温度が高い', '外の気圧が低い', '袋内のガスが増える', '酸素が多い'],
-          correctIndex: 1,
+          options: ['温度が高い', '酸素が多い', '袋内のガスが増える', '外の気圧が低い'],
+          correctIndex: 3,
           explanation:
             '外の気圧が低く袋内の空気が相対的に強く押す。',
         difficulty: 'standard',
@@ -286,8 +286,8 @@ export const pressureAtmosphere: Topic = {
         {
           id: 'sci2-patm-q20',
           question: '等圧線の基準は何hPa？',
-          options: ['500hPa', '1000hPa', '1013hPa', '1020hPa'],
-          correctIndex: 1,
+          options: ['500hPa', '1020hPa', '1013hPa', '1000hPa'],
+          correctIndex: 3,
           explanation:
             '1000hPaを基準。',
         difficulty: 'standard',
@@ -295,8 +295,8 @@ export const pressureAtmosphere: Topic = {
         {
           id: 'sci2-patm-q21',
           question: '北から南への風の風向は？',
-          options: ['南', '北', '東', '西'],
-          correctIndex: 1,
+          options: ['南', '西', '東', '北'],
+          correctIndex: 3,
           explanation:
             '風向は吹いてくる方向＝北。',
         difficulty: 'standard',
@@ -304,8 +304,8 @@ export const pressureAtmosphere: Topic = {
         {
           id: 'sci2-patm-q22',
           question: '風力は天気図記号で何で表す？',
-          options: ['丸の大きさ', '矢羽根の数', '色', '線の太さ'],
-          correctIndex: 1,
+          options: ['矢羽根の数', '丸の大きさ', '色', '線の太さ'],
+          correctIndex: 0,
           explanation:
             '矢羽根の本数。',
         difficulty: 'standard',
@@ -313,8 +313,8 @@ export const pressureAtmosphere: Topic = {
         {
           id: 'sci2-patm-q23',
           question: '等圧線の間隔が広い→風は？',
-          options: ['強い', '弱い', '変わらない', '台風'],
-          correctIndex: 1,
+          options: ['強い', '台風', '変わらない', '弱い'],
+          correctIndex: 3,
           explanation:
             '気圧変化がゆるやかで弱い。',
         difficulty: 'advanced',

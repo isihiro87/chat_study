@@ -252,8 +252,8 @@ export const quadEqBasics: Topic = {
         {
           id: 'math-g3-quad-eq-basics-q4',
           question: '$2x^2 = 18$ の解は？',
-          options: ['$x = \\pm 3$', '$x = 3$', '$x = 9$', '$x = \\pm 9$'],
-          correctIndex: 0,
+          options: ['$x = 3$', '$x = 9$', '$x = \\pm 9$', '$x = \\pm 3$'],
+          correctIndex: 3,
           explanation:
             '$2x^2 = 18$ の両辺を2で割ると $x^2 = 9$。\n$x = \\pm 3$ だよ。',
           difficulty: 'basic',
@@ -298,8 +298,8 @@ export const quadEqBasics: Topic = {
         {
           id: 'math-g3-quad-eq-basics-q8',
           question: '$x^2 = -9$ の解はいくつ？',
-          options: ['0個（解なし）', '1個', '2個', '$x = \\pm 3$'],
-          correctIndex: 0,
+          options: ['1個', '2個', '$x = \\pm 3$', '0個（解なし）'],
+          correctIndex: 3,
           explanation:
             '$x^2$ は常に0以上なので、$x^2 = -9$ を満たす実数 $x$ は存在しない。解なしだよ。',
           difficulty: 'basic',

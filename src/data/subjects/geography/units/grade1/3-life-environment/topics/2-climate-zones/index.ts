@@ -204,12 +204,12 @@ export const climateZones: Topic = {
           id: 'geo1-cz-q2',
           question: '日本の大部分が属する気候区はどれ？',
           options: [
-            '西岸海洋性気候',
             '温暖湿潤気候',
+            '西岸海洋性気候',
             '地中海性気候',
             'サバナ気候',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '日本の大部分は温帯の中の温暖湿潤気候に属しています。夏に降水量が多く、四季の変化がはっきりしています。',
         difficulty: 'basic',
@@ -232,12 +232,12 @@ export const climateZones: Topic = {
           id: 'geo1-cz-q4',
           question: '亜寒帯（冷帯）に広がる針葉樹林のことを何というか？',
           options: [
-            'ジャングル',
-            'サバナ',
             'タイガ',
+            'サバナ',
+            'ジャングル',
             'ステップ',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             'タイガは亜寒帯（冷帯）に広がる広大な針葉樹林のことです。ロシアやカナダなどの高緯度地域に分布しています。',
         difficulty: 'basic',
@@ -289,11 +289,11 @@ export const climateZones: Topic = {
           question: '世界の気候区分を考案した気候学者は誰？',
           options: [
             'ダーウィン',
-            'ケッペン',
             'ニュートン',
+            'ケッペン',
             'メルカトル',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             'ケッペンはドイツの気候学者で、気温と降水量のデータをもとに世界の気候を体系的に分類しました。',
         difficulty: 'basic',
@@ -330,12 +330,12 @@ export const climateZones: Topic = {
           id: 'geo1-cz-q11',
           question: '世界の気候区分を考案した気候学者は誰？',
           options: [
-            'ダーウィン',
             'ケッペン',
+            'ダーウィン',
             'ウェーバー',
             'リンネ',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             'ドイツの気候学者ケッペンが世界の気候区分を考案しました。',
         difficulty: 'standard',
@@ -345,11 +345,11 @@ export const climateZones: Topic = {
           question: '雨季と乾季がはっきり分かれている熱帯の気候区はどれ？',
           options: [
             '熱帯雨林気候',
-            'サバナ気候',
             '砂漠気候',
             'ステップ気候',
+            'サバナ気候',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             'サバナ気候は雨季と乾季がはっきり分かれ、草原（サバナ）が広がります。',
         difficulty: 'standard',
@@ -359,11 +359,11 @@ export const climateZones: Topic = {
           question: '砂漠気候とステップ気候の違いはどれ？',
           options: [
             '気温の差',
-            '降水量の差',
             '標高の差',
+            '降水量の差',
             '緯度の差',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             'ステップ気候はわずかに降水量が多く、短い草が生えます。',
         difficulty: 'standard',
@@ -373,11 +373,11 @@ export const climateZones: Topic = {
           question: '日本の大部分が属する気候区はどれ？',
           options: [
             '西岸海洋性気候',
-            '温暖湿潤気候',
             '地中海性気候',
             'サバナ気候',
+            '温暖湿潤気候',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '日本の大部分は温暖湿潤気候に属し、夏に降水量が多く四季がはっきりしています。',
         difficulty: 'standard',
@@ -387,11 +387,11 @@ export const climateZones: Topic = {
           question: 'ヨーロッパ西部に多い、一年を通じて気温差が小さい気候区はどれ？',
           options: [
             '温暖湿潤気候',
-            '地中海性気候',
             '西岸海洋性気候',
+            '地中海性気候',
             '大陸性気候',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation:
             '西岸海洋性気候は一年を通じて気温差が小さいのが特徴です。',
         difficulty: 'standard',
@@ -414,12 +414,12 @@ export const climateZones: Topic = {
           id: 'geo1-cz-q17',
           question: '寒帯に含まれる2つの気候区の正しい組み合わせはどれ？',
           options: [
-            '砂漠気候と氷雪気候',
             'ツンドラ気候と氷雪気候',
+            '砂漠気候と氷雪気候',
             'ステップ気候とツンドラ気候',
             '熱帯雨林気候と氷雪気候',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '寒帯はツンドラ気候と氷雪気候の2つに分けられます。',
         difficulty: 'standard',
@@ -429,11 +429,11 @@ export const climateZones: Topic = {
           question: '氷雪気候が見られる代表的な場所はどれ？',
           options: [
             'シベリアとカナダ',
-            '南極とグリーンランドの内陸部',
             'ノルウェーとアイスランド',
+            '南極とグリーンランドの内陸部',
             'アラスカと北海道',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             '氷雪気候は南極とグリーンランドの内陸部で見られます。',
         difficulty: 'standard',
@@ -443,11 +443,11 @@ export const climateZones: Topic = {
           question: '気候帯を決める主な要素の正しい組み合わせはどれ？',
           options: [
             '面積と人口',
-            '気温と降水量',
             '緯度と経度',
             '標高と風向き',
+            '気温と降水量',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '気候帯は主に気温と降水量によって決められます。',
         difficulty: 'standard',
@@ -458,10 +458,10 @@ export const climateZones: Topic = {
           options: [
             '人口が少ないため',
             '面積が小さいため',
-            '緯度ではなく標高に依存するため',
             '気温が一定のため',
+            '緯度ではなく標高に依存するため',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '高山気候は緯度ではなく標高に依存する気候であるため、五つの気候帯には含まれません。',
         difficulty: 'standard',
@@ -541,11 +541,11 @@ export const climateZones: Topic = {
           question: '冷帯が広がる代表的な地域はどれ？',
           options: [
             'アフリカとオセアニア',
-            'ロシアとカナダ',
             '東南アジアと南アメリカ',
+            'ロシアとカナダ',
             '地中海沿岸と西ヨーロッパ',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             '冷帯はロシア（シベリア）とカナダに広く分布しています。',
         difficulty: 'advanced',

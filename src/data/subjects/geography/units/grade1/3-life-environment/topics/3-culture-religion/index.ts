@@ -229,8 +229,8 @@ export const cultureReligion: Topic = {
         {
           id: 'geo1-cr-q4',
           question: 'ヒンドゥー教で神聖な動物とされているのはどれ？',
-          options: ['豚', '牛', '馬', '羊'],
-          correctIndex: 1,
+          options: ['豚', '馬', '牛', '羊'],
+          correctIndex: 2,
           explanation:
             'ヒンドゥー教では牛が神聖な動物とされており、牛肉を食べることは禁じられています。インドでは牛を大切にする文化が根づいています。',
         difficulty: 'basic',
@@ -241,11 +241,11 @@ export const cultureReligion: Topic = {
             '生活のグローバル化が進む中で、各地で取り組まれていることはどれ？',
           options: [
             'すべての伝統文化を廃止すること',
-            '伝統文化の保存や継承',
             '外国の文化をすべて取り入れること',
+            '伝統文化の保存や継承',
             '他国との交流を制限すること',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             'グローバル化が進む中で、伝統的な文化や生活様式が失われることへの懸念から、各地で伝統文化の保存や継承の取り組みが行われています。',
         difficulty: 'basic',
@@ -371,12 +371,12 @@ export const cultureReligion: Topic = {
           id: 'geo1-cr-q14',
           question: 'イスラム教の聖典は何か。',
           options: [
-            '聖書',
             'コーラン',
+            '聖書',
             '般若心経',
             'ヴェーダ',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             'イスラム教の聖典はコーランです。',
         difficulty: 'standard',
@@ -400,11 +400,11 @@ export const cultureReligion: Topic = {
           question: '仏教が主に信仰されている地域はどれ？',
           options: [
             'ヨーロッパとアフリカ',
-            '東南アジアと東アジア',
             '西アジアと北アフリカ',
+            '東南アジアと東アジア',
             '南北アメリカ',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             '仏教は東南アジアと東アジアで主に信仰されています。',
         difficulty: 'standard',
@@ -414,11 +414,11 @@ export const cultureReligion: Topic = {
           question: 'イスラム教の「許されたもの」を意味する食品基準はどれ？',
           options: [
             'カシュルート',
-            'ハラール',
             'ベジタリアン',
             'コーシャー',
+            'ハラール',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             'ハラールはイスラム教の教えで「許されたもの」を意味する食品基準です。',
         difficulty: 'standard',
@@ -427,12 +427,12 @@ export const cultureReligion: Topic = {
           id: 'geo1-cr-q18',
           question: 'キリスト教の代表的な行事として正しい組み合わせはどれ？',
           options: [
-            'ラマダンとメッカ巡礼',
             'クリスマスとイースター',
+            'ラマダンとメッカ巡礼',
             '旧正月と中秋節',
             'ディワリとホーリー',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             'クリスマス（イエスの誕生を祝う）とイースター（復活祭）がキリスト教の代表的な行事です。',
         difficulty: 'standard',

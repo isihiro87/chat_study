@@ -213,12 +213,12 @@ export const industry: Topic = {
           id: 'geo2-in-q6',
           question: '促成栽培の説明として正しいものはどれか？',
           options: [
-            '涼しい高原で出荷時期を遅らせる栽培',
             '温暖な地域でビニールハウスを使い出荷時期を早める栽培',
+            '涼しい高原で出荷時期を遅らせる栽培',
             '有機肥料だけを使って育てる栽培',
             '品種改良で収穫量を増やす栽培',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '促成栽培は温暖な地域でビニールハウスなどを利用し、出荷時期を早める栽培方法です。高知県や宮崎県でさかんです。',
         difficulty: 'basic',
@@ -227,12 +227,12 @@ export const industry: Topic = {
           id: 'geo2-in-q7',
           question: '抑制栽培がさかんな地域として正しいものはどれか？',
           options: [
-            '沖縄県のサトウキビ畑',
             '群馬県嬬恋村の高原',
+            '沖縄県のサトウキビ畑',
             '新潟県の水田地帯',
             '北海道の酪農地帯',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '抑制栽培は涼しい高原の気候を利用して出荷時期を遅らせる栽培方法で、群馬県嬬恋村（キャベツ）や長野県（レタス）でさかんです。',
         difficulty: 'basic',
@@ -241,12 +241,12 @@ export const industry: Topic = {
           id: 'geo2-in-q8',
           question: '地産地消の説明として正しいものはどれか？',
           options: [
-            '海外から安い食料を大量に輸入すること',
             '地元で生産されたものを地元で消費すること',
+            '海外から安い食料を大量に輸入すること',
             '全国に農産物を宅配便で届けること',
             '工場で大量生産した食品を販売すること',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '地産地消とは地元で生産されたものを地元で消費することで、食料自給率の向上や輸送コスト削減につながります。',
         difficulty: 'basic',
@@ -255,12 +255,12 @@ export const industry: Topic = {
           id: 'geo2-in-q9',
           question: '加工貿易の説明として正しいものはどれか？',
           options: [
-            '完成品を輸入して国内で販売する貿易',
             '原料を輸入し加工して製品を輸出する貿易',
+            '完成品を輸入して国内で販売する貿易',
             '農産物だけを輸出する貿易',
             '技術を輸出してライセンス料を得る貿易',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '加工貿易は原料を輸入し、国内で加工して高品質な工業製品を輸出する貿易形態です。日本の経済成長を支えました。',
         difficulty: 'basic',
@@ -298,11 +298,11 @@ export const industry: Topic = {
           question: 'ICTの正式名称はどれか？',
           options: [
             'International Communication Technology',
-            'Information and Communication Technology',
-            'Internet Control Technology',
             'Integrated Computer Technology',
+            'Internet Control Technology',
+            'Information and Communication Technology',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             'ICTはInformation and Communication Technology（情報通信技術）の略称です。',
         difficulty: 'standard',
@@ -312,11 +312,11 @@ export const industry: Topic = {
           question: '京葉工業地域がある場所はどこか？',
           options: [
             '東京都から神奈川県にかけての地域',
-            '千葉県の東京湾沿岸',
-            '大阪府から兵庫県にかけての地域',
             '愛知県から三重県にかけての地域',
+            '大阪府から兵庫県にかけての地域',
+            '千葉県の東京湾沿岸',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '京葉工業地域は千葉県の東京湾沿岸に広がり、石油化学コンビナートなどが立地しています。',
         difficulty: 'standard',
@@ -341,10 +341,10 @@ export const industry: Topic = {
           options: [
             '気候が温暖だから',
             '歴史的な建造物が多いから',
-            '交通の便がよく情報が集まりやすいから',
             '自然環境が豊かだから',
+            '交通の便がよく情報が集まりやすいから',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '三大都市には交通網が集まり、情報・取引先・消費者が集中するため企業の本社が多く立地しています。',
         difficulty: 'standard',
@@ -355,10 +355,10 @@ export const industry: Topic = {
           options: [
             '農業の生産量が増加したため',
             '工場が国内に増えたため',
-            '情報化の進展と高齢化によるサービス需要の増加',
             '漁業従事者が増えたため',
+            '情報化の進展と高齢化によるサービス需要の増加',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '情報化によりICT関連サービスの需要が増え、高齢化により医療・介護サービスの需要も拡大しました。',
         difficulty: 'standard',
@@ -438,11 +438,11 @@ export const industry: Topic = {
           question: 'スマート農業の説明として正しいものはどれか？',
           options: [
             '有機肥料だけを使う農業',
-            'ロボット技術やICTを活用して省力化・高品質生産を行う農業',
-            '海外の農法をそのまま導入した農業',
             '小規模な家庭菜園のこと',
+            '海外の農法をそのまま導入した農業',
+            'ロボット技術やICTを活用して省力化・高品質生産を行う農業',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             'スマート農業はロボット技術やICTを活用し、少ない労力で高品質な農産物を効率的に生産する新しい農業です。',
         difficulty: 'advanced',
@@ -465,12 +465,12 @@ export const industry: Topic = {
           id: 'geo2-in-q24',
           question: '有機農業の説明として正しいものはどれか？',
           options: [
-            '大量の化学肥料を使って収穫量を増やす農業',
             '化学肥料や農薬をできるだけ使わず自然の力を活かす農業',
+            '大量の化学肥料を使って収穫量を増やす農業',
             '工場で野菜を水耕栽培する農業',
             '海外の品種を導入して栽培する農業',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '有機農業は化学肥料や農薬をできるだけ使わず、自然の力を活かして行う環境にやさしい農業です。',
         difficulty: 'basic',
@@ -493,12 +493,12 @@ export const industry: Topic = {
           id: 'geo2-in-q26',
           question: '日本の農業人口が減少している理由として正しいものはどれか？',
           options: [
-            '農業の収入が増えて転職する人が多いから',
             '高齢化と後継者不足が進んでいるから',
+            '農業の収入が増えて転職する人が多いから',
             '農地が広くなりすぎたから',
             '天候が年々よくなっているから',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '日本の農業人口は高齢化と後継者不足により年々減少しています。',
         difficulty: 'standard',

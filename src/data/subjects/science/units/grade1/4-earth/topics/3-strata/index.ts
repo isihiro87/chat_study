@@ -406,11 +406,11 @@ export const strata: Topic = {
           question: '石灰岩とチャートの見分け方として正しいものはどれ？',
           options: [
             '色で見分ける',
-            'うすい塩酸をかけて反応を見る',
-            '硬さは同じ',
             '形で見分ける',
+            '硬さは同じ',
+            'うすい塩酸をかけて反応を見る',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             'うすい塩酸をかけると石灰岩は二酸化炭素を発生しますが、チャートは反応しません。',
         difficulty: 'standard',
@@ -419,12 +419,12 @@ export const strata: Topic = {
           id: 'sci1-strata-q22',
           question: '地層の上下関係について正しいものはどれ？',
           options: [
-            '上にある地層のほうが古い',
             '下にある地層のほうが古い',
+            '上にある地層のほうが古い',
             '年代は関係ない',
             '横のほうが古い',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '地層累重の法則により、下にある地層ほど古く、上にある地層ほど新しいです。ただし、しゅう曲や断層で逆転することもあります。',
         difficulty: 'standard',
@@ -432,8 +432,13 @@ export const strata: Topic = {
         {
           id: 'sci1-strata-q23',
           question: 'シダの化石から推定できる環境はどれ？',
-          options: ['暖かく浅い海', '温暖で湿潤な陸地', '寒冷な陸地', '深い海'],
-          correctIndex: 1,
+          options: [
+            '温暖で湿潤な陸地',
+            '暖かく浅い海',
+            '寒冷な陸地',
+            '深い海',
+          ],
+          correctIndex: 0,
           explanation:
             'シダは温暖で湿潤な環境に生育するため、シダの化石は温暖で湿潤な陸地だったことを示す示相化石です。',
         difficulty: 'advanced',
@@ -442,12 +447,12 @@ export const strata: Topic = {
           id: 'sci1-strata-q24',
           question: '泥岩の特徴として正しいものはどれ？',
           options: [
-            '丸い粒でざらざらしている',
             'なめらかな手触りで層状にはがれやすい',
+            '丸い粒でざらざらしている',
             '角ばった粒が見られる',
             '非常に硬い',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '泥岩は直径0.06mm以下の泥が固まった堆積岩で、なめらかな手触りと層状にはがれやすい性質があります。',
         difficulty: 'advanced',
@@ -456,12 +461,12 @@ export const strata: Topic = {
           id: 'sci1-strata-q25',
           question: '地層の中に不整合面が見られるとき、何があったと考えられるか？',
           options: [
-            '火山が噴火した',
             '一度堆積が止まり侵食を受けてから再び堆積が起こった',
+            '火山が噴火した',
             '地震で地層がずれた',
             '化石が形成された',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '不整合面は一度堆積が止まり、侵食を受けてから再び堆積が起こったことを示します。',
         difficulty: 'advanced',
@@ -469,8 +474,13 @@ export const strata: Topic = {
         {
           id: 'sci1-strata-q26',
           question: 'ブナの化石から推定できる環境はどれ？',
-          options: ['暖かく浅い海', '温暖で湿潤な陸地', 'やや寒冷な陸地', '淡水の環境'],
-          correctIndex: 2,
+          options: [
+            '暖かく浅い海',
+            '温暖で湿潤な陸地',
+            '淡水の環境',
+            'やや寒冷な陸地',
+          ],
+          correctIndex: 3,
           explanation:
             'ブナの化石が見つかると、やや寒冷な陸地の環境だったことがわかります。示相化石の一つです。',
         difficulty: 'advanced',
@@ -478,8 +488,13 @@ export const strata: Topic = {
         {
           id: 'sci1-strata-q27',
           question: '直径0.06mm～2mmの粒を何というか？',
-          options: ['れき', '砂', '泥', '火山灰'],
-          correctIndex: 1,
+          options: [
+            '砂',
+            'れき',
+            '泥',
+            '火山灰',
+          ],
+          correctIndex: 0,
           explanation:
             '直径0.06mm～2mmの粒を砂といいます。2mm以上がれき、0.06mm以下が泥です。',
         difficulty: 'advanced',
@@ -487,8 +502,13 @@ export const strata: Topic = {
         {
           id: 'sci1-strata-q28',
           question: '陸地がしずんで海中に沈むことを何というか？',
-          options: ['隆起', 'しゅう曲', '沈降', '風化'],
-          correctIndex: 2,
+          options: [
+            '隆起',
+            'しゅう曲',
+            '風化',
+            '沈降',
+          ],
+          correctIndex: 3,
           explanation:
             '陸地がしずんで海中に沈むことを沈降といいます。逆に海底が持ち上がって陸地になることを隆起といいます。',
         difficulty: 'advanced',

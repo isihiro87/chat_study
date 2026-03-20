@@ -178,8 +178,8 @@ export const chemicalEnergy: Topic = {
         {
           id: 'sci2-ce-q3',
           question: '物質がもっているエネルギーを何という？',
-          options: ['熱エネルギー', '化学エネルギー', '運動エネルギー', '電気エネルギー'],
-          correctIndex: 1,
+          options: [ '化学エネルギー','熱エネルギー', '運動エネルギー', '電気エネルギー'],
+          correctIndex: 0,
           explanation:
             '物質がもっているエネルギーを化学エネルギーといいます。化学変化でこのエネルギーの差が熱や光として現れます。',
         difficulty: 'basic',
@@ -231,8 +231,8 @@ export const chemicalEnergy: Topic = {
         {
           id: 'sci2-ce-q8',
           question: '鉄粉と活性炭と食塩水を混ぜると温度は？',
-          options: ['下がる', '上がる', '変わらない', '一度下がってから上がる'],
-          correctIndex: 1,
+          options: [ '上がる','下がる', '変わらない', '一度下がってから上がる'],
+          correctIndex: 0,
           explanation: '鉄粉が酸素と結びつく酸化（発熱反応）が起こり、温度が上がります。化学かいろの原理です。',
         difficulty: 'basic',
       },
@@ -254,11 +254,10 @@ export const chemicalEnergy: Topic = {
           question: '次のうち、吸熱反応はどれ？',
           options: [
             '鉄粉が酸化する',
-            '水酸化バリウムと塩化アンモニウムが反応する',
             'マグネシウムが燃焼する',
-            '酸化カルシウムに水を加える',
-          ],
-          correctIndex: 1,
+            '水酸化バリウムと塩化アンモニウムが反応する',
+            '酸化カルシウムに水を加える'],
+          correctIndex: 2,
           explanation: '水酸化バリウムと塩化アンモニウムの反応は吸熱反応で温度が下がります。他はすべて発熱反応です。',
         difficulty: 'basic',
       },
@@ -301,8 +300,8 @@ export const chemicalEnergy: Topic = {
         {
           id: 'sci2-ce-q15',
           question: '吸熱反応→周囲温度は？',
-          options: ['上がる', '下がる', '変わらない', '不定'],
-          correctIndex: 1,
+          options: ['上がる', '不定', '変わらない', '下がる'],
+          correctIndex: 3,
           explanation:
             '周囲から熱をうばい温度低下。',
         difficulty: 'standard',
@@ -310,8 +309,8 @@ export const chemicalEnergy: Topic = {
         {
           id: 'sci2-ce-q16',
           question: '電池の変換は？',
-          options: ['熱→電気', '化学→電気', '光→電気', '運動→電気'],
-          correctIndex: 1,
+          options: ['熱→電気', '運動→電気', '光→電気', '化学→電気'],
+          correctIndex: 3,
           explanation:
             '化学E→電気E。',
         difficulty: 'standard',
@@ -319,8 +318,8 @@ export const chemicalEnergy: Topic = {
         {
           id: 'sci2-ce-q17',
           question: '化学E利用の環境問題は？',
-          options: ['騒音', 'CO₂排出', '光害', '振動'],
-          correctIndex: 1,
+          options: ['騒音', '振動', '光害', 'CO₂排出'],
+          correctIndex: 3,
           explanation:
             '化石燃料でCO₂排出→温暖化。',
         difficulty: 'standard',
@@ -328,8 +327,8 @@ export const chemicalEnergy: Topic = {
         {
           id: 'sci2-ce-q18',
           question: 'NaHCO₃+クエン酸→温度は？',
-          options: ['上がる', '下がる', '変わらない', '急上昇'],
-          correctIndex: 1,
+          options: ['上がる', '急上昇', '変わらない', '下がる'],
+          correctIndex: 3,
           explanation:
             '吸熱反応で温度低下。',
         difficulty: 'standard',
@@ -337,8 +336,8 @@ export const chemicalEnergy: Topic = {
         {
           id: 'sci2-ce-q19',
           question: '火力発電でタービンを回すのは？',
-          options: ['水', '蒸気', '石油', '電気'],
-          correctIndex: 1,
+          options: ['水', '電気', '石油', '蒸気'],
+          correctIndex: 3,
           explanation:
             '蒸気でタービンを回す。',
         difficulty: 'standard',

@@ -166,8 +166,8 @@ export const population: Topic = {
         {
           id: 'geo2-pp-q3',
           question: '1940年代後半に起こった出生数の急激な増加を何というか？',
-          options: ['人口爆発', 'ベビーブーム', '都心回帰', '少子化'],
-          correctIndex: 1,
+          options: ['ベビーブーム', '人口爆発', '都心回帰', '少子化'],
+          correctIndex: 0,
           explanation: 'ベビーブームは1940年代後半に戦後の社会安定に伴い出生数が急増した現象です。',
           difficulty: 'basic',
         },
@@ -190,8 +190,8 @@ export const population: Topic = {
         {
           id: 'geo2-pp-q6',
           question: '現在の日本の人口ピラミッドの形として正しいものはどれ？',
-          options: ['ピラミッド型', 'つぼ型', 'つりがね型', '星型'],
-          correctIndex: 1,
+          options: ['ピラミッド型', '星型', 'つりがね型', 'つぼ型'],
+          correctIndex: 3,
           explanation: '日本の人口ピラミッドは少子高齢化の進行により、高齢者が多く若年層が少ないつぼ型です。',
           difficulty: 'standard',
         },
@@ -238,8 +238,8 @@ export const population: Topic = {
         {
           id: 'geo2-pp-q12',
           question: '総人口に占める65歳以上の人の割合を何というか？',
-          options: ['少子化率', '高齢化率', '生産年齢人口率', '年少人口率'],
-          correctIndex: 1,
+          options: ['少子化率', '年少人口率', '生産年齢人口率', '高齢化率'],
+          correctIndex: 3,
           explanation: '高齢化率は総人口に占める65歳以上の割合で、日本は約29%に達しています。',
           difficulty: 'standard',
         },

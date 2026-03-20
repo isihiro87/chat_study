@@ -197,8 +197,8 @@ export const cells: Topic = {
         {
           id: 'sci2-cells-q2',
           question: '核を赤く染めるために使う染色液はどれ？',
-          options: ['ヨウ素液', '酢酸オルセイン', 'BTB溶液', '石灰水'],
-          correctIndex: 1,
+          options: [ '酢酸オルセイン','ヨウ素液', 'BTB溶液', '石灰水'],
+          correctIndex: 0,
           explanation:
             '酢酸オルセインや酢酸カーミンは核を赤く染める染色液です。ヨウ素液はデンプンの検出に使います。',
         difficulty: 'basic',
@@ -267,12 +267,11 @@ export const cells: Topic = {
           id: 'sci2-cells-q8',
           question: '顕微鏡の倍率を高くしたとき、正しいものはどれ？',
           options: [
-            '視野が明るく広くなる',
             '視野が暗く狭くなる',
+            '視野が明るく広くなる',
             '視野が明るく狭くなる',
-            '視野が暗く広くなる',
-          ],
-          correctIndex: 1,
+            '視野が暗く広くなる'],
+          correctIndex: 0,
           explanation:
             '高倍率にすると視野に入る光が少なくなり暗くなり、見える範囲も狭くなります。',
         difficulty: 'basic',
@@ -280,8 +279,8 @@ export const cells: Topic = {
         {
           id: 'sci2-cells-q9',
           question: '次のうち、単細胞生物でないものはどれ？',
-          options: ['ゾウリムシ', 'ミジンコ', 'アメーバ', 'ミカヅキモ'],
-          correctIndex: 1,
+          options: [ 'ミジンコ','ゾウリムシ', 'アメーバ', 'ミカヅキモ'],
+          correctIndex: 0,
           explanation:
             'ミジンコは多くの細胞からなる多細胞生物です。ゾウリムシ・アメーバ・ミカヅキモは単細胞生物です。',
         difficulty: 'basic',
@@ -321,8 +320,8 @@ export const cells: Topic = {
         {
           id: 'sci2-cells-q13',
           question: 'レンズを先につけるのは？',
-          options: ['対物', '接眼', 'どちらでも', '同時'],
-          correctIndex: 1,
+          options: [ '接眼','対物', 'どちらでも', '同時'],
+          correctIndex: 0,
           explanation:
             '接眼を先に。ほこり防止。',
         difficulty: 'standard',
@@ -330,8 +329,8 @@ export const cells: Topic = {
         {
           id: 'sci2-cells-q14',
           question: '倍率上げると視野の明るさは？',
-          options: ['明るく', '暗く', '変わらない', '点滅'],
-          correctIndex: 1,
+          options: ['明るく', '変わらない', '暗く', '点滅'],
+          correctIndex: 2,
           explanation:
             '視野が狭くなり暗くなる。',
         difficulty: 'standard',
@@ -339,8 +338,8 @@ export const cells: Topic = {
         {
           id: 'sci2-cells-q15',
           question: 'カバーガラスを端からかぶせる理由は？',
-          options: ['試料を押す', '気泡防止', '水をはじく', '染色均一'],
-          correctIndex: 1,
+          options: ['試料を押す', '染色均一', '水をはじく', '気泡防止'],
+          correctIndex: 3,
           explanation:
             '気泡が入るのを防ぐ。',
         difficulty: 'standard',
@@ -357,8 +356,8 @@ export const cells: Topic = {
         {
           id: 'sci2-cells-q17',
           question: 'プレパラートを右→像は？',
-          options: ['右', '左', '上', '下'],
-          correctIndex: 1,
+          options: ['右', '下', '上', '左'],
+          correctIndex: 3,
           explanation:
             '上下左右が逆。',
         difficulty: 'standard',
@@ -366,8 +365,8 @@ export const cells: Topic = {
         {
           id: 'sci2-cells-q18',
           question: '単細胞生物は？',
-          options: ['ヒト', 'ゾウリムシ', 'タンポポ', 'カエル'],
-          correctIndex: 1,
+          options: ['ヒト', 'カエル', 'タンポポ', 'ゾウリムシ'],
+          correctIndex: 3,
           explanation:
             '体が1つの細胞。',
         difficulty: 'standard',

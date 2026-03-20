@@ -237,12 +237,12 @@ export const locationMaps: Topic = {
           question:
             '面積・距離・方位・形のすべてを正しく表すことができるのはどれ？',
           options: [
-            'メルカトル図法',
             '地球儀',
+            'メルカトル図法',
             'モルワイデ図法',
             '正距方位図法',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '地球儀は地球を縮小した模型なので、面積・距離・方位・形のすべてを正しく表すことができます。世界地図はすべてを同時に正しく表せません。',
         difficulty: 'basic',
@@ -253,11 +253,11 @@ export const locationMaps: Topic = {
             '角度（航海の方位）が正しく表される図法はどれ？',
           options: [
             'モルワイデ図法',
-            'メルカトル図法',
             '正距方位図法',
             '正積図法',
+            'メルカトル図法',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             'メルカトル図法は角度が正しく表されるため、航海の方位を調べるのに適しています。ただし高緯度地域の面積が拡大されます。',
         difficulty: 'basic',
@@ -299,11 +299,11 @@ export const locationMaps: Topic = {
           question: '北緯35度・東経140度の対蹠点として正しいものはどれ？',
           options: [
             '北緯35度・西経140度',
-            '南緯35度・西経40度',
             '南緯35度・東経40度',
             '南緯55度・西経40度',
+            '南緯35度・西経40度',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '対蹠点は緯度が北緯⇔南緯（数値は同じ）、経度は180度−140度＝40度で東経⇔西経になります。よって南緯35度・西経40度です。',
         difficulty: 'basic',
@@ -383,11 +383,11 @@ export const locationMaps: Topic = {
           question: '世界地図が地球儀と異なる理由として正しいものはどれ？',
           options: [
             '世界地図の方が正確だから',
-            '球体を平面にするため何かが必ずゆがむから',
             '地球儀は方位が不正確だから',
             '世界地図は距離だけが正確だから',
+            '球体を平面にするため何かが必ずゆがむから',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '世界地図は球体の地球を平面にするため、すべてを同時に正しく表すことはできません。',
         difficulty: 'standard',
@@ -453,11 +453,11 @@ export const locationMaps: Topic = {
           question: '8方位で南と西の間の方位は何か。',
           options: [
             '南東',
-            '南西',
             '北西',
+            '南西',
             '北東',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             '南と西の間は南西です。8方位は45度刻みです。',
         difficulty: 'standard',

@@ -297,8 +297,8 @@ export const calcApplications: Topic = {
         {
           id: 'math-g3-ca-q5',
           question: '$59 \\times 61$ を公式で計算した結果は？',
-          options: ['$3599$', '$3600$', '$3601$', '$3659$'],
-          correctIndex: 0,
+          options: ['$3659$', '$3600$', '$3601$', '$3599$'],
+          correctIndex: 3,
           explanation:
             '$(60-1)(60+1) = 60^2 - 1^2 = 3600 - 1 = 3599$',
           difficulty: 'basic',
@@ -338,8 +338,8 @@ export const calcApplications: Topic = {
         {
           id: 'math-g3-ca-q9',
           question: '$x=36, y=-24$ のとき $x^2-y^2$ の値は？',
-          options: ['$860$', '$1296$', '$720$', '$576$'],
-          correctIndex: 2,
+          options: ['$860$', '$1296$', '$576$', '$720$'],
+          correctIndex: 3,
           explanation:
             '$x^2-y^2 = (x+y)(x-y)$\n$= (36+(-24))(36-(-24)) = 12 \\times 60 = 720$',
           difficulty: 'basic',
@@ -374,8 +374,8 @@ export const calcApplications: Topic = {
         {
           id: 'math-g3-ca-q13',
           question: '$95^2$ を公式で計算した結果は？',
-          options: ['$9025$', '$9225$', '$9005$', '$8925$'],
-          correctIndex: 0,
+          options: ['$9225$', '$9025$', '$9005$', '$8925$'],
+          correctIndex: 1,
           explanation:
             '$(100-5)^2 = 10000 - 1000 + 25 = 9025$',
           difficulty: 'standard',

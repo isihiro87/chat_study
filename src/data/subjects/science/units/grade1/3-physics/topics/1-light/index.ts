@@ -424,8 +424,13 @@ export const light: Topic = {
         {
           id: 'sci1-light-q19',
           question: '虚像はスクリーンに映すことができるか？',
-          options: ['できる', 'できない', '明るい場所ならできる', '大きなスクリーンならできる'],
-          correctIndex: 1,
+          options: [
+            'できる',
+            '大きなスクリーンならできる',
+            '明るい場所ならできる',
+            'できない',
+          ],
+          correctIndex: 3,
           explanation:
             '虚像は実際に光が集まってできるものではないため、スクリーンに映すことはできません。レンズを通して目で直接見ます。',
         difficulty: 'standard',
@@ -435,11 +440,11 @@ export const light: Topic = {
           question: 'コップの水にストローを入れると曲がって見える理由はどれか？',
           options: [
             '水がストローを曲げるから',
-            '水中のストローから出た光が水面で屈折するから',
-            'ストローが水に溶けるから',
             '空気の振動で曲がって見えるから',
+            'ストローが水に溶けるから',
+            '水中のストローから出た光が水面で屈折するから',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '水中のストローから出た光が水面で屈折して目に届くため、実際とは異なる位置にあるように見えます。',
         difficulty: 'standard',
@@ -448,12 +453,12 @@ export const light: Topic = {
           id: 'sci1-light-q21',
           question: '物体を凸レンズから遠ざけると、実像の大きさと位置はどう変化するか？',
           options: [
-            '実像は大きくなり、レンズから遠ざかる',
             '実像は小さくなり、焦点に近づく',
+            '実像は大きくなり、レンズから遠ざかる',
             '実像の大きさは変わらない',
             '実像は大きくなり、焦点に近づく',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '物体をレンズから遠ざけると実像は小さくなり、像の位置は焦点距離に近づきます。',
         difficulty: 'standard',
@@ -461,8 +466,13 @@ export const light: Topic = {
         {
           id: 'sci1-light-q22',
           question: '光が凸レンズを通るとき、屈折は何回起こるか？',
-          options: ['1回', '2回', '3回', '屈折しない'],
-          correctIndex: 1,
+          options: [
+            '2回',
+            '1回',
+            '3回',
+            '屈折しない',
+          ],
+          correctIndex: 0,
           explanation:
             '光が凸レンズを通るとき、レンズに入るときと出るときの2回屈折します。',
         difficulty: 'standard',
@@ -471,12 +481,12 @@ export const light: Topic = {
           id: 'sci1-light-q23',
           question: '三角柱のガラス（プリズム）に白色光を通すと何が起こるか？',
           options: [
-            '光が消える',
             '光がさまざまな色に分かれる',
+            '光が消える',
             '光がまっすぐ進む',
             '光が全反射する',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             'プリズムに白色光を通すと、光がさまざまな色（赤・橙・黄・緑・青・藍・紫）に分かれます。これを分散といいます。',
         difficulty: 'advanced',
@@ -521,8 +531,13 @@ export const light: Topic = {
         {
           id: 'sci1-light-q27',
           question: '鏡にうつった像を何というか？',
-          options: ['実像', '虚像', '倒立像', '屈折像'],
-          correctIndex: 1,
+          options: [
+            '虚像',
+            '実像',
+            '倒立像',
+            '屈折像',
+          ],
+          correctIndex: 0,
           explanation:
             '鏡にうつった像は虚像です。実際に光が集まっているのではなく、光が来ているように見える位置にできます。',
         difficulty: 'advanced',

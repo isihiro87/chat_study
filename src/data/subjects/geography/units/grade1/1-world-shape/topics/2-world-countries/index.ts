@@ -208,11 +208,11 @@ export const worldCountries: Topic = {
           question: 'アフリカ大陸に直線的な国境が多い理由は？',
           options: [
             '自然の地形がないから',
-            '住民が話し合って決めたから',
             '植民地時代にヨーロッパの国が緯線・経線で引いたから',
+            '住民が話し合って決めたから',
             '国連が決めたから',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation:
             'アフリカの直線的な国境の多くは、植民地時代にヨーロッパ諸国が緯線・経線に沿って引いた人為的国境です。',
         difficulty: 'basic',
@@ -304,12 +304,12 @@ export const worldCountries: Topic = {
           id: 'geo1-wc-q10',
           question: '世界で人口密度が最も高い国はどこ？',
           options: [
-            'バングラデシュ',
-            'シンガポール',
             'モナコ',
+            'シンガポール',
+            'バングラデシュ',
             '日本',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             'モナコの人口密度は約2万人/km²で世界最高です。面積が約2km²と非常に小さい都市国家です。',
         difficulty: 'basic',
@@ -320,10 +320,10 @@ export const worldCountries: Topic = {
           options: [
             '約50',
             '約100',
-            '約200',
             '約500',
+            '約200',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '世界の六つの州にはおよそ200の国があります。',
         difficulty: 'standard',
@@ -416,12 +416,12 @@ export const worldCountries: Topic = {
           id: 'geo1-wc-q18',
           question: '世界の人口が最も多い州の人口は世界の約何割？',
           options: [
-            '約3割',
-            '約4割',
             '約6割',
+            '約4割',
+            '約3割',
             '約8割',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             'アジア州は世界人口の約6割を占めています。',
         difficulty: 'standard',
@@ -432,10 +432,10 @@ export const worldCountries: Topic = {
           options: [
             '山の名前',
             '王の名前',
-            '大河インダス川',
             '宗教の名前',
+            '大河インダス川',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             'インドはインダス川に由来する国名です。',
         difficulty: 'standard',

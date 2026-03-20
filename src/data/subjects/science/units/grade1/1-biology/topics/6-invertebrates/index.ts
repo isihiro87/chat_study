@@ -320,8 +320,13 @@ export const invertebrates: Topic = {
         {
           id: 'q15',
           question: '軟体動物のあしは何でできているか？',
-          options: ['骨', '外骨格', '筋肉', '軟骨'],
-          correctIndex: 2,
+          options: [
+            '骨',
+            '筋肉',
+            '外骨格',
+            '軟骨',
+          ],
+          correctIndex: 1,
           explanation:
             '軟体動物のあしは筋肉でできています。外骨格や骨はありません。',
         difficulty: 'standard',
@@ -329,8 +334,13 @@ export const invertebrates: Topic = {
         {
           id: 'q16',
           question: 'ウニやヒトデは何動物に分類されるか？',
-          options: ['節足動物', '軟体動物', '棘皮動物', '環形動物'],
-          correctIndex: 2,
+          options: [
+            '棘皮動物',
+            '軟体動物',
+            '節足動物',
+            '環形動物',
+          ],
+          correctIndex: 0,
           explanation:
             'ウニやヒトデは棘皮動物に分類されます。無脊椎動物ですが、節足動物にも軟体動物にも分類されません。',
         difficulty: 'standard',
@@ -361,8 +371,13 @@ export const invertebrates: Topic = {
         {
           id: 'q19',
           question: '次のうち、節足動物に分類されるものはどれか？',
-          options: ['イカ', 'ミミズ', 'カニ', 'ヒトデ'],
-          correctIndex: 2,
+          options: [
+            'カニ',
+            'ミミズ',
+            'イカ',
+            'ヒトデ',
+          ],
+          correctIndex: 0,
           explanation:
             'カニは甲殻類で節足動物です。イカは軟体動物、ミミズは環形動物、ヒトデは棘皮動物です。',
         difficulty: 'standard',
@@ -394,12 +409,12 @@ export const invertebrates: Topic = {
           id: 'q22',
           question: 'バッタとカニの体のつくりで共通する特徴はどれか？',
           options: [
-            '外とう膜がある',
-            '背骨がある',
             '外骨格でおおわれ節がある',
+            '背骨がある',
+            '外とう膜がある',
             'えらで呼吸する',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             'バッタ（昆虫類）もカニ（甲殻類）も節足動物で、外骨格でおおわれ体やあしに節があるという共通点があります。',
         difficulty: 'standard',
@@ -416,8 +431,13 @@ export const invertebrates: Topic = {
         {
           id: 'q24',
           question: 'マイマイ（カタツムリ）は何動物に分類されるか？',
-          options: ['節足動物', '昆虫類', '軟体動物', '棘皮動物'],
-          correctIndex: 2,
+          options: [
+            '軟体動物',
+            '昆虫類',
+            '節足動物',
+            '棘皮動物',
+          ],
+          correctIndex: 0,
           explanation:
             'マイマイ（カタツムリ）は軟体動物です。外とう膜で内臓が包まれています。',
         difficulty: 'advanced',
@@ -458,12 +478,12 @@ export const invertebrates: Topic = {
           id: 'q28',
           question: '無脊椎動物の主なグループとして正しい組み合わせはどれか？',
           options: [
-            '魚類と両生類',
-            '鳥類と哺乳類',
             '節足動物と軟体動物',
+            '鳥類と哺乳類',
+            '魚類と両生類',
             'ハチュウ類と鳥類',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             '無脊椎動物の主なグループは節足動物と軟体動物です。魚類・両生類・ハチュウ類・鳥類・哺乳類は脊椎動物です。',
         difficulty: 'advanced',

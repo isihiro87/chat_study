@@ -253,8 +253,8 @@ export const quadFuncRange: Topic = {
         {
           id: 'math-g3-qf-rg-q5',
           question: '$y = 3x^2$ で $-1 \\leq x \\leq 2$ のとき、$y$ の最大値は？',
-          options: ['$12$', '$3$', '$0$', '$6$'],
-          correctIndex: 0,
+          options: ['$3$', '$0$', '$12$', '$6$'],
+          correctIndex: 2,
           explanation:
             '$x = 0$ を含むので最小値は $0$。$|2| > |-1|$ なので $x = 2$ で最大値 $y = 3 \\times 4 = 12$。',
           difficulty: 'basic',
@@ -297,12 +297,12 @@ export const quadFuncRange: Topic = {
           id: 'math-g3-qf-rg-q9',
           question: '$y = 2x^2$ で $-3 \\leq x \\leq -1$ のとき、$y$ の変域は？',
           options: [
-            '$2 \\leq y \\leq 18$',
             '$0 \\leq y \\leq 18$',
             '$1 \\leq y \\leq 9$',
+            '$2 \\leq y \\leq 18$',
             '$-18 \\leq y \\leq -2$',
           ],
-          correctIndex: 0,
+          correctIndex: 2,
           explanation:
             '$x = 0$ を含まないので端の値を比べる。$x = -1$ で $y = 2$、$x = -3$ で $y = 18$。答え: $2 \\leq y \\leq 18$。',
           difficulty: 'basic',
@@ -311,8 +311,8 @@ export const quadFuncRange: Topic = {
           id: 'math-g3-qf-rg-q10',
           question:
             '$y = x^2$ で $x$ の変域が $-1 \\leq x \\leq a$ のとき $y$ の最大値が $16$。$a > 0$ のとき $a$ は？',
-          options: ['$2$', '$3$', '$4$', '$8$'],
-          correctIndex: 2,
+          options: ['$2$', '$4$', '$3$', '$8$'],
+          correctIndex: 1,
           explanation:
             '$a > 0$ かつ $x = 0$ を含む。$|a| > |-1|$ なら最大値は $a^2 = 16$ → $a = 4$。',
           difficulty: 'basic',
@@ -355,11 +355,11 @@ export const quadFuncRange: Topic = {
           question: '$y = -3x^2$ で $0 \\leq x \\leq 3$ のとき、$y$ の変域は？',
           options: [
             '$0 \\leq y \\leq 27$',
-            '$-27 \\leq y \\leq 0$',
             '$-9 \\leq y \\leq 0$',
             '$-27 \\leq y \\leq -3$',
+            '$-27 \\leq y \\leq 0$',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '$x = 0$ で最大値 $0$。$x = 3$ で $y = -27$。答え: $-27 \\leq y \\leq 0$。',
           difficulty: 'standard',
@@ -383,11 +383,11 @@ export const quadFuncRange: Topic = {
           question: '$y = -x^2$ で $x < 0$ のとき $x$ が増加すると $y$ は？',
           options: [
             '減少する',
-            '増加する',
             '変わらない',
             '一定ではない',
+            '増加する',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '$a < 0$ のとき $x < 0$ の範囲では $y$ は増加するよ。',
           difficulty: 'standard',
@@ -395,8 +395,8 @@ export const quadFuncRange: Topic = {
         {
           id: 'math-g3-qf-rg-q17',
           question: '$y = ax^2$（$a > 0$）で $-3 \\leq x \\leq 5$ のとき、最大値が $50$。$a$ は？',
-          options: ['$2$', '$3$', '$5$', '$10$'],
-          correctIndex: 0,
+          options: ['$3$', '$5$', '$10$', '$2$'],
+          correctIndex: 3,
           explanation:
             '$|5| > |-3|$ より $x = 5$ で最大値。$25a = 50$ → $a = 2$。',
           difficulty: 'standard',
@@ -405,12 +405,12 @@ export const quadFuncRange: Topic = {
           id: 'math-g3-qf-rg-q18',
           question: '$y = \\frac{1}{2}x^2$ で $-4 \\leq x \\leq 2$ のとき、$y$ の変域は？',
           options: [
-            '$0 \\leq y \\leq 8$',
             '$0 \\leq y \\leq 2$',
             '$2 \\leq y \\leq 8$',
             '$-8 \\leq y \\leq 2$',
+            '$0 \\leq y \\leq 8$',
           ],
-          correctIndex: 0,
+          correctIndex: 3,
           explanation:
             '$x = 0$ を含むので最小値は $0$。$|{-4}| > |2|$ より $x = -4$ で最大値 $\\frac{1}{2} \\times 16 = 8$。',
           difficulty: 'standard',
@@ -418,8 +418,8 @@ export const quadFuncRange: Topic = {
         {
           id: 'math-g3-qf-rg-q19',
           question: '$y = -4x^2$ で $-1 \\leq x \\leq 3$ のとき、$y$ の最小値は？',
-          options: ['$-4$', '$-12$', '$-36$', '$0$'],
-          correctIndex: 2,
+          options: ['$-4$', '$-36$', '$-12$', '$0$'],
+          correctIndex: 1,
           explanation:
             '$a < 0$ で $x = 0$ を含む → 最大値は $0$。$|3| > |-1|$ より最小値は $x = 3$ で $y = -36$。',
           difficulty: 'standard',
@@ -428,12 +428,12 @@ export const quadFuncRange: Topic = {
           id: 'math-g3-qf-rg-q20',
           question: '$y = x^2$ で $-5 \\leq x \\leq -2$ のとき、$y$ の変域は？',
           options: [
-            '$0 \\leq y \\leq 25$',
             '$4 \\leq y \\leq 25$',
+            '$0 \\leq y \\leq 25$',
             '$-25 \\leq y \\leq -4$',
             '$2 \\leq y \\leq 5$',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '$x = 0$ を含まない。$x = -2$ で $y = 4$、$x = -5$ で $y = 25$。答え: $4 \\leq y \\leq 25$。',
           difficulty: 'standard',
@@ -450,8 +450,8 @@ export const quadFuncRange: Topic = {
         {
           id: 'math-g3-qf-rg-q22',
           question: '$y = 5x^2$ で $-2 \\leq x \\leq 1$ のとき、$y$ の最大値は？',
-          options: ['$5$', '$20$', '$10$', '$0$'],
-          correctIndex: 1,
+          options: ['$5$', '$10$', '$20$', '$0$'],
+          correctIndex: 2,
           explanation:
             '$|{-2}| > |1|$ より $x = -2$ で最大値 $y = 5 \\times 4 = 20$。',
           difficulty: 'standard',
@@ -461,11 +461,11 @@ export const quadFuncRange: Topic = {
           question: '変域を求めるとき最初にチェックすべきことは？',
           options: [
             '$a$ の値',
-            'グラフを描く',
             '$x$ の変域に $x = 0$ が含まれるか',
+            'グラフを描く',
             '$y$ の値を計算する',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation:
             '$x = 0$ が含まれるかどうかで最小値/最大値の求め方が変わるので、まずこれをチェック！',
           difficulty: 'advanced',
@@ -489,11 +489,11 @@ export const quadFuncRange: Topic = {
           question: '$y = x^2$ で $x$ の変域が $-a \\leq x \\leq a$（$a > 0$）のとき $y$ の変域は？',
           options: [
             '$-a^2 \\leq y \\leq a^2$',
-            '$0 \\leq y \\leq a^2$',
             '$0 \\leq y \\leq 2a^2$',
+            '$0 \\leq y \\leq a^2$',
             '$a \\leq y \\leq a^2$',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             '$x = 0$ を含むので最小値は $0$。両端で $|{-a}| = |a|$ なので最大値は $a^2$。',
           difficulty: 'advanced',
@@ -529,8 +529,8 @@ export const quadFuncRange: Topic = {
         {
           id: 'math-g3-qf-rg-q28',
           question: '$y = ax^2$（$a > 0$）で $-2 \\leq x \\leq 6$ のとき、最大値が $72$。$a$ は？',
-          options: ['$1$', '$2$', '$3$', '$4$'],
-          correctIndex: 1,
+          options: ['$1$', '$3$', '$2$', '$4$'],
+          correctIndex: 2,
           explanation:
             '$|6| > |-2|$ より $x = 6$ で最大値。$36a = 72$ → $a = 2$。',
           difficulty: 'advanced',

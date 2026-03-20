@@ -176,8 +176,8 @@ export const chemicalCombination: Topic = {
         {
           id: 'sci2-cc-q2',
           question: '硫化鉄に塩酸を加えたとき発生する気体は？',
-          options: ['水素', '硫化水素', '酸素', '二酸化炭素'],
-          correctIndex: 1,
+          options: [ '硫化水素','水素', '酸素', '二酸化炭素'],
+          correctIndex: 0,
           explanation:
             '硫化鉄に塩酸を加えると、卵の腐った臭いの硫化水素が発生します。鉄に塩酸を加えると水素が発生します。',
         difficulty: 'basic',
@@ -202,10 +202,9 @@ export const chemicalCombination: Topic = {
           options: [
             '水を電気分解して水素と酸素にする',
             '炭酸水素ナトリウムを加熱して分解する',
-            '鉄と硫黄を混ぜて加熱する',
             '酸化銀を加熱して銀と酸素にする',
-          ],
-          correctIndex: 2,
+            '鉄と硫黄を混ぜて加熱する'],
+          correctIndex: 3,
           explanation:
             '化合は2種類以上の物質が結びつく化学変化です。鉄と硫黄が結びついて硫化鉄になるのが化合です。他は分解です。',
         difficulty: 'basic',
@@ -256,12 +255,11 @@ export const chemicalCombination: Topic = {
           id: 'sci2-cc-q8',
           question: '銅の酸化を表す正しい化学反応式はどれ？',
           options: [
-            'Cu + O₂ → CuO',
             '2Cu + O₂ → 2CuO',
+            'Cu + O₂ → CuO',
             'Cu + O → CuO',
-            'Cu₂ + O₂ → 2CuO',
-          ],
-          correctIndex: 1,
+            'Cu₂ + O₂ → 2CuO'],
+          correctIndex: 0,
           explanation:
             '2Cu + O₂ → 2CuO が正しい化学反応式です。左辺：Cu=2, O=2、右辺：Cu=2, O=2 で原子の数が一致します。',
         difficulty: 'basic',
@@ -284,12 +282,11 @@ export const chemicalCombination: Topic = {
           id: 'sci2-cc-q10',
           question: '化学反応式の係数は何を表している？',
           options: [
-            '原子の質量比',
             '分子の個数比',
+            '原子の質量比',
             '原子番号',
-            '反応にかかる時間',
-          ],
-          correctIndex: 1,
+            '反応にかかる時間'],
+          correctIndex: 0,
           explanation:
             '化学反応式の係数は分子（や原子）の個数比を表しています。例えば 2H₂ + O₂ → 2H₂O は水素分子2個：酸素分子1個：水分子2個の比で反応することを意味します。',
         difficulty: 'basic',
@@ -325,8 +322,8 @@ export const chemicalCombination: Topic = {
         {
           id: 'sci2-cc-q13',
           question: '鉄粉と硫黄を加熱すると何ができるか？',
-          options: ['酸化鉄', '硫化鉄', '塩化鉄', '炭酸鉄'],
-          correctIndex: 1,
+          options: ['酸化鉄', '炭酸鉄', '塩化鉄', '硫化鉄'],
+          correctIndex: 3,
           explanation:
             '鉄と硫黄が化合すると硫化鉄（FeS）ができます。',
         difficulty: 'standard',

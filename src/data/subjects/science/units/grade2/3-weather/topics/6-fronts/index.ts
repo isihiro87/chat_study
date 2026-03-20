@@ -232,8 +232,8 @@ export const fronts: Topic = {
         {
           id: 'sci2-frnt-q8',
           question: '気団とは？',
-          options: ['雲の塊', '気温と湿度がほぼ一様な大きな空気の塊', '台風のこと', '風の集まり'],
-          correctIndex: 1,
+          options: ['気温と湿度がほぼ一様な大きな空気の塊', '雲の塊', '台風のこと', '風の集まり'],
+          correctIndex: 0,
           explanation:
             '気温と湿度がほぼ一様な大きな空気の塊。',
         difficulty: 'basic',
@@ -250,8 +250,8 @@ export const fronts: Topic = {
         {
           id: 'sci2-frnt-q10',
           question: '温暖前線の雨の降り方は？',
-          options: ['短時間に激しい', '広い範囲で弱い長雨', '雪だけ', '降らない'],
-          correctIndex: 1,
+          options: ['短時間に激しい', '降らない', '雪だけ', '広い範囲で弱い長雨'],
+          correctIndex: 3,
           explanation:
             '広い範囲で弱い長雨。',
         difficulty: 'basic',
@@ -268,8 +268,8 @@ export const fronts: Topic = {
         {
           id: 'sci2-frnt-q12',
           question: '温暖前線通過後の風向は？',
-          options: ['北寄り', '南寄り', '東寄り', '無風'],
-          correctIndex: 1,
+          options: ['南寄り', '北寄り', '東寄り', '無風'],
+          correctIndex: 0,
           explanation:
             '南寄りの風に変わる。',
         difficulty: 'standard',
@@ -277,8 +277,8 @@ export const fronts: Topic = {
         {
           id: 'sci2-frnt-q13',
           question: '停滞前線とは？',
-          options: ['速く移動する前線', '暖気と寒気が同じ勢力で停滞', '消えかけの前線', '台風の前線'],
-          correctIndex: 1,
+          options: ['速く移動する前線', '消えかけの前線', '暖気と寒気が同じ勢力で停滞', '台風の前線'],
+          correctIndex: 2,
           explanation:
             '暖気と寒気がほぼ同じ勢力で停滞。',
         difficulty: 'standard',
@@ -286,8 +286,8 @@ export const fronts: Topic = {
         {
           id: 'sci2-frnt-q14',
           question: '閉そく前線ができると温帯低気圧は？',
-          options: ['発達する', '衰退する', '変わらない', '台風になる'],
-          correctIndex: 1,
+          options: ['発達する', '台風になる', '変わらない', '衰退する'],
+          correctIndex: 3,
           explanation:
             '衰退する（弱まる）。',
         difficulty: 'standard',
@@ -295,8 +295,8 @@ export const fronts: Topic = {
         {
           id: 'sci2-frnt-q15',
           question: '温帯低気圧は何の方向に移動？',
-          options: ['東→西', '西→東', '南→北', '北→南'],
-          correctIndex: 1,
+          options: ['東→西', '南→北', '西→東', '北→南'],
+          correctIndex: 2,
           explanation:
             '西から東。',
         difficulty: 'standard',
@@ -304,8 +304,8 @@ export const fronts: Topic = {
         {
           id: 'sci2-frnt-q16',
           question: '前線面とは？',
-          options: ['地表面', '異なる気団の境界面', '雲の底', '等圧線'],
-          correctIndex: 1,
+          options: ['異なる気団の境界面', '地表面', '雲の底', '等圧線'],
+          correctIndex: 0,
           explanation:
             '異なる気団の境界面。',
         difficulty: 'standard',
@@ -313,8 +313,8 @@ export const fronts: Topic = {
         {
           id: 'sci2-frnt-q17',
           question: '温帯低気圧の南東側の前線は？',
-          options: ['寒冷前線', '温暖前線', '停滞前線', '閉そく前線'],
-          correctIndex: 1,
+          options: ['寒冷前線', '閉そく前線', '停滞前線', '温暖前線'],
+          correctIndex: 3,
           explanation:
             '南東側が温暖前線。',
         difficulty: 'standard',
@@ -322,8 +322,8 @@ export const fronts: Topic = {
         {
           id: 'sci2-frnt-q18',
           question: '暖気が上昇する理由は？',
-          options: ['重い', '密度が小さい', '風に押される', '冷たい'],
-          correctIndex: 1,
+          options: ['密度が小さい', '重い', '風に押される', '冷たい'],
+          correctIndex: 0,
           explanation:
             '暖気は密度が小さく寒気の上に乗り上げる。',
         difficulty: 'standard',
@@ -331,8 +331,8 @@ export const fronts: Topic = {
         {
           id: 'sci2-frnt-q19',
           question: '温暖前線で発達する雲は？',
-          options: ['積乱雲', '乱層雲', '巻雲', '積雲'],
-          correctIndex: 1,
+          options: ['積乱雲', '積雲', '巻雲', '乱層雲'],
+          correctIndex: 3,
           explanation:
             '乱層雲（高層雲）。',
         difficulty: 'standard',
@@ -340,8 +340,8 @@ export const fronts: Topic = {
         {
           id: 'sci2-frnt-q20',
           question: '寒冷前線の天気図記号は？',
-          options: ['半円が並んだ線', '三角形が並んだ線', '三角と半円が交互', '点線'],
-          correctIndex: 1,
+          options: ['半円が並んだ線', '三角と半円が交互', '三角形が並んだ線', '点線'],
+          correctIndex: 2,
           explanation:
             '三角形が進行方向についた線。',
         difficulty: 'standard',
@@ -358,8 +358,8 @@ export const fronts: Topic = {
         {
           id: 'sci2-frnt-q22',
           question: '閉そく前線は何が追いつくとできる？',
-          options: ['温暖前線が寒冷前線に', '寒冷前線が温暖前線に', '停滞前線が温暖前線に', '台風が前線に'],
-          correctIndex: 1,
+          options: ['寒冷前線が温暖前線に', '温暖前線が寒冷前線に', '停滞前線が温暖前線に', '台風が前線に'],
+          correctIndex: 0,
           explanation:
             '寒冷前線が温暖前線に追いつく。',
         difficulty: 'standard',
@@ -385,8 +385,8 @@ export const fronts: Topic = {
         {
           id: 'sci2-frnt-q25',
           question: '寒冷前線通過後の風向は？',
-          options: ['南寄り', '北寄り', '東寄り', '西寄り'],
-          correctIndex: 1,
+          options: ['南寄り', '西寄り', '東寄り', '北寄り'],
+          correctIndex: 3,
           explanation:
             '北寄りの風に変わる。',
         difficulty: 'advanced',
@@ -394,8 +394,8 @@ export const fronts: Topic = {
         {
           id: 'sci2-frnt-q26',
           question: '温暖前線通過後の気温は？',
-          options: ['急低下', '上昇', '変わらない', '急上昇'],
-          correctIndex: 1,
+          options: ['急低下', '急上昇', '変わらない', '上昇'],
+          correctIndex: 3,
           explanation:
             '気温が上昇する。',
         difficulty: 'advanced',

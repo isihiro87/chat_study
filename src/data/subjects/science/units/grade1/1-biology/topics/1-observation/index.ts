@@ -447,10 +447,10 @@ export const observation: Topic = {
           options: [
             '倍率が40〜600倍で非常に高い',
             'プレパラートが必要である',
-            '観察物を立体的に見ることができる',
             '片目で観察する',
+            '観察物を立体的に見ることができる',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '双眼実体顕微鏡は両目でのぞくため、観察物を立体的に見ることができます。倍率は20〜40倍で、プレパラートは不要です。',
         difficulty: 'standard',
@@ -475,10 +475,10 @@ export const observation: Topic = {
           options: [
             '生物名',
             '発見場所',
-            '好きな食べ物',
             'スケッチ',
+            '好きな食べ物',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '生物カードには生物名・発見日時・発見場所・スケッチ・特徴や気づいたことを記入します。「好きな食べ物」は観察記録の項目ではありません。',
         difficulty: 'standard',
@@ -489,10 +489,10 @@ export const observation: Topic = {
           options: [
             'ルーペを花に近づけて見る',
             '花を引き抜いて手に持つ',
-            'ルーペを目に近づけたまま、自分の体を前後に動かす',
             'ルーペを遠くから見る',
+            'ルーペを目に近づけたまま、自分の体を前後に動かす',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             'ルーペを目に近づけたまま、自分の顔（体）を前後に動かしてピントを合わせます。ルーペの基本は「目に近づけて固定」です。',
         difficulty: 'standard',
@@ -501,12 +501,12 @@ export const observation: Topic = {
           id: 'q23',
           question: '「移動するか、しないか」で生物を分けたとき、移動しないグループに入るのはどれか？',
           options: [
-            'チョウ',
-            'カエル',
             'タンポポ',
+            'カエル',
+            'チョウ',
             'ダンゴムシ',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             'タンポポは植物で移動しません。チョウ・カエル・ダンゴムシは動物で移動します。',
         difficulty: 'advanced',
@@ -515,12 +515,12 @@ export const observation: Topic = {
           id: 'q24',
           question: 'スケッチで顕微鏡の視野の円を描いてよいか？',
           options: [
-            '必ず描く',
             '描いてはいけない',
+            '必ず描く',
             '低倍率のときだけ描く',
             '先生に聞いてから描く',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '顕微鏡の視野の円は描きません。観察対象だけを細い線で正確にスケッチします。',
         difficulty: 'advanced',
@@ -529,12 +529,12 @@ export const observation: Topic = {
           id: 'q25',
           question: '観察で環境に注目するのはなぜか？',
           options: [
-            '天気予報を確認するため',
             '環境によって見られる生物が異なるため',
+            '天気予報を確認するため',
             '記録用紙を埋めるため',
             '先生に褒められるため',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '日当たりや湿り気などの環境によって、そこに生息する生物の種類が異なります。環境と生物の関係を調べるために注目します。',
         difficulty: 'advanced',
@@ -543,12 +543,12 @@ export const observation: Topic = {
           id: 'q26',
           question: '顕微鏡の倍率は40〜600倍程度である。これに対して双眼実体顕微鏡の倍率はどのくらいか？',
           options: [
-            '100〜200倍',
             '20〜40倍',
+            '100〜200倍',
             '500〜1000倍',
             '1〜5倍',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '双眼実体顕微鏡の倍率は20〜40倍程度です。顕微鏡（40〜600倍）よりかなり低い倍率ですが、立体的に観察できます。',
         difficulty: 'advanced',
@@ -557,12 +557,12 @@ export const observation: Topic = {
           id: 'q27',
           question: '顕微鏡で観察するときに使う、スライドガラスとカバーガラスで作るものを何というか？',
           options: [
-            'ステージ',
             'プレパラート',
+            'ステージ',
             'レボルバー',
             '反射鏡',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             'プレパラートです。スライドガラスの上に観察するものをのせ、カバーガラスをかぶせて作ります。',
         difficulty: 'advanced',

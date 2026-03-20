@@ -132,8 +132,8 @@ export const cloudFormation: Topic = {
         {
           id: 'sci2-cldf-q5',
           question: '雲の正体は？',
-          options: ['水蒸気', '小さな水滴や氷の結晶', '空気の塊', 'ちりやほこり'],
-          correctIndex: 1,
+          options: ['小さな水滴や氷の結晶', '水蒸気', '空気の塊', 'ちりやほこり'],
+          correctIndex: 0,
           explanation:
             '水滴や氷の結晶の集まり。',
         difficulty: 'basic',
@@ -150,8 +150,8 @@ export const cloudFormation: Topic = {
         {
           id: 'sci2-cldf-q7',
           question: '膨張すると温度は？',
-          options: ['上がる', '変わらない', '下がる', '上がって下がる'],
-          correctIndex: 2,
+          options: ['上がる', '下がる', '変わらない', '上がって下がる'],
+          correctIndex: 1,
           explanation:
             '膨張→温度低下。',
         difficulty: 'basic',
@@ -159,8 +159,8 @@ export const cloudFormation: Topic = {
         {
           id: 'sci2-cldf-q8',
           question: '凝結核の役割をするのは？',
-          options: ['水蒸気', 'ちりやほこり', '酸素', '窒素'],
-          correctIndex: 1,
+          options: ['ちりやほこり', '水蒸気', '酸素', '窒素'],
+          correctIndex: 0,
           explanation:
             'ちりやほこりが凝結の核になる。',
         difficulty: 'basic',
@@ -186,8 +186,8 @@ export const cloudFormation: Topic = {
         {
           id: 'sci2-cldf-q11',
           question: '水の循環の正しい順は？',
-          options: ['海→降水→蒸発→雲→河川→海', '海→蒸発→雲→降水→河川→海', '河川→海→雲→降水→蒸発→河川', '雲→降水→蒸発→河川→海→雲'],
-          correctIndex: 1,
+          options: ['海→降水→蒸発→雲→河川→海', '雲→降水→蒸発→河川→海→雲', '河川→海→雲→降水→蒸発→河川', '海→蒸発→雲→降水→河川→海'],
+          correctIndex: 3,
           explanation:
             '海→蒸発→雲→降水→河川→海。',
         difficulty: 'standard',
@@ -195,8 +195,8 @@ export const cloudFormation: Topic = {
         {
           id: 'sci2-cldf-q12',
           question: '雲のでき方実験でピストンを引くと？',
-          options: ['何もない', '白い雲ができる', '水が沸騰', '線香が消える'],
-          correctIndex: 1,
+          options: ['白い雲ができる', '何もない', '水が沸騰', '線香が消える'],
+          correctIndex: 0,
           explanation:
             '膨張→温度低下→凝結→白い雲。',
         difficulty: 'standard',
@@ -231,8 +231,8 @@ export const cloudFormation: Topic = {
         {
           id: 'sci2-cldf-q16',
           question: '空気の温度が露点に達すると？',
-          options: ['蒸発する', '凝結して水滴になる', '沸騰する', '空気が消える'],
-          correctIndex: 1,
+          options: ['蒸発する', '空気が消える', '沸騰する', '凝結して水滴になる'],
+          correctIndex: 3,
           explanation:
             '凝結→水滴→雲。',
         difficulty: 'standard',
@@ -240,8 +240,8 @@ export const cloudFormation: Topic = {
         {
           id: 'sci2-cldf-q17',
           question: '地形性上昇とは？',
-          options: ['地震で空気が上がる', '山の斜面に沿って上昇', '台風で上昇', '火山で上昇'],
-          correctIndex: 1,
+          options: ['山の斜面に沿って上昇', '地震で空気が上がる', '台風で上昇', '火山で上昇'],
+          correctIndex: 0,
           explanation:
             '山の斜面に沿って空気が上昇。',
         difficulty: 'standard',
@@ -258,8 +258,8 @@ export const cloudFormation: Topic = {
         {
           id: 'sci2-cldf-q19',
           question: '上空ほど気圧が低い理由は？',
-          options: ['空気がないから', '上空の空気量が少ないから', '太陽に近いから', '重力がないから'],
-          correctIndex: 1,
+          options: ['空気がないから', '重力がないから', '太陽に近いから', '上空の空気量が少ないから'],
+          correctIndex: 3,
           explanation:
             '上空にある空気の量が少なくなる。',
         difficulty: 'standard',
@@ -267,8 +267,8 @@ export const cloudFormation: Topic = {
         {
           id: 'sci2-cldf-q20',
           question: 'ひょうやあられとは？',
-          options: ['水蒸気', '雲の水滴が凍って落下', '温かい雨', '大気の塊'],
-          correctIndex: 1,
+          options: ['水蒸気', '大気の塊', '温かい雨', '雲の水滴が凍って落下'],
+          correctIndex: 3,
           explanation:
             '雲の水滴が凍って落下。',
         difficulty: 'standard',
@@ -303,8 +303,8 @@ export const cloudFormation: Topic = {
         {
           id: 'sci2-cldf-q24',
           question: '寒気と暖気がぶつかったとき雲ができるのは？',
-          options: ['寒気が上昇', '暖気が上昇', '両方上昇', '両方下降'],
-          correctIndex: 1,
+          options: ['暖気が上昇', '寒気が上昇', '両方上昇', '両方下降'],
+          correctIndex: 0,
           explanation:
             '暖気は密度が小さく寒気の上に乗り上げる。',
         difficulty: 'advanced',
@@ -321,8 +321,8 @@ export const cloudFormation: Topic = {
         {
           id: 'sci2-cldf-q26',
           question: '水の循環で蒸発した水はどうなる？',
-          options: ['消える', '雲になる', '宇宙に逃げる', '地中に戻る'],
-          correctIndex: 1,
+          options: ['雲になる', '消える', '宇宙に逃げる', '地中に戻る'],
+          correctIndex: 0,
           explanation:
             '蒸発→雲→降水と循環する。',
         difficulty: 'advanced',
@@ -330,8 +330,8 @@ export const cloudFormation: Topic = {
         {
           id: 'sci2-cldf-q27',
           question: '凝結が起こる条件は？',
-          options: ['温度が上がる', '温度が露点以下になる', '気圧が上がる', '風が強くなる'],
-          correctIndex: 1,
+          options: ['温度が上がる', '風が強くなる', '気圧が上がる', '温度が露点以下になる'],
+          correctIndex: 3,
           explanation:
             '温度が露点以下で凝結。',
         difficulty: 'advanced',

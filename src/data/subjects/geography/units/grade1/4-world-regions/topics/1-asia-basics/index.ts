@@ -139,12 +139,12 @@ export const asiaBasics: Topic = {
           id: 'geo1-as1-q4',
           question: '中国を流れる二大河川の正しい組み合わせはどれか。',
           options: [
-            'ガンジス川とインダス川',
-            'メコン川とナイル川',
             '黄河と長江',
+            'メコン川とナイル川',
+            'ガンジス川とインダス川',
             'ライン川とドナウ川',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             '中国の二大河川は黄河と長江です。黄河は北部を、長江は南部を流れています。',
         difficulty: 'basic',
@@ -153,12 +153,12 @@ export const asiaBasics: Topic = {
           id: 'geo1-as1-q5',
           question: '東南アジアに多く暮らす中国系の人々を何というか。',
           options: [
-            'メスティーソ',
             '華人',
+            'メスティーソ',
             'ヒスパニック',
             'クレオール',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '華人は東南アジアを中心に移住した中国系の人々で、商業や貿易で大きな影響力を持っています。',
         difficulty: 'basic',
@@ -169,10 +169,10 @@ export const asiaBasics: Topic = {
           options: [
             '西部大開発',
             '経済特区',
-            '一人っ子政策',
             '改革開放',
+            '一人っ子政策',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '一人っ子政策は中国が人口増加を抑えるために実施した政策で、2015年に廃止されました。',
         difficulty: 'basic',
@@ -181,12 +181,12 @@ export const asiaBasics: Topic = {
           id: 'geo1-as1-q7',
           question: '中国が大量の工業製品を生産するようになったことから何とよばれるか。',
           options: [
-            '世界の台所',
             '世界の工場',
+            '世界の台所',
             '世界の市場',
             '世界の倉庫',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '中国は安い労働力を活かして大量の工業製品を生産し、「世界の工場」とよばれるようになりました。',
         difficulty: 'basic',
@@ -211,10 +211,10 @@ export const asiaBasics: Topic = {
           options: [
             '二毛作',
             '焼畑農業',
-            '二期作',
             '混合農業',
+            '二期作',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '二期作は同じ水田で年に2回稲を栽培する農法です。温暖で降水量が多い東南アジアなどで行われています。',
         difficulty: 'basic',
@@ -225,10 +225,10 @@ export const asiaBasics: Topic = {
           options: [
             'ASEAN',
             'APEC',
-            'OPEC',
             'EU',
+            'OPEC',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             'OPEC（石油輸出国機構）は産油国が石油の生産量や価格を調整するための国際組織です。',
         difficulty: 'basic',
@@ -265,12 +265,12 @@ export const asiaBasics: Topic = {
           id: 'geo1-as1-q13',
           question: '中国が沿岸部に設けて外国企業を受け入れた地域を何というか。',
           options: [
-            '自由貿易港',
-            '工業団地',
             '経済特区',
+            '工業団地',
+            '自由貿易港',
             '開発区',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             '経済特区は外国企業を受け入れるための優遇政策が行われる地域で、シェンチェン（深圳）が代表的です。',
         difficulty: 'standard',
@@ -279,12 +279,12 @@ export const asiaBasics: Topic = {
           id: 'geo1-as1-q14',
           question: '植民地時代から続く、大規模農園で単一作物を栽培する農業を何というか。',
           options: [
-            '二期作',
             'プランテーション',
+            '二期作',
             '焼畑農業',
             '混合農業',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             'プランテーションは植民地時代にヨーロッパ人が開いた大規模農園で、単一の商品作物を栽培する農業です。',
         difficulty: 'standard',
@@ -405,12 +405,12 @@ export const asiaBasics: Topic = {
           id: 'geo1-as1-q23',
           question: '中国が内陸部の発展を促すために進めている政策はどれか。',
           options: [
-            '一人っ子政策',
             '西部大開発',
+            '一人っ子政策',
             '経済特区',
             '改革開放',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '西部大開発は中国が内陸部の経済発展を促すために進めている政策で、インフラ整備などが行われています。',
         difficulty: 'advanced',

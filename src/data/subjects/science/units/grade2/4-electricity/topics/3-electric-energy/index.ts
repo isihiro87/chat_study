@@ -150,8 +150,8 @@ export const electricEnergy: Topic = {
         {
           id: 'sci2-ee-q4',
           question: '1Whは何Jか？',
-          options: ['60J', '3600J', '1000J', '360J'],
-          correctIndex: 1,
+          options: ['3600J', '60J', '1000J', '360J'],
+          correctIndex: 0,
           explanation:
             '1Wh = 1W × 1時間 = 1W × 3600s = 3600J です。',
         difficulty: 'basic',
@@ -159,8 +159,8 @@ export const electricEnergy: Topic = {
         {
           id: 'sci2-ee-q5',
           question: '同じ量の水を同じ電力の電熱器で加熱するとき、水の上昇温度に比例するものはどれか？',
-          options: ['電圧', '加熱時間', '電流', '水の量'],
-          correctIndex: 1,
+          options: ['加熱時間', '電圧', '電流', '水の量'],
+          correctIndex: 0,
           explanation:
             '水の上昇温度は加熱時間に比例します。時間が2倍になれば、上昇温度も2倍になります。',
         difficulty: 'basic',
@@ -240,8 +240,8 @@ export const electricEnergy: Topic = {
         {
           id: 'sci2-ee-q14',
           question: '400Wを2分間→熱量は？',
-          options: ['800J', '24000J', '48000J', '400J'],
-          correctIndex: 2,
+          options: ['800J', '24000J', '400J', '48000J'],
+          correctIndex: 3,
           explanation:
             '400×120＝48000J。',
         difficulty: 'standard',
@@ -249,8 +249,8 @@ export const electricEnergy: Topic = {
         {
           id: 'sci2-ee-q15',
           question: '1Whは何J？',
-          options: ['60J', '360J', '3600J', '36000J'],
-          correctIndex: 2,
+          options: ['60J', '360J', '36000J', '3600J'],
+          correctIndex: 3,
           explanation:
             '1W×3600s＝3600J。',
         difficulty: 'standard',
@@ -258,8 +258,8 @@ export const electricEnergy: Topic = {
         {
           id: 'sci2-ee-q16',
           question: '500Wを2時間→電力量は？',
-          options: ['250Wh', '500Wh', '1000Wh', '2000Wh'],
-          correctIndex: 2,
+          options: ['250Wh', '500Wh', '2000Wh', '1000Wh'],
+          correctIndex: 3,
           explanation:
             '500×2＝1000Wh。',
         difficulty: 'standard',
@@ -267,8 +267,8 @@ export const electricEnergy: Topic = {
         {
           id: 'sci2-ee-q17',
           question: '1calは約何J？',
-          options: ['1J', '4.2J', '10J', '42J'],
-          correctIndex: 1,
+          options: ['4.2J', '1J', '10J', '42J'],
+          correctIndex: 0,
           explanation:
             '約4.2J。',
         difficulty: 'standard',
@@ -285,8 +285,8 @@ export const electricEnergy: Topic = {
         {
           id: 'sci2-ee-q19',
           question: '電力大→水の温度上昇は？',
-          options: ['小さい', '大きい', '変わらない', '下がる'],
-          correctIndex: 1,
+          options: ['大きい', '小さい', '変わらない', '下がる'],
+          correctIndex: 0,
           explanation:
             '電力大→発熱量大→温度上昇大。',
         difficulty: 'standard',

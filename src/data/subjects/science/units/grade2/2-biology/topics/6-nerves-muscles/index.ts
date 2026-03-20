@@ -183,10 +183,9 @@ export const nervesMuscles: Topic = {
           options: [
             '感覚器官→運動神経→脳→感覚神経→運動器官',
             '脳→感覚神経→せきずい→運動神経→運動器官',
-            '感覚器官→感覚神経→せきずい→脳→せきずい→運動神経→運動器官',
             '感覚器官→せきずい→運動神経→運動器官',
-          ],
-          correctIndex: 2,
+            '感覚器官→感覚神経→せきずい→脳→せきずい→運動神経→運動器官'],
+          correctIndex: 3,
           explanation:
             '意識して起こる反応は、感覚器官→感覚神経→せきずい→脳→せきずい→運動神経→運動器官の順に信号が伝わります。',
         difficulty: 'basic',
@@ -195,12 +194,11 @@ export const nervesMuscles: Topic = {
           id: 'sci2-nm-q4',
           question: 'うでを曲げるとき、筋肉はどう動く？',
           options: [
-            '2つとも縮む',
             '一方が縮み、もう一方が伸びる',
+            '2つとも縮む',
             '2つとも伸びる',
-            '1つの筋肉だけが動く',
-          ],
-          correctIndex: 1,
+            '1つの筋肉だけが動く'],
+          correctIndex: 0,
           explanation:
             'うでの曲げ伸ばしでは、関節をまたいでついている2つの筋肉のうち一方が縮むと、もう一方が伸ばされます。',
         difficulty: 'basic',
@@ -216,8 +214,8 @@ export const nervesMuscles: Topic = {
         {
           id: 'sci2-nm-q6',
           question: '10人で手をつないで合図を伝える実験で3回の平均が2.7秒だった。1人あたりの反応時間は？',
-          options: ['0.027秒', '2.7秒', '0.27秒', '27秒'],
-          correctIndex: 2,
+          options: ['0.027秒', '2.7秒', '27秒', '0.27秒'],
+          correctIndex: 3,
           explanation: '2.7秒÷10人＝0.27秒。1人あたりの反応時間は約0.27秒です。',
         difficulty: 'basic',
       },
@@ -232,8 +230,8 @@ export const nervesMuscles: Topic = {
         {
           id: 'sci2-nm-q8',
           question: '脳とせきずいの総称は？',
-          options: ['末しょう神経', '中枢神経', '感覚神経', '運動神経'],
-          correctIndex: 1,
+          options: [ '中枢神経','末しょう神経', '感覚神経', '運動神経'],
+          correctIndex: 0,
           explanation:
             '中枢神経。',
         difficulty: 'basic',
@@ -241,8 +239,8 @@ export const nervesMuscles: Topic = {
         {
           id: 'sci2-nm-q9',
           question: '反射の折り返し場所は？',
-          options: ['脳', 'せきずい', '感覚器官', '筋肉'],
-          correctIndex: 1,
+          options: [ 'せきずい','脳', '感覚器官', '筋肉'],
+          correctIndex: 0,
           explanation:
             'せきずい。',
         difficulty: 'basic',
@@ -250,8 +248,8 @@ export const nervesMuscles: Topic = {
         {
           id: 'sci2-nm-q10',
           question: '反射が速い理由は？',
-          options: ['筋肉が特別', 'せきずいで折り返し脳不経由', '感覚神経が太い', '反応が強い'],
-          correctIndex: 1,
+          options: [ 'せきずいで折り返し脳不経由','筋肉が特別', '感覚神経が太い', '反応が強い'],
+          correctIndex: 0,
           explanation:
             'せきずいで折り返すから。',
         difficulty: 'basic',
@@ -259,8 +257,8 @@ export const nervesMuscles: Topic = {
         {
           id: 'sci2-nm-q11',
           question: '意識的反応の経路は？',
-          options: ['感覚器官→感覚神経→脳→運動神経→運動器官', '感覚器官→感覚神経→せきずい→脳→せきずい→運動神経→運動器官', '感覚器官→運動神経→脳→感覚神経→運動器官', '感覚器官→せきずい→運動器官'],
-          correctIndex: 1,
+          options: [ '感覚器官→感覚神経→せきずい→脳→せきずい→運動神経→運動器官','感覚器官→感覚神経→脳→運動神経→運動器官', '感覚器官→運動神経→脳→感覚神経→運動器官', '感覚器官→せきずい→運動器官'],
+          correctIndex: 0,
           explanation:
             'せきずい経由で脳に届く。',
         difficulty: 'standard',
@@ -268,8 +266,8 @@ export const nervesMuscles: Topic = {
         {
           id: 'sci2-nm-q12',
           question: 'うで曲げ→内側筋肉は？',
-          options: ['ゆるむ', '縮む', '伸びる', '動かない'],
-          correctIndex: 1,
+          options: ['ゆるむ', '動かない', '伸びる', '縮む'],
+          correctIndex: 3,
           explanation:
             '内側が縮む。',
         difficulty: 'standard',
@@ -286,8 +284,8 @@ export const nervesMuscles: Topic = {
         {
           id: 'sci2-nm-q14',
           question: '筋肉がペアで動く理由は？',
-          options: ['力を強く', '縮むしかできない', '関節保護', '疲労分散'],
-          correctIndex: 1,
+          options: ['力を強く', '疲労分散', '関節保護', '縮むしかできない'],
+          correctIndex: 3,
           explanation:
             '縮むしかできず反対側が引き伸ばす。',
         difficulty: 'standard',
@@ -304,8 +302,8 @@ export const nervesMuscles: Topic = {
         {
           id: 'sci2-nm-q16',
           question: '感覚神経のはたらきは？',
-          options: ['脳→筋肉に命令', '感覚器官→脳に信号伝達', '筋肉を動かす', '骨を支える'],
-          correctIndex: 1,
+          options: ['脳→筋肉に命令', '骨を支える', '筋肉を動かす', '感覚器官→脳に信号伝達'],
+          correctIndex: 3,
           explanation:
             '感覚器官から中枢神経へ。',
         difficulty: 'standard',

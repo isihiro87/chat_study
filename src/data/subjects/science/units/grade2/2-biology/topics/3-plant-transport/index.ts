@@ -117,8 +117,8 @@ export const plantTransport: Topic = {
         {
           id: 'sci2-pt-q2',
           question: '蒸散の実験でワセリンを葉の裏だけにぬったとき、水の減少量はどうなる？',
-          options: ['変わらない', '少し減る', '最も少なくなる', '最も多くなる'],
-          correctIndex: 1,
+          options: [ '少し減る','変わらない', '最も少なくなる', '最も多くなる'],
+          correctIndex: 0,
           explanation:
             '気孔は葉の裏側に多いため、裏にワセリンをぬると蒸散が大幅に減り、水の減少量が最も少なくなります。',
         difficulty: 'basic',
@@ -149,8 +149,8 @@ export const plantTransport: Topic = {
         {
           id: 'sci2-pt-q5',
           question: '道管は茎のどちら側？',
-          options: ['外側', '内側', '真ん中', '上側'],
-          correctIndex: 1,
+          options: [ '内側','外側', '真ん中', '上側'],
+          correctIndex: 0,
           explanation:
             '内側。師管は外側。',
         difficulty: 'basic',
@@ -158,8 +158,8 @@ export const plantTransport: Topic = {
         {
           id: 'sci2-pt-q6',
           question: '根毛の利点は？',
-          options: ['病原菌防止', '表面積大で吸水効率UP', '固定', '養分蓄積'],
-          correctIndex: 1,
+          options: [ '表面積大で吸水効率UP','病原菌防止', '固定', '養分蓄積'],
+          correctIndex: 0,
           explanation:
             '表面積大で効率的吸水。',
         difficulty: 'basic',
@@ -167,8 +167,8 @@ export const plantTransport: Topic = {
         {
           id: 'sci2-pt-q7',
           question: '養分が通る管は？',
-          options: ['道管', '師管', '維管束', '根毛'],
-          correctIndex: 1,
+          options: [ '師管','道管', '維管束', '根毛'],
+          correctIndex: 0,
           explanation:
             '師管で養分が通る。',
         difficulty: 'basic',
@@ -176,8 +176,8 @@ export const plantTransport: Topic = {
         {
           id: 'sci2-pt-q8',
           question: '双子葉類の維管束は？',
-          options: ['散在', '輪の形', '一列', 'らせん'],
-          correctIndex: 1,
+          options: [ '輪の形','散在', '一列', 'らせん'],
+          correctIndex: 0,
           explanation:
             '輪の形に並ぶ。',
         difficulty: 'basic',
@@ -185,8 +185,8 @@ export const plantTransport: Topic = {
         {
           id: 'sci2-pt-q9',
           question: '水面に油を浮かべる理由は？',
-          options: ['清潔', '水面蒸発防止', '水温一定', '栄養'],
-          correctIndex: 1,
+          options: [ '水面蒸発防止','清潔', '水温一定', '栄養'],
+          correctIndex: 0,
           explanation:
             '蒸散量だけ正確に測る。',
         difficulty: 'basic',
@@ -212,8 +212,8 @@ export const plantTransport: Topic = {
         {
           id: 'sci2-pt-q12',
           question: '単子葉類の葉脈は？',
-          options: ['網状脈', '平行脈', 'らせん', '放射'],
-          correctIndex: 1,
+          options: ['網状脈', '放射', 'らせん', '平行脈'],
+          correctIndex: 3,
           explanation:
             '平行脈。',
         difficulty: 'standard',
@@ -221,8 +221,8 @@ export const plantTransport: Topic = {
         {
           id: 'sci2-pt-q13',
           question: 'ワセリンを塗る目的は？',
-          options: ['養分', '気孔ふさぎ蒸散防止', '保護', '水分保持'],
-          correctIndex: 1,
+          options: ['養分', '水分保持', '保護', '気孔ふさぎ蒸散防止'],
+          correctIndex: 3,
           explanation:
             '気孔をふさいで蒸散量比較。',
         difficulty: 'standard',
@@ -239,8 +239,8 @@ export const plantTransport: Topic = {
         {
           id: 'sci2-pt-q15',
           question: '道管を通るものは？',
-          options: ['養分', '水や無機物', 'CO₂', 'O₂'],
-          correctIndex: 1,
+          options: ['養分', 'O₂', 'CO₂', '水や無機物'],
+          correctIndex: 3,
           explanation:
             '水と無機物。',
         difficulty: 'standard',
@@ -248,8 +248,8 @@ export const plantTransport: Topic = {
         {
           id: 'sci2-pt-q16',
           question: '維管束とは？',
-          options: ['根毛の集まり', '道管と師管の束', '気孔の集まり', '葉肉細胞の集まり'],
-          correctIndex: 1,
+          options: ['根毛の集まり', '葉肉細胞の集まり', '気孔の集まり', '道管と師管の束'],
+          correctIndex: 3,
           explanation:
             '道管と師管の束。',
         difficulty: 'standard',
@@ -257,8 +257,8 @@ export const plantTransport: Topic = {
         {
           id: 'sci2-pt-q17',
           question: '蒸散が裏側で盛んな理由は？',
-          options: ['太陽に当たる', '裏に気孔多い', '裏の温度高い', '裏の水分多い'],
-          correctIndex: 1,
+          options: ['太陽に当たる', '裏の水分多い', '裏の温度高い', '裏に気孔多い'],
+          correctIndex: 3,
           explanation:
             '気孔が裏に多い。',
         difficulty: 'standard',
@@ -266,8 +266,8 @@ export const plantTransport: Topic = {
         {
           id: 'sci2-pt-q18',
           question: 'CO₂が光合成に必要な確認法は？',
-          options: ['温度変更', 'CO₂有無の水で気泡比較', '光の色変更', '水量変更'],
-          correctIndex: 1,
+          options: ['温度変更', '水量変更', '光の色変更', 'CO₂有無の水で気泡比較'],
+          correctIndex: 3,
           explanation:
             'CO₂有無で気泡発生比較。',
         difficulty: 'standard',

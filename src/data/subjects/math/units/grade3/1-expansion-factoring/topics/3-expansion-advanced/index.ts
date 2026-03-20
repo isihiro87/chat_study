@@ -227,10 +227,10 @@ export const expansionAdvanced: Topic = {
           options: [
             '$3x^2 + 6x + 1$',
             '$9x^2 + 3x + 1$',
-            '$9x^2 + 6x + 1$',
             '$9x^2 + 6x + 2$',
+            '$9x^2 + 6x + 1$',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '$a=3x$, $b=1$ とおいて公式2。\n$(3x)^2 + 2 \\times 3x \\times 1 + 1^2 = 9x^2 + 6x + 1$',
           difficulty: 'basic',
@@ -425,10 +425,10 @@ export const expansionAdvanced: Topic = {
           options: [
             '$9x^2 - 12xy + 16y^2$',
             '$9x^2 + 24xy + 16y^2$',
-            '$9x^2 - 24xy + 16y^2$',
             '$9x^2 - 24xy - 16y^2$',
+            '$9x^2 - 24xy + 16y^2$',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '$(3x)^2 - 2 \\times 3x \\times 4y + (4y)^2 = 9x^2 - 24xy + 16y^2$。',
           difficulty: 'standard',
@@ -480,11 +480,11 @@ export const expansionAdvanced: Topic = {
           question: '$(x + \\frac{1}{3})(x + \\frac{2}{3})$ を展開すると？',
           options: [
             '$x^2 + x + \\frac{2}{3}$',
-            '$x^2 + \\frac{1}{3}x + \\frac{2}{9}$',
             '$x^2 + x + \\frac{2}{9}$',
+            '$x^2 + \\frac{1}{3}x + \\frac{2}{9}$',
             '$x^2 + \\frac{2}{3}x + \\frac{1}{3}$',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation:
             '足して $\\frac{1}{3}+\\frac{2}{3}=1$、かけて $\\frac{1}{3} \\times \\frac{2}{3}=\\frac{2}{9}$。$x^2+x+\\frac{2}{9}$。',
           difficulty: 'standard',

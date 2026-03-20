@@ -367,8 +367,13 @@ export const solutionProperties: Topic = {
         {
           id: 'sci1-slp-q18',
           question: '硝酸カリウムの結晶の形はどれか？',
-          options: ['立方体', '針状', '正八面体', '六角形'],
-          correctIndex: 1,
+          options: [
+            '立方体',
+            '六角形',
+            '正八面体',
+            '針状',
+          ],
+          correctIndex: 3,
           explanation:
             '硝酸カリウムの結晶は針状（細長い棒のような形）です。食塩は立方体、ミョウバンは正八面体です。',
         difficulty: 'standard',
@@ -378,11 +383,11 @@ export const solutionProperties: Topic = {
           question: '飽和水溶液の温度を上げると、溶質をさらにとかすことができるか？',
           options: [
             'できない',
-            'できる（温度が上がると溶解度が大きくなる物質の場合）',
-            '逆にとけなくなる',
             '温度は関係ない',
+            '逆にとけなくなる',
+            'できる（温度が上がると溶解度が大きくなる物質の場合）',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '多くの固体の物質は温度が上がると溶解度が大きくなるため、飽和水溶液の温度を上げるとさらにとかすことができます。',
         difficulty: 'standard',
@@ -390,8 +395,13 @@ export const solutionProperties: Topic = {
         {
           id: 'sci1-slp-q20',
           question: '再結晶でとり出される結晶は純粋な物質か混合物か？',
-          options: ['混合物', '純粋な物質', '条件による', '不純物がまざる'],
-          correctIndex: 1,
+          options: [
+            '混合物',
+            '不純物がまざる',
+            '条件による',
+            '純粋な物質',
+          ],
+          correctIndex: 3,
           explanation:
             '再結晶でとり出される結晶は純粋な物質（純物質）です。温度による溶解度の差を利用して純粋な結晶を取り出します。',
         difficulty: 'standard',
@@ -417,8 +427,13 @@ export const solutionProperties: Topic = {
         {
           id: 'sci1-slp-q23',
           question: '空気は純物質か混合物か？',
-          options: ['純物質', '混合物', '気体だから分類できない', '条件による'],
-          correctIndex: 1,
+          options: [
+            '純物質',
+            '条件による',
+            '気体だから分類できない',
+            '混合物',
+          ],
+          correctIndex: 3,
           explanation:
             '空気は窒素・酸素・アルゴンなど複数の気体が混じり合った混合物です。',
         difficulty: 'advanced',
@@ -428,11 +443,11 @@ export const solutionProperties: Topic = {
           question: '水溶液をろ過したとき、溶質はろ紙を通り抜けるか？',
           options: [
             'ろ紙の上に残る',
-            'ろ紙を通り抜ける',
             '半分だけ通り抜ける',
+            'ろ紙を通り抜ける',
             'ろ紙の種類による',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             '溶質の粒子は非常に小さいため、ろ紙の穴を通り抜けます。水にとけていない固体はろ紙の上に残ります。',
         difficulty: 'advanced',
@@ -440,8 +455,13 @@ export const solutionProperties: Topic = {
         {
           id: 'sci1-slp-q25',
           question: '質量パーセント濃度15%の砂糖水200gに水を100g加えた。新しい濃度は何%か？',
-          options: ['5%', '10%', '15%', '20%'],
-          correctIndex: 1,
+          options: [
+            '10%',
+            '5%',
+            '15%',
+            '20%',
+          ],
+          correctIndex: 0,
           explanation:
             '砂糖の質量＝200×15÷100＝30g。新しい溶液の質量＝200＋100＝300g。新しい濃度＝30÷300×100＝10%。',
         difficulty: 'advanced',
@@ -450,12 +470,12 @@ export const solutionProperties: Topic = {
           id: 'sci1-slp-q26',
           question: '物質によって結晶の形が決まっているのはなぜか？',
           options: [
-            '温度で決まるから',
             '粒子の並び方が物質ごとに決まっているため',
+            '温度で決まるから',
             '溶媒によって変わるから',
             '偶然決まるから',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '結晶は粒子が規則正しく並んだ固体で、粒子の並び方が物質ごとに決まっているため、結晶の形も決まっています。',
         difficulty: 'advanced',
@@ -464,12 +484,12 @@ export const solutionProperties: Topic = {
           id: 'sci1-slp-q27',
           question: 'ろ過でガラス棒を使ってろ紙に液を注ぐ理由はどれか？',
           options: [
-            '液の温度を下げるため',
             'ろ紙が破れるのを防ぎ液が飛び散らないようにするため',
+            '液の温度を下げるため',
             '液を速く注ぐため',
             '不純物を取り除くため',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             'ガラス棒を伝わらせて注ぐことで、ろ紙が破れるのを防ぎ、液が飛び散らないようにします。',
         difficulty: 'advanced',
@@ -478,12 +498,12 @@ export const solutionProperties: Topic = {
           id: 'sci1-slp-q28',
           question: '色がついた水溶液（例：硫酸銅水溶液）は透明か？',
           options: [
-            '透明ではない',
             '透明である（透明とは向こう側が透けて見えること）',
+            '透明ではない',
             '色がついていると判断できない',
             '温度による',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '透明とは「向こう側が透けて見える」ことで、「無色」とは異なります。色がついていても透けて見えれば透明です。',
         difficulty: 'advanced',

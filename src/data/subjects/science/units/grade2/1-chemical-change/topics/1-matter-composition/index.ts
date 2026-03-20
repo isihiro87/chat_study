@@ -194,8 +194,8 @@ export const matterComposition: Topic = {
         {
           id: 'sci2-mc-q1',
           question: '炭酸水素ナトリウムを加熱したとき、発生する気体は何か？',
-          options: ['水素', '二酸化炭素', '酸素', '窒素'],
-          correctIndex: 1,
+          options: [ '二酸化炭素','水素', '酸素', '窒素'],
+          correctIndex: 0,
           explanation:
             '炭酸水素ナトリウムを加熱すると、二酸化炭素・水・炭酸ナトリウムに分解されます。発生する気体は二酸化炭素で、石灰水を白くにごらせます。',
         difficulty: 'basic',
@@ -226,8 +226,8 @@ export const matterComposition: Topic = {
         {
           id: 'sci2-mc-q4',
           question: '次のうち、化合物はどれ？',
-          options: ['酸素（O₂）', '銅（Cu）', '水（H₂O）', '鉄（Fe）'],
-          correctIndex: 2,
+          options: [ '水（H₂O）', '銅（Cu）','酸素（O₂）', '鉄（Fe）'],
+          correctIndex: 0,
           explanation:
             '化合物は2種類以上の元素からできている純粋な物質です。水（H₂O）は水素と酸素の2種類の元素からできています。O₂、Cu、Feは単体です。',
         difficulty: 'basic',
@@ -235,8 +235,8 @@ export const matterComposition: Topic = {
         {
           id: 'sci2-mc-q5',
           question: '次のうち、分子をつくらない物質はどれ？',
-          options: ['水素（H₂）', '銅（Cu）', '酸素（O₂）', '水（H₂O）'],
-          correctIndex: 1,
+          options: [ '銅（Cu）','水素（H₂）', '酸素（O₂）', '水（H₂O）'],
+          correctIndex: 0,
           explanation:
             '銅（Cu）は金属で分子をつくらない物質です。水素、水、酸素はいずれも分子をつくる物質です。',
         difficulty: 'basic',
@@ -273,10 +273,9 @@ export const matterComposition: Topic = {
           options: [
             '気体が出やすくするため',
             '粉末がこぼれないようにするため',
-            '液体が加熱部に流れて試験管が割れるのを防ぐため',
             '火が消えないようにするため',
-          ],
-          correctIndex: 2,
+            '液体が加熱部に流れて試験管が割れるのを防ぐため'],
+          correctIndex: 3,
           explanation:
             '発生した液体（水）が加熱部分に流れると、試験管が急に冷えて割れる危険があります。口を下げることで液体が加熱部に戻るのを防ぎます。',
         difficulty: 'basic',
@@ -317,8 +316,8 @@ export const matterComposition: Topic = {
         {
           id: 'sci2-mc-q12',
           question: '次のうち、混合物はどれ？',
-          options: ['水（H₂O）', '酸素（O₂）', '食塩水', '銅（Cu）'],
-          correctIndex: 2,
+          options: ['水（H₂O）', '酸素（O₂）', '銅（Cu）', '食塩水'],
+          correctIndex: 3,
           explanation:
             '食塩水は水と塩化ナトリウムの2種類の物質が混じり合った混合物です。水・酸素・銅はそれぞれ1種類の物質だけでできた純粋な物質です。',
         difficulty: 'standard',

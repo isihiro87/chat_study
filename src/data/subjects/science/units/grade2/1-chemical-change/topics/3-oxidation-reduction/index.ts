@@ -167,12 +167,11 @@ export const oxidationReduction: Topic = {
           id: 'sci2-or-q3',
           question: '酸化銅を炭素と混ぜて加熱すると何が起こる？',
           options: [
-            '酸化銅がさらに酸化される',
             '酸化銅が還元されて銅になる',
+            '酸化銅がさらに酸化される',
             '炭素が還元される',
-            '何も変化しない',
-          ],
-          correctIndex: 1,
+            '何も変化しない'],
+          correctIndex: 0,
           explanation:
             '炭素が酸化銅から酸素をうばい、酸化銅は還元されて銅に戻ります。2CuO + C → 2Cu + CO₂',
         difficulty: 'basic',
@@ -183,10 +182,9 @@ export const oxidationReduction: Topic = {
           options: [
             '酸化だけが起こることがある',
             '還元だけが起こることがある',
-            '酸化と還元は常に同時に起こる',
             '酸化と還元は交互に起こる',
-          ],
-          correctIndex: 2,
+            '酸化と還元は常に同時に起こる'],
+          correctIndex: 3,
           explanation:
             '一方の物質が酸化されるとき、もう一方の物質は必ず還元されます。酸化と還元は常に同時に起こります。',
         difficulty: 'basic',
@@ -236,8 +234,8 @@ export const oxidationReduction: Topic = {
         {
           id: 'sci2-or-q8',
           question: '酸化銅を炭素で還元したとき、試験管に残る赤い物質は何？',
-          options: ['酸化銅', '銅', '酸化鉄', '炭素'],
-          correctIndex: 1,
+          options: [ '銅','酸化銅', '酸化鉄', '炭素'],
+          correctIndex: 0,
           explanation:
             '酸化銅（CuO）が還元されて銅（Cu）に戻ります。銅は赤っぽい光沢のある金属です。',
         difficulty: 'basic',
@@ -246,12 +244,11 @@ export const oxidationReduction: Topic = {
           id: 'sci2-or-q9',
           question: '酸化銅と炭素の還元実験で石灰水が白くにごる理由は？',
           options: [
-            '酸素が発生したから',
             '二酸化炭素が発生したから',
+            '酸素が発生したから',
             '水蒸気が発生したから',
-            '水素が発生したから',
-          ],
-          correctIndex: 1,
+            '水素が発生したから'],
+          correctIndex: 0,
           explanation:
             '炭素が酸化銅から酸素をうばい二酸化炭素（CO₂）が発生します。石灰水はCO₂に反応して白くにごります。',
         difficulty: 'basic',
@@ -296,8 +293,8 @@ export const oxidationReduction: Topic = {
         {
           id: 'sci2-or-q13',
           question: 'スチールウール燃焼後に質量が増加する理由は？',
-          options: ['水分吸収', '酸素と結びつく', '炭素が増える', '温度上昇'],
-          correctIndex: 1,
+          options: ['水分吸収', '温度上昇', '炭素が増える', '酸素と結びつく'],
+          correctIndex: 3,
           explanation:
             '空気中の酸素と結びつくため質量が増加します。',
         difficulty: 'standard',
@@ -314,8 +311,8 @@ export const oxidationReduction: Topic = {
         {
           id: 'sci2-or-q15',
           question: '酸化銅の炭素還元で残る赤い物質は？',
-          options: ['鉄', '銅', 'マグネシウム', 'アルミニウム'],
-          correctIndex: 1,
+          options: ['鉄', 'アルミニウム', 'マグネシウム', '銅'],
+          correctIndex: 3,
           explanation:
             '酸化銅から酸素が奪われ銅が残ります。',
         difficulty: 'standard',
@@ -323,8 +320,8 @@ export const oxidationReduction: Topic = {
         {
           id: 'sci2-or-q16',
           question: '酸化銅と炭素の反応で酸化されたのは？',
-          options: ['酸化銅', '炭素', '銅', '二酸化炭素'],
-          correctIndex: 1,
+          options: ['酸化銅', '二酸化炭素', '銅', '炭素'],
+          correctIndex: 3,
           explanation:
             '炭素が酸素と結びついて二酸化炭素になったので酸化されたのは炭素です。',
         difficulty: 'standard',

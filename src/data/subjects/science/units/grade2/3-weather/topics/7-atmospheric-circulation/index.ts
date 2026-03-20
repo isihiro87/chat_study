@@ -173,8 +173,8 @@ export const atmosphericCirculation: Topic = {
         {
           id: 'sci2-atmc-q5',
           question: '偏西風とは？',
-          options: ['赤道付近の風', '中緯度上空の西→東の風', '極付近の風', '季節風'],
-          correctIndex: 1,
+          options: ['中緯度上空の西→東の風', '赤道付近の風', '極付近の風', '季節風'],
+          correctIndex: 0,
           explanation:
             '中緯度上空を西→東に吹く。',
         difficulty: 'basic',
@@ -182,8 +182,8 @@ export const atmosphericCirculation: Topic = {
         {
           id: 'sci2-atmc-q6',
           question: '日本の天気が西→東に移る理由は？',
-          options: ['地球の自転', '偏西風の影響', '海流', '季節風'],
-          correctIndex: 1,
+          options: ['地球の自転', '季節風', '海流', '偏西風の影響'],
+          correctIndex: 3,
           explanation:
             '偏西風の影響。',
         difficulty: 'basic',
@@ -191,8 +191,8 @@ export const atmosphericCirculation: Topic = {
         {
           id: 'sci2-atmc-q7',
           question: '冬の季節風の風向は？',
-          options: ['南東', '北西', '東', '南'],
-          correctIndex: 1,
+          options: ['北西', '南東', '東', '南'],
+          correctIndex: 0,
           explanation:
             '北西の季節風。',
         difficulty: 'basic',
@@ -200,8 +200,8 @@ export const atmosphericCirculation: Topic = {
         {
           id: 'sci2-atmc-q8',
           question: '夏の季節風の風向は？',
-          options: ['北西', '南東', '西', '北'],
-          correctIndex: 1,
+          options: ['北西', '北', '西', '南東'],
+          correctIndex: 3,
           explanation:
             '南東の季節風。',
         difficulty: 'basic',
@@ -209,8 +209,8 @@ export const atmosphericCirculation: Topic = {
         {
           id: 'sci2-atmc-q9',
           question: '昼間に海→陸に吹く風は？',
-          options: ['陸風', '海風', '季節風', '偏西風'],
-          correctIndex: 1,
+          options: ['海風', '陸風', '季節風', '偏西風'],
+          correctIndex: 0,
           explanation:
             '海風。',
         difficulty: 'basic',
@@ -218,8 +218,8 @@ export const atmosphericCirculation: Topic = {
         {
           id: 'sci2-atmc-q10',
           question: '夜間に陸→海に吹く風は？',
-          options: ['海風', '陸風', '季節風', '偏西風'],
-          correctIndex: 1,
+          options: ['海風', '偏西風', '季節風', '陸風'],
+          correctIndex: 3,
           explanation:
             '陸風。',
         difficulty: 'basic',
@@ -227,8 +227,8 @@ export const atmosphericCirculation: Topic = {
         {
           id: 'sci2-atmc-q11',
           question: 'シベリア気団の性質は？',
-          options: ['温暖湿潤', '寒冷乾燥', '寒冷湿潤', '温暖乾燥'],
-          correctIndex: 1,
+          options: ['寒冷乾燥', '温暖湿潤', '寒冷湿潤', '温暖乾燥'],
+          correctIndex: 0,
           explanation:
             '寒冷・乾燥。',
         difficulty: 'standard',
@@ -263,8 +263,8 @@ export const atmosphericCirculation: Topic = {
         {
           id: 'sci2-atmc-q15',
           question: '極付近の気流は？',
-          options: ['上昇気流', '下降気流', '水平', '回転'],
-          correctIndex: 1,
+          options: ['上昇気流', '回転', '水平', '下降気流'],
+          correctIndex: 3,
           explanation:
             '極は寒冷で下降気流。',
         difficulty: 'standard',
@@ -281,8 +281,8 @@ export const atmosphericCirculation: Topic = {
         {
           id: 'sci2-atmc-q17',
           question: '大陸と海洋で温まりやすいのは？',
-          options: ['海洋', '大陸', '同じ', '季節による'],
-          correctIndex: 1,
+          options: ['大陸', '海洋', '同じ', '季節による'],
+          correctIndex: 0,
           explanation:
             '大陸は温まりやすく冷めやすい。',
         difficulty: 'standard',
@@ -290,8 +290,8 @@ export const atmosphericCirculation: Topic = {
         {
           id: 'sci2-atmc-q18',
           question: '冬に大陸に高気圧→理由は？',
-          options: ['温まる', '冷えて下降気流', '海から風', '雨が降る'],
-          correctIndex: 1,
+          options: ['温まる', '雨が降る', '海から風', '冷えて下降気流'],
+          correctIndex: 3,
           explanation:
             '大陸が冷え下降気流→高気圧。',
         difficulty: 'standard',
@@ -299,8 +299,8 @@ export const atmosphericCirculation: Topic = {
         {
           id: 'sci2-atmc-q19',
           question: '夏に大陸に低気圧→理由は？',
-          options: ['冷える', '温まり上昇気流', '海が冷たい', '雪が降る'],
-          correctIndex: 1,
+          options: ['冷える', '雪が降る', '海が冷たい', '温まり上昇気流'],
+          correctIndex: 3,
           explanation:
             '大陸が温まり上昇気流→低気圧。',
         difficulty: 'standard',
@@ -326,8 +326,8 @@ export const atmosphericCirculation: Topic = {
         {
           id: 'sci2-atmc-q22',
           question: '海陸風と季節風の原理は？',
-          options: ['異なる', '同じ', '海陸風だけ', '季節風だけ'],
-          correctIndex: 1,
+          options: ['同じ', '異なる', '海陸風だけ', '季節風だけ'],
+          correctIndex: 0,
           explanation:
             '温まりやすさの違いで同じ原理。',
         difficulty: 'standard',

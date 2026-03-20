@@ -316,13 +316,9 @@ export const atomIon: Topic = {
         {
           id: 'sci3-ai-q3',
           question: '塩化水素（HCl）が水に溶けて電離したときのイオンの組み合わせは？',
-          options: [
-            'H⁻ と Cl⁺',
-            'H⁺ と Cl⁻',
-            'H₂ と Cl₂',
-            'Na⁺ と Cl⁻',
+          options: ['H⁺ と Cl⁻','H⁻ と Cl⁺','H₂ と Cl₂','Na⁺ と Cl⁻',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '塩化水素は水に溶けるとH⁺（水素イオン）とCl⁻（塩化物イオン）に電離します。HCl → H⁺ + Cl⁻',
         difficulty: 'basic',
@@ -407,13 +403,9 @@ export const atomIon: Topic = {
         {
           id: 'sci3-ai-q10',
           question: '原子が電気的に中性である理由は？',
-          options: [
-            '中性子が電気を打ち消すから',
-            '陽子の数と電子の数が等しいから',
-            '電子が原子核に含まれるから',
-            '陽子と中性子の数が等しいから',
+          options: ['陽子の数と電子の数が等しいから','中性子が電気を打ち消すから','電子が原子核に含まれるから','陽子と中性子の数が等しいから',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '原子では陽子の数（＋）と電子の数（−）が等しいため、電気が打ち消し合って中性になります。',
         difficulty: 'basic',
@@ -453,8 +445,8 @@ export const atomIon: Topic = {
         {
           id: 'sci3-ai-q14',
           question: '電子を原子核のまわりにもっている粒子の電気の種類は？',
-          options: ['＋の電気', '電気なし', '−の電気', '＋と−の両方'],
-          correctIndex: 2,
+          options: ['−の電気','電気なし','＋の電気','＋と−の両方'],
+          correctIndex: 0,
           explanation:
             '電子は−の電気をもつ粒子です。原子核のまわりに存在しています。',
         difficulty: 'standard',
@@ -499,13 +491,9 @@ export const atomIon: Topic = {
         {
           id: 'sci3-ai-q18',
           question: '塩素原子が塩化物イオンになるとき、電子はどうなる？',
-          options: [
-            '電子を1個失う',
-            '電子を2個得る',
-            '電子を1個得る',
-            '電子の数は変わらない',
+          options: ['電子を1個失う','電子を2個得る','電子の数は変わらない','電子を1個得る',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '塩素原子は電子を1個得てCl⁻になります。−の電気が1つ多くなるため1価の陰イオンです。',
         difficulty: 'standard',
@@ -527,8 +515,8 @@ export const atomIon: Topic = {
         {
           id: 'sci3-ai-q20',
           question: '原子核を構成しない粒子はどれ？',
-          options: ['陽子', '中性子', '電子', '陽子と中性子の両方'],
-          correctIndex: 2,
+          options: ['陽子','中性子','陽子と中性子の両方','電子'],
+          correctIndex: 3,
           explanation:
             '電子は原子核のまわりを回っており、原子核を構成しません。原子核は陽子と中性子からできています。',
         difficulty: 'standard',
@@ -605,13 +593,9 @@ export const atomIon: Topic = {
         {
           id: 'sci3-ai-q27',
           question: '電離式の左辺と右辺で必ず等しいものは？',
-          options: [
-            '分子の数',
-            'イオンの数',
-            '原子の数と電荷の合計',
-            '電子の数だけ',
+          options: ['分子の数','イオンの数','電子の数だけ','原子の数と電荷の合計',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '電離式では左辺と右辺で原子の種類と数、および電荷の合計がそれぞれ等しくなります。',
         difficulty: 'advanced',

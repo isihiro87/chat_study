@@ -370,8 +370,13 @@ export const volcano: Topic = {
         {
           id: 'sci1-volcano-q19',
           question: '花こう岩はどのようなつくりをもつか？',
-          options: ['斑状組織', '等粒状組織', '層状組織', '粒状組織'],
-          correctIndex: 1,
+          options: [
+            '斑状組織',
+            '粒状組織',
+            '層状組織',
+            '等粒状組織',
+          ],
+          correctIndex: 3,
           explanation:
             '花こう岩は深成岩なので等粒状組織をもちます。マグマが地下深くでゆっくり冷えてできたためです。',
         difficulty: 'standard',
@@ -390,11 +395,11 @@ export const volcano: Topic = {
           question: '深成岩を白っぽい順に並べたものはどれ？',
           options: [
             '玄武岩→安山岩→流紋岩',
-            '花こう岩→せん緑岩→はんれい岩',
-            'はんれい岩→せん緑岩→花こう岩',
             '流紋岩→安山岩→玄武岩',
+            'はんれい岩→せん緑岩→花こう岩',
+            '花こう岩→せん緑岩→はんれい岩',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '深成岩は白っぽい順に花こう岩→せん緑岩→はんれい岩です。火山岩は流紋岩→安山岩→玄武岩です。',
         difficulty: 'standard',
@@ -402,8 +407,13 @@ export const volcano: Topic = {
         {
           id: 'sci1-volcano-q22',
           question: '火山灰を観察するとき使う器具はどれ？',
-          options: ['光学顕微鏡', '双眼実体顕微鏡', '電子顕微鏡', '望遠鏡'],
-          correctIndex: 1,
+          options: [
+            '双眼実体顕微鏡',
+            '光学顕微鏡',
+            '電子顕微鏡',
+            '望遠鏡',
+          ],
+          correctIndex: 0,
           explanation:
             '火山灰の鉱物は双眼実体顕微鏡で観察します。立体的に見ることができます。',
         difficulty: 'standard',
@@ -420,8 +430,13 @@ export const volcano: Topic = {
         {
           id: 'sci1-volcano-q24',
           question: '高温のガスや火山灰が山の斜面を高速で流れ下る現象を何というか？',
-          options: ['溶岩流', '火砕流', '土石流', '噴煙'],
-          correctIndex: 1,
+          options: [
+            '火砕流',
+            '溶岩流',
+            '土石流',
+            '噴煙',
+          ],
+          correctIndex: 0,
           explanation:
             '火砕流は高温の火山ガスや火山灰が一体となって山の斜面を高速で流れ下る非常に危険な現象です。',
         difficulty: 'advanced',
@@ -429,8 +444,13 @@ export const volcano: Topic = {
         {
           id: 'sci1-volcano-q25',
           question: '火山活動による恵みとして正しいものはどれ？',
-          options: ['地震', '温泉', '津波', '台風'],
-          correctIndex: 1,
+          options: [
+            '温泉',
+            '地震',
+            '津波',
+            '台風',
+          ],
+          correctIndex: 0,
           explanation:
             '火山活動の恵みには温泉、地熱発電、美しい景観、肥沃な土壌などがあります。',
         difficulty: 'advanced',
@@ -452,8 +472,13 @@ export const volcano: Topic = {
         {
           id: 'sci1-volcano-q27',
           question: 'ねばりけの弱いマグマの溶岩は何色か？',
-          options: ['白っぽい', '灰色', '黒っぽい', '赤色'],
-          correctIndex: 2,
+          options: [
+            '白っぽい',
+            '灰色',
+            '赤色',
+            '黒っぽい',
+          ],
+          correctIndex: 3,
           explanation:
             'ねばりけの弱いマグマの溶岩は有色鉱物を多くふくむため黒っぽい色になります。',
         difficulty: 'advanced',
@@ -461,8 +486,13 @@ export const volcano: Topic = {
         {
           id: 'sci1-volcano-q28',
           question: '火山弾の形の特徴はどれ？',
-          options: ['球形', '紡錘形（ラグビーボール型）', '立方体', '板状'],
-          correctIndex: 1,
+          options: [
+            '紡錘形（ラグビーボール型）',
+            '球形',
+            '立方体',
+            '板状',
+          ],
+          correctIndex: 0,
           explanation:
             '火山弾は紡錘形（ラグビーボールのような形）をしています。マグマが空中で冷えて固まったものです。',
         difficulty: 'advanced',

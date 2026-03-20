@@ -390,8 +390,8 @@ export const pastTense: Topic = {
         {
           id: 'eng-past-q14',
           question: 'stop の過去形として正しいのは？',
-          options: ['stoped', 'stoping', 'stopped', 'stops'],
-          correctIndex: 2,
+          options: ['stopped', 'stoping', 'stoped', 'stops'],
+          correctIndex: 0,
           explanation: '短母音 + 子音で終わる動詞は最後の子音を重ねて ed をつけるよ。stop → stopped',
           difficulty: 'standard',
         },
@@ -406,8 +406,8 @@ export const pastTense: Topic = {
         {
           id: 'eng-past-q16',
           question: 'see の過去形として正しいのは？',
-          options: ['seed', 'seen', 'saw', 'seeing'],
-          correctIndex: 2,
+          options: ['saw', 'seen', 'seed', 'seeing'],
+          correctIndex: 0,
           explanation: 'see の過去形はとくべつで saw だよ。覚えてしまおう。',
           difficulty: 'standard',
         },
@@ -459,8 +459,8 @@ export const pastTense: Topic = {
         {
           id: 'eng-past-q22',
           question: '「We (　　) soccer at 4 p.m. yesterday.（私たちは昨日午後4時にサッカーをしていました。）」\nの (　　) に入るのは？',
-          options: ['are playing', 'was playing', 'were playing', 'played'],
-          correctIndex: 2,
+          options: ['were playing', 'was playing', 'are playing', 'played'],
+          correctIndex: 0,
           explanation: '「そのとき〜していた」は過去進行形。We だから were + playing だよ。',
           difficulty: 'standard',
         },
@@ -475,8 +475,8 @@ export const pastTense: Topic = {
         {
           id: 'eng-past-q24',
           question: '「She (　　) TV then.（彼女はそのときテレビを見ていませんでした。）」\nの (　　) に入るのは？',
-          options: ["didn't watch", "doesn't watch", "wasn't watching", "isn't watching"],
-          correctIndex: 2,
+          options: ["didn't watch", "doesn't watch", "isn't watching", "wasn't watching"],
+          correctIndex: 3,
           explanation: "過去進行形の否定は wasn't/weren't + ing だよ。She wasn't watching.",
           difficulty: 'advanced',
         },

@@ -502,8 +502,8 @@ export const comparison: Topic = {
           id: 'eng-comp-q14',
           question:
             '「I like summer (　　) than winter.（私は冬より夏が好きです。）」\nの (　　) に入るのは？',
-          options: ['more', 'most', 'better', 'best'],
-          correctIndex: 2,
+          options: ['better', 'most', 'more', 'best'],
+          correctIndex: 0,
           explanation:
             '「AよりBが好き」は like B better than A。比較級は better を使うよ。',
           difficulty: 'standard',
@@ -536,8 +536,8 @@ export const comparison: Topic = {
           id: 'eng-comp-q17',
           question:
             '「He is (　　) the most famous singers in the world.（彼は世界でいちばん有名な歌手の一人だ。）」\nの (　　) に入るのは？',
-          options: ['one', 'one of', 'the one', 'some of'],
-          correctIndex: 1,
+          options: ['one', 'some of', 'the one', 'one of'],
+          correctIndex: 3,
           explanation:
             '「いちばん〜な…の一人」は one of the + 最上級 + 複数名詞 の形だよ。',
           difficulty: 'advanced',
@@ -561,8 +561,8 @@ export const comparison: Topic = {
           id: 'eng-comp-q25',
           question:
             '「Which season do you like (　　)?（あなたはどの季節がいちばん好きですか。）」\nの (　　) に入るのは？',
-          options: ['better', 'the best', 'most', 'well'],
-          correctIndex: 1,
+          options: ['better', 'well', 'most', 'the best'],
+          correctIndex: 3,
           explanation:
             '3つ以上の中で「いちばん好き」は like 〜 the best の形だよ。',
           difficulty: 'standard',
@@ -754,8 +754,8 @@ export const comparison: Topic = {
         {
           id: 'eng-comp-q31',
           question: 'busy の比較級として正しいのは？',
-          options: ['busyer', 'busier', 'more busy', 'bussier'],
-          correctIndex: 1,
+          options: ['busyer', 'bussier', 'more busy', 'busier'],
+          correctIndex: 3,
           explanation:
             'busy → busier。y を i にかえて er をつけるよ。',
           difficulty: 'standard',

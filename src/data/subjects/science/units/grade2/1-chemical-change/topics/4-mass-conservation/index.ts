@@ -159,10 +159,9 @@ export const massConservation: Topic = {
           options: [
             '化学変化すると質量が増える',
             '化学変化すると質量が減る',
-            '化学変化の前後で質量は変わらない',
             '気体が発生すると質量が増える',
-          ],
-          correctIndex: 2,
+            '化学変化の前後で質量は変わらない'],
+          correctIndex: 3,
           explanation:
             '質量保存の法則により、化学変化の前後で物質全体の質量は変わりません。原子が新しくできたり、なくなったりしないためです。',
         difficulty: 'basic',
@@ -170,8 +169,8 @@ export const massConservation: Topic = {
         {
           id: 'sci2-mcon-q2',
           question: '銅4gを完全に酸化させると酸化銅は何gできる？（銅:酸素=4:1）',
-          options: ['4g', '5g', '4.5g', '8g'],
-          correctIndex: 1,
+          options: [ '5g','4g', '4.5g', '8g'],
+          correctIndex: 0,
           explanation:
             '銅:酸素=4:1なので、銅4gに酸素1gが結びつきます。酸化銅は4+1=5gです。',
         difficulty: 'basic',
@@ -211,16 +210,16 @@ export const massConservation: Topic = {
         {
           id: 'sci2-mcon-q6',
           question: '銅0.8gと結びつく酸素の質量は何g？（銅:酸素=4:1）',
-          options: ['0.1g', '0.4g', '0.2g', '0.8g'],
-          correctIndex: 2,
+          options: ['0.1g', '0.4g', '0.8g', '0.2g'],
+          correctIndex: 3,
           explanation: '銅:酸素=4:1なので、0.8÷4=0.2g。銅0.8gに酸素0.2gが結びつきます。',
         difficulty: 'basic',
       },
         {
           id: 'sci2-mcon-q7',
           question: '酸化マグネシウム5gに含まれるマグネシウムは何g？（Mg:MgO=3:5）',
-          options: ['2g', '3g', '4g', '5g'],
-          correctIndex: 1,
+          options: [ '3g','2g', '4g', '5g'],
+          correctIndex: 0,
           explanation: 'Mg:MgO=3:5なので、Mg=5×3/5=3g。酸素は5-3=2gです。',
         difficulty: 'basic',
       },
@@ -261,16 +260,16 @@ export const massConservation: Topic = {
         {
           id: 'sci2-mcon-q11',
           question: '銅12gを空気中で十分に加熱すると酸化銅は何gできる？（銅:酸素=4:1）',
-          options: ['12g', '13g', '15g', '16g'],
-          correctIndex: 2,
+          options: ['12g', '13g', '16g', '15g'],
+          correctIndex: 3,
           explanation: '銅:酸素=4:1より酸素=12÷4=3g。酸化銅=12+3=15g。',
         difficulty: 'standard',
       },
         {
           id: 'sci2-mcon-q12',
           question: 'マグネシウム9gと酸素8gを反応させると余る酸素は何g？（Mg:酸素=3:2）',
-          options: ['0g', '2g', '1g', '3g'],
-          correctIndex: 1,
+          options: [ '2g','0g', '1g', '3g'],
+          correctIndex: 0,
           explanation: 'Mg:O=3:2よりMg9gに必要な酸素=9×2/3=6g。酸素8gのうち6gが反応し2g余る。',
         difficulty: 'standard',
       },
@@ -286,8 +285,8 @@ export const massConservation: Topic = {
         {
           id: 'sci2-mcon-q14',
           question: '銅0.8g完全酸化→結合O何g？（4:1）',
-          options: ['0.1g', '0.2g', '0.4g', '0.8g'],
-          correctIndex: 1,
+          options: [ '0.2g','0.1g', '0.4g', '0.8g'],
+          correctIndex: 0,
           explanation:
             '0.8÷4×1=0.2g',
         difficulty: 'standard',
@@ -313,8 +312,8 @@ export const massConservation: Topic = {
         {
           id: 'sci2-mcon-q17',
           question: 'ふたなし容器でNaHCO₃+HCl→質量減の理由？',
-          options: ['水蒸発', 'CO₂が逃げる', 'HCl分解', '容器が軽く'],
-          correctIndex: 1,
+          options: ['水蒸発', '容器が軽く', 'HCl分解', 'CO₂が逃げる'],
+          correctIndex: 3,
           explanation:
             'CO₂が空気中に逃げるため。',
         difficulty: 'standard',

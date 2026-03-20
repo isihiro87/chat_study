@@ -252,8 +252,8 @@ export const currentMagnetism: Topic = {
         {
           id: 'sci2-cm-q11',
           question: '磁力線はどこから出てどこに入る？',
-          options: ['S→N', 'N→S', 'N→N', 'S→S'],
-          correctIndex: 1,
+          options: ['N→S', 'S→N', 'N→N', 'S→S'],
+          correctIndex: 0,
           explanation:
             'N極から出てS極に入る。',
         difficulty: 'basic',
@@ -261,8 +261,8 @@ export const currentMagnetism: Topic = {
         {
           id: 'sci2-cm-q12',
           question: '導線に電流→磁界の形は？',
-          options: ['直線', '同心円', '渦巻き', 'ジグザグ'],
-          correctIndex: 1,
+          options: ['直線', '渦巻き', '同心円', 'ジグザグ'],
+          correctIndex: 2,
           explanation:
             '同心円状の磁界。',
         difficulty: 'basic',
@@ -270,8 +270,8 @@ export const currentMagnetism: Topic = {
         {
           id: 'sci2-cm-q13',
           question: '右手の法則で親指の向きは？',
-          options: ['磁界', '電流', '力', '運動'],
-          correctIndex: 1,
+          options: ['電流', '磁界', '力', '運動'],
+          correctIndex: 0,
           explanation:
             '親指＝電流の向き。',
         difficulty: 'standard',
@@ -279,8 +279,8 @@ export const currentMagnetism: Topic = {
         {
           id: 'sci2-cm-q14',
           question: 'コイルの電流を逆に→磁界は？',
-          options: ['変わらない', 'N極とS極が入れ替わる', '消える', '強くなる'],
-          correctIndex: 1,
+          options: ['変わらない', '消える', 'N極とS極が入れ替わる', '強くなる'],
+          correctIndex: 2,
           explanation:
             '極が入れ替わる。',
         difficulty: 'standard',
@@ -288,8 +288,8 @@ export const currentMagnetism: Topic = {
         {
           id: 'sci2-cm-q15',
           question: '電流が磁界から力を逆にするには？',
-          options: ['電流を大きく', '電流の向きを逆に', '温度を上げる', 'コイルを増やす'],
-          correctIndex: 1,
+          options: ['電流を大きく', 'コイルを増やす', '温度を上げる', '電流の向きを逆に'],
+          correctIndex: 3,
           explanation:
             '電流の向きか磁界の向きを逆に。',
         difficulty: 'standard',
@@ -297,8 +297,8 @@ export const currentMagnetism: Topic = {
         {
           id: 'sci2-cm-q16',
           question: 'モーターで整流子がないと？',
-          options: ['速く回転', '連続回転せず振動', '動かない', '逆回転'],
-          correctIndex: 1,
+          options: ['速く回転', '逆回転', '動かない', '連続回転せず振動'],
+          correctIndex: 3,
           explanation:
             '半回転ごとに力が逆→振動。',
         difficulty: 'standard',
@@ -306,8 +306,8 @@ export const currentMagnetism: Topic = {
         {
           id: 'sci2-cm-q17',
           question: '電磁誘導とは？',
-          options: ['電流で磁界ができる', 'コイル中の磁界変化で電流が流れる', '磁石を帯電させる', '電流が光になる'],
-          correctIndex: 1,
+          options: ['電流で磁界ができる', '磁石を帯電させる', 'コイル中の磁界変化で電流が流れる', '電流が光になる'],
+          correctIndex: 2,
           explanation:
             'コイル中の磁界変化で電圧→電流。',
         difficulty: 'standard',
@@ -315,8 +315,8 @@ export const currentMagnetism: Topic = {
         {
           id: 'sci2-cm-q18',
           question: '誘導電流を大きくするには？',
-          options: ['ゆっくり動かす', '速く動かす', 'コイルを減らす', '弱い磁石を使う'],
-          correctIndex: 1,
+          options: ['ゆっくり動かす', '弱い磁石を使う', 'コイルを減らす', '速く動かす'],
+          correctIndex: 3,
           explanation:
             '速く動かすと誘導電流が大。',
         difficulty: 'standard',
@@ -324,8 +324,8 @@ export const currentMagnetism: Topic = {
         {
           id: 'sci2-cm-q19',
           question: 'コイル中で磁石を静止→誘導電流は？',
-          options: ['流れる', '流れない', '一定', '振動'],
-          correctIndex: 1,
+          options: ['流れる', '振動', '一定', '流れない'],
+          correctIndex: 3,
           explanation:
             '磁界変化がないと流れない。',
         difficulty: 'standard',
@@ -333,8 +333,8 @@ export const currentMagnetism: Topic = {
         {
           id: 'sci2-cm-q20',
           question: '発電機のエネルギー変換は？',
-          options: ['電気→運動', '運動→電気', '熱→電気', '化学→電気'],
-          correctIndex: 1,
+          options: ['運動→電気', '電気→運動', '熱→電気', '化学→電気'],
+          correctIndex: 0,
           explanation:
             '運動E→電気E。',
         difficulty: 'standard',
@@ -342,8 +342,8 @@ export const currentMagnetism: Topic = {
         {
           id: 'sci2-cm-q21',
           question: '直流とは？',
-          options: ['向きが変わる電流', '一定方向の電流', '交互に流れる電流', '電圧が変わる電流'],
-          correctIndex: 1,
+          options: ['向きが変わる電流', '交互に流れる電流', '一定方向の電流', '電圧が変わる電流'],
+          correctIndex: 2,
           explanation:
             '常に一定方向。乾電池。',
         difficulty: 'standard',
@@ -351,8 +351,8 @@ export const currentMagnetism: Topic = {
         {
           id: 'sci2-cm-q22',
           question: '交流とは？',
-          options: ['一定方向の電流', '向きと大きさが周期的に変化', '直線的な電流', '電圧が一定'],
-          correctIndex: 1,
+          options: ['向きと大きさが周期的に変化', '一定方向の電流', '直線的な電流', '電圧が一定'],
+          correctIndex: 0,
           explanation:
             '周期的に変化。家庭のコンセント。',
         difficulty: 'standard',

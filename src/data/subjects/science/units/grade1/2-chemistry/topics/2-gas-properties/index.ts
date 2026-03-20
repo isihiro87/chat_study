@@ -426,8 +426,13 @@ export const gasProperties: Topic = {
         {
           id: 'sci1-gp-q23',
           question: '二酸化炭素の水溶液にBTB溶液を加えると何色になるか？',
-          options: ['青色', '緑色', '黄色', '赤色'],
-          correctIndex: 2,
+          options: [
+            '黄色',
+            '緑色',
+            '青色',
+            '赤色',
+          ],
+          correctIndex: 0,
           explanation:
             '二酸化炭素の水溶液（炭酸水）は酸性なので、BTB溶液は黄色になります。',
         difficulty: 'advanced',
@@ -435,8 +440,13 @@ export const gasProperties: Topic = {
         {
           id: 'sci1-gp-q24',
           question: '窒素はほかの物質と反応しやすいか？',
-          options: ['非常に反応しやすい', '反応しにくい', '水にだけ反応する', '酸素とだけ反応する'],
-          correctIndex: 1,
+          options: [
+            '反応しにくい',
+            '非常に反応しやすい',
+            '水にだけ反応する',
+            '酸素とだけ反応する',
+          ],
+          correctIndex: 0,
           explanation:
             '窒素はほかの物質と反応しにくく、非常に安定した気体です。空気の約78%を占めています。',
         difficulty: 'advanced',
@@ -458,8 +468,13 @@ export const gasProperties: Topic = {
         {
           id: 'sci1-gp-q26',
           question: '青色リトマス紙が赤色に変わるのは何性のときか？',
-          options: ['アルカリ性', '中性', '酸性', 'どの性質でも変わる'],
-          correctIndex: 2,
+          options: [
+            '酸性',
+            '中性',
+            'アルカリ性',
+            'どの性質でも変わる',
+          ],
+          correctIndex: 0,
           explanation:
             '青色リトマス紙が赤色に変わるのは酸性のときです。赤色リトマス紙はアルカリ性で青色に変わります。',
         difficulty: 'advanced',
@@ -477,12 +492,12 @@ export const gasProperties: Topic = {
           id: 'sci1-gp-q28',
           question: '酸素が発生したことを確認する方法はどれ？',
           options: [
-            '石灰水に通す',
             '火のついた線香を入れると激しく燃える',
+            '石灰水に通す',
             '火を近づけるとポンと音がする',
             'BTB溶液が黄色になる',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '酸素は火のついた線香を入れると激しく燃えます。これは酸素のものを燃やすはたらきを確認する方法です。',
         difficulty: 'advanced',

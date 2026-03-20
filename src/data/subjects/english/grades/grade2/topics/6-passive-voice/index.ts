@@ -444,10 +444,10 @@ export const passiveVoice: Topic = {
           options: [
             'この部屋は今使っています。',
             'この部屋は今使いません。',
-            'この部屋は今使われていません。',
             'この部屋は今使われました。',
+            'この部屋は今使われていません。',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation: '受け身の否定文だよ。is not used =「使われていない」。',
           difficulty: 'standard',
         },
@@ -507,8 +507,8 @@ export const passiveVoice: Topic = {
           id: 'eng-pass-q14',
           question:
             '「This desk is made (　　) wood.（この机は木で作られています。）」\nの (　　) に入るのは？',
-          options: ['by', 'from', 'of', 'in'],
-          correctIndex: 2,
+          options: ['by', 'from', 'in', 'of'],
+          correctIndex: 3,
           explanation:
             '材料が見てわかるときは of。木がそのまま見えるから is made of wood だよ。',
           difficulty: 'advanced',
@@ -669,8 +669,8 @@ export const passiveVoice: Topic = {
           id: 'eng-pass-q27',
           question:
             '「Mt. Fuji (　　) by people forever.（富士山は人々に永遠に楽しまれるでしょう。）」\nの (　　) に入るのは？',
-          options: ['will enjoy', 'will be enjoyed', 'is enjoyed', 'enjoys'],
-          correctIndex: 1,
+          options: ['will be enjoyed', 'will enjoy', 'is enjoyed', 'enjoys'],
+          correctIndex: 0,
           explanation:
             '「〜されるでしょう」は助動詞 + be + 過去分詞。will be enjoyed が正解だよ。',
           difficulty: 'standard',
@@ -679,8 +679,8 @@ export const passiveVoice: Topic = {
           id: 'eng-pass-q28',
           question:
             '「School rules (　　).（校則は守られなければなりません。）」\nの (　　) に入るのは？',
-          options: ['must follow', 'must be followed', 'are followed', 'must following'],
-          correctIndex: 1,
+          options: ['must be followed', 'must follow', 'are followed', 'must following'],
+          correctIndex: 0,
           explanation:
             '「守られなければならない」は must + be + 過去分詞。must be followed が正解。',
           difficulty: 'standard',
@@ -689,8 +689,8 @@ export const passiveVoice: Topic = {
           id: 'eng-pass-q29',
           question:
             '「This dish (　　) okonomiyaki.（この料理はお好み焼きと呼ばれています。）」\nの (　　) に入るのは？',
-          options: ['calls', 'is calling', 'is called', 'called'],
-          correctIndex: 2,
+          options: ['calls', 'is calling', 'called', 'is called'],
+          correctIndex: 3,
           explanation:
             '「〜と呼ばれている」は受け身の be called。is called が正解だよ。',
           difficulty: 'basic',
@@ -709,12 +709,12 @@ export const passiveVoice: Topic = {
           id: 'eng-pass-q31',
           question: '助動詞のある受け身の文の形として正しいのは？',
           options: [
-            '助動詞 + 過去分詞',
             '助動詞 + be + 過去分詞',
+            '助動詞 + 過去分詞',
             'be動詞 + 助動詞 + 過去分詞',
             '助動詞 + being + 過去分詞',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '助動詞のある受け身は「助動詞 + be + 過去分詞」の形。will be enjoyed, can be found など。',
           difficulty: 'standard',

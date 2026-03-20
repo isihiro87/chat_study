@@ -105,13 +105,9 @@ export const waterPressure: Topic = {
         {
           id: 'sci3-wp-q2',
           question: '浮力が生じる原因は？',
-          options: [
-            '物体の重さ',
-            '水の温度差',
-            '水の流れ',
-            '物体の上面と下面にはたらく水圧の差',
+          options: ['物体の重さ','水の温度差','物体の上面と下面にはたらく水圧の差','水の流れ',
           ],
-          correctIndex: 3,
+          correctIndex: 2,
           explanation:
             '浮力は、物体の下面にはたらく上向きの水圧が上面にはたらく下向きの水圧より大きいために生じます。',
         difficulty: 'basic',

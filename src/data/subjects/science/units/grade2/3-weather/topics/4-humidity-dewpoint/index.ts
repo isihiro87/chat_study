@@ -179,8 +179,8 @@ export const humidityDewpoint: Topic = {
         {
           id: 'sci2-hdew-q9',
           question: '水蒸気が水滴に変わる現象は？',
-          options: ['蒸発', '凝結', '融解', '昇華'],
-          correctIndex: 1,
+          options: ['凝結', '蒸発', '融解', '昇華'],
+          correctIndex: 0,
           explanation:
             '凝結。',
         difficulty: 'basic',
@@ -188,8 +188,8 @@ export const humidityDewpoint: Topic = {
         {
           id: 'sci2-hdew-q10',
           question: '露点とは？',
-          options: ['沸点', '水蒸気が水滴に変わり始める温度', '水が凍る温度', '空気が乾く温度'],
-          correctIndex: 1,
+          options: ['沸点', '水が凍る温度', '水蒸気が水滴に変わり始める温度', '空気が乾く温度'],
+          correctIndex: 2,
           explanation:
             '水蒸気が水滴に変わり始める温度。',
         difficulty: 'basic',
@@ -197,8 +197,8 @@ export const humidityDewpoint: Topic = {
         {
           id: 'sci2-hdew-q11',
           question: '気温上昇→水蒸気量不変→湿度は？',
-          options: ['上がる', '下がる', '変わらない', '100%'],
-          correctIndex: 1,
+          options: ['上がる', '100%', '変わらない', '下がる'],
+          correctIndex: 3,
           explanation:
             '飽和水蒸気量大→湿度下がる。',
         difficulty: 'standard',
@@ -215,8 +215,8 @@ export const humidityDewpoint: Topic = {
         {
           id: 'sci2-hdew-q13',
           question: '露点測定に金属コップを使う理由は？',
-          options: ['見た目がよい', '熱伝導がよく正確', '安い', '壊れにくい'],
-          correctIndex: 1,
+          options: ['見た目がよい', '安い', '熱伝導がよく正確', '壊れにくい'],
+          correctIndex: 2,
           explanation:
             '熱伝導がよく正確に測れる。',
         difficulty: 'standard',
@@ -224,8 +224,8 @@ export const humidityDewpoint: Topic = {
         {
           id: 'sci2-hdew-q14',
           question: '飽和水蒸気量は気温が高いと？',
-          options: ['小さくなる', '大きくなる', '変わらない', '0'],
-          correctIndex: 1,
+          options: ['大きくなる', '小さくなる', '変わらない', '0'],
+          correctIndex: 0,
           explanation:
             '高温ほど多くの水蒸気を含める。',
         difficulty: 'standard',
@@ -242,8 +242,8 @@ export const humidityDewpoint: Topic = {
         {
           id: 'sci2-hdew-q16',
           question: '晴れた日の気温と湿度の関係は？',
-          options: ['同じ変化', '反対の変化', '無関係', '一定'],
-          correctIndex: 1,
+          options: ['同じ変化', '無関係', '反対の変化', '一定'],
+          correctIndex: 2,
           explanation:
             '気温↑→湿度↓の反対関係。',
         difficulty: 'standard',
@@ -251,8 +251,8 @@ export const humidityDewpoint: Topic = {
         {
           id: 'sci2-hdew-q17',
           question: '晴れた日の気温が最高になるのは？',
-          options: ['正午', '午後2時ごろ', '午後4時ごろ', '夕方'],
-          correctIndex: 1,
+          options: ['正午', '夕方', '午後4時ごろ', '午後2時ごろ'],
+          correctIndex: 3,
           explanation:
             '午後2時（14時）ごろ。',
         difficulty: 'standard',
@@ -278,8 +278,8 @@ export const humidityDewpoint: Topic = {
         {
           id: 'sci2-hdew-q20',
           question: '湿度100%のとき空気は？',
-          options: ['乾燥', '飽和状態', '過飽和', '真空'],
-          correctIndex: 1,
+          options: ['飽和状態', '乾燥', '過飽和', '真空'],
+          correctIndex: 0,
           explanation:
             '水蒸気量＝飽和水蒸気量で飽和。',
         difficulty: 'standard',
@@ -287,8 +287,8 @@ export const humidityDewpoint: Topic = {
         {
           id: 'sci2-hdew-q21',
           question: '露点測定でかき混ぜる理由は？',
-          options: ['泡を出す', '水温を均一にする', '蒸発促進', '冷却促進'],
-          correctIndex: 1,
+          options: ['泡を出す', '冷却促進', '蒸発促進', '水温を均一にする'],
+          correctIndex: 3,
           explanation:
             '水温を均一にして正確に測る。',
         difficulty: 'standard',
@@ -296,8 +296,8 @@ export const humidityDewpoint: Topic = {
         {
           id: 'sci2-hdew-q22',
           question: '乾湿計で湿球が低い理由は？',
-          options: ['壊れている', '蒸発で熱をうばう', '日光', '外気温'],
-          correctIndex: 1,
+          options: ['蒸発で熱をうばう', '壊れている', '日光', '外気温'],
+          correctIndex: 0,
           explanation:
             '水の蒸発で熱がうばわれる。',
         difficulty: 'standard',
@@ -314,8 +314,8 @@ export const humidityDewpoint: Topic = {
         {
           id: 'sci2-hdew-q24',
           question: '乾湿計の差が小→湿度は？',
-          options: ['低い', '高い', '0%', '測定不能'],
-          correctIndex: 1,
+          options: ['低い', '測定不能', '0%', '高い'],
+          correctIndex: 3,
           explanation:
             '水蒸気多→蒸発少→差小→湿度高。',
         difficulty: 'advanced',
@@ -323,8 +323,8 @@ export const humidityDewpoint: Topic = {
         {
           id: 'sci2-hdew-q25',
           question: '雨の日の気温と湿度の変化は？',
-          options: ['大きい', '小さく湿度高い', '晴れと同じ', '反対になる'],
-          correctIndex: 1,
+          options: ['大きい', '晴れと同じ', '小さく湿度高い', '反対になる'],
+          correctIndex: 2,
           explanation:
             '変化小さく湿度は一日中高い。',
         difficulty: 'advanced',

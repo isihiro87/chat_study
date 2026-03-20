@@ -189,8 +189,8 @@ export const plantPhotosynthesis: Topic = {
         {
           id: 'sci2-pp-q1',
           question: '光合成が行われる場所はどこ？',
-          options: ['細胞壁', '葉緑体', '液胞', '核'],
-          correctIndex: 1,
+          options: [ '葉緑体','細胞壁', '液胞', '核'],
+          correctIndex: 0,
           explanation:
             '光合成は葉の細胞の中にある緑色の粒、葉緑体で行われます。光を受けてCO₂と水からデンプンと酸素をつくります。',
         difficulty: 'basic',
@@ -207,8 +207,8 @@ export const plantPhotosynthesis: Topic = {
         {
           id: 'sci2-pp-q3',
           question: '蒸散が最も盛んに行われるのはどこ？',
-          options: ['葉の表側', '茎', '葉の裏側', '根'],
-          correctIndex: 2,
+          options: ['葉の表側', '茎', '根', '葉の裏側'],
+          correctIndex: 3,
           explanation:
             '気孔は葉の裏側に多いため、蒸散は主に葉の裏側で盛んに行われます。',
         difficulty: 'basic',
@@ -230,8 +230,8 @@ export const plantPhotosynthesis: Topic = {
         {
           id: 'sci2-pp-q5',
           question: 'BTB溶液が黄色から青色に変化したとき、何が起きたと考えられる？',
-          options: ['CO₂が増えた', 'CO₂が減った', 'O₂が増えた', 'O₂が減った'],
-          correctIndex: 1,
+          options: [ 'CO₂が減った','CO₂が増えた', 'O₂が増えた', 'O₂が減った'],
+          correctIndex: 0,
           explanation:
             'BTB溶液は酸性で黄色、アルカリ性で青色。黄→青は溶液中のCO₂が減少したことを示し、光合成でCO₂が吸収されたためです。',
         difficulty: 'basic',
@@ -313,8 +313,8 @@ export const plantPhotosynthesis: Topic = {
         {
           id: 'sci2-pp-q12',
           question: '湯せんの理由は？',
-          options: ['温度正確', 'エタノール引火性', '葉保護', '均一脱色'],
-          correctIndex: 1,
+          options: [ 'エタノール引火性','温度正確', '葉保護', '均一脱色'],
+          correctIndex: 0,
           explanation:
             'エタノールは引火しやすい。',
         difficulty: 'standard',
@@ -322,8 +322,8 @@ export const plantPhotosynthesis: Topic = {
         {
           id: 'sci2-pp-q13',
           question: '蒸散は表裏どちらで盛ん？',
-          options: ['表', '裏', '同じ', '先端'],
-          correctIndex: 1,
+          options: [ '裏','表', '同じ', '先端'],
+          correctIndex: 0,
           explanation:
             '裏に気孔が多い。',
         difficulty: 'standard',
@@ -331,8 +331,8 @@ export const plantPhotosynthesis: Topic = {
         {
           id: 'sci2-pp-q14',
           question: '夜間の植物は？',
-          options: ['光合成のみ', '呼吸のみ', '両方', '何もしない'],
-          correctIndex: 1,
+          options: [ '呼吸のみ','光合成のみ', '両方', '何もしない'],
+          correctIndex: 0,
           explanation:
             '光なく光合成なし。呼吸のみ。',
         difficulty: 'standard',
@@ -340,8 +340,8 @@ export const plantPhotosynthesis: Topic = {
         {
           id: 'sci2-pp-q15',
           question: '昼にO₂が多く出る理由は？',
-          options: ['昼は呼吸しない', '光合成のO₂放出>呼吸のO₂消費', '気孔が昼だけ開く', '温度が高い'],
-          correctIndex: 1,
+          options: ['昼は呼吸しない', '温度が高い', '気孔が昼だけ開く', '光合成のO₂放出>呼吸のO₂消費'],
+          correctIndex: 3,
           explanation:
             '光合成のO₂放出が呼吸消費を上回る。',
         difficulty: 'standard',
@@ -349,8 +349,8 @@ export const plantPhotosynthesis: Topic = {
         {
           id: 'sci2-pp-q16',
           question: 'ふの部分にヨウ素液→色は？',
-          options: ['青紫', '変化しない', '赤', '黄'],
-          correctIndex: 1,
+          options: ['青紫', '黄', '赤', '変化しない'],
+          correctIndex: 3,
           explanation:
             '葉緑体なくデンプンなし。',
         difficulty: 'standard',

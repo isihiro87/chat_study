@@ -457,8 +457,13 @@ export const sound: Topic = {
         {
           id: 'sci1-sound-q23',
           question: 'プールの中で音は聞こえるか？',
-          options: ['聞こえない', '聞こえる', '水面近くだけ聞こえる', '深いところだけ聞こえる'],
-          correctIndex: 1,
+          options: [
+            '聞こえる',
+            '聞こえない',
+            '水面近くだけ聞こえる',
+            '深いところだけ聞こえる',
+          ],
+          correctIndex: 0,
           explanation:
             '水も振動を伝える物質なので、プールの中でも音は聞こえます。水中の音速は約1500m/sです。',
         difficulty: 'advanced',
@@ -466,8 +471,13 @@ export const sound: Topic = {
         {
           id: 'sci1-sound-q24',
           question: '弦をゆるめると音はどう変化するか？',
-          options: ['高くなる', '大きくなる', '低くなる', '小さくなる'],
-          correctIndex: 2,
+          options: [
+            '低くなる',
+            '大きくなる',
+            '高くなる',
+            '小さくなる',
+          ],
+          correctIndex: 0,
           explanation:
             '弦をゆるめると振動数が小さくなるため、低い音が出ます。強く張ると高い音になります。',
         difficulty: 'advanced',
@@ -476,12 +486,12 @@ export const sound: Topic = {
           id: 'sci1-sound-q25',
           question: '音の速さを求める公式はどれか？',
           options: [
-            '音速＝距離×時間',
-            '音速＝時間÷距離',
             '音速＝距離÷時間',
+            '音速＝時間÷距離',
+            '音速＝距離×時間',
             '音速＝距離＋時間',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             '音速＝距離÷時間です。反射音（こだま）の場合は往復距離なので2で割って片道距離を求めます。',
         difficulty: 'advanced',
@@ -498,8 +508,13 @@ export const sound: Topic = {
         {
           id: 'sci1-sound-q27',
           question: '水中の音速は空気中の音速の約何倍か？',
-          options: ['約1.5倍', '約4.4倍', '約10倍', '約44倍'],
-          correctIndex: 1,
+          options: [
+            '約4.4倍',
+            '約1.5倍',
+            '約10倍',
+            '約44倍',
+          ],
+          correctIndex: 0,
           explanation:
             '水中の音速は約1500m/sで、空気中の約340m/sの約4.4倍です。',
         difficulty: 'advanced',
@@ -508,12 +523,12 @@ export const sound: Topic = {
           id: 'sci1-sound-q28',
           question: 'おんさとはどのような器具か？',
           options: [
-            '音を大きくする器具',
             '決まった振動数の音を出す金属製の実験器具',
+            '音を大きくする器具',
             '音を録音する器具',
             '音を消す器具',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             'おんさは決まった振動数の音を出す金属製のU字型の実験器具です。同じ振動数のおんさ同士で共鳴が起こります。',
         difficulty: 'advanced',

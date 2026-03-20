@@ -333,8 +333,8 @@ export const questionPatterns: Topic = {
         {
           id: 'eng-qp-q8',
           question: 'I play tennis ___ Saturday.（私は土曜日にテニスをします。）(　　)に入る言葉は？',
-          options: ['at', 'in', 'on', 'by'],
-          correctIndex: 2,
+          options: ['on', 'in', 'at', 'by'],
+          correctIndex: 0,
           explanation: '曜日の前には on を使うよ。on Saturday = 土曜日に',
           difficulty: 'basic',
         },
@@ -354,8 +354,8 @@ export const questionPatterns: Topic = {
         {
           id: 'eng-qp-q10',
           question: 'I study English ___ the morning.（私は午前中に英語を勉強します。）(　　)に入る言葉は？',
-          options: ['on', 'at', 'in', 'by'],
-          correctIndex: 2,
+          options: ['on', 'at', 'by', 'in'],
+          correctIndex: 3,
           explanation: '「午前中に」は in the morning だよ。時間帯（morning / afternoon / evening）には in を使うよ。',
           difficulty: 'basic',
         },
@@ -422,8 +422,8 @@ export const questionPatterns: Topic = {
         {
           id: 'eng-qp-q16',
           question: 'She is ___ school now.（彼女は今学校にいます。）(　　)に入る言葉は？',
-          options: ['in', 'on', 'at', 'under'],
-          correctIndex: 2,
+          options: ['in', 'on', 'under', 'at'],
+          correctIndex: 3,
           explanation: '「学校に」は at school だよ。at は特定の場所を表すときに使うよ。',
           difficulty: 'standard',
         },
@@ -443,8 +443,8 @@ export const questionPatterns: Topic = {
         {
           id: 'eng-qp-q18',
           question: 'The pen is ___ the box.（ペンは箱の中にあります。）(　　)に入る言葉は？',
-          options: ['on', 'at', 'in', 'near'],
-          correctIndex: 2,
+          options: ['on', 'in', 'at', 'near'],
+          correctIndex: 1,
           explanation: '「〜の中に」は in だよ。in the box = 箱の中に',
           difficulty: 'standard',
         },

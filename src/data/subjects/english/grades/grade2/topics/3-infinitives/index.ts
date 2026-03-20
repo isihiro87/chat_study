@@ -743,8 +743,8 @@ export const infinitives: Topic = {
           id: 'eng-inf-q28',
           question:
             '「I am sure (　　) he will come tomorrow.」\nの (　　) に入るのは？',
-          options: ['to', 'that', 'what', 'if'],
-          correctIndex: 1,
+          options: ['that', 'to', 'what', 'if'],
+          correctIndex: 0,
           explanation:
             'I am sure that 〜 =「〜だと確信している」。that のあとに文が続くよ。',
           difficulty: 'standard',
@@ -755,11 +755,11 @@ export const infinitives: Topic = {
             '「I\'m glad that you passed the test.」の意味として正しいのは？',
           options: [
             'あなたがテストに落ちて残念です。',
-            'あなたがテストに受かってうれしいです。',
-            'あなたがテストを受けたと確信しています。',
             'あなたにテストを受けてほしいです。',
+            'あなたがテストを受けたと確信しています。',
+            'あなたがテストに受かってうれしいです。',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             'I\'m glad that 〜 =「〜でうれしい」。passed the test =「テストに受かった」だよ。',
           difficulty: 'standard',
@@ -768,8 +768,8 @@ export const infinitives: Topic = {
           id: 'eng-inf-q30',
           question:
             '「I\'m sorry (　　) I was late.」\nの (　　) に入るのは？',
-          options: ['to', 'that', 'for', 'because'],
-          correctIndex: 1,
+          options: ['to', 'because', 'for', 'that'],
+          correctIndex: 3,
           explanation:
             'I\'m sorry that 〜 =「〜してごめんなさい」。that のあとに文が続くよ。',
           difficulty: 'standard',

@@ -422,8 +422,8 @@ export const generalVerbs: Topic = {
         {
           id: 'eng-gv-q13',
           question: '「I (　　) tea every day.（私は毎日お茶を飲みます。）」\nの (　　) に入るのは？',
-          options: ['drinks', 'am drink', 'drink', 'drinking'],
-          correctIndex: 2,
+          options: ['drinks', 'am drink', 'drinking', 'drink'],
+          correctIndex: 3,
           explanation: 'I のときは動詞はそのままの形。drink がそのまま入るよ。',
           difficulty: 'standard',
         },
@@ -438,8 +438,8 @@ export const generalVerbs: Topic = {
         {
           id: 'eng-gv-q15',
           question: '「He (　　) the baseball team.（彼は野球チームに参加します。）」\nの (　　) に入るのは？',
-          options: ['join', 'joining', 'joins', 'is join'],
-          correctIndex: 2,
+          options: ['joins', 'join', 'joining', 'is join'],
+          correctIndex: 0,
           explanation: 'He は1人だから、動詞のおしりに s をつけるよ。join → joins',
           difficulty: 'standard',
         },
@@ -454,8 +454,8 @@ export const generalVerbs: Topic = {
         {
           id: 'eng-gv-q17',
           question: '「She (　　) watch TV.（彼女はテレビを見ません。）」\nの (　　) に入るのは？',
-          options: ["don't", "isn't", "doesn't", 'not'],
-          correctIndex: 2,
+          options: ["don't", "isn't", 'not', "doesn't"],
+          correctIndex: 3,
           explanation: "She は1人だから doesn't を使うよ。watch はもとの形のままだよ。",
           difficulty: 'standard',
         },
@@ -491,8 +491,8 @@ export const generalVerbs: Topic = {
         {
           id: 'eng-gv-q21',
           question: '「She (　　) read kanji.（彼女は漢字が読めません。）」\nの (　　) に入るのは？',
-          options: ["doesn't", "don't", "can't", "isn't"],
-          correctIndex: 2,
+          options: ["can't", "doesn't", "don't", "isn't"],
+          correctIndex: 0,
           explanation: "「〜できない」は can't（cannot）だよ。doesn't は「〜しない」で意味がちがうよ。",
           difficulty: 'standard',
         },

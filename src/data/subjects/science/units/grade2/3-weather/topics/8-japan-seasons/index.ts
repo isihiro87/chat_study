@@ -186,8 +186,8 @@ export const japanSeasons: Topic = {
         {
           id: 'sci2-jsea-q8',
           question: '冬の典型的な気圧配置は？',
-          options: ['南高北低', '西高東低', '東高西低', '北高南低'],
-          correctIndex: 1,
+          options: ['西高東低', '南高北低', '東高西低', '北高南低'],
+          correctIndex: 0,
           explanation:
             '西高東低。',
         difficulty: 'basic',
@@ -195,8 +195,8 @@ export const japanSeasons: Topic = {
         {
           id: 'sci2-jsea-q9',
           question: '冬の日本海側の天気は？',
-          options: ['乾燥した晴天', '雪や雨が多い', '台風', '快晴'],
-          correctIndex: 1,
+          options: ['乾燥した晴天', '快晴', '台風', '雪や雨が多い'],
+          correctIndex: 3,
           explanation:
             '雪や雨が多い。',
         difficulty: 'basic',
@@ -204,8 +204,8 @@ export const japanSeasons: Topic = {
         {
           id: 'sci2-jsea-q10',
           question: '冬の太平洋側の天気は？',
-          options: ['大雪', '乾燥した晴天', '長雨', '台風'],
-          correctIndex: 1,
+          options: ['乾燥した晴天', '大雪', '長雨', '台風'],
+          correctIndex: 0,
           explanation:
             '乾燥した晴天。',
         difficulty: 'basic',
@@ -213,8 +213,8 @@ export const japanSeasons: Topic = {
         {
           id: 'sci2-jsea-q11',
           question: '夏に日本を覆う高気圧は？',
-          options: ['シベリア高気圧', '太平洋高気圧', '移動性高気圧', 'オホーツク海高気圧'],
-          correctIndex: 1,
+          options: ['シベリア高気圧', 'オホーツク海高気圧', '移動性高気圧', '太平洋高気圧'],
+          correctIndex: 3,
           explanation:
             '太平洋高気圧（小笠原高気圧）。',
         difficulty: 'standard',
@@ -222,8 +222,8 @@ export const japanSeasons: Topic = {
         {
           id: 'sci2-jsea-q12',
           question: '春秋の天気が周期的に変わる理由は？',
-          options: ['台風通過', '偏西風で高低気圧が交互に通過', '梅雨前線', '季節風'],
-          correctIndex: 1,
+          options: ['台風通過', '梅雨前線', '偏西風で高低気圧が交互に通過', '季節風'],
+          correctIndex: 2,
           explanation:
             '偏西風に乗って交互に通過。',
         difficulty: 'standard',
@@ -231,8 +231,8 @@ export const japanSeasons: Topic = {
         {
           id: 'sci2-jsea-q13',
           question: '梅雨前線の原因の2つの気団は？',
-          options: ['シベリアと小笠原', '小笠原とオホーツク海', 'シベリアとオホーツク海', '揚子江と小笠原'],
-          correctIndex: 1,
+          options: ['小笠原とオホーツク海', 'シベリアと小笠原', 'シベリアとオホーツク海', '揚子江と小笠原'],
+          correctIndex: 0,
           explanation:
             '小笠原気団とオホーツク海気団。',
         difficulty: 'standard',
@@ -240,8 +240,8 @@ export const japanSeasons: Topic = {
         {
           id: 'sci2-jsea-q14',
           question: '台風の定義は？',
-          options: ['温帯低気圧', '熱帯低気圧が発達し最大風速17m/s以上', '前線を伴う低気圧', '大雨を伴う低気圧'],
-          correctIndex: 1,
+          options: ['温帯低気圧', '前線を伴う低気圧', '熱帯低気圧が発達し最大風速17m/s以上', '大雨を伴う低気圧'],
+          correctIndex: 2,
           explanation:
             '熱帯低気圧で最大風速17m/s以上。',
         difficulty: 'standard',
@@ -249,8 +249,8 @@ export const japanSeasons: Topic = {
         {
           id: 'sci2-jsea-q15',
           question: '台風のエネルギー源は？',
-          options: ['偏西風', '暖かい海の水蒸気', '地熱', '太陽光'],
-          correctIndex: 1,
+          options: ['偏西風', '太陽光', '地熱', '暖かい海の水蒸気'],
+          correctIndex: 3,
           explanation:
             '暖かい海の水蒸気。',
         difficulty: 'standard',
@@ -258,8 +258,8 @@ export const japanSeasons: Topic = {
         {
           id: 'sci2-jsea-q16',
           question: '台風が日本付近で東に向きを変えるのは？',
-          options: ['季節風', '偏西風', '海流', '地球の自転'],
-          correctIndex: 1,
+          options: ['季節風', '地球の自転', '海流', '偏西風'],
+          correctIndex: 3,
           explanation:
             '偏西風の影響。',
         difficulty: 'standard',
@@ -267,8 +267,8 @@ export const japanSeasons: Topic = {
         {
           id: 'sci2-jsea-q17',
           question: '数値予報とは？',
-          options: ['人の経験で予報', 'コンピュータで大気を計算して予報', '衛星写真で予報', '動物の行動で予報'],
-          correctIndex: 1,
+          options: ['コンピュータで大気を計算して予報', '人の経験で予報', '衛星写真で予報', '動物の行動で予報'],
+          correctIndex: 0,
           explanation:
             'コンピュータで計算。',
         difficulty: 'standard',
@@ -276,8 +276,8 @@ export const japanSeasons: Topic = {
         {
           id: 'sci2-jsea-q18',
           question: 'ハザードマップとは？',
-          options: ['天気図', '災害危険地域を示した地図', '観光地図', '地質図'],
-          correctIndex: 1,
+          options: ['災害危険地域を示した地図', '天気図', '観光地図', '地質図'],
+          correctIndex: 0,
           explanation:
             '災害危険地域の地図。',
         difficulty: 'standard',
@@ -285,8 +285,8 @@ export const japanSeasons: Topic = {
         {
           id: 'sci2-jsea-q19',
           question: '冬に日本海側に大雪が降るしくみは？',
-          options: ['太平洋からの風', '北西季節風が日本海で水蒸気→山脈で上昇→雪', '台風', '前線の停滞'],
-          correctIndex: 1,
+          options: ['太平洋からの風', '前線の停滞', '台風', '北西季節風が日本海で水蒸気→山脈で上昇→雪'],
+          correctIndex: 3,
           explanation:
             '北西季節風→日本海→山脈→雪雲→大雪。',
         difficulty: 'standard',
@@ -294,8 +294,8 @@ export const japanSeasons: Topic = {
         {
           id: 'sci2-jsea-q20',
           question: '秋雨前線ができるしくみは梅雨前線と？',
-          options: ['異なる', '同じ', '逆', '無関係'],
-          correctIndex: 1,
+          options: ['異なる', '逆', '同じ', '無関係'],
+          correctIndex: 2,
           explanation:
             '同じしくみ（停滞前線）。',
         difficulty: 'standard',
@@ -312,8 +312,8 @@ export const japanSeasons: Topic = {
         {
           id: 'sci2-jsea-q22',
           question: '夏に南東の季節風が湿っている理由は？',
-          options: ['大陸を通る', '太平洋で水蒸気吸収', '山を越える', '冷たい海流'],
-          correctIndex: 1,
+          options: ['大陸を通る', '冷たい海流', '山を越える', '太平洋で水蒸気吸収'],
+          correctIndex: 3,
           explanation:
             '太平洋上で水蒸気を吸収。',
         difficulty: 'standard',

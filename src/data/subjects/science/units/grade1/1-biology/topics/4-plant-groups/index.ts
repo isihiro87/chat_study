@@ -387,8 +387,13 @@ export const plantGroups: Topic = {
         {
           id: 'q16',
           question: '次のうち、コケ植物に分類されるのはどれか？',
-          options: ['イヌワラビ', 'ゼンマイ', 'コスギゴケ', 'スギナ'],
-          correctIndex: 2,
+          options: [
+            'イヌワラビ',
+            'ゼンマイ',
+            'スギナ',
+            'コスギゴケ',
+          ],
+          correctIndex: 3,
           explanation:
             'コスギゴケはコケ植物です。イヌワラビ・ゼンマイ・スギナはすべてシダ植物です。',
         difficulty: 'standard',
@@ -427,10 +432,10 @@ export const plantGroups: Topic = {
           options: [
             '花の色',
             '花弁の数',
-            '子葉の枚数',
             '根の深さ',
+            '子葉の枚数',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '被子植物は子葉の枚数で双子葉類（2枚）と単子葉類（1枚）に分けられます。',
         difficulty: 'standard',
@@ -448,12 +453,12 @@ export const plantGroups: Topic = {
           id: 'q21',
           question: 'コケ植物に維管束がないことからわかる特徴はどれか？',
           options: [
-            '水を根から吸収できる',
-            '大きく成長できる',
             '体の表面で水を吸収し、大きくなれない',
+            '大きく成長できる',
+            '水を根から吸収できる',
             '種子をつくれる',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             '維管束がないため水や養分を効率よく運べず、大きく成長することができません。体の表面全体で水を吸収します。',
         difficulty: 'standard',
@@ -461,8 +466,13 @@ export const plantGroups: Topic = {
         {
           id: 'q22',
           question: 'ゼンマイは何植物に分類されるか？',
-          options: ['コケ植物', '種子植物', 'シダ植物', '裸子植物'],
-          correctIndex: 2,
+          options: [
+            'シダ植物',
+            '種子植物',
+            'コケ植物',
+            '裸子植物',
+          ],
+          correctIndex: 0,
           explanation:
             'ゼンマイはシダ植物です。根・茎・葉の区別があり、維管束をもち、胞子でふえます。',
         difficulty: 'standard',
@@ -471,12 +481,12 @@ export const plantGroups: Topic = {
           id: 'q23',
           question: '次のうち、植物の分類フローとして正しいものはどれか？',
           options: [
-            '維管束の有無→種子の有無→子房の有無',
             '種子の有無→子房の有無→子葉の枚数',
+            '維管束の有無→種子の有無→子房の有無',
             '子葉の枚数→子房の有無→種子の有無',
             '花の有無→維管束の有無→種子の有無',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '植物の分類フロー：種子をつくるか→胚珠が子房に包まれるか→子葉の枚数の順に分類します。',
         difficulty: 'advanced',
@@ -484,8 +494,13 @@ export const plantGroups: Topic = {
         {
           id: 'q24',
           question: '胞子のうがあるのはシダ植物のどの部分か？',
-          options: ['根', '茎', '葉の裏', '地下茎'],
-          correctIndex: 2,
+          options: [
+            '葉の裏',
+            '茎',
+            '根',
+            '地下茎',
+          ],
+          correctIndex: 0,
           explanation:
             'シダ植物の葉の裏に胞子のう（胞子が入った袋）がたくさんついています。',
         difficulty: 'advanced',
@@ -508,12 +523,12 @@ export const plantGroups: Topic = {
           id: 'q26',
           question: 'コケ植物とシダ植物を合わせたグループの共通点は何か？',
           options: [
-            '維管束がある',
             '種子をつくらない',
+            '維管束がある',
             '根・茎・葉の区別がある',
             '仮根で固定する',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             'コケ植物とシダ植物はどちらも種子をつくらず、胞子でふえる植物です。',
         difficulty: 'advanced',
@@ -521,8 +536,13 @@ export const plantGroups: Topic = {
         {
           id: 'q27',
           question: '次の植物のうち、コケ植物はどれか？',
-          options: ['スギナ', 'イヌワラビ', 'ゼニゴケ', 'ゼンマイ'],
-          correctIndex: 2,
+          options: [
+            'ゼニゴケ',
+            'イヌワラビ',
+            'スギナ',
+            'ゼンマイ',
+          ],
+          correctIndex: 0,
           explanation:
             'ゼニゴケはコケ植物です。スギナ・イヌワラビ・ゼンマイはシダ植物です。',
         difficulty: 'advanced',
@@ -530,8 +550,13 @@ export const plantGroups: Topic = {
         {
           id: 'q28',
           question: 'ツクシは何というシダ植物の一部か？',
-          options: ['イヌワラビ', 'ゼンマイ', 'スギナ', 'ゼニゴケ'],
-          correctIndex: 2,
+          options: [
+            'スギナ',
+            'ゼンマイ',
+            'イヌワラビ',
+            'ゼニゴケ',
+          ],
+          correctIndex: 0,
           explanation:
             'ツクシはスギナの胞子茎（胞子をつくる部分）です。スギナはシダ植物に分類されます。',
         difficulty: 'advanced',

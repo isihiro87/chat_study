@@ -186,8 +186,8 @@ export const isobarsWind: Topic = {
         {
           id: 'sci2-isow-q6',
           question: '等圧線の間隔せまい→風は？',
-          options: ['弱い', '強い', '変わらない', '無風'],
-          correctIndex: 1,
+          options: ['強い', '弱い', '変わらない', '無風'],
+          correctIndex: 0,
           explanation:
             '短距離で気圧差大→風強い。',
         difficulty: 'basic',
@@ -195,8 +195,8 @@ export const isobarsWind: Topic = {
         {
           id: 'sci2-isow-q7',
           question: '高気圧の中心の気流は？',
-          options: ['上昇', '下降', '水平', '回転'],
-          correctIndex: 1,
+          options: ['上昇', '回転', '水平', '下降'],
+          correctIndex: 3,
           explanation:
             '下降気流。',
         difficulty: 'basic',
@@ -204,8 +204,8 @@ export const isobarsWind: Topic = {
         {
           id: 'sci2-isow-q8',
           question: '低気圧が近づくと天気は？',
-          options: ['晴れ', 'くもりや雨', '快晴', '変化なし'],
-          correctIndex: 1,
+          options: ['くもりや雨', '晴れ', '快晴', '変化なし'],
+          correctIndex: 0,
           explanation:
             '上昇気流で雲ができる。',
         difficulty: 'basic',
@@ -213,8 +213,8 @@ export const isobarsWind: Topic = {
         {
           id: 'sci2-isow-q9',
           question: '等圧線は何hPaごと？',
-          options: ['2hPa', '4hPa', '5hPa', '10hPa'],
-          correctIndex: 1,
+          options: ['2hPa', '10hPa', '5hPa', '4hPa'],
+          correctIndex: 3,
           explanation:
             '4hPaごと。',
         difficulty: 'basic',
@@ -249,8 +249,8 @@ export const isobarsWind: Topic = {
         {
           id: 'sci2-isow-q13',
           question: '低気圧で雲ができやすい理由は？',
-          options: ['気温が高い', '上昇気流で冷却→凝結', '風が強い', '湿度が低い'],
-          correctIndex: 1,
+          options: ['気温が高い', '湿度が低い', '風が強い', '上昇気流で冷却→凝結'],
+          correctIndex: 3,
           explanation:
             '上昇気流で冷却→水蒸気凝結。',
         difficulty: 'standard',
@@ -285,8 +285,8 @@ export const isobarsWind: Topic = {
         {
           id: 'sci2-isow-q17',
           question: '天気図で風力はどこで表す？',
-          options: ['丸の大きさ', '矢羽根の数', '色', '文字'],
-          correctIndex: 1,
+          options: ['矢羽根の数', '丸の大きさ', '色', '文字'],
+          correctIndex: 0,
           explanation:
             '矢羽根の本数。',
         difficulty: 'standard',
@@ -294,8 +294,8 @@ export const isobarsWind: Topic = {
         {
           id: 'sci2-isow-q18',
           question: '風はどの方向に吹く？',
-          options: ['低→高', '高→低', '東→西', '南→北'],
-          correctIndex: 1,
+          options: ['低→高', '南→北', '東→西', '高→低'],
+          correctIndex: 3,
           explanation:
             '気圧の高い方から低い方へ。',
         difficulty: 'standard',
@@ -303,8 +303,8 @@ export const isobarsWind: Topic = {
         {
           id: 'sci2-isow-q19',
           question: '等圧線の広い→風は？',
-          options: ['強い', '弱い', '変化なし', '台風'],
-          correctIndex: 1,
+          options: ['強い', '台風', '変化なし', '弱い'],
+          correctIndex: 3,
           explanation:
             '気圧変化ゆるやかで弱い。',
         difficulty: 'standard',
@@ -330,8 +330,8 @@ export const isobarsWind: Topic = {
         {
           id: 'sci2-isow-q22',
           question: '風向とは？',
-          options: ['風が行く方向', '風が吹いてくる方向', '風の強さ', '風の高さ'],
-          correctIndex: 1,
+          options: ['風が吹いてくる方向', '風が行く方向', '風の強さ', '風の高さ'],
+          correctIndex: 0,
           explanation:
             '風が吹いてくる方向。',
         difficulty: 'standard',
@@ -375,8 +375,8 @@ export const isobarsWind: Topic = {
         {
           id: 'sci2-isow-q27',
           question: '低気圧の天気は一般にどうなる？',
-          options: ['晴れ', 'くもりや雨', '快晴', '乾燥'],
-          correctIndex: 1,
+          options: ['くもりや雨', '晴れ', '快晴', '乾燥'],
+          correctIndex: 0,
           explanation:
             '上昇気流で雲ができやすい。',
         difficulty: 'advanced',
@@ -384,8 +384,8 @@ export const isobarsWind: Topic = {
         {
           id: 'sci2-isow-q28',
           question: '高気圧で雲ができにくい理由は？',
-          options: ['湿度が低い', '下降気流で雲が消える', '風が弱い', '気温が低い'],
-          correctIndex: 1,
+          options: ['湿度が低い', '気温が低い', '風が弱い', '下降気流で雲が消える'],
+          correctIndex: 3,
           explanation:
             '下降気流で雲ができにくい。',
         difficulty: 'advanced',

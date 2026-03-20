@@ -435,8 +435,8 @@ export const electrolyteElectrolysis: Topic = {
         {
           id: 'sci3-ee-q7',
           question: '次のうち、非電解質はどれ？',
-          options: ['塩化水素', '水酸化ナトリウム', 'エタノール', '硫酸'],
-          correctIndex: 2,
+          options: ['塩化水素','水酸化ナトリウム','硫酸','エタノール'],
+          correctIndex: 3,
           explanation:
             'エタノールは水に溶けてもイオンに分かれない非電解質です。塩化水素・水酸化ナトリウム・硫酸はいずれも電解質です。',
         difficulty: 'basic',
@@ -525,13 +525,9 @@ export const electrolyteElectrolysis: Topic = {
         {
           id: 'sci3-ee-q14',
           question: '塩化銅水溶液が青色をしている理由は？',
-          options: [
-            '塩化物イオン（Cl⁻）が青色だから',
-            '銅イオン（Cu²⁺）が青色だから',
-            '水分子が青色に変化するから',
-            '電極が溶けて青色になるから',
+          options: ['銅イオン（Cu²⁺）が青色だから','塩化物イオン（Cl⁻）が青色だから','水分子が青色に変化するから','電極が溶けて青色になるから',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '塩化銅水溶液の青色はCu²⁺（銅イオン）の色です。電気分解でCu²⁺が減ると青色がうすくなります。',
         difficulty: 'standard',
@@ -539,13 +535,9 @@ export const electrolyteElectrolysis: Topic = {
         {
           id: 'sci3-ee-q15',
           question: '塩酸の電気分解で使用するH字管の役割は？',
-          options: [
-            '電圧を上げるため',
-            '温度を一定に保つため',
-            '陰極と陽極で発生する気体を別々に集めるため',
-            '電流の向きを変えるため',
+          options: ['電圧を上げるため','温度を一定に保つため','電流の向きを変えるため','陰極と陽極で発生する気体を別々に集めるため',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             'H字管はH字の形をしたガラス管で、陰極側と陽極側で発生する気体を別々に集めることができます。',
         difficulty: 'standard',
@@ -571,13 +563,9 @@ export const electrolyteElectrolysis: Topic = {
         {
           id: 'sci3-ee-q18',
           question: '次のうち、電気分解の説明として正しいものは？',
-          options: [
-            '電解質を加熱して分解すること',
-            '電解質の水溶液に電流を流して物質を分解すること',
-            '非電解質の水溶液に電流を流すこと',
-            '金属を水に溶かすこと',
+          options: ['電解質の水溶液に電流を流して物質を分解すること','電解質を加熱して分解すること','非電解質の水溶液に電流を流すこと','金属を水に溶かすこと',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '電気分解とは、電解質の水溶液に電流を流して化学変化を起こし、物質を分解することです。',
         difficulty: 'standard',
@@ -613,8 +601,8 @@ export const electrolyteElectrolysis: Topic = {
         {
           id: 'sci3-ee-q21',
           question: '塩化銅の電気分解で陽極に引きつけられるイオンは？',
-          options: ['Cu²⁺', 'Na⁺', 'Cl⁻', 'H⁺'],
-          correctIndex: 2,
+          options: ['Cu²⁺','Na⁺','H⁺','Cl⁻'],
+          correctIndex: 3,
           explanation:
             '陽極（＋極）には陰イオンであるCl⁻（塩化物イオン）が引きつけられます。Cu²⁺は陰極に引きつけられます。',
         difficulty: 'standard',
@@ -636,8 +624,8 @@ export const electrolyteElectrolysis: Topic = {
         {
           id: 'sci3-ee-q23',
           question: '塩化銅水溶液の電気分解で、陰極に引きつけられるイオンは？',
-          options: ['Cl⁻', 'OH⁻', 'Cu²⁺', 'SO₄²⁻'],
-          correctIndex: 2,
+          options: ['Cu²⁺','OH⁻','Cl⁻','SO₄²⁻'],
+          correctIndex: 0,
           explanation:
             '陰極（−極）には陽イオンであるCu²⁺（銅イオン）が引きつけられ、電子を受け取って銅になります。',
         difficulty: 'advanced',
@@ -645,13 +633,9 @@ export const electrolyteElectrolysis: Topic = {
         {
           id: 'sci3-ee-q24',
           question: '次のうち、塩酸の電気分解で陽極から発生する塩素の性質として正しいものは？',
-          options: [
-            '無色無臭の気体',
-            '水に溶けにくい気体',
-            '刺激臭があり漂白作用をもつ気体',
-            '火を近づけると燃える気体',
+          options: ['刺激臭があり漂白作用をもつ気体','水に溶けにくい気体','無色無臭の気体','火を近づけると燃える気体',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             '塩素は刺激臭があり、漂白作用（色素を分解する）をもつ気体です。水に溶けやすい性質もあります。',
         difficulty: 'advanced',
@@ -682,13 +666,9 @@ export const electrolyteElectrolysis: Topic = {
         {
           id: 'sci3-ee-q27',
           question: '電気分解の実験で電極に炭素棒（黒鉛）を使う理由は？',
-          options: [
-            '安価だから',
-            '電流を通しやすく、化学反応に関与しにくいから',
-            '水に溶けやすいから',
-            '色がついているから',
+          options: ['電流を通しやすく、化学反応に関与しにくいから','安価だから','水に溶けやすいから','色がついているから',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '炭素棒は電気をよく通し、電気分解の反応で自身が溶けたり反応したりしにくいため電極に適しています。',
         difficulty: 'advanced',

@@ -454,8 +454,13 @@ export const flowerSeed: Topic = {
         {
           id: 'q21',
           question: 'サクラは双子葉類と単子葉類のどちらか？',
-          options: ['単子葉類', '双子葉類', 'どちらでもない', '裸子植物'],
-          correctIndex: 1,
+          options: [
+            '単子葉類',
+            '裸子植物',
+            'どちらでもない',
+            '双子葉類',
+          ],
+          correctIndex: 3,
           explanation:
             'サクラは双子葉類です。子葉が2枚で、葉脈は網状脈、根は主根と側根からなります。',
         difficulty: 'standard',
@@ -463,8 +468,13 @@ export const flowerSeed: Topic = {
         {
           id: 'q22',
           question: 'イネは双子葉類と単子葉類のどちらか？',
-          options: ['双子葉類', '単子葉類', '裸子植物', 'コケ植物'],
-          correctIndex: 1,
+          options: [
+            '単子葉類',
+            '双子葉類',
+            '裸子植物',
+            'コケ植物',
+          ],
+          correctIndex: 0,
           explanation:
             'イネは単子葉類です。子葉が1枚で、葉脈は平行脈、根はひげ根です。',
         difficulty: 'standard',
@@ -490,8 +500,13 @@ export const flowerSeed: Topic = {
         {
           id: 'q25',
           question: 'スギは被子植物と裸子植物のどちらか？',
-          options: ['被子植物', '裸子植物', 'シダ植物', 'コケ植物'],
-          correctIndex: 1,
+          options: [
+            '裸子植物',
+            '被子植物',
+            'シダ植物',
+            'コケ植物',
+          ],
+          correctIndex: 0,
           explanation:
             'スギは裸子植物です。胚珠がむき出しで子房がなく、果実をつくりません。マツ・イチョウ・ソテツも裸子植物です。',
         difficulty: 'advanced',
@@ -499,8 +514,13 @@ export const flowerSeed: Topic = {
         {
           id: 'q26',
           question: '離弁花と合弁花の分類は、被子植物と裸子植物のどちらだけに使われるか？',
-          options: ['裸子植物', '被子植物', '両方', 'シダ植物'],
-          correctIndex: 1,
+          options: [
+            '被子植物',
+            '裸子植物',
+            '両方',
+            'シダ植物',
+          ],
+          correctIndex: 0,
           explanation:
             '離弁花・合弁花の分類は被子植物だけに使われます。裸子植物には花弁がないためこの分類は適用されません。',
         difficulty: 'advanced',
@@ -509,12 +529,12 @@ export const flowerSeed: Topic = {
           id: 'q27',
           question: '胚珠が子房に包まれていない植物の特徴として正しいものはどれか？',
           options: [
-            '果実ができる',
             '果実ができない',
+            '果実ができる',
             '花弁がくっついている',
             '花弁が離れている',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '胚珠が子房に包まれていない植物は裸子植物で、子房がないため果実ができません。',
         difficulty: 'advanced',
@@ -523,12 +543,12 @@ export const flowerSeed: Topic = {
           id: 'q28',
           question: '単子葉類の根のつくりとして正しいものはどれか？',
           options: [
-            '主根と側根',
             'ひげ根',
+            '主根と側根',
             '仮根',
             '地下茎',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '単子葉類の根はひげ根です。双子葉類は主根と側根からなります。',
         difficulty: 'advanced',

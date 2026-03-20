@@ -212,12 +212,12 @@ export const earthShape: Topic = {
           id: 'geo1-es-q2',
           question: '六つの大陸のうち、最も面積が大きいのはどれ？',
           options: [
-            'アフリカ大陸',
             'ユーラシア大陸',
+            'アフリカ大陸',
             '北アメリカ大陸',
             '南極大陸',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             'ユーラシア大陸は世界で最も大きい大陸で、世界の陸地面積の約3分の1を占めています。アジアとヨーロッパにまたがります。',
         difficulty: 'basic',
@@ -236,11 +236,11 @@ export const earthShape: Topic = {
           question: '日本が属している州はどれ？',
           options: [
             'ヨーロッパ州',
-            'オセアニア州',
             'アジア州',
+            'オセアニア州',
             '北アメリカ州',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation:
             '日本はアジア州に属しています。アジア州は六つの州の中で最も面積が広く、人口も最も多い州です。',
         difficulty: 'basic',
@@ -250,11 +250,11 @@ export const earthShape: Topic = {
           question: 'ユーラシア大陸が含まれる州の組み合わせとして正しいものはどれ？',
           options: [
             'アジア州とアフリカ州',
-            'アジア州とヨーロッパ州',
             'ヨーロッパ州とオセアニア州',
             'アジア州と北アメリカ州',
+            'アジア州とヨーロッパ州',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             'ユーラシア大陸は大陸としては一つですが、アジア州とヨーロッパ州の二つの州に区分されています。文化や歴史的なまとまりによる区分です。',
         difficulty: 'basic',
@@ -264,11 +264,11 @@ export const earthShape: Topic = {
           question: 'オセアニア州に含まれるのはどれ？',
           options: [
             '南極大陸と太平洋の島々',
-            'アフリカ大陸とインド洋の島々',
             'オーストラリア大陸と太平洋の島々',
+            'アフリカ大陸とインド洋の島々',
             '南アメリカ大陸と大西洋の島々',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation:
             'オセアニア州はオーストラリア大陸と太平洋の島々（ニュージーランドなど）で構成されています。',
         difficulty: 'basic',
@@ -306,11 +306,11 @@ export const earthShape: Topic = {
           question: '1年じゅう氷におおわれている大陸はどれ？',
           options: [
             'オーストラリア大陸',
-            '南極大陸',
             'アフリカ大陸',
             'ユーラシア大陸',
+            '南極大陸',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '南極大陸は南極点を含み、1年じゅう氷におおわれた大陸です。',
         difficulty: 'basic',
@@ -348,11 +348,11 @@ export const earthShape: Topic = {
           question: '赤道が通る大陸として正しい組み合わせはどれ？',
           options: [
             'ユーラシア大陸と南極大陸',
-            'アフリカ大陸と南アメリカ大陸',
             '北アメリカ大陸とオーストラリア大陸',
             '南極大陸とアフリカ大陸',
+            'アフリカ大陸と南アメリカ大陸',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '赤道はアフリカ大陸と南アメリカ大陸を通っています。赤道は緯度0度の線です。',
         difficulty: 'standard',
@@ -361,12 +361,12 @@ export const earthShape: Topic = {
           id: 'geo1-es-q13',
           question: '太平洋の位置として正しいものはどれ？',
           options: [
-            'ヨーロッパとアフリカの間',
             'アジアとアメリカ大陸の間',
+            'ヨーロッパとアフリカの間',
             'アフリカと南アメリカの間',
             'インドの南側',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '太平洋はユーラシア大陸・オーストラリア大陸の東側と、北アメリカ・南アメリカ大陸の西側の間に広がっています。',
         difficulty: 'standard',
@@ -376,11 +376,11 @@ export const earthShape: Topic = {
           question: '大西洋はどの大陸の間に広がっているか？',
           options: [
             'アジアとオーストラリアの間',
-            'ヨーロッパ・アフリカとアメリカ大陸の間',
             'アフリカとオーストラリアの間',
             '南極と南アメリカの間',
+            'ヨーロッパ・アフリカとアメリカ大陸の間',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '大西洋はヨーロッパ・アフリカ大陸とアメリカ大陸の間に広がっています。',
         difficulty: 'standard',
@@ -390,11 +390,11 @@ export const earthShape: Topic = {
           question: 'インドの南側に広がる大洋はどれ？',
           options: [
             '太平洋',
-            '北極海',
-            '大西洋',
             'インド洋',
+            '大西洋',
+            '北極海',
           ],
-          correctIndex: 3,
+          correctIndex: 1,
           explanation:
             'インド洋はインドの南側に広がる大洋です。三大洋の中では最も面積が小さいです。',
         difficulty: 'standard',
@@ -418,11 +418,11 @@ export const earthShape: Topic = {
           question: 'インドやバングラデシュが含まれるアジアの地域区分はどれ？',
           options: [
             '東アジア',
-            '南アジア',
             '中央アジア',
+            '南アジア',
             '西アジア',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             'インドやバングラデシュは南アジアに含まれます。',
         difficulty: 'standard',
@@ -431,12 +431,12 @@ export const earthShape: Topic = {
           id: 'geo1-es-q18',
           question: 'ユーラシア大陸とアフリカ大陸を結ぶ地域はどこか？',
           options: [
-            'パナマ地峡',
             'スエズ地峡付近',
+            'パナマ地峡',
             'ジブラルタル海峡',
             'マラッカ海峡',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             'スエズ地峡付近（エジプト周辺）でユーラシア大陸とアフリカ大陸がつながっています。',
         difficulty: 'standard',
@@ -446,11 +446,11 @@ export const earthShape: Topic = {
           question: '北アメリカ大陸と南アメリカ大陸を結ぶ細い陸地は何か？',
           options: [
             'スエズ地峡',
-            'マラッカ海峡',
             'パナマ地峡',
+            'マラッカ海峡',
             'ドーバー海峡',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation:
             'パナマ地峡は北アメリカ大陸と南アメリカ大陸を結ぶ細い陸地です。',
         difficulty: 'standard',
@@ -460,11 +460,11 @@ export const earthShape: Topic = {
           question: '北アメリカ大陸にある2つの大きな国はどれ？',
           options: [
             'ブラジルとアルゼンチン',
-            'アメリカ合衆国とカナダ',
             'メキシコとキューバ',
             'イギリスとフランス',
+            'アメリカ合衆国とカナダ',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '北アメリカ大陸にはアメリカ合衆国とカナダという2つの大きな国があります。',
         difficulty: 'standard',
@@ -474,11 +474,11 @@ export const earthShape: Topic = {
           question: 'アフリカ大陸は六大陸のうち面積が何番目に大きいか？',
           options: [
             '1番目',
-            '2番目',
             '3番目',
+            '2番目',
             '4番目',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             'アフリカ大陸は六大陸のうち、ユーラシア大陸に次いで2番目に面積が大きい大陸です。',
         difficulty: 'standard',
@@ -502,11 +502,11 @@ export const earthShape: Topic = {
           question: '太平洋に多くの島が点在する地域を含む州はどこ？',
           options: [
             'アジア州',
-            '北アメリカ州',
-            'アフリカ州',
             'オセアニア州',
+            'アフリカ州',
+            '北アメリカ州',
           ],
-          correctIndex: 3,
+          correctIndex: 1,
           explanation:
             'オセアニア州はオーストラリア大陸と太平洋の島々で構成されています。',
         difficulty: 'advanced',
@@ -529,12 +529,12 @@ export const earthShape: Topic = {
           id: 'geo1-es-q25',
           question: '六つの大陸と六つの州で内容が異なる理由として正しいものはどれ？',
           options: [
-            '大陸と州の数が違うため',
             'ユーラシア大陸が2つの州に分かれ南極大陸は州に含まれないため',
+            '大陸と州の数が違うため',
             'アフリカ大陸が2つの州に分かれるため',
             'オーストラリアが州に含まれないため',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             'ユーラシア大陸がアジア州とヨーロッパ州に分かれ、南極大陸は州に含まれず、かわりにオセアニア州があります。',
         difficulty: 'advanced',
@@ -558,11 +558,11 @@ export const earthShape: Topic = {
           question: 'カザフスタンやウズベキスタンが含まれるアジアの地域区分はどれ？',
           options: [
             '東アジア',
-            '東南アジア',
-            '西アジア',
             '中央アジア',
+            '西アジア',
+            '東南アジア',
           ],
-          correctIndex: 3,
+          correctIndex: 1,
           explanation:
             'カザフスタンやウズベキスタンは中央アジアに含まれます。',
         difficulty: 'advanced',
@@ -572,11 +572,11 @@ export const earthShape: Topic = {
           question: 'アジア州とヨーロッパ州が同じ大陸上にあるのは何大陸か？',
           options: [
             'アフリカ大陸',
-            'ユーラシア大陸',
             '北アメリカ大陸',
+            'ユーラシア大陸',
             'オーストラリア大陸',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             'ユーラシア大陸の上にアジア州とヨーロッパ州があります。',
         difficulty: 'advanced',

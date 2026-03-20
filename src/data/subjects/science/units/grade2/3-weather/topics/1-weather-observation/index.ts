@@ -183,8 +183,8 @@ export const weatherObservation: Topic = {
         {
           id: 'sci2-wobs-q7',
           question: '雲量5の天気は？',
-          options: ['快晴', '晴れ', 'くもり', '雨'],
-          correctIndex: 1,
+          options: ['晴れ', '快晴', 'くもり', '雨'],
+          correctIndex: 0,
           explanation:
             '雲量2〜8は晴れ。',
         difficulty: 'basic',
@@ -192,8 +192,8 @@ export const weatherObservation: Topic = {
         {
           id: 'sci2-wobs-q8',
           question: '乾球と湿球の差が大→湿度は？',
-          options: ['高い', '低い', '変わらない', '100%'],
-          correctIndex: 1,
+          options: ['高い', '100%', '変わらない', '低い'],
+          correctIndex: 3,
           explanation:
             '乾燥で蒸発盛ん→差大→湿度低い。',
         difficulty: 'basic',
@@ -201,8 +201,8 @@ export const weatherObservation: Topic = {
         {
           id: 'sci2-wobs-q9',
           question: '100gの重力は約何N？',
-          options: ['0.1N', '1N', '10N', '100N'],
-          correctIndex: 1,
+          options: ['0.1N', '100N', '10N', '1N'],
+          correctIndex: 3,
           explanation:
             '約1N。',
         difficulty: 'basic',
@@ -219,8 +219,8 @@ export const weatherObservation: Topic = {
         {
           id: 'sci2-wobs-q11',
           question: 'スキー板で沈みにくい理由は？',
-          options: ['軽い', '面積大で圧力小', '摩擦大', '速く滑る'],
-          correctIndex: 1,
+          options: ['面積大で圧力小', '軽い', '摩擦大', '速く滑る'],
+          correctIndex: 0,
           explanation:
             '接地面積大→圧力小。',
         difficulty: 'standard',
@@ -237,8 +237,8 @@ export const weatherObservation: Topic = {
         {
           id: 'sci2-wobs-q13',
           question: 'Paの読み方は？',
-          options: ['パーセント', 'パスカル', 'パワー', 'パレル'],
-          correctIndex: 1,
+          options: ['パスカル', 'パーセント', 'パワー', 'パレル'],
+          correctIndex: 0,
           explanation:
             'パスカル。',
         difficulty: 'standard',
@@ -246,8 +246,8 @@ export const weatherObservation: Topic = {
         {
           id: 'sci2-wobs-q14',
           question: '湿球温度計に巻かれているのは？',
-          options: ['アルミはく', '濡れたガーゼ', '紙', 'ゴム'],
-          correctIndex: 1,
+          options: ['濡れたガーゼ', 'アルミはく', '紙', 'ゴム'],
+          correctIndex: 0,
           explanation:
             '水で濡らしたガーゼ。',
         difficulty: 'standard',
@@ -300,8 +300,8 @@ export const weatherObservation: Topic = {
         {
           id: 'sci2-wobs-q20',
           question: '500gの重力は約何N？',
-          options: ['0.5N', '5N', '50N', '500N'],
-          correctIndex: 1,
+          options: ['5N', '0.5N', '50N', '500N'],
+          correctIndex: 0,
           explanation:
             '約5N。',
         difficulty: 'standard',
@@ -309,8 +309,8 @@ export const weatherObservation: Topic = {
         {
           id: 'sci2-wobs-q21',
           question: '圧力の公式は？',
-          options: ['力×面積', '面積÷力', '力÷面積', '力+面積'],
-          correctIndex: 2,
+          options: ['力×面積', '面積÷力', '力+面積', '力÷面積'],
+          correctIndex: 3,
           explanation:
             '圧力＝力÷面積。',
         difficulty: 'standard',
@@ -336,8 +336,8 @@ export const weatherObservation: Topic = {
         {
           id: 'sci2-wobs-q24',
           question: '差が小さい→湿度は？',
-          options: ['低い', '高い', '0%', '測定不能'],
-          correctIndex: 1,
+          options: ['低い', '測定不能', '0%', '高い'],
+          correctIndex: 3,
           explanation:
             '水蒸気多→蒸発少→差小→湿度高。',
         difficulty: 'advanced',

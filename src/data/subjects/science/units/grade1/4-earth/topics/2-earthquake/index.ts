@@ -388,8 +388,13 @@ export const earthquake: Topic = {
         {
           id: 'sci1-earthquake-q20',
           question: '震源から60kmの地点にP波が6秒後に届いた。P波の速さは秒速何kmか？',
-          options: ['秒速6km', '秒速10km', '秒速60km', '秒速360km'],
-          correctIndex: 1,
+          options: [
+            '秒速10km',
+            '秒速6km',
+            '秒速60km',
+            '秒速360km',
+          ],
+          correctIndex: 0,
           explanation:
             '速さ＝距離÷時間＝60km÷6秒＝秒速10kmです。',
         difficulty: 'standard',
@@ -398,12 +403,12 @@ export const earthquake: Topic = {
           id: 'sci1-earthquake-q21',
           question: '津波が発生するしくみとして正しいものはどれ？',
           options: [
-            '強い風が海水を押し上げるため',
             '海底が急に持ち上がったりしずんだりするため',
+            '強い風が海水を押し上げるため',
             '潮の満ち引きのため',
             '台風の低気圧のため',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '海底で大きな地震が起こり、海底が急に持ち上がったりしずんだりすることで海水が大きく動かされ、津波が発生します。',
         difficulty: 'standard',
@@ -430,12 +435,12 @@ export const earthquake: Topic = {
           id: 'sci1-earthquake-q24',
           question: '日本付近にある大陸プレートはどれか？',
           options: [
-            '太平洋プレート',
             'ユーラシアプレート',
+            '太平洋プレート',
             'フィリピン海プレート',
             'インドプレート',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             'ユーラシアプレートと北アメリカプレートが大陸プレートです。太平洋プレートとフィリピン海プレートは海洋プレートです。',
         difficulty: 'advanced',
@@ -446,10 +451,10 @@ export const earthquake: Topic = {
           options: [
             '距離×時間',
             '距離＋時間',
-            '距離÷時間',
             '時間÷距離',
+            '距離÷時間',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '波の速さ（km/s）＝波が伝わった距離（km）÷波が届くまでの時間（秒）で求めます。',
         difficulty: 'advanced',
@@ -457,8 +462,13 @@ export const earthquake: Topic = {
         {
           id: 'sci1-earthquake-q26',
           question: '震源に近い場所ほどゆれの大きさ（震度）はどうなるか？',
-          options: ['小さくなる', '変わらない', '大きくなる', '予測できない'],
-          correctIndex: 2,
+          options: [
+            '小さくなる',
+            '変わらない',
+            '予測できない',
+            '大きくなる',
+          ],
+          correctIndex: 3,
           explanation:
             '震源に近い場所ほど震度は大きくなります。震源から遠いほどゆれは弱くなります。',
         difficulty: 'advanced',
@@ -467,12 +477,12 @@ export const earthquake: Topic = {
           id: 'sci1-earthquake-q27',
           question: '断層とは何か？',
           options: [
-            'プレートのこと',
             '岩石の一部が破壊されてずれること',
+            'プレートのこと',
             '火山の噴火口',
             '地震の波のこと',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '断層は岩石の一部が破壊されてずれることです。過去に繰り返しずれた断層で今後もずれる可能性があるものを活断層といいます。',
         difficulty: 'advanced',
@@ -483,10 +493,10 @@ export const earthquake: Topic = {
           options: [
             '地盤が液状化する災害',
             '津波による災害',
-            '山やがけが崩壊する災害',
             'プレートがずれる災害',
+            '山やがけが崩壊する災害',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '土砂くずれは地震のゆれで山やがけが崩壊する災害です。大雨のあとに地震が起こるとさらに危険性が高まります。',
         difficulty: 'advanced',

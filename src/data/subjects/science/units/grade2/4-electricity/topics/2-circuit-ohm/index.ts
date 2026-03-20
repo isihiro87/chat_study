@@ -205,8 +205,8 @@ export const circuitOhm: Topic = {
         {
           id: 'sci2-circuit-q9',
           question: '直列回路の電流の規則は？',
-          options: ['場所で異なる', 'どこでも同じ', '枝分かれの和', '電圧に等しい'],
-          correctIndex: 1,
+          options: ['どこでも同じ', '場所で異なる', '枝分かれの和', '電圧に等しい'],
+          correctIndex: 0,
           explanation:
             'I＝I₁＝I₂。',
         difficulty: 'basic',
@@ -214,8 +214,8 @@ export const circuitOhm: Topic = {
         {
           id: 'sci2-circuit-q10',
           question: '並列回路の電流の規則は？',
-          options: ['どこでも同じ', '枝分かれ前＝各枝の和', '各部分の和＝全体', '電圧と同じ'],
-          correctIndex: 1,
+          options: ['枝分かれ前＝各枝の和', 'どこでも同じ', '各部分の和＝全体', '電圧と同じ'],
+          correctIndex: 0,
           explanation:
             'I＝I₁+I₂。',
         difficulty: 'basic',
@@ -241,8 +241,8 @@ export const circuitOhm: Topic = {
         {
           id: 'sci2-circuit-q13',
           question: 'オームの法則は？',
-          options: ['V＝R+I', 'V＝R×I', 'V＝R÷I', 'V＝R−I'],
-          correctIndex: 1,
+          options: ['V＝R+I', 'V＝R−I', 'V＝R÷I', 'V＝R×I'],
+          correctIndex: 3,
           explanation:
             'V＝R×I（電圧＝抵抗×電流）。',
         difficulty: 'standard',
@@ -277,8 +277,8 @@ export const circuitOhm: Topic = {
         {
           id: 'sci2-circuit-q17',
           question: '電流計のつなぎ方は？',
-          options: ['並列', '直列', 'どちらでも', 'つながない'],
-          correctIndex: 1,
+          options: ['直列', '並列', 'どちらでも', 'つながない'],
+          correctIndex: 0,
           explanation:
             '直列につなぐ。',
         difficulty: 'standard',
@@ -286,8 +286,8 @@ export const circuitOhm: Topic = {
         {
           id: 'sci2-circuit-q18',
           question: '電圧計のつなぎ方は？',
-          options: ['直列', '並列', 'どちらでも', 'つながない'],
-          correctIndex: 1,
+          options: ['並列', '直列', 'どちらでも', 'つながない'],
+          correctIndex: 0,
           explanation:
             '並列につなぐ。',
         difficulty: 'standard',
@@ -313,8 +313,8 @@ export const circuitOhm: Topic = {
         {
           id: 'sci2-circuit-q21',
           question: '10Ωと20Ωの直列→合成抵抗は？',
-          options: ['10Ω', '20Ω', '30Ω', '6.7Ω'],
-          correctIndex: 2,
+          options: ['10Ω', '30Ω', '20Ω', '6.7Ω'],
+          correctIndex: 1,
           explanation:
             'R＝10+20＝30Ω。',
         difficulty: 'standard',
@@ -322,8 +322,8 @@ export const circuitOhm: Topic = {
         {
           id: 'sci2-circuit-q22',
           question: '20Ωと20Ωの並列→合成抵抗は？',
-          options: ['40Ω', '20Ω', '10Ω', '5Ω'],
-          correctIndex: 2,
+          options: ['10Ω', '20Ω', '40Ω', '5Ω'],
+          correctIndex: 0,
           explanation:
             '同じ抵抗2つの並列→半分＝10Ω。',
         difficulty: 'standard',
@@ -331,8 +331,8 @@ export const circuitOhm: Topic = {
         {
           id: 'sci2-circuit-q23',
           question: '電熱線の長さ2倍→抵抗は？',
-          options: ['半分', '変わらない', '2倍', '4倍'],
-          correctIndex: 2,
+          options: ['半分', '変わらない', '4倍', '2倍'],
+          correctIndex: 3,
           explanation:
             '抵抗は長さに比例。',
         difficulty: 'standard',
@@ -340,8 +340,8 @@ export const circuitOhm: Topic = {
         {
           id: 'sci2-circuit-q24',
           question: '電熱線の断面積2倍→抵抗は？',
-          options: ['2倍', '変わらない', '半分', '4倍'],
-          correctIndex: 2,
+          options: ['2倍', '変わらない', '4倍', '半分'],
+          correctIndex: 3,
           explanation:
             '抵抗は断面積に反比例。',
         difficulty: 'standard',

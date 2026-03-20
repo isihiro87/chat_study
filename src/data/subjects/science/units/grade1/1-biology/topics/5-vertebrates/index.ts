@@ -430,12 +430,12 @@ export const vertebrates: Topic = {
           id: 'q20',
           question: '両生類の「両生」の意味として正しいものはどれか？',
           options: [
-            '2つの目で見る',
             '水中と陸上の両方で生きる',
+            '2つの目で見る',
             '2回脱皮する',
             '2種類の食べ物を食べる',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '「両生」は水中と陸上の両方で生きるという意味です。子は水中、親は水中と陸上で生活します。',
         difficulty: 'standard',
@@ -444,12 +444,12 @@ export const vertebrates: Topic = {
           id: 'q21',
           question: 'うろこでおおわれている脊椎動物のグループの組み合わせはどれか？',
           options: [
-            '魚類と両生類',
             '魚類とハチュウ類',
+            '魚類と両生類',
             '両生類と鳥類',
             'ハチュウ類と哺乳類',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '魚類とハチュウ類がうろこでおおわれています。ただしハチュウ類にはこうらをもつものもいます。',
         difficulty: 'standard',
@@ -484,8 +484,13 @@ export const vertebrates: Topic = {
         {
           id: 'q25',
           question: '皮膚呼吸を行う脊椎動物のグループはどれか？',
-          options: ['魚類', '両生類', 'ハチュウ類', '鳥類'],
-          correctIndex: 1,
+          options: [
+            '両生類',
+            '魚類',
+            'ハチュウ類',
+            '鳥類',
+          ],
+          correctIndex: 0,
           explanation:
             '両生類は肺と皮膚で呼吸します。皮膚呼吸のために皮膚がしめっている必要があります。',
         difficulty: 'advanced',
@@ -503,12 +508,12 @@ export const vertebrates: Topic = {
           id: 'q27',
           question: 'ハチュウ類の子の生まれ方として正しいものはどれか？',
           options: [
-            '胎生',
-            '殻のない卵を水中に産む',
             '殻のある卵を陸上に産む',
+            '殻のない卵を水中に産む',
+            '胎生',
             '母乳で育てる',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             'ハチュウ類は殻のある卵を陸上に産みます。殻が乾燥から卵を守ります。',
         difficulty: 'advanced',
@@ -517,12 +522,12 @@ export const vertebrates: Topic = {
           id: 'q28',
           question: '鳥類の特徴の組み合わせとして正しいものはどれか？',
           options: [
-            '変温動物・えら呼吸・胎生',
             '恒温動物・肺呼吸・卵生',
+            '変温動物・えら呼吸・胎生',
             '変温動物・肺呼吸・卵生',
             '恒温動物・えら呼吸・胎生',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '鳥類は恒温動物で、肺で呼吸し、殻のある卵を陸上に産む卵生です。体は羽毛でおおわれています。',
         difficulty: 'advanced',

@@ -431,8 +431,13 @@ export const force: Topic = {
         {
           id: 'sci1-force-q21',
           question: '質量200gの物体にはたらく重力は約何Nか？',
-          options: ['約0.2N', '約1N', '約2N', '約20N'],
-          correctIndex: 2,
+          options: [
+            '約0.2N',
+            '約2N',
+            '約1N',
+            '約20N',
+          ],
+          correctIndex: 1,
           explanation:
             '100gの物体にはたらく重力が約1Nなので、200gでは約2Nです。',
         difficulty: 'standard',
@@ -458,8 +463,13 @@ export const force: Topic = {
         {
           id: 'sci1-force-q24',
           question: '力を矢印で表すとき、矢印の長さは何を表すか？',
-          options: ['作用点', '力の向き', '力の大きさ', '力の速さ'],
-          correctIndex: 2,
+          options: [
+            '力の大きさ',
+            '力の向き',
+            '作用点',
+            '力の速さ',
+          ],
+          correctIndex: 0,
           explanation:
             '矢印の長さは力の大きさを表します。始点は作用点、向きは力の向きを表します。',
         difficulty: 'advanced',
@@ -467,8 +477,13 @@ export const force: Topic = {
         {
           id: 'sci1-force-q25',
           question: 'バーベルを持ち上げて静止させるのは、力のどのはたらきか？',
-          options: ['物体の形を変える', '物体の運動の状態を変える', '物体を支える', '物体の温度を上げる'],
-          correctIndex: 2,
+          options: [
+            '物体を支える',
+            '物体の運動の状態を変える',
+            '物体の形を変える',
+            '物体の温度を上げる',
+          ],
+          correctIndex: 0,
           explanation:
             'バーベルを持ち上げて静止させるのは「物体を支える」はたらきです。',
         difficulty: 'advanced',
@@ -485,8 +500,13 @@ export const force: Topic = {
         {
           id: 'sci1-force-q27',
           question: 'ばねが元に戻ろうとする力は何の一種か？',
-          options: ['重力', '摩擦力', '弾性力', '垂直抗力'],
-          correctIndex: 2,
+          options: [
+            '弾性力',
+            '摩擦力',
+            '重力',
+            '垂直抗力',
+          ],
+          correctIndex: 0,
           explanation:
             'ばねが元に戻ろうとする力は弾性力の一種です。変形した物体がもとの形に戻ろうとする力です。',
         difficulty: 'advanced',

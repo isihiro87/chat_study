@@ -254,12 +254,12 @@ export const factoringFormulas: Topic = {
           id: 'math-g3-factoring-formulas-q2',
           question: '$x^2 - 16$ を因数分解すると？',
           options: [
-            '$(x+4)(x-4)$',
+            '$(x-8)(x+2)$',
             '$(x+4)^2$',
             '$(x-4)^2$',
-            '$(x-8)(x+2)$',
+            '$(x+4)(x-4)$',
           ],
-          correctIndex: 0,
+          correctIndex: 3,
           explanation:
             '$x^2-16 = x^2-4^2$ の形。$a^2-b^2=(a+b)(a-b)$ の公式で $(x+4)(x-4)$ だよ。',
           difficulty: 'basic',
@@ -311,11 +311,11 @@ export const factoringFormulas: Topic = {
           question: '$x^2 + 11x - 12$ を因数分解すると？',
           options: [
             '$(x+3)(x-4)$',
-            '$(x-1)(x+12)$',
-            '$(x+6)(x-2)$',
             '$(x+1)(x-12)$',
+            '$(x+6)(x-2)$',
+            '$(x-1)(x+12)$',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             'かけて−12、足して11 → −1と12。定数項がマイナスだから片方が＋、片方が−だよ。',
           difficulty: 'basic',
@@ -395,11 +395,11 @@ export const factoringFormulas: Topic = {
           question: '$ax - ay + bx - by$ を因数分解すると？',
           options: [
             '$(a-b)(x+y)$',
-            '$(a+b)(x-y)$',
-            '$(a+b)(x+y)$',
             '$(a-b)(x-y)$',
+            '$(a+b)(x+y)$',
+            '$(a+b)(x-y)$',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '$a(x-y)+b(x-y)$ とグループ分け。\n$(x-y)$ が共通因数で $(a+b)(x-y)$ だよ。',
           difficulty: 'standard',

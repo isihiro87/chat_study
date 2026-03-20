@@ -420,12 +420,12 @@ export const quadFormula: Topic = {
           id: 'math-g3-qf-q15',
           question: '$x^2 + 2x + 5 = 0$ の判別式の値と解の個数は？',
           options: [
-            '$-16$、解なし',
             '$24$、解2つ',
+            '$-16$、解なし',
             '$0$、重解',
             '$16$、解2つ',
           ],
-          correctIndex: 0,
+          correctIndex: 1,
           explanation:
             '$b^2-4ac = 4-20 = -16 < 0$。実数解なしだよ。',
           difficulty: 'standard',
@@ -434,12 +434,12 @@ export const quadFormula: Topic = {
           id: 'math-g3-qf-q16',
           question: '$3x^2 - 2x - 1 = 0$ を解の公式で解くと？',
           options: [
-            '$x = 1, x = -\\frac{1}{3}$',
             '$x = -1, x = \\frac{1}{3}$',
             '$x = \\frac{1}{3}, x = -1$',
             '$x = 1, x = \\frac{1}{3}$',
+            '$x = 1, x = -\\frac{1}{3}$',
           ],
-          correctIndex: 0,
+          correctIndex: 3,
           explanation:
             '$x = \\frac{2 \\pm \\sqrt{4+12}}{6} = \\frac{2 \\pm 4}{6}$。$x = 1$ または $x = -\\frac{1}{3}$。',
           difficulty: 'standard',
@@ -476,12 +476,12 @@ export const quadFormula: Topic = {
           id: 'math-g3-qf-q19',
           question: '$2x^2 - 3x - 1 = 0$ を解の公式で解くと？',
           options: [
-            '$x = \\frac{3 \\pm \\sqrt{17}}{4}$',
             '$x = \\frac{-3 \\pm \\sqrt{17}}{4}$',
+            '$x = \\frac{3 \\pm \\sqrt{17}}{4}$',
             '$x = \\frac{3 \\pm \\sqrt{7}}{4}$',
             '$x = \\frac{3 \\pm \\sqrt{17}}{2}$',
           ],
-          correctIndex: 0,
+          correctIndex: 1,
           explanation:
             '$a=2, b=-3, c=-1$。$b^2-4ac=9+8=17$、$2a=4$。$x = \\frac{3 \\pm \\sqrt{17}}{4}$。',
           difficulty: 'standard',
@@ -517,8 +517,8 @@ export const quadFormula: Topic = {
         {
           id: 'math-g3-qf-q22',
           question: '$x^2 - 8x + k = 0$ が重解をもつとき、$k$ の値は？',
-          options: ['$8$', '$64$', '$16$', '$32$'],
-          correctIndex: 2,
+          options: ['$8$', '$64$', '$32$', '$16$'],
+          correctIndex: 3,
           explanation:
             '$b^2-4ac = 64-4k = 0$ より $k = 16$ だよ。',
           difficulty: 'standard',
@@ -555,12 +555,12 @@ export const quadFormula: Topic = {
           id: 'math-g3-qf-q25',
           question: '$x = \\frac{4 \\pm \\sqrt{8}}{2}$ を簡単にすると？',
           options: [
-            '$x = 2 \\pm 2\\sqrt{2}$',
             '$x = 2 \\pm \\sqrt{2}$',
+            '$x = 2 \\pm 2\\sqrt{2}$',
             '$x = 4 \\pm \\sqrt{2}$',
             '$x = 2 \\pm \\sqrt{8}$',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '$\\sqrt{8} = 2\\sqrt{2}$ だから $x = \\frac{4 \\pm 2\\sqrt{2}}{2} = 2 \\pm \\sqrt{2}$。',
           difficulty: 'advanced',
@@ -585,10 +585,10 @@ export const quadFormula: Topic = {
           options: [
             'あきらめる',
             'グラフを描く',
-            '解の公式を使う',
             '移項する',
+            '解の公式を使う',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '因数分解できないときは解の公式を使おう。どんな二次方程式でも解ける万能公式だよ。',
           difficulty: 'advanced',
@@ -598,11 +598,11 @@ export const quadFormula: Topic = {
           question: '$x^2 + 2x - 8 = 0$ は因数分解と解の公式どちらで解くのがよい？',
           options: [
             '解の公式',
-            '因数分解',
             'どちらでもよい',
             '平方完成',
+            '因数分解',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '$(x+4)(x-2) = 0$ と因数分解できるので、因数分解の方が速いよ。',
           difficulty: 'advanced',

@@ -257,8 +257,8 @@ export const expansionBasics: Topic = {
         {
           id: 'math-g3-eb-q1',
           question: '$3(x + 4)$ を展開すると？',
-          options: ['$3x + 4$', '$x + 12$', '$3x + 12$', '$3x + 7$'],
-          correctIndex: 2,
+          options: ['$3x + 4$', '$x + 12$', '$3x + 7$', '$3x + 12$'],
+          correctIndex: 3,
           explanation:
             '$3(x + 4) = 3 \\times x + 3 \\times 4 = 3x + 12$\n分配法則で3をxにも4にもかけるよ。',
           difficulty: 'basic',
@@ -334,10 +334,10 @@ export const expansionBasics: Topic = {
           options: [
             '$2a - 4b$',
             '$-2a - 4b$',
-            '$-2a + 4b$',
             '$2a + 4b$',
+            '$-2a + 4b$',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '$6a^2b \\div (-3ab) = -2a$、$(-12ab^2) \\div (-3ab) = 4b$。答えは $-2a + 4b$。',
           difficulty: 'basic',
@@ -374,12 +374,12 @@ export const expansionBasics: Topic = {
           id: 'math-g3-eb-q10',
           question: '「同類項」とは何か。正しいものを選べ。',
           options: [
-            '係数が同じ項',
-            '次数が同じ項',
             '文字の部分がまったく同じ項',
+            '次数が同じ項',
+            '係数が同じ項',
             '符号が同じ項',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             '同類項は文字の部分がまったく同じ項のこと。\n例: $3x$ と $5x$、$2x^2$ と $-7x^2$ など。',
           difficulty: 'basic',
@@ -418,10 +418,10 @@ export const expansionBasics: Topic = {
           options: [
             '$x^2 + 2x - 15$',
             '$x^2 - 2x + 15$',
-            '$x^2 - 2x - 15$',
             '$x^2 + 8x - 15$',
+            '$x^2 - 2x - 15$',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '$x^2-5x+3x-15 = x^2-2x-15$。符号に注意だよ。',
           difficulty: 'standard',
@@ -509,12 +509,12 @@ export const expansionBasics: Topic = {
           id: 'math-g3-eb-q20',
           question: '$5(2x - 3)$ を展開すると？',
           options: [
-            '$10x - 3$',
-            '$10x + 15$',
             '$10x - 15$',
+            '$10x + 15$',
+            '$10x - 3$',
             '$7x - 15$',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             '$5 \\times 2x = 10x$、$5 \\times (-3) = -15$。答えは $10x - 15$。',
           difficulty: 'standard',
@@ -566,11 +566,11 @@ export const expansionBasics: Topic = {
           question: '$(x + 4)(x + 4)$ を展開すると？',
           options: [
             '$x^2 + 16$',
-            '$x^2 + 4x + 16$',
             '$x^2 + 8x + 16$',
+            '$x^2 + 4x + 16$',
             '$x^2 + 8x + 8$',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation:
             '$x^2+4x+4x+16 = x^2+8x+16$\n同じ式どうしの展開は $(x+4)^2$ と同じだよ。',
           difficulty: 'advanced',
@@ -621,12 +621,12 @@ export const expansionBasics: Topic = {
           id: 'math-g3-eb-q28',
           question: '$-4(x^2 - 3x + 2)$ を展開すると？',
           options: [
-            '$-4x^2 + 12x - 8$',
+            '$-4x^2 - 12x - 8$',
             '$-4x^2 - 12x + 8$',
             '$-4x^2 + 12x + 8$',
-            '$-4x^2 - 12x - 8$',
+            '$-4x^2 + 12x - 8$',
           ],
-          correctIndex: 0,
+          correctIndex: 3,
           explanation:
             '$(-4) \\times x^2 = -4x^2$、$(-4) \\times (-3x) = 12x$、$(-4) \\times 2 = -8$。',
           difficulty: 'advanced',

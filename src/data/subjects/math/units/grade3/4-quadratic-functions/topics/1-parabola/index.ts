@@ -273,8 +273,8 @@ export const quadFuncParabola: Topic = {
         {
           id: 'math-g3-qf-pb-q5',
           question: '$y = ax^2$ のグラフの対称軸はどれ？',
-          options: ['$x$ 軸', '原点', '$y$ 軸', '直線 $y = x$'],
-          correctIndex: 2,
+          options: ['$y$ 軸', '原点', '$x$ 軸', '直線 $y = x$'],
+          correctIndex: 0,
           explanation:
             '$y = ax^2$ のグラフは $y$ 軸（$x = 0$ の直線）について左右対称だよ。',
           difficulty: 'basic',
@@ -385,8 +385,8 @@ export const quadFuncParabola: Topic = {
         {
           id: 'math-g3-qf-pb-q15',
           question: '$y = ax^2$ で $x$ が4倍になると $y$ は何倍？',
-          options: ['$4$ 倍', '$8$ 倍', '$16$ 倍', '$2$ 倍'],
-          correctIndex: 2,
+          options: ['$4$ 倍', '$8$ 倍', '$2$ 倍', '$16$ 倍'],
+          correctIndex: 3,
           explanation:
             '$y = a(4x)^2 = 16ax^2$。$4^2 = 16$ 倍だよ。',
           difficulty: 'standard',
@@ -445,8 +445,8 @@ export const quadFuncParabola: Topic = {
         {
           id: 'math-g3-qf-pb-q20',
           question: '$y = 5x^2$ で $x = -2$ のとき $y$ は？',
-          options: ['$-20$', '$20$', '$-10$', '$10$'],
-          correctIndex: 1,
+          options: ['$-20$', '$-10$', '$10$', '$20$'],
+          correctIndex: 3,
           explanation:
             '$y = 5 \\times (-2)^2 = 5 \\times 4 = 20$。$(-2)^2 = 4$ は正だよ。',
           difficulty: 'standard',
@@ -505,13 +505,8 @@ export const quadFuncParabola: Topic = {
         {
           id: 'math-g3-qf-pb-q25',
           question: '$y = ax^2$ のグラフの頂点はどこ？',
-          options: [
-            '$(0, a)$',
-            '$(a, 0)$',
-            '$(0, 0)$',
-            '$(1, a)$',
-          ],
-          correctIndex: 2,
+          options: ['$(0, 0)$', '$(a, 0)$', '$(0, a)$', '$(1, a)$'],
+          correctIndex: 0,
           explanation:
             '$y = ax^2$ のグラフの頂点は常に原点 $(0, 0)$ だよ。',
           difficulty: 'advanced',

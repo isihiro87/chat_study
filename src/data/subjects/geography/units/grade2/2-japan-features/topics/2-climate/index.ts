@@ -202,8 +202,8 @@ export const climate: Topic = {
         {
           id: 'geo2-cl-q6',
           question: '日本の大部分が属する気候区はどれか？',
-          options: ['熱帯雨林気候', '温暖湿潤気候', '地中海性気候', 'ステップ気候'],
-          correctIndex: 1,
+          options: ['温暖湿潤気候', '熱帯雨林気候', '地中海性気候', 'ステップ気候'],
+          correctIndex: 0,
           explanation:
             '日本の大部分は温帯の温暖湿潤気候に属しています。四季がはっきりしているのが特徴です。',
         difficulty: 'basic',
@@ -221,12 +221,12 @@ export const climate: Topic = {
           id: 'geo2-cl-q8',
           question: '季節風が発生する原因として正しいものはどれか？',
           options: [
-            '地球の自転によるもの',
             '大陸と海洋の温度差によるもの',
+            '地球の自転によるもの',
             '台風の影響によるもの',
             '海流の変化によるもの',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '季節風は大陸と海洋の温度差によって発生します。大陸は海洋より暖まりやすく冷えやすいため、季節ごとに風の方向が変わります。',
         difficulty: 'basic',
@@ -234,8 +234,8 @@ export const climate: Topic = {
         {
           id: 'geo2-cl-q9',
           question: '梅雨の時期として正しいものはどれか？',
-          options: ['3月～4月', '6月～7月', '9月～10月', '12月～1月'],
-          correctIndex: 1,
+          options: ['6月～7月', '3月～4月', '9月～10月', '12月～1月'],
+          correctIndex: 0,
           explanation:
             '梅雨は6月から7月にかけての長雨の時期です。梅雨前線が日本付近に停滞して長期間雨が続きます。',
         difficulty: 'basic',
@@ -281,12 +281,12 @@ export const climate: Topic = {
           id: 'geo2-cl-q13',
           question: '中央高地の気候が「内陸性気候」ともよばれる理由として正しいものはどれか？',
           options: [
-            '標高が低いため',
             '海から離れていて海洋の影響を受けにくいため',
+            '標高が低いため',
             '暖流の影響が大きいため',
             '季節風が直接当たるため',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '中央高地は海から離れた内陸部に位置するため、海洋の気温緩和作用を受けにくく、気温の年較差が大きくなります。',
         difficulty: 'standard',
@@ -328,11 +328,11 @@ export const climate: Topic = {
           question: '地中海性気候の降水パターンとして正しいものはどれか？',
           options: [
             '夏に多雨・冬に少雨',
-            '夏に乾燥・冬に多雨',
-            '年中多雨',
             '年中少雨',
+            '年中多雨',
+            '夏に乾燥・冬に多雨',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '地中海性気候は夏に乾燥して降水量が少なく、冬に雨が多いのが特徴です。日本の太平洋側とは逆のパターンです。',
         difficulty: 'standard',
@@ -429,12 +429,12 @@ export const climate: Topic = {
           id: 'geo2-cl-q25',
           question: '日本の降水量は世界平均の約2倍だが、一人あたり水資源量が少ない理由として正しいものはどれか？',
           options: [
-            '森林が多くて水を吸収してしまうため',
             '河川が短く急流のため水がすぐ海に流れ、人口密度も高いため',
+            '森林が多くて水を吸収してしまうため',
             '降水量が梅雨にだけ集中するため',
             '地下水が利用できないため',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '日本は降水量が多いものの、河川が短く急流で水がすぐ海に流れ出てしまい貯水が難しいこと、また国土が狭く人口密度が高いことから、一人あたりの水資源量は世界平均を下回っています。',
         difficulty: 'advanced',
@@ -445,10 +445,10 @@ export const climate: Topic = {
           options: [
             '島国であること',
             '海流の影響',
-            '季節風と梅雨・台風などの季節的な気象現象',
             '標高の高い山が多いこと',
+            '季節風と梅雨・台風などの季節的な気象現象',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '日本の四季が明瞭なのは、季節によって風向きが変わる季節風や、梅雨・台風などの季節的な気象現象によるところが大きいです。',
         difficulty: 'standard',

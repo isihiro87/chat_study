@@ -305,12 +305,12 @@ export const factoringBasics: Topic = {
           id: 'math-g3-factoring-basics-q7',
           question: '$x^2 + 10x + 25$ を因数分解すると？',
           options: [
-            '$(x+5)^2$',
+            '$(x-5)^2$',
             '$(x+25)^2$',
             '$(x+5)(x-5)$',
-            '$(x-5)^2$',
+            '$(x+5)^2$',
           ],
-          correctIndex: 0,
+          correctIndex: 3,
           explanation:
             '$x^2+2 \\cdot x \\cdot 5+5^2$ の形。\n$a^2+2ab+b^2=(a+b)^2$ より $(x+5)^2$ だよ。',
           difficulty: 'basic',
@@ -362,11 +362,11 @@ export const factoringBasics: Topic = {
           question: '$6a^2 - 9ab$ を因数分解すると？',
           options: [
             '$3(2a^2-3ab)$',
-            '$3a(2a-3b)$',
-            '$a(6a-9b)$',
             '$3ab(2-3)$',
+            '$a(6a-9b)$',
+            '$3a(2a-3b)$',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '共通因数は $3a$。$3a$ でくくり出すと $3a(2a-3b)$ だよ。',
           difficulty: 'standard',

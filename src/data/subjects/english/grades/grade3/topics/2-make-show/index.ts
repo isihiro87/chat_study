@@ -352,8 +352,8 @@ export const makeShow: Topic = {
         {
           id: 'eng-ms-q14',
           question: '「(　　) songs make me happy.（彼女の曲は私をうれしくさせます。）」\nの (　　) に入るのは？',
-          options: ['She', 'Her', 'Hers', 'Herself'],
-          correctIndex: 1,
+          options: ['Her', 'She', 'Hers', 'Herself'],
+          correctIndex: 0,
           explanation: 'songs を修飾するには所有格の Her を使うよ。',
           difficulty: 'basic',
         },
@@ -402,8 +402,8 @@ export const makeShow: Topic = {
         {
           id: 'eng-ms-q19',
           question: '「Jogging (　　) me tired.（ジョギングは私を疲れさせます。）」\nの (　　) に入るのは？',
-          options: ['make', 'makes', 'made', 'making'],
-          correctIndex: 1,
+          options: ['make', 'made', 'making', 'makes'],
+          correctIndex: 3,
           explanation: '主語が Jogging（三人称単数扱い）で現在形だから makes だよ。',
           difficulty: 'standard',
         },

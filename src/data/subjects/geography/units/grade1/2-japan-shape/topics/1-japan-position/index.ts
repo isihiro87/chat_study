@@ -170,12 +170,12 @@ export const japanPosition: Topic = {
           id: 'geo1-jp-q2',
           question: '日本の経度の範囲としておよそ正しいものはどれ？',
           options: [
-            '西経123度〜154度',
-            '東経90度〜120度',
             '東経123度〜154度',
+            '東経90度〜120度',
+            '西経123度〜154度',
             '東経160度〜180度',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             '日本は東経約123度（与那国島付近）から約154度（南鳥島付近）の間に位置しています。',
         difficulty: 'basic',
@@ -185,11 +185,11 @@ export const japanPosition: Topic = {
           question: '日本はどの大陸のどちら側に位置しているか？',
           options: [
             'アフリカ大陸の北側',
-            'ユーラシア大陸の東側',
             '北アメリカ大陸の西側',
+            'ユーラシア大陸の東側',
             'オーストラリア大陸の南側',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             '日本はユーラシア大陸の東側に位置する島国です。大陸との間には日本海や東シナ海があります。',
         difficulty: 'basic',
@@ -240,12 +240,12 @@ export const japanPosition: Topic = {
           id: 'geo1-jp-q7',
           question: '日本列島の南北の長さとして正しいものはどれ？',
           options: [
-            '約1000km',
-            '約2000km',
             '約3000km',
+            '約2000km',
+            '約1000km',
             '約5000km',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             '日本列島は北海道から沖縄まで南北に約3000kmの長さがあります。この長さが多様な気候を生み出しています。',
         difficulty: 'basic',
@@ -255,11 +255,11 @@ export const japanPosition: Topic = {
           question: '日本列島を構成する4つの大きな島に含まれないのはどれ？',
           options: [
             '北海道',
-            '沖縄本島',
             '本州',
+            '沖縄本島',
             '九州',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             '日本列島の4つの大きな島は北海道・本州・四国・九州です。沖縄本島は離島に分類されます。',
         difficulty: 'basic',
@@ -283,11 +283,11 @@ export const japanPosition: Topic = {
           question: '日本の国土面積としておよそ正しいものはどれ？',
           options: [
             '約18万km²',
-            '約38万km²',
             '約28万km²',
+            '約38万km²',
             '約48万km²',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             '日本の国土面積は約38万km²です。約6,800の島々からなる島国で、世界では約60番目の広さです。',
         difficulty: 'basic',
@@ -324,12 +324,12 @@ export const japanPosition: Topic = {
           id: 'geo1-jp-q13',
           question: '日本の南北の緯度差はおよそ何度あるか。',
           options: [
-            '約10度',
-            '約16度',
             '約26度',
+            '約16度',
+            '約10度',
             '約36度',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             '日本は北緯約20度〜約46度で、南北の緯度差は約26度あります。',
         difficulty: 'standard',
@@ -340,10 +340,10 @@ export const japanPosition: Topic = {
           options: [
             '択捉島',
             '沖ノ鳥島',
-            '南鳥島',
             '与那国島',
+            '南鳥島',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '「み」は南鳥島で東端を表します。え＝択捉島（北）、お＝沖ノ鳥島（南）、よ＝与那国島（西）。',
         difficulty: 'standard',
@@ -367,11 +367,11 @@ export const japanPosition: Topic = {
           question: '日本はおよそ何個の島からなるか。',
           options: [
             '約1,000',
-            '約3,000',
             '約6,800',
+            '約3,000',
             '約10,000',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation:
             '日本は約6,800の島々からなります。',
         difficulty: 'standard',
@@ -381,11 +381,11 @@ export const japanPosition: Topic = {
           question: '日本の東西の経度差はおよそ何度あるか。',
           options: [
             '約12度',
-            '約22度',
             '約32度',
+            '約22度',
             '約42度',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation:
             '日本は東経約122度〜約154度で、経度差は約32度です。',
         difficulty: 'standard',

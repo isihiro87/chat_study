@@ -210,8 +210,8 @@ export const animalBody: Topic = {
         {
           id: 'sci2-animal-q1',
           question: 'だ液に含まれるアミラーゼが分解するのは何？',
-          options: ['タンパク質', 'デンプン', '脂肪', 'アミノ酸'],
-          correctIndex: 1,
+          options: [ 'デンプン','タンパク質', '脂肪', 'アミノ酸'],
+          correctIndex: 0,
           explanation:
             'アミラーゼはだ液に含まれる消化酵素で、デンプンを麦芽糖などに分解します。',
         difficulty: 'basic',
@@ -256,8 +256,8 @@ export const animalBody: Topic = {
         {
           id: 'sci2-animal-q5',
           question: '有害なアンモニアを無害な尿素に変える器官はどれ？',
-          options: ['腎臓', '肝臓', '心臓', '肺'],
-          correctIndex: 1,
+          options: [ '肝臓','腎臓', '心臓', '肺'],
+          correctIndex: 0,
           explanation:
             '肝臓は有害なアンモニアを無害な尿素に変えます。その後、腎臓で血液中から尿素などの不要物がこし出されて尿が作られます。',
         difficulty: 'basic',
@@ -274,8 +274,8 @@ export const animalBody: Topic = {
         correctIndex: 3, explanation:'横隔膜が下がると胸腔が広がり、肺がふくらんで空気が入ります。',
         difficulty: 'basic',
       },
-        {id:'sci2-animal-q9', question:'動脈血について正しいものはどれ？', options: ['二酸化炭素を多く含む', '酸素を多く含み鮮やかな赤色', '暗い赤色をしている', '静脈だけを流れる'],
-        correctIndex: 1, explanation:'動脈血は酸素を多く含み鮮やかな赤色です。肺静脈にも動脈血が流れています。',
+        {id:'sci2-animal-q9', question:'動脈血について正しいものはどれ？', options: ['酸素を多く含み鮮やかな赤色', '二酸化炭素を多く含む', '暗い赤色をしている', '静脈だけを流れる'],
+        correctIndex: 0, explanation:'動脈血は酸素を多く含み鮮やかな赤色です。肺静脈にも動脈血が流れています。',
         difficulty: 'basic',
       },
         {id:'sci2-animal-q10', question:'ベネジクト液を使ってだ液のはたらきを確認する実験で、赤褐色に変化するのはどちらの試験管？', options: ['どちらも変化しない', '水＋デンプン溶液', 'だ液＋水', 'だ液＋デンプン溶液'],
@@ -290,8 +290,8 @@ export const animalBody: Topic = {
         {
           id: 'sci2-animal-q13',
           question: '尿をつくる器官は？',
-          options: ['肝臓', '腎臓', '肺', '心臓'],
-          correctIndex: 1,
+          options: [ '腎臓','肝臓', '肺', '心臓'],
+          correctIndex: 0,
           explanation:
             '腎臓で尿をつくる。',
         difficulty: 'standard',
@@ -299,8 +299,8 @@ export const animalBody: Topic = {
         {
           id: 'sci2-animal-q14',
           question: 'ベネジクト液+加熱→糖あり→色は？',
-          options: ['青紫', '赤褐色', '黄', '緑'],
-          correctIndex: 1,
+          options: ['青紫', '緑', '黄', '赤褐色'],
+          correctIndex: 3,
           explanation:
             '赤褐色に変化。',
         difficulty: 'standard',
@@ -317,8 +317,8 @@ export const animalBody: Topic = {
         {
           id: 'sci2-animal-q16',
           question: '胆汁に消化酵素は？',
-          options: ['ある', 'ない', 'リパーゼ有', 'アミラーゼ有'],
-          correctIndex: 1,
+          options: ['ある', 'アミラーゼ有', 'リパーゼ有', 'ない'],
+          correctIndex: 3,
           explanation:
             'なし。脂肪を細かくしてリパーゼを助ける。',
         difficulty: 'standard',
@@ -326,8 +326,8 @@ export const animalBody: Topic = {
         {
           id: 'sci2-animal-q17',
           question: '吸気時の横隔膜は？',
-          options: ['上がる', '下がる', '動かない', '左右拡大'],
-          correctIndex: 1,
+          options: ['上がる', '左右拡大', '動かない', '下がる'],
+          correctIndex: 3,
           explanation:
             '下がって胸腔拡大。',
         difficulty: 'standard',
@@ -335,8 +335,8 @@ export const animalBody: Topic = {
         {
           id: 'sci2-animal-q18',
           question: '体循環の経路は？',
-          options: ['心臓→肺→心臓', '心臓→全身→心臓', '肺→全身→肺', '全身→肺→全身'],
-          correctIndex: 1,
+          options: ['心臓→肺→心臓', '全身→肺→全身', '肺→全身→肺', '心臓→全身→心臓'],
+          correctIndex: 3,
           explanation:
             '心臓→全身→心臓。',
         difficulty: 'standard',

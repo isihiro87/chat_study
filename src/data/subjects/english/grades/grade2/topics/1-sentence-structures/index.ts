@@ -350,11 +350,11 @@ export const sentenceStructures: Topic = {
             '電話が鳴っています。「私が出ましょう。」を英語で言うと？',
           options: [
             "I'm going to answer it.",
-            "I'll answer it.",
-            'I answered it.',
             'I can answer it.',
+            'I answered it.',
+            "I'll answer it.",
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             'その場で「〜しよう」と決めた意志は will を使うよ。',
           difficulty: 'standard',
@@ -463,11 +463,11 @@ export const sentenceStructures: Topic = {
             '「My mother made me a sweater.」を書きかえるとき、正しいのは？',
           options: [
             'My mother made a sweater to me.',
-            'My mother made a sweater for me.',
-            'My mother made for me a sweater.',
             'My mother made a sweater at me.',
+            'My mother made for me a sweater.',
+            'My mother made a sweater for me.',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             'make は for を使う。buy/make/cook → for だよ。',
           difficulty: 'advanced',

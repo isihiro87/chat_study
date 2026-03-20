@@ -217,8 +217,8 @@ export const climateLife: Topic = {
         {
           id: 'geo1-cl-q2',
           question: '亜寒帯のシベリアに広がる針葉樹林を何というか。',
-          options: ['サバナ', 'タイガ', 'オアシス', 'サヘル'],
-          correctIndex: 1,
+          options: ['タイガ', 'サバナ', 'オアシス', 'サヘル'],
+          correctIndex: 0,
           explanation:
             'タイガは亜寒帯（冷帯）に広がる広大な針葉樹林のことです。シベリアの地面の下には永久凍土が広がっています。',
         difficulty: 'basic',
@@ -228,11 +228,11 @@ export const climateLife: Topic = {
           question: '地中海沿岸で栽培される作物の組み合わせとして正しいものはどれか。',
           options: [
             '米と大豆',
-            'じゃがいもととうもろこし',
             'オリーブとぶどう',
+            'じゃがいもととうもろこし',
             'バナナとカカオ',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation:
             '地中海沿岸は夏に乾燥する地中海性気候で、乾燥に強いオリーブやぶどうが栽培されています。',
         difficulty: 'basic',
@@ -251,12 +251,12 @@ export const climateLife: Topic = {
           question:
             'アンデス山脈の高山地域で放牧されている動物として正しいものはどれか。',
           options: [
-            'ラクダとヒツジ',
             'リャマとアルパカ',
+            'ラクダとヒツジ',
             'トナカイとアザラシ',
             'ウシとウマ',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             'アンデス山脈ではリャマやアルパカが放牧されています。その毛で織ったポンチョを着て標高の高い寒冷な気候に対応しています。',
         difficulty: 'basic',
@@ -281,12 +281,12 @@ export const climateLife: Topic = {
           question:
             '乾燥帯で草や水を求めて移動しながら家畜を飼育する牧畜を何というか。',
           options: [
-            '焼畑農業',
-            'プランテーション',
             '遊牧',
+            'プランテーション',
+            '焼畑農業',
             '稲作',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             '遊牧は、草や水を求めて移動しながら羊やらくだなどの家畜を飼育する牧畜のことです。',
         difficulty: 'basic',
@@ -327,11 +327,11 @@ export const climateLife: Topic = {
             '地中海性気候の特徴として正しいものはどれか。',
           options: [
             '一年中雨が多い',
-            '夏に乾燥し冬に雨が多い',
             '夏に雨が多く冬に乾燥する',
             '一年中乾燥する',
+            '夏に乾燥し冬に雨が多い',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '地中海性気候は夏に乾燥して雨が少なく、冬に雨が多いのが特徴です。イタリアなど地中海沿岸で見られます。',
         difficulty: 'basic',
@@ -383,11 +383,11 @@ export const climateLife: Topic = {
           question: '亜寒帯に広がる広大な針葉樹の森林を何というか。',
           options: [
             'セルバ',
-            'タイガ',
             'サバナ',
             'ジャングル',
+            'タイガ',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             'タイガは冷帯（亜寒帯）に広がる広大な針葉樹の森林です。',
         difficulty: 'standard',
@@ -397,11 +397,11 @@ export const climateLife: Topic = {
           question: '乾燥帯で移動しながら家畜を飼育する牧畜を何というか。',
           options: [
             '放牧',
-            '酪農',
             '遊牧',
+            '酪農',
             '畜産',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation:
             '遊牧は草や水を求めて移動しながら羊・やぎ・らくだなどを飼育する牧畜です。',
         difficulty: 'standard',
@@ -410,12 +410,12 @@ export const climateLife: Topic = {
           id: 'geo1-cl-q16',
           question: '砂漠の中の自然のわき水や井戸がある場所を何というか。',
           options: [
-            'サヘル',
-            'ステップ',
             'オアシス',
+            'ステップ',
+            'サヘル',
             'サバナ',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             'オアシスは砂漠の中で水が得られる貴重な場所です。',
         difficulty: 'standard',
@@ -440,10 +440,10 @@ export const climateLife: Topic = {
           options: [
             'ぶどう',
             'オリーブ',
-            'トマト',
             'バナナ',
+            'トマト',
           ],
-          correctIndex: 3,
+          correctIndex: 2,
           explanation:
             'バナナは熱帯の果物です。地中海沿岸ではぶどう・オリーブ・トマトが栽培されています。',
         difficulty: 'standard',
@@ -467,11 +467,11 @@ export const climateLife: Topic = {
           question: 'アンデス山脈で放牧されている動物の正しい組み合わせはどれ？',
           options: [
             '牛と豚',
-            'リャマとアルパカ',
             '羊とやぎ',
             '馬とろば',
+            'リャマとアルパカ',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             'アンデス山脈ではリャマとアルパカが放牧されています。',
         difficulty: 'standard',
@@ -480,12 +480,12 @@ export const climateLife: Topic = {
           id: 'geo1-cl-q21',
           question: 'サヘル地域で砂漠化が進む主な原因はどれ？',
           options: [
-            '火山噴火',
             '人口増加にともなう過度な耕作や放牧',
+            '火山噴火',
             '地震',
             '津波',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '人口増加にともなう過度な耕作や放牧により土地がやせ、砂漠化が進んでいます。',
         difficulty: 'standard',

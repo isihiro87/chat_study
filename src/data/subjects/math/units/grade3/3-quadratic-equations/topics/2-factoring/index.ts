@@ -421,10 +421,10 @@ export const quadEqFactoring: Topic = {
           options: [
             '$x = 5$',
             '$x = -5$',
-            '$x = 0, x = -5$',
             '$x = 0, x = 5$',
+            '$x = 0, x = -5$',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '$x(x+5) = 0$。$x = 0$ または $x = -5$ だよ。',
           difficulty: 'standard',
@@ -448,11 +448,11 @@ export const quadEqFactoring: Topic = {
           question: '$x^2 + 8x + 16 = 0$ の解は？',
           options: [
             '$x = 4$（重解）',
-            '$x = -4$（重解）',
             '$x = 4, x = -4$',
             '$x = 2, x = 8$',
+            '$x = -4$（重解）',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '$(x+4)^2 = 0$ → $x = -4$（重解）。',
           difficulty: 'standard',
@@ -463,10 +463,10 @@ export const quadEqFactoring: Topic = {
           options: [
             '$x = 7$',
             '$x = -7$',
-            '$x = \\pm 7$',
             '$x = 49$',
+            '$x = \\pm 7$',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '$(x+7)(x-7) = 0$。$x = 7$ または $x = -7$。',
           difficulty: 'standard',
@@ -560,11 +560,11 @@ export const quadEqFactoring: Topic = {
           question: '$(x - 1)(x + 3) = 5$ の解は？',
           options: [
             '$x = 1, x = -3$',
-            '$x = 2, x = -4$',
             '$x = -1, x = 5$',
             '$x = 4, x = -2$',
+            '$x = 2, x = -4$',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '展開して $x^2+2x-3=5$ → $x^2+2x-8=0$ → $(x+4)(x-2)=0$。$x = 2, -4$。',
           difficulty: 'advanced',

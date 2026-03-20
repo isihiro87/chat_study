@@ -306,8 +306,8 @@ export const quadFuncRealWorld: Topic = {
         {
           id: 'math-g3-qf-rw-q11',
           question: 'ふりこの長さが $L$ cm のとき周期が $T$ 秒、長さを $\\frac{L}{4}$ にしたとき周期は？',
-          options: ['$\\frac{T}{4}$', '$\\frac{T}{2}$', '$2T$', '$4T$'],
-          correctIndex: 1,
+          options: ['$\\frac{T}{4}$', '$2T$', '$\\frac{T}{2}$', '$4T$'],
+          correctIndex: 2,
           explanation:
             '$T^2$ は $L$ に比例するから、$L$ が $\\frac{1}{4}$ 倍 → $T^2$ も $\\frac{1}{4}$ 倍 → $T$ は $\\frac{1}{2}$ 倍になるよ。',
           difficulty: 'standard',
@@ -342,8 +342,8 @@ export const quadFuncRealWorld: Topic = {
         {
           id: 'math-g3-qf-rw-q15',
           question: '$T^2 = 0.04L$ で $L = 400$ cm のとき周期 $T$ は？',
-          options: ['$2$ 秒', '$4$ 秒', '$8$ 秒', '$16$ 秒'],
-          correctIndex: 1,
+          options: ['$2$ 秒', '$8$ 秒', '$16$ 秒', '$4$ 秒'],
+          correctIndex: 3,
           explanation:
             '$T^2 = 0.04 \\times 400 = 16$ → $T = \\sqrt{16} = 4$ 秒だよ。',
           difficulty: 'standard',
@@ -360,8 +360,8 @@ export const quadFuncRealWorld: Topic = {
         {
           id: 'math-g3-qf-rw-q17',
           question: '空走距離 $0.5v$ m、制動距離 $0.01v^2$ m のとき、時速 $80$ km の停止距離は？',
-          options: ['$104$ m', '$80$ m', '$96$ m', '$120$ m'],
-          correctIndex: 0,
+          options: ['$80$ m', '$96$ m', '$120$ m', '$104$ m'],
+          correctIndex: 3,
           explanation:
             '空走 $= 0.5 \\times 80 = 40$ m、制動 $= 0.01 \\times 6400 = 64$ m。停止 $= 40 + 64 = 104$ m。',
           difficulty: 'standard',
@@ -369,8 +369,8 @@ export const quadFuncRealWorld: Topic = {
         {
           id: 'math-g3-qf-rw-q18',
           question: 'ふりこの長さを $\\frac{1}{9}$ にすると周期は何倍？',
-          options: ['$\\frac{1}{9}$', '$\\frac{1}{3}$', '$3$', '$9$'],
-          correctIndex: 1,
+          options: ['$\\frac{1}{3}$', '$\\frac{1}{9}$', '$3$', '$9$'],
+          correctIndex: 0,
           explanation:
             '$L$ が $\\frac{1}{9}$ 倍 → $T^2$ も $\\frac{1}{9}$ 倍 → $T$ は $\\sqrt{\\frac{1}{9}} = \\frac{1}{3}$ 倍。',
           difficulty: 'standard',
@@ -387,8 +387,8 @@ export const quadFuncRealWorld: Topic = {
         {
           id: 'math-g3-qf-rw-q20',
           question: '時速 $40$ km の制動距離が $8$ m のとき、時速 $80$ km の制動距離は？',
-          options: ['$16$ m', '$24$ m', '$32$ m', '$64$ m'],
-          correctIndex: 2,
+          options: ['$16$ m', '$24$ m', '$64$ m', '$32$ m'],
+          correctIndex: 3,
           explanation:
             '速度2倍で制動距離 $2^2 = 4$ 倍。$8 \\times 4 = 32$ m。',
           difficulty: 'standard',
@@ -396,8 +396,8 @@ export const quadFuncRealWorld: Topic = {
         {
           id: 'math-g3-qf-rw-q21',
           question: '$T^2 = 0.04L$ で周期 $T = 2$ 秒にするにはひもの長さは？',
-          options: ['$50$ cm', '$100$ cm', '$200$ cm', '$25$ cm'],
-          correctIndex: 1,
+          options: ['$50$ cm', '$200$ cm', '$100$ cm', '$25$ cm'],
+          correctIndex: 2,
           explanation:
             '$4 = 0.04L$ → $L = 100$ cm だよ。',
           difficulty: 'standard',

@@ -212,10 +212,10 @@ export const prefectures: Topic = {
           options: [
             '東京府と大阪府',
             '京都府と神奈川府',
-            '京都府と大阪府',
             '大阪府と兵庫府',
+            '京都府と大阪府',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '日本の2府は京都府と大阪府です。東京は「都」、北海道は「道」、残りの43が「県」で、合わせて1都1道2府43県になります。',
         difficulty: 'basic',
@@ -237,8 +237,8 @@ export const prefectures: Topic = {
         {
           id: 'geo1-pf-q4',
           question: '栃木県の県庁所在地はどこ？',
-          options: ['栃木市', '宇都宮市', '小山市', '足利市'],
-          correctIndex: 1,
+          options: ['栃木市', '小山市', '宇都宮市', '足利市'],
+          correctIndex: 2,
           explanation:
             '栃木県の県庁所在地は宇都宮市です。県名と県庁所在地名が異なる代表的な例の一つです。',
         difficulty: 'basic',
@@ -248,11 +248,11 @@ export const prefectures: Topic = {
           question: '県境の決め方として正しいものはどれ？',
           options: [
             '人口が均等になるように機械的に直線で引いた',
-            '山脈や河川などの自然地形や旧藩の領域がもとになった',
             '明治政府が全国を均等な面積に分割した',
+            '山脈や河川などの自然地形や旧藩の領域がもとになった',
             '江戸時代の五街道をもとに区切った',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             '県境は山脈や河川などの自然地形や、江戸時代の旧藩の領域をもとに決められたものが多くあります。',
         difficulty: 'basic',
@@ -277,10 +277,10 @@ export const prefectures: Topic = {
           options: [
             '4県',
             '5県',
-            '6県',
             '7県',
+            '6県',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '東北地方には青森県・岩手県・宮城県・秋田県・山形県・福島県の6県が含まれます。',
         difficulty: 'basic',
@@ -333,10 +333,10 @@ export const prefectures: Topic = {
           options: [
             '広島県',
             '高知県',
-            '沖縄県',
             '山口県',
+            '沖縄県',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             '沖縄県は九州地方に含まれます。広島県は中国地方、高知県は四国地方、山口県は中国地方に属します。',
         difficulty: 'standard',
@@ -415,12 +415,12 @@ export const prefectures: Topic = {
           id: 'geo1-pf-q17',
           question: '愛知県の県庁所在地はどこか。',
           options: [
-            '豊田市',
-            '岡崎市',
             '名古屋市',
+            '岡崎市',
+            '豊田市',
             '愛知市',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             '愛知県の県庁所在地は名古屋市です。',
         difficulty: 'standard',
@@ -430,11 +430,11 @@ export const prefectures: Topic = {
           question: '兵庫県の県庁所在地はどこか。',
           options: [
             '姫路市',
-            '兵庫市',
             '神戸市',
+            '兵庫市',
             '明石市',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation:
             '兵庫県の県庁所在地は神戸市です。',
         difficulty: 'standard',
@@ -444,11 +444,11 @@ export const prefectures: Topic = {
           question: '香川県の県庁所在地はどこか。',
           options: [
             '丸亀市',
-            '高松市',
             '香川市',
             '坂出市',
+            '高松市',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '香川県の県庁所在地は高松市です。',
         difficulty: 'standard',
@@ -459,10 +459,10 @@ export const prefectures: Topic = {
           options: [
             'カタカナで書く',
             '漢字の「埼玉」で書く',
-            'ひらがなの「さいたま」で書く',
             '英語で書く',
+            'ひらがなの「さいたま」で書く',
           ],
-          correctIndex: 2,
+          correctIndex: 3,
           explanation:
             'さいたま市は漢字ではなくひらがなの「さいたま」と表記します。',
         difficulty: 'standard',
@@ -471,12 +471,12 @@ export const prefectures: Topic = {
           id: 'geo1-pf-q21',
           question: '7地方区分で含まれる県の数が最も多いのはどこ？',
           options: [
-            '東北地方',
-            '関東地方',
             '中部地方',
+            '関東地方',
+            '東北地方',
             '九州地方',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             '中部地方は9県で最も多いです。',
         difficulty: 'standard',

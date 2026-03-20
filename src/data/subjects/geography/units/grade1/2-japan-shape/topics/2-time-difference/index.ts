@@ -204,8 +204,8 @@ export const timeDifference: Topic = {
         {
           id: 'geo1-td-q2',
           question: '日本の標準時子午線は東経何度か？',
-          options: ['東経120度', '東経130度', '東経135度', '東経140度'],
-          correctIndex: 2,
+          options: ['東経120度', '東経135度', '東経130度', '東経140度'],
+          correctIndex: 1,
           explanation:
             '日本の標準時子午線は東経135度で、兵庫県明石市などを通っています。',
         difficulty: 'basic',
@@ -222,8 +222,8 @@ export const timeDifference: Topic = {
         {
           id: 'geo1-td-q4',
           question: '日本とイギリスの時差は何時間か？',
-          options: ['6時間', '9時間', '8時間', '7時間'],
-          correctIndex: 1,
+          options: ['6時間', '8時間', '7時間', '9時間'],
+          correctIndex: 3,
           explanation:
             '日本の標準時子午線は東経135度なので、135° ÷ 15° = 9時間の時差があります。日本の方がイギリスより9時間進んでいます。',
         difficulty: 'basic',
@@ -233,11 +233,11 @@ export const timeDifference: Topic = {
           question: '日付変更線を西から東に越えるとき、日付はどうなるか？',
           options: [
             '日付を1日進める',
-            '日付を1日戻す',
             '日付は変わらない',
             '日付を2日進める',
+            '日付を1日戻す',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '日付変更線を西から東へ越えると日付を1日戻します。逆に東から西へ越えると日付を1日進めます。',
         difficulty: 'basic',
@@ -247,11 +247,11 @@ export const timeDifference: Topic = {
           question: 'ロンドンが正午12時のとき、日本の時刻はどれか？',
           options: [
             '午前3時',
-            '午後3時',
             '午後9時',
+            '午後3時',
             '午前9時',
           ],
-          correctIndex: 2,
+          correctIndex: 1,
           explanation:
             '日本はロンドンより9時間進んでいます。正午12時＋9時間＝午後9時（21時）です。',
         difficulty: 'basic',
@@ -316,12 +316,12 @@ export const timeDifference: Topic = {
           id: 'geo1-td-q11',
           question: '経度30度離れた2地点の時差は何時間か。',
           options: [
-            '1時間',
             '2時間',
+            '1時間',
             '3時間',
             '4時間',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '30度÷15度＝2時間です。',
         difficulty: 'standard',
@@ -345,11 +345,11 @@ export const timeDifference: Topic = {
           question: '日付変更線を西から東に越えると日付はどうなるか。',
           options: [
             '1日進める',
-            '1日戻す',
             '変わらない',
+            '1日戻す',
             '2日進める',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             '日付変更線を西から東に越えると1日戻します。',
         difficulty: 'standard',
@@ -372,12 +372,12 @@ export const timeDifference: Topic = {
           id: 'geo1-td-q15',
           question: 'サマータイムとは何か。',
           options: [
-            '冬に時計を1時間進める制度',
             '夏に時計を1時間進める制度',
+            '冬に時計を1時間進める制度',
             '夏に時計を1時間遅らせる制度',
             '毎月時計を調整する制度',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '夏の間、時計を1時間進めて日照時間を有効に活用する制度です。',
         difficulty: 'standard',
@@ -414,12 +414,12 @@ export const timeDifference: Topic = {
           id: 'geo1-td-q18',
           question: 'ニューヨーク（西経75度）と日本の時差は何時間？',
           options: [
-            '10時間',
-            '12時間',
             '14時間',
+            '12時間',
+            '10時間',
             '16時間',
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           explanation:
             '(135度＋75度)÷15度＝14時間です。',
         difficulty: 'standard',
@@ -429,11 +429,11 @@ export const timeDifference: Topic = {
           question: '世界で最も早く新年を迎える地域はどこか。',
           options: [
             '日本',
-            '日付変更線のすぐ西側の島国',
             'イギリス',
+            '日付変更線のすぐ西側の島国',
             'ハワイ',
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           explanation:
             '日付変更線のすぐ西側にあるトンガ、キリバスなどが最も早く新年を迎えます。',
         difficulty: 'standard',
@@ -442,12 +442,12 @@ export const timeDifference: Topic = {
           id: 'geo1-td-q20',
           question: '東経120度の国と日本の時差は何時間か。',
           options: [
-            '30分',
             '1時間',
+            '30分',
             '2時間',
             '3時間',
           ],
-          correctIndex: 1,
+          correctIndex: 0,
           explanation:
             '(135度−120度)÷15度＝1時間。日本の方が進んでいます。',
         difficulty: 'standard',
@@ -485,11 +485,11 @@ export const timeDifference: Topic = {
           question: '時差の計算で日付が変わる場合のポイントはどれ？',
           options: [
             '常に翌日になる',
-            '足して24時を超えたら翌日、引いて0時未満なら前日',
             '日付は変わらない',
             '経度の差が90度以上なら変わる',
+            '足して24時を超えたら翌日、引いて0時未満なら前日',
           ],
-          correctIndex: 1,
+          correctIndex: 3,
           explanation:
             '足した結果が24時を超えたら翌日に、引いた結果が0時未満になったら前日になります。',
         difficulty: 'advanced',
