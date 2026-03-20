@@ -220,6 +220,18 @@ export const quadFuncParabola: Topic = {
         explanation: '$|2| > |\\frac{1}{2}|$ なので',
         difficulty: 'advanced',
       },
+      { id: 'math-g3-qf-pb-fc29', front: '$y = ax^2$', back: '$y$ が $x$ の $2$ 乗に比例する関数の式は？', explanation: '$a$ は比例定数（$a \\neq 0$）。', difficulty: 'basic' },
+      { id: 'math-g3-qf-pb-fc30', front: '放物線（パラボラ）', back: '$y = ax^2$ のグラフの形は？', explanation: '原点を頂点とする左右対称な曲線。', difficulty: 'basic' },
+      { id: 'math-g3-qf-pb-fc31', front: '原点', back: '$y = ax^2$ のグラフの頂点は？', explanation: '$(0, 0)$ が頂点。', difficulty: 'basic' },
+      { id: 'math-g3-qf-pb-fc32', front: '$y$ 軸（$x = 0$）', back: '$y = ax^2$ のグラフの対称軸は？', explanation: '左右対称。', difficulty: 'basic' },
+      { id: 'math-g3-qf-pb-fc33', front: '上に開く', back: '$a > 0$ のとき $y = ax^2$ のグラフは上に開く？下に開く？', explanation: '$a > 0$ → 下に凸（上に開く）。', difficulty: 'basic' },
+      { id: 'math-g3-qf-pb-fc34', front: '下に開く', back: '$a < 0$ のとき $y = ax^2$ のグラフは上に開く？下に開く？', explanation: '$a < 0$ → 上に凸（下に開く）。', difficulty: 'basic' },
+      { id: 'math-g3-qf-pb-fc35', front: '狭くなる（急になる）', back: '$|a|$ が大きくなるとグラフはどうなる？', explanation: '$|a|$ が大きいほどグラフは細い。', difficulty: 'standard' },
+      { id: 'math-g3-qf-pb-fc36', front: '$a = \\dfrac{y}{x^2}$', back: '$y = ax^2$ の比例定数 $a$ の求め方は？', explanation: '点 $(x, y)$ を代入して求める。', difficulty: 'basic' },
+      { id: 'math-g3-qf-pb-fc37', front: '$a = 3$', back: '$(2, 12)$ を通る $y = ax^2$ の $a$ は？', explanation: '$12 = a \\times 4$、$a = 3$。', difficulty: 'standard' },
+      { id: 'math-g3-qf-pb-fc38', front: '$y = 12$', back: '$y = 3x^2$ で $x = 2$ のとき $y$ は？', explanation: '$3 \\times 4 = 12$。', difficulty: 'basic' },
+      { id: 'math-g3-qf-pb-fc39', front: '$y = 3x^2$ の方が急', back: '$y = 3x^2$ と $y = x^2$ のグラフではどちらが急？', explanation: '$|3| > |1|$。', difficulty: 'standard' },
+      { id: 'math-g3-qf-pb-fc40', front: '$x$ が $n$ 倍になると $y$ は $n^2$ 倍', back: '$y = ax^2$ で $x$ が $2$ 倍になると $y$ は何倍？', explanation: '$a(2x)^2 = 4ax^2$ → $4$ 倍。', difficulty: 'standard' },
     ],
     quiz: {
       questions: [

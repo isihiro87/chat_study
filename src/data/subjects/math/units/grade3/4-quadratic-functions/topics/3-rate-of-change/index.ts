@@ -230,6 +230,15 @@ export const rateOfChange: Topic = {
         front: '2点の y 座標の差 ÷ x 座標の差で直接計算する方法もある', back: '変化の割合を公式なしで求める方法は？',
         difficulty: 'advanced',
       },
+      { id: 'math-g3-qf-rc-fc29', front: '$\\dfrac{y の増加量}{x の増加量}$', back: '変化の割合の公式は？', explanation: '$y = ax^2$ では区間によって変わる。', difficulty: 'basic' },
+      { id: 'math-g3-qf-rc-fc30', front: '$a(p + q)$', back: '$y = ax^2$ で $x$ が $p$ から $q$ まで変わるときの変化の割合は？', explanation: '二次関数の変化の割合の公式。', difficulty: 'basic' },
+      { id: 'math-g3-qf-rc-fc31', front: '一定ではない（区間によって変わる）', back: '$y = ax^2$ の変化の割合は一定？', explanation: '一次関数では一定。', difficulty: 'basic' },
+      { id: 'math-g3-qf-rc-fc32', front: '$3$', back: '$y = x^2$ で $x$ が $1$ から $2$ のときの変化の割合は？', explanation: '$1 \\times (1+2) = 3$。', difficulty: 'basic' },
+      { id: 'math-g3-qf-rc-fc33', front: '$5$', back: '$y = x^2$ で $x$ が $2$ から $3$ のときの変化の割合は？', explanation: '$1 \\times (2+3) = 5$。', difficulty: 'basic' },
+      { id: 'math-g3-qf-rc-fc34', front: '$6$', back: '$y = 2x^2$ で $x$ が $1$ から $2$ のときの変化の割合は？', explanation: '$2 \\times (1+2) = 6$。', difficulty: 'standard' },
+      { id: 'math-g3-qf-rc-fc35', front: '$-3$', back: '$y = -x^2$ で $x$ が $1$ から $2$ のときの変化の割合は？', explanation: '$-1 \\times (1+2) = -3$。', difficulty: 'standard' },
+      { id: 'math-g3-qf-rc-fc36', front: '$2$ 点を通る直線の傾き', back: '変化の割合はグラフ上で何を表す？', explanation: '割線の傾き。', difficulty: 'standard' },
+      { id: 'math-g3-qf-rc-fc37', front: '正しくない。区間によって変わる', back: '$y = ax^2$ の変化の割合は常に $a$ に等しい？', explanation: '一次関数のみ常に $a$。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [

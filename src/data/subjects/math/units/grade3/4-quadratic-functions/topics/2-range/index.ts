@@ -201,6 +201,16 @@ export const quadFuncRange: Topic = {
         front: '$0 \\leq y \\leq 32$。$x = 0$ を含む、$|{-4}| = |4|$ より最大値は $y = 2 \\times 16 = 32$。', back: '$y = 2x^2$ で $-4 \\leq x \\leq 4$ の変域は？',
         difficulty: 'advanced',
       },
+      { id: 'math-g3-qf-rg-fc29', front: '$x$ の変域の両端と $x = 0$ の $y$ の値を比べる', back: '$y = ax^2$ の $y$ の変域の求め方は？', explanation: '$x = 0$ を含むかどうかがポイント。', difficulty: 'basic' },
+      { id: 'math-g3-qf-rg-fc30', front: '$0 \\leq y \\leq 9$', back: '$y = x^2$ で $0 \\leq x \\leq 3$ の $y$ の変域は？', explanation: '$x = 0$ で $y = 0$、$x = 3$ で $y = 9$。', difficulty: 'basic' },
+      { id: 'math-g3-qf-rg-fc31', front: '$0 \\leq y \\leq 4$', back: '$y = x^2$ で $-2 \\leq x \\leq 1$ の $y$ の変域は？', explanation: '$x = 0$ を含むので最小値は $0$。最大値は $|-2| > |1|$ で $y = 4$。', difficulty: 'standard' },
+      { id: 'math-g3-qf-rg-fc32', front: '$1 \\leq y \\leq 9$', back: '$y = x^2$ で $1 \\leq x \\leq 3$ の $y$ の変域は？', explanation: '$x = 0$ を含まない。$x = 1$ で $y = 1$、$x = 3$ で $y = 9$。', difficulty: 'standard' },
+      { id: 'math-g3-qf-rg-fc33', front: '最小値は $0$（$x = 0$ のとき）', back: '$a > 0$ で $x$ の変域が $x = 0$ を含むとき、$y$ の最小値は？', explanation: '頂点が原点。', difficulty: 'basic' },
+      { id: 'math-g3-qf-rg-fc34', front: '絶対値が大きい方の $x$ を代入', back: '$a > 0$ で $x$ の変域が $x = 0$ を含むとき、$y$ の最大値の求め方は？', explanation: '原点から遠い方で最大。', difficulty: 'standard' },
+      { id: 'math-g3-qf-rg-fc35', front: '$a > 0$: $x = 0$ で最小、$a < 0$: $x = 0$ で最大', back: '$y = ax^2$ で $x = 0$ を含む変域のとき、$a$ の符号と最大最小の関係は？', explanation: '符号で最大最小が入れ替わる。', difficulty: 'standard' },
+      { id: 'math-g3-qf-rg-fc36', front: '$-18 \\leq y \\leq 0$', back: '$y = -2x^2$ で $0 \\leq x \\leq 3$ の $y$ の変域は？', explanation: '$a < 0$ で $x = 0$ が最大値 $0$、$x = 3$ で $-18$。', difficulty: 'standard' },
+      { id: 'math-g3-qf-rg-fc37', front: '$x = 0$ を含むかどうか', back: '$y = ax^2$ の変域問題で最初に確認することは？', explanation: '含むなら最小（$a > 0$）または最大（$a < 0$）は $0$。', difficulty: 'basic' },
+      { id: 'math-g3-qf-rg-fc38', front: '$a = 2$', back: '$y = ax^2$（$a > 0$）で $-3 \\leq x \\leq 5$、最大値 $50$。$a$ は？', explanation: '$|5| > |-3|$ → $25a = 50$ → $a = 2$。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [

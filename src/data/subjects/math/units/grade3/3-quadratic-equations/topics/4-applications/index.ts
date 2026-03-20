@@ -208,6 +208,17 @@ export const quadEqApps: Topic = {
         front: '時間なので $x > 0$ かつ辺の長さを超えないか確認', back: '動点の問題で解の吟味は何を確認する？',
         difficulty: 'advanced',
       },
+      { id: 'math-g3-qea-fc29', front: '①文字をおく → ②方程式を立てる → ③解く → ④解の吟味', back: '二次方程式の文章題の手順は？', explanation: '必ず解の吟味を行う。', difficulty: 'basic' },
+      { id: 'math-g3-qea-fc30', front: '求めた解が問題の条件に合うか確認すること', back: '解の吟味とは？', explanation: '負の値が出ても問題に合わなければ不適。', difficulty: 'basic' },
+      { id: 'math-g3-qea-fc31', front: '$7$', back: '連続する $2$ つの正の整数の積が $56$。小さい方は？', explanation: '$n(n+1) = 56$、$n^2 + n - 56 = 0$、$(n+8)(n-7) = 0$。', difficulty: 'basic' },
+      { id: 'math-g3-qea-fc32', front: '$n(n+1) = $ 積', back: '連続する $2$ つの整数の積の方程式の立て方は？', explanation: '小さい方を $n$ とおく。', difficulty: 'basic' },
+      { id: 'math-g3-qea-fc33', front: '$n(n+2) = $ 積', back: '連続する $2$ つの偶数（または奇数）の積の方程式は？', explanation: '$n$ と $n+2$ の積。', difficulty: 'standard' },
+      { id: 'math-g3-qea-fc34', front: '面積の等式から二次方程式を立てる', back: '図形の面積の問題での方程式の立て方は？', explanation: '縦 $\\times$ 横 $=$ 面積。', difficulty: 'standard' },
+      { id: 'math-g3-qea-fc35', front: '辺の長さは正の数なので $x > 0$', back: '図形の問題で解の吟味のポイントは？', explanation: '負の値は不適。', difficulty: 'standard' },
+      { id: 'math-g3-qea-fc36', front: '距離 $=$ 速さ $\\times$ 時間の関係から二次方程式を立てる', back: '速さの問題での方程式の立て方は？', explanation: '時間を文字で表すことが多い。', difficulty: 'standard' },
+      { id: 'math-g3-qea-fc37', front: '自然数かつ問題の条件を満たす値のみ', back: '整数の問題で解の吟味のポイントは？', explanation: '負の整数が出ても不適な場合がある。', difficulty: 'standard' },
+      { id: 'math-g3-qea-fc38', front: '$x(x+2) = $ 面積から方程式を立てる', back: '長方形の縦が横より $2$ cm 長いとき、面積の方程式は？', explanation: '横を $x$ とすると縦は $x + 2$。', difficulty: 'standard' },
+      { id: 'math-g3-qea-fc39', front: '$2$ つの解のうち、問題の条件に合う方を選ぶ', back: '二次方程式の文章題で解が $2$ つ出たらどうする？', explanation: '両方の値を検討する。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [

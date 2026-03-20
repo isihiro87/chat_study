@@ -210,6 +210,16 @@ export const quadFuncRealWorld: Topic = {
         front: '速度を √(y/a) で求める\n例: y = 0.01v² で y = 25 → v² = 2500 → v = 50km/h', back: '制動距離から速度を逆算する方法は？',
         difficulty: 'advanced',
       },
+      { id: 'math-g3-qf-rw-fc29', front: '$y = 5t^2$', back: '自由落下で $t$ 秒後の落下距離 $y$ m の式は？（概算）', explanation: '重力加速度 $g \\approx 10$ m/s$^2$。', difficulty: 'basic' },
+      { id: 'math-g3-qf-rw-fc30', front: '$45$ m', back: '自由落下で $3$ 秒後の落下距離は？（$y = 5t^2$）', explanation: '$5 \\times 9 = 45$。', difficulty: 'basic' },
+      { id: 'math-g3-qf-rw-fc31', front: '$y = 0.01v^2$（概算）', back: '時速 $v$ km での制動距離 $y$ m の式は？', explanation: '速度の $2$ 乗に比例。', difficulty: 'basic' },
+      { id: 'math-g3-qf-rw-fc32', front: '$9$ m', back: '時速 $30$ km での制動距離は？（$y = 0.01v^2$）', explanation: '$0.01 \\times 900 = 9$。', difficulty: 'standard' },
+      { id: 'math-g3-qf-rw-fc33', front: '$36$ m', back: '時速 $60$ km での制動距離は？（$y = 0.01v^2$）', explanation: '$0.01 \\times 3600 = 36$。', difficulty: 'standard' },
+      { id: 'math-g3-qf-rw-fc34', front: '$4$ 倍', back: '速度が $2$ 倍になると制動距離は何倍？', explanation: '$v^2$ に比例するので $2^2 = 4$ 倍。', difficulty: 'standard' },
+      { id: 'math-g3-qf-rw-fc35', front: '$T^2 = 0.04L$（概算）', back: '振り子の長さ $L$ cm と周期 $T$ 秒の関係は？', explanation: '周期の $2$ 乗が長さに比例。', difficulty: 'standard' },
+      { id: 'math-g3-qf-rw-fc36', front: '$4$ 秒', back: '振り子の長さ $400$ cm のとき周期は？（$T^2 = 0.04L$）', explanation: '$T^2 = 16$、$T = 4$。', difficulty: 'standard' },
+      { id: 'math-g3-qf-rw-fc37', front: '$50$ km/h', back: '制動距離 $25$ m のとき速度は？（$y = 0.01v^2$）', explanation: '$v^2 = 2500$、$v = 50$。', difficulty: 'advanced' },
+      { id: 'math-g3-qf-rw-fc38', front: '$y$ の値を $a$ で割って平方根をとる', back: '$y = ax^2$ から $x$ を逆算する方法は？', explanation: '$x = \\sqrt{\\dfrac{y}{a}}$（$x > 0$ のとき）。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
