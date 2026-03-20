@@ -1,11 +1,15 @@
 import type { Era, Topic } from '../../../../../types';
 import { kyushu } from './topics/1-kyushu';
-import { chugokuShikoku } from './topics/2-chugoku-shikoku';
-import { kinki } from './topics/3-kinki';
-import { chubu } from './topics/4-chubu';
-import { kanto } from './topics/5-kanto';
-import { tohoku } from './topics/6-tohoku';
-import { hokkaido } from './topics/7-hokkaido';
+import { chugokuShikokuNature } from './topics/2-chugoku-shikoku-nature';
+import { chugokuShikokuIndustry } from './topics/3-chugoku-shikoku-industry';
+import { kinkiNature } from './topics/4-kinki-nature';
+import { kinkiUrban } from './topics/5-kinki-urban';
+import { chubuTokai } from './topics/6-chubu-tokai';
+import { chubuHighland } from './topics/7-chubu-highland';
+import { kantoNature } from './topics/8-kanto-nature';
+import { kantoIndustry } from './topics/9-kanto-industry';
+import { tohoku } from './topics/10-tohoku';
+import { hokkaido } from './topics/11-hokkaido';
 
 export const japanRegionsEra: Era = {
   id: 'geo2-japan-regions',
@@ -20,10 +24,14 @@ export const japanRegionsEra: Era = {
 
 export const japanRegionsTopics: Topic[] = [
   kyushu,
-  chugokuShikoku,
-  kinki,
-  chubu,
-  kanto,
+  chugokuShikokuNature,
+  chugokuShikokuIndustry,
+  kinkiNature,
+  kinkiUrban,
+  chubuTokai,
+  chubuHighland,
+  kantoNature,
+  kantoIndustry,
   tohoku,
   hokkaido,
 ];

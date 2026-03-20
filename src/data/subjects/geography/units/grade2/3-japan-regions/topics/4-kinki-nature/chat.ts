@@ -1,0 +1,257 @@
+import type { HistoryChat } from '../../../../../../../../data/history-chat/types';
+
+export const kinkiNatureChat: HistoryChat = {
+  id: 'geo2-kn-nature',
+  icon: '⛩️',
+  title: '近畿の自然と大阪大都市圏',
+  subtitle: '〜中2地理〜 リアス海岸・琵琶湖・古都の景観保全・阪神工業地帯',
+  characters: [
+    {
+      id: 'teacher',
+      name: '地理の先生',
+      emoji: '🌍',
+      colorFrom: '#2563EB',
+      colorTo: '#60A5FA',
+      expressions: {
+        explaining: '🧑‍🏫',
+        happy: '😊',
+        excited: '🤩',
+        thinking: '🤔',
+      },
+    },
+    {
+      id: 'student',
+      name: '生徒',
+      emoji: '👦',
+      colorFrom: '#d97706',
+      colorTo: '#fbbf24',
+      expressions: {
+        curious: '🙋‍♂️',
+        surprised: '😲',
+        thinking: '🤔',
+        happy: '😄',
+      },
+    },
+  ],
+  content: [
+    {
+      type: 'date',
+      text: '近畿地方の自然環境',
+    },
+    {
+      type: 'narrator',
+      text: '<ruby>近畿<rp>(</rp><rt>きんき</rt><rp>)</rp></ruby>地方の自然環境と気候の特徴を見てみましょう。',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '近畿地方の海岸には特徴的な地形があるよ。<strong><span class="keyword"><ruby>若狭<rp>(</rp><rt>わかさ</rt><rp>)</rp></ruby>湾</span></strong>や<strong><span class="keyword"><ruby>志摩<rp>(</rp><rt>しま</rt><rp>)</rp></ruby>半島</span></strong>には<strong><span class="keyword">リアス海岸</span></strong>が見られるんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: 'リアス海岸って、海岸線がギザギザしている地形ですよね？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: 'その通り！波が<ruby>穏<rp>(</rp><rt>おだ</rt><rp>)</rp></ruby>やかな入り江が多くて、<ruby>養殖<rp>(</rp><rt>ようしょく</rt><rp>)</rp></ruby>漁業に向いているよ。そして<ruby>滋賀<rp>(</rp><rt>しが</rt><rp>)</rp></ruby>県には日本最大の湖、<strong><span class="keyword"><ruby>琵琶湖<rp>(</rp><rt>びわこ</rt><rp>)</rp></ruby></span></strong>があるんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'surprised',
+      text: '琵琶湖は日本一大きい湖なんですね！',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'excited',
+      text: '琵琶湖から流れ出す<strong><span class="keyword"><ruby>淀川<rp>(</rp><rt>よどがわ</rt><rp>)</rp></ruby></span></strong>は大阪湾にそそいでいて、近畿地方の大切な<ruby>水源<rp>(</rp><rt>すいげん</rt><rp>)</rp></ruby>なんだよ。南部には<strong><span class="keyword"><ruby>紀伊山地<rp>(</rp><rt>きいさんち</rt><rp>)</rp></ruby></span></strong>が広がり、<ruby>林業<rp>(</rp><rt>りんぎょう</rt><rp>)</rp></ruby>が盛んなんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: '近畿地方の気候は地域によって違うんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '北部は<ruby>季節風<rp>(</rp><rt>きせつふう</rt><rp>)</rp></ruby>の影響で冬に雪や雨が多い。中央部は<ruby>盆地<rp>(</rp><rt>ぼんち</rt><rp>)</rp></ruby>で<ruby>降水量<rp>(</rp><rt>こうすいりょう</rt><rp>)</rp></ruby>が少なく<ruby>寒暖差<rp>(</rp><rt>かんだんさ</rt><rp>)</rp></ruby>が大きい。南部は<strong><span class="keyword"><ruby>黒潮<rp>(</rp><rt>くろしお</rt><rp>)</rp></ruby></span></strong>の影響で温暖だよ',
+    },
+    {
+      type: 'quiz',
+      question: '日本最大の湖で、近畿地方の重要な水源となっている湖はどれか？',
+      options: [
+        { letter: 'A', text: '琵琶湖', correct: true },
+        { letter: 'B', text: '浜名湖', correct: false },
+        { letter: 'C', text: '諏訪湖', correct: false },
+        { letter: 'D', text: '霞ヶ浦', correct: false },
+      ],
+      explanation:
+        '<strong>正解はA「<ruby>琵琶湖<rp>(</rp><rt>びわこ</rt><rp>)</rp></ruby>」</strong>です。<ruby>滋賀<rp>(</rp><rt>しが</rt><rp>)</rp></ruby>県にある日本最大の湖で、<ruby>淀川<rp>(</rp><rt>よどがわ</rt><rp>)</rp></ruby>を通じて近畿地方の水源になっています。',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">リアス海岸</span>（若狭湾・志摩半島）。<span class="keyword">琵琶湖</span>→<span class="keyword">淀川</span>。<span class="keyword">紀伊山地</span>の林業。北部は多雪、南部は<span class="keyword">黒潮</span>で温暖',
+    },
+    {
+      type: 'date',
+      text: '歴史的な古都と景観保全',
+    },
+    {
+      type: 'narrator',
+      text: '近畿地方には、かつて<ruby>都<rp>(</rp><rt>みやこ</rt><rp>)</rp></ruby>が置かれた<ruby>京都<rp>(</rp><rt>きょうと</rt><rp>)</rp></ruby>や<ruby>奈良<rp>(</rp><rt>なら</rt><rp>)</rp></ruby>があります。歴史的な<ruby>景観<rp>(</rp><rt>けいかん</rt><rp>)</rp></ruby>をどう守っているか見てみましょう。',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '京都は千年以上も都が置かれた<ruby>歴史<rp>(</rp><rt>れきし</rt><rp>)</rp></ruby>ある町だよ。古い<ruby>寺社仏閣<rp>(</rp><rt>じしゃぶっかく</rt><rp>)</rp></ruby>や町並みを守るために<strong><span class="keyword"><ruby>景観条例<rp>(</rp><rt>けいかんじょうれい</rt><rp>)</rp></ruby></span></strong>を<ruby>制定<rp>(</rp><rt>せいてい</rt><rp>)</rp></ruby>しているんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '景観条例ではどんなことを決めているんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: '建物の<strong>高さ制限</strong>や<ruby>看板<rp>(</rp><rt>かんばん</rt><rp>)</rp></ruby>の色・大きさの<ruby>規制<rp>(</rp><rt>きせい</rt><rp>)</rp></ruby>をしているよ。だからコンビニの看板も京都では落ち着いた色になっていたりするんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'surprised',
+      text: 'コンビニの看板まで！でも観光客が多すぎて問題も起きているって聞きました',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'thinking',
+      text: 'そうなんだ。<strong><span class="keyword">オーバーツーリズム</span></strong>（<ruby>観光公害<rp>(</rp><rt>かんこうこうがい</rt><rp>)</rp></ruby>）といって、観光客が増えすぎて<ruby>交通渋滞<rp>(</rp><rt>こうつうじゅうたい</rt><rp>)</rp></ruby>やごみ問題、<ruby>住民<rp>(</rp><rt>じゅうみん</rt><rp>)</rp></ruby>の生活への影響が出ているんだ',
+    },
+    {
+      type: 'image',
+      src: '/images/geography/grade2/japan-regions/kinki-kyoto.png',
+      alt: '近畿地方の歴史的景観と大都市圏の図',
+      caption: '京都の景観条例と大阪の大都市圏',
+    },
+    {
+      type: 'quiz',
+      question: '観光客が増えすぎて住民生活に悪影響が出る現象を何というか？',
+      options: [
+        { letter: 'A', text: 'ドーナツ化現象', correct: false },
+        { letter: 'B', text: 'ストロー現象', correct: false },
+        { letter: 'C', text: 'オーバーツーリズム', correct: true },
+        { letter: 'D', text: 'ヒートアイランド現象', correct: false },
+      ],
+      explanation:
+        '<strong>正解はC「オーバーツーリズム」</strong>です。<ruby>観光公害<rp>(</rp><rt>かんこうこうがい</rt><rp>)</rp></ruby>ともいい、観光客の増えすぎで<ruby>交通渋滞<rp>(</rp><rt>こうつうじゅうたい</rt><rp>)</rp></ruby>やごみ問題が発生しています。',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">景観条例</span>で高さ制限・看板規制。<span class="keyword">オーバーツーリズム</span>が新たな課題',
+    },
+    {
+      type: 'date',
+      text: '大阪大都市圏と阪神工業地帯',
+    },
+    {
+      type: 'narrator',
+      text: '<ruby>大阪<rp>(</rp><rt>おおさか</rt><rp>)</rp></ruby>を中心とする<ruby>大都市圏<rp>(</rp><rt>だいとしけん</rt><rp>)</rp></ruby>と<ruby>阪神工業地帯<rp>(</rp><rt>はんしんこうぎょうちたい</rt><rp>)</rp></ruby>の特徴を見ていきましょう。',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '大阪は<ruby>西日本<rp>(</rp><rt>にしにほん</rt><rp>)</rp></ruby>最大の<ruby>経済<rp>(</rp><rt>けいざい</rt><rp>)</rp></ruby>の中心地だよ。大阪を中心に<ruby>神戸<rp>(</rp><rt>こうべ</rt><rp>)</rp></ruby>・京都・奈良の<strong><span class="keyword">大阪大都市圏</span></strong>には約<strong>880万人</strong>が住んでいるんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '阪神工業地帯はどんな特徴がありますか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'excited',
+      text: '<strong><span class="keyword"><ruby>阪神工業地帯<rp>(</rp><rt>はんしんこうぎょうちたい</rt><rp>)</rp></ruby></span></strong>は大阪から神戸にかけて広がっていて、<strong><span class="keyword"><ruby>中小企業<rp>(</rp><rt>ちゅうしょうきぎょう</rt><rp>)</rp></ruby></span></strong>が多いのが特徴だよ。<ruby>大阪湾<rp>(</rp><rt>おおさかわん</rt><rp>)</rp></ruby>の<ruby>臨海部<rp>(</rp><rt>りんかいぶ</rt><rp>)</rp></ruby>に広がっているんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: '<ruby>東大阪<rp>(</rp><rt>ひがしおおさか</rt><rp>)</rp></ruby>市が「ものづくりの町」って聞いたことがあります！',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: 'よく知っているね！東大阪市は中小企業が<ruby>密集<rp>(</rp><rt>みっしゅう</rt><rp>)</rp></ruby>していて、<ruby>町工場<rp>(</rp><rt>まちこうば</rt><rp>)</rp></ruby>が<ruby>協力<rp>(</rp><rt>きょうりょく</rt><rp>)</rp></ruby>して<ruby>人工衛星<rp>(</rp><rt>じんこうえいせい</rt><rp>)</rp></ruby>「<strong>まいど1号</strong>」を開発したこともあるんだよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'surprised',
+      text: '町工場が人工衛星を！<ruby>堺<rp>(</rp><rt>さかい</rt><rp>)</rp></ruby>市はどうですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '堺市は東大阪市とは対照的で、臨海部に<strong>大型工場</strong>が立地しているよ。同じ阪神工業地帯でも場所によって特徴が違うんだ',
+    },
+    {
+      type: 'quiz',
+      question: '大阪から神戸にかけて広がる、中小企業の技術力が高い工業地帯はどれか？',
+      options: [
+        { letter: 'A', text: '京浜工業地帯', correct: false },
+        { letter: 'B', text: '中京工業地帯', correct: false },
+        { letter: 'C', text: '北九州工業地帯', correct: false },
+        { letter: 'D', text: '阪神工業地帯', correct: true },
+      ],
+      explanation:
+        '<strong>正解はD「<ruby>阪神工業地帯<rp>(</rp><rt>はんしんこうぎょうちたい</rt><rp>)</rp></ruby>」</strong>です。大阪から神戸にかけて広がり、<ruby>中小企業<rp>(</rp><rt>ちゅうしょうきぎょう</rt><rp>)</rp></ruby>が多く高い技術力を持つのが特徴です。',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">大阪大都市圏</span>は約880万人。<span class="keyword">阪神工業地帯</span>は中小企業の技術力が特徴。東大阪市は「ものづくりの町」',
+    },
+    {
+      type: 'end',
+      points: [
+        '<strong><span class="keyword">リアス海岸</span></strong>（若狭湾・志摩半島）。<strong><span class="keyword"><ruby>琵琶湖<rp>(</rp><rt>びわこ</rt><rp>)</rp></ruby></span></strong>→<ruby>淀川<rp>(</rp><rt>よどがわ</rt><rp>)</rp></ruby>。<ruby>紀伊山地<rp>(</rp><rt>きいさんち</rt><rp>)</rp></ruby>の<ruby>吉野杉<rp>(</rp><rt>よしのすぎ</rt><rp>)</rp></ruby>。<ruby>黒潮<rp>(</rp><rt>くろしお</rt><rp>)</rp></ruby>で南部は温暖',
+        '<strong>京都・奈良</strong>：<ruby>景観条例<rp>(</rp><rt>けいかんじょうれい</rt><rp>)</rp></ruby>で歴史的景観を保全。<strong>オーバーツーリズム</strong>が課題',
+        '<strong><ruby>阪神工業地帯<rp>(</rp><rt>はんしんこうぎょうちたい</rt><rp>)</rp></ruby></strong>：<ruby>中小企業<rp>(</rp><rt>ちゅうしょうきぎょう</rt><rp>)</rp></ruby>の高い技術力。東大阪市は「ものづくりの町」。<ruby>堺<rp>(</rp><rt>さかい</rt><rp>)</rp></ruby>市は大型工場',
+      ],
+    },
+  ],
+};

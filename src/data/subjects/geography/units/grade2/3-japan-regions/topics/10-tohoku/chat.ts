@@ -1,0 +1,316 @@
+import type { HistoryChat } from '../../../../../../../../data/history-chat/types';
+
+export const tohokuChat: HistoryChat = {
+  id: 'geo2-tohoku',
+  icon: '🌾',
+  title: '東北地方',
+  subtitle: '〜中2地理〜 奥羽山脈・やませ・リアス海岸・伝統産業・震災復興',
+  characters: [
+    {
+      id: 'teacher',
+      name: '地理の先生',
+      emoji: '🌍',
+      colorFrom: '#2563EB',
+      colorTo: '#60A5FA',
+      expressions: {
+        explaining: '🧑‍🏫',
+        happy: '😊',
+        excited: '🤩',
+        thinking: '🤔',
+      },
+    },
+    {
+      id: 'student',
+      name: '生徒',
+      emoji: '👦',
+      colorFrom: '#d97706',
+      colorTo: '#fbbf24',
+      expressions: {
+        curious: '🙋‍♂️',
+        surprised: '😲',
+        thinking: '🤔',
+        happy: '😄',
+      },
+    },
+  ],
+  content: [
+    {
+      type: 'date',
+      text: '奥羽山脈と気候',
+    },
+    {
+      type: 'narrator',
+      text: '<ruby>東北<rp>(</rp><rt>とうほく</rt><rp>)</rp></ruby>地方は<ruby>奥羽山脈<rp>(</rp><rt>おううさんみゃく</rt><rp>)</rp></ruby>を<ruby>境<rp>(</rp><rt>さかい</rt><rp>)</rp></ruby>に、日本海側と太平洋側で気候が大きく異なります。',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '東北地方の中央には<strong><span class="keyword"><ruby>奥羽山脈<rp>(</rp><rt>おううさんみゃく</rt><rp>)</rp></ruby></span></strong>が南北に連なっているよ。日本海側は冬に<ruby>季節風<rp>(</rp><rt>きせつふう</rt><rp>)</rp></ruby>が大量の<ruby>雪<rp>(</rp><rt>ゆき</rt><rp>)</rp></ruby>を降らせる<ruby>豪雪<rp>(</rp><rt>ごうせつ</rt><rp>)</rp></ruby>地帯なんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '太平洋側はどんな気候ですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'thinking',
+      text: '太平洋側では夏に<strong><span class="keyword">やませ</span></strong>という<ruby>冷<rp>(</rp><rt>つめ</rt><rp>)</rp></ruby>たく<ruby>湿<rp>(</rp><rt>しめ</rt><rp>)</rp></ruby>った北東の風が<ruby>吹<rp>(</rp><rt>ふ</rt><rp>)</rp></ruby>くことがあるんだ。<ruby>霧<rp>(</rp><rt>きり</rt><rp>)</rp></ruby>が発生して<ruby>日照<rp>(</rp><rt>にっしょう</rt><rp>)</rp></ruby>不足になると、<ruby>稲<rp>(</rp><rt>いね</rt><rp>)</rp></ruby>の<ruby>生育<rp>(</rp><rt>せいいく</rt><rp>)</rp></ruby>が<ruby>妨<rp>(</rp><rt>さまた</rt><rp>)</rp></ruby>げられて<strong><ruby>冷害<rp>(</rp><rt>れいがい</rt><rp>)</rp></ruby></strong>が起きるよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: '冷害にはどう対策しているんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: '<strong><ruby>品種改良<rp>(</rp><rt>ひんしゅかいりょう</rt><rp>)</rp></ruby></strong>で寒さに強い<ruby>品種<rp>(</rp><rt>ひんしゅ</rt><rp>)</rp></ruby>が開発されているよ。「ひとめぼれ」や「あきたこまち」などの<ruby>銘柄<rp>(</rp><rt>めいがら</rt><rp>)</rp></ruby>米も品種改良の<ruby>成果<rp>(</rp><rt>せいか</rt><rp>)</rp></ruby>なんだ',
+    },
+    {
+      type: 'image',
+      src: '/images/geography/grade2/japan-regions/tohoku-climate.png',
+      alt: '東北地方の気候と農業の図',
+      caption: '奥羽山脈で気候が分かれ、やませが冷害の原因に',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">奥羽山脈</span>で気候が分かれる。<span class="keyword">やませ</span>は太平洋側の冷害の原因。品種改良で対策',
+    },
+    {
+      type: 'quiz',
+      question: '東北地方の中央を南北に走り、日本海側と太平洋側の気候を分ける山脈は？',
+      options: [
+        { letter: 'A', text: '奥羽山脈', correct: true },
+        { letter: 'B', text: '飛騨山脈', correct: false },
+        { letter: 'C', text: '越後山脈', correct: false },
+        { letter: 'D', text: '日高山脈', correct: false },
+      ],
+      explanation:
+        '<strong>正解はA「<ruby>奥羽山脈<rp>(</rp><rt>おううさんみゃく</rt><rp>)</rp></ruby>」</strong>です。東北地方の中央を南北に走り、日本海側の<ruby>豪雪<rp>(</rp><rt>ごうせつ</rt><rp>)</rp></ruby>地帯と太平洋側のやませの<ruby>影響<rp>(</rp><rt>えいきょう</rt><rp>)</rp></ruby>を分ける<ruby>境<rp>(</rp><rt>さかい</rt><rp>)</rp></ruby>になっています。',
+    },
+    {
+      type: 'date',
+      text: '稲作と果樹栽培',
+    },
+    {
+      type: 'narrator',
+      text: '東北地方は日本有数の<ruby>穀倉地帯<rp>(</rp><rt>こくそうちたい</rt><rp>)</rp></ruby>で、<ruby>果樹<rp>(</rp><rt>かじゅ</rt><rp>)</rp></ruby>栽培も盛んです。',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<ruby>庄内平野<rp>(</rp><rt>しょうないへいや</rt><rp>)</rp></ruby>（山形県）や<ruby>秋田平野<rp>(</rp><rt>あきたへいや</rt><rp>)</rp></ruby>（秋田県）は<ruby>稲作<rp>(</rp><rt>いなさく</rt><rp>)</rp></ruby>が盛んな地域だよ。<ruby>豪雪<rp>(</rp><rt>ごうせつ</rt><rp>)</rp></ruby>地帯の<ruby>雪解<rp>(</rp><rt>ゆきど</rt><rp>)</rp></ruby>け水が豊富な<ruby>水源<rp>(</rp><rt>すいげん</rt><rp>)</rp></ruby>になっているんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '果物も有名ですよね？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'excited',
+      text: '山形県は<strong>さくらんぼ</strong>の生産量が全国の約7割で日本一！<ruby>青森<rp>(</rp><rt>あおもり</rt><rp>)</rp></ruby>県は<strong>りんご</strong>が全国の半分以上を<ruby>占<rp>(</rp><rt>し</rt><rp>)</rp></ruby>めているよ。<ruby>盆地<rp>(</rp><rt>ぼんち</rt><rp>)</rp></ruby>の<ruby>寒暖差<rp>(</rp><rt>かんだんさ</rt><rp>)</rp></ruby>が果物の<ruby>糖度<rp>(</rp><rt>とうど</rt><rp>)</rp></ruby>を高めるんだ',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">庄内平野</span>・<span class="keyword">秋田平野</span>は稲作の中心地。山形の<span class="keyword">さくらんぼ</span>・青森の<span class="keyword">りんご</span>は全国トップ',
+    },
+    {
+      type: 'quiz',
+      question: '山形県が全国生産量の約7割を占める果物は？',
+      options: [
+        { letter: 'A', text: 'りんご', correct: false },
+        { letter: 'B', text: 'もも', correct: false },
+        { letter: 'C', text: 'さくらんぼ', correct: true },
+        { letter: 'D', text: 'ぶどう', correct: false },
+      ],
+      explanation:
+        '<strong>正解はC「さくらんぼ」</strong>です。山形県はさくらんぼ（おうとう）の生産量が全国の約7割を<ruby>占<rp>(</rp><rt>し</rt><rp>)</rp></ruby>め、日本一の<ruby>産地<rp>(</rp><rt>さんち</rt><rp>)</rp></ruby>です。',
+    },
+    {
+      type: 'date',
+      text: '三陸海岸と漁業',
+    },
+    {
+      type: 'narrator',
+      text: '<ruby>三陸<rp>(</rp><rt>さんりく</rt><rp>)</rp></ruby>海岸は世界有数の<ruby>漁場<rp>(</rp><rt>ぎょじょう</rt><rp>)</rp></ruby>を持つ地域です。',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '三陸海岸は<strong><span class="keyword">リアス<ruby>海岸<rp>(</rp><rt>かいがん</rt><rp>)</rp></ruby></span></strong>になっていて、出入りの<ruby>複雑<rp>(</rp><rt>ふくざつ</rt><rp>)</rp></ruby>な海岸線が特徴だよ。波が<ruby>穏<rp>(</rp><rt>おだ</rt><rp>)</rp></ruby>やかな<ruby>入<rp>(</rp><rt>い</rt><rp>)</rp></ruby>り<ruby>江<rp>(</rp><rt>え</rt><rp>)</rp></ruby>を利用して<strong><ruby>養殖漁業<rp>(</rp><rt>ようしょくぎょぎょう</rt><rp>)</rp></ruby></strong>が盛んなんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '何を<ruby>養殖<rp>(</rp><rt>ようしょく</rt><rp>)</rp></ruby>しているんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'excited',
+      text: 'わかめ・かき・ほたてなどだよ。三陸<ruby>沖<rp>(</rp><rt>おき</rt><rp>)</rp></ruby>は<ruby>暖流<rp>(</rp><rt>だんりゅう</rt><rp>)</rp></ruby>の<ruby>黒潮<rp>(</rp><rt>くろしお</rt><rp>)</rp></ruby>と<ruby>寒流<rp>(</rp><rt>かんりゅう</rt><rp>)</rp></ruby>の<ruby>親潮<rp>(</rp><rt>おやしお</rt><rp>)</rp></ruby>がぶつかる<strong><span class="keyword"><ruby>潮目<rp>(</rp><rt>しおめ</rt><rp>)</rp></ruby>（<ruby>潮境<rp>(</rp><rt>しおざかい</rt><rp>)</rp></ruby>）</span></strong>で、プランクトンが豊富だから魚がたくさん集まるんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'surprised',
+      text: '暖流と寒流がぶつかるところに魚が集まるんですね！',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">リアス海岸</span>で養殖漁業。<span class="keyword">潮目</span>（黒潮×親潮）で世界有数の好漁場',
+    },
+    {
+      type: 'quiz',
+      question: '三陸沖が世界有数の好漁場である最大の理由は？',
+      options: [
+        { letter: 'A', text: '水温が一年中温暖だから', correct: false },
+        { letter: 'B', text: 'リアス海岸で波が穏やかだから', correct: false },
+        { letter: 'C', text: '海底の地形が平坦だから', correct: false },
+        { letter: 'D', text: '暖流と寒流がぶつかる潮目があるから', correct: true },
+      ],
+      explanation:
+        '<strong>正解はD「暖流と寒流がぶつかる<ruby>潮目<rp>(</rp><rt>しおめ</rt><rp>)</rp></ruby>があるから」</strong>です。<ruby>黒潮<rp>(</rp><rt>くろしお</rt><rp>)</rp></ruby>と<ruby>親潮<rp>(</rp><rt>おやしお</rt><rp>)</rp></ruby>がぶつかりプランクトンが豊富に発生します。',
+    },
+    {
+      type: 'date',
+      text: '工業と交通',
+    },
+    {
+      type: 'narrator',
+      text: '東北地方の<ruby>工業<rp>(</rp><rt>こうぎょう</rt><rp>)</rp></ruby>は<ruby>高速交通網<rp>(</rp><rt>こうそくこうつうもう</rt><rp>)</rp></ruby>の<ruby>整備<rp>(</rp><rt>せいび</rt><rp>)</rp></ruby>で大きく変わりました。',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<strong><ruby>東北自動車道<rp>(</rp><rt>とうほくじどうしゃどう</rt><rp>)</rp></ruby></strong>の<ruby>沿線<rp>(</rp><rt>えんせん</rt><rp>)</rp></ruby>には<strong>IC（<ruby>集積回路<rp>(</rp><rt>しゅうせきかいろ</rt><rp>)</rp></ruby>）工場</strong>が多く進出しているよ。首都圏へ製品を運びやすいからなんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'surprised',
+      text: '<ruby>東北新幹線<rp>(</rp><rt>とうほくしんかんせん</rt><rp>)</rp></ruby>も大きかったんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: 'そうだね。新幹線や高速道路の<ruby>整備<rp>(</rp><rt>せいび</rt><rp>)</rp></ruby>で首都圏へのアクセスが良くなり、企業の工場進出が進んで<ruby>雇用<rp>(</rp><rt>こよう</rt><rp>)</rp></ruby>が増えたんだ',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">東北自動車道</span>沿いにIC工場が進出。<span class="keyword">東北新幹線</span>で首都圏へのアクセス向上',
+    },
+    {
+      type: 'date',
+      text: '伝統文化と震災復興',
+    },
+    {
+      type: 'narrator',
+      text: '東北の<ruby>伝統文化<rp>(</rp><rt>でんとうぶんか</rt><rp>)</rp></ruby>と、<ruby>東日本大震災<rp>(</rp><rt>ひがしにほんだいしんさい</rt><rp>)</rp></ruby>からの<ruby>復興<rp>(</rp><rt>ふっこう</rt><rp>)</rp></ruby>について学びましょう。',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'excited',
+      text: '東北の<ruby>夏祭<rp>(</rp><rt>なつまつ</rt><rp>)</rp></ruby>りは有名だよ。<ruby>青森<rp>(</rp><rt>あおもり</rt><rp>)</rp></ruby>の<strong>ねぶた祭</strong>、<ruby>秋田<rp>(</rp><rt>あきた</rt><rp>)</rp></ruby>の<strong><ruby>竿燈<rp>(</rp><rt>かんとう</rt><rp>)</rp></ruby>まつり</strong>、<ruby>仙台<rp>(</rp><rt>せんだい</rt><rp>)</rp></ruby>の<strong><ruby>七夕<rp>(</rp><rt>たなばた</rt><rp>)</rp></ruby>まつり</strong>、<ruby>山形<rp>(</rp><rt>やまがた</rt><rp>)</rp></ruby>の<strong><ruby>花笠<rp>(</rp><rt>はながさ</rt><rp>)</rp></ruby>まつり</strong>は「<strong>東北四大祭り</strong>」とよばれているよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'happy',
+      text: '稲作と関係がある祭りもあるんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: 'そう！<ruby>豊作<rp>(</rp><rt>ほうさく</rt><rp>)</rp></ruby>を<ruby>願<rp>(</rp><rt>ねが</rt><rp>)</rp></ruby>う行事が<ruby>起源<rp>(</rp><rt>きげん</rt><rp>)</rp></ruby>のものが多いんだ。<ruby>伝統産業<rp>(</rp><rt>でんとうさんぎょう</rt><rp>)</rp></ruby>では<ruby>岩手<rp>(</rp><rt>いわて</rt><rp>)</rp></ruby>県の<strong><span class="keyword"><ruby>南部鉄器<rp>(</rp><rt>なんぶてっき</rt><rp>)</rp></ruby></span></strong>が海外でデザイン性を評価されて人気なんだよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: '2011年の<ruby>東日本大震災<rp>(</rp><rt>ひがしにほんだいしんさい</rt><rp>)</rp></ruby>では大きな<ruby>被害<rp>(</rp><rt>ひがい</rt><rp>)</rp></ruby>がありましたよね...',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '三陸海岸を中心に巨大な<ruby>津波<rp>(</rp><rt>つなみ</rt><rp>)</rp></ruby>が<ruby>甚大<rp>(</rp><rt>じんだい</rt><rp>)</rp></ruby>な被害をもたらしたんだ。その教訓から、<strong><ruby>防潮堤<rp>(</rp><rt>ぼうちょうてい</rt><rp>)</rp></ruby></strong>の建設、<strong><ruby>高台移転<rp>(</rp><rt>たかだいいてん</rt><rp>)</rp></ruby></strong>、<strong><ruby>防災教育<rp>(</rp><rt>ぼうさいきょういく</rt><rp>)</rp></ruby></strong>の<ruby>充実<rp>(</rp><rt>じゅうじつ</rt><rp>)</rp></ruby>など新しいまちづくりが進められているよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'happy',
+      text: '教訓を<ruby>未来<rp>(</rp><rt>みらい</rt><rp>)</rp></ruby>に生かしているんですね。大切なことですね',
+    },
+    {
+      type: 'image',
+      src: '/images/geography/grade2/japan-regions/tohoku-tradition.png',
+      alt: '東北地方の伝統文化と防災の取り組みの図',
+      caption: '東北四大祭り・南部鉄器と震災復興のまちづくり',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">東北四大祭り</span>は稲作文化がルーツ。<span class="keyword">南部鉄器</span>は海外で人気。震災の教訓から<span class="keyword">防災</span>のまちづくり',
+    },
+    {
+      type: 'quiz',
+      question: '岩手県の伝統的工芸品で、海外でデザイン性が評価されている鋳鉄製品は？',
+      options: [
+        { letter: 'A', text: '天童将棋駒', correct: false },
+        { letter: 'B', text: '南部鉄器', correct: true },
+        { letter: 'C', text: '会津塗', correct: false },
+        { letter: 'D', text: '大館曲げわっぱ', correct: false },
+      ],
+      explanation:
+        '<strong>正解はB「<ruby>南部鉄器<rp>(</rp><rt>なんぶてっき</rt><rp>)</rp></ruby>」</strong>です。<ruby>岩手<rp>(</rp><rt>いわて</rt><rp>)</rp></ruby>県の<ruby>伝統<rp>(</rp><rt>でんとう</rt><rp>)</rp></ruby>的<ruby>工芸品<rp>(</rp><rt>こうげいひん</rt><rp>)</rp></ruby>で、<ruby>急須<rp>(</rp><rt>きゅうす</rt><rp>)</rp></ruby>や<ruby>鉄瓶<rp>(</rp><rt>てつびん</rt><rp>)</rp></ruby>が海外で人気です。',
+    },
+    {
+      type: 'end',
+      points: [
+        '<strong><ruby>奥羽山脈<rp>(</rp><rt>おううさんみゃく</rt><rp>)</rp></ruby></strong>で日本海側（豪雪）と太平洋側（<strong>やませ</strong>）の気候が分かれる',
+        '<strong><ruby>庄内平野<rp>(</rp><rt>しょうないへいや</rt><rp>)</rp></ruby></strong>・<strong><ruby>秋田平野<rp>(</rp><rt>あきたへいや</rt><rp>)</rp></ruby></strong>の稲作。山形の<strong>さくらんぼ</strong>・青森の<strong>りんご</strong>',
+        '<strong>リアス海岸</strong>で<ruby>養殖漁業<rp>(</rp><rt>ようしょくぎょぎょう</rt><rp>)</rp></ruby>。三陸沖は<strong><ruby>潮目<rp>(</rp><rt>しおめ</rt><rp>)</rp></ruby></strong>で世界有数の好漁場',
+        '<strong><ruby>東北自動車道<rp>(</rp><rt>とうほくじどうしゃどう</rt><rp>)</rp></ruby></strong>沿いにIC工場が進出',
+        '<strong>東北四大祭り</strong>（ねぶた・竿燈・七夕・花笠）。<strong><ruby>南部鉄器<rp>(</rp><rt>なんぶてっき</rt><rp>)</rp></ruby></strong>のグローバル化',
+        '<strong><ruby>東日本大震災<rp>(</rp><rt>ひがしにほんだいしんさい</rt><rp>)</rp></ruby></strong>の教訓：<ruby>防潮堤<rp>(</rp><rt>ぼうちょうてい</rt><rp>)</rp></ruby>・<ruby>高台移転<rp>(</rp><rt>たかだいいてん</rt><rp>)</rp></ruby>・<ruby>防災教育<rp>(</rp><rt>ぼうさいきょういく</rt><rp>)</rp></ruby>',
+      ],
+    },
+  ],
+};

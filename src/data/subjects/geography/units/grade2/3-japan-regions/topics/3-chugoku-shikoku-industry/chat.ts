@@ -1,0 +1,243 @@
+import type { HistoryChat } from '../../../../../../../../data/history-chat/types';
+
+export const chugokuShikokuIndustryChat: HistoryChat = {
+  id: 'geo2-cs-industry',
+  icon: '🏭',
+  title: '中国・四国地方②',
+  subtitle: '〜中2地理〜 瀬戸内工業地域・農業と特産品・過疎対策',
+  characters: [
+    {
+      id: 'teacher',
+      name: '地理の先生',
+      emoji: '🌍',
+      colorFrom: '#2563EB',
+      colorTo: '#60A5FA',
+      expressions: {
+        explaining: '🧑‍🏫',
+        happy: '😊',
+        excited: '🤩',
+        thinking: '🤔',
+      },
+    },
+    {
+      id: 'student',
+      name: '生徒',
+      emoji: '👦',
+      colorFrom: '#d97706',
+      colorTo: '#fbbf24',
+      expressions: {
+        curious: '🙋‍♂️',
+        surprised: '😲',
+        thinking: '🤔',
+        happy: '😄',
+      },
+    },
+  ],
+  content: [
+    {
+      type: 'date',
+      text: '瀬戸内工業地域と産業',
+    },
+    {
+      type: 'narrator',
+      text: '<ruby>瀬戸内海<rp>(</rp><rt>せとないかい</rt><rp>)</rp></ruby>沿岸の工業と<ruby>農業<rp>(</rp><rt>のうぎょう</rt><rp>)</rp></ruby>を見てみましょう。',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '瀬戸内海沿岸には<strong><span class="keyword"><ruby>石油化学<rp>(</rp><rt>せきゆかがく</rt><rp>)</rp></ruby>コンビナート</span></strong>が立ち並んでいるよ。<ruby>倉敷<rp>(</rp><rt>くらしき</rt><rp>)</rp></ruby>市の<strong><span class="keyword"><ruby>水島<rp>(</rp><rt>みずしま</rt><rp>)</rp></ruby>コンビナート</span></strong>や<ruby>周南<rp>(</rp><rt>しゅうなん</rt><rp>)</rp></ruby>市が代表的だね。これを<strong><span class="keyword"><ruby>瀬戸内工業地域<rp>(</rp><rt>せとうちこうぎょうちいき</rt><rp>)</rp></ruby></span></strong>というんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: 'なぜ瀬戸内海沿岸に工場が多いんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: '瀬戸内海は<ruby>波<rp>(</rp><rt>なみ</rt><rp>)</rp></ruby>が<ruby>穏<rp>(</rp><rt>おだ</rt><rp>)</rp></ruby>やかで大型タンカーが<ruby>航行<rp>(</rp><rt>こうこう</rt><rp>)</rp></ruby>しやすいんだ。<ruby>原料<rp>(</rp><rt>げんりょう</rt><rp>)</rp></ruby>の<ruby>輸入<rp>(</rp><rt>ゆにゅう</rt><rp>)</rp></ruby>や製品の<ruby>輸出<rp>(</rp><rt>ゆしゅつ</rt><rp>)</rp></ruby>に便利な<ruby>立地<rp>(</rp><rt>りっち</rt><rp>)</rp></ruby>なんだよ。<ruby>広島<rp>(</rp><rt>ひろしま</rt><rp>)</rp></ruby>県では<strong><span class="keyword">自動車工業</span></strong>も盛んだよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: 'かつて瀬戸内では<ruby>塩田<rp>(</rp><rt>えんでん</rt><rp>)</rp></ruby>が盛んだったと聞きましたが…',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: 'そうなんだ。降水量が少なく日照時間が長い瀬戸内の気候は<strong><span class="keyword"><ruby>塩田<rp>(</rp><rt>えんでん</rt><rp>)</rp></ruby></span></strong>に<ruby>適<rp>(</rp><rt>てき</rt><rp>)</rp></ruby>していたけど、工業塩の輸入増加で<ruby>衰退<rp>(</rp><rt>すいたい</rt><rp>)</rp></ruby>したんだ。その<ruby>跡地<rp>(</rp><rt>あとち</rt><rp>)</rp></ruby>に工場が建てられたんだよ',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">瀬戸内工業地域</span>：<span class="keyword">水島コンビナート</span>・広島の自動車工業。塩田跡地に工場建設',
+    },
+    {
+      type: 'quiz',
+      question: '瀬戸内海沿岸に石油化学コンビナートが立地した理由として正しいものはどれか？',
+      options: [
+        { letter: 'A', text: '石油の産出地に近かったから', correct: false },
+        { letter: 'B', text: '労働力が豊富だったから', correct: false },
+        { letter: 'C', text: '鉄道網が発達していたから', correct: false },
+        { letter: 'D', text: '波が穏やかで大型タンカーの航行に適していたから', correct: true },
+      ],
+      explanation:
+        '<strong>正解はD「波が<ruby>穏<rp>(</rp><rt>おだ</rt><rp>)</rp></ruby>やかで大型タンカーの<ruby>航行<rp>(</rp><rt>こうこう</rt><rp>)</rp></ruby>に適していたから」</strong>です。<ruby>瀬戸内海<rp>(</rp><rt>せとないかい</rt><rp>)</rp></ruby>の穏やかな海が<ruby>原料<rp>(</rp><rt>げんりょう</rt><rp>)</rp></ruby>輸入・製品輸出に便利でした。',
+    },
+    {
+      type: 'date',
+      text: '農業と特産品',
+    },
+    {
+      type: 'narrator',
+      text: '中国・四国地方の3つの地域では、気候を生かしたさまざまな<ruby>農業<rp>(</rp><rt>のうぎょう</rt><rp>)</rp></ruby>が行われています。',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<ruby>高知<rp>(</rp><rt>こうち</rt><rp>)</rp></ruby>県では温暖な気候とビニールハウスを使った<strong><span class="keyword"><ruby>促成栽培<rp>(</rp><rt>そくせいさいばい</rt><rp>)</rp></ruby></span></strong>が盛んだよ。<ruby>なす<rp>(</rp><rt>なす</rt><rp>)</rp></ruby>や<ruby>ピーマン<rp>(</rp><rt>ぴーまん</rt><rp>)</rp></ruby>を他の地域より早く出荷できるんだ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'surprised',
+      text: '早く出荷できると何がいいんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: '市場に少ない時期に出荷できるから、高い<ruby>値段<rp>(</rp><rt>ねだん</rt><rp>)</rp></ruby>で売れるんだよ。<ruby>愛媛<rp>(</rp><rt>えひめ</rt><rp>)</rp></ruby>県は<strong><span class="keyword">みかん</span></strong>の一大産地で、瀬戸内では<strong><span class="keyword">レモン</span></strong>の栽培も盛んだよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '山陰の方ではどんな<ruby>農産物<rp>(</rp><rt>のうさんぶつ</rt><rp>)</rp></ruby>があるんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<ruby>鳥取<rp>(</rp><rt>とっとり</rt><rp>)</rp></ruby>県は<strong><span class="keyword">なし</span></strong>と<strong><span class="keyword">らっきょう</span></strong>が有名だよ。<ruby>砂丘<rp>(</rp><rt>さきゅう</rt><rp>)</rp></ruby>地を利用したらっきょう栽培は全国的にも知られているんだ',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">高知</span>：なす・ピーマンの<span class="keyword">促成栽培</span>。<span class="keyword">愛媛</span>：みかん。<span class="keyword">鳥取</span>：なし・らっきょう',
+    },
+    {
+      type: 'quiz',
+      question: '高知県で温暖な気候とビニールハウスを利用して出荷時期を早める栽培方法を何というか？',
+      options: [
+        { letter: 'A', text: '促成栽培', correct: true },
+        { letter: 'B', text: '抑制栽培', correct: false },
+        { letter: 'C', text: '二毛作', correct: false },
+        { letter: 'D', text: '輪作', correct: false },
+      ],
+      explanation:
+        '<strong>正解はA「<ruby>促成栽培<rp>(</rp><rt>そくせいさいばい</rt><rp>)</rp></ruby>」</strong>です。温暖な気候やビニールハウスを利用して出荷時期を早め、なすやピーマンを栽培しています。',
+    },
+    {
+      type: 'date',
+      text: '過疎化とICT活用の地域おこし',
+    },
+    {
+      type: 'narrator',
+      text: '<ruby>中山間<rp>(</rp><rt>ちゅうさんかん</rt><rp>)</rp></ruby>地域の<ruby>過疎<rp>(</rp><rt>かそ</rt><rp>)</rp></ruby>化が進む中、ICTを活用した新しい<ruby>取<rp>(</rp><rt>と</rt><rp>)</rp></ruby>り<ruby>組<rp>(</rp><rt>く</rt><rp>)</rp></ruby>みが注目されています。',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: '<ruby>中山間<rp>(</rp><rt>ちゅうさんかん</rt><rp>)</rp></ruby>地域の<ruby>過疎<rp>(</rp><rt>かそ</rt><rp>)</rp></ruby>化はどうして進んでいるんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'thinking',
+      text: '若者が都市部に<ruby>流出<rp>(</rp><rt>りゅうしゅつ</rt><rp>)</rp></ruby>して人口が減り、<ruby>高齢化<rp>(</rp><rt>こうれいか</rt><rp>)</rp></ruby>が進んでいるんだ。<ruby>人口<rp>(</rp><rt>じんこう</rt><rp>)</rp></ruby>の半分以上が65歳以上になった集落を<strong><span class="keyword"><ruby>限界集落<rp>(</rp><rt>げんかいしゅうらく</rt><rp>)</rp></ruby></span></strong>というよ',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'excited',
+      text: 'でも<ruby>徳島<rp>(</rp><rt>とくしま</rt><rp>)</rp></ruby>県<ruby>上勝<rp>(</rp><rt>かみかつ</rt><rp>)</rp></ruby>町では、<ruby>高齢者<rp>(</rp><rt>こうれいしゃ</rt><rp>)</rp></ruby>がタブレットを使って<strong><span class="keyword">葉っぱビジネス</span></strong>をしているんだ。料理の「つまもの」に使う葉っぱを出荷して<ruby>収入<rp>(</rp><rt>しゅうにゅう</rt><rp>)</rp></ruby>を得ているよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'surprised',
+      text: 'おばあちゃんがタブレット！すごいですね！',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: '<ruby>島根<rp>(</rp><rt>しまね</rt><rp>)</rp></ruby>県<ruby>松江<rp>(</rp><rt>まつえ</rt><rp>)</rp></ruby>市では、プログラミング言語<strong><span class="keyword">Ruby</span></strong>の開発者が<ruby>拠点<rp>(</rp><rt>きょてん</rt><rp>)</rp></ruby>を置いていて、IT企業の<ruby>誘致<rp>(</rp><rt>ゆうち</rt><rp>)</rp></ruby>による地域おこしが行われているんだよ',
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: 'インターネットで<ruby>移住<rp>(</rp><rt>いじゅう</rt><rp>)</rp></ruby>を呼びかけたりもしているんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: 'そうだよ！<ruby>移住<rp>(</rp><rt>いじゅう</rt><rp>)</rp></ruby>支援サイトやSNSで地域の<ruby>魅力<rp>(</rp><rt>みりょく</rt><rp>)</rp></ruby>を発信して、テレワークできる人を呼び込んでいるんだ。<ruby>広島<rp>(</rp><rt>ひろしま</rt><rp>)</rp></ruby>県には<strong><span class="keyword"><ruby>原爆<rp>(</rp><rt>げんばく</rt><rp>)</rp></ruby>ドーム</span></strong>や<strong><span class="keyword"><ruby>厳島神社<rp>(</rp><rt>いつくしまじんじゃ</rt><rp>)</rp></ruby></span></strong>という世界遺産もあって、観光面でも<ruby>魅力<rp>(</rp><rt>みりょく</rt><rp>)</rp></ruby>的な地方なんだよ',
+    },
+    {
+      type: 'image',
+      src: '/images/geography/grade2/japan-regions/chugoku-shikoku-ict.png',
+      alt: '中国・四国地方の産業とICT活用の図',
+      caption: '瀬戸内工業地域と葉っぱビジネス・Rubyの地域おこし',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">限界集落</span>・<span class="keyword">過疎化</span>が課題。<span class="keyword">葉っぱビジネス</span>・<span class="keyword">Ruby</span>でICT活用の地域おこし。インターネットで移住促進',
+    },
+    {
+      type: 'quiz',
+      question: '徳島県上勝町で高齢者がタブレットを使って行っているビジネスはどれか？',
+      options: [
+        { letter: 'A', text: 'みかんの通販', correct: false },
+        { letter: 'B', text: '温泉観光の発信', correct: false },
+        { letter: 'C', text: '手工芸品の販売', correct: false },
+        { letter: 'D', text: '葉っぱビジネス', correct: true },
+      ],
+      explanation:
+        '<strong>正解はD「葉っぱビジネス」</strong>です。<ruby>上勝<rp>(</rp><rt>かみかつ</rt><rp>)</rp></ruby>町の葉っぱビジネスは、料理の「つまもの」に使う葉っぱを<ruby>高齢者<rp>(</rp><rt>こうれいしゃ</rt><rp>)</rp></ruby>がタブレットで<ruby>受注<rp>(</rp><rt>じゅちゅう</rt><rp>)</rp></ruby>・出荷するICT活用ビジネスです。',
+    },
+    {
+      type: 'end',
+      points: [
+        '<strong><ruby>瀬戸内工業地域<rp>(</rp><rt>せとうちこうぎょうちいき</rt><rp>)</rp></ruby></strong>：<strong>水島コンビナート</strong>・広島の自動車工業。塩田跡地に工場建設',
+        '<strong><ruby>促成栽培<rp>(</rp><rt>そくせいさいばい</rt><rp>)</rp></ruby></strong>（高知）、<strong>みかん</strong>（愛媛）、<strong>なし・らっきょう</strong>（鳥取）など地域ごとの農業',
+        '<strong>葉っぱビジネス</strong>・<strong>Ruby</strong>などICTを活用した<ruby>過疎<rp>(</rp><rt>かそ</rt><rp>)</rp></ruby>地域の<ruby>活性化<rp>(</rp><rt>かっせいか</rt><rp>)</rp></ruby>。<strong><ruby>原爆<rp>(</rp><rt>げんばく</rt><rp>)</rp></ruby>ドーム</strong>・<strong><ruby>厳島神社<rp>(</rp><rt>いつくしまじんじゃ</rt><rp>)</rp></ruby></strong>の世界遺産',
+      ],
+    },
+  ],
+};
