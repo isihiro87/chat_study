@@ -58,6 +58,18 @@ export function PasswordGate({ onAuthenticated }: PasswordGateProps) {
             はじめる
           </button>
         </form>
+        <p className="text-xs text-gray-400 text-center mt-6 leading-relaxed">
+          パスワードがわからない場合は<br />
+          <a
+            href="https://www.instagram.com/guttoschool_jh2/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-amber-500 underline"
+          >
+            Instagram
+          </a>
+          からメッセージをください
+        </p>
       </div>
     </div>
   );
