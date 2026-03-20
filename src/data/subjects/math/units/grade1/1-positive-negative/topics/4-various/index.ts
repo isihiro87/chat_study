@@ -239,7 +239,7 @@ export const variousCalc: Topic = {
         },
         {
           id: 'math-g1-various-q14',
-          question: '$2 + 3 \times (-4)$ の計算結果は？',
+          question: '$2 + 3 \\times (-4)$ の計算結果は？',
           options: ['$-20$', '$+14$', '$-10$', '$+10$'],
           correctIndex: 2,
           explanation: '乗法を先に。$3 \\times (-4) = -12$。\n$2 + (-12) = -10$ だよ。',
@@ -248,9 +248,9 @@ export const variousCalc: Topic = {
         {
           id: 'math-g1-various-q15',
           question: '$90$ を素因数分解すると？',
-          options: ['$2 \times 3^2 \times 5$', '$2 \times 45$', '$9 \times 10$', '$3 \times 30$'],
+          options: ['$2 \\times 3^2 \\times 5$', '$2 \\times 45$', '$9 \\times 10$', '$3 \\times 30$'],
           correctIndex: 0,
-          explanation: '$90 = 2 \times 45 = 2 \times 9 \times 5 = 2 \times 3^2 \times 5$ だよ。',
+          explanation: '$90 = 2 \\times 45 = 2 \\times 9 \\times 5 = 2 \\times 3^2 \\times 5$ だよ。',
           difficulty: 'standard',
         },
         {
@@ -263,7 +263,7 @@ export const variousCalc: Topic = {
         },
         {
           id: 'math-g1-various-q17',
-          question: '$\{(-3) + 5\} \times (-2)$ の計算結果は？',
+          question: '$\{(-3) + 5\} \\times (-2)$ の計算結果は？',
           options: ['$-4$', '$+4$', '$-16$', '$+16$'],
           correctIndex: 0,
           explanation: 'かっこの中: $(-3) + 5 = 2$。\n$2 \\times (-2) = -4$ だよ。',
@@ -274,7 +274,7 @@ export const variousCalc: Topic = {
           question: '次のうち、素数でないものはどれ？',
           options: ['$2$', '$7$', '$21$', '$13$'],
           correctIndex: 2,
-          explanation: '$21 = 3 \times 7$ だから素数ではないよ。',
+          explanation: '$21 = 3 \\times 7$ だから素数ではないよ。',
           difficulty: 'standard',
         },
         {
@@ -288,14 +288,14 @@ export const variousCalc: Topic = {
         {
           id: 'math-g1-various-q20',
           question: '$120$ を素因数分解すると？',
-          options: ['$2^3 \times 3 \times 5$', '$2^2 \times 3 \times 10$', '$4 \times 30$', '$2^3 \times 15$'],
+          options: ['$2^3 \\times 3 \\times 5$', '$2^2 \\times 3 \\times 10$', '$4 \\times 30$', '$2^3 \\times 15$'],
           correctIndex: 0,
-          explanation: '$120 = 2^3 \times 15 = 2^3 \times 3 \times 5$ だよ。素数の積だけで表すのが素因数分解。',
+          explanation: '$120 = 2^3 \\times 15 = 2^3 \\times 3 \\times 5$ だよ。素数の積だけで表すのが素因数分解。',
           difficulty: 'standard',
         },
         {
           id: 'math-g1-various-q21',
-          question: '$(- 4)^2 \div 8 + 3$ の計算結果は？',
+          question: '$(- 4)^2 \\div 8 + 3$ の計算結果は？',
           options: ['$1$', '$5$', '$-1$', '$7$'],
           correctIndex: 1,
           explanation: '$(-4)^2 = 16$。$16 \\div 8 = 2$。\n$2 + 3 = 5$ だよ。',
@@ -314,15 +314,15 @@ export const variousCalc: Topic = {
           question: '$15 \\times (-6) + 15 \\times (-4)$ を分配法則で計算すると？',
           options: ['$-30$', '$+150$', '$+30$', '$-150$'],
           correctIndex: 3,
-          explanation: '$15 \times \{(-6) + (-4)\} = 15 \times (-10) = -150$ だよ。',
+          explanation: '$15 \\times \{(-6) + (-4)\} = 15 \\times (-10) = -150$ だよ。',
           difficulty: 'advanced',
         },
         {
           id: 'math-g1-various-q24',
-          question: '$2^2 \times 3$ と $2 \times 3^2$ は等しい？',
+          question: '$2^2 \\times 3$ と $2 \\times 3^2$ は等しい？',
           options: ['等しい（ともに $12$）', '等しくない（$12$ と $18$）', '等しくない（$6$ と $9$）', '等しい（ともに $18$）'],
           correctIndex: 1,
-          explanation: '$2^2 \times 3 = 4 \times 3 = 12$、$2 \times 3^2 = 2 \times 9 = 18$ で異なるよ。',
+          explanation: '$2^2 \\times 3 = 4 \\times 3 = 12$、$2 \\times 3^2 = 2 \\times 9 = 18$ で異なるよ。',
           difficulty: 'advanced',
         },
         {
@@ -335,7 +335,7 @@ export const variousCalc: Topic = {
         },
         {
           id: 'math-g1-various-q26',
-          question: '$3 \times (-2)^2 - 4 \times (-3)$ の計算結果は？',
+          question: '$3 \\times (-2)^2 - 4 \\times (-3)$ の計算結果は？',
           options: ['$0$', '$24$', '$-24$', '$12$'],
           correctIndex: 1,
           explanation: '$(-2)^2 = 4$。$3 \\times 4 = 12$。$4 \\times (-3) = -12$。\n$12 - (-12) = 12 + 12 = 24$ だよ。',
@@ -344,14 +344,14 @@ export const variousCalc: Topic = {
         {
           id: 'math-g1-various-q27',
           question: '$180$ を素因数分解すると？',
-          options: ['$2^2 \times 3^2 \times 5$', '$2 \times 3 \times 30$', '$4 \times 45$', '$2^3 \times 3 \times 5$'],
+          options: ['$2^2 \\times 3^2 \\times 5$', '$2 \\times 3 \\times 30$', '$4 \\times 45$', '$2^3 \\times 3 \\times 5$'],
           correctIndex: 0,
-          explanation: '$180 = 4 \times 45 = 2^2 \times 9 \times 5 = 2^2 \times 3^2 \times 5$ だよ。',
+          explanation: '$180 = 4 \\times 45 = 2^2 \\times 9 \\times 5 = 2^2 \\times 3^2 \\times 5$ だよ。',
           difficulty: 'advanced',
         },
         {
           id: 'math-g1-various-q28',
-          question: '$(-6)^2 \div (-3)^2$ の計算結果は？',
+          question: '$(-6)^2 \\div (-3)^2$ の計算結果は？',
           options: ['$+4$', '$-4$', '$+2$', '$-2$'],
           correctIndex: 0,
           explanation: '$(-6)^2 = 36$、$(-3)^2 = 9$。$36 \\div 9 = 4$。\n偶数乗は正だから $+4$ だよ。',

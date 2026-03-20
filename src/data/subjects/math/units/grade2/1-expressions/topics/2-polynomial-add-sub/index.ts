@@ -320,7 +320,7 @@ export const polynomialAddSub: Topic = {
         },
         {
           id: 'math-g2-poly-add-sub-q12',
-          question: '$(6x + 9y) \div 3$ の計算結果は？',
+          question: '$(6x + 9y) \\div 3$ の計算結果は？',
           options: ['$6x + 3y$', '$2x + 3y$', '$2x + 9y$', '$3x + 3y$'],
           correctIndex: 1,
           explanation: '各項を $3$ で割る。$6x \\div 3 = 2x$、$9y \\div 3 = 3y$。\n答え $2x + 3y$ だよ。',
@@ -352,7 +352,7 @@ export const polynomialAddSub: Topic = {
         },
         {
           id: 'math-g2-poly-add-sub-q16',
-          question: '$(12a - 8b) \div (-4)$ の計算結果は？',
+          question: '$(12a - 8b) \\div (-4)$ の計算結果は？',
           options: ['$3a - 2b$', '$-3a - 2b$', '$-3a + 2b$', '$3a + 2b$'],
           correctIndex: 2,
           explanation: '$12a \\div (-4) = -3a$、$-8b \\div (-4) = 2b$。\n答え $-3a + 2b$ だよ。',
@@ -360,10 +360,10 @@ export const polynomialAddSub: Topic = {
         },
         {
           id: 'math-g2-poly-add-sub-q17',
-          question: '$\dfrac{x + y}{2} + \dfrac{x - y}{2}$ の計算結果は？',
-          options: ['$x$', '$y$', '$\dfrac{2x}{4}$', '$0$'],
+          question: '$\\dfrac{x + y}{2} + \\dfrac{x - y}{2}$ の計算結果は？',
+          options: ['$x$', '$y$', '$\\dfrac{2x}{4}$', '$0$'],
           correctIndex: 0,
-          explanation: '分母が同じなので分子を足す: $\dfrac{(x+y)+(x-y)}{2} = \dfrac{2x}{2} = x$ だよ。',
+          explanation: '分母が同じなので分子を足す: $\\dfrac{(x+y)+(x-y)}{2} = \\dfrac{2x}{2} = x$ だよ。',
           difficulty: 'standard',
         },
         {
@@ -376,7 +376,7 @@ export const polynomialAddSub: Topic = {
         },
         {
           id: 'math-g2-poly-add-sub-q19',
-          question: '$(-2x + y) \times (-5)$ の計算結果は？',
+          question: '$(-2x + y) \\times (-5)$ の計算結果は？',
           options: ['$10x + 5y$', '$10x - 5y$', '$-10x + 5y$', '$-10x - 5y$'],
           correctIndex: 1,
           explanation: '$(-2x) \\times (-5) = 10x$、$y \\times (-5) = -5y$。\n答え $10x - 5y$ だよ。',
@@ -392,15 +392,15 @@ export const polynomialAddSub: Topic = {
         },
         {
           id: 'math-g2-poly-add-sub-q21',
-          question: '$\dfrac{2x - y}{3} - \dfrac{x + y}{3}$ の計算結果は？',
-          options: ['$\dfrac{x - 2y}{3}$', '$\dfrac{x}{3}$', '$\dfrac{3x}{3}$', '$\dfrac{x + 2y}{3}$'],
+          question: '$\\dfrac{2x - y}{3} - \\dfrac{x + y}{3}$ の計算結果は？',
+          options: ['$\\dfrac{x - 2y}{3}$', '$\\dfrac{x}{3}$', '$\\dfrac{3x}{3}$', '$\\dfrac{x + 2y}{3}$'],
           correctIndex: 0,
-          explanation: '分母同じ: $\dfrac{(2x-y)-(x+y)}{3} = \dfrac{x - 2y}{3}$ だよ。',
+          explanation: '分母同じ: $\\dfrac{(2x-y)-(x+y)}{3} = \\dfrac{x - 2y}{3}$ だよ。',
           difficulty: 'standard',
         },
         {
           id: 'math-g2-poly-add-sub-q22',
-          question: '$(15a - 10b + 5) \div 5$ の計算結果は？',
+          question: '$(15a - 10b + 5) \\div 5$ の計算結果は？',
           options: ['$3a - 10b + 5$', '$3a - 2b + 1$', '$15a - 2b + 1$', '$3a - 2b + 5$'],
           correctIndex: 1,
           explanation: '各項を $5$ で割る。\n答え $3a - 2b + 1$ だよ。',
@@ -408,10 +408,10 @@ export const polynomialAddSub: Topic = {
         },
         {
           id: 'math-g2-poly-add-sub-q23',
-          question: '$(x + y) \div \dfrac{1}{3}$ の計算結果は？',
-          options: ['$\dfrac{x+y}{3}$', '$3x + 3y$', '$\dfrac{3}{x+y}$', '$x + 3y$'],
+          question: '$(x + y) \\div \\dfrac{1}{3}$ の計算結果は？',
+          options: ['$\\dfrac{x+y}{3}$', '$3x + 3y$', '$\\dfrac{3}{x+y}$', '$x + 3y$'],
           correctIndex: 1,
-          explanation: '$\div \dfrac{1}{3} = \times 3$。$(x+y) \times 3 = 3x + 3y$ だよ。',
+          explanation: '$\\div \\dfrac{1}{3} = \\times 3$。$(x+y) \\times 3 = 3x + 3y$ だよ。',
           difficulty: 'advanced',
         },
         {
@@ -432,10 +432,10 @@ export const polynomialAddSub: Topic = {
         },
         {
           id: 'math-g2-poly-add-sub-q26',
-          question: '$\dfrac{a + 2b}{4} + \dfrac{3a - 2b}{4}$ の計算結果は？',
-          options: ['$a$', '$\dfrac{4a}{4}$', '$\dfrac{a}{2}$', '$2a$'],
+          question: '$\\dfrac{a + 2b}{4} + \\dfrac{3a - 2b}{4}$ の計算結果は？',
+          options: ['$a$', '$\\dfrac{4a}{4}$', '$\\dfrac{a}{2}$', '$2a$'],
           correctIndex: 0,
-          explanation: '$\dfrac{(a+2b)+(3a-2b)}{4} = \dfrac{4a}{4} = a$ だよ。',
+          explanation: '$\\dfrac{(a+2b)+(3a-2b)}{4} = \\dfrac{4a}{4} = a$ だよ。',
           difficulty: 'advanced',
         },
         {
@@ -448,7 +448,7 @@ export const polynomialAddSub: Topic = {
         },
         {
           id: 'math-g2-poly-add-sub-q28',
-          question: '$(8x - 6y) \div 2 + (x + y)$ の計算結果は？',
+          question: '$(8x - 6y) \\div 2 + (x + y)$ の計算結果は？',
           options: ['$5x - 2y$', '$5x + 2y$', '$4x - 3y$', '$5x - 4y$'],
           correctIndex: 0,
           explanation: '$4x - 3y + x + y = 5x - 2y$ だよ。',

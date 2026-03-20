@@ -295,7 +295,7 @@ export const monomialMulDiv: Topic = {
         },
         {
           id: 'math-g2-mmd-q12',
-          question: '$6a^2b \times (-3ab^2)$ の計算結果は？',
+          question: '$6a^2b \\times (-3ab^2)$ の計算結果は？',
           options: ['$18a^3b^3$', '$-18a^2b^2$', '$-9a^3b^3$', '$-18a^3b^3$'],
           correctIndex: 3,
           explanation: '係数: $6 \\times (-3) = -18$。文字: $a^3b^3$。\n答え $-18a^3b^3$ だよ。',
@@ -303,7 +303,7 @@ export const monomialMulDiv: Topic = {
         },
         {
           id: 'math-g2-mmd-q13',
-          question: '$20a^3b^2 \div 5a^2b$ の計算結果は？',
+          question: '$20a^3b^2 \\div 5a^2b$ の計算結果は？',
           options: ['$4a^2b$', '$15ab$', '$4ab$', '$4a$'],
           correctIndex: 2,
           explanation: '係数: $20 \\div 5 = 4$。$a^3 \\div a^2 = a$、$b^2 \\div b = b$。\n答え $4ab$ だよ。',
@@ -319,7 +319,7 @@ export const monomialMulDiv: Topic = {
         },
         {
           id: 'math-g2-mmd-q15',
-          question: '$(-5x^2y) \times 2xy^3$ の計算結果は？',
+          question: '$(-5x^2y) \\times 2xy^3$ の計算結果は？',
           options: ['$10x^3y^4$', '$-10x^2y^3$', '$-7x^3y^4$', '$-10x^3y^4$'],
           correctIndex: 3,
           explanation: '係数: $-5 \\times 2 = -10$。文字: $x^3y^4$。\n答え $-10x^3y^4$ だよ。',
@@ -327,7 +327,7 @@ export const monomialMulDiv: Topic = {
         },
         {
           id: 'math-g2-mmd-q16',
-          question: '$18x^2y \div (-6xy)$ の計算結果は？',
+          question: '$18x^2y \\div (-6xy)$ の計算結果は？',
           options: ['$3x$', '$-3x$', '$-3xy$', '$3xy$'],
           correctIndex: 1,
           explanation: '係数: $18 \\div (-6) = -3$。$x^2 \\div x = x$、$y \\div y = 1$。\n答え $-3x$ だよ。',
@@ -335,7 +335,7 @@ export const monomialMulDiv: Topic = {
         },
         {
           id: 'math-g2-mmd-q17',
-          question: '$(-3a)^2 \times 2a$ の計算結果は？',
+          question: '$(-3a)^2 \\times 2a$ の計算結果は？',
           options: ['$-18a^3$', '$-6a^3$', '$18a^3$', '$12a^3$'],
           correctIndex: 2,
           explanation: '$(-3a)^2 = 9a^2$。\n$9a^2 \\times 2a = 18a^3$ だよ。',
@@ -351,15 +351,15 @@ export const monomialMulDiv: Topic = {
         },
         {
           id: 'math-g2-mmd-q19',
-          question: '$4xy \times (-3x)^2$ の計算結果は？',
+          question: '$4xy \\times (-3x)^2$ の計算結果は？',
           options: ['$-36x^3y$', '$36x^3y$', '$-12x^3y$', '$12x^3y$'],
           correctIndex: 1,
-          explanation: '$(-3x)^2 = 9x^2$。$4xy \times 9x^2 = 36x^3y$ だよ。',
+          explanation: '$(-3x)^2 = 9x^2$。$4xy \\times 9x^2 = 36x^3y$ だよ。',
           difficulty: 'standard',
         },
         {
           id: 'math-g2-mmd-q20',
-          question: '$(-2x)^2 \times (-x)^3$ の計算結果は？',
+          question: '$(-2x)^2 \\times (-x)^3$ の計算結果は？',
           options: ['$4x^5$', '$-4x^5$', '$-8x^5$', '$8x^5$'],
           correctIndex: 1,
           explanation: '$(-2x)^2 = 4x^2$、$(-x)^3 = -x^3$。\n$4x^2 \\times (-x^3) = -4x^5$ だよ。',
@@ -367,10 +367,10 @@ export const monomialMulDiv: Topic = {
         },
         {
           id: 'math-g2-mmd-q21',
-          question: '$6ab \div \dfrac{2}{3}a$ の計算結果は？',
-          options: ['$4b$', '$9b$', '$\dfrac{4b}{a}$', '$\dfrac{9b}{a}$'],
+          question: '$6ab \\div \\dfrac{2}{3}a$ の計算結果は？',
+          options: ['$4b$', '$9b$', '$\\dfrac{4b}{a}$', '$\\dfrac{9b}{a}$'],
           correctIndex: 1,
-          explanation: '$6ab \times \dfrac{3}{2a} = \dfrac{18ab}{2a} = 9b$ だよ。',
+          explanation: '$6ab \\times \\dfrac{3}{2a} = \\dfrac{18ab}{2a} = 9b$ だよ。',
           difficulty: 'standard',
         },
         {
@@ -383,7 +383,7 @@ export const monomialMulDiv: Topic = {
         },
         {
           id: 'math-g2-mmd-q23',
-          question: '$(-4ab)^2 \div 8a^2b$ の計算結果は？',
+          question: '$(-4ab)^2 \\div 8a^2b$ の計算結果は？',
           options: ['$2b$', '$-2b$', '$2ab$', '$-2ab$'],
           correctIndex: 0,
           explanation: '$(-4ab)^2 = 16a^2b^2$。\n$\\dfrac{16a^2b^2}{8a^2b} = 2b$ だよ。',
@@ -391,7 +391,7 @@ export const monomialMulDiv: Topic = {
         },
         {
           id: 'math-g2-mmd-q24',
-          question: '$2x^3 \times 3x^2$ の計算結果は？',
+          question: '$2x^3 \\times 3x^2$ の計算結果は？',
           options: ['$6x^6$', '$5x^5$', '$6x^3$', '$6x^5$'],
           correctIndex: 3,
           explanation: '係数: $2 \\times 3 = 6$。指数を足す: $x^{3+2} = x^5$。\n答え $6x^5$ だよ。',
@@ -399,7 +399,7 @@ export const monomialMulDiv: Topic = {
         },
         {
           id: 'math-g2-mmd-q25',
-          question: '$\dfrac{(-3a)^2 \times 2b}{6ab}$ の計算結果は？',
+          question: '$\\dfrac{(-3a)^2 \\times 2b}{6ab}$ の計算結果は？',
           options: ['$3a$', '$-3a$', '$3b$', '$-3b$'],
           correctIndex: 0,
           explanation: '$(-3a)^2 = 9a^2$。\n$\\dfrac{9a^2 \\times 2b}{6ab} = \\dfrac{18a^2b}{6ab} = 3a$ だよ。',
@@ -407,15 +407,15 @@ export const monomialMulDiv: Topic = {
         },
         {
           id: 'math-g2-mmd-q26',
-          question: '$(2ab)^2 \div (2a)^2$ の計算結果は？',
+          question: '$(2ab)^2 \\div (2a)^2$ の計算結果は？',
           options: ['$b^2$', '$a^2b^2$', '$4b^2$', '$b$'],
           correctIndex: 0,
-          explanation: '$(2ab)^2 = 4a^2b^2$、$(2a)^2 = 4a^2$。$\dfrac{4a^2b^2}{4a^2} = b^2$ だよ。',
+          explanation: '$(2ab)^2 = 4a^2b^2$、$(2a)^2 = 4a^2$。$\\dfrac{4a^2b^2}{4a^2} = b^2$ だよ。',
           difficulty: 'advanced',
         },
         {
           id: 'math-g2-mmd-q27',
-          question: '$(-x)^4 \times x^2$ の計算結果は？',
+          question: '$(-x)^4 \\times x^2$ の計算結果は？',
           options: ['$x^6$', '$-x^6$', '$x^8$', '$-x^8$'],
           correctIndex: 0,
           explanation: '$(-x)^4 = x^4$（偶数乗→正）。\n$x^4 \\times x^2 = x^6$ だよ。',
@@ -423,7 +423,7 @@ export const monomialMulDiv: Topic = {
         },
         {
           id: 'math-g2-mmd-q28',
-          question: '$10a^2b^3 \div (-5ab) \times 3a$ の計算結果は？',
+          question: '$10a^2b^3 \\div (-5ab) \\times 3a$ の計算結果は？',
           options: ['$6a^2b^2$', '$-6a^2b^2$', '$6ab^2$', '$-6ab^2$'],
           correctIndex: 1,
           explanation: '$\\dfrac{10a^2b^3 \\times 3a}{-5ab} = \\dfrac{30a^3b^3}{-5ab}$\n$= -6a^2b^2$ だよ。',

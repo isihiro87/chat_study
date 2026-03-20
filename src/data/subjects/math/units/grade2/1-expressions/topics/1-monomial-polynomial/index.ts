@@ -376,8 +376,8 @@ export const monomialPolynomial: Topic = {
         },
         {
           id: 'math-g2-mp-q18',
-          question: '単項式 $\dfrac{1}{2}x^3$ の次数は？',
-          options: ['$\dfrac{1}{2}$', '$1$', '$2$', '$3$'],
+          question: '単項式 $\\dfrac{1}{2}x^3$ の次数は？',
+          options: ['$\\dfrac{1}{2}$', '$1$', '$2$', '$3$'],
           correctIndex: 3,
           explanation: '$x$ が3個かけ合わされているから次数は $3$ だよ。',
           difficulty: 'standard',
@@ -392,10 +392,10 @@ export const monomialPolynomial: Topic = {
         },
         {
           id: 'math-g2-mp-q20',
-          question: '$\dfrac{2}{3}a - \dfrac{1}{4}a$ を計算すると？',
-          options: ['$\dfrac{1}{7}a$', '$\dfrac{5}{12}a$', '$\dfrac{1}{12}a$', '$\dfrac{7}{12}a$'],
+          question: '$\\dfrac{2}{3}a - \\dfrac{1}{4}a$ を計算すると？',
+          options: ['$\\dfrac{1}{7}a$', '$\\dfrac{5}{12}a$', '$\\dfrac{1}{12}a$', '$\\dfrac{7}{12}a$'],
           correctIndex: 1,
-          explanation: '通分して $\dfrac{8}{12}a - \dfrac{3}{12}a = \dfrac{5}{12}a$ だよ。',
+          explanation: '通分して $\\dfrac{8}{12}a - \\dfrac{3}{12}a = \\dfrac{5}{12}a$ だよ。',
           difficulty: 'standard',
         },
         {

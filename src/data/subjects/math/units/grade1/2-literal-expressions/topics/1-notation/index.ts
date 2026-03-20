@@ -329,7 +329,7 @@ export const literalNotation: Topic = {
         },
         {
           id: 'math-g1-lit-notation-q13',
-          question: '$a \times a \times b$ を文字式で表すと？',
+          question: '$a \\times a \\times b$ を文字式で表すと？',
           options: ['$a^2b$', '$2ab$', '$ab^2$', '$a^2 + b$'],
           correctIndex: 0,
           explanation: '$a$ が2個かけ合わされるので $a^2$、$b$ はそのままで $a^2b$ だよ。',
@@ -353,7 +353,7 @@ export const literalNotation: Topic = {
         },
         {
           id: 'math-g1-lit-notation-q16',
-          question: '$\dfrac{a + b}{2}$ は何を表す？',
+          question: '$\\dfrac{a + b}{2}$ は何を表す？',
           options: ['$a$ と $b$ の差の半分', '$a$ と $b$ の積の半分', '$a$ と $b$ の平均', '$a$ を $b$ で割った商'],
           correctIndex: 2,
           explanation: '2つの数の和を $2$ で割ると平均になるよ。',
@@ -361,7 +361,7 @@ export const literalNotation: Topic = {
         },
         {
           id: 'math-g1-lit-notation-q17',
-          question: '$y \times x \times 3$ を文字式で表すと？',
+          question: '$y \\times x \\times 3$ を文字式で表すと？',
           options: ['$yx3$', '$3yx$', '$3xy$', '$xy3$'],
           correctIndex: 2,
           explanation: '数を前に、文字はアルファベット順に。$3xy$ だよ。',
@@ -369,16 +369,16 @@ export const literalNotation: Topic = {
         },
         {
           id: 'math-g1-lit-notation-q18',
-          question: '$a \div 7 \times b$ を文字式で表すと？',
-          options: ['$\dfrac{ab}{7}$', '$\dfrac{a}{7b}$', '$\dfrac{7a}{b}$', '$7ab$'],
+          question: '$a \\div 7 \\times b$ を文字式で表すと？',
+          options: ['$\\dfrac{ab}{7}$', '$\\dfrac{a}{7b}$', '$\\dfrac{7a}{b}$', '$7ab$'],
           correctIndex: 0,
-          explanation: '$a \div 7 = \dfrac{a}{7}$。$\dfrac{a}{7} \times b = \dfrac{ab}{7}$ だよ。',
+          explanation: '$a \\div 7 = \\dfrac{a}{7}$。$\\dfrac{a}{7} \\times b = \\dfrac{ab}{7}$ だよ。',
           difficulty: 'standard',
         },
         {
           id: 'math-g1-lit-notation-q19',
           question: '半径 $r$ cm の円の周の長さは？',
-          options: ['$\pi r^2$ cm', '$r^2$ cm', '$\pi r$ cm', '$2\pi r$ cm'],
+          options: ['$\\pi r^2$ cm', '$r^2$ cm', '$\\pi r$ cm', '$2\\pi r$ cm'],
           correctIndex: 3,
           explanation: '円周 $= 2\\pi r$\n面積 $\\pi r^2$ と混同しないように！',
           difficulty: 'standard',
@@ -394,9 +394,9 @@ export const literalNotation: Topic = {
         {
           id: 'math-g1-lit-notation-q21',
           question: '底辺 $a$ cm、高さ $h$ cm の三角形の面積を文字式で表すと？',
-          options: ['$ah$ cm²', '$\dfrac{ah}{2}$ cm²', '$2ah$ cm²', '$\dfrac{a+h}{2}$ cm²'],
+          options: ['$ah$ cm²', '$\\dfrac{ah}{2}$ cm²', '$2ah$ cm²', '$\\dfrac{a+h}{2}$ cm²'],
           correctIndex: 1,
-          explanation: '三角形の面積 $= \dfrac{底辺 \times 高さ}{2} = \dfrac{ah}{2}$ だよ。',
+          explanation: '三角形の面積 $= \\dfrac{底辺 \\times 高さ}{2} = \\dfrac{ah}{2}$ だよ。',
           difficulty: 'standard',
         },
         {
@@ -417,7 +417,7 @@ export const literalNotation: Topic = {
         },
         {
           id: 'math-g1-lit-notation-q24',
-          question: '$(-1) \times x \times y$ を文字式で表すと？',
+          question: '$(-1) \\times x \\times y$ を文字式で表すと？',
           options: ['$-1xy$', '$xy$', '$-xy$', '$-(xy)$'],
           correctIndex: 2,
           explanation: '$-1$ の $1$ を省略して $-xy$ と書くよ。',
@@ -426,17 +426,17 @@ export const literalNotation: Topic = {
         {
           id: 'math-g1-lit-notation-q25',
           question: '時速 $v$ km で $t$ 時間走った道のりを文字式で表すと？',
-          options: ['$\dfrac{v}{t}$ km', '$\dfrac{t}{v}$ km', '$v + t$ km', '$vt$ km'],
+          options: ['$\\dfrac{v}{t}$ km', '$\\dfrac{t}{v}$ km', '$v + t$ km', '$vt$ km'],
           correctIndex: 3,
-          explanation: '道のり $=$ 速さ $\times$ 時間 $= vt$ km だよ。',
+          explanation: '道のり $=$ 速さ $\\times$ 時間 $= vt$ km だよ。',
           difficulty: 'advanced',
         },
         {
           id: 'math-g1-lit-notation-q26',
-          question: '$\dfrac{2x - 1}{3}$ に $x = 5$ を代入すると？',
-          options: ['$3$', '$\dfrac{9}{3}$', '$1$', '$\dfrac{11}{3}$'],
+          question: '$\\dfrac{2x - 1}{3}$ に $x = 5$ を代入すると？',
+          options: ['$3$', '$\\dfrac{9}{3}$', '$1$', '$\\dfrac{11}{3}$'],
           correctIndex: 0,
-          explanation: '$\dfrac{2 \times 5 - 1}{3} = \dfrac{10 - 1}{3} = \dfrac{9}{3} = 3$ だよ。',
+          explanation: '$\\dfrac{2 \\times 5 - 1}{3} = \\dfrac{10 - 1}{3} = \\dfrac{9}{3} = 3$ だよ。',
           difficulty: 'advanced',
         },
         {

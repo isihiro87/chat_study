@@ -331,10 +331,10 @@ export const literalExpressions: Topic = {
         },
         {
           id: 'math-g2-le-q12',
-          question: '$C = 2\pi r$ を $r$ について解くと？',
-          options: ['$r = \dfrac{2C}{\pi}$', '$r = \dfrac{C}{2\pi}$', '$r = 2\pi C$', '$r = C - 2\pi$'],
+          question: '$C = 2\\pi r$ を $r$ について解くと？',
+          options: ['$r = \\dfrac{2C}{\\pi}$', '$r = \\dfrac{C}{2\\pi}$', '$r = 2\\pi C$', '$r = C - 2\\pi$'],
           correctIndex: 1,
-          explanation: '両辺を $2\pi$ で割ると $r = \dfrac{C}{2\pi}$ だよ。',
+          explanation: '両辺を $2\\pi$ で割ると $r = \\dfrac{C}{2\\pi}$ だよ。',
           difficulty: 'standard',
         },
         {
@@ -348,9 +348,9 @@ export const literalExpressions: Topic = {
         {
           id: 'math-g2-le-q14',
           question: '$y = -2x + 5$ を $x$ について解くと？',
-          options: ['$x = \dfrac{y - 5}{-2}$', '$x = \dfrac{-y + 5}{2}$', '$x = \dfrac{5 - y}{2}$', 'すべて正しい'],
+          options: ['$x = \\dfrac{y - 5}{-2}$', '$x = \\dfrac{-y + 5}{2}$', '$x = \\dfrac{5 - y}{2}$', 'すべて正しい'],
           correctIndex: 3,
-          explanation: 'すべて同じ式を変形したものだよ。$x = \dfrac{5-y}{2}$ が最もシンプル。',
+          explanation: 'すべて同じ式を変形したものだよ。$x = \\dfrac{5-y}{2}$ が最もシンプル。',
           difficulty: 'standard',
         },
         {
@@ -371,7 +371,7 @@ export const literalExpressions: Topic = {
         },
         {
           id: 'math-g2-le-q17',
-          question: '$S = \dfrac{(a+b)h}{2}$ を $a$ について解くと？',
+          question: '$S = \\dfrac{(a+b)h}{2}$ を $a$ について解くと？',
           options: ['$a = \\dfrac{2S}{h} - b$', '$a = \\dfrac{S}{2h} - b$', '$a = 2Sh - b$', '$a = \\dfrac{2S - b}{h}$'],
           correctIndex: 0,
           explanation: '$2S = (a+b)h$ → $\\dfrac{2S}{h} = a+b$ → $a = \\dfrac{2S}{h} - b$ だよ。',
@@ -396,9 +396,9 @@ export const literalExpressions: Topic = {
         {
           id: 'math-g2-le-q20',
           question: '$2x - 3y = 6$ を $y$ について解くと？',
-          options: ['$y = \dfrac{2x - 6}{3}$', '$y = \dfrac{6 - 2x}{3}$', '$y = 2x - 2$', '$y = \dfrac{2x + 6}{3}$'],
+          options: ['$y = \\dfrac{2x - 6}{3}$', '$y = \\dfrac{6 - 2x}{3}$', '$y = 2x - 2$', '$y = \\dfrac{2x + 6}{3}$'],
           correctIndex: 0,
-          explanation: '$-3y = 6 - 2x$ → $y = \dfrac{-(6-2x)}{3} = \dfrac{2x-6}{3}$ だよ。',
+          explanation: '$-3y = 6 - 2x$ → $y = \\dfrac{-(6-2x)}{3} = \\dfrac{2x-6}{3}$ だよ。',
           difficulty: 'standard',
         },
         {
@@ -412,9 +412,9 @@ export const literalExpressions: Topic = {
         {
           id: 'math-g2-le-q22',
           question: '$V = lwh$ を $h$ について解くと？',
-          options: ['$h = V - lw$', '$h = \dfrac{lw}{V}$', '$h = Vlw$', '$h = \dfrac{V}{lw}$'],
+          options: ['$h = V - lw$', '$h = \\dfrac{lw}{V}$', '$h = Vlw$', '$h = \\dfrac{V}{lw}$'],
           correctIndex: 3,
-          explanation: '両辺を $lw$ で割って $h = \dfrac{V}{lw}$ だよ。',
+          explanation: '両辺を $lw$ で割って $h = \\dfrac{V}{lw}$ だよ。',
           difficulty: 'standard',
         },
         {
@@ -435,10 +435,10 @@ export const literalExpressions: Topic = {
         },
         {
           id: 'math-g2-le-q25',
-          question: '$a = \dfrac{F}{m}$ のとき、$m$ を $a$ と $F$ で表すと？',
-          options: ['$m = aF$', '$m = \dfrac{a}{F}$', '$m = \dfrac{F}{a}$', '$m = F - a$'],
+          question: '$a = \\dfrac{F}{m}$ のとき、$m$ を $a$ と $F$ で表すと？',
+          options: ['$m = aF$', '$m = \\dfrac{a}{F}$', '$m = \\dfrac{F}{a}$', '$m = F - a$'],
           correctIndex: 2,
-          explanation: '$a = \dfrac{F}{m}$ → $m = \dfrac{F}{a}$ だよ。',
+          explanation: '$a = \\dfrac{F}{m}$ → $m = \\dfrac{F}{a}$ だよ。',
           difficulty: 'advanced',
         },
         {
@@ -451,7 +451,7 @@ export const literalExpressions: Topic = {
         },
         {
           id: 'math-g2-le-q27',
-          question: '3けたの数 $\overline{abc}$ と $\overline{cba}$ の差は何の倍数？',
+          question: '3けたの数 $\\overline{abc}$ と $\\overline{cba}$ の差は何の倍数？',
           options: ['$9$ の倍数', '$99$ の倍数', '$11$ の倍数', '$100$ の倍数'],
           correctIndex: 1,
           explanation: '$(100a+10b+c)-(100c+10b+a) = 99(a-c)$。$99$ の倍数だよ。',
@@ -460,9 +460,9 @@ export const literalExpressions: Topic = {
         {
           id: 'math-g2-le-q28',
           question: '$4x + 5y = 20$ を $x$ について解くと？',
-          options: ['$x = \dfrac{20 - 5y}{4}$', '$x = 5 - \dfrac{5y}{4}$', '$x = \dfrac{20 + 5y}{4}$', '①と②は同じ'],
+          options: ['$x = \\dfrac{20 - 5y}{4}$', '$x = 5 - \\dfrac{5y}{4}$', '$x = \\dfrac{20 + 5y}{4}$', '①と②は同じ'],
           correctIndex: 3,
-          explanation: '$4x = 20 - 5y$ → $x = \dfrac{20-5y}{4} = 5 - \dfrac{5y}{4}$。どちらも正しいよ。',
+          explanation: '$4x = 20 - 5y$ → $x = \\dfrac{20-5y}{4} = 5 - \\dfrac{5y}{4}$。どちらも正しいよ。',
           difficulty: 'advanced',
         },
       ],

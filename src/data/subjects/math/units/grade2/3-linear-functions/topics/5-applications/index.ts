@@ -365,10 +365,10 @@ export const linearFuncApplications: Topic = {
         },
         {
           id: 'math-g2-lfapps-q16',
-          question: 'AB $= 10$、AD $= 6$。P が A→B を毎秒 $2$ cm。$\triangle APD$ の面積は？',
+          question: 'AB $= 10$、AD $= 6$。P が A→B を毎秒 $2$ cm。$\\triangle APD$ の面積は？',
           options: ['$y = 6x$', '$y = 12x$', '$y = 3x$', '$y = 10x$'],
           correctIndex: 0,
-          explanation: '$y = \dfrac{1}{2} \times 2x \times 6 = 6x$ だよ。',
+          explanation: '$y = \\dfrac{1}{2} \\times 2x \\times 6 = 6x$ だよ。',
           difficulty: 'standard',
         },
         {
@@ -384,7 +384,7 @@ export const linearFuncApplications: Topic = {
           question: '同じ地点から同方向に分速 $60$ m と $80$ m。$10$ 分後の距離差は？',
           options: ['$100$ m', '$400$ m', '$300$ m', '$200$ m'],
           correctIndex: 3,
-          explanation: '$(80-60) \times 10 = 200$ m だよ。',
+          explanation: '$(80-60) \\times 10 = 200$ m だよ。',
           difficulty: 'standard',
         },
         {
@@ -406,7 +406,7 @@ export const linearFuncApplications: Topic = {
         {
           id: 'math-g2-lfapps-q21',
           question: '分速 $80$ m で $x$ 分、分速 $120$ m で $y$ 分。合計 $1600$ m の式は？',
-          options: ['$80x + 120y = 1600$', '$200xy = 1600$', '$\dfrac{x}{80} + \dfrac{y}{120} = 1600$', '$80 + 120 = 1600$'],
+          options: ['$80x + 120y = 1600$', '$200xy = 1600$', '$\\dfrac{x}{80} + \\dfrac{y}{120} = 1600$', '$80 + 120 = 1600$'],
           correctIndex: 0,
           explanation: '$80x + 120y = 1600$ だよ。',
           difficulty: 'standard',
@@ -432,7 +432,7 @@ export const linearFuncApplications: Topic = {
           question: '$4000$ m 離れて向かい合い、分速 $120$ m と $80$ m。出会うのは？',
           options: ['$15$ 分', '$30$ 分', '$25$ 分', '$20$ 分'],
           correctIndex: 3,
-          explanation: '$4000 \div 200 = 20$ 分だよ。',
+          explanation: '$4000 \\div 200 = 20$ 分だよ。',
           difficulty: 'advanced',
         },
         {
@@ -440,7 +440,7 @@ export const linearFuncApplications: Topic = {
           question: '水量 $0$ L、毎分 $4$ L。$15$ 分後は？',
           options: ['$40$ L', '$50$ L', '$60$ L', '$45$ L'],
           correctIndex: 2,
-          explanation: '$4 \times 15 = 60$ L だよ。',
+          explanation: '$4 \\times 15 = 60$ L だよ。',
           difficulty: 'advanced',
         },
         {

@@ -332,9 +332,9 @@ export const elimination: Topic = {
         {
           id: 'math-g2-elim-q12',
           question: '$\\begin{cases} 5x - 2y = 11 \\ 3x + 2y = 5 \\end{cases}$ を加減法で解くと？',
-          options: ['$x = 1, y = -3$', '$x = 2, y = -\frac{1}{2}$', '$x = 3, y = 2$', '$x = 2, y = -\frac{1}{2}$'],
+          options: ['$x = 1, y = -3$', '$x = 2, y = -\\frac{1}{2}$', '$x = 3, y = 2$', '$x = 2, y = -\\frac{1}{2}$'],
           correctIndex: 1,
-          explanation: '$y$ の係数が逆符号。足すと $8x = 16$、$x = 2$。$5(2) - 2y = 11$ → $y = -\frac{1}{2}$ だよ。',
+          explanation: '$y$ の係数が逆符号。足すと $8x = 16$、$x = 2$。$5(2) - 2y = 11$ → $y = -\\frac{1}{2}$ だよ。',
           difficulty: 'standard',
         },
         {
@@ -452,7 +452,7 @@ export const elimination: Topic = {
         {
           id: 'math-g2-elim-q27',
           question: '$\\begin{cases} 5x + 2y = 19 \\ 3x - 2y = 5 \\end{cases}$ の解は？',
-          options: ['$x = 2, y = \frac{9}{2}$', '$x = 3, y = 2$', '$x = 1, y = 7$', '$x = 4, y = -\frac{1}{2}$'],
+          options: ['$x = 2, y = \\frac{9}{2}$', '$x = 3, y = 2$', '$x = 1, y = 7$', '$x = 4, y = -\\frac{1}{2}$'],
           correctIndex: 1,
           explanation: '$y$ が逆符号。足すと $8x = 24$、$x = 3$。$15 + 2y = 19$ → $y = 2$ だよ。',
           difficulty: 'advanced',

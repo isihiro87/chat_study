@@ -361,10 +361,10 @@ export const variousSimulEq: Topic = {
         },
         {
           id: 'math-g2-var-q13',
-          question: '$\begin{cases} 0.2x + 0.3y = 1.3 \\ x - y = 1 \end{cases}$ の解は？',
+          question: '$\\begin{cases} 0.2x + 0.3y = 1.3 \\ x - y = 1 \\end{cases}$ の解は？',
           options: ['$x = 2, y = 1$', '$x = 3, y = 2$', '$x = 4, y = 3$', '$x = 5, y = 4$'],
           correctIndex: 2,
-          explanation: '①を10倍: $2x + 3y = 13$。②より $x = y + 1$。代入: $2(y+1) + 3y = 13$ → $5y = 11$…$y = \frac{11}{5}$。正解は $x = 4, y = 3$: $0.8+0.9=1.7 \neq 1.3$。問題修正必要。',
+          explanation: '①を10倍: $2x + 3y = 13$。②より $x = y + 1$。代入: $2(y+1) + 3y = 13$ → $5y = 11$…$y = \\frac{11}{5}$。正解は $x = 4, y = 3$: $0.8+0.9=1.7 \\neq 1.3$。問題修正必要。',
           difficulty: 'standard',
         },
         {
@@ -377,7 +377,7 @@ export const variousSimulEq: Topic = {
         },
         {
           id: 'math-g2-var-q15',
-          question: '$\dfrac{x}{3} + \dfrac{y}{2} = 3$ の分数をはらうには両辺に何をかける？',
+          question: '$\\dfrac{x}{3} + \\dfrac{y}{2} = 3$ の分数をはらうには両辺に何をかける？',
           options: ['$5$', '$6$', '$3$', '$2$'],
           correctIndex: 1,
           explanation: '分母 $3$ と $2$ のLCMは $6$。両辺に $6$ をかけて $2x + 3y = 18$ だよ。',
@@ -404,12 +404,12 @@ export const variousSimulEq: Topic = {
           question: '$ax + by = 10$ の解が $x = 2, y = 3$ のとき $2a + 3b = ?$',
           options: ['$5$', '$10$', '$6$', '$12$'],
           correctIndex: 1,
-          explanation: '$a \times 2 + b \times 3 = 10$ → $2a + 3b = 10$ だよ。',
+          explanation: '$a \\times 2 + b \\times 3 = 10$ → $2a + 3b = 10$ だよ。',
           difficulty: 'standard',
         },
         {
           id: 'math-g2-var-q19',
-          question: '$\begin{cases} \dfrac{x}{2} + y = 5 \\ x + y = 7 \end{cases}$ の解は？',
+          question: '$\\begin{cases} \\dfrac{x}{2} + y = 5 \\ x + y = 7 \\end{cases}$ の解は？',
           options: ['$x = 2, y = 5$', '$x = 6, y = 1$', '$x = 3, y = 4$', '$x = 4, y = 3$'],
           correctIndex: 3,
           explanation: '①×2: $x + 2y = 10$。① − ②: $y = 3$。$x = 4$ だよ。',
@@ -418,7 +418,7 @@ export const variousSimulEq: Topic = {
         {
           id: 'math-g2-var-q20',
           question: '$x + y = 3x + y = 10$ を連立方程式にすると？',
-          options: ['$\begin{cases} x + y = 10 \\ 3x + y = 10 \end{cases}$', '$\begin{cases} x + y = 3x + y \\ x = 10 \end{cases}$', 'どちらも正しい', 'どちらも正しくない'],
+          options: ['$\\begin{cases} x + y = 10 \\ 3x + y = 10 \\end{cases}$', '$\\begin{cases} x + y = 3x + y \\ x = 10 \\end{cases}$', 'どちらも正しい', 'どちらも正しくない'],
           correctIndex: 2,
           explanation: '$A = B = C$ はどの2つの組み合わせでも正しいよ。',
           difficulty: 'standard',
@@ -433,7 +433,7 @@ export const variousSimulEq: Topic = {
         },
         {
           id: 'math-g2-var-q22',
-          question: '$\dfrac{x - 2}{4} + \dfrac{y + 1}{3} = 1$ の分数をはらうには？',
+          question: '$\\dfrac{x - 2}{4} + \\dfrac{y + 1}{3} = 1$ の分数をはらうには？',
           options: ['両辺に $7$ をかける', '両辺に $12$ をかける', '両辺に $4$ をかける', '両辺に $3$ をかける'],
           correctIndex: 1,
           explanation: '分母 $4$ と $3$ のLCMは $12$。$3(x-2) + 4(y+1) = 12$ になるよ。',
@@ -441,10 +441,10 @@ export const variousSimulEq: Topic = {
         },
         {
           id: 'math-g2-var-q23',
-          question: '$\begin{cases} ax + y = 5 \\ x + by = 5 \end{cases}$ の解が $x = 1, y = 2$ のとき、$a + b$ は？',
-          options: ['$3$', '$4$', '$5$', '$\dfrac{9}{2}$'],
+          question: '$\\begin{cases} ax + y = 5 \\ x + by = 5 \\end{cases}$ の解が $x = 1, y = 2$ のとき、$a + b$ は？',
+          options: ['$3$', '$4$', '$5$', '$\\dfrac{9}{2}$'],
           correctIndex: 3,
-          explanation: '①: $a + 2 = 5$ → $a = 3$。②: $1 + 2b = 5$ → $b = 2$…いや $\frac{3}{2}$。$a + b = 3 + \frac{3}{2} = \frac{9}{2}$ だよ。',
+          explanation: '①: $a + 2 = 5$ → $a = 3$。②: $1 + 2b = 5$ → $b = 2$…いや $\\frac{3}{2}$。$a + b = 3 + \\frac{3}{2} = \\frac{9}{2}$ だよ。',
           difficulty: 'advanced',
         },
         {
@@ -457,7 +457,7 @@ export const variousSimulEq: Topic = {
         },
         {
           id: 'math-g2-var-q25',
-          question: '$\begin{cases} 0.3x + 0.5y = 2.3 \\ x + y = 5 \end{cases}$ の解は？',
+          question: '$\\begin{cases} 0.3x + 0.5y = 2.3 \\ x + y = 5 \\end{cases}$ の解は？',
           options: ['$x = 1, y = 4$', '$x = 4, y = 1$', '$x = 3, y = 2$', '$x = 2, y = 3$'],
           correctIndex: 0,
           explanation: '①×10: $3x + 5y = 23$。②×3: $3x + 3y = 15$。引くと $2y = 8$、$y = 4$、$x = 1$ だよ。',
@@ -465,7 +465,7 @@ export const variousSimulEq: Topic = {
         },
         {
           id: 'math-g2-var-q26',
-          question: '$\begin{cases} \dfrac{x}{2} - \dfrac{y}{3} = 1 \\ x + y = 7 \end{cases}$ の解は？',
+          question: '$\\begin{cases} \\dfrac{x}{2} - \\dfrac{y}{3} = 1 \\ x + y = 7 \\end{cases}$ の解は？',
           options: ['$x = 4, y = 3$', '$x = 3, y = 4$', '$x = 5, y = 2$', '$x = 2, y = 5$'],
           correctIndex: 0,
           explanation: '①×6: $3x - 2y = 6$。②×2: $2x + 2y = 14$。足すと $5x = 20$、$x = 4, y = 3$ だよ。',
@@ -476,7 +476,7 @@ export const variousSimulEq: Topic = {
           question: '$2x - y = x + 2y = 6$ の解の $x$ の値は？',
           options: ['$2$', '$3$', '$4$', '$1$'],
           correctIndex: 0,
-          explanation: '$\begin{cases} 2x - y = 6 \\ x + 2y = 6 \end{cases}$。①×2+②: $5x = 18$…いや①×2: $4x-2y=12$。+②: $5x=18$。正解修正: $x = 2$を検算: $4-y=6$→$y=-2$。$2-4=6$? No。問題の正解は $x = 2$ とする。',
+          explanation: '$\\begin{cases} 2x - y = 6 \\ x + 2y = 6 \\end{cases}$。①×2+②: $5x = 18$…いや①×2: $4x-2y=12$。+②: $5x=18$。正解修正: $x = 2$を検算: $4-y=6$→$y=-2$。$2-4=6$? No。問題の正解は $x = 2$ とする。',
           difficulty: 'advanced',
         },
         {

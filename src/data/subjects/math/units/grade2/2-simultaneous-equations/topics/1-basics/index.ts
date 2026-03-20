@@ -324,7 +324,7 @@ export const simulEqBasics: Topic = {
         },
         {
           id: 'math-g2-sb-q12',
-          question: '$\begin{cases} x + y = 8 \\ x - y = 2 \end{cases}$ の解は？',
+          question: '$\\begin{cases} x + y = 8 \\ x - y = 2 \\end{cases}$ の解は？',
           options: ['$x = 3, y = 5$', '$x = 4, y = 4$', '$x = 6, y = 2$', '$x = 5, y = 3$'],
           correctIndex: 3,
           explanation: '足すと $2x = 10$、$x = 5$。$5 + y = 8$ → $y = 3$ だよ。',
@@ -356,7 +356,7 @@ export const simulEqBasics: Topic = {
         },
         {
           id: 'math-g2-sb-q16',
-          question: '$\begin{cases} 2x + y = 10 \\ x + y = 7 \end{cases}$ の解は？',
+          question: '$\\begin{cases} 2x + y = 10 \\ x + y = 7 \\end{cases}$ の解は？',
           options: ['$x = 2, y = 5$', '$x = 3, y = 4$', '$x = 4, y = 3$', '$x = 5, y = 0$'],
           correctIndex: 1,
           explanation: '①−②: $x = 3$。$3 + y = 7$ → $y = 4$ だよ。',
@@ -380,7 +380,7 @@ export const simulEqBasics: Topic = {
         },
         {
           id: 'math-g2-sb-q19',
-          question: '$\begin{cases} 3x + y = 11 \\ x + y = 5 \end{cases}$ の解は？',
+          question: '$\\begin{cases} 3x + y = 11 \\ x + y = 5 \\end{cases}$ の解は？',
           options: ['$x = 2, y = 3$', '$x = 3, y = 2$', '$x = 4, y = -1$', '$x = 1, y = 4$'],
           correctIndex: 1,
           explanation: '①−②: $2x = 6$、$x = 3$。$3 + y = 5$ → $y = 2$ だよ。',
@@ -390,10 +390,10 @@ export const simulEqBasics: Topic = {
           id: 'math-g2-sb-q20',
           question: '次のうち、$x = 2, y = 1$ が解である連立方程式はどれ？',
           options: [
-            '$\begin{cases} x + y = 3 \\ x - y = 1 \end{cases}$',
-            '$\begin{cases} x + y = 4 \\ x - y = 1 \end{cases}$',
-            '$\begin{cases} x + y = 3 \\ x - y = 3 \end{cases}$',
-            '$\begin{cases} x + y = 2 \\ x - y = 1 \end{cases}$'
+            '$\\begin{cases} x + y = 3 \\ x - y = 1 \\end{cases}$',
+            '$\\begin{cases} x + y = 4 \\ x - y = 1 \\end{cases}$',
+            '$\\begin{cases} x + y = 3 \\ x - y = 3 \\end{cases}$',
+            '$\\begin{cases} x + y = 2 \\ x - y = 1 \\end{cases}$'
           ],
           correctIndex: 0,
           explanation: '$2+1=3$ ✓、$2-1=1$ ✓。両方成り立つのは①だよ。',
@@ -417,7 +417,7 @@ export const simulEqBasics: Topic = {
         },
         {
           id: 'math-g2-sb-q23',
-          question: '$\begin{cases} x + y = 12 \\ x - y = 4 \end{cases}$ の解は？',
+          question: '$\\begin{cases} x + y = 12 \\ x - y = 4 \\end{cases}$ の解は？',
           options: ['$x = 6, y = 6$', '$x = 7, y = 5$', '$x = 8, y = 4$', '$x = 9, y = 3$'],
           correctIndex: 2,
           explanation: '足すと $2x = 16$、$x = 8$。$8 + y = 12$ → $y = 4$ だよ。',
@@ -449,7 +449,7 @@ export const simulEqBasics: Topic = {
         },
         {
           id: 'math-g2-sb-q27',
-          question: '$\begin{cases} x + y = 7 \\ 2x + y = 11 \end{cases}$ の解は？',
+          question: '$\\begin{cases} x + y = 7 \\ 2x + y = 11 \\end{cases}$ の解は？',
           options: ['$x = 3, y = 4$', '$x = 5, y = 2$', '$x = 4, y = 3$', '$x = 2, y = 5$'],
           correctIndex: 2,
           explanation: '②−①: $x = 4$。$4 + y = 7$ → $y = 3$ だよ。',

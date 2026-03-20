@@ -348,7 +348,7 @@ export const equationsAndGraphs: Topic = {
           question: '$y = 2x$ と $y = -x + 6$ と $y$ 軸で囲まれた三角形の面積は？',
           options: ['$6$', '$8$', '$4$', '$12$'],
           correctIndex: 2,
-          explanation: '交点 $(2,4)$。$y$ 切片 $(0,0)$ と $(0,6)$。底辺 $6$、高さ $2$（$x$ 座標）。$\frac{1}{2} \times 6 \times 2 = 6$…正確には三角形の底辺と高さで $\frac{1}{2} \times 6 \times \frac{4}{3}$…答え $4$。',
+          explanation: '交点 $(2,4)$。$y$ 切片 $(0,0)$ と $(0,6)$。底辺 $6$、高さ $2$（$x$ 座標）。$\\frac{1}{2} \\times 6 \\times 2 = 6$…正確には三角形の底辺と高さで $\\frac{1}{2} \\times 6 \\times \\frac{4}{3}$…答え $4$。',
           difficulty: 'standard',
         },
         {
@@ -388,7 +388,7 @@ export const equationsAndGraphs: Topic = {
           question: '2点 $(4, 0)$ と $(10, 6)$ の中点は？',
           options: ['$(7, 6)$', '$(6, 3)$', '$(7, 3)$', '$(5, 3)$'],
           correctIndex: 2,
-          explanation: '$\left(\dfrac{4+10}{2}, \dfrac{0+6}{2}\right) = (7, 3)$ だよ。',
+          explanation: '$\\left(\\dfrac{4+10}{2}, \\dfrac{0+6}{2}\\right) = (7, 3)$ だよ。',
           difficulty: 'standard',
         },
         {
@@ -412,7 +412,7 @@ export const equationsAndGraphs: Topic = {
           question: '$y = -x + 4$ と $x$ 軸と $y$ 軸で作る三角形の面積は？',
           options: ['$4$', '$8$', '$16$', '$2$'],
           correctIndex: 1,
-          explanation: '$x$ 切片 $(4,0)$、$y$ 切片 $(0,4)$。底辺 $4$、高さ $4$。$\dfrac{1}{2} \times 4 \times 4 = 8$ だよ。',
+          explanation: '$x$ 切片 $(4,0)$、$y$ 切片 $(0,4)$。底辺 $4$、高さ $4$。$\\dfrac{1}{2} \\times 4 \\times 4 = 8$ だよ。',
           difficulty: 'advanced',
         },
         {

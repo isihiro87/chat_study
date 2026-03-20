@@ -330,9 +330,9 @@ export const findLinearEquation: Topic = {
         {
           id: 'math-g2-find-linear-eq-q17',
           question: '2点 $(2, 1)$ と $(5, 7)$ の傾きは？',
-          options: ['$1$', '$2$', '$3$', '$\dfrac{1}{2}$'],
+          options: ['$1$', '$2$', '$3$', '$\\dfrac{1}{2}$'],
           correctIndex: 1,
-          explanation: '$a = \dfrac{7-1}{5-2} = \dfrac{6}{3} = 2$ だよ。',
+          explanation: '$a = \\dfrac{7-1}{5-2} = \\dfrac{6}{3} = 2$ だよ。',
           difficulty: 'standard',
         },
         {
@@ -364,7 +364,7 @@ export const findLinearEquation: Topic = {
           question: '傾き $\\dfrac{2}{3}$ で点 $(6, 7)$ を通る式は？',
           options: ['$y = \\dfrac{3}{2}x + 3$', '$y = \\dfrac{2}{3}x + 7$', '$y = \\dfrac{2}{3}x - 3$', '$y = \\dfrac{2}{3}x + 3$'],
           correctIndex: 3,
-          explanation: '$7 = \dfrac{2}{3} \times 6 + b = 4 + b$ → $b = 3$。$y = \dfrac{2}{3}x + 3$ だよ。',
+          explanation: '$7 = \\dfrac{2}{3} \\times 6 + b = 4 + b$ → $b = 3$。$y = \\dfrac{2}{3}x + 3$ だよ。',
           difficulty: 'standard',
         },
         {
@@ -372,7 +372,7 @@ export const findLinearEquation: Topic = {
           question: '2点 $(-2, 7)$ と $(1, 1)$ を通る直線の式は？',
           options: ['$y = -3x + 1$', '$y = 2x + 11$', '$y = -2x + 7$', '$y = -2x + 3$'],
           correctIndex: 3,
-          explanation: '$a = \dfrac{1-7}{1-(-2)} = \dfrac{-6}{3} = -2$。$1 = -2 + b$ → $b = 3$。$y = -2x + 3$ だよ。',
+          explanation: '$a = \\dfrac{1-7}{1-(-2)} = \\dfrac{-6}{3} = -2$。$1 = -2 + b$ → $b = 3$。$y = -2x + 3$ だよ。',
           difficulty: 'standard',
         },
         {
@@ -412,7 +412,7 @@ export const findLinearEquation: Topic = {
           question: '$x$ が $2$ 増えると $y$ が $10$ 増える直線の傾きは？',
           options: ['$2$', '$10$', '$5$', '$20$'],
           correctIndex: 2,
-          explanation: '$a = \dfrac{10}{2} = 5$ だよ。',
+          explanation: '$a = \\dfrac{10}{2} = 5$ だよ。',
           difficulty: 'advanced',
         },
         {
@@ -420,7 +420,7 @@ export const findLinearEquation: Topic = {
           question: '2点 $(3, 4)$ と $(6, 4)$ を通る直線。この直線は $y = ax + b$ の形？',
           options: ['$y = 4$（$a = 0$）で一次関数ではない', '$y = 4$ で一次関数', '$y = x + 1$', '$x = 4$'],
           correctIndex: 0,
-          explanation: '$y$ が常に $4$。$a = 0$ なので一次関数の定義($a \neq 0$)を満たさないよ。',
+          explanation: '$y$ が常に $4$。$a = 0$ なので一次関数の定義($a \\neq 0$)を満たさないよ。',
           difficulty: 'advanced',
         },
       ],
