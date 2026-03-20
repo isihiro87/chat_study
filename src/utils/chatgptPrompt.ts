@@ -179,8 +179,8 @@ export function buildPrompt(options: BuildPromptOptions): string {
   const template = getPromptTemplate(subjectId);
 
   return template.replaceAll('{title}', title)
-    .replace('{subtitle}', subtitle)
-    .replace('{points}', pointsText);
+    .replaceAll('{subtitle}', subtitle)
+    .replaceAll('{points}', pointsText);
 }
 
 /**
