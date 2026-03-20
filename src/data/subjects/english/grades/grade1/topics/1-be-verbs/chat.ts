@@ -99,6 +99,17 @@ export const beVerbsChat: HistoryChat = {
       text: 'be<ruby>動詞<rt>どうし</rt></ruby>は「だれが」で形がかわる → I は <strong>am</strong>、1人・1つは <strong>is</strong>、you・2人<ruby>以上<rt>いじょう</rt></ruby>は <strong>are</strong>',
     },
     {
+      type: 'quiz',
+      question: '「We (　　) students.（私たちは生徒です。）」の (　　) に入るのは？',
+      options: [
+        { letter: 'A', text: 'am', correct: false },
+        { letter: 'B', text: 'is', correct: false },
+        { letter: 'C', text: 'are', correct: true },
+        { letter: 'D', text: 'be', correct: false },
+      ],
+      explanation: '<strong>正解はC</strong>です。We（<ruby>私<rt>わたし</rt></ruby>たち）は2人<ruby>以上<rt>いじょう</rt></ruby>だから <strong>are</strong> を使うよ。',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',

@@ -106,6 +106,17 @@ export const kantoNature: Topic = {
       { id: 'geo2-ktn-fc11', front: '羽田空港と成田空港', back: '東京にある2つの国際空港の名前を答えよ。', difficulty: 'standard' },
       { id: 'geo2-ktn-fc12', front: '地方の過疎化と首都直下型地震のリスク集中', back: '東京への一極集中がもたらす問題点を2つ答えよ。', difficulty: 'standard' },
       { id: 'geo2-ktn-fc13', front: '約8割', back: '東京大都市圏で第三次産業が占める割合はおよそ何割か。', difficulty: 'standard' },
+      { id: 'geo2-ktn-fc14', front: '畑作', back: '関東ローム層は水はけがよいため、どのような農業に利用されているか。', difficulty: 'basic' },
+      { id: 'geo2-ktn-fc15', front: 'アスファルトやコンクリートの蓄熱と、エアコンの排熱', back: 'ヒートアイランド現象が起こる原因を2つ答えよ。', difficulty: 'standard' },
+      { id: 'geo2-ktn-fc16', front: '黒潮（日本海流）', back: '関東地方の南部を流れる暖流を何というか。', difficulty: 'basic' },
+      { id: 'geo2-ktn-fc17', front: '神奈川県・埼玉県・千葉県', back: '東京を中心とする大都市圏に含まれる周辺3県を答えよ。', difficulty: 'basic' },
+      { id: 'geo2-ktn-fc18', front: 'ニュータウン', back: '高度経済成長期に建設された郊外の大規模住宅地を何というか。', explanation: '多摩ニュータウンが代表例', difficulty: 'basic' },
+      { id: 'geo2-ktn-fc19', front: '住民の高齢化と建物の老朽化', back: 'ニュータウンが現在抱えている課題を2つ答えよ。', difficulty: 'standard' },
+      { id: 'geo2-ktn-fc20', front: '国会（国会議事堂）', back: '東京にある日本の立法機関を何というか。', difficulty: 'basic' },
+      { id: 'geo2-ktn-fc21', front: '中央省庁', back: '東京に集中している行政機関を何というか。', difficulty: 'standard' },
+      { id: 'geo2-ktn-fc22', front: '最高裁判所', back: '日本の最高の司法機関で、東京に置かれているものは何か。', difficulty: 'standard' },
+      { id: 'geo2-ktn-fc23', front: '政治・経済の中心機能が集中する世界都市だから', back: '東京に外国の大使館や外国企業の本社が集まる理由を簡潔に述べよ。', difficulty: 'advanced' },
+      { id: 'geo2-ktn-fc24', front: '火山灰が風化してできた赤土（粘土質の土壌）', back: '関東ローム層の「ローム」とは何を意味するか。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [

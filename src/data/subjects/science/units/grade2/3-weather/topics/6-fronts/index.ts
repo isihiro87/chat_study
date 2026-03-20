@@ -138,6 +138,14 @@ export const fronts: Topic = {
       { id: 'sci2-frnt-fc14', front: '三角形が進行方向についた線', back: '寒冷前線の天気図記号は？', difficulty: 'advanced' },
       { id: 'sci2-frnt-fc15', front: '半円が進行方向についた線', back: '温暖前線の天気図記号は？', difficulty: 'advanced' },
       { id: 'sci2-frnt-fc16', front: '三角形と半円が交互に並んだ線', back: '停滞前線の天気図記号は？', difficulty: 'advanced' },
+      { id: 'sci2-frnt-fc17', front: '密度が小さいため寒気の上に乗り上げる', back: '異なる気団がぶつかったとき暖気はどうなる？', difficulty: 'basic' },
+      { id: 'sci2-frnt-fc18', front: '寒気が暖気の下にもぐり込む前線', back: '寒冷前線とはどんな前線？', difficulty: 'basic' },
+      { id: 'sci2-frnt-fc19', front: '暖気が寒気の上をゆるやかに這い上がる前線', back: '温暖前線とはどんな前線？', difficulty: 'basic' },
+      { id: 'sci2-frnt-fc20', front: '短時間に激しい雨（にわか雨）', back: '寒冷前線付近の雨の降り方は？', difficulty: 'standard' },
+      { id: 'sci2-frnt-fc21', front: '広い範囲で弱い長雨', back: '温暖前線付近の雨の降り方は？', difficulty: 'standard' },
+      { id: 'sci2-frnt-fc22', front: '暖気が上昇して雲ができやすいから', back: '前線付近で天気が変わりやすい理由は？', difficulty: 'standard' },
+      { id: 'sci2-frnt-fc23', front: '中緯度帯で発生し前線を伴う低気圧', back: '温帯低気圧とはどんな低気圧？', difficulty: 'standard' },
+      { id: 'sci2-frnt-fc24', front: '寒冷前線のほうが速い。そのため温暖前線に追いつく', back: '寒冷前線と温暖前線の移動速度はどちらが速い？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [

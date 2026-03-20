@@ -74,6 +74,18 @@ export const plantPhotosynthesisChat: HistoryChat = {
       text: '<span class="keyword">光合成</span>：光＋CO₂＋水 → デンプン＋O₂。<span class="keyword">葉緑体</span>で行われる。ヨウ素液で青紫色→デンプンあり',
     },
     {
+      type: 'quiz',
+      question: '光合成でつくられる養分は何？',
+      options: [
+        { letter: 'A', text: 'デンプン', correct: true },
+        { letter: 'B', text: 'タンパク質', correct: false },
+        { letter: 'C', text: '脂肪', correct: false },
+        { letter: 'D', text: 'ブドウ糖', correct: false },
+      ],
+      explanation:
+        '<strong>正解はA「デンプン」</strong>です。<ruby>光合成<rp>(</rp><rt>こうごうせい</rt><rp>)</rp></ruby>では<ruby>光<rp>(</rp><rt>ひかり</rt><rp>)</rp></ruby>＋CO₂＋水からデンプンと<ruby>酸素<rp>(</rp><rt>さんそ</rt><rp>)</rp></ruby>がつくられます。',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',
@@ -157,6 +169,18 @@ export const plantPhotosynthesisChat: HistoryChat = {
       text: '<span class="keyword">気孔</span>＝孔辺細胞に囲まれたすきま（葉の裏に多い）。<span class="keyword">蒸散</span>＝気孔から水蒸気が出る→吸水の原動力。<span class="keyword">根毛</span>で効率よく吸水',
     },
     {
+      type: 'quiz',
+      question: '気孔が多いのは葉のどこ？',
+      options: [
+        { letter: 'A', text: '葉の表側', correct: false },
+        { letter: 'B', text: '葉の裏側', correct: true },
+        { letter: 'C', text: '葉の縁', correct: false },
+        { letter: 'D', text: '葉脈の上', correct: false },
+      ],
+      explanation:
+        '<strong>正解はB「<ruby>葉<rp>(</rp><rt>は</rt><rp>)</rp></ruby>の<ruby>裏側<rp>(</rp><rt>うらがわ</rt><rp>)</rp></ruby>」</strong>です。<ruby>気孔<rp>(</rp><rt>きこう</rt><rp>)</rp></ruby>は<ruby>葉<rp>(</rp><rt>は</rt><rp>)</rp></ruby>の<ruby>裏側<rp>(</rp><rt>うらがわ</rt><rp>)</rp></ruby>に多く、<ruby>蒸散<rp>(</rp><rt>じょうさん</rt><rp>)</rp></ruby>も<ruby>裏側<rp>(</rp><rt>うらがわ</rt><rp>)</rp></ruby>で<ruby>盛<rp>(</rp><rt>さか</rt><rp>)</rp></ruby>んに行われます。',
+    },
+    {
       type: 'date',
       text: '<ruby>植物<rp>(</rp><rt>しょくぶつ</rt><rp>)</rp></ruby>の<ruby>呼吸<rp>(</rp><rt>こきゅう</rt><rp>)</rp></ruby>',
     },
@@ -188,6 +212,18 @@ export const plantPhotosynthesisChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '植物は<span class="keyword">常に呼吸</span>する。昼は<span class="keyword">光合成＞呼吸</span>→見かけ上O₂のみ。夜は呼吸のみ→CO₂放出',
+    },
+    {
+      type: 'quiz',
+      question: '植物が夜に放出する気体は？',
+      options: [
+        { letter: 'A', text: '酸素', correct: false },
+        { letter: 'B', text: '窒素', correct: false },
+        { letter: 'C', text: '水素', correct: false },
+        { letter: 'D', text: '二酸化炭素', correct: true },
+      ],
+      explanation:
+        '<strong>正解はD「<ruby>二酸化炭素<rp>(</rp><rt>にさんかたんそ</rt><rp>)</rp></ruby>」</strong>です。<ruby>夜<rp>(</rp><rt>よる</rt><rp>)</rp></ruby>は<ruby>光合成<rp>(</rp><rt>こうごうせい</rt><rp>)</rp></ruby>が止まり<ruby>呼吸<rp>(</rp><rt>こきゅう</rt><rp>)</rp></ruby>のみになるため、CO₂を<ruby>放出<rp>(</rp><rt>ほうしゅつ</rt><rp>)</rp></ruby>します。',
     },
     {
       type: 'end',

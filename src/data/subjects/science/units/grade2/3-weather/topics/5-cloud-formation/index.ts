@@ -70,6 +70,11 @@ export const cloudFormation: Topic = {
       { id: 'sci2-cldf-fc11', front: '地面が暖められて強い上昇気流ができる。雷雨を伴うことが多い', back: '積乱雲はどのようにできる？どんな天気をもたらす？', difficulty: 'advanced' },
       { id: 'sci2-cldf-fc12', front: '圧縮→温度上昇→凝結しない→雲が消滅する', back: '雲の実験でピストンを押すとどうなる？その理由は？', difficulty: 'advanced' },
       { id: 'sci2-cldf-fc13', front: '高気圧の中心。高気圧では下降気流が生じるため上昇気流にならない', back: '上昇気流が生じないのは3つの原因のどれでもなく、どこ？', difficulty: 'advanced' },
+      { id: 'sci2-cldf-fc14', front: '上空ほど気圧が低いから', back: '空気が上昇して温度が下がるのは上空ほど何が低いから？', difficulty: 'basic' },
+      { id: 'sci2-cldf-fc15', front: '露点に達する', back: '雲ができるまでの流れ：膨張→温度低下→（?）→凝結→雲', difficulty: 'basic' },
+      { id: 'sci2-cldf-fc16', front: '膨張して温度が下がる', back: '雲の実験でピストンを引くとフラスコ内の空気はどうなる？', difficulty: 'standard' },
+      { id: 'sci2-cldf-fc17', front: '雪、ひょう（あられ）', back: '雲の水滴が凍って落下するものを2つ答えよ', difficulty: 'standard' },
+      { id: 'sci2-cldf-fc18', front: '蒸発と降水を繰り返す循環のこと', back: '水の循環とは何？', difficulty: 'basic' },
     ],
     quiz: {
       questions: [

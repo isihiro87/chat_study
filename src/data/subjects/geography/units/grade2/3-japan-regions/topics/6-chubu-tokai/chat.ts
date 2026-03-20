@@ -40,9 +40,9 @@ export const chubuTokaiChat: HistoryChat = {
     },
     {
       type: 'image',
-      src: '/images/geography/grade2/japan-regions/chubu-overview.png',
+      src: '/images/geography/grade2/japan-regions/chubu-overview.jpeg',
       alt: '中部地方の地図',
-      caption: '【準備中】中部地方の全体図',
+      caption: '中部地方の全体図',
     },
     {
       type: 'narrator',
@@ -68,6 +68,12 @@ export const chubuTokaiChat: HistoryChat = {
       characterId: 'teacher',
       expression: 'happy',
       text: 'そうだよ！標高3000m級の山々が連なるから<strong>「日本の屋根」</strong>とよばれているんだ。この山脈があるから気候が大きく変わるんだよ',
+    },
+    {
+      type: 'image',
+      src: '/images/geography/grade2/japan-regions/japan-alps.jpeg',
+      alt: '日本アルプスの3つの山脈の位置関係',
+      caption: '日本アルプス — 飛騨山脈・木曽山脈・赤石山脈',
     },
     {
       type: 'message',

@@ -169,6 +169,18 @@ export const linearFuncApplications: Topic = {
       { id: 'math-g2-lfapps-fc26', front: '底辺に平行な辺の上を動くとき', explanation: '底辺も高さも変わらないので面積は一定', back: '動く点の問題で面積が変化しない区間は？', difficulty: 'advanced' },
       { id: 'math-g2-lfapps-fc27', front: '2点を読み取り傾きと切片を求める', explanation: 'グラフの特徴的な2点から式を立てる', back: '実際のグラフから式を立てる手順は？', difficulty: 'advanced' },
       { id: 'math-g2-lfapps-fc28', front: '$y$ の値がつながるか確認', explanation: '各変域の境目で両方の式に代入して一致するかチェック', back: '場合分けの式で確認すべきことは？', difficulty: 'advanced' },
+      { id: 'math-g2-lfapps-fc29', front: '出発地点の距離が切片、速さが傾き', back: '移動のグラフの式を立てるには？', explanation: '$y = ax + b$ の $a$ が速さ、$b$ が初期位置。', difficulty: 'basic' },
+      { id: 'math-g2-lfapps-fc30', front: '$\\dfrac{\\text{距離}}{\\text{時間}}$ で求める', back: 'グラフから速さを求めるには？', explanation: 'グラフの傾きと同じ。', difficulty: 'basic' },
+      { id: 'math-g2-lfapps-fc31', front: '向かい合い→速さの和、追いかけ→速さの差', back: '出会う問題と追いかける問題の違いは？', explanation: '出会いは速さを足す。', difficulty: 'standard' },
+      { id: 'math-g2-lfapps-fc32', front: '$y = 0$ になる $x$ の値', back: '水そうが空になる時刻は？', explanation: '式に $y = 0$ を代入して $x$ を求める。', difficulty: 'standard' },
+      { id: 'math-g2-lfapps-fc33', front: '辺を曲がるところで傾きが変わる', back: '動く点の問題でグラフが折れ線になる理由は？', explanation: '各辺で式が変わるため。', difficulty: 'standard' },
+      { id: 'math-g2-lfapps-fc34', front: '底辺に平行な辺の上を動くとき', back: '動く点の問題で面積が変化しない区間は？', explanation: '底辺も高さも変わらない。', difficulty: 'advanced' },
+      { id: 'math-g2-lfapps-fc35', front: '$2$ 点を読み取り傾きと切片を求める', back: '実際のグラフから式を立てる手順は？', explanation: 'グラフの特徴的な $2$ 点を使う。', difficulty: 'standard' },
+      { id: 'math-g2-lfapps-fc36', front: '$2$ つのグラフの交点を求める', back: '$2$ 人が出会う時刻の求め方は？', explanation: '連立方程式を解く。', difficulty: 'standard' },
+      { id: 'math-g2-lfapps-fc37', front: '各区間で式を立て、変域を明記する', back: '場合分けが必要な問題の解き方は？', explanation: '変域の境目で値がつながるか確認。', difficulty: 'standard' },
+      { id: 'math-g2-lfapps-fc38', front: '料金が区間ごとに異なるため', back: '料金問題でグラフが折れ線になる理由は？', explanation: '基本料金＋従量料金のパターンが多い。', difficulty: 'standard' },
+      { id: 'math-g2-lfapps-fc39', front: '$y = -2x + 100$（$100$ L から毎分 $2$ L ずつ減る）', back: '初め $100$ L の水を毎分 $2$ L ずつ抜く。$x$ 分後の水量 $y$ L の式は？', explanation: '傾き $= -2$、切片 $= 100$。', difficulty: 'standard' },
+      { id: 'math-g2-lfapps-fc40', front: '$50$ 分後', back: '初め $100$ L の水を毎分 $2$ L ずつ抜く。空になるのは何分後？', explanation: '$0 = -2x + 100$、$x = 50$。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [

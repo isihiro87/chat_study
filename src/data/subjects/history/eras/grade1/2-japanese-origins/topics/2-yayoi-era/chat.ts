@@ -165,7 +165,7 @@ export const yayoiEraChat: HistoryChat = {
       side: 'left',
       characterId: 'teacher',
       expression: 'explaining',
-      text: '長い<ruby>争<rp>(</rp><rt>あらそ</rt><rp>)</rp></ruby>いの末、わたしが<strong><span class="keyword"><ruby>邪馬台国<rp>(</rp><rt>やまたいこく</rt><rp>)</rp></ruby></span></strong>の女王として30あまりの国をまとめたんだ。<ruby>まじない<rp>(</rp><rt></rt><rp>)</rp></ruby>の力で人々の心をおさめたんだよ',
+      text: '長い<ruby>争<rp>(</rp><rt>あらそ</rt><rp>)</rp></ruby>いの末、<strong><span class="keyword"><ruby>卑弥呼<rp>(</rp><rt>ひみこ</rt><rp>)</rp></ruby></span></strong>が<strong><span class="keyword"><ruby>邪馬台国<rp>(</rp><rt>やまたいこく</rt><rp>)</rp></ruby></span></strong>の女王として30あまりの国をまとめたんだ。<ruby>まじない<rp>(</rp><rt></rt><rp>)</rp></ruby>の力で人々の心をおさめたんだよ',
     },
     {
       type: 'message',

@@ -94,6 +94,11 @@ export const pressureAtmosphere: Topic = {
       { id: 'sci2-patm-fc13', front: '標高が高く外の気圧が低いため、袋内の空気が相対的に強く押す', back: '山の上でお菓子の袋がパンパンにふくらむ理由は？', difficulty: 'advanced' },
       { id: 'sci2-patm-fc14', front: '気圧・天気・風向・風力を記号で表した地図', back: '天気図とは何？', difficulty: 'advanced' },
       { id: 'sci2-patm-fc15', front: '約100000Pa（10万Pa）', back: '1気圧は約何Pa？', difficulty: 'advanced' },
+      { id: 'sci2-patm-fc16', front: 'ゴム板と台の間の空気を押し出すと上からの大気圧がゴム板を押しつけるため', back: 'ゴム板をなめらかな台に押しつけると持ち上がるのはなぜ？', difficulty: 'standard' },
+      { id: 'sci2-patm-fc17', front: '等圧線が閉じていて中心の気圧が周囲より高いところ', back: '高気圧とは何？', difficulty: 'basic' },
+      { id: 'sci2-patm-fc18', front: '等圧線が閉じていて中心の気圧が周囲より低いところ', back: '低気圧とは何？', difficulty: 'basic' },
+      { id: 'sci2-patm-fc19', front: '上昇気流。地表から空気が吹き込んで上昇する', back: '低気圧の中心付近では上昇気流と下降気流のどちら？', difficulty: 'standard' },
+      { id: 'sci2-patm-fc20', front: '風力0のとき棒や矢羽根はつけない', back: '風力0のとき天気図記号ではどう表す？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [

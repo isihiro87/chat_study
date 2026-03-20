@@ -83,6 +83,18 @@ export const heredityRulesChat: HistoryChat = {
       text: '<span class="keyword">遺伝</span>＝親の形質が子孫に伝わること。<span class="keyword">遺伝子</span>は染色体の中にあり、<span class="keyword">対立形質</span>は一方しか現れない！',
     },
     {
+      type: 'quiz',
+      question: 'エンドウの種子の「丸形」と「しわ形」のように、一方しか現れない2つの形質の関係を何という？',
+      options: [
+        { letter: 'A', text: '対立形質', correct: true },
+        { letter: 'B', text: '顕性形質', correct: false },
+        { letter: 'C', text: '潜性形質', correct: false },
+        { letter: 'D', text: '純系', correct: false },
+      ],
+      explanation:
+        '<strong>正解はA「<ruby>対立形質<rp>(</rp><rt>たいりつけいしつ</rt><rp>)</rp></ruby>」</strong>です。どちらか一方の<ruby>形質<rp>(</rp><rt>けいしつ</rt><rp>)</rp></ruby>しか現れない2つの形質の関係を<ruby>対立形質<rp>(</rp><rt>たいりつけいしつ</rt><rp>)</rp></ruby>といいます。',
+    },
+    {
       type: 'message',
       side: 'left',
       characterId: 'teacher',
@@ -122,6 +134,12 @@ export const heredityRulesChat: HistoryChat = {
       src: '/images/science/grade3/biology/mendel-cross.svg',
       alt: 'メンデルの交配実験',
       caption: '親（AA×aa）→ 子（すべてAa・丸形）→ 孫（丸3:しわ1）',
+    },
+    {
+      type: 'image',
+      src: '/images/science/grade3/biology/mendel-f1-f2.png',
+      alt: 'メンデルの実験結果',
+      caption: '親(P)→子(F1)すべて丸→孫(F2)丸:しわ=3:1',
     },
     {
       type: 'message',

@@ -95,8 +95,30 @@ export const climateChat: HistoryChat = {
       text: '日本は<span class="keyword">温暖湿潤気候</span>が中心。四季がはっきりしている',
     },
     {
+      type: 'quiz',
+      question: '日本の気候の中心となる気候区分はどれ？',
+      options: [
+        { letter: 'A', text: '亜寒帯気候', correct: false },
+        { letter: 'B', text: '温暖湿潤気候', correct: true },
+        { letter: 'C', text: '亜熱帯気候', correct: false },
+        { letter: 'D', text: '乾燥帯気候', correct: false },
+      ],
+      explanation: '<strong>正解はB</strong>です。日本は<ruby>温暖湿潤気候<rp>(</rp><rt>おんだんしつじゅんきこう</rt><rp>)</rp></ruby>が中心で、四季がはっきりしています。',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">季節風</span>：夏は南東から（太平洋側に雨）、冬は北西から（日本海側に雪）',
+    },
+    {
+      type: 'quiz',
+      question: '冬に北西から吹く季節風が日本海側にもたらすものは？',
+      options: [
+        { letter: 'A', text: '大量の雨', correct: false },
+        { letter: 'B', text: '乾燥した晴天', correct: false },
+        { letter: 'C', text: '大量の雪', correct: true },
+        { letter: 'D', text: '台風', correct: false },
+      ],
+      explanation: '<strong>正解はC</strong>です。冬の北西の<ruby>季節風<rp>(</rp><rt>きせつふう</rt><rp>)</rp></ruby>が日本海で<ruby>水蒸気<rp>(</rp><rt>すいじょうき</rt><rp>)</rp></ruby>を含み、山脈にぶつかって日本海側に大雪を降らせます。',
     },
     {
       type: 'date',
@@ -165,6 +187,17 @@ export const climateChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<span class="keyword">6つの気候区分</span>：北海道・日本海側・太平洋側・中央高地・瀬戸内・南西諸島',
+    },
+    {
+      type: 'quiz',
+      question: '梅雨がないことが大きな特徴である気候区分はどれ？',
+      options: [
+        { letter: 'A', text: '太平洋側の気候', correct: false },
+        { letter: 'B', text: '南西諸島の気候', correct: false },
+        { letter: 'C', text: '瀬戸内の気候', correct: false },
+        { letter: 'D', text: '北海道の気候', correct: true },
+      ],
+      explanation: '<strong>正解はD</strong>です。<ruby>梅雨前線<rp>(</rp><rt>ばいうぜんせん</rt><rp>)</rp></ruby>が<ruby>北海道<rp>(</rp><rt>ほっかいどう</rt><rp>)</rp></ruby>まで北上しないことが多いため、梅雨がありません。',
     },
     {
       type: 'summary-point',

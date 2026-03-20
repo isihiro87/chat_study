@@ -95,6 +95,17 @@ export const fieldworkChat: HistoryChat = {
       text: '<span class="keyword">ルートマップ</span>に調査経路・観察ポイントを記入して事前準備する',
     },
     {
+      type: 'quiz',
+      question: '野外調査の事前準備で最も重要なものはどれ？',
+      options: [
+        { letter: 'A', text: 'ルートマップの作成', correct: true },
+        { letter: 'B', text: 'お弁当の準備', correct: false },
+        { letter: 'C', text: '報告書のテンプレート作成', correct: false },
+        { letter: 'D', text: '調査結果の予想', correct: false },
+      ],
+      explanation: '<strong>正解はA</strong>です。調査経路や<ruby>観察<rp>(</rp><rt>かんさつ</rt><rp>)</rp></ruby>ポイントを記入したルートマップを作ることで、<ruby>効率的<rp>(</rp><rt>こうりつてき</rt><rp>)</rp></ruby>に調査できます。',
+    },
+    {
       type: 'date',
       text: '写真撮影とスケッチによる記録',
     },
@@ -147,6 +158,17 @@ export const fieldworkChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<span class="keyword">写真</span>＝客観的な記録、<span class="keyword">スケッチ</span>＝注目点を強調した記録。その場でメモが大切',
+    },
+    {
+      type: 'quiz',
+      question: '写真撮影にはないスケッチの長所はどれ？',
+      options: [
+        { letter: 'A', text: '客観的に記録できる', correct: false },
+        { letter: 'B', text: '注目した点を強調して記録できる', correct: true },
+        { letter: 'C', text: '短時間で記録できる', correct: false },
+        { letter: 'D', text: '色を正確に残せる', correct: false },
+      ],
+      explanation: '<strong>正解はB</strong>です。スケッチは自分が<ruby>注目<rp>(</rp><rt>ちゅうもく</rt><rp>)</rp></ruby>した点を<ruby>強調<rp>(</rp><rt>きょうちょう</rt><rp>)</rp></ruby>して記録できるのが特長です。',
     },
     {
       type: 'date',
@@ -212,6 +234,17 @@ export const fieldworkChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<span class="keyword">聞き取り調査</span>は質問項目を準備し、<span class="keyword">マナーを守って丁寧に</span>行う',
+    },
+    {
+      type: 'quiz',
+      question: '聞き取り調査で気をつけるべきことはどれ？',
+      options: [
+        { letter: 'A', text: '相手の許可なく録音してよい', correct: false },
+        { letter: 'B', text: '質問項目は準備しなくてよい', correct: false },
+        { letter: 'C', text: '調査目的を伝えず質問してよい', correct: false },
+        { letter: 'D', text: '個人情報の取り扱いに注意する', correct: true },
+      ],
+      explanation: '<strong>正解はD</strong>です。<ruby>個人<rp>(</rp><rt>こじん</rt><rp>)</rp></ruby>情報の取り<ruby>扱<rp>(</rp><rt>あつか</rt><rp>)</rp></ruby>いに注意し、相手の<ruby>許可<rp>(</rp><rt>きょか</rt><rp>)</rp></ruby>なく録音しないことが大切です。',
     },
     {
       type: 'end',

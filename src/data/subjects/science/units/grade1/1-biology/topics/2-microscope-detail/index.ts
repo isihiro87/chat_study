@@ -188,6 +188,20 @@ export const microscopeDetail: Topic = {
         back: '顕微鏡の操作手順を、レンズ取り付けからピント合わせまで順に答えよ。',
         difficulty: 'advanced',
       },
+      // --- ichimondittou補完 ---
+      { id: 'fc35', front: 'カバーガラス', back: 'スライドガラスの上に観察するものをのせた後、何をかぶせるか。', difficulty: 'basic' },
+      { id: 'fc36', front: '気泡（空気の泡）が入らないようにする', back: 'カバーガラスをかぶせるとき、気をつけることは何か。', difficulty: 'basic' },
+      { id: 'fc37', front: '低倍率から観察を始める', back: '顕微鏡で観察を始めるとき、倍率はどうするか。', difficulty: 'basic' },
+      { id: 'fc38', front: '反射鏡', back: '光を集めて視野を明るくするための鏡を何というか。', difficulty: 'basic' },
+      { id: 'fc39', front: 'しぼり', back: '視野の明るさを調節するために反射鏡の上にある装置を何というか。', difficulty: 'standard' },
+      { id: 'fc40', front: '接眼レンズを先に取り付け、次に対物レンズを取り付ける', back: '顕微鏡のレンズを取り付ける正しい順番は何か。', difficulty: 'basic' },
+      { id: 'fc41', front: '400倍（10×40＝400）', back: '接眼レンズが10倍、対物レンズが40倍のとき、顕微鏡の倍率は何倍か。', difficulty: 'standard' },
+      {
+        id: 'fc42',
+        front: 'レンズの拡大率が上がると、同じ視野の中により少ない範囲しか映らなくなるため',
+        back: '倍率を上げると見える範囲が狭くなるのはなぜか。',
+        difficulty: 'advanced',
+      },
     ],
     quiz: {
       questions: [
@@ -581,6 +595,62 @@ export const microscopeDetail: Topic = {
           correctIndex: 0,
           explanation:
             '眼幅調節といいます。接眼レンズの間隔を自分の目の幅に合わせる操作です。',
+        difficulty: 'advanced',
+      },
+        {
+          id: 'q29',
+          question: '40倍で視野の直径が4mmのとき、400倍に変えると視野の直径は約何mmになるか？',
+          options: [
+            '2mm',
+            '1mm',
+            '0.4mm',
+            '0.04mm',
+          ],
+          correctIndex: 2,
+          explanation:
+            '倍率が10倍になると視野の直径は10分の1になります。4mm÷10＝0.4mmです。',
+        difficulty: 'advanced',
+      },
+        {
+          id: 'q30',
+          question: '顕微鏡の視野の右上に見たい部分があるとき、中央に移動させるにはプレパラートをどちらに動かすか？',
+          options: [
+            '左下に動かす',
+            '右下に動かす',
+            '左上に動かす',
+            '右上に動かす',
+          ],
+          correctIndex: 3,
+          explanation:
+            '顕微鏡では像が上下左右逆に見えるため、プレパラートを右上に動かすと視野では左下に移動し、見たい部分が中央にきます。',
+        difficulty: 'advanced',
+      },
+        {
+          id: 'q31',
+          question: '顕微鏡で見える像は、実物と比べてどのような向きになっているか？',
+          options: [
+            '左右だけ逆',
+            '上下だけ逆',
+            '上下左右が逆（180度回転した像）',
+            '実物と同じ向き',
+          ],
+          correctIndex: 2,
+          explanation:
+            '顕微鏡で見える像は実物と上下左右が逆（180度回転した像）になっています。',
+        difficulty: 'advanced',
+      },
+        {
+          id: 'q32',
+          question: '観察中に微生物が動いて見つけにくいとき、どのような工夫ができるか？',
+          options: [
+            '水を多く入れる',
+            '高倍率にする',
+            '脱脂綿の繊維を入れて動きを遅くする',
+            '反射鏡を外す',
+          ],
+          correctIndex: 2,
+          explanation:
+            '脱脂綿の繊維を入れて微生物の動きを遅くしたり、水の量を少なくして動きを制限したりする工夫ができます。',
         difficulty: 'advanced',
       },
       ],

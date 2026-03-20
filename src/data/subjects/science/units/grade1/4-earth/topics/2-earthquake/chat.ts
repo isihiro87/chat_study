@@ -146,6 +146,18 @@ export const earthquakeChat: HistoryChat = {
       text: '<span class="keyword">プレート</span>の境界で地震が多発。<span class="keyword">断層</span>＝岩盤のずれた跡。<span class="keyword">活断層</span>＝将来地震を起こす可能性。<span class="keyword">海溝</span>付近で津波のリスク',
     },
     {
+      type: 'quiz',
+      question: '将来地震を起こす可能性がある断層を何というか。',
+      options: [
+        { letter: 'A', text: '海溝', correct: false },
+        { letter: 'B', text: '活断層', correct: true },
+        { letter: 'C', text: 'プレート', correct: false },
+        { letter: 'D', text: '震央', correct: false },
+      ],
+      explanation:
+        '<strong>正解はB「<ruby>活断層<rp>(</rp><rt>かつだんそう</rt><rp>)</rp></ruby>」</strong>です。<ruby>将来<rp>(</rp><rt>しょうらい</rt><rp>)</rp></ruby><ruby>地震<rp>(</rp><rt>じしん</rt><rp>)</rp></ruby>を<ruby>起<rp>(</rp><rt>お</rt><rp>)</rp></ruby>こす<ruby>可能性<rp>(</rp><rt>かのうせい</rt><rp>)</rp></ruby>がある<ruby>断層<rp>(</rp><rt>だんそう</rt><rp>)</rp></ruby>を<ruby>活断層<rp>(</rp><rt>かつだんそう</rt><rp>)</rp></ruby>といいます。',
+    },
+    {
       type: 'date',
       text: '<ruby>地震<rp>(</rp><rt>じしん</rt><rp>)</rp></ruby>に<ruby>備<rp>(</rp><rt>そな</rt><rp>)</rp></ruby>えるために',
     },

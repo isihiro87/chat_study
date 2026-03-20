@@ -89,6 +89,17 @@ export const northAmericaIndustryChat: HistoryChat = {
       text: '<span class="keyword">ラストベルト</span>（五大湖周辺の衰退）→ <span class="keyword">サンベルト</span>・<span class="keyword">シリコンバレー</span>（ICT産業）へ移行',
     },
     {
+      type: 'quiz',
+      question: 'ICT企業が集中するカリフォルニア州の地域は？',
+      options: [
+        { letter: 'A', text: 'ラストベルト', correct: false },
+        { letter: 'B', text: 'シリコンバレー', correct: true },
+        { letter: 'C', text: 'ウォール街', correct: false },
+        { letter: 'D', text: 'サンベルト', correct: false },
+      ],
+      explanation: '<strong>正解はB</strong>です。シリコンバレーにはGoogleやAppleなどのICT企業が集中しています。',
+    },
+    {
       type: 'date',
       text: '生活文化と移民',
     },
@@ -143,6 +154,17 @@ export const northAmericaIndustryChat: HistoryChat = {
       text: '<span class="keyword">自動車社会</span>と<span class="keyword">大量生産・大量消費</span>の文化。<span class="keyword">ヒスパニック</span>移民が重要な労働力',
     },
     {
+      type: 'quiz',
+      question: '中南米出身のスペイン語を話す人々を何という？',
+      options: [
+        { letter: 'A', text: 'アボリジニ', correct: false },
+        { letter: 'B', text: 'マオリ', correct: false },
+        { letter: 'C', text: 'ヒスパニック', correct: true },
+        { letter: 'D', text: 'イヌイット', correct: false },
+      ],
+      explanation: '<strong>正解はC</strong>です。ヒスパニックは<ruby>中南米<rp>(</rp><rt>ちゅうなんべい</rt><rp>)</rp></ruby>出身のスペイン語を話す人々で、アメリカの重要な<ruby>労働力<rp>(</rp><rt>ろうどうりょく</rt><rp>)</rp></ruby>になっています。',
+    },
+    {
       type: 'date',
       text: 'ニューヨークとウォール街',
     },
@@ -188,6 +210,17 @@ export const northAmericaIndustryChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<span class="keyword">ニューヨーク</span>に<span class="keyword">国連</span>本部。<span class="keyword">ウォール街</span>は世界の金融の中心',
+    },
+    {
+      type: 'quiz',
+      question: 'ニューヨークに本部が置かれている国際機関は？',
+      options: [
+        { letter: 'A', text: '国連（国際連合）', correct: true },
+        { letter: 'B', text: 'EU', correct: false },
+        { letter: 'C', text: 'ASEAN', correct: false },
+        { letter: 'D', text: 'OPEC', correct: false },
+      ],
+      explanation: '<strong>正解はA</strong>です。<ruby>国連<rp>(</rp><rt>こくれん</rt><rp>)</rp></ruby>（<ruby>国際連合<rp>(</rp><rt>こくさいれんごう</rt><rp>)</rp></ruby>）の本部はニューヨークに置かれています。',
     },
     {
       type: 'date',

@@ -215,6 +215,8 @@ export const celestialBasic: Topic = {
       { id: 'sci3-celb-fc24', front: '黄道十二星座', back: '黄道上に並ぶ12の星座を何という？', difficulty: 'advanced' },
       { id: 'sci3-celb-fc25', front: '自転は1日で1回転、公転は1年で太陽を1周', back: '自転と公転の周期はそれぞれどれくらい？', difficulty: 'advanced' },
       { id: 'sci3-celb-fc26', front: '夏（地軸の北極側が太陽の方を向く）', back: '北半球で地軸の北極側が太陽の方を向いている季節は？', difficulty: 'advanced' },
+      { id: 'sci3-celb-fc27', front: '約6000℃（黒点は約4000℃）', back: '太陽の表面温度はおよそ何℃？黒点の温度は？', difficulty: 'standard' },
+      { id: 'sci3-celb-fc28', front: '太陽投影板（太陽像を投影して観察する板）', back: '太陽を天体望遠鏡で安全に観察するために取りつける板は？', explanation: '太陽を直接のぞくと失明のおそれがあるため、必ず投影板を使う。', difficulty: 'standard' },
     ],
     quiz: {
       questions: [

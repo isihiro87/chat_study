@@ -99,11 +99,23 @@ export const forceActionChat: HistoryChat = {
       text: 'それが<strong>力の<ruby>分解<rp>(</rp><rt>ぶんかい</rt><rp>)</rp></ruby></strong>だよ。分けた力を<strong><span class="keyword"><ruby>分力<rp>(</rp><rt>ぶんりょく</rt><rp>)</rp></ruby></span></strong>という。<ruby>斜面<rp>(</rp><rt>しゃめん</rt><rp>)</rp></ruby>上の物体にはたらく重力を「斜面に<ruby>平行<rp>(</rp><rt>へいこう</rt><rp>)</rp></ruby>な方向」と「斜面に<ruby>垂直<rp>(</rp><rt>すいちょく</rt><rp>)</rp></ruby>な方向」に分解するのが大事！',
     },
     {
+      type: 'image',
+      src: '/images/science/grade3/physics/incline-forces.png',
+      alt: '斜面上の力の分解',
+      caption: '重力を斜面に平行な分力と垂直な分力に分解',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',
       expression: 'surprised',
       text: '斜面が急だと物が速く滑り落ちるのは、斜面に平行な分力が大きくなるからなんですね！',
+    },
+    {
+      type: 'image',
+      src: '/images/science/grade3/physics/water-pressure-buoyancy.png',
+      alt: '水圧と浮力',
+      caption: '下面の水圧−上面の水圧＝浮力',
     },
     {
       type: 'summary-point',
@@ -187,8 +199,26 @@ export const forceActionChat: HistoryChat = {
       caption: '合力が0なら静止し続ける or 等速直線運動を続ける',
     },
     {
+      type: 'image',
+      src: '/images/science/grade3/physics/inertia-examples.png',
+      alt: '慣性の法則の例',
+      caption: '電車の急ブレーキ・テーブルクロス引き',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">慣性の法則</span> = 合力0なら静止→静止、運動→等速直線運動を続ける！電車のブレーキ・だるま落としは慣性の例！',
+    },
+    {
+      type: 'quiz',
+      question: '電車が急ブレーキをかけたとき、乗客の体が前に倒れる理由は？',
+      options: [
+        { letter: 'A', text: '重力が大きくなるから', correct: false },
+        { letter: 'B', text: '慣性で体が前に進み続けようとするから', correct: true },
+        { letter: 'C', text: '摩擦力が働くから', correct: false },
+        { letter: 'D', text: '作用・反作用の法則のため', correct: false },
+      ],
+      explanation:
+        '<strong>正解はB</strong>です。<ruby>慣性<rp>(</rp><rt>かんせい</rt><rp>)</rp></ruby>により体はもとの<ruby>運動状態<rp>(</rp><rt>うんどうじょうたい</rt><rp>)</rp></ruby>を続けようとするため、電車が止まっても体は前に進み続けようとします。',
     },
     {
       type: 'message',
@@ -217,6 +247,12 @@ export const forceActionChat: HistoryChat = {
       characterId: 'teacher',
       expression: 'thinking',
       text: 'いい質問だね！<strong>つり合い</strong>は<strong>同じ物体</strong>にはたらく2力だけど、<strong>作用・反作用</strong>は<strong>別々の物体</strong>にはたらく2力なんだ。これはテストでよく出るポイントだよ！',
+    },
+    {
+      type: 'image',
+      src: '/images/science/grade3/physics/action-reaction.png',
+      alt: '作用・反作用の法則',
+      caption: '2人が押し合うと同じ大きさの力が反対向きにはたらく',
     },
     {
       type: 'message',

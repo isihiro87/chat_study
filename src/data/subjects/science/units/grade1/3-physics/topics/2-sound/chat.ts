@@ -233,6 +233,18 @@ export const soundChat: HistoryChat = {
       text: '弦が<span class="keyword">短い・細い・強く張る</span>→高い音。<span class="keyword">強くはじく</span>→大きい音！',
     },
     {
+      type: 'quiz',
+      question: 'モノコードの弦を短くすると音はどう変わるか。',
+      options: [
+        { letter: 'A', text: '高い音になる', correct: true },
+        { letter: 'B', text: '低い音になる', correct: false },
+        { letter: 'C', text: '大きい音になる', correct: false },
+        { letter: 'D', text: '小さい音になる', correct: false },
+      ],
+      explanation:
+        '<strong>正解はA「高い音になる」</strong>です。<ruby>弦<rp>(</rp><rt>げん</rt><rp>)</rp></ruby>が短いほど<ruby>振動数<rp>(</rp><rt>しんどうすう</rt><rp>)</rp></ruby>が大きくなり、高い音が出ます。',
+    },
+    {
       type: 'date',
       text: '<ruby>音速<rp>(</rp><rt>おんそく</rt><rp>)</rp></ruby>の<ruby>計算<rp>(</rp><rt>けいさん</rt><rp>)</rp></ruby>',
     },

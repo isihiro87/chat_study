@@ -250,6 +250,16 @@ export const calcApplications: Topic = {
         hint: '引き算で求める',
         difficulty: 'advanced',
       },
+      { id: 'math-g3-ca-fc29', front: '$9991$', back: '$103 \\times 97$ を乗法の公式で計算すると？', explanation: '$(100+3)(100-3) = 100^2 - 9 = 9991$。', difficulty: 'basic' },
+      { id: 'math-g3-ca-fc30', front: '$10609$', back: '$103^2$ を乗法の公式で計算すると？', explanation: '$(100+3)^2 = 10000 + 600 + 9$。', difficulty: 'basic' },
+      { id: 'math-g3-ca-fc31', front: '$9604$', back: '$98^2$ を乗法の公式で計算すると？', explanation: '$(100-2)^2 = 10000 - 400 + 4$。', difficulty: 'standard' },
+      { id: 'math-g3-ca-fc32', front: '$2491$', back: '$49 \\times 51$ を乗法の公式で計算すると？', explanation: '$(50-1)(50+1) = 2500 - 1$。', difficulty: 'standard' },
+      { id: 'math-g3-ca-fc33', front: '$1$', back: '奇数の $2$ 乗を $8$ で割った余りは？', explanation: '$(2n+1)^2 = 4n(n+1) + 1$。$n(n+1)$ は偶数。', difficulty: 'standard' },
+      { id: 'math-g3-ca-fc34', front: '$n, n+1, n+2$（または $n-1, n, n+1$）', back: '連続する $3$ つの整数を文字で表すと？', explanation: '真ん中を基準にする方法もある。', difficulty: 'basic' },
+      { id: 'math-g3-ca-fc35', front: '真ん中の数の $2$ 乗より $1$ 小さい', back: '連続する $3$ つの整数で、両端の積と真ん中の $2$ 乗の関係は？', explanation: '$(n-1)(n+1) = n^2 - 1$。', difficulty: 'standard' },
+      { id: 'math-g3-ca-fc36', front: '展開や因数分解を使って式を簡単にしてから数値を代入', back: '式の値を求めるときの効率的な方法は？', explanation: '直接代入より計算が楽になる。', difficulty: 'standard' },
+      { id: 'math-g3-ca-fc37', front: '$(a+b)^2 - (a-b)^2 = 4ab$', back: '和の $2$ 乗と差の $2$ 乗の差は？', explanation: '展開して引くと $4ab$。', difficulty: 'advanced' },
+      { id: 'math-g3-ca-fc38', front: '因数分解して積の形にしてから代入', back: '$x^2 - 4x + 4$ で $x = 102$ のとき、効率的な計算法は？', explanation: '$(x-2)^2 = 100^2 = 10000$。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [

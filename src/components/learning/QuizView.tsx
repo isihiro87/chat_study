@@ -196,7 +196,7 @@ export function QuizView({ quiz, onProgressChange, onComplete, onCompleteWithDif
     onProgressChange?.(currentIndex + 1, totalQuestions);
   }, [currentIndex, totalQuestions, onProgressChange]);
 
-  // 「別の問題を解く」で問題セットが変わったら、新しいquizでreset
+  // 「続きの問題を解く」で問題セットが変わったら、新しいquizでreset
   useEffect(() => {
     if (quizGeneration > 0) {
       reset();
@@ -222,7 +222,7 @@ export function QuizView({ quiz, onProgressChange, onComplete, onCompleteWithDif
     }
   }, [isComplete, isReviewMode, score, filteredQuiz.questions.length, onComplete, onCompleteWithDifficulties, onCompleteWithWrongQuestions, wrongAnswers, filteredQuiz.questions, selectedDifficulties]);
 
-  // 別の問題を解く: 同じ設定で再選定（出題済み問題を除外）
+  // 続きの問題を解く: 同じ設定で再選定（出題済み問題を除外）
   const handleNewQuestions = () => {
     if (!setupConfig) return;
     const allQuestions = quiz.questions;
@@ -312,7 +312,7 @@ export function QuizView({ quiz, onProgressChange, onComplete, onCompleteWithDif
     const retryCount = isReviewMode ? reviewWrongAnswers.length : wrongAnswers.length;
 
     return (
-      <div className="h-full overflow-y-auto px-4 py-8">
+      <div className="h-full overflow-y-auto px-4 pt-8 pb-24">
         <div className="mx-auto flex w-full max-w-md flex-col items-center">
           <div className="mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-amber-50">
             <Trophy className="h-10 w-10 text-amber-500" />
@@ -362,6 +362,17 @@ export function QuizView({ quiz, onProgressChange, onComplete, onCompleteWithDif
                 </button>
               )}
 
+              {setupConfig && (
+                <button
+                  onClick={handleNewQuestions}
+                  className="flex items-center justify-center gap-2 rounded-full border-2 border-amber-400 bg-amber-50 px-6 py-3.5 font-bold text-amber-700 transition-transform active:scale-95"
+                  style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+                >
+                  <Shuffle className="h-5 w-5" />
+                  続きの問題を解く
+                </button>
+              )}
+
               <button
                 onClick={reset}
                 className="flex items-center justify-center gap-2 rounded-full border-2 border-gray-200 bg-white px-6 py-3.5 font-bold text-gray-700 transition-transform active:scale-95"
@@ -370,17 +381,6 @@ export function QuizView({ quiz, onProgressChange, onComplete, onCompleteWithDif
                 <RotateCcw className="h-5 w-5" />
                 最初からやり直す
               </button>
-
-              {setupConfig && (
-                <button
-                  onClick={handleNewQuestions}
-                  className="flex items-center justify-center gap-2 rounded-full border-2 border-gray-200 bg-white px-6 py-3.5 font-bold text-gray-700 transition-transform active:scale-95"
-                  style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
-                >
-                  <Shuffle className="h-5 w-5" />
-                  別の問題を解く
-                </button>
-              )}
 
               <button
                 onClick={handleReturnToSetup}

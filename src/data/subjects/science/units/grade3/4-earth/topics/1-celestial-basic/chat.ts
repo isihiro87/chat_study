@@ -70,8 +70,26 @@ export const celestialBasicChat: HistoryChat = {
       caption: '望遠鏡で太陽像を投影し、黒点の移動を記録する',
     },
     {
+      type: 'image',
+      src: '/images/science/grade3/earth/sun-surface.png',
+      alt: '太陽の表面構造',
+      caption: '黒点・コロナ・プロミネンス',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">恒星</span> = 自ら光を出す天体。<span class="keyword">黒点</span>の移動 → 太陽の自転の証拠！',
+    },
+    {
+      type: 'quiz',
+      question: '太陽の黒点が日ごとに移動することから何がわかる？',
+      options: [
+        { letter: 'A', text: '太陽が自転していること', correct: true },
+        { letter: 'B', text: '太陽が公転していること', correct: false },
+        { letter: 'C', text: '地球が自転していること', correct: false },
+        { letter: 'D', text: '黒点が消えかかっていること', correct: false },
+      ],
+      explanation:
+        '<strong>正解はA「太陽が<ruby>自転<rp>(</rp><rt>じてん</rt><rp>)</rp></ruby>していること」</strong>です。<ruby>黒点<rp>(</rp><rt>こくてん</rt><rp>)</rp></ruby>が日ごとに移動するのは、太陽自体が回転（自転）しているためです。',
     },
     {
       type: 'date',

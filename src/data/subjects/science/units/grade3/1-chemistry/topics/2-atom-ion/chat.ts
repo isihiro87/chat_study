@@ -145,6 +145,18 @@ export const atomIonChat: HistoryChat = {
       text: '<span class="keyword">イオン式</span>: 元素記号の右上に＋/−の符号を書く。主な陽イオン: H⁺、Na⁺、Cu²⁺、Mg²⁺。主な陰イオン: Cl⁻、OH⁻、SO₄²⁻。<span class="keyword">多原子イオン</span>: 複数の原子からなるイオン（OH⁻、SO₄²⁻、NH₄⁺）',
     },
     {
+      type: 'quiz',
+      question: '原子が電子を失ってできるイオンはどれ？',
+      options: [
+        { letter: 'A', text: '陰イオン', correct: false },
+        { letter: 'B', text: '多原子イオン', correct: false },
+        { letter: 'C', text: '陽イオン', correct: true },
+        { letter: 'D', text: '同位体', correct: false },
+      ],
+      explanation:
+        '<strong>正解はC「<ruby>陽<rp>(</rp><rt>よう</rt><rp>)</rp></ruby>イオン」</strong>です。<ruby>電子<rp>(</rp><rt>でんし</rt><rp>)</rp></ruby>を<ruby>失<rp>(</rp><rt>うしな</rt><rp>)</rp></ruby>うと＋の電気が<ruby>余<rp>(</rp><rt>あま</rt><rp>)</rp></ruby>るので<ruby>陽<rp>(</rp><rt>よう</rt><rp>)</rp></ruby>イオンになります。',
+    },
+    {
       type: 'date',
       text: '<ruby>電離式<rp>(</rp><rt>でんりしき</rt><rp>)</rp></ruby>',
     },

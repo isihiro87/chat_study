@@ -7,8 +7,8 @@ export const kofunEraChat: HistoryChat = {
   subtitle: '〜3世紀後半〜 巨大古墳と渡来人の文化',
   characters: [
     {
-      id: 'king',
-      name: '大王先生',
+      id: 'teacher',
+      name: '先生',
       emoji: '👑',
       colorFrom: '#b45309',
       colorTo: '#f59e0b',
@@ -45,9 +45,9 @@ export const kofunEraChat: HistoryChat = {
     {
       type: 'message',
       side: 'left',
-      characterId: 'king',
+      characterId: 'teacher',
       expression: 'explaining',
-      text: '<span data-tooltip="大和政権のトップで、のちの天皇にあたる存在">わしは<strong><span class="keyword"><ruby>大王<rp>(</rp><rt>おおきみ</rt><rp>)</rp></ruby></span></strong></span>として<strong>大和政権</strong>を率いている。<ruby>豪族<rp>(</rp><rt>ごうぞく</rt><rp>)</rp></ruby>たちをまとめ、大きな国を作ったんだ',
+      text: '<span data-tooltip="大和政権のトップで、のちの天皇にあたる存在"><strong><span class="keyword"><ruby>大王<rp>(</rp><rt>おおきみ</rt><rp>)</rp></ruby></span></strong></span>が<strong>大和政権</strong>のトップに立っていたんだ。<ruby>豪族<rp>(</rp><rt>ごうぞく</rt><rp>)</rp></ruby>たちをまとめて、大きな国を作ったんだよ',
     },
     {
       type: 'message',
@@ -59,7 +59,7 @@ export const kofunEraChat: HistoryChat = {
     {
       type: 'message',
       side: 'left',
-      characterId: 'king',
+      characterId: 'teacher',
       expression: 'excited',
       text: '<strong><span class="keyword"><ruby>前方後円墳<rp>(</rp><rt>ぜんぽうこうえんふん</rt><rp>)</rp></ruby></span></strong>だ！<span data-tooltip="上から見ると鍵穴のような形。四角い部分（前方）と丸い部分（後円）を組み合わせた日本独自の墓"><ruby>鍵穴<rp>(</rp><rt>かぎあな</rt><rp>)</rp></ruby>のような形</span>をした日本<ruby>独自<rp>(</rp><rt>どくじ</rt><rp>)</rp></ruby>のお墓で、大王の力の<ruby>証<rp>(</rp><rt>あかし</rt><rp>)</rp></ruby>だよ。<ruby>大阪府<rp>(</rp><rt>おおさかふ</rt><rp>)</rp></ruby><ruby>堺市<rp>(</rp><rt>さかいし</rt><rp>)</rp></ruby>の<strong><span class="keyword"><ruby>大仙古墳<rp>(</rp><rt>だいせんこふん</rt><rp>)</rp></ruby></span></strong>は日本最大級だよ',
     },
@@ -73,7 +73,7 @@ export const kofunEraChat: HistoryChat = {
     {
       type: 'message',
       side: 'left',
-      characterId: 'king',
+      characterId: 'teacher',
       expression: 'happy',
       text: 'あれは<strong><span class="keyword"><ruby>埴輪<rp>(</rp><rt>はにわ</rt><rp>)</rp></ruby></span></strong>だよ。人や馬、家などの形をした<ruby>焼<rp>(</rp><rt>や</rt><rp>)</rp></ruby>き物で、<strong>古墳</strong>の周りに並べて飾ったんだ。<ruby>死者<rp>(</rp><rt>ししゃ</rt><rp>)</rp></ruby>の<ruby>魂<rp>(</rp><rt>たましい</rt><rp>)</rp></ruby>を守る<ruby>役割<rp>(</rp><rt>やくわり</rt><rp>)</rp></ruby>があったと考えられているよ',
     },
@@ -111,7 +111,7 @@ export const kofunEraChat: HistoryChat = {
     {
       type: 'message',
       side: 'left',
-      characterId: 'king',
+      characterId: 'teacher',
       expression: 'excited',
       text: '<ruby>埼玉県<rp>(</rp><rt>さいたまけん</rt><rp>)</rp></ruby>の<strong><span class="keyword"><ruby>稲荷山古墳<rp>(</rp><rt>いなりやまこふん</rt><rp>)</rp></ruby></span></strong>と<ruby>熊本県<rp>(</rp><rt>くまもとけん</rt><rp>)</rp></ruby>の<ruby>江田船山古墳<rp>(</rp><rt>えたふなやまこふん</rt><rp>)</rp></ruby>から、<strong><span class="keyword">ワカタケル大王</span></strong>（<ruby>雄略天皇<rp>(</rp><rt>ゆうりゃくてんのう</rt><rp>)</rp></ruby>）の名が<ruby>刻<rp>(</rp><rt>きざ</rt><rp>)</rp></ruby>まれた<ruby>鉄剣<rp>(</rp><rt>てっけん</rt><rp>)</rp></ruby>が出土しているんだ。関東から九州まで、大和政権の力が<ruby>及<rp>(</rp><rt>およ</rt><rp>)</rp></ruby>んでいた<ruby>証拠<rp>(</rp><rt>しょうこ</rt><rp>)</rp></ruby>だよ！',
     },
@@ -125,7 +125,7 @@ export const kofunEraChat: HistoryChat = {
     {
       type: 'message',
       side: 'left',
-      characterId: 'king',
+      characterId: 'teacher',
       expression: 'explaining',
       text: '5世紀には<strong><span class="keyword"><ruby>倭の五王<rp>(</rp><rt>わのごおう</rt><rp>)</rp></ruby></span></strong>が中国の<ruby>宋<rp>(</rp><rt>そう</rt><rp>)</rp></ruby>に使いを送っているんだ。「<strong><span class="keyword"><ruby>宋書<rp>(</rp><rt>そうしょ</rt><rp>)</rp></ruby></span></strong>」にその記録が残っているよ。<ruby>朝鮮半島<rp>(</rp><rt>ちょうせんはんとう</rt><rp>)</rp></ruby>での立場を有利にするためだったんだ',
     },
@@ -163,7 +163,7 @@ export const kofunEraChat: HistoryChat = {
     {
       type: 'message',
       side: 'left',
-      characterId: 'king',
+      characterId: 'teacher',
       expression: 'explaining',
       text: '<ruby>朝鮮半島<rp>(</rp><rt>ちょうせんはんとう</rt><rp>)</rp></ruby>には<strong><span class="keyword"><ruby>高句麗<rp>(</rp><rt>こうくり</rt><rp>)</rp></ruby></span></strong>・<strong><span class="keyword"><ruby>百済<rp>(</rp><rt>くだら</rt><rp>)</rp></ruby></span></strong>・<strong><span class="keyword"><ruby>新羅<rp>(</rp><rt>しらぎ</rt><rp>)</rp></ruby></span></strong>の3国があったんだ。大和政権は百済と<ruby>友好関係<rp>(</rp><rt>ゆうこうかんけい</rt><rp>)</rp></ruby>を結び、<strong><span class="keyword"><ruby>伽耶地域<rp>(</rp><rt>かやちいき</rt><rp>)</rp></ruby></span></strong>から<ruby>鉄<rp>(</rp><rt>てつ</rt><rp>)</rp></ruby>の<ruby>原料<rp>(</rp><rt>げんりょう</rt><rp>)</rp></ruby>を<ruby>輸入<rp>(</rp><rt>ゆにゅう</rt><rp>)</rp></ruby>していたんだよ',
     },
@@ -177,7 +177,7 @@ export const kofunEraChat: HistoryChat = {
     {
       type: 'message',
       side: 'left',
-      characterId: 'king',
+      characterId: 'teacher',
       expression: 'happy',
       text: '高温で焼く<strong><span class="keyword"><ruby>須恵器<rp>(</rp><rt>すえき</rt><rp>)</rp></ruby></span></strong>や<strong><span class="keyword"><ruby>漢字<rp>(</rp><rt>かんじ</rt><rp>)</rp></ruby></span></strong>を伝えてくれたんだ。それまでの<ruby>土器<rp>(</rp><rt>どき</rt><rp>)</rp></ruby>より<ruby>丈夫<rp>(</rp><rt>じょうぶ</rt><rp>)</rp></ruby>で、文字で記録を残せるようにもなったんだよ。<ruby>機織<rp>(</rp><rt>はたお</rt><rp>)</rp></ruby>りや<ruby>土木技術<rp>(</rp><rt>どぼくぎじゅつ</rt><rp>)</rp></ruby>も伝わったんだ',
     },
@@ -191,7 +191,7 @@ export const kofunEraChat: HistoryChat = {
     {
       type: 'message',
       side: 'left',
-      characterId: 'king',
+      characterId: 'teacher',
       expression: 'excited',
       text: '6世紀半ばには<strong><span class="keyword"><ruby>仏教<rp>(</rp><rt>ぶっきょう</rt><rp>)</rp></ruby></span></strong>も伝わったんだ！<strong><span class="keyword"><ruby>儒教<rp>(</rp><rt>じゅきょう</rt><rp>)</rp></ruby></span></strong>という<ruby>礼儀<rp>(</rp><rt>れいぎ</rt><rp>)</rp></ruby>や<ruby>道徳<rp>(</rp><rt>どうとく</rt><rp>)</rp></ruby>の教えも一緒に伝わって、のちの日本の文化に大きな<ruby>影響<rp>(</rp><rt>えいきょう</rt><rp>)</rp></ruby>を<ruby>与<rp>(</rp><rt>あた</rt><rp>)</rp></ruby>えることになるよ',
     },

@@ -81,6 +81,18 @@ export const chemicalCombinationChat: HistoryChat = {
       text: '<span class="keyword">化合</span>＝2種類以上の物質が結びつく化学変化。化合物はもとの物質と<strong>異なる性質</strong>をもつ（硫化鉄は磁石につかない、塩酸で硫化水素が発生）',
     },
     {
+      type: 'quiz',
+      question: '鉄と硫黄の化合でできる硫化鉄の性質として正しいものは？',
+      options: [
+        { letter: 'A', text: '磁石に強く引きつけられる', correct: false },
+        { letter: 'B', text: '塩酸を加えると水素が発生する', correct: false },
+        { letter: 'C', text: '磁石につかない', correct: true },
+        { letter: 'D', text: '鉄と同じ銀色の光沢がある', correct: false },
+      ],
+      explanation:
+        '<strong>正解はC「<ruby>磁石<rp>(</rp><rt>じしゃく</rt><rp>)</rp></ruby>につかない」</strong>です。<ruby>硫化鉄<rp>(</rp><rt>りゅうかてつ</rt><rp>)</rp></ruby>は<ruby>鉄<rp>(</rp><rt>てつ</rt><rp>)</rp></ruby>とはまったく<ruby>異<rp>(</rp><rt>こと</rt><rp>)</rp></ruby>なる<ruby>性質<rp>(</rp><rt>せいしつ</rt><rp>)</rp></ruby>をもち、<ruby>磁石<rp>(</rp><rt>じしゃく</rt><rp>)</rp></ruby>に引きつけられません。',
+    },
+    {
       type: 'message',
       side: 'left',
       characterId: 'teacher',

@@ -168,6 +168,18 @@ export const neutralizationChat: HistoryChat = {
       text: 'さまざまな中和反応：HNO₃ + KOH → <span class="keyword">KNO₃</span> + H₂O、H₂SO₄ + Ba(OH)₂ → <span class="keyword">BaSO₄↓</span> + 2H₂O（白い沈殿）、H₂CO₃ + Ca(OH)₂ → <span class="keyword">CaCO₃↓</span> + 2H₂O（石灰水が白くにごる）',
     },
     {
+      type: 'quiz',
+      question: '硫酸と水酸化バリウムの中和で白い沈殿ができる物質は？',
+      options: [
+        { letter: 'A', text: '塩化ナトリウム', correct: false },
+        { letter: 'B', text: '炭酸カルシウム', correct: false },
+        { letter: 'C', text: '硝酸カリウム', correct: false },
+        { letter: 'D', text: '硫酸バリウム', correct: true },
+      ],
+      explanation:
+        '<strong>正解はD「<ruby>硫酸<rp>(</rp><rt>りゅうさん</rt><rp>)</rp></ruby>バリウム」</strong>です。H₂SO₄ + Ba(OH)₂ → BaSO₄ + 2H₂O で、BaSO₄は水に<ruby>溶<rp>(</rp><rt>と</rt><rp>)</rp></ruby>けないため<ruby>白<rp>(</rp><rt>しろ</rt><rp>)</rp></ruby>い<ruby>沈殿<rp>(</rp><rt>ちんでん</rt><rp>)</rp></ruby>になります。',
+    },
+    {
       type: 'end',
       points: [
         '<strong><ruby>中和<rp>(</rp><rt>ちゅうわ</rt><rp>)</rp></ruby></strong>：H<sup>+</sup> + OH<sup>−</sup> → H<sub>2</sub>O + <strong><ruby>塩<rp>(</rp><rt>えん</rt><rp>)</rp></ruby></strong>。<ruby>発熱<rp>(</rp><rt>はつねつ</rt><rp>)</rp></ruby><ruby>反応<rp>(</rp><rt>はんのう</rt><rp>)</rp></ruby>でもある',

@@ -89,6 +89,17 @@ export const northAmericaNatureChat: HistoryChat = {
       text: '<span class="keyword">ロッキー山脈</span>・<span class="keyword">グレートプレーンズ</span>の雄大な自然。<span class="keyword">多文化社会</span>と<span class="keyword">USMCA</span>',
     },
     {
+      type: 'quiz',
+      question: 'アメリカ・カナダ・メキシコの3か国が結んだ経済協定は？',
+      options: [
+        { letter: 'A', text: 'EU', correct: false },
+        { letter: 'B', text: 'USMCA', correct: true },
+        { letter: 'C', text: 'APEC', correct: false },
+        { letter: 'D', text: 'ASEAN', correct: false },
+      ],
+      explanation: '<strong>正解はB</strong>です。USMCA（<ruby>米国<rp>(</rp><rt>べいこく</rt><rp>)</rp></ruby>・メキシコ・カナダ<ruby>協定<rp>(</rp><rt>きょうてい</rt><rp>)</rp></ruby>）は3か国の経済的な結びつきを強めています。',
+    },
+    {
       type: 'date',
       text: 'ミシシッピ川・五大湖と気候',
     },
@@ -143,6 +154,17 @@ export const northAmericaNatureChat: HistoryChat = {
       text: '<span class="keyword">ミシシッピ川</span>は大陸最大級の河川。<span class="keyword">五大湖</span>は世界最大の淡水湖群。<span class="keyword">ハリケーン</span>がカリブ海で発生',
     },
     {
+      type: 'quiz',
+      question: 'アメリカとカナダの国境付近にある世界最大の淡水湖群は？',
+      options: [
+        { letter: 'A', text: 'カスピ海', correct: false },
+        { letter: 'B', text: '五大湖', correct: true },
+        { letter: 'C', text: 'バイカル湖', correct: false },
+        { letter: 'D', text: 'ビクトリア湖', correct: false },
+      ],
+      explanation: '<strong>正解はB</strong>です。<ruby>五大湖<rp>(</rp><rt>ごだいこ</rt><rp>)</rp></ruby>はアメリカとカナダの<ruby>国境<rp>(</rp><rt>こっきょう</rt><rp>)</rp></ruby>付近にある世界最大の<ruby>淡水湖群<rp>(</rp><rt>たんすいこぐん</rt><rp>)</rp></ruby>です。',
+    },
+    {
       type: 'date',
       text: '適地適作と大規模農業',
     },
@@ -195,6 +217,17 @@ export const northAmericaNatureChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<span class="keyword">適地適作</span>で地域に合った農業。<span class="keyword">センターピボット</span>と<span class="keyword">アグリビジネス</span>（穀物メジャー）',
+    },
+    {
+      type: 'quiz',
+      question: '穀物の生産から流通・輸出までを一貫して行う巨大企業のビジネスを何という？',
+      options: [
+        { letter: 'A', text: 'フェアトレード', correct: false },
+        { letter: 'B', text: 'モノカルチャー', correct: false },
+        { letter: 'C', text: 'アグリビジネス', correct: true },
+        { letter: 'D', text: 'プランテーション', correct: false },
+      ],
+      explanation: '<strong>正解はC</strong>です。アグリビジネスは<ruby>穀物<rp>(</rp><rt>こくもつ</rt><rp>)</rp></ruby>メジャーとよばれる巨大企業が生産から<ruby>流通<rp>(</rp><rt>りゅうつう</rt><rp>)</rp></ruby>・<ruby>輸出<rp>(</rp><rt>ゆしゅつ</rt><rp>)</rp></ruby>まで行うビジネスです。',
     },
     {
       type: 'date',

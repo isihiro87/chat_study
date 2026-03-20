@@ -271,6 +271,30 @@ export const nounsAdvanced: Topic = {
         explanation: 'that → those。「あれ」の複数形が「あれら」だよ。',
         difficulty: 'advanced',
       },
+      {
+        id: 'eng-na-fc29',
+        front: 'sheep',
+        back: 'sheep（ひつじ）の複数形は？',
+        hint: '単数形と複数形が同じ形のことばだよ',
+        explanation: 'sheep は単数・複数が同じ形。one sheep / two sheep だよ。fish も同じパターン。',
+        difficulty: 'standard',
+      },
+      {
+        id: 'eng-na-fc30',
+        front: 'knives',
+        back: 'knife（ナイフ）の複数形は？',
+        hint: 'f や fe で終わることばは f を v にかえて es だよ',
+        explanation: 'knife → knives。f を v にかえて es をつけるよ。leaf → leaves も同じパターン。',
+        difficulty: 'standard',
+      },
+      {
+        id: 'eng-na-fc31',
+        front: 'How many books do you have?',
+        back: '「あなたは本を何冊もっていますか？」を英語にすると？',
+        hint: '「何冊」= How many。うしろに複数形の名詞がくるよ',
+        explanation: 'How many + 複数形 + do you ...? の形だよ。',
+        difficulty: 'basic',
+      },
     ],
     quiz: {
       questions: [

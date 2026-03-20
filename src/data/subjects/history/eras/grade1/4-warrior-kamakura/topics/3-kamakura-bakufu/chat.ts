@@ -7,8 +7,8 @@ export const kamakuraBakufuChat: HistoryChat = {
   subtitle: '〜1185年〜 源頼朝と御恩・奉公',
   characters: [
     {
-      id: 'yoritomo',
-      name: '源頼朝',
+      id: 'teacher',
+      name: '先生',
       emoji: '🏯',
       colorFrom: '#1e3a5f',
       colorTo: '#3b82f6',
@@ -45,9 +45,9 @@ export const kamakuraBakufuChat: HistoryChat = {
     {
       type: 'message',
       side: 'left',
-      characterId: 'yoritomo',
+      characterId: 'teacher',
       expression: 'explaining',
-      text: '1185年、私は全国に<strong><span class="keyword"><ruby>守護<rp>(</rp><rt>しゅご</rt><rp>)</rp></ruby></span></strong>と<strong><span class="keyword"><ruby>地頭<rp>(</rp><rt>じとう</rt><rp>)</rp></ruby></span></strong>を置いた。<span data-tooltip="国ごとに置かれ、軍事や警察の仕事をする役職">守護</span>は国ごとに軍事・<ruby>警察<rp>(</rp><rt>けいさつ</rt><rp>)</rp></ruby>を担当し、<span data-tooltip="荘園や公領に置かれ、土地の管理や年貢の取り立てをする役職">地頭</span>は<ruby>荘園<rp>(</rp><rt>しょうえん</rt><rp>)</rp></ruby>・<ruby>公領<rp>(</rp><rt>こうりょう</rt><rp>)</rp></ruby>の管理や<ruby>年貢<rp>(</rp><rt>ねんぐ</rt><rp>)</rp></ruby>の<ruby>徴収<rp>(</rp><rt>ちょうしゅう</rt><rp>)</rp></ruby>を行うんだ',
+      text: '1185年、<strong><span class="keyword"><ruby>源頼朝<rp>(</rp><rt>みなもとのよりとも</rt><rp>)</rp></ruby></span></strong>は全国に<strong><span class="keyword"><ruby>守護<rp>(</rp><rt>しゅご</rt><rp>)</rp></ruby></span></strong>と<strong><span class="keyword"><ruby>地頭<rp>(</rp><rt>じとう</rt><rp>)</rp></ruby></span></strong>を置いたんだ。<span data-tooltip="国ごとに置かれ、軍事や警察の仕事をする役職">守護</span>は国ごとに軍事・<ruby>警察<rp>(</rp><rt>けいさつ</rt><rp>)</rp></ruby>を担当し、<span data-tooltip="荘園や公領に置かれ、土地の管理や年貢の取り立てをする役職">地頭</span>は<ruby>荘園<rp>(</rp><rt>しょうえん</rt><rp>)</rp></ruby>・<ruby>公領<rp>(</rp><rt>こうりょう</rt><rp>)</rp></ruby>の管理や<ruby>年貢<rp>(</rp><rt>ねんぐ</rt><rp>)</rp></ruby>の<ruby>徴収<rp>(</rp><rt>ちょうしゅう</rt><rp>)</rp></ruby>を行ったんだよ',
     },
     {
       type: 'message',
@@ -59,7 +59,7 @@ export const kamakuraBakufuChat: HistoryChat = {
     {
       type: 'message',
       side: 'left',
-      characterId: 'yoritomo',
+      characterId: 'teacher',
       expression: 'happy',
       text: '幕府には3つの重要な役所がある。<strong><span class="keyword"><ruby>侍所<rp>(</rp><rt>さむらいどころ</rt><rp>)</rp></ruby></span></strong>（<ruby>御家人<rp>(</rp><rt>ごけにん</rt><rp>)</rp></ruby>の<ruby>統率<rp>(</rp><rt>とうそつ</rt><rp>)</rp></ruby>）、<strong><span class="keyword"><ruby>政所<rp>(</rp><rt>まんどころ</rt><rp>)</rp></ruby></span></strong>（政務・<ruby>財政<rp>(</rp><rt>ざいせい</rt><rp>)</rp></ruby>）、<strong><span class="keyword"><ruby>問注所<rp>(</rp><rt>もんちゅうじょ</rt><rp>)</rp></ruby></span></strong>（<ruby>裁判<rp>(</rp><rt>さいばん</rt><rp>)</rp></ruby>）だ。1192年には<strong><span class="keyword"><ruby>征夷大将軍<rp>(</rp><rt>せいいたいしょうぐん</rt><rp>)</rp></ruby></span></strong>に<ruby>任命<rp>(</rp><rt>にんめい</rt><rp>)</rp></ruby>されたよ',
     },
@@ -73,7 +73,7 @@ export const kamakuraBakufuChat: HistoryChat = {
     {
       type: 'message',
       side: 'left',
-      characterId: 'yoritomo',
+      characterId: 'teacher',
       expression: 'happy',
       text: 'いい質問だ。<strong><span class="keyword"><ruby>御家人<rp>(</rp><rt>ごけにん</rt><rp>)</rp></ruby></span></strong>と呼ばれる武士たちは将軍に<ruby>忠誠<rp>(</rp><rt>ちゅうせい</rt><rp>)</rp></ruby>を<ruby>誓<rp>(</rp><rt>ちか</rt><rp>)</rp></ruby>い、戦のときに<ruby>駆<rp>(</rp><rt>か</rt><rp>)</rp></ruby>けつける<strong><span class="keyword"><ruby>奉公<rp>(</rp><rt>ほうこう</rt><rp>)</rp></ruby></span></strong>をする。その見返りとして将軍から<ruby>領地<rp>(</rp><rt>りょうち</rt><rp>)</rp></ruby>をいただく<strong><span class="keyword"><ruby>御恩<rp>(</rp><rt>ごおん</rt><rp>)</rp></ruby></span></strong>を受けるのだ',
     },
@@ -106,9 +106,9 @@ export const kamakuraBakufuChat: HistoryChat = {
     {
       type: 'message',
       side: 'left',
-      characterId: 'yoritomo',
+      characterId: 'teacher',
       expression: 'thinking',
-      text: '私の死後、3代将軍の<strong><span class="keyword"><ruby>源実朝<rp>(</rp><rt>みなもとのさねとも</rt><rp>)</rp></ruby></span></strong>が<ruby>暗殺<rp>(</rp><rt>あんさつ</rt><rp>)</rp></ruby>され、源氏の将軍は3代で<ruby>途絶<rp>(</rp><rt>とだ</rt><rp>)</rp></ruby>えてしまった…。その後は<strong><span class="keyword"><ruby>北条時政<rp>(</rp><rt>ほうじょうときまさ</rt><rp>)</rp></ruby></span></strong>が初代<ruby>執権<rp>(</rp><rt>しっけん</rt><rp>)</rp></ruby>となり、北条氏が幕府の<ruby>実権<rp>(</rp><rt>じっけん</rt><rp>)</rp></ruby>を握ったんだ',
+      text: '頼朝の死後、3代将軍の<strong><span class="keyword"><ruby>源実朝<rp>(</rp><rt>みなもとのさねとも</rt><rp>)</rp></ruby></span></strong>が<ruby>暗殺<rp>(</rp><rt>あんさつ</rt><rp>)</rp></ruby>され、源氏の将軍は3代で<ruby>途絶<rp>(</rp><rt>とだ</rt><rp>)</rp></ruby>えてしまったんだ…。その後は<strong><span class="keyword"><ruby>北条時政<rp>(</rp><rt>ほうじょうときまさ</rt><rp>)</rp></ruby></span></strong>が初代<ruby>執権<rp>(</rp><rt>しっけん</rt><rp>)</rp></ruby>となり、北条氏が幕府の<ruby>実権<rp>(</rp><rt>じっけん</rt><rp>)</rp></ruby>を握ったんだよ',
     },
     {
       type: 'message',
@@ -120,7 +120,7 @@ export const kamakuraBakufuChat: HistoryChat = {
     {
       type: 'message',
       side: 'left',
-      characterId: 'yoritomo',
+      characterId: 'teacher',
       expression: 'thinking',
       text: '1221年、朝廷の<ruby>後鳥羽上皇<rp>(</rp><rt>ごとばじょうこう</rt><rp>)</rp></ruby>が幕府を倒そうと<strong><span class="keyword"><ruby>承久<rp>(</rp><rt>じょうきゅう</rt><rp>)</rp></ruby>の<ruby>乱<rp>(</rp><rt>らん</rt><rp>)</rp></ruby></span></strong>を起こしたんだ',
     },
@@ -134,7 +134,7 @@ export const kamakuraBakufuChat: HistoryChat = {
     {
       type: 'message',
       side: 'left',
-      characterId: 'yoritomo',
+      characterId: 'teacher',
       expression: 'explaining',
       text: '<ruby>北条政子<rp>(</rp><rt>ほうじょうまさこ</rt><rp>)</rp></ruby>の<ruby>訴<rp>(</rp><rt>うった</rt><rp>)</rp></ruby>えで<strong>御家人</strong>たちが<ruby>団結<rp>(</rp><rt>だんけつ</rt><rp>)</rp></ruby>し、幕府が勝利した。その後、<ruby>北条泰時<rp>(</rp><rt>ほうじょうやすとき</rt><rp>)</rp></ruby>が武士の法律である<strong><span class="keyword"><ruby>御成敗式目<rp>(</rp><rt>ごせいばいしきもく</rt><rp>)</rp></ruby></span></strong>（<ruby>貞永式目<rp>(</rp><rt>じょうえいしきもく</rt><rp>)</rp></ruby>）を定めたんだ',
     },

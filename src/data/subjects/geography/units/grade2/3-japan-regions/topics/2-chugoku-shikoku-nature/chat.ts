@@ -40,9 +40,9 @@ export const chugokuShikokuNatureChat: HistoryChat = {
     },
     {
       type: 'image',
-      src: '/images/geography/grade2/japan-regions/chugoku-shikoku-overview.png',
+      src: '/images/geography/grade2/japan-regions/chugoku-shikoku-overview.jpeg',
       alt: '中国・四国地方の地図',
-      caption: '【準備中】中国・四国地方の全体図',
+      caption: '中国・四国地方の全体図',
     },
     {
       type: 'narrator',
@@ -168,6 +168,12 @@ export const chugokuShikokuNatureChat: HistoryChat = {
       characterId: 'teacher',
       expression: 'excited',
       text: 'しまなみ海道は自転車で渡れる橋なんだ！<strong><span class="keyword">サイクリング</span></strong>コースとして国内外から観光客を集めていて、<ruby>瀬戸内<rp>(</rp><rt>せとうち</rt><rp>)</rp></ruby>の島々の<ruby>活性化<rp>(</rp><rt>かっせいか</rt><rp>)</rp></ruby>に役立っているよ',
+    },
+    {
+      type: 'image',
+      src: '/images/geography/grade2/japan-regions/honshi-shikoku-bridges.jpeg',
+      alt: '本州四国連絡橋の3ルートの図',
+      caption: '本州四国連絡橋の3ルート — 瀬戸大橋・明石海峡大橋・しまなみ海道',
     },
     {
       type: 'summary-point',

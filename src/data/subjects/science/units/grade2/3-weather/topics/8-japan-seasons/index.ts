@@ -92,6 +92,12 @@ export const japanSeasons: Topic = {
       { id: 'sci2-jsea-fc13', front: '太平洋高気圧の勢力が弱まり、台風が北上しやすくなる。偏西風で東へ向きを変える', back: '秋に台風が日本に接近しやすくなる理由は？', difficulty: 'advanced' },
       { id: 'sci2-jsea-fc14', front: '重大な災害が予想されるときに気象庁が発表する最も深刻な警報', back: '特別警報とは何？', difficulty: 'advanced' },
       { id: 'sci2-jsea-fc15', front: '夏の終わりから秋にかけて日本付近に停滞する前線。梅雨前線と同じしくみ', back: '秋雨前線とは何？', difficulty: 'advanced' },
+      { id: 'sci2-jsea-fc16', front: 'シベリア高気圧', back: '冬に西に位置する高気圧の名前は？', difficulty: 'basic' },
+      { id: 'sci2-jsea-fc17', front: '太平洋上を通過するとき海から水蒸気を吸収するから', back: '夏に吹く南東の季節風が湿っている理由は？', difficulty: 'standard' },
+      { id: 'sci2-jsea-fc18', front: '晴れ（高気圧→下降気流→晴れ）', back: '移動性高気圧が通過するとき天気は？', difficulty: 'standard' },
+      { id: 'sci2-jsea-fc19', front: '台風の進路は高気圧の縁に沿い、春〜夏は西寄り、秋は北上して日本方面へ', back: '台風の進路は春から夏と秋でどう異なる？', difficulty: 'standard' },
+      { id: 'sci2-jsea-fc20', front: '大雨による河川の氾濫、台風による暴風被害、土砂崩れ', back: '気象災害の例を3つ答えよ', difficulty: 'standard' },
+      { id: 'sci2-jsea-fc21', front: '豊富な降水量による農業用水・生活用水の確保、水力発電', back: '気象現象がもたらすめぐみを2つ答えよ', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [

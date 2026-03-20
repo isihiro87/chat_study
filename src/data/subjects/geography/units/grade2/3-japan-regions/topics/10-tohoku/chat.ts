@@ -40,9 +40,9 @@ export const tohokuChat: HistoryChat = {
     },
     {
       type: 'image',
-      src: '/images/geography/grade2/japan-regions/tohoku-overview.png',
+      src: '/images/geography/grade2/japan-regions/tohoku-overview.jpeg',
       alt: '東北地方の地図',
-      caption: '【準備中】東北地方の全体図',
+      caption: '東北地方の全体図',
     },
     {
       type: 'narrator',
@@ -187,6 +187,12 @@ export const tohokuChat: HistoryChat = {
       text: '暖流と寒流がぶつかるところに魚が集まるんですね！',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade2/japan-regions/rias-coast.jpeg',
+      alt: 'リアス海岸のイラスト',
+      caption: 'リアス海岸 — 三陸海岸・若狭湾・志摩半島に見られる',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">リアス海岸</span>で養殖漁業。<span class="keyword">潮目</span>（黒潮×親潮）で世界有数の好漁場',
     },
@@ -234,6 +240,17 @@ export const tohokuChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<span class="keyword">東北自動車道</span>沿いにIC工場が進出。<span class="keyword">東北新幹線</span>で首都圏へのアクセス向上',
+    },
+    {
+      type: 'quiz',
+      question: '東北地方の高速道路沿いに多く進出している工場はどれ？',
+      options: [
+        { letter: 'A', text: '食品加工工場', correct: false },
+        { letter: 'B', text: 'IC（集積回路）工場', correct: true },
+        { letter: 'C', text: '製紙工場', correct: false },
+        { letter: 'D', text: '繊維工場', correct: false },
+      ],
+      explanation: '<strong>正解はB</strong>です。<ruby>東北自動車道<rp>(</rp><rt>とうほくじどうしゃどう</rt><rp>)</rp></ruby>の<ruby>沿線<rp>(</rp><rt>えんせん</rt><rp>)</rp></ruby>にIC（<ruby>集積回路<rp>(</rp><rt>しゅうせきかいろ</rt><rp>)</rp></ruby>）工場が多く進出しています。',
     },
     {
       type: 'date',

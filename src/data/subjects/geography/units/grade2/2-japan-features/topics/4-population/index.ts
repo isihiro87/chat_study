@@ -144,6 +144,14 @@ export const population: Topic = {
       { id: 'geo2-pp-fc19', front: '出生率の低下（晩婚化・未婚化）と平均寿命の延び（医療の発達）', back: '少子高齢化の原因を2つ答えよ', difficulty: 'advanced' },
       { id: 'geo2-pp-fc20', front: '郊外のニュータウンに開発された大規模住宅地', back: 'ドーナツ化現象で郊外に作られた住宅地を何というか？', difficulty: 'advanced' },
       { id: 'geo2-pp-fc21', front: '東京都', back: '日本で最も人口密度が高い都道府県はどこか？', difficulty: 'advanced' },
+      { id: 'geo2-pp-fc22', front: '2008年頃', back: '日本の人口が減少に転じ始めたのはおよそいつ頃からか。', difficulty: 'standard' },
+      { id: 'geo2-pp-fc23', front: 'つぼ型', back: '日本の人口ピラミッドは現在どの型に近いか。', difficulty: 'basic' },
+      { id: 'geo2-pp-fc24', front: '過密（問題）', back: '都市に人口が集中して生じる問題を何というか。', difficulty: 'basic' },
+      { id: 'geo2-pp-fc25', front: '都心回帰', back: '1990年代以降、都心部にマンション建設が進み再び人が戻る動きを何というか。', difficulty: 'standard' },
+      { id: 'geo2-pp-fc26', front: '過疎（化）', back: '農村や山間部・離島で人口が減少する現象を何というか。', difficulty: 'basic' },
+      { id: 'geo2-pp-fc27', front: '地域おこし（地域活性化）', back: '過疎地域を活性化するための取り組みを何というか。', difficulty: 'basic' },
+      { id: 'geo2-pp-fc28', front: '約340人/km2', back: '日本全体の人口密度はおよそいくらか。（2019年現在）', difficulty: 'advanced' },
+      { id: 'geo2-pp-fc29', front: '公共サービスの維持が困難になることと、地域の担い手が不足すること', back: '人口が減少すると地域社会にどのような影響があるか2つ答えよ。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [

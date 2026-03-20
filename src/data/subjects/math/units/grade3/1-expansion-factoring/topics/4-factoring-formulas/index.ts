@@ -233,6 +233,17 @@ export const factoringFormulas: Topic = {
         explanation: 'グループ分け: a(b+c)+(b+c)のように考える',
         difficulty: 'advanced',
       },
+      { id: 'math-g3-ff-fc29', front: '$(x+3)(x+7)$', back: '$x^2 + 10x + 21$ を因数分解すると？', explanation: 'かけて $21$、足して $10$ → $3$ と $7$。', difficulty: 'basic' },
+      { id: 'math-g3-ff-fc30', front: '$(x-4)(x+6)$', back: '$x^2 + 2x - 24$ を因数分解すると？', explanation: 'かけて $-24$、足して $2$ → $-4$ と $6$。', difficulty: 'basic' },
+      { id: 'math-g3-ff-fc31', front: '$(x-3)(x-8)$', back: '$x^2 - 11x + 24$ を因数分解すると？', explanation: 'かけて $24$、足して $-11$ → $-3$ と $-8$。', difficulty: 'standard' },
+      { id: 'math-g3-ff-fc32', front: '$(x+5)(x-9)$', back: '$x^2 - 4x - 45$ を因数分解すると？', explanation: 'かけて $-45$、足して $-4$ → $5$ と $-9$。', difficulty: 'standard' },
+      { id: 'math-g3-ff-fc33', front: '$-5(a-1)^2$', back: '$-5a^2 + 10a - 5$ を因数分解すると？', explanation: '$-5$ でくくる → $-5(a^2 - 2a + 1)$。', difficulty: 'standard' },
+      { id: 'math-g3-ff-fc34', front: '①共通因数 → ②公式の型を判定', back: '因数分解の手順は？', explanation: 'まず共通因数を探す。', difficulty: 'basic' },
+      { id: 'math-g3-ff-fc35', front: '$(2x+3)^2$', back: '$4x^2 + 12x + 9$ を因数分解すると？', explanation: '$(2x)^2 + 2 \\cdot 2x \\cdot 3 + 3^2$。', difficulty: 'standard' },
+      { id: 'math-g3-ff-fc36', front: '$(3x-2)(3x+2)$', back: '$9x^2 - 4$ を因数分解すると？', explanation: '$(3x)^2 - 2^2$。', difficulty: 'standard' },
+      { id: 'math-g3-ff-fc37', front: '$2(x+3)(x-5)$', back: '$2x^2 - 4x - 30$ を因数分解すると？', explanation: '共通因数 $2$ → $2(x^2 - 2x - 15)$。', difficulty: 'advanced' },
+      { id: 'math-g3-ff-fc38', front: '$(a+b+c)(a+b-c)$', back: '$(a+b)^2 - c^2$ を因数分解すると？', explanation: '$A^2 - c^2 = (A+c)(A-c)$ で $A = a+b$。', difficulty: 'advanced' },
+      { id: 'math-g3-ff-fc39', front: '$(x-1)(x+1)(x^2+1)$', back: '$x^4 - 1$ を因数分解すると？', explanation: '$(x^2)^2 - 1^2 = (x^2+1)(x^2-1)$ → さらに因数分解。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [

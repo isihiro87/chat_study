@@ -81,6 +81,18 @@ export const plantTransportChat: HistoryChat = {
       text: '<span class="keyword">道管</span>＝水・肥料分の通り道。<span class="keyword">師管</span>＝養分の通り道。2つ合わせて<span class="keyword">維管束</span>。単子葉類＝散らばる、双子葉類＝輪の形',
     },
     {
+      type: 'quiz',
+      question: '葉で作られた養分の通り道は？',
+      options: [
+        { letter: 'A', text: '道管', correct: false },
+        { letter: 'B', text: '師管', correct: true },
+        { letter: 'C', text: '気孔', correct: false },
+        { letter: 'D', text: '根毛', correct: false },
+      ],
+      explanation:
+        '<strong>正解はB「<ruby>師管<rp>(</rp><rt>しかん</rt><rp>)</rp></ruby>」</strong>です。<ruby>師管<rp>(</rp><rt>しかん</rt><rp>)</rp></ruby>は<ruby>葉<rp>(</rp><rt>は</rt><rp>)</rp></ruby>で作られた<ruby>養分<rp>(</rp><rt>ようぶん</rt><rp>)</rp></ruby>の<ruby>通<rp>(</rp><rt>とお</rt><rp>)</rp></ruby>り<ruby>道<rp>(</rp><rt>みち</rt><rp>)</rp></ruby>で、<ruby>道管<rp>(</rp><rt>どうかん</rt><rp>)</rp></ruby>は水の<ruby>通<rp>(</rp><rt>とお</rt><rp>)</rp></ruby>り<ruby>道<rp>(</rp><rt>みち</rt><rp>)</rp></ruby>です。',
+    },
+    {
       type: 'date',
       text: 'BTB<ruby>溶液<rp>(</rp><rt>ようえき</rt><rp>)</rp></ruby>と<ruby>光合成<rp>(</rp><rt>こうごうせい</rt><rp>)</rp></ruby>',
     },
@@ -112,6 +124,18 @@ export const plantTransportChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<span class="keyword">BTB溶液</span>：黄色（CO₂多い）→緑色→青色（CO₂少ない）。光合成でCO₂が吸収されると青色に変化',
+    },
+    {
+      type: 'quiz',
+      question: '水草を入れたBTB溶液に光を当てると何色になる？',
+      options: [
+        { letter: 'A', text: '黄色', correct: false },
+        { letter: 'B', text: '赤色', correct: false },
+        { letter: 'C', text: '青色', correct: true },
+        { letter: 'D', text: '緑色', correct: false },
+      ],
+      explanation:
+        '<strong>正解はC「<ruby>青色<rp>(</rp><rt>あおいろ</rt><rp>)</rp></ruby>」</strong>です。水草が<ruby>光合成<rp>(</rp><rt>こうごうせい</rt><rp>)</rp></ruby>でCO₂を<ruby>吸収<rp>(</rp><rt>きゅうしゅう</rt><rp>)</rp></ruby>するため、BTB<ruby>溶液<rp>(</rp><rt>ようえき</rt><rp>)</rp></ruby>は<ruby>青色<rp>(</rp><rt>あおいろ</rt><rp>)</rp></ruby>になります。',
     },
     {
       type: 'date',

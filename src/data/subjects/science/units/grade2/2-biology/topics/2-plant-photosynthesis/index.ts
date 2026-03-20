@@ -183,6 +183,15 @@ export const plantPhotosynthesis: Topic = {
       { id: 'sci2-pp-fc26', front: '根からの吸水の原動力', back: '蒸散のはたらきは何に役立つ？', difficulty: 'standard' },
       { id: 'sci2-pp-fc27', front: 'BTB溶液が黄色→青色に変化（CO₂が減少）', back: '水草に光を当てたとき、BTB溶液はどう変化する？', difficulty: 'advanced' },
       { id: 'sci2-pp-fc28', front: '根毛', back: '根の表面にある綿毛のようなもので吸水効率を上げるものは？', explanation: '表面積を広げて効率よく吸収', difficulty: 'basic' },
+      { id: 'sci2-pp-fc29', front: '光エネルギー', back: '光合成に必要なエネルギーは何か？', difficulty: 'basic' },
+      { id: 'sci2-pp-fc30', front: 'おもに葉（葉緑体をもつ部分）', back: '光合成が行われるのは、植物のどの部分か？', difficulty: 'basic' },
+      { id: 'sci2-pp-fc31', front: '葉の一部をアルミはくでおおって光を当て、ヨウ素液でデンプンの有無を調べる', back: '光合成に光が必要であることを確かめるにはどのような実験をすればよいか？', difficulty: 'standard' },
+      { id: 'sci2-pp-fc32', front: 'ふ入りの葉を使う', back: '光合成に葉緑体が必要であることを確かめるにはどのような葉を使えばよいか？', difficulty: 'standard' },
+      { id: 'sci2-pp-fc33', front: '変化しない（青紫色にならない）', back: 'ふ入りの葉のふの部分にヨウ素液をつけると色はどうなるか？', difficulty: 'standard' },
+      { id: 'sci2-pp-fc34', front: '青紫色に変化する', back: 'ふ入りの葉の緑色の部分にヨウ素液をつけると色はどうなるか？', difficulty: 'standard' },
+      { id: 'sci2-pp-fc35', front: '二酸化炭素や酸素の出入り口になる', back: '気孔は蒸散以外にどのようなはたらきがあるか？', difficulty: 'standard' },
+      { id: 'sci2-pp-fc36', front: '酸素を取り入れ、二酸化炭素を出す', back: '植物の呼吸では何を取り入れ、何を出すか？', difficulty: 'standard' },
+      { id: 'sci2-pp-fc37', front: '昼は光合成による酸素の放出量が、呼吸による酸素の消費量を上回るため', back: '植物が昼間に出す酸素が多く見えるのはなぜか？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [

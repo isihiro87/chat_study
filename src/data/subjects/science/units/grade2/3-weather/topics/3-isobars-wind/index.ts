@@ -120,6 +120,13 @@ export const isobarsWind: Topic = {
       { id: 'sci2-isow-fc9', front: '高気圧の中心を示す', back: '天気図で「高」と書かれた場所は何を表す？', difficulty: 'standard' },
       { id: 'sci2-isow-fc10', front: '下降気流が生じ雲ができにくいため', back: '高気圧で天気が良くなる理由は？', difficulty: 'advanced' },
       { id: 'sci2-isow-fc11', front: '乾球と湿球の温度差が大きいほど湿度が低い', back: '乾湿計で温度差と湿度の関係は？', difficulty: 'advanced' },
+      { id: 'sci2-isow-fc12', front: '空全体を10としたときの雲の占める割合', back: '雲量とは何？', difficulty: 'basic' },
+      { id: 'sci2-isow-fc13', front: '快晴（雲量0〜1）', back: '雲量が0〜1のときの天気は？', difficulty: 'basic' },
+      { id: 'sci2-isow-fc14', front: 'くもり（雲量9〜10）', back: '雲量が9〜10のときの天気は？', difficulty: 'basic' },
+      { id: 'sci2-isow-fc15', front: '矢羽根の向きで表す（風が吹いてくる方向）', back: '天気図記号で風向はどの部分で表す？', difficulty: 'standard' },
+      { id: 'sci2-isow-fc16', front: '矢羽根の本数や長さで表す', back: '天気図記号で風力はどの部分で表す？', difficulty: 'standard' },
+      { id: 'sci2-isow-fc17', front: '低い（低気圧の中心）。まわりより気圧が低い場所を示す', back: '天気図で「低」と書かれた場所は何を表す？', difficulty: 'standard' },
+      { id: 'sci2-isow-fc18', front: '低気圧が近づくとくもりや雨になりやすい', back: '低気圧が近づくと天気はどうなる？', difficulty: 'standard' },
     ],
     quiz: {
       questions: [

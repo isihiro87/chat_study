@@ -192,6 +192,19 @@ export const vertebrates: Topic = {
       { id: 'fc29', front: '変温動物', back: '周りの温度によって体温が変わる動物を何というか。', difficulty: 'basic' },
       { id: 'fc30', front: '鳥類（羽毛があり殻のある卵を産む恒温動物）', back: 'ペンギンは飛べないが何類に分類されるか。', difficulty: 'advanced' },
       { id: 'fc31', front: 'ヤモリはハチュウ類、イモリは両生類', back: 'ヤモリとイモリはそれぞれ何類に分類されるか。', explanation: '「イモリ＝井守＝水辺＝両生類」「ヤモリ＝家守＝陸上＝ハチュウ類」と覚える。', difficulty: 'advanced' },
+      // --- ichimondittou補完（個別Q&A） ---
+      { id: 'fc32', front: '鳥類', back: 'つばさをもち、羽毛でおおわれている脊椎動物は何類か。', difficulty: 'basic' },
+      { id: 'fc33', front: 'えら', back: '両生類の子（オタマジャクシなど）は何で呼吸するか。', difficulty: 'basic' },
+      { id: 'fc34', front: '肺', back: 'ハチュウ類は何で呼吸するか。', difficulty: 'basic' },
+      { id: 'fc35', front: '肺', back: '鳥類は何で呼吸するか。', difficulty: 'basic' },
+      { id: 'fc36', front: '肺', back: '哺乳類は何で呼吸するか。', difficulty: 'basic' },
+      { id: 'fc37', front: '水中', back: 'カエルの子（オタマジャクシ）はどこで生活するか。', difficulty: 'basic' },
+      { id: 'fc38', front: 'あし（四肢）になる', back: 'オタマジャクシがカエルに変態すると、ひれはどう変わるか。', difficulty: 'standard' },
+      { id: 'fc39', front: '哺乳類だけ', back: '胎生の動物は脊椎動物5グループのうち、どのグループだけか。', difficulty: 'standard' },
+      { id: 'fc40', front: 'ハチュウ類と鳥類', back: '殻のある卵を産むのは何類と何類か。', difficulty: 'standard' },
+      { id: 'fc41', front: '鳥類と哺乳類', back: '恒温動物にあたるのは脊椎動物5グループのうち、どれとどれか。', difficulty: 'basic' },
+      { id: 'fc42', front: '魚類・両生類・ハチュウ類', back: '変温動物にあたるのは脊椎動物5グループのうち、どれか。', difficulty: 'standard' },
+      { id: 'fc43', front: '鳥類（羽毛があり殻のある卵を産む恒温動物）', back: 'ペンギンは飛べないが何類に分類されるか。理由も答えよ。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -530,6 +543,62 @@ export const vertebrates: Topic = {
           correctIndex: 0,
           explanation:
             '鳥類は恒温動物で、肺で呼吸し、殻のある卵を陸上に産む卵生です。体は羽毛でおおわれています。',
+        difficulty: 'advanced',
+      },
+        {
+          id: 'q29',
+          question: '「すべての恒温動物は胎生である」という文は正しいか？',
+          options: [
+            '正しい',
+            '正しい。恒温動物はすべて哺乳類だから',
+            '正しくない。鳥類は恒温動物だが卵生である',
+            '正しくない。魚類に胎生のものがいるから',
+          ],
+          correctIndex: 2,
+          explanation:
+            '正しくありません。鳥類は恒温動物ですが卵生です。胎生は哺乳類だけの特徴です。',
+        difficulty: 'advanced',
+      },
+        {
+          id: 'q30',
+          question: '殻のある卵を陸上に産むことの利点として正しいものはどれか？',
+          options: [
+            '卵が重くなり安定する',
+            '殻が卵を乾燥から守り陸上でも発生できる',
+            '殻があると栄養が多くなる',
+            '殻があると親が見つけやすい',
+          ],
+          correctIndex: 1,
+          explanation:
+            '殻があることで卵が乾燥から守られ、水中でなくても発生できます。これにより陸上に産卵できるようになりました。',
+        difficulty: 'advanced',
+      },
+        {
+          id: 'q31',
+          question: '哺乳類が胎生であることの利点として正しいものはどれか？',
+          options: [
+            '親の体内で外敵から守られながら発生できる',
+            '卵よりも小さく生まれる',
+            '親が子を見つけなくてよい',
+            '成長が遅くなる',
+          ],
+          correctIndex: 0,
+          explanation:
+            '親の体内で外敵や環境の変化から守られながら発生できるため、生存率が高くなります。',
+        difficulty: 'advanced',
+      },
+        {
+          id: 'q32',
+          question: 'タツノオトシゴが魚類に分類される根拠として正しくないものはどれか？',
+          options: [
+            'えらで呼吸する',
+            'うろこがある',
+            '水中に卵を産む',
+            '胎生で子を産む',
+          ],
+          correctIndex: 3,
+          explanation:
+            'タツノオトシゴは魚類で、えらで呼吸し、うろこがあり、水中に卵を産みます。胎生ではありません。',
         difficulty: 'advanced',
       },
       ],

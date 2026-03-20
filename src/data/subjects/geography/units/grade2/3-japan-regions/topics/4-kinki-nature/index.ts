@@ -148,6 +148,16 @@ export const kinkiNature: Topic = {
       { id: 'geo2-kna-fc15', front: 'まいど1号', back: '東大阪市の中小企業が協力して開発した人工衛星の愛称は何か。', difficulty: 'advanced' },
       { id: 'geo2-kna-fc16', front: '阪神・淡路大震災', back: '1995年に近畿地方を襲い、ポートアイランドでは液状化現象も発生した大地震を何というか。', difficulty: 'advanced' },
       { id: 'geo2-kna-fc17', front: '関西国際空港', back: '大阪湾の人工島に造られた、24時間運用可能な国際空港を何というか。', difficulty: 'advanced' },
+      { id: 'geo2-kna-fc18', front: '林業', back: '紀伊山地で盛んな、木を植え育てて木材を生産する産業を何というか。', difficulty: 'basic' },
+      { id: 'geo2-kna-fc19', front: '寒暖差が大きい', back: '近畿地方の中央部にある盆地の気候の特徴として、昼と夜の気温差が大きいことを何というか。', difficulty: 'standard' },
+      { id: 'geo2-kna-fc20', front: '福井県・京都府', back: '若狭湾はどの府県に面しているか。', difficulty: 'standard' },
+      { id: 'geo2-kna-fc21', front: '建物の高さと看板の色・大きさ', back: '景観条例で規制されているものを2つ答えよ。', difficulty: 'standard' },
+      { id: 'geo2-kna-fc22', front: '経済の中心地', back: '大阪は西日本最大の何の中心地か。', difficulty: 'basic' },
+      { id: 'geo2-kna-fc23', front: '神戸', back: '阪神工業地帯が広がるのは大阪からどこにかけてか。', difficulty: 'basic' },
+      { id: 'geo2-kna-fc24', front: '紀伊山地', back: '近畿地方にある、世界遺産に登録されている霊場と参詣道を含む山地はどこか。', difficulty: 'advanced' },
+      { id: 'geo2-kna-fc25', front: '大型工場', back: '堺市の臨海部に立地しているのは、中小企業と大型工場のどちらか。', difficulty: 'standard' },
+      { id: 'geo2-kna-fc26', front: '養殖漁業', back: 'リアス海岸の穏やかな入り江で行われている漁業の形態を何というか。', difficulty: 'basic' },
+      { id: 'geo2-kna-fc27', front: '季節風（北西の季節風）', back: '近畿地方の北部で、冬に雪や雨が多い原因となる風を何というか。', difficulty: 'basic' },
     ],
     quiz: {
       questions: [

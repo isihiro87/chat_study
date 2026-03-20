@@ -82,6 +82,18 @@ export const invertebratesChat: HistoryChat = {
       text: '<span class="keyword">節足動物</span>＝外骨格、体やあしに節（昆虫類・甲殻類）。<span class="keyword">軟体動物</span>＝<span class="keyword">外とう膜</span>で内臓を包む（イカ・タコ・アサリ）',
     },
     {
+      type: 'quiz',
+      question: '軟体動物の内臓を包んでいるものは？',
+      options: [
+        { letter: 'A', text: '外骨格', correct: false },
+        { letter: 'B', text: '外とう膜', correct: true },
+        { letter: 'C', text: 'うろこ', correct: false },
+        { letter: 'D', text: '殻', correct: false },
+      ],
+      explanation:
+        '<strong>正解はB</strong>です。<ruby>軟体動物<rp>(</rp><rt>なんたいどうぶつ</rt><rp>)</rp></ruby>は<ruby>外<rp>(</rp><rt>がい</rt><rp>)</rp></ruby>とう<ruby>膜<rp>(</rp><rt>まく</rt><rp>)</rp></ruby>で<ruby>内臓<rp>(</rp><rt>ないぞう</rt><rp>)</rp></ruby>が<ruby>包<rp>(</rp><rt>つつ</rt><rp>)</rp></ruby>まれています。',
+    },
+    {
       type: 'date',
       text: '<ruby>節足動物<rp>(</rp><rt>せっそくどうぶつ</rt><rp>)</rp></ruby>のくわしいつくり',
     },
@@ -148,6 +160,18 @@ export const invertebratesChat: HistoryChat = {
       text: '<span class="keyword">昆虫類</span>：頭・胸・腹、あし3対6本、<span class="keyword">気門</span>で呼吸。<span class="keyword">甲殻類</span>：えらで呼吸。クモは4対8本で昆虫類ではない',
     },
     {
+      type: 'quiz',
+      question: 'クモのあしは何本？',
+      options: [
+        { letter: 'A', text: '6本', correct: false },
+        { letter: 'B', text: '8本', correct: true },
+        { letter: 'C', text: '10本', correct: false },
+        { letter: 'D', text: '12本', correct: false },
+      ],
+      explanation:
+        '<strong>正解はB</strong>です。クモはあしが4<ruby>対<rp>(</rp><rt>つい</rt><rp>)</rp></ruby>8本で、3<ruby>対<rp>(</rp><rt>つい</rt><rp>)</rp></ruby>6本の<ruby>昆虫類<rp>(</rp><rt>こんちゅうるい</rt><rp>)</rp></ruby>ではありません。',
+    },
+    {
       type: 'date',
       text: '<ruby>軟体動物<rp>(</rp><rt>なんたいどうぶつ</rt><rp>)</rp></ruby>のくわしいつくり',
     },
@@ -208,6 +232,18 @@ export const invertebratesChat: HistoryChat = {
       text: 'イカ：<span class="keyword">外とう膜</span>で内臓を包む、あし10本、水を噴き出して移動。アサリもえら呼吸。軟体動物のあしは<span class="keyword">筋肉</span>でできている',
     },
     {
+      type: 'quiz',
+      question: 'イカの移動方法はどれ？',
+      options: [
+        { letter: 'A', text: 'あしで歩く', correct: false },
+        { letter: 'B', text: 'ひれで泳ぐ', correct: false },
+        { letter: 'C', text: '水を噴き出して移動する', correct: true },
+        { letter: 'D', text: '体をくねらせて進む', correct: false },
+      ],
+      explanation:
+        '<strong>正解はC</strong>です。イカは<ruby>外<rp>(</rp><rt>がい</rt><rp>)</rp></ruby>とう<ruby>膜<rp>(</rp><rt>まく</rt><rp>)</rp></ruby>の中に水をため込み、<ruby>噴射<rp>(</rp><rt>ふんしゃ</rt><rp>)</rp></ruby>して<ruby>移動<rp>(</rp><rt>いどう</rt><rp>)</rp></ruby>します。',
+    },
+    {
       type: 'date',
       text: '<ruby>動物<rp>(</rp><rt>どうぶつ</rt><rp>)</rp></ruby>の<ruby>分類<rp>(</rp><rt>ぶんるい</rt><rp>)</rp></ruby>まとめ',
     },
@@ -259,6 +295,18 @@ export const invertebratesChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '分類フロー：背骨の有無→<span class="keyword">脊椎動物</span>（5グループ）／<span class="keyword">無脊椎動物</span>（節足動物・軟体動物・その他）。見た目でなく体のつくりで分類する！',
+    },
+    {
+      type: 'quiz',
+      question: 'クジラはどのグループに分類される？',
+      options: [
+        { letter: 'A', text: '魚類', correct: false },
+        { letter: 'B', text: '哺乳類', correct: true },
+        { letter: 'C', text: 'ハチュウ類', correct: false },
+        { letter: 'D', text: '軟体動物', correct: false },
+      ],
+      explanation:
+        '<strong>正解はB</strong>です。クジラは水中にいますが、<ruby>肺<rp>(</rp><rt>はい</rt><rp>)</rp></ruby><ruby>呼吸<rp>(</rp><rt>こきゅう</rt><rp>)</rp></ruby>・<ruby>胎生<rp>(</rp><rt>たいせい</rt><rp>)</rp></ruby>・<ruby>母乳<rp>(</rp><rt>ぼにゅう</rt><rp>)</rp></ruby>で育てるため<ruby>哺乳類<rp>(</rp><rt>ほにゅうるい</rt><rp>)</rp></ruby>です。',
     },
     {
       type: 'end',

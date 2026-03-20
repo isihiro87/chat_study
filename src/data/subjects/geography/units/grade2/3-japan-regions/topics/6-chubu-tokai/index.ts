@@ -100,6 +100,13 @@ export const chubuTokai: Topic = {
       // advanced (2)
       { id: 'geo2-cbt-fc14', front: '<ruby>愛知用水<rp>(</rp><rt>あいちようすい</rt><rp>)</rp></ruby>', back: '木曽川の水を<ruby>知多<rp>(</rp><rt>ちた</rt><rp>)</rp></ruby>半島などに引き、農業・工業・生活用水を供給するために建設された用水は何か。', difficulty: 'advanced' },
       { id: 'geo2-cbt-fc15', front: '冬の北西<ruby>季節風<rp>(</rp><rt>きせつふう</rt><rp>)</rp></ruby>が日本海の水分を含んで北陸に大量の雪を降らせ、山脈を越えると乾燥した風となり東海側は晴天が多い', back: '日本アルプスが中部地方の気候を3地域に分ける仕組みを説明せよ。', difficulty: 'advanced' },
+      { id: 'geo2-cbt-fc16', front: '太平洋側の気候で、冬は乾燥し夏は高温多雨', back: '東海地方の気候の特徴を答えよ。', difficulty: 'basic' },
+      { id: 'geo2-cbt-fc17', front: '内陸性の気候で、夏と冬の寒暖差が大きい', back: '中央高地の気候の特徴を答えよ。', difficulty: 'standard' },
+      { id: 'geo2-cbt-fc18', front: '北西の季節風', back: '北陸地方が冬に多雪になる原因となる風を何というか。', difficulty: 'basic' },
+      { id: 'geo2-cbt-fc19', front: 'オートバイと楽器', back: '静岡県浜松市で盛んな工業製品を2つ答えよ。', explanation: 'ヤマハ・スズキ（オートバイ）、ヤマハ・カワイ（楽器）', difficulty: 'standard' },
+      { id: 'geo2-cbt-fc20', front: '太平洋', back: '木曽川や矢作川がそそぐのは太平洋と日本海のどちらか。', difficulty: 'basic' },
+      { id: 'geo2-cbt-fc21', front: '飛驒山脈・木曽山脈・赤石山脈', back: '日本アルプスを構成する3つの山脈をすべて答えよ。', difficulty: 'standard' },
+      { id: 'geo2-cbt-fc22', front: '瀬戸焼と常滑焼', back: '愛知県の伝統的な焼き物として知られる2つの焼き物を答えよ。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [

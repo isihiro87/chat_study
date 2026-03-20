@@ -196,6 +196,12 @@ export const plantGroups: Topic = {
         back: 'コケ植物が大きく成長できない理由を維管束と関連づけて説明せよ。',
         difficulty: 'advanced',
       },
+      // --- ichimondittou/advanced補完 ---
+      { id: 'fc35', front: '仮根', back: 'コケ植物が体を地面に固定するための根のようなものを何というか。', difficulty: 'basic' },
+      { id: 'fc36', front: 'ない。シダ植物なので胞子でふえる', back: 'スギナ（ツクシ）に花や種子はあるか。ふえ方を答えよ。', difficulty: 'standard' },
+      { id: 'fc37', front: '種子植物', back: '種子植物を被子植物と裸子植物に分ける前のグループ名は何か。', difficulty: 'basic' },
+      { id: 'fc38', front: '被子植物', back: '種子植物のうち、胚珠が子房に包まれているものを何というか。', difficulty: 'standard' },
+      { id: 'fc39', front: '裸子植物', back: '種子植物のうち、胚珠がむき出しのものを何というか。', difficulty: 'standard' },
     ],
     quiz: {
       questions: [
@@ -559,6 +565,34 @@ export const plantGroups: Topic = {
           correctIndex: 0,
           explanation:
             'ツクシはスギナの胞子茎（胞子をつくる部分）です。スギナはシダ植物に分類されます。',
+        difficulty: 'advanced',
+      },
+        {
+          id: 'q29',
+          question: 'スギナ（ツクシ）に花や種子はあるか？',
+          options: [
+            '花も種子もある',
+            '花はあるが種子はない',
+            '花も種子もない。胞子でふえる',
+            '種子はあるが花はない',
+          ],
+          correctIndex: 2,
+          explanation:
+            'スギナはシダ植物なので花も種子もありません。胞子でふえます。ツクシの頭部から胞子を飛ばします。',
+        difficulty: 'advanced',
+      },
+        {
+          id: 'q30',
+          question: 'シダ植物が日当たりの悪い湿った場所に多い理由として正しいものはどれか？',
+          options: [
+            '種子が暗い場所でしか発芽しないから',
+            '維管束がないから',
+            '胞子の発芽に水分が必要だから',
+            '光合成をしないから',
+          ],
+          correctIndex: 2,
+          explanation:
+            'シダ植物は胞子でふえますが、胞子が発芽するには水分が必要です。そのため水分が十分にある湿った場所に多く生えています。',
         difficulty: 'advanced',
       },
       ],

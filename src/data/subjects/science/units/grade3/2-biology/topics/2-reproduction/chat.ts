@@ -156,6 +156,12 @@ export const reproductionChat: HistoryChat = {
       text: 'そのとおり！有性生殖では、子には<strong>両方の親から半分ずつ</strong><ruby>染色体<rp>(</rp><rt>せんしょくたい</rt><rp>)</rp></ruby>を受けつぐんだ。だから子には<strong>多様な形質</strong>が現れるんだよ',
     },
     {
+      type: 'image',
+      src: '/images/science/grade3/biology/meiosis-process.png',
+      alt: '染色体の受けつがれ方',
+      caption: '減数分裂で染色体が半分に → 受精でもとの数にもどる',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',

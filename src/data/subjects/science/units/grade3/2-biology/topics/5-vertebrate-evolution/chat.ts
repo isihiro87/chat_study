@@ -97,6 +97,18 @@ export const vertebrateEvolutionChat: HistoryChat = {
       text: '<span class="keyword">進化</span>＝生物の特徴が長い年月で変化すること。脊椎動物：<span class="keyword">魚類</span>（5億年前）→<span class="keyword">両生類</span>→<span class="keyword">ハチュウ類</span>→<span class="keyword">哺乳類</span>・<span class="keyword">鳥類</span>',
     },
     {
+      type: 'quiz',
+      question: '脊椎動物の化石で最も古いのはどのグループ？',
+      options: [
+        { letter: 'A', text: '両生類', correct: false },
+        { letter: 'B', text: 'ハチュウ類', correct: false },
+        { letter: 'C', text: '哺乳類', correct: false },
+        { letter: 'D', text: '魚類', correct: true },
+      ],
+      explanation:
+        '<strong>正解はD「<ruby>魚類<rp>(</rp><rt>ぎょるい</rt><rp>)</rp></ruby>」</strong>です。<ruby>脊椎動物<rp>(</rp><rt>せきついどうぶつ</rt><rp>)</rp></ruby>で最も古い<ruby>化石<rp>(</rp><rt>かせき</rt><rp>)</rp></ruby>は約5<ruby>億<rp>(</rp><rt>おく</rt><rp>)</rp></ruby>年前の<ruby>魚類<rp>(</rp><rt>ぎょるい</rt><rp>)</rp></ruby>の化石です。',
+    },
+    {
       type: 'image',
       src: '/images/science/grade3/biology/evolution-tree.svg',
       alt: '脊椎動物の進化の道すじ',
@@ -153,6 +165,12 @@ export const vertebrateEvolutionChat: HistoryChat = {
       characterId: 'teacher',
       expression: 'happy',
       text: 'さらにハチュウ類から<strong><ruby>哺乳類<rp>(</rp><rt>ほにゅうるい</rt><rp>)</rp></ruby></strong>が進化すると、<ruby>恒温<rp>(</rp><rt>こうおん</rt><rp>)</rp></ruby>動物として<ruby>体温<rp>(</rp><rt>たいおん</rt><rp>)</rp></ruby>を一定に保てるようになり、<ruby>胎生<rp>(</rp><rt>たいせい</rt><rp>)</rp></ruby>で<ruby>一生<rp>(</rp><rt>いっしょう</rt><rp>)</rp></ruby>を<ruby>陸上<rp>(</rp><rt>りくじょう</rt><rp>)</rp></ruby>で過ごすようになったんだよ',
+    },
+    {
+      type: 'image',
+      src: '/images/science/grade3/biology/transitional-fossils.png',
+      alt: '中間的な生物の化石',
+      caption: 'イクチオステガ（魚類→両生類）・始祖鳥（は虫類→鳥類）の中間的な特徴',
     },
     {
       type: 'summary-point',

@@ -89,6 +89,18 @@ export const pressureAtmosphereChat: HistoryChat = {
       text: '<span class="keyword">大気圧</span>＝上空の空気の重さで生じる圧力。あらゆる向きにはたらく。1気圧 ≒ <span class="keyword">1013hPa</span>。標高が高い → 気圧が低い！',
     },
     {
+      type: 'quiz',
+      question: '標高が高い場所で気圧が低くなる理由として正しいものはどれか。',
+      options: [
+        { letter: 'A', text: '風が強くなるから', correct: false },
+        { letter: 'B', text: '気温が低くなるから', correct: false },
+        { letter: 'C', text: '酸素が薄くなるから', correct: false },
+        { letter: 'D', text: '上にある空気の量が少なくなるから', correct: true },
+      ],
+      explanation:
+        '<strong>正解はD</strong>です。<ruby>大気圧<rp>(</rp><rt>たいきあつ</rt><rp>)</rp></ruby>は上空の空気の重さで生じるため、<ruby>標高<rp>(</rp><rt>ひょうこう</rt><rp>)</rp></ruby>が高いほど上にある空気の量が少なく、気圧は低くなります。',
+    },
+    {
       type: 'image',
       src: '/images/science/grade2/weather/pressure-wind.svg',
       alt: '気圧と風のしくみ',

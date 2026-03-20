@@ -94,6 +94,18 @@ export const chemicalEnergyChat: HistoryChat = {
       text: '<span class="keyword">発熱反応</span>：熱を出す → 温度UP（かいろ、燃焼）。<span class="keyword">吸熱反応</span>：熱をうばう → 温度DOWN',
     },
     {
+      type: 'quiz',
+      question: '水酸化バリウムと塩化アンモニウムの反応はどちら？',
+      options: [
+        { letter: 'A', text: '発熱反応', correct: false },
+        { letter: 'B', text: '吸熱反応', correct: true },
+        { letter: 'C', text: '中和反応', correct: false },
+        { letter: 'D', text: '分解反応', correct: false },
+      ],
+      explanation:
+        '<strong>正解はB「<ruby>吸熱反応<rp>(</rp><rt>きゅうねつはんのう</rt><rp>)</rp></ruby>」</strong>です。<ruby>水酸化<rp>(</rp><rt>すいさんか</rt><rp>)</rp></ruby>バリウムと<ruby>塩化<rp>(</rp><rt>えんか</rt><rp>)</rp></ruby>アンモニウムを<ruby>混<rp>(</rp><rt>ま</rt><rp>)</rp></ruby>ぜると<ruby>周囲<rp>(</rp><rt>しゅうい</rt><rp>)</rp></ruby>から熱をうばい、<ruby>温度<rp>(</rp><rt>おんど</rt><rp>)</rp></ruby>が下がります。',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',

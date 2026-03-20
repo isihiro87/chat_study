@@ -216,6 +216,17 @@ export const quadEqFactoring: Topic = {
         front: 'x=6, x=−1\n−1をかけて x²−5x−6=0→(x−6)(x+1)=0', back: '−x²+5x+6=0 の解は？',
         difficulty: 'advanced',
       },
+      { id: 'math-g3-qef-fc29', front: '左辺を因数分解して各因数 $= 0$', back: '因数分解による二次方程式の解き方は？', explanation: '$AB = 0$ → $A = 0$ or $B = 0$。', difficulty: 'basic' },
+      { id: 'math-g3-qef-fc30', front: '$x = 2$ または $x = 3$', back: '$x^2 - 5x + 6 = 0$ の解は？', explanation: '$(x-2)(x-3) = 0$。', difficulty: 'basic' },
+      { id: 'math-g3-qef-fc31', front: '$x = -1$ または $x = -6$', back: '$x^2 + 7x + 6 = 0$ の解は？', explanation: '$(x+1)(x+6) = 0$。', difficulty: 'basic' },
+      { id: 'math-g3-qef-fc32', front: '$x = 3$ または $x = -4$', back: '$x^2 + x - 12 = 0$ の解は？', explanation: '$(x-3)(x+4) = 0$。', difficulty: 'standard' },
+      { id: 'math-g3-qef-fc33', front: '$x = 0$ または $x = 5$', back: '$x^2 - 5x = 0$ の解は？', explanation: '$x(x-5) = 0$。', difficulty: 'basic' },
+      { id: 'math-g3-qef-fc34', front: '$x = 4$（重解）', back: '$x^2 - 8x + 16 = 0$ の解は？', explanation: '$(x-4)^2 = 0$。', difficulty: 'standard' },
+      { id: 'math-g3-qef-fc35', front: '$x = 5$ または $x = -5$', back: '$x^2 - 25 = 0$ の解は？', explanation: '$(x+5)(x-5) = 0$。', difficulty: 'standard' },
+      { id: 'math-g3-qef-fc36', front: '$x = -3$（重解）', back: '$x^2 + 6x + 9 = 0$ の解は？', explanation: '$(x+3)^2 = 0$。', difficulty: 'standard' },
+      { id: 'math-g3-qef-fc37', front: '$x = 0$ または $x = 3$', back: '$2x^2 - 6x = 0$ の解は？', explanation: '$2x(x-3) = 0$。', difficulty: 'standard' },
+      { id: 'math-g3-qef-fc38', front: '$x$ で割ると $x = 0$ の解を失う', back: '$x^2 = 5x$ で $x$ で割ってはいけない理由は？', explanation: '移項して $x^2 - 5x = 0$ にする。', difficulty: 'advanced' },
+      { id: 'math-g3-qef-fc39', front: '重解（同じ解が $2$ つ）', back: '$(x-a)^2 = 0$ の解の特徴は？', explanation: '$x = a$ の重解。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [

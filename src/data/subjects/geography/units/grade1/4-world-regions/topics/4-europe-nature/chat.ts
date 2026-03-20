@@ -148,6 +148,17 @@ export const europeNatureChat: HistoryChat = {
       text: '<span class="keyword">フィヨルド</span>：氷河が削ったU字谷に海水が入った入り江。<span class="keyword">アルプス山脈</span>：ヨーロッパ南部の大山脈',
     },
     {
+      type: 'quiz',
+      question: 'フィヨルドが多く見られるヨーロッパの国はどこ？',
+      options: [
+        { letter: 'A', text: 'フランス', correct: false },
+        { letter: 'B', text: 'ノルウェー', correct: true },
+        { letter: 'C', text: 'スペイン', correct: false },
+        { letter: 'D', text: 'イタリア', correct: false },
+      ],
+      explanation: '<strong>正解はB</strong>です。フィヨルドはノルウェーの海岸線に多く見られ、<ruby>氷河<rp>(</rp><rt>ひょうが</rt><rp>)</rp></ruby>が<ruby>削<rp>(</rp><rt>けず</rt><rp>)</rp></ruby>ったU字<ruby>谷<rp>(</rp><rt>だに</rt><rp>)</rp></ruby>に海水が入り込んでできました。',
+    },
+    {
       type: 'date',
       text: '地中海性気候と混合農業',
     },
@@ -200,6 +211,17 @@ export const europeNatureChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<span class="keyword">地中海性気候</span>：夏に乾燥→オリーブ・ぶどう。北西ヨーロッパ：<span class="keyword">混合農業</span>（家畜＋穀物）',
+    },
+    {
+      type: 'quiz',
+      question: '地中海沿岸で栽培される乾燥に強い作物はどれ？',
+      options: [
+        { letter: 'A', text: '米', correct: false },
+        { letter: 'B', text: 'オリーブ', correct: true },
+        { letter: 'C', text: 'とうもろこし', correct: false },
+        { letter: 'D', text: 'じゃがいも', correct: false },
+      ],
+      explanation: '<strong>正解はB</strong>です。<ruby>地中海性気候<rp>(</rp><rt>ちちゅうかいせいきこう</rt><rp>)</rp></ruby>では夏に<ruby>乾燥<rp>(</rp><rt>かんそう</rt><rp>)</rp></ruby>するため、乾燥に強いオリーブやぶどうが<ruby>栽培<rp>(</rp><rt>さいばい</rt><rp>)</rp></ruby>されています。',
     },
     {
       type: 'date',

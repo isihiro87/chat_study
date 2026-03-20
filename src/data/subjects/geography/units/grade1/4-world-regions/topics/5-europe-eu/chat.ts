@@ -88,6 +88,17 @@ export const europeEuChat: HistoryChat = {
       text: '<span class="keyword">EU</span>：共通通貨<span class="keyword">ユーロ</span>、<span class="keyword">関税撤廃</span>、パスポート不要、<span class="keyword">エアバス</span>の共同生産',
     },
     {
+      type: 'quiz',
+      question: 'EU加盟国の多くが使っている共通通貨は？',
+      options: [
+        { letter: 'A', text: 'ドル', correct: false },
+        { letter: 'B', text: 'ポンド', correct: false },
+        { letter: 'C', text: 'ユーロ', correct: true },
+        { letter: 'D', text: 'フラン', correct: false },
+      ],
+      explanation: '<strong>正解はC</strong>です。EU加盟国の多くは<ruby>共通通貨<rp>(</rp><rt>きょうつうつうか</rt><rp>)</rp></ruby>ユーロを使用しています。',
+    },
+    {
       type: 'date',
       text: '環境への取り組み',
     },
@@ -149,6 +160,17 @@ export const europeEuChat: HistoryChat = {
       text: '<span class="keyword">酸性雨</span>対策、<span class="keyword">再生可能エネルギー</span>、<span class="keyword">パークアンドライド</span>、<span class="keyword">エコツーリズム</span>',
     },
     {
+      type: 'quiz',
+      question: '郊外の駐車場に車を停めて公共交通機関で中心部に移動する仕組みを何という？',
+      options: [
+        { letter: 'A', text: 'エコツーリズム', correct: false },
+        { letter: 'B', text: 'パークアンドライド', correct: true },
+        { letter: 'C', text: 'ルーラル・ツーリズム', correct: false },
+        { letter: 'D', text: 'カーシェアリング', correct: false },
+      ],
+      explanation: '<strong>正解はB</strong>です。パークアンドライドは<ruby>郊外<rp>(</rp><rt>こうがい</rt><rp>)</rp></ruby>に車を停め、<ruby>公共交通機関<rp>(</rp><rt>こうきょうこうつうきかん</rt><rp>)</rp></ruby>で中心部に移動する仕組みです。',
+    },
+    {
       type: 'date',
       text: 'ルーラル・ツーリズム',
     },
@@ -194,6 +216,17 @@ export const europeEuChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<span class="keyword">ルーラル・ツーリズム</span>：農村に滞在し農業体験を楽しむ観光。過疎化防止と文化の継承に貢献',
+    },
+    {
+      type: 'quiz',
+      question: '農村に滞在して農業体験を楽しむ観光を何という？',
+      options: [
+        { letter: 'A', text: 'エコツーリズム', correct: false },
+        { letter: 'B', text: 'マスツーリズム', correct: false },
+        { letter: 'C', text: 'ルーラル・ツーリズム', correct: true },
+        { letter: 'D', text: 'アグリビジネス', correct: false },
+      ],
+      explanation: '<strong>正解はC</strong>です。ルーラル・ツーリズムは<ruby>農村<rp>(</rp><rt>のうそん</rt><rp>)</rp></ruby>に<ruby>滞在<rp>(</rp><rt>たいざい</rt><rp>)</rp></ruby>し<ruby>農業体験<rp>(</rp><rt>のうぎょうたいけん</rt><rp>)</rp></ruby>を楽しむ観光で、<ruby>過疎化<rp>(</rp><rt>かそか</rt><rp>)</rp></ruby>防止にも貢献します。',
     },
     {
       type: 'end',

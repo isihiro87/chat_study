@@ -218,6 +218,14 @@ export const expansionAdvanced: Topic = {
         explanation: '(x²+8x+15)−(x²+8x+16) = −1',
         difficulty: 'advanced',
       },
+      { id: 'math-g3-ea-fc29', front: '$9x^2 + 6x + 1$', back: '$(3x+1)^2$ を展開すると？', explanation: '$(3x)^2 + 2 \\cdot 3x \\cdot 1 + 1^2$。', difficulty: 'basic' },
+      { id: 'math-g3-ea-fc30', front: '$16x^2 - 8x + 1$', back: '$(4x-1)^2$ を展開すると？', explanation: '$(4x)^2 - 2 \\cdot 4x \\cdot 1 + 1^2$。', difficulty: 'basic' },
+      { id: 'math-g3-ea-fc31', front: '$9a^2 + 30a + 25$', back: '$(3a+5)^2$ を展開すると？', explanation: '$2 \\cdot 3a \\cdot 5 = 30a$。', difficulty: 'basic' },
+      { id: 'math-g3-ea-fc32', front: '$36x^2 + 12xy + y^2$', back: '$(6x+y)^2$ を展開すると？', explanation: '$2 \\cdot 6x \\cdot y = 12xy$。', difficulty: 'standard' },
+      { id: 'math-g3-ea-fc33', front: '$a^2 - 6ab + 9b^2$', back: '$(a-3b)^2$ を展開すると？', explanation: '$2 \\cdot a \\cdot 3b = 6ab$。', difficulty: 'standard' },
+      { id: 'math-g3-ea-fc34', front: '$25x^2 - 20xy + 4y^2$', back: '$(5x-2y)^2$ を展開すると？', explanation: '$2 \\cdot 5x \\cdot 2y = 20xy$。', difficulty: 'standard' },
+      { id: 'math-g3-ea-fc35', front: '$4a^2 - 49b^2$', back: '$(2a-7b)(2a+7b)$ を展開すると？', explanation: '$(2a)^2 - (7b)^2$。', difficulty: 'standard' },
+      { id: 'math-g3-ea-fc36', front: '$9x^2 - 25y^2$', back: '$(3x+5y)(3x-5y)$ を展開すると？', explanation: '$(3x)^2 - (5y)^2$。', difficulty: 'standard' },
     ],
     quiz: {
       questions: [

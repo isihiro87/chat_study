@@ -96,6 +96,17 @@ export const cultureReligionChat: HistoryChat = {
       text: '住居の工夫：<span class="keyword">熱帯＝高床式住居</span>、<span class="keyword">乾燥帯＝日干しれんが</span>、<span class="keyword">寒帯＝イグルー</span>',
     },
     {
+      type: 'quiz',
+      question: '乾燥帯で昼の猛暑と夜の冷え込みを防ぐために使われる建材はどれ？',
+      options: [
+        { letter: 'A', text: '日干しれんが', correct: true },
+        { letter: 'B', text: '雪のブロック', correct: false },
+        { letter: 'C', text: '木材', correct: false },
+        { letter: 'D', text: 'サンゴ石', correct: false },
+      ],
+      explanation: '<strong>正解はA</strong>です。<ruby>日干<rp>(</rp><rt>ひぼ</rt><rp>)</rp></ruby>しれんが（アドベ）は<ruby>厚<rp>(</rp><rt>あつ</rt><rp>)</rp></ruby>い<ruby>壁<rp>(</rp><rt>かべ</rt><rp>)</rp></ruby>を作ることで昼夜の<ruby>気温差<rp>(</rp><rt>きおんさ</rt><rp>)</rp></ruby>を<ruby>和<rp>(</rp><rt>やわ</rt><rp>)</rp></ruby>らげます。',
+    },
+    {
       type: 'date',
       text: '衣服と食文化の工夫',
     },
@@ -150,6 +161,17 @@ export const cultureReligionChat: HistoryChat = {
       text: '主食の違い：<span class="keyword">アジア＝米</span>、<span class="keyword">ヨーロッパ・西アジア＝パン・ナン</span>、<span class="keyword">草原地帯＝乳製品・肉</span>',
     },
     {
+      type: 'quiz',
+      question: '稲作が盛んなアジアの主食はどれ？',
+      options: [
+        { letter: 'A', text: 'パン', correct: false },
+        { letter: 'B', text: '米', correct: true },
+        { letter: 'C', text: 'ナン', correct: false },
+        { letter: 'D', text: 'じゃがいも', correct: false },
+      ],
+      explanation: '<strong>正解はB</strong>です。<ruby>稲作<rp>(</rp><rt>いなさく</rt><rp>)</rp></ruby>が<ruby>盛<rp>(</rp><rt>さか</rt><rp>)</rp></ruby>んなアジアでは米が主食として食べられています。',
+    },
+    {
       type: 'date',
       text: '生活のグローバル化',
     },
@@ -188,6 +210,17 @@ export const cultureReligionChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<span class="keyword">グローバル化</span>：ファストフード・ジーンズなど共通の文化が広がる一方、<span class="keyword">伝統文化の保存・継承</span>も重要',
+    },
+    {
+      type: 'quiz',
+      question: 'グローバル化の課題として正しいものはどれ？',
+      options: [
+        { letter: 'A', text: '食料が足りなくなる', correct: false },
+        { letter: 'B', text: '伝統文化が失われるおそれがある', correct: true },
+        { letter: 'C', text: '国際貿易が減少する', correct: false },
+        { letter: 'D', text: '言語が統一される', correct: false },
+      ],
+      explanation: '<strong>正解はB</strong>です。グローバル<ruby>化<rp>(</rp><rt>か</rt><rp>)</rp></ruby>で共通の文化が広がる一方、<ruby>伝統文化<rp>(</rp><rt>でんとうぶんか</rt><rp>)</rp></ruby>が失われる<ruby>懸念<rp>(</rp><rt>けねん</rt><rp>)</rp></ruby>があります。',
     },
     {
       type: 'date',

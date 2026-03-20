@@ -100,6 +100,17 @@ export const southAmericaNatureChat: HistoryChat = {
       text: '<span class="keyword">インカ帝国</span>の歴史 → スペイン・ポルトガルの植民地支配 → <span class="keyword">混血文化</span>の形成',
     },
     {
+      type: 'quiz',
+      question: '世界最大の流域面積を持つ川はどれ？',
+      options: [
+        { letter: 'A', text: 'ナイル川', correct: false },
+        { letter: 'B', text: 'ミシシッピ川', correct: false },
+        { letter: 'C', text: 'アマゾン川', correct: true },
+        { letter: 'D', text: 'ガンジス川', correct: false },
+      ],
+      explanation: '<strong>正解はC</strong>です。アマゾン川は世界最大の<ruby>流域<rp>(</rp><rt>りゅういき</rt><rp>)</rp></ruby>面積を持ち、流域には広大な<ruby>熱帯雨林<rp>(</rp><rt>ねったいうりん</rt><rp>)</rp></ruby>が広がっています。',
+    },
+    {
       type: 'date',
       text: '自然を生かした暮らし',
     },
@@ -158,6 +169,17 @@ export const southAmericaNatureChat: HistoryChat = {
       text: '<span class="keyword">エコツーリズム</span>：自然を守りながら観光収入を得る取り組み',
     },
     {
+      type: 'quiz',
+      question: '森林を保全しながらカカオやコーヒーを育てる農業方法は？',
+      options: [
+        { letter: 'A', text: '焼畑農業', correct: false },
+        { letter: 'B', text: 'アグロフォレストリー', correct: true },
+        { letter: 'C', text: 'プランテーション', correct: false },
+        { letter: 'D', text: '混合農業', correct: false },
+      ],
+      explanation: '<strong>正解はB</strong>です。アグロフォレストリー（<ruby>森林農業<rp>(</rp><rt>しんりんのうぎょう</rt><rp>)</rp></ruby>）は森林を<ruby>保全<rp>(</rp><rt>ほぜん</rt><rp>)</rp></ruby>しながら農作物を育てます。',
+    },
+    {
       type: 'date',
       text: 'パンパでの牧畜とアルゼンチン',
     },
@@ -205,6 +227,17 @@ export const southAmericaNatureChat: HistoryChat = {
       text: '<span class="keyword">パンパ</span>：ラプラタ川流域の大草原で、アルゼンチンの大規模な<span class="keyword">牧畜</span>の中心地',
     },
     {
+      type: 'quiz',
+      question: 'アルゼンチンの大草原「パンパ」でさかんな産業は？',
+      options: [
+        { letter: 'A', text: '稲作', correct: false },
+        { letter: 'B', text: 'ICT産業', correct: false },
+        { letter: 'C', text: '大規模な牧畜', correct: true },
+        { letter: 'D', text: '鉱山開発', correct: false },
+      ],
+      explanation: '<strong>正解はC</strong>です。パンパでは広大な<ruby>草原<rp>(</rp><rt>そうげん</rt><rp>)</rp></ruby>で<ruby>牛<rp>(</rp><rt>うし</rt><rp>)</rp></ruby>の<ruby>放牧<rp>(</rp><rt>ほうぼく</rt><rp>)</rp></ruby>が行われ、アルゼンチンの<ruby>牛肉<rp>(</rp><rt>ぎゅうにく</rt><rp>)</rp></ruby>は世界的に有名です。',
+    },
+    {
       type: 'date',
       text: '日系移民とブラジル',
     },
@@ -250,6 +283,17 @@ export const southAmericaNatureChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<span class="keyword">日系移民</span>：20世紀初頭からブラジルへ移住し、農業技術で貢献。現在も世界最大の日系人コミュニティがある',
+    },
+    {
+      type: 'quiz',
+      question: '世界最大の日系人コミュニティがある国はどこ？',
+      options: [
+        { letter: 'A', text: 'アルゼンチン', correct: false },
+        { letter: 'B', text: 'アメリカ', correct: false },
+        { letter: 'C', text: 'ペルー', correct: false },
+        { letter: 'D', text: 'ブラジル', correct: true },
+      ],
+      explanation: '<strong>正解はD</strong>です。ブラジルには世界最大の<ruby>日系人<rp>(</rp><rt>にっけいじん</rt><rp>)</rp></ruby>コミュニティがあり、日本<ruby>祭<rp>(</rp><rt>まつ</rt><rp>)</rp></ruby>りなどの文化交流も活発です。',
     },
     {
       type: 'end',

@@ -81,6 +81,18 @@ export const volcanoChat: HistoryChat = {
       text: '<span class="keyword">マグマのねばりけ</span>で火山の形・噴火のようす・溶岩の色が決まる。強い→溶岩ドーム（白）、弱い→楯状火山（黒）',
     },
     {
+      type: 'quiz',
+      question: 'マグマのねばりけが弱い火山の特徴はどれか。',
+      options: [
+        { letter: 'A', text: '爆発的な噴火をする', correct: false },
+        { letter: 'B', text: '溶岩ドームの形になる', correct: false },
+        { letter: 'C', text: '平たい楯状火山になる', correct: true },
+        { letter: 'D', text: '溶岩は白っぽい', correct: false },
+      ],
+      explanation:
+        '<strong>正解はC「平たい<ruby>楯状<rp>(</rp><rt>たてじょう</rt><rp>)</rp></ruby><ruby>火山<rp>(</rp><rt>かざん</rt><rp>)</rp></ruby>になる」</strong>です。ねばりけが弱いマグマはおだやかに<ruby>噴火<rp>(</rp><rt>ふんか</rt><rp>)</rp></ruby>し、<ruby>溶岩<rp>(</rp><rt>ようがん</rt><rp>)</rp></ruby>は黒っぽく平たい<ruby>火山<rp>(</rp><rt>かざん</rt><rp>)</rp></ruby>になります。',
+    },
+    {
       type: 'date',
       text: '<ruby>火山<rp>(</rp><rt>かざん</rt><rp>)</rp></ruby><ruby>噴出物<rp>(</rp><rt>ふんしゅつぶつ</rt><rp>)</rp></ruby>と<ruby>鉱物<rp>(</rp><rt>こうぶつ</rt><rp>)</rp></ruby>',
     },

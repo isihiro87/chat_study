@@ -85,6 +85,12 @@ export const waterPressure: Topic = {
       { id: 'sci3-wp-fc10', front: '浮力＝重力（つり合っている）', back: '物体が水面に浮いて静止しているとき、浮力と重力の関係は？', difficulty: 'standard' },
       { id: 'sci3-wp-fc11', front: '変わらない（浮力は体積で決まり、深さには関係しない）', back: '完全に水中に沈んでいる物体をさらに深く沈めると、浮力はどうなる？', difficulty: 'advanced' },
       { id: 'sci3-wp-fc12', front: '0.6N（2.0N−1.4N）', back: '空気中で2.0Nの物体を水中に沈めたらばねばかりが1.4Nを示した。浮力は？', difficulty: 'advanced' },
+      { id: 'sci3-wp-fc13', front: '体積が大きい方', back: '同じ質量で体積が異なる2つの物体を水中に沈めたとき、浮力が大きいのはどちら？', difficulty: 'standard' },
+      { id: 'sci3-wp-fc14', front: '大きくなる（深いほど水圧が大きいため）', back: 'ゴム膜を張った容器を水中に沈めると、深いほどゴム膜のへこみはどうなる？', difficulty: 'standard' },
+      { id: 'sci3-wp-fc15', front: '左右の水圧は同じ深さで等しく打ち消し合うため', back: '物体の左右にはたらく水圧が浮力に関係しない理由は？', difficulty: 'advanced' },
+      { id: 'sci3-wp-fc16', front: '上にある水の重力が増えるため', back: '水圧が深いほど大きくなる理由は？', explanation: '深い場所ほど上にある水の量が多く、その重力が大きくなるから。', difficulty: 'standard' },
+      { id: 'sci3-wp-fc17', front: '0.7N（2.5N−1.8N）', back: '空気中で2.5N、水中で1.8Nのとき浮力はいくら？', difficulty: 'standard' },
+      { id: 'sci3-wp-fc18', front: '関係しない（完全に水中にあれば深さによらず一定）', back: '浮力の大きさは物体を沈める深さに関係するか？', difficulty: 'standard' },
     ],
     quiz: {
       questions: [
@@ -180,6 +186,61 @@ export const waterPressure: Topic = {
           correctIndex: 3,
           explanation:
             '完全に水中に沈んでいる場合、深さを変えても浮力は変わりません。浮力は水中にある物体の体積で決まります。',
+        difficulty: 'advanced',
+      },
+        {
+          id: 'sci3-wp-q8',
+          question: '空気中で3.0Nの物体を完全に水中に沈めたらばねばかりが2.2Nを示した。浮力はいくら？',
+          options: ['0.4N', '0.8N', '2.2N', '5.2N'],
+          correctIndex: 1,
+          explanation:
+            '浮力 = 空気中の値 − 水中の値 = 3.0 − 2.2 = 0.8N です。',
+        difficulty: 'basic',
+      },
+        {
+          id: 'sci3-wp-q9',
+          question: '水圧が深いほど大きくなる理由は？',
+          options: [
+            '水温が下がるから',
+            '上にある水の重力が増えるから',
+            '水の密度が変わるから',
+            '水の流れが速くなるから',
+          ],
+          correctIndex: 1,
+          explanation:
+            '深いところほど上にある水の量が多くなり、水の重力が大きくなるため水圧も大きくなります。',
+        difficulty: 'standard',
+      },
+        {
+          id: 'sci3-wp-q10',
+          question: '物体の体積が2倍になると、完全に水中に沈めたときの浮力はどうなる？',
+          options: ['変わらない', '2倍になる', '半分になる', '4倍になる'],
+          correctIndex: 1,
+          explanation:
+            '浮力は水中にある物体の体積に比例するため、体積が2倍になれば浮力も2倍になります。',
+        difficulty: 'standard',
+      },
+        {
+          id: 'sci3-wp-q11',
+          question: '水中の物体の左右にはたらく水圧が浮力に関係しない理由は？',
+          options: [
+            '左右の水圧は0だから',
+            '左右の水圧は同じ深さで等しく打ち消し合うから',
+            '水圧は上下にしかはたらかないから',
+            '左右の水圧は下向きだから',
+          ],
+          correctIndex: 1,
+          explanation:
+            '左右の面は同じ深さにあるため、同じ大きさの水圧が互いに反対方向からはたらき、打ち消し合います。',
+        difficulty: 'advanced',
+      },
+        {
+          id: 'sci3-wp-q12',
+          question: '浮力（10N）が重力（8N）より大きい物体を水中に放すとどうなる？',
+          options: ['沈む', '浮き上がる', '動かない', '横に移動する'],
+          correctIndex: 1,
+          explanation:
+            '浮力が重力より大きいため、上向きの力が勝って物体は水面に向かって浮き上がります。',
         difficulty: 'advanced',
       },
       ],

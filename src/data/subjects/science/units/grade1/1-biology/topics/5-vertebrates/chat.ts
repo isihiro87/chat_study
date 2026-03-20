@@ -88,6 +88,18 @@ export const vertebratesChat: HistoryChat = {
       text: '<span class="keyword">脊椎動物</span>の5グループ：<span class="keyword">魚類</span>（えら呼吸）・<span class="keyword">両生類</span>（子はえら→親は肺と皮膚）・ハチュウ類・<span class="keyword">鳥類</span>（羽毛）・<span class="keyword">哺乳類</span>（胎生）',
     },
     {
+      type: 'quiz',
+      question: '両生類の親の呼吸方法はどれ？',
+      options: [
+        { letter: 'A', text: 'えらだけ', correct: false },
+        { letter: 'B', text: '肺と皮膚', correct: true },
+        { letter: 'C', text: '肺だけ', correct: false },
+        { letter: 'D', text: '皮膚だけ', correct: false },
+      ],
+      explanation:
+        '<strong>正解はB</strong>です。<ruby>両生類<rp>(</rp><rt>りょうせいるい</rt><rp>)</rp></ruby>は子のときはえら<ruby>呼吸<rp>(</rp><rt>こきゅう</rt><rp>)</rp></ruby>ですが、親になると<ruby>肺<rp>(</rp><rt>はい</rt><rp>)</rp></ruby>と<ruby>皮膚<rp>(</rp><rt>ひふ</rt><rp>)</rp></ruby>で<ruby>呼吸<rp>(</rp><rt>こきゅう</rt><rp>)</rp></ruby>します。',
+    },
+    {
       type: 'date',
       text: '<ruby>体表<rp>(</rp><rt>たいひょう</rt><rp>)</rp></ruby>と<ruby>呼吸法<rp>(</rp><rt>こきゅうほう</rt><rp>)</rp></ruby>のくわしい<ruby>比較<rp>(</rp><rt>ひかく</rt><rp>)</rp></ruby>',
     },
@@ -140,6 +152,18 @@ export const vertebratesChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<span class="keyword">体表</span>：魚類＝うろこ、両生類＝しめった皮膚、ハチュウ類＝うろこ・こうら、鳥類＝羽毛、哺乳類＝毛。<span class="keyword">呼吸法</span>：魚類＝えら、両生類＝子はえら→親は肺と皮膚、それ以外＝肺',
+    },
+    {
+      type: 'quiz',
+      question: '鳥類の体表をおおっているものは？',
+      options: [
+        { letter: 'A', text: 'うろこ', correct: false },
+        { letter: 'B', text: '毛', correct: false },
+        { letter: 'C', text: 'しめった皮膚', correct: false },
+        { letter: 'D', text: '羽毛', correct: true },
+      ],
+      explanation:
+        '<strong>正解はD</strong>です。<ruby>鳥類<rp>(</rp><rt>ちょうるい</rt><rp>)</rp></ruby>の体は<ruby>羽毛<rp>(</rp><rt>うもう</rt><rp>)</rp></ruby>でおおわれています。<ruby>毛<rp>(</rp><rt>け</rt><rp>)</rp></ruby>は<ruby>哺乳類<rp>(</rp><rt>ほにゅうるい</rt><rp>)</rp></ruby>の<ruby>特徴<rp>(</rp><rt>とくちょう</rt><rp>)</rp></ruby>です。',
     },
     {
       type: 'date',
@@ -201,6 +225,18 @@ export const vertebratesChat: HistoryChat = {
       text: '<span class="keyword">恒温動物</span>＝鳥類・哺乳類（体温を一定に保てる）。<span class="keyword">変温動物</span>＝魚類・両生類・ハチュウ類。<span class="keyword">胎生</span>は哺乳類だけ',
     },
     {
+      type: 'quiz',
+      question: '胎生で子を産む動物のグループはどれ？',
+      options: [
+        { letter: 'A', text: '鳥類', correct: false },
+        { letter: 'B', text: 'ハチュウ類', correct: false },
+        { letter: 'C', text: '哺乳類', correct: true },
+        { letter: 'D', text: '両生類', correct: false },
+      ],
+      explanation:
+        '<strong>正解はC</strong>です。<ruby>胎生<rp>(</rp><rt>たいせい</rt><rp>)</rp></ruby>は<ruby>哺乳類<rp>(</rp><rt>ほにゅうるい</rt><rp>)</rp></ruby>だけの<ruby>特徴<rp>(</rp><rt>とくちょう</rt><rp>)</rp></ruby>で、親の体内で<ruby>育<rp>(</rp><rt>そだ</rt><rp>)</rp></ruby>ってから<ruby>生<rp>(</rp><rt>う</rt><rp>)</rp></ruby>まれます。',
+    },
+    {
       type: 'date',
       text: '<ruby>卵生<rp>(</rp><rt>らんせい</rt><rp>)</rp></ruby>のくわしい<ruby>違<rp>(</rp><rt>ちが</rt><rp>)</rp></ruby>い',
     },
@@ -253,6 +289,18 @@ export const vertebratesChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<span class="keyword">殻のない卵</span>＝魚類・両生類（水中に産む）。<span class="keyword">殻のある卵</span>＝ハチュウ類・鳥類（陸上に産む）。<span class="keyword">胎生</span>＝哺乳類だけ（母乳で育てる）',
+    },
+    {
+      type: 'quiz',
+      question: '殻のある卵を陸上に産むのはどの動物？',
+      options: [
+        { letter: 'A', text: '魚類と両生類', correct: false },
+        { letter: 'B', text: '両生類とハチュウ類', correct: false },
+        { letter: 'C', text: '魚類と鳥類', correct: false },
+        { letter: 'D', text: 'ハチュウ類と鳥類', correct: true },
+      ],
+      explanation:
+        '<strong>正解はD</strong>です。ハチュウ<ruby>類<rp>(</rp><rt>るい</rt><rp>)</rp></ruby>と<ruby>鳥類<rp>(</rp><rt>ちょうるい</rt><rp>)</rp></ruby>は<ruby>殻<rp>(</rp><rt>から</rt><rp>)</rp></ruby>のある<ruby>卵<rp>(</rp><rt>たまご</rt><rp>)</rp></ruby>を<ruby>陸上<rp>(</rp><rt>りくじょう</rt><rp>)</rp></ruby>に<ruby>産<rp>(</rp><rt>う</rt><rp>)</rp></ruby>みます。',
     },
     {
       type: 'end',

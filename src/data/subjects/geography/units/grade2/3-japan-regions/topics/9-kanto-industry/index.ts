@@ -85,6 +85,11 @@ export const kantoIndustry: Topic = {
       { id: 'geo2-kti-fc10', front: '落花生', back: '千葉県や茨城県で生産が盛んな豆類は何か。', difficulty: 'advanced' },
       { id: 'geo2-kti-fc11', front: '益子焼', back: '栃木県で生産される伝統的な焼き物を何というか。', difficulty: 'advanced' },
       { id: 'geo2-kti-fc12', front: '群馬県太田市', back: '北関東工業地域で自動車工場が集まる都市はどこか。', difficulty: 'advanced' },
+      { id: 'geo2-kti-fc13', front: '出版・印刷業と情報産業', back: '京浜工業地帯に特に集中している産業を2つ答えよ。', difficulty: 'basic' },
+      { id: 'geo2-kti-fc14', front: '自動車と電気機械', back: '北関東工業地域で盛んな製造業を2つ答えよ。', difficulty: 'standard' },
+      { id: 'geo2-kti-fc15', front: '東京ディズニーリゾート', back: '千葉県浦安市にある大型テーマパークは何か。', difficulty: 'basic' },
+      { id: 'geo2-kti-fc16', front: '幕張メッセ', back: '千葉市にある大型の国際展示場は何か。', difficulty: 'standard' },
+      { id: 'geo2-kti-fc17', front: '高速道路で製品や部品を効率的に輸送でき、内陸部は地価が安く広い工場用地を確保できるため', back: '北関東工業地域が高速道路沿いに発展した理由を述べよ。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [

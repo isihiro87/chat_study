@@ -236,6 +236,17 @@ export const thirdPersonSingularChat: HistoryChat = {
       text: '<ruby>人名<rt>じんめい</rt></ruby>（Ken, Amy）や家族（My brother, Your mother）も1人なら<ruby>三人称単数<rt>さんにんしょうたんすう</rt></ruby> → <strong>動詞に s</strong>',
     },
     {
+      type: 'quiz',
+      question: '「My sister (　　) English.（私の姉は英語を勉強します。）」の (　　) に入るのは？',
+      options: [
+        { letter: 'A', text: 'study', correct: false },
+        { letter: 'B', text: 'studys', correct: false },
+        { letter: 'C', text: 'studying', correct: false },
+        { letter: 'D', text: 'studies', correct: true },
+      ],
+      explanation: '<strong>正解はD</strong>です。My sister は1人（she に<ruby>置<rt>お</rt></ruby>きかえられる）だから<ruby>三人称単数<rt>さんにんしょうたんすう</rt></ruby>。study は y を i にかえて es → studies だよ。',
+    },
+    {
       type: 'message',
       side: 'left',
       characterId: 'teacher',

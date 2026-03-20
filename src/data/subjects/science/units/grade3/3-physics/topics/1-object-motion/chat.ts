@@ -178,6 +178,12 @@ export const objectMotionChat: HistoryChat = {
       text: 'ところで、等速直線運動をしている物体にはたらく力はどうなっているか知ってる？ 実は力の<strong><ruby>合力<rp>(</rp><rt>ごうりょく</rt><rp>)</rp></ruby>が0</strong>なんだ。力がつり合っているか、力がはたらいていない状態なんだよ',
     },
     {
+      type: 'image',
+      src: '/images/science/grade3/physics/motion-graphs.png',
+      alt: '距離-時間グラフと速さ-時間グラフ',
+      caption: '等速直線運動と加速する運動のグラフの違い',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">等速直線運動</span>：距離-時間グラフは原点を通る直線、速さ-時間グラフは水平な直線。力の合力は0！',
     },

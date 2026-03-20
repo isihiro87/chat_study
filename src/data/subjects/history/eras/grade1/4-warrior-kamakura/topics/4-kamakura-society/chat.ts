@@ -7,8 +7,8 @@ export const kamakuraSocietyChat: HistoryChat = {
   subtitle: '〜鎌倉時代〜 農業と商業の発展',
   characters: [
     {
-      id: 'farmer',
-      name: '農民先生',
+      id: 'teacher',
+      name: '先生',
       emoji: '👨‍🌾',
       colorFrom: '#15803d',
       colorTo: '#4ade80',
@@ -45,7 +45,7 @@ export const kamakuraSocietyChat: HistoryChat = {
     {
       type: 'message',
       side: 'left',
-      characterId: 'farmer',
+      characterId: 'teacher',
       expression: 'explaining',
       text: '西日本を中心に<strong><span class="keyword"><ruby>二毛作<rp>(</rp><rt>にもうさく</rt><rp>)</rp></ruby></span></strong>が広まったんだ。<span data-tooltip="同じ田んぼで米と麦など、異なる作物を年に2回作る農法">二毛作</span>は同じ田んぼで米と麦を作れるから、<ruby>収穫<rp>(</rp><rt>しゅうかく</rt><rp>)</rp></ruby>が増えてありがたいよ',
     },
@@ -59,7 +59,7 @@ export const kamakuraSocietyChat: HistoryChat = {
     {
       type: 'message',
       side: 'left',
-      characterId: 'farmer',
+      characterId: 'teacher',
       expression: 'happy',
       text: '<strong><span class="keyword"><ruby>鉄製農具<rp>(</rp><rt>てつせいのうぐ</rt><rp>)</rp></ruby></span></strong>が普及して土を深く<ruby>耕<rp>(</rp><rt>たがや</rt><rp>)</rp></ruby>せるようになったし、牛や馬に田を耕させる<strong><span class="keyword"><ruby>牛馬耕<rp>(</rp><rt>ぎゅうばこう</rt><rp>)</rp></ruby></span></strong>も広まったんだ。<ruby>草木灰<rp>(</rp><rt>そうもくばい</rt><rp>)</rp></ruby>を<ruby>肥料<rp>(</rp><rt>ひりょう</rt><rp>)</rp></ruby>にする工夫も進んだよ',
     },
@@ -73,7 +73,7 @@ export const kamakuraSocietyChat: HistoryChat = {
     {
       type: 'message',
       side: 'left',
-      characterId: 'farmer',
+      characterId: 'teacher',
       expression: 'excited',
       text: '農業が盛んになると、交通の<ruby>要所<rp>(</rp><rt>ようしょ</rt><rp>)</rp></ruby>や寺社の<ruby>門前<rp>(</rp><rt>もんぜん</rt><rp>)</rp></ruby>に<strong><span class="keyword"><ruby>定期市<rp>(</rp><rt>ていきいち</rt><rp>)</rp></ruby></span></strong>が開かれるようになったんだ！月に3回開かれる<ruby>三斎市<rp>(</rp><rt>さんさいいち</rt><rp>)</rp></ruby>が一般的だったよ',
     },
@@ -106,7 +106,7 @@ export const kamakuraSocietyChat: HistoryChat = {
     {
       type: 'message',
       side: 'left',
-      characterId: 'farmer',
+      characterId: 'teacher',
       expression: 'explaining',
       text: '取引には<strong>宋銭</strong>が使われるようになったんだ。<ruby>物々交換<rp>(</rp><rt>ぶつぶつこうかん</rt><rp>)</rp></ruby>よりずっと<ruby>便利<rp>(</rp><rt>べんり</rt><rp>)</rp></ruby>で、<strong><span class="keyword"><ruby>貨幣経済<rp>(</rp><rt>かへいけいざい</rt><rp>)</rp></ruby></span></strong>が広がっていったよ',
     },
@@ -120,7 +120,7 @@ export const kamakuraSocietyChat: HistoryChat = {
     {
       type: 'message',
       side: 'left',
-      characterId: 'farmer',
+      characterId: 'teacher',
       expression: 'explaining',
       text: '商品の<ruby>輸送<rp>(</rp><rt>ゆそう</rt><rp>)</rp></ruby>には馬を使った<strong><span class="keyword"><ruby>馬借<rp>(</rp><rt>ばしゃく</rt><rp>)</rp></ruby></span></strong>という<ruby>運送業者<rp>(</rp><rt>うんそうぎょうしゃ</rt><rp>)</rp></ruby>が活躍したんだ。各地の<ruby>産物<rp>(</rp><rt>さんぶつ</rt><rp>)</rp></ruby>が市場に運ばれるようになったよ',
     },
@@ -134,7 +134,7 @@ export const kamakuraSocietyChat: HistoryChat = {
     {
       type: 'message',
       side: 'left',
-      characterId: 'farmer',
+      characterId: 'teacher',
       expression: 'thinking',
       text: '武士の暮らしは<ruby>質素<rp>(</rp><rt>しっそ</rt><rp>)</rp></ruby>だったよ。<ruby>板葺<rp>(</rp><rt>いたぶ</rt><rp>)</rp></ruby>きの住まいで暮らし、<strong><span class="keyword"><ruby>弓馬<rp>(</rp><rt>きゅうば</rt><rp>)</rp></ruby>の<ruby>道<rp>(</rp><rt>みち</rt><rp>)</rp></ruby></span></strong>を重んじて武芸に<ruby>励<rp>(</rp><rt>はげ</rt><rp>)</rp></ruby>んだんだ。「いざ鎌倉」と呼ばれれば戦に<ruby>駆<rp>(</rp><rt>か</rt><rp>)</rp></ruby>けつける<ruby>覚悟<rp>(</rp><rt>かくご</rt><rp>)</rp></ruby>を持っていたよ',
     },
@@ -148,7 +148,7 @@ export const kamakuraSocietyChat: HistoryChat = {
     {
       type: 'message',
       side: 'left',
-      characterId: 'farmer',
+      characterId: 'teacher',
       expression: 'explaining',
       text: 'よく知っているね。荘園では地頭と荘園領主の争いも増え、土地を半分に分ける<strong><span class="keyword"><ruby>下地中分<rp>(</rp><rt>したじちゅうぶん</rt><rp>)</rp></ruby></span></strong>が行われることもあったんだ',
     },

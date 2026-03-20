@@ -173,6 +173,21 @@ export const sound: Topic = {
       { id: 'sci1-sound-fc26', front: '音源の振動→空気の振動（波）→鼓膜の振動→音として認識', back: '音が耳に届くまでのしくみを順に説明せよ。', difficulty: 'advanced' },
       { id: 'sci1-sound-fc27', front: 'ガラス容器内のブザーの音が、空気を抜くと聞こえなくなる実験', back: '真空鈴（真空ベル）の実験とはどのような実験か？', explanation: '真空中では振動を伝える物質がないため音が伝わらないことを確認する。', difficulty: 'advanced' },
       { id: 'sci1-sound-fc28', front: '聞こえる。水が振動を伝えるため。', back: 'プールの中で音は聞こえるか？理由もあわせて答えよ。', difficulty: 'advanced' },
+      { id: 'sci1-sound-fc29', front: '弦', back: 'ギターで音を出しているのはどの部分か？', difficulty: 'basic' },
+      { id: 'sci1-sound-fc30', front: '振動している', back: 'おんさを鳴らしたとき、おんさはどうなっているか？', difficulty: 'basic' },
+      { id: 'sci1-sound-fc31', front: '水面が波立つ（しぶきが上がる）', back: 'おんさを鳴らして水面に近づけると水面はどうなるか？', difficulty: 'standard' },
+      { id: 'sci1-sound-fc32', front: '振幅', back: '振幅とは何か？', explanation: '音源の振動の中心からの幅（振動の大きさ）。オシロスコープでは波の高さ。', difficulty: 'basic' },
+      { id: 'sci1-sound-fc33', front: '1秒間に振動する回数。単位はHz（ヘルツ）', back: '振動数とは何か？', difficulty: 'basic' },
+      { id: 'sci1-sound-fc34', front: '大きい音になる（振幅が大きくなるため）', back: '弦を強くはじくと音はどうなるか？', difficulty: 'standard' },
+      { id: 'sci1-sound-fc35', front: '低くなる（振動数が小さくなる）', back: '弦を長くすると音はどうなるか？', difficulty: 'standard' },
+      { id: 'sci1-sound-fc36', front: '高くなる', back: '弦を細くすると音はどうなるか？', difficulty: 'standard' },
+      { id: 'sci1-sound-fc37', front: '低くなる', back: '弦をゆるめると音はどうなるか？', difficulty: 'standard' },
+      { id: 'sci1-sound-fc38', front: '振幅（音の大きさ）', back: 'オシロスコープの波形で、波の高さ（縦方向の幅）が表しているのは何か？', difficulty: 'standard' },
+      { id: 'sci1-sound-fc39', front: '振動数（音の高さ）', back: 'オシロスコープの波形で、波の間隔（横方向の密度）が表しているのは何か？', difficulty: 'standard' },
+      { id: 'sci1-sound-fc40', front: '約1020m（340×3）', back: '花火が見えてから3秒後に音が聞こえた。花火までのおよその距離は何mか？', difficulty: 'standard' },
+      { id: 'sci1-sound-fc41', front: '680m（340×4÷2、往復なので2で割る）', back: '山に向かって叫んでから4秒後にこだまが返ってきた。山までの距離は何mか？', difficulty: 'advanced' },
+      { id: 'sci1-sound-fc42', front: '約4.4倍（1500÷340）', back: '水中の音速は空気中の音速の約何倍か？', difficulty: 'advanced' },
+      { id: 'sci1-sound-fc43', front: '鼓膜', back: '音の振動が耳に届いたとき、最初に振動する部分は何か？', difficulty: 'standard' },
     ],
     quiz: {
       questions: [
@@ -532,6 +547,60 @@ export const sound: Topic = {
           explanation:
             'おんさは決まった振動数の音を出す金属製のU字型の実験器具です。同じ振動数のおんさ同士で共鳴が起こります。',
         difficulty: 'advanced',
+      },
+        {
+          id: 'sci1-sound-q29',
+          question: 'ビルの壁から510m離れた地点で手をたたいた。反射音が聞こえるのは何秒後か？（音速340m/s）',
+          options: ['1秒後', '1.5秒後', '3秒後', '6秒後'],
+          correctIndex: 2,
+          explanation:
+            '往復距離＝510×2＝1020m。1020÷340＝3秒後です。',
+        difficulty: 'standard',
+      },
+        {
+          id: 'sci1-sound-q30',
+          question: '船から海底に向けて音を発し、0.8秒後に反射音が返った。海底の深さは何m？（水中音速1500m/s）',
+          options: ['600m', '1200m', '300m', '900m'],
+          correctIndex: 0,
+          explanation:
+            '往復距離＝1500×0.8＝1200m。片道＝1200÷2＝600mです。',
+        difficulty: 'advanced',
+      },
+        {
+          id: 'sci1-sound-q31',
+          question: 'おんさAの波形は画面に2個の波、おんさBは4個の波が表示された。おんさBの振動数はAの何倍か？',
+          options: ['0.5倍', '1倍', '2倍', '4倍'],
+          correctIndex: 2,
+          explanation:
+            '同じ時間幅で波の数が2倍なので、振動数は2倍です。',
+        difficulty: 'advanced',
+      },
+        {
+          id: 'sci1-sound-q32',
+          question: '振動数200Hzの音が空気中を伝わるとき、波長は何mか？（音速340m/s）',
+          options: ['0.59m', '1.7m', '68000m', '340m'],
+          correctIndex: 1,
+          explanation:
+            '波長＝音速÷振動数＝340÷200＝1.7mです。',
+        difficulty: 'advanced',
+      },
+        {
+          id: 'sci1-sound-q33',
+          question: '雷が光ってから8秒後に音が聞こえた。雷までの距離は約何km？（音速340m/s）',
+          options: ['約1.4km', '約2.7km', '約3.4km', '約4.1km'],
+          correctIndex: 1,
+          explanation:
+            '340×8＝2720m＝約2.7kmです。',
+        difficulty: 'standard',
+      },
+        {
+          id: 'sci1-sound-q34',
+          question: '校舎から170m離れた場所で手をたたいた。反射音が聞こえるのは何秒後か？（音速340m/s）',
+          options: ['0.5秒後', '1秒後', '2秒後', '0.25秒後'],
+          correctIndex: 1,
+          explanation:
+            '往復距離＝170×2＝340m。340÷340＝1秒後です。',
+        difficulty: 'standard',
       },
       ],
     },

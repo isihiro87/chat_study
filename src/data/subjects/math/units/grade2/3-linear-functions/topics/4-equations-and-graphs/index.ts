@@ -154,6 +154,18 @@ export const equationsAndGraphs: Topic = {
       { id: 'math-g2-eq-and-graphs-fc26', front: '$\\left(\\dfrac{x_1+x_2}{2}, \\dfrac{y_1+y_2}{2}\\right)$', explanation: '各座標の平均をとる', back: '2点の中点の公式は？', difficulty: 'advanced' },
       { id: 'math-g2-eq-and-graphs-fc27', front: '頂点と対辺の中点を結ぶ', explanation: 'この直線で三角形の面積が2等分される', back: '三角形の面積を2等分する直線の引き方は？', difficulty: 'advanced' },
       { id: 'math-g2-eq-and-graphs-fc28', front: '傾きが同じかどうかで判定', explanation: '同じ→平行（または一致）、異なる→交わる', back: '2直線が平行か交わるかの判定方法は？', difficulty: 'advanced' },
+      { id: 'math-g2-eq-and-graphs-fc29', front: '連立方程式の解と同じ', back: '$2$ 直線の交点の座標は何と同じ？', explanation: '$2$ つの式を連立して解く。', difficulty: 'basic' },
+      { id: 'math-g2-eq-and-graphs-fc30', front: '$2$ つの式を連立方程式として解く', back: '$2$ 直線の交点を求める方法は？', explanation: '加減法や代入法で解く。', difficulty: 'basic' },
+      { id: 'math-g2-eq-and-graphs-fc31', front: '$y =$ の形に変形する', back: '二元一次方程式 $ax + by = c$ のグラフを描く手順は？', explanation: '$y = -\\dfrac{a}{b}x + \\dfrac{c}{b}$。', difficulty: 'basic' },
+      { id: 'math-g2-eq-and-graphs-fc32', front: '$x$ 軸に平行な横線', back: '$y = 3$ のグラフの特徴は？', explanation: 'すべての点の $y$ 座標が $3$。', difficulty: 'standard' },
+      { id: 'math-g2-eq-and-graphs-fc33', front: '$y$ 軸に平行な縦線', back: '$x = 2$ のグラフの特徴は？', explanation: '一次関数ではないがグラフは描ける。', difficulty: 'standard' },
+      { id: 'math-g2-eq-and-graphs-fc34', front: '$y = 0$ を代入して $x$ を求める', back: '直線の $x$ 切片の求め方は？', explanation: '$x$ 軸との交点。', difficulty: 'standard' },
+      { id: 'math-g2-eq-and-graphs-fc35', front: '$x = 0$ を代入して $y$ を求める', back: '直線の $y$ 切片の求め方は？', explanation: '$y$ 軸との交点。', difficulty: 'basic' },
+      { id: 'math-g2-eq-and-graphs-fc36', front: '底辺 $\\times$ 高さ $\\div 2$', back: '$2$ 直線と $x$ 軸で作る三角形の面積の求め方は？', explanation: '底辺は $x$ 軸上の $2$ 点間距離。', difficulty: 'standard' },
+      { id: 'math-g2-eq-and-graphs-fc37', front: '傾きが同じ→平行、異なる→交わる', back: '$2$ 直線の位置関係の判定方法は？', explanation: '傾きが等しく切片も等しい→一致。', difficulty: 'standard' },
+      { id: 'math-g2-eq-and-graphs-fc38', front: '$\\left(\\dfrac{x_1+x_2}{2}, \\dfrac{y_1+y_2}{2}\\right)$', back: '$2$ 点の中点の公式は？', explanation: '各座標の平均。', difficulty: 'advanced' },
+      { id: 'math-g2-eq-and-graphs-fc39', front: '頂点の座標をすべて求めてから計算', back: '直線で囲まれた図形の面積を求める手順は？', explanation: '交点や切片から頂点を求める。', difficulty: 'advanced' },
+      { id: 'math-g2-eq-and-graphs-fc40', front: '頂点と対辺の中点を結ぶ', back: '三角形の面積を $2$ 等分する直線の引き方は？', explanation: 'この直線（中線）で面積が半分に。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [

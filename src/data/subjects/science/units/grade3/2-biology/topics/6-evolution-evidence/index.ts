@@ -26,7 +26,7 @@ export const evolutionEvidence: Topic = {
           content:
             '現在の形やはたらきは異なるが、もとは同じものであったと考えられる器官を相同器官といいます。コウモリの翼、クジラのひれ、ヒトの手は、形やはたらきは全く異なりますが、骨格の基本的なつくりは共通しています。これは、これらの生物が共通の祖先から進化した証拠です。また、ハイギョ（魚類だが肺をもつ）やカモノハシ（哺乳類だが卵を産む）のように、現在も中間的な特徴をもつ生物が存在します。生物の形の違いは、遺伝子に変化が生じ、変化した形質がその生物の環境に適応して受け継がれた結果です。',
           image: {
-            src: '/images/science/grade3/biology/homologous-organs.svg',
+            src: '/images/science/grade3/biology/homologous-organs.png',
             alt: '相同器官の比較図',
             caption: 'ヒトの腕・クジラのひれ・コウモリの翼',
           },

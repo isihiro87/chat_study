@@ -100,6 +100,18 @@ export const gasPropertiesChat: HistoryChat = {
       text: '<span class="keyword">酸素</span>：二酸化マンガン＋過酸化水素水。<span class="keyword">二酸化炭素</span>：石灰石＋塩酸。<span class="keyword">水素</span>：亜鉛＋塩酸',
     },
     {
+      type: 'quiz',
+      question: '二酸化炭素を発生させるのに使う薬品の組み合わせはどれ？',
+      options: [
+        { letter: 'A', text: '石灰石＋うすい塩酸', correct: true },
+        { letter: 'B', text: '二酸化マンガン＋過酸化水素水', correct: false },
+        { letter: 'C', text: '亜鉛＋うすい塩酸', correct: false },
+        { letter: 'D', text: '石灰水＋塩酸', correct: false },
+      ],
+      explanation:
+        '<strong>正解はA「<ruby>石灰石<rp>(</rp><rt>せっかいせき</rt><rp>)</rp></ruby>＋うすい<ruby>塩酸<rp>(</rp><rt>えんさん</rt><rp>)</rp></ruby>」</strong>です。Bは<ruby>酸素<rp>(</rp><rt>さんそ</rt><rp>)</rp></ruby>、Cは<ruby>水素<rp>(</rp><rt>すいそ</rt><rp>)</rp></ruby>の<ruby>発生方法<rp>(</rp><rt>はっせいほうほう</rt><rp>)</rp></ruby>です。',
+    },
+    {
       type: 'date',
       text: '<ruby>気体<rp>(</rp><rt>きたい</rt><rp>)</rp></ruby>の<ruby>集<rp>(</rp><rt>あつ</rt><rp>)</rp></ruby>め<ruby>方<rp>(</rp><rt>かた</rt><rp>)</rp></ruby>',
     },
@@ -220,6 +232,18 @@ export const gasPropertiesChat: HistoryChat = {
       text: '<span class="keyword">アンモニア</span>：刺激臭・水に非常にとけやすい・アルカリ性・上方置換法で集める。<span class="keyword">噴水実験</span>でとけやすさを確認',
     },
     {
+      type: 'quiz',
+      question: 'アンモニアを集めるのに適した方法はどれ？',
+      options: [
+        { letter: 'A', text: '水上置換法', correct: false },
+        { letter: 'B', text: '上方置換法', correct: true },
+        { letter: 'C', text: '下方置換法', correct: false },
+        { letter: 'D', text: 'ろ過', correct: false },
+      ],
+      explanation:
+        '<strong>正解はB「<ruby>上方置換法<rp>(</rp><rt>じょうほうちかんほう</rt><rp>)</rp></ruby>」</strong>です。アンモニアは<ruby>空気<rp>(</rp><rt>くうき</rt><rp>)</rp></ruby>より<ruby>軽<rp>(</rp><rt>かる</rt><rp>)</rp></ruby>く水にとけやすいので<ruby>上方置換法<rp>(</rp><rt>じょうほうちかんほう</rt><rp>)</rp></ruby>で<ruby>集<rp>(</rp><rt>あつ</rt><rp>)</rp></ruby>めます。',
+    },
+    {
       type: 'date',
       text: '<ruby>気体<rp>(</rp><rt>きたい</rt><rp>)</rp></ruby>の<ruby>密度<rp>(</rp><rt>みつど</rt><rp>)</rp></ruby>と<ruby>確認方法<rp>(</rp><rt>かくにんほうほう</rt><rp>)</rp></ruby>',
     },
@@ -298,6 +322,18 @@ export const gasPropertiesChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<span class="keyword">密度の順</span>：CO₂＞O₂＞空気＞N₂＞NH₃＞H₂。<span class="keyword">指示薬</span>：リトマス紙・BTB溶液・フェノールフタレイン溶液で酸性・アルカリ性を判別',
+    },
+    {
+      type: 'quiz',
+      question: '次の気体のうち、空気より軽いのはどれ？',
+      options: [
+        { letter: 'A', text: '酸素', correct: false },
+        { letter: 'B', text: '二酸化炭素', correct: false },
+        { letter: 'C', text: '窒素', correct: false },
+        { letter: 'D', text: '水素', correct: true },
+      ],
+      explanation:
+        '<strong>正解はD「<ruby>水素<rp>(</rp><rt>すいそ</rt><rp>)</rp></ruby>」</strong>です。<ruby>密度<rp>(</rp><rt>みつど</rt><rp>)</rp></ruby>の<ruby>順<rp>(</rp><rt>じゅん</rt><rp>)</rp></ruby>はCO₂＞O₂＞<ruby>空気<rp>(</rp><rt>くうき</rt><rp>)</rp></ruby>＞N₂＞NH₃＞H₂で、<ruby>水素<rp>(</rp><rt>すいそ</rt><rp>)</rp></ruby>は最も<ruby>軽<rp>(</rp><rt>かる</rt><rp>)</rp></ruby>い<ruby>気体<rp>(</rp><rt>きたい</rt><rp>)</rp></ruby>です。',
     },
     {
       type: 'end',

@@ -92,6 +92,17 @@ export const timeDifferenceChat: HistoryChat = {
       text: '基準は<span class="keyword">本初子午線</span>（経度0度・ロンドン）',
     },
     {
+      type: 'quiz',
+      question: '経度15度の差は何時間の時差になる？',
+      options: [
+        { letter: 'A', text: '30分', correct: false },
+        { letter: 'B', text: '1時間', correct: true },
+        { letter: 'C', text: '2時間', correct: false },
+        { letter: 'D', text: '15分', correct: false },
+      ],
+      explanation: '<strong>正解はB</strong>です。地球は24時間で360度回転するため、360°÷24時間＝<ruby>経度<rp>(</rp><rt>けいど</rt><rp>)</rp></ruby>15度ごとに1時間の<ruby>時差<rp>(</rp><rt>じさ</rt><rp>)</rp></ruby>が生じます。',
+    },
+    {
       type: 'date',
       text: '日本の標準時子午線',
     },
@@ -226,6 +237,17 @@ export const timeDifferenceChat: HistoryChat = {
       text: '西→東に越えると1日戻す、東→西に越えると1日進める',
     },
     {
+      type: 'quiz',
+      question: '日付変更線はおよそ経度何度の線に沿って引かれている？',
+      options: [
+        { letter: 'A', text: '経度0度', correct: false },
+        { letter: 'B', text: '経度90度', correct: false },
+        { letter: 'C', text: '経度135度', correct: false },
+        { letter: 'D', text: '経度180度', correct: true },
+      ],
+      explanation: '<strong>正解はD</strong>です。<ruby>日付変更線<rp>(</rp><rt>ひづけへんこうせん</rt><rp>)</rp></ruby>は<ruby>太平洋<rp>(</rp><rt>たいへいよう</rt><rp>)</rp></ruby>上のほぼ経度180度の線に沿って引かれています。',
+    },
+    {
       type: 'date',
       text: '時差の計算を実際にやってみよう',
     },
@@ -292,6 +314,17 @@ export const timeDifferenceChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '時差計算：東経と西経なら<span class="keyword">足し算</span>、同じ側なら<span class="keyword">引き算</span>で経度差を求め÷15',
+    },
+    {
+      type: 'quiz',
+      question: '東経135度の日本と西経75度のニューヨークの時差は何時間？',
+      options: [
+        { letter: 'A', text: '4時間', correct: false },
+        { letter: 'B', text: '9時間', correct: false },
+        { letter: 'C', text: '14時間', correct: true },
+        { letter: 'D', text: '10時間', correct: false },
+      ],
+      explanation: '<strong>正解はC</strong>です。東経と<ruby>西経<rp>(</rp><rt>せいけい</rt><rp>)</rp></ruby>なので足し算で135°+75°=210°、210°÷15°=14時間の<ruby>時差<rp>(</rp><rt>じさ</rt><rp>)</rp></ruby>になります。',
     },
     {
       type: 'end',

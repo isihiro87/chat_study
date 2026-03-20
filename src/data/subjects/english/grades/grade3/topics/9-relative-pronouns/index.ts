@@ -272,6 +272,30 @@ export const relativePronouns: Topic = {
         explanation: 'the best pizza (that) I\'ve ever had のように、目的格の that は省略されているよ。',
         difficulty: 'advanced',
       },
+      {
+        id: 'eng-rp-fc29',
+        front: 'who',
+        back: 'I have a friend (　　) lives in Canada.\n（カナダに住んでいる友だちがいます。）',
+        hint: '先行詞が「人」で主格のとき使う関係代名詞は？',
+        explanation: '先行詞が「人」で主語の働きをするとき who を使うよ。',
+        difficulty: 'basic',
+      },
+      {
+        id: 'eng-rp-fc30',
+        front: 'which',
+        back: 'I read a book (　　) was written in English.\n（英語で書かれた本を読みました。）',
+        hint: '先行詞が「もの」で主格のとき使う関係代名詞は？',
+        explanation: '先行詞が「もの」で主語の働きをするとき which を使うよ。that でもOK。',
+        difficulty: 'basic',
+      },
+      {
+        id: 'eng-rp-fc31',
+        front: '主格の関係代名詞は省略できない',
+        back: '主格の関係代名詞（who / which / that）は\n省略できる？できない？',
+        hint: '目的格は省略できるけど、主格は…？',
+        explanation: '主格の関係代名詞は省略できない。目的格なら省略OK（→ 接触節になる）。',
+        difficulty: 'standard',
+      },
     ],
     quiz: {
       questions: [

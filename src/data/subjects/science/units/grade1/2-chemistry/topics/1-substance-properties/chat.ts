@@ -68,6 +68,18 @@ export const substancePropertiesChat: HistoryChat = {
       text: '<span class="keyword">物体</span>＝形・用途に注目。<span class="keyword">物質</span>＝材料に注目。物質は<span class="keyword">金属</span>と<span class="keyword">非金属</span>に分けられる',
     },
     {
+      type: 'quiz',
+      question: 'アルミニウムの缶で「アルミニウム」は何に注目した呼び方？',
+      options: [
+        { letter: 'A', text: '材料（物質）', correct: true },
+        { letter: 'B', text: '形（物体）', correct: false },
+        { letter: 'C', text: '用途（物体）', correct: false },
+        { letter: 'D', text: '重さ（密度）', correct: false },
+      ],
+      explanation:
+        '<strong>正解はA「<ruby>材料<rp>(</rp><rt>ざいりょう</rt><rp>)</rp></ruby>（<ruby>物質<rp>(</rp><rt>ぶっしつ</rt><rp>)</rp></ruby>）」</strong>です。<ruby>材料<rp>(</rp><rt>ざいりょう</rt><rp>)</rp></ruby>に<ruby>注目<rp>(</rp><rt>ちゅうもく</rt><rp>)</rp></ruby>した<ruby>呼<rp>(</rp><rt>よ</rt><rp>)</rp></ruby>び<ruby>方<rp>(</rp><rt>かた</rt><rp>)</rp></ruby>が<ruby>物質<rp>(</rp><rt>ぶっしつ</rt><rp>)</rp></ruby>です。',
+    },
+    {
       type: 'date',
       text: '<ruby>金属<rp>(</rp><rt>きんぞく</rt><rp>)</rp></ruby>の<ruby>性質<rp>(</rp><rt>せいしつ</rt><rp>)</rp></ruby>と<ruby>密度<rp>(</rp><rt>みつど</rt><rp>)</rp></ruby>',
     },
@@ -227,6 +239,18 @@ export const substancePropertiesChat: HistoryChat = {
       text: '<span class="keyword">メスシリンダー</span>は液面の最も低いところを水平に読む。<span class="keyword">電子てんびん</span>で質量を測り、密度＝質量÷体積で計算',
     },
     {
+      type: 'quiz',
+      question: 'メスシリンダーの目盛りを読むとき、正しい方法はどれ？',
+      options: [
+        { letter: 'A', text: '液面の最も高いところを読む', correct: false },
+        { letter: 'B', text: '液面の最も低いところを水平に読む', correct: true },
+        { letter: 'C', text: '上から見下ろして読む', correct: false },
+        { letter: 'D', text: '液面の真ん中あたりを読む', correct: false },
+      ],
+      explanation:
+        '<strong>正解はB「<ruby>液面<rp>(</rp><rt>えきめん</rt><rp>)</rp></ruby>の最も<ruby>低<rp>(</rp><rt>ひく</rt><rp>)</rp></ruby>いところを<ruby>水平<rp>(</rp><rt>すいへい</rt><rp>)</rp></ruby>に<ruby>読<rp>(</rp><rt>よ</rt><rp>)</rp></ruby>む」</strong>です。<ruby>目<rp>(</rp><rt>め</rt><rp>)</rp></ruby>の<ruby>高<rp>(</rp><rt>たか</rt><rp>)</rp></ruby>さを<ruby>液面<rp>(</rp><rt>えきめん</rt><rp>)</rp></ruby>に合わせて<ruby>水平<rp>(</rp><rt>すいへい</rt><rp>)</rp></ruby>に<ruby>読<rp>(</rp><rt>よ</rt><rp>)</rp></ruby>みます。',
+    },
+    {
       type: 'date',
       text: '<ruby>白<rp>(</rp><rt>しろ</rt><rp>)</rp></ruby>い<ruby>粉末<rp>(</rp><rt>ふんまつ</rt><rp>)</rp></ruby>の<ruby>見分<rp>(</rp><rt>みわ</rt><rp>)</rp></ruby>け方とガスバーナー',
     },
@@ -265,6 +289,18 @@ export const substancePropertiesChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '白い粉末は粒のようす・におい・水への溶け方・燃焼で区別。<span class="keyword">ガスバーナー</span>の点火：元栓→コック→マッチ→ガス調節ねじ→空気調節ねじ。消火は逆順',
+    },
+    {
+      type: 'quiz',
+      question: 'ガスバーナーの点火で、マッチに火をつけた直後に開くのはどれ？',
+      options: [
+        { letter: 'A', text: '元栓', correct: false },
+        { letter: 'B', text: 'コック', correct: false },
+        { letter: 'C', text: 'ガス調節ねじ', correct: true },
+        { letter: 'D', text: '空気調節ねじ', correct: false },
+      ],
+      explanation:
+        '<strong>正解はC「ガス<ruby>調節<rp>(</rp><rt>ちょうせつ</rt><rp>)</rp></ruby>ねじ」</strong>です。<ruby>点火<rp>(</rp><rt>てんか</rt><rp>)</rp></ruby>の<ruby>手順<rp>(</rp><rt>てじゅん</rt><rp>)</rp></ruby>は<ruby>元栓<rp>(</rp><rt>もとせん</rt><rp>)</rp></ruby>→コック→マッチ→ガス<ruby>調節<rp>(</rp><rt>ちょうせつ</rt><rp>)</rp></ruby>ねじ→<ruby>空気調節<rp>(</rp><rt>くうきちょうせつ</rt><rp>)</rp></ruby>ねじです。',
     },
     {
       type: 'end',

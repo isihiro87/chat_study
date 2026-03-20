@@ -68,6 +68,17 @@ export const earthShapeChat: HistoryChat = {
       text: '地球の表面：<span class="keyword">陸地 約3割</span>・<span class="keyword">海洋 約7割</span>',
     },
     {
+      type: 'quiz',
+      question: '地球の表面で海洋が占める割合はおよそどれくらい？',
+      options: [
+        { letter: 'A', text: '約5割', correct: false },
+        { letter: 'B', text: '約7割', correct: true },
+        { letter: 'C', text: '約9割', correct: false },
+        { letter: 'D', text: '約3割', correct: false },
+      ],
+      explanation: '<strong>正解はB</strong>です。地球の表面は<ruby>陸地<rp>(</rp><rt>りくち</rt><rp>)</rp></ruby>が約3割、<ruby>海洋<rp>(</rp><rt>かいよう</rt><rp>)</rp></ruby>が約7割を占めています。',
+    },
+    {
       type: 'date',
       text: '六大陸と三大洋',
     },
@@ -119,6 +130,17 @@ export const earthShapeChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<span class="keyword">六大陸</span>：ユーラシア・アフリカ・北アメリカ・南アメリカ・オーストラリア・南極',
+    },
+    {
+      type: 'quiz',
+      question: '六大陸に含まれないものはどれ？',
+      options: [
+        { letter: 'A', text: 'ユーラシア大陸', correct: false },
+        { letter: 'B', text: 'アフリカ大陸', correct: false },
+        { letter: 'C', text: 'ヨーロッパ大陸', correct: true },
+        { letter: 'D', text: '南極大陸', correct: false },
+      ],
+      explanation: '<strong>正解はC</strong>です。ヨーロッパはユーラシア<ruby>大陸<rp>(</rp><rt>たいりく</rt><rp>)</rp></ruby>の一部であり、独立した大陸ではありません。',
     },
     {
       type: 'summary-point',
@@ -189,6 +211,17 @@ export const earthShapeChat: HistoryChat = {
       text: '<span class="keyword">六つの州</span>：アジア州・ヨーロッパ州・アフリカ州・北アメリカ州・南アメリカ州・オセアニア州',
     },
     {
+      type: 'quiz',
+      question: 'ユーラシア大陸はどの州に分けられる？',
+      options: [
+        { letter: 'A', text: 'アジア州とオセアニア州', correct: false },
+        { letter: 'B', text: 'アジア州とアフリカ州', correct: false },
+        { letter: 'C', text: 'アジア州と北アメリカ州', correct: false },
+        { letter: 'D', text: 'アジア州とヨーロッパ州', correct: true },
+      ],
+      explanation: '<strong>正解はD</strong>です。ユーラシア<ruby>大陸<rp>(</rp><rt>たいりく</rt><rp>)</rp></ruby>はアジア<ruby>州<rp>(</rp><rt>しゅう</rt><rp>)</rp></ruby>とヨーロッパ州に分けられます。',
+    },
+    {
       type: 'date',
       text: 'アジア州の地域区分',
     },
@@ -234,6 +267,17 @@ export const earthShapeChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<span class="keyword">アジア州の5つの地域区分</span>：東アジア・東南アジア・南アジア・西アジア・中央アジア',
+    },
+    {
+      type: 'quiz',
+      question: '日本が属するアジア州の地域区分はどれ？',
+      options: [
+        { letter: 'A', text: '東アジア', correct: true },
+        { letter: 'B', text: '東南アジア', correct: false },
+        { letter: 'C', text: '南アジア', correct: false },
+        { letter: 'D', text: '西アジア', correct: false },
+      ],
+      explanation: '<strong>正解はA</strong>です。日本は<ruby>東<rp>(</rp><rt>ひがし</rt><rp>)</rp></ruby>アジアに属し、<ruby>中国<rp>(</rp><rt>ちゅうごく</rt><rp>)</rp></ruby>や<ruby>韓国<rp>(</rp><rt>かんこく</rt><rp>)</rp></ruby>、モンゴルなども同じ地域に含まれます。',
     },
     {
       type: 'end',

@@ -99,6 +99,13 @@ export const chubuHighland: Topic = {
       { id: 'geo2-cbh-fc13', front: '<ruby>扇状地<rp>(</rp><rt>せんじょうち</rt><rp>)</rp></ruby>は水はけがよく果樹の根腐れが起きにくい。盆地で日照時間が長く<ruby>寒暖差<rp>(</rp><rt>かんだんさ</rt><rp>)</rp></ruby>が大きいため糖度が高まる', back: '甲府盆地で果樹栽培が盛んな理由を地形と気候から説明せよ。', difficulty: 'advanced' },
       { id: 'geo2-cbh-fc14', front: '養蚕業→精密機械工業→コンピューター関連産業', back: '<ruby>諏訪<rp>(</rp><rt>すわ</rt><rp>)</rp></ruby>地方の産業の変遷を順に述べよ。', explanation: '「精密さ」を核に産業を高度化', difficulty: 'advanced' },
       { id: 'geo2-cbh-fc15', front: '冬の<ruby>農閑期<rp>(</rp><rt>のうかんき</rt><rp>)</rp></ruby>の副業として始まり、石川県の<ruby>輪島塗<rp>(</rp><rt>わじまぬり</rt><rp>)</rp></ruby>・<ruby>九谷焼<rp>(</rp><rt>くたにやき</rt><rp>)</rp></ruby>、福井県<ruby>鯖江<rp>(</rp><rt>さばえ</rt><rp>)</rp></ruby>のメガネなどに発展', back: '北陸の伝統的工芸品の発展の経緯を具体例を挙げて述べよ。', difficulty: 'advanced' },
+      { id: 'geo2-cbh-fc16', front: '加賀友禅', back: '石川県の伝統的な染色技術による織物を何というか。', difficulty: 'standard' },
+      { id: 'geo2-cbh-fc17', front: '越前漆器', back: '福井県で作られる伝統的な漆器を何というか。', difficulty: 'standard' },
+      { id: 'geo2-cbh-fc18', front: '小千谷ちぢみ', back: '新潟県で作られる伝統的な織物を何というか。', difficulty: 'advanced' },
+      { id: 'geo2-cbh-fc19', front: '金属洋食器', back: '新潟県燕市・三条市で盛んな伝統産業は何か。', difficulty: 'standard' },
+      { id: 'geo2-cbh-fc20', front: 'LRT（ライトレールトランジット）', back: '富山市が導入した次世代型路面電車を何というか。', difficulty: 'standard' },
+      { id: 'geo2-cbh-fc21', front: 'コンピューター関連（電子機器）産業', back: '諏訪地方の工業は現在どのような産業に変化しているか。', difficulty: 'standard' },
+      { id: 'geo2-cbh-fc22', front: '精密機械工業（時計・カメラなど）', back: '長野県の諏訪地方でかつて盛んだった工業は何か。', difficulty: 'basic' },
     ],
     quiz: {
       questions: [

@@ -253,6 +253,30 @@ export const questionPatterns: Topic = {
         explanation: 'near here = この近くに。near は「〜の近くに」という意味だよ。',
         difficulty: 'advanced',
       },
+      {
+        id: 'eng-qp-fc29',
+        front: 'in',
+        back: 'I live (　　) Tokyo.\n（私は東京に住んでいます。）',
+        hint: '場所「〜の中に」を表す前置詞は？',
+        explanation: 'in Tokyo = 東京に。in は「〜の中に」を表す前置詞だよ。',
+        difficulty: 'basic',
+      },
+      {
+        id: 'eng-qp-fc30',
+        front: 'on',
+        back: 'The book is (　　) the desk.\n（本は机の上にあります。）',
+        hint: '「〜の上に」を表す前置詞は？',
+        explanation: 'on the desk = 机の上に。on は「〜の上に」を表す前置詞だよ。',
+        difficulty: 'basic',
+      },
+      {
+        id: 'eng-qp-fc31',
+        front: 'by bus',
+        back: 'I go to school (　　).\n（私はバスで学校に行きます。）',
+        hint: '交通手段を表すときの前置詞は？',
+        explanation: 'by + 乗り物 で「〜で（交通手段）」。by bus / by train / by bike だよ。',
+        difficulty: 'standard',
+      },
     ],
     quiz: {
       questions: [

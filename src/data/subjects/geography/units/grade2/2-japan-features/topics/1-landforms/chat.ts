@@ -88,8 +88,30 @@ export const landformsChat: HistoryChat = {
       text: '日本は<span class="keyword">環太平洋造山帯</span>に位置し、火山・地震が多い',
     },
     {
+      type: 'quiz',
+      question: '日本列島が位置する、火山や地震が多い地帯を何というか？',
+      options: [
+        { letter: 'A', text: '環太平洋造山帯', correct: true },
+        { letter: 'B', text: 'アルプス・ヒマラヤ造山帯', correct: false },
+        { letter: 'C', text: 'フォッサマグナ', correct: false },
+        { letter: 'D', text: '日本海溝', correct: false },
+      ],
+      explanation: '<strong>正解はA</strong>です。太平洋を取り囲むように<ruby>火山<rp>(</rp><rt>かざん</rt><rp>)</rp></ruby>や<ruby>地震<rp>(</rp><rt>じしん</rt><rp>)</rp></ruby>の多い地域が連なる帯です。',
+    },
+    {
       type: 'summary-point',
       text: '国土の<span class="keyword">約4分の3が山地</span>。<span class="keyword">フォッサマグナ</span>が東西の境目',
+    },
+    {
+      type: 'quiz',
+      question: '本州中央部にある、東日本と西日本の地質の境目を何というか？',
+      options: [
+        { letter: 'A', text: '中央構造線', correct: false },
+        { letter: 'B', text: 'フォッサマグナ', correct: true },
+        { letter: 'C', text: '糸魚川静岡構造線', correct: false },
+        { letter: 'D', text: '日本海溝', correct: false },
+      ],
+      explanation: '<strong>正解はB</strong>です。フォッサマグナは本州中央部の大きな<ruby>地溝帯<rp>(</rp><rt>ちこうたい</rt><rp>)</rp></ruby>で、東西の<ruby>地質<rp>(</rp><rt>ちしつ</rt><rp>)</rp></ruby>の境目です。',
     },
     {
       type: 'date',
@@ -139,8 +161,30 @@ export const landformsChat: HistoryChat = {
       text: '日本の河川：<span class="keyword">短い・急流・流域面積が狭い</span>',
     },
     {
+      type: 'quiz',
+      question: '日本の河川の特徴として正しいものはどれ？',
+      options: [
+        { letter: 'A', text: '距離が長く流れがゆるやか', correct: false },
+        { letter: 'B', text: '流域面積が広い', correct: false },
+        { letter: 'C', text: '距離が短く流れが急', correct: true },
+        { letter: 'D', text: '水量が一年中安定している', correct: false },
+      ],
+      explanation: '<strong>正解はC</strong>です。日本の<ruby>河川<rp>(</rp><rt>かせん</rt><rp>)</rp></ruby>は大陸と比べて距離が短く、流れが急で、<ruby>流域<rp>(</rp><rt>りゅういき</rt><rp>)</rp></ruby>面積が狭いのが特徴です。',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">扇状地</span>（山→平地）・<span class="keyword">三角州</span>（河口付近）など多様な地形',
+    },
+    {
+      type: 'quiz',
+      question: '河口付近にできる低い平地を何というか？',
+      options: [
+        { letter: 'A', text: '扇状地', correct: false },
+        { letter: 'B', text: '台地', correct: false },
+        { letter: 'C', text: '盆地', correct: false },
+        { letter: 'D', text: '三角州', correct: true },
+      ],
+      explanation: '<strong>正解はD</strong>です。<ruby>河口<rp>(</rp><rt>かこう</rt><rp>)</rp></ruby>付近に<ruby>土砂<rp>(</rp><rt>どしゃ</rt><rp>)</rp></ruby>が<ruby>堆積<rp>(</rp><rt>たいせき</rt><rp>)</rp></ruby>してできる低い平地が<ruby>三角州<rp>(</rp><rt>さんかくす</rt><rp>)</rp></ruby>です。',
     },
     {
       type: 'date',
@@ -202,6 +246,17 @@ export const landformsChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<span class="keyword">リアス海岸</span>（三陸海岸など）・<span class="keyword">砂丘</span>（鳥取砂丘）など多様な海岸',
+    },
+    {
+      type: 'quiz',
+      question: '山地が海に沈んでできた、入り組んだ海岸地形を何というか？',
+      options: [
+        { letter: 'A', text: '砂丘', correct: false },
+        { letter: 'B', text: '干潟', correct: false },
+        { letter: 'C', text: 'リアス海岸', correct: true },
+        { letter: 'D', text: '砂浜海岸', correct: false },
+      ],
+      explanation: '<strong>正解はC</strong>です。リアス海岸は<ruby>三陸海岸<rp>(</rp><rt>さんりくかいがん</rt><rp>)</rp></ruby>や<ruby>志摩半島<rp>(</rp><rt>しまはんとう</rt><rp>)</rp></ruby>に見られる、入り組んだ海岸地形です。',
     },
     {
       type: 'summary-point',

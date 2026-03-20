@@ -40,9 +40,9 @@ export const kantoNatureChat: HistoryChat = {
     },
     {
       type: 'image',
-      src: '/images/geography/grade2/japan-regions/kanto-overview.png',
+      src: '/images/geography/grade2/japan-regions/kanto-overview.jpeg',
       alt: '関東地方の地図',
-      caption: '【準備中】関東地方の全体図',
+      caption: '関東地方の全体図',
     },
     {
       type: 'narrator',
@@ -68,6 +68,12 @@ export const kantoNatureChat: HistoryChat = {
       characterId: 'teacher',
       expression: 'happy',
       text: 'いい比較だね！関東ローム層は水はけがよいから<ruby>畑作<rp>(</rp><rt>はたさく</rt><rp>)</rp></ruby>に利用されているよ。都市部では<strong><span class="keyword">ヒートアイランド<ruby>現象<rp>(</rp><rt>げんしょう</rt><rp>)</rp></ruby></span></strong>も問題になっているんだ',
+    },
+    {
+      type: 'image',
+      src: '/images/geography/grade2/japan-regions/kanto-plain-loam.jpeg',
+      alt: '関東平野とローム層の断面図',
+      caption: '関東平野の地形断面図 — 火山灰が堆積した関東ローム層',
     },
     {
       type: 'message',

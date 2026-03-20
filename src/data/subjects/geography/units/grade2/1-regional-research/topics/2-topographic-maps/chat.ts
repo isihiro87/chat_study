@@ -95,6 +95,17 @@ export const topographicMapsChat: HistoryChat = {
       text: '<span class="keyword">2万5千分の1</span>地形図：1cm＝250m　<span class="keyword">5万分の1</span>地形図：1cm＝500m',
     },
     {
+      type: 'quiz',
+      question: '5万分の1地形図で地図上の3cmは実際の距離で何mか？',
+      options: [
+        { letter: 'A', text: '750m', correct: false },
+        { letter: 'B', text: '1,500m', correct: true },
+        { letter: 'C', text: '3,000m', correct: false },
+        { letter: 'D', text: '150m', correct: false },
+      ],
+      explanation: '<strong>正解はB</strong>です。3cm × 50,000 = 150,000cm = 1,500m（1.5km）です。',
+    },
+    {
       type: 'date',
       text: '等高線の読み取り',
     },
@@ -156,6 +167,17 @@ export const topographicMapsChat: HistoryChat = {
       text: '<span class="keyword">等高線</span>の間隔がせまい＝急傾斜、広い＝ゆるやか。<span class="keyword">尾根</span>と<span class="keyword">谷</span>も読み取れる',
     },
     {
+      type: 'quiz',
+      question: '等高線の間隔がせまい場所の地形はどれか？',
+      options: [
+        { letter: 'A', text: 'ゆるやかな傾斜', correct: false },
+        { letter: 'B', text: '平坦な土地', correct: false },
+        { letter: 'C', text: '急な傾斜', correct: true },
+        { letter: 'D', text: '窪地', correct: false },
+      ],
+      explanation: '<strong>正解はC</strong>です。<ruby>等高線<rp>(</rp><rt>とうこうせん</rt><rp>)</rp></ruby>の間隔がせまいほど<ruby>傾斜<rp>(</rp><rt>けいしゃ</rt><rp>)</rp></ruby>がきつく、広いほどゆるやかです。',
+    },
+    {
       type: 'date',
       text: '新旧の地形図の比較',
     },
@@ -205,6 +227,17 @@ export const topographicMapsChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<span class="keyword">地理院地図</span>で新旧の地形図を比較し、<span class="keyword">土地利用の変化</span>を読み取れる',
+    },
+    {
+      type: 'quiz',
+      question: '国土地理院が提供する、過去の地形図や空中写真も見られるサービスは？',
+      options: [
+        { letter: 'A', text: 'Google マップ', correct: false },
+        { letter: 'B', text: '地理院地図', correct: true },
+        { letter: 'C', text: 'ハザードマップ', correct: false },
+        { letter: 'D', text: '主題図', correct: false },
+      ],
+      explanation: '<strong>正解はB</strong>です。<ruby>国土<rp>(</rp><rt>こくど</rt><rp>)</rp></ruby><ruby>地理院<rp>(</rp><rt>ちりいん</rt><rp>)</rp></ruby>の「地理院地図」で新旧の地形図を比較し、<ruby>土地利用<rp>(</rp><rt>とちりよう</rt><rp>)</rp></ruby>の変化を読み取れます。',
     },
     {
       type: 'end',

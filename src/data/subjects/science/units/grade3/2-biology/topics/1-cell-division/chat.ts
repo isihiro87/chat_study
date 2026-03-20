@@ -102,6 +102,18 @@ export const cellDivisionChat: HistoryChat = {
       text: '成長 = <span class="keyword">体細胞分裂</span>（数を増やす）+ 細胞が大きくなる。<span class="keyword">染色体</span>は複製されてから均等に分かれる → 染色体数は変わらない！',
     },
     {
+      type: 'quiz',
+      question: '体細胞分裂後の2つの細胞の染色体数はどうなる？',
+      options: [
+        { letter: 'A', text: 'もとの細胞の半分になる', correct: false },
+        { letter: 'B', text: 'もとの細胞と同じ数になる', correct: true },
+        { letter: 'C', text: 'もとの細胞の2倍になる', correct: false },
+        { letter: 'D', text: '毎回異なる', correct: false },
+      ],
+      explanation:
+        '<strong>正解はB「もとの細胞と同じ数になる」</strong>です。<ruby>体細胞分裂<rp>(</rp><rt>たいさいぼうぶんれつ</rt><rp>)</rp></ruby>では<ruby>染色体<rp>(</rp><rt>せんしょくたい</rt><rp>)</rp></ruby>が<ruby>複製<rp>(</rp><rt>ふくせい</rt><rp>)</rp></ruby>されてから<ruby>均等<rp>(</rp><rt>きんとう</rt><rp>)</rp></ruby>に分かれるので、数は変わりません。',
+    },
+    {
       type: 'date',
       text: '2日目 <ruby>体細胞分裂<rp>(</rp><rt>たいさいぼうぶんれつ</rt><rp>)</rp></ruby>の<ruby>観察<rp>(</rp><rt>かんさつ</rt><rp>)</rp></ruby>',
     },
@@ -240,6 +252,18 @@ export const cellDivisionChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<span class="keyword">無性生殖</span>＝受精なし。分裂（ゾウリムシなど）・<span class="keyword">栄養生殖</span>（ジャガイモなど）。子は親と同じ形質（クローン）！',
+    },
+    {
+      type: 'quiz',
+      question: '無性生殖でできた子の形質について正しいのはどれ？',
+      options: [
+        { letter: 'A', text: '親とは全く異なる形質になる', correct: false },
+        { letter: 'B', text: '親の形質の半分だけ受けつぐ', correct: false },
+        { letter: 'C', text: '親と全く同じ形質になる', correct: true },
+        { letter: 'D', text: '形質はランダムに決まる', correct: false },
+      ],
+      explanation:
+        '<strong>正解はC「親と全く同じ<ruby>形質<rp>(</rp><rt>けいしつ</rt><rp>)</rp></ruby>になる」</strong>です。<ruby>無性生殖<rp>(</rp><rt>むせいせいしょく</rt><rp>)</rp></ruby>は<ruby>体細胞分裂<rp>(</rp><rt>たいさいぼうぶんれつ</rt><rp>)</rp></ruby>で子ができるため、親と同じ<ruby>遺伝子<rp>(</rp><rt>いでんし</rt><rp>)</rp></ruby>をもつクローンになります。',
     },
     {
       type: 'end',

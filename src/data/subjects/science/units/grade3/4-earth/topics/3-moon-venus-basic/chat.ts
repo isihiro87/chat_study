@@ -132,6 +132,18 @@ export const moonVenusBasicChat: HistoryChat = {
       text: '<span class="keyword">内惑星</span>の金星は真夜中に見えない。<span class="keyword">明けの明星</span>（明け方・東）か<span class="keyword">よいの明星</span>（夕方・西）にしか見えない！',
     },
     {
+      type: 'quiz',
+      question: '金星が真夜中に見えない理由はどれ？',
+      options: [
+        { letter: 'A', text: '金星が暗すぎるから', correct: false },
+        { letter: 'B', text: '地球より外側を公転しているから', correct: false },
+        { letter: 'C', text: '地球より内側を公転しているため太陽から大きく離れないから', correct: true },
+        { letter: 'D', text: '金星は自ら光を出さないから', correct: false },
+      ],
+      explanation:
+        '<strong>正解はC</strong>です。金星は<ruby>内惑星<rp>(</rp><rt>ないわくせい</rt><rp>)</rp></ruby>で、地球より太陽に近い側を<ruby>公転<rp>(</rp><rt>こうてん</rt><rp>)</rp></ruby>するため、太陽から大きく<ruby>離<rp>(</rp><rt>はな</rt><rp>)</rp></ruby>れることがなく<ruby>真夜中<rp>(</rp><rt>まよなか</rt><rp>)</rp></ruby>には見えません。',
+    },
+    {
       type: 'date',
       text: '日食と月食',
     },

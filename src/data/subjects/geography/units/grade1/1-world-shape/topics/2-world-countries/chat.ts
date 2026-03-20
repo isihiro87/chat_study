@@ -102,6 +102,17 @@ export const worldCountriesChat: HistoryChat = {
       text: '<span class="keyword">国旗</span>には歴史・自然・宗教が反映 → <span class="keyword">ユニオンジャック</span>（旧イギリス植民地）/ <span class="keyword">南十字星</span>（南半球）/ <span class="keyword">三日月と星</span>（イスラム教圏）',
     },
     {
+      type: 'quiz',
+      question: 'イスラム教圏の国旗に多いデザインはどれ？',
+      options: [
+        { letter: 'A', text: '十字架', correct: false },
+        { letter: 'B', text: '三日月と星', correct: true },
+        { letter: 'C', text: '太陽', correct: false },
+        { letter: 'D', text: 'ライオン', correct: false },
+      ],
+      explanation: '<strong>正解はB</strong>です。トルコやパキスタンなどイスラム<ruby>教圏<rp>(</rp><rt>きょうけん</rt><rp>)</rp></ruby>の<ruby>国旗<rp>(</rp><rt>こっき</rt><rp>)</rp></ruby>には<ruby>三日月<rp>(</rp><rt>みかづき</rt><rp>)</rp></ruby>と<ruby>星<rp>(</rp><rt>ほし</rt><rp>)</rp></ruby>のデザインが多く見られます。',
+    },
+    {
       type: 'date',
       text: '国名の由来を探ろう',
     },
@@ -140,6 +151,17 @@ export const worldCountriesChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<span class="keyword">国名の由来</span>：インド＝インダス川 / フィリピン＝皇太子フェリペ / コロンビア＝コロンブス / エクアドル＝赤道',
+    },
+    {
+      type: 'quiz',
+      question: '「赤道」を意味する国名を持つ国はどれ？',
+      options: [
+        { letter: 'A', text: 'コロンビア', correct: false },
+        { letter: 'B', text: 'フィリピン', correct: false },
+        { letter: 'C', text: 'エクアドル', correct: true },
+        { letter: 'D', text: 'インド', correct: false },
+      ],
+      explanation: '<strong>正解はC</strong>です。エクアドルはスペイン語で「<ruby>赤道<rp>(</rp><rt>せきどう</rt><rp>)</rp></ruby>」を意味します。',
     },
     {
       type: 'date',
@@ -301,6 +323,17 @@ export const worldCountriesChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '世界の人口は<span class="keyword">約80億人</span>超 / <span class="keyword">人口密度</span> ＝ 人口÷面積 / <span class="keyword">モナコ</span>が最高密度（約2万人/km²）・オーストラリアは約3人/km²',
+    },
+    {
+      type: 'quiz',
+      question: '人口密度の計算式として正しいものはどれ？',
+      options: [
+        { letter: 'A', text: '面積÷人口', correct: false },
+        { letter: 'B', text: '人口×面積', correct: false },
+        { letter: 'C', text: '人口÷面積', correct: true },
+        { letter: 'D', text: '面積×人口密度', correct: false },
+      ],
+      explanation: '<strong>正解はC</strong>です。<ruby>人口密度<rp>(</rp><rt>じんこうみつど</rt><rp>)</rp></ruby>は「人口÷面積」で求められ、1km²あたりに何人住んでいるかを表します。',
     },
     {
       type: 'end',

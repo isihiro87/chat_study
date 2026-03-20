@@ -74,6 +74,18 @@ export const sensoryOrgansChat: HistoryChat = {
       text: '<span class="keyword">感覚器官</span>＝目・耳・鼻・皮膚・舌。目の<span class="keyword">網膜</span>、耳の<span class="keyword">うずまき管</span>で刺激を受けとる',
     },
     {
+      type: 'quiz',
+      question: '耳で音の刺激を受けとる部分はどこ？',
+      options: [
+        { letter: 'A', text: '網膜', correct: false },
+        { letter: 'B', text: 'うずまき管', correct: true },
+        { letter: 'C', text: '鼓膜', correct: false },
+        { letter: 'D', text: '虹彩', correct: false },
+      ],
+      explanation:
+        '<strong>正解はB「うずまき<ruby>管<rp>(</rp><rt>かん</rt><rp>)</rp></ruby>」</strong>です。<ruby>鼓膜<rp>(</rp><rt>こまく</rt><rp>)</rp></ruby>は<ruby>音<rp>(</rp><rt>おと</rt><rp>)</rp></ruby>の<ruby>振動<rp>(</rp><rt>しんどう</rt><rp>)</rp></ruby>を受けますが、<ruby>刺激<rp>(</rp><rt>しげき</rt><rp>)</rp></ruby>を<ruby>信号<rp>(</rp><rt>しんごう</rt><rp>)</rp></ruby>に変えるのはうずまき<ruby>管<rp>(</rp><rt>かん</rt><rp>)</rp></ruby>です。',
+    },
+    {
       type: 'date',
       text: '<ruby>目<rp>(</rp><rt>め</rt><rp>)</rp></ruby>のつくり',
     },
@@ -107,6 +119,18 @@ export const sensoryOrgansChat: HistoryChat = {
       text: '目のつくり：<span class="keyword">角膜</span>→<span class="keyword">虹彩</span>（光の量調節）→<span class="keyword">レンズ</span>（ピント調節）→<span class="keyword">網膜</span>（像が映る）',
     },
     {
+      type: 'quiz',
+      question: '目のレンズ（水晶体）のはたらきは？',
+      options: [
+        { letter: 'A', text: '光の量を調節する', correct: false },
+        { letter: 'B', text: '色を感じる', correct: false },
+        { letter: 'C', text: 'ピントを合わせる', correct: true },
+        { letter: 'D', text: '涙を出す', correct: false },
+      ],
+      explanation:
+        '<strong>正解はC「ピントを合わせる」</strong>です。レンズ（<ruby>水晶体<rp>(</rp><rt>すいしょうたい</rt><rp>)</rp></ruby>）は<ruby>厚<rp>(</rp><rt>あつ</rt><rp>)</rp></ruby>さを変えてピントを<ruby>調節<rp>(</rp><rt>ちょうせつ</rt><rp>)</rp></ruby>します。光の量を<ruby>調節<rp>(</rp><rt>ちょうせつ</rt><rp>)</rp></ruby>するのは<ruby>虹彩<rp>(</rp><rt>こうさい</rt><rp>)</rp></ruby>です。',
+    },
+    {
       type: 'date',
       text: '<ruby>耳<rp>(</rp><rt>みみ</rt><rp>)</rp></ruby>のつくりと<ruby>目<rp>(</rp><rt>め</rt><rp>)</rp></ruby>のつき方',
     },
@@ -138,6 +162,18 @@ export const sensoryOrgansChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '耳：<span class="keyword">鼓膜</span>→<span class="keyword">耳小骨</span>→<span class="keyword">うずまき管</span>。目のつき方：前向き＝距離がわかる、横向き＝視野が広い',
+    },
+    {
+      type: 'quiz',
+      question: '草食動物（シマウマなど）の目が横向きについている理由は？',
+      options: [
+        { letter: 'A', text: '距離がわかりやすいから', correct: false },
+        { letter: 'B', text: '立体的に見えるから', correct: false },
+        { letter: 'C', text: '暗い場所でも見えるから', correct: false },
+        { letter: 'D', text: '視野が広く敵を見つけやすいから', correct: true },
+      ],
+      explanation:
+        '<strong>正解はD「<ruby>視野<rp>(</rp><rt>しや</rt><rp>)</rp></ruby>が<ruby>広<rp>(</rp><rt>ひろ</rt><rp>)</rp></ruby>く<ruby>敵<rp>(</rp><rt>てき</rt><rp>)</rp></ruby>を見つけやすいから」</strong>です。<ruby>横向<rp>(</rp><rt>よこむ</rt><rp>)</rp></ruby>きの<ruby>目<rp>(</rp><rt>め</rt><rp>)</rp></ruby>は<ruby>視野<rp>(</rp><rt>しや</rt><rp>)</rp></ruby>が<ruby>広<rp>(</rp><rt>ひろ</rt><rp>)</rp></ruby>く、<ruby>敵<rp>(</rp><rt>てき</rt><rp>)</rp></ruby>を<ruby>素早<rp>(</rp><rt>すばや</rt><rp>)</rp></ruby>く発見できます。',
     },
     {
       type: 'end',

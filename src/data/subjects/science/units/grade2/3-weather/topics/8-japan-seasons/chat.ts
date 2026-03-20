@@ -96,6 +96,18 @@ export const japanSeasonsChat: HistoryChat = {
       text: '冬：<span class="keyword">西高東低</span>・日本海側大雪。夏：<span class="keyword">太平洋高気圧</span>・高温多湿。春秋：移動性高気圧と低気圧が交互 → 周期的変化！',
     },
     {
+      type: 'quiz',
+      question: '夏に日本を覆い、高温多湿をもたらす気圧はどれか。',
+      options: [
+        { letter: 'A', text: '太平洋高気圧', correct: true },
+        { letter: 'B', text: 'シベリア高気圧', correct: false },
+        { letter: 'C', text: 'オホーツク海高気圧', correct: false },
+        { letter: 'D', text: '移動性高気圧', correct: false },
+      ],
+      explanation:
+        '<strong>正解はA</strong>です。夏は<ruby>太平洋高気圧<rp>(</rp><rt>たいへいようこうきあつ</rt><rp>)</rp></ruby>が日本を<ruby>覆<rp>(</rp><rt>おお</rt><rp>)</rp></ruby>い、南東の<ruby>季節風<rp>(</rp><rt>きせつふう</rt><rp>)</rp></ruby>が吹いて高温多湿になります。',
+    },
+    {
       type: 'image',
       src: '/images/science/grade2/weather/japan-seasons.svg',
       alt: '日本の四季の天気',
@@ -187,6 +199,18 @@ export const japanSeasonsChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<span class="keyword">梅雨前線</span>＝小笠原気団とオホーツク海気団の境界。<span class="keyword">秋雨前線</span>＝夏の終わりの停滞前線。<span class="keyword">台風</span>の進路は太平洋高気圧の勢力で変わる！',
+    },
+    {
+      type: 'quiz',
+      question: '梅雨前線がつくられる原因となる2つの気団の組み合わせはどれか。',
+      options: [
+        { letter: 'A', text: 'シベリア気団と小笠原気団', correct: false },
+        { letter: 'B', text: 'シベリア気団とオホーツク海気団', correct: false },
+        { letter: 'C', text: '揚子江気団と小笠原気団', correct: false },
+        { letter: 'D', text: '小笠原気団とオホーツク海気団', correct: true },
+      ],
+      explanation:
+        '<strong>正解はD</strong>です。<ruby>梅雨前線<rp>(</rp><rt>ばいうぜんせん</rt><rp>)</rp></ruby>は、暖かく<ruby>湿<rp>(</rp><rt>しめ</rt><rp>)</rp></ruby>った<ruby>小笠原気団<rp>(</rp><rt>おがさわらきだん</rt><rp>)</rp></ruby>と冷たく<ruby>湿<rp>(</rp><rt>しめ</rt><rp>)</rp></ruby>ったオホーツク海気団がぶつかってできる<ruby>停滞前線<rp>(</rp><rt>ていたいぜんせん</rt><rp>)</rp></ruby>です。',
     },
     {
       type: 'date',

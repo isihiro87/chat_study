@@ -271,6 +271,12 @@ export const solarSystemPlanetsChat: HistoryChat = {
       text: 'そうだね。冥王星や<ruby>エリス<rp>(</rp><rt>えりす</rt><rp>)</rp></ruby>などは<ruby>海王星<rp>(</rp><rt>かいおうせい</rt><rp>)</rp></ruby>より外側にある天体で、<strong><span class="keyword"><span data-tooltip="海王星より外側にある冥王星やエリスなどの天体"><ruby>太陽系外縁天体<rp>(</rp><rt>たいようけいがいえんてんたい</rt><rp>)</rp></ruby></span></span></strong>に分類されているよ',
     },
     {
+      type: 'image',
+      src: '/images/science/grade3/earth/comet-structure.png',
+      alt: 'すい星の構造と軌道',
+      caption: '核・コマ・尾をもち、太陽に近づくと尾が長くなる',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">衛星</span>＝惑星のまわりを公転する天体（月・ガニメデ等）／<span class="keyword">小惑星帯</span>＝火星と木星の間／<span class="keyword">すい星</span>＝氷と塵（太陽に近づくと尾を引く）／<span class="keyword">太陽系外縁天体</span>＝冥王星など',
     },

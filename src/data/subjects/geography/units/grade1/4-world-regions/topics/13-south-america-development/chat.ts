@@ -113,6 +113,17 @@ export const southAmericaDevelopmentChat: HistoryChat = {
       text: '<span class="keyword">バイオエタノール</span>：サトウキビから作る再生可能な燃料',
     },
     {
+      type: 'quiz',
+      question: 'ブラジルでサトウキビから作られている再生可能な燃料は？',
+      options: [
+        { letter: 'A', text: '天然ガス', correct: false },
+        { letter: 'B', text: 'バイオエタノール', correct: true },
+        { letter: 'C', text: '石炭', correct: false },
+        { letter: 'D', text: '水素', correct: false },
+      ],
+      explanation: '<strong>正解はB</strong>です。バイオエタノールはサトウキビから作る<ruby>再生可能<rp>(</rp><rt>さいせいかのう</rt><rp>)</rp></ruby>な<ruby>燃料<rp>(</rp><rt>ねんりょう</rt><rp>)</rp></ruby>です。',
+    },
+    {
       type: 'date',
       text: 'ブラジルの農業と鉱産資源',
     },
@@ -169,6 +180,17 @@ export const southAmericaDevelopmentChat: HistoryChat = {
     {
       type: 'summary-point',
       text: 'チリ・ペルー：<span class="keyword">銅鉱石</span>の産出国。南アメリカは<span class="keyword">ボーキサイト</span>・<span class="keyword">レアメタル</span>も豊富',
+    },
+    {
+      type: 'quiz',
+      question: 'ブラジルで世界一の生産量を誇る農産物は？',
+      options: [
+        { letter: 'A', text: '大豆', correct: false },
+        { letter: 'B', text: '小麦', correct: false },
+        { letter: 'C', text: 'コーヒー豆', correct: true },
+        { letter: 'D', text: 'サトウキビ', correct: false },
+      ],
+      explanation: '<strong>正解はC</strong>です。ブラジルはコーヒー豆の生産量が世界一です。',
     },
     {
       type: 'date',

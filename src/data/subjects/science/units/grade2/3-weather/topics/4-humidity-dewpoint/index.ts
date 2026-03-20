@@ -77,6 +77,18 @@ export const humidityDewpoint: Topic = {
       { id: 'sci2-hdew-fc14', front: '冷たいコップの表面温度が露点以下になり、空気中の水蒸気が凝結するため', back: '冷水のコップの外側に水滴がつく理由は？', difficulty: 'advanced' },
       { id: 'sci2-hdew-fc15', front: '20℃：約17.3g/m³、10℃：約9.4g/m³', back: '20℃と10℃の飽和水蒸気量はそれぞれ約何g/m³？', difficulty: 'advanced' },
       { id: 'sci2-hdew-fc16', front: '14時ごろ。気温が最高になり飽和水蒸気量が最大になるため', back: '晴れた日に湿度が最も低くなるのは何時ごろ？その理由は？', difficulty: 'advanced' },
+      { id: 'sci2-hdew-fc17', front: '大きくなる。気温が低い空気は少ない水蒸気しか含めない', back: '気温が低くなると飽和水蒸気量はどうなる？', difficulty: 'basic' },
+      { id: 'sci2-hdew-fc18', front: '約17.3g/m³', back: '気温20℃のときの飽和水蒸気量はおよそ何g/m³？', difficulty: 'standard' },
+      { id: 'sci2-hdew-fc19', front: '約9.4g/m³', back: '気温10℃のときの飽和水蒸気量はおよそ何g/m³？', difficulty: 'standard' },
+      { id: 'sci2-hdew-fc20', front: 'くみ置きの水（室温程度の水）', back: '露点の測定実験でコップにまず何を入れる？', difficulty: 'standard' },
+      { id: 'sci2-hdew-fc21', front: '氷水（または砕いた氷）を少しずつ加える', back: '露点の測定実験で水温を下げるために何をする？', difficulty: 'standard' },
+      { id: 'sci2-hdew-fc22', front: 'そのときの水温を記録する。これが露点にあたる', back: '露点の測定実験でコップの表面がくもり始めたとき何を記録？', difficulty: 'standard' },
+      { id: 'sci2-hdew-fc23', front: '湿度は上がる。分母の飽和水蒸気量が小さくなるため', back: '気温が下がり水蒸気量が変わらないと湿度は？', difficulty: 'standard' },
+      { id: 'sci2-hdew-fc24', front: '飽和状態（水蒸気量＝飽和水蒸気量の状態）', back: '湿度が100%のとき空気はどのような状態？', difficulty: 'standard' },
+      { id: 'sci2-hdew-fc25', front: '温度の差（示度の差）を利用する', back: '乾湿計は乾球と湿球の何の差で湿度を求める？', difficulty: 'standard' },
+      { id: 'sci2-hdew-fc26', front: '湿度が高い。蒸発が少なく湿球の温度があまり下がらない', back: '乾湿計で温度差が小さいほど湿度は？', difficulty: 'advanced' },
+      { id: 'sci2-hdew-fc27', front: '午後2時ごろ（14時ごろ）', back: '晴れた日の気温は1日のうちいつごろ最も高くなる？', difficulty: 'basic' },
+      { id: 'sci2-hdew-fc28', front: '約30.4g/m³', back: '気温30℃のときの飽和水蒸気量はおよそ何g/m³？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [

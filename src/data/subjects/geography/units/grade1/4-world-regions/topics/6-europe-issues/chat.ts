@@ -96,6 +96,17 @@ export const europeIssuesChat: HistoryChat = {
       text: 'EUの課題：<span class="keyword">経済格差</span>、<span class="keyword">難民・移民問題</span>、<span class="keyword">イギリスのEU離脱</span>（ブレグジット）',
     },
     {
+      type: 'quiz',
+      question: '2020年にEUを離脱した国はどこ？',
+      options: [
+        { letter: 'A', text: 'フランス', correct: false },
+        { letter: 'B', text: 'ドイツ', correct: false },
+        { letter: 'C', text: 'イギリス', correct: true },
+        { letter: 'D', text: 'イタリア', correct: false },
+      ],
+      explanation: '<strong>正解はC</strong>です。イギリスは2020年にEUを<ruby>離脱<rp>(</rp><rt>りだつ</rt><rp>)</rp></ruby>し、これはブレグジットとよばれています。',
+    },
+    {
       type: 'date',
       text: 'ロシアの自然と資源',
     },
@@ -155,6 +166,17 @@ export const europeIssuesChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<span class="keyword">ロシア</span>：世界最大の国土。<span class="keyword">タイガ</span>（針葉樹林）と<span class="keyword">ステップ</span>（草原）。<span class="keyword">石油</span>・<span class="keyword">天然ガス</span>をヨーロッパに供給',
+    },
+    {
+      type: 'quiz',
+      question: 'ロシアがパイプラインでヨーロッパに供給しているエネルギー資源は？',
+      options: [
+        { letter: 'A', text: '鉄鉱石と石炭', correct: false },
+        { letter: 'B', text: '石油と天然ガス', correct: true },
+        { letter: 'C', text: 'ボーキサイトとレアメタル', correct: false },
+        { letter: 'D', text: '木材と羊毛', correct: false },
+      ],
+      explanation: '<strong>正解はB</strong>です。ロシアは<ruby>石油<rp>(</rp><rt>せきゆ</rt><rp>)</rp></ruby>と<ruby>天然<rp>(</rp><rt>てんねん</rt><rp>)</rp></ruby>ガスをパイプラインでヨーロッパに<ruby>供給<rp>(</rp><rt>きょうきゅう</rt><rp>)</rp></ruby>しています。',
     },
     {
       type: 'end',

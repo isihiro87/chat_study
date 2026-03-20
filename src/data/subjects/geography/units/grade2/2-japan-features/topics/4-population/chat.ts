@@ -95,8 +95,30 @@ export const populationChat: HistoryChat = {
       text: '<span class="keyword">三大都市圏</span>（東京・大阪・名古屋）に人口集中 → <span class="keyword">過密</span>の問題',
     },
     {
+      type: 'quiz',
+      question: '人口が集中しすぎて通勤ラッシュや住宅不足などが起こる問題を何というか？',
+      options: [
+        { letter: 'A', text: '過疎', correct: false },
+        { letter: 'B', text: '過密', correct: true },
+        { letter: 'C', text: '少子化', correct: false },
+        { letter: 'D', text: '高齢化', correct: false },
+      ],
+      explanation: '<strong>正解はB</strong>です。<ruby>過密<rp>(</rp><rt>かみつ</rt><rp>)</rp></ruby>とは人口が集中しすぎて<ruby>交通渋滞<rp>(</rp><rt>こうつうじゅうたい</rt><rp>)</rp></ruby>や<ruby>住宅不足<rp>(</rp><rt>じゅうたくぶそく</rt><rp>)</rp></ruby>が発生する問題です。',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">ドーナツ化現象</span>：都心の地価高騰 → 郊外に人口が移動',
+    },
+    {
+      type: 'quiz',
+      question: '札幌・仙台・広島・福岡のように、地方の中心となる都市を何というか？',
+      options: [
+        { letter: 'A', text: '政令指定都市', correct: false },
+        { letter: 'B', text: '三大都市圏', correct: false },
+        { letter: 'C', text: '地方中枢都市', correct: true },
+        { letter: 'D', text: '衛星都市', correct: false },
+      ],
+      explanation: '<strong>正解はC</strong>です。<ruby>地方中枢都市<rp>(</rp><rt>ちほうちゅうすうとし</rt><rp>)</rp></ruby>は各地方の中心となる都市で、<ruby>札幌<rp>(</rp><rt>さっぽろ</rt><rp>)</rp></ruby>・<ruby>仙台<rp>(</rp><rt>せんだい</rt><rp>)</rp></ruby>・<ruby>広島<rp>(</rp><rt>ひろしま</rt><rp>)</rp></ruby>・<ruby>福岡<rp>(</rp><rt>ふくおか</rt><rp>)</rp></ruby>が代表的です。',
     },
     {
       type: 'date',
@@ -165,6 +187,17 @@ export const populationChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '農村・山間部・離島で<span class="keyword">過疎化</span>が進行（若者の都市への流出）',
+    },
+    {
+      type: 'quiz',
+      question: '少子高齢化が進んだ日本の人口ピラミッドの形はどれ？',
+      options: [
+        { letter: 'A', text: 'ピラミッド型', correct: false },
+        { letter: 'B', text: 'つりがね型', correct: false },
+        { letter: 'C', text: 'つぼ型', correct: true },
+        { letter: 'D', text: '星型', correct: false },
+      ],
+      explanation: '<strong>正解はC</strong>です。<ruby>少子高齢化<rp>(</rp><rt>しょうしこうれいか</rt><rp>)</rp></ruby>で上が広く下が<ruby>狭<rp>(</rp><rt>せま</rt><rp>)</rp></ruby>い「つぼ型」に変化しています。',
     },
     {
       type: 'summary-point',

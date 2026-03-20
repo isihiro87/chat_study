@@ -64,6 +64,12 @@ export const chubuHighlandChat: HistoryChat = {
       text: 'いい比較だね！<ruby>山梨<rp>(</rp><rt>やまなし</rt><rp>)</rp></ruby>県の<ruby>甲府<rp>(</rp><rt>こうふ</rt><rp>)</rp></ruby><ruby>盆地<rp>(</rp><rt>ぼんち</rt><rp>)</rp></ruby>では<ruby>扇状地<rp>(</rp><rt>せんじょうち</rt><rp>)</rp></ruby>の水はけのよさと日照時間の長さを生かして、<strong>ぶどう</strong>や<strong><ruby>桃<rp>(</rp><rt>もも</rt><rp>)</rp></ruby></strong>などの<strong><ruby>果樹<rp>(</rp><rt>かじゅ</rt><rp>)</rp></ruby>栽培</strong>が盛んだよ',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade2/japan-regions/alluvial-fan.jpeg',
+      alt: '扇状地の地形イラスト',
+      caption: '扇状地のしくみ — 甲府盆地はぶどう・ももの一大産地',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',

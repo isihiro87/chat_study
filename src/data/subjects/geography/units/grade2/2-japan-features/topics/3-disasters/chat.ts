@@ -88,6 +88,17 @@ export const disastersChat: HistoryChat = {
       text: '日本は<span class="keyword">地震</span>・<span class="keyword">津波</span>・<span class="keyword">火山の噴火</span>のリスクが高い',
     },
     {
+      type: 'quiz',
+      question: '日本に地震や火山が多い理由として正しいものはどれ？',
+      options: [
+        { letter: 'A', text: '環太平洋造山帯に位置するため', correct: true },
+        { letter: 'B', text: '島国で海に囲まれているため', correct: false },
+        { letter: 'C', text: '南北に長い国土のため', correct: false },
+        { letter: 'D', text: '山地が多いため', correct: false },
+      ],
+      explanation: '<strong>正解はA</strong>です。日本は<ruby>環太平洋造山帯<rp>(</rp><rt>かんたいへいようぞうざんたい</rt><rp>)</rp></ruby>に位置しており、<ruby>地震<rp>(</rp><rt>じしん</rt><rp>)</rp></ruby>や<ruby>火山<rp>(</rp><rt>かざん</rt><rp>)</rp></ruby>活動が活発です。',
+    },
+    {
       type: 'date',
       text: '気象災害',
     },
@@ -135,8 +146,30 @@ export const disastersChat: HistoryChat = {
       text: '<span class="keyword">台風</span>・<span class="keyword">集中豪雨</span> → 土石流・洪水・がけ崩れ',
     },
     {
+      type: 'quiz',
+      question: '短時間に大量の雨が降り、土石流や洪水の原因となる現象を何というか？',
+      options: [
+        { letter: 'A', text: '台風', correct: false },
+        { letter: 'B', text: '集中豪雨', correct: true },
+        { letter: 'C', text: '冷害', correct: false },
+        { letter: 'D', text: '干害', correct: false },
+      ],
+      explanation: '<strong>正解はB</strong>です。<ruby>集中豪雨<rp>(</rp><rt>しゅうちゅうごうう</rt><rp>)</rp></ruby>は短時間に大量の雨が降る<ruby>現象<rp>(</rp><rt>げんしょう</rt><rp>)</rp></ruby>で、<ruby>土石流<rp>(</rp><rt>どせきりゅう</rt><rp>)</rp></ruby>や<ruby>洪水<rp>(</rp><rt>こうずい</rt><rp>)</rp></ruby>の原因になります。',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">冷害</span>（農作物被害）・<span class="keyword">干害</span>（水不足）・<span class="keyword">雪崩</span>も発生',
+    },
+    {
+      type: 'quiz',
+      question: '夏に気温が上がらず農作物に被害を与える災害を何というか？',
+      options: [
+        { letter: 'A', text: '干害', correct: false },
+        { letter: 'B', text: '雪崩', correct: false },
+        { letter: 'C', text: '冷害', correct: true },
+        { letter: 'D', text: '水害', correct: false },
+      ],
+      explanation: '<strong>正解はC</strong>です。<ruby>冷害<rp>(</rp><rt>れいがい</rt><rp>)</rp></ruby>は夏に気温が上がらず<ruby>農作物<rp>(</rp><rt>のうさくぶつ</rt><rp>)</rp></ruby>の<ruby>生育<rp>(</rp><rt>せいいく</rt><rp>)</rp></ruby>に被害を与える災害です。',
     },
     {
       type: 'date',
@@ -184,6 +217,17 @@ export const disastersChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<span class="keyword">ハザードマップ</span>で地域の災害リスクと避難場所を確認',
+    },
+    {
+      type: 'quiz',
+      question: '自分の身を自分で守ることを防災の分野で何というか？',
+      options: [
+        { letter: 'A', text: '公助', correct: false },
+        { letter: 'B', text: '共助', correct: false },
+        { letter: 'C', text: '互助', correct: false },
+        { letter: 'D', text: '自助', correct: true },
+      ],
+      explanation: '<strong>正解はD</strong>です。<ruby>自助<rp>(</rp><rt>じじょ</rt><rp>)</rp></ruby>は自分の身を自分で守ること、<ruby>共助<rp>(</rp><rt>きょうじょ</rt><rp>)</rp></ruby>は地域で助け合うこと、<ruby>公助<rp>(</rp><rt>こうじょ</rt><rp>)</rp></ruby>は国や<ruby>自治体<rp>(</rp><rt>じちたい</rt><rp>)</rp></ruby>の支援です。',
     },
     {
       type: 'summary-point',

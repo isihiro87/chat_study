@@ -107,6 +107,17 @@ export const africaEconomyChat: HistoryChat = {
       type: 'summary-point',
       text: '<span class="keyword">レアメタル</span>（コバルト・タンタルなど）もアフリカの重要な資源',
     },
+    {
+      type: 'quiz',
+      question: 'プランテーションで栽培される商品作物に含まれないものは？',
+      options: [
+        { letter: 'A', text: 'カカオ', correct: false },
+        { letter: 'B', text: 'コーヒー', correct: false },
+        { letter: 'C', text: '米', correct: true },
+        { letter: 'D', text: '天然ゴム', correct: false },
+      ],
+      explanation: '<strong>正解はC</strong>です。プランテーションではカカオ・コーヒー・天然ゴムなどの<ruby>商品作物<rp>(</rp><rt>しょうひんさくもつ</rt><rp>)</rp></ruby>が<ruby>栽培<rp>(</rp><rt>さいばい</rt><rp>)</rp></ruby>されます。米は主に自給用の作物です。',
+    },
 
     // ===== ギニア湾沿岸のカカオ生産 =====
     {
@@ -155,6 +166,17 @@ export const africaEconomyChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<span class="keyword">ギニア湾</span>沿岸（ガーナ・コートジボワール）＝世界有数の<span class="keyword">カカオ</span>産地 / <span class="keyword">フェアトレード</span>で生産者の生活改善',
+    },
+    {
+      type: 'quiz',
+      question: '生産者に適正な価格を支払って児童労働をなくす取り組みは？',
+      options: [
+        { letter: 'A', text: 'アグリビジネス', correct: false },
+        { letter: 'B', text: 'フェアトレード', correct: true },
+        { letter: 'C', text: 'モノカルチャー', correct: false },
+        { letter: 'D', text: 'プランテーション', correct: false },
+      ],
+      explanation: '<strong>正解はB</strong>です。フェアトレードは<ruby>生産者<rp>(</rp><rt>せいさんしゃ</rt><rp>)</rp></ruby>に<ruby>適正<rp>(</rp><rt>てきせい</rt><rp>)</rp></ruby>な価格を<ruby>支払<rp>(</rp><rt>しはら</rt><rp>)</rp></ruby>い、<ruby>児童労働<rp>(</rp><rt>じどうろうどう</rt><rp>)</rp></ruby>をなくすことも目指しています。',
     },
 
     // ===== ICT・携帯電話の活用 =====

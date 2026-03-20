@@ -88,8 +88,30 @@ export const energyChat: HistoryChat = {
       text: '日本は<span class="keyword">鉱産資源に乏しく</span>、エネルギーの多くを<span class="keyword">輸入に依存</span>',
     },
     {
+      type: 'quiz',
+      question: '日本のエネルギー自給率は先進国の中でどのような水準か？',
+      options: [
+        { letter: 'A', text: '特に高い', correct: false },
+        { letter: 'B', text: '平均的', correct: false },
+        { letter: 'C', text: '特に低い', correct: true },
+        { letter: 'D', text: '自給率100%', correct: false },
+      ],
+      explanation: '<strong>正解はC</strong>です。日本は<ruby>鉱産資源<rp>(</rp><rt>こうさんしげん</rt><rp>)</rp></ruby>に<ruby>乏<rp>(</rp><rt>とぼ</rt><rp>)</rp></ruby>しく、エネルギーの多くを<ruby>輸入<rp>(</rp><rt>ゆにゅう</rt><rp>)</rp></ruby>に<ruby>依存<rp>(</rp><rt>いぞん</rt><rp>)</rp></ruby>しています。',
+    },
+    {
       type: 'summary-point',
       text: '石油は<span class="keyword">中東</span>からの輸入が大きな割合。輸入先の多様化が課題',
+    },
+    {
+      type: 'quiz',
+      question: '日本の石油輸入先として最も大きな割合を占める地域はどこか？',
+      options: [
+        { letter: 'A', text: '東南アジア', correct: false },
+        { letter: 'B', text: '中東', correct: true },
+        { letter: 'C', text: 'アフリカ', correct: false },
+        { letter: 'D', text: 'ロシア', correct: false },
+      ],
+      explanation: '<strong>正解はB</strong>です。日本の<ruby>石油<rp>(</rp><rt>せきゆ</rt><rp>)</rp></ruby>は<ruby>中東<rp>(</rp><rt>ちゅうとう</rt><rp>)</rp></ruby>地域からの輸入が大きな<ruby>割合<rp>(</rp><rt>わりあい</rt><rp>)</rp></ruby>を占めています。',
     },
     {
       type: 'date',
@@ -132,8 +154,30 @@ export const energyChat: HistoryChat = {
       text: '<span class="keyword">再生可能エネルギー</span>：太陽光・風力・水力・地熱・バイオマスなど',
     },
     {
+      type: 'quiz',
+      question: '火山国の日本で潜在的な可能性が高い再生可能エネルギーはどれ？',
+      options: [
+        { letter: 'A', text: '風力発電', correct: false },
+        { letter: 'B', text: '太陽光発電', correct: false },
+        { letter: 'C', text: '地熱発電', correct: true },
+        { letter: 'D', text: 'バイオマス発電', correct: false },
+      ],
+      explanation: '<strong>正解はC</strong>です。日本は<ruby>火山国<rp>(</rp><rt>かざんこく</rt><rp>)</rp></ruby>で<ruby>地熱<rp>(</rp><rt>ちねつ</rt><rp>)</rp></ruby>資源が豊富なため、地熱発電の<ruby>潜在的<rp>(</rp><rt>せんざいてき</rt><rp>)</rp></ruby>な可能性が高いです。',
+    },
+    {
       type: 'summary-point',
       text: '日本は<span class="keyword">地熱資源</span>が豊富だが、再生可能エネルギーの割合はまだ低い',
+    },
+    {
+      type: 'quiz',
+      question: '再生可能エネルギーに含まれないものはどれ？',
+      options: [
+        { letter: 'A', text: '太陽光発電', correct: false },
+        { letter: 'B', text: '風力発電', correct: false },
+        { letter: 'C', text: '石油火力発電', correct: true },
+        { letter: 'D', text: '水力発電', correct: false },
+      ],
+      explanation: '<strong>正解はC</strong>です。<ruby>石油<rp>(</rp><rt>せきゆ</rt><rp>)</rp></ruby>は<ruby>化石燃料<rp>(</rp><rt>かせきねんりょう</rt><rp>)</rp></ruby>であり、<ruby>再生可能<rp>(</rp><rt>さいせいかのう</rt><rp>)</rp></ruby>エネルギーには含まれません。',
     },
     {
       type: 'date',
@@ -181,6 +225,17 @@ export const energyChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<span class="keyword">3R</span>：リデュース（減らす）・リユース（再使用）・リサイクル（再資源化）',
+    },
+    {
+      type: 'quiz',
+      question: '使い終わった携帯電話などからレアメタルを回収する考え方を何というか？',
+      options: [
+        { letter: 'A', text: 'リサイクル', correct: false },
+        { letter: 'B', text: '都市鉱山', correct: true },
+        { letter: 'C', text: '3R', correct: false },
+        { letter: 'D', text: 'エコタウン', correct: false },
+      ],
+      explanation: '<strong>正解はB</strong>です。<ruby>都市鉱山<rp>(</rp><rt>としこうざん</rt><rp>)</rp></ruby>は使用済み電子機器から金や銀、<ruby>レアメタル<rp>(</rp><rt>れあめたる</rt><rp>)</rp></ruby>を回収する考え方です。',
     },
     {
       type: 'summary-point',

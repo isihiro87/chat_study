@@ -15,7 +15,7 @@ export const flowerSeed: Topic = {
           content:
             '花は外側から、がく・花弁・おしべ・めしべの順についています。おしべの先のやくには花粉が入っており、花粉がめしべの柱頭につくことを受粉といいます。受粉すると子房が果実に、胚珠が種子になります。花弁が1枚1枚離れている花を離弁花（サクラ、アブラナなど）、花弁がくっついている花を合弁花（ツツジ、アサガオなど）といいます。',
           image: {
-            src: '/images/science/grade1/biology/flower-structure.svg',
+            src: '/images/science/grade1/biology/flower-structure.png',
             alt: '花のつくり',
             caption: '花の各部分の名前（がく・花弁・おしべ・めしべ）',
           },
@@ -62,7 +62,7 @@ export const flowerSeed: Topic = {
               subtext: '花のつくりを覚えよう',
               emoji: '🌸',
               image: {
-                src: '/images/science/grade1/biology/flower-structure.svg',
+                src: '/images/science/grade1/biology/flower-structure.png',
                 alt: '花のつくり',
               },
             },
@@ -236,6 +236,27 @@ export const flowerSeed: Topic = {
         id: 'fc37',
         front: '主根と側根。網状脈は双子葉類の特徴であり、双子葉類の根は主根と側根だから',
         back: '葉脈が網の目のように広がっている植物の根のつくりはどうなっていると予想できるか。理由も答えよ。',
+        difficulty: 'advanced',
+      },
+      // --- ichimondittou補完（個別Q&A） ---
+      { id: 'fc38', front: '果実', back: '受粉後、子房は何になるか。', difficulty: 'basic' },
+      { id: 'fc39', front: '種子', back: '受粉後、胚珠は何になるか。', difficulty: 'basic' },
+      { id: 'fc40', front: '合弁花', back: 'ツバキは離弁花と合弁花のどちらか。', difficulty: 'standard' },
+      { id: 'fc41', front: '裸子植物', back: 'マツは被子植物と裸子植物のどちらか。', difficulty: 'basic' },
+      { id: 'fc42', front: '裸子植物', back: 'スギは被子植物と裸子植物のどちらか。', difficulty: 'standard' },
+      { id: 'fc43', front: '風', back: '裸子植物の花粉は何によって運ばれるか。', difficulty: 'basic' },
+      { id: 'fc44', front: '双子葉類', back: '被子植物は子葉の枚数で2つに分けられる。子葉が2枚のものを何というか。', difficulty: 'basic' },
+      { id: 'fc45', front: '単子葉類', back: '子葉が1枚のものを何というか。', difficulty: 'basic' },
+      { id: 'fc46', front: '単子葉類', back: 'トウモロコシは双子葉類と単子葉類のどちらか。', difficulty: 'standard' },
+      { id: 'fc47', front: '双子葉類', back: 'サクラは双子葉類と単子葉類のどちらか。', difficulty: 'standard' },
+      { id: 'fc48', front: '単子葉類', back: 'イネは双子葉類と単子葉類のどちらか。', difficulty: 'standard' },
+      { id: 'fc49', front: '双子葉類', back: 'ヒマワリは双子葉類と単子葉類のどちらか。', difficulty: 'standard' },
+      { id: 'fc50', front: '単子葉類', back: 'ユリは双子葉類と単子葉類のどちらか。', difficulty: 'standard' },
+      { id: 'fc51', front: '胚珠', back: 'マツの雌花のりん片には何がむき出しでついているか。', difficulty: 'standard' },
+      {
+        id: 'fc52',
+        front: 'おしべ6本、めしべ1本',
+        back: 'アブラナの花のおしべは何本、めしべは何本か。',
         difficulty: 'advanced',
       },
     ],
@@ -551,6 +572,48 @@ export const flowerSeed: Topic = {
           correctIndex: 0,
           explanation:
             '単子葉類の根はひげ根です。双子葉類は主根と側根からなります。',
+        difficulty: 'advanced',
+      },
+        {
+          id: 'q29',
+          question: '被子植物の花粉のおもな運ばれ方と裸子植物の花粉の運ばれ方の違いとして正しいものはどれか？',
+          options: [
+            '被子植物は水、裸子植物は風',
+            '被子植物は虫などの動物、裸子植物は風',
+            'どちらも風で運ばれる',
+            'どちらも虫で運ばれる',
+          ],
+          correctIndex: 1,
+          explanation:
+            '被子植物の多くは虫や鳥などの動物に花粉を運んでもらう虫媒花です。裸子植物は風によって花粉が運ばれる風媒花です。',
+        difficulty: 'advanced',
+      },
+        {
+          id: 'q30',
+          question: 'アブラナの花を分解したとき、おしべは何本あるか？',
+          options: [
+            '4本',
+            '5本',
+            '6本',
+            '8本',
+          ],
+          correctIndex: 2,
+          explanation:
+            'アブラナの花にはおしべが6本、めしべが1本あります。がくと花弁はそれぞれ4枚です。',
+        difficulty: 'advanced',
+      },
+        {
+          id: 'q31',
+          question: '双子葉類のうち、離弁花類に分類される植物はどれか？',
+          options: [
+            'タンポポ',
+            'ヒマワリ',
+            'アサガオ',
+            'サクラ',
+          ],
+          correctIndex: 3,
+          explanation:
+            'サクラは双子葉類の離弁花類です。花弁が1枚ずつ離れています。タンポポ・ヒマワリ・アサガオは合弁花類です。',
         difficulty: 'advanced',
       },
       ],

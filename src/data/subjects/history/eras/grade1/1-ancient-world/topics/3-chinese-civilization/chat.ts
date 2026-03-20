@@ -68,7 +68,7 @@ export const chineseCivilizationChat: HistoryChat = {
       side: 'right',
       characterId: 'student',
       expression: 'happy',
-      text: '先生のお言葉は<strong><span class="keyword"><ruby>論語<rp>(</rp><rt>ろんご</rt><rp>)</rp></ruby></span></strong>としてまとめられたんですよね！',
+      text: '孔子の教えは<strong><span class="keyword"><ruby>論語<rp>(</rp><rt>ろんご</rt><rp>)</rp></ruby></span></strong>としてまとめられたんですよね！',
     },
     {
       type: 'message',

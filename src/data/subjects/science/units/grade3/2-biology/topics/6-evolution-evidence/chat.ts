@@ -160,7 +160,7 @@ export const evolutionEvidenceChat: HistoryChat = {
     },
     {
       type: 'image',
-      src: '/images/science/grade3/biology/homologous-organs.svg',
+      src: '/images/science/grade3/biology/homologous-organs.png',
       alt: '相同器官の比較',
       caption: 'クジラのひれ・ヒトのうで・コウモリの翼 ── 骨格の基本構造は同じ',
     },

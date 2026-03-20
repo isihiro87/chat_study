@@ -172,6 +172,12 @@ export const celestialObservationChat: HistoryChat = {
       text: '地球は24時間で360度回るから、<strong>360÷24＝<span class="keyword">1時間に約15度</span></strong>だよ。だから4時間の<ruby>露光<rp>(</rp><rt>ろこう</rt><rp>)</rp></ruby>写真では60度分の<ruby>弧<rp>(</rp><rt>こ</rt><rp>)</rp></ruby>が写るんだ',
     },
     {
+      type: 'image',
+      src: '/images/science/grade3/earth/diurnal-motion.png',
+      alt: '天体の日周運動',
+      caption: '天球上の太陽の動きと各方位の星の動き',
+    },
+    {
       type: 'summary-point',
       text: '方位別の星の動き：東（右ななめ上）、南（右へ）、西（右ななめ下）、北（<span class="keyword">北極星</span>中心に反時計回り）。<span class="keyword">1時間に約15度</span>動く！',
     },
@@ -243,6 +249,12 @@ export const celestialObservationChat: HistoryChat = {
       characterId: 'teacher',
       expression: 'explaining',
       text: 'その通り！夏至は太陽が北寄りに大きく回るから<ruby>昼<rp>(</rp><rt>ひる</rt><rp>)</rp></ruby>が長く、南中高度も高いから地面がたくさんエネルギーを受ける。だから暑くなるんだよ。ちなみに北極では夏に太陽がしずまない<strong><span class="keyword">白夜</span></strong>、冬にのぼらない<strong><span class="keyword"><ruby>極夜<rp>(</rp><rt>きょくや</rt><rp>)</rp></ruby></span></strong>が起こるよ',
+    },
+    {
+      type: 'image',
+      src: '/images/science/grade3/earth/annual-motion.png',
+      alt: '年周運動と季節の星座',
+      caption: '地球の公転により季節ごとに見える星座が変わる',
     },
     {
       type: 'summary-point',

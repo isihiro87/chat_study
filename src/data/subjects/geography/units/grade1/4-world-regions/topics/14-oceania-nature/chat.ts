@@ -93,6 +93,17 @@ export const oceaniaNatureChat: HistoryChat = {
       text: '先住民：<span class="keyword">アボリジニ</span>（オーストラリア）・<span class="keyword">マオリ</span>（ニュージーランド）',
     },
     {
+      type: 'quiz',
+      question: 'オーストラリアが「乾燥大陸」とよばれる理由は？',
+      options: [
+        { letter: 'A', text: '面積が小さいから', correct: false },
+        { letter: 'B', text: '内陸部の大部分が砂漠や草原で降水量が少ないから', correct: true },
+        { letter: 'C', text: '人口が少ないから', correct: false },
+        { letter: 'D', text: '火山が多いから', correct: false },
+      ],
+      explanation: '<strong>正解はB</strong>です。オーストラリアは<ruby>内陸部<rp>(</rp><rt>ないりくぶ</rt><rp>)</rp></ruby>の大部分が<ruby>砂漠<rp>(</rp><rt>さばく</rt><rp>)</rp></ruby>や<ruby>草原<rp>(</rp><rt>そうげん</rt><rp>)</rp></ruby>で<ruby>降水量<rp>(</rp><rt>こうすいりょう</rt><rp>)</rp></ruby>が少ないため「<ruby>乾燥<rp>(</rp><rt>かんそう</rt><rp>)</rp></ruby>大陸」とよばれます。',
+    },
+    {
       type: 'date',
       text: '太平洋の三つの海域とグレートバリアリーフ',
     },
@@ -142,6 +153,17 @@ export const oceaniaNatureChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<span class="keyword">グレートバリアリーフ</span>＝世界最大のサンゴ礁（約2000km）',
+    },
+    {
+      type: 'quiz',
+      question: '太平洋の島々を分ける三海域に含まれないものはどれ？',
+      options: [
+        { letter: 'A', text: 'ミクロネシア', correct: false },
+        { letter: 'B', text: 'メラネシア', correct: false },
+        { letter: 'C', text: 'インドネシア', correct: true },
+        { letter: 'D', text: 'ポリネシア', correct: false },
+      ],
+      explanation: '<strong>正解はC</strong>です。太平洋の三海域はミクロネシア・メラネシア・ポリネシアです。インドネシアは東南アジアの国です。',
     },
     {
       type: 'date',
@@ -200,6 +222,17 @@ export const oceaniaNatureChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '貿易相手：イギリス中心 → <span class="keyword">APEC</span>を通じたアジア太平洋地域へ',
+    },
+    {
+      type: 'quiz',
+      question: 'オーストラリアが日本や中国に多く輸出している鉱産資源は？',
+      options: [
+        { letter: 'A', text: '石油と天然ガス', correct: false },
+        { letter: 'B', text: '鉄鉱石と石炭', correct: true },
+        { letter: 'C', text: '金とダイヤモンド', correct: false },
+        { letter: 'D', text: '銅とアルミニウム', correct: false },
+      ],
+      explanation: '<strong>正解はB</strong>です。オーストラリアは<ruby>鉄鉱石<rp>(</rp><rt>てっこうせき</rt><rp>)</rp></ruby>と<ruby>石炭<rp>(</rp><rt>せきたん</rt><rp>)</rp></ruby>をアジア<ruby>諸国<rp>(</rp><rt>しょこく</rt><rp>)</rp></ruby>に多く輸出しています。',
     },
     {
       type: 'date',

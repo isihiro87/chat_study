@@ -88,6 +88,17 @@ export const territoryChat: HistoryChat = {
       text: '<span class="keyword">領域</span> = <span class="keyword">領土</span>（約38万km²）+ <span class="keyword">領海</span>（沿岸から12海里）+ <span class="keyword">領空</span>（上空）',
     },
     {
+      type: 'quiz',
+      question: '日本の領海は沿岸からどこまでの範囲？',
+      options: [
+        { letter: 'A', text: '12海里', correct: true },
+        { letter: 'B', text: '200海里', correct: false },
+        { letter: 'C', text: '100海里', correct: false },
+        { letter: 'D', text: '50海里', correct: false },
+      ],
+      explanation: '<strong>正解はA</strong>です。<ruby>領海<rp>(</rp><rt>りょうかい</rt><rp>)</rp></ruby>は<ruby>沿岸<rp>(</rp><rt>えんがん</rt><rp>)</rp></ruby>から12<ruby>海里<rp>(</rp><rt>かいり</rt><rp>)</rp></ruby>（約22km）の範囲です。200海里は<ruby>排他的経済水域<rp>(</rp><rt>はいたてきけいざいすいいき</rt><rp>)</rp></ruby>の範囲です。',
+    },
+    {
       type: 'date',
       text: '排他的経済水域と離島の重要性',
     },
@@ -289,6 +300,17 @@ export const territoryChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<span class="keyword">尖閣諸島</span>（沖縄県）：日本固有の領土、日本が有効に支配、周辺に地下資源',
+    },
+    {
+      type: 'quiz',
+      question: '北方領土の4つの島に含まれないものはどれ？',
+      options: [
+        { letter: 'A', text: '択捉島', correct: false },
+        { letter: 'B', text: '国後島', correct: false },
+        { letter: 'C', text: '竹島', correct: true },
+        { letter: 'D', text: '歯舞群島', correct: false },
+      ],
+      explanation: '<strong>正解はC</strong>です。<ruby>竹島<rp>(</rp><rt>たけしま</rt><rp>)</rp></ruby>は<ruby>島根県<rp>(</rp><rt>しまねけん</rt><rp>)</rp></ruby>に属する島で、<ruby>北方領土<rp>(</rp><rt>ほっぽうりょうど</rt><rp>)</rp></ruby>とは別の<ruby>領土問題<rp>(</rp><rt>りょうどもんだい</rt><rp>)</rp></ruby>です。',
     },
     {
       type: 'end',

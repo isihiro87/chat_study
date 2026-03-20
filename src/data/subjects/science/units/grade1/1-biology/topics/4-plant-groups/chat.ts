@@ -94,6 +94,18 @@ export const plantGroupsChat: HistoryChat = {
       text: '<span class="keyword">双子葉類</span>＝子葉2枚・網状脈・主根と側根（アブラナ・サクラなど）。<span class="keyword">単子葉類</span>＝子葉1枚・平行脈・ひげ根（トウモロコシ・イネなど）',
     },
     {
+      type: 'quiz',
+      question: '単子葉類の根のつくりはどれ？',
+      options: [
+        { letter: 'A', text: '主根と側根', correct: false },
+        { letter: 'B', text: 'ひげ根', correct: true },
+        { letter: 'C', text: '仮根', correct: false },
+        { letter: 'D', text: '地下茎', correct: false },
+      ],
+      explanation:
+        '<strong>正解はB</strong>です。<ruby>単子葉類<rp>(</rp><rt>たんしようるい</rt><rp>)</rp></ruby>の根はひげ根で、<ruby>双子葉類<rp>(</rp><rt>そうしようるい</rt><rp>)</rp></ruby>は<ruby>主根<rp>(</rp><rt>しゅこん</rt><rp>)</rp></ruby>と<ruby>側根<rp>(</rp><rt>そっこん</rt><rp>)</rp></ruby>です。',
+    },
+    {
       type: 'date',
       text: 'シダ<ruby>植物<rp>(</rp><rt>しょくぶつ</rt><rp>)</rp></ruby>の<ruby>詳細<rp>(</rp><rt>しょうさい</rt><rp>)</rp></ruby>',
     },
@@ -141,6 +153,18 @@ export const plantGroupsChat: HistoryChat = {
       text: 'シダ植物：<span class="keyword">地下茎</span>から葉と根が出る。葉の裏に<span class="keyword">胞子のう</span>。維管束あり。例：イヌワラビ、スギナ（ツクシ）、ゼンマイ',
     },
     {
+      type: 'quiz',
+      question: 'ツクシはどの植物の胞子をつくる部分？',
+      options: [
+        { letter: 'A', text: 'ゼンマイ', correct: false },
+        { letter: 'B', text: 'イヌワラビ', correct: false },
+        { letter: 'C', text: 'スギナ', correct: true },
+        { letter: 'D', text: 'ゼニゴケ', correct: false },
+      ],
+      explanation:
+        '<strong>正解はC</strong>です。ツクシはスギナの<ruby>胞子<rp>(</rp><rt>ほうし</rt><rp>)</rp></ruby>をつくる<ruby>部分<rp>(</rp><rt>ぶぶん</rt><rp>)</rp></ruby>で、スギナはシダ<ruby>植物<rp>(</rp><rt>しょくぶつ</rt><rp>)</rp></ruby>です。',
+    },
+    {
       type: 'date',
       text: 'コケ<ruby>植物<rp>(</rp><rt>しょくぶつ</rt><rp>)</rp></ruby>の<ruby>詳細<rp>(</rp><rt>しょうさい</rt><rp>)</rp></ruby>',
     },
@@ -186,6 +210,18 @@ export const plantGroupsChat: HistoryChat = {
     {
       type: 'summary-point',
       text: 'コケ植物：<span class="keyword">仮根</span>は固定のみ（水を吸わない）。体の<span class="keyword">表面全体</span>で水を吸収。<span class="keyword">雌株</span>と<span class="keyword">雄株</span>がある。例：ゼニゴケ、コスギゴケ',
+    },
+    {
+      type: 'quiz',
+      question: 'コケ植物の仮根のはたらきはどれ？',
+      options: [
+        { letter: 'A', text: '水を吸収する', correct: false },
+        { letter: 'B', text: '養分を蓄える', correct: false },
+        { letter: 'C', text: '光合成をする', correct: false },
+        { letter: 'D', text: '体を地面に固定する', correct: true },
+      ],
+      explanation:
+        '<strong>正解はD</strong>です。コケ<ruby>植物<rp>(</rp><rt>しょくぶつ</rt><rp>)</rp></ruby>の<ruby>仮根<rp>(</rp><rt>かこん</rt><rp>)</rp></ruby>は体を<ruby>固定<rp>(</rp><rt>こてい</rt><rp>)</rp></ruby>するだけで、水は体の<ruby>表面<rp>(</rp><rt>ひょうめん</rt><rp>)</rp></ruby>全体で<ruby>吸収<rp>(</rp><rt>きゅうしゅう</rt><rp>)</rp></ruby>します。',
     },
     {
       type: 'date',
@@ -252,6 +288,18 @@ export const plantGroupsChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '分類フロー：植物 → 種子をつくる＝<span class="keyword">種子植物</span>（被子植物 or 裸子植物）／種子をつくらない → 維管束あり＝<span class="keyword">シダ植物</span>、なし＝<span class="keyword">コケ植物</span>',
+    },
+    {
+      type: 'quiz',
+      question: '種子をつくらず、維管束がある植物はどれ？',
+      options: [
+        { letter: 'A', text: 'コケ植物', correct: false },
+        { letter: 'B', text: 'シダ植物', correct: true },
+        { letter: 'C', text: '被子植物', correct: false },
+        { letter: 'D', text: '裸子植物', correct: false },
+      ],
+      explanation:
+        '<strong>正解はB</strong>です。シダ<ruby>植物<rp>(</rp><rt>しょくぶつ</rt><rp>)</rp></ruby>は<ruby>種子<rp>(</rp><rt>しゅし</rt><rp>)</rp></ruby>をつくらず<ruby>胞子<rp>(</rp><rt>ほうし</rt><rp>)</rp></ruby>でふえますが、<ruby>維管束<rp>(</rp><rt>いかんそく</rt><rp>)</rp></ruby>はあります。',
     },
     {
       type: 'end',

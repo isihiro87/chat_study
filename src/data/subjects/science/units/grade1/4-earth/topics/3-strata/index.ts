@@ -193,6 +193,27 @@ export const strata: Topic = {
       { id: 'sci1-strata-fc26', front: '一度堆積が止まり、侵食を受けてから再び堆積が起こったことを示す', back: '地層の中に不整合面が見られるとき、何があったと考えられるか？', difficulty: 'advanced' },
       { id: 'sci1-strata-fc27', front: '中生代', back: '恐竜の化石が見つかった地層の時代はいつか？', difficulty: 'advanced' },
       { id: 'sci1-strata-fc28', front: '古生代', back: 'フズリナの化石が見つかった地層の時代はいつか？', difficulty: 'advanced' },
+      { id: 'sci1-strata-fc29', front: '風化', back: '地表の岩石が気温の変化や雨風によってもろくなることを何というか？', difficulty: 'basic' },
+      { id: 'sci1-strata-fc30', front: '侵食', back: '風化した岩石が流水で削られることを何というか？', difficulty: 'basic' },
+      { id: 'sci1-strata-fc31', front: '運搬', back: '流水で削られた土砂が運ばれることを何というか？', difficulty: 'basic' },
+      { id: 'sci1-strata-fc32', front: '堆積', back: '運ばれた土砂が積もることを何というか？', difficulty: 'basic' },
+      { id: 'sci1-strata-fc33', front: 'れき（直径2mm以上の大きくて重い粒）', back: '流水で運ばれた粒のうち、河口近くに堆積するのはどの大きさの粒か？', difficulty: 'standard' },
+      { id: 'sci1-strata-fc34', front: '泥（直径0.06mm以下の小さくて軽い粒）', back: '流水で運ばれた粒のうち、沖合まで運ばれてから堆積するのはどの大きさの粒か？', difficulty: 'standard' },
+      { id: 'sci1-strata-fc35', front: '堆積岩', back: '堆積物が長い年月をかけて押し固められてできた岩石を何というか？', difficulty: 'basic' },
+      { id: 'sci1-strata-fc36', front: '石灰岩', back: 'サンゴや貝などの生物の遺骸が固まってできた堆積岩を何というか？', difficulty: 'basic' },
+      { id: 'sci1-strata-fc37', front: '凝灰岩', back: '火山灰が固まってできた堆積岩を何というか？', difficulty: 'basic' },
+      { id: 'sci1-strata-fc38', front: '化石', back: '地層中に残された、大昔の生物の遺骸や痕跡を何というか？', difficulty: 'basic' },
+      { id: 'sci1-strata-fc39', front: '淡水（河口付近）', back: 'シジミの化石から推定できる環境は何か？', difficulty: 'standard' },
+      { id: 'sci1-strata-fc40', front: '古生代', back: '三葉虫の化石が見つかった地層の時代はいつか？', difficulty: 'standard' },
+      { id: 'sci1-strata-fc41', front: '中生代', back: 'アンモナイトの化石が見つかった地層の時代はいつか？', difficulty: 'standard' },
+      { id: 'sci1-strata-fc42', front: '中生代', back: '恐竜の化石が見つかった地層の時代はいつか？', difficulty: 'standard' },
+      { id: 'sci1-strata-fc43', front: '新生代', back: 'ビカリアの化石が見つかった地層の時代はいつか？', difficulty: 'standard' },
+      { id: 'sci1-strata-fc44', front: '新生代', back: 'ナウマンゾウの化石が見つかった地層の時代はいつか？', difficulty: 'standard' },
+      { id: 'sci1-strata-fc45', front: '断層', back: '地層が大きな力を受けてずれることを何というか？', difficulty: 'basic' },
+      { id: 'sci1-strata-fc46', front: '柱状図', back: 'ボーリング試料をもとにした地層の断面図を何というか？', difficulty: 'standard' },
+      { id: 'sci1-strata-fc47', front: '下にある地層のほうが古い（地層累重の法則）', back: '地層の上下関係について、下にある地層と上にある地層ではどちらが古いか？', difficulty: 'standard' },
+      { id: 'sci1-strata-fc48', front: '一度堆積が止まり、侵食を受けてから再び堆積が起こった', back: '地層の中に不整合面が見られるとき、どのようなことがあったと考えられるか？', difficulty: 'advanced' },
+      { id: 'sci1-strata-fc49', front: '山の上で貝の化石→海底が隆起して陸地（山）になった', back: '山の上で貝の化石が見つかるのは、大地のどのような変化があったと考えられるか？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -512,6 +533,90 @@ export const strata: Topic = {
           explanation:
             '陸地がしずんで海中に沈むことを沈降といいます。逆に海底が持ち上がって陸地になることを隆起といいます。',
         difficulty: 'advanced',
+      },
+        {
+          id: 'sci1-strata-q29',
+          question: '流水のはたらきの正しい順番はどれか？',
+          options: [
+            '運搬→侵食→堆積',
+            '堆積→運搬→侵食',
+            '侵食→運搬→堆積',
+            '侵食→堆積→運搬',
+          ],
+          correctIndex: 2,
+          explanation:
+            '流水のはたらきは侵食（削る）→運搬（運ぶ）→堆積（積もる）の順です。',
+        difficulty: 'basic',
+      },
+        {
+          id: 'sci1-strata-q30',
+          question: '凝灰岩の角ばった粒と、れき岩の丸い粒の違いはなぜ生まれるか？',
+          options: [
+            '凝灰岩は火山灰が直接降り積もり流水で運ばれていないため角ばっている',
+            'れき岩の粒が加熱されて丸くなった',
+            '凝灰岩の粒が化学反応で角ばった',
+            '粒の大きさの違い',
+          ],
+          correctIndex: 0,
+          explanation:
+            '凝灰岩の粒は火山灰が直接降り積もったもので流水で運ばれていないため角ばっています。れき岩の粒は流水で運ばれる間にぶつかり合って丸くなります。',
+        difficulty: 'advanced',
+      },
+        {
+          id: 'sci1-strata-q31',
+          question: '地層にしゅう曲と断層の両方が見られる場合、一般的にどちらが先にできたと考えられるか？',
+          options: [
+            '断層が先',
+            'しゅう曲が先',
+            '同時',
+            '判断できない',
+          ],
+          correctIndex: 1,
+          explanation:
+            'まず地層が横からの力で曲がり（しゅう曲）、さらに力が加わって耐えきれなくなった部分がずれて断層になったと考えられます。',
+        difficulty: 'advanced',
+      },
+        {
+          id: 'sci1-strata-q32',
+          question: 'A地点（標高50m）で深さ10mに凝灰岩、B地点（標高50m）で深さ20mに同じ凝灰岩がある。地層はどちらに傾いているか？',
+          options: [
+            'A→Bの方向に低くなるように傾いている',
+            'B→Aの方向に低くなるように傾いている',
+            '水平である',
+            '判断できない',
+          ],
+          correctIndex: 0,
+          explanation:
+            'A地点の凝灰岩＝標高40m、B地点＝標高30m。A→Bの方向に低くなるように傾いています。',
+        difficulty: 'advanced',
+      },
+        {
+          id: 'sci1-strata-q33',
+          question: '粒の大きいれきが河口付近に堆積する理由はどれ？',
+          options: [
+            'れきは軽いから',
+            'れきは水に溶けるから',
+            'れきは粒が大きく重いため流水の速さが弱まる河口付近で沈むから',
+            'れきは沖合まで運ばれるから',
+          ],
+          correctIndex: 2,
+          explanation:
+            'れきは粒が大きく重いため、流水の速さが弱まる河口付近で沈んで堆積します。泥は軽いので沖合まで運ばれます。',
+        difficulty: 'standard',
+      },
+        {
+          id: 'sci1-strata-q34',
+          question: '示相化石として適した条件はどれか？',
+          options: [
+            '広い範囲に分布し短期間で絶滅した生物',
+            '限られた環境にのみ生息していた生物',
+            'どの時代にも存在する生物',
+            '大型の生物のみ',
+          ],
+          correctIndex: 1,
+          explanation:
+            '示相化石は限られた環境にのみ生息する生物の化石が適しています。環境が限定されているからこそ、当時の環境を推定できます。',
+        difficulty: 'standard',
       },
       ],
     },

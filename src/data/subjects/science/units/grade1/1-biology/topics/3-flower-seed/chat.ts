@@ -51,7 +51,7 @@ export const flowerSeedChat: HistoryChat = {
     },
     {
       type: 'image',
-      src: '/images/science/grade1/biology/flower-structure.svg',
+      src: '/images/science/grade1/biology/flower-structure.png',
       alt: '花のつくり',
       caption: '花の各部分：がく・花弁・おしべ・めしべ',
     },
@@ -86,6 +86,18 @@ export const flowerSeedChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '花の構造：がく→<span class="keyword">花弁</span>→おしべ→めしべ。<span class="keyword">受粉</span>＝花粉が柱頭につく → <span class="keyword">子房</span>→果実、<span class="keyword">胚珠</span>→種子',
+    },
+    {
+      type: 'quiz',
+      question: '受粉後、種子になるのはどの部分？',
+      options: [
+        { letter: 'A', text: '子房', correct: false },
+        { letter: 'B', text: '胚珠', correct: true },
+        { letter: 'C', text: '柱頭', correct: false },
+        { letter: 'D', text: 'やく', correct: false },
+      ],
+      explanation:
+        '<strong>正解はB</strong>です。<ruby>受粉<rp>(</rp><rt>じゅふん</rt><rp>)</rp></ruby>すると<ruby>胚珠<rp>(</rp><rt>はいしゅ</rt><rp>)</rp></ruby>が<ruby>種子<rp>(</rp><rt>しゅし</rt><rp>)</rp></ruby>になり、<ruby>子房<rp>(</rp><rt>しぼう</rt><rp>)</rp></ruby>が<ruby>果実<rp>(</rp><rt>かじつ</rt><rp>)</rp></ruby>になります。',
     },
     {
       type: 'date',
@@ -159,6 +171,18 @@ export const flowerSeedChat: HistoryChat = {
       text: '<span class="keyword">被子植物</span>＝胚珠が子房に包まれる（果実ができる）。<span class="keyword">裸子植物</span>＝胚珠がむき出し（果実なし）。双子葉類＝<span class="keyword">網状脈</span>・主根と側根。単子葉類＝<span class="keyword">平行脈</span>・ひげ根',
     },
     {
+      type: 'quiz',
+      question: '双子葉類の葉脈はどのタイプ？',
+      options: [
+        { letter: 'A', text: '平行脈', correct: false },
+        { letter: 'B', text: '放射脈', correct: false },
+        { letter: 'C', text: '網状脈', correct: true },
+        { letter: 'D', text: '羽状脈', correct: false },
+      ],
+      explanation:
+        '<strong>正解はC</strong>です。<ruby>双子葉類<rp>(</rp><rt>そうしようるい</rt><rp>)</rp></ruby>は<ruby>網状脈<rp>(</rp><rt>もうじょうみゃく</rt><rp>)</rp></ruby>で、<ruby>単子葉類<rp>(</rp><rt>たんしようるい</rt><rp>)</rp></ruby>は<ruby>平行脈<rp>(</rp><rt>へいこうみゃく</rt><rp>)</rp></ruby>です。',
+    },
+    {
       type: 'date',
       text: '<ruby>種子<rp>(</rp><rt>しゅし</rt><rp>)</rp></ruby>をつくらない<ruby>植物<rp>(</rp><rt>しょくぶつ</rt><rp>)</rp></ruby>',
     },
@@ -225,6 +249,18 @@ export const flowerSeedChat: HistoryChat = {
       text: '<span class="keyword">シダ植物</span>＝根・茎・葉の区別あり、維管束あり。<span class="keyword">コケ植物</span>＝区別なし、維管束なし、<span class="keyword">仮根</span>で固定。どちらも<span class="keyword">胞子</span>でふえる',
     },
     {
+      type: 'quiz',
+      question: 'コケ植物が地面に固定するために使うものは？',
+      options: [
+        { letter: 'A', text: '主根', correct: false },
+        { letter: 'B', text: 'ひげ根', correct: false },
+        { letter: 'C', text: '維管束', correct: false },
+        { letter: 'D', text: '仮根', correct: true },
+      ],
+      explanation:
+        '<strong>正解はD</strong>です。コケ<ruby>植物<rp>(</rp><rt>しょくぶつ</rt><rp>)</rp></ruby>は<ruby>仮根<rp>(</rp><rt>かこん</rt><rp>)</rp></ruby>で体を<ruby>地面<rp>(</rp><rt>じめん</rt><rp>)</rp></ruby>に<ruby>固定<rp>(</rp><rt>こてい</rt><rp>)</rp></ruby>しますが、水は体の<ruby>表面<rp>(</rp><rt>ひょうめん</rt><rp>)</rp></ruby>全体で<ruby>吸収<rp>(</rp><rt>きゅうしゅう</rt><rp>)</rp></ruby>します。',
+    },
+    {
       type: 'date',
       text: 'マツの花のつくり〜<ruby>裸子植物<rp>(</rp><rt>らししょくぶつ</rt><rp>)</rp></ruby>の<ruby>詳細<rp>(</rp><rt>しょうさい</rt><rp>)</rp></ruby>〜',
     },
@@ -270,6 +306,18 @@ export const flowerSeedChat: HistoryChat = {
     {
       type: 'summary-point',
       text: 'マツの花：<span class="keyword">雄花</span>のりん片に花粉のう、<span class="keyword">雌花</span>のりん片に胚珠がむき出し。裸子植物の花粉は<span class="keyword">風</span>で運ばれる',
+    },
+    {
+      type: 'quiz',
+      question: 'マツの花粉はどのように運ばれる？',
+      options: [
+        { letter: 'A', text: '風で運ばれる', correct: true },
+        { letter: 'B', text: '虫が運ぶ', correct: false },
+        { letter: 'C', text: '水に流される', correct: false },
+        { letter: 'D', text: '鳥が運ぶ', correct: false },
+      ],
+      explanation:
+        '<strong>正解はA</strong>です。<ruby>裸子植物<rp>(</rp><rt>らししょくぶつ</rt><rp>)</rp></ruby>の<ruby>花粉<rp>(</rp><rt>かふん</rt><rp>)</rp></ruby>は<ruby>風<rp>(</rp><rt>かぜ</rt><rp>)</rp></ruby>で<ruby>運<rp>(</rp><rt>はこ</rt><rp>)</rp></ruby>ばれ、マツの<ruby>花粉<rp>(</rp><rt>かふん</rt><rp>)</rp></ruby>には<ruby>空気<rp>(</rp><rt>くうき</rt><rp>)</rp></ruby>の<ruby>袋<rp>(</rp><rt>ふくろ</rt><rp>)</rp></ruby>がついています。',
     },
     {
       type: 'end',

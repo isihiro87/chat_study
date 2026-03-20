@@ -192,6 +192,8 @@ export const forceAction: Topic = {
       { id: 'sci3-force-fc26', front: '弾性力（フックの法則）であり慣性ではない', back: 'ばねを引くと元に戻ろうとするのは慣性か？', difficulty: 'advanced' },
       { id: 'sci3-force-fc27', front: '質量が大きいほど慣性が大きい', back: '物体の慣性の大きさは何に関係する？', difficulty: 'advanced' },
       { id: 'sci3-force-fc28', front: '0N（斜面に平行な分力が重力と同じになる）', back: '斜面の角度が0度（水平）のとき、斜面に平行な分力はいくら？', difficulty: 'advanced' },
+      { id: 'sci3-force-fc4', front: 'ばねばかり', back: '角度をもってはたらく2力の合力を実験で求めるとき、使う器具は何？', difficulty: 'basic' },
+      { id: 'sci3-force-fc5', front: '左向きに2N', back: '右向きに3Nと左向きに5Nの力がはたらくとき、合力の大きさと向きは？', difficulty: 'standard' },
     ],
     quiz: {
       questions: [
@@ -299,6 +301,8 @@ export const forceAction: Topic = {
         { id: 'sci3-force-q26', question: '慣性の法則の別名は？', options: ['運動の第2法則', '運動の第3法則', '運動の第1法則', 'エネルギー保存則'], correctIndex: 2, explanation: '慣性の法則はニュートンの運動の第1法則ともよばれます。', difficulty: 'advanced' },
         { id: 'sci3-force-q27', question: '作用・反作用の法則の別名は？', options: ['運動の第1法則','運動の第2法則','エネルギー保存則','運動の第3法則'], correctIndex: 3, explanation: '作用・反作用の法則はニュートンの運動の第3法則ともよばれます。', difficulty: 'advanced' },
         { id: 'sci3-force-q28', question: 'テーブルクロスを素早く引いても食器が動かない理由は？', options: ['摩擦力が大きいから', '食器の慣性で静止し続けようとするから', '重力がなくなるから', '作用反作用で打ち消されるから'], correctIndex: 1, explanation: '食器は慣性により静止し続けようとするため、テーブルクロスを素早く引いても動きません。', difficulty: 'advanced' },
+        { id: 'sci3-force-q4', question: '斜面上の物体が滑り落ちるのは、重力のどの分力によるものか？', options: ['斜面に垂直な分力', '水平方向の分力', '斜面に平行な分力', '垂直抗力'], correctIndex: 2, explanation: '斜面上の物体を滑り落とすのは重力の斜面に平行な分力です。斜面が急なほどこの分力は大きくなります。', difficulty: 'standard' },
+        { id: 'sci3-force-q5', question: '走っている車から急に降りると体が前に飛び出すのはなぜ？', options: ['作用・反作用の法則', '重力が増加するから', '慣性で前に進み続けようとするから', '摩擦力が急増するから'], correctIndex: 2, explanation: '体は慣性により走っていたときの速度で前に進み続けようとするため、車から降りると前に飛び出します。', difficulty: 'standard' },
       ],
     },
     examples: {

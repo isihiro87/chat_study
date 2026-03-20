@@ -103,6 +103,17 @@ export const prefecturesChat: HistoryChat = {
       text: '<span class="keyword">廃藩置県</span>（1871年）で藩を廃止 → 統合を経て <span class="keyword">1都1道2府43県</span>（47都道府県）',
     },
     {
+      type: 'quiz',
+      question: '47都道府県の内訳として正しいものはどれ？',
+      options: [
+        { letter: 'A', text: '1都2道1府43県', correct: false },
+        { letter: 'B', text: '1都1道2府43県', correct: true },
+        { letter: 'C', text: '2都1道1府43県', correct: false },
+        { letter: 'D', text: '1都1道3府42県', correct: false },
+      ],
+      explanation: '<strong>正解はB</strong>です。日本は1<ruby>都<rp>(</rp><rt>と</rt><rp>)</rp></ruby>（東京）・1<ruby>道<rp>(</rp><rt>どう</rt><rp>)</rp></ruby>（北海道）・2<ruby>府<rp>(</rp><rt>ふ</rt><rp>)</rp></ruby>（大阪・京都）・43<ruby>県<rp>(</rp><rt>けん</rt><rp>)</rp></ruby>で構成されています。',
+    },
+    {
       type: 'date',
       text: '7地方区分',
     },
@@ -168,6 +179,17 @@ export const prefecturesChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<span class="keyword">7地方区分</span>（北から）：北海道・東北・関東・中部・近畿・中国四国・九州',
+    },
+    {
+      type: 'quiz',
+      question: '7地方区分の中で最も多くの県を含むのはどれ？',
+      options: [
+        { letter: 'A', text: '関東地方', correct: false },
+        { letter: 'B', text: '東北地方', correct: false },
+        { letter: 'C', text: '中部地方', correct: true },
+        { letter: 'D', text: '九州地方', correct: false },
+      ],
+      explanation: '<strong>正解はC</strong>です。<ruby>中部<rp>(</rp><rt>ちゅうぶ</rt><rp>)</rp></ruby>地方は<ruby>新潟<rp>(</rp><rt>にいがた</rt><rp>)</rp></ruby>・<ruby>富山<rp>(</rp><rt>とやま</rt><rp>)</rp></ruby>・<ruby>石川<rp>(</rp><rt>いしかわ</rt><rp>)</rp></ruby>・<ruby>福井<rp>(</rp><rt>ふくい</rt><rp>)</rp></ruby>・<ruby>山梨<rp>(</rp><rt>やまなし</rt><rp>)</rp></ruby>・<ruby>長野<rp>(</rp><rt>ながの</rt><rp>)</rp></ruby>・<ruby>岐阜<rp>(</rp><rt>ぎふ</rt><rp>)</rp></ruby>・<ruby>静岡<rp>(</rp><rt>しずおか</rt><rp>)</rp></ruby>・<ruby>愛知<rp>(</rp><rt>あいち</rt><rp>)</rp></ruby>の9県です。',
     },
     {
       type: 'date',
@@ -250,6 +272,17 @@ export const prefecturesChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<span class="keyword">県庁所在地</span>が県名と異なる県は<span class="keyword">18</span>。代表例：宮城→仙台、栃木→宇都宮、愛知→名古屋、兵庫→神戸',
+    },
+    {
+      type: 'quiz',
+      question: '愛知県の県庁所在地はどこ？',
+      options: [
+        { letter: 'A', text: '愛知市', correct: false },
+        { letter: 'B', text: '豊田市', correct: false },
+        { letter: 'C', text: '名古屋市', correct: true },
+        { letter: 'D', text: '岡崎市', correct: false },
+      ],
+      explanation: '<strong>正解はC</strong>です。<ruby>愛知<rp>(</rp><rt>あいち</rt><rp>)</rp></ruby>県の<ruby>県庁所在地<rp>(</rp><rt>けんちょうしょざいち</rt><rp>)</rp></ruby>は<ruby>名古屋<rp>(</rp><rt>なごや</rt><rp>)</rp></ruby>市で、県名とは異なります。',
     },
     {
       type: 'date',

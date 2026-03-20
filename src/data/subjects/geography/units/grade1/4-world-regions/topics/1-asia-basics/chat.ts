@@ -82,6 +82,17 @@ export const asiaBasicsChat: HistoryChat = {
       text: '<span class="keyword">季節風（モンスーン）</span>が気候を左右。<span class="keyword">多様な宗教・言語</span>と<span class="keyword">華人</span>の影響が特徴',
     },
     {
+      type: 'quiz',
+      question: 'アジアの気候に大きく影響する、季節によって風向きが変わる風を何という？',
+      options: [
+        { letter: 'A', text: '偏西風', correct: false },
+        { letter: 'B', text: '季節風（モンスーン）', correct: true },
+        { letter: 'C', text: '貿易風', correct: false },
+        { letter: 'D', text: 'フェーン', correct: false },
+      ],
+      explanation: '<strong>正解はB</strong>です。<ruby>季節風<rp>(</rp><rt>きせつふう</rt><rp>)</rp></ruby>（モンスーン）は夏と冬で風向きが変わり、アジアの<ruby>雨季<rp>(</rp><rt>うき</rt><rp>)</rp></ruby>と<ruby>乾季<rp>(</rp><rt>かんき</rt><rp>)</rp></ruby>を生みます。',
+    },
+    {
       type: 'date',
       text: 'ヒマラヤ山脈とチベット高原〜世界の屋根〜',
     },
@@ -134,6 +145,17 @@ export const asiaBasicsChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<span class="keyword">ヒマラヤ山脈</span>・<span class="keyword">チベット高原</span>=「世界の屋根」。アジアの主要河川の水源',
+    },
+    {
+      type: 'quiz',
+      question: 'ヒマラヤ山脈やチベット高原をまとめて何とよぶ？',
+      options: [
+        { letter: 'A', text: '世界の庭', correct: false },
+        { letter: 'B', text: '世界の壁', correct: false },
+        { letter: 'C', text: '世界の屋根', correct: true },
+        { letter: 'D', text: '世界の柱', correct: false },
+      ],
+      explanation: '<strong>正解はC</strong>です。ヒマラヤ<ruby>山脈<rp>(</rp><rt>さんみゃく</rt><rp>)</rp></ruby>とチベット<ruby>高原<rp>(</rp><rt>こうげん</rt><rp>)</rp></ruby>は「世界の<ruby>屋根<rp>(</rp><rt>やね</rt><rp>)</rp></ruby>」とよばれます。',
     },
     {
       type: 'date',

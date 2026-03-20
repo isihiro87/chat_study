@@ -83,6 +83,17 @@ export const africaNatureChat: HistoryChat = {
       text: 'アフリカの自然：<span class="keyword">サハラ砂漠</span>（世界最大）→ <span class="keyword">サヘル</span>（半乾燥）→ <span class="keyword">サバナ</span>（草原）→ <span class="keyword">熱帯雨林</span>（赤道付近）',
     },
     {
+      type: 'quiz',
+      question: 'サハラ砂漠の南側に広がる半乾燥地帯を何という？',
+      options: [
+        { letter: 'A', text: 'サバナ', correct: false },
+        { letter: 'B', text: 'サヘル', correct: true },
+        { letter: 'C', text: 'ステップ', correct: false },
+        { letter: 'D', text: 'タイガ', correct: false },
+      ],
+      explanation: '<strong>正解はB</strong>です。サヘルはサハラ<ruby>砂漠<rp>(</rp><rt>さばく</rt><rp>)</rp></ruby>の南側に広がる<ruby>半乾燥<rp>(</rp><rt>はんかんそう</rt><rp>)</rp></ruby>地帯で、<ruby>砂漠化<rp>(</rp><rt>さばくか</rt><rp>)</rp></ruby>が深刻です。',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',
@@ -113,6 +124,17 @@ export const africaNatureChat: HistoryChat = {
     {
       type: 'summary-point',
       text: 'アフリカの歴史：<span class="keyword">奴隷貿易</span>（16〜19世紀）→ <span class="keyword">植民地支配</span>（19世紀後半〜）',
+    },
+    {
+      type: 'quiz',
+      question: '19世紀後半にヨーロッパ列強がアフリカに対して行ったことは？',
+      options: [
+        { letter: 'A', text: '経済援助', correct: false },
+        { letter: 'B', text: '自由貿易協定の締結', correct: false },
+        { letter: 'C', text: '植民地支配', correct: true },
+        { letter: 'D', text: '文化交流', correct: false },
+      ],
+      explanation: '<strong>正解はC</strong>です。19世紀後半、ヨーロッパ<ruby>列強<rp>(</rp><rt>れっきょう</rt><rp>)</rp></ruby>はアフリカの大部分を<ruby>植民地<rp>(</rp><rt>しょくみんち</rt><rp>)</rp></ruby>として<ruby>支配<rp>(</rp><rt>しはい</rt><rp>)</rp></ruby>しました。',
     },
 
     // ===== ナイル川とキリマンジャロ =====
@@ -176,6 +198,17 @@ export const africaNatureChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<span class="keyword">ナイル川</span>：南から北に流れ地中海へ（世界最長級） / <span class="keyword">キリマンジャロ</span>：アフリカ最高峰（約5895m）・赤道付近に氷河',
+    },
+    {
+      type: 'quiz',
+      question: 'ナイル川はどの方向に流れている？',
+      options: [
+        { letter: 'A', text: '北から南', correct: false },
+        { letter: 'B', text: '東から西', correct: false },
+        { letter: 'C', text: '南から北', correct: true },
+        { letter: 'D', text: '西から東', correct: false },
+      ],
+      explanation: '<strong>正解はC</strong>です。ナイル川はめずらしく南から北に向かって流れ、<ruby>地中海<rp>(</rp><rt>ちちゅうかい</rt><rp>)</rp></ruby>にそそいでいます。',
     },
 
     // ===== サハラ砂漠の北と南の文化 =====

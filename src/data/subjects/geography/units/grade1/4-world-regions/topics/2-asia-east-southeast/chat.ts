@@ -100,6 +100,17 @@ export const asiaEastSoutheastChat: HistoryChat = {
       text: '<span class="keyword">韓国</span>：ハイテク工業・K-POP。課題はソウル過密・少子高齢化',
     },
     {
+      type: 'quiz',
+      question: '中国の沿岸部と内陸部の間で広がっている問題は？',
+      options: [
+        { letter: 'A', text: '人口減少', correct: false },
+        { letter: 'B', text: '経済格差', correct: true },
+        { letter: 'C', text: '言語の違い', correct: false },
+        { letter: 'D', text: '宗教対立', correct: false },
+      ],
+      explanation: '<strong>正解はB</strong>です。中国では<ruby>経済特区<rp>(</rp><rt>けいざいとっく</rt><rp>)</rp></ruby>のある<ruby>沿岸<rp>(</rp><rt>えんがん</rt><rp>)</rp></ruby>部と<ruby>内陸<rp>(</rp><rt>ないりく</rt><rp>)</rp></ruby>部の間に大きな<ruby>経済格差<rp>(</rp><rt>けいざいかくさ</rt><rp>)</rp></ruby>が広がっています。',
+    },
+    {
       type: 'date',
       text: '中国の人口政策と西部大開発',
     },
@@ -145,6 +156,17 @@ export const asiaEastSoutheastChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<span class="keyword">一人っ子政策</span>：2015年廃止。<span class="keyword">西部大開発</span>：沿岸部と内陸部の経済格差を縮小する政策',
+    },
+    {
+      type: 'quiz',
+      question: '中国で沿岸部と内陸部の経済格差を縮小するために進められている政策は？',
+      options: [
+        { letter: 'A', text: '一人っ子政策', correct: false },
+        { letter: 'B', text: '経済特区', correct: false },
+        { letter: 'C', text: '西部大開発', correct: true },
+        { letter: 'D', text: '改革開放', correct: false },
+      ],
+      explanation: '<strong>正解はC</strong>です。<ruby>西部大開発<rp>(</rp><rt>せいぶだいかいはつ</rt><rp>)</rp></ruby>は<ruby>内陸<rp>(</rp><rt>ないりく</rt><rp>)</rp></ruby>部のインフラ<ruby>整備<rp>(</rp><rt>せいび</rt><rp>)</rp></ruby>や産業<ruby>振興<rp>(</rp><rt>しんこう</rt><rp>)</rp></ruby>を進める政策です。',
     },
     {
       type: 'date',
@@ -198,6 +220,17 @@ export const asiaEastSoutheastChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<span class="keyword">東南アジア</span>：稲作・プランテーション。<span class="keyword">ASEAN</span>で経済協力。課題はスラム・交通渋滞',
+    },
+    {
+      type: 'quiz',
+      question: '東南アジアの10か国が加盟する経済協力組織は？',
+      options: [
+        { letter: 'A', text: 'EU', correct: false },
+        { letter: 'B', text: 'APEC', correct: false },
+        { letter: 'C', text: 'ASEAN', correct: true },
+        { letter: 'D', text: 'OPEC', correct: false },
+      ],
+      explanation: '<strong>正解はC</strong>です。ASEAN（<ruby>東南<rp>(</rp><rt>とうなん</rt><rp>)</rp></ruby>アジア<ruby>諸国連合<rp>(</rp><rt>しょこくれんごう</rt><rp>)</rp></ruby>）は東南アジアの10か国が加盟する組織です。',
     },
     {
       type: 'date',

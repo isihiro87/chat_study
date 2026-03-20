@@ -169,6 +169,17 @@ export const tohoku: Topic = {
       { id: 'geo2-th-fc21', front: '東日本大震災（2011年3月11日）', back: '三陸海岸を中心に巨大な津波で甚大な被害をもたらした地震災害の名前と発生年月日を答えよ。', difficulty: 'advanced' },
       { id: 'geo2-th-fc22', front: '福島第一原子力発電所', back: '東日本大震災で事故が起きた、福島県にある原子力発電所の名前を答えよ。', difficulty: 'advanced' },
       { id: 'geo2-th-fc23', front: '大館曲げわっぱ', back: '秋田県大館市で生産される、杉の薄板を曲げてつくる伝統工芸品を何というか。', difficulty: 'advanced' },
+      { id: 'geo2-th-fc24', front: 'あきたこまち', back: '秋田県で生まれたブランド米の名前を1つ答えよ。', difficulty: 'basic' },
+      { id: 'geo2-th-fc25', front: 'ひとめぼれ', back: '宮城県で生まれた冷害に強いブランド米の名前を答えよ。', difficulty: 'standard' },
+      { id: 'geo2-th-fc26', front: 'わかめ・かき', back: '三陸海岸で養殖されている海産物を2つ答えよ。', difficulty: 'basic' },
+      { id: 'geo2-th-fc27', front: '暖流と寒流がぶつかることで海水がかき混ぜられ栄養分が豊富になるため', back: '潮目にプランクトンが豊富に発生する理由を簡潔に述べよ。', difficulty: 'standard' },
+      { id: 'geo2-th-fc28', front: '石巻港', back: '宮城県の水揚げ量が多い漁港を1つ答えよ。', difficulty: 'standard' },
+      { id: 'geo2-th-fc29', front: '東北新幹線', back: '東北地方と首都圏を結ぶ高速鉄道を何というか。', difficulty: 'basic' },
+      { id: 'geo2-th-fc30', front: '津波', back: '東日本大震災で三陸海岸を中心に甚大な被害をもたらした現象は何か。', difficulty: 'basic' },
+      { id: 'geo2-th-fc31', front: '防潮堤', back: '海からの津波を防ぐために建設される堤防を何というか。', difficulty: 'standard' },
+      { id: 'geo2-th-fc32', front: '高台移転', back: '震災の教訓から進められている、住宅地を高い場所に移す取り組みを何というか。', difficulty: 'standard' },
+      { id: 'geo2-th-fc33', front: '防災教育', back: '震災復興で学校や地域で進められている、災害に備える教育を何というか。', difficulty: 'standard' },
+      { id: 'geo2-th-fc34', front: '米（稲）', back: '東北地方で最も生産量が多い農作物は何か。', difficulty: 'basic' },
     ],
     quiz: {
       questions: [

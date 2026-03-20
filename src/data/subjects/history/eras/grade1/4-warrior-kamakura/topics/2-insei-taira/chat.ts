@@ -7,8 +7,8 @@ export const inseiTairaChat: HistoryChat = {
   subtitle: '〜12世紀〜 上皇の政治と平清盛',
   characters: [
     {
-      id: 'kiyomori',
-      name: '平清盛',
+      id: 'teacher',
+      name: '先生',
       emoji: '👑',
       colorFrom: '#dc2626',
       colorTo: '#f87171',
@@ -45,7 +45,7 @@ export const inseiTairaChat: HistoryChat = {
     {
       type: 'message',
       side: 'left',
-      characterId: 'kiyomori',
+      characterId: 'teacher',
       expression: 'explaining',
       text: '<strong>白河上皇</strong>は<ruby>退位<rp>(</rp><rt>たいい</rt><rp>)</rp></ruby>した後も政治の<ruby>実権<rp>(</rp><rt>じっけん</rt><rp>)</rp></ruby>を握り、院の<ruby>警備<rp>(</rp><rt>けいび</rt><rp>)</rp></ruby>に<strong><span class="keyword"><ruby>北面<rp>(</rp><rt>ほくめん</rt><rp>)</rp></ruby>の<ruby>武士<rp>(</rp><rt>ぶし</rt><rp>)</rp></ruby></span></strong>を置いて武士の力を利用したんだ',
     },
@@ -59,7 +59,7 @@ export const inseiTairaChat: HistoryChat = {
     {
       type: 'message',
       side: 'left',
-      characterId: 'kiyomori',
+      characterId: 'teacher',
       expression: 'explaining',
       text: 'そうだ。やがて朝廷内部の争いに武士が動員されるようになる。<ruby>鳥羽上皇<rp>(</rp><rt>とばじょうこう</rt><rp>)</rp></ruby>の死後、1156年の<strong><span class="keyword"><ruby>保元<rp>(</rp><rt>ほうげん</rt><rp>)</rp></ruby>の<ruby>乱<rp>(</rp><rt>らん</rt><rp>)</rp></ruby></span></strong>では、源氏・平氏ともに朝廷の争いに巻き込まれた',
     },
@@ -73,9 +73,9 @@ export const inseiTairaChat: HistoryChat = {
     {
       type: 'message',
       side: 'left',
-      characterId: 'kiyomori',
+      characterId: 'teacher',
       expression: 'excited',
-      text: '続く1159年の<strong><span class="keyword"><ruby>平治<rp>(</rp><rt>へいじ</rt><rp>)</rp></ruby>の<ruby>乱<rp>(</rp><rt>らん</rt><rp>)</rp></ruby></span></strong>で私が<ruby>源義朝<rp>(</rp><rt>みなもとのよしとも</rt><rp>)</rp></ruby>に勝利した！これにより<ruby>平氏<rp>(</rp><rt>へいし</rt><rp>)</rp></ruby>が武士の<ruby>頂点<rp>(</rp><rt>ちょうてん</rt><rp>)</rp></ruby>に立ったのだ',
+      text: '続く1159年の<strong><span class="keyword"><ruby>平治<rp>(</rp><rt>へいじ</rt><rp>)</rp></ruby>の<ruby>乱<rp>(</rp><rt>らん</rt><rp>)</rp></ruby></span></strong>で<strong><span class="keyword"><ruby>平清盛<rp>(</rp><rt>たいらのきよもり</rt><rp>)</rp></ruby></span></strong>が<ruby>源義朝<rp>(</rp><rt>みなもとのよしとも</rt><rp>)</rp></ruby>に勝利したんだ！これにより<ruby>平氏<rp>(</rp><rt>へいし</rt><rp>)</rp></ruby>が武士の<ruby>頂点<rp>(</rp><rt>ちょうてん</rt><rp>)</rp></ruby>に立ったんだよ',
     },
     {
       type: 'message',
@@ -106,9 +106,9 @@ export const inseiTairaChat: HistoryChat = {
     {
       type: 'message',
       side: 'left',
-      characterId: 'kiyomori',
+      characterId: 'teacher',
       expression: 'happy',
-      text: '私は武士として初めて<strong>太政大臣</strong>となった。「平氏にあらずんば人にあらず」とまで言われたものだ',
+      text: '<strong>平清盛</strong>は武士として初めて<strong>太政大臣</strong>となったんだ。「平氏にあらずんば人にあらず」とまで言われたんだよ',
     },
     {
       type: 'message',
@@ -120,7 +120,7 @@ export const inseiTairaChat: HistoryChat = {
     {
       type: 'message',
       side: 'left',
-      characterId: 'kiyomori',
+      characterId: 'teacher',
       expression: 'explaining',
       text: '<ruby>宋<rp>(</rp><rt>そう</rt><rp>)</rp></ruby>との貿易（<strong><span class="keyword"><ruby>日宋貿易<rp>(</rp><rt>にっそうぼうえき</rt><rp>)</rp></ruby></span></strong>）で大きな利益を得て、<ruby>大輪田泊<rp>(</rp><rt>おおわだのとまり</rt><rp>)</rp></ruby>（神戸）を整備したんだ。これが平氏の繁栄の<ruby>基盤<rp>(</rp><rt>きばん</rt><rp>)</rp></ruby>だよ',
     },
@@ -134,7 +134,7 @@ export const inseiTairaChat: HistoryChat = {
     {
       type: 'message',
       side: 'left',
-      characterId: 'kiyomori',
+      characterId: 'teacher',
       expression: 'thinking',
       text: 'そうだ…。平氏が一族で<ruby>要職<rp>(</rp><rt>ようしょく</rt><rp>)</rp></ruby>を<ruby>独占<rp>(</rp><rt>どくせん</rt><rp>)</rp></ruby>したことに不満が高まり、<strong><span class="keyword"><ruby>源頼朝<rp>(</rp><rt>みなもとのよりとも</rt><rp>)</rp></ruby></span></strong>が<ruby>鎌倉<rp>(</rp><rt>かまくら</rt><rp>)</rp></ruby>（<ruby>神奈川県<rp>(</rp><rt>かながわけん</rt><rp>)</rp></ruby>）を本拠地に<ruby>挙兵<rp>(</rp><rt>きょへい</rt><rp>)</rp></ruby>したんだ',
     },
@@ -148,7 +148,7 @@ export const inseiTairaChat: HistoryChat = {
     {
       type: 'message',
       side: 'left',
-      characterId: 'kiyomori',
+      characterId: 'teacher',
       expression: 'thinking',
       text: 'ああ…<strong><span class="keyword"><ruby>源義経<rp>(</rp><rt>みなもとのよしつね</rt><rp>)</rp></ruby></span></strong>は<ruby>軍事<rp>(</rp><rt>ぐんじ</rt><rp>)</rp></ruby>の天才で、各地で平氏を打ち破った。1185年の<strong><span class="keyword"><ruby>壇ノ浦<rp>(</rp><rt>だんのうら</rt><rp>)</rp></ruby>の戦い</span></strong>（<ruby>山口県<rp>(</rp><rt>やまぐちけん</rt><rp>)</rp></ruby>）で平氏は<ruby>滅亡<rp>(</rp><rt>めつぼう</rt><rp>)</rp></ruby>したのだ',
     },

@@ -61,6 +61,17 @@ export const kantoIndustryChat: HistoryChat = {
       text: '東京大都市圏は約3700万人（日本の人口の約<span class="keyword">3分の1</span>）。<span class="keyword">第三次産業</span>が約8割を占める',
     },
     {
+      type: 'quiz',
+      question: '東京大都市圏の人口は日本全体のおよそ何分の1か？',
+      options: [
+        { letter: 'A', text: '5分の1', correct: false },
+        { letter: 'B', text: '4分の1', correct: false },
+        { letter: 'C', text: '3分の1', correct: true },
+        { letter: 'D', text: '2分の1', correct: false },
+      ],
+      explanation: '<strong>正解はC</strong>です。東京大都市圏は約3700万人で、日本の人口の約3分の1を占めています。',
+    },
+    {
       type: 'date',
       text: '農業と工業',
     },

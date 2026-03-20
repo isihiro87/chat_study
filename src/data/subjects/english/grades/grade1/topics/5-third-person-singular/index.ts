@@ -291,6 +291,30 @@ export const thirdPersonSingular: Topic = {
         explanation: 's で終わるから es をつけるよ。pass → passes',
         difficulty: 'advanced',
       },
+      {
+        id: 'eng-tps-fc29',
+        front: 'has',
+        back: 'She (　　) a cat.\n（彼女はネコを飼っています。）',
+        hint: 'have の三人称単数形は特別だよ',
+        explanation: 'have → has。これは不規則変化で、haves ではないよ！',
+        difficulty: 'basic',
+      },
+      {
+        id: 'eng-tps-fc30',
+        front: 'teaches',
+        back: 'He (　　) English at school.\n（彼は学校で英語を教えています。）',
+        hint: 'teach は ch で終わるよ。ch で終わるときは…？',
+        explanation: 'ch で終わるから es をつけるよ。teach → teaches',
+        difficulty: 'standard',
+      },
+      {
+        id: 'eng-tps-fc31',
+        front: "doesn't like",
+        back: 'She (　　) (　　) sports.\n（彼女はスポーツが好きじゃない。）',
+        hint: '三人称単数の否定は doesn\'t + 動詞のもとの形だよ',
+        explanation: "doesn't like。doesn't のあとは動詞のもとの形（like）に戻すよ。",
+        difficulty: 'standard',
+      },
     ],
     quiz: {
       questions: [

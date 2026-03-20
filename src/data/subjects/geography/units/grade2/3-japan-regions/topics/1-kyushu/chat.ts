@@ -40,9 +40,9 @@ export const kyushuChat: HistoryChat = {
     },
     {
       type: 'image',
-      src: '/images/geography/grade2/japan-regions/kyushu-overview.png',
+      src: '/images/geography/grade2/japan-regions/kyushu-overview.jpeg',
       alt: '九州地方の地図',
-      caption: '【準備中】九州地方の全体図',
+      caption: '九州地方の全体図',
     },
     {
       type: 'narrator',
@@ -68,6 +68,12 @@ export const kyushuChat: HistoryChat = {
       characterId: 'teacher',
       expression: 'excited',
       text: '阿蘇山のカルデラは東西約18km、南北約25kmもあるんだ。中に町や<ruby>農地<rp>(</rp><rt>のうち</rt><rp>)</rp></ruby>があって、人々が暮らしているよ。<strong><span class="keyword"><ruby>桜島<rp>(</rp><rt>さくらじま</rt><rp>)</rp></ruby></span></strong>も今も<ruby>噴火<rp>(</rp><rt>ふんか</rt><rp>)</rp></ruby>を続ける活火山だね',
+    },
+    {
+      type: 'image',
+      src: '/images/geography/grade2/japan-regions/caldera.jpeg',
+      alt: '阿蘇山のカルデラのイラスト',
+      caption: '世界最大級のカルデラ — 約9万年前の大噴火でできた',
     },
     {
       type: 'message',
@@ -96,6 +102,12 @@ export const kyushuChat: HistoryChat = {
       characterId: 'teacher',
       expression: 'happy',
       text: 'いい質問！<strong><span class="keyword">シラス台地</span></strong>は火山灰が<ruby>堆積<rp>(</rp><rt>たいせき</rt><rp>)</rp></ruby>してできた台地だよ。水はけがよすぎて<ruby>稲作<rp>(</rp><rt>いなさく</rt><rp>)</rp></ruby>には向かないけど、<ruby>畜産<rp>(</rp><rt>ちくさん</rt><rp>)</rp></ruby>やさつまいもの<ruby>栽培<rp>(</rp><rt>さいばい</rt><rp>)</rp></ruby>に利用されているんだ',
+    },
+    {
+      type: 'image',
+      src: '/images/geography/grade2/japan-regions/shirasu-plateau.jpeg',
+      alt: 'シラス台地の断面図',
+      caption: 'シラス台地の断面図 — 水はけがよく畑作中心',
     },
     {
       type: 'image',

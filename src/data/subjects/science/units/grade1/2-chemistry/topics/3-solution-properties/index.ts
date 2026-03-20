@@ -173,6 +173,23 @@ export const solutionProperties: Topic = {
       { id: 'sci1-slp-fc26', front: '温度が高くなると大きく増加する', back: '硝酸カリウムの溶解度は温度が変わるとどう変化するか？', explanation: '再結晶に適した物質の代表例', difficulty: 'advanced' },
       { id: 'sci1-slp-fc27', front: '混合物から純粋な物質（純物質）を分離する方法', back: '再結晶は何から何を分離する方法として使われるか？', difficulty: 'advanced' },
       { id: 'sci1-slp-fc28', front: '粒子の並び方が物質ごとに決まっているため', back: '物質によって結晶の形が決まっているのはなぜか？', difficulty: 'advanced' },
+      { id: 'sci1-slp-fc29', front: '食塩', back: '食塩水における溶質は何か？', difficulty: 'basic' },
+      { id: 'sci1-slp-fc30', front: '水', back: '食塩水における溶媒は何か？', difficulty: 'basic' },
+      { id: 'sci1-slp-fc31', front: '砂糖水全体（砂糖＋水）', back: '砂糖水における溶液はどの部分か？', difficulty: 'basic' },
+      { id: 'sci1-slp-fc32', front: '25%（50÷200×100＝25）', back: '水150gに砂糖50gをとかした水溶液の質量パーセント濃度は何%か？', difficulty: 'standard' },
+      { id: 'sci1-slp-fc33', front: '20g（200×10÷100＝20）', back: '質量パーセント濃度10%の食塩水200gに含まれる食塩は何gか？', difficulty: 'standard' },
+      { id: 'sci1-slp-fc34', front: '濃度は溶液（溶質＋溶媒）に対する溶質の割合であるため、溶液全体の質量で割る必要がある', back: '質量パーセント濃度で溶質の質量を溶媒の質量で割ってはいけない理由は？', difficulty: 'standard' },
+      { id: 'sci1-slp-fc35', front: '食塩水＝混合物、蒸留水＝純物質', back: '食塩水と蒸留水はそれぞれ純物質か混合物か？', difficulty: 'standard' },
+      { id: 'sci1-slp-fc36', front: '大きくなる（とける量が増える）', back: '多くの固体の物質は、温度が上がると溶解度はどうなるか？', difficulty: 'standard' },
+      { id: 'sci1-slp-fc37', front: 'できる（温度が上がると溶解度が大きくなる物質の場合）', back: '飽和水溶液の温度を上げると、溶質をさらにとかすことができるか？', difficulty: 'standard' },
+      { id: 'sci1-slp-fc38', front: '温度による溶解度の差', back: '再結晶では、溶解度の何を利用しているか？', difficulty: 'standard' },
+      { id: 'sci1-slp-fc39', front: '純粋な物質（純物質）', back: '再結晶でとり出される結晶は純粋な物質か混合物か？', difficulty: 'advanced' },
+      { id: 'sci1-slp-fc40', front: '規則正しい形をした固体', back: '結晶とは何か？', difficulty: 'basic' },
+      { id: 'sci1-slp-fc41', front: '正八面体', back: 'ミョウバンの結晶はどのような形か？', difficulty: 'advanced' },
+      { id: 'sci1-slp-fc42', front: 'ろ紙の8分目（ろ紙の端より低くする）', back: 'ろうとに注ぐ液の量はろ紙の高さに対してどのくらいまでにするか？', difficulty: 'standard' },
+      { id: 'sci1-slp-fc43', front: '2回（半分に折ってさらに半分に折り、円すい形に開く）', back: 'ろ紙をろうとに取りつけるとき、ろ紙を何回折りたたむか？', difficulty: 'standard' },
+      { id: 'sci1-slp-fc44', front: 'ビーカーの内壁につける（液が飛び散らないようにするため）', back: 'ろうとの先（足の長いほう）はビーカーの壁にどのようにつけるか？', difficulty: 'standard' },
+      { id: 'sci1-slp-fc45', front: '3枚重ねの部分', back: 'ろ過で液体を注ぐとき、ガラス棒はろ紙の何枚重ねの部分にあてるか？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -506,6 +523,65 @@ export const solutionProperties: Topic = {
           correctIndex: 0,
           explanation:
             '透明とは「向こう側が透けて見える」ことで、「無色」とは異なります。色がついていても透けて見えれば透明です。',
+        difficulty: 'advanced',
+      },
+        {
+          id: 'sci1-slp-q29',
+          question: '質量パーセント濃度5%の食塩水400gを加熱して水を100g蒸発させた後の濃度は約何%か？',
+          options: ['約5.0%', '約6.7%', '約10.0%', '約20.0%'],
+          correctIndex: 1,
+          explanation:
+            '食塩＝400×5÷100＝20g。蒸発後の溶液＝400−100＝300g。濃度＝20÷300×100≒6.7%。',
+        difficulty: 'advanced',
+      },
+        {
+          id: 'sci1-slp-q30',
+          question: '70℃の水100gに物質Aを溶解度いっぱい（138g）までとかし10℃（溶解度21g）に冷やすと出る結晶は何g？',
+          options: ['21g', '117g', '138g', '159g'],
+          correctIndex: 1,
+          explanation:
+            '138−21＝117gの結晶が出てきます。温度による溶解度の差が大きい物質ほど再結晶に適しています。',
+        difficulty: 'advanced',
+      },
+        {
+          id: 'sci1-slp-q31',
+          question: '質量パーセント濃度8%の食塩水300gに水を加えて5%にするには何gの水を加えるか？',
+          options: ['100g', '150g', '180g', '200g'],
+          correctIndex: 2,
+          explanation:
+            '食塩＝300×8÷100＝24g。5%にするには24÷x×100＝5でx＝480g。加える水＝480−300＝180g。',
+        difficulty: 'advanced',
+      },
+        {
+          id: 'sci1-slp-q32',
+          question: '砂と食塩と硝酸カリウムの混合物を分離するとき、最初に行う操作は何か？',
+          options: [
+            '蒸留する',
+            '水にとかしてろ過する',
+            '加熱して蒸発させる',
+            '冷却する',
+          ],
+          correctIndex: 1,
+          explanation:
+            'まず水にとかして砂（水にとけない）をろ過で分離します。次に冷却して硝酸カリウムを再結晶し、最後に水を蒸発させて食塩をとり出します。',
+        difficulty: 'advanced',
+      },
+        {
+          id: 'sci1-slp-q33',
+          question: '質量パーセント濃度12%の食塩水を500gつくるのに必要な食塩は何g？',
+          options: ['50g', '60g', '120g', '440g'],
+          correctIndex: 1,
+          explanation:
+            '食塩＝500×12÷100＝60g。水＝500−60＝440gです。',
+        difficulty: 'standard',
+      },
+        {
+          id: 'sci1-slp-q34',
+          question: '質量パーセント濃度20%の砂糖水150gに砂糖30gを追加した。新しい濃度は約何%？',
+          options: ['約25.0%', '約33.3%', '約20.0%', '約30.0%'],
+          correctIndex: 1,
+          explanation:
+            'はじめの溶質＝150×20÷100＝30g。追加後の溶質＝60g。溶液＝180g。濃度＝60÷180×100≒33.3%。',
         difficulty: 'advanced',
       },
       ],

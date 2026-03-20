@@ -267,6 +267,18 @@ export const forceChat: HistoryChat = {
       text: '<span class="keyword">力の3要素</span>：作用点・向き・大きさ。<span class="keyword">2力のつり合い</span>：一直線上・大きさが等しい・向きが反対！重力(N)と質量(kg)は別物！',
     },
     {
+      type: 'quiz',
+      question: '2力がつり合う条件に含まれないものはどれか。',
+      options: [
+        { letter: 'A', text: '2力が一直線上にある', correct: false },
+        { letter: 'B', text: '2力の大きさが等しい', correct: false },
+        { letter: 'C', text: '2力の向きが反対', correct: false },
+        { letter: 'D', text: '2力の作用点が同じ', correct: true },
+      ],
+      explanation:
+        '<strong>正解はD「2力の<ruby>作用点<rp>(</rp><rt>さようてん</rt><rp>)</rp></ruby>が同じ」</strong>です。2力のつり<ruby>合<rp>(</rp><rt>あ</rt><rp>)</rp></ruby>いの<ruby>条件<rp>(</rp><rt>じょうけん</rt><rp>)</rp></ruby>は「<ruby>一直線上<rp>(</rp><rt>いっちょくせんじょう</rt><rp>)</rp></ruby>・大きさが<ruby>等<rp>(</rp><rt>ひと</rt><rp>)</rp></ruby>しい・向きが<ruby>反対<rp>(</rp><rt>はんたい</rt><rp>)</rp></ruby>」の3つです。',
+    },
+    {
       type: 'end',
       points: [
         '力の<strong>3つのはたらき</strong>：形を変える・<ruby>運動<rp>(</rp><rt>うんどう</rt><rp>)</rp></ruby>の<ruby>状態<rp>(</rp><rt>じょうたい</rt><rp>)</rp></ruby>を変える・<ruby>支<rp>(</rp><rt>ささ</rt><rp>)</rp></ruby>える',

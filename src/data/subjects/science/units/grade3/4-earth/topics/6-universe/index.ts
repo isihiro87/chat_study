@@ -103,6 +103,12 @@ export const universe: Topic = {
       { id: 'sci3-uni-fc20', front: '7.8億km（5.20×1.5億km）', back: '太陽から木星までの距離は5.20天文単位。1天文単位を約1.5億kmとすると何億km？', difficulty: 'advanced' },
       { id: 'sci3-uni-fc21', front: '約2000億個の恒星のうちの1つ', back: '太陽は銀河系の中でどのような存在？', difficulty: 'advanced' },
       { id: 'sci3-uni-fc22', front: '直径（約10万光年）のほうがはるかに大きい薄い円盤状', back: '銀河系の直径と厚さの比率の特徴は？', difficulty: 'advanced' },
+      { id: 'sci3-uni-fc23', front: '約6.3万天文単位', back: '1光年は約何天文単位に相当する？', explanation: '9.5兆km÷1.5億km≒約6.3万。光年のほうがはるかに大きな距離を表す。', difficulty: 'standard' },
+      { id: 'sci3-uni-fc24', front: '45億km（30×1.5億km）', back: '太陽から海王星までの距離は約30天文単位。これは約何億km？', difficulty: 'standard' },
+      { id: 'sci3-uni-fc25', front: '約4.2光年（約40兆km）', back: '太陽から最も近い恒星までの距離はおよそ何光年？', difficulty: 'advanced' },
+      { id: 'sci3-uni-fc26', front: '60%（3万÷5万＝0.6）', back: '太陽系は銀河系の中心から約3万光年。銀河系の半径約5万光年の何%の位置にある？', difficulty: 'advanced' },
+      { id: 'sci3-uni-fc27', front: '約250万光年', back: '銀河系に最も近い大きな銀河（アンドロメダ銀河）までの距離は？', difficulty: 'advanced' },
+      { id: 'sci3-uni-fc28', front: '約9.5兆km（9.5×10¹² km）', back: '1光年をkmで表すとおよそ何km？', difficulty: 'basic' },
     ],
     quiz: {
       questions: [

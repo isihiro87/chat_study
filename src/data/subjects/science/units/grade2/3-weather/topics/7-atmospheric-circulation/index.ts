@@ -121,6 +121,11 @@ export const atmosphericCirculation: Topic = {
       { id: 'sci2-atmc-fc14', front: '大陸が温まり上昇気流が生じるため低気圧になる', back: '夏に大陸に低気圧が発達する理由は？', difficulty: 'advanced' },
       { id: 'sci2-atmc-fc15', front: '昼は陸が温まり気圧が低くなるため、気圧が高い海から陸へ風が吹く', back: '海風が吹く理由は？', difficulty: 'advanced' },
       { id: 'sci2-atmc-fc16', front: '太陽のエネルギー', back: '大気循環のエネルギー源は何？', difficulty: 'advanced' },
+      { id: 'sci2-atmc-fc17', front: '上昇気流。赤道付近は太陽エネルギーを多く受け気温が高い', back: '赤道付近では上昇気流と下降気流のどちらが生じやすい？', difficulty: 'basic' },
+      { id: 'sci2-atmc-fc18', front: '下降気流。極付近は気温が低い', back: '極付近では上昇気流と下降気流のどちらが生じやすい？', difficulty: 'basic' },
+      { id: 'sci2-atmc-fc19', front: '季節によって異なる方向から吹く風', back: '季節風を別名で何という？（カタカナ）', difficulty: 'basic' },
+      { id: 'sci2-atmc-fc20', front: '夜は陸が冷えて陸上の気圧が高くなり、海上の気圧が低くなるため陸→海', back: '陸風が吹く理由を気圧の違いで説明せよ', difficulty: 'advanced' },
+      { id: 'sci2-atmc-fc21', front: '気団の発達場所による。大陸上は乾燥、海洋上は湿潤', back: '気団の性質が「乾燥」か「湿潤」かは何で決まる？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [

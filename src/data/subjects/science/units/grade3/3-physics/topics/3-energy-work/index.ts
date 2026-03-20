@@ -98,6 +98,8 @@ export const energyWork: Topic = {
       { id: 'sci3-ene-fc28', front: '50W（100J÷2s）', back: '100Jの仕事を2秒で行ったときの仕事率は？', difficulty: 'advanced' },
       { id: 'sci3-ene-fc29', front: '0J（力の向きと移動の向きが垂直のため）', back: '荷物を持ったまま水平に歩いたとき、持ち上げる力がした仕事は？', difficulty: 'advanced' },
       { id: 'sci3-ene-fc30', front: '位置エネルギーが運動エネルギーに変わるから', back: 'ジェットコースターが最も低い位置で最も速くなる理由は？', difficulty: 'advanced' },
+      { id: 'sci3-ene-fc2', front: '化学エネルギー', back: '燃料や食べ物がもっているエネルギーを何という？', explanation: '電池は化学エネルギーを電気エネルギーに変換している。', difficulty: 'basic' },
+      { id: 'sci3-ene-fc3', front: '電気エネルギー', back: '電気がもっているエネルギーを何という？', explanation: 'モーターは電気エネルギーを運動エネルギーに変換する。', difficulty: 'basic' },
     ],
     quiz: {
       questions: [

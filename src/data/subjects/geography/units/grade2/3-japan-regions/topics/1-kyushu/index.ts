@@ -211,6 +211,17 @@ export const kyushu: Topic = {
       { id: 'geo2-ky-fc21', front: 'メチル水銀', back: '水俣病の原因となった、工場排水に含まれていた有害物質は何か。', difficulty: 'advanced' },
       { id: 'geo2-ky-fc22', front: '土石流', back: '火山灰の堆積地に大雨が降ったとき、土砂が一気に流れ出す災害を何というか。', difficulty: 'advanced' },
       { id: 'geo2-ky-fc23', front: 'のり', back: '有明海の沿岸で盛んに養殖されている海藻は何か。', difficulty: 'advanced' },
+      { id: 'geo2-ky-fc24', front: '鉄筋コンクリート造りで屋根が低い構造', back: '沖縄の伝統的な家屋は台風に備えてどのような構造か。', difficulty: 'standard' },
+      { id: 'geo2-ky-fc25', front: '亜熱帯', back: '南西諸島の気候帯は何か。', difficulty: 'basic' },
+      { id: 'geo2-ky-fc26', front: '太陽光発電', back: '宮崎県や鹿児島県で日照時間の長さを生かして行われている発電は何か。', difficulty: 'basic' },
+      { id: 'geo2-ky-fc27', front: '公害', back: '北九州市がかつて深刻な被害を受けた大気汚染や水質汚濁の問題を何というか。', difficulty: 'basic' },
+      { id: 'geo2-ky-fc28', front: 'リサイクル産業', back: '北九州市で盛んな廃棄物を再利用して新たな製品をつくる産業を何というか。', difficulty: 'standard' },
+      { id: 'geo2-ky-fc29', front: '自動車産業（IC産業）', back: '九州北部で鉄鋼業に代わって成長した産業は何か。', difficulty: 'standard' },
+      { id: 'geo2-ky-fc30', front: '観光業', back: '沖縄県でさんご礁の海や温暖な気候を生かして発展している産業は何か。', difficulty: 'basic' },
+      { id: 'geo2-ky-fc31', front: 'さんご礁の減少', back: '保養地開発などで沖縄で問題となっている環境問題は何か。', difficulty: 'standard' },
+      { id: 'geo2-ky-fc32', front: '沖縄県（那覇市）', back: '九州地方の県のうち県庁所在地の名前が県名と異なるのはどこか。', difficulty: 'advanced' },
+      { id: 'geo2-ky-fc33', front: '新潟水俣病・四日市ぜんそく・イタイイタイ病', back: '水俣病以外の四大公害病を3つ答えよ。', difficulty: 'advanced' },
+      { id: 'geo2-ky-fc34', front: '阿蘇山', back: '九州の中心部にある、世界最大級のカルデラを持つ山は何か。', difficulty: 'basic' },
     ],
     quiz: {
       questions: [

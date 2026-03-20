@@ -94,6 +94,18 @@ export const animalBodyChat: HistoryChat = {
       text: '<span class="keyword">消化酵素</span>：アミラーゼ（デンプン）、ペプシン・トリプシン（タンパク質）、リパーゼ（脂肪）。<span class="keyword">胆汁</span>は酵素を含まないがリパーゼを助ける',
     },
     {
+      type: 'quiz',
+      question: 'だ液に含まれる消化酵素アミラーゼが分解するものは？',
+      options: [
+        { letter: 'A', text: 'タンパク質', correct: false },
+        { letter: 'B', text: '脂肪', correct: false },
+        { letter: 'C', text: 'デンプン', correct: true },
+        { letter: 'D', text: 'ビタミン', correct: false },
+      ],
+      explanation:
+        '<strong>正解はC「デンプン」</strong>です。アミラーゼはだ<ruby>液<rp>(</rp><rt>えき</rt><rp>)</rp></ruby>に<ruby>含<rp>(</rp><rt>ふく</rt><rp>)</rp></ruby>まれる<ruby>消化酵素<rp>(</rp><rt>しょうかこうそ</rt><rp>)</rp></ruby>で、デンプンを<ruby>麦芽糖<rp>(</rp><rt>ばくがとう</rt><rp>)</rp></ruby>に<ruby>分解<rp>(</rp><rt>ぶんかい</rt><rp>)</rp></ruby>します。',
+    },
+    {
       type: 'date',
       text: '<ruby>吸収<rp>(</rp><rt>きゅうしゅう</rt><rp>)</rp></ruby>のしくみ',
     },
@@ -144,6 +156,18 @@ export const animalBodyChat: HistoryChat = {
     {type:'message', side:'right', characterId:'student', expression:'curious', text:'その後どうやって<ruby>確認<rp>(</rp><rt>かくにん</rt><rp>)</rp></ruby>するんですか？'},
     {type:'message', side:'left', characterId:'teacher', expression:'excited', text:'<strong><span class="keyword">ベネジクト<ruby>液<rp>(</rp><rt>えき</rt><rp>)</rp></ruby></span></strong>を加えて<ruby>加熱<rp>(</rp><rt>かねつ</rt><rp>)</rp></ruby>！Aは<strong><ruby>赤褐色<rp>(</rp><rt>せきかっしょく</rt><rp>)</rp></ruby></strong>に変化するよ。デンプンが<ruby>麦芽糖<rp>(</rp><rt>ばくがとう</rt><rp>)</rp></ruby>に<ruby>分解<rp>(</rp><rt>ぶんかい</rt><rp>)</rp></ruby>された<ruby>証拠<rp>(</rp><rt>しょうこ</rt><rp>)</rp></ruby>だ。Bは変化しない'},
     {type:'summary-point', text:'だ液＋デンプン→37℃で保温→<span class="keyword">ベネジクト液</span>で加熱→赤褐色＝麦芽糖ができた証拠'},
+    {
+      type: 'quiz',
+      question: 'だ液の実験で約37℃に保温する理由は？',
+      options: [
+        { letter: 'A', text: '水を蒸発させるため', correct: false },
+        { letter: 'B', text: '体温に近い温度で消化酵素がよくはたらくから', correct: true },
+        { letter: 'C', text: 'デンプンを溶かすため', correct: false },
+        { letter: 'D', text: '細菌を殺すため', correct: false },
+      ],
+      explanation:
+        '<strong>正解はB</strong>です。<ruby>消化酵素<rp>(</rp><rt>しょうかこうそ</rt><rp>)</rp></ruby>は<ruby>体温<rp>(</rp><rt>たいおん</rt><rp>)</rp></ruby>に近い約37℃で最もよくはたらくため、この<ruby>温度<rp>(</rp><rt>おんど</rt><rp>)</rp></ruby>で<ruby>保温<rp>(</rp><rt>ほおん</rt><rp>)</rp></ruby>します。',
+    },
     {
       type: 'date',
       text: '<ruby>呼吸<rp>(</rp><rt>こきゅう</rt><rp>)</rp></ruby>と<ruby>血液<rp>(</rp><rt>けつえき</rt><rp>)</rp></ruby>の<ruby>循環<rp>(</rp><rt>じゅんかん</rt><rp>)</rp></ruby>',
@@ -203,6 +227,18 @@ export const animalBodyChat: HistoryChat = {
       text: '<span class="keyword">肺胞</span>で気体交換。<span class="keyword">体循環</span>＝左心室→全身→右心房。<span class="keyword">肺循環</span>＝右心室→肺→左心房',
     },
     {
+      type: 'quiz',
+      question: '体循環で血液が出発する心臓の部屋はどれ？',
+      options: [
+        { letter: 'A', text: '右心房', correct: false },
+        { letter: 'B', text: '右心室', correct: false },
+        { letter: 'C', text: '左心房', correct: false },
+        { letter: 'D', text: '左心室', correct: true },
+      ],
+      explanation:
+        '<strong>正解はD「<ruby>左心室<rp>(</rp><rt>さしんしつ</rt><rp>)</rp></ruby>」</strong>です。<ruby>体循環<rp>(</rp><rt>たいじゅんかん</rt><rp>)</rp></ruby>は<ruby>左心室<rp>(</rp><rt>さしんしつ</rt><rp>)</rp></ruby>から<ruby>全身<rp>(</rp><rt>ぜんしん</rt><rp>)</rp></ruby>を回って<ruby>右心房<rp>(</rp><rt>うしんぼう</rt><rp>)</rp></ruby>に<ruby>戻<rp>(</rp><rt>もど</rt><rp>)</rp></ruby>ります。',
+    },
+    {
       type: 'date',
       text: '<ruby>血液<rp>(</rp><rt>けつえき</rt><rp>)</rp></ruby>の<ruby>成分<rp>(</rp><rt>せいぶん</rt><rp>)</rp></ruby>と<ruby>排出<rp>(</rp><rt>はいしゅつ</rt><rp>)</rp></ruby>',
     },
@@ -260,6 +296,18 @@ export const animalBodyChat: HistoryChat = {
     {type:'message', side:'right', characterId:'student', expression:'thinking', text:'<ruby>毛細<rp>(</rp><rt>もうさい</rt><rp>)</rp></ruby><ruby>血管<rp>(</rp><rt>けっかん</rt><rp>)</rp></ruby>の<ruby>壁<rp>(</rp><rt>かべ</rt><rp>)</rp></ruby>が<ruby>薄<rp>(</rp><rt>うす</rt><rp>)</rp></ruby>いのはなぜですか？'},
     {type:'message', side:'left', characterId:'teacher', expression:'happy', text:'<ruby>養分<rp>(</rp><rt>ようぶん</rt><rp>)</rp></ruby>やO<sub>2</sub>、CO<sub>2</sub>などの<ruby>物質<rp>(</rp><rt>ぶっしつ</rt><rp>)</rp></ruby>を<ruby>効率<rp>(</rp><rt>こうりつ</rt><rp>)</rp></ruby>よく<ruby>交換<rp>(</rp><rt>こうかん</rt><rp>)</rp></ruby>するためだよ。<ruby>血<rp>(</rp><rt>けっ</rt><rp>)</rp></ruby>しょうの一部がしみ出て<strong><span class="keyword"><ruby>組織液<rp>(</rp><rt>そしきえき</rt><rp>)</rp></ruby></span></strong>となり、<ruby>細胞<rp>(</rp><rt>さいぼう</rt><rp>)</rp></ruby>との<ruby>物質<rp>(</rp><rt>ぶっしつ</rt><rp>)</rp></ruby>のやり取りをしているんだ'},
     {type:'summary-point', text:'動脈＝壁が厚い。静脈＝弁あり。毛細血管＝壁が薄く物質交換。<span class="keyword">組織液</span>＝血しょうがしみ出たもの'},
+    {
+      type: 'quiz',
+      question: '逆流を防ぐ弁があるのはどの血管？',
+      options: [
+        { letter: 'A', text: '動脈', correct: false },
+        { letter: 'B', text: '静脈', correct: true },
+        { letter: 'C', text: '毛細血管', correct: false },
+        { letter: 'D', text: 'リンパ管', correct: false },
+      ],
+      explanation:
+        '<strong>正解はB「<ruby>静脈<rp>(</rp><rt>じょうみゃく</rt><rp>)</rp></ruby>」</strong>です。<ruby>静脈<rp>(</rp><rt>じょうみゃく</rt><rp>)</rp></ruby>は<ruby>壁<rp>(</rp><rt>かべ</rt><rp>)</rp></ruby>が<ruby>薄<rp>(</rp><rt>うす</rt><rp>)</rp></ruby>いため、<ruby>逆流<rp>(</rp><rt>ぎゃくりゅう</rt><rp>)</rp></ruby>を<ruby>防<rp>(</rp><rt>ふせ</rt><rp>)</rp></ruby>ぐ<ruby>弁<rp>(</rp><rt>べん</rt><rp>)</rp></ruby>がついています。',
+    },
     {
       type: 'end',
       points: [

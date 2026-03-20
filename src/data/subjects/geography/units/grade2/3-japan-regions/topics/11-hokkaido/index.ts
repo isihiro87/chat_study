@@ -171,6 +171,16 @@ export const hokkaido: Topic = {
       { id: 'geo2-hk-fc21', front: '開拓', back: '明治時代以降、北海道で進められた、未開の土地を農地や市街地に変える事業を何というか。', explanation: 'この過程でアイヌの人々の土地や文化が奪われた', difficulty: 'advanced' },
       { id: 'geo2-hk-fc22', front: '断熱材', back: '北海道の住宅で壁や天井に使われる、外からの冷気を遮断する素材を何というか。', difficulty: 'advanced' },
       { id: 'geo2-hk-fc23', front: '大規模農業', back: '北海道の農業の特徴で、一戸あたりの耕地面積が本州の10倍以上ある農業形態を何というか。', difficulty: 'advanced' },
+      { id: 'geo2-hk-fc24', front: '約22%', back: '北海道の面積は日本全体の約何%を占めるか。', difficulty: 'basic' },
+      { id: 'geo2-hk-fc25', front: '全国の約半分以上（日本一）', back: '北海道の生乳生産量は全国でどのくらいの割合を占めるか。', difficulty: 'standard' },
+      { id: 'geo2-hk-fc26', front: 'ゆめぴりか', back: '石狩平野で品種改良によって開発された寒さに強い米の例を1つ答えよ。', difficulty: 'standard' },
+      { id: 'geo2-hk-fc27', front: '全国1位', back: '北海道の漁業の水揚げ量は全国でどの程度の位置か。', difficulty: 'basic' },
+      { id: 'geo2-hk-fc28', front: '天然のさけの資源量を維持・回復するため', back: '北海道でさけの養殖・放流事業が行われている理由を述べよ。', difficulty: 'standard' },
+      { id: 'geo2-hk-fc29', front: '函館山の夜景', back: '北海道の観光地として有名な函館の名所を1つ答えよ。', difficulty: 'basic' },
+      { id: 'geo2-hk-fc30', front: 'ラベンダー', back: '富良野で有名な花を答えよ。', difficulty: 'basic' },
+      { id: 'geo2-hk-fc31', front: '亜寒帯気候で冬が厳しく、広大な土地に都市が分散しているため', back: '北海道の広い面積に対して人口密度が低い理由を1つ述べよ。', difficulty: 'advanced' },
+      { id: 'geo2-hk-fc32', front: '後継者不足や高齢化による農業人口の減少', back: '北海道の農業が大規模である一方で抱える課題を1つ述べよ。', difficulty: 'advanced' },
+      { id: 'geo2-hk-fc33', front: '地球温暖化による海水温の上昇', back: '流氷の減少が問題となっている原因を述べよ。', difficulty: 'standard' },
     ],
     quiz: {
       questions: [

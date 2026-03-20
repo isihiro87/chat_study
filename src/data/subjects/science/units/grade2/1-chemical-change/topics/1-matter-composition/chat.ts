@@ -94,6 +94,18 @@ export const matterCompositionChat: HistoryChat = {
       text: '<span class="keyword">熱分解</span>: 炭酸水素ナトリウム → 炭酸ナトリウム + 水 + 二酸化炭素。<span class="keyword">酸化銀</span>の加熱 → 銀 + 酸素',
     },
     {
+      type: 'quiz',
+      question: '炭酸水素ナトリウムを加熱（熱分解）したとき、発生する気体は？',
+      options: [
+        { letter: 'A', text: '酸素', correct: false },
+        { letter: 'B', text: '水素', correct: false },
+        { letter: 'C', text: '二酸化炭素', correct: true },
+        { letter: 'D', text: '窒素', correct: false },
+      ],
+      explanation:
+        '<strong>正解はC「<ruby>二酸化炭素<rp>(</rp><rt>にさんかたんそ</rt><rp>)</rp></ruby>」</strong>です。<ruby>炭酸水素<rp>(</rp><rt>たんさんすいそ</rt><rp>)</rp></ruby>ナトリウムの<ruby>熱分解<rp>(</rp><rt>ねつぶんかい</rt><rp>)</rp></ruby>では、<ruby>炭酸<rp>(</rp><rt>たんさん</rt><rp>)</rp></ruby>ナトリウム・水・<ruby>二酸化炭素<rp>(</rp><rt>にさんかたんそ</rt><rp>)</rp></ruby>の3つができます。',
+    },
+    {
       type: 'message',
       side: 'left',
       characterId: 'teacher',
@@ -184,6 +196,18 @@ export const matterCompositionChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<span class="keyword">原子</span>＝物質の最小単位（分割不可・変化しない・なくならない）。<span class="keyword">元素記号</span>で種類を表す（1文字目大文字、2文字目小文字）',
+    },
+    {
+      type: 'quiz',
+      question: '原子の性質として正しいものはどれ？',
+      options: [
+        { letter: 'A', text: '化学変化で別の原子に変わることがある', correct: false },
+        { letter: 'B', text: '化学変化でなくなることがある', correct: false },
+        { letter: 'C', text: '化学変化で新しくできることがある', correct: false },
+        { letter: 'D', text: 'それ以上分割できない', correct: true },
+      ],
+      explanation:
+        '<strong>正解はD「それ以上<ruby>分割<rp>(</rp><rt>ぶんかつ</rt><rp>)</rp></ruby>できない」</strong>です。<ruby>原子<rp>(</rp><rt>げんし</rt><rp>)</rp></ruby>は分割不可・他の<ruby>種類<rp>(</rp><rt>しゅるい</rt><rp>)</rp></ruby>に変わらない・なくならないし新しくできない、の3つの<ruby>性質<rp>(</rp><rt>せいしつ</rt><rp>)</rp></ruby>をもちます。',
     },
     {
       type: 'date',

@@ -81,6 +81,18 @@ export const strataChat: HistoryChat = {
       text: '<span class="keyword">風化</span>→<span class="keyword">侵食</span>→<span class="keyword">運搬</span>→<span class="keyword">堆積</span>で地層ができる。粒の大きさ：れき（2mm以上）> 砂 > 泥（0.06mm以下）',
     },
     {
+      type: 'quiz',
+      question: '河口から最も遠くまで運ばれて堆積するのはどれか。',
+      options: [
+        { letter: 'A', text: 'れき', correct: false },
+        { letter: 'B', text: '砂', correct: false },
+        { letter: 'C', text: '泥', correct: true },
+        { letter: 'D', text: '火山灰', correct: false },
+      ],
+      explanation:
+        '<strong>正解はC「<ruby>泥<rp>(</rp><rt>どろ</rt><rp>)</rp></ruby>」</strong>です。<ruby>粒<rp>(</rp><rt>つぶ</rt><rp>)</rp></ruby>が小さいほど<ruby>遠<rp>(</rp><rt>とお</rt><rp>)</rp></ruby>くまで<ruby>運<rp>(</rp><rt>はこ</rt><rp>)</rp></ruby>ばれるため、<ruby>泥<rp>(</rp><rt>どろ</rt><rp>)</rp></ruby>は<ruby>沖合<rp>(</rp><rt>おきあい</rt><rp>)</rp></ruby>まで<ruby>運搬<rp>(</rp><rt>うんぱん</rt><rp>)</rp></ruby>されて<ruby>堆積<rp>(</rp><rt>たいせき</rt><rp>)</rp></ruby>します。',
+    },
+    {
       type: 'date',
       text: '<ruby>堆積岩<rp>(</rp><rt>たいせきがん</rt><rp>)</rp></ruby>と<ruby>化石<rp>(</rp><rt>かせき</rt><rp>)</rp></ruby>',
     },

@@ -40,9 +40,9 @@ export const kinkiNatureChat: HistoryChat = {
     },
     {
       type: 'image',
-      src: '/images/geography/grade2/japan-regions/kinki-overview.png',
+      src: '/images/geography/grade2/japan-regions/kinki-overview.jpeg',
       alt: '近畿地方の地図',
-      caption: '【準備中】近畿地方の全体図',
+      caption: '近畿地方の全体図',
     },
     {
       type: 'narrator',
@@ -70,6 +70,12 @@ export const kinkiNatureChat: HistoryChat = {
       text: 'その通り！波が<ruby>穏<rp>(</rp><rt>おだ</rt><rp>)</rp></ruby>やかな入り江が多くて、<ruby>養殖<rp>(</rp><rt>ようしょく</rt><rp>)</rp></ruby>漁業に向いているよ。そして<ruby>滋賀<rp>(</rp><rt>しが</rt><rp>)</rp></ruby>県には日本最大の湖、<strong><span class="keyword"><ruby>琵琶湖<rp>(</rp><rt>びわこ</rt><rp>)</rp></ruby></span></strong>があるんだ',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade2/japan-regions/rias-coast.jpeg',
+      alt: 'リアス海岸のイラスト',
+      caption: 'リアス海岸 — 入り組んだ海岸線で養殖漁業が盛ん',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',
@@ -82,6 +88,12 @@ export const kinkiNatureChat: HistoryChat = {
       characterId: 'teacher',
       expression: 'excited',
       text: '琵琶湖から流れ出す<strong><span class="keyword"><ruby>淀川<rp>(</rp><rt>よどがわ</rt><rp>)</rp></ruby></span></strong>は大阪湾にそそいでいて、近畿地方の大切な<ruby>水源<rp>(</rp><rt>すいげん</rt><rp>)</rp></ruby>なんだよ。南部には<strong><span class="keyword"><ruby>紀伊山地<rp>(</rp><rt>きいさんち</rt><rp>)</rp></ruby></span></strong>が広がり、<ruby>林業<rp>(</rp><rt>りんぎょう</rt><rp>)</rp></ruby>が盛んなんだ',
+    },
+    {
+      type: 'image',
+      src: '/images/geography/grade2/japan-regions/lake-biwa.jpeg',
+      alt: '琵琶湖と淀川水系のイラスト',
+      caption: '琵琶湖 — 近畿の水がめ（近畿1400万人の飲み水を供給）',
     },
     {
       type: 'message',
@@ -112,6 +124,17 @@ export const kinkiNatureChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<span class="keyword">リアス海岸</span>（若狭湾・志摩半島）。<span class="keyword">琵琶湖</span>→<span class="keyword">淀川</span>。<span class="keyword">紀伊山地</span>の林業。北部は多雪、南部は<span class="keyword">黒潮</span>で温暖',
+    },
+    {
+      type: 'quiz',
+      question: '琵琶湖から流れ出して大阪湾にそそぐ川は何か？',
+      options: [
+        { letter: 'A', text: '木曽川', correct: false },
+        { letter: 'B', text: '淀川', correct: true },
+        { letter: 'C', text: '利根川', correct: false },
+        { letter: 'D', text: '紀ノ川', correct: false },
+      ],
+      explanation: '<strong>正解はB</strong>です。<ruby>琵琶湖<rp>(</rp><rt>びわこ</rt><rp>)</rp></ruby>から流れ出す<ruby>淀川<rp>(</rp><rt>よどがわ</rt><rp>)</rp></ruby>は大阪湾にそそぎ、近畿地方の大切な<ruby>水源<rp>(</rp><rt>すいげん</rt><rp>)</rp></ruby>です。',
     },
     {
       type: 'date',
@@ -177,6 +200,17 @@ export const kinkiNatureChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<span class="keyword">景観条例</span>で高さ制限・看板規制。<span class="keyword">オーバーツーリズム</span>が新たな課題',
+    },
+    {
+      type: 'quiz',
+      question: '京都で歴史的な町並みを守るために制定されたものは何か？',
+      options: [
+        { letter: 'A', text: '建築基準法', correct: false },
+        { letter: 'B', text: '景観条例', correct: true },
+        { letter: 'C', text: '文化財保護法', correct: false },
+        { letter: 'D', text: '都市計画法', correct: false },
+      ],
+      explanation: '<strong>正解はB</strong>です。<ruby>景観条例<rp>(</rp><rt>けいかんじょうれい</rt><rp>)</rp></ruby>で建物の高さ制限や<ruby>看板<rp>(</rp><rt>かんばん</rt><rp>)</rp></ruby>の色・大きさを<ruby>規制<rp>(</rp><rt>きせい</rt><rp>)</rp></ruby>しています。',
     },
     {
       type: 'date',
@@ -250,6 +284,17 @@ export const kinkiNatureChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<span class="keyword">大阪大都市圏</span>は約880万人。<span class="keyword">阪神工業地帯</span>は中小企業の技術力が特徴。東大阪市は「ものづくりの町」',
+    },
+    {
+      type: 'quiz',
+      question: '東大阪市の中小企業が協力して開発した人工衛星は何か？',
+      options: [
+        { letter: 'A', text: 'はやぶさ', correct: false },
+        { letter: 'B', text: 'きぼう', correct: false },
+        { letter: 'C', text: 'まいど1号', correct: true },
+        { letter: 'D', text: 'ひまわり', correct: false },
+      ],
+      explanation: '<strong>正解はC</strong>です。<ruby>東大阪<rp>(</rp><rt>ひがしおおさか</rt><rp>)</rp></ruby>市の<ruby>町工場<rp>(</rp><rt>まちこうば</rt><rp>)</rp></ruby>が<ruby>協力<rp>(</rp><rt>きょうりょく</rt><rp>)</rp></ruby>して<ruby>人工衛星<rp>(</rp><rt>じんこうえいせい</rt><rp>)</rp></ruby>「まいど1号」を開発しました。',
     },
     {
       type: 'end',

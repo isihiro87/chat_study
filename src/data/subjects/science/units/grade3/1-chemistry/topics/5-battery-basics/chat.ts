@@ -88,6 +88,18 @@ export const batteryBasicsChat: HistoryChat = {
       text: '<span class="keyword">電池</span>の2条件 = <strong>異なる2種類の金属</strong> + <strong>電解質水溶液</strong>。同じ金属・蒸留水・砂糖水ではNG！',
     },
     {
+      type: 'quiz',
+      question: '電池にならない組み合わせはどれ？',
+      options: [
+        { letter: 'A', text: '亜鉛板と銅板をうすい塩酸に入れる', correct: false },
+        { letter: 'B', text: '亜鉛板と銅板を食塩水に入れる', correct: false },
+        { letter: 'C', text: '亜鉛板と銅板を砂糖水に入れる', correct: true },
+        { letter: 'D', text: 'マグネシウム板と銅板をうすい塩酸に入れる', correct: false },
+      ],
+      explanation:
+        '<strong>正解はC</strong>です。<ruby>砂糖<rp>(</rp><rt>さとう</rt><rp>)</rp></ruby>は<ruby>非電解質<rp>(</rp><rt>ひでんかいしつ</rt><rp>)</rp></ruby>なので、水に<ruby>溶<rp>(</rp><rt>と</rt><rp>)</rp></ruby>けてもイオンにならず<ruby>電池<rp>(</rp><rt>でんち</rt><rp>)</rp></ruby>になりません。',
+    },
+    {
       type: 'date',
       text: '<ruby>電極<rp>(</rp><rt>でんきょく</rt><rp>)</rp></ruby>の<ruby>反応<rp>(</rp><rt>はんのう</rt><rp>)</rp></ruby>と<ruby>電子<rp>(</rp><rt>でんし</rt><rp>)</rp></ruby>の<ruby>流<rp>(</rp><rt>なが</rt><rp>)</rp></ruby>れ',
     },

@@ -219,6 +219,18 @@ export const quadEqBasics: Topic = {
         explanation: 'x + 3 = ±2 より x = −1 または x = −5',
         difficulty: 'advanced',
       },
+      { id: 'math-g3-qeb-fc29', front: '二次方程式', back: '$x$ の $2$ 乗を含む方程式を何という？', explanation: '最高次数が $2$ の方程式。', difficulty: 'basic' },
+      { id: 'math-g3-qeb-fc30', front: '$ax^2 + bx + c = 0$（$a \\neq 0$）', back: '二次方程式の標準形は？', explanation: '$a = 0$ だと一次方程式になる。', difficulty: 'basic' },
+      { id: 'math-g3-qeb-fc31', front: '$a = 1, b = -7, c = 10$', back: '$x^2 - 7x + 10 = 0$ の $a, b, c$ は？', explanation: '標準形と比較。', difficulty: 'basic' },
+      { id: 'math-g3-qeb-fc32', front: '$x = \\pm 3$', back: '$x^2 = 9$ の解は？', explanation: '平方根をとる: $x = 3$ または $x = -3$。', difficulty: 'basic' },
+      { id: 'math-g3-qeb-fc33', front: '$x = \\pm 5$', back: '$x^2 - 25 = 0$ の解は？', explanation: '$x^2 = 25$、$x = \\pm 5$。', difficulty: 'basic' },
+      { id: 'math-g3-qeb-fc34', front: '$x = \\pm 2\\sqrt{3}$', back: '$x^2 = 12$ の解は？', explanation: '$\\sqrt{12} = 2\\sqrt{3}$。', difficulty: 'standard' },
+      { id: 'math-g3-qeb-fc35', front: '$x = \\pm \\sqrt{7}$', back: '$2x^2 = 14$ の解は？', explanation: '$x^2 = 7$、$x = \\pm \\sqrt{7}$。', difficulty: 'standard' },
+      { id: 'math-g3-qeb-fc36', front: '$x = 1 \\pm \\sqrt{3}$', back: '$(x - 1)^2 = 3$ の解は？', explanation: '$x - 1 = \\pm \\sqrt{3}$。', difficulty: 'standard' },
+      { id: 'math-g3-qeb-fc37', front: '二次方程式を成り立たせる $x$ の値', back: '二次方程式の「解」とは？', explanation: '通常 $2$ つある。', difficulty: 'basic' },
+      { id: 'math-g3-qeb-fc38', front: '代入して等式が成り立つか確認', back: '二次方程式の解を確かめるには？', explanation: '両辺が等しくなれば解。', difficulty: 'basic' },
+      { id: 'math-g3-qeb-fc39', front: '$x = \\pm \\dfrac{\\sqrt{6}}{3}$', back: '$3x^2 - 2 = 0$ の解は？', explanation: '$x^2 = \\dfrac{2}{3}$、$x = \\pm \\sqrt{\\dfrac{2}{3}}$。', difficulty: 'advanced' },
+      { id: 'math-g3-qeb-fc40', front: '$x = -3 \\pm \\sqrt{5}$', back: '$(x + 3)^2 = 5$ の解は？', explanation: '$x + 3 = \\pm \\sqrt{5}$。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [

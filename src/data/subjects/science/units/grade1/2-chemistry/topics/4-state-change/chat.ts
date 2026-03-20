@@ -74,6 +74,18 @@ export const stateChangeChat: HistoryChat = {
       text: '<span class="keyword">状態変化</span>：融解（固→液）・蒸発（液→気）・凝固（液→固）・凝縮（気→液）。物質は変わらない',
     },
     {
+      type: 'quiz',
+      question: '固体が液体になる状態変化を何という？',
+      options: [
+        { letter: 'A', text: '融解', correct: true },
+        { letter: 'B', text: '凝固', correct: false },
+        { letter: 'C', text: '蒸発', correct: false },
+        { letter: 'D', text: '凝縮', correct: false },
+      ],
+      explanation:
+        '<strong>正解はA「<ruby>融解<rp>(</rp><rt>ゆうかい</rt><rp>)</rp></ruby>」</strong>です。<ruby>固体<rp>(</rp><rt>こたい</rt><rp>)</rp></ruby>→<ruby>液体<rp>(</rp><rt>えきたい</rt><rp>)</rp></ruby>が<ruby>融解<rp>(</rp><rt>ゆうかい</rt><rp>)</rp></ruby>、<ruby>逆<rp>(</rp><rt>ぎゃく</rt><rp>)</rp></ruby>の<ruby>液体<rp>(</rp><rt>えきたい</rt><rp>)</rp></ruby>→<ruby>固体<rp>(</rp><rt>こたい</rt><rp>)</rp></ruby>が<ruby>凝固<rp>(</rp><rt>ぎょうこ</rt><rp>)</rp></ruby>です。',
+    },
+    {
       type: 'date',
       text: '<ruby>体積<rp>(</rp><rt>たいせき</rt><rp>)</rp></ruby>と<ruby>質量<rp>(</rp><rt>しつりょう</rt><rp>)</rp></ruby>の<ruby>変化<rp>(</rp><rt>へんか</rt><rp>)</rp></ruby>',
     },
@@ -182,6 +194,18 @@ export const stateChangeChat: HistoryChat = {
       text: '<span class="keyword">沸点</span>（液→気の温度）・<span class="keyword">融点</span>（固→液の温度）は物質ごとに固有。<span class="keyword">蒸留</span>＝沸点の違いで混合物を分離',
     },
     {
+      type: 'quiz',
+      question: '蒸留で物質を分けるとき、利用するのは何のちがい？',
+      options: [
+        { letter: 'A', text: '密度', correct: false },
+        { letter: 'B', text: '沸点', correct: true },
+        { letter: 'C', text: '融点', correct: false },
+        { letter: 'D', text: '溶解度', correct: false },
+      ],
+      explanation:
+        '<strong>正解はB「<ruby>沸点<rp>(</rp><rt>ふってん</rt><rp>)</rp></ruby>」</strong>です。<ruby>蒸留<rp>(</rp><rt>じょうりゅう</rt><rp>)</rp></ruby>は<ruby>沸点<rp>(</rp><rt>ふってん</rt><rp>)</rp></ruby>の<ruby>違<rp>(</rp><rt>ちが</rt><rp>)</rp></ruby>いを<ruby>利用<rp>(</rp><rt>りよう</rt><rp>)</rp></ruby>して<ruby>混合物<rp>(</rp><rt>こんごうぶつ</rt><rp>)</rp></ruby>を<ruby>分離<rp>(</rp><rt>ぶんり</rt><rp>)</rp></ruby>します。',
+    },
+    {
       type: 'date',
       text: 'ロウの<ruby>状態変化<rp>(</rp><rt>じょうたいへんか</rt><rp>)</rp></ruby>と<ruby>粒子<rp>(</rp><rt>りゅうし</rt><rp>)</rp></ruby>モデル',
     },
@@ -213,6 +237,18 @@ export const stateChangeChat: HistoryChat = {
     {
       type: 'summary-point',
       text: 'ロウは液体→固体で表面がへこむ（体積が減る）。<span class="keyword">水は例外</span>：凍ると体積が増える（氷の結晶構造にすき間が多い）',
+    },
+    {
+      type: 'quiz',
+      question: '水が凍ると体積はどうなる？',
+      options: [
+        { letter: 'A', text: '小さくなる', correct: false },
+        { letter: 'B', text: '変わらない', correct: false },
+        { letter: 'C', text: '大きくなる', correct: true },
+        { letter: 'D', text: '質量が減る', correct: false },
+      ],
+      explanation:
+        '<strong>正解はC「大きくなる」</strong>です。水は<ruby>例外<rp>(</rp><rt>れいがい</rt><rp>)</rp></ruby>で、<ruby>凍<rp>(</rp><rt>こお</rt><rp>)</rp></ruby>ると<ruby>結晶構造<rp>(</rp><rt>けっしょうこうぞう</rt><rp>)</rp></ruby>にすき<ruby>間<rp>(</rp><rt>ま</rt><rp>)</rp></ruby>が多く<ruby>体積<rp>(</rp><rt>たいせき</rt><rp>)</rp></ruby>が<ruby>増<rp>(</rp><rt>ふ</rt><rp>)</rp></ruby>えます。',
     },
     {
       type: 'date',
@@ -253,6 +289,18 @@ export const stateChangeChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<span class="keyword">純粋な物質</span>の加熱曲線は融点・沸点で温度一定。混合物は一定にならない。<span class="keyword">昇華</span>＝固体から直接気体になる変化（ドライアイス）',
+    },
+    {
+      type: 'quiz',
+      question: '固体から液体を経ずに直接気体になる変化を何という？',
+      options: [
+        { letter: 'A', text: '蒸発', correct: false },
+        { letter: 'B', text: '融解', correct: false },
+        { letter: 'C', text: '凝縮', correct: false },
+        { letter: 'D', text: '昇華', correct: true },
+      ],
+      explanation:
+        '<strong>正解はD「<ruby>昇華<rp>(</rp><rt>しょうか</rt><rp>)</rp></ruby>」</strong>です。ドライアイスやナフタレンが<ruby>代表例<rp>(</rp><rt>だいひょうれい</rt><rp>)</rp></ruby>で、<ruby>固体<rp>(</rp><rt>こたい</rt><rp>)</rp></ruby>から<ruby>直接<rp>(</rp><rt>ちょくせつ</rt><rp>)</rp></ruby><ruby>気体<rp>(</rp><rt>きたい</rt><rp>)</rp></ruby>になります。',
     },
     {
       type: 'end',

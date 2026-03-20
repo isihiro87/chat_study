@@ -231,6 +231,17 @@ export const quadFormula: Topic = {
         explanation: '例: (4±2√3)/2 = 2±√3',
         difficulty: 'advanced',
       },
+      { id: 'math-g3-qf-fc29', front: '$x = \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$', back: '二次方程式の解の公式は？', explanation: '$ax^2 + bx + c = 0$ の解。', difficulty: 'basic' },
+      { id: 'math-g3-qf-fc30', front: '$b^2 - 4ac$', back: '解の公式のルートの中身を何という？', explanation: '判別式。正なら $2$ 解、$0$ なら重解、負なら実数解なし。', difficulty: 'basic' },
+      { id: 'math-g3-qf-fc31', front: '$a, b, c$ を解の公式に代入する', back: '解の公式で解くときの手順は？', explanation: '①$a, b, c$ を特定 → ②代入 → ③計算 → ④約分。', difficulty: 'basic' },
+      { id: 'math-g3-qf-fc32', front: '$x = \\dfrac{3 \\pm \\sqrt{5}}{2}$', back: '$x^2 - 3x + 1 = 0$ を解の公式で解くと？', explanation: '$a=1, b=-3, c=1$。$\\sqrt{9-4} = \\sqrt{5}$。', difficulty: 'standard' },
+      { id: 'math-g3-qf-fc33', front: '$x = \\dfrac{-5 \\pm \\sqrt{13}}{6}$', back: '$3x^2 + 5x + 1 = 0$ を解の公式で解くと？', explanation: '$b^2 - 4ac = 25 - 12 = 13$。', difficulty: 'standard' },
+      { id: 'math-g3-qf-fc34', front: '$x = 2 \\pm \\sqrt{3}$', back: '$x^2 - 4x + 1 = 0$ を解の公式で解くと？', explanation: '$\\dfrac{4 \\pm \\sqrt{12}}{2} = \\dfrac{4 \\pm 2\\sqrt{3}}{2}$。', difficulty: 'standard' },
+      { id: 'math-g3-qf-fc35', front: '因数分解できないときに使う', back: '解の公式はどんなときに使う？', explanation: '因数分解が難しい方程式に有効。', difficulty: 'basic' },
+      { id: 'math-g3-qf-fc36', front: '正→異なる $2$ つの実数解、$0$→重解、負→実数解なし', back: '判別式 $b^2 - 4ac$ の値と解の関係は？', explanation: '解の個数を判定できる。', difficulty: 'standard' },
+      { id: 'math-g3-qf-fc37', front: '分子全体を約分する', back: '解の公式で $\\dfrac{4 \\pm 2\\sqrt{3}}{2}$ を簡単にすると？', explanation: '$= 2 \\pm \\sqrt{3}$。', difficulty: 'standard' },
+      { id: 'math-g3-qf-fc38', front: '$\\sqrt{}$ の中身を簡単にする', back: '解の公式で $\\sqrt{20}$ が出たら？', explanation: '$\\sqrt{20} = 2\\sqrt{5}$。', difficulty: 'standard' },
+      { id: 'math-g3-qf-fc39', front: '$x = \\dfrac{1 \\pm \\sqrt{7}}{2}$', back: '$2x^2 - 2x - 3 = 0$ を解の公式で解くと？', explanation: '$b^2 - 4ac = 4 + 24 = 28$、$\\sqrt{28} = 2\\sqrt{7}$。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [

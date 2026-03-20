@@ -192,6 +192,23 @@ export const gasProperties: Topic = {
       { id: 'sci1-gp-fc26', front: '反応しにくい（非常に安定した気体）', back: '窒素はほかの物質と反応しやすいか？', difficulty: 'standard' },
       { id: 'sci1-gp-fc27', front: '火のついた線香を入れると激しく燃える', back: '酸素が発生したことを確認する方法を答えよ。', difficulty: 'standard' },
       { id: 'sci1-gp-fc28', front: '酸性を示す（炭酸水になる）', back: '二酸化炭素を水に溶かすと何性を示すか？', difficulty: 'standard' },
+      { id: 'sci1-gp-fc29', front: '無臭（においはない）', back: '酸素にはにおいがあるか？', difficulty: 'basic' },
+      { id: 'sci1-gp-fc30', front: '空気より重い', back: '二酸化炭素は空気より重いか軽いか？', difficulty: 'basic' },
+      { id: 'sci1-gp-fc31', front: '石灰石にうすい塩酸を加える', back: '二酸化炭素を発生させるとき、何に何を加えるか？', difficulty: 'basic' },
+      { id: 'sci1-gp-fc32', front: '亜鉛にうすい塩酸を加える', back: '水素を発生させるとき、何に何を加えるか？', difficulty: 'basic' },
+      { id: 'sci1-gp-fc33', front: '火を近づけるとポンと音をたてて燃える', back: '水素が発生したことを確認する方法を答えよ。', difficulty: 'basic' },
+      { id: 'sci1-gp-fc34', front: '水（H₂O）ができる', back: '水素が燃えると何ができるか？', difficulty: 'standard' },
+      { id: 'sci1-gp-fc35', front: '無臭（においはない）', back: '水素にはにおいがあるか？', difficulty: 'basic' },
+      { id: 'sci1-gp-fc36', front: '無臭（においはない）', back: '窒素にはにおいがあるか？', difficulty: 'basic' },
+      { id: 'sci1-gp-fc37', front: '水にとけにくい', back: '窒素は水にとけやすいか、とけにくいか？', difficulty: 'basic' },
+      { id: 'sci1-gp-fc38', front: '特有の刺激臭がある', back: 'アンモニアのにおいの特徴を答えよ。', difficulty: 'standard' },
+      { id: 'sci1-gp-fc39', front: '空気より軽い', back: 'アンモニアは空気より重いか軽いか？', difficulty: 'standard' },
+      { id: 'sci1-gp-fc40', front: '赤色になる（アンモニア水がアルカリ性を示すため）', back: 'アンモニアの噴水実験でフェノールフタレイン溶液を加えた水を使うと何色になるか？', difficulty: 'standard' },
+      { id: 'sci1-gp-fc41', front: '上方置換法（水に非常にとけやすく、空気より軽いため）', back: 'アンモニアを集めるのに適した方法はどれか？', difficulty: 'standard' },
+      { id: 'sci1-gp-fc42', front: '空気より密度が小さい（軽い）気体を集める方法', back: '上方置換法はどのような性質の気体に使う方法か？', difficulty: 'standard' },
+      { id: 'sci1-gp-fc43', front: '空気より密度が大きい（重い）気体を集める方法', back: '下方置換法はどのような性質の気体に使う方法か？', difficulty: 'standard' },
+      { id: 'sci1-gp-fc44', front: '無色で刺激臭がなく、石灰水を白くにごらせる気体', back: '石灰水を白くにごらせる気体の特徴を述べよ。', difficulty: 'advanced' },
+      { id: 'sci1-gp-fc45', front: 'すべての気体の中で最も密度が小さい気体＝水素', back: 'すべての気体の中で最も密度が小さい気体は何か？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -500,6 +517,90 @@ export const gasProperties: Topic = {
           correctIndex: 0,
           explanation:
             '酸素は火のついた線香を入れると激しく燃えます。これは酸素のものを燃やすはたらきを確認する方法です。',
+        difficulty: 'advanced',
+      },
+        {
+          id: 'sci1-gp-q29',
+          question: '過酸化水素水を一度に大量に加えず少しずつ加える理由は？',
+          options: [
+            '触媒が溶けるから',
+            '気体が急激に発生して危険だから',
+            '温度が下がるから',
+            '酸素が発生しなくなるから',
+          ],
+          correctIndex: 1,
+          explanation:
+            '一度に大量に加えると気体が急激に発生して試験管の外に薬品があふれたり、装置がはずれたりして危険です。',
+        difficulty: 'standard',
+      },
+        {
+          id: 'sci1-gp-q30',
+          question: '二酸化マンガンの代わりにジャガイモでも酸素が発生する。ジャガイモに含まれる触媒は何？',
+          options: [
+            'カタラーゼ',
+            'アミラーゼ',
+            'リパーゼ',
+            'ペプシン',
+          ],
+          correctIndex: 0,
+          explanation:
+            'ジャガイモに含まれるカタラーゼ（酵素の一種）が触媒としてはたらき、過酸化水素水の分解を速めます。',
+        difficulty: 'advanced',
+      },
+        {
+          id: 'sci1-gp-q31',
+          question: '空気より密度が大きい気体をすべて含む組み合わせはどれ？（空気の密度＝約1.29g/L）',
+          options: [
+            '酸素と二酸化炭素',
+            '窒素とアンモニア',
+            '水素と酸素',
+            'アンモニアと二酸化炭素',
+          ],
+          correctIndex: 0,
+          explanation:
+            '酸素（1.43g/L）と二酸化炭素（1.98g/L）は空気（約1.29g/L）より密度が大きいです。',
+        difficulty: 'advanced',
+      },
+        {
+          id: 'sci1-gp-q32',
+          question: '4つの試験管に酸素・二酸化炭素・水素・アンモニアが入っている。刺激臭があったのはどの気体か？',
+          options: [
+            '酸素',
+            '二酸化炭素',
+            '水素',
+            'アンモニア',
+          ],
+          correctIndex: 3,
+          explanation:
+            '4つの気体のうち、特有の刺激臭があるのはアンモニアだけです。酸素・二酸化炭素・水素は無臭です。',
+        difficulty: 'standard',
+      },
+        {
+          id: 'sci1-gp-q33',
+          question: '水素が燃えてできた物質の確認方法は？',
+          options: [
+            '石灰水に通す',
+            'BTB溶液を加える',
+            '塩化コバルト紙を当てると青色から赤色に変わる',
+            'フェノールフタレイン溶液が赤くなる',
+          ],
+          correctIndex: 2,
+          explanation:
+            '水素が燃えてできるのは水（H₂O）です。塩化コバルト紙を当てると青色から赤色（桃色）に変わることで確認できます。',
+        difficulty: 'advanced',
+      },
+        {
+          id: 'sci1-gp-q34',
+          question: 'アンモニアを丸底フラスコに集めたことを確かめる方法はどれか？',
+          options: [
+            '火のついた線香を入れる',
+            '石灰水に通す',
+            '湿らせた赤色リトマス紙を近づけて青色に変わるか見る',
+            'BTB溶液を加える',
+          ],
+          correctIndex: 2,
+          explanation:
+            'アンモニアはアルカリ性なので、湿らせた赤色リトマス紙を近づけると青色に変わります。',
         difficulty: 'advanced',
       },
       ],

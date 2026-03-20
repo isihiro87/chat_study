@@ -236,6 +236,17 @@ export const pronounsChat: HistoryChat = {
       text: '<ruby>所有代名詞<rt>しょゆうだいめいし</rt></ruby>（〜のもの）: <strong>mine / yours / his / hers / ours / theirs</strong>。Whose 〜 is this? で「だれの〜？」と<ruby>聞<rt>き</rt></ruby>ける',
     },
     {
+      type: 'quiz',
+      question: '「Whose pen is this? — It\'s (　　).（これはだれのペンですか？— 私のものです。）」の (　　) に入るのは？',
+      options: [
+        { letter: 'A', text: 'mine', correct: true },
+        { letter: 'B', text: 'my', correct: false },
+        { letter: 'C', text: 'me', correct: false },
+        { letter: 'D', text: 'I', correct: false },
+      ],
+      explanation: '<strong>正解はA</strong>です。「<ruby>私<rt>わたし</rt></ruby>のもの」は<ruby>所有代名詞<rt>しょゆうだいめいし</rt></ruby>の <strong>mine</strong> を使うよ。',
+    },
+    {
       type: 'date',
       text: 'Which で「どちら？」と<ruby>聞<rt>き</rt></ruby>く',
     },

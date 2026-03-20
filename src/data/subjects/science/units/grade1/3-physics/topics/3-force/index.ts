@@ -175,6 +175,26 @@ export const force: Topic = {
       { id: 'sci1-force-fc26', front: '作用点は物体の中心、向きは鉛直下向き（真下）', back: '重力を矢印で表すとき、作用点と向きはどうなるか？', difficulty: 'advanced' },
       { id: 'sci1-force-fc27', front: '物体を動かす・止める・運動の向きを変える', back: '力のはたらき「運動の状態を変える」の具体例を3つ答えよ。', difficulty: 'advanced' },
       { id: 'sci1-force-fc28', front: '磁力は磁石が引き合う・反発する力。電気の力は静電気などによる力。どちらも離れていてもはたらく。', back: '磁力と電気の力はそれぞれどのような力か？', difficulty: 'advanced' },
+      { id: 'sci1-force-fc29', front: '物体を動かす、物体を止める、物体の運動の向きを変える', back: '力のはたらき「運動の状態を変える」とは具体的にどのようなことか？', difficulty: 'basic' },
+      { id: 'sci1-force-fc30', front: '物体の形を変えるはたらき', back: 'ゴムを引いてのばすのは、力のどのはたらきか？', difficulty: 'basic' },
+      { id: 'sci1-force-fc31', front: '物体を支えるはたらき', back: 'バーベルを持ち上げて静止させるのは、力のどのはたらきか？', difficulty: 'basic' },
+      { id: 'sci1-force-fc32', front: '物体の運動の状態を変えるはたらき（動かす）', back: 'サッカーボールをキックするのは、力のどのはたらきか？', difficulty: 'basic' },
+      { id: 'sci1-force-fc33', front: 'N（ニュートン）', back: '力の大きさの単位は何か？記号を答えよ。', difficulty: 'basic' },
+      { id: 'sci1-force-fc34', front: 'ばねばかり', back: 'ばねの力をはかる器具を何というか？', difficulty: 'basic' },
+      { id: 'sci1-force-fc35', front: 'フックの法則', back: 'ばねばかりはどのような法則を利用しているか？', difficulty: 'standard' },
+      { id: 'sci1-force-fc36', front: '自然長（何もつるさないときの長さ）からの伸びた長さ', back: 'フックの法則で「のび」とは何のことか？', difficulty: 'standard' },
+      { id: 'sci1-force-fc37', front: '6cm（1Nで3cmのびるので、2Nでは6cm）', back: '1Nの力で3cmのびるばねに2Nの力を加えると何cmのびるか？', difficulty: 'standard' },
+      { id: 'sci1-force-fc38', front: '16cm（のび6cm＋自然長10cm）', back: '0.5Nで2cmのびるばねの自然長が10cmのとき、1.5Nを加えたときのばね全長は？', difficulty: 'advanced' },
+      { id: 'sci1-force-fc39', front: '矢印', back: '力を図で表すとき、何を使って表すか？', difficulty: 'basic' },
+      { id: 'sci1-force-fc40', front: '作用点（力のはたらく点）', back: '力を矢印で表すとき、矢印の始点は何を表すか？', difficulty: 'standard' },
+      { id: 'sci1-force-fc41', front: '力の向き', back: '力を矢印で表すとき、矢印の向きは何を表すか？', difficulty: 'standard' },
+      { id: 'sci1-force-fc42', front: '力の大きさ', back: '力を矢印で表すとき、矢印の長さは何を表すか？', difficulty: 'standard' },
+      { id: 'sci1-force-fc43', front: '鉛直下向き（真下）', back: '重力の矢印はどちらを向くか？', difficulty: 'standard' },
+      { id: 'sci1-force-fc44', front: 'g（グラム）またはkg（キログラム）', back: '質量の単位は何か？', difficulty: 'basic' },
+      { id: 'sci1-force-fc45', front: '変化しない（どこでも一定）', back: '質量は場所が変わると変化するか？', difficulty: 'standard' },
+      { id: 'sci1-force-fc46', front: '変化する（月面では地球の約1/6）', back: '重力は場所が変わると変化するか？', difficulty: 'standard' },
+      { id: 'sci1-force-fc47', front: '約6N', back: '地球上で質量600gの物体の重力は約何Nか？', difficulty: 'standard' },
+      { id: 'sci1-force-fc48', front: '約1N（地球の約1/6）', back: '地球上で6Nの重力がはたらく物体は、月面では約何Nか？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -519,6 +539,60 @@ export const force: Topic = {
           explanation:
             '重力を矢印で表すとき、作用点は物体の中心にとり、矢印は鉛直下向きに描きます。',
         difficulty: 'advanced',
+      },
+        {
+          id: 'sci1-force-q29',
+          question: 'ばねAは1Nで1.5cmのび、ばねBは1Nで2.5cmのびる。伸びやすいのはどちらか？',
+          options: ['ばねA', 'ばねB', '同じ', '比較できない'],
+          correctIndex: 1,
+          explanation:
+            'ばねBのほうが1Nあたりののびが大きいので、ばねBのほうが伸びやすいです。',
+        difficulty: 'standard',
+      },
+        {
+          id: 'sci1-force-q30',
+          question: 'ばねの自然長が8cm、1Nあたり1.5cmのびるばねに3Nを加えたとき、ばねの全長は？',
+          options: ['11.5cm', '12.5cm', '4.5cm', '8cm'],
+          correctIndex: 1,
+          explanation:
+            'のび＝1.5×3＝4.5cm。全長＝自然長8cm＋のび4.5cm＝12.5cmです。',
+        difficulty: 'standard',
+      },
+        {
+          id: 'sci1-force-q31',
+          question: '質量300gの物体にはたらく重力を矢印で表すとき、矢印の長さは何Nに相当するか？（1cm＝1N）',
+          options: ['1cm（1N）', '3cm（3N）', '30cm（30N）', '0.3cm（0.3N）'],
+          correctIndex: 1,
+          explanation:
+            '300gの物体にはたらく重力は約3Nなので、矢印の長さは3cm（3N相当）です。',
+        difficulty: 'standard',
+      },
+        {
+          id: 'sci1-force-q32',
+          question: '月面で質量300gの物体をばねにつるしたとき、地球上の約1/6の重力がはたらく。ばねの全長は？（1Nで4cmのび、自然長10cm）',
+          options: ['10cm', '12cm', '22cm', '14cm'],
+          correctIndex: 1,
+          explanation:
+            '月面の重力＝3N×1/6＝0.5N。のび＝0.5×4＝2cm。全長＝10＋2＝12cmです。',
+        difficulty: 'advanced',
+      },
+        {
+          id: 'sci1-force-q33',
+          question: '空気中で5Nだった物体を水中に沈めたらばねばかりが3.5Nを示した。浮力は何Nか？',
+          options: ['1.5N', '3.5N', '5N', '8.5N'],
+          correctIndex: 0,
+          explanation:
+            '浮力＝空気中の重力−水中のばねばかりの値＝5−3.5＝1.5Nです。',
+        difficulty: 'advanced',
+      },
+        {
+          id: 'sci1-force-q34',
+          question: '天井からばねでおもりをつるして静止している。おもりの質量が200gのとき、ばねの弾性力は何Nか？',
+          options: ['1N', '2N', '4N', '200N'],
+          correctIndex: 1,
+          explanation:
+            '重力2Nとつり合うので、弾性力も2N（上向き）です。',
+        difficulty: 'standard',
       },
       ],
     },

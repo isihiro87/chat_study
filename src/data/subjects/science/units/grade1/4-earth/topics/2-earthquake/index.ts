@@ -186,6 +186,23 @@ export const earthquake: Topic = {
       { id: 'sci1-earthquake-fc26', front: '約1000倍になる（1大きくなると約32倍）', back: 'マグニチュードが2大きくなると地震のエネルギーは約何倍になるか？', difficulty: 'advanced' },
       { id: 'sci1-earthquake-fc27', front: 'P波のほうがS波より速く伝わるという速度差を利用している', back: '緊急地震速報はP波とS波のどのような性質を利用しているか？', difficulty: 'advanced' },
       { id: 'sci1-earthquake-fc28', front: '慣性（そのままの状態を続けようとする性質）があるため', back: '地震計のおもりが地面がゆれても動かないのはなぜか？', difficulty: 'advanced' },
+      { id: 'sci1-earthquake-fc29', front: '地震', back: '地下で岩盤がずれて、地表にゆれが伝わる現象を何というか？', difficulty: 'basic' },
+      { id: 'sci1-earthquake-fc30', front: '震源', back: '地下で、岩盤のずれが最初に起きた場所を何というか？', difficulty: 'basic' },
+      { id: 'sci1-earthquake-fc31', front: '震央', back: '震源の真上の地表の点を何というか？', difficulty: 'basic' },
+      { id: 'sci1-earthquake-fc32', front: '初期微動', back: '地震で最初に届く小さなゆれを何というか？', difficulty: 'basic' },
+      { id: 'sci1-earthquake-fc33', front: '主要動', back: '地震であとから届く大きなゆれを何というか？', difficulty: 'basic' },
+      { id: 'sci1-earthquake-fc34', front: '初期微動継続時間', back: '初期微動が始まってから主要動が始まるまでの時間を何というか？', difficulty: 'basic' },
+      { id: 'sci1-earthquake-fc35', front: '同時に発生する', back: '地震が起こると、震源からP波とS波は同時に発生するか？', difficulty: 'standard' },
+      { id: 'sci1-earthquake-fc36', front: '約32倍', back: 'マグニチュードの値が1大きくなると、地震のエネルギーは約何倍になるか？', difficulty: 'standard' },
+      { id: 'sci1-earthquake-fc37', front: '震度', back: '地震によるゆれの大きさを表す尺度を何というか？', difficulty: 'basic' },
+      { id: 'sci1-earthquake-fc38', front: '異なる（震源に近いほど大きい）', back: '1つの地震で震度は場所によって異なるか？', difficulty: 'standard' },
+      { id: 'sci1-earthquake-fc39', front: 'ペン', back: '地震計で、ゆれを記録紙に記録するものは何か？', difficulty: 'standard' },
+      { id: 'sci1-earthquake-fc40', front: '海溝型地震（プレート境界型地震）', back: '海洋プレートが大陸プレートの下にしずみこむことで起こる地震を何というか？', difficulty: 'standard' },
+      { id: 'sci1-earthquake-fc41', front: '津波', back: '海溝付近の海底で大きな地震が起こると、何が発生することがあるか？', difficulty: 'standard' },
+      { id: 'sci1-earthquake-fc42', front: '土砂くずれ（がけくずれ）', back: '地震により山やがけが崩壊する災害を何というか？', difficulty: 'standard' },
+      { id: 'sci1-earthquake-fc43', front: '地震の波の速さが一定であること', back: '初期微動継続時間が震源からの距離に比例する条件は何か？', difficulty: 'advanced' },
+      { id: 'sci1-earthquake-fc44', front: '大きくなる', back: '震源に近い場所ほど、ゆれの大きさ（震度）はどうなるか？', difficulty: 'basic' },
+      { id: 'sci1-earthquake-fc45', front: '津波ハザードマップ＝津波の予想される規模・範囲や避難場所・避難経路を記した地図', back: '津波ハザードマップとは何か？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -500,6 +517,75 @@ export const earthquake: Topic = {
           explanation:
             '土砂くずれは地震のゆれで山やがけが崩壊する災害です。大雨のあとに地震が起こるとさらに危険性が高まります。',
         difficulty: 'advanced',
+      },
+        {
+          id: 'sci1-earthquake-q29',
+          question: '震源から80kmの地点でP波（秒速8km）が届くのは何秒後か？',
+          options: ['5秒後', '10秒後', '20秒後', '40秒後'],
+          correctIndex: 1,
+          explanation:
+            '80÷8＝10秒後です。',
+        difficulty: 'standard',
+      },
+        {
+          id: 'sci1-earthquake-q30',
+          question: '初期微動継続時間が18秒で、P波が秒速8km、S波が秒速4kmの場合、震源からの距離は何km？',
+          options: ['72km', '144km', '288km', '36km'],
+          correctIndex: 1,
+          explanation:
+            '初期微動継続時間＝d/4−d/8＝d/8。d/8＝18よりd＝144kmです。',
+        difficulty: 'advanced',
+      },
+        {
+          id: 'sci1-earthquake-q31',
+          question: '地震で液状化が起こりやすい条件はどれか？',
+          options: [
+            '岩盤が硬い場所',
+            '水分を多くふくむ砂質の地盤',
+            '標高が高い場所',
+            '山の斜面',
+          ],
+          correctIndex: 1,
+          explanation:
+            '液状化は水分を多くふくむ砂質の地盤に大きな地震のゆれが加わると起こりやすくなります。',
+        difficulty: 'standard',
+      },
+        {
+          id: 'sci1-earthquake-q32',
+          question: '緊急地震速報が震源に近い場所では有効に機能しにくい理由はどれか？',
+          options: [
+            'P波が届かないから',
+            'S波のほうが速いから',
+            'P波とS波がほぼ同時に届くため警告が間に合わないから',
+            '地震計がないから',
+          ],
+          correctIndex: 2,
+          explanation:
+            '震源に近い場所ではP波とS波の到着時間の差が非常に小さいため、警告が届く前に大きなゆれが始まります。',
+        difficulty: 'advanced',
+      },
+        {
+          id: 'sci1-earthquake-q33',
+          question: '日本付近の震源の深さは、太平洋側から日本海側に向かってどうなるか？',
+          options: [
+            '浅くなる',
+            '変わらない',
+            '深くなる',
+            '不規則に変化する',
+          ],
+          correctIndex: 2,
+          explanation:
+            '海洋プレートがしずみこむ方向に沿って震源が分布するため、太平洋側から日本海側に向かって深くなります。',
+        difficulty: 'advanced',
+      },
+        {
+          id: 'sci1-earthquake-q34',
+          question: '地震によって大地が持ち上がることを何というか？',
+          options: ['沈降', '隆起', '断層', 'しゅう曲'],
+          correctIndex: 1,
+          explanation:
+            '大地が持ち上がることを隆起、しずむことを沈降といいます。',
+        difficulty: 'standard',
       },
       ],
     },

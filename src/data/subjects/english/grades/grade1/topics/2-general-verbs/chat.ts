@@ -85,6 +85,17 @@ export const generalVerbsChat: HistoryChat = {
       text: 'be<ruby>動詞<rt>どうし</rt></ruby> =「〜です」/ <ruby>一般動詞<rt>いっぱんどうし</rt></ruby> =「〜する」→ <strong>1つの文に<ruby>両方<rt>りょうほう</rt></ruby>つかわない</strong>',
     },
     {
+      type: 'quiz',
+      question: '「I (　　) music.（私は音楽が好きです。）」の (　　) に入るのは？',
+      options: [
+        { letter: 'A', text: 'am like', correct: false },
+        { letter: 'B', text: 'like', correct: true },
+        { letter: 'C', text: 'is like', correct: false },
+        { letter: 'D', text: 'are like', correct: false },
+      ],
+      explanation: '<strong>正解はB</strong>です。「<ruby>好<rt>す</rt></ruby>き」は<ruby>一般動詞<rt>いっぱんどうし</rt></ruby> like を使うよ。be<ruby>動詞<rt>どうし</rt></ruby>と<ruby>一般動詞<rt>いっぱんどうし</rt></ruby>は1つの文に<ruby>両方<rt>りょうほう</rt></ruby>つかわないよ。',
+    },
+    {
       type: 'message',
       side: 'left',
       characterId: 'teacher',

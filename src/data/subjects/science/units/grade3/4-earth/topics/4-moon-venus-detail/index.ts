@@ -201,6 +201,10 @@ export const moonVenusDetail: Topic = {
       { id: 'sci3-mvd-fc22', front: '地球も公転しているため同じ位置関係に戻るのにさらに約2日かかる', back: '月の満ち欠けの周期（約29.5日）と公転周期（約27.3日）が異なる理由は？', difficulty: 'advanced' },
       { id: 'sci3-mvd-fc23', front: 'コロナやプロミネンスが見える', back: '皆既日食のときに観察できる太陽の構造は？', difficulty: 'advanced' },
       { id: 'sci3-mvd-fc24', front: '太陽の西側にあるとき', back: '金星が明けの明星として見えるとき、金星は太陽のどちら側にある？', difficulty: 'advanced' },
+      { id: 'sci3-mvd-fc25', front: '太陽の東側（太陽の左側）', back: 'よいの明星として見えるとき、金星は太陽のどちら側にある？', difficulty: 'standard' },
+      { id: 'sci3-mvd-fc26', front: '地球と金星の距離が公転により変化するため', back: '金星の見かけの大きさが変化するのはなぜ？', difficulty: 'standard' },
+      { id: 'sci3-mvd-fc27', front: '約400倍', back: '太陽の直径は月の直径の約何倍？', explanation: '太陽までの距離も月の約400倍のため見かけの大きさがほぼ等しくなる。', difficulty: 'standard' },
+      { id: 'sci3-mvd-fc28', front: '部分月食', back: '月の一部だけが地球の影に入る月食を何という？', difficulty: 'basic' },
     ],
     quiz: {
       questions: [

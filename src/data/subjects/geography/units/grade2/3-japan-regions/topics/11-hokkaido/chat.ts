@@ -40,9 +40,9 @@ export const hokkaidoChat: HistoryChat = {
     },
     {
       type: 'image',
-      src: '/images/geography/grade2/japan-regions/hokkaido-overview.png',
+      src: '/images/geography/grade2/japan-regions/hokkaido-overview.jpeg',
       alt: '北海道地方の地図',
-      caption: '【準備中】北海道地方の全体図',
+      caption: '北海道地方の全体図',
     },
     {
       type: 'narrator',
@@ -299,6 +299,12 @@ export const hokkaidoChat: HistoryChat = {
       characterId: 'teacher',
       expression: 'explaining',
       text: 'ただ、<ruby>地球温暖化<rp>(</rp><rt>ちきゅうおんだんか</rt><rp>)</rp></ruby>の<ruby>影響<rp>(</rp><rt>えいきょう</rt><rp>)</rp></ruby>で流氷が<ruby>減少<rp>(</rp><rt>げんしょう</rt><rp>)</rp></ruby>しているのが<ruby>心配<rp>(</rp><rt>しんぱい</rt><rp>)</rp></ruby>されているんだ。知床の<ruby>生態系<rp>(</rp><rt>せいたいけい</rt><rp>)</rp></ruby>や<ruby>観光<rp>(</rp><rt>かんこう</rt><rp>)</rp></ruby>への<ruby>影響<rp>(</rp><rt>えいきょう</rt><rp>)</rp></ruby>が<ruby>懸念<rp>(</rp><rt>けねん</rt><rp>)</rp></ruby>されているよ',
+    },
+    {
+      type: 'image',
+      src: '/images/geography/grade2/japan-regions/drift-ice.jpeg',
+      alt: 'オホーツク海の流氷のイラスト',
+      caption: 'オホーツク海の流氷 — 流氷の下にプランクトンが豊富',
     },
     {
       type: 'message',

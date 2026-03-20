@@ -181,6 +181,21 @@ export const light: Topic = {
       { id: 'sci1-light-fc26', front: '像はできない。光が平行に進むため、どこにも集まらない。', back: '凸レンズの焦点にちょうど物体を置くとどうなるか？', difficulty: 'advanced' },
       { id: 'sci1-light-fc27', front: '変わらない。距離にかかわらず身長の半分の鏡で全身が映る。', back: '全身を映す鏡の大きさは、鏡と人の距離によって変わるか？', difficulty: 'advanced' },
       { id: 'sci1-light-fc28', front: '2回（レンズに入るときと出るときで1回ずつ）', back: '光が凸レンズを通るとき、屈折は何回起こるか？', difficulty: 'advanced' },
+      { id: 'sci1-light-fc29', front: '太陽・電球・蛍光灯・スマートフォンのディスプレイ', back: '光源の例を4つあげよ。', difficulty: 'basic' },
+      { id: 'sci1-light-fc30', front: '光源から出た光が物体の表面で反射し、その反射した光が目に届くから', back: '光源でない物体が見えるのはなぜか？', difficulty: 'standard' },
+      { id: 'sci1-light-fc31', front: '光源がないため物体を反射する光がなく、目に光が届かないから', back: '真っ暗な部屋で物が見えない理由を光の性質から説明せよ。', difficulty: 'standard' },
+      { id: 'sci1-light-fc32', front: '白色光（白い光）。さまざまな色の光がまざっている', back: '太陽の光は何色の光と言われるか？またその特徴は？', difficulty: 'standard' },
+      { id: 'sci1-light-fc33', front: '虚像', back: '鏡にうつった像を何というか？', explanation: '光が実際に集まっているのではなく、光の延長線上に見える', difficulty: 'standard' },
+      { id: 'sci1-light-fc34', front: '物体と同じ大きさ', back: '鏡にうつる像の大きさは物体と比べてどうなるか？', difficulty: 'basic' },
+      { id: 'sci1-light-fc35', front: '80cm（身長の半分）', back: '身長160cmの人が全身を鏡にうつすのに必要な鏡の最小の高さはいくらか？', difficulty: 'standard' },
+      { id: 'sci1-light-fc36', front: '水中のストローから出た光が水面で屈折して目に届くため、実際とは異なる位置にあるように見える', back: 'コップの水にストローを入れると曲がって見える理由を答えよ。', difficulty: 'standard' },
+      { id: 'sci1-light-fc37', front: '物体より大きい実像ができる', back: '物体を焦点距離の2倍と焦点の間に置いたとき、実像の大きさはどうなるか？', difficulty: 'advanced' },
+      { id: 'sci1-light-fc38', front: '物体より小さい実像ができる', back: '物体を焦点距離の2倍より遠くに置いたとき、実像の大きさはどうなるか？', difficulty: 'advanced' },
+      { id: 'sci1-light-fc39', front: '実像は大きくなり、レンズからの距離は遠くなる', back: '物体を凸レンズに近づけると、実像の大きさと位置はどう変化するか？', difficulty: 'advanced' },
+      { id: 'sci1-light-fc40', front: '実像は小さくなり、焦点に近づく', back: '物体を凸レンズから遠ざけると、実像の大きさと位置はどう変化するか？', difficulty: 'advanced' },
+      { id: 'sci1-light-fc41', front: '虚像。物体と同じ向き（正立）で物体より大きく見える', back: '虫めがねで文字を大きく見ているとき見えている像は何か？その特徴は？', difficulty: 'standard' },
+      { id: 'sci1-light-fc42', front: 'なめらかな面では反射光が一方向にそろうため像が見えるが、ざらざらした面では乱反射により光がさまざまな方向に散らばるため像が見えない', back: 'なめらかな鏡で像が見え、ざらざらした面では見えない理由を答えよ。', difficulty: 'advanced' },
+      { id: 'sci1-light-fc43', front: '起こらない。全反射はガラスや水から空気など、密度の大きい物質から小さい物質に光が出ようとするときだけ起こる', back: '全反射は空気からガラスに入るときにも起こるか？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -554,6 +569,76 @@ export const light: Topic = {
           correctIndex: 2,
           explanation:
             '焦点距離の2倍より遠くに物体を置くと、物体より小さい倒立の実像ができます。',
+        difficulty: 'advanced',
+      },
+        {
+          id: 'sci1-light-q29',
+          question: '白い物体が白く見える理由はどれか？',
+          options: [
+            '白い光を出しているから',
+            'すべての色の光をほぼ均等に反射するから',
+            '光を吸収しないから',
+            '光を透過するから',
+          ],
+          correctIndex: 1,
+          explanation:
+            '白い物体はすべての色の光をほぼ均等に反射するため白く見えます。黒い物体はすべての光を吸収します。',
+        difficulty: 'standard',
+      },
+        {
+          id: 'sci1-light-q30',
+          question: '焦点距離12cmの凸レンズで、物体を16cmの距離に置いたときの像の距離は何cm？',
+          options: [
+            '24cm',
+            '36cm',
+            '48cm',
+            '60cm',
+          ],
+          correctIndex: 2,
+          explanation:
+            '1/16 + 1/b = 1/12。1/b = 1/12 - 1/16 = 1/48。b = 48cm。',
+        difficulty: 'advanced',
+      },
+        {
+          id: 'sci1-light-q31',
+          question: '全身を映す鏡の大きさは、鏡と人の距離によって変わるか？',
+          options: [
+            '離れるほど大きな鏡が必要',
+            '近いほど大きな鏡が必要',
+            '変わらない（距離にかかわらず身長の半分）',
+            '距離の2乗に比例する',
+          ],
+          correctIndex: 2,
+          explanation:
+            '反射の法則から、距離にかかわらず身長の半分の鏡があれば全身が映ります。',
+        difficulty: 'advanced',
+      },
+        {
+          id: 'sci1-light-q32',
+          question: '乱反射が起こっている面でも反射の法則は成り立つか？',
+          options: [
+            '成り立たない',
+            '成り立つ（個々の反射では入射角＝反射角）',
+            '半分だけ成り立つ',
+            '条件による',
+          ],
+          correctIndex: 1,
+          explanation:
+            '乱反射でも個々の微小面での反射は入射角＝反射角が成り立っています。面がでこぼこなので全体としてさまざまな方向に反射します。',
+        difficulty: 'advanced',
+      },
+        {
+          id: 'sci1-light-q33',
+          question: '光ファイバーが細く曲がっていても光を伝えられる理由はどれ？',
+          options: [
+            '光が直進するから',
+            '光が屈折するから',
+            '内壁で全反射を繰り返すから',
+            '光が吸収されるから',
+          ],
+          correctIndex: 2,
+          explanation:
+            '光ファイバーの内部で光が全反射を繰り返しながら進むため、曲がっていても光を伝えることができます。',
         difficulty: 'advanced',
       },
       ],

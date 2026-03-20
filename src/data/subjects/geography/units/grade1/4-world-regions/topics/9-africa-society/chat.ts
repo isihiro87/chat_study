@@ -121,6 +121,17 @@ export const africaSocietyChat: HistoryChat = {
       type: 'summary-point',
       text: '<span class="keyword">人口急増</span>・<span class="keyword">AU（アフリカ連合）</span>の設立・<span class="keyword">TICAD</span>や<span class="keyword">NGO</span>による支援',
     },
+    {
+      type: 'quiz',
+      question: 'アフリカの国々が協力して平和や経済発展に取り組む組織は？',
+      options: [
+        { letter: 'A', text: 'EU', correct: false },
+        { letter: 'B', text: 'ASEAN', correct: false },
+        { letter: 'C', text: 'AU（アフリカ連合）', correct: true },
+        { letter: 'D', text: 'OPEC', correct: false },
+      ],
+      explanation: '<strong>正解はC</strong>です。AU（アフリカ<ruby>連合<rp>(</rp><rt>れんごう</rt><rp>)</rp></ruby>）は2002年に設立され、アフリカの<ruby>平和<rp>(</rp><rt>へいわ</rt><rp>)</rp></ruby>と<ruby>経済<rp>(</rp><rt>けいざい</rt><rp>)</rp></ruby>発展に取り組んでいます。',
+    },
 
     // ===== 砂漠化問題 =====
     {
@@ -176,6 +187,17 @@ export const africaSocietyChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<span class="keyword">砂漠化</span>の原因：<span class="keyword">過放牧</span>・<span class="keyword">過耕作</span>・気候変動 / 「<span class="keyword">アフリカ緑の長城</span>」計画で植林による対策',
+    },
+    {
+      type: 'quiz',
+      question: 'サヘル地域の砂漠化を防ぐ植林計画の名前は？',
+      options: [
+        { letter: 'A', text: 'アフリカ緑の長城', correct: true },
+        { letter: 'B', text: 'グリーンニューディール', correct: false },
+        { letter: 'C', text: 'サハラ再生計画', correct: false },
+        { letter: 'D', text: 'アフリカ森林保全条約', correct: false },
+      ],
+      explanation: '<strong>正解はA</strong>です。「アフリカ<ruby>緑<rp>(</rp><rt>みどり</rt><rp>)</rp></ruby>の<ruby>長城<rp>(</rp><rt>ちょうじょう</rt><rp>)</rp></ruby>」は東西約8000kmにわたって植林する大計画です。',
     },
 
     // ===== ルワンダの民族紛争と和解 =====

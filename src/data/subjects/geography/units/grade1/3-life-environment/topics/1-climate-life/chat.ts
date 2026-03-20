@@ -88,6 +88,17 @@ export const climateLifeChat: HistoryChat = {
       text: '<span class="keyword">寒帯</span>：イヌイット・毛皮の衣服・イグルー / <span class="keyword">亜寒帯</span>：タイガ・永久凍土・高床の家',
     },
     {
+      type: 'quiz',
+      question: '亜寒帯のシベリアで高床の家を建てる理由は？',
+      options: [
+        { letter: 'A', text: '洪水を防ぐため', correct: false },
+        { letter: 'B', text: '永久凍土が溶けて家が傾くのを防ぐため', correct: true },
+        { letter: 'C', text: '風通しをよくするため', correct: false },
+        { letter: 'D', text: '害虫を防ぐため', correct: false },
+      ],
+      explanation: '<strong>正解はB</strong>です。<ruby>永久凍土<rp>(</rp><rt>えいきゅうとうど</rt><rp>)</rp></ruby>が<ruby>融<rp>(</rp><rt>と</rt><rp>)</rp></ruby>けて家が<ruby>傾<rp>(</rp><rt>かたむ</rt><rp>)</rp></ruby>かないように、<ruby>高床<rp>(</rp><rt>たかゆか</rt><rp>)</rp></ruby>の家を建てています。',
+    },
+    {
       type: 'date',
       text: '温帯・乾燥帯の暮らし',
     },
@@ -142,6 +153,17 @@ export const climateLifeChat: HistoryChat = {
       text: '<span class="keyword">温帯</span>：石造りの家・オリーブ・ぶどう / <span class="keyword">乾燥帯</span>：オアシス・遊牧・日干しれんが・砂漠化が課題',
     },
     {
+      type: 'quiz',
+      question: '乾燥帯で家畜を連れて水や草を求めて移動する生活を何という？',
+      options: [
+        { letter: 'A', text: '焼畑農業', correct: false },
+        { letter: 'B', text: '放牧', correct: false },
+        { letter: 'C', text: '遊牧', correct: true },
+        { letter: 'D', text: 'プランテーション', correct: false },
+      ],
+      explanation: '<strong>正解はC</strong>です。<ruby>遊牧<rp>(</rp><rt>ゆうぼく</rt><rp>)</rp></ruby>は家畜を連れて水や草を求めて移動する<ruby>乾燥帯<rp>(</rp><rt>かんそうたい</rt><rp>)</rp></ruby>の<ruby>伝統的<rp>(</rp><rt>でんとうてき</rt><rp>)</rp></ruby>な生活です。',
+    },
+    {
       type: 'date',
       text: '熱帯・高山地域の暮らし',
     },
@@ -193,6 +215,17 @@ export const climateLifeChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<span class="keyword">熱帯</span>：風通しのよい家・熱帯雨林・サンゴ礁 / <span class="keyword">高山</span>：リャマ・アルパカ・ポンチョ・じゃがいも',
+    },
+    {
+      type: 'quiz',
+      question: 'アンデス山脈の高山地域で飼育されている動物はどれ？',
+      options: [
+        { letter: 'A', text: 'らくだ', correct: false },
+        { letter: 'B', text: 'トナカイ', correct: false },
+        { letter: 'C', text: 'リャマ・アルパカ', correct: true },
+        { letter: 'D', text: 'ヤク', correct: false },
+      ],
+      explanation: '<strong>正解はC</strong>です。アンデス<ruby>山脈<rp>(</rp><rt>さんみゃく</rt><rp>)</rp></ruby>ではリャマやアルパカを<ruby>放牧<rp>(</rp><rt>ほうぼく</rt><rp>)</rp></ruby>し、その毛からポンチョを織っています。',
     },
     {
       type: 'date',

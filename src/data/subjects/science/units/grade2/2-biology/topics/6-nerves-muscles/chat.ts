@@ -125,6 +125,18 @@ export const nervesMusclesChat: HistoryChat = {
       text: '<span class="keyword">反射</span>＝意識に無関係の反応。せきずいから直接命令→脳を経由しない→速い',
     },
     {
+      type: 'quiz',
+      question: '反射が速い理由は？',
+      options: [
+        { letter: 'A', text: '脳が素早く判断するから', correct: false },
+        { letter: 'B', text: '筋肉が特別に速く動くから', correct: false },
+        { letter: 'C', text: '脳を経由せずせきずいから直接命令が出るから', correct: true },
+        { letter: 'D', text: '感覚神経が太いから', correct: false },
+      ],
+      explanation:
+        '<strong>正解はC</strong>です。<ruby>反射<rp>(</rp><rt>はんしゃ</rt><rp>)</rp></ruby>では<ruby>信号<rp>(</rp><rt>しんごう</rt><rp>)</rp></ruby>が<ruby>脳<rp>(</rp><rt>のう</rt><rp>)</rp></ruby>を<ruby>経由<rp>(</rp><rt>けいゆ</rt><rp>)</rp></ruby>せず、せきずいから<ruby>直接<rp>(</rp><rt>ちょくせつ</rt><rp>)</rp></ruby><ruby>命令<rp>(</rp><rt>めいれい</rt><rp>)</rp></ruby>が出るため<ruby>速<rp>(</rp><rt>はや</rt><rp>)</rp></ruby>い<ruby>反応<rp>(</rp><rt>はんのう</rt><rp>)</rp></ruby>ができます。',
+    },
+    {
       type: 'date',
       text: '<ruby>骨<rp>(</rp><rt>ほね</rt><rp>)</rp></ruby>と<ruby>筋肉<rp>(</rp><rt>きんにく</rt><rp>)</rp></ruby>のはたらき',
     },

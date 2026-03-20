@@ -92,6 +92,17 @@ export const japanPositionChat: HistoryChat = {
       text: '<span class="keyword">標準時子午線</span>：東経135度（兵庫県明石市）',
     },
     {
+      type: 'quiz',
+      question: '日本の標準時子午線が通る都市はどれ？',
+      options: [
+        { letter: 'A', text: '東京都', correct: false },
+        { letter: 'B', text: '兵庫県明石市', correct: true },
+        { letter: 'C', text: '大阪市', correct: false },
+        { letter: 'D', text: '京都市', correct: false },
+      ],
+      explanation: '<strong>正解はB</strong>です。日本の<ruby>標準時子午線<rp>(</rp><rt>ひょうじゅんじしごせん</rt><rp>)</rp></ruby>は東経135度で、<ruby>兵庫県明石市<rp>(</rp><rt>ひょうごけんあかしし</rt><rp>)</rp></ruby>を通っています。',
+    },
+    {
       type: 'date',
       text: '大陸・海洋との位置関係',
     },
@@ -267,6 +278,17 @@ export const japanPositionChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '同じ緯度でも<span class="keyword">島国と大陸内部</span>では気候が大きく異なる',
+    },
+    {
+      type: 'quiz',
+      question: '沖縄とほぼ同じ緯度にあるアフリカの地形はどれ？',
+      options: [
+        { letter: 'A', text: 'キリマンジャロ山', correct: false },
+        { letter: 'B', text: 'ナイル川', correct: false },
+        { letter: 'C', text: 'サハラ砂漠の中央部', correct: true },
+        { letter: 'D', text: '地中海沿岸', correct: false },
+      ],
+      explanation: '<strong>正解はC</strong>です。サハラ<ruby>砂漠<rp>(</rp><rt>さばく</rt><rp>)</rp></ruby>の中央部（北緯約26度）は<ruby>沖縄<rp>(</rp><rt>おきなわ</rt><rp>)</rp></ruby>とほぼ同じ緯度ですが、気候は大きく異なります。',
     },
     {
       type: 'end',

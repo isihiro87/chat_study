@@ -71,6 +71,12 @@ export const universeChat: HistoryChat = {
     },
     {
       type: 'image',
+      src: '/images/science/grade3/earth/milky-way.png',
+      alt: '銀河系の想像図',
+      caption: '太陽系は銀河系の中心から約3万光年の位置にある',
+    },
+    {
+      type: 'image',
       src: '/images/science/grade3/earth/planets-comparison.png',
       alt: '太陽系の惑星',
       caption: '上段：地球型惑星（水金地火）、下段：木星型惑星（木土天海）',

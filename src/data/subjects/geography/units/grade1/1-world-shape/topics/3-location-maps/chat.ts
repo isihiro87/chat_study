@@ -106,6 +106,17 @@ export const locationMapsChat: HistoryChat = {
       text: '<span class="keyword">経度</span>：本初子午線（0度）基準、東経・西経（各180度まで）',
     },
     {
+      type: 'quiz',
+      question: '経度の基準となる本初子午線はどの都市を通る？',
+      options: [
+        { letter: 'A', text: 'パリ', correct: false },
+        { letter: 'B', text: 'ニューヨーク', correct: false },
+        { letter: 'C', text: '東京', correct: false },
+        { letter: 'D', text: 'ロンドン', correct: true },
+      ],
+      explanation: '<strong>正解はD</strong>です。<ruby>本初子午線<rp>(</rp><rt>ほんしょしごせん</rt><rp>)</rp></ruby>はイギリスのロンドンを通る<ruby>経度<rp>(</rp><rt>けいど</rt><rp>)</rp></ruby>0度の線です。',
+    },
+    {
       type: 'date',
       text: '対蹠点って何？',
     },
@@ -137,6 +148,17 @@ export const locationMapsChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<span class="keyword">対蹠点</span>：地球の正反対の地点。東京の対蹠点はウルグアイ沖',
+    },
+    {
+      type: 'quiz',
+      question: '東京の対蹠点はどのあたりにある？',
+      options: [
+        { letter: 'A', text: 'アフリカ大陸の中央部', correct: false },
+        { letter: 'B', text: '南アメリカのウルグアイ沖', correct: true },
+        { letter: 'C', text: '北極海', correct: false },
+        { letter: 'D', text: 'オーストラリアの東側', correct: false },
+      ],
+      explanation: '<strong>正解はB</strong>です。<ruby>対蹠点<rp>(</rp><rt>たいせきてん</rt><rp>)</rp></ruby>は地球の正反対の地点で、東京の対蹠点は南アメリカのウルグアイ<ruby>沖<rp>(</rp><rt>おき</rt><rp>)</rp></ruby>の<ruby>大西洋上<rp>(</rp><rt>たいせいようじょう</rt><rp>)</rp></ruby>にあります。',
     },
     {
       type: 'date',
@@ -280,6 +302,17 @@ export const locationMapsChat: HistoryChat = {
       text: '<span class="keyword">メルカトル図法</span>＝角度が正確／<span class="keyword">モルワイデ図法</span>＝面積が正確／<span class="keyword">正距方位図法</span>＝中心からの距離と方位が正確',
     },
     {
+      type: 'quiz',
+      question: '面積を正しく表せる地図の図法はどれ？',
+      options: [
+        { letter: 'A', text: 'メルカトル図法', correct: false },
+        { letter: 'B', text: '正距方位図法', correct: false },
+        { letter: 'C', text: 'モルワイデ図法', correct: true },
+        { letter: 'D', text: '地球儀', correct: false },
+      ],
+      explanation: '<strong>正解はC</strong>です。モルワイデ<ruby>図法<rp>(</rp><rt>ずほう</rt><rp>)</rp></ruby>は面積が正しく表される図法で、<ruby>分布<rp>(</rp><rt>ぶんぷ</rt><rp>)</rp></ruby>図などに向いています。',
+    },
+    {
       type: 'date',
       text: '方位の示し方',
     },
@@ -311,6 +344,17 @@ export const locationMapsChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<span class="keyword">方位</span>：4方位 → 8方位 → <span class="keyword">16方位</span>（北北東・東南東など、より細かく方向を示せる）',
+    },
+    {
+      type: 'quiz',
+      question: '8方位で「北と東の間」を表す方位はどれ？',
+      options: [
+        { letter: 'A', text: '北北東', correct: false },
+        { letter: 'B', text: '北東', correct: true },
+        { letter: 'C', text: '東北東', correct: false },
+        { letter: 'D', text: '南東', correct: false },
+      ],
+      explanation: '<strong>正解はB</strong>です。8<ruby>方位<rp>(</rp><rt>ほうい</rt><rp>)</rp></ruby>では北と東の間を<ruby>北東<rp>(</rp><rt>ほくとう</rt><rp>)</rp></ruby>といいます。北北東や東北東は16方位の表し方です。',
     },
     {
       type: 'end',

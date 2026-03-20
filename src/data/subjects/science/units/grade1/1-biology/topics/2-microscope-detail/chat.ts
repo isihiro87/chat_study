@@ -82,6 +82,18 @@ export const microscopeDetailChat: HistoryChat = {
       text: '<span class="keyword">プレパラート</span>＝スライドガラス＋カバーガラス。カバーガラスは端からゆっくり下ろし、<span class="keyword">気泡</span>が入らないようにする',
     },
     {
+      type: 'quiz',
+      question: 'カバーガラスをゆっくり下ろす理由は？',
+      options: [
+        { letter: 'A', text: 'スライドガラスが割れないようにするため', correct: false },
+        { letter: 'B', text: '気泡が入らないようにするため', correct: true },
+        { letter: 'C', text: '観察物が動かないようにするため', correct: false },
+        { letter: 'D', text: '水がこぼれないようにするため', correct: false },
+      ],
+      explanation:
+        '<strong>正解はB</strong>です。カバーガラスをゆっくり下ろすのは、<ruby>気泡<rp>(</rp><rt>きほう</rt><rp>)</rp></ruby>（<ruby>空気<rp>(</rp><rt>くうき</rt><rp>)</rp></ruby>の<ruby>泡<rp>(</rp><rt>あわ</rt><rp>)</rp></ruby>）が入って<ruby>観察<rp>(</rp><rt>かんさつ</rt><rp>)</rp></ruby>のじゃまにならないようにするためです。',
+    },
+    {
       type: 'date',
       text: '<ruby>倍率<rp>(</rp><rt>ばいりつ</rt><rp>)</rp></ruby>の<ruby>計算<rp>(</rp><rt>けいさん</rt><rp>)</rp></ruby>と<ruby>視野<rp>(</rp><rt>しや</rt><rp>)</rp></ruby>の変化',
     },
@@ -155,6 +167,18 @@ export const microscopeDetailChat: HistoryChat = {
       text: '<span class="keyword">倍率</span>＝接眼レンズの倍率×対物レンズの倍率。倍率を上げると<span class="keyword">視野は狭く・暗く</span>なる。しぼりや反射鏡で明るさを調節',
     },
     {
+      type: 'quiz',
+      question: '顕微鏡の倍率を上げると視野はどうなる？',
+      options: [
+        { letter: 'A', text: '広く明るくなる', correct: false },
+        { letter: 'B', text: '広く暗くなる', correct: false },
+        { letter: 'C', text: '狭く明るくなる', correct: false },
+        { letter: 'D', text: '狭く暗くなる', correct: true },
+      ],
+      explanation:
+        '<strong>正解はD</strong>です。<ruby>倍率<rp>(</rp><rt>ばいりつ</rt><rp>)</rp></ruby>を上げると<ruby>視野<rp>(</rp><rt>しや</rt><rp>)</rp></ruby>は<ruby>狭<rp>(</rp><rt>せま</rt><rp>)</rp></ruby>く、暗くなります。',
+    },
+    {
       type: 'date',
       text: '<ruby>顕微鏡<rp>(</rp><rt>けんびきょう</rt><rp>)</rp></ruby>の<ruby>各部分<rp>(</rp><rt>かくぶぶん</rt><rp>)</rp></ruby>と<ruby>双眼実体顕微鏡<rp>(</rp><rt>そうがんじったいけんびきょう</rt><rp>)</rp></ruby>',
     },
@@ -200,6 +224,18 @@ export const microscopeDetailChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '顕微鏡の主要部分：<span class="keyword">接眼レンズ</span>・<span class="keyword">対物レンズ</span>・<span class="keyword">ステージ</span>・<span class="keyword">反射鏡</span>・<span class="keyword">しぼり</span>・<span class="keyword">調節ねじ</span>・<span class="keyword">レボルバー</span>。双眼実体顕微鏡は立体的に観察できる',
+    },
+    {
+      type: 'quiz',
+      question: '双眼実体顕微鏡の特徴として正しいものはどれ？',
+      options: [
+        { letter: 'A', text: 'プレパラートが必要', correct: false },
+        { letter: 'B', text: '片目でのぞく', correct: false },
+        { letter: 'C', text: '立体的に観察できる', correct: true },
+        { letter: 'D', text: '倍率が1000倍以上ある', correct: false },
+      ],
+      explanation:
+        '<strong>正解はC</strong>です。<ruby>双眼実体顕微鏡<rp>(</rp><rt>そうがんじったいけんびきょう</rt><rp>)</rp></ruby>は両目でのぞき、<ruby>立体的<rp>(</rp><rt>りったいてき</rt><rp>)</rp></ruby>に<ruby>観察<rp>(</rp><rt>かんさつ</rt><rp>)</rp></ruby>でき、プレパラートは不要です。',
     },
     {
       type: 'end',

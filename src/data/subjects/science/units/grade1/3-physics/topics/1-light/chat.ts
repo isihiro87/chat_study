@@ -214,6 +214,18 @@ export const lightChat: HistoryChat = {
       text: '鏡の像は<span class="keyword">鏡の面に対称の位置</span>にできる。全身を映すには<span class="keyword">身長の半分</span>の鏡でOK！',
     },
     {
+      type: 'quiz',
+      question: '全身を鏡に映すために必要な鏡の高さはどれか。',
+      options: [
+        { letter: 'A', text: '身長と同じ高さ', correct: false },
+        { letter: 'B', text: '身長の3分の2', correct: false },
+        { letter: 'C', text: '身長の3分の1', correct: false },
+        { letter: 'D', text: '身長の半分', correct: true },
+      ],
+      explanation:
+        '<strong>正解はD「<ruby>身長<rp>(</rp><rt>しんちょう</rt><rp>)</rp></ruby>の半分」</strong>です。<ruby>反射<rp>(</rp><rt>はんしゃ</rt><rp>)</rp></ruby>の<ruby>法則<rp>(</rp><rt>ほうそく</rt><rp>)</rp></ruby>により、<ruby>身長<rp>(</rp><rt>しんちょう</rt><rp>)</rp></ruby>の半分の高さの<ruby>鏡<rp>(</rp><rt>かがみ</rt><rp>)</rp></ruby>で全身を<ruby>映<rp>(</rp><rt>うつ</rt><rp>)</rp></ruby>すことができます。',
+    },
+    {
       type: 'date',
       text: '<ruby>凸<rp>(</rp><rt>とつ</rt><rp>)</rp></ruby>レンズと<ruby>像<rp>(</rp><rt>ぞう</rt><rp>)</rp></ruby>',
     },

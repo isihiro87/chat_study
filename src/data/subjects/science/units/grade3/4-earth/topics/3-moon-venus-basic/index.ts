@@ -205,6 +205,10 @@ export const moonVenusBasic: Topic = {
       { id: 'sci3-mvb-fc22', front: '金星と地球の位置関係が変わり太陽光の当たり方が変化するから', back: '金星が満ち欠けする理由は？', difficulty: 'advanced' },
       { id: 'sci3-mvb-fc23', front: '太陽・地球・月の位置関係の変化', back: '月の満ち欠けの周期（約29.5日）は何によって決まる？', difficulty: 'advanced' },
       { id: 'sci3-mvb-fc24', front: '地球の衛星（自ら光を出さず太陽光を反射）', back: '月は地球に対してどのような天体？', difficulty: 'advanced' },
+      { id: 'sci3-mvb-fc25', front: '地球の自転', back: '月の日周運動（1日で東から西へ動く）が起こる原因は？', difficulty: 'basic' },
+      { id: 'sci3-mvb-fc26', front: '水星と金星', back: '内惑星を2つ答えよ。', difficulty: 'basic' },
+      { id: 'sci3-mvb-fc27', front: '地球をはさんで太陽の反対側', back: '満月のとき、月は太陽から見てどの位置にある？', difficulty: 'standard' },
+      { id: 'sci3-mvb-fc28', front: '恒星（例：太陽）', back: '自ら光を出す天体を何という？', difficulty: 'basic' },
     ],
     quiz: {
       questions: [

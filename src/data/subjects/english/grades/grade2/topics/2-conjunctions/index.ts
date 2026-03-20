@@ -274,6 +274,62 @@ export const conjunctions: Topic = {
         explanation: 'believe + that で「〜だと信じる」。that は省略もOK。',
         difficulty: 'advanced',
       },
+      {
+        id: 'eng-cj-fc26',
+        front: 'When I go to a ramen restaurant, I order miso ramen.',
+        back: '「私がラーメン店に行くとき、味噌ラーメンを\n注文します。」を英語にすると？',
+        hint: '「〜するとき」= when。文頭だからカンマをつけるよ',
+        explanation: 'when で習慣的な行動を表すこともできるよ。',
+        difficulty: 'basic',
+      },
+      {
+        id: 'eng-cj-fc27',
+        front: 'I stayed home because it was raining.',
+        back: '「雨が降っていたので、家にいました。」\nを英語にすると？',
+        hint: '理由 = because。文の後ろにあるからカンマはいらないよ',
+        explanation: 'because + 理由の文。文中の because にはカンマは不要だよ。',
+        difficulty: 'basic',
+      },
+      {
+        id: 'eng-cj-fc28',
+        front: "I don't think (that) the story is true.",
+        back: '「私はその話は本当だとは思いません。」\nを英語にすると？',
+        hint: '英語では think を否定する形が自然だよ',
+        explanation: "I don't think that... で「〜とは思わない」。think を否定するのが英語的だよ。",
+        difficulty: 'standard',
+      },
+      {
+        id: 'eng-cj-fc29',
+        front: 'I bought a rice ball because I was hungry.',
+        back: '「お腹がすいたので、おにぎりを買いました。」\nを英語にすると？',
+        hint: '理由 = because。「おにぎり」= rice ball',
+        explanation: 'because I was hungry で「お腹がすいたので」だよ。',
+        difficulty: 'standard',
+      },
+      {
+        id: 'eng-cj-fc30',
+        front: 'I think (that) she will like the present.',
+        back: '「彼女はそのプレゼントを気に入るでしょう、\nと私は思います。」を英語にすると？',
+        hint: 'think + that + 文。that の後ろには主語+動詞の文がくるよ',
+        explanation: 'that の後ろに she will like the present という文が続くよ。',
+        difficulty: 'standard',
+      },
+      {
+        id: 'eng-cj-fc31',
+        front: 'If you like cats, let\'s go to a neko cafe.',
+        back: '「もしあなたがネコが好きなら、猫カフェに\n行きましょう。」を英語にすると？',
+        hint: '「もし〜なら」= if。文頭だからカンマをつけるよ',
+        explanation: 'if + 条件 で「もし〜なら」。文頭の if にはカンマをつけるよ。',
+        difficulty: 'advanced',
+      },
+      {
+        id: 'eng-cj-fc32',
+        front: 'I went to bed early because I was tired.',
+        back: '「疲れていたので、早く寝ました。」\nを英語にすると？',
+        hint: '理由 = because。「早く寝る」= go to bed early',
+        explanation: 'because I was tired で「疲れていたので」だよ。',
+        difficulty: 'advanced',
+      },
     ],
     quiz: {
       questions: [
@@ -557,6 +613,95 @@ export const conjunctions: Topic = {
           correctIndex: -1,
           explanation:
             '「I think that Tokyo is an exciting city.」が正解。think + that + 文 の形だよ。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'eng-cj-q23',
+          question:
+            '「She was washing the dishes (　　) I saw her.」\nの (　　) に入るのは？',
+          options: ['because', 'if', 'when', 'that'],
+          correctIndex: 2,
+          explanation: '「私が彼女を見たとき」→「〜したとき」= when だよ。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'eng-cj-q24',
+          question:
+            '「I (　　) that Katy can read kanji.」\nの (　　) に入るのは？',
+          options: ['because', 'when', 'if', 'think'],
+          correctIndex: 3,
+          explanation: 'that の前に置く動詞は think/know/hope/believe。ここは「〜と思う」= think だよ。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'eng-cj-q25',
+          question:
+            '「(　　) you finish your homework, you can play games.」\nの (　　) に入るのは？',
+          options: ['When', 'Because', 'If', 'That'],
+          correctIndex: 2,
+          explanation: '「もし宿題を終えたら」→ 条件 = if だよ。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'eng-cj-q26',
+          question:
+            '「He studied hard (　　) he wanted to pass the test.」\nの (　　) に入るのは？',
+          options: ['when', 'because', 'if', 'that'],
+          correctIndex: 1,
+          explanation: '「テストに受かりたかったので」→ 理由 = because だよ。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'eng-cj-q27',
+          question:
+            '「私はその話は本当だとは思いません。」を英語にすると、最も自然なのは？',
+          options: [
+            'I think that the story is not true.',
+            "I don't think that the story is true.",
+            'I not think that the story is true.',
+            "I think not that the story is true.",
+          ],
+          correctIndex: 1,
+          explanation:
+            "英語では I don't think that... の形で否定するのが自然だよ。",
+          difficulty: 'advanced',
+        },
+        {
+          id: 'eng-cj-q28',
+          type: 'reorder',
+          question:
+            '次の単語を正しい順番にならべて、\n「雨が降っていたので、家にいました。」という英文を作ろう。',
+          words: ['stayed', 'I', 'it', 'because', 'home', 'was', 'raining'],
+          correctOrder: [1, 0, 4, 3, 2, 5, 6],
+          punctuation: '.',
+          options: [],
+          correctIndex: -1,
+          explanation:
+            '「I stayed home because it was raining.」が正解。because の前にカンマはいらないよ。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'eng-cj-q29',
+          type: 'reorder',
+          question:
+            '次の単語を正しい順番にならべて、\n「子どものとき、私は東京に住んでいました。」という英文を作ろう。\nWhen (　　)(　　)(　　)(　　), I lived in Tokyo.',
+          words: ['a', 'was', 'I', 'child'],
+          correctOrder: [2, 1, 0, 3],
+          punctuation: '.',
+          options: [],
+          correctIndex: -1,
+          explanation:
+            '「When I was a child」が正解。when + 主語 + 動詞 + 補語 の順番だよ。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'eng-cj-q30',
+          question:
+            '「I hope (　　) we can meet again.」\nの (　　) に入るのは？',
+          options: ['when', 'if', 'because', 'that'],
+          correctIndex: 3,
+          explanation:
+            'hope の後ろで「〜ということ」= that。「また会えるといいな」だよ。',
           difficulty: 'advanced',
         },
       ],

@@ -107,6 +107,17 @@ export const oceaniaSocietyChat: HistoryChat = {
       text: '<span class="keyword">アジア系移民</span>の受け入れ → <span class="keyword">多文化社会</span>へ。<span class="keyword">先住民の権利尊重</span>も推進',
     },
     {
+      type: 'quiz',
+      question: 'オーストラリアの白豪主義が廃止されたのはいつ頃？',
+      options: [
+        { letter: 'A', text: '1940年代', correct: false },
+        { letter: 'B', text: '1970年代以降', correct: true },
+        { letter: 'C', text: '1990年代', correct: false },
+        { letter: 'D', text: '2000年代', correct: false },
+      ],
+      explanation: '<strong>正解はB</strong>です。<ruby>白豪主義<rp>(</rp><rt>はくごうしゅぎ</rt><rp>)</rp></ruby>は1970年代以降に<ruby>廃止<rp>(</rp><rt>はいし</rt><rp>)</rp></ruby>され、<ruby>多文化社会<rp>(</rp><rt>たぶんかしゃかい</rt><rp>)</rp></ruby>へと転換しました。',
+    },
+    {
       type: 'date',
       text: 'ウルルとアボリジニ文化',
     },
@@ -156,6 +167,17 @@ export const oceaniaSocietyChat: HistoryChat = {
     {
       type: 'summary-point',
       text: 'マオリの<span class="keyword">ハカ</span>＝伝統的な踊り。先住民文化の尊重が進む',
+    },
+    {
+      type: 'quiz',
+      question: 'アボリジニの聖地で2019年から登山が禁止された巨大な一枚岩は？',
+      options: [
+        { letter: 'A', text: 'グレートバリアリーフ', correct: false },
+        { letter: 'B', text: 'キリマンジャロ', correct: false },
+        { letter: 'C', text: 'ウルル（エアーズロック）', correct: true },
+        { letter: 'D', text: 'エベレスト', correct: false },
+      ],
+      explanation: '<strong>正解はC</strong>です。ウルル（エアーズロック）はアボリジニの<ruby>聖地<rp>(</rp><rt>せいち</rt><rp>)</rp></ruby>で、2019年から<ruby>登山<rp>(</rp><rt>とざん</rt><rp>)</rp></ruby>が<ruby>禁止<rp>(</rp><rt>きんし</rt><rp>)</rp></ruby>されています。',
     },
     {
       type: 'date',
@@ -259,6 +281,17 @@ export const oceaniaSocietyChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<span class="keyword">グレートバリアリーフ</span>のサンゴ<span class="keyword">白化</span>も地球温暖化の影響',
+    },
+    {
+      type: 'quiz',
+      question: '海面上昇で国土水没の危機にあるサンゴ礁の国は？',
+      options: [
+        { letter: 'A', text: 'フィジー', correct: false },
+        { letter: 'B', text: 'ニュージーランド', correct: false },
+        { letter: 'C', text: 'パプアニューギニア', correct: false },
+        { letter: 'D', text: 'ツバル', correct: true },
+      ],
+      explanation: '<strong>正解はD</strong>です。ツバルはサンゴ<ruby>礁<rp>(</rp><rt>しょう</rt><rp>)</rp></ruby>の国で、<ruby>海面上昇<rp>(</rp><rt>かいめんじょうしょう</rt><rp>)</rp></ruby>により国土<ruby>水没<rp>(</rp><rt>すいぼつ</rt><rp>)</rp></ruby>の<ruby>危機<rp>(</rp><rt>きき</rt><rp>)</rp></ruby>に直面しています。',
     },
     {
       type: 'end',

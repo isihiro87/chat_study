@@ -196,6 +196,10 @@ export const celestialObservation: Topic = {
       { id: 'sci3-celo-fc22', front: '午後5時ごろ（2か月×2時間＝4時間早くなる）', back: '1月に午後9時に真南に見えた星座を、3月に真南に見るには何時ごろ観察する？', difficulty: 'advanced' },
       { id: 'sci3-celo-fc23', front: 'ペン先の影が記録用紙の点に重なるように記録', back: '透明半球で太陽の位置を記録する方法は？', difficulty: 'advanced' },
       { id: 'sci3-celo-fc24', front: '極夜', back: '北極で冬に太陽がのぼらない現象を何という？', difficulty: 'advanced' },
+      { id: 'sci3-celo-fc25', front: '白夜', back: '北極で夏に太陽がしずまない現象を何という？', explanation: '地軸が23.4度傾いていることで、北極では夏至のころに1日中太陽がしずまない。', difficulty: 'standard' },
+      { id: 'sci3-celo-fc26', front: 'グリニッジ（イギリス）', back: '世界の時刻の基準になっている天文台がある都市はどこ？', difficulty: 'standard' },
+      { id: 'sci3-celo-fc27', front: '南中高度', back: '天体が南中したときの地平線からの角度を何という？', difficulty: 'basic' },
+      { id: 'sci3-celo-fc28', front: '夏は南中高度が高く昼が長いため、冬は低く短いため', back: '夏が冬より暖かい理由を「南中高度」と「昼の長さ」から説明せよ。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [

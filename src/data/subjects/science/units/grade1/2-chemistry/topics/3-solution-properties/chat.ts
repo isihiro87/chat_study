@@ -96,6 +96,18 @@ export const solutionPropertiesChat: HistoryChat = {
       text: '<span class="keyword">溶質</span>（とける物質）＋<span class="keyword">溶媒</span>（とかす液体）＝<span class="keyword">溶液</span>。水溶液は透明・均一・沈まない。<span class="keyword">純物質</span>＝1種類、<span class="keyword">混合物</span>＝2種類以上',
     },
     {
+      type: 'quiz',
+      question: '水溶液の特徴として正しいものはどれ？',
+      options: [
+        { letter: 'A', text: '透明で濃さが均一', correct: true },
+        { letter: 'B', text: '時間がたつと溶質が沈む', correct: false },
+        { letter: 'C', text: 'にごっている', correct: false },
+        { letter: 'D', text: '上のほうが濃い', correct: false },
+      ],
+      explanation:
+        '<strong>正解はA「<ruby>透明<rp>(</rp><rt>とうめい</rt><rp>)</rp></ruby>で<ruby>濃<rp>(</rp><rt>こ</rt><rp>)</rp></ruby>さが<ruby>均一<rp>(</rp><rt>きんいつ</rt><rp>)</rp></ruby>」</strong>です。<ruby>水溶液<rp>(</rp><rt>すいようえき</rt><rp>)</rp></ruby>は<ruby>透明<rp>(</rp><rt>とうめい</rt><rp>)</rp></ruby>で<ruby>均一<rp>(</rp><rt>きんいつ</rt><rp>)</rp></ruby>、<ruby>放置<rp>(</rp><rt>ほうち</rt><rp>)</rp></ruby>しても<ruby>溶質<rp>(</rp><rt>ようしつ</rt><rp>)</rp></ruby>が<ruby>沈<rp>(</rp><rt>しず</rt><rp>)</rp></ruby>みません。',
+    },
+    {
       type: 'date',
       text: '<ruby>ろ過<rp>(</rp><rt>ろか</rt><rp>)</rp></ruby>の<ruby>操作<rp>(</rp><rt>そうさ</rt><rp>)</rp></ruby>',
     },
@@ -127,6 +139,18 @@ export const solutionPropertiesChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<span class="keyword">ろ過</span>：ガラス棒を伝わらせて注ぐ。ろ紙の3枚重ねにあて、ろうとの足はビーカーの内壁につける',
+    },
+    {
+      type: 'quiz',
+      question: 'ろ過でガラス棒をあてるのはろ紙のどの部分？',
+      options: [
+        { letter: 'A', text: '1枚の部分', correct: false },
+        { letter: 'B', text: 'ろ紙の外側', correct: false },
+        { letter: 'C', text: '3枚重ねの部分', correct: true },
+        { letter: 'D', text: 'ろうとの先端', correct: false },
+      ],
+      explanation:
+        '<strong>正解はC「3<ruby>枚<rp>(</rp><rt>まい</rt><rp>)</rp></ruby><ruby>重<rp>(</rp><rt>がさ</rt><rp>)</rp></ruby>ねの<ruby>部分<rp>(</rp><rt>ぶぶん</rt><rp>)</rp></ruby>」</strong>です。ろ<ruby>紙<rp>(</rp><rt>し</rt><rp>)</rp></ruby>が<ruby>破<rp>(</rp><rt>やぶ</rt><rp>)</rp></ruby>れないよう、<ruby>厚<rp>(</rp><rt>あつ</rt><rp>)</rp></ruby>い3<ruby>枚<rp>(</rp><rt>まい</rt><rp>)</rp></ruby><ruby>重<rp>(</rp><rt>がさ</rt><rp>)</rp></ruby>ねの<ruby>部分<rp>(</rp><rt>ぶぶん</rt><rp>)</rp></ruby>にガラス<ruby>棒<rp>(</rp><rt>ぼう</rt><rp>)</rp></ruby>をあてます。',
     },
     {
       type: 'date',
@@ -234,6 +258,18 @@ export const solutionPropertiesChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<span class="keyword">溶解度</span>＝水100gにとける最大質量。<span class="keyword">飽和水溶液</span>を冷やすと<span class="keyword">再結晶</span>で純粋な結晶が得られる',
+    },
+    {
+      type: 'quiz',
+      question: '飽和水溶液を冷やして結晶を取り出す操作を何という？',
+      options: [
+        { letter: 'A', text: 'ろ過', correct: false },
+        { letter: 'B', text: '蒸留', correct: false },
+        { letter: 'C', text: '蒸発', correct: false },
+        { letter: 'D', text: '再結晶', correct: true },
+      ],
+      explanation:
+        '<strong>正解はD「<ruby>再結晶<rp>(</rp><rt>さいけっしょう</rt><rp>)</rp></ruby>」</strong>です。<ruby>高温<rp>(</rp><rt>こうおん</rt><rp>)</rp></ruby>の<ruby>飽和水溶液<rp>(</rp><rt>ほうわすいようえき</rt><rp>)</rp></ruby>を<ruby>冷<rp>(</rp><rt>ひ</rt><rp>)</rp></ruby>やしてとけきれない<ruby>物質<rp>(</rp><rt>ぶっしつ</rt><rp>)</rp></ruby>を<ruby>結晶<rp>(</rp><rt>けっしょう</rt><rp>)</rp></ruby>として<ruby>取<rp>(</rp><rt>と</rt><rp>)</rp></ruby>り出します。',
     },
     {
       type: 'end',

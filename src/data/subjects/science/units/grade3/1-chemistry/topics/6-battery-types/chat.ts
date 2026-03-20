@@ -95,6 +95,18 @@ export const batteryTypesChat: HistoryChat = {
       text: '<span class="keyword">ダニエル電池</span>: −極 Zn → Zn²⁺ + 2e⁻（溶ける）、＋極 Cu²⁺ + 2e⁻ → Cu（付着）。CuSO₄水溶液の<strong>青色がうすくなる</strong>。セロハン膜で安定！',
     },
     {
+      type: 'quiz',
+      question: 'ダニエル電池で電流を流し続けると、硫酸銅水溶液の色はどうなる？',
+      options: [
+        { letter: 'A', text: '濃くなる', correct: false },
+        { letter: 'B', text: '変わらない', correct: false },
+        { letter: 'C', text: '赤色になる', correct: false },
+        { letter: 'D', text: '青色がうすくなる', correct: true },
+      ],
+      explanation:
+        '<strong>正解はD「<ruby>青色<rp>(</rp><rt>あおいろ</rt><rp>)</rp></ruby>がうすくなる」</strong>です。＋<ruby>極<rp>(</rp><rt>きょく</rt><rp>)</rp></ruby>でCu²⁺が<ruby>銅<rp>(</rp><rt>どう</rt><rp>)</rp></ruby>として<ruby>析出<rp>(</rp><rt>せきしゅつ</rt><rp>)</rp></ruby>するため、Cu²⁺が<ruby>減少<rp>(</rp><rt>げんしょう</rt><rp>)</rp></ruby>して青色がうすくなります。',
+    },
+    {
       type: 'date',
       text: '<ruby>身近<rp>(</rp><rt>みぢか</rt><rp>)</rp></ruby>な<ruby>電池<rp>(</rp><rt>でんち</rt><rp>)</rp></ruby>と<ruby>燃料<rp>(</rp><rt>ねんりょう</rt><rp>)</rp></ruby><ruby>電池<rp>(</rp><rt>でんち</rt><rp>)</rp></ruby>',
     },
@@ -122,6 +134,12 @@ export const batteryTypesChat: HistoryChat = {
       characterId: 'teacher',
       expression: 'explaining',
       text: '<ruby>充電<rp>(</rp><rt>じゅうでん</rt><rp>)</rp></ruby>とは、<ruby>外部<rp>(</rp><rt>がいぶ</rt><rp>)</rp></ruby>から<ruby>電気<rp>(</rp><rt>でんき</rt><rp>)</rp></ruby>エネルギーを<ruby>加<rp>(</rp><rt>くわ</rt><rp>)</rp></ruby>えて<strong><ruby>放電<rp>(</rp><rt>ほうでん</rt><rp>)</rp></ruby>のときと<ruby>逆向<rp>(</rp><rt>ぎゃくむ</rt><rp>)</rp></ruby>きの<ruby>化学<rp>(</rp><rt>かがく</rt><rp>)</rp></ruby><ruby>反応<rp>(</rp><rt>はんのう</rt><rp>)</rp></ruby>を<ruby>起<rp>(</rp><rt>お</rt><rp>)</rp></ruby>こす</strong>ことだよ。もとの<ruby>物質<rp>(</rp><rt>ぶっしつ</rt><rp>)</rp></ruby>に<ruby>戻<rp>(</rp><rt>もど</rt><rp>)</rp></ruby>すから<ruby>繰<rp>(</rp><rt>く</rt><rp>)</rp></ruby>り<ruby>返<rp>(</rp><rt>かえ</rt><rp>)</rp></ruby>し使えるんだ',
+    },
+    {
+      type: 'image',
+      src: '/images/science/grade3/chemistry/battery-types.png',
+      alt: '一次電池と二次電池の比較',
+      caption: '一次電池（使い切り）と二次電池（充電可能）の違い',
     },
     {
       type: 'message',

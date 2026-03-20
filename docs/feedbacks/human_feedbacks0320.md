@@ -33,4 +33,9 @@ id: 'q18',
 
 英語では原則画像は不要。歴史でも比較的少なくて可
 
+数学文字式の計算
+{ id: 'math-g1-lit-calc-fc23', front: '符号が全部変わる', back: 'マイナスの数をかっこの式にかけるとき注意することは？', explanation: '各項にかっこの外の数をかける。\n$-2(3x - 4) = -6x + 8$', difficulty: 'advanced' },
+{ id: 'math-g1-lit-calc-fc24', front: '逆数をかける', back: '文字式を分数で割るときのやり方は？', explanation: '$(4x + 2) \\div \\dfrac{1}{3} = (4x + 2) \\times 3 = 12x + 6$', difficulty: 'advanced' },
+のような、言葉で答えるような問題は数学では原則なしに。
+それを使うような数式を出題すれば問題として成立するのでそのようにしてください。
 

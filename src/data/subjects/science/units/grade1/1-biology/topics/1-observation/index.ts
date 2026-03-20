@@ -186,6 +186,12 @@ export const observation: Topic = {
       { id: 'sci1-obs-fc22', front: '移動する＝動物、移動しない＝植物', back: '「移動するか・しないか」で生物を分けるとどうなるか。', difficulty: 'advanced' },
       { id: 'sci1-obs-fc23', front: '低倍率から観察を始める。広い範囲で観察物を探してから倍率を上げる', back: '顕微鏡で観察を始めるとき、最初の倍率はどうするか。その理由も答えよ。', difficulty: 'advanced' },
       { id: 'sci1-obs-fc24', front: 'スライドガラスの上に観察物をのせ、カバーガラスをかぶせて作る', back: 'プレパラートとは何か。作り方を答えよ。', difficulty: 'advanced' },
+      // --- ichimondittou補完（個別Q&A） ---
+      { id: 'sci1-obs-fc25', front: 'つけてはいけない', back: 'スケッチで影をつけてよいか。', difficulty: 'basic' },
+      { id: 'sci1-obs-fc26', front: 'ぬりつぶしてはいけない', back: 'スケッチでぬりつぶしてよいか。', difficulty: 'basic' },
+      { id: 'sci1-obs-fc27', front: '描いてはいけない。観察対象だけを描く', back: 'スケッチで背景を描いてよいか。', difficulty: 'basic' },
+      { id: 'sci1-obs-fc28', front: '描いてはいけない', back: 'スケッチで器具や顕微鏡の視野の円を描いてよいか。', difficulty: 'standard' },
+      { id: 'sci1-obs-fc29', front: '色の濃淡や模様を表現するとき。線の代わりに細かい点で表す', back: 'スケッチで点々（点描）を使うのはどのようなときか。', difficulty: 'standard' },
     ],
     quiz: {
       questions: [
@@ -579,6 +585,34 @@ export const observation: Topic = {
           correctIndex: 3,
           explanation:
             '科学的な分類では体のつくりなど変化しにくい特徴を基準にします。場所・大きさ・色は環境で変わりやすいです。',
+        difficulty: 'advanced',
+      },
+        {
+          id: 'q29',
+          question: '「大きさが10cm以上か」という基準は分類に適切か？',
+          options: [
+            '適切である',
+            '適切でない。成長段階や個体差で変わりやすいから',
+            '適切である。測定しやすいから',
+            '適切でない。10cmを測るのが難しいから',
+          ],
+          correctIndex: 1,
+          explanation:
+            '大きさは成長段階や個体差、環境によって変わりやすく安定した基準になりません。同じ種でも大小の個体がいるため不適切です。',
+        difficulty: 'advanced',
+      },
+        {
+          id: 'q30',
+          question: '野外観察の注意点として正しくないものはどれか？',
+          options: [
+            '日当たりや湿り気に注目する',
+            '危険な生物に注意する',
+            '植物をたくさん採取して持ち帰る',
+            '観察記録にスケッチを描く',
+          ],
+          correctIndex: 2,
+          explanation:
+            '植物を必要以上に採取してはいけません。観察する場所の環境に注目し、危険な生物に注意しながら記録します。',
         difficulty: 'advanced',
       },
       ],

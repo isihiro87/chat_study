@@ -171,6 +171,10 @@ export const solarSystemPlanets: Topic = {
       { id: 'sci3-ssp-fc22', front: '金星（水星より高温。温室効果のため）', back: '太陽系で最も表面温度が高い惑星は？', difficulty: 'advanced' },
       { id: 'sci3-ssp-fc23', front: '気体でできているため固い地表がない', back: '木星型惑星に地表がない理由は？', difficulty: 'advanced' },
       { id: 'sci3-ssp-fc24', front: '太陽風やふく射圧でガスや塵が太陽の反対方向に流される', back: 'すい星の尾が常に太陽と反対方向を向く理由は？', difficulty: 'advanced' },
+      { id: 'sci3-ssp-fc25', front: '1天文単位（1AU）＝約1.5億km', back: '太陽と地球の間の平均距離を1とする単位は何？距離は約何km？', difficulty: 'basic' },
+      { id: 'sci3-ssp-fc26', front: '水星（公転周期0.24年で最短）', back: '太陽からの距離が最も近く、公転周期が最も短い惑星は？', difficulty: 'standard' },
+      { id: 'sci3-ssp-fc27', front: '海王星（公転周期164.77年で最長）', back: '太陽からの距離が最も遠く、公転周期が最も長い惑星は？', difficulty: 'standard' },
+      { id: 'sci3-ssp-fc28', front: '地球（5.52g/cm³）', back: '太陽系で最も密度が大きい惑星は？密度はいくら？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [

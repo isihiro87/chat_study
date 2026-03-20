@@ -75,6 +75,18 @@ export const cellsChat: HistoryChat = {
       text: '<span class="keyword">倍率</span>＝接眼レンズ×対物レンズ。高倍率→暗く狭い。<span class="keyword">プレパラート</span>はカバーガラスを端からかぶせる',
     },
     {
+      type: 'quiz',
+      question: '顕微鏡の倍率を高くすると、視野はどうなる？',
+      options: [
+        { letter: 'A', text: '明るく広くなる', correct: false },
+        { letter: 'B', text: '暗く狭くなる', correct: true },
+        { letter: 'C', text: '明るく狭くなる', correct: false },
+        { letter: 'D', text: '暗く広くなる', correct: false },
+      ],
+      explanation:
+        '<strong>正解はB「暗く<ruby>狭<rp>(</rp><rt>せま</rt><rp>)</rp></ruby>くなる」</strong>です。<ruby>倍率<rp>(</rp><rt>ばいりつ</rt><rp>)</rp></ruby>を高くすると<ruby>視野<rp>(</rp><rt>しや</rt><rp>)</rp></ruby>は暗く<ruby>狭<rp>(</rp><rt>せま</rt><rp>)</rp></ruby>くなるため、まず<ruby>低倍率<rp>(</rp><rt>ていばいりつ</rt><rp>)</rp></ruby>で<ruby>観察<rp>(</rp><rt>かんさつ</rt><rp>)</rp></ruby>対象を見つけます。',
+    },
+    {
       type: 'date',
       text: '<ruby>植物<rp>(</rp><rt>しょくぶつ</rt><rp>)</rp></ruby>の<ruby>細胞<rp>(</rp><rt>さいぼう</rt><rp>)</rp></ruby>と<ruby>動物<rp>(</rp><rt>どうぶつ</rt><rp>)</rp></ruby>の<ruby>細胞<rp>(</rp><rt>さいぼう</rt><rp>)</rp></ruby>',
     },
@@ -211,6 +223,18 @@ export const cellsChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<span class="keyword">単細胞生物</span>＝1つの細胞で全ての生命活動。<span class="keyword">多細胞生物</span>＝細胞→組織→器官→個体の階層構造',
+    },
+    {
+      type: 'quiz',
+      question: '多細胞生物の体の階層構造として正しい順番は？',
+      options: [
+        { letter: 'A', text: '組織→細胞→器官→個体', correct: false },
+        { letter: 'B', text: '器官→組織→細胞→個体', correct: false },
+        { letter: 'C', text: '細胞→器官→組織→個体', correct: false },
+        { letter: 'D', text: '細胞→組織→器官→個体', correct: true },
+      ],
+      explanation:
+        '<strong>正解はD「<ruby>細胞<rp>(</rp><rt>さいぼう</rt><rp>)</rp></ruby>→<ruby>組織<rp>(</rp><rt>そしき</rt><rp>)</rp></ruby>→<ruby>器官<rp>(</rp><rt>きかん</rt><rp>)</rp></ruby>→<ruby>個体<rp>(</rp><rt>こたい</rt><rp>)</rp></ruby>」</strong>です。形やはたらきが同じ<ruby>細胞<rp>(</rp><rt>さいぼう</rt><rp>)</rp></ruby>が<ruby>集<rp>(</rp><rt>あつ</rt><rp>)</rp></ruby>まって<ruby>組織<rp>(</rp><rt>そしき</rt><rp>)</rp></ruby>、<ruby>組織<rp>(</rp><rt>そしき</rt><rp>)</rp></ruby>が<ruby>集<rp>(</rp><rt>あつ</rt><rp>)</rp></ruby>まって<ruby>器官<rp>(</rp><rt>きかん</rt><rp>)</rp></ruby>になります。',
     },
     {
       type: 'date',

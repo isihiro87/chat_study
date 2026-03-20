@@ -305,6 +305,46 @@ export const sentenceStructures: Topic = {
         explanation: 'him = a great player が成り立つ → SVOC。make は「〜にする」の意味だよ。',
         difficulty: 'advanced',
       },
+      {
+        id: 'eng-ss-fc29',
+        front: 'He is going to cook dinner tonight.',
+        back: '「彼は今晩、料理をするつもりです。」を英語にすると？',
+        hint: 'be going to + 動詞のもとの形 だよ',
+        explanation: 'He is going to cook dinner tonight. 予定を表す be going to だよ。',
+        difficulty: 'basic',
+      },
+      {
+        id: 'eng-ss-fc30',
+        front: "I'll",
+        back: 'I will の短縮形は？',
+        hint: 'will を短くすると…？',
+        explanation: "I will → I'll。会話では短縮形をよく使うよ。",
+        difficulty: 'basic',
+      },
+      {
+        id: 'eng-ss-fc31',
+        front: "won't",
+        back: 'will not の短縮形は？',
+        hint: 'will + not を短くすると…？',
+        explanation: "will not → won't。「〜しないでしょう」という意味だよ。",
+        difficulty: 'basic',
+      },
+      {
+        id: 'eng-ss-fc32',
+        front: 'Will you open the window?',
+        back: '「あなたは窓を開けてくれますか。」を英語にすると？\n（will の依頼表現）',
+        hint: 'Will you ...? で丁寧なお願いになるよ',
+        explanation: 'Will you ...? は「〜してくれますか」という依頼の表現だよ。',
+        difficulty: 'standard',
+      },
+      {
+        id: 'eng-ss-fc33',
+        front: 'What are they going to do?',
+        back: '「彼らは何をする予定ですか。」を英語にすると？',
+        hint: 'What + be going to の疑問文だよ',
+        explanation: 'What are they going to do? 疑問詞 + be going to の形だよ。',
+        difficulty: 'standard',
+      },
     ],
     quiz: {
       questions: [
@@ -597,6 +637,76 @@ export const sentenceStructures: Topic = {
           correctIndex: -1,
           explanation:
             '「They call the dog Pochi.」が正解。call A B（SVOC）の形だよ。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'eng-ss-q25',
+          question:
+            '「He (　　) going to cook dinner tonight.」\nの (　　) に入るのは？',
+          options: ['am', 'is', 'are', 'be'],
+          correctIndex: 1,
+          explanation: 'He は三人称単数だから is を使うよ。be going to + 動詞のもとの形。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'eng-ss-q26',
+          question:
+            '「will not」の短縮形は？',
+          options: ["willn't", "won't", "wouldn't", "don't will"],
+          correctIndex: 1,
+          explanation: "will not → won't。「〜しないでしょう」という意味だよ。",
+          difficulty: 'basic',
+        },
+        {
+          id: 'eng-ss-q27',
+          question:
+            '「Will it (　　) cold tomorrow?（明日は寒くなるでしょうか。）」\nの (　　) に入るのは？',
+          options: ['is', 'be', 'being', 'was'],
+          correctIndex: 1,
+          explanation: 'will のうしろは動詞のもとの形（原形）。be が正しいよ。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'eng-ss-q28',
+          question:
+            '「Are you going to visit your grandparents?」に「はい」で答えるとき正しいのは？',
+          options: [
+            'Yes, I do.',
+            'Yes, I am.',
+            'Yes, I will.',
+            'Yes, I going.',
+          ],
+          correctIndex: 1,
+          explanation:
+            'Are you going to ...? には Yes, I am. / No, I\'m not. で答えるよ。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'eng-ss-q29',
+          type: 'reorder',
+          question:
+            '次の単語を正しい順番にならべて、\n「彼らは何をする予定ですか。」という英文を作ろう。',
+          words: ['going', 'are', 'what', 'to', 'they', 'do'],
+          correctOrder: [2, 1, 4, 0, 3, 5],
+          punctuation: '?',
+          options: [],
+          correctIndex: -1,
+          explanation:
+            '「What are they going to do?」が正解。疑問詞 + be + 主語 + going to + 動詞 の語順だよ。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'eng-ss-q30',
+          type: 'reorder',
+          question:
+            '次の単語を正しい順番にならべて、\n「私はそのパーティーに行かないつもりです。」という英文を作ろう。',
+          words: ['go', 'I', 'to', 'the party', "won't"],
+          correctOrder: [1, 4, 0, 2, 3],
+          punctuation: '.',
+          options: [],
+          correctIndex: -1,
+          explanation:
+            "「I won't go to the party.」が正解。主語 + won't + 動詞のもとの形 の語順だよ。",
           difficulty: 'advanced',
         },
       ],

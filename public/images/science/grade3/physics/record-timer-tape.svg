@@ -1,0 +1,147 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" font-family="'Hiragino Sans', 'Noto Sans JP', sans-serif">
+  <rect width="800" height="500" fill="#F5F3F0"/>
+
+  <!-- Title -->
+  <text x="400" y="32" text-anchor="middle" font-size="18" font-weight="bold" fill="#374151">記録タイマーによる運動の記録</text>
+  <text x="400" y="52" text-anchor="middle" font-size="12" fill="#6B7280">1秒間に60打点（東日本）／ 5打点ごとに区切ると0.1秒間隔</text>
+
+  <!-- Tape 1: 等速直線運動 -->
+  <text x="40" y="90" font-size="14" font-weight="bold" fill="#3B82F6">等速直線運動のテープ</text>
+  <rect x="40" y="100" width="700" height="30" rx="2" fill="#FFF" stroke="#D1D5DB" stroke-width="1"/>
+  <!-- Dots evenly spaced (every 28px for 5-dot groups, dots at 5.6px intervals) -->
+  <g fill="#3B82F6">
+    <!-- Group 1 -->
+    <circle cx="68" cy="115" r="3"/><circle cx="82" cy="115" r="3"/><circle cx="96" cy="115" r="3"/><circle cx="110" cy="115" r="3"/><circle cx="124" cy="115" r="3"/>
+    <!-- Group 2 -->
+    <circle cx="166" cy="115" r="3"/><circle cx="180" cy="115" r="3"/><circle cx="194" cy="115" r="3"/><circle cx="208" cy="115" r="3"/><circle cx="222" cy="115" r="3"/>
+    <!-- Group 3 -->
+    <circle cx="264" cy="115" r="3"/><circle cx="278" cy="115" r="3"/><circle cx="292" cy="115" r="3"/><circle cx="306" cy="115" r="3"/><circle cx="320" cy="115" r="3"/>
+    <!-- Group 4 -->
+    <circle cx="362" cy="115" r="3"/><circle cx="376" cy="115" r="3"/><circle cx="390" cy="115" r="3"/><circle cx="404" cy="115" r="3"/><circle cx="418" cy="115" r="3"/>
+    <!-- Group 5 -->
+    <circle cx="460" cy="115" r="3"/><circle cx="474" cy="115" r="3"/><circle cx="488" cy="115" r="3"/><circle cx="502" cy="115" r="3"/><circle cx="516" cy="115" r="3"/>
+  </g>
+  <!-- Interval markers -->
+  <g stroke="#3B82F6" stroke-width="1.5" stroke-dasharray="4,2">
+    <line x1="145" y1="98" x2="145" y2="132"/>
+    <line x1="243" y1="98" x2="243" y2="132"/>
+    <line x1="341" y1="98" x2="341" y2="132"/>
+    <line x1="439" y1="98" x2="439" y2="132"/>
+    <line x1="537" y1="98" x2="537" y2="132"/>
+  </g>
+  <!-- Interval labels -->
+  <text x="96" y="148" text-anchor="middle" font-size="10" fill="#3B82F6">区間1</text>
+  <text x="194" y="148" text-anchor="middle" font-size="10" fill="#3B82F6">区間2</text>
+  <text x="292" y="148" text-anchor="middle" font-size="10" fill="#3B82F6">区間3</text>
+  <text x="390" y="148" text-anchor="middle" font-size="10" fill="#3B82F6">区間4</text>
+  <text x="488" y="148" text-anchor="middle" font-size="10" fill="#3B82F6">区間5</text>
+  <text x="600" y="120" font-size="11" fill="#6B7280">← 間隔が等しい</text>
+
+  <!-- Tape 2: 加速する運動 -->
+  <text x="40" y="185" font-size="14" font-weight="bold" fill="#EF4444">だんだん速くなる運動のテープ</text>
+  <rect x="40" y="195" width="700" height="30" rx="2" fill="#FFF" stroke="#D1D5DB" stroke-width="1"/>
+  <!-- Dots with increasing spacing -->
+  <g fill="#EF4444">
+    <!-- Group 1 (close together) -->
+    <circle cx="56" cy="210" r="3"/><circle cx="63" cy="210" r="3"/><circle cx="70" cy="210" r="3"/><circle cx="77" cy="210" r="3"/><circle cx="84" cy="210" r="3"/>
+    <!-- Group 2 -->
+    <circle cx="104" cy="210" r="3"/><circle cx="118" cy="210" r="3"/><circle cx="132" cy="210" r="3"/><circle cx="146" cy="210" r="3"/><circle cx="160" cy="210" r="3"/>
+    <!-- Group 3 -->
+    <circle cx="190" cy="210" r="3"/><circle cx="212" cy="210" r="3"/><circle cx="234" cy="210" r="3"/><circle cx="256" cy="210" r="3"/><circle cx="278" cy="210" r="3"/>
+    <!-- Group 4 -->
+    <circle cx="318" cy="210" r="3"/><circle cx="348" cy="210" r="3"/><circle cx="378" cy="210" r="3"/><circle cx="408" cy="210" r="3"/><circle cx="438" cy="210" r="3"/>
+    <!-- Group 5 -->
+    <circle cx="488" cy="210" r="3"/><circle cx="526" cy="210" r="3"/><circle cx="564" cy="210" r="3"/><circle cx="602" cy="210" r="3"/><circle cx="640" cy="210" r="3"/>
+  </g>
+  <!-- Interval markers -->
+  <g stroke="#EF4444" stroke-width="1.5" stroke-dasharray="4,2">
+    <line x1="94" y1="193" x2="94" y2="227"/>
+    <line x1="175" y1="193" x2="175" y2="227"/>
+    <line x1="298" y1="193" x2="298" y2="227"/>
+    <line x1="463" y1="193" x2="463" y2="227"/>
+    <line x1="660" y1="193" x2="660" y2="227"/>
+  </g>
+  <text x="96" y="243" text-anchor="middle" font-size="10" fill="#EF4444">区間1</text>
+  <text x="194" y="243" text-anchor="middle" font-size="10" fill="#EF4444">区間2</text>
+  <text x="340" y="243" text-anchor="middle" font-size="10" fill="#EF4444">区間3</text>
+  <text x="500" y="243" text-anchor="middle" font-size="10" fill="#EF4444">区間4</text>
+  <text x="620" y="243" text-anchor="middle" font-size="10" fill="#EF4444">区間5</text>
+  <text x="710" y="215" font-size="11" fill="#6B7280">← 間隔が広がる</text>
+
+  <!-- Bar Chart Section -->
+  <text x="400" y="285" text-anchor="middle" font-size="15" font-weight="bold" fill="#374151">テープから作る速さのグラフ</text>
+
+  <!-- Chart area -->
+  <!-- Y axis -->
+  <line x1="120" y1="300" x2="120" y2="470" stroke="#374151" stroke-width="2"/>
+  <!-- X axis -->
+  <line x1="120" y1="470" x2="700" y2="470" stroke="#374151" stroke-width="2"/>
+
+  <text x="60" y="390" text-anchor="middle" font-size="12" fill="#374151" transform="rotate(-90 60 390)">速さ (cm/0.1s)</text>
+  <text x="400" y="495" text-anchor="middle" font-size="12" fill="#374151">区間</text>
+
+  <!-- Y axis ticks -->
+  <g font-size="10" fill="#6B7280" text-anchor="end">
+    <text x="115" y="470">0</text>
+    <line x1="117" y1="436" x2="123" y2="436" stroke="#D1D5DB"/>
+    <text x="115" y="440">2</text>
+    <line x1="117" y1="402" x2="123" y2="402" stroke="#D1D5DB"/>
+    <text x="115" y="406">4</text>
+    <line x1="117" y1="368" x2="123" y2="368" stroke="#D1D5DB"/>
+    <text x="115" y="372">6</text>
+    <line x1="117" y1="334" x2="123" y2="334" stroke="#D1D5DB"/>
+    <text x="115" y="338">8</text>
+    <line x1="117" y1="300" x2="123" y2="300" stroke="#D1D5DB"/>
+    <text x="115" y="304">10</text>
+  </g>
+  <!-- Grid lines -->
+  <g stroke="#E5E7EB" stroke-width="0.5">
+    <line x1="120" y1="436" x2="700" y2="436"/>
+    <line x1="120" y1="402" x2="700" y2="402"/>
+    <line x1="120" y1="368" x2="700" y2="368"/>
+    <line x1="120" y1="334" x2="700" y2="334"/>
+    <line x1="120" y1="300" x2="700" y2="300"/>
+  </g>
+
+  <!-- Blue bars (等速) - all same height = 6 cm -->
+  <g fill="#3B82F6" opacity="0.8">
+    <rect x="145" y="368" width="40" height="102" rx="2"/>
+    <rect x="205" y="368" width="40" height="102" rx="2"/>
+    <rect x="265" y="368" width="40" height="102" rx="2"/>
+    <rect x="325" y="368" width="40" height="102" rx="2"/>
+    <rect x="385" y="368" width="40" height="102" rx="2"/>
+  </g>
+
+  <!-- Red bars (加速) - increasing height -->
+  <g fill="#EF4444" opacity="0.8">
+    <rect x="455" y="453" width="40" height="17" rx="2"/>
+    <rect x="515" y="436" width="40" height="34" rx="2"/>
+    <rect x="575" y="402" width="40" height="68" rx="2"/>
+    <rect x="635" y="351" width="40" height="119" rx="2"/>
+    <rect x="695" y="-10" width="0" height="0"/>
+  </g>
+  <!-- Fix: last red bar -->
+  <rect x="695" y="300" width="0" height="0" fill="none"/>
+
+  <!-- X axis labels -->
+  <g font-size="10" fill="#374151" text-anchor="middle">
+    <text x="165" y="485">1</text>
+    <text x="225" y="485">2</text>
+    <text x="285" y="485">3</text>
+    <text x="345" y="485">4</text>
+    <text x="405" y="485">5</text>
+    <text x="475" y="485">1</text>
+    <text x="535" y="485">2</text>
+    <text x="595" y="485">3</text>
+    <text x="655" y="485">4</text>
+  </g>
+
+  <!-- Legend -->
+  <rect x="155" y="298" width="12" height="12" fill="#3B82F6" rx="2"/>
+  <text x="172" y="309" font-size="11" fill="#374151">等速直線運動</text>
+  <rect x="465" y="298" width="12" height="12" fill="#EF4444" rx="2"/>
+  <text x="482" y="309" font-size="11" fill="#374151">加速する運動</text>
+
+  <!-- Divider -->
+  <line x1="435" y1="300" x2="435" y2="470" stroke="#D1D5DB" stroke-width="1" stroke-dasharray="6,3"/>
+</svg>

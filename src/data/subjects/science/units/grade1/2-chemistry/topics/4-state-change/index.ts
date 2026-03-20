@@ -182,6 +182,23 @@ export const stateChange: Topic = {
       { id: 'sci1-sc-fc26', front: '水が凍ると体積が大きくなり、水道管を内側から押し広げて破裂するから', back: '冬に水道管が破裂することがあるのはなぜか？', difficulty: 'advanced' },
       { id: 'sci1-sc-fc27', front: '分留', back: '原油を蒸留して分離することを何というか？', difficulty: 'advanced' },
       { id: 'sci1-sc-fc28', front: 'エタノール（沸点が水より低いため先に蒸発する）', back: '赤ワインを蒸留すると最初に出てくる液体は何を多くふくむか？', difficulty: 'advanced' },
+      { id: 'sci1-sc-fc29', front: '蒸発（気化）', back: '液体から気体への状態変化を何というか？', difficulty: 'basic' },
+      { id: 'sci1-sc-fc30', front: '変化しない。粒子の数が変わらないから', back: '状態変化すると質量は変化するか？理由も答えよ。', difficulty: 'basic' },
+      { id: 'sci1-sc-fc31', front: '変化する。粒子の間隔が変わるため', back: '状態変化すると体積は変化するか？理由も答えよ。', difficulty: 'basic' },
+      { id: 'sci1-sc-fc32', front: '大きくなる（粒子の間隔が広がるため）', back: '一般に固体→液体→気体と変化すると体積はどうなるか？', difficulty: 'standard' },
+      { id: 'sci1-sc-fc33', front: '変わらない。粒子そのものは変化せず、運動のようすが変わるだけだから', back: '状態変化しても物質の種類は変わるか？理由も答えよ。', difficulty: 'standard' },
+      { id: 'sci1-sc-fc34', front: '氷の結晶構造がすき間の多い構造をとるため', back: '水が凍ると体積が大きくなるのはなぜか？', difficulty: 'standard' },
+      { id: 'sci1-sc-fc35', front: '変化しない', back: 'ロウの状態変化で質量は変化するか？', difficulty: 'basic' },
+      { id: 'sci1-sc-fc36', front: '一般的な物質と同じ。液体→固体で体積が小さくなる', back: 'ロウの状態変化は一般的な物質と同じか、水のような例外か？', difficulty: 'standard' },
+      { id: 'sci1-sc-fc37', front: '固まったロウの表面がへこんでいることで確認できる', back: 'ロウの実験で体積が小さくなったことは何で確認できるか？', difficulty: 'standard' },
+      { id: 'sci1-sc-fc38', front: '約-115℃', back: 'エタノールの融点は約何℃か？', difficulty: 'advanced' },
+      { id: 'sci1-sc-fc39', front: '約1535℃', back: '鉄の融点は約何℃か？', difficulty: 'advanced' },
+      { id: 'sci1-sc-fc40', front: '加えた熱が状態変化に使われるため、温度の上昇に使われないから', back: '純粋な物質の加熱で温度が一定になるのはなぜか？', difficulty: 'standard' },
+      { id: 'sci1-sc-fc41', front: 'グラフに水平な部分（温度が一定の部分）があるかどうか。あれば純粋な物質、なければ混合物', back: '加熱曲線で純粋な物質か混合物かを判断するにはどこに注目するか？', difficulty: 'advanced' },
+      { id: 'sci1-sc-fc42', front: '温度が変化したとき（次の物質が蒸発し始めたとき）に試験管を入れかえる', back: '蒸留で集める液体を入れかえるのはどのようなときか？', difficulty: 'standard' },
+      { id: 'sci1-sc-fc43', front: '蒸留塔の上部から取り出される', back: '原油の蒸留で沸点の低い成分はどこから取り出されるか？', difficulty: 'advanced' },
+      { id: 'sci1-sc-fc44', front: 'ドライアイス（固体の二酸化炭素）、ナフタレン（防虫剤）', back: '昇華する物質の例を2つ答えよ。', difficulty: 'standard' },
+      { id: 'sci1-sc-fc45', front: '二酸化炭素', back: 'ドライアイスは何という物質の固体か？', difficulty: 'basic' },
     ],
     quiz: {
       questions: [
@@ -519,6 +536,90 @@ export const stateChange: Topic = {
           correctIndex: 0,
           explanation:
             'エタノールの融点は約−115℃です。沸点は約78℃で、水（沸点100℃）より低い温度で蒸発します。',
+        difficulty: 'advanced',
+      },
+        {
+          id: 'sci1-sc-q29',
+          question: 'ドライアイスの周りに見える白い煙の正体は何か？',
+          options: [
+            '二酸化炭素の気体',
+            '空気中の水蒸気が冷やされてできた水滴（霧）',
+            '酸素の気体',
+            'ドライアイスの粉末',
+          ],
+          correctIndex: 1,
+          explanation:
+            '白い煙は空気中の水蒸気がドライアイスの冷気で冷やされてできた細かい水滴（霧）です。二酸化炭素の気体自体は無色透明です。',
+        difficulty: 'advanced',
+      },
+        {
+          id: 'sci1-sc-q30',
+          question: '固体のロウを液体のロウに入れるとどうなるか？',
+          options: [
+            '固体のロウは浮く',
+            '固体のロウは沈む',
+            '溶ける',
+            '変化しない',
+          ],
+          correctIndex: 1,
+          explanation:
+            '固体のロウ（0.95g/cm³）は液体のロウ（0.85g/cm³）より密度が大きいため沈みます。水と氷の関係とは逆です。',
+        difficulty: 'advanced',
+      },
+        {
+          id: 'sci1-sc-q31',
+          question: '蒸留で火を止めるとき、先にガラス管の先を水から出す必要がある理由は？',
+          options: [
+            '蒸気が漏れるから',
+            '冷却水がフラスコに逆流して割れる危険があるから',
+            '温度計が壊れるから',
+            '液体が蒸発するから',
+          ],
+          correctIndex: 1,
+          explanation:
+            '火を止めるとフラスコ内の気体が冷えて体積が小さくなり気圧が下がるため、冷却水が逆流してフラスコが割れる危険があります。',
+        difficulty: 'advanced',
+      },
+        {
+          id: 'sci1-sc-q32',
+          question: '防虫剤（ナフタレン）がタンスの中で小さくなるのはどのような状態変化か？',
+          options: [
+            '融解',
+            '蒸発',
+            '昇華',
+            '凝縮',
+          ],
+          correctIndex: 2,
+          explanation:
+            'ナフタレンは固体が室温で直接気体に変化する昇華を起こすため、液体にならずに小さくなります。',
+        difficulty: 'standard',
+      },
+        {
+          id: 'sci1-sc-q33',
+          question: '状態変化で体積が変化する理由を粒子の考え方で説明したものはどれ？',
+          options: [
+            '粒子の数が変わるから',
+            '粒子の間隔が変わるから',
+            '粒子の種類が変わるから',
+            '粒子が消えるから',
+          ],
+          correctIndex: 1,
+          explanation:
+            '状態変化によって粒子の間隔が変わるため、物質全体の体積が変化します。固体→液体→気体で粒子の間隔が広がります。',
+        difficulty: 'standard',
+      },
+        {
+          id: 'sci1-sc-q34',
+          question: '液体のロウ50cm³（密度0.85g/cm³）が固体（密度0.95g/cm³）になると体積は約何cm³？',
+          options: [
+            '約44.7cm³',
+            '約50.0cm³',
+            '約55.9cm³',
+            '約42.5cm³',
+          ],
+          correctIndex: 0,
+          explanation:
+            '質量＝50×0.85＝42.5g。固体の体積＝42.5÷0.95＝約44.7cm³。質量は変わらないので密度で割ります。',
         difficulty: 'advanced',
       },
       ],

@@ -173,6 +173,9 @@ export const invertebrates: Topic = {
       { id: 'fc28', front: '昆虫類は気門で呼吸（陸上生活）、甲殻類はえらで呼吸（水中生活）', back: '同じ節足動物でも昆虫類と甲殻類の呼吸法はどう違うか。', difficulty: 'advanced' },
       { id: 'fc29', front: '外とう膜', back: '軟体動物の内臓を包んでいる膜を何というか。', difficulty: 'basic' },
       { id: 'fc30', front: '節足動物と軟体動物', back: '無脊椎動物の主なグループを2つ答えよ。', difficulty: 'standard' },
+      // --- ichimondittou補完 ---
+      { id: 'fc31', front: '哺乳類（胎生で母乳で子を育てるため）', back: 'クジラは水中で生活するが何類に分類されるか。理由も答えよ。', difficulty: 'advanced' },
+      { id: 'fc32', front: '哺乳類（胎生で毛がある）', back: 'コウモリは空を飛ぶが何類に分類されるか。理由も答えよ。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -486,6 +489,48 @@ export const invertebrates: Topic = {
           correctIndex: 0,
           explanation:
             '無脊椎動物の主なグループは節足動物と軟体動物です。魚類・両生類・ハチュウ類・鳥類・哺乳類は脊椎動物です。',
+        difficulty: 'advanced',
+      },
+        {
+          id: 'q29',
+          question: '同じ節足動物でも昆虫類は気門で呼吸し、甲殻類はえらで呼吸する。この違いの理由として正しいものはどれか？',
+          options: [
+            '体の大きさが違うから',
+            '昆虫類は陸上、甲殻類は水中で生活するから',
+            '外骨格のかたさが違うから',
+            '節の数が違うから',
+          ],
+          correctIndex: 1,
+          explanation:
+            '昆虫類はおもに陸上で生活するため気門から空気をとり入れ、甲殻類はおもに水中で生活するためえらで水中の酸素をとり入れます。',
+        difficulty: 'advanced',
+      },
+        {
+          id: 'q30',
+          question: '「節足動物はすべて昆虫類である」という文は正しいか？',
+          options: [
+            '正しい',
+            '正しくない。カニやエビは甲殻類で昆虫類ではない',
+            '正しくない。すべて甲殻類である',
+            '正しい。クモも昆虫類である',
+          ],
+          correctIndex: 1,
+          explanation:
+            '正しくありません。節足動物には昆虫類のほか、甲殻類（エビ・カニ）やクモなども含まれます。',
+        difficulty: 'advanced',
+      },
+        {
+          id: 'q31',
+          question: 'ミミズが節足動物にも軟体動物にも分類されない理由として正しいものはどれか？',
+          options: [
+            '背骨があるから',
+            '水中で生活するから',
+            '外骨格も外とう膜ももたないから',
+            '節がたくさんあるから',
+          ],
+          correctIndex: 2,
+          explanation:
+            'ミミズには節足動物の特徴である外骨格も、軟体動物の特徴である外とう膜もありません。環形動物に分類されます。',
         difficulty: 'advanced',
       },
       ],

@@ -100,6 +100,17 @@ export const asiaSouthWestChat: HistoryChat = {
       text: '<span class="keyword">西アジア・中央アジア</span>：イスラーム文化圏。石油・天然ガス。<span class="keyword">OPEC</span>',
     },
     {
+      type: 'quiz',
+      question: 'インドで急成長しているICT産業の中心都市は？',
+      options: [
+        { letter: 'A', text: 'ムンバイ', correct: false },
+        { letter: 'B', text: 'バンガロール', correct: true },
+        { letter: 'C', text: 'デリー', correct: false },
+        { letter: 'D', text: 'コルカタ', correct: false },
+      ],
+      explanation: '<strong>正解はB</strong>です。バンガロールはインドのICT（<ruby>情報通信技術<rp>(</rp><rt>じょうほうつうしんぎじゅつ</rt><rp>)</rp></ruby>）産業の中心地です。',
+    },
+    {
       type: 'date',
       text: '南アジアのヒンドゥー教とガンジス川',
     },
@@ -154,6 +165,17 @@ export const asiaSouthWestChat: HistoryChat = {
       text: '<span class="keyword">ヒンドゥー教</span>：ガンジス川で沐浴。インドはICT産業と再生可能エネルギーが急成長',
     },
     {
+      type: 'quiz',
+      question: 'ヒンドゥー教徒が聖なる川として沐浴する川は？',
+      options: [
+        { letter: 'A', text: 'インダス川', correct: false },
+        { letter: 'B', text: 'メコン川', correct: false },
+        { letter: 'C', text: 'ガンジス川', correct: true },
+        { letter: 'D', text: '黄河', correct: false },
+      ],
+      explanation: '<strong>正解はC</strong>です。<ruby>ガンジス川<rp>(</rp><rt>がんじすがわ</rt><rp>)</rp></ruby>はヒンドゥー<ruby>教徒<rp>(</rp><rt>きょうと</rt><rp>)</rp></ruby>にとって<ruby>聖<rp>(</rp><rt>せい</rt><rp>)</rp></ruby>なる川で、<ruby>沐浴<rp>(</rp><rt>もくよく</rt><rp>)</rp></ruby>が行われます。',
+    },
+    {
       type: 'date',
       text: '西アジアの資源と未来',
     },
@@ -206,6 +228,17 @@ export const asiaSouthWestChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<span class="keyword">レアメタル</span>：電子機器に不可欠な希少金属。<span class="keyword">ドバイ</span>：AI・観光で産業の多角化',
+    },
+    {
+      type: 'quiz',
+      question: 'スマートフォンや電気自動車に欠かせない希少金属を何という？',
+      options: [
+        { letter: 'A', text: '鉄鉱石', correct: false },
+        { letter: 'B', text: '石炭', correct: false },
+        { letter: 'C', text: 'ボーキサイト', correct: false },
+        { letter: 'D', text: 'レアメタル', correct: true },
+      ],
+      explanation: '<strong>正解はD</strong>です。レアメタル（<ruby>希少金属<rp>(</rp><rt>きしょうきんぞく</rt><rp>)</rp></ruby>）はスマートフォンや電気自動車などに<ruby>欠<rp>(</rp><rt>か</rt><rp>)</rp></ruby>かせない材料です。',
     },
     {
       type: 'end',

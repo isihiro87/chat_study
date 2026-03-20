@@ -108,6 +108,17 @@ export const kinkiUrbanChat: HistoryChat = {
       text: '<span class="keyword">ニュータウン</span>（千里・泉北）の老朽化・高齢化。<span class="keyword">ポートアイランド</span>は人工島。<span class="keyword">梅田</span>で再開発',
     },
     {
+      type: 'quiz',
+      question: '建設から50年以上たった郊外のニュータウンが抱える問題はどれ？',
+      options: [
+        { letter: 'A', text: '人口の急増', correct: false },
+        { letter: 'B', text: '建物の老朽化と住民の高齢化', correct: true },
+        { letter: 'C', text: '交通渋滞の悪化', correct: false },
+        { letter: 'D', text: '商業施設の過密', correct: false },
+      ],
+      explanation: '<strong>正解はB</strong>です。建設から50年以上たち、建物の<ruby>老朽化<rp>(</rp><rt>ろうきゅうか</rt><rp>)</rp></ruby>と<ruby>住民<rp>(</rp><rt>じゅうみん</rt><rp>)</rp></ruby>の<ruby>高齢化<rp>(</rp><rt>こうれいか</rt><rp>)</rp></ruby>が深刻な問題です。',
+    },
+    {
       type: 'date',
       text: '農山村の過疎化と地域おこし',
     },
@@ -185,6 +196,17 @@ export const kinkiUrbanChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<span class="keyword">過疎化</span>・高齢化が深刻。<span class="keyword">吉野杉</span>の林業衰退。<span class="keyword">和束茶</span>のブランド化。<span class="keyword">伊根町の舟屋</span>で観光振興',
+    },
+    {
+      type: 'quiz',
+      question: '奈良県吉野地方の林業が衰退した主な原因は何か？',
+      options: [
+        { letter: 'A', text: '気候の変化で木が育たなくなった', correct: false },
+        { letter: 'B', text: '安い外国産木材の輸入が増えた', correct: true },
+        { letter: 'C', text: '森林が荒廃して資源がなくなった', correct: false },
+        { letter: 'D', text: '建築基準法で木材が使えなくなった', correct: false },
+      ],
+      explanation: '<strong>正解はB</strong>です。安い<ruby>外国産<rp>(</rp><rt>がいこくさん</rt><rp>)</rp></ruby>木材の輸入で<ruby>吉野杉<rp>(</rp><rt>よしのすぎ</rt><rp>)</rp></ruby>の林業が<ruby>衰退<rp>(</rp><rt>すいたい</rt><rp>)</rp></ruby>しています。',
     },
     {
       type: 'end',

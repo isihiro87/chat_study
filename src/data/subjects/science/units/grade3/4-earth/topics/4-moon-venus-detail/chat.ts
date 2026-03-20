@@ -165,6 +165,12 @@ export const moonVenusDetailChat: HistoryChat = {
       text: '<strong><span class="keyword"><span data-tooltip="地球より外側を公転する惑星。火星・木星・土星・天王星・海王星"><ruby>外惑星<rp>(</rp><rt>がいわくせい</rt><rp>)</rp></ruby></span></span></strong>は地球より外側を回っているから、太陽の<ruby>反対側<rp>(</rp><rt>はんたいがわ</rt><rp>)</rp></ruby>にも位置できるんだ。だから<strong>真夜中にも見える</strong>し、太陽光がほぼ正面から当たる面が見えるから<strong>満ち欠けはほとんどしない</strong>（ほぼ丸く見える）よ',
     },
     {
+      type: 'image',
+      src: '/images/science/grade3/earth/venus-phases.png',
+      alt: '金星の見え方',
+      caption: '金星の公転位置による見かけの大きさと形の変化',
+    },
+    {
       type: 'summary-point',
       text: '金星は近い＝<span class="keyword">大きく欠ける</span>、遠い＝<span class="keyword">小さく丸い</span>。<span class="keyword">外惑星</span>は真夜中にも見え、ほぼ丸く見える！',
     },

@@ -88,6 +88,18 @@ export const observationChat: HistoryChat = {
       text: '<span class="keyword">観察記録</span>: 日時・場所・天気・気温・生物名・スケッチ・気づきを記入。<span class="keyword">スケッチ</span>は細い線・影なし・ぬりつぶさない',
     },
     {
+      type: 'quiz',
+      question: '理科のスケッチのルールとして正しいものはどれ？',
+      options: [
+        { letter: 'A', text: '影をつけて立体的に描く', correct: false },
+        { letter: 'B', text: '色をぬって正確に記録する', correct: false },
+        { letter: 'C', text: '細い1本の線で輪郭を描き、影はつけない', correct: true },
+        { letter: 'D', text: '太い線でしっかりぬりつぶす', correct: false },
+      ],
+      explanation:
+        '<strong>正解はC</strong>です。理科のスケッチは<ruby>細<rp>(</rp><rt>ほそ</rt><rp>)</rp></ruby>い1本の線で<ruby>輪郭<rp>(</rp><rt>りんかく</rt><rp>)</rp></ruby>を<ruby>描<rp>(</rp><rt>か</rt><rp>)</rp></ruby>き、<ruby>影<rp>(</rp><rt>かげ</rt><rp>)</rp></ruby>やぬりつぶしはしません。',
+    },
+    {
       type: 'date',
       text: 'ルーペと<ruby>顕微鏡<rp>(</rp><rt>けんびきょう</rt><rp>)</rp></ruby>の使い方',
     },
@@ -160,6 +172,18 @@ export const observationChat: HistoryChat = {
       text: '<span class="keyword">ルーペ</span>：目に近づけて固定、観察物を動かす。<span class="keyword">顕微鏡</span>：接眼レンズ→対物レンズの順に取り付け、低倍率から観察',
     },
     {
+      type: 'quiz',
+      question: '顕微鏡のレンズを取り付ける正しい順番はどれ？',
+      options: [
+        { letter: 'A', text: '接眼レンズ→対物レンズ', correct: true },
+        { letter: 'B', text: '対物レンズ→接眼レンズ', correct: false },
+        { letter: 'C', text: '同時に取り付ける', correct: false },
+        { letter: 'D', text: 'どちらからでもよい', correct: false },
+      ],
+      explanation:
+        '<strong>正解はA</strong>です。<ruby>接眼<rp>(</rp><rt>せつがん</rt><rp>)</rp></ruby>レンズを先に取り付けることで、<ruby>鏡筒<rp>(</rp><rt>きょうとう</rt><rp>)</rp></ruby>にほこりが入るのを<ruby>防<rp>(</rp><rt>ふせ</rt><rp>)</rp></ruby>ぎます。',
+    },
+    {
       type: 'date',
       text: '<ruby>生物<rp>(</rp><rt>せいぶつ</rt><rp>)</rp></ruby>の<ruby>分類<rp>(</rp><rt>ぶんるい</rt><rp>)</rp></ruby>のしかた',
     },
@@ -198,6 +222,18 @@ export const observationChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<span class="keyword">分類</span>＝共通点・相違点に注目してグループ分け。科学的な分類では<span class="keyword">体のつくり</span>など変化しにくい特徴を基準にする',
+    },
+    {
+      type: 'quiz',
+      question: '生物の分類で基準にするのに最も適しているものはどれ？',
+      options: [
+        { letter: 'A', text: '花の色', correct: false },
+        { letter: 'B', text: '生息している場所', correct: false },
+        { letter: 'C', text: '個体の大きさ', correct: false },
+        { letter: 'D', text: '体のつくりなど変化しにくい特徴', correct: true },
+      ],
+      explanation:
+        '<strong>正解はD</strong>です。花の<ruby>色<rp>(</rp><rt>いろ</rt><rp>)</rp></ruby>や大きさは<ruby>環境<rp>(</rp><rt>かんきょう</rt><rp>)</rp></ruby>で変わるため、体のつくりなど変化しにくい<ruby>特徴<rp>(</rp><rt>とくちょう</rt><rp>)</rp></ruby>を<ruby>基準<rp>(</rp><rt>きじゅん</rt><rp>)</rp></ruby>にします。',
     },
     {
       type: 'end',

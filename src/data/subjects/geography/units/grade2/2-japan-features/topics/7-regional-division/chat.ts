@@ -88,8 +88,30 @@ export const regionalDivisionChat: HistoryChat = {
       text: '<span class="keyword">地域区分</span>：さまざまな基準で地域を分けること',
     },
     {
+      type: 'quiz',
+      question: '地域区分の基準として使われないものはどれ？',
+      options: [
+        { letter: 'A', text: '地形や気候', correct: false },
+        { letter: 'B', text: '人口や産業', correct: false },
+        { letter: 'C', text: '言語や方言', correct: false },
+        { letter: 'D', text: '地域区分に使えない基準はない', correct: true },
+      ],
+      explanation: '<strong>正解はD</strong>です。地形・気候・人口・産業・文化などさまざまな<ruby>基準<rp>(</rp><rt>きじゅん</rt><rp>)</rp></ruby>で地域を区分できます。',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">自然的特徴</span>（地形・気候）と<span class="keyword">人文的特徴</span>（人口・産業）で区分',
+    },
+    {
+      type: 'quiz',
+      question: '人口や産業などの特徴による地域区分の基準を何というか？',
+      options: [
+        { letter: 'A', text: '自然的特徴', correct: false },
+        { letter: 'B', text: '人文的特徴', correct: true },
+        { letter: 'C', text: '歴史的特徴', correct: false },
+        { letter: 'D', text: '経済的特徴', correct: false },
+      ],
+      explanation: '<strong>正解はB</strong>です。人口・産業・文化などの特徴を<ruby>人文的<rp>(</rp><rt>じんぶんてき</rt><rp>)</rp></ruby>特徴といい、地形・気候は<ruby>自然的<rp>(</rp><rt>しぜんてき</rt><rp>)</rp></ruby>特徴です。',
     },
     {
       type: 'date',
@@ -137,6 +159,17 @@ export const regionalDivisionChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<span class="keyword">標高</span>・<span class="keyword">人口密度</span>・<span class="keyword">産業別就業者数</span>・<span class="keyword">移動時間</span>など多様な視点',
+    },
+    {
+      type: 'quiz',
+      question: '都市部と農村部に分ける地域区分で使う視点はどれ？',
+      options: [
+        { letter: 'A', text: '標高', correct: false },
+        { letter: 'B', text: '移動時間', correct: false },
+        { letter: 'C', text: '人口密度', correct: true },
+        { letter: 'D', text: '気温', correct: false },
+      ],
+      explanation: '<strong>正解はC</strong>です。<ruby>人口密度<rp>(</rp><rt>じんこうみつど</rt><rp>)</rp></ruby>の<ruby>違<rp>(</rp><rt>ちが</rt><rp>)</rp></ruby>いで都市部と農村部を区分できます。',
     },
     {
       type: 'date',
@@ -191,6 +224,17 @@ export const regionalDivisionChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<span class="keyword">7つの地方区分</span>：北海道・東北・関東・中部・近畿・中国四国・九州',
+    },
+    {
+      type: 'quiz',
+      question: '7地方区分だけでは捉えきれない特色の例として正しいものはどれ？',
+      options: [
+        { letter: 'A', text: '北海道は面積が広い', correct: false },
+        { letter: 'B', text: '同じ中部地方でも日本海側と太平洋側で気候が異なる', correct: true },
+        { letter: 'C', text: '九州は南に位置する', correct: false },
+        { letter: 'D', text: '関東は人口が多い', correct: false },
+      ],
+      explanation: '<strong>正解はB</strong>です。同じ<ruby>中部地方<rp>(</rp><rt>ちゅうぶちほう</rt><rp>)</rp></ruby>でも日本海側と太平洋側では気候が大きく異なるため、7地方区分だけでは<ruby>捉<rp>(</rp><rt>とら</rt><rp>)</rp></ruby>えきれません。',
     },
     {
       type: 'summary-point',
