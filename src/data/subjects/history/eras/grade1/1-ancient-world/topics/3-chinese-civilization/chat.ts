@@ -7,8 +7,8 @@ export const chineseCivilizationChat: HistoryChat = {
   subtitle: '〜紀元前〜 殷・周から秦・漢の統一帝国へ',
   characters: [
     {
-      id: 'confucius',
-      name: '孔子先生',
+      id: 'teacher',
+      name: '先生',
       emoji: '👴',
       colorFrom: '#dc2626',
       colorTo: '#f87171',
@@ -45,23 +45,23 @@ export const chineseCivilizationChat: HistoryChat = {
     {
       type: 'message',
       side: 'left',
-      characterId: 'confucius',
+      characterId: 'teacher',
       expression: 'explaining',
-      text: '<span data-tooltip="亀の甲羅や牛の骨に刻まれた中国最古の文字。占いの結果を記録した"><strong>甲骨文字</strong></span>は<ruby>亀<rp>(</rp><rt>かめ</rt><rp>)</rp></ruby>の<ruby>甲羅<rp>(</rp><rt>こうら</rt><rp>)</rp></ruby>や牛の骨に<ruby>刻<rp>(</rp><rt>きざ</rt><rp>)</rp></ruby>まれた文字じゃ。<ruby>占<rp>(</rp><rt>うらな</rt><rp>)</rp></ruby>いの結果を記録するために使われたのじゃよ',
+      text: '<span data-tooltip="亀の甲羅や牛の骨に刻まれた中国最古の文字。占いの結果を記録した"><strong>甲骨文字</strong></span>は<ruby>亀<rp>(</rp><rt>かめ</rt><rp>)</rp></ruby>の<ruby>甲羅<rp>(</rp><rt>こうら</rt><rp>)</rp></ruby>や牛の骨に<ruby>刻<rp>(</rp><rt>きざ</rt><rp>)</rp></ruby>まれた文字だよ。<ruby>占<rp>(</rp><rt>うらな</rt><rp>)</rp></ruby>いの結果を記録するために使われたんだ',
     },
     {
       type: 'message',
       side: 'right',
       characterId: 'student',
       expression: 'curious',
-      text: '孔子先生は何を教えていたんですか？',
+      text: '孔子はどんなことを教えていたんですか？',
     },
     {
       type: 'message',
       side: 'left',
-      characterId: 'confucius',
+      characterId: 'teacher',
       expression: 'happy',
-      text: '人を思いやる心「<strong><span class="keyword"><ruby>仁<rp>(</rp><rt>じん</rt><rp>)</rp></ruby></span></strong>」と社会の<ruby>秩序<rp>(</rp><rt>ちつじょ</rt><rp>)</rp></ruby>を守る「<strong><span class="keyword"><ruby>礼<rp>(</rp><rt>れい</rt><rp>)</rp></ruby></span></strong>」が大切じゃ。これが<ruby>儒教<rp>(</rp><rt>じゅきょう</rt><rp>)</rp></ruby>の<ruby>基礎<rp>(</rp><rt>きそ</rt><rp>)</rp></ruby>となったのじゃよ',
+      text: '孔子は人を思いやる心「<strong><span class="keyword"><ruby>仁<rp>(</rp><rt>じん</rt><rp>)</rp></ruby></span></strong>」と社会の<ruby>秩序<rp>(</rp><rt>ちつじょ</rt><rp>)</rp></ruby>を守る「<strong><span class="keyword"><ruby>礼<rp>(</rp><rt>れい</rt><rp>)</rp></ruby></span></strong>」が大切だと説いたんだ。これが<ruby>儒教<rp>(</rp><rt>じゅきょう</rt><rp>)</rp></ruby>の<ruby>基礎<rp>(</rp><rt>きそ</rt><rp>)</rp></ruby>になったんだよ',
     },
     {
       type: 'message',
@@ -73,9 +73,9 @@ export const chineseCivilizationChat: HistoryChat = {
     {
       type: 'message',
       side: 'left',
-      characterId: 'confucius',
+      characterId: 'teacher',
       expression: 'excited',
-      text: 'よく知っておるな！<ruby>弟子<rp>(</rp><rt>でし</rt><rp>)</rp></ruby>たちがわしの教えをまとめてくれたのじゃ。<strong>論語</strong>は今でも多くの人に読まれておる',
+      text: 'よく知ってるね！<ruby>弟子<rp>(</rp><rt>でし</rt><rp>)</rp></ruby>たちが孔子の教えをまとめたんだ。<strong>論語</strong>は今でも多くの人に読まれているよ',
     },
     {
       type: 'summary-point',
@@ -99,9 +99,9 @@ export const chineseCivilizationChat: HistoryChat = {
     {
       type: 'message',
       side: 'left',
-      characterId: 'confucius',
+      characterId: 'teacher',
       expression: 'explaining',
-      text: '<span data-tooltip="秦の王で、紀元前221年に初めて中国を統一した人物。文字や度量衡を統一した"><strong>始皇帝</strong></span>は<ruby>秦<rp>(</rp><rt>しん</rt><rp>)</rp></ruby>の王で、文字や<ruby>度量衡<rp>(</rp><rt>どりょうこう</rt><rp>)</rp></ruby>を統一したんじゃ。しかし<ruby>厳<rp>(</rp><rt>きび</rt><rp>)</rp></ruby>しい政治で民を<ruby>苦<rp>(</rp><rt>くる</rt><rp>)</rp></ruby>しめた面もある',
+      text: '<span data-tooltip="秦の王で、紀元前221年に初めて中国を統一した人物。文字や度量衡を統一した"><strong>始皇帝</strong></span>は<ruby>秦<rp>(</rp><rt>しん</rt><rp>)</rp></ruby>の王で、文字や<ruby>度量衡<rp>(</rp><rt>どりょうこう</rt><rp>)</rp></ruby>を統一したんだ。ただし<ruby>厳<rp>(</rp><rt>きび</rt><rp>)</rp></ruby>しい政治で民を<ruby>苦<rp>(</rp><rt>くる</rt><rp>)</rp></ruby>しめた面もあるよ',
     },
     {
       type: 'message',
@@ -120,23 +120,23 @@ export const chineseCivilizationChat: HistoryChat = {
     {
       type: 'message',
       side: 'left',
-      characterId: 'confucius',
+      characterId: 'teacher',
       expression: 'thinking',
-      text: '<strong><span class="keyword"><ruby>焚書坑儒<rp>(</rp><rt>ふんしょこうじゅ</rt><rp>)</rp></ruby></span></strong>じゃな…。書物を<ruby>焼<rp>(</rp><rt>や</rt><rp>)</rp></ruby>き、<ruby>儒学者<rp>(</rp><rt>じゅがくしゃ</rt><rp>)</rp></ruby>を<ruby>弾圧<rp>(</rp><rt>だんあつ</rt><rp>)</rp></ruby>した。<ruby>厳<rp>(</rp><rt>きび</rt><rp>)</rp></ruby>しい政治で民を苦しめ、秦はわずか15年で<ruby>滅<rp>(</rp><rt>ほろ</rt><rp>)</rp></ruby>んだのじゃ',
+      text: '<strong><span class="keyword"><ruby>焚書坑儒<rp>(</rp><rt>ふんしょこうじゅ</rt><rp>)</rp></ruby></span></strong>だね…。書物を<ruby>焼<rp>(</rp><rt>や</rt><rp>)</rp></ruby>き、<ruby>儒学者<rp>(</rp><rt>じゅがくしゃ</rt><rp>)</rp></ruby>を<ruby>弾圧<rp>(</rp><rt>だんあつ</rt><rp>)</rp></ruby>したんだ。<ruby>厳<rp>(</rp><rt>きび</rt><rp>)</rp></ruby>しい政治で民を苦しめ、秦はわずか15年で<ruby>滅<rp>(</rp><rt>ほろ</rt><rp>)</rp></ruby>んでしまったよ',
     },
     {
       type: 'message',
       side: 'left',
-      characterId: 'confucius',
+      characterId: 'teacher',
       expression: 'happy',
-      text: 'その後、<strong><span class="keyword"><ruby>劉邦<rp>(</rp><rt>りゅうほう</rt><rp>)</rp></ruby></span></strong>が<strong><span class="keyword"><ruby>漢<rp>(</rp><rt>かん</rt><rp>)</rp></ruby></span></strong>を<ruby>建国<rp>(</rp><rt>けんこく</rt><rp>)</rp></ruby>したのじゃ。漢ではわしの教え＝<strong><ruby>儒教<rp>(</rp><rt>じゅきょう</rt><rp>)</rp></ruby></strong>が国の学問として<ruby>採用<rp>(</rp><rt>さいよう</rt><rp>)</rp></ruby>されたんじゃよ',
+      text: 'その後、<strong><span class="keyword"><ruby>劉邦<rp>(</rp><rt>りゅうほう</rt><rp>)</rp></ruby></span></strong>が<strong><span class="keyword"><ruby>漢<rp>(</rp><rt>かん</rt><rp>)</rp></ruby></span></strong>を<ruby>建国<rp>(</rp><rt>けんこく</rt><rp>)</rp></ruby>したんだ。漢では孔子の教え＝<strong><ruby>儒教<rp>(</rp><rt>じゅきょう</rt><rp>)</rp></ruby></strong>が国の学問として<ruby>採用<rp>(</rp><rt>さいよう</rt><rp>)</rp></ruby>されたんだよ',
     },
     {
       type: 'message',
       side: 'left',
-      characterId: 'confucius',
+      characterId: 'teacher',
       expression: 'explaining',
-      text: '漢は<strong><span class="keyword">シルクロード</span></strong>を通じて西方と<ruby>交易<rp>(</rp><rt>こうえき</rt><rp>)</rp></ruby>したのじゃ。中国の<ruby>絹<rp>(</rp><rt>きぬ</rt><rp>)</rp></ruby>がヨーロッパまで運ばれたんじゃよ',
+      text: '漢は<strong><span class="keyword">シルクロード</span></strong>を通じて西方と<ruby>交易<rp>(</rp><rt>こうえき</rt><rp>)</rp></ruby>したんだ。中国の<ruby>絹<rp>(</rp><rt>きぬ</rt><rp>)</rp></ruby>がヨーロッパまで運ばれたんだよ',
     },
     {
       type: 'message',

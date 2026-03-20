@@ -1,10 +1,18 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Check, X, RotateCcw, Trophy, RefreshCw, ChevronLeft, ChevronRight, Shuffle, Settings } from 'lucide-react';
+import { Check, X, RotateCcw, Trophy, RefreshCw, ChevronLeft, ChevronRight, Shuffle, Settings, MessageCircle } from 'lucide-react';
 import { useQuiz } from '../../hooks/useQuiz';
 import type { Quiz, QuizQuestion, Difficulty } from '../../data/types';
 import { MathText } from '../common/MathText';
+import { ProgressIndicator } from '../common/ProgressIndicator';
+import { buildChatGPTUrl } from '../../utils/chatgptPrompt';
 import QuizSetup, { type QuizSetupConfig } from './QuizSetup';
+
+interface ChatGPTInfo {
+  subjectId: string;
+  topicName: string;
+  topicSubtitle: string;
+}
 
 interface TopicNavigationInfo {
   prev: { name: string; path: string } | null;
@@ -20,42 +28,7 @@ interface QuizViewProps {
   isNewBest?: boolean;
   navigation?: TopicNavigationInfo;
   extraResultButtons?: React.ReactNode;
-}
-
-function ProgressDots({
-  current,
-  total,
-  isReviewMode,
-}: {
-  current: number;
-  total: number;
-  isReviewMode: boolean;
-}) {
-  return (
-    <div className="flex items-center justify-center gap-2">
-      <div className="flex gap-1.5">
-        {Array.from({ length: total }, (_, i) => (
-          <div
-            key={i}
-            className={`h-2.5 w-2.5 rounded-full transition-colors ${
-              i < current
-                ? isReviewMode
-                  ? 'bg-amber-500'
-                  : 'bg-gray-800'
-                : i === current
-                  ? isReviewMode
-                    ? 'bg-amber-300'
-                    : 'bg-gray-400'
-                  : 'bg-gray-200'
-            }`}
-          />
-        ))}
-      </div>
-      <span className="ml-2 text-sm font-bold text-gray-500">
-        Q{current + 1}/{total}
-      </span>
-    </div>
-  );
+  chatGPTInfo?: ChatGPTInfo;
 }
 
 function ResultMessage({ percentage }: { percentage: number }) {
@@ -183,13 +156,14 @@ function ReorderQuestionInput({
   );
 }
 
-export function QuizView({ quiz, onProgressChange, onComplete, onCompleteWithDifficulties, onCompleteWithWrongQuestions, isNewBest, navigation, extraResultButtons }: QuizViewProps) {
+export function QuizView({ quiz, onProgressChange, onComplete, onCompleteWithDifficulties, onCompleteWithWrongQuestions, isNewBest, navigation, extraResultButtons, chatGPTInfo }: QuizViewProps) {
   // セットアップ状態
   const [setupComplete, setSetupComplete] = useState(false);
   const [activeQuestions, setActiveQuestions] = useState<QuizQuestion[]>([]);
   const [selectedDifficulties, setSelectedDifficulties] = useState<Difficulty[]>([]);
   const [setupConfig, setSetupConfig] = useState<QuizSetupConfig | null>(null);
   const [quizGeneration, setQuizGeneration] = useState(0);
+  const [usedQuestionIds, setUsedQuestionIds] = useState<Set<string>>(new Set());
 
   const filteredQuiz = useMemo<Quiz>(() => {
     if (!setupComplete) return quiz;
@@ -248,7 +222,7 @@ export function QuizView({ quiz, onProgressChange, onComplete, onCompleteWithDif
     }
   }, [isComplete, isReviewMode, score, filteredQuiz.questions.length, onComplete, onCompleteWithDifficulties, onCompleteWithWrongQuestions, wrongAnswers, filteredQuiz.questions, selectedDifficulties]);
 
-  // 別の問題を解く: 同じ設定で再選定
+  // 別の問題を解く: 同じ設定で再選定（出題済み問題を除外）
   const handleNewQuestions = () => {
     if (!setupConfig) return;
     const allQuestions = quiz.questions;
@@ -258,13 +232,43 @@ export function QuizView({ quiz, onProgressChange, onComplete, onCompleteWithDif
     const count = setupConfig.questionCount === null || setupConfig.questionCount >= filtered.length
       ? filtered.length
       : setupConfig.questionCount;
+
+    // 未使用問題と使用済み問題を分離
+    const unused = filtered.filter((q) => !usedQuestionIds.has(q.id));
+    const used = filtered.filter((q) => usedQuestionIds.has(q.id));
+
     let selected: QuizQuestion[];
-    if (setupConfig.shuffleOrder) {
-      const shuffled = [...filtered].sort(() => Math.random() - 0.5);
-      selected = shuffled.slice(0, count);
+    if (unused.length >= count) {
+      // 未使用問題だけで足りる場合
+      if (setupConfig.shuffleOrder) {
+        const shuffled = [...unused].sort(() => Math.random() - 0.5);
+        selected = shuffled.slice(0, count);
+      } else {
+        selected = unused.slice(0, count);
+      }
+      // 出題済みに追加
+      setUsedQuestionIds((prev) => {
+        const next = new Set(prev);
+        for (const q of selected) next.add(q.id);
+        return next;
+      });
     } else {
-      selected = filtered.slice(0, count);
+      // 未使用問題が足りない場合: 未使用を全て使い、不足分を使用済みから補充
+      const remaining = count - unused.length;
+      let supplement: QuizQuestion[];
+      if (setupConfig.shuffleOrder) {
+        supplement = [...used].sort(() => Math.random() - 0.5).slice(0, remaining);
+        selected = [...unused, ...supplement].sort(() => Math.random() - 0.5);
+      } else {
+        supplement = used.slice(0, remaining);
+        // 元のfiltered配列内の順序を維持
+        const selectedIds = new Set([...unused, ...supplement].map((q) => q.id));
+        selected = filtered.filter((q) => selectedIds.has(q.id));
+      }
+      // 出題履歴をリセットして今回分を記録
+      setUsedQuestionIds(new Set(selected.map((q) => q.id)));
     }
+
     setActiveQuestions(selected);
     setQuizGeneration((g) => g + 1);
   };
@@ -274,6 +278,7 @@ export function QuizView({ quiz, onProgressChange, onComplete, onCompleteWithDif
     reset();
     setSetupComplete(false);
     setSetupConfig(null);
+    setUsedQuestionIds(new Set());
   };
 
   // セットアップ画面
@@ -285,6 +290,7 @@ export function QuizView({ quiz, onProgressChange, onComplete, onCompleteWithDif
           setActiveQuestions(filtered);
           setSelectedDifficulties(difficulties);
           setSetupConfig(config);
+          setUsedQuestionIds(new Set(filtered.map((q) => q.id)));
           setSetupComplete(true);
         }}
       />
@@ -306,7 +312,7 @@ export function QuizView({ quiz, onProgressChange, onComplete, onCompleteWithDif
     const retryCount = isReviewMode ? reviewWrongAnswers.length : wrongAnswers.length;
 
     return (
-      <div className="flex h-full flex-col items-center justify-center px-4 pb-16">
+      <div className="h-full overflow-y-auto px-4 py-8">
         <div className="mx-auto flex w-full max-w-md flex-col items-center">
           <div className="mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-amber-50">
             <Trophy className="h-10 w-10 text-amber-500" />
@@ -387,6 +393,42 @@ export function QuizView({ quiz, onProgressChange, onComplete, onCompleteWithDif
             </div>
           )}
 
+          {/* ChatGPTでもっと深く知る */}
+          {chatGPTInfo && (
+            <div className="mt-6 w-full max-w-xs">
+              <div className="rounded-xl bg-gray-50 p-4">
+                <p
+                  className="mb-2 text-sm font-bold text-gray-700"
+                  style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+                >
+                  🎓 AI先生ともっと深く学ぼう！
+                </p>
+                <p className="mb-3 text-sm text-gray-600">
+                  ChatGPTのAI先生と対話しながら、理解を深めよう！
+                </p>
+                <button
+                  onClick={() => {
+                    const url = buildChatGPTUrl({
+                      title: chatGPTInfo.topicName,
+                      subtitle: chatGPTInfo.topicSubtitle,
+                      points: [],
+                      subjectId: chatGPTInfo.subjectId,
+                    });
+                    window.open(url, '_blank', 'noopener,noreferrer');
+                  }}
+                  className="flex w-full items-center justify-center gap-2 rounded-full border-2 border-gray-200 bg-white px-4 py-2.5 text-sm font-medium text-gray-700 shadow-sm transition-transform active:scale-95"
+                  style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+                >
+                  <MessageCircle className="h-4 w-4" />
+                  ChatGPTでもっと深く知る
+                </button>
+                <p className="mt-2 text-center text-xs text-gray-500">
+                  💡 開いたら 送信ボタン を押すだけで会話スタート！
+                </p>
+              </div>
+            </div>
+          )}
+
           {/* 前後の内容へのナビゲーション */}
           {navigation && (navigation.prev || navigation.next) && (
             <div className="mt-6 w-full max-w-xs space-y-2">
@@ -463,10 +505,10 @@ export function QuizView({ quiz, onProgressChange, onComplete, onCompleteWithDif
               </span>
             </div>
           )}
-          <ProgressDots
+          <ProgressIndicator
             current={currentIndex}
             total={totalQuestions}
-            isReviewMode={isReviewMode}
+            variant={isReviewMode ? 'review' : 'default'}
           />
 
           <div

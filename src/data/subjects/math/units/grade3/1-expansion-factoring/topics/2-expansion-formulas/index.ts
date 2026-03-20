@@ -562,7 +562,7 @@ export const expansionFormulas: Topic = {
           id: 'math-g3-ef-q25',
           question: '$(x + 3)(x + 3)$ は何の公式と同じ？',
           options: [
-            '公式1のみ',
+            '公式1',
             '公式2 $(a+b)^2$',
             '公式4 $(a+b)(a-b)$',
             'どの公式でもない',

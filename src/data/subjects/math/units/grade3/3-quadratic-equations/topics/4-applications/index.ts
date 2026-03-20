@@ -236,9 +236,9 @@ export const quadEqApps: Topic = {
           question:
             '二次方程式の利用で、解が $x = 5$ と $x = -3$ と出た。「長さ」を求める問題のとき、答えは？',
           options: [
-            '$x = 5$ のみ',
+            '$x = 5$',
             '$x = 5$ と $x = -3$',
-            '$x = -3$ のみ',
+            '$x = -3$',
             '解なし',
           ],
           correctIndex: 0,
@@ -316,10 +316,10 @@ export const quadEqApps: Topic = {
           question:
             '上の問題で面積が6cm²になるのはいつか。',
           options: [
-            '$2$秒後のみ',
+            '$2$秒後',
             '$2$秒後と$6$秒後',
-            '$6$秒後のみ',
-            '$4$秒後のみ',
+            '$6$秒後',
+            '$4$秒後',
           ],
           correctIndex: 1,
           explanation:
@@ -416,8 +416,8 @@ export const quadEqApps: Topic = {
           question:
             '正方形ABCD（1辺6cm）でPがA→B、QがB→Cに毎秒1cmで動く。△BPQの面積が4cm²になるのは？',
           options: [
-            '$2$秒後のみ',
-            '$4$秒後のみ',
+            '$2$秒後',
+            '$4$秒後',
             '$2$秒後と$4$秒後',
             '$1$秒後と$5$秒後',
           ],

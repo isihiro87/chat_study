@@ -190,8 +190,8 @@ export const rationalizationChat: HistoryChat = {
       type: 'quiz',
       question: '$\\frac{4}{\\sqrt{2}}$ を<ruby>有理化<rt>ゆうりか</rt></ruby>すると？',
       options: [
-        { letter: 'A', text: '$4\\sqrt{2}$', correct: false },
-        { letter: 'B', text: '$2\\sqrt{2}$', correct: true },
+        { letter: 'A', text: '$2\\sqrt{2}$', correct: true },
+        { letter: 'B', text: '$4\\sqrt{2}$', correct: false },
         { letter: 'C', text: '$\\frac{\\sqrt{2}}{4}$', correct: false },
         { letter: 'D', text: '$\\frac{4\\sqrt{2}}{4}$', correct: false },
       ],
@@ -207,8 +207,8 @@ export const rationalizationChat: HistoryChat = {
       question: '$\\frac{10}{\\sqrt{5}}$ を<ruby>有理化<rt>ゆうりか</rt></ruby>すると？',
       options: [
         { letter: 'A', text: '$\\frac{10\\sqrt{5}}{5}$', correct: false },
-        { letter: 'B', text: '$2\\sqrt{5}$', correct: true },
-        { letter: 'C', text: '$10\\sqrt{5}$', correct: false },
+        { letter: 'B', text: '$10\\sqrt{5}$', correct: false },
+        { letter: 'C', text: '$2\\sqrt{5}$', correct: true },
         { letter: 'D', text: '$5\\sqrt{2}$', correct: false },
       ],
       explanation:
@@ -269,9 +269,9 @@ export const rationalizationChat: HistoryChat = {
       question: '$\\frac{6}{\\sqrt{12}}$ を<ruby>有理化<rt>ゆうりか</rt></ruby>すると？',
       options: [
         { letter: 'A', text: '$\\frac{6\\sqrt{12}}{12}$', correct: false },
-        { letter: 'B', text: '$\\sqrt{3}$', correct: true },
-        { letter: 'C', text: '$2\\sqrt{3}$', correct: false },
-        { letter: 'D', text: '$\\frac{\\sqrt{3}}{2}$', correct: false },
+        { letter: 'B', text: '$2\\sqrt{3}$', correct: false },
+        { letter: 'C', text: '$\\frac{\\sqrt{3}}{2}$', correct: false },
+        { letter: 'D', text: '$\\sqrt{3}$', correct: true },
       ],
       explanation:
         '<ruby>先<rt>さき</rt></ruby>に $\\sqrt{12} = 2\\sqrt{3}$ にして、$\\frac{6}{2\\sqrt{3}} = \\frac{3}{\\sqrt{3}} = \\frac{3\\sqrt{3}}{3} = \\sqrt{3}$。',
@@ -314,8 +314,8 @@ export const rationalizationChat: HistoryChat = {
       type: 'quiz',
       question: '$\\sqrt{3} = 1.732$ として $\\frac{6}{\\sqrt{3}}$ の<ruby>値<rt>あたい</rt></ruby>は？',
       options: [
-        { letter: 'A', text: '$1.732$', correct: false },
-        { letter: 'B', text: '$3.464$', correct: true },
+        { letter: 'A', text: '$3.464$', correct: true },
+        { letter: 'B', text: '$1.732$', correct: false },
         { letter: 'C', text: '$5.196$', correct: false },
         { letter: 'D', text: '$0.577$', correct: false },
       ],

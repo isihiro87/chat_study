@@ -1,19 +1,27 @@
 import { useState, useEffect, useRef, useMemo } from 'react';
 import { motion, AnimatePresence, useMotionValue, useTransform, type PanInfo } from 'framer-motion';
-import { RotateCcw, Check, ChevronLeft, ChevronRight, Layers, ArrowLeft, ArrowRight, AlertTriangle } from 'lucide-react';
+import { RotateCcw, Check, ChevronLeft, ChevronRight, Layers, ArrowLeft, ArrowRight, AlertTriangle, MessageCircle } from 'lucide-react';
 import { useFlashcard } from '../../hooks/useFlashcard';
 import type { Flashcard } from '../../data/types';
 import { MathText } from '../common/MathText';
+import { ProgressIndicator } from '../common/ProgressIndicator';
+import { buildChatGPTUrl } from '../../utils/chatgptPrompt';
 import FlashcardSetup from './FlashcardSetup';
 
+interface ChatGPTInfo {
+  subjectId: string;
+  topicName: string;
+  topicSubtitle: string;
+}
 
 interface FlashcardDeckProps {
   cards: Flashcard[];
   onProgressChange?: (current: number, total: number) => void;
   onComplete?: () => void;
+  chatGPTInfo?: ChatGPTInfo;
 }
 
-export function FlashcardDeck({ cards, onProgressChange, onComplete }: FlashcardDeckProps) {
+export function FlashcardDeck({ cards, onProgressChange, onComplete, chatGPTInfo }: FlashcardDeckProps) {
   // セットアップ状態
   const [setupComplete, setSetupComplete] = useState(false);
   const [activeCards, setActiveCards] = useState<Flashcard[]>(cards);
@@ -240,6 +248,42 @@ export function FlashcardDeck({ cards, onProgressChange, onComplete }: Flashcard
             最初からやり直す
           </button>
         </div>
+
+        {/* ChatGPTでもっと深く知る */}
+        {chatGPTInfo && (
+          <div className="mt-4 w-full max-w-xs">
+            <div className="rounded-xl bg-gray-50 p-4">
+              <p
+                className="mb-2 text-sm font-bold text-gray-700"
+                style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+              >
+                🎓 AI先生ともっと深く学ぼう！
+              </p>
+              <p className="mb-3 text-sm text-gray-600">
+                ChatGPTのAI先生と対話しながら、理解を深めよう！
+              </p>
+              <button
+                onClick={() => {
+                  const url = buildChatGPTUrl({
+                    title: chatGPTInfo.topicName,
+                    subtitle: chatGPTInfo.topicSubtitle,
+                    points: [],
+                    subjectId: chatGPTInfo.subjectId,
+                  });
+                  window.open(url, '_blank', 'noopener,noreferrer');
+                }}
+                className="flex w-full items-center justify-center gap-2 rounded-full border-2 border-gray-200 bg-white px-4 py-2.5 text-sm font-medium text-gray-700 shadow-sm transition-transform active:scale-95"
+                style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+              >
+                <MessageCircle className="h-4 w-4" />
+                ChatGPTでもっと深く知る
+              </button>
+              <p className="mt-2 text-center text-xs text-gray-500">
+                💡 開いたら 送信ボタン を押すだけで会話スタート！
+              </p>
+            </div>
+          </div>
+        )}
       </div>
     );
   }
@@ -386,7 +430,7 @@ export function FlashcardDeck({ cards, onProgressChange, onComplete }: Flashcard
     setDragDirection(null);
   };
 
-  const currentCards = isReviewMode ? reviewCount : cards.length;
+  const currentCards = isReviewMode ? reviewCount : totalCards;
   const canGoPrev = currentIndex > 0;
   const canGoNext = currentIndex < currentCards - 1;
 
@@ -532,21 +576,13 @@ export function FlashcardDeck({ cards, onProgressChange, onComplete }: Flashcard
 
         {/* ナビゲーションエリア */}
         <div className="flex flex-shrink-0 flex-col items-center gap-2 py-2">
-          {/* ドットインジケーター */}
-          <div className="flex gap-1.5">
-            {(isReviewMode ? Array(reviewCount).fill(0) : cards).map((_, index) => (
-              <div
-                key={index}
-                className={`h-2 rounded-full transition-all ${
-                  index === currentIndex
-                    ? 'w-6 bg-primary'
-                    : index < currentIndex
-                      ? 'w-2 bg-primary/40'
-                      : 'w-2 bg-gray-300'
-                }`}
-              />
-            ))}
-          </div>
+          {/* プログレスインジケーター */}
+          <ProgressIndicator
+            current={currentIndex}
+            total={isReviewMode ? reviewCount : totalCards}
+            variant={isReviewMode ? 'review' : 'default'}
+            showLabel={false}
+          />
 
           {/* 前後ナビボタン（下部、目立たないデザイン） */}
           <div className="flex items-center gap-8">
@@ -561,8 +597,8 @@ export function FlashcardDeck({ cards, onProgressChange, onComplete }: Flashcard
               <ChevronLeft className="h-4 w-4" />
               <span>前へ</span>
             </button>
-            <span className="text-xs text-gray-400">
-              {currentIndex + 1} / {isReviewMode ? reviewCount : cards.length}
+            <span className="w-12 text-center text-xs text-gray-400">
+              {currentIndex + 1}/{isReviewMode ? reviewCount : totalCards}
             </span>
             <button
               onClick={(e) => {

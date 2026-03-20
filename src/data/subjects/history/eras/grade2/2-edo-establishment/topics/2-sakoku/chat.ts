@@ -7,8 +7,8 @@ export const sakokuChat: HistoryChat = {
   subtitle: '〜江戸時代〜 キリスト教禁止と貿易統制',
   characters: [
     {
-      id: 'iemitsu',
-      name: '家光先生',
+      id: 'teacher',
+      name: '先生',
       emoji: '👑',
       colorFrom: '#7c3aed',
       colorTo: '#a78bfa',
@@ -45,7 +45,7 @@ export const sakokuChat: HistoryChat = {
     {
       type: 'message',
       side: 'left',
-      characterId: 'iemitsu',
+      characterId: 'teacher',
       expression: 'explaining',
       text: '<span data-tooltip="幕府が許可証（朱印状）を与えた船による貿易。東南アジア各地と行われた"><strong>朱印船貿易</strong></span>で東南アジアとの交流が盛んだったけど、キリスト教が広がりすぎて幕府は危機感を持ったんだ',
     },
@@ -59,7 +59,7 @@ export const sakokuChat: HistoryChat = {
     {
       type: 'message',
       side: 'left',
-      characterId: 'iemitsu',
+      characterId: 'teacher',
       expression: 'thinking',
       text: 'キリスト教は「神の前に平等」と教えるから、<ruby>身分制度<rp>(</rp><rt>みぶんせいど</rt><rp>)</rp></ruby>で人々を<ruby>統制<rp>(</rp><rt>とうせい</rt><rp>)</rp></ruby>している幕府の支配を<ruby>揺<rp>(</rp><rt>ゆ</rt><rp>)</rp></ruby>るがしかねなかったんだよ',
     },
@@ -84,7 +84,7 @@ export const sakokuChat: HistoryChat = {
     {
       type: 'message',
       side: 'left',
-      characterId: 'iemitsu',
+      characterId: 'teacher',
       expression: 'excited',
       text: 'そう、<ruby>少年<rp>(</rp><rt>しょうねん</rt><rp>)</rp></ruby>の<strong>天草四郎</strong>を中心に立ち上がったんだ。この一揆をきっかけに幕府は<strong>禁教令</strong>をさらに厳しくしたよ',
     },
@@ -118,7 +118,7 @@ export const sakokuChat: HistoryChat = {
     {
       type: 'message',
       side: 'left',
-      characterId: 'iemitsu',
+      characterId: 'teacher',
       expression: 'explaining',
       text: 'オランダはキリスト教の<ruby>布教<rp>(</rp><rt>ふきょう</rt><rp>)</rp></ruby>をしなかったからだよ。こうしてヨーロッパではオランダだけが<span data-tooltip="長崎港に作られた人工の島。オランダ商館が置かれた"><strong>出島</strong></span>での貿易を認められたんだ',
     },
@@ -132,7 +132,7 @@ export const sakokuChat: HistoryChat = {
     {
       type: 'message',
       side: 'left',
-      characterId: 'iemitsu',
+      characterId: 'teacher',
       expression: 'happy',
       text: 'その通り！こうして<strong><span class="keyword"><ruby>鎖国<rp>(</rp><rt>さこく</rt><rp>)</rp></ruby></span></strong>が完成したんだ',
     },

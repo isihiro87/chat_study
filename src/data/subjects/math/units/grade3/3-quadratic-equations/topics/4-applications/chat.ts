@@ -368,7 +368,7 @@ export const quadEqAppsChat: HistoryChat = {
         { letter: 'A', text: '$3$ cmまたは$7$ cm', correct: false },
         { letter: 'B', text: '$4$ cmまたは$6$ cm', correct: true },
         { letter: 'C', text: '$2$ cmまたは$8$ cm', correct: false },
-        { letter: 'D', text: '$5$ cmのみ', correct: false },
+        { letter: 'D', text: '$5$ cm', correct: false },
       ],
       explanation:
         '$x(20-2x) = 48 \\rightarrow x^2 - 10x + 24 = 0 \\rightarrow (x-4)(x-6) = 0$。\n$x = 4$ cm または $x = 6$ cm。',

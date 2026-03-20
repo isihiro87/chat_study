@@ -7,8 +7,8 @@ export const edoBakufuChat: HistoryChat = {
   subtitle: '〜江戸時代〜 徳川家康と幕藩体制のはじまり',
   characters: [
     {
-      id: 'ieyasu',
-      name: '家康先生',
+      id: 'teacher',
+      name: '先生',
       emoji: '🏯',
       colorFrom: '#1e3a5f',
       colorTo: '#3b82f6',
@@ -45,7 +45,7 @@ export const edoBakufuChat: HistoryChat = {
     {
       type: 'message',
       side: 'left',
-      characterId: 'ieyasu',
+      characterId: 'teacher',
       expression: 'explaining',
       text: '<span data-tooltip="岐阜県関ケ原町で行われた、天下分け目の大合戦"><strong>関ヶ原の戦い</strong></span>では、<ruby>徳川家康<rp>(</rp><rt>とくがわいえやす</rt><rp>)</rp></ruby>率いる東軍と、<ruby>石田三成<rp>(</rp><rt>いしだみつなり</rt><rp>)</rp></ruby>率いる西軍がぶつかったんだ',
     },
@@ -59,7 +59,7 @@ export const edoBakufuChat: HistoryChat = {
     {
       type: 'message',
       side: 'left',
-      characterId: 'ieyasu',
+      characterId: 'teacher',
       expression: 'happy',
       text: '秀吉の死後、家康が力を持ちすぎることに不満を持った大名たちが西軍に集まったんだよ。結果、家康の東軍が勝利して天下を手にしたんだ',
     },
@@ -104,14 +104,14 @@ export const edoBakufuChat: HistoryChat = {
     {
       type: 'message',
       side: 'left',
-      characterId: 'ieyasu',
+      characterId: 'teacher',
       expression: 'explaining',
       text: '<strong>外様</strong>大名は信用が低いから、江戸から遠い場所に配置されたんだ。逆に<strong>譜代</strong>大名は要所に置かれたよ',
     },
     {
       type: 'message',
       side: 'left',
-      characterId: 'ieyasu',
+      characterId: 'teacher',
       expression: 'excited',
       text: 'さらに<strong><span class="keyword"><ruby>武家諸法度<rp>(</rp><rt>ぶけしょはっと</rt><rp>)</rp></ruby></span></strong>で大名のルールを定め、<strong><span class="keyword"><ruby>参勤交代<rp>(</rp><rt>さんきんこうたい</rt><rp>)</rp></ruby></span></strong>で1年おきに江戸と<ruby>領地<rp>(</rp><rt>りょうち</rt><rp>)</rp></ruby>を往復させたんだ',
     },
@@ -125,7 +125,7 @@ export const edoBakufuChat: HistoryChat = {
     {
       type: 'message',
       side: 'left',
-      characterId: 'ieyasu',
+      characterId: 'teacher',
       expression: 'thinking',
       text: '<span data-tooltip="大名が1年おきに領地と江戸を往復する制度。大名の経済力を弱め反乱を防ぐ目的があった"><strong>参勤交代</strong></span>は行列の費用が膨大だったから、大名の<ruby>経済力<rp>(</rp><rt>けいざいりょく</rt><rp>)</rp></ruby>を弱めて<ruby>反乱<rp>(</rp><rt>はんらん</rt><rp>)</rp></ruby>を防ぐ効果があったんだよ。こうして<strong><span class="keyword"><ruby>幕藩体制<rp>(</rp><rt>ばくはんたいせい</rt><rp>)</rp></ruby></span></strong>が築かれたんだ',
     },

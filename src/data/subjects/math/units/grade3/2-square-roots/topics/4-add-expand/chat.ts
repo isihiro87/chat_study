@@ -99,8 +99,8 @@ export const sqrtAddExpandChat: HistoryChat = {
       type: 'quiz',
       question: '$7\\sqrt{3} - 4\\sqrt{3}$ はいくつ？',
       options: [
-        { letter: 'A', text: '$3$', correct: false },
-        { letter: 'B', text: '$3\\sqrt{3}$', correct: true },
+        { letter: 'A', text: '$3\\sqrt{3}$', correct: true },
+        { letter: 'B', text: '$3$', correct: false },
         { letter: 'C', text: '$3\\sqrt{6}$', correct: false },
         { letter: 'D', text: '$11\\sqrt{3}$', correct: false },
       ],
@@ -195,8 +195,8 @@ export const sqrtAddExpandChat: HistoryChat = {
       type: 'quiz',
       question: '$(\\sqrt{7} + 3)(\\sqrt{7} - 3)$ を<ruby>計算<rt>けいさん</rt></ruby>すると？',
       options: [
-        { letter: 'A', text: '$-2$', correct: true },
-        { letter: 'B', text: '$4$', correct: false },
+        { letter: 'A', text: '$4$', correct: false },
+        { letter: 'B', text: '$-2$', correct: true },
         { letter: 'C', text: '$7 - 3\\sqrt{7}$', correct: false },
         { letter: 'D', text: '$16$', correct: false },
       ],
@@ -391,9 +391,9 @@ export const sqrtAddExpandChat: HistoryChat = {
       question: '$x = \\sqrt{3} - 2$ のとき $x^2 + 4x + 4$ の<ruby>値<rt>あたい</rt></ruby>は？',
       options: [
         { letter: 'A', text: '$7 + 4\\sqrt{3}$', correct: false },
-        { letter: 'B', text: '$3$', correct: true },
-        { letter: 'C', text: '$7 - 4\\sqrt{3}$', correct: false },
-        { letter: 'D', text: '$1$', correct: false },
+        { letter: 'B', text: '$7 - 4\\sqrt{3}$', correct: false },
+        { letter: 'C', text: '$1$', correct: false },
+        { letter: 'D', text: '$3$', correct: true },
       ],
       explanation:
         '$x^2 + 4x + 4 = (x + 2)^2$\n$x + 2 = \\sqrt{3} - 2 + 2 = \\sqrt{3}$ を<ruby>代入<rt>だいにゅう</rt></ruby>して $(\\sqrt{3})^2 = 3$！',

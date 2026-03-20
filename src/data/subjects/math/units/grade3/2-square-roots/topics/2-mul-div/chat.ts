@@ -261,9 +261,9 @@ export const sqrtMulDivChat: HistoryChat = {
       question: '$4\\sqrt{3}$ を $\\sqrt{\\text{□}}$ の<ruby>形<rt>かたち</rt></ruby>にすると？',
       options: [
         { letter: 'A', text: '$\\sqrt{12}$', correct: false },
-        { letter: 'B', text: '$\\sqrt{48}$', correct: true },
-        { letter: 'C', text: '$\\sqrt{24}$', correct: false },
-        { letter: 'D', text: '$\\sqrt{36}$', correct: false },
+        { letter: 'B', text: '$\\sqrt{24}$', correct: false },
+        { letter: 'C', text: '$\\sqrt{36}$', correct: false },
+        { letter: 'D', text: '$\\sqrt{48}$', correct: true },
       ],
       explanation:
         '$4\\sqrt{3} = \\sqrt{4^2 \\times 3} = \\sqrt{16 \\times 3} = \\sqrt{48}$\n<ruby>外<rt>そと</rt></ruby>の $4$ を2<ruby>乗<rt>じょう</rt></ruby>して<ruby>中<rt>なか</rt></ruby>に<ruby>入<rt>い</rt></ruby>れるよ。',
@@ -318,8 +318,8 @@ export const sqrtMulDivChat: HistoryChat = {
       type: 'quiz',
       question: '$\\sqrt{7} = 2.646$ として、$\\sqrt{63}$ の<ruby>値<rt>あたい</rt></ruby>は？',
       options: [
-        { letter: 'A', text: '$5.292$', correct: false },
-        { letter: 'B', text: '$7.938$', correct: true },
+        { letter: 'A', text: '$7.938$', correct: true },
+        { letter: 'B', text: '$5.292$', correct: false },
         { letter: 'C', text: '$26.46$', correct: false },
         { letter: 'D', text: '$18.522$', correct: false },
       ],

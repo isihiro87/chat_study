@@ -288,7 +288,7 @@ export const rateOfChangeChat: HistoryChat = {
       options: [
         { letter: 'A', text: '$x = 2$ と $x = -2$', correct: true },
         { letter: 'B', text: '$x = 4$ と $x = -4$', correct: false },
-        { letter: 'C', text: '$x = 2$ のみ', correct: false },
+        { letter: 'C', text: '$x = 2$', correct: false },
         { letter: 'D', text: '$x = 16$ と $x = -16$', correct: false },
       ],
       explanation:

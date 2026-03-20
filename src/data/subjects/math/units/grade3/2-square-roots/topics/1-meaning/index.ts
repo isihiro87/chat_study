@@ -269,7 +269,7 @@ export const sqrtMeaning: Topic = {
         {
           id: 'math-g3-sqrt-meaning-q16',
           question: '$0.6$, $-\\frac{5}{8}$, $\\sqrt{10}$, $-\\sqrt{3}$ のうち無理数をすべて選ぶと？',
-          options: ['$-\\frac{5}{8}$ と $-\\sqrt{3}$', '$\\sqrt{10}$ のみ', '$\\sqrt{10}$ と $-\\sqrt{3}$', '$0.6$ と $\\sqrt{10}$'],
+          options: ['$-\\frac{5}{8}$ と $-\\sqrt{3}$', '$\\sqrt{10}$', '$\\sqrt{10}$ と $-\\sqrt{3}$', '$0.6$ と $\\sqrt{10}$'],
           correctIndex: 2,
           explanation:
             '$0.6$ と $-\\frac{5}{8}$ は分数で表せるから有理数。$\\sqrt{10}$ と $-\\sqrt{3}$ は分数で表せないから無理数だよ。',
@@ -413,7 +413,7 @@ export const sqrtMeaning: Topic = {
         {
           id: 'math-g3-sqrt-meaning-q31',
           question: '次のうち無理数はどれ？ $0$, $-1$, $\\sqrt{16}$, $-\\sqrt{11}$, $\\frac{3}{5}$, $\\sqrt{5}$',
-          options: ['$\\sqrt{5}$ のみ', '$\\sqrt{16}$ と $\\sqrt{5}$', '$-1$ と $-\\sqrt{11}$', '$-\\sqrt{11}$ と $\\sqrt{5}$'],
+          options: ['$\\sqrt{5}$', '$\\sqrt{16}$ と $\\sqrt{5}$', '$-1$ と $-\\sqrt{11}$', '$-\\sqrt{11}$ と $\\sqrt{5}$'],
           correctIndex: 3,
           explanation:
             '$\\sqrt{16} = 4$ は整数で有理数。$-\\sqrt{11}$ と $\\sqrt{5}$ は分数で表せないから無理数だよ。',
@@ -517,7 +517,7 @@ export const sqrtMeaning: Topic = {
         {
           id: 'math-g3-sqrt-meaning-q42',
           question: '$-\\sqrt{16}$, $101$, $\\sqrt{12}$, $\\frac{3}{7}$, $-\\sqrt{\\frac{1}{9}}$ のうち整数はどれ？',
-          options: ['$-\\sqrt{16}$ と $101$', '$101$ のみ', '$-\\sqrt{16}$ と $\\sqrt{12}$', '$101$ と $\\frac{3}{7}$'],
+          options: ['$-\\sqrt{16}$ と $101$', '$101$', '$-\\sqrt{16}$ と $\\sqrt{12}$', '$101$ と $\\frac{3}{7}$'],
           correctIndex: 0,
           explanation:
             '$-\\sqrt{16} = -4$ は整数、$101$ は自然数（整数）。$\\sqrt{12}$ は無理数、$\\frac{3}{7}$ は分数、$-\\sqrt{\\frac{1}{9}} = -\\frac{1}{3}$ は分数だよ。',

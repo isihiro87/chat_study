@@ -94,8 +94,8 @@ export const sqrtMeaningChat: HistoryChat = {
       type: 'quiz',
       question: '2<ruby>乗<rt>じょう</rt></ruby>すると $36$ になる<ruby>正<rt>せい</rt></ruby>の<ruby>数<rt>かず</rt></ruby>は？',
       options: [
-        { letter: 'A', text: '$\\sqrt{6}$', correct: false },
-        { letter: 'B', text: '$6$', correct: true },
+        { letter: 'A', text: '$6$', correct: true },
+        { letter: 'B', text: '$\\sqrt{6}$', correct: false },
         { letter: 'C', text: '$18$', correct: false },
         { letter: 'D', text: '$\\pm 6$', correct: false },
       ],
@@ -204,8 +204,8 @@ export const sqrtMeaningChat: HistoryChat = {
       question: '$\\sqrt{16}$ は<ruby>有理数<rt>ゆうりすう</rt></ruby>？<ruby>無理数<rt>むりすう</rt></ruby>？',
       options: [
         { letter: 'A', text: '<ruby>無理数<rt>むりすう</rt></ruby>', correct: false },
-        { letter: 'B', text: '<ruby>有理数<rt>ゆうりすう</rt></ruby>', correct: true },
-        { letter: 'C', text: 'どちらでもない', correct: false },
+        { letter: 'B', text: 'どちらでもない', correct: false },
+        { letter: 'C', text: '<ruby>有理数<rt>ゆうりすう</rt></ruby>', correct: true },
         { letter: 'D', text: '<ruby>判断<rt>はんだん</rt></ruby>できない', correct: false },
       ],
       explanation:
@@ -266,9 +266,9 @@ export const sqrtMeaningChat: HistoryChat = {
       question: '$(-\\sqrt{11})^2$ はいくつ？',
       options: [
         { letter: 'A', text: '$-11$', correct: false },
-        { letter: 'B', text: '$11$', correct: true },
-        { letter: 'C', text: '$\\sqrt{11}$', correct: false },
-        { letter: 'D', text: '$121$', correct: false },
+        { letter: 'B', text: '$\\sqrt{11}$', correct: false },
+        { letter: 'C', text: '$121$', correct: false },
+        { letter: 'D', text: '$11$', correct: true },
       ],
       explanation:
         '$(-\\sqrt{11})^2 = (-\\sqrt{11}) \\times (-\\sqrt{11}) = 11$\n<ruby>負<rt>ふ</rt></ruby>の<ruby>数<rt>かず</rt></ruby>を2<ruby>乗<rt>じょう</rt></ruby>すると<ruby>正<rt>せい</rt></ruby>になるよ。',
@@ -379,8 +379,8 @@ export const sqrtMeaningChat: HistoryChat = {
       type: 'quiz',
       question: '$5200$m を<ruby>有効数字<rt>ゆうこうすうじ</rt></ruby>2けたで $a \\times 10^n$ の<ruby>形<rt>かたち</rt></ruby>に<ruby>表<rt>あらわ</rt></ruby>すと？',
       options: [
-        { letter: 'A', text: '$52 \\times 10^2$', correct: false },
-        { letter: 'B', text: '$5.2 \\times 10^3$', correct: true },
+        { letter: 'A', text: '$5.2 \\times 10^3$', correct: true },
+        { letter: 'B', text: '$52 \\times 10^2$', correct: false },
         { letter: 'C', text: '$5.20 \\times 10^3$', correct: false },
         { letter: 'D', text: '$0.52 \\times 10^4$', correct: false },
       ],

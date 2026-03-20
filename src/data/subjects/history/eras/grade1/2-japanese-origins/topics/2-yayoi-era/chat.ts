@@ -7,8 +7,8 @@ export const yayoiEraChat: HistoryChat = {
   subtitle: '〜紀元前4世紀〜 稲作の伝来とくにの誕生',
   characters: [
     {
-      id: 'himiko',
-      name: '卑弥呼先生',
+      id: 'teacher',
+      name: '先生',
       emoji: '👸',
       colorFrom: '#7c3aed',
       colorTo: '#a78bfa',
@@ -45,7 +45,7 @@ export const yayoiEraChat: HistoryChat = {
     {
       type: 'message',
       side: 'left',
-      characterId: 'himiko',
+      characterId: 'teacher',
       expression: 'explaining',
       text: '<span data-tooltip="米を田んぼで育てる農業のこと。大陸から九州北部に伝わった"><ruby>稲作<rp>(</rp><rt>いなさく</rt><rp>)</rp></ruby></span>が伝わったことで、人々の暮らしは大きく変わったんだよ。食べ物が安定して手に入るようになったんだ',
     },
@@ -59,7 +59,7 @@ export const yayoiEraChat: HistoryChat = {
     {
       type: 'message',
       side: 'left',
-      characterId: 'himiko',
+      characterId: 'teacher',
       expression: 'happy',
       text: '<strong><span class="keyword"><ruby>高床倉庫<rp>(</rp><rt>たかゆかそうこ</rt><rp>)</rp></ruby></span></strong>に保管したんだよ。<ruby>床<rp>(</rp><rt>ゆか</rt><rp>)</rp></ruby>を高くして、<ruby>湿気<rp>(</rp><rt>しっけ</rt><rp>)</rp></ruby>やねずみから<ruby>稲<rp>(</rp><rt>いね</rt><rp>)</rp></ruby>を守ったんだ',
     },
@@ -73,7 +73,7 @@ export const yayoiEraChat: HistoryChat = {
     {
       type: 'message',
       side: 'left',
-      characterId: 'himiko',
+      characterId: 'teacher',
       expression: 'excited',
       text: '<strong><span class="keyword"><ruby>鉄器<rp>(</rp><rt>てっき</rt><rp>)</rp></ruby></span></strong>で<ruby>農具<rp>(</rp><rt>のうぐ</rt><rp>)</rp></ruby>や武器を作り、<strong><span class="keyword"><ruby>銅鐸<rp>(</rp><rt>どうたく</rt><rp>)</rp></ruby></span></strong>は祭りの<ruby>宝物<rp>(</rp><rt>たからもの</rt><rp>)</rp></ruby>として大切にされていたんだよ！<strong><span class="keyword"><ruby>銅鏡<rp>(</rp><rt>どうきょう</rt><rp>)</rp></ruby></span></strong>や<strong><span class="keyword"><ruby>銅剣<rp>(</rp><rt>どうけん</rt><rp>)</rp></ruby></span></strong>も<ruby>儀式<rp>(</rp><rt>ぎしき</rt><rp>)</rp></ruby>に使われたんだ',
     },
@@ -87,7 +87,7 @@ export const yayoiEraChat: HistoryChat = {
     {
       type: 'message',
       side: 'left',
-      characterId: 'himiko',
+      characterId: 'teacher',
       expression: 'explaining',
       text: '<strong><span class="keyword"><ruby>石包丁<rp>(</rp><rt>いしぼうちょう</rt><rp>)</rp></ruby></span></strong>という半月形の石の道具を使って、稲の<ruby>穂<rp>(</rp><rt>ほ</rt><rp>)</rp></ruby>をつみ取ったんだよ',
     },
@@ -118,7 +118,7 @@ export const yayoiEraChat: HistoryChat = {
     {
       type: 'message',
       side: 'left',
-      characterId: 'himiko',
+      characterId: 'teacher',
       expression: 'explaining',
       text: '稲作が広まると、たくさんの米を<ruby>蓄<rp>(</rp><rt>たくわ</rt><rp>)</rp></ruby>える人とそうでない人の間に<ruby>貧富<rp>(</rp><rt>ひんぷ</rt><rp>)</rp></ruby>の差が生まれたんだ。やがて土地や水をめぐって村同士の<ruby>争<rp>(</rp><rt>あらそ</rt><rp>)</rp></ruby>いが起き、強い村が弱い村をまとめて「くに」ができたんだよ',
     },
@@ -132,7 +132,7 @@ export const yayoiEraChat: HistoryChat = {
     {
       type: 'message',
       side: 'left',
-      characterId: 'himiko',
+      characterId: 'teacher',
       expression: 'happy',
       text: 'いい質問だね！<ruby>奴国<rp>(</rp><rt>なこく</rt><rp>)</rp></ruby>の王が<ruby>漢<rp>(</rp><rt>かん</rt><rp>)</rp></ruby>の<ruby>皇帝<rp>(</rp><rt>こうてい</rt><rp>)</rp></ruby>から<strong><span class="keyword"><ruby>金印<rp>(</rp><rt>きんいん</rt><rp>)</rp></ruby></span></strong>をもらっているんだよ。「<strong><span class="keyword"><ruby>漢委奴国王<rp>(</rp><rt>かんのわのなのこくおう</rt><rp>)</rp></ruby></span></strong>」と<ruby>刻<rp>(</rp><rt>きざ</rt><rp>)</rp></ruby>まれた印で、<ruby>福岡県<rp>(</rp><rt>ふくおかけん</rt><rp>)</rp></ruby>の<ruby>志賀島<rp>(</rp><rt>しかのしま</rt><rp>)</rp></ruby>で見つかったんだ',
     },
@@ -163,7 +163,7 @@ export const yayoiEraChat: HistoryChat = {
     {
       type: 'message',
       side: 'left',
-      characterId: 'himiko',
+      characterId: 'teacher',
       expression: 'explaining',
       text: '長い<ruby>争<rp>(</rp><rt>あらそ</rt><rp>)</rp></ruby>いの末、わたしが<strong><span class="keyword"><ruby>邪馬台国<rp>(</rp><rt>やまたいこく</rt><rp>)</rp></ruby></span></strong>の女王として30あまりの国をまとめたんだ。<ruby>まじない<rp>(</rp><rt></rt><rp>)</rp></ruby>の力で人々の心をおさめたんだよ',
     },
@@ -177,7 +177,7 @@ export const yayoiEraChat: HistoryChat = {
     {
       type: 'message',
       side: 'left',
-      characterId: 'himiko',
+      characterId: 'teacher',
       expression: 'excited',
       text: '<span data-tooltip="中国の三国時代の国のひとつ。日本と外交関係を持った"><ruby>魏<rp>(</rp><rt>ぎ</rt><rp>)</rp></ruby></span>の<ruby>皇帝<rp>(</rp><rt>こうてい</rt><rp>)</rp></ruby>に<ruby>朝貢<rp>(</rp><rt>ちょうこう</rt><rp>)</rp></ruby>して、<strong><span class="keyword"><ruby>親魏倭王<rp>(</rp><rt>しんぎわおう</rt><rp>)</rp></ruby></span></strong>の<ruby>称号<rp>(</rp><rt>しょうごう</rt><rp>)</rp></ruby>をいただいたんだ。<ruby>銅鏡<rp>(</rp><rt>どうきょう</rt><rp>)</rp></ruby>100枚ももらったんだよ！',
     },
@@ -191,7 +191,7 @@ export const yayoiEraChat: HistoryChat = {
     {
       type: 'message',
       side: 'left',
-      characterId: 'himiko',
+      characterId: 'teacher',
       expression: 'happy',
       text: '中国の<ruby>歴史書<rp>(</rp><rt>れきししょ</rt><rp>)</rp></ruby>「<strong><span class="keyword"><ruby>魏志倭人伝<rp>(</rp><rt>ぎしわじんでん</rt><rp>)</rp></ruby></span></strong>」に詳しく書かれているんだよ。邪馬台国がどこにあったかは、今でも<ruby>畿内説<rp>(</rp><rt>きないせつ</rt><rp>)</rp></ruby>と<ruby>九州説<rp>(</rp><rt>きゅうしゅうせつ</rt><rp>)</rp></ruby>で<ruby>議論<rp>(</rp><rt>ぎろん</rt><rp>)</rp></ruby>が続いているんだ',
     },
