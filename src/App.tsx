@@ -1,9 +1,10 @@
-import { lazy, Suspense, useEffect } from 'react';
+import { lazy, Suspense, useEffect, useState } from 'react';
 import { Routes, Route, useLocation, useNavigationType } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { TopPage } from './pages/TopPage';
 import { ErrorBoundary } from './components/common/ErrorBoundary';
 import { NotFoundPage } from './pages/NotFoundPage';
+import { PasswordGate } from './components/common/PasswordGate';
 import { pageview } from './utils/gtag';
 
 const EraSelectPage = lazy(() => import('./pages/EraSelectPage').then(m => ({ default: m.EraSelectPage })));
@@ -82,7 +83,26 @@ function PageViewTracker() {
   return null;
 }
 
+const AUTH_KEY = 'marutto-authenticated';
+
 function App() {
+  const [authenticated, setAuthenticated] = useState(
+    () => localStorage.getItem(AUTH_KEY) === 'true'
+  );
+
+  const handleAuthenticated = () => {
+    localStorage.setItem(AUTH_KEY, 'true');
+    setAuthenticated(true);
+  };
+
+  if (!authenticated) {
+    return (
+      <ErrorBoundary>
+        <PasswordGate onAuthenticated={handleAuthenticated} />
+      </ErrorBoundary>
+    );
+  }
+
   return (
     <ErrorBoundary>
       <div className="min-h-screen bg-[#FAF9F7]">
