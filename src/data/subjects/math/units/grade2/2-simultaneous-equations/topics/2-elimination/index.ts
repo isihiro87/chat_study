@@ -66,12 +66,6 @@ export const elimination: Topic = {
     videos: [],
     flashcards: [
       {
-        id: 'math-g2-elim-fc1',
-        front: '2つの式を足したり引いたりして、1つの文字を消去する方法', back: '加減法とは？',
-        hint: '「足す」「引く」がポイント',
-        difficulty: 'basic',
-      },
-      {
         id: 'math-g2-elim-fc2',
         front: '2つの式を足す → 文字が消える', back: '符号が逆（+yと−y）のとき',
         hint: '+y + (−y) = 0',
@@ -188,7 +182,6 @@ export const elimination: Topic = {
       { id: 'math-g2-elim-fc23', front: '求めた値を元の式に代入して等式が成り立つか確認する', back: '加減法で解いた後の検算方法は？', difficulty: 'advanced' },
       { id: 'math-g2-elim-fc24', front: '①×2, ②×3 または ②×2, ①×3', back: '$3x + 2y = 8, 2x + 3y = 7$ で係数をそろえる方法は？', explanation: '①×2, ②×3 → $y$ の係数をそろえる。②×2, ①×3 → $x$ の係数をそろえる。', difficulty: 'advanced' },
       { id: 'math-g2-elim-fc25', front: '係数が小さい方や、そのまま消せる文字を選ぶと計算が楽', back: '消去する文字の選び方のコツは？', difficulty: 'advanced' },
-      { id: 'math-g2-elim-fc26', front: '連立方程式を解く際、2式の差をとって新しい式を作ること', back: '辺々引くとは？', difficulty: 'advanced' },
       { id: 'math-g2-elim-fc27', front: '消去→解く→代入→検算', back: '加減法の4ステップは？', explanation: '①足すか引くかで1文字消去 → ②残った式を解く → ③代入して残り → ④検算。' },
       { id: 'math-g2-elim-fc28', front: '定数項の符号忘れ', back: '加減法でよくある計算ミスは？', explanation: '正負に注意！引く式の全項の符号が変わる。', difficulty: 'advanced' },
       { id: 'math-g2-elim-fc29', front: '消去したい文字の係数の絶対値が等しいこと', back: '加減法で文字を消去するために必要な条件は？', explanation: '等しくなければ片方の式を何倍かする。', difficulty: 'basic' },

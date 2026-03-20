@@ -215,6 +215,12 @@ export const northAmericaNatureChat: HistoryChat = {
       text: 'カーギルなどの<strong><span class="keyword"><ruby>穀物<rp>(</rp><rt>こくもつ</rt><rp>)</rp></ruby>メジャー</span></strong>とよばれる<ruby>巨大<rp>(</rp><rt>きょだい</rt><rp>)</rp></ruby>企業が、生産から<ruby>流通<rp>(</rp><rt>りゅうつう</rt><rp>)</rp></ruby>・<ruby>輸出<rp>(</rp><rt>ゆしゅつ</rt><rp>)</rp></ruby>までを一貫して行う<strong><span class="keyword">アグリビジネス</span></strong>が発展しているんだよ',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade1/world-regions/north-america-agriculture-map.png',
+      alt: '北アメリカの適地適作',
+      caption: '小麦地帯・とうもろこし地帯・綿花地帯・酪農地帯の分布',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">適地適作</span>で地域に合った農業。<span class="keyword">センターピボット</span>と<span class="keyword">アグリビジネス</span>（穀物メジャー）',
     },

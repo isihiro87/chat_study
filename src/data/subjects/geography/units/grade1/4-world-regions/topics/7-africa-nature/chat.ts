@@ -79,6 +79,12 @@ export const africaNatureChat: HistoryChat = {
       text: '<ruby>赤道<rp>(</rp><rt>せきどう</rt><rp>)</rp></ruby>付近には<strong><span class="keyword"><ruby>熱帯雨林<rp>(</rp><rt>ねったいうりん</rt><rp>)</rp></ruby></span></strong>が広がり、その周辺には<strong><span class="keyword">サバナ</span></strong>という<ruby>草原<rp>(</rp><rt>そうげん</rt><rp>)</rp></ruby>地帯が分布しているよ。ライオンやゾウが暮らすのもこのサバナだね',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade1/world-regions/africa-nature-map.png',
+      alt: 'アフリカの自然と地形',
+      caption: 'サハラ砂漠・サヘル・熱帯雨林・ナイル川・キリマンジャロ・大地溝帯',
+    },
+    {
       type: 'summary-point',
       text: 'アフリカの自然：<span class="keyword">サハラ砂漠</span>（世界最大）→ <span class="keyword">サヘル</span>（半乾燥）→ <span class="keyword">サバナ</span>（草原）→ <span class="keyword">熱帯雨林</span>（赤道付近）',
     },

@@ -78,6 +78,12 @@ export const europeNatureChat: HistoryChat = {
       text: '文化面では、<ruby>英語<rp>(</rp><rt>えいご</rt><rp>)</rp></ruby>・フランス語・ドイツ語・スペイン語など<strong>多様な<ruby>言語<rp>(</rp><rt>げんご</rt><rp>)</rp></ruby></strong>が使われていて、<ruby>宗教<rp>(</rp><rt>しゅうきょう</rt><rp>)</rp></ruby>では<strong><span class="keyword">キリスト<ruby>教<rp>(</rp><rt>きょう</rt><rp>)</rp></ruby></span></strong>が広く<ruby>信仰<rp>(</rp><rt>しんこう</rt><rp>)</rp></ruby>されているよ',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade1/world-regions/europe-climate-current.png',
+      alt: '北大西洋海流と偏西風',
+      caption: '暖流と偏西風がヨーロッパを温める。緯度が高くても温暖な理由',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">北大西洋海流</span>（暖流）と<span class="keyword">偏西風</span>で高緯度でも温暖。<span class="keyword">キリスト教</span>と多様な言語',
     },

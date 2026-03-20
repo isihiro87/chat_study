@@ -46,7 +46,6 @@ export const eqApplications: Topic = {
     videos: [],
     flashcards: [
       // === 比の値・比例式の基本（basic）===
-      { id: 'math-g1-eq-a-fc1', front: '$a : b = c : d$ の形の等式', back: '比例式とは？', difficulty: 'basic' },
       { id: 'math-g1-eq-a-fc2', front: '$ad = bc$', back: '比例式の「内項の積 $=$ 外項の積」とは？', explanation: '外側の積 $=$ 内側の積', difficulty: 'basic' },
       { id: 'math-g1-eq-a-fc3', front: '$\\dfrac{a}{b}$', back: '比 $a : b$ の「比の値」とは？', explanation: '前の数を後の数でわった値', difficulty: 'basic' },
       { id: 'math-g1-eq-a-fc4', front: '$b$ と $c$', back: '比例式 $a : b = c : d$ の内項はどれ？', explanation: '真ん中の2つが内項', difficulty: 'basic' },
@@ -54,7 +53,6 @@ export const eqApplications: Topic = {
       { id: 'math-g1-eq-a-fc6', front: '$x = 4$', back: '比例式 $x : 3 = 8 : 6$ の $x$ は？', explanation: '$6x = 3 \\times 8 = 24$', difficulty: 'basic' },
       // === 文章題の手順（basic）===
       { id: 'math-g1-eq-a-fc7', front: '① 求めたいものを $x$ とおく → ② 等しい関係を式にする → ③ 方程式を解く → ④ 解の吟味', back: '文章題を方程式で解く手順は？', difficulty: 'basic' },
-      { id: 'math-g1-eq-a-fc8', front: '求めた解が問題の条件に合っているか確認すること', back: '「解の吟味」とは？', difficulty: 'basic' },
       { id: 'math-g1-eq-a-fc9', front: '個数・人数は自然数（正の整数）でなければならない', back: '解の吟味で特に注意すべきことは？', difficulty: 'basic' },
       { id: 'math-g1-eq-a-fc10', front: '問題文の中から「等しい関係」を見つけること', back: '方程式を立てるとき最も大切なのは？', difficulty: 'basic' },
       // === 代金の問題（standard）===

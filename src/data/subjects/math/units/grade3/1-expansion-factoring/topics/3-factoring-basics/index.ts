@@ -69,21 +69,6 @@ export const factoringBasics: Topic = {
     videos: [],
     flashcards: [
       {
-        id: 'math-g3-fb-fc01',
-        front: '一つの式がいくつかの式の積で表されるとき、その一つひとつの式のこと', back: '因数とは？',
-        difficulty: 'basic',
-      },
-      {
-        id: 'math-g3-fb-fc02',
-        front: '多項式をいくつかの因数の積の形に表すこと。展開の逆の作業。', back: '因数分解とは？',
-        difficulty: 'basic',
-      },
-      {
-        id: 'math-g3-fb-fc03',
-        front: 'すべての項に共通してふくまれている因数のこと', back: '共通因数とは？',
-        difficulty: 'basic',
-      },
-      {
         id: 'math-g3-fb-fc04',
         front: '①数の最大公約数を求める ②共通する文字を見つける ③まとめてくくり出す', back: '共通因数のくくり出し方は？',
         explanation: '例: 6x²+9x → 3x(2x+3)',

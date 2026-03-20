@@ -114,12 +114,6 @@ export const quadFormula: Topic = {
         difficulty: 'basic',
       },
       {
-        id: 'math-g3-qf-fc9',
-        front: '2つの解が同じ値になること', back: '重解とは？',
-        explanation: '判別式 b²−4ac = 0 のとき起こる',
-        difficulty: 'basic',
-      },
-      {
         id: 'math-g3-qf-fc10',
         front: '2a\n（a は x² の係数）', back: '解の公式の分母',
         difficulty: 'basic',

@@ -55,12 +55,6 @@ export const quadFuncRange: Topic = {
     videos: [],
     flashcards: [
       {
-        id: 'math-g3-qf-rg-fc1',
-        front: '$x$ や $y$ がとりうる値の範囲のこと', back: '$y = ax^2$ の「変域」とは？',
-        explanation: '不等号を使って $a \\leq x \\leq b$ のように表す',
-        difficulty: 'basic',
-      },
-      {
         id: 'math-g3-qf-rg-fc2',
         front: '最小値 $0$ をとる', back: '$y = ax^2$（$a > 0$）で $x = 0$ のとき $y$ は？',
         explanation: 'グラフの頂点が原点にあり、上に開いているため',

@@ -281,6 +281,12 @@ export const climateZonesChat: HistoryChat = {
       text: 'そう！高山気候は<ruby>緯度<rp>(</rp><rt>いど</rt><rp>)</rp></ruby>ではなく<strong><span class="keyword"><ruby>標高<rp>(</rp><rt>ひょうこう</rt><rp>)</rp></ruby></span></strong>に左右される特殊な気候なんだ。<strong>標高が100m上がるごとに気温は約0.6℃下がる</strong>。だから赤道直下のアンデス山脈でも山頂には雪があるんだよ',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade1/life-environment/climate-zone-classification.png',
+      alt: '気候区の分類と雨温図',
+      caption: '5つの気候帯をさらに細かく分類。雨温図で特徴を比較',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">ケッペンの気候区分</span>：温帯3区分（降雨パターン）・乾燥帯2区分（降水量の差）・<span class="keyword">高山気候</span>：標高100mで約0.6℃低下',
     },

@@ -100,6 +100,12 @@ export const africaEconomyChat: HistoryChat = {
       text: 'また、アフリカには<strong><span class="keyword">レアメタル</span></strong>（<ruby>希少金属<rp>(</rp><rt>きしょうきんぞく</rt><rp>)</rp></ruby>）も豊富にあるよ。スマートフォンに使われるコバルトやタンタルなどが<ruby>産出<rp>(</rp><rt>さんしゅつ</rt><rp>)</rp></ruby>されているんだ',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade1/world-regions/africa-monoculture-economy.png',
+      alt: 'モノカルチャー経済の構造',
+      caption: '一次産品に依存する経済構造と価格変動のリスク',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">プランテーション</span>でカカオ・コーヒーを栽培 → <span class="keyword">モノカルチャー経済</span>（特定産物に依存）→ 経済が不安定',
     },

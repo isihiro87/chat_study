@@ -275,6 +275,12 @@ export const oceaniaSocietyChat: HistoryChat = {
       text: '温暖化の影響がオセアニアにとってとても深刻なんですね。国際的な協力が必要ですね',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade1/world-regions/oceania-multiculture-climate.png',
+      alt: '多文化社会と気候変動',
+      caption: '白豪主義から多文化社会へ。海面上昇による太平洋島嶼国の危機',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">ツバル</span>：海面上昇で国土水没の危機。サンゴ礁の島国が深刻な影響',
     },

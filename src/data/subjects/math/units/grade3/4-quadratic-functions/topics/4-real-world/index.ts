@@ -94,11 +94,6 @@ export const quadFuncRealWorld: Topic = {
         difficulty: 'basic',
       },
       {
-        id: 'math-g3-qf-rw-fc6',
-        front: 'ふりこが1往復する時間のこと（秒で表す）', back: 'ふりこの周期とは？',
-        difficulty: 'basic',
-      },
-      {
         id: 'math-g3-qf-rw-fc7',
         front: 'T² = aL（周期の2乗がひもの長さに比例）', back: 'ふりこの周期Tとひもの長さLの関係式は？',
         difficulty: 'basic',

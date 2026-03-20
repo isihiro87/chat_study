@@ -65,24 +65,10 @@ export const expansionBasics: Topic = {
     videos: [],
     flashcards: [
       {
-        id: 'math-g3-eb-fc1',
-        front: 'かっこを外して、積の形の式をひとつの多項式に変形すること', back: '「展開」とは？',
-        hint: 'かっこを「開く」イメージ',
-        explanation: '例: 3(x+2) = 3x+6、(x+1)(x+2) = x²+3x+2',
-        difficulty: 'basic',
-      },
-      {
         id: 'math-g3-eb-fc2',
         front: '$a(b+c) = ab + ac$', back: '分配法則の公式は？',
         hint: '外の項を中の各項にかける',
         explanation: '逆向き ab+ac = a(b+c) は「共通因数でくくる」と言うよ',
-        difficulty: 'basic',
-      },
-      {
-        id: 'math-g3-eb-fc3',
-        front: '文字の部分がまったく同じ項のこと', back: '「同類項」とは？',
-        hint: '3x と 5x、2x² と −7x² など',
-        explanation: '同類項は係数どうしを足し引きしてまとめることができる',
         difficulty: 'basic',
       },
       {
@@ -183,13 +169,6 @@ export const expansionBasics: Topic = {
         id: 'math-g3-eb-fc18',
         front: '$-6xy - 10y^2$', back: '$(3x+5y)\\times(-2y)$ を展開すると？',
         hint: '両方の項に $-2y$ をかける',
-        difficulty: 'standard',
-      },
-      {
-        id: 'math-g3-eb-fc19',
-        front: '共通因数でくくること（因数分解）', back: '「分配法則の逆」とは？',
-        hint: '$ab + ac = a(b+c)$',
-        explanation: '展開と因数分解は逆の操作の関係にある',
         difficulty: 'standard',
       },
       {

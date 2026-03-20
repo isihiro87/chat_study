@@ -164,6 +164,12 @@ export const europeIssuesChat: HistoryChat = {
       text: 'ロシアの資源がヨーロッパのエネルギーを支えているんですね！',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade1/world-regions/eu-challenges-russia.png',
+      alt: 'EUの課題とロシア',
+      caption: 'EU域内の経済格差・移民問題とロシアの資源輸出',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">ロシア</span>：世界最大の国土。<span class="keyword">タイガ</span>（針葉樹林）と<span class="keyword">ステップ</span>（草原）。<span class="keyword">石油</span>・<span class="keyword">天然ガス</span>をヨーロッパに供給',
     },

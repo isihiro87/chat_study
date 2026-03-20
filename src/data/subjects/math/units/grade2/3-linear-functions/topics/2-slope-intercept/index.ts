@@ -116,18 +116,8 @@ export const slopeIntercept: Topic = {
         difficulty: 'basic',
       },
       {
-        id: 'math-g2-slope-intercept-fc10',
-        front: '一定の方向に一定の距離だけずらすこと', explanation: '図形の形や傾きを変えない', back: '平行移動とは？',
-        difficulty: 'basic',
-      },
-      {
         id: 'math-g2-slope-intercept-fc11',
         front: '平行になる', explanation: '例: $y = 2x + 1$ と $y = 2x - 3$ は平行', back: '傾きが等しい2つの直線の位置関係は？',
-        difficulty: 'basic',
-      },
-      {
-        id: 'math-g2-slope-intercept-fc12',
-        front: '変数がとりうる値の範囲', explanation: '$x$ や $y$ の範囲を不等号で表す', back: '変域とは？',
         difficulty: 'basic',
       },
       {
@@ -151,7 +141,6 @@ export const slopeIntercept: Topic = {
         difficulty: 'standard',
       },
       { id: 'math-g2-slope-intercept-fc17', front: '$(0, b)$ と $(1, a+b)$', explanation: 'この2点を通る直線になる', back: '$y = ax + b$ のグラフは必ずどの2点を通る？', difficulty: 'standard' },
-      { id: 'math-g2-slope-intercept-fc18', front: '$x$ 軸との交点の $x$ 座標', explanation: '$y = 0$ を代入して求める', back: '$x$ 切片とは？', difficulty: 'standard' },
       { id: 'math-g2-slope-intercept-fc19', front: '$(0, b)$ と $(-\\dfrac{b}{a}, 0)$ の2点をとって結ぶ', explanation: '$x = 0$ と $y = 0$ を代入して2点を求める', back: '2点法でグラフをかくには？', difficulty: 'standard' },
       { id: 'math-g2-slope-intercept-fc20', front: '両端の $x$ を代入して $y$ を求める', explanation: '小さい方から大きい方の順に書く', back: '$y$ の変域の求め方は？', difficulty: 'standard' },
       { id: 'math-g2-slope-intercept-fc21', front: '傾きが等しく切片が異なる', explanation: '傾き $a$ が同じで $b$ が異なる2直線', back: '平行な2直線の条件は？', difficulty: 'standard' },

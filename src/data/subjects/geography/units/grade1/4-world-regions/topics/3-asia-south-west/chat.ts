@@ -92,6 +92,12 @@ export const asiaSouthWestChat: HistoryChat = {
       text: 'アジア州は地域ごとに全然違う特徴があるんですね！よく分かりました！',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade1/world-regions/south-west-asia-resources.png',
+      alt: '南アジア・西アジアの資源と産業',
+      caption: 'インドのICT産業、西アジアの石油資源（OPEC）',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">インド</span>：人口急増・ICT産業の発展。課題は貧富の格差',
     },

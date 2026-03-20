@@ -69,13 +69,6 @@ export const sqrtMulDiv: Topic = {
         difficulty: 'basic',
       },
       {
-        id: 'math-g3-sqrt-mul-div-fc3',
-        front: '自然数を素数（2, 3, 5, 7, …）のかけ算に分解すること。',
-        back: '素因数分解とは？',
-        explanation: '例: $12 = 2^2 \\times 3$、$18 = 2 \\times 3^2$、$50 = 2 \\times 5^2$\n√を簡単にする基本ステップ！',
-        difficulty: 'basic',
-      },
-      {
         id: 'math-g3-sqrt-mul-div-fc4',
         front: '$4, 9, 16, 25, 36, 49, 64, 81, 100$',
         back: '整数の2乗の数（ルートの外に出せる数）を小さい順に10個答えよ。',

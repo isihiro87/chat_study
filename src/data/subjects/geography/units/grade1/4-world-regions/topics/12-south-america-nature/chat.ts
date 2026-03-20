@@ -92,6 +92,12 @@ export const southAmericaNatureChat: HistoryChat = {
       text: '16世紀に<strong><span class="keyword">スペイン</span></strong>や<strong><span class="keyword">ポルトガル</span></strong>が<ruby>植民地<rp>(</rp><rt>しょくみんち</rt><rp>)</rp></ruby>支配を行ったからなんだ。その結果、<ruby>先住民<rp>(</rp><rt>せんじゅうみん</rt><rp>)</rp></ruby>とヨーロッパ系の人々が<ruby>混血<rp>(</rp><rt>こんけつ</rt><rp>)</rp></ruby>して、独自の<strong><span class="keyword">混血文化</span></strong>が生まれたんだよ',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade1/world-regions/south-america-nature-map.png',
+      alt: '南アメリカの自然と文化',
+      caption: 'アマゾン川・アンデス山脈・パンパと多様な文化',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">アマゾン川</span>（世界最大の流域面積）と<span class="keyword">アンデス山脈</span>（南北約7500km）が二大自然',
     },

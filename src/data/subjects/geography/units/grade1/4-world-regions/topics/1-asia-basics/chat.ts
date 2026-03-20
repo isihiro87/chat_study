@@ -78,6 +78,12 @@ export const asiaBasicsChat: HistoryChat = {
       text: '<strong><span class="keyword">華人</span></strong>は中国系の人々のことだよ。東南アジアを中心にたくさん暮らしていて、<ruby>商業<rp>(</rp><rt>しょうぎょう</rt><rp>)</rp></ruby>や<ruby>貿易<rp>(</rp><rt>ぼうえき</rt><rp>)</rp></ruby>で大きな<ruby>影響力<rp>(</rp><rt>えいきょうりょく</rt><rp>)</rp></ruby>を持っているんだ',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade1/world-regions/asia-monsoon-map.png',
+      alt: 'アジアの季節風と地形',
+      caption: '夏と冬で風向きが変わるモンスーン。ヒマラヤ山脈・主要河川・NIESの位置',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">季節風（モンスーン）</span>が気候を左右。<span class="keyword">多様な宗教・言語</span>と<span class="keyword">華人</span>の影響が特徴',
     },

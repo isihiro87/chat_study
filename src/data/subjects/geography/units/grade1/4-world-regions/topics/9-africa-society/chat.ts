@@ -114,6 +114,12 @@ export const africaSocietyChat: HistoryChat = {
       text: 'アフリカの課題を知って、日本からもいろいろな支援がされているんですね！',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade1/world-regions/africa-borders-conflicts.png',
+      alt: '植民地時代の国境線と民族分布',
+      caption: '直線的な国境線が民族分布を無視して引かれた問題',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">植民地時代の国境線</span> → <span class="keyword">民族紛争</span>の原因のひとつ',
     },

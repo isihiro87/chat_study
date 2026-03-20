@@ -46,11 +46,8 @@ export const proportion: Topic = {
     videos: [],
     flashcards: [
       // --- basic (12枚) ---
-      { id: 'math-g1-proportion-fc1', front: '$x$ の値を決めると $y$ の値がただ1つ決まる関係', back: '関数とは？', difficulty: 'basic' },
       { id: 'math-g1-proportion-fc2', front: '$y = ax$（$a$ は比例定数、$a \\neq 0$）', back: '比例の式は？', difficulty: 'basic' },
       { id: 'math-g1-proportion-fc3', front: '比例定数', back: '$y = ax$ の $a$ を何という？', explanation: '$y = ax$ の $a$ のこと。$a = \\dfrac{y}{x}$ で求まる。', difficulty: 'basic' },
-      { id: 'math-g1-proportion-fc4', front: 'いろいろな値をとる文字（$x$, $y$ など）', back: '変数とは？', difficulty: 'basic' },
-      { id: 'math-g1-proportion-fc5', front: '変数のとりうる値の範囲', back: '変域とは？', difficulty: 'basic' },
       { id: 'math-g1-proportion-fc6', front: '$y$ も $n$ 倍になる', back: '比例で $x$ が $n$ 倍になると $y$ は？', explanation: '$\\dfrac{y}{x} = a$ が常に一定', difficulty: 'basic' },
       { id: 'math-g1-proportion-fc7', front: '原点を通る直線', back: '比例のグラフの特徴は？', explanation: '$a > 0$ で右上がり、$a < 0$ で右下がり', difficulty: 'basic' },
       { id: 'math-g1-proportion-fc8', front: '$y = 12$', back: '$y = 3x$ で $x = 4$ のとき $y$ は？', explanation: '$y = 3 \\times 4 = 12$', difficulty: 'basic' },
@@ -60,8 +57,6 @@ export const proportion: Topic = {
       { id: 'math-g1-proportion-fc18', front: '$x = 5$', back: '$y = 3x$ で $y = 15$ のとき $x$ は？', explanation: '$15 = 3x$ より $x = 5$', difficulty: 'basic' },
       // --- standard (12枚) ---
       { id: 'math-g1-proportion-fc9', front: '$a = -3$', back: '$x = 2$ のとき $y = -6$ の比例定数は？', explanation: '$a = \\dfrac{y}{x} = \\dfrac{-6}{2} = -3$', difficulty: 'standard' },
-      { id: 'math-g1-proportion-fc10', front: '横の軸（$x$ 軸）と縦の軸（$y$ 軸）で点の位置を表す平面', back: '座標平面とは？', difficulty: 'standard' },
-      { id: 'math-g1-proportion-fc11', front: '2つの軸の交点 $(0, 0)$', back: '原点 $O$ とは？', difficulty: 'standard' },
       { id: 'math-g1-proportion-fc12', front: '$(x, y)$ で表す', back: '座標の表し方は？', explanation: '横の位置が $x$ 座標、縦の位置が $y$ 座標', difficulty: 'standard' },
       { id: 'math-g1-proportion-fc19', front: '$3 \\leq x \\leq 6$（3以上6以下）', back: '$x$ の変域が3以上6以下のとき、不等号で表すと？', difficulty: 'standard' },
       { id: 'math-g1-proportion-fc20', front: '$y = 5x$', back: '$x = -3$ のとき $y = -15$ となる比例の式は？', explanation: '$a = \\dfrac{-15}{-3} = 5$', difficulty: 'standard' },

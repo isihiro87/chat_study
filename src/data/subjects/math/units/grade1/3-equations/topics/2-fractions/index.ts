@@ -47,7 +47,6 @@ export const eqFractions: Topic = {
       // --- basic (12) ---
       { id: 'math-g1-eq-f-fc1', front: '両辺を $10$ 倍、$100$ 倍して整数にしてから解く', back: '小数を含む方程式の解き方は？', explanation: '整数にすれば計算ミスが減る', difficulty: 'basic' },
       { id: 'math-g1-eq-f-fc2', front: '小数第1位まで → $10$ 倍、小数第2位まで → $100$ 倍', back: '何倍すれば小数がなくなる？', explanation: '最も小数の桁が深いものに合わせる', difficulty: 'basic' },
-      { id: 'math-g1-eq-f-fc3', front: '分母の最小公倍数を両辺にかけて分母をなくすこと', back: '「分母をはらう」とは？', difficulty: 'basic' },
       { id: 'math-g1-eq-f-fc4', front: '$x = 6$', back: '$0.5x = 3$ の解は？', explanation: '$10$ 倍して $5x = 30$、$x = 6$', difficulty: 'basic' },
       { id: 'math-g1-eq-f-fc5', front: '$x = 4$', back: '$0.2x + 0.3 = 1.1$ の解は？', explanation: '$10$ 倍して $2x + 3 = 11$、$2x = 8$', difficulty: 'basic' },
       { id: 'math-g1-eq-f-fc6', front: '$x = 5$', back: '$0.4x = 2$ の解は？', explanation: '$10$ 倍して $4x = 20$', difficulty: 'basic' },

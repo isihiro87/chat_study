@@ -65,13 +65,6 @@ export const substitution: Topic = {
     videos: [],
     flashcards: [
       {
-        id: 'math-g2-sub-fc1',
-        front: '一方の式を $y = \\circ\\circ$ や $x = \\circ\\circ$ の形にして、もう一方の式に代入する方法', back: '「代入法」とは？',
-        hint: '「入れかえ」のイメージ',
-        explanation: '加減法と同じく、文字を1つ消去して一次方程式にする',
-        difficulty: 'basic',
-      },
-      {
         id: 'math-g2-sub-fc2',
         front: '一方の式がすでに $y = \\circ\\circ$ や $x = \\circ\\circ$ の形のとき', back: '代入法が特に便利なのはどんなとき？',
         hint: 'そのまま代入できる！',
@@ -194,7 +187,6 @@ export const substitution: Topic = {
       { id: 'math-g2-sub-fc26', front: '$x = 4, y = 2$', back: '$x = 2y$, $x + 3y = 10$ を代入法で解くと？', difficulty: 'advanced' },
       { id: 'math-g2-sub-fc27', front: '係数が $1$（または $-1$）の文字を $y = $ や $x = $ の形にして代入する', back: 'どちらの式も $y = $ の形でないとき、代入法を使うには？', difficulty: 'advanced' },
       { id: 'math-g2-sub-fc28', front: 'どちらも正しい', back: '加減法と代入法、どちらが正しい？', explanation: '両方の方法で同じ答えが出る。問題に合った方法を選ぼう。', difficulty: 'advanced' },
-      { id: 'math-g2-sub-fc29', front: '一方の式を $y = $ や $x = $ の形にし、もう一方に代入して文字を消す', back: '代入法とは？', explanation: '文字を $1$ つ消去する方法。', difficulty: 'basic' },
       { id: 'math-g2-sub-fc30', front: '右辺を、もう一方の式の同じ文字のところに入れかえる', back: '代入法で「代入する」とはどういう操作？', explanation: '式をまるごと入れる。', difficulty: 'basic' },
       { id: 'math-g2-sub-fc31', front: '$x = 3, y = 6$', back: '$\\begin{cases} y = 2x \\\\ x + y = 9 \\end{cases}$ を代入法で解くと？', explanation: '$x + 2x = 9$、$3x = 9$。', difficulty: 'basic' },
       { id: 'math-g2-sub-fc32', front: '$x = 2, y = 6$', back: '$\\begin{cases} y = 3x \\\\ 2x + y = 10 \\end{cases}$ を代入法で解くと？', explanation: '$2x + 3x = 10$、$5x = 10$。', difficulty: 'basic' },

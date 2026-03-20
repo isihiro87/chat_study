@@ -216,6 +216,12 @@ export const oceaniaNatureChat: HistoryChat = {
       text: 'イギリスからアジアへ、貿易の相手が変わったんですね！',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade1/world-regions/oceania-resources-trade.png',
+      alt: 'オセアニアの資源と貿易',
+      caption: 'オーストラリアの鉱産資源とアジアへの貿易相手国の変化',
+    },
+    {
       type: 'summary-point',
       text: '農畜産業：<span class="keyword">羊・牛の放牧</span>、<span class="keyword">小麦栽培</span>。鉱産資源：<span class="keyword">鉄鉱石</span>・<span class="keyword">石炭</span>',
     },

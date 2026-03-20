@@ -83,12 +83,6 @@ export const quadEqFactoring: Topic = {
         difficulty: 'basic',
       },
       {
-        id: 'math-g3-qef-fc4',
-        front: '二次方程式の2つの解が同じ値になること', back: '重解とは？',
-        explanation: '例: (x−3)²=0 → x=3（重解）',
-        difficulty: 'basic',
-      },
-      {
         id: 'math-g3-qef-fc5',
         front: 'x=1（重解）', back: 'x²−2x+1=0 の解は？',
         explanation: '(x−1)²=0 → 完全平方式',

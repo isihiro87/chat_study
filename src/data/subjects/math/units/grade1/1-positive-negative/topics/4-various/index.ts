@@ -66,7 +66,6 @@ export const variousCalc: Topic = {
       { id: 'math-g1-var-fc9', front: '素数ではない', explanation: '$1$ の約数は $1$ だけ。素数は約数が $2$ 個の自然数。', back: '$1$ は素数か？', difficulty: 'basic' },
       { id: 'math-g1-var-fc10', front: '素数', explanation: '唯一の偶数の素数。$4, 6, 8, \\ldots$ は $2$ で割れるから素数ではない。', back: '$2$ は素数か？', difficulty: 'basic' },
       { id: 'math-g1-var-fc11', front: '$2, 3, 5, 7, 11, 13, 17, 19$', explanation: '$8$ 個ある。$4,6,8,9,10,12,14,15,16,18,20$ は素数ではない。', back: '$20$ 以下の素数をすべて挙げると？', difficulty: 'basic' },
-      { id: 'math-g1-var-fc12', front: '自然数を素数だけの積で表すこと', explanation: '例: $12 = 2^2 \\times 3$。小さい素数から順に割っていく。', back: '素因数分解とは？', difficulty: 'basic' },
       { id: 'math-g1-var-fc13', front: '小さい素数から順に割っていく', explanation: '$2, 3, 5, 7, \\ldots$ の順に割れるか確認する。', back: '素因数分解の方法は？', difficulty: 'standard' },
       { id: 'math-g1-var-fc14', front: '$a + b = b + a$', explanation: '順番を入れかえても和は同じ。', back: '加法の交換法則とは？', difficulty: 'standard' },
       { id: 'math-g1-var-fc15', front: '$(a + b) + c = a + (b + c)$', explanation: '組み合わせを変えても和は同じ。', back: '加法の結合法則とは？', difficulty: 'standard' },

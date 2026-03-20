@@ -55,36 +55,6 @@ export const literalCalc: Topic = {
     videos: [],
     flashcards: [
       {
-        id: 'math-g1-lit-calc-fc1',
-        front: '文字式の中で、+や-で区切られた一つひとつの部分', back: '「項」とは何？',
-        explanation: '例: $5x - 3y + 2$ の項は $5x$, $-3y$, $2$',
-        difficulty: 'basic',
-      },
-      {
-        id: 'math-g1-lit-calc-fc2',
-        front: '項の中の数の部分', back: '「係数」とは何？',
-        explanation: '例: $5x$ の係数は $5$、$-3y$ の係数は $-3$',
-        difficulty: 'basic',
-      },
-      {
-        id: 'math-g1-lit-calc-fc3',
-        front: '文字を含まない、数だけの項', back: '「定数項」とは何？',
-        explanation: '例: $3x + 7$ の定数項は $7$',
-        difficulty: 'basic',
-      },
-      {
-        id: 'math-g1-lit-calc-fc4',
-        front: '文字の次数が1の項を含み、2次以上の項を含まない式', back: '「一次式」とは何？',
-        explanation: '例: $3x + 2$, $-a + 5$ は一次式',
-        difficulty: 'basic',
-      },
-      {
-        id: 'math-g1-lit-calc-fc5',
-        front: '文字の部分が同じ項', back: '「同類項」とは何？',
-        explanation: '同類項どうしは係数をまとめて計算できる。\n例: $3x$ と $5x$ は同類項 → $3x + 5x = 8x$',
-        difficulty: 'basic',
-      },
-      {
         id: 'math-g1-lit-calc-fc6',
         front: '$a(b + c) = ab + ac$', back: '分配法則とは？',
         explanation: 'かっこの外の数を、かっこの中の各項にかける法則。\n例: $3(2x - 5) = 6x - 15$',
@@ -125,12 +95,6 @@ export const literalCalc: Topic = {
         front: '係数を数で割る。文字はそのまま。', back: '文字式 $\\div$ 数 のルールは？',
         explanation: '$18a \\div 3 = 6a$\n$(-42x) \\div (-6) = 7x$',
         difficulty: 'basic',
-      },
-      {
-        id: 'math-g1-lit-calc-fc13',
-        front: '文字が1つだけかけられている項', back: '1次の項とは何？',
-        explanation: '例: $3x$, $-2a$, $y$ は1次の項。\n$x^2$ や $ab$ は1次の項ではない。',
-        difficulty: 'standard',
       },
       {
         id: 'math-g1-lit-calc-fc14',

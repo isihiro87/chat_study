@@ -177,11 +177,6 @@ export const variousSimulEq: Topic = {
         difficulty: 'standard',
       },
       {
-        id: 'math-g2-var-fc18',
-        front: 'すべての式を同時に成り立たせる $x, y$ の値の組のこと', back: '連立方程式の「解」とは？',
-        difficulty: 'standard',
-      },
-      {
         id: 'math-g2-var-fc19',
         front: '$ax + by = c$ の標準形に整理すること（整理すれば加減法・代入法が使える）', back: 'どんな形の連立方程式でも最初にすることは？',
         difficulty: 'standard',

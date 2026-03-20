@@ -85,6 +85,12 @@ export const northAmericaIndustryChat: HistoryChat = {
       text: 'ラストベルトからサンベルトへ、工業の中心が移ったんですね！',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade1/world-regions/north-america-industry-shift.png',
+      alt: '北アメリカの産業構造の変化',
+      caption: '五大湖周辺の旧工業地帯からシリコンバレー・サンベルトへの産業移動',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">ラストベルト</span>（五大湖周辺の衰退）→ <span class="keyword">サンベルト</span>・<span class="keyword">シリコンバレー</span>（ICT産業）へ移行',
     },

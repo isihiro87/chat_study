@@ -174,12 +174,6 @@ export const factoringFormulas: Topic = {
         difficulty: 'standard',
       },
       {
-        id: 'math-g3-ff-fc19',
-        front: '同じかたまりを1つの文字に置き換える', back: '置き換えを使う因数分解とは？',
-        explanation: '例: (x+2)²+5(x+2)+6 → M=x+2 とおいて M²+5M+6',
-        difficulty: 'standard',
-      },
-      {
         id: 'math-g3-ff-fc20',
         front: '(x+4)(x+5)', back: '(x+2)²+5(x+2)+6 を因数分解すると？',
         explanation: 'M=x+2 → M²+5M+6=(M+2)(M+3) → 戻す → (x+4)(x+5)',

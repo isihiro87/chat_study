@@ -75,18 +75,6 @@ export const polynomialAddSub: Topic = {
     videos: [],
     flashcards: [
       {
-        id: 'math-g2-pas-fc1',
-        front: '多項式どうしを足す計算', back: '多項式の加法とは？',
-        explanation: 'かっこを外して同類項をまとめる。$(A) + (B)$ の形',
-        difficulty: 'basic',
-      },
-      {
-        id: 'math-g2-pas-fc2',
-        front: '多項式どうしを引く計算', back: '多項式の減法とは？',
-        explanation: '$(A) - (B)$ のかっこを外すとき、$B$ の全ての項の符号を反転する',
-        difficulty: 'basic',
-      },
-      {
         id: 'math-g2-pas-fc3',
         front: 'そのまま外す', back: '「+」のかっこを外すとき',
         explanation: '$+(3x - 2y) = 3x - 2y$',
@@ -123,12 +111,6 @@ export const polynomialAddSub: Topic = {
         difficulty: 'basic',
       },
       {
-        id: 'math-g2-pas-fc9',
-        front: '分母を同じ数にそろえること', back: '通分とは？',
-        explanation: '$\\frac{1}{2}$ と $\\frac{1}{3}$ なら分母を $6$ にする',
-        difficulty: 'basic',
-      },
-      {
         id: 'math-g2-pas-fc10',
         front: '1. 通分する → 2. 分子のかっこを外す → 3. 同類項をまとめる → 4. 約分できれば約分', back: '分数の形の式の加減の手順',
         difficulty: 'basic',
@@ -137,11 +119,6 @@ export const polynomialAddSub: Topic = {
         id: 'math-g2-pas-fc11',
         front: 'まず式を簡単にしてから値を代入する', back: '式の値を求める手順は？',
         explanation: '先に代入すると計算ミスが起きやすい！',
-        difficulty: 'basic',
-      },
-      {
-        id: 'math-g2-pas-fc12',
-        front: '同類項を縦にそろえて書き、上下の係数を足す計算方法', back: '縦書き（筆算）の加法とは？',
         difficulty: 'basic',
       },
       {
@@ -159,12 +136,6 @@ export const polynomialAddSub: Topic = {
         id: 'math-g2-pas-fc15',
         front: '$a - b$', back: '$3(7a - 2b) - 5(4a - b)$ の計算',
         explanation: '$= 21a - 6b - 20a + 5b = a - b$',
-        difficulty: 'standard',
-      },
-      {
-        id: 'math-g2-pas-fc16',
-        front: '文字の部分が同じ項の係数どうしを足し引きすること', back: '同類項をまとめるとは？',
-        explanation: '$3x + 5x = 8x$',
         difficulty: 'standard',
       },
       { id: 'math-g2-pas-fc17', front: '式を簡単にしてから代入すると計算ミスが減る', back: '式の値を求めるときのコツは？', difficulty: 'standard' },

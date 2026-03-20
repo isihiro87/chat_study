@@ -56,14 +56,10 @@ export const eqBasics: Topic = {
     videos: [],
     flashcards: [
       // === 方程式の定義と解（basic） ===
-      { id: 'math-g1-eq-b-fc1', front: '未知数を含む等式で、特定の値のときだけ成り立つ式', back: '方程式とは？', difficulty: 'basic' },
-      { id: 'math-g1-eq-b-fc2', front: '方程式を成り立たせる未知数の値', back: '方程式の「解」とは？', difficulty: 'basic' },
-      { id: 'math-g1-eq-b-fc3', front: '解を求めること', back: '「方程式を解く」とは？', difficulty: 'basic' },
       { id: 'math-g1-eq-b-fc4', front: '方程式である', back: '$x + 5 = 8$ は方程式か？', explanation: '未知数 $x$ を含む等式だから', difficulty: 'basic' },
       { id: 'math-g1-eq-b-fc5', front: '方程式ではない', back: '$3 + 5 = 8$ は方程式か？', explanation: '未知数を含まないから', difficulty: 'basic' },
 
       // === 等式の性質（basic〜standard） ===
-      { id: 'math-g1-eq-b-fc6', front: '両辺に同じ数を加えても、引いても、かけても、0以外の同じ数で割っても等式は成り立つ', back: '等式の性質とは？', difficulty: 'basic' },
       { id: 'math-g1-eq-b-fc7', front: '$B + C$', back: '$A = B$ のとき、$A + C =$ ？', explanation: '両辺に同じ数 $C$ を加えても等式は成り立つ', difficulty: 'basic' },
       { id: 'math-g1-eq-b-fc8', front: '$B - C$', back: '$A = B$ のとき、$A - C =$ ？', explanation: '両辺から同じ数を引いても等式は成り立つ', difficulty: 'basic' },
       { id: 'math-g1-eq-b-fc9', front: '$B \\times C$', back: '$A = B$ のとき、$A \\times C =$ ？', explanation: '両辺に同じ数をかけても等式は成り立つ', difficulty: 'standard' },
@@ -71,7 +67,6 @@ export const eqBasics: Topic = {
       { id: 'math-g1-eq-b-fc11', front: '0で割ることはできない', back: '等式の性質で割り算の場合に注意すべきことは？', explanation: '$C \\neq 0$ のときのみ両辺を $C$ で割れる', difficulty: 'standard' },
 
       // === 移項（basic〜standard） ===
-      { id: 'math-g1-eq-b-fc12', front: '等式の一方の辺の項を、符号を変えて他方の辺に移すこと', back: '移項とは？', difficulty: 'basic' },
       { id: 'math-g1-eq-b-fc13', front: '$+$ の項を移項すると $-$ に、$-$ の項を移項すると $+$ になる', back: '移項するとき符号はどうなる？', difficulty: 'basic' },
       { id: 'math-g1-eq-b-fc14', front: '両辺に同じ数を加える（または引く）性質', back: '移項は等式のどの性質を利用しているか？', difficulty: 'standard' },
 

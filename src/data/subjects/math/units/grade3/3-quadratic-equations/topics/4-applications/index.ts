@@ -71,11 +71,6 @@ export const quadEqApps: Topic = {
         difficulty: 'basic',
       },
       {
-        id: 'math-g3-qea-fc2',
-        front: '方程式の解が問題の条件に合うか確認すること', back: '解の吟味とは？',
-        difficulty: 'basic',
-      },
-      {
         id: 'math-g3-qea-fc3',
         front: '$n, n+1$（小さい方を $n$ とする）', back: '連続する2つの整数の表し方',
         difficulty: 'basic',
@@ -209,7 +204,6 @@ export const quadEqApps: Topic = {
         difficulty: 'advanced',
       },
       { id: 'math-g3-qea-fc29', front: '①文字をおく → ②方程式を立てる → ③解く → ④解の吟味', back: '二次方程式の文章題の手順は？', explanation: '必ず解の吟味を行う。', difficulty: 'basic' },
-      { id: 'math-g3-qea-fc30', front: '求めた解が問題の条件に合うか確認すること', back: '解の吟味とは？', explanation: '負の値が出ても問題に合わなければ不適。', difficulty: 'basic' },
       { id: 'math-g3-qea-fc31', front: '$7$', back: '連続する $2$ つの正の整数の積が $56$。小さい方は？', explanation: '$n(n+1) = 56$、$n^2 + n - 56 = 0$、$(n+8)(n-7) = 0$。', difficulty: 'basic' },
       { id: 'math-g3-qea-fc32', front: '$n(n+1) = $ 積', back: '連続する $2$ つの整数の積の方程式の立て方は？', explanation: '小さい方を $n$ とおく。', difficulty: 'basic' },
       { id: 'math-g3-qea-fc33', front: '$n(n+2) = $ 積', back: '連続する $2$ つの偶数（または奇数）の積の方程式は？', explanation: '$n$ と $n+2$ の積。', difficulty: 'standard' },

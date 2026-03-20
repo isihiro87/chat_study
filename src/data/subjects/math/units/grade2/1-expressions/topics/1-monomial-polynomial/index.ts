@@ -68,51 +68,9 @@ export const monomialPolynomial: Topic = {
     videos: [],
     flashcards: [
       {
-        id: 'math-g2-mp-fc1',
-        front: '数や文字のかけ算だけでできている式', back: '単項式とは？',
-        explanation: '例: $3x$, $-5ab$, $7$',
-        difficulty: 'basic',
-      },
-      {
-        id: 'math-g2-mp-fc2',
-        front: '単項式の和の形になっている式', back: '多項式とは？',
-        explanation: '例: $3x + 2y - 5$',
-        difficulty: 'basic',
-      },
-      {
-        id: 'math-g2-mp-fc3',
-        front: '多項式を構成する一つひとつの単項式', back: '項とは？',
-        explanation: '例: $3x + 2y - 5$ の項は $3x$, $2y$, $-5$',
-        difficulty: 'basic',
-      },
-      {
-        id: 'math-g2-mp-fc4',
-        front: '文字を含まない、数だけの項', back: '定数項とは？',
-        explanation: '例: $3x + 2y - 5$ の定数項は $-5$',
-        difficulty: 'basic',
-      },
-      {
-        id: 'math-g2-mp-fc5',
-        front: 'かけ合わされている文字の個数', back: '単項式の次数とは？',
-        explanation: '例: $4x^2y$ → $x$ が $2$ 個 + $y$ が $1$ 個 = 次数 $3$',
-        difficulty: 'basic',
-      },
-      {
-        id: 'math-g2-mp-fc6',
-        front: '単項式で文字にかかっている数', back: '係数とは？',
-        explanation: '例: $-3x^2$ の係数は $-3$、$x^2$ の係数は $1$',
-        difficulty: 'basic',
-      },
-      {
         id: 'math-g2-mp-fc7',
         front: '各項の次数のうち、もっとも大きいもの', back: '多項式の次数の求め方は？',
         explanation: '例: $3x^2 + 5x - 1$ → 最高次数は $2$ → $2$ 次式',
-        difficulty: 'basic',
-      },
-      {
-        id: 'math-g2-mp-fc8',
-        front: '文字の部分が同じ項どうし', back: '同類項とは？',
-        explanation: '例: $3x$ と $-5x$、$2a^2b$ と $-7a^2b$',
         difficulty: 'basic',
       },
       {
@@ -169,8 +127,6 @@ export const monomialPolynomial: Topic = {
         explanation: '$x^2 + 3x^2 = 4x^2$、$9x - 4x = 5x$',
         difficulty: 'standard',
       },
-      { id: 'math-g2-mp-fc18', front: '$1$ 次式: 最高次数が $1$', back: '1次式とは？', explanation: '例: $3x + 2$', difficulty: 'standard' },
-      { id: 'math-g2-mp-fc19', front: '$2$ 次式: 最高次数が $2$', back: '2次式とは？', explanation: '例: $x^2 + 3x - 1$', difficulty: 'standard' },
       { id: 'math-g2-mp-fc20', front: '単項式', back: '$-5ab$ は単項式？多項式？', explanation: '$-5ab$ は数と文字のかけ算だけ', difficulty: 'standard' },
       { id: 'math-g2-mp-fc21', front: '多項式', back: '$3x^2 - 2x + 1$ は単項式？多項式？', explanation: '$3x^2 - 2x + 1$ は3つの単項式の和', difficulty: 'standard' },
       { id: 'math-g2-mp-fc22', front: '$1$', back: '$x$ の次数は？', explanation: '$x$ は $x^1$ と同じで、文字が1個かけ合わされている', difficulty: 'standard' },

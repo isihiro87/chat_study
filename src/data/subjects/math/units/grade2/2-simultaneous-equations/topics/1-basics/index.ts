@@ -65,13 +65,6 @@ export const simulEqBasics: Topic = {
     videos: [],
     flashcards: [
       {
-        id: 'math-g2-sb-fc1',
-        front: '2つの文字（未知数）をふくむ一次方程式', back: '二元一次方程式とは？',
-        hint: '「二元」の意味を考えよう',
-        explanation: '例: $x + y = 5$、$2x - 3y = 1$ など。「二」は未知数が2つ、「元」は未知数のこと。',
-        difficulty: 'basic',
-      },
-      {
         id: 'math-g2-sb-fc2',
         front: '未知数（わからない数）', back: '「二元」の「元」は何を意味する？',
         hint: '一元一次方程式の「元」と同じ意味',
@@ -82,24 +75,6 @@ export const simulEqBasics: Topic = {
         front: '無限にある', back: '$x + y = 5$ の解はいくつある？',
         hint: '$(1, 4)$, $(2, 3)$, $(3, 2)$…と数えきれない',
         explanation: '二元一次方程式1つだけでは、解は無限にある。2つ組み合わせて初めて1つに決まる。',
-        difficulty: 'basic',
-      },
-      {
-        id: 'math-g2-sb-fc4',
-        front: '2つ（以上）の方程式を組み合わせたもの', back: '連立方程式とは？',
-        hint: '1つの式だけでは解が定まらない',
-        difficulty: 'basic',
-      },
-      {
-        id: 'math-g2-sb-fc5',
-        front: '2つの式を同時に満たす $x$, $y$ の値の組', back: '連立方程式の「解」とは？',
-        hint: '片方だけ満たしてもダメ',
-        difficulty: 'basic',
-      },
-      {
-        id: 'math-g2-sb-fc6',
-        front: '2つの式を同時に満たす $x$, $y$ の値の組を求めること', back: '「連立方程式を解く」とは？',
-        hint: '両方の式を同時に成り立たせる',
         difficulty: 'basic',
       },
       {
@@ -186,7 +161,6 @@ export const simulEqBasics: Topic = {
       { id: 'math-g2-sb-fc32', front: 'いいえ（$xy$ は $2$ 次の項）', back: '$xy = 6$ は二元一次方程式？', explanation: '$x$ と $y$ の積は $2$ 次。', difficulty: 'standard' },
       { id: 'math-g2-sb-fc33', front: '無限にある', back: '二元一次方程式 $x + y = 5$ の解はいくつある？', explanation: '$(1,4), (2,3), (0,5)$ など無数。', difficulty: 'basic' },
       { id: 'math-g2-sb-fc34', front: '$2$ つの方程式を組み合わせたもの', back: '連立方程式とは何？', explanation: '$2$ つの式を同時に考える。', difficulty: 'basic' },
-      { id: 'math-g2-sb-fc35', front: '$2$ つの式を両方とも満たす $x, y$ の値の組', back: '連立方程式の「解」とは？', explanation: '通常 $1$ 組に決まる。', difficulty: 'basic' },
       { id: 'math-g2-sb-fc36', front: '求めた $x, y$ を $2$ つの式両方に代入して成り立つか確認', back: '連立方程式の解を確かめるには？', explanation: '片方だけでは不十分。', difficulty: 'basic' },
       { id: 'math-g2-sb-fc37', front: 'いいえ。$2$ つの式を両方とも満たす必要がある', back: '片方の式だけ成り立てば解？', explanation: '連立方程式は同時に成り立つことが条件。', difficulty: 'standard' },
       { id: 'math-g2-sb-fc38', front: '$(3, 2)$', back: '$x + y = 5$ と $x - y = 1$ を両方満たす組は？', explanation: '$3+2=5$ ✓、$3-2=1$ ✓。', difficulty: 'standard' },

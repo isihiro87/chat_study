@@ -79,12 +79,6 @@ export const literalNotation: Topic = {
     videos: [],
     flashcards: [
       {
-        id: 'math-g1-lit-notation-fc1',
-        front: '文字を使って数量を表した式', back: '文字式とは？',
-        explanation: '文字（$a$, $x$ など）を使って数量を表した式のこと。数が変わっても同じ式で表せるのが便利！',
-        difficulty: 'basic',
-      },
-      {
         id: 'math-g1-lit-notation-fc2',
         front: '省略する', back: '文字式で×の記号はどうする？',
         explanation: '$a \\times b$ → $ab$ と書く。',
@@ -118,18 +112,6 @@ export const literalNotation: Topic = {
         id: 'math-g1-lit-notation-fc7',
         front: '÷は使わずに分数で表す', back: '文字式で÷の記号はどうする？',
         explanation: '$a \\div b$ → $\\dfrac{a}{b}$',
-        difficulty: 'basic',
-      },
-      {
-        id: 'math-g1-lit-notation-fc8',
-        front: '文字に具体的な数を当てはめること', back: '「代入」とは？',
-        explanation: '例: $3x$ の $x$ に $2$ を代入 → $3 \\times 2 = 6$',
-        difficulty: 'basic',
-      },
-      {
-        id: 'math-g1-lit-notation-fc9',
-        front: '文字に数を代入して計算した結果', back: '「式の値」とは？',
-        explanation: '例: $x = 2$ のとき $3x$ の式の値は $6$',
         difficulty: 'basic',
       },
       {

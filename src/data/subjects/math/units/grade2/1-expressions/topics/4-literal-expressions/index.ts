@@ -136,12 +136,6 @@ export const literalExpressions: Topic = {
         difficulty: 'basic',
       },
       {
-        id: 'math-g2-le-fc11',
-        front: '等式をある文字について解くこと', back: '等式の変形とは？',
-        explanation: '$x = \\square$ の形にする',
-        difficulty: 'basic',
-      },
-      {
         id: 'math-g2-le-fc12',
         front: '① 移項する → ② 両辺に同じ数をかける/割る', back: '等式の変形の基本操作は？',
         explanation: '方程式を解くのと同じ要領！',
