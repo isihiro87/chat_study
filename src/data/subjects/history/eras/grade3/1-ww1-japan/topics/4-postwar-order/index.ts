@@ -74,11 +74,11 @@ export const postwarOrder: Topic = {
           question: '第一次世界大戦後の講和条約として正しいものは？',
           options: [
             'ワシントン条約',
+            'ベルサイユ条約',
             'ポーツマス条約',
             '下関条約',
-            'ベルサイユ条約',
-          ],
-          correctIndex: 3,
+],
+          correctIndex: 1,
           explanation:
             '1919年のパリ講和会議でベルサイユ条約が結ばれ、ドイツに厳しい条件が課されました。',
           difficulty: 'basic',
@@ -88,11 +88,11 @@ export const postwarOrder: Topic = {
           question: '1919年に朝鮮で起きた、日本からの独立を求める運動は？',
           options: [
             '五・四運動',
-            '三・一独立運動',
             '辛亥革命',
             '義和団事件',
-          ],
-          correctIndex: 1,
+            '三・一独立運動',
+],
+          correctIndex: 3,
           explanation:
             '三・一独立運動は1919年3月1日に始まった朝鮮の大規模な独立運動です。',
           difficulty: 'basic',
@@ -109,8 +109,8 @@ export const postwarOrder: Topic = {
         {
           id: 'q4',
           question: '民族自決を提唱したアメリカの大統領は誰？',
-          options: ['リンカーン', 'ウィルソン', 'ルーズベルト', 'トルーマン'],
-          correctIndex: 1,
+          options: ['リンカーン', 'ルーズベルト', 'ウィルソン', 'トルーマン'],
+          correctIndex: 2,
           explanation:
             'ウィルソン大統領が民族自決の原則を提唱し、国際連盟の設立も提案しました。',
           difficulty: 'basic',
@@ -118,8 +118,8 @@ export const postwarOrder: Topic = {
         {
           id: 'q5',
           question: '国際連盟が設立された年は？',
-          options: ['1919年', '1920年', '1921年', '1922年'],
-          correctIndex: 1,
+          options: ['1920年', '1919年', '1921年', '1922年'],
+          correctIndex: 0,
           explanation:
             '国際連盟は1920年に設立されました。ウィルソン大統領の提案によるものです。',
           difficulty: 'basic',
@@ -127,8 +127,8 @@ export const postwarOrder: Topic = {
         {
           id: 'q6',
           question: 'インドで非暴力・不服従運動を指導した人物は？',
-          options: ['ガンディー', 'スカルノ', 'ネルー', '孫文'],
-          correctIndex: 0,
+          options: ['スカルノ', 'ネルー', '孫文', 'ガンディー'],
+          correctIndex: 3,
           explanation:
             'ガンディーは非暴力・不服従の手段でイギリスからの独立を目指しました。',
           difficulty: 'standard',
@@ -137,8 +137,8 @@ export const postwarOrder: Topic = {
           id: 'q7',
           question:
             '第一次世界大戦後に設立された国際平和機関で、日本が常任理事国となったのは？',
-          options: ['国際連合', 'NATO', '国際連盟', 'EU'],
-          correctIndex: 2,
+          options: ['国際連盟', '国際連合', 'NATO', 'EU'],
+          correctIndex: 0,
           explanation:
             '国際連盟は第一次世界大戦後に設立され、日本はイギリス・フランス・イタリアとともに常任理事国でした。',
           difficulty: 'standard',
@@ -148,11 +148,11 @@ export const postwarOrder: Topic = {
           question: 'ベルサイユ条約でドイツに課された条件に含まれないものは？',
           options: [
             '巨額の賠償金',
+            '国王の退位',
             '植民地の没収',
             '軍備の縮小',
-            '国王の退位',
-          ],
-          correctIndex: 3,
+],
+          correctIndex: 1,
           explanation:
             'ベルサイユ条約ではドイツに巨額の賠償金、植民地の没収、軍備の縮小が課されました。',
           difficulty: 'standard',
@@ -160,8 +160,8 @@ export const postwarOrder: Topic = {
         {
           id: 'q9',
           question: '国際連盟の本部が置かれた都市は？',
-          options: ['パリ', 'ロンドン', 'ジュネーブ', 'ニューヨーク'],
-          correctIndex: 2,
+          options: ['パリ', 'ロンドン', 'ニューヨーク', 'ジュネーブ'],
+          correctIndex: 3,
           explanation:
             '国際連盟の本部はスイスのジュネーブに置かれました。',
           difficulty: 'standard',
@@ -170,12 +170,12 @@ export const postwarOrder: Topic = {
           id: 'q10',
           question: 'ワシントン会議で解消された同盟は？',
           options: [
-            '三国同盟',
             '日英同盟',
+            '三国同盟',
             '三国協商',
             '日独伊三国同盟',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 0,
           explanation:
             'ワシントン会議の結果、日英同盟は解消されました。',
           difficulty: 'standard',
@@ -236,11 +236,11 @@ export const postwarOrder: Topic = {
           question: '民族自決がアジア・アフリカに適用されなかった理由として最も適切なものは？',
           options: [
             'アジア・アフリカの民族が独立を望んでいなかったため',
-            '列強が自国の植民地を手放すことを拒否したため',
             '地理的に離れていたため',
+            '列強が自国の植民地を手放すことを拒否したため',
             'アメリカが反対したため',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 2,
           explanation:
             'イギリスやフランスなどの列強はアジア・アフリカに広大な植民地を持っており、独立を認めれば自国の利益を失うことになるため適用を拒否しました。',
           difficulty: 'advanced',

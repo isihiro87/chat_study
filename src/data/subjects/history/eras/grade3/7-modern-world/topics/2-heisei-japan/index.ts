@@ -66,11 +66,11 @@ export const heiseiJapan: Topic = {
           question: '1992年に成立した自衛隊の海外派遣を認める法律は？',
           options: [
             '安全保障条約',
-            '国際平和協力法（PKO協力法）',
             '自衛隊法',
+            '国際平和協力法（PKO協力法）',
             '日米安保条約',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 2,
           explanation:
             '国際平和協力法（PKO協力法）により、自衛隊の国連平和維持活動への参加が可能になりました。',
           difficulty: 'basic',
@@ -95,10 +95,10 @@ export const heiseiJapan: Topic = {
           options: [
             '高度経済成長',
             '平成不況',
-            'バブル経済',
             '神武景気',
-          ],
-          correctIndex: 2,
+            'バブル経済',
+],
+          correctIndex: 3,
           explanation:
             'バブル経済は1980年代後半に株価や地価が急上昇した好景気で、1990年代に崩壊して平成不況につながりました。',
           difficulty: 'basic',
@@ -122,11 +122,11 @@ export const heiseiJapan: Topic = {
           question: '2011年3月に発生した大震災は？',
           options: [
             '阪神・淡路大震災',
-            '関東大震災',
             '東日本大震災',
+            '関東大震災',
             '熊本地震',
-          ],
-          correctIndex: 2,
+],
+          correctIndex: 1,
           explanation:
             '東日本大震災は2011年3月に発生し、地震・津波に加え福島第一原子力発電所の事故も引き起こしました。',
           difficulty: 'basic',
@@ -167,10 +167,10 @@ export const heiseiJapan: Topic = {
           options: [
             '教育基本法',
             '労働基準法',
-            '男女雇用機会均等法',
             '男女共同参画社会基本法',
-          ],
-          correctIndex: 3,
+            '男女雇用機会均等法',
+],
+          correctIndex: 2,
           explanation:
             '男女共同参画社会基本法は1999年に制定され、男女が対等に社会参画できる社会を目指しています。',
           difficulty: 'standard',
@@ -180,12 +180,12 @@ export const heiseiJapan: Topic = {
           question:
             '2009年に自民党から政権を奪った政党は？',
           options: [
-            '民主党',
             '公明党',
             '日本共産党',
             '日本社会党',
-          ],
-          correctIndex: 0,
+            '民主党',
+],
+          correctIndex: 3,
           explanation:
             '2009年の衆議院選挙で民主党が勝利し、鳩山由紀夫が首相となる政権交代が実現しました。',
           difficulty: 'standard',
@@ -194,12 +194,12 @@ export const heiseiJapan: Topic = {
           id: 'q10',
           question: '東日本大震災で事故を起こした原子力発電所は？',
           options: [
+            '福島第一原子力発電所',
             '柏崎刈羽原子力発電所',
             '浜岡原子力発電所',
-            '福島第一原子力発電所',
             '大飯原子力発電所',
-          ],
-          correctIndex: 2,
+],
+          correctIndex: 0,
           explanation:
             '東日本大震災の津波により福島第一原子力発電所が重大な事故を起こし、放射性物質が放出されました。',
           difficulty: 'standard',
@@ -222,12 +222,12 @@ export const heiseiJapan: Topic = {
           id: 'q12',
           question: '日本がロシアに返還を求めている領土問題は？',
           options: [
+            '北方領土問題',
             '竹島問題',
             '尖閣諸島問題',
-            '北方領土問題',
             '沖縄返還問題',
-          ],
-          correctIndex: 2,
+],
+          correctIndex: 0,
           explanation:
             '北方領土問題は、第二次世界大戦末期にソ連が占領した択捉島・国後島・色丹島・歯舞群島の返還を日本が求めている問題です。',
           difficulty: 'standard',
@@ -250,12 +250,12 @@ export const heiseiJapan: Topic = {
           id: 'q14',
           question: 'バブル崩壊後の長期不況の別名として適切なものは？',
           options: [
-            '昭和恐慌',
             '失われた10年',
+            '昭和恐慌',
             'オイルショック',
             'デフレスパイラル',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 0,
           explanation:
             'バブル崩壊後の長期不況は「失われた10年」（さらに長引き「失われた20年」とも）と呼ばれました。',
           difficulty: 'standard',
@@ -280,10 +280,10 @@ export const heiseiJapan: Topic = {
           options: [
             '原子力発電所の大幅な新設',
             '火力発電の全面廃止',
-            '再生可能エネルギーの導入加速',
             '石炭火力への全面転換',
-          ],
-          correctIndex: 2,
+            '再生可能エネルギーの導入加速',
+],
+          correctIndex: 3,
           explanation:
             '福島第一原発事故を受けて原子力への信頼が揺らぎ、太陽光や風力などの再生可能エネルギーの導入が加速しました。',
           difficulty: 'advanced',
@@ -293,11 +293,11 @@ export const heiseiJapan: Topic = {
           question: 'PKO協力法の成立が日本の安全保障政策にとって重要な理由として最も適切なものは？',
           options: [
             '憲法9条を改正したため',
-            '自衛隊が国連平和維持活動に参加可能になったため',
             '日米安保条約を破棄したため',
+            '自衛隊が国連平和維持活動に参加可能になったため',
             '核兵器の保有を認めたため',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 2,
           explanation:
             'PKO協力法により自衛隊が国連の平和維持活動に参加できるようになり、日本の国際貢献の幅が広がりました。',
           difficulty: 'advanced',
@@ -306,12 +306,12 @@ export const heiseiJapan: Topic = {
           id: 'q18',
           question: '阪神・淡路大震災がNPOの発展に与えた影響として適切なものは？',
           options: [
-            '政府がNPOの活動を全面禁止した',
             'ボランティア活動が注目され、1998年にNPO法が制定された',
+            '政府がNPOの活動を全面禁止した',
             '自衛隊がNPOに改組された',
             '国連がNPOの解散を求めた',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 0,
           explanation:
             '阪神・淡路大震災でのボランティア活動の経験を踏まえ、1998年にNPO法（特定非営利活動促進法）が制定されました。',
           difficulty: 'advanced',

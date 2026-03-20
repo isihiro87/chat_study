@@ -62,8 +62,8 @@ export const constitution: Topic = {
         {
           id: 'q1',
           question: '日本国憲法の三大原則に含まれないものはどれ？',
-          options: ['平和主義', '基本的人権の尊重', '国民主権', '富国強兵'],
-          correctIndex: 3,
+          options: ['平和主義', '富国強兵', '基本的人権の尊重', '国民主権'],
+          correctIndex: 1,
           explanation:
             '日本国憲法の三大原則は国民主権・基本的人権の尊重・平和主義です。富国強兵は明治時代のスローガンです。',
           difficulty: 'basic',
@@ -71,8 +71,8 @@ export const constitution: Topic = {
         {
           id: 'q2',
           question: '政府が地主の土地を買い上げ、小作人に安く売った改革は？',
-          options: ['財閥解体', '農地改革', '殖産興業', '地租改正'],
-          correctIndex: 1,
+          options: ['財閥解体', '殖産興業', '地租改正', '農地改革'],
+          correctIndex: 3,
           explanation:
             '農地改革により多くの小作人が自分の土地を持つ自作農となりました。',
           difficulty: 'basic',
@@ -80,8 +80,8 @@ export const constitution: Topic = {
         {
           id: 'q3',
           question: '日本国憲法において天皇はどのような地位と定められた？',
-          options: ['象徴', '元首', '統治者', '大元帥'],
-          correctIndex: 0,
+          options: ['元首', '統治者', '大元帥', '象徴'],
+          correctIndex: 3,
           explanation:
             '日本国憲法では天皇は「日本国および日本国民統合の象徴」と定められました。',
           difficulty: 'basic',
@@ -89,8 +89,8 @@ export const constitution: Topic = {
         {
           id: 'q4',
           question: '日本国憲法で戦争の放棄を定めた条文は第何条？',
-          options: ['第1条', '第25条', '第9条', '第14条'],
-          correctIndex: 2,
+          options: ['第1条', '第25条', '第14条', '第9条'],
+          correctIndex: 3,
           explanation:
             '第9条は戦争の放棄と戦力の不保持を定めた条文です。',
           difficulty: 'basic',
@@ -107,8 +107,8 @@ export const constitution: Topic = {
         {
           id: 'q6',
           question: '民主主義の教育の基本を定めた法律は？',
-          options: ['教育基本法', '学校教育法', '地方自治法', '労働基準法'],
-          correctIndex: 0,
+          options: ['学校教育法', '教育基本法', '地方自治法', '労働基準法'],
+          correctIndex: 1,
           explanation:
             '教育基本法は1947年に制定され、民主教育の土台を築きました。',
           difficulty: 'basic',
@@ -116,8 +116,8 @@ export const constitution: Topic = {
         {
           id: 'q7',
           question: '日本国憲法が公布された年はいつ？',
-          options: ['1945年', '1947年', '1946年', '1948年'],
-          correctIndex: 2,
+          options: ['1946年', '1945年', '1947年', '1948年'],
+          correctIndex: 0,
           explanation:
             '日本国憲法は1946年11月3日に公布され、翌1947年5月3日に施行されました。',
           difficulty: 'standard',
@@ -144,8 +144,8 @@ export const constitution: Topic = {
         {
           id: 'q10',
           question: '大日本帝国憲法では主権は誰にあったか？',
-          options: ['国民', '天皇', '議会', '内閣'],
-          correctIndex: 1,
+          options: ['国民', '議会', '天皇', '内閣'],
+          correctIndex: 2,
           explanation:
             '大日本帝国憲法では天皇主権であり、天皇が統治権の総攬者でした。日本国憲法で国民主権に変わりました。',
           difficulty: 'standard',
@@ -153,8 +153,8 @@ export const constitution: Topic = {
         {
           id: 'q11',
           question: '地方の政治を住民が自主的に行うことを定めた法律は？',
-          options: ['教育基本法', '地方自治法', '労働組合法', '公職選挙法'],
-          correctIndex: 1,
+          options: ['教育基本法', '労働組合法', '地方自治法', '公職選挙法'],
+          correctIndex: 2,
           explanation:
             '地方自治法は、地方の政治を中央集権ではなく住民が自主的に行うことを定めました。',
           difficulty: 'standard',
@@ -162,8 +162,8 @@ export const constitution: Topic = {
         {
           id: 'q12',
           question: '労働条件の最低基準を定めた法律は？',
-          options: ['労働組合法', '労働基準法', '工場法', '最低賃金法'],
-          correctIndex: 1,
+          options: ['労働基準法', '労働組合法', '工場法', '最低賃金法'],
+          correctIndex: 0,
           explanation:
             '労働基準法は賃金・労働時間などの労働条件の最低基準を定めた法律です。',
           difficulty: 'standard',
@@ -172,12 +172,12 @@ export const constitution: Topic = {
           id: 'q13',
           question: '第9条で定められている2つの内容は？',
           options: [
-            '国民主権と基本的人権',
             '戦争放棄と戦力不保持',
+            '国民主権と基本的人権',
             '象徴天皇と国民主権',
             '平和主義と地方自治',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 0,
           explanation:
             '第9条は戦争を永久に放棄し、戦力を保持しないことを定めています。',
           difficulty: 'standard',
@@ -186,12 +186,12 @@ export const constitution: Topic = {
           id: 'q14',
           question: '大日本帝国憲法の「臣民の権利」と日本国憲法の「基本的人権」の違いとして正しいのは？',
           options: [
-            '臣民の権利は法律で制限でき、基本的人権は永久の権利',
             'どちらも同じ内容である',
+            '臣民の権利は法律で制限でき、基本的人権は永久の権利',
             '臣民の権利のほうが広く保障されていた',
             '基本的人権は天皇が与える権利',
-          ],
-          correctIndex: 0,
+],
+          correctIndex: 1,
           explanation:
             '臣民の権利は法律の範囲内で認められたが、基本的人権は侵すことのできない永久の権利として保障されました。',
           difficulty: 'advanced',
@@ -201,11 +201,11 @@ export const constitution: Topic = {
           question: '日本国憲法の制定・農地改革・財閥解体・教育基本法の制定に共通する目的は？',
           options: [
             '経済成長を促進すること',
-            '日本を民主的な国家に変えること',
             '天皇の権限を強化すること',
+            '日本を民主的な国家に変えること',
             '軍事力を増強すること',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 2,
           explanation:
             'これらの改革はすべて、日本を平和で民主的な国家に変えるという共通の目的のもとで行われました。',
           difficulty: 'advanced',
@@ -214,12 +214,12 @@ export const constitution: Topic = {
           id: 'q16',
           question: '日本国憲法が「平和憲法」と呼ばれる理由として最も適切なのは？',
           options: [
-            '国際連合に加盟したため',
             '第9条で戦争放棄と戦力不保持を定めた世界的にも珍しい憲法だから',
+            '国際連合に加盟したため',
             '天皇が平和を宣言したため',
             '他国との同盟関係を禁止したため',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 0,
           explanation:
             '第9条で戦争の放棄と戦力の不保持を憲法の基本原則として明確に定めた国はほとんどなく、「平和憲法」と呼ばれます。',
           difficulty: 'advanced',

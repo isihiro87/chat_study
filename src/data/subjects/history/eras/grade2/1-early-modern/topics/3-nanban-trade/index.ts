@@ -60,7 +60,7 @@ export const nanbanTrade: Topic = {
         {
           id: 'q2',
           question: '1549年にキリスト教を日本に伝えたイエズス会の宣教師は？',
-          options: ['ルター', 'フロイス', 'ヴァリニャーノ', 'ザビエル'],
+          options: ['マルティン・ルター', 'ルイス・フロイス', 'アレッサンドロ・ヴァリニャーノ', 'フランシスコ・ザビエル'],
           correctIndex: 3,
           explanation: 'フランシスコ・ザビエルは1549年に鹿児島に上陸し、日本にキリスト教を伝えました。',
           difficulty: 'basic',
@@ -68,7 +68,7 @@ export const nanbanTrade: Topic = {
         {
           id: 'q3',
           question: '南蛮貿易で日本から主に輸出された品物は？',
-          options: ['生糸', '銀', '鉄砲', '香辛料'],
+          options: ['生糸（きいと）', '銀（しろがね）', '鉄砲（てっぽう）', '香辛料（こうしんりょう）'],
           correctIndex: 1,
           explanation: '南蛮貿易では日本から銀が大量に輸出され、生糸や火薬などが輸入されました。',
           difficulty: 'standard',

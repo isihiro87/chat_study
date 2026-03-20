@@ -84,11 +84,11 @@ export const greatDepression: Topic = {
             'ルーズベルト大統領が世界恐慌に対して行った経済政策は？',
           options: [
             'ブロック経済',
-            'ニューディール政策',
             '殖産興業',
             '国家総動員法',
-          ],
-          correctIndex: 1,
+            'ニューディール政策',
+],
+          correctIndex: 3,
           explanation:
             'ニューディール政策では、公共事業で雇用を創出し、経済の立て直しを図りました。',
           difficulty: 'basic',
@@ -98,12 +98,12 @@ export const greatDepression: Topic = {
           question:
             'ドイツでナチス（ナチ党）を率いて独裁政治を行った人物は？',
           options: [
-            'ヒトラー',
             'スターリン',
+            'ヒトラー',
             'ルーズベルト',
             'ムッソリーニ',
-          ],
-          correctIndex: 0,
+],
+          correctIndex: 1,
           explanation:
             'ヒトラーはナチス（ナチ党）を率いてドイツで独裁政治を行い、ユダヤ人の迫害やベルサイユ条約の破棄を進めました。',
           difficulty: 'standard',
@@ -127,12 +127,12 @@ export const greatDepression: Topic = {
           id: 'q5',
           question: '世界恐慌のきっかけとなった株価の大暴落が起きた場所は？',
           options: [
-            'ロンドン証券取引所',
             'ニューヨーク株式市場',
+            'ロンドン証券取引所',
             '東京証券取引所',
             'パリ証券取引所',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 0,
           explanation:
             '1929年にニューヨーク株式市場（ウォール街）で株価が大暴落し、世界恐慌が始まりました。',
           difficulty: 'basic',
@@ -143,10 +143,10 @@ export const greatDepression: Topic = {
           options: [
             '軍備の拡大',
             '植民地の獲得',
-            '公共事業の拡大',
             '鎖国政策',
-          ],
-          correctIndex: 2,
+            '公共事業の拡大',
+],
+          correctIndex: 3,
           explanation:
             'ニューディール政策ではダムや道路の建設などの公共事業で雇用を創出しました。',
           difficulty: 'basic',
@@ -155,12 +155,12 @@ export const greatDepression: Topic = {
           id: 'q7',
           question: 'イタリアでファシスト党を率いて独裁政治を行った人物は？',
           options: [
-            'ヒトラー',
             'ムッソリーニ',
+            'ヒトラー',
             'スターリン',
             'チャーチル',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 0,
           explanation:
             'ムッソリーニはイタリアでファシスト党を率いて独裁政治を行い、エチオピアに侵攻しました。',
           difficulty: 'standard',
@@ -183,12 +183,12 @@ export const greatDepression: Topic = {
           id: 'q9',
           question: 'ソ連が世界恐慌の影響を受けなかった理由として正しいのは？',
           options: [
+            '五か年計画（計画経済）を実施していたから',
             'ブロック経済を採用していたから',
             '植民地が多かったから',
-            '五か年計画（計画経済）を実施していたから',
             'アメリカと同盟を結んでいたから',
-          ],
-          correctIndex: 2,
+],
+          correctIndex: 0,
           explanation:
             'ソ連は計画経済により世界市場との結びつきが弱く、恐慌の影響を免れました。',
           difficulty: 'standard',
@@ -198,11 +198,11 @@ export const greatDepression: Topic = {
           question: '世界恐慌の影響で1930年に日本が陥った不況を何という？',
           options: [
             '大正デモクラシー',
-            '昭和恐慌',
             'バブル崩壊',
             'オイルショック',
-          ],
-          correctIndex: 1,
+            '昭和恐慌',
+],
+          correctIndex: 3,
           explanation:
             '昭和恐慌では農村の困窮が深刻化し、「身売り」や「欠食児童」が社会問題になりました。',
           difficulty: 'basic',
@@ -212,11 +212,11 @@ export const greatDepression: Topic = {
           question: 'ブロック経済によって大きな打撃を受けた国の組み合わせとして正しいのは？',
           options: [
             'アメリカ・イギリス・フランス',
-            '日本・ドイツ・イタリア',
             'ソ連・中国・インド',
+            '日本・ドイツ・イタリア',
             'イギリス・ドイツ・ソ連',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 2,
           explanation:
             '植民地を持たない日本・ドイツ・イタリアは「持たざる国」としてブロック経済の外に置かれ、大きな打撃を受けました。',
           difficulty: 'standard',

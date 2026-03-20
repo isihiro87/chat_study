@@ -68,8 +68,8 @@ export const ww1Outbreak: Topic = {
         {
           id: 'q1',
           question: '第一次世界大戦のきっかけとなった1914年の事件は？',
-          options: ['サラエボ事件', 'ノルマントン号事件', '辛亥革命', '日露戦争'],
-          correctIndex: 0,
+          options: ['ノルマントン号事件', '辛亥革命', 'サラエボ事件', '日露戦争'],
+          correctIndex: 2,
           explanation:
             'サラエボ事件でオーストリアの皇太子が暗殺され、第一次世界大戦が始まりました。',
           difficulty: 'basic',
@@ -78,12 +78,12 @@ export const ww1Outbreak: Topic = {
           id: 'q2',
           question: '三国協商を構成した3か国の正しい組み合わせは？',
           options: [
+            'イギリス・フランス・ロシア',
             'ドイツ・オーストリア・イタリア',
             'フランス・オーストリア・イタリア',
             'イギリス・ドイツ・ロシア',
-            'イギリス・フランス・ロシア',
-          ],
-          correctIndex: 3,
+],
+          correctIndex: 0,
           explanation:
             '三国協商はイギリス・フランス・ロシアの3か国で構成されました。',
           difficulty: 'basic',
@@ -92,12 +92,12 @@ export const ww1Outbreak: Topic = {
           id: 'q3',
           question: '三国同盟を構成した3か国の正しい組み合わせは？',
           options: [
-            'ドイツ・オーストリア・イタリア',
             'イギリス・ドイツ・ロシア',
             'フランス・ドイツ・イタリア',
+            'ドイツ・オーストリア・イタリア',
             'イギリス・フランス・イタリア',
-          ],
-          correctIndex: 0,
+],
+          correctIndex: 2,
           explanation:
             '三国同盟はドイツ・オーストリア・イタリアの3か国で構成されました。',
           difficulty: 'basic',
@@ -106,12 +106,12 @@ export const ww1Outbreak: Topic = {
           id: 'q4',
           question: 'バルカン半島は当時何と呼ばれていたか？',
           options: [
-            'ヨーロッパの火薬庫',
             'ヨーロッパの穀倉地帯',
             'ヨーロッパの心臓部',
             'ヨーロッパの橋',
-          ],
-          correctIndex: 0,
+            'ヨーロッパの火薬庫',
+],
+          correctIndex: 3,
           explanation:
             '多くの民族が住み、列強の利害が絡み合って紛争が絶えなかったため「ヨーロッパの火薬庫」と呼ばれました。',
           difficulty: 'basic',
@@ -119,8 +119,8 @@ export const ww1Outbreak: Topic = {
         {
           id: 'q5',
           question: '第一次世界大戦が始まった年は？',
-          options: ['1912年', '1914年', '1918年', '1920年'],
-          correctIndex: 1,
+          options: ['1914年', '1912年', '1918年', '1920年'],
+          correctIndex: 0,
           explanation:
             '1914年にサラエボ事件をきっかけに第一次世界大戦が始まりました。',
           difficulty: 'basic',
@@ -137,8 +137,8 @@ export const ww1Outbreak: Topic = {
         {
           id: 'q7',
           question: '第一次世界大戦のように、国の全ての力を動員して行う戦争を何という？',
-          options: ['局地戦', '総力戦', '冷戦', '代理戦争'],
-          correctIndex: 1,
+          options: ['総力戦', '局地戦', '冷戦', '代理戦争'],
+          correctIndex: 0,
           explanation:
             '総力戦とは、軍事力だけでなく経済力や国民生活のすべてを動員して戦う戦争です。',
           difficulty: 'standard',
@@ -148,11 +148,11 @@ export const ww1Outbreak: Topic = {
           question: 'サラエボ事件で暗殺されたのは誰？',
           options: [
             'ドイツ皇帝',
-            'ロシア皇帝',
             'オーストリアの皇位継承者夫妻',
+            'ロシア皇帝',
             'セルビア国王',
-          ],
-          correctIndex: 2,
+],
+          correctIndex: 1,
           explanation:
             'オーストリアの皇位継承者（皇太子）夫妻がセルビア人の青年に暗殺されました。',
           difficulty: 'standard',
@@ -160,8 +160,8 @@ export const ww1Outbreak: Topic = {
         {
           id: 'q9',
           question: '第一次世界大戦は何年間続いたか？',
-          options: ['2年間', '3年間', '4年間', '5年間'],
-          correctIndex: 2,
+          options: ['2年間', '4年間', '3年間', '5年間'],
+          correctIndex: 1,
           explanation:
             '第一次世界大戦は1914年から1918年までの4年間続きました。',
           difficulty: 'standard',
@@ -169,8 +169,8 @@ export const ww1Outbreak: Topic = {
         {
           id: 'q10',
           question: '三国同盟の国でありながら、途中で連合国側に移った国は？',
-          options: ['ドイツ', 'オーストリア', 'ロシア', 'イタリア'],
-          correctIndex: 3,
+          options: ['ドイツ', 'イタリア', 'オーストリア', 'ロシア'],
+          correctIndex: 1,
           explanation:
             'イタリアは三国同盟に参加していましたが、オーストリアとの領土問題もあり途中で連合国側に移りました。',
           difficulty: 'standard',
@@ -180,11 +180,11 @@ export const ww1Outbreak: Topic = {
           question: '20世紀初めのヨーロッパで対立が深まった原因として正しいものは？',
           options: [
             '宗教の違い',
-            '植民地や勢力圏をめぐる対立',
             '自然災害の多発',
             '交通網の未整備',
-          ],
-          correctIndex: 1,
+            '植民地や勢力圏をめぐる対立',
+],
+          correctIndex: 3,
           explanation:
             'ヨーロッパの列強は植民地や勢力圏をめぐって激しく対立し、軍備拡大競争を繰り広げていました。',
           difficulty: 'standard',
@@ -202,12 +202,12 @@ export const ww1Outbreak: Topic = {
           id: 'q13',
           question: '総力戦によって女性の社会的立場に起きた変化として正しいものは？',
           options: [
-            '女性が政治の指導者になった',
             '女性が工場で働くなど社会進出が進んだ',
+            '女性が政治の指導者になった',
             '女性の教育が禁止された',
             '女性の海外渡航が増えた',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 0,
           explanation:
             '男性が戦場に送られたため、女性が工場労働などで社会進出し、戦後の女性参政権運動にもつながりました。',
           difficulty: 'advanced',
@@ -217,11 +217,11 @@ export const ww1Outbreak: Topic = {
           question: 'サラエボ事件が世界大戦にまで拡大した最大の要因は？',
           options: [
             '暗殺された人物が重要だったため',
-            '同盟関係により各国が連鎖的に参戦したため',
             '当時の通信技術が未発達だったため',
             'セルビアが大国だったため',
-          ],
-          correctIndex: 1,
+            '同盟関係により各国が連鎖的に参戦したため',
+],
+          correctIndex: 3,
           explanation:
             '三国同盟と三国協商という同盟関係が連鎖的な参戦を招き、地域的な事件が世界大戦に発展しました。',
           difficulty: 'advanced',
@@ -231,11 +231,11 @@ export const ww1Outbreak: Topic = {
           question: '第一次世界大戦の新兵器の登場が戦闘に与えた影響として正しいものは？',
           options: [
             '戦争が短期間で終結した',
-            '被害が少なくなった',
             '塹壕戦となり戦闘が長期化した',
+            '被害が少なくなった',
             '海戦だけが行われた',
-          ],
-          correctIndex: 2,
+],
+          correctIndex: 1,
           explanation:
             '機関銃や毒ガスなどの新兵器により攻守ともに強力になり、塹壕戦となって戦闘が長期化しました。',
           difficulty: 'advanced',

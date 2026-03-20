@@ -72,8 +72,8 @@ export const wartimeLife: Topic = {
         {
           id: 'q1',
           question: '1943年から大学生が戦場に送られたことを何という？',
-          options: ['勤労動員', '学徒出陣', '疎開', '徴兵制'],
-          correctIndex: 1,
+          options: ['勤労動員', '疎開', '徴兵制', '学徒出陣'],
+          correctIndex: 3,
           explanation:
             '学徒出陣により、多くの大学生が学業を中断して戦場に送られました。',
           difficulty: 'basic',
@@ -81,8 +81,8 @@ export const wartimeLife: Topic = {
         {
           id: 'q2',
           question: '戦時中に家庭の鍋や寺の鐘が回収されたことを何という？',
-          options: ['金属供出', '勤労動員', '疎開', '配給制'],
-          correctIndex: 0,
+          options: ['勤労動員', '疎開', '金属供出', '配給制'],
+          correctIndex: 2,
           explanation:
             '金属供出では、兵器を作るために家庭の鍋や寺の鐘まで回収されました。',
           difficulty: 'basic',
@@ -90,8 +90,8 @@ export const wartimeLife: Topic = {
         {
           id: 'q3',
           question: '空襲を避けるため、都市部の子どもたちが地方に移り住むことを何という？',
-          options: ['学徒出陣', '勤労動員', '疎開', '灯火管制'],
-          correctIndex: 2,
+          options: ['疎開', '学徒出陣', '勤労動員', '灯火管制'],
+          correctIndex: 0,
           explanation:
             '疎開では、親元を離れた子どもたちが地方で不慣れな生活を送りました。',
           difficulty: 'standard',
@@ -114,12 +114,12 @@ export const wartimeLife: Topic = {
           id: 'q5',
           question: '中学生や女学生が軍需工場で働かされたことを何という？',
           options: [
+            '勤労動員',
             '学徒出陣',
             '疎開',
-            '勤労動員',
             '金属供出',
-          ],
-          correctIndex: 2,
+],
+          correctIndex: 0,
           explanation:
             '勤労動員では中学生や女学生が軍需工場で兵器などの生産に従事しました。',
           difficulty: 'basic',
@@ -128,12 +128,12 @@ export const wartimeLife: Topic = {
           id: 'q6',
           question: '学徒出陣の対象となったのはどのような学生？',
           options: [
-            '理科系大学生',
             '文科系大学生',
+            '理科系大学生',
             '小学生',
             '中学生',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 0,
           explanation:
             '学徒出陣では文科系大学生が徴兵の対象となり、戦場に送られました。',
           difficulty: 'standard',
@@ -143,11 +143,11 @@ export const wartimeLife: Topic = {
           question: '戦時中に食料や日用品を国が管理して分配した制度は？',
           options: [
             '自由貿易',
-            '配給制',
             '年貢制',
             '市場経済',
-          ],
-          correctIndex: 1,
+            '配給制',
+],
+          correctIndex: 3,
           explanation:
             '配給制では米・味噌・砂糖などが配給切符がなければ手に入りませんでした。',
           difficulty: 'basic',
@@ -156,12 +156,12 @@ export const wartimeLife: Topic = {
           id: 'q8',
           question: '空襲時に夜間に明かりを消すことを何という？',
           options: [
-            '灯火管制',
             '防空壕',
+            '灯火管制',
             '疎開',
             '隣組',
-          ],
-          correctIndex: 0,
+],
+          correctIndex: 1,
           explanation:
             '灯火管制は敵の爆撃機に目標を与えないよう、夜間に明かりを消す措置です。',
           difficulty: 'standard',
@@ -213,11 +213,11 @@ export const wartimeLife: Topic = {
           question: '学徒出陣が始まった年は？',
           options: [
             '1941年',
-            '1942年',
             '1943年',
+            '1942年',
             '1944年',
-          ],
-          correctIndex: 2,
+],
+          correctIndex: 1,
           explanation:
             '1943年から学徒出陣が始まり、文科系大学生が戦場に送られました。',
           difficulty: 'basic',
@@ -226,12 +226,12 @@ export const wartimeLife: Topic = {
           id: 'q13',
           question: '国民すべてを戦争に動員する体制を何という？',
           options: [
-            '配給制',
             '総動員体制',
+            '配給制',
             '鎖国',
             '殖産興業',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 0,
           explanation:
             '総動員体制では学徒出陣・勤労動員・配給制・金属供出など、あらゆる面で国民が戦争に動員されました。',
           difficulty: 'standard',
@@ -242,10 +242,10 @@ export const wartimeLife: Topic = {
           options: [
             '食料が配給制になった',
             '子どもたちが疎開した',
-            '自由に海外旅行ができた',
             '家庭から金属が回収された',
-          ],
-          correctIndex: 2,
+            '自由に海外旅行ができた',
+],
+          correctIndex: 3,
           explanation:
             '戦時中は自由に海外旅行などできるはずもなく、国民生活はあらゆる面で制限されていました。',
           difficulty: 'advanced',
@@ -256,10 +256,10 @@ export const wartimeLife: Topic = {
           options: [
             '親元を離れた寂しさ',
             '食糧不足による空腹',
-            '見知らぬ土地での不慣れな生活',
             '十分な教育と豊かな食事',
-          ],
-          correctIndex: 3,
+            '見知らぬ土地での不慣れな生活',
+],
+          correctIndex: 2,
           explanation:
             '疎開先では十分な教育施設や食料が確保できず、子どもたちは多くの困難に直面しました。',
           difficulty: 'advanced',

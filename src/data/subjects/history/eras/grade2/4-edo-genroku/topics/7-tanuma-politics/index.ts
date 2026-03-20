@@ -66,8 +66,8 @@ export const tanumaPolitics: Topic = {
         {
           id: 'q2',
           question: '田沼意次が長崎貿易で輸出を増やした海産物を何という？',
-          options: ['昆布', '干鰯', '俵物', '塩'],
-          correctIndex: 2,
+          options: ['昆布', '俵物', '干鰯', '塩'],
+          correctIndex: 1,
           explanation:
             '俵物とは干しアワビ、いりこ、ふかひれなどの海産物で、中国へ輸出されました。',
           difficulty: 'basic',

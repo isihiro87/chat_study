@@ -133,12 +133,12 @@ export const sinoJapaneseWar: Topic = {
           question:
             '植民地で日本語の使用や日本式の名前への改名を強制した政策は？',
           options: [
-            '皇民化政策',
             '文明開化',
             '殖産興業',
+            '皇民化政策',
             '富国強兵',
-          ],
-          correctIndex: 0,
+],
+          correctIndex: 2,
           explanation:
             '皇民化政策は朝鮮や台湾などの植民地で行われ、日本語の使用や創氏改名が強制されました。',
           difficulty: 'advanced',
@@ -147,12 +147,12 @@ export const sinoJapaneseWar: Topic = {
           id: 'q6',
           question: '蔣介石が南京陥落後に首都を移した都市は？',
           options: [
+            '重慶',
             '上海',
             '北京',
-            '重慶',
             '広州',
-          ],
-          correctIndex: 2,
+],
+          correctIndex: 0,
           explanation:
             '蔣介石は首都を内陸の重慶に移し、広大な中国の国土を利用した長期抗戦を続けました。',
           difficulty: 'basic',
@@ -162,11 +162,11 @@ export const sinoJapaneseWar: Topic = {
           question: '日中戦争が始まった年は？',
           options: [
             '1931年',
-            '1937年',
             '1939年',
             '1941年',
-          ],
-          correctIndex: 1,
+            '1937年',
+],
+          correctIndex: 3,
           explanation:
             '1937年の盧溝橋事件をきっかけに日中戦争が始まりました。',
           difficulty: 'basic',
@@ -176,11 +176,11 @@ export const sinoJapaneseWar: Topic = {
           question: '中国共産党の指導者で、抗日民族統一戦線を結成した人物は？',
           options: [
             '蔣介石',
-            '孫文',
             '毛沢東',
+            '孫文',
             '袁世凱',
-          ],
-          correctIndex: 2,
+],
+          correctIndex: 1,
           explanation:
             '毛沢東は中国共産党の指導者で、蔣介石の国民党と協力して抗日民族統一戦線を結成しました。',
           difficulty: 'standard',
@@ -189,12 +189,12 @@ export const sinoJapaneseWar: Topic = {
           id: 'q9',
           question: '戦時中に食料や日用品を国が管理して分配した制度は？',
           options: [
-            '配給制',
             '年貢制',
+            '配給制',
             '自由貿易',
             '地租改正',
-          ],
-          correctIndex: 0,
+],
+          correctIndex: 1,
           explanation:
             '配給制では米や砂糖などの生活必需品が切符で配られ、国民の生活は厳しく統制されました。',
           difficulty: 'basic',
@@ -204,11 +204,11 @@ export const sinoJapaneseWar: Topic = {
           question: '皇民化政策で朝鮮の人々に日本式の姓名に変えさせたことを何という？',
           options: [
             '文明開化',
-            '創氏改名',
             '殖産興業',
             '富国強兵',
-          ],
-          correctIndex: 1,
+            '創氏改名',
+],
+          correctIndex: 3,
           explanation:
             '創氏改名は皇民化政策の一環で、朝鮮の人々に先祖代々の名前を捨てさせ日本式の名前に変えることを強制しました。',
           difficulty: 'standard',
@@ -218,11 +218,11 @@ export const sinoJapaneseWar: Topic = {
           question: '1936年に日本とドイツが結んだ協定は？',
           options: [
             '日独伊三国同盟',
-            '日独防共協定',
             '独ソ不可侵条約',
+            '日独防共協定',
             'ポーツマス条約',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 2,
           explanation:
             '日独防共協定は1936年に共産主義に対抗するために結ばれ、のちにイタリアも参加しました。',
           difficulty: 'standard',
@@ -232,11 +232,11 @@ export const sinoJapaneseWar: Topic = {
           question: '日中戦争で日本軍が占領した中国の首都は？',
           options: [
             '北京',
-            '上海',
             '南京',
+            '上海',
             '重慶',
-          ],
-          correctIndex: 2,
+],
+          correctIndex: 1,
           explanation:
             '日本軍は中国の首都・南京を占領しましたが、その際に南京事件が起こりました。',
           difficulty: 'basic',
@@ -245,12 +245,12 @@ export const sinoJapaneseWar: Topic = {
           id: 'q13',
           question: '戦時中に地域の相互監視や配給を行った約10世帯の組織は？',
           options: [
-            '大政翼賛会',
             '隣組',
+            '大政翼賛会',
             '町内会',
             '青年団',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 0,
           explanation:
             '隣組は約10世帯を1組とし、配給の受け取りや防空活動、相互監視などを行いました。',
           difficulty: 'standard',
@@ -261,10 +261,10 @@ export const sinoJapaneseWar: Topic = {
           options: [
             '日本の軍事力が不足していたから',
             '国際連盟が介入したから',
-            '抗日民族統一戦線の結成と蔣介石の長期抗戦',
             'ソ連が中国に侵攻したから',
-          ],
-          correctIndex: 2,
+            '抗日民族統一戦線の結成と蔣介石の長期抗戦',
+],
+          correctIndex: 3,
           explanation:
             '国民党と共産党が協力して抗日民族統一戦線を結成し、蔣介石が首都を重慶に移して長期抗戦を続けたため、日本は短期決着できませんでした。',
           difficulty: 'advanced',
@@ -273,12 +273,12 @@ export const sinoJapaneseWar: Topic = {
           id: 'q15',
           question: '国家総動員法が民主主義に与えた影響として正しいのは？',
           options: [
+            '議会の承認なしに動員が可能になり民主主義が形骸化した',
             '議会の権限が強化された',
             '国民の自由が拡大された',
-            '議会の承認なしに動員が可能になり民主主義が形骸化した',
             '選挙権が拡大された',
-          ],
-          correctIndex: 2,
+],
+          correctIndex: 0,
           explanation:
             '国家総動員法により政府は議会を通さず人や物資を動員できるようになり、議会制民主主義が事実上無力化されました。',
           difficulty: 'advanced',
@@ -288,11 +288,11 @@ export const sinoJapaneseWar: Topic = {
           question: '日独防共協定にのちに加わった国は？',
           options: [
             'ソ連',
-            'イタリア',
             'フランス',
+            'イタリア',
             'イギリス',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 2,
           explanation:
             '日独防共協定にはのちにイタリアも加わり、日独伊の枢軸国の関係が強まっていきました。',
           difficulty: 'advanced',

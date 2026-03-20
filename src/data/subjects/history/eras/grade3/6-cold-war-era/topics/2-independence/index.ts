@@ -94,11 +94,11 @@ export const independence: Topic = {
             'サンフランシスコ平和条約に調印した日本の首相は誰？',
           options: [
             '岸信介',
-            '吉田茂',
             '鳩山一郎',
             '佐藤栄作',
-          ],
-          correctIndex: 1,
+            '吉田茂',
+],
+          correctIndex: 3,
           explanation:
             '吉田茂首相がサンフランシスコ平和条約に調印し、日本の独立回復を実現しました。',
           difficulty: 'basic',
@@ -108,11 +108,11 @@ export const independence: Topic = {
           question: '1950年にGHQの指令で設立された、自衛隊の前身は？',
           options: [
             '保安隊',
-            '警察予備隊',
             '国防軍',
             '近衛兵',
-          ],
-          correctIndex: 1,
+            '警察予備隊',
+],
+          correctIndex: 3,
           explanation:
             '朝鮮戦争をきっかけにGHQの指令で警察予備隊が設立され、後に自衛隊となりました。',
           difficulty: 'basic',
@@ -137,11 +137,11 @@ export const independence: Topic = {
           question: 'サンフランシスコ平和条約と同時に結ばれた条約は？',
           options: [
             '日ソ共同宣言',
-            '日韓基本条約',
             '日米安全保障条約',
+            '日韓基本条約',
             '日中平和友好条約',
-          ],
-          correctIndex: 2,
+],
+          correctIndex: 1,
           explanation:
             '日米安全保障条約はサンフランシスコ平和条約と同時に結ばれ、アメリカ軍の日本駐留を定めました。',
           difficulty: 'basic',
@@ -151,12 +151,12 @@ export const independence: Topic = {
           question:
             '1955年に保守合同で結成され、長期政権を担った政党は？',
           options: [
-            '日本社会党',
             '自由民主党',
+            '日本社会党',
             '日本共産党',
             '民主党',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 0,
           explanation:
             '1955年に自由民主党が結成され、社会党と対立する55年体制が始まりました。',
           difficulty: 'standard',
@@ -168,10 +168,10 @@ export const independence: Topic = {
           options: [
             '大和丸',
             '開陽丸',
-            '咸臨丸',
             '第五福竜丸',
-          ],
-          correctIndex: 3,
+            '咸臨丸',
+],
+          correctIndex: 2,
           explanation:
             '第五福竜丸はビキニ環礁でのアメリカの水爆実験により被ばくし、日本での反核運動のきっかけとなりました。',
           difficulty: 'standard',
@@ -181,12 +181,12 @@ export const independence: Topic = {
           question:
             '1956年にソ連との国交を回復し、日本の国連加盟を実現させた宣言は？',
           options: [
-            '日ソ共同宣言',
             'サンフランシスコ平和条約',
             'ポツダム宣言',
+            '日ソ共同宣言',
             '日中共同声明',
-          ],
-          correctIndex: 0,
+],
+          correctIndex: 2,
           explanation:
             '日ソ共同宣言によりソ連との国交が回復し、ソ連が日本の国連加盟を支持することで国際連合加盟が実現しました。',
           difficulty: 'standard',
@@ -196,11 +196,11 @@ export const independence: Topic = {
           question: '安保闘争の際に日米安保条約改定を進めた首相は？',
           options: [
             '吉田茂',
-            '池田勇人',
             '岸信介',
+            '池田勇人',
             '佐藤栄作',
-          ],
-          correctIndex: 2,
+],
+          correctIndex: 1,
           explanation:
             '岸信介首相が日米安保条約の改定を進め、これに反対する大規模な安保闘争が起こりました。',
           difficulty: 'standard',
@@ -209,12 +209,12 @@ export const independence: Topic = {
           id: 'q11',
           question: 'サンフランシスコ平和条約後もアメリカの統治下に置かれた地域は？',
           options: [
-            '北海道と北方領土',
             '沖縄と小笠原諸島',
+            '北海道と北方領土',
             '対馬と壱岐',
             '佐渡島と隠岐諸島',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 0,
           explanation:
             '沖縄と小笠原諸島はサンフランシスコ平和条約後もアメリカの施政下に置かれ続けました。',
           difficulty: 'standard',
@@ -224,11 +224,11 @@ export const independence: Topic = {
           question: '核兵器を「持たず、つくらず、持ちこませず」という原則は？',
           options: [
             '平和三原則',
-            '非核三原則',
             '武装解除三原則',
+            '非核三原則',
             '安全保障三原則',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 2,
           explanation:
             '非核三原則は佐藤栄作首相が表明した日本の国の方針です。',
           difficulty: 'standard',
@@ -238,11 +238,11 @@ export const independence: Topic = {
           question: '非核三原則を表明し、沖縄返還を実現した首相は？',
           options: [
             '岸信介',
+            '佐藤栄作',
             '池田勇人',
             '田中角栄',
-            '佐藤栄作',
-          ],
-          correctIndex: 3,
+],
+          correctIndex: 1,
           explanation:
             '佐藤栄作首相は非核三原則を国の方針として掲げ、1972年に沖縄返還を実現しました。',
           difficulty: 'advanced',
@@ -251,12 +251,12 @@ export const independence: Topic = {
           id: 'q14',
           question: 'サンフランシスコ平和条約と日米安保条約が同時に結ばれた意義は？',
           options: [
-            '日本の軍事力を強化するため',
             '政治的独立と安全保障をセットで確立するため',
+            '日本の軍事力を強化するため',
             'ソ連との関係を改善するため',
             '沖縄の返還を実現するため',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 0,
           explanation:
             '日本は政治的独立を回復する一方、冷戦下で安全保障をアメリカに依存する体制を構築しました。',
           difficulty: 'advanced',
@@ -266,11 +266,11 @@ export const independence: Topic = {
           question: '警察予備隊が設立された直接的なきっかけは？',
           options: [
             'ソ連の脅威が増したため',
-            '朝鮮戦争で在日米軍が朝鮮半島に派遣され、日本の防衛力が手薄になったため',
             '日本国民が軍隊の復活を求めたため',
             'サンフランシスコ平和条約の条件だったため',
-          ],
-          correctIndex: 1,
+            '朝鮮戦争で在日米軍が朝鮮半島に派遣され、日本の防衛力が手薄になったため',
+],
+          correctIndex: 3,
           explanation:
             '朝鮮戦争で在日米軍が朝鮮半島に派遣され、日本国内の防衛力が手薄になったためGHQの指令で設立されました。',
           difficulty: 'advanced',

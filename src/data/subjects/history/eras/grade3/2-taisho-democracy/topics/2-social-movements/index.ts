@@ -71,8 +71,8 @@ export const socialMovements: Topic = {
         {
           id: 'q1',
           question: '1922年に被差別部落の人々が結成した団体は？',
-          options: ['全国水平社', '日本労働総同盟', '日本農民組合', '新婦人協会'],
-          correctIndex: 0,
+          options: ['日本労働総同盟', '日本農民組合', '新婦人協会', '全国水平社'],
+          correctIndex: 3,
           explanation:
             '全国水平社は被差別部落の人々が差別撤廃を目指して結成した団体で、日本初の人権宣言と言われる水平社宣言を発表しました。',
           difficulty: 'basic',
@@ -89,8 +89,8 @@ export const socialMovements: Topic = {
         {
           id: 'q3',
           question: '小作農が地主に対して起こした争いを何という？',
-          options: ['米騒動', '護憲運動', '労働争議', '小作争議'],
-          correctIndex: 3,
+          options: ['米騒動', '護憲運動', '小作争議', '労働争議'],
+          correctIndex: 2,
           explanation:
             '小作争議は小作農が地主に対して小作料の引き下げなどを求めた争いで、大正時代に各地で頻発しました。',
           difficulty: 'basic',
@@ -98,8 +98,8 @@ export const socialMovements: Topic = {
         {
           id: 'q4',
           question: '労働者が賃上げや労働条件の改善を求めて起こした争いを何という？',
-          options: ['小作争議', '労働争議', '護憲運動', '米騒動'],
-          correctIndex: 1,
+          options: ['小作争議', '護憲運動', '労働争議', '米騒動'],
+          correctIndex: 2,
           explanation:
             '労働争議は労働者が賃上げやストライキなどで権利を主張した争いです。',
           difficulty: 'basic',
@@ -107,8 +107,8 @@ export const socialMovements: Topic = {
         {
           id: 'q5',
           question: '1925年に制定された、思想を取り締まる法律は？',
-          options: ['国家総動員法', '治安維持法', '徴兵令', '教育勅語'],
-          correctIndex: 1,
+          options: ['治安維持法', '国家総動員法', '徴兵令', '教育勅語'],
+          correctIndex: 0,
           explanation:
             '治安維持法は共産主義や社会主義の思想を取り締まるために制定されました。',
           difficulty: 'basic',
@@ -116,8 +116,8 @@ export const socialMovements: Topic = {
         {
           id: 'q6',
           question: '日本で初めてメーデーが行われたのは何年？',
-          options: ['1925年', '1920年', '1922年', '1918年'],
-          correctIndex: 1,
+          options: ['1920年', '1925年', '1922年', '1918年'],
+          correctIndex: 0,
           explanation:
             '1920年に日本初のメーデーが行われ、労働者が団結して権利を主張しました。',
           difficulty: 'standard',
@@ -125,8 +125,8 @@ export const socialMovements: Topic = {
         {
           id: 'q7',
           question: '平塚らいてうが結成した、女性の文芸・思想の団体は？',
-          options: ['新婦人協会', '青鞜社', '全国水平社', '日本農民組合'],
-          correctIndex: 1,
+          options: ['青鞜社', '新婦人協会', '全国水平社', '日本農民組合'],
+          correctIndex: 0,
           explanation:
             '青鞜社は平塚らいてうが結成した女性の文芸・思想の団体で、女性解放運動の先駆けとなりました。',
           difficulty: 'standard',
@@ -145,11 +145,11 @@ export const socialMovements: Topic = {
           question: '水平社宣言の結びの有名な言葉は？',
           options: [
             '自由・平等・博愛',
-            '人の世に熱あれ、人間に光あれ',
             '万国の労働者よ、団結せよ',
+            '人の世に熱あれ、人間に光あれ',
             '天は人の上に人を造らず',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 2,
           explanation:
             '水平社宣言は「人の世に熱あれ、人間に光あれ」で結ばれ、日本初の人権宣言と評価されています。',
           difficulty: 'standard',
@@ -157,8 +157,8 @@ export const socialMovements: Topic = {
         {
           id: 'q10',
           question: '小作農の権利を守るために結成された全国組織は？',
-          options: ['全国水平社', '日本労働総同盟', '日本農民組合', '新婦人協会'],
-          correctIndex: 2,
+          options: ['全国水平社', '日本農民組合', '日本労働総同盟', '新婦人協会'],
+          correctIndex: 1,
           explanation:
             '日本農民組合は小作農の権利を守るために結成された全国組織です。',
           difficulty: 'standard',
@@ -168,11 +168,11 @@ export const socialMovements: Topic = {
           question: '普通選挙法と治安維持法の同時制定は何と呼ばれた？',
           options: [
             '富国強兵策',
-            '殖産興業策',
             '「アメとムチ」の政策',
+            '殖産興業策',
             '大政奉還政策',
-          ],
-          correctIndex: 2,
+],
+          correctIndex: 1,
           explanation:
             '選挙権の拡大（アメ）と社会主義運動の取り締まり（ムチ）をセットにした政策です。',
           difficulty: 'standard',
@@ -182,11 +182,11 @@ export const socialMovements: Topic = {
           question: '1930年に結成された、アイヌ民族の権利向上を目指す団体は？',
           options: [
             '全国水平社',
-            '北海道アイヌ協会',
             '日本農民組合',
             '新婦人協会',
-          ],
-          correctIndex: 1,
+            '北海道アイヌ協会',
+],
+          correctIndex: 3,
           explanation:
             '北海道アイヌ協会は1930年に結成され、アイヌ民族の権利向上を目指しました。',
           difficulty: 'standard',
@@ -196,11 +196,11 @@ export const socialMovements: Topic = {
           question: '大正時代の社会運動に共通する背景として最も適切なものは？',
           options: [
             '日清戦争の影響',
-            '明治維新の余波',
             '大正デモクラシーの風潮',
+            '明治維新の余波',
             '第二次世界大戦の影響',
-          ],
-          correctIndex: 2,
+],
+          correctIndex: 1,
           explanation:
             '大正デモクラシーの風潮のもと、民主主義的な意識が広まり、さまざまな立場の人々が自らの権利を主張し始めました。',
           difficulty: 'advanced',
@@ -208,8 +208,8 @@ export const socialMovements: Topic = {
         {
           id: 'q14',
           question: '普通選挙法で女性に選挙権が与えられなかった結果、女性参政権が実現したのはいつ？',
-          options: ['1930年', '1940年', '1945年', '1950年'],
-          correctIndex: 2,
+          options: ['1945年', '1930年', '1940年', '1950年'],
+          correctIndex: 0,
           explanation:
             '女性参政権は第二次世界大戦後の1945年にようやく実現しました。',
           difficulty: 'advanced',
@@ -219,11 +219,11 @@ export const socialMovements: Topic = {
           question: '水平社宣言が「日本初の人権宣言」と評価される理由として最も適切なものは？',
           options: [
             '政府が公式に発表したから',
-            '被差別者が自ら人間の尊厳と平等を主体的に宣言したから',
             '外国の人権宣言を翻訳したから',
             '法律として制定されたから',
-          ],
-          correctIndex: 1,
+            '被差別者が自ら人間の尊厳と平等を主体的に宣言したから',
+],
+          correctIndex: 3,
           explanation:
             '従来の嘆願や救済要請とは異なり、被差別部落の人々が自ら差別を告発し、人権思想に基づいて主体的に権利を宣言した点が評価されています。',
           difficulty: 'advanced',

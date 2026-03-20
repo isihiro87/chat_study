@@ -59,8 +59,8 @@ export const hideyoshiPolicy: Topic = {
         {
           id: 'q2',
           question: '秀吉が百姓から武器を取り上げ、一揆を防いだ政策を何という？',
-          options: ['楽市・楽座', '太閤検地', 'バテレン追放令', '刀狩'],
-          correctIndex: 3,
+          options: ['楽市・楽座', '刀狩（武器没収）', 'バテレン追放令', '太閤検地'],
+          correctIndex: 1,
           explanation: '刀狩は百姓から刀や槍を没収した政策で、兵農分離を推し進める役割を果たしました。',
           difficulty: 'basic',
         },

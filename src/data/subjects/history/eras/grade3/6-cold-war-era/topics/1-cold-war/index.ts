@@ -64,11 +64,11 @@ export const coldWar: Topic = {
             'アメリカを中心とする西側諸国が結成した軍事同盟は？',
           options: [
             'ワルシャワ条約機構',
+            'NATO（北大西洋条約機構）',
             '国際連合',
             '三国同盟',
-            'NATO（北大西洋条約機構）',
-          ],
-          correctIndex: 3,
+],
+          correctIndex: 1,
           explanation:
             'NATOはアメリカを中心とする西側諸国の軍事同盟で、ソ連を中心とする東側のワルシャワ条約機構と対立しました。',
           difficulty: 'basic',
@@ -77,8 +77,8 @@ export const coldWar: Topic = {
           id: 'q2',
           question:
             '安全保障理事会の常任理事国が持つ、決議を否決できる権利を何という？',
-          options: ['拒否権', '議決権', '発言権', '投票権'],
-          correctIndex: 0,
+          options: ['議決権', '拒否権', '発言権', '投票権'],
+          correctIndex: 1,
           explanation:
             '拒否権により1か国でも反対すれば決議が成立せず、冷戦中は国連が機能不全に陥ることがありました。',
           difficulty: 'basic',
@@ -110,8 +110,8 @@ export const coldWar: Topic = {
         {
           id: 'q5',
           question: '冷戦でアメリカを中心とする西側の経済体制は？',
-          options: ['社会主義', '共産主義', '資本主義', '封建制'],
-          correctIndex: 2,
+          options: ['社会主義', '共産主義', '封建制', '資本主義'],
+          correctIndex: 3,
           explanation:
             '冷戦ではアメリカを中心とする資本主義陣営（西側）と、ソ連を中心とする社会主義陣営（東側）が対立しました。',
           difficulty: 'basic',
@@ -120,8 +120,8 @@ export const coldWar: Topic = {
           id: 'q6',
           question:
             '1950年に北朝鮮が韓国に侵攻して始まった戦争は？',
-          options: ['ベトナム戦争', '朝鮮戦争', '中東戦争', '日中戦争'],
-          correctIndex: 1,
+          options: ['ベトナム戦争', '中東戦争', '朝鮮戦争', '日中戦争'],
+          correctIndex: 2,
           explanation:
             '朝鮮戦争は1950年に始まり、冷戦の代理戦争となりました。',
           difficulty: 'basic',
@@ -133,10 +133,10 @@ export const coldWar: Topic = {
           options: [
             '大韓民国',
             'ベトナム民主共和国',
-            '中華人民共和国',
             '朝鮮民主主義人民共和国',
-          ],
-          correctIndex: 2,
+            '中華人民共和国',
+],
+          correctIndex: 3,
           explanation:
             '1949年に中華人民共和国が成立し、社会主義陣営が拡大しました。',
           difficulty: 'standard',
@@ -146,12 +146,12 @@ export const coldWar: Topic = {
           question:
             'ソ連を中心とする東側諸国が結成した軍事同盟は？',
           options: [
-            'NATO',
             'ワルシャワ条約機構',
+            'NATO',
             '三国協商',
             '国際連合',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 0,
           explanation:
             'ワルシャワ条約機構はソ連を中心とする東側諸国の軍事同盟で、NATOに対抗しました。',
           difficulty: 'standard',
@@ -161,12 +161,12 @@ export const coldWar: Topic = {
           question:
             '東西対立の象徴として建設された壁は何？',
           options: [
-            'ベルリンの壁',
             '万里の長城',
             '嘆きの壁',
+            'ベルリンの壁',
             '鉄のカーテン',
-          ],
-          correctIndex: 0,
+],
+          correctIndex: 2,
           explanation:
             'ベルリンの壁は1961年に建設され、東西ドイツの分断と冷戦の象徴となりました。',
           difficulty: 'standard',
@@ -174,8 +174,8 @@ export const coldWar: Topic = {
         {
           id: 'q10',
           question: '先進工業国と発展途上国の経済格差の問題を何という？',
-          options: ['東西問題', '南北問題', '貿易摩擦', '格差社会'],
-          correctIndex: 1,
+          options: ['南北問題', '東西問題', '貿易摩擦', '格差社会'],
+          correctIndex: 0,
           explanation:
             '南北問題は、主に北半球に多い先進工業国と南半球に多い発展途上国の経済格差の問題です。',
           difficulty: 'standard',
@@ -184,12 +184,12 @@ export const coldWar: Topic = {
           id: 'q11',
           question: '朝鮮半島の北に成立した国は？',
           options: [
+            '朝鮮民主主義人民共和国',
             '大韓民国',
             '中華人民共和国',
-            '朝鮮民主主義人民共和国',
             'ベトナム民主共和国',
-          ],
-          correctIndex: 2,
+],
+          correctIndex: 0,
           explanation:
             '朝鮮半島の北にはソ連の支援で朝鮮民主主義人民共和国（北朝鮮）が成立しました。',
           difficulty: 'standard',
@@ -197,8 +197,8 @@ export const coldWar: Topic = {
         {
           id: 'q12',
           question: '中華人民共和国を建国した指導者は誰？',
-          options: ['蒋介石', '毛沢東', '孫文', '鄧小平'],
-          correctIndex: 1,
+          options: ['蒋介石', '孫文', '鄧小平', '毛沢東'],
+          correctIndex: 3,
           explanation:
             '毛沢東は共産党を率いて内戦に勝利し、1949年に中華人民共和国を建国しました。',
           difficulty: 'standard',
@@ -207,12 +207,12 @@ export const coldWar: Topic = {
           id: 'q13',
           question: '冷戦中に国際連合が機能不全に陥った主な原因は？',
           options: [
-            '加盟国が少なかったため',
             '常任理事国が拒否権を行使し合ったため',
+            '加盟国が少なかったため',
             '予算が不足していたため',
             '事務総長が辞任したため',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 0,
           explanation:
             '冷戦中はアメリカとソ連が互いに拒否権を行使し合ったため、重要な決議が成立しませんでした。',
           difficulty: 'advanced',
@@ -223,10 +223,10 @@ export const coldWar: Topic = {
           options: [
             '米ソが直接戦ったため',
             '核兵器が使用されたため',
-            '米ソがそれぞれの陣営を支援して間接的に争ったため',
             '国際連合が仲介したため',
-          ],
-          correctIndex: 2,
+            '米ソがそれぞれの陣営を支援して間接的に争ったため',
+],
+          correctIndex: 3,
           explanation:
             '朝鮮戦争では北朝鮮をソ連・中国が、韓国をアメリカが支援し、米ソが間接的に争ったため代理戦争と呼ばれます。',
           difficulty: 'advanced',
@@ -250,11 +250,11 @@ export const coldWar: Topic = {
           question: '1960年の「アフリカの年」後に生じた国際的な課題は？',
           options: [
             '東西問題',
-            '南北問題',
             '人口問題',
+            '南北問題',
             '環境問題',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 2,
           explanation:
             '多くのアフリカ諸国が独立したものの、植民地時代の経済基盤の脆弱さから先進国との経済格差（南北問題）が国際課題となりました。',
           difficulty: 'advanced',

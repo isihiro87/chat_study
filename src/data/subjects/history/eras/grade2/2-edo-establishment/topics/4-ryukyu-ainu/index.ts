@@ -59,8 +59,8 @@ export const ryukyuAinu: Topic = {
         {
           id: 'q2',
           question: '1669年に不公平な交易に抵抗して蜂起したアイヌの首長は？',
-          options: ['コシャマイン', 'メナシ', 'シャクシャイン', 'クナシリ'],
-          correctIndex: 2,
+          options: ['コシャマイン', 'シャクシャイン', 'メナシ', 'クナシリ'],
+          correctIndex: 1,
           explanation: 'シャクシャインは松前藩との不公平な交易に不満を持ち、蜂起しましたが鎮圧されました。',
           difficulty: 'basic',
         },

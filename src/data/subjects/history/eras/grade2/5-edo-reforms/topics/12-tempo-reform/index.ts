@@ -57,8 +57,8 @@ export const tempoReform: Topic = {
         {
           id: 'q1',
           question: '天保の改革を行った老中は？',
-          options: ['松平定信', '田沼意次', '水野忠邦', '徳川吉宗'],
-          correctIndex: 2,
+          options: ['松平定信', '水野忠邦', '田沼意次', '徳川吉宗'],
+          correctIndex: 1,
           explanation:
             '水野忠邦は江戸幕府最後の幕政改革を行いましたが、厳しすぎて失敗しました。',
           difficulty: 'basic',

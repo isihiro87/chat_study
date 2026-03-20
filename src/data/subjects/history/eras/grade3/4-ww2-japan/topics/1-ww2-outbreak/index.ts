@@ -73,12 +73,12 @@ export const ww2Outbreak: Topic = {
           id: 'q1',
           question: '第二次世界大戦が始まったきっかけは？',
           options: [
-            'サラエボ事件',
             'ドイツのポーランド侵攻',
+            'サラエボ事件',
             '満州事変',
             '真珠湾攻撃',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 0,
           explanation:
             '1939年にドイツがポーランドに侵攻したことが第二次世界大戦の始まりです。',
           difficulty: 'basic',
@@ -89,10 +89,10 @@ export const ww2Outbreak: Topic = {
           options: [
             'イタリア・フランス',
             'ドイツ・イギリス',
-            'ドイツ・イタリア',
             'ドイツ・ソ連',
-          ],
-          correctIndex: 2,
+            'ドイツ・イタリア',
+],
+          correctIndex: 3,
           explanation:
             '1940年に日本はドイツ・イタリアと三国同盟を結び、枢軸国を形成しました。',
           difficulty: 'basic',
@@ -100,8 +100,8 @@ export const ww2Outbreak: Topic = {
         {
           id: 'q3',
           question: 'ABCD包囲陣の「A」はどの国を指す？',
-          options: ['オーストリア', 'オーストラリア', 'アルゼンチン', 'アメリカ'],
-          correctIndex: 3,
+          options: ['オーストリア', 'アメリカ', 'オーストラリア', 'アルゼンチン'],
+          correctIndex: 1,
           explanation:
             'ABCDはAmerica（アメリカ）・Britain（イギリス）・China（中国）・Dutch（オランダ）の頭文字です。',
           difficulty: 'standard',
@@ -121,10 +121,10 @@ export const ww2Outbreak: Topic = {
           options: [
             '1937年',
             '1938年',
-            '1939年',
             '1941年',
-          ],
-          correctIndex: 2,
+            '1939年',
+],
+          correctIndex: 3,
           explanation:
             '1939年にドイツがポーランドに侵攻し、第二次世界大戦が始まりました。',
           difficulty: 'basic',
@@ -133,12 +133,12 @@ export const ww2Outbreak: Topic = {
           id: 'q6',
           question: 'ドイツが素早い攻撃でヨーロッパ諸国を占領した戦法を何という？',
           options: [
-            '島飛び作戦',
             '電撃戦',
+            '島飛び作戦',
             'ゲリラ戦',
             '持久戦',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 0,
           explanation:
             '電撃戦は戦車や航空機を集中的に使った素早い攻撃で、ドイツはこの戦法でフランスなどを次々と占領しました。',
           difficulty: 'basic',
@@ -148,11 +148,11 @@ export const ww2Outbreak: Topic = {
           question: '日本・ドイツ・イタリアを中心とする陣営を何という？',
           options: [
             '連合国',
-            '同盟国',
             '枢軸国',
+            '同盟国',
             '協商国',
-          ],
-          correctIndex: 2,
+],
+          correctIndex: 1,
           explanation:
             '日独伊三国同盟を結んだ日本・ドイツ・イタリアを中心とする陣営を枢軸国と呼びます。',
           difficulty: 'basic',
@@ -162,11 +162,11 @@ export const ww2Outbreak: Topic = {
           question: 'ヨーロッパ各地でドイツの支配に対して行われた抵抗運動を何という？',
           options: [
             'ファシズム',
-            'レジスタンス',
             'プロパガンダ',
+            'レジスタンス',
             'ホロコースト',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 2,
           explanation:
             'レジスタンスはドイツに占領されたフランスなどで行われた抵抗運動です。',
           difficulty: 'standard',
@@ -176,11 +176,11 @@ export const ww2Outbreak: Topic = {
           question: '1939年にドイツとソ連が結んだ条約は？',
           options: [
             '日独伊三国同盟',
-            'ポツダム宣言',
             '独ソ不可侵条約',
+            'ポツダム宣言',
             'ベルサイユ条約',
-          ],
-          correctIndex: 2,
+],
+          correctIndex: 1,
           explanation:
             '独ソ不可侵条約はドイツとソ連が互いに攻撃しないと約束した条約ですが、のちにドイツが破りました。',
           difficulty: 'standard',
@@ -204,11 +204,11 @@ export const ww2Outbreak: Topic = {
           question: 'アメリカ・イギリス・ソ連・中国などを中心とする陣営を何という？',
           options: [
             '枢軸国',
-            '連合国',
             '同盟国',
             '協商国',
-          ],
-          correctIndex: 1,
+            '連合国',
+],
+          correctIndex: 3,
           explanation:
             '連合国はアメリカ・イギリス・ソ連・中国などを中心とする陣営で、枢軸国と対立しました。',
           difficulty: 'basic',
@@ -218,11 +218,11 @@ export const ww2Outbreak: Topic = {
           question: 'ナチス・ドイツがユダヤ人を送った施設として最も有名なものは？',
           options: [
             'ダッハウ',
-            'アウシュビッツ',
             'ベルゲン・ベルゼン',
             'トレブリンカ',
-          ],
-          correctIndex: 1,
+            'アウシュビッツ',
+],
+          correctIndex: 3,
           explanation:
             'アウシュビッツはナチス・ドイツの強制収容所として最も有名で、100万人以上が犠牲になったとされます。',
           difficulty: 'standard',
@@ -231,12 +231,12 @@ export const ww2Outbreak: Topic = {
           id: 'q13',
           question: '日本が東南アジアに進出して確保しようとした主な資源は？',
           options: [
+            '石油',
             '金',
             '鉄',
-            '石油',
             '石炭',
-          ],
-          correctIndex: 2,
+],
+          correctIndex: 0,
           explanation:
             '日本は石油やゴムなどの資源確保を目的に東南アジアへの南進を進めました。',
           difficulty: 'basic',
@@ -246,11 +246,11 @@ export const ww2Outbreak: Topic = {
           question: '独ソ不可侵条約を結んだにもかかわらずドイツがソ連に侵攻したことが戦争に与えた影響は？',
           options: [
             'ソ連が枢軸国に参加した',
-            '東部戦線が開かれドイツは二正面作戦を強いられた',
             'ソ連が中立を維持した',
+            '東部戦線が開かれドイツは二正面作戦を強いられた',
             'フランスが再独立した',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 2,
           explanation:
             'ドイツがソ連に侵攻したことで東部戦線が開かれ、ドイツは東西の二正面作戦を強いられることになりました。',
           difficulty: 'advanced',
@@ -260,11 +260,11 @@ export const ww2Outbreak: Topic = {
           question: '日独伊三国同盟の締結が日本にとって不利に働いた面は？',
           options: [
             'ドイツから武器を輸入できなくなった',
-            'アメリカなどとの対立が決定的になりABCD包囲陣を招いた',
             'イタリアが日本を裏切った',
+            'アメリカなどとの対立が決定的になりABCD包囲陣を招いた',
             'ソ連と戦争になった',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 2,
           explanation:
             'ドイツ・イタリアと同盟を結んだことで民主主義国との対立が決定的になり、ABCD包囲陣のような経済封鎖を招きました。',
           difficulty: 'advanced',

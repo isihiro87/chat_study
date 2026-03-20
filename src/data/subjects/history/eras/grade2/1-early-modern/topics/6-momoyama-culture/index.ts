@@ -69,7 +69,7 @@ export const momoyamaCulture: Topic = {
         {
           id: 'q3',
           question: '京都で「かぶきおどり」を始め、大きな人気を博した女性は？',
-          options: ['淀殿', '出雲の阿国', '千姫', '静御前'],
+          options: ['淀殿（茶々）', '出雲の阿国', '千姫（家康の孫）', '静御前（義経の妻）'],
           correctIndex: 1,
           explanation: '出雲の阿国は京都で「かぶきおどり」を始め、後の歌舞伎のもととなる芸能を生み出しました。',
           difficulty: 'standard',

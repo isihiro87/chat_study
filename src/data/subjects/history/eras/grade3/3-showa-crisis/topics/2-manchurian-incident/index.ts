@@ -76,12 +76,12 @@ export const manchurianIncident: Topic = {
           id: 'q1',
           question: '1931年に満州事変のきっかけとなった事件は？',
           options: [
-            '柳条湖事件',
             '甲午農民戦争',
+            '柳条湖事件',
             '盧溝橋事件',
             'サラエボ事件',
-          ],
-          correctIndex: 0,
+],
+          correctIndex: 1,
           explanation:
             '柳条湖事件は関東軍が南満州鉄道の線路を自ら爆破し、中国側のせいにして軍事行動を開始した事件です。',
           difficulty: 'basic',
@@ -89,8 +89,8 @@ export const manchurianIncident: Topic = {
         {
           id: 'q2',
           question: '1932年に海軍の青年将校に暗殺された首相は誰？',
-          options: ['伊藤博文', '犬養毅', '原敬', '大隈重信'],
-          correctIndex: 1,
+          options: ['伊藤博文', '原敬', '犬養毅', '大隈重信'],
+          correctIndex: 2,
           explanation:
             '犬養毅首相は五・一五事件で暗殺され、この事件をきっかけに政党内閣の時代が終わりました。',
           difficulty: 'basic',
@@ -102,10 +102,10 @@ export const manchurianIncident: Topic = {
           options: [
             '満州国の解散',
             '軍備の縮小',
-            '中国との和平交渉',
             '国際連盟からの脱退',
-          ],
-          correctIndex: 3,
+            '中国との和平交渉',
+],
+          correctIndex: 2,
           explanation:
             'リットン調査団の勧告を受け入れず、日本は国際連盟を脱退して国際的に孤立していきました。',
           difficulty: 'standard',
@@ -116,11 +116,11 @@ export const manchurianIncident: Topic = {
             '1936年に陸軍の青年将校がクーデターを起こした事件は？',
           options: [
             '五・一五事件',
-            '西南戦争',
             '二・二六事件',
+            '西南戦争',
             '甲午農民戦争',
-          ],
-          correctIndex: 2,
+],
+          correctIndex: 1,
           explanation:
             '二・二六事件は陸軍の青年将校約1400名が起こしたクーデターで、事件後は軍部の政治的発言力がさらに強まりました。',
           difficulty: 'standard',
@@ -145,10 +145,10 @@ export const manchurianIncident: Topic = {
           options: [
             'ポーツマス調査団',
             'ワシントン調査団',
-            'リットン調査団',
             'パリ調査団',
-          ],
-          correctIndex: 2,
+            'リットン調査団',
+],
+          correctIndex: 3,
           explanation:
             'リットン調査団は満州国を認めず日本に撤退を勧告しましたが、日本はこれを不服として国際連盟を脱退しました。',
           difficulty: 'basic',
@@ -157,12 +157,12 @@ export const manchurianIncident: Topic = {
           id: 'q7',
           question: '個人の自由や民主主義を否定する全体主義的な政治体制を何という？',
           options: [
-            'ファシズム',
             '共産主義',
             '民主主義',
+            'ファシズム',
             '帝国主義',
-          ],
-          correctIndex: 0,
+],
+          correctIndex: 2,
           explanation:
             'ファシズムは民主主義を否定し、強い指導者のもとで国民を統制する全体主義的な政治体制です。',
           difficulty: 'basic',
@@ -186,11 +186,11 @@ export const manchurianIncident: Topic = {
           question: '五・一五事件を起こしたのはどのような人々？',
           options: [
             '陸軍の青年将校',
-            '海軍の青年将校',
             '政党の政治家',
             '民間の活動家',
-          ],
-          correctIndex: 1,
+            '海軍の青年将校',
+],
+          correctIndex: 3,
           explanation:
             '五・一五事件は海軍の青年将校らが首相官邸を襲い、犬養毅首相を暗殺した事件です。',
           difficulty: 'standard',
@@ -200,11 +200,11 @@ export const manchurianIncident: Topic = {
           question: '二・二六事件を起こしたのはどのような人々？',
           options: [
             '海軍の青年将校',
-            '民間の活動家',
             '陸軍の青年将校',
+            '民間の活動家',
             '政党の政治家',
-          ],
-          correctIndex: 2,
+],
+          correctIndex: 1,
           explanation:
             '二・二六事件は陸軍の青年将校約1400名がクーデターを起こし、政府要人を殺害した事件です。',
           difficulty: 'standard',
@@ -213,12 +213,12 @@ export const manchurianIncident: Topic = {
           id: 'q11',
           question: '五・一五事件の結果、終わりを迎えたものは？',
           options: [
+            '政党内閣',
             '天皇制',
             '藩閥政治',
-            '政党内閣',
             '国際連盟への参加',
-          ],
-          correctIndex: 2,
+],
+          correctIndex: 0,
           explanation:
             '五・一五事件で犬養毅首相が暗殺され、以後は政党出身の首相に代わり軍人・官僚が首相を務めるようになりました。',
           difficulty: 'basic',
@@ -228,11 +228,11 @@ export const manchurianIncident: Topic = {
           question: '満州事変を起こした日本の軍隊は？',
           options: [
             '近衛師団',
-            '関東軍',
             '海軍陸戦隊',
             '第一師団',
-          ],
-          correctIndex: 1,
+            '関東軍',
+],
+          correctIndex: 3,
           explanation:
             '関東軍は満州に駐留していた日本陸軍の部隊で、政府の方針を無視して柳条湖事件を起こし満州事変を開始しました。',
           difficulty: 'standard',
@@ -243,10 +243,10 @@ export const manchurianIncident: Topic = {
           options: [
             'スラブ人',
             'ゲルマン人',
-            'ユダヤ人',
             'アングロサクソン人',
-          ],
-          correctIndex: 2,
+            'ユダヤ人',
+],
+          correctIndex: 3,
           explanation:
             'ヒトラーはユダヤ人を迫害し、やがてホロコースト（大量虐殺）を引き起こしました。',
           difficulty: 'basic',
@@ -255,12 +255,12 @@ export const manchurianIncident: Topic = {
           id: 'q14',
           question: 'ムッソリーニのイタリアが侵攻したアフリカの国は？',
           options: [
-            'エジプト',
             'エチオピア',
+            'エジプト',
             '南アフリカ',
             'モロッコ',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 0,
           explanation:
             'ムッソリーニのイタリアは1935年にエチオピアに侵攻し、植民地化しました。',
           difficulty: 'advanced',
@@ -270,11 +270,11 @@ export const manchurianIncident: Topic = {
           question: '柳条湖事件が「自作自演」と呼ばれる理由は？',
           options: [
             '中国軍が日本のせいにしたから',
-            '関東軍が自ら線路を爆破し中国のせいにしたから',
             '国際連盟が計画したから',
+            '関東軍が自ら線路を爆破し中国のせいにしたから',
             '日本政府が命令したから',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 2,
           explanation:
             '関東軍が南満州鉄道の線路を自ら爆破しておきながら、中国側の仕業として軍事行動を開始しました。',
           difficulty: 'advanced',
@@ -283,12 +283,12 @@ export const manchurianIncident: Topic = {
           id: 'q16',
           question: '日本の国際連盟脱退がその後の日本に与えた影響として正しいのは？',
           options: [
+            '国際的に孤立し軍部の暴走が加速した',
             '国際的に信頼を回復した',
             '経済が回復した',
-            '国際的に孤立し軍部の暴走が加速した',
             '植民地を手放した',
-          ],
-          correctIndex: 2,
+],
+          correctIndex: 0,
           explanation:
             '国際連盟脱退により日本は国際的に孤立し、国際社会の歯止めがなくなったことで軍部の暴走がさらに加速しました。',
           difficulty: 'advanced',

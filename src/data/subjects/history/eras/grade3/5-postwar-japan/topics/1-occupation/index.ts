@@ -59,8 +59,8 @@ export const occupation: Topic = {
         {
           id: 'q1',
           question: '占領下の日本で民主化の指令を出した組織は？',
-          options: ['GHQ', '枢密院', '大政翼賛会', '国際連合'],
-          correctIndex: 0,
+          options: ['枢密院', 'GHQ', '大政翼賛会', '国際連合'],
+          correctIndex: 1,
           explanation:
             'GHQ（連合国軍最高司令官総司令部）がマッカーサーのもとで日本の民主化を進めました。',
           difficulty: 'basic',
@@ -68,8 +68,8 @@ export const occupation: Topic = {
         {
           id: 'q2',
           question: '日本の戦争指導者を裁いた国際裁判は何と呼ばれる？',
-          options: ['国際司法裁判', 'ニュルンベルク裁判', '軍事法廷', '東京裁判'],
-          correctIndex: 3,
+          options: ['国際司法裁判', 'ニュルンベルク裁判', '東京裁判', '軍事法廷'],
+          correctIndex: 2,
           explanation:
             '東京裁判（極東国際軍事裁判）は1946年から1948年にかけて行われました。',
           difficulty: 'basic',
@@ -78,8 +78,8 @@ export const occupation: Topic = {
           id: 'q3',
           question:
             '日本に無条件降伏を求めた、1945年の連合国の宣言は？',
-          options: ['カイロ宣言', '大西洋憲章', 'ポツダム宣言', 'ヤルタ協定'],
-          correctIndex: 2,
+          options: ['ポツダム宣言', 'カイロ宣言', '大西洋憲章', 'ヤルタ協定'],
+          correctIndex: 0,
           explanation:
             'ポツダム宣言は1945年7月に出され、日本は8月にこれを受け入れて降伏しました。',
           difficulty: 'basic',
@@ -96,8 +96,8 @@ export const occupation: Topic = {
         {
           id: 'q5',
           question: '戦後の選挙法改正で初めて実現したのは？',
-          options: ['秘密投票', '普通選挙', '女性参政権', '比例代表制'],
-          correctIndex: 2,
+          options: ['女性参政権', '秘密投票', '普通選挙', '比例代表制'],
+          correctIndex: 0,
           explanation:
             '戦後の選挙法改正により、満20歳以上の男女に選挙権が与えられ、女性参政権が実現しました。',
           difficulty: 'basic',
@@ -105,8 +105,8 @@ export const occupation: Topic = {
         {
           id: 'q6',
           question: '地主の農地を政府が買い上げて小作人に安く売った改革は？',
-          options: ['財閥解体', '農地改革', '地租改正', '殖産興業'],
-          correctIndex: 1,
+          options: ['財閥解体', '地租改正', '殖産興業', '農地改革'],
+          correctIndex: 3,
           explanation:
             '農地改革により自作農が増加し、農村の民主化が進みました。',
           difficulty: 'basic',
@@ -124,8 +124,8 @@ export const occupation: Topic = {
           id: 'q8',
           question:
             '第二次世界大戦の終結前後にソ連が占領し、現在も領土問題が続いている地域は？',
-          options: ['沖縄', '小笠原諸島', '北方領土', '対馬'],
-          correctIndex: 2,
+          options: ['沖縄', '北方領土', '小笠原諸島', '対馬'],
+          correctIndex: 1,
           explanation:
             'ソ連は歯舞群島・色丹島・国後島・択捉島からなる北方領土を占領し、現在もロシアとの間で未解決の問題です。',
           difficulty: 'standard',
@@ -134,12 +134,12 @@ export const occupation: Topic = {
           id: 'q9',
           question: '東京裁判が行われた期間として正しいものは？',
           options: [
-            '1944年〜1945年',
             '1946年〜1948年',
+            '1944年〜1945年',
             '1950年〜1952年',
             '1945年〜1946年',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 0,
           explanation:
             '東京裁判（極東国際軍事裁判）は1946年から1948年にかけて行われ、戦争指導者が裁かれました。',
           difficulty: 'standard',
@@ -147,8 +147,8 @@ export const occupation: Topic = {
         {
           id: 'q10',
           question: '戦後の経済改革で、巨大な資本家集団を解体したのは？',
-          options: ['農地改革', '殖産興業', '財閥解体', '地租改正'],
-          correctIndex: 2,
+          options: ['財閥解体', '農地改革', '殖産興業', '地租改正'],
+          correctIndex: 0,
           explanation:
             '財閥解体は三井・三菱などの巨大な独占資本を解体し、経済の民主化を進めました。',
           difficulty: 'standard',
@@ -156,8 +156,8 @@ export const occupation: Topic = {
         {
           id: 'q11',
           question: '農地改革の結果、増加した農民はどれか？',
-          options: ['小作人', '地主', '自作農', '豪農'],
-          correctIndex: 2,
+          options: ['小作人', '地主', '豪農', '自作農'],
+          correctIndex: 3,
           explanation:
             '農地改革により地主の土地が小作人に売り渡され、自分の土地を持つ自作農が大幅に増加しました。',
           difficulty: 'standard',
@@ -165,8 +165,8 @@ export const occupation: Topic = {
         {
           id: 'q12',
           question: '労働者の団結権や団体交渉権を認めた法律は？',
-          options: ['労働基準法', '労働組合法', '治安維持法', '工場法'],
-          correctIndex: 1,
+          options: ['労働組合法', '労働基準法', '治安維持法', '工場法'],
+          correctIndex: 0,
           explanation:
             '労働組合法は労働者の団結権・団体交渉権・争議権を保障しました。',
           difficulty: 'standard',
@@ -199,11 +199,11 @@ export const occupation: Topic = {
           question: 'GHQの占領政策の最大の目的は何だったか？',
           options: [
             '日本の領土を縮小すること',
-            '日本を植民地にすること',
             '軍国主義を排除し民主的な国家に変えること',
+            '日本を植民地にすること',
             '日本の経済を破壊すること',
-          ],
-          correctIndex: 2,
+],
+          correctIndex: 1,
           explanation:
             'GHQの占領政策は、軍国主義を排除し、二度と戦争を起こさない平和で民主的な国家に変えることが目的でした。',
           difficulty: 'advanced',
@@ -227,11 +227,11 @@ export const occupation: Topic = {
           question: 'GHQが間接統治を選択した理由として最も適切なのは？',
           options: [
             '日本の軍隊を利用するため',
-            '日本の行政機構を活用して効率的に改革を進めるため',
             'アメリカの軍事費を節約するため',
             '日本国民の反発を招くため',
-          ],
-          correctIndex: 1,
+            '日本の行政機構を活用して効率的に改革を進めるため',
+],
+          correctIndex: 3,
           explanation:
             '間接統治は日本の既存の行政機構を活用し、言語や文化の壁を乗り越えて効率的に改革を進める方法でした。',
           difficulty: 'advanced',

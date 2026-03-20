@@ -53,15 +53,15 @@ export const nobunagaHideyoshi: Topic = {
         {
           id: 'q1',
           question: '1575年に織田信長が鉄砲を活用して武田勝頼を破った戦いは？',
-          options: ['桶狭間の戦い', '関ヶ原の戦い', '長篠の戦い', '川中島の戦い'],
-          correctIndex: 2,
+          options: ['長篠の戦い', '関ヶ原の戦い', '桶狭間の戦い', '川中島の戦い'],
+          correctIndex: 0,
           explanation: '長篠の戦いでは信長が大量の鉄砲を効果的に使い、武田の騎馬隊を破りました。',
           difficulty: 'basic',
         },
         {
           id: 'q2',
           question: '信長が安土で行った、商工業の自由化政策を何という？',
-          options: ['兵農分離', '太閤検地', '刀狩', '楽市・楽座'],
+          options: ['兵農分離（身分制度）', '太閤検地（土地調査）', '刀狩（武器没収）', '楽市・楽座'],
           correctIndex: 3,
           explanation: '楽市・楽座は市場の税を免除し、座（同業者組合）の特権を廃止して商業を自由化した政策です。',
           difficulty: 'basic',

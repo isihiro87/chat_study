@@ -68,8 +68,8 @@ export const japanInWw1: Topic = {
         {
           id: 'q1',
           question: '日本が第一次世界大戦に参戦した理由として挙げたのは？',
-          options: ['三国協商', '日英同盟', '下関条約', '日米修好通商条約'],
-          correctIndex: 1,
+          options: ['三国協商', '下関条約', '日英同盟', '日米修好通商条約'],
+          correctIndex: 2,
           explanation:
             '日本は日英同盟を理由に、イギリスの敵国ドイツに対して宣戦布告しました。',
           difficulty: 'basic',
@@ -91,8 +91,8 @@ export const japanInWw1: Topic = {
         {
           id: 'q3',
           question: '日本は第一次世界大戦でどちらの陣営で参戦したか？',
-          options: ['同盟国側', '連合国側', '中立', '第三国側'],
-          correctIndex: 1,
+          options: ['同盟国側', '中立', '第三国側', '連合国側'],
+          correctIndex: 3,
           explanation:
             '日本は日英同盟を理由に連合国側として参戦しました。',
           difficulty: 'basic',
@@ -100,8 +100,8 @@ export const japanInWw1: Topic = {
         {
           id: 'q4',
           question: '第一次世界大戦中に日本で起きた好景気を何という？',
-          options: ['大戦景気', '岩戸景気', 'バブル景気', '高度経済成長'],
-          correctIndex: 0,
+          options: ['岩戸景気', '大戦景気', 'バブル景気', '高度経済成長'],
+          correctIndex: 1,
           explanation:
             'ヨーロッパ諸国が戦争に集中する中、日本はアジア市場への輸出を伸ばし大戦景気を迎えました。',
           difficulty: 'basic',
@@ -109,8 +109,8 @@ export const japanInWw1: Topic = {
         {
           id: 'q5',
           question: '大戦景気で急に大きな富を得た人々を何と呼んだ？',
-          options: ['華族', '成金', '財閥', '地主'],
-          correctIndex: 1,
+          options: ['華族', '財閥', '地主', '成金'],
+          correctIndex: 3,
           explanation:
             '大戦景気で輸出が急増し、急に富を得た「成金」と呼ばれる人々が現れました。',
           difficulty: 'basic',
@@ -137,12 +137,12 @@ export const japanInWw1: Topic = {
           id: 'q8',
           question: '大戦景気で特に発展した産業の組み合わせとして正しいものは？',
           options: [
-            '繊維業・農業',
             '造船業・鉄鋼業',
+            '繊維業・農業',
             '林業・漁業',
             '鉱業・商業',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 0,
           explanation:
             '大戦景気では造船業や鉄鋼業が大きく発展しました。',
           difficulty: 'standard',
@@ -150,8 +150,8 @@ export const japanInWw1: Topic = {
         {
           id: 'q9',
           question: '日本が第一次世界大戦中にドイツから占領した太平洋の島々を何という？',
-          options: ['琉球諸島', '南洋諸島', '千島列島', '小笠原諸島'],
-          correctIndex: 1,
+          options: ['南洋諸島', '琉球諸島', '千島列島', '小笠原諸島'],
+          correctIndex: 0,
           explanation:
             '日本は太平洋にあったドイツ領の南洋諸島を占領しました。',
           difficulty: 'standard',
@@ -211,12 +211,12 @@ export const japanInWw1: Topic = {
           id: 'q14',
           question: '大戦景気がもたらした負の側面として正しいものは？',
           options: [
-            '軍事費が減少した',
             '物価が急上昇し庶民の生活が圧迫された',
+            '軍事費が減少した',
             '農業が発展した',
             '人口が減少した',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 0,
           explanation:
             '大戦景気で物価が急上昇し、庶民の生活は苦しくなり、1918年の米騒動につながりました。',
           difficulty: 'advanced',
@@ -225,12 +225,12 @@ export const japanInWw1: Topic = {
           id: 'q15',
           question: '二十一か条の要求が「中国の主権を侵害する」と言われた理由は？',
           options: [
-            '中国の皇帝を廃止させようとしたから',
             '中国の領土や経済的利益を日本が支配しようとしたから',
+            '中国の皇帝を廃止させようとしたから',
             '中国の文化を否定したから',
             '中国の軍隊を解散させようとしたから',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 0,
           explanation:
             '山東省や南満州の権益を日本が握ることで、中国が自国の領土や経済を自主的に管理する権利（主権）を大きく制限するものでした。',
           difficulty: 'advanced',

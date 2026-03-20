@@ -66,12 +66,12 @@ export const economicGrowth: Topic = {
           question:
             '高度経済成長期に「三種の神器」と呼ばれた家電製品の組み合わせは？',
           options: [
+            'テレビ・洗濯機・冷蔵庫',
             'テレビ・ラジオ・電話',
             'テレビ・エアコン・自動車',
-            'テレビ・洗濯機・冷蔵庫',
             '洗濯機・掃除機・冷蔵庫',
-          ],
-          correctIndex: 2,
+],
+          correctIndex: 0,
           explanation:
             'テレビ・洗濯機・冷蔵庫は「三種の神器」と呼ばれ、高度経済成長期に家庭に普及しました。',
           difficulty: 'basic',
@@ -83,10 +83,10 @@ export const economicGrowth: Topic = {
           options: [
             '朝鮮戦争',
             'ベトナム戦争',
-            'キューバ危機',
             '中東戦争',
-          ],
-          correctIndex: 3,
+            'キューバ危機',
+],
+          correctIndex: 2,
           explanation:
             '1973年の中東戦争をきっかけに産油国が石油価格を大幅に引き上げ、石油危機が起こりました。',
           difficulty: 'basic',
@@ -96,12 +96,12 @@ export const economicGrowth: Topic = {
           question:
             '有機水銀が原因で発生した公害病は？',
           options: [
-            '水俣病',
             'イタイイタイ病',
             '四日市ぜんそく',
             '足尾鉱毒事件',
-          ],
-          correctIndex: 0,
+            '水俣病',
+],
+          correctIndex: 3,
           explanation:
             '水俣病は工場排水に含まれる有機水銀が原因で発生した公害病です。',
           difficulty: 'basic',
@@ -109,8 +109,8 @@ export const economicGrowth: Topic = {
         {
           id: 'q4',
           question: '所得倍増計画を掲げた首相は？',
-          options: ['吉田茂', '岸信介', '池田勇人', '佐藤栄作'],
-          correctIndex: 2,
+          options: ['吉田茂', '池田勇人', '岸信介', '佐藤栄作'],
+          correctIndex: 1,
           explanation:
             '池田勇人首相が掲げた所得倍増計画のもと、高度経済成長が加速しました。',
           difficulty: 'basic',
@@ -121,10 +121,10 @@ export const economicGrowth: Topic = {
           options: [
             '北京オリンピック',
             'ソウルオリンピック',
-            '東京オリンピック',
             'シドニーオリンピック',
-          ],
-          correctIndex: 2,
+            '東京オリンピック',
+],
+          correctIndex: 3,
           explanation:
             '1964年の東京オリンピックはアジアで初めて開催されたオリンピックです。',
           difficulty: 'basic',
@@ -158,12 +158,12 @@ export const economicGrowth: Topic = {
           question:
             '高度経済成長期に主要エネルギー源が石炭から石油に変わったことを何という？',
           options: [
+            'エネルギー革命',
             '産業革命',
             '情報革命',
-            'エネルギー革命',
             '緑の革命',
-          ],
-          correctIndex: 2,
+],
+          correctIndex: 0,
           explanation:
             'エネルギー革命により石油の輸入が増大し、後の石油危機の遠因にもなりました。',
           difficulty: 'standard',
@@ -171,8 +171,8 @@ export const economicGrowth: Topic = {
         {
           id: 'q9',
           question: '富山県の神通川流域で発生した、カドミウムが原因の公害病は？',
-          options: ['水俣病', 'イタイイタイ病', '四日市ぜんそく', '新潟水俣病'],
-          correctIndex: 1,
+          options: ['イタイイタイ病', '水俣病', '四日市ぜんそく', '新潟水俣病'],
+          correctIndex: 0,
           explanation:
             'イタイイタイ病は富山県神通川流域でカドミウムが原因で発生した公害病です。',
           difficulty: 'standard',
@@ -180,8 +180,8 @@ export const economicGrowth: Topic = {
         {
           id: 'q10',
           question: '1967年に制定された、公害防止のための基本的な法律は？',
-          options: ['環境基本法', '公害対策基本法', '自然保護法', '大気汚染防止法'],
-          correctIndex: 1,
+          options: ['環境基本法', '自然保護法', '大気汚染防止法', '公害対策基本法'],
+          correctIndex: 3,
           explanation:
             '公害対策基本法は1967年に制定され、公害防止の法的枠組みが整えられました。',
           difficulty: 'standard',
@@ -201,10 +201,10 @@ export const economicGrowth: Topic = {
           options: [
             '東京オリンピック',
             'アジア大会',
-            '日本万国博覧会',
             '冬季オリンピック',
-          ],
-          correctIndex: 2,
+            '日本万国博覧会',
+],
+          correctIndex: 3,
           explanation:
             '1970年に日本万国博覧会（大阪万博）がアジアで初めて開催されました。',
           difficulty: 'standard',
@@ -212,8 +212,8 @@ export const economicGrowth: Topic = {
         {
           id: 'q13',
           question: '1968年に日本のGNPは資本主義国の中で何位になった？',
-          options: ['第1位', '第2位', '第3位', '第5位'],
-          correctIndex: 1,
+          options: ['第1位', '第3位', '第2位', '第5位'],
+          correctIndex: 2,
           explanation:
             '高度経済成長の成果により、1968年に日本のGNPはアメリカに次ぐ資本主義国第2位となりました。',
           difficulty: 'standard',
@@ -236,12 +236,12 @@ export const economicGrowth: Topic = {
           id: 'q15',
           question: '高度経済成長の「光と影」の「影」に当たるものは？',
           options: [
+            '公害病の発生',
             '東海道新幹線の開通',
             '三種の神器の普及',
-            '公害病の発生',
             'GNP世界第2位',
-          ],
-          correctIndex: 2,
+],
+          correctIndex: 0,
           explanation:
             '急速な工業化の代償として水俣病・イタイイタイ病・四日市ぜんそくなどの深刻な公害問題が発生しました。',
           difficulty: 'advanced',
@@ -250,12 +250,12 @@ export const economicGrowth: Topic = {
           id: 'q16',
           question: '東京オリンピックが日本にとって持った意義として最も適切なのは？',
           options: [
-            '冷戦の終結を示した',
             '戦後復興と国際社会への完全復帰を世界に示した',
+            '冷戦の終結を示した',
             '高度経済成長の終わりを意味した',
             '日本の軍事力を世界にアピールした',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 0,
           explanation:
             '東京オリンピックは戦後わずか19年で開催され、日本の復興と国際社会への完全復帰を世界に示しました。',
           difficulty: 'advanced',
@@ -265,11 +265,11 @@ export const economicGrowth: Topic = {
           question: '石油危機後の日本が取った対応として正しいのは？',
           options: [
             '石油の輸入を全面禁止した',
-            '省エネルギー技術の開発やエネルギー源の多様化を進めた',
             '高度経済成長をさらに加速させた',
+            '省エネルギー技術の開発やエネルギー源の多様化を進めた',
             '原子力発電を全面廃止した',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 2,
           explanation:
             '石油危機後、日本は省エネルギー技術の開発やエネルギー源の多様化を進め、安定成長期に入りました。',
           difficulty: 'advanced',

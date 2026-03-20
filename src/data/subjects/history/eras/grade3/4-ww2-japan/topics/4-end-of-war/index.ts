@@ -90,12 +90,12 @@ export const endOfWar: Topic = {
           id: 'q2',
           question: '日本に無条件降伏を求めた1945年7月の宣言は？',
           options: [
-            'カイロ宣言',
             'ポツダム宣言',
+            'カイロ宣言',
             '大西洋憲章',
             'ヤルタ協定',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 0,
           explanation:
             'ポツダム宣言はアメリカ・イギリス・中国が日本に無条件降伏を求めたものです。',
           difficulty: 'basic',
@@ -103,8 +103,8 @@ export const endOfWar: Topic = {
         {
           id: 'q3',
           question: '1945年8月15日に天皇がラジオで終戦を伝えた放送を何という？',
-          options: ['降伏声明', '終戦宣言', '大本営発表', '玉音放送'],
-          correctIndex: 3,
+          options: ['降伏声明', '玉音放送', '終戦宣言', '大本営発表'],
+          correctIndex: 1,
           explanation:
             '玉音放送で天皇が国民にポツダム宣言受け入れと終戦を伝えました。',
           difficulty: 'standard',
@@ -112,8 +112,8 @@ export const endOfWar: Topic = {
         {
           id: 'q4',
           question: '1945年に住民を巻き込んだ激しい地上戦が行われた場所は？',
-          options: ['沖縄', '硫黄島', 'サイパン', 'グアム'],
-          correctIndex: 0,
+          options: ['硫黄島', 'サイパン', 'グアム', '沖縄'],
+          correctIndex: 3,
           explanation:
             '沖縄戦では約20万人が犠牲になり、住民の集団自決なども起きました。',
           difficulty: 'standard',
@@ -121,8 +121,8 @@ export const endOfWar: Topic = {
         {
           id: 'q5',
           question: '1945年8月8日に日ソ中立条約を破って満州に侵攻した国は？',
-          options: ['アメリカ', 'ソ連', '中国', 'イギリス'],
-          correctIndex: 1,
+          options: ['アメリカ', '中国', 'イギリス', 'ソ連'],
+          correctIndex: 3,
           explanation:
             'ソ連は日ソ中立条約を一方的に破り、満州に侵攻しました。',
           difficulty: 'advanced',
@@ -131,12 +131,12 @@ export const endOfWar: Topic = {
           id: 'q6',
           question: '長崎に原子爆弾が投下された日はいつ？',
           options: [
-            '1945年8月6日',
             '1945年8月9日',
+            '1945年8月6日',
             '1945年8月10日',
             '1945年8月15日',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 0,
           explanation:
             '1945年8月9日に長崎に二つ目の原子爆弾が投下されました。',
           difficulty: 'basic',
@@ -145,12 +145,12 @@ export const endOfWar: Topic = {
           id: 'q7',
           question: '1943年に枢軸国で最初に降伏した国は？',
           options: [
+            'イタリア',
             'ドイツ',
             '日本',
-            'イタリア',
             'ハンガリー',
-          ],
-          correctIndex: 2,
+],
+          correctIndex: 0,
           explanation:
             'イタリアは1943年に降伏し、枢軸国で最初に脱落しました。',
           difficulty: 'basic',
@@ -160,11 +160,11 @@ export const endOfWar: Topic = {
           question: 'ソ連がドイツに反撃し勝利した戦いは？',
           options: [
             'ノルマンディー上陸作戦',
-            'バルジの戦い',
             'スターリングラードの戦い',
+            'バルジの戦い',
             'ミッドウェー海戦',
-          ],
-          correctIndex: 2,
+],
+          correctIndex: 1,
           explanation:
             'スターリングラードの戦いでソ連がドイツに勝利し、東部戦線の転換点となりました。',
           difficulty: 'standard',
@@ -174,11 +174,11 @@ export const endOfWar: Topic = {
           question: '1944年に連合国がフランス北部に上陸した作戦は？',
           options: [
             'バルバロッサ作戦',
-            'ノルマンディー上陸作戦',
             '島飛び作戦',
             '電撃戦',
-          ],
-          correctIndex: 1,
+            'ノルマンディー上陸作戦',
+],
+          correctIndex: 3,
           explanation:
             'ノルマンディー上陸作戦により西部戦線が開かれ、ドイツは東西から挟撃されました。',
           difficulty: 'standard',
@@ -188,11 +188,11 @@ export const endOfWar: Topic = {
           question: '日本が降伏を決定した直接的な理由の組み合わせとして正しいのは？',
           options: [
             '食糧不足と国民の反乱',
-            '広島・長崎への原爆投下とソ連の参戦',
             'ドイツの降伏とイタリアの降伏',
+            '広島・長崎への原爆投下とソ連の参戦',
             'アメリカとの和平交渉の成立',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 2,
           explanation:
             '広島・長崎への原爆投下とソ連の対日参戦が、日本がポツダム宣言を受け入れ降伏を決めた直接的な要因でした。',
           difficulty: 'basic',
@@ -203,10 +203,10 @@ export const endOfWar: Topic = {
           options: [
             'カイロ会談',
             'テヘラン会談',
-            'ヤルタ会談',
             'ポツダム会談',
-          ],
-          correctIndex: 2,
+            'ヤルタ会談',
+],
+          correctIndex: 3,
           explanation:
             'ヤルタ会談でソ連の対日参戦が秘密協定として決められました。',
           difficulty: 'standard',
@@ -216,11 +216,11 @@ export const endOfWar: Topic = {
           question: '沖縄戦でおよそ何万人が犠牲になった？',
           options: [
             '約5万人',
-            '約10万人',
             '約20万人',
+            '約10万人',
             '約50万人',
-          ],
-          correctIndex: 2,
+],
+          correctIndex: 1,
           explanation:
             '沖縄戦では住民を巻き込んだ激しい地上戦が行われ、約20万人が犠牲になりました。',
           difficulty: 'standard',
@@ -229,12 +229,12 @@ export const endOfWar: Topic = {
           id: 'q13',
           question: 'ポツダム宣言を発表した主な国の組み合わせは？',
           options: [
-            'アメリカ・ソ連・中国',
             'アメリカ・イギリス・中国',
+            'アメリカ・ソ連・中国',
             'アメリカ・イギリス・フランス',
             'イギリス・フランス・ソ連',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 0,
           explanation:
             'ポツダム宣言はアメリカ・イギリス・中国が発表し、日本に無条件降伏を求めました。',
           difficulty: 'basic',
@@ -244,11 +244,11 @@ export const endOfWar: Topic = {
           question: '原子爆弾がそれまでの兵器と根本的に異なる点は？',
           options: [
             '飛行機から投下される点',
-            '一発で都市を壊滅させ放射線被害が長期間続く点',
             '爆発音が大きい点',
+            '一発で都市を壊滅させ放射線被害が長期間続く点',
             '海上で使用される点',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 2,
           explanation:
             '原子爆弾は一発で都市全体を壊滅させる破壊力を持ち、爆風・熱線に加えて放射線被害が長期間にわたって人々を苦しめました。',
           difficulty: 'advanced',
@@ -272,11 +272,11 @@ export const endOfWar: Topic = {
           question: '日本政府がポツダム宣言をすぐに受け入れなかった理由として考えられるのは？',
           options: [
             '宣言の内容を知らなかったから',
-            '天皇制の存続（国体護持）が保証されるか不明だったから',
             'ドイツが反攻すると期待したから',
+            '天皇制の存続（国体護持）が保証されるか不明だったから',
             'アメリカが和平を提案したから',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 2,
           explanation:
             '日本政府は天皇制の存続（国体護持）が保証されるか不明だったため、ポツダム宣言の即座の受け入れをためらったと考えられます。',
           difficulty: 'advanced',

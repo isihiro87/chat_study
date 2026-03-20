@@ -50,8 +50,8 @@ export const socialClasses: Topic = {
         {
           id: 'q1',
           question: '江戸時代に全人口の約85％を占め、年貢を納めた身分は？',
-          options: ['公家', '武士', '町人', '百姓'],
-          correctIndex: 3,
+          options: ['公家', '百姓', '町人', '武士'],
+          correctIndex: 1,
           explanation: '百姓は全人口の約85％を占め、村に住んで米などの年貢を領主に納めました。',
           difficulty: 'basic',
         },

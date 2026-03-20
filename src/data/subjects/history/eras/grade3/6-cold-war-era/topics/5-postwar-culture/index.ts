@@ -64,11 +64,11 @@ export const postwarCulture: Topic = {
             '「漫画の神様」と呼ばれ、「鉄腕アトム」を描いた人物は？',
           options: [
             '川端康成',
+            '手塚治虫',
             '黒澤明',
             '湯川秀樹',
-            '手塚治虫',
-          ],
-          correctIndex: 3,
+],
+          correctIndex: 1,
           explanation:
             '手塚治虫は「鉄腕アトム」をはじめ多くの名作を生み出し、日本の漫画・アニメ文化の基礎を築きました。',
           difficulty: 'basic',
@@ -79,11 +79,11 @@ export const postwarCulture: Topic = {
             '1949年に日本人として初めてノーベル賞を受賞した人物は？',
           options: [
             '川端康成',
-            '湯川秀樹',
             '黒澤明',
             '手塚治虫',
-          ],
-          correctIndex: 1,
+            '湯川秀樹',
+],
+          correctIndex: 3,
           explanation:
             '湯川秀樹は中間子理論の研究により、日本人初のノーベル物理学賞を受賞しました。',
           difficulty: 'basic',
@@ -115,8 +115,8 @@ export const postwarCulture: Topic = {
         {
           id: 'q5',
           question: '終戦直後の日本が直面した最大の生活問題は？',
-          options: ['通信の遮断', '交通の麻痺', '食糧不足', '住宅不足'],
-          correctIndex: 2,
+          options: ['通信の遮断', '食糧不足', '交通の麻痺', '住宅不足'],
+          correctIndex: 1,
           explanation:
             '終戦直後の日本は深刻な食糧不足に直面し、鉱工業生産も日中戦争直前の約3分の1にまで低下していました。',
           difficulty: 'basic',
@@ -124,8 +124,8 @@ export const postwarCulture: Topic = {
         {
           id: 'q6',
           question: '1953年に日本で始まった、戦後最大の娯楽メディアは？',
-          options: ['ラジオ', 'テレビ', '映画', '新聞'],
-          correctIndex: 1,
+          options: ['テレビ', 'ラジオ', '映画', '新聞'],
+          correctIndex: 0,
           explanation:
             '1953年にテレビ放送が始まり、テレビは戦後最大の娯楽メディアとなりました。',
           difficulty: 'basic',
@@ -135,12 +135,12 @@ export const postwarCulture: Topic = {
           question:
             '日本でテレビ放送が始まったのは何年？',
           options: [
-            '1953年',
             '1949年',
             '1960年',
             '1964年',
-          ],
-          correctIndex: 0,
+            '1953年',
+],
+          correctIndex: 3,
           explanation:
             '1953年にNHKと日本テレビがテレビ放送を開始し、テレビは戦後最大の娯楽メディアとなりました。',
           difficulty: 'standard',
@@ -152,10 +152,10 @@ export const postwarCulture: Topic = {
           options: [
             '手塚治虫',
             '小津安二郎',
-            '黒澤明',
             '宮崎駿',
-          ],
-          correctIndex: 2,
+            '黒澤明',
+],
+          correctIndex: 3,
           explanation:
             '黒澤明は日本映画の黄金期を支え、世界の映画界に大きな影響を与えました。',
           difficulty: 'standard',
@@ -165,12 +165,12 @@ export const postwarCulture: Topic = {
           question:
             '1954年に公開された、核の恐怖を描いた日本の怪獣映画は？',
           options: [
-            'モスラ',
             'ゴジラ',
+            'モスラ',
             '鉄腕アトム',
             'ウルトラマン',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 0,
           explanation:
             'ゴジラは第五福竜丸事件を背景に核の恐怖を描いた映画で、世界中で人気を集めました。',
           difficulty: 'standard',
@@ -180,11 +180,11 @@ export const postwarCulture: Topic = {
           question: '1963年に放送された日本初の本格的テレビアニメは？',
           options: [
             'ドラえもん',
-            '鉄腕アトム',
             'サザエさん',
+            '鉄腕アトム',
             '鉄人28号',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 2,
           explanation:
             '手塚治虫原作の「鉄腕アトム」が1963年に放送され、日本初の本格的テレビアニメとなりました。',
           difficulty: 'standard',
@@ -194,11 +194,11 @@ export const postwarCulture: Topic = {
           question: '日本人として2人目のノーベル文学賞を受賞した作家は？',
           options: [
             '三島由紀夫',
-            '村上春樹',
             '大江健三郎',
+            '村上春樹',
             '谷崎潤一郎',
-          ],
-          correctIndex: 2,
+],
+          correctIndex: 1,
           explanation:
             '大江健三郎は川端康成に続いて日本人として2人目のノーベル文学賞を受賞しました。',
           difficulty: 'standard',
@@ -207,12 +207,12 @@ export const postwarCulture: Topic = {
           id: 'q12',
           question: '湯川秀樹がノーベル物理学賞を受賞した研究は？',
           options: [
-            '相対性理論',
             '中間子理論',
+            '相対性理論',
             '量子力学',
             '核分裂理論',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 0,
           explanation:
             '湯川秀樹は中間子理論の研究により、1949年にノーベル物理学賞を受賞しました。',
           difficulty: 'standard',
@@ -220,8 +220,8 @@ export const postwarCulture: Topic = {
         {
           id: 'q13',
           question: '終戦直後の日本の鉱工業生産は日中戦争直前の約何分の1だったか？',
-          options: ['約2分の1', '約3分の1', '約5分の1', '約10分の1'],
-          correctIndex: 1,
+          options: ['約2分の1', '約5分の1', '約10分の1', '約3分の1'],
+          correctIndex: 3,
           explanation:
             '終戦直後の日本の鉱工業生産は日中戦争直前の約3分の1にまで落ち込んでいました。',
           difficulty: 'standard',
@@ -244,12 +244,12 @@ export const postwarCulture: Topic = {
           id: 'q15',
           question: '湯川秀樹のノーベル賞受賞が戦後日本にとって持った意義は？',
           options: [
-            '日本の軍事力を世界に示した',
             '敗戦で自信を失った国民に希望と誇りを与えた',
+            '日本の軍事力を世界に示した',
             '日本の経済力を世界にアピールした',
             '日本の政治改革を促進した',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 0,
           explanation:
             '湯川秀樹のノーベル賞受賞は、敗戦で自信を失った日本国民に希望と誇りを与えました。',
           difficulty: 'advanced',
@@ -272,12 +272,12 @@ export const postwarCulture: Topic = {
           id: 'q17',
           question: 'テレビの普及が戦後日本社会に与えた影響として正しいのは？',
           options: [
-            '地域ごとの文化の違いが拡大した',
             '全国共通の大衆文化が形成された',
+            '地域ごとの文化の違いが拡大した',
             '読書人口が増加した',
             '映画産業がさらに発展した',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 0,
           explanation:
             'テレビの普及により全国の家庭に同じ情報や娯楽が届くようになり、全国共通の大衆文化が形成されました。',
           difficulty: 'advanced',

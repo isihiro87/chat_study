@@ -73,8 +73,8 @@ export const politicalReform: Topic = {
         {
           id: 'q1',
           question: '第一次護憲運動で退陣に追い込まれた首相は誰？',
-          options: ['原敬', '山県有朋', '寺内正毅', '桂太郎'],
-          correctIndex: 3,
+          options: ['原敬', '桂太郎', '山県有朋', '寺内正毅'],
+          correctIndex: 1,
           explanation:
             '桂太郎は藩閥出身の首相で、民衆の護憲運動によって内閣を退陣させられました。',
           difficulty: 'basic',
@@ -91,8 +91,8 @@ export const politicalReform: Topic = {
         {
           id: 'q3',
           question: '「平民宰相」と呼ばれ、本格的な政党内閣を組織した首相は？',
-          options: ['桂太郎', '寺内正毅', '原敬', '吉野作造'],
-          correctIndex: 2,
+          options: ['原敬', '桂太郎', '寺内正毅', '吉野作造'],
+          correctIndex: 0,
           explanation:
             '原敬は爵位を持たない平民出身の首相で、「平民宰相」と呼ばれました。',
           difficulty: 'basic',
@@ -100,8 +100,8 @@ export const politicalReform: Topic = {
         {
           id: 'q4',
           question: '大正時代に広がった民主主義の風潮を何という？',
-          options: ['明治維新', '大正デモクラシー', '自由民権運動', '文明開化'],
-          correctIndex: 1,
+          options: ['明治維新', '自由民権運動', '文明開化', '大正デモクラシー'],
+          correctIndex: 3,
           explanation:
             '大正デモクラシーは、民主主義的な政治や社会を求める大正時代の風潮です。',
           difficulty: 'basic',
@@ -109,8 +109,8 @@ export const politicalReform: Topic = {
         {
           id: 'q5',
           question: '護憲運動が批判した、明治時代から続いた政治のあり方は？',
-          options: ['政党政治', '藩閥政治', '議会政治', '民主政治'],
-          correctIndex: 1,
+          options: ['藩閥政治', '政党政治', '議会政治', '民主政治'],
+          correctIndex: 0,
           explanation:
             '護憲運動は、薩摩・長州出身者が中心となって行った藩閥政治を批判しました。',
           difficulty: 'basic',
@@ -119,12 +119,12 @@ export const politicalReform: Topic = {
           id: 'q6',
           question: '1925年に成立した普通選挙法で選挙権を得たのは？',
           options: [
-            '25歳以上のすべての男性',
             '25歳以上のすべての男女',
             '20歳以上のすべての男性',
+            '25歳以上のすべての男性',
             '20歳以上のすべての男女',
-          ],
-          correctIndex: 0,
+],
+          correctIndex: 2,
           explanation:
             '普通選挙法では25歳以上のすべての男性に選挙権が与えられました。女性参政権はまだ実現していませんでした。',
           difficulty: 'standard',
@@ -132,8 +132,8 @@ export const politicalReform: Topic = {
         {
           id: 'q7',
           question: '「民本主義」を唱えた学者は？',
-          options: ['美濃部達吉', '原敬', '吉野作造', '桂太郎'],
-          correctIndex: 2,
+          options: ['美濃部達吉', '原敬', '桂太郎', '吉野作造'],
+          correctIndex: 3,
           explanation:
             '吉野作造は「民本主義」を唱え、民衆のための政治を主張しました。大正デモクラシーの理論的指導者です。',
           difficulty: 'standard',
@@ -150,8 +150,8 @@ export const politicalReform: Topic = {
         {
           id: 'q9',
           question: '米騒動の結果、総辞職した内閣は？',
-          options: ['桂太郎内閣', '原敬内閣', '寺内内閣', '山県内閣'],
-          correctIndex: 2,
+          options: ['桂太郎内閣', '寺内内閣', '原敬内閣', '山県内閣'],
+          correctIndex: 1,
           explanation:
             '米騒動は全国に広がり、寺内内閣は事態を収拾できず総辞職しました。',
           difficulty: 'standard',
@@ -159,8 +159,8 @@ export const politicalReform: Topic = {
         {
           id: 'q10',
           question: '第一次護憲運動で中心的な役割を果たした政治家は？',
-          options: ['原敬', '尾崎行雄', '美濃部達吉', '吉野作造'],
-          correctIndex: 1,
+          options: ['原敬', '美濃部達吉', '尾崎行雄', '吉野作造'],
+          correctIndex: 2,
           explanation:
             '尾崎行雄は立憲政友会の政治家で、護憲運動の中心的な役割を果たしました。',
           difficulty: 'standard',
@@ -168,8 +168,8 @@ export const politicalReform: Topic = {
         {
           id: 'q11',
           question: '大戦景気で急に富を得た人々を何と呼んだ？',
-          options: ['華族', '成金', '地主', '財閥'],
-          correctIndex: 1,
+          options: ['成金', '華族', '地主', '財閥'],
+          correctIndex: 0,
           explanation:
             '大戦景気で輸出が急増し、急に大きな富を得た「成金」と呼ばれる人々が現れました。',
           difficulty: 'standard',
@@ -179,11 +179,11 @@ export const politicalReform: Topic = {
           question: '治安維持法で主に取り締まられたのはどのような運動？',
           options: [
             '護憲運動',
-            '共産主義・社会主義運動',
             '労働運動',
+            '共産主義・社会主義運動',
             '女性解放運動',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 2,
           explanation:
             '治安維持法は主に共産主義や社会主義運動を取り締まるために制定されました。',
           difficulty: 'standard',
@@ -191,8 +191,8 @@ export const politicalReform: Topic = {
         {
           id: 'q13',
           question: '「天皇機関説」を唱えた憲法学者は？',
-          options: ['吉野作造', '尾崎行雄', '美濃部達吉', '原敬'],
-          correctIndex: 2,
+          options: ['吉野作造', '尾崎行雄', '原敬', '美濃部達吉'],
+          correctIndex: 3,
           explanation:
             '美濃部達吉は「天皇機関説」を唱え、天皇は国家の最高機関として政治を行うと主張しました。',
           difficulty: 'advanced',
@@ -202,11 +202,11 @@ export const politicalReform: Topic = {
           question: '普通選挙法と治安維持法の同時制定が「アメとムチ」と呼ばれた理由は？',
           options: [
             '国民を甘やかしたため',
-            '選挙権拡大と思想取り締まりをセットにしたため',
             '外国に対する外交政策だったため',
+            '選挙権拡大と思想取り締まりをセットにしたため',
             '経済政策と軍事政策を同時に行ったため',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 2,
           explanation:
             '普通選挙法（アメ）で選挙権を拡大しつつ、治安維持法（ムチ）で社会主義運動を取り締まり、体制の安定を図りました。',
           difficulty: 'advanced',
@@ -216,11 +216,11 @@ export const politicalReform: Topic = {
           question: '原敬が「本格的な政党内閣」と評価される理由は？',
           options: [
             '軍人出身だったため',
-            '衆議院の多数党の党首が首相となり閣僚も政党出身者で構成されたため',
             '天皇が直接任命したため',
             '外国の承認を得たため',
-          ],
-          correctIndex: 1,
+            '衆議院の多数党の党首が首相となり閣僚も政党出身者で構成されたため',
+],
+          correctIndex: 3,
           explanation:
             '原敬内閣は衆議院の多数党の党首が首相となり、閣僚の大半も政党出身者で構成された点で本格的な政党内閣と評価されます。',
           difficulty: 'advanced',

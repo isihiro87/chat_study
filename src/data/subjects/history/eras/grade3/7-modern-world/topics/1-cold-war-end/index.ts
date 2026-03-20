@@ -64,11 +64,11 @@ export const coldWarEnd: Topic = {
           question: '1989年に米ソ首脳が冷戦の終結を宣言した会談は？',
           options: [
             'ポツダム会談',
-            'マルタ会談',
             'ヤルタ会談',
+            'マルタ会談',
             'ジュネーブ会談',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 2,
           explanation:
             'マルタ会談で、アメリカのブッシュ大統領とソ連のゴルバチョフが冷戦の終結を宣言しました。',
           difficulty: 'basic',
@@ -77,12 +77,12 @@ export const coldWarEnd: Topic = {
           id: 'q2',
           question: '1993年に発足したヨーロッパの地域統合組織は？',
           options: [
-            'ヨーロッパ連合（EU）',
             'APEC',
+            'ヨーロッパ連合（EU）',
             'ASEAN',
             'NATO',
-          ],
-          correctIndex: 0,
+],
+          correctIndex: 1,
           explanation:
             'ヨーロッパ連合（EU）は1993年に発足し、共通通貨ユーロの導入など経済・政治の統合を進めました。',
           difficulty: 'basic',
@@ -93,10 +93,10 @@ export const coldWarEnd: Topic = {
           options: [
             '湾岸戦争',
             'イラク戦争',
-            'アメリカ同時多発テロ',
             '天安門事件',
-          ],
-          correctIndex: 2,
+            'アメリカ同時多発テロ',
+],
+          correctIndex: 3,
           explanation:
             'アメリカ同時多発テロは2001年9月11日にニューヨークなどで起きた大規模テロ事件です。',
           difficulty: 'basic',
@@ -105,12 +105,12 @@ export const coldWarEnd: Topic = {
           id: 'q4',
           question: '1989年に取り壊された、冷戦の象徴とされた壁は？',
           options: [
-            '万里の長城',
             'ベルリンの壁',
+            '万里の長城',
             '鉄のカーテン',
             'ハドリアヌスの長城',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 0,
           explanation:
             'ベルリンの壁は東西ドイツを隔てていた冷戦の象徴で、1989年11月に取り壊されました。',
           difficulty: 'basic',
@@ -120,11 +120,11 @@ export const coldWarEnd: Topic = {
           question: 'ゴルバチョフが推進した経済・政治改革を何という？',
           options: [
             'グラスノスチ',
-            'ペレストロイカ',
             'コルホーズ',
+            'ペレストロイカ',
             '五か年計画',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 2,
           explanation:
             'ペレストロイカは「立て直し」を意味し、ゴルバチョフがソ連の経済・政治改革として推進しました。',
           difficulty: 'basic',
@@ -134,11 +134,11 @@ export const coldWarEnd: Topic = {
           question: '1991年に解体し、多くの共和国が独立した国は？',
           options: [
             'ユーゴスラビア',
+            'ソ連',
             'チェコスロバキア',
             '東ドイツ',
-            'ソ連',
-          ],
-          correctIndex: 3,
+],
+          correctIndex: 1,
           explanation:
             '1991年にソビエト社会主義共和国連邦が解体し、ロシアをはじめ多くの共和国が独立しました。',
           difficulty: 'basic',
@@ -163,11 +163,11 @@ export const coldWarEnd: Topic = {
           question: '1979年にソ連が軍事介入し、国力低下の原因となった国は？',
           options: [
             'イラク',
-            'アフガニスタン',
             'ポーランド',
+            'アフガニスタン',
             'ベトナム',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 2,
           explanation:
             'ソ連は1979年にアフガニスタンに軍事介入し、長期化する戦争により国力が大きく低下しました。',
           difficulty: 'standard',
@@ -177,12 +177,12 @@ export const coldWarEnd: Topic = {
           question:
             '1989年に中国の北京で民主化運動が武力で弾圧された事件は？',
           options: [
-            '天安門事件',
             '文化大革命',
             '辛亥革命',
             '五・四運動',
-          ],
-          correctIndex: 0,
+            '天安門事件',
+],
+          correctIndex: 3,
           explanation:
             '天安門事件では、天安門広場に集まった学生や市民による民主化運動が中国政府に武力で鎮圧されました。',
           difficulty: 'standard',
@@ -193,10 +193,10 @@ export const coldWarEnd: Topic = {
           options: [
             'ポンド',
             'マルク',
-            'フラン',
             'ユーロ',
-          ],
-          correctIndex: 3,
+            'フラン',
+],
+          correctIndex: 2,
           explanation:
             'ユーロはEU加盟国の多くで使用されている共通通貨で、経済的な結びつきを強めています。',
           difficulty: 'standard',
@@ -219,12 +219,12 @@ export const coldWarEnd: Topic = {
           id: 'q12',
           question: '1989年に設立されたアジア太平洋地域の経済協力の枠組みは？',
           options: [
+            'APEC',
             'ASEAN',
             'EU',
-            'APEC',
             'NATO',
-          ],
-          correctIndex: 2,
+],
+          correctIndex: 0,
           explanation:
             'APEC（アジア太平洋経済協力会議）は1989年に設立され、アジア太平洋地域の経済協力を推進しています。',
           difficulty: 'standard',
@@ -233,12 +233,12 @@ export const coldWarEnd: Topic = {
           id: 'q13',
           question: '1991年にイラクがクウェートに侵攻したことで起きた戦争は？',
           options: [
-            'イラク戦争',
             '湾岸戦争',
+            'イラク戦争',
             'アフガニスタン戦争',
             '朝鮮戦争',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 0,
           explanation:
             '湾岸戦争は1991年にイラクのクウェート侵攻に対し、国連安保理決議に基づく多国籍軍がイラクを攻撃した戦争です。',
           difficulty: 'standard',
@@ -261,12 +261,12 @@ export const coldWarEnd: Topic = {
           id: 'q15',
           question: '2003年のイラク戦争の開戦理由とされたものは何か？',
           options: [
-            'クウェート侵攻',
             '大量破壊兵器の保有',
+            'クウェート侵攻',
             '民主化運動の弾圧',
             '核実験の実施',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 0,
           explanation:
             'アメリカはイラクが大量破壊兵器を保有していると主張して開戦しましたが、戦後の調査で兵器は発見されませんでした。',
           difficulty: 'advanced',
@@ -276,11 +276,11 @@ export const coldWarEnd: Topic = {
           question: 'ゴルバチョフの改革が結果的にソ連解体につながった理由として最も適切なものは？',
           options: [
             '軍事力を大幅に増強したため',
-            '西側諸国との貿易を全面禁止したため',
             '情報公開により各共和国の独立運動が活発化したため',
+            '西側諸国との貿易を全面禁止したため',
             '核兵器を全廃したため',
-          ],
-          correctIndex: 2,
+],
+          correctIndex: 1,
           explanation:
             'グラスノスチ（情報公開）により国民が自由に発言できるようになり、各共和国で独立運動が活発化してソ連解体につながりました。',
           difficulty: 'advanced',
@@ -303,12 +303,12 @@ export const coldWarEnd: Topic = {
           id: 'q18',
           question: '湾岸戦争とイラク戦争の違いとして最も適切なものは？',
           options: [
-            '湾岸戦争は中東で、イラク戦争はヨーロッパで起きた',
             '湾岸戦争は国連決議に基づく多国籍軍、イラク戦争はアメリカ主導の行動',
+            '湾岸戦争は中東で、イラク戦争はヨーロッパで起きた',
             '湾岸戦争はソ連が主導、イラク戦争は中国が主導',
             '両方ともクウェート侵攻が原因だった',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 0,
           explanation:
             '湾岸戦争は国連安保理決議に基づく国際協調による行動でしたが、イラク戦争はアメリカ主導の行動で、国際的な反対も多くありました。',
           difficulty: 'advanced',

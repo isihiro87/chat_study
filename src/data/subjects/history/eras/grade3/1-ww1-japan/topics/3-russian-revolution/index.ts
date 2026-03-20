@@ -78,8 +78,8 @@ export const russianRevolution: Topic = {
         {
           id: 'q2',
           question: 'ソビエト社会主義共和国連邦（ソ連）が成立した年は？',
-          options: ['1922年', '1917年', '1919年', '1925年'],
-          correctIndex: 0,
+          options: ['1917年', '1922年', '1919年', '1925年'],
+          correctIndex: 1,
           explanation:
             '1922年にソ連が成立しました。同じ年に日本もシベリアから撤兵しました。',
           difficulty: 'basic',
@@ -87,8 +87,8 @@ export const russianRevolution: Topic = {
         {
           id: 'q3',
           question: 'ロシア革命が起きた年は？',
-          options: ['1914年', '1917年', '1919年', '1922年'],
-          correctIndex: 1,
+          options: ['1917年', '1914年', '1919年', '1922年'],
+          correctIndex: 0,
           explanation:
             '1917年にロシア革命が起き、レーニンが社会主義政府を樹立しました。',
           difficulty: 'basic',
@@ -96,8 +96,8 @@ export const russianRevolution: Topic = {
         {
           id: 'q4',
           question: 'ロシア革命で各地に結成された労働者や兵士の代表会議を何という？',
-          options: ['国会', '議会', 'ソビエト', '元老院'],
-          correctIndex: 2,
+          options: ['国会', 'ソビエト', '議会', '元老院'],
+          correctIndex: 1,
           explanation:
             'ソビエトは労働者や兵士の代表会議で、革命の中核的組織となりました。',
           difficulty: 'basic',
@@ -106,12 +106,12 @@ export const russianRevolution: Topic = {
           id: 'q5',
           question: 'ロシア革命で誕生した政府の特徴として正しいものは？',
           options: [
-            '世界初の共和制政府',
             '世界初の社会主義政府',
+            '世界初の共和制政府',
             '世界初の民主主義政府',
             '世界初の連邦制政府',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 0,
           explanation:
             'ロシア革命により、世界初の社会主義政府が誕生しました。',
           difficulty: 'basic',
@@ -119,8 +119,8 @@ export const russianRevolution: Topic = {
         {
           id: 'q6',
           question: 'スターリンが実施した経済計画は？',
-          options: ['大躍進政策', '五か年計画', '殖産興業', 'ニューディール政策'],
-          correctIndex: 1,
+          options: ['大躍進政策', '殖産興業', 'ニューディール政策', '五か年計画'],
+          correctIndex: 3,
           explanation:
             'スターリンは五か年計画を実施し、重工業の発展と農業の集団化を進めました。',
           difficulty: 'standard',
@@ -129,8 +129,8 @@ export const russianRevolution: Topic = {
           id: 'q7',
           question:
             'ロシア革命の影響を恐れた日本などがシベリアに軍隊を送ったことを何という？',
-          options: ['日露戦争', '義和団事件', 'シベリア出兵', '満州事変'],
-          correctIndex: 2,
+          options: ['シベリア出兵', '日露戦争', '義和団事件', '満州事変'],
+          correctIndex: 0,
           explanation:
             'シベリア出兵は、社会主義革命の波及を防ぐために行われました。',
           difficulty: 'standard',
@@ -140,11 +140,11 @@ export const russianRevolution: Topic = {
           question: '五か年計画の2つの柱として正しい組み合わせは？',
           options: [
             '軽工業化と農地改革',
-            '重工業化と農業の集団化',
             '商業振興と教育改革',
+            '重工業化と農業の集団化',
             '軍備拡大と外交政策',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 2,
           explanation:
             '五か年計画では重工業の発展と農業の集団化が推進されました。',
           difficulty: 'standard',
@@ -154,11 +154,11 @@ export const russianRevolution: Topic = {
           question: 'ロシア革命が起きた背景として正しいものは？',
           options: [
             '経済の好景気',
-            '第一次世界大戦による疲弊と食糧不足',
             '外国からの軍事侵攻',
+            '第一次世界大戦による疲弊と食糧不足',
             '自然災害の多発',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 2,
           explanation:
             '第一次世界大戦による疲弊と食糧不足が国民の不満を高め、革命の原因となりました。',
           difficulty: 'standard',
@@ -166,8 +166,8 @@ export const russianRevolution: Topic = {
         {
           id: 'q10',
           question: '日本がシベリアから撤兵した年は？',
-          options: ['1918年', '1920年', '1922年', '1925年'],
-          correctIndex: 2,
+          options: ['1922年', '1918年', '1920年', '1925年'],
+          correctIndex: 0,
           explanation:
             '日本は1922年にシベリアから撤兵しました。同じ年にソ連が成立しました。',
           difficulty: 'standard',
@@ -191,11 +191,11 @@ export const russianRevolution: Topic = {
           question: '列強がシベリア出兵を行った理由として最も適切なものは？',
           options: [
             'ロシアの資源を獲得するため',
-            '社会主義革命の影響が自国に広がることを恐れたため',
             'ロシアとの同盟を結ぶため',
+            '社会主義革命の影響が自国に広がることを恐れたため',
             'ロシアの領土を拡大するため',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 2,
           explanation:
             '社会主義革命の考え方が自国の労働者に広がれば体制が脅かされると恐れたため、干渉戦争を行いました。',
           difficulty: 'advanced',
@@ -233,11 +233,11 @@ export const russianRevolution: Topic = {
           question: '農業の集団化とはどのような政策か？',
           options: [
             '農民に自由に土地を売買させる政策',
-            '個人の農地を国の管理にまとめる政策',
             '農業を廃止して工業に転換する政策',
             '外国から農産物を大量輸入する政策',
-          ],
-          correctIndex: 1,
+            '個人の農地を国の管理にまとめる政策',
+],
+          correctIndex: 3,
           explanation:
             '農業の集団化とは個人の農地を国や共同体の管理にまとめ、大規模な集団農場にする政策で、多くの農民が犠牲になりました。',
           difficulty: 'advanced',

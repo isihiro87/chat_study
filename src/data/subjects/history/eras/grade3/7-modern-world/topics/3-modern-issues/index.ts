@@ -93,12 +93,12 @@ export const modernIssues: Topic = {
           id: 'q3',
           question: '2016年から引き下げられた選挙権の年齢は？',
           options: [
-            '満18歳以上',
             '満16歳以上',
             '満20歳以上',
             '満25歳以上',
-          ],
-          correctIndex: 0,
+            '満18歳以上',
+],
+          correctIndex: 3,
           explanation:
             '2016年から選挙権年齢が満20歳以上から満18歳以上に引き下げられ、若者の政治参加が促進されました。',
           difficulty: 'basic',
@@ -108,11 +108,11 @@ export const modernIssues: Topic = {
           question: '世界が一体化し、国境を越えた交流が進む現象を何という？',
           options: [
             '情報化',
-            'グローバル化',
             '都市化',
             '工業化',
-          ],
-          correctIndex: 1,
+            'グローバル化',
+],
+          correctIndex: 3,
           explanation:
             'グローバル化とは、情報やヒト・モノ・カネが国境を越えて移動し、世界が一体化する現象です。',
           difficulty: 'basic',
@@ -121,12 +121,12 @@ export const modernIssues: Topic = {
           id: 'q5',
           question: '温室効果ガスの排出により起こる地球規模の環境問題は？',
           options: [
+            '地球温暖化',
             'オゾン層破壊',
             '酸性雨',
-            '地球温暖化',
             '砂漠化',
-          ],
-          correctIndex: 2,
+],
+          correctIndex: 0,
           explanation:
             '地球温暖化は温室効果ガスの排出が原因で、京都議定書やパリ協定で削減の取り組みが進められています。',
           difficulty: 'basic',
@@ -150,12 +150,12 @@ export const modernIssues: Topic = {
           question:
             '2015年に発展途上国も含めた全ての国が温室効果ガス削減目標を定めた合意は？',
           options: [
+            'パリ協定',
             '京都議定書',
             'ラムサール条約',
             'ワシントン条約',
-            'パリ協定',
-          ],
-          correctIndex: 3,
+],
+          correctIndex: 0,
           explanation:
             'パリ協定は2015年に結ばれ、京都議定書と異なり発展途上国も含めた全ての国が削減目標を定めることになりました。',
           difficulty: 'standard',
@@ -166,11 +166,11 @@ export const modernIssues: Topic = {
             '東日本大震災後に導入が進んだ、太陽光や風力などのエネルギーを何という？',
           options: [
             '化石燃料',
-            '原子力エネルギー',
             '再生可能エネルギー',
+            '原子力エネルギー',
             'バイオ燃料',
-          ],
-          correctIndex: 2,
+],
+          correctIndex: 1,
           explanation:
             '2011年の東日本大震災後、太陽光や風力などの再生可能エネルギーの導入が加速しました。',
           difficulty: 'standard',
@@ -179,12 +179,12 @@ export const modernIssues: Topic = {
           id: 'q9',
           question: '国連が行う紛争地域での平和維持のための活動を何という？',
           options: [
-            'ODA',
             'PKO（平和維持活動）',
+            'ODA',
             'NGO',
             'NPO',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 0,
           explanation:
             'PKO（平和維持活動）は国連が紛争地域の平和と安全を維持するために行う活動です。',
           difficulty: 'standard',
@@ -193,12 +193,12 @@ export const modernIssues: Topic = {
           id: 'q10',
           question: '民間の立場で国際協力を行う組織を何という？',
           options: [
+            'NGO（非政府組織）',
             'NPO',
             'ODA',
-            'NGO（非政府組織）',
             'IMF',
-          ],
-          correctIndex: 2,
+],
+          correctIndex: 0,
           explanation:
             'NGO（非政府組織）は政府から独立した立場で国際協力や人道支援を行う民間組織です。',
           difficulty: 'standard',
@@ -250,11 +250,11 @@ export const modernIssues: Topic = {
           question: '核兵器に関する世界的な課題の2つの柱は？',
           options: [
             '核開発と核実験',
-            '核軍縮と核不拡散',
             '核廃棄と核融合',
             '核保有と核共有',
-          ],
-          correctIndex: 1,
+            '核軍縮と核不拡散',
+],
+          correctIndex: 3,
           explanation:
             '核軍縮（核兵器の削減）と核不拡散（核兵器の広がりを防ぐ）が核兵器に関する世界的な課題の2つの柱です。',
           difficulty: 'standard',
@@ -264,11 +264,11 @@ export const modernIssues: Topic = {
           question: '京都議定書とパリ協定の最も大きな違いは何か？',
           options: [
             '京都議定書は環境問題、パリ協定は経済問題を扱う',
-            '京都議定書は先進国のみ対象、パリ協定は全ての国が対象',
             '京都議定書は国連、パリ協定はEUが採択した',
+            '京都議定書は先進国のみ対象、パリ協定は全ての国が対象',
             '京都議定書は温暖化、パリ協定はオゾン層に関する合意',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 2,
           explanation:
             '京都議定書は先進国のみに温室効果ガスの削減義務を課しましたが、パリ協定は発展途上国も含めた全ての国が自主的な削減目標を定めました。',
           difficulty: 'advanced',
@@ -291,12 +291,12 @@ export const modernIssues: Topic = {
           id: 'q17',
           question: '少子高齢化が日本の年金制度に与える影響として最も適切なものは？',
           options: [
+            '支え手が減り受給者が増えるため制度維持が困難になる',
             '年金の受給額が増える',
             '現役世代が増えて負担が減る',
-            '支え手が減り受給者が増えるため制度維持が困難になる',
             '年金制度が不要になる',
-          ],
-          correctIndex: 2,
+],
+          correctIndex: 0,
           explanation:
             '少子高齢化により年金の支え手（現役世代）が減少し受給者（高齢者）が増加するため、年金制度の維持が困難になります。',
           difficulty: 'advanced',
@@ -306,11 +306,11 @@ export const modernIssues: Topic = {
           question: '核軍縮が進まない背景にある「核抑止論」とはどのような考え方か？',
           options: [
             '核兵器は環境に良いという考え方',
-            '核兵器を持つことで他国からの攻撃を抑止できるという考え方',
             '核兵器は安価に製造できるという考え方',
             '核兵器は防御にのみ使用できるという考え方',
-          ],
-          correctIndex: 1,
+            '核兵器を持つことで他国からの攻撃を抑止できるという考え方',
+],
+          correctIndex: 3,
           explanation:
             '核抑止論は核兵器を保有することで相互に攻撃を思いとどまらせるという考え方で、核保有国が核兵器を手放さない理由の一つです。',
           difficulty: 'advanced',

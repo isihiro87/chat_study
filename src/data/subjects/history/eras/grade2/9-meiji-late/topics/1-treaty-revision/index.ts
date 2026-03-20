@@ -169,8 +169,8 @@ export const treatyRevision: Topic = {
           options: [
             '賠償金の獲得と領土の拡大',
             '領事裁判権の撤廃と関税自主権の回復',
-            '軍事同盟と貿易協定',
-            '鎖国の再開と外国人の追放',
+            '軍事同盟の締結と貿易協定の改定',
+            '鎖国体制の再開と外国人の国外追放',
           ],
           correctIndex: 1,
           explanation:

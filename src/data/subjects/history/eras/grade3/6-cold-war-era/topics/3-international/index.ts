@@ -63,12 +63,12 @@ export const international: Topic = {
           question:
             '1962年にアメリカとソ連が核戦争の瀬戸際に立った事件は？',
           options: [
-            'ベトナム戦争',
             'キューバ危機',
+            'ベトナム戦争',
             '朝鮮戦争',
             'ベルリンの壁建設',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 0,
           explanation:
             'キューバ危機では、ソ連がキューバにミサイル基地を建設しようとし、米ソが核戦争の瀬戸際に立ちました。',
           difficulty: 'basic',
@@ -78,12 +78,12 @@ export const international: Topic = {
           question:
             '1972年に日本と中国の国交を正常化した声明は？',
           options: [
+            '日中共同声明',
             '日韓基本条約',
             '日中平和友好条約',
             '日ソ共同宣言',
-            '日中共同声明',
-          ],
-          correctIndex: 3,
+],
+          correctIndex: 0,
           explanation:
             '1972年に田中角栄首相が訪中し、日中共同声明により中国との国交が正常化しました。',
           difficulty: 'basic',
@@ -92,8 +92,8 @@ export const international: Topic = {
           id: 'q3',
           question:
             '1972年にアメリカから日本に返還された地域は？',
-          options: ['沖縄', '小笠原諸島', '北方領土', '対馬'],
-          correctIndex: 0,
+          options: ['小笠原諸島', '北方領土', '沖縄', '対馬'],
+          correctIndex: 2,
           explanation:
             '1972年に佐藤栄作首相のもとで沖縄がアメリカから日本に返還されました。',
           difficulty: 'basic',
@@ -115,8 +115,8 @@ export const international: Topic = {
         {
           id: 'q5',
           question: '日本が国際連合に加盟したのは何年？',
-          options: ['1951年', '1955年', '1956年', '1960年'],
-          correctIndex: 2,
+          options: ['1951年', '1956年', '1955年', '1960年'],
+          correctIndex: 1,
           explanation:
             '1956年に日ソ共同宣言でソ連の支持を得て、日本は国際連合に加盟しました。',
           difficulty: 'basic',
@@ -126,11 +126,11 @@ export const international: Topic = {
           question: '1965年に日本と韓国の国交を正常化した条約は？',
           options: [
             '日ソ共同宣言',
-            '日韓基本条約',
             '日中共同声明',
             'サンフランシスコ平和条約',
-          ],
-          correctIndex: 1,
+            '日韓基本条約',
+],
+          correctIndex: 3,
           explanation:
             '日韓基本条約（1965年）により韓国政府を朝鮮半島で唯一の合法政府として承認しました。',
           difficulty: 'basic',
@@ -142,10 +142,10 @@ export const international: Topic = {
           options: [
             'サミット（主要国首脳会議）',
             '国際連合総会',
-            'アジア・アフリカ会議',
             'パリ講和会議',
-          ],
-          correctIndex: 2,
+            'アジア・アフリカ会議',
+],
+          correctIndex: 3,
           explanation:
             'アジア・アフリカ会議（バンドン会議）では、第三世界の国々が連帯し平和共存を訴えました。',
           difficulty: 'standard',
@@ -156,11 +156,11 @@ export const international: Topic = {
             'キューバ危機をきっかけに結ばれた、核実験を制限する条約は？',
           options: [
             '核拡散防止条約',
-            '部分的核実験禁止条約',
             '包括的核実験禁止条約',
             '中距離核戦力全廃条約',
-          ],
-          correctIndex: 1,
+            '部分的核実験禁止条約',
+],
+          correctIndex: 3,
           explanation:
             '部分的核実験禁止条約は1963年に結ばれ、大気圏・宇宙・水中での核実験が禁止されました。',
           difficulty: 'standard',
@@ -170,12 +170,12 @@ export const international: Topic = {
           question:
             'アメリカで人種差別撤廃を求める公民権運動を指導した人物は？',
           options: [
-            'キング牧師',
             'ケネディ',
+            'キング牧師',
             'リンカーン',
             'ガンディー',
-          ],
-          correctIndex: 0,
+],
+          correctIndex: 1,
           explanation:
             'キング牧師は「I Have a Dream」の演説で知られ、非暴力主義でアメリカの公民権運動を指導しました。',
           difficulty: 'standard',
@@ -185,11 +185,11 @@ export const international: Topic = {
           question: '日中共同声明を発表するために訪中した首相は？',
           options: [
             '吉田茂',
-            '佐藤栄作',
             '田中角栄',
+            '佐藤栄作',
             '岸信介',
-          ],
-          correctIndex: 2,
+],
+          correctIndex: 1,
           explanation:
             '田中角栄首相が1972年に訪中し、日中共同声明により中国との国交が正常化しました。',
           difficulty: 'standard',
@@ -199,11 +199,11 @@ export const international: Topic = {
           question: '1978年に日本と中国が結んだ条約は？',
           options: [
             '日中共同声明',
-            '日中平和友好条約',
             '日韓基本条約',
+            '日中平和友好条約',
             '日ソ共同宣言',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 2,
           explanation:
             '日中平和友好条約（1978年）により日中関係がさらに深まりました。',
           difficulty: 'standard',
@@ -221,12 +221,12 @@ export const international: Topic = {
           id: 'q13',
           question: '日ソ共同宣言を出した内閣の首相は？',
           options: [
-            '吉田茂',
             '鳩山一郎',
+            '吉田茂',
             '岸信介',
             '池田勇人',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 0,
           explanation:
             '鳩山一郎内閣が日ソ共同宣言を出し、ソ連との国交回復を実現しました。',
           difficulty: 'standard',
@@ -237,10 +237,10 @@ export const international: Topic = {
           options: [
             '田中角栄',
             '池田勇人',
-            '佐藤栄作',
             '鳩山一郎',
-          ],
-          correctIndex: 2,
+            '佐藤栄作',
+],
+          correctIndex: 3,
           explanation:
             '佐藤栄作首相は非核三原則を国の方針として掲げ、沖縄返還も実現し、ノーベル平和賞を受賞しました。',
           difficulty: 'advanced',
@@ -249,12 +249,12 @@ export const international: Topic = {
           id: 'q15',
           question: '日本の国連加盟が1956年まで遅れた主な理由は？',
           options: [
+            '常任理事国のソ連と国交がなかったため',
             '日本が加盟を希望しなかったため',
             'アメリカが反対したため',
-            '常任理事国のソ連と国交がなかったため',
             '国連の加盟国数が上限に達していたため',
-          ],
-          correctIndex: 2,
+],
+          correctIndex: 0,
           explanation:
             '常任理事国であるソ連との国交回復（日ソ共同宣言）がなければ、ソ連の拒否権により国連加盟は実現できませんでした。',
           difficulty: 'advanced',
@@ -264,11 +264,11 @@ export const international: Topic = {
           question: '戦後日本が国交を正常化した3か国を時系列で正しく並べたものは？',
           options: [
             '韓国→ソ連→中国',
-            'ソ連→韓国→中国',
             '中国→ソ連→韓国',
+            'ソ連→韓国→中国',
             'ソ連→中国→韓国',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 2,
           explanation:
             'ソ連（1956年日ソ共同宣言）→韓国（1965年日韓基本条約）→中国（1972年日中共同声明）の順です。',
           difficulty: 'advanced',

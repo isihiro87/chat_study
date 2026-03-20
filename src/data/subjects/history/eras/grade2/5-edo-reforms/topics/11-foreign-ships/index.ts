@@ -34,7 +34,7 @@ export const foreignShips: Topic = {
         {
           id: 'q1',
           question: '1825年に幕府が出した、外国船を追い払う命令は？',
-          options: ['海防令', '禁教令', '鎖国令', '異国船打払令'],
+          options: ['海防令（沿岸警備）', '禁教令（キリスト教禁止）', '鎖国令（貿易制限）', '異国船打払令（砲撃命令）'],
           correctIndex: 3,
           explanation:
             '異国船打払令は外国船を見つけ次第砲撃して追い払う強硬な政策でした。',
@@ -52,8 +52,8 @@ export const foreignShips: Topic = {
         {
           id: 'q3',
           question: '1837年に大阪で乱を起こした元幕府役人は？',
-          options: ['渡辺崋山', '高野長英', '大塩平八郎', '間宮林蔵'],
-          correctIndex: 2,
+          options: ['大塩平八郎', '高野長英', '渡辺崋山', '間宮林蔵'],
+          correctIndex: 0,
           explanation:
             '大塩平八郎はききんに苦しむ民を救うため乱を起こしました。元幕府役人の反乱は大きな衝撃でした。',
           difficulty: 'standard',

@@ -301,7 +301,7 @@ export const chineseCivilization: Topic = {
         {
           id: 'q10',
           question: '甲骨文字はどのようなものに刻まれたか？',
-          options: ['粘土板', '亀の甲羅や牛の骨', '竹の簡', '石碑'],
+          options: ['粘土板や石の板', '亀の甲羅や牛の骨', '竹の簡や木の板', '青銅器の表面'],
           correctIndex: 1,
           explanation: '甲骨文字は亀の甲羅や牛の骨に刻まれ、占いの記録に使われました。',
           difficulty: 'basic',
@@ -433,7 +433,7 @@ export const chineseCivilization: Topic = {
         {
           id: 'q24',
           question: '万里の長城で侵入を防ごうとした北方の遊牧民族は？',
-          options: ['アーリヤ人', 'ゲルマン人', 'ペルシャ人', '匈奴'],
+          options: ['アーリヤ人', 'ゲルマン人', 'ペルシャ人', '匈奴（きょうど）'],
           correctIndex: 3,
           explanation: '始皇帝は匈奴など北方の遊牧民族の侵入を防ぐために万里の長城を築きました。',
           difficulty: 'advanced',
@@ -450,10 +450,10 @@ export const chineseCivilization: Topic = {
           id: 'q26',
           question: '殷の政治の特徴は？',
           options: [
-            '民主政治',
+            '多数決による民主政治',
             '占いによる神権政治',
-            '儒教に基づく政治',
-            '法律に基づく政治',
+            '儒教に基づく徳治政治',
+            '法律に基づく法治政治',
           ],
           correctIndex: 1,
           explanation: '殷では占いによって神の意志を確認し政治を決める神権政治が行われました。',
@@ -462,7 +462,7 @@ export const chineseCivilization: Topic = {
         {
           id: 'q27',
           question: 'シルクロードを通じて西方から中国に伝わったものは？',
-          options: ['甲骨文字', '絹', '仏教', '万里の長城'],
+          options: ['甲骨文字', '絹織物', '仏教', '青銅器'],
           correctIndex: 2,
           explanation: 'シルクロードを通じて西方からガラス製品や仏教の教えなどが中国に伝わりました。',
           difficulty: 'advanced',

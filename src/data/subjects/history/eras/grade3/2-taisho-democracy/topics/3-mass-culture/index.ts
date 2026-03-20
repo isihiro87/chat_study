@@ -72,8 +72,8 @@ export const massCulture: Topic = {
         {
           id: 'q1',
           question: '日本でラジオ放送が始まったのは何年？',
-          options: ['1925年', '1920年', '1923年', '1927年'],
-          correctIndex: 0,
+          options: ['1920年', '1923年', '1925年', '1927年'],
+          correctIndex: 2,
           explanation:
             '1925年にラジオ放送が始まり、全国の家庭にニュースや娯楽が届けられるようになりました。',
           difficulty: 'basic',
@@ -81,8 +81,8 @@ export const massCulture: Topic = {
         {
           id: 'q2',
           question: '「蟹工船」を書いたプロレタリア文学の作家は？',
-          options: ['芥川龍之介', '志賀直哉', '小林多喜二', '夏目漱石'],
-          correctIndex: 2,
+          options: ['小林多喜二', '芥川龍之介', '志賀直哉', '夏目漱石'],
+          correctIndex: 0,
           explanation:
             '小林多喜二は「蟹工船」で労働者の過酷な生活を描き、プロレタリア文学の代表作となりました。',
           difficulty: 'basic',
@@ -90,8 +90,8 @@ export const massCulture: Topic = {
         {
           id: 'q3',
           question: '大正時代に都市部で広まった洋風の住宅を何という？',
-          options: ['長屋', '文化住宅', '武家屋敷', '町家'],
-          correctIndex: 1,
+          options: ['長屋', '武家屋敷', '町家', '文化住宅'],
+          correctIndex: 3,
           explanation:
             '文化住宅は欧米風の生活様式を取り入れた住宅で、大正時代に都市部で広まりました。',
           difficulty: 'basic',
@@ -108,8 +108,8 @@ export const massCulture: Topic = {
         {
           id: 'q5',
           question: '大正時代に新聞・雑誌・映画・ラジオを通じて広まった文化を何という？',
-          options: ['貴族文化', '大衆文化', '武家文化', '宮廷文化'],
-          correctIndex: 1,
+          options: ['貴族文化', '武家文化', '宮廷文化', '大衆文化'],
+          correctIndex: 3,
           explanation:
             'メディアの発達により、文化が広く大衆に広まり「大衆文化」が成立しました。',
           difficulty: 'basic',
@@ -117,8 +117,8 @@ export const massCulture: Topic = {
         {
           id: 'q6',
           question: '1923年に東京・横浜を襲った大災害は？',
-          options: ['米騒動', '濃尾地震', '東京大空襲', '関東大震災'],
-          correctIndex: 3,
+          options: ['米騒動', '濃尾地震', '関東大震災', '東京大空襲'],
+          correctIndex: 2,
           explanation:
             '関東大震災は1923年9月1日に発生し、東京・横浜に壊滅的な被害をもたらしました。',
           difficulty: 'standard',
@@ -128,11 +128,11 @@ export const massCulture: Topic = {
           question: '労働者や農民の苦しい生活を描く文学を何という？',
           options: [
             '自然主義文学',
-            'ロマン主義文学',
             'プロレタリア文学',
+            'ロマン主義文学',
             '古典文学',
-          ],
-          correctIndex: 2,
+],
+          correctIndex: 1,
           explanation:
             'プロレタリア文学は労働者や農民の生活を描き、社会の矛盾を告発する文学です。',
           difficulty: 'standard',
@@ -140,8 +140,8 @@ export const massCulture: Topic = {
         {
           id: 'q8',
           question: '1冊1円で販売され、読書の大衆化に貢献した文学全集を何という？',
-          options: ['文庫本', '円本', '新書', '全集'],
-          correctIndex: 1,
+          options: ['文庫本', '新書', '円本', '全集'],
+          correctIndex: 2,
           explanation:
             '円本は1冊1円で販売された文学全集で、読書が大衆に広がるきっかけとなりました。',
           difficulty: 'standard',
@@ -149,8 +149,8 @@ export const massCulture: Topic = {
         {
           id: 'q9',
           question: '「暗夜行路」を書き、「小説の神様」と呼ばれた作家は？',
-          options: ['芥川龍之介', '夏目漱石', '小林多喜二', '志賀直哉'],
-          correctIndex: 3,
+          options: ['志賀直哉', '芥川龍之介', '夏目漱石', '小林多喜二'],
+          correctIndex: 0,
           explanation:
             '志賀直哉は「暗夜行路」などの名作を残し、「小説の神様」と称されました。',
           difficulty: 'standard',
@@ -158,8 +158,8 @@ export const massCulture: Topic = {
         {
           id: 'q10',
           question: '民芸運動を提唱した人物は誰？',
-          options: ['芥川龍之介', '柳宗悦', '志賀直哉', '小林多喜二'],
-          correctIndex: 1,
+          options: ['柳宗悦', '芥川龍之介', '志賀直哉', '小林多喜二'],
+          correctIndex: 0,
           explanation:
             '柳宗悦は名もない職人が作った日用品の中に美を見出す「民芸運動」を提唱しました。',
           difficulty: 'standard',
@@ -167,8 +167,8 @@ export const massCulture: Topic = {
         {
           id: 'q11',
           question: '関東大震災の死者・行方不明者はおよそ何人？',
-          options: ['約1万人', '約5万人', '約10万5千人', '約50万人'],
-          correctIndex: 2,
+          options: ['約1万人', '約5万人', '約50万人', '約10万5千人'],
+          correctIndex: 3,
           explanation:
             '関東大震災の死者・行方不明者は約10万5千人に達しました。',
           difficulty: 'standard',
@@ -178,11 +178,11 @@ export const massCulture: Topic = {
           question: '大正時代に庶民の間に定着した洋食の組み合わせとして正しいものは？',
           options: [
             'すき焼き・天ぷら',
-            'カレーライス・コロッケ',
             'うどん・そば',
+            'カレーライス・コロッケ',
             '味噌汁・漬物',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 2,
           explanation:
             'カレーライスやコロッケなどの洋食が大正時代に庶民の間に定着しました。',
           difficulty: 'standard',
@@ -192,11 +192,11 @@ export const massCulture: Topic = {
           question: '大正時代の大衆文化が成立した背景として正しくないものは？',
           options: [
             '中等・高等教育の拡充',
-            '新聞・雑誌の普及',
             'テレビ放送の開始',
+            '新聞・雑誌の普及',
             'ラジオ放送の開始',
-          ],
-          correctIndex: 2,
+],
+          correctIndex: 1,
           explanation:
             'テレビ放送は大正時代にはまだ始まっていません。ラジオ放送が1925年に始まりました。',
           difficulty: 'advanced',
@@ -205,12 +205,12 @@ export const massCulture: Topic = {
           id: 'q14',
           question: 'プロレタリア文学が弾圧された背景として正しいものは？',
           options: [
+            '社会主義思想と結びつき、治安維持法の対象となったため',
             '文学として質が低かったため',
             '外国文学の模倣だったため',
-            '社会主義思想と結びつき、治安維持法の対象となったため',
             '読者が少なかったため',
-          ],
-          correctIndex: 2,
+],
+          correctIndex: 0,
           explanation:
             'プロレタリア文学は社会主義的な思想と結びつきが強く、治安維持法による取り締まりの対象とされました。',
           difficulty: 'advanced',
@@ -219,12 +219,12 @@ export const massCulture: Topic = {
           id: 'q15',
           question: '関東大震災が日本社会に与えた影響として正しいものは？',
           options: [
-            '復興を通じて都市の近代化が進んだ',
             '地方への人口流出が進んだ',
             '日本の国際的地位が低下した',
             '鎖国政策が始まった',
-          ],
-          correctIndex: 0,
+            '復興を通じて都市の近代化が進んだ',
+],
+          correctIndex: 3,
           explanation:
             '関東大震災の復興を通じて道路の拡幅やインフラ整備が進み、東京の近代化が加速しました。',
           difficulty: 'advanced',
@@ -234,11 +234,11 @@ export const massCulture: Topic = {
           question: '大正時代の文化が明治時代と異なる最大の特徴は？',
           options: [
             '政府主導の文化政策だった',
-            '外国の文化を完全に排除した',
             'メディアの発達により文化が大衆に広まった',
+            '外国の文化を完全に排除した',
             '文化が一部の貴族だけのものだった',
-          ],
-          correctIndex: 2,
+],
+          correctIndex: 1,
           explanation:
             '明治時代の文化は一部の知識人に限られていましたが、大正時代にはメディアの発達で文化が大衆に広まりました。',
           difficulty: 'advanced',

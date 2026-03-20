@@ -116,7 +116,7 @@ export const genrokuCulture: Topic = {
         {
           id: 'q4',
           question: '元禄文化が栄えた中心地はどこ？',
-          options: ['江戸', '長崎', '上方（大阪・京都）', '鎌倉'],
+          options: ['江戸（現在の東京）', '長崎（出島の町）', '上方（大阪・京都）', '鎌倉（古都）'],
           correctIndex: 2,
           explanation: '元禄文化は大阪・京都（上方）を中心に、経済力をつけた町人が担い手となって花開きました。',
           difficulty: 'standard',

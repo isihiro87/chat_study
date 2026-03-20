@@ -74,11 +74,11 @@ export const pacificWar: Topic = {
           question: '太平洋戦争が始まるきっかけとなった日本の攻撃は？',
           options: [
             'ミッドウェー攻撃',
-            'サイパン攻撃',
             '真珠湾攻撃',
+            'サイパン攻撃',
             '東京大空襲',
-          ],
-          correctIndex: 2,
+],
+          correctIndex: 1,
           explanation:
             '1941年12月8日の真珠湾攻撃とマレー半島上陸により太平洋戦争が始まりました。',
           difficulty: 'basic',
@@ -89,10 +89,10 @@ export const pacificWar: Topic = {
           options: [
             'レイテ沖海戦',
             '日本海海戦',
-            '珊瑚海海戦',
             'ミッドウェー海戦',
-          ],
-          correctIndex: 3,
+            '珊瑚海海戦',
+],
+          correctIndex: 2,
           explanation:
             'ミッドウェー海戦で日本は主力空母4隻を失い、以後守勢に回りました。',
           difficulty: 'basic',
@@ -110,12 +110,12 @@ export const pacificWar: Topic = {
           id: 'q4',
           question: '太平洋戦争の開戦日として正しいのは？',
           options: [
-            '1939年9月1日',
             '1941年12月8日',
+            '1939年9月1日',
             '1942年6月5日',
             '1945年8月15日',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 0,
           explanation:
             '1941年12月8日に真珠湾攻撃とマレー半島上陸が行われ、太平洋戦争が始まりました。',
           difficulty: 'standard',
@@ -126,10 +126,10 @@ export const pacificWar: Topic = {
           options: [
             'イギリス',
             'オランダ',
-            'アメリカ',
             'フランス',
-          ],
-          correctIndex: 2,
+            'アメリカ',
+],
+          correctIndex: 3,
           explanation:
             '真珠湾はハワイにあるアメリカ海軍の基地で、日本海軍が奇襲攻撃を行いました。',
           difficulty: 'basic',
@@ -153,11 +153,11 @@ export const pacificWar: Topic = {
           question: 'アメリカ軍が日本本土空襲に使用した大型爆撃機は？',
           options: [
             'B-17',
-            'B-24',
             'B-29',
+            'B-24',
             'B-52',
-          ],
-          correctIndex: 2,
+],
+          correctIndex: 1,
           explanation:
             'B-29はアメリカ軍の大型爆撃機で、サイパン島を拠点に日本本土への空襲を行いました。',
           difficulty: 'standard',
@@ -166,12 +166,12 @@ export const pacificWar: Topic = {
           id: 'q8',
           question: '日本がアジアへの侵出を正当化するために掲げたスローガンは？',
           options: [
+            '「大東亜共栄圏」',
             '富国強兵',
             '殖産興業',
-            '「大東亜共栄圏」',
             '脱亜入欧',
-          ],
-          correctIndex: 2,
+],
+          correctIndex: 0,
           explanation:
             '「大東亜共栄圏」はアジアの民族で繁栄を目指すと主張しましたが、実態は日本の資源確保と支配のためでした。',
           difficulty: 'basic',
@@ -180,12 +180,12 @@ export const pacificWar: Topic = {
           id: 'q9',
           question: 'ABCD包囲網で日本への輸出が禁止された最も重要な資源は？',
           options: [
+            '石油',
             '鉄',
             '石炭',
-            '石油',
             'ゴム',
-          ],
-          correctIndex: 2,
+],
+          correctIndex: 0,
           explanation:
             'ABCD包囲網で石油の輸出が禁止され、資源を断たれた日本は太平洋戦争の開戦を決意しました。',
           difficulty: 'basic',
@@ -195,11 +195,11 @@ export const pacificWar: Topic = {
           question: 'アメリカ軍が太平洋の島々を効率的に奪還した戦略を何という？',
           options: [
             '電撃戦',
-            '島飛び作戦',
             'ゲリラ戦',
             '焦土作戦',
-          ],
-          correctIndex: 1,
+            '島飛び作戦',
+],
+          correctIndex: 3,
           explanation:
             '島飛び作戦では重要な島だけを攻略し、不要な島は飛び越えて効率的に日本に迫りました。',
           difficulty: 'standard',
@@ -209,11 +209,11 @@ export const pacificWar: Topic = {
           question: '1945年3月10日に東京が受けた大規模な空襲の名前は？',
           options: [
             '東京大震災',
-            '東京大空襲',
             '東京大火',
+            '東京大空襲',
             '関東大空襲',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 2,
           explanation:
             '東京大空襲では約10万人が犠牲になったとされ、東京は壊滅的な被害を受けました。',
           difficulty: 'basic',
@@ -223,11 +223,11 @@ export const pacificWar: Topic = {
           question: 'ミッドウェー海戦後にアメリカ軍が反攻し激戦が繰り広げられた島は？',
           options: [
             'サイパン島',
-            'ガダルカナル島',
             '硫黄島',
             'フィリピン',
-          ],
-          correctIndex: 1,
+            'ガダルカナル島',
+],
+          correctIndex: 3,
           explanation:
             'ガダルカナル島ではアメリカ軍の反攻に対して日本軍が激しく抵抗しましたが、最終的に撤退しました。',
           difficulty: 'standard',
@@ -237,11 +237,11 @@ export const pacificWar: Topic = {
           question: 'ミッドウェー海戦が「転換点」と呼ばれる理由は？',
           options: [
             '日本が初めて勝利したから',
-            '日本が主力空母を失い攻勢から守勢に転じたから',
             'アメリカが降伏を申し出たから',
+            '日本が主力空母を失い攻勢から守勢に転じたから',
             '両軍が和平交渉を始めたから',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 2,
           explanation:
             '主力空母4隻を失った日本は制海権・制空権の確保が困難になり、以後守勢に回りました。',
           difficulty: 'advanced',
@@ -264,12 +264,12 @@ export const pacificWar: Topic = {
           id: 'q15',
           question: '「大東亜共栄圏」の建前と実態の違いとして正しいのは？',
           options: [
-            '建前はアジアの繁栄、実態は日本の資源確保と支配',
             '建前はアメリカとの協力、実態は対立',
             '建前は軍備縮小、実態は軍備拡大',
             '建前は自由貿易、実態は鎖国',
-          ],
-          correctIndex: 0,
+            '建前はアジアの繁栄、実態は日本の資源確保と支配',
+],
+          correctIndex: 3,
           explanation:
             '「アジアの民族の繁栄」を掲げましたが、実態は日本がアジアの資源を確保し支配するためのものでした。',
           difficulty: 'advanced',
@@ -279,11 +279,11 @@ export const pacificWar: Topic = {
           question: '日本がミッドウェー海戦の大敗を国民に正しく知らせなかった理由は？',
           options: [
             '情報が確認できなかったから',
-            '国民の戦意低下を防ぐため被害を小さく伝えた',
             '勝利したと信じていたから',
+            '国民の戦意低下を防ぐため被害を小さく伝えた',
             '連合国に知られないようにするため',
-          ],
-          correctIndex: 1,
+],
+          correctIndex: 2,
           explanation:
             '大本営発表では被害を小さく伝え、国民の戦意低下を防ごうとしました。',
           difficulty: 'advanced',
