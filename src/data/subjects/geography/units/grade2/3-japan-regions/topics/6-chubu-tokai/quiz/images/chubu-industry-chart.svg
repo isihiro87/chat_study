@@ -1,0 +1,59 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <rect width="400" height="300" fill="#FAF9F7"/>
+
+  <!-- Title -->
+  <text x="200" y="28" text-anchor="middle" font-size="13" font-weight="bold" fill="#1D3557">主要工業地帯・地域の製造品出荷額等</text>
+
+  <!-- Y-axis label -->
+  <text x="14" y="150" text-anchor="middle" font-size="10" fill="#6B7280" transform="rotate(-90,14,150)">出荷額（兆円）</text>
+
+  <!-- Grid lines -->
+  <line x1="70" y1="50" x2="380" y2="50" stroke="#E5E7EB" stroke-width="0.5"/>
+  <text x="65" y="54" text-anchor="end" font-size="9" fill="#6B7280">60</text>
+  <line x1="70" y1="83" x2="380" y2="83" stroke="#E5E7EB" stroke-width="0.5"/>
+  <text x="65" y="87" text-anchor="end" font-size="9" fill="#6B7280">50</text>
+  <line x1="70" y1="117" x2="380" y2="117" stroke="#E5E7EB" stroke-width="0.5"/>
+  <text x="65" y="121" text-anchor="end" font-size="9" fill="#6B7280">40</text>
+  <line x1="70" y1="150" x2="380" y2="150" stroke="#E5E7EB" stroke-width="0.5"/>
+  <text x="65" y="154" text-anchor="end" font-size="9" fill="#6B7280">30</text>
+  <line x1="70" y1="183" x2="380" y2="183" stroke="#E5E7EB" stroke-width="0.5"/>
+  <text x="65" y="187" text-anchor="end" font-size="9" fill="#6B7280">20</text>
+  <line x1="70" y1="217" x2="380" y2="217" stroke="#E5E7EB" stroke-width="0.5"/>
+  <text x="65" y="221" text-anchor="end" font-size="9" fill="#6B7280">10</text>
+
+  <!-- Axis -->
+  <line x1="70" y1="250" x2="380" y2="250" stroke="#6B7280" stroke-width="1"/>
+  <line x1="70" y1="50" x2="70" y2="250" stroke="#6B7280" stroke-width="1"/>
+
+  <!-- Scale: 200px for 60 trillion. 1 trillion = 3.33px -->
+  <!-- Chukyo ~56 trillion => height 186.7 -->
+  <rect x="88" y="63.3" width="50" height="186.7" fill="#E63946" rx="2"/>
+  <text x="113" y="58" text-anchor="middle" font-size="9" fill="#E63946" font-weight="bold">約56兆</text>
+  <text x="113" y="265" text-anchor="middle" font-size="9" fill="#1D3557">中京</text>
+
+  <!-- Keihin ~35 trillion => height 116.7 -->
+  <rect x="148" y="133.3" width="50" height="116.7" fill="#1D3557" rx="2"/>
+  <text x="173" y="128" text-anchor="middle" font-size="9" fill="#1D3557" font-weight="bold">約35兆</text>
+  <text x="173" y="265" text-anchor="middle" font-size="9" fill="#1D3557">京浜</text>
+
+  <!-- Hanshin ~33 trillion => height 110 -->
+  <rect x="208" y="140" width="50" height="110" fill="#F59E0B" rx="2"/>
+  <text x="233" y="135" text-anchor="middle" font-size="9" fill="#F59E0B" font-weight="bold">約33兆</text>
+  <text x="233" y="265" text-anchor="middle" font-size="9" fill="#1D3557">阪神</text>
+
+  <!-- Kita-Kanto ~28 trillion => height 93.3 -->
+  <rect x="268" y="156.7" width="50" height="93.3" fill="#2ECC71" rx="2"/>
+  <text x="293" y="152" text-anchor="middle" font-size="9" fill="#2ECC71" font-weight="bold">約28兆</text>
+  <text x="293" y="265" text-anchor="middle" font-size="9" fill="#1D3557">北関東</text>
+
+  <!-- Setouchi ~12 trillion => height 40 -->
+  <rect x="328" y="210" width="50" height="40" fill="#6B7280" rx="2"/>
+  <text x="353" y="205" text-anchor="middle" font-size="9" fill="#6B7280" font-weight="bold">約12兆</text>
+  <text x="353" y="265" text-anchor="middle" font-size="9" fill="#1D3557">瀬戸内</text>
+
+  <!-- Highlight note -->
+  <text x="113" y="278" text-anchor="middle" font-size="8" fill="#E63946">日本一</text>
+
+  <!-- Source -->
+  <text x="380" y="295" text-anchor="end" font-size="8" fill="#6B7280">出典: 経済産業省「工業統計」</text>
+</svg>

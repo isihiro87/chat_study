@@ -39,6 +39,12 @@ export const kantoNatureChat: HistoryChat = {
       text: '関東平野と自然環境',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade2/japan-regions/kanto-overview.png',
+      alt: '関東地方の地図',
+      caption: '【準備中】関東地方の全体図',
+    },
+    {
       type: 'narrator',
       text: '日本最大の<ruby>関東平野<rp>(</rp><rt>かんとうへいや</rt><rp>)</rp></ruby>と、<ruby>都市<rp>(</rp><rt>とし</rt><rp>)</rp></ruby>ならではの<ruby>環境問題<rp>(</rp><rt>かんきょうもんだい</rt><rp>)</rp></ruby>について見てみましょう。',
     },

@@ -39,6 +39,12 @@ export const chubuTokaiChat: HistoryChat = {
       text: '日本アルプスと3つの地域',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade2/japan-regions/chubu-overview.png',
+      alt: '中部地方の地図',
+      caption: '【準備中】中部地方の全体図',
+    },
+    {
       type: 'narrator',
       text: '<ruby>中部<rp>(</rp><rt>ちゅうぶ</rt><rp>)</rp></ruby>地方は<ruby>日本<rp>(</rp><rt>にほん</rt><rp>)</rp></ruby>アルプスを<ruby>境<rp>(</rp><rt>さかい</rt><rp>)</rp></ruby>に、3つの地域に分かれています。',
     },

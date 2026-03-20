@@ -39,6 +39,12 @@ export const hokkaidoChat: HistoryChat = {
       text: '広大な土地と亜寒帯気候',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade2/japan-regions/hokkaido-overview.png',
+      alt: '北海道地方の地図',
+      caption: '【準備中】北海道地方の全体図',
+    },
+    {
       type: 'narrator',
       text: '<ruby>北海道<rp>(</rp><rt>ほっかいどう</rt><rp>)</rp></ruby>は日本の<ruby>面積<rp>(</rp><rt>めんせき</rt><rp>)</rp></ruby>の約22%を<ruby>占<rp>(</rp><rt>し</rt><rp>)</rp></ruby>める広大な地域です。厳しい<ruby>寒<rp>(</rp><rt>さむ</rt><rp>)</rp></ruby>さとどう向き合っているか見てみましょう。',
     },

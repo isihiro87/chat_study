@@ -39,6 +39,12 @@ export const tohokuChat: HistoryChat = {
       text: '奥羽山脈と気候',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade2/japan-regions/tohoku-overview.png',
+      alt: '東北地方の地図',
+      caption: '【準備中】東北地方の全体図',
+    },
+    {
       type: 'narrator',
       text: '<ruby>東北<rp>(</rp><rt>とうほく</rt><rp>)</rp></ruby>地方は<ruby>奥羽山脈<rp>(</rp><rt>おううさんみゃく</rt><rp>)</rp></ruby>を<ruby>境<rp>(</rp><rt>さかい</rt><rp>)</rp></ruby>に、日本海側と太平洋側で気候が大きく異なります。',
     },

@@ -1,0 +1,53 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <rect width="400" height="300" fill="#FAF9F7"/>
+
+  <!-- Title -->
+  <text x="200" y="28" text-anchor="middle" font-size="14" font-weight="bold" fill="#1D3557">九州地方の畜産産出額（上位5県）</text>
+
+  <!-- Y-axis label -->
+  <text x="18" y="150" text-anchor="middle" font-size="10" fill="#6B7280" transform="rotate(-90,18,150)">産出額（億円）</text>
+
+  <!-- Grid lines and Y-axis labels -->
+  <line x1="70" y1="50" x2="370" y2="50" stroke="#E5E7EB" stroke-width="0.5"/>
+  <text x="65" y="54" text-anchor="end" font-size="9" fill="#6B7280">5000</text>
+  <line x1="70" y1="90" x2="370" y2="90" stroke="#E5E7EB" stroke-width="0.5"/>
+  <text x="65" y="94" text-anchor="end" font-size="9" fill="#6B7280">4000</text>
+  <line x1="70" y1="130" x2="370" y2="130" stroke="#E5E7EB" stroke-width="0.5"/>
+  <text x="65" y="134" text-anchor="end" font-size="9" fill="#6B7280">3000</text>
+  <line x1="70" y1="170" x2="370" y2="170" stroke="#E5E7EB" stroke-width="0.5"/>
+  <text x="65" y="174" text-anchor="end" font-size="9" fill="#6B7280">2000</text>
+  <line x1="70" y1="210" x2="370" y2="210" stroke="#E5E7EB" stroke-width="0.5"/>
+  <text x="65" y="214" text-anchor="end" font-size="9" fill="#6B7280">1000</text>
+
+  <!-- Axis -->
+  <line x1="70" y1="250" x2="370" y2="250" stroke="#6B7280" stroke-width="1"/>
+  <line x1="70" y1="50" x2="70" y2="250" stroke="#6B7280" stroke-width="1"/>
+
+  <!-- Bars: Kagoshima ~4997 => height 200*4997/5000=199.9 -->
+  <rect x="95" y="50.1" width="45" height="199.9" fill="#E63946" rx="2"/>
+  <text x="117.5" y="45" text-anchor="middle" font-size="9" fill="#E63946" font-weight="bold">4,997</text>
+  <text x="117.5" y="265" text-anchor="middle" font-size="10" fill="#1D3557">鹿児島</text>
+
+  <!-- Miyazaki ~3525 => height 200*3525/5000=141 -->
+  <rect x="155" y="109" width="45" height="141" fill="#F59E0B" rx="2"/>
+  <text x="177.5" y="104" text-anchor="middle" font-size="9" fill="#F59E0B" font-weight="bold">3,525</text>
+  <text x="177.5" y="265" text-anchor="middle" font-size="10" fill="#1D3557">宮崎</text>
+
+  <!-- Kumamoto ~1870 => height 200*1870/5000=74.8 -->
+  <rect x="215" y="175.2" width="45" height="74.8" fill="#2ECC71" rx="2"/>
+  <text x="237.5" y="170" text-anchor="middle" font-size="9" fill="#2ECC71" font-weight="bold">1,870</text>
+  <text x="237.5" y="265" text-anchor="middle" font-size="10" fill="#1D3557">熊本</text>
+
+  <!-- Oita ~760 => height 200*760/5000=30.4 -->
+  <rect x="275" y="219.6" width="45" height="30.4" fill="#1D3557" rx="2"/>
+  <text x="297.5" y="215" text-anchor="middle" font-size="9" fill="#1D3557" font-weight="bold">760</text>
+  <text x="297.5" y="265" text-anchor="middle" font-size="10" fill="#1D3557">大分</text>
+
+  <!-- Saga ~430 => height 200*430/5000=17.2 -->
+  <rect x="335" y="232.8" width="45" height="17.2" fill="#6B7280" rx="2"/>
+  <text x="357.5" y="228" text-anchor="middle" font-size="9" fill="#6B7280" font-weight="bold">430</text>
+  <text x="357.5" y="265" text-anchor="middle" font-size="10" fill="#1D3557">佐賀</text>
+
+  <!-- Source -->
+  <text x="370" y="292" text-anchor="end" font-size="8" fill="#6B7280">出典: 農林水産省「畜産統計」</text>
+</svg>

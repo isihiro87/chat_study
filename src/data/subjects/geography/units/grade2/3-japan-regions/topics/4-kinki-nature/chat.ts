@@ -39,6 +39,12 @@ export const kinkiNatureChat: HistoryChat = {
       text: '近畿地方の自然環境',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade2/japan-regions/kinki-overview.png',
+      alt: '近畿地方の地図',
+      caption: '【準備中】近畿地方の全体図',
+    },
+    {
       type: 'narrator',
       text: '<ruby>近畿<rp>(</rp><rt>きんき</rt><rp>)</rp></ruby>地方の自然環境と気候の特徴を見てみましょう。',
     },

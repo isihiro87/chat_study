@@ -39,6 +39,12 @@ export const chugokuShikokuNatureChat: HistoryChat = {
       text: '3つの地域と気候の違い',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade2/japan-regions/chugoku-shikoku-overview.png',
+      alt: '中国・四国地方の地図',
+      caption: '【準備中】中国・四国地方の全体図',
+    },
+    {
       type: 'narrator',
       text: '<ruby>中国<rp>(</rp><rt>ちゅうごく</rt><rp>)</rp></ruby>・<ruby>四国<rp>(</rp><rt>しこく</rt><rp>)</rp></ruby>地方は山地によって3つの地域に分かれ、気候が大きく異なります。',
     },

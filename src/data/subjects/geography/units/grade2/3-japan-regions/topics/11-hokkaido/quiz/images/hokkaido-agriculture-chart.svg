@@ -1,0 +1,49 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <rect width="400" height="300" fill="#FAF9F7"/>
+
+  <!-- Title -->
+  <text x="200" y="28" text-anchor="middle" font-size="13" font-weight="bold" fill="#1D3557">北海道の全国生産シェア（主要農畜産物）</text>
+
+  <!-- Y-axis label -->
+  <text x="16" y="155" text-anchor="middle" font-size="10" fill="#6B7280" transform="rotate(-90,16,155)">全国シェア（%）</text>
+
+  <!-- Grid lines -->
+  <line x1="70" y1="50" x2="370" y2="50" stroke="#E5E7EB" stroke-width="0.5"/>
+  <text x="65" y="54" text-anchor="end" font-size="9" fill="#6B7280">100</text>
+  <line x1="70" y1="90" x2="370" y2="90" stroke="#E5E7EB" stroke-width="0.5"/>
+  <text x="65" y="94" text-anchor="end" font-size="9" fill="#6B7280">80</text>
+  <line x1="70" y1="130" x2="370" y2="130" stroke="#E5E7EB" stroke-width="0.5"/>
+  <text x="65" y="134" text-anchor="end" font-size="9" fill="#6B7280">60</text>
+  <line x1="70" y1="170" x2="370" y2="170" stroke="#E5E7EB" stroke-width="0.5"/>
+  <text x="65" y="174" text-anchor="end" font-size="9" fill="#6B7280">40</text>
+  <line x1="70" y1="210" x2="370" y2="210" stroke="#E5E7EB" stroke-width="0.5"/>
+  <text x="65" y="214" text-anchor="end" font-size="9" fill="#6B7280">20</text>
+
+  <!-- Axis -->
+  <line x1="70" y1="250" x2="370" y2="250" stroke="#6B7280" stroke-width="1"/>
+  <line x1="70" y1="50" x2="70" y2="250" stroke="#6B7280" stroke-width="1"/>
+
+  <!-- Scale: 200px for 100%. 1% = 2px -->
+  <!-- Milk ~60% => height 120 -->
+  <rect x="90" y="130" width="55" height="120" fill="#E63946" rx="2"/>
+  <text x="117.5" y="125" text-anchor="middle" font-size="10" fill="#E63946" font-weight="bold">60%</text>
+  <text x="117.5" y="266" text-anchor="middle" font-size="10" fill="#1D3557">生乳</text>
+
+  <!-- Potato ~78% => height 156 -->
+  <rect x="160" y="94" width="55" height="156" fill="#F59E0B" rx="2"/>
+  <text x="187.5" y="89" text-anchor="middle" font-size="10" fill="#F59E0B" font-weight="bold">78%</text>
+  <text x="187.5" y="266" text-anchor="middle" font-size="10" fill="#1D3557">じゃがいも</text>
+
+  <!-- Wheat ~65% => height 130 -->
+  <rect x="230" y="120" width="55" height="130" fill="#2ECC71" rx="2"/>
+  <text x="257.5" y="115" text-anchor="middle" font-size="10" fill="#2ECC71" font-weight="bold">65%</text>
+  <text x="257.5" y="266" text-anchor="middle" font-size="10" fill="#1D3557">小麦</text>
+
+  <!-- Sugar beet ~100% => height 200 -->
+  <rect x="300" y="50" width="55" height="200" fill="#1D3557" rx="2"/>
+  <text x="327.5" y="45" text-anchor="middle" font-size="10" fill="#1D3557" font-weight="bold">100%</text>
+  <text x="327.5" y="266" text-anchor="middle" font-size="10" fill="#1D3557">てんさい</text>
+
+  <!-- Source -->
+  <text x="370" y="292" text-anchor="end" font-size="8" fill="#6B7280">出典: 農林水産省「作物統計」「牛乳乳製品統計」</text>
+</svg>

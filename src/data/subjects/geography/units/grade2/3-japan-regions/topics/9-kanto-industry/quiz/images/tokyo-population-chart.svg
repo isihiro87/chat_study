@@ -1,0 +1,37 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <rect width="400" height="300" fill="#FAF9F7"/>
+
+  <!-- Title -->
+  <text x="200" y="28" text-anchor="middle" font-size="14" font-weight="bold" fill="#1D3557">東京大都市圏の人口（全国比）</text>
+
+  <!-- Pie chart center at 180, 165, radius 100 -->
+  <!-- Tokyo metro: ~3680万 / 12500万 = 29.4% ≈ 106 degrees -->
+  <!-- Rest of Japan: 70.6% ≈ 254 degrees -->
+
+  <!-- Full circle (rest of Japan) -->
+  <circle cx="180" cy="165" r="100" fill="#1D3557"/>
+
+  <!-- Tokyo metro slice: 29.4% = 105.84 degrees starting from top -->
+  <!-- Start at top (0, -100), sweep 105.84 degrees clockwise -->
+  <!-- End point: 100*sin(105.84°), -100*cos(105.84°) = 96.15, 27.28 -->
+  <path d="M180,165 L180,65 A100,100 0 0,1 276.15,192.28 Z" fill="#E63946"/>
+
+  <!-- Labels with lines -->
+  <!-- Tokyo metro label -->
+  <line x1="230" y1="120" x2="290" y2="80" stroke="#E63946" stroke-width="1"/>
+  <text x="295" y="73" font-size="12" fill="#E63946" font-weight="bold">東京大都市圏</text>
+  <text x="295" y="88" font-size="11" fill="#E63946">約3,680万人</text>
+  <text x="295" y="103" font-size="13" fill="#E63946" font-weight="bold">29.4%</text>
+
+  <!-- Rest of Japan label -->
+  <line x1="130" y1="190" x2="70" y2="220" stroke="#1D3557" stroke-width="1"/>
+  <text x="15" y="218" font-size="12" fill="#1D3557" font-weight="bold">その他の地域</text>
+  <text x="15" y="233" font-size="11" fill="#1D3557">約8,820万人</text>
+  <text x="15" y="248" font-size="13" fill="#1D3557" font-weight="bold">70.6%</text>
+
+  <!-- Annotation -->
+  <text x="200" y="278" text-anchor="middle" font-size="10" fill="#6B7280">日本の人口の約3人に1人が東京圏に集中</text>
+
+  <!-- Source -->
+  <text x="380" y="295" text-anchor="end" font-size="8" fill="#6B7280">出典: 総務省統計局「国勢調査」</text>
+</svg>

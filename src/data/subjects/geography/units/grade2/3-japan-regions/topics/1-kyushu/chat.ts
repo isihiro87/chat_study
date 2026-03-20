@@ -39,6 +39,12 @@ export const kyushuChat: HistoryChat = {
       text: '火山とシラス台地',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade2/japan-regions/kyushu-overview.png',
+      alt: '九州地方の地図',
+      caption: '【準備中】九州地方の全体図',
+    },
+    {
       type: 'narrator',
       text: '<ruby>九州<rp>(</rp><rt>きゅうしゅう</rt><rp>)</rp></ruby>地方は<ruby>火山<rp>(</rp><rt>かざん</rt><rp>)</rp></ruby>活動が活発な地域です。火山と共に暮らす人々の知恵を見てみましょう。',
     },

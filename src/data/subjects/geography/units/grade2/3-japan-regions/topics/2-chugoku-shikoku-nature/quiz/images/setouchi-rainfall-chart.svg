@@ -1,0 +1,47 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <rect width="400" height="300" fill="#FAF9F7"/>
+
+  <!-- Title -->
+  <text x="200" y="28" text-anchor="middle" font-size="14" font-weight="bold" fill="#1D3557">中国・四国地方の年間降水量比較</text>
+
+  <!-- Y-axis label -->
+  <text x="18" y="155" text-anchor="middle" font-size="10" fill="#6B7280" transform="rotate(-90,18,155)">年間降水量（mm）</text>
+
+  <!-- Grid lines and Y-axis labels -->
+  <line x1="80" y1="55" x2="360" y2="55" stroke="#E5E7EB" stroke-width="0.5"/>
+  <text x="75" y="59" text-anchor="end" font-size="9" fill="#6B7280">3000</text>
+  <line x1="80" y1="95" x2="360" y2="95" stroke="#E5E7EB" stroke-width="0.5"/>
+  <text x="75" y="99" text-anchor="end" font-size="9" fill="#6B7280">2500</text>
+  <line x1="80" y1="135" x2="360" y2="135" stroke="#E5E7EB" stroke-width="0.5"/>
+  <text x="75" y="139" text-anchor="end" font-size="9" fill="#6B7280">2000</text>
+  <line x1="80" y1="175" x2="360" y2="175" stroke="#E5E7EB" stroke-width="0.5"/>
+  <text x="75" y="179" text-anchor="end" font-size="9" fill="#6B7280">1500</text>
+  <line x1="80" y1="215" x2="360" y2="215" stroke="#E5E7EB" stroke-width="0.5"/>
+  <text x="75" y="219" text-anchor="end" font-size="9" fill="#6B7280">1000</text>
+
+  <!-- Axis -->
+  <line x1="80" y1="255" x2="360" y2="255" stroke="#6B7280" stroke-width="1"/>
+  <line x1="80" y1="55" x2="80" y2="255" stroke="#6B7280" stroke-width="1"/>
+
+  <!-- Bar width=60, gap between groups. Scale: 200px for 3000mm -->
+  <!-- San'in (Matsue) ~1790mm => height 200*1790/3000=119.3 -->
+  <rect x="100" y="135.7" width="60" height="119.3" fill="#1D3557" rx="2"/>
+  <text x="130" y="130" text-anchor="middle" font-size="10" fill="#1D3557" font-weight="bold">1,790</text>
+  <text x="130" y="270" text-anchor="middle" font-size="11" fill="#1D3557">山陰</text>
+  <text x="130" y="282" text-anchor="middle" font-size="8" fill="#6B7280">（松江）</text>
+
+  <!-- Setouchi (Okayama) ~1106mm => height 200*1106/3000=73.7 -->
+  <rect x="190" y="181.3" width="60" height="73.7" fill="#F59E0B" rx="2"/>
+  <text x="220" y="176" text-anchor="middle" font-size="10" fill="#F59E0B" font-weight="bold">1,106</text>
+  <text x="220" y="270" text-anchor="middle" font-size="11" fill="#1D3557">瀬戸内</text>
+  <text x="220" y="282" text-anchor="middle" font-size="8" fill="#6B7280">（岡山）</text>
+
+  <!-- South Shikoku (Kochi) ~2548mm => height 200*2548/3000=169.9 -->
+  <rect x="280" y="85.1" width="60" height="169.9" fill="#2ECC71" rx="2"/>
+  <text x="310" y="80" text-anchor="middle" font-size="10" fill="#2ECC71" font-weight="bold">2,548</text>
+  <text x="310" y="270" text-anchor="middle" font-size="11" fill="#1D3557">南四国</text>
+  <text x="310" y="282" text-anchor="middle" font-size="8" fill="#6B7280">（高知）</text>
+
+  <!-- Source -->
+  <text x="360" y="297" text-anchor="end" font-size="8" fill="#6B7280">出典: 気象庁「過去の気象データ」（平年値）</text>
+</svg>
