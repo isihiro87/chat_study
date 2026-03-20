@@ -102,6 +102,18 @@ export const kyushuChat: HistoryChat = {
       text: '<span class="keyword">阿蘇山のカルデラ</span>・<span class="keyword">桜島</span>の活火山。<span class="keyword">シラス台地</span>は畜産・さつまいも栽培に利用',
     },
     {
+      type: 'quiz',
+      question: '九州南部に広がるシラス台地が稲作に向かない理由は何か？',
+      options: [
+        { letter: 'A', text: '気温が低すぎるため', correct: false },
+        { letter: 'B', text: '日照時間が短いため', correct: false },
+        { letter: 'C', text: '水はけがよすぎるため', correct: true },
+        { letter: 'D', text: '土壌が酸性すぎるため', correct: false },
+      ],
+      explanation:
+        '<strong>正解はC「水はけがよすぎるため」</strong>です。シラス台地は火山灰が<ruby>堆積<rp>(</rp><rt>たいせき</rt><rp>)</rp></ruby>した台地で、水はけがよすぎて水田に必要な水を保てないため、畜産やさつまいも栽培に利用されています。',
+    },
+    {
       type: 'date',
       text: '温暖な気候と自然エネルギー',
     },
@@ -147,6 +159,18 @@ export const kyushuChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<span class="keyword">温泉</span>・<span class="keyword">地熱発電</span>・<span class="keyword">太陽光発電</span>など自然エネルギーを活用',
+    },
+    {
+      type: 'quiz',
+      question: '大分県にある日本最大級の地熱発電所はどれか？',
+      options: [
+        { letter: 'A', text: '松川発電所', correct: false },
+        { letter: 'B', text: '八丁原発電所', correct: true },
+        { letter: 'C', text: '大岳発電所', correct: false },
+        { letter: 'D', text: '山川発電所', correct: false },
+      ],
+      explanation:
+        '<strong>正解はB「<ruby>八丁原<rp>(</rp><rt>はっちょうばる</rt><rp>)</rp></ruby>発電所」</strong>です。火山の地下にある高温の熱水や蒸気を利用して電気をつくる<span class="keyword">地熱発電</span>が行われています。',
     },
     {
       type: 'date',
@@ -196,6 +220,10 @@ export const kyushuChat: HistoryChat = {
       src: '/images/geography/grade2/japan-regions/kyushu-agriculture.png',
       alt: '九州地方の農業と環境への取り組みの図',
       caption: '筑紫平野の稲作・宮崎平野の促成栽培・南九州の畜産',
+    },
+    {
+      type: 'summary-point',
+      text: '<span class="keyword">筑紫平野</span>の稲作、<span class="keyword">宮崎平野</span>の<span class="keyword">促成栽培</span>、南九州の畜産が盛ん',
     },
     {
       type: 'quiz',
@@ -262,6 +290,18 @@ export const kyushuChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<span class="keyword">北九州市</span>：公害からエコタウンへ。<span class="keyword">水俣市</span>：水俣病の教訓から環境モデル都市へ',
+    },
+    {
+      type: 'quiz',
+      question: '水俣病の原因となった有害物質は何か？',
+      options: [
+        { letter: 'A', text: 'メチル水銀', correct: true },
+        { letter: 'B', text: 'カドミウム', correct: false },
+        { letter: 'C', text: '二酸化硫黄', correct: false },
+        { letter: 'D', text: '有機リン', correct: false },
+      ],
+      explanation:
+        '<strong>正解はA「メチル<ruby>水銀<rp>(</rp><rt>すいぎん</rt><rp>)</rp></ruby>」</strong>です。工場<ruby>排水<rp>(</rp><rt>はいすい</rt><rp>)</rp></ruby>に含まれるメチル水銀が原因で<span class="keyword">水俣病</span>が発生しました。四大<ruby>公害病<rp>(</rp><rt>こうがいびょう</rt><rp>)</rp></ruby>の一つです。',
     },
     {
       type: 'end',
