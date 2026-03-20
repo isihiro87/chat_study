@@ -78,6 +78,12 @@ export const riseOfBushiChat: HistoryChat = {
       text: '特に力を持ったのが<strong><span class="keyword"><ruby>源氏<rp>(</rp><rt>げんじ</rt><rp>)</rp></ruby></span></strong>と<strong><span class="keyword"><ruby>平氏<rp>(</rp><rt>へいし</rt><rp>)</rp></ruby></span></strong>だ！朝廷にも仕え、武力で<ruby>反乱<rp>(</rp><rt>はんらん</rt><rp>)</rp></ruby>を<ruby>鎮<rp>(</rp><rt>しず</rt><rp>)</rp></ruby>めたんだよ',
     },
     {
+      type: 'image',
+      src: '/images/history/grade1/4-warrior-kamakura/bushi-clan-structure.png',
+      alt: '武士団の構成',
+      caption: '棟梁を中心とした主従関係。源氏と平氏の系統',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',

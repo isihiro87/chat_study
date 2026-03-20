@@ -78,6 +78,12 @@ export const ritsuryoNaraChat: HistoryChat = {
       text: 'よく知っているね！<strong>和同開珎</strong>は日本で最初に<ruby>流通<rp>(</rp><rt>りゅうつう</rt><rp>)</rp></ruby>した<ruby>貨幣<rp>(</rp><rt>かへい</rt><rp>)</rp></ruby>とされているんだ',
     },
     {
+      type: 'image',
+      src: '/images/history/grade1/3-ancient-state/ritsuryo-government-structure.png',
+      alt: '律令制の中央官制',
+      caption: '二官八省の構造と国・郡・里の地方制度',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">大宝律令</span>（701年）で<span class="keyword">律令国家</span>が完成。<span class="keyword">太政官</span>・<span class="keyword">国司</span>・<span class="keyword">郡司</span>で中央と地方を統治！',
     },
@@ -116,6 +122,12 @@ export const ritsuryoNaraChat: HistoryChat = {
       characterId: 'official',
       expression: 'happy',
       text: '多くの人が都に集まり、市も開かれてとても<ruby>賑<rp>(</rp><rt>にぎ</rt><rp>)</rp></ruby>わっていたんだ。政治の中心として栄えたんだよ',
+    },
+    {
+      type: 'image',
+      src: '/images/history/grade1/3-ancient-state/heijokyo-layout.png',
+      alt: '平城京',
+      caption: '碁盤の目の都市計画。朱雀大路と大内裏',
     },
     {
       type: 'message',

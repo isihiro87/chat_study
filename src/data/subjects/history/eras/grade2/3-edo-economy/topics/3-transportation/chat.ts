@@ -50,6 +50,12 @@ export const transportationChat: HistoryChat = {
       text: '江戸時代には<ruby>幕府<rp>(</rp><rt>ばくふ</rt><rp>)</rp></ruby>が全国の交通を整備したんだ。特に重要なのが<span data-tooltip="江戸の日本橋を起点とする5つの主要道路。東海道・中山道・日光街道・奥州街道・甲州街道のこと"><strong><ruby>五街道<rp>(</rp><rt>ごかいどう</rt><rp>)</rp></ruby></strong></span>だよ',
     },
     {
+      type: 'image',
+      src: '/images/history/grade2/3-edo-economy/gokaido-map.png',
+      alt: '五街道',
+      caption: '東海道・中山道・甲州街道・日光街道・奥州街道',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',
@@ -110,6 +116,12 @@ export const transportationChat: HistoryChat = {
     {
       type: 'narrator',
       text: '<ruby>陸路<rp>(</rp><rt>りくろ</rt><rp>)</rp></ruby>だけでなく、<ruby>海上<rp>(</rp><rt>かいじょう</rt><rp>)</rp></ruby>の交通も大きく発達しました。',
+    },
+    {
+      type: 'image',
+      src: '/images/history/grade2/3-edo-economy/kaisen-route-map.png',
+      alt: '航路と水運',
+      caption: '西廻り航路と東廻り航路の海運ルート',
     },
     {
       type: 'message',

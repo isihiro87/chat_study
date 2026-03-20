@@ -105,6 +105,12 @@ export const fallOfBakufuChat: HistoryChat = {
       text: '1867年、15<ruby>代<rp>(</rp><rt>だい</rt><rp>)</rp></ruby><ruby>将軍<rp>(</rp><rt>しょうぐん</rt><rp>)</rp></ruby>の<strong><span class="keyword"><span data-tooltip="江戸幕府の最後の将軍。大政奉還を行い、政権を朝廷に返した"><ruby>徳川慶喜<rp>(</rp><rt>とくがわよしのぶ</rt><rp>)</rp></ruby></span></span></strong>は<strong><span class="keyword"><span data-tooltip="1867年、将軍が政権を朝廷に返すこと。約260年続いた江戸幕府の政権が終わった"><ruby>大政奉還<rp>(</rp><rt>たいせいほうかん</rt><rp>)</rp></ruby></span></span></strong>を行い、<ruby>政権<rp>(</rp><rt>せいけん</rt><rp>)</rp></ruby>を<ruby>朝廷<rp>(</rp><rt>ちょうてい</rt><rp>)</rp></ruby>に返したんだよ',
     },
     {
+      type: 'image',
+      src: '/images/history/grade2/7-bakumatsu/bakumatsu-timeline.png',
+      alt: '幕末の流れ',
+      caption: '薩長同盟→大政奉還→王政復古の大号令→戊辰戦争',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',

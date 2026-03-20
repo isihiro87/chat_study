@@ -78,6 +78,12 @@ export const worldReligionsChat: HistoryChat = {
       text: 'そうなんだ。最初は<ruby>弾圧<rp>(</rp><rt>だんあつ</rt><rp>)</rp></ruby>されたけど、信者が増え続けて、ついにはローマの国教になったんだよ',
     },
     {
+      type: 'image',
+      src: '/images/history/grade1/1-ancient-world/three-religions-map.png',
+      alt: '三大宗教の分布',
+      caption: '仏教・キリスト教・イスラームの発祥地と広がり',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">仏教</span>（<span class="keyword">シャカ</span>・インド）、<span class="keyword">キリスト教</span>（<span class="keyword">イエス</span>・パレスチナ）→ ローマ帝国の国教に！',
     },

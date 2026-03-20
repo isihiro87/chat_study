@@ -50,6 +50,12 @@ export const threeReformsSummaryChat: HistoryChat = {
       text: '今日は江戸時代の<strong>三大改革</strong>を一気に比較するよ！まずは一番最初の<strong><span class="keyword"><span data-tooltip="1716年〜、8代将軍徳川吉宗が自ら行った改革。三大改革で唯一成功"><ruby>享保<rp>(</rp><rt>きょうほう</rt><rp>)</rp></ruby>の改革</span></span></strong>からだ',
     },
     {
+      type: 'image',
+      src: '/images/history/grade2/5-edo-reforms/three-reforms-comparison.png',
+      alt: '三大改革の比較',
+      caption: '享保・寛政・天保の改革者・政策・結果を一覧化',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',

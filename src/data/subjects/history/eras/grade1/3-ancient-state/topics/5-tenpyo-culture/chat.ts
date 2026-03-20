@@ -78,6 +78,12 @@ export const tenpyoCultureChat: HistoryChat = {
       text: '<strong><span class="keyword"><ruby>行基<rp>(</rp><rt>ぎょうき</rt><rp>)</rp></ruby></span></strong>という<ruby>僧<rp>(</rp><rt>そう</rt><rp>)</rp></ruby>が<ruby>民衆<rp>(</rp><rt>みんしゅう</rt><rp>)</rp></ruby>をまとめて協力してくれたんだよ。多くの人の力で完成したんだ',
     },
     {
+      type: 'image',
+      src: '/images/history/grade1/3-ancient-state/todaiji-daibutsu.png',
+      alt: '東大寺の大仏',
+      caption: '聖武天皇が建立した奈良の大仏',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">聖武天皇</span>が仏教で国を守るため、各国に<span class="keyword">国分寺</span>、都に<span class="keyword">東大寺</span>を建立。<span class="keyword">行基</span>が大仏造立に協力！',
     },
@@ -123,6 +129,12 @@ export const tenpyoCultureChat: HistoryChat = {
       characterId: 'student',
       expression: 'happy',
       text: '文学も美術もすごく発展した時代なんですね！<strong>正倉院</strong>の宝物は今でも見られるんだ',
+    },
+    {
+      type: 'image',
+      src: '/images/history/grade1/3-ancient-state/shosoin-treasures.png',
+      alt: '正倉院の宝物',
+      caption: '国際色豊かな天平文化の宝物（琵琶、ガラス器など）',
     },
     {
       type: 'summary-point',

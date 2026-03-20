@@ -130,6 +130,12 @@ export const jomonEraChat: HistoryChat = {
       text: 'それが<strong><span class="keyword"><ruby>縄文土器<rp>(</rp><rt>じょうもんどき</rt><rp>)</rp></ruby></span></strong>だよ！<span data-tooltip="食べ物を煮たり水を貯めたりするのに使った土器"><ruby>煮炊<rp>(</rp><rt>にた</rt><rp>)</rp></ruby>き</span>に使うんだ。この土器が使われた時代を<strong><span class="keyword"><ruby>縄文時代<rp>(</rp><rt>じょうもんじだい</rt><rp>)</rp></ruby></span></strong>というんだよ',
     },
     {
+      type: 'image',
+      src: '/images/history/grade1/2-japanese-origins/jomon-life-scene.png',
+      alt: '縄文時代の暮らし',
+      caption: '竪穴住居・縄文土器・貝塚での狩猟採集生活',
+    },
+    {
       type: 'summary-point',
       text: '気候が<ruby>温暖<rp>(</rp><rt>おんだん</rt><rp>)</rp></ruby>に → <span class="keyword">縄文時代</span>：<span class="keyword">縄文土器</span>で煮炊き、<span class="keyword">たて穴住居</span>で定住生活！',
     },
@@ -186,6 +192,12 @@ export const jomonEraChat: HistoryChat = {
       characterId: 'archaeologist',
       expression: 'excited',
       text: '<ruby>青森県<rp>(</rp><rt>あおもりけん</rt><rp>)</rp></ruby>の<strong><span class="keyword"><ruby>三内丸山遺跡<rp>(</rp><rt>さんないまるやまいせき</rt><rp>)</rp></ruby></span></strong>は約1700年も続いた大きな集落だよ。クリの木を<ruby>栽培<rp>(</rp><rt>さいばい</rt><rp>)</rp></ruby>したり、<ruby>ヒスイ<rp>(</rp><rt>ひすい</rt><rp>)</rp></ruby>の<ruby>装飾品<rp>(</rp><rt>そうしょくひん</rt><rp>)</rp></ruby>も見つかっているんだ。遠くとの<ruby>交易<rp>(</rp><rt>こうえき</rt><rp>)</rp></ruby>も行われていたことがわかるよ',
+    },
+    {
+      type: 'image',
+      src: '/images/history/grade1/2-japanese-origins/jomon-pottery-types.png',
+      alt: '縄文土器と土偶',
+      caption: '火焔型土器に代表される縄文土器の特徴と土偶',
     },
     {
       type: 'summary-point',

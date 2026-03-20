@@ -50,6 +50,12 @@ export const openingJapanChat: HistoryChat = {
       text: '1853年、アメリカの<strong><span class="keyword"><span data-tooltip="アメリカ海軍の提督。大統領の国書を持って日本に開国を要求した">ペリー</span></span></strong>が<strong><span class="keyword"><ruby>黒船<rp>(</rp><rt>くろふね</rt><rp>)</rp></ruby></span></strong>（<ruby>蒸気船<rp>(</rp><rt>じょうきせん</rt><rp>)</rp></ruby>）を<ruby>率<rp>(</rp><rt>ひき</rt><rp>)</rp></ruby>いて<ruby>浦賀<rp>(</rp><rt>うらが</rt><rp>)</rp></ruby>にやってきたんだ。大統領の<ruby>国書<rp>(</rp><rt>こくしょ</rt><rp>)</rp></ruby>を持って「日本は<ruby>開国<rp>(</rp><rt>かいこく</rt><rp>)</rp></ruby>せよ！」と<ruby>迫<rp>(</rp><rt>せま</rt><rp>)</rp></ruby>ったんだよ',
     },
     {
+      type: 'image',
+      src: '/images/history/grade2/7-bakumatsu/perry-arrival-scene.png',
+      alt: 'ペリーの黒船来航',
+      caption: '浦賀沖に現れた蒸気船と驚く人々',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',
@@ -120,6 +126,12 @@ export const openingJapanChat: HistoryChat = {
       characterId: 'teacher',
       expression: 'explaining',
       text: 'これが大問題でね。<strong><span class="keyword"><span data-tooltip="外国人が日本で罪を犯しても、その国の法律で裁かれる権利。治外法権ともいう"><ruby>領事裁判権<rp>(</rp><rt>りょうじさいばんけん</rt><rp>)</rp></ruby></span></span></strong>を認め、<strong><span class="keyword"><span data-tooltip="輸入品にかける税率を自国で自由に決められる権利"><ruby>関税自主権<rp>(</rp><rt>かんぜいじしゅけん</rt><rp>)</rp></ruby></span></span></strong>がないという<strong><span class="keyword"><ruby>不平等条約<rp>(</rp><rt>ふびょうどうじょうやく</rt><rp>)</rp></ruby></span></strong>だったんだ。外国人が日本で<ruby>罪<rp>(</rp><rt>つみ</rt><rp>)</rp></ruby>を<ruby>犯<rp>(</rp><rt>おか</rt><rp>)</rp></ruby>しても日本の<ruby>法律<rp>(</rp><rt>ほうりつ</rt><rp>)</rp></ruby>で<ruby>裁<rp>(</rp><rt>さば</rt><rp>)</rp></ruby>けなかったんだよ',
+    },
+    {
+      type: 'image',
+      src: '/images/history/grade2/7-bakumatsu/unequal-treaty-diagram.png',
+      alt: '不平等条約',
+      caption: '領事裁判権と関税自主権のない不平等な条約',
     },
     {
       type: 'summary-point',

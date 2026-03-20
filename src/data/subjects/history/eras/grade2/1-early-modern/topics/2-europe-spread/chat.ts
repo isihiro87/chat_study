@@ -50,6 +50,12 @@ export const europeSpreadChat: HistoryChat = {
       text: '<strong><span class="keyword">コロンブス</span></strong>は1492年、スペインの<ruby>援助<rp>(</rp><rt>えんじょ</rt><rp>)</rp></ruby>を受けて<ruby>大西洋<rp>(</rp><rt>たいせいよう</rt><rp>)</rp></ruby>を<ruby>横断<rp>(</rp><rt>おうだん</rt><rp>)</rp></ruby>し、<ruby>西<rp>(</rp><rt>にし</rt><rp>)</rp></ruby>インド<ruby>諸島<rp>(</rp><rt>しょとう</rt><rp>)</rp></ruby>に<ruby>到達<rp>(</rp><rt>とうたつ</rt><rp>)</rp></ruby>したんだ。本人はアジアだと思っていたけど、実は<ruby>新大陸<rp>(</rp><rt>しんたいりく</rt><rp>)</rp></ruby>だったんだよ',
     },
     {
+      type: 'image',
+      src: '/images/history/grade2/1-early-modern/great-voyages-map.png',
+      alt: '大航海時代の航路',
+      caption: 'コロンブス・バスコ=ダ=ガマ・マゼランの航路',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',
@@ -102,6 +108,12 @@ export const europeSpreadChat: HistoryChat = {
       characterId: 'navigator',
       expression: 'thinking',
       text: 'スペインは南米の<strong><span class="keyword"><span data-tooltip="南米ペルーを中心に栄えた帝国。16世紀にスペインに征服された">インカ帝国</span></span></strong>やアステカ<ruby>帝国<rp>(</rp><rt>ていこく</rt><rp>)</rp></ruby>を<ruby>征服<rp>(</rp><rt>せいふく</rt><rp>)</rp></ruby>して、大量の銀を本国に持ち帰ったんだ。先住民は<ruby>疫病<rp>(</rp><rt>えきびょう</rt><rp>)</rp></ruby>や<ruby>過酷<rp>(</rp><rt>かこく</rt><rp>)</rp></ruby>な<ruby>労働<rp>(</rp><rt>ろうどう</rt><rp>)</rp></ruby>で<ruby>激減<rp>(</rp><rt>げきげん</rt><rp>)</rp></ruby>してしまったんだ…',
+    },
+    {
+      type: 'image',
+      src: '/images/history/grade2/1-early-modern/triangle-trade-map.png',
+      alt: '三角貿易',
+      caption: 'ヨーロッパ→アフリカ→アメリカ大陸の奴隷・物資の流れ',
     },
     {
       type: 'message',

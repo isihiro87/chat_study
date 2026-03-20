@@ -50,6 +50,18 @@ export const nanbanTradeChat: HistoryChat = {
       text: '<strong>鉄砲伝来</strong>は1543年のことだよ。<ruby>戦国大名<rp>(</rp><rt>せんごくだいみょう</rt><rp>)</rp></ruby>たちはすぐに鉄砲の<ruby>製造<rp>(</rp><rt>せいぞう</rt><rp>)</rp></ruby>を始め、<ruby>堺<rp>(</rp><rt>さかい</rt><rp>)</rp></ruby>などで<ruby>大量生産<rp>(</rp><rt>たいりょうせいさん</rt><rp>)</rp></ruby>されるようになったんだ。戦の形が一変したんだよ',
     },
     {
+      type: 'image',
+      src: '/images/history/grade2/1-early-modern/nanban-trade-items.png',
+      alt: '南蛮貿易の品物',
+      caption: '鉄砲・火薬・時計 vs 銀・刀・漆器',
+    },
+    {
+      type: 'image',
+      src: '/images/history/grade2/1-early-modern/tanegashima-gun.png',
+      alt: '火縄銃',
+      caption: '1543年に種子島に伝来した鉄砲',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',

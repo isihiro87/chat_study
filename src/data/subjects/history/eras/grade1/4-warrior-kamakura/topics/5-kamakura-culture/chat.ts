@@ -50,6 +50,12 @@ export const kamakuraCultureChat: HistoryChat = {
       text: '<ruby>東大寺<rp>(</rp><rt>とうだいじ</rt><rp>)</rp></ruby><ruby>南大門<rp>(</rp><rt>なんだいもん</rt><rp>)</rp></ruby>の<strong><span class="keyword"><ruby>金剛力士像<rp>(</rp><rt>こんごうりきしぞう</rt><rp>)</rp></ruby></span></strong>は<strong><span class="keyword"><ruby>運慶<rp>(</rp><rt>うんけい</rt><rp>)</rp></ruby></span></strong>らが作った力強い<ruby>彫刻<rp>(</rp><rt>ちょうこく</rt><rp>)</rp></ruby>だよ。<span data-tooltip="写実的で力強い作風が特徴の鎌倉時代の仏師">運慶</span>の作品はまさに武士の時代にふさわしい<ruby>迫力<rp>(</rp><rt>はくりょく</rt><rp>)</rp></ruby>があるんだ',
     },
     {
+      type: 'image',
+      src: '/images/history/grade1/4-warrior-kamakura/kongo-rikishi.png',
+      alt: '金剛力士像',
+      caption: '運慶・快慶による東大寺南大門の金剛力士像',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',
@@ -144,6 +150,12 @@ export const kamakuraCultureChat: HistoryChat = {
       characterId: 'monk',
       expression: 'explaining',
       text: '<strong>臨済宗</strong>は<ruby>座禅<rp>(</rp><rt>ざぜん</rt><rp>)</rp></ruby>に加えて<ruby>師<rp>(</rp><rt>し</rt><rp>)</rp></ruby>との問答を通じて<ruby>悟<rp>(</rp><rt>さと</rt><rp>)</rp></ruby>りを目指す。<strong>曹洞宗</strong>はひたすら座禅に<ruby>打<rp>(</rp><rt>う</rt><rp>)</rp></ruby>ち<ruby>込<rp>(</rp><rt>こ</rt><rp>)</rp></ruby>む「<ruby>只管打坐<rp>(</rp><rt>しかんたざ</rt><rp>)</rp></ruby>」を大切にするよ。どちらも<ruby>精神<rp>(</rp><rt>せいしん</rt><rp>)</rp></ruby>を<ruby>鍛<rp>(</rp><rt>きた</rt><rp>)</rp></ruby>える教えが武士に合っていたんだ',
+    },
+    {
+      type: 'image',
+      src: '/images/history/grade1/4-warrior-kamakura/kamakura-buddhism-sects.png',
+      alt: '鎌倉新仏教',
+      caption: '浄土宗・浄土真宗・時宗・日蓮宗・臨済宗・曹洞宗の比較',
     },
     {
       type: 'message',

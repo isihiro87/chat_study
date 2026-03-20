@@ -64,6 +64,12 @@ export const humanOriginsChat: HistoryChat = {
       text: '約240万年前に<strong><span class="keyword"><ruby>原人<rp>(</rp><rt>げんじん</rt><rp>)</rp></ruby></span></strong>が現れて、火を使うようになったんだ。そして約20万年前に<strong><span class="keyword"><ruby>新人<rp>(</rp><rt>しんじん</rt><rp>)</rp></ruby></span></strong>が登場した',
     },
     {
+      type: 'image',
+      src: '/images/history/grade1/1-ancient-world/human-evolution-timeline.png',
+      alt: '人類の進化',
+      caption: '猿人→原人→新人の進化の流れと道具の変化',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">猿人</span> → <span class="keyword">原人</span>（火を使用） → <span class="keyword">新人</span> の順で進化！',
     },
@@ -95,6 +101,12 @@ export const humanOriginsChat: HistoryChat = {
       characterId: 'researcher',
       expression: 'excited',
       text: 'そう！<strong>ラスコーの<ruby>洞窟壁画<rp>(</rp><rt>どうくつへきが</rt><rp>)</rp></ruby></strong>は旧石器時代の芸術だね。やがて<strong><span class="keyword"><ruby>磨製石器<rp>(</rp><rt>ませいせっき</rt><rp>)</rp></ruby></span></strong>や<strong><span class="keyword"><ruby>土器<rp>(</rp><rt>どき</rt><rp>)</rp></ruby></span></strong>を使う<strong><span class="keyword"><ruby>新石器時代<rp>(</rp><rt>しんせっきじだい</rt><rp>)</rp></ruby></span></strong>に入っていくよ',
+    },
+    {
+      type: 'image',
+      src: '/images/history/grade1/1-ancient-world/stone-tools-comparison.png',
+      alt: '打製石器と磨製石器',
+      caption: '旧石器時代の打製石器と新石器時代の磨製石器の違い',
     },
     {
       type: 'summary-point',

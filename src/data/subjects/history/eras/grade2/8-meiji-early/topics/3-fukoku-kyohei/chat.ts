@@ -98,6 +98,12 @@ export const fukokuKyoheiChat: HistoryChat = {
       text: '<ruby>欧米<rp>(</rp><rt>おうべい</rt><rp>)</rp></ruby>の<ruby>文化<rp>(</rp><rt>ぶんか</rt><rp>)</rp></ruby>が<ruby>急速<rp>(</rp><rt>きゅうそく</rt><rp>)</rp></ruby>に広まる<strong><span class="keyword"><span data-tooltip="西洋の文化や生活様式が日本に広まった現象。ガス灯・洋服・牛鍋などが流行した"><ruby>文明開化<rp>(</rp><rt>ぶんめいかいか</rt><rp>)</rp></ruby></span></span></strong>が起こりました。ガス<ruby>灯<rp>(</rp><rt>とう</rt><rp>)</rp></ruby>、<ruby>洋服<rp>(</rp><rt>ようふく</rt><rp>)</rp></ruby>、<ruby>牛鍋<rp>(</rp><rt>ぎゅうなべ</rt><rp>)</rp></ruby>などが<ruby>流行<rp>(</rp><rt>りゅうこう</rt><rp>)</rp></ruby>しました。',
     },
     {
+      type: 'image',
+      src: '/images/history/grade2/8-meiji-early/bunmei-kaika-scene.png',
+      alt: '文明開化',
+      caption: 'レンガ造り・ガス灯・人力車・洋服・散切り頭',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',

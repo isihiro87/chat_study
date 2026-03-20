@@ -102,6 +102,12 @@ export const britishRevolutionChat: HistoryChat = {
       text: '1688年の<strong><span class="keyword"><ruby>名誉革命<rp>(</rp><rt>めいよかくめい</rt><rp>)</rp></ruby></span></strong>で国王を追放。翌年、<strong><span class="keyword"><ruby>権利章典<rp>(</rp><rt>けんりしょうてん</rt><rp>)</rp></ruby></span></strong>で「国王は<ruby>議会<rp>(</rp><rt>ぎかい</rt><rp>)</rp></ruby>に従う」ことを約束させ、<span data-tooltip="国王がいるが、憲法や議会によって権力が制限される政治のしくみ"><ruby>立憲君主制<rp>(</rp><rt>りっけんくんしゅせい</rt><rp>)</rp></ruby></span>と<ruby>議会<rp>(</rp><rt>ぎかい</rt><rp>)</rp></ruby>政治が確立しました。',
     },
     {
+      type: 'image',
+      src: '/images/history/grade2/6-modern-era/british-political-evolution.png',
+      alt: 'イギリスの政治変遷',
+      caption: '絶対王政→清教徒革命→名誉革命→立憲君主制',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',

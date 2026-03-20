@@ -64,6 +64,12 @@ export const kitayamaCultureChat: HistoryChat = {
       text: 'いい質問だ！1層は<ruby>寝殿造<rp>(</rp><rt>しんでんづくり</rt><rp>)</rp></ruby>（<ruby>公家<rp>(</rp><rt>くげ</rt><rp>)</rp></ruby>風）、2層は<ruby>武家造<rp>(</rp><rt>ぶけづくり</rt><rp>)</rp></ruby>（武士風）、3層は<ruby>禅宗様<rp>(</rp><rt>ぜんしゅうよう</rt><rp>)</rp></ruby>（中国風）になっている。公家・武家・<ruby>禅宗<rp>(</rp><rt>ぜんしゅう</rt><rp>)</rp></ruby>の3つの文化の<ruby>融合<rp>(</rp><rt>ゆうごう</rt><rp>)</rp></ruby>を<ruby>象徴<rp>(</rp><rt>しょうちょう</rt><rp>)</rp></ruby>しているんだ',
     },
     {
+      type: 'image',
+      src: '/images/history/grade1/5-medieval-world/kinkaku-structure.png',
+      alt: '金閣の三層構造',
+      caption: '1層＝寝殿造、2層＝武家造、3層＝禅宗様',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',

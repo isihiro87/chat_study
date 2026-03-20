@@ -105,6 +105,12 @@ export const sakokuChat: HistoryChat = {
         '<strong>正解はA「<ruby>島原<rp>(</rp><rt>しまばら</rt><rp>)</rp></ruby>・<ruby>天草一揆<rp>(</rp><rt>あまくさいっき</rt><rp>)</rp></ruby>」</strong>です。<ruby>天草四郎<rp>(</rp><rt>あまくさしろう</rt><rp>)</rp></ruby>を大将に、キリシタンの農民約3万7千人が蜂起しましたが鎮圧されました。',
     },
     {
+      type: 'image',
+      src: '/images/history/grade2/2-edo-establishment/sakoku-timeline.png',
+      alt: '鎖国の過程',
+      caption: '1612年〜1641年の段階的な禁止措置',
+    },
+    {
       type: 'narrator',
       text: '一揆の後、幕府はポルトガル船の来航を禁止し、オランダとの<ruby>貿易<rp>(</rp><rt>ぼうえき</rt><rp>)</rp></ruby>を<ruby>長崎<rp>(</rp><rt>ながさき</rt><rp>)</rp></ruby>の<strong><span class="keyword"><ruby>出島<rp>(</rp><rt>でじま</rt><rp>)</rp></ruby></span></strong>に限定しました。',
     },

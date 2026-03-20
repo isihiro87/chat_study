@@ -64,6 +64,12 @@ export const higashiyamaCultureChat: HistoryChat = {
       text: '<ruby>畳<rp>(</rp><rt>たたみ</rt><rp>)</rp></ruby>を敷き詰め、<ruby>障子<rp>(</rp><rt>しょうじ</rt><rp>)</rp></ruby>や<ruby>ふすま</ruby>で<ruby>空間<rp>(</rp><rt>くうかん</rt><rp>)</rp></ruby>を仕切る建築様式だよ。<ruby>床<rp>(</rp><rt>とこ</rt><rp>)</rp></ruby>の<ruby>間<rp>(</rp><rt>ま</rt><rp>)</rp></ruby>や<ruby>違<rp>(</rp><rt>ちが</rt><rp>)</rp></ruby>い<ruby>棚<rp>(</rp><rt>だな</rt><rp>)</rp></ruby>もあって、実は今の<ruby>和室<rp>(</rp><rt>わしつ</rt><rp>)</rp></ruby>の<ruby>原型<rp>(</rp><rt>げんけい</rt><rp>)</rp></ruby>なんだ',
     },
     {
+      type: 'image',
+      src: '/images/history/grade1/5-medieval-world/shoin-zukuri-interior.png',
+      alt: '書院造の室内',
+      caption: '床の間・違い棚・畳・障子・ふすまの和室の原型',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',
@@ -95,6 +101,12 @@ export const higashiyamaCultureChat: HistoryChat = {
       characterId: 'yoshimitsu',
       expression: 'explaining',
       text: '<strong><span class="keyword"><ruby>雪舟<rp>(</rp><rt>せっしゅう</rt><rp>)</rp></ruby></span></strong>は明（中国）に<ruby>渡<rp>(</rp><rt>わた</rt><rp>)</rp></ruby>って<strong><span class="keyword"><ruby>水墨画<rp>(</rp><rt>すいぼくが</rt><rp>)</rp></ruby></span></strong>を学び、日本独自の水墨画を大成した。<ruby>墨<rp>(</rp><rt>すみ</rt><rp>)</rp></ruby>の<ruby>濃淡<rp>(</rp><rt>のうたん</rt><rp>)</rp></ruby>だけで自然を表現する見事な芸術だよ',
+    },
+    {
+      type: 'image',
+      src: '/images/history/grade1/5-medieval-world/suibokuga-style.png',
+      alt: '水墨画',
+      caption: '雪舟が大成した墨の濃淡で表現する画法',
     },
     {
       type: 'message',

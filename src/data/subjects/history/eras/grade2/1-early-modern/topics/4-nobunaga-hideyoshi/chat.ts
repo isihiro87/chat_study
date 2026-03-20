@@ -50,6 +50,12 @@ export const nobunagaHideyoshiChat: HistoryChat = {
       text: '<strong>織田信長</strong>は1560年の<strong><span class="keyword"><span data-tooltip="織田信長が少数の兵で今川義元の大軍を破った戦い"><ruby>桶狭間の戦い<rp>(</rp><rt>おけはざまのたたかい</rt><rp>)</rp></ruby></span></span></strong>で<ruby>今川義元<rp>(</rp><rt>いまがわよしもと</rt><rp>)</rp></ruby>を破り、天下統一への第一歩を踏み出したんだ！',
     },
     {
+      type: 'image',
+      src: '/images/history/grade2/1-early-modern/unification-map.png',
+      alt: '天下統一の過程',
+      caption: '桶狭間→長篠→本能寺→小田原攻めの流れ',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',
@@ -62,6 +68,12 @@ export const nobunagaHideyoshiChat: HistoryChat = {
       characterId: 'strategist',
       expression: 'explaining',
       text: 'そう！1575年の<strong><span class="keyword"><span data-tooltip="織田信長が鉄砲を大量に使い、武田の騎馬軍団を破った戦い"><ruby>長篠の戦い<rp>(</rp><rt>ながしののたたかい</rt><rp>)</rp></ruby></span></span></strong>では鉄砲を大量に使って、<ruby>武田<rp>(</rp><rt>たけだ</rt><rp>)</rp></ruby><ruby>騎馬軍団<rp>(</rp><rt>きばぐんだん</rt><rp>)</rp></ruby>を打ち破ったんだ。戦い方の<ruby>革命<rp>(</rp><rt>かくめい</rt><rp>)</rp></ruby>だったんだよ',
+    },
+    {
+      type: 'image',
+      src: '/images/history/grade2/1-early-modern/nagashino-battle-formation.png',
+      alt: '長篠の戦い',
+      caption: '鉄砲三段撃ちの織田軍 vs 武田騎馬隊',
     },
     {
       type: 'message',

@@ -50,6 +50,12 @@ export const hideyoshiPolicyChat: HistoryChat = {
       text: '秀吉は全国の<ruby>田畑<rp>(</rp><rt>たはた</rt><rp>)</rp></ruby>の<ruby>面積<rp>(</rp><rt>めんせき</rt><rp>)</rp></ruby>や土地の良し悪しを調べ、<strong><span class="keyword"><span data-tooltip="米の収穫量を石（こく）で表したもの。土地の価値を示す基準"><ruby>石高<rp>(</rp><rt>こくだか</rt><rp>)</rp></ruby></span></span></strong>（米の<ruby>収穫量<rp>(</rp><rt>しゅうかくりょう</rt><rp>)</rp></ruby>）で表す<strong><span class="keyword"><span data-tooltip="豊臣秀吉が全国の田畑を調査し、石高で統一的に表した政策"><ruby>太閤検地<rp>(</rp><rt>たいこうけんち</rt><rp>)</rp></ruby></span></span></strong>を行ったんだ。これで<ruby>年貢<rp>(</rp><rt>ねんぐ</rt><rp>)</rp></ruby>の<ruby>基準<rp>(</rp><rt>きじゅん</rt><rp>)</rp></ruby>が統一されたんだよ',
     },
     {
+      type: 'image',
+      src: '/images/history/grade2/1-early-modern/taiko-kenchi-system.png',
+      alt: '太閤検地',
+      caption: '田畑の測量→石高の決定→年貢の基準',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',
@@ -76,6 +82,12 @@ export const hideyoshiPolicyChat: HistoryChat = {
       characterId: 'historian',
       expression: 'excited',
       text: 'さらに<strong><span class="keyword"><span data-tooltip="豊臣秀吉が百姓から刀や槍などの武器を取り上げた政策"><ruby>刀狩<rp>(</rp><rt>かたながり</rt><rp>)</rp></ruby></span></span></strong>を<ruby>実施<rp>(</rp><rt>じっし</rt><rp>)</rp></ruby>して百姓から武器を取り上げたんだ。<ruby>一揆<rp>(</rp><rt>いっき</rt><rp>)</rp></ruby>を防ぐためだね。これにより<ruby>武士<rp>(</rp><rt>ぶし</rt><rp>)</rp></ruby>と百姓の<ruby>身分<rp>(</rp><rt>みぶん</rt><rp>)</rp></ruby>がはっきり分かれる<strong><span class="keyword"><span data-tooltip="武士と農民の身分をはっきり分けること。太閤検地と刀狩によって進んだ"><ruby>兵農分離<rp>(</rp><rt>へいのうぶんり</rt><rp>)</rp></ruby></span></span></strong>が進んだんだ！',
+    },
+    {
+      type: 'image',
+      src: '/images/history/grade2/1-early-modern/heinobunri-diagram.png',
+      alt: '兵農分離',
+      caption: '刀狩で武器を取り上げ、武士と農民を明確に分離',
     },
     {
       type: 'message',

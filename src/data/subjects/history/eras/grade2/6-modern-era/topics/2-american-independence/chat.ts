@@ -77,6 +77,12 @@ export const americanIndependenceChat: HistoryChat = {
       text: '1775年、<strong><span class="keyword">ワシントン</span></strong>を<ruby>総司令官<rp>(</rp><rt>そうしれいかん</rt><rp>)</rp></ruby>として<strong><span class="keyword"><ruby>独立戦争<rp>(</rp><rt>どくりつせんそう</rt><rp>)</rp></ruby></span></strong>が始まりました。',
     },
     {
+      type: 'image',
+      src: '/images/history/grade2/6-modern-era/thirteen-colonies-map.png',
+      alt: '13植民地',
+      caption: 'イギリスの13植民地とアメリカ独立',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',

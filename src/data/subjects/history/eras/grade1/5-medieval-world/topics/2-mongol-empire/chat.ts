@@ -64,6 +64,12 @@ export const mongolEmpireChat: HistoryChat = {
       text: 'チンギス・ハンの<ruby>子孫<rp>(</rp><rt>しそん</rt><rp>)</rp></ruby>はさらに<ruby>領土<rp>(</rp><rt>りょうど</rt><rp>)</rp></ruby>を広げ、ユーラシア大陸の大部分を<ruby>支配<rp>(</rp><rt>しはい</rt><rp>)</rp></ruby>するまでになった。第5代<ruby>皇帝<rp>(</rp><rt>こうてい</rt><rp>)</rp></ruby>の<strong><span class="keyword">フビライ・ハン</span></strong>は<ruby>国号<rp>(</rp><rt>こくごう</rt><rp>)</rp></ruby>を「<ruby>元<rp>(</rp><rt>げん</rt><rp>)</rp></ruby>」とし、都を<strong><span class="keyword"><ruby>大都<rp>(</rp><rt>だいと</rt><rp>)</rp></ruby></span></strong>（現在の<ruby>北京<rp>(</rp><rt>ペキン</rt><rp>)</rp></ruby>）に置いたんだ',
     },
     {
+      type: 'image',
+      src: '/images/history/grade1/5-medieval-world/mongol-empire-map.png',
+      alt: 'モンゴル帝国の最大版図',
+      caption: 'ユーラシア大陸にまたがる史上最大の帝国',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',

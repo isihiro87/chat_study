@@ -50,6 +50,12 @@ export const tanumaPoliticsChat: HistoryChat = {
       text: '<strong>田沼意次</strong>はそれまでの<ruby>幕府<rp>(</rp><rt>ばくふ</rt><rp>)</rp></ruby>の政治とは大きく方針が違っていたんだ。米や<ruby>年貢<rp>(</rp><rt>ねんぐ</rt><rp>)</rp></ruby>ではなく、<ruby>商業<rp>(</rp><rt>しょうぎょう</rt><rp>)</rp></ruby>の力で<ruby>財政<rp>(</rp><rt>ざいせい</rt><rp>)</rp></ruby>を立て直そうとしたんだよ',
     },
     {
+      type: 'image',
+      src: '/images/history/grade2/4-edo-genroku/tanuma-commercial-policy.png',
+      alt: '田沼意次の政策',
+      caption: '株仲間の公認・蝦夷地開発・長崎貿易の拡大',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',

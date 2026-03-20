@@ -50,6 +50,12 @@ export const genrokuCultureChat: HistoryChat = {
       text: '<strong>元禄文化</strong>は、<ruby>経済的<rp>(</rp><rt>けいざいてき</rt><rp>)</rp></ruby>に豊かになった<strong>上方</strong>の町人たちが中心になって生まれた文化なんだ。文学・演劇・美術など、さまざまな分野で名作が生まれたよ',
     },
     {
+      type: 'image',
+      src: '/images/history/grade2/4-edo-genroku/genroku-culture-items.png',
+      alt: '元禄文化',
+      caption: '人形浄瑠璃・歌舞伎・浮世絵・俳諧の代表作',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',

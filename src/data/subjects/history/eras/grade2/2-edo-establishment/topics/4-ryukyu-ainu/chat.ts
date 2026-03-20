@@ -89,6 +89,12 @@ export const ryukyuAinuChat: HistoryChat = {
       text: 'また、<ruby>将軍<rp>(</rp><rt>しょうぐん</rt><rp>)</rp></ruby>の代替わりには<strong><span class="keyword"><ruby>琉球使節<rp>(</rp><rt>りゅうきゅうしせつ</rt><rp>)</rp></ruby></span></strong>が江戸に<ruby>派遣<rp>(</rp><rt>はけん</rt><rp>)</rp></ruby>されたんだよ',
     },
     {
+      type: 'image',
+      src: '/images/history/grade2/2-edo-establishment/ryukyu-ainu-trade-map.png',
+      alt: '琉球とアイヌの交易',
+      caption: '琉球の中継貿易ルートとアイヌの交易圏',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',

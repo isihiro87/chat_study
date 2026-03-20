@@ -64,6 +64,12 @@ export const muromachiBakufuChat: HistoryChat = {
       text: '<strong>後醍醐天皇</strong>は<ruby>吉野<rp>(</rp><rt>よしの</rt><rp>)</rp></ruby>に<ruby>逃<rp>(</rp><rt>のが</rt><rp>)</rp></ruby>れて<ruby>朝廷<rp>(</rp><rt>ちょうてい</rt><rp>)</rp></ruby>を開いた。京都の<strong><span class="keyword"><ruby>北朝<rp>(</rp><rt>ほくちょう</rt><rp>)</rp></ruby></span></strong>と吉野の<strong><span class="keyword"><ruby>南朝<rp>(</rp><rt>なんちょう</rt><rp>)</rp></ruby></span></strong>、二つの朝廷が並び立つ<strong><span class="keyword"><ruby>南北朝時代<rp>(</rp><rt>なんぼくちょうじだい</rt><rp>)</rp></ruby></span></strong>が約60年間続いたんだ',
     },
     {
+      type: 'image',
+      src: '/images/history/grade1/5-medieval-world/nanbokucho-diagram.png',
+      alt: '南北朝の対立',
+      caption: '京都の北朝と吉野の南朝。足利尊氏と後醍醐天皇',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',

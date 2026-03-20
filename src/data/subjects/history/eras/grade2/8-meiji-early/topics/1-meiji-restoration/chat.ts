@@ -108,6 +108,12 @@ export const meijiRestorationChat: HistoryChat = {
       text: 'いい質問だね！実は<ruby>版籍奉還<rp>(</rp><rt>はんせきほうかん</rt><rp>)</rp></ruby>だけでは不十分だったんだ。だから1871年には<strong><span class="keyword"><span data-tooltip="藩を廃止して県を置き、中央から県令（知事）を派遣する制度"><ruby>廃藩置県<rp>(</rp><rt>はいはんちけん</rt><rp>)</rp></ruby></span></span></strong>を断行して、<ruby>藩<rp>(</rp><rt>はん</rt><rp>)</rp></ruby>を<ruby>廃止<rp>(</rp><rt>はいし</rt><rp>)</rp></ruby>して県を設置したんだ',
     },
     {
+      type: 'image',
+      src: '/images/history/grade2/8-meiji-early/meiji-centralization-diagram.png',
+      alt: '廃藩置県',
+      caption: '藩を廃止して県に。中央から知事を派遣',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">版籍奉還</span>（1869年）→ <span class="keyword">廃藩置県</span>（1871年）で<ruby>中央集権<rp>(</rp><rt>ちゅうおうしゅうけん</rt><rp>)</rp></ruby>国家が完成！',
     },

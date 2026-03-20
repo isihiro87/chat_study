@@ -43,6 +43,12 @@ export const medievalEuropeIslamChat: HistoryChat = {
       text: '<ruby>中世<rp>(</rp><rt>ちゅうせい</rt><rp>)</rp></ruby>ヨーロッパでは<strong><span class="keyword"><ruby>ローマ教皇<rp>(</rp><rt>ローマきょうこう</rt><rp>)</rp></ruby></span></strong>を<ruby>頂点<rp>(</rp><rt>ちょうてん</rt><rp>)</rp></ruby>とする<strong><span class="keyword">カトリック<ruby>教会<rp>(</rp><rt>きょうかい</rt><rp>)</rp></ruby></span></strong>が大きな力を持ちました。一方、東ヨーロッパでは<strong><span class="keyword">ビザンツ<ruby>帝国<rp>(</rp><rt>ていこく</rt><rp>)</rp></ruby></span></strong>のもとで<strong><span class="keyword"><ruby>正教会<rp>(</rp><rt>せいきょうかい</rt><rp>)</rp></ruby></span></strong>が広まりました。',
     },
     {
+      type: 'image',
+      src: '/images/history/grade1/5-medieval-world/feudal-system-europe.png',
+      alt: '中世ヨーロッパの封建制度',
+      caption: '国王→諸侯→騎士→農奴のピラミッド構造',
+    },
+    {
       type: 'message',
       side: 'left',
       characterId: 'knight',
@@ -62,6 +68,12 @@ export const medievalEuropeIslamChat: HistoryChat = {
       characterId: 'knight',
       expression: 'thinking',
       text: '結局、聖地の<ruby>奪還<rp>(</rp><rt>だっかん</rt><rp>)</rp></ruby>には失敗してしまった。でも<strong>十字軍</strong>をきっかけに東方の文化や品物がヨーロッパに伝わったんだ。その一方で<ruby>教皇<rp>(</rp><rt>きょうこう</rt><rp>)</rp></ruby>の<ruby>権威<rp>(</rp><rt>けんい</rt><rp>)</rp></ruby>は<ruby>衰<rp>(</rp><rt>おとろ</rt><rp>)</rp></ruby>えていった',
+    },
+    {
+      type: 'image',
+      src: '/images/history/grade1/5-medieval-world/crusades-route-map.png',
+      alt: '十字軍の遠征ルート',
+      caption: 'ヨーロッパからエルサレムへの十字軍の経路',
     },
     {
       type: 'message',

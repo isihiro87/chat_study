@@ -145,6 +145,12 @@ export const kaseiCultureChat: HistoryChat = {
       text: 'そして<strong><span class="keyword"><span data-tooltip="「富嶽三十六景」を描いた浮世絵師。「神奈川沖浪裏」はゴッホにも影響を与えた"><ruby>葛飾北斎<rp>(</rp><rt>かつしかほくさい</rt><rp>)</rp></ruby></span></span></strong>の「<strong><span class="keyword"><ruby>富嶽三十六景<rp>(</rp><rt>ふがくさんじゅうろっけい</rt><rp>)</rp></ruby></span></strong>」は世界的に有名だよ！「<ruby>神奈川沖浪裏<rp>(</rp><rt>かながわおきなみうら</rt><rp>)</rp></ruby>」はゴッホにも影響を与えたんだ',
     },
     {
+      type: 'image',
+      src: '/images/history/grade2/5-edo-reforms/kasei-culture-works.png',
+      alt: '化政文化',
+      caption: '葛飾北斎「富嶽三十六景」・歌川広重「東海道五十三次」',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',

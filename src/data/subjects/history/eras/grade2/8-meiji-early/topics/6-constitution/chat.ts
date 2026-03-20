@@ -115,6 +115,12 @@ export const constitutionChat: HistoryChat = {
       text: '<ruby>主権<rp>(</rp><rt>しゅけん</rt><rp>)</rp></ruby>は<strong><span class="keyword"><ruby>天皇<rp>(</rp><rt>てんのう</rt><rp>)</rp></ruby></span></strong>にあり、国民は「<strong><span class="keyword"><span data-tooltip="大日本帝国憲法で天皇の家来として位置づけられた国民の呼び方"><ruby>臣民<rp>(</rp><rt>しんみん</rt><rp>)</rp></ruby></span></span></strong>」と呼ばれたんだ。<ruby>天皇<rp>(</rp><rt>てんのう</rt><rp>)</rp></ruby>は国の<ruby>元首<rp>(</rp><rt>げんしゅ</rt><rp>)</rp></ruby>で<ruby>神聖<rp>(</rp><rt>しんせい</rt><rp>)</rp></ruby>な<ruby>存在<rp>(</rp><rt>そんざい</rt><rp>)</rp></ruby>とされたよ',
     },
     {
+      type: 'image',
+      src: '/images/history/grade2/8-meiji-early/meiji-constitution-structure.png',
+      alt: '大日本帝国憲法の統治機構',
+      caption: '天皇を中心に内閣・帝国議会・裁判所の関係',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',

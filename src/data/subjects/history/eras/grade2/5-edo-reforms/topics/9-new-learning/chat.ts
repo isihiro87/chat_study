@@ -50,6 +50,12 @@ export const newLearningChat: HistoryChat = {
       text: '江戸時代後期には、大きく分けて2つの学問が発展したんだ。日本古来の精神を研究する<strong><span class="keyword"><span data-tooltip="仏教や儒教が伝わる前の日本古来の精神や文化を研究する学問"><ruby>国学<rp>(</rp><rt>こくがく</rt><rp>)</rp></ruby></span></span></strong>と、西洋の知識を学ぶ<strong><span class="keyword"><span data-tooltip="オランダ語を通じて西洋の学問・科学を学ぶ学問"><ruby>蘭学<rp>(</rp><rt>らんがく</rt><rp>)</rp></ruby></span></span></strong>だよ',
     },
     {
+      type: 'image',
+      src: '/images/history/grade2/5-edo-reforms/new-learning-branches.png',
+      alt: '江戸の学問',
+      caption: '国学（本居宣長）・蘭学（杉田玄白）・洋学の系統',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',
@@ -120,6 +126,12 @@ export const newLearningChat: HistoryChat = {
       characterId: 'teacher',
       expression: 'excited',
       text: 'その通り！<ruby>前野良沢<rp>(</rp><rt>まえのりょうたく</rt><rp>)</rp></ruby>らと協力して翻訳し、「<strong><span class="keyword"><span data-tooltip="杉田玄白らがオランダ語の医学書を翻訳して出版した日本初の西洋医学書"><ruby>解体新書<rp>(</rp><rt>かいたいしんしょ</rt><rp>)</rp></ruby></span></span></strong>」を出版したんだ。これが西洋の科学知識が広まるきっかけになったよ',
+    },
+    {
+      type: 'image',
+      src: '/images/history/grade2/5-edo-reforms/kaitai-shinsho.png',
+      alt: '解体新書',
+      caption: '杉田玄白らが翻訳した日本初の本格的な解剖学書',
     },
     {
       type: 'summary-point',

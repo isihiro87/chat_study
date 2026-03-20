@@ -92,6 +92,12 @@ export const yayoiEraChat: HistoryChat = {
       text: '<strong><span class="keyword"><ruby>石包丁<rp>(</rp><rt>いしぼうちょう</rt><rp>)</rp></ruby></span></strong>という半月形の石の道具を使って、稲の<ruby>穂<rp>(</rp><rt>ほ</rt><rp>)</rp></ruby>をつみ取ったんだよ',
     },
     {
+      type: 'image',
+      src: '/images/history/grade1/2-japanese-origins/yayoi-rice-farming.png',
+      alt: '弥生時代の稲作',
+      caption: '水田での稲作、高床倉庫、石包丁',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">稲作</span>の伝来 → <span class="keyword">高床倉庫</span>で保管、<span class="keyword">鉄器</span>（農具・武器）、<span class="keyword">青銅器</span>（<span class="keyword">銅鐸</span>・<span class="keyword">銅鏡</span>・<span class="keyword">銅剣</span>＝祭りの宝物）が登場！',
     },
@@ -135,6 +141,12 @@ export const yayoiEraChat: HistoryChat = {
       characterId: 'teacher',
       expression: 'happy',
       text: 'いい質問だね！<ruby>奴国<rp>(</rp><rt>なこく</rt><rp>)</rp></ruby>の王が<ruby>漢<rp>(</rp><rt>かん</rt><rp>)</rp></ruby>の<ruby>皇帝<rp>(</rp><rt>こうてい</rt><rp>)</rp></ruby>から<strong><span class="keyword"><ruby>金印<rp>(</rp><rt>きんいん</rt><rp>)</rp></ruby></span></strong>をもらっているんだよ。「<strong><span class="keyword"><ruby>漢委奴国王<rp>(</rp><rt>かんのわのなのこくおう</rt><rp>)</rp></ruby></span></strong>」と<ruby>刻<rp>(</rp><rt>きざ</rt><rp>)</rp></ruby>まれた印で、<ruby>福岡県<rp>(</rp><rt>ふくおかけん</rt><rp>)</rp></ruby>の<ruby>志賀島<rp>(</rp><rt>しかのしま</rt><rp>)</rp></ruby>で見つかったんだ',
+    },
+    {
+      type: 'image',
+      src: '/images/history/grade1/2-japanese-origins/yayoi-vs-jomon.png',
+      alt: '縄文土器と弥生土器の比較',
+      caption: '装飾的な縄文土器と実用的な弥生土器',
     },
     {
       type: 'summary-point',

@@ -50,6 +50,12 @@ export const europeChangeChat: HistoryChat = {
       text: '<span data-tooltip="14世紀にイタリアで始まった、古代ギリシャ・ローマの文化を復興しようとする運動">ルネサンス</span>では<ruby>レオナルド・ダ・ヴィンチ<rp>(</rp><rt>れおなるど・だ・う゛ぃんち</rt><rp>)</rp></ruby>や<ruby>ミケランジェロ<rp>(</rp><rt>みけらんじぇろ</rt><rp>)</rp></ruby>など<ruby>偉大<rp>(</rp><rt>いだい</rt><rp>)</rp></ruby>な<ruby>芸術家<rp>(</rp><rt>げいじゅつか</rt><rp>)</rp></ruby>が活躍したんだ。人間中心の考え方が広まったんだよ',
     },
     {
+      type: 'image',
+      src: '/images/history/grade2/1-early-modern/renaissance-reformation-timeline.png',
+      alt: 'ルネサンスと宗教改革',
+      caption: 'ルネサンスの代表的人物と宗教改革の流れ',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',

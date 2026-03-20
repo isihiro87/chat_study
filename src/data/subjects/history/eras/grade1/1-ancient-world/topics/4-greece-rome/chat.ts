@@ -64,6 +64,12 @@ export const greeceRomeChat: HistoryChat = {
       text: 'いい質問だね。実は参加できたのは<ruby>成年<rp>(</rp><rt>せいねん</rt><rp>)</rp></ruby><ruby>男性<rp>(</rp><rt>だんせい</rt><rp>)</rp></ruby>の市民だけで、女性や<ruby>奴隷<rp>(</rp><rt>どれい</rt><rp>)</rp></ruby>は参加できなかったんだ。それでも当時としては画期的だったんだよ',
     },
     {
+      type: 'image',
+      src: '/images/history/grade1/1-ancient-world/athenian-democracy-diagram.png',
+      alt: 'アテネの民主政',
+      caption: '市民が直接参加する民主政のしくみ',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',
@@ -137,6 +143,12 @@ export const greeceRomeChat: HistoryChat = {
       characterId: 'citizen',
       expression: 'explaining',
       text: '「すべての道はローマに通ず」と言われるほど、<ruby>帝国<rp>(</rp><rt>ていこく</rt><rp>)</rp></ruby>中に道路網を<ruby>整備<rp>(</rp><rt>せいび</rt><rp>)</rp></ruby>したんだ。また<strong><span class="keyword">ローマ<ruby>法<rp>(</rp><rt>ほう</rt><rp>)</rp></ruby></span></strong>はヨーロッパの法律の<ruby>基礎<rp>(</rp><rt>きそ</rt><rp>)</rp></ruby>になったんだよ',
+    },
+    {
+      type: 'image',
+      src: '/images/history/grade1/1-ancient-world/roman-empire-map.png',
+      alt: 'ローマ帝国の版図',
+      caption: '地中海を「我らの海」と呼んだローマ帝国の最大版図',
     },
     {
       type: 'message',

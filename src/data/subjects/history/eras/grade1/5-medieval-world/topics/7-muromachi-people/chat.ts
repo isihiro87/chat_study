@@ -64,6 +64,12 @@ export const muromachiPeopleChat: HistoryChat = {
       text: '<ruby>用水<rp>(</rp><rt>ようすい</rt><rp>)</rp></ruby>の管理や<strong><span class="keyword"><ruby>入会地<rp>(</rp><rt>いりあいち</rt><rp>)</rp></ruby></span></strong>（共同で使う山林や野原）の利用ルールを決めた。<ruby>農業<rp>(</rp><rt>のうぎょう</rt><rp>)</rp></ruby>に欠かせない水を<ruby>公平<rp>(</rp><rt>こうへい</rt><rp>)</rp></ruby>に分けることが特に重要だったんだよ',
     },
     {
+      type: 'image',
+      src: '/images/history/grade1/5-medieval-world/so-village-system.png',
+      alt: '惣の自治',
+      caption: '寄合で掟を決め、用水や入会地を共同管理する村の自治',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',

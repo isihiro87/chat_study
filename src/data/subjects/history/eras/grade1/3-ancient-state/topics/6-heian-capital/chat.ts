@@ -118,6 +118,12 @@ export const heianCapitalChat: HistoryChat = {
       text: '<strong>最澄</strong>は<ruby>比叡山<rp>(</rp><rt>ひえいざん</rt><rp>)</rp></ruby>に<ruby>延暦寺<rp>(</rp><rt>えんりゃくじ</rt><rp>)</rp></ruby>を建て<strong><span class="keyword"><ruby>天台宗<rp>(</rp><rt>てんだいしゅう</rt><rp>)</rp></ruby></span></strong>を開いたよ',
     },
     {
+      type: 'image',
+      src: '/images/history/grade1/3-ancient-state/heian-buddhism-comparison.png',
+      alt: '天台宗と真言宗',
+      caption: '最澄の天台宗（比叡山）と空海の真言宗（高野山）',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',

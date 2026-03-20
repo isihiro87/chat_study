@@ -64,6 +64,12 @@ export const kamakuraBakufuChat: HistoryChat = {
       text: '幕府には3つの重要な役所がある。<strong><span class="keyword"><ruby>侍所<rp>(</rp><rt>さむらいどころ</rt><rp>)</rp></ruby></span></strong>（<ruby>御家人<rp>(</rp><rt>ごけにん</rt><rp>)</rp></ruby>の<ruby>統率<rp>(</rp><rt>とうそつ</rt><rp>)</rp></ruby>）、<strong><span class="keyword"><ruby>政所<rp>(</rp><rt>まんどころ</rt><rp>)</rp></ruby></span></strong>（政務・<ruby>財政<rp>(</rp><rt>ざいせい</rt><rp>)</rp></ruby>）、<strong><span class="keyword"><ruby>問注所<rp>(</rp><rt>もんちゅうじょ</rt><rp>)</rp></ruby></span></strong>（<ruby>裁判<rp>(</rp><rt>さいばん</rt><rp>)</rp></ruby>）だ。1192年には<strong><span class="keyword"><ruby>征夷大将軍<rp>(</rp><rt>せいいたいしょうぐん</rt><rp>)</rp></ruby></span></strong>に<ruby>任命<rp>(</rp><rt>にんめい</rt><rp>)</rp></ruby>されたよ',
     },
     {
+      type: 'image',
+      src: '/images/history/grade1/4-warrior-kamakura/kamakura-bakufu-structure.png',
+      alt: '鎌倉幕府の組織',
+      caption: '将軍の下に侍所・政所・問注所。地方に守護・地頭',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',
@@ -76,6 +82,12 @@ export const kamakuraBakufuChat: HistoryChat = {
       characterId: 'teacher',
       expression: 'happy',
       text: 'いい質問だ。<strong><span class="keyword"><ruby>御家人<rp>(</rp><rt>ごけにん</rt><rp>)</rp></ruby></span></strong>と呼ばれる武士たちは将軍に<ruby>忠誠<rp>(</rp><rt>ちゅうせい</rt><rp>)</rp></ruby>を<ruby>誓<rp>(</rp><rt>ちか</rt><rp>)</rp></ruby>い、戦のときに<ruby>駆<rp>(</rp><rt>か</rt><rp>)</rp></ruby>けつける<strong><span class="keyword"><ruby>奉公<rp>(</rp><rt>ほうこう</rt><rp>)</rp></ruby></span></strong>をする。その見返りとして将軍から<ruby>領地<rp>(</rp><rt>りょうち</rt><rp>)</rp></ruby>をいただく<strong><span class="keyword"><ruby>御恩<rp>(</rp><rt>ごおん</rt><rp>)</rp></ruby></span></strong>を受けるのだ',
+    },
+    {
+      type: 'image',
+      src: '/images/history/grade1/4-warrior-kamakura/goon-houko-diagram.png',
+      alt: '御恩と奉公',
+      caption: '将軍が御家人に土地を与え（御恩）、御家人が忠誠を誓う（奉公）',
     },
     {
       type: 'message',

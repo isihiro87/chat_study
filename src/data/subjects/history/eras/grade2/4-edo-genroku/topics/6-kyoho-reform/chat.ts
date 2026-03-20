@@ -50,6 +50,12 @@ export const kyohoReformChat: HistoryChat = {
       text: '<strong>徳川吉宗</strong>は<ruby>紀州藩<rp>(</rp><rt>きしゅうはん</rt><rp>)</rp></ruby>の出身で、<ruby>質素倹約<rp>(</rp><rt>しっそけんやく</rt><rp>)</rp></ruby>を<ruby>徹底<rp>(</rp><rt>てってい</rt><rp>)</rp></ruby>した人物なんだ。自ら木綿の着物を着て、おかずも一品にしたほどだよ',
     },
     {
+      type: 'image',
+      src: '/images/history/grade2/4-edo-genroku/kyoho-reform-policies.png',
+      alt: '享保の改革',
+      caption: '上げ米の制・目安箱・公事方御定書・新田開発',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',

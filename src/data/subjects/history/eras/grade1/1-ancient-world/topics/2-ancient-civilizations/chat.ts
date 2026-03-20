@@ -50,6 +50,12 @@ export const ancientCivilizationsChat: HistoryChat = {
       text: '<span data-tooltip="チグリス川とユーフラテス川にはさまれた地域。現在のイラクあたり">チグリス・ユーフラテス川</span><ruby>流域<rp>(</rp><rt>りゅういき</rt><rp>)</rp></ruby>では<strong><span class="keyword"><ruby>メソポタミア文明<rp>(</rp><rt>めそぽたみあぶんめい</rt><rp>)</rp></ruby></span></strong>が<ruby>栄<rp>(</rp><rt>さか</rt><rp>)</rp></ruby>えたんだ。<strong><span class="keyword">くさび<ruby>形<rp>(</rp><rt>がた</rt><rp>)</rp></ruby>文字</span></strong>が使われていたよ',
     },
     {
+      type: 'image',
+      src: '/images/history/grade1/1-ancient-world/four-civilizations-map.png',
+      alt: '四大文明の位置',
+      caption: 'メソポタミア・エジプト・インダス・中国の四大文明と大河',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',
@@ -130,6 +136,12 @@ export const ancientCivilizationsChat: HistoryChat = {
       characterId: 'scholar',
       expression: 'happy',
       text: '<strong><span class="keyword"><ruby>象形文字<rp>(</rp><rt>しょうけいもじ</rt><rp>)</rp></ruby></span></strong>だよ。絵のような文字で、<ruby>神殿<rp>(</rp><rt>しんでん</rt><rp>)</rp></ruby>の壁などに刻まれていたんだ',
+    },
+    {
+      type: 'image',
+      src: '/images/history/grade1/1-ancient-world/ancient-writing-comparison.png',
+      alt: '古代文字の比較',
+      caption: 'くさび形文字・象形文字・甲骨文字',
     },
     {
       type: 'message',

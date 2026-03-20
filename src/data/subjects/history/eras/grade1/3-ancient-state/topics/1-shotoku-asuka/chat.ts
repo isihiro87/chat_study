@@ -71,6 +71,12 @@ export const shotokuAsukaChat: HistoryChat = {
       text: '話し合いを大切にしようってことですね！すごく先進的だなあ',
     },
     {
+      type: 'image',
+      src: '/images/history/grade1/3-ancient-state/twelve-cap-ranks.png',
+      alt: '冠位十二階',
+      caption: '才能で人材登用する冠位十二階の色と位',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">冠位十二階</span>（才能・功績で地位を決定）と<span class="keyword">十七条の憲法</span>（役人の心がまえ）で天皇中心の政治を目指した！',
     },
@@ -109,6 +115,12 @@ export const shotokuAsukaChat: HistoryChat = {
       characterId: 'shotoku',
       expression: 'excited',
       text: 'そして<ruby>仏教<rp>(</rp><rt>ぶっきょう</rt><rp>)</rp></ruby>を広めるために、日本最古の<ruby>木造建築<rp>(</rp><rt>もくぞうけんちく</rt><rp>)</rp></ruby><strong><span class="keyword"><ruby>法隆寺<rp>(</rp><rt>ほうりゅうじ</rt><rp>)</rp></ruby></span></strong>を建てたんだよ。これが<strong><span class="keyword"><ruby>飛鳥文化<rp>(</rp><rt>あすかぶんか</rt><rp>)</rp></ruby></span></strong>を代表する建物だ！',
+    },
+    {
+      type: 'image',
+      src: '/images/history/grade1/3-ancient-state/horyuji-temple.png',
+      alt: '法隆寺',
+      caption: '世界最古の木造建築。飛鳥文化の代表',
     },
     {
       type: 'message',

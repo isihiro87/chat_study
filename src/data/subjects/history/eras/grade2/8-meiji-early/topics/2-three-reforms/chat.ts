@@ -43,6 +43,12 @@ export const threeReformsChat: HistoryChat = {
       text: '新政府は「<ruby>教育<rp>(</rp><rt>きょういく</rt><rp>)</rp></ruby>」「<ruby>軍隊<rp>(</rp><rt>ぐんたい</rt><rp>)</rp></ruby>」「<ruby>税金<rp>(</rp><rt>ぜいきん</rt><rp>)</rp></ruby>」の三分野で大きな<ruby>改革<rp>(</rp><rt>かいかく</rt><rp>)</rp></ruby>を行いました。これを<strong><span class="keyword"><ruby>三大改革<rp>(</rp><rt>さんだいかいかく</rt><rp>)</rp></ruby></span></strong>といいます。',
     },
     {
+      type: 'image',
+      src: '/images/history/grade2/8-meiji-early/meiji-three-reforms.png',
+      alt: '明治の三大改革',
+      caption: '学制（教育）・徴兵令（軍事）・地租改正（税制）',
+    },
+    {
       type: 'message',
       side: 'left',
       characterId: 'teacher',

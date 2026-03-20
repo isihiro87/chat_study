@@ -50,6 +50,12 @@ export const inseiTairaChat: HistoryChat = {
       text: '<strong>白河上皇</strong>は<ruby>退位<rp>(</rp><rt>たいい</rt><rp>)</rp></ruby>した後も政治の<ruby>実権<rp>(</rp><rt>じっけん</rt><rp>)</rp></ruby>を握り、院の<ruby>警備<rp>(</rp><rt>けいび</rt><rp>)</rp></ruby>に<strong><span class="keyword"><ruby>北面<rp>(</rp><rt>ほくめん</rt><rp>)</rp></ruby>の<ruby>武士<rp>(</rp><rt>ぶし</rt><rp>)</rp></ruby></span></strong>を置いて武士の力を利用したんだ',
     },
     {
+      type: 'image',
+      src: '/images/history/grade1/4-warrior-kamakura/insei-power-diagram.png',
+      alt: '院政のしくみ',
+      caption: '上皇が院庁を通じて実質的権力を握る',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',
@@ -123,6 +129,12 @@ export const inseiTairaChat: HistoryChat = {
       characterId: 'teacher',
       expression: 'explaining',
       text: '<ruby>宋<rp>(</rp><rt>そう</rt><rp>)</rp></ruby>との貿易（<strong><span class="keyword"><ruby>日宋貿易<rp>(</rp><rt>にっそうぼうえき</rt><rp>)</rp></ruby></span></strong>）で大きな利益を得て、<ruby>大輪田泊<rp>(</rp><rt>おおわだのとまり</rt><rp>)</rp></ruby>（神戸）を整備したんだ。これが平氏の繁栄の<ruby>基盤<rp>(</rp><rt>きばん</rt><rp>)</rp></ruby>だよ',
+    },
+    {
+      type: 'image',
+      src: '/images/history/grade1/4-warrior-kamakura/taira-trade-route.png',
+      alt: '日宋貿易',
+      caption: '平清盛が大輪田泊を整備して宋と貿易',
     },
     {
       type: 'message',

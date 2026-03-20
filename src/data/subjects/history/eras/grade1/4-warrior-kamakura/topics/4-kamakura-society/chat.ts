@@ -64,6 +64,12 @@ export const kamakuraSocietyChat: HistoryChat = {
       text: '<strong><span class="keyword"><ruby>鉄製農具<rp>(</rp><rt>てつせいのうぐ</rt><rp>)</rp></ruby></span></strong>が普及して土を深く<ruby>耕<rp>(</rp><rt>たがや</rt><rp>)</rp></ruby>せるようになったし、牛や馬に田を耕させる<strong><span class="keyword"><ruby>牛馬耕<rp>(</rp><rt>ぎゅうばこう</rt><rp>)</rp></ruby></span></strong>も広まったんだ。<ruby>草木灰<rp>(</rp><rt>そうもくばい</rt><rp>)</rp></ruby>を<ruby>肥料<rp>(</rp><rt>ひりょう</rt><rp>)</rp></ruby>にする工夫も進んだよ',
     },
     {
+      type: 'image',
+      src: '/images/history/grade1/4-warrior-kamakura/kamakura-farming-tools.png',
+      alt: '鎌倉時代の農業',
+      caption: '二毛作・牛馬耕・鉄製農具の普及',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',

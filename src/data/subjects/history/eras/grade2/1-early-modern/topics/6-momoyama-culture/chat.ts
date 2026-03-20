@@ -50,6 +50,12 @@ export const momoyamaCultureChat: HistoryChat = {
       text: '<strong><span class="keyword"><ruby>狩野永徳<rp>(</rp><rt>かのうえいとく</rt><rp>)</rp></ruby></span></strong>は城の<ruby>襖<rp>(</rp><rt>ふすま</rt><rp>)</rp></ruby>や<ruby>屏風<rp>(</rp><rt>びょうぶ</rt><rp>)</rp></ruby>に<ruby>金箔<rp>(</rp><rt>きんぱく</rt><rp>)</rp></ruby>を使った<ruby>壮大<rp>(</rp><rt>そうだい</rt><rp>)</rp></ruby>な絵を描いたんだ。<strong><span class="keyword"><span data-tooltip="狩野永徳の代表作。金箔を使った壮大な屏風絵"><ruby>唐獅子図屏風<rp>(</rp><rt>からじしずびょうぶ</rt><rp>)</rp></ruby></span></span></strong>は代表作のひとつだよ！',
     },
     {
+      type: 'image',
+      src: '/images/history/grade2/1-early-modern/azuchi-castle-image.png',
+      alt: '安土城・大坂城',
+      caption: '金箔・障壁画で飾られた壮大な天守閣',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',
@@ -76,6 +82,12 @@ export const momoyamaCultureChat: HistoryChat = {
       characterId: 'art-expert',
       expression: 'happy',
       text: 'いい質問だね！ <strong><span class="keyword"><span data-tooltip="質素で落ち着いたわび茶の作法を大成した茶人。茶道の祖"><ruby>千利休<rp>(</rp><rt>せんのりきゅう</rt><rp>)</rp></ruby></span></span></strong>は<ruby>質素<rp>(</rp><rt>しっそ</rt><rp>)</rp></ruby>で落ち着いた<strong><span class="keyword"><span data-tooltip="飾りを排した静かな美を追求する茶の湯の作法">わび茶</span></span></strong>の<ruby>作法<rp>(</rp><rt>さほう</rt><rp>)</rp></ruby>を<ruby>大成<rp>(</rp><rt>たいせい</rt><rp>)</rp></ruby>したんだ。華やかな桃山文化の中で、静かな美を<ruby>追求<rp>(</rp><rt>ついきゅう</rt><rp>)</rp></ruby>したんだよ',
+    },
+    {
+      type: 'image',
+      src: '/images/history/grade2/1-early-modern/tea-ceremony-tools.png',
+      alt: '千利休の茶の湯',
+      caption: 'わびの精神を表現した茶道の道具と茶室',
     },
     {
       type: 'message',

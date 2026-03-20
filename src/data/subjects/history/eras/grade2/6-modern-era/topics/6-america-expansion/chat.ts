@@ -43,6 +43,12 @@ export const americaExpansionChat: HistoryChat = {
       text: 'アメリカはヨーロッパからの<ruby>移民<rp>(</rp><rt>いみん</rt><rp>)</rp></ruby>を受け入れながら、<strong><span class="keyword"><span data-tooltip="アメリカが東海岸から西の太平洋岸へ領土を広げていった動き"><ruby>西部開拓<rp>(</rp><rt>せいぶかいたく</rt><rp>)</rp></ruby></span></span></strong>を進め、<ruby>太平洋岸<rp>(</rp><rt>たいへいようがん</rt><rp>)</rp></ruby>まで<ruby>領土<rp>(</rp><rt>りょうど</rt><rp>)</rp></ruby>を広げました。',
     },
     {
+      type: 'image',
+      src: '/images/history/grade2/6-modern-era/america-westward-map.png',
+      alt: 'アメリカの西部開拓',
+      caption: '13州から太平洋岸への領土拡大',
+    },
+    {
       type: 'message',
       side: 'left',
       characterId: 'professor',

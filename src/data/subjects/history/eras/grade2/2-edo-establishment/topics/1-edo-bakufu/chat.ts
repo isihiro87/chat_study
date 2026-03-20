@@ -95,6 +95,12 @@ export const edoBakufuChat: HistoryChat = {
       text: '幕府は大名を3種類に分けて<ruby>統制<rp>(</rp><rt>とうせい</rt><rp>)</rp></ruby>しました。<strong><span class="keyword"><ruby>親藩<rp>(</rp><rt>しんぱん</rt><rp>)</rp></ruby></span></strong>（<ruby>徳川<rp>(</rp><rt>とくがわ</rt><rp>)</rp></ruby>一族）・<strong><span class="keyword"><ruby>譜代<rp>(</rp><rt>ふだい</rt><rp>)</rp></ruby></span></strong>（古くからの家臣）・<strong><span class="keyword"><ruby>外様<rp>(</rp><rt>とざま</rt><rp>)</rp></ruby></span></strong>（関ヶ原以降に従った大名）です。',
     },
     {
+      type: 'image',
+      src: '/images/history/grade2/2-edo-establishment/bakuhan-system-diagram.png',
+      alt: '幕藩体制',
+      caption: '将軍→大名（親藩・譜代・外様）の関係と配置',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',
@@ -114,6 +120,12 @@ export const edoBakufuChat: HistoryChat = {
       characterId: 'teacher',
       expression: 'excited',
       text: 'さらに<strong><span class="keyword"><ruby>武家諸法度<rp>(</rp><rt>ぶけしょはっと</rt><rp>)</rp></ruby></span></strong>で大名のルールを定め、<strong><span class="keyword"><ruby>参勤交代<rp>(</rp><rt>さんきんこうたい</rt><rp>)</rp></ruby></span></strong>で1年おきに江戸と<ruby>領地<rp>(</rp><rt>りょうち</rt><rp>)</rp></ruby>を往復させたんだ',
+    },
+    {
+      type: 'image',
+      src: '/images/history/grade2/2-edo-establishment/sankin-kotai-diagram.png',
+      alt: '参勤交代',
+      caption: '大名が江戸と領地を1年交代で往復する制度',
     },
     {
       type: 'message',

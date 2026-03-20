@@ -43,6 +43,12 @@ export const frenchRevolutionChat: HistoryChat = {
       text: 'フランスでは、<ruby>特権階級<rp>(</rp><rt>とっけんかいきゅう</rt><rp>)</rp></ruby>（<ruby>聖職者<rp>(</rp><rt>せいしょくしゃ</rt><rp>)</rp></ruby>・<ruby>貴族<rp>(</rp><rt>きぞく</rt><rp>)</rp></ruby>）は税<ruby>免除<rp>(</rp><rt>めんじょ</rt><rp>)</rp></ruby>で、人口の98%を占める<strong><span class="keyword"><span data-tooltip="聖職者（第一身分）・貴族（第二身分）以外の一般の人々のこと"><ruby>第三身分<rp>(</rp><rt>だいさんみぶん</rt><rp>)</rp></ruby></span></span></strong>（<ruby>平民<rp>(</rp><rt>へいみん</rt><rp>)</rp></ruby>）だけが重い税に苦しんでいました。',
     },
     {
+      type: 'image',
+      src: '/images/history/grade2/6-modern-era/three-estates-diagram.png',
+      alt: 'フランスの三身分',
+      caption: '聖職者・貴族・平民の不平等な構造',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',
@@ -59,6 +65,12 @@ export const frenchRevolutionChat: HistoryChat = {
     {
       type: 'narrator',
       text: '1789年7月14日、<strong>バスティーユ<ruby>牢獄<rp>(</rp><rt>ろうごく</rt><rp>)</rp></ruby><ruby>襲撃<rp>(</rp><rt>しゅうげき</rt><rp>)</rp></ruby></strong>をきっかけに<strong><span class="keyword">フランス<ruby>革命<rp>(</rp><rt>かくめい</rt><rp>)</rp></ruby></span></strong>が<ruby>勃発<rp>(</rp><rt>ぼっぱつ</rt><rp>)</rp></ruby>しました。',
+    },
+    {
+      type: 'image',
+      src: '/images/history/grade2/6-modern-era/french-revolution-timeline.png',
+      alt: 'フランス革命',
+      caption: 'バスティーユ襲撃→人権宣言→ナポレオン',
     },
     {
       type: 'summary-point',

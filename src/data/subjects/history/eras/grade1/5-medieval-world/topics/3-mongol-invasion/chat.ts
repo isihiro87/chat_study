@@ -50,11 +50,23 @@ export const mongolInvasionChat: HistoryChat = {
       text: '1274年の<strong><span class="keyword"><ruby>文永<rp>(</rp><rt>ぶんえい</rt><rp>)</rp></ruby>の<ruby>役<rp>(</rp><rt>えき</rt><rp>)</rp></ruby></span></strong>では、元と<strong><span class="keyword"><ruby>高麗<rp>(</rp><rt>こうらい</rt><rp>)</rp></ruby></span></strong>の<ruby>連合軍<rp>(</rp><rt>れんごうぐん</rt><rp>)</rp></ruby>が<ruby>対馬<rp>(</rp><rt>つしま</rt><rp>)</rp></ruby>・<ruby>壱岐<rp>(</rp><rt>いき</rt><rp>)</rp></ruby>を攻め、<ruby>九州北部<rp>(</rp><rt>きゅうしゅうほくぶ</rt><rp>)</rp></ruby>に上陸した。元軍は<ruby>集団<rp>(</rp><rt>しゅうだん</rt><rp>)</rp></ruby><ruby>戦法<rp>(</rp><rt>せんぽう</rt><rp>)</rp></ruby>と<span data-tooltip="火薬を使った爆発する武器。日本の武士にとって初めて見る兵器だった"><strong><span class="keyword">てつはう</span></strong></span>（火薬を使った武器）で攻めてきたんだ',
     },
     {
+      type: 'image',
+      src: '/images/history/grade1/5-medieval-world/genko-battle-map.png',
+      alt: '元寇の侵攻ルート',
+      caption: '元・高麗から対馬→壱岐→博多湾への侵攻経路',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',
       expression: 'surprised',
       text: '日本の武士は名乗りを上げてから<ruby>一騎打<rp>(</rp><rt>いっきう</rt><rp>)</rp></ruby>ちで戦う方法ですよね。それに対して集団で攻められたら<ruby>苦戦<rp>(</rp><rt>くせん</rt><rp>)</rp></ruby>しますよね...',
+    },
+    {
+      type: 'image',
+      src: '/images/history/grade1/5-medieval-world/teppou-battle-scene.png',
+      alt: '元軍と日本の武士の戦い方の違い',
+      caption: '集団戦法の元軍と一騎打ちの武士。「てつはう」の使用',
     },
     {
       type: 'message',

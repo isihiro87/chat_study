@@ -50,6 +50,12 @@ export const foreignRelationsEdoChat: HistoryChat = {
       text: 'オランダ人は<strong><span class="keyword"><ruby>出島<rp>(</rp><rt>でじま</rt><rp>)</rp></ruby></span></strong>で、<ruby>清<rp>(</rp><rt>しん</rt><rp>)</rp></ruby>の商人は<strong><span class="keyword"><ruby>唐人屋敷<rp>(</rp><rt>とうじんやしき</rt><rp>)</rp></ruby></span></strong>で取引していたんだ',
     },
     {
+      type: 'image',
+      src: '/images/history/grade2/2-edo-establishment/sakoku-four-windows-map.png',
+      alt: '鎖国下の4つの窓口',
+      caption: '長崎・対馬・薩摩・松前の4つの交易窓口',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',
@@ -76,6 +82,12 @@ export const foreignRelationsEdoChat: HistoryChat = {
       characterId: 'merchant',
       expression: 'excited',
       text: 'オランダ<ruby>商館長<rp>(</rp><rt>しょうかんちょう</rt><rp>)</rp></ruby>が毎年幕府に提出する<strong><span class="keyword">オランダ<ruby>風説書<rp>(</rp><rt>ふうせつがき</rt><rp>)</rp></ruby></span></strong>が、鎖国下の日本にとって<ruby>貴重<rp>(</rp><rt>きちょう</rt><rp>)</rp></ruby>な海外情報源だったんだ！',
+    },
+    {
+      type: 'image',
+      src: '/images/history/grade2/2-edo-establishment/dejima-layout.png',
+      alt: '出島',
+      caption: '扇形の人工島に置かれたオランダ商館',
     },
     {
       type: 'message',

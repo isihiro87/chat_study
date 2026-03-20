@@ -98,6 +98,12 @@ export const kanseiReformChat: HistoryChat = {
       text: '<span data-tooltip="飢饉に備えて各地の大名に米を蓄えさせた制度"><strong><span class="keyword"><ruby>囲い米<rp>(</rp><rt>かこいまい</rt><rp>)</rp></ruby>の制</span></strong></span>で各地に米を蓄えさせ、飢饉に備えたんだ。さらに<span data-tooltip="旗本や御家人の借金を帳消しにした法令"><strong><span class="keyword"><ruby>棄捐令<rp>(</rp><rt>きえんれい</rt><rp>)</rp></ruby></span></strong></span>で<ruby>旗本<rp>(</rp><rt>はたもと</rt><rp>)</rp></ruby>や<ruby>御家人<rp>(</rp><rt>ごけにん</rt><rp>)</rp></ruby>の借金を帳消しにしたよ',
     },
     {
+      type: 'image',
+      src: '/images/history/grade2/5-edo-reforms/kansei-reform-policies.png',
+      alt: '寛政の改革',
+      caption: '囲い米・棄捐令・寛政異学の禁',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',

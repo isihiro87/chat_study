@@ -78,6 +78,12 @@ export const handenTaxChat: HistoryChat = {
       text: 'さらに<ruby>九州<rp>(</rp><rt>きゅうしゅう</rt><rp>)</rp></ruby>を守る<strong><span class="keyword"><ruby>防人<rp>(</rp><rt>さきもり</rt><rp>)</rp></ruby></span></strong>という<ruby>兵役<rp>(</rp><rt>へいえき</rt><rp>)</rp></ruby>もあったんだ。家族と離れて遠い九州まで行かなければならなかったんだよ',
     },
     {
+      type: 'image',
+      src: '/images/history/grade1/3-ancient-state/tax-system-diagram.png',
+      alt: '奈良時代の税制度',
+      caption: '租（稲）・調（特産物）・庸（労役）・雑徭・防人',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">班田収授法</span>で<span class="keyword">口分田</span>を与え、<span class="keyword">租</span>・<span class="keyword">調</span>・<span class="keyword">庸</span>の税を課す。<span class="keyword">防人</span>の兵役も農民の重い負担！',
     },

@@ -64,6 +64,12 @@ export const agricultureIndustryChat: HistoryChat = {
       text: '<span data-tooltip="刃が複数に分かれた鍬で、深く土を耕すことができる農具"><strong><span class="keyword"><ruby>備中<rp>(</rp><rt>びっちゅう</rt><rp>)</rp></ruby>ぐわ</span></strong></span>という道具が登場して、深く<ruby>耕<rp>(</rp><rt>たがや</rt><rp>)</rp></ruby>せるようになったんだ。さらに<span data-tooltip="鉄の歯がたくさん並んだ道具で、稲穂を通して脱穀する"><strong><span class="keyword"><ruby>千歯<rp>(</rp><rt>せんば</rt><rp>)</rp></ruby>こき</span></strong></span>で<ruby>脱穀<rp>(</rp><rt>だっこく</rt><rp>)</rp></ruby>も楽になった！',
     },
     {
+      type: 'image',
+      src: '/images/history/grade2/3-edo-economy/edo-farming-tools.png',
+      alt: '江戸の農具',
+      caption: '備中ぐわ・千歯こき・唐箕・千石通しの進歩',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',

@@ -50,6 +50,12 @@ export const industrialRevolutionChat: HistoryChat = {
       text: '<strong><span class="keyword">ワット</span></strong>が<ruby>改良<rp>(</rp><rt>かいりょう</rt><rp>)</rp></ruby>した<strong><span class="keyword"><ruby>蒸気機関<rp>(</rp><rt>じょうきかん</rt><rp>)</rp></ruby></span></strong>は、工場の<ruby>動力<rp>(</rp><rt>どうりょく</rt><rp>)</rp></ruby>として使われたんだ。まず<strong><span class="keyword"><ruby>綿織物工業<rp>(</rp><rt>めんおりものこうぎょう</rt><rp>)</rp></ruby></span></strong>から<strong>産業革命</strong>が始まったよ',
     },
     {
+      type: 'image',
+      src: '/images/history/grade2/6-modern-era/industrial-revolution-inventions.png',
+      alt: '産業革命の発明',
+      caption: '蒸気機関・紡績機・蒸気機関車',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',
@@ -82,6 +88,12 @@ export const industrialRevolutionChat: HistoryChat = {
     {
       type: 'narrator',
       text: '<strong><span class="keyword"><span data-tooltip="資本家が工場や機械を所有し、労働者を雇って利益を追求する経済のしくみ"><ruby>資本主義<rp>(</rp><rt>しほんしゅぎ</rt><rp>)</rp></ruby></span></span></strong>社会では、<ruby>資本家<rp>(</rp><rt>しほんか</rt><rp>)</rp></ruby>が<ruby>労働者<rp>(</rp><rt>ろうどうしゃ</rt><rp>)</rp></ruby>を雇い<ruby>利益<rp>(</rp><rt>りえき</rt><rp>)</rp></ruby>を<ruby>追求<rp>(</rp><rt>ついきゅう</rt><rp>)</rp></ruby>します。しかし<strong><span class="keyword"><ruby>労働問題<rp>(</rp><rt>ろうどうもんだい</rt><rp>)</rp></ruby></span></strong>が<ruby>深刻<rp>(</rp><rt>しんこく</rt><rp>)</rp></ruby>になりました。',
+    },
+    {
+      type: 'image',
+      src: '/images/history/grade2/6-modern-era/capitalism-socialism-diagram.png',
+      alt: '資本主義と社会主義',
+      caption: '資本家と労働者の関係、社会主義の台頭',
     },
     {
       type: 'message',

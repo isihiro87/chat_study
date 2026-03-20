@@ -136,6 +136,12 @@ export const sengokuEraChat: HistoryChat = {
       text: '<strong><span class="keyword"><ruby>分国法<rp>(</rp><rt>ぶんこくほう</rt><rp>)</rp></ruby></span></strong>（<ruby>家法<rp>(</rp><rt>かほう</rt><rp>)</rp></ruby>）という独自の法律を定めて領国を<ruby>統治<rp>(</rp><rt>とうち</rt><rp>)</rp></ruby>した。<span data-tooltip="けんかした双方を理由に関わらず罰する規定"><strong><ruby>けんか両成敗<rp>(</rp><rt>けんかりょうせいばい</rt><rp>)</rp></ruby></strong></span>などの<ruby>厳<rp>(</rp><rt>きび</rt><rp>)</rp></ruby>しい<ruby>規定<rp>(</rp><rt>きてい</rt><rp>)</rp></ruby>を設けて、<ruby>家臣<rp>(</rp><rt>かしん</rt><rp>)</rp></ruby>や<ruby>領民<rp>(</rp><rt>りょうみん</rt><rp>)</rp></ruby>を<ruby>管理<rp>(</rp><rt>かんり</rt><rp>)</rp></ruby>したんだ',
     },
     {
+      type: 'image',
+      src: '/images/history/grade1/5-medieval-world/sengoku-daimyo-map.png',
+      alt: '戦国大名の勢力図',
+      caption: '主要な戦国大名の配置と城下町',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">下剋上</span>の風潮 → <span class="keyword">戦国大名</span>が各地に登場。<span class="keyword">分国法</span>（<span class="keyword">けんか両成敗</span>など）で領国を統治',
     },
@@ -164,6 +170,12 @@ export const sengokuEraChat: HistoryChat = {
       characterId: 'daimyo',
       expression: 'explaining',
       text: '<ruby>平地<rp>(</rp><rt>へいち</rt><rp>)</rp></ruby>に城を築き、城のまわりに<ruby>家臣<rp>(</rp><rt>かしん</rt><rp>)</rp></ruby>や<ruby>商工業者<rp>(</rp><rt>しょうこうぎょうしゃ</rt><rp>)</rp></ruby>を集めた<strong>城下町</strong>を作った。領国の<ruby>政治<rp>(</rp><rt>せいじ</rt><rp>)</rp></ruby>と<ruby>経済<rp>(</rp><rt>けいざい</rt><rp>)</rp></ruby>の中心にしたんだ',
+    },
+    {
+      type: 'image',
+      src: '/images/history/grade1/5-medieval-world/castle-town-layout.png',
+      alt: '城下町の構造',
+      caption: '城を中心に家臣・商人・職人が住む町割り',
     },
     {
       type: 'message',

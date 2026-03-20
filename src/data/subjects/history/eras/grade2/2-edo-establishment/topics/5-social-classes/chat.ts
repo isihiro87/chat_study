@@ -50,6 +50,12 @@ export const socialClassesChat: HistoryChat = {
       text: '<span data-tooltip="江戸時代の支配階級。苗字を名乗り刀を差す特権があった"><strong>武士</strong></span>には<ruby>苗字<rp>(</rp><rt>みょうじ</rt><rp>)</rp></ruby>を名乗り<ruby>刀<rp>(</rp><rt>かたな</rt><rp>)</rp></ruby>を差す<ruby>特権<rp>(</rp><rt>とっけん</rt><rp>)</rp></ruby>があったんだ。<strong>百姓</strong>や<strong>町人</strong>とは身分がはっきり分けられていたんだよ',
     },
     {
+      type: 'image',
+      src: '/images/history/grade2/2-edo-establishment/edo-class-system.png',
+      alt: '江戸の身分制度',
+      caption: '武士・百姓・町人の身分と役割',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',
@@ -76,6 +82,12 @@ export const socialClassesChat: HistoryChat = {
       characterId: 'samurai',
       expression: 'excited',
       text: 'さらに<strong><span class="keyword"><ruby>五人組<rp>(</rp><rt>ごにんぐみ</rt><rp>)</rp></ruby></span></strong>という制度があって、5<ruby>戸<rp>(</rp><rt>こ</rt><rp>)</rp></ruby>ずつ組にして<ruby>連帯責任<rp>(</rp><rt>れんたいせきにん</rt><rp>)</rp></ruby>を負わせていたんだ。<ruby>犯罪<rp>(</rp><rt>はんざい</rt><rp>)</rp></ruby>防止や<span data-tooltip="米などの収穫物を税として納めること"><strong>年貢</strong></span>の確保が目的だったんだよ',
+    },
+    {
+      type: 'image',
+      src: '/images/history/grade2/2-edo-establishment/edo-townscape.png',
+      alt: '江戸時代の暮らし',
+      caption: '武士の屋敷、町人の長屋、百姓の村の対比',
     },
     {
       type: 'message',

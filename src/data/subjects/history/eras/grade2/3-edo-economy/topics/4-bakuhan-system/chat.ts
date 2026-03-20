@@ -50,6 +50,12 @@ export const bakuhanSystemChat: HistoryChat = {
       text: '江戸幕府がなぜ約260年も続いたか知っているかい？それは<span data-tooltip="江戸幕府（幕府）と全国の藩が協力して国を治める政治のしくみ"><strong><ruby>幕藩体制<rp>(</rp><rt>ばくはんたいせい</rt><rp>)</rp></ruby></strong></span>というしっかりした仕組みがあったからなんだ',
     },
     {
+      type: 'image',
+      src: '/images/history/grade2/3-edo-economy/daimyo-types-map.png',
+      alt: '大名の配置',
+      caption: '外様は遠方、譜代は要所に配置される幕藩体制',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',

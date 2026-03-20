@@ -50,6 +50,12 @@ export const kokufuCultureChat: HistoryChat = {
       text: '<span data-tooltip="漢字をもとにして日本で独自に作られた文字。ひらがなとカタカナがある"><ruby>仮名文字<rp>(</rp><rt>かなもじ</rt><rp>)</rp></ruby></span>ができたことで、日本語の<ruby>繊細<rp>(</rp><rt>せんさい</rt><rp>)</rp></ruby>な<ruby>感情<rp>(</rp><rt>かんじょう</rt><rp>)</rp></ruby>を自由に表現できるようになったんだよ',
     },
     {
+      type: 'image',
+      src: '/images/history/grade1/3-ancient-state/kana-development.png',
+      alt: 'かな文字の成立',
+      caption: '漢字からひらがな・カタカナが生まれた過程',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',
@@ -102,6 +108,12 @@ export const kokufuCultureChat: HistoryChat = {
       characterId: 'murasaki',
       expression: 'happy',
       text: '<strong><span class="keyword"><ruby>清少納言<rp>(</rp><rt>せいしょうなごん</rt><rp>)</rp></ruby></span></strong>が<ruby>宮中<rp>(</rp><rt>きゅうちゅう</rt><rp>)</rp></ruby>での暮らしや<ruby>四季<rp>(</rp><rt>しき</rt><rp>)</rp></ruby>の美しさを書いた<strong><span class="keyword"><ruby>枕草子<rp>(</rp><rt>まくらのそうし</rt><rp>)</rp></ruby></span></strong>があるよ。「春はあけぼの…」で有名だね',
+    },
+    {
+      type: 'image',
+      src: '/images/history/grade1/3-ancient-state/shinden-zukuri.png',
+      alt: '寝殿造',
+      caption: '平安貴族の住居様式。庭園と池を備えた邸宅',
     },
     {
       type: 'message',

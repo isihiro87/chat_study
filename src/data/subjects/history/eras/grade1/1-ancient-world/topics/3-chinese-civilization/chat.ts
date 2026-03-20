@@ -50,6 +50,12 @@ export const chineseCivilizationChat: HistoryChat = {
       text: '<span data-tooltip="亀の甲羅や牛の骨に刻まれた中国最古の文字。占いの結果を記録した"><strong>甲骨文字</strong></span>は<ruby>亀<rp>(</rp><rt>かめ</rt><rp>)</rp></ruby>の<ruby>甲羅<rp>(</rp><rt>こうら</rt><rp>)</rp></ruby>や牛の骨に<ruby>刻<rp>(</rp><rt>きざ</rt><rp>)</rp></ruby>まれた文字だよ。<ruby>占<rp>(</rp><rt>うらな</rt><rp>)</rp></ruby>いの結果を記録するために使われたんだ',
     },
     {
+      type: 'image',
+      src: '/images/history/grade1/1-ancient-world/chinese-dynasties-timeline.png',
+      alt: '中国の王朝変遷',
+      caption: '殷→周→春秋戦国→秦→漢の流れ',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',
@@ -137,6 +143,12 @@ export const chineseCivilizationChat: HistoryChat = {
       characterId: 'teacher',
       expression: 'explaining',
       text: '漢は<strong><span class="keyword">シルクロード</span></strong>を通じて西方と<ruby>交易<rp>(</rp><rt>こうえき</rt><rp>)</rp></ruby>したんだ。中国の<ruby>絹<rp>(</rp><rt>きぬ</rt><rp>)</rp></ruby>がヨーロッパまで運ばれたんだよ',
+    },
+    {
+      type: 'image',
+      src: '/images/history/grade1/1-ancient-world/silk-road-map.png',
+      alt: 'シルクロード',
+      caption: '漢とローマを結ぶ東西交易路',
     },
     {
       type: 'message',

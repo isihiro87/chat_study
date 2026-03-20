@@ -50,6 +50,12 @@ export const russiaExpansionChat: HistoryChat = {
       text: 'ロシアにとって一番の<ruby>課題<rp>(</rp><rt>かだい</rt><rp>)</rp></ruby>は、一年中使える<strong><span class="keyword"><span data-tooltip="冬でも凍らない港のこと。貿易や軍事に不可欠"><ruby>不凍港<rp>(</rp><rt>ふとうこう</rt><rp>)</rp></ruby></span></span></strong>を手に入れることだったんだ。そのために<strong><span class="keyword"><ruby>南下政策<rp>(</rp><rt>なんかせいさく</rt><rp>)</rp></ruby></span></strong>を進めて、<ruby>黒海<rp>(</rp><rt>こっかい</rt><rp>)</rp></ruby>・<ruby>地中海<rp>(</rp><rt>ちちゅうかい</rt><rp>)</rp></ruby>への<ruby>進出<rp>(</rp><rt>しんしゅつ</rt><rp>)</rp></ruby>を目指したんだよ',
     },
     {
+      type: 'image',
+      src: '/images/history/grade2/6-modern-era/russia-expansion-map.png',
+      alt: 'ロシアの南下政策',
+      caption: '不凍港を求めたロシアの領土拡大',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',

@@ -50,6 +50,12 @@ export const tempoReformChat: HistoryChat = {
       text: '<strong>水野忠邦</strong>は、幕府の<ruby>威信<rp>(</rp><rt>いしん</rt><rp>)</rp></ruby>を取り戻すために<strong><span class="keyword"><ruby>天保<rp>(</rp><rt>てんぽう</rt><rp>)</rp></ruby>の改革</span></strong>を始めたんだ。これが幕府最後の大改革になるよ',
     },
     {
+      type: 'image',
+      src: '/images/history/grade2/5-edo-reforms/tempo-reform-policies.png',
+      alt: '天保の改革',
+      caption: '人返し令・株仲間解散・上知令の失敗',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',

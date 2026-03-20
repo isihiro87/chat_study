@@ -50,6 +50,12 @@ export const threeCapitalsChat: HistoryChat = {
       text: '江戸時代には3つの大都市がそれぞれ違う役割で発展したんだ。まずは<ruby>江戸<rp>(</rp><rt>えど</rt><rp>)</rp></ruby>から見ていこう',
     },
     {
+      type: 'image',
+      src: '/images/history/grade2/3-edo-economy/three-capitals-roles.png',
+      alt: '三都の役割',
+      caption: '江戸＝消費都市、大阪＝天下の台所、京都＝文化都市',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',

@@ -122,6 +122,12 @@ export const muromachiIndustryChat: HistoryChat = {
       text: '<ruby>定期市<rp>(</rp><rt>ていきいち</rt><rp>)</rp></ruby>は月に6回開かれる<strong><span class="keyword"><ruby>六斎市<rp>(</rp><rt>ろくさいいち</rt><rp>)</rp></ruby></span></strong>が増えた。<ruby>鎌倉時代<rp>(</rp><rt>かまくらじだい</rt><rp>)</rp></ruby>は月3回の<ruby>三斎市<rp>(</rp><rt>さんさいいち</rt><rp>)</rp></ruby>だったから、<ruby>倍<rp>(</rp><rt>ばい</rt><rp>)</rp></ruby>に増えたということだ',
     },
     {
+      type: 'image',
+      src: '/images/history/grade1/5-medieval-world/muromachi-market-scene.png',
+      alt: '室町時代の定期市',
+      caption: '座の商人、馬借・問丸が活躍する賑やかな市',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',

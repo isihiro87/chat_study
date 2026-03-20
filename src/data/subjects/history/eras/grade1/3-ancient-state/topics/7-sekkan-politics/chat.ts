@@ -78,6 +78,12 @@ export const sekkanPoliticsChat: HistoryChat = {
       text: 'そうだよ！特に<strong><span class="keyword"><ruby>藤原道長<rp>(</rp><rt>ふじわらのみちなが</rt><rp>)</rp></ruby></span></strong>は「この世をば わが世とぞ思ふ <ruby>望月<rp>(</rp><rt>もちづき</rt><rp>)</rp></ruby>の 欠けたることも なしと思へば」と<ruby>詠<rp>(</rp><rt>よ</rt><rp>)</rp></ruby>んだほどの<ruby>栄華<rp>(</rp><rt>えいが</rt><rp>)</rp></ruby>を<ruby>誇<rp>(</rp><rt>ほこ</rt><rp>)</rp></ruby>ったんだ',
     },
     {
+      type: 'image',
+      src: '/images/history/grade1/3-ancient-state/sekkan-system-diagram.png',
+      alt: '摂関政治のしくみ',
+      caption: '藤原氏が娘を天皇に嫁がせ、摂政・関白として実権を握る',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">摂関政治</span>：<span class="keyword">外戚</span>として<span class="keyword">摂政</span>（幼い天皇に代わる）・<span class="keyword">関白</span>（天皇を補佐）の地位で実権を握った！',
     },

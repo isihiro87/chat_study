@@ -78,6 +78,12 @@ export const taikaReformChat: HistoryChat = {
       text: '天皇中心の国づくりに大きく動いた出来事なんですね！',
     },
     {
+      type: 'image',
+      src: '/images/history/grade1/3-ancient-state/taika-reform-diagram.png',
+      alt: '大化の改新',
+      caption: '公地公民・国郡制度・班田収授法への改革',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">大化の改新</span>（645年）：<span class="keyword">中大兄皇子</span>と<span class="keyword">中臣鎌足</span>が蘇我氏を倒し、<span class="keyword">公地・公民</span>で天皇中心の国づくりを目指した！',
     },

@@ -78,6 +78,12 @@ export const kofunEraChat: HistoryChat = {
       text: 'あれは<strong><span class="keyword"><ruby>埴輪<rp>(</rp><rt>はにわ</rt><rp>)</rp></ruby></span></strong>だよ。人や馬、家などの形をした<ruby>焼<rp>(</rp><rt>や</rt><rp>)</rp></ruby>き物で、<strong>古墳</strong>の周りに並べて飾ったんだ。<ruby>死者<rp>(</rp><rt>ししゃ</rt><rp>)</rp></ruby>の<ruby>魂<rp>(</rp><rt>たましい</rt><rp>)</rp></ruby>を守る<ruby>役割<rp>(</rp><rt>やくわり</rt><rp>)</rp></ruby>があったと考えられているよ',
     },
     {
+      type: 'image',
+      src: '/images/history/grade1/2-japanese-origins/keyhole-tomb-diagram.png',
+      alt: '前方後円墳',
+      caption: '鍵穴型の古墳とはにわの配置',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">大和政権</span>の<span class="keyword">大王</span>が<span class="keyword">前方後円墳</span>を造営。<span class="keyword">大仙古墳</span>は日本最大級、<span class="keyword">埴輪</span>を配置！',
     },
@@ -128,6 +134,12 @@ export const kofunEraChat: HistoryChat = {
       characterId: 'teacher',
       expression: 'explaining',
       text: '5世紀には<strong><span class="keyword"><ruby>倭の五王<rp>(</rp><rt>わのごおう</rt><rp>)</rp></ruby></span></strong>が中国の<ruby>宋<rp>(</rp><rt>そう</rt><rp>)</rp></ruby>に使いを送っているんだ。「<strong><span class="keyword"><ruby>宋書<rp>(</rp><rt>そうしょ</rt><rp>)</rp></ruby></span></strong>」にその記録が残っているよ。<ruby>朝鮮半島<rp>(</rp><rt>ちょうせんはんとう</rt><rp>)</rp></ruby>での立場を有利にするためだったんだ',
+    },
+    {
+      type: 'image',
+      src: '/images/history/grade1/2-japanese-origins/yamato-regime-structure.png',
+      alt: '大和政権の構造',
+      caption: '大王を頂点とした氏姓制度と豪族の関係',
     },
     {
       type: 'summary-point',

@@ -50,6 +50,12 @@ export const eastAsiaTradeChat: HistoryChat = {
       text: '3代<ruby>将軍<rp>(</rp><rt>しょうぐん</rt><rp>)</rp></ruby><strong><ruby>足利義満<rp>(</rp><rt>あしかがよしみつ</rt><rp>)</rp></ruby></strong>は<ruby>明<rp>(</rp><rt>みん</rt><rp>)</rp></ruby>と正式な<ruby>貿易<rp>(</rp><rt>ぼうえき</rt><rp>)</rp></ruby>を始めた。<span data-tooltip="海賊のように沿岸を荒らしまわった集団。朝鮮や中国に被害を与えた"><strong><span class="keyword"><ruby>倭寇<rp>(</rp><rt>わこう</rt><rp>)</rp></ruby></span></strong></span>と区別するために<strong><span class="keyword"><ruby>勘合<rp>(</rp><rt>かんごう</rt><rp>)</rp></ruby></span></strong>という合い札を使うので、<strong>日明貿易</strong>（<strong><span class="keyword"><ruby>勘合貿易<rp>(</rp><rt>かんごうぼうえき</rt><rp>)</rp></ruby></span></strong>）と呼ばれているんだ',
     },
     {
+      type: 'image',
+      src: '/images/history/grade1/5-medieval-world/kangou-trade-map.png',
+      alt: '日明貿易の航路',
+      caption: '勘合貿易のルートと琉球の中継貿易',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',
@@ -62,6 +68,12 @@ export const eastAsiaTradeChat: HistoryChat = {
       characterId: 'merchant',
       expression: 'happy',
       text: '一枚の札を二つに割って、日本と明で半分ずつ持つんだ。<ruby>貿易船<rp>(</rp><rt>ぼうえきせん</rt><rp>)</rp></ruby>が来たときにピッタリ合えば正式な船だとわかるしくみだよ',
+    },
+    {
+      type: 'image',
+      src: '/images/history/grade1/5-medieval-world/kangou-tally-system.png',
+      alt: '勘合の仕組み',
+      caption: '割り符を照合して正式な貿易船を区別する',
     },
     {
       type: 'message',

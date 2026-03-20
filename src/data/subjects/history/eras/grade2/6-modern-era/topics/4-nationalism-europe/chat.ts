@@ -98,6 +98,12 @@ export const nationalismEuropeChat: HistoryChat = {
       text: 'プロイセンの<ruby>首相<rp>(</rp><rt>しゅしょう</rt><rp>)</rp></ruby><strong><span class="keyword">ビスマルク</span></strong>が「現在の大問題は<ruby>演説<rp>(</rp><rt>えんぜつ</rt><rp>)</rp></ruby>や多数決ではなく、<ruby>鉄<rp>(</rp><rt>てつ</rt><rp>)</rp></ruby>と<ruby>血<rp>(</rp><rt>ち</rt><rp>)</rp></ruby>によって<ruby>解決<rp>(</rp><rt>かいけつ</rt><rp>)</rp></ruby>される」と言って、<ruby>軍事力<rp>(</rp><rt>ぐんじりょく</rt><rp>)</rp></ruby>でドイツを統一したんだ。「<strong><span class="keyword"><span data-tooltip="鉄（武器）と血（兵士）で国を強くするという意味の呼び名"><ruby>鉄血宰相<rp>(</rp><rt>てっけつさいしょう</rt><rp>)</rp></ruby></span></span></strong>」と呼ばれたよ',
     },
     {
+      type: 'image',
+      src: '/images/history/grade2/6-modern-era/europe-unification-map.png',
+      alt: 'イタリア・ドイツ統一',
+      caption: '分裂状態から統一国家への道のり',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',

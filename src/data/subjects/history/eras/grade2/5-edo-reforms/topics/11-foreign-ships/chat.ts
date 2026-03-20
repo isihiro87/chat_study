@@ -75,6 +75,12 @@ export const foreignShipsChat: HistoryChat = {
       text: '1825年、幕府は<span class="keyword">異国船打払令</span>を出し、外国船を問答無用で追い払う強硬策をとった！',
     },
     {
+      type: 'image',
+      src: '/images/history/grade2/5-edo-reforms/foreign-ships-timeline.png',
+      alt: '外国船の来航',
+      caption: 'ラクスマン→レザノフ→フェートン号→モリソン号の来航',
+    },
+    {
       type: 'quiz',
       question: '1825年に幕府が出した、外国船を追い払う命令は？',
       options: [
