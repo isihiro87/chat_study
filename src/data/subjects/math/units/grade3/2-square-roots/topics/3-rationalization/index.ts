@@ -63,13 +63,6 @@ export const rationalization: Topic = {
         difficulty: 'basic',
       },
       {
-        id: 'math-g3-rationalization-fc2',
-        front: '分母分子に分母と同じ $\\sqrt{a}$ をかける',
-        back: '有理化の基本手順は？',
-        explanation: '$\\frac{b}{\\sqrt{a}} = \\frac{b \\times \\sqrt{a}}{\\sqrt{a} \\times \\sqrt{a}} = \\frac{b\\sqrt{a}}{a}$',
-        difficulty: 'basic',
-      },
-      {
         id: 'math-g3-rationalization-fc3',
         front: '$a$',
         back: '$\\sqrt{a} \\times \\sqrt{a}$ はいくつ？',
@@ -98,31 +91,10 @@ export const rationalization: Topic = {
         difficulty: 'basic',
       },
       {
-        id: 'math-g3-rationalization-fc7',
-        front: '有理化後の分子の係数と分母の数に公約数があるとき',
-        back: '有理化したあと約分が必要なのはどんなとき？',
-        explanation: '例: $\\frac{6}{\\sqrt{2}} = \\frac{6\\sqrt{2}}{2} = 3\\sqrt{2}$（6と2を2で約分）',
-        difficulty: 'standard',
-      },
-      {
         id: 'math-g3-rationalization-fc8',
         front: '$\\sqrt{2}$',
         back: '$\\frac{4}{\\sqrt{8}}$ を有理化するとき、まず何をする？',
         explanation: '先に分母を簡単にする。$\\sqrt{8} = 2\\sqrt{2}$ なので $\\frac{4}{2\\sqrt{2}} = \\frac{2}{\\sqrt{2}}$。その後 $\\frac{2\\sqrt{2}}{2} = \\sqrt{2}$',
-        difficulty: 'standard',
-      },
-      {
-        id: 'math-g3-rationalization-fc9',
-        front: '数が小さくなり計算ミスが減るから',
-        back: '分母を先に簡単にするのはなぜ有利？',
-        explanation: '分母の係数が大きいと有理化後の数も大きくなり約分が面倒。例: $\\sqrt{12} = 2\\sqrt{3}$ に直してから有理化すると楽',
-        difficulty: 'standard',
-      },
-      {
-        id: 'math-g3-rationalization-fc10',
-        front: '分数にまとめてからルートの中を割り算、または有理化して整理',
-        back: '$\\sqrt{}$ をふくむ式の除法 $a\\sqrt{b} \\div \\sqrt{c}$ の手順は？',
-        explanation: '① 分数にまとめる: $\\frac{a\\sqrt{b}}{\\sqrt{c}}$ ② 分子のルートと分母のルートを計算: $a\\sqrt{\\frac{b}{c}}$ または有理化して整理',
         difficulty: 'standard',
       },
       {
@@ -161,25 +133,11 @@ export const rationalization: Topic = {
         difficulty: 'standard',
       },
       {
-        id: 'math-g3-rationalization-fc16',
-        front: '分母を整数にすると代入・計算が簡単になるから',
-        back: '式の値を求めるときに有理化が便利な理由は？',
-        explanation: '分母にルートがあると数値代入後に割り算が複雑。例: $\\frac{1}{\\sqrt{3}} = \\frac{\\sqrt{3}}{3}$ にしてから代入する',
-        difficulty: 'standard',
-      },
-      {
         id: 'math-g3-rationalization-fc17',
         front: '$0.577$',
         back: '$\\sqrt{3} = 1.732$ のとき $\\frac{\\sqrt{3}}{3}$ の値は？',
         explanation: '$\\frac{\\sqrt{3}}{3} = \\frac{1.732}{3} = 0.577$。これは $\\frac{1}{\\sqrt{3}}$ と同じ値',
         difficulty: 'standard',
-      },
-      {
-        id: 'math-g3-rationalization-fc18',
-        front: '分母分子に同じルートをかける',
-        back: '有理化で最も大切なルールをひとことで言うと？',
-        explanation: 'かけ算なので分数の値は変わらず、分母のルートだけ消える',
-        difficulty: 'basic',
       },
       // === 新規フラッシュカード（fc19〜fc40） ===
       {

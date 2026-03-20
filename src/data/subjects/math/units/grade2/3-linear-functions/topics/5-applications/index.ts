@@ -18,7 +18,7 @@ export const linearFuncApplications: Topic = {
             'グラフの傾き＝速さ（傾きが大きいほど速い）',
             'グラフが水平（横に一直線）→ 止まっている',
             '右下がりのグラフ → 引き返している（出発地に戻る方向）',
-            '傾きが途中で変わる → 速さが変わった',
+            '傾きが途中で変わる → 速さが変わった'
           ],
         },
         {
@@ -29,7 +29,7 @@ export const linearFuncApplications: Topic = {
             '2つのグラフの交点 ＝ 2人が出会う（同じ時刻に同じ場所）',
             '交点の x 座標 → 出会う時刻',
             '交点の y 座標 → 出会う場所（出発地からの距離）',
-            '2つの式を連立方程式として解けば交点が求まる',
+            '2つの式を連立方程式として解けば交点が求まる'
           ],
         },
         {
@@ -40,7 +40,7 @@ export const linearFuncApplications: Topic = {
             '水を入れる → 傾きが正（毎分の増加量が傾き）',
             '水を抜く → 傾きが負（毎分の減少量の絶対値が傾き）',
             '最初の水量が切片 b になる',
-            'y = 0 になるとき → 水そうが空になる時刻',
+            'y = 0 になるとき → 水そうが空になる時刻'
           ],
         },
         {
@@ -51,7 +51,7 @@ export const linearFuncApplications: Topic = {
             '点がどの辺にいるかで変域を分ける',
             '各変域で底辺と高さを x の式で表す',
             '面積 = 1/2 × 底辺 × 高さ で y を求める',
-            'グラフは折れ線になる（変域ごとに傾きが違う）',
+            'グラフは折れ線になる（変域ごとに傾きが違う）'
           ],
         },
         {
@@ -62,9 +62,9 @@ export const linearFuncApplications: Topic = {
             'グラフの2点を読み取る → 傾きを計算',
             '傾きと通る1点から y = ax + b を求める',
             '変域の境目で値がつながるか確認する',
-            '交点は連立方程式を解いて求める',
+            '交点は連立方程式を解いて求める'
           ],
-        },
+        }
       ],
     },
     videos: [],
@@ -159,28 +159,17 @@ export const linearFuncApplications: Topic = {
         front: '面積は一定（変化しない）。底辺も高さも変わらないから', back: '点 P が底辺に平行な辺の上を動くとき、三角形の面積はどうなる？',
         difficulty: 'standard',
       },
-      { id: 'math-g2-lfapps-fc19', front: '連立方程式として解く', explanation: '2つの一次関数の $y$ を等しいとおいて $x$ を求める', back: '2つのグラフの交点をどうやって求める？', difficulty: 'standard' },
       { id: 'math-g2-lfapps-fc20', front: '速さが変わったことを表す', explanation: '傾きが変わる＝速さが変化した', back: '距離と時間のグラフで折れ線になる部分は？', difficulty: 'standard' },
-      { id: 'math-g2-lfapps-fc21', front: '出発地点の距離が切片、速さが傾き', explanation: '$y = ax + b$ の $a$ が速さ、$b$ が初期位置', back: '移動のグラフの式を立てるには？', difficulty: 'standard' },
       { id: 'math-g2-lfapps-fc22', front: '$\\dfrac{\\text{距離}}{\\text{時間}}$ で求める', explanation: 'グラフの傾きと同じ', back: 'グラフから速さを求めるには？', difficulty: 'standard' },
-      { id: 'math-g2-lfapps-fc23', front: '向かい合い→速さの和、追いかけ→速さの差', explanation: '出会いは速さを足し、追いかけは速さを引く', back: '出会う問題と追いかける問題の違いは？', difficulty: 'advanced' },
       { id: 'math-g2-lfapps-fc24', front: '$y = 0$ になる $x$ の値', explanation: '式に $y = 0$ を代入して $x$ を求める', back: '水そうが空になる時刻は？', difficulty: 'advanced' },
-      { id: 'math-g2-lfapps-fc25', front: '辺を曲がるところで傾きが変わる', explanation: '点がどの辺にいるかで式が変わるため', back: '動く点の問題でグラフが折れ線になる理由は？', difficulty: 'advanced' },
-      { id: 'math-g2-lfapps-fc26', front: '底辺に平行な辺の上を動くとき', explanation: '底辺も高さも変わらないので面積は一定', back: '動く点の問題で面積が変化しない区間は？', difficulty: 'advanced' },
-      { id: 'math-g2-lfapps-fc27', front: '2点を読み取り傾きと切片を求める', explanation: 'グラフの特徴的な2点から式を立てる', back: '実際のグラフから式を立てる手順は？', difficulty: 'advanced' },
       { id: 'math-g2-lfapps-fc28', front: '$y$ の値がつながるか確認', explanation: '各変域の境目で両方の式に代入して一致するかチェック', back: '場合分けの式で確認すべきことは？', difficulty: 'advanced' },
-      { id: 'math-g2-lfapps-fc29', front: '出発地点の距離が切片、速さが傾き', back: '移動のグラフの式を立てるには？', explanation: '$y = ax + b$ の $a$ が速さ、$b$ が初期位置。', difficulty: 'basic' },
       { id: 'math-g2-lfapps-fc30', front: '$\\dfrac{\\text{距離}}{\\text{時間}}$ で求める', back: 'グラフから速さを求めるには？', explanation: 'グラフの傾きと同じ。', difficulty: 'basic' },
-      { id: 'math-g2-lfapps-fc31', front: '向かい合い→速さの和、追いかけ→速さの差', back: '出会う問題と追いかける問題の違いは？', explanation: '出会いは速さを足す。', difficulty: 'standard' },
       { id: 'math-g2-lfapps-fc32', front: '$y = 0$ になる $x$ の値', back: '水そうが空になる時刻は？', explanation: '式に $y = 0$ を代入して $x$ を求める。', difficulty: 'standard' },
-      { id: 'math-g2-lfapps-fc33', front: '辺を曲がるところで傾きが変わる', back: '動く点の問題でグラフが折れ線になる理由は？', explanation: '各辺で式が変わるため。', difficulty: 'standard' },
-      { id: 'math-g2-lfapps-fc34', front: '底辺に平行な辺の上を動くとき', back: '動く点の問題で面積が変化しない区間は？', explanation: '底辺も高さも変わらない。', difficulty: 'advanced' },
       { id: 'math-g2-lfapps-fc35', front: '$2$ 点を読み取り傾きと切片を求める', back: '実際のグラフから式を立てる手順は？', explanation: 'グラフの特徴的な $2$ 点を使う。', difficulty: 'standard' },
       { id: 'math-g2-lfapps-fc36', front: '$2$ つのグラフの交点を求める', back: '$2$ 人が出会う時刻の求め方は？', explanation: '連立方程式を解く。', difficulty: 'standard' },
-      { id: 'math-g2-lfapps-fc37', front: '各区間で式を立て、変域を明記する', back: '場合分けが必要な問題の解き方は？', explanation: '変域の境目で値がつながるか確認。', difficulty: 'standard' },
       { id: 'math-g2-lfapps-fc38', front: '料金が区間ごとに異なるため', back: '料金問題でグラフが折れ線になる理由は？', explanation: '基本料金＋従量料金のパターンが多い。', difficulty: 'standard' },
       { id: 'math-g2-lfapps-fc39', front: '$y = -2x + 100$（$100$ L から毎分 $2$ L ずつ減る）', back: '初め $100$ L の水を毎分 $2$ L ずつ抜く。$x$ 分後の水量 $y$ L の式は？', explanation: '傾き $= -2$、切片 $= 100$。', difficulty: 'standard' },
-      { id: 'math-g2-lfapps-fc40', front: '$50$ 分後', back: '初め $100$ L の水を毎分 $2$ L ずつ抜く。空になるのは何分後？', explanation: '$0 = -2x + 100$、$x = 50$。', difficulty: 'advanced' },
+      { id: 'math-g2-lfapps-fc40', front: '$50$ 分後', back: '初め $100$ L の水を毎分 $2$ L ずつ抜く。空になるのは何分後？', explanation: '$0 = -2x + 100$、$x = 50$。', difficulty: 'advanced' }
     ],
     quiz: {
       questions: [
@@ -192,7 +181,7 @@ export const linearFuncApplications: Topic = {
             '止まっている（移動していない）',
             '速さが最大になっている',
             '一定の速さで進んでいる',
-            '引き返している',
+            '引き返している'
           ],
           correctIndex: 0,
           explanation:
@@ -207,7 +196,7 @@ export const linearFuncApplications: Topic = {
             '$y = 60x$',
             '$y = 60x - 300$',
             '$y = 60x + 300$',
-            '$y = 300x + 60$',
+            '$y = 300x + 60$'
           ],
           correctIndex: 2,
           explanation:
@@ -222,7 +211,7 @@ export const linearFuncApplications: Topic = {
             '$10$ 分後',
             '$15$ 分後',
             '$12$ 分後',
-            '$20$ 分後',
+            '$20$ 分後'
           ],
           correctIndex: 1,
           explanation:
@@ -246,7 +235,7 @@ export const linearFuncApplications: Topic = {
             '$20$ 分後',
             '$50$ 分後',
             '$30$ 分後',
-            '$25$ 分後',
+            '$25$ 分後'
           ],
           correctIndex: 3,
           explanation:
@@ -261,7 +250,7 @@ export const linearFuncApplications: Topic = {
             '$y = 4x$',
             '$y = 3x$',
             '$y = 2x$',
-            '$y = 6x$',
+            '$y = 6x$'
           ],
           correctIndex: 2,
           explanation:
@@ -276,7 +265,7 @@ export const linearFuncApplications: Topic = {
             '点の速さが変わるから',
             '変域ごとに式が変わるから',
             '三角形の形が変わらないから',
-            'グラフが曲線になるから',
+            'グラフが曲線になるから'
           ],
           correctIndex: 1,
           explanation:
@@ -301,7 +290,7 @@ export const linearFuncApplications: Topic = {
             '$15$ 分',
             '$30$ 分',
             '$25$ 分',
-            '$20$ 分',
+            '$20$ 分'
           ],
           correctIndex: 3,
           explanation:
@@ -316,7 +305,7 @@ export const linearFuncApplications: Topic = {
             '$6$ 分後',
             '$8$ 分後',
             '$7$ 分後',
-            '$13$ 分後',
+            '$13$ 分後'
           ],
           correctIndex: 1,
           explanation:
@@ -466,7 +455,7 @@ export const linearFuncApplications: Topic = {
           correctIndex: 1,
           explanation: '変域の境目で $y$ の値がつながる（連続する）はずだよ。',
           difficulty: 'advanced',
-        },
+        }
       ],
     },
     examples: {
@@ -499,7 +488,7 @@ export const linearFuncApplications: Topic = {
               content:
                 '$600 + 800 = 1400$ m。家から図書館までは 1400m だ！',
               highlight: '家から図書館まで $1400$ m',
-            },
+            }
           ],
           answer: '家から図書館までの距離は $1400$ m',
         },
@@ -525,7 +514,7 @@ export const linearFuncApplications: Topic = {
               content:
                 '$y = 70 \\times 15 = 1050$。A 地点から 1050m の場所で出会うよ！',
               highlight: '15 分後、A から $1050$ m の地点',
-            },
+            }
           ],
           answer:
             '出発から $15$ 分後に、A 地点から $1050$ m の地点で出会う',
@@ -552,7 +541,7 @@ export const linearFuncApplications: Topic = {
               content:
                 '$3x = 45 \\rightarrow x = 15$。15 分後に満水になるよ！',
               highlight: '$x = 15$（15 分後）',
-            },
+            }
           ],
           answer: '$y = 3x + 15$、$15$ 分後に満水になる',
         },
@@ -584,7 +573,7 @@ export const linearFuncApplications: Topic = {
               content:
                 '$x = 4$ のとき $y = 20$。底辺 $8$ cm、高さ $5$ cm の三角形の面積 $= \\dfrac{1}{2} \\times 8 \\times 5 = 20$。合ってるね！',
               highlight: '$x = 4$ で $y = 20$ ✓',
-            },
+            }
           ],
           answer:
             '$y = 5x$（$0 \\leqq x \\leqq 4$）',
@@ -611,10 +600,10 @@ export const linearFuncApplications: Topic = {
               content:
                 '$2000 \\div 100 = 20$。お兄さんが出発してから 20 分後に追いつくよ！',
               highlight: '$20$ 分後',
-            },
+            }
           ],
           answer: 'お兄さんが出発してから $20$ 分後に追いつく',
-        },
+        }
       ],
     },
     chatId: 'math-g2-linear-func-apps',

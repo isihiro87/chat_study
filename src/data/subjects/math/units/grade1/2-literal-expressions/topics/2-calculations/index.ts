@@ -61,48 +61,6 @@ export const literalCalc: Topic = {
         difficulty: 'basic',
       },
       {
-        id: 'math-g1-lit-calc-fc7',
-        front: 'そのまま外す（符号は変わらない）', back: 'かっこの前が + のとき、\nかっこの外し方は？',
-        explanation: '$+(3x - 2) = 3x - 2$',
-        difficulty: 'basic',
-      },
-      {
-        id: 'math-g1-lit-calc-fc8',
-        front: 'かっこの中の各項の符号をすべて変える', back: 'かっこの前が - のとき、\nかっこの外し方は？',
-        explanation: '$-(3x - 2) = -3x + 2$',
-        difficulty: 'basic',
-      },
-      {
-        id: 'math-g1-lit-calc-fc9',
-        front: 'かっこを外して同類項をまとめる', back: '式の加法のやり方は？',
-        explanation: '前が+だからそのまま外す。\n$(3x + 2) + (5x - 4) = 3x + 2 + 5x - 4 = 8x - 2$',
-        difficulty: 'basic',
-      },
-      {
-        id: 'math-g1-lit-calc-fc10',
-        front: '引く式のかっこを外すとき符号を全部変えて、同類項をまとめる', back: '式の減法のやり方は？',
-        explanation: '$(5a + 3) - (2a - 1) = 5a + 3 - 2a + 1 = 3a + 4$',
-        difficulty: 'basic',
-      },
-      {
-        id: 'math-g1-lit-calc-fc11',
-        front: '係数に数をかける。文字はそのまま。', back: '文字式 $\\times$ 数 のルールは？',
-        explanation: '$4x \\times 6 = 24x$\n$(-3a) \\times 5 = -15a$',
-        difficulty: 'basic',
-      },
-      {
-        id: 'math-g1-lit-calc-fc12',
-        front: '係数を数で割る。文字はそのまま。', back: '文字式 $\\div$ 数 のルールは？',
-        explanation: '$18a \\div 3 = 6a$\n$(-42x) \\div (-6) = 7x$',
-        difficulty: 'basic',
-      },
-      {
-        id: 'math-g1-lit-calc-fc14',
-        front: '分母と整数を約分してから、分子にかける', back: '分数の式に整数をかけるには？',
-        explanation: '$\\dfrac{3x + 1}{2} \\times 4 = 2(3x + 1) = 6x + 2$',
-        difficulty: 'standard',
-      },
-      {
         id: 'math-g1-lit-calc-fc15',
         front: '係数は $1$', back: '$x$ の係数が書かれていないとき、\n係数はいくつ？',
         explanation: '$x = 1 \\cdot x$ だから。\n同様に $-x$ の係数は $-1$。',

@@ -17,7 +17,7 @@ export const addSub: Topic = {
           keyPoints: [
             '$(+3) + (+5) = +(3 + 5) = +8$',
             '$(-3) + (-5) = -(3 + 5) = -8$',
-            'ルール: 絶対値の和に共通の符号をつける',
+            'ルール: 絶対値の和に共通の符号をつける'
           ],
         },
         {
@@ -27,7 +27,7 @@ export const addSub: Topic = {
           keyPoints: [
             '$(+7) + (-3) = +(7 - 3) = +4$（$7 > 3$ だから正）',
             '$(+3) + (-7) = -(7 - 3) = -4$（$7 > 3$ だから負）',
-            'ルール: 絶対値の大きい方から小さい方をひき、大きい方の符号をつける',
+            'ルール: 絶対値の大きい方から小さい方をひき、大きい方の符号をつける'
           ],
         },
         {
@@ -37,7 +37,7 @@ export const addSub: Topic = {
           keyPoints: [
             '$(+5) - (+3) = (+5) + (-3) = +2$',
             '$(+5) - (-3) = (+5) + (+3) = +8$',
-            '$(-2) - (+4) = (-2) + (-4) = -6$',
+            '$(-2) - (+4) = (-2) + (-4) = -6$'
           ],
         },
         {
@@ -47,41 +47,30 @@ export const addSub: Topic = {
           keyPoints: [
             '$5 - 3 + 2$ の項は $+5, -3, +2$',
             '加法だけの式: $(+5) + (-3) + (+2)$',
-            '項を使うと、正の項と負の項をまとめて計算できる',
+            '項を使うと、正の項と負の項をまとめて計算できる'
           ],
-        },
+        }
       ],
     },
     videos: [],
     flashcards: [
       { id: 'math-g1-as-fc1', front: '加法（かほう）', explanation: 'たし算の数学用語。', back: 'たし算のことを数学では何という？', difficulty: 'basic' },
       { id: 'math-g1-as-fc2', front: '減法（げんぽう）', explanation: 'ひき算の数学用語。', back: 'ひき算のことを数学では何という？', difficulty: 'basic' },
-      { id: 'math-g1-as-fc3', front: '絶対値の和に共通の符号をつける', explanation: '例: $(-3)+(-5) = -(3+5) = -8$', back: '同符号の加法のルールは？', difficulty: 'basic' },
-      { id: 'math-g1-as-fc4', front: '絶対値の差に、絶対値が大きい方の符号をつける', explanation: '例: $(+7)+(-3) = +(7-3) = +4$', back: '異符号の加法のルールは？', difficulty: 'basic' },
       { id: 'math-g1-as-fc5', front: '$+8$', explanation: '同符号（正＋正）→ 絶対値の和 $3+5=8$ に正の符号。', back: '$(+3)+(+5)$ の計算方法は？', difficulty: 'basic' },
       { id: 'math-g1-as-fc6', front: '$-11$', explanation: '同符号（負＋負）→ 絶対値の和 $4+7=11$ に負の符号。', back: '$(-4)+(-7)$ の計算方法は？', difficulty: 'basic' },
       { id: 'math-g1-as-fc7', front: '$+4$', explanation: '異符号 → 絶対値の差 $7-3=4$ に大きい方（正）の符号。', back: '$(+7)+(-3)$ の計算方法は？', difficulty: 'basic' },
-      { id: 'math-g1-as-fc8', front: 'ひく数の符号を変えて足す', explanation: '$a-b = a+(-b)$。減法は加法に変換して計算する。', back: '減法を加法に変換する方法は？', difficulty: 'basic' },
       { id: 'math-g1-as-fc9', front: '$(+5)+(+3) = +8$', explanation: '$-(-3)$ を $+(+3)$ に変換する。', back: '$(+5)-(-3)$ を加法に直すと？', difficulty: 'basic' },
       { id: 'math-g1-as-fc10', front: '項（こう）', explanation: '加法だけの式に直したとき、各数のこと。', back: '加法だけの式に直したとき、各数を何と呼ぶ？', difficulty: 'basic' },
       { id: 'math-g1-as-fc11', front: '$+7$ と $+3$', explanation: '加法だけの式: $(+7)+(-12)+(+3)$。正の項は $+7$ と $+3$。', back: '$7-12+3$ の正の項は？', difficulty: 'basic' },
       { id: 'math-g1-as-fc12', front: '$-12$', explanation: '加法だけの式: $(+7)+(-12)+(+3)$。負の項は $-12$ だけ。', back: '$7-12+3$ の負の項は？', difficulty: 'basic' },
       { id: 'math-g1-as-fc13', front: '$a + b = b + a$', explanation: '順番を入れかえても結果は同じ。', back: '加法の交換法則とは？', difficulty: 'standard' },
       { id: 'math-g1-as-fc14', front: '$(a+b)+c = a+(b+c)$', explanation: '組み合わせを変えても結果は同じ。', back: '加法の結合法則とは？', difficulty: 'standard' },
-      { id: 'math-g1-as-fc15', front: '正の項どうし、負の項どうしをそれぞれ足してから、最後に合わせる', explanation: '例: $3-8+5 = (3+5)+(-8) = 8-8 = 0$', back: '正の項と負の項をまとめて計算するコツは？', difficulty: 'standard' },
       { id: 'math-g1-as-fc16', front: '値は変わらない', explanation: '$(+a) + 0 = a$。$0$ は加法の単位元。', back: '$0$ を足すとどうなる？', difficulty: 'standard' },
       { id: 'math-g1-as-fc17', front: '$0$ になる', explanation: '$(+5) + (-5) = 0$。絶対値が同じで符号が逆の2数の和は $0$。', back: '反数どうしを足すと？', difficulty: 'standard' },
       { id: 'math-g1-as-fc18', front: '和（わ）', explanation: '例: $3 + 5 = 8$ → $8$ が和。', back: 'たし算の結果を何という？', difficulty: 'standard' },
       { id: 'math-g1-as-fc19', front: '差（さ）', explanation: '例: $8 - 3 = 5$ → $5$ が差。', back: 'ひき算の結果を何という？', difficulty: 'standard' },
-      { id: 'math-g1-as-fc20', front: '通分してから加減する', explanation: '$(-\\frac{1}{3}) + (+\\frac{1}{6}) = -\\frac{2}{6} + \\frac{1}{6} = -\\frac{1}{6}$', back: '分数の正負の数の加減のポイントは？', difficulty: 'standard' },
-      { id: 'math-g1-as-fc21', front: '整数と同じルールで計算する', explanation: '$(-1.5) + (+2.3) = +(2.3 - 1.5) = +0.8$', back: '小数の正負の加法のやり方は？', difficulty: 'standard' },
-      { id: 'math-g1-as-fc22', front: '反数のペアを探す', explanation: '$(+50)+(-50)=0$ のようにまとめると計算が楽になる。', back: '計算を工夫する方法は？', difficulty: 'standard' },
-      { id: 'math-g1-as-fc23', front: '引く数の符号を変えて足す', explanation: '$(-7)-(-3)=(-7)+(+3)=-4$。マイナスを引くとプラスになる。', back: '負の数を引くとは？', difficulty: 'advanced' },
       { id: 'math-g1-as-fc24', front: '符号を反対にする操作', explanation: '$-(+5) = -5$、$-(-5) = +5$。', back: '「符号を変える」とは？', difficulty: 'advanced' },
-      { id: 'math-g1-as-fc25', front: '$+7$', explanation: '$0 - (-7) = 0 + 7 = +7$。マイナスを引くとプラスになる。', back: '$0$ から負の数を引くと？', difficulty: 'advanced' },
-      { id: 'math-g1-as-fc26', front: '正の項を先にまとめ、負の項を後にまとめる', explanation: 'それぞれの和を求めてから合わせると計算しやすい。', back: '多くの項がある式を整理するコツは？', difficulty: 'advanced' },
-      { id: 'math-g1-as-fc27', front: '正の項の和と負の項の和を別々に求め、最後に合わせる', explanation: '$3-8+5-2+7 = (3+5+7)+(-8-2) = 15-10 = 5$', back: '5つ以上の項がある加減の効率的な計算法は？', difficulty: 'advanced' },
-      { id: 'math-g1-as-fc28', front: '正の項の和と負の項の和をそれぞれ求め、最後に加える', explanation: '項が多い式も整理すれば間違いにくくなる。', back: '四つ以上の項がある式の計算手順は？', difficulty: 'advanced' },
+      { id: 'math-g1-as-fc25', front: '$+7$', explanation: '$0 - (-7) = 0 + 7 = +7$。マイナスを引くとプラスになる。', back: '$0$ から負の数を引くと？', difficulty: 'advanced' }
     ],
     quiz: {
       questions: [
@@ -110,7 +99,7 @@ export const addSub: Topic = {
             '$(+8) + (-5)$',
             '$(-8) + (+5)$',
             '$(+8) + (+5)$',
-            '$(-8) + (-5)$',
+            '$(-8) + (-5)$'
           ],
           correctIndex: 2,
           explanation:
@@ -133,7 +122,7 @@ export const addSub: Topic = {
             '$+7, +12, +3$',
             '$+7, -12, -3$',
             '$-7, +12, -3$',
-            '$+7, -12, +3$',
+            '$+7, -12, +3$'
           ],
           correctIndex: 3,
           explanation:
@@ -328,7 +317,7 @@ export const addSub: Topic = {
           correctIndex: 0,
           explanation: '加法の結合法則は $(a+b)+c = a+(b+c)$。\n組み合わせを変えても和は同じだよ。',
           difficulty: 'advanced',
-        },
+        }
       ],
     },
     examples: {
@@ -354,7 +343,7 @@ export const addSub: Topic = {
               content:
                 '絶対値が大きいのは $-8$（絶対値 $8$）だから、符号は負。答えは $-5$ だよ。',
               highlight: '$(-8) + (+3) = -5$',
-            },
+            }
           ],
           answer: '$-5$',
         },
@@ -373,7 +362,7 @@ export const addSub: Topic = {
               content:
                 '正＋正だから、絶対値の和 $4 + 6 = 10$ に正の符号をつけて $+10$ だよ。',
               highlight: '$(+4) + (+6) = +10$',
-            },
+            }
           ],
           answer: '$+10$',
         },
@@ -399,7 +388,7 @@ export const addSub: Topic = {
               content:
                 '$(+9) + (-8) = +(9 - 8) = +1$\n異符号の加法で、絶対値が大きい正の符号をつけるよ。',
               highlight: '$(-5) + (+9) + (-3) = +1$',
-            },
+            }
           ],
           answer: '$+1$',
         },
@@ -419,7 +408,7 @@ export const addSub: Topic = {
               content:
                 '絶対値の差: $\\frac{5}{6} - \\frac{4}{6} = \\frac{1}{6}$\n絶対値が大きいのは $+\\frac{5}{6}$（正）だから正の符号。',
               highlight: '$\\left(-\\frac{2}{3}\\right) + \\left(+\\frac{5}{6}\\right) = +\\frac{1}{6}$',
-            },
+            }
           ],
           answer: '$+\\frac{1}{6}$',
         },
@@ -445,10 +434,10 @@ export const addSub: Topic = {
               content:
                 '$(+16) + (-19) = -(19 - 16) = -3$',
               highlight: '$-7 + 14 - 3 + 2 - 9 = -3$',
-            },
+            }
           ],
           answer: '$-3$',
-        },
+        }
       ],
     },
     chatId: 'math-g1-add-sub',

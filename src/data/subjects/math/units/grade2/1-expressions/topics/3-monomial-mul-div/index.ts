@@ -17,7 +17,7 @@ export const monomialMulDiv: Topic = {
           keyPoints: [
             '係数どうしをかける（例: 3 × 5 = 15）',
             '同じ文字は指数を足す（例: $x^2 \\times x^3 = x^5$）',
-            '例: $3x^2 \\times 5x^3 = 15x^5$',
+            '例: $3x^2 \\times 5x^3 = 15x^5$'
           ],
         },
         {
@@ -28,7 +28,7 @@ export const monomialMulDiv: Topic = {
             '$(ab)^n = a^n b^n$（それぞれの因数を $n$ 乗する）',
             '$(-3x)^2 = (-3)^2 \\times x^2 = 9x^2$（偶数乗で正）',
             '$(-2a)^3 = (-2)^3 \\times a^3 = -8a^3$（奇数乗で負）',
-            '$(-a)^2 = a^2$（正）と $-a^2 = -(a^2)$（負）は全く違う！',
+            '$(-a)^2 = a^2$（正）と $-a^2 = -(a^2)$（負）は全く違う！'
           ],
         },
         {
@@ -38,7 +38,7 @@ export const monomialMulDiv: Topic = {
           keyPoints: [
             '割り算 → 分数の形にする（例: $6x^3 \\div 2x = \\frac{6x^3}{2x}$）',
             '係数を約分する（例: $\\frac{6}{2} = 3$）',
-            '同じ文字は指数を引く（例: $\\frac{x^3}{x} = x^2$）',
+            '同じ文字は指数を引く（例: $\\frac{x^3}{x} = x^2$）'
           ],
         },
         {
@@ -48,7 +48,7 @@ export const monomialMulDiv: Topic = {
           keyPoints: [
             '$a \\div \\frac{b}{c} = a \\times \\frac{c}{b}$（逆数をかける）',
             '例: $7ab \\div \\frac{1}{3}a = 7ab \\times \\frac{3}{a} = 21b$',
-            '例: $-\\frac{5}{3}x^2 \\div \\frac{5}{9}x = -\\frac{5}{3}x^2 \\times \\frac{9}{5x} = -3x$',
+            '例: $-\\frac{5}{3}x^2 \\div \\frac{5}{9}x = -\\frac{5}{3}x^2 \\times \\frac{9}{5x} = -3x$'
           ],
         },
         {
@@ -58,7 +58,7 @@ export const monomialMulDiv: Topic = {
           keyPoints: [
             '$A \\times B \\div C = \\frac{A \\times B}{C}$ の形にまとめる',
             '$A \\div B \\div C = \\frac{A}{B \\times C}$ の形にまとめる',
-            '例: $(-6xy) \\times 8x \\div (-2y) = \\frac{-48x^2y}{-2y} = 24x^2$',
+            '例: $(-6xy) \\times 8x \\div (-2y) = \\frac{-48x^2y}{-2y} = 24x^2$'
           ],
         },
         {
@@ -68,25 +68,13 @@ export const monomialMulDiv: Topic = {
           keyPoints: [
             '❌ $x^2 \\times x^3 = x^6$ → ⭕ $x^5$（指数は足す、かけない）',
             '❌ $(-3a)^2 = -9a^2$ → ⭕ $9a^2$（偶数乗は正）',
-            '❌ $12a^2b \\div 4ab = 3a^2$ → ⭕ $3a$（$a^2 \\div a = a$）',
+            '❌ $12a^2b \\div 4ab = 3a^2$ → ⭕ $3a$（$a^2 \\div a = a$）'
           ],
-        },
+        }
       ],
     },
     videos: [],
     flashcards: [
-      {
-        id: 'math-g2-mmd-fc1',
-        front: '係数は係数どうしをかけ、同じ文字は指数を足す', back: '単項式のかけ算の基本ルールは？',
-        explanation: '例: $3x^2 \\times 5x^3 = 15x^5$',
-        difficulty: 'basic',
-      },
-      {
-        id: 'math-g2-mmd-fc2',
-        front: '分数の形にして約分する。係数は普通に割り、同じ文字は指数を引く', back: '単項式の割り算の基本ルールは？',
-        explanation: '例: $\\frac{12a^3}{4a} = 3a^2$',
-        difficulty: 'basic',
-      },
       {
         id: 'math-g2-mmd-fc3',
         front: '$9x^2$', back: '$(-3x)^2$ はいくつ？',
@@ -116,18 +104,6 @@ export const monomialMulDiv: Topic = {
         difficulty: 'basic',
       },
       {
-        id: 'math-g2-mmd-fc8',
-        front: '逆数をかける！', back: '分数係数の単項式で割るときのコツは？',
-        explanation: '$A \\div \\frac{b}{c} = A \\times \\frac{c}{b}$',
-        difficulty: 'basic',
-      },
-      {
-        id: 'math-g2-mmd-fc9',
-        front: '1つの分数にまとめる。かけ算は分子、割り算は分母に置く', back: '3つの式の乗除を計算するコツは？',
-        explanation: '$A \\times B \\div C = \\frac{A \\times B}{C}$',
-        difficulty: 'basic',
-      },
-      {
         id: 'math-g2-mmd-fc10',
         front: '$a^n b^n$（それぞれの因数を $n$ 乗する）', back: '$(ab)^n$ を展開すると？',
         difficulty: 'basic',
@@ -151,12 +127,6 @@ export const monomialMulDiv: Topic = {
         difficulty: 'standard',
       },
       {
-        id: 'math-g2-mmd-fc14',
-        front: '分子と分母で同じ文字の指数が等しいとき', back: '単項式の割り算で文字が消えるのはどんなとき？',
-        explanation: '例: $\\frac{6ab}{3ab} = 2$（$a, b$ ともに消える）',
-        difficulty: 'standard',
-      },
-      {
         id: 'math-g2-mmd-fc15',
         front: '$2y$', back: '$6xy \\div 3x$ の答えは？',
         explanation: '$\\frac{6xy}{3x} = 2y$。$x$ が約分されて $y$ だけ残る',
@@ -167,14 +137,11 @@ export const monomialMulDiv: Topic = {
       { id: 'math-g2-mmd-fc18', front: '$-30a^3b^2$', back: '$(-6a^2b) \\times (5ab)$ の計算は？', explanation: '係数: $(-6) \\times 5 = -30$、文字: $a^2 \\times a = a^3$、$b \\times b = b^2$', difficulty: 'standard' },
       { id: 'math-g2-mmd-fc19', front: '$4x^2y$', back: '$12x^3y^2 \\div 3xy$ の計算は？', explanation: '$\\dfrac{12}{3} = 4$、$\\dfrac{x^3}{x} = x^2$、$\\dfrac{y^2}{y} = y$', difficulty: 'standard' },
       { id: 'math-g2-mmd-fc20', front: '$16a^4$', back: '$(-2a)^4$ の計算は？', explanation: '$(-2)^4 \\times a^4 = 16a^4$。偶数乗で正', difficulty: 'standard' },
-      { id: 'math-g2-mmd-fc21', front: '全体を1つの分数にまとめてから約分する', back: '乗除が混合した計算のコツは？', difficulty: 'standard' },
-      { id: 'math-g2-mmd-fc22', front: '符号を先に決める（同符号→正、異符号→負）→ 絶対値を計算', back: '単項式の乗除で最初にすることは？', difficulty: 'standard' },
       { id: 'math-g2-mmd-fc23', front: '$a^1 = a$', back: '$a^1$ はいくつ？', explanation: '指数 $1$ は書かないのが普通', difficulty: 'advanced' },
       { id: 'math-g2-mmd-fc24', front: '$-27x^3$', back: '$(-3x)^3$ の計算は？', explanation: '$(-3)^3 = -27$、$x^3$。奇数乗で負', difficulty: 'advanced' },
       { id: 'math-g2-mmd-fc25', front: '$9a$', back: '$6a \\div \\dfrac{2}{3}$ の計算は？', explanation: '分数で割る → 逆数をかける。$6a \\times \\dfrac{3}{2} = 9a$', difficulty: 'advanced' },
       { id: 'math-g2-mmd-fc26', front: '$\\dfrac{A \\times B}{C}$', back: '$A \\times B \\div C$ を分数で表すと？', explanation: 'かけ算→分子、わり算→分母に配置', difficulty: 'advanced' },
       { id: 'math-g2-mmd-fc27', front: '$(2a)^2 = 4a^2$ だが $2a^2 = 2 \\times a^2$', back: '$(2a)^2$ と $2a^2$ の違いは？', explanation: 'かっこの有無で意味が違う！', difficulty: 'advanced' },
-      { id: 'math-g2-mmd-fc28', front: '約分後に残った文字と数で答えを構成する', back: '単項式の除法で約分した後の答えの書き方は？', explanation: '例: $\\dfrac{10a^3b}{5a^2} = 2ab$', difficulty: 'advanced' },
       { id: 'math-g2-mmd-fc29', front: '$15xy$', back: '$5x \\times 3y$ を計算すると？', explanation: '係数: $5 \\times 3 = 15$、文字: $xy$。', difficulty: 'basic' },
       { id: 'math-g2-mmd-fc30', front: '$-42ab$', back: '$7a \\times (-6b)$ を計算すると？', explanation: '係数: $7 \\times (-6) = -42$、文字: $ab$。', difficulty: 'basic' },
       { id: 'math-g2-mmd-fc31', front: '$9b^2$', back: '$(-3b) \\times (-3b)$ を計算すると？', explanation: '係数: $(-3)^2 = 9$、文字: $b^2$。', difficulty: 'basic' },
@@ -191,7 +158,7 @@ export const monomialMulDiv: Topic = {
       { id: 'math-g2-mmd-fc42', front: '$(2a)^2 = 4a^2$、$2a^2 = 2 \\times a^2$', back: '$(2a)^2$ と $2a^2$ の違いは？', explanation: 'かっこの有無で結果が異なる。', difficulty: 'advanced' },
       { id: 'math-g2-mmd-fc43', front: '指数を足す（$a^m \\times a^n = a^{m+n}$）', back: '同じ文字の累乗の乗法のルールは？', explanation: '例: $a^2 \\times a^3 = a^5$。', difficulty: 'standard' },
       { id: 'math-g2-mmd-fc44', front: '指数を引く（$a^m \\div a^n = a^{m-n}$）', back: '同じ文字の累乗の除法のルールは？', explanation: '例: $a^5 \\div a^2 = a^3$。', difficulty: 'standard' },
-      { id: 'math-g2-mmd-fc45', front: '$2ab$', back: '$\\dfrac{10a^3b}{5a^2}$ を計算すると？', explanation: '係数: $\\dfrac{10}{5}=2$、文字: $a^{3-2}b = ab$。', difficulty: 'advanced' },
+      { id: 'math-g2-mmd-fc45', front: '$2ab$', back: '$\\dfrac{10a^3b}{5a^2}$ を計算すると？', explanation: '係数: $\\dfrac{10}{5}=2$、文字: $a^{3-2}b = ab$。', difficulty: 'advanced' }
     ],
     quiz: {
       questions: [
@@ -428,7 +395,7 @@ export const monomialMulDiv: Topic = {
           correctIndex: 1,
           explanation: '$\\dfrac{10a^2b^3 \\times 3a}{-5ab} = \\dfrac{30a^3b^3}{-5ab}$\n$= -6a^2b^2$ だよ。',
           difficulty: 'advanced',
-        },
+        }
       ],
     },
     examples: {
@@ -453,7 +420,7 @@ export const monomialMulDiv: Topic = {
               title: 'Step 3: 合わせて完成',
               content: '係数と文字を合わせると $-6a^3b^3$ になるよ。',
               highlight: '$-6a^3b^3$',
-            },
+            }
           ],
           answer: '$-6a^3b^3$',
         },
@@ -472,7 +439,7 @@ export const monomialMulDiv: Topic = {
               content:
                 '係数: $8 \\div 2 = 4$\n$x$ の部分: $x^4 \\div x^2 = x^2$（指数を引く: $4 - 2 = 2$）\n$y$ の部分: $y^2 \\div y = y$（指数を引く: $2 - 1 = 1$）',
               highlight: '$4x^2y$',
-            },
+            }
           ],
           answer: '$4x^2y$',
         },
@@ -491,7 +458,7 @@ export const monomialMulDiv: Topic = {
               content:
                 '$9x^2 \\times (-8x)$ を計算するよ。\n係数: $9 \\times (-8) = -72$\n文字: $x^2 \\times x = x^3$',
               highlight: '$9x^2 \\times (-8x) = -72x^3$',
-            },
+            }
           ],
           answer: '$-72x^3$',
         },
@@ -515,7 +482,7 @@ export const monomialMulDiv: Topic = {
               title: 'Step 3: 答えを書こう',
               content: '合わせて $-15x$ が答えだよ。',
               highlight: '$-15x$',
-            },
+            }
           ],
           answer: '$-15x$',
         },
@@ -540,7 +507,7 @@ export const monomialMulDiv: Topic = {
               content:
                 '$\\frac{-48x^2y}{-2y} = 24x^2$\n係数: $-48 \\div (-2) = 24$\n文字: $y$ が約分されて $x^2$ だけ残るよ。',
               highlight: '$24x^2$',
-            },
+            }
           ],
           answer: '$24x^2$',
         },
@@ -565,10 +532,10 @@ export const monomialMulDiv: Topic = {
               content:
                 '$\\frac{-5a^2b^2}{-3ab} = \\frac{5}{3}ab$\n係数: $-5 \\div (-3) = \\frac{5}{3}$\n文字: $a^2 \\div a = a$, $b^2 \\div b = b$',
               highlight: '$\\frac{5}{3}ab$',
-            },
+            }
           ],
           answer: '$\\frac{5}{3}ab$',
-        },
+        }
       ],
     },
     chatId: 'math-g2-mono-mul-div',

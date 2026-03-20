@@ -18,7 +18,7 @@ export const literalExpressions: Topic = {
             '偶数: $2n$（$n$ は整数）、奇数: $2n + 1$',
             '連続する整数: $n, n + 1, n + 2$',
             '連続する偶数: $2n, 2n + 2, 2n + 4$',
-            '$k$ の倍数: $kn$（$n$ は整数）',
+            '$k$ の倍数: $kn$（$n$ は整数）'
           ],
         },
         {
@@ -28,7 +28,7 @@ export const literalExpressions: Topic = {
           keyPoints: [
             '① 仮定: 数を文字で表す（偶数なら $2n$、奇数なら $2n + 1$）',
             '② 計算: 和・差・積などを計算して整理する',
-            '③ 結論: 「$k \\times$（整数）の形だから $k$ の倍数」のように書く',
+            '③ 結論: 「$k \\times$（整数）の形だから $k$ の倍数」のように書く'
           ],
         },
         {
@@ -39,7 +39,7 @@ export const literalExpressions: Topic = {
             '2けた: $10a + b$（$a$ は1〜9、$b$ は0〜9）',
             '位を入れかえた数: $10b + a$',
             '3けた: $100x + 10y + z$',
-            '和 $(10a + b) + (10b + a) = 11(a + b)$ → 11の倍数',
+            '和 $(10a + b) + (10b + a) = 11(a + b)$ → 11の倍数'
           ],
         },
         {
@@ -50,7 +50,7 @@ export const literalExpressions: Topic = {
             '目的の文字を左辺に残し、それ以外を移項する',
             '例: $a = b + c$ を $b$ について解く → $b = a - c$',
             '例: $S = \\frac{ah}{2}$ を $h$ について解く → 両辺を2倍して $2S = ah$ → $h = \\frac{2S}{a}$',
-            '分数やかけ算がある場合は、両辺に同じ数をかけてから移項する',
+            '分数やかけ算がある場合は、両辺に同じ数をかけてから移項する'
           ],
         },
         {
@@ -60,7 +60,7 @@ export const literalExpressions: Topic = {
           keyPoints: [
             '$V = \\pi r^2 h$ → $h = \\frac{V}{\\pi r^2}$',
             '$S = \\frac{(a+b)h}{2}$ → $h = \\frac{2S}{a+b}$',
-            '$V = \\frac{1}{3}x^2 h$ → $h = \\frac{3V}{x^2}$',
+            '$V = \\frac{1}{3}x^2 h$ → $h = \\frac{3V}{x^2}$'
           ],
         },
         {
@@ -71,9 +71,9 @@ export const literalExpressions: Topic = {
             '連続3整数の和 → $3(n+1)$ → 3の倍数',
             '奇数 + 奇数 → $2(m+n+1)$ → 偶数',
             '2けたの数 + 入れかえた数 → $11(a+b)$ → 11の倍数',
-            '2けたの数 − 入れかえた数 → $9(a-b)$ → 9の倍数',
+            '2けたの数 − 入れかえた数 → $9(a-b)$ → 9の倍数'
           ],
-        },
+        }
       ],
     },
     videos: [],
@@ -136,12 +136,6 @@ export const literalExpressions: Topic = {
         difficulty: 'basic',
       },
       {
-        id: 'math-g2-le-fc12',
-        front: '① 移項する → ② 両辺に同じ数をかける/割る', back: '等式の変形の基本操作は？',
-        explanation: '方程式を解くのと同じ要領！',
-        difficulty: 'basic',
-      },
-      {
         id: 'math-g2-le-fc13',
         front: '$h = \\frac{2S}{a}$', back: '$S = \\frac{1}{2}ah$ を $h$ について解くと？',
         explanation: '両辺を2倍してから $a$ で割る',
@@ -194,7 +188,6 @@ export const literalExpressions: Topic = {
       { id: 'math-g2-le-fc33', front: '$3n$', back: '$3$ の倍数を整数 $n$ で表すと？', explanation: '$3$ に整数をかけた数。', difficulty: 'basic' },
       { id: 'math-g2-le-fc34', front: '偶数（$2m + 2n = 2(m + n)$）', back: '偶数と偶数の和はどんな数？', explanation: '$2 \\times$ 整数の形。', difficulty: 'basic' },
       { id: 'math-g2-le-fc35', front: '偶数（$(2m+1) + (2n+1) = 2(m+n+1)$）', back: '奇数と奇数の和はどんな数？', explanation: '$2 \\times$ 整数の形になる。', difficulty: 'standard' },
-      { id: 'math-g2-le-fc36', front: '① 文字で表す → ② 式を計算する → ③ 結論を書く', back: '文字式を使った証明の3ステップは？', explanation: '整数の性質の証明に使う。', difficulty: 'basic' },
       { id: 'math-g2-le-fc37', front: '$3 \\times$（整数）の形にする', back: '「$3$ の倍数である」ことを式で示すには？', explanation: '因数に $3$ を含むことを示す。', difficulty: 'standard' },
       { id: 'math-g2-le-fc38', front: '$3(n + 1)$', back: '連続する3つの整数の和 $n + (n+1) + (n+2)$ を整理すると？', explanation: '$3n + 3 = 3(n+1)$ で $3$ の倍数。', difficulty: 'standard' },
       { id: 'math-g2-le-fc39', front: '真ん中の数の $3$ 倍', back: '連続する3つの整数の和は真ん中の数の何倍？', explanation: '和 $= 3(n+1)$ で $n+1$ は真ん中。', difficulty: 'standard' },
@@ -203,7 +196,7 @@ export const literalExpressions: Topic = {
       { id: 'math-g2-le-fc42', front: '$h = \\dfrac{2S}{a + b}$', back: '$S = \\dfrac{(a+b)h}{2}$ を $h$ について解くと？', explanation: '$2S = (a+b)h$ → $h = \\dfrac{2S}{a+b}$。', difficulty: 'advanced' },
       { id: 'math-g2-le-fc43', front: '奇数', back: '偶数 $+$ 奇数 $=$ ？', explanation: '$2m + (2n+1) = 2(m+n) + 1$。', difficulty: 'standard' },
       { id: 'math-g2-le-fc44', front: '$100a + 10b + c$', back: '百の位 $a$、十の位 $b$、一の位 $c$ の3桁の自然数を式で表すと？', explanation: '位取り記数法。', difficulty: 'standard' },
-      { id: 'math-g2-le-fc45', front: '$5n$', back: '$5$ の倍数を整数 $n$ で表すと？', explanation: '$5$ に整数をかけた数。', difficulty: 'basic' },
+      { id: 'math-g2-le-fc45', front: '$5n$', back: '$5$ の倍数を整数 $n$ で表すと？', explanation: '$5$ に整数をかけた数。', difficulty: 'basic' }
     ],
     quiz: {
       questions: [
@@ -223,7 +216,7 @@ export const literalExpressions: Topic = {
             '$x = y + 6$',
             '$x = 3y - 6$',
             '$x = \\frac{y + 6}{3}$',
-            '$x = \\frac{y}{3} + 6$',
+            '$x = \\frac{y}{3} + 6$'
           ],
           correctIndex: 2,
           explanation:
@@ -275,7 +268,7 @@ export const literalExpressions: Topic = {
             '$a = \\frac{S}{2b}$',
             '$a = \\frac{Sb}{2}$',
             '$a = 2Sb$',
-            '$a = \\frac{2S}{b}$',
+            '$a = \\frac{2S}{b}$'
           ],
           correctIndex: 3,
           explanation:
@@ -299,7 +292,7 @@ export const literalExpressions: Topic = {
             '$h = \\frac{3V}{x^2}$',
             '$h = \\frac{V}{3x^2}$',
             '$h = \\frac{x^2}{3V}$',
-            '$h = 3Vx^2$',
+            '$h = 3Vx^2$'
           ],
           correctIndex: 0,
           explanation:
@@ -458,7 +451,7 @@ export const literalExpressions: Topic = {
           correctIndex: 3,
           explanation: '$4x = 20 - 5y$ → $x = \\dfrac{20-5y}{4} = 5 - \\dfrac{5y}{4}$。どちらも正しいよ。',
           difficulty: 'advanced',
-        },
+        }
       ],
     },
     examples: {
@@ -484,7 +477,7 @@ export const literalExpressions: Topic = {
               content:
                 '$m + n + 1$ は整数だから、$2(m + n + 1)$ は $2 \\times$ 整数 $=$ 偶数。よって2つの奇数の和は偶数になる。',
               highlight: '$2 \\times$ (整数) $=$ 偶数',
-            },
+            }
           ],
           answer:
             '2つの奇数を $2m+1$, $2n+1$ とすると、和 $= 2(m+n+1)$ となり偶数。',
@@ -504,7 +497,7 @@ export const literalExpressions: Topic = {
               content:
                 '$h$ にかかっている $\\pi r^2$ で両辺を割ると、$h$ だけが残るよ。',
               highlight: '$\\frac{S}{\\pi r^2} = h$',
-            },
+            }
           ],
           answer: '$h = \\frac{S}{\\pi r^2}$',
         },
@@ -530,7 +523,7 @@ export const literalExpressions: Topic = {
               content:
                 '$n + 1$ は整数だから、$6(n + 1)$ は $6 \\times$ (整数) の形。よって連続する3つの偶数の和は6の倍数になる。',
               highlight: '$6 \\times$ (整数) $=$ 6の倍数',
-            },
+            }
           ],
           answer:
             '$2n + (2n+2) + (2n+4) = 6(n+1)$ より6の倍数。',
@@ -557,7 +550,7 @@ export const literalExpressions: Topic = {
               content:
                 '$a, b$ は整数だから $a + b$ も整数。$11(a + b)$ は $11 \\times$ (整数) の形なので11の倍数になる。',
               highlight: '$11 \\times$ (整数) $=$ 11の倍数',
-            },
+            }
           ],
           answer:
             '$(10a+b) + (10b+a) = 11(a+b)$ より11の倍数。',
@@ -578,7 +571,7 @@ export const literalExpressions: Topic = {
               content:
                 '両辺を $2$ で割ると $y = \\frac{8 - 3x}{2}$ になるよ。',
               highlight: '$y = \\frac{8 - 3x}{2}$',
-            },
+            }
           ],
           answer: '$y = \\frac{8 - 3x}{2}$',
         },
@@ -598,10 +591,10 @@ export const literalExpressions: Topic = {
               content:
                 '両辺を $(a + b)$ で割ると $h = \\frac{2S}{a + b}$ になるよ。',
               highlight: '$h = \\frac{2S}{a + b}$',
-            },
+            }
           ],
           answer: '$h = \\frac{2S}{a + b}$',
-        },
+        }
       ],
     },
     chatId: 'math-g2-literal-expr',

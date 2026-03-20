@@ -118,13 +118,6 @@ export const sqrtMulDiv: Topic = {
         difficulty: 'standard',
       },
       {
-        id: 'math-g3-sqrt-mul-div-fc11',
-        front: '① 中身を素因数分解する\n② 整数の2乗（$a^2$）を見つける\n③ $\\sqrt{a^2 \\times b} = a\\sqrt{b}$ で外に出す',
-        back: '√の中を簡単にする手順は？',
-        explanation: '例: $\\sqrt{48} = \\sqrt{16 \\times 3} = 4\\sqrt{3}$',
-        difficulty: 'basic',
-      },
-      {
         id: 'math-g3-sqrt-mul-div-fc12',
         front: '$a\\sqrt{b} = \\sqrt{a^2 \\times b}$',
         back: '$a\\sqrt{b}$ を $\\sqrt{c}$ の形にするには？',
@@ -172,13 +165,6 @@ export const sqrtMulDiv: Topic = {
         back: '$\\sqrt{12} \\times \\sqrt{3}$ を計算すると？',
         explanation: '方法①: $\\sqrt{12} \\times \\sqrt{3} = \\sqrt{36} = 6$\n方法②: $2\\sqrt{3} \\times \\sqrt{3} = 2 \\times 3 = 6$\nどちらの方法でもOK！',
         difficulty: 'basic',
-      },
-      {
-        id: 'math-g3-sqrt-mul-div-fc19',
-        front: '素因数分解で同じ素数が2個以上あれば外に出せる！\n「2乗になる部分」を探そう。',
-        back: '整数の2乗が含まれているかを確認するコツは？',
-        explanation: '$\\sqrt{72}$: $72 = 2^3 \\times 3^2$ → $6^2 = 36$ を外へ → $6\\sqrt{2}$',
-        difficulty: 'standard',
       },
       {
         id: 'math-g3-sqrt-mul-div-fc20',

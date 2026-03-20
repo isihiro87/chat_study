@@ -17,7 +17,7 @@ export const quadFormula: Topic = {
           keyPoints: [
             'x² + bx = (x + b/2)² − (b/2)²',
             '例: x² + 6x = (x+3)² − 9',
-            '(x+m)² = n の形にすれば x+m = ±√n で解ける',
+            '(x+m)² = n の形にすれば x+m = ±√n で解ける'
           ],
         },
         {
@@ -27,7 +27,7 @@ export const quadFormula: Topic = {
           keyPoints: [
             'Step1: x² + px = −q（定数項を移項）',
             'Step2: (x + p/2)² = (p/2)² − q（平方完成）',
-            'Step3: x + p/2 = ±√((p/2)² − q)（平方根をとる）',
+            'Step3: x + p/2 = ±√((p/2)² − q)（平方根をとる）'
           ],
         },
         {
@@ -37,7 +37,7 @@ export const quadFormula: Topic = {
           keyPoints: [
             '解の公式: x = (−b ± √(b²−4ac)) / 2a',
             'b²−4ac（判別式）が正なら解2つ、0なら解1つ、負なら解なし',
-            'どんな二次方程式でもこの公式で解ける！',
+            'どんな二次方程式でもこの公式で解ける！'
           ],
         },
         {
@@ -48,7 +48,7 @@ export const quadFormula: Topic = {
             'b²−4ac > 0 → 異なる2つの実数解',
             'b²−4ac = 0 → 重解（解が1つ）',
             'b²−4ac < 0 → 実数解なし',
-            '重解のとき x = −b / 2a',
+            '重解のとき x = −b / 2a'
           ],
         },
         {
@@ -59,9 +59,9 @@ export const quadFormula: Topic = {
             'b が負のとき −b は正になる（符号ミスに注意）',
             'c が負のとき −4ac は正になる',
             '√の中身は素因数分解して簡単にする（√12 = 2√3）',
-            '分子・分母を約分できるか最後に確認',
+            '分子・分母を約分できるか最後に確認'
           ],
-        },
+        }
       ],
     },
     videos: [],
@@ -131,24 +131,6 @@ export const quadFormula: Topic = {
         difficulty: 'basic',
       },
       {
-        id: 'math-g3-qf-fc13',
-        front: '分子全体と分母で約分する', back: '解の公式の約分のコツ',
-        explanation: '例: (6±2√3)/4 = (3±√3)/2',
-        difficulty: 'standard',
-      },
-      {
-        id: 'math-g3-qf-fc14',
-        front: '①定数項を移項\n②(p/2)²を足して引く\n③(x+p/2)²=nの形にする\n④平方根をとる', back: 'x²+px+q=0 を\n平方完成で解く手順',
-        explanation: '最後にxについて整理して解を求める',
-        difficulty: 'standard',
-      },
-      {
-        id: 'math-g3-qf-fc15',
-        front: '因数分解できない二次方程式のとき', back: '解の公式はいつ使う？',
-        explanation: 'どんな二次方程式にも使える万能公式',
-        difficulty: 'standard',
-      },
-      {
         id: 'math-g3-qf-fc16',
         front: 'x = (−1 ± √17) / 2', back: 'x² + x − 4 = 0 の解',
         explanation: 'a=1, b=1, c=−4 を解の公式に代入',
@@ -197,11 +179,6 @@ export const quadFormula: Topic = {
         difficulty: 'advanced',
       },
       {
-        id: 'math-g3-qf-fc24',
-        front: '因数分解できれば因数分解、できなければ解の公式', back: '二次方程式の解き方の使い分け',
-        difficulty: 'advanced',
-      },
-      {
         id: 'math-g3-qf-fc25',
         front: 'x = (1±√21)/2', back: 'x²−x−5=0 の解',
         explanation: 'a=1, b=−1, c=−5 を解の公式に代入',
@@ -219,23 +196,15 @@ export const quadFormula: Topic = {
         explanation: '√20 = √(4×5) = 2√5、√8 = √(4×2) = 2√2',
         difficulty: 'advanced',
       },
-      {
-        id: 'math-g3-qf-fc28',
-        front: '分子全体を約分する', back: '解の公式で約分するコツ（もう1つ）',
-        explanation: '例: (4±2√3)/2 = 2±√3',
-        difficulty: 'advanced',
-      },
       { id: 'math-g3-qf-fc29', front: '$x = \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$', back: '二次方程式の解の公式は？', explanation: '$ax^2 + bx + c = 0$ の解。', difficulty: 'basic' },
       { id: 'math-g3-qf-fc30', front: '$b^2 - 4ac$', back: '解の公式のルートの中身を何という？', explanation: '判別式。正なら $2$ 解、$0$ なら重解、負なら実数解なし。', difficulty: 'basic' },
       { id: 'math-g3-qf-fc31', front: '$a, b, c$ を解の公式に代入する', back: '解の公式で解くときの手順は？', explanation: '①$a, b, c$ を特定 → ②代入 → ③計算 → ④約分。', difficulty: 'basic' },
       { id: 'math-g3-qf-fc32', front: '$x = \\dfrac{3 \\pm \\sqrt{5}}{2}$', back: '$x^2 - 3x + 1 = 0$ を解の公式で解くと？', explanation: '$a=1, b=-3, c=1$。$\\sqrt{9-4} = \\sqrt{5}$。', difficulty: 'standard' },
       { id: 'math-g3-qf-fc33', front: '$x = \\dfrac{-5 \\pm \\sqrt{13}}{6}$', back: '$3x^2 + 5x + 1 = 0$ を解の公式で解くと？', explanation: '$b^2 - 4ac = 25 - 12 = 13$。', difficulty: 'standard' },
       { id: 'math-g3-qf-fc34', front: '$x = 2 \\pm \\sqrt{3}$', back: '$x^2 - 4x + 1 = 0$ を解の公式で解くと？', explanation: '$\\dfrac{4 \\pm \\sqrt{12}}{2} = \\dfrac{4 \\pm 2\\sqrt{3}}{2}$。', difficulty: 'standard' },
-      { id: 'math-g3-qf-fc35', front: '因数分解できないときに使う', back: '解の公式はどんなときに使う？', explanation: '因数分解が難しい方程式に有効。', difficulty: 'basic' },
       { id: 'math-g3-qf-fc36', front: '正→異なる $2$ つの実数解、$0$→重解、負→実数解なし', back: '判別式 $b^2 - 4ac$ の値と解の関係は？', explanation: '解の個数を判定できる。', difficulty: 'standard' },
-      { id: 'math-g3-qf-fc37', front: '分子全体を約分する', back: '解の公式で $\\dfrac{4 \\pm 2\\sqrt{3}}{2}$ を簡単にすると？', explanation: '$= 2 \\pm \\sqrt{3}$。', difficulty: 'standard' },
       { id: 'math-g3-qf-fc38', front: '$\\sqrt{}$ の中身を簡単にする', back: '解の公式で $\\sqrt{20}$ が出たら？', explanation: '$\\sqrt{20} = 2\\sqrt{5}$。', difficulty: 'standard' },
-      { id: 'math-g3-qf-fc39', front: '$x = \\dfrac{1 \\pm \\sqrt{7}}{2}$', back: '$2x^2 - 2x - 3 = 0$ を解の公式で解くと？', explanation: '$b^2 - 4ac = 4 + 24 = 28$、$\\sqrt{28} = 2\\sqrt{7}$。', difficulty: 'advanced' },
+      { id: 'math-g3-qf-fc39', front: '$x = \\dfrac{1 \\pm \\sqrt{7}}{2}$', back: '$2x^2 - 2x - 3 = 0$ を解の公式で解くと？', explanation: '$b^2 - 4ac = 4 + 24 = 28$、$\\sqrt{28} = 2\\sqrt{7}$。', difficulty: 'advanced' }
     ],
     quiz: {
       questions: [
@@ -246,7 +215,7 @@ export const quadFormula: Topic = {
             '$(x+6)^2 - 6$',
             '$(x+6)^2 - 36$',
             '$(x+3)^2 + 9$',
-            '$(x+3)^2 - 9$',
+            '$(x+3)^2 - 9$'
           ],
           correctIndex: 3,
           explanation:
@@ -260,7 +229,7 @@ export const quadFormula: Topic = {
             '$x = 1, x = 3$',
             '$x = -1, x = 3$',
             '$x = 1, x = -3$',
-            '$x = -1, x = -3$',
+            '$x = -1, x = -3$'
           ],
           correctIndex: 2,
           explanation:
@@ -283,7 +252,7 @@ export const quadFormula: Topic = {
             '$(x-10)^2 - 100$',
             '$(x-5)^2 - 25$',
             '$(x-5)^2 + 25$',
-            '$(x+5)^2 - 25$',
+            '$(x+5)^2 - 25$'
           ],
           correctIndex: 1,
           explanation:
@@ -297,7 +266,7 @@ export const quadFormula: Topic = {
             '$x = \\frac{-5 \\pm \\sqrt{7}}{2}$',
             '$x = \\frac{5 \\pm \\sqrt{13}}{2}$',
             '$x = \\frac{-5 \\pm \\sqrt{37}}{2}$',
-            '$x = \\frac{-5 \\pm \\sqrt{13}}{2}$',
+            '$x = \\frac{-5 \\pm \\sqrt{13}}{2}$'
           ],
           correctIndex: 3,
           explanation:
@@ -311,7 +280,7 @@ export const quadFormula: Topic = {
             '$a=3, b=-7, c=-1$',
             '$a=3, b=7, c=-1$',
             '$a=3, b=-7, c=1$',
-            '$a=-3, b=7, c=1$',
+            '$a=-3, b=7, c=1$'
           ],
           correctIndex: 0,
           explanation:
@@ -334,7 +303,7 @@ export const quadFormula: Topic = {
             '異なる2つの実数解',
             '重解が1つ',
             '実数解なし',
-            '$x = -2$',
+            '$x = -2$'
           ],
           correctIndex: 2,
           explanation:
@@ -348,7 +317,7 @@ export const quadFormula: Topic = {
             '$x = 3 \\pm 2\\sqrt{3}$',
             '$x = 3 \\pm \\sqrt{6}$',
             '$x = 6 \\pm 2\\sqrt{3}$',
-            '$x = 3 \\pm \\sqrt{3}$',
+            '$x = 3 \\pm \\sqrt{3}$'
           ],
           correctIndex: 3,
           explanation:
@@ -362,7 +331,7 @@ export const quadFormula: Topic = {
             '$x = \\frac{3 \\pm \\sqrt{23}}{8}$',
             '$x = \\frac{-3 \\pm \\sqrt{41}}{8}$',
             '$x = \\frac{3 \\pm \\sqrt{41}}{8}$',
-            '$x = \\frac{3 \\pm \\sqrt{41}}{4}$',
+            '$x = \\frac{3 \\pm \\sqrt{41}}{4}$'
           ],
           correctIndex: 2,
           explanation:
@@ -376,7 +345,7 @@ export const quadFormula: Topic = {
             '$x = 2 \\pm \\sqrt{3}$',
             '$x = -2 \\pm \\sqrt{3}$',
             '$x = 2 \\pm \\sqrt{5}$',
-            '$x = 4 \\pm \\sqrt{3}$',
+            '$x = 4 \\pm \\sqrt{3}$'
           ],
           correctIndex: 0,
           explanation:
@@ -400,7 +369,7 @@ export const quadFormula: Topic = {
             '$(x+10)^2 - 100$',
             '$(x+5)^2 + 25$',
             '$(x+5)^2 - 25$',
-            '$(x-5)^2 - 25$',
+            '$(x-5)^2 - 25$'
           ],
           correctIndex: 2,
           explanation:
@@ -414,7 +383,7 @@ export const quadFormula: Topic = {
             '$x = \\frac{3 \\pm \\sqrt{17}}{2}$',
             '$x = \\frac{-3 \\pm \\sqrt{17}}{2}$',
             '$x = \\frac{3 \\pm \\sqrt{7}}{2}$',
-            '$x = \\frac{3 \\pm \\sqrt{13}}{2}$',
+            '$x = \\frac{3 \\pm \\sqrt{13}}{2}$'
           ],
           correctIndex: 0,
           explanation:
@@ -428,7 +397,7 @@ export const quadFormula: Topic = {
             '$24$、解2つ',
             '$-16$、解なし',
             '$0$、重解',
-            '$16$、解2つ',
+            '$16$、解2つ'
           ],
           correctIndex: 1,
           explanation:
@@ -442,7 +411,7 @@ export const quadFormula: Topic = {
             '$x = -1, x = \\frac{1}{3}$',
             '$x = \\frac{1}{3}, x = -1$',
             '$x = 1, x = \\frac{1}{3}$',
-            '$x = 1, x = -\\frac{1}{3}$',
+            '$x = 1, x = -\\frac{1}{3}$'
           ],
           correctIndex: 3,
           explanation:
@@ -456,7 +425,7 @@ export const quadFormula: Topic = {
             '$x = \\frac{1 \\pm \\sqrt{19}}{2}$',
             '$x = \\frac{-1 \\pm \\sqrt{21}}{2}$',
             '$x = \\frac{1 \\pm \\sqrt{21}}{2}$',
-            '$x = \\frac{1 \\pm \\sqrt{5}}{2}$',
+            '$x = \\frac{1 \\pm \\sqrt{5}}{2}$'
           ],
           correctIndex: 2,
           explanation:
@@ -470,7 +439,7 @@ export const quadFormula: Topic = {
             '$(x+3)^2 - 9$',
             '$(x+\\frac{3}{2})^2 - \\frac{9}{4}$',
             '$(x+\\frac{3}{2})^2 + \\frac{9}{4}$',
-            '$(x+3)^2 - \\frac{3}{2}$',
+            '$(x+3)^2 - \\frac{3}{2}$'
           ],
           correctIndex: 1,
           explanation:
@@ -484,7 +453,7 @@ export const quadFormula: Topic = {
             '$x = \\frac{-3 \\pm \\sqrt{17}}{4}$',
             '$x = \\frac{3 \\pm \\sqrt{17}}{4}$',
             '$x = \\frac{3 \\pm \\sqrt{7}}{4}$',
-            '$x = \\frac{3 \\pm \\sqrt{17}}{2}$',
+            '$x = \\frac{3 \\pm \\sqrt{17}}{2}$'
           ],
           correctIndex: 1,
           explanation:
@@ -498,7 +467,7 @@ export const quadFormula: Topic = {
             '$4\\sqrt{5}$',
             '$5\\sqrt{4}$',
             '$2\\sqrt{5}$',
-            '$\\sqrt{20}$（これ以上簡単にならない）',
+            '$\\sqrt{20}$（これ以上簡単にならない）'
           ],
           correctIndex: 2,
           explanation:
@@ -512,7 +481,7 @@ export const quadFormula: Topic = {
             '$x = -3 \\pm \\sqrt{7}$',
             '$x = 3 \\pm \\sqrt{7}$',
             '$x = -3 \\pm \\sqrt{11}$',
-            '$x = -6 \\pm \\sqrt{7}$',
+            '$x = -6 \\pm \\sqrt{7}$'
           ],
           correctIndex: 0,
           explanation:
@@ -535,7 +504,7 @@ export const quadFormula: Topic = {
             '$x = 2 \\pm \\sqrt{7}$',
             '$x = -2 \\pm \\sqrt{7}$',
             '$x = 4 \\pm \\sqrt{7}$',
-            '$x = 2 \\pm \\sqrt{5}$',
+            '$x = 2 \\pm \\sqrt{5}$'
           ],
           correctIndex: 0,
           explanation:
@@ -549,7 +518,7 @@ export const quadFormula: Topic = {
             '$a$',
             '$2a$',
             '$b$',
-            '$4a$',
+            '$4a$'
           ],
           correctIndex: 1,
           explanation:
@@ -563,7 +532,7 @@ export const quadFormula: Topic = {
             '$x = 2 \\pm \\sqrt{2}$',
             '$x = 2 \\pm 2\\sqrt{2}$',
             '$x = 4 \\pm \\sqrt{2}$',
-            '$x = 2 \\pm \\sqrt{8}$',
+            '$x = 2 \\pm \\sqrt{8}$'
           ],
           correctIndex: 0,
           explanation:
@@ -577,7 +546,7 @@ export const quadFormula: Topic = {
             '$a=5, b=2, c=1$',
             '$a=5, b=-2, c=-1$',
             '$a=5, b=2, c=-1$',
-            '$a=-5, b=2, c=1$',
+            '$a=-5, b=2, c=1$'
           ],
           correctIndex: 2,
           explanation:
@@ -591,7 +560,7 @@ export const quadFormula: Topic = {
             'あきらめる',
             'グラフを描く',
             '移項する',
-            '解の公式を使う',
+            '解の公式を使う'
           ],
           correctIndex: 3,
           explanation:
@@ -605,13 +574,13 @@ export const quadFormula: Topic = {
             '解の公式',
             'どちらでもよい',
             '平方完成',
-            '因数分解',
+            '因数分解'
           ],
           correctIndex: 3,
           explanation:
             '$(x+4)(x-2) = 0$ と因数分解できるので、因数分解の方が速いよ。',
           difficulty: 'advanced',
-        },
+        }
       ],
     },
     examples: {
@@ -630,7 +599,7 @@ export const quadFormula: Topic = {
               title: 'Step 2: $(x+2)^2 = 9$ を解く',
               content: '$x+2 = \\pm 3$。$x = -2+3 = 1$ または $x = -2-3 = -5$。',
               highlight: '$x = 1, x = -5$',
-            },
+            }
           ],
           answer: '$x = 1, x = -5$',
         },
@@ -648,7 +617,7 @@ export const quadFormula: Topic = {
               content:
                 '$x = \\frac{-5 \\pm \\sqrt{49}}{4} = \\frac{-5 \\pm 7}{4}$。$x = \\frac{2}{4} = \\frac{1}{2}$ または $x = \\frac{-12}{4} = -3$。',
               highlight: '$x = \\frac{1}{2}, x = -3$',
-            },
+            }
           ],
           answer: '$x = \\frac{1}{2}, x = -3$',
         },
@@ -667,7 +636,7 @@ export const quadFormula: Topic = {
               content:
                 '$x + 1 = \\pm\\sqrt{6}$。$x = -1 \\pm \\sqrt{6}$。',
               highlight: '$x = -1 \\pm \\sqrt{6}$',
-            },
+            }
           ],
           answer: '$x = -1 \\pm \\sqrt{6}$',
         },
@@ -686,7 +655,7 @@ export const quadFormula: Topic = {
               content:
                 '$\\sqrt{12} = 2\\sqrt{3}$ だから $x = \\frac{4 \\pm 2\\sqrt{3}}{2} = 2 \\pm \\sqrt{3}$。',
               highlight: '$x = 2 \\pm \\sqrt{3}$',
-            },
+            }
           ],
           answer: '$x = 2 \\pm \\sqrt{3}$',
         },
@@ -705,7 +674,7 @@ export const quadFormula: Topic = {
               content:
                 '判別式が負なので、$\\sqrt{}$ の中が負になり、実数の範囲では解がないよ。',
               highlight: '解なし（実数解は存在しない）',
-            },
+            }
           ],
           answer: '解なし（判別式 $< 0$）',
         },
@@ -724,10 +693,10 @@ export const quadFormula: Topic = {
               content:
                 '$b^2 - 4ac = 9 + 32 = 41$。$41$ は素数なのでこれ以上簡単にならないよ。',
               highlight: '$x = \\frac{3 \\pm \\sqrt{41}}{8}$',
-            },
+            }
           ],
           answer: '$x = \\frac{3 \\pm \\sqrt{41}}{8}$',
-        },
+        }
       ],
     },
     chatId: 'math-g3-quad-formula',

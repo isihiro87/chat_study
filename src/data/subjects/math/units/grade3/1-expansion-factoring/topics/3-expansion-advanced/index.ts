@@ -184,11 +184,6 @@ export const expansionAdvanced: Topic = {
         difficulty: 'standard',
       },
       {
-        id: 'math-g3-ea-fc23',
-        front: '①共通部分を見つけて置き換え\n②公式で展開\n③元に戻して展開', back: '式のおきかえの3ステップは？',
-        difficulty: 'advanced',
-      },
-      {
         id: 'math-g3-ea-fc24',
         front: '2x²−3x+4', back: '(x−2)²+x(x+1) を簡単にすると？',
         explanation: '(x²−4x+4)+(x²+x) = 2x²−3x+4',

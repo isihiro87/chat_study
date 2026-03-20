@@ -17,7 +17,7 @@ export const eqApplications: Topic = {
           keyPoints: [
             '比例式: $a : b = c : d$',
             '内項の積 = 外項の積: $ad = bc$',
-            '例: $2 : 3 = x : 9$ → $2 \\times 9 = 3 \\times x$ → $x = 6$',
+            '例: $2 : 3 = x : 9$ → $2 \\times 9 = 3 \\times x$ → $x = 6$'
           ],
         },
         {
@@ -28,7 +28,7 @@ export const eqApplications: Topic = {
             'ステップ①: 求めたいものを $x$ とおく',
             'ステップ②: 問題文の条件を式にする（等しい関係を見つける）',
             'ステップ③: 方程式を解く',
-            'ステップ④: 解が問題に合うか確かめる（解の吟味）',
+            'ステップ④: 解が問題に合うか確かめる（解の吟味）'
           ],
         },
         {
@@ -38,9 +38,9 @@ export const eqApplications: Topic = {
           keyPoints: [
             '解の吟味: 求めた解が問題の条件に合うか確認すること',
             '個数・人数など → 自然数（正の整数）でなければならない',
-            '速さ・距離など → 負の数にならないか確認',
+            '速さ・距離など → 負の数にならないか確認'
           ],
-        },
+        }
       ],
     },
     videos: [],
@@ -52,16 +52,12 @@ export const eqApplications: Topic = {
       { id: 'math-g1-eq-a-fc5', front: '$x = 15$', back: '$2 : 5 = 6 : x$ の $x$ の値は？', explanation: '$2x = 5 \\times 6 = 30$', difficulty: 'basic' },
       { id: 'math-g1-eq-a-fc6', front: '$x = 4$', back: '比例式 $x : 3 = 8 : 6$ の $x$ は？', explanation: '$6x = 3 \\times 8 = 24$', difficulty: 'basic' },
       // === 文章題の手順（basic）===
-      { id: 'math-g1-eq-a-fc7', front: '① 求めたいものを $x$ とおく → ② 等しい関係を式にする → ③ 方程式を解く → ④ 解の吟味', back: '文章題を方程式で解く手順は？', difficulty: 'basic' },
-      { id: 'math-g1-eq-a-fc9', front: '個数・人数は自然数（正の整数）でなければならない', back: '解の吟味で特に注意すべきことは？', difficulty: 'basic' },
-      { id: 'math-g1-eq-a-fc10', front: '問題文の中から「等しい関係」を見つけること', back: '方程式を立てるとき最も大切なのは？', difficulty: 'basic' },
       // === 代金の問題（standard）===
       { id: 'math-g1-eq-a-fc11', front: '$x = 4$', back: '1本 $120$ 円の鉛筆 $x$ 本と $50$ 円の消しゴム1個で $530$ 円。$x$ は？', explanation: '$120x + 50 = 530$ → $120x = 480$', difficulty: 'standard' },
       { id: 'math-g1-eq-a-fc12', front: 'りんご $x$ 個、みかん $(8 - x)$ 個のように、一方を $x$ で表す', back: '2種類の品物を合わせて $8$ 個買う問題で、$x$ を使ってどう表す？', difficulty: 'standard' },
       { id: 'math-g1-eq-a-fc13', front: '$x = 5$', back: '$200$ 円のりんごと $100$ 円のみかんを合わせて $8$ 個買い、$1300$ 円だった。りんごは何個？', explanation: '$200x + 100(8 - x) = 1300$ → $100x = 500$', difficulty: 'standard' },
       { id: 'math-g1-eq-a-fc14', front: '$x = 1200$（$1200$ 円）', back: '定価の $2$ 割引きで買ったら $960$ 円。定価は？', explanation: '$0.8x = 960$ → $x = 1200$', difficulty: 'standard' },
       // === 過不足の問題（standard）===
-      { id: 'math-g1-eq-a-fc15', front: '総数が一定 → 2通りの配り方の式が等しい', back: '過不足の問題の立式のコツは？', difficulty: 'standard' },
       { id: 'math-g1-eq-a-fc16', front: '$7$ 人', back: '1人5個ずつ配ると3個余り、6個ずつ配ると4個不足。人数は？', explanation: '$5x + 3 = 6x - 4$ → $x = 7$', difficulty: 'standard' },
       { id: 'math-g1-eq-a-fc17', front: '$9$ 人', back: 'あめを1人4個ずつだと6個余り、5個ずつだと3個不足。人数は？', explanation: '$4x + 6 = 5x - 3$ → $x = 9$', difficulty: 'standard' },
       { id: 'math-g1-eq-a-fc18', front: '$8$ 人', back: 'ノートを1人2冊ずつだと8冊余り、3冊ずつだとちょうど。生徒数は？', explanation: '$2x + 8 = 3x$ → $x = 8$', difficulty: 'standard' },
@@ -69,7 +65,6 @@ export const eqApplications: Topic = {
       { id: 'math-g1-eq-a-fc19', front: '$x = 9$', back: '比例式 $3 : 4 = x : 12$ の $x$ は？', explanation: '$3 \\times 12 = 4 \\times x$ → $36 = 4x$', difficulty: 'standard' },
       { id: 'math-g1-eq-a-fc20', front: '$x = 7$', back: '比例式 $2 : 3 = (x+1) : 12$ の $x$ は？', explanation: '$3(x+1) = 24$ → $3x = 21$', difficulty: 'standard' },
       // === 速さの問題（advanced）===
-      { id: 'math-g1-eq-a-fc21', front: '速さ・距離・時間 → 距離 $=$ 速さ $\\times$ 時間。等しい関係を見つけて式を立てる', back: '速さの文章題のポイントは？', difficulty: 'advanced' },
       { id: 'math-g1-eq-a-fc22', front: '$12$ km', back: '行き時速4km、帰り時速6km、往復5時間。片道の距離は？', explanation: '$\\dfrac{x}{4} + \\dfrac{x}{6} = 5$ → $5x = 60$', difficulty: 'advanced' },
       { id: 'math-g1-eq-a-fc23', front: '2人の道のりが等しくなること', back: '追いつき問題で「追いついた」とはどういう意味？', difficulty: 'advanced' },
       { id: 'math-g1-eq-a-fc24', front: '$15$ 分後', back: '兄が分速 $60$ m で出発し、$10$ 分後に弟が分速 $100$ m で追いかける。何分後に追いつく？', explanation: '$60(x+10) = 100x$ → $40x = 600$', difficulty: 'advanced' },
@@ -86,7 +81,6 @@ export const eqApplications: Topic = {
       { id: 'math-g1-eq-a-fc34', front: '$x = 4$', back: '比例式 $x : 3 = 8 : 6$ の $x$ は？', explanation: '$6x = 24$、$x = 4$。', difficulty: 'standard' },
       { id: 'math-g1-eq-a-fc35', front: '$x = 21$', back: '比例式 $4 : 7 = 12 : x$ の $x$ は？', explanation: '$4x = 84$、$x = 21$。', difficulty: 'standard' },
       { id: 'math-g1-eq-a-fc36', front: '$x = 15$', back: '比例式 $5 : x = 3 : 9$ の $x$ は？', explanation: '$3x = 45$、$x = 15$。', difficulty: 'standard' },
-      { id: 'math-g1-eq-a-fc37', front: '人数は正の整数だから不適', back: '解の吟味で「人数」を求める問題で $x = -2$ が出たら？', explanation: '個数・人数は自然数でなければならない。', difficulty: 'standard' },
       { id: 'math-g1-eq-a-fc38', front: '$x = 4$', back: '1冊 $150$ 円のノート $x$ 冊と $80$ 円の消しゴムで $680$ 円。$x$ は？', explanation: '$150x + 80 = 680$、$150x = 600$。', difficulty: 'standard' },
       { id: 'math-g1-eq-a-fc39', front: '$6$ 人', back: '折り紙を1人3枚ずつだと10枚余り、5枚ずつだと2枚不足。子どもの人数は？', explanation: '$3x + 10 = 5x - 2$、$x = 6$。', difficulty: 'standard' },
       { id: 'math-g1-eq-a-fc40', front: '$15$ 分', back: '家から学校まで分速 $60$ m で $20$ 分。分速 $80$ m なら何分？', explanation: '道のり $= 1200$ m。$\\dfrac{1200}{80} = 15$。', difficulty: 'standard' },
@@ -94,7 +88,7 @@ export const eqApplications: Topic = {
       { id: 'math-g1-eq-a-fc42', front: '$1000$ m', back: '地図上の $3$ cm が実際の $600$ m。地図上の $5$ cm は？', explanation: '$3 : 600 = 5 : x$、$3x = 3000$。', difficulty: 'advanced' },
       { id: 'math-g1-eq-a-fc43', front: '$9$ m', back: '長さ $12$ m のロープを $3 : 1$ に分けると、長い方は？', explanation: '$12 \\times \\dfrac{3}{4} = 9$。', difficulty: 'advanced' },
       { id: 'math-g1-eq-a-fc44', front: '$15$ 枚', back: 'カード $40$ 枚を $3 : 5$ の比で分ける。少ない方は何枚？', explanation: '$40 \\times \\dfrac{3}{8} = 15$。', difficulty: 'advanced' },
-      { id: 'math-g1-eq-a-fc45', front: '道のり $=$ 速さ $\\times$ 時間', back: '速さの公式「道のり」を表すと？', explanation: '時間 $=$ 道のり $\\div$ 速さ。', difficulty: 'basic' },
+      { id: 'math-g1-eq-a-fc45', front: '道のり $=$ 速さ $\\times$ 時間', back: '速さの公式「道のり」を表すと？', explanation: '時間 $=$ 道のり $\\div$ 速さ。', difficulty: 'basic' }
     ],
     quiz: {
       questions: [
@@ -138,7 +132,7 @@ export const eqApplications: Topic = {
             '求めた解が問題の条件に合うか確かめること',
             '方程式をもう一度解き直すこと',
             '問題文を声に出して読むこと',
-            'グラフを書いて確認すること',
+            'グラフを書いて確認すること'
           ],
           correctIndex: 0,
           explanation: '解の吟味とは、求めた解が問題の条件（人数なら正の整数など）に合うか確認すること。',
@@ -305,7 +299,7 @@ export const eqApplications: Topic = {
           correctIndex: 1,
           explanation: '$2\\{x + (x + 5)\\} = 34$、$4x + 10 = 34$、$x = 6$。',
           difficulty: 'advanced',
-        },
+        }
       ],
     },
     examples: {
@@ -324,7 +318,7 @@ export const eqApplications: Topic = {
               title: 'Step 2: 方程式を解く',
               content: '$x = \\dfrac{36}{4} = 9$',
               highlight: '$x = 9$',
-            },
+            }
           ],
           answer: '$x = 9$',
         },
@@ -356,7 +350,7 @@ export const eqApplications: Topic = {
               content:
                 '$80 \\times 8 + 120 \\times 4 = 640 + 480 = 1120$ ✓、$8 + 4 = 12$ ✓',
               highlight: '確かめ OK ✓',
-            },
+            }
           ],
           answer: '80 円の切手 $8$ 枚、120 円の切手 $4$ 枚',
         },
@@ -386,7 +380,7 @@ export const eqApplications: Topic = {
               content:
                 '総数 $= 4 \\times 9 + 6 = 42$ 個。確かめ: $5 \\times 9 - 3 = 42$ ✓',
               highlight: '$9$ 人、あめ $42$ 個',
-            },
+            }
           ],
           answer: '人数 $9$ 人、あめの総数 $42$ 個',
         },
@@ -417,7 +411,7 @@ export const eqApplications: Topic = {
               content:
                 '$x = 7.5$。確かめ: $\\dfrac{7.5}{3} + \\dfrac{7.5}{5} = 2.5 + 1.5 = 4$ ✓',
               highlight: 'A-B 間は $7.5$ km',
-            },
+            }
           ],
           answer: 'A-B 間の距離は $7.5$ km',
         },
@@ -449,7 +443,7 @@ export const eqApplications: Topic = {
               content:
                 '姉: $60 \\times 45 = 2700$ m、妹: $90 \\times 30 = 2700$ m ✓',
               highlight: '$30$ 分後に追いつく（家から $2700$ m 地点）',
-            },
+            }
           ],
           answer: '妹が出発してから $30$ 分後',
         },
@@ -478,10 +472,10 @@ export const eqApplications: Topic = {
               title: 'Step 4: 解の吟味',
               content: '$270 + 180 + 360 = 810$ ✓',
               highlight: '確かめ OK ✓',
-            },
+            }
           ],
           answer: 'A: $270$ 円、B: $180$ 円、C: $360$ 円',
-        },
+        }
       ],
     },
     chatId: 'math-g1-eq-apps',

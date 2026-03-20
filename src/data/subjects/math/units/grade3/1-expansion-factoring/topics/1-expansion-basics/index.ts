@@ -92,13 +92,6 @@ export const expansionBasics: Topic = {
         difficulty: 'basic',
       },
       {
-        id: 'math-g3-eb-fc7',
-        front: '多項式の各項をそれぞれ単項式で割る', back: '多項式÷単項式のやり方は？',
-        hint: '分配法則の逆のイメージ',
-        explanation: '$(8x^2+4x)\\div 2x = 4x+2$',
-        difficulty: 'basic',
-      },
-      {
         id: 'math-g3-eb-fc8',
         front: '$x^2 + 5x + 6$', back: '$(x+2)(x+3)$ を展開すると？',
         hint: '4つの積を作って同類項をまとめる',
@@ -150,12 +143,6 @@ export const expansionBasics: Topic = {
         front: '$x^2 + (a+b)x + ab$', back: '$(x+a)(x+b)$ を展開すると？',
         hint: 'xの係数は a+b、定数項は a×b',
         explanation: 'この規則を覚えると展開が速くなるよ',
-        difficulty: 'standard',
-      },
-      {
-        id: 'math-g3-eb-fc16',
-        front: '係数どうしを足し引きする（文字の部分はそのまま）', back: '同類項をまとめるとき、何を足し引きする？',
-        hint: '$3x + 5x = (3+5)x = 8x$',
         difficulty: 'standard',
       },
       {

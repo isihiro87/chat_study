@@ -18,7 +18,7 @@ export const simulEqAppsAdv: Topic = {
             '距離 $=$ 速さ $\\times$ 時間',
             '時間 $=$ $\\dfrac{\\text{距離}}{\\text{速さ}}$',
             '行き帰りは距離が等しい → 式が 1 つできる',
-            '合計時間や合計距離でもう 1 式',
+            '合計時間や合計距離でもう 1 式'
           ],
         },
         {
@@ -29,7 +29,7 @@ export const simulEqAppsAdv: Topic = {
             '分数は分母の最小公倍数を掛けて整数にする',
             '単位をそろえる（km と m、時間と分）',
             '距離を $x$, $y$ にするか、時間にするかは問題次第',
-            '分速 $\\times$ 分 $=$ m、時速 $\\times$ 時間 $=$ km',
+            '分速 $\\times$ 分 $=$ m、時速 $\\times$ 時間 $=$ km'
           ],
         },
         {
@@ -40,7 +40,7 @@ export const simulEqAppsAdv: Topic = {
             '食塩の量 $=$ 食塩水 $\\times$ $\\dfrac{\\text{濃度(%)}}{100}$',
             '混ぜる前の食塩の合計 $=$ 混ぜた後の食塩の量',
             '食塩水の量の合計でもう 1 式',
-            '小数は 100 倍して整数にすると計算しやすい',
+            '小数は 100 倍して整数にすると計算しやすい'
           ],
         },
         {
@@ -51,9 +51,9 @@ export const simulEqAppsAdv: Topic = {
             '単位をそろえる（分→時間は $\\div 60$）',
             '濃度は $\\dfrac{p}{100}$ を忘れずに掛ける',
             '分数は最小公倍数を掛けて整数にしてから計算',
-            '解いた後は元の問題文に代入して確認',
+            '解いた後は元の問題文に代入して確認'
           ],
-        },
+        }
       ],
     },
     videos: [],
@@ -126,7 +126,6 @@ export const simulEqAppsAdv: Topic = {
       { id: 'math-g2-apadv-fc16', front: '濃度が下がる', back: '食塩水に水を加えるとどうなる？', explanation: '食塩水に水を加えると濃度は下がる。食塩を加えると濃度は上がる。', difficulty: 'standard' },
       { id: 'math-g2-apadv-fc17', front: '$\\dfrac{\\text{食塩の量}}{\\text{食塩水の量}} \\times 100 = $ 濃度(%)', back: '濃度の公式は？', difficulty: 'standard' },
       { id: 'math-g2-apadv-fc18', front: '距離の式と時間の式の2つ', back: '速さの問題で立てる2つの式は？', difficulty: 'standard' },
-      { id: 'math-g2-apadv-fc19', front: '出発地点が同じか異なるか、追いかけるか向かい合うかで式が変わる', back: '速さの問題で注意すべきことは？', difficulty: 'standard' },
       { id: 'math-g2-apadv-fc20', front: '分速 $\\times$ 分 $=$ m', back: '速さ×時間の単位の注意点は？', explanation: '単位を統一することが重要。', difficulty: 'standard' },
       { id: 'math-g2-apadv-fc21', front: '$\\div 60$ する', back: '分を時間に変換するには？', explanation: '$1$ 時間 $= 60$ 分。$30$ 分 $= 0.5$ 時間。', difficulty: 'standard' },
       { id: 'math-g2-apadv-fc22', front: '混合後の食塩の量 $=$ 各食塩水の食塩の量の合計', back: '食塩水を混ぜるときの食塩の量の関係は？', difficulty: 'standard' },
@@ -135,7 +134,6 @@ export const simulEqAppsAdv: Topic = {
       { id: 'math-g2-apadv-fc25', front: '$\\div 60$ する', back: '時速を分速に変換するには？', explanation: '時速 $60$ km $=$ 分速 $1$ km。', difficulty: 'advanced' },
       { id: 'math-g2-apadv-fc26', front: '$24$ g', back: '$8$% の食塩水 $300$ g に含まれる食塩は？', explanation: '$300 \\times 0.08 = 24$ g。', difficulty: 'advanced' },
       { id: 'math-g2-apadv-fc27', front: '必ず2つの濃度の間になる', back: '混合後の食塩水の濃度の範囲は？', difficulty: 'advanced' },
-      { id: 'math-g2-apadv-fc28', front: '各区間の距離を求めてから合計する', back: '複数区間の道のり問題の解き方は？', difficulty: 'advanced' },
       { id: 'math-g2-apadv-fc29', front: '時間 $= \\dfrac{\\text{距離}}{\\text{速さ}}$', back: '距離 $=$ 速さ $\\times$ 時間から、時間を求めるには？', explanation: '速さで割る。', difficulty: 'basic' },
       { id: 'math-g2-apadv-fc30', front: '$4x$ km', back: '時速 $4$ km で $x$ 時間歩いた距離は？', explanation: '距離 $=$ 速さ $\\times$ 時間。', difficulty: 'basic' },
       { id: 'math-g2-apadv-fc31', front: '$4x = 6y$', back: '行き時速 $4$ km $x$ 時間、帰り時速 $6$ km $y$ 時間で距離が等しい式は？', explanation: '行きの距離 $=$ 帰りの距離。', difficulty: 'basic' },
@@ -148,8 +146,7 @@ export const simulEqAppsAdv: Topic = {
       { id: 'math-g2-apadv-fc38', front: '必ず $2$ つの濃度の間になる', back: '混合後の食塩水の濃度の範囲は？', explanation: '$3$% と $8$% を混ぜると $3$%～$8$% の間。', difficulty: 'advanced' },
       { id: 'math-g2-apadv-fc39', front: '$x = 720, y = 480$', back: '家→公園 $x$ m、公園→駅 $y$ m。$x + y = 1200$、$\\dfrac{x}{60} + \\dfrac{y}{80} = 18$ の解は？', explanation: '②$\\times 240$: $4x + 3y = 4320$。', difficulty: 'advanced' },
       { id: 'math-g2-apadv-fc40', front: '$at$ km', back: '時速 $a$ km で $t$ 時間進んだ距離は？', explanation: '距離 $=$ 速さ $\\times$ 時間。', difficulty: 'basic' },
-      { id: 'math-g2-apadv-fc41', front: '分母の最小公倍数を両辺にかけて整数にする', back: '分数を含む時間の式を整数にする方法は？', explanation: '例: 分母 $3$ と $5$ → 最小公倍数 $15$。', difficulty: 'standard' },
-      { id: 'math-g2-apadv-fc42', front: '蒸発させると水が減り食塩は残るので濃度が上がる', back: '食塩水を加熱して蒸発させるとどうなる？', explanation: '食塩の量は変わらない。', difficulty: 'advanced' },
+      { id: 'math-g2-apadv-fc42', front: '蒸発させると水が減り食塩は残るので濃度が上がる', back: '食塩水を加熱して蒸発させるとどうなる？', explanation: '食塩の量は変わらない。', difficulty: 'advanced' }
     ],
     quiz: {
       questions: [
@@ -161,7 +158,7 @@ export const simulEqAppsAdv: Topic = {
             '$4x + 6y = 0$',
             '$4x = 6y$',
             '$4x - 6y = 1$',
-            '$\\dfrac{x}{4} = \\dfrac{y}{6}$',
+            '$\\dfrac{x}{4} = \\dfrac{y}{6}$'
           ],
           correctIndex: 1,
           explanation:
@@ -176,7 +173,7 @@ export const simulEqAppsAdv: Topic = {
             '$x + y = 400$',
             '$0.05x + 0.10y = 400$',
             '$5x + 10y = 400$',
-            '$x - y = 400$',
+            '$x - y = 400$'
           ],
           correctIndex: 0,
           explanation:
@@ -398,7 +395,7 @@ export const simulEqAppsAdv: Topic = {
           correctIndex: 0,
           explanation: '$\\dfrac{d}{3} + \\dfrac{d}{5} = \\dfrac{32}{60}$ → $d = 1$ km だよ。',
           difficulty: 'advanced',
-        },
+        }
       ],
     },
     examples: {
@@ -431,7 +428,7 @@ export const simulEqAppsAdv: Topic = {
               content:
                 '距離 $= 4 \\times 3 = 12$ km\n確認: $6 \\times 2 = 12$ km ✓',
               highlight: '距離は 12 km',
-            },
+            }
           ],
           answer: 'A 地点から B 地点までの距離は 12 km',
         },
@@ -463,7 +460,7 @@ export const simulEqAppsAdv: Topic = {
               content:
                 '①$\\times 3$: $3x + 3y = 3600$ ……③\n②\' $-$ ③: $x = 720$\n$y = 1200 - 720 = 480$',
               highlight: '家→公園 720m、公園→駅 480m',
-            },
+            }
           ],
           answer: '家→公園 720m、公園→駅 480m',
         },
@@ -495,10 +492,10 @@ export const simulEqAppsAdv: Topic = {
               content:
                 '食塩: $160 \\times 0.05 + 240 \\times 0.10 = 8 + 24 = 32$ g\n濃度: $\\dfrac{32}{400} \\times 100 = 8$% ✓',
               highlight: '5% が 160g、10% が 240g',
-            },
+            }
           ],
           answer: '5% の食塩水 160g、10% の食塩水 240g',
-        },
+        }
       ],
     },
     chatId: 'math-g2-simul-eq-apps-adv',

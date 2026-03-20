@@ -17,7 +17,7 @@ export const literalNotation: Topic = {
           keyPoints: [
             '1個 $a$ 円のりんごを5個買った代金 → $5a$ 円',
             '時速 $x$ km で3時間走った道のり → $3x$ km',
-            '文字を使うと、数が変わっても同じ式で表せる',
+            '文字を使うと、数が変わっても同じ式で表せる'
           ],
         },
         {
@@ -28,7 +28,7 @@ export const literalNotation: Topic = {
             '×の記号は省略する（例: $a \\times b$ → $ab$）',
             '数は文字の前に書く（例: $x \\times 3$ → $3x$）',
             '1は省略する（例: $1 \\times a$ → $a$）、$-1$ も符号だけ（$-a$）',
-            '同じ文字の積は指数で表す（例: $a \\times a$ → $a^2$）',
+            '同じ文字の積は指数で表す（例: $a \\times a$ → $a^2$）'
           ],
         },
         {
@@ -38,7 +38,7 @@ export const literalNotation: Topic = {
           keyPoints: [
             '$a \\div b$ → $\\dfrac{a}{b}$',
             '$x \\div 3$ → $\\dfrac{x}{3}$',
-            '÷は絶対に使わない！必ず分数にする',
+            '÷は絶対に使わない！必ず分数にする'
           ],
         },
         {
@@ -48,7 +48,7 @@ export const literalNotation: Topic = {
           keyPoints: [
             '代入 = 文字に数を当てはめること',
             '式の値 = 代入して計算した結果',
-            '負の数を代入するときは、かっこをつける（例: $x = -2$ なら $3x = 3 \\times (-2) = -6$）',
+            '負の数を代入するときは、かっこをつける（例: $x = -2$ なら $3x = 3 \\times (-2) = -6$）'
           ],
         },
         {
@@ -60,7 +60,7 @@ export const literalNotation: Topic = {
             'おつり = 出した金額 − 代金（例: 1000円出して $a$ 円の品を3個 → $1000 - 3a$ 円）',
             '道のり = 速さ × 時間、速さ = 道のり ÷ 時間、時間 = 道のり ÷ 速さ',
             '割合の表し方: $a$ 円の30%引き → $0.7a$ 円、$a$ 円の $x$ %増し → $a(1 + \\dfrac{x}{100})$ 円',
-            '面積: 三角形 = $\\dfrac{ah}{2}$、円 = $\\pi r^2$',
+            '面積: 三角形 = $\\dfrac{ah}{2}$、円 = $\\pi r^2$'
           ],
         },
         {
@@ -71,59 +71,17 @@ export const literalNotation: Topic = {
             '$5a$ → 「$a$ の5倍」「$a$ 円の品5個分の代金」など',
             '$\\dfrac{a}{3}$ → 「$a$ を3で割った値」「$a$ km を3時間で行く速さ」など',
             '$1000 - 4a$ → 「$a$ 円の品4個を買い1000円出したおつり」',
-            '式の意味は場面によって変わる。問題文をよく読もう！',
+            '式の意味は場面によって変わる。問題文をよく読もう！'
           ],
-        },
+        }
       ],
     },
     videos: [],
     flashcards: [
       {
-        id: 'math-g1-lit-notation-fc2',
-        front: '省略する', back: '文字式で×の記号はどうする？',
-        explanation: '$a \\times b$ → $ab$ と書く。',
-        difficulty: 'basic',
-      },
-      {
-        id: 'math-g1-lit-notation-fc3',
-        front: '数を文字の前に書く', back: '文字式で数と文字をかけるとき、数はどこに書く？',
-        explanation: '$x \\times 3$ → $3x$（×ではなく $x3$ にしない！）',
-        difficulty: 'basic',
-      },
-      {
-        id: 'math-g1-lit-notation-fc4',
-        front: '1は省略し、$-1$ は符号だけ残す', back: '文字式の「1の省略」のルールは？',
-        explanation: '$1 \\times a$ → $a$（1は書かない）。$(-1) \\times a$ → $-a$（符号の $-$ だけ書く）。',
-        difficulty: 'basic',
-      },
-      {
         id: 'math-g1-lit-notation-fc5',
         front: '$-x$', back: '$-1$ をかけるときの書き方は？',
         explanation: '$(-1) \\times x$ → $-x$（$-1$ の「1」を省略し、マイナスの符号だけ書く）',
-        difficulty: 'basic',
-      },
-      {
-        id: 'math-g1-lit-notation-fc6',
-        front: '指数を使う', back: '同じ文字の積はどう表す？（指数表記）',
-        explanation: '$a \\times a$ → $a^2$、$a \\times a \\times a$ → $a^3$',
-        difficulty: 'basic',
-      },
-      {
-        id: 'math-g1-lit-notation-fc7',
-        front: '÷は使わずに分数で表す', back: '文字式で÷の記号はどうする？',
-        explanation: '$a \\div b$ → $\\dfrac{a}{b}$',
-        difficulty: 'basic',
-      },
-      {
-        id: 'math-g1-lit-notation-fc10',
-        front: 'かっこをつけて代入する', back: '負の数を代入するときの注意点は？',
-        explanation: '$x = -3$ なら $2x = 2 \\times (-3) = -6$（かっこを忘れると間違える！）',
-        difficulty: 'basic',
-      },
-      {
-        id: 'math-g1-lit-notation-fc11',
-        front: 'アルファベット順に並べる', back: '文字式で複数の文字をかけるとき、文字の順番は？',
-        explanation: '$y \\times x$ → $xy$、$c \\times a \\times b$ → $abc$',
         difficulty: 'basic',
       },
       {
@@ -142,12 +100,6 @@ export const literalNotation: Topic = {
         id: 'math-g1-lit-notation-fc14',
         front: '$\\dfrac{ah}{2}$', back: '三角形の面積を文字式で表すと？（底辺 $a$、高さ $h$）',
         explanation: '底辺 $\\times$ 高さ $\\div$ 2',
-        difficulty: 'standard',
-      },
-      {
-        id: 'math-g1-lit-notation-fc15',
-        front: '×は省略し、÷は分数にする', back: '×と÷が混じった式の書き方は？',
-        explanation: '例: $a \\times b \\div c$ → $\\dfrac{ab}{c}$',
         difficulty: 'standard',
       },
       {
@@ -171,13 +123,11 @@ export const literalNotation: Topic = {
       { id: 'math-g1-lit-notation-fc19', front: '$a^2b$', back: '$a \\times a \\times b$ を文字式で表すと？', explanation: '×を省略し、同じ文字は指数で表す。$a \\times a = a^2$ なので $a^2b$。', difficulty: 'standard' },
       { id: 'math-g1-lit-notation-fc20', front: '代金 $=$ 単価 $\\times$ 個数', back: '代金とおつりの基本公式は？', explanation: 'おつり $=$ 支払い $-$ 代金。', difficulty: 'standard' },
       { id: 'math-g1-lit-notation-fc21', front: '$\\pi r^2$', back: '円の面積を文字式で表すと？', explanation: '$\\pi$ は円周率、$r$ は半径。', difficulty: 'standard' },
-      { id: 'math-g1-lit-notation-fc22', front: 'かっこをつけて代入する', back: '累乗の式に負の数を代入するときの注意は？', explanation: '$x=-2$ なら $x^2 = (-2)^2 = 4$（$-2^2 = -4$ にしない！）', difficulty: 'standard' },
       { id: 'math-g1-lit-notation-fc23', front: '$1.08a$ 円', back: '「$a$ 円の品物に消費税 $8$%」を文字式で表すと？', explanation: '$a + 0.08a = 1.08a$', difficulty: 'advanced' },
       { id: 'math-g1-lit-notation-fc24', front: '体積 $= \\dfrac{1}{3} \\pi r^2 h$', back: '円すいの体積を文字式で表すと？', explanation: '底面の半径 $r$、高さ $h$。円柱の体積 $\\pi r^2 h$ の $\\dfrac{1}{3}$。', difficulty: 'advanced' },
       { id: 'math-g1-lit-notation-fc25', front: '$\\dfrac{a+b}{2}$', back: '$a$ と $b$ の平均を文字式で表すと？', explanation: '2つの数の和を $2$ で割る。', difficulty: 'advanced' },
       { id: 'math-g1-lit-notation-fc26', front: '$x \\times y$（2つの文字の積）', back: '文字式 $xy$ の意味は？', explanation: '$xy$ は $x \\times y$。$x + y$ とは全く別物！', difficulty: 'advanced' },
       { id: 'math-g1-lit-notation-fc27', front: '$100a + 10b + c$', back: '3けたの自然数を文字式で表すと？', explanation: '百の位 $a$、十の位 $b$、一の位 $c$。各位の数にその位の重み（100, 10, 1）をかけて足す。', difficulty: 'advanced' },
-      { id: 'math-g1-lit-notation-fc28', front: '文字が何を表すか明記する', back: '文字式で大切なのは何を $x$ にしたか明記すること。なぜ？', explanation: '「$x$ は個数」「$a$ は速さ」など、文字の意味を書かないと式の意味が伝わらない。', difficulty: 'advanced' },
       { id: 'math-g1-lit-notation-fc29', front: '$ab$', back: '$a \\times b$ を文字式で表すと？', explanation: '×の記号を省略して $ab$ と書く。', difficulty: 'basic' },
       { id: 'math-g1-lit-notation-fc30', front: '$5x$', back: '$x \\times 5$ を文字式で表すと？', explanation: '数を文字の前に書くルール。$x5$ ではなく $5x$。', difficulty: 'basic' },
       { id: 'math-g1-lit-notation-fc31', front: '$ab$（アルファベット順）', back: '$b \\times a$ を文字式で表すと？', explanation: '文字はアルファベット順に並べる。', difficulty: 'basic' },
@@ -197,7 +147,7 @@ export const literalNotation: Topic = {
       { id: 'math-g1-lit-notation-fc45', front: '$\\dfrac{a}{4}$ 時間', back: '$a$ km の道のりを時速 $4$ km で歩いたときの時間は？', explanation: '時間 $=$ 道のり $\\div$ 速さ。', difficulty: 'standard' },
       { id: 'math-g1-lit-notation-fc46', front: '$(x - y)$ 人', back: '$x$ 人のクラスで女子が $y$ 人のとき、男子の人数は？', explanation: '男子 $=$ 全体 $-$ 女子。', difficulty: 'basic' },
       { id: 'math-g1-lit-notation-fc47', front: '$15$', back: '$5x$ に $x = 3$ を代入すると、式の値は？', explanation: '$5 \\times 3 = 15$。', difficulty: 'basic' },
-      { id: 'math-g1-lit-notation-fc48', front: '$9$', back: '$a^2$ に $a = -3$ を代入すると、式の値は？', explanation: '$(-3)^2 = (-3) \\times (-3) = 9$。負の数はかっこをつけて代入！', difficulty: 'standard' },
+      { id: 'math-g1-lit-notation-fc48', front: '$9$', back: '$a^2$ に $a = -3$ を代入すると、式の値は？', explanation: '$(-3)^2 = (-3) \\times (-3) = 9$。負の数はかっこをつけて代入！', difficulty: 'standard' }
     ],
     quiz: {
       questions: [
@@ -436,7 +386,7 @@ export const literalNotation: Topic = {
           correctIndex: 0,
           explanation: '$(-1)^2 + (-1) = 1 + (-1) = 0$',
           difficulty: 'advanced',
-        },
+        }
       ],
     },
     examples: {
@@ -457,7 +407,7 @@ export const literalNotation: Topic = {
               content:
                 'かけ算の×を全部省略するよ。文字はアルファベット順に並べよう。',
               highlight: '$4ab$',
-            },
+            }
           ],
           answer: '$4ab$',
         },
@@ -476,7 +426,7 @@ export const literalNotation: Topic = {
               title: 'Step 2: 計算する',
               content: '$3 \\times (-2) = -6$',
               highlight: '$-6$',
-            },
+            }
           ],
           answer: '$-6$',
         },
@@ -494,7 +444,7 @@ export const literalNotation: Topic = {
               title: 'Step 2: ÷を分数にする',
               content: '÷は分数で表すよ。',
               highlight: '$\\dfrac{x^2}{y}$',
-            },
+            }
           ],
           answer: '$\\dfrac{x^2}{y}$',
         },
@@ -525,7 +475,7 @@ export const literalNotation: Topic = {
               title: 'Step 4: 合計を求める',
               content: '前半 + 後半で合計の道のりが出るよ。',
               highlight: '$(ab + 2c)$ km',
-            },
+            }
           ],
           answer: '$(ab + 2c)$ km',
         },
@@ -545,7 +495,7 @@ export const literalNotation: Topic = {
               content:
                 '$\\div b$ があるから、$b$ を分母に置くよ。',
               highlight: '$\\dfrac{3a^2}{b}$',
-            },
+            }
           ],
           answer: '$\\dfrac{3a^2}{b}$',
         },
@@ -571,10 +521,10 @@ export const literalNotation: Topic = {
               content:
                 '$3x - 2y = 2 - (-1) = 2 + 1 = 3$',
               highlight: '$3$',
-            },
+            }
           ],
           answer: '$3$',
-        },
+        }
       ],
     },
     chatId: 'math-g1-lit-notation',

@@ -18,7 +18,7 @@ export const calcApplications: Topic = {
             '連続する2つの整数: n, n+1',
             '連続する2つの奇数: 2n-1, 2n+1',
             '連続する2つの偶数: 2n, 2n+2',
-            '「○の倍数」を示すには ○×(整数) の形にまとめる',
+            '「○の倍数」を示すには ○×(整数) の形にまとめる'
           ],
         },
         {
@@ -28,7 +28,7 @@ export const calcApplications: Topic = {
           keyPoints: [
             '35²−25² = (35+25)(35−25) = 60×10 = 600',
             '51×49 = (50+1)(50−1) = 50²−1² = 2499',
-            '数をきりのいい数±小さい数と考えるのがコツ',
+            '数をきりのいい数±小さい数と考えるのがコツ'
           ],
         },
         {
@@ -38,7 +38,7 @@ export const calcApplications: Topic = {
           keyPoints: [
             '101² = (100+1)² = 10000+200+1 = 10201',
             '98² = (100−2)² = 10000−400+4 = 9604',
-            '10.3×9.7 = (10+0.3)(10−0.3) = 100−0.09 = 99.91',
+            '10.3×9.7 = (10+0.3)(10−0.3) = 100−0.09 = 99.91'
           ],
         },
         {
@@ -48,7 +48,7 @@ export const calcApplications: Topic = {
           keyPoints: [
             'x=96のとき x²+8x+16 → (x+4)² = 100² = 10000',
             '(x+3)(x−6)−x(x−5) → 展開して −3x−18 にしてから代入',
-            'x²−y² → (x+y)(x−y) にしてから代入',
+            'x²−y² → (x+y)(x−y) にしてから代入'
           ],
         },
         {
@@ -58,9 +58,9 @@ export const calcApplications: Topic = {
           keyPoints: [
             '道の面積 S = 幅m × 真ん中の線の長さℓ',
             '大きい長方形の面積−小さい長方形の面積で道の面積を求める',
-            '展開して整理 → 因数分解で美しい公式にまとめる',
+            '展開して整理 → 因数分解で美しい公式にまとめる'
           ],
-        },
+        }
       ],
     },
     videos: [],
@@ -106,12 +106,6 @@ export const calcApplications: Topic = {
         difficulty: 'basic',
       },
       {
-        id: 'math-g3-ca-fc7',
-        front: '先に式を因数分解or展開して簡単にしてから代入する', back: '式の値を求めるとき、最初にすべきことは？',
-        hint: 'いきなり代入しない！',
-        difficulty: 'basic',
-      },
-      {
         id: 'math-g3-ca-fc8',
         front: '10000', back: 'x=96のとき x²+8x+16 の値を求めるコツは？',
         explanation: '因数分解して (x+4)² = (96+4)² = 100² = 10000',
@@ -135,12 +129,6 @@ export const calcApplications: Topic = {
         front: '99.91', back: '10.3×9.7 を公式で計算すると？',
         explanation: '(10+0.3)(10−0.3) = 100−0.09 = 99.91',
         hint: '和と差の積',
-        difficulty: 'basic',
-      },
-      {
-        id: 'math-g3-ca-fc12',
-        front: '(x+y)(x−y) に因数分解してから代入', back: 'x²−y² の値を求めるとき、どう変形する？',
-        hint: '和と差の積の公式',
         difficulty: 'basic',
       },
       {
@@ -257,9 +245,7 @@ export const calcApplications: Topic = {
       { id: 'math-g3-ca-fc33', front: '$1$', back: '奇数の $2$ 乗を $8$ で割った余りは？', explanation: '$(2n+1)^2 = 4n(n+1) + 1$。$n(n+1)$ は偶数。', difficulty: 'standard' },
       { id: 'math-g3-ca-fc34', front: '$n, n+1, n+2$（または $n-1, n, n+1$）', back: '連続する $3$ つの整数を文字で表すと？', explanation: '真ん中を基準にする方法もある。', difficulty: 'basic' },
       { id: 'math-g3-ca-fc35', front: '真ん中の数の $2$ 乗より $1$ 小さい', back: '連続する $3$ つの整数で、両端の積と真ん中の $2$ 乗の関係は？', explanation: '$(n-1)(n+1) = n^2 - 1$。', difficulty: 'standard' },
-      { id: 'math-g3-ca-fc36', front: '展開や因数分解を使って式を簡単にしてから数値を代入', back: '式の値を求めるときの効率的な方法は？', explanation: '直接代入より計算が楽になる。', difficulty: 'standard' },
-      { id: 'math-g3-ca-fc37', front: '$(a+b)^2 - (a-b)^2 = 4ab$', back: '和の $2$ 乗と差の $2$ 乗の差は？', explanation: '展開して引くと $4ab$。', difficulty: 'advanced' },
-      { id: 'math-g3-ca-fc38', front: '因数分解して積の形にしてから代入', back: '$x^2 - 4x + 4$ で $x = 102$ のとき、効率的な計算法は？', explanation: '$(x-2)^2 = 100^2 = 10000$。', difficulty: 'advanced' },
+      { id: 'math-g3-ca-fc37', front: '$(a+b)^2 - (a-b)^2 = 4ab$', back: '和の $2$ 乗と差の $2$ 乗の差は？', explanation: '展開して引くと $4ab$。', difficulty: 'advanced' }
     ],
     quiz: {
       questions: [
@@ -270,7 +256,7 @@ export const calcApplications: Topic = {
             '$n, n+2$',
             '$2n+1, 2n+3$',
             '$2n-1, 2n$',
-            '$n, n+1$',
+            '$n, n+1$'
           ],
           correctIndex: 1,
           explanation:
@@ -320,7 +306,7 @@ export const calcApplications: Topic = {
             'すぐに数を代入する',
             '電卓で計算する',
             '先に式を簡単にする（因数分解・展開）',
-            'グラフを書く',
+            'グラフを書く'
           ],
           correctIndex: 2,
           explanation:
@@ -406,7 +392,7 @@ export const calcApplications: Topic = {
             '偶数になる',
             '4の倍数になる',
             '奇数になる',
-            '決まらない',
+            '決まらない'
           ],
           correctIndex: 2,
           explanation:
@@ -429,7 +415,7 @@ export const calcApplications: Topic = {
             '計算が簡単になる',
             '整数条件の確認が不要になる',
             '公式を使わなくてよい',
-            '展開したとき打ち消し合う項ができやすい',
+            '展開したとき打ち消し合う項ができやすい'
           ],
           correctIndex: 3,
           explanation:
@@ -470,7 +456,7 @@ export const calcApplications: Topic = {
             '$n(n+1)$',
             '$n(n-1)$',
             '$(n-1)(n+1)$',
-            '$n^2(1 - \\frac{1}{n})$',
+            '$n^2(1 - \\frac{1}{n})$'
           ],
           correctIndex: 1,
           explanation:
@@ -511,7 +497,7 @@ export const calcApplications: Topic = {
             '$(1000-3)^2 = 994009$',
             '$(1000-3)^2 = 993009$',
             '$(1000+3)^2 = 1006009$',
-            '$(1000-3)^2 = 994000$',
+            '$(1000-3)^2 = 994000$'
           ],
           correctIndex: 0,
           explanation:
@@ -525,7 +511,7 @@ export const calcApplications: Topic = {
             '面積を正確に測るため',
             '重なりを避けて計算を簡単にするため',
             '道を増やすため',
-            'グラフを描くため',
+            'グラフを描くため'
           ],
           correctIndex: 1,
           explanation:
@@ -548,13 +534,13 @@ export const calcApplications: Topic = {
             '$n, n+1, n+2$',
             '$n-1, n, n+1$',
             '$2n-1, 2n, 2n+1$',
-            '$n, 2n, 3n$',
+            '$n, 2n, 3n$'
           ],
           correctIndex: 1,
           explanation:
             '$n-1, n, n+1$ とおくと $(n-1)^2+n^2+(n+1)^2-3n^2 = 2$ とシンプルに証明できるよ。',
           difficulty: 'advanced',
-        },
+        }
       ],
     },
     examples: {
@@ -579,7 +565,7 @@ export const calcApplications: Topic = {
               title: 'Step 3: 計算する',
               content: '$= 10000 + 200 + 1 = 10201$',
               highlight: '$10201$',
-            },
+            }
           ],
           answer: '$10201$',
         },
@@ -602,7 +588,7 @@ export const calcApplications: Topic = {
               title: 'Step 3: 計算する',
               content: '$60 \\times 10 = 600$',
               highlight: '$600$',
-            },
+            }
           ],
           answer: '$600$',
         },
@@ -625,7 +611,7 @@ export const calcApplications: Topic = {
               title: 'Step 3: 計算する',
               content: '$100^2 = 10000$',
               highlight: '$10000$',
-            },
+            }
           ],
           answer: '$10000$',
         },
@@ -655,7 +641,7 @@ export const calcApplications: Topic = {
               content:
                 '$8n^2 = 8 \\times n^2$ で、nは整数だから $n^2$ も整数。よって8の倍数。',
               highlight: '$8 \\times n^2$（8の倍数）',
-            },
+            }
           ],
           answer: '$8n^2 = 8 \\times n^2$ より8の倍数',
         },
@@ -686,10 +672,10 @@ export const calcApplications: Topic = {
               title: 'Step 4: 結論',
               content: 'よって色のついた部分の面積は $4ab$ cm² である。',
               highlight: '$S = 4ab$',
-            },
+            }
           ],
           answer: '$(a+b)^2 - (a-b)^2 = 4ab$ より証明完了',
-        },
+        }
       ],
     },
     chatId: 'math-g3-calc-applications',

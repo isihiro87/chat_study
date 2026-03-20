@@ -17,7 +17,7 @@ export const slopeIntercept: Topic = {
           keyPoints: [
             '傾き a > 0 → 右上がりのグラフ（x が増えると y も増える）',
             '傾き a < 0 → 右下がりのグラフ（x が増えると y は減る）',
-            '|a| が大きいほどグラフは急になる',
+            '|a| が大きいほどグラフは急になる'
           ],
           image: {
             src: '/images/math/grade2/linear-function-graph.svg',
@@ -32,7 +32,7 @@ export const slopeIntercept: Topic = {
           keyPoints: [
             '切片 b → y 軸上の点 (0, b) に印をつける',
             '傾き a → 切片から「右に1、上に a」進んだ点をとる（a が負なら下に進む）',
-            '2点を結んで直線を引けば完成！',
+            '2点を結んで直線を引けば完成！'
           ],
         },
         {
@@ -43,7 +43,7 @@ export const slopeIntercept: Topic = {
             '傾き a/b（既約分数）→ 切片から「右に b、上に a」進む',
             '例: 傾き 2/3 → 右に3、上に2',
             '例: 傾き -3/4 → 右に4、下に3',
-            '分母が x の増加分、分子が y の増加分と覚えよう',
+            '分母が x の増加分、分子が y の増加分と覚えよう'
           ],
         },
         {
@@ -53,7 +53,7 @@ export const slopeIntercept: Topic = {
           keyPoints: [
             'y = ax + b は y = ax を y 軸方向に b だけ平行移動',
             'b > 0 なら上に移動、b < 0 なら下に移動',
-            '傾きが同じ2つの直線は必ず平行',
+            '傾きが同じ2つの直線は必ず平行'
           ],
         },
         {
@@ -63,9 +63,9 @@ export const slopeIntercept: Topic = {
           keyPoints: [
             '傾き a > 0 のとき: x が最小 → y も最小、x が最大 → y も最大',
             '傾き a < 0 のとき: x が最小 → y は最大、x が最大 → y は最小（逆になる！）',
-            'x の変域の両端を式に代入して y の値を求め、小さい方から大きい方の順に書く',
+            'x の変域の両端を式に代入して y の値を求め、小さい方から大きい方の順に書く'
           ],
-        },
+        }
       ],
     },
     videos: [],
@@ -142,15 +142,12 @@ export const slopeIntercept: Topic = {
       },
       { id: 'math-g2-slope-intercept-fc17', front: '$(0, b)$ と $(1, a+b)$', explanation: 'この2点を通る直線になる', back: '$y = ax + b$ のグラフは必ずどの2点を通る？', difficulty: 'standard' },
       { id: 'math-g2-slope-intercept-fc19', front: '$(0, b)$ と $(-\\dfrac{b}{a}, 0)$ の2点をとって結ぶ', explanation: '$x = 0$ と $y = 0$ を代入して2点を求める', back: '2点法でグラフをかくには？', difficulty: 'standard' },
-      { id: 'math-g2-slope-intercept-fc20', front: '両端の $x$ を代入して $y$ を求める', explanation: '小さい方から大きい方の順に書く', back: '$y$ の変域の求め方は？', difficulty: 'standard' },
       { id: 'math-g2-slope-intercept-fc21', front: '傾きが等しく切片が異なる', explanation: '傾き $a$ が同じで $b$ が異なる2直線', back: '平行な2直線の条件は？', difficulty: 'standard' },
       { id: 'math-g2-slope-intercept-fc22', front: 'グラフが $y$ 軸を横切る高さ', explanation: '$x = 0$ のときの $y$ 座標のこと', back: '「切片」を一言で言うと？', difficulty: 'standard' },
-      { id: 'math-g2-slope-intercept-fc23', front: '切片を読む → もう1点との差から傾きを計算', explanation: '① $y$ 軸との交点を読む → ② 傾きを求める', back: 'グラフから一次関数の式を読み取る手順は？', difficulty: 'advanced' },
       { id: 'math-g2-slope-intercept-fc24', front: '右に分母、上に分子だけ進む', explanation: '傾き $\\dfrac{a}{b}$ なら右に $b$、上に $a$。整数の点がとれる', back: '分数の傾きの考え方は？分母が $x$ の増加分、分子が $y$ の増加分', difficulty: 'advanced' },
       { id: 'math-g2-slope-intercept-fc25', front: '傾き $a$ が等しく切片が異なる', explanation: '$y = ax + b_1$ と $y = ax + b_2$（$b_1 \\neq b_2$）は平行', back: '平行な直線の式の特徴は？', difficulty: 'advanced' },
       { id: 'math-g2-slope-intercept-fc26', front: '必ず通る', explanation: '切片 $= x = 0$ のときの $y$ 座標', back: 'すべての一次関数のグラフは $y$ 軸と交わる？', difficulty: 'advanced' },
       { id: 'math-g2-slope-intercept-fc27', front: '$a > 0$: 同方向、$a < 0$: 逆方向', explanation: '$a > 0$ なら $x$↑→$y$↑、$a < 0$ なら $x$↑→$y$↓', back: '傾きの正負と $x$, $y$ の変化の関係は？', difficulty: 'advanced' },
-      { id: 'math-g2-slope-intercept-fc28', front: '切片 $(0, 5)$ から右に1、上に $-3$', explanation: '$(1, 2)$ をとり、2点を結んで直線を引く', back: '$y = -3x + 5$ のグラフの書き方は？', difficulty: 'advanced' },
       { id: 'math-g2-slope-intercept-fc29', front: '$a$（$x$ の係数）', back: '一次関数 $y = ax + b$ で「傾き」はどの文字？', explanation: '$x$ が $1$ 増えたときの $y$ の変化量。', difficulty: 'basic' },
       { id: 'math-g2-slope-intercept-fc30', front: '$3$', back: '$y = 3x + 2$ の傾きは？', explanation: '$x$ が $1$ 増えると $y$ は $3$ 増える。', difficulty: 'basic' },
       { id: 'math-g2-slope-intercept-fc31', front: '$-5$', back: '$y = -5x + 1$ の傾きは？', explanation: '$x$ が $1$ 増えると $y$ は $5$ 減る。', difficulty: 'basic' },
@@ -165,8 +162,7 @@ export const slopeIntercept: Topic = {
       { id: 'math-g2-slope-intercept-fc40', front: '右下がり', back: '傾き $a < 0$ のとき、グラフは右上がり？右下がり？', explanation: '$x$ が増えると $y$ は減る。', difficulty: 'basic' },
       { id: 'math-g2-slope-intercept-fc41', front: '切片 $(0, b)$ をとり、傾きを使ってもう1点をとる', back: '一次関数のグラフの書き方は？', explanation: '$2$ 点を結んで直線を引く。', difficulty: 'standard' },
       { id: 'math-g2-slope-intercept-fc42', front: '傾きが等しく切片が異なる', back: '平行な $2$ 直線の条件は？', explanation: '$a$ が同じで $b$ が異なる。', difficulty: 'standard' },
-      { id: 'math-g2-slope-intercept-fc43', front: '切片を読む → もう1点との差から傾きを計算', back: 'グラフから一次関数の式を読み取る手順は？', explanation: '①$y$ 軸との交点 → ②傾き。', difficulty: 'standard' },
-      { id: 'math-g2-slope-intercept-fc44', front: '右に分母、上に分子だけ進む', back: '分数の傾きでグラフ上の点をとるには？', explanation: '整数の点がとれる。', difficulty: 'advanced' },
+      { id: 'math-g2-slope-intercept-fc44', front: '右に分母、上に分子だけ進む', back: '分数の傾きでグラフ上の点をとるには？', explanation: '整数の点がとれる。', difficulty: 'advanced' }
     ],
     quiz: {
       questions: [
@@ -195,7 +191,7 @@ export const slopeIntercept: Topic = {
             '傾き $4$、切片 $-3$',
             '傾き $-3$、切片 $4$',
             '傾き $3$、切片 $-4$',
-            '傾き $-4$、切片 $3$',
+            '傾き $-4$、切片 $3$'
           ],
           correctIndex: 1,
           explanation:
@@ -220,7 +216,7 @@ export const slopeIntercept: Topic = {
             '$y$ 軸方向に $3$ だけ',
             '$x$ 軸方向に $3$ だけ',
             '$x$ 軸方向に $2$ だけ',
-            '$y$ 軸方向に $-3$ だけ',
+            '$y$ 軸方向に $-3$ だけ'
           ],
           correctIndex: 0,
           explanation:
@@ -235,7 +231,7 @@ export const slopeIntercept: Topic = {
             '$y = x + 4$',
             '$y = 5x - 2$',
             '同じ急さ',
-            '比べられない',
+            '比べられない'
           ],
           correctIndex: 1,
           explanation:
@@ -250,7 +246,7 @@ export const slopeIntercept: Topic = {
             '$1 \\leqq y \\leqq 4$',
             '$1 \\leqq y \\leqq 9$',
             '$2 \\leqq y \\leqq 8$',
-            '$3 \\leqq y \\leqq 9$',
+            '$3 \\leqq y \\leqq 9$'
           ],
           correctIndex: 3,
           explanation:
@@ -265,7 +261,7 @@ export const slopeIntercept: Topic = {
             '$2 \\leqq y \\leqq 10$',
             '$8 \\leqq y \\leqq 0$',
             '$0 \\leqq y \\leqq 8$',
-            '$-2 \\leqq y \\leqq 8$',
+            '$-2 \\leqq y \\leqq 8$'
           ],
           correctIndex: 2,
           explanation:
@@ -280,7 +276,7 @@ export const slopeIntercept: Topic = {
             '$y = -2x + 3$',
             '$y = -2x - 3$',
             '$y = 3x + 2$',
-            '$y = 3x - 2$',
+            '$y = 3x - 2$'
           ],
           correctIndex: 3,
           explanation:
@@ -315,7 +311,7 @@ export const slopeIntercept: Topic = {
             '$y = 2x + 4$',
             '$y = -2x - 4$',
             '$y = -2x + 4$',
-            '$y = 2x - 4$',
+            '$y = 2x - 4$'
           ],
           correctIndex: 2,
           explanation:
@@ -449,7 +445,7 @@ export const slopeIntercept: Topic = {
           correctIndex: 1,
           explanation: '$y = 2x$ を $y$ 軸方向に $b = 3$ だけ平行移動したものだよ。',
           difficulty: 'advanced',
-        },
+        }
       ],
     },
     examples: {
@@ -475,7 +471,7 @@ export const slopeIntercept: Topic = {
               content:
                 '$(0, -1)$ と $(1, 1)$ を結んで、両方向に延ばせば完成！',
               highlight: '2点を通る直線を引く',
-            },
+            }
           ],
           answer: '切片 $(0, -1)$ を通り、傾き$2$の右上がりの直線',
         },
@@ -501,7 +497,7 @@ export const slopeIntercept: Topic = {
               content:
                 '$y = ax + b$ に $a = -2$、$b = 3$ を代入して $y = -2x + 3$',
               highlight: '$y = -2x + 3$',
-            },
+            }
           ],
           answer: '$y = -2x + 3$',
         },
@@ -527,7 +523,7 @@ export const slopeIntercept: Topic = {
               content:
                 '$(0, 1)$ と $(3, 3)$ を結んで直線を引けば完成！',
               highlight: '2点を通る直線を引く',
-            },
+            }
           ],
           answer:
             '切片 $(0, 1)$ を通り、傾き $\\dfrac{2}{3}$ の右上がりの直線',
@@ -554,7 +550,7 @@ export const slopeIntercept: Topic = {
               content:
                 '$(0, 3)$ と $(4, 0)$ を結んで直線を引けば完成！',
               highlight: '2点を通る直線を引く',
-            },
+            }
           ],
           answer:
             '切片 $(0, 3)$ を通り、傾き $-\\dfrac{3}{4}$ の右下がりの直線',
@@ -581,7 +577,7 @@ export const slopeIntercept: Topic = {
               content:
                 '$x = 4$ のとき $y = 3 \\times 4 - 2 = 10$。これが $y$ の最大値だよ。',
               highlight: '$y$ の最大値は $10$',
-            },
+            }
           ],
           answer: '$1 \\leqq y \\leqq 10$',
         },
@@ -607,10 +603,10 @@ export const slopeIntercept: Topic = {
               content:
                 '$x = 3$ のとき $y = -2 \\times 3 + 8 = 2$。これが $y$ の最小値だよ。',
               highlight: '$y$ の最小値は $2$',
-            },
+            }
           ],
           answer: '$2 \\leqq y \\leqq 10$',
-        },
+        }
       ],
     },
     chatId: 'math-g2-slope-intercept',

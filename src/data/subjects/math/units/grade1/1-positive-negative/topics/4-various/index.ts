@@ -17,7 +17,7 @@ export const variousCalc: Topic = {
           keyPoints: [
             '$3^2 = 3 \\times 3 = 9$（$3$ の $2$ 乗）',
             '$(-2)^3 = (-2) \\times (-2) \\times (-2) = -8$（$-2$ の $3$ 乗）',
-            '$(-2)^2 = 4$ だけど $-2^2 = -4$（かっこの有無に注意！）',
+            '$(-2)^2 = 4$ だけど $-2^2 = -4$（かっこの有無に注意！）'
           ],
         },
         {
@@ -28,7 +28,7 @@ export const variousCalc: Topic = {
             '1. 累乗を先に計算する',
             '2. かっこの中を先に計算する',
             '3. 乗法・除法を先に計算する',
-            '4. 最後に加法・減法を計算する',
+            '4. 最後に加法・減法を計算する'
           ],
         },
         {
@@ -38,7 +38,7 @@ export const variousCalc: Topic = {
           keyPoints: [
             '$5 \\times (3 + 7) = 5 \\times 3 + 5 \\times 7 = 15 + 35 = 50$',
             '$(-4) \\times (6 - 2) = (-4) \\times 6 + (-4) \\times (-2) = -24 + 8 = -16$',
-            '逆に共通因数でくくることもできる: $3 \\times 8 + 3 \\times 2 = 3 \\times (8 + 2) = 30$',
+            '逆に共通因数でくくることもできる: $3 \\times 8 + 3 \\times 2 = 3 \\times (8 + 2) = 30$'
           ],
         },
         {
@@ -48,9 +48,9 @@ export const variousCalc: Topic = {
           keyPoints: [
             '素数: $2, 3, 5, 7, 11, 13, \\ldots$（$1$ は素数ではない）',
             '$12 = 2^2 \\times 3$（$12$ の素因数分解）',
-            '$60 = 2^2 \\times 3 \\times 5$（$60$ の素因数分解）',
+            '$60 = 2^2 \\times 3 \\times 5$（$60$ の素因数分解）'
           ],
-        },
+        }
       ],
     },
     videos: [],
@@ -66,7 +66,6 @@ export const variousCalc: Topic = {
       { id: 'math-g1-var-fc9', front: '素数ではない', explanation: '$1$ の約数は $1$ だけ。素数は約数が $2$ 個の自然数。', back: '$1$ は素数か？', difficulty: 'basic' },
       { id: 'math-g1-var-fc10', front: '素数', explanation: '唯一の偶数の素数。$4, 6, 8, \\ldots$ は $2$ で割れるから素数ではない。', back: '$2$ は素数か？', difficulty: 'basic' },
       { id: 'math-g1-var-fc11', front: '$2, 3, 5, 7, 11, 13, 17, 19$', explanation: '$8$ 個ある。$4,6,8,9,10,12,14,15,16,18,20$ は素数ではない。', back: '$20$ 以下の素数をすべて挙げると？', difficulty: 'basic' },
-      { id: 'math-g1-var-fc13', front: '小さい素数から順に割っていく', explanation: '$2, 3, 5, 7, \\ldots$ の順に割れるか確認する。', back: '素因数分解の方法は？', difficulty: 'standard' },
       { id: 'math-g1-var-fc14', front: '$a + b = b + a$', explanation: '順番を入れかえても和は同じ。', back: '加法の交換法則とは？', difficulty: 'standard' },
       { id: 'math-g1-var-fc15', front: '$(a + b) + c = a + (b + c)$', explanation: '組み合わせを変えても和は同じ。', back: '加法の結合法則とは？', difficulty: 'standard' },
       { id: 'math-g1-var-fc16', front: '$a \\times b = b \\times a$', explanation: '順番を入れかえても積は同じ。', back: '乗法の交換法則とは？', difficulty: 'standard' },
@@ -79,9 +78,7 @@ export const variousCalc: Topic = {
       { id: 'math-g1-var-fc23', front: '$a^{m+n}$', explanation: '$a^m \\times a^n = a^{m+n}$。指数を足し算する。', back: '同じ底の累乗のかけ算は？', difficulty: 'advanced' },
       { id: 'math-g1-var-fc24', front: '偶数乗→正、奇数乗→負', explanation: '$(-1)^{100} = +1$（偶数乗→正）、$(-1)^{99} = -1$（奇数乗→負）。', back: '$(-1)$ の大きな累乗はどうなる？', difficulty: 'advanced' },
       { id: 'math-g1-var-fc25', front: '最大公約数と最小公倍数を求めるのに使う', explanation: '共通する素因数から最大公約数、すべての素因数から最小公倍数を求める。', back: '素因数分解は何に役立つ？', difficulty: 'advanced' },
-      { id: 'math-g1-var-fc26', front: '最大公約数＝共通する素因数の積、最小公倍数＝すべての素因数の最大累乗の積', explanation: '素因数分解すれば機械的に求められる。', back: '素因数分解を使った最大公約数・最小公倍数の求め方は？', difficulty: 'advanced' },
       { id: 'math-g1-var-fc27', front: '$2 \\times 3^2 \\times 5$', explanation: '$90 = 2 \\times 45 = 2 \\times 9 \\times 5 = 2 \\times 3^2 \\times 5$', back: '$90$ を素因数分解すると？', difficulty: 'advanced' },
-      { id: 'math-g1-var-fc28', front: '先に素数を見つけてから割る', explanation: '偶数なら $2$ で割る。$5$ で終わる数は $5$ で割る。', back: '素因数分解を速くするコツは？', difficulty: 'advanced' },
       { id: 'math-g1-var-fc29', front: '$9$', explanation: '$3^2 = 3 \\times 3 = 9$。', back: '$3^2$ の計算結果は？', difficulty: 'basic' },
       { id: 'math-g1-var-fc30', front: '$16$', explanation: '$2^4 = 2 \\times 2 \\times 2 \\times 2 = 16$。', back: '$2^4$ の計算結果は？', difficulty: 'basic' },
       { id: 'math-g1-var-fc31', front: '$+1$', explanation: '負の数を偶数回（$4$ 回）かけるから正。$1^4 = 1$。', back: '$(-1)^4$ の計算結果は？', difficulty: 'basic' },
@@ -101,7 +98,7 @@ export const variousCalc: Topic = {
       { id: 'math-g1-var-fc45', front: '$2 \\times 3^2$', explanation: '$18 = 2 \\times 9 = 2 \\times 3^2$。', back: '$18$ を素因数分解すると？', difficulty: 'standard' },
       { id: 'math-g1-var-fc46', front: '$2^4 \\times 5$', explanation: '$80 = 16 \\times 5 = 2^4 \\times 5$。', back: '$80$ を素因数分解すると？', difficulty: 'standard' },
       { id: 'math-g1-var-fc47', front: '$2 \\times 3 \\times 5^2$', explanation: '$150 = 2 \\times 75 = 2 \\times 3 \\times 25 = 2 \\times 3 \\times 5^2$。', back: '$150$ を素因数分解すると？', difficulty: 'advanced' },
-      { id: 'math-g1-var-fc48', front: '$2^2 \\times 3^2 \\times 7$', explanation: '$252 = 4 \\times 63 = 2^2 \\times 9 \\times 7 = 2^2 \\times 3^2 \\times 7$。', back: '$252$ を素因数分解すると？', difficulty: 'advanced' },
+      { id: 'math-g1-var-fc48', front: '$2^2 \\times 3^2 \\times 7$', explanation: '$252 = 4 \\times 63 = 2^2 \\times 9 \\times 7 = 2^2 \\times 3^2 \\times 7$。', back: '$252$ を素因数分解すると？', difficulty: 'advanced' }
     ],
     quiz: {
       questions: [
@@ -139,7 +136,7 @@ export const variousCalc: Topic = {
             '$2^2 \\times 3^2$',
             '$4 \\times 9$',
             '$2 \\times 18$',
-            '$6^2$',
+            '$6^2$'
           ],
           correctIndex: 0,
           explanation:
@@ -189,7 +186,7 @@ export const variousCalc: Topic = {
             '$2^2 \\times 3 \\times 5$',
             '$4 \\times 15$',
             '$2 \\times 30$',
-            '$6 \\times 10$',
+            '$6 \\times 10$'
           ],
           correctIndex: 0,
           explanation:
@@ -221,7 +218,7 @@ export const variousCalc: Topic = {
             '自然数 $-$ 自然数は必ず自然数',
             '自然数 $\\div$ 自然数は必ず自然数',
             '自然数 $+$ 自然数は必ず自然数',
-            '$0$ は自然数',
+            '$0$ は自然数'
           ],
           correctIndex: 2,
           explanation:
@@ -355,7 +352,7 @@ export const variousCalc: Topic = {
           correctIndex: 0,
           explanation: '$(-6)^2 = 36$、$(-3)^2 = 9$。$36 \\div 9 = 4$。\n偶数乗は正だから $+4$ だよ。',
           difficulty: 'advanced',
-        },
+        }
       ],
     },
     examples: {
@@ -382,7 +379,7 @@ export const variousCalc: Topic = {
               content:
                 '$(-8) + (-15) = -(8 + 15) = -23$\n同符号（負＋負）だから絶対値の和に負の符号をつけるよ。',
               highlight: '$(-2)^3 + 5 \\times (-3) = -23$',
-            },
+            }
           ],
           answer: '$-23$',
         },
@@ -408,7 +405,7 @@ export const variousCalc: Topic = {
               content:
                 '$(25 + 75) \\times (-4) = 100 \\times (-4) = -400$',
               highlight: '$= -400$',
-            },
+            }
           ],
           answer: '$-400$',
         },
@@ -433,7 +430,7 @@ export const variousCalc: Topic = {
               content:
                 '$84 = 2 \\times 2 \\times 3 \\times 7 = 2^2 \\times 3 \\times 7$',
               highlight: '$84 = 2^2 \\times 3 \\times 7$',
-            },
+            }
           ],
           answer: '$84 = 2^2 \\times 3 \\times 7$',
         },
@@ -459,7 +456,7 @@ export const variousCalc: Topic = {
               content:
                 '$(-3)^2 = +9$（$-3$ 全体の $2$ 乗）\n$-3^2 = -9$（$3$ の $2$ 乗にマイナスをつけたもの）\n答えの符号が逆になる！',
               highlight: '$(-3)^2 = +9$、$-3^2 = -9$',
-            },
+            }
           ],
           answer: '$(-3)^2 = +9$、$-3^2 = -9$',
         },
@@ -485,7 +482,7 @@ export const variousCalc: Topic = {
               content:
                 '$-8 + 48 - 5 = 48 - 8 - 5 = 48 - 13 = 35$',
               highlight: '$(-2)^3 + 3 \\times (-4)^2 - 5 = 35$',
-            },
+            }
           ],
           answer: '$35$',
         },
@@ -511,10 +508,10 @@ export const variousCalc: Topic = {
               content:
                 '$(-18) \\times 20 = -360$',
               highlight: '$= -360$',
-            },
+            }
           ],
           answer: '$-360$',
-        },
+        }
       ],
     },
     chatId: 'math-g1-various',

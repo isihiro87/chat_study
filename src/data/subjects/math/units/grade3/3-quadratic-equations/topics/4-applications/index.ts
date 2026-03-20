@@ -17,7 +17,7 @@ export const quadEqApps: Topic = {
           keyPoints: [
             '求めるものを $x$ と置く',
             '問題文の条件から方程式を立てる',
-            '解を求めたら、問題の条件に合うか吟味する',
+            '解を求めたら、問題の条件に合うか吟味する'
           ],
         },
         {
@@ -27,7 +27,7 @@ export const quadEqApps: Topic = {
           keyPoints: [
             '連続する整数 → $n, n+1$ と置く',
             '連続する3つの整数 → $n-1, n, n+1$（真ん中を $n$）',
-            '正の整数や自然数の条件を忘れずに吟味',
+            '正の整数や自然数の条件を忘れずに吟味'
           ],
         },
         {
@@ -37,7 +37,7 @@ export const quadEqApps: Topic = {
           keyPoints: [
             '辺の長さや動いた距離を $x$ と置く',
             '面積の公式（長方形、三角形など）を使って式を立てる',
-            '道幅の問題は「道を端に寄せて」残りを長方形で計算',
+            '道幅の問題は「道を端に寄せて」残りを長方形で計算'
           ],
         },
         {
@@ -47,7 +47,7 @@ export const quadEqApps: Topic = {
           keyPoints: [
             '底面の1辺 $= (\\text{元の辺}) - 2x$',
             '高さ $= x$（切り取った正方形の1辺）',
-            '$0 < x < \\dfrac{\\text{短い辺}}{2}$ の範囲に注意',
+            '$0 < x < \\dfrac{\\text{短い辺}}{2}$ の範囲に注意'
           ],
         },
         {
@@ -57,19 +57,13 @@ export const quadEqApps: Topic = {
           keyPoints: [
             '速さ $\\times$ 時間 $=$ 距離で点の位置を式に',
             '三角形の面積 $= \\dfrac{1}{2} \\times$ 底辺 $\\times$ 高さ',
-            '$x$ の範囲内の解だけが答え（両方OKの場合もある）',
+            '$x$ の範囲内の解だけが答え（両方OKの場合もある）'
           ],
-        },
+        }
       ],
     },
     videos: [],
     flashcards: [
-      {
-        id: 'math-g3-qea-fc1',
-        front: '① $x$ で置く\n② 式を立てる\n③ 解いて吟味', back: '文章題の3ステップ',
-        explanation: '求めるものをxと置き、条件から式を立て、解が問題の条件に合うか確認する',
-        difficulty: 'basic',
-      },
       {
         id: 'math-g3-qea-fc3',
         front: '$n, n+1$（小さい方を $n$ とする）', back: '連続する2つの整数の表し方',
@@ -78,16 +72,6 @@ export const quadEqApps: Topic = {
       {
         id: 'math-g3-qea-fc4',
         front: '$n-1, n, n+1$（真ん中を $n$ とする）', back: '連続する3つの整数の表し方',
-        difficulty: 'basic',
-      },
-      {
-        id: 'math-g3-qea-fc5',
-        front: '長さは負にならない → $x > 0$ の解だけ採用', back: '「長さ」を求めるときの吟味',
-        difficulty: 'basic',
-      },
-      {
-        id: 'math-g3-qea-fc6',
-        front: '正の整数 = 自然数 → $x$ が1以上の整数か確認', back: '「正の整数」を求めるときの吟味',
         difficulty: 'basic',
       },
       {
@@ -149,11 +133,6 @@ export const quadEqApps: Topic = {
         difficulty: 'standard',
       },
       {
-        id: 'math-g3-qea-fc18',
-        front: '条件を満たす解がない → 式の立て方を再確認', back: '解が2つとも不適な場合は？',
-        difficulty: 'standard',
-      },
-      {
         id: 'math-g3-qea-fc19',
         front: '$n(n+2)$（$n$ は奇数）', back: '連続する2つの奇数の積の表し方は？（小さい方を $n$）',
         difficulty: 'standard',
@@ -184,35 +163,15 @@ export const quadEqApps: Topic = {
         difficulty: 'advanced',
       },
       {
-        id: 'math-g3-qea-fc25',
-        front: '2つの解が両方とも適切な場合がある（答えが2つ）', back: '動点の問題で解が2つ出たときの注意は？',
-        difficulty: 'advanced',
-      },
-      {
         id: 'math-g3-qea-fc26',
         front: '$n^2 + (n+1)^2 = $ 目標値 として方程式を立てる', back: '連続する2つの整数の2乗の和の問題は？',
         difficulty: 'advanced',
       },
-      {
-        id: 'math-g3-qea-fc27',
-        front: '実際の値を代入して面積・個数が合うか確かめる', back: '解の吟味の具体的なやり方は？',
-        difficulty: 'advanced',
-      },
-      {
-        id: 'math-g3-qea-fc28',
-        front: '時間なので $x > 0$ かつ辺の長さを超えないか確認', back: '動点の問題で解の吟味は何を確認する？',
-        difficulty: 'advanced',
-      },
-      { id: 'math-g3-qea-fc29', front: '①文字をおく → ②方程式を立てる → ③解く → ④解の吟味', back: '二次方程式の文章題の手順は？', explanation: '必ず解の吟味を行う。', difficulty: 'basic' },
       { id: 'math-g3-qea-fc31', front: '$7$', back: '連続する $2$ つの正の整数の積が $56$。小さい方は？', explanation: '$n(n+1) = 56$、$n^2 + n - 56 = 0$、$(n+8)(n-7) = 0$。', difficulty: 'basic' },
       { id: 'math-g3-qea-fc32', front: '$n(n+1) = $ 積', back: '連続する $2$ つの整数の積の方程式の立て方は？', explanation: '小さい方を $n$ とおく。', difficulty: 'basic' },
       { id: 'math-g3-qea-fc33', front: '$n(n+2) = $ 積', back: '連続する $2$ つの偶数（または奇数）の積の方程式は？', explanation: '$n$ と $n+2$ の積。', difficulty: 'standard' },
-      { id: 'math-g3-qea-fc34', front: '面積の等式から二次方程式を立てる', back: '図形の面積の問題での方程式の立て方は？', explanation: '縦 $\\times$ 横 $=$ 面積。', difficulty: 'standard' },
-      { id: 'math-g3-qea-fc35', front: '辺の長さは正の数なので $x > 0$', back: '図形の問題で解の吟味のポイントは？', explanation: '負の値は不適。', difficulty: 'standard' },
-      { id: 'math-g3-qea-fc36', front: '距離 $=$ 速さ $\\times$ 時間の関係から二次方程式を立てる', back: '速さの問題での方程式の立て方は？', explanation: '時間を文字で表すことが多い。', difficulty: 'standard' },
-      { id: 'math-g3-qea-fc37', front: '自然数かつ問題の条件を満たす値のみ', back: '整数の問題で解の吟味のポイントは？', explanation: '負の整数が出ても不適な場合がある。', difficulty: 'standard' },
       { id: 'math-g3-qea-fc38', front: '$x(x+2) = $ 面積から方程式を立てる', back: '長方形の縦が横より $2$ cm 長いとき、面積の方程式は？', explanation: '横を $x$ とすると縦は $x + 2$。', difficulty: 'standard' },
-      { id: 'math-g3-qea-fc39', front: '$2$ つの解のうち、問題の条件に合う方を選ぶ', back: '二次方程式の文章題で解が $2$ つ出たらどうする？', explanation: '両方の値を検討する。', difficulty: 'advanced' },
+      { id: 'math-g3-qea-fc39', front: '$2$ つの解のうち、問題の条件に合う方を選ぶ', back: '二次方程式の文章題で解が $2$ つ出たらどうする？', explanation: '両方の値を検討する。', difficulty: 'advanced' }
     ],
     quiz: {
       questions: [
@@ -244,7 +203,7 @@ export const quadEqApps: Topic = {
             '$x = 5$',
             '$x = 5$ と $x = -3$',
             '$x = -3$',
-            '解なし',
+            '解なし'
           ],
           correctIndex: 0,
           explanation:
@@ -279,7 +238,7 @@ export const quadEqApps: Topic = {
             '$n, n+2$',
             '$n-1, n+1$',
             '$2n, 2n+1$',
-            '$n, n+1$',
+            '$n, n+1$'
           ],
           correctIndex: 3,
           explanation:
@@ -294,7 +253,7 @@ export const quadEqApps: Topic = {
             '$(12 - x)$ cm',
             '$(12 - 4x)$ cm',
             '$(6 - x)$ cm',
-            '$(12 - 2x)$ cm',
+            '$(12 - 2x)$ cm'
           ],
           correctIndex: 3,
           explanation:
@@ -309,7 +268,7 @@ export const quadEqApps: Topic = {
             '$\\dfrac{x(8-x)}{2}$',
             '$\\dfrac{x^2}{2}$',
             '$\\dfrac{8x}{2}$',
-            '$\\dfrac{(8-x)^2}{2}$',
+            '$\\dfrac{(8-x)^2}{2}$'
           ],
           correctIndex: 0,
           explanation:
@@ -324,7 +283,7 @@ export const quadEqApps: Topic = {
             '$2$秒後',
             '$2$秒後と$6$秒後',
             '$6$秒後',
-            '$4$秒後',
+            '$4$秒後'
           ],
           correctIndex: 1,
           explanation:
@@ -349,7 +308,7 @@ export const quadEqApps: Topic = {
             '$0 < x < 10$',
             '$0 < x < 15$',
             '$0 < x < 20$',
-            '$0 < x < 30$',
+            '$0 < x < 30$'
           ],
           correctIndex: 0,
           explanation:
@@ -364,7 +323,7 @@ export const quadEqApps: Topic = {
             '$5$ cmまたは$8$ cm',
             '$3$ cmまたは$10$ cm',
             '$4$ cmまたは$9$ cm',
-            '$6$ cmまたは$7$ cm',
+            '$6$ cmまたは$7$ cm'
           ],
           correctIndex: 3,
           explanation:
@@ -409,7 +368,7 @@ export const quadEqApps: Topic = {
             '$0 < x < 5$',
             '$0 < x < 10$',
             '$0 < x < 2.5$',
-            '$0 < x < 3$',
+            '$0 < x < 3$'
           ],
           correctIndex: 0,
           explanation:
@@ -424,7 +383,7 @@ export const quadEqApps: Topic = {
             '$2$秒後',
             '$4$秒後',
             '$2$秒後と$4$秒後',
-            '$1$秒後と$5$秒後',
+            '$1$秒後と$5$秒後'
           ],
           correctIndex: 2,
           explanation:
@@ -489,7 +448,7 @@ export const quadEqApps: Topic = {
             '正方形',
             '三角形',
             '長方形',
-            '台形',
+            '台形'
           ],
           correctIndex: 2,
           explanation:
@@ -514,7 +473,7 @@ export const quadEqApps: Topic = {
             '$x = -3$',
             '$x = 5$',
             '両方',
-            '解なし',
+            '解なし'
           ],
           correctIndex: 1,
           explanation:
@@ -549,13 +508,13 @@ export const quadEqApps: Topic = {
             'はい、常に両方答え',
             'いいえ、解の吟味で条件に合うものだけが答え',
             'いいえ、大きい方だけが答え',
-            'いいえ、小さい方だけが答え',
+            'いいえ、小さい方だけが答え'
           ],
           correctIndex: 1,
           explanation:
             '解の吟味が必要。長さは正、時間も正、範囲内かなど条件を確認しよう。',
           difficulty: 'advanced',
-        },
+        }
       ],
     },
     examples: {
@@ -576,7 +535,7 @@ export const quadEqApps: Topic = {
               content:
                 '$n^2 + n - 72 = 0$ → $(n+9)(n-8) = 0$ → $n = -9$ または $n = 8$。正の整数なので $n = 8$。',
               highlight: '$n = 8, n+1 = 9$',
-            },
+            }
           ],
           answer: '$8$ と $9$',
         },
@@ -596,7 +555,7 @@ export const quadEqApps: Topic = {
               content:
                 '$x^2 - 3x - 54 = 0$ → $(x-9)(x+6) = 0$ → $x = 9$ または $x = -6$。長さなので $x = 9$。',
               highlight: '横 $= 9$ cm',
-            },
+            }
           ],
           answer: '横 $9$ cm（縦 $6$ cm）',
         },
@@ -616,7 +575,7 @@ export const quadEqApps: Topic = {
               content:
                 '$192 - 28x + x^2 = 140$ → $x^2 - 28x + 52 = 0$ → $(x-2)(x-26) = 0$。$x = 2$（$x = 26$ は不適）。',
               highlight: '道幅 $= 2$ m',
-            },
+            }
           ],
           answer: '道幅 $2$ m',
         },
@@ -636,7 +595,7 @@ export const quadEqApps: Topic = {
               content:
                 '$x = 2$ のとき $2 \\times 8^2 = 2 \\times 64 = 128$。$0 < x < 6$ を満たすので $x = 2$。',
               highlight: '$x = 2$ cm',
-            },
+            }
           ],
           answer: '切り取る正方形の1辺 $= 2$ cm',
         },
@@ -656,7 +615,7 @@ export const quadEqApps: Topic = {
               content:
                 '$x(8-x) = 12$ → $x^2 - 8x + 12 = 0$ → $(x-2)(x-6) = 0$。$x = 2, 6$。両方とも $0 < x < 8$ を満たす。',
               highlight: '$2$ 秒後と $6$ 秒後',
-            },
+            }
           ],
           answer: '$2$ 秒後と $6$ 秒後',
         },
@@ -676,10 +635,10 @@ export const quadEqApps: Topic = {
               content:
                 '$150 + 25x + x^2 = 234$ → $x^2 + 25x - 84 = 0$ → $(x+28)(x-3) = 0$。$x = 3$（$x = -28$ は不適）。',
               highlight: '$3$ m ずつ伸ばす',
-            },
+            }
           ],
           answer: '$3$ m ずつ伸ばす',
-        },
+        }
       ],
     },
     chatId: 'math-g3-quad-eq-apps',

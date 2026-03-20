@@ -17,7 +17,7 @@ export const quadEqFactoring: Topic = {
           keyPoints: [
             'A × B = 0 ならば A = 0 または B = 0',
             '(x−2)(x−3) = 0 なら x−2 = 0 または x−3 = 0',
-            '答え: x = 2 または x = 3',
+            '答え: x = 2 または x = 3'
           ],
         },
         {
@@ -27,7 +27,7 @@ export const quadEqFactoring: Topic = {
           keyPoints: [
             '手順①: 右辺を0にする（移項して整理）',
             '手順②: 左辺を因数分解する',
-            '手順③: 各因数 = 0 として x の値を求める',
+            '手順③: 各因数 = 0 として x の値を求める'
           ],
         },
         {
@@ -37,7 +37,7 @@ export const quadEqFactoring: Topic = {
           keyPoints: [
             'x²−a² = 0 → (x+a)(x−a) = 0 → x = ±a',
             'x²−2ax+a² = 0 → (x−a)² = 0 → x = a（重解）',
-            'x²+2ax+a² = 0 → (x+a)² = 0 → x = −a（重解）',
+            'x²+2ax+a² = 0 → (x+a)² = 0 → x = −a（重解）'
           ],
         },
         {
@@ -47,7 +47,7 @@ export const quadEqFactoring: Topic = {
           keyPoints: [
             '例: −x²+5x−6=0 → 両辺に−1をかけて x²−5x+6=0',
             '例: 2x²−10x+12=0 → 両辺を2で割って x²−5x+6=0',
-            '例: −4x²+8x−4=0 → −4で割って x²−2x+1=0',
+            '例: −4x²+8x−4=0 → −4で割って x²−2x+1=0'
           ],
         },
         {
@@ -57,9 +57,9 @@ export const quadEqFactoring: Topic = {
           keyPoints: [
             '(x−3)(x−4)=2 → x²−7x+12=2 → x²−7x+10=0 → (x−2)(x−5)=0',
             '右辺が0でないと A×B=0 の原則が使えない！',
-            '必ず右辺を0にしてから因数分解すること',
+            '必ず右辺を0にしてから因数分解すること'
           ],
-        },
+        }
       ],
     },
     videos: [],
@@ -68,12 +68,6 @@ export const quadEqFactoring: Topic = {
         id: 'math-g3-qef-fc1',
         front: 'A = 0 または B = 0', back: 'A×B=0 のとき何が言える？',
         explanation: '少なくともどちらか一方が0になる',
-        difficulty: 'basic',
-      },
-      {
-        id: 'math-g3-qef-fc2',
-        front: '① 右辺を0にする\n② 左辺を因数分解\n③ 各因数 = 0 で解く', back: '因数分解で二次方程式を解く手順（3ステップ）',
-        explanation: '移項して整理→因数分解→各因数=0としてxの値を求める',
         difficulty: 'basic',
       },
       {
@@ -210,7 +204,6 @@ export const quadEqFactoring: Topic = {
         front: 'x=6, x=−1\n−1をかけて x²−5x−6=0→(x−6)(x+1)=0', back: '−x²+5x+6=0 の解は？',
         difficulty: 'advanced',
       },
-      { id: 'math-g3-qef-fc29', front: '左辺を因数分解して各因数 $= 0$', back: '因数分解による二次方程式の解き方は？', explanation: '$AB = 0$ → $A = 0$ or $B = 0$。', difficulty: 'basic' },
       { id: 'math-g3-qef-fc30', front: '$x = 2$ または $x = 3$', back: '$x^2 - 5x + 6 = 0$ の解は？', explanation: '$(x-2)(x-3) = 0$。', difficulty: 'basic' },
       { id: 'math-g3-qef-fc31', front: '$x = -1$ または $x = -6$', back: '$x^2 + 7x + 6 = 0$ の解は？', explanation: '$(x+1)(x+6) = 0$。', difficulty: 'basic' },
       { id: 'math-g3-qef-fc32', front: '$x = 3$ または $x = -4$', back: '$x^2 + x - 12 = 0$ の解は？', explanation: '$(x-3)(x+4) = 0$。', difficulty: 'standard' },
@@ -220,7 +213,7 @@ export const quadEqFactoring: Topic = {
       { id: 'math-g3-qef-fc36', front: '$x = -3$（重解）', back: '$x^2 + 6x + 9 = 0$ の解は？', explanation: '$(x+3)^2 = 0$。', difficulty: 'standard' },
       { id: 'math-g3-qef-fc37', front: '$x = 0$ または $x = 3$', back: '$2x^2 - 6x = 0$ の解は？', explanation: '$2x(x-3) = 0$。', difficulty: 'standard' },
       { id: 'math-g3-qef-fc38', front: '$x$ で割ると $x = 0$ の解を失う', back: '$x^2 = 5x$ で $x$ で割ってはいけない理由は？', explanation: '移項して $x^2 - 5x = 0$ にする。', difficulty: 'advanced' },
-      { id: 'math-g3-qef-fc39', front: '重解（同じ解が $2$ つ）', back: '$(x-a)^2 = 0$ の解の特徴は？', explanation: '$x = a$ の重解。', difficulty: 'advanced' },
+      { id: 'math-g3-qef-fc39', front: '重解（同じ解が $2$ つ）', back: '$(x-a)^2 = 0$ の解の特徴は？', explanation: '$x = a$ の重解。', difficulty: 'advanced' }
     ],
     quiz: {
       questions: [
@@ -231,7 +224,7 @@ export const quadEqFactoring: Topic = {
             '$x = 4, x = 1$',
             '$x = -4, x = 1$',
             '$x = -4, x = -1$',
-            '$x = 4, x = -1$',
+            '$x = 4, x = -1$'
           ],
           correctIndex: 3,
           explanation:
@@ -245,7 +238,7 @@ export const quadEqFactoring: Topic = {
             '$x = 2, x = 3$',
             '$x = 1, x = 6$',
             '$x = -2, x = -3$',
-            '$x = -1, x = -6$',
+            '$x = -1, x = -6$'
           ],
           correctIndex: 0,
           explanation:
@@ -259,7 +252,7 @@ export const quadEqFactoring: Topic = {
             '$x = 2, x = -6$',
             '$x = -3, x = 4$',
             '$x = 3, x = -4$',
-            '$x = 6, x = -2$',
+            '$x = 6, x = -2$'
           ],
           correctIndex: 2,
           explanation:
@@ -273,7 +266,7 @@ export const quadEqFactoring: Topic = {
             '$x = 6$',
             '$x = 0, x = 6$',
             '$x = 0, x = -6$',
-            '$x = -6$',
+            '$x = -6$'
           ],
           correctIndex: 1,
           explanation:
@@ -287,7 +280,7 @@ export const quadEqFactoring: Topic = {
             '$x = 9$',
             '$x = \\pm 3$',
             '$x = \\pm 9$',
-            '$x = 3$',
+            '$x = 3$'
           ],
           correctIndex: 1,
           explanation:
@@ -301,7 +294,7 @@ export const quadEqFactoring: Topic = {
             '$x = 1, x = -1$',
             '$x = 2, x = -1$',
             '$x = -1$（重解）',
-            '$x = 1$（重解）',
+            '$x = 1$（重解）'
           ],
           correctIndex: 3,
           explanation:
@@ -315,7 +308,7 @@ export const quadEqFactoring: Topic = {
             '$x = 2, x = 3$',
             '$x = -2, x = -3$',
             '$x = 1, x = 6$',
-            '$x = -1, x = -6$',
+            '$x = -1, x = -6$'
           ],
           correctIndex: 0,
           explanation:
@@ -329,7 +322,7 @@ export const quadEqFactoring: Topic = {
             '$x = 1, x = 6$',
             '$x = -2, x = -3$',
             '$x = 2, x = 3$',
-            '$x = -1, x = 5$',
+            '$x = -1, x = 5$'
           ],
           correctIndex: 2,
           explanation:
@@ -343,7 +336,7 @@ export const quadEqFactoring: Topic = {
             '$x = -3$（重解）',
             '$x = 3$（重解）',
             '$x = 3, x = -3$',
-            '$x = 1, x = 9$',
+            '$x = 1, x = 9$'
           ],
           correctIndex: 0,
           explanation:
@@ -357,7 +350,7 @@ export const quadEqFactoring: Topic = {
             '$x = 3, x = 4$',
             '$x = 2, x = 5$',
             '$x = 1, x = 6$',
-            '$x = -2, x = -5$',
+            '$x = -2, x = -5$'
           ],
           correctIndex: 1,
           explanation:
@@ -371,7 +364,7 @@ export const quadEqFactoring: Topic = {
             '$x = 25$',
             '$x = 5$',
             '$x = \\pm 5$',
-            '$x = \\pm 25$',
+            '$x = \\pm 25$'
           ],
           correctIndex: 2,
           explanation:
@@ -385,7 +378,7 @@ export const quadEqFactoring: Topic = {
             '$x = 4$',
             '$x = 0, x = 4$',
             '$x = -4$',
-            '$x = 0, x = -4$',
+            '$x = 0, x = -4$'
           ],
           correctIndex: 3,
           explanation:
@@ -399,7 +392,7 @@ export const quadEqFactoring: Topic = {
             '$x = 2, x = -4$',
             '$x = -2, x = 4$',
             '$x = 4, x = -2$',
-            '$x = 1, x = -8$',
+            '$x = 1, x = -8$'
           ],
           correctIndex: 2,
           explanation:
@@ -413,7 +406,7 @@ export const quadEqFactoring: Topic = {
             '$x = 5, x = -5$',
             '$x = 5$（重解）',
             '$x = -5$（重解）',
-            '$x = 25$',
+            '$x = 25$'
           ],
           correctIndex: 1,
           explanation:
@@ -427,7 +420,7 @@ export const quadEqFactoring: Topic = {
             '$x = 5$',
             '$x = -5$',
             '$x = 0, x = 5$',
-            '$x = 0, x = -5$',
+            '$x = 0, x = -5$'
           ],
           correctIndex: 3,
           explanation:
@@ -441,7 +434,7 @@ export const quadEqFactoring: Topic = {
             '$x = 2, x = -3$',
             '$x = -2, x = 3$',
             '$x = 3, x = -2$',
-            '$x = 6, x = -1$',
+            '$x = 6, x = -1$'
           ],
           correctIndex: 2,
           explanation:
@@ -455,7 +448,7 @@ export const quadEqFactoring: Topic = {
             '$x = 4$（重解）',
             '$x = 4, x = -4$',
             '$x = 2, x = 8$',
-            '$x = -4$（重解）',
+            '$x = -4$（重解）'
           ],
           correctIndex: 3,
           explanation:
@@ -469,7 +462,7 @@ export const quadEqFactoring: Topic = {
             '$x = 7$',
             '$x = -7$',
             '$x = 49$',
-            '$x = \\pm 7$',
+            '$x = \\pm 7$'
           ],
           correctIndex: 3,
           explanation:
@@ -483,7 +476,7 @@ export const quadEqFactoring: Topic = {
             '$x = 2, x = -7$',
             '$x = -2, x = 7$',
             '$x = 7, x = -2$',
-            '$x = 14, x = -1$',
+            '$x = 14, x = -1$'
           ],
           correctIndex: 0,
           explanation:
@@ -497,7 +490,7 @@ export const quadEqFactoring: Topic = {
             '$x = 8$',
             '$x = 0, x = -8$',
             '$x = 0, x = 8$',
-            '$x = \\pm 8$',
+            '$x = \\pm 8$'
           ],
           correctIndex: 2,
           explanation:
@@ -511,7 +504,7 @@ export const quadEqFactoring: Topic = {
             '$x = -1, x = 6$',
             '$x = 6, x = -1$',
             '$x = 2, x = 3$',
-            '$x = -2, x = -3$',
+            '$x = -2, x = -3$'
           ],
           correctIndex: 1,
           explanation:
@@ -525,7 +518,7 @@ export const quadEqFactoring: Topic = {
             '$x = 6, x = -2$',
             '$x = -6, x = 2$',
             '$x = 4, x = -3$',
-            '$x = 3, x = -4$',
+            '$x = 3, x = -4$'
           ],
           correctIndex: 0,
           explanation:
@@ -539,7 +532,7 @@ export const quadEqFactoring: Topic = {
             '$x = 8$',
             '$x = \\pm 4$',
             '$x = 16$',
-            '$x = \\pm 16$',
+            '$x = \\pm 16$'
           ],
           correctIndex: 1,
           explanation:
@@ -553,7 +546,7 @@ export const quadEqFactoring: Topic = {
             '$x = 6$（重解）',
             '$x = -6$（重解）',
             '$x = 6, x = -6$',
-            '$x = -12$',
+            '$x = -12$'
           ],
           correctIndex: 1,
           explanation:
@@ -567,7 +560,7 @@ export const quadEqFactoring: Topic = {
             '$x = 1, x = -3$',
             '$x = -1, x = 5$',
             '$x = 4, x = -2$',
-            '$x = 2, x = -4$',
+            '$x = 2, x = -4$'
           ],
           correctIndex: 3,
           explanation:
@@ -581,7 +574,7 @@ export const quadEqFactoring: Topic = {
             '$x = \\pm 2$',
             '$x = \\pm 4$',
             '$x = 2$',
-            '$x = 4$',
+            '$x = 4$'
           ],
           correctIndex: 0,
           explanation:
@@ -595,7 +588,7 @@ export const quadEqFactoring: Topic = {
             '$x = 5, x = -2$',
             '$x = -5, x = 2$',
             '$x = 10, x = -1$',
-            '$x = -10, x = 1$',
+            '$x = -10, x = 1$'
           ],
           correctIndex: 0,
           explanation:
@@ -609,13 +602,13 @@ export const quadEqFactoring: Topic = {
             '$x = 7$',
             '$x = -7$',
             '$x = 0, x = 7$',
-            '$x = 0, x = -7$',
+            '$x = 0, x = -7$'
           ],
           correctIndex: 2,
           explanation:
             '$x(x-7) = 0$。$x = 0$ または $x = 7$。$x = 0$ を忘れないで。',
           difficulty: 'advanced',
-        },
+        }
       ],
     },
     examples: {
@@ -634,7 +627,7 @@ export const quadEqFactoring: Topic = {
               title: 'Step 2: $A \\times B = 0$ の原則を使う',
               content: '$x-2 = 0$ → $x = 2$、$x-3 = 0$ → $x = 3$。',
               highlight: '$x = 2, x = 3$',
-            },
+            }
           ],
           answer: '$x = 2, x = 3$',
         },
@@ -651,7 +644,7 @@ export const quadEqFactoring: Topic = {
               title: 'Step 2: $A \\times B = 0$ の原則を使う',
               content: '$x = 0$ または $x - 6 = 0$ → $x = 6$。$x = 0$ を忘れないでね！',
               highlight: '$x = 0, x = 6$',
-            },
+            }
           ],
           answer: '$x = 0, x = 6$',
         },
@@ -669,7 +662,7 @@ export const quadEqFactoring: Topic = {
               title: 'Step 2: 各因数 = 0 として解く',
               content: '$x + 3 = 0$ → $x = -3$、$x - 3 = 0$ → $x = 3$。',
               highlight: '$x = \\pm 3$',
-            },
+            }
           ],
           answer: '$x = 3, x = -3$',
         },
@@ -687,7 +680,7 @@ export const quadEqFactoring: Topic = {
               title: 'Step 2: 重解を求める',
               content: '$(x-1)^2 = 0$ → $x - 1 = 0$ → $x = 1$。解が1つだけ（重解）になるよ。',
               highlight: '$x = 1$（重解）',
-            },
+            }
           ],
           answer: '$x = 1$（重解）',
         },
@@ -707,7 +700,7 @@ export const quadEqFactoring: Topic = {
               content:
                 '$(x-1)^2 = 0$ → $x = 1$（重解）。まず係数をそろえるのがコツ！',
               highlight: '$x = 1$（重解）',
-            },
+            }
           ],
           answer: '$x = 1$（重解）',
         },
@@ -727,10 +720,10 @@ export const quadEqFactoring: Topic = {
               content:
                 'かけて10、たして$-7$ → $-2$ と $-5$。$(x-2)(x-5) = 0$。',
               highlight: '$x = 2, x = 5$',
-            },
+            }
           ],
           answer: '$x = 2, x = 5$',
-        },
+        }
       ],
     },
     chatId: 'math-g3-quad-eq-factoring',

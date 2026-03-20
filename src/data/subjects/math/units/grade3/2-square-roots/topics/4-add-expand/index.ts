@@ -72,13 +72,6 @@ export const sqrtAddExpand: Topic = {
         difficulty: 'basic',
       },
       {
-        id: 'math-g3-sqrt-add-expand-fc2',
-        front: 'まとめられない',
-        back: '$\\sqrt{2} + \\sqrt{3}$ はまとめられる？',
-        explanation: '根号の中が違う（2と3）ので、そのまま $\\sqrt{2} + \\sqrt{3}$ と表す',
-        difficulty: 'basic',
-      },
-      {
         id: 'math-g3-sqrt-add-expand-fc3',
         front: '$3\\sqrt{2}$',
         back: '$\\sqrt{8} + \\sqrt{2}$ を計算する手順は？',
@@ -163,25 +156,11 @@ export const sqrtAddExpand: Topic = {
         difficulty: 'basic',
       },
       {
-        id: 'math-g3-sqrt-add-expand-fc15',
-        front: '①有理化 → ②√の中を簡単に → ③同じ√をまとめる',
-        back: '有理化を含む和差の手順は？',
-        explanation: '①分数の分母を有理化する ②√の中を簡単にする ③同じ√をまとめる、の順に計算する',
-        difficulty: 'standard',
-      },
-      {
         id: 'math-g3-sqrt-add-expand-fc16',
         front: '$5$',
         back: '$x = \\sqrt{5} + 1$ のとき $x^2 - 2x + 1$ の値は？',
         explanation: '$x^2-2x+1=(x-1)^2$、$x-1=\\sqrt{5}$ を代入して $(\\sqrt{5})^2 = 5$',
         difficulty: 'advanced',
-      },
-      {
-        id: 'math-g3-sqrt-add-expand-fc17',
-        front: '代入後の計算が簡単になるから',
-        back: '式の値を求めるとき、なぜ因数分解が有効？',
-        explanation: '特に $x = \\sqrt{5}+1$ のような形は直接代入より変形して代入する方が楽',
-        difficulty: 'standard',
       },
       {
         id: 'math-g3-sqrt-add-expand-fc18',

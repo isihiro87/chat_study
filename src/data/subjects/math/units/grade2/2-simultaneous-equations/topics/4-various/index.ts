@@ -18,7 +18,7 @@ export const variousSimulEq: Topic = {
             'かっこを展開（分配法則）→ 同類項をまとめる → $ax + by = c$ の形に整理',
             '例: $2(x + 3) + y = 11$ → $2x + 6 + y = 11$ → $2x + y = 5$',
             '両辺にかっこがある場合も同様に展開: $5(x-1) = 3(y+1)$ → $5x - 3y = 8$',
-            '移項するときは符号の変化に注意！',
+            '移項するときは符号の変化に注意！'
           ],
         },
         {
@@ -29,7 +29,7 @@ export const variousSimulEq: Topic = {
             '分母の最小公倍数を両辺にかけて分数をはらう',
             '例: $\\frac{x}{2} + \\frac{y}{3} = 5$ → 分母 $2, 3$ のLCMは $6$ → $3x + 2y = 30$',
             '$\\frac{x-1}{3} + \\frac{y}{2} = 2$ のように分子にかっこがある場合、LCMをかけた後に展開して整理',
-            '分数をはらってから加減法 or 代入法で解く',
+            '分数をはらってから加減法 or 代入法で解く'
           ],
         },
         {
@@ -40,7 +40,7 @@ export const variousSimulEq: Topic = {
             '小数第1位まで → $10$ 倍（例: $0.2x + 0.3y = 1.3$ → $2x + 3y = 13$）',
             '小数第2位まで → $100$ 倍（例: $0.02x + 0.05y = 0.16$ → $2x + 5y = 16$）',
             '$10$ 倍した後、さらに共通因数で割れる場合は割って簡単にする',
-            '例: $1.2x - 0.3y = 0.9$ → $12x - 3y = 9$ → $4x - y = 3$',
+            '例: $1.2x - 0.3y = 0.9$ → $12x - 3y = 9$ → $4x - y = 3$'
           ],
         },
         {
@@ -51,7 +51,7 @@ export const variousSimulEq: Topic = {
             '$A = B = C$ → $\\begin{cases} A = B \\\\ B = C \\end{cases}$ または $\\begin{cases} A = B \\\\ A = C \\end{cases}$ に分ける',
             '右辺が定数のとき（$A = B = 7$ など）はそれぞれ独立に解ける',
             '例: $x + y = 2x - 1 = 5$ → $\\begin{cases} x + y = 5 \\\\ 2x - 1 = 5 \\end{cases}$',
-            '3つの式から2つ選ぶので、計算しやすい組み合わせを選ぼう',
+            '3つの式から2つ選ぶので、計算しやすい組み合わせを選ぼう'
           ],
         },
         {
@@ -62,7 +62,7 @@ export const variousSimulEq: Topic = {
             '解を両方の式に代入 → $a, b$ についての連立方程式ができる',
             '例: $ax + 2y = 7$ に $x=1, y=2$ を代入 → $a + 4 = 7$ → $a = 3$',
             '$a, b$ が両方の式に混ざっている場合は、$a, b$ の連立方程式を解く',
-            '求めた $a, b$ を元の式に戻して検算しよう',
+            '求めた $a, b$ を元の式に戻して検算しよう'
           ],
         },
         {
@@ -74,9 +74,9 @@ export const variousSimulEq: Topic = {
             '分数 → 分母のLCMをかけて整数化',
             '小数 → $10$倍・$100$倍して整数化',
             '$A = B = C$ → 2つの式に分ける',
-            '解と文字 → 解を代入して逆算',
+            '解と文字 → 解を代入して逆算'
           ],
-        },
+        }
       ],
     },
     videos: [],
@@ -90,11 +90,6 @@ export const variousSimulEq: Topic = {
         id: 'math-g2-var-fc2',
         front: '$2x + y = 5$', back: '$2(x + 3) + y = 11$ を整理すると？',
         explanation: '展開して $2x + 6 + y = 11$、移項して整理。',
-        difficulty: 'basic',
-      },
-      {
-        id: 'math-g2-var-fc3',
-        front: '分母の最小公倍数（LCM）を両辺にかけて分数をなくす', back: '分数を含む方程式の最初のステップは？',
         difficulty: 'basic',
       },
       {
@@ -190,16 +185,10 @@ export const variousSimulEq: Topic = {
       { id: 'math-g2-var-fc22', front: '複数の分数→LCMをかける→整数式→加減法 or 代入法', back: '分数を含む連立方程式の解法の流れは？', difficulty: 'standard' },
       { id: 'math-g2-var-fc23', front: '計算しやすい2つの組み合わせを選ぶのがコツ', back: '$A = B = C$ を2つに分けるとき、どの組み合わせを選ぶ？', difficulty: 'advanced' },
       { id: 'math-g2-var-fc24', front: '解を代入して未知の係数の方程式を作り、それを解く', back: '解がわかっていて係数を求めるには？', difficulty: 'advanced' },
-      { id: 'math-g2-var-fc25', front: '展開→移項→整理 の3ステップ', back: 'かっこがある式の整理手順は？', difficulty: 'advanced' },
-      { id: 'math-g2-var-fc26', front: '分子全体にかっこをつけてLCMをかける', back: '分子に文字式がある分数を処理するときの注意は？', difficulty: 'advanced' },
-      { id: 'math-g2-var-fc27', front: '①$ax + by = c$ の形に整理 → ②加減法 or 代入法で解く → ③検算', back: 'どんな形の連立方程式でも共通の解法手順は？', difficulty: 'advanced' },
-      { id: 'math-g2-var-fc28', front: '両辺の全ての項に同じ数をかける（一部の項だけかけてはダメ）', back: 'LCMをかけるとき注意すべきことは？', difficulty: 'advanced' },
-      { id: 'math-g2-var-fc29', front: 'かっこを展開して $ax + by = c$ の形に整理する', back: 'かっこがある連立方程式を解くとき最初にすることは？', explanation: '分配法則でかっこを外す。', difficulty: 'basic' },
       { id: 'math-g2-var-fc30', front: '$2x + y = 5$', back: '$2(x + 3) + y = 11$ を整理すると？', explanation: '$2x + 6 + y = 11$ → $2x + y = 5$。', difficulty: 'basic' },
       { id: 'math-g2-var-fc31', front: '$3x - y = 7$', back: '$3(x - 2) - y = 1$ を整理すると？', explanation: '$3x - 6 - y = 1$ → $3x - y = 7$。', difficulty: 'basic' },
       { id: 'math-g2-var-fc32', front: '$5x - 3y = 8$', back: '$5(x - 1) = 3(y + 1)$ を整理すると？', explanation: '$5x - 5 = 3y + 3$ → $5x - 3y = 8$。', difficulty: 'standard' },
       { id: 'math-g2-var-fc33', front: '$x = 3, y = 2$', back: '$\\begin{cases} 2(x + y) = 10 \\\\ x - y = 1 \\end{cases}$ を解くと？', explanation: '①: $x + y = 5$。加減法で $2x = 6$。', difficulty: 'basic' },
-      { id: 'math-g2-var-fc34', front: '分母の最小公倍数を両辺にかけて分数をなくす', back: '分数を含む連立方程式を解くとき最初にすることは？', explanation: '分母をはらう。', difficulty: 'basic' },
       { id: 'math-g2-var-fc35', front: '$6$（分母 $2$ と $3$ の最小公倍数）', back: '$\\dfrac{x}{2} + \\dfrac{y}{3} = 5$ の分数をはらうには何をかける？', explanation: '$3x + 2y = 30$ になる。', difficulty: 'basic' },
       { id: 'math-g2-var-fc36', front: '$12$（分母 $3$ と $4$ の最小公倍数）', back: '$\\dfrac{x}{3} + \\dfrac{y}{4} = 2$ の分数をはらうには何をかける？', explanation: '$4x + 3y = 24$ になる。', difficulty: 'standard' },
       { id: 'math-g2-var-fc37', front: '$x + y = 6$', back: '$\\dfrac{x + y}{2} = 3$ を整理すると？', explanation: '両辺に $2$ をかける。', difficulty: 'basic' },
@@ -207,8 +196,7 @@ export const variousSimulEq: Topic = {
       { id: 'math-g2-var-fc39', front: '$4x + 3y = 10$', back: '$4(x + 1) + 3(y - 2) = 8$ を整理すると？', explanation: '$4x + 4 + 3y - 6 = 8$。', difficulty: 'standard' },
       { id: 'math-g2-var-fc40', front: '$3x - 2y = 1$', back: '$2(3x - y) + 5 = 3(x + 2)$ を整理すると？', explanation: '$6x - 2y + 5 = 3x + 6$。', difficulty: 'standard' },
       { id: 'math-g2-var-fc41', front: '$-x + 3y = 9$', back: '$-(x + 2) + 3y = 7$ を整理すると？', explanation: '$-x - 2 + 3y = 7$。', difficulty: 'standard' },
-      { id: 'math-g2-var-fc42', front: '$4x - y = 6$', back: '$\\dfrac{2x}{3} - \\dfrac{y}{6} = 1$ の分数をはらうと？', explanation: '最小公倍数 $6$: $4x - y = 6$。', difficulty: 'standard' },
-      { id: 'math-g2-var-fc43', front: '①$ax + by = c$ の形に整理 → ②加減法 or 代入法で解く → ③検算', back: 'どんな形の連立方程式でも共通の解法手順は？', explanation: '整理が最も大切。', difficulty: 'advanced' },
+      { id: 'math-g2-var-fc42', front: '$4x - y = 6$', back: '$\\dfrac{2x}{3} - \\dfrac{y}{6} = 1$ の分数をはらうと？', explanation: '最小公倍数 $6$: $4x - y = 6$。', difficulty: 'standard' }
     ],
     quiz: {
       questions: [
@@ -247,7 +235,7 @@ export const variousSimulEq: Topic = {
             '$3x + y = 8$',
             '$3x - y = 11$',
             '$3x + y = 11$',
-            '$3x + y = 9$',
+            '$3x + y = 9$'
           ],
           correctIndex: 2,
           explanation:
@@ -272,7 +260,7 @@ export const variousSimulEq: Topic = {
             '$\\begin{cases} x + y = 5 \\\\ 2x - 1 = 5 \\end{cases}$',
             '$\\begin{cases} x + y = 2x - 1 \\\\ x + y = 5 \\end{cases}$',
             'どちらも正しい',
-            'どちらも正しくない',
+            'どちらも正しくない'
           ],
           correctIndex: 2,
           explanation:
@@ -307,7 +295,7 @@ export const variousSimulEq: Topic = {
             '$5x - 3y = 2$',
             '$5x + 3y = 8$',
             '$5x - 3y = 8$',
-            '$5x - 3y = -2$',
+            '$5x - 3y = -2$'
           ],
           correctIndex: 2,
           explanation:
@@ -322,7 +310,7 @@ export const variousSimulEq: Topic = {
             '$12x - 3y = 9$',
             '$6x - y = 3$',
             '$4x - 3y = 9$',
-            '$4x - y = 3$',
+            '$4x - y = 3$'
           ],
           correctIndex: 3,
           explanation:
@@ -337,7 +325,7 @@ export const variousSimulEq: Topic = {
             '$x = 1, y = 4$',
             '$x = 4, y = 1$',
             '$x = 3, y = 2$',
-            '$x = 2, y = 3$',
+            '$x = 2, y = 3$'
           ],
           correctIndex: 3,
           explanation:
@@ -481,7 +469,7 @@ export const variousSimulEq: Topic = {
           correctIndex: 1,
           explanation: 'どんな形でも $ax + by = c$ の標準形に整理するのが鉄則だよ。',
           difficulty: 'advanced',
-        },
+        }
       ],
     },
     examples: {
@@ -507,7 +495,7 @@ export const variousSimulEq: Topic = {
               title: 'Step 3: $y$ を求める',
               content: '$x = 2$ を②に代入: $2 - y = 1$ → $y = 1$',
               highlight: '$y = 1$',
-            },
+            }
           ],
           answer: '$x = 2, y = 1$',
         },
@@ -532,7 +520,7 @@ export const variousSimulEq: Topic = {
               title: 'Step 3: $y$ を求める',
               content: '$x = 2$ を②に代入: $2 + y = 5$ → $y = 3$',
               highlight: '$y = 3$',
-            },
+            }
           ],
           answer: '$x = 2, y = 3$',
         },
@@ -557,7 +545,7 @@ export const variousSimulEq: Topic = {
               title: 'Step 3: $x$ を求める',
               content: '$y = 2$ を②に代入: $x - 2 = 1$ → $x = 3$',
               highlight: '$x = 3$',
-            },
+            }
           ],
           answer: '$x = 3, y = 2$',
         },
@@ -583,7 +571,7 @@ export const variousSimulEq: Topic = {
               title: 'Step 3: $y$ を求める',
               content: '$x = 4$ を①に代入: $4 - y = 2$ → $y = 2$',
               highlight: '$y = 2$',
-            },
+            }
           ],
           answer: '$x = 4, y = 2$',
         },
@@ -609,7 +597,7 @@ export const variousSimulEq: Topic = {
               content:
                 '①: $3 \\cdot 1 + 2 \\cdot 2 = 3 + 4 = 7$ ✓\n②: $3 \\cdot 1 + \\frac{5}{2} \\cdot 2 = 3 + 5 = 8$ ✓',
               highlight: '検算OK',
-            },
+            }
           ],
           answer: '$a = 3, b = \\frac{5}{2}$',
         },
@@ -635,10 +623,10 @@ export const variousSimulEq: Topic = {
               content:
                 '$y = \\frac{5}{2}$ を②に代入: $2x + \\frac{5}{2} = 9$ → $2x = \\frac{13}{2}$ → $x = \\frac{13}{4}$',
               highlight: '$x = \\frac{13}{4}$',
-            },
+            }
           ],
           answer: '$x = \\frac{13}{4}, y = \\frac{5}{2}$',
-        },
+        }
       ],
     },
     chatId: 'math-g2-various-simul-eq',

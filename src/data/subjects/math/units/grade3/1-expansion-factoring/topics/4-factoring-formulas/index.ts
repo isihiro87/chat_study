@@ -17,7 +17,7 @@ export const factoringFormulas: Topic = {
           keyPoints: [
             'x²+(a+b)x+ab = (x+a)(x+b)',
             'コツ: かけて定数項、足して x の係数になる2つの数を探す',
-            '例: x²+7x+12 → かけて12、足して7 → 3と4 → (x+3)(x+4)',
+            '例: x²+7x+12 → かけて12、足して7 → 3と4 → (x+3)(x+4)'
           ],
         },
         {
@@ -27,7 +27,7 @@ export const factoringFormulas: Topic = {
           keyPoints: [
             'a²+2ab+b² = (a+b)²',
             'a²−2ab+b² = (a−b)²',
-            'a²−b² = (a+b)(a−b)',
+            'a²−b² = (a+b)(a−b)'
           ],
         },
         {
@@ -38,7 +38,7 @@ export const factoringFormulas: Topic = {
             '2項（a²−b²の形）→ 和と差の積 (a+b)(a−b)',
             '3項で完全平方 → (a+b)² または (a−b)²',
             '3項でそれ以外 → かけて○足して△で (x+a)(x+b)',
-            '共通因数があれば先にくくり出す！',
+            '共通因数があれば先にくくり出す！'
           ],
         },
         {
@@ -48,7 +48,7 @@ export const factoringFormulas: Topic = {
           keyPoints: [
             '例: 3x²+9x+6 → 3(x²+3x+2) → 3(x+1)(x+2)',
             '例: ax²−8ax+16a → a(x²−8x+16) → a(x−4)²',
-            '共通因数を見落とさないことが大切！',
+            '共通因数を見落とさないことが大切！'
           ],
         },
         {
@@ -58,9 +58,9 @@ export const factoringFormulas: Topic = {
           keyPoints: [
             '例: (x+2)²+5(x+2)+6 → M=x+2 とおくと M²+5M+6=(M+2)(M+3) → (x+4)(x+5)',
             'グループ分け: ax−ay+bx−by → a(x−y)+b(x−y) → (a+b)(x−y)',
-            '置き換えた後は必ずもとの式に戻す！',
+            '置き換えた後は必ずもとの式に戻す！'
           ],
-        },
+        }
       ],
     },
     videos: [],
@@ -232,12 +232,11 @@ export const factoringFormulas: Topic = {
       { id: 'math-g3-ff-fc31', front: '$(x-3)(x-8)$', back: '$x^2 - 11x + 24$ を因数分解すると？', explanation: 'かけて $24$、足して $-11$ → $-3$ と $-8$。', difficulty: 'standard' },
       { id: 'math-g3-ff-fc32', front: '$(x+5)(x-9)$', back: '$x^2 - 4x - 45$ を因数分解すると？', explanation: 'かけて $-45$、足して $-4$ → $5$ と $-9$。', difficulty: 'standard' },
       { id: 'math-g3-ff-fc33', front: '$-5(a-1)^2$', back: '$-5a^2 + 10a - 5$ を因数分解すると？', explanation: '$-5$ でくくる → $-5(a^2 - 2a + 1)$。', difficulty: 'standard' },
-      { id: 'math-g3-ff-fc34', front: '①共通因数 → ②公式の型を判定', back: '因数分解の手順は？', explanation: 'まず共通因数を探す。', difficulty: 'basic' },
       { id: 'math-g3-ff-fc35', front: '$(2x+3)^2$', back: '$4x^2 + 12x + 9$ を因数分解すると？', explanation: '$(2x)^2 + 2 \\cdot 2x \\cdot 3 + 3^2$。', difficulty: 'standard' },
       { id: 'math-g3-ff-fc36', front: '$(3x-2)(3x+2)$', back: '$9x^2 - 4$ を因数分解すると？', explanation: '$(3x)^2 - 2^2$。', difficulty: 'standard' },
       { id: 'math-g3-ff-fc37', front: '$2(x+3)(x-5)$', back: '$2x^2 - 4x - 30$ を因数分解すると？', explanation: '共通因数 $2$ → $2(x^2 - 2x - 15)$。', difficulty: 'advanced' },
       { id: 'math-g3-ff-fc38', front: '$(a+b+c)(a+b-c)$', back: '$(a+b)^2 - c^2$ を因数分解すると？', explanation: '$A^2 - c^2 = (A+c)(A-c)$ で $A = a+b$。', difficulty: 'advanced' },
-      { id: 'math-g3-ff-fc39', front: '$(x-1)(x+1)(x^2+1)$', back: '$x^4 - 1$ を因数分解すると？', explanation: '$(x^2)^2 - 1^2 = (x^2+1)(x^2-1)$ → さらに因数分解。', difficulty: 'advanced' },
+      { id: 'math-g3-ff-fc39', front: '$(x-1)(x+1)(x^2+1)$', back: '$x^4 - 1$ を因数分解すると？', explanation: '$(x^2)^2 - 1^2 = (x^2+1)(x^2-1)$ → さらに因数分解。', difficulty: 'advanced' }
     ],
     quiz: {
       questions: [
@@ -248,7 +247,7 @@ export const factoringFormulas: Topic = {
             '$(x+1)(x+6)$',
             '$(x+2)(x+3)$',
             '$(x+3)(x+3)$',
-            '$(x+1)(x+5)$',
+            '$(x+1)(x+5)$'
           ],
           correctIndex: 1,
           explanation:
@@ -262,7 +261,7 @@ export const factoringFormulas: Topic = {
             '$(x-8)(x+2)$',
             '$(x+4)^2$',
             '$(x-4)^2$',
-            '$(x+4)(x-4)$',
+            '$(x+4)(x-4)$'
           ],
           correctIndex: 3,
           explanation:
@@ -276,7 +275,7 @@ export const factoringFormulas: Topic = {
             '$(x-5)(x+5)$',
             '$(x+5)^2$',
             '$(x-5)^2$',
-            '$(x-25)(x-1)$',
+            '$(x-25)(x-1)$'
           ],
           correctIndex: 2,
           explanation:
@@ -290,7 +289,7 @@ export const factoringFormulas: Topic = {
             '$(x+1)(x+8)$',
             '$(x+4)^2$',
             '$(x+3)(x+5)$',
-            '$(x+2)(x+4)$',
+            '$(x+2)(x+4)$'
           ],
           correctIndex: 3,
           explanation:
@@ -304,7 +303,7 @@ export const factoringFormulas: Topic = {
             '$(t-3)(t+5)$',
             '$(t+3)(t-5)$',
             '$(t-3)(t-5)$',
-            '$(t-1)(t-15)$',
+            '$(t-1)(t-15)$'
           ],
           correctIndex: 2,
           explanation:
@@ -318,7 +317,7 @@ export const factoringFormulas: Topic = {
             '$(x+3)(x-4)$',
             '$(x+1)(x-12)$',
             '$(x+6)(x-2)$',
-            '$(x-1)(x+12)$',
+            '$(x-1)(x+12)$'
           ],
           correctIndex: 3,
           explanation:
@@ -332,7 +331,7 @@ export const factoringFormulas: Topic = {
             '$(y-2)(y+9)$',
             '$(y+6)(y-3)$',
             '$(y-9)(y+2)$',
-            '$(y-6)(y+3)$',
+            '$(y-6)(y+3)$'
           ],
           correctIndex: 3,
           explanation:
@@ -346,7 +345,7 @@ export const factoringFormulas: Topic = {
             '$(3x-5)^2$',
             '$(9x-25)(x+1)$',
             '$(3x+5)(3x-5)$',
-            '$(9x+5)(x-5)$',
+            '$(9x+5)(x-5)$'
           ],
           correctIndex: 2,
           explanation:
@@ -360,7 +359,7 @@ export const factoringFormulas: Topic = {
             '$(x+1)(3x+6)$',
             '$(3x+3)(x+2)$',
             '$3(x+3)(x+2)$',
-            '$3(x+1)(x+2)$',
+            '$3(x+1)(x+2)$'
           ],
           correctIndex: 3,
           explanation:
@@ -374,7 +373,7 @@ export const factoringFormulas: Topic = {
             '$a(x-4)(x+4)$',
             '$(ax-4)(x-4a)$',
             '$a(x-2)(x-8)$',
-            '$a(x-4)^2$',
+            '$a(x-4)^2$'
           ],
           correctIndex: 3,
           explanation:
@@ -388,7 +387,7 @@ export const factoringFormulas: Topic = {
             '$(x+2)(x+3)$',
             '$(x+3)(x+4)$',
             '$(x+4)(x+5)$',
-            '$(x+5)(x+8)$',
+            '$(x+5)(x+8)$'
           ],
           correctIndex: 2,
           explanation:
@@ -402,7 +401,7 @@ export const factoringFormulas: Topic = {
             '$(a-b)(x+y)$',
             '$(a-b)(x-y)$',
             '$(a+b)(x+y)$',
-            '$(a+b)(x-y)$',
+            '$(a+b)(x-y)$'
           ],
           correctIndex: 3,
           explanation:
@@ -416,7 +415,7 @@ export const factoringFormulas: Topic = {
             '$(x+1)(x+21)$',
             '$(x+7)^2$',
             '$(x+3)(x+7)$',
-            '$(x+2)(x+9)$',
+            '$(x+2)(x+9)$'
           ],
           correctIndex: 2,
           explanation:
@@ -430,7 +429,7 @@ export const factoringFormulas: Topic = {
             '$(x-4)(x+6)$',
             '$(x+4)(x-6)$',
             '$(x-3)(x+8)$',
-            '$(x+3)(x-8)$',
+            '$(x+3)(x-8)$'
           ],
           correctIndex: 0,
           explanation:
@@ -444,7 +443,7 @@ export const factoringFormulas: Topic = {
             '$(x-3)(x-6)$',
             '$(x-2)(x-9)$',
             '$(x-1)(x-18)$',
-            '$(x+2)(x-9)$',
+            '$(x+2)(x-9)$'
           ],
           correctIndex: 1,
           explanation:
@@ -458,7 +457,7 @@ export const factoringFormulas: Topic = {
             '$(2x+6)(x-5)$',
             '$2(x-5)(x+3)$',
             '$2(x+5)(x-3)$',
-            '$(x-5)(2x+6)$',
+            '$(x-5)(2x+6)$'
           ],
           correctIndex: 1,
           explanation:
@@ -472,7 +471,7 @@ export const factoringFormulas: Topic = {
             '$(x-8)(x+5)$',
             '$(x+8)(x-5)$',
             '$(x-4)(x+10)$',
-            '$(x+4)(x-10)$',
+            '$(x+4)(x-10)$'
           ],
           correctIndex: 0,
           explanation:
@@ -486,7 +485,7 @@ export const factoringFormulas: Topic = {
             '$(x+7)(x-7)$',
             '$(x+7)^2$',
             '$(x-7)^2$',
-            '$(x+49)(x+1)$',
+            '$(x+49)(x+1)$'
           ],
           correctIndex: 1,
           explanation:
@@ -500,7 +499,7 @@ export const factoringFormulas: Topic = {
             '$(2x+6)(2x-6)$',
             '$(4x+36)(x-1)$',
             '$4(x+3)(x-3)$',
-            '$2(2x+3)(x-6)$',
+            '$2(2x+3)(x-6)$'
           ],
           correctIndex: 2,
           explanation:
@@ -514,7 +513,7 @@ export const factoringFormulas: Topic = {
             '$(x-6)(x+5)$',
             '$(x+6)(x-5)$',
             '$(x-3)(x+10)$',
-            '$(x+3)(x-10)$',
+            '$(x+3)(x-10)$'
           ],
           correctIndex: 0,
           explanation:
@@ -528,7 +527,7 @@ export const factoringFormulas: Topic = {
             '$-5(a+1)^2$',
             '$-5(a-1)^2$',
             '$5(a-1)^2$',
-            '$-5(a^2-2a+1)$',
+            '$-5(a^2-2a+1)$'
           ],
           correctIndex: 1,
           explanation:
@@ -542,7 +541,7 @@ export const factoringFormulas: Topic = {
             '$(x+1)(x+15)$',
             '$(x+5)(x+3)$',
             '$(x+4)(x+4)$',
-            '$(x+2)(x+6)$',
+            '$(x+2)(x+6)$'
           ],
           correctIndex: 1,
           explanation:
@@ -556,7 +555,7 @@ export const factoringFormulas: Topic = {
             '$(x-1)(x-10)$',
             '$(x+2)(x-5)$',
             '$(x-2)(x-5)$',
-            '$(x-2)(x+5)$',
+            '$(x-2)(x+5)$'
           ],
           correctIndex: 2,
           explanation:
@@ -570,7 +569,7 @@ export const factoringFormulas: Topic = {
             '$(x)(x+1)$',
             '$(x+1)(x+2)$',
             '$(x-1)(x+2)$',
-            '$(x+1)(x-1)$',
+            '$(x+1)(x-1)$'
           ],
           correctIndex: 0,
           explanation:
@@ -584,7 +583,7 @@ export const factoringFormulas: Topic = {
             '$(x-3)(x+7)$',
             '$(x+3)(x-7)$',
             '$(x-1)(x+21)$',
-            '$(x+1)(x-21)$',
+            '$(x+1)(x-21)$'
           ],
           correctIndex: 0,
           explanation:
@@ -598,7 +597,7 @@ export const factoringFormulas: Topic = {
             '$5(x-4)(x+1)$',
             '$5(x+2)(x-2)$',
             '$(5x+4)(x-5)$',
-            '$5(x-2)^2$',
+            '$5(x-2)^2$'
           ],
           correctIndex: 1,
           explanation:
@@ -612,7 +611,7 @@ export const factoringFormulas: Topic = {
             '$(x-6)^2$',
             '$(x+6)^2$',
             '$(x+6)(x-6)$',
-            '$(x-4)(x-9)$',
+            '$(x-4)(x-9)$'
           ],
           correctIndex: 0,
           explanation:
@@ -626,13 +625,13 @@ export const factoringFormulas: Topic = {
             '$(x-2)(x+7)$',
             '$(x+2)(x-7)$',
             '$(x-1)(x+14)$',
-            '$(x+1)(x-14)$',
+            '$(x+1)(x-14)$'
           ],
           correctIndex: 0,
           explanation:
             'かけて-14、足して5 → -2と7。$(x-2)(x+7)$ だよ。',
           difficulty: 'advanced',
-        },
+        }
       ],
     },
     examples: {
@@ -657,7 +656,7 @@ export const factoringFormulas: Topic = {
               title: 'Step 3: 因数分解する',
               content: '$a=4$、$b=5$ なので $(x+4)(x+5)$ が答えだよ。',
               highlight: '$(x + 4)(x + 5)$',
-            },
+            }
           ],
           answer: '$(x + 4)(x + 5)$',
         },
@@ -676,7 +675,7 @@ export const factoringFormulas: Topic = {
               content:
                 '$a=x$、$b=3$ で $(a-b)^2$ の公式を使うと $(x-3)^2$ になるよ。',
               highlight: '$(x - 3)^2$',
-            },
+            }
           ],
           answer: '$(x - 3)^2$',
         },
@@ -701,7 +700,7 @@ export const factoringFormulas: Topic = {
               content:
                 '$(x-1)(x+12)$ が答え。マイナスの数がどちらにつくか注意しよう！',
               highlight: '$(x - 1)(x + 12)$',
-            },
+            }
           ],
           answer: '$(x - 1)(x + 12)$',
         },
@@ -726,7 +725,7 @@ export const factoringFormulas: Topic = {
               content:
                 '共通因数の $3$ を忘れずにつけて $3(x+1)(x+2)$ が答え！2段階の因数分解だよ。',
               highlight: '$3(x + 1)(x + 2)$',
-            },
+            }
           ],
           answer: '$3(x + 1)(x + 2)$',
         },
@@ -752,7 +751,7 @@ export const factoringFormulas: Topic = {
               content:
                 '$M = x+2$ を戻すと $(x+2+2)(x+2+3) = (x+4)(x+5)$。置き換えたら必ず戻そう！',
               highlight: '$(x + 4)(x + 5)$',
-            },
+            }
           ],
           answer: '$(x + 4)(x + 5)$',
         },
@@ -777,10 +776,10 @@ export const factoringFormulas: Topic = {
               content:
                 '$(x-y)$ が共通因数！くくり出すと $(a+b)(x-y)$ が答えだよ。',
               highlight: '$(a + b)(x - y)$',
-            },
+            }
           ],
           answer: '$(a + b)(x - y)$',
-        },
+        }
       ],
     },
     chatId: 'math-g3-factoring-formulas',

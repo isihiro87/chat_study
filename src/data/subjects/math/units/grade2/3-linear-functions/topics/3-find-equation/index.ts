@@ -17,7 +17,7 @@ export const findLinearEquation: Topic = {
           keyPoints: [
             '傾き a と切片 b をそのまま y = ax + b に代入するだけ',
             '例: 傾き 3、切片 -2 → y = 3x - 2',
-            '問題文の「傾き」「切片」というキーワードに注目しよう',
+            '問題文の「傾き」「切片」というキーワードに注目しよう'
           ],
         },
         {
@@ -29,7 +29,7 @@ export const findLinearEquation: Topic = {
             '② 通る点 (p, q) を代入 → q = ap + b',
             '③ b について解く → b = q - ap',
             '「変化の割合」= 傾き なので、変化の割合が与えられたらそれが a になる',
-            '「平行な直線」は傾きが同じ！ y = 3x + 1 に平行 → a = 3',
+            '「平行な直線」は傾きが同じ！ y = 3x + 1 に平行 → a = 3'
           ],
         },
         {
@@ -39,7 +39,7 @@ export const findLinearEquation: Topic = {
           keyPoints: [
             '① 傾き a = (y₂ - y₁) ÷ (x₂ - x₁) を計算',
             '② 求めた a と、どちらか1点を y = ax + b に代入して b を求める',
-            '③ a と b を y = ax + b に当てはめて完成',
+            '③ a と b を y = ax + b に当てはめて完成'
           ],
         },
         {
@@ -51,9 +51,9 @@ export const findLinearEquation: Topic = {
             '② 2つ目の点 (x₂, y₂) を代入 → y₂ = ax₂ + b …式2',
             '③ 式1と式2の連立方程式を加減法で解いて a と b を求める',
             '例: (1, 4) と (3, 10) → a + b = 4, 3a + b = 10 → a = 3, b = 1',
-            'パターン③と答えは同じ！ やりやすい方を選ぼう',
+            'パターン③と答えは同じ！ やりやすい方を選ぼう'
           ],
-        },
+        }
       ],
     },
     videos: [],
@@ -138,31 +138,23 @@ export const findLinearEquation: Topic = {
         front: '$y = -2x + b$ に $(3, 1)$ を代入: $1 = -6 + b$ → $b = 7$', back: '「傾き $-2$、点 $(3, 1)$ を通る」→ 切片 $b$ の求め方は？',
         difficulty: 'standard',
       },
-      { id: 'math-g2-find-linear-eq-fc17', front: '切片→傾き→式に当てはめる', explanation: '① $y$ 軸との交点→$b$ ② 2点間の変化→$a$ ③ $y = ax + b$', back: 'グラフから式を読み取る手順は？', difficulty: 'standard' },
       { id: 'math-g2-find-linear-eq-fc18', front: '$y = 0$ を代入して $x$ を求める', explanation: '$0 = ax + b$ → $x = -\\dfrac{b}{a}$', back: '$x$ 切片の求め方は？', difficulty: 'standard' },
       { id: 'math-g2-find-linear-eq-fc19', front: '$a = \\dfrac{y\\text{の増加量}}{x\\text{の増加量}}$', explanation: '「$x$ が $5$ 増えると $y$ が $10$ 増える」→ $a = \\dfrac{10}{5} = 2$', back: '「$x$ の増加量と $y$ の増加量」から傾きを求めるには？', difficulty: 'standard' },
       { id: 'math-g2-find-linear-eq-fc20', front: '関係ない（結果は同じ）', explanation: '$a = \\dfrac{y_2 - y_1}{x_2 - x_1}$。どちらの点を $(x_1, y_1)$ にしてもOK', back: '傾きの公式で、2点の順番は関係ある？', difficulty: 'standard' },
       { id: 'math-g2-find-linear-eq-fc21', front: '4パターンある', explanation: '① 傾き+切片→直接代入 ② 傾き+1点→$b$求める ③ 2点→傾き→$b$ ④ 2点→連立方程式', back: '一次関数の式を求める4パターンは？', difficulty: 'standard' },
-      { id: 'math-g2-find-linear-eq-fc22', front: '元の直線と同じ傾き', explanation: '平行な直線は傾きが等しい。$y = 3x + 1$ に平行→$a = 3$', back: '「平行な直線」と言われたら傾きは？', difficulty: 'standard' },
       { id: 'math-g2-find-linear-eq-fc23', front: '切片がすぐわかる', explanation: '$(0, b)$ を通るなら $b$ が確定。あとは傾きだけ求めればOK', back: 'グラフが $y$ 軸上の点を通る場合の有利な点は？', difficulty: 'advanced' },
-      { id: 'math-g2-find-linear-eq-fc24', front: 'もう1つの点を代入して確認', explanation: '求めた式に代入して等式が成り立てば正しい', back: '式を求めた後の検算方法は？', difficulty: 'advanced' },
       { id: 'math-g2-find-linear-eq-fc25', front: '$a = -2$', explanation: '変化の割合 $=$ 傾き $a$（一次関数では常に一定）', back: '「変化の割合が $-2$」と言われたら $a$ は？→ $a = -2$', difficulty: 'advanced' },
       { id: 'math-g2-find-linear-eq-fc26', front: '分数が出やすいとき', explanation: '2点を代入して連立方程式を解く方が楽', back: '連立方程式法が特に便利なのはどんなとき？', difficulty: 'advanced' },
       { id: 'math-g2-find-linear-eq-fc27', front: '$y$ 切片と傾きが読み取りやすい', explanation: '切片は $y$ 軸との交点、傾きは目盛りから計算', back: 'グラフから式を求めるのが楽な理由は？', difficulty: 'advanced' },
       { id: 'math-g2-find-linear-eq-fc28', front: '$q = ap + b$ を $b$ について解く', explanation: '$y = ax + b$ に $(p, q)$ を代入して $b$ を求める', back: '傾き $a$ が分かっていて通る点 $(p, q)$ から $b$ を求める手順は？', difficulty: 'advanced' },
       { id: 'math-g2-find-linear-eq-fc29', front: '$a = \\dfrac{y_2 - y_1}{x_2 - x_1}$', back: '$2$ 点 $(x_1, y_1)$, $(x_2, y_2)$ から傾き $a$ を求める式は？', explanation: '$y$ の増加量 $\\div$ $x$ の増加量。', difficulty: 'basic' },
-      { id: 'math-g2-find-linear-eq-fc30', front: '傾き $a$ と切片 $b$ を $y = ax + b$ に代入', back: '傾きと切片がわかっているとき、式を求める方法は？', explanation: '最も簡単なパターン。', difficulty: 'basic' },
-      { id: 'math-g2-find-linear-eq-fc31', front: '傾き $a$ を代入し、通る点の座標を代入して $b$ を求める', back: '傾きと $1$ 点がわかっているとき、式を求める方法は？', explanation: '$b = y_1 - ax_1$。', difficulty: 'basic' },
-      { id: 'math-g2-find-linear-eq-fc32', front: 'まず $a$ を求め、次に $b$ を求める', back: '$2$ 点が分かっているとき、式を求める手順は？', explanation: '$a = \\dfrac{y_2-y_1}{x_2-x_1}$ → $b = y_1 - ax_1$。', difficulty: 'standard' },
       { id: 'math-g2-find-linear-eq-fc33', front: '$y = 2x + 1$', back: '傾き $2$、切片 $1$ の一次関数の式は？', explanation: '直接代入。', difficulty: 'basic' },
       { id: 'math-g2-find-linear-eq-fc34', front: '$y = 3x - 1$', back: '傾き $3$ で点 $(1, 2)$ を通る一次関数の式は？', explanation: '$2 = 3 \\times 1 + b$、$b = -1$。', difficulty: 'standard' },
       { id: 'math-g2-find-linear-eq-fc35', front: '$y = 2x - 3$', back: '$2$ 点 $(1, -1)$, $(3, 3)$ を通る一次関数の式は？', explanation: '$a = \\dfrac{3-(-1)}{3-1} = 2$、$b = -1 - 2 = -3$。', difficulty: 'standard' },
-      { id: 'math-g2-find-linear-eq-fc36', front: '元の直線と同じ傾き', back: '平行な直線の式を求めるとき傾きは？', explanation: '平行→傾きが等しい。', difficulty: 'standard' },
       { id: 'math-g2-find-linear-eq-fc37', front: '変化の割合 $=$ 傾き $a$', back: '「変化の割合が $-2$」と言われたら $a$ は？', explanation: '一次関数では変化の割合は常に一定。', difficulty: 'standard' },
-      { id: 'math-g2-find-linear-eq-fc38', front: 'もう $1$ つの点を代入して確認', back: '式を求めた後の検算方法は？', explanation: '代入して等式が成り立てば正しい。', difficulty: 'advanced' },
       { id: 'math-g2-find-linear-eq-fc39', front: '切片がすぐ分かる（$b$ が確定）', back: 'グラフが $y$ 軸上の点を通る場合の有利な点は？', explanation: 'あとは傾きだけ求めればOK。', difficulty: 'advanced' },
       { id: 'math-g2-find-linear-eq-fc40', front: '$y = -x + 5$', back: '傾き $-1$ で点 $(2, 3)$ を通る一次関数の式は？', explanation: '$3 = -2 + b$、$b = 5$。', difficulty: 'standard' },
-      { id: 'math-g2-find-linear-eq-fc41', front: '$y = \\dfrac{1}{2}x + 1$', back: '$2$ 点 $(0, 1)$, $(4, 3)$ を通る一次関数の式は？', explanation: '$a = \\dfrac{3-1}{4-0} = \\dfrac{1}{2}$、$b = 1$。', difficulty: 'standard' },
+      { id: 'math-g2-find-linear-eq-fc41', front: '$y = \\dfrac{1}{2}x + 1$', back: '$2$ 点 $(0, 1)$, $(4, 3)$ を通る一次関数の式は？', explanation: '$a = \\dfrac{3-1}{4-0} = \\dfrac{1}{2}$、$b = 1$。', difficulty: 'standard' }
     ],
     quiz: {
       questions: [
@@ -243,7 +235,7 @@ export const findLinearEquation: Topic = {
             '$y = \\dfrac{1}{2}x + 5$',
             '$y = \\dfrac{1}{2}x + 3$',
             '$y = 2x - 3$',
-            '$y = \\dfrac{1}{2}x - 3$',
+            '$y = \\dfrac{1}{2}x - 3$'
           ],
           correctIndex: 1,
           explanation:
@@ -268,7 +260,7 @@ export const findLinearEquation: Topic = {
             '$a + b = 1$ と $a + b = 3$',
             '$a + b = 4$ と $3a + b = 10$',
             '$4a + b = 1$ と $10a + b = 3$',
-            '$a + 4b = 1$ と $3a + 10b = 3$',
+            '$a + 4b = 1$ と $3a + 10b = 3$'
           ],
           correctIndex: 1,
           explanation:
@@ -422,7 +414,7 @@ export const findLinearEquation: Topic = {
           correctIndex: 0,
           explanation: '$y$ が常に $4$。$a = 0$ なので一次関数の定義($a \\neq 0$)を満たさないよ。',
           difficulty: 'advanced',
-        },
+        }
       ],
     },
     examples: {
@@ -449,7 +441,7 @@ export const findLinearEquation: Topic = {
               content:
                 '$b = 1 + 6 = 7$。よって $y = -2x + 7$ が答えだよ！',
               highlight: '$y = -2x + 7$',
-            },
+            }
           ],
           answer: '$y = -2x + 7$',
         },
@@ -475,7 +467,7 @@ export const findLinearEquation: Topic = {
               content:
                 '$a = 3$、$b = -1$ なので $y = 3x - 1$ が答え！ もう1つの点 $(4, 11)$ でも確認: $3 \\times 4 - 1 = 11$ ✓',
               highlight: '$y = 3x - 1$',
-            },
+            }
           ],
           answer: '$y = 3x - 1$',
         },
@@ -501,7 +493,7 @@ export const findLinearEquation: Topic = {
               content:
                 '$a = -2$ を (1) に代入: $-(-2) + b = 5$ → $2 + b = 5$ → $b = 3$。\nよって $y = -2x + 3$ が答え！',
               highlight: '$y = -2x + 3$',
-            },
+            }
           ],
           answer: '$y = -2x + 3$',
         },
@@ -527,7 +519,7 @@ export const findLinearEquation: Topic = {
               content:
                 '$a = 4$、$b = -1$ なので $y = 4x - 1$ が答え！ 元の式 $y = 4x - 3$ と傾きが同じで切片だけ違うことを確認しよう。',
               highlight: '$y = 4x - 1$',
-            },
+            }
           ],
           answer: '$y = 4x - 1$',
         },
@@ -553,10 +545,10 @@ export const findLinearEquation: Topic = {
               content:
                 '$a = 2$、$b = -2$ なので $y = 2x - 2$ が答え！ 片方の点が $(0, b)$ なら切片がすぐわかるのがポイントだね。',
               highlight: '$y = 2x - 2$',
-            },
+            }
           ],
           answer: '$y = 2x - 2$',
-        },
+        }
       ],
     },
     chatId: 'math-g2-find-linear-eq',

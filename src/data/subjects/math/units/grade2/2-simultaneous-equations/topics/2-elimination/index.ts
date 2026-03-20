@@ -17,7 +17,7 @@ export const elimination: Topic = {
           keyPoints: [
             '2つの式を足すか引くかして、1つの文字を消す（消去する）方法',
             '消去した後は、残った1つの文字だけの方程式を解く',
-            '求まった値をもとの式に代入して、もう1つの文字を求める',
+            '求まった値をもとの式に代入して、もう1つの文字を求める'
           ],
         },
         {
@@ -27,7 +27,7 @@ export const elimination: Topic = {
           keyPoints: [
             '例: $x + y = 7$ と $x - y = 3$ → 足すと $y$ が消えて $2x = 10$',
             '$+3y$ と $-3y$ のように絶対値が同じで符号が逆 → 足す',
-            '足した後、残った文字の方程式を解く',
+            '足した後、残った文字の方程式を解く'
           ],
         },
         {
@@ -37,7 +37,7 @@ export const elimination: Topic = {
           keyPoints: [
             '例: $3x + 2y = 16$ と $x + 2y = 10$ → ①−②で $y$ が消えて $2x = 6$',
             '引くとき、引かれる式の**すべての項の符号が変わる**ことに注意',
-            '左辺だけでなく右辺も必ず引く',
+            '左辺だけでなく右辺も必ず引く'
           ],
         },
         {
@@ -47,7 +47,7 @@ export const elimination: Topic = {
           keyPoints: [
             '例: $2x + 3y = 16$ と $x + y = 6$ → ②を$2$倍して $2x + 2y = 12$ にする',
             '①−② で $y = 4$ が求まる',
-            '何倍するかは「消したい文字の係数の比」で決める',
+            '何倍するかは「消したい文字の係数の比」で決める'
           ],
         },
         {
@@ -58,9 +58,9 @@ export const elimination: Topic = {
             '例: $2x + 3y = 12$ と $3x + 2y = 13$',
             '$x$ を消すなら: ①×$3$、②×$2$ → $6x + 9y = 36$、$6x + 4y = 26$',
             '引くと $5y = 10$、$y = 2$ が求まる',
-            '係数の最小公倍数を考えると計算がシンプルになる',
+            '係数の最小公倍数を考えると計算がシンプルになる'
           ],
-        },
+        }
       ],
     },
     videos: [],
@@ -178,15 +178,9 @@ export const elimination: Topic = {
       { id: 'math-g2-elim-fc19', front: '消去する文字の係数の最小公倍数を求め、その値にそろえる', back: '係数をそろえるとき、何の最小公倍数を使う？', difficulty: 'standard' },
       { id: 'math-g2-elim-fc20', front: '逆符号→足す、同符号→引く', back: '足すか引くかの判断例を挙げると？', explanation: '$y$ の係数が $3$ と $-3$ → 足す。$y$ の係数が $3$ と $3$ → 引く。', difficulty: 'standard' },
       { id: 'math-g2-elim-fc21', front: 'まず10倍して整数にしてから加減法', back: '小数係数の連立方程式の処理法は？', explanation: '例: $0.2x + 0.3y = 1.3$ → $2x + 3y = 13$。', difficulty: 'standard' },
-      { id: 'math-g2-elim-fc22', front: '分母の最小公倍数を両辺にかけて分数をはらってから加減法', back: '分数係数の連立方程式の処理法は？', difficulty: 'standard' },
-      { id: 'math-g2-elim-fc23', front: '求めた値を元の式に代入して等式が成り立つか確認する', back: '加減法で解いた後の検算方法は？', difficulty: 'advanced' },
-      { id: 'math-g2-elim-fc24', front: '①×2, ②×3 または ②×2, ①×3', back: '$3x + 2y = 8, 2x + 3y = 7$ で係数をそろえる方法は？', explanation: '①×2, ②×3 → $y$ の係数をそろえる。②×2, ①×3 → $x$ の係数をそろえる。', difficulty: 'advanced' },
-      { id: 'math-g2-elim-fc25', front: '係数が小さい方や、そのまま消せる文字を選ぶと計算が楽', back: '消去する文字の選び方のコツは？', difficulty: 'advanced' },
-      { id: 'math-g2-elim-fc27', front: '消去→解く→代入→検算', back: '加減法の4ステップは？', explanation: '①足すか引くかで1文字消去 → ②残った式を解く → ③代入して残り → ④検算。' },
       { id: 'math-g2-elim-fc28', front: '定数項の符号忘れ', back: '加減法でよくある計算ミスは？', explanation: '正負に注意！引く式の全項の符号が変わる。', difficulty: 'advanced' },
       { id: 'math-g2-elim-fc29', front: '消去したい文字の係数の絶対値が等しいこと', back: '加減法で文字を消去するために必要な条件は？', explanation: '等しくなければ片方の式を何倍かする。', difficulty: 'basic' },
       { id: 'math-g2-elim-fc30', front: '2つの式を足す', back: '係数の符号が逆（$+y$ と $-y$）のとき、どうする？', explanation: '$+y + (-y) = 0$ で消える。', difficulty: 'basic' },
-      { id: 'math-g2-elim-fc31', front: '一方の式からもう一方を引く', back: '係数の符号が同じ（$+2y$ と $+2y$）のとき、どうする？', explanation: '$2y - 2y = 0$ で消える。', difficulty: 'basic' },
       { id: 'math-g2-elim-fc32', front: '$x = 5, y = 3$', back: '$\\begin{cases} x + y = 8 \\\\ x - y = 2 \\end{cases}$ を加減法で解くと？', explanation: '足すと $2x = 10$、$x = 5$。代入して $y = 3$。', difficulty: 'basic' },
       { id: 'math-g2-elim-fc33', front: '$x = 3, y = 1$', back: '$\\begin{cases} 3x + y = 10 \\\\ x + y = 4 \\end{cases}$ を加減法で解くと？', explanation: '①-②で $2x = 6$。', difficulty: 'basic' },
       { id: 'math-g2-elim-fc34', front: '$x = -1, y = 3$', back: '$\\begin{cases} 5x + 3y = 4 \\\\ x - 3y = -10 \\end{cases}$ を加減法で解くと？', explanation: '足すと $6x = -6$。', difficulty: 'standard' },
@@ -199,8 +193,7 @@ export const elimination: Topic = {
       { id: 'math-g2-elim-fc41', front: '係数が小さい方や、そのまま消せる文字を選ぶ', back: '消去する文字の選び方のコツは？', explanation: '計算が楽になる方を選ぶ。', difficulty: 'standard' },
       { id: 'math-g2-elim-fc42', front: 'まず $10$ 倍して整数にしてから加減法', back: '小数係数の連立方程式の処理法は？', explanation: '例: $0.2x + 0.3y = 1.3$ → $2x + 3y = 13$。', difficulty: 'standard' },
       { id: 'math-g2-elim-fc43', front: '分母の最小公倍数を両辺にかけて整数にしてから加減法', back: '分数係数の連立方程式の処理法は？', explanation: '分数をはらってから解く。', difficulty: 'advanced' },
-      { id: 'math-g2-elim-fc44', front: '消去→解く→代入→検算', back: '加減法の4ステップは？', explanation: '最後に必ず検算。', difficulty: 'basic' },
-      { id: 'math-g2-elim-fc45', front: '引く式の全項の符号が変わることに注意', back: '辺々引くときの注意点は？', explanation: '定数項の符号も忘れずに変える。', difficulty: 'advanced' },
+      { id: 'math-g2-elim-fc45', front: '引く式の全項の符号が変わることに注意', back: '辺々引くときの注意点は？', explanation: '定数項の符号も忘れずに変える。', difficulty: 'advanced' }
     ],
     quiz: {
       questions: [
@@ -220,7 +213,7 @@ export const elimination: Topic = {
             '2つの式を足す',
             '①から②を引く',
             '②から①を引く',
-            '①を2倍する',
+            '①を2倍する'
           ],
           correctIndex: 1,
           explanation:
@@ -243,7 +236,7 @@ export const elimination: Topic = {
             '2つの式を足す',
             '②を5倍して引く',
             '①を3倍して引く',
-            '②を3倍して足す',
+            '②を3倍して足す'
           ],
           correctIndex: 0,
           explanation:
@@ -266,7 +259,7 @@ export const elimination: Topic = {
             '左辺だけ引く',
             '右辺だけ引く',
             '左辺も右辺もすべて引く',
-            '係数だけ引く',
+            '係数だけ引く'
           ],
           correctIndex: 2,
           explanation:
@@ -298,7 +291,7 @@ export const elimination: Topic = {
             '①×5、②×2',
             '①×2、②×3',
             '①×3、②×2',
-            '①×5、②×3',
+            '①×5、②×3'
           ],
           correctIndex: 0,
           explanation:
@@ -457,7 +450,7 @@ export const elimination: Topic = {
           correctIndex: 0,
           explanation: '①−②: $2y = 6$、$y = 3$。$x + 6 = 8$ → $x = 2$ だよ。',
           difficulty: 'advanced',
-        },
+        }
       ],
     },
     examples: {
@@ -488,7 +481,7 @@ export const elimination: Topic = {
               title: 'Step 4: $y$ を求める',
               content: '$x = 5$ を①に代入: $5 + y = 7 \\Rightarrow y = 2$',
               highlight: '$x = 5, y = 2$',
-            },
+            }
           ],
           answer: '$x = 5, y = 2$',
         },
@@ -518,7 +511,7 @@ export const elimination: Topic = {
               title: 'Step 4: $y$ を求める',
               content: '$x = 3$ を②に代入: $3 + 2y = 7 \\Rightarrow 2y = 4 \\Rightarrow y = 2$',
               highlight: '$x = 3, y = 2$',
-            },
+            }
           ],
           answer: '$x = 3, y = 2$',
         },
@@ -549,7 +542,7 @@ export const elimination: Topic = {
               title: 'Step 4: $x$ を求める',
               content: '$y = 4$ を②に代入: $x + 4 = 6 \\Rightarrow x = 2$',
               highlight: '$x = 2, y = 4$',
-            },
+            }
           ],
           answer: '$x = 2, y = 4$',
         },
@@ -580,7 +573,7 @@ export const elimination: Topic = {
               title: 'Step 4: $x$ を求める',
               content: '$y = 2$ を②に代入: $3x + 4 = 13 \\Rightarrow 3x = 9 \\Rightarrow x = 3$',
               highlight: '$x = 3, y = 2$',
-            },
+            }
           ],
           answer: '$x = 3, y = 2$',
         },
@@ -611,7 +604,7 @@ export const elimination: Topic = {
               title: 'Step 4: $y$ を求める',
               content: '$x = 3$ を①に代入: $3 + 2y = 11 \\Rightarrow 2y = 8 \\Rightarrow y = 4$',
               highlight: '$x = 3, y = 4$',
-            },
+            }
           ],
           answer: '$x = 3, y = 4$',
         },
@@ -642,10 +635,10 @@ export const elimination: Topic = {
               content:
                 '①に代入: $3 \\times 3 + 2 \\times 5 = 9 + 10 = 19$ ○\n②に代入: $3 + 5 = 8$ ○\nどちらも成り立つので正しい！',
               highlight: '検算OK！',
-            },
+            }
           ],
           answer: '$x = 3, y = 5$',
-        },
+        }
       ],
     },
     chatId: 'math-g2-elimination',

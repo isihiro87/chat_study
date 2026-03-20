@@ -17,7 +17,7 @@ export const substitution: Topic = {
           keyPoints: [
             '代入法: 一方の式をもう一方に代入して、1つの文字だけの式にする方法',
             '「代入」=「入れかえ」。$y$ のところに式をそのまま入れる',
-            '加減法と同じく、目的は「文字を1つ消す」こと',
+            '加減法と同じく、目的は「文字を1つ消す」こと'
           ],
         },
         {
@@ -27,7 +27,7 @@ export const substitution: Topic = {
           keyPoints: [
             '$y = 2x$, $x + y = 9$ → ②の $y$ に $2x$ を代入: $x + 2x = 9$',
             '$x = \\circ\\circ$ の形でも同じ要領でもう一方に代入できる',
-            '代入するときは式全体にかっこをつけよう（符号ミス防止）',
+            '代入するときは式全体にかっこをつけよう（符号ミス防止）'
           ],
         },
         {
@@ -37,7 +37,7 @@ export const substitution: Topic = {
           keyPoints: [
             '$x + y = 5 \\rightarrow y = 5 - x$ のように、係数1の文字について解く',
             '変形した式をもう一方に代入して、1つの文字の方程式にする',
-            '例: $y = 5 - x$ を $3x + 2y = 13$ に代入 → $3x + 2(5 - x) = 13$',
+            '例: $y = 5 - x$ を $3x + 2y = 13$ に代入 → $3x + 2(5 - x) = 13$'
           ],
         },
         {
@@ -47,7 +47,7 @@ export const substitution: Topic = {
           keyPoints: [
             '$3x + 2(5 - x) = 13 \\rightarrow 3x + 10 - 2x = 13 \\rightarrow x = 3$',
             '$2(y + 1) + y = 8 \\rightarrow 2y + 2 + y = 8 \\rightarrow 3y = 6$',
-            '代入する式はかっこで囲む！ $-2y$ のとき $-2(x - 3)$ と書く',
+            '代入する式はかっこで囲む！ $-2y$ のとき $-2(x - 3)$ と書く'
           ],
         },
         {
@@ -57,9 +57,9 @@ export const substitution: Topic = {
           keyPoints: [
             '$y = \\circ\\circ$ や $x = \\circ\\circ$ の形がある → 代入法が便利',
             '同じ文字の係数がそろっている → 加減法が便利',
-            '係数が1の文字があれば、変形してから代入法も使える',
+            '係数が1の文字があれば、変形してから代入法も使える'
           ],
-        },
+        }
       ],
     },
     videos: [],
@@ -181,7 +181,6 @@ export const substitution: Topic = {
       { id: 'math-g2-sub-fc20', front: '$x = 4, y = 1$', back: '$y = x - 3$, $x + 2y = 6$ を代入法で解くと？', difficulty: 'standard' },
       { id: 'math-g2-sub-fc21', front: '$x = 1, y = 4$', back: '$x = 5 - y$, $3x + y = 7$ を代入法で解くと？', difficulty: 'standard' },
       { id: 'math-g2-sub-fc22', front: '一方の式がすでに $x = $ or $y = $ の形 → 代入法が最適', back: '代入法を選ぶべきサインは？', difficulty: 'standard' },
-      { id: 'math-g2-sub-fc23', front: '変形→代入→展開・整理→解く→逆代入→検算', back: '代入法の詳細な手順は？', explanation: '①変形 → ②代入 → ③展開・整理 → ④解く → ⑤逆代入 → ⑥検算の6ステップ。', difficulty: 'advanced' },
       { id: 'math-g2-sub-fc24', front: 'かっこの前に負の係数があるとき、展開で符号ミスが起きやすい', back: '代入法で特に注意すべき場面は？', difficulty: 'advanced' },
       { id: 'math-g2-sub-fc25', front: '$x = 2, y = 4$', back: '$y = 2x$, $3x + y = 10$ を代入法で解くと？', difficulty: 'advanced' },
       { id: 'math-g2-sub-fc26', front: '$x = 4, y = 2$', back: '$x = 2y$, $x + 3y = 10$ を代入法で解くと？', difficulty: 'advanced' },
@@ -198,8 +197,7 @@ export const substitution: Topic = {
       { id: 'math-g2-sub-fc38', front: 'どちらも文字を $1$ つ消去して $1$ 変数の方程式にする方法', back: '加減法と代入法の共通点は？', explanation: '最終的に同じ答えになる。', difficulty: 'standard' },
       { id: 'math-g2-sub-fc39', front: '一方の式がすでに $y = $ の形のとき → 代入法', back: '代入法を選ぶべきサインは？', explanation: '変形の手間が省ける。', difficulty: 'standard' },
       { id: 'math-g2-sub-fc40', front: 'かっこの展開で符号ミスが起きやすい', back: '代入法で特に注意すべき場面は？', explanation: '負の係数の前にかっこがあるとき要注意。', difficulty: 'advanced' },
-      { id: 'math-g2-sub-fc41', front: '変形→代入→展開→整理→解く→逆代入→検算', back: '代入法の詳細な手順は？', explanation: '$6$ ステップ。', difficulty: 'advanced' },
-      { id: 'math-g2-sub-fc42', front: '係数が $1$ の文字を $y = $ や $x = $ の形にして代入する', back: 'どちらの式も $y = $ の形でないとき、代入法を使うには？', explanation: '変形してから代入。', difficulty: 'advanced' },
+      { id: 'math-g2-sub-fc42', front: '係数が $1$ の文字を $y = $ や $x = $ の形にして代入する', back: 'どちらの式も $y = $ の形でないとき、代入法を使うには？', explanation: '変形してから代入。', difficulty: 'advanced' }
     ],
     quiz: {
       questions: [
@@ -228,7 +226,7 @@ export const substitution: Topic = {
             'どちらの式も係数が大きいとき',
             'どんなときでも加減法の方が良い',
             '分数がたくさんあるとき',
-            '一方の式が $y = \\circ\\circ$ や $x = \\circ\\circ$ の形のとき',
+            '一方の式が $y = \\circ\\circ$ や $x = \\circ\\circ$ の形のとき'
           ],
           correctIndex: 3,
           explanation:
@@ -252,7 +250,7 @@ export const substitution: Topic = {
             '$x = 5y$',
             '$y = 5 - x$',
             '$x = 5 + y$',
-            '$y = x - 5$',
+            '$y = x - 5$'
           ],
           correctIndex: 1,
           explanation:
@@ -267,7 +265,7 @@ export const substitution: Topic = {
             '$3x - 2x - 1 = 7$',
             '$3(x - 1) - 2y = 7$',
             '$3x - 2x + 1 = 7$',
-            '$3x - 2(x - 1) = 7$',
+            '$3x - 2(x - 1) = 7$'
           ],
           correctIndex: 3,
           explanation:
@@ -282,7 +280,7 @@ export const substitution: Topic = {
             '$x = 2, y = 4$',
             '$x = 4, y = 0$',
             '$x = 3, y = 2$',
-            '$x = 1, y = 6$',
+            '$x = 1, y = 6$'
           ],
           correctIndex: 2,
           explanation:
@@ -297,7 +295,7 @@ export const substitution: Topic = {
             '$2x + 3y = 12$, $2x - y = 4$',
             '$x = y + 1$, $5x - 2y = 18$',
             '$y = 5x$, $3x + y = 16$',
-            '$y = -x + 4$, $2x + y = 7$',
+            '$y = -x + 4$, $2x + y = 7$'
           ],
           correctIndex: 0,
           explanation:
@@ -312,7 +310,7 @@ export const substitution: Topic = {
             '$x = 4, y = 3$',
             '$x = 6, y = 2$',
             '$x = 8, y = 1$',
-            '$x = 5, y = 5$',
+            '$x = 5, y = 5$'
           ],
           correctIndex: 1,
           explanation:
@@ -327,7 +325,7 @@ export const substitution: Topic = {
             '$x = 1, y = 3$',
             '$x = 3, y = 1$',
             '$x = 2, y = 2$',
-            '$x = 0, y = 4$',
+            '$x = 0, y = 4$'
           ],
           correctIndex: 2,
           explanation:
@@ -477,7 +475,7 @@ export const substitution: Topic = {
           correctIndex: 1,
           explanation: '$x + (-3x + 10) = 6$ → $-2x = -4$ → $x = 2$。$y = 4$ だよ。',
           difficulty: 'advanced',
-        },
+        }
       ],
     },
     examples: {
@@ -502,7 +500,7 @@ export const substitution: Topic = {
               title: 'Step 3: $y$ を求める',
               content: '$x = 3$ を①に代入: $y = 2 \\times 3 = 6$',
               highlight: '$y = 6$',
-            },
+            }
           ],
           answer: '$x = 3, y = 6$',
         },
@@ -532,7 +530,7 @@ export const substitution: Topic = {
               title: 'Step 4: $y$ を求める',
               content: '$x = 5$ を①に代入: $y = 5 - 1 = 4$',
               highlight: '$y = 4$',
-            },
+            }
           ],
           answer: '$x = 5, y = 4$',
         },
@@ -563,7 +561,7 @@ export const substitution: Topic = {
               title: 'Step 4: $y$ を求める',
               content: '$y = 5 - 3 = 2$',
               highlight: '$y = 2$',
-            },
+            }
           ],
           answer: '$x = 3, y = 2$',
         },
@@ -592,7 +590,7 @@ export const substitution: Topic = {
               title: 'Step 4: $x$ を求める',
               content: '$x = 2 + 1 = 3$',
               highlight: '$x = 3$',
-            },
+            }
           ],
           answer: '$x = 3, y = 2$',
         },
@@ -623,7 +621,7 @@ export const substitution: Topic = {
               title: 'Step 4: $y$ を求める',
               content: '$y = 8 - 2 \\times 3 = 8 - 6 = 2$',
               highlight: '$y = 2$',
-            },
+            }
           ],
           answer: '$x = 3, y = 2$',
         },
@@ -653,10 +651,10 @@ export const substitution: Topic = {
               title: 'Step 4: $y$ を求める',
               content: '$y = 2 \\times 3 - 3 = 6 - 3 = 3$',
               highlight: '$y = 3$',
-            },
+            }
           ],
           answer: '$x = 3, y = 3$',
-        },
+        }
       ],
     },
     chatId: 'math-g2-substitution',

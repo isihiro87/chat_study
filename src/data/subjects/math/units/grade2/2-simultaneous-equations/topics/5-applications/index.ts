@@ -18,7 +18,7 @@ export const simulEqApps: Topic = {
             '求めたいものを $x$, $y$ とおく',
             '問題文から 2 つの等しい関係を見つける',
             '連立方程式を解き、代入法か加減法を使う',
-            '答えが問題の条件に合っているか必ず確認する',
+            '答えが問題の条件に合っているか必ず確認する'
           ],
         },
         {
@@ -29,7 +29,7 @@ export const simulEqApps: Topic = {
             '個数の合計 → $x + y = (合計)$',
             '金額の合計 → $(単価_1)x + (単価_2)y = (合計金額)$',
             '係数が大きいときは両辺を割って簡単にする',
-            '2 けたの数の問題は $10x + y$ と表す',
+            '2 けたの数の問題は $10x + y$ と表す'
           ],
         },
         {
@@ -40,7 +40,7 @@ export const simulEqApps: Topic = {
             '$A$ の $p$% $= A \\times \\dfrac{p}{100}$',
             '小数の式は 10 倍・100 倍して整数にする',
             '「全体の人数」と「割合から求めた人数」で 2 式',
-            '分数にして通分する方法でもOK',
+            '分数にして通分する方法でもOK'
           ],
         },
         {
@@ -51,7 +51,7 @@ export const simulEqApps: Topic = {
             '$p$% 増 → 元 $\\times (1 + \\dfrac{p}{100})$',
             '$p$% 減 → 元 $\\times (1 - \\dfrac{p}{100})$',
             '20% 引き → $0.8$ 倍、30% 引き → $0.7$ 倍',
-            '「定価の合計」と「割引後の合計」で 2 式を立てる',
+            '「定価の合計」と「割引後の合計」で 2 式を立てる'
           ],
         },
         {
@@ -62,9 +62,9 @@ export const simulEqApps: Topic = {
             '$x$, $y$ が何を表すか必ず書く',
             '割合は $\\dfrac{p}{100}$ を忘れずに掛ける',
             '小数の式は 10 倍・100 倍して整数にする',
-            '解いた後は元の問題文に代入して確認',
+            '解いた後は元の問題文に代入して確認'
           ],
-        },
+        }
       ],
     },
     videos: [],
@@ -152,7 +152,6 @@ export const simulEqApps: Topic = {
       { id: 'math-g2-app-fc19', front: '十の位を $x$、一の位を $y$ として $10x + y$ で表す', back: '2けたの整数の文章題の立式法は？', difficulty: 'standard' },
       { id: 'math-g2-app-fc20', front: '$A$ の $p$% 増 $= A \\times (1 + \\dfrac{p}{100})$', back: '増加率 $p$% の計算式は？', difficulty: 'standard' },
       { id: 'math-g2-app-fc21', front: '人数 × 単価 $=$ 金額。人数の合計と金額の合計で2式', back: '入場料の文章題のパターンは？', difficulty: 'standard' },
-      { id: 'math-g2-app-fc22', front: '答えが自然数になるか、問題の条件に合うか確認する', back: '文章題で解いた後に確認することは？', difficulty: 'standard' },
       { id: 'math-g2-app-fc23', front: '$x + y = $ 全体の量、$(条件式1)x + (条件式2)y = $ 結果の量', back: '典型的な連立方程式の文章題の2式のパターンは？', difficulty: 'advanced' },
       { id: 'math-g2-app-fc24', front: '距離 $=$ 速さ $\\times$ 時間', back: '速さの問題で使う基本公式は？', difficulty: 'advanced' },
       { id: 'math-g2-app-fc25', front: '「合計」「差」「割合」「代金」のキーワードに注目する', back: '文章題で式を立てるとき、どんな言葉に注目する？', difficulty: 'advanced' },
@@ -173,7 +172,7 @@ export const simulEqApps: Topic = {
       { id: 'math-g2-app-fc40', front: '$10y + x$', back: '2桁の自然数 $10x + y$ の数字を入れかえた数は？', explanation: '十の位と一の位を交換。', difficulty: 'standard' },
       { id: 'math-g2-app-fc41', front: '$(10x + y) + (10y + x) = 11(x + y)$', back: '2桁の数と入れかえた数の和は $11$ の倍数。式は？', explanation: '$11$ でくくれる。', difficulty: 'advanced' },
       { id: 'math-g2-app-fc42', front: '求めた値が問題の条件に合うか確認する（検算）', back: '文章題で解いた後に必ずすることは？', explanation: '個数なら自然数かどうかなど。', difficulty: 'standard' },
-      { id: 'math-g2-app-fc43', front: '人数の合計と金額の合計で2式', back: '入場料の文章題のパターンは？', explanation: '人数 $\\times$ 単価 $=$ 金額。', difficulty: 'advanced' },
+      { id: 'math-g2-app-fc43', front: '人数の合計と金額の合計で2式', back: '入場料の文章題のパターンは？', explanation: '人数 $\\times$ 単価 $=$ 金額。', difficulty: 'advanced' }
     ],
     quiz: {
       questions: [
@@ -205,7 +204,7 @@ export const simulEqApps: Topic = {
             'すぐに式を立てる',
             '答えを予想する',
             '何を $x$, $y$ にするか決める',
-            'グラフを描く',
+            'グラフを描く'
           ],
           correctIndex: 2,
           explanation:
@@ -240,7 +239,7 @@ export const simulEqApps: Topic = {
             '$0.4x + 0.3y = 105$',
             '$40x + 30y = 105$',
             '$4x + 3y = 105$',
-            '$0.04x + 0.03y = 105$',
+            '$0.04x + 0.03y = 105$'
           ],
           correctIndex: 0,
           explanation:
@@ -424,7 +423,7 @@ export const simulEqApps: Topic = {
           correctIndex: 2,
           explanation: '求めた値が問題の条件を満たすか、元の文に戻って確認するのが大切だよ。',
           difficulty: 'advanced',
-        },
+        }
       ],
     },
     examples: {
@@ -457,7 +456,7 @@ export const simulEqApps: Topic = {
               content:
                 '$y = 10 - 5 = 5$\n確認: $150 \\times 5 + 80 \\times 5 = 750 + 400 = 1150$ ✓',
               highlight: 'りんご 5 個、みかん 5 個',
-            },
+            }
           ],
           answer: 'りんご 5 個、みかん 5 個',
         },
@@ -489,7 +488,7 @@ export const simulEqApps: Topic = {
               content:
                 '1 年 150 人の 40% $= 60$ 人、2 年 150 人の 30% $= 45$ 人。$60 + 45 = 105$ ✓',
               highlight: '1 年生 150 人、2 年生 150 人',
-            },
+            }
           ],
           answer: '1 年生 150 人、2 年生 150 人',
         },
@@ -521,10 +520,10 @@ export const simulEqApps: Topic = {
               content:
                 'シャツ $2500 \\times 0.8 = 2000$ 円、かばん $3000 \\times 0.7 = 2100$ 円。$2000 + 2100 = 4100$ ✓',
               highlight: 'シャツ 2500 円、かばん 3000 円',
-            },
+            }
           ],
           answer: 'シャツ 2500 円、かばん 3000 円',
-        },
+        }
       ],
     },
     chatId: 'math-g2-simul-eq-apps',

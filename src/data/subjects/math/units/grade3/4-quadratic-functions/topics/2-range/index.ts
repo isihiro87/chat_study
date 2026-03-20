@@ -17,7 +17,7 @@ export const quadFuncRange: Topic = {
           keyPoints: [
             'a > 0: x < 0 で y は減少、x > 0 で y は増加（x = 0 で最小値）',
             'a < 0: x < 0 で y は増加、x > 0 で y は減少（x = 0 で最大値）',
-            '一次関数と違い、y の変化の仕方が一定でない',
+            '一次関数と違い、y の変化の仕方が一定でない'
           ],
         },
         {
@@ -27,7 +27,7 @@ export const quadFuncRange: Topic = {
           keyPoints: [
             'x の変域が 0 をまたぐ → y の最小値(a>0)または最大値(a<0)は y = 0',
             'x の変域の端の値のうち、|x| が大きい方が y の最大値(a>0)を与える',
-            '必ず x = 0 を含むかどうかをチェックしよう',
+            '必ず x = 0 を含むかどうかをチェックしよう'
           ],
         },
         {
@@ -37,7 +37,7 @@ export const quadFuncRange: Topic = {
           keyPoints: [
             'a > 0, x < 0 → y は減少 ／ a > 0, x > 0 → y は増加',
             'a < 0, x < 0 → y は増加 ／ a < 0, x > 0 → y は減少',
-            'x = 0 は常に「折り返し点」。a > 0 で最小、a < 0 で最大',
+            'x = 0 は常に「折り返し点」。a > 0 で最小、a < 0 で最大'
           ],
         },
         {
@@ -47,9 +47,9 @@ export const quadFuncRange: Topic = {
           keyPoints: [
             'x = 0 を含む＋a > 0 → 最大値は |x| が大きい端で y = ax²',
             'x = 0 を含む＋a < 0 → 最小値は |x| が大きい端で y = ax²',
-            'x = 0 を含まない → 端の値を代入して方程式を立てる',
+            'x = 0 を含まない → 端の値を代入して方程式を立てる'
           ],
-        },
+        }
       ],
     },
     videos: [],
@@ -200,11 +200,10 @@ export const quadFuncRange: Topic = {
       { id: 'math-g3-qf-rg-fc31', front: '$0 \\leq y \\leq 4$', back: '$y = x^2$ で $-2 \\leq x \\leq 1$ の $y$ の変域は？', explanation: '$x = 0$ を含むので最小値は $0$。最大値は $|-2| > |1|$ で $y = 4$。', difficulty: 'standard' },
       { id: 'math-g3-qf-rg-fc32', front: '$1 \\leq y \\leq 9$', back: '$y = x^2$ で $1 \\leq x \\leq 3$ の $y$ の変域は？', explanation: '$x = 0$ を含まない。$x = 1$ で $y = 1$、$x = 3$ で $y = 9$。', difficulty: 'standard' },
       { id: 'math-g3-qf-rg-fc33', front: '最小値は $0$（$x = 0$ のとき）', back: '$a > 0$ で $x$ の変域が $x = 0$ を含むとき、$y$ の最小値は？', explanation: '頂点が原点。', difficulty: 'basic' },
-      { id: 'math-g3-qf-rg-fc34', front: '絶対値が大きい方の $x$ を代入', back: '$a > 0$ で $x$ の変域が $x = 0$ を含むとき、$y$ の最大値の求め方は？', explanation: '原点から遠い方で最大。', difficulty: 'standard' },
       { id: 'math-g3-qf-rg-fc35', front: '$a > 0$: $x = 0$ で最小、$a < 0$: $x = 0$ で最大', back: '$y = ax^2$ で $x = 0$ を含む変域のとき、$a$ の符号と最大最小の関係は？', explanation: '符号で最大最小が入れ替わる。', difficulty: 'standard' },
       { id: 'math-g3-qf-rg-fc36', front: '$-18 \\leq y \\leq 0$', back: '$y = -2x^2$ で $0 \\leq x \\leq 3$ の $y$ の変域は？', explanation: '$a < 0$ で $x = 0$ が最大値 $0$、$x = 3$ で $-18$。', difficulty: 'standard' },
       { id: 'math-g3-qf-rg-fc37', front: '$x = 0$ を含むかどうか', back: '$y = ax^2$ の変域問題で最初に確認することは？', explanation: '含むなら最小（$a > 0$）または最大（$a < 0$）は $0$。', difficulty: 'basic' },
-      { id: 'math-g3-qf-rg-fc38', front: '$a = 2$', back: '$y = ax^2$（$a > 0$）で $-3 \\leq x \\leq 5$、最大値 $50$。$a$ は？', explanation: '$|5| > |-3|$ → $25a = 50$ → $a = 2$。', difficulty: 'advanced' },
+      { id: 'math-g3-qf-rg-fc38', front: '$a = 2$', back: '$y = ax^2$（$a > 0$）で $-3 \\leq x \\leq 5$、最大値 $50$。$a$ は？', explanation: '$|5| > |-3|$ → $25a = 50$ → $a = 2$。', difficulty: 'advanced' }
     ],
     quiz: {
       questions: [
@@ -233,7 +232,7 @@ export const quadFuncRange: Topic = {
             '$2 \\leq y \\leq 18$',
             '$-2 \\leq y \\leq 0$',
             '$-18 \\leq y \\leq 0$',
-            '$-18 \\leq y \\leq -2$',
+            '$-18 \\leq y \\leq -2$'
           ],
           correctIndex: 3,
           explanation:
@@ -247,7 +246,7 @@ export const quadFuncRange: Topic = {
             '$-9 \\leq y \\leq -4$',
             '$-9 \\leq y \\leq 0$',
             '$-4 \\leq y \\leq 0$',
-            '$0 \\leq y \\leq 9$',
+            '$0 \\leq y \\leq 9$'
           ],
           correctIndex: 1,
           explanation:
@@ -270,7 +269,7 @@ export const quadFuncRange: Topic = {
             '$0 \\leq y \\leq 25$',
             '$2 \\leq y \\leq 5$',
             '$4 \\leq y \\leq 25$',
-            '$4 \\leq y \\leq 10$',
+            '$4 \\leq y \\leq 10$'
           ],
           correctIndex: 2,
           explanation:
@@ -304,7 +303,7 @@ export const quadFuncRange: Topic = {
             '$0 \\leq y \\leq 18$',
             '$1 \\leq y \\leq 9$',
             '$2 \\leq y \\leq 18$',
-            '$-18 \\leq y \\leq -2$',
+            '$-18 \\leq y \\leq -2$'
           ],
           correctIndex: 2,
           explanation:
@@ -347,7 +346,7 @@ export const quadFuncRange: Topic = {
             '$0 \\leq y \\leq 32$',
             '$-32 \\leq y \\leq 32$',
             '$0 \\leq y \\leq 16$',
-            '$8 \\leq y \\leq 32$',
+            '$8 \\leq y \\leq 32$'
           ],
           correctIndex: 0,
           explanation:
@@ -361,7 +360,7 @@ export const quadFuncRange: Topic = {
             '$0 \\leq y \\leq 27$',
             '$-9 \\leq y \\leq 0$',
             '$-27 \\leq y \\leq -3$',
-            '$-27 \\leq y \\leq 0$',
+            '$-27 \\leq y \\leq 0$'
           ],
           correctIndex: 3,
           explanation:
@@ -375,7 +374,7 @@ export const quadFuncRange: Topic = {
             '$0 \\leq y \\leq 27$',
             '$3 \\leq y \\leq 27$',
             '$1 \\leq y \\leq 9$',
-            '$3 \\leq y \\leq 9$',
+            '$3 \\leq y \\leq 9$'
           ],
           correctIndex: 1,
           explanation:
@@ -389,7 +388,7 @@ export const quadFuncRange: Topic = {
             '減少する',
             '変わらない',
             '一定ではない',
-            '増加する',
+            '増加する'
           ],
           correctIndex: 3,
           explanation:
@@ -412,7 +411,7 @@ export const quadFuncRange: Topic = {
             '$0 \\leq y \\leq 2$',
             '$2 \\leq y \\leq 8$',
             '$-8 \\leq y \\leq 2$',
-            '$0 \\leq y \\leq 8$',
+            '$0 \\leq y \\leq 8$'
           ],
           correctIndex: 3,
           explanation:
@@ -435,7 +434,7 @@ export const quadFuncRange: Topic = {
             '$4 \\leq y \\leq 25$',
             '$0 \\leq y \\leq 25$',
             '$-25 \\leq y \\leq -4$',
-            '$2 \\leq y \\leq 5$',
+            '$2 \\leq y \\leq 5$'
           ],
           correctIndex: 0,
           explanation:
@@ -467,7 +466,7 @@ export const quadFuncRange: Topic = {
             '$a$ の値',
             '$x$ の変域に $x = 0$ が含まれるか',
             'グラフを描く',
-            '$y$ の値を計算する',
+            '$y$ の値を計算する'
           ],
           correctIndex: 1,
           explanation:
@@ -481,7 +480,7 @@ export const quadFuncRange: Topic = {
             '$-18 \\leq y \\leq 0$',
             '$-8 \\leq y \\leq 0$',
             '$-18 \\leq y \\leq -8$',
-            '$0 \\leq y \\leq 18$',
+            '$0 \\leq y \\leq 18$'
           ],
           correctIndex: 0,
           explanation:
@@ -495,7 +494,7 @@ export const quadFuncRange: Topic = {
             '$-a^2 \\leq y \\leq a^2$',
             '$0 \\leq y \\leq 2a^2$',
             '$0 \\leq y \\leq a^2$',
-            '$a \\leq y \\leq a^2$',
+            '$a \\leq y \\leq a^2$'
           ],
           correctIndex: 2,
           explanation:
@@ -509,7 +508,7 @@ export const quadFuncRange: Topic = {
             '最小値 $0$、最大値 $36$',
             '最小値 $4$、最大値 $36$',
             '最小値 $0$、最大値 $4$',
-            '最小値 $-4$、最大値 $36$',
+            '最小値 $-4$、最大値 $36$'
           ],
           correctIndex: 0,
           explanation:
@@ -523,7 +522,7 @@ export const quadFuncRange: Topic = {
             '$-25 \\leq y \\leq -4$',
             '$-25 \\leq y \\leq 0$',
             '$-4 \\leq y \\leq 0$',
-            '$4 \\leq y \\leq 25$',
+            '$4 \\leq y \\leq 25$'
           ],
           correctIndex: 0,
           explanation:
@@ -538,7 +537,7 @@ export const quadFuncRange: Topic = {
           explanation:
             '$|6| > |-2|$ より $x = 6$ で最大値。$36a = 72$ → $a = 2$。',
           difficulty: 'advanced',
-        },
+        }
       ],
     },
     examples: {
@@ -563,7 +562,7 @@ export const quadFuncRange: Topic = {
               title: 'Step 3: 変域を書く',
               content: '$y$ の変域は $0 \\leq y \\leq 18$ だよ。',
               highlight: '$0 \\leq y \\leq 18$',
-            },
+            }
           ],
           answer: '$0 \\leq y \\leq 18$',
         },
@@ -587,7 +586,7 @@ export const quadFuncRange: Topic = {
               title: 'Step 3: 変域を書く',
               content: '$-9$ の方が小さいから、$-9 \\leq y \\leq -1$ だよ。',
               highlight: '$-9 \\leq y \\leq -1$',
-            },
+            }
           ],
           answer: '$-9 \\leq y \\leq -1$',
         },
@@ -612,7 +611,7 @@ export const quadFuncRange: Topic = {
               title: 'Step 3: 変域を書く',
               content: '$y$ の変域は $-18 \\leq y \\leq 0$ だよ。',
               highlight: '$-18 \\leq y \\leq 0$',
-            },
+            }
           ],
           answer: '$-18 \\leq y \\leq 0$',
         },
@@ -638,7 +637,7 @@ export const quadFuncRange: Topic = {
               content:
                 '$y = a \\times 3^2 = 9a = 18$ より $a = 2$。',
               highlight: '$a = 2$',
-            },
+            }
           ],
           answer: '$a = 2$',
         },
@@ -664,10 +663,10 @@ export const quadFuncRange: Topic = {
               content:
                 '$x = 4$ で最小値: $16a = -32$ → $a = -2$。検算: $x = 1$ で $y = a = -2$（最大値と一致✓）',
               highlight: '$a = -2$',
-            },
+            }
           ],
           answer: '$a = -2$',
-        },
+        }
       ],
     },
     chatId: 'math-g3-quad-func-range',
