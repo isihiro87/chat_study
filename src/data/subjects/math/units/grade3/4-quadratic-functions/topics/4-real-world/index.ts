@@ -88,12 +88,6 @@ export const quadFuncRealWorld: Topic = {
         difficulty: 'basic',
       },
       {
-        id: 'math-g3-qf-rw-fc5',
-        front: 'a = y ÷ v² で求める', back: '制動距離 y = av² で比例定数 a の求め方は？',
-        explanation: '具体的な速度vと制動距離yの値を代入する',
-        difficulty: 'basic',
-      },
-      {
         id: 'math-g3-qf-rw-fc7',
         front: 'T² = aL（周期の2乗がひもの長さに比例）', back: 'ふりこの周期Tとひもの長さLの関係式は？',
         difficulty: 'basic',
@@ -166,11 +160,6 @@ export const quadFuncRealWorld: Topic = {
         difficulty: 'standard',
       },
       {
-        id: 'math-g3-qf-rw-fc21',
-        front: 'T² = aL に L と T を代入して a を求める', back: 'ふりこの比例定数 a の求め方は？',
-        difficulty: 'standard',
-      },
-      {
         id: 'math-g3-qf-rw-fc22',
         front: '底面の形が変わるところで水面の上昇速度が変わる', back: '段付き水そうで水面の上がり方が変わる理由は？',
         difficulty: 'standard',
@@ -200,11 +189,6 @@ export const quadFuncRealWorld: Topic = {
         front: 'T² = 0.04 × 400 = 16 → T = 4秒', back: 'T² = 0.04L で L = 400cm のとき周期は？',
         difficulty: 'advanced',
       },
-      {
-        id: 'math-g3-qf-rw-fc28',
-        front: '速度を √(y/a) で求める\n例: y = 0.01v² で y = 25 → v² = 2500 → v = 50km/h', back: '制動距離から速度を逆算する方法は？',
-        difficulty: 'advanced',
-      },
       { id: 'math-g3-qf-rw-fc29', front: '$y = 5t^2$', back: '自由落下で $t$ 秒後の落下距離 $y$ m の式は？（概算）', explanation: '重力加速度 $g \\approx 10$ m/s$^2$。', difficulty: 'basic' },
       { id: 'math-g3-qf-rw-fc30', front: '$45$ m', back: '自由落下で $3$ 秒後の落下距離は？（$y = 5t^2$）', explanation: '$5 \\times 9 = 45$。', difficulty: 'basic' },
       { id: 'math-g3-qf-rw-fc31', front: '$y = 0.01v^2$（概算）', back: '時速 $v$ km での制動距離 $y$ m の式は？', explanation: '速度の $2$ 乗に比例。', difficulty: 'basic' },
@@ -214,7 +198,6 @@ export const quadFuncRealWorld: Topic = {
       { id: 'math-g3-qf-rw-fc35', front: '$T^2 = 0.04L$（概算）', back: '振り子の長さ $L$ cm と周期 $T$ 秒の関係は？', explanation: '周期の $2$ 乗が長さに比例。', difficulty: 'standard' },
       { id: 'math-g3-qf-rw-fc36', front: '$4$ 秒', back: '振り子の長さ $400$ cm のとき周期は？（$T^2 = 0.04L$）', explanation: '$T^2 = 16$、$T = 4$。', difficulty: 'standard' },
       { id: 'math-g3-qf-rw-fc37', front: '$50$ km/h', back: '制動距離 $25$ m のとき速度は？（$y = 0.01v^2$）', explanation: '$v^2 = 2500$、$v = 50$。', difficulty: 'advanced' },
-      { id: 'math-g3-qf-rw-fc38', front: '$y$ の値を $a$ で割って平方根をとる', back: '$y = ax^2$ から $x$ を逆算する方法は？', explanation: '$x = \\sqrt{\\dfrac{y}{a}}$（$x > 0$ のとき）。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [

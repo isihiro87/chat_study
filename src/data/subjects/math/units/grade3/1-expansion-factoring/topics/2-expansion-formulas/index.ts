@@ -52,30 +52,6 @@ export const expansionFormulas: Topic = {
     videos: [],
     flashcards: [
       {
-        id: 'math-g3-ef-fc1',
-        front: 'x² + (a+b)x + ab', back: '公式1: (x+a)(x+b) = ?',
-        explanation: '「足して○、かけて△」',
-        difficulty: 'basic',
-      },
-      {
-        id: 'math-g3-ef-fc2',
-        front: 'a² + 2ab + b²', back: '公式2: (a+b)² = ?',
-        explanation: '真ん中は 2ab（2倍を忘れずに！）',
-        difficulty: 'basic',
-      },
-      {
-        id: 'math-g3-ef-fc3',
-        front: 'a² − 2ab + b²', back: '公式3: (a−b)² = ?',
-        explanation: '最後の b² はプラス！',
-        difficulty: 'basic',
-      },
-      {
-        id: 'math-g3-ef-fc4',
-        front: 'a² − b²', back: '公式4: (a+b)(a−b) = ?',
-        explanation: '真ん中の項が消える（和と差の積）',
-        difficulty: 'basic',
-      },
-      {
         id: 'math-g3-ef-fc5',
         front: 'x² + 8x + 15', back: '(x+3)(x+5) = ?',
         explanation: '足して 3+5=8、かけて 3×5=15',
@@ -160,12 +136,6 @@ export const expansionFormulas: Topic = {
         difficulty: 'standard',
       },
       {
-        id: 'math-g3-ef-fc19',
-        front: '(a+b)² は必ず a²+2ab+b²\n(a+b)(a−b) は a²−b²', back: '(a+b)² と (a+b)(a−b) の結果を混同しないコツは？',
-        explanation: '形を見て区別しよう',
-        difficulty: 'standard',
-      },
-      {
         id: 'math-g3-ef-fc20',
         front: 'x² + 2x + 1', back: '(x+1)² = ?',
         explanation: '(x+1)²: 2×x×1 = 2x',
@@ -175,12 +145,6 @@ export const expansionFormulas: Topic = {
         id: 'math-g3-ef-fc21',
         front: 'x² − 100', back: '(x+10)(x−10) = ?',
         explanation: '(x+10)(x−10) の和と差の積',
-        difficulty: 'standard',
-      },
-      {
-        id: 'math-g3-ef-fc22',
-        front: '公式1: (x+a)(x+b)\n公式2: (a+b)²\n公式3: (a−b)²\n公式4: (a+b)(a−b)', back: '展開の4つの公式の名前は？',
-        explanation: '4つの公式を覚えて使い分けよう',
         difficulty: 'standard',
       },
       {
@@ -208,21 +172,11 @@ export const expansionFormulas: Topic = {
         difficulty: 'advanced',
       },
       {
-        id: 'math-g3-ef-fc27',
-        front: '2乗の公式を使えばよい', back: '(x+a)(x+b) で a = b のときはどの公式？',
-        explanation: '同じ式どうしの場合 (x+a)(x+a) = (x+a)²',
-        difficulty: 'advanced',
-      },
-      {
         id: 'math-g3-ef-fc28',
         front: 'x² + 18x + 81', back: '(x+9)² = ?',
         explanation: '(x+9)²: 2×x×9 = 18x',
         difficulty: 'advanced',
       },
-      { id: 'math-g3-ef-fc29', front: '$x^2 + (a+b)x + ab$', back: '$(x+a)(x+b)$ を展開する公式は？', explanation: '$x$ の係数は $a+b$、定数項は $ab$。', difficulty: 'basic' },
-      { id: 'math-g3-ef-fc30', front: '$a^2 + 2ab + b^2$', back: '$(a+b)^2$ を展開する公式は？', explanation: '和の $2$ 乗。真ん中の項は $2ab$。', difficulty: 'basic' },
-      { id: 'math-g3-ef-fc31', front: '$a^2 - 2ab + b^2$', back: '$(a-b)^2$ を展開する公式は？', explanation: '差の $2$ 乗。最後の項は $+b^2$。', difficulty: 'basic' },
-      { id: 'math-g3-ef-fc32', front: '$a^2 - b^2$', back: '$(a+b)(a-b)$ を展開する公式は？', explanation: '和と差の積。', difficulty: 'basic' },
       { id: 'math-g3-ef-fc33', front: '$2ab$', back: '$(a+b)^2$ の展開で真ん中の項は？', explanation: '$a$ と $b$ の $2$ 倍の積。', difficulty: 'basic' },
       { id: 'math-g3-ef-fc34', front: '$+$（$(-b)^2 = b^2$）', back: '$(a-b)^2$ の展開で最後の項 $b^2$ の符号は？', explanation: '引く数を $2$ 乗するので正。', difficulty: 'basic' },
       { id: 'math-g3-ef-fc35', front: '$a + b$', back: '$(x+a)(x+b)$ の展開で $x$ の係数は？', explanation: '$a$ と $b$ を足す。', difficulty: 'basic' },

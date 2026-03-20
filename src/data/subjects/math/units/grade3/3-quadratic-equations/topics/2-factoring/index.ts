@@ -71,12 +71,6 @@ export const quadEqFactoring: Topic = {
         difficulty: 'basic',
       },
       {
-        id: 'math-g3-qef-fc3',
-        front: '共通因数 x でくくる → x(x−6)=0', back: 'x²−6x=0 の解き方のポイントは？',
-        explanation: 'x=0 も解になる！両辺を x で割ってはダメ',
-        difficulty: 'basic',
-      },
-      {
         id: 'math-g3-qef-fc5',
         front: 'x=1（重解）', back: 'x²−2x+1=0 の解は？',
         explanation: '(x−1)²=0 → 完全平方式',
@@ -182,11 +176,6 @@ export const quadEqFactoring: Topic = {
       {
         id: 'math-g3-qef-fc24',
         front: 'x=±7\n(x+7)(x−7)=0', back: 'x²−49=0 の解は？',
-        difficulty: 'advanced',
-      },
-      {
-        id: 'math-g3-qef-fc25',
-        front: 'まず右辺を0にする。因数分解はA×B=0のときだけ使える。', back: '因数分解で解くとき、最初に確認すべきことは？',
         difficulty: 'advanced',
       },
       {

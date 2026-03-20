@@ -55,12 +55,6 @@ export const literalCalc: Topic = {
     videos: [],
     flashcards: [
       {
-        id: 'math-g1-lit-calc-fc6',
-        front: '$a(b + c) = ab + ac$', back: '分配法則とは？',
-        explanation: 'かっこの外の数を、かっこの中の各項にかける法則。\n例: $3(2x - 5) = 6x - 15$',
-        difficulty: 'basic',
-      },
-      {
         id: 'math-g1-lit-calc-fc15',
         front: '係数は $1$', back: '$x$ の係数が書かれていないとき、\n係数はいくつ？',
         explanation: '$x = 1 \\cdot x$ だから。\n同様に $-x$ の係数は $-1$。',

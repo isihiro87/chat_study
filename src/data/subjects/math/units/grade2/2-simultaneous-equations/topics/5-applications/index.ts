@@ -70,18 +70,8 @@ export const simulEqApps: Topic = {
     videos: [],
     flashcards: [
       {
-        id: 'math-g2-app-fc1',
-        front: '何を $x$, $y$ にするか決めること', back: '連立方程式の文章題で最初にすることは？',
-        difficulty: 'basic',
-      },
-      {
         id: 'math-g2-app-fc2',
         front: '2 本（未知数が 2 つなので 2 つの式が必要）', back: '文章題を連立方程式で解くには、何本の式が必要？',
-        difficulty: 'basic',
-      },
-      {
-        id: 'math-g2-app-fc3',
-        front: '答えが問題の条件に合っているか確認する（検算）', back: '連立方程式を解いた後にすることは？',
         difficulty: 'basic',
       },
       {
@@ -132,11 +122,6 @@ export const simulEqApps: Topic = {
         difficulty: 'basic',
       },
       {
-        id: 'math-g2-app-fc13',
-        front: '両辺を 10 倍・100 倍して小数をなくす', back: '小数を含む方程式を整数にするには？',
-        difficulty: 'standard',
-      },
-      {
         id: 'math-g2-app-fc14',
         front: '足し算（$x + y = \\text{合計}$）の式になる', back: '文章題で「合計」という言葉が出たら、どんな式？',
         difficulty: 'standard',
@@ -146,32 +131,22 @@ export const simulEqApps: Topic = {
         front: '引き算（$x - y = \\text{差}$）の式になる', back: '文章題で「差」という言葉が出たら、どんな式？',
         difficulty: 'standard',
       },
-      { id: 'math-g2-app-fc16', front: '割引 $p$% → 定価の $(100-p)$% $= (1 - \\dfrac{p}{100})$ 倍', back: '割引きの計算式は？', difficulty: 'standard' },
-      { id: 'math-g2-app-fc17', front: '代金の合計と個数の合計で2式を立てるのが基本', back: '代金の文章題で2式を立てるコツは？', difficulty: 'standard' },
-      { id: 'math-g2-app-fc18', front: '未知数を明確に定義 → 2つの条件から式を立てる → 解く → 検算', back: '文章題の解法の流れは？', difficulty: 'standard' },
-      { id: 'math-g2-app-fc19', front: '十の位を $x$、一の位を $y$ として $10x + y$ で表す', back: '2けたの整数の文章題の立式法は？', difficulty: 'standard' },
-      { id: 'math-g2-app-fc20', front: '$A$ の $p$% 増 $= A \\times (1 + \\dfrac{p}{100})$', back: '増加率 $p$% の計算式は？', difficulty: 'standard' },
       { id: 'math-g2-app-fc21', front: '人数 × 単価 $=$ 金額。人数の合計と金額の合計で2式', back: '入場料の文章題のパターンは？', difficulty: 'standard' },
       { id: 'math-g2-app-fc23', front: '$x + y = $ 全体の量、$(条件式1)x + (条件式2)y = $ 結果の量', back: '典型的な連立方程式の文章題の2式のパターンは？', difficulty: 'advanced' },
-      { id: 'math-g2-app-fc24', front: '距離 $=$ 速さ $\\times$ 時間', back: '速さの問題で使う基本公式は？', difficulty: 'advanced' },
       { id: 'math-g2-app-fc25', front: '「合計」「差」「割合」「代金」のキーワードに注目する', back: '文章題で式を立てるとき、どんな言葉に注目する？', difficulty: 'advanced' },
       { id: 'math-g2-app-fc26', front: '単位をそろえてから式を立てる（分→時間、cm→m など）', back: '文章題で単位が異なるときは？', difficulty: 'advanced' },
       { id: 'math-g2-app-fc27', front: '$11(x + y)$', back: '2けたの数と入れかえた数の和は $11$ の倍数。この式は？', explanation: '$(10x + y) + (10y + x) = 11(x + y)$。', difficulty: 'advanced' },
       { id: 'math-g2-app-fc28', front: '求めた値が整数かつ正の数であること（個数や人数は自然数）', back: '文章題の答えに必要な条件は？', difficulty: 'advanced' },
-      { id: 'math-g2-app-fc29', front: '求めたい数量を $x$, $y$ とおく', back: '連立方程式の文章題で最初にすることは？', explanation: '何を $x$, $y$ にするか明記する。', difficulty: 'basic' },
       { id: 'math-g2-app-fc30', front: '$2$ つ。未知数が $2$ つなので $2$ つの等しい関係が必要', back: '文章題を連立方程式で解くには何個の等式が必要？', explanation: '合計の式と条件の式。', difficulty: 'basic' },
       { id: 'math-g2-app-fc31', front: '$x + y = 10$', back: '「合わせて $10$ 個」を式にすると？（$x$ 個と $y$ 個）', explanation: '合計の式。', difficulty: 'basic' },
       { id: 'math-g2-app-fc32', front: '$ax + by = 800$', back: '「合計金額が $800$ 円」を式にすると？（$a$ 円 $x$ 個、$b$ 円 $y$ 個）', explanation: '代金の式。', difficulty: 'basic' },
       { id: 'math-g2-app-fc33', front: '$A \\times \\dfrac{p}{100}$', back: '「$A$ の $p$ ％」を式で表すと？', explanation: '割合の式。', difficulty: 'basic' },
       { id: 'math-g2-app-fc34', front: '$1.05x$', back: '「$x$ 人の $5$%増」を式で表すと？', explanation: '$x \\times \\dfrac{105}{100}$。', difficulty: 'standard' },
       { id: 'math-g2-app-fc35', front: '$x + y = 12$', back: 'りんご $x$ 個とみかん $y$ 個を合わせて $12$ 個。式は？', explanation: '個数の合計。', difficulty: 'basic' },
-      { id: 'math-g2-app-fc36', front: '距離 $=$ 速さ $\\times$ 時間', back: '速さの問題で使う基本公式は？', explanation: '時間 $=$ 距離 $\\div$ 速さ。', difficulty: 'standard' },
       { id: 'math-g2-app-fc37', front: '単位をそろえてから式を立てる', back: '文章題で単位が異なるときは？', explanation: '分→時間、cm→m など。', difficulty: 'standard' },
-      { id: 'math-g2-app-fc38', front: '「合計」「差」「割合」「代金」のキーワードに注目', back: '文章題で式を立てるとき注目する言葉は？', explanation: '等しい関係を見つけるヒント。', difficulty: 'standard' },
       { id: 'math-g2-app-fc39', front: '$10x + y$', back: '十の位 $x$、一の位 $y$ の2桁の自然数を式で表すと？', explanation: '位取り記数法。', difficulty: 'standard' },
       { id: 'math-g2-app-fc40', front: '$10y + x$', back: '2桁の自然数 $10x + y$ の数字を入れかえた数は？', explanation: '十の位と一の位を交換。', difficulty: 'standard' },
       { id: 'math-g2-app-fc41', front: '$(10x + y) + (10y + x) = 11(x + y)$', back: '2桁の数と入れかえた数の和は $11$ の倍数。式は？', explanation: '$11$ でくくれる。', difficulty: 'advanced' },
-      { id: 'math-g2-app-fc42', front: '求めた値が問題の条件に合うか確認する（検算）', back: '文章題で解いた後に必ずすることは？', explanation: '個数なら自然数かどうかなど。', difficulty: 'standard' },
       { id: 'math-g2-app-fc43', front: '人数の合計と金額の合計で2式', back: '入場料の文章題のパターンは？', explanation: '人数 $\\times$ 単価 $=$ 金額。', difficulty: 'advanced' }
     ],
     quiz: {

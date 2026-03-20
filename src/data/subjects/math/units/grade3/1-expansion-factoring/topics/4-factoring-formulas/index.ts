@@ -66,18 +66,6 @@ export const factoringFormulas: Topic = {
     videos: [],
     flashcards: [
       {
-        id: 'math-g3-ff-fc1',
-        front: '(x+a)(x+b)', back: 'x²+(a+b)x+ab の因数分解公式は？',
-        explanation: 'かけて ab、足して a+b になる2つの数を探す',
-        difficulty: 'basic',
-      },
-      {
-        id: 'math-g3-ff-fc2',
-        front: 'かけて c（定数項）、足して b（xの係数）になる2つの数を探す方法', back: '「かけて○足して△」テクニックとは？',
-        explanation: 'x²+bx+c を因数分解するときに使う',
-        difficulty: 'basic',
-      },
-      {
         id: 'math-g3-ff-fc3',
         front: '2つとも＋（正の数）', back: '定数項が＋、xの係数が＋のとき\n2つの数の符号は？',
         explanation: '例: x²+7x+12 → 3と4（両方プラス）',
@@ -130,36 +118,6 @@ export const factoringFormulas: Topic = {
         front: '(a+6)²', back: 'a²+12a+36 を因数分解すると？',
         explanation: 'a²+2×6×a+6² → (a+b)² の公式',
         difficulty: 'basic',
-      },
-      {
-        id: 'math-g3-ff-fc12',
-        front: '(a+b)(a−b) 和と差の積', back: '因数分解の公式選択フロー\n（2項のとき）',
-        explanation: 'a²−b² の形か確認。例: x²−49 = (x+7)(x−7)',
-        difficulty: 'basic',
-      },
-      {
-        id: 'math-g3-ff-fc13',
-        front: '(a+b)² または (a−b)²', back: '因数分解の公式選択フロー\n（3項で完全平方のとき）',
-        explanation: '最初と最後が完全平方で、真ん中が 2ab なら当てはまる',
-        difficulty: 'standard',
-      },
-      {
-        id: 'math-g3-ff-fc14',
-        front: 'かけて c、足して b で (x+a)(x+b) を探す', back: '因数分解の公式選択フロー\n（3項でそれ以外のとき）',
-        explanation: 'x²+bx+c の形のときに使う',
-        difficulty: 'standard',
-      },
-      {
-        id: 'math-g3-ff-fc15',
-        front: '共通因数があるか確認！ あれば先にくくり出す', back: '因数分解で最初にやるべきことは？',
-        explanation: '例: 3x²+9x+6 → まず3でくくる',
-        difficulty: 'standard',
-      },
-      {
-        id: 'math-g3-ff-fc16',
-        front: '①共通因数をくくり出す\n②かっこの中を公式で因数分解', back: '2段階因数分解の手順は？',
-        explanation: '例: 3(x²+3x+2) → 3(x+1)(x+2)',
-        difficulty: 'standard',
       },
       {
         id: 'math-g3-ff-fc17',

@@ -55,12 +55,10 @@ export const funcGraphs: Topic = {
     videos: [],
     flashcards: [
       // --- basic (12枚) ---
-      { id: 'math-g1-graphs-fc1', front: 'グラフ上の点 $(x, y)$ を読み取り、$a = \\frac{y}{x}$ で求める', back: 'グラフから比例の式を求めるには？', explanation: '比例定数 $a$ が分かれば $y = ax$ が決まる', difficulty: 'basic' },
       { id: 'math-g1-graphs-fc2', front: '比例の関係（道のり $=$ 速さ $\\times$ 時間）', back: '速さ一定のとき、道のりと時間はどんな関係？', difficulty: 'basic' },
       { id: 'math-g1-graphs-fc3', front: '代金 $=$ 単価 $\\times$ 個数', back: '単価一定のとき、代金と個数はどんな関係？', explanation: '比例の関係', difficulty: 'basic' },
       { id: 'math-g1-graphs-fc4', front: '$y = 3x$', back: '比例のグラフが点 $(4, 12)$ を通るとき、式は？', explanation: '$a = \\frac{12}{4} = 3$', difficulty: 'basic' },
       { id: 'math-g1-graphs-fc5', front: '$y = 60x$', back: '時速 $60$ km で走る車の $x$ 時間後の道のり $y$ の式は？', explanation: '道のり $=$ 速さ $\\times$ 時間', difficulty: 'basic' },
-      { id: 'math-g1-graphs-fc6', front: 'グラフ上の点 $(x, y)$ を読み取り、$a = xy$ で比例定数を求める', back: 'グラフから反比例の式を求めるには？', difficulty: 'basic' },
       { id: 'math-g1-graphs-fc15', front: '$y = 1.5x$', back: 'くぎ $30$ 本の重さが $45$ g のとき、$x$ 本の重さ $y$ g の式は？', explanation: '$a = \\frac{45}{30} = 1.5$', difficulty: 'basic' },
       { id: 'math-g1-graphs-fc16', front: '$180$ 本', back: 'くぎ $1$ 本 $1.5$ g のとき、全体の重さが $270$ g ならくぎは何本？', explanation: '$270 \\div 1.5 = 180$', difficulty: 'basic' },
       { id: 'math-g1-graphs-fc17', front: '$y = 0.2x$', back: 'バネに $10$ g のおもりをつるすと $2$ cm のびる。$x$ g でののび $y$ cm の式は？', explanation: '$10$ g で $2$ cm のびるから $a = \\frac{2}{10}$', difficulty: 'basic' },
@@ -71,9 +69,7 @@ export const funcGraphs: Topic = {
       { id: 'math-g1-graphs-fc7', front: '反比例の関係', back: '面積一定の長方形で縦と横はどんな関係？', explanation: '縦 $\\times$ 横 $=$ 面積で積が一定', difficulty: 'standard' },
       { id: 'math-g1-graphs-fc8', front: '$\\frac{y}{x}$ が一定なら比例、$xy$ が一定なら反比例', back: '比例か反比例かの見分け方は？', difficulty: 'standard' },
       { id: 'math-g1-graphs-fc9', front: '反比例', back: '仕事量の問題で、人数と日数はどんな関係？', explanation: '仕事量一定のとき、人数 $\\times$ 日数 $=$ 一定', difficulty: 'standard' },
-      { id: 'math-g1-graphs-fc10', front: 'まず表を作って $x$ と $y$ の関係を整理し、$\\frac{y}{x}$ か $xy$ のどちらが一定か調べる', back: '問題が比例か反比例か判断する方法は？', difficulty: 'standard' },
       { id: 'math-g1-graphs-fc11', front: '$3$ 日', back: '$12$ 人で $5$ 日の仕事を $20$ 人ですると何日？', explanation: '$y = \\frac{60}{x}$（$xy = 60$ → 反比例）。$x = 20$ のとき $y = 3$', difficulty: 'standard' },
-      { id: 'math-g1-graphs-fc12', front: 'グラフを使って途中の値を読み取ったり、未知の値を予測できる', back: 'グラフを使う利点は？', difficulty: 'standard' },
       { id: 'math-g1-graphs-fc21', front: '$y = \\frac{300}{x}$', back: 'てんびんの左に $30$ g を支点から $10$ cm に置いた。右の $x$ cm に $y$ g を置く式は？', explanation: '$30 \\times 10 = 300$', difficulty: 'standard' },
       { id: 'math-g1-graphs-fc22', front: '$15$ 回転', back: '歯数 $36$ の歯車 A と歯数 $12$ の歯車 B がかみ合うとき、A が $5$ 回転すると B は？', explanation: '$36 \\times 5 \\div 12 = 15$', difficulty: 'standard' },
       { id: 'math-g1-graphs-fc23', front: '反比例', back: '時速 $x$ km で $y$ 時間走って $120$ km 進む。比例？反比例？', explanation: '$xy = 120$ で一定', difficulty: 'standard' },

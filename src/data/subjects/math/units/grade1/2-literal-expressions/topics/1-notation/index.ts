@@ -79,12 +79,6 @@ export const literalNotation: Topic = {
     videos: [],
     flashcards: [
       {
-        id: 'math-g1-lit-notation-fc5',
-        front: '$-x$', back: '$-1$ をかけるときの書き方は？',
-        explanation: '$(-1) \\times x$ → $-x$（$-1$ の「1」を省略し、マイナスの符号だけ書く）',
-        difficulty: 'basic',
-      },
-      {
         id: 'math-g1-lit-notation-fc12',
         front: '道のり $=$ 速さ $\\times$ 時間', back: '速さ・道のり・時間の関係を文字式で表すと？',
         explanation: '速さ $= \\dfrac{\\text{道のり}}{\\text{時間}}$、時間 $= \\dfrac{\\text{道のり}}{\\text{速さ}}$',
@@ -114,14 +108,7 @@ export const literalNotation: Topic = {
         explanation: '$-a^2 = -(a \\times a)$（$a^2$ にマイナス）、$(-a)^2 = (-a) \\times (-a)$（$-a$ を2乗）。\n$a = 3$ なら $-a^2 = -9$、$(-a)^2 = 9$ と結果が異なる。',
         difficulty: 'standard',
       },
-      {
-        id: 'math-g1-lit-notation-fc18',
-        front: 'おつり $=$ 出した金額 $-$ 代金', back: 'おつりを文字式で表す公式は？',
-        explanation: '例: 1000円出して1個 $a$ 円を $n$ 個買う → $1000 - an$ 円',
-        difficulty: 'standard',
-      },
       { id: 'math-g1-lit-notation-fc19', front: '$a^2b$', back: '$a \\times a \\times b$ を文字式で表すと？', explanation: '×を省略し、同じ文字は指数で表す。$a \\times a = a^2$ なので $a^2b$。', difficulty: 'standard' },
-      { id: 'math-g1-lit-notation-fc20', front: '代金 $=$ 単価 $\\times$ 個数', back: '代金とおつりの基本公式は？', explanation: 'おつり $=$ 支払い $-$ 代金。', difficulty: 'standard' },
       { id: 'math-g1-lit-notation-fc21', front: '$\\pi r^2$', back: '円の面積を文字式で表すと？', explanation: '$\\pi$ は円周率、$r$ は半径。', difficulty: 'standard' },
       { id: 'math-g1-lit-notation-fc23', front: '$1.08a$ 円', back: '「$a$ 円の品物に消費税 $8$%」を文字式で表すと？', explanation: '$a + 0.08a = 1.08a$', difficulty: 'advanced' },
       { id: 'math-g1-lit-notation-fc24', front: '体積 $= \\dfrac{1}{3} \\pi r^2 h$', back: '円すいの体積を文字式で表すと？', explanation: '底面の半径 $r$、高さ $h$。円柱の体積 $\\pi r^2 h$ の $\\dfrac{1}{3}$。', difficulty: 'advanced' },

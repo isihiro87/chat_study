@@ -165,12 +165,6 @@ export const substitution: Topic = {
         difficulty: 'standard',
       },
       {
-        id: 'math-g2-sub-fc17',
-        front: '求めた $x, y$ を元の2つの式の両方に代入して、等式が成り立つか確認する', back: '代入法で解いた後の検算方法は？',
-        hint: '2つとも成り立てばOK',
-        difficulty: 'standard',
-      },
-      {
         id: 'math-g2-sub-fc18',
         front: '$x = 6,\\ y = 2$', back: '$x = 3y$, $x + 2y = 10$ を代入法で解くと？',
         hint: '②の $x$ に $3y$ を代入',
@@ -181,11 +175,8 @@ export const substitution: Topic = {
       { id: 'math-g2-sub-fc20', front: '$x = 4, y = 1$', back: '$y = x - 3$, $x + 2y = 6$ を代入法で解くと？', difficulty: 'standard' },
       { id: 'math-g2-sub-fc21', front: '$x = 1, y = 4$', back: '$x = 5 - y$, $3x + y = 7$ を代入法で解くと？', difficulty: 'standard' },
       { id: 'math-g2-sub-fc22', front: '一方の式がすでに $x = $ or $y = $ の形 → 代入法が最適', back: '代入法を選ぶべきサインは？', difficulty: 'standard' },
-      { id: 'math-g2-sub-fc24', front: 'かっこの前に負の係数があるとき、展開で符号ミスが起きやすい', back: '代入法で特に注意すべき場面は？', difficulty: 'advanced' },
       { id: 'math-g2-sub-fc25', front: '$x = 2, y = 4$', back: '$y = 2x$, $3x + y = 10$ を代入法で解くと？', difficulty: 'advanced' },
       { id: 'math-g2-sub-fc26', front: '$x = 4, y = 2$', back: '$x = 2y$, $x + 3y = 10$ を代入法で解くと？', difficulty: 'advanced' },
-      { id: 'math-g2-sub-fc27', front: '係数が $1$（または $-1$）の文字を $y = $ や $x = $ の形にして代入する', back: 'どちらの式も $y = $ の形でないとき、代入法を使うには？', difficulty: 'advanced' },
-      { id: 'math-g2-sub-fc28', front: 'どちらも正しい', back: '加減法と代入法、どちらが正しい？', explanation: '両方の方法で同じ答えが出る。問題に合った方法を選ぼう。', difficulty: 'advanced' },
       { id: 'math-g2-sub-fc30', front: '右辺を、もう一方の式の同じ文字のところに入れかえる', back: '代入法で「代入する」とはどういう操作？', explanation: '式をまるごと入れる。', difficulty: 'basic' },
       { id: 'math-g2-sub-fc31', front: '$x = 3, y = 6$', back: '$\\begin{cases} y = 2x \\\\ x + y = 9 \\end{cases}$ を代入法で解くと？', explanation: '$x + 2x = 9$、$3x = 9$。', difficulty: 'basic' },
       { id: 'math-g2-sub-fc32', front: '$x = 2, y = 6$', back: '$\\begin{cases} y = 3x \\\\ 2x + y = 10 \\end{cases}$ を代入法で解くと？', explanation: '$2x + 3x = 10$、$5x = 10$。', difficulty: 'basic' },
@@ -196,8 +187,6 @@ export const substitution: Topic = {
       { id: 'math-g2-sub-fc37', front: '$x = 3, y = 3$', back: '$\\begin{cases} y = 2x - 3 \\\\ x + 2y = 9 \\end{cases}$ を代入法で解くと？', explanation: '$x + 2(2x-3) = 9$、$5x - 6 = 9$、$5x = 15$。', difficulty: 'standard' },
       { id: 'math-g2-sub-fc38', front: 'どちらも文字を $1$ つ消去して $1$ 変数の方程式にする方法', back: '加減法と代入法の共通点は？', explanation: '最終的に同じ答えになる。', difficulty: 'standard' },
       { id: 'math-g2-sub-fc39', front: '一方の式がすでに $y = $ の形のとき → 代入法', back: '代入法を選ぶべきサインは？', explanation: '変形の手間が省ける。', difficulty: 'standard' },
-      { id: 'math-g2-sub-fc40', front: 'かっこの展開で符号ミスが起きやすい', back: '代入法で特に注意すべき場面は？', explanation: '負の係数の前にかっこがあるとき要注意。', difficulty: 'advanced' },
-      { id: 'math-g2-sub-fc42', front: '係数が $1$ の文字を $y = $ や $x = $ の形にして代入する', back: 'どちらの式も $y = $ の形でないとき、代入法を使うには？', explanation: '変形してから代入。', difficulty: 'advanced' }
     ],
     quiz: {
       questions: [

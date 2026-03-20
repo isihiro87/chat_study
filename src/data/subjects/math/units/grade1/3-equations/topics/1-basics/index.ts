@@ -69,7 +69,6 @@ export const eqBasics: Topic = {
       { id: 'math-g1-eq-b-fc13', front: '$+$ の項を移項すると $-$ に、$-$ の項を移項すると $+$ になる', back: '移項するとき符号はどうなる？', difficulty: 'basic' },
 
       // === 基本手順（standard） ===
-      { id: 'math-g1-eq-b-fc17', front: '$x$ を代入して左辺と右辺が等しくなるか確認する', back: 'ある値が方程式の解であるかどうかを調べるには？', difficulty: 'basic' },
 
       // === 基本的な方程式の解（basic〜standard） ===
       { id: 'math-g1-eq-b-fc18', front: '$x = 5$', back: '$x + 9 = 14$ の解は？', explanation: '$+9$ を移項して $x = 14 - 9$', difficulty: 'basic' },
@@ -88,11 +87,6 @@ export const eqBasics: Topic = {
       { id: 'math-g1-eq-b-fc28', front: '$x = 5$', back: '$3(x + 2) = 21$ の解は？', explanation: '展開して $3x + 6 = 21$、$3x = 15$', difficulty: 'advanced' },
       { id: 'math-g1-eq-b-fc29', front: '$x = 7$', back: '$5(x - 1) = 3(x + 3)$ の解は？', explanation: '展開して $5x - 5 = 3x + 9$、$2x = 14$', difficulty: 'advanced' },
       { id: 'math-g1-eq-b-fc30', front: '$x = 2$', back: '$-3(x - 5) = 2(x + 1) + 3$ の解は？', explanation: '展開して $-3x + 15 = 2x + 5$、$-5x = -10$', difficulty: 'advanced' },
-      { id: 'math-g1-eq-b-fc31', front: '$x = 2$ を代入して等式が成り立つか確認する', back: '$x = 2$ が $x + 6 = 8$ の解であるか確かめるには？', explanation: '$2 + 6 = 8$。左辺 $=$ 右辺なので解である。', difficulty: 'basic' },
-      { id: 'math-g1-eq-b-fc32', front: '両辺から $4$ を引く → $x = 5$', back: '$x + 4 = 9$ を等式の性質を使って解くには？', explanation: '加えた数を引いて未知数を求める。', difficulty: 'basic' },
-      { id: 'math-g1-eq-b-fc33', front: '両辺に $3$ を加える → $x = 10$', back: '$x - 3 = 7$ を等式の性質を使って解くには？', explanation: '引いた数を加えて未知数を求める。', difficulty: 'basic' },
-      { id: 'math-g1-eq-b-fc34', front: '両辺を $5$ で割る → $x = 4$', back: '$5x = 20$ を等式の性質を使って解くには？', explanation: '係数で割って未知数を求める。', difficulty: 'basic' },
-      { id: 'math-g1-eq-b-fc35', front: '両辺に $4$ をかける → $x = 12$', back: '$\\dfrac{x}{4} = 3$ を等式の性質を使って解くには？', explanation: '分母の数をかけて未知数を求める。', difficulty: 'basic' },
       { id: 'math-g1-eq-b-fc36', front: '$x = 4$（移項して $x = 9 - 5$）', back: '$x + 5 = 9$ を移項を使って解くと？', explanation: '$+5$ を移項すると $-5$ になる。', difficulty: 'basic' },
       { id: 'math-g1-eq-b-fc37', front: '$x = 9$（移項して $x = 2 + 7$）', back: '$x - 7 = 2$ を移項を使って解くと？', explanation: '$-7$ を移項すると $+7$ になる。', difficulty: 'basic' },
       { id: 'math-g1-eq-b-fc38', front: '$x = -3$', back: '$7x = -21$ の解は？', explanation: '両辺を $7$ で割る。', difficulty: 'standard' },

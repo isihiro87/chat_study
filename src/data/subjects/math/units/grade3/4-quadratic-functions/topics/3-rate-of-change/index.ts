@@ -88,12 +88,6 @@ export const rateOfChange: Topic = {
         difficulty: 'basic',
       },
       {
-        id: 'math-g3-qf-rc-fc4',
-        front: 'a(p + q)', back: 'y = ax² で x が p から q に変化するときの変化の割合の公式',
-        explanation: 'aq² − ap² = a(q+p)(q−p) を (q−p) で割って導出する。',
-        difficulty: 'basic',
-      },
-      {
         id: 'math-g3-qf-rc-fc5',
         front: '1×(1 + 3) = 4', back: 'y = x² で x が 1→3 のとき変化の割合は？',
         explanation: 'y の増加量 8 ÷ x の増加量 2 = 4 でも同じ結果。',
@@ -115,12 +109,6 @@ export const rateOfChange: Topic = {
         id: 'math-g3-qf-rc-fc8',
         front: '区間によって変わる', back: 'y = ax² の変化の割合の特徴',
         explanation: 'グラフが曲線（放物線）だから、場所によって傾きが異なる。',
-        difficulty: 'basic',
-      },
-      {
-        id: 'math-g3-qf-rc-fc9',
-        front: '移動距離 ÷ かかった時間', back: '平均の速さの公式',
-        explanation: 'y = ax² のとき、平均の速さ = 変化の割合 = a(p + q)。',
         difficulty: 'basic',
       },
       {
@@ -160,12 +148,6 @@ export const rateOfChange: Topic = {
         difficulty: 'standard',
       },
       {
-        id: 'math-g3-qf-rc-fc16',
-        front: '変化の割合 = a(p+q) を a について解く', back: '変化の割合から a を逆算する方法',
-        explanation: '例: 変化の割合 12、p=1、q=3 なら a = 12÷4 = 3。',
-        difficulty: 'standard',
-      },
-      {
         id: 'math-g3-qf-rc-fc17',
         front: '直線', back: '一次関数のグラフの形',
         explanation: '変化の割合が一定だから傾きが変わらない。',
@@ -196,16 +178,6 @@ export const rateOfChange: Topic = {
         difficulty: 'standard',
       },
       {
-        id: 'math-g3-qf-rc-fc22',
-        front: '変化の割合 = a(p+q) を使って a = 変化の割合 ÷ (p+q)', back: '変化の割合と区間から a を求める方法は？',
-        difficulty: 'standard',
-      },
-      {
-        id: 'math-g3-qf-rc-fc23',
-        front: '底辺 = y 軸上の線分、高さ = 各点の |x| にする', back: '△OAB の面積を y切片で分割する方法は？',
-        difficulty: 'advanced',
-      },
-      {
         id: 'math-g3-qf-rc-fc24',
         front: 'x² = 4x → x(x−4) = 0 → (0,0) と (4,16)', back: 'y = x² と y = 4x の交点は？',
         difficulty: 'advanced',
@@ -225,13 +197,6 @@ export const rateOfChange: Topic = {
         front: '正しくない。y = ax² では区間によって変わる。', back: 'y = ax² の変化の割合は常に a に等しい？',
         difficulty: 'advanced',
       },
-      {
-        id: 'math-g3-qf-rc-fc28',
-        front: '2点の y 座標の差 ÷ x 座標の差で直接計算する方法もある', back: '変化の割合を公式なしで求める方法は？',
-        difficulty: 'advanced',
-      },
-      { id: 'math-g3-qf-rc-fc29', front: '$\\dfrac{y の増加量}{x の増加量}$', back: '変化の割合の公式は？', explanation: '$y = ax^2$ では区間によって変わる。', difficulty: 'basic' },
-      { id: 'math-g3-qf-rc-fc30', front: '$a(p + q)$', back: '$y = ax^2$ で $x$ が $p$ から $q$ まで変わるときの変化の割合は？', explanation: '二次関数の変化の割合の公式。', difficulty: 'basic' },
       { id: 'math-g3-qf-rc-fc31', front: '一定ではない（区間によって変わる）', back: '$y = ax^2$ の変化の割合は一定？', explanation: '一次関数では一定。', difficulty: 'basic' },
       { id: 'math-g3-qf-rc-fc32', front: '$3$', back: '$y = x^2$ で $x$ が $1$ から $2$ のときの変化の割合は？', explanation: '$1 \\times (1+2) = 3$。', difficulty: 'basic' },
       { id: 'math-g3-qf-rc-fc33', front: '$5$', back: '$y = x^2$ で $x$ が $2$ から $3$ のときの変化の割合は？', explanation: '$1 \\times (2+3) = 5$。', difficulty: 'basic' },

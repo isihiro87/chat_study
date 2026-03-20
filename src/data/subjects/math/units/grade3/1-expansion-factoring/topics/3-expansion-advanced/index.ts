@@ -56,12 +56,6 @@ export const expansionAdvanced: Topic = {
     videos: [],
     flashcards: [
       {
-        id: 'math-g3-ea-fc1',
-        front: '9x² + 6x + 1', back: '(3x+1)² の展開のコツは？',
-        explanation: 'a=3x, b=1 とおいて公式2を使う。(3x)² + 2×3x×1 + 1² = 9x² + 6x + 1',
-        difficulty: 'basic',
-      },
-      {
         id: 'math-g3-ea-fc2',
         front: '16x² − 8x + 1', back: '(4x−1)² = ?',
         explanation: '(4x)²=16x², 2×4x×1=8x, 1²=1',
@@ -92,21 +86,6 @@ export const expansionAdvanced: Topic = {
         difficulty: 'basic',
       },
       {
-        id: 'math-g3-ea-fc7',
-        front: '公式4（和と差の積）を使う\n→ □² − △²', back: '公式の見分け方:\n(□+△)(□−△) の形は？',
-        difficulty: 'basic',
-      },
-      {
-        id: 'math-g3-ea-fc8',
-        front: '公式2を使う\n→ □² + 2×□×△ + △²', back: '公式の見分け方:\n(□+△)² の形は？',
-        difficulty: 'basic',
-      },
-      {
-        id: 'math-g3-ea-fc9',
-        front: '①公式で展開\n②カッコを外す（符号注意）\n③同類項をまとめる', back: '式を簡単にする手順は？',
-        difficulty: 'basic',
-      },
-      {
         id: 'math-g3-ea-fc10',
         front: '−x² + 10x − 25', back: '−(x²−10x+25) のカッコを外すと？',
         explanation: 'マイナスのカッコを外すと全項の符号が変わる',
@@ -123,18 +102,6 @@ export const expansionAdvanced: Topic = {
         front: '4ab', back: '(a+b)² − (a−b)² = ?',
         explanation: '便利な公式として覚えておこう！',
         difficulty: 'basic',
-      },
-      {
-        id: 'math-g3-ea-fc13',
-        front: 'M = x+y とおく', back: '式のおきかえ:\n(x+y+4)(x+y+3) のやり方は？',
-        explanation: '(M+4)(M+3) = M²+7M+12 → x²+2xy+y²+7x+7y+12',
-        difficulty: 'standard',
-      },
-      {
-        id: 'math-g3-ea-fc14',
-        front: 'M = a+b とおく', back: '式のおきかえ:\n(a+b−1)² のやり方は？',
-        explanation: '(M−1)² = M²−2M+1 → a²+2ab+b²−2a−2b+1',
-        difficulty: 'standard',
       },
       {
         id: 'math-g3-ea-fc15',
@@ -164,11 +131,6 @@ export const expansionAdvanced: Topic = {
         id: 'math-g3-ea-fc19',
         front: '2(a²+b²)', back: '(a+b)² + (a−b)² = ?',
         explanation: '(a²+2ab+b²)+(a²−2ab+b²) = 2a²+2b²',
-        difficulty: 'standard',
-      },
-      {
-        id: 'math-g3-ea-fc20',
-        front: '公式3を使う\n→ □² − 2×□×△ + △²', back: '公式の見分け方:\n(□−△)² の形は？',
         difficulty: 'standard',
       },
       {

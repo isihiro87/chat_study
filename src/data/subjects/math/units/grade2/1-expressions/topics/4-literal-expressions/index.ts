@@ -113,11 +113,6 @@ export const literalExpressions: Topic = {
         difficulty: 'basic',
       },
       {
-        id: 'math-g2-le-fc7',
-        front: '① 文字で表す → ② 式を計算する → ③ 結論を書く', back: '証明の3ステップは？',
-        difficulty: 'basic',
-      },
-      {
         id: 'math-g2-le-fc8',
         front: '3の倍数', back: '連続する3整数の和は何の倍数？',
         explanation: '$n + (n+1) + (n+2) = 3(n+1)$',
@@ -188,7 +183,6 @@ export const literalExpressions: Topic = {
       { id: 'math-g2-le-fc33', front: '$3n$', back: '$3$ の倍数を整数 $n$ で表すと？', explanation: '$3$ に整数をかけた数。', difficulty: 'basic' },
       { id: 'math-g2-le-fc34', front: '偶数（$2m + 2n = 2(m + n)$）', back: '偶数と偶数の和はどんな数？', explanation: '$2 \\times$ 整数の形。', difficulty: 'basic' },
       { id: 'math-g2-le-fc35', front: '偶数（$(2m+1) + (2n+1) = 2(m+n+1)$）', back: '奇数と奇数の和はどんな数？', explanation: '$2 \\times$ 整数の形になる。', difficulty: 'standard' },
-      { id: 'math-g2-le-fc37', front: '$3 \\times$（整数）の形にする', back: '「$3$ の倍数である」ことを式で示すには？', explanation: '因数に $3$ を含むことを示す。', difficulty: 'standard' },
       { id: 'math-g2-le-fc38', front: '$3(n + 1)$', back: '連続する3つの整数の和 $n + (n+1) + (n+2)$ を整理すると？', explanation: '$3n + 3 = 3(n+1)$ で $3$ の倍数。', difficulty: 'standard' },
       { id: 'math-g2-le-fc39', front: '真ん中の数の $3$ 倍', back: '連続する3つの整数の和は真ん中の数の何倍？', explanation: '和 $= 3(n+1)$ で $n+1$ は真ん中。', difficulty: 'standard' },
       { id: 'math-g2-le-fc40', front: '$2n, 2n + 2, 2n + 4$', back: '連続する3つの偶数を $n$ で表すと？', explanation: '$2$ ずつ増える。', difficulty: 'standard' },

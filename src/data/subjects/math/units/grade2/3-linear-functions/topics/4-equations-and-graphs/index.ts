@@ -73,11 +73,6 @@ export const equationsAndGraphs: Topic = {
         difficulty: 'basic',
       },
       {
-        id: 'math-g2-eq-and-graphs-fc3',
-        front: '$x = 0$ と $y = 0$ を代入して2点の座標を求め、その2点を直線で結ぶ。', back: '方程式のグラフを2点を使ってかく方法は？',
-        difficulty: 'basic',
-      },
-      {
         id: 'math-g2-eq-and-graphs-fc4',
         front: '$x$ 軸に平行な横の直線', explanation: 'すべての点の $y$ 座標が $k$', back: '$y = k$（$k$ は定数）のグラフはどんな直線？',
         difficulty: 'basic',
@@ -103,11 +98,6 @@ export const equationsAndGraphs: Topic = {
         difficulty: 'basic',
       },
       {
-        id: 'math-g2-eq-and-graphs-fc9',
-        front: '2つの方程式のグラフをかき、交点の座標を読み取る。', back: '連立方程式の解をグラフで求めるには？',
-        difficulty: 'basic',
-      },
-      {
         id: 'math-g2-eq-and-graphs-fc10',
         front: '解なし', explanation: '交点がないので解が存在しない', back: '2直線が平行なとき、連立方程式の解は？',
         difficulty: 'basic',
@@ -121,11 +111,6 @@ export const equationsAndGraphs: Topic = {
         id: 'math-g2-eq-and-graphs-fc12',
         front: '1つの頂点と対辺の中点を通る直線', explanation: 'この直線で面積が2等分される', back: '三角形の面積を2等分する直線の引き方は？',
         difficulty: 'basic',
-      },
-      {
-        id: 'math-g2-eq-and-graphs-fc13',
-        front: '$\\left(\\frac{x_1 + x_2}{2}, \\frac{y_1 + y_2}{2}\\right)$', back: '2点 $(x_1, y_1)$, $(x_2, y_2)$ の中点の公式は？',
-        difficulty: 'standard',
       },
       {
         id: 'math-g2-eq-and-graphs-fc14',
@@ -146,18 +131,13 @@ export const equationsAndGraphs: Topic = {
       { id: 'math-g2-eq-and-graphs-fc19', front: '2直線が平行のとき', explanation: '傾きが同じで切片が異なる場合', back: '連立方程式に解がないのはどんなとき？', difficulty: 'standard' },
       { id: 'math-g2-eq-and-graphs-fc20', front: '2直線が一致するとき', explanation: '傾きも切片も同じ場合', back: '連立方程式の解が無限にあるのはどんなとき？', difficulty: 'standard' },
       { id: 'math-g2-eq-and-graphs-fc21', front: '底辺 $\\times$ 高さ $\\div 2$', explanation: '底辺は $x$ 軸上の2点間距離、高さは交点の $y$ 座標', back: '2直線と $x$ 軸で作る三角形の面積の求め方は？', difficulty: 'standard' },
-      { id: 'math-g2-eq-and-graphs-fc22', front: '$y =$ の形に変形する', explanation: '$ax + by = c$ → $y = -\\dfrac{a}{b}x + \\dfrac{c}{b}$', back: '二元一次方程式のグラフを描く手順は？', difficulty: 'standard' },
       { id: 'math-g2-eq-and-graphs-fc23', front: '$x$ 軸に平行な横線', explanation: 'すべての点の $y$ 座標が $k$（定数）', back: '$y = 3$ のグラフの特徴は？', difficulty: 'advanced' },
       { id: 'math-g2-eq-and-graphs-fc24', front: '$y$ 軸に平行な縦線', explanation: '一次関数ではないがグラフはかける', back: '$x = 2$ のグラフの特徴は？', difficulty: 'advanced' },
-      { id: 'math-g2-eq-and-graphs-fc26', front: '$\\left(\\dfrac{x_1+x_2}{2}, \\dfrac{y_1+y_2}{2}\\right)$', explanation: '各座標の平均をとる', back: '2点の中点の公式は？', difficulty: 'advanced' },
-      { id: 'math-g2-eq-and-graphs-fc30', front: '$2$ つの式を連立方程式として解く', back: '$2$ 直線の交点を求める方法は？', explanation: '加減法や代入法で解く。', difficulty: 'basic' },
-      { id: 'math-g2-eq-and-graphs-fc31', front: '$y =$ の形に変形する', back: '二元一次方程式 $ax + by = c$ のグラフを描く手順は？', explanation: '$y = -\\dfrac{a}{b}x + \\dfrac{c}{b}$。', difficulty: 'basic' },
       { id: 'math-g2-eq-and-graphs-fc32', front: '$x$ 軸に平行な横線', back: '$y = 3$ のグラフの特徴は？', explanation: 'すべての点の $y$ 座標が $3$。', difficulty: 'standard' },
       { id: 'math-g2-eq-and-graphs-fc33', front: '$y$ 軸に平行な縦線', back: '$x = 2$ のグラフの特徴は？', explanation: '一次関数ではないがグラフは描ける。', difficulty: 'standard' },
       { id: 'math-g2-eq-and-graphs-fc34', front: '$y = 0$ を代入して $x$ を求める', back: '直線の $x$ 切片の求め方は？', explanation: '$x$ 軸との交点。', difficulty: 'standard' },
       { id: 'math-g2-eq-and-graphs-fc35', front: '$x = 0$ を代入して $y$ を求める', back: '直線の $y$ 切片の求め方は？', explanation: '$y$ 軸との交点。', difficulty: 'basic' },
       { id: 'math-g2-eq-and-graphs-fc36', front: '底辺 $\\times$ 高さ $\\div 2$', back: '$2$ 直線と $x$ 軸で作る三角形の面積の求め方は？', explanation: '底辺は $x$ 軸上の $2$ 点間距離。', difficulty: 'standard' },
-      { id: 'math-g2-eq-and-graphs-fc38', front: '$\\left(\\dfrac{x_1+x_2}{2}, \\dfrac{y_1+y_2}{2}\\right)$', back: '$2$ 点の中点の公式は？', explanation: '各座標の平均。', difficulty: 'advanced' }
     ],
     quiz: {
       questions: [

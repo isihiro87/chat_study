@@ -75,11 +75,6 @@ export const factoringBasics: Topic = {
         difficulty: 'basic',
       },
       {
-        id: 'math-g3-fb-fc05',
-        front: '展開して元の式に戻るか確認する', back: '因数分解の結果を確かめるには？',
-        difficulty: 'basic',
-      },
-      {
         id: 'math-g3-fb-fc06',
         front: '(a+b)(a−b)', back: 'a²−b² の因数分解は？',
         explanation: 'a²−b² = (a+b)(a−b) 和と差の積の公式',
@@ -140,16 +135,6 @@ export const factoringBasics: Topic = {
         difficulty: 'standard',
       },
       {
-        id: 'math-g3-fb-fc16',
-        front: '①両端を○²の形に書く ②真ん中が2×○×△か確認 ③(○±△)²と書く', back: '係数付き完全平方式の見分け手順は？',
-        difficulty: 'standard',
-      },
-      {
-        id: 'math-g3-fb-fc17',
-        front: '共通因数があるかチェック！ あればまずくくり出す。', back: '因数分解で最初にやることは？',
-        difficulty: 'standard',
-      },
-      {
         id: 'math-g3-fb-fc18',
         front: '(2+y)(2−y)', back: '4−y² を因数分解すると？',
         explanation: '2²−y² の形なので和と差の積',
@@ -195,11 +180,6 @@ export const factoringBasics: Topic = {
         id: 'math-g3-fb-fc25',
         front: '(6x+1)²', back: '36x²+12x+1 を因数分解すると？',
         explanation: '(6x)²+2·6x·1+1² の形',
-        difficulty: 'advanced',
-      },
-      {
-        id: 'math-g3-fb-fc26',
-        front: '展開してもとの式に戻るか、くくり出し忘れがないか確認する', back: '因数分解の結果を確かめる2つの方法は？',
         difficulty: 'advanced',
       },
       {

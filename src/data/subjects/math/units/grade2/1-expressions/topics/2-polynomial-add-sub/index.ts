@@ -75,12 +75,6 @@ export const polynomialAddSub: Topic = {
     videos: [],
     flashcards: [
       {
-        id: 'math-g2-pas-fc5',
-        front: '$m(a + b) = ma + mb$', back: '分配法則 $m(a + b)$ は？',
-        explanation: 'かっこの中の全部の項に $m$ をかける',
-        difficulty: 'basic',
-      },
-      {
         id: 'math-g2-pas-fc14',
         front: '$\\bigcirc$ $-3x + 2$（正解）', back: 'よくある間違い: $-(3x - 2)$',
         explanation: '$\\times$ $-3x - 2$（間違い）。$-2$ も $+2$ に変わる！',

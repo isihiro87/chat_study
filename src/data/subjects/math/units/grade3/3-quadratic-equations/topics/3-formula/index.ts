@@ -67,12 +67,6 @@ export const quadFormula: Topic = {
     videos: [],
     flashcards: [
       {
-        id: 'math-g3-qf-fc1',
-        front: 'x² + bx = (x + b/2)² − (b/2)²', back: '平方完成の公式',
-        explanation: 'b の半分を2乗して足して引く',
-        difficulty: 'basic',
-      },
-      {
         id: 'math-g3-qf-fc2',
         front: '(x+3)² − 9', back: 'x² + 6x を平方完成',
         explanation: '6の半分=3、3²=9 を引く',
@@ -82,18 +76,6 @@ export const quadFormula: Topic = {
         id: 'math-g3-qf-fc3',
         front: '(x−4)² − 16', back: 'x² − 8x を平方完成',
         explanation: '−8の半分=−4、(−4)²=16 を引く',
-        difficulty: 'basic',
-      },
-      {
-        id: 'math-g3-qf-fc4',
-        front: 'x = (−b ± √(b²−4ac)) / 2a', back: '解の公式',
-        explanation: 'ax²+bx+c=0 の万能解法',
-        difficulty: 'basic',
-      },
-      {
-        id: 'math-g3-qf-fc5',
-        front: 'b² − 4ac', back: '判別式とは？',
-        explanation: '解の公式のルートの中身',
         difficulty: 'basic',
       },
       {
@@ -111,17 +93,6 @@ export const quadFormula: Topic = {
         id: 'math-g3-qf-fc8',
         front: '実数解なし', back: '判別式 < 0 のとき',
         explanation: 'ルートの中が負になるため',
-        difficulty: 'basic',
-      },
-      {
-        id: 'math-g3-qf-fc10',
-        front: '2a\n（a は x² の係数）', back: '解の公式の分母',
-        difficulty: 'basic',
-      },
-      {
-        id: 'math-g3-qf-fc11',
-        front: '−b は正になる（−(−5) = 5）', back: '解の公式で b が負のとき\n（例: x²−5x+3=0）',
-        explanation: '符号ミスに注意！',
         difficulty: 'basic',
       },
       {
@@ -196,14 +167,10 @@ export const quadFormula: Topic = {
         explanation: '√20 = √(4×5) = 2√5、√8 = √(4×2) = 2√2',
         difficulty: 'advanced',
       },
-      { id: 'math-g3-qf-fc29', front: '$x = \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$', back: '二次方程式の解の公式は？', explanation: '$ax^2 + bx + c = 0$ の解。', difficulty: 'basic' },
-      { id: 'math-g3-qf-fc30', front: '$b^2 - 4ac$', back: '解の公式のルートの中身を何という？', explanation: '判別式。正なら $2$ 解、$0$ なら重解、負なら実数解なし。', difficulty: 'basic' },
-      { id: 'math-g3-qf-fc31', front: '$a, b, c$ を解の公式に代入する', back: '解の公式で解くときの手順は？', explanation: '①$a, b, c$ を特定 → ②代入 → ③計算 → ④約分。', difficulty: 'basic' },
       { id: 'math-g3-qf-fc32', front: '$x = \\dfrac{3 \\pm \\sqrt{5}}{2}$', back: '$x^2 - 3x + 1 = 0$ を解の公式で解くと？', explanation: '$a=1, b=-3, c=1$。$\\sqrt{9-4} = \\sqrt{5}$。', difficulty: 'standard' },
       { id: 'math-g3-qf-fc33', front: '$x = \\dfrac{-5 \\pm \\sqrt{13}}{6}$', back: '$3x^2 + 5x + 1 = 0$ を解の公式で解くと？', explanation: '$b^2 - 4ac = 25 - 12 = 13$。', difficulty: 'standard' },
       { id: 'math-g3-qf-fc34', front: '$x = 2 \\pm \\sqrt{3}$', back: '$x^2 - 4x + 1 = 0$ を解の公式で解くと？', explanation: '$\\dfrac{4 \\pm \\sqrt{12}}{2} = \\dfrac{4 \\pm 2\\sqrt{3}}{2}$。', difficulty: 'standard' },
       { id: 'math-g3-qf-fc36', front: '正→異なる $2$ つの実数解、$0$→重解、負→実数解なし', back: '判別式 $b^2 - 4ac$ の値と解の関係は？', explanation: '解の個数を判定できる。', difficulty: 'standard' },
-      { id: 'math-g3-qf-fc38', front: '$\\sqrt{}$ の中身を簡単にする', back: '解の公式で $\\sqrt{20}$ が出たら？', explanation: '$\\sqrt{20} = 2\\sqrt{5}$。', difficulty: 'standard' },
       { id: 'math-g3-qf-fc39', front: '$x = \\dfrac{1 \\pm \\sqrt{7}}{2}$', back: '$2x^2 - 2x - 3 = 0$ を解の公式で解くと？', explanation: '$b^2 - 4ac = 4 + 24 = 28$、$\\sqrt{28} = 2\\sqrt{7}$。', difficulty: 'advanced' }
     ],
     quiz: {

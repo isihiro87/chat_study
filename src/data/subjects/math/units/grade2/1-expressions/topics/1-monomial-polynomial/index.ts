@@ -80,12 +80,6 @@ export const monomialPolynomial: Topic = {
         difficulty: 'basic',
       },
       {
-        id: 'math-g2-mp-fc10',
-        front: '$ma + na = (m+n)a$', back: '同類項のまとめ方の公式は？',
-        explanation: '係数どうしを足し引きして、文字はそのまま',
-        difficulty: 'basic',
-      },
-      {
         id: 'math-g2-mp-fc11',
         front: '$8x$', back: '$5x + 3x$ の答えは？',
         explanation: '係数 $5 + 3 = 8$ をかけて $8x$',

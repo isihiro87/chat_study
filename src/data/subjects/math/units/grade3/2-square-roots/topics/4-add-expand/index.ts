@@ -72,13 +72,6 @@ export const sqrtAddExpand: Topic = {
         difficulty: 'basic',
       },
       {
-        id: 'math-g3-sqrt-add-expand-fc3',
-        front: '$3\\sqrt{2}$',
-        back: '$\\sqrt{8} + \\sqrt{2}$ を計算する手順は？',
-        explanation: '先に $\\sqrt{8} = 2\\sqrt{2}$ と簡単にしてから、$2\\sqrt{2} + \\sqrt{2} = 3\\sqrt{2}$',
-        difficulty: 'basic',
-      },
-      {
         id: 'math-g3-sqrt-add-expand-fc4',
         front: '$\\sqrt{ab} + \\sqrt{ac}$',
         back: '$\\sqrt{a}(\\sqrt{b} + \\sqrt{c})$ を展開すると？',
@@ -133,13 +126,6 @@ export const sqrtAddExpand: Topic = {
         back: '$(\\sqrt{a})^2$ はいくつ？',
         explanation: '2乗とルートは打ち消し合う。例: $(\\sqrt{7})^2 = 7$',
         difficulty: 'basic',
-      },
-      {
-        id: 'math-g3-sqrt-add-expand-fc12',
-        front: '$0$',
-        back: '$\\sqrt{12} - \\frac{6}{\\sqrt{3}}$ を計算するには？',
-        explanation: '有理化: $\\frac{6}{\\sqrt{3}} = \\frac{6\\sqrt{3}}{3} = 2\\sqrt{3}$。次に $2\\sqrt{3} - 2\\sqrt{3} = 0$',
-        difficulty: 'standard',
       },
       {
         id: 'math-g3-sqrt-add-expand-fc13',

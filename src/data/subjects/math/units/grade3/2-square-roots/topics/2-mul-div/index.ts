@@ -55,20 +55,6 @@ export const sqrtMulDiv: Topic = {
     videos: [],
     flashcards: [
       {
-        id: 'math-g3-sqrt-mul-div-fc1',
-        front: '$\\sqrt{a} \\times \\sqrt{b} = \\sqrt{ab}$',
-        back: '$\\sqrt{a} \\times \\sqrt{b}$ の計算方法は？',
-        explanation: 'ルートの中身どうしをかけるだけ！\n例: $\\sqrt{2} \\times \\sqrt{3} = \\sqrt{6}$',
-        difficulty: 'basic',
-      },
-      {
-        id: 'math-g3-sqrt-mul-div-fc2',
-        front: '$\\sqrt{a} \\div \\sqrt{b} = \\sqrt{\\dfrac{a}{b}}$',
-        back: '$\\sqrt{a} \\div \\sqrt{b}$ の計算方法は？',
-        explanation: 'ルートの中身どうしをわるだけ！\n例: $\\sqrt{10} \\div \\sqrt{2} = \\sqrt{5}$',
-        difficulty: 'basic',
-      },
-      {
         id: 'math-g3-sqrt-mul-div-fc4',
         front: '$4, 9, 16, 25, 36, 49, 64, 81, 100$',
         back: '整数の2乗の数（ルートの外に出せる数）を小さい順に10個答えよ。',
@@ -118,13 +104,6 @@ export const sqrtMulDiv: Topic = {
         difficulty: 'standard',
       },
       {
-        id: 'math-g3-sqrt-mul-div-fc12',
-        front: '$a\\sqrt{b} = \\sqrt{a^2 \\times b}$',
-        back: '$a\\sqrt{b}$ を $\\sqrt{c}$ の形にするには？',
-        explanation: '外の $a$ を2乗してルートの中に入れる！\n例: $3\\sqrt{2} = \\sqrt{9 \\times 2} = \\sqrt{18}$',
-        difficulty: 'basic',
-      },
-      {
         id: 'math-g3-sqrt-mul-div-fc13',
         front: '$\\sqrt{27}$',
         back: '$3\\sqrt{3}$ を $\\sqrt{c}$ の形にすると？',
@@ -150,13 +129,6 @@ export const sqrtMulDiv: Topic = {
         front: '$8.660$',
         back: '$\\sqrt{3} = 1.732$ のとき $\\sqrt{75}$ の値は？',
         explanation: '$\\sqrt{75} = \\sqrt{25 \\times 3} = 5\\sqrt{3} = 5 \\times 1.732 = 8.660$\n$\\sqrt{3}$ の形に変形してから代入！',
-        difficulty: 'standard',
-      },
-      {
-        id: 'math-g3-sqrt-mul-div-fc17',
-        front: '$a\\sqrt{b} \\times c\\sqrt{d} = ac\\sqrt{bd}$',
-        back: '係数付きのかけ算 $a\\sqrt{b} \\times c\\sqrt{d}$ の方法は？',
-        explanation: '係数どうし・ルートどうしを別々にかける！\n例: $2\\sqrt{3} \\times 3\\sqrt{5} = 6\\sqrt{15}$',
         difficulty: 'standard',
       },
       {

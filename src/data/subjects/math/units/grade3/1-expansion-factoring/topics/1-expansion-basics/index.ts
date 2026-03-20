@@ -65,13 +65,6 @@ export const expansionBasics: Topic = {
     videos: [],
     flashcards: [
       {
-        id: 'math-g3-eb-fc2',
-        front: '$a(b+c) = ab + ac$', back: '分配法則の公式は？',
-        hint: '外の項を中の各項にかける',
-        explanation: '逆向き ab+ac = a(b+c) は「共通因数でくくる」と言うよ',
-        difficulty: 'basic',
-      },
-      {
         id: 'math-g3-eb-fc4',
         front: '$ac + ad + bc + bd$', back: '$(a+b)(c+d)$ を展開すると？',
         hint: '前のかっこの各項を後ろ全体にかける',
@@ -217,8 +210,6 @@ export const expansionBasics: Topic = {
         hint: '各項を $-3ab$ で割る。符号注意',
         difficulty: 'advanced',
       },
-      { id: 'math-g3-eb-fc29', front: 'かっこを外して積の形の式を多項式に変形すること', back: '「展開」とは何？', explanation: '分配法則を使ってかっこを外す。', difficulty: 'basic' },
-      { id: 'math-g3-eb-fc30', front: '$a(b+c) = ab + ac$', back: '分配法則の公式は？', explanation: 'かっこの外の項を中の各項にかける。', difficulty: 'basic' },
       { id: 'math-g3-eb-fc31', front: '$4$ 個（$ac, ad, bc, bd$）', back: '$(a+b)(c+d)$ を展開すると何個の項の積ができる？', explanation: '各項どうしをすべてかける。', difficulty: 'basic' },
       { id: 'math-g3-eb-fc32', front: '$3x + 12$', back: '$3(x + 4)$ を展開すると？', explanation: '$3 \\times x + 3 \\times 4$。', difficulty: 'basic' },
       { id: 'math-g3-eb-fc33', front: '$10x + 15$', back: '$5(2x + 3)$ を展開すると？', explanation: '$5 \\times 2x + 5 \\times 3$。', difficulty: 'basic' },

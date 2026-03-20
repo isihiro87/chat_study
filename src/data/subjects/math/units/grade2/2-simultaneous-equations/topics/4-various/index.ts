@@ -82,42 +82,15 @@ export const variousSimulEq: Topic = {
     videos: [],
     flashcards: [
       {
-        id: 'math-g2-var-fc1',
-        front: '分配法則でかっこを展開し、$ax + by = c$ の形に整理する', back: 'かっこがある式の処理法は？',
-        difficulty: 'basic',
-      },
-      {
         id: 'math-g2-var-fc2',
         front: '$2x + y = 5$', back: '$2(x + 3) + y = 11$ を整理すると？',
         explanation: '展開して $2x + 6 + y = 11$、移項して整理。',
         difficulty: 'basic',
       },
       {
-        id: 'math-g2-var-fc4',
-        front: '両辺に $6$（2と3のLCM）をかける', back: '$\\frac{x}{2} + \\frac{y}{3} = 5$ の分数をはらうには？',
-        explanation: '$3x + 2y = 30$ になる。',
-        difficulty: 'basic',
-      },
-      {
-        id: 'math-g2-var-fc5',
-        front: '両辺に $12$（3と4のLCM）をかける', back: '$\\frac{x}{3} + \\frac{y}{4} = 2$ の分数をはらうには？',
-        explanation: '$4x + 3y = 24$ になる。',
-        difficulty: 'basic',
-      },
-      {
-        id: 'math-g2-var-fc6',
-        front: '両辺を $10$ 倍して整数にする', back: '小数第1位を含む式の処理法は？',
-        difficulty: 'basic',
-      },
-      {
         id: 'math-g2-var-fc7',
         front: '$2x + 5y = 19$', back: '$0.2x + 0.5y = 1.9$ を整数にすると？',
         explanation: '$10$ 倍する。',
-        difficulty: 'basic',
-      },
-      {
-        id: 'math-g2-var-fc8',
-        front: '両辺を $100$ 倍して整数にする', back: '小数第2位を含む式の処理法は？',
         difficulty: 'basic',
       },
       {
@@ -149,11 +122,6 @@ export const variousSimulEq: Topic = {
         difficulty: 'standard',
       },
       {
-        id: 'math-g2-var-fc14',
-        front: '解を式に代入して、係数についての方程式（連立方程式）を解く', back: '解が分かっているとき、未知の係数を求めるには？',
-        difficulty: 'standard',
-      },
-      {
         id: 'math-g2-var-fc15',
         front: '$a = 3$', back: '$ax + 2y = 7$ の解が $x=1, y=2$ のとき $a$ は？',
         explanation: '$a \\cdot 1 + 2 \\cdot 2 = 7$ → $a + 4 = 7$ → $a = 3$。',
@@ -172,19 +140,10 @@ export const variousSimulEq: Topic = {
         difficulty: 'standard',
       },
       {
-        id: 'math-g2-var-fc19',
-        front: '$ax + by = c$ の標準形に整理すること（整理すれば加減法・代入法が使える）', back: 'どんな形の連立方程式でも最初にすることは？',
-        difficulty: 'standard',
-      },
-      {
         id: 'math-g2-var-fc20',
         front: '両辺に $2$ をかけて $x + y = 6$', back: '$\\frac{x+y}{2} = 3$ を整理すると？',
         difficulty: 'standard',
       },
-      { id: 'math-g2-var-fc21', front: '10倍してから共通因数で割ると式がシンプルになる', back: '小数の係数を整数にした後、さらに簡単にするには？', difficulty: 'standard' },
-      { id: 'math-g2-var-fc22', front: '複数の分数→LCMをかける→整数式→加減法 or 代入法', back: '分数を含む連立方程式の解法の流れは？', difficulty: 'standard' },
-      { id: 'math-g2-var-fc23', front: '計算しやすい2つの組み合わせを選ぶのがコツ', back: '$A = B = C$ を2つに分けるとき、どの組み合わせを選ぶ？', difficulty: 'advanced' },
-      { id: 'math-g2-var-fc24', front: '解を代入して未知の係数の方程式を作り、それを解く', back: '解がわかっていて係数を求めるには？', difficulty: 'advanced' },
       { id: 'math-g2-var-fc30', front: '$2x + y = 5$', back: '$2(x + 3) + y = 11$ を整理すると？', explanation: '$2x + 6 + y = 11$ → $2x + y = 5$。', difficulty: 'basic' },
       { id: 'math-g2-var-fc31', front: '$3x - y = 7$', back: '$3(x - 2) - y = 1$ を整理すると？', explanation: '$3x - 6 - y = 1$ → $3x - y = 7$。', difficulty: 'basic' },
       { id: 'math-g2-var-fc32', front: '$5x - 3y = 8$', back: '$5(x - 1) = 3(y + 1)$ を整理すると？', explanation: '$5x - 5 = 3y + 3$ → $5x - 3y = 8$。', difficulty: 'standard' },

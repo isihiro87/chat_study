@@ -71,16 +71,6 @@ export const slopeIntercept: Topic = {
     videos: [],
     flashcards: [
       {
-        id: 'math-g2-slope-intercept-fc1',
-        front: '$a$ のこと', explanation: '$x$ が1増えたときの $y$ の変化量で、変化の割合と同じ値', back: '一次関数 $y = ax + b$ で「傾き」とは？',
-        difficulty: 'basic',
-      },
-      {
-        id: 'math-g2-slope-intercept-fc2',
-        front: '$b$ のこと', explanation: 'グラフが $y$ 軸と交わる点の $y$ 座標。$x = 0$ のときの $y$ の値', back: '一次関数 $y = ax + b$ で「切片」とは？',
-        difficulty: 'basic',
-      },
-      {
         id: 'math-g2-slope-intercept-fc3',
         front: '右上がりの直線になる', explanation: '$x$ が増えると $y$ も増える', back: '傾き $a > 0$ のとき、グラフはどうなる？',
         difficulty: 'basic',
@@ -93,11 +83,6 @@ export const slopeIntercept: Topic = {
       {
         id: 'math-g2-slope-intercept-fc5',
         front: 'グラフが急（きつい角度）になる', explanation: '$|a|$ が小さいほどゆるやかになる', back: '傾きの絶対値 $|a|$ が大きいほどグラフはどうなる？',
-        difficulty: 'basic',
-      },
-      {
-        id: 'math-g2-slope-intercept-fc6',
-        front: '(1) 切片 $(0, b)$ を $y$ 軸上にとる → (2) 傾きで次の点をとる → (3) 2点を結んで直線を引く', back: '一次関数のグラフをかく手順は？',
         difficulty: 'basic',
       },
       {
@@ -135,13 +120,7 @@ export const slopeIntercept: Topic = {
         front: '$y = ax$ の形になり比例のグラフと同じ', explanation: '原点 $(0, 0)$ を通る', back: '切片が $0$ のとき、$y = ax + b$ はどんな式になる？',
         difficulty: 'standard',
       },
-      {
-        id: 'math-g2-slope-intercept-fc16',
-        front: '(1) $y$ 軸との交点を読んで切片 $b$ を決める → (2) 2点間の変化から傾き $a$ を求める → $y = ax + b$ に当てはめる', back: 'グラフから式を読み取るには？',
-        difficulty: 'standard',
-      },
       { id: 'math-g2-slope-intercept-fc17', front: '$(0, b)$ と $(1, a+b)$', explanation: 'この2点を通る直線になる', back: '$y = ax + b$ のグラフは必ずどの2点を通る？', difficulty: 'standard' },
-      { id: 'math-g2-slope-intercept-fc19', front: '$(0, b)$ と $(-\\dfrac{b}{a}, 0)$ の2点をとって結ぶ', explanation: '$x = 0$ と $y = 0$ を代入して2点を求める', back: '2点法でグラフをかくには？', difficulty: 'standard' },
       { id: 'math-g2-slope-intercept-fc21', front: '傾きが等しく切片が異なる', explanation: '傾き $a$ が同じで $b$ が異なる2直線', back: '平行な2直線の条件は？', difficulty: 'standard' },
       { id: 'math-g2-slope-intercept-fc22', front: 'グラフが $y$ 軸を横切る高さ', explanation: '$x = 0$ のときの $y$ 座標のこと', back: '「切片」を一言で言うと？', difficulty: 'standard' },
       { id: 'math-g2-slope-intercept-fc24', front: '右に分母、上に分子だけ進む', explanation: '傾き $\\dfrac{a}{b}$ なら右に $b$、上に $a$。整数の点がとれる', back: '分数の傾きの考え方は？分母が $x$ の増加分、分子が $y$ の増加分', difficulty: 'advanced' },
@@ -160,9 +139,7 @@ export const slopeIntercept: Topic = {
       { id: 'math-g2-slope-intercept-fc38', front: '$0$（比例のグラフ）', back: '$y = -5x$ の切片は？', explanation: '$b = 0$ → 原点を通る。', difficulty: 'basic' },
       { id: 'math-g2-slope-intercept-fc39', front: '右上がり', back: '傾き $a > 0$ のとき、グラフは右上がり？右下がり？', explanation: '$x$ が増えると $y$ も増える。', difficulty: 'basic' },
       { id: 'math-g2-slope-intercept-fc40', front: '右下がり', back: '傾き $a < 0$ のとき、グラフは右上がり？右下がり？', explanation: '$x$ が増えると $y$ は減る。', difficulty: 'basic' },
-      { id: 'math-g2-slope-intercept-fc41', front: '切片 $(0, b)$ をとり、傾きを使ってもう1点をとる', back: '一次関数のグラフの書き方は？', explanation: '$2$ 点を結んで直線を引く。', difficulty: 'standard' },
       { id: 'math-g2-slope-intercept-fc42', front: '傾きが等しく切片が異なる', back: '平行な $2$ 直線の条件は？', explanation: '$a$ が同じで $b$ が異なる。', difficulty: 'standard' },
-      { id: 'math-g2-slope-intercept-fc44', front: '右に分母、上に分子だけ進む', back: '分数の傾きでグラフ上の点をとるには？', explanation: '整数の点がとれる。', difficulty: 'advanced' }
     ],
     quiz: {
       questions: [

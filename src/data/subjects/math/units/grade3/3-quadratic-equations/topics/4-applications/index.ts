@@ -171,7 +171,6 @@ export const quadEqApps: Topic = {
       { id: 'math-g3-qea-fc32', front: '$n(n+1) = $ 積', back: '連続する $2$ つの整数の積の方程式の立て方は？', explanation: '小さい方を $n$ とおく。', difficulty: 'basic' },
       { id: 'math-g3-qea-fc33', front: '$n(n+2) = $ 積', back: '連続する $2$ つの偶数（または奇数）の積の方程式は？', explanation: '$n$ と $n+2$ の積。', difficulty: 'standard' },
       { id: 'math-g3-qea-fc38', front: '$x(x+2) = $ 面積から方程式を立てる', back: '長方形の縦が横より $2$ cm 長いとき、面積の方程式は？', explanation: '横を $x$ とすると縦は $x + 2$。', difficulty: 'standard' },
-      { id: 'math-g3-qea-fc39', front: '$2$ つの解のうち、問題の条件に合う方を選ぶ', back: '二次方程式の文章題で解が $2$ つ出たらどうする？', explanation: '両方の値を検討する。', difficulty: 'advanced' }
     ],
     quiz: {
       questions: [

@@ -94,16 +94,6 @@ export const monomialMulDiv: Topic = {
         difficulty: 'basic',
       },
       {
-        id: 'math-g2-mmd-fc6',
-        front: '$a^{m+n}$（同じ底のかけ算は指数を足す）', back: '指数法則: $a^m \\times a^n = ?$',
-        difficulty: 'basic',
-      },
-      {
-        id: 'math-g2-mmd-fc7',
-        front: '$a^{m-n}$（同じ底の割り算は指数を引く）', back: '指数法則: $a^m \\div a^n = ?$（$m > n$）',
-        difficulty: 'basic',
-      },
-      {
         id: 'math-g2-mmd-fc10',
         front: '$a^n b^n$（それぞれの因数を $n$ 乗する）', back: '$(ab)^n$ を展開すると？',
         difficulty: 'basic',
@@ -132,7 +122,6 @@ export const monomialMulDiv: Topic = {
         explanation: '$\\frac{6xy}{3x} = 2y$。$x$ が約分されて $y$ だけ残る',
         difficulty: 'standard',
       },
-      { id: 'math-g2-mmd-fc16', front: '$(a^m)^n = a^{mn}$', back: '指数法則: $(a^m)^n = ?$', explanation: '累乗の累乗は指数をかける', difficulty: 'standard' },
       { id: 'math-g2-mmd-fc17', front: '$a^0 = 1$', back: '指数が $0$ のとき、$a^0$ は？', explanation: '$a \\neq 0$ のとき。$0$ 乗は必ず $1$', difficulty: 'standard' },
       { id: 'math-g2-mmd-fc18', front: '$-30a^3b^2$', back: '$(-6a^2b) \\times (5ab)$ の計算は？', explanation: '係数: $(-6) \\times 5 = -30$、文字: $a^2 \\times a = a^3$、$b \\times b = b^2$', difficulty: 'standard' },
       { id: 'math-g2-mmd-fc19', front: '$4x^2y$', back: '$12x^3y^2 \\div 3xy$ の計算は？', explanation: '$\\dfrac{12}{3} = 4$、$\\dfrac{x^3}{x} = x^2$、$\\dfrac{y^2}{y} = y$', difficulty: 'standard' },
@@ -156,8 +145,6 @@ export const monomialMulDiv: Topic = {
       { id: 'math-g2-mmd-fc40', front: '$-25a^2$', back: '$-(-5a)^2$ を計算すると？', explanation: '$(-5a)^2 = 25a^2$、前の $-$ で $-25a^2$。', difficulty: 'standard' },
       { id: 'math-g2-mmd-fc41', front: '$-10x^2y$', back: '$(-5xy) \\times 2x$ を計算すると？', explanation: '係数: $-10$、文字: $x^2y$。', difficulty: 'standard' },
       { id: 'math-g2-mmd-fc42', front: '$(2a)^2 = 4a^2$、$2a^2 = 2 \\times a^2$', back: '$(2a)^2$ と $2a^2$ の違いは？', explanation: 'かっこの有無で結果が異なる。', difficulty: 'advanced' },
-      { id: 'math-g2-mmd-fc43', front: '指数を足す（$a^m \\times a^n = a^{m+n}$）', back: '同じ文字の累乗の乗法のルールは？', explanation: '例: $a^2 \\times a^3 = a^5$。', difficulty: 'standard' },
-      { id: 'math-g2-mmd-fc44', front: '指数を引く（$a^m \\div a^n = a^{m-n}$）', back: '同じ文字の累乗の除法のルールは？', explanation: '例: $a^5 \\div a^2 = a^3$。', difficulty: 'standard' },
       { id: 'math-g2-mmd-fc45', front: '$2ab$', back: '$\\dfrac{10a^3b}{5a^2}$ を計算すると？', explanation: '係数: $\\dfrac{10}{5}=2$、文字: $a^{3-2}b = ab$。', difficulty: 'advanced' }
     ],
     quiz: {

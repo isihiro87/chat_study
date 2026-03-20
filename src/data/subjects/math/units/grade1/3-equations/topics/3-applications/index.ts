@@ -46,8 +46,6 @@ export const eqApplications: Topic = {
     videos: [],
     flashcards: [
       // === 比の値・比例式の基本（basic）===
-      { id: 'math-g1-eq-a-fc2', front: '$ad = bc$', back: '比例式の「内項の積 $=$ 外項の積」とは？', explanation: '外側の積 $=$ 内側の積', difficulty: 'basic' },
-      { id: 'math-g1-eq-a-fc3', front: '$\\dfrac{a}{b}$', back: '比 $a : b$ の「比の値」とは？', explanation: '前の数を後の数でわった値', difficulty: 'basic' },
       { id: 'math-g1-eq-a-fc4', front: '$b$ と $c$', back: '比例式 $a : b = c : d$ の内項はどれ？', explanation: '真ん中の2つが内項', difficulty: 'basic' },
       { id: 'math-g1-eq-a-fc5', front: '$x = 15$', back: '$2 : 5 = 6 : x$ の $x$ の値は？', explanation: '$2x = 5 \\times 6 = 30$', difficulty: 'basic' },
       { id: 'math-g1-eq-a-fc6', front: '$x = 4$', back: '比例式 $x : 3 = 8 : 6$ の $x$ は？', explanation: '$6x = 3 \\times 8 = 24$', difficulty: 'basic' },
@@ -73,11 +71,9 @@ export const eqApplications: Topic = {
       { id: 'math-g1-eq-a-fc26', front: '$75$ g', back: '砂糖と砂糖水の比が $3 : 20$ の砂糖水を $500$ g 作る。砂糖は何 g？', explanation: '$3 : 20 = x : 500$ → $20x = 1500$', difficulty: 'advanced' },
       { id: 'math-g1-eq-a-fc27', front: '$240$ mL', back: '$600$ mL のジュースを $2 : 3$ の比で分ける。少ない方は何 mL？', explanation: '$600 \\times \\dfrac{2}{5} = 240$', difficulty: 'advanced' },
       { id: 'math-g1-eq-a-fc28', front: '$400$ 円', back: '$720$ 円を兄弟で $5 : 4$ に分ける。兄はいくら？', explanation: '$720 \\times \\dfrac{5}{9} = 400$', difficulty: 'advanced' },
-      { id: 'math-g1-eq-a-fc29', front: '$\\dfrac{a}{b}$（前の数を後の数で割った値）', back: '比 $a : b$ の比の値とは？', explanation: '例: $6:4$ の比の値は $\\dfrac{6}{4} = \\dfrac{3}{2}$。', difficulty: 'basic' },
       { id: 'math-g1-eq-a-fc30', front: '比例式', back: '比の値が等しい2つの比を結んだ式を何という？', explanation: '例: $a : b = c : d$。', difficulty: 'basic' },
       { id: 'math-g1-eq-a-fc31', front: '内項', back: '比例式 $a : b = c : d$ で $b$ と $c$ を何という？', explanation: '内側にある2つの項。', difficulty: 'basic' },
       { id: 'math-g1-eq-a-fc32', front: '外項', back: '比例式 $a : b = c : d$ で $a$ と $d$ を何という？', explanation: '外側にある2つの項。', difficulty: 'basic' },
-      { id: 'math-g1-eq-a-fc33', front: '$ad = bc$（内項の積 $=$ 外項の積）', back: '比例式 $a : b = c : d$ のとき成り立つ等式は？', explanation: '比例式を解くときの基本公式。', difficulty: 'basic' },
       { id: 'math-g1-eq-a-fc34', front: '$x = 4$', back: '比例式 $x : 3 = 8 : 6$ の $x$ は？', explanation: '$6x = 24$、$x = 4$。', difficulty: 'standard' },
       { id: 'math-g1-eq-a-fc35', front: '$x = 21$', back: '比例式 $4 : 7 = 12 : x$ の $x$ は？', explanation: '$4x = 84$、$x = 21$。', difficulty: 'standard' },
       { id: 'math-g1-eq-a-fc36', front: '$x = 15$', back: '比例式 $5 : x = 3 : 9$ の $x$ は？', explanation: '$3x = 45$、$x = 15$。', difficulty: 'standard' },
@@ -88,7 +84,6 @@ export const eqApplications: Topic = {
       { id: 'math-g1-eq-a-fc42', front: '$1000$ m', back: '地図上の $3$ cm が実際の $600$ m。地図上の $5$ cm は？', explanation: '$3 : 600 = 5 : x$、$3x = 3000$。', difficulty: 'advanced' },
       { id: 'math-g1-eq-a-fc43', front: '$9$ m', back: '長さ $12$ m のロープを $3 : 1$ に分けると、長い方は？', explanation: '$12 \\times \\dfrac{3}{4} = 9$。', difficulty: 'advanced' },
       { id: 'math-g1-eq-a-fc44', front: '$15$ 枚', back: 'カード $40$ 枚を $3 : 5$ の比で分ける。少ない方は何枚？', explanation: '$40 \\times \\dfrac{3}{8} = 15$。', difficulty: 'advanced' },
-      { id: 'math-g1-eq-a-fc45', front: '道のり $=$ 速さ $\\times$ 時間', back: '速さの公式「道のり」を表すと？', explanation: '時間 $=$ 道のり $\\div$ 速さ。', difficulty: 'basic' }
     ],
     quiz: {
       questions: [
