@@ -147,18 +147,17 @@ export function LearningPage() {
 
   const disabledTabs: TabType[] = ['video'];
 
-  // 前後トピックのナビゲーション情報
+  // 前後トピックのナビゲーション情報（era をまたぐ場合は各トピックの eraId を使用）
   const topicNavigation = useMemo(() => {
-    const basePath = `/subjects/${subjectId}/eras/${eraId}/topics`;
     return {
       prev: prevTopic
-        ? { name: prevTopic.name, path: `${basePath}/${prevTopic.id}` }
+        ? { name: prevTopic.name, path: `/subjects/${subjectId}/eras/${prevTopic.eraId}/topics/${prevTopic.id}` }
         : null,
       next: nextTopic
-        ? { name: nextTopic.name, path: `${basePath}/${nextTopic.id}` }
+        ? { name: nextTopic.name, path: `/subjects/${subjectId}/eras/${nextTopic.eraId}/topics/${nextTopic.id}` }
         : null,
     };
-  }, [subjectId, eraId, prevTopic, nextTopic]);
+  }, [subjectId, prevTopic, nextTopic]);
 
   // トピック変更時にデフォルトタブにリセット（別トピックへの遷移対応）
   useEffect(() => {
@@ -417,6 +416,7 @@ export function LearningPage() {
             onNavigateToExample={content.examples ? () => setActiveTab('example') : undefined}
             onComplete={handleChatComplete}
             onProgressChange={handleChatProgressChange}
+            subjectId={subjectId}
           />
         </div>
       )}
@@ -451,6 +451,7 @@ export function LearningPage() {
             cards={content.flashcards}
             onProgressChange={handleCardProgressChange}
             onComplete={handleFlashcardComplete}
+            chatGPTInfo={subjectId ? { subjectId, topicName: topic.name, topicSubtitle: topic.subtitle } : undefined}
           />
         </main>
       </div>
@@ -470,6 +471,7 @@ export function LearningPage() {
             onCompleteWithDifficulties={handleQuizCompleteWithDifficulties}
             isNewBest={quizNewBest}
             navigation={topicNavigation}
+            chatGPTInfo={subjectId ? { subjectId, topicName: topic.name, topicSubtitle: topic.subtitle } : undefined}
           />
         </main>
       </div>

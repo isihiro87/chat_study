@@ -24,9 +24,10 @@ interface ChatContainerProps {
   onNavigateToExample?: () => void;
   onComplete?: () => void;
   onProgressChange?: (current: number, total: number) => void;
+  subjectId?: string;
 }
 
-export function ChatContainer({ chat, embedded = false, onNavigateToFlashcard, onNavigateToQuiz, onNavigateToExample, onComplete, onProgressChange }: ChatContainerProps) {
+export function ChatContainer({ chat, embedded = false, onNavigateToFlashcard, onNavigateToQuiz, onNavigateToExample, onComplete, onProgressChange, subjectId }: ChatContainerProps) {
   const {
     shownIndex,
     visibleContent,
@@ -239,6 +240,7 @@ export function ChatContainer({ chat, embedded = false, onNavigateToFlashcard, o
                         onNavigateToExample={onNavigateToExample}
                         chatTitle={chat.title}
                         chatSubtitle={chat.subtitle}
+                        subjectId={subjectId}
                       />
                       </div>
                     );

@@ -433,20 +433,6 @@ export function QuizView({ quiz, onProgressChange, onComplete, onCompleteWithDif
           {navigation && (navigation.prev || navigation.next) && (
             <div className="mt-6 w-full max-w-xs space-y-2">
               <p className="text-center text-xs text-gray-400">他の内容を学習する</p>
-              {navigation.prev && (
-                <Link
-                  to={navigation.prev.path}
-                  className="flex items-center gap-2 rounded-xl border border-gray-200 bg-white p-3 transition-all hover:bg-gray-50 active:scale-[0.98] active:bg-gray-100"
-                >
-                  <ChevronLeft className="h-5 w-5 flex-shrink-0 text-gray-400" />
-                  <div className="min-w-0 flex-1">
-                    <p className="text-xs text-gray-400">前の内容へ</p>
-                    <p className="truncate text-sm font-medium text-gray-700">
-                      {navigation.prev.name}
-                    </p>
-                  </div>
-                </Link>
-              )}
               {navigation.next && (
                 <Link
                   to={navigation.next.path}
@@ -459,6 +445,20 @@ export function QuizView({ quiz, onProgressChange, onComplete, onCompleteWithDif
                     </p>
                   </div>
                   <ChevronRight className="h-5 w-5 flex-shrink-0 text-gray-400" />
+                </Link>
+              )}
+              {navigation.prev && (
+                <Link
+                  to={navigation.prev.path}
+                  className="flex items-center gap-2 rounded-xl border border-gray-200 bg-white p-3 transition-all hover:bg-gray-50 active:scale-[0.98] active:bg-gray-100"
+                >
+                  <ChevronLeft className="h-5 w-5 flex-shrink-0 text-gray-400" />
+                  <div className="min-w-0 flex-1">
+                    <p className="text-xs text-gray-400">前の内容へ</p>
+                    <p className="truncate text-sm font-medium text-gray-700">
+                      {navigation.prev.name}
+                    </p>
+                  </div>
                 </Link>
               )}
             </div>

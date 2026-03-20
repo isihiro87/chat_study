@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { getTopic, getTopicsByEra } from '../data/subjects/registry';
+import { getTopic, getTopicsByEra, getErasBySubject, getEra } from '../data/subjects/registry';
 import type { TopicMeta } from '../data/subjects/registry';
 
 interface TopicNavigation {
@@ -21,15 +21,28 @@ export function useTopicNavigation(topicId: string | undefined): TopicNavigation
     }
 
     const eraId = currentTopic.eraId;
-    const topicsInEra = getTopicsByEra(eraId);
+    const currentEra = getEra(eraId);
+    if (!currentEra) {
+      return { prevTopic: null, nextTopic: null, currentTopic, eraId };
+    }
 
-    const currentIndex = topicsInEra.findIndex((t) => t.id === topicId);
+    // 同じ教科の全Eraをorder順に取得
+    const allEras = getErasBySubject(currentEra.subjectId);
+
+    // 教科全体のトピックをEra順 → トピックorder順でフラットに並べる
+    const allTopicsFlat: TopicMeta[] = [];
+    for (const era of allEras) {
+      const topics = getTopicsByEra(era.id);
+      allTopicsFlat.push(...topics);
+    }
+
+    const currentIndex = allTopicsFlat.findIndex((t) => t.id === topicId);
     if (currentIndex === -1) {
       return { prevTopic: null, nextTopic: null, currentTopic, eraId };
     }
 
-    const prevTopic = currentIndex > 0 ? topicsInEra[currentIndex - 1] : null;
-    const nextTopic = currentIndex < topicsInEra.length - 1 ? topicsInEra[currentIndex + 1] : null;
+    const prevTopic = currentIndex > 0 ? allTopicsFlat[currentIndex - 1] : null;
+    const nextTopic = currentIndex < allTopicsFlat.length - 1 ? allTopicsFlat[currentIndex + 1] : null;
 
     return { prevTopic, nextTopic, currentTopic, eraId };
   }, [topicId]);

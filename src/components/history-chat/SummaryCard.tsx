@@ -14,6 +14,7 @@ interface SummaryCardProps {
   onNavigateToExample?: () => void;
   chatTitle: string;
   chatSubtitle: string;
+  subjectId?: string;
 }
 
 interface RankInfo {
@@ -56,7 +57,7 @@ function getRankInfo(percentage: number): RankInfo {
   };
 }
 
-export function SummaryCard({ points, score, totalQuizzes, onReplay, onNavigateToFlashcard, onNavigateToQuiz, onNavigateToExample, chatTitle, chatSubtitle }: SummaryCardProps) {
+export function SummaryCard({ points, score, totalQuizzes, onReplay, onNavigateToFlashcard, onNavigateToQuiz, onNavigateToExample, chatTitle, chatSubtitle, subjectId }: SummaryCardProps) {
   const percentage = totalQuizzes > 0 ? Math.round((score / totalQuizzes) * 100) : 0;
   const rank = totalQuizzes > 0 ? getRankInfo(percentage) : null;
 
@@ -65,6 +66,7 @@ export function SummaryCard({ points, score, totalQuizzes, onReplay, onNavigateT
       title: chatTitle,
       subtitle: chatSubtitle,
       points,
+      subjectId,
     });
     window.open(url, '_blank', 'noopener,noreferrer');
   };
