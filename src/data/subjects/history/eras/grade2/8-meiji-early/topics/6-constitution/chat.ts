@@ -116,7 +116,7 @@ export const constitutionChat: HistoryChat = {
     },
     {
       type: 'image',
-      src: '/images/history/grade2/8-meiji-early/meiji-constitution-structure.png',
+      src: '/images/history/grade2/8-meiji-early/meiji-constitution-governance.jpeg',
       alt: '大日本帝国憲法の統治機構',
       caption: '天皇を中心に内閣・帝国議会・裁判所の関係',
     },

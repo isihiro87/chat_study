@@ -64,6 +64,12 @@ export const internationalRelationsChat: HistoryChat = {
       text: '<ruby>不平等条約<rp>(</rp><rt>ふびょうどうじょうやく</rt><rp>)</rp></ruby>の<ruby>改正交渉<rp>(</rp><rt>かいせいこうしょう</rt><rp>)</rp></ruby>と、<ruby>欧米<rp>(</rp><rt>おうべい</rt><rp>)</rp></ruby>の<ruby>制度<rp>(</rp><rt>せいど</rt><rp>)</rp></ruby>を学ぶことが目的だったんだよ',
     },
     {
+      type: 'image',
+      src: '/images/history/grade2/8-meiji-early/iwakura-mission-map.jpeg',
+      alt: '岩倉使節団の世界地図',
+      caption: '約1年10か月の視察。条約改正は失敗したが、近代化の方向性が確認された',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',
@@ -145,6 +151,12 @@ export const internationalRelationsChat: HistoryChat = {
       characterId: 'teacher',
       expression: 'explaining',
       text: '<ruby>清<rp>(</rp><rt>しん</rt><rp>)</rp></ruby>が<ruby>反対<rp>(</rp><rt>はんたい</rt><rp>)</rp></ruby>したけれど、政府は<ruby>押<rp>(</rp><rt>お</rt><rp>)</rp></ruby>し切って<ruby>沖縄県<rp>(</rp><rt>おきなわけん</rt><rp>)</rp></ruby>を設置したんだよ',
+    },
+    {
+      type: 'image',
+      src: '/images/history/grade2/8-meiji-early/meiji-borders-map.jpeg',
+      alt: '明治期の国境画定',
+      caption: '樺太・千島交換条約（1875年）、琉球処分（1879年）、小笠原諸島（1876年）',
     },
     {
       type: 'summary-point',

@@ -91,6 +91,12 @@ export const koreaAnnexationChat: HistoryChat = {
       text: '<ruby>満州<rp>(</rp><rt>まんしゅう</rt><rp>)</rp></ruby>では<strong><span class="keyword"><ruby>南満州鉄道<rp>(</rp><rt>みなみまんしゅうてつどう</rt><rp>)</rp></ruby>（<ruby>満鉄<rp>(</rp><rt>まんてつ</rt><rp>)</rp></ruby>）</span></strong>を<ruby>設立<rp>(</rp><rt>せつりつ</rt><rp>)</rp></ruby>し、<ruby>大陸<rp>(</rp><rt>たいりく</rt><rp>)</rp></ruby>への<ruby>影響力<rp>(</rp><rt>えいきょうりょく</rt><rp>)</rp></ruby>を<ruby>拡大<rp>(</rp><rt>かくだい</rt><rp>)</rp></ruby>しました。',
     },
     {
+      type: 'image',
+      src: '/images/history/grade2/9-meiji-late/east-asia-power-map.jpeg',
+      alt: '東アジアの勢力図（1910年頃）',
+      caption: '下関条約→ポーツマス条約→韓国併合で日本は東アジアの強国に',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',

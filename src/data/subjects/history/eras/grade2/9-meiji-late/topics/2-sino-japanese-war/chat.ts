@@ -78,6 +78,12 @@ export const sinoJapaneseWarChat: HistoryChat = {
       text: '清は朝鮮の<ruby>独立<rp>(</rp><rt>どくりつ</rt><rp>)</rp></ruby>を認め、<strong><span class="keyword"><ruby>遼東半島<rp>(</rp><rt>りゃおとんはんとう</rt><rp>)</rp></ruby></span></strong>・<strong><span class="keyword"><ruby>台湾<rp>(</rp><rt>たいわん</rt><rp>)</rp></ruby></span></strong>・<ruby>澎湖諸島<rp>(</rp><rt>ほうこしょとう</rt><rp>)</rp></ruby>を日本に<ruby>譲<rp>(</rp><rt>ゆず</rt><rp>)</rp></ruby>り、<ruby>賠償金<rp>(</rp><rt>ばいしょうきん</rt><rp>)</rp></ruby>2<ruby>億両<rp>(</rp><rt>おくりょう</rt><rp>)</rp></ruby>も<ruby>支払<rp>(</rp><rt>しはら</rt><rp>)</rp></ruby>うことになったんだ',
     },
     {
+      type: 'image',
+      src: '/images/history/grade2/9-meiji-late/sino-japanese-war-map.jpeg',
+      alt: '日清戦争の原因と下関条約',
+      caption: '東学党の乱をきっかけに両国が出兵。下関条約で台湾・遼東半島・賠償金2億テール',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">甲午農民戦争</span>がきっかけ → <span class="keyword">日清戦争</span>で日本勝利 → <span class="keyword">下関条約</span>（遼東半島・台湾・賠償金2億両）',
     },
@@ -131,6 +137,12 @@ export const sinoJapaneseWarChat: HistoryChat = {
       characterId: 'student',
       expression: 'thinking',
       text: '臥薪嘗胆って、<ruby>苦労<rp>(</rp><rt>くろう</rt><rp>)</rp></ruby>に<ruby>耐<rp>(</rp><rt>た</rt><rp>)</rp></ruby>えて<ruby>復讐<rp>(</rp><rt>ふくしゅう</rt><rp>)</rp></ruby>の<ruby>機会<rp>(</rp><rt>きかい</rt><rp>)</rp></ruby>を待つって意味ですよね',
+    },
+    {
+      type: 'image',
+      src: '/images/history/grade2/9-meiji-late/triple-intervention-diagram.jpeg',
+      alt: '三国干渉の関係図',
+      caption: 'ロシア・フランス・ドイツが遼東半島の返還を要求。臥薪嘗胆から日露戦争へ',
     },
     {
       type: 'summary-point',

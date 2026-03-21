@@ -122,6 +122,12 @@ export const freedomMovementChat: HistoryChat = {
       text: '<ruby>板垣退助<rp>(</rp><rt>いたがきたいすけ</rt><rp>)</rp></ruby>の<strong><span class="keyword"><span data-tooltip="板垣退助を党首として1881年に結成された日本初の政党。フランス流の自由主義を主張"><ruby>自由党<rp>(</rp><rt>じゆうとう</rt><rp>)</rp></ruby></span></span></strong>と、<strong><span class="keyword"><span data-tooltip="大隈重信を党首として結成された政党。イギリス流の立憲政治を主張"><ruby>大隈重信<rp>(</rp><rt>おおくましげのぶ</rt><rp>)</rp></ruby></span></span></strong>の<strong><span class="keyword"><ruby>立憲改進党<rp>(</rp><rt>りっけんかいしんとう</rt><rp>)</rp></ruby></span></strong>だよ。日本初の<ruby>政党<rp>(</rp><rt>せいとう</rt><rp>)</rp></ruby>が<ruby>誕生<rp>(</rp><rt>たんじょう</rt><rp>)</rp></ruby>したんだ！',
     },
     {
+      type: 'image',
+      src: '/images/history/grade2/8-meiji-early/freedom-movement-timeline.jpeg',
+      alt: '自由民権運動の年表',
+      caption: '1874年の民撰議院設立建白書から1890年の帝国議会開設まで',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">西南戦争</span>で武力抵抗が終結 → 国会開設の約束 → <span class="keyword">自由党</span>（板垣）・<span class="keyword">立憲改進党</span>（大隈）が誕生！',
     },

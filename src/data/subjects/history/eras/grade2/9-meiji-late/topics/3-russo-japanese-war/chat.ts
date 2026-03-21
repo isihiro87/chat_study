@@ -137,6 +137,12 @@ export const russoJapaneseWarChat: HistoryChat = {
       text: '勝ったけど、多くの<ruby>犠牲<rp>(</rp><rt>ぎせい</rt><rp>)</rp></ruby>があったんですね...',
     },
     {
+      type: 'image',
+      src: '/images/history/grade2/9-meiji-late/russo-japanese-war-map.jpeg',
+      alt: '日露戦争の戦場図',
+      caption: '日英同盟（1902年）を背景に、旅順・奉天・日本海海戦で勝利。ポーツマス条約（1905年）',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">ポーツマス条約</span>：南樺太獲得、賠償金なし → <span class="keyword">日比谷焼き討ち事件</span> ／ <span class="keyword">与謝野晶子</span>「君死にたまふこと勿れ」',
     },

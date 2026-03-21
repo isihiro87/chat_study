@@ -43,6 +43,12 @@ export const meijiCultureChat: HistoryChat = {
       text: '<ruby>欧米<rp>(</rp><rt>おうべい</rt><rp>)</rp></ruby>の文化と日本の<ruby>伝統<rp>(</rp><rt>でんとう</rt><rp>)</rp></ruby>が<ruby>融合<rp>(</rp><rt>ゆうごう</rt><rp>)</rp></ruby>し、さまざまな分野で新しい<ruby>才能<rp>(</rp><rt>さいのう</rt><rp>)</rp></ruby>が花開きました。',
     },
     {
+      type: 'image',
+      src: '/images/history/grade2/9-meiji-late/meiji-culture-figures.jpeg',
+      alt: '明治文化の代表的人物',
+      caption: '文学・科学・医学・教育・思想・美術の各分野で活躍した人物たち',
+    },
+    {
       type: 'message',
       side: 'left',
       characterId: 'teacher',

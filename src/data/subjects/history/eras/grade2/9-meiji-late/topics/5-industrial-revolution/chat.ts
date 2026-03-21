@@ -94,6 +94,12 @@ export const japanIndustrialRevolutionChat: HistoryChat = {
         '<strong>正解はA「<ruby>八幡製鉄所<rp>(</rp><rt>やはたせいてつしょ</rt><rp>)</rp></ruby>」</strong>です。<ruby>日清戦争<rp>(</rp><rt>にっしんせんそう</rt><rp>)</rp></ruby>の<ruby>賠償金<rp>(</rp><rt>ばいしょうきん</rt><rp>)</rp></ruby>で建設され、<ruby>重化学工業<rp>(</rp><rt>じゅうかがくこうぎょう</rt><rp>)</rp></ruby>発展の基礎となりました。',
     },
     {
+      type: 'image',
+      src: '/images/history/grade2/9-meiji-late/industrialization-flow.jpeg',
+      alt: '日本の産業革命の流れ',
+      caption: '軽工業（製糸業・紡績業）→ 日清戦争の賠償金で重工業（八幡製鉄所）へ',
+    },
+    {
       type: 'narrator',
       text: '一方で、<ruby>産業<rp>(</rp><rt>さんぎょう</rt><rp>)</rp></ruby>の<ruby>発展<rp>(</rp><rt>はってん</rt><rp>)</rp></ruby>は深刻な問題も生み出しました。',
     },

@@ -126,6 +126,12 @@ export const treatyRevisionChat: HistoryChat = {
       text: 'すごい！長い間の<ruby>悲願<rp>(</rp><rt>ひがん</rt><rp>)</rp></ruby>がやっと<ruby>実現<rp>(</rp><rt>じつげん</rt><rp>)</rp></ruby>したんですね！',
     },
     {
+      type: 'image',
+      src: '/images/history/grade2/9-meiji-late/treaty-revision-timeline.jpeg',
+      alt: '条約改正の年表',
+      caption: '1858年の不平等条約から約50年で完全撤廃を達成',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">陸奥宗光</span>：領事裁判権の撤廃（1894年） → <span class="keyword">小村寿太郎</span>：関税自主権の回復（1911年）で条約改正完了！',
     },

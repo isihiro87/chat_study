@@ -78,6 +78,12 @@ export const fukokuKyoheiChat: HistoryChat = {
       text: 'フランスの<ruby>技術<rp>(</rp><rt>ぎじゅつ</rt><rp>)</rp></ruby>を<ruby>導入<rp>(</rp><rt>どうにゅう</rt><rp>)</rp></ruby>して<ruby>高品質<rp>(</rp><rt>こうひんしつ</rt><rp>)</rp></ruby>な<ruby>生糸<rp>(</rp><rt>きいと</rt><rp>)</rp></ruby>を生産したんだ。<strong><span class="keyword"><span data-tooltip="政府が建設・運営し、民間の工場の手本とした工場"><ruby>官営模範工場<rp>(</rp><rt>かんえいもはんこうじょう</rt><rp>)</rp></ruby></span></span></strong>として民間の手本になったんだよ',
     },
     {
+      type: 'image',
+      src: '/images/history/grade2/8-meiji-early/tomioka-silk-mill.jpeg',
+      alt: '富岡製糸場',
+      caption: '1872年操業開始の官営模範工場。フランスの技術を導入し、生糸の輸出で外貨を獲得',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">富国強兵</span>・<span class="keyword">殖産興業</span>のもと、<span class="keyword">官営模範工場</span>（<span class="keyword">富岡製糸場</span>）を建設！',
     },
