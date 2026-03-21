@@ -88,6 +88,17 @@ export const kitayamaCultureChat: HistoryChat = {
       text: '<span class="keyword">北山文化</span>：<span class="keyword">足利義満</span>の時代。<span class="keyword">金閣</span>（鹿苑寺）は3層構造で公家・武家・禅宗の融合を象徴。日明貿易の富が背景',
     },
     {
+      type: 'quiz',
+      question: '金閣の3層構造のうち、2層目に用いられた建築様式は？',
+      options: [
+        { letter: 'A', text: '禅宗様', correct: false },
+        { letter: 'B', text: '武家造', correct: true },
+        { letter: 'C', text: '寝殿造', correct: false },
+        { letter: 'D', text: '書院造', correct: false },
+      ],
+      explanation: '<strong>正解はB「<ruby>武家造<rp>(</rp><rt>ぶけづくり</rt><rp>)</rp></ruby>」</strong>です。<ruby>金閣<rp>(</rp><rt>きんかく</rt><rp>)</rp></ruby>は1層が<ruby>寝殿造<rp>(</rp><rt>しんでんづくり</rt><rp>)</rp></ruby>（公家風）、2層が<ruby>武家造<rp>(</rp><rt>ぶけづくり</rt><rp>)</rp></ruby>（武士風）、3層が<ruby>禅宗様<rp>(</rp><rt>ぜんしゅうよう</rt><rp>)</rp></ruby>（中国風）の3つの文化の<ruby>融合<rp>(</rp><rt>ゆうごう</rt><rp>)</rp></ruby>を<ruby>象徴<rp>(</rp><rt>しょうちょう</rt><rp>)</rp></ruby>しています。',
+    },
+    {
       type: 'date',
       text: '能と狂言',
     },

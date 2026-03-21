@@ -88,6 +88,17 @@ export const higashiyamaCultureChat: HistoryChat = {
       text: '<span class="keyword">東山文化</span>：<span class="keyword">足利義政</span>の時代。<span class="keyword">銀閣</span>（慈照寺）。<span class="keyword">書院造</span>（畳・障子・ふすま）＝和室の原型',
     },
     {
+      type: 'quiz',
+      question: '足利義政が京都の東山に建てた、簡素で落ち着いた建物は？',
+      options: [
+        { letter: 'A', text: '金閣', correct: false },
+        { letter: 'B', text: '銀閣', correct: true },
+        { letter: 'C', text: '平等院', correct: false },
+        { letter: 'D', text: '龍安寺', correct: false },
+      ],
+      explanation: '<strong>正解はB「<ruby>銀閣<rp>(</rp><rt>ぎんかく</rt><rp>)</rp></ruby>」</strong>です。8代将軍<strong><ruby>足利義政<rp>(</rp><rt>あしかがよしまさ</rt><rp>)</rp></ruby></strong>が建てた<ruby>銀閣<rp>(</rp><rt>ぎんかく</rt><rp>)</rp></ruby>（<ruby>慈照寺<rp>(</rp><rt>じしょうじ</rt><rp>)</rp></ruby>）は、<ruby>東山文化<rp>(</rp><rt>ひがしやまぶんか</rt><rp>)</rp></ruby>を代表する<ruby>簡素<rp>(</rp><rt>かんそ</rt><rp>)</rp></ruby>で深みのある建物です。',
+    },
+    {
       type: 'date',
       text: '水墨画と枯山水',
     },
@@ -144,12 +155,12 @@ export const higashiyamaCultureChat: HistoryChat = {
       type: 'quiz',
       question: '水墨画を大成し、明にも渡って学んだ室町時代の画家は？',
       options: [
-        { letter: 'A', text: '雪舟', correct: true },
+        { letter: 'A', text: '葛飾北斎', correct: false },
         { letter: 'B', text: '狩野永徳', correct: false },
         { letter: 'C', text: '尾形光琳', correct: false },
-        { letter: 'D', text: '葛飾北斎', correct: false },
+        { letter: 'D', text: '雪舟', correct: true },
       ],
-      explanation: '<strong>正解はA「<ruby>雪舟<rp>(</rp><rt>せっしゅう</rt><rp>)</rp></ruby>」</strong>です。<strong>雪舟</strong>は明に<ruby>渡<rp>(</rp><rt>わた</rt><rp>)</rp></ruby>って<ruby>水墨画<rp>(</rp><rt>すいぼくが</rt><rp>)</rp></ruby>を学び、日本独自の水墨画を大成しました。代表作は「<ruby>秋冬山水図<rp>(</rp><rt>しゅうとうさんすいず</rt><rp>)</rp></ruby>」です。',
+      explanation: '<strong>正解はD「<ruby>雪舟<rp>(</rp><rt>せっしゅう</rt><rp>)</rp></ruby>」</strong>です。<strong>雪舟</strong>は明に<ruby>渡<rp>(</rp><rt>わた</rt><rp>)</rp></ruby>って<ruby>水墨画<rp>(</rp><rt>すいぼくが</rt><rp>)</rp></ruby>を学び、日本独自の水墨画を大成しました。代表作は「<ruby>秋冬山水図<rp>(</rp><rt>しゅうとうさんすいず</rt><rp>)</rp></ruby>」です。',
     },
     {
       type: 'date',
@@ -197,6 +208,17 @@ export const higashiyamaCultureChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<span class="keyword">茶の湯</span>（侘び茶）＝茶道の起源。<span class="keyword">生け花</span>＝華道の起源。<span class="keyword">連歌</span>：共同創作の文芸',
+    },
+    {
+      type: 'quiz',
+      question: '室町時代に始まった、質素で静かな美を大切にするお茶の文化を何という？',
+      options: [
+        { letter: 'A', text: '連歌', correct: false },
+        { letter: 'B', text: '生け花', correct: false },
+        { letter: 'C', text: '枯山水', correct: false },
+        { letter: 'D', text: '茶の湯', correct: true },
+      ],
+      explanation: '<strong>正解はD「<ruby>茶<rp>(</rp><rt>ちゃ</rt><rp>)</rp></ruby>の<ruby>湯<rp>(</rp><rt>ゆ</rt><rp>)</rp></ruby>」</strong>です。<ruby>室町時代<rp>(</rp><rt>むろまちじだい</rt><rp>)</rp></ruby>に始まった<ruby>茶<rp>(</rp><rt>ちゃ</rt><rp>)</rp></ruby>の<ruby>湯<rp>(</rp><rt>ゆ</rt><rp>)</rp></ruby>（<ruby>侘<rp>(</rp><rt>わ</rt><rp>)</rp></ruby>び<ruby>茶<rp>(</rp><rt>ちゃ</rt><rp>)</rp></ruby>）は、現在の<ruby>茶道<rp>(</rp><rt>さどう</rt><rp>)</rp></ruby>の<ruby>起源<rp>(</rp><rt>きげん</rt><rp>)</rp></ruby>です。',
     },
     {
       type: 'date',

@@ -71,14 +71,14 @@ export const foreignShipsChat: HistoryChat = {
       text: '問答無用で砲撃って、すごく強硬ですね！',
     },
     {
-      type: 'summary-point',
-      text: '1825年、幕府は<span class="keyword">異国船打払令</span>を出し、外国船を問答無用で追い払う強硬策をとった！',
-    },
-    {
       type: 'image',
       src: '/images/history/grade2/5-edo-reforms/foreign-ships-timeline.png',
       alt: '外国船の来航',
       caption: 'ラクスマン→レザノフ→フェートン号→モリソン号の来航',
+    },
+    {
+      type: 'summary-point',
+      text: '1825年、幕府は<span class="keyword">異国船打払令</span>を出し、外国船を問答無用で追い払う強硬策をとった！',
     },
     {
       type: 'quiz',

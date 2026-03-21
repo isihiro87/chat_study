@@ -86,11 +86,11 @@ export const muromachiIndustryChat: HistoryChat = {
       question: '室町時代に田に水を引くために利用されるようになった道具は何？',
       options: [
         { letter: 'A', text: '鉄製の鋤', correct: false },
-        { letter: 'B', text: '水車', correct: true },
+        { letter: 'B', text: '備中鍬', correct: false },
         { letter: 'C', text: '千歯こき', correct: false },
-        { letter: 'D', text: '備中鍬', correct: false },
+        { letter: 'D', text: '水車', correct: true },
       ],
-      explanation: '<strong>正解はB「<ruby>水車<rp>(</rp><rt>すいしゃ</rt><rp>)</rp></ruby>」</strong>です。<ruby>室町時代<rp>(</rp><rt>むろまちじだい</rt><rp>)</rp></ruby>にはかんがい用の水車が使われるようになり、<ruby>農業<rp>(</rp><rt>のうぎょう</rt><rp>)</rp></ruby>の<ruby>生産力<rp>(</rp><rt>せいさんりょく</rt><rp>)</rp></ruby>が<ruby>向上<rp>(</rp><rt>こうじょう</rt><rp>)</rp></ruby>しました。',
+      explanation: '<strong>正解はD「<ruby>水車<rp>(</rp><rt>すいしゃ</rt><rp>)</rp></ruby>」</strong>です。<ruby>室町時代<rp>(</rp><rt>むろまちじだい</rt><rp>)</rp></ruby>にはかんがい用の水車が使われるようになり、<ruby>農業<rp>(</rp><rt>のうぎょう</rt><rp>)</rp></ruby>の<ruby>生産力<rp>(</rp><rt>せいさんりょく</rt><rp>)</rp></ruby>が<ruby>向上<rp>(</rp><rt>こうじょう</rt><rp>)</rp></ruby>しました。',
     },
     {
       type: 'date',
@@ -160,6 +160,17 @@ export const muromachiIndustryChat: HistoryChat = {
       text: '<span class="keyword">西陣</span>・博多の絹織物。<span class="keyword">六斎市</span>（月6回の定期市）。<span class="keyword">宋銭・明銭</span>の流通。<span class="keyword">馬借</span>（運送業）と<span class="keyword">問</span>（運送兼倉庫業）',
     },
     {
+      type: 'quiz',
+      question: '室町時代に月6回開かれるようになった定期市を何という？',
+      options: [
+        { letter: 'A', text: '三斎市', correct: false },
+        { letter: 'B', text: '六斎市', correct: true },
+        { letter: 'C', text: '楽市', correct: false },
+        { letter: 'D', text: '朝市', correct: false },
+      ],
+      explanation: '<strong>正解はB「<ruby>六斎市<rp>(</rp><rt>ろくさいいち</rt><rp>)</rp></ruby>」</strong>です。<ruby>鎌倉時代<rp>(</rp><rt>かまくらじだい</rt><rp>)</rp></ruby>の月3回の<ruby>三斎市<rp>(</rp><rt>さんさいいち</rt><rp>)</rp></ruby>から、室町時代には月6回の<strong>六斎市</strong>に増えました。',
+    },
+    {
       type: 'date',
       text: '座と同業者の団体',
     },
@@ -191,6 +202,17 @@ export const muromachiIndustryChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<span class="keyword">座</span>：寺社の保護を受けた同業者団体。営業を独占し、新規参入を制限した',
+    },
+    {
+      type: 'quiz',
+      question: '室町時代に商人や手工業者が作った同業者の団体を何という？',
+      options: [
+        { letter: 'A', text: '組', correct: false },
+        { letter: 'B', text: '株仲間', correct: false },
+        { letter: 'C', text: '座', correct: true },
+        { letter: 'D', text: '問屋', correct: false },
+      ],
+      explanation: '<strong>正解はC「<ruby>座<rp>(</rp><rt>ざ</rt><rp>)</rp></ruby>」</strong>です。<ruby>座<rp>(</rp><rt>ざ</rt><rp>)</rp></ruby>は<ruby>寺社<rp>(</rp><rt>じしゃ</rt><rp>)</rp></ruby>の<ruby>保護<rp>(</rp><rt>ほご</rt><rp>)</rp></ruby>を受けて<ruby>営業<rp>(</rp><rt>えいぎょう</rt><rp>)</rp></ruby>を<ruby>独占<rp>(</rp><rt>どくせん</rt><rp>)</rp></ruby>した<ruby>同業者<rp>(</rp><rt>どうぎょうしゃ</rt><rp>)</rp></ruby>の団体です。',
     },
     {
       type: 'end',

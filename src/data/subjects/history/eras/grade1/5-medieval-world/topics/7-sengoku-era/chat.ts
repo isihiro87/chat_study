@@ -87,10 +87,10 @@ export const sengokuEraChat: HistoryChat = {
       options: [
         { letter: 'A', text: '足利義満', correct: false },
         { letter: 'B', text: '足利義教', correct: false },
-        { letter: 'C', text: '足利義政', correct: true },
-        { letter: 'D', text: '足利義昭', correct: false },
+        { letter: 'C', text: '足利義昭', correct: false },
+        { letter: 'D', text: '足利義政', correct: true },
       ],
-      explanation: '<strong>正解はC「<ruby>足利義政<rp>(</rp><rt>あしかがよしまさ</rt><rp>)</rp></ruby>」</strong>です。第8代将軍・足利義政のとき、<ruby>守護大名<rp>(</rp><rt>しゅごだいみょう</rt><rp>)</rp></ruby>の争いに将軍の<ruby>跡継<rp>(</rp><rt>あとつ</rt><rp>)</rp></ruby>ぎ問題が加わって<strong><ruby>応仁<rp>(</rp><rt>おうにん</rt><rp>)</rp></ruby>の<ruby>乱<rp>(</rp><rt>らん</rt><rp>)</rp></ruby></strong>が始まりました。',
+      explanation: '<strong>正解はD「<ruby>足利義政<rp>(</rp><rt>あしかがよしまさ</rt><rp>)</rp></ruby>」</strong>です。第8代将軍・足利義政のとき、<ruby>守護大名<rp>(</rp><rt>しゅごだいみょう</rt><rp>)</rp></ruby>の争いに将軍の<ruby>跡継<rp>(</rp><rt>あとつ</rt><rp>)</rp></ruby>ぎ問題が加わって<strong><ruby>応仁<rp>(</rp><rt>おうにん</rt><rp>)</rp></ruby>の<ruby>乱<rp>(</rp><rt>らん</rt><rp>)</rp></ruby></strong>が始まりました。',
     },
     {
       type: 'date',
@@ -217,6 +217,17 @@ export const sengokuEraChat: HistoryChat = {
       text: '<span class="keyword">城下町</span>の建設。<span class="keyword">楽市・楽座</span>で自由な商業を奨励。<span class="keyword">石見銀山</span>（島根県）の銀が中国への輸出品に',
     },
     {
+      type: 'quiz',
+      question: '戦国大名が座を廃止して自由な商売を認めた政策を何という？',
+      options: [
+        { letter: 'A', text: '楽市・楽座', correct: true },
+        { letter: 'B', text: '六斎市', correct: false },
+        { letter: 'C', text: '徳政令', correct: false },
+        { letter: 'D', text: '分国法', correct: false },
+      ],
+      explanation: '<strong>正解はA「<ruby>楽市<rp>(</rp><rt>らくいち</rt><rp>)</rp></ruby>・<ruby>楽座<rp>(</rp><rt>らくざ</rt><rp>)</rp></ruby>」</strong>です。<ruby>戦国大名<rp>(</rp><rt>せんごくだいみょう</rt><rp>)</rp></ruby>は座を<ruby>廃止<rp>(</rp><rt>はいし</rt><rp>)</rp></ruby>して自由な商売を<ruby>奨励<rp>(</rp><rt>しょうれい</rt><rp>)</rp></ruby>し、<ruby>城下町<rp>(</rp><rt>じょうかまち</rt><rp>)</rp></ruby>の<ruby>経済<rp>(</rp><rt>けいざい</rt><rp>)</rp></ruby>を<ruby>活性化<rp>(</rp><rt>かっせいか</rt><rp>)</rp></ruby>しました。',
+    },
+    {
       type: 'date',
       text: '一揆と民衆の力',
     },
@@ -268,11 +279,11 @@ export const sengokuEraChat: HistoryChat = {
       question: '戦国大名が領国を治めるために独自に定めた法律を何という？',
       options: [
         { letter: 'A', text: '御成敗式目', correct: false },
-        { letter: 'B', text: '武家諸法度', correct: false },
-        { letter: 'C', text: '分国法', correct: true },
+        { letter: 'B', text: '分国法', correct: true },
+        { letter: 'C', text: '武家諸法度', correct: false },
         { letter: 'D', text: '徳政令', correct: false },
       ],
-      explanation: '<strong>正解はC「<ruby>分国法<rp>(</rp><rt>ぶんこくほう</rt><rp>)</rp></ruby>」</strong>です。<ruby>戦国大名<rp>(</rp><rt>せんごくだいみょう</rt><rp>)</rp></ruby>は<strong>分国法</strong>（<ruby>家法<rp>(</rp><rt>かほう</rt><rp>)</rp></ruby>）を定め、<ruby>家臣<rp>(</rp><rt>かしん</rt><rp>)</rp></ruby>の<ruby>統制<rp>(</rp><rt>とうせい</rt><rp>)</rp></ruby>や<ruby>領民<rp>(</rp><rt>りょうみん</rt><rp>)</rp></ruby>の管理を行いました。',
+      explanation: '<strong>正解はB「<ruby>分国法<rp>(</rp><rt>ぶんこくほう</rt><rp>)</rp></ruby>」</strong>です。<ruby>戦国大名<rp>(</rp><rt>せんごくだいみょう</rt><rp>)</rp></ruby>は<strong>分国法</strong>（<ruby>家法<rp>(</rp><rt>かほう</rt><rp>)</rp></ruby>）を定め、<ruby>家臣<rp>(</rp><rt>かしん</rt><rp>)</rp></ruby>の<ruby>統制<rp>(</rp><rt>とうせい</rt><rp>)</rp></ruby>や<ruby>領民<rp>(</rp><rt>りょうみん</rt><rp>)</rp></ruby>の管理を行いました。',
     },
     {
       type: 'date',
@@ -306,6 +317,17 @@ export const sengokuEraChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<span class="keyword">足軽</span>の登場 → 一騎打ちから集団戦闘へ。兵力の動員力が重要な時代に',
+    },
+    {
+      type: 'quiz',
+      question: '応仁の乱で大量に動員された、軽装で素早く動ける雇い兵を何という？',
+      options: [
+        { letter: 'A', text: '御家人', correct: false },
+        { letter: 'B', text: '地侍', correct: false },
+        { letter: 'C', text: '足軽', correct: true },
+        { letter: 'D', text: '悪党', correct: false },
+      ],
+      explanation: '<strong>正解はC「<ruby>足軽<rp>(</rp><rt>あしがる</rt><rp>)</rp></ruby>」</strong>です。<ruby>足軽<rp>(</rp><rt>あしがる</rt><rp>)</rp></ruby>の登場により、<ruby>一騎打<rp>(</rp><rt>いっきう</rt><rp>)</rp></ruby>ち中心の戦いから大規模な<ruby>集団<rp>(</rp><rt>しゅうだん</rt><rp>)</rp></ruby>戦闘へと戦い方が変わりました。',
     },
     {
       type: 'end',
