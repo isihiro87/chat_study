@@ -117,11 +117,11 @@ export const humanOriginsChat: HistoryChat = {
       question: '石を打ち欠いて作った石器を何という？',
       options: [
         { letter: 'A', text: '磨製石器', correct: false },
-        { letter: 'B', text: '鉄器', correct: false },
+        { letter: 'B', text: '打製石器', correct: true },
         { letter: 'C', text: '青銅器', correct: false },
-        { letter: 'D', text: '打製石器', correct: true },
+        { letter: 'D', text: '鉄器', correct: false },
       ],
-      explanation: '<strong>正解はD「<ruby>打製石器<rp>(</rp><rt>だせいせっき</rt><rp>)</rp></ruby>」</strong>です。石を打ち欠いて作った石器で、<ruby>旧石器時代<rp>(</rp><rt>きゅうせっきじだい</rt><rp>)</rp></ruby>に使われました。',
+      explanation: '<strong>正解はB「<ruby>打製石器<rp>(</rp><rt>だせいせっき</rt><rp>)</rp></ruby>」</strong>です。石を打ち欠いて作った石器で、<ruby>旧石器時代<rp>(</rp><rt>きゅうせっきじだい</rt><rp>)</rp></ruby>に使われました。',
     },
     {
       type: 'date',
@@ -174,12 +174,12 @@ export const humanOriginsChat: HistoryChat = {
       type: 'quiz',
       question: '新石器時代に始まった、食料を自ら生産する方法は？',
       options: [
-        { letter: 'A', text: '狩猟と採集', correct: false },
+        { letter: 'A', text: '農耕と牧畜', correct: true },
         { letter: 'B', text: '漁労と航海', correct: false },
-        { letter: 'C', text: '農耕と牧畜', correct: true },
+        { letter: 'C', text: '狩猟と採集', correct: false },
         { letter: 'D', text: '交易と貿易', correct: false },
       ],
-      explanation: '<strong>正解はC「<ruby>農耕<rp>(</rp><rt>のうこう</rt><rp>)</rp></ruby>と<ruby>牧畜<rp>(</rp><rt>ぼくちく</rt><rp>)</rp></ruby>」</strong>です。食料を「とる」生活から「つくる」生活への大転換でした。',
+      explanation: '<strong>正解はA「<ruby>農耕<rp>(</rp><rt>のうこう</rt><rp>)</rp></ruby>と<ruby>牧畜<rp>(</rp><rt>ぼくちく</rt><rp>)</rp></ruby>」</strong>です。食料を「とる」生活から「つくる」生活への大転換でした。',
     },
     {
       type: 'end',

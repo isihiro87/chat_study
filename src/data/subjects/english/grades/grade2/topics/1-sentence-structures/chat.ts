@@ -117,8 +117,8 @@ export const sentenceStructuresChat: HistoryChat = {
       type: 'quiz',
       question: '「He is a teacher.（彼は先生です。）」はどの形？',
       options: [
-        { letter: 'A', text: 'SV', correct: false },
-        { letter: 'B', text: 'SVC', correct: true },
+        { letter: 'A', text: 'SVC', correct: true },
+        { letter: 'B', text: 'SV', correct: false },
         { letter: 'C', text: 'SVO', correct: false },
         { letter: 'D', text: 'SVOO', correct: false },
       ],
@@ -216,8 +216,8 @@ export const sentenceStructuresChat: HistoryChat = {
       options: [
         { letter: 'A', text: 'SVC', correct: false },
         { letter: 'B', text: 'SVO', correct: false },
-        { letter: 'C', text: 'SVOO', correct: true },
-        { letter: 'D', text: 'SVOC', correct: false },
+        { letter: 'C', text: 'SVOC', correct: false },
+        { letter: 'D', text: 'SVOO', correct: true },
       ],
       explanation: 'me（<ruby>私<rt>わたし</rt></ruby>に）と her bag（バッグを）の2つがあるよ。me = her bag にはならないから <strong>SVOO</strong> だね。',
     },

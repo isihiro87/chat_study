@@ -85,13 +85,13 @@ export const occupationChat: HistoryChat = {
       type: 'quiz',
       question: '占領下の日本で民主化の指令を出した組織は？',
       options: [
-        { letter: 'A', text: 'GHQ', correct: true },
+        { letter: 'A', text: '枢密院', correct: false },
         { letter: 'B', text: '国際連合', correct: false },
         { letter: 'C', text: '大政翼賛会', correct: false },
-        { letter: 'D', text: '枢密院', correct: false },
+        { letter: 'D', text: 'GHQ', correct: true },
       ],
       explanation:
-        '<strong>正解はA「GHQ」</strong>です。<ruby>連合国軍最高司令官総司令部<rp>(</rp><rt>れんごうこくぐんさいこうしれいかんそうしれいぶ</rt><rp>)</rp></ruby>の<ruby>略称<rp>(</rp><rt>りゃくしょう</rt><rp>)</rp></ruby>で、<strong>マッカーサー</strong>のもとで日本の<ruby>民主化<rp>(</rp><rt>みんしゅか</rt><rp>)</rp></ruby>を進めました。',
+        '<strong>正解はD「GHQ」</strong>です。<ruby>連合国軍最高司令官総司令部<rp>(</rp><rt>れんごうこくぐんさいこうしれいかんそうしれいぶ</rt><rp>)</rp></ruby>の<ruby>略称<rp>(</rp><rt>りゃくしょう</rt><rp>)</rp></ruby>で、<strong>マッカーサー</strong>のもとで日本の<ruby>民主化<rp>(</rp><rt>みんしゅか</rt><rp>)</rp></ruby>を進めました。',
     },
     {
       type: 'message',
@@ -131,11 +131,11 @@ export const occupationChat: HistoryChat = {
       options: [
         { letter: 'A', text: '連合国への宣戦布告', correct: false },
         { letter: 'B', text: '講和条約の拒否', correct: false },
-        { letter: 'C', text: '中立宣言', correct: false },
-        { letter: 'D', text: '無条件降伏', correct: true },
+        { letter: 'C', text: '無条件降伏', correct: true },
+        { letter: 'D', text: '中立宣言', correct: false },
       ],
       explanation:
-        '<strong>正解はD「<ruby>無条件降伏<rp>(</rp><rt>むじょうけんこうふく</rt><rp>)</rp></ruby>」</strong>です。1945年8月、日本は<strong>ポツダム宣言</strong>を受け入れて<ruby>無条件降伏<rp>(</rp><rt>むじょうけんこうふく</rt><rp>)</rp></ruby>しました。',
+        '<strong>正解はC「<ruby>無条件降伏<rp>(</rp><rt>むじょうけんこうふく</rt><rp>)</rp></ruby>」</strong>です。1945年8月、日本は<strong>ポツダム宣言</strong>を受け入れて<ruby>無条件降伏<rp>(</rp><rt>むじょうけんこうふく</rt><rp>)</rp></ruby>しました。',
     },
     {
       type: 'end',

@@ -90,8 +90,8 @@ export const relativePronounsChat: HistoryChat = {
       question: '「アメリカに住んでいる友達」を英語にすると？',
       options: [
         { letter: 'A', text: 'a friend which lives in America', correct: false },
-        { letter: 'B', text: 'a friend who lives in America', correct: true },
-        { letter: 'C', text: 'a friend who live in America', correct: false },
+        { letter: 'B', text: 'a friend who live in America', correct: false },
+        { letter: 'C', text: 'a friend who lives in America', correct: true },
         { letter: 'D', text: 'a friend whose lives in America', correct: false },
       ],
       explanation: '「<ruby>友達<rt>ともだち</rt></ruby>」は人だから <strong>who</strong> を使うよ。who のうしろは<ruby>動詞<rt>どうし</rt></ruby>がくるよ。a friend who lives in America が<ruby>正<rt>ただ</rt></ruby>しいよ。',
@@ -165,8 +165,8 @@ export const relativePronounsChat: HistoryChat = {
       question: '「これは私が見つけた猫です。」を英語にすると？',
       options: [
         { letter: 'A', text: 'This is the cat who I found.', correct: false },
-        { letter: 'B', text: 'This is the cat which I found.', correct: false },
-        { letter: 'C', text: 'This is the cat that I found.', correct: true },
+        { letter: 'B', text: 'This is the cat that I found.', correct: true },
+        { letter: 'C', text: 'This is the cat which I found.', correct: false },
         { letter: 'D', text: 'This is the cat what I found.', correct: false },
       ],
       explanation: '<ruby>猫<rt>ねこ</rt></ruby>は「もの」だから which か that を使えるよ。who は人にしか使えないよ。which でもOKだけど、<strong>that</strong> が一番よく使われるよ。',
@@ -225,8 +225,8 @@ export const relativePronounsChat: HistoryChat = {
       type: 'quiz',
       question: '「姉が好きなアニメは人気があります。」を英語にすると？',
       options: [
-        { letter: 'A', text: 'The anime who my sister likes is popular.', correct: false },
-        { letter: 'B', text: 'The anime which my sister likes is popular.', correct: true },
+        { letter: 'A', text: 'The anime which my sister likes is popular.', correct: true },
+        { letter: 'B', text: 'The anime who my sister likes is popular.', correct: false },
         { letter: 'C', text: 'The anime whose my sister likes is popular.', correct: false },
         { letter: 'D', text: 'The anime what my sister likes is popular.', correct: false },
       ],
@@ -295,8 +295,8 @@ export const relativePronounsChat: HistoryChat = {
       options: [
         { letter: 'A', text: 'The bus', correct: false },
         { letter: 'B', text: 'The bus that goes', correct: false },
-        { letter: 'C', text: 'The bus that goes to the zoo', correct: true },
-        { letter: 'D', text: 'The bus that goes to the zoo has', correct: false },
+        { letter: 'C', text: 'The bus that goes to the zoo has', correct: false },
+        { letter: 'D', text: 'The bus that goes to the zoo', correct: true },
       ],
       explanation: '「<ruby>動物園<rt>どうぶつえん</rt></ruby>に行くバス」= <strong>The bus that goes to the zoo</strong> が<ruby>主語<rt>しゅご</rt></ruby>だよ。has already left が<ruby>述語<rt>じゅつご</rt></ruby>。<ruby>関係代名詞節<rt>かんけいだいめいしせつ</rt></ruby>をカッコでくくって<ruby>考<rt>かんが</rt></ruby>えよう！',
     },

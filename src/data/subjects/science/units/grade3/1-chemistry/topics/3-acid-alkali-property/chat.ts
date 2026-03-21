@@ -119,12 +119,12 @@ export const acidAlkaliPropertyChat: HistoryChat = {
       question: 'フェノールフタレイン溶液が赤色になるのはどの性質の水溶液？',
       options: [
         { letter: 'A', text: '酸性', correct: false },
-        { letter: 'B', text: '中性', correct: false },
-        { letter: 'C', text: 'アルカリ性', correct: true },
+        { letter: 'B', text: 'アルカリ性', correct: true },
+        { letter: 'C', text: '中性', correct: false },
         { letter: 'D', text: '酸性と中性', correct: false },
       ],
       explanation:
-        '<strong>正解はC「アルカリ<ruby>性<rp>(</rp><rt>せい</rt><rp>)</rp></ruby>」</strong>です。フェノールフタレイン<ruby>溶液<rp>(</rp><rt>ようえき</rt><rp>)</rp></ruby>はアルカリ性のときだけ<ruby>赤色<rp>(</rp><rt>あかいろ</rt><rp>)</rp></ruby>に変わり、<ruby>酸性<rp>(</rp><rt>さんせい</rt><rp>)</rp></ruby>・<ruby>中性<rp>(</rp><rt>ちゅうせい</rt><rp>)</rp></ruby>では<ruby>無色<rp>(</rp><rt>むしょく</rt><rp>)</rp></ruby>のままです。',
+        '<strong>正解はB「アルカリ<ruby>性<rp>(</rp><rt>せい</rt><rp>)</rp></ruby>」</strong>です。フェノールフタレイン<ruby>溶液<rp>(</rp><rt>ようえき</rt><rp>)</rp></ruby>はアルカリ性のときだけ<ruby>赤色<rp>(</rp><rt>あかいろ</rt><rp>)</rp></ruby>に変わり、<ruby>酸性<rp>(</rp><rt>さんせい</rt><rp>)</rp></ruby>・<ruby>中性<rp>(</rp><rt>ちゅうせい</rt><rp>)</rp></ruby>では<ruby>無色<rp>(</rp><rt>むしょく</rt><rp>)</rp></ruby>のままです。',
     },
     {
       type: 'date',
@@ -163,13 +163,13 @@ export const acidAlkaliPropertyChat: HistoryChat = {
       type: 'quiz',
       question: '硫酸（H₂SO₄）が電離したときに出るH⁺の数は？',
       options: [
-        { letter: 'A', text: '1個', correct: false },
-        { letter: 'B', text: '2個', correct: true },
+        { letter: 'A', text: '2個', correct: true },
+        { letter: 'B', text: '1個', correct: false },
         { letter: 'C', text: '3個', correct: false },
         { letter: 'D', text: '4個', correct: false },
       ],
       explanation:
-        '<strong>正解はB「2個」</strong>です。H₂SO₄にはHが2つあるので、<ruby>電離<rp>(</rp><rt>でんり</rt><rp>)</rp></ruby>するとH⁺が2個<ruby>生<rp>(</rp><rt>しょう</rt><rp>)</rp></ruby>じます（H₂SO₄ → 2H⁺ + SO₄²⁻）。',
+        '<strong>正解はA「2個」</strong>です。H₂SO₄にはHが2つあるので、<ruby>電離<rp>(</rp><rt>でんり</rt><rp>)</rp></ruby>するとH⁺が2個<ruby>生<rp>(</rp><rt>しょう</rt><rp>)</rp></ruby>じます（H₂SO₄ → 2H⁺ + SO₄²⁻）。',
     },
     {
       type: 'date',
@@ -287,13 +287,13 @@ export const acidAlkaliPropertyChat: HistoryChat = {
       type: 'quiz',
       question: '塩酸を使った電気泳動の実験で、青色リトマス紙の変色が広がるのはどちら側？',
       options: [
-        { letter: 'A', text: '陽極側', correct: true },
+        { letter: 'A', text: '両方同じ', correct: false },
         { letter: 'B', text: '陰極側', correct: false },
-        { letter: 'C', text: '両方同じ', correct: false },
+        { letter: 'C', text: '陽極側', correct: true },
         { letter: 'D', text: '変色しない', correct: false },
       ],
       explanation:
-        '<strong>正解はA「<ruby>陽極<rp>(</rp><rt>ようきょく</rt><rp>)</rp></ruby>側」</strong>です。H⁺は＋の電気を帯びているので<ruby>陰極<rp>(</rp><rt>いんきょく</rt><rp>)</rp></ruby>に<ruby>移動<rp>(</rp><rt>いどう</rt><rp>)</rp></ruby>し、<ruby>変色部分<rp>(</rp><rt>へんしょくぶぶん</rt><rp>)</rp></ruby>は<ruby>陽極<rp>(</rp><rt>ようきょく</rt><rp>)</rp></ruby>側に広がります。',
+        '<strong>正解はC「<ruby>陽極<rp>(</rp><rt>ようきょく</rt><rp>)</rp></ruby>側」</strong>です。H⁺は＋の電気を帯びているので<ruby>陰極<rp>(</rp><rt>いんきょく</rt><rp>)</rp></ruby>に<ruby>移動<rp>(</rp><rt>いどう</rt><rp>)</rp></ruby>し、<ruby>変色部分<rp>(</rp><rt>へんしょくぶぶん</rt><rp>)</rp></ruby>は<ruby>陽極<rp>(</rp><rt>ようきょく</rt><rp>)</rp></ruby>側に広がります。',
     },
     {
       type: 'end',

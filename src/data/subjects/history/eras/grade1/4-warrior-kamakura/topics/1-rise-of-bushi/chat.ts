@@ -98,12 +98,12 @@ export const riseOfBushiChat: HistoryChat = {
       type: 'quiz',
       question: '武士が血縁や主従関係で結んだ集団を何というか？',
       options: [
-        { letter: 'A', text: '武士団', correct: true },
+        { letter: 'A', text: '守護', correct: false },
         { letter: 'B', text: '御家人', correct: false },
-        { letter: 'C', text: '守護', correct: false },
+        { letter: 'C', text: '武士団', correct: true },
         { letter: 'D', text: '地頭', correct: false },
       ],
-      explanation: '<strong>正解はA「<ruby>武士団<rp>(</rp><rt>ぶしだん</rt><rp>)</rp></ruby>」</strong>です。<ruby>武士<rp>(</rp><rt>ぶし</rt><rp>)</rp></ruby>たちは<ruby>血縁<rp>(</rp><rt>けつえん</rt><rp>)</rp></ruby>関係や<ruby>主従<rp>(</rp><rt>しゅじゅう</rt><rp>)</rp></ruby>関係で結ばれた<strong>武士団</strong>を形成し、<ruby>惣領<rp>(</rp><rt>そうりょう</rt><rp>)</rp></ruby>を中心にまとまりました。',
+      explanation: '<strong>正解はC「<ruby>武士団<rp>(</rp><rt>ぶしだん</rt><rp>)</rp></ruby>」</strong>です。<ruby>武士<rp>(</rp><rt>ぶし</rt><rp>)</rp></ruby>たちは<ruby>血縁<rp>(</rp><rt>けつえん</rt><rp>)</rp></ruby>関係や<ruby>主従<rp>(</rp><rt>しゅじゅう</rt><rp>)</rp></ruby>関係で結ばれた<strong>武士団</strong>を形成し、<ruby>惣領<rp>(</rp><rt>そうりょう</rt><rp>)</rp></ruby>を中心にまとまりました。',
     },
     {
       type: 'narrator',
@@ -206,12 +206,12 @@ export const riseOfBushiChat: HistoryChat = {
       type: 'quiz',
       question: '荘園の税をまぬがれることができる権利は？',
       options: [
-        { letter: 'A', text: '不入の権', correct: false },
+        { letter: 'A', text: '不輸の権', correct: true },
         { letter: 'B', text: '寄進', correct: false },
-        { letter: 'C', text: '不輸の権', correct: true },
+        { letter: 'C', text: '不入の権', correct: false },
         { letter: 'D', text: '年貢免除', correct: false },
       ],
-      explanation: '<strong>正解はC「<ruby>不輸<rp>(</rp><rt>ふゆ</rt><rp>)</rp></ruby>の<ruby>権<rp>(</rp><rt>けん</rt><rp>)</rp></ruby>」</strong>です。<ruby>不輸<rp>(</rp><rt>ふゆ</rt><rp>)</rp></ruby>の<ruby>権<rp>(</rp><rt>けん</rt><rp>)</rp></ruby>は荘園の税を<ruby>免除<rp>(</rp><rt>めんじょ</rt><rp>)</rp></ruby>される権利で、<ruby>不入<rp>(</rp><rt>ふにゅう</rt><rp>)</rp></ruby>の<ruby>権<rp>(</rp><rt>けん</rt><rp>)</rp></ruby>は役人の立ち入りを<ruby>拒否<rp>(</rp><rt>きょひ</rt><rp>)</rp></ruby>する権利です。',
+      explanation: '<strong>正解はA「<ruby>不輸<rp>(</rp><rt>ふゆ</rt><rp>)</rp></ruby>の<ruby>権<rp>(</rp><rt>けん</rt><rp>)</rp></ruby>」</strong>です。<ruby>不輸<rp>(</rp><rt>ふゆ</rt><rp>)</rp></ruby>の<ruby>権<rp>(</rp><rt>けん</rt><rp>)</rp></ruby>は荘園の税を<ruby>免除<rp>(</rp><rt>めんじょ</rt><rp>)</rp></ruby>される権利で、<ruby>不入<rp>(</rp><rt>ふにゅう</rt><rp>)</rp></ruby>の<ruby>権<rp>(</rp><rt>けん</rt><rp>)</rp></ruby>は役人の立ち入りを<ruby>拒否<rp>(</rp><rt>きょひ</rt><rp>)</rp></ruby>する権利です。',
     },
     {
       type: 'end',

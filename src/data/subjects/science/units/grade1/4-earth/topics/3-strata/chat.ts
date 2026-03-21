@@ -84,13 +84,13 @@ export const strataChat: HistoryChat = {
       type: 'quiz',
       question: '河口から最も遠くまで運ばれて堆積するのはどれか。',
       options: [
-        { letter: 'A', text: 'れき', correct: false },
+        { letter: 'A', text: '泥', correct: true },
         { letter: 'B', text: '砂', correct: false },
-        { letter: 'C', text: '泥', correct: true },
+        { letter: 'C', text: 'れき', correct: false },
         { letter: 'D', text: '火山灰', correct: false },
       ],
       explanation:
-        '<strong>正解はC「<ruby>泥<rp>(</rp><rt>どろ</rt><rp>)</rp></ruby>」</strong>です。<ruby>粒<rp>(</rp><rt>つぶ</rt><rp>)</rp></ruby>が小さいほど<ruby>遠<rp>(</rp><rt>とお</rt><rp>)</rp></ruby>くまで<ruby>運<rp>(</rp><rt>はこ</rt><rp>)</rp></ruby>ばれるため、<ruby>泥<rp>(</rp><rt>どろ</rt><rp>)</rp></ruby>は<ruby>沖合<rp>(</rp><rt>おきあい</rt><rp>)</rp></ruby>まで<ruby>運搬<rp>(</rp><rt>うんぱん</rt><rp>)</rp></ruby>されて<ruby>堆積<rp>(</rp><rt>たいせき</rt><rp>)</rp></ruby>します。',
+        '<strong>正解はA「<ruby>泥<rp>(</rp><rt>どろ</rt><rp>)</rp></ruby>」</strong>です。<ruby>粒<rp>(</rp><rt>つぶ</rt><rp>)</rp></ruby>が小さいほど<ruby>遠<rp>(</rp><rt>とお</rt><rp>)</rp></ruby>くまで<ruby>運<rp>(</rp><rt>はこ</rt><rp>)</rp></ruby>ばれるため、<ruby>泥<rp>(</rp><rt>どろ</rt><rp>)</rp></ruby>は<ruby>沖合<rp>(</rp><rt>おきあい</rt><rp>)</rp></ruby>まで<ruby>運搬<rp>(</rp><rt>うんぱん</rt><rp>)</rp></ruby>されて<ruby>堆積<rp>(</rp><rt>たいせき</rt><rp>)</rp></ruby>します。',
     },
     {
       type: 'date',
@@ -163,12 +163,12 @@ export const strataChat: HistoryChat = {
       question: 'アンモナイトの化石が見つかった地層の時代はいつ？',
       options: [
         { letter: 'A', text: '古生代', correct: false },
-        { letter: 'B', text: '中生代', correct: true },
+        { letter: 'B', text: '先カンブリア時代', correct: false },
         { letter: 'C', text: '新生代', correct: false },
-        { letter: 'D', text: '先カンブリア時代', correct: false },
+        { letter: 'D', text: '中生代', correct: true },
       ],
       explanation:
-        '<strong>正解はB「<ruby>中生代<rp>(</rp><rt>ちゅうせいだい</rt><rp>)</rp></ruby>」</strong>です。アンモナイトは<ruby>中生代<rp>(</rp><rt>ちゅうせいだい</rt><rp>)</rp></ruby>の<ruby>示準<rp>(</rp><rt>しじゅん</rt><rp>)</rp></ruby><ruby>化石<rp>(</rp><rt>かせき</rt><rp>)</rp></ruby>です。<ruby>古生代<rp>(</rp><rt>こせいだい</rt><rp>)</rp></ruby>は<ruby>三葉虫<rp>(</rp><rt>さんようちゅう</rt><rp>)</rp></ruby>、<ruby>新生代<rp>(</rp><rt>しんせいだい</rt><rp>)</rp></ruby>はビカリアが<ruby>代表的<rp>(</rp><rt>だいひょうてき</rt><rp>)</rp></ruby>です。',
+        '<strong>正解はD「<ruby>中生代<rp>(</rp><rt>ちゅうせいだい</rt><rp>)</rp></ruby>」</strong>です。アンモナイトは<ruby>中生代<rp>(</rp><rt>ちゅうせいだい</rt><rp>)</rp></ruby>の<ruby>示準<rp>(</rp><rt>しじゅん</rt><rp>)</rp></ruby><ruby>化石<rp>(</rp><rt>かせき</rt><rp>)</rp></ruby>です。<ruby>古生代<rp>(</rp><rt>こせいだい</rt><rp>)</rp></ruby>は<ruby>三葉虫<rp>(</rp><rt>さんようちゅう</rt><rp>)</rp></ruby>、<ruby>新生代<rp>(</rp><rt>しんせいだい</rt><rp>)</rp></ruby>はビカリアが<ruby>代表的<rp>(</rp><rt>だいひょうてき</rt><rp>)</rp></ruby>です。',
     },
     {
       type: 'date',

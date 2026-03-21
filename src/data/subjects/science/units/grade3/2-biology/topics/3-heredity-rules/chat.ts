@@ -86,13 +86,13 @@ export const heredityRulesChat: HistoryChat = {
       type: 'quiz',
       question: 'エンドウの種子の「丸形」と「しわ形」のように、一方しか現れない2つの形質の関係を何という？',
       options: [
-        { letter: 'A', text: '対立形質', correct: true },
-        { letter: 'B', text: '顕性形質', correct: false },
+        { letter: 'A', text: '顕性形質', correct: false },
+        { letter: 'B', text: '対立形質', correct: true },
         { letter: 'C', text: '潜性形質', correct: false },
         { letter: 'D', text: '純系', correct: false },
       ],
       explanation:
-        '<strong>正解はA「<ruby>対立形質<rp>(</rp><rt>たいりつけいしつ</rt><rp>)</rp></ruby>」</strong>です。どちらか一方の<ruby>形質<rp>(</rp><rt>けいしつ</rt><rp>)</rp></ruby>しか現れない2つの形質の関係を<ruby>対立形質<rp>(</rp><rt>たいりつけいしつ</rt><rp>)</rp></ruby>といいます。',
+        '<strong>正解はB「<ruby>対立形質<rp>(</rp><rt>たいりつけいしつ</rt><rp>)</rp></ruby>」</strong>です。どちらか一方の<ruby>形質<rp>(</rp><rt>けいしつ</rt><rp>)</rp></ruby>しか現れない2つの形質の関係を<ruby>対立形質<rp>(</rp><rt>たいりつけいしつ</rt><rp>)</rp></ruby>といいます。',
     },
     {
       type: 'message',
@@ -191,13 +191,13 @@ export const heredityRulesChat: HistoryChat = {
       type: 'quiz',
       question: '孫の代（F2）で顕性形質と潜性形質が現れる比は？',
       options: [
-        { letter: 'A', text: '1：1', correct: false },
+        { letter: 'A', text: '3：1', correct: true },
         { letter: 'B', text: '2：1', correct: false },
-        { letter: 'C', text: '3：1', correct: true },
+        { letter: 'C', text: '1：1', correct: false },
         { letter: 'D', text: '4：1', correct: false },
       ],
       explanation:
-        '<strong>正解はC「3：1」</strong>です。Aa × Aa → AA：Aa：aa＝1：2：1。Aをもつもの（AA・Aa）が<ruby>顕性形質<rp>(</rp><rt>けんせいけいしつ</rt><rp>)</rp></ruby>、aaが<ruby>潜性形質<rp>(</rp><rt>せんせいけいしつ</rt><rp>)</rp></ruby>なので、3：1になります。',
+        '<strong>正解はA「3：1」</strong>です。Aa × Aa → AA：Aa：aa＝1：2：1。Aをもつもの（AA・Aa）が<ruby>顕性形質<rp>(</rp><rt>けんせいけいしつ</rt><rp>)</rp></ruby>、aaが<ruby>潜性形質<rp>(</rp><rt>せんせいけいしつ</rt><rp>)</rp></ruby>なので、3：1になります。',
     },
 
     // === まとめ ===

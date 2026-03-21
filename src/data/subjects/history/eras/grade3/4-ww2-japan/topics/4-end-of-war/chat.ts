@@ -78,13 +78,13 @@ export const endOfWarChat: HistoryChat = {
       type: 'quiz',
       question: '1945年にアメリカ軍が上陸し、住民を巻き込んだ激しい地上戦が行われた場所は？',
       options: [
-        { letter: 'A', text: '沖縄', correct: true },
+        { letter: 'A', text: '広島', correct: false },
         { letter: 'B', text: 'サイパン', correct: false },
         { letter: 'C', text: '硫黄島', correct: false },
-        { letter: 'D', text: '広島', correct: false },
+        { letter: 'D', text: '沖縄', correct: true },
       ],
       explanation:
-        '<strong>正解はA「<ruby>沖縄<rp>(</rp><rt>おきなわ</rt><rp>)</rp></ruby>」</strong>です。<ruby>沖縄戦<rp>(</rp><rt>おきなわせん</rt><rp>)</rp></ruby>では約20万人が<ruby>犠牲<rp>(</rp><rt>ぎせい</rt><rp>)</rp></ruby>になりました。',
+        '<strong>正解はD「<ruby>沖縄<rp>(</rp><rt>おきなわ</rt><rp>)</rp></ruby>」</strong>です。<ruby>沖縄戦<rp>(</rp><rt>おきなわせん</rt><rp>)</rp></ruby>では約20万人が<ruby>犠牲<rp>(</rp><rt>ぎせい</rt><rp>)</rp></ruby>になりました。',
     },
     {
       type: 'date',
@@ -132,11 +132,11 @@ export const endOfWarChat: HistoryChat = {
       options: [
         { letter: 'A', text: '8月1日', correct: false },
         { letter: 'B', text: '8月15日', correct: false },
-        { letter: 'C', text: '8月9日', correct: false },
-        { letter: 'D', text: '8月6日', correct: true },
+        { letter: 'C', text: '8月6日', correct: true },
+        { letter: 'D', text: '8月9日', correct: false },
       ],
       explanation:
-        '<strong>正解はD「8月6日」</strong>です。8月9日は<ruby>長崎<rp>(</rp><rt>ながさき</rt><rp>)</rp></ruby>への<ruby>原爆<rp>(</rp><rt>げんばく</rt><rp>)</rp></ruby><ruby>投下<rp>(</rp><rt>とうか</rt><rp>)</rp></ruby>、8月15日は<ruby>終戦<rp>(</rp><rt>しゅうせん</rt><rp>)</rp></ruby>の日です。',
+        '<strong>正解はC「8月6日」</strong>です。8月9日は<ruby>長崎<rp>(</rp><rt>ながさき</rt><rp>)</rp></ruby>への<ruby>原爆<rp>(</rp><rt>げんばく</rt><rp>)</rp></ruby><ruby>投下<rp>(</rp><rt>とうか</rt><rp>)</rp></ruby>、8月15日は<ruby>終戦<rp>(</rp><rt>しゅうせん</rt><rp>)</rp></ruby>の日です。',
     },
     {
       type: 'narrator',
@@ -186,13 +186,13 @@ export const endOfWarChat: HistoryChat = {
       type: 'quiz',
       question: '天皇がラジオで国民に終戦を伝えた放送を何という？',
       options: [
-        { letter: 'A', text: '玉音放送', correct: true },
-        { letter: 'B', text: '終戦宣言', correct: false },
+        { letter: 'A', text: '終戦宣言', correct: false },
+        { letter: 'B', text: '玉音放送', correct: true },
         { letter: 'C', text: '大本営発表', correct: false },
         { letter: 'D', text: '降伏声明', correct: false },
       ],
       explanation:
-        '<strong>正解はA「<ruby>玉音放送<rp>(</rp><rt>ぎょくおんほうそう</rt><rp>)</rp></ruby>」</strong>です。1945年8月15日、<ruby>天皇<rp>(</rp><rt>てんのう</rt><rp>)</rp></ruby>がラジオで<ruby>終戦<rp>(</rp><rt>しゅうせん</rt><rp>)</rp></ruby>を国民に伝えました。',
+        '<strong>正解はB「<ruby>玉音放送<rp>(</rp><rt>ぎょくおんほうそう</rt><rp>)</rp></ruby>」</strong>です。1945年8月15日、<ruby>天皇<rp>(</rp><rt>てんのう</rt><rp>)</rp></ruby>がラジオで<ruby>終戦<rp>(</rp><rt>しゅうせん</rt><rp>)</rp></ruby>を国民に伝えました。',
     },
     {
       type: 'end',

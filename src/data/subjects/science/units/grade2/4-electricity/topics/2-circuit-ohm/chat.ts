@@ -92,12 +92,12 @@ export const circuitOhmChat: HistoryChat = {
       question: '電圧計の正しいつなぎ方はどれ？',
       options: [
         { letter: 'A', text: '測りたい部分に直列につなぐ', correct: false },
-        { letter: 'B', text: '測りたい部分に並列につなぐ', correct: true },
+        { letter: 'B', text: '電流計と同じ場所に直列につなぐ', correct: false },
         { letter: 'C', text: '回路の外側に置く', correct: false },
-        { letter: 'D', text: '電流計と同じ場所に直列につなぐ', correct: false },
+        { letter: 'D', text: '測りたい部分に並列につなぐ', correct: true },
       ],
       explanation:
-        '<strong>正解はB「<ruby>測<rp>(</rp><rt>はか</rt><rp>)</rp></ruby>りたい部分に<ruby>並列<rp>(</rp><rt>へいれつ</rt><rp>)</rp></ruby>につなぐ」</strong>です。<ruby>電圧計<rp>(</rp><rt>でんあつけい</rt><rp>)</rp></ruby>は<ruby>並列<rp>(</rp><rt>へいれつ</rt><rp>)</rp></ruby>に、<ruby>電流計<rp>(</rp><rt>でんりゅうけい</rt><rp>)</rp></ruby>は<ruby>直列<rp>(</rp><rt>ちょくれつ</rt><rp>)</rp></ruby>につなぎます。',
+        '<strong>正解はD「<ruby>測<rp>(</rp><rt>はか</rt><rp>)</rp></ruby>りたい部分に<ruby>並列<rp>(</rp><rt>へいれつ</rt><rp>)</rp></ruby>につなぐ」</strong>です。<ruby>電圧計<rp>(</rp><rt>でんあつけい</rt><rp>)</rp></ruby>は<ruby>並列<rp>(</rp><rt>へいれつ</rt><rp>)</rp></ruby>に、<ruby>電流計<rp>(</rp><rt>でんりゅうけい</rt><rp>)</rp></ruby>は<ruby>直列<rp>(</rp><rt>ちょくれつ</rt><rp>)</rp></ruby>につなぎます。',
     },
     {
       type: 'date',
@@ -158,12 +158,12 @@ export const circuitOhmChat: HistoryChat = {
       question: '並列回路について正しいものはどれ？',
       options: [
         { letter: 'A', text: '電流はどこも同じで、電圧は各部分の和になる', correct: false },
-        { letter: 'B', text: '電圧はどこも同じで、電流は各部分の和になる', correct: true },
-        { letter: 'C', text: '電流も電圧もどこも同じになる', correct: false },
+        { letter: 'B', text: '電流も電圧もどこも同じになる', correct: false },
+        { letter: 'C', text: '電圧はどこも同じで、電流は各部分の和になる', correct: true },
         { letter: 'D', text: '電流も電圧も各部分の和が全体になる', correct: false },
       ],
       explanation:
-        '<strong>正解はB</strong>です。<ruby>並列<rp>(</rp><rt>へいれつ</rt><rp>)</rp></ruby>回路では<ruby>電圧<rp>(</rp><rt>でんあつ</rt><rp>)</rp></ruby>はどこも同じ（V＝V₁＝V₂）で、電流は各<ruby>枝<rp>(</rp><rt>えだ</rt><rp>)</rp></ruby>の和が<ruby>全体<rp>(</rp><rt>ぜんたい</rt><rp>)</rp></ruby>（I＝I₁＋I₂）になります。',
+        '<strong>正解はC</strong>です。<ruby>並列<rp>(</rp><rt>へいれつ</rt><rp>)</rp></ruby>回路では<ruby>電圧<rp>(</rp><rt>でんあつ</rt><rp>)</rp></ruby>はどこも同じ（V＝V₁＝V₂）で、電流は各<ruby>枝<rp>(</rp><rt>えだ</rt><rp>)</rp></ruby>の和が<ruby>全体<rp>(</rp><rt>ぜんたい</rt><rp>)</rp></ruby>（I＝I₁＋I₂）になります。',
     },
     {
       type: 'end',

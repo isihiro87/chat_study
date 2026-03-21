@@ -92,10 +92,10 @@ export const mongolInvasionChat: HistoryChat = {
       options: [
         { letter: 'A', text: '弘安の役', correct: false },
         { letter: 'B', text: '承久の乱', correct: false },
-        { letter: 'C', text: '文永の役', correct: true },
-        { letter: 'D', text: '壇ノ浦の戦い', correct: false },
+        { letter: 'C', text: '壇ノ浦の戦い', correct: false },
+        { letter: 'D', text: '文永の役', correct: true },
       ],
-      explanation: '<strong>正解はC「<ruby>文永<rp>(</rp><rt>ぶんえい</rt><rp>)</rp></ruby>の<ruby>役<rp>(</rp><rt>えき</rt><rp>)</rp></ruby>」</strong>です。1274年の元軍の最初の<ruby>襲来<rp>(</rp><rt>しゅうらい</rt><rp>)</rp></ruby>を文永の役といいます。2度目の1281年の襲来は<ruby>弘安<rp>(</rp><rt>こうあん</rt><rp>)</rp></ruby>の役と呼ばれます。',
+      explanation: '<strong>正解はD「<ruby>文永<rp>(</rp><rt>ぶんえい</rt><rp>)</rp></ruby>の<ruby>役<rp>(</rp><rt>えき</rt><rp>)</rp></ruby>」</strong>です。1274年の元軍の最初の<ruby>襲来<rp>(</rp><rt>しゅうらい</rt><rp>)</rp></ruby>を文永の役といいます。2度目の1281年の襲来は<ruby>弘安<rp>(</rp><rt>こうあん</rt><rp>)</rp></ruby>の役と呼ばれます。',
     },
     {
       type: 'narrator',

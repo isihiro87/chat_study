@@ -135,12 +135,12 @@ export const postwarOrderChat: HistoryChat = {
       question: '1919年に朝鮮で起きた独立運動は？',
       options: [
         { letter: 'A', text: '五・四運動', correct: false },
-        { letter: 'B', text: '辛亥革命', correct: false },
+        { letter: 'B', text: '三・一独立運動', correct: true },
         { letter: 'C', text: '義和団事件', correct: false },
-        { letter: 'D', text: '三・一独立運動', correct: true },
+        { letter: 'D', text: '辛亥革命', correct: false },
       ],
       explanation:
-        '<strong>正解はD「<ruby>三・一独立運動<rp>(</rp><rt>さんいちどくりつうんどう</rt><rp>)</rp></ruby>」</strong>です。1919年3月1日に始まった<ruby>朝鮮<rp>(</rp><rt>ちょうせん</rt><rp>)</rp></ruby>の大規模な<ruby>独立<rp>(</rp><rt>どくりつ</rt><rp>)</rp></ruby>運動です。',
+        '<strong>正解はB「<ruby>三・一独立運動<rp>(</rp><rt>さんいちどくりつうんどう</rt><rp>)</rp></ruby>」</strong>です。1919年3月1日に始まった<ruby>朝鮮<rp>(</rp><rt>ちょうせん</rt><rp>)</rp></ruby>の大規模な<ruby>独立<rp>(</rp><rt>どくりつ</rt><rp>)</rp></ruby>運動です。',
     },
     {
       type: 'narrator',
@@ -175,13 +175,13 @@ export const postwarOrderChat: HistoryChat = {
       type: 'quiz',
       question: 'インドで非暴力・不服従運動を指導した人物は？',
       options: [
-        { letter: 'A', text: 'ネルー', correct: false },
+        { letter: 'A', text: 'ガンディー', correct: true },
         { letter: 'B', text: '孫文', correct: false },
-        { letter: 'C', text: 'ガンディー', correct: true },
+        { letter: 'C', text: 'ネルー', correct: false },
         { letter: 'D', text: 'スカルノ', correct: false },
       ],
       explanation:
-        '<strong>正解はC「ガンディー」</strong>です。<ruby>暴力<rp>(</rp><rt>ぼうりょく</rt><rp>)</rp></ruby>を使わずに<ruby>不当<rp>(</rp><rt>ふとう</rt><rp>)</rp></ruby>な<ruby>支配<rp>(</rp><rt>しはい</rt><rp>)</rp></ruby>に従わないという方法でイギリスからの<ruby>独立<rp>(</rp><rt>どくりつ</rt><rp>)</rp></ruby>を目指しました。',
+        '<strong>正解はA「ガンディー」</strong>です。<ruby>暴力<rp>(</rp><rt>ぼうりょく</rt><rp>)</rp></ruby>を使わずに<ruby>不当<rp>(</rp><rt>ふとう</rt><rp>)</rp></ruby>な<ruby>支配<rp>(</rp><rt>しはい</rt><rp>)</rp></ruby>に従わないという方法でイギリスからの<ruby>独立<rp>(</rp><rt>どくりつ</rt><rp>)</rp></ruby>を目指しました。',
     },
     {
       type: 'end',

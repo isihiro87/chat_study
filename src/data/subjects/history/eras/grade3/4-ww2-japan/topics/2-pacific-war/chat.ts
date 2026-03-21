@@ -123,13 +123,13 @@ export const pacificWarChat: HistoryChat = {
       type: 'quiz',
       question: '1942年に日本海軍が大敗した海戦は？',
       options: [
-        { letter: 'A', text: 'ミッドウェー海戦', correct: true },
+        { letter: 'A', text: '珊瑚海海戦', correct: false },
         { letter: 'B', text: 'レイテ沖海戦', correct: false },
-        { letter: 'C', text: '珊瑚海海戦', correct: false },
+        { letter: 'C', text: 'ミッドウェー海戦', correct: true },
         { letter: 'D', text: '日本海海戦', correct: false },
       ],
       explanation:
-        '<strong>正解はA「<ruby>ミッドウェー海戦<rp>(</rp><rt>みっどうぇーかいせん</rt><rp>)</rp></ruby>」</strong>です。<ruby>主力<rp>(</rp><rt>しゅりょく</rt><rp>)</rp></ruby><ruby>空母<rp>(</rp><rt>くうぼ</rt><rp>)</rp></ruby>4<ruby>隻<rp>(</rp><rt>せき</rt><rp>)</rp></ruby>を失い、<ruby>太平洋戦争<rp>(</rp><rt>たいへいようせんそう</rt><rp>)</rp></ruby>の<ruby>転換点<rp>(</rp><rt>てんかんてん</rt><rp>)</rp></ruby>となりました。',
+        '<strong>正解はC「<ruby>ミッドウェー海戦<rp>(</rp><rt>みっどうぇーかいせん</rt><rp>)</rp></ruby>」</strong>です。<ruby>主力<rp>(</rp><rt>しゅりょく</rt><rp>)</rp></ruby><ruby>空母<rp>(</rp><rt>くうぼ</rt><rp>)</rp></ruby>4<ruby>隻<rp>(</rp><rt>せき</rt><rp>)</rp></ruby>を失い、<ruby>太平洋戦争<rp>(</rp><rt>たいへいようせんそう</rt><rp>)</rp></ruby>の<ruby>転換点<rp>(</rp><rt>てんかんてん</rt><rp>)</rp></ruby>となりました。',
     },
     {
       type: 'date',

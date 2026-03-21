@@ -84,12 +84,12 @@ export const shotokuAsukaChat: HistoryChat = {
       type: 'quiz',
       question: '才能や功績で地位を決める制度は？',
       options: [
-        { letter: 'A', text: '冠位十二階', correct: true },
+        { letter: 'A', text: '班田収授法', correct: false },
         { letter: 'B', text: '十七条の憲法', correct: false },
-        { letter: 'C', text: '班田収授法', correct: false },
+        { letter: 'C', text: '冠位十二階', correct: true },
         { letter: 'D', text: '大宝律令', correct: false },
       ],
-      explanation: '<strong>正解はA「<ruby>冠位十二階<rp>(</rp><rt>かんいじゅうにかい</rt><rp>)</rp></ruby>」</strong>です。家柄にとらわれず、才能や<ruby>功績<rp>(</rp><rt>こうせき</rt><rp>)</rp></ruby>に応じて地位を与える制度です。',
+      explanation: '<strong>正解はC「<ruby>冠位十二階<rp>(</rp><rt>かんいじゅうにかい</rt><rp>)</rp></ruby>」</strong>です。家柄にとらわれず、才能や<ruby>功績<rp>(</rp><rt>こうせき</rt><rp>)</rp></ruby>に応じて地位を与える制度です。',
     },
     {
       type: 'narrator',
@@ -138,11 +138,11 @@ export const shotokuAsukaChat: HistoryChat = {
       question: '聖徳太子が建立した飛鳥文化を代表する寺は？',
       options: [
         { letter: 'A', text: '東大寺', correct: false },
-        { letter: 'B', text: '唐招提寺', correct: false },
-        { letter: 'C', text: '法隆寺', correct: true },
+        { letter: 'B', text: '法隆寺', correct: true },
+        { letter: 'C', text: '唐招提寺', correct: false },
         { letter: 'D', text: '平等院', correct: false },
       ],
-      explanation: '<strong>正解はC「<ruby>法隆寺<rp>(</rp><rt>ほうりゅうじ</rt><rp>)</rp></ruby>」</strong>です。世界最古の<ruby>木造建築<rp>(</rp><rt>もくぞうけんちく</rt><rp>)</rp></ruby>として知られ、<ruby>飛鳥文化<rp>(</rp><rt>あすかぶんか</rt><rp>)</rp></ruby>を代表する<ruby>寺院<rp>(</rp><rt>じいん</rt><rp>)</rp></ruby>です。',
+      explanation: '<strong>正解はB「<ruby>法隆寺<rp>(</rp><rt>ほうりゅうじ</rt><rp>)</rp></ruby>」</strong>です。世界最古の<ruby>木造建築<rp>(</rp><rt>もくぞうけんちく</rt><rp>)</rp></ruby>として知られ、<ruby>飛鳥文化<rp>(</rp><rt>あすかぶんか</rt><rp>)</rp></ruby>を代表する<ruby>寺院<rp>(</rp><rt>じいん</rt><rp>)</rp></ruby>です。',
     },
     {
       type: 'end',

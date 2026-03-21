@@ -82,12 +82,12 @@ export const plantGroupsChat: HistoryChat = {
       question: 'トウモロコシの葉脈はどれ？',
       options: [
         { letter: 'A', text: '網状脈', correct: false },
-        { letter: 'B', text: '平行脈', correct: true },
+        { letter: 'B', text: '羽状脈', correct: false },
         { letter: 'C', text: '放射脈', correct: false },
-        { letter: 'D', text: '羽状脈', correct: false },
+        { letter: 'D', text: '平行脈', correct: true },
       ],
       explanation:
-        '<strong>正解はB「平行脈」</strong>です。トウモロコシは<ruby>単子葉類<rp>(</rp><rt>たんしようるい</rt><rp>)</rp></ruby>なので、<ruby>葉脈<rp>(</rp><rt>ようみゃく</rt><rp>)</rp></ruby>は<ruby>平行脈<rp>(</rp><rt>へいこうみゃく</rt><rp>)</rp></ruby>です。',
+        '<strong>正解はD「平行脈」</strong>です。トウモロコシは<ruby>単子葉類<rp>(</rp><rt>たんしようるい</rt><rp>)</rp></ruby>なので、<ruby>葉脈<rp>(</rp><rt>ようみゃく</rt><rp>)</rp></ruby>は<ruby>平行脈<rp>(</rp><rt>へいこうみゃく</rt><rp>)</rp></ruby>です。',
     },
     {
       type: 'summary-point',
@@ -98,12 +98,12 @@ export const plantGroupsChat: HistoryChat = {
       question: '単子葉類の根のつくりはどれ？',
       options: [
         { letter: 'A', text: '主根と側根', correct: false },
-        { letter: 'B', text: 'ひげ根', correct: true },
-        { letter: 'C', text: '仮根', correct: false },
+        { letter: 'B', text: '仮根', correct: false },
+        { letter: 'C', text: 'ひげ根', correct: true },
         { letter: 'D', text: '地下茎', correct: false },
       ],
       explanation:
-        '<strong>正解はB</strong>です。<ruby>単子葉類<rp>(</rp><rt>たんしようるい</rt><rp>)</rp></ruby>の根はひげ根で、<ruby>双子葉類<rp>(</rp><rt>そうしようるい</rt><rp>)</rp></ruby>は<ruby>主根<rp>(</rp><rt>しゅこん</rt><rp>)</rp></ruby>と<ruby>側根<rp>(</rp><rt>そっこん</rt><rp>)</rp></ruby>です。',
+        '<strong>正解はC</strong>です。<ruby>単子葉類<rp>(</rp><rt>たんしようるい</rt><rp>)</rp></ruby>の根はひげ根で、<ruby>双子葉類<rp>(</rp><rt>そうしようるい</rt><rp>)</rp></ruby>は<ruby>主根<rp>(</rp><rt>しゅこん</rt><rp>)</rp></ruby>と<ruby>側根<rp>(</rp><rt>そっこん</rt><rp>)</rp></ruby>です。',
     },
     {
       type: 'date',
@@ -157,12 +157,12 @@ export const plantGroupsChat: HistoryChat = {
       question: 'ツクシはどの植物の胞子をつくる部分？',
       options: [
         { letter: 'A', text: 'ゼンマイ', correct: false },
-        { letter: 'B', text: 'イヌワラビ', correct: false },
-        { letter: 'C', text: 'スギナ', correct: true },
+        { letter: 'B', text: 'スギナ', correct: true },
+        { letter: 'C', text: 'イヌワラビ', correct: false },
         { letter: 'D', text: 'ゼニゴケ', correct: false },
       ],
       explanation:
-        '<strong>正解はC</strong>です。ツクシはスギナの<ruby>胞子<rp>(</rp><rt>ほうし</rt><rp>)</rp></ruby>をつくる<ruby>部分<rp>(</rp><rt>ぶぶん</rt><rp>)</rp></ruby>で、スギナはシダ<ruby>植物<rp>(</rp><rt>しょくぶつ</rt><rp>)</rp></ruby>です。',
+        '<strong>正解はB</strong>です。ツクシはスギナの<ruby>胞子<rp>(</rp><rt>ほうし</rt><rp>)</rp></ruby>をつくる<ruby>部分<rp>(</rp><rt>ぶぶん</rt><rp>)</rp></ruby>で、スギナはシダ<ruby>植物<rp>(</rp><rt>しょくぶつ</rt><rp>)</rp></ruby>です。',
     },
     {
       type: 'date',
@@ -215,13 +215,13 @@ export const plantGroupsChat: HistoryChat = {
       type: 'quiz',
       question: 'コケ植物の仮根のはたらきはどれ？',
       options: [
-        { letter: 'A', text: '水を吸収する', correct: false },
+        { letter: 'A', text: '体を地面に固定する', correct: true },
         { letter: 'B', text: '養分を蓄える', correct: false },
         { letter: 'C', text: '光合成をする', correct: false },
-        { letter: 'D', text: '体を地面に固定する', correct: true },
+        { letter: 'D', text: '水を吸収する', correct: false },
       ],
       explanation:
-        '<strong>正解はD</strong>です。コケ<ruby>植物<rp>(</rp><rt>しょくぶつ</rt><rp>)</rp></ruby>の<ruby>仮根<rp>(</rp><rt>かこん</rt><rp>)</rp></ruby>は体を<ruby>固定<rp>(</rp><rt>こてい</rt><rp>)</rp></ruby>するだけで、水は体の<ruby>表面<rp>(</rp><rt>ひょうめん</rt><rp>)</rp></ruby>全体で<ruby>吸収<rp>(</rp><rt>きゅうしゅう</rt><rp>)</rp></ruby>します。',
+        '<strong>正解はA</strong>です。コケ<ruby>植物<rp>(</rp><rt>しょくぶつ</rt><rp>)</rp></ruby>の<ruby>仮根<rp>(</rp><rt>かこん</rt><rp>)</rp></ruby>は体を<ruby>固定<rp>(</rp><rt>こてい</rt><rp>)</rp></ruby>するだけで、水は体の<ruby>表面<rp>(</rp><rt>ひょうめん</rt><rp>)</rp></ruby>全体で<ruby>吸収<rp>(</rp><rt>きゅうしゅう</rt><rp>)</rp></ruby>します。',
     },
     {
       type: 'date',
@@ -272,11 +272,11 @@ export const plantGroupsChat: HistoryChat = {
       options: [
         { letter: 'A', text: 'イヌワラビ', correct: false },
         { letter: 'B', text: 'マツ', correct: false },
-        { letter: 'C', text: 'ゼニゴケ', correct: true },
-        { letter: 'D', text: 'アブラナ', correct: false },
+        { letter: 'C', text: 'アブラナ', correct: false },
+        { letter: 'D', text: 'ゼニゴケ', correct: true },
       ],
       explanation:
-        '<strong>正解はC「ゼニゴケ」</strong>です。ゼニゴケはコケ<ruby>植物<rp>(</rp><rt>しょくぶつ</rt><rp>)</rp></ruby>で、<ruby>維管束<rp>(</rp><rt>いかんそく</rt><rp>)</rp></ruby>がありません。イヌワラビはシダ<ruby>植物<rp>(</rp><rt>しょくぶつ</rt><rp>)</rp></ruby>で<ruby>維管束<rp>(</rp><rt>いかんそく</rt><rp>)</rp></ruby>あり。マツ・アブラナは<ruby>種子植物<rp>(</rp><rt>しゅししょくぶつ</rt><rp>)</rp></ruby>で<ruby>維管束<rp>(</rp><rt>いかんそく</rt><rp>)</rp></ruby>あり。',
+        '<strong>正解はD「ゼニゴケ」</strong>です。ゼニゴケはコケ<ruby>植物<rp>(</rp><rt>しょくぶつ</rt><rp>)</rp></ruby>で、<ruby>維管束<rp>(</rp><rt>いかんそく</rt><rp>)</rp></ruby>がありません。イヌワラビはシダ<ruby>植物<rp>(</rp><rt>しょくぶつ</rt><rp>)</rp></ruby>で<ruby>維管束<rp>(</rp><rt>いかんそく</rt><rp>)</rp></ruby>あり。マツ・アブラナは<ruby>種子植物<rp>(</rp><rt>しゅししょくぶつ</rt><rp>)</rp></ruby>で<ruby>維管束<rp>(</rp><rt>いかんそく</rt><rp>)</rp></ruby>あり。',
     },
     {
       type: 'message',
@@ -294,12 +294,12 @@ export const plantGroupsChat: HistoryChat = {
       question: '種子をつくらず、維管束がある植物はどれ？',
       options: [
         { letter: 'A', text: 'コケ植物', correct: false },
-        { letter: 'B', text: 'シダ植物', correct: true },
-        { letter: 'C', text: '被子植物', correct: false },
+        { letter: 'B', text: '被子植物', correct: false },
+        { letter: 'C', text: 'シダ植物', correct: true },
         { letter: 'D', text: '裸子植物', correct: false },
       ],
       explanation:
-        '<strong>正解はB</strong>です。シダ<ruby>植物<rp>(</rp><rt>しょくぶつ</rt><rp>)</rp></ruby>は<ruby>種子<rp>(</rp><rt>しゅし</rt><rp>)</rp></ruby>をつくらず<ruby>胞子<rp>(</rp><rt>ほうし</rt><rp>)</rp></ruby>でふえますが、<ruby>維管束<rp>(</rp><rt>いかんそく</rt><rp>)</rp></ruby>はあります。',
+        '<strong>正解はC</strong>です。シダ<ruby>植物<rp>(</rp><rt>しょくぶつ</rt><rp>)</rp></ruby>は<ruby>種子<rp>(</rp><rt>しゅし</rt><rp>)</rp></ruby>をつくらず<ruby>胞子<rp>(</rp><rt>ほうし</rt><rp>)</rp></ruby>でふえますが、<ruby>維管束<rp>(</rp><rt>いかんそく</rt><rp>)</rp></ruby>はあります。',
     },
     {
       type: 'end',

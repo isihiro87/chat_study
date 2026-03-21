@@ -165,12 +165,12 @@ export const chineseCivilizationChat: HistoryChat = {
       type: 'quiz',
       question: '紀元前3世紀に初めて中国を統一した人物は？',
       options: [
-        { letter: 'A', text: '孔子', correct: false },
+        { letter: 'A', text: '始皇帝', correct: true },
         { letter: 'B', text: 'アレクサンドロス大王', correct: false },
         { letter: 'C', text: '劉邦', correct: false },
-        { letter: 'D', text: '始皇帝', correct: true },
+        { letter: 'D', text: '孔子', correct: false },
       ],
-      explanation: '<strong>正解はD「<ruby>始皇帝<rp>(</rp><rt>しこうてい</rt><rp>)</rp></ruby>」</strong>です。<ruby>秦<rp>(</rp><rt>しん</rt><rp>)</rp></ruby>の王で、<ruby>紀元前<rp>(</rp><rt>きげんぜん</rt><rp>)</rp></ruby>221年に初めて中国を<ruby>統一<rp>(</rp><rt>とういつ</rt><rp>)</rp></ruby>しました。',
+      explanation: '<strong>正解はA「<ruby>始皇帝<rp>(</rp><rt>しこうてい</rt><rp>)</rp></ruby>」</strong>です。<ruby>秦<rp>(</rp><rt>しん</rt><rp>)</rp></ruby>の王で、<ruby>紀元前<rp>(</rp><rt>きげんぜん</rt><rp>)</rp></ruby>221年に初めて中国を<ruby>統一<rp>(</rp><rt>とういつ</rt><rp>)</rp></ruby>しました。',
     },
     {
       type: 'end',

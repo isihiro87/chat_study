@@ -99,13 +99,13 @@ export const solutionPropertiesChat: HistoryChat = {
       type: 'quiz',
       question: '水溶液の特徴として正しいものはどれ？',
       options: [
-        { letter: 'A', text: '透明で濃さが均一', correct: true },
-        { letter: 'B', text: '時間がたつと溶質が沈む', correct: false },
+        { letter: 'A', text: '時間がたつと溶質が沈む', correct: false },
+        { letter: 'B', text: '透明で濃さが均一', correct: true },
         { letter: 'C', text: 'にごっている', correct: false },
         { letter: 'D', text: '上のほうが濃い', correct: false },
       ],
       explanation:
-        '<strong>正解はA「<ruby>透明<rp>(</rp><rt>とうめい</rt><rp>)</rp></ruby>で<ruby>濃<rp>(</rp><rt>こ</rt><rp>)</rp></ruby>さが<ruby>均一<rp>(</rp><rt>きんいつ</rt><rp>)</rp></ruby>」</strong>です。<ruby>水溶液<rp>(</rp><rt>すいようえき</rt><rp>)</rp></ruby>は<ruby>透明<rp>(</rp><rt>とうめい</rt><rp>)</rp></ruby>で<ruby>均一<rp>(</rp><rt>きんいつ</rt><rp>)</rp></ruby>、<ruby>放置<rp>(</rp><rt>ほうち</rt><rp>)</rp></ruby>しても<ruby>溶質<rp>(</rp><rt>ようしつ</rt><rp>)</rp></ruby>が<ruby>沈<rp>(</rp><rt>しず</rt><rp>)</rp></ruby>みません。',
+        '<strong>正解はB「<ruby>透明<rp>(</rp><rt>とうめい</rt><rp>)</rp></ruby>で<ruby>濃<rp>(</rp><rt>こ</rt><rp>)</rp></ruby>さが<ruby>均一<rp>(</rp><rt>きんいつ</rt><rp>)</rp></ruby>」</strong>です。<ruby>水溶液<rp>(</rp><rt>すいようえき</rt><rp>)</rp></ruby>は<ruby>透明<rp>(</rp><rt>とうめい</rt><rp>)</rp></ruby>で<ruby>均一<rp>(</rp><rt>きんいつ</rt><rp>)</rp></ruby>、<ruby>放置<rp>(</rp><rt>ほうち</rt><rp>)</rp></ruby>しても<ruby>溶質<rp>(</rp><rt>ようしつ</rt><rp>)</rp></ruby>が<ruby>沈<rp>(</rp><rt>しず</rt><rp>)</rp></ruby>みません。',
     },
     {
       type: 'date',
@@ -144,13 +144,13 @@ export const solutionPropertiesChat: HistoryChat = {
       type: 'quiz',
       question: 'ろ過でガラス棒をあてるのはろ紙のどの部分？',
       options: [
-        { letter: 'A', text: '1枚の部分', correct: false },
+        { letter: 'A', text: '3枚重ねの部分', correct: true },
         { letter: 'B', text: 'ろ紙の外側', correct: false },
-        { letter: 'C', text: '3枚重ねの部分', correct: true },
+        { letter: 'C', text: '1枚の部分', correct: false },
         { letter: 'D', text: 'ろうとの先端', correct: false },
       ],
       explanation:
-        '<strong>正解はC「3<ruby>枚<rp>(</rp><rt>まい</rt><rp>)</rp></ruby><ruby>重<rp>(</rp><rt>がさ</rt><rp>)</rp></ruby>ねの<ruby>部分<rp>(</rp><rt>ぶぶん</rt><rp>)</rp></ruby>」</strong>です。ろ<ruby>紙<rp>(</rp><rt>し</rt><rp>)</rp></ruby>が<ruby>破<rp>(</rp><rt>やぶ</rt><rp>)</rp></ruby>れないよう、<ruby>厚<rp>(</rp><rt>あつ</rt><rp>)</rp></ruby>い3<ruby>枚<rp>(</rp><rt>まい</rt><rp>)</rp></ruby><ruby>重<rp>(</rp><rt>がさ</rt><rp>)</rp></ruby>ねの<ruby>部分<rp>(</rp><rt>ぶぶん</rt><rp>)</rp></ruby>にガラス<ruby>棒<rp>(</rp><rt>ぼう</rt><rp>)</rp></ruby>をあてます。',
+        '<strong>正解はA「3<ruby>枚<rp>(</rp><rt>まい</rt><rp>)</rp></ruby><ruby>重<rp>(</rp><rt>がさ</rt><rp>)</rp></ruby>ねの<ruby>部分<rp>(</rp><rt>ぶぶん</rt><rp>)</rp></ruby>」</strong>です。ろ<ruby>紙<rp>(</rp><rt>し</rt><rp>)</rp></ruby>が<ruby>破<rp>(</rp><rt>やぶ</rt><rp>)</rp></ruby>れないよう、<ruby>厚<rp>(</rp><rt>あつ</rt><rp>)</rp></ruby>い3<ruby>枚<rp>(</rp><rt>まい</rt><rp>)</rp></ruby><ruby>重<rp>(</rp><rt>がさ</rt><rp>)</rp></ruby>ねの<ruby>部分<rp>(</rp><rt>ぶぶん</rt><rp>)</rp></ruby>にガラス<ruby>棒<rp>(</rp><rt>ぼう</rt><rp>)</rp></ruby>をあてます。',
     },
     {
       type: 'date',
@@ -193,12 +193,12 @@ export const solutionPropertiesChat: HistoryChat = {
       question: '水200gに食塩50gをとかした水溶液の質量パーセント濃度は？',
       options: [
         { letter: 'A', text: '25%', correct: false },
-        { letter: 'B', text: '20%', correct: true },
+        { letter: 'B', text: '10%', correct: false },
         { letter: 'C', text: '50%', correct: false },
-        { letter: 'D', text: '10%', correct: false },
+        { letter: 'D', text: '20%', correct: true },
       ],
       explanation:
-        '<strong>正解はB「20%」</strong>です。<ruby>溶液<rp>(</rp><rt>ようえき</rt><rp>)</rp></ruby>の<ruby>質量<rp>(</rp><rt>しつりょう</rt><rp>)</rp></ruby>＝50g＋200g＝250g。<ruby>濃度<rp>(</rp><rt>のうど</rt><rp>)</rp></ruby>＝50÷250×100＝20%です。',
+        '<strong>正解はD「20%」</strong>です。<ruby>溶液<rp>(</rp><rt>ようえき</rt><rp>)</rp></ruby>の<ruby>質量<rp>(</rp><rt>しつりょう</rt><rp>)</rp></ruby>＝50g＋200g＝250g。<ruby>濃度<rp>(</rp><rt>のうど</rt><rp>)</rp></ruby>＝50÷250×100＝20%です。',
     },
     {
       type: 'date',
@@ -265,11 +265,11 @@ export const solutionPropertiesChat: HistoryChat = {
       options: [
         { letter: 'A', text: 'ろ過', correct: false },
         { letter: 'B', text: '蒸留', correct: false },
-        { letter: 'C', text: '蒸発', correct: false },
-        { letter: 'D', text: '再結晶', correct: true },
+        { letter: 'C', text: '再結晶', correct: true },
+        { letter: 'D', text: '蒸発', correct: false },
       ],
       explanation:
-        '<strong>正解はD「<ruby>再結晶<rp>(</rp><rt>さいけっしょう</rt><rp>)</rp></ruby>」</strong>です。<ruby>高温<rp>(</rp><rt>こうおん</rt><rp>)</rp></ruby>の<ruby>飽和水溶液<rp>(</rp><rt>ほうわすいようえき</rt><rp>)</rp></ruby>を<ruby>冷<rp>(</rp><rt>ひ</rt><rp>)</rp></ruby>やしてとけきれない<ruby>物質<rp>(</rp><rt>ぶっしつ</rt><rp>)</rp></ruby>を<ruby>結晶<rp>(</rp><rt>けっしょう</rt><rp>)</rp></ruby>として<ruby>取<rp>(</rp><rt>と</rt><rp>)</rp></ruby>り出します。',
+        '<strong>正解はC「<ruby>再結晶<rp>(</rp><rt>さいけっしょう</rt><rp>)</rp></ruby>」</strong>です。<ruby>高温<rp>(</rp><rt>こうおん</rt><rp>)</rp></ruby>の<ruby>飽和水溶液<rp>(</rp><rt>ほうわすいようえき</rt><rp>)</rp></ruby>を<ruby>冷<rp>(</rp><rt>ひ</rt><rp>)</rp></ruby>やしてとけきれない<ruby>物質<rp>(</rp><rt>ぶっしつ</rt><rp>)</rp></ruby>を<ruby>結晶<rp>(</rp><rt>けっしょう</rt><rp>)</rp></ruby>として<ruby>取<rp>(</rp><rt>と</rt><rp>)</rp></ruby>り出します。',
     },
     {
       type: 'end',

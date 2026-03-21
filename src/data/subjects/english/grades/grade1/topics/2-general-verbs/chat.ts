@@ -88,12 +88,12 @@ export const generalVerbsChat: HistoryChat = {
       type: 'quiz',
       question: '「I (　　) music.（私は音楽が好きです。）」の (　　) に入るのは？',
       options: [
-        { letter: 'A', text: 'am like', correct: false },
-        { letter: 'B', text: 'like', correct: true },
+        { letter: 'A', text: 'like', correct: true },
+        { letter: 'B', text: 'am like', correct: false },
         { letter: 'C', text: 'is like', correct: false },
         { letter: 'D', text: 'are like', correct: false },
       ],
-      explanation: '<strong>正解はB</strong>です。「<ruby>好<rt>す</rt></ruby>き」は<ruby>一般動詞<rt>いっぱんどうし</rt></ruby> like を使うよ。be<ruby>動詞<rt>どうし</rt></ruby>と<ruby>一般動詞<rt>いっぱんどうし</rt></ruby>は1つの文に<ruby>両方<rt>りょうほう</rt></ruby>つかわないよ。',
+      explanation: '<strong>正解はA</strong>です。「<ruby>好<rt>す</rt></ruby>き」は<ruby>一般動詞<rt>いっぱんどうし</rt></ruby> like を使うよ。be<ruby>動詞<rt>どうし</rt></ruby>と<ruby>一般動詞<rt>いっぱんどうし</rt></ruby>は1つの文に<ruby>両方<rt>りょうほう</rt></ruby>つかわないよ。',
     },
     {
       type: 'message',
@@ -137,9 +137,9 @@ export const generalVerbsChat: HistoryChat = {
       question: '「She (　　) English every day.（彼女は毎日英語を勉強します。）」\nの (　　) に入るのは？',
       options: [
         { letter: 'A', text: 'study', correct: false },
-        { letter: 'B', text: 'studies', correct: true },
+        { letter: 'B', text: 'is study', correct: false },
         { letter: 'C', text: 'studys', correct: false },
-        { letter: 'D', text: 'is study', correct: false },
+        { letter: 'D', text: 'studies', correct: true },
       ],
       explanation: 'She は1人なので s つき形にするよ。study は y で<ruby>終<rt>お</rt></ruby>わるから y を i にかえて es → <strong>studies</strong>',
     },

@@ -138,12 +138,12 @@ export const ww1OutbreakChat: HistoryChat = {
       question: '三国協商を構成した国の正しい組み合わせは？',
       options: [
         { letter: 'A', text: 'ドイツ・オーストリア・イタリア', correct: false },
-        { letter: 'B', text: 'イギリス・フランス・ロシア', correct: true },
-        { letter: 'C', text: 'イギリス・ドイツ・ロシア', correct: false },
+        { letter: 'B', text: 'イギリス・ドイツ・ロシア', correct: false },
+        { letter: 'C', text: 'イギリス・フランス・ロシア', correct: true },
         { letter: 'D', text: 'フランス・オーストリア・イタリア', correct: false },
       ],
       explanation:
-        '<strong>正解はB「イギリス・フランス・ロシア」</strong>です。<ruby>三国同盟<rp>(</rp><rt>さんごくどうめい</rt><rp>)</rp></ruby>（ドイツ・オーストリア・イタリア）と対立しました。',
+        '<strong>正解はC「イギリス・フランス・ロシア」</strong>です。<ruby>三国同盟<rp>(</rp><rt>さんごくどうめい</rt><rp>)</rp></ruby>（ドイツ・オーストリア・イタリア）と対立しました。',
     },
     {
       type: 'narrator',
@@ -172,12 +172,12 @@ export const ww1OutbreakChat: HistoryChat = {
       question: '国の全ての力を動員して行う戦争を何という？',
       options: [
         { letter: 'A', text: '局地戦', correct: false },
-        { letter: 'B', text: '冷戦', correct: false },
-        { letter: 'C', text: '総力戦', correct: true },
+        { letter: 'B', text: '総力戦', correct: true },
+        { letter: 'C', text: '冷戦', correct: false },
         { letter: 'D', text: '代理戦争', correct: false },
       ],
       explanation:
-        '<strong>正解はC「<ruby>総力戦<rp>(</rp><rt>そうりょくせん</rt><rp>)</rp></ruby>」</strong>です。<ruby>第一次世界大戦<rp>(</rp><rt>だいいちじせかいたいせん</rt><rp>)</rp></ruby>では軍事力だけでなく<ruby>経済力<rp>(</rp><rt>けいざいりょく</rt><rp>)</rp></ruby>や国民生活のすべてが<ruby>動員<rp>(</rp><rt>どういん</rt><rp>)</rp></ruby>されました。',
+        '<strong>正解はB「<ruby>総力戦<rp>(</rp><rt>そうりょくせん</rt><rp>)</rp></ruby>」</strong>です。<ruby>第一次世界大戦<rp>(</rp><rt>だいいちじせかいたいせん</rt><rp>)</rp></ruby>では軍事力だけでなく<ruby>経済力<rp>(</rp><rt>けいざいりょく</rt><rp>)</rp></ruby>や国民生活のすべてが<ruby>動員<rp>(</rp><rt>どういん</rt><rp>)</rp></ruby>されました。',
     },
     {
       type: 'end',

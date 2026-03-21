@@ -89,13 +89,13 @@ export const economicGrowthChat: HistoryChat = {
       type: 'quiz',
       question: '高度経済成長期に「三種の神器」と呼ばれた家電製品は？',
       options: [
-        { letter: 'A', text: 'テレビ・ラジオ・電話', correct: false },
+        { letter: 'A', text: 'テレビ・洗濯機・冷蔵庫', correct: true },
         { letter: 'B', text: '洗濯機・掃除機・冷蔵庫', correct: false },
         { letter: 'C', text: 'テレビ・エアコン・自動車', correct: false },
-        { letter: 'D', text: 'テレビ・洗濯機・冷蔵庫', correct: true },
+        { letter: 'D', text: 'テレビ・ラジオ・電話', correct: false },
       ],
       explanation:
-        '<strong>正解はD「テレビ・<ruby>洗濯機<rp>(</rp><rt>せんたくき</rt><rp>)</rp></ruby>・<ruby>冷蔵庫<rp>(</rp><rt>れいぞうこ</rt><rp>)</rp></ruby>」</strong>です。<strong>高度経済成長</strong>期に「<strong>三種の神器</strong>」として家庭に<ruby>普及<rp>(</rp><rt>ふきゅう</rt><rp>)</rp></ruby>しました。',
+        '<strong>正解はA「テレビ・<ruby>洗濯機<rp>(</rp><rt>せんたくき</rt><rp>)</rp></ruby>・<ruby>冷蔵庫<rp>(</rp><rt>れいぞうこ</rt><rp>)</rp></ruby>」</strong>です。<strong>高度経済成長</strong>期に「<strong>三種の神器</strong>」として家庭に<ruby>普及<rp>(</rp><rt>ふきゅう</rt><rp>)</rp></ruby>しました。',
     },
     {
       type: 'date',

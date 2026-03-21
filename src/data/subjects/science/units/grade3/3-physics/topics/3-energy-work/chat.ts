@@ -133,11 +133,11 @@ export const energyWorkChat: HistoryChat = {
       options: [
         { letter: 'A', text: '運動エネルギーは常に一定', correct: false },
         { letter: 'B', text: '位置エネルギーは常に一定', correct: false },
-        { letter: 'C', text: '運動エネルギーと位置エネルギーの和が一定', correct: true },
-        { letter: 'D', text: '力学的エネルギーは常に増加する', correct: false },
+        { letter: 'C', text: '力学的エネルギーは常に増加する', correct: false },
+        { letter: 'D', text: '運動エネルギーと位置エネルギーの和が一定', correct: true },
       ],
       explanation:
-        '<strong>正解はC</strong>です。<ruby>摩擦<rp>(</rp><rt>まさつ</rt><rp>)</rp></ruby>や<ruby>空気抵抗<rp>(</rp><rt>くうきていこう</rt><rp>)</rp></ruby>がなければ、<ruby>運動<rp>(</rp><rt>うんどう</rt><rp>)</rp></ruby>エネルギーと<ruby>位置<rp>(</rp><rt>いち</rt><rp>)</rp></ruby>エネルギーの和（<ruby>力学的<rp>(</rp><rt>りきがくてき</rt><rp>)</rp></ruby>エネルギー）は一定に<ruby>保存<rp>(</rp><rt>ほぞん</rt><rp>)</rp></ruby>されます。',
+        '<strong>正解はD</strong>です。<ruby>摩擦<rp>(</rp><rt>まさつ</rt><rp>)</rp></ruby>や<ruby>空気抵抗<rp>(</rp><rt>くうきていこう</rt><rp>)</rp></ruby>がなければ、<ruby>運動<rp>(</rp><rt>うんどう</rt><rp>)</rp></ruby>エネルギーと<ruby>位置<rp>(</rp><rt>いち</rt><rp>)</rp></ruby>エネルギーの和（<ruby>力学的<rp>(</rp><rt>りきがくてき</rt><rp>)</rp></ruby>エネルギー）は一定に<ruby>保存<rp>(</rp><rt>ほぞん</rt><rp>)</rp></ruby>されます。',
     },
 
     {

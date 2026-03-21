@@ -86,12 +86,12 @@ export const coldWarChat: HistoryChat = {
       question: 'アメリカを中心とする西側諸国が結成した軍事同盟は？',
       options: [
         { letter: 'A', text: 'ワルシャワ条約機構', correct: false },
-        { letter: 'B', text: 'NATO（北大西洋条約機構）', correct: true },
+        { letter: 'B', text: '三国同盟', correct: false },
         { letter: 'C', text: '国際連合', correct: false },
-        { letter: 'D', text: '三国同盟', correct: false },
+        { letter: 'D', text: 'NATO（北大西洋条約機構）', correct: true },
       ],
       explanation:
-        '<strong>正解はB「NATO（<ruby>北大西洋条約機構<rp>(</rp><rt>きたたいせいようじょうやくきこう</rt><rp>)</rp></ruby>）」</strong>です。アメリカを中心とする西側諸国の<ruby>軍事同盟<rp>(</rp><rt>ぐんじどうめい</rt><rp>)</rp></ruby>で、ソ連の<strong>ワルシャワ条約機構</strong>と対立しました。',
+        '<strong>正解はD「NATO（<ruby>北大西洋条約機構<rp>(</rp><rt>きたたいせいようじょうやくきこう</rt><rp>)</rp></ruby>）」</strong>です。アメリカを中心とする西側諸国の<ruby>軍事同盟<rp>(</rp><rt>ぐんじどうめい</rt><rp>)</rp></ruby>で、ソ連の<strong>ワルシャワ条約機構</strong>と対立しました。',
     },
     {
       type: 'date',
@@ -142,12 +142,12 @@ export const coldWarChat: HistoryChat = {
       question: '1960年にアフリカで多くの国が独立し、この年は何と呼ばれた？',
       options: [
         { letter: 'A', text: 'アジアの年', correct: false },
-        { letter: 'B', text: 'アフリカの年', correct: true },
-        { letter: 'C', text: '独立の年', correct: false },
+        { letter: 'B', text: '独立の年', correct: false },
+        { letter: 'C', text: 'アフリカの年', correct: true },
         { letter: 'D', text: '革命の年', correct: false },
       ],
       explanation:
-        '<strong>正解はB「アフリカの年」</strong>です。1960年にはアフリカで17か国が<ruby>独立<rp>(</rp><rt>どくりつ</rt><rp>)</rp></ruby>しました。',
+        '<strong>正解はC「アフリカの年」</strong>です。1960年にはアフリカで17か国が<ruby>独立<rp>(</rp><rt>どくりつ</rt><rp>)</rp></ruby>しました。',
     },
     {
       type: 'end',

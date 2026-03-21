@@ -157,12 +157,12 @@ export const waterPressureChat: HistoryChat = {
       question: '浮力の大きさに関係するのはどれ？',
       options: [
         { letter: 'A', text: '物体の質量', correct: false },
-        { letter: 'B', text: '水中にある物体の体積', correct: true },
-        { letter: 'C', text: '物体を沈める深さ', correct: false },
+        { letter: 'B', text: '物体を沈める深さ', correct: false },
+        { letter: 'C', text: '水中にある物体の体積', correct: true },
         { letter: 'D', text: '水の温度', correct: false },
       ],
       explanation:
-        '<strong>正解はB「水中にある物体の体積」</strong>です。浮力は水中にある物体の体積が大きいほど大きくなります。物体の質量や沈める深さには関係しません。',
+        '<strong>正解はC「水中にある物体の体積」</strong>です。浮力は水中にある物体の体積が大きいほど大きくなります。物体の質量や沈める深さには関係しません。',
     },
     {
       type: 'end',

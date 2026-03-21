@@ -104,12 +104,12 @@ export const kamakuraBakufuChat: HistoryChat = {
       type: 'quiz',
       question: '鎌倉幕府で、荘園・公領の管理や年貢の徴収を行った役職は？',
       options: [
-        { letter: 'A', text: '地頭', correct: true },
+        { letter: 'A', text: '執権', correct: false },
         { letter: 'B', text: '守護', correct: false },
-        { letter: 'C', text: '執権', correct: false },
+        { letter: 'C', text: '地頭', correct: true },
         { letter: 'D', text: '関白', correct: false },
       ],
-      explanation: '<strong>正解はA「<ruby>地頭<rp>(</rp><rt>じとう</rt><rp>)</rp></ruby>」</strong>です。<strong>地頭</strong>は<ruby>荘園<rp>(</rp><rt>しょうえん</rt><rp>)</rp></ruby>・<ruby>公領<rp>(</rp><rt>こうりょう</rt><rp>)</rp></ruby>に置かれ、土地の管理や<ruby>年貢<rp>(</rp><rt>ねんぐ</rt><rp>)</rp></ruby>の<ruby>徴収<rp>(</rp><rt>ちょうしゅう</rt><rp>)</rp></ruby>を行いました。<ruby>守護<rp>(</rp><rt>しゅご</rt><rp>)</rp></ruby>は国ごとに置かれ、軍事・<ruby>警察<rp>(</rp><rt>けいさつ</rt><rp>)</rp></ruby>を担当しました。',
+      explanation: '<strong>正解はC「<ruby>地頭<rp>(</rp><rt>じとう</rt><rp>)</rp></ruby>」</strong>です。<strong>地頭</strong>は<ruby>荘園<rp>(</rp><rt>しょうえん</rt><rp>)</rp></ruby>・<ruby>公領<rp>(</rp><rt>こうりょう</rt><rp>)</rp></ruby>に置かれ、土地の管理や<ruby>年貢<rp>(</rp><rt>ねんぐ</rt><rp>)</rp></ruby>の<ruby>徴収<rp>(</rp><rt>ちょうしゅう</rt><rp>)</rp></ruby>を行いました。<ruby>守護<rp>(</rp><rt>しゅご</rt><rp>)</rp></ruby>は国ごとに置かれ、軍事・<ruby>警察<rp>(</rp><rt>けいさつ</rt><rp>)</rp></ruby>を担当しました。',
     },
     {
       type: 'narrator',
@@ -165,12 +165,12 @@ export const kamakuraBakufuChat: HistoryChat = {
       type: 'quiz',
       question: '北条泰時が定めた武士の法律は？',
       options: [
-        { letter: 'A', text: '御成敗式目', correct: true },
-        { letter: 'B', text: '大宝律令', correct: false },
+        { letter: 'A', text: '大宝律令', correct: false },
+        { letter: 'B', text: '御成敗式目', correct: true },
         { letter: 'C', text: '十七条の憲法', correct: false },
         { letter: 'D', text: '武家諸法度', correct: false },
       ],
-      explanation: '<strong>正解はA「<ruby>御成敗式目<rp>(</rp><rt>ごせいばいしきもく</rt><rp>)</rp></ruby>」</strong>です。1232年に<ruby>北条泰時<rp>(</rp><rt>ほうじょうやすとき</rt><rp>)</rp></ruby>が制定した武士のための法律で、<ruby>裁判<rp>(</rp><rt>さいばん</rt><rp>)</rp></ruby>の基準を示しました。<ruby>貞永式目<rp>(</rp><rt>じょうえいしきもく</rt><rp>)</rp></ruby>とも呼ばれます。',
+      explanation: '<strong>正解はB「<ruby>御成敗式目<rp>(</rp><rt>ごせいばいしきもく</rt><rp>)</rp></ruby>」</strong>です。1232年に<ruby>北条泰時<rp>(</rp><rt>ほうじょうやすとき</rt><rp>)</rp></ruby>が制定した武士のための法律で、<ruby>裁判<rp>(</rp><rt>さいばん</rt><rp>)</rp></ruby>の基準を示しました。<ruby>貞永式目<rp>(</rp><rt>じょうえいしきもく</rt><rp>)</rp></ruby>とも呼ばれます。',
     },
     {
       type: 'end',

@@ -78,12 +78,12 @@ export const moonVenusBasicChat: HistoryChat = {
       question: '月の満ち欠けの周期は約何日か。',
       options: [
         { letter: 'A', text: '約7日', correct: false },
-        { letter: 'B', text: '約15日', correct: false },
-        { letter: 'C', text: '約29.5日', correct: true },
+        { letter: 'B', text: '約29.5日', correct: true },
+        { letter: 'C', text: '約15日', correct: false },
         { letter: 'D', text: '約365日', correct: false },
       ],
       explanation:
-        '<strong>正解はC「約29.5日」</strong>です。月が地球のまわりを<ruby>公転<rp>(</rp><rt>こうてん</rt><rp>)</rp></ruby>することで、新月から次の新月まで約29.5日かかります。',
+        '<strong>正解はB「約29.5日」</strong>です。月が地球のまわりを<ruby>公転<rp>(</rp><rt>こうてん</rt><rp>)</rp></ruby>することで、新月から次の新月まで約29.5日かかります。',
     },
     {
       type: 'date',
@@ -135,13 +135,13 @@ export const moonVenusBasicChat: HistoryChat = {
       type: 'quiz',
       question: '金星が真夜中に見えない理由はどれ？',
       options: [
-        { letter: 'A', text: '金星が暗すぎるから', correct: false },
+        { letter: 'A', text: '地球より内側を公転しているため太陽から大きく離れないから', correct: true },
         { letter: 'B', text: '地球より外側を公転しているから', correct: false },
-        { letter: 'C', text: '地球より内側を公転しているため太陽から大きく離れないから', correct: true },
+        { letter: 'C', text: '金星が暗すぎるから', correct: false },
         { letter: 'D', text: '金星は自ら光を出さないから', correct: false },
       ],
       explanation:
-        '<strong>正解はC</strong>です。金星は<ruby>内惑星<rp>(</rp><rt>ないわくせい</rt><rp>)</rp></ruby>で、地球より太陽に近い側を<ruby>公転<rp>(</rp><rt>こうてん</rt><rp>)</rp></ruby>するため、太陽から大きく<ruby>離<rp>(</rp><rt>はな</rt><rp>)</rp></ruby>れることがなく<ruby>真夜中<rp>(</rp><rt>まよなか</rt><rp>)</rp></ruby>には見えません。',
+        '<strong>正解はA</strong>です。金星は<ruby>内惑星<rp>(</rp><rt>ないわくせい</rt><rp>)</rp></ruby>で、地球より太陽に近い側を<ruby>公転<rp>(</rp><rt>こうてん</rt><rp>)</rp></ruby>するため、太陽から大きく<ruby>離<rp>(</rp><rt>はな</rt><rp>)</rp></ruby>れることがなく<ruby>真夜中<rp>(</rp><rt>まよなか</rt><rp>)</rp></ruby>には見えません。',
     },
     {
       type: 'date',

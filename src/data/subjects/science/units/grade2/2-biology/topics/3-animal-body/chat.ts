@@ -98,12 +98,12 @@ export const animalBodyChat: HistoryChat = {
       question: 'だ液に含まれる消化酵素アミラーゼが分解するものは？',
       options: [
         { letter: 'A', text: 'タンパク質', correct: false },
-        { letter: 'B', text: '脂肪', correct: false },
-        { letter: 'C', text: 'デンプン', correct: true },
+        { letter: 'B', text: 'デンプン', correct: true },
+        { letter: 'C', text: '脂肪', correct: false },
         { letter: 'D', text: 'ビタミン', correct: false },
       ],
       explanation:
-        '<strong>正解はC「デンプン」</strong>です。アミラーゼはだ<ruby>液<rp>(</rp><rt>えき</rt><rp>)</rp></ruby>に<ruby>含<rp>(</rp><rt>ふく</rt><rp>)</rp></ruby>まれる<ruby>消化酵素<rp>(</rp><rt>しょうかこうそ</rt><rp>)</rp></ruby>で、デンプンを<ruby>麦芽糖<rp>(</rp><rt>ばくがとう</rt><rp>)</rp></ruby>に<ruby>分解<rp>(</rp><rt>ぶんかい</rt><rp>)</rp></ruby>します。',
+        '<strong>正解はB「デンプン」</strong>です。アミラーゼはだ<ruby>液<rp>(</rp><rt>えき</rt><rp>)</rp></ruby>に<ruby>含<rp>(</rp><rt>ふく</rt><rp>)</rp></ruby>まれる<ruby>消化酵素<rp>(</rp><rt>しょうかこうそ</rt><rp>)</rp></ruby>で、デンプンを<ruby>麦芽糖<rp>(</rp><rt>ばくがとう</rt><rp>)</rp></ruby>に<ruby>分解<rp>(</rp><rt>ぶんかい</rt><rp>)</rp></ruby>します。',
     },
     {
       type: 'date',
@@ -142,13 +142,13 @@ export const animalBodyChat: HistoryChat = {
       type: 'quiz',
       question: '小腸の柔毛で吸収されたブドウ糖は最初にどこへ運ばれる？',
       options: [
-        { letter: 'A', text: '腎臓', correct: false },
+        { letter: 'A', text: '肝臓', correct: true },
         { letter: 'B', text: '肺', correct: false },
-        { letter: 'C', text: '肝臓', correct: true },
+        { letter: 'C', text: '腎臓', correct: false },
         { letter: 'D', text: '心臓', correct: false },
       ],
       explanation:
-        '<strong>正解はC「<ruby>肝臓<rp>(</rp><rt>かんぞう</rt><rp>)</rp></ruby>」</strong>です。ブドウ<ruby>糖<rp>(</rp><rt>とう</rt><rp>)</rp></ruby>とアミノ<ruby>酸<rp>(</rp><rt>さん</rt><rp>)</rp></ruby>は<ruby>柔毛<rp>(</rp><rt>じゅうもう</rt><rp>)</rp></ruby>の<ruby>毛細<rp>(</rp><rt>もうさい</rt><rp>)</rp></ruby><ruby>血管<rp>(</rp><rt>けっかん</rt><rp>)</rp></ruby>に入り、まず<ruby>肝臓<rp>(</rp><rt>かんぞう</rt><rp>)</rp></ruby>へ運ばれます。',
+        '<strong>正解はA「<ruby>肝臓<rp>(</rp><rt>かんぞう</rt><rp>)</rp></ruby>」</strong>です。ブドウ<ruby>糖<rp>(</rp><rt>とう</rt><rp>)</rp></ruby>とアミノ<ruby>酸<rp>(</rp><rt>さん</rt><rp>)</rp></ruby>は<ruby>柔毛<rp>(</rp><rt>じゅうもう</rt><rp>)</rp></ruby>の<ruby>毛細<rp>(</rp><rt>もうさい</rt><rp>)</rp></ruby><ruby>血管<rp>(</rp><rt>けっかん</rt><rp>)</rp></ruby>に入り、まず<ruby>肝臓<rp>(</rp><rt>かんぞう</rt><rp>)</rp></ruby>へ運ばれます。',
     },
     {type:'date', text:'だ<ruby>液<rp>(</rp><rt>えき</rt><rp>)</rp></ruby>の<ruby>実験<rp>(</rp><rt>じっけん</rt><rp>)</rp></ruby>'},
     {type:'narrator', text:'だ<ruby>液<rp>(</rp><rt>えき</rt><rp>)</rp></ruby>による<ruby>消化<rp>(</rp><rt>しょうか</rt><rp>)</rp></ruby>を<ruby>確<rp>(</rp><rt>たし</rt><rp>)</rp></ruby>かめる<ruby>実験<rp>(</rp><rt>じっけん</rt><rp>)</rp></ruby>をやってみよう。'},
@@ -161,12 +161,12 @@ export const animalBodyChat: HistoryChat = {
       question: 'だ液の実験で約37℃に保温する理由は？',
       options: [
         { letter: 'A', text: '水を蒸発させるため', correct: false },
-        { letter: 'B', text: '体温に近い温度で消化酵素がよくはたらくから', correct: true },
+        { letter: 'B', text: '細菌を殺すため', correct: false },
         { letter: 'C', text: 'デンプンを溶かすため', correct: false },
-        { letter: 'D', text: '細菌を殺すため', correct: false },
+        { letter: 'D', text: '体温に近い温度で消化酵素がよくはたらくから', correct: true },
       ],
       explanation:
-        '<strong>正解はB</strong>です。<ruby>消化酵素<rp>(</rp><rt>しょうかこうそ</rt><rp>)</rp></ruby>は<ruby>体温<rp>(</rp><rt>たいおん</rt><rp>)</rp></ruby>に近い約37℃で最もよくはたらくため、この<ruby>温度<rp>(</rp><rt>おんど</rt><rp>)</rp></ruby>で<ruby>保温<rp>(</rp><rt>ほおん</rt><rp>)</rp></ruby>します。',
+        '<strong>正解はD</strong>です。<ruby>消化酵素<rp>(</rp><rt>しょうかこうそ</rt><rp>)</rp></ruby>は<ruby>体温<rp>(</rp><rt>たいおん</rt><rp>)</rp></ruby>に近い約37℃で最もよくはたらくため、この<ruby>温度<rp>(</rp><rt>おんど</rt><rp>)</rp></ruby>で<ruby>保温<rp>(</rp><rt>ほおん</rt><rp>)</rp></ruby>します。',
     },
     {
       type: 'date',
@@ -232,11 +232,11 @@ export const animalBodyChat: HistoryChat = {
       options: [
         { letter: 'A', text: '右心房', correct: false },
         { letter: 'B', text: '右心室', correct: false },
-        { letter: 'C', text: '左心房', correct: false },
-        { letter: 'D', text: '左心室', correct: true },
+        { letter: 'C', text: '左心室', correct: true },
+        { letter: 'D', text: '左心房', correct: false },
       ],
       explanation:
-        '<strong>正解はD「<ruby>左心室<rp>(</rp><rt>さしんしつ</rt><rp>)</rp></ruby>」</strong>です。<ruby>体循環<rp>(</rp><rt>たいじゅんかん</rt><rp>)</rp></ruby>は<ruby>左心室<rp>(</rp><rt>さしんしつ</rt><rp>)</rp></ruby>から<ruby>全身<rp>(</rp><rt>ぜんしん</rt><rp>)</rp></ruby>を回って<ruby>右心房<rp>(</rp><rt>うしんぼう</rt><rp>)</rp></ruby>に<ruby>戻<rp>(</rp><rt>もど</rt><rp>)</rp></ruby>ります。',
+        '<strong>正解はC「<ruby>左心室<rp>(</rp><rt>さしんしつ</rt><rp>)</rp></ruby>」</strong>です。<ruby>体循環<rp>(</rp><rt>たいじゅんかん</rt><rp>)</rp></ruby>は<ruby>左心室<rp>(</rp><rt>さしんしつ</rt><rp>)</rp></ruby>から<ruby>全身<rp>(</rp><rt>ぜんしん</rt><rp>)</rp></ruby>を回って<ruby>右心房<rp>(</rp><rt>うしんぼう</rt><rp>)</rp></ruby>に<ruby>戻<rp>(</rp><rt>もど</rt><rp>)</rp></ruby>ります。',
     },
     {
       type: 'date',
@@ -283,12 +283,12 @@ export const animalBodyChat: HistoryChat = {
       question: '有害なアンモニアを無害な尿素に変える器官はどれ？',
       options: [
         { letter: 'A', text: '腎臓', correct: false },
-        { letter: 'B', text: '心臓', correct: false },
-        { letter: 'C', text: '肝臓', correct: true },
+        { letter: 'B', text: '肝臓', correct: true },
+        { letter: 'C', text: '心臓', correct: false },
         { letter: 'D', text: '肺', correct: false },
       ],
       explanation:
-        '<strong>正解はC「<ruby>肝臓<rp>(</rp><rt>かんぞう</rt><rp>)</rp></ruby>」</strong>です。<ruby>肝臓<rp>(</rp><rt>かんぞう</rt><rp>)</rp></ruby>は<ruby>有害<rp>(</rp><rt>ゆうがい</rt><rp>)</rp></ruby>なアンモニアを<ruby>無害<rp>(</rp><rt>むがい</rt><rp>)</rp></ruby>な<ruby>尿素<rp>(</rp><rt>にょうそ</rt><rp>)</rp></ruby>に変えます。<ruby>腎臓<rp>(</rp><rt>じんぞう</rt><rp>)</rp></ruby>は<ruby>血液<rp>(</rp><rt>けつえき</rt><rp>)</rp></ruby>から<ruby>不要物<rp>(</rp><rt>ふようぶつ</rt><rp>)</rp></ruby>をこし出して<ruby>尿<rp>(</rp><rt>にょう</rt><rp>)</rp></ruby>を作ります。',
+        '<strong>正解はB「<ruby>肝臓<rp>(</rp><rt>かんぞう</rt><rp>)</rp></ruby>」</strong>です。<ruby>肝臓<rp>(</rp><rt>かんぞう</rt><rp>)</rp></ruby>は<ruby>有害<rp>(</rp><rt>ゆうがい</rt><rp>)</rp></ruby>なアンモニアを<ruby>無害<rp>(</rp><rt>むがい</rt><rp>)</rp></ruby>な<ruby>尿素<rp>(</rp><rt>にょうそ</rt><rp>)</rp></ruby>に変えます。<ruby>腎臓<rp>(</rp><rt>じんぞう</rt><rp>)</rp></ruby>は<ruby>血液<rp>(</rp><rt>けつえき</rt><rp>)</rp></ruby>から<ruby>不要物<rp>(</rp><rt>ふようぶつ</rt><rp>)</rp></ruby>をこし出して<ruby>尿<rp>(</rp><rt>にょう</rt><rp>)</rp></ruby>を作ります。',
     },
     {type:'date', text:'<ruby>血管<rp>(</rp><rt>けっかん</rt><rp>)</rp></ruby>の<ruby>種類<rp>(</rp><rt>しゅるい</rt><rp>)</rp></ruby>'},
     {type:'narrator', text:'<ruby>血管<rp>(</rp><rt>けっかん</rt><rp>)</rp></ruby>には3つの<ruby>種類<rp>(</rp><rt>しゅるい</rt><rp>)</rp></ruby>があります。それぞれの<ruby>特徴<rp>(</rp><rt>とくちょう</rt><rp>)</rp></ruby>を<ruby>覚<rp>(</rp><rt>おぼ</rt><rp>)</rp></ruby>えよう。'},
@@ -300,13 +300,13 @@ export const animalBodyChat: HistoryChat = {
       type: 'quiz',
       question: '逆流を防ぐ弁があるのはどの血管？',
       options: [
-        { letter: 'A', text: '動脈', correct: false },
-        { letter: 'B', text: '静脈', correct: true },
+        { letter: 'A', text: '静脈', correct: true },
+        { letter: 'B', text: '動脈', correct: false },
         { letter: 'C', text: '毛細血管', correct: false },
         { letter: 'D', text: 'リンパ管', correct: false },
       ],
       explanation:
-        '<strong>正解はB「<ruby>静脈<rp>(</rp><rt>じょうみゃく</rt><rp>)</rp></ruby>」</strong>です。<ruby>静脈<rp>(</rp><rt>じょうみゃく</rt><rp>)</rp></ruby>は<ruby>壁<rp>(</rp><rt>かべ</rt><rp>)</rp></ruby>が<ruby>薄<rp>(</rp><rt>うす</rt><rp>)</rp></ruby>いため、<ruby>逆流<rp>(</rp><rt>ぎゃくりゅう</rt><rp>)</rp></ruby>を<ruby>防<rp>(</rp><rt>ふせ</rt><rp>)</rp></ruby>ぐ<ruby>弁<rp>(</rp><rt>べん</rt><rp>)</rp></ruby>がついています。',
+        '<strong>正解はA「<ruby>静脈<rp>(</rp><rt>じょうみゃく</rt><rp>)</rp></ruby>」</strong>です。<ruby>静脈<rp>(</rp><rt>じょうみゃく</rt><rp>)</rp></ruby>は<ruby>壁<rp>(</rp><rt>かべ</rt><rp>)</rp></ruby>が<ruby>薄<rp>(</rp><rt>うす</rt><rp>)</rp></ruby>いため、<ruby>逆流<rp>(</rp><rt>ぎゃくりゅう</rt><rp>)</rp></ruby>を<ruby>防<rp>(</rp><rt>ふせ</rt><rp>)</rp></ruby>ぐ<ruby>弁<rp>(</rp><rt>べん</rt><rp>)</rp></ruby>がついています。',
     },
     {
       type: 'end',

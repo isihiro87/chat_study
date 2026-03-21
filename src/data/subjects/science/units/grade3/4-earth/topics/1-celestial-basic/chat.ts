@@ -83,13 +83,13 @@ export const celestialBasicChat: HistoryChat = {
       type: 'quiz',
       question: '太陽の黒点が日ごとに移動することから何がわかる？',
       options: [
-        { letter: 'A', text: '太陽が自転していること', correct: true },
+        { letter: 'A', text: '地球が自転していること', correct: false },
         { letter: 'B', text: '太陽が公転していること', correct: false },
-        { letter: 'C', text: '地球が自転していること', correct: false },
+        { letter: 'C', text: '太陽が自転していること', correct: true },
         { letter: 'D', text: '黒点が消えかかっていること', correct: false },
       ],
       explanation:
-        '<strong>正解はA「太陽が<ruby>自転<rp>(</rp><rt>じてん</rt><rp>)</rp></ruby>していること」</strong>です。<ruby>黒点<rp>(</rp><rt>こくてん</rt><rp>)</rp></ruby>が日ごとに移動するのは、太陽自体が回転（自転）しているためです。',
+        '<strong>正解はC「太陽が<ruby>自転<rp>(</rp><rt>じてん</rt><rp>)</rp></ruby>していること」</strong>です。<ruby>黒点<rp>(</rp><rt>こくてん</rt><rp>)</rp></ruby>が日ごとに移動するのは、太陽自体が回転（自転）しているためです。',
     },
     {
       type: 'date',
@@ -212,13 +212,13 @@ export const celestialBasicChat: HistoryChat = {
       type: 'quiz',
       question: '同じ時刻に見える星座が1か月で西へ移動する角度は約何度か。',
       options: [
-        { letter: 'A', text: '約10度', correct: false },
+        { letter: 'A', text: '約30度', correct: true },
         { letter: 'B', text: '約15度', correct: false },
-        { letter: 'C', text: '約30度', correct: true },
+        { letter: 'C', text: '約10度', correct: false },
         { letter: 'D', text: '約45度', correct: false },
       ],
       explanation:
-        '<strong>正解はC「約30度」</strong>です。地球が1年（12か月）で360度<ruby>公転<rp>(</rp><rt>こうてん</rt><rp>)</rp></ruby>するので、1か月では360÷12＝約30度ずつ西へ移動して見えます。',
+        '<strong>正解はA「約30度」</strong>です。地球が1年（12か月）で360度<ruby>公転<rp>(</rp><rt>こうてん</rt><rp>)</rp></ruby>するので、1か月では360÷12＝約30度ずつ西へ移動して見えます。',
     },
     {
       type: 'end',

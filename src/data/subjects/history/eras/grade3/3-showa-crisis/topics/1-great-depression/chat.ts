@@ -72,12 +72,12 @@ export const greatDepressionChat: HistoryChat = {
       question: 'ルーズベルト大統領が世界恐慌に対して行った経済政策は？',
       options: [
         { letter: 'A', text: 'ブロック経済', correct: false },
-        { letter: 'B', text: 'ニューディール政策', correct: true },
+        { letter: 'B', text: '国家総動員法', correct: false },
         { letter: 'C', text: '殖産興業', correct: false },
-        { letter: 'D', text: '国家総動員法', correct: false },
+        { letter: 'D', text: 'ニューディール政策', correct: true },
       ],
       explanation:
-        '<strong>正解はB「<ruby>ニューディール政策<rp>(</rp><rt>ニューディールせいさく</rt><rp>)</rp></ruby>」</strong>です。<ruby>公共事業<rp>(</rp><rt>こうきょうじぎょう</rt><rp>)</rp></ruby>で<ruby>雇用<rp>(</rp><rt>こよう</rt><rp>)</rp></ruby>を<ruby>創出<rp>(</rp><rt>そうしゅつ</rt><rp>)</rp></ruby>し、<ruby>経済<rp>(</rp><rt>けいざい</rt><rp>)</rp></ruby>の立て直しを図りました。',
+        '<strong>正解はD「<ruby>ニューディール政策<rp>(</rp><rt>ニューディールせいさく</rt><rp>)</rp></ruby>」</strong>です。<ruby>公共事業<rp>(</rp><rt>こうきょうじぎょう</rt><rp>)</rp></ruby>で<ruby>雇用<rp>(</rp><rt>こよう</rt><rp>)</rp></ruby>を<ruby>創出<rp>(</rp><rt>そうしゅつ</rt><rp>)</rp></ruby>し、<ruby>経済<rp>(</rp><rt>けいざい</rt><rp>)</rp></ruby>の立て直しを図りました。',
     },
     {
       type: 'narrator',
@@ -124,12 +124,12 @@ export const greatDepressionChat: HistoryChat = {
       question: 'イタリアでファシスト党を率いて独裁政治を行った人物は？',
       options: [
         { letter: 'A', text: 'ヒトラー', correct: false },
-        { letter: 'B', text: 'ムッソリーニ', correct: true },
-        { letter: 'C', text: 'スターリン', correct: false },
+        { letter: 'B', text: 'スターリン', correct: false },
+        { letter: 'C', text: 'ムッソリーニ', correct: true },
         { letter: 'D', text: 'ルーズベルト', correct: false },
       ],
       explanation:
-        '<strong>正解はB「ムッソリーニ」</strong>です。<strong>ファシズム</strong>の<ruby>語源<rp>(</rp><rt>ごげん</rt><rp>)</rp></ruby>はイタリアの<ruby>ファシスト党<rp>(</rp><rt>ファシストとう</rt><rp>)</rp></ruby>に<ruby>由来<rp>(</rp><rt>ゆらい</rt><rp>)</rp></ruby>します。',
+        '<strong>正解はC「ムッソリーニ」</strong>です。<strong>ファシズム</strong>の<ruby>語源<rp>(</rp><rt>ごげん</rt><rp>)</rp></ruby>はイタリアの<ruby>ファシスト党<rp>(</rp><rt>ファシストとう</rt><rp>)</rp></ruby>に<ruby>由来<rp>(</rp><rt>ゆらい</rt><rp>)</rp></ruby>します。',
     },
     {
       type: 'end',

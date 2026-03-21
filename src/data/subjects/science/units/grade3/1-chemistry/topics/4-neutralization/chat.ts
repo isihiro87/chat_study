@@ -100,11 +100,11 @@ export const neutralizationChat: HistoryChat = {
       options: [
         { letter: 'A', text: '塩化カリウム', correct: false },
         { letter: 'B', text: '硫酸ナトリウム', correct: false },
-        { letter: 'C', text: '塩化ナトリウム', correct: true },
-        { letter: 'D', text: '炭酸ナトリウム', correct: false },
+        { letter: 'C', text: '炭酸ナトリウム', correct: false },
+        { letter: 'D', text: '塩化ナトリウム', correct: true },
       ],
       explanation:
-        '<strong>正解はC「<ruby>塩化<rp>(</rp><rt>えんか</rt><rp>)</rp></ruby>ナトリウム」</strong>です。HCl + NaOH → NaCl + H<sub>2</sub>O。Na<sup>+</sup>とCl<sup>−</sup>が<ruby>結<rp>(</rp><rt>むす</rt><rp>)</rp></ruby>びついてNaCl（<ruby>食塩<rp>(</rp><rt>しょくえん</rt><rp>)</rp></ruby>）ができます。',
+        '<strong>正解はD「<ruby>塩化<rp>(</rp><rt>えんか</rt><rp>)</rp></ruby>ナトリウム」</strong>です。HCl + NaOH → NaCl + H<sub>2</sub>O。Na<sup>+</sup>とCl<sup>−</sup>が<ruby>結<rp>(</rp><rt>むす</rt><rp>)</rp></ruby>びついてNaCl（<ruby>食塩<rp>(</rp><rt>しょくえん</rt><rp>)</rp></ruby>）ができます。',
     },
     {
       type: 'date',
@@ -173,11 +173,11 @@ export const neutralizationChat: HistoryChat = {
       options: [
         { letter: 'A', text: '塩化ナトリウム', correct: false },
         { letter: 'B', text: '炭酸カルシウム', correct: false },
-        { letter: 'C', text: '硝酸カリウム', correct: false },
-        { letter: 'D', text: '硫酸バリウム', correct: true },
+        { letter: 'C', text: '硫酸バリウム', correct: true },
+        { letter: 'D', text: '硝酸カリウム', correct: false },
       ],
       explanation:
-        '<strong>正解はD「<ruby>硫酸<rp>(</rp><rt>りゅうさん</rt><rp>)</rp></ruby>バリウム」</strong>です。H₂SO₄ + Ba(OH)₂ → BaSO₄ + 2H₂O で、BaSO₄は水に<ruby>溶<rp>(</rp><rt>と</rt><rp>)</rp></ruby>けないため<ruby>白<rp>(</rp><rt>しろ</rt><rp>)</rp></ruby>い<ruby>沈殿<rp>(</rp><rt>ちんでん</rt><rp>)</rp></ruby>になります。',
+        '<strong>正解はC「<ruby>硫酸<rp>(</rp><rt>りゅうさん</rt><rp>)</rp></ruby>バリウム」</strong>です。H₂SO₄ + Ba(OH)₂ → BaSO₄ + 2H₂O で、BaSO₄は水に<ruby>溶<rp>(</rp><rt>と</rt><rp>)</rp></ruby>けないため<ruby>白<rp>(</rp><rt>しろ</rt><rp>)</rp></ruby>い<ruby>沈殿<rp>(</rp><rt>ちんでん</rt><rp>)</rp></ruby>になります。',
     },
     {
       type: 'end',

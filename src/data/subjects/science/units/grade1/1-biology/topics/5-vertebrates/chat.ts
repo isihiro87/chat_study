@@ -92,12 +92,12 @@ export const vertebratesChat: HistoryChat = {
       question: '両生類の親の呼吸方法はどれ？',
       options: [
         { letter: 'A', text: 'えらだけ', correct: false },
-        { letter: 'B', text: '肺と皮膚', correct: true },
-        { letter: 'C', text: '肺だけ', correct: false },
+        { letter: 'B', text: '肺だけ', correct: false },
+        { letter: 'C', text: '肺と皮膚', correct: true },
         { letter: 'D', text: '皮膚だけ', correct: false },
       ],
       explanation:
-        '<strong>正解はB</strong>です。<ruby>両生類<rp>(</rp><rt>りょうせいるい</rt><rp>)</rp></ruby>は子のときはえら<ruby>呼吸<rp>(</rp><rt>こきゅう</rt><rp>)</rp></ruby>ですが、親になると<ruby>肺<rp>(</rp><rt>はい</rt><rp>)</rp></ruby>と<ruby>皮膚<rp>(</rp><rt>ひふ</rt><rp>)</rp></ruby>で<ruby>呼吸<rp>(</rp><rt>こきゅう</rt><rp>)</rp></ruby>します。',
+        '<strong>正解はC</strong>です。<ruby>両生類<rp>(</rp><rt>りょうせいるい</rt><rp>)</rp></ruby>は子のときはえら<ruby>呼吸<rp>(</rp><rt>こきゅう</rt><rp>)</rp></ruby>ですが、親になると<ruby>肺<rp>(</rp><rt>はい</rt><rp>)</rp></ruby>と<ruby>皮膚<rp>(</rp><rt>ひふ</rt><rp>)</rp></ruby>で<ruby>呼吸<rp>(</rp><rt>こきゅう</rt><rp>)</rp></ruby>します。',
     },
     {
       type: 'date',
@@ -158,12 +158,12 @@ export const vertebratesChat: HistoryChat = {
       question: '鳥類の体表をおおっているものは？',
       options: [
         { letter: 'A', text: 'うろこ', correct: false },
-        { letter: 'B', text: '毛', correct: false },
+        { letter: 'B', text: '羽毛', correct: true },
         { letter: 'C', text: 'しめった皮膚', correct: false },
-        { letter: 'D', text: '羽毛', correct: true },
+        { letter: 'D', text: '毛', correct: false },
       ],
       explanation:
-        '<strong>正解はD</strong>です。<ruby>鳥類<rp>(</rp><rt>ちょうるい</rt><rp>)</rp></ruby>の体は<ruby>羽毛<rp>(</rp><rt>うもう</rt><rp>)</rp></ruby>でおおわれています。<ruby>毛<rp>(</rp><rt>け</rt><rp>)</rp></ruby>は<ruby>哺乳類<rp>(</rp><rt>ほにゅうるい</rt><rp>)</rp></ruby>の<ruby>特徴<rp>(</rp><rt>とくちょう</rt><rp>)</rp></ruby>です。',
+        '<strong>正解はB</strong>です。<ruby>鳥類<rp>(</rp><rt>ちょうるい</rt><rp>)</rp></ruby>の体は<ruby>羽毛<rp>(</rp><rt>うもう</rt><rp>)</rp></ruby>でおおわれています。<ruby>毛<rp>(</rp><rt>け</rt><rp>)</rp></ruby>は<ruby>哺乳類<rp>(</rp><rt>ほにゅうるい</rt><rp>)</rp></ruby>の<ruby>特徴<rp>(</rp><rt>とくちょう</rt><rp>)</rp></ruby>です。',
     },
     {
       type: 'date',
@@ -212,13 +212,13 @@ export const vertebratesChat: HistoryChat = {
       type: 'quiz',
       question: '次のうち、変温動物はどれ？',
       options: [
-        { letter: 'A', text: 'スズメ', correct: false },
+        { letter: 'A', text: 'カエル', correct: true },
         { letter: 'B', text: 'ネコ', correct: false },
-        { letter: 'C', text: 'カエル', correct: true },
+        { letter: 'C', text: 'スズメ', correct: false },
         { letter: 'D', text: 'クジラ', correct: false },
       ],
       explanation:
-        '<strong>正解はC「カエル」</strong>です。カエルは<ruby>両生類<rp>(</rp><rt>りょうせいるい</rt><rp>)</rp></ruby>で<ruby>変温動物<rp>(</rp><rt>へんおんどうぶつ</rt><rp>)</rp></ruby>です。スズメは<ruby>鳥類<rp>(</rp><rt>ちょうるい</rt><rp>)</rp></ruby>、ネコとクジラは<ruby>哺乳類<rp>(</rp><rt>ほにゅうるい</rt><rp>)</rp></ruby>で<ruby>恒温動物<rp>(</rp><rt>こうおんどうぶつ</rt><rp>)</rp></ruby>です。',
+        '<strong>正解はA「カエル」</strong>です。カエルは<ruby>両生類<rp>(</rp><rt>りょうせいるい</rt><rp>)</rp></ruby>で<ruby>変温動物<rp>(</rp><rt>へんおんどうぶつ</rt><rp>)</rp></ruby>です。スズメは<ruby>鳥類<rp>(</rp><rt>ちょうるい</rt><rp>)</rp></ruby>、ネコとクジラは<ruby>哺乳類<rp>(</rp><rt>ほにゅうるい</rt><rp>)</rp></ruby>で<ruby>恒温動物<rp>(</rp><rt>こうおんどうぶつ</rt><rp>)</rp></ruby>です。',
     },
     {
       type: 'summary-point',
@@ -230,11 +230,11 @@ export const vertebratesChat: HistoryChat = {
       options: [
         { letter: 'A', text: '鳥類', correct: false },
         { letter: 'B', text: 'ハチュウ類', correct: false },
-        { letter: 'C', text: '哺乳類', correct: true },
-        { letter: 'D', text: '両生類', correct: false },
+        { letter: 'C', text: '両生類', correct: false },
+        { letter: 'D', text: '哺乳類', correct: true },
       ],
       explanation:
-        '<strong>正解はC</strong>です。<ruby>胎生<rp>(</rp><rt>たいせい</rt><rp>)</rp></ruby>は<ruby>哺乳類<rp>(</rp><rt>ほにゅうるい</rt><rp>)</rp></ruby>だけの<ruby>特徴<rp>(</rp><rt>とくちょう</rt><rp>)</rp></ruby>で、親の体内で<ruby>育<rp>(</rp><rt>そだ</rt><rp>)</rp></ruby>ってから<ruby>生<rp>(</rp><rt>う</rt><rp>)</rp></ruby>まれます。',
+        '<strong>正解はD</strong>です。<ruby>胎生<rp>(</rp><rt>たいせい</rt><rp>)</rp></ruby>は<ruby>哺乳類<rp>(</rp><rt>ほにゅうるい</rt><rp>)</rp></ruby>だけの<ruby>特徴<rp>(</rp><rt>とくちょう</rt><rp>)</rp></ruby>で、親の体内で<ruby>育<rp>(</rp><rt>そだ</rt><rp>)</rp></ruby>ってから<ruby>生<rp>(</rp><rt>う</rt><rp>)</rp></ruby>まれます。',
     },
     {
       type: 'date',
@@ -296,11 +296,11 @@ export const vertebratesChat: HistoryChat = {
       options: [
         { letter: 'A', text: '魚類と両生類', correct: false },
         { letter: 'B', text: '両生類とハチュウ類', correct: false },
-        { letter: 'C', text: '魚類と鳥類', correct: false },
-        { letter: 'D', text: 'ハチュウ類と鳥類', correct: true },
+        { letter: 'C', text: 'ハチュウ類と鳥類', correct: true },
+        { letter: 'D', text: '魚類と鳥類', correct: false },
       ],
       explanation:
-        '<strong>正解はD</strong>です。ハチュウ<ruby>類<rp>(</rp><rt>るい</rt><rp>)</rp></ruby>と<ruby>鳥類<rp>(</rp><rt>ちょうるい</rt><rp>)</rp></ruby>は<ruby>殻<rp>(</rp><rt>から</rt><rp>)</rp></ruby>のある<ruby>卵<rp>(</rp><rt>たまご</rt><rp>)</rp></ruby>を<ruby>陸上<rp>(</rp><rt>りくじょう</rt><rp>)</rp></ruby>に<ruby>産<rp>(</rp><rt>う</rt><rp>)</rp></ruby>みます。',
+        '<strong>正解はC</strong>です。ハチュウ<ruby>類<rp>(</rp><rt>るい</rt><rp>)</rp></ruby>と<ruby>鳥類<rp>(</rp><rt>ちょうるい</rt><rp>)</rp></ruby>は<ruby>殻<rp>(</rp><rt>から</rt><rp>)</rp></ruby>のある<ruby>卵<rp>(</rp><rt>たまご</rt><rp>)</rp></ruby>を<ruby>陸上<rp>(</rp><rt>りくじょう</rt><rp>)</rp></ruby>に<ruby>産<rp>(</rp><rt>う</rt><rp>)</rp></ruby>みます。',
     },
     {
       type: 'end',

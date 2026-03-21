@@ -99,12 +99,12 @@ export const ohmsLawChat: HistoryChat = {
       question: '10Ωの抵抗に5Vの電圧を加えたとき、流れる電流は何Aか？',
       options: [
         { letter: 'A', text: '0.2A', correct: false },
-        { letter: 'B', text: '0.5A', correct: true },
-        { letter: 'C', text: '2A', correct: false },
+        { letter: 'B', text: '2A', correct: false },
+        { letter: 'C', text: '0.5A', correct: true },
         { letter: 'D', text: '50A', correct: false },
       ],
       explanation:
-        '<strong>正解はB「0.5A」</strong>です。オームの<ruby>法則<rp>(</rp><rt>ほうそく</rt><rp>)</rp></ruby> I＝V÷R より、I＝5÷10＝<strong>0.5A</strong> です。',
+        '<strong>正解はC「0.5A」</strong>です。オームの<ruby>法則<rp>(</rp><rt>ほうそく</rt><rp>)</rp></ruby> I＝V÷R より、I＝5÷10＝<strong>0.5A</strong> です。',
     },
     {
       type: 'date',
@@ -186,12 +186,12 @@ export const ohmsLawChat: HistoryChat = {
       question: '20Ωと20Ωの抵抗を並列につないだときの合成抵抗はいくらか？',
       options: [
         { letter: 'A', text: '40Ω', correct: false },
-        { letter: 'B', text: '20Ω', correct: false },
-        { letter: 'C', text: '10Ω', correct: true },
+        { letter: 'B', text: '10Ω', correct: true },
+        { letter: 'C', text: '20Ω', correct: false },
         { letter: 'D', text: '5Ω', correct: false },
       ],
       explanation:
-        '<strong>正解はC「10Ω」</strong>です。同じ大きさの<ruby>抵抗<rp>(</rp><rt>ていこう</rt><rp>)</rp></ruby>を2つ<ruby>並列<rp>(</rp><rt>へいれつ</rt><rp>)</rp></ruby>につなぐと<ruby>合成抵抗<rp>(</rp><rt>ごうせいていこう</rt><rp>)</rp></ruby>は<ruby>半分<rp>(</rp><rt>はんぶん</rt><rp>)</rp></ruby>になります。20÷2＝10Ω。',
+        '<strong>正解はB「10Ω」</strong>です。同じ大きさの<ruby>抵抗<rp>(</rp><rt>ていこう</rt><rp>)</rp></ruby>を2つ<ruby>並列<rp>(</rp><rt>へいれつ</rt><rp>)</rp></ruby>につなぐと<ruby>合成抵抗<rp>(</rp><rt>ごうせいていこう</rt><rp>)</rp></ruby>は<ruby>半分<rp>(</rp><rt>はんぶん</rt><rp>)</rp></ruby>になります。20÷2＝10Ω。',
     },
     {
       type: 'end',

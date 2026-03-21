@@ -126,12 +126,12 @@ export const stateChangeChat: HistoryChat = {
       question: '状態変化について正しいものはどれ？',
       options: [
         { letter: 'A', text: '質量が変化する', correct: false },
-        { letter: 'B', text: '体積が変化する', correct: true },
+        { letter: 'B', text: '粒子の数が変わる', correct: false },
         { letter: 'C', text: '物質の種類が変わる', correct: false },
-        { letter: 'D', text: '粒子の数が変わる', correct: false },
+        { letter: 'D', text: '体積が変化する', correct: true },
       ],
       explanation:
-        '<strong>正解はB「<ruby>体積<rp>(</rp><rt>たいせき</rt><rp>)</rp></ruby>が<ruby>変化<rp>(</rp><rt>へんか</rt><rp>)</rp></ruby>する」</strong>です。<ruby>粒子<rp>(</rp><rt>りゅうし</rt><rp>)</rp></ruby>の<ruby>間隔<rp>(</rp><rt>かんかく</rt><rp>)</rp></ruby>が<ruby>変<rp>(</rp><rt>か</rt><rp>)</rp></ruby>わるため<ruby>体積<rp>(</rp><rt>たいせき</rt><rp>)</rp></ruby>は<ruby>変化<rp>(</rp><rt>へんか</rt><rp>)</rp></ruby>しますが、<ruby>粒子<rp>(</rp><rt>りゅうし</rt><rp>)</rp></ruby>の<ruby>数<rp>(</rp><rt>かず</rt><rp>)</rp></ruby>は<ruby>変<rp>(</rp><rt>か</rt><rp>)</rp></ruby>わらないので<ruby>質量<rp>(</rp><rt>しつりょう</rt><rp>)</rp></ruby>は<ruby>一定<rp>(</rp><rt>いってい</rt><rp>)</rp></ruby>です。',
+        '<strong>正解はD「<ruby>体積<rp>(</rp><rt>たいせき</rt><rp>)</rp></ruby>が<ruby>変化<rp>(</rp><rt>へんか</rt><rp>)</rp></ruby>する」</strong>です。<ruby>粒子<rp>(</rp><rt>りゅうし</rt><rp>)</rp></ruby>の<ruby>間隔<rp>(</rp><rt>かんかく</rt><rp>)</rp></ruby>が<ruby>変<rp>(</rp><rt>か</rt><rp>)</rp></ruby>わるため<ruby>体積<rp>(</rp><rt>たいせき</rt><rp>)</rp></ruby>は<ruby>変化<rp>(</rp><rt>へんか</rt><rp>)</rp></ruby>しますが、<ruby>粒子<rp>(</rp><rt>りゅうし</rt><rp>)</rp></ruby>の<ruby>数<rp>(</rp><rt>かず</rt><rp>)</rp></ruby>は<ruby>変<rp>(</rp><rt>か</rt><rp>)</rp></ruby>わらないので<ruby>質量<rp>(</rp><rt>しつりょう</rt><rp>)</rp></ruby>は<ruby>一定<rp>(</rp><rt>いってい</rt><rp>)</rp></ruby>です。',
     },
     {
       type: 'date',
@@ -198,12 +198,12 @@ export const stateChangeChat: HistoryChat = {
       question: '蒸留で物質を分けるとき、利用するのは何のちがい？',
       options: [
         { letter: 'A', text: '密度', correct: false },
-        { letter: 'B', text: '沸点', correct: true },
-        { letter: 'C', text: '融点', correct: false },
+        { letter: 'B', text: '融点', correct: false },
+        { letter: 'C', text: '沸点', correct: true },
         { letter: 'D', text: '溶解度', correct: false },
       ],
       explanation:
-        '<strong>正解はB「<ruby>沸点<rp>(</rp><rt>ふってん</rt><rp>)</rp></ruby>」</strong>です。<ruby>蒸留<rp>(</rp><rt>じょうりゅう</rt><rp>)</rp></ruby>は<ruby>沸点<rp>(</rp><rt>ふってん</rt><rp>)</rp></ruby>の<ruby>違<rp>(</rp><rt>ちが</rt><rp>)</rp></ruby>いを<ruby>利用<rp>(</rp><rt>りよう</rt><rp>)</rp></ruby>して<ruby>混合物<rp>(</rp><rt>こんごうぶつ</rt><rp>)</rp></ruby>を<ruby>分離<rp>(</rp><rt>ぶんり</rt><rp>)</rp></ruby>します。',
+        '<strong>正解はC「<ruby>沸点<rp>(</rp><rt>ふってん</rt><rp>)</rp></ruby>」</strong>です。<ruby>蒸留<rp>(</rp><rt>じょうりゅう</rt><rp>)</rp></ruby>は<ruby>沸点<rp>(</rp><rt>ふってん</rt><rp>)</rp></ruby>の<ruby>違<rp>(</rp><rt>ちが</rt><rp>)</rp></ruby>いを<ruby>利用<rp>(</rp><rt>りよう</rt><rp>)</rp></ruby>して<ruby>混合物<rp>(</rp><rt>こんごうぶつ</rt><rp>)</rp></ruby>を<ruby>分離<rp>(</rp><rt>ぶんり</rt><rp>)</rp></ruby>します。',
     },
     {
       type: 'date',
@@ -243,12 +243,12 @@ export const stateChangeChat: HistoryChat = {
       question: '水が凍ると体積はどうなる？',
       options: [
         { letter: 'A', text: '小さくなる', correct: false },
-        { letter: 'B', text: '変わらない', correct: false },
-        { letter: 'C', text: '大きくなる', correct: true },
+        { letter: 'B', text: '大きくなる', correct: true },
+        { letter: 'C', text: '変わらない', correct: false },
         { letter: 'D', text: '質量が減る', correct: false },
       ],
       explanation:
-        '<strong>正解はC「大きくなる」</strong>です。水は<ruby>例外<rp>(</rp><rt>れいがい</rt><rp>)</rp></ruby>で、<ruby>凍<rp>(</rp><rt>こお</rt><rp>)</rp></ruby>ると<ruby>結晶構造<rp>(</rp><rt>けっしょうこうぞう</rt><rp>)</rp></ruby>にすき<ruby>間<rp>(</rp><rt>ま</rt><rp>)</rp></ruby>が多く<ruby>体積<rp>(</rp><rt>たいせき</rt><rp>)</rp></ruby>が<ruby>増<rp>(</rp><rt>ふ</rt><rp>)</rp></ruby>えます。',
+        '<strong>正解はB「大きくなる」</strong>です。水は<ruby>例外<rp>(</rp><rt>れいがい</rt><rp>)</rp></ruby>で、<ruby>凍<rp>(</rp><rt>こお</rt><rp>)</rp></ruby>ると<ruby>結晶構造<rp>(</rp><rt>けっしょうこうぞう</rt><rp>)</rp></ruby>にすき<ruby>間<rp>(</rp><rt>ま</rt><rp>)</rp></ruby>が多く<ruby>体積<rp>(</rp><rt>たいせき</rt><rp>)</rp></ruby>が<ruby>増<rp>(</rp><rt>ふ</rt><rp>)</rp></ruby>えます。',
     },
     {
       type: 'date',
@@ -294,13 +294,13 @@ export const stateChangeChat: HistoryChat = {
       type: 'quiz',
       question: '固体から液体を経ずに直接気体になる変化を何という？',
       options: [
-        { letter: 'A', text: '蒸発', correct: false },
+        { letter: 'A', text: '昇華', correct: true },
         { letter: 'B', text: '融解', correct: false },
         { letter: 'C', text: '凝縮', correct: false },
-        { letter: 'D', text: '昇華', correct: true },
+        { letter: 'D', text: '蒸発', correct: false },
       ],
       explanation:
-        '<strong>正解はD「<ruby>昇華<rp>(</rp><rt>しょうか</rt><rp>)</rp></ruby>」</strong>です。ドライアイスやナフタレンが<ruby>代表例<rp>(</rp><rt>だいひょうれい</rt><rp>)</rp></ruby>で、<ruby>固体<rp>(</rp><rt>こたい</rt><rp>)</rp></ruby>から<ruby>直接<rp>(</rp><rt>ちょくせつ</rt><rp>)</rp></ruby><ruby>気体<rp>(</rp><rt>きたい</rt><rp>)</rp></ruby>になります。',
+        '<strong>正解はA「<ruby>昇華<rp>(</rp><rt>しょうか</rt><rp>)</rp></ruby>」</strong>です。ドライアイスやナフタレンが<ruby>代表例<rp>(</rp><rt>だいひょうれい</rt><rp>)</rp></ruby>で、<ruby>固体<rp>(</rp><rt>こたい</rt><rp>)</rp></ruby>から<ruby>直接<rp>(</rp><rt>ちょくせつ</rt><rp>)</rp></ruby><ruby>気体<rp>(</rp><rt>きたい</rt><rp>)</rp></ruby>になります。',
     },
     {
       type: 'end',

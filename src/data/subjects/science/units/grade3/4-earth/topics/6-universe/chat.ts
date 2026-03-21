@@ -111,12 +111,12 @@ export const universeChat: HistoryChat = {
       question: '太陽系が属する銀河を何というか。',
       options: [
         { letter: 'A', text: 'アンドロメダ銀河', correct: false },
-        { letter: 'B', text: '銀河系（天の川銀河）', correct: true },
-        { letter: 'C', text: 'マゼラン雲', correct: false },
+        { letter: 'B', text: 'マゼラン雲', correct: false },
+        { letter: 'C', text: '銀河系（天の川銀河）', correct: true },
         { letter: 'D', text: '渦巻き銀河', correct: false },
       ],
       explanation:
-        '<strong>正解はB「<ruby>銀河系<rp>(</rp><rt>ぎんがけい</rt><rp>)</rp></ruby>（天の川銀河）」</strong>です。太陽系は<ruby>銀河系<rp>(</rp><rt>ぎんがけい</rt><rp>)</rp></ruby>に属しており、<ruby>渦巻<rp>(</rp><rt>うずま</rt><rp>)</rp></ruby>き<ruby>円盤<rp>(</rp><rt>えんばん</rt><rp>)</rp></ruby>状の形をしています。',
+        '<strong>正解はC「<ruby>銀河系<rp>(</rp><rt>ぎんがけい</rt><rp>)</rp></ruby>（天の川銀河）」</strong>です。太陽系は<ruby>銀河系<rp>(</rp><rt>ぎんがけい</rt><rp>)</rp></ruby>に属しており、<ruby>渦巻<rp>(</rp><rt>うずま</rt><rp>)</rp></ruby>き<ruby>円盤<rp>(</rp><rt>えんばん</rt><rp>)</rp></ruby>状の形をしています。',
     },
     {
       type: 'date',

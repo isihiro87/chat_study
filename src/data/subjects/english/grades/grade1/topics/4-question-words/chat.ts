@@ -96,9 +96,9 @@ export const questionWordsChat: HistoryChat = {
       question: '「これは何ですか？」を英語にすると？',
       options: [
         { letter: 'A', text: 'Who is this?', correct: false },
-        { letter: 'B', text: 'What is this?', correct: true },
+        { letter: 'B', text: 'Is this what?', correct: false },
         { letter: 'C', text: 'Where is this?', correct: false },
-        { letter: 'D', text: 'Is this what?', correct: false },
+        { letter: 'D', text: 'What is this?', correct: true },
       ],
       explanation: '「何」は <strong>what</strong> だよ。<ruby>一番<rt>いちばん</rt></ruby><ruby>最初<rt>さいしょ</rt></ruby>に<ruby>置<rt>お</rt></ruby>いて <strong>What is this?</strong>',
     },
@@ -150,8 +150,8 @@ export const questionWordsChat: HistoryChat = {
       options: [
         { letter: 'A', text: 'What is your birthday?', correct: false },
         { letter: 'B', text: 'Where is your birthday?', correct: false },
-        { letter: 'C', text: 'Who is your birthday?', correct: false },
-        { letter: 'D', text: 'When is your birthday?', correct: true },
+        { letter: 'C', text: 'When is your birthday?', correct: true },
+        { letter: 'D', text: 'Who is your birthday?', correct: false },
       ],
       explanation: '「いつ」は <strong>when</strong> だよ。When is your birthday?',
     },
@@ -202,8 +202,8 @@ export const questionWordsChat: HistoryChat = {
       question: '「あなたは本を何冊もっていますか？」を英語にするとき、最初にくるのは？',
       options: [
         { letter: 'A', text: 'What books', correct: false },
-        { letter: 'B', text: 'How old', correct: false },
-        { letter: 'C', text: 'How many books', correct: true },
+        { letter: 'B', text: 'How many books', correct: true },
+        { letter: 'C', text: 'How old', correct: false },
         { letter: 'D', text: 'Where books', correct: false },
       ],
       explanation: '「何<ruby>冊<rt>さつ</rt></ruby>」は <strong>how many</strong> だよ。How many books do you have?',

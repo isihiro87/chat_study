@@ -84,12 +84,12 @@ export const kokufuCultureChat: HistoryChat = {
       type: 'quiz',
       question: '紫式部が書いた長編物語は？',
       options: [
-        { letter: 'A', text: '源氏物語', correct: true },
+        { letter: 'A', text: '枕草子', correct: false },
         { letter: 'B', text: '古事記', correct: false },
-        { letter: 'C', text: '枕草子', correct: false },
+        { letter: 'C', text: '源氏物語', correct: true },
         { letter: 'D', text: '万葉集', correct: false },
       ],
-      explanation: '<strong>正解はA「<ruby>源氏物語<rp>(</rp><rt>げんじものがたり</rt><rp>)</rp></ruby>」</strong>です。<ruby>紫式部<rp>(</rp><rt>むらさきしきぶ</rt><rp>)</rp></ruby>が書いた世界最古級の<ruby>長編小説<rp>(</rp><rt>ちょうへんしょうせつ</rt><rp>)</rp></ruby>で、<ruby>光源氏<rp>(</rp><rt>ひかるげんじ</rt><rp>)</rp></ruby>の一生を<ruby>描<rp>(</rp><rt>えが</rt><rp>)</rp></ruby>いています。',
+      explanation: '<strong>正解はC「<ruby>源氏物語<rp>(</rp><rt>げんじものがたり</rt><rp>)</rp></ruby>」</strong>です。<ruby>紫式部<rp>(</rp><rt>むらさきしきぶ</rt><rp>)</rp></ruby>が書いた世界最古級の<ruby>長編小説<rp>(</rp><rt>ちょうへんしょうせつ</rt><rp>)</rp></ruby>で、<ruby>光源氏<rp>(</rp><rt>ひかるげんじ</rt><rp>)</rp></ruby>の一生を<ruby>描<rp>(</rp><rt>えが</rt><rp>)</rp></ruby>いています。',
     },
     {
       type: 'narrator',

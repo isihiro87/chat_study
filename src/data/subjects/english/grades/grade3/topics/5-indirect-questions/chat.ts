@@ -97,8 +97,8 @@ export const indirectQuestionsChat: HistoryChat = {
       options: [
         { letter: 'A', text: 'does like', correct: false },
         { letter: 'B', text: 'like', correct: false },
-        { letter: 'C', text: 'likes', correct: true },
-        { letter: 'D', text: 'is like', correct: false },
+        { letter: 'C', text: 'is like', correct: false },
+        { letter: 'D', text: 'likes', correct: true },
       ],
       explanation: '<ruby>間接疑問文<rt>かんせつぎもんぶん</rt></ruby>では<ruby>疑問<rt>ぎもん</rt></ruby>のことばのあとは「主語 + <ruby>動詞<rt>どうし</rt></ruby>」の<ruby>順番<rt>じゅんばん</rt></ruby>。he（1人）だから <strong>likes</strong>（s つき）だよ。',
     },
@@ -156,8 +156,8 @@ export const indirectQuestionsChat: HistoryChat = {
       question: '「Tell me when the meeting (　　).（会議がいつ始まるか教えてください。）」\nの (　　) に入るのは？',
       options: [
         { letter: 'A', text: 'does start', correct: false },
-        { letter: 'B', text: 'starts', correct: true },
-        { letter: 'C', text: 'is start', correct: false },
+        { letter: 'B', text: 'is start', correct: false },
+        { letter: 'C', text: 'starts', correct: true },
         { letter: 'D', text: 'start does', correct: false },
       ],
       explanation: '<ruby>間接疑問文<rt>かんせつぎもんぶん</rt></ruby>では when のあとは「主語 + <ruby>動詞<rt>どうし</rt></ruby>」の<ruby>順番<rt>じゅんばん</rt></ruby>。the meeting（1つ）だから <strong>starts</strong> だよ。',

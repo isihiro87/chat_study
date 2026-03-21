@@ -120,8 +120,8 @@ export const modalVerbsChat: HistoryChat = {
       question: '「She can (　　) English.（彼女は英語を話すことができます。）」\nの (　　) に入るのは？',
       options: [
         { letter: 'A', text: 'speaks', correct: false },
-        { letter: 'B', text: 'speaking', correct: false },
-        { letter: 'C', text: 'speak', correct: true },
+        { letter: 'B', text: 'speak', correct: true },
+        { letter: 'C', text: 'speaking', correct: false },
         { letter: 'D', text: 'spoke', correct: false },
       ],
       explanation: '<ruby>助動詞<rt>じょどうし</rt></ruby>のうしろの<ruby>動詞<rt>どうし</rt></ruby>は、いつでももとの形（何もつけない形）だよ。speaks ではなく <strong>speak</strong>！',
@@ -193,8 +193,8 @@ export const modalVerbsChat: HistoryChat = {
       type: 'quiz',
       question: '「You don\'t have to come tomorrow.」の<ruby>意味<rt>いみ</rt></ruby>として正しいのは？',
       options: [
-        { letter: 'A', text: '明日来てはいけません。', correct: false },
-        { letter: 'B', text: '明日来なくてもいいよ。', correct: true },
+        { letter: 'A', text: '明日来なくてもいいよ。', correct: true },
+        { letter: 'B', text: '明日来てはいけません。', correct: false },
         { letter: 'C', text: '明日来ることができます。', correct: false },
         { letter: 'D', text: '明日来るべきです。', correct: false },
       ],

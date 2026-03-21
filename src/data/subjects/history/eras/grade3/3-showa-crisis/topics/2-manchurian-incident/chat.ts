@@ -128,12 +128,12 @@ export const manchurianIncidentChat: HistoryChat = {
       question: '五・一五事件で暗殺された首相は誰？',
       options: [
         { letter: 'A', text: '原敬', correct: false },
-        { letter: 'B', text: '犬養毅', correct: true },
+        { letter: 'B', text: '大隈重信', correct: false },
         { letter: 'C', text: '伊藤博文', correct: false },
-        { letter: 'D', text: '大隈重信', correct: false },
+        { letter: 'D', text: '犬養毅', correct: true },
       ],
       explanation:
-        '<strong>正解はB「<ruby>犬養毅<rp>(</rp><rt>いぬかいつよし</rt><rp>)</rp></ruby>」</strong>です。「話せばわかる」の言葉が有名で、この事件で<strong>政党内閣</strong>の時代が終わりました。',
+        '<strong>正解はD「<ruby>犬養毅<rp>(</rp><rt>いぬかいつよし</rt><rp>)</rp></ruby>」</strong>です。「話せばわかる」の言葉が有名で、この事件で<strong>政党内閣</strong>の時代が終わりました。',
     },
     {
       type: 'narrator',

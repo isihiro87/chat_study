@@ -77,13 +77,13 @@ export const plantPhotosynthesisChat: HistoryChat = {
       type: 'quiz',
       question: '光合成でつくられる養分は何？',
       options: [
-        { letter: 'A', text: 'デンプン', correct: true },
+        { letter: 'A', text: 'ブドウ糖', correct: false },
         { letter: 'B', text: 'タンパク質', correct: false },
         { letter: 'C', text: '脂肪', correct: false },
-        { letter: 'D', text: 'ブドウ糖', correct: false },
+        { letter: 'D', text: 'デンプン', correct: true },
       ],
       explanation:
-        '<strong>正解はA「デンプン」</strong>です。<ruby>光合成<rp>(</rp><rt>こうごうせい</rt><rp>)</rp></ruby>では<ruby>光<rp>(</rp><rt>ひかり</rt><rp>)</rp></ruby>＋CO₂＋水からデンプンと<ruby>酸素<rp>(</rp><rt>さんそ</rt><rp>)</rp></ruby>がつくられます。',
+        '<strong>正解はD「デンプン」</strong>です。<ruby>光合成<rp>(</rp><rt>こうごうせい</rt><rp>)</rp></ruby>では<ruby>光<rp>(</rp><rt>ひかり</rt><rp>)</rp></ruby>＋CO₂＋水からデンプンと<ruby>酸素<rp>(</rp><rt>さんそ</rt><rp>)</rp></ruby>がつくられます。',
     },
     {
       type: 'message',
@@ -217,13 +217,13 @@ export const plantPhotosynthesisChat: HistoryChat = {
       type: 'quiz',
       question: '植物が夜に放出する気体は？',
       options: [
-        { letter: 'A', text: '酸素', correct: false },
+        { letter: 'A', text: '二酸化炭素', correct: true },
         { letter: 'B', text: '窒素', correct: false },
         { letter: 'C', text: '水素', correct: false },
-        { letter: 'D', text: '二酸化炭素', correct: true },
+        { letter: 'D', text: '酸素', correct: false },
       ],
       explanation:
-        '<strong>正解はD「<ruby>二酸化炭素<rp>(</rp><rt>にさんかたんそ</rt><rp>)</rp></ruby>」</strong>です。<ruby>夜<rp>(</rp><rt>よる</rt><rp>)</rp></ruby>は<ruby>光合成<rp>(</rp><rt>こうごうせい</rt><rp>)</rp></ruby>が止まり<ruby>呼吸<rp>(</rp><rt>こきゅう</rt><rp>)</rp></ruby>のみになるため、CO₂を<ruby>放出<rp>(</rp><rt>ほうしゅつ</rt><rp>)</rp></ruby>します。',
+        '<strong>正解はA「<ruby>二酸化炭素<rp>(</rp><rt>にさんかたんそ</rt><rp>)</rp></ruby>」</strong>です。<ruby>夜<rp>(</rp><rt>よる</rt><rp>)</rp></ruby>は<ruby>光合成<rp>(</rp><rt>こうごうせい</rt><rp>)</rp></ruby>が止まり<ruby>呼吸<rp>(</rp><rt>こきゅう</rt><rp>)</rp></ruby>のみになるため、CO₂を<ruby>放出<rp>(</rp><rt>ほうしゅつ</rt><rp>)</rp></ruby>します。',
     },
     {
       type: 'end',

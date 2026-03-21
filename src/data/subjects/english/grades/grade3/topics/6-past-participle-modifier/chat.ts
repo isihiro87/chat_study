@@ -103,8 +103,8 @@ export const pastParticipleModifierChat: HistoryChat = {
       type: 'quiz',
       question: '「英語で書かれた本」を英語で言うと？',
       options: [
-        { letter: 'A', text: 'a written in English book', correct: false },
-        { letter: 'B', text: 'a book written in English', correct: true },
+        { letter: 'A', text: 'a book written in English', correct: true },
+        { letter: 'B', text: 'a written in English book', correct: false },
         { letter: 'C', text: 'a book writing in English', correct: false },
         { letter: 'D', text: 'a English written book', correct: false },
       ],
@@ -163,10 +163,10 @@ export const pastParticipleModifierChat: HistoryChat = {
       type: 'quiz',
       question: '「彼女が撮った写真」を英語にすると？',
       options: [
-        { letter: 'A', text: 'a photo taken by her', correct: true },
+        { letter: 'A', text: 'a her taken photo', correct: false },
         { letter: 'B', text: 'a taken by her photo', correct: false },
         { letter: 'C', text: 'a photo taking by her', correct: false },
-        { letter: 'D', text: 'a her taken photo', correct: false },
+        { letter: 'D', text: 'a photo taken by her', correct: true },
       ],
       explanation: '「<ruby>撮<rt>と</rt></ruby>られた」は<ruby>過去分詞<rt>かこぶんし</rt></ruby> taken。by her で「<ruby>彼女<rt>かのじょ</rt></ruby>によって」。名詞のうしろに<ruby>置<rt>お</rt></ruby>いて <strong>a photo taken by her</strong> だよ。',
     },

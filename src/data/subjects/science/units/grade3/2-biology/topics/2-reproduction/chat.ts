@@ -112,12 +112,12 @@ export const reproductionChat: HistoryChat = {
       question: '次のうち、無性生殖にあてはまるものは？',
       options: [
         { letter: 'A', text: 'カエルの卵と精子の受精', correct: false },
-        { letter: 'B', text: 'アメーバの分裂', correct: true },
-        { letter: 'C', text: 'ヒトの受精卵の発生', correct: false },
+        { letter: 'B', text: 'ヒトの受精卵の発生', correct: false },
+        { letter: 'C', text: 'アメーバの分裂', correct: true },
         { letter: 'D', text: '花粉管による受精', correct: false },
       ],
       explanation:
-        '<strong>正解はB「アメーバの分裂」</strong>です。アメーバの分裂は<ruby>受精<rp>(</rp><rt>じゅせい</rt><rp>)</rp></ruby>を行わない<ruby>無性生殖<rp>(</rp><rt>むせいせいしょく</rt><rp>)</rp></ruby>です。親と全く同じ<ruby>形質<rp>(</rp><rt>けいしつ</rt><rp>)</rp></ruby>の子ができます。',
+        '<strong>正解はC「アメーバの分裂」</strong>です。アメーバの分裂は<ruby>受精<rp>(</rp><rt>じゅせい</rt><rp>)</rp></ruby>を行わない<ruby>無性生殖<rp>(</rp><rt>むせいせいしょく</rt><rp>)</rp></ruby>です。親と全く同じ<ruby>形質<rp>(</rp><rt>けいしつ</rt><rp>)</rp></ruby>の子ができます。',
     },
     {
       type: 'date',
@@ -204,12 +204,12 @@ export const reproductionChat: HistoryChat = {
       question: '生殖細胞の染色体数は体細胞と比べてどうなっている？',
       options: [
         { letter: 'A', text: '体細胞と同じ', correct: false },
-        { letter: 'B', text: '体細胞の2倍', correct: false },
-        { letter: 'C', text: '体細胞の半分', correct: true },
+        { letter: 'B', text: '体細胞の半分', correct: true },
+        { letter: 'C', text: '体細胞の2倍', correct: false },
         { letter: 'D', text: '体細胞の4分の1', correct: false },
       ],
       explanation:
-        '<strong>正解はC「体細胞の半分」</strong>です。<ruby>減数分裂<rp>(</rp><rt>げんすうぶんれつ</rt><rp>)</rp></ruby>で<ruby>染色体<rp>(</rp><rt>せんしょくたい</rt><rp>)</rp></ruby>数が半分になり、<ruby>受精<rp>(</rp><rt>じゅせい</rt><rp>)</rp></ruby>で半分＋半分＝もとの数に戻ります。',
+        '<strong>正解はB「体細胞の半分」</strong>です。<ruby>減数分裂<rp>(</rp><rt>げんすうぶんれつ</rt><rp>)</rp></ruby>で<ruby>染色体<rp>(</rp><rt>せんしょくたい</rt><rp>)</rp></ruby>数が半分になり、<ruby>受精<rp>(</rp><rt>じゅせい</rt><rp>)</rp></ruby>で半分＋半分＝もとの数に戻ります。',
     },
     {
       type: 'end',

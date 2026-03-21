@@ -87,12 +87,12 @@ export const postwarInternationalChat: HistoryChat = {
       question: '1962年にアメリカとソ連が核戦争の瀬戸際に立った事件は？',
       options: [
         { letter: 'A', text: 'ベトナム戦争', correct: false },
-        { letter: 'B', text: 'キューバ危機', correct: true },
-        { letter: 'C', text: '朝鮮戦争', correct: false },
+        { letter: 'B', text: '朝鮮戦争', correct: false },
+        { letter: 'C', text: 'キューバ危機', correct: true },
         { letter: 'D', text: 'ベルリンの壁建設', correct: false },
       ],
       explanation:
-        '<strong>正解はB「キューバ<ruby>危機<rp>(</rp><rt>きき</rt><rp>)</rp></ruby>」</strong>です。ソ連がキューバにミサイル基地を<ruby>建設<rp>(</rp><rt>けんせつ</rt><rp>)</rp></ruby>しようとし、米ソが<ruby>核戦争<rp>(</rp><rt>かくせんそう</rt><rp>)</rp></ruby><ruby>寸前<rp>(</rp><rt>すんぜん</rt><rp>)</rp></ruby>となりました。',
+        '<strong>正解はC「キューバ<ruby>危機<rp>(</rp><rt>きき</rt><rp>)</rp></ruby>」</strong>です。ソ連がキューバにミサイル基地を<ruby>建設<rp>(</rp><rt>けんせつ</rt><rp>)</rp></ruby>しようとし、米ソが<ruby>核戦争<rp>(</rp><rt>かくせんそう</rt><rp>)</rp></ruby><ruby>寸前<rp>(</rp><rt>すんぜん</rt><rp>)</rp></ruby>となりました。',
     },
     {
       type: 'date',

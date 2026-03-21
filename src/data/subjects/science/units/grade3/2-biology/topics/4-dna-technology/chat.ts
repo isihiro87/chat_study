@@ -93,12 +93,12 @@ export const dnaTechnologyChat: HistoryChat = {
       question: '遺伝子の本体であるDNAの正式名称は？',
       options: [
         { letter: 'A', text: 'リボ核酸', correct: false },
-        { letter: 'B', text: 'デオキシリボ核酸', correct: true },
-        { letter: 'C', text: 'アデノシン三リン酸', correct: false },
+        { letter: 'B', text: 'アデノシン三リン酸', correct: false },
+        { letter: 'C', text: 'デオキシリボ核酸', correct: true },
         { letter: 'D', text: 'アミノ酸', correct: false },
       ],
       explanation:
-        '<strong>正解はB「<ruby>デオキシリボ<ruby>核酸<rp>(</rp><rt>かくさん</rt><rp>)</rp></ruby><rp></rp><rt></rt><rp></rp></ruby>」</strong>です。DNAはDeoxyribonucleic Acidの<ruby>略<rp>(</rp><rt>りゃく</rt><rp>)</rp></ruby>で、<ruby>二重<rp>(</rp><rt>にじゅう</rt><rp>)</rp></ruby>らせん<ruby>構造<rp>(</rp><rt>こうぞう</rt><rp>)</rp></ruby>をしています。',
+        '<strong>正解はC「<ruby>デオキシリボ<ruby>核酸<rp>(</rp><rt>かくさん</rt><rp>)</rp></ruby><rp></rp><rt></rt><rp></rp></ruby>」</strong>です。DNAはDeoxyribonucleic Acidの<ruby>略<rp>(</rp><rt>りゃく</rt><rp>)</rp></ruby>で、<ruby>二重<rp>(</rp><rt>にじゅう</rt><rp>)</rp></ruby>らせん<ruby>構造<rp>(</rp><rt>こうぞう</rt><rp>)</rp></ruby>をしています。',
     },
 
     // === 2日目：遺伝子技術の活用 ===
@@ -188,12 +188,12 @@ export const dnaTechnologyChat: HistoryChat = {
       question: '遺伝子組換え技術を使って細菌に作らせている糖尿病治療薬は？',
       options: [
         { letter: 'A', text: '抗生物質', correct: false },
-        { letter: 'B', text: 'ワクチン', correct: false },
-        { letter: 'C', text: 'インスリン', correct: true },
+        { letter: 'B', text: 'インスリン', correct: true },
+        { letter: 'C', text: 'ワクチン', correct: false },
         { letter: 'D', text: 'ビタミン', correct: false },
       ],
       explanation:
-        '<strong>正解はC「インスリン」</strong>です。ヒトのインスリン遺伝子を<ruby>細菌<rp>(</rp><rt>さいきん</rt><rp>)</rp></ruby>に組み込んで大量生産し、<ruby>糖尿病<rp>(</rp><rt>とうにょうびょう</rt><rp>)</rp></ruby>の治療薬として利用しています。',
+        '<strong>正解はB「インスリン」</strong>です。ヒトのインスリン遺伝子を<ruby>細菌<rp>(</rp><rt>さいきん</rt><rp>)</rp></ruby>に組み込んで大量生産し、<ruby>糖尿病<rp>(</rp><rt>とうにょうびょう</rt><rp>)</rp></ruby>の治療薬として利用しています。',
     },
 
     // === まとめ ===

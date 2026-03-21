@@ -144,12 +144,12 @@ export const tenpyoCultureChat: HistoryChat = {
       type: 'quiz',
       question: '聖武天皇の愛用品が納められた建物は？',
       options: [
-        { letter: 'A', text: '東大寺', correct: false },
-        { letter: 'B', text: '正倉院', correct: true },
+        { letter: 'A', text: '正倉院', correct: true },
+        { letter: 'B', text: '東大寺', correct: false },
         { letter: 'C', text: '法隆寺', correct: false },
         { letter: 'D', text: '国分寺', correct: false },
       ],
-      explanation: '<strong>正解はB「<ruby>正倉院<rp>(</rp><rt>しょうそういん</rt><rp>)</rp></ruby>」</strong>です。<ruby>校倉造<rp>(</rp><rt>あぜくらづくり</rt><rp>)</rp></ruby>の建物で、<ruby>聖武天皇<rp>(</rp><rt>しょうむてんのう</rt><rp>)</rp></ruby>の<ruby>愛用品<rp>(</rp><rt>あいようひん</rt><rp>)</rp></ruby>やシルクロード<ruby>由来<rp>(</rp><rt>ゆらい</rt><rp>)</rp></ruby>の<ruby>宝物<rp>(</rp><rt>ほうもつ</rt><rp>)</rp></ruby>が<ruby>納<rp>(</rp><rt>おさ</rt><rp>)</rp></ruby>められています。',
+      explanation: '<strong>正解はA「<ruby>正倉院<rp>(</rp><rt>しょうそういん</rt><rp>)</rp></ruby>」</strong>です。<ruby>校倉造<rp>(</rp><rt>あぜくらづくり</rt><rp>)</rp></ruby>の建物で、<ruby>聖武天皇<rp>(</rp><rt>しょうむてんのう</rt><rp>)</rp></ruby>の<ruby>愛用品<rp>(</rp><rt>あいようひん</rt><rp>)</rp></ruby>やシルクロード<ruby>由来<rp>(</rp><rt>ゆらい</rt><rp>)</rp></ruby>の<ruby>宝物<rp>(</rp><rt>ほうもつ</rt><rp>)</rp></ruby>が<ruby>納<rp>(</rp><rt>おさ</rt><rp>)</rp></ruby>められています。',
     },
     {
       type: 'end',

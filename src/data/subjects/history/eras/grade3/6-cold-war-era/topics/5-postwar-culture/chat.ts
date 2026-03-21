@@ -95,11 +95,11 @@ export const postwarCultureChat: HistoryChat = {
       options: [
         { letter: 'A', text: '黒澤明', correct: false },
         { letter: 'B', text: '湯川秀樹', correct: false },
-        { letter: 'C', text: '手塚治虫', correct: true },
-        { letter: 'D', text: '川端康成', correct: false },
+        { letter: 'C', text: '川端康成', correct: false },
+        { letter: 'D', text: '手塚治虫', correct: true },
       ],
       explanation:
-        '<strong>正解はC「<ruby>手塚治虫<rp>(</rp><rt>てづかおさむ</rt><rp>)</rp></ruby>」</strong>です。「<strong>鉄腕アトム</strong>」で日本の<ruby>漫画<rp>(</rp><rt>まんが</rt><rp>)</rp></ruby>・アニメ文化の<ruby>基礎<rp>(</rp><rt>きそ</rt><rp>)</rp></ruby>を<ruby>築<rp>(</rp><rt>きず</rt><rp>)</rp></ruby>きました。',
+        '<strong>正解はD「<ruby>手塚治虫<rp>(</rp><rt>てづかおさむ</rt><rp>)</rp></ruby>」</strong>です。「<strong>鉄腕アトム</strong>」で日本の<ruby>漫画<rp>(</rp><rt>まんが</rt><rp>)</rp></ruby>・アニメ文化の<ruby>基礎<rp>(</rp><rt>きそ</rt><rp>)</rp></ruby>を<ruby>築<rp>(</rp><rt>きず</rt><rp>)</rp></ruby>きました。',
     },
     {
       type: 'date',

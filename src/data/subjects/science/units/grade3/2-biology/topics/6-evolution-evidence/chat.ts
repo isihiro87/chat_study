@@ -94,11 +94,11 @@ export const evolutionEvidenceChat: HistoryChat = {
       options: [
         { letter: 'A', text: 'つばさに爪がある', correct: false },
         { letter: 'B', text: 'くちばしに歯がある', correct: false },
-        { letter: 'C', text: '羽毛がある', correct: true },
-        { letter: 'D', text: '尾骨がある', correct: false },
+        { letter: 'C', text: '尾骨がある', correct: false },
+        { letter: 'D', text: '羽毛がある', correct: true },
       ],
       explanation:
-        '<strong>正解はC「<ruby>羽毛<rp>(</rp><rt>うもう</rt><rp>)</rp></ruby>がある」</strong>です。<ruby>羽毛<rp>(</rp><rt>うもう</rt><rp>)</rp></ruby>は<ruby>鳥類<rp>(</rp><rt>ちょうるい</rt><rp>)</rp></ruby>の<ruby>特徴<rp>(</rp><rt>とくちょう</rt><rp>)</rp></ruby>です。<ruby>爪<rp>(</rp><rt>つめ</rt><rp>)</rp></ruby>・<ruby>歯<rp>(</rp><rt>は</rt><rp>)</rp></ruby>・<ruby>尾骨<rp>(</rp><rt>びこつ</rt><rp>)</rp></ruby>が<ruby>ハチュウ類<rp>(</rp><rt>はちゅうるい</rt><rp>)</rp></ruby>の特徴です。',
+        '<strong>正解はD「<ruby>羽毛<rp>(</rp><rt>うもう</rt><rp>)</rp></ruby>がある」</strong>です。<ruby>羽毛<rp>(</rp><rt>うもう</rt><rp>)</rp></ruby>は<ruby>鳥類<rp>(</rp><rt>ちょうるい</rt><rp>)</rp></ruby>の<ruby>特徴<rp>(</rp><rt>とくちょう</rt><rp>)</rp></ruby>です。<ruby>爪<rp>(</rp><rt>つめ</rt><rp>)</rp></ruby>・<ruby>歯<rp>(</rp><rt>は</rt><rp>)</rp></ruby>・<ruby>尾骨<rp>(</rp><rt>びこつ</rt><rp>)</rp></ruby>が<ruby>ハチュウ類<rp>(</rp><rt>はちゅうるい</rt><rp>)</rp></ruby>の特徴です。',
     },
 
     // ── 学習3: さまざまな進化の証拠 ──
@@ -194,12 +194,12 @@ export const evolutionEvidenceChat: HistoryChat = {
       question: '相同器官の例として正しいものは？',
       options: [
         { letter: 'A', text: 'トンボの翅とスズメの翼', correct: false },
-        { letter: 'B', text: 'クジラのひれとヒトのうで', correct: true },
-        { letter: 'C', text: 'イカの目とヒトの目', correct: false },
+        { letter: 'B', text: 'イカの目とヒトの目', correct: false },
+        { letter: 'C', text: 'クジラのひれとヒトのうで', correct: true },
         { letter: 'D', text: 'チョウの口とカの口', correct: false },
       ],
       explanation:
-        '<strong>正解はB「クジラのひれとヒトのうで」</strong>です。形や<ruby>働<rp>(</rp><rt>はたら</rt><rp>)</rp></ruby>きは<ruby>異<rp>(</rp><rt>こと</rt><rp>)</rp></ruby>なりますが、<ruby>骨格<rp>(</rp><rt>こっかく</rt><rp>)</rp></ruby>の基本<ruby>構造<rp>(</rp><rt>こうぞう</rt><rp>)</rp></ruby>が共通しており、<ruby>相同器官<rp>(</rp><rt>そうどうきかん</rt><rp>)</rp></ruby>です。トンボの<ruby>翅<rp>(</rp><rt>はね</rt><rp>)</rp></ruby>とスズメの<ruby>翼<rp>(</rp><rt>つばさ</rt><rp>)</rp></ruby>は骨の構造が全く異なるので相同器官ではありません。',
+        '<strong>正解はC「クジラのひれとヒトのうで」</strong>です。形や<ruby>働<rp>(</rp><rt>はたら</rt><rp>)</rp></ruby>きは<ruby>異<rp>(</rp><rt>こと</rt><rp>)</rp></ruby>なりますが、<ruby>骨格<rp>(</rp><rt>こっかく</rt><rp>)</rp></ruby>の基本<ruby>構造<rp>(</rp><rt>こうぞう</rt><rp>)</rp></ruby>が共通しており、<ruby>相同器官<rp>(</rp><rt>そうどうきかん</rt><rp>)</rp></ruby>です。トンボの<ruby>翅<rp>(</rp><rt>はね</rt><rp>)</rp></ruby>とスズメの<ruby>翼<rp>(</rp><rt>つばさ</rt><rp>)</rp></ruby>は骨の構造が全く異なるので相同器官ではありません。',
     },
 
     // ── まとめ ──

@@ -127,13 +127,13 @@ export const russianRevolutionChat: HistoryChat = {
       type: 'quiz',
       question: 'ソビエト社会主義共和国連邦（ソ連）が成立した年は？',
       options: [
-        { letter: 'A', text: '1922年', correct: true },
+        { letter: 'A', text: '1925年', correct: false },
         { letter: 'B', text: '1919年', correct: false },
-        { letter: 'C', text: '1925年', correct: false },
+        { letter: 'C', text: '1922年', correct: true },
         { letter: 'D', text: '1917年', correct: false },
       ],
       explanation:
-        '<strong>正解はA「1922年」</strong>です。同じ年に日本も<ruby>シベリア<rp>(</rp><rt>しべりあ</rt><rp>)</rp></ruby>から<ruby>撤兵<rp>(</rp><rt>てっぺい</rt><rp>)</rp></ruby>しました。',
+        '<strong>正解はC「1922年」</strong>です。同じ年に日本も<ruby>シベリア<rp>(</rp><rt>しべりあ</rt><rp>)</rp></ruby>から<ruby>撤兵<rp>(</rp><rt>てっぺい</rt><rp>)</rp></ruby>しました。',
     },
     {
       type: 'narrator',
@@ -162,12 +162,12 @@ export const russianRevolutionChat: HistoryChat = {
       question: 'スターリンが実施した経済計画は？',
       options: [
         { letter: 'A', text: '殖産興業', correct: false },
-        { letter: 'B', text: '大躍進政策', correct: false },
+        { letter: 'B', text: '五か年計画', correct: true },
         { letter: 'C', text: 'ニューディール政策', correct: false },
-        { letter: 'D', text: '五か年計画', correct: true },
+        { letter: 'D', text: '大躍進政策', correct: false },
       ],
       explanation:
-        '<strong>正解はD「<ruby>五か年計画<rp>(</rp><rt>ごかねんけいかく</rt><rp>)</rp></ruby>」</strong>です。<ruby>重工業<rp>(</rp><rt>じゅうこうぎょう</rt><rp>)</rp></ruby>の<ruby>発展<rp>(</rp><rt>はってん</rt><rp>)</rp></ruby>と<ruby>農業<rp>(</rp><rt>のうぎょう</rt><rp>)</rp></ruby>の<ruby>集団化<rp>(</rp><rt>しゅうだんか</rt><rp>)</rp></ruby>を進めましたが、多くの<ruby>犠牲<rp>(</rp><rt>ぎせい</rt><rp>)</rp></ruby>が出ました。',
+        '<strong>正解はB「<ruby>五か年計画<rp>(</rp><rt>ごかねんけいかく</rt><rp>)</rp></ruby>」</strong>です。<ruby>重工業<rp>(</rp><rt>じゅうこうぎょう</rt><rp>)</rp></ruby>の<ruby>発展<rp>(</rp><rt>はってん</rt><rp>)</rp></ruby>と<ruby>農業<rp>(</rp><rt>のうぎょう</rt><rp>)</rp></ruby>の<ruby>集団化<rp>(</rp><rt>しゅうだんか</rt><rp>)</rp></ruby>を進めましたが、多くの<ruby>犠牲<rp>(</rp><rt>ぎせい</rt><rp>)</rp></ruby>が出ました。',
     },
     {
       type: 'end',

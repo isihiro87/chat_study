@@ -104,8 +104,8 @@ export const nounsChat: HistoryChat = {
       question: '「I have two (　　).（私はネコを2匹飼っています。）」\nの (　　) に入るのは？',
       options: [
         { letter: 'A', text: 'cat', correct: false },
-        { letter: 'B', text: 'cats', correct: true },
-        { letter: 'C', text: 'cates', correct: false },
+        { letter: 'B', text: 'cates', correct: false },
+        { letter: 'C', text: 'cats', correct: true },
         { letter: 'D', text: 'a cat', correct: false },
       ],
       explanation: '2つ<ruby>以上<rt>いじょう</rt></ruby>のときはおしりに <strong>s</strong> をつけるよ。cat → <strong>cats</strong>',
@@ -171,8 +171,8 @@ export const nounsChat: HistoryChat = {
       question: '（遠くの建物を指して）「あれは図書館ですか？」を英語にすると？',
       options: [
         { letter: 'A', text: 'This is a library?', correct: false },
-        { letter: 'B', text: 'Is this a library?', correct: false },
-        { letter: 'C', text: 'Is that a library?', correct: true },
+        { letter: 'B', text: 'Is that a library?', correct: true },
+        { letter: 'C', text: 'Is this a library?', correct: false },
         { letter: 'D', text: 'That a library is?', correct: false },
       ],
       explanation: '<ruby>遠<rt>とお</rt></ruby>くのものを<ruby>指<rt>さ</rt></ruby>すときは <strong>that</strong> を使うよ。「〜ですか？」だから is を前にもってきて <strong>Is that a library?</strong>',

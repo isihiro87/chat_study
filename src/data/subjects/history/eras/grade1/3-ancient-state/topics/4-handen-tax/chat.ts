@@ -91,12 +91,12 @@ export const handenTaxChat: HistoryChat = {
       type: 'quiz',
       question: '人々に土地を与え、死後返還させる制度は？',
       options: [
-        { letter: 'A', text: '墾田永年私財法', correct: false },
+        { letter: 'A', text: '班田収授法', correct: true },
         { letter: 'B', text: '三世一身法', correct: false },
         { letter: 'C', text: '公地・公民', correct: false },
-        { letter: 'D', text: '班田収授法', correct: true },
+        { letter: 'D', text: '墾田永年私財法', correct: false },
       ],
-      explanation: '<strong>正解はD「<ruby>班田収授法<rp>(</rp><rt>はんでんしゅうじゅのほう</rt><rp>)</rp></ruby>」</strong>です。6<ruby>歳<rp>(</rp><rt>さい</rt><rp>)</rp></ruby>以上の人に<ruby>口分田<rp>(</rp><rt>くぶんでん</rt><rp>)</rp></ruby>を与え、死後に国へ返させる制度です。',
+      explanation: '<strong>正解はA「<ruby>班田収授法<rp>(</rp><rt>はんでんしゅうじゅのほう</rt><rp>)</rp></ruby>」</strong>です。6<ruby>歳<rp>(</rp><rt>さい</rt><rp>)</rp></ruby>以上の人に<ruby>口分田<rp>(</rp><rt>くぶんでん</rt><rp>)</rp></ruby>を与え、死後に国へ返させる制度です。',
     },
     {
       type: 'narrator',

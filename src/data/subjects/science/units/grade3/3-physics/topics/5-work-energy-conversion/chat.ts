@@ -279,13 +279,13 @@ export const workConversionChat: HistoryChat = {
       type: 'quiz',
       question: '80Jの電気エネルギーを使って20Jの光エネルギーが得られたときの変換効率は？',
       options: [
-        { letter: 'A', text: '4%', correct: false },
-        { letter: 'B', text: '25%', correct: true },
+        { letter: 'A', text: '25%', correct: true },
+        { letter: 'B', text: '4%', correct: false },
         { letter: 'C', text: '60%', correct: false },
         { letter: 'D', text: '400%', correct: false },
       ],
       explanation:
-        '<strong>正解はB「25%」</strong>です。<ruby>変換効率<rp>(</rp><rt>へんかんこうりつ</rt><rp>)</rp></ruby> = 有効に利用できたエネルギー ÷ <ruby>投入<rp>(</rp><rt>とうにゅう</rt><rp>)</rp></ruby>したエネルギー × 100 = 20J ÷ 80J × 100 = 25% です。',
+        '<strong>正解はA「25%」</strong>です。<ruby>変換効率<rp>(</rp><rt>へんかんこうりつ</rt><rp>)</rp></ruby> = 有効に利用できたエネルギー ÷ <ruby>投入<rp>(</rp><rt>とうにゅう</rt><rp>)</rp></ruby>したエネルギー × 100 = 20J ÷ 80J × 100 = 25% です。',
     },
     {
       type: 'end',

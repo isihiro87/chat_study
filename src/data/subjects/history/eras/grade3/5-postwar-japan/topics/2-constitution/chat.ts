@@ -85,13 +85,13 @@ export const postwarConstitutionChat: HistoryChat = {
       type: 'quiz',
       question: '日本国憲法の三大原則に含まれないものはどれ？',
       options: [
-        { letter: 'A', text: '国民主権', correct: false },
-        { letter: 'B', text: '富国強兵', correct: true },
+        { letter: 'A', text: '富国強兵', correct: true },
+        { letter: 'B', text: '国民主権', correct: false },
         { letter: 'C', text: '基本的人権の尊重', correct: false },
         { letter: 'D', text: '平和主義', correct: false },
       ],
       explanation:
-        '<strong>正解はB「<ruby>富国強兵<rp>(</rp><rt>ふこくきょうへい</rt><rp>)</rp></ruby>」</strong>です。<ruby>富国強兵<rp>(</rp><rt>ふこくきょうへい</rt><rp>)</rp></ruby>は<ruby>明治時代<rp>(</rp><rt>めいじじだい</rt><rp>)</rp></ruby>のスローガンで、<strong>日本国憲法</strong>の三大原則は<strong>国民主権</strong>・<strong>基本的人権の尊重</strong>・<strong>平和主義</strong>です。',
+        '<strong>正解はA「<ruby>富国強兵<rp>(</rp><rt>ふこくきょうへい</rt><rp>)</rp></ruby>」</strong>です。<ruby>富国強兵<rp>(</rp><rt>ふこくきょうへい</rt><rp>)</rp></ruby>は<ruby>明治時代<rp>(</rp><rt>めいじじだい</rt><rp>)</rp></ruby>のスローガンで、<strong>日本国憲法</strong>の三大原則は<strong>国民主権</strong>・<strong>基本的人権の尊重</strong>・<strong>平和主義</strong>です。',
     },
     {
       type: 'narrator',
@@ -134,12 +134,12 @@ export const postwarConstitutionChat: HistoryChat = {
       question: '政府が地主の土地を買い上げ小作人に安く売った改革は？',
       options: [
         { letter: 'A', text: '財閥解体', correct: false },
-        { letter: 'B', text: '農地改革', correct: true },
+        { letter: 'B', text: '殖産興業', correct: false },
         { letter: 'C', text: '地租改正', correct: false },
-        { letter: 'D', text: '殖産興業', correct: false },
+        { letter: 'D', text: '農地改革', correct: true },
       ],
       explanation:
-        '<strong>正解はB「<ruby>農地改革<rp>(</rp><rt>のうちかいかく</rt><rp>)</rp></ruby>」</strong>です。<ruby>政府<rp>(</rp><rt>せいふ</rt><rp>)</rp></ruby>が<ruby>地主<rp>(</rp><rt>じぬし</rt><rp>)</rp></ruby>の<ruby>農地<rp>(</rp><rt>のうち</rt><rp>)</rp></ruby>を買い上げ、<ruby>小作人<rp>(</rp><rt>こさくにん</rt><rp>)</rp></ruby>に安く売ることで多くの<ruby>自作農<rp>(</rp><rt>じさくのう</rt><rp>)</rp></ruby>が生まれました。',
+        '<strong>正解はD「<ruby>農地改革<rp>(</rp><rt>のうちかいかく</rt><rp>)</rp></ruby>」</strong>です。<ruby>政府<rp>(</rp><rt>せいふ</rt><rp>)</rp></ruby>が<ruby>地主<rp>(</rp><rt>じぬし</rt><rp>)</rp></ruby>の<ruby>農地<rp>(</rp><rt>のうち</rt><rp>)</rp></ruby>を買い上げ、<ruby>小作人<rp>(</rp><rt>こさくにん</rt><rp>)</rp></ruby>に安く売ることで多くの<ruby>自作農<rp>(</rp><rt>じさくのう</rt><rp>)</rp></ruby>が生まれました。',
     },
     {
       type: 'end',

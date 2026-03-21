@@ -84,12 +84,12 @@ export const muromachiBakufuChat: HistoryChat = {
       type: 'quiz',
       question: '後醍醐天皇が鎌倉幕府を倒した後に始めた天皇中心の政治を何という？',
       options: [
-        { letter: 'A', text: '大化の改新', correct: false },
+        { letter: 'A', text: '建武の新政', correct: true },
         { letter: 'B', text: '摂関政治', correct: false },
         { letter: 'C', text: '院政', correct: false },
-        { letter: 'D', text: '建武の新政', correct: true },
+        { letter: 'D', text: '大化の改新', correct: false },
       ],
-      explanation: '<strong>正解はD「<ruby>建武<rp>(</rp><rt>けんむ</rt><rp>)</rp></ruby>の<ruby>新政<rp>(</rp><rt>しんせい</rt><rp>)</rp></ruby>」</strong>です。<ruby>後醍醐天皇<rp>(</rp><rt>ごだいごてんのう</rt><rp>)</rp></ruby>は1334年に天皇中心の政治を始めましたが、武士の不満が高まり約2年で<ruby>崩壊<rp>(</rp><rt>ほうかい</rt><rp>)</rp></ruby>しました。',
+      explanation: '<strong>正解はA「<ruby>建武<rp>(</rp><rt>けんむ</rt><rp>)</rp></ruby>の<ruby>新政<rp>(</rp><rt>しんせい</rt><rp>)</rp></ruby>」</strong>です。<ruby>後醍醐天皇<rp>(</rp><rt>ごだいごてんのう</rt><rp>)</rp></ruby>は1334年に天皇中心の政治を始めましたが、武士の不満が高まり約2年で<ruby>崩壊<rp>(</rp><rt>ほうかい</rt><rp>)</rp></ruby>しました。',
     },
     {
       type: 'narrator',
@@ -161,10 +161,10 @@ export const muromachiBakufuChat: HistoryChat = {
       options: [
         { letter: 'A', text: '執権', correct: false },
         { letter: 'B', text: '老中', correct: false },
-        { letter: 'C', text: '管領', correct: true },
-        { letter: 'D', text: '関白', correct: false },
+        { letter: 'C', text: '関白', correct: false },
+        { letter: 'D', text: '管領', correct: true },
       ],
-      explanation: '<strong>正解はC「<ruby>管領<rp>(</rp><rt>かんれい</rt><rp>)</rp></ruby>」</strong>です。<ruby>管領<rp>(</rp><rt>かんれい</rt><rp>)</rp></ruby>は<ruby>室町幕府<rp>(</rp><rt>むろまちばくふ</rt><rp>)</rp></ruby>で将軍を<ruby>補佐<rp>(</rp><rt>ほさ</rt><rp>)</rp></ruby>する最高職で、<ruby>細川<rp>(</rp><rt>ほそかわ</rt><rp>)</rp></ruby>・<ruby>斯波<rp>(</rp><rt>しば</rt><rp>)</rp></ruby>・<ruby>畠山<rp>(</rp><rt>はたけやま</rt><rp>)</rp></ruby>の三家が交代で<ruby>就任<rp>(</rp><rt>しゅうにん</rt><rp>)</rp></ruby>しました。',
+      explanation: '<strong>正解はD「<ruby>管領<rp>(</rp><rt>かんれい</rt><rp>)</rp></ruby>」</strong>です。<ruby>管領<rp>(</rp><rt>かんれい</rt><rp>)</rp></ruby>は<ruby>室町幕府<rp>(</rp><rt>むろまちばくふ</rt><rp>)</rp></ruby>で将軍を<ruby>補佐<rp>(</rp><rt>ほさ</rt><rp>)</rp></ruby>する最高職で、<ruby>細川<rp>(</rp><rt>ほそかわ</rt><rp>)</rp></ruby>・<ruby>斯波<rp>(</rp><rt>しば</rt><rp>)</rp></ruby>・<ruby>畠山<rp>(</rp><rt>はたけやま</rt><rp>)</rp></ruby>の三家が交代で<ruby>就任<rp>(</rp><rt>しゅうにん</rt><rp>)</rp></ruby>しました。',
     },
     {
       type: 'end',

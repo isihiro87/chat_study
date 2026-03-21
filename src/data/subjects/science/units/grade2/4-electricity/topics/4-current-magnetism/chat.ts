@@ -76,12 +76,12 @@ export const currentMagnetismChat: HistoryChat = {
       question: '磁力線の向きとして正しいのはどれ？',
       options: [
         { letter: 'A', text: 'S極から出てN極に入る', correct: false },
-        { letter: 'B', text: 'N極から出てS極に入る', correct: true },
+        { letter: 'B', text: '磁力線に向きはない', correct: false },
         { letter: 'C', text: 'N極からもS極からも出る', correct: false },
-        { letter: 'D', text: '磁力線に向きはない', correct: false },
+        { letter: 'D', text: 'N極から出てS極に入る', correct: true },
       ],
       explanation:
-        '<strong>正解はB「N<ruby>極<rp>(</rp><rt>きょく</rt><rp>)</rp></ruby>から出てS極に入る」</strong>です。<ruby>磁力線<rp>(</rp><rt>じりょくせん</rt><rp>)</rp></ruby>はN極から出てS極に入る向きにえがきます。<ruby>磁針<rp>(</rp><rt>じしん</rt><rp>)</rp></ruby>のN極が指す向きが<ruby>磁界<rp>(</rp><rt>じかい</rt><rp>)</rp></ruby>の向きです。',
+        '<strong>正解はD「N<ruby>極<rp>(</rp><rt>きょく</rt><rp>)</rp></ruby>から出てS極に入る」</strong>です。<ruby>磁力線<rp>(</rp><rt>じりょくせん</rt><rp>)</rp></ruby>はN極から出てS極に入る向きにえがきます。<ruby>磁針<rp>(</rp><rt>じしん</rt><rp>)</rp></ruby>のN極が指す向きが<ruby>磁界<rp>(</rp><rt>じかい</rt><rp>)</rp></ruby>の向きです。',
     },
     {
       type: 'date',
@@ -147,12 +147,12 @@ export const currentMagnetismChat: HistoryChat = {
       question: '直線の導線に電流を流したときにできる磁界の形は？',
       options: [
         { letter: 'A', text: '直線状', correct: false },
-        { letter: 'B', text: '同心円状', correct: true },
-        { letter: 'C', text: '放射状', correct: false },
+        { letter: 'B', text: '放射状', correct: false },
+        { letter: 'C', text: '同心円状', correct: true },
         { letter: 'D', text: 'らせん状', correct: false },
       ],
       explanation:
-        '<strong>正解はB「<ruby>同心円状<rp>(</rp><rt>どうしんえんじょう</rt><rp>)</rp></ruby>」</strong>です。直線の<ruby>導線<rp>(</rp><rt>どうせん</rt><rp>)</rp></ruby>に電流を流すと、導線を中心に同心円状の<ruby>磁界<rp>(</rp><rt>じかい</rt><rp>)</rp></ruby>ができます。',
+        '<strong>正解はC「<ruby>同心円状<rp>(</rp><rt>どうしんえんじょう</rt><rp>)</rp></ruby>」</strong>です。直線の<ruby>導線<rp>(</rp><rt>どうせん</rt><rp>)</rp></ruby>に電流を流すと、導線を中心に同心円状の<ruby>磁界<rp>(</rp><rt>じかい</rt><rp>)</rp></ruby>ができます。',
     },
     {
       type: 'date',

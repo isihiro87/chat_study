@@ -99,13 +99,13 @@ export const japanSeasonsChat: HistoryChat = {
       type: 'quiz',
       question: '夏に日本を覆い、高温多湿をもたらす気圧はどれか。',
       options: [
-        { letter: 'A', text: '太平洋高気圧', correct: true },
+        { letter: 'A', text: 'オホーツク海高気圧', correct: false },
         { letter: 'B', text: 'シベリア高気圧', correct: false },
-        { letter: 'C', text: 'オホーツク海高気圧', correct: false },
+        { letter: 'C', text: '太平洋高気圧', correct: true },
         { letter: 'D', text: '移動性高気圧', correct: false },
       ],
       explanation:
-        '<strong>正解はA</strong>です。夏は<ruby>太平洋高気圧<rp>(</rp><rt>たいへいようこうきあつ</rt><rp>)</rp></ruby>が日本を<ruby>覆<rp>(</rp><rt>おお</rt><rp>)</rp></ruby>い、南東の<ruby>季節風<rp>(</rp><rt>きせつふう</rt><rp>)</rp></ruby>が吹いて高温多湿になります。',
+        '<strong>正解はC</strong>です。夏は<ruby>太平洋高気圧<rp>(</rp><rt>たいへいようこうきあつ</rt><rp>)</rp></ruby>が日本を<ruby>覆<rp>(</rp><rt>おお</rt><rp>)</rp></ruby>い、南東の<ruby>季節風<rp>(</rp><rt>きせつふう</rt><rp>)</rp></ruby>が吹いて高温多湿になります。',
     },
     {
       type: 'image',
@@ -118,12 +118,12 @@ export const japanSeasonsChat: HistoryChat = {
       question: '冬の日本の典型的な気圧配置はどれか。',
       options: [
         { letter: 'A', text: '南高北低', correct: false },
-        { letter: 'B', text: '東高西低', correct: false },
-        { letter: 'C', text: '西高東低', correct: true },
+        { letter: 'B', text: '西高東低', correct: true },
+        { letter: 'C', text: '東高西低', correct: false },
         { letter: 'D', text: '北高南低', correct: false },
       ],
       explanation:
-        '<strong>正解はC「<ruby>西高東低<rp>(</rp><rt>せいこうとうてい</rt><rp>)</rp></ruby>」</strong>です。冬は西にシベリア<ruby>高気圧<rp>(</rp><rt>こうきあつ</rt><rp>)</rp></ruby>、東に低気圧が位置し、北西の<ruby>季節風<rp>(</rp><rt>きせつふう</rt><rp>)</rp></ruby>が吹きます。',
+        '<strong>正解はB「<ruby>西高東低<rp>(</rp><rt>せいこうとうてい</rt><rp>)</rp></ruby>」</strong>です。冬は西にシベリア<ruby>高気圧<rp>(</rp><rt>こうきあつ</rt><rp>)</rp></ruby>、東に低気圧が位置し、北西の<ruby>季節風<rp>(</rp><rt>きせつふう</rt><rp>)</rp></ruby>が吹きます。',
     },
     {
       type: 'date',
@@ -204,13 +204,13 @@ export const japanSeasonsChat: HistoryChat = {
       type: 'quiz',
       question: '梅雨前線がつくられる原因となる2つの気団の組み合わせはどれか。',
       options: [
-        { letter: 'A', text: 'シベリア気団と小笠原気団', correct: false },
+        { letter: 'A', text: '小笠原気団とオホーツク海気団', correct: true },
         { letter: 'B', text: 'シベリア気団とオホーツク海気団', correct: false },
         { letter: 'C', text: '揚子江気団と小笠原気団', correct: false },
-        { letter: 'D', text: '小笠原気団とオホーツク海気団', correct: true },
+        { letter: 'D', text: 'シベリア気団と小笠原気団', correct: false },
       ],
       explanation:
-        '<strong>正解はD</strong>です。<ruby>梅雨前線<rp>(</rp><rt>ばいうぜんせん</rt><rp>)</rp></ruby>は、暖かく<ruby>湿<rp>(</rp><rt>しめ</rt><rp>)</rp></ruby>った<ruby>小笠原気団<rp>(</rp><rt>おがさわらきだん</rt><rp>)</rp></ruby>と冷たく<ruby>湿<rp>(</rp><rt>しめ</rt><rp>)</rp></ruby>ったオホーツク海気団がぶつかってできる<ruby>停滞前線<rp>(</rp><rt>ていたいぜんせん</rt><rp>)</rp></ruby>です。',
+        '<strong>正解はA</strong>です。<ruby>梅雨前線<rp>(</rp><rt>ばいうぜんせん</rt><rp>)</rp></ruby>は、暖かく<ruby>湿<rp>(</rp><rt>しめ</rt><rp>)</rp></ruby>った<ruby>小笠原気団<rp>(</rp><rt>おがさわらきだん</rt><rp>)</rp></ruby>と冷たく<ruby>湿<rp>(</rp><rt>しめ</rt><rp>)</rp></ruby>ったオホーツク海気団がぶつかってできる<ruby>停滞前線<rp>(</rp><rt>ていたいぜんせん</rt><rp>)</rp></ruby>です。',
     },
     {
       type: 'date',
@@ -251,11 +251,11 @@ export const japanSeasonsChat: HistoryChat = {
       options: [
         { letter: 'A', text: '最大風速10m/s以上の低気圧', correct: false },
         { letter: 'B', text: '最大風速17m/s以上の温帯低気圧', correct: false },
-        { letter: 'C', text: '最大風速17m/s以上の熱帯低気圧', correct: true },
-        { letter: 'D', text: '最大風速25m/s以上の熱帯低気圧', correct: false },
+        { letter: 'C', text: '最大風速25m/s以上の熱帯低気圧', correct: false },
+        { letter: 'D', text: '最大風速17m/s以上の熱帯低気圧', correct: true },
       ],
       explanation:
-        '<strong>正解はC</strong>です。<ruby>台風<rp>(</rp><rt>たいふう</rt><rp>)</rp></ruby>は<ruby>熱帯低気圧<rp>(</rp><rt>ねったいていきあつ</rt><rp>)</rp></ruby>が発達し、最大風速が<strong>17m/s以上</strong>になったものです。<ruby>温帯低気圧<rp>(</rp><rt>おんたいていきあつ</rt><rp>)</rp></ruby>とは区別されます。',
+        '<strong>正解はD</strong>です。<ruby>台風<rp>(</rp><rt>たいふう</rt><rp>)</rp></ruby>は<ruby>熱帯低気圧<rp>(</rp><rt>ねったいていきあつ</rt><rp>)</rp></ruby>が発達し、最大風速が<strong>17m/s以上</strong>になったものです。<ruby>温帯低気圧<rp>(</rp><rt>おんたいていきあつ</rt><rp>)</rp></ruby>とは区別されます。',
     },
     {
       type: 'end',

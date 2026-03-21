@@ -86,12 +86,12 @@ export const atmosphericCirculationChat: HistoryChat = {
       question: '大陸と海洋で温まりやすく冷めやすいのはどちらか。',
       options: [
         { letter: 'A', text: '海洋', correct: false },
-        { letter: 'B', text: '大陸', correct: true },
-        { letter: 'C', text: 'どちらも同じ', correct: false },
+        { letter: 'B', text: 'どちらも同じ', correct: false },
+        { letter: 'C', text: '大陸', correct: true },
         { letter: 'D', text: '季節によって変わる', correct: false },
       ],
       explanation:
-        '<strong>正解はB「大陸」</strong>です。大陸は温まりやすく冷めやすい性質があり、海洋は温まりにくく冷めにくい性質があります。この違いが<ruby>季節風<rp>(</rp><rt>きせつふう</rt><rp>)</rp></ruby>や<ruby>海陸風<rp>(</rp><rt>かいりくふう</rt><rp>)</rp></ruby>を生み出します。',
+        '<strong>正解はC「大陸」</strong>です。大陸は温まりやすく冷めやすい性質があり、海洋は温まりにくく冷めにくい性質があります。この違いが<ruby>季節風<rp>(</rp><rt>きせつふう</rt><rp>)</rp></ruby>や<ruby>海陸風<rp>(</rp><rt>かいりくふう</rt><rp>)</rp></ruby>を生み出します。',
     },
     {
       type: 'date',
@@ -196,13 +196,13 @@ export const atmosphericCirculationChat: HistoryChat = {
       type: 'quiz',
       question: '日本付近の天気が西から東へ移り変わる原因となる風はどれか。',
       options: [
-        { letter: 'A', text: '貿易風', correct: false },
-        { letter: 'B', text: '偏西風', correct: true },
+        { letter: 'A', text: '偏西風', correct: true },
+        { letter: 'B', text: '貿易風', correct: false },
         { letter: 'C', text: '季節風', correct: false },
         { letter: 'D', text: '海陸風', correct: false },
       ],
       explanation:
-        '<strong>正解はB「<ruby>偏西風<rp>(</rp><rt>へんせいふう</rt><rp>)</rp></ruby>」</strong>です。中緯度帯の上空を西から東に吹く偏西風によって、低気圧や高気圧が西から東へ移動するため、天気も西から東へ変わります。',
+        '<strong>正解はA「<ruby>偏西風<rp>(</rp><rt>へんせいふう</rt><rp>)</rp></ruby>」</strong>です。中緯度帯の上空を西から東に吹く偏西風によって、低気圧や高気圧が西から東へ移動するため、天気も西から東へ変わります。',
     },
     {
       type: 'end',

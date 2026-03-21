@@ -89,8 +89,8 @@ export const pronounsChat: HistoryChat = {
       question: '「私たちは友達です。」を英語にすると？',
       options: [
         { letter: 'A', text: 'They are friends.', correct: false },
-        { letter: 'B', text: 'You are friends.', correct: false },
-        { letter: 'C', text: 'We are friends.', correct: true },
+        { letter: 'B', text: 'We are friends.', correct: true },
+        { letter: 'C', text: 'You are friends.', correct: false },
         { letter: 'D', text: 'I are friends.', correct: false },
       ],
       explanation: '「<ruby>私<rt>わたし</rt></ruby>たち」は <strong>we</strong> だよ。We are friends.',
@@ -148,8 +148,8 @@ export const pronounsChat: HistoryChat = {
       type: 'quiz',
       question: '「これは彼女のカバンです。」を英語にすると？',
       options: [
-        { letter: 'A', text: 'This is she bag.', correct: false },
-        { letter: 'B', text: 'This is her bag.', correct: true },
+        { letter: 'A', text: 'This is her bag.', correct: true },
+        { letter: 'B', text: 'This is she bag.', correct: false },
         { letter: 'C', text: 'This is his bag.', correct: false },
         { letter: 'D', text: 'This is hers bag.', correct: false },
       ],
@@ -195,8 +195,8 @@ export const pronounsChat: HistoryChat = {
       options: [
         { letter: 'A', text: 'they', correct: false },
         { letter: 'B', text: 'their', correct: false },
-        { letter: 'C', text: 'them', correct: true },
-        { letter: 'D', text: 'theirs', correct: false },
+        { letter: 'C', text: 'theirs', correct: false },
+        { letter: 'D', text: 'them', correct: true },
       ],
       explanation: '「<ruby>彼<rt>かれ</rt></ruby>らに」は<ruby>目的格<rt>もくてきかく</rt></ruby>の <strong>them</strong> だよ。<ruby>動詞<rt>どうし</rt></ruby> call のあとだからね。',
     },
@@ -239,12 +239,12 @@ export const pronounsChat: HistoryChat = {
       type: 'quiz',
       question: '「Whose pen is this? — It\'s (　　).（これはだれのペンですか？— 私のものです。）」の (　　) に入るのは？',
       options: [
-        { letter: 'A', text: 'mine', correct: true },
+        { letter: 'A', text: 'me', correct: false },
         { letter: 'B', text: 'my', correct: false },
-        { letter: 'C', text: 'me', correct: false },
+        { letter: 'C', text: 'mine', correct: true },
         { letter: 'D', text: 'I', correct: false },
       ],
-      explanation: '<strong>正解はA</strong>です。「<ruby>私<rt>わたし</rt></ruby>のもの」は<ruby>所有代名詞<rt>しょゆうだいめいし</rt></ruby>の <strong>mine</strong> を使うよ。',
+      explanation: '<strong>正解はC</strong>です。「<ruby>私<rt>わたし</rt></ruby>のもの」は<ruby>所有代名詞<rt>しょゆうだいめいし</rt></ruby>の <strong>mine</strong> を使うよ。',
     },
     {
       type: 'date',

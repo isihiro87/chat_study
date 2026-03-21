@@ -93,12 +93,12 @@ export const moonVenusDetailChat: HistoryChat = {
       question: '月の南中時刻が毎日遅くなるのはおよそ何分か。',
       options: [
         { letter: 'A', text: '約10分', correct: false },
-        { letter: 'B', text: '約30分', correct: false },
-        { letter: 'C', text: '約50分', correct: true },
+        { letter: 'B', text: '約50分', correct: true },
+        { letter: 'C', text: '約30分', correct: false },
         { letter: 'D', text: '約90分', correct: false },
       ],
       explanation:
-        '<strong>正解はC「約50分」</strong>です。月が公転により東へずれるため、地球が約50分余分に<ruby>自転<rp>(</rp><rt>じてん</rt><rp>)</rp></ruby>しないと月が<ruby>南中<rp>(</rp><rt>なんちゅう</rt><rp>)</rp></ruby>しません。',
+        '<strong>正解はB「約50分」</strong>です。月が公転により東へずれるため、地球が約50分余分に<ruby>自転<rp>(</rp><rt>じてん</rt><rp>)</rp></ruby>しないと月が<ruby>南中<rp>(</rp><rt>なんちゅう</rt><rp>)</rp></ruby>しません。',
     },
     {
       type: 'date',
@@ -178,13 +178,13 @@ export const moonVenusDetailChat: HistoryChat = {
       type: 'quiz',
       question: '金星が地球に近いとき、どのように見えるか。',
       options: [
-        { letter: 'A', text: '小さくて丸い', correct: false },
+        { letter: 'A', text: '大きくて欠けている', correct: true },
         { letter: 'B', text: '大きくて丸い', correct: false },
         { letter: 'C', text: '小さくて欠けている', correct: false },
-        { letter: 'D', text: '大きくて欠けている', correct: true },
+        { letter: 'D', text: '小さくて丸い', correct: false },
       ],
       explanation:
-        '<strong>正解はD「大きくて欠けている」</strong>です。金星が地球に近いと大きく見えますが、太陽光が当たる面の大部分が地球から見て<ruby>裏側<rp>(</rp><rt>うらがわ</rt><rp>)</rp></ruby>になるため、大きく欠けて見えます。',
+        '<strong>正解はA「大きくて欠けている」</strong>です。金星が地球に近いと大きく見えますが、太陽光が当たる面の大部分が地球から見て<ruby>裏側<rp>(</rp><rt>うらがわ</rt><rp>)</rp></ruby>になるため、大きく欠けて見えます。',
     },
     {
       type: 'date',
@@ -257,12 +257,12 @@ export const moonVenusDetailChat: HistoryChat = {
       question: '日食が限られた場所でしか見えない理由として正しいものはどれか。',
       options: [
         { letter: 'A', text: '日食が起こる時間が短いから', correct: false },
-        { letter: 'B', text: '月の影が地球上のごく限られた範囲にしか落ちないから', correct: true },
+        { letter: 'B', text: '地球が丸いから', correct: false },
         { letter: 'C', text: '太陽が雲にかくれやすいから', correct: false },
-        { letter: 'D', text: '地球が丸いから', correct: false },
+        { letter: 'D', text: '月の影が地球上のごく限られた範囲にしか落ちないから', correct: true },
       ],
       explanation:
-        '<strong>正解はB</strong>です。月は地球より小さいため、月の影が地球上に<ruby>落<rp>(</rp><rt>お</rt><rp>)</rp></ruby>ちる<ruby>範囲<rp>(</rp><rt>はんい</rt><rp>)</rp></ruby>はごく<ruby>限<rp>(</rp><rt>かぎ</rt><rp>)</rp></ruby>られています。一方、月食は地球の影に月が入るため、月が見える場所ならどこでも観測できます。',
+        '<strong>正解はD</strong>です。月は地球より小さいため、月の影が地球上に<ruby>落<rp>(</rp><rt>お</rt><rp>)</rp></ruby>ちる<ruby>範囲<rp>(</rp><rt>はんい</rt><rp>)</rp></ruby>はごく<ruby>限<rp>(</rp><rt>かぎ</rt><rp>)</rp></ruby>られています。一方、月食は地球の影に月が入るため、月が見える場所ならどこでも観測できます。',
     },
     {
       type: 'end',

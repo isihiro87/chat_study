@@ -89,8 +89,8 @@ export const presentParticipleModifierChat: HistoryChat = {
       type: 'quiz',
       question: '「公園で走っている男の子」を英語にすると？',
       options: [
-        { letter: 'A', text: 'the running in the park boy', correct: false },
-        { letter: 'B', text: 'the boy running in the park', correct: true },
+        { letter: 'A', text: 'the boy running in the park', correct: true },
+        { letter: 'B', text: 'the running in the park boy', correct: false },
         { letter: 'C', text: 'the boy run in the park', correct: false },
         { letter: 'D', text: 'the boy ran in the park', correct: false },
       ],
@@ -157,9 +157,9 @@ export const presentParticipleModifierChat: HistoryChat = {
       question: '「その女の子に歌われた歌」を英語にすると？',
       options: [
         { letter: 'A', text: 'the song singing by the girl', correct: false },
-        { letter: 'B', text: 'the song sung by the girl', correct: true },
+        { letter: 'B', text: 'the song sings by the girl', correct: false },
         { letter: 'C', text: 'the song sing by the girl', correct: false },
-        { letter: 'D', text: 'the song sings by the girl', correct: false },
+        { letter: 'D', text: 'the song sung by the girl', correct: true },
       ],
       explanation: '<ruby>歌<rt>うた</rt></ruby>は「<ruby>歌<rt>うた</rt></ruby>われる」ものだから<ruby>過去分詞<rt>かこぶんし</rt></ruby> sung を使うよ。<strong>the song sung by the girl</strong> が<ruby>正<rt>ただ</rt></ruby>しいよ。',
     },

@@ -86,12 +86,12 @@ export const frontsChat: HistoryChat = {
       question: '前線面とは何か。正しい説明はどれか。',
       options: [
         { letter: 'A', text: '気圧が同じ地点を結んだ線', correct: false },
-        { letter: 'B', text: '異なる気団の境界面', correct: true },
+        { letter: 'B', text: '気温が急に変わる地表の線', correct: false },
         { letter: 'C', text: '雲ができ始める高さの面', correct: false },
-        { letter: 'D', text: '気温が急に変わる地表の線', correct: false },
+        { letter: 'D', text: '異なる気団の境界面', correct: true },
       ],
       explanation:
-        '<strong>正解はB「異なる気団の境界面」</strong>です。<ruby>前線面<rp>(</rp><rt>ぜんせんめん</rt><rp>)</rp></ruby>は異なる性質をもつ<ruby>気団<rp>(</rp><rt>きだん</rt><rp>)</rp></ruby>の境界面で、前線面と地表面が交わる線を<ruby>前線<rp>(</rp><rt>ぜんせん</rt><rp>)</rp></ruby>といいます。',
+        '<strong>正解はD「異なる気団の境界面」</strong>です。<ruby>前線面<rp>(</rp><rt>ぜんせんめん</rt><rp>)</rp></ruby>は異なる性質をもつ<ruby>気団<rp>(</rp><rt>きだん</rt><rp>)</rp></ruby>の境界面で、前線面と地表面が交わる線を<ruby>前線<rp>(</rp><rt>ぜんせん</rt><rp>)</rp></ruby>といいます。',
     },
     {
       type: 'date',
@@ -199,12 +199,12 @@ export const frontsChat: HistoryChat = {
       question: '寒冷前線が通過した後の天気の変化として正しいものはどれか。',
       options: [
         { letter: 'A', text: '南寄りの風に変わり、気温が上昇する', correct: false },
-        { letter: 'B', text: '北寄りの風に変わり、気温が急激に低下する', correct: true },
-        { letter: 'C', text: '風がやみ、気温は変わらない', correct: false },
+        { letter: 'B', text: '風がやみ、気温は変わらない', correct: false },
+        { letter: 'C', text: '北寄りの風に変わり、気温が急激に低下する', correct: true },
         { letter: 'D', text: '東寄りの風に変わり、湿度が上がる', correct: false },
       ],
       explanation:
-        '<strong>正解はB</strong>です。<ruby>寒冷前線<rp>(</rp><rt>かんれいぜんせん</rt><rp>)</rp></ruby>の通過後は寒気に<ruby>覆<rp>(</rp><rt>おお</rt><rp>)</rp></ruby>われるため、北寄りの風に変わり気温が急激に低下します。',
+        '<strong>正解はC</strong>です。<ruby>寒冷前線<rp>(</rp><rt>かんれいぜんせん</rt><rp>)</rp></ruby>の通過後は寒気に<ruby>覆<rp>(</rp><rt>おお</rt><rp>)</rp></ruby>われるため、北寄りの風に変わり気温が急激に低下します。',
     },
     {
       type: 'end',

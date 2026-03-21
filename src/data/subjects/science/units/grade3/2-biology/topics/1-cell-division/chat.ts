@@ -105,13 +105,13 @@ export const cellDivisionChat: HistoryChat = {
       type: 'quiz',
       question: '体細胞分裂後の2つの細胞の染色体数はどうなる？',
       options: [
-        { letter: 'A', text: 'もとの細胞の半分になる', correct: false },
-        { letter: 'B', text: 'もとの細胞と同じ数になる', correct: true },
+        { letter: 'A', text: 'もとの細胞と同じ数になる', correct: true },
+        { letter: 'B', text: 'もとの細胞の半分になる', correct: false },
         { letter: 'C', text: 'もとの細胞の2倍になる', correct: false },
         { letter: 'D', text: '毎回異なる', correct: false },
       ],
       explanation:
-        '<strong>正解はB「もとの細胞と同じ数になる」</strong>です。<ruby>体細胞分裂<rp>(</rp><rt>たいさいぼうぶんれつ</rt><rp>)</rp></ruby>では<ruby>染色体<rp>(</rp><rt>せんしょくたい</rt><rp>)</rp></ruby>が<ruby>複製<rp>(</rp><rt>ふくせい</rt><rp>)</rp></ruby>されてから<ruby>均等<rp>(</rp><rt>きんとう</rt><rp>)</rp></ruby>に分かれるので、数は変わりません。',
+        '<strong>正解はA「もとの細胞と同じ数になる」</strong>です。<ruby>体細胞分裂<rp>(</rp><rt>たいさいぼうぶんれつ</rt><rp>)</rp></ruby>では<ruby>染色体<rp>(</rp><rt>せんしょくたい</rt><rp>)</rp></ruby>が<ruby>複製<rp>(</rp><rt>ふくせい</rt><rp>)</rp></ruby>されてから<ruby>均等<rp>(</rp><rt>きんとう</rt><rp>)</rp></ruby>に分かれるので、数は変わりません。',
     },
     {
       type: 'date',
@@ -186,11 +186,11 @@ export const cellDivisionChat: HistoryChat = {
       options: [
         { letter: 'A', text: '細胞を殺すため', correct: false },
         { letter: 'B', text: '染色体を染めるため', correct: false },
-        { letter: 'C', text: '細胞を1つ1つはなれやすくするため', correct: true },
-        { letter: 'D', text: '細胞を大きくするため', correct: false },
+        { letter: 'C', text: '細胞を大きくするため', correct: false },
+        { letter: 'D', text: '細胞を1つ1つはなれやすくするため', correct: true },
       ],
       explanation:
-        '<strong>正解はC「細胞を1つ1つはなれやすくするため」</strong>です。<ruby>塩酸<rp>(</rp><rt>えんさん</rt><rp>)</rp></ruby>処理により、細胞どうしの結合がゆるみ、1つ1つの細胞がはなれやすくなります。',
+        '<strong>正解はD「細胞を1つ1つはなれやすくするため」</strong>です。<ruby>塩酸<rp>(</rp><rt>えんさん</rt><rp>)</rp></ruby>処理により、細胞どうしの結合がゆるみ、1つ1つの細胞がはなれやすくなります。',
     },
     {
       type: 'date',

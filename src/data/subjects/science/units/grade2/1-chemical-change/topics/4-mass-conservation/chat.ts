@@ -98,13 +98,13 @@ export const massConservationChat: HistoryChat = {
       type: 'quiz',
       question: '開放容器で炭酸水素ナトリウムと塩酸を混ぜると質量が減ったように見えるのはなぜ？',
       options: [
-        { letter: 'A', text: '原子がなくなったから', correct: false },
-        { letter: 'B', text: '発生した気体が逃げたから', correct: true },
+        { letter: 'A', text: '発生した気体が逃げたから', correct: true },
+        { letter: 'B', text: '原子がなくなったから', correct: false },
         { letter: 'C', text: '質量保存の法則が成り立たないから', correct: false },
         { letter: 'D', text: '水が蒸発したから', correct: false },
       ],
       explanation:
-        '<strong>正解はB「発生した<ruby>気体<rp>(</rp><rt>きたい</rt><rp>)</rp></ruby>が<ruby>逃<rp>(</rp><rt>に</rt><rp>)</rp></ruby>げたから」</strong>です。<ruby>二酸化炭素<rp>(</rp><rt>にさんかたんそ</rt><rp>)</rp></ruby>が空気中に<ruby>逃<rp>(</rp><rt>に</rt><rp>)</rp></ruby>げたため<ruby>見<rp>(</rp><rt>み</rt><rp>)</rp></ruby>かけ<ruby>上<rp>(</rp><rt>じょう</rt><rp>)</rp></ruby><ruby>質量<rp>(</rp><rt>しつりょう</rt><rp>)</rp></ruby>が<ruby>減<rp>(</rp><rt>へ</rt><rp>)</rp></ruby>りました。<ruby>密閉<rp>(</rp><rt>みっぺい</rt><rp>)</rp></ruby><ruby>容器<rp>(</rp><rt>ようき</rt><rp>)</rp></ruby>なら<ruby>質量<rp>(</rp><rt>しつりょう</rt><rp>)</rp></ruby>は<ruby>保存<rp>(</rp><rt>ほぞん</rt><rp>)</rp></ruby>されます。',
+        '<strong>正解はA「発生した<ruby>気体<rp>(</rp><rt>きたい</rt><rp>)</rp></ruby>が<ruby>逃<rp>(</rp><rt>に</rt><rp>)</rp></ruby>げたから」</strong>です。<ruby>二酸化炭素<rp>(</rp><rt>にさんかたんそ</rt><rp>)</rp></ruby>が空気中に<ruby>逃<rp>(</rp><rt>に</rt><rp>)</rp></ruby>げたため<ruby>見<rp>(</rp><rt>み</rt><rp>)</rp></ruby>かけ<ruby>上<rp>(</rp><rt>じょう</rt><rp>)</rp></ruby><ruby>質量<rp>(</rp><rt>しつりょう</rt><rp>)</rp></ruby>が<ruby>減<rp>(</rp><rt>へ</rt><rp>)</rp></ruby>りました。<ruby>密閉<rp>(</rp><rt>みっぺい</rt><rp>)</rp></ruby><ruby>容器<rp>(</rp><rt>ようき</rt><rp>)</rp></ruby>なら<ruby>質量<rp>(</rp><rt>しつりょう</rt><rp>)</rp></ruby>は<ruby>保存<rp>(</rp><rt>ほぞん</rt><rp>)</rp></ruby>されます。',
     },
     {
       type: 'date',
@@ -165,11 +165,11 @@ export const massConservationChat: HistoryChat = {
       options: [
         { letter: 'A', text: '4g', correct: false },
         { letter: 'B', text: '4.5g', correct: false },
-        { letter: 'C', text: '5g', correct: true },
-        { letter: 'D', text: '8g', correct: false },
+        { letter: 'C', text: '8g', correct: false },
+        { letter: 'D', text: '5g', correct: true },
       ],
       explanation:
-        '<strong>正解はC「5g」</strong>です。<ruby>銅<rp>(</rp><rt>どう</rt><rp>)</rp></ruby>:<ruby>酸素<rp>(</rp><rt>さんそ</rt><rp>)</rp></ruby>=4:1なので、<ruby>銅<rp>(</rp><rt>どう</rt><rp>)</rp></ruby>4gに<ruby>酸素<rp>(</rp><rt>さんそ</rt><rp>)</rp></ruby>1gが<ruby>結<rp>(</rp><rt>むす</rt><rp>)</rp></ruby>びつきます。<ruby>酸化銅<rp>(</rp><rt>さんかどう</rt><rp>)</rp></ruby>=4+1=<strong>5g</strong>です。',
+        '<strong>正解はD「5g」</strong>です。<ruby>銅<rp>(</rp><rt>どう</rt><rp>)</rp></ruby>:<ruby>酸素<rp>(</rp><rt>さんそ</rt><rp>)</rp></ruby>=4:1なので、<ruby>銅<rp>(</rp><rt>どう</rt><rp>)</rp></ruby>4gに<ruby>酸素<rp>(</rp><rt>さんそ</rt><rp>)</rp></ruby>1gが<ruby>結<rp>(</rp><rt>むす</rt><rp>)</rp></ruby>びつきます。<ruby>酸化銅<rp>(</rp><rt>さんかどう</rt><rp>)</rp></ruby>=4+1=<strong>5g</strong>です。',
     },
     {
       type: 'end',

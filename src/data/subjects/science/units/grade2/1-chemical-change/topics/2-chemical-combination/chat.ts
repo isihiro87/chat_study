@@ -85,12 +85,12 @@ export const chemicalCombinationChat: HistoryChat = {
       question: '鉄と硫黄の化合でできる硫化鉄の性質として正しいものは？',
       options: [
         { letter: 'A', text: '磁石に強く引きつけられる', correct: false },
-        { letter: 'B', text: '塩酸を加えると水素が発生する', correct: false },
-        { letter: 'C', text: '磁石につかない', correct: true },
+        { letter: 'B', text: '磁石につかない', correct: true },
+        { letter: 'C', text: '塩酸を加えると水素が発生する', correct: false },
         { letter: 'D', text: '鉄と同じ銀色の光沢がある', correct: false },
       ],
       explanation:
-        '<strong>正解はC「<ruby>磁石<rp>(</rp><rt>じしゃく</rt><rp>)</rp></ruby>につかない」</strong>です。<ruby>硫化鉄<rp>(</rp><rt>りゅうかてつ</rt><rp>)</rp></ruby>は<ruby>鉄<rp>(</rp><rt>てつ</rt><rp>)</rp></ruby>とはまったく<ruby>異<rp>(</rp><rt>こと</rt><rp>)</rp></ruby>なる<ruby>性質<rp>(</rp><rt>せいしつ</rt><rp>)</rp></ruby>をもち、<ruby>磁石<rp>(</rp><rt>じしゃく</rt><rp>)</rp></ruby>に引きつけられません。',
+        '<strong>正解はB「<ruby>磁石<rp>(</rp><rt>じしゃく</rt><rp>)</rp></ruby>につかない」</strong>です。<ruby>硫化鉄<rp>(</rp><rt>りゅうかてつ</rt><rp>)</rp></ruby>は<ruby>鉄<rp>(</rp><rt>てつ</rt><rp>)</rp></ruby>とはまったく<ruby>異<rp>(</rp><rt>こと</rt><rp>)</rp></ruby>なる<ruby>性質<rp>(</rp><rt>せいしつ</rt><rp>)</rp></ruby>をもち、<ruby>磁石<rp>(</rp><rt>じしゃく</rt><rp>)</rp></ruby>に引きつけられません。',
     },
     {
       type: 'message',
@@ -103,13 +103,13 @@ export const chemicalCombinationChat: HistoryChat = {
       type: 'quiz',
       question: '硫化鉄に塩酸を加えたとき発生する気体は？',
       options: [
-        { letter: 'A', text: '水素', correct: false },
+        { letter: 'A', text: '硫化水素', correct: true },
         { letter: 'B', text: '酸素', correct: false },
-        { letter: 'C', text: '硫化水素', correct: true },
+        { letter: 'C', text: '水素', correct: false },
         { letter: 'D', text: '二酸化炭素', correct: false },
       ],
       explanation:
-        '<strong>正解はC「<ruby>硫化水素<rp>(</rp><rt>りゅうかすいそ</rt><rp>)</rp></ruby>」</strong>です。<ruby>硫化鉄<rp>(</rp><rt>りゅうかてつ</rt><rp>)</rp></ruby>に<ruby>塩酸<rp>(</rp><rt>えんさん</rt><rp>)</rp></ruby>を加えると、<ruby>卵<rp>(</rp><rt>たまご</rt><rp>)</rp></ruby>の<ruby>腐<rp>(</rp><rt>くさ</rt><rp>)</rp></ruby>った<ruby>臭<rp>(</rp><rt>にお</rt><rp>)</rp></ruby>いの<ruby>硫化水素<rp>(</rp><rt>りゅうかすいそ</rt><rp>)</rp></ruby>が発生します。<ruby>鉄<rp>(</rp><rt>てつ</rt><rp>)</rp></ruby>に<ruby>塩酸<rp>(</rp><rt>えんさん</rt><rp>)</rp></ruby>を加えると<ruby>水素<rp>(</rp><rt>すいそ</rt><rp>)</rp></ruby>が発生します。',
+        '<strong>正解はA「<ruby>硫化水素<rp>(</rp><rt>りゅうかすいそ</rt><rp>)</rp></ruby>」</strong>です。<ruby>硫化鉄<rp>(</rp><rt>りゅうかてつ</rt><rp>)</rp></ruby>に<ruby>塩酸<rp>(</rp><rt>えんさん</rt><rp>)</rp></ruby>を加えると、<ruby>卵<rp>(</rp><rt>たまご</rt><rp>)</rp></ruby>の<ruby>腐<rp>(</rp><rt>くさ</rt><rp>)</rp></ruby>った<ruby>臭<rp>(</rp><rt>にお</rt><rp>)</rp></ruby>いの<ruby>硫化水素<rp>(</rp><rt>りゅうかすいそ</rt><rp>)</rp></ruby>が発生します。<ruby>鉄<rp>(</rp><rt>てつ</rt><rp>)</rp></ruby>に<ruby>塩酸<rp>(</rp><rt>えんさん</rt><rp>)</rp></ruby>を加えると<ruby>水素<rp>(</rp><rt>すいそ</rt><rp>)</rp></ruby>が発生します。',
     },
     {
       type: 'date',
@@ -162,12 +162,12 @@ export const chemicalCombinationChat: HistoryChat = {
       question: '化学反応式として正しいものはどれ？',
       options: [
         { letter: 'A', text: 'H₂ + O₂ → H₂O', correct: false },
-        { letter: 'B', text: '2H₂ + O₂ → 2H₂O', correct: true },
+        { letter: 'B', text: '2H + O → H₂O', correct: false },
         { letter: 'C', text: 'H₂ + O → H₂O', correct: false },
-        { letter: 'D', text: '2H + O → H₂O', correct: false },
+        { letter: 'D', text: '2H₂ + O₂ → 2H₂O', correct: true },
       ],
       explanation:
-        '<strong>正解はB「2H<sub>2</sub> + O<sub>2</sub> → 2H<sub>2</sub>O」</strong>です。<ruby>左辺<rp>(</rp><rt>さへん</rt><rp>)</rp></ruby>：H=4, O=2、<ruby>右辺<rp>(</rp><rt>うへん</rt><rp>)</rp></ruby>：H=4, O=2 で<ruby>原子<rp>(</rp><rt>げんし</rt><rp>)</rp></ruby>の数が<ruby>一致<rp>(</rp><rt>いっち</rt><rp>)</rp></ruby>しています。',
+        '<strong>正解はD「2H<sub>2</sub> + O<sub>2</sub> → 2H<sub>2</sub>O」</strong>です。<ruby>左辺<rp>(</rp><rt>さへん</rt><rp>)</rp></ruby>：H=4, O=2、<ruby>右辺<rp>(</rp><rt>うへん</rt><rp>)</rp></ruby>：H=4, O=2 で<ruby>原子<rp>(</rp><rt>げんし</rt><rp>)</rp></ruby>の数が<ruby>一致<rp>(</rp><rt>いっち</rt><rp>)</rp></ruby>しています。',
     },
     {
       type: 'end',

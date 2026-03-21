@@ -92,11 +92,11 @@ export const worldReligionsChat: HistoryChat = {
       question: '紀元前5世紀頃のインドで仏教を開いたのは？',
       options: [
         { letter: 'A', text: 'ムハンマド', correct: false },
-        { letter: 'B', text: 'シャカ', correct: true },
+        { letter: 'B', text: '孔子', correct: false },
         { letter: 'C', text: 'イエス', correct: false },
-        { letter: 'D', text: '孔子', correct: false },
+        { letter: 'D', text: 'シャカ', correct: true },
       ],
-      explanation: '<strong>正解はB「<ruby>シャカ<rp>(</rp><rt>しゃか</rt><rp>)</rp></ruby>」</strong>です。<ruby>釈迦<rp>(</rp><rt>しゃか</rt><rp>)</rp></ruby>は<ruby>紀元前<rp>(</rp><rt>きげんぜん</rt><rp>)</rp></ruby>5<ruby>世紀<rp>(</rp><rt>せいき</rt><rp>)</rp></ruby>頃のインドで<strong>仏教</strong>を開きました。',
+      explanation: '<strong>正解はD「<ruby>シャカ<rp>(</rp><rt>しゃか</rt><rp>)</rp></ruby>」</strong>です。<ruby>釈迦<rp>(</rp><rt>しゃか</rt><rp>)</rp></ruby>は<ruby>紀元前<rp>(</rp><rt>きげんぜん</rt><rp>)</rp></ruby>5<ruby>世紀<rp>(</rp><rt>せいき</rt><rp>)</rp></ruby>頃のインドで<strong>仏教</strong>を開きました。',
     },
     {
       type: 'narrator',
@@ -167,11 +167,11 @@ export const worldReligionsChat: HistoryChat = {
       question: 'ユダヤ教・キリスト教・イスラーム共通の聖地はどこ？',
       options: [
         { letter: 'A', text: 'メッカ', correct: false },
-        { letter: 'B', text: 'エルサレム', correct: true },
-        { letter: 'C', text: 'ローマ', correct: false },
+        { letter: 'B', text: 'ローマ', correct: false },
+        { letter: 'C', text: 'エルサレム', correct: true },
         { letter: 'D', text: 'バチカン', correct: false },
       ],
-      explanation: '<strong>正解はB「エルサレム」</strong>です。三つの<ruby>宗教<rp>(</rp><rt>しゅうきょう</rt><rp>)</rp></ruby>にとって<ruby>重要<rp>(</rp><rt>じゅうよう</rt><rp>)</rp></ruby>な<ruby>聖地<rp>(</rp><rt>せいち</rt><rp>)</rp></ruby>です。',
+      explanation: '<strong>正解はC「エルサレム」</strong>です。三つの<ruby>宗教<rp>(</rp><rt>しゅうきょう</rt><rp>)</rp></ruby>にとって<ruby>重要<rp>(</rp><rt>じゅうよう</rt><rp>)</rp></ruby>な<ruby>聖地<rp>(</rp><rt>せいち</rt><rp>)</rp></ruby>です。',
     },
     {
       type: 'end',

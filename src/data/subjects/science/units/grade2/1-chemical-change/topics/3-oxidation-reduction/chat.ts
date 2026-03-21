@@ -91,13 +91,13 @@ export const oxidationReductionChat: HistoryChat = {
       type: 'quiz',
       question: '銅を加熱したときにできる物質は？',
       options: [
-        { letter: 'A', text: '酸化銅', correct: true },
+        { letter: 'A', text: '塩化銅', correct: false },
         { letter: 'B', text: '硫化銅', correct: false },
-        { letter: 'C', text: '塩化銅', correct: false },
+        { letter: 'C', text: '酸化銅', correct: true },
         { letter: 'D', text: '水酸化銅', correct: false },
       ],
       explanation:
-        '<strong>正解はA「<ruby>酸化銅<rp>(</rp><rt>さんかどう</rt><rp>)</rp></ruby>」</strong>です。<ruby>銅<rp>(</rp><rt>どう</rt><rp>)</rp></ruby>を空気中で加熱すると<ruby>酸素<rp>(</rp><rt>さんそ</rt><rp>)</rp></ruby>と<ruby>結<rp>(</rp><rt>むす</rt><rp>)</rp></ruby>びついて<ruby>酸化銅<rp>(</rp><rt>さんかどう</rt><rp>)</rp></ruby>（CuO、黒色）ができます。',
+        '<strong>正解はC「<ruby>酸化銅<rp>(</rp><rt>さんかどう</rt><rp>)</rp></ruby>」</strong>です。<ruby>銅<rp>(</rp><rt>どう</rt><rp>)</rp></ruby>を空気中で加熱すると<ruby>酸素<rp>(</rp><rt>さんそ</rt><rp>)</rp></ruby>と<ruby>結<rp>(</rp><rt>むす</rt><rp>)</rp></ruby>びついて<ruby>酸化銅<rp>(</rp><rt>さんかどう</rt><rp>)</rp></ruby>（CuO、黒色）ができます。',
     },
     {
       type: 'date',
@@ -248,13 +248,13 @@ export const oxidationReductionChat: HistoryChat = {
       type: 'quiz',
       question: '酸化と還元について正しいものはどれ？',
       options: [
-        { letter: 'A', text: '酸化だけが起こることがある', correct: false },
+        { letter: 'A', text: '酸化と還元は常に同時に起こる', correct: true },
         { letter: 'B', text: '還元だけが起こることがある', correct: false },
-        { letter: 'C', text: '酸化と還元は常に同時に起こる', correct: true },
+        { letter: 'C', text: '酸化だけが起こることがある', correct: false },
         { letter: 'D', text: '酸化と還元は交互に起こる', correct: false },
       ],
       explanation:
-        '<strong>正解はC「<ruby>酸化<rp>(</rp><rt>さんか</rt><rp>)</rp></ruby>と<ruby>還元<rp>(</rp><rt>かんげん</rt><rp>)</rp></ruby>は<ruby>常<rp>(</rp><rt>つね</rt><rp>)</rp></ruby>に<ruby>同時<rp>(</rp><rt>どうじ</rt><rp>)</rp></ruby>に<ruby>起<rp>(</rp><rt>お</rt><rp>)</rp></ruby>こる」</strong>です。<ruby>一方<rp>(</rp><rt>いっぽう</rt><rp>)</rp></ruby>が<ruby>酸素<rp>(</rp><rt>さんそ</rt><rp>)</rp></ruby>を<ruby>得<rp>(</rp><rt>え</rt><rp>)</rp></ruby>れば、もう<ruby>一方<rp>(</rp><rt>いっぽう</rt><rp>)</rp></ruby>は<ruby>酸素<rp>(</rp><rt>さんそ</rt><rp>)</rp></ruby>を<ruby>失<rp>(</rp><rt>うしな</rt><rp>)</rp></ruby>います。',
+        '<strong>正解はA「<ruby>酸化<rp>(</rp><rt>さんか</rt><rp>)</rp></ruby>と<ruby>還元<rp>(</rp><rt>かんげん</rt><rp>)</rp></ruby>は<ruby>常<rp>(</rp><rt>つね</rt><rp>)</rp></ruby>に<ruby>同時<rp>(</rp><rt>どうじ</rt><rp>)</rp></ruby>に<ruby>起<rp>(</rp><rt>お</rt><rp>)</rp></ruby>こる」</strong>です。<ruby>一方<rp>(</rp><rt>いっぽう</rt><rp>)</rp></ruby>が<ruby>酸素<rp>(</rp><rt>さんそ</rt><rp>)</rp></ruby>を<ruby>得<rp>(</rp><rt>え</rt><rp>)</rp></ruby>れば、もう<ruby>一方<rp>(</rp><rt>いっぽう</rt><rp>)</rp></ruby>は<ruby>酸素<rp>(</rp><rt>さんそ</rt><rp>)</rp></ruby>を<ruby>失<rp>(</rp><rt>うしな</rt><rp>)</rp></ruby>います。',
     },
     {
       type: 'date',
@@ -329,12 +329,12 @@ export const oxidationReductionChat: HistoryChat = {
       question: '酸化銅の還元実験で、火を消す前にしなければならない操作は？',
       options: [
         { letter: 'A', text: '試験管を水で冷やす', correct: false },
-        { letter: 'B', text: 'ガラス管を石灰水から取り出す', correct: true },
+        { letter: 'B', text: '試験管のゴム栓をはずす', correct: false },
         { letter: 'C', text: '酸化銅をさらに加える', correct: false },
-        { letter: 'D', text: '試験管のゴム栓をはずす', correct: false },
+        { letter: 'D', text: 'ガラス管を石灰水から取り出す', correct: true },
       ],
       explanation:
-        '<strong>正解はB</strong>です。<ruby>先<rp>(</rp><rt>さき</rt><rp>)</rp></ruby>に<ruby>火<rp>(</rp><rt>ひ</rt><rp>)</rp></ruby>を<ruby>消<rp>(</rp><rt>け</rt><rp>)</rp></ruby>すと、<ruby>試験管<rp>(</rp><rt>しけんかん</rt><rp>)</rp></ruby>が<ruby>冷<rp>(</rp><rt>ひ</rt><rp>)</rp></ruby>えて<ruby>石灰水<rp>(</rp><rt>せっかいすい</rt><rp>)</rp></ruby>が<ruby>逆流<rp>(</rp><rt>ぎゃくりゅう</rt><rp>)</rp></ruby>し、<ruby>試験管<rp>(</rp><rt>しけんかん</rt><rp>)</rp></ruby>が<ruby>割<rp>(</rp><rt>わ</rt><rp>)</rp></ruby>れる<ruby>危険<rp>(</rp><rt>きけん</rt><rp>)</rp></ruby>があります。',
+        '<strong>正解はD</strong>です。<ruby>先<rp>(</rp><rt>さき</rt><rp>)</rp></ruby>に<ruby>火<rp>(</rp><rt>ひ</rt><rp>)</rp></ruby>を<ruby>消<rp>(</rp><rt>け</rt><rp>)</rp></ruby>すと、<ruby>試験管<rp>(</rp><rt>しけんかん</rt><rp>)</rp></ruby>が<ruby>冷<rp>(</rp><rt>ひ</rt><rp>)</rp></ruby>えて<ruby>石灰水<rp>(</rp><rt>せっかいすい</rt><rp>)</rp></ruby>が<ruby>逆流<rp>(</rp><rt>ぎゃくりゅう</rt><rp>)</rp></ruby>し、<ruby>試験管<rp>(</rp><rt>しけんかん</rt><rp>)</rp></ruby>が<ruby>割<rp>(</rp><rt>わ</rt><rp>)</rp></ruby>れる<ruby>危険<rp>(</rp><rt>きけん</rt><rp>)</rp></ruby>があります。',
     },
     {
       type: 'end',

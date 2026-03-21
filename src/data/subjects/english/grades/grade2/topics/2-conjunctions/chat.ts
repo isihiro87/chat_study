@@ -111,8 +111,8 @@ export const conjunctionsChat: HistoryChat = {
       type: 'quiz',
       question: '「I was tired (　　) I studied hard.（一生けんめい勉強したので、つかれました。）」\nの (　　) に入るのは？',
       options: [
-        { letter: 'A', text: 'when', correct: false },
-        { letter: 'B', text: 'because', correct: true },
+        { letter: 'A', text: 'because', correct: true },
+        { letter: 'B', text: 'when', correct: false },
         { letter: 'C', text: 'if', correct: false },
         { letter: 'D', text: 'that', correct: false },
       ],
@@ -209,9 +209,9 @@ export const conjunctionsChat: HistoryChat = {
       question: '「If it (　　) sunny tomorrow, I will go to the park.（もし明日晴れたら、公園に行きます。）」\nの (　　) に入るのは？',
       options: [
         { letter: 'A', text: 'will be', correct: false },
-        { letter: 'B', text: 'is', correct: true },
+        { letter: 'B', text: 'will is', correct: false },
         { letter: 'C', text: 'was', correct: false },
-        { letter: 'D', text: 'will is', correct: false },
+        { letter: 'D', text: 'is', correct: true },
       ],
       explanation: 'if の<ruby>後<rt>うし</rt></ruby>ろでは<ruby>未来<rt>みらい</rt></ruby>のことでも will を使わず、<ruby>現在<rt>げんざい</rt></ruby>の形を使うよ。だから <strong>is</strong> が<ruby>正<rt>ただ</rt></ruby>しいね。',
     },

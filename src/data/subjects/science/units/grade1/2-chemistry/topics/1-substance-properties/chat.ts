@@ -71,13 +71,13 @@ export const substancePropertiesChat: HistoryChat = {
       type: 'quiz',
       question: 'アルミニウムの缶で「アルミニウム」は何に注目した呼び方？',
       options: [
-        { letter: 'A', text: '材料（物質）', correct: true },
-        { letter: 'B', text: '形（物体）', correct: false },
+        { letter: 'A', text: '形（物体）', correct: false },
+        { letter: 'B', text: '材料（物質）', correct: true },
         { letter: 'C', text: '用途（物体）', correct: false },
         { letter: 'D', text: '重さ（密度）', correct: false },
       ],
       explanation:
-        '<strong>正解はA「<ruby>材料<rp>(</rp><rt>ざいりょう</rt><rp>)</rp></ruby>（<ruby>物質<rp>(</rp><rt>ぶっしつ</rt><rp>)</rp></ruby>）」</strong>です。<ruby>材料<rp>(</rp><rt>ざいりょう</rt><rp>)</rp></ruby>に<ruby>注目<rp>(</rp><rt>ちゅうもく</rt><rp>)</rp></ruby>した<ruby>呼<rp>(</rp><rt>よ</rt><rp>)</rp></ruby>び<ruby>方<rp>(</rp><rt>かた</rt><rp>)</rp></ruby>が<ruby>物質<rp>(</rp><rt>ぶっしつ</rt><rp>)</rp></ruby>です。',
+        '<strong>正解はB「<ruby>材料<rp>(</rp><rt>ざいりょう</rt><rp>)</rp></ruby>（<ruby>物質<rp>(</rp><rt>ぶっしつ</rt><rp>)</rp></ruby>）」</strong>です。<ruby>材料<rp>(</rp><rt>ざいりょう</rt><rp>)</rp></ruby>に<ruby>注目<rp>(</rp><rt>ちゅうもく</rt><rp>)</rp></ruby>した<ruby>呼<rp>(</rp><rt>よ</rt><rp>)</rp></ruby>び<ruby>方<rp>(</rp><rt>かた</rt><rp>)</rp></ruby>が<ruby>物質<rp>(</rp><rt>ぶっしつ</rt><rp>)</rp></ruby>です。',
     },
     {
       type: 'date',
@@ -132,13 +132,13 @@ export const substancePropertiesChat: HistoryChat = {
       type: 'quiz',
       question: '質量40g、体積5cm³の物質の密度は？',
       options: [
-        { letter: 'A', text: '200g/cm³', correct: false },
-        { letter: 'B', text: '8g/cm³', correct: true },
+        { letter: 'A', text: '8g/cm³', correct: true },
+        { letter: 'B', text: '200g/cm³', correct: false },
         { letter: 'C', text: '45g/cm³', correct: false },
         { letter: 'D', text: '0.125g/cm³', correct: false },
       ],
       explanation:
-        '<strong>正解はB「8g/cm³」</strong>です。<ruby>密度<rp>(</rp><rt>みつど</rt><rp>)</rp></ruby>＝<ruby>質量<rp>(</rp><rt>しつりょう</rt><rp>)</rp></ruby>÷<ruby>体積<rp>(</rp><rt>たいせき</rt><rp>)</rp></ruby>＝40g÷5cm³＝8g/cm³です。',
+        '<strong>正解はA「8g/cm³」</strong>です。<ruby>密度<rp>(</rp><rt>みつど</rt><rp>)</rp></ruby>＝<ruby>質量<rp>(</rp><rt>しつりょう</rt><rp>)</rp></ruby>÷<ruby>体積<rp>(</rp><rt>たいせき</rt><rp>)</rp></ruby>＝40g÷5cm³＝8g/cm³です。',
     },
     {
       type: 'date',
@@ -243,12 +243,12 @@ export const substancePropertiesChat: HistoryChat = {
       question: 'メスシリンダーの目盛りを読むとき、正しい方法はどれ？',
       options: [
         { letter: 'A', text: '液面の最も高いところを読む', correct: false },
-        { letter: 'B', text: '液面の最も低いところを水平に読む', correct: true },
-        { letter: 'C', text: '上から見下ろして読む', correct: false },
+        { letter: 'B', text: '上から見下ろして読む', correct: false },
+        { letter: 'C', text: '液面の最も低いところを水平に読む', correct: true },
         { letter: 'D', text: '液面の真ん中あたりを読む', correct: false },
       ],
       explanation:
-        '<strong>正解はB「<ruby>液面<rp>(</rp><rt>えきめん</rt><rp>)</rp></ruby>の最も<ruby>低<rp>(</rp><rt>ひく</rt><rp>)</rp></ruby>いところを<ruby>水平<rp>(</rp><rt>すいへい</rt><rp>)</rp></ruby>に<ruby>読<rp>(</rp><rt>よ</rt><rp>)</rp></ruby>む」</strong>です。<ruby>目<rp>(</rp><rt>め</rt><rp>)</rp></ruby>の<ruby>高<rp>(</rp><rt>たか</rt><rp>)</rp></ruby>さを<ruby>液面<rp>(</rp><rt>えきめん</rt><rp>)</rp></ruby>に合わせて<ruby>水平<rp>(</rp><rt>すいへい</rt><rp>)</rp></ruby>に<ruby>読<rp>(</rp><rt>よ</rt><rp>)</rp></ruby>みます。',
+        '<strong>正解はC「<ruby>液面<rp>(</rp><rt>えきめん</rt><rp>)</rp></ruby>の最も<ruby>低<rp>(</rp><rt>ひく</rt><rp>)</rp></ruby>いところを<ruby>水平<rp>(</rp><rt>すいへい</rt><rp>)</rp></ruby>に<ruby>読<rp>(</rp><rt>よ</rt><rp>)</rp></ruby>む」</strong>です。<ruby>目<rp>(</rp><rt>め</rt><rp>)</rp></ruby>の<ruby>高<rp>(</rp><rt>たか</rt><rp>)</rp></ruby>さを<ruby>液面<rp>(</rp><rt>えきめん</rt><rp>)</rp></ruby>に合わせて<ruby>水平<rp>(</rp><rt>すいへい</rt><rp>)</rp></ruby>に<ruby>読<rp>(</rp><rt>よ</rt><rp>)</rp></ruby>みます。',
     },
     {
       type: 'date',
@@ -295,12 +295,12 @@ export const substancePropertiesChat: HistoryChat = {
       question: 'ガスバーナーの点火で、マッチに火をつけた直後に開くのはどれ？',
       options: [
         { letter: 'A', text: '元栓', correct: false },
-        { letter: 'B', text: 'コック', correct: false },
-        { letter: 'C', text: 'ガス調節ねじ', correct: true },
+        { letter: 'B', text: 'ガス調節ねじ', correct: true },
+        { letter: 'C', text: 'コック', correct: false },
         { letter: 'D', text: '空気調節ねじ', correct: false },
       ],
       explanation:
-        '<strong>正解はC「ガス<ruby>調節<rp>(</rp><rt>ちょうせつ</rt><rp>)</rp></ruby>ねじ」</strong>です。<ruby>点火<rp>(</rp><rt>てんか</rt><rp>)</rp></ruby>の<ruby>手順<rp>(</rp><rt>てじゅん</rt><rp>)</rp></ruby>は<ruby>元栓<rp>(</rp><rt>もとせん</rt><rp>)</rp></ruby>→コック→マッチ→ガス<ruby>調節<rp>(</rp><rt>ちょうせつ</rt><rp>)</rp></ruby>ねじ→<ruby>空気調節<rp>(</rp><rt>くうきちょうせつ</rt><rp>)</rp></ruby>ねじです。',
+        '<strong>正解はB「ガス<ruby>調節<rp>(</rp><rt>ちょうせつ</rt><rp>)</rp></ruby>ねじ」</strong>です。<ruby>点火<rp>(</rp><rt>てんか</rt><rp>)</rp></ruby>の<ruby>手順<rp>(</rp><rt>てじゅん</rt><rp>)</rp></ruby>は<ruby>元栓<rp>(</rp><rt>もとせん</rt><rp>)</rp></ruby>→コック→マッチ→ガス<ruby>調節<rp>(</rp><rt>ちょうせつ</rt><rp>)</rp></ruby>ねじ→<ruby>空気調節<rp>(</rp><rt>くうきちょうせつ</rt><rp>)</rp></ruby>ねじです。',
     },
     {
       type: 'end',

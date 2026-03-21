@@ -93,10 +93,10 @@ export const ritsuryoNaraChat: HistoryChat = {
       options: [
         { letter: 'A', text: '御成敗式目', correct: false },
         { letter: 'B', text: '十七条の憲法', correct: false },
-        { letter: 'C', text: '大宝律令', correct: true },
-        { letter: 'D', text: '武家諸法度', correct: false },
+        { letter: 'C', text: '武家諸法度', correct: false },
+        { letter: 'D', text: '大宝律令', correct: true },
       ],
-      explanation: '<strong>正解はC「<ruby>大宝律令<rp>(</rp><rt>たいほうりつりょう</rt><rp>)</rp></ruby>」</strong>です。<ruby>唐<rp>(</rp><rt>とう</rt><rp>)</rp></ruby>の<ruby>律令<rp>(</rp><rt>りつりょう</rt><rp>)</rp></ruby>にならい、<ruby>刑罰<rp>(</rp><rt>けいばつ</rt><rp>)</rp></ruby>（律）と政治の決まり（令）を定めました。',
+      explanation: '<strong>正解はD「<ruby>大宝律令<rp>(</rp><rt>たいほうりつりょう</rt><rp>)</rp></ruby>」</strong>です。<ruby>唐<rp>(</rp><rt>とう</rt><rp>)</rp></ruby>の<ruby>律令<rp>(</rp><rt>りつりょう</rt><rp>)</rp></ruby>にならい、<ruby>刑罰<rp>(</rp><rt>けいばつ</rt><rp>)</rp></ruby>（律）と政治の決まり（令）を定めました。',
     },
     {
       type: 'narrator',

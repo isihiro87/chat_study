@@ -100,12 +100,12 @@ export const cathodeElectronChat: HistoryChat = {
       question: '電流の向きと電子の移動の向きについて正しいのはどれ？',
       options: [
         { letter: 'A', text: '同じ向きに流れる', correct: false },
-        { letter: 'B', text: '逆向きに流れる', correct: true },
-        { letter: 'C', text: '電子は移動しない', correct: false },
+        { letter: 'B', text: '電子は移動しない', correct: false },
+        { letter: 'C', text: '逆向きに流れる', correct: true },
         { letter: 'D', text: '向きは関係ない', correct: false },
       ],
       explanation:
-        '<strong>正解はB「<ruby>逆向<rp>(</rp><rt>ぎゃくむ</rt><rp>)</rp></ruby>きに流れる」</strong>です。<ruby>電子<rp>(</rp><rt>でんし</rt><rp>)</rp></ruby>は−<ruby>極<rp>(</rp><rt>きょく</rt><rp>)</rp></ruby>→＋<ruby>極<rp>(</rp><rt>きょく</rt><rp>)</rp></ruby>に<ruby>移動<rp>(</rp><rt>いどう</rt><rp>)</rp></ruby>しますが、<ruby>電流<rp>(</rp><rt>でんりゅう</rt><rp>)</rp></ruby>の<ruby>向<rp>(</rp><rt>む</rt><rp>)</rp></ruby>きは<ruby>歴史的<rp>(</rp><rt>れきしてき</rt><rp>)</rp></ruby>に＋<ruby>極<rp>(</rp><rt>きょく</rt><rp>)</rp></ruby>→−<ruby>極<rp>(</rp><rt>きょく</rt><rp>)</rp></ruby>と<ruby>決<rp>(</rp><rt>き</rt><rp>)</rp></ruby>められています。',
+        '<strong>正解はC「<ruby>逆向<rp>(</rp><rt>ぎゃくむ</rt><rp>)</rp></ruby>きに流れる」</strong>です。<ruby>電子<rp>(</rp><rt>でんし</rt><rp>)</rp></ruby>は−<ruby>極<rp>(</rp><rt>きょく</rt><rp>)</rp></ruby>→＋<ruby>極<rp>(</rp><rt>きょく</rt><rp>)</rp></ruby>に<ruby>移動<rp>(</rp><rt>いどう</rt><rp>)</rp></ruby>しますが、<ruby>電流<rp>(</rp><rt>でんりゅう</rt><rp>)</rp></ruby>の<ruby>向<rp>(</rp><rt>む</rt><rp>)</rp></ruby>きは<ruby>歴史的<rp>(</rp><rt>れきしてき</rt><rp>)</rp></ruby>に＋<ruby>極<rp>(</rp><rt>きょく</rt><rp>)</rp></ruby>→−<ruby>極<rp>(</rp><rt>きょく</rt><rp>)</rp></ruby>と<ruby>決<rp>(</rp><rt>き</rt><rp>)</rp></ruby>められています。',
     },
     {
       type: 'date',
@@ -159,12 +159,12 @@ export const cathodeElectronChat: HistoryChat = {
       question: 'α線を遮ることができるものはどれ？',
       options: [
         { letter: 'A', text: '鉛の壁', correct: false },
-        { letter: 'B', text: 'コンクリート', correct: false },
+        { letter: 'B', text: '紙', correct: true },
         { letter: 'C', text: 'アルミニウム板', correct: false },
-        { letter: 'D', text: '紙', correct: true },
+        { letter: 'D', text: 'コンクリート', correct: false },
       ],
       explanation:
-        '<strong>正解はD「<ruby>紙<rp>(</rp><rt>かみ</rt><rp>)</rp></ruby>」</strong>です。α<ruby>線<rp>(</rp><rt>せん</rt><rp>)</rp></ruby>は<ruby>透過性<rp>(</rp><rt>とうかせい</rt><rp>)</rp></ruby>が<ruby>最<rp>(</rp><rt>もっと</rt><rp>)</rp></ruby>も<ruby>低<rp>(</rp><rt>ひく</rt><rp>)</rp></ruby>く、<ruby>紙<rp>(</rp><rt>かみ</rt><rp>)</rp></ruby>で<ruby>遮<rp>(</rp><rt>さえぎ</rt><rp>)</rp></ruby>ることができます。β<ruby>線<rp>(</rp><rt>せん</rt><rp>)</rp></ruby>はアルミニウム<ruby>板<rp>(</rp><rt>ばん</rt><rp>)</rp></ruby>、γ<ruby>線<rp>(</rp><rt>せん</rt><rp>)</rp></ruby>は<ruby>鉛<rp>(</rp><rt>なまり</rt><rp>)</rp></ruby>やコンクリートが<ruby>必要<rp>(</rp><rt>ひつよう</rt><rp>)</rp></ruby>です。',
+        '<strong>正解はB「<ruby>紙<rp>(</rp><rt>かみ</rt><rp>)</rp></ruby>」</strong>です。α<ruby>線<rp>(</rp><rt>せん</rt><rp>)</rp></ruby>は<ruby>透過性<rp>(</rp><rt>とうかせい</rt><rp>)</rp></ruby>が<ruby>最<rp>(</rp><rt>もっと</rt><rp>)</rp></ruby>も<ruby>低<rp>(</rp><rt>ひく</rt><rp>)</rp></ruby>く、<ruby>紙<rp>(</rp><rt>かみ</rt><rp>)</rp></ruby>で<ruby>遮<rp>(</rp><rt>さえぎ</rt><rp>)</rp></ruby>ることができます。β<ruby>線<rp>(</rp><rt>せん</rt><rp>)</rp></ruby>はアルミニウム<ruby>板<rp>(</rp><rt>ばん</rt><rp>)</rp></ruby>、γ<ruby>線<rp>(</rp><rt>せん</rt><rp>)</rp></ruby>は<ruby>鉛<rp>(</rp><rt>なまり</rt><rp>)</rp></ruby>やコンクリートが<ruby>必要<rp>(</rp><rt>ひつよう</rt><rp>)</rp></ruby>です。',
     },
     {
       type: 'end',

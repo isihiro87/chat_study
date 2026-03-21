@@ -85,13 +85,13 @@ export const jomonEraChat: HistoryChat = {
       type: 'quiz',
       question: '群馬県で打製石器が発見され、日本の旧石器時代を証明した遺跡は？',
       options: [
-        { letter: 'A', text: '三内丸山遺跡', correct: false },
-        { letter: 'B', text: '岩宿遺跡', correct: true },
+        { letter: 'A', text: '岩宿遺跡', correct: true },
+        { letter: 'B', text: '三内丸山遺跡', correct: false },
         { letter: 'C', text: '登呂遺跡', correct: false },
         { letter: 'D', text: '吉野ヶ里遺跡', correct: false },
       ],
       explanation:
-        '<strong>正解はB「<ruby>岩宿遺跡<rp>(</rp><rt>いわじゅくいせき</rt><rp>)</rp></ruby>」</strong>です。<ruby>相沢忠洋<rp>(</rp><rt>あいざわただひろ</rt><rp>)</rp></ruby>が<ruby>打製石器<rp>(</rp><rt>だせいせっき</rt><rp>)</rp></ruby>を発見しました。',
+        '<strong>正解はA「<ruby>岩宿遺跡<rp>(</rp><rt>いわじゅくいせき</rt><rp>)</rp></ruby>」</strong>です。<ruby>相沢忠洋<rp>(</rp><rt>あいざわただひろ</rt><rp>)</rp></ruby>が<ruby>打製石器<rp>(</rp><rt>だせいせっき</rt><rp>)</rp></ruby>を発見しました。',
     },
     {
       type: 'date',
@@ -207,13 +207,13 @@ export const jomonEraChat: HistoryChat = {
       type: 'quiz',
       question: '縄文人が地面を掘り柱を立てて造った家は？',
       options: [
-        { letter: 'A', text: 'たて穴住居', correct: true },
+        { letter: 'A', text: '武家屋敷', correct: false },
         { letter: 'B', text: '書院造', correct: false },
-        { letter: 'C', text: '武家屋敷', correct: false },
+        { letter: 'C', text: 'たて穴住居', correct: true },
         { letter: 'D', text: '高床倉庫', correct: false },
       ],
       explanation:
-        '<strong>正解はA「<ruby>たて穴住居<rp>(</rp><rt>たてあなじゅうきょ</rt><rp>)</rp></ruby>」</strong>です。地面を<ruby>掘<rp>(</rp><rt>ほ</rt><rp>)</rp></ruby>り下げて柱を立て、屋根をかけた住居です。',
+        '<strong>正解はC「<ruby>たて穴住居<rp>(</rp><rt>たてあなじゅうきょ</rt><rp>)</rp></ruby>」</strong>です。地面を<ruby>掘<rp>(</rp><rt>ほ</rt><rp>)</rp></ruby>り下げて柱を立て、屋根をかけた住居です。',
     },
     {
       type: 'end',

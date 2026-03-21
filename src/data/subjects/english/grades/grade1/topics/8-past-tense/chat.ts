@@ -90,8 +90,8 @@ export const pastTenseChat: HistoryChat = {
       options: [
         { letter: 'A', text: 'are', correct: false },
         { letter: 'B', text: 'was', correct: false },
-        { letter: 'C', text: 'were', correct: true },
-        { letter: 'D', text: 'is', correct: false },
+        { letter: 'C', text: 'is', correct: false },
+        { letter: 'D', text: 'were', correct: true },
       ],
       explanation: 'They は2人<ruby>以上<rt>いじょう</rt></ruby>だから are → <strong>were</strong> にかわるよ。',
     },
@@ -151,8 +151,8 @@ export const pastTenseChat: HistoryChat = {
       options: [
         { letter: 'A', text: 'play', correct: false },
         { letter: 'B', text: 'plays', correct: false },
-        { letter: 'C', text: 'playing', correct: false },
-        { letter: 'D', text: 'played', correct: true },
+        { letter: 'C', text: 'played', correct: true },
+        { letter: 'D', text: 'playing', correct: false },
       ],
       explanation: '<ruby>昨日<rt>きのう</rt></ruby>のことだから<ruby>過去形<rt>かこけい</rt></ruby>にするよ。play + ed = <strong>played</strong>',
     },
@@ -203,8 +203,8 @@ export const pastTenseChat: HistoryChat = {
       question: '「I was (　　) TV at 9 last night.（私は昨夜9時にテレビを見ていました。）」\nの (　　) に入るのは？',
       options: [
         { letter: 'A', text: 'watch', correct: false },
-        { letter: 'B', text: 'watched', correct: false },
-        { letter: 'C', text: 'watching', correct: true },
+        { letter: 'B', text: 'watching', correct: true },
+        { letter: 'C', text: 'watched', correct: false },
         { letter: 'D', text: 'watches', correct: false },
       ],
       explanation: 'was + ing で<ruby>過去進行形<rt>かこしんこうけい</rt></ruby>（〜していた）だよ。was <strong>watching</strong>',

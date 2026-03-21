@@ -181,12 +181,12 @@ export const vertebrateEvolutionChat: HistoryChat = {
       question: '最初に陸上で暮らした両生類で、4本の足をもつ化石生物はどれ？',
       options: [
         { letter: 'A', text: 'ユーステノプテロン', correct: false },
-        { letter: 'B', text: 'イクチオステガ', correct: true },
-        { letter: 'C', text: '始祖鳥', correct: false },
+        { letter: 'B', text: '始祖鳥', correct: false },
+        { letter: 'C', text: 'イクチオステガ', correct: true },
         { letter: 'D', text: 'ハイギョ', correct: false },
       ],
       explanation:
-        '<strong>正解はB「イクチオステガ」</strong>です。ユーステノプテロンは<ruby>肺<rp>(</rp><rt>はい</rt><rp>)</rp></ruby>とえらの両方をもった<ruby>魚類<rp>(</rp><rt>ぎょるい</rt><rp>)</rp></ruby>です。イクチオステガは4本の足をもち、最初に<ruby>陸上<rp>(</rp><rt>りくじょう</rt><rp>)</rp></ruby>で暮らした<ruby>両生類<rp>(</rp><rt>りょうせいるい</rt><rp>)</rp></ruby>です。',
+        '<strong>正解はC「イクチオステガ」</strong>です。ユーステノプテロンは<ruby>肺<rp>(</rp><rt>はい</rt><rp>)</rp></ruby>とえらの両方をもった<ruby>魚類<rp>(</rp><rt>ぎょるい</rt><rp>)</rp></ruby>です。イクチオステガは4本の足をもち、最初に<ruby>陸上<rp>(</rp><rt>りくじょう</rt><rp>)</rp></ruby>で暮らした<ruby>両生類<rp>(</rp><rt>りょうせいるい</rt><rp>)</rp></ruby>です。',
     },
 
     // ── まとめ ──

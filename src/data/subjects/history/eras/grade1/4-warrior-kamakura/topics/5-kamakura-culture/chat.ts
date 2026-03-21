@@ -173,11 +173,11 @@ export const kamakuraCultureChat: HistoryChat = {
       question: '「南無阿弥陀仏」と念仏を唱えて救われると説き、浄土宗を開いたのは？',
       options: [
         { letter: 'A', text: '親鸞', correct: false },
-        { letter: 'B', text: '法然', correct: true },
+        { letter: 'B', text: '一遍', correct: false },
         { letter: 'C', text: '日蓮', correct: false },
-        { letter: 'D', text: '一遍', correct: false },
+        { letter: 'D', text: '法然', correct: true },
       ],
-      explanation: '<strong>正解はB「<ruby>法然<rp>(</rp><rt>ほうねん</rt><rp>)</rp></ruby>」</strong>です。<strong>法然</strong>は<ruby>念仏<rp>(</rp><rt>ねんぶつ</rt><rp>)</rp></ruby>を唱えれば<ruby>誰<rp>(</rp><rt>だれ</rt><rp>)</rp></ruby>でも<ruby>極楽浄土<rp>(</rp><rt>ごくらくじょうど</rt><rp>)</rp></ruby>に行けると説き、<ruby>浄土宗<rp>(</rp><rt>じょうどしゅう</rt><rp>)</rp></ruby>を開きました。弟子の<ruby>親鸞<rp>(</rp><rt>しんらん</rt><rp>)</rp></ruby>は<ruby>浄土真宗<rp>(</rp><rt>じょうどしんしゅう</rt><rp>)</rp></ruby>を広めました。',
+      explanation: '<strong>正解はD「<ruby>法然<rp>(</rp><rt>ほうねん</rt><rp>)</rp></ruby>」</strong>です。<strong>法然</strong>は<ruby>念仏<rp>(</rp><rt>ねんぶつ</rt><rp>)</rp></ruby>を唱えれば<ruby>誰<rp>(</rp><rt>だれ</rt><rp>)</rp></ruby>でも<ruby>極楽浄土<rp>(</rp><rt>ごくらくじょうど</rt><rp>)</rp></ruby>に行けると説き、<ruby>浄土宗<rp>(</rp><rt>じょうどしゅう</rt><rp>)</rp></ruby>を開きました。弟子の<ruby>親鸞<rp>(</rp><rt>しんらん</rt><rp>)</rp></ruby>は<ruby>浄土真宗<rp>(</rp><rt>じょうどしんしゅう</rt><rp>)</rp></ruby>を広めました。',
     },
     {
       type: 'end',

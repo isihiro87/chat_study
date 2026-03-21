@@ -81,13 +81,13 @@ export const electromagneticInductionChat: HistoryChat = {
       type: 'quiz',
       question: 'コイルに磁石を出し入れして電流が流れる現象を何という？',
       options: [
-        { letter: 'A', text: '電気分解', correct: false },
-        { letter: 'B', text: '電磁誘導', correct: true },
+        { letter: 'A', text: '電磁誘導', correct: true },
+        { letter: 'B', text: '電気分解', correct: false },
         { letter: 'C', text: '静電気', correct: false },
         { letter: 'D', text: '電磁波', correct: false },
       ],
       explanation:
-        '<strong>正解はB「<ruby>電磁誘導<rp>(</rp><rt>でんじゆうどう</rt><rp>)</rp></ruby>」</strong>です。コイル内の<ruby>磁界<rp>(</rp><rt>じかい</rt><rp>)</rp></ruby>が変化することで<ruby>電圧<rp>(</rp><rt>でんあつ</rt><rp>)</rp></ruby>が生じ、<ruby>誘導電流<rp>(</rp><rt>ゆうどうでんりゅう</rt><rp>)</rp></ruby>が流れる現象です。',
+        '<strong>正解はA「<ruby>電磁誘導<rp>(</rp><rt>でんじゆうどう</rt><rp>)</rp></ruby>」</strong>です。コイル内の<ruby>磁界<rp>(</rp><rt>じかい</rt><rp>)</rp></ruby>が変化することで<ruby>電圧<rp>(</rp><rt>でんあつ</rt><rp>)</rp></ruby>が生じ、<ruby>誘導電流<rp>(</rp><rt>ゆうどうでんりゅう</rt><rp>)</rp></ruby>が流れる現象です。',
     },
     {
       type: 'date',
@@ -156,11 +156,11 @@ export const electromagneticInductionChat: HistoryChat = {
       options: [
         { letter: 'A', text: '常に一定方向に流れる', correct: false },
         { letter: 'B', text: '電圧を変えることができない', correct: false },
-        { letter: 'C', text: '向きが周期的に変化する', correct: true },
-        { letter: 'D', text: '乾電池から得られる', correct: false },
+        { letter: 'C', text: '乾電池から得られる', correct: false },
+        { letter: 'D', text: '向きが周期的に変化する', correct: true },
       ],
       explanation:
-        '<strong>正解はC「向きが<ruby>周期的<rp>(</rp><rt>しゅうきてき</rt><rp>)</rp></ruby>に変化する」</strong>です。交流は電流の向きが周期的に変化します。<ruby>変圧器<rp>(</rp><rt>へんあつき</rt><rp>)</rp></ruby>で電圧を変えやすいため、送電に利用されています。',
+        '<strong>正解はD「向きが<ruby>周期的<rp>(</rp><rt>しゅうきてき</rt><rp>)</rp></ruby>に変化する」</strong>です。交流は電流の向きが周期的に変化します。<ruby>変圧器<rp>(</rp><rt>へんあつき</rt><rp>)</rp></ruby>で電圧を変えやすいため、送電に利用されています。',
     },
     {
       type: 'end',

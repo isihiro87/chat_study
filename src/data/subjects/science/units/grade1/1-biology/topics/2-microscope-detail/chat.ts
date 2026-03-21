@@ -86,12 +86,12 @@ export const microscopeDetailChat: HistoryChat = {
       question: 'カバーガラスをゆっくり下ろす理由は？',
       options: [
         { letter: 'A', text: 'スライドガラスが割れないようにするため', correct: false },
-        { letter: 'B', text: '気泡が入らないようにするため', correct: true },
+        { letter: 'B', text: '水がこぼれないようにするため', correct: false },
         { letter: 'C', text: '観察物が動かないようにするため', correct: false },
-        { letter: 'D', text: '水がこぼれないようにするため', correct: false },
+        { letter: 'D', text: '気泡が入らないようにするため', correct: true },
       ],
       explanation:
-        '<strong>正解はB</strong>です。カバーガラスをゆっくり下ろすのは、<ruby>気泡<rp>(</rp><rt>きほう</rt><rp>)</rp></ruby>（<ruby>空気<rp>(</rp><rt>くうき</rt><rp>)</rp></ruby>の<ruby>泡<rp>(</rp><rt>あわ</rt><rp>)</rp></ruby>）が入って<ruby>観察<rp>(</rp><rt>かんさつ</rt><rp>)</rp></ruby>のじゃまにならないようにするためです。',
+        '<strong>正解はD</strong>です。カバーガラスをゆっくり下ろすのは、<ruby>気泡<rp>(</rp><rt>きほう</rt><rp>)</rp></ruby>（<ruby>空気<rp>(</rp><rt>くうき</rt><rp>)</rp></ruby>の<ruby>泡<rp>(</rp><rt>あわ</rt><rp>)</rp></ruby>）が入って<ruby>観察<rp>(</rp><rt>かんさつ</rt><rp>)</rp></ruby>のじゃまにならないようにするためです。',
     },
     {
       type: 'date',
@@ -171,12 +171,12 @@ export const microscopeDetailChat: HistoryChat = {
       question: '顕微鏡の倍率を上げると視野はどうなる？',
       options: [
         { letter: 'A', text: '広く明るくなる', correct: false },
-        { letter: 'B', text: '広く暗くなる', correct: false },
+        { letter: 'B', text: '狭く暗くなる', correct: true },
         { letter: 'C', text: '狭く明るくなる', correct: false },
-        { letter: 'D', text: '狭く暗くなる', correct: true },
+        { letter: 'D', text: '広く暗くなる', correct: false },
       ],
       explanation:
-        '<strong>正解はD</strong>です。<ruby>倍率<rp>(</rp><rt>ばいりつ</rt><rp>)</rp></ruby>を上げると<ruby>視野<rp>(</rp><rt>しや</rt><rp>)</rp></ruby>は<ruby>狭<rp>(</rp><rt>せま</rt><rp>)</rp></ruby>く、暗くなります。',
+        '<strong>正解はB</strong>です。<ruby>倍率<rp>(</rp><rt>ばいりつ</rt><rp>)</rp></ruby>を上げると<ruby>視野<rp>(</rp><rt>しや</rt><rp>)</rp></ruby>は<ruby>狭<rp>(</rp><rt>せま</rt><rp>)</rp></ruby>く、暗くなります。',
     },
     {
       type: 'date',
@@ -229,13 +229,13 @@ export const microscopeDetailChat: HistoryChat = {
       type: 'quiz',
       question: '双眼実体顕微鏡の特徴として正しいものはどれ？',
       options: [
-        { letter: 'A', text: 'プレパラートが必要', correct: false },
+        { letter: 'A', text: '立体的に観察できる', correct: true },
         { letter: 'B', text: '片目でのぞく', correct: false },
-        { letter: 'C', text: '立体的に観察できる', correct: true },
+        { letter: 'C', text: 'プレパラートが必要', correct: false },
         { letter: 'D', text: '倍率が1000倍以上ある', correct: false },
       ],
       explanation:
-        '<strong>正解はC</strong>です。<ruby>双眼実体顕微鏡<rp>(</rp><rt>そうがんじったいけんびきょう</rt><rp>)</rp></ruby>は両目でのぞき、<ruby>立体的<rp>(</rp><rt>りったいてき</rt><rp>)</rp></ruby>に<ruby>観察<rp>(</rp><rt>かんさつ</rt><rp>)</rp></ruby>でき、プレパラートは不要です。',
+        '<strong>正解はA</strong>です。<ruby>双眼実体顕微鏡<rp>(</rp><rt>そうがんじったいけんびきょう</rt><rp>)</rp></ruby>は両目でのぞき、<ruby>立体的<rp>(</rp><rt>りったいてき</rt><rp>)</rp></ruby>に<ruby>観察<rp>(</rp><rt>かんさつ</rt><rp>)</rp></ruby>でき、プレパラートは不要です。',
     },
     {
       type: 'end',

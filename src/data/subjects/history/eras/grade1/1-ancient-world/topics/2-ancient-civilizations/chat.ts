@@ -105,12 +105,12 @@ export const ancientCivilizationsChat: HistoryChat = {
       type: 'quiz',
       question: 'チグリス・ユーフラテス川流域で発達した文明は？',
       options: [
-        { letter: 'A', text: 'エジプト文明', correct: false },
-        { letter: 'B', text: 'メソポタミア文明', correct: true },
+        { letter: 'A', text: 'メソポタミア文明', correct: true },
+        { letter: 'B', text: 'エジプト文明', correct: false },
         { letter: 'C', text: 'インダス文明', correct: false },
         { letter: 'D', text: '中国文明', correct: false },
       ],
-      explanation: '<strong>正解はB「<ruby>メソポタミア文明<rp>(</rp><rt>めそぽたみあぶんめい</rt><rp>)</rp></ruby>」</strong>です。<strong>くさび形文字</strong>や<strong>ハンムラビ法典</strong>で知られます。',
+      explanation: '<strong>正解はA「<ruby>メソポタミア文明<rp>(</rp><rt>めそぽたみあぶんめい</rt><rp>)</rp></ruby>」</strong>です。<strong>くさび形文字</strong>や<strong>ハンムラビ法典</strong>で知られます。',
     },
     {
       type: 'narrator',

@@ -91,12 +91,12 @@ export const sekkanPoliticsChat: HistoryChat = {
       type: 'quiz',
       question: '藤原氏が外戚として実権を握った政治は？',
       options: [
-        { letter: 'A', text: '院政', correct: false },
-        { letter: 'B', text: '摂関政治', correct: true },
+        { letter: 'A', text: '摂関政治', correct: true },
+        { letter: 'B', text: '院政', correct: false },
         { letter: 'C', text: '執権政治', correct: false },
         { letter: 'D', text: '建武の新政', correct: false },
       ],
-      explanation: '<strong>正解はB「<ruby>摂関政治<rp>(</rp><rt>せっかんせいじ</rt><rp>)</rp></ruby>」</strong>です。<ruby>藤原氏<rp>(</rp><rt>ふじわらし</rt><rp>)</rp></ruby>が天皇の<ruby>外戚<rp>(</rp><rt>がいせき</rt><rp>)</rp></ruby>として<ruby>摂政<rp>(</rp><rt>せっしょう</rt><rp>)</rp></ruby>・<ruby>関白<rp>(</rp><rt>かんぱく</rt><rp>)</rp></ruby>の地位につき、政治の<ruby>実権<rp>(</rp><rt>じっけん</rt><rp>)</rp></ruby>を<ruby>握<rp>(</rp><rt>にぎ</rt><rp>)</rp></ruby>りました。',
+      explanation: '<strong>正解はA「<ruby>摂関政治<rp>(</rp><rt>せっかんせいじ</rt><rp>)</rp></ruby>」</strong>です。<ruby>藤原氏<rp>(</rp><rt>ふじわらし</rt><rp>)</rp></ruby>が天皇の<ruby>外戚<rp>(</rp><rt>がいせき</rt><rp>)</rp></ruby>として<ruby>摂政<rp>(</rp><rt>せっしょう</rt><rp>)</rp></ruby>・<ruby>関白<rp>(</rp><rt>かんぱく</rt><rp>)</rp></ruby>の地位につき、政治の<ruby>実権<rp>(</rp><rt>じっけん</rt><rp>)</rp></ruby>を<ruby>握<rp>(</rp><rt>にぎ</rt><rp>)</rp></ruby>りました。',
     },
     {
       type: 'narrator',

@@ -77,13 +77,13 @@ export const nervesMusclesChat: HistoryChat = {
       type: 'quiz',
       question: '中枢神経はどれとどれ？',
       options: [
-        { letter: 'A', text: '感覚神経と運動神経', correct: false },
-        { letter: 'B', text: '脳とせきずい', correct: true },
+        { letter: 'A', text: '脳とせきずい', correct: true },
+        { letter: 'B', text: '感覚神経と運動神経', correct: false },
         { letter: 'C', text: '目と耳', correct: false },
         { letter: 'D', text: '筋肉と骨', correct: false },
       ],
       explanation:
-        '<strong>正解はB「<ruby>脳<rp>(</rp><rt>のう</rt><rp>)</rp></ruby>とせきずい」</strong>です。<ruby>中枢<rp>(</rp><rt>ちゅうすう</rt><rp>)</rp></ruby><ruby>神経<rp>(</rp><rt>しんけい</rt><rp>)</rp></ruby>は<ruby>脳<rp>(</rp><rt>のう</rt><rp>)</rp></ruby>（<ruby>判断<rp>(</rp><rt>はんだん</rt><rp>)</rp></ruby>・<ruby>命令<rp>(</rp><rt>めいれい</rt><rp>)</rp></ruby>）とせきずい（<ruby>中継<rp>(</rp><rt>ちゅうけい</rt><rp>)</rp></ruby>）です。',
+        '<strong>正解はA「<ruby>脳<rp>(</rp><rt>のう</rt><rp>)</rp></ruby>とせきずい」</strong>です。<ruby>中枢<rp>(</rp><rt>ちゅうすう</rt><rp>)</rp></ruby><ruby>神経<rp>(</rp><rt>しんけい</rt><rp>)</rp></ruby>は<ruby>脳<rp>(</rp><rt>のう</rt><rp>)</rp></ruby>（<ruby>判断<rp>(</rp><rt>はんだん</rt><rp>)</rp></ruby>・<ruby>命令<rp>(</rp><rt>めいれい</rt><rp>)</rp></ruby>）とせきずい（<ruby>中継<rp>(</rp><rt>ちゅうけい</rt><rp>)</rp></ruby>）です。',
     },
     {
       type: 'date',
@@ -130,11 +130,11 @@ export const nervesMusclesChat: HistoryChat = {
       options: [
         { letter: 'A', text: '脳が素早く判断するから', correct: false },
         { letter: 'B', text: '筋肉が特別に速く動くから', correct: false },
-        { letter: 'C', text: '脳を経由せずせきずいから直接命令が出るから', correct: true },
-        { letter: 'D', text: '感覚神経が太いから', correct: false },
+        { letter: 'C', text: '感覚神経が太いから', correct: false },
+        { letter: 'D', text: '脳を経由せずせきずいから直接命令が出るから', correct: true },
       ],
       explanation:
-        '<strong>正解はC</strong>です。<ruby>反射<rp>(</rp><rt>はんしゃ</rt><rp>)</rp></ruby>では<ruby>信号<rp>(</rp><rt>しんごう</rt><rp>)</rp></ruby>が<ruby>脳<rp>(</rp><rt>のう</rt><rp>)</rp></ruby>を<ruby>経由<rp>(</rp><rt>けいゆ</rt><rp>)</rp></ruby>せず、せきずいから<ruby>直接<rp>(</rp><rt>ちょくせつ</rt><rp>)</rp></ruby><ruby>命令<rp>(</rp><rt>めいれい</rt><rp>)</rp></ruby>が出るため<ruby>速<rp>(</rp><rt>はや</rt><rp>)</rp></ruby>い<ruby>反応<rp>(</rp><rt>はんのう</rt><rp>)</rp></ruby>ができます。',
+        '<strong>正解はD</strong>です。<ruby>反射<rp>(</rp><rt>はんしゃ</rt><rp>)</rp></ruby>では<ruby>信号<rp>(</rp><rt>しんごう</rt><rp>)</rp></ruby>が<ruby>脳<rp>(</rp><rt>のう</rt><rp>)</rp></ruby>を<ruby>経由<rp>(</rp><rt>けいゆ</rt><rp>)</rp></ruby>せず、せきずいから<ruby>直接<rp>(</rp><rt>ちょくせつ</rt><rp>)</rp></ruby><ruby>命令<rp>(</rp><rt>めいれい</rt><rp>)</rp></ruby>が出るため<ruby>速<rp>(</rp><rt>はや</rt><rp>)</rp></ruby>い<ruby>反応<rp>(</rp><rt>はんのう</rt><rp>)</rp></ruby>ができます。',
     },
     {
       type: 'date',

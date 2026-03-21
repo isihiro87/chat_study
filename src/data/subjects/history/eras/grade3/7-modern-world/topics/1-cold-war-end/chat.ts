@@ -85,13 +85,13 @@ export const coldWarEndChat: HistoryChat = {
       type: 'quiz',
       question: '1989年に取り壊された冷戦の象徴は何？',
       options: [
-        { letter: 'A', text: 'ベルリンの壁', correct: true },
+        { letter: 'A', text: '鉄のカーテン', correct: false },
         { letter: 'B', text: 'ブランデンブルク門', correct: false },
-        { letter: 'C', text: '鉄のカーテン', correct: false },
+        { letter: 'C', text: 'ベルリンの壁', correct: true },
         { letter: 'D', text: '万里の長城', correct: false },
       ],
       explanation:
-        '<strong>正解はA「ベルリンの<ruby>壁<rp>(</rp><rt>かべ</rt><rp>)</rp></ruby>」</strong>です。<ruby>東西<rp>(</rp><rt>とうざい</rt><rp>)</rp></ruby>ドイツを<ruby>隔<rp>(</rp><rt>へだ</rt><rp>)</rp></ruby>てていた<ruby>壁<rp>(</rp><rt>かべ</rt><rp>)</rp></ruby>が<ruby>取<rp>(</rp><rt>と</rt><rp>)</rp></ruby>り<ruby>壊<rp>(</rp><rt>こわ</rt><rp>)</rp></ruby>され、<ruby>冷戦<rp>(</rp><rt>れいせん</rt><rp>)</rp></ruby><ruby>終結<rp>(</rp><rt>しゅうけつ</rt><rp>)</rp></ruby>の<ruby>象徴<rp>(</rp><rt>しょうちょう</rt><rp>)</rp></ruby>となりました。',
+        '<strong>正解はC「ベルリンの<ruby>壁<rp>(</rp><rt>かべ</rt><rp>)</rp></ruby>」</strong>です。<ruby>東西<rp>(</rp><rt>とうざい</rt><rp>)</rp></ruby>ドイツを<ruby>隔<rp>(</rp><rt>へだ</rt><rp>)</rp></ruby>てていた<ruby>壁<rp>(</rp><rt>かべ</rt><rp>)</rp></ruby>が<ruby>取<rp>(</rp><rt>と</rt><rp>)</rp></ruby>り<ruby>壊<rp>(</rp><rt>こわ</rt><rp>)</rp></ruby>され、<ruby>冷戦<rp>(</rp><rt>れいせん</rt><rp>)</rp></ruby><ruby>終結<rp>(</rp><rt>しゅうけつ</rt><rp>)</rp></ruby>の<ruby>象徴<rp>(</rp><rt>しょうちょう</rt><rp>)</rp></ruby>となりました。',
     },
     {
       type: 'date',

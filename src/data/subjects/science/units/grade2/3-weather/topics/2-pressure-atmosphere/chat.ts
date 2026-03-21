@@ -93,12 +93,12 @@ export const pressureAtmosphereChat: HistoryChat = {
       question: '標高が高い場所で気圧が低くなる理由として正しいものはどれか。',
       options: [
         { letter: 'A', text: '風が強くなるから', correct: false },
-        { letter: 'B', text: '気温が低くなるから', correct: false },
+        { letter: 'B', text: '上にある空気の量が少なくなるから', correct: true },
         { letter: 'C', text: '酸素が薄くなるから', correct: false },
-        { letter: 'D', text: '上にある空気の量が少なくなるから', correct: true },
+        { letter: 'D', text: '気温が低くなるから', correct: false },
       ],
       explanation:
-        '<strong>正解はD</strong>です。<ruby>大気圧<rp>(</rp><rt>たいきあつ</rt><rp>)</rp></ruby>は上空の空気の重さで生じるため、<ruby>標高<rp>(</rp><rt>ひょうこう</rt><rp>)</rp></ruby>が高いほど上にある空気の量が少なく、気圧は低くなります。',
+        '<strong>正解はB</strong>です。<ruby>大気圧<rp>(</rp><rt>たいきあつ</rt><rp>)</rp></ruby>は上空の空気の重さで生じるため、<ruby>標高<rp>(</rp><rt>ひょうこう</rt><rp>)</rp></ruby>が高いほど上にある空気の量が少なく、気圧は低くなります。',
     },
     {
       type: 'image',
@@ -110,13 +110,13 @@ export const pressureAtmosphereChat: HistoryChat = {
       type: 'quiz',
       question: '大気圧について正しいものはどれか。',
       options: [
-        { letter: 'A', text: '上から下の向きだけにはたらく', correct: false },
+        { letter: 'A', text: 'あらゆる向きにはたらく', correct: true },
         { letter: 'B', text: '標高が高いほど大きくなる', correct: false },
-        { letter: 'C', text: 'あらゆる向きにはたらく', correct: true },
+        { letter: 'C', text: '上から下の向きだけにはたらく', correct: false },
         { letter: 'D', text: '真空中でもはたらく', correct: false },
       ],
       explanation:
-        '<strong>正解はC「あらゆる向きにはたらく」</strong>です。<ruby>大気圧<rp>(</rp><rt>たいきあつ</rt><rp>)</rp></ruby>は空気の重さによる<ruby>圧力<rp>(</rp><rt>あつりょく</rt><rp>)</rp></ruby>で、上下左右あらゆる向きにはたらきます。<ruby>標高<rp>(</rp><rt>ひょうこう</rt><rp>)</rp></ruby>が高いほど<ruby>気圧<rp>(</rp><rt>きあつ</rt><rp>)</rp></ruby>は<strong>低く</strong>なります。',
+        '<strong>正解はA「あらゆる向きにはたらく」</strong>です。<ruby>大気圧<rp>(</rp><rt>たいきあつ</rt><rp>)</rp></ruby>は空気の重さによる<ruby>圧力<rp>(</rp><rt>あつりょく</rt><rp>)</rp></ruby>で、上下左右あらゆる向きにはたらきます。<ruby>標高<rp>(</rp><rt>ひょうこう</rt><rp>)</rp></ruby>が高いほど<ruby>気圧<rp>(</rp><rt>きあつ</rt><rp>)</rp></ruby>は<strong>低く</strong>なります。',
     },
     {
       type: 'date',
@@ -184,12 +184,12 @@ export const pressureAtmosphereChat: HistoryChat = {
       question: '等圧線は何hPaごとに引かれるか。',
       options: [
         { letter: 'A', text: '2hPaごと', correct: false },
-        { letter: 'B', text: '4hPaごと', correct: true },
+        { letter: 'B', text: '10hPaごと', correct: false },
         { letter: 'C', text: '5hPaごと', correct: false },
-        { letter: 'D', text: '10hPaごと', correct: false },
+        { letter: 'D', text: '4hPaごと', correct: true },
       ],
       explanation:
-        '<strong>正解はB「4hPaごと」</strong>です。<ruby>等圧線<rp>(</rp><rt>とうあつせん</rt><rp>)</rp></ruby>は<strong>1000hPa</strong>を基準に<strong>4hPaごと</strong>に引かれます。',
+        '<strong>正解はD「4hPaごと」</strong>です。<ruby>等圧線<rp>(</rp><rt>とうあつせん</rt><rp>)</rp></ruby>は<strong>1000hPa</strong>を基準に<strong>4hPaごと</strong>に引かれます。',
     },
     {
       type: 'date',
@@ -257,12 +257,12 @@ export const pressureAtmosphereChat: HistoryChat = {
       question: '北から南に向かって吹く風の風向はどれか。',
       options: [
         { letter: 'A', text: '南', correct: false },
-        { letter: 'B', text: '北', correct: true },
-        { letter: 'C', text: '東', correct: false },
+        { letter: 'B', text: '東', correct: false },
+        { letter: 'C', text: '北', correct: true },
         { letter: 'D', text: '西', correct: false },
       ],
       explanation:
-        '<strong>正解はB「北」</strong>です。<ruby>風向<rp>(</rp><rt>ふうこう</rt><rp>)</rp></ruby>は<strong>風が吹いてくる方向</strong>で表します。北から南に吹く風の風向は「北」です。',
+        '<strong>正解はC「北」</strong>です。<ruby>風向<rp>(</rp><rt>ふうこう</rt><rp>)</rp></ruby>は<strong>風が吹いてくる方向</strong>で表します。北から南に吹く風の風向は「北」です。',
     },
     {
       type: 'end',

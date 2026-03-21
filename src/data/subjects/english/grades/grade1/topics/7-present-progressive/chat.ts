@@ -90,8 +90,8 @@ export const presentProgressiveChat: HistoryChat = {
       options: [
         { letter: 'A', text: 'study', correct: false },
         { letter: 'B', text: 'studies', correct: false },
-        { letter: 'C', text: 'studying', correct: true },
-        { letter: 'D', text: 'studied', correct: false },
+        { letter: 'C', text: 'studied', correct: false },
+        { letter: 'D', text: 'studying', correct: true },
       ],
       explanation: '「今〜している」は be<ruby>動詞<rt>どうし</rt></ruby> + <ruby>動詞<rt>どうし</rt></ruby>ing。She is のあとに <strong>studying</strong> を<ruby>置<rt>お</rt></ruby>くよ。',
     },
@@ -142,8 +142,8 @@ export const presentProgressiveChat: HistoryChat = {
       question: 'make の ing 形として正しいのは？',
       options: [
         { letter: 'A', text: 'makeing', correct: false },
-        { letter: 'B', text: 'making', correct: true },
-        { letter: 'C', text: 'makking', correct: false },
+        { letter: 'B', text: 'makking', correct: false },
+        { letter: 'C', text: 'making', correct: true },
         { letter: 'D', text: 'making', correct: false },
       ],
       explanation: 'make は e で<ruby>終<rt>お</rt></ruby>わるから、<strong>e をとって ing</strong> をつけるよ。make → <strong>making</strong>',

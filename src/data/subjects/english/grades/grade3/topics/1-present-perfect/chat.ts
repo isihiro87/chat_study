@@ -105,8 +105,8 @@ export const presentPerfectChat: HistoryChat = {
       options: [
         { letter: 'A', text: 'live', correct: false },
         { letter: 'B', text: 'lived', correct: false },
-        { letter: 'C', text: 'have lived', correct: true },
-        { letter: 'D', text: 'has lived', correct: false },
+        { letter: 'C', text: 'has lived', correct: false },
+        { letter: 'D', text: 'have lived', correct: true },
       ],
       explanation: '「3<ruby>年間<rt>ねんかん</rt></ruby>ずっと住んでいる」は<ruby>継続<rt>けいぞく</rt></ruby>の<ruby>現在完了<rt>げんざいかんりょう</rt></ruby>。主語が I だから <strong>have lived</strong> だよ。',
     },
@@ -157,8 +157,8 @@ export const presentPerfectChat: HistoryChat = {
       question: '「あなたは今までに富士山に登ったことがありますか？」を英語にすると？',
       options: [
         { letter: 'A', text: 'Did you climb Mt. Fuji?', correct: false },
-        { letter: 'B', text: 'Have you ever climbed Mt. Fuji?', correct: true },
-        { letter: 'C', text: 'Do you ever climb Mt. Fuji?', correct: false },
+        { letter: 'B', text: 'Do you ever climb Mt. Fuji?', correct: false },
+        { letter: 'C', text: 'Have you ever climbed Mt. Fuji?', correct: true },
         { letter: 'D', text: 'Are you ever climbed Mt. Fuji?', correct: false },
       ],
       explanation: '「〜したことがありますか？」は <strong>Have you ever + <ruby>過去分詞<rt>かこぶんし</rt></ruby></strong> で<ruby>表<rt>あらわ</rt></ruby>すよ。climb の<ruby>過去分詞<rt>かこぶんし</rt></ruby>は climbed だよ。',

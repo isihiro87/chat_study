@@ -184,12 +184,12 @@ export const batteryTypesChat: HistoryChat = {
       question: '充電して繰り返し使える電池を何という？',
       options: [
         { letter: 'A', text: '一次電池', correct: false },
-        { letter: 'B', text: '二次電池', correct: true },
-        { letter: 'C', text: '燃料電池', correct: false },
+        { letter: 'B', text: '燃料電池', correct: false },
+        { letter: 'C', text: '二次電池', correct: true },
         { letter: 'D', text: 'ダニエル電池', correct: false },
       ],
       explanation:
-        '<strong>正解はB「<ruby>二次<rp>(</rp><rt>にじ</rt><rp>)</rp></ruby><ruby>電池<rp>(</rp><rt>でんち</rt><rp>)</rp></ruby>」</strong>です。<ruby>充電<rp>(</rp><rt>じゅうでん</rt><rp>)</rp></ruby>で<ruby>化学<rp>(</rp><rt>かがく</rt><rp>)</rp></ruby><ruby>反応<rp>(</rp><rt>はんのう</rt><rp>)</rp></ruby>を<ruby>逆<rp>(</rp><rt>ぎゃく</rt><rp>)</rp></ruby>に<ruby>起<rp>(</rp><rt>お</rt><rp>)</rp></ruby>こし、<ruby>繰<rp>(</rp><rt>く</rt><rp>)</rp></ruby>り<ruby>返<rp>(</rp><rt>かえ</rt><rp>)</rp></ruby>し使えます。リチウムイオン<ruby>電池<rp>(</rp><rt>でんち</rt><rp>)</rp></ruby>が<ruby>代表例<rp>(</rp><rt>だいひょうれい</rt><rp>)</rp></ruby>です。',
+        '<strong>正解はC「<ruby>二次<rp>(</rp><rt>にじ</rt><rp>)</rp></ruby><ruby>電池<rp>(</rp><rt>でんち</rt><rp>)</rp></ruby>」</strong>です。<ruby>充電<rp>(</rp><rt>じゅうでん</rt><rp>)</rp></ruby>で<ruby>化学<rp>(</rp><rt>かがく</rt><rp>)</rp></ruby><ruby>反応<rp>(</rp><rt>はんのう</rt><rp>)</rp></ruby>を<ruby>逆<rp>(</rp><rt>ぎゃく</rt><rp>)</rp></ruby>に<ruby>起<rp>(</rp><rt>お</rt><rp>)</rp></ruby>こし、<ruby>繰<rp>(</rp><rt>く</rt><rp>)</rp></ruby>り<ruby>返<rp>(</rp><rt>かえ</rt><rp>)</rp></ruby>し使えます。リチウムイオン<ruby>電池<rp>(</rp><rt>でんち</rt><rp>)</rp></ruby>が<ruby>代表例<rp>(</rp><rt>だいひょうれい</rt><rp>)</rp></ruby>です。',
     },
     {
       type: 'end',

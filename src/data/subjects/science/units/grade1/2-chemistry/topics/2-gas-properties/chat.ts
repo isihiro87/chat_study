@@ -103,13 +103,13 @@ export const gasPropertiesChat: HistoryChat = {
       type: 'quiz',
       question: '二酸化炭素を発生させるのに使う薬品の組み合わせはどれ？',
       options: [
-        { letter: 'A', text: '石灰石＋うすい塩酸', correct: true },
-        { letter: 'B', text: '二酸化マンガン＋過酸化水素水', correct: false },
+        { letter: 'A', text: '二酸化マンガン＋過酸化水素水', correct: false },
+        { letter: 'B', text: '石灰石＋うすい塩酸', correct: true },
         { letter: 'C', text: '亜鉛＋うすい塩酸', correct: false },
         { letter: 'D', text: '石灰水＋塩酸', correct: false },
       ],
       explanation:
-        '<strong>正解はA「<ruby>石灰石<rp>(</rp><rt>せっかいせき</rt><rp>)</rp></ruby>＋うすい<ruby>塩酸<rp>(</rp><rt>えんさん</rt><rp>)</rp></ruby>」</strong>です。Bは<ruby>酸素<rp>(</rp><rt>さんそ</rt><rp>)</rp></ruby>、Cは<ruby>水素<rp>(</rp><rt>すいそ</rt><rp>)</rp></ruby>の<ruby>発生方法<rp>(</rp><rt>はっせいほうほう</rt><rp>)</rp></ruby>です。',
+        '<strong>正解はB「<ruby>石灰石<rp>(</rp><rt>せっかいせき</rt><rp>)</rp></ruby>＋うすい<ruby>塩酸<rp>(</rp><rt>えんさん</rt><rp>)</rp></ruby>」</strong>です。Bは<ruby>酸素<rp>(</rp><rt>さんそ</rt><rp>)</rp></ruby>、Cは<ruby>水素<rp>(</rp><rt>すいそ</rt><rp>)</rp></ruby>の<ruby>発生方法<rp>(</rp><rt>はっせいほうほう</rt><rp>)</rp></ruby>です。',
     },
     {
       type: 'date',
@@ -183,13 +183,13 @@ export const gasPropertiesChat: HistoryChat = {
       type: 'quiz',
       question: '水にとけにくい気体を集める方法はどれ？',
       options: [
-        { letter: 'A', text: '上方置換法', correct: false },
+        { letter: 'A', text: '水上置換法', correct: true },
         { letter: 'B', text: '下方置換法', correct: false },
-        { letter: 'C', text: '水上置換法', correct: true },
+        { letter: 'C', text: '上方置換法', correct: false },
         { letter: 'D', text: 'ろ過', correct: false },
       ],
       explanation:
-        '<strong>正解はC「<ruby>水上置換法<rp>(</rp><rt>すいじょうちかんほう</rt><rp>)</rp></ruby>」</strong>です。水にとけにくい<ruby>気体<rp>(</rp><rt>きたい</rt><rp>)</rp></ruby>を水中で<ruby>集<rp>(</rp><rt>あつ</rt><rp>)</rp></ruby>める<ruby>方法<rp>(</rp><rt>ほうほう</rt><rp>)</rp></ruby>で、<ruby>純粋<rp>(</rp><rt>じゅんすい</rt><rp>)</rp></ruby>な<ruby>気体<rp>(</rp><rt>きたい</rt><rp>)</rp></ruby>が得られます。',
+        '<strong>正解はA「<ruby>水上置換法<rp>(</rp><rt>すいじょうちかんほう</rt><rp>)</rp></ruby>」</strong>です。水にとけにくい<ruby>気体<rp>(</rp><rt>きたい</rt><rp>)</rp></ruby>を水中で<ruby>集<rp>(</rp><rt>あつ</rt><rp>)</rp></ruby>める<ruby>方法<rp>(</rp><rt>ほうほう</rt><rp>)</rp></ruby>で、<ruby>純粋<rp>(</rp><rt>じゅんすい</rt><rp>)</rp></ruby>な<ruby>気体<rp>(</rp><rt>きたい</rt><rp>)</rp></ruby>が得られます。',
     },
     {
       type: 'date',
@@ -236,12 +236,12 @@ export const gasPropertiesChat: HistoryChat = {
       question: 'アンモニアを集めるのに適した方法はどれ？',
       options: [
         { letter: 'A', text: '水上置換法', correct: false },
-        { letter: 'B', text: '上方置換法', correct: true },
+        { letter: 'B', text: 'ろ過', correct: false },
         { letter: 'C', text: '下方置換法', correct: false },
-        { letter: 'D', text: 'ろ過', correct: false },
+        { letter: 'D', text: '上方置換法', correct: true },
       ],
       explanation:
-        '<strong>正解はB「<ruby>上方置換法<rp>(</rp><rt>じょうほうちかんほう</rt><rp>)</rp></ruby>」</strong>です。アンモニアは<ruby>空気<rp>(</rp><rt>くうき</rt><rp>)</rp></ruby>より<ruby>軽<rp>(</rp><rt>かる</rt><rp>)</rp></ruby>く水にとけやすいので<ruby>上方置換法<rp>(</rp><rt>じょうほうちかんほう</rt><rp>)</rp></ruby>で<ruby>集<rp>(</rp><rt>あつ</rt><rp>)</rp></ruby>めます。',
+        '<strong>正解はD「<ruby>上方置換法<rp>(</rp><rt>じょうほうちかんほう</rt><rp>)</rp></ruby>」</strong>です。アンモニアは<ruby>空気<rp>(</rp><rt>くうき</rt><rp>)</rp></ruby>より<ruby>軽<rp>(</rp><rt>かる</rt><rp>)</rp></ruby>く水にとけやすいので<ruby>上方置換法<rp>(</rp><rt>じょうほうちかんほう</rt><rp>)</rp></ruby>で<ruby>集<rp>(</rp><rt>あつ</rt><rp>)</rp></ruby>めます。',
     },
     {
       type: 'date',
@@ -328,12 +328,12 @@ export const gasPropertiesChat: HistoryChat = {
       question: '次の気体のうち、空気より軽いのはどれ？',
       options: [
         { letter: 'A', text: '酸素', correct: false },
-        { letter: 'B', text: '二酸化炭素', correct: false },
+        { letter: 'B', text: '水素', correct: true },
         { letter: 'C', text: '窒素', correct: false },
-        { letter: 'D', text: '水素', correct: true },
+        { letter: 'D', text: '二酸化炭素', correct: false },
       ],
       explanation:
-        '<strong>正解はD「<ruby>水素<rp>(</rp><rt>すいそ</rt><rp>)</rp></ruby>」</strong>です。<ruby>密度<rp>(</rp><rt>みつど</rt><rp>)</rp></ruby>の<ruby>順<rp>(</rp><rt>じゅん</rt><rp>)</rp></ruby>はCO₂＞O₂＞<ruby>空気<rp>(</rp><rt>くうき</rt><rp>)</rp></ruby>＞N₂＞NH₃＞H₂で、<ruby>水素<rp>(</rp><rt>すいそ</rt><rp>)</rp></ruby>は最も<ruby>軽<rp>(</rp><rt>かる</rt><rp>)</rp></ruby>い<ruby>気体<rp>(</rp><rt>きたい</rt><rp>)</rp></ruby>です。',
+        '<strong>正解はB「<ruby>水素<rp>(</rp><rt>すいそ</rt><rp>)</rp></ruby>」</strong>です。<ruby>密度<rp>(</rp><rt>みつど</rt><rp>)</rp></ruby>の<ruby>順<rp>(</rp><rt>じゅん</rt><rp>)</rp></ruby>はCO₂＞O₂＞<ruby>空気<rp>(</rp><rt>くうき</rt><rp>)</rp></ruby>＞N₂＞NH₃＞H₂で、<ruby>水素<rp>(</rp><rt>すいそ</rt><rp>)</rp></ruby>は最も<ruby>軽<rp>(</rp><rt>かる</rt><rp>)</rp></ruby>い<ruby>気体<rp>(</rp><rt>きたい</rt><rp>)</rp></ruby>です。',
     },
     {
       type: 'end',

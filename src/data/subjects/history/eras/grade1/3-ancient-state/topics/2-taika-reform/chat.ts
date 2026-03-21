@@ -91,12 +91,12 @@ export const taikaReformChat: HistoryChat = {
       type: 'quiz',
       question: '645年に始まった政治改革は？',
       options: [
-        { letter: 'A', text: '班田収授法', correct: false },
+        { letter: 'A', text: '大化の改新', correct: true },
         { letter: 'B', text: '承久の乱', correct: false },
         { letter: 'C', text: '建武の新政', correct: false },
-        { letter: 'D', text: '大化の改新', correct: true },
+        { letter: 'D', text: '班田収授法', correct: false },
       ],
-      explanation: '<strong>正解はD「<ruby>大化<rp>(</rp><rt>たいか</rt><rp>)</rp></ruby>の<ruby>改新<rp>(</rp><rt>かいしん</rt><rp>)</rp></ruby>」</strong>です。<ruby>中大兄皇子<rp>(</rp><rt>なかのおおえのおうじ</rt><rp>)</rp></ruby>と<ruby>中臣鎌足<rp>(</rp><rt>なかとみのかまたり</rt><rp>)</rp></ruby>が蘇我氏を倒し、天皇中心の政治改革を始めました。',
+      explanation: '<strong>正解はA「<ruby>大化<rp>(</rp><rt>たいか</rt><rp>)</rp></ruby>の<ruby>改新<rp>(</rp><rt>かいしん</rt><rp>)</rp></ruby>」</strong>です。<ruby>中大兄皇子<rp>(</rp><rt>なかのおおえのおうじ</rt><rp>)</rp></ruby>と<ruby>中臣鎌足<rp>(</rp><rt>なかとみのかまたり</rt><rp>)</rp></ruby>が蘇我氏を倒し、天皇中心の政治改革を始めました。',
     },
     {
       type: 'narrator',
@@ -139,11 +139,11 @@ export const taikaReformChat: HistoryChat = {
       question: '壬申の乱に勝利して即位した天皇は？',
       options: [
         { letter: 'A', text: '天智天皇', correct: false },
-        { letter: 'B', text: '天武天皇', correct: true },
+        { letter: 'B', text: '聖武天皇', correct: false },
         { letter: 'C', text: '持統天皇', correct: false },
-        { letter: 'D', text: '聖武天皇', correct: false },
+        { letter: 'D', text: '天武天皇', correct: true },
       ],
-      explanation: '<strong>正解はB「<ruby>天武天皇<rp>(</rp><rt>てんむてんのう</rt><rp>)</rp></ruby>」</strong>です。<ruby>壬申<rp>(</rp><rt>じんしん</rt><rp>)</rp></ruby>の<ruby>乱<rp>(</rp><rt>らん</rt><rp>)</rp></ruby>で勝利し、天皇の権力を強めた政治を行いました。',
+      explanation: '<strong>正解はD「<ruby>天武天皇<rp>(</rp><rt>てんむてんのう</rt><rp>)</rp></ruby>」</strong>です。<ruby>壬申<rp>(</rp><rt>じんしん</rt><rp>)</rp></ruby>の<ruby>乱<rp>(</rp><rt>らん</rt><rp>)</rp></ruby>で勝利し、天皇の権力を強めた政治を行いました。',
     },
     {
       type: 'end',

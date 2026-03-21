@@ -85,11 +85,11 @@ export const muromachiPeopleChat: HistoryChat = {
       question: '室町時代に農民が作った、村の自治組織は何と呼ばれる？',
       options: [
         { letter: 'A', text: '講', correct: false },
-        { letter: 'B', text: '惣', correct: true },
+        { letter: 'B', text: '組', correct: false },
         { letter: 'C', text: '座', correct: false },
-        { letter: 'D', text: '組', correct: false },
+        { letter: 'D', text: '惣', correct: true },
       ],
-      explanation: '<strong>正解はB「<ruby>惣<rp>(</rp><rt>そう</rt><rp>)</rp></ruby>」</strong>です。室町時代に<ruby>農民<rp>(</rp><rt>のうみん</rt><rp>)</rp></ruby>が<ruby>自主的<rp>(</rp><rt>じしゅてき</rt><rp>)</rp></ruby>に作った村の<ruby>自治<rp>(</rp><rt>じち</rt><rp>)</rp></ruby>組織で、<ruby>寄合<rp>(</rp><rt>よりあい</rt><rp>)</rp></ruby>で話し合い、<ruby>掟<rp>(</rp><rt>おきて</rt><rp>)</rp></ruby>を定めて村を運営しました。',
+      explanation: '<strong>正解はD「<ruby>惣<rp>(</rp><rt>そう</rt><rp>)</rp></ruby>」</strong>です。室町時代に<ruby>農民<rp>(</rp><rt>のうみん</rt><rp>)</rp></ruby>が<ruby>自主的<rp>(</rp><rt>じしゅてき</rt><rp>)</rp></ruby>に作った村の<ruby>自治<rp>(</rp><rt>じち</rt><rp>)</rp></ruby>組織で、<ruby>寄合<rp>(</rp><rt>よりあい</rt><rp>)</rp></ruby>で話し合い、<ruby>掟<rp>(</rp><rt>おきて</rt><rp>)</rp></ruby>を定めて村を運営しました。',
     },
     {
       type: 'date',
@@ -143,11 +143,11 @@ export const muromachiPeopleChat: HistoryChat = {
       question: '室町時代に農民が幕府に借金の帳消しを求めて起こした運動は？',
       options: [
         { letter: 'A', text: '一向一揆', correct: false },
-        { letter: 'B', text: '土一揆', correct: true },
-        { letter: 'C', text: '百姓一揆', correct: false },
+        { letter: 'B', text: '百姓一揆', correct: false },
+        { letter: 'C', text: '土一揆', correct: true },
         { letter: 'D', text: '国一揆', correct: false },
       ],
-      explanation: '<strong>正解はB「<ruby>土一揆<rp>(</rp><rt>つちいっき</rt><rp>)</rp></ruby>」</strong>です。<ruby>農民<rp>(</rp><rt>のうみん</rt><rp>)</rp></ruby>や<ruby>馬借<rp>(</rp><rt>ばしゃく</rt><rp>)</rp></ruby>が<ruby>団結<rp>(</rp><rt>だんけつ</rt><rp>)</rp></ruby>して<strong><ruby>徳政令<rp>(</rp><rt>とくせいれい</rt><rp>)</rp></ruby></strong>（借金の帳消し）を要求しました。1428年の<ruby>正長<rp>(</rp><rt>しょうちょう</rt><rp>)</rp></ruby>の土一揆が代表的です。',
+      explanation: '<strong>正解はC「<ruby>土一揆<rp>(</rp><rt>つちいっき</rt><rp>)</rp></ruby>」</strong>です。<ruby>農民<rp>(</rp><rt>のうみん</rt><rp>)</rp></ruby>や<ruby>馬借<rp>(</rp><rt>ばしゃく</rt><rp>)</rp></ruby>が<ruby>団結<rp>(</rp><rt>だんけつ</rt><rp>)</rp></ruby>して<strong><ruby>徳政令<rp>(</rp><rt>とくせいれい</rt><rp>)</rp></ruby></strong>（借金の帳消し）を要求しました。1428年の<ruby>正長<rp>(</rp><rt>しょうちょう</rt><rp>)</rp></ruby>の土一揆が代表的です。',
     },
     {
       type: 'date',
@@ -201,11 +201,11 @@ export const muromachiPeopleChat: HistoryChat = {
       question: '堺（大阪府）で合議制の自治を行った有力商人の組織を何という？',
       options: [
         { letter: 'A', text: '町衆', correct: false },
-        { letter: 'B', text: '年行司', correct: false },
-        { letter: 'C', text: '会合衆', correct: true },
+        { letter: 'B', text: '会合衆', correct: true },
+        { letter: 'C', text: '年行司', correct: false },
         { letter: 'D', text: '座', correct: false },
       ],
-      explanation: '<strong>正解はC「<ruby>会合衆<rp>(</rp><rt>えごうしゅう</rt><rp>)</rp></ruby>」</strong>です。<ruby>堺<rp>(</rp><rt>さかい</rt><rp>)</rp></ruby>は<ruby>有力商人<rp>(</rp><rt>ゆうりょくしょうにん</rt><rp>)</rp></ruby>の<strong>会合衆</strong>が<ruby>合議制<rp>(</rp><rt>ごうぎせい</rt><rp>)</rp></ruby>で自治を行い、「<ruby>自由都市<rp>(</rp><rt>じゆうとし</rt><rp>)</rp></ruby>」と呼ばれました。',
+      explanation: '<strong>正解はB「<ruby>会合衆<rp>(</rp><rt>えごうしゅう</rt><rp>)</rp></ruby>」</strong>です。<ruby>堺<rp>(</rp><rt>さかい</rt><rp>)</rp></ruby>は<ruby>有力商人<rp>(</rp><rt>ゆうりょくしょうにん</rt><rp>)</rp></ruby>の<strong>会合衆</strong>が<ruby>合議制<rp>(</rp><rt>ごうぎせい</rt><rp>)</rp></ruby>で自治を行い、「<ruby>自由都市<rp>(</rp><rt>じゆうとし</rt><rp>)</rp></ruby>」と呼ばれました。',
     },
     {
       type: 'end',

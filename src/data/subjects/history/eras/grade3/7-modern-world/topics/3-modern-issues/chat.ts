@@ -86,12 +86,12 @@ export const modernIssuesChat: HistoryChat = {
       question: '1997年に採択された温室効果ガス削減の文書は？',
       options: [
         { letter: 'A', text: 'パリ協定', correct: false },
-        { letter: 'B', text: '京都議定書', correct: true },
+        { letter: 'B', text: 'ラムサール条約', correct: false },
         { letter: 'C', text: 'ワシントン条約', correct: false },
-        { letter: 'D', text: 'ラムサール条約', correct: false },
+        { letter: 'D', text: '京都議定書', correct: true },
       ],
       explanation:
-        '<strong>正解はB「<ruby>京都議定書<rp>(</rp><rt>きょうとぎていしょ</rt><rp>)</rp></ruby>」</strong>です。1997年に<ruby>京都<rp>(</rp><rt>きょうと</rt><rp>)</rp></ruby>で<ruby>採択<rp>(</rp><rt>さいたく</rt><rp>)</rp></ruby>され、<ruby>先進国<rp>(</rp><rt>せんしんこく</rt><rp>)</rp></ruby>に<ruby>温室効果<rp>(</rp><rt>おんしつこうか</rt><rp>)</rp></ruby>ガスの<ruby>削減義務<rp>(</rp><rt>さくげんぎむ</rt><rp>)</rp></ruby>を<ruby>課<rp>(</rp><rt>か</rt><rp>)</rp></ruby>しました。',
+        '<strong>正解はD「<ruby>京都議定書<rp>(</rp><rt>きょうとぎていしょ</rt><rp>)</rp></ruby>」</strong>です。1997年に<ruby>京都<rp>(</rp><rt>きょうと</rt><rp>)</rp></ruby>で<ruby>採択<rp>(</rp><rt>さいたく</rt><rp>)</rp></ruby>され、<ruby>先進国<rp>(</rp><rt>せんしんこく</rt><rp>)</rp></ruby>に<ruby>温室効果<rp>(</rp><rt>おんしつこうか</rt><rp>)</rp></ruby>ガスの<ruby>削減義務<rp>(</rp><rt>さくげんぎむ</rt><rp>)</rp></ruby>を<ruby>課<rp>(</rp><rt>か</rt><rp>)</rp></ruby>しました。',
     },
     {
       type: 'date',
@@ -148,13 +148,13 @@ export const modernIssuesChat: HistoryChat = {
       type: 'quiz',
       question: '2030年までの達成を目指す17の国際目標は？',
       options: [
-        { letter: 'A', text: 'SDGs（持続可能な開発目標）', correct: true },
+        { letter: 'A', text: 'APEC', correct: false },
         { letter: 'B', text: 'MDGs', correct: false },
-        { letter: 'C', text: 'APEC', correct: false },
+        { letter: 'C', text: 'SDGs（持続可能な開発目標）', correct: true },
         { letter: 'D', text: 'ODA', correct: false },
       ],
       explanation:
-        '<strong>正解はA「SDGs（<ruby>持続可能<rp>(</rp><rt>じぞくかのう</rt><rp>)</rp></ruby>な<ruby>開発目標<rp>(</rp><rt>かいはつもくひょう</rt><rp>)</rp></ruby>）」</strong>です。2015年に<ruby>国連<rp>(</rp><rt>こくれん</rt><rp>)</rp></ruby>で<ruby>採択<rp>(</rp><rt>さいたく</rt><rp>)</rp></ruby>され、<ruby>貧困<rp>(</rp><rt>ひんこん</rt><rp>)</rp></ruby>・<ruby>教育<rp>(</rp><rt>きょういく</rt><rp>)</rp></ruby>・<ruby>環境<rp>(</rp><rt>かんきょう</rt><rp>)</rp></ruby>など<ruby>幅広<rp>(</rp><rt>はばひろ</rt><rp>)</rp></ruby>い<ruby>分野<rp>(</rp><rt>ぶんや</rt><rp>)</rp></ruby>の<ruby>目標<rp>(</rp><rt>もくひょう</rt><rp>)</rp></ruby>が<ruby>含<rp>(</rp><rt>ふく</rt><rp>)</rp></ruby>まれます。',
+        '<strong>正解はC「SDGs（<ruby>持続可能<rp>(</rp><rt>じぞくかのう</rt><rp>)</rp></ruby>な<ruby>開発目標<rp>(</rp><rt>かいはつもくひょう</rt><rp>)</rp></ruby>）」</strong>です。2015年に<ruby>国連<rp>(</rp><rt>こくれん</rt><rp>)</rp></ruby>で<ruby>採択<rp>(</rp><rt>さいたく</rt><rp>)</rp></ruby>され、<ruby>貧困<rp>(</rp><rt>ひんこん</rt><rp>)</rp></ruby>・<ruby>教育<rp>(</rp><rt>きょういく</rt><rp>)</rp></ruby>・<ruby>環境<rp>(</rp><rt>かんきょう</rt><rp>)</rp></ruby>など<ruby>幅広<rp>(</rp><rt>はばひろ</rt><rp>)</rp></ruby>い<ruby>分野<rp>(</rp><rt>ぶんや</rt><rp>)</rp></ruby>の<ruby>目標<rp>(</rp><rt>もくひょう</rt><rp>)</rp></ruby>が<ruby>含<rp>(</rp><rt>ふく</rt><rp>)</rp></ruby>まれます。',
     },
     {
       type: 'end',

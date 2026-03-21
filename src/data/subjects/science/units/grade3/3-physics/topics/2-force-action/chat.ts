@@ -269,13 +269,13 @@ export const forceActionChat: HistoryChat = {
       type: 'quiz',
       question: '作用・反作用の法則とつり合いの違いとして正しいのはどれ？',
       options: [
-        { letter: 'A', text: '作用・反作用は大きさが異なる', correct: false },
+        { letter: 'A', text: '作用・反作用は別々の物体にはたらく', correct: true },
         { letter: 'B', text: 'つり合いは別々の物体にはたらく', correct: false },
-        { letter: 'C', text: '作用・反作用は別々の物体にはたらく', correct: true },
+        { letter: 'C', text: '作用・反作用は大きさが異なる', correct: false },
         { letter: 'D', text: 'どちらも同じ物体にはたらく', correct: false },
       ],
       explanation:
-        '<strong>正解はC「作用・反作用は別々の物体にはたらく」</strong>です。つり合いは同じ物体にはたらく2力、作用・反作用は別々の物体にはたらく2力です。',
+        '<strong>正解はA「作用・反作用は別々の物体にはたらく」</strong>です。つり合いは同じ物体にはたらく2力、作用・反作用は別々の物体にはたらく2力です。',
     },
 
     {

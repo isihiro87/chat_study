@@ -99,13 +99,13 @@ export const forceChat: HistoryChat = {
       type: 'quiz',
       question: '力の3つのはたらきに含まれないものはどれか。',
       options: [
-        { letter: 'A', text: '物体の形を変える', correct: false },
+        { letter: 'A', text: '物体の温度を上げる', correct: true },
         { letter: 'B', text: '物体の運動の状態を変える', correct: false },
-        { letter: 'C', text: '物体の温度を上げる', correct: true },
+        { letter: 'C', text: '物体の形を変える', correct: false },
         { letter: 'D', text: '物体を支える', correct: false },
       ],
       explanation:
-        '<strong>正解はC「<ruby>物体<rp>(</rp><rt>ぶったい</rt><rp>)</rp></ruby>の<ruby>温度<rp>(</rp><rt>おんど</rt><rp>)</rp></ruby>を上げる」</strong>です。力の3つのはたらきは「形を変える」「<ruby>運動<rp>(</rp><rt>うんどう</rt><rp>)</rp></ruby>の<ruby>状態<rp>(</rp><rt>じょうたい</rt><rp>)</rp></ruby>を変える」「<ruby>支<rp>(</rp><rt>ささ</rt><rp>)</rp></ruby>える」です。',
+        '<strong>正解はA「<ruby>物体<rp>(</rp><rt>ぶったい</rt><rp>)</rp></ruby>の<ruby>温度<rp>(</rp><rt>おんど</rt><rp>)</rp></ruby>を上げる」</strong>です。力の3つのはたらきは「形を変える」「<ruby>運動<rp>(</rp><rt>うんどう</rt><rp>)</rp></ruby>の<ruby>状態<rp>(</rp><rt>じょうたい</rt><rp>)</rp></ruby>を変える」「<ruby>支<rp>(</rp><rt>ささ</rt><rp>)</rp></ruby>える」です。',
     },
     {
       type: 'date',
@@ -166,11 +166,11 @@ export const forceChat: HistoryChat = {
       options: [
         { letter: 'A', text: '3cm', correct: false },
         { letter: 'B', text: '4cm', correct: false },
-        { letter: 'C', text: '6cm', correct: true },
-        { letter: 'D', text: '8cm', correct: false },
+        { letter: 'C', text: '8cm', correct: false },
+        { letter: 'D', text: '6cm', correct: true },
       ],
       explanation:
-        '<strong>正解はC「6cm」</strong>です。フックの<ruby>法則<rp>(</rp><rt>ほうそく</rt><rp>)</rp></ruby>より、力が3<ruby>倍<rp>(</rp><rt>ばい</rt><rp>)</rp></ruby>になるとのびも3<ruby>倍<rp>(</rp><rt>ばい</rt><rp>)</rp></ruby>になるので、2cm×3＝6cmです。',
+        '<strong>正解はD「6cm」</strong>です。フックの<ruby>法則<rp>(</rp><rt>ほうそく</rt><rp>)</rp></ruby>より、力が3<ruby>倍<rp>(</rp><rt>ばい</rt><rp>)</rp></ruby>になるとのびも3<ruby>倍<rp>(</rp><rt>ばい</rt><rp>)</rp></ruby>になるので、2cm×3＝6cmです。',
     },
     {
       type: 'date',
@@ -272,11 +272,11 @@ export const forceChat: HistoryChat = {
       options: [
         { letter: 'A', text: '2力が一直線上にある', correct: false },
         { letter: 'B', text: '2力の大きさが等しい', correct: false },
-        { letter: 'C', text: '2力の向きが反対', correct: false },
-        { letter: 'D', text: '2力の作用点が同じ', correct: true },
+        { letter: 'C', text: '2力の作用点が同じ', correct: true },
+        { letter: 'D', text: '2力の向きが反対', correct: false },
       ],
       explanation:
-        '<strong>正解はD「2力の<ruby>作用点<rp>(</rp><rt>さようてん</rt><rp>)</rp></ruby>が同じ」</strong>です。2力のつり<ruby>合<rp>(</rp><rt>あ</rt><rp>)</rp></ruby>いの<ruby>条件<rp>(</rp><rt>じょうけん</rt><rp>)</rp></ruby>は「<ruby>一直線上<rp>(</rp><rt>いっちょくせんじょう</rt><rp>)</rp></ruby>・大きさが<ruby>等<rp>(</rp><rt>ひと</rt><rp>)</rp></ruby>しい・向きが<ruby>反対<rp>(</rp><rt>はんたい</rt><rp>)</rp></ruby>」の3つです。',
+        '<strong>正解はC「2力の<ruby>作用点<rp>(</rp><rt>さようてん</rt><rp>)</rp></ruby>が同じ」</strong>です。2力のつり<ruby>合<rp>(</rp><rt>あ</rt><rp>)</rp></ruby>いの<ruby>条件<rp>(</rp><rt>じょうけん</rt><rp>)</rp></ruby>は「<ruby>一直線上<rp>(</rp><rt>いっちょくせんじょう</rt><rp>)</rp></ruby>・大きさが<ruby>等<rp>(</rp><rt>ひと</rt><rp>)</rp></ruby>しい・向きが<ruby>反対<rp>(</rp><rt>はんたい</rt><rp>)</rp></ruby>」の3つです。',
     },
     {
       type: 'end',

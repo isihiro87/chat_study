@@ -81,9 +81,9 @@ export const nounsAdvancedChat: HistoryChat = {
       type: 'quiz',
       question: '「I have two (　　).（私は足が2本あります。）」\nの (　　) に入るのは？',
       options: [
-        { letter: 'A', text: 'foots', correct: false },
+        { letter: 'A', text: 'feet', correct: true },
         { letter: 'B', text: 'foot', correct: false },
-        { letter: 'C', text: 'feet', correct: true },
+        { letter: 'C', text: 'foots', correct: false },
         { letter: 'D', text: 'feets', correct: false },
       ],
       explanation: 'foot の<ruby>複数形<rt>ふくすうけい</rt></ruby>は<ruby>不規則<rt>ふきそく</rt></ruby>で <strong>feet</strong> だよ。foots ではないので<ruby>注意<rt>ちゅうい</rt></ruby>！',
@@ -131,9 +131,9 @@ export const nounsAdvancedChat: HistoryChat = {
       question: '「あなたはペンを何本もっていますか？」を英語にすると？',
       options: [
         { letter: 'A', text: 'How many pen do you have?', correct: false },
-        { letter: 'B', text: 'How many pens do you have?', correct: true },
+        { letter: 'B', text: 'How many pens are you have?', correct: false },
         { letter: 'C', text: 'How much pens do you have?', correct: false },
-        { letter: 'D', text: 'How many pens are you have?', correct: false },
+        { letter: 'D', text: 'How many pens do you have?', correct: true },
       ],
       explanation: 'How many のあとには<strong><ruby>複数形<rt>ふくすうけい</rt></ruby></strong>がくるよ。pen → <strong>pens</strong> にするのがポイント！',
     },

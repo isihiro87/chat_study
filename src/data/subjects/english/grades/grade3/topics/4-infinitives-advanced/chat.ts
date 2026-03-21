@@ -88,8 +88,8 @@ export const infinitivesAdvancedChat: HistoryChat = {
       type: 'quiz',
       question: '「私たちにとって英語を話すことは楽しいです。」を英語にすると？',
       options: [
-        { letter: 'A', text: 'It is fun for us to speak English.', correct: true },
-        { letter: 'B', text: 'For us it is fun to speak English.', correct: false },
+        { letter: 'A', text: 'For us it is fun to speak English.', correct: false },
+        { letter: 'B', text: 'It is fun for us to speak English.', correct: true },
         { letter: 'C', text: 'It is fun to speak English for us.', correct: false },
         { letter: 'D', text: 'To speak English is fun for us it.', correct: false },
       ],
@@ -164,8 +164,8 @@ export const infinitivesAdvancedChat: HistoryChat = {
       type: 'quiz',
       question: '「Let me (　　) you.（私にあなたを手伝わせてください。）」\nの (　　) に入るのは？',
       options: [
-        { letter: 'A', text: 'to help', correct: false },
-        { letter: 'B', text: 'help', correct: true },
+        { letter: 'A', text: 'help', correct: true },
+        { letter: 'B', text: 'to help', correct: false },
         { letter: 'C', text: 'helping', correct: false },
         { letter: 'D', text: 'helped', correct: false },
       ],

@@ -164,13 +164,13 @@ export const cloudFormationChat: HistoryChat = {
       type: 'quiz',
       question: '上昇した空気の温度が下がる理由として正しいものはどれか。',
       options: [
-        { letter: 'A', text: '太陽の光が届かなくなるから', correct: false },
-        { letter: 'B', text: '上空ほど気圧が低く、空気が膨張するから', correct: true },
+        { letter: 'A', text: '上空ほど気圧が低く、空気が膨張するから', correct: true },
+        { letter: 'B', text: '太陽の光が届かなくなるから', correct: false },
         { letter: 'C', text: '上空ほど風が強いから', correct: false },
         { letter: 'D', text: '水蒸気が蒸発して熱を奪うから', correct: false },
       ],
       explanation:
-        '<strong>正解はB</strong>です。上空ほど気圧が低いため空気が<ruby>膨張<rp>(</rp><rt>ぼうちょう</rt><rp>)</rp></ruby>し、膨張すると温度が下がります。温度が<ruby>露点<rp>(</rp><rt>ろてん</rt><rp>)</rp></ruby>に達すると水蒸気が水滴になり、雲ができます。',
+        '<strong>正解はA</strong>です。上空ほど気圧が低いため空気が<ruby>膨張<rp>(</rp><rt>ぼうちょう</rt><rp>)</rp></ruby>し、膨張すると温度が下がります。温度が<ruby>露点<rp>(</rp><rt>ろてん</rt><rp>)</rp></ruby>に達すると水蒸気が水滴になり、雲ができます。',
     },
     {
       type: 'end',

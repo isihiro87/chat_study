@@ -100,12 +100,12 @@ export const weatherObservationChat: HistoryChat = {
       question: '雲量が7のとき、天気は何か。',
       options: [
         { letter: 'A', text: '快晴', correct: false },
-        { letter: 'B', text: '晴れ', correct: true },
+        { letter: 'B', text: '雨', correct: false },
         { letter: 'C', text: 'くもり', correct: false },
-        { letter: 'D', text: '雨', correct: false },
+        { letter: 'D', text: '晴れ', correct: true },
       ],
       explanation:
-        '<strong>正解はB「晴れ」</strong>です。<ruby>雲量<rp>(</rp><rt>うんりょう</rt><rp>)</rp></ruby>が2〜8のときは「晴れ」、0〜1で「<ruby>快晴<rp>(</rp><rt>かいせい</rt><rp>)</rp></ruby>」、9〜10で「くもり」です。',
+        '<strong>正解はD「晴れ」</strong>です。<ruby>雲量<rp>(</rp><rt>うんりょう</rt><rp>)</rp></ruby>が2〜8のときは「晴れ」、0〜1で「<ruby>快晴<rp>(</rp><rt>かいせい</rt><rp>)</rp></ruby>」、9〜10で「くもり」です。',
     },
     {
       type: 'date',

@@ -99,12 +99,12 @@ export const earthquakeChat: HistoryChat = {
       question: '地震のゆれのうち、はじめの小さなゆれを何という？',
       options: [
         { letter: 'A', text: '主要動', correct: false },
-        { letter: 'B', text: '初期微動', correct: true },
+        { letter: 'B', text: '前震', correct: false },
         { letter: 'C', text: '余震', correct: false },
-        { letter: 'D', text: '前震', correct: false },
+        { letter: 'D', text: '初期微動', correct: true },
       ],
       explanation:
-        '<strong>正解はB「<ruby>初期微動<rp>(</rp><rt>しょきびどう</rt><rp>)</rp></ruby>」</strong>です。P<ruby>波<rp>(</rp><rt>は</rt><rp>)</rp></ruby>が<ruby>伝<rp>(</rp><rt>つた</rt><rp>)</rp></ruby>えるはじめの小さなゆれが<ruby>初期微動<rp>(</rp><rt>しょきびどう</rt><rp>)</rp></ruby>、S<ruby>波<rp>(</rp><rt>は</rt><rp>)</rp></ruby>が<ruby>伝<rp>(</rp><rt>つた</rt><rp>)</rp></ruby>えるあとの大きなゆれが<ruby>主要動<rp>(</rp><rt>しゅようどう</rt><rp>)</rp></ruby>です。',
+        '<strong>正解はD「<ruby>初期微動<rp>(</rp><rt>しょきびどう</rt><rp>)</rp></ruby>」</strong>です。P<ruby>波<rp>(</rp><rt>は</rt><rp>)</rp></ruby>が<ruby>伝<rp>(</rp><rt>つた</rt><rp>)</rp></ruby>えるはじめの小さなゆれが<ruby>初期微動<rp>(</rp><rt>しょきびどう</rt><rp>)</rp></ruby>、S<ruby>波<rp>(</rp><rt>は</rt><rp>)</rp></ruby>が<ruby>伝<rp>(</rp><rt>つた</rt><rp>)</rp></ruby>えるあとの大きなゆれが<ruby>主要動<rp>(</rp><rt>しゅようどう</rt><rp>)</rp></ruby>です。',
     },
     {
       type: 'date',
@@ -150,12 +150,12 @@ export const earthquakeChat: HistoryChat = {
       question: '将来地震を起こす可能性がある断層を何というか。',
       options: [
         { letter: 'A', text: '海溝', correct: false },
-        { letter: 'B', text: '活断層', correct: true },
-        { letter: 'C', text: 'プレート', correct: false },
+        { letter: 'B', text: 'プレート', correct: false },
+        { letter: 'C', text: '活断層', correct: true },
         { letter: 'D', text: '震央', correct: false },
       ],
       explanation:
-        '<strong>正解はB「<ruby>活断層<rp>(</rp><rt>かつだんそう</rt><rp>)</rp></ruby>」</strong>です。<ruby>将来<rp>(</rp><rt>しょうらい</rt><rp>)</rp></ruby><ruby>地震<rp>(</rp><rt>じしん</rt><rp>)</rp></ruby>を<ruby>起<rp>(</rp><rt>お</rt><rp>)</rp></ruby>こす<ruby>可能性<rp>(</rp><rt>かのうせい</rt><rp>)</rp></ruby>がある<ruby>断層<rp>(</rp><rt>だんそう</rt><rp>)</rp></ruby>を<ruby>活断層<rp>(</rp><rt>かつだんそう</rt><rp>)</rp></ruby>といいます。',
+        '<strong>正解はC「<ruby>活断層<rp>(</rp><rt>かつだんそう</rt><rp>)</rp></ruby>」</strong>です。<ruby>将来<rp>(</rp><rt>しょうらい</rt><rp>)</rp></ruby><ruby>地震<rp>(</rp><rt>じしん</rt><rp>)</rp></ruby>を<ruby>起<rp>(</rp><rt>お</rt><rp>)</rp></ruby>こす<ruby>可能性<rp>(</rp><rt>かのうせい</rt><rp>)</rp></ruby>がある<ruby>断層<rp>(</rp><rt>だんそう</rt><rp>)</rp></ruby>を<ruby>活断層<rp>(</rp><rt>かつだんそう</rt><rp>)</rp></ruby>といいます。',
     },
     {
       type: 'date',
@@ -194,12 +194,12 @@ export const earthquakeChat: HistoryChat = {
       question: '日本に地震が多い理由として正しいものはどれ？',
       options: [
         { letter: 'A', text: '火山が多いから', correct: false },
-        { letter: 'B', text: '島国だから', correct: false },
-        { letter: 'C', text: '複数のプレートの境界に位置するから', correct: true },
+        { letter: 'B', text: '複数のプレートの境界に位置するから', correct: true },
+        { letter: 'C', text: '島国だから', correct: false },
         { letter: 'D', text: '平野が多いから', correct: false },
       ],
       explanation:
-        '<strong>正解はC</strong>です。<ruby>日本<rp>(</rp><rt>にほん</rt><rp>)</rp></ruby>は4つのプレートの<ruby>境界<rp>(</rp><rt>きょうかい</rt><rp>)</rp></ruby>に<ruby>位置<rp>(</rp><rt>いち</rt><rp>)</rp></ruby>しているため、<ruby>地震<rp>(</rp><rt>じしん</rt><rp>)</rp></ruby>が多く<ruby>発生<rp>(</rp><rt>はっせい</rt><rp>)</rp></ruby>します。',
+        '<strong>正解はB</strong>です。<ruby>日本<rp>(</rp><rt>にほん</rt><rp>)</rp></ruby>は4つのプレートの<ruby>境界<rp>(</rp><rt>きょうかい</rt><rp>)</rp></ruby>に<ruby>位置<rp>(</rp><rt>いち</rt><rp>)</rp></ruby>しているため、<ruby>地震<rp>(</rp><rt>じしん</rt><rp>)</rp></ruby>が多く<ruby>発生<rp>(</rp><rt>はっせい</rt><rp>)</rp></ruby>します。',
     },
     {
       type: 'end',

@@ -96,8 +96,8 @@ export const infinitivesChat: HistoryChat = {
       question: '「I want (　　) tennis.（私はテニスをしたいです。）」\nの (　　) に入るのは？',
       options: [
         { letter: 'A', text: 'play', correct: false },
-        { letter: 'B', text: 'to play', correct: true },
-        { letter: 'C', text: 'playing', correct: false },
+        { letter: 'B', text: 'playing', correct: false },
+        { letter: 'C', text: 'to play', correct: true },
         { letter: 'D', text: 'to playing', correct: false },
       ],
       explanation: 'want の<ruby>後<rt>うし</rt></ruby>ろは <strong>to + 動詞のもとの形</strong> だよ。want to play =「したい」だね。',

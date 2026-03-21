@@ -114,12 +114,12 @@ export const electrolyteElectrolysisChat: HistoryChat = {
       question: '蒸留水に電流が流れない理由はどれ？',
       options: [
         { letter: 'A', text: '蒸留水は非電解質だから', correct: false },
-        { letter: 'B', text: '蒸留水にイオンが存在しないから', correct: true },
+        { letter: 'B', text: '蒸留水は電気を通しやすいから', correct: false },
         { letter: 'C', text: '蒸留水の温度が低いから', correct: false },
-        { letter: 'D', text: '蒸留水は電気を通しやすいから', correct: false },
+        { letter: 'D', text: '蒸留水にイオンが存在しないから', correct: true },
       ],
       explanation:
-        '<strong>正解はB</strong>です。<ruby>蒸留水<rp>(</rp><rt>じょうりゅうすい</rt><rp>)</rp></ruby>にはイオンが<ruby>存在<rp>(</rp><rt>そんざい</rt><rp>)</rp></ruby>しないため、電気を<ruby>運<rp>(</rp><rt>はこ</rt><rp>)</rp></ruby>ぶ<ruby>粒子<rp>(</rp><rt>りゅうし</rt><rp>)</rp></ruby>がなく電流が流れません。',
+        '<strong>正解はD</strong>です。<ruby>蒸留水<rp>(</rp><rt>じょうりゅうすい</rt><rp>)</rp></ruby>にはイオンが<ruby>存在<rp>(</rp><rt>そんざい</rt><rp>)</rp></ruby>しないため、電気を<ruby>運<rp>(</rp><rt>はこ</rt><rp>)</rp></ruby>ぶ<ruby>粒子<rp>(</rp><rt>りゅうし</rt><rp>)</rp></ruby>がなく電流が流れません。',
     },
     {
       type: 'image',
@@ -271,13 +271,13 @@ export const electrolyteElectrolysisChat: HistoryChat = {
       type: 'quiz',
       question: '塩酸の電気分解で水素より塩素の方が集まる量が少ない理由は？',
       options: [
-        { letter: 'A', text: '塩素は水に溶けやすいため', correct: true },
-        { letter: 'B', text: '塩素は空気より軽いため', correct: false },
+        { letter: 'A', text: '塩素は空気より軽いため', correct: false },
+        { letter: 'B', text: '塩素は水に溶けやすいため', correct: true },
         { letter: 'C', text: '水素の方が分子が大きいため', correct: false },
         { letter: 'D', text: '陽極の反応が遅いため', correct: false },
       ],
       explanation:
-        '<strong>正解はA</strong>です。<ruby>塩素<rp>(</rp><rt>えんそ</rt><rp>)</rp></ruby>は水に<ruby>溶<rp>(</rp><rt>と</rt><rp>)</rp></ruby>けやすい<ruby>性質<rp>(</rp><rt>せいしつ</rt><rp>)</rp></ruby>があるため、<ruby>発生<rp>(</rp><rt>はっせい</rt><rp>)</rp></ruby>した一部が水に溶けて集まる量が少なくなります。',
+        '<strong>正解はB</strong>です。<ruby>塩素<rp>(</rp><rt>えんそ</rt><rp>)</rp></ruby>は水に<ruby>溶<rp>(</rp><rt>と</rt><rp>)</rp></ruby>けやすい<ruby>性質<rp>(</rp><rt>せいしつ</rt><rp>)</rp></ruby>があるため、<ruby>発生<rp>(</rp><rt>はっせい</rt><rp>)</rp></ruby>した一部が水に溶けて集まる量が少なくなります。',
     },
     {
       type: 'image',

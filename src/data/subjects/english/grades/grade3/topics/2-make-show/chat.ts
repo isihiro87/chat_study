@@ -95,8 +95,8 @@ export const makeShowChat: HistoryChat = {
       type: 'quiz',
       question: '「The story made him (　　).（その話は彼を悲しくさせました。）」\nの (　　) に入るのは？',
       options: [
-        { letter: 'A', text: 'sadly', correct: false },
-        { letter: 'B', text: 'sad', correct: true },
+        { letter: 'A', text: 'sad', correct: true },
+        { letter: 'B', text: 'sadly', correct: false },
         { letter: 'C', text: 'sadness', correct: false },
         { letter: 'D', text: 'to sad', correct: false },
       ],
@@ -164,8 +164,8 @@ export const makeShowChat: HistoryChat = {
       options: [
         { letter: 'A', text: 'what', correct: false },
         { letter: 'B', text: 'which', correct: false },
-        { letter: 'C', text: 'that', correct: true },
-        { letter: 'D', text: 'if', correct: false },
+        { letter: 'C', text: 'if', correct: false },
+        { letter: 'D', text: 'that', correct: true },
       ],
       explanation: 'tell + 人 + <strong>that</strong> + 文で「人に〜と<ruby>伝<rt>つた</rt></ruby>える」だよ。that の<ruby>後<rt>うし</rt></ruby>ろには she liked music という文が続いているね。',
     },

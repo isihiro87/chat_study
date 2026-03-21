@@ -79,12 +79,12 @@ export const japanInWw1Chat: HistoryChat = {
       question: '日本が第一次世界大戦に参戦した理由として挙げたのは？',
       options: [
         { letter: 'A', text: '三国協商', correct: false },
-        { letter: 'B', text: '日英同盟', correct: true },
+        { letter: 'B', text: '下関条約', correct: false },
         { letter: 'C', text: '日米修好通商条約', correct: false },
-        { letter: 'D', text: '下関条約', correct: false },
+        { letter: 'D', text: '日英同盟', correct: true },
       ],
       explanation:
-        '<strong>正解はB「<ruby>日英同盟<rp>(</rp><rt>にちえいどうめい</rt><rp>)</rp></ruby>」</strong>です。日本はイギリスとの同盟を理由にドイツに<ruby>宣戦布告<rp>(</rp><rt>せんせんふこく</rt><rp>)</rp></ruby>しました。',
+        '<strong>正解はD「<ruby>日英同盟<rp>(</rp><rt>にちえいどうめい</rt><rp>)</rp></ruby>」</strong>です。日本はイギリスとの同盟を理由にドイツに<ruby>宣戦布告<rp>(</rp><rt>せんせんふこく</rt><rp>)</rp></ruby>しました。',
     },
     {
       type: 'narrator',
@@ -119,13 +119,13 @@ export const japanInWw1Chat: HistoryChat = {
       type: 'quiz',
       question: '1915年に日本が中国に突きつけた要求は？',
       options: [
-        { letter: 'A', text: '二十一か条の要求', correct: true },
+        { letter: 'A', text: '下関条約', correct: false },
         { letter: 'B', text: 'ポーツマス条約', correct: false },
-        { letter: 'C', text: '下関条約', correct: false },
+        { letter: 'C', text: '二十一か条の要求', correct: true },
         { letter: 'D', text: '日中共同宣言', correct: false },
       ],
       explanation:
-        '<strong>正解はA「<ruby>二十一か条<rp>(</rp><rt>にじゅういっかじょう</rt><rp>)</rp></ruby>の<ruby>要求<rp>(</rp><rt>ようきゅう</rt><rp>)</rp></ruby>」</strong>です。<ruby>袁世凱<rp>(</rp><rt>えんせいがい</rt><rp>)</rp></ruby>政府に対して出され、中国国民の<ruby>反日感情<rp>(</rp><rt>はんにちかんじょう</rt><rp>)</rp></ruby>が高まりました。',
+        '<strong>正解はC「<ruby>二十一か条<rp>(</rp><rt>にじゅういっかじょう</rt><rp>)</rp></ruby>の<ruby>要求<rp>(</rp><rt>ようきゅう</rt><rp>)</rp></ruby>」</strong>です。<ruby>袁世凱<rp>(</rp><rt>えんせいがい</rt><rp>)</rp></ruby>政府に対して出され、中国国民の<ruby>反日感情<rp>(</rp><rt>はんにちかんじょう</rt><rp>)</rp></ruby>が高まりました。',
     },
     {
       type: 'narrator',
@@ -161,12 +161,12 @@ export const japanInWw1Chat: HistoryChat = {
       question: '第一次世界大戦中に日本で起きた好景気を何という？',
       options: [
         { letter: 'A', text: 'バブル景気', correct: false },
-        { letter: 'B', text: '岩戸景気', correct: false },
+        { letter: 'B', text: '大戦景気', correct: true },
         { letter: 'C', text: '高度経済成長', correct: false },
-        { letter: 'D', text: '大戦景気', correct: true },
+        { letter: 'D', text: '岩戸景気', correct: false },
       ],
       explanation:
-        '<strong>正解はD「<ruby>大戦景気<rp>(</rp><rt>たいせんけいき</rt><rp>)</rp></ruby>」</strong>です。ヨーロッパ<ruby>諸国<rp>(</rp><rt>しょこく</rt><rp>)</rp></ruby>が戦争に集中する中、日本はアジア市場への<ruby>輸出<rp>(</rp><rt>ゆしゅつ</rt><rp>)</rp></ruby>を伸ばしました。',
+        '<strong>正解はB「<ruby>大戦景気<rp>(</rp><rt>たいせんけいき</rt><rp>)</rp></ruby>」</strong>です。ヨーロッパ<ruby>諸国<rp>(</rp><rt>しょこく</rt><rp>)</rp></ruby>が戦争に集中する中、日本はアジア市場への<ruby>輸出<rp>(</rp><rt>ゆしゅつ</rt><rp>)</rp></ruby>を伸ばしました。',
     },
     {
       type: 'end',

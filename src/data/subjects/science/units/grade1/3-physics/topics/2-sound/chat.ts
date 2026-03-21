@@ -113,13 +113,13 @@ export const soundChat: HistoryChat = {
       type: 'quiz',
       question: '音が真空中で伝わらない理由はどれか。',
       options: [
-        { letter: 'A', text: '温度が低すぎるから', correct: false },
-        { letter: 'B', text: '振動を伝える物質がないから', correct: true },
+        { letter: 'A', text: '振動を伝える物質がないから', correct: true },
+        { letter: 'B', text: '温度が低すぎるから', correct: false },
         { letter: 'C', text: '光がないから', correct: false },
         { letter: 'D', text: '重力がないから', correct: false },
       ],
       explanation:
-        '<strong>正解はB「<ruby>振動<rp>(</rp><rt>しんどう</rt><rp>)</rp></ruby>を伝える<ruby>物質<rp>(</rp><rt>ぶっしつ</rt><rp>)</rp></ruby>がないから」</strong>です。音は<ruby>物質<rp>(</rp><rt>ぶっしつ</rt><rp>)</rp></ruby>の<ruby>振動<rp>(</rp><rt>しんどう</rt><rp>)</rp></ruby>が波として伝わるため、<ruby>真空<rp>(</rp><rt>しんくう</rt><rp>)</rp></ruby>中では伝わりません。',
+        '<strong>正解はA「<ruby>振動<rp>(</rp><rt>しんどう</rt><rp>)</rp></ruby>を伝える<ruby>物質<rp>(</rp><rt>ぶっしつ</rt><rp>)</rp></ruby>がないから」</strong>です。音は<ruby>物質<rp>(</rp><rt>ぶっしつ</rt><rp>)</rp></ruby>の<ruby>振動<rp>(</rp><rt>しんどう</rt><rp>)</rp></ruby>が波として伝わるため、<ruby>真空<rp>(</rp><rt>しんくう</rt><rp>)</rp></ruby>中では伝わりません。',
     },
     {
       type: 'date',
@@ -185,12 +185,12 @@ export const soundChat: HistoryChat = {
       question: '音を大きくするには何を大きくすればよいか。',
       options: [
         { letter: 'A', text: '振動数', correct: false },
-        { letter: 'B', text: '振幅', correct: true },
+        { letter: 'B', text: '波長', correct: false },
         { letter: 'C', text: '音速', correct: false },
-        { letter: 'D', text: '波長', correct: false },
+        { letter: 'D', text: '振幅', correct: true },
       ],
       explanation:
-        '<strong>正解はB「<ruby>振幅<rp>(</rp><rt>しんぷく</rt><rp>)</rp></ruby>」</strong>です。音の大きさは<ruby>振幅<rp>(</rp><rt>しんぷく</rt><rp>)</rp></ruby>で決まります。<ruby>振動数<rp>(</rp><rt>しんどうすう</rt><rp>)</rp></ruby>は音の高さに<ruby>関係<rp>(</rp><rt>かんけい</rt><rp>)</rp></ruby>します。',
+        '<strong>正解はD「<ruby>振幅<rp>(</rp><rt>しんぷく</rt><rp>)</rp></ruby>」</strong>です。音の大きさは<ruby>振幅<rp>(</rp><rt>しんぷく</rt><rp>)</rp></ruby>で決まります。<ruby>振動数<rp>(</rp><rt>しんどうすう</rt><rp>)</rp></ruby>は音の高さに<ruby>関係<rp>(</rp><rt>かんけい</rt><rp>)</rp></ruby>します。',
     },
     {
       type: 'date',
@@ -236,13 +236,13 @@ export const soundChat: HistoryChat = {
       type: 'quiz',
       question: 'モノコードの弦を短くすると音はどう変わるか。',
       options: [
-        { letter: 'A', text: '高い音になる', correct: true },
+        { letter: 'A', text: '大きい音になる', correct: false },
         { letter: 'B', text: '低い音になる', correct: false },
-        { letter: 'C', text: '大きい音になる', correct: false },
+        { letter: 'C', text: '高い音になる', correct: true },
         { letter: 'D', text: '小さい音になる', correct: false },
       ],
       explanation:
-        '<strong>正解はA「高い音になる」</strong>です。<ruby>弦<rp>(</rp><rt>げん</rt><rp>)</rp></ruby>が短いほど<ruby>振動数<rp>(</rp><rt>しんどうすう</rt><rp>)</rp></ruby>が大きくなり、高い音が出ます。',
+        '<strong>正解はC「高い音になる」</strong>です。<ruby>弦<rp>(</rp><rt>げん</rt><rp>)</rp></ruby>が短いほど<ruby>振動数<rp>(</rp><rt>しんどうすう</rt><rp>)</rp></ruby>が大きくなり、高い音が出ます。',
     },
     {
       type: 'date',

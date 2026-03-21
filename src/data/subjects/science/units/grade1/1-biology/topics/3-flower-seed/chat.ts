@@ -92,12 +92,12 @@ export const flowerSeedChat: HistoryChat = {
       question: '受粉後、種子になるのはどの部分？',
       options: [
         { letter: 'A', text: '子房', correct: false },
-        { letter: 'B', text: '胚珠', correct: true },
-        { letter: 'C', text: '柱頭', correct: false },
+        { letter: 'B', text: '柱頭', correct: false },
+        { letter: 'C', text: '胚珠', correct: true },
         { letter: 'D', text: 'やく', correct: false },
       ],
       explanation:
-        '<strong>正解はB</strong>です。<ruby>受粉<rp>(</rp><rt>じゅふん</rt><rp>)</rp></ruby>すると<ruby>胚珠<rp>(</rp><rt>はいしゅ</rt><rp>)</rp></ruby>が<ruby>種子<rp>(</rp><rt>しゅし</rt><rp>)</rp></ruby>になり、<ruby>子房<rp>(</rp><rt>しぼう</rt><rp>)</rp></ruby>が<ruby>果実<rp>(</rp><rt>かじつ</rt><rp>)</rp></ruby>になります。',
+        '<strong>正解はC</strong>です。<ruby>受粉<rp>(</rp><rt>じゅふん</rt><rp>)</rp></ruby>すると<ruby>胚珠<rp>(</rp><rt>はいしゅ</rt><rp>)</rp></ruby>が<ruby>種子<rp>(</rp><rt>しゅし</rt><rp>)</rp></ruby>になり、<ruby>子房<rp>(</rp><rt>しぼう</rt><rp>)</rp></ruby>が<ruby>果実<rp>(</rp><rt>かじつ</rt><rp>)</rp></ruby>になります。',
     },
     {
       type: 'date',
@@ -159,12 +159,12 @@ export const flowerSeedChat: HistoryChat = {
       question: '次のうち、裸子植物はどれ？',
       options: [
         { letter: 'A', text: 'サクラ', correct: false },
-        { letter: 'B', text: 'アブラナ', correct: false },
-        { letter: 'C', text: 'マツ', correct: true },
+        { letter: 'B', text: 'マツ', correct: true },
+        { letter: 'C', text: 'アブラナ', correct: false },
         { letter: 'D', text: 'ツツジ', correct: false },
       ],
       explanation:
-        '<strong>正解はC「マツ」</strong>です。マツは<ruby>胚珠<rp>(</rp><rt>はいしゅ</rt><rp>)</rp></ruby>がむき出しの<ruby>裸子植物<rp>(</rp><rt>らししょくぶつ</rt><rp>)</rp></ruby>です。サクラ・アブラナ・ツツジは<ruby>被子植物<rp>(</rp><rt>ひししょくぶつ</rt><rp>)</rp></ruby>です。',
+        '<strong>正解はB「マツ」</strong>です。マツは<ruby>胚珠<rp>(</rp><rt>はいしゅ</rt><rp>)</rp></ruby>がむき出しの<ruby>裸子植物<rp>(</rp><rt>らししょくぶつ</rt><rp>)</rp></ruby>です。サクラ・アブラナ・ツツジは<ruby>被子植物<rp>(</rp><rt>ひししょくぶつ</rt><rp>)</rp></ruby>です。',
     },
     {
       type: 'summary-point',
@@ -174,13 +174,13 @@ export const flowerSeedChat: HistoryChat = {
       type: 'quiz',
       question: '双子葉類の葉脈はどのタイプ？',
       options: [
-        { letter: 'A', text: '平行脈', correct: false },
+        { letter: 'A', text: '網状脈', correct: true },
         { letter: 'B', text: '放射脈', correct: false },
-        { letter: 'C', text: '網状脈', correct: true },
+        { letter: 'C', text: '平行脈', correct: false },
         { letter: 'D', text: '羽状脈', correct: false },
       ],
       explanation:
-        '<strong>正解はC</strong>です。<ruby>双子葉類<rp>(</rp><rt>そうしようるい</rt><rp>)</rp></ruby>は<ruby>網状脈<rp>(</rp><rt>もうじょうみゃく</rt><rp>)</rp></ruby>で、<ruby>単子葉類<rp>(</rp><rt>たんしようるい</rt><rp>)</rp></ruby>は<ruby>平行脈<rp>(</rp><rt>へいこうみゃく</rt><rp>)</rp></ruby>です。',
+        '<strong>正解はA</strong>です。<ruby>双子葉類<rp>(</rp><rt>そうしようるい</rt><rp>)</rp></ruby>は<ruby>網状脈<rp>(</rp><rt>もうじょうみゃく</rt><rp>)</rp></ruby>で、<ruby>単子葉類<rp>(</rp><rt>たんしようるい</rt><rp>)</rp></ruby>は<ruby>平行脈<rp>(</rp><rt>へいこうみゃく</rt><rp>)</rp></ruby>です。',
     },
     {
       type: 'date',
@@ -311,13 +311,13 @@ export const flowerSeedChat: HistoryChat = {
       type: 'quiz',
       question: 'マツの花粉はどのように運ばれる？',
       options: [
-        { letter: 'A', text: '風で運ばれる', correct: true },
+        { letter: 'A', text: '水に流される', correct: false },
         { letter: 'B', text: '虫が運ぶ', correct: false },
-        { letter: 'C', text: '水に流される', correct: false },
+        { letter: 'C', text: '風で運ばれる', correct: true },
         { letter: 'D', text: '鳥が運ぶ', correct: false },
       ],
       explanation:
-        '<strong>正解はA</strong>です。<ruby>裸子植物<rp>(</rp><rt>らししょくぶつ</rt><rp>)</rp></ruby>の<ruby>花粉<rp>(</rp><rt>かふん</rt><rp>)</rp></ruby>は<ruby>風<rp>(</rp><rt>かぜ</rt><rp>)</rp></ruby>で<ruby>運<rp>(</rp><rt>はこ</rt><rp>)</rp></ruby>ばれ、マツの<ruby>花粉<rp>(</rp><rt>かふん</rt><rp>)</rp></ruby>には<ruby>空気<rp>(</rp><rt>くうき</rt><rp>)</rp></ruby>の<ruby>袋<rp>(</rp><rt>ふくろ</rt><rp>)</rp></ruby>がついています。',
+        '<strong>正解はC</strong>です。<ruby>裸子植物<rp>(</rp><rt>らししょくぶつ</rt><rp>)</rp></ruby>の<ruby>花粉<rp>(</rp><rt>かふん</rt><rp>)</rp></ruby>は<ruby>風<rp>(</rp><rt>かぜ</rt><rp>)</rp></ruby>で<ruby>運<rp>(</rp><rt>はこ</rt><rp>)</rp></ruby>ばれ、マツの<ruby>花粉<rp>(</rp><rt>かふん</rt><rp>)</rp></ruby>には<ruby>空気<rp>(</rp><rt>くうき</rt><rp>)</rp></ruby>の<ruby>袋<rp>(</rp><rt>ふくろ</rt><rp>)</rp></ruby>がついています。',
     },
     {
       type: 'end',

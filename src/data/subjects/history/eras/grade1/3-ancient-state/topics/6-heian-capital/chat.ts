@@ -153,11 +153,11 @@ export const heianCapitalChat: HistoryChat = {
       question: '真言宗を開き、高野山に寺を建てた僧は？',
       options: [
         { letter: 'A', text: '最澄', correct: false },
-        { letter: 'B', text: '鑑真', correct: false },
+        { letter: 'B', text: '空海', correct: true },
         { letter: 'C', text: '行基', correct: false },
-        { letter: 'D', text: '空海', correct: true },
+        { letter: 'D', text: '鑑真', correct: false },
       ],
-      explanation: '<strong>正解はD「<ruby>空海<rp>(</rp><rt>くうかい</rt><rp>)</rp></ruby>」</strong>です。<ruby>空海<rp>(</rp><rt>くうかい</rt><rp>)</rp></ruby>は<ruby>唐<rp>(</rp><rt>とう</rt><rp>)</rp></ruby>で<ruby>密教<rp>(</rp><rt>みっきょう</rt><rp>)</rp></ruby>を学び、<ruby>真言宗<rp>(</rp><rt>しんごんしゅう</rt><rp>)</rp></ruby>を開いて<ruby>高野山<rp>(</rp><rt>こうやさん</rt><rp>)</rp></ruby>に<ruby>金剛峯寺<rp>(</rp><rt>こんごうぶじ</rt><rp>)</rp></ruby>を建てました。',
+      explanation: '<strong>正解はB「<ruby>空海<rp>(</rp><rt>くうかい</rt><rp>)</rp></ruby>」</strong>です。<ruby>空海<rp>(</rp><rt>くうかい</rt><rp>)</rp></ruby>は<ruby>唐<rp>(</rp><rt>とう</rt><rp>)</rp></ruby>で<ruby>密教<rp>(</rp><rt>みっきょう</rt><rp>)</rp></ruby>を学び、<ruby>真言宗<rp>(</rp><rt>しんごんしゅう</rt><rp>)</rp></ruby>を開いて<ruby>高野山<rp>(</rp><rt>こうやさん</rt><rp>)</rp></ruby>に<ruby>金剛峯寺<rp>(</rp><rt>こんごうぶじ</rt><rp>)</rp></ruby>を建てました。',
     },
     {
       type: 'end',

@@ -157,8 +157,8 @@ export const subjunctiveChat: HistoryChat = {
       type: 'quiz',
       question: '「空を飛べたらいいのに。」を英語にすると？',
       options: [
-        { letter: 'A', text: 'I wish I can fly.', correct: false },
-        { letter: 'B', text: 'I wish I could fly.', correct: true },
+        { letter: 'A', text: 'I wish I could fly.', correct: true },
+        { letter: 'B', text: 'I wish I can fly.', correct: false },
         { letter: 'C', text: 'I wish I will fly.', correct: false },
         { letter: 'D', text: 'I wish I flying.', correct: false },
       ],
@@ -226,8 +226,8 @@ export const subjunctiveChat: HistoryChat = {
       options: [
         { letter: 'A', text: 'live', correct: false },
         { letter: 'B', text: 'lives', correct: false },
-        { letter: 'C', text: 'lived', correct: true },
-        { letter: 'D', text: 'living', correct: false },
+        { letter: 'C', text: 'living', correct: false },
+        { letter: 'D', text: 'lived', correct: true },
       ],
       explanation: '<ruby>仮定法<rt>かていほう</rt></ruby>では<ruby>一般動詞<rt>いっぱんどうし</rt></ruby>も<ruby>過去形<rt>かこけい</rt></ruby>にするよ。live → <strong>lived</strong> だね。',
     },

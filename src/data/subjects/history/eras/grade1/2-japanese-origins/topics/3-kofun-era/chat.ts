@@ -150,12 +150,12 @@ export const kofunEraChat: HistoryChat = {
       question: '稲荷山古墳の鉄剣に刻まれていた大王の名前は？',
       options: [
         { letter: 'A', text: '聖徳太子', correct: false },
-        { letter: 'B', text: '仁徳天皇', correct: false },
-        { letter: 'C', text: 'ワカタケル大王', correct: true },
+        { letter: 'B', text: 'ワカタケル大王', correct: true },
+        { letter: 'C', text: '仁徳天皇', correct: false },
         { letter: 'D', text: '推古天皇', correct: false },
       ],
       explanation:
-        '<strong>正解はC「<ruby>ワカタケル大王<rp>(</rp><rt>わかたけるおおきみ</rt><rp>)</rp></ruby>」</strong>です。後の<ruby>雄略天皇<rp>(</rp><rt>ゆうりゃくてんのう</rt><rp>)</rp></ruby>にあたり、大和政権の広い支配を示す証拠です。',
+        '<strong>正解はB「<ruby>ワカタケル大王<rp>(</rp><rt>わかたけるおおきみ</rt><rp>)</rp></ruby>」</strong>です。後の<ruby>雄略天皇<rp>(</rp><rt>ゆうりゃくてんのう</rt><rp>)</rp></ruby>にあたり、大和政権の広い支配を示す証拠です。',
     },
     {
       type: 'date',
@@ -222,13 +222,13 @@ export const kofunEraChat: HistoryChat = {
       type: 'quiz',
       question: '大陸から移り住み技術や文化を伝えた人々を何という？',
       options: [
-        { letter: 'A', text: '武士', correct: false },
+        { letter: 'A', text: '渡来人', correct: true },
         { letter: 'B', text: '公家', correct: false },
         { letter: 'C', text: '商人', correct: false },
-        { letter: 'D', text: '渡来人', correct: true },
+        { letter: 'D', text: '武士', correct: false },
       ],
       explanation:
-        '<strong>正解はD「<ruby>渡来人<rp>(</rp><rt>とらいじん</rt><rp>)</rp></ruby>」</strong>です。<ruby>須恵器<rp>(</rp><rt>すえき</rt><rp>)</rp></ruby>・<ruby>漢字<rp>(</rp><rt>かんじ</rt><rp>)</rp></ruby>・<ruby>仏教<rp>(</rp><rt>ぶっきょう</rt><rp>)</rp></ruby>などを日本に伝えました。',
+        '<strong>正解はA「<ruby>渡来人<rp>(</rp><rt>とらいじん</rt><rp>)</rp></ruby>」</strong>です。<ruby>須恵器<rp>(</rp><rt>すえき</rt><rp>)</rp></ruby>・<ruby>漢字<rp>(</rp><rt>かんじ</rt><rp>)</rp></ruby>・<ruby>仏教<rp>(</rp><rt>ぶっきょう</rt><rp>)</rp></ruby>などを日本に伝えました。',
     },
     {
       type: 'end',

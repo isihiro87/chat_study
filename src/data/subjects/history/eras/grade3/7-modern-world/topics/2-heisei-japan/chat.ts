@@ -152,13 +152,13 @@ export const heiseiJapanChat: HistoryChat = {
       type: 'quiz',
       question: '1993年に崩壊した自民党と社会党の長期的な政治体制は？',
       options: [
-        { letter: 'A', text: '55年体制', correct: true },
+        { letter: 'A', text: '二大政党制', correct: false },
         { letter: 'B', text: '護憲体制', correct: false },
         { letter: 'C', text: '大政翼賛体制', correct: false },
-        { letter: 'D', text: '二大政党制', correct: false },
+        { letter: 'D', text: '55年体制', correct: true },
       ],
       explanation:
-        '<strong>正解はA「<ruby>55年体制<rp>(</rp><rt>ごじゅうごねんたいせい</rt><rp>)</rp></ruby>」</strong>です。1955年から<ruby>続<rp>(</rp><rt>つづ</rt><rp>)</rp></ruby>いた<ruby>自民党<rp>(</rp><rt>じみんとう</rt><rp>)</rp></ruby>の<ruby>長期政権体制<rp>(</rp><rt>ちょうきせいけんたいせい</rt><rp>)</rp></ruby>が、1993年に<ruby>非自民連立政権<rp>(</rp><rt>ひじみんれんりつせいけん</rt><rp>)</rp></ruby>の<ruby>誕生<rp>(</rp><rt>たんじょう</rt><rp>)</rp></ruby>で<ruby>崩壊<rp>(</rp><rt>ほうかい</rt><rp>)</rp></ruby>しました。',
+        '<strong>正解はD「<ruby>55年体制<rp>(</rp><rt>ごじゅうごねんたいせい</rt><rp>)</rp></ruby>」</strong>です。1955年から<ruby>続<rp>(</rp><rt>つづ</rt><rp>)</rp></ruby>いた<ruby>自民党<rp>(</rp><rt>じみんとう</rt><rp>)</rp></ruby>の<ruby>長期政権体制<rp>(</rp><rt>ちょうきせいけんたいせい</rt><rp>)</rp></ruby>が、1993年に<ruby>非自民連立政権<rp>(</rp><rt>ひじみんれんりつせいけん</rt><rp>)</rp></ruby>の<ruby>誕生<rp>(</rp><rt>たんじょう</rt><rp>)</rp></ruby>で<ruby>崩壊<rp>(</rp><rt>ほうかい</rt><rp>)</rp></ruby>しました。',
     },
     {
       type: 'end',

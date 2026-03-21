@@ -99,11 +99,11 @@ export const matterCompositionChat: HistoryChat = {
       options: [
         { letter: 'A', text: '酸素', correct: false },
         { letter: 'B', text: '水素', correct: false },
-        { letter: 'C', text: '二酸化炭素', correct: true },
-        { letter: 'D', text: '窒素', correct: false },
+        { letter: 'C', text: '窒素', correct: false },
+        { letter: 'D', text: '二酸化炭素', correct: true },
       ],
       explanation:
-        '<strong>正解はC「<ruby>二酸化炭素<rp>(</rp><rt>にさんかたんそ</rt><rp>)</rp></ruby>」</strong>です。<ruby>炭酸水素<rp>(</rp><rt>たんさんすいそ</rt><rp>)</rp></ruby>ナトリウムの<ruby>熱分解<rp>(</rp><rt>ねつぶんかい</rt><rp>)</rp></ruby>では、<ruby>炭酸<rp>(</rp><rt>たんさん</rt><rp>)</rp></ruby>ナトリウム・水・<ruby>二酸化炭素<rp>(</rp><rt>にさんかたんそ</rt><rp>)</rp></ruby>の3つができます。',
+        '<strong>正解はD「<ruby>二酸化炭素<rp>(</rp><rt>にさんかたんそ</rt><rp>)</rp></ruby>」</strong>です。<ruby>炭酸水素<rp>(</rp><rt>たんさんすいそ</rt><rp>)</rp></ruby>ナトリウムの<ruby>熱分解<rp>(</rp><rt>ねつぶんかい</rt><rp>)</rp></ruby>では、<ruby>炭酸<rp>(</rp><rt>たんさん</rt><rp>)</rp></ruby>ナトリウム・水・<ruby>二酸化炭素<rp>(</rp><rt>にさんかたんそ</rt><rp>)</rp></ruby>の3つができます。',
     },
     {
       type: 'message',
@@ -138,11 +138,11 @@ export const matterCompositionChat: HistoryChat = {
       options: [
         { letter: 'A', text: '酸素', correct: false },
         { letter: 'B', text: '二酸化炭素', correct: false },
-        { letter: 'C', text: '塩素', correct: false },
-        { letter: 'D', text: '水素', correct: true },
+        { letter: 'C', text: '水素', correct: true },
+        { letter: 'D', text: '塩素', correct: false },
       ],
       explanation:
-        '<strong>正解はD「<ruby>水素<rp>(</rp><rt>すいそ</rt><rp>)</rp></ruby>」</strong>です。水の<ruby>電気分解<rp>(</rp><rt>でんきぶんかい</rt><rp>)</rp></ruby>では、<ruby>陰極<rp>(</rp><rt>いんきょく</rt><rp>)</rp></ruby>に水素、<ruby>陽極<rp>(</rp><rt>ようきょく</rt><rp>)</rp></ruby>に酸素が発生します。',
+        '<strong>正解はC「<ruby>水素<rp>(</rp><rt>すいそ</rt><rp>)</rp></ruby>」</strong>です。水の<ruby>電気分解<rp>(</rp><rt>でんきぶんかい</rt><rp>)</rp></ruby>では、<ruby>陰極<rp>(</rp><rt>いんきょく</rt><rp>)</rp></ruby>に水素、<ruby>陽極<rp>(</rp><rt>ようきょく</rt><rp>)</rp></ruby>に酸素が発生します。',
     },
     {
       type: 'date',
@@ -202,12 +202,12 @@ export const matterCompositionChat: HistoryChat = {
       question: '原子の性質として正しいものはどれ？',
       options: [
         { letter: 'A', text: '化学変化で別の原子に変わることがある', correct: false },
-        { letter: 'B', text: '化学変化でなくなることがある', correct: false },
+        { letter: 'B', text: 'それ以上分割できない', correct: true },
         { letter: 'C', text: '化学変化で新しくできることがある', correct: false },
-        { letter: 'D', text: 'それ以上分割できない', correct: true },
+        { letter: 'D', text: '化学変化でなくなることがある', correct: false },
       ],
       explanation:
-        '<strong>正解はD「それ以上<ruby>分割<rp>(</rp><rt>ぶんかつ</rt><rp>)</rp></ruby>できない」</strong>です。<ruby>原子<rp>(</rp><rt>げんし</rt><rp>)</rp></ruby>は分割不可・他の<ruby>種類<rp>(</rp><rt>しゅるい</rt><rp>)</rp></ruby>に変わらない・なくならないし新しくできない、の3つの<ruby>性質<rp>(</rp><rt>せいしつ</rt><rp>)</rp></ruby>をもちます。',
+        '<strong>正解はB「それ以上<ruby>分割<rp>(</rp><rt>ぶんかつ</rt><rp>)</rp></ruby>できない」</strong>です。<ruby>原子<rp>(</rp><rt>げんし</rt><rp>)</rp></ruby>は分割不可・他の<ruby>種類<rp>(</rp><rt>しゅるい</rt><rp>)</rp></ruby>に変わらない・なくならないし新しくできない、の3つの<ruby>性質<rp>(</rp><rt>せいしつ</rt><rp>)</rp></ruby>をもちます。',
     },
     {
       type: 'date',
@@ -260,13 +260,13 @@ export const matterCompositionChat: HistoryChat = {
       type: 'quiz',
       question: '次のうち、化合物はどれ？',
       options: [
-        { letter: 'A', text: '酸素（O₂）', correct: false },
+        { letter: 'A', text: '水（H₂O）', correct: true },
         { letter: 'B', text: '銅（Cu）', correct: false },
-        { letter: 'C', text: '水（H₂O）', correct: true },
+        { letter: 'C', text: '酸素（O₂）', correct: false },
         { letter: 'D', text: '鉄（Fe）', correct: false },
       ],
       explanation:
-        '<strong>正解はC「水（H<sub>2</sub>O）」</strong>です。<ruby>化合物<rp>(</rp><rt>かごうぶつ</rt><rp>)</rp></ruby>は2種類以上の<ruby>元素<rp>(</rp><rt>げんそ</rt><rp>)</rp></ruby>からできた<ruby>純粋<rp>(</rp><rt>じゅんすい</rt><rp>)</rp></ruby>な<ruby>物質<rp>(</rp><rt>ぶっしつ</rt><rp>)</rp></ruby>です。水は<ruby>水素<rp>(</rp><rt>すいそ</rt><rp>)</rp></ruby>と<ruby>酸素<rp>(</rp><rt>さんそ</rt><rp>)</rp></ruby>の2種類の<ruby>元素<rp>(</rp><rt>げんそ</rt><rp>)</rp></ruby>からできています。',
+        '<strong>正解はA「水（H<sub>2</sub>O）」</strong>です。<ruby>化合物<rp>(</rp><rt>かごうぶつ</rt><rp>)</rp></ruby>は2種類以上の<ruby>元素<rp>(</rp><rt>げんそ</rt><rp>)</rp></ruby>からできた<ruby>純粋<rp>(</rp><rt>じゅんすい</rt><rp>)</rp></ruby>な<ruby>物質<rp>(</rp><rt>ぶっしつ</rt><rp>)</rp></ruby>です。水は<ruby>水素<rp>(</rp><rt>すいそ</rt><rp>)</rp></ruby>と<ruby>酸素<rp>(</rp><rt>さんそ</rt><rp>)</rp></ruby>の2種類の<ruby>元素<rp>(</rp><rt>げんそ</rt><rp>)</rp></ruby>からできています。',
     },
     {
       type: 'end',

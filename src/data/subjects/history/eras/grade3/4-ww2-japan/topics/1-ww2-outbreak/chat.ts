@@ -85,13 +85,13 @@ export const ww2OutbreakChat: HistoryChat = {
       type: 'quiz',
       question: '第二次世界大戦が始まったきっかけとなったドイツの行動は？',
       options: [
-        { letter: 'A', text: 'ポーランド侵攻', correct: true },
+        { letter: 'A', text: 'フランス侵攻', correct: false },
         { letter: 'B', text: 'ソ連侵攻', correct: false },
-        { letter: 'C', text: 'フランス侵攻', correct: false },
+        { letter: 'C', text: 'ポーランド侵攻', correct: true },
         { letter: 'D', text: 'イギリス空爆', correct: false },
       ],
       explanation:
-        '<strong>正解はA「<ruby>ポーランド<rp>(</rp><rt>ぽーらんど</rt><rp>)</rp></ruby><ruby>侵攻<rp>(</rp><rt>しんこう</rt><rp>)</rp></ruby>」</strong>です。1939年にドイツがポーランドに侵攻し、<ruby>第二次世界大戦<rp>(</rp><rt>だいにじせかいたいせん</rt><rp>)</rp></ruby>が始まりました。',
+        '<strong>正解はC「<ruby>ポーランド<rp>(</rp><rt>ぽーらんど</rt><rp>)</rp></ruby><ruby>侵攻<rp>(</rp><rt>しんこう</rt><rp>)</rp></ruby>」</strong>です。1939年にドイツがポーランドに侵攻し、<ruby>第二次世界大戦<rp>(</rp><rt>だいにじせかいたいせん</rt><rp>)</rp></ruby>が始まりました。',
     },
     {
       type: 'narrator',
@@ -141,12 +141,12 @@ export const ww2OutbreakChat: HistoryChat = {
       question: 'ABCD包囲陣で日本に対して行われた経済制裁の中心は？',
       options: [
         { letter: 'A', text: '食料輸出禁止', correct: false },
-        { letter: 'B', text: '武器輸出禁止', correct: false },
-        { letter: 'C', text: '石油輸出禁止', correct: true },
+        { letter: 'B', text: '石油輸出禁止', correct: true },
+        { letter: 'C', text: '武器輸出禁止', correct: false },
         { letter: 'D', text: '鉄鉱石輸出禁止', correct: false },
       ],
       explanation:
-        '<strong>正解はC「<ruby>石油<rp>(</rp><rt>せきゆ</rt><rp>)</rp></ruby><ruby>輸出<rp>(</rp><rt>ゆしゅつ</rt><rp>)</rp></ruby><ruby>禁止<rp>(</rp><rt>きんし</rt><rp>)</rp></ruby>」</strong>です。石油を断たれた日本は、資源確保のために<ruby>開戦<rp>(</rp><rt>かいせん</rt><rp>)</rp></ruby>を<ruby>決意<rp>(</rp><rt>けつい</rt><rp>)</rp></ruby>しました。',
+        '<strong>正解はB「<ruby>石油<rp>(</rp><rt>せきゆ</rt><rp>)</rp></ruby><ruby>輸出<rp>(</rp><rt>ゆしゅつ</rt><rp>)</rp></ruby><ruby>禁止<rp>(</rp><rt>きんし</rt><rp>)</rp></ruby>」</strong>です。石油を断たれた日本は、資源確保のために<ruby>開戦<rp>(</rp><rt>かいせん</rt><rp>)</rp></ruby>を<ruby>決意<rp>(</rp><rt>けつい</rt><rp>)</rp></ruby>しました。',
     },
     {
       type: 'narrator',

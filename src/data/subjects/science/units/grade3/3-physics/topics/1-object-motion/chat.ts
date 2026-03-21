@@ -111,12 +111,12 @@ export const objectMotionChat: HistoryChat = {
       question: '東日本の記録タイマーが1秒間に打つ打点の回数は？',
       options: [
         { letter: 'A', text: '30回', correct: false },
-        { letter: 'B', text: '50回', correct: true },
+        { letter: 'B', text: '100回', correct: false },
         { letter: 'C', text: '60回', correct: false },
-        { letter: 'D', text: '100回', correct: false },
+        { letter: 'D', text: '50回', correct: true },
       ],
       explanation:
-        '<strong>正解はB「50回」</strong>です。東日本は電源の<ruby>周波数<rp>(</rp><rt>しゅうはすう</rt><rp>)</rp></ruby>が50Hzなので、記録タイマーは1秒間に50回打点します。西日本は60Hzで60回です。',
+        '<strong>正解はD「50回」</strong>です。東日本は電源の<ruby>周波数<rp>(</rp><rt>しゅうはすう</rt><rp>)</rp></ruby>が50Hzなので、記録タイマーは1秒間に50回打点します。西日本は60Hzで60回です。',
     },
 
     // ===== セクション2: 等速直線運動とそのグラフ =====
@@ -297,12 +297,12 @@ export const objectMotionChat: HistoryChat = {
       question: '水平面上で摩擦力がはたらかない場合、運動中の物体はどうなる？',
       options: [
         { letter: 'A', text: 'しだいに止まる', correct: false },
-        { letter: 'B', text: 'だんだん速くなる', correct: false },
-        { letter: 'C', text: '等速直線運動を続ける', correct: true },
+        { letter: 'B', text: '等速直線運動を続ける', correct: true },
+        { letter: 'C', text: 'だんだん速くなる', correct: false },
         { letter: 'D', text: '向きが変わる', correct: false },
       ],
       explanation:
-        '<strong>正解はC「等速直線運動を続ける」</strong>です。<ruby>摩擦力<rp>(</rp><rt>まさつりょく</rt><rp>)</rp></ruby>がなければ物体にはたらく力の合力は0なので、物体は速さも向きも変えずに<ruby>等速直線運動<rp>(</rp><rt>とうそくちょくせんうんどう</rt><rp>)</rp></ruby>を続けます。',
+        '<strong>正解はB「等速直線運動を続ける」</strong>です。<ruby>摩擦力<rp>(</rp><rt>まさつりょく</rt><rp>)</rp></ruby>がなければ物体にはたらく力の合力は0なので、物体は速さも向きも変えずに<ruby>等速直線運動<rp>(</rp><rt>とうそくちょくせんうんどう</rt><rp>)</rp></ruby>を続けます。',
     },
     {
       type: 'end',

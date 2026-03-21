@@ -107,12 +107,12 @@ export const celestialObservationChat: HistoryChat = {
       question: '透明半球に記録した太陽の●印の間隔が等しいことから何がわかるか。',
       options: [
         { letter: 'A', text: '太陽の大きさが一定であること', correct: false },
-        { letter: 'B', text: '太陽が等速で動いていること', correct: true },
+        { letter: 'B', text: '太陽が加速していること', correct: false },
         { letter: 'C', text: '太陽までの距離が一定であること', correct: false },
-        { letter: 'D', text: '太陽が加速していること', correct: false },
+        { letter: 'D', text: '太陽が等速で動いていること', correct: true },
       ],
       explanation:
-        '<strong>正解はB「太陽が等速で動いていること」</strong>です。1時間ごとに記録した●印の間隔が等しいということは、太陽が天球上を一定の速さで動いていることを示しています。',
+        '<strong>正解はD「太陽が等速で動いていること」</strong>です。1時間ごとに記録した●印の間隔が等しいということは、太陽が天球上を一定の速さで動いていることを示しています。',
     },
     {
       type: 'date',
@@ -186,12 +186,12 @@ export const celestialObservationChat: HistoryChat = {
       question: '北極星がほとんど動かない理由として正しいものはどれか。',
       options: [
         { letter: 'A', text: '地球から最も近い恒星だから', correct: false },
-        { letter: 'B', text: '地軸の延長線上にあるから', correct: true },
-        { letter: 'C', text: '太陽より大きい恒星だから', correct: false },
+        { letter: 'B', text: '太陽より大きい恒星だから', correct: false },
+        { letter: 'C', text: '地軸の延長線上にあるから', correct: true },
         { letter: 'D', text: '地球と同じ速さで動いているから', correct: false },
       ],
       explanation:
-        '<strong>正解はB「地軸の延長線上にあるから」</strong>です。北極星は地球の<ruby>自転軸<rp>(</rp><rt>じてんじく</rt><rp>)</rp></ruby>（地軸）の<ruby>延長線上<rp>(</rp><rt>えんちょうせんじょう</rt><rp>)</rp></ruby>にあるため、地球がいくら回転してもほとんど位置が変わりません。',
+        '<strong>正解はC「地軸の延長線上にあるから」</strong>です。北極星は地球の<ruby>自転軸<rp>(</rp><rt>じてんじく</rt><rp>)</rp></ruby>（地軸）の<ruby>延長線上<rp>(</rp><rt>えんちょうせんじょう</rt><rp>)</rp></ruby>にあるため、地球がいくら回転してもほとんど位置が変わりません。',
     },
     {
       type: 'date',

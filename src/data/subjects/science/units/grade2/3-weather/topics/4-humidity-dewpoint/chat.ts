@@ -105,13 +105,13 @@ export const humidityDewpointChat: HistoryChat = {
       type: 'quiz',
       question: '気温25℃で飽和水蒸気量が23.0g/m³のとき、空気1m³中に11.5gの水蒸気がふくまれていた。湿度は何%か。',
       options: [
-        { letter: 'A', text: '25%', correct: false },
-        { letter: 'B', text: '50%', correct: true },
+        { letter: 'A', text: '50%', correct: true },
+        { letter: 'B', text: '25%', correct: false },
         { letter: 'C', text: '75%', correct: false },
         { letter: 'D', text: '100%', correct: false },
       ],
       explanation:
-        '<strong>正解はB「50%」</strong>です。<ruby>湿度<rp>(</rp><rt>しつど</rt><rp>)</rp></ruby>＝11.5÷23.0×100＝50%です。<ruby>飽和水蒸気量<rp>(</rp><rt>ほうわすいじょうきりょう</rt><rp>)</rp></ruby>のちょうど半分の<ruby>水蒸気<rp>(</rp><rt>すいじょうき</rt><rp>)</rp></ruby>が<ruby>含<rp>(</rp><rt>ふく</rt><rp>)</rp></ruby>まれているので、湿度は50%になります。',
+        '<strong>正解はA「50%」</strong>です。<ruby>湿度<rp>(</rp><rt>しつど</rt><rp>)</rp></ruby>＝11.5÷23.0×100＝50%です。<ruby>飽和水蒸気量<rp>(</rp><rt>ほうわすいじょうきりょう</rt><rp>)</rp></ruby>のちょうど半分の<ruby>水蒸気<rp>(</rp><rt>すいじょうき</rt><rp>)</rp></ruby>が<ruby>含<rp>(</rp><rt>ふく</rt><rp>)</rp></ruby>まれているので、湿度は50%になります。',
     },
     {
       type: 'date',
@@ -179,12 +179,12 @@ export const humidityDewpointChat: HistoryChat = {
       question: '露点の測定実験で金属製のコップを使う理由として最も適切なものはどれか。',
       options: [
         { letter: 'A', text: '軽くて持ちやすいから', correct: false },
-        { letter: 'B', text: '熱伝導がよく、水温と表面温度がほぼ同じになるから', correct: true },
+        { letter: 'B', text: '水をたくさん入れられるから', correct: false },
         { letter: 'C', text: '透明で中が見えるから', correct: false },
-        { letter: 'D', text: '水をたくさん入れられるから', correct: false },
+        { letter: 'D', text: '熱伝導がよく、水温と表面温度がほぼ同じになるから', correct: true },
       ],
       explanation:
-        '<strong>正解はB</strong>です。金属は<ruby>熱伝導<rp>(</rp><rt>ねつでんどう</rt><rp>)</rp></ruby>がよいため、コップの中の水温と外側の表面温度がほぼ等しくなります。これにより、<ruby>凝結<rp>(</rp><rt>ぎょうけつ</rt><rp>)</rp></ruby>が起きた温度（＝<ruby>露点<rp>(</rp><rt>ろてん</rt><rp>)</rp></ruby>）を正確に測定できます。',
+        '<strong>正解はD</strong>です。金属は<ruby>熱伝導<rp>(</rp><rt>ねつでんどう</rt><rp>)</rp></ruby>がよいため、コップの中の水温と外側の表面温度がほぼ等しくなります。これにより、<ruby>凝結<rp>(</rp><rt>ぎょうけつ</rt><rp>)</rp></ruby>が起きた温度（＝<ruby>露点<rp>(</rp><rt>ろてん</rt><rp>)</rp></ruby>）を正確に測定できます。',
     },
     {
       type: 'date',
@@ -238,12 +238,12 @@ export const humidityDewpointChat: HistoryChat = {
       question: '晴れた日の気温が最も高くなる時間帯に湿度が最も低くなる理由として正しいものはどれか。',
       options: [
         { letter: 'A', text: '空気中の水蒸気が蒸発してなくなるから', correct: false },
-        { letter: 'B', text: '飽和水蒸気量が大きくなり、水蒸気量の割合が下がるから', correct: true },
-        { letter: 'C', text: '風が強くなって水蒸気が飛ばされるから', correct: false },
+        { letter: 'B', text: '風が強くなって水蒸気が飛ばされるから', correct: false },
+        { letter: 'C', text: '飽和水蒸気量が大きくなり、水蒸気量の割合が下がるから', correct: true },
         { letter: 'D', text: '雲ができて水蒸気が減るから', correct: false },
       ],
       explanation:
-        '<strong>正解はB</strong>です。気温が高くなると<ruby>飽和水蒸気量<rp>(</rp><rt>ほうわすいじょうきりょう</rt><rp>)</rp></ruby>が大きくなります。実際の<ruby>水蒸気量<rp>(</rp><rt>すいじょうきりょう</rt><rp>)</rp></ruby>はほとんど変わらないので、<ruby>湿度<rp>(</rp><rt>しつど</rt><rp>)</rp></ruby>（＝水蒸気量÷飽和水蒸気量×100）は低くなります。',
+        '<strong>正解はC</strong>です。気温が高くなると<ruby>飽和水蒸気量<rp>(</rp><rt>ほうわすいじょうきりょう</rt><rp>)</rp></ruby>が大きくなります。実際の<ruby>水蒸気量<rp>(</rp><rt>すいじょうきりょう</rt><rp>)</rp></ruby>はほとんど変わらないので、<ruby>湿度<rp>(</rp><rt>しつど</rt><rp>)</rp></ruby>（＝水蒸気量÷飽和水蒸気量×100）は低くなります。',
     },
     {
       type: 'end',

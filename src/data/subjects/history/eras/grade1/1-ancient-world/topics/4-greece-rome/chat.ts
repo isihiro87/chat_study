@@ -174,10 +174,10 @@ export const greeceRomeChat: HistoryChat = {
       options: [
         { letter: 'A', text: 'パルテノン神殿', correct: false },
         { letter: 'B', text: '万里の長城', correct: false },
-        { letter: 'C', text: 'コロッセオ', correct: true },
-        { letter: 'D', text: 'ピラミッド', correct: false },
+        { letter: 'C', text: 'ピラミッド', correct: false },
+        { letter: 'D', text: 'コロッセオ', correct: true },
       ],
-      explanation: '<strong>正解はC「コロッセオ」</strong>です。約5万人を<ruby>収容<rp>(</rp><rt>しゅうよう</rt><rp>)</rp></ruby>できた<ruby>巨大<rp>(</rp><rt>きょだい</rt><rp>)</rp></ruby>な<ruby>円形<rp>(</rp><rt>えんけい</rt><rp>)</rp></ruby><ruby>闘技場<rp>(</rp><rt>とうぎじょう</rt><rp>)</rp></ruby>です。',
+      explanation: '<strong>正解はD「コロッセオ」</strong>です。約5万人を<ruby>収容<rp>(</rp><rt>しゅうよう</rt><rp>)</rp></ruby>できた<ruby>巨大<rp>(</rp><rt>きょだい</rt><rp>)</rp></ruby>な<ruby>円形<rp>(</rp><rt>えんけい</rt><rp>)</rp></ruby><ruby>闘技場<rp>(</rp><rt>とうぎじょう</rt><rp>)</rp></ruby>です。',
     },
     {
       type: 'end',

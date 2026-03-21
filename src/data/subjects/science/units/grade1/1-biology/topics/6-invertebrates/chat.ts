@@ -86,12 +86,12 @@ export const invertebratesChat: HistoryChat = {
       question: '軟体動物の内臓を包んでいるものは？',
       options: [
         { letter: 'A', text: '外骨格', correct: false },
-        { letter: 'B', text: '外とう膜', correct: true },
-        { letter: 'C', text: 'うろこ', correct: false },
+        { letter: 'B', text: 'うろこ', correct: false },
+        { letter: 'C', text: '外とう膜', correct: true },
         { letter: 'D', text: '殻', correct: false },
       ],
       explanation:
-        '<strong>正解はB</strong>です。<ruby>軟体動物<rp>(</rp><rt>なんたいどうぶつ</rt><rp>)</rp></ruby>は<ruby>外<rp>(</rp><rt>がい</rt><rp>)</rp></ruby>とう<ruby>膜<rp>(</rp><rt>まく</rt><rp>)</rp></ruby>で<ruby>内臓<rp>(</rp><rt>ないぞう</rt><rp>)</rp></ruby>が<ruby>包<rp>(</rp><rt>つつ</rt><rp>)</rp></ruby>まれています。',
+        '<strong>正解はC</strong>です。<ruby>軟体動物<rp>(</rp><rt>なんたいどうぶつ</rt><rp>)</rp></ruby>は<ruby>外<rp>(</rp><rt>がい</rt><rp>)</rp></ruby>とう<ruby>膜<rp>(</rp><rt>まく</rt><rp>)</rp></ruby>で<ruby>内臓<rp>(</rp><rt>ないぞう</rt><rp>)</rp></ruby>が<ruby>包<rp>(</rp><rt>つつ</rt><rp>)</rp></ruby>まれています。',
     },
     {
       type: 'date',
@@ -148,12 +148,12 @@ export const invertebratesChat: HistoryChat = {
       question: '昆虫類の呼吸で、空気をとり入れる器官は何？',
       options: [
         { letter: 'A', text: 'えら', correct: false },
-        { letter: 'B', text: '肺', correct: false },
-        { letter: 'C', text: '気門', correct: true },
+        { letter: 'B', text: '気門', correct: true },
+        { letter: 'C', text: '肺', correct: false },
         { letter: 'D', text: '皮膚', correct: false },
       ],
       explanation:
-        '<strong>正解はC「気門」</strong>です。<ruby>昆虫類<rp>(</rp><rt>こんちゅうるい</rt><rp>)</rp></ruby>は体の<ruby>横<rp>(</rp><rt>よこ</rt><rp>)</rp></ruby>にある<ruby>気門<rp>(</rp><rt>きもん</rt><rp>)</rp></ruby>から<ruby>空気<rp>(</rp><rt>くうき</rt><rp>)</rp></ruby>をとり入れて<ruby>呼吸<rp>(</rp><rt>こきゅう</rt><rp>)</rp></ruby>します。',
+        '<strong>正解はB「気門」</strong>です。<ruby>昆虫類<rp>(</rp><rt>こんちゅうるい</rt><rp>)</rp></ruby>は体の<ruby>横<rp>(</rp><rt>よこ</rt><rp>)</rp></ruby>にある<ruby>気門<rp>(</rp><rt>きもん</rt><rp>)</rp></ruby>から<ruby>空気<rp>(</rp><rt>くうき</rt><rp>)</rp></ruby>をとり入れて<ruby>呼吸<rp>(</rp><rt>こきゅう</rt><rp>)</rp></ruby>します。',
     },
     {
       type: 'summary-point',
@@ -163,13 +163,13 @@ export const invertebratesChat: HistoryChat = {
       type: 'quiz',
       question: 'クモのあしは何本？',
       options: [
-        { letter: 'A', text: '6本', correct: false },
-        { letter: 'B', text: '8本', correct: true },
+        { letter: 'A', text: '8本', correct: true },
+        { letter: 'B', text: '6本', correct: false },
         { letter: 'C', text: '10本', correct: false },
         { letter: 'D', text: '12本', correct: false },
       ],
       explanation:
-        '<strong>正解はB</strong>です。クモはあしが4<ruby>対<rp>(</rp><rt>つい</rt><rp>)</rp></ruby>8本で、3<ruby>対<rp>(</rp><rt>つい</rt><rp>)</rp></ruby>6本の<ruby>昆虫類<rp>(</rp><rt>こんちゅうるい</rt><rp>)</rp></ruby>ではありません。',
+        '<strong>正解はA</strong>です。クモはあしが4<ruby>対<rp>(</rp><rt>つい</rt><rp>)</rp></ruby>8本で、3<ruby>対<rp>(</rp><rt>つい</rt><rp>)</rp></ruby>6本の<ruby>昆虫類<rp>(</rp><rt>こんちゅうるい</rt><rp>)</rp></ruby>ではありません。',
     },
     {
       type: 'date',
@@ -237,11 +237,11 @@ export const invertebratesChat: HistoryChat = {
       options: [
         { letter: 'A', text: 'あしで歩く', correct: false },
         { letter: 'B', text: 'ひれで泳ぐ', correct: false },
-        { letter: 'C', text: '水を噴き出して移動する', correct: true },
-        { letter: 'D', text: '体をくねらせて進む', correct: false },
+        { letter: 'C', text: '体をくねらせて進む', correct: false },
+        { letter: 'D', text: '水を噴き出して移動する', correct: true },
       ],
       explanation:
-        '<strong>正解はC</strong>です。イカは<ruby>外<rp>(</rp><rt>がい</rt><rp>)</rp></ruby>とう<ruby>膜<rp>(</rp><rt>まく</rt><rp>)</rp></ruby>の中に水をため込み、<ruby>噴射<rp>(</rp><rt>ふんしゃ</rt><rp>)</rp></ruby>して<ruby>移動<rp>(</rp><rt>いどう</rt><rp>)</rp></ruby>します。',
+        '<strong>正解はD</strong>です。イカは<ruby>外<rp>(</rp><rt>がい</rt><rp>)</rp></ruby>とう<ruby>膜<rp>(</rp><rt>まく</rt><rp>)</rp></ruby>の中に水をため込み、<ruby>噴射<rp>(</rp><rt>ふんしゃ</rt><rp>)</rp></ruby>して<ruby>移動<rp>(</rp><rt>いどう</rt><rp>)</rp></ruby>します。',
     },
     {
       type: 'date',
@@ -301,12 +301,12 @@ export const invertebratesChat: HistoryChat = {
       question: 'クジラはどのグループに分類される？',
       options: [
         { letter: 'A', text: '魚類', correct: false },
-        { letter: 'B', text: '哺乳類', correct: true },
-        { letter: 'C', text: 'ハチュウ類', correct: false },
+        { letter: 'B', text: 'ハチュウ類', correct: false },
+        { letter: 'C', text: '哺乳類', correct: true },
         { letter: 'D', text: '軟体動物', correct: false },
       ],
       explanation:
-        '<strong>正解はB</strong>です。クジラは水中にいますが、<ruby>肺<rp>(</rp><rt>はい</rt><rp>)</rp></ruby><ruby>呼吸<rp>(</rp><rt>こきゅう</rt><rp>)</rp></ruby>・<ruby>胎生<rp>(</rp><rt>たいせい</rt><rp>)</rp></ruby>・<ruby>母乳<rp>(</rp><rt>ぼにゅう</rt><rp>)</rp></ruby>で育てるため<ruby>哺乳類<rp>(</rp><rt>ほにゅうるい</rt><rp>)</rp></ruby>です。',
+        '<strong>正解はC</strong>です。クジラは水中にいますが、<ruby>肺<rp>(</rp><rt>はい</rt><rp>)</rp></ruby><ruby>呼吸<rp>(</rp><rt>こきゅう</rt><rp>)</rp></ruby>・<ruby>胎生<rp>(</rp><rt>たいせい</rt><rp>)</rp></ruby>・<ruby>母乳<rp>(</rp><rt>ぼにゅう</rt><rp>)</rp></ruby>で育てるため<ruby>哺乳類<rp>(</rp><rt>ほにゅうるい</rt><rp>)</rp></ruby>です。',
     },
     {
       type: 'end',

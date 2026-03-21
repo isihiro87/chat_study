@@ -91,13 +91,13 @@ export const isobarsWindChat: HistoryChat = {
       type: 'quiz',
       question: '等圧線の間隔がせまい場所の風について正しいものはどれか。',
       options: [
-        { letter: 'A', text: '風は弱い', correct: false },
-        { letter: 'B', text: '風は強い', correct: true },
+        { letter: 'A', text: '風は強い', correct: true },
+        { letter: 'B', text: '風は弱い', correct: false },
         { letter: 'C', text: '風は吹かない', correct: false },
         { letter: 'D', text: '風向が一定しない', correct: false },
       ],
       explanation:
-        '<strong>正解はB「風は強い」</strong>です。<ruby>等圧線<rp>(</rp><rt>とうあつせん</rt><rp>)</rp></ruby>の<ruby>間隔<rp>(</rp><rt>かんかく</rt><rp>)</rp></ruby>がせまいほど気圧の差が大きく、風が強くなります。',
+        '<strong>正解はA「風は強い」</strong>です。<ruby>等圧線<rp>(</rp><rt>とうあつせん</rt><rp>)</rp></ruby>の<ruby>間隔<rp>(</rp><rt>かんかく</rt><rp>)</rp></ruby>がせまいほど気圧の差が大きく、風が強くなります。',
     },
     {
       type: 'date',
@@ -151,12 +151,12 @@ export const isobarsWindChat: HistoryChat = {
       question: '低気圧の中心付近で起きている気流はどれか。',
       options: [
         { letter: 'A', text: '下降気流', correct: false },
-        { letter: 'B', text: '上昇気流', correct: true },
+        { letter: 'B', text: '気流は起きない', correct: false },
         { letter: 'C', text: '水平気流', correct: false },
-        { letter: 'D', text: '気流は起きない', correct: false },
+        { letter: 'D', text: '上昇気流', correct: true },
       ],
       explanation:
-        '<strong>正解はB「<ruby>上昇気流<rp>(</rp><rt>じょうしょうきりゅう</rt><rp>)</rp></ruby>」</strong>です。<ruby>低気圧<rp>(</rp><rt>ていきあつ</rt><rp>)</rp></ruby>の中心ではまわりから空気が<ruby>吹<rp>(</rp><rt>ふ</rt><rp>)</rp></ruby>き<ruby>込<rp>(</rp><rt>こ</rt><rp>)</rp></ruby>み、<ruby>上昇気流<rp>(</rp><rt>じょうしょうきりゅう</rt><rp>)</rp></ruby>が発生します。そのため雲ができやすく、天気が<ruby>崩<rp>(</rp><rt>くず</rt><rp>)</rp></ruby>れやすくなります。',
+        '<strong>正解はD「<ruby>上昇気流<rp>(</rp><rt>じょうしょうきりゅう</rt><rp>)</rp></ruby>」</strong>です。<ruby>低気圧<rp>(</rp><rt>ていきあつ</rt><rp>)</rp></ruby>の中心ではまわりから空気が<ruby>吹<rp>(</rp><rt>ふ</rt><rp>)</rp></ruby>き<ruby>込<rp>(</rp><rt>こ</rt><rp>)</rp></ruby>み、<ruby>上昇気流<rp>(</rp><rt>じょうしょうきりゅう</rt><rp>)</rp></ruby>が発生します。そのため雲ができやすく、天気が<ruby>崩<rp>(</rp><rt>くず</rt><rp>)</rp></ruby>れやすくなります。',
     },
     {
       type: 'end',

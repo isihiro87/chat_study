@@ -97,13 +97,13 @@ export const staticElectricityChat: HistoryChat = {
       type: 'quiz',
       question: 'ストローを布でこすったとき、ストローが−に帯電した。このとき起きたことは？',
       options: [
-        { letter: 'A', text: 'ストローから布へ電子が移動した', correct: false },
-        { letter: 'B', text: '布からストローへ電子が移動した', correct: true },
+        { letter: 'A', text: '布からストローへ電子が移動した', correct: true },
+        { letter: 'B', text: 'ストローから布へ電子が移動した', correct: false },
         { letter: 'C', text: 'ストローの中で＋の電気が発生した', correct: false },
         { letter: 'D', text: '布の中で−の電気が消滅した', correct: false },
       ],
       explanation:
-        '<strong>正解はB「<ruby>布<rp>(</rp><rt>ぬの</rt><rp>)</rp></ruby>からストローへ<ruby>電子<rp>(</rp><rt>でんし</rt><rp>)</rp></ruby>が<ruby>移動<rp>(</rp><rt>いどう</rt><rp>)</rp></ruby>した」</strong>です。ストローが−に<ruby>帯電<rp>(</rp><rt>たいでん</rt><rp>)</rp></ruby>したのは、<ruby>電子<rp>(</rp><rt>でんし</rt><rp>)</rp></ruby>（−の電気をもつ<ruby>粒子<rp>(</rp><rt>りゅうし</rt><rp>)</rp></ruby>）を<ruby>受<rp>(</rp><rt>う</rt><rp>)</rp></ruby>け<ruby>取<rp>(</rp><rt>と</rt><rp>)</rp></ruby>ったからです。',
+        '<strong>正解はA「<ruby>布<rp>(</rp><rt>ぬの</rt><rp>)</rp></ruby>からストローへ<ruby>電子<rp>(</rp><rt>でんし</rt><rp>)</rp></ruby>が<ruby>移動<rp>(</rp><rt>いどう</rt><rp>)</rp></ruby>した」</strong>です。ストローが−に<ruby>帯電<rp>(</rp><rt>たいでん</rt><rp>)</rp></ruby>したのは、<ruby>電子<rp>(</rp><rt>でんし</rt><rp>)</rp></ruby>（−の電気をもつ<ruby>粒子<rp>(</rp><rt>りゅうし</rt><rp>)</rp></ruby>）を<ruby>受<rp>(</rp><rt>う</rt><rp>)</rp></ruby>け<ruby>取<rp>(</rp><rt>と</rt><rp>)</rp></ruby>ったからです。',
     },
     {
       type: 'date',
@@ -157,12 +157,12 @@ export const staticElectricityChat: HistoryChat = {
       question: '雷はどのような現象か、正しいものを選べ。',
       options: [
         { letter: 'A', text: '雲の中で電子が消滅する現象', correct: false },
-        { letter: 'B', text: '雲にたまった静電気が空気中を放電する現象', correct: true },
+        { letter: 'B', text: '地面から雲へ電流が流れる現象', correct: false },
         { letter: 'C', text: '真空放電の一種', correct: false },
-        { letter: 'D', text: '地面から雲へ電流が流れる現象', correct: false },
+        { letter: 'D', text: '雲にたまった静電気が空気中を放電する現象', correct: true },
       ],
       explanation:
-        '<strong>正解はB「<ruby>雲<rp>(</rp><rt>くも</rt><rp>)</rp></ruby>にたまった<ruby>静電気<rp>(</rp><rt>せいでんき</rt><rp>)</rp></ruby>が空気中を<ruby>放電<rp>(</rp><rt>ほうでん</rt><rp>)</rp></ruby>する<ruby>現象<rp>(</rp><rt>げんしょう</rt><rp>)</rp></ruby>」</strong>です。空気はふつう電気を通しませんが、大量の電気がたまると<ruby>放電<rp>(</rp><rt>ほうでん</rt><rp>)</rp></ruby>が起こります。',
+        '<strong>正解はD「<ruby>雲<rp>(</rp><rt>くも</rt><rp>)</rp></ruby>にたまった<ruby>静電気<rp>(</rp><rt>せいでんき</rt><rp>)</rp></ruby>が空気中を<ruby>放電<rp>(</rp><rt>ほうでん</rt><rp>)</rp></ruby>する<ruby>現象<rp>(</rp><rt>げんしょう</rt><rp>)</rp></ruby>」</strong>です。空気はふつう電気を通しませんが、大量の電気がたまると<ruby>放電<rp>(</rp><rt>ほうでん</rt><rp>)</rp></ruby>が起こります。',
     },
     {
       type: 'end',

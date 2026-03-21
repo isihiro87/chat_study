@@ -99,11 +99,11 @@ export const kamakuraSocietyChat: HistoryChat = {
       question: '鎌倉時代に広まった、同じ田で米と麦を作る農法は？',
       options: [
         { letter: 'A', text: '三圃制', correct: false },
-        { letter: 'B', text: '二毛作', correct: true },
+        { letter: 'B', text: '輪作', correct: false },
         { letter: 'C', text: '二期作', correct: false },
-        { letter: 'D', text: '輪作', correct: false },
+        { letter: 'D', text: '二毛作', correct: true },
       ],
-      explanation: '<strong>正解はB「<ruby>二毛作<rp>(</rp><rt>にもうさく</rt><rp>)</rp></ruby>」</strong>です。同じ田んぼで米と麦など<ruby>異<rp>(</rp><rt>こと</rt><rp>)</rp></ruby>なる作物を年に2回作る農法で、西日本を中心に広まりました。',
+      explanation: '<strong>正解はD「<ruby>二毛作<rp>(</rp><rt>にもうさく</rt><rp>)</rp></ruby>」</strong>です。同じ田んぼで米と麦など<ruby>異<rp>(</rp><rt>こと</rt><rp>)</rp></ruby>なる作物を年に2回作る農法で、西日本を中心に広まりました。',
     },
     {
       type: 'narrator',
@@ -175,10 +175,10 @@ export const kamakuraSocietyChat: HistoryChat = {
       options: [
         { letter: 'A', text: '和同開珎', correct: false },
         { letter: 'B', text: '永楽通宝', correct: false },
-        { letter: 'C', text: '寛永通宝', correct: false },
-        { letter: 'D', text: '宋銭', correct: true },
+        { letter: 'C', text: '宋銭', correct: true },
+        { letter: 'D', text: '寛永通宝', correct: false },
       ],
-      explanation: '<strong>正解はD「<ruby>宋銭<rp>(</rp><rt>そうせん</rt><rp>)</rp></ruby>」</strong>です。<ruby>日宋貿易<rp>(</rp><rt>にっそうぼうえき</rt><rp>)</rp></ruby>で<ruby>輸入<rp>(</rp><rt>ゆにゅう</rt><rp>)</rp></ruby>された<strong>宋銭</strong>が<ruby>鎌倉時代<rp>(</rp><rt>かまくらじだい</rt><rp>)</rp></ruby>に広く<ruby>流通<rp>(</rp><rt>りゅうつう</rt><rp>)</rp></ruby>し、<ruby>貨幣経済<rp>(</rp><rt>かへいけいざい</rt><rp>)</rp></ruby>が発展しました。',
+      explanation: '<strong>正解はC「<ruby>宋銭<rp>(</rp><rt>そうせん</rt><rp>)</rp></ruby>」</strong>です。<ruby>日宋貿易<rp>(</rp><rt>にっそうぼうえき</rt><rp>)</rp></ruby>で<ruby>輸入<rp>(</rp><rt>ゆにゅう</rt><rp>)</rp></ruby>された<strong>宋銭</strong>が<ruby>鎌倉時代<rp>(</rp><rt>かまくらじだい</rt><rp>)</rp></ruby>に広く<ruby>流通<rp>(</rp><rt>りゅうつう</rt><rp>)</rp></ruby>し、<ruby>貨幣経済<rp>(</rp><rt>かへいけいざい</rt><rp>)</rp></ruby>が発展しました。',
     },
     {
       type: 'end',

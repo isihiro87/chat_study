@@ -93,11 +93,11 @@ export const batteryBasicsChat: HistoryChat = {
       options: [
         { letter: 'A', text: '亜鉛板と銅板をうすい塩酸に入れる', correct: false },
         { letter: 'B', text: '亜鉛板と銅板を食塩水に入れる', correct: false },
-        { letter: 'C', text: '亜鉛板と銅板を砂糖水に入れる', correct: true },
-        { letter: 'D', text: 'マグネシウム板と銅板をうすい塩酸に入れる', correct: false },
+        { letter: 'C', text: 'マグネシウム板と銅板をうすい塩酸に入れる', correct: false },
+        { letter: 'D', text: '亜鉛板と銅板を砂糖水に入れる', correct: true },
       ],
       explanation:
-        '<strong>正解はC</strong>です。<ruby>砂糖<rp>(</rp><rt>さとう</rt><rp>)</rp></ruby>は<ruby>非電解質<rp>(</rp><rt>ひでんかいしつ</rt><rp>)</rp></ruby>なので、水に<ruby>溶<rp>(</rp><rt>と</rt><rp>)</rp></ruby>けてもイオンにならず<ruby>電池<rp>(</rp><rt>でんち</rt><rp>)</rp></ruby>になりません。',
+        '<strong>正解はD</strong>です。<ruby>砂糖<rp>(</rp><rt>さとう</rt><rp>)</rp></ruby>は<ruby>非電解質<rp>(</rp><rt>ひでんかいしつ</rt><rp>)</rp></ruby>なので、水に<ruby>溶<rp>(</rp><rt>と</rt><rp>)</rp></ruby>けてもイオンにならず<ruby>電池<rp>(</rp><rt>でんち</rt><rp>)</rp></ruby>になりません。',
     },
     {
       type: 'date',
@@ -178,12 +178,12 @@ export const batteryBasicsChat: HistoryChat = {
       question: '電池で電子が流れる向きはどちら？',
       options: [
         { letter: 'A', text: '＋極から−極へ', correct: false },
-        { letter: 'B', text: '−極から＋極へ', correct: true },
-        { letter: 'C', text: '両方向に流れる', correct: false },
+        { letter: 'B', text: '両方向に流れる', correct: false },
+        { letter: 'C', text: '−極から＋極へ', correct: true },
         { letter: 'D', text: '流れない', correct: false },
       ],
       explanation:
-        '<strong>正解はB</strong>。<ruby>電子<rp>(</rp><rt>でんし</rt><rp>)</rp></ruby>は−<ruby>極<rp>(</rp><rt>きょく</rt><rp>)</rp></ruby>から<ruby>導線<rp>(</rp><rt>どうせん</rt><rp>)</rp></ruby>を<ruby>通<rp>(</rp><rt>とお</rt><rp>)</rp></ruby>って＋<ruby>極<rp>(</rp><rt>きょく</rt><rp>)</rp></ruby>へ<ruby>流<rp>(</rp><rt>なが</rt><rp>)</rp></ruby>れます。<ruby>電流<rp>(</rp><rt>でんりゅう</rt><rp>)</rp></ruby>の<ruby>向<rp>(</rp><rt>む</rt><rp>)</rp></ruby>きは<ruby>逆<rp>(</rp><rt>ぎゃく</rt><rp>)</rp></ruby>で＋極→−極です。',
+        '<strong>正解はC</strong>。<ruby>電子<rp>(</rp><rt>でんし</rt><rp>)</rp></ruby>は−<ruby>極<rp>(</rp><rt>きょく</rt><rp>)</rp></ruby>から<ruby>導線<rp>(</rp><rt>どうせん</rt><rp>)</rp></ruby>を<ruby>通<rp>(</rp><rt>とお</rt><rp>)</rp></ruby>って＋<ruby>極<rp>(</rp><rt>きょく</rt><rp>)</rp></ruby>へ<ruby>流<rp>(</rp><rt>なが</rt><rp>)</rp></ruby>れます。<ruby>電流<rp>(</rp><rt>でんりゅう</rt><rp>)</rp></ruby>の<ruby>向<rp>(</rp><rt>む</rt><rp>)</rp></ruby>きは<ruby>逆<rp>(</rp><rt>ぎゃく</rt><rp>)</rp></ruby>で＋極→−極です。',
     },
     {
       type: 'date',

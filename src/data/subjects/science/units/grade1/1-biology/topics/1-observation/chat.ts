@@ -91,13 +91,13 @@ export const observationChat: HistoryChat = {
       type: 'quiz',
       question: '理科のスケッチのルールとして正しいものはどれ？',
       options: [
-        { letter: 'A', text: '影をつけて立体的に描く', correct: false },
+        { letter: 'A', text: '細い1本の線で輪郭を描き、影はつけない', correct: true },
         { letter: 'B', text: '色をぬって正確に記録する', correct: false },
-        { letter: 'C', text: '細い1本の線で輪郭を描き、影はつけない', correct: true },
+        { letter: 'C', text: '影をつけて立体的に描く', correct: false },
         { letter: 'D', text: '太い線でしっかりぬりつぶす', correct: false },
       ],
       explanation:
-        '<strong>正解はC</strong>です。理科のスケッチは<ruby>細<rp>(</rp><rt>ほそ</rt><rp>)</rp></ruby>い1本の線で<ruby>輪郭<rp>(</rp><rt>りんかく</rt><rp>)</rp></ruby>を<ruby>描<rp>(</rp><rt>か</rt><rp>)</rp></ruby>き、<ruby>影<rp>(</rp><rt>かげ</rt><rp>)</rp></ruby>やぬりつぶしはしません。',
+        '<strong>正解はA</strong>です。理科のスケッチは<ruby>細<rp>(</rp><rt>ほそ</rt><rp>)</rp></ruby>い1本の線で<ruby>輪郭<rp>(</rp><rt>りんかく</rt><rp>)</rp></ruby>を<ruby>描<rp>(</rp><rt>か</rt><rp>)</rp></ruby>き、<ruby>影<rp>(</rp><rt>かげ</rt><rp>)</rp></ruby>やぬりつぶしはしません。',
     },
     {
       type: 'date',
@@ -160,12 +160,12 @@ export const observationChat: HistoryChat = {
       question: 'ルーペで観察するとき、正しい方法はどれ？',
       options: [
         { letter: 'A', text: 'ルーペを観察物に近づける', correct: false },
-        { letter: 'B', text: 'ルーペを目に近づけ、観察物を動かす', correct: true },
+        { letter: 'B', text: 'ルーペを遠くに持つ', correct: false },
         { letter: 'C', text: 'ルーペと観察物の両方を動かす', correct: false },
-        { letter: 'D', text: 'ルーペを遠くに持つ', correct: false },
+        { letter: 'D', text: 'ルーペを目に近づけ、観察物を動かす', correct: true },
       ],
       explanation:
-        '<strong>正解はB</strong>です。ルーペは<ruby>目<rp>(</rp><rt>め</rt><rp>)</rp></ruby>に近づけて<ruby>固定<rp>(</rp><rt>こてい</rt><rp>)</rp></ruby>し、<ruby>観察<rp>(</rp><rt>かんさつ</rt><rp>)</rp></ruby>するものを前後に動かしてピントを合わせます。',
+        '<strong>正解はD</strong>です。ルーペは<ruby>目<rp>(</rp><rt>め</rt><rp>)</rp></ruby>に近づけて<ruby>固定<rp>(</rp><rt>こてい</rt><rp>)</rp></ruby>し、<ruby>観察<rp>(</rp><rt>かんさつ</rt><rp>)</rp></ruby>するものを前後に動かしてピントを合わせます。',
     },
     {
       type: 'summary-point',
@@ -175,13 +175,13 @@ export const observationChat: HistoryChat = {
       type: 'quiz',
       question: '顕微鏡のレンズを取り付ける正しい順番はどれ？',
       options: [
-        { letter: 'A', text: '接眼レンズ→対物レンズ', correct: true },
+        { letter: 'A', text: '同時に取り付ける', correct: false },
         { letter: 'B', text: '対物レンズ→接眼レンズ', correct: false },
-        { letter: 'C', text: '同時に取り付ける', correct: false },
+        { letter: 'C', text: '接眼レンズ→対物レンズ', correct: true },
         { letter: 'D', text: 'どちらからでもよい', correct: false },
       ],
       explanation:
-        '<strong>正解はA</strong>です。<ruby>接眼<rp>(</rp><rt>せつがん</rt><rp>)</rp></ruby>レンズを先に取り付けることで、<ruby>鏡筒<rp>(</rp><rt>きょうとう</rt><rp>)</rp></ruby>にほこりが入るのを<ruby>防<rp>(</rp><rt>ふせ</rt><rp>)</rp></ruby>ぎます。',
+        '<strong>正解はC</strong>です。<ruby>接眼<rp>(</rp><rt>せつがん</rt><rp>)</rp></ruby>レンズを先に取り付けることで、<ruby>鏡筒<rp>(</rp><rt>きょうとう</rt><rp>)</rp></ruby>にほこりが入るのを<ruby>防<rp>(</rp><rt>ふせ</rt><rp>)</rp></ruby>ぎます。',
     },
     {
       type: 'date',
@@ -228,12 +228,12 @@ export const observationChat: HistoryChat = {
       question: '生物の分類で基準にするのに最も適しているものはどれ？',
       options: [
         { letter: 'A', text: '花の色', correct: false },
-        { letter: 'B', text: '生息している場所', correct: false },
+        { letter: 'B', text: '体のつくりなど変化しにくい特徴', correct: true },
         { letter: 'C', text: '個体の大きさ', correct: false },
-        { letter: 'D', text: '体のつくりなど変化しにくい特徴', correct: true },
+        { letter: 'D', text: '生息している場所', correct: false },
       ],
       explanation:
-        '<strong>正解はD</strong>です。花の<ruby>色<rp>(</rp><rt>いろ</rt><rp>)</rp></ruby>や大きさは<ruby>環境<rp>(</rp><rt>かんきょう</rt><rp>)</rp></ruby>で変わるため、体のつくりなど変化しにくい<ruby>特徴<rp>(</rp><rt>とくちょう</rt><rp>)</rp></ruby>を<ruby>基準<rp>(</rp><rt>きじゅん</rt><rp>)</rp></ruby>にします。',
+        '<strong>正解はB</strong>です。花の<ruby>色<rp>(</rp><rt>いろ</rt><rp>)</rp></ruby>や大きさは<ruby>環境<rp>(</rp><rt>かんきょう</rt><rp>)</rp></ruby>で変わるため、体のつくりなど変化しにくい<ruby>特徴<rp>(</rp><rt>とくちょう</rt><rp>)</rp></ruby>を<ruby>基準<rp>(</rp><rt>きじゅん</rt><rp>)</rp></ruby>にします。',
     },
     {
       type: 'end',

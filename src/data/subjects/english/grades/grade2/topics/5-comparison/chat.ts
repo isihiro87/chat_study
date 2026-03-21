@@ -105,8 +105,8 @@ export const comparisonChat: HistoryChat = {
       options: [
         { letter: 'A', text: 'interesting', correct: false },
         { letter: 'B', text: 'interestinger', correct: false },
-        { letter: 'C', text: 'more interesting', correct: true },
-        { letter: 'D', text: 'most interesting', correct: false },
+        { letter: 'C', text: 'most interesting', correct: false },
+        { letter: 'D', text: 'more interesting', correct: true },
       ],
       explanation: 'interesting は<ruby>長<rt>なが</rt></ruby>いことばだから、前に <strong>more</strong> をつけるよ。more interesting than 〜',
     },
@@ -187,8 +187,8 @@ export const comparisonChat: HistoryChat = {
       question: '「She is (　　) old (　　) her sister.（彼女はお姉さんと同じくらいの年齢だ。）」\nの (　　) に入る組み合わせは？',
       options: [
         { letter: 'A', text: 'more ... than', correct: false },
-        { letter: 'B', text: 'as ... as', correct: true },
-        { letter: 'C', text: 'the ... in', correct: false },
+        { letter: 'B', text: 'the ... in', correct: false },
+        { letter: 'C', text: 'as ... as', correct: true },
         { letter: 'D', text: '-er ... than', correct: false },
       ],
       explanation: '「<ruby>同<rt>おな</rt></ruby>じくらい〜だ」は <strong>as〜as</strong> だよ。as old as her sister',
@@ -307,8 +307,8 @@ export const comparisonChat: HistoryChat = {
       type: 'quiz',
       question: '「He is the tallest (　　) the five.（彼は5人の中でいちばん背が高い。）」\nの (　　) に入るのは？',
       options: [
-        { letter: 'A', text: 'in', correct: false },
-        { letter: 'B', text: 'of', correct: true },
+        { letter: 'A', text: 'of', correct: true },
+        { letter: 'B', text: 'in', correct: false },
         { letter: 'C', text: 'than', correct: false },
         { letter: 'D', text: 'at', correct: false },
       ],

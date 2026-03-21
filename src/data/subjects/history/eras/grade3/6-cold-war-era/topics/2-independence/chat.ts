@@ -83,12 +83,12 @@ export const japanIndependenceChat: HistoryChat = {
       question: '1951年に日本が主権を回復した条約は？',
       options: [
         { letter: 'A', text: 'ポーツマス条約', correct: false },
-        { letter: 'B', text: 'サンフランシスコ平和条約', correct: true },
+        { letter: 'B', text: '日ソ共同宣言', correct: false },
         { letter: 'C', text: '日米安全保障条約', correct: false },
-        { letter: 'D', text: '日ソ共同宣言', correct: false },
+        { letter: 'D', text: 'サンフランシスコ平和条約', correct: true },
       ],
       explanation:
-        '<strong>正解はB「<ruby>サンフランシスコ平和条約<rp>(</rp><rt>さんふらんしすこへいわじょうやく</rt><rp>)</rp></ruby>」</strong>です。<strong>吉田茂</strong>首相が<ruby>調印<rp>(</rp><rt>ちょういん</rt><rp>)</rp></ruby>し、日本は<ruby>独立<rp>(</rp><rt>どくりつ</rt><rp>)</rp></ruby>を回復しました。',
+        '<strong>正解はD「<ruby>サンフランシスコ平和条約<rp>(</rp><rt>さんふらんしすこへいわじょうやく</rt><rp>)</rp></ruby>」</strong>です。<strong>吉田茂</strong>首相が<ruby>調印<rp>(</rp><rt>ちょういん</rt><rp>)</rp></ruby>し、日本は<ruby>独立<rp>(</rp><rt>どくりつ</rt><rp>)</rp></ruby>を回復しました。',
     },
     {
       type: 'date',

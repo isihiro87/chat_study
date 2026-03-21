@@ -98,8 +98,8 @@ export const contactClauseChat: HistoryChat = {
       options: [
         { letter: 'A', text: 'the book bought I yesterday', correct: false },
         { letter: 'B', text: 'the I bought yesterday book', correct: false },
-        { letter: 'C', text: 'the book I bought yesterday', correct: true },
-        { letter: 'D', text: 'the book I buying yesterday', correct: false },
+        { letter: 'C', text: 'the book I buying yesterday', correct: false },
+        { letter: 'D', text: 'the book I bought yesterday', correct: true },
       ],
       explanation: '<ruby>接触節<rt>せっしょくせつ</rt></ruby>は名詞のうしろに「<ruby>主語<rt>しゅご</rt></ruby>＋<ruby>動詞<rt>どうし</rt></ruby>」をくっつけるだけ。<strong>the book I bought yesterday</strong> だよ。',
     },

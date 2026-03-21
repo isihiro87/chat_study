@@ -97,13 +97,13 @@ export const solarSystemPlanetsChat: HistoryChat = {
       type: 'quiz',
       question: '木星型惑星に含まれないものはどれか。',
       options: [
-        { letter: 'A', text: '木星', correct: false },
+        { letter: 'A', text: '火星', correct: true },
         { letter: 'B', text: '土星', correct: false },
-        { letter: 'C', text: '火星', correct: true },
+        { letter: 'C', text: '木星', correct: false },
         { letter: 'D', text: '海王星', correct: false },
       ],
       explanation:
-        '<strong>正解はC「<ruby>火星<rp>(</rp><rt>かせい</rt><rp>)</rp></ruby>」</strong>です。火星は<ruby>地球型惑星<rp>(</rp><rt>ちきゅうがたわくせい</rt><rp>)</rp></ruby>です。<ruby>木星型惑星<rp>(</rp><rt>もくせいがたわくせい</rt><rp>)</rp></ruby>は<ruby>木星<rp>(</rp><rt>もくせい</rt><rp>)</rp></ruby>・<ruby>土星<rp>(</rp><rt>どせい</rt><rp>)</rp></ruby>・<ruby>天王星<rp>(</rp><rt>てんのうせい</rt><rp>)</rp></ruby>・<ruby>海王星<rp>(</rp><rt>かいおうせい</rt><rp>)</rp></ruby>の4つです。',
+        '<strong>正解はA「<ruby>火星<rp>(</rp><rt>かせい</rt><rp>)</rp></ruby>」</strong>です。火星は<ruby>地球型惑星<rp>(</rp><rt>ちきゅうがたわくせい</rt><rp>)</rp></ruby>です。<ruby>木星型惑星<rp>(</rp><rt>もくせいがたわくせい</rt><rp>)</rp></ruby>は<ruby>木星<rp>(</rp><rt>もくせい</rt><rp>)</rp></ruby>・<ruby>土星<rp>(</rp><rt>どせい</rt><rp>)</rp></ruby>・<ruby>天王星<rp>(</rp><rt>てんのうせい</rt><rp>)</rp></ruby>・<ruby>海王星<rp>(</rp><rt>かいおうせい</rt><rp>)</rp></ruby>の4つです。',
     },
     {
       type: 'date',
@@ -199,12 +199,12 @@ export const solarSystemPlanetsChat: HistoryChat = {
       question: '金星の表面温度が非常に高い理由として正しいものはどれか。',
       options: [
         { letter: 'A', text: '太陽に最も近い惑星だから', correct: false },
-        { letter: 'B', text: '二酸化炭素の厚い大気による温室効果のため', correct: true },
+        { letter: 'B', text: '自転が速く摩擦熱が発生するから', correct: false },
         { letter: 'C', text: '内部のマグマが噴出しているから', correct: false },
-        { letter: 'D', text: '自転が速く摩擦熱が発生するから', correct: false },
+        { letter: 'D', text: '二酸化炭素の厚い大気による温室効果のため', correct: true },
       ],
       explanation:
-        '<strong>正解はB</strong>です。<ruby>金星<rp>(</rp><rt>きんせい</rt><rp>)</rp></ruby>は<ruby>二酸化炭素<rp>(</rp><rt>にさんかたんそ</rt><rp>)</rp></ruby>の厚い大気に覆われ、<ruby>温室効果<rp>(</rp><rt>おんしつこうか</rt><rp>)</rp></ruby>によって表面温度が約460℃にもなります。太陽に最も近いのは<ruby>水星<rp>(</rp><rt>すいせい</rt><rp>)</rp></ruby>です。',
+        '<strong>正解はD</strong>です。<ruby>金星<rp>(</rp><rt>きんせい</rt><rp>)</rp></ruby>は<ruby>二酸化炭素<rp>(</rp><rt>にさんかたんそ</rt><rp>)</rp></ruby>の厚い大気に覆われ、<ruby>温室効果<rp>(</rp><rt>おんしつこうか</rt><rp>)</rp></ruby>によって表面温度が約460℃にもなります。太陽に最も近いのは<ruby>水星<rp>(</rp><rt>すいせい</rt><rp>)</rp></ruby>です。',
     },
     {
       type: 'date',
@@ -285,12 +285,12 @@ export const solarSystemPlanetsChat: HistoryChat = {
       question: 'すい星（彗星）が太陽に近づくと尾を引く理由はどれか。',
       options: [
         { letter: 'A', text: '太陽の重力で引きのばされるから', correct: false },
-        { letter: 'B', text: '太陽の熱で氷が蒸発してガスや塵が放出されるから', correct: true },
-        { letter: 'C', text: '他の惑星との衝突で破片が飛び散るから', correct: false },
+        { letter: 'B', text: '他の惑星との衝突で破片が飛び散るから', correct: false },
+        { letter: 'C', text: '太陽の熱で氷が蒸発してガスや塵が放出されるから', correct: true },
         { letter: 'D', text: '太陽の磁場に引き寄せられるから', correct: false },
       ],
       explanation:
-        '<strong>正解はB</strong>です。すい星は<ruby>氷<rp>(</rp><rt>こおり</rt><rp>)</rp></ruby>と<ruby>塵<rp>(</rp><rt>ちり</rt><rp>)</rp></ruby>でできた天体で、太陽に近づくと熱で氷が<ruby>蒸発<rp>(</rp><rt>じょうはつ</rt><rp>)</rp></ruby>し、ガスや塵が放出されて尾ができます。',
+        '<strong>正解はC</strong>です。すい星は<ruby>氷<rp>(</rp><rt>こおり</rt><rp>)</rp></ruby>と<ruby>塵<rp>(</rp><rt>ちり</rt><rp>)</rp></ruby>でできた天体で、太陽に近づくと熱で氷が<ruby>蒸発<rp>(</rp><rt>じょうはつ</rt><rp>)</rp></ruby>し、ガスや塵が放出されて尾ができます。',
     },
     {
       type: 'end',

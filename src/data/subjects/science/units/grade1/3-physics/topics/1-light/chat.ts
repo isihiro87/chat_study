@@ -105,13 +105,13 @@ export const lightChat: HistoryChat = {
       type: 'quiz',
       question: '光が鏡で反射するとき、入射角と反射角の関係はどれか。',
       options: [
-        { letter: 'A', text: '入射角＞反射角', correct: false },
-        { letter: 'B', text: '入射角＝反射角', correct: true },
+        { letter: 'A', text: '入射角＝反射角', correct: true },
+        { letter: 'B', text: '入射角＞反射角', correct: false },
         { letter: 'C', text: '入射角＜反射角', correct: false },
         { letter: 'D', text: '関係は一定ではない', correct: false },
       ],
       explanation:
-        '<strong>正解はB「入射角＝反射角」</strong>です。<ruby>反射<rp>(</rp><rt>はんしゃ</rt><rp>)</rp></ruby>の<ruby>法則<rp>(</rp><rt>ほうそく</rt><rp>)</rp></ruby>により、<ruby>入射角<rp>(</rp><rt>にゅうしゃかく</rt><rp>)</rp></ruby>と<ruby>反射角<rp>(</rp><rt>はんしゃかく</rt><rp>)</rp></ruby>は常に<ruby>等<rp>(</rp><rt>ひと</rt><rp>)</rp></ruby>しくなります。',
+        '<strong>正解はA「入射角＝反射角」</strong>です。<ruby>反射<rp>(</rp><rt>はんしゃ</rt><rp>)</rp></ruby>の<ruby>法則<rp>(</rp><rt>ほうそく</rt><rp>)</rp></ruby>により、<ruby>入射角<rp>(</rp><rt>にゅうしゃかく</rt><rp>)</rp></ruby>と<ruby>反射角<rp>(</rp><rt>はんしゃかく</rt><rp>)</rp></ruby>は常に<ruby>等<rp>(</rp><rt>ひと</rt><rp>)</rp></ruby>しくなります。',
     },
     {
       type: 'date',
@@ -178,11 +178,11 @@ export const lightChat: HistoryChat = {
       options: [
         { letter: 'A', text: '虫めがね', correct: false },
         { letter: 'B', text: '鏡', correct: false },
-        { letter: 'C', text: '光ファイバー', correct: true },
-        { letter: 'D', text: 'カメラ', correct: false },
+        { letter: 'C', text: 'カメラ', correct: false },
+        { letter: 'D', text: '光ファイバー', correct: true },
       ],
       explanation:
-        '<strong>正解はC「光ファイバー」</strong>です。<ruby>光<rp>(</rp><rt>ひかり</rt><rp>)</rp></ruby>ファイバーは<ruby>全反射<rp>(</rp><rt>ぜんはんしゃ</rt><rp>)</rp></ruby>を利用して、光を<ruby>遠<rp>(</rp><rt>とお</rt><rp>)</rp></ruby>くまで<ruby>伝<rp>(</rp><rt>つた</rt><rp>)</rp></ruby>えます。',
+        '<strong>正解はD「光ファイバー」</strong>です。<ruby>光<rp>(</rp><rt>ひかり</rt><rp>)</rp></ruby>ファイバーは<ruby>全反射<rp>(</rp><rt>ぜんはんしゃ</rt><rp>)</rp></ruby>を利用して、光を<ruby>遠<rp>(</rp><rt>とお</rt><rp>)</rp></ruby>くまで<ruby>伝<rp>(</rp><rt>つた</rt><rp>)</rp></ruby>えます。',
     },
     {
       type: 'date',
@@ -219,11 +219,11 @@ export const lightChat: HistoryChat = {
       options: [
         { letter: 'A', text: '身長と同じ高さ', correct: false },
         { letter: 'B', text: '身長の3分の2', correct: false },
-        { letter: 'C', text: '身長の3分の1', correct: false },
-        { letter: 'D', text: '身長の半分', correct: true },
+        { letter: 'C', text: '身長の半分', correct: true },
+        { letter: 'D', text: '身長の3分の1', correct: false },
       ],
       explanation:
-        '<strong>正解はD「<ruby>身長<rp>(</rp><rt>しんちょう</rt><rp>)</rp></ruby>の半分」</strong>です。<ruby>反射<rp>(</rp><rt>はんしゃ</rt><rp>)</rp></ruby>の<ruby>法則<rp>(</rp><rt>ほうそく</rt><rp>)</rp></ruby>により、<ruby>身長<rp>(</rp><rt>しんちょう</rt><rp>)</rp></ruby>の半分の高さの<ruby>鏡<rp>(</rp><rt>かがみ</rt><rp>)</rp></ruby>で全身を<ruby>映<rp>(</rp><rt>うつ</rt><rp>)</rp></ruby>すことができます。',
+        '<strong>正解はC「<ruby>身長<rp>(</rp><rt>しんちょう</rt><rp>)</rp></ruby>の半分」</strong>です。<ruby>反射<rp>(</rp><rt>はんしゃ</rt><rp>)</rp></ruby>の<ruby>法則<rp>(</rp><rt>ほうそく</rt><rp>)</rp></ruby>により、<ruby>身長<rp>(</rp><rt>しんちょう</rt><rp>)</rp></ruby>の半分の高さの<ruby>鏡<rp>(</rp><rt>かがみ</rt><rp>)</rp></ruby>で全身を<ruby>映<rp>(</rp><rt>うつ</rt><rp>)</rp></ruby>すことができます。',
     },
     {
       type: 'date',

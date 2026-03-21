@@ -135,11 +135,11 @@ export const wartimeLifeChat: HistoryChat = {
       options: [
         { letter: 'A', text: '灯火管制', correct: false },
         { letter: 'B', text: '配給制', correct: false },
-        { letter: 'C', text: '金属供出', correct: true },
-        { letter: 'D', text: '勤労動員', correct: false },
+        { letter: 'C', text: '勤労動員', correct: false },
+        { letter: 'D', text: '金属供出', correct: true },
       ],
       explanation:
-        '<strong>正解はC「<ruby>金属供出<rp>(</rp><rt>きんぞくきょうしゅつ</rt><rp>)</rp></ruby>」</strong>です。<ruby>兵器<rp>(</rp><rt>へいき</rt><rp>)</rp></ruby>の<ruby>材料<rp>(</rp><rt>ざいりょう</rt><rp>)</rp></ruby>として、あらゆる<ruby>金属<rp>(</rp><rt>きんぞく</rt><rp>)</rp></ruby>が<ruby>回収<rp>(</rp><rt>かいしゅう</rt><rp>)</rp></ruby>されました。',
+        '<strong>正解はD「<ruby>金属供出<rp>(</rp><rt>きんぞくきょうしゅつ</rt><rp>)</rp></ruby>」</strong>です。<ruby>兵器<rp>(</rp><rt>へいき</rt><rp>)</rp></ruby>の<ruby>材料<rp>(</rp><rt>ざいりょう</rt><rp>)</rp></ruby>として、あらゆる<ruby>金属<rp>(</rp><rt>きんぞく</rt><rp>)</rp></ruby>が<ruby>回収<rp>(</rp><rt>かいしゅう</rt><rp>)</rp></ruby>されました。',
     },
     {
       type: 'narrator',
@@ -167,13 +167,13 @@ export const wartimeLifeChat: HistoryChat = {
       type: 'quiz',
       question: '戦時中の国民への我慢を求めたスローガンは？',
       options: [
-        { letter: 'A', text: '欲しがりません勝つまでは', correct: true },
+        { letter: 'A', text: '八紘一宇', correct: false },
         { letter: 'B', text: '富国強兵', correct: false },
-        { letter: 'C', text: '八紘一宇', correct: false },
+        { letter: 'C', text: '欲しがりません勝つまでは', correct: true },
         { letter: 'D', text: '殖産興業', correct: false },
       ],
       explanation:
-        '<strong>正解はA「<ruby>欲<rp>(</rp><rt>ほ</rt><rp>)</rp></ruby>しがりません<ruby>勝<rp>(</rp><rt>か</rt><rp>)</rp></ruby>つまでは」</strong>です。<ruby>食糧難<rp>(</rp><rt>しょくりょうなん</rt><rp>)</rp></ruby>のなか、国民に<ruby>耐乏<rp>(</rp><rt>たいぼう</rt><rp>)</rp></ruby>を求めたスローガンでした。',
+        '<strong>正解はC「<ruby>欲<rp>(</rp><rt>ほ</rt><rp>)</rp></ruby>しがりません<ruby>勝<rp>(</rp><rt>か</rt><rp>)</rp></ruby>つまでは」</strong>です。<ruby>食糧難<rp>(</rp><rt>しょくりょうなん</rt><rp>)</rp></ruby>のなか、国民に<ruby>耐乏<rp>(</rp><rt>たいぼう</rt><rp>)</rp></ruby>を求めたスローガンでした。',
     },
     {
       type: 'end',

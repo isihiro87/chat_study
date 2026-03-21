@@ -187,11 +187,11 @@ export const eastAsiaTradeChat: HistoryChat = {
       question: '琉球王国が東アジアで行い、大きく繁栄するもととなった貿易の形態は？',
       options: [
         { letter: 'A', text: '朝貢貿易', correct: false },
-        { letter: 'B', text: '自由貿易', correct: false },
-        { letter: 'C', text: '中継貿易', correct: true },
+        { letter: 'B', text: '中継貿易', correct: true },
+        { letter: 'C', text: '自由貿易', correct: false },
         { letter: 'D', text: '勘合貿易', correct: false },
       ],
-      explanation: '<strong>正解はC「<ruby>中継貿易<rp>(</rp><rt>ちゅうけいぼうえき</rt><rp>)</rp></ruby>」</strong>です。<ruby>琉球王国<rp>(</rp><rt>りゅうきゅうおうこく</rt><rp>)</rp></ruby>は明・日本・朝鮮・東南アジアの間に<ruby>位置<rp>(</rp><rt>いち</rt><rp>)</rp></ruby>する地の利を生かし、各地の<ruby>産物<rp>(</rp><rt>さんぶつ</rt><rp>)</rp></ruby>を<ruby>仲介<rp>(</rp><rt>ちゅうかい</rt><rp>)</rp></ruby>する<strong>中継貿易</strong>で大いに<ruby>繁栄<rp>(</rp><rt>はんえい</rt><rp>)</rp></ruby>しました。',
+      explanation: '<strong>正解はB「<ruby>中継貿易<rp>(</rp><rt>ちゅうけいぼうえき</rt><rp>)</rp></ruby>」</strong>です。<ruby>琉球王国<rp>(</rp><rt>りゅうきゅうおうこく</rt><rp>)</rp></ruby>は明・日本・朝鮮・東南アジアの間に<ruby>位置<rp>(</rp><rt>いち</rt><rp>)</rp></ruby>する地の利を生かし、各地の<ruby>産物<rp>(</rp><rt>さんぶつ</rt><rp>)</rp></ruby>を<ruby>仲介<rp>(</rp><rt>ちゅうかい</rt><rp>)</rp></ruby>する<strong>中継貿易</strong>で大いに<ruby>繁栄<rp>(</rp><rt>はんえい</rt><rp>)</rp></ruby>しました。',
     },
     {
       type: 'end',

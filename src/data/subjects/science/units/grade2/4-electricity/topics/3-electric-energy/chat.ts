@@ -83,11 +83,11 @@ export const electricEnergyChat: HistoryChat = {
       options: [
         { letter: 'A', text: '20W', correct: false },
         { letter: 'B', text: '105W', correct: false },
-        { letter: 'C', text: '500W', correct: true },
-        { letter: 'D', text: '950W', correct: false },
+        { letter: 'C', text: '950W', correct: false },
+        { letter: 'D', text: '500W', correct: true },
       ],
       explanation:
-        '<strong>正解はC「500W」</strong>です。<ruby>電力<rp>(</rp><rt>でんりょく</rt><rp>)</rp></ruby>[W] = <ruby>電圧<rp>(</rp><rt>でんあつ</rt><rp>)</rp></ruby>[V] × <ruby>電流<rp>(</rp><rt>でんりゅう</rt><rp>)</rp></ruby>[A] なので、100V × 5A = 500W です。',
+        '<strong>正解はD「500W」</strong>です。<ruby>電力<rp>(</rp><rt>でんりょく</rt><rp>)</rp></ruby>[W] = <ruby>電圧<rp>(</rp><rt>でんあつ</rt><rp>)</rp></ruby>[V] × <ruby>電流<rp>(</rp><rt>でんりゅう</rt><rp>)</rp></ruby>[A] なので、100V × 5A = 500W です。',
     },
     {
       type: 'date',

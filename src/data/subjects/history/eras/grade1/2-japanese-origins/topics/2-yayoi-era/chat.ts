@@ -105,13 +105,13 @@ export const yayoiEraChat: HistoryChat = {
       type: 'quiz',
       question: '収穫した稲を保管するために建てられた倉庫は？',
       options: [
-        { letter: 'A', text: '高床倉庫', correct: true },
-        { letter: 'B', text: 'たて穴住居', correct: false },
+        { letter: 'A', text: 'たて穴住居', correct: false },
+        { letter: 'B', text: '高床倉庫', correct: true },
         { letter: 'C', text: '正倉院', correct: false },
         { letter: 'D', text: '校倉造', correct: false },
       ],
       explanation:
-        '<strong>正解はA「<ruby>高床倉庫<rp>(</rp><rt>たかゆかそうこ</rt><rp>)</rp></ruby>」</strong>です。<ruby>床<rp>(</rp><rt>ゆか</rt><rp>)</rp></ruby>を高くして<ruby>湿気<rp>(</rp><rt>しっけ</rt><rp>)</rp></ruby>やねずみから<ruby>稲<rp>(</rp><rt>いね</rt><rp>)</rp></ruby>を守りました。',
+        '<strong>正解はB「<ruby>高床倉庫<rp>(</rp><rt>たかゆかそうこ</rt><rp>)</rp></ruby>」</strong>です。<ruby>床<rp>(</rp><rt>ゆか</rt><rp>)</rp></ruby>を高くして<ruby>湿気<rp>(</rp><rt>しっけ</rt><rp>)</rp></ruby>やねずみから<ruby>稲<rp>(</rp><rt>いね</rt><rp>)</rp></ruby>を守りました。',
     },
     {
       type: 'date',
@@ -156,13 +156,13 @@ export const yayoiEraChat: HistoryChat = {
       type: 'quiz',
       question: '1世紀に奴国の王が漢の皇帝から授かったものは？',
       options: [
-        { letter: 'A', text: '銅鐸', correct: false },
+        { letter: 'A', text: '金印', correct: true },
         { letter: 'B', text: '銅鏡', correct: false },
-        { letter: 'C', text: '金印', correct: true },
+        { letter: 'C', text: '銅鐸', correct: false },
         { letter: 'D', text: '鉄剣', correct: false },
       ],
       explanation:
-        '<strong>正解はC「<ruby>金印<rp>(</rp><rt>きんいん</rt><rp>)</rp></ruby>」</strong>です。「<ruby>漢委奴国王<rp>(</rp><rt>かんのわのなのこくおう</rt><rp>)</rp></ruby>」と刻まれた印で、<ruby>福岡県<rp>(</rp><rt>ふくおかけん</rt><rp>)</rp></ruby>の<ruby>志賀島<rp>(</rp><rt>しかのしま</rt><rp>)</rp></ruby>で発見されました。',
+        '<strong>正解はA「<ruby>金印<rp>(</rp><rt>きんいん</rt><rp>)</rp></ruby>」</strong>です。「<ruby>漢委奴国王<rp>(</rp><rt>かんのわのなのこくおう</rt><rp>)</rp></ruby>」と刻まれた印で、<ruby>福岡県<rp>(</rp><rt>ふくおかけん</rt><rp>)</rp></ruby>の<ruby>志賀島<rp>(</rp><rt>しかのしま</rt><rp>)</rp></ruby>で発見されました。',
     },
     {
       type: 'date',
@@ -215,13 +215,13 @@ export const yayoiEraChat: HistoryChat = {
       type: 'quiz',
       question: '3世紀ごろ、30あまりの国をまとめた女王は？',
       options: [
-        { letter: 'A', text: '卑弥呼', correct: true },
+        { letter: 'A', text: '額田王', correct: false },
         { letter: 'B', text: '推古天皇', correct: false },
         { letter: 'C', text: '持統天皇', correct: false },
-        { letter: 'D', text: '額田王', correct: false },
+        { letter: 'D', text: '卑弥呼', correct: true },
       ],
       explanation:
-        '<strong>正解はA「<ruby>卑弥呼<rp>(</rp><rt>ひみこ</rt><rp>)</rp></ruby>」</strong>です。<ruby>邪馬台国<rp>(</rp><rt>やまたいこく</rt><rp>)</rp></ruby>の女王で、まじないの力で国々をまとめました。',
+        '<strong>正解はD「<ruby>卑弥呼<rp>(</rp><rt>ひみこ</rt><rp>)</rp></ruby>」</strong>です。<ruby>邪馬台国<rp>(</rp><rt>やまたいこく</rt><rp>)</rp></ruby>の女王で、まじないの力で国々をまとめました。',
     },
     {
       type: 'end',

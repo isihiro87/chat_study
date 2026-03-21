@@ -71,8 +71,8 @@ export const questionPatternsChat: HistoryChat = {
       question: '「私のかばんはどこですか？」「机の下です。」— 空欄に入るのは？ It is ___ the desk.',
       options: [
         { letter: 'A', text: 'on', correct: false },
-        { letter: 'B', text: 'in', correct: false },
-        { letter: 'C', text: 'under', correct: true },
+        { letter: 'B', text: 'under', correct: true },
+        { letter: 'C', text: 'in', correct: false },
         { letter: 'D', text: 'near', correct: false },
       ],
       explanation: '「〜の下に」は <strong>under</strong> だよ。It is <strong>under</strong> the desk.',
@@ -105,9 +105,9 @@ export const questionPatternsChat: HistoryChat = {
       type: 'quiz',
       question: '「何のスポーツをしますか？」を英語にすると？',
       options: [
-        { letter: 'A', text: 'How sport do you play?', correct: false },
+        { letter: 'A', text: 'What sport do you play?', correct: true },
         { letter: 'B', text: 'What do you play sport?', correct: false },
-        { letter: 'C', text: 'What sport do you play?', correct: true },
+        { letter: 'C', text: 'How sport do you play?', correct: false },
         { letter: 'D', text: 'Which sport is you play?', correct: false },
       ],
       explanation: '「何の〜」は <strong>What + <ruby>名詞<rt>めいし</rt></ruby></strong> で<ruby>表<rt>あらわ</rt></ruby>すよ。<strong>What sport do you play?</strong>',

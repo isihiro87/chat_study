@@ -85,12 +85,12 @@ export const volcanoChat: HistoryChat = {
       question: 'マグマのねばりけが弱い火山の特徴はどれか。',
       options: [
         { letter: 'A', text: '爆発的な噴火をする', correct: false },
-        { letter: 'B', text: '溶岩ドームの形になる', correct: false },
-        { letter: 'C', text: '平たい楯状火山になる', correct: true },
+        { letter: 'B', text: '平たい楯状火山になる', correct: true },
+        { letter: 'C', text: '溶岩ドームの形になる', correct: false },
         { letter: 'D', text: '溶岩は白っぽい', correct: false },
       ],
       explanation:
-        '<strong>正解はC「平たい<ruby>楯状<rp>(</rp><rt>たてじょう</rt><rp>)</rp></ruby><ruby>火山<rp>(</rp><rt>かざん</rt><rp>)</rp></ruby>になる」</strong>です。ねばりけが弱いマグマはおだやかに<ruby>噴火<rp>(</rp><rt>ふんか</rt><rp>)</rp></ruby>し、<ruby>溶岩<rp>(</rp><rt>ようがん</rt><rp>)</rp></ruby>は黒っぽく平たい<ruby>火山<rp>(</rp><rt>かざん</rt><rp>)</rp></ruby>になります。',
+        '<strong>正解はB「平たい<ruby>楯状<rp>(</rp><rt>たてじょう</rt><rp>)</rp></ruby><ruby>火山<rp>(</rp><rt>かざん</rt><rp>)</rp></ruby>になる」</strong>です。ねばりけが弱いマグマはおだやかに<ruby>噴火<rp>(</rp><rt>ふんか</rt><rp>)</rp></ruby>し、<ruby>溶岩<rp>(</rp><rt>ようがん</rt><rp>)</rp></ruby>は黒っぽく平たい<ruby>火山<rp>(</rp><rt>かざん</rt><rp>)</rp></ruby>になります。',
     },
     {
       type: 'date',
@@ -131,13 +131,13 @@ export const volcanoChat: HistoryChat = {
       type: 'quiz',
       question: '次のうち、無色鉱物はどれ？',
       options: [
-        { letter: 'A', text: '黒雲母', correct: false },
+        { letter: 'A', text: '石英', correct: true },
         { letter: 'B', text: '角閃石', correct: false },
-        { letter: 'C', text: '石英', correct: true },
+        { letter: 'C', text: '黒雲母', correct: false },
         { letter: 'D', text: 'カンラン石', correct: false },
       ],
       explanation:
-        '<strong>正解はC「<ruby>石英<rp>(</rp><rt>せきえい</rt><rp>)</rp></ruby>」</strong>です。<ruby>石英<rp>(</rp><rt>せきえい</rt><rp>)</rp></ruby>は<ruby>無色<rp>(</rp><rt>むしょく</rt><rp>)</rp></ruby><ruby>透明<rp>(</rp><rt>とうめい</rt><rp>)</rp></ruby>でガラスのような<ruby>光沢<rp>(</rp><rt>こうたく</rt><rp>)</rp></ruby>がある<ruby>無色<rp>(</rp><rt>むしょく</rt><rp>)</rp></ruby><ruby>鉱物<rp>(</rp><rt>こうぶつ</rt><rp>)</rp></ruby>です。',
+        '<strong>正解はA「<ruby>石英<rp>(</rp><rt>せきえい</rt><rp>)</rp></ruby>」</strong>です。<ruby>石英<rp>(</rp><rt>せきえい</rt><rp>)</rp></ruby>は<ruby>無色<rp>(</rp><rt>むしょく</rt><rp>)</rp></ruby><ruby>透明<rp>(</rp><rt>とうめい</rt><rp>)</rp></ruby>でガラスのような<ruby>光沢<rp>(</rp><rt>こうたく</rt><rp>)</rp></ruby>がある<ruby>無色<rp>(</rp><rt>むしょく</rt><rp>)</rp></ruby><ruby>鉱物<rp>(</rp><rt>こうぶつ</rt><rp>)</rp></ruby>です。',
     },
     {
       type: 'date',
@@ -197,12 +197,12 @@ export const volcanoChat: HistoryChat = {
       question: '深成岩の組織の特徴はどれ？',
       options: [
         { letter: 'A', text: '斑晶と石基からなる斑状組織', correct: false },
-        { letter: 'B', text: '同じくらいの大きさの結晶からなる等粒状組織', correct: true },
+        { letter: 'B', text: '結晶がまったく見られない', correct: false },
         { letter: 'C', text: '非常に細かい粒だけからなる', correct: false },
-        { letter: 'D', text: '結晶がまったく見られない', correct: false },
+        { letter: 'D', text: '同じくらいの大きさの結晶からなる等粒状組織', correct: true },
       ],
       explanation:
-        '<strong>正解はB「<ruby>等粒状<rp>(</rp><rt>とうりゅうじょう</rt><rp>)</rp></ruby><ruby>組織<rp>(</rp><rt>そしき</rt><rp>)</rp></ruby>」</strong>です。<ruby>深成岩<rp>(</rp><rt>しんせいがん</rt><rp>)</rp></ruby>はマグマが<ruby>地下<rp>(</rp><rt>ちか</rt><rp>)</rp></ruby><ruby>深<rp>(</rp><rt>ふか</rt><rp>)</rp></ruby>くでゆっくり<ruby>冷<rp>(</rp><rt>ひ</rt><rp>)</rp></ruby>えるため、すべての<ruby>結晶<rp>(</rp><rt>けっしょう</rt><rp>)</rp></ruby>が大きく<ruby>成長<rp>(</rp><rt>せいちょう</rt><rp>)</rp></ruby>します。',
+        '<strong>正解はD「<ruby>等粒状<rp>(</rp><rt>とうりゅうじょう</rt><rp>)</rp></ruby><ruby>組織<rp>(</rp><rt>そしき</rt><rp>)</rp></ruby>」</strong>です。<ruby>深成岩<rp>(</rp><rt>しんせいがん</rt><rp>)</rp></ruby>はマグマが<ruby>地下<rp>(</rp><rt>ちか</rt><rp>)</rp></ruby><ruby>深<rp>(</rp><rt>ふか</rt><rp>)</rp></ruby>くでゆっくり<ruby>冷<rp>(</rp><rt>ひ</rt><rp>)</rp></ruby>えるため、すべての<ruby>結晶<rp>(</rp><rt>けっしょう</rt><rp>)</rp></ruby>が大きく<ruby>成長<rp>(</rp><rt>せいちょう</rt><rp>)</rp></ruby>します。',
     },
     {
       type: 'end',

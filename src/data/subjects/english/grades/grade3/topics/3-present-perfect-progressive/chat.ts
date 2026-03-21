@@ -88,8 +88,8 @@ export const presentPerfectProgressiveChat: HistoryChat = {
       type: 'quiz',
       question: '「I (　　) for three hours.（私は3時間ずっと勉強し続けています。）」\nの (　　) に入るのは？',
       options: [
-        { letter: 'A', text: 'have studied', correct: false },
-        { letter: 'B', text: 'have been studying', correct: true },
+        { letter: 'A', text: 'have been studying', correct: true },
+        { letter: 'B', text: 'have studied', correct: false },
         { letter: 'C', text: 'am studying', correct: false },
         { letter: 'D', text: 'has been studying', correct: false },
       ],
@@ -148,9 +148,9 @@ export const presentPerfectProgressiveChat: HistoryChat = {
       question: '「She (　　) English since she was five.（彼女は5歳からずっと英語を勉強し続けています。）」\nの (　　) に入るのは？',
       options: [
         { letter: 'A', text: 'has studied', correct: false },
-        { letter: 'B', text: 'has been studying', correct: true },
+        { letter: 'B', text: 'studied', correct: false },
         { letter: 'C', text: 'is studying', correct: false },
-        { letter: 'D', text: 'studied', correct: false },
+        { letter: 'D', text: 'has been studying', correct: true },
       ],
       explanation: '「<ruby>勉強<rt>べんきょう</rt></ruby>する」は<ruby>動作<rt>どうさ</rt></ruby>だから<ruby>現在完了進行形<rt>げんざいかんりょうしんこうけい</rt></ruby>。She だから <strong>has been studying</strong> だよ。',
     },
