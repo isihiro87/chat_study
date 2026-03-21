@@ -188,9 +188,9 @@ export const sqrtMeaningChat: HistoryChat = {
       question: '<ruby>次<rt>つぎ</rt></ruby>のうち、<ruby>無理数<rt>むりすう</rt></ruby>はどれ？',
       options: [
         { letter: 'A', text: '$\\sqrt{4}$', correct: false },
-        { letter: 'B', text: '$\\sqrt{7}$', correct: true },
+        { letter: 'B', text: '$\\sqrt{16}$', correct: false },
         { letter: 'C', text: '$\\sqrt{9}$', correct: false },
-        { letter: 'D', text: '$\\sqrt{16}$', correct: false },
+        { letter: 'D', text: '$\\sqrt{7}$', correct: true },
       ],
       explanation:
         '$\\sqrt{4} = 2$、$\\sqrt{9} = 3$、$\\sqrt{16} = 4$ は<ruby>整数<rt>せいすう</rt></ruby>だから<ruby>有理数<rt>ゆうりすう</rt></ruby>。\n$\\sqrt{7}$ は<ruby>分数<rt>ぶんすう</rt></ruby>で<ruby>表<rt>あらわ</rt></ruby>せないから<ruby>無理数<rt>むりすう</rt></ruby>だよ。',
@@ -266,9 +266,9 @@ export const sqrtMeaningChat: HistoryChat = {
       question: '$(-\\sqrt{11})^2$ はいくつ？',
       options: [
         { letter: 'A', text: '$-11$', correct: false },
-        { letter: 'B', text: '$\\sqrt{11}$', correct: false },
+        { letter: 'B', text: '$11$', correct: true },
         { letter: 'C', text: '$121$', correct: false },
-        { letter: 'D', text: '$11$', correct: true },
+        { letter: 'D', text: '$\\sqrt{11}$', correct: false },
       ],
       explanation:
         '$(-\\sqrt{11})^2 = (-\\sqrt{11}) \\times (-\\sqrt{11}) = 11$\n<ruby>負<rt>ふ</rt></ruby>の<ruby>数<rt>かず</rt></ruby>を2<ruby>乗<rt>じょう</rt></ruby>すると<ruby>正<rt>せい</rt></ruby>になるよ。',
@@ -326,9 +326,9 @@ export const sqrtMeaningChat: HistoryChat = {
       type: 'quiz',
       question: '$\\frac{1}{3} = 0.333\\ldots$ はどの<ruby>種類<rt>しゅるい</rt></ruby>の<ruby>数<rt>かず</rt></ruby>？',
       options: [
-        { letter: 'A', text: '<ruby>無理数<rt>むりすう</rt></ruby>', correct: false },
+        { letter: 'A', text: '<ruby>循環<rt>じゅんかん</rt></ruby><ruby>小数<rt>しょうすう</rt></ruby>（<ruby>有理数<rt>ゆうりすう</rt></ruby>）', correct: true },
         { letter: 'B', text: '<ruby>有限<rt>ゆうげん</rt></ruby><ruby>小数<rt>しょうすう</rt></ruby>', correct: false },
-        { letter: 'C', text: '<ruby>循環<rt>じゅんかん</rt></ruby><ruby>小数<rt>しょうすう</rt></ruby>（<ruby>有理数<rt>ゆうりすう</rt></ruby>）', correct: true },
+        { letter: 'C', text: '<ruby>無理数<rt>むりすう</rt></ruby>', correct: false },
         { letter: 'D', text: '<ruby>整数<rt>せいすう</rt></ruby>', correct: false },
       ],
       explanation:
@@ -379,10 +379,10 @@ export const sqrtMeaningChat: HistoryChat = {
       type: 'quiz',
       question: '$5200$m を<ruby>有効数字<rt>ゆうこうすうじ</rt></ruby>2けたで $a \\times 10^n$ の<ruby>形<rt>かたち</rt></ruby>に<ruby>表<rt>あらわ</rt></ruby>すと？',
       options: [
-        { letter: 'A', text: '$5.2 \\times 10^3$', correct: true },
+        { letter: 'A', text: '$0.52 \\times 10^4$', correct: false },
         { letter: 'B', text: '$52 \\times 10^2$', correct: false },
         { letter: 'C', text: '$5.20 \\times 10^3$', correct: false },
-        { letter: 'D', text: '$0.52 \\times 10^4$', correct: false },
+        { letter: 'D', text: '$5.2 \\times 10^3$', correct: true },
       ],
       explanation:
         '<ruby>有効数字<rt>ゆうこうすうじ</rt></ruby>2けた（5と2）なので $5.2 \\times 10^3$ m\n<ruby>整数<rt>せいすう</rt></ruby><ruby>部分<rt>ぶぶん</rt></ruby>が1けたの<ruby>小数<rt>しょうすう</rt></ruby>にするよ。',
@@ -390,6 +390,18 @@ export const sqrtMeaningChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<ruby>有効数字<rt>ゆうこうすうじ</rt></ruby>は $a \\times 10^n$ で<ruby>表<rt>あらわ</rt></ruby>す。$a$ は<ruby>整数<rt>せいすう</rt></ruby><ruby>部分<rt>ぶぶん</rt></ruby>が1けたの<ruby>小数<rt>しょうすう</rt></ruby>！',
+    },
+    {
+      type: 'quiz',
+      question: '$37200$ を<ruby>有効数字<rt>ゆうこうすうじ</rt></ruby>3けたで $a \\times 10^n$ の<ruby>形<rt>かたち</rt></ruby>にすると？',
+      options: [
+        { letter: 'A', text: '$372 \\times 10^2$', correct: false },
+        { letter: 'B', text: '$3.72 \\times 10^4$', correct: true },
+        { letter: 'C', text: '$37.2 \\times 10^3$', correct: false },
+        { letter: 'D', text: '$3.7 \\times 10^4$', correct: false },
+      ],
+      explanation:
+        '<ruby>有効数字<rt>ゆうこうすうじ</rt></ruby>3けた（3, 7, 2）なので $\\textcolor{#D97706}{3.72 \\times 10^4}$。$a$ は<ruby>整数<rt>せいすう</rt></ruby><ruby>部分<rt>ぶぶん</rt></ruby>1けたにするよ。',
     },
     {
       type: 'end',

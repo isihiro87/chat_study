@@ -113,6 +113,7 @@ export const sqrtMeaning: Topic = {
       { id: 'math-g3-sqrt-meaning-fc48', front: '有理数', back: '有限小数・循環小数は有理数？無理数？', explanation: 'どちらも分数で表せるから有理数。', difficulty: 'basic' },
       { id: 'math-g3-sqrt-meaning-fc49', front: '$4.51 \\times 10^3$ m', back: '近似値 $4507$m を有効数字3けたで $a \\times 10^n$ の形にすると？', explanation: '有効数字は $4, 5, 0$ の3けた。整数部分を1けたの小数にする。', difficulty: 'advanced' },
       { id: 'math-g3-sqrt-meaning-fc50', front: '$3$ けた', back: '近似値 $2.96$km の有効数字は何けた？', explanation: '$2, 9, 6$ はすべて意味のある数字なので3けた。', difficulty: 'standard' },
+      { id: 'math-g3-sqrt-meaning-fc51', front: '$-4 < -\\sqrt{12}$', back: '$-4$ と $-\\sqrt{12}$ の大小は？', explanation: '$4^2 = 16 > 12$ なので $\\sqrt{16} > \\sqrt{12}$、負にすると $-4 < -\\sqrt{12}$。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -542,6 +543,46 @@ export const sqrtMeaning: Topic = {
           explanation:
             '有効数字3けた（$5, 1, 0$）なので $5.10 \\times 10^4$ m² だよ。$5.1$ では2けたになってしまうので $0$ を書くのがポイント！',
           difficulty: 'advanced',
+        },
+        // --- advanced.md 発展2(2): √10の小数第1位 ---
+        {
+          id: 'math-g3-sqrt-meaning-q46',
+          question: '$3.1^2 = 9.61$, $3.2^2 = 10.24$ のとき、$\\sqrt{10}$ の小数第1位の数字は？',
+          options: ['$2$', '$1$', '$0$', '$3$'],
+          correctIndex: 1,
+          explanation:
+            '$\\sqrt{9.61} = 3.1$, $\\sqrt{10.24} = 3.2$ なので $3.1 < \\sqrt{10} < 3.2$\n小数第1位は $1$ だよ。',
+          difficulty: 'advanced',
+        },
+        // --- advanced.md 発展3(2): 近似値の範囲 ---
+        {
+          id: 'math-g3-sqrt-meaning-q47',
+          question: 'スイカの重さの小数第2位を四捨五入した近似値が $2.07$kg のとき、真の値 $a$ の範囲は？',
+          options: ['$2.07 \\le a < 2.08$', '$2.065 \\le a < 2.075$', '$2.06 \\le a < 2.08$', '$2.069 \\le a < 2.071$'],
+          correctIndex: 1,
+          explanation:
+            '小数第2位（$0.07$ の $7$）を四捨五入しているので $2.065 \\le a < 2.075$ だよ。',
+          difficulty: 'advanced',
+        },
+        // --- advanced.md 発展3(3): 有効数字3けたで表す ---
+        {
+          id: 'math-g3-sqrt-meaning-q48',
+          question: '近似値 $1200$m を有効数字3けたで $a \\times 10^n$ の形に表すと？',
+          options: ['$1.2 \\times 10^3$', '$12.0 \\times 10^2$', '$1.20 \\times 10^3$', '$120 \\times 10^1$'],
+          correctIndex: 2,
+          explanation:
+            '有効数字3けた（$1, 2, 0$）なので $1.20 \\times 10^3$ m だよ。$1.2$ では2けたになってしまうので末尾の $0$ を書くよ。',
+          difficulty: 'advanced',
+        },
+        // --- advanced.md 発展5(1): 有効数字の応用 ---
+        {
+          id: 'math-g3-sqrt-meaning-q49',
+          question: '小数第3位を四捨五入した近似値 $2.07$kg の有効数字は何けた？',
+          options: ['$2$ けた', '$3$ けた', '$4$ けた', '$1$ けた'],
+          correctIndex: 1,
+          explanation:
+            '$2.07$ の数字 $2, 0, 7$ はすべて意味のある数字なので有効数字 $3$ けただよ。途中の $0$ も有効数字に含めるよ。',
+          difficulty: 'standard',
         },
       ],
     },

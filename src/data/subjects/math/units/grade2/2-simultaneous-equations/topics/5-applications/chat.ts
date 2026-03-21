@@ -92,7 +92,19 @@ export const simulEqAppsChat: HistoryChat = {
     },
     {
       type: 'summary-point',
-      text: '<ruby>文章題<rt>ぶんしょうだい</rt></ruby>の<ruby>鉄則<rt>てっそく</rt></ruby>: ① $x$, $y$ を<ruby>決<rt>き</rt></ruby>める → ② 2つの<ruby>式<rt>しき</rt></ruby>を<ruby>立<rt>た</rt></ruby>てる → ③ <ruby>解<rt>と</rt></ruby>く → ④ <ruby>確認<rt>かくにん</rt></ruby>',
+      text: '<ruby>文章題<rt>ぶんしょうだい</rt></ruby>の<ruby>鉄則<rt>てっそく</rt></ruby>: ① $x$, $y$ を<ruby>決<rt>き</rt></ruby>める → ② 2つの<ruby>式<rt>shiki</rt></ruby>を<ruby>立<rt>た</rt></ruby>てる → ③ <ruby>解<rt>と</rt></ruby>く → ④ <ruby>確認<rt>かくにん</rt></ruby>',
+    },
+    {
+      type: 'quiz',
+      question: '<ruby>文章題<rt>ぶんしょうだい</rt></ruby>で<ruby>最初<rt>さいしょ</rt></ruby>にやるべきことは？',
+      options: [
+        { letter: 'A', text: '<ruby>何<rt>なに</rt></ruby>を $x$, $y$ にするか<ruby>決<rt>き</rt></ruby>める', correct: true },
+        { letter: 'B', text: '<ruby>答<rt>こた</rt></ruby>えを<ruby>確認<rt>かくにん</rt></ruby>する', correct: false },
+        { letter: 'C', text: '<ruby>式<rt>しき</rt></ruby>を<ruby>解<rt>と</rt></ruby>く', correct: false },
+        { letter: 'D', text: 'グラフをかく', correct: false },
+      ],
+      explanation:
+        'まず「$\\textcolor{#D97706}{<ruby>何<rt>なに</rt></ruby>を\\ x,\\ y\\ にするか<ruby>決<rt>き</rt></ruby>める}$」のが<ruby>第一歩<rt>だいいっぽ</rt></ruby>！\nそれから2つの<ruby>式<rt>しき</rt></ruby>を<ruby>立<rt>た</rt></ruby>てよう。',
     },
 
     // ─── セクション2: 数量・代金の問題 ───
@@ -199,6 +211,18 @@ export const simulEqAppsChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<ruby>代金<rt>だいきん</rt></ruby>の<ruby>問題<rt>もんだい</rt></ruby>: <strong>「<ruby>合計<rt>ごうけい</rt></ruby>の<ruby>個数<rt>こすう</rt></ruby>」と「<ruby>合計<rt>ごうけい</rt></ruby>の<ruby>金額<rt>きんがく</rt></ruby>」</strong>で2つの<ruby>式<rt>しき</rt></ruby>を<ruby>立<rt>た</rt></ruby>てよう。<ruby>係数<rt>けいすう</rt></ruby>が<ruby>大<rt>おお</rt></ruby>きいときは<ruby>割<rt>わ</rt></ruby>って<ruby>簡単<rt>かんたん</rt></ruby>に！',
+    },
+    {
+      type: 'quiz',
+      question: 'りんご $x$ <ruby>個<rt>こ</rt></ruby>（100<ruby>円<rt>えん</rt></ruby>）とみかん $y$ <ruby>個<rt>こ</rt></ruby>（50<ruby>円<rt>えん</rt></ruby>）を<ruby>合<rt>あ</rt></ruby>わせて10<ruby>個<rt>こ</rt></ruby><ruby>買<rt>か</rt></ruby>い、<ruby>合計<rt>ごうけい</rt></ruby>700<ruby>円<rt>えん</rt></ruby>。<ruby>正<rt>ただ</rt></ruby>しい<ruby>連立方程式<rt>れんりつほうていしき</rt></ruby>は？',
+      options: [
+        { letter: 'A', text: '$\\begin{cases} x + y = 700 \\\\ 100x + 50y = 10 \\end{cases}$', correct: false },
+        { letter: 'B', text: '$\\begin{cases} x + y = 10 \\\\ 100x + 50y = 700 \\end{cases}$', correct: true },
+        { letter: 'C', text: '$\\begin{cases} x + y = 10 \\\\ x + y = 700 \\end{cases}$', correct: false },
+        { letter: 'D', text: '$\\begin{cases} 100x + 50y = 10 \\\\ 50x + 100y = 700 \\end{cases}$', correct: false },
+      ],
+      explanation:
+        '<ruby>個数<rt>こすう</rt></ruby>の<ruby>合計<rt>ごうけい</rt></ruby>: $x + y = 10$。<ruby>金額<rt>きんがく</rt></ruby>の<ruby>合計<rt>ごうけい</rt></ruby>: $\\textcolor{#D97706}{100x + 50y = 700}$。',
     },
 
     // ─── セクション3: 割合の問題 ───
@@ -324,8 +348,8 @@ export const simulEqAppsChat: HistoryChat = {
       type: 'quiz',
       question: '<ruby>定価<rt>ていか</rt></ruby> $x$ <ruby>円<rt>えん</rt></ruby>のシャツを 20%<ruby>引<rt>び</rt></ruby>きで<ruby>買<rt>か</rt></ruby>った<ruby>金額<rt>きんがく</rt></ruby>は？',
       options: [
-        { letter: 'A', text: '$0.2x$ <ruby>円<rt>えん</rt></ruby>', correct: false },
-        { letter: 'B', text: '$0.8x$ <ruby>円<rt>えん</rt></ruby>', correct: true },
+        { letter: 'A', text: '$0.8x$ <ruby>円<rt>えん</rt></ruby>', correct: true },
+        { letter: 'B', text: '$0.2x$ <ruby>円<rt>えん</rt></ruby>', correct: false },
         { letter: 'C', text: '$1.2x$ <ruby>円<rt>えん</rt></ruby>', correct: false },
         { letter: 'D', text: '$20x$ <ruby>円<rt>えん</rt></ruby>', correct: false },
       ],

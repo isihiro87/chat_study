@@ -119,6 +119,18 @@ export const mulDivChat: HistoryChat = {
       text: '<ruby>同符号<rt>どうふごう</rt></ruby>のかけ<ruby>算<rt>ざん</rt></ruby>は<ruby>正<rt>せい</rt></ruby>、<ruby>異符号<rt>いふごう</rt></ruby>のかけ<ruby>算<rt>ざん</rt></ruby>は<ruby>負<rt>ふ</rt></ruby>。<ruby>絶対値<rt>ぜったいち</rt></ruby>をかけてから<ruby>符号<rt>ふごう</rt></ruby>を<ruby>決<rt>き</rt></ruby>める。',
     },
     {
+      type: 'quiz',
+      question: '$(-6) \\times (-5)$ の<ruby>計算結果<rt>けいさんけっか</rt></ruby>は？',
+      options: [
+        { letter: 'A', text: '$-30$', correct: false },
+        { letter: 'B', text: '$-11$', correct: false },
+        { letter: 'C', text: '$+30$', correct: true },
+        { letter: 'D', text: '$+11$', correct: false },
+      ],
+      explanation:
+        '<ruby>同符号<rt>どうふごう</rt></ruby>（<ruby>負<rt>ふ</rt></ruby> × <ruby>負<rt>ふ</rt></ruby>）なので<ruby>結果<rt>けっか</rt></ruby>は<ruby>正<rt>せい</rt></ruby>。$6 \\times 5 = 30$ で、<ruby>答<rt>こた</rt></ruby>えは $\\textcolor{#D97706}{+30}$ だよ。',
+    },
+    {
       type: 'date',
       text: '3つ<ruby>以上<rt>いじょう</rt></ruby>の<ruby>数<rt>かず</rt></ruby>の<ruby>乗法<rt>じょうほう</rt></ruby>',
     },
@@ -228,9 +240,9 @@ export const mulDivChat: HistoryChat = {
       question: '$(-3) \\times (-2) \\times (-4)$ の<ruby>計算結果<rt>けいさんけっか</rt></ruby>は？',
       options: [
         { letter: 'A', text: '$+24$', correct: false },
-        { letter: 'B', text: '$-24$', correct: true },
+        { letter: 'B', text: '$-9$', correct: false },
         { letter: 'C', text: '$+9$', correct: false },
-        { letter: 'D', text: '$-9$', correct: false },
+        { letter: 'D', text: '$-24$', correct: true },
       ],
       explanation:
         '<ruby>負<rt>ふ</rt></ruby>の<ruby>数<rt>かず</rt></ruby>が $3$ <ruby>個<rt>こ</rt></ruby>（<ruby>奇数<rt>きすう</rt></ruby>）だから<ruby>結果<rt>けっか</rt></ruby>は<ruby>負<rt>ふ</rt></ruby>。$3 \\times 2 \\times 4 = 24$ で、<ruby>答<rt>こた</rt></ruby>えは $\\textcolor{#D97706}{-24}$ だよ。',

@@ -89,6 +89,18 @@ export const slopeInterceptChat: HistoryChat = {
       text: '<ruby>傾<rt>かたむ</rt></ruby>き a：<ruby>正<rt>せい</rt></ruby>なら<ruby>右上<rt>みぎうえ</rt></ruby>がり、<ruby>負<rt>ふ</rt></ruby>なら<ruby>右下<rt>みぎした</rt></ruby>がり。<ruby>絶対値<rt>ぜったいち</rt></ruby>が<ruby>大<rt>おお</rt></ruby>きいほど<ruby>急<rt>きゅう</rt></ruby>な<ruby>直線<rt>ちょくせん</rt></ruby>！',
     },
     {
+      type: 'quiz',
+      question: '$y = -3x + 2$ のグラフはどんな<ruby>直線<rt>ちょくせん</rt></ruby>？',
+      options: [
+        { letter: 'A', text: '<ruby>右上<rt>みぎうえ</rt></ruby>がりで<ruby>ゆるやか</rt></ruby>', correct: false },
+        { letter: 'B', text: '<ruby>右上<rt>みぎうえ</rt></ruby>がりで<ruby>急<rt>きゅう</rt></ruby>', correct: false },
+        { letter: 'C', text: '<ruby>右下<rt>みぎした</rt></ruby>がりで<ruby>急<rt>きゅう</rt></ruby>', correct: true },
+        { letter: 'D', text: '<ruby>右下<rt>みぎした</rt></ruby>がりで<ruby>ゆるやか</rt></ruby>', correct: false },
+      ],
+      explanation:
+        '<ruby>傾<rt>かたむ</rt></ruby>き $a = -3$ は<ruby>負<rt>ふ</rt></ruby>なので $\\textcolor{#D97706}{<ruby>右下<rt>みぎした</rt></ruby>がり}$。\n<ruby>絶対値<rt>ぜったいち</rt></ruby>が $3$ と<ruby>大<rt>おお</rt></ruby>きいので<ruby>急<rt>きゅう</rt></ruby>な<ruby>直線<rt>ちょくせん</rt></ruby>だよ。',
+    },
+    {
       type: 'date',
       text: '<ruby>切片<rt>せっぺん</rt></ruby>とグラフのかき<ruby>方<rt>かた</rt></ruby>',
     },

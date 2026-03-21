@@ -78,6 +78,18 @@ export const findLinearEquationChat: HistoryChat = {
       text: 'パターン①：<ruby>傾<rt>かたむ</rt></ruby>き a と<ruby>切片<rt>せっぺん</rt></ruby> b が<ruby>分<rt>わ</rt></ruby>かる → そのまま y = ax + b に<ruby>代入<rt>だいにゅう</rt></ruby>！',
     },
     {
+      type: 'quiz',
+      question: '<ruby>傾<rt>かたむ</rt></ruby>き $-2$、<ruby>切片<rt>せっぺん</rt></ruby> $5$ の<ruby>一次関数<rt>いちじかんすう</rt></ruby>の<ruby>式<rt>しき</rt></ruby>は？',
+      options: [
+        { letter: 'A', text: '$y = -2x + 5$', correct: true },
+        { letter: 'B', text: '$y = 5x - 2$', correct: false },
+        { letter: 'C', text: '$y = 2x + 5$', correct: false },
+        { letter: 'D', text: '$y = -2x - 5$', correct: false },
+      ],
+      explanation:
+        '$y = ax + b$ に $a = -2$, $b = 5$ を<ruby>代入<rt>だいにゅう</rt></ruby>して $\\textcolor{#D97706}{y = -2x + 5}$！',
+    },
+    {
       type: 'date',
       text: 'パターン②：<ruby>傾<rt>かたむ</rt></ruby>き＋1<ruby>点<rt>てん</rt></ruby>',
     },
@@ -123,6 +135,18 @@ export const findLinearEquationChat: HistoryChat = {
     {
       type: 'summary-point',
       text: 'パターン②：<ruby>傾<rt>かたむ</rt></ruby>き a を<ruby>代入<rt>だいにゅう</rt></ruby> → <ruby>通<rt>とお</rt></ruby>る<ruby>点<rt>てん</rt></ruby>を<ruby>代入<rt>だいにゅう</rt></ruby>して b を<ruby>求<rt>もと</rt></ruby>める！',
+    },
+    {
+      type: 'quiz',
+      question: '<ruby>傾<rt>かたむ</rt></ruby>き $3$ で<ruby>点<rt>てん</rt></ruby>$(1, 7)$ を<ruby>通<rt>とお</rt></ruby>る<ruby>一次関数<rt>いちじかんすう</rt></ruby>の<ruby>切片<rt>せっぺん</rt></ruby> $b$ は？',
+      options: [
+        { letter: 'A', text: '$b = 3$', correct: false },
+        { letter: 'B', text: '$b = 7$', correct: false },
+        { letter: 'C', text: '$b = 10$', correct: false },
+        { letter: 'D', text: '$b = 4$', correct: true },
+      ],
+      explanation:
+        '$y = 3x + b$ に $(1, 7)$ を<ruby>代入<rt>だいにゅう</rt></ruby>: $7 = 3 + b \\rightarrow b = \\textcolor{#D97706}{4}$。\n$y = 3x + 4$。',
     },
     {
       type: 'date',
@@ -186,8 +210,8 @@ export const findLinearEquationChat: HistoryChat = {
       type: 'quiz',
       question: '<ruby>傾<rt>かたむ</rt></ruby>き $4$ で<ruby>点<rt>てん</rt></ruby>$(2, 11)$ を<ruby>通<rt>とお</rt></ruby>る<ruby>一次関数<rt>いちじかんすう</rt></ruby>の<ruby>式<rt>しき</rt></ruby>は？',
       options: [
-        { letter: 'A', text: '$y = 4x + 11$', correct: false },
-        { letter: 'B', text: '$y = 4x + 3$', correct: true },
+        { letter: 'A', text: '$y = 4x + 3$', correct: true },
+        { letter: 'B', text: '$y = 4x + 11$', correct: false },
         { letter: 'C', text: '$y = 4x + 2$', correct: false },
         { letter: 'D', text: '$y = 4x - 3$', correct: false },
       ],

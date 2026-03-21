@@ -81,6 +81,18 @@ export const polynomialAddSubChat: HistoryChat = {
       type: 'summary-point',
       text: '<ruby>加法<rt>かほう</rt></ruby>のかっこ<ruby>外<rt>はず</rt></ruby>し: 「+」のかっこは<ruby>符号<rt>ふごう</rt></ruby>そのままで<ruby>外<rt>はず</rt></ruby>す → <ruby>同類項<rt>どうるいこう</rt></ruby>の<ruby>係数<rt>けいすう</rt></ruby>を<ruby>足<rt>た</rt></ruby>す！',
     },
+    {
+      type: 'quiz',
+      question: '$(4a - 3b) + (2a + 5b)$ の<ruby>答<rt>こた</rt></ruby>えは？',
+      options: [
+        { letter: 'A', text: '$6a + 2b$', correct: true },
+        { letter: 'B', text: '$6a - 8b$', correct: false },
+        { letter: 'C', text: '$2a + 2b$', correct: false },
+        { letter: 'D', text: '$6a + 8b$', correct: false },
+      ],
+      explanation:
+        'かっこをそのまま<ruby>外<rt>はず</rt></ruby>して $4a - 3b + 2a + 5b$。\n<ruby>同類項<rt>どうるいこう</rt></ruby>をまとめて $(4+2)a + (-3+5)b = \\textcolor{#D97706}{6a + 2b}$',
+    },
     // ===== 2. 多項式の減法 =====
     {
       type: 'date',
@@ -131,9 +143,9 @@ export const polynomialAddSubChat: HistoryChat = {
       type: 'quiz',
       question: '$(6x - 4y) - (2x + 3y)$ の<ruby>答<rt>こた</rt></ruby>えは？',
       options: [
-        { letter: 'A', text: '$4x - 7y$', correct: true },
+        { letter: 'A', text: '$8x - 7y$', correct: false },
         { letter: 'B', text: '$4x - y$', correct: false },
-        { letter: 'C', text: '$8x - 7y$', correct: false },
+        { letter: 'C', text: '$4x - 7y$', correct: true },
         { letter: 'D', text: '$4x + 7y$', correct: false },
       ],
       explanation:
@@ -180,6 +192,18 @@ export const polynomialAddSubChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<ruby>分配<rt>ぶんぱい</rt></ruby><ruby>法則<rt>ほうそく</rt></ruby>: $m(a+b) = ma + mb$。<ruby>外<rt>そと</rt></ruby>の<ruby>数<rt>かず</rt></ruby>を<ruby>中<rt>なか</rt></ruby>の<ruby>全部<rt>ぜんぶ</rt></ruby>の<ruby>項<rt>こう</rt></ruby>にかける。<ruby>符号<rt>ふごう</rt></ruby>のミスに<ruby>注意<rt>ちゅうい</rt></ruby>！',
+    },
+    {
+      type: 'quiz',
+      question: '$-4(3a - 2b)$ を<ruby>計算<rt>けいさん</rt></ruby>すると？',
+      options: [
+        { letter: 'A', text: '$-12a + 8b$', correct: true },
+        { letter: 'B', text: '$-12a - 8b$', correct: false },
+        { letter: 'C', text: '$12a - 8b$', correct: false },
+        { letter: 'D', text: '$-12a + 2b$', correct: false },
+      ],
+      explanation:
+        '$(-4) \\times 3a = -12a$、$(-4) \\times (-2b) = +8b$。\n<ruby>答<rt>こた</rt></ruby>えは $\\textcolor{#D97706}{-12a + 8b}$。(−)×(−)=(+) に<ruby>注意<rt>ちゅうい</rt></ruby>！',
     },
     // ===== 4. 多項式÷数 =====
     {
@@ -243,8 +267,8 @@ export const polynomialAddSubChat: HistoryChat = {
       type: 'quiz',
       question: '$3(2a - b) - 2(a - 3b)$ の<ruby>答<rt>こた</rt></ruby>えは？',
       options: [
-        { letter: 'A', text: '$4a + 3b$', correct: true },
-        { letter: 'B', text: '$4a - 9b$', correct: false },
+        { letter: 'A', text: '$4a - 9b$', correct: false },
+        { letter: 'B', text: '$4a + 3b$', correct: true },
         { letter: 'C', text: '$8a + 3b$', correct: false },
         { letter: 'D', text: '$4a - 3b$', correct: false },
       ],
@@ -291,7 +315,19 @@ export const polynomialAddSubChat: HistoryChat = {
     },
     {
       type: 'summary-point',
-      text: '<ruby>分数<rt>ぶんすう</rt></ruby>の<ruby>式<rt>しき</rt></ruby>: <ruby>通分<rt>つうぶん</rt></ruby> → <ruby>分子<rt>ぶんし</rt></ruby>を<ruby>展開<rt>てんかい</rt></ruby> → <ruby>同類項<rt>どうるいこう</rt></ruby>をまとめる。<ruby>引<rt>ひ</rt></ruby>く<ruby>方<rt>ほう</rt></ruby>の<ruby>分子<rt>ぶんし</rt></ruby>は<ruby>符号<rt>ふごう</rt></ruby><ruby>反転<rt>はんてん</rt></ruby>を<ruby>忘<rt>わす</rt></ruby>れずに！',
+      text: '<ruby>分数<rt>ぶんすう</rt></ruby>の<ruby>式<rt>shiki</rt></ruby>: <ruby>通分<rt>つうぶん</rt></ruby> → <ruby>分子<rt>ぶんし</rt></ruby>を<ruby>展開<rt>てんかい</rt></ruby> → <ruby>同類項<rt>どうるいこう</rt></ruby>をまとめる。<ruby>引<rt>ひ</rt></ruby>く<ruby>方<rt>ほう</rt></ruby>の<ruby>分子<rt>ぶんし</rt></ruby>は<ruby>符号<rt>ふごう</rt></ruby><ruby>反転<rt>はんてん</rt></ruby>を<ruby>忘<rt>わす</rt></ruby>れずに！',
+    },
+    {
+      type: 'quiz',
+      question: '$\\frac{x + 2y}{3} + \\frac{x - y}{6}$ を<ruby>計算<rt>けいさん</rt></ruby>すると？',
+      options: [
+        { letter: 'A', text: '$\\frac{3x + 3y}{6}$', correct: false },
+        { letter: 'B', text: '$\\frac{3x + y}{6}$', correct: false },
+        { letter: 'C', text: '$\\frac{2x + 3y}{6}$', correct: false },
+        { letter: 'D', text: '$\\frac{x + y}{2}$', correct: true },
+      ],
+      explanation:
+        '<ruby>通分<rt>つうぶん</rt></ruby>して $\\frac{2(x+2y) + (x-y)}{6} = \\frac{2x+4y+x-y}{6} = \\frac{3x+3y}{6} = \\textcolor{#D97706}{\\frac{x+y}{2}}$',
     },
     // ===== 7. 式の値 =====
     {

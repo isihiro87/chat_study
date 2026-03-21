@@ -194,7 +194,7 @@ export const factoringBasics: Topic = {
         explanation: '(3a)²−(7b)² の形',
         difficulty: 'advanced',
       },
-      { id: 'math-g3-fb-fc29', front: '多項式を積の形に変えること', back: '因数分解とは何？', explanation: '展開の逆の操作。', difficulty: 'basic' },
+      { id: 'math-g3-fb-fc29', front: '$4x(x - 2)$', back: '$4x^2 - 8x$ を因数分解すると？', explanation: '共通因数 $4x$ でくくる。', difficulty: 'basic' },
       { id: 'math-g3-fb-fc30', front: '共通因数を見つけてくくり出す', back: '因数分解の最初のステップは？', explanation: '例: $3x + 6 = 3(x + 2)$。', difficulty: 'basic' },
       { id: 'math-g3-fb-fc31', front: '$3(x + 2)$', back: '$3x + 6$ を因数分解すると？', explanation: '共通因数 $3$ でくくる。', difficulty: 'basic' },
       { id: 'math-g3-fb-fc32', front: '$x(x + 5)$', back: '$x^2 + 5x$ を因数分解すると？', explanation: '共通因数 $x$ でくくる。', difficulty: 'basic' },

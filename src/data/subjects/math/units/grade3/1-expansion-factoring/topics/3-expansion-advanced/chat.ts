@@ -90,9 +90,9 @@ export const expansionAdvancedChat: HistoryChat = {
       question: '$(4x - 1)^2$ を<ruby>展開<rt>てんかい</rt></ruby>すると？',
       options: [
         { letter: 'A', text: '$4x^2 - 8x + 1$', correct: false },
-        { letter: 'B', text: '$16x^2 - 8x + 1$', correct: true },
+        { letter: 'B', text: '$16x^2 + 8x + 1$', correct: false },
         { letter: 'C', text: '$16x^2 - 4x + 1$', correct: false },
-        { letter: 'D', text: '$16x^2 + 8x + 1$', correct: false },
+        { letter: 'D', text: '$16x^2 - 8x + 1$', correct: true },
       ],
       explanation:
         '$a=4x$, $b=1$ で<ruby>公式<rt>こうしき</rt></ruby>3。$(4x)^2 - 2 \\times 4x \\times 1 + 1^2 = \\textcolor{#D97706}{16x^2 - 8x + 1}$',
@@ -100,6 +100,18 @@ export const expansionAdvancedChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<ruby>置<rt>お</rt></ruby>き<ruby>換<rt>か</rt></ruby>えのコツ: <ruby>係数<rt>けいすう</rt></ruby>ごとまとめて a, b におく → $(3x)^2 = 9x^2$ のように<ruby>係数<rt>けいすう</rt></ruby>も2<ruby>乗<rt>じょう</rt></ruby>する！',
+    },
+    {
+      type: 'quiz',
+      question: '$(2x + 3)(2x - 3)$ を<ruby>展開<rt>てんかい</rt></ruby>すると？',
+      options: [
+        { letter: 'A', text: '$4x^2 + 9$', correct: false },
+        { letter: 'B', text: '$2x^2 - 9$', correct: false },
+        { letter: 'C', text: '$4x^2 - 9$', correct: true },
+        { letter: 'D', text: '$4x^2 - 6x - 9$', correct: false },
+      ],
+      explanation:
+        '$a=2x, b=3$ で<ruby>和<rt>わ</rt></ruby>と<ruby>差<rt>さ</rt></ruby>の<ruby>積<rt>せき</rt></ruby>。$(2x)^2 - 3^2 = \\textcolor{#D97706}{4x^2 - 9}$',
     },
     {
       type: 'date',
@@ -155,9 +167,9 @@ export const expansionAdvancedChat: HistoryChat = {
       type: 'quiz',
       question: '$(x+5)(x+3) - (x+4)^2$ を<ruby>簡単<rt>かんたん</rt></ruby>にすると？',
       options: [
-        { letter: 'A', text: '$-1$', correct: true },
+        { letter: 'A', text: '$-x - 1$', correct: false },
         { letter: 'B', text: '$x - 1$', correct: false },
-        { letter: 'C', text: '$-x - 1$', correct: false },
+        { letter: 'C', text: '$-1$', correct: true },
         { letter: 'D', text: '$2x^2 + 8x + 15$', correct: false },
       ],
       explanation:
@@ -166,6 +178,18 @@ export const expansionAdvancedChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<ruby>式<rt>しき</rt></ruby>を<ruby>簡単<rt>かんたん</rt></ruby>にする<ruby>手順<rt>てじゅん</rt></ruby>: (1)<ruby>公式<rt>こうしき</rt></ruby>で<ruby>展開<rt>てんかい</rt></ruby> → (2)カッコを<ruby>外<rt>はず</rt></ruby>す → (3)<ruby>同類項<rt>どうるいこう</rt></ruby>をまとめる',
+    },
+    {
+      type: 'quiz',
+      question: '$(x+2)^2 - (x-3)^2$ を<ruby>簡単<rt>かんたん</rt></ruby>にすると？',
+      options: [
+        { letter: 'A', text: '$10x - 5$', correct: true },
+        { letter: 'B', text: '$2x^2 - 2x - 5$', correct: false },
+        { letter: 'C', text: '$10x + 5$', correct: false },
+        { letter: 'D', text: '$-2x + 13$', correct: false },
+      ],
+      explanation:
+        '$(x+2)^2 = x^2+4x+4$、$(x-3)^2 = x^2-6x+9$。<ruby>引<rt>ひ</rt></ruby>くと $4x+4-(-6x+9) = 4x+4+6x-9 = \\textcolor{#D97706}{10x-5}$',
     },
     {
       type: 'date',
@@ -221,6 +245,18 @@ export const expansionAdvancedChat: HistoryChat = {
     {
       type: 'summary-point',
       text: 'おきかえのコツ: <ruby>共通<rt>きょうつう</rt></ruby>する<ruby>部分<rt>ぶぶん</rt></ruby>を M に<ruby>置<rt>お</rt></ruby>く → <ruby>公式<rt>こうしき</rt></ruby>で<ruby>展開<rt>てんかい</rt></ruby> → M を<ruby>元<rt>もと</rt></ruby>に<ruby>戻<rt>もど</rt></ruby>す',
+    },
+    {
+      type: 'quiz',
+      question: '$(a+b+2)(a+b-5)$ を<ruby>展開<rt>てんかい</rt></ruby>するとき、$M = a+b$ とおくと？',
+      options: [
+        { letter: 'A', text: '$a^2+2ab+b^2-3a-3b+10$', correct: false },
+        { letter: 'B', text: '$a^2+2ab+b^2+3a+3b-10$', correct: false },
+        { letter: 'C', text: '$a^2+2ab+b^2-3a-3b-10$', correct: true },
+        { letter: 'D', text: '$a^2+b^2-3a-3b-10$', correct: false },
+      ],
+      explanation:
+        '$M=a+b$ とおくと $(M+2)(M-5) = M^2-3M-10$。$M$ を<ruby>戻<rt>もど</rt></ruby>すと $\\textcolor{#D97706}{a^2+2ab+b^2-3a-3b-10}$',
     },
     {
       type: 'end',

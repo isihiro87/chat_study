@@ -89,6 +89,18 @@ export const funcGraphsChat: HistoryChat = {
       text: '<ruby>比例<rt>ひれい</rt></ruby>: $a = \\frac{y}{x}$、<ruby>反比例<rt>はんぴれい</rt></ruby>: $a = xy$ でグラフから<ruby>式<rt>しき</rt></ruby>を<ruby>求<rt>もと</rt></ruby>められる。',
     },
     {
+      type: 'quiz',
+      question: '<ruby>反比例<rt>はんぴれい</rt></ruby>のグラフが<ruby>点<rt>てん</rt></ruby> $(2, 8)$ を<ruby>通<rt>とお</rt></ruby>るとき、<ruby>式<rt>しき</rt></ruby>は？',
+      options: [
+        { letter: 'A', text: '$y = 4x$', correct: false },
+        { letter: 'B', text: '$y = \\dfrac{16}{x}$', correct: true },
+        { letter: 'C', text: '$y = \\dfrac{4}{x}$', correct: false },
+        { letter: 'D', text: '$y = 10x$', correct: false },
+      ],
+      explanation:
+        '<ruby>反比例<rt>はんぴれい</rt></ruby>では $a = xy = 2 \\times 8 = 16$。<ruby>式<rt>しき</rt></ruby>は $\\textcolor{#D97706}{y = \\dfrac{16}{x}}$ だよ。',
+    },
+    {
       type: 'date',
       text: '<ruby>比例<rt>ひれい</rt></ruby>の<ruby>利用<rt>りよう</rt></ruby>（<ruby>速<rt>はや</rt></ruby>さの<ruby>問題<rt>もんだい</rt></ruby>）',
     },
@@ -163,9 +175,9 @@ export const funcGraphsChat: HistoryChat = {
       type: 'quiz',
       question: '<ruby>毎分<rt>まいふん</rt></ruby> $80\\text{m}$ で<ruby>走<rt>はし</rt></ruby>るとき、$5$ <ruby>分後<rt>ふんご</rt></ruby>に<ruby>進<rt>すす</rt></ruby>む<ruby>距離<rt>きょり</rt></ruby>は？',
       options: [
-        { letter: 'A', text: '$85\\text{m}$', correct: false },
+        { letter: 'A', text: '$400\\text{m}$', correct: true },
         { letter: 'B', text: '$16\\text{m}$', correct: false },
-        { letter: 'C', text: '$400\\text{m}$', correct: true },
+        { letter: 'C', text: '$85\\text{m}$', correct: false },
         { letter: 'D', text: '$800\\text{m}$', correct: false },
       ],
       explanation:
@@ -243,6 +255,18 @@ export const funcGraphsChat: HistoryChat = {
       text: '<ruby>歯車<rt>はぐるま</rt></ruby>: <ruby>歯数<rt>はすう</rt></ruby> $\\times$ <ruby>回転数<rt>かいてんすう</rt></ruby> $=$ <ruby>一定<rt>いってい</rt></ruby>（<ruby>反比例<rt>はんぴれい</rt></ruby>）。<ruby>仕事量<rt>しごとりょう</rt></ruby>: <ruby>人数<rt>にんずう</rt></ruby> $\\times$ <ruby>日数<rt>にっすう</rt></ruby> $=$ <ruby>一定<rt>いってい</rt></ruby>（<ruby>反比例<rt>はんぴれい</rt></ruby>）。',
     },
     {
+      type: 'quiz',
+      question: 'ある<ruby>仕事<rt>しごと</rt></ruby>を $4$ <ruby>人<rt>にん</rt></ruby>ですると $6$ <ruby>日<rt>にち</rt></ruby>かかる。$3$ <ruby>人<rt>にん</rt></ruby>だと<ruby>何日<rt>なんにち</rt></ruby>？',
+      options: [
+        { letter: 'A', text: '$7$ <ruby>日<rt>にち</rt></ruby>', correct: false },
+        { letter: 'B', text: '$8$ <ruby>日<rt>にち</rt></ruby>', correct: true },
+        { letter: 'C', text: '$9$ <ruby>日<rt>にち</rt></ruby>', correct: false },
+        { letter: 'D', text: '$12$ <ruby>日<rt>にち</rt></ruby>', correct: false },
+      ],
+      explanation:
+        '<ruby>人数<rt>にんずう</rt></ruby> $\\times$ <ruby>日数<rt>にっすう</rt></ruby> $= 4 \\times 6 = 24$（<ruby>一定<rt>いってい</rt></ruby>）。$3$ <ruby>人<rt>にん</rt></ruby>なら $y = \\frac{24}{3} = \\textcolor{#D97706}{8}$ <ruby>日<rt>にち</rt></ruby>だよ。',
+    },
+    {
       type: 'date',
       text: '<ruby>比例<rt>ひれい</rt></ruby>か<ruby>反比例<rt>はんぴれい</rt></ruby>かの<ruby>見分<rt>みわ</rt></ruby>け<ruby>方<rt>かた</rt></ruby>',
     },
@@ -306,20 +330,20 @@ export const funcGraphsChat: HistoryChat = {
       text: '<ruby>表<rt>ひょう</rt></ruby>から $\\frac{y}{x}$ か $xy$ を<ruby>計算<rt>けいさん</rt></ruby>すればいいんですね！テストでも<ruby>使<rt>つか</rt></ruby>えそう！',
     },
     {
+      type: 'summary-point',
+      text: '$\\frac{y}{x}$ <ruby>一定<rt>いってい</rt></ruby> → <ruby>比例<rt>ひれい</rt></ruby>。$xy$ <ruby>一定<rt>いってい</rt></ruby> → <ruby>反比例<rt>はんぴれい</rt></ruby>。<ruby>表<rt>ひょう</rt></ruby>があったらまず<ruby>計算<rt>けいさん</rt></ruby>してみよう！',
+    },
+    {
       type: 'quiz',
       question: '$x$: 2, 3, 6 で $y$: 15, 10, 5。これは<ruby>比例<rt>ひれい</rt></ruby>？<ruby>反比例<rt>はんぴれい</rt></ruby>？',
       options: [
         { letter: 'A', text: '<ruby>比例<rt>ひれい</rt></ruby>', correct: false },
-        { letter: 'B', text: '<ruby>反比例<rt>はんぴれい</rt></ruby>', correct: true },
+        { letter: 'B', text: '<ruby>判断<rt>はんだん</rt></ruby>できない', correct: false },
         { letter: 'C', text: 'どちらでもない', correct: false },
-        { letter: 'D', text: '<ruby>判断<rt>はんだん</rt></ruby>できない', correct: false },
+        { letter: 'D', text: '<ruby>反比例<rt>はんぴれい</rt></ruby>', correct: true },
       ],
       explanation:
         '$xy$ を<ruby>計算<rt>けいさん</rt></ruby>: $2 \\times 15 = 30$, $3 \\times 10 = 30$, $6 \\times 5 = 30$。\n<ruby>積<rt>せき</rt></ruby>が $\\textcolor{#D97706}{30}$ で<ruby>一定<rt>いってい</rt></ruby>なので<ruby>反比例<rt>はんぴれい</rt></ruby>だよ。',
-    },
-    {
-      type: 'summary-point',
-      text: '$\\frac{y}{x}$ <ruby>一定<rt>いってい</rt></ruby> → <ruby>比例<rt>ひれい</rt></ruby>。$xy$ <ruby>一定<rt>いってい</rt></ruby> → <ruby>反比例<rt>はんぴれい</rt></ruby>。<ruby>表<rt>ひょう</rt></ruby>があったらまず<ruby>計算<rt>けいさん</rt></ruby>してみよう！',
     },
     {
       type: 'end',

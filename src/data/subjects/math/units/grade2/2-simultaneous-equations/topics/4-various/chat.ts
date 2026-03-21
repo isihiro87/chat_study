@@ -152,6 +152,18 @@ export const variousSimulEqChat: HistoryChat = {
       type: 'summary-point',
       text: 'かっこがある → <strong><ruby>分配法則<rt>ぶんぱいほうそく</rt></ruby>で<ruby>展開<rt>てんかい</rt></ruby></strong>して $ax + by = c$ に<ruby>整理<rt>せいり</rt></ruby>してから<ruby>解<rt>と</rt></ruby>く！',
     },
+    {
+      type: 'quiz',
+      question: '$3(x - 2) + y = 7$ を<ruby>整理<rt>せいり</rt></ruby>すると？',
+      options: [
+        { letter: 'A', text: '$3x + y = 13$', correct: true },
+        { letter: 'B', text: '$3x + y = 7$', correct: false },
+        { letter: 'C', text: '$3x + y = 1$', correct: false },
+        { letter: 'D', text: '$3x - y = 13$', correct: false },
+      ],
+      explanation:
+        '$3x - 6 + y = 7 \\rightarrow \\textcolor{#D97706}{3x + y = 13}$。\n$-6$ を<ruby>右辺<rt>うへん</rt></ruby>に<ruby>移項<rt>いこう</rt></ruby>して $7 + 6 = 13$！',
+    },
 
     // ===== セクション2: 分数を含む連立方程式 =====
     {
@@ -260,6 +272,18 @@ export const variousSimulEqChat: HistoryChat = {
       type: 'summary-point',
       text: '<ruby>分数<rt>ぶんすう</rt></ruby>がある → <strong><ruby>分母<rt>ぶんぼ</rt></ruby>のLCMをかけて<ruby>整数<rt>せいすう</rt></ruby>に</strong>してから<ruby>解<rt>と</rt></ruby>く！',
     },
+    {
+      type: 'quiz',
+      question: '$\\frac{x}{4} + \\frac{y}{6} = 2$ の<ruby>分数<rt>ぶんすう</rt></ruby>をはらうには<ruby>何<rt>なに</rt></ruby>をかける？',
+      options: [
+        { letter: 'A', text: '$12$', correct: true },
+        { letter: 'B', text: '$6$', correct: false },
+        { letter: 'C', text: '$4$', correct: false },
+        { letter: 'D', text: '$24$', correct: false },
+      ],
+      explanation:
+        '<ruby>分母<rt>ぶんぼ</rt></ruby> $4$ と $6$ の<ruby>最小公倍数<rt>さいしょうこうばいすう</rt></ruby>は $\\textcolor{#D97706}{12}$。\n$12$ をかけると $3x + 2y = 24$。',
+    },
 
     // ===== セクション3: 小数を含む連立方程式 =====
     {
@@ -354,6 +378,18 @@ export const variousSimulEqChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<ruby>小数<rt>しょうすう</rt></ruby>がある → <strong>$10$ <ruby>倍<rt>ばい</rt></ruby>・$100$ <ruby>倍<rt>ばい</rt></ruby>して<ruby>整数<rt>せいすう</rt></ruby>に</strong>してから<ruby>解<rt>と</rt></ruby>く！',
+    },
+    {
+      type: 'quiz',
+      question: '$0.5x + 0.2y = 2.6$ を<ruby>整数<rt>せいすう</rt></ruby>にすると？',
+      options: [
+        { letter: 'A', text: '$50x + 20y = 260$', correct: false },
+        { letter: 'B', text: '$5x + 2y = 2.6$', correct: false },
+        { letter: 'C', text: '$x + 2y = 26$', correct: false },
+        { letter: 'D', text: '$5x + 2y = 26$', correct: true },
+      ],
+      explanation:
+        '<ruby>小数第<rt>しょうすうだい</rt></ruby>1<ruby>位<rt>い</rt></ruby>まであるので $10$ <ruby>倍<rt>ばい</rt></ruby>。\n$\\textcolor{#D97706}{5x + 2y = 26}$',
     },
 
     // ===== セクション4: A = B = C の形 =====
@@ -483,6 +519,18 @@ export const variousSimulEqChat: HistoryChat = {
       type: 'summary-point',
       text: '$A = B = C$ → <strong>2つの<ruby>式<rt>しき</rt></ruby>に<ruby>分<rt>わ</rt></ruby>けて<ruby>連立方程式<rt>れんりつほうていしき</rt></ruby>にする</strong>。<ruby>計算<rt>けいさん</rt></ruby>しやすい<ruby>組<rt>く</rt></ruby>み<ruby>合<rt>あ</rt></ruby>わせを<ruby>選<rt>えら</rt></ruby>ぼう！',
     },
+    {
+      type: 'quiz',
+      question: '$3x + 1 = 2y - 3 = 10$ のとき、$x$ の<ruby>値<rt>あたい</rt></ruby>は？',
+      options: [
+        { letter: 'A', text: '$x = 3$', correct: true },
+        { letter: 'B', text: '$x = 4$', correct: false },
+        { letter: 'C', text: '$x = 2$', correct: false },
+        { letter: 'D', text: '$x = 5$', correct: false },
+      ],
+      explanation:
+        '$3x + 1 = 10$ より $3x = 9 \\rightarrow x = \\textcolor{#D97706}{3}$。\n<ruby>右辺<rt>うへん</rt></ruby>が<ruby>定数<rt>ていすう</rt></ruby>なので<ruby>独立<rt>どくりつ</rt></ruby>に<ruby>解<rt>と</rt></ruby>ける！',
+    },
 
     // ===== セクション5: 解と文字の値 =====
     {
@@ -605,8 +653,8 @@ export const variousSimulEqChat: HistoryChat = {
       options: [
         { letter: 'A', text: '$2$', correct: false },
         { letter: 'B', text: '$3$', correct: false },
-        { letter: 'C', text: '$6$', correct: true },
-        { letter: 'D', text: '$12$', correct: false },
+        { letter: 'C', text: '$12$', correct: false },
+        { letter: 'D', text: '$6$', correct: true },
       ],
       explanation:
         '<ruby>分母<rt>ぶんぼ</rt></ruby>が $3$ と $2$。<ruby>最小公倍数<rt>さいしょうこうばいすう</rt></ruby>は $\\textcolor{#D97706}{6}$。\n<ruby>両辺<rt>りょうへん</rt></ruby>に $6$ をかけると $2x + 3y = 24$ になるよ。',
@@ -629,13 +677,13 @@ export const variousSimulEqChat: HistoryChat = {
       options: [
         {
           letter: 'A',
-          text: '$\\begin{cases} x + 2y = 10 \\\\ 3x - y = 10 \\end{cases}$',
-          correct: true,
+          text: '$\\begin{cases} x + 2y = 3x - y \\\\ x = 10 \\end{cases}$',
+          correct: false,
         },
         {
           letter: 'B',
-          text: '$\\begin{cases} x + 2y = 3x - y \\\\ x = 10 \\end{cases}$',
-          correct: false,
+          text: '$\\begin{cases} x + 2y = 10 \\\\ 3x - y = 10 \\end{cases}$',
+          correct: true,
         },
         {
           letter: 'C',

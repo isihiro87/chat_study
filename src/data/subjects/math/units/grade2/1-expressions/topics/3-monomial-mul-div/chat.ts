@@ -99,6 +99,18 @@ export const monomialMulDivChat: HistoryChat = {
       type: 'summary-point',
       text: '<ruby>単項式<rt>たんこうしき</rt></ruby>の<ruby>乗法<rt>じょうほう</rt></ruby>: <ruby>係数<rt>けいすう</rt></ruby>×<ruby>係数<rt>けいすう</rt></ruby>、<ruby>同<rt>おな</rt></ruby>じ<ruby>文字<rt>もじ</rt></ruby>は<ruby>指数<rt>しすう</rt></ruby>を<ruby>足<rt>た</rt></ruby>す。$x^m \\times x^n = x^{m+n}$',
     },
+    {
+      type: 'quiz',
+      question: '$(-4ab) \\times 3a^2$ の<ruby>答<rt>こた</rt></ruby>えは？',
+      options: [
+        { letter: 'A', text: '$-12a^3b$', correct: true },
+        { letter: 'B', text: '$-12a^2b$', correct: false },
+        { letter: 'C', text: '$12a^3b$', correct: false },
+        { letter: 'D', text: '$-12a^2b^2$', correct: false },
+      ],
+      explanation:
+        '<ruby>係数<rt>けいすう</rt></ruby>: $(-4) \\times 3 = -12$。<ruby>文字<rt>もじ</rt></ruby>: $a \\times a^2 = a^3$、$b$ はそのまま。\n<ruby>答<rt>こた</rt></ruby>えは $\\textcolor{#D97706}{-12a^3b}$',
+    },
     // ===== 2. 単項式の累乗 =====
     {
       type: 'date',
@@ -147,6 +159,18 @@ export const monomialMulDivChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '$(-a)^2 = a^2$（<ruby>正<rt>せい</rt></ruby>）、$-(a)^2 = -a^2$（<ruby>負<rt>ふ</rt></ruby>）。「−」がかっこの<ruby>中<rt>なか</rt></ruby>か<ruby>外<rt>そと</rt></ruby>かに<ruby>注意<rt>ちゅうい</rt></ruby>！',
+    },
+    {
+      type: 'quiz',
+      question: '$(-5x)^2$ の<ruby>答<rt>こた</rt></ruby>えは？',
+      options: [
+        { letter: 'A', text: '$-25x^2$', correct: false },
+        { letter: 'B', text: '$25x$', correct: false },
+        { letter: 'C', text: '$-10x^2$', correct: false },
+        { letter: 'D', text: '$25x^2$', correct: true },
+      ],
+      explanation:
+        '$(-5)^2 = 25$、$x^2$ はそのまま。$(-)^2 = (+)$ だから $\\textcolor{#D97706}{25x^2}$。\n$-(5x)^2 = -25x^2$ と<ruby>間違<rt>まちが</rt></ruby>えないように！',
     },
     // ===== 3. 累乗をふくむかけ算 =====
     {
@@ -256,6 +280,18 @@ export const monomialMulDivChat: HistoryChat = {
       type: 'summary-point',
       text: '<ruby>分数<rt>ぶんすう</rt></ruby>で<ruby>割<rt>わ</rt></ruby>るときは<ruby>逆数<rt>ぎゃくすう</rt></ruby>をかける。$a \\div \\frac{b}{c} = a \\times \\frac{c}{b}$',
     },
+    {
+      type: 'quiz',
+      question: '$12x^2y \\div 4xy$ の<ruby>答<rt>こた</rt></ruby>えは？',
+      options: [
+        { letter: 'A', text: '$3xy$', correct: false },
+        { letter: 'B', text: '$8xy$', correct: false },
+        { letter: 'C', text: '$3y$', correct: false },
+        { letter: 'D', text: '$3x$', correct: true },
+      ],
+      explanation:
+        '$\\frac{12x^2y}{4xy} = \\frac{12}{4} \\times \\frac{x^2}{x} \\times \\frac{y}{y} = \\textcolor{#D97706}{3x}$。\n$y$ は<ruby>約分<rt>やくぶん</rt></ruby>で<ruby>消<rt>き</rt></ruby>える！',
+    },
     // ===== 6. 3つの式の乗除 =====
     {
       type: 'date',
@@ -298,10 +334,10 @@ export const monomialMulDivChat: HistoryChat = {
       type: 'quiz',
       question: '$8xy \\times (-5y) \\div (-10x)$ の<ruby>答<rt>こた</rt></ruby>えは？',
       options: [
-        { letter: 'A', text: '$4y^2$', correct: true },
+        { letter: 'A', text: '$-4xy$', correct: false },
         { letter: 'B', text: '$-4y^2$', correct: false },
         { letter: 'C', text: '$4xy^2$', correct: false },
-        { letter: 'D', text: '$-4xy$', correct: false },
+        { letter: 'D', text: '$4y^2$', correct: true },
       ],
       explanation:
         '$\\frac{8xy \\times (-5y)}{-10x} = \\frac{-40xy^2}{-10x} = \\textcolor{#D97706}{4y^2}$。\n(−)÷(−)=(+)、$x$ が<ruby>約分<rt>やくぶん</rt></ruby>で<ruby>消<rt>き</rt></ruby>える。',

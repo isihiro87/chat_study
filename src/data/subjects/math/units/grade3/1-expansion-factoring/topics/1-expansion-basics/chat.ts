@@ -79,6 +79,18 @@ export const expansionBasicsChat: HistoryChat = {
       text: '<ruby>展開<rt>てんかい</rt></ruby> = かっこを<ruby>外<rt>はず</rt></ruby>して<ruby>式<rt>しき</rt></ruby>を<ruby>広<rt>ひろ</rt></ruby>げること。<ruby>基本<rt>きほん</rt></ruby>は<ruby>分配法則<rt>ぶんぱいほうそく</rt></ruby>！',
     },
     {
+      type: 'quiz',
+      question: '$2(3x - 4)$ を<ruby>展開<rt>てんかい</rt></ruby>すると？',
+      options: [
+        { letter: 'A', text: '$6x - 8$', correct: true },
+        { letter: 'B', text: '$6x - 4$', correct: false },
+        { letter: 'C', text: '$5x - 2$', correct: false },
+        { letter: 'D', text: '$6x + 8$', correct: false },
+      ],
+      explanation:
+        '$2 \\times 3x = 6x$、$2 \\times (-4) = -8$。<ruby>答<rt>こた</rt></ruby>えは $\\textcolor{#D97706}{6x - 8}$ だよ。',
+    },
+    {
       type: 'date',
       text: '(a+b)(c+d) の<ruby>展開<rt>てんかい</rt></ruby>',
     },
@@ -133,6 +145,18 @@ export const expansionBasicsChat: HistoryChat = {
       text: '(a+b)(c+d) = ac + ad + bc + bd → 4つの<ruby>積<rt>せき</rt></ruby>を<ruby>作<rt>つく</rt></ruby>って<ruby>同類項<rt>どうるいこう</rt></ruby>をまとめる！',
     },
     {
+      type: 'quiz',
+      question: '$(x + 3)(x + 2)$ を<ruby>展開<rt>てんかい</rt></ruby>すると？',
+      options: [
+        { letter: 'A', text: '$x^2 + 6x + 6$', correct: false },
+        { letter: 'B', text: '$x^2 + 5x + 6$', correct: true },
+        { letter: 'C', text: '$x^2 + 5x + 5$', correct: false },
+        { letter: 'D', text: '$x^2 + 6x + 5$', correct: false },
+      ],
+      explanation:
+        '$x \\times x + x \\times 2 + 3 \\times x + 3 \\times 2 = x^2 + 2x + 3x + 6 = \\textcolor{#D97706}{x^2 + 5x + 6}$',
+    },
+    {
       type: 'date',
       text: '<ruby>符号<rt>ふごう</rt></ruby>に<ruby>気<rt>き</rt></ruby>をつけよう',
     },
@@ -182,9 +206,9 @@ export const expansionBasicsChat: HistoryChat = {
       type: 'quiz',
       question: '$(x + 1)(x - 5)$ を<ruby>展開<rt>てんかい</rt></ruby>すると？',
       options: [
-        { letter: 'A', text: '$x^2 - 4x - 5$', correct: true },
+        { letter: 'A', text: '$x^2 - 4x + 5$', correct: false },
         { letter: 'B', text: '$x^2 + 4x - 5$', correct: false },
-        { letter: 'C', text: '$x^2 - 4x + 5$', correct: false },
+        { letter: 'C', text: '$x^2 - 4x - 5$', correct: true },
         { letter: 'D', text: '$x^2 - 6x - 5$', correct: false },
       ],
       explanation:
@@ -193,6 +217,18 @@ export const expansionBasicsChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<ruby>マイナスの<rt></rt></ruby><ruby>符号<rt>ふごう</rt></ruby>に<ruby>注意<rt>ちゅうい</rt></ruby>！ (−)×(−) = (+)、(−)×(+) = (−)',
+    },
+    {
+      type: 'quiz',
+      question: '$(x - 2)(x - 7)$ を<ruby>展開<rt>てんかい</rt></ruby>すると？',
+      options: [
+        { letter: 'A', text: '$x^2 - 9x - 14$', correct: false },
+        { letter: 'B', text: '$x^2 + 9x + 14$', correct: false },
+        { letter: 'C', text: '$x^2 - 9x + 14$', correct: true },
+        { letter: 'D', text: '$x^2 - 5x + 14$', correct: false },
+      ],
+      explanation:
+        '$x \\times x + x \\times (-7) + (-2) \\times x + (-2) \\times (-7) = x^2 - 7x - 2x + 14 = \\textcolor{#D97706}{x^2 - 9x + 14}$',
     },
     {
       type: 'date',
@@ -287,6 +323,18 @@ export const expansionBasicsChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<ruby>多項式<rt>たこうしき</rt></ruby>÷<ruby>単項式<rt>たんこうしき</rt></ruby> → <ruby>各項<rt>かくこう</rt></ruby>をそれぞれ<ruby>割<rt>わ</rt></ruby>る！<ruby>符号<rt>ふごう</rt></ruby>に<ruby>注意<rt>ちゅうい</rt></ruby>！',
+    },
+    {
+      type: 'quiz',
+      question: '$(15a^2b - 10ab) \\div 5ab$ を<ruby>計算<rt>けいさん</rt></ruby>すると？',
+      options: [
+        { letter: 'A', text: '$3a + 2$', correct: false },
+        { letter: 'B', text: '$3ab - 2b$', correct: false },
+        { letter: 'C', text: '$3a - 2b$', correct: false },
+        { letter: 'D', text: '$3a - 2$', correct: true },
+      ],
+      explanation:
+        '$15a^2b \\div 5ab = 3a$、$(-10ab) \\div 5ab = -2$。<ruby>答<rt>こた</rt></ruby>えは $\\textcolor{#D97706}{3a - 2}$。',
     },
     {
       type: 'date',

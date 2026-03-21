@@ -71,17 +71,20 @@ export const quadFuncParabola: Topic = {
     flashcards: [
       {
         id: 'math-g3-qf-pb-fc1',
-        front: '$y$ は $x$ の2乗に比例する（$a$ は比例定数、$a \\neq 0$）', back: '$y = ax^2$ の関係を何というか？',
+        front: '$y = 12$', back: '$y = 3x^2$ で $x = -2$ のとき $y$ は？',
+        explanation: '$3 \\times (-2)^2 = 3 \\times 4 = 12$',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-qf-pb-fc2',
-        front: '放物線（ほうぶつせん）', back: '$y = ax^2$ のグラフの名前は？',
+        front: '$a = 2$', back: '$y = ax^2$ が点 $(3, 18)$ を通る。$a$ は？',
+        explanation: '$18 = a \\times 9$ より $a = 2$',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-qf-pb-fc3',
-        front: '比例定数（ひれいていすう）', back: '$y = ax^2$ の $a$ のことを何という？',
+        front: '$y = -8$', back: '$y = -2x^2$ で $x = 2$ のとき $y$ は？',
+        explanation: '$-2 \\times 2^2 = -2 \\times 4 = -8$',
         difficulty: 'basic',
       },
       {

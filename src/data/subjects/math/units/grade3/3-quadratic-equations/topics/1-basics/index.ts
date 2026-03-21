@@ -202,7 +202,7 @@ export const quadEqBasics: Topic = {
         explanation: 'x + 3 = ±2 より x = −1 または x = −5',
         difficulty: 'advanced',
       },
-      { id: 'math-g3-qeb-fc29', front: '二次方程式', back: '$x$ の $2$ 乗を含む方程式を何という？', explanation: '最高次数が $2$ の方程式。', difficulty: 'basic' },
+      { id: 'math-g3-qeb-fc29', front: '$x = \\pm 6$', back: '$x^2 = 36$ の解は？', explanation: '$\\sqrt{36} = 6$ なので $x = \\pm 6$。', difficulty: 'basic' },
       { id: 'math-g3-qeb-fc30', front: '$ax^2 + bx + c = 0$（$a \\neq 0$）', back: '二次方程式の標準形は？', explanation: '$a = 0$ だと一次方程式になる。', difficulty: 'basic' },
       { id: 'math-g3-qeb-fc31', front: '$a = 1, b = -7, c = 10$', back: '$x^2 - 7x + 10 = 0$ の $a, b, c$ は？', explanation: '標準形と比較。', difficulty: 'basic' },
       { id: 'math-g3-qeb-fc32', front: '$x = \\pm 3$', back: '$x^2 = 9$ の解は？', explanation: '平方根をとる: $x = 3$ または $x = -3$。', difficulty: 'basic' },

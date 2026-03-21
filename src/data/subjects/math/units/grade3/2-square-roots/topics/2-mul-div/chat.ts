@@ -201,8 +201,8 @@ export const sqrtMulDivChat: HistoryChat = {
       options: [
         { letter: 'A', text: '$8\\sqrt{3}$', correct: false },
         { letter: 'B', text: '$9\\sqrt{2}$', correct: false },
-        { letter: 'C', text: '$6\\sqrt{2}$', correct: true },
-        { letter: 'D', text: '$3\\sqrt{8}$', correct: false },
+        { letter: 'C', text: '$3\\sqrt{8}$', correct: false },
+        { letter: 'D', text: '$6\\sqrt{2}$', correct: true },
       ],
       explanation:
         '$\\sqrt{72} = \\sqrt{36 \\times 2} = 6\\sqrt{2}$\n$72 = 6^2 \\times 2$ なので $6$ を<ruby>外<rt>そと</rt></ruby>に<ruby>出<rt>だ</rt></ruby>すよ。',
@@ -262,8 +262,8 @@ export const sqrtMulDivChat: HistoryChat = {
       options: [
         { letter: 'A', text: '$\\sqrt{12}$', correct: false },
         { letter: 'B', text: '$\\sqrt{24}$', correct: false },
-        { letter: 'C', text: '$\\sqrt{36}$', correct: false },
-        { letter: 'D', text: '$\\sqrt{48}$', correct: true },
+        { letter: 'C', text: '$\\sqrt{48}$', correct: true },
+        { letter: 'D', text: '$\\sqrt{36}$', correct: false },
       ],
       explanation:
         '$4\\sqrt{3} = \\sqrt{4^2 \\times 3} = \\sqrt{16 \\times 3} = \\sqrt{48}$\n<ruby>外<rt>そと</rt></ruby>の $4$ を2<ruby>乗<rt>じょう</rt></ruby>して<ruby>中<rt>なか</rt></ruby>に<ruby>入<rt>い</rt></ruby>れるよ。',
@@ -318,8 +318,8 @@ export const sqrtMulDivChat: HistoryChat = {
       type: 'quiz',
       question: '$\\sqrt{7} = 2.646$ として、$\\sqrt{63}$ の<ruby>値<rt>あたい</rt></ruby>は？',
       options: [
-        { letter: 'A', text: '$7.938$', correct: true },
-        { letter: 'B', text: '$5.292$', correct: false },
+        { letter: 'A', text: '$5.292$', correct: false },
+        { letter: 'B', text: '$7.938$', correct: true },
         { letter: 'C', text: '$26.46$', correct: false },
         { letter: 'D', text: '$18.522$', correct: false },
       ],
@@ -329,6 +329,18 @@ export const sqrtMulDivChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '$\\sqrt{}$ の<ruby>中<rt>なか</rt></ruby>を<ruby>簡単<rt>かんたん</rt></ruby>にしてから<ruby>近似値<rt>きんじち</rt></ruby>を<ruby>代入<rt>だいにゅう</rt></ruby>すると<ruby>値<rt>あたい</rt></ruby>が<ruby>求<rt>もと</rt></ruby>められる！',
+    },
+    {
+      type: 'quiz',
+      question: '$\\sqrt{3} = 1.732$ として $\\sqrt{300}$ の<ruby>値<rt>あたい</rt></ruby>は？',
+      options: [
+        { letter: 'A', text: '$5.196$', correct: false },
+        { letter: 'B', text: '$1.732$', correct: false },
+        { letter: 'C', text: '$17.32$', correct: true },
+        { letter: 'D', text: '$173.2$', correct: false },
+      ],
+      explanation:
+        '$\\sqrt{300} = \\sqrt{100 \\times 3} = 10\\sqrt{3} = 10 \\times 1.732 = \\textcolor{#D97706}{17.32}$',
     },
     {
       type: 'end',

@@ -86,7 +86,19 @@ export const literalExpressionsChat: HistoryChat = {
     },
     {
       type: 'summary-point',
-      text: '<ruby>証明<rt>しょうめい</rt></ruby>の3ステップ: ① <ruby>文字<rt>もじ</rt></ruby>で<ruby>表<rt>あらわ</rt></ruby>す → ② <ruby>式<rt>しき</rt></ruby>を<ruby>計算<rt>けいさん</rt></ruby> → ③ 「○○の<ruby>形<rt>かたち</rt></ruby>だから△△」と<ruby>結論<rt>けつろん</rt></ruby>',
+      text: '<ruby>証明<rt>しょうめい</rt></ruby>の3ステップ: ① <ruby>文字<rt>もじ</rt></ruby>で<ruby>表<rt>あらわ</rt></ruby>す → ② <ruby>式<rt>shiki</rt></ruby>を<ruby>計算<rt>けいさん</rt></ruby> → ③ 「○○の<ruby>形<rt>かたち</rt></ruby>だから△△」と<ruby>結論<rt>けつろん</rt></ruby>',
+    },
+    {
+      type: 'quiz',
+      question: '<ruby>整数<rt>せいすう</rt></ruby> $n$ を<ruby>使<rt>つか</rt></ruby>って<ruby>奇数<rt>きすう</rt></ruby>を<ruby>表<rt>あらわ</rt></ruby>すと？',
+      options: [
+        { letter: 'A', text: '$2n$', correct: false },
+        { letter: 'B', text: '$n + 1$', correct: false },
+        { letter: 'C', text: '$2n + 1$', correct: true },
+        { letter: 'D', text: '$3n$', correct: false },
+      ],
+      explanation:
+        '<ruby>偶数<rt>ぐうすう</rt></ruby>が $2n$ だから、<ruby>奇数<rt>きすう</rt></ruby>は $\\textcolor{#D97706}{2n + 1}$。\n<ruby>偶数<rt>ぐうすう</rt></ruby>に1を<ruby>足<rt>た</rt></ruby>した<ruby>数<rt>かず</rt></ruby>が<ruby>奇数<rt>きすう</rt></ruby>だよ！',
     },
     // === Section 2: 連続する整数の証明 ===
     {
@@ -164,6 +176,18 @@ export const literalExpressionsChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<ruby>連続<rt>れんぞく</rt></ruby>する<ruby>偶数<rt>ぐうすう</rt></ruby>は $2n, 2n+2, 2n+4$。<ruby>奇数<rt>きすう</rt></ruby>なら $2n+1, 2n+3, 2n+5$。',
+    },
+    {
+      type: 'quiz',
+      question: '<ruby>偶数<rt>ぐうすう</rt></ruby>と<ruby>偶数<rt>ぐうすう</rt></ruby>の<ruby>和<rt>わ</rt></ruby>を<ruby>文字<rt>もじ</rt></ruby>で<ruby>計算<rt>けいさん</rt></ruby>すると？（$m, n$ は<ruby>整数<rt>せいすう</rt></ruby>）',
+      options: [
+        { letter: 'A', text: '$4mn$', correct: false },
+        { letter: 'B', text: '$2(m + n)$', correct: true },
+        { letter: 'C', text: '$2m + n$', correct: false },
+        { letter: 'D', text: '$2(m + n) + 1$', correct: false },
+      ],
+      explanation:
+        '$2m + 2n = \\textcolor{#D97706}{2(m + n)}$。\n$2 \\times$（<ruby>整数<rt>せいすう</rt></ruby>）の<ruby>形<rt>かたち</rt></ruby>だから<ruby>偶数<rt>ぐうすう</rt></ruby>！',
     },
     // === Section 4: 2けたの自然数 ===
     {
@@ -289,9 +313,9 @@ export const literalExpressionsChat: HistoryChat = {
       question: '<ruby>連続<rt>れんぞく</rt></ruby>する3つの<ruby>整数<rt>せいすう</rt></ruby>の<ruby>和<rt>わ</rt></ruby>は<ruby>何<rt>なに</rt></ruby>の<ruby>倍数<rt>ばいすう</rt></ruby>になる？',
       options: [
         { letter: 'A', text: '2の<ruby>倍数<rt>ばいすう</rt></ruby>', correct: false },
-        { letter: 'B', text: '3の<ruby>倍数<rt>ばいすう</rt></ruby>', correct: true },
+        { letter: 'B', text: '6の<ruby>倍数<rt>ばいすう</rt></ruby>', correct: false },
         { letter: 'C', text: '5の<ruby>倍数<rt>ばいすう</rt></ruby>', correct: false },
-        { letter: 'D', text: '6の<ruby>倍数<rt>ばいすう</rt></ruby>', correct: false },
+        { letter: 'D', text: '3の<ruby>倍数<rt>ばいすう</rt></ruby>', correct: true },
       ],
       explanation:
         '$n + (n+1) + (n+2) = 3n + 3 = \\textcolor{#D97706}{3(n+1)}$。\n$3 \\times$ (<ruby>整数<rt>せいすう</rt></ruby>) の<ruby>形<rt>かたち</rt></ruby>なので<strong>3の<ruby>倍数<rt>ばいすう</rt></ruby></strong>！',
@@ -301,8 +325,8 @@ export const literalExpressionsChat: HistoryChat = {
       question: '$S = \\frac{1}{2}(a + b)h$ を $h$ について<ruby>解<rt>と</rt></ruby>くと？',
       options: [
         { letter: 'A', text: '$h = \\frac{S}{2(a+b)}$', correct: false },
-        { letter: 'B', text: '$h = \\frac{2S}{a+b}$', correct: true },
-        { letter: 'C', text: '$h = \\frac{S - a - b}{2}$', correct: false },
+        { letter: 'B', text: '$h = \\frac{S - a - b}{2}$', correct: false },
+        { letter: 'C', text: '$h = \\frac{2S}{a+b}$', correct: true },
         { letter: 'D', text: '$h = 2S(a+b)$', correct: false },
       ],
       explanation:

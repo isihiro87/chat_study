@@ -222,7 +222,7 @@ export const expansionBasics: Topic = {
       { id: 'math-g3-eb-fc40', front: '$-12a^2 - 8ab$', back: '$-4a(3a + 2b)$ を展開すると？', explanation: '$(-4a) \\times 3a + (-4a) \\times 2b$。', difficulty: 'standard' },
       { id: 'math-g3-eb-fc41', front: '$4x^2 - 20x$', back: '$4x(x - 5)$ を展開すると？', explanation: '$4x \\times x + 4x \\times (-5)$。', difficulty: 'standard' },
       { id: 'math-g3-eb-fc42', front: '$-5x^2 + 15x - 5$', back: '$-5(x^2 - 3x + 1)$ を展開すると？', explanation: '各項に $-5$ をかける。', difficulty: 'standard' },
-      { id: 'math-g3-eb-fc43', front: '文字の部分がまったく同じ項', back: '同類項とは何？', explanation: '例: $3x$ と $5x$、$2x^2$ と $-7x^2$。', difficulty: 'basic' },
+      { id: 'math-g3-eb-fc43', front: '$6x^2 + 3x - 2$', back: '$(2x-1)(3x+2)$ を展開すると？', explanation: '$6x^2+4x-3x-2 = 6x^2+3x-2$。', difficulty: 'basic' },
       { id: 'math-g3-eb-fc44', front: '$-6xy - 10y^2$', back: '$(3x + 5y) \\times (-2y)$ を展開すると？', explanation: '$3x \\times (-2y) + 5y \\times (-2y)$。', difficulty: 'advanced' },
     ],
     quiz: {

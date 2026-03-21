@@ -77,6 +77,18 @@ export const equationsAndGraphsChat: HistoryChat = {
       text: 'ax + by = c → y = の<ruby>形<rt>かたち</rt></ruby>に<ruby>変形<rt>へんけい</rt></ruby>すれば<ruby>一次関数<rt>いちじかんすう</rt></ruby>のグラフとしてかける！',
     },
     {
+      type: 'quiz',
+      question: '$3x + y = 9$ を $y =$ の<ruby>形<rt>かたち</rt></ruby>に<ruby>変形<rt>へんけい</rt></ruby>すると？',
+      options: [
+        { letter: 'A', text: '$y = 3x + 9$', correct: false },
+        { letter: 'B', text: '$y = 3x - 9$', correct: false },
+        { letter: 'C', text: '$y = -3x - 9$', correct: false },
+        { letter: 'D', text: '$y = -3x + 9$', correct: true },
+      ],
+      explanation:
+        '$3x$ を<ruby>移項<rt>いこう</rt></ruby>して $y = \\textcolor{#D97706}{-3x + 9}$。\n<ruby>傾<rt>かたむ</rt></ruby>き $-3$、<ruby>切片<rt>せっぺん</rt></ruby> $9$ の<ruby>直線<rt>ちょくせん</rt></ruby>だよ。',
+    },
+    {
       type: 'date',
       text: 'y = k と x = h のグラフ',
     },
@@ -118,6 +130,18 @@ export const equationsAndGraphsChat: HistoryChat = {
     {
       type: 'summary-point',
       text: 'y = k は<ruby>横<rt>よこ</rt></ruby>の<ruby>直線<rt>ちょくせん</rt></ruby>、x = h は<ruby>縦<rt>たて</rt></ruby>の<ruby>直線<rt>ちょくせん</rt></ruby>！',
+    },
+    {
+      type: 'quiz',
+      question: '$x = -3$ のグラフはどんな<ruby>直線<rt>ちょくせん</rt></ruby>？',
+      options: [
+        { letter: 'A', text: '$x$ <ruby>軸<rt>じく</rt></ruby>に<ruby>平行<rt>へいこう</rt></ruby>な<ruby>横<rt>よこ</rt></ruby>の<ruby>直線<rt>ちょくせん</rt></ruby>', correct: false },
+        { letter: 'B', text: '$y$ <ruby>軸<rt>じく</rt></ruby>に<ruby>平行<rt>へいこう</rt></ruby>な<ruby>縦<rt>たて</rt></ruby>の<ruby>直線<rt>ちょくせん</rt></ruby>', correct: true },
+        { letter: 'C', text: '<ruby>原点<rt>げんてん</rt></ruby>を<ruby>通<rt>とお</rt></ruby>る<ruby>右上<rt>みぎうえ</rt></ruby>がりの<ruby>直線<rt>ちょくせん</rt></ruby>', correct: false },
+        { letter: 'D', text: '<ruby>原点<rt>げんてん</rt></ruby>を<ruby>通<rt>とお</rt></ruby>る<ruby>右下<rt>みぎした</rt></ruby>がりの<ruby>直線<rt>ちょくせん</rt></ruby>', correct: false },
+      ],
+      explanation:
+        '$x = -3$ は $\\textcolor{#D97706}{y\\ <ruby>軸<rt>じく</rt></ruby>に<ruby>平行<rt>へいこう</rt></ruby>な<ruby>縦<rt>たて</rt></ruby>の<ruby>直線<rt>ちょくせん</rt></ruby>}$。\n$x$ <ruby>座標<rt>ざひょう</rt></ruby>がいつでも $-3$！',
     },
     {
       type: 'date',
@@ -190,6 +214,18 @@ export const equationsAndGraphsChat: HistoryChat = {
       text: '2<ruby>直線<rt>ちょくせん</rt></ruby>の<ruby>交点<rt>こうてん</rt></ruby>の<ruby>座標<rt>ざひょう</rt></ruby> = <ruby>連立方程式<rt>れんりつほうていしき</rt></ruby>の<ruby>解<rt>かい</rt></ruby>（<ruby>同<rt>おな</rt></ruby>じこと！）',
     },
     {
+      type: 'quiz',
+      question: '$y = x + 2$ と $y = 3x - 4$ の<ruby>交点<rt>こうてん</rt></ruby>は？',
+      options: [
+        { letter: 'A', text: '$(2, 4)$', correct: false },
+        { letter: 'B', text: '$(1, 3)$', correct: false },
+        { letter: 'C', text: '$(3, 5)$', correct: true },
+        { letter: 'D', text: '$(4, 6)$', correct: false },
+      ],
+      explanation:
+        '$x + 2 = 3x - 4 \\rightarrow 2x = 6 \\rightarrow x = 3$。\n$y = 3 + 2 = 5$。<ruby>交点<rt>こうてん</rt></ruby>は $\\textcolor{#D97706}{(3, 5)}$',
+    },
+    {
       type: 'summary-point',
       text: '<ruby>平行<rt>へいこう</rt></ruby>な2<ruby>直線<rt>ちょくせん</rt></ruby>（<ruby>傾<rt>かたむ</rt></ruby>きが<ruby>同<rt>おな</rt></ruby>じ）は<ruby>交<rt>まじ</rt></ruby>わらない → <ruby>連立方程式<rt>れんりつほうていしき</rt></ruby>の<ruby>解<rt>かい</rt></ruby>なし',
     },
@@ -197,8 +233,8 @@ export const equationsAndGraphsChat: HistoryChat = {
       type: 'quiz',
       question: '$y = 2x$ と $y = -x + 6$ の<ruby>交点<rt>こうてん</rt></ruby>は？',
       options: [
-        { letter: 'A', text: '$(1, 2)$', correct: false },
-        { letter: 'B', text: '$(2, 4)$', correct: true },
+        { letter: 'A', text: '$(2, 4)$', correct: true },
+        { letter: 'B', text: '$(1, 2)$', correct: false },
         { letter: 'C', text: '$(3, 3)$', correct: false },
         { letter: 'D', text: '$(6, 0)$', correct: false },
       ],

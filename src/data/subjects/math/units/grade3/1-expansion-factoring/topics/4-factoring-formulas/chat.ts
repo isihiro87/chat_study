@@ -94,6 +94,18 @@ export const factoringFormulasChat: HistoryChat = {
       text: 'x²+bx+c → かけて c、<ruby>足<rt>た</rt></ruby>して b になる2つの<ruby>数<rt>かず</rt></ruby>を<ruby>探<rt>さが</rt></ruby>す！',
     },
     {
+      type: 'quiz',
+      question: '$x^2 + 9x + 20$ を<ruby>因数分解<rt>いんすうぶんかい</rt></ruby>すると？',
+      options: [
+        { letter: 'A', text: '$(x+4)(x+5)$', correct: true },
+        { letter: 'B', text: '$(x+2)(x+10)$', correct: false },
+        { letter: 'C', text: '$(x+3)(x+7)$', correct: false },
+        { letter: 'D', text: '$(x+1)(x+20)$', correct: false },
+      ],
+      explanation:
+        'かけて $20$、<ruby>足<rt>た</rt></ruby>して $9$ になる2<ruby>数<rt>すう</rt></ruby>は $4$ と $5$。$\\textcolor{#D97706}{(x+4)(x+5)}$',
+    },
+    {
       type: 'date',
       text: 'マイナスがあるパターン',
     },
@@ -146,6 +158,18 @@ export const factoringFormulasChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<ruby>定数項<rt>ていすうこう</rt></ruby>がマイナス → 2つの<ruby>数<rt>かず</rt></ruby>の<ruby>符号<rt>ふごう</rt></ruby>はプラスとマイナスの<ruby>組<rt>く</rt></ruby>み<ruby>合<rt>あ</rt></ruby>わせ！',
+    },
+    {
+      type: 'quiz',
+      question: '$x^2 - x - 20$ を<ruby>因数分解<rt>いんすうぶんかい</rt></ruby>すると？',
+      options: [
+        { letter: 'A', text: '$(x-5)(x-4)$', correct: false },
+        { letter: 'B', text: '$(x-5)(x+4)$', correct: true },
+        { letter: 'C', text: '$(x+5)(x-4)$', correct: false },
+        { letter: 'D', text: '$(x+5)(x+4)$', correct: false },
+      ],
+      explanation:
+        'かけて $-20$、<ruby>足<rt>た</rt></ruby>して $-1$ → $-5$ と $+4$。$\\textcolor{#D97706}{(x-5)(x+4)}$',
     },
     {
       type: 'date',
@@ -208,6 +232,18 @@ export const factoringFormulasChat: HistoryChat = {
       text: '<ruby>公式<rt>こうしき</rt></ruby>パターンを<ruby>見抜<rt>みぬ</rt></ruby>くコツ: <ruby>最後<rt>さいご</rt></ruby>の<ruby>項<rt>こう</rt></ruby>が<ruby>何<rt>なに</rt></ruby>かの2<ruby>乗<rt>じょう</rt></ruby>か？ <ruby>真<rt>ま</rt></ruby>ん<ruby>中<rt>なか</rt></ruby>が 2ab になっているか？',
     },
     {
+      type: 'quiz',
+      question: '$x^2 - 64$ を<ruby>因数分解<rt>いんすうぶんかい</rt></ruby>すると？',
+      options: [
+        { letter: 'A', text: '$(x-8)^2$', correct: false },
+        { letter: 'B', text: '$(x-32)(x+2)$', correct: false },
+        { letter: 'C', text: '$(x+8)(x-8)$', correct: true },
+        { letter: 'D', text: '$(x+4)(x-16)$', correct: false },
+      ],
+      explanation:
+        '$64 = 8^2$ なので $x^2 - 8^2 = \\textcolor{#D97706}{(x+8)(x-8)}$',
+    },
+    {
       type: 'date',
       text: '<ruby>共通因数<rt>きょうつういんすう</rt></ruby>くくり<ruby>出<rt>だ</rt></ruby>し → <ruby>公式<rt>こうしき</rt></ruby>',
     },
@@ -257,9 +293,9 @@ export const factoringFormulasChat: HistoryChat = {
       type: 'quiz',
       question: '$2x^2 + 6x - 8$ を<ruby>因数分解<rt>いんすうぶんかい</rt></ruby>すると？',
       options: [
-        { letter: 'A', text: '$2(x^2+3x-4)$', correct: false },
+        { letter: 'A', text: '$2(x+4)(x-1)$', correct: true },
         { letter: 'B', text: '$(2x-2)(x+4)$', correct: false },
-        { letter: 'C', text: '$2(x+4)(x-1)$', correct: true },
+        { letter: 'C', text: '$2(x^2+3x-4)$', correct: false },
         { letter: 'D', text: '$2(x-4)(x+1)$', correct: false },
       ],
       explanation:
@@ -268,6 +304,18 @@ export const factoringFormulasChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<ruby>共通因数<rt>きょうつういんすう</rt></ruby>を<ruby>先<rt>さき</rt></ruby>にくくり<ruby>出<rt>だ</rt></ruby>す → <ruby>残<rt>のこ</rt></ruby>りをさらに<ruby>因数分解<rt>いんすうぶんかい</rt></ruby>！（2<ruby>段階<rt>だんかい</rt></ruby>が<ruby>大事<rt>だいじ</rt></ruby>）',
+    },
+    {
+      type: 'quiz',
+      question: '$5x^2 - 45$ を<ruby>因数分解<rt>いんすうぶんかい</rt></ruby>すると？',
+      options: [
+        { letter: 'A', text: '$(5x+9)(x-5)$', correct: false },
+        { letter: 'B', text: '$5(x+3)(x-3)$', correct: true },
+        { letter: 'C', text: '$5(x^2-9)$', correct: false },
+        { letter: 'D', text: '$5(x-9)(x+1)$', correct: false },
+      ],
+      explanation:
+        'まず $5$ をくくって $5(x^2-9)$。$x^2-9 = (x+3)(x-3)$ → $\\textcolor{#D97706}{5(x+3)(x-3)}$',
     },
     {
       type: 'date',
@@ -317,6 +365,18 @@ export const factoringFormulasChat: HistoryChat = {
       text: '<ruby>同<rt>おな</rt></ruby>じかたまりを $M$ と<ruby>置<rt>お</rt></ruby>く → <ruby>因数分解<rt>いんすうぶんかい</rt></ruby> → $M$ を<ruby>元<rt>もと</rt></ruby>に<ruby>戻<rt>もど</rt></ruby>す！',
     },
     {
+      type: 'quiz',
+      question: '$(x-1)^2 - 7(x-1) + 10$ を<ruby>因数分解<rt>いんすうぶんかい</rt></ruby>すると？',
+      options: [
+        { letter: 'A', text: '$(x-3)(x+6)$', correct: false },
+        { letter: 'B', text: '$(x+3)(x-6)$', correct: false },
+        { letter: 'C', text: '$(x-6)(x-3)$', correct: false },
+        { letter: 'D', text: '$(x-3)(x-6)$', correct: true },
+      ],
+      explanation:
+        '$M=x-1$ とおくと $M^2-7M+10=(M-2)(M-5)$。<ruby>戻<rt>もど</rt></ruby>すと $(x-3)(x-6)$。かけて$10$、<ruby>足<rt>た</rt></ruby>して$-7$ → $-2$ と $-5$',
+    },
+    {
       type: 'date',
       text: 'グループ<ruby>分<rt>わ</rt></ruby>け<ruby>因数分解<rt>いんすうぶんかい</rt></ruby>',
     },
@@ -360,9 +420,9 @@ export const factoringFormulasChat: HistoryChat = {
       question: '$y(x-3) + 4(x-3)$ を<ruby>因数分解<rt>いんすうぶんかい</rt></ruby>すると？',
       options: [
         { letter: 'A', text: '$(x-3)(y-4)$', correct: false },
-        { letter: 'B', text: '$(x-3)(y+4)$', correct: true },
+        { letter: 'B', text: '$4y(x-3)$', correct: false },
         { letter: 'C', text: '$(x+3)(y+4)$', correct: false },
-        { letter: 'D', text: '$4y(x-3)$', correct: false },
+        { letter: 'D', text: '$(x-3)(y+4)$', correct: true },
       ],
       explanation:
         '$(x-3)$ が<ruby>共通因数<rt>きょうつういんすう</rt></ruby>。くくり<ruby>出<rt>だ</rt></ruby>すと $\\textcolor{#D97706}{(x-3)(y+4)}$ だよ。',
@@ -370,6 +430,18 @@ export const factoringFormulasChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '4<ruby>項<rt>こう</rt></ruby>の<ruby>因数分解<rt>いんすうぶんかい</rt></ruby>: 2つずつグループに<ruby>分<rt>わ</rt></ruby>けて、<ruby>共通因数<rt>きょうつういんすう</rt></ruby>を2<ruby>回<rt>かい</rt></ruby>くくり<ruby>出<rt>だ</rt></ruby>す！',
+    },
+    {
+      type: 'quiz',
+      question: '$mx + my - nx - ny$ を<ruby>因数分解<rt>いんすうぶんかい</rt></ruby>すると？',
+      options: [
+        { letter: 'A', text: '$(m+n)(x+y)$', correct: false },
+        { letter: 'B', text: '$(m-n)(x-y)$', correct: false },
+        { letter: 'C', text: '$(m-n)(x+y)$', correct: false },
+        { letter: 'D', text: '$(x+y)(m-n)$', correct: true },
+      ],
+      explanation:
+        '$m(x+y)-n(x+y)$ とグループ<ruby>分<rt>わ</rt></ruby>け。$(x+y)$ をくくって $\\textcolor{#D97706}{(x+y)(m-n)}$',
     },
     {
       type: 'end',

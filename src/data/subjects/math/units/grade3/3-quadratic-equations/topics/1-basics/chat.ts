@@ -93,6 +93,18 @@ export const quadEqBasicsChat: HistoryChat = {
       text: '<ruby>二次方程式<rt>にじほうていしき</rt></ruby> = $x^2$ を<ruby>含<rt>ふく</rt></ruby>む<ruby>方程式<rt>ほうていしき</rt></ruby>。<ruby>標準形<rt>ひょうじゅんけい</rt></ruby>は $ax^2 + bx + c = 0$',
     },
     {
+      type: 'quiz',
+      question: '<ruby>次<rt>つぎ</rt></ruby>のうち<ruby>二次方程式<rt>にじほうていしき</rt></ruby>はどれ？',
+      options: [
+        { letter: 'A', text: '$3x + 5 = 0$', correct: false },
+        { letter: 'B', text: '$x^2 - 4x + 3 = 0$', correct: true },
+        { letter: 'C', text: '$x^3 - x = 0$', correct: false },
+        { letter: 'D', text: '$2x = 6$', correct: false },
+      ],
+      explanation:
+        '$x$ の2<ruby>乗<rt>じょう</rt></ruby>が<ruby>最高次<rt>さいこうじ</rt></ruby>のものが<ruby>二次方程式<rt>にじほうていしき</rt></ruby>。$\\textcolor{#D97706}{x^2 - 4x + 3 = 0}$ だけが<ruby>該当<rt>がいとう</rt></ruby>するよ。',
+    },
+    {
       type: 'date',
       text: '<ruby>解<rt>かい</rt></ruby>が2つある<ruby>理由<rt>りゆう</rt></ruby>',
     },
@@ -183,6 +195,18 @@ export const quadEqBasicsChat: HistoryChat = {
       text: '$x^2 = k$ のとき：$k > 0$ → <ruby>解<rt>かい</rt></ruby>2つ（$x = \\pm\\sqrt{k}$）、$k = 0$ → <ruby>解<rt>かい</rt></ruby>1つ、$k < 0$ → <ruby>解<rt>かい</rt></ruby>なし',
     },
     {
+      type: 'quiz',
+      question: '$x^2 = 25$ の<ruby>解<rt>かい</rt></ruby>は？',
+      options: [
+        { letter: 'A', text: '$x = 5$', correct: false },
+        { letter: 'B', text: '$x = \\pm 25$', correct: false },
+        { letter: 'C', text: '$x = \\pm 5$', correct: true },
+        { letter: 'D', text: '$x = -5$', correct: false },
+      ],
+      explanation:
+        '$5^2 = 25$ も $(-5)^2 = 25$ も<ruby>成<rt>な</rt></ruby>り<ruby>立<rt>た</rt></ruby>つので $x = \\textcolor{#D97706}{\\pm 5}$。$\\pm$ を<ruby>忘<rt>わす</rt></ruby>れずに！',
+    },
+    {
       type: 'date',
       text: 'ax² = b <ruby>型<rt>がた</rt></ruby>のバリエーション',
     },
@@ -233,8 +257,8 @@ export const quadEqBasicsChat: HistoryChat = {
       question: '$4x^2 = 1$ の<ruby>解<rt>かい</rt></ruby>は？',
       options: [
         { letter: 'A', text: '$x = \\pm 4$', correct: false },
-        { letter: 'B', text: '$x = \\pm 2$', correct: false },
-        { letter: 'C', text: '$x = \\pm \\frac{1}{2}$', correct: true },
+        { letter: 'B', text: '$x = \\pm \\frac{1}{2}$', correct: true },
+        { letter: 'C', text: '$x = \\pm 2$', correct: false },
         { letter: 'D', text: '$x = \\pm \\frac{1}{4}$', correct: false },
       ],
       explanation:
@@ -243,6 +267,18 @@ export const quadEqBasicsChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '$ax^2 = b$ <ruby>型<rt>がた</rt></ruby>は $x^2 = \\frac{b}{a}$ にしてから $x = \\pm\\sqrt{\\frac{b}{a}}$。√は<ruby>簡単<rt>かんたん</rt></ruby>にしよう',
+    },
+    {
+      type: 'quiz',
+      question: '$3x^2 = 48$ の<ruby>解<rt>かい</rt></ruby>は？',
+      options: [
+        { letter: 'A', text: '$x = \\pm 16$', correct: false },
+        { letter: 'B', text: '$x = \\pm 4$', correct: true },
+        { letter: 'C', text: '$x = \\pm 4\\sqrt{3}$', correct: false },
+        { letter: 'D', text: '$x = 4$', correct: false },
+      ],
+      explanation:
+        '$x^2 = 16$ → $x = \\pm\\sqrt{16} = \\textcolor{#D97706}{\\pm 4}$',
     },
     {
       type: 'date',
@@ -293,6 +329,18 @@ export const quadEqBasicsChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '$(x+m)^2 = n$ → $x+m = \\pm\\sqrt{n}$ → $x = -m \\pm \\sqrt{n}$。カッコをひとまとまりと<ruby>見<rt>み</rt></ruby>よう',
+    },
+    {
+      type: 'quiz',
+      question: '$(x + 4)^2 = 7$ の<ruby>解<rt>かい</rt></ruby>は？',
+      options: [
+        { letter: 'A', text: '$x = 4 \\pm \\sqrt{7}$', correct: false },
+        { letter: 'B', text: '$x = -4 \\pm \\sqrt{7}$', correct: true },
+        { letter: 'C', text: '$x = \\pm\\sqrt{7} - 4$', correct: false },
+        { letter: 'D', text: '$x = -4 \\pm 7$', correct: false },
+      ],
+      explanation:
+        '$x + 4 = \\pm\\sqrt{7}$ → $x = \\textcolor{#D97706}{-4 \\pm \\sqrt{7}}$。BとCは<ruby>同<rt>おな</rt></ruby>じ<ruby>意味<rt>いみ</rt></ruby>に<ruby>見<rt>み</rt></ruby>えるけど、<ruby>正<rt>ただ</rt></ruby>しい<ruby>書<rt>か</rt></ruby>き<ruby>方<rt>かた</rt></ruby>はBだよ。',
     },
     {
       type: 'end',

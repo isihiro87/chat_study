@@ -54,18 +54,18 @@ export const addSub: Topic = {
     },
     videos: [],
     flashcards: [
-      { id: 'math-g1-as-fc1', front: '加法（かほう）', explanation: 'たし算の数学用語。', back: 'たし算のことを数学では何という？', difficulty: 'basic' },
-      { id: 'math-g1-as-fc2', front: '減法（げんぽう）', explanation: 'ひき算の数学用語。', back: 'ひき算のことを数学では何という？', difficulty: 'basic' },
       { id: 'math-g1-as-fc9', front: '$(+5)+(+3) = +8$', explanation: '$-(-3)$ を $+(+3)$ に変換する。', back: '$(+5)-(-3)$ を加法に直すと？', difficulty: 'basic' },
-      { id: 'math-g1-as-fc10', front: '項（こう）', explanation: '加法だけの式に直したとき、各数のこと。', back: '加法だけの式に直したとき、各数を何と呼ぶ？', difficulty: 'basic' },
       { id: 'math-g1-as-fc11', front: '$+7$ と $+3$', explanation: '加法だけの式: $(+7)+(-12)+(+3)$。正の項は $+7$ と $+3$。', back: '$7-12+3$ の正の項は？', difficulty: 'basic' },
       { id: 'math-g1-as-fc12', front: '$-12$', explanation: '加法だけの式: $(+7)+(-12)+(+3)$。負の項は $-12$ だけ。', back: '$7-12+3$ の負の項は？', difficulty: 'basic' },
-      { id: 'math-g1-as-fc16', front: '値は変わらない', explanation: '$(+a) + 0 = a$。$0$ は加法の単位元。', back: '$0$ を足すとどうなる？', difficulty: 'standard' },
-      { id: 'math-g1-as-fc17', front: '$0$ になる', explanation: '$(+5) + (-5) = 0$。絶対値が同じで符号が逆の2数の和は $0$。', back: '反数どうしを足すと？', difficulty: 'standard' },
-      { id: 'math-g1-as-fc18', front: '和（わ）', explanation: '例: $3 + 5 = 8$ → $8$ が和。', back: 'たし算の結果を何という？', difficulty: 'standard' },
-      { id: 'math-g1-as-fc19', front: '差（さ）', explanation: '例: $8 - 3 = 5$ → $5$ が差。', back: 'ひき算の結果を何という？', difficulty: 'standard' },
-      { id: 'math-g1-as-fc24', front: '符号を反対にする操作', explanation: '$-(+5) = -5$、$-(-5) = +5$。', back: '「符号を変える」とは？', difficulty: 'advanced' },
-      { id: 'math-g1-as-fc25', front: '$+7$', explanation: '$0 - (-7) = 0 + 7 = +7$。マイナスを引くとプラスになる。', back: '$0$ から負の数を引くと？', difficulty: 'advanced' }
+      { id: 'math-g1-as-fc25', front: '$+7$', explanation: '$0 - (-7) = 0 + 7 = +7$。マイナスを引くとプラスになる。', back: '$0 - (-7)$ の計算結果は？', difficulty: 'advanced' },
+      { id: 'math-g1-as-fc26', front: '$-8$', explanation: '同符号（負＋負）。$|-3|+|-5| = 8$ に負の符号。', back: '$(-3) + (-5)$ の計算結果は？', difficulty: 'basic' },
+      { id: 'math-g1-as-fc27', front: '$+4$', explanation: '異符号。$|+7|-|-3| = 4$。絶対値が大きい方（正）の符号。', back: '$(+7) + (-3)$ の計算結果は？', difficulty: 'basic' },
+      { id: 'math-g1-as-fc28', front: '$-4$', explanation: '異符号。$|-7|-|+3| = 4$。絶対値が大きい方（負）の符号。', back: '$(+3) + (-7)$ の計算結果は？', difficulty: 'basic' },
+      { id: 'math-g1-as-fc29', front: '$+2$', explanation: '減法→加法: $(+5)+(-3)$。異符号で $5-3=2$、正。', back: '$(+5) - (+3)$ の計算結果は？', difficulty: 'standard' },
+      { id: 'math-g1-as-fc30', front: '$+8$', explanation: '減法→加法: $(+5)+(+3)$。$-(-3) = +(+3)$。', back: '$(+5) - (-3)$ の計算結果は？', difficulty: 'standard' },
+      { id: 'math-g1-as-fc31', front: '$-6$', explanation: '減法→加法: $(-2)+(-4)$。同符号（負）で $2+4=6$。', back: '$(-2) - (+4)$ の計算結果は？', difficulty: 'standard' },
+      { id: 'math-g1-as-fc32', front: '$-2$', explanation: '正: $+9$。負: $-5, -6 = -11$。$9 + (-11) = -2$。', back: '$-5 + 9 - 6$ の計算結果は？', difficulty: 'standard' },
+      { id: 'math-g1-as-fc33', front: '$+3$', explanation: '正: $+8, +1 = 9$。負: $-4, -2 = -6$。$9 + (-6) = +3$。', back: '$-4 + 8 - 2 + 1$ の計算結果は？', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [

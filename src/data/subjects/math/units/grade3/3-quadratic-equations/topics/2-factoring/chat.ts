@@ -85,6 +85,18 @@ export const quadEqFactoringChat: HistoryChat = {
       text: '$A \\times B = 0 \\rightarrow A = 0$ または $B = 0$。これが<ruby>因数分解<rt>いんすうぶんかい</rt></ruby>で<ruby>解<rt>と</rt></ruby>く<ruby>原則<rt>げんそく</rt></ruby>！',
     },
     {
+      type: 'quiz',
+      question: '$(x - 4)(x + 7) = 0$ の<ruby>解<rt>かい</rt></ruby>は？',
+      options: [
+        { letter: 'A', text: '$x = -4, x = 7$', correct: false },
+        { letter: 'B', text: '$x = 4, x = 7$', correct: false },
+        { letter: 'C', text: '$x = 4, x = -7$', correct: true },
+        { letter: 'D', text: '$x = -4, x = -7$', correct: false },
+      ],
+      explanation:
+        '$x - 4 = 0$ → $x = 4$、$x + 7 = 0$ → $x = -7$。$\\textcolor{#D97706}{x = 4, -7}$',
+    },
+    {
       type: 'date',
       text: '<ruby>実際<rt>じっさい</rt></ruby>に<ruby>解<rt>と</rt></ruby>いてみよう',
     },
@@ -190,8 +202,8 @@ export const quadEqFactoringChat: HistoryChat = {
       type: 'quiz',
       question: '$x^2 + x - 12 = 0$ の<ruby>解<rt>かい</rt></ruby>は？',
       options: [
-        { letter: 'A', text: '$x = 3, x = -4$', correct: true },
-        { letter: 'B', text: '$x = -3, x = 4$', correct: false },
+        { letter: 'A', text: '$x = -3, x = 4$', correct: false },
+        { letter: 'B', text: '$x = 3, x = -4$', correct: true },
         { letter: 'C', text: '$x = 2, x = -6$', correct: false },
         { letter: 'D', text: '$x = 6, x = -2$', correct: false },
       ],
@@ -201,6 +213,18 @@ export const quadEqFactoringChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<ruby>手順<rt>てじゅん</rt></ruby>：<ruby>右辺<rt>うへん</rt></ruby>を0にする → <ruby>因数分解<rt>いんすうぶんかい</rt></ruby> → <ruby>各因数<rt>かくいんすう</rt></ruby> $= 0$ で<ruby>解<rt>と</rt></ruby>く',
+    },
+    {
+      type: 'quiz',
+      question: '$x^2 + 3x = 0$ の<ruby>解<rt>かい</rt></ruby>は？',
+      options: [
+        { letter: 'A', text: '$x = 3$', correct: false },
+        { letter: 'B', text: '$x = 0, x = -3$', correct: true },
+        { letter: 'C', text: '$x = 0, x = 3$', correct: false },
+        { letter: 'D', text: '$x = -3$', correct: false },
+      ],
+      explanation:
+        '$x(x+3) = 0$ と<ruby>因数分解<rt>いんすうぶんかい</rt></ruby>。$x = 0$ または $x + 3 = 0$ → $\\textcolor{#D97706}{x = 0, -3}$',
     },
     {
       type: 'date',
@@ -259,6 +283,18 @@ export const quadEqFactoringChat: HistoryChat = {
       text: '$(x - a)^2 = 0$ → $x = a$（<ruby>重解<rt>じゅうかい</rt></ruby>）。<ruby>解<rt>かい</rt></ruby>が1つだけになるパターン！',
     },
     {
+      type: 'quiz',
+      question: '$x^2 + 6x + 9 = 0$ の<ruby>解<rt>かい</rt></ruby>は？',
+      options: [
+        { letter: 'A', text: '$x = 3$（<ruby>重解<rt>じゅうかい</rt></ruby>）', correct: false },
+        { letter: 'B', text: '$x = -3, x = 3$', correct: false },
+        { letter: 'C', text: '$x = -9$', correct: false },
+        { letter: 'D', text: '$x = -3$（<ruby>重解<rt>じゅうかい</rt></ruby>）', correct: true },
+      ],
+      explanation:
+        '$(x+3)^2 = 0$ なので $x + 3 = 0$ → $x = \\textcolor{#D97706}{-3}$（<ruby>重解<rt>じゅうかい</rt></ruby>）',
+    },
+    {
       type: 'date',
       text: '$x^2 - a^2 = 0$ の<ruby>差<rt>さ</rt></ruby>の<ruby>平方<rt>へいほう</rt></ruby>パターン',
     },
@@ -307,8 +343,8 @@ export const quadEqFactoringChat: HistoryChat = {
       type: 'quiz',
       question: '$x^2 - 25 = 0$ の<ruby>解<rt>かい</rt></ruby>は？',
       options: [
-        { letter: 'A', text: '$x = 5$（<ruby>重解<rt>じゅうかい</rt></ruby>）', correct: false },
-        { letter: 'B', text: '$x = \\pm 5$', correct: true },
+        { letter: 'A', text: '$x = \\pm 5$', correct: true },
+        { letter: 'B', text: '$x = 5$（<ruby>重解<rt>じゅうかい</rt></ruby>）', correct: false },
         { letter: 'C', text: '$x = \\pm 25$', correct: false },
         { letter: 'D', text: '$x = 25$', correct: false },
       ],
@@ -375,6 +411,18 @@ export const quadEqFactoringChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '$x^2$ の<ruby>係数<rt>けいすう</rt></ruby>が1でないときは、<ruby>全体<rt>ぜんたい</rt></ruby>を<ruby>割<rt>わ</rt></ruby>って<ruby>係数<rt>けいすう</rt></ruby>を1にそろえてから<ruby>因数分解<rt>いんすうぶんかい</rt></ruby>！',
+    },
+    {
+      type: 'quiz',
+      question: '$3x^2 - 12x + 12 = 0$ の<ruby>解<rt>かい</rt></ruby>は？',
+      options: [
+        { letter: 'A', text: '$x = 2$（<ruby>重解<rt>じゅうかい</rt></ruby>）', correct: true },
+        { letter: 'B', text: '$x = -2$（<ruby>重解<rt>じゅうかい</rt></ruby>）', correct: false },
+        { letter: 'C', text: '$x = 2, x = -2$', correct: false },
+        { letter: 'D', text: '$x = 4$（<ruby>重解<rt>じゅうかい</rt></ruby>）', correct: false },
+      ],
+      explanation:
+        '3で<ruby>割<rt>わ</rt></ruby>ると $x^2 - 4x + 4 = 0$ → $(x-2)^2 = 0$ → $x = \\textcolor{#D97706}{2}$（<ruby>重解<rt>じゅうかい</rt></ruby>）',
     },
     {
       type: 'end',

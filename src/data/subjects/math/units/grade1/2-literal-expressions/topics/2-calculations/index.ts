@@ -78,7 +78,7 @@ export const literalCalc: Topic = {
         explanation: '1. 各かっこを展開: $6x + 2 - x + 5$\n2. 同類項をまとめ: $5x + 7$',
         difficulty: 'standard',
       },
-      { id: 'math-g1-lit-calc-fc19', front: '$2$ 次式', back: '$3x^2 + 2x - 1$ は何次式？', explanation: '各項の次数を見る。$3x^2$ は2次、$2x$ は1次、$-1$ は0次。\n最高次数が2なので2次式。', difficulty: 'standard' },
+      { id: 'math-g1-lit-calc-fc19', front: '$4a + 2b$', back: '$7a + 5b - 3a - 3b$ を計算すると？', explanation: '$a$ の項: $7a - 3a = 4a$。$b$ の項: $5b - 3b = 2b$。', difficulty: 'standard' },
       { id: 'math-g1-lit-calc-fc20', front: '$3x^2 + 2x - 5$', back: '$2x - 5 + 3x^2$ を整理すると？', explanation: '次数の高い順に並べる: $3x^2 + 2x - 5$', difficulty: 'standard' },
       { id: 'math-g1-lit-calc-fc21', front: '$\\dfrac{5x}{6}$', back: '$\\dfrac{x}{2} + \\dfrac{x}{3}$ を計算すると？', explanation: '通分してから計算する。\n$\\dfrac{3x}{6} + \\dfrac{2x}{6} = \\dfrac{5x}{6}$', difficulty: 'standard' },
       { id: 'math-g1-lit-calc-fc22', front: '$3a - 2b$', back: '$5a - 3b - 2a + b$ を整理すると？', explanation: '$a$ の項: $5a - 2a = 3a$\n$b$ の項: $-3b + b = -2b$\n定数項: なし', difficulty: 'standard' },

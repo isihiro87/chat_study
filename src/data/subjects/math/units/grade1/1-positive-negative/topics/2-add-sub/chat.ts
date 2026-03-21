@@ -116,6 +116,18 @@ export const addSubChat: HistoryChat = {
       text: '<ruby>同符号<rt>どうふごう</rt></ruby>の<ruby>加法<rt>かほう</rt></ruby>: <ruby>絶対値<rt>ぜったいち</rt></ruby>の<ruby>和<rt>わ</rt></ruby>に<ruby>共通<rt>きょうつう</rt></ruby>の<ruby>符号<rt>ふごう</rt></ruby>をつける。',
     },
     {
+      type: 'quiz',
+      question: '$(-7) + (-5)$ の<ruby>計算結果<rt>けいさんけっか</rt></ruby>は？',
+      options: [
+        { letter: 'A', text: '$+12$', correct: false },
+        { letter: 'B', text: '$-12$', correct: true },
+        { letter: 'C', text: '$-2$', correct: false },
+        { letter: 'D', text: '$+2$', correct: false },
+      ],
+      explanation:
+        '<ruby>同符号<rt>どうふごう</rt></ruby>（<ruby>負<rt>ふ</rt></ruby> + <ruby>負<rt>ふ</rt></ruby>）なので、<ruby>絶対値<rt>ぜったいち</rt></ruby>の<ruby>和<rt>わ</rt></ruby> $7 + 5 = 12$ に<ruby>負<rt>ふ</rt></ruby>の<ruby>符号<rt>ふごう</rt></ruby>をつけて $\\textcolor{#D97706}{-12}$ だよ。',
+    },
+    {
       type: 'date',
       text: '<ruby>異符号<rt>いふごう</rt></ruby>の<ruby>加法<rt>かほう</rt></ruby>',
     },
@@ -189,6 +201,18 @@ export const addSubChat: HistoryChat = {
       text: '<ruby>異符号<rt>いふごう</rt></ruby>の<ruby>加法<rt>かほう</rt></ruby>: <ruby>絶対値<rt>ぜったいち</rt></ruby>の<ruby>差<rt>さ</rt></ruby>に、<ruby>絶対値<rt>ぜったいち</rt></ruby>が<ruby>大<rt>おお</rt></ruby>きい<ruby>方<rt>ほう</rt></ruby>の<ruby>符号<rt>ふごう</rt></ruby>をつける。',
     },
     {
+      type: 'quiz',
+      question: '$(+4) + (-9)$ の<ruby>計算結果<rt>けいさんけっか</rt></ruby>は？',
+      options: [
+        { letter: 'A', text: '$+13$', correct: false },
+        { letter: 'B', text: '$+5$', correct: false },
+        { letter: 'C', text: '$-13$', correct: false },
+        { letter: 'D', text: '$-5$', correct: true },
+      ],
+      explanation:
+        '<ruby>異符号<rt>いふごう</rt></ruby>なので<ruby>絶対値<rt>ぜったいち</rt></ruby>の<ruby>差<rt>さ</rt></ruby> $9 - 4 = 5$。<ruby>絶対値<rt>ぜったいち</rt></ruby>が<ruby>大<rt>おお</rt></ruby>きい $-9$ の<ruby>符号<rt>ふごう</rt></ruby>をつけて $\\textcolor{#D97706}{-5}$ だよ。',
+    },
+    {
       type: 'date',
       text: '<ruby>減法<rt>げんぽう</rt></ruby>を<ruby>加法<rt>かほう</rt></ruby>に<ruby>変換<rt>へんかん</rt></ruby>',
     },
@@ -254,8 +278,8 @@ export const addSubChat: HistoryChat = {
       options: [
         { letter: 'A', text: '$+10$', correct: false },
         { letter: 'B', text: '$-2$', correct: false },
-        { letter: 'C', text: '$+2$', correct: false },
-        { letter: 'D', text: '$-10$', correct: true },
+        { letter: 'C', text: '$-10$', correct: true },
+        { letter: 'D', text: '$+2$', correct: false },
       ],
       explanation:
         '$(-6) - (+4) = (-6) + (-4) = -(6 + 4) = \\textcolor{#D97706}{-10}$ だよ。ひく<ruby>数<rt>かず</rt></ruby>の<ruby>符号<rt>ふごう</rt></ruby>を<ruby>変<rt>か</rt></ruby>えて<ruby>加法<rt>かほう</rt></ruby>にしよう！',

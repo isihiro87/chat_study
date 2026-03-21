@@ -141,6 +141,18 @@ export const quadFormulaChat: HistoryChat = {
       text: '<ruby>平方完成<rt>へいほうかんせい</rt></ruby>：$x^2 + bx$ を $(x + \\frac{b}{2})^2 - (\\frac{b}{2})^2$ に<ruby>変<rt>か</rt></ruby>えて<ruby>解<rt>と</rt></ruby>く！',
     },
     {
+      type: 'quiz',
+      question: '$x^2 - 6x + 5 = 0$ を<ruby>平方完成<rt>へいほうかんせい</rt></ruby>で<ruby>解<rt>と</rt></ruby>くと？',
+      options: [
+        { letter: 'A', text: '$x = 1, x = 5$', correct: true },
+        { letter: 'B', text: '$x = -1, x = -5$', correct: false },
+        { letter: 'C', text: '$x = 2, x = 3$', correct: false },
+        { letter: 'D', text: '$x = 3 \\pm 2$', correct: false },
+      ],
+      explanation:
+        '$(x-3)^2 - 9 + 5 = 0$ → $(x-3)^2 = 4$ → $x - 3 = \\pm 2$ → $x = \\textcolor{#D97706}{1, 5}$',
+    },
+    {
       type: 'date',
       text: '<ruby>解<rt>かい</rt></ruby>の<ruby>公式<rt>こうしき</rt></ruby>',
     },
@@ -224,8 +236,8 @@ export const quadFormulaChat: HistoryChat = {
       type: 'quiz',
       question: '$x^2 + 2x - 3 = 0$ を<ruby>解<rt>かい</rt></ruby>の<ruby>公式<rt>こうしき</rt></ruby>で<ruby>解<rt>と</rt></ruby>くと？（$a=1, b=2, c=-3$）',
       options: [
-        { letter: 'A', text: '$x = 1, x = -3$', correct: true },
-        { letter: 'B', text: '$x = -1, x = 3$', correct: false },
+        { letter: 'A', text: '$x = -1, x = 3$', correct: false },
+        { letter: 'B', text: '$x = 1, x = -3$', correct: true },
         { letter: 'C', text: '$x = 2, x = -3$', correct: false },
         { letter: 'D', text: '$x = -2, x = 3$', correct: false },
       ],
@@ -235,6 +247,18 @@ export const quadFormulaChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<ruby>解<rt>かい</rt></ruby>の<ruby>公式<rt>こうしき</rt></ruby>は<ruby>万能<rt>ばんのう</rt></ruby>！<ruby>因数分解<rt>いんすうぶんかい</rt></ruby>できないときの<ruby>最終兵器<rt>さいしゅうへいき</rt></ruby>',
+    },
+    {
+      type: 'quiz',
+      question: '$x^2 + 3x - 10 = 0$ を<ruby>解<rt>かい</rt></ruby>の<ruby>公式<rt>こうしき</rt></ruby>で<ruby>解<rt>と</rt></ruby>くと？',
+      options: [
+        { letter: 'A', text: '$x = -5, x = 2$', correct: false },
+        { letter: 'B', text: '$x = 5, x = -2$', correct: true },
+        { letter: 'C', text: '$x = \\frac{-3 \\pm 7}{2}$', correct: false },
+        { letter: 'D', text: '$x = -5, x = -2$', correct: false },
+      ],
+      explanation:
+        '$x = \\frac{-3 \\pm \\sqrt{9+40}}{2} = \\frac{-3 \\pm 7}{2}$。$x = \\frac{4}{2} = 2$ または $x = \\frac{-10}{2} = -5$。$\\textcolor{#D97706}{x = 2, -5}$',
     },
     {
       type: 'date',
@@ -336,6 +360,18 @@ export const quadFormulaChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<ruby>符号<rt>ふごう</rt></ruby>ミスに<ruby>注意<rt>ちゅうい</rt></ruby>！$\\sqrt{}$ は<ruby>素因数分解<rt>そいんすうぶんかい</rt></ruby>で<ruby>簡単<rt>かんたん</rt></ruby>に、<ruby>約分<rt>やくぶん</rt></ruby>も<ruby>忘<rt>わす</rt></ruby>れずに',
+    },
+    {
+      type: 'quiz',
+      question: '$x^2 - 2x - 1 = 0$ を<ruby>解<rt>かい</rt></ruby>の<ruby>公式<rt>こうしき</rt></ruby>で<ruby>解<rt>と</rt></ruby>くと？',
+      options: [
+        { letter: 'A', text: '$x = 1 \\pm \\sqrt{3}$', correct: false },
+        { letter: 'B', text: '$x = -1 \\pm \\sqrt{2}$', correct: false },
+        { letter: 'C', text: '$x = 2 \\pm \\sqrt{2}$', correct: false },
+        { letter: 'D', text: '$x = 1 \\pm \\sqrt{2}$', correct: true },
+      ],
+      explanation:
+        '$x = \\frac{2 \\pm \\sqrt{4+4}}{2} = \\frac{2 \\pm 2\\sqrt{2}}{2} = \\textcolor{#D97706}{1 \\pm \\sqrt{2}}$。<ruby>約分<rt>やくぶん</rt></ruby>を<ruby>忘<rt>わす</rt></ruby>れずに！',
     },
     {
       type: 'end',

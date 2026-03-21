@@ -80,7 +80,8 @@ export const findLinearEquation: Topic = {
       },
       {
         id: 'math-g2-find-linear-eq-fc9',
-        front: 'グラフが $y$ 軸と交わる点の $y$ 座標', explanation: '$x = 0$ のときの $y$ の値', back: '切片とは何か？',
+        front: '$y = -3x + 7$', back: '傾き $-3$、切片 $7$ の一次関数の式は？',
+        explanation: '$a = -3$、$b = 7$ を $y = ax + b$ に代入。',
         difficulty: 'basic',
       },
       {

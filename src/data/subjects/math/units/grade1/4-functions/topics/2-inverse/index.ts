@@ -60,7 +60,7 @@ export const inverseProportion: Topic = {
       { id: 'math-g1-inverse-fc20', front: '反比例していない', back: '1辺 $x$ cmの正方形の周の長さ $y$ cmは反比例？', explanation: '$y = 4x$ で比例の関係', difficulty: 'basic' },
       // === standard (12枚) ===
       { id: 'math-g1-inverse-fc7', front: '$a = -20$', back: '$x = 4$, $y = -5$ のとき、反比例の比例定数は？', explanation: '$a = 4 \\times (-5) = -20$', difficulty: 'standard' },
-      { id: 'math-g1-inverse-fc8', front: '双曲線', back: '反比例のグラフの名前と特徴は？', explanation: '座標軸（$x$ 軸・$y$ 軸）と交わらない2つのなめらかな曲線', difficulty: 'standard' },
+      { id: 'math-g1-inverse-fc8', front: '$y = \\frac{-30}{x}$', back: '$y$ が $x$ に反比例し $x = 5$ のとき $y = -6$。式は？', explanation: '$a = 5 \\times (-6) = -30$', difficulty: 'standard' },
       { id: 'math-g1-inverse-fc9', front: '$a > 0$: 右上と左下、$a < 0$: 左上と右下', back: '反比例のグラフはどの領域にある？', difficulty: 'standard' },
       { id: 'math-g1-inverse-fc10', front: '面積 $=$ 縦 $\\times$ 横 で積が一定 → 反比例の関係', back: '面積一定の長方形で縦と横はどんな関係？', difficulty: 'standard' },
       { id: 'math-g1-inverse-fc11', front: '比例: 商が一定、反比例: 積が一定', back: '比例と反比例の見分け方は？', explanation: '比例: $\\dfrac{y}{x} = a$、反比例: $xy = a$', difficulty: 'standard' },

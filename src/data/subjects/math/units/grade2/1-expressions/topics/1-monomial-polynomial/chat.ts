@@ -111,6 +111,18 @@ export const monomialPolynomialChat: HistoryChat = {
       text: '<ruby>単項式<rt>たんこうしき</rt></ruby> = かけ<ruby>算<rt>ざん</rt></ruby>だけの<ruby>式<rt>しき</rt></ruby>。<ruby>多項式<rt>たこうしき</rt></ruby> = <ruby>単項式<rt>たんこうしき</rt></ruby>の<ruby>和<rt>わ</rt></ruby>の<ruby>形<rt>かたち</rt></ruby>の<ruby>式<rt>しき</rt></ruby>。<ruby>多項式<rt>たこうしき</rt></ruby>の<ruby>中<rt>なか</rt></ruby>の<ruby>一<rt>ひと</rt></ruby>つひとつを「<ruby>項<rt>こう</rt></ruby>」と<ruby>呼<rt>よ</rt></ruby>ぶ。<ruby>数<rt>かず</rt></ruby>だけの<ruby>項<rt>こう</rt></ruby>は「<ruby>定数項<rt>ていすうこう</rt></ruby>」。',
     },
     {
+      type: 'quiz',
+      question: '<ruby>多項式<rt>たこうしき</rt></ruby> $5x - 3y + 7$ の<ruby>項<rt>こう</rt></ruby>の<ruby>数<rt>かず</rt></ruby>はいくつ？',
+      options: [
+        { letter: 'A', text: '2つ', correct: false },
+        { letter: 'B', text: '3つ', correct: true },
+        { letter: 'C', text: '4つ', correct: false },
+        { letter: 'D', text: '1つ', correct: false },
+      ],
+      explanation:
+        '$5x$, $-3y$, $7$ の $\\textcolor{#D97706}{3}$ つ。$7$ は<ruby>定数項<rt>ていすうこう</rt></ruby>だけど<ruby>項<rt>こう</rt></ruby>の1つだよ！',
+    },
+    {
       type: 'date',
       text: '<ruby>次数<rt>じすう</rt></ruby>と<ruby>係数<rt>けいすう</rt></ruby>',
     },
@@ -177,6 +189,18 @@ export const monomialPolynomialChat: HistoryChat = {
       text: '<ruby>次数<rt>じすう</rt></ruby> = <ruby>文字<rt>もじ</rt></ruby>の<ruby>個数<rt>こすう</rt></ruby>。<ruby>係数<rt>けいすう</rt></ruby> = <ruby>文字<rt>もじ</rt></ruby>にかかる<ruby>数<rt>かず</rt></ruby>（$x^2$ の<ruby>係数<rt>けいすう</rt></ruby>は $1$、$-y$ の<ruby>係数<rt>けいすう</rt></ruby>は $-1$）。',
     },
     {
+      type: 'quiz',
+      question: '<ruby>単項式<rt>たんこうしき</rt></ruby> $-6a^2b$ の<ruby>係数<rt>けいすう</rt></ruby>と<ruby>次数<rt>じすう</rt></ruby>は？',
+      options: [
+        { letter: 'A', text: '<ruby>係数<rt>けいすう</rt></ruby> $-6$、<ruby>次数<rt>じすう</rt></ruby> $2$', correct: false },
+        { letter: 'B', text: '<ruby>係数<rt>けいすう</rt></ruby> $6$、<ruby>次数<rt>じすう</rt></ruby> $3$', correct: false },
+        { letter: 'C', text: '<ruby>係数<rt>けいすう</rt></ruby> $-6$、<ruby>次数<rt>じすう</rt></ruby> $3$', correct: true },
+        { letter: 'D', text: '<ruby>係数<rt>けいすう</rt></ruby> $-6$、<ruby>次数<rt>じすう</rt></ruby> $4$', correct: false },
+      ],
+      explanation:
+        '<ruby>係数<rt>けいすう</rt></ruby>は $\\textcolor{#D97706}{-6}$。<ruby>次数<rt>じすう</rt></ruby>は $a$ が2<ruby>個<rt>こ</rt></ruby> + $b$ が1<ruby>個<rt>こ</rt></ruby> = $\\textcolor{#D97706}{3}$ だよ。',
+    },
+    {
       type: 'date',
       text: '<ruby>多項式<rt>たこうしき</rt></ruby>の<ruby>次数<rt>じすう</rt></ruby>',
     },
@@ -213,8 +237,8 @@ export const monomialPolynomialChat: HistoryChat = {
       question: '<ruby>多項式<rt>たこうしき</rt></ruby> $x^2y + 3xy - 2y$ の<ruby>次数<rt>じすう</rt></ruby>は？',
       options: [
         { letter: 'A', text: '1', correct: false },
-        { letter: 'B', text: '2', correct: false },
-        { letter: 'C', text: '3', correct: true },
+        { letter: 'B', text: '3', correct: true },
+        { letter: 'C', text: '2', correct: false },
         { letter: 'D', text: '4', correct: false },
       ],
       explanation:
@@ -273,6 +297,18 @@ export const monomialPolynomialChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<ruby>同類項<rt>どうるいこう</rt></ruby> = <ruby>文字<rt>もじ</rt></ruby>の<ruby>部分<rt>ぶぶん</rt></ruby>が<ruby>同<rt>おな</rt></ruby>じ<ruby>項<rt>こう</rt></ruby>。$x$ と $x^2$ は<ruby>別物<rt>べつもの</rt></ruby>。$ab$ と $ba$ は<ruby>同<rt>おな</rt></ruby>じ。',
+    },
+    {
+      type: 'quiz',
+      question: '$5xy$ と<ruby>同類項<rt>どうるいこう</rt></ruby>なのはどれ？',
+      options: [
+        { letter: 'A', text: '$3x^2y$', correct: false },
+        { letter: 'B', text: '$-2xy$', correct: false },
+        { letter: 'C', text: '$7yx$', correct: false },
+        { letter: 'D', text: 'B と C の<ruby>両方<rt>りょうほう</rt></ruby>', correct: true },
+      ],
+      explanation:
+        '$-2xy$ も $7yx$ も<ruby>文字<rt>もじ</rt></ruby>の<ruby>部分<rt>ぶぶん</rt></ruby>は $xy$（$yx = xy$）で<ruby>同<rt>おな</rt></ruby>じ。\n$3x^2y$ は $x^2$ があるので<ruby>別物<rt>べつもの</rt></ruby>！',
     },
     {
       type: 'date',
@@ -406,9 +442,9 @@ export const monomialPolynomialChat: HistoryChat = {
       question: '$\\frac{2}{3}x - \\frac{1}{4}x$ を<ruby>計算<rt>けいさん</rt></ruby>すると？',
       options: [
         { letter: 'A', text: '$\\frac{1}{7}x$', correct: false },
-        { letter: 'B', text: '$\\frac{5}{12}x$', correct: true },
+        { letter: 'B', text: '$\\frac{2}{12}x$', correct: false },
         { letter: 'C', text: '$\\frac{1}{12}x$', correct: false },
-        { letter: 'D', text: '$\\frac{2}{12}x$', correct: false },
+        { letter: 'D', text: '$\\frac{5}{12}x$', correct: true },
       ],
       explanation:
         '<ruby>通分<rt>つうぶん</rt></ruby>して $\\frac{8}{12}x - \\frac{3}{12}x = \\textcolor{#D97706}{\\frac{5}{12}x}$ だよ。\n<ruby>分母<rt>ぶんぼ</rt></ruby>どうしを<ruby>引<rt>ひ</rt></ruby>くのではなく<ruby>通分<rt>つうぶん</rt></ruby>するのがポイント！',

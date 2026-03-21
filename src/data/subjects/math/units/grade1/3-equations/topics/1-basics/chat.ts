@@ -85,6 +85,18 @@ export const eqBasicsChat: HistoryChat = {
       text: '<ruby>方程式<rt>ほうていしき</rt></ruby>：<ruby>未知数<rt>みちすう</rt></ruby>（$x$）をふくむ<ruby>等式<rt>とうしき</rt></ruby>。<ruby>解<rt>かい</rt></ruby>を<ruby>求<rt>もと</rt></ruby>めることを「<ruby>方程式<rt>ほうていしき</rt></ruby>を<ruby>解<rt>と</rt></ruby>く」と<ruby>言<rt>い</rt></ruby>う！',
     },
     {
+      type: 'quiz',
+      question: '$x - 5 = 3$ の<ruby>解<rt>かい</rt></ruby>は？',
+      options: [
+        { letter: 'A', text: '$x = -2$', correct: false },
+        { letter: 'B', text: '$x = 2$', correct: false },
+        { letter: 'C', text: '$x = 8$', correct: true },
+        { letter: 'D', text: '$x = -8$', correct: false },
+      ],
+      explanation:
+        '$x - 5 = 3$ に<ruby>代入<rt>だいにゅう</rt></ruby>して<ruby>成<rt>な</rt></ruby>り<ruby>立<rt>た</rt></ruby>つのは $x = \\textcolor{#D97706}{8}$。$8 - 5 = 3$ ✓',
+    },
+    {
       type: 'date',
       text: '<ruby>等式<rt>とうしき</rt></ruby>の<ruby>性質<rt>せいしつ</rt></ruby>',
     },
@@ -228,8 +240,8 @@ export const eqBasicsChat: HistoryChat = {
       type: 'quiz',
       question: '$4x - 5 = 11$ の<ruby>解<rt>かい</rt></ruby>は？',
       options: [
-        { letter: 'A', text: '$x = 2$', correct: false },
-        { letter: 'B', text: '$x = 4$', correct: true },
+        { letter: 'A', text: '$x = 4$', correct: true },
+        { letter: 'B', text: '$x = 2$', correct: false },
         { letter: 'C', text: '$x = 6$', correct: false },
         { letter: 'D', text: '$x = 16$', correct: false },
       ],

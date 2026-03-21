@@ -89,6 +89,18 @@ export const literalCalcChat: HistoryChat = {
       text: '<ruby>項<rt>こう</rt></ruby> = +や-で<ruby>区切<rt>くぎ</rt></ruby>られた<ruby>部分<rt>ぶぶん</rt></ruby>。<ruby>係数<rt>けいすう</rt></ruby> = <ruby>項<rt>こう</rt></ruby>の<ruby>数<rt>かず</rt></ruby>の<ruby>部分<rt>ぶぶん</rt></ruby>（<ruby>符号<rt>ふごう</rt></ruby>を<ruby>含<rt>ふく</rt></ruby>む）。<ruby>定数項<rt>ていすうこう</rt></ruby> = <ruby>数<rt>かず</rt></ruby>だけの<ruby>項<rt>こう</rt></ruby>。',
     },
     {
+      type: 'quiz',
+      question: '$3x - 7y + 4$ の $-7y$ の<ruby>係数<rt>けいすう</rt></ruby>は？',
+      options: [
+        { letter: 'A', text: '$7$', correct: false },
+        { letter: 'B', text: '$y$', correct: false },
+        { letter: 'C', text: '$-7$', correct: true },
+        { letter: 'D', text: '$-7y$', correct: false },
+      ],
+      explanation:
+        '<ruby>係数<rt>けいすう</rt></ruby>は<ruby>符号<rt>ふごう</rt></ruby>もセット！$-7y$ の<ruby>係数<rt>けいすう</rt></ruby>は $\\textcolor{#D97706}{-7}$ だよ。',
+    },
+    {
       type: 'date',
       text: '<ruby>同類項<rt>どうるいこう</rt></ruby>をまとめよう',
     },
@@ -162,6 +174,18 @@ export const literalCalcChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<ruby>同類項<rt>どうるいこう</rt></ruby>（<ruby>文字<rt>もじ</rt></ruby>の<ruby>部分<rt>ぶぶん</rt></ruby>が<ruby>同<rt>おな</rt></ruby>じ<ruby>項<rt>こう</rt></ruby>）は、<ruby>係数<rt>けいすう</rt></ruby>どうしを<ruby>計算<rt>けいさん</rt></ruby>してまとめる。<ruby>違<rt>ちが</rt></ruby>う<ruby>文字<rt>もじ</rt></ruby>の<ruby>項<rt>こう</rt></ruby>はまとめられない。',
+    },
+    {
+      type: 'quiz',
+      question: '$7a - 3 + 2a - 5$ を<ruby>計算<rt>けいさん</rt></ruby>すると？',
+      options: [
+        { letter: 'A', text: '$5a - 8$', correct: false },
+        { letter: 'B', text: '$9a + 2$', correct: false },
+        { letter: 'C', text: '$9a - 8$', correct: true },
+        { letter: 'D', text: '$5a + 2$', correct: false },
+      ],
+      explanation:
+        '$a$ の<ruby>項<rt>こう</rt></ruby>: $7a + 2a = 9a$、<ruby>定数項<rt>ていすうこう</rt></ruby>: $-3 + (-5) = -8$。<ruby>答<rt>こた</rt></ruby>えは $\\textcolor{#D97706}{9a - 8}$ だよ。',
     },
     {
       type: 'date',
@@ -305,8 +329,8 @@ export const literalCalcChat: HistoryChat = {
       options: [
         { letter: 'A', text: '$4x + 12$', correct: false },
         { letter: 'B', text: '$8x + 6$', correct: false },
-        { letter: 'C', text: '$8x + 12$', correct: true },
-        { letter: 'D', text: '$6x + 8$', correct: false },
+        { letter: 'C', text: '$6x + 8$', correct: false },
+        { letter: 'D', text: '$8x + 12$', correct: true },
       ],
       explanation:
         '$4x \\times 2 = 8x$、$6 \\times 2 = 12$\n<ruby>各<rt>かく</rt></ruby><ruby>項<rt>こう</rt></ruby>に $2$ をかけて $\\textcolor{#D97706}{8x + 12}$ だね。',

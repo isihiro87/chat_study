@@ -91,6 +91,18 @@ export const quadFuncParabolaChat: HistoryChat = {
       text: 'y = ax² では、x が n<ruby>倍<rt>ばい</rt></ruby>になると y は n²<ruby>倍<rt>ばい</rt></ruby>になる！',
     },
     {
+      type: 'quiz',
+      question: '$y = 3x^2$ で $x = 1$ のとき $y = 3$。$x = 4$ のとき $y$ は？',
+      options: [
+        { letter: 'A', text: '$12$', correct: false },
+        { letter: 'B', text: '$48$', correct: true },
+        { letter: 'C', text: '$36$', correct: false },
+        { letter: 'D', text: '$24$', correct: false },
+      ],
+      explanation:
+        '$y = 3 \\times 4^2 = 3 \\times 16 = \\textcolor{#D97706}{48}$。$x$ が4<ruby>倍<rt>ばい</rt></ruby>なので $y$ は $4^2 = 16$<ruby>倍<rt>ばい</rt></ruby>！',
+    },
+    {
       type: 'date',
       text: '<ruby>放物線<rt>ほうぶつせん</rt></ruby>のグラフを<ruby>描<rt>か</rt></ruby>こう',
     },
@@ -173,6 +185,18 @@ export const quadFuncParabolaChat: HistoryChat = {
       text: '<ruby>放物線<rt>ほうぶつせん</rt></ruby>は y <ruby>軸<rt>じく</rt></ruby>について<ruby>左右対称<rt>さゆうたいしょう</rt></ruby>。a の<ruby>符号<rt>ふごう</rt></ruby>で<ruby>向<rt>む</rt></ruby>き、|a| の<ruby>大<rt>おお</rt></ruby>きさで<ruby>開<rt>ひら</rt></ruby>き<ruby>具合<rt>ぐあい</rt></ruby>が<ruby>決<rt>き</rt></ruby>まる！',
     },
     {
+      type: 'quiz',
+      question: '$y = \\frac{1}{2}x^2$ のグラフはどれ？',
+      options: [
+        { letter: 'A', text: '<ruby>下<rt>した</rt></ruby>に<ruby>開<rt>ひら</rt></ruby>く<ruby>広<rt>ひろ</rt></ruby>い<ruby>放物線<rt>ほうぶつせん</rt></ruby>', correct: false },
+        { letter: 'B', text: '<ruby>上<rt>うえ</rt></ruby>に<ruby>開<rt>ひら</rt></ruby>く<ruby>細<rt>ほそ</rt></ruby>い<ruby>放物線<rt>ほうぶつせん</rt></ruby>', correct: false },
+        { letter: 'C', text: '<ruby>上<rt>うえ</rt></ruby>に<ruby>開<rt>ひら</rt></ruby>く<ruby>広<rt>ひろ</rt></ruby>い<ruby>放物線<rt>ほうぶつせん</rt></ruby>', correct: true },
+        { letter: 'D', text: '<ruby>下<rt>した</rt></ruby>に<ruby>開<rt>ひら</rt></ruby>く<ruby>細<rt>ほそ</rt></ruby>い<ruby>放物線<rt>ほうぶつせん</rt></ruby>', correct: false },
+      ],
+      explanation:
+        '$a = \\frac{1}{2} > 0$ → <ruby>上<rt>うえ</rt></ruby><ruby>開<rt>びら</rt></ruby>き。$|a| = \\frac{1}{2} < 1$ → <ruby>広<rt>ひろ</rt></ruby>い<ruby>放物線<rt>ほうぶつせん</rt></ruby>',
+    },
+    {
       type: 'date',
       text: '<ruby>比例定数<rt>ひれいていすう</rt></ruby> a を<ruby>求<rt>もと</rt></ruby>めよう',
     },
@@ -253,9 +277,9 @@ export const quadFuncParabolaChat: HistoryChat = {
       type: 'quiz',
       question: '$y$ は $x$ の2<ruby>乗<rt>じょう</rt></ruby>に<ruby>比例<rt>ひれい</rt></ruby>し、$x = 5$ のとき $y = 50$。$y$ を $x$ の<ruby>式<rt>しき</rt></ruby>で<ruby>表<rt>あらわ</rt></ruby>すと？',
       options: [
-        { letter: 'A', text: '$y = 5x^2$', correct: false },
+        { letter: 'A', text: '$y = 2x^2$', correct: true },
         { letter: 'B', text: '$y = 10x^2$', correct: false },
-        { letter: 'C', text: '$y = 2x^2$', correct: true },
+        { letter: 'C', text: '$y = 5x^2$', correct: false },
         { letter: 'D', text: '$y = 50x^2$', correct: false },
       ],
       explanation:
@@ -264,6 +288,18 @@ export const quadFuncParabolaChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<ruby>比例定数<rt>ひれいていすう</rt></ruby> a は、y = ax² に<ruby>既知<rt>きち</rt></ruby>の (x, y) を<ruby>代入<rt>だいにゅう</rt></ruby>して <strong>a = y ÷ x²</strong> で<ruby>求<rt>もと</rt></ruby>める！',
+    },
+    {
+      type: 'quiz',
+      question: '$y$ は $x$ の2<ruby>乗<rt>じょう</rt></ruby>に<ruby>比例<rt>ひれい</rt></ruby>し、$x = -3$ のとき $y = 27$。$a$ の<ruby>値<rt>あたい</rt></ruby>は？',
+      options: [
+        { letter: 'A', text: '$a = 9$', correct: false },
+        { letter: 'B', text: '$a = -3$', correct: false },
+        { letter: 'C', text: '$a = -9$', correct: false },
+        { letter: 'D', text: '$a = 3$', correct: true },
+      ],
+      explanation:
+        '$27 = a \\times (-3)^2 = 9a$ → $a = \\textcolor{#D97706}{3}$。$(-3)^2 = 9$ に<ruby>注意<rt>ちゅうい</rt></ruby>！',
     },
     {
       type: 'date',
@@ -341,8 +377,8 @@ export const quadFuncParabolaChat: HistoryChat = {
       options: [
         { letter: 'A', text: '$a = 2$', correct: false },
         { letter: 'B', text: '$a = 1$', correct: false },
-        { letter: 'C', text: '$a = \\dfrac{1}{2}$', correct: true },
-        { letter: 'D', text: '$a = 4$', correct: false },
+        { letter: 'C', text: '$a = 4$', correct: false },
+        { letter: 'D', text: '$a = \\dfrac{1}{2}$', correct: true },
       ],
       explanation:
         '$8 = a \\times 4^2 = 16a$ → $a = \\dfrac{8}{16} = \\dfrac{1}{2}$。\n$|a| < 1$ なので<ruby>広<rt>ひろ</rt></ruby>い<ruby>放物線<rt>ほうぶつせん</rt></ruby>だね。',
@@ -350,6 +386,18 @@ export const quadFuncParabolaChat: HistoryChat = {
     {
       type: 'summary-point',
       text: 'グラフが<ruby>通<rt>とお</rt></ruby>る<ruby>点<rt>てん</rt></ruby>の<ruby>座標<rt>ざひょう</rt></ruby>を y = ax² に<ruby>代入<rt>だいにゅう</rt></ruby>すれば、<ruby>放物線<rt>ほうぶつせん</rt></ruby>の<ruby>式<rt>しき</rt></ruby>が<ruby>求<rt>もと</rt></ruby>まる！',
+    },
+    {
+      type: 'quiz',
+      question: '<ruby>放物線<rt>ほうぶつせん</rt></ruby> $y = ax^2$ が<ruby>点<rt>てん</rt></ruby> $(-6, 12)$ を<ruby>通<rt>とお</rt></ruby>る。$a$ の<ruby>値<rt>あたい</rt></ruby>は？',
+      options: [
+        { letter: 'A', text: '$a = \\dfrac{1}{3}$', correct: true },
+        { letter: 'B', text: '$a = 3$', correct: false },
+        { letter: 'C', text: '$a = -\\dfrac{1}{3}$', correct: false },
+        { letter: 'D', text: '$a = 2$', correct: false },
+      ],
+      explanation:
+        '$12 = a \\times (-6)^2 = 36a$ → $a = \\dfrac{12}{36} = \\textcolor{#D97706}{\\dfrac{1}{3}}$',
     },
     {
       type: 'end',

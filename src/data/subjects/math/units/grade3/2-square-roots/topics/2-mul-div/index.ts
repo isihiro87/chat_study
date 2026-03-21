@@ -257,6 +257,48 @@ export const sqrtMulDiv: Topic = {
         explanation: '$\\sqrt{\\dfrac{48}{25}} = \\dfrac{\\sqrt{48}}{\\sqrt{25}} = \\dfrac{4\\sqrt{3}}{5}$\n分子と分母を別々に簡単にしよう。',
         difficulty: 'advanced',
       },
+      {
+        id: 'math-g3-sqrt-mul-div-fc37',
+        front: '$6$',
+        back: '$\\sqrt{6} \\times \\sqrt{6}$ を計算すると？',
+        explanation: '$\\sqrt{6} \\times \\sqrt{6} = \\sqrt{6 \\times 6} = \\sqrt{36} = 6$\n同じ数のルートどうしをかけると、ルートが外れるよ。',
+        difficulty: 'basic',
+      },
+      {
+        id: 'math-g3-sqrt-mul-div-fc38',
+        front: '$\\sqrt{5}$',
+        back: '$\\sqrt{15} \\div \\sqrt{3}$ を計算すると？',
+        explanation: '$\\sqrt{15} \\div \\sqrt{3} = \\sqrt{15 \\div 3} = \\sqrt{5}$\n中身どうしをわるだけ！',
+        difficulty: 'basic',
+      },
+      {
+        id: 'math-g3-sqrt-mul-div-fc39',
+        front: '$10\\sqrt{3}$',
+        back: '$\\sqrt{15} \\times \\sqrt{20}$ を計算すると？',
+        explanation: '$\\sqrt{15} \\times \\sqrt{20} = \\sqrt{300} = \\sqrt{100 \\times 3} = 10\\sqrt{3}$\n$300 = 10^2 \\times 3$ を利用。',
+        difficulty: 'standard',
+      },
+      {
+        id: 'math-g3-sqrt-mul-div-fc40',
+        front: '$-6\\sqrt{21}$',
+        back: '$(-\\sqrt{27}) \\times \\sqrt{28}$ を計算すると？',
+        explanation: '$(-\\sqrt{27}) \\times \\sqrt{28} = -\\sqrt{756} = -\\sqrt{36 \\times 21} = -6\\sqrt{21}$\n符号に注意！',
+        difficulty: 'advanced',
+      },
+      {
+        id: 'math-g3-sqrt-mul-div-fc41',
+        front: '$-30\\sqrt{3}$',
+        back: '$2\\sqrt{15} \\times (-3\\sqrt{5})$ を計算すると？',
+        explanation: '$2\\sqrt{15} \\times (-3\\sqrt{5}) = -6\\sqrt{75} = -6 \\times 5\\sqrt{3} = -30\\sqrt{3}$\n係数どうし・ルートどうしを別々に計算。',
+        difficulty: 'advanced',
+      },
+      {
+        id: 'math-g3-sqrt-mul-div-fc42',
+        front: '$7.347$',
+        back: '$\\sqrt{6} = 2.449$ のとき $\\sqrt{54}$ の値は？',
+        explanation: '$\\sqrt{54} = \\sqrt{9 \\times 6} = 3\\sqrt{6} = 3 \\times 2.449 = 7.347$\n$\\sqrt{6}$ の形に変形してから代入！',
+        difficulty: 'advanced',
+      },
     ],
     quiz: {
       questions: [
@@ -636,6 +678,150 @@ export const sqrtMulDiv: Topic = {
           correctIndex: 1,
           explanation:
             '対角線 $= \\sqrt{6} \\times \\sqrt{2} = \\sqrt{12} = 2\\sqrt{3}$ cm\n正方形の対角線は1辺×$\\sqrt{2}$ だよ。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'math-g3-sqrt-mul-div-q43',
+          question: '$\\sqrt{3} \\times \\sqrt{2} \\times \\sqrt{5}$ はいくつ？',
+          options: ['$\\sqrt{10}$', '$5\\sqrt{6}$', '$\\sqrt{11}$', '$\\sqrt{30}$'],
+          correctIndex: 3,
+          explanation:
+            '$\\sqrt{3} \\times \\sqrt{2} \\times \\sqrt{5} = \\sqrt{3 \\times 2 \\times 5} = \\sqrt{30}$\n3つのルートでも中身をすべてかけるよ。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'math-g3-sqrt-mul-div-q44',
+          question: '$\\sqrt{\\dfrac{2}{5}} \\div \\sqrt{\\dfrac{1}{10}}$ はいくつ？',
+          options: ['$\\sqrt{\\dfrac{1}{5}}$', '$\\sqrt{4}$', '$\\sqrt{2}$', '$2$'],
+          correctIndex: 3,
+          explanation:
+            '$\\sqrt{\\dfrac{2}{5}} \\div \\sqrt{\\dfrac{1}{10}} = \\sqrt{\\dfrac{2}{5} \\times \\dfrac{10}{1}} = \\sqrt{\\dfrac{20}{5}} = \\sqrt{4} = 2$',
+          difficulty: 'standard',
+        },
+        {
+          id: 'math-g3-sqrt-mul-div-q45',
+          question: '$\\sqrt{24} \\times \\sqrt{\\dfrac{3}{8}}$ はいくつ？',
+          options: ['$3$', '$\\sqrt{9}$', '$2\\sqrt{3}$', '$\\sqrt{72}$'],
+          correctIndex: 0,
+          explanation:
+            '$\\sqrt{24} \\times \\sqrt{\\dfrac{3}{8}} = \\sqrt{24 \\times \\dfrac{3}{8}} = \\sqrt{\\dfrac{72}{8}} = \\sqrt{9} = 3$',
+          difficulty: 'standard',
+        },
+        {
+          id: 'math-g3-sqrt-mul-div-q46',
+          question: '$\\sqrt{\\dfrac{4}{3}} \\times \\sqrt{\\dfrac{3}{5}} \\times \\sqrt{\\dfrac{5}{4}}$ はいくつ？',
+          options: ['$\\sqrt{\\dfrac{4}{5}}$', '$\\dfrac{2}{\\sqrt{5}}$', '$1$', '$\\sqrt{\\dfrac{3}{4}}$'],
+          correctIndex: 2,
+          explanation:
+            '$\\sqrt{\\dfrac{4}{3} \\times \\dfrac{3}{5} \\times \\dfrac{5}{4}} = \\sqrt{\\dfrac{60}{60}} = \\sqrt{1} = 1$\n分数が全部約分されて1になるよ。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'math-g3-sqrt-mul-div-q47',
+          question: '$3\\sqrt{8} \\div \\sqrt{27}$ はいくつ？',
+          options: ['$\\dfrac{\\sqrt{6}}{3}$', '$\\dfrac{2\\sqrt{6}}{3}$', '$\\sqrt{\\dfrac{8}{3}}$', '$3\\sqrt{\\dfrac{8}{27}}$'],
+          correctIndex: 1,
+          explanation:
+            '$3\\sqrt{8} \\div \\sqrt{27} = \\dfrac{3 \\times 2\\sqrt{2}}{3\\sqrt{3}} = \\dfrac{6\\sqrt{2}}{3\\sqrt{3}} = \\dfrac{2\\sqrt{2}}{\\sqrt{3}} = \\dfrac{2\\sqrt{6}}{3}$',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'math-g3-sqrt-mul-div-q48',
+          question: '$3\\sqrt{20} \\div \\sqrt{15} \\times \\sqrt{12}$ はいくつ？',
+          options: ['$6\\sqrt{4}$', '$4\\sqrt{15}$', '$6\\sqrt{16}$', '$12$'],
+          correctIndex: 3,
+          explanation:
+            '$3 \\times 2\\sqrt{5} \\div \\sqrt{15} \\times 2\\sqrt{3} = \\dfrac{6\\sqrt{5} \\times 2\\sqrt{3}}{\\sqrt{15}} = \\dfrac{12\\sqrt{15}}{\\sqrt{15}} = 12$',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'math-g3-sqrt-mul-div-q49',
+          question: '$\\sqrt{3}(\\sqrt{6} - 2) \\times \\sqrt{2}$ はいくつ？',
+          options: ['$6 - 2\\sqrt{6}$', '$3\\sqrt{2} - 2\\sqrt{6}$', '$6 + 2\\sqrt{6}$', '$\\sqrt{36} - 4$'],
+          correctIndex: 0,
+          explanation:
+            '$\\sqrt{3}(\\sqrt{6} - 2) \\times \\sqrt{2} = (\\sqrt{18} - 2\\sqrt{3}) \\times \\sqrt{2} = \\sqrt{36} - 2\\sqrt{6} = 6 - 2\\sqrt{6}$',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'math-g3-sqrt-mul-div-q50',
+          question: '$\\sqrt{\\dfrac{18}{49}}$ を簡単にすると？',
+          options: ['$\\dfrac{\\sqrt{18}}{7}$', '$\\dfrac{3\\sqrt{2}}{7}$', '$\\dfrac{9\\sqrt{2}}{49}$', '$\\dfrac{2\\sqrt{3}}{7}$'],
+          correctIndex: 1,
+          explanation:
+            '$\\sqrt{\\dfrac{18}{49}} = \\dfrac{\\sqrt{18}}{\\sqrt{49}} = \\dfrac{3\\sqrt{2}}{7}$\n分子・分母を別々に簡単にするよ。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'math-g3-sqrt-mul-div-q51',
+          question: '$\\sqrt{0.32}$ を簡単にすると？',
+          options: ['$\\dfrac{4\\sqrt{2}}{10}$', '$\\dfrac{2\\sqrt{2}}{5}$', '$\\dfrac{\\sqrt{32}}{10}$', '$\\dfrac{4\\sqrt{2}}{5}$'],
+          correctIndex: 1,
+          explanation:
+            '$\\sqrt{0.32} = \\sqrt{\\dfrac{32}{100}} = \\dfrac{\\sqrt{32}}{10} = \\dfrac{4\\sqrt{2}}{10} = \\dfrac{2\\sqrt{2}}{5}$',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'math-g3-sqrt-mul-div-q52',
+          question: '$\\sqrt{\\dfrac{12}{25}} \\times \\sqrt{\\dfrac{15}{4}}$ はいくつ？',
+          options: ['$\\dfrac{2\\sqrt{5}}{5}$', '$\\dfrac{6\\sqrt{5}}{10}$', '$\\dfrac{\\sqrt{180}}{10}$', '$\\dfrac{3\\sqrt{5}}{5}$'],
+          correctIndex: 3,
+          explanation:
+            '$\\sqrt{\\dfrac{12 \\times 15}{25 \\times 4}} = \\sqrt{\\dfrac{180}{100}} = \\dfrac{\\sqrt{180}}{10} = \\dfrac{6\\sqrt{5}}{10} = \\dfrac{3\\sqrt{5}}{5}$',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'math-g3-sqrt-mul-div-q53',
+          question: '$\\sqrt{\\dfrac{7}{12}} \\div \\sqrt{\\dfrac{14}{27}}$ はいくつ？',
+          options: ['$\\dfrac{\\sqrt{2}}{2}$', '$\\dfrac{3}{4}$', '$\\dfrac{3\\sqrt{2}}{4}$', '$\\dfrac{\\sqrt{14}}{4}$'],
+          correctIndex: 2,
+          explanation:
+            '$\\sqrt{\\dfrac{7}{12} \\times \\dfrac{27}{14}} = \\sqrt{\\dfrac{189}{168}} = \\sqrt{\\dfrac{9}{8}} = \\dfrac{3}{2\\sqrt{2}} = \\dfrac{3\\sqrt{2}}{4}$',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'math-g3-sqrt-mul-div-q54',
+          question: '$\\sqrt{5} = 2.236$ のとき、$\\sqrt{\\dfrac{5}{4}}$ の値は？',
+          options: ['$0.559$', '$1.118$', '$2.236$', '$0.447$'],
+          correctIndex: 1,
+          explanation:
+            '$\\sqrt{\\dfrac{5}{4}} = \\dfrac{\\sqrt{5}}{2} = \\dfrac{2.236}{2} = 1.118$',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'math-g3-sqrt-mul-div-q55',
+          question: '$\\sqrt{7} = 2.646$ のとき、$\\sqrt{\\dfrac{63}{100}}$ の値は？',
+          options: ['$0.2646$', '$0.7938$', '$2.646$', '$7.938$'],
+          correctIndex: 1,
+          explanation:
+            '$\\sqrt{\\dfrac{63}{100}} = \\dfrac{\\sqrt{63}}{10} = \\dfrac{3\\sqrt{7}}{10} = \\dfrac{3 \\times 2.646}{10} = 0.7938$',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'math-g3-sqrt-mul-div-q56',
+          question: '$\\sqrt{\\dfrac{216}{a}}$ が自然数になる最小の自然数 $a$ は？',
+          options: ['$2$', '$3$', '$6$', '$24$'],
+          correctIndex: 2,
+          explanation:
+            '$216 = 2^3 \\times 3^3$\n$\\dfrac{216}{a}$ が整数の2乗になればよい。\n$a = 6$ のとき $\\dfrac{216}{6} = 36 = 6^2$ で $\\sqrt{36} = 6$。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'math-g3-sqrt-mul-div-q57',
+          question: '面積が等しい2つの正方形で、一方の1辺が $\\sqrt{18}$ cm、もう一方の1辺が $a\\sqrt{2}$ cm のとき、$a$ は？',
+          options: ['$2$', '$3$', '$6$', '$9$'],
+          correctIndex: 1,
+          explanation:
+            '$(\\sqrt{18})^2 = (a\\sqrt{2})^2$ より $18 = 2a^2$\n$a^2 = 9$ → $a = 3$',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'math-g3-sqrt-mul-div-q58',
+          question: '$\\sqrt{6} = 2.449$ のとき、$\\sqrt{0.06}$ の値は？',
+          options: ['$0.02449$', '$0.2449$', '$2.449$', '$0.7347$'],
+          correctIndex: 1,
+          explanation:
+            '$\\sqrt{0.06} = \\sqrt{\\dfrac{6}{100}} = \\dfrac{\\sqrt{6}}{10} = \\dfrac{2.449}{10} = 0.2449$',
           difficulty: 'advanced',
         },
       ],

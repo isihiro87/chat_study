@@ -102,6 +102,18 @@ export const eqFractionsChat: HistoryChat = {
       text: '<ruby>小数<rt>しょうすう</rt></ruby>の<ruby>方程式<rt>ほうていしき</rt></ruby>は <strong>10<ruby>倍<rt>ばい</rt></ruby>・100<ruby>倍<rt>ばい</rt></ruby></strong>して<ruby>整数<rt>せいすう</rt></ruby>にしてから<ruby>解<rt>と</rt></ruby>こう！',
     },
     {
+      type: 'quiz',
+      question: '$0.5x - 0.3 = 1.2$ の<ruby>解<rt>かい</rt></ruby>は？',
+      options: [
+        { letter: 'A', text: '$x = 3$', correct: true },
+        { letter: 'B', text: '$x = 1.8$', correct: false },
+        { letter: 'C', text: '$x = 0.9$', correct: false },
+        { letter: 'D', text: '$x = 30$', correct: false },
+      ],
+      explanation:
+        '10<ruby>倍<rt>ばい</rt></ruby>して $5x - 3 = 12$。<ruby>移項<rt>いこう</rt></ruby>して $5x = 15$。$x = \\textcolor{#D97706}{3}$ だよ。',
+    },
+    {
       type: 'date',
       text: '<ruby>分数<rt>ぶんすう</rt></ruby>の<ruby>方程式<rt>ほうていしき</rt></ruby>',
     },
@@ -219,8 +231,8 @@ export const eqFractionsChat: HistoryChat = {
       options: [
         { letter: 'A', text: '$x = 6$', correct: false },
         { letter: 'B', text: '$x = 10$', correct: false },
-        { letter: 'C', text: '$x = 12$', correct: true },
-        { letter: 'D', text: '$x = 24$', correct: false },
+        { letter: 'C', text: '$x = 24$', correct: false },
+        { letter: 'D', text: '$x = 12$', correct: true },
       ],
       explanation:
         '<ruby>分母<rt>ぶんぼ</rt></ruby> 4, 6 の<ruby>最小公倍数<rt>さいしょうこうばいすう</rt></ruby> 12 をかけると $3x - 2x = 12$。\nつまり $x = \\textcolor{#D97706}{12}$。',

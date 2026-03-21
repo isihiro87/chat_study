@@ -82,6 +82,18 @@ export const quadFuncRangeChat: HistoryChat = {
       text: 'a > 0: x = 0 で<ruby>最小値<rt>さいしょうち</rt></ruby>。a < 0: x = 0 で<ruby>最大値<rt>さいだいち</rt></ruby>。',
     },
     {
+      type: 'quiz',
+      question: '$y = x^2$ で $x = -4$ のとき $y$ はいくつ？',
+      options: [
+        { letter: 'A', text: '$-16$', correct: false },
+        { letter: 'B', text: '$16$', correct: true },
+        { letter: 'C', text: '$-4$', correct: false },
+        { letter: 'D', text: '$8$', correct: false },
+      ],
+      explanation:
+        '$y = (-4)^2 = \\textcolor{#D97706}{16}$。$x$ が<ruby>負<rt>ふ</rt></ruby>でも2<ruby>乗<rt>じょう</rt></ruby>すると<ruby>正<rt>せい</rt></ruby>になるよ。',
+    },
+    {
       type: 'date',
       text: '<ruby>変域<rt>へんいき</rt></ruby>の<ruby>求<rt>もと</rt></ruby>め<ruby>方<rt>かた</rt></ruby>（x = 0 の<ruby>罠<rt>わな</rt></ruby>）',
     },
@@ -167,6 +179,18 @@ export const quadFuncRangeChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<ruby>変域<rt>へんいき</rt></ruby>を<ruby>求<rt>もと</rt></ruby>めるときは「x = 0 を<ruby>含<rt>ふく</rt></ruby>むか」を<ruby>最初<rt>さいしょ</rt></ruby>に<ruby>確認<rt>かくにん</rt></ruby>！',
+    },
+    {
+      type: 'quiz',
+      question: '$y = 2x^2$ で $1 \\leq x \\leq 3$ のとき $y$ の<ruby>変域<rt>へんいき</rt></ruby>は？',
+      options: [
+        { letter: 'A', text: '$0 \\leq y \\leq 18$', correct: false },
+        { letter: 'B', text: '$2 \\leq y \\leq 18$', correct: true },
+        { letter: 'C', text: '$1 \\leq y \\leq 9$', correct: false },
+        { letter: 'D', text: '$2 \\leq y \\leq 9$', correct: false },
+      ],
+      explanation:
+        '$x = 0$ を<ruby>含<rt>ふく</rt></ruby>まないので<ruby>端<rt>はし</rt></ruby>の<ruby>値<rt>あたい</rt></ruby>だけ。$x=1$: $y=2$、$x=3$: $y=18$。$\\textcolor{#D97706}{2 \\leq y \\leq 18}$',
     },
     {
       type: 'date',
@@ -275,6 +299,18 @@ export const quadFuncRangeChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<ruby>逆問題<rt>ぎゃくもんだい</rt></ruby>: <ruby>最大値<rt>さいだいち</rt></ruby>/<ruby>最小値<rt>さいしょうち</rt></ruby>を<ruby>与<rt>あた</rt></ruby>える $x$ を<ruby>特定<rt>とくてい</rt></ruby>し、$y = ax^2$ に<ruby>代入<rt>だいにゅう</rt></ruby>して $a$ を<ruby>求<rt>もと</rt></ruby>める！',
+    },
+    {
+      type: 'quiz',
+      question: '$y = ax^2$ で $-3 \\leq x \\leq 2$、$y$ の<ruby>最大値<rt>さいだいち</rt></ruby>が $27$ ($a > 0$)。$a$ の<ruby>値<rt>あたい</rt></ruby>は？',
+      options: [
+        { letter: 'A', text: '$a = 9$', correct: false },
+        { letter: 'B', text: '$a = 3$', correct: true },
+        { letter: 'C', text: '$a = \\dfrac{27}{4}$', correct: false },
+        { letter: 'D', text: '$a = 27$', correct: false },
+      ],
+      explanation:
+        '$|-3| > |2|$ だから $x = -3$ で<ruby>最大値<rt>さいだいち</rt></ruby>。$9a = 27$ → $a = \\textcolor{#D97706}{3}$',
     },
     {
       type: 'end',

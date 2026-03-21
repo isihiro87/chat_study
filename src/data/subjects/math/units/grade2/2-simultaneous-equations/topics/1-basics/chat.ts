@@ -122,6 +122,18 @@ export const simulEqBasicsChat: HistoryChat = {
       type: 'summary-point',
       text: '<span class="keyword"><ruby>二元一次方程式<rt>にげんいちじほうていしき</rt></ruby></span>：$x$ と $y$ の2つの<ruby>文字<rt>もじ</rt></ruby>をふくむ<ruby>一次方程式<rt>いちじほうていしき</rt></ruby>。1つの<ruby>式<rt>しき</rt></ruby>だけでは<ruby>解<rt>かい</rt></ruby>は<ruby>無限<rt>むげん</rt></ruby>にある！',
     },
+    {
+      type: 'quiz',
+      question: '<ruby>次<rt>つぎ</rt></ruby>のうち、<ruby>二元一次方程式<rt>にげんいちじほうていしき</rt></ruby>はどれ？',
+      options: [
+        { letter: 'A', text: '$x^2 + y = 5$', correct: false },
+        { letter: 'B', text: '$xy = 6$', correct: false },
+        { letter: 'C', text: '$3x - 2y = 7$', correct: true },
+        { letter: 'D', text: '$2x + 3 = 11$', correct: false },
+      ],
+      explanation:
+        'A は $x^2$ があるので<ruby>二次<rt>にじ</rt></ruby>。B の $xy$ も<ruby>二次<rt>にじ</rt></ruby>。D は<ruby>一元<rt>いちげん</rt></ruby>（$x$ だけ）。\n$\\textcolor{#D97706}{3x - 2y = 7}$ が<ruby>二元一次方程式<rt>にげんいちじほうていしき</rt></ruby>！',
+    },
 
     // ── セクション2: 連立方程式と解の意味 ──
     {
@@ -192,6 +204,18 @@ export const simulEqBasicsChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<span class="keyword"><ruby>連立方程式<rt>れんりつほうていしき</rt></ruby></span>：2つの<ruby>式<rt>しき</rt></ruby>を<ruby>組<rt>く</rt></ruby>み<ruby>合<rt>あ</rt></ruby>わせたもの。<ruby>解<rt>かい</rt></ruby>は<strong>2つの<ruby>式<rt>しき</rt></ruby>を<ruby>同時<rt>どうじ</rt></ruby>に<ruby>満<rt>み</rt></ruby>たす</strong> $(x, y)$ の<ruby>組<rt>くみ</rt></ruby>！',
+    },
+    {
+      type: 'quiz',
+      question: '$\\begin{cases} x + y = 5 \\\\ x - y = 1 \\end{cases}$ の<ruby>解<rt>かい</rt></ruby>は？',
+      options: [
+        { letter: 'A', text: '$x = 2, y = 3$', correct: false },
+        { letter: 'B', text: '$x = 4, y = 1$', correct: false },
+        { letter: 'C', text: '$x = 3, y = 2$', correct: true },
+        { letter: 'D', text: '$x = 1, y = 4$', correct: false },
+      ],
+      explanation:
+        '$x = 3, y = 2$ を<ruby>確認<rt>かくにん</rt></ruby>: $3 + 2 = 5$ ✓、$3 - 2 = 1$ ✓。\n<ruby>両方<rt>りょうほう</rt></ruby><ruby>成<rt>な</rt></ruby>り<ruby>立<rt>た</rt></ruby>つので $\\textcolor{#D97706}{x = 3, y = 2}$ が<ruby>解<rt>かい</rt></ruby>！',
     },
 
     // ── セクション3: 解の確かめ方 ──
@@ -283,7 +307,19 @@ export const simulEqBasicsChat: HistoryChat = {
     },
     {
       type: 'summary-point',
-      text: '<ruby>解<rt>かい</rt></ruby>の<ruby>確<rt>たし</rt></ruby>かめ<ruby>方<rt>かた</rt></ruby>：$x, y$ を<strong>2つの<ruby>式<rt>しき</rt></ruby>の<ruby>両方<rt>りょうほう</rt></ruby>に<ruby>代入<rt>だいにゅう</rt></ruby></strong>して、どちらも<ruby>成<rt>な</rt></ruby>り<ruby>立<rt>た</rt></ruby>つか<ruby>確認<rt>かくにん</rt></ruby>する！',
+      text: '<ruby>解<rt>かい</rt></ruby>の<ruby>確<rt>たし</rt></ruby>かめ<ruby>方<rt>かた</rt></ruby>：$x, y$ を<strong>2つの<ruby>式<rt>shiki</rt></ruby>の<ruby>両方<rt>りょうほう</rt></ruby>に<ruby>代入<rt>だいにゅう</rt></ruby></strong>して、どちらも<ruby>成<rt>な</rt></ruby>り<ruby>立<rt>た</rt></ruby>つか<ruby>確認<rt>かくにん</rt></ruby>する！',
+    },
+    {
+      type: 'quiz',
+      question: '$\\begin{cases} 3x + y = 7 \\\\ x - 2y = 0 \\end{cases}$ で $x = 2, y = 1$ は<ruby>解<rt>かい</rt></ruby>？',
+      options: [
+        { letter: 'A', text: '<ruby>解<rt>かい</rt></ruby>である', correct: true },
+        { letter: 'B', text: '①だけ<ruby>成<rt>な</rt></ruby>り<ruby>立<rt>た</rt></ruby>つので<ruby>解<rt>かい</rt></ruby>ではない', correct: false },
+        { letter: 'C', text: '②だけ<ruby>成<rt>な</rt></ruby>り<ruby>立<rt>た</rt></ruby>つので<ruby>解<rt>かい</rt></ruby>ではない', correct: false },
+        { letter: 'D', text: 'どちらも<ruby>成<rt>な</rt></ruby>り<ruby>立<rt>た</rt></ruby>たないので<ruby>解<rt>かい</rt></ruby>ではない', correct: false },
+      ],
+      explanation:
+        '①: $3 \\times 2 + 1 = 7$ ✓。②: $2 - 2 \\times 1 = 0$ ✓。\n<ruby>両方<rt>りょうほう</rt></ruby><ruby>成<rt>な</rt></ruby>り<ruby>立<rt>た</rt></ruby>つので $\\textcolor{#D97706}{<ruby>解<rt>かい</rt></ruby>である}$！',
     },
 
     // ── セクション4: 表を使って解を見つけよう ──

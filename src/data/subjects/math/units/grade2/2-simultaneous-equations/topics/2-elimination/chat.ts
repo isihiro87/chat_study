@@ -111,7 +111,19 @@ export const eliminationChat: HistoryChat = {
     },
     {
       type: 'summary-point',
-      text: '<ruby>消<rt>け</rt></ruby>したい<ruby>文字<rt>もじ</rt></ruby>の<ruby>係数<rt>けいすう</rt></ruby>の<ruby>符号<rt>ふごう</rt></ruby>が<ruby>逆<rt>ぎゃく</rt></ruby>（$+y$ と $-y$）→ <strong>2つの<ruby>式<rt>しき</rt></ruby>を<ruby>足<rt>た</rt></ruby>す</strong>と<ruby>消<rt>き</rt></ruby>える！',
+      text: '<ruby>消<rt>け</rt></ruby>したい<ruby>文字<rt>もじ</rt></ruby>の<ruby>係数<rt>けいすう</rt></ruby>の<ruby>符号<rt>ふごう</rt></ruby>が<ruby>逆<rt>ぎゃく</rt></ruby>（$+y$ と $-y$）→ <strong>2つの<ruby>式<rt>shiki</rt></ruby>を<ruby>足<rt>た</rt></ruby>す</strong>と<ruby>消<rt>き</rt></ruby>える！',
+    },
+    {
+      type: 'quiz',
+      question: '$\\begin{cases} 2x + y = 9 \\\\ 2x - y = 3 \\end{cases}$ を<ruby>加減法<rt>かげんほう</rt></ruby>で<ruby>解<rt>と</rt></ruby>くと $x$ は？',
+      options: [
+        { letter: 'A', text: '$x = 2$', correct: false },
+        { letter: 'B', text: '$x = 6$', correct: false },
+        { letter: 'C', text: '$x = 4$', correct: false },
+        { letter: 'D', text: '$x = 3$', correct: true },
+      ],
+      explanation:
+        '<ruby>足<rt>た</rt></ruby>すと $4x = 12 \\rightarrow x = \\textcolor{#D97706}{3}$。\n$y$ の<ruby>符号<rt>ふごう</rt></ruby>が<ruby>逆<rt>ぎゃく</rt></ruby>なので<ruby>足<rt>た</rt></ruby>せば<ruby>消<rt>き</rt></ruby>える！',
     },
     // ===== セクション2: 係数をそろえよう（片方を定数倍） =====
     {
@@ -191,6 +203,18 @@ export const eliminationChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<ruby>係数<rt>けいすう</rt></ruby>がそろっていない → <strong><ruby>片方<rt>かたほう</rt></ruby>の<ruby>式<rt>しき</rt></ruby>を<ruby>何倍<rt>なんばい</rt></ruby>かして<ruby>係数<rt>けいすう</rt></ruby>をそろえ</strong>てから<ruby>加減<rt>かげん</rt></ruby>する！',
+    },
+    {
+      type: 'quiz',
+      question: '$\\begin{cases} 3x + y = 10 \\\\ x + y = 4 \\end{cases}$ を<ruby>加減法<rt>かげんほう</rt></ruby>で<ruby>解<rt>と</rt></ruby>くと $x$ は？',
+      options: [
+        { letter: 'A', text: '$x = 2$', correct: false },
+        { letter: 'B', text: '$x = 4$', correct: false },
+        { letter: 'C', text: '$x = 3$', correct: true },
+        { letter: 'D', text: '$x = 1$', correct: false },
+      ],
+      explanation:
+        '$y$ の<ruby>係数<rt>けいすう</rt></ruby>がそろっているので、①−②で $2x = 6 \\rightarrow x = \\textcolor{#D97706}{3}$。\n$y = 4 - 3 = 1$。',
     },
     // ===== セクション3: 両方を定数倍する場合 =====
     {
@@ -273,6 +297,18 @@ export const eliminationChat: HistoryChat = {
       type: 'summary-point',
       text: '<ruby>片方<rt>かたほう</rt></ruby>だけでは<ruby>係数<rt>けいすう</rt></ruby>がそろわない → <strong><ruby>両方<rt>りょうほう</rt></ruby>の<ruby>式<rt>しき</rt></ruby>を<ruby>定数倍<rt>ていすうばい</rt></ruby></strong>。<ruby>最小公倍数<rt>さいしょうこうばいすう</rt></ruby>を<ruby>使<rt>つか</rt></ruby>うと<ruby>計算<rt>けいさん</rt></ruby>が<ruby>楽<rt>らく</rt></ruby>！',
     },
+    {
+      type: 'quiz',
+      question: '$\\begin{cases} 3x + 4y = 18 \\\\ 5x + 2y = 16 \\end{cases}$ で $y$ を<ruby>消<rt>け</rt></ruby>すには②を<ruby>何倍<rt>なんばい</rt></ruby>する？',
+      options: [
+        { letter: 'A', text: '$3$ <ruby>倍<rt>ばい</rt></ruby>', correct: false },
+        { letter: 'B', text: '$2$ <ruby>倍<rt>ばい</rt></ruby>', correct: true },
+        { letter: 'C', text: '$4$ <ruby>倍<rt>ばい</rt></ruby>', correct: false },
+        { letter: 'D', text: '$5$ <ruby>倍<rt>ばい</rt></ruby>', correct: false },
+      ],
+      explanation:
+        '$y$ の<ruby>係数<rt>けいすう</rt></ruby>は $4$ と $2$。②を $\\textcolor{#D97706}{2}$ <ruby>倍<rt>ばい</rt></ruby>すれば<ruby>係数<rt>けいすう</rt></ruby>が $4$ にそろう。\n①−②\'で $y$ が<ruby>消<rt>き</rt></ruby>える！',
+    },
     // ===== セクション4: 引き算で消す場合 =====
     {
       type: 'date',
@@ -348,9 +384,9 @@ export const eliminationChat: HistoryChat = {
       question: '$\\begin{cases} 3x + 2y = 8 \\\\ 2x + 5y = 9 \\end{cases}$ を<ruby>加減法<rt>かげんほう</rt></ruby>で<ruby>解<rt>と</rt></ruby>くとき、$y$ を<ruby>消<rt>け</rt></ruby>すには①を<ruby>何倍<rt>なんばい</rt></ruby>、②を<ruby>何倍<rt>なんばい</rt></ruby>する？',
       options: [
         { letter: 'A', text: '①×2、②×3', correct: false },
-        { letter: 'B', text: '①×5、②×2', correct: true },
+        { letter: 'B', text: '①×5、②×3', correct: false },
         { letter: 'C', text: '①×3、②×2', correct: false },
-        { letter: 'D', text: '①×5、②×3', correct: false },
+        { letter: 'D', text: '①×5、②×2', correct: true },
       ],
       explanation:
         '$y$ の<ruby>係数<rt>けいすう</rt></ruby>は $2$ と $5$。\n<ruby>最小公倍数<rt>さいしょうこうばいすう</rt></ruby> $10$ にそろえるため、①×$5$（$10y$）、②×$2$（$10y$）にして<ruby>引<rt>ひ</rt></ruby>く。\n$\\textcolor{#D97706}{11x = 22 \\Rightarrow x = 2, y = 1}$。',
@@ -358,6 +394,18 @@ export const eliminationChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<ruby>引<rt>ひ</rt></ruby>くときは<strong><ruby>左辺<rt>さへん</rt></ruby>も<ruby>右辺<rt>うへん</rt></ruby>もすべて<ruby>引<rt>ひ</rt></ruby>く</strong>。<ruby>符号<rt>ふごう</rt></ruby>の<ruby>変化<rt>へんか</rt></ruby>に<ruby>注意<rt>ちゅうい</rt></ruby>！',
+    },
+    {
+      type: 'quiz',
+      question: '$\\begin{cases} 4x + 3y = 19 \\\\ 4x + y = 13 \\end{cases}$ で①−②を<ruby>計算<rt>けいさん</rt></ruby>すると？',
+      options: [
+        { letter: 'A', text: '$2y = 6$', correct: true },
+        { letter: 'B', text: '$4y = 6$', correct: false },
+        { letter: 'C', text: '$8x + 4y = 32$', correct: false },
+        { letter: 'D', text: '$2y = 32$', correct: false },
+      ],
+      explanation:
+        '<ruby>左辺<rt>さへん</rt></ruby>: $4x - 4x = 0$, $3y - y = 2y$。<ruby>右辺<rt>うへん</rt></ruby>: $19 - 13 = 6$。\n$\\textcolor{#D97706}{2y = 6}$ → $y = 3$',
     },
     {
       type: 'end',

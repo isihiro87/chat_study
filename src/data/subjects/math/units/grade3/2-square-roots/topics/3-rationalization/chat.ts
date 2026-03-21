@@ -118,8 +118,8 @@ export const rationalizationChat: HistoryChat = {
       type: 'quiz',
       question: '$\\frac{1}{\\sqrt{5}}$ を<ruby>有理化<rt>ゆうりか</rt></ruby>すると？',
       options: [
-        { letter: 'A', text: '$\\frac{1}{5}$', correct: false },
-        { letter: 'B', text: '$\\frac{\\sqrt{5}}{5}$', correct: true },
+        { letter: 'A', text: '$\\frac{\\sqrt{5}}{5}$', correct: true },
+        { letter: 'B', text: '$\\frac{1}{5}$', correct: false },
         { letter: 'C', text: '$\\frac{5}{\\sqrt{5}}$', correct: false },
         { letter: 'D', text: '$\\frac{\\sqrt{5}}{25}$', correct: false },
       ],
@@ -190,10 +190,10 @@ export const rationalizationChat: HistoryChat = {
       type: 'quiz',
       question: '$\\frac{4}{\\sqrt{2}}$ を<ruby>有理化<rt>ゆうりか</rt></ruby>すると？',
       options: [
-        { letter: 'A', text: '$2\\sqrt{2}$', correct: true },
+        { letter: 'A', text: '$\\frac{4\\sqrt{2}}{4}$', correct: false },
         { letter: 'B', text: '$4\\sqrt{2}$', correct: false },
         { letter: 'C', text: '$\\frac{\\sqrt{2}}{4}$', correct: false },
-        { letter: 'D', text: '$\\frac{4\\sqrt{2}}{4}$', correct: false },
+        { letter: 'D', text: '$2\\sqrt{2}$', correct: true },
       ],
       explanation:
         '$\\frac{4}{\\sqrt{2}} = \\frac{4 \\times \\sqrt{2}}{\\sqrt{2} \\times \\sqrt{2}} = \\frac{4\\sqrt{2}}{2} = 2\\sqrt{2}$\n<ruby>有理化<rt>ゆうりか</rt></ruby>してから<ruby>約分<rt>やくぶん</rt></ruby>！',
@@ -269,9 +269,9 @@ export const rationalizationChat: HistoryChat = {
       question: '$\\frac{6}{\\sqrt{12}}$ を<ruby>有理化<rt>ゆうりか</rt></ruby>すると？',
       options: [
         { letter: 'A', text: '$\\frac{6\\sqrt{12}}{12}$', correct: false },
-        { letter: 'B', text: '$2\\sqrt{3}$', correct: false },
+        { letter: 'B', text: '$\\sqrt{3}$', correct: true },
         { letter: 'C', text: '$\\frac{\\sqrt{3}}{2}$', correct: false },
-        { letter: 'D', text: '$\\sqrt{3}$', correct: true },
+        { letter: 'D', text: '$2\\sqrt{3}$', correct: false },
       ],
       explanation:
         '<ruby>先<rt>さき</rt></ruby>に $\\sqrt{12} = 2\\sqrt{3}$ にして、$\\frac{6}{2\\sqrt{3}} = \\frac{3}{\\sqrt{3}} = \\frac{3\\sqrt{3}}{3} = \\sqrt{3}$。',
@@ -325,6 +325,18 @@ export const rationalizationChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<ruby>式<rt>しき</rt></ruby>の<ruby>値<rt>あたい</rt></ruby>を<ruby>求<rt>もと</rt></ruby>めるときは、<ruby>先<rt>さき</rt></ruby>に<ruby>有理化<rt>ゆうりか</rt></ruby>してから<ruby>代入<rt>だいにゅう</rt></ruby>しよう！',
+    },
+    {
+      type: 'quiz',
+      question: '$\\sqrt{5} = 2.236$ として $\\frac{10}{\\sqrt{5}}$ の<ruby>値<rt>あたい</rt></ruby>は？',
+      options: [
+        { letter: 'A', text: '$2.236$', correct: false },
+        { letter: 'B', text: '$4.472$', correct: true },
+        { letter: 'C', text: '$11.18$', correct: false },
+        { letter: 'D', text: '$0.447$', correct: false },
+      ],
+      explanation:
+        '$\\frac{10}{\\sqrt{5}} = \\frac{10\\sqrt{5}}{5} = 2\\sqrt{5} = 2 \\times 2.236 = \\textcolor{#D97706}{4.472}$',
     },
     {
       type: 'end',

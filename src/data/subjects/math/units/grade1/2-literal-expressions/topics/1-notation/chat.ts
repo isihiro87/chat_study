@@ -124,6 +124,18 @@ export const literalNotationChat: HistoryChat = {
       text: '<ruby>文字式<rt>もじしき</rt></ruby>のルール：①×を<ruby>省略<rt>しょうりゃく</rt></ruby> ②<ruby>数<rt>かず</rt></ruby>を<ruby>前<rt>まえ</rt></ruby>に ③$1$ は<ruby>省略<rt>しょうりゃく</rt></ruby> ④<ruby>同<rt>おな</rt></ruby>じ<ruby>文字<rt>もじ</rt></ruby>は<ruby>指数<rt>しすう</rt></ruby>',
     },
     {
+      type: 'quiz',
+      question: '$(-1) \\times a \\times b$ を<ruby>文字式<rt>もじしき</rt></ruby>で<ruby>表<rt>あらわ</rt></ruby>すと？',
+      options: [
+        { letter: 'A', text: '$-1ab$', correct: false },
+        { letter: 'B', text: '$-ab$', correct: true },
+        { letter: 'C', text: '$ab$', correct: false },
+        { letter: 'D', text: '$1ab$', correct: false },
+      ],
+      explanation:
+        '$-1$ の $1$ は<ruby>省略<rt>しょうりゃく</rt></ruby>して<ruby>符号<rt>ふごう</rt></ruby>だけ<ruby>残<rt>のこ</rt></ruby>すから $\\textcolor{#D97706}{-ab}$ だよ。',
+    },
+    {
       type: 'date',
       text: '÷は<ruby>分数<rt>ぶんすう</rt></ruby>で<ruby>表<rt>あらわ</rt></ruby>す',
     },
@@ -164,6 +176,18 @@ export const literalNotationChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '÷は<ruby>絶対<rt>ぜったい</rt></ruby>に<ruby>使<rt>つか</rt></ruby>わない！<ruby>必<rt>かなら</rt></ruby>ず<ruby>分数<rt>ぶんすう</rt></ruby>の<ruby>形<rt>かたち</rt></ruby>で<ruby>書<rt>か</rt></ruby>こう。',
+    },
+    {
+      type: 'quiz',
+      question: '$a \\div 7$ を<ruby>文字式<rt>もじしき</rt></ruby>で<ruby>表<rt>あらわ</rt></ruby>すと？',
+      options: [
+        { letter: 'A', text: '$a - 7$', correct: false },
+        { letter: 'B', text: '$7a$', correct: false },
+        { letter: 'C', text: '$\\dfrac{7}{a}$', correct: false },
+        { letter: 'D', text: '$\\dfrac{a}{7}$', correct: true },
+      ],
+      explanation:
+        '÷は<ruby>分数<rt>ぶんすう</rt></ruby>で<ruby>表<rt>あらわ</rt></ruby>す！<ruby>割<rt>わ</rt></ruby>る<ruby>数<rt>かず</rt></ruby>が<ruby>分母<rt>ぶんぼ</rt></ruby>にくるから $\\textcolor{#D97706}{\\dfrac{a}{7}}$ だよ。',
     },
     {
       type: 'date',
@@ -224,8 +248,8 @@ export const literalNotationChat: HistoryChat = {
       question: '$5 \\times a \\times b \\times b$ を<ruby>文字式<rt>もじしき</rt></ruby>で<ruby>表<rt>あらわ</rt></ruby>すと？',
       options: [
         { letter: 'A', text: '$5ab$', correct: false },
-        { letter: 'B', text: '$5ab^2$', correct: true },
-        { letter: 'C', text: '$5a^2b$', correct: false },
+        { letter: 'B', text: '$5a^2b$', correct: false },
+        { letter: 'C', text: '$5ab^2$', correct: true },
         { letter: 'D', text: '$5a^2b^2$', correct: false },
       ],
       explanation:

@@ -83,6 +83,18 @@ export const substitutionChat: HistoryChat = {
       type: 'summary-point',
       text: '<ruby>代入法<rt>だいにゅうほう</rt></ruby>：<strong>$y = \\circ\\circ$ の<ruby>形<rt>かたち</rt></ruby>をもう<ruby>一方<rt>いっぽう</rt></ruby>の<ruby>式<rt>しき</rt></ruby>に「<ruby>入<rt>い</rt></ruby>れかえ」</strong>して、<ruby>文字<rt>もじ</rt></ruby>を1つ<ruby>消<rt>け</rt></ruby>す<ruby>方法<rt>ほうほう</rt></ruby>！',
     },
+    {
+      type: 'quiz',
+      question: '$y = x + 3$、$2x + y = 12$ を<ruby>代入法<rt>だいにゅうほう</rt></ruby>で<ruby>解<rt>と</rt></ruby>くと $x$ は？',
+      options: [
+        { letter: 'A', text: '$x = 2$', correct: false },
+        { letter: 'B', text: '$x = 4$', correct: false },
+        { letter: 'C', text: '$x = 3$', correct: true },
+        { letter: 'D', text: '$x = 5$', correct: false },
+      ],
+      explanation:
+        '$y = x + 3$ を②に<ruby>代入<rt>だいにゅう</rt></ruby>: $2x + (x + 3) = 12 \\rightarrow 3x = 9 \\rightarrow x = \\textcolor{#D97706}{3}$。\n$y = 6$。',
+    },
 
     // ===== セクション2: y=○○ の形からスタート =====
     {
@@ -211,6 +223,18 @@ export const substitutionChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '$y = \\circ\\circ$ や $x = \\circ\\circ$ の<ruby>形<rt>かたち</rt></ruby>があれば、そのまま<ruby>代入<rt>だいにゅう</rt></ruby>！<strong>かっこをつけるのを<ruby>忘<rt>わす</rt></ruby>れずに</strong>！',
+    },
+    {
+      type: 'quiz',
+      question: '$x = y - 2$、$3x + 2y = 9$ で $y$ は？',
+      options: [
+        { letter: 'A', text: '$y = 3$', correct: true },
+        { letter: 'B', text: '$y = 2$', correct: false },
+        { letter: 'C', text: '$y = 4$', correct: false },
+        { letter: 'D', text: '$y = 1$', correct: false },
+      ],
+      explanation:
+        '②に<ruby>代入<rt>だいにゅう</rt></ruby>: $3(y - 2) + 2y = 9 \\rightarrow 3y - 6 + 2y = 9 \\rightarrow 5y = 15 \\rightarrow y = \\textcolor{#D97706}{3}$',
     },
 
     // ===== セクション3: 式を変形してから代入 =====
@@ -352,6 +376,18 @@ export const substitutionChat: HistoryChat = {
       type: 'summary-point',
       text: '$y = \\circ\\circ$ の<ruby>形<rt>かたち</rt></ruby>がないとき → <strong><ruby>係数<rt>けいすう</rt></ruby>が1の<ruby>文字<rt>もじ</rt></ruby>を<ruby>変形<rt>へんけい</rt></ruby>してから<ruby>代入<rt>だいにゅう</rt></ruby></strong>！かっこの<ruby>展開<rt>てんかい</rt></ruby>で<ruby>符号<rt>ふごう</rt></ruby>に<ruby>注意<rt>ちゅうい</rt></ruby>！',
     },
+    {
+      type: 'quiz',
+      question: '$x + 2y = 7$、$3x - y = 7$ を<ruby>代入法<rt>だいにゅうほう</rt></ruby>で<ruby>解<rt>と</rt></ruby>くとき、①をどう<ruby>変形<rt>へんけい</rt></ruby>する？',
+      options: [
+        { letter: 'A', text: '$y = 7 - x$', correct: false },
+        { letter: 'B', text: '$x = 7 + 2y$', correct: false },
+        { letter: 'C', text: '$x = 7 - 2y$', correct: true },
+        { letter: 'D', text: '$y = \\frac{7 - x}{3}$', correct: false },
+      ],
+      explanation:
+        '①の $x$ は<ruby>係数<rt>けいすう</rt></ruby>が1なので $\\textcolor{#D97706}{x = 7 - 2y}$ と<ruby>変形<rt>へんけい</rt></ruby>して②に<ruby>代入<rt>だいにゅう</rt></ruby>！',
+    },
 
     // ===== セクション4: 加減法と代入法の使い分け =====
     {
@@ -469,8 +505,8 @@ export const substitutionChat: HistoryChat = {
       question: '$y = 3x$、$2x + y = 10$ を<ruby>代入法<rt>だいにゅうほう</rt></ruby>で<ruby>解<rt>と</rt></ruby>くと $x$ は？',
       options: [
         { letter: 'A', text: '$x = 1$', correct: false },
-        { letter: 'B', text: '$x = 2$', correct: true },
-        { letter: 'C', text: '$x = 3$', correct: false },
+        { letter: 'B', text: '$x = 3$', correct: false },
+        { letter: 'C', text: '$x = 2$', correct: true },
         { letter: 'D', text: '$x = 5$', correct: false },
       ],
       explanation:
@@ -481,8 +517,8 @@ export const substitutionChat: HistoryChat = {
       question: '$x + y = 5$、$3x + 2y = 13$ を<ruby>代入法<rt>だいにゅうほう</rt></ruby>で<ruby>解<rt>と</rt></ruby>くと $x$ は？',
       options: [
         { letter: 'A', text: '$x = 2$', correct: false },
-        { letter: 'B', text: '$x = 4$', correct: false },
-        { letter: 'C', text: '$x = 3$', correct: true },
+        { letter: 'B', text: '$x = 3$', correct: true },
+        { letter: 'C', text: '$x = 4$', correct: false },
         { letter: 'D', text: '$x = 1$', correct: false },
       ],
       explanation:
@@ -492,8 +528,8 @@ export const substitutionChat: HistoryChat = {
       type: 'quiz',
       question: '次のうち、<ruby>代入法<rt>だいにゅうほう</rt></ruby>で<ruby>解<rt>と</rt></ruby>くのが<ruby>最<rt>もっと</rt></ruby>も<ruby>楽<rt>らく</rt></ruby>なのはどれ？',
       options: [
-        { letter: 'A', text: '$2x + 3y = 12$, $2x - y = 4$', correct: false },
-        { letter: 'B', text: '$y = 5x$, $3x + y = 16$', correct: true },
+        { letter: 'A', text: '$y = 5x$, $3x + y = 16$', correct: true },
+        { letter: 'B', text: '$2x + 3y = 12$, $2x - y = 4$', correct: false },
         { letter: 'C', text: '$3x + 2y = 7$, $3x - 5y = -7$', correct: false },
         { letter: 'D', text: '$5x + 4y = 23$, $5x + 2y = 17$', correct: false },
       ],

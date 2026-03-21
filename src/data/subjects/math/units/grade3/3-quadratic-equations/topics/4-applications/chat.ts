@@ -88,6 +88,18 @@ export const quadEqAppsChat: HistoryChat = {
       text: '<ruby>文章題<rt>ぶんしょうだい</rt></ruby>は「$x$ で<ruby>置<rt>お</rt></ruby>く → <ruby>式<rt>しき</rt></ruby>を<ruby>立<rt>た</rt></ruby>てる → <ruby>解<rt>と</rt></ruby>いて<ruby>吟味<rt>ぎんみ</rt></ruby>」の3ステップ！',
     },
     {
+      type: 'quiz',
+      question: '<ruby>文章題<rt>ぶんしょうだい</rt></ruby>で $x^2 - 4x - 12 = 0$ を<ruby>解<rt>と</rt></ruby>いたら $x = 6, -2$ になった。「<ruby>正<rt>せい</rt></ruby>の<ruby>整数<rt>せいすう</rt></ruby>」が<ruby>条件<rt>じょうけん</rt></ruby>のとき<ruby>答<rt>こた</rt></ruby>えは？',
+      options: [
+        { letter: 'A', text: '$x = 6$ と $x = -2$', correct: false },
+        { letter: 'B', text: '$x = 6$', correct: true },
+        { letter: 'C', text: '$x = -2$', correct: false },
+        { letter: 'D', text: '<ruby>解<rt>かい</rt></ruby>なし', correct: false },
+      ],
+      explanation:
+        '<ruby>正<rt>せい</rt></ruby>の<ruby>整数<rt>せいすう</rt></ruby>なので $x = -2$ は<ruby>不適<rt>ふてき</rt></ruby>。$\\textcolor{#D97706}{x = 6}$ が<ruby>答<rt>こた</rt></ruby>え。<ruby>吟味<rt>ぎんみ</rt></ruby>が<ruby>大事<rt>だいじ</rt></ruby>！',
+    },
+    {
       type: 'date',
       text: '<ruby>数<rt>すう</rt></ruby>の<ruby>問題<rt>もんだい</rt></ruby>に<ruby>挑戦<rt>ちょうせん</rt></ruby>',
     },
@@ -209,8 +221,8 @@ export const quadEqAppsChat: HistoryChat = {
       question: '「ある<ruby>正<rt>せい</rt></ruby>の<ruby>整数<rt>せいすう</rt></ruby>の2<ruby>乗<rt>じょう</rt></ruby>から、その<ruby>数<rt>すう</rt></ruby>の3<ruby>倍<rt>ばい</rt></ruby>を<ruby>引<rt>ひ</rt></ruby>くと10になる」このとき、その<ruby>整数<rt>せいすう</rt></ruby>は？',
       options: [
         { letter: 'A', text: '$3$', correct: false },
-        { letter: 'B', text: '$4$', correct: false },
-        { letter: 'C', text: '$5$', correct: true },
+        { letter: 'B', text: '$5$', correct: true },
+        { letter: 'C', text: '$4$', correct: false },
         { letter: 'D', text: '$6$', correct: false },
       ],
       explanation:
@@ -219,6 +231,18 @@ export const quadEqAppsChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<ruby>解<rt>かい</rt></ruby>の<ruby>吟味<rt>ぎんみ</rt></ruby>を<ruby>忘<rt>わす</rt></ruby>れずに！<ruby>長<rt>なが</rt></ruby>さ → <ruby>正<rt>せい</rt></ruby>のみ、<ruby>整数<rt>せいすう</rt></ruby> → <ruby>整数<rt>せいすう</rt></ruby>のみ',
+    },
+    {
+      type: 'quiz',
+      question: '「<ruby>正方形<rt>せいほうけい</rt></ruby>の1<ruby>辺<rt>ぺん</rt></ruby>を $x$ cmとする。<ruby>面積<rt>めんせき</rt></ruby>が100cm²のとき $x$ は？」',
+      options: [
+        { letter: 'A', text: '$x = \\pm 10$', correct: false },
+        { letter: 'B', text: '$x = 50$', correct: false },
+        { letter: 'C', text: '$x = 10$', correct: true },
+        { letter: 'D', text: '$x = 100$', correct: false },
+      ],
+      explanation:
+        '$x^2 = 100$ → $x = \\pm 10$。<ruby>長<rt>なが</rt></ruby>さなので $x > 0$ → $\\textcolor{#D97706}{x = 10}$ cm',
     },
     {
       type: 'date',
@@ -293,6 +317,18 @@ export const quadEqAppsChat: HistoryChat = {
       text: '<ruby>容積<rt>ようせき</rt></ruby>の<ruby>問題<rt>もんだい</rt></ruby>：<ruby>底面<rt>ていめん</rt></ruby>の1<ruby>辺<rt>ぺん</rt></ruby> $= (a - 2x)$、<ruby>高<rt>たか</rt></ruby>さ $= x$。$x$ の<ruby>範囲<rt>はんい</rt></ruby>に<ruby>注意<rt>ちゅうい</rt></ruby>！',
     },
     {
+      type: 'quiz',
+      question: '1<ruby>辺<rt>ぺん</rt></ruby>10cmの<ruby>正方形<rt>せいほうけい</rt></ruby>の<ruby>四隅<rt>よすみ</rt></ruby>から $x$ cmの<ruby>正方形<rt>せいほうけい</rt></ruby>を<ruby>切<rt>き</rt></ruby>り<ruby>取<rt>と</rt></ruby>って<ruby>箱<rt>はこ</rt></ruby>を<ruby>作<rt>つく</rt></ruby>る。$x$ の<ruby>範囲<rt>はんい</rt></ruby>は？',
+      options: [
+        { letter: 'A', text: '$0 < x < 10$', correct: false },
+        { letter: 'B', text: '$0 < x < 5$', correct: true },
+        { letter: 'C', text: '$0 < x < 2.5$', correct: false },
+        { letter: 'D', text: '$0 < x < 8$', correct: false },
+      ],
+      explanation:
+        '<ruby>底面<rt>ていめん</rt></ruby>の1<ruby>辺<rt>ぺん</rt></ruby> $= 10 - 2x > 0$ だから $x < 5$。$\\textcolor{#D97706}{0 < x < 5}$',
+    },
+    {
       type: 'date',
       text: '<ruby>動<rt>うご</rt></ruby>く<ruby>点<rt>てん</rt></ruby>の<ruby>問題<rt>もんだい</rt></ruby>に<ruby>挑戦<rt>ちょうせん</rt></ruby>',
     },
@@ -365,8 +401,8 @@ export const quadEqAppsChat: HistoryChat = {
       type: 'quiz',
       question: '<ruby>幅<rt>はば</rt></ruby>20cmの<ruby>鉄板<rt>てっぱん</rt></ruby>の<ruby>両端<rt>りょうたん</rt></ruby>を $x$ cm<ruby>折<rt>お</rt></ruby>り<ruby>曲<rt>ま</rt></ruby>げて<ruby>断面積<rt>だんめんせき</rt></ruby>が48cm²の「とい」を<ruby>作<rt>つく</rt></ruby>る。$x$ の<ruby>値<rt>あたい</rt></ruby>は？',
       options: [
-        { letter: 'A', text: '$3$ cmまたは$7$ cm', correct: false },
-        { letter: 'B', text: '$4$ cmまたは$6$ cm', correct: true },
+        { letter: 'A', text: '$4$ cmまたは$6$ cm', correct: true },
+        { letter: 'B', text: '$3$ cmまたは$7$ cm', correct: false },
         { letter: 'C', text: '$2$ cmまたは$8$ cm', correct: false },
         { letter: 'D', text: '$5$ cm', correct: false },
       ],
@@ -376,6 +412,18 @@ export const quadEqAppsChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<ruby>動<rt>うご</rt></ruby>く<ruby>点<rt>てん</rt></ruby>の<ruby>問題<rt>もんだい</rt></ruby>は<ruby>解<rt>かい</rt></ruby>が2つとも<ruby>答<rt>こた</rt></ruby>えになることがある！<ruby>範囲<rt>はんい</rt></ruby>を<ruby>確認<rt>かくにん</rt></ruby>しよう',
+    },
+    {
+      type: 'quiz',
+      question: '$x^2 - 10x + 21 = 0$ で $0 < x < 8$ の<ruby>範囲<rt>はんい</rt></ruby>で<ruby>解<rt>かい</rt></ruby>はいくつある？',
+      options: [
+        { letter: 'A', text: '0つ', correct: false },
+        { letter: 'B', text: '1つ（$x = 3$）', correct: false },
+        { letter: 'C', text: '2つ（$x = 3, 7$）', correct: true },
+        { letter: 'D', text: '1つ（$x = 7$）', correct: false },
+      ],
+      explanation:
+        '$(x-3)(x-7) = 0$ → $x = 3, 7$。<ruby>両方<rt>りょうほう</rt></ruby>とも $0 < x < 8$ を<ruby>満<rt>み</rt></ruby>たすので $\\textcolor{#D97706}{2\\text{つ}}$！',
     },
     {
       type: 'end',

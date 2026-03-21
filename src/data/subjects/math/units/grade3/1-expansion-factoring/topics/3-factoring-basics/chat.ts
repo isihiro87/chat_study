@@ -83,6 +83,18 @@ export const factoringBasicsChat: HistoryChat = {
       text: '<ruby>因数分解<rt>いんすうぶんかい</rt></ruby> = <ruby>展開<rt>てんかい</rt></ruby>の<ruby>逆<rt>ぎゃく</rt></ruby>。<ruby>式<rt>しき</rt></ruby>をかっこの<ruby>形<rt>かたち</rt></ruby>にまとめること。',
     },
     {
+      type: 'quiz',
+      question: '$ab + ac$ を<ruby>因数分解<rt>いんすうぶんかい</rt></ruby>すると？',
+      options: [
+        { letter: 'A', text: '$a(b + c)$', correct: true },
+        { letter: 'B', text: '$b(a + c)$', correct: false },
+        { letter: 'C', text: '$c(a + b)$', correct: false },
+        { letter: 'D', text: '$a(b - c)$', correct: false },
+      ],
+      explanation:
+        '$ab$ と $ac$ の<ruby>共通因数<rt>きょうつういんすう</rt></ruby>は $a$。$a$ でくくると $\\textcolor{#D97706}{a(b+c)}$',
+    },
+    {
       type: 'date',
       text: '<ruby>共通因数<rt>きょうつういんすう</rt></ruby>をくくり<ruby>出<rt>だ</rt></ruby>そう',
     },
@@ -167,8 +179,8 @@ export const factoringBasicsChat: HistoryChat = {
       type: 'quiz',
       question: '$6x^2 - 12x$ を<ruby>因数分解<rt>いんすうぶんかい</rt></ruby>すると？',
       options: [
-        { letter: 'A', text: '$6(x^2-2x)$', correct: false },
-        { letter: 'B', text: '$6x(x-2)$', correct: true },
+        { letter: 'A', text: '$6x(x-2)$', correct: true },
+        { letter: 'B', text: '$6(x^2-2x)$', correct: false },
         { letter: 'C', text: '$3x(2x-4)$', correct: false },
         { letter: 'D', text: '$x(6x-12)$', correct: false },
       ],
@@ -178,6 +190,18 @@ export const factoringBasicsChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<ruby>因数分解<rt>いんすうぶんかい</rt></ruby>の<ruby>第一歩<rt>だいいっぽ</rt></ruby>: <ruby>共通因数<rt>きょうつういんすう</rt></ruby>を<ruby>見<rt>み</rt></ruby>つけてくくり<ruby>出<rt>だ</rt></ruby>す！（<ruby>数<rt>かず</rt></ruby>も<ruby>文字<rt>もじ</rt></ruby>もチェック）',
+    },
+    {
+      type: 'quiz',
+      question: '$8a^2b + 12ab^2$ を<ruby>因数分解<rt>いんすうぶんかい</rt></ruby>すると？',
+      options: [
+        { letter: 'A', text: '$4ab(2a + 3b)$', correct: true },
+        { letter: 'B', text: '$4a(2ab + 3b^2)$', correct: false },
+        { letter: 'C', text: '$2ab(4a + 6b)$', correct: false },
+        { letter: 'D', text: '$8ab(a + b)$', correct: false },
+      ],
+      explanation:
+        '<ruby>共通因数<rt>きょうつういんすう</rt></ruby>は $4ab$。$8a^2b \\div 4ab = 2a$、$12ab^2 \\div 4ab = 3b$ → $\\textcolor{#D97706}{4ab(2a+3b)}$',
     },
     {
       type: 'date',
@@ -225,9 +249,9 @@ export const factoringBasicsChat: HistoryChat = {
       question: '$9x^2 - 25$ を<ruby>因数分解<rt>いんすうぶんかい</rt></ruby>すると？',
       options: [
         { letter: 'A', text: '$(9x+25)(9x-25)$', correct: false },
-        { letter: 'B', text: '$(3x+5)(3x-5)$', correct: true },
+        { letter: 'B', text: '$(x+5)(9x-5)$', correct: false },
         { letter: 'C', text: '$(3x-5)^2$', correct: false },
-        { letter: 'D', text: '$(x+5)(9x-5)$', correct: false },
+        { letter: 'D', text: '$(3x+5)(3x-5)$', correct: true },
       ],
       explanation:
         '$9x^2 = (3x)^2$、$25 = 5^2$ なので $(3x)^2 - 5^2 = \\textcolor{#D97706}{(3x+5)(3x-5)}$',
@@ -235,6 +259,18 @@ export const factoringBasicsChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '$a^2 - b^2 = (a+b)(a-b)$。<ruby>係数<rt>けいすう</rt></ruby>つきは「<ruby>何<rt>なに</rt></ruby>の2<ruby>乗<rt>じょう</rt></ruby>か」を<ruby>見抜<rt>みぬ</rt></ruby>こう！',
+    },
+    {
+      type: 'quiz',
+      question: '$x^2 - 49$ を<ruby>因数分解<rt>いんすうぶんかい</rt></ruby>すると？',
+      options: [
+        { letter: 'A', text: '$(x-7)^2$', correct: false },
+        { letter: 'B', text: '$(x+7)(x-7)$', correct: true },
+        { letter: 'C', text: '$(x+49)(x-1)$', correct: false },
+        { letter: 'D', text: '$(x-7)(x-7)$', correct: false },
+      ],
+      explanation:
+        '$x^2 - 49 = x^2 - 7^2 = \\textcolor{#D97706}{(x+7)(x-7)}$',
     },
     {
       type: 'date',
@@ -282,6 +318,18 @@ export const factoringBasicsChat: HistoryChat = {
       text: '<ruby>平方<rt>へいほう</rt></ruby>の<ruby>公式<rt>こうしき</rt></ruby>チェック: ①<ruby>最後<rt>さいご</rt></ruby>が○² ②<ruby>真<rt>ま</rt></ruby>ん<ruby>中<rt>なか</rt></ruby>が 2×○×△ なら $(△±○)^2$',
     },
     {
+      type: 'quiz',
+      question: '$x^2 + 10x + 25$ を<ruby>因数分解<rt>いんすうぶんかい</rt></ruby>すると？',
+      options: [
+        { letter: 'A', text: '$(x+25)(x+1)$', correct: false },
+        { letter: 'B', text: '$(x+10)(x+5)$', correct: false },
+        { letter: 'C', text: '$(x+5)^2$', correct: true },
+        { letter: 'D', text: '$(x-5)^2$', correct: false },
+      ],
+      explanation:
+        '$25 = 5^2$、$2 \\times x \\times 5 = 10x$ ✓。$\\textcolor{#D97706}{(x+5)^2}$',
+    },
+    {
       type: 'date',
       text: '<ruby>係数<rt>けいすう</rt></ruby>つきの<ruby>因数分解<rt>いんすうぶんかい</rt></ruby>',
     },
@@ -327,8 +375,8 @@ export const factoringBasicsChat: HistoryChat = {
       question: '$4a^2 - 20ab + 25b^2$ を<ruby>因数分解<rt>いんすうぶんかい</rt></ruby>すると？',
       options: [
         { letter: 'A', text: '$(2a+5b)^2$', correct: false },
-        { letter: 'B', text: '$(2a-5b)^2$', correct: true },
-        { letter: 'C', text: '$(2a+5b)(2a-5b)$', correct: false },
+        { letter: 'B', text: '$(2a+5b)(2a-5b)$', correct: false },
+        { letter: 'C', text: '$(2a-5b)^2$', correct: true },
         { letter: 'D', text: '$(4a-5b)^2$', correct: false },
       ],
       explanation:
@@ -337,6 +385,18 @@ export const factoringBasicsChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<ruby>係数<rt>けいすう</rt></ruby>つきは $4x^2=(2x)^2$, $9x^2=(3x)^2$ のように「<ruby>何<rt>なに</rt></ruby>の2<ruby>乗<rt>じょう</rt></ruby>か」を<ruby>見抜<rt>みぬ</rt></ruby>く！',
+    },
+    {
+      type: 'quiz',
+      question: '$16x^2 - 24xy + 9y^2$ を<ruby>因数分解<rt>いんすうぶんかい</rt></ruby>すると？',
+      options: [
+        { letter: 'A', text: '$(4x+3y)^2$', correct: false },
+        { letter: 'B', text: '$(4x-3y)(4x+3y)$', correct: false },
+        { letter: 'C', text: '$(4x-9y)^2$', correct: false },
+        { letter: 'D', text: '$(4x-3y)^2$', correct: true },
+      ],
+      explanation:
+        '$16x^2=(4x)^2$, $9y^2=(3y)^2$, $2 \\times 4x \\times 3y = 24xy$ ✓。$\\textcolor{#D97706}{(4x-3y)^2}$',
     },
     {
       type: 'end',

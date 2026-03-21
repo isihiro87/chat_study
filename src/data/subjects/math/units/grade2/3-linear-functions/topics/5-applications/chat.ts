@@ -103,6 +103,18 @@ export const linearFuncApplicationsChat: HistoryChat = {
       type: 'summary-point',
       text: 'グラフの<ruby>傾<rt>かたむ</rt></ruby>き＝<ruby>速<rt>はや</rt></ruby>さ、<ruby>水平<rt>すいへい</rt></ruby>＝<ruby>停止<rt>ていし</rt></ruby>、<ruby>右下<rt>みぎさ</rt></ruby>がり＝<ruby>引<rt>ひ</rt></ruby>き<ruby>返<rt>かえ</rt></ruby>し！',
     },
+    {
+      type: 'quiz',
+      question: '<ruby>距離<rt>きょり</rt></ruby>・<ruby>時間<rt>じかん</rt></ruby>のグラフで<ruby>水平<rt>すいへい</rt></ruby>になっている<ruby>部分<rt>ぶぶん</rt></ruby>は<ruby>何<rt>なに</rt></ruby>を<ruby>意味<rt>いみ</rt></ruby>する？',
+      options: [
+        { letter: 'A', text: '<ruby>速<rt>はや</rt></ruby>く<ruby>走<rt>はし</rt></ruby>っている', correct: false },
+        { letter: 'B', text: '<ruby>止<rt>と</rt></ruby>まっている（<ruby>休憩<rt>きゅうけい</rt></ruby>）', correct: true },
+        { letter: 'C', text: '<ruby>引<rt>ひ</rt></ruby>き<ruby>返<rt>かえ</rt></ruby>している', correct: false },
+        { letter: 'D', text: '<ruby>ゴール</rt></ruby>した', correct: false },
+      ],
+      explanation:
+        '<ruby>水平<rt>すいへい</rt></ruby> ＝ <ruby>時間<rt>じかん</rt></ruby>が<ruby>経<rt>た</rt></ruby>っても<ruby>距離<rt>きょり</rt></ruby>が<ruby>変<rt>か</rt></ruby>わらない ＝ $\\textcolor{#D97706}{<ruby>止<rt>と</rt></ruby>まっている}$！',
+    },
 
     // === セクション2: 2人のグラフと出会い ===
     {
@@ -174,8 +186,8 @@ export const linearFuncApplicationsChat: HistoryChat = {
       type: 'quiz',
       question: 'Aさんは $y = 80x$、Bさんは $y = -60x + 2100$ で<ruby>表<rt>あらわ</rt></ruby>される。2<ruby>人<rt>にん</rt></ruby>が<ruby>出会<rt>であ</rt></ruby>うのは<ruby>何<rt>なん</rt></ruby><ruby>分後<rt>ふんご</rt></ruby>？',
       options: [
-        { letter: 'A', text: '$12$ <ruby>分後<rt>ふんご</rt></ruby>', correct: false },
-        { letter: 'B', text: '$15$ <ruby>分後<rt>ふんご</rt></ruby>', correct: true },
+        { letter: 'A', text: '$15$ <ruby>分後<rt>ふんご</rt></ruby>', correct: true },
+        { letter: 'B', text: '$12$ <ruby>分後<rt>ふんご</rt></ruby>', correct: false },
         { letter: 'C', text: '$18$ <ruby>分後<rt>ふんご</rt></ruby>', correct: false },
         { letter: 'D', text: '$20$ <ruby>分後<rt>ふんご</rt></ruby>', correct: false },
       ],
@@ -185,6 +197,18 @@ export const linearFuncApplicationsChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '2<ruby>人<rt>にん</rt></ruby>のグラフの<ruby>交点<rt>こうてん</rt></ruby> ＝ <ruby>出会<rt>であ</rt></ruby>う<ruby>時刻<rt>じこく</rt></ruby>と<ruby>場所<rt>ばしょ</rt></ruby>。<ruby>連立方程式<rt>れんりつほうていしき</rt></ruby>で<ruby>求<rt>もと</rt></ruby>めよう！',
+    },
+    {
+      type: 'quiz',
+      question: 'Aさんは $y = 60x$、Bさんは $y = -80x + 2800$ で<ruby>表<rt>あらわ</rt></ruby>される。2<ruby>人<rt>にん</rt></ruby>が<ruby>出会<rt>であ</rt></ruby>う<ruby>場所<rt>ばしょ</rt></ruby>は A から<ruby>何<rt>なん</rt></ruby> m？',
+      options: [
+        { letter: 'A', text: '$1200$ m', correct: true },
+        { letter: 'B', text: '$1400$ m', correct: false },
+        { letter: 'C', text: '$800$ m', correct: false },
+        { letter: 'D', text: '$2000$ m', correct: false },
+      ],
+      explanation:
+        '$60x = -80x + 2800 \\rightarrow 140x = 2800 \\rightarrow x = 20$。\n$y = 60 \\times 20 = \\textcolor{#D97706}{1200}$ m',
     },
 
     // === セクション3: 水量と一次関数 ===
@@ -251,6 +275,18 @@ export const linearFuncApplicationsChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<ruby>水<rt>みず</rt></ruby>を<ruby>入<rt>い</rt></ruby>れる → <ruby>傾<rt>かたむ</rt></ruby>き<ruby>正<rt>せい</rt></ruby>、<ruby>水<rt>みず</rt></ruby>を<ruby>抜<rt>ぬ</rt></ruby>く → <ruby>傾<rt>かたむ</rt></ruby>き<ruby>負<rt>ふ</rt></ruby>。<ruby>切片<rt>せっぺん</rt></ruby>は<ruby>最初<rt>さいしょ</rt></ruby>の<ruby>水量<rt>すいりょう</rt></ruby>！',
+    },
+    {
+      type: 'quiz',
+      question: '<ruby>水<rt>みず</rt></ruby>そうに 20L の<ruby>水<rt>みず</rt></ruby>が<ruby>入<rt>はい</rt></ruby>っていて、<ruby>毎分<rt>まいふん</rt></ruby> 4L ずつ<ruby>入<rt>い</rt></ruby>れる。$x$ <ruby>分後<rt>ふんご</rt></ruby>の<ruby>水量<rt>すいりょう</rt></ruby> $y$ L の<ruby>式<rt>しき</rt></ruby>は？',
+      options: [
+        { letter: 'A', text: '$y = 20x + 4$', correct: false },
+        { letter: 'B', text: '$y = 4x$', correct: false },
+        { letter: 'C', text: '$y = 4x + 20$', correct: true },
+        { letter: 'D', text: '$y = -4x + 20$', correct: false },
+      ],
+      explanation:
+        '<ruby>傾<rt>かたむ</rt></ruby>き $= 4$（<ruby>毎分<rt>まいふん</rt></ruby>の<ruby>増加量<rt>ぞうかりょう</rt></ruby>）、<ruby>切片<rt>せっぺん</rt></ruby> $= 20$（<ruby>初期<rt>しょき</rt></ruby><ruby>水量<rt>すいりょう</rt></ruby>）。\n$\\textcolor{#D97706}{y = 4x + 20}$',
     },
 
     // === セクション4: 動く点と面積 ===
@@ -342,8 +378,8 @@ export const linearFuncApplicationsChat: HistoryChat = {
       options: [
         { letter: 'A', text: '$y = 4x$', correct: false },
         { letter: 'B', text: '$y = 3x$', correct: false },
-        { letter: 'C', text: '$y = 2x$', correct: true },
-        { letter: 'D', text: '$y = 6x$', correct: false },
+        { letter: 'C', text: '$y = 6x$', correct: false },
+        { letter: 'D', text: '$y = 2x$', correct: true },
       ],
       explanation:
         '<ruby>底辺<rt>ていへん</rt></ruby> AP $= x$、<ruby>高<rt>たか</rt></ruby>さ AD $= 4$。$y = \\dfrac{1}{2} \\times x \\times 4 = \\textcolor{#D97706}{2x}$',

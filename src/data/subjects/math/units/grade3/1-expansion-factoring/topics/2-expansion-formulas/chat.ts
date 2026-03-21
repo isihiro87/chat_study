@@ -85,6 +85,18 @@ export const expansionFormulasChat: HistoryChat = {
       text: '<ruby>公式<rt>こうしき</rt></ruby>1: (x+a)(x+b) = x² + (a+b)x + ab → 「<ruby>足<rt>た</rt></ruby>して○、かけて△」',
     },
     {
+      type: 'quiz',
+      question: '$(x + 4)(x - 2)$ を<ruby>展開<rt>てんかい</rt></ruby>すると？',
+      options: [
+        { letter: 'A', text: '$x^2 + 2x - 8$', correct: true },
+        { letter: 'B', text: '$x^2 - 2x - 8$', correct: false },
+        { letter: 'C', text: '$x^2 + 2x + 8$', correct: false },
+        { letter: 'D', text: '$x^2 + 6x - 8$', correct: false },
+      ],
+      explanation:
+        '<ruby>足<rt>た</rt></ruby>して $4+(-2)=2$、かけて $4 \\times (-2)=-8$。$\\textcolor{#D97706}{x^2 + 2x - 8}$',
+    },
+    {
       type: 'date',
       text: '2<ruby>乗<rt>じょう</rt></ruby>の<ruby>公式<rt>こうしき</rt></ruby>',
     },
@@ -133,6 +145,18 @@ export const expansionFormulasChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '(a+b)² = a²+2ab+b²、(a−b)² = a²−2ab+b² → <ruby>真<rt>ま</rt></ruby>ん<ruby>中<rt>なか</rt></ruby>は<ruby>必<rt>かなら</rt></ruby>ず 2ab！',
+    },
+    {
+      type: 'quiz',
+      question: '$(x - 4)^2$ を<ruby>展開<rt>てんかい</rt></ruby>すると？',
+      options: [
+        { letter: 'A', text: '$x^2 - 4x + 16$', correct: false },
+        { letter: 'B', text: '$x^2 - 8x + 16$', correct: true },
+        { letter: 'C', text: '$x^2 - 8x - 16$', correct: false },
+        { letter: 'D', text: '$x^2 + 8x + 16$', correct: false },
+      ],
+      explanation:
+        '$(a-b)^2 = a^2 - 2ab + b^2$ で $a=x, b=4$。$x^2 - 2 \\times x \\times 4 + 16 = \\textcolor{#D97706}{x^2 - 8x + 16}$',
     },
     {
       type: 'date',
@@ -192,8 +216,8 @@ export const expansionFormulasChat: HistoryChat = {
       question: '$(x + 7)(x - 7)$ を<ruby>展開<rt>てんかい</rt></ruby>すると？',
       options: [
         { letter: 'A', text: '$x^2 - 14x - 49$', correct: false },
-        { letter: 'B', text: '$x^2 + 49$', correct: false },
-        { letter: 'C', text: '$x^2 - 49$', correct: true },
+        { letter: 'B', text: '$x^2 - 49$', correct: true },
+        { letter: 'C', text: '$x^2 + 49$', correct: false },
         { letter: 'D', text: '$x^2 - 14x + 49$', correct: false },
       ],
       explanation:
@@ -202,6 +226,18 @@ export const expansionFormulasChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<ruby>公式<rt>こうしき</rt></ruby>4: (a+b)(a−b) = a²−b² → <ruby>真<rt>ま</rt></ruby>ん<ruby>中<rt>なか</rt></ruby>の<ruby>項<rt>こう</rt></ruby>が<ruby>消<rt>き</rt></ruby>える！',
+    },
+    {
+      type: 'quiz',
+      question: '$(x + 5)^2$ を<ruby>展開<rt>てんかい</rt></ruby>すると？',
+      options: [
+        { letter: 'A', text: '$x^2 + 5x + 25$', correct: false },
+        { letter: 'B', text: '$x^2 + 25$', correct: false },
+        { letter: 'C', text: '$x^2 + 10x + 25$', correct: true },
+        { letter: 'D', text: '$x^2 + 10x + 5$', correct: false },
+      ],
+      explanation:
+        '$(a+b)^2 = a^2+2ab+b^2$ で $a=x, b=5$。$\\textcolor{#D97706}{x^2 + 10x + 25}$。<ruby>真<rt>ま</rt></ruby>ん<ruby>中<rt>なか</rt></ruby>の $2ab = 10x$ を<ruby>忘<rt>わす</rt></ruby>れずに！',
     },
     {
       type: 'end',

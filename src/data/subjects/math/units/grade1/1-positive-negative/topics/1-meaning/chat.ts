@@ -95,6 +95,18 @@ export const posNegMeaningChat: HistoryChat = {
       text: '$0$ より<ruby>大<rt>おお</rt></ruby>きい<ruby>数<rt>かず</rt></ruby>が<ruby>正<rt>せい</rt></ruby>の<ruby>数<rt>かず</rt></ruby>（$+$）、$0$ より<ruby>小<rt>ちい</rt></ruby>さい<ruby>数<rt>かず</rt></ruby>が<ruby>負<rt>ふ</rt></ruby>の<ruby>数<rt>かず</rt></ruby>（$-$）。$0$ は<ruby>正<rt>せい</rt></ruby>でも<ruby>負<rt>ふ</rt></ruby>でもない。',
     },
     {
+      type: 'quiz',
+      question: '$0$ は<ruby>何<rt>なに</rt></ruby>に<ruby>分類<rt>ぶんるい</rt></ruby>される？',
+      options: [
+        { letter: 'A', text: '<ruby>正<rt>せい</rt></ruby>の<ruby>数<rt>かず</rt></ruby>', correct: false },
+        { letter: 'B', text: '<ruby>負<rt>ふ</rt></ruby>の<ruby>数<rt>かず</rt></ruby>', correct: false },
+        { letter: 'C', text: '<ruby>正<rt>せい</rt></ruby>でも<ruby>負<rt>ふ</rt></ruby>でもない', correct: true },
+        { letter: 'D', text: '<ruby>正<rt>せい</rt></ruby>と<ruby>負<rt>ふ</rt></ruby>の<ruby>両方<rt>りょうほう</rt></ruby>', correct: false },
+      ],
+      explanation:
+        '$0$ は<ruby>正<rt>せい</rt></ruby>の<ruby>数<rt>かず</rt></ruby>でも<ruby>負<rt>ふ</rt></ruby>の<ruby>数<rt>かず</rt></ruby>でもない<ruby>特別<rt>とくべつ</rt></ruby>な<ruby>数<rt>かず</rt></ruby>だよ。<ruby>正<rt>せい</rt></ruby>と<ruby>負<rt>ふ</rt></ruby>の<ruby>境目<rt>さかいめ</rt></ruby>の<ruby>数<rt>かず</rt></ruby>なんだ。',
+    },
+    {
       type: 'date',
       text: '<ruby>整数<rt>せいすう</rt></ruby>と<ruby>反対<rt>はんたい</rt></ruby>の<ruby>性質<rt>せいしつ</rt></ruby>',
     },

@@ -101,6 +101,18 @@ export const linearFuncMeaningChat: HistoryChat = {
       text: '<ruby>一次関数<rt>いちじかんすう</rt></ruby>: y = ax + b（a ≠ 0）。<ruby>比例<rt>ひれい</rt></ruby> y = ax は b = 0 の<ruby>特別<rt>とくべつ</rt></ruby>な<ruby>場合<rt>ばあい</rt></ruby>！',
     },
     {
+      type: 'quiz',
+      question: '<ruby>次<rt>つぎ</rt></ruby>のうち<ruby>一次関数<rt>いちじかんすう</rt></ruby>はどれ？',
+      options: [
+        { letter: 'A', text: '$y = x^2 + 1$', correct: false },
+        { letter: 'B', text: '$y = \\frac{3}{x}$', correct: false },
+        { letter: 'C', text: '$y = 3$', correct: false },
+        { letter: 'D', text: '$y = -2x + 5$', correct: true },
+      ],
+      explanation:
+        '$y = ax + b$ の<ruby>形<rt>かたち</rt></ruby>は $\\textcolor{#D97706}{y = -2x + 5}$ だけ！\nA は<ruby>二次関数<rt>にじかんすう</rt></ruby>、B は<ruby>反比例<rt>はんぴれい</rt></ruby>、C は<ruby>定数関数<rt>ていすうかんすう</rt></ruby>。',
+    },
+    {
       type: 'date',
       text: '<ruby>変化<rt>へんか</rt></ruby>の<ruby>割合<rt>わりあい</rt></ruby>',
     },
@@ -159,8 +171,8 @@ export const linearFuncMeaningChat: HistoryChat = {
       question: '$y = -3x + 7$ の<ruby>変化<rt>へんか</rt></ruby>の<ruby>割合<rt>わりあい</rt></ruby>は？',
       options: [
         { letter: 'A', text: '$7$', correct: false },
-        { letter: 'B', text: '$3$', correct: false },
-        { letter: 'C', text: '$-3$', correct: true },
+        { letter: 'B', text: '$-3$', correct: true },
+        { letter: 'C', text: '$3$', correct: false },
         { letter: 'D', text: '$-7$', correct: false },
       ],
       explanation:

@@ -120,6 +120,18 @@ export const eqApplicationsChat: HistoryChat = {
       text: '<ruby>比例式<rt>ひれいしき</rt></ruby> $a : b = c : d$ → $\\textcolor{#D97706}{ad = bc}$ で<ruby>方程式<rt>ほうていしき</rt></ruby>に<ruby>変換<rt>へんかん</rt></ruby>！',
     },
     {
+      type: 'quiz',
+      question: '<ruby>比例式<rt>ひれいしき</rt></ruby> $x : 6 = 4 : 3$ の $x$ は？',
+      options: [
+        { letter: 'A', text: '$x = 2$', correct: false },
+        { letter: 'B', text: '$x = 8$', correct: true },
+        { letter: 'C', text: '$x = 18$', correct: false },
+        { letter: 'D', text: '$x = 72$', correct: false },
+      ],
+      explanation:
+        '<ruby>内項<rt>ないこう</rt></ruby>の<ruby>積<rt>せき</rt></ruby> = <ruby>外項<rt>がいこう</rt></ruby>の<ruby>積<rt>せき</rt></ruby>で $3x = 24$。$x = \\textcolor{#D97706}{8}$ だよ。',
+    },
+    {
       type: 'date',
       text: '<ruby>文章題<rt>ぶんしょうだい</rt></ruby>に<ruby>挑戦<rt>ちょうせん</rt></ruby>！',
     },
@@ -277,8 +289,8 @@ export const eqApplicationsChat: HistoryChat = {
       type: 'quiz',
       question: '<ruby>比例式<rt>ひれいしき</rt></ruby> $3 : 4 = x : 12$ の $x$ は？',
       options: [
-        { letter: 'A', text: '$x = 8$', correct: false },
-        { letter: 'B', text: '$x = 9$', correct: true },
+        { letter: 'A', text: '$x = 9$', correct: true },
+        { letter: 'B', text: '$x = 8$', correct: false },
         { letter: 'C', text: '$x = 16$', correct: false },
         { letter: 'D', text: '$x = 36$', correct: false },
       ],

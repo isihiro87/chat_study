@@ -110,6 +110,18 @@ export const variousCalcChat: HistoryChat = {
       text: '<ruby>累乗<rt>るいじょう</rt></ruby> = <ruby>同<rt>おな</rt></ruby>じ<ruby>数<rt>かず</rt></ruby>のかけ<ruby>算<rt>ざん</rt></ruby>の<ruby>繰<rt>く</rt></ruby>り<ruby>返<rt>かえ</rt></ruby>し。$(-3)^2 = 9$ と $-3^2 = -9$ は<ruby>別物<rt>べつもの</rt></ruby>！',
     },
     {
+      type: 'quiz',
+      question: '$(-2)^4$ の<ruby>値<rt>あたい</rt></ruby>はいくつ？',
+      options: [
+        { letter: 'A', text: '$-8$', correct: false },
+        { letter: 'B', text: '$16$', correct: true },
+        { letter: 'C', text: '$-16$', correct: false },
+        { letter: 'D', text: '$8$', correct: false },
+      ],
+      explanation:
+        '$(-2)^4 = (-2) \\times (-2) \\times (-2) \\times (-2)$。<ruby>負<rt>ふ</rt></ruby>の<ruby>数<rt>かず</rt></ruby>が $4$ <ruby>個<rt>こ</rt></ruby>（<ruby>偶数<rt>ぐうすう</rt></ruby>）だから<ruby>結果<rt>けっか</rt></ruby>は<ruby>正<rt>せい</rt></ruby>で $\\textcolor{#D97706}{16}$ だよ。',
+    },
+    {
       type: 'date',
       text: '<ruby>四則混合計算<rt>しそくこんごうけいさん</rt></ruby>の<ruby>順序<rt>じゅんじょ</rt></ruby>',
     },
@@ -189,6 +201,18 @@ export const variousCalcChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<ruby>四則混合計算<rt>しそくこんごうけいさん</rt></ruby>の<ruby>順番<rt>じゅんばん</rt></ruby>: <ruby>累乗<rt>るいじょう</rt></ruby> → かっこ → <ruby>乗除<rt>じょうじょ</rt></ruby> → <ruby>加減<rt>かげん</rt></ruby>。',
+    },
+    {
+      type: 'quiz',
+      question: '$10 - 2 \\times 3^2$ の<ruby>計算結果<rt>けいさんけっか</rt></ruby>は？',
+      options: [
+        { letter: 'A', text: '$-8$', correct: true },
+        { letter: 'B', text: '$72$', correct: false },
+        { letter: 'C', text: '$-6$', correct: false },
+        { letter: 'D', text: '$46$', correct: false },
+      ],
+      explanation:
+        '<ruby>累乗<rt>るいじょう</rt></ruby>: $3^2 = 9$、かけ<ruby>算<rt>ざん</rt></ruby>: $2 \\times 9 = 18$、<ruby>引<rt>ひ</rt></ruby>き<ruby>算<rt>ざん</rt></ruby>: $10 - 18 = \\textcolor{#D97706}{-8}$ だよ。',
     },
     {
       type: 'date',
@@ -330,8 +354,8 @@ export const variousCalcChat: HistoryChat = {
       type: 'quiz',
       question: '$(-2)^3 + 4 \\times 3$ の<ruby>計算結果<rt>けいさんけっか</rt></ruby>は？',
       options: [
-        { letter: 'A', text: '$4$', correct: true },
-        { letter: 'B', text: '$-4$', correct: false },
+        { letter: 'A', text: '$-4$', correct: false },
+        { letter: 'B', text: '$4$', correct: true },
         { letter: 'C', text: '$20$', correct: false },
         { letter: 'D', text: '$-20$', correct: false },
       ],

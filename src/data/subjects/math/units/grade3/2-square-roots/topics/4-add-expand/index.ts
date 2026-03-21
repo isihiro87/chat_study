@@ -309,6 +309,41 @@ export const sqrtAddExpand: Topic = {
         explanation: '$(2\\sqrt{3})^2 - (\\sqrt{5})^2 = 12 - 5 = 7$。和と差の積の公式を使う',
         difficulty: 'standard',
       },
+      {
+        id: 'math-g3-sqrt-add-expand-fc41',
+        front: '$\\sqrt{3}$',
+        back: '$2\\sqrt{3} - 6\\sqrt{3} + 5\\sqrt{3}$ を計算すると？',
+        explanation: '$(2 - 6 + 5)\\sqrt{3} = 1 \\cdot \\sqrt{3} = \\sqrt{3}$',
+        difficulty: 'basic',
+      },
+      {
+        id: 'math-g3-sqrt-add-expand-fc42',
+        front: '$3\\sqrt{2}$',
+        back: '$\\sqrt{8} + \\sqrt{2}$ を計算すると？',
+        explanation: '$\\sqrt{8} = 2\\sqrt{2}$ なので $2\\sqrt{2} + \\sqrt{2} = 3\\sqrt{2}$',
+        difficulty: 'basic',
+      },
+      {
+        id: 'math-g3-sqrt-add-expand-fc43',
+        front: '$3\\sqrt{3}$',
+        back: '$\\sqrt{12} + \\sqrt{3}$ を計算すると？',
+        explanation: '$\\sqrt{12} = 2\\sqrt{3}$ なので $2\\sqrt{3} + \\sqrt{3} = 3\\sqrt{3}$',
+        difficulty: 'basic',
+      },
+      {
+        id: 'math-g3-sqrt-add-expand-fc44',
+        front: '$4\\sqrt{21}$',
+        back: '$x = \\sqrt{7} + \\sqrt{3}$, $y = \\sqrt{7} - \\sqrt{3}$ のとき $x^2 - y^2$ は？',
+        explanation: '$(x+y)(x-y) = 2\\sqrt{7} \\times 2\\sqrt{3} = 4\\sqrt{21}$',
+        difficulty: 'advanced',
+      },
+      {
+        id: 'math-g3-sqrt-add-expand-fc45',
+        front: '$2$ cm$^2$',
+        back: '1辺が $\\sqrt{2}$ cm の正方形の面積は？',
+        explanation: '$(\\sqrt{2})^2 = 2$ cm$^2$。ルートの2乗はルートの中の数になる',
+        difficulty: 'basic',
+      },
     ],
     quiz: {
       questions: [
@@ -734,6 +769,123 @@ export const sqrtAddExpand: Topic = {
           correctIndex: 3,
           explanation:
             '1辺を $a$ とすると $a\\sqrt{2}=6$ なので $a=\\frac{6}{\\sqrt{2}}=\\frac{6\\sqrt{2}}{2}=3\\sqrt{2}$ cm。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'math-g3-sqrt-add-expand-q47',
+          question: '$-8\\sqrt{2} - 4\\sqrt{5} + 6\\sqrt{2} + \\sqrt{5}$ を計算すると？',
+          options: ['$-2\\sqrt{2} + 3\\sqrt{5}$', '$-14\\sqrt{2} - 5\\sqrt{5}$', '$-2\\sqrt{2} - 3\\sqrt{5}$', '$2\\sqrt{2} - 3\\sqrt{5}$'],
+          correctIndex: 2,
+          explanation:
+            '$(-8+6)\\sqrt{2} + (-4+1)\\sqrt{5} = -2\\sqrt{2} - 3\\sqrt{5}$\n異なる $\\sqrt{}$ はそれぞれ別にまとめよう。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'math-g3-sqrt-add-expand-q48',
+          question: '$(3 + \\sqrt{2})\\sqrt{6}$ を計算すると？',
+          options: ['$\\sqrt{18} + \\sqrt{8}$', '$3\\sqrt{6} + \\sqrt{8}$', '$3\\sqrt{6} + 2\\sqrt{3}$', '$3\\sqrt{6} + \\sqrt{12}$'],
+          correctIndex: 2,
+          explanation:
+            '$3 \\times \\sqrt{6} + \\sqrt{2} \\times \\sqrt{6} = 3\\sqrt{6} + \\sqrt{12} = 3\\sqrt{6} + 2\\sqrt{3}$。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'math-g3-sqrt-add-expand-q49',
+          question: '$\\sqrt{2}(\\sqrt{2} + 3) - \\sqrt{2}(\\sqrt{8} - 1)$ を計算すると？',
+          options: ['$-2 + 4\\sqrt{2}$', '$6 + 4\\sqrt{2}$', '$-2 + 2\\sqrt{2}$', '$2 + 4\\sqrt{2}$'],
+          correctIndex: 0,
+          explanation:
+            '$2 + 3\\sqrt{2} - \\sqrt{16} + \\sqrt{2} = 2 + 3\\sqrt{2} - 4 + \\sqrt{2} = -2 + 4\\sqrt{2}$。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'math-g3-sqrt-add-expand-q50',
+          question: '$(\\sqrt{3} - 2)^2 - (\\sqrt{3} + 2)^2$ を計算すると？',
+          options: ['$0$', '$8\\sqrt{3}$', '$-4$', '$-8\\sqrt{3}$'],
+          correctIndex: 3,
+          explanation:
+            '$(3 - 4\\sqrt{3} + 4) - (3 + 4\\sqrt{3} + 4) = 7 - 4\\sqrt{3} - 7 - 4\\sqrt{3} = -8\\sqrt{3}$。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'math-g3-sqrt-add-expand-q51',
+          question: '$(2\\sqrt{5} - 7)(2\\sqrt{5} + 3)$ を展開すると？',
+          options: ['$-1 + 8\\sqrt{5}$', '$20 - 8\\sqrt{5}$', '$-21 - 8\\sqrt{5}$', '$-1 - 8\\sqrt{5}$'],
+          correctIndex: 3,
+          explanation:
+            '$(2\\sqrt{5})^2 + 3 \\cdot 2\\sqrt{5} - 7 \\cdot 2\\sqrt{5} - 21 = 20 - 8\\sqrt{5} - 21 = -1 - 8\\sqrt{5}$。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'math-g3-sqrt-add-expand-q52',
+          question: '$(\\sqrt{6} + 5)(\\sqrt{6} - 8)$ を展開すると？',
+          options: ['$-34 + 3\\sqrt{6}$', '$46 - 3\\sqrt{6}$', '$-34 - 3\\sqrt{6}$', '$-40 - 3\\sqrt{6}$'],
+          correctIndex: 2,
+          explanation:
+            '$6 - 8\\sqrt{6} + 5\\sqrt{6} - 40 = -34 - 3\\sqrt{6}$。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'math-g3-sqrt-add-expand-q53',
+          question: '$\\sqrt{8} \\times \\sqrt{6} - 2\\sqrt{27}$ を計算すると？',
+          options: ['$2\\sqrt{3}$', '$0$', '$4\\sqrt{3} - 6\\sqrt{3}$', '$-2\\sqrt{3}$'],
+          correctIndex: 3,
+          explanation:
+            '$\\sqrt{48} - 2\\sqrt{27} = 4\\sqrt{3} - 6\\sqrt{3} = -2\\sqrt{3}$。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'math-g3-sqrt-add-expand-q54',
+          question: '$x = \\sqrt{5} - 3$, $y = \\sqrt{5} + 3$ のとき、$x^2 - 2xy + y^2$ の値は？',
+          options: ['$36$', '$20$', '$12$', '$0$'],
+          correctIndex: 0,
+          explanation:
+            '$x^2 - 2xy + y^2 = (x - y)^2 = ((\\sqrt{5}-3)-(\\sqrt{5}+3))^2 = (-6)^2 = 36$。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'math-g3-sqrt-add-expand-q55',
+          question: '$\\sqrt{12} - (\\sqrt{15} - \\sqrt{5}) \\div \\sqrt{5}$ を計算すると？',
+          options: ['$\\sqrt{3} - 1$', '$3\\sqrt{3}$', '$\\sqrt{3} + 1$', '$2\\sqrt{3} - \\sqrt{3} + 1$'],
+          correctIndex: 2,
+          explanation:
+            '$(\\sqrt{15}-\\sqrt{5}) \\div \\sqrt{5} = \\sqrt{3} - 1$ なので $2\\sqrt{3} - (\\sqrt{3} - 1) = \\sqrt{3} + 1$。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'math-g3-sqrt-add-expand-q56',
+          question: '$(2\\sqrt{5} - 1)^2 - (\\sqrt{5} + 7)(\\sqrt{5} - 4)$ を計算すると？',
+          options: ['$44 + 7\\sqrt{5}$', '$22 - 7\\sqrt{5}$', '$44 + 3\\sqrt{5}$', '$44 - 7\\sqrt{5}$'],
+          correctIndex: 3,
+          explanation:
+            '$(21 - 4\\sqrt{5}) - (-23 + 3\\sqrt{5}) = 21 - 4\\sqrt{5} + 23 - 3\\sqrt{5} = 44 - 7\\sqrt{5}$。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'math-g3-sqrt-add-expand-q57',
+          question: '$x = \\sqrt{5} - 2$ のとき、$x^2 + 4x - 1$ の値は？',
+          options: ['$2$', '$-1$', '$0$', '$\\sqrt{5}$'],
+          correctIndex: 2,
+          explanation:
+            '$(\\sqrt{5}-2)^2 + 4(\\sqrt{5}-2) - 1 = 9 - 4\\sqrt{5} + 4\\sqrt{5} - 8 - 1 = 0$。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'math-g3-sqrt-add-expand-q58',
+          question: '$n < \\sqrt{60} < n+1$ となる自然数 $n$ はいくつ？',
+          options: ['$6$', '$7$', '$8$', '$9$'],
+          correctIndex: 1,
+          explanation:
+            '$7^2 = 49$, $8^2 = 64$ なので $49 < 60 < 64$、よって $7 < \\sqrt{60} < 8$ で $n = 7$。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'math-g3-sqrt-add-expand-q59',
+          question: '半径 $5$ cm の円と半径 $10$ cm の円がある。面積の和と等しい面積の円の半径は？',
+          options: ['$5\\sqrt{3}$ cm', '$15$ cm', '$5\\sqrt{5}$ cm', '$\\sqrt{125}$ cm'],
+          correctIndex: 2,
+          explanation:
+            '$\\pi(25 + 100) = 125\\pi$ → $r^2 = 125$ → $r = \\sqrt{125} = 5\\sqrt{5}$ cm。',
           difficulty: 'advanced',
         },
       ],

@@ -108,6 +108,18 @@ export const quadFuncRealWorldChat: HistoryChat = {
       text: '<ruby>制動距離<rt>せいどうきょり</rt></ruby>は<ruby>速度<rt>そくど</rt></ruby>の2<ruby>乗<rt>じょう</rt></ruby>に<ruby>比例<rt>ひれい</rt></ruby>。<ruby>速度<rt>そくど</rt></ruby>2<ruby>倍<rt>ばい</rt></ruby> → <ruby>距離<rt>きょり</rt></ruby>4<ruby>倍<rt>ばい</rt></ruby>！',
     },
     {
+      type: 'quiz',
+      question: '<ruby>制動距離<rt>せいどうきょり</rt></ruby> $y = 0.01v^2$ で<ruby>時速<rt>じそく</rt></ruby>90kmのとき<ruby>制動距離<rt>せいどうきょり</rt></ruby>は？',
+      options: [
+        { letter: 'A', text: '$81$ m', correct: true },
+        { letter: 'B', text: '$90$ m', correct: false },
+        { letter: 'C', text: '$45$ m', correct: false },
+        { letter: 'D', text: '$8.1$ m', correct: false },
+      ],
+      explanation:
+        '$y = 0.01 \\times 90^2 = 0.01 \\times 8100 = \\textcolor{#D97706}{81}$ m',
+    },
+    {
       type: 'date',
       text: 'ふりこの<ruby>長<rt>なが</rt></ruby>さの<ruby>問題<rt>もんだい</rt></ruby>',
     },
@@ -169,8 +181,8 @@ export const quadFuncRealWorldChat: HistoryChat = {
       options: [
         { letter: 'A', text: '$32$ m', correct: false },
         { letter: 'B', text: '$48$ m', correct: false },
-        { letter: 'C', text: '$64$ m', correct: true },
-        { letter: 'D', text: '$128$ m', correct: false },
+        { letter: 'C', text: '$128$ m', correct: false },
+        { letter: 'D', text: '$64$ m', correct: true },
       ],
       explanation:
         '<ruby>速度<rt>そくど</rt></ruby>が2<ruby>倍<rt>ばい</rt></ruby>（40→80）→ <ruby>制動距離<rt>せいどうきょり</rt></ruby>は $2^2 = 4$<ruby>倍<rt>ばい</rt></ruby>。\n$16 \\times 4 = \\textcolor{#D97706}{64}$ m',
@@ -178,6 +190,18 @@ export const quadFuncRealWorldChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '2<ruby>乗<rt>じょう</rt></ruby>に<ruby>比例<rt>ひれい</rt></ruby>する<ruby>関係<rt>かんけい</rt></ruby>は<ruby>日常<rt>にちじょう</rt></ruby>にたくさんある！<ruby>比例定数<rt>ひれいていすう</rt></ruby>を<ruby>求<rt>もと</rt></ruby>めて<ruby>式<rt>しき</rt></ruby>を<ruby>作<rt>つく</rt></ruby>ろう。',
+    },
+    {
+      type: 'quiz',
+      question: 'ふりこで $T^2 = 0.04L$ のとき、$T = 3$ <ruby>秒<rt>びょう</rt></ruby>にするには $L$ は<ruby>何<rt>なん</rt></ruby>cm？',
+      options: [
+        { letter: 'A', text: '$75$ cm', correct: false },
+        { letter: 'B', text: '$225$ cm', correct: true },
+        { letter: 'C', text: '$900$ cm', correct: false },
+        { letter: 'D', text: '$120$ cm', correct: false },
+      ],
+      explanation:
+        '$T^2 = 9 = 0.04L$ → $L = \\frac{9}{0.04} = \\textcolor{#D97706}{225}$ cm',
     },
     {
       type: 'date',
@@ -236,6 +260,18 @@ export const quadFuncRealWorldChat: HistoryChat = {
       text: '<ruby>図形<rt>ずけい</rt></ruby>の<ruby>移動<rt>いどう</rt></ruby>では<ruby>重<rt>かさ</rt></ruby>なる<ruby>形<rt>かたち</rt></ruby>に<ruby>注目<rt>ちゅうもく</rt></ruby>。<ruby>変域<rt>へんいき</rt></ruby>で<ruby>式<rt>しき</rt></ruby>が<ruby>変<rt>か</rt></ruby>わることもある！',
     },
     {
+      type: 'quiz',
+      question: '<ruby>重<rt>かさ</rt></ruby>なる<ruby>面積<rt>めんせき</rt></ruby> $y = \\frac{1}{2}x^2$ で $y = 18$ のとき $x$ は？（$x > 0$）',
+      options: [
+        { letter: 'A', text: '$x = 36$', correct: false },
+        { letter: 'B', text: '$x = 9$', correct: false },
+        { letter: 'C', text: '$x = 6$', correct: true },
+        { letter: 'D', text: '$x = 3\\sqrt{2}$', correct: false },
+      ],
+      explanation:
+        '$18 = \\frac{1}{2}x^2$ → $x^2 = 36$ → $x = \\textcolor{#D97706}{6}$（$x > 0$）',
+    },
+    {
       type: 'date',
       text: 'いろいろな<ruby>関数<rt>かんすう</rt></ruby>',
     },
@@ -289,6 +325,18 @@ export const quadFuncRealWorldChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<ruby>関数<rt>かんすう</rt></ruby>は<ruby>直線<rt>ちょくせん</rt></ruby>や<ruby>放物線<rt>ほうぶつせん</rt></ruby>だけじゃない。<ruby>階段状<rt>かいだんじょう</rt></ruby>グラフや<ruby>水<rt>みず</rt></ruby>そうの<ruby>問題<rt>もんだい</rt></ruby>も<ruby>関数<rt>かんすう</rt></ruby>！',
+    },
+    {
+      type: 'quiz',
+      question: '<ruby>次<rt>つぎ</rt></ruby>のうち<ruby>関数<rt>かんすう</rt></ruby>はどれ？',
+      options: [
+        { letter: 'A', text: 'サイコロの<ruby>出<rt>で</rt></ruby>た<ruby>目<rt>め</rt></ruby>と<ruby>次<rt>つぎ</rt></ruby>に<ruby>出<rt>で</rt></ruby>る<ruby>目<rt>め</rt></ruby>の<ruby>関係<rt>かんけい</rt></ruby>', correct: false },
+        { letter: 'B', text: '<ruby>正方形<rt>せいほうけい</rt></ruby>の1<ruby>辺<rt>ぺん</rt></ruby>と<ruby>面積<rt>めんせき</rt></ruby>の<ruby>関係<rt>かんけい</rt></ruby>', correct: true },
+        { letter: 'C', text: '<ruby>名前<rt>なまえ</rt></ruby>と<ruby>誕生日<rt>たんじょうび</rt></ruby>の<ruby>関係<rt>かんけい</rt></ruby>', correct: false },
+        { letter: 'D', text: '<ruby>天気<rt>てんき</rt></ruby>と<ruby>気温<rt>きおん</rt></ruby>の<ruby>関係<rt>かんけい</rt></ruby>', correct: false },
+      ],
+      explanation:
+        '1<ruby>辺<rt>ぺん</rt></ruby> $x$ が<ruby>決<rt>き</rt></ruby>まれば<ruby>面積<rt>めんせき</rt></ruby> $y = x^2$ も1つに<ruby>決<rt>き</rt></ruby>まるから<ruby>関数<rt>かんすう</rt></ruby>だよ。',
     },
     {
       type: 'end',

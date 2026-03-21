@@ -144,6 +144,18 @@ export const inverseProportionChat: HistoryChat = {
       text: '<ruby>反比例<rt>はんぴれい</rt></ruby>: $y = \\frac{a}{x}$。$xy = a$（<ruby>積<rt>せき</rt></ruby>が<ruby>一定<rt>いってい</rt></ruby>）で<ruby>判別<rt>はんべつ</rt></ruby>できる。',
     },
     {
+      type: 'quiz',
+      question: '$y$ が $x$ に<ruby>反比例<rt>はんぴれい</rt></ruby>し、$x = 4$ のとき $y = 5$。<ruby>比例定数<rt>ひれいていすう</rt></ruby> $a$ はいくつ？',
+      options: [
+        { letter: 'A', text: '$a = 1.25$', correct: false },
+        { letter: 'B', text: '$a = 9$', correct: false },
+        { letter: 'C', text: '$a = 20$', correct: true },
+        { letter: 'D', text: '$a = -20$', correct: false },
+      ],
+      explanation:
+        '<ruby>反比例<rt>はんぴれい</rt></ruby>では $a = xy$ だから $a = 4 \\times 5 = \\textcolor{#D97706}{20}$ だよ。',
+    },
+    {
       type: 'date',
       text: '<ruby>反比例<rt>はんぴれい</rt></ruby>の<ruby>性質<rt>せいしつ</rt></ruby>',
     },
@@ -189,8 +201,8 @@ export const inverseProportionChat: HistoryChat = {
       question: '$y = \\frac{18}{x}$ で $x = 3$ のとき $y$ はいくつ？',
       options: [
         { letter: 'A', text: '$3$', correct: false },
-        { letter: 'B', text: '$6$', correct: true },
-        { letter: 'C', text: '$15$', correct: false },
+        { letter: 'B', text: '$15$', correct: false },
+        { letter: 'C', text: '$6$', correct: true },
         { letter: 'D', text: '$54$', correct: false },
       ],
       explanation:
@@ -253,6 +265,10 @@ export const inverseProportionChat: HistoryChat = {
       text: '<ruby>比例<rt>ひれい</rt></ruby>は<ruby>原点<rt>げんてん</rt></ruby>を<ruby>通<rt>とお</rt></ruby>る<ruby>直線<rt>ちょくせん</rt></ruby>なのに、<ruby>反比例<rt>はんぴれい</rt></ruby>は<ruby>軸<rt>じく</rt></ruby>に<ruby>近<rt>ちか</rt></ruby>づくけど<ruby>交<rt>まじ</rt></ruby>わらない<ruby>曲線<rt>きょくせん</rt></ruby>なんですね！',
     },
     {
+      type: 'summary-point',
+      text: '<ruby>反比例<rt>はんぴれい</rt></ruby>のグラフは<ruby>双曲線<rt>そうきょくせん</rt></ruby>。<ruby>座標軸<rt>ざひょうじく</rt></ruby>と<ruby>交<rt>まじ</rt></ruby>わらない。$a > 0$ で<ruby>右上<rt>みぎうえ</rt></ruby>・<ruby>左下<rt>ひだりした</rt></ruby>、$a < 0$ で<ruby>左上<rt>ひだりうえ</rt></ruby>・<ruby>右下<rt>みぎした</rt></ruby>。',
+    },
+    {
       type: 'quiz',
       question: '<ruby>反比例<rt>はんぴれい</rt></ruby> $y = \\frac{-6}{x}$ のグラフはどの<ruby>領域<rt>りょういき</rt></ruby>にある？',
       options: [
@@ -263,10 +279,6 @@ export const inverseProportionChat: HistoryChat = {
       ],
       explanation:
         '$a = -6 < 0$ なので、<ruby>左上<rt>ひだりうえ</rt></ruby>と<ruby>右下<rt>みぎした</rt></ruby>に<ruby>双曲線<rt>そうきょくせん</rt></ruby>があるよ。',
-    },
-    {
-      type: 'summary-point',
-      text: '<ruby>反比例<rt>はんぴれい</rt></ruby>のグラフは<ruby>双曲線<rt>そうきょくせん</rt></ruby>。<ruby>座標軸<rt>ざひょうじく</rt></ruby>と<ruby>交<rt>まじ</rt></ruby>わらない。$a > 0$ で<ruby>右上<rt>みぎうえ</rt></ruby>・<ruby>左下<rt>ひだりした</rt></ruby>、$a < 0$ で<ruby>左上<rt>ひだりうえ</rt></ruby>・<ruby>右下<rt>みぎした</rt></ruby>。',
     },
     {
       type: 'end',

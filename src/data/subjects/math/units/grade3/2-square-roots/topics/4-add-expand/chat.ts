@@ -196,9 +196,9 @@ export const sqrtAddExpandChat: HistoryChat = {
       question: '$(\\sqrt{7} + 3)(\\sqrt{7} - 3)$ を<ruby>計算<rt>けいさん</rt></ruby>すると？',
       options: [
         { letter: 'A', text: '$4$', correct: false },
-        { letter: 'B', text: '$-2$', correct: true },
+        { letter: 'B', text: '$16$', correct: false },
         { letter: 'C', text: '$7 - 3\\sqrt{7}$', correct: false },
-        { letter: 'D', text: '$16$', correct: false },
+        { letter: 'D', text: '$-2$', correct: true },
       ],
       explanation:
         '$(\\sqrt{7})^2 - 3^2 = 7 - 9 = -2$\n<ruby>和<rt>わ</rt></ruby>と<ruby>差<rt>さ</rt></ruby>の<ruby>積<rt>せき</rt></ruby>の<ruby>公式<rt>こうしき</rt></ruby>で<ruby>一発<rt>いっぱつ</rt></ruby>！',
@@ -212,8 +212,8 @@ export const sqrtAddExpandChat: HistoryChat = {
       question: '$(\\sqrt{11} + 1)(\\sqrt{11} - 1)$ はいくつ？',
       options: [
         { letter: 'A', text: '$12$', correct: false },
-        { letter: 'B', text: '$10$', correct: true },
-        { letter: 'C', text: '$11 - \\sqrt{11}$', correct: false },
+        { letter: 'B', text: '$11 - \\sqrt{11}$', correct: false },
+        { letter: 'C', text: '$10$', correct: true },
         { letter: 'D', text: '$\\sqrt{11}$', correct: false },
       ],
       explanation:
@@ -267,8 +267,8 @@ export const sqrtAddExpandChat: HistoryChat = {
       question: '$\\sqrt{5}(\\sqrt{20} + \\sqrt{5})$ を<ruby>計算<rt>けいさん</rt></ruby>すると？',
       options: [
         { letter: 'A', text: '$\\sqrt{25} + \\sqrt{10}$', correct: false },
-        { letter: 'B', text: '$5\\sqrt{5}$', correct: false },
-        { letter: 'C', text: '$15$', correct: true },
+        { letter: 'B', text: '$15$', correct: true },
+        { letter: 'C', text: '$5\\sqrt{5}$', correct: false },
         { letter: 'D', text: '$10 + \\sqrt{5}$', correct: false },
       ],
       explanation:
@@ -335,6 +335,18 @@ export const sqrtAddExpandChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '$(\\sqrt{a}+b)^2 = a + 2b\\sqrt{a} + b^2$。<ruby>真<rt>ま</rt></ruby>ん<ruby>中<rt>なか</rt></ruby>の<ruby>項<rt>こう</rt></ruby>にルートが<ruby>残<rt>のこ</rt></ruby>る！',
+    },
+    {
+      type: 'quiz',
+      question: '$(\\sqrt{5} - 2)^2$ を<ruby>計算<rt>けいさん</rt></ruby>すると？',
+      options: [
+        { letter: 'A', text: '$1 - 4\\sqrt{5}$', correct: false },
+        { letter: 'B', text: '$9 + 4\\sqrt{5}$', correct: false },
+        { letter: 'C', text: '$9 - 4\\sqrt{5}$', correct: true },
+        { letter: 'D', text: '$1 + 4\\sqrt{5}$', correct: false },
+      ],
+      explanation:
+        '$(\\sqrt{5})^2 - 2 \\times \\sqrt{5} \\times 2 + 2^2 = 5 - 4\\sqrt{5} + 4 = \\textcolor{#D97706}{9 - 4\\sqrt{5}}$',
     },
     {
       type: 'date',

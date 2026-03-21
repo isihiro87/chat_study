@@ -94,6 +94,18 @@ export const calcApplicationsChat: HistoryChat = {
       text: '<ruby>証明<rt>しょうめい</rt></ruby>の<ruby>手順<rt>てじゅん</rt></ruby>: ①<ruby>文字<rt>もじ</rt></ruby>でおく → ②<ruby>展開<rt>てんかい</rt></ruby>・<ruby>計算<rt>けいさん</rt></ruby> → ③「○×（<ruby>整数<rt>せいすう</rt></ruby>）」の<ruby>形<rt>かたち</rt></ruby>にまとめる',
     },
     {
+      type: 'quiz',
+      question: '<ruby>連続<rt>れんぞく</rt></ruby>する3つの<ruby>整数<rt>せいすう</rt></ruby>の<ruby>真<rt>ま</rt></ruby>ん<ruby>中<rt>なか</rt></ruby>の<ruby>数<rt>かず</rt></ruby>の2<ruby>乗<rt>じょう</rt></ruby>から1を<ruby>引<rt>ひ</rt></ruby>くと、<ruby>必<rt>かなら</rt></ruby>ず<ruby>何<rt>なに</rt></ruby>が<ruby>成<rt>な</rt></ruby>り<ruby>立<rt>た</rt></ruby>つ？（$n-1, n, n+1$ とおく）',
+      options: [
+        { letter: 'A', text: '<ruby>両端<rt>りょうたん</rt></ruby>の<ruby>積<rt>せき</rt></ruby>と<ruby>等<rt>ひと</rt></ruby>しい', correct: true },
+        { letter: 'B', text: '3の<ruby>倍数<rt>ばいすう</rt></ruby>になる', correct: false },
+        { letter: 'C', text: '6の<ruby>倍数<rt>ばいすう</rt></ruby>になる', correct: false },
+        { letter: 'D', text: '<ruby>偶数<rt>ぐうすう</rt></ruby>になる', correct: false },
+      ],
+      explanation:
+        '$n^2 - 1 = (n+1)(n-1)$。<ruby>因数分解<rt>いんすうぶんかい</rt></ruby>すると<ruby>両端<rt>りょうたん</rt></ruby>の<ruby>積<rt>せき</rt></ruby>になるよ！',
+    },
+    {
       type: 'date',
       text: '<ruby>展開<rt>てんかい</rt></ruby>・<ruby>因数分解<rt>いんすうぶんかい</rt></ruby>で<ruby>計算<rt>けいさん</rt></ruby>を<ruby>楽<rt>らく</rt></ruby>に！',
     },
@@ -177,6 +189,18 @@ export const calcApplicationsChat: HistoryChat = {
       text: '<ruby>数<rt>かず</rt></ruby>を「きりのいい<ruby>数<rt>かず</rt></ruby>±<ruby>小<rt>ちい</rt></ruby>さい<ruby>数<rt>かず</rt></ruby>」と<ruby>考<rt>かんが</rt></ruby>えて<ruby>公式<rt>こうしき</rt></ruby>を<ruby>使<rt>つか</rt></ruby>おう！',
     },
     {
+      type: 'quiz',
+      question: '$51 \\times 49$ を<ruby>公式<rt>こうしき</rt></ruby>で<ruby>計算<rt>けいさん</rt></ruby>すると？',
+      options: [
+        { letter: 'A', text: '$2501$', correct: false },
+        { letter: 'B', text: '$2499$', correct: true },
+        { letter: 'C', text: '$2500$', correct: false },
+        { letter: 'D', text: '$2401$', correct: false },
+      ],
+      explanation:
+        '$51 \\times 49 = (50+1)(50-1) = 50^2 - 1^2 = 2500 - 1 = \\textcolor{#D97706}{2499}$',
+    },
+    {
       type: 'date',
       text: '<ruby>式<rt>しき</rt></ruby>の<ruby>値<rt>あたい</rt></ruby>を<ruby>求<rt>もと</rt></ruby>めよう',
     },
@@ -225,6 +249,18 @@ export const calcApplicationsChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<ruby>式<rt>しき</rt></ruby>の<ruby>値<rt>あたい</rt></ruby>: <ruby>先<rt>さき</rt></ruby>に<ruby>因数分解<rt>いんすうぶんかい</rt></ruby>or<ruby>展開<rt>てんかい</rt></ruby>で<ruby>簡単<rt>かんたん</rt></ruby>にしてから<ruby>代入<rt>だいにゅう</rt></ruby>！',
+    },
+    {
+      type: 'quiz',
+      question: '$x = 98$ のとき $x^2 + 4x + 4$ の<ruby>値<rt>あたい</rt></ruby>は？',
+      options: [
+        { letter: 'A', text: '$9604$', correct: false },
+        { letter: 'B', text: '$9800$', correct: false },
+        { letter: 'C', text: '$10000$', correct: true },
+        { letter: 'D', text: '$10404$', correct: false },
+      ],
+      explanation:
+        '$x^2+4x+4 = (x+2)^2$。$x=98$ を<ruby>代入<rt>だいにゅう</rt></ruby>すると $(98+2)^2 = 100^2 = \\textcolor{#D97706}{10000}$',
     },
     {
       type: 'date',
@@ -283,6 +319,18 @@ export const calcApplicationsChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<ruby>図形<rt>ずけい</rt></ruby>の<ruby>面積<rt>めんせき</rt></ruby>を<ruby>文字<rt>もじ</rt></ruby>で<ruby>表<rt>あらわ</rt></ruby>して<ruby>展開<rt>てんかい</rt></ruby>・<ruby>因数分解<rt>いんすうぶんかい</rt></ruby>すれば<ruby>性質<rt>せいしつ</rt></ruby>を<ruby>証明<rt>しょうめい</rt></ruby>できる！',
+    },
+    {
+      type: 'quiz',
+      question: '1<ruby>辺<rt>ぺん</rt></ruby> $a$ の<ruby>正方形<rt>せいほうけい</rt></ruby>の<ruby>各辺<rt>かくへん</rt></ruby>を $b$ ずつ<ruby>長<rt>なが</rt></ruby>くした<ruby>正方形<rt>せいほうけい</rt></ruby>の<ruby>面積<rt>めんせき</rt></ruby>と<ruby>元<rt>もと</rt></ruby>の<ruby>面積<rt>めんせき</rt></ruby>の<ruby>差<rt>さ</rt></ruby>は？',
+      options: [
+        { letter: 'A', text: '$2ab + b^2$', correct: true },
+        { letter: 'B', text: '$2ab$', correct: false },
+        { letter: 'C', text: '$b^2$', correct: false },
+        { letter: 'D', text: '$a^2 + b^2$', correct: false },
+      ],
+      explanation:
+        '$(a+b)^2 - a^2 = a^2+2ab+b^2-a^2 = \\textcolor{#D97706}{2ab+b^2}$',
     },
     {
       type: 'end',

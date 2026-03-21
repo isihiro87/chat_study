@@ -275,8 +275,8 @@ export const simulEqAppsAdvChat: HistoryChat = {
       type: 'quiz',
       question: '5%の<ruby>食塩水<rt>しょくえんすい</rt></ruby> 200g に<ruby>含<rt>ふく</rt></ruby>まれる<ruby>食塩<rt>しょくえん</rt></ruby>の<ruby>量<rt>りょう</rt></ruby>は<ruby>何<rt>なん</rt></ruby> g？',
       options: [
-        { letter: 'A', text: '5 g', correct: false },
-        { letter: 'B', text: '10 g', correct: true },
+        { letter: 'A', text: '10 g', correct: true },
+        { letter: 'B', text: '5 g', correct: false },
         { letter: 'C', text: '20 g', correct: false },
         { letter: 'D', text: '100 g', correct: false },
       ],

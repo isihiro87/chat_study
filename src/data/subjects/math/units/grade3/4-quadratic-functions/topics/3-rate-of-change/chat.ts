@@ -111,6 +111,18 @@ export const rateOfChangeChat: HistoryChat = {
       text: '<ruby>一次関数<rt>いちじかんすう</rt></ruby>: <ruby>変化<rt>へんか</rt></ruby>の<ruby>割合<rt>わりあい</rt></ruby>は<ruby>一定<rt>いってい</rt></ruby>。y = ax²: <ruby>区間<rt>くかん</rt></ruby>によって<ruby>変<rt>か</rt></ruby>わる！',
     },
     {
+      type: 'quiz',
+      question: '$y = x^2$ で $x$ が $3$ から $5$ に<ruby>変化<rt>へんか</rt></ruby>するとき、<ruby>変化<rt>へんか</rt></ruby>の<ruby>割合<rt>わりあい</rt></ruby>は？',
+      options: [
+        { letter: 'A', text: '$16$', correct: false },
+        { letter: 'B', text: '$8$', correct: true },
+        { letter: 'C', text: '$4$', correct: false },
+        { letter: 'D', text: '$12$', correct: false },
+      ],
+      explanation:
+        '$y$: $9$ → $25$。<ruby>変化<rt>へんか</rt></ruby>の<ruby>割合<rt>わりあい</rt></ruby> $= \\frac{25-9}{5-3} = \\frac{16}{2} = \\textcolor{#D97706}{8}$',
+    },
+    {
       type: 'date',
       text: '<ruby>便利<rt>べんり</rt></ruby>な<ruby>公式<rt>こうしき</rt></ruby> a(p + q)',
     },
@@ -171,6 +183,18 @@ export const rateOfChangeChat: HistoryChat = {
       text: '<ruby>変化<rt>へんか</rt></ruby>の<ruby>割合<rt>わりあい</rt></ruby>は<ruby>平均<rt>へいきん</rt></ruby>の<ruby>傾<rt>かたむ</rt></ruby>き。<ruby>放物線<rt>ほうぶつせん</rt></ruby>の2<ruby>点<rt>てん</rt></ruby>を<ruby>結<rt>むす</rt></ruby>ぶ<ruby>直線<rt>ちょくせん</rt></ruby>の<ruby>傾<rt>かたむ</rt></ruby>きと<ruby>同<rt>おな</rt></ruby>じ！',
     },
     {
+      type: 'quiz',
+      question: '$y = 3x^2$ で $x$ が $2$ から $5$ に<ruby>変化<rt>へんか</rt></ruby>するとき、<ruby>変化<rt>へんか</rt></ruby>の<ruby>割合<rt>わりあい</rt></ruby>は？（<ruby>公式<rt>こうしき</rt></ruby> a(p+q) を<ruby>使<rt>つか</rt></ruby>おう）',
+      options: [
+        { letter: 'A', text: '$15$', correct: false },
+        { letter: 'B', text: '$21$', correct: true },
+        { letter: 'C', text: '$7$', correct: false },
+        { letter: 'D', text: '$30$', correct: false },
+      ],
+      explanation:
+        '$a(p+q) = 3 \\times (2+5) = 3 \\times 7 = \\textcolor{#D97706}{21}$',
+    },
+    {
       type: 'date',
       text: '<ruby>平均<rt>へいきん</rt></ruby>の<ruby>速<rt>はや</rt></ruby>さを<ruby>求<rt>もと</rt></ruby>めよう',
     },
@@ -218,6 +242,18 @@ export const rateOfChangeChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<ruby>平均<rt>へいきん</rt></ruby>の<ruby>速<rt>はや</rt></ruby>さ = <ruby>距離<rt>きょり</rt></ruby>の<ruby>差<rt>さ</rt></ruby> ÷ <ruby>時間<rt>じかん</rt></ruby>の<ruby>差<rt>さ</rt></ruby> = <ruby>変化<rt>へんか</rt></ruby>の<ruby>割合<rt>わりあい</rt></ruby>と<ruby>同<rt>おな</rt></ruby>じ！',
+    },
+    {
+      type: 'quiz',
+      question: '<ruby>移動距離<rt>いどうきょり</rt></ruby> $y = 5x^2$ cm のとき、1<ruby>秒後<rt>びょうご</rt></ruby>から3<ruby>秒後<rt>びょうご</rt></ruby>の<ruby>平均<rt>へいきん</rt></ruby>の<ruby>速<rt>はや</rt></ruby>さは？',
+      options: [
+        { letter: 'A', text: '$15$ cm/<ruby>秒<rt>びょう</rt></ruby>', correct: false },
+        { letter: 'B', text: '$20$ cm/<ruby>秒<rt>びょう</rt></ruby>', correct: true },
+        { letter: 'C', text: '$40$ cm/<ruby>秒<rt>びょう</rt></ruby>', correct: false },
+        { letter: 'D', text: '$10$ cm/<ruby>秒<rt>びょう</rt></ruby>', correct: false },
+      ],
+      explanation:
+        '<ruby>公式<rt>こうしき</rt></ruby>: $a(p+q) = 5 \\times (1+3) = 5 \\times 4 = \\textcolor{#D97706}{20}$ cm/<ruby>秒<rt>びょう</rt></ruby>',
     },
     {
       type: 'date',
@@ -297,6 +333,18 @@ export const rateOfChangeChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<ruby>放物線<rt>ほうぶつせん</rt></ruby>と<ruby>直線<rt>ちょくせん</rt></ruby>の<ruby>交点<rt>こうてん</rt></ruby>は<ruby>連立方程式<rt>れんりつほうていしき</rt></ruby>で<ruby>求<rt>もと</rt></ruby>める。<ruby>面積<rt>めんせき</rt></ruby>は y <ruby>軸<rt>じく</rt></ruby>で<ruby>分割<rt>ぶんかつ</rt></ruby>！',
+    },
+    {
+      type: 'quiz',
+      question: '$y = 2x^2$ と $y = 8$ の<ruby>交点<rt>こうてん</rt></ruby>の $x$ <ruby>座標<rt>ざひょう</rt></ruby>は？',
+      options: [
+        { letter: 'A', text: '$x = \\pm 4$', correct: false },
+        { letter: 'B', text: '$x = 4$', correct: false },
+        { letter: 'C', text: '$x = \\pm 2$', correct: true },
+        { letter: 'D', text: '$x = \\pm 8$', correct: false },
+      ],
+      explanation:
+        '$2x^2 = 8$ → $x^2 = 4$ → $x = \\textcolor{#D97706}{\\pm 2}$',
     },
     {
       type: 'end',

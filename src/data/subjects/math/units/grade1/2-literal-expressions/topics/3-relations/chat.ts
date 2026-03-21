@@ -105,6 +105,18 @@ export const literalRelationsChat: HistoryChat = {
       text: '<ruby>等式<rt>とうしき</rt></ruby> = 「$=$」を<ruby>使<rt>つか</rt></ruby>って<ruby>数量<rt>すうりょう</rt></ruby>が<ruby>等<rt>ひと</rt></ruby>しいことを<ruby>表<rt>あらわ</rt></ruby>す<ruby>式<rt>しき</rt></ruby>。$=$ の<ruby>左<rt>ひだり</rt></ruby>が<ruby>左辺<rt>さへん</rt></ruby>、<ruby>右<rt>みぎ</rt></ruby>が<ruby>右辺<rt>うへん</rt></ruby>。',
     },
     {
+      type: 'quiz',
+      question: '「$y$ <ruby>個<rt>こ</rt></ruby>のあめを 5<ruby>人<rt>にん</rt></ruby>で<ruby>分<rt>わ</rt></ruby>けると1<ruby>人<rt>り</rt></ruby> 8<ruby>個<rt>こ</rt></ruby>」を<ruby>等式<rt>とうしき</rt></ruby>で<ruby>表<rt>あらわ</rt></ruby>すと？',
+      options: [
+        { letter: 'A', text: '$5y = 8$', correct: false },
+        { letter: 'B', text: '$\\dfrac{y}{5} = 8$', correct: true },
+        { letter: 'C', text: '$y - 5 = 8$', correct: false },
+        { letter: 'D', text: '$\\dfrac{5}{y} = 8$', correct: false },
+      ],
+      explanation:
+        '$y$ <ruby>個<rt>こ</rt></ruby>を 5<ruby>人<rt>にん</rt></ruby>で<ruby>割<rt>わ</rt></ruby>ると 8<ruby>個<rt>こ</rt></ruby>だから $\\textcolor{#D97706}{\\dfrac{y}{5} = 8}$ だよ。',
+    },
+    {
       type: 'date',
       text: '<ruby>不等式<rt>ふとうしき</rt></ruby>を<ruby>学<rt>まな</rt></ruby>ぼう',
     },
@@ -189,6 +201,18 @@ export const literalRelationsChat: HistoryChat = {
       text: '「<ruby>以上<rt>いじょう</rt></ruby>・<ruby>以下<rt>いか</rt></ruby>」は<ruby>同<rt>おな</rt></ruby>じ<ruby>数<rt>かず</rt></ruby>を<ruby>含<rt>ふく</rt></ruby>む（$\\geqq$, $\\leqq$）。「より<ruby>大<rt>おお</rt></ruby>きい・より<ruby>小<rt>ちい</rt></ruby>さい・<ruby>未満<rt>みまん</rt></ruby>」は<ruby>含<rt>ふく</rt></ruby>まない（$>$, $<$）。',
     },
     {
+      type: 'quiz',
+      question: '「$x$ は $3$ <ruby>以上<rt>いじょう</rt></ruby>」を<ruby>不等式<rt>ふとうしき</rt></ruby>で<ruby>表<rt>あらわ</rt></ruby>すと？',
+      options: [
+        { letter: 'A', text: '$x > 3$', correct: false },
+        { letter: 'B', text: '$x < 3$', correct: false },
+        { letter: 'C', text: '$x \\leqq 3$', correct: false },
+        { letter: 'D', text: '$x \\geqq 3$', correct: true },
+      ],
+      explanation:
+        '「<ruby>以上<rt>いじょう</rt></ruby>」は $3$ を<ruby>含<rt>ふく</rt></ruby>むので $\\textcolor{#D97706}{x \\geqq 3}$ だよ。「より<ruby>大<rt>おお</rt></ruby>きい」なら $x > 3$ になるよ。',
+    },
+    {
       type: 'date',
       text: '<ruby>文章<rt>ぶんしょう</rt></ruby>から<ruby>不等式<rt>ふとうしき</rt></ruby>をつくろう',
     },
@@ -244,8 +268,8 @@ export const literalRelationsChat: HistoryChat = {
       options: [
         { letter: 'A', text: '$a > 1000$', correct: false },
         { letter: 'B', text: '$a \\leqq 1000$', correct: false },
-        { letter: 'C', text: '$a < 1000$', correct: true },
-        { letter: 'D', text: '$a \\geqq 1000$', correct: false },
+        { letter: 'C', text: '$a \\geqq 1000$', correct: false },
+        { letter: 'D', text: '$a < 1000$', correct: true },
       ],
       explanation:
         '「<ruby>未満<rt>みまん</rt></ruby>」は「より<ruby>小<rt>ちい</rt></ruby>さい」という<ruby>意味<rt>いみ</rt></ruby>。$1000$ を<ruby>含<rt>ふく</rt></ruby>まないから $\\textcolor{#D97706}{a < 1000}$\n$\\leqq$ は「<ruby>以下<rt>いか</rt></ruby>」のときに<ruby>使<rt>つか</rt></ruby>うから<ruby>注意<rt>ちゅうい</rt></ruby>！',

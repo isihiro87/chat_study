@@ -66,14 +66,13 @@ export const quadFuncRealWorld: Topic = {
     flashcards: [
       {
         id: 'math-g3-qf-rw-fc1',
-        front: 'ブレーキをかけてから車が止まるまでに進む距離', back: '制動距離とは何か？',
-        explanation: '速度の2乗に比例する（y = av²）',
+        front: '0.006 × 60² = 0.006 × 3600 = 21.6m', back: 'y = 0.006x² の制動距離で、時速60kmのとき何m？',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-qf-rw-fc2',
-        front: '危険を感じてからブレーキを踏むまでに進む距離', back: '空走距離とは何か？',
-        explanation: '速度に比例する（1次関数）',
+        front: '25倍（5² = 25）', back: '速度が5倍になると制動距離は何倍？',
+        explanation: '制動距離は速度の2乗に比例する',
         difficulty: 'basic',
       },
       {
@@ -121,7 +120,7 @@ export const quadFuncRealWorld: Topic = {
       },
       {
         id: 'math-g3-qf-rw-fc13',
-        front: '同じxの値に対してyが大きくなる。制動距離なら「止まりにくい車」ということ', back: 'y = ax² で「aが大きい」とはどういう意味？',
+        front: '0.006 × 40² = 0.006 × 1600 = 9.6m', back: 'y = 0.006x² の制動距離で、時速40kmのとき何m？',
         difficulty: 'standard',
       },
       {

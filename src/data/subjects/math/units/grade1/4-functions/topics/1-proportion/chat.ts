@@ -95,6 +95,18 @@ export const proportionChat: HistoryChat = {
       text: '<ruby>関数<rt>かんすう</rt></ruby>とは、$x$ の<ruby>値<rt>あたい</rt></ruby>を<ruby>決<rt>き</rt></ruby>めると $y$ の<ruby>値<rt>あたい</rt></ruby>がただ1つ<ruby>決<rt>き</rt></ruby>まる<ruby>関係<rt>かんけい</rt></ruby>のこと。',
     },
     {
+      type: 'quiz',
+      question: '1<ruby>個<rt>こ</rt></ruby> $80$ <ruby>円<rt>えん</rt></ruby>のみかんを $x$ <ruby>個<rt>こ</rt></ruby><ruby>買<rt>か</rt></ruby>ったときの<ruby>代金<rt>だいきん</rt></ruby> $y$ <ruby>円<rt>えん</rt></ruby>。$x = 4$ のとき $y$ は？',
+      options: [
+        { letter: 'A', text: '$20$', correct: false },
+        { letter: 'B', text: '$84$', correct: false },
+        { letter: 'C', text: '$320$', correct: true },
+        { letter: 'D', text: '$400$', correct: false },
+      ],
+      explanation:
+        '$y = 80x$ だから $y = 80 \\times 4 = \\textcolor{#D97706}{320}$ <ruby>円<rt>えん</rt></ruby>だよ。$x$ を<ruby>決<rt>き</rt></ruby>めると $y$ がただ1つ<ruby>決<rt>き</rt></ruby>まる！',
+    },
+    {
       type: 'date',
       text: '<ruby>比例<rt>ひれい</rt></ruby>の<ruby>式<rt>しき</rt></ruby> $y = ax$',
     },
@@ -172,20 +184,20 @@ export const proportionChat: HistoryChat = {
       text: 'すごい！$x$ が<ruby>何倍<rt>なんばい</rt></ruby>になっても、$y$ もぴったり<ruby>同<rt>おな</rt></ruby>じ<ruby>倍率<rt>ばいりつ</rt></ruby>になるんですね！',
     },
     {
+      type: 'summary-point',
+      text: '<ruby>比例<rt>ひれい</rt></ruby>の<ruby>式<rt>しき</rt></ruby>は $y = ax$。$x$ が $n$ <ruby>倍<rt>ばい</rt></ruby>になると $y$ も $n$ <ruby>倍<rt>ばい</rt></ruby>になる。$\\frac{y}{x} = a$（<ruby>一定<rt>いってい</rt></ruby>）。',
+    },
+    {
       type: 'quiz',
       question: '$y = -4x$ のとき、$x = 5$ なら $y$ はいくつ？',
       options: [
         { letter: 'A', text: '$20$', correct: false },
-        { letter: 'B', text: '$-20$', correct: true },
+        { letter: 'B', text: '$1$', correct: false },
         { letter: 'C', text: '$-9$', correct: false },
-        { letter: 'D', text: '$1$', correct: false },
+        { letter: 'D', text: '$-20$', correct: true },
       ],
       explanation:
         '$y = -4 \\times 5 = \\textcolor{#D97706}{-20}$ だよ。\n<ruby>符号<rt>ふごう</rt></ruby>に<ruby>注意<rt>ちゅうい</rt></ruby>！',
-    },
-    {
-      type: 'summary-point',
-      text: '<ruby>比例<rt>ひれい</rt></ruby>の<ruby>式<rt>しき</rt></ruby>は $y = ax$。$x$ が $n$ <ruby>倍<rt>ばい</rt></ruby>になると $y$ も $n$ <ruby>倍<rt>ばい</rt></ruby>になる。$\\frac{y}{x} = a$（<ruby>一定<rt>いってい</rt></ruby>）。',
     },
     {
       type: 'date',
@@ -285,20 +297,20 @@ export const proportionChat: HistoryChat = {
       text: '$a$ の<ruby>符号<rt>ふごう</rt></ruby>でグラフの<ruby>向<rt>む</rt></ruby>きが<ruby>変<rt>か</rt></ruby>わって、$a$ の<ruby>大<rt>おお</rt></ruby>きさで<ruby>傾<rt>かたむ</rt></ruby>きが<ruby>変<rt>か</rt></ruby>わるんですね！',
     },
     {
+      type: 'summary-point',
+      text: '<ruby>比例<rt>ひれい</rt></ruby>のグラフは<ruby>原点<rt>げんてん</rt></ruby>を<ruby>通<rt>とお</rt></ruby>る<ruby>直線<rt>ちょくせん</rt></ruby>。$a > 0$ で<ruby>右上<rt>みぎうえ</rt></ruby>がり、$a < 0$ で<ruby>右下<rt>みぎした</rt></ruby>がり。',
+    },
+    {
       type: 'quiz',
       question: '$y = -3x$ のグラフはどんな<ruby>形<rt>かたち</rt></ruby>？',
       options: [
         { letter: 'A', text: '<ruby>原点<rt>げんてん</rt></ruby>を<ruby>通<rt>とお</rt></ruby>る<ruby>右上<rt>みぎうえ</rt></ruby>がりの<ruby>直線<rt>ちょくせん</rt></ruby>', correct: false },
-        { letter: 'B', text: '<ruby>原点<rt>げんてん</rt></ruby>を<ruby>通<rt>とお</rt></ruby>る<ruby>右下<rt>みぎした</rt></ruby>がりの<ruby>直線<rt>ちょくせん</rt></ruby>', correct: true },
-        { letter: 'C', text: '<ruby>原点<rt>げんてん</rt></ruby>を<ruby>通<rt>とお</rt></ruby>らない<ruby>直線<rt>ちょくせん</rt></ruby>', correct: false },
+        { letter: 'B', text: '<ruby>原点<rt>げんてん</rt></ruby>を<ruby>通<rt>とお</rt></ruby>らない<ruby>直線<rt>ちょくせん</rt></ruby>', correct: false },
+        { letter: 'C', text: '<ruby>原点<rt>げんてん</rt></ruby>を<ruby>通<rt>とお</rt></ruby>る<ruby>右下<rt>みぎした</rt></ruby>がりの<ruby>直線<rt>ちょくせん</rt></ruby>', correct: true },
         { letter: 'D', text: '<ruby>曲線<rt>きょくせん</rt></ruby>', correct: false },
       ],
       explanation:
         '$a = -3 < 0$ なので<ruby>原点<rt>げんてん</rt></ruby>を<ruby>通<rt>とお</rt></ruby>る<ruby>右下<rt>みぎした</rt></ruby>がりの<ruby>直線<rt>ちょくせん</rt></ruby>だよ。',
-    },
-    {
-      type: 'summary-point',
-      text: '<ruby>比例<rt>ひれい</rt></ruby>のグラフは<ruby>原点<rt>げんてん</rt></ruby>を<ruby>通<rt>とお</rt></ruby>る<ruby>直線<rt>ちょくせん</rt></ruby>。$a > 0$ で<ruby>右上<rt>みぎうえ</rt></ruby>がり、$a < 0$ で<ruby>右下<rt>みぎした</rt></ruby>がり。',
     },
     {
       type: 'end',
