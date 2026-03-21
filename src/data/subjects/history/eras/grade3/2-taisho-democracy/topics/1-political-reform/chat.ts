@@ -8,7 +8,7 @@ export const politicalReformChat: HistoryChat = {
   characters: [
     {
       id: 'teacher',
-      name: '大正博士',
+      name: '先生',
       emoji: '🎓',
       colorFrom: '#1d4ed8',
       colorTo: '#3b82f6',
@@ -96,13 +96,13 @@ export const politicalReformChat: HistoryChat = {
       type: 'quiz',
       question: '第一次護憲運動で退陣に追い込まれた藩閥出身の首相は？',
       options: [
-        { letter: 'A', text: '寺内正毅', correct: false },
+        { letter: 'A', text: '桂太郎', correct: true },
         { letter: 'B', text: '原敬', correct: false },
-        { letter: 'C', text: '桂太郎', correct: true },
+        { letter: 'C', text: '寺内正毅', correct: false },
         { letter: 'D', text: '山県有朋', correct: false },
       ],
       explanation:
-        '<strong>正解はC「<ruby>桂太郎<rp>(</rp><rt>かつらたろう</rt><rp>)</rp></ruby>」</strong>です。<ruby>民衆<rp>(</rp><rt>みんしゅう</rt><rp>)</rp></ruby>の<ruby>護憲<rp>(</rp><rt>ごけん</rt><rp>)</rp></ruby>運動により、<ruby>藩閥<rp>(</rp><rt>はんばつ</rt><rp>)</rp></ruby>政治の<ruby>象徴<rp>(</rp><rt>しょうちょう</rt><rp>)</rp></ruby>である桂太郎内閣は退陣しました。',
+        '<strong>正解はA「<ruby>桂太郎<rp>(</rp><rt>かつらたろう</rt><rp>)</rp></ruby>」</strong>です。<ruby>民衆<rp>(</rp><rt>みんしゅう</rt><rp>)</rp></ruby>の<ruby>護憲<rp>(</rp><rt>ごけん</rt><rp>)</rp></ruby>運動により、<ruby>藩閥<rp>(</rp><rt>はんばつ</rt><rp>)</rp></ruby>政治の<ruby>象徴<rp>(</rp><rt>しょうちょう</rt><rp>)</rp></ruby>である桂太郎内閣は退陣しました。',
     },
     {
       type: 'narrator',
@@ -143,11 +143,11 @@ export const politicalReformChat: HistoryChat = {
       options: [
         { letter: 'A', text: '桂太郎', correct: false },
         { letter: 'B', text: '寺内正毅', correct: false },
-        { letter: 'C', text: '原敬', correct: true },
-        { letter: 'D', text: '吉野作造', correct: false },
+        { letter: 'C', text: '吉野作造', correct: false },
+        { letter: 'D', text: '原敬', correct: true },
       ],
       explanation:
-        '<strong>正解はC「<ruby>原敬<rp>(</rp><rt>はらたかし</rt><rp>)</rp></ruby>」</strong>です。「<ruby>平民宰相<rp>(</rp><rt>へいみんさいしょう</rt><rp>)</rp></ruby>」と呼ばれ、国民の<ruby>期待<rp>(</rp><rt>きたい</rt><rp>)</rp></ruby>を背負って本格的な<ruby>政党内閣<rp>(</rp><rt>せいとうないかく</rt><rp>)</rp></ruby>を<ruby>組織<rp>(</rp><rt>そしき</rt><rp>)</rp></ruby>しました。',
+        '<strong>正解はD「<ruby>原敬<rp>(</rp><rt>はらたかし</rt><rp>)</rp></ruby>」</strong>です。「<ruby>平民宰相<rp>(</rp><rt>へいみんさいしょう</rt><rp>)</rp></ruby>」と呼ばれ、国民の<ruby>期待<rp>(</rp><rt>きたい</rt><rp>)</rp></ruby>を背負って本格的な<ruby>政党内閣<rp>(</rp><rt>せいとうないかく</rt><rp>)</rp></ruby>を<ruby>組織<rp>(</rp><rt>そしき</rt><rp>)</rp></ruby>しました。',
     },
     {
       type: 'narrator',
@@ -176,12 +176,12 @@ export const politicalReformChat: HistoryChat = {
       question: '1925年に成立した普通選挙法で選挙権を得たのは？',
       options: [
         { letter: 'A', text: '20歳以上のすべての男女', correct: false },
-        { letter: 'B', text: '25歳以上のすべての男性', correct: true },
-        { letter: 'C', text: '25歳以上のすべての男女', correct: false },
+        { letter: 'B', text: '25歳以上のすべての男女', correct: false },
+        { letter: 'C', text: '25歳以上のすべての男性', correct: true },
         { letter: 'D', text: '20歳以上のすべての男性', correct: false },
       ],
       explanation:
-        '<strong>正解はB「25<ruby>歳<rp>(</rp><rt>さい</rt><rp>)</rp></ruby>以上のすべての<ruby>男性<rp>(</rp><rt>だんせい</rt><rp>)</rp></ruby>」</strong>です。<ruby>財産<rp>(</rp><rt>ざいさん</rt><rp>)</rp></ruby>による<ruby>制限<rp>(</rp><rt>せいげん</rt><rp>)</rp></ruby>はなくなりましたが、<ruby>女性参政権<rp>(</rp><rt>じょせいさんせいけん</rt><rp>)</rp></ruby>はまだ<ruby>認<rp>(</rp><rt>みと</rt><rp>)</rp></ruby>められていませんでした。',
+        '<strong>正解はC「25<ruby>歳<rp>(</rp><rt>さい</rt><rp>)</rp></ruby>以上のすべての<ruby>男性<rp>(</rp><rt>だんせい</rt><rp>)</rp></ruby>」</strong>です。<ruby>財産<rp>(</rp><rt>ざいさん</rt><rp>)</rp></ruby>による<ruby>制限<rp>(</rp><rt>せいげん</rt><rp>)</rp></ruby>はなくなりましたが、<ruby>女性参政権<rp>(</rp><rt>じょせいさんせいけん</rt><rp>)</rp></ruby>はまだ<ruby>認<rp>(</rp><rt>みと</rt><rp>)</rp></ruby>められていませんでした。',
     },
     {
       type: 'end',

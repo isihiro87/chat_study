@@ -8,7 +8,7 @@ export const massCultureChat: HistoryChat = {
   characters: [
     {
       id: 'teacher',
-      name: '大正博士',
+      name: '先生',
       emoji: '🎓',
       colorFrom: '#4338ca',
       colorTo: '#6366f1',
@@ -78,13 +78,13 @@ export const massCultureChat: HistoryChat = {
       type: 'quiz',
       question: '日本でラジオ放送が始まったのは何年？',
       options: [
-        { letter: 'A', text: '1920年', correct: false },
+        { letter: 'A', text: '1925年', correct: true },
         { letter: 'B', text: '1923年', correct: false },
         { letter: 'C', text: '1927年', correct: false },
-        { letter: 'D', text: '1925年', correct: true },
+        { letter: 'D', text: '1920年', correct: false },
       ],
       explanation:
-        '<strong>正解はD「1925年」</strong>です。<ruby>ラジオ放送<rp>(</rp><rt>らじおほうそう</rt><rp>)</rp></ruby>の開始により、全国の家庭に<ruby>情報<rp>(</rp><rt>じょうほう</rt><rp>)</rp></ruby>や<ruby>娯楽<rp>(</rp><rt>ごらく</rt><rp>)</rp></ruby>が届けられるようになりました。',
+        '<strong>正解はA「1925年」</strong>です。<ruby>ラジオ放送<rp>(</rp><rt>らじおほうそう</rt><rp>)</rp></ruby>の開始により、全国の家庭に<ruby>情報<rp>(</rp><rt>じょうほう</rt><rp>)</rp></ruby>や<ruby>娯楽<rp>(</rp><rt>ごらく</rt><rp>)</rp></ruby>が届けられるようになりました。',
     },
     {
       type: 'narrator',
@@ -146,11 +146,11 @@ export const massCultureChat: HistoryChat = {
       options: [
         { letter: 'A', text: '芥川龍之介', correct: false },
         { letter: 'B', text: '志賀直哉', correct: false },
-        { letter: 'C', text: '小林多喜二', correct: true },
-        { letter: 'D', text: '夏目漱石', correct: false },
+        { letter: 'C', text: '夏目漱石', correct: false },
+        { letter: 'D', text: '小林多喜二', correct: true },
       ],
       explanation:
-        '<strong>正解はC「<ruby>小林多喜二<rp>(</rp><rt>こばやしたきじ</rt><rp>)</rp></ruby>」</strong>です。「<ruby>蟹工船<rp>(</rp><rt>かにこうせん</rt><rp>)</rp></ruby>」で<ruby>労働者<rp>(</rp><rt>ろうどうしゃ</rt><rp>)</rp></ruby>の<ruby>過酷<rp>(</rp><rt>かこく</rt><rp>)</rp></ruby>な生活を<ruby>描<rp>(</rp><rt>えが</rt><rp>)</rp></ruby>き、<ruby>プロレタリア文学<rp>(</rp><rt>ぷろれたりあぶんがく</rt><rp>)</rp></ruby>の<ruby>代表作<rp>(</rp><rt>だいひょうさく</rt><rp>)</rp></ruby>となりました。',
+        '<strong>正解はD「<ruby>小林多喜二<rp>(</rp><rt>こばやしたきじ</rt><rp>)</rp></ruby>」</strong>です。「<ruby>蟹工船<rp>(</rp><rt>かにこうせん</rt><rp>)</rp></ruby>」で<ruby>労働者<rp>(</rp><rt>ろうどうしゃ</rt><rp>)</rp></ruby>の<ruby>過酷<rp>(</rp><rt>かこく</rt><rp>)</rp></ruby>な生活を<ruby>描<rp>(</rp><rt>えが</rt><rp>)</rp></ruby>き、<ruby>プロレタリア文学<rp>(</rp><rt>ぷろれたりあぶんがく</rt><rp>)</rp></ruby>の<ruby>代表作<rp>(</rp><rt>だいひょうさく</rt><rp>)</rp></ruby>となりました。',
     },
     {
       type: 'narrator',
@@ -179,12 +179,12 @@ export const massCultureChat: HistoryChat = {
       question: '1923年に東京・横浜を襲った大災害は？',
       options: [
         { letter: 'A', text: '米騒動', correct: false },
-        { letter: 'B', text: '関東大震災', correct: true },
-        { letter: 'C', text: '東京大空襲', correct: false },
+        { letter: 'B', text: '東京大空襲', correct: false },
+        { letter: 'C', text: '関東大震災', correct: true },
         { letter: 'D', text: '濃尾地震', correct: false },
       ],
       explanation:
-        '<strong>正解はB「<ruby>関東大震災<rp>(</rp><rt>かんとうだいしんさい</rt><rp>)</rp></ruby>」</strong>です。1923年9月1日に<ruby>発生<rp>(</rp><rt>はっせい</rt><rp>)</rp></ruby>し、<ruby>東京<rp>(</rp><rt>とうきょう</rt><rp>)</rp></ruby>・<ruby>横浜<rp>(</rp><rt>よこはま</rt><rp>)</rp></ruby>に<ruby>壊滅的<rp>(</rp><rt>かいめつてき</rt><rp>)</rp></ruby>な<ruby>被害<rp>(</rp><rt>ひがい</rt><rp>)</rp></ruby>をもたらしましたが、<ruby>復興<rp>(</rp><rt>ふっこう</rt><rp>)</rp></ruby>により都市<ruby>近代化<rp>(</rp><rt>きんだいか</rt><rp>)</rp></ruby>が進みました。',
+        '<strong>正解はC「<ruby>関東大震災<rp>(</rp><rt>かんとうだいしんさい</rt><rp>)</rp></ruby>」</strong>です。1923年9月1日に<ruby>発生<rp>(</rp><rt>はっせい</rt><rp>)</rp></ruby>し、<ruby>東京<rp>(</rp><rt>とうきょう</rt><rp>)</rp></ruby>・<ruby>横浜<rp>(</rp><rt>よこはま</rt><rp>)</rp></ruby>に<ruby>壊滅的<rp>(</rp><rt>かいめつてき</rt><rp>)</rp></ruby>な<ruby>被害<rp>(</rp><rt>ひがい</rt><rp>)</rp></ruby>をもたらしましたが、<ruby>復興<rp>(</rp><rt>ふっこう</rt><rp>)</rp></ruby>により都市<ruby>近代化<rp>(</rp><rt>きんだいか</rt><rp>)</rp></ruby>が進みました。',
     },
     {
       type: 'end',

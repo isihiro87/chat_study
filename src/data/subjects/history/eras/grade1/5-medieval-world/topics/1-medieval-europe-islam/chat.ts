@@ -91,11 +91,11 @@ export const medievalEuropeIslamChat: HistoryChat = {
       question: '中世ヨーロッパで聖地エルサレム奪還のために派遣された軍を何という？',
       options: [
         { letter: 'A', text: '騎士団', correct: false },
-        { letter: 'B', text: '十字軍', correct: true },
-        { letter: 'C', text: '傭兵団', correct: false },
+        { letter: 'B', text: '傭兵団', correct: false },
+        { letter: 'C', text: '十字軍', correct: true },
         { letter: 'D', text: '遠征軍', correct: false },
       ],
-      explanation: '<strong>正解はB「<ruby>十字軍<rp>(</rp><rt>じゅうじぐん</rt><rp>)</rp></ruby>」</strong>です。11世紀末から<ruby>ローマ教皇<rp>(</rp><rt>ローマきょうこう</rt><rp>)</rp></ruby>の呼びかけで聖地エルサレム<ruby>奪還<rp>(</rp><rt>だっかん</rt><rp>)</rp></ruby>を目指して<ruby>派遣<rp>(</rp><rt>はけん</rt><rp>)</rp></ruby>されました。約200年にわたり数回の<ruby>遠征<rp>(</rp><rt>えんせい</rt><rp>)</rp></ruby>が行われました。',
+      explanation: '<strong>正解はC「<ruby>十字軍<rp>(</rp><rt>じゅうじぐん</rt><rp>)</rp></ruby>」</strong>です。11世紀末から<ruby>ローマ教皇<rp>(</rp><rt>ローマきょうこう</rt><rp>)</rp></ruby>の呼びかけで聖地エルサレム<ruby>奪還<rp>(</rp><rt>だっかん</rt><rp>)</rp></ruby>を目指して<ruby>派遣<rp>(</rp><rt>はけん</rt><rp>)</rp></ruby>されました。約200年にわたり数回の<ruby>遠征<rp>(</rp><rt>えんせい</rt><rp>)</rp></ruby>が行われました。',
     },
     {
       type: 'narrator',

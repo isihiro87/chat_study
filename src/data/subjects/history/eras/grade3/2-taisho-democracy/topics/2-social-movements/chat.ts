@@ -8,7 +8,7 @@ export const socialMovementsChat: HistoryChat = {
   characters: [
     {
       id: 'teacher',
-      name: '大正博士',
+      name: '先生',
       emoji: '🎓',
       colorFrom: '#7c3aed',
       colorTo: '#a78bfa',
@@ -78,13 +78,13 @@ export const socialMovementsChat: HistoryChat = {
       type: 'quiz',
       question: '日本で初めてメーデーが行われたのは何年？',
       options: [
-        { letter: 'A', text: '1918年', correct: false },
+        { letter: 'A', text: '1920年', correct: true },
         { letter: 'B', text: '1925年', correct: false },
-        { letter: 'C', text: '1920年', correct: true },
+        { letter: 'C', text: '1918年', correct: false },
         { letter: 'D', text: '1922年', correct: false },
       ],
       explanation:
-        '<strong>正解はC「1920年」</strong>です。<ruby>労働者<rp>(</rp><rt>ろうどうしゃ</rt><rp>)</rp></ruby>が<ruby>団結<rp>(</rp><rt>だんけつ</rt><rp>)</rp></ruby>して<ruby>権利<rp>(</rp><rt>けんり</rt><rp>)</rp></ruby>を<ruby>主張<rp>(</rp><rt>しゅちょう</rt><rp>)</rp></ruby>する日本初のメーデーが行われました。',
+        '<strong>正解はA「1920年」</strong>です。<ruby>労働者<rp>(</rp><rt>ろうどうしゃ</rt><rp>)</rp></ruby>が<ruby>団結<rp>(</rp><rt>だんけつ</rt><rp>)</rp></ruby>して<ruby>権利<rp>(</rp><rt>けんり</rt><rp>)</rp></ruby>を<ruby>主張<rp>(</rp><rt>しゅちょう</rt><rp>)</rp></ruby>する日本初のメーデーが行われました。',
     },
     {
       type: 'narrator',
@@ -130,13 +130,13 @@ export const socialMovementsChat: HistoryChat = {
       type: 'quiz',
       question: '全国水平社を結成した人々は？',
       options: [
-        { letter: 'A', text: '被差別部落の人々', correct: true },
+        { letter: 'A', text: '女性', correct: false },
         { letter: 'B', text: '小作農', correct: false },
         { letter: 'C', text: '労働者', correct: false },
-        { letter: 'D', text: '女性', correct: false },
+        { letter: 'D', text: '被差別部落の人々', correct: true },
       ],
       explanation:
-        '<strong>正解はA「<ruby>被差別部落<rp>(</rp><rt>ひさべつぶらく</rt><rp>)</rp></ruby>の人々」</strong>です。<ruby>差別<rp>(</rp><rt>さべつ</rt><rp>)</rp></ruby>からの<ruby>解放<rp>(</rp><rt>かいほう</rt><rp>)</rp></ruby>を<ruby>目指<rp>(</rp><rt>めざ</rt><rp>)</rp></ruby>して1922年に<ruby>結成<rp>(</rp><rt>けっせい</rt><rp>)</rp></ruby>され、<ruby>水平社宣言<rp>(</rp><rt>すいへいしゃせんげん</rt><rp>)</rp></ruby>を発表しました。',
+        '<strong>正解はD「<ruby>被差別部落<rp>(</rp><rt>ひさべつぶらく</rt><rp>)</rp></ruby>の人々」</strong>です。<ruby>差別<rp>(</rp><rt>さべつ</rt><rp>)</rp></ruby>からの<ruby>解放<rp>(</rp><rt>かいほう</rt><rp>)</rp></ruby>を<ruby>目指<rp>(</rp><rt>めざ</rt><rp>)</rp></ruby>して1922年に<ruby>結成<rp>(</rp><rt>けっせい</rt><rp>)</rp></ruby>され、<ruby>水平社宣言<rp>(</rp><rt>すいへいしゃせんげん</rt><rp>)</rp></ruby>を発表しました。',
     },
     {
       type: 'narrator',
@@ -157,13 +157,13 @@ export const socialMovementsChat: HistoryChat = {
       type: 'quiz',
       question: '新婦人協会を設立した女性解放運動の指導者は？',
       options: [
-        { letter: 'A', text: '平塚らいてう', correct: true },
+        { letter: 'A', text: '樋口一葉', correct: false },
         { letter: 'B', text: '与謝野晶子', correct: false },
-        { letter: 'C', text: '樋口一葉', correct: false },
+        { letter: 'C', text: '平塚らいてう', correct: true },
         { letter: 'D', text: '津田梅子', correct: false },
       ],
       explanation:
-        '<strong>正解はA「<ruby>平塚<rp>(</rp><rt>ひらつか</rt><rp>)</rp></ruby>らいてう」</strong>です。「<ruby>元始<rp>(</rp><rt>げんし</rt><rp>)</rp></ruby>、<ruby>女性<rp>(</rp><rt>じょせい</rt><rp>)</rp></ruby>は<ruby>太陽<rp>(</rp><rt>たいよう</rt><rp>)</rp></ruby>であった」と<ruby>宣言<rp>(</rp><rt>せんげん</rt><rp>)</rp></ruby>し、女性の<ruby>政治参加<rp>(</rp><rt>せいじさんか</rt><rp>)</rp></ruby>を求める運動を<ruby>展開<rp>(</rp><rt>てんかい</rt><rp>)</rp></ruby>しました。',
+        '<strong>正解はC「<ruby>平塚<rp>(</rp><rt>ひらつか</rt><rp>)</rp></ruby>らいてう」</strong>です。「<ruby>元始<rp>(</rp><rt>げんし</rt><rp>)</rp></ruby>、<ruby>女性<rp>(</rp><rt>じょせい</rt><rp>)</rp></ruby>は<ruby>太陽<rp>(</rp><rt>たいよう</rt><rp>)</rp></ruby>であった」と<ruby>宣言<rp>(</rp><rt>せんげん</rt><rp>)</rp></ruby>し、女性の<ruby>政治参加<rp>(</rp><rt>せいじさんか</rt><rp>)</rp></ruby>を求める運動を<ruby>展開<rp>(</rp><rt>てんかい</rt><rp>)</rp></ruby>しました。',
     },
     {
       type: 'end',
