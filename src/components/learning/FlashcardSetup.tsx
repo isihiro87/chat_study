@@ -160,6 +160,11 @@ export default function FlashcardSetup({ cards, onStart }: FlashcardSetupProps) 
           )}
         </div>
 
+        {/* 品質についての注意 */}
+        <p className="mb-3 text-center text-xs text-gray-400">
+          ※ まだ全部チェックしきれていないので、問題のクオリティがイマイチなところがあるかも…！ごめんね🙏
+        </p>
+
         {/* スタートボタン */}
         <button
           onClick={handleStart}
