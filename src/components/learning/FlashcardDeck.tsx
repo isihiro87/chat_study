@@ -19,9 +19,10 @@ interface FlashcardDeckProps {
   onProgressChange?: (current: number, total: number) => void;
   onComplete?: () => void;
   chatGPTInfo?: ChatGPTInfo;
+  subjectId?: string;
 }
 
-export function FlashcardDeck({ cards, onProgressChange, onComplete, chatGPTInfo }: FlashcardDeckProps) {
+export function FlashcardDeck({ cards, onProgressChange, onComplete, chatGPTInfo, subjectId }: FlashcardDeckProps) {
   // セットアップ状態
   const [setupComplete, setSetupComplete] = useState(false);
   const [activeCards, setActiveCards] = useState<Flashcard[]>(cards);
@@ -292,6 +293,7 @@ export function FlashcardDeck({ cards, onProgressChange, onComplete, chatGPTInfo
     return (
       <FlashcardSetup
         cards={cards}
+        subjectId={subjectId}
         onStart={(filtered, batchSize) => {
           setActiveCards(filtered);
           setActiveBatchSize(batchSize >= filtered.length ? undefined : batchSize);

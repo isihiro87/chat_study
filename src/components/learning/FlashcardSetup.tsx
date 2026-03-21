@@ -1,9 +1,11 @@
 import { useState, useMemo } from 'react';
 import type { Flashcard, Difficulty } from '../../data/types';
+import { loadFlashcardPreferences, saveFlashcardPreferences } from '../../utils/setupPreferencesStorage';
 
 interface FlashcardSetupProps {
   cards: Flashcard[];
   onStart: (filteredCards: Flashcard[], batchSize: number) => void;
+  subjectId?: string;
 }
 
 const DIFFICULTY_LABELS: Record<Difficulty, string> = {
@@ -18,12 +20,13 @@ function getDifficulty(card: Flashcard): Difficulty {
   return card.difficulty ?? 'standard';
 }
 
-export default function FlashcardSetup({ cards, onStart }: FlashcardSetupProps) {
+export default function FlashcardSetup({ cards, onStart, subjectId }: FlashcardSetupProps) {
+  const savedPrefs = useMemo(() => loadFlashcardPreferences(subjectId), [subjectId]);
   const [selectedDifficulties, setSelectedDifficulties] = useState<Set<Difficulty>>(
-    new Set(['basic', 'standard', 'advanced']),
+    () => new Set(savedPrefs.selectedDifficulties),
   );
-  const [batchSize, setBatchSize] = useState<number | null>(10); // null = 全部
-  const [shuffleOrder, setShuffleOrder] = useState(true); // true = ランダム
+  const [batchSize, setBatchSize] = useState<number | null>(savedPrefs.batchSize);
+  const [shuffleOrder, setShuffleOrder] = useState(savedPrefs.shuffleOrder);
 
   const countByDifficulty = useMemo(() => {
     const counts: Record<Difficulty, number> = { basic: 0, standard: 0, advanced: 0 };
@@ -54,6 +57,11 @@ export default function FlashcardSetup({ cards, onStart }: FlashcardSetupProps) 
 
   const handleStart = () => {
     if (filteredCards.length === 0) return;
+    saveFlashcardPreferences(subjectId, {
+      selectedDifficulties: Array.from(selectedDifficulties),
+      batchSize,
+      shuffleOrder,
+    });
     const ordered = shuffleOrder
       ? [...filteredCards].sort(() => Math.random() - 0.5)
       : filteredCards;

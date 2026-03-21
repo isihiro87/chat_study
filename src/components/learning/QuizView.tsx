@@ -29,6 +29,7 @@ interface QuizViewProps {
   navigation?: TopicNavigationInfo;
   extraResultButtons?: React.ReactNode;
   chatGPTInfo?: ChatGPTInfo;
+  subjectId?: string;
 }
 
 function ResultMessage({ percentage }: { percentage: number }) {
@@ -156,7 +157,7 @@ function ReorderQuestionInput({
   );
 }
 
-export function QuizView({ quiz, onProgressChange, onComplete, onCompleteWithDifficulties, onCompleteWithWrongQuestions, isNewBest, navigation, extraResultButtons, chatGPTInfo }: QuizViewProps) {
+export function QuizView({ quiz, onProgressChange, onComplete, onCompleteWithDifficulties, onCompleteWithWrongQuestions, isNewBest, navigation, extraResultButtons, chatGPTInfo, subjectId }: QuizViewProps) {
   // セットアップ状態
   const [setupComplete, setSetupComplete] = useState(false);
   const [activeQuestions, setActiveQuestions] = useState<QuizQuestion[]>([]);
@@ -286,6 +287,7 @@ export function QuizView({ quiz, onProgressChange, onComplete, onCompleteWithDif
     return (
       <QuizSetup
         questions={quiz.questions}
+        subjectId={subjectId}
         onStart={(filtered, difficulties, config) => {
           setActiveQuestions(filtered);
           setSelectedDifficulties(difficulties);

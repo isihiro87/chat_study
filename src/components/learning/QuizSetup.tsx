@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react';
 import type { QuizQuestion, Difficulty } from '../../data/types';
+import { loadQuizPreferences, saveQuizPreferences } from '../../utils/setupPreferencesStorage';
 
 export interface QuizSetupConfig {
   questionCount: number | null;
@@ -10,6 +11,7 @@ export interface QuizSetupConfig {
 interface QuizSetupProps {
   questions: QuizQuestion[];
   onStart: (filteredQuestions: QuizQuestion[], selectedDifficulties: Difficulty[], config: QuizSetupConfig) => void;
+  subjectId?: string;
 }
 
 const DIFFICULTY_LABELS: Record<Difficulty, string> = {
@@ -24,12 +26,13 @@ function getDifficulty(q: QuizQuestion): Difficulty {
   return q.difficulty ?? 'standard';
 }
 
-export default function QuizSetup({ questions, onStart }: QuizSetupProps) {
+export default function QuizSetup({ questions, onStart, subjectId }: QuizSetupProps) {
+  const savedPrefs = useMemo(() => loadQuizPreferences(subjectId), [subjectId]);
   const [selectedDifficulties, setSelectedDifficulties] = useState<Set<Difficulty>>(
-    new Set(['basic', 'standard', 'advanced']),
+    () => new Set(savedPrefs.selectedDifficulties),
   );
-  const [questionCount, setQuestionCount] = useState<number | null>(null); // null = 全問
-  const [shuffleOrder, setShuffleOrder] = useState(true); // true = ランダム
+  const [questionCount, setQuestionCount] = useState<number | null>(savedPrefs.questionCount);
+  const [shuffleOrder, setShuffleOrder] = useState(savedPrefs.shuffleOrder);
 
   const countByDifficulty = useMemo(() => {
     const counts: Record<Difficulty, number> = { basic: 0, standard: 0, advanced: 0 };
@@ -76,6 +79,11 @@ export default function QuizSetup({ questions, onStart }: QuizSetupProps) {
       shuffleOrder,
       selectedDifficulties: Array.from(selectedDifficulties),
     };
+    saveQuizPreferences(subjectId, {
+      selectedDifficulties: config.selectedDifficulties,
+      questionCount,
+      shuffleOrder,
+    });
     onStart(selected, Array.from(selectedDifficulties), config);
   };
 

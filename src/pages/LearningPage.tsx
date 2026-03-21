@@ -452,6 +452,7 @@ export function LearningPage() {
             onProgressChange={handleCardProgressChange}
             onComplete={handleFlashcardComplete}
             chatGPTInfo={subjectId ? { subjectId, topicName: topic.name, topicSubtitle: topic.subtitle } : undefined}
+            subjectId={subjectId}
           />
         </main>
       </div>
@@ -472,6 +473,7 @@ export function LearningPage() {
             isNewBest={quizNewBest}
             navigation={topicNavigation}
             chatGPTInfo={subjectId ? { subjectId, topicName: topic.name, topicSubtitle: topic.subtitle } : undefined}
+            subjectId={subjectId}
           />
         </main>
       </div>
