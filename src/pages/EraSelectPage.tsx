@@ -75,6 +75,14 @@ export function EraSelectPage() {
           ))}
         </div>
 
+        {subjectId === 'math' && (
+          <div className="mb-4 rounded-xl bg-amber-50 border border-amber-200 p-3">
+            <p className="text-sm text-amber-700">
+              まだ全部のトピックはそろっていません。少しずつ追加していくので楽しみにしていてね！
+            </p>
+          </div>
+        )}
+
         {/* まとめクイズボタン */}
         {subjectId && (
           <Link

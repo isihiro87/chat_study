@@ -60,14 +60,6 @@ export function TopicSelectPage() {
           </div>
         )}
 
-        {subjectId === 'math' && (
-          <div className="mb-4 rounded-xl bg-amber-50 border border-amber-200 p-3">
-            <p className="text-sm text-amber-700">
-              まだ全部のトピックはそろっていません。少しずつ追加していくので楽しみにしていてね！
-            </p>
-          </div>
-        )}
-
         <h2 className="mb-3 text-sm font-semibold text-gray-600">
           学びたいトピックをえらぼう
         </h2>
