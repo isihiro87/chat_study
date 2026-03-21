@@ -39,6 +39,12 @@ export const populationChat: HistoryChat = {
       text: '都市への人口集中と過密',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade2/japan-features/population.png',
+      alt: '日本の人口分布と少子高齢化の全体図',
+      caption: '日本の人口の全体像：三大都市圏への集中と少子高齢化',
+    },
+    {
       type: 'narrator',
       text: '日本の人口は、特定の地域に<ruby>集中<rp>(</rp><rt>しゅうちゅう</rt><rp>)</rp></ruby>しています。それが生み出す問題を見ていきましょう。',
     },
@@ -113,12 +119,24 @@ export const populationChat: HistoryChat = {
       type: 'quiz',
       question: '札幌・仙台・広島・福岡のように、地方の中心となる都市を何というか？',
       options: [
-        { letter: 'A', text: '政令指定都市', correct: false },
+        { letter: 'A', text: '地方中枢都市', correct: true },
         { letter: 'B', text: '三大都市圏', correct: false },
-        { letter: 'C', text: '地方中枢都市', correct: true },
+        { letter: 'C', text: '政令指定都市', correct: false },
         { letter: 'D', text: '衛星都市', correct: false },
       ],
-      explanation: '<strong>正解はC</strong>です。<ruby>地方中枢都市<rp>(</rp><rt>ちほうちゅうすうとし</rt><rp>)</rp></ruby>は各地方の中心となる都市で、<ruby>札幌<rp>(</rp><rt>さっぽろ</rt><rp>)</rp></ruby>・<ruby>仙台<rp>(</rp><rt>せんだい</rt><rp>)</rp></ruby>・<ruby>広島<rp>(</rp><rt>ひろしま</rt><rp>)</rp></ruby>・<ruby>福岡<rp>(</rp><rt>ふくおか</rt><rp>)</rp></ruby>が代表的です。',
+      explanation: '<strong>正解はA</strong>です。<ruby>地方中枢都市<rp>(</rp><rt>ちほうちゅうすうとし</rt><rp>)</rp></ruby>は各地方の中心となる都市で、<ruby>札幌<rp>(</rp><rt>さっぽろ</rt><rp>)</rp></ruby>・<ruby>仙台<rp>(</rp><rt>せんだい</rt><rp>)</rp></ruby>・<ruby>広島<rp>(</rp><rt>ひろしま</rt><rp>)</rp></ruby>・<ruby>福岡<rp>(</rp><rt>ふくおか</rt><rp>)</rp></ruby>が代表的です。',
+    },
+    {
+      type: 'image',
+      src: '/images/geography/grade2/japan-features/population-pyramid-chart.svg',
+      alt: '日本の人口ピラミッドグラフ（準備中）',
+      caption: '少子高齢化が進む日本の人口構成（準備中）出典：総務省統計局',
+    },
+    {
+      type: 'image',
+      src: '/images/geography/grade2/japan-features/urbanization-rate-chart.svg',
+      alt: '日本の都市化率の推移グラフ（準備中）',
+      caption: '三大都市圏への人口集中と都市化率の変化（準備中）出典：総務省統計局',
     },
     {
       type: 'date',
@@ -194,10 +212,10 @@ export const populationChat: HistoryChat = {
       options: [
         { letter: 'A', text: 'ピラミッド型', correct: false },
         { letter: 'B', text: 'つりがね型', correct: false },
-        { letter: 'C', text: 'つぼ型', correct: true },
-        { letter: 'D', text: '星型', correct: false },
+        { letter: 'C', text: '星型', correct: false },
+        { letter: 'D', text: 'つぼ型', correct: true },
       ],
-      explanation: '<strong>正解はC</strong>です。<ruby>少子高齢化<rp>(</rp><rt>しょうしこうれいか</rt><rp>)</rp></ruby>で上が広く下が<ruby>狭<rp>(</rp><rt>せま</rt><rp>)</rp></ruby>い「つぼ型」に変化しています。',
+      explanation: '<strong>正解はD</strong>です。<ruby>少子高齢化<rp>(</rp><rt>しょうしこうれいか</rt><rp>)</rp></ruby>で上が広く下が<ruby>狭<rp>(</rp><rt>せま</rt><rp>)</rp></ruby>い「つぼ型」に変化しています。',
     },
     {
       type: 'summary-point',

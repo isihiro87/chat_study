@@ -39,6 +39,12 @@ export const prefecturesChat: HistoryChat = {
       text: '廃藩置県と47都道府県のなりたち',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade1/japan-shape/seven-regions.png',
+      alt: '日本の7地方区分と47都道府県の全体像',
+      caption: '日本の都道府県と地域区分',
+    },
+    {
       type: 'narrator',
       text: '現在の<strong>47<ruby>都道府県<rp>(</rp><rt>とどうふけん</rt><rp>)</rp></ruby></strong>は、明治時代の大改革「<strong><ruby>廃藩置県<rp>(</rp><rt>はいはんちけん</rt><rp>)</rp></ruby></strong>」から始まりました。その成り立ちを見てみましょう。',
     },
@@ -107,11 +113,11 @@ export const prefecturesChat: HistoryChat = {
       question: '47都道府県の内訳として正しいものはどれ？',
       options: [
         { letter: 'A', text: '1都2道1府43県', correct: false },
-        { letter: 'B', text: '1都1道2府43県', correct: true },
+        { letter: 'B', text: '1都1道3府42県', correct: false },
         { letter: 'C', text: '2都1道1府43県', correct: false },
-        { letter: 'D', text: '1都1道3府42県', correct: false },
+        { letter: 'D', text: '1都1道2府43県', correct: true },
       ],
-      explanation: '<strong>正解はB</strong>です。日本は1<ruby>都<rp>(</rp><rt>と</rt><rp>)</rp></ruby>（東京）・1<ruby>道<rp>(</rp><rt>どう</rt><rp>)</rp></ruby>（北海道）・2<ruby>府<rp>(</rp><rt>ふ</rt><rp>)</rp></ruby>（大阪・京都）・43<ruby>県<rp>(</rp><rt>けん</rt><rp>)</rp></ruby>で構成されています。',
+      explanation: '<strong>正解はD</strong>です。日本は1<ruby>都<rp>(</rp><rt>と</rt><rp>)</rp></ruby>（東京）・1<ruby>道<rp>(</rp><rt>どう</rt><rp>)</rp></ruby>（北海道）・2<ruby>府<rp>(</rp><rt>ふ</rt><rp>)</rp></ruby>（大阪・京都）・43<ruby>県<rp>(</rp><rt>けん</rt><rp>)</rp></ruby>で構成されています。',
     },
     {
       type: 'date',
@@ -278,11 +284,11 @@ export const prefecturesChat: HistoryChat = {
       question: '愛知県の県庁所在地はどこ？',
       options: [
         { letter: 'A', text: '愛知市', correct: false },
-        { letter: 'B', text: '豊田市', correct: false },
-        { letter: 'C', text: '名古屋市', correct: true },
+        { letter: 'B', text: '名古屋市', correct: true },
+        { letter: 'C', text: '豊田市', correct: false },
         { letter: 'D', text: '岡崎市', correct: false },
       ],
-      explanation: '<strong>正解はC</strong>です。<ruby>愛知<rp>(</rp><rt>あいち</rt><rp>)</rp></ruby>県の<ruby>県庁所在地<rp>(</rp><rt>けんちょうしょざいち</rt><rp>)</rp></ruby>は<ruby>名古屋<rp>(</rp><rt>なごや</rt><rp>)</rp></ruby>市で、県名とは異なります。',
+      explanation: '<strong>正解はB</strong>です。<ruby>愛知<rp>(</rp><rt>あいち</rt><rp>)</rp></ruby>県の<ruby>県庁所在地<rp>(</rp><rt>けんちょうしょざいち</rt><rp>)</rp></ruby>は<ruby>名古屋<rp>(</rp><rt>なごや</rt><rp>)</rp></ruby>市で、県名とは異なります。',
     },
     {
       type: 'date',
@@ -328,13 +334,13 @@ export const prefecturesChat: HistoryChat = {
       type: 'quiz',
       question: '次のうち、県名と県庁所在地名が同じ県はどれ？',
       options: [
-        { letter: 'A', text: '宮城県', correct: false },
-        { letter: 'B', text: '広島県', correct: true },
+        { letter: 'A', text: '広島県', correct: true },
+        { letter: 'B', text: '宮城県', correct: false },
         { letter: 'C', text: '栃木県', correct: false },
         { letter: 'D', text: '兵庫県', correct: false },
       ],
       explanation:
-        '<strong>正解はB「<ruby>広島<rp>(</rp><rt>ひろしま</rt><rp>)</rp></ruby>県」</strong>です。広島県の県庁所在地は広島市で、県名と同じです。宮城県は仙台市、栃木県は宇都宮市、兵庫県は神戸市で、いずれも県名と異なります。',
+        '<strong>正解はA「<ruby>広島<rp>(</rp><rt>ひろしま</rt><rp>)</rp></ruby>県」</strong>です。広島県の県庁所在地は広島市で、県名と同じです。宮城県は仙台市、栃木県は宇都宮市、兵庫県は神戸市で、いずれも県名と異なります。',
     },
     {
       type: 'end',

@@ -65,11 +65,11 @@ export const kantoIndustryChat: HistoryChat = {
       question: '東京大都市圏の人口は日本全体のおよそ何分の1か？',
       options: [
         { letter: 'A', text: '5分の1', correct: false },
-        { letter: 'B', text: '4分の1', correct: false },
-        { letter: 'C', text: '3分の1', correct: true },
+        { letter: 'B', text: '3分の1', correct: true },
+        { letter: 'C', text: '4分の1', correct: false },
         { letter: 'D', text: '2分の1', correct: false },
       ],
-      explanation: '<strong>正解はC</strong>です。東京大都市圏は約3700万人で、日本の人口の約3分の1を占めています。',
+      explanation: '<strong>正解はB</strong>です。東京大都市圏は約3700万人で、日本の人口の約3分の1を占めています。',
     },
     {
       type: 'date',
@@ -125,16 +125,22 @@ export const kantoIndustryChat: HistoryChat = {
       text: '<span class="keyword">近郊農業</span>で新鮮野菜を供給。<span class="keyword">京浜</span>（出版・印刷）・<span class="keyword">京葉</span>（石油化学）・<span class="keyword">北関東</span>（自動車・電気機械）の各工業地域',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade2/japan-regions/kanto-industry-chart.svg',
+      alt: '関東地方の工業地域別製造品出荷額グラフ（準備中）',
+      caption: '京浜・京葉・北関東の製造品出荷額比較（準備中）出典：経済産業省',
+    },
+    {
       type: 'quiz',
       question: '千葉県の臨海部に石油化学コンビナートが集まる工業地域はどれか？',
       options: [
-        { letter: 'A', text: '京浜工業地帯', correct: false },
+        { letter: 'A', text: '京葉工業地域', correct: true },
         { letter: 'B', text: '北関東工業地域', correct: false },
-        { letter: 'C', text: '京葉工業地域', correct: true },
+        { letter: 'C', text: '京浜工業地帯', correct: false },
         { letter: 'D', text: '鹿島臨海工業地域', correct: false },
       ],
       explanation:
-        '<strong>正解はC「<ruby>京葉工業地域<rp>(</rp><rt>けいようこうぎょうちいき</rt><rp>)</rp></ruby>」</strong>です。千葉県の東京湾<ruby>沿岸<rp>(</rp><rt>えんがん</rt><rp>)</rp></ruby>に広がり、石油化学コンビナートや<ruby>製鉄所<rp>(</rp><rt>せいてつしょ</rt><rp>)</rp></ruby>が立地しています。',
+        '<strong>正解はA「<ruby>京葉工業地域<rp>(</rp><rt>けいようこうぎょうちいき</rt><rp>)</rp></ruby>」</strong>です。千葉県の東京湾<ruby>沿岸<rp>(</rp><rt>えんがん</rt><rp>)</rp></ruby>に広がり、石油化学コンビナートや<ruby>製鉄所<rp>(</rp><rt>せいてつしょ</rt><rp>)</rp></ruby>が立地しています。',
     },
     {
       type: 'date',
@@ -188,12 +194,12 @@ export const kantoIndustryChat: HistoryChat = {
       question: '群馬県の特産品で全国生産量の大部分を占める食品はどれか？',
       options: [
         { letter: 'A', text: '落花生', correct: false },
-        { letter: 'B', text: 'こんにゃく', correct: true },
+        { letter: 'B', text: '納豆', correct: false },
         { letter: 'C', text: 'そば', correct: false },
-        { letter: 'D', text: '納豆', correct: false },
+        { letter: 'D', text: 'こんにゃく', correct: true },
       ],
       explanation:
-        '<strong>正解はB「こんにゃく」</strong>です。<ruby>群馬<rp>(</rp><rt>ぐんま</rt><rp>)</rp></ruby>県は<ruby>蒟蒻<rp>(</rp><rt>こんにゃく</rt><rp>)</rp></ruby>いもの全国一の産地で、全国生産量の大部分を占めています。',
+        '<strong>正解はD「こんにゃく」</strong>です。<ruby>群馬<rp>(</rp><rt>ぐんま</rt><rp>)</rp></ruby>県は<ruby>蒟蒻<rp>(</rp><rt>こんにゃく</rt><rp>)</rp></ruby>いもの全国一の産地で、全国生産量の大部分を占めています。',
     },
     {
       type: 'end',

@@ -98,12 +98,12 @@ export const fieldworkChat: HistoryChat = {
       type: 'quiz',
       question: '野外調査の事前準備で最も重要なものはどれ？',
       options: [
-        { letter: 'A', text: 'ルートマップの作成', correct: true },
+        { letter: 'A', text: '報告書のテンプレート作成', correct: false },
         { letter: 'B', text: 'お弁当の準備', correct: false },
-        { letter: 'C', text: '報告書のテンプレート作成', correct: false },
+        { letter: 'C', text: 'ルートマップの作成', correct: true },
         { letter: 'D', text: '調査結果の予想', correct: false },
       ],
-      explanation: '<strong>正解はA</strong>です。調査経路や<ruby>観察<rp>(</rp><rt>かんさつ</rt><rp>)</rp></ruby>ポイントを記入したルートマップを作ることで、<ruby>効率的<rp>(</rp><rt>こうりつてき</rt><rp>)</rp></ruby>に調査できます。',
+      explanation: '<strong>正解はC</strong>です。調査経路や<ruby>観察<rp>(</rp><rt>かんさつ</rt><rp>)</rp></ruby>ポイントを記入したルートマップを作ることで、<ruby>効率的<rp>(</rp><rt>こうりつてき</rt><rp>)</rp></ruby>に調査できます。',
     },
     {
       type: 'date',
@@ -224,12 +224,12 @@ export const fieldworkChat: HistoryChat = {
       type: 'quiz',
       question: '野外調査の前に作成する、調査経路や観察ポイントを書き込んだ地図を何というか？',
       options: [
-        { letter: 'A', text: '主題図', correct: false },
+        { letter: 'A', text: 'ルートマップ', correct: true },
         { letter: 'B', text: '地形図', correct: false },
-        { letter: 'C', text: 'ルートマップ', correct: true },
+        { letter: 'C', text: '主題図', correct: false },
         { letter: 'D', text: '白地図', correct: false },
       ],
-      explanation: '<strong>正解はC「ルートマップ」</strong>です。調査経路や<ruby>観察<rp>(</rp><rt>かんさつ</rt><rp>)</rp></ruby>ポイントを書き込んで、効率的に調査を進めるための地図です。',
+      explanation: '<strong>正解はA「ルートマップ」</strong>です。調査経路や<ruby>観察<rp>(</rp><rt>かんさつ</rt><rp>)</rp></ruby>ポイントを書き込んで、効率的に調査を進めるための地図です。',
     },
     {
       type: 'summary-point',

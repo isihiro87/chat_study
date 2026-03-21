@@ -365,21 +365,6 @@ export const hokkaido: Topic = {
         {
           id: 'geo2-hk-q17',
           question:
-            '根釧台地で酪農が発達した理由として正しいものはどれか。',
-          options: [
-            '温暖な気候で牧草がよく育つため',
-            '冷涼で霧が多く畑作に不向きだが広大な牧草地があるため',
-            '港が近く乳製品の輸出に便利なため',
-            '火山灰の土壌が牧草に適しているため',
-          ],
-          correctIndex: 1,
-          explanation:
-            '根釧台地は冷涼で霧が多いため畑作に不向きですが、広大で平坦な土地に牧草地が広がり酪農に適しています。',
-          difficulty: 'advanced',
-        },
-        {
-          id: 'geo2-hk-q18',
-          question:
             '同じ作物を連続して栽培すると生育が悪くなる問題を何というか。',
           options: ['連作障害', '土壌侵食', '塩害', '地力低下'],
           correctIndex: 0,
@@ -388,7 +373,7 @@ export const hokkaido: Topic = {
           difficulty: 'advanced',
         },
         {
-          id: 'geo2-hk-q19',
+          id: 'geo2-hk-q18',
           question:
             '明治時代以降にアイヌの人々の土地や文化が奪われた背景にある政策はどれか。',
           options: [

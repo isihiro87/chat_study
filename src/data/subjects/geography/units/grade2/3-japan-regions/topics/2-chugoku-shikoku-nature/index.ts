@@ -278,21 +278,6 @@ export const chugokuShikokuNature: Topic = {
         },
         {
           id: 'geo2-csn-q9',
-          question:
-            '中国山地と四国山地の地形の違いとして正しいものはどれか。',
-          options: [
-            '中国山地は険しく、四国山地はなだらか',
-            '中国山地はなだらかで、四国山地は険しい',
-            'どちらも同じくらいの高さで険しい',
-            'どちらも同じくらいなだらかである',
-          ],
-          correctIndex: 1,
-          explanation:
-            '中国山地はなだらかな山地で、四国山地は険しい山地です。この違いが交通や集落の分布にも影響を与えています。',
-          difficulty: 'advanced',
-        },
-        {
-          id: 'geo2-csn-q10',
           question: '瀬戸内海沿岸に発達した工業地域を何というか。',
           options: ['京浜工業地帯', '中京工業地帯', '阪神工業地帯', '瀬戸内工業地域'],
           correctIndex: 3,
@@ -300,7 +285,7 @@ export const chugokuShikokuNature: Topic = {
           difficulty: 'basic',
         },
         {
-          id: 'geo2-csn-q11',
+          id: 'geo2-csn-q10',
           question: '高知県で温暖な気候とビニールハウスを使い出荷時期を早める栽培方法を何というか。',
           options: ['抑制栽培', '二期作', '促成栽培', '露地栽培'],
           correctIndex: 2,
@@ -308,7 +293,7 @@ export const chugokuShikokuNature: Topic = {
           difficulty: 'basic',
         },
         {
-          id: 'geo2-csn-q12',
+          id: 'geo2-csn-q11',
           question: '岡山県倉敷市にある代表的な工業施設はどれか。',
           options: ['鹿島コンビナート', '水島コンビナート', '堺泉北コンビナート', '四日市コンビナート'],
           correctIndex: 1,
@@ -316,7 +301,7 @@ export const chugokuShikokuNature: Topic = {
           difficulty: 'standard',
         },
         {
-          id: 'geo2-csn-q13',
+          id: 'geo2-csn-q12',
           question: '人口減少と高齢化が進み集落の維持が困難になった集落を何というか。',
           options: ['過疎集落', '限界集落', '孤立集落', '衰退集落'],
           correctIndex: 1,
@@ -324,7 +309,7 @@ export const chugokuShikokuNature: Topic = {
           difficulty: 'standard',
         },
         {
-          id: 'geo2-csn-q14',
+          id: 'geo2-csn-q13',
           question: '徳島県上勝町の葉っぱビジネスで出荷する葉っぱの用途はどれか。',
           options: ['薬草', 'つまもの', '染料', '飼料'],
           correctIndex: 1,
@@ -332,7 +317,7 @@ export const chugokuShikokuNature: Topic = {
           difficulty: 'standard',
         },
         {
-          id: 'geo2-csn-q15',
+          id: 'geo2-csn-q14',
           question: '瀬戸内地方でかつて塩田が盛んだった気候的理由はどれか。',
           options: ['降水量が少なく日照時間が長い', '冬に雪が多い', '台風が多い', '霧が発生しやすい'],
           correctIndex: 0,
@@ -340,7 +325,7 @@ export const chugokuShikokuNature: Topic = {
           difficulty: 'advanced',
         },
         {
-          id: 'geo2-csn-q16',
+          id: 'geo2-csn-q15',
           question: '広島市にある2つの世界遺産の組み合わせとして正しいものはどれか。',
           options: ['姫路城と厳島神社', '原爆ドームと厳島神社', '出雲大社と原爆ドーム', '錦帯橋と原爆ドーム'],
           correctIndex: 1,

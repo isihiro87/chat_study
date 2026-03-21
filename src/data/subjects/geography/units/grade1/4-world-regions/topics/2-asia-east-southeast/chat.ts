@@ -43,6 +43,12 @@ export const asiaEastSoutheastChat: HistoryChat = {
       text: '東アジアの大国・<ruby>中国<rp>(</rp><rt>ちゅうごく</rt><rp>)</rp></ruby>と<ruby>韓国<rp>(</rp><rt>かんこく</rt><rp>)</rp></ruby>の特徴を見ていきましょう。',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade1/world-regions/asean-map.png',
+      alt: 'ASEAN加盟国と東アジアの地図',
+      caption: '東アジア・東南アジアの国々とASEAN加盟国',
+    },
+    {
       type: 'message',
       side: 'left',
       characterId: 'teacher',
@@ -103,12 +109,12 @@ export const asiaEastSoutheastChat: HistoryChat = {
       type: 'quiz',
       question: '中国の沿岸部と内陸部の間で広がっている問題は？',
       options: [
-        { letter: 'A', text: '人口減少', correct: false },
-        { letter: 'B', text: '経済格差', correct: true },
+        { letter: 'A', text: '経済格差', correct: true },
+        { letter: 'B', text: '人口減少', correct: false },
         { letter: 'C', text: '言語の違い', correct: false },
         { letter: 'D', text: '宗教対立', correct: false },
       ],
-      explanation: '<strong>正解はB</strong>です。中国では<ruby>経済特区<rp>(</rp><rt>けいざいとっく</rt><rp>)</rp></ruby>のある<ruby>沿岸<rp>(</rp><rt>えんがん</rt><rp>)</rp></ruby>部と<ruby>内陸<rp>(</rp><rt>ないりく</rt><rp>)</rp></ruby>部の間に大きな<ruby>経済格差<rp>(</rp><rt>けいざいかくさ</rt><rp>)</rp></ruby>が広がっています。',
+      explanation: '<strong>正解はA</strong>です。中国では<ruby>経済特区<rp>(</rp><rt>けいざいとっく</rt><rp>)</rp></ruby>のある<ruby>沿岸<rp>(</rp><rt>えんがん</rt><rp>)</rp></ruby>部と<ruby>内陸<rp>(</rp><rt>ないりく</rt><rp>)</rp></ruby>部の間に大きな<ruby>経済格差<rp>(</rp><rt>けいざいかくさ</rt><rp>)</rp></ruby>が広がっています。',
     },
     {
       type: 'date',
@@ -163,10 +169,10 @@ export const asiaEastSoutheastChat: HistoryChat = {
       options: [
         { letter: 'A', text: '一人っ子政策', correct: false },
         { letter: 'B', text: '経済特区', correct: false },
-        { letter: 'C', text: '西部大開発', correct: true },
-        { letter: 'D', text: '改革開放', correct: false },
+        { letter: 'C', text: '改革開放', correct: false },
+        { letter: 'D', text: '西部大開発', correct: true },
       ],
-      explanation: '<strong>正解はC</strong>です。<ruby>西部大開発<rp>(</rp><rt>せいぶだいかいはつ</rt><rp>)</rp></ruby>は<ruby>内陸<rp>(</rp><rt>ないりく</rt><rp>)</rp></ruby>部のインフラ<ruby>整備<rp>(</rp><rt>せいび</rt><rp>)</rp></ruby>や産業<ruby>振興<rp>(</rp><rt>しんこう</rt><rp>)</rp></ruby>を進める政策です。',
+      explanation: '<strong>正解はD</strong>です。<ruby>西部大開発<rp>(</rp><rt>せいぶだいかいはつ</rt><rp>)</rp></ruby>は<ruby>内陸<rp>(</rp><rt>ないりく</rt><rp>)</rp></ruby>部のインフラ<ruby>整備<rp>(</rp><rt>せいび</rt><rp>)</rp></ruby>や産業<ruby>振興<rp>(</rp><rt>しんこう</rt><rp>)</rp></ruby>を進める政策です。',
     },
     {
       type: 'date',
@@ -278,6 +284,12 @@ export const asiaEastSoutheastChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<span class="keyword">二期作</span>：年に2回米を収穫。<span class="keyword">マングローブ</span>の減少が環境問題に',
+    },
+    {
+      type: 'image',
+      src: '/images/geography/grade1/world-regions/asean-trade-gdp-chart.svg',
+      alt: 'ASEAN諸国のGDPと貿易額の推移グラフ（準備中）',
+      caption: 'ASEAN諸国の経済成長と域内貿易の拡大（準備中）出典：ASEAN事務局・世界銀行',
     },
     {
       type: 'quiz',

@@ -39,6 +39,12 @@ export const locationMapsChat: HistoryChat = {
       text: '緯度と経度',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade1/world-shape/latitude-longitude.png',
+      alt: '緯度と経度の仕組みを示す地球の全体像',
+      caption: '地球上の位置 ― 緯度・経度と地図の世界',
+    },
+    {
       type: 'narrator',
       text: '地球上の位置を正確に表すには、<strong><ruby>緯度<rp>(</rp><rt>いど</rt><rp>)</rp></ruby></strong>と<strong><ruby>経度<rp>(</rp><rt>けいど</rt><rp>)</rp></ruby></strong>という仕組みを使います。その基準となる線を学びましょう。',
     },
@@ -154,11 +160,11 @@ export const locationMapsChat: HistoryChat = {
       question: '東京の対蹠点はどのあたりにある？',
       options: [
         { letter: 'A', text: 'アフリカ大陸の中央部', correct: false },
-        { letter: 'B', text: '南アメリカのウルグアイ沖', correct: true },
-        { letter: 'C', text: '北極海', correct: false },
+        { letter: 'B', text: '北極海', correct: false },
+        { letter: 'C', text: '南アメリカのウルグアイ沖', correct: true },
         { letter: 'D', text: 'オーストラリアの東側', correct: false },
       ],
-      explanation: '<strong>正解はB</strong>です。<ruby>対蹠点<rp>(</rp><rt>たいせきてん</rt><rp>)</rp></ruby>は地球の正反対の地点で、東京の対蹠点は南アメリカのウルグアイ<ruby>沖<rp>(</rp><rt>おき</rt><rp>)</rp></ruby>の<ruby>大西洋上<rp>(</rp><rt>たいせいようじょう</rt><rp>)</rp></ruby>にあります。',
+      explanation: '<strong>正解はC</strong>です。<ruby>対蹠点<rp>(</rp><rt>たいせきてん</rt><rp>)</rp></ruby>は地球の正反対の地点で、東京の対蹠点は南アメリカのウルグアイ<ruby>沖<rp>(</rp><rt>おき</rt><rp>)</rp></ruby>の<ruby>大西洋上<rp>(</rp><rt>たいせいようじょう</rt><rp>)</rp></ruby>にあります。',
     },
     {
       type: 'date',
@@ -216,12 +222,12 @@ export const locationMapsChat: HistoryChat = {
       question: '緯度の基準となる線はどれ？',
       options: [
         { letter: 'A', text: '本初子午線', correct: false },
-        { letter: 'B', text: '日付変更線', correct: false },
-        { letter: 'C', text: '赤道', correct: true },
+        { letter: 'B', text: '赤道', correct: true },
+        { letter: 'C', text: '日付変更線', correct: false },
         { letter: 'D', text: '北回帰線', correct: false },
       ],
       explanation:
-        '<strong>正解はC「<ruby>赤道<rp>(</rp><rt>せきどう</rt><rp>)</rp></ruby>」</strong>です。赤道を0度として、北を<ruby>北緯<rp>(</rp><rt>ほくい</rt><rp>)</rp></ruby>、南を<ruby>南緯<rp>(</rp><rt>なんい</rt><rp>)</rp></ruby>とします。本初子午線は経度の基準です。',
+        '<strong>正解はB「<ruby>赤道<rp>(</rp><rt>せきどう</rt><rp>)</rp></ruby>」</strong>です。赤道を0度として、北を<ruby>北緯<rp>(</rp><rt>ほくい</rt><rp>)</rp></ruby>、南を<ruby>南緯<rp>(</rp><rt>なんい</rt><rp>)</rp></ruby>とします。本初子午線は経度の基準です。',
     },
     {
       type: 'date',
@@ -305,12 +311,12 @@ export const locationMapsChat: HistoryChat = {
       type: 'quiz',
       question: '面積を正しく表せる地図の図法はどれ？',
       options: [
-        { letter: 'A', text: 'メルカトル図法', correct: false },
+        { letter: 'A', text: 'モルワイデ図法', correct: true },
         { letter: 'B', text: '正距方位図法', correct: false },
-        { letter: 'C', text: 'モルワイデ図法', correct: true },
+        { letter: 'C', text: 'メルカトル図法', correct: false },
         { letter: 'D', text: '地球儀', correct: false },
       ],
-      explanation: '<strong>正解はC</strong>です。モルワイデ<ruby>図法<rp>(</rp><rt>ずほう</rt><rp>)</rp></ruby>は面積が正しく表される図法で、<ruby>分布<rp>(</rp><rt>ぶんぷ</rt><rp>)</rp></ruby>図などに向いています。',
+      explanation: '<strong>正解はA</strong>です。モルワイデ<ruby>図法<rp>(</rp><rt>ずほう</rt><rp>)</rp></ruby>は面積が正しく表される図法で、<ruby>分布<rp>(</rp><rt>ぶんぷ</rt><rp>)</rp></ruby>図などに向いています。',
     },
     {
       type: 'date',
@@ -350,11 +356,11 @@ export const locationMapsChat: HistoryChat = {
       question: '8方位で「北と東の間」を表す方位はどれ？',
       options: [
         { letter: 'A', text: '北北東', correct: false },
-        { letter: 'B', text: '北東', correct: true },
+        { letter: 'B', text: '南東', correct: false },
         { letter: 'C', text: '東北東', correct: false },
-        { letter: 'D', text: '南東', correct: false },
+        { letter: 'D', text: '北東', correct: true },
       ],
-      explanation: '<strong>正解はB</strong>です。8<ruby>方位<rp>(</rp><rt>ほうい</rt><rp>)</rp></ruby>では北と東の間を<ruby>北東<rp>(</rp><rt>ほくとう</rt><rp>)</rp></ruby>といいます。北北東や東北東は16方位の表し方です。',
+      explanation: '<strong>正解はD</strong>です。8<ruby>方位<rp>(</rp><rt>ほうい</rt><rp>)</rp></ruby>では北と東の間を<ruby>北東<rp>(</rp><rt>ほくとう</rt><rp>)</rp></ruby>といいます。北北東や東北東は16方位の表し方です。',
     },
     {
       type: 'end',

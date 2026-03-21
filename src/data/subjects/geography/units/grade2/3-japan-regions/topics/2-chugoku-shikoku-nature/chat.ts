@@ -108,6 +108,12 @@ export const chugokuShikokuNatureChat: HistoryChat = {
       text: '<span class="keyword">中国山地</span>と<span class="keyword">四国山地</span>で、山陰（雪）・瀬戸内（少雨）・南四国（多雨）の3気候に分かれる。<span class="keyword">ため池</span>・<span class="keyword">早明浦ダム</span>で水確保',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade2/japan-regions/chugoku-shikoku-rainfall-chart.svg',
+      alt: '山陰・瀬戸内・南四国の年間降水量比較グラフ（準備中）',
+      caption: '3地域で降水量に大きな差がある（準備中）出典：気象庁',
+    },
+    {
       type: 'quiz',
       question: '瀬戸内地方で降水量が少ないことへの対策として、香川県に多くつくられたものは何か？',
       options: [

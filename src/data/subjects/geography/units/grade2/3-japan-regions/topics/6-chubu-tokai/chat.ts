@@ -117,13 +117,13 @@ export const chubuTokaiChat: HistoryChat = {
       type: 'quiz',
       question: '日本アルプスは標高が高いことから何とよばれるか？',
       options: [
-        { letter: 'A', text: '日本の背骨', correct: false },
-        { letter: 'B', text: '日本の屋根', correct: true },
+        { letter: 'A', text: '日本の屋根', correct: true },
+        { letter: 'B', text: '日本の背骨', correct: false },
         { letter: 'C', text: '日本の壁', correct: false },
         { letter: 'D', text: '日本の柱', correct: false },
       ],
       explanation:
-        '<strong>正解はB「日本の屋根」</strong>です。<ruby>飛驒<rp>(</rp><rt>ひだ</rt><rp>)</rp></ruby>山脈・<ruby>木曽<rp>(</rp><rt>きそ</rt><rp>)</rp></ruby>山脈・<ruby>赤石<rp>(</rp><rt>あかいし</rt><rp>)</rp></ruby>山脈の3000m級の山々が連なり、中部地方を3つの地域に分けています。',
+        '<strong>正解はA「日本の屋根」</strong>です。<ruby>飛驒<rp>(</rp><rt>ひだ</rt><rp>)</rp></ruby>山脈・<ruby>木曽<rp>(</rp><rt>きそ</rt><rp>)</rp></ruby>山脈・<ruby>赤石<rp>(</rp><rt>あかいし</rt><rp>)</rp></ruby>山脈の3000m級の山々が連なり、中部地方を3つの地域に分けています。',
     },
     {
       type: 'date',
@@ -164,11 +164,11 @@ export const chubuTokaiChat: HistoryChat = {
       options: [
         { letter: 'A', text: '三大河川', correct: false },
         { letter: 'B', text: '中部三川', correct: false },
-        { letter: 'C', text: '木曽三川', correct: true },
-        { letter: 'D', text: '濃尾三川', correct: false },
+        { letter: 'C', text: '濃尾三川', correct: false },
+        { letter: 'D', text: '木曽三川', correct: true },
       ],
       explanation:
-        '<strong>正解はC「<ruby>木曽三川<rp>(</rp><rt>きそさんせん</rt><rp>)</rp></ruby>」</strong>です。木曽川・<ruby>長良川<rp>(</rp><rt>ながらがわ</rt><rp>)</rp></ruby>・<ruby>揖斐川<rp>(</rp><rt>いびがわ</rt><rp>)</rp></ruby>の3本の川の総称で、<ruby>濃尾<rp>(</rp><rt>のうび</rt><rp>)</rp></ruby>平野の下流域で合流します。',
+        '<strong>正解はD「<ruby>木曽三川<rp>(</rp><rt>きそさんせん</rt><rp>)</rp></ruby>」</strong>です。木曽川・<ruby>長良川<rp>(</rp><rt>ながらがわ</rt><rp>)</rp></ruby>・<ruby>揖斐川<rp>(</rp><rt>いびがわ</rt><rp>)</rp></ruby>の3本の川の総称で、<ruby>濃尾<rp>(</rp><rt>のうび</rt><rp>)</rp></ruby>平野の下流域で合流します。',
     },
     {
       type: 'date',
@@ -230,6 +230,12 @@ export const chubuTokaiChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<span class="keyword">中京工業地帯</span>：自動車産業中心で製造品出荷額が日本最大。浜松のオートバイ・楽器、四日市の石油化学コンビナート、牧之原の茶、渥美半島の温室メロン',
+    },
+    {
+      type: 'image',
+      src: '/images/geography/grade2/japan-regions/chubu-auto-production-chart.svg',
+      alt: '中京工業地帯の自動車生産台数グラフ（準備中）',
+      caption: '愛知県は自動車生産台数で全国の約3分の1を占める（準備中）出典：経済産業省',
     },
     {
       type: 'quiz',

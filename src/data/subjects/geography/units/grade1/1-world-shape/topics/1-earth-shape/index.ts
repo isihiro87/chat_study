@@ -359,34 +359,6 @@ export const earthShape: Topic = {
       },
         {
           id: 'geo1-es-q13',
-          question: '太平洋の位置として正しいものはどれ？',
-          options: [
-            'アジアとアメリカ大陸の間',
-            'ヨーロッパとアフリカの間',
-            'アフリカと南アメリカの間',
-            'インドの南側',
-          ],
-          correctIndex: 0,
-          explanation:
-            '太平洋はユーラシア大陸・オーストラリア大陸の東側と、北アメリカ・南アメリカ大陸の西側の間に広がっています。',
-        difficulty: 'standard',
-      },
-        {
-          id: 'geo1-es-q14',
-          question: '大西洋はどの大陸の間に広がっているか？',
-          options: [
-            'アジアとオーストラリアの間',
-            'アフリカとオーストラリアの間',
-            '南極と南アメリカの間',
-            'ヨーロッパ・アフリカとアメリカ大陸の間',
-          ],
-          correctIndex: 3,
-          explanation:
-            '大西洋はヨーロッパ・アフリカ大陸とアメリカ大陸の間に広がっています。',
-        difficulty: 'standard',
-      },
-        {
-          id: 'geo1-es-q15',
           question: 'インドの南側に広がる大洋はどれ？',
           options: [
             '太平洋',
@@ -400,7 +372,7 @@ export const earthShape: Topic = {
         difficulty: 'standard',
       },
         {
-          id: 'geo1-es-q16',
+          id: 'geo1-es-q14',
           question: 'タイやインドネシアが含まれるアジアの地域区分はどれ？',
           options: [
             '東アジア',
@@ -414,7 +386,7 @@ export const earthShape: Topic = {
         difficulty: 'standard',
       },
         {
-          id: 'geo1-es-q17',
+          id: 'geo1-es-q15',
           question: 'インドやバングラデシュが含まれるアジアの地域区分はどれ？',
           options: [
             '東アジア',
@@ -428,7 +400,7 @@ export const earthShape: Topic = {
         difficulty: 'standard',
       },
         {
-          id: 'geo1-es-q18',
+          id: 'geo1-es-q16',
           question: 'ユーラシア大陸とアフリカ大陸を結ぶ地域はどこか？',
           options: [
             'スエズ地峡付近',
@@ -442,7 +414,7 @@ export const earthShape: Topic = {
         difficulty: 'standard',
       },
         {
-          id: 'geo1-es-q19',
+          id: 'geo1-es-q17',
           question: '北アメリカ大陸と南アメリカ大陸を結ぶ細い陸地は何か？',
           options: [
             'スエズ地峡',
@@ -456,7 +428,7 @@ export const earthShape: Topic = {
         difficulty: 'standard',
       },
         {
-          id: 'geo1-es-q20',
+          id: 'geo1-es-q18',
           question: '北アメリカ大陸にある2つの大きな国はどれ？',
           options: [
             'ブラジルとアルゼンチン',
@@ -470,7 +442,7 @@ export const earthShape: Topic = {
         difficulty: 'standard',
       },
         {
-          id: 'geo1-es-q21',
+          id: 'geo1-es-q19',
           question: 'アフリカ大陸は六大陸のうち面積が何番目に大きいか？',
           options: [
             '1番目',
@@ -484,7 +456,7 @@ export const earthShape: Topic = {
         difficulty: 'standard',
       },
         {
-          id: 'geo1-es-q22',
+          id: 'geo1-es-q20',
           question: '南半球に位置する大陸として正しくないものはどれ？',
           options: [
             '南アメリカ大陸',
@@ -498,7 +470,7 @@ export const earthShape: Topic = {
         difficulty: 'standard',
       },
         {
-          id: 'geo1-es-q23',
+          id: 'geo1-es-q21',
           question: '太平洋に多くの島が点在する地域を含む州はどこ？',
           options: [
             'アジア州',
@@ -512,35 +484,7 @@ export const earthShape: Topic = {
         difficulty: 'advanced',
       },
         {
-          id: 'geo1-es-q24',
-          question: '州の区分の基準として正しいものはどれ？',
-          options: [
-            '面積の大きさ',
-            '人口の多さ',
-            '大陸の位置や文化・歴史的なまとまり',
-            '経度の位置',
-          ],
-          correctIndex: 2,
-          explanation:
-            '州の区分は大陸の位置や文化・歴史的なまとまりをもとに分けられています。',
-        difficulty: 'advanced',
-      },
-        {
-          id: 'geo1-es-q25',
-          question: '六つの大陸と六つの州で内容が異なる理由として正しいものはどれ？',
-          options: [
-            'ユーラシア大陸が2つの州に分かれ南極大陸は州に含まれないため',
-            '大陸と州の数が違うため',
-            'アフリカ大陸が2つの州に分かれるため',
-            'オーストラリアが州に含まれないため',
-          ],
-          correctIndex: 0,
-          explanation:
-            'ユーラシア大陸がアジア州とヨーロッパ州に分かれ、南極大陸は州に含まれず、かわりにオセアニア州があります。',
-        difficulty: 'advanced',
-      },
-        {
-          id: 'geo1-es-q26',
+          id: 'geo1-es-q22',
           question: 'サウジアラビアやイランが含まれるアジアの地域区分はどれ？',
           options: [
             '東アジア',
@@ -554,7 +498,7 @@ export const earthShape: Topic = {
         difficulty: 'advanced',
       },
         {
-          id: 'geo1-es-q27',
+          id: 'geo1-es-q23',
           question: 'カザフスタンやウズベキスタンが含まれるアジアの地域区分はどれ？',
           options: [
             '東アジア',
@@ -568,7 +512,7 @@ export const earthShape: Topic = {
         difficulty: 'advanced',
       },
         {
-          id: 'geo1-es-q28',
+          id: 'geo1-es-q24',
           question: 'アジア州とヨーロッパ州が同じ大陸上にあるのは何大陸か？',
           options: [
             'アフリカ大陸',

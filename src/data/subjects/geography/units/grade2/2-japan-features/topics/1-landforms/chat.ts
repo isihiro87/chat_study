@@ -39,6 +39,12 @@ export const landformsChat: HistoryChat = {
       text: '環太平洋造山帯と日本の山地',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade2/japan-features/landforms.png',
+      alt: '日本の山地・河川・海岸・海流の地形図',
+      caption: '日本の地形の全体像：山地・河川・海岸・海流',
+    },
+    {
       type: 'narrator',
       text: '日本列島は地球上でも特にダイナミックな場所に位置しています。なぜ日本には<ruby>火山<rp>(</rp><rt>かざん</rt><rp>)</rp></ruby>や<ruby>地震<rp>(</rp><rt>じしん</rt><rp>)</rp></ruby>が多いのか、地形の特色を見ていきましょう。',
     },
@@ -91,12 +97,12 @@ export const landformsChat: HistoryChat = {
       type: 'quiz',
       question: '日本列島が位置する、火山や地震が多い地帯を何というか？',
       options: [
-        { letter: 'A', text: '環太平洋造山帯', correct: true },
-        { letter: 'B', text: 'アルプス・ヒマラヤ造山帯', correct: false },
+        { letter: 'A', text: 'アルプス・ヒマラヤ造山帯', correct: false },
+        { letter: 'B', text: '環太平洋造山帯', correct: true },
         { letter: 'C', text: 'フォッサマグナ', correct: false },
         { letter: 'D', text: '日本海溝', correct: false },
       ],
-      explanation: '<strong>正解はA</strong>です。太平洋を取り囲むように<ruby>火山<rp>(</rp><rt>かざん</rt><rp>)</rp></ruby>や<ruby>地震<rp>(</rp><rt>じしん</rt><rp>)</rp></ruby>の多い地域が連なる帯です。',
+      explanation: '<strong>正解はB</strong>です。太平洋を取り囲むように<ruby>火山<rp>(</rp><rt>かざん</rt><rp>)</rp></ruby>や<ruby>地震<rp>(</rp><rt>じしん</rt><rp>)</rp></ruby>の多い地域が連なる帯です。',
     },
     {
       type: 'summary-point',
@@ -106,12 +112,12 @@ export const landformsChat: HistoryChat = {
       type: 'quiz',
       question: '本州中央部にある、東日本と西日本の地質の境目を何というか？',
       options: [
-        { letter: 'A', text: '中央構造線', correct: false },
-        { letter: 'B', text: 'フォッサマグナ', correct: true },
+        { letter: 'A', text: 'フォッサマグナ', correct: true },
+        { letter: 'B', text: '中央構造線', correct: false },
         { letter: 'C', text: '糸魚川静岡構造線', correct: false },
         { letter: 'D', text: '日本海溝', correct: false },
       ],
-      explanation: '<strong>正解はB</strong>です。フォッサマグナは本州中央部の大きな<ruby>地溝帯<rp>(</rp><rt>ちこうたい</rt><rp>)</rp></ruby>で、東西の<ruby>地質<rp>(</rp><rt>ちしつ</rt><rp>)</rp></ruby>の境目です。',
+      explanation: '<strong>正解はA</strong>です。フォッサマグナは本州中央部の大きな<ruby>地溝帯<rp>(</rp><rt>ちこうたい</rt><rp>)</rp></ruby>で、東西の<ruby>地質<rp>(</rp><rt>ちしつ</rt><rp>)</rp></ruby>の境目です。',
     },
     {
       type: 'date',
@@ -166,10 +172,10 @@ export const landformsChat: HistoryChat = {
       options: [
         { letter: 'A', text: '距離が長く流れがゆるやか', correct: false },
         { letter: 'B', text: '流域面積が広い', correct: false },
-        { letter: 'C', text: '距離が短く流れが急', correct: true },
-        { letter: 'D', text: '水量が一年中安定している', correct: false },
+        { letter: 'C', text: '水量が一年中安定している', correct: false },
+        { letter: 'D', text: '距離が短く流れが急', correct: true },
       ],
-      explanation: '<strong>正解はC</strong>です。日本の<ruby>河川<rp>(</rp><rt>かせん</rt><rp>)</rp></ruby>は大陸と比べて距離が短く、流れが急で、<ruby>流域<rp>(</rp><rt>りゅういき</rt><rp>)</rp></ruby>面積が狭いのが特徴です。',
+      explanation: '<strong>正解はD</strong>です。日本の<ruby>河川<rp>(</rp><rt>かせん</rt><rp>)</rp></ruby>は大陸と比べて距離が短く、流れが急で、<ruby>流域<rp>(</rp><rt>りゅういき</rt><rp>)</rp></ruby>面積が狭いのが特徴です。',
     },
     {
       type: 'summary-point',
@@ -181,10 +187,16 @@ export const landformsChat: HistoryChat = {
       options: [
         { letter: 'A', text: '扇状地', correct: false },
         { letter: 'B', text: '台地', correct: false },
-        { letter: 'C', text: '盆地', correct: false },
-        { letter: 'D', text: '三角州', correct: true },
+        { letter: 'C', text: '三角州', correct: true },
+        { letter: 'D', text: '盆地', correct: false },
       ],
-      explanation: '<strong>正解はD</strong>です。<ruby>河口<rp>(</rp><rt>かこう</rt><rp>)</rp></ruby>付近に<ruby>土砂<rp>(</rp><rt>どしゃ</rt><rp>)</rp></ruby>が<ruby>堆積<rp>(</rp><rt>たいせき</rt><rp>)</rp></ruby>してできる低い平地が<ruby>三角州<rp>(</rp><rt>さんかくす</rt><rp>)</rp></ruby>です。',
+      explanation: '<strong>正解はC</strong>です。<ruby>河口<rp>(</rp><rt>かこう</rt><rp>)</rp></ruby>付近に<ruby>土砂<rp>(</rp><rt>どしゃ</rt><rp>)</rp></ruby>が<ruby>堆積<rp>(</rp><rt>たいせき</rt><rp>)</rp></ruby>してできる低い平地が<ruby>三角州<rp>(</rp><rt>さんかくす</rt><rp>)</rp></ruby>です。',
+    },
+    {
+      type: 'image',
+      src: '/images/geography/grade2/japan-features/mountain-heights-chart.svg',
+      alt: '日本の主な山の標高比較グラフ（準備中）',
+      caption: '日本アルプスを中心とした主な山の標高比較（準備中）出典：国土地理院',
     },
     {
       type: 'date',
@@ -252,11 +264,11 @@ export const landformsChat: HistoryChat = {
       question: '山地が海に沈んでできた、入り組んだ海岸地形を何というか？',
       options: [
         { letter: 'A', text: '砂丘', correct: false },
-        { letter: 'B', text: '干潟', correct: false },
-        { letter: 'C', text: 'リアス海岸', correct: true },
+        { letter: 'B', text: 'リアス海岸', correct: true },
+        { letter: 'C', text: '干潟', correct: false },
         { letter: 'D', text: '砂浜海岸', correct: false },
       ],
-      explanation: '<strong>正解はC</strong>です。リアス海岸は<ruby>三陸海岸<rp>(</rp><rt>さんりくかいがん</rt><rp>)</rp></ruby>や<ruby>志摩半島<rp>(</rp><rt>しまはんとう</rt><rp>)</rp></ruby>に見られる、入り組んだ海岸地形です。',
+      explanation: '<strong>正解はB</strong>です。リアス海岸は<ruby>三陸海岸<rp>(</rp><rt>さんりくかいがん</rt><rp>)</rp></ruby>や<ruby>志摩半島<rp>(</rp><rt>しまはんとう</rt><rp>)</rp></ruby>に見られる、入り組んだ海岸地形です。',
     },
     {
       type: 'summary-point',
@@ -266,12 +278,12 @@ export const landformsChat: HistoryChat = {
       type: 'quiz',
       question: '河川が山地から平地に出るところにできる扇形の地形を何というか？',
       options: [
-        { letter: 'A', text: '三角州', correct: false },
-        { letter: 'B', text: '扇状地', correct: true },
+        { letter: 'A', text: '扇状地', correct: true },
+        { letter: 'B', text: '三角州', correct: false },
         { letter: 'C', text: '台地', correct: false },
         { letter: 'D', text: '盆地', correct: false },
       ],
-      explanation: '<strong>正解はB「<ruby>扇状地<rp>(</rp><rt>せんじょうち</rt><rp>)</rp></ruby>」</strong>です。河川が山地から平地に出る所に<ruby>砂礫<rp>(</rp><rt>されき</rt><rp>)</rp></ruby>が扇形に<ruby>堆積<rp>(</rp><rt>たいせき</rt><rp>)</rp></ruby>してできます。河口付近にできるのは<ruby>三角州<rp>(</rp><rt>さんかくす</rt><rp>)</rp></ruby>です。',
+      explanation: '<strong>正解はA「<ruby>扇状地<rp>(</rp><rt>せんじょうち</rt><rp>)</rp></ruby>」</strong>です。河川が山地から平地に出る所に<ruby>砂礫<rp>(</rp><rt>されき</rt><rp>)</rp></ruby>が扇形に<ruby>堆積<rp>(</rp><rt>たいせき</rt><rp>)</rp></ruby>してできます。河口付近にできるのは<ruby>三角州<rp>(</rp><rt>さんかくす</rt><rp>)</rp></ruby>です。',
     },
     {
       type: 'end',

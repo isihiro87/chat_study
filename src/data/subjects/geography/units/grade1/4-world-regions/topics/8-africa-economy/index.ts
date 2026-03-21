@@ -177,19 +177,6 @@ export const africaEconomy: Topic = {
         },
         {
           id: 'geo1-af2-q7',
-          question: 'モノカルチャー経済の最大の問題点はどれか？',
-          options: [
-            '国際価格の変動で経済が不安定になりやすいこと',
-            '農作物の種類が多すぎること',
-            '外国からの投資が多すぎること',
-            '労働者が不足すること',
-          ],
-          correctIndex: 0,
-          explanation: 'モノカルチャー経済は特定の産物に依存するため、国際価格が下落すると国の収入が大幅に減少し、経済が不安定になります。',
-          difficulty: 'basic',
-        },
-        {
-          id: 'geo1-af2-q8',
           question: '世界のカカオ生産のうち、アフリカが占める割合はおよそどのくらいか？',
           options: ['約3割', '約5割', '約7割', '約9割'],
           correctIndex: 2,
@@ -197,7 +184,7 @@ export const africaEconomy: Topic = {
           difficulty: 'basic',
         },
         {
-          id: 'geo1-af2-q9',
+          id: 'geo1-af2-q8',
           question: '金やダイヤモンド、プラチナの産出で知られるアフリカの国はどこか？',
           options: ['ケニア', 'エチオピア', 'ナイジェリア', '南アフリカ共和国'],
           correctIndex: 3,
@@ -205,29 +192,15 @@ export const africaEconomy: Topic = {
           difficulty: 'basic',
         },
         {
-          id: 'geo1-af2-q10',
+          id: 'geo1-af2-q9',
           question: 'コバルトの産出量が世界一のアフリカの国はどこか？',
           options: ['南アフリカ共和国', 'タンザニア', 'ガーナ', 'コンゴ民主共和国'],
           correctIndex: 3,
           explanation: 'コンゴ民主共和国は世界のコバルト生産量の半分以上を占めています。コバルトはスマートフォンのバッテリーなどに使われます。',
           difficulty: 'basic',
         },
-        // --- standard (10) ---
         {
-          id: 'geo1-af2-q11',
-          question: 'アフリカで携帯電話が急速に普及した理由として正しいものはどれ？',
-          options: [
-            'テレビが普及していなかったため',
-            '携帯電話が無料で配布されたため',
-            '固定電話のインフラが十分に整っていなかったため',
-            '政府が携帯電話の使用を義務化したため',
-          ],
-          correctIndex: 2,
-          explanation: 'アフリカでは固定電話の通信インフラが十分に整備されていなかったため、基地局を設置するだけで通信できる携帯電話が一気に普及しました。',
-          difficulty: 'standard',
-        },
-        {
-          id: 'geo1-af2-q12',
+          id: 'geo1-af2-q10',
           question: 'ケニアのエムペサとはどのようなサービスか？',
           options: [
             'オンラインショッピングサイト',
@@ -240,20 +213,7 @@ export const africaEconomy: Topic = {
           difficulty: 'standard',
         },
         {
-          id: 'geo1-af2-q13',
-          question: 'フェアトレードの目的として正しいものはどれか？',
-          options: [
-            '先進国の企業の利益を最大化すること',
-            '無料で商品を配布すること',
-            '輸出量を制限して価格を上げること',
-            '生産者に適正な価格を支払い、生活改善と児童労働の撲滅を目指すこと',
-          ],
-          correctIndex: 3,
-          explanation: 'フェアトレードは途上国の生産者に適正な価格を支払い、児童労働の撲滅や生活の改善を目指す取り組みです。',
-          difficulty: 'standard',
-        },
-        {
-          id: 'geo1-af2-q14',
+          id: 'geo1-af2-q11',
           question: '固定電話を飛び越えて携帯電話が普及した現象を何というか？',
           options: ['デジタル革命', 'IT革命', 'リープフロッグ現象', 'モバイル革命'],
           correctIndex: 2,
@@ -261,20 +221,7 @@ export const africaEconomy: Topic = {
           difficulty: 'standard',
         },
         {
-          id: 'geo1-af2-q15',
-          question: 'アフリカの独立後もモノカルチャー経済が続いた理由として最も適切なものはどれか？',
-          options: [
-            '新しい産業を育てるための資金と技術が不足していたため',
-            'モノカルチャー経済が最も効率的だったため',
-            'アフリカの人々がモノカルチャー経済を望んだため',
-            '国際機関がモノカルチャー経済を推奨したため',
-          ],
-          correctIndex: 0,
-          explanation: '植民地時代に整備されたプランテーションの仕組みがそのまま残り、新たな産業を育てるための資金や技術が不足していたため、モノカルチャー経済から脱却できませんでした。',
-          difficulty: 'standard',
-        },
-        {
-          id: 'geo1-af2-q16',
+          id: 'geo1-af2-q12',
           question: 'レアメタルの説明として正しいものはどれか？',
           options: [
             '金やダイヤモンドなどの宝石の総称',
@@ -287,46 +234,7 @@ export const africaEconomy: Topic = {
           difficulty: 'standard',
         },
         {
-          id: 'geo1-af2-q17',
-          question: 'カカオ農家の生活が厳しい主な原因はどれか？',
-          options: [
-            'カカオの栽培が非常に難しいため',
-            'カカオの国際価格が安く、十分な収入が得られないため',
-            'カカオの需要が世界的に減少しているため',
-            'カカオの栽培に適した土地が不足しているため',
-          ],
-          correctIndex: 1,
-          explanation: 'カカオの国際価格は安く抑えられており、農家が十分な収入を得られないことが貧困の主な原因です。',
-          difficulty: 'standard',
-        },
-        {
-          id: 'geo1-af2-q18',
-          question: 'エムペサが普及した背景として正しいものはどれか？',
-          options: [
-            '銀行の支店が少なく多くの人が銀行口座を持てなかったため',
-            'ケニアの銀行手数料が高すぎたため',
-            'ケニア政府がエムペサの使用を義務化したため',
-            'クレジットカードが禁止されていたため',
-          ],
-          correctIndex: 0,
-          explanation: 'ケニアでは銀行の支店が少なく、農村部の住民や貧困層の多くが銀行口座を持てなかったため、携帯電話による決済サービスが急速に普及しました。',
-          difficulty: 'standard',
-        },
-        {
-          id: 'geo1-af2-q19',
-          question: 'アフリカの農業生産性が低い原因として正しいものはどれか？',
-          options: [
-            '耕作可能な土地が存在しないため',
-            '灌漑設備や農業機械が不足し天水農業に依存しているため',
-            '気温が低すぎて作物が育たないため',
-            '政府が農業を禁止しているため',
-          ],
-          correctIndex: 1,
-          explanation: 'アフリカでは灌漑設備や農業機械が不足しており、天水農業（雨水に頼る農業）に依存しているため、干ばつの影響を受けやすく生産性が低くなっています。',
-          difficulty: 'standard',
-        },
-        {
-          id: 'geo1-af2-q20',
+          id: 'geo1-af2-q13',
           question: '近年アフリカへの投資を大幅に拡大している国はどこか？',
           options: ['アメリカ', '日本', '中国', 'オーストラリア'],
           correctIndex: 2,
@@ -335,7 +243,7 @@ export const africaEconomy: Topic = {
         },
         // --- advanced (5) ---
         {
-          id: 'geo1-af2-q21',
+          id: 'geo1-af2-q14',
           question: '紛争鉱物の問題について正しい説明はどれか？',
           options: [
             '鉱物の採掘量が多すぎて環境が破壊されること',
@@ -348,7 +256,7 @@ export const africaEconomy: Topic = {
           difficulty: 'advanced',
         },
         {
-          id: 'geo1-af2-q22',
+          id: 'geo1-af2-q15',
           question: 'アフリカ大陸自由貿易圏（AfCFTA）の主な目的はどれか？',
           options: [
             'アフリカの鉱産資源を先進国に優先的に輸出すること',
@@ -361,7 +269,7 @@ export const africaEconomy: Topic = {
           difficulty: 'advanced',
         },
         {
-          id: 'geo1-af2-q23',
+          id: 'geo1-af2-q16',
           question: 'カカオをそのまま輸出するのではなくチョコレートに加工して輸出する利点は何か？',
           options: [
             '輸送費が安くなる',
@@ -374,7 +282,7 @@ export const africaEconomy: Topic = {
           difficulty: 'advanced',
         },
         {
-          id: 'geo1-af2-q24',
+          id: 'geo1-af2-q17',
           question: '中国のアフリカへの投資に関するリスクとして指摘されていることは何か？',
           options: [
             'アフリカの気候が中国企業に適さないこと',
@@ -387,20 +295,7 @@ export const africaEconomy: Topic = {
           difficulty: 'advanced',
         },
         {
-          id: 'geo1-af2-q25',
-          question: 'ICTの活用がモノカルチャー経済からの脱却に貢献できる理由として最も適切なものはどれか？',
-          options: [
-            'ICTにより農産物の価格を自由に設定できるようになるため',
-            '大規模な設備投資なしに人材育成とインフラで発展できるため',
-            'ICTにより鉱産資源の採掘量を増やせるため',
-            'ICTにより先進国への移民が増えるため',
-          ],
-          correctIndex: 1,
-          explanation: 'ICT産業は大規模な設備投資や天然資源に依存せず、人材の教育と通信インフラがあれば発展できるため、資源に頼らない新たな産業として期待されています。',
-          difficulty: 'advanced',
-        },
-        {
-          id: 'geo1-af2-q26',
+          id: 'geo1-af2-q18',
           question: 'アフリカで伝統的に行われてきた、森林を焼いて灰を肥料にする農業を何というか？',
           options: ['焼畑農業', '灌漑農業', 'プランテーション農業', '酪農'],
           correctIndex: 0,
@@ -408,7 +303,7 @@ export const africaEconomy: Topic = {
           difficulty: 'basic',
         },
         {
-          id: 'geo1-af2-q27',
+          id: 'geo1-af2-q19',
           question: 'モノカルチャー経済からの脱却策として、アフリカで近年成長が著しいサービス産業はどれか？',
           options: ['観光業', '宇宙産業', '原子力産業', '自動車産業'],
           correctIndex: 0,

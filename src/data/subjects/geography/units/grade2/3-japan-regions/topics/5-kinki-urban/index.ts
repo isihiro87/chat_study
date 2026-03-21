@@ -161,14 +161,6 @@ export const kinkiUrban: Topic = {
         },
         {
           id: 'geo2-knb-q13',
-          question: '1960年代にニュータウンが建設された社会的背景として正しいものはどれか。',
-          options: ['高度経済成長期の都市への人口集中', 'バブル経済の崩壊', '東日本大震災後の復興', '少子高齢化の進行'],
-          correctIndex: 0,
-          explanation: '高度経済成長期に農村から都市への人口移動が加速し、住宅不足を解消するため郊外にニュータウンが建設されました。',
-          difficulty: 'standard',
-        },
-        {
-          id: 'geo2-knb-q14',
           question: '伊根町の舟屋を活用した地域振興の方法として正しいものはどれか。',
           options: ['工場に転用した', '民宿やカフェに改装した', '取り壊して新築住宅を建てた', '博物館として保存した'],
           correctIndex: 1,
@@ -176,7 +168,7 @@ export const kinkiUrban: Topic = {
           difficulty: 'standard',
         },
         {
-          id: 'geo2-knb-q15',
+          id: 'geo2-knb-q14',
           question: '埋立地であるポートアイランドや関西国際空港が共通して抱える自然災害リスクはどれか。',
           options: ['火山噴火', '液状化現象や高潮浸水', '雪崩', '竜巻'],
           correctIndex: 1,

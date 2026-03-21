@@ -97,13 +97,13 @@ export const tohokuChat: HistoryChat = {
       type: 'quiz',
       question: '東北地方の中央を南北に走り、日本海側と太平洋側の気候を分ける山脈は？',
       options: [
-        { letter: 'A', text: '奥羽山脈', correct: true },
+        { letter: 'A', text: '日高山脈', correct: false },
         { letter: 'B', text: '飛騨山脈', correct: false },
         { letter: 'C', text: '越後山脈', correct: false },
-        { letter: 'D', text: '日高山脈', correct: false },
+        { letter: 'D', text: '奥羽山脈', correct: true },
       ],
       explanation:
-        '<strong>正解はA「<ruby>奥羽山脈<rp>(</rp><rt>おううさんみゃく</rt><rp>)</rp></ruby>」</strong>です。東北地方の中央を南北に走り、日本海側の<ruby>豪雪<rp>(</rp><rt>ごうせつ</rt><rp>)</rp></ruby>地帯と太平洋側のやませの<ruby>影響<rp>(</rp><rt>えいきょう</rt><rp>)</rp></ruby>を分ける<ruby>境<rp>(</rp><rt>さかい</rt><rp>)</rp></ruby>になっています。',
+        '<strong>正解はD「<ruby>奥羽山脈<rp>(</rp><rt>おううさんみゃく</rt><rp>)</rp></ruby>」</strong>です。東北地方の中央を南北に走り、日本海側の<ruby>豪雪<rp>(</rp><rt>ごうせつ</rt><rp>)</rp></ruby>地帯と太平洋側のやませの<ruby>影響<rp>(</rp><rt>えいきょう</rt><rp>)</rp></ruby>を分ける<ruby>境<rp>(</rp><rt>さかい</rt><rp>)</rp></ruby>になっています。',
     },
     {
       type: 'date',
@@ -137,6 +137,12 @@ export const tohokuChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<span class="keyword">庄内平野</span>・<span class="keyword">秋田平野</span>は稲作の中心地。山形の<span class="keyword">さくらんぼ</span>・青森の<span class="keyword">りんご</span>は全国トップ',
+    },
+    {
+      type: 'image',
+      src: '/images/geography/grade2/japan-regions/tohoku-rice-production-chart.svg',
+      alt: '東北地方の米の生産量グラフ（準備中）',
+      caption: '東北地方は全国の米生産量の約4分の1を占める（準備中）出典：農林水産省',
     },
     {
       type: 'quiz',
@@ -201,12 +207,12 @@ export const tohokuChat: HistoryChat = {
       question: '三陸沖が世界有数の好漁場である最大の理由は？',
       options: [
         { letter: 'A', text: '水温が一年中温暖だから', correct: false },
-        { letter: 'B', text: 'リアス海岸で波が穏やかだから', correct: false },
+        { letter: 'B', text: '暖流と寒流がぶつかる潮目があるから', correct: true },
         { letter: 'C', text: '海底の地形が平坦だから', correct: false },
-        { letter: 'D', text: '暖流と寒流がぶつかる潮目があるから', correct: true },
+        { letter: 'D', text: 'リアス海岸で波が穏やかだから', correct: false },
       ],
       explanation:
-        '<strong>正解はD「暖流と寒流がぶつかる<ruby>潮目<rp>(</rp><rt>しおめ</rt><rp>)</rp></ruby>があるから」</strong>です。<ruby>黒潮<rp>(</rp><rt>くろしお</rt><rp>)</rp></ruby>と<ruby>親潮<rp>(</rp><rt>おやしお</rt><rp>)</rp></ruby>がぶつかりプランクトンが豊富に発生します。',
+        '<strong>正解はB「暖流と寒流がぶつかる<ruby>潮目<rp>(</rp><rt>しおめ</rt><rp>)</rp></ruby>があるから」</strong>です。<ruby>黒潮<rp>(</rp><rt>くろしお</rt><rp>)</rp></ruby>と<ruby>親潮<rp>(</rp><rt>おやしお</rt><rp>)</rp></ruby>がぶつかりプランクトンが豊富に発生します。',
     },
     {
       type: 'date',
@@ -245,12 +251,12 @@ export const tohokuChat: HistoryChat = {
       type: 'quiz',
       question: '東北地方の高速道路沿いに多く進出している工場はどれ？',
       options: [
-        { letter: 'A', text: '食品加工工場', correct: false },
-        { letter: 'B', text: 'IC（集積回路）工場', correct: true },
+        { letter: 'A', text: 'IC（集積回路）工場', correct: true },
+        { letter: 'B', text: '食品加工工場', correct: false },
         { letter: 'C', text: '製紙工場', correct: false },
         { letter: 'D', text: '繊維工場', correct: false },
       ],
-      explanation: '<strong>正解はB</strong>です。<ruby>東北自動車道<rp>(</rp><rt>とうほくじどうしゃどう</rt><rp>)</rp></ruby>の<ruby>沿線<rp>(</rp><rt>えんせん</rt><rp>)</rp></ruby>にIC（<ruby>集積回路<rp>(</rp><rt>しゅうせきかいろ</rt><rp>)</rp></ruby>）工場が多く進出しています。',
+      explanation: '<strong>正解はA</strong>です。<ruby>東北自動車道<rp>(</rp><rt>とうほくじどうしゃどう</rt><rp>)</rp></ruby>の<ruby>沿線<rp>(</rp><rt>えんせん</rt><rp>)</rp></ruby>にIC（<ruby>集積回路<rp>(</rp><rt>しゅうせきかいろ</rt><rp>)</rp></ruby>）工場が多く進出しています。',
     },
     {
       type: 'date',
@@ -317,12 +323,12 @@ export const tohokuChat: HistoryChat = {
       question: '岩手県の伝統的工芸品で、海外でデザイン性が評価されている鋳鉄製品は？',
       options: [
         { letter: 'A', text: '天童将棋駒', correct: false },
-        { letter: 'B', text: '南部鉄器', correct: true },
+        { letter: 'B', text: '大館曲げわっぱ', correct: false },
         { letter: 'C', text: '会津塗', correct: false },
-        { letter: 'D', text: '大館曲げわっぱ', correct: false },
+        { letter: 'D', text: '南部鉄器', correct: true },
       ],
       explanation:
-        '<strong>正解はB「<ruby>南部鉄器<rp>(</rp><rt>なんぶてっき</rt><rp>)</rp></ruby>」</strong>です。<ruby>岩手<rp>(</rp><rt>いわて</rt><rp>)</rp></ruby>県の<ruby>伝統<rp>(</rp><rt>でんとう</rt><rp>)</rp></ruby>的<ruby>工芸品<rp>(</rp><rt>こうげいひん</rt><rp>)</rp></ruby>で、<ruby>急須<rp>(</rp><rt>きゅうす</rt><rp>)</rp></ruby>や<ruby>鉄瓶<rp>(</rp><rt>てつびん</rt><rp>)</rp></ruby>が海外で人気です。',
+        '<strong>正解はD「<ruby>南部鉄器<rp>(</rp><rt>なんぶてっき</rt><rp>)</rp></ruby>」</strong>です。<ruby>岩手<rp>(</rp><rt>いわて</rt><rp>)</rp></ruby>県の<ruby>伝統<rp>(</rp><rt>でんとう</rt><rp>)</rp></ruby>的<ruby>工芸品<rp>(</rp><rt>こうげいひん</rt><rp>)</rp></ruby>で、<ruby>急須<rp>(</rp><rt>きゅうす</rt><rp>)</rp></ruby>や<ruby>鉄瓶<rp>(</rp><rt>てつびん</rt><rp>)</rp></ruby>が海外で人気です。',
     },
     {
       type: 'end',

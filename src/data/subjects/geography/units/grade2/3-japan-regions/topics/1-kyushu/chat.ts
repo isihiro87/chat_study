@@ -124,12 +124,12 @@ export const kyushuChat: HistoryChat = {
       question: '九州南部に広がるシラス台地が稲作に向かない理由は何か？',
       options: [
         { letter: 'A', text: '気温が低すぎるため', correct: false },
-        { letter: 'B', text: '日照時間が短いため', correct: false },
-        { letter: 'C', text: '水はけがよすぎるため', correct: true },
+        { letter: 'B', text: '水はけがよすぎるため', correct: true },
+        { letter: 'C', text: '日照時間が短いため', correct: false },
         { letter: 'D', text: '土壌が酸性すぎるため', correct: false },
       ],
       explanation:
-        '<strong>正解はC「水はけがよすぎるため」</strong>です。シラス台地は火山灰が<ruby>堆積<rp>(</rp><rt>たいせき</rt><rp>)</rp></ruby>した台地で、水はけがよすぎて水田に必要な水を保てないため、畜産やさつまいも栽培に利用されています。',
+        '<strong>正解はB「水はけがよすぎるため」</strong>です。シラス台地は火山灰が<ruby>堆積<rp>(</rp><rt>たいせき</rt><rp>)</rp></ruby>した台地で、水はけがよすぎて水田に必要な水を保てないため、畜産やさつまいも栽培に利用されています。',
     },
     {
       type: 'date',
@@ -182,13 +182,13 @@ export const kyushuChat: HistoryChat = {
       type: 'quiz',
       question: '大分県にある日本最大級の地熱発電所はどれか？',
       options: [
-        { letter: 'A', text: '松川発電所', correct: false },
-        { letter: 'B', text: '八丁原発電所', correct: true },
+        { letter: 'A', text: '八丁原発電所', correct: true },
+        { letter: 'B', text: '松川発電所', correct: false },
         { letter: 'C', text: '大岳発電所', correct: false },
         { letter: 'D', text: '山川発電所', correct: false },
       ],
       explanation:
-        '<strong>正解はB「<ruby>八丁原<rp>(</rp><rt>はっちょうばる</rt><rp>)</rp></ruby>発電所」</strong>です。火山の地下にある高温の熱水や蒸気を利用して電気をつくる<span class="keyword">地熱発電</span>が行われています。',
+        '<strong>正解はA「<ruby>八丁原<rp>(</rp><rt>はっちょうばる</rt><rp>)</rp></ruby>発電所」</strong>です。火山の地下にある高温の熱水や蒸気を利用して電気をつくる<span class="keyword">地熱発電</span>が行われています。',
     },
     {
       type: 'date',
@@ -240,6 +240,12 @@ export const kyushuChat: HistoryChat = {
       caption: '筑紫平野の稲作・宮崎平野の促成栽培・南九州の畜産',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade2/japan-regions/kyushu-livestock-chart.svg',
+      alt: '九州の畜産生産額グラフ（準備中）',
+      caption: '鹿児島・宮崎は全国トップクラスの飼育頭数（準備中）出典：農林水産省',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">筑紫平野</span>の稲作、<span class="keyword">宮崎平野</span>の<span class="keyword">促成栽培</span>、南九州の畜産が盛ん',
     },
@@ -248,12 +254,12 @@ export const kyushuChat: HistoryChat = {
       question: '宮崎平野で温暖な気候を利用して出荷時期を早める栽培方法を何というか？',
       options: [
         { letter: 'A', text: '抑制栽培', correct: false },
-        { letter: 'B', text: '促成栽培', correct: true },
+        { letter: 'B', text: '輪作', correct: false },
         { letter: 'C', text: '二毛作', correct: false },
-        { letter: 'D', text: '輪作', correct: false },
+        { letter: 'D', text: '促成栽培', correct: true },
       ],
       explanation:
-        '<strong>正解はB「<ruby>促成栽培<rp>(</rp><rt>そくせいさいばい</rt><rp>)</rp></ruby>」</strong>です。温暖な気候やビニールハウスを利用して、野菜の出荷時期を早める栽培方法です。',
+        '<strong>正解はD「<ruby>促成栽培<rp>(</rp><rt>そくせいさいばい</rt><rp>)</rp></ruby>」</strong>です。温暖な気候やビニールハウスを利用して、野菜の出荷時期を早める栽培方法です。',
     },
     {
       type: 'date',
@@ -313,13 +319,13 @@ export const kyushuChat: HistoryChat = {
       type: 'quiz',
       question: '水俣病の原因となった有害物質は何か？',
       options: [
-        { letter: 'A', text: 'メチル水銀', correct: true },
+        { letter: 'A', text: '二酸化硫黄', correct: false },
         { letter: 'B', text: 'カドミウム', correct: false },
-        { letter: 'C', text: '二酸化硫黄', correct: false },
+        { letter: 'C', text: 'メチル水銀', correct: true },
         { letter: 'D', text: '有機リン', correct: false },
       ],
       explanation:
-        '<strong>正解はA「メチル<ruby>水銀<rp>(</rp><rt>すいぎん</rt><rp>)</rp></ruby>」</strong>です。工場<ruby>排水<rp>(</rp><rt>はいすい</rt><rp>)</rp></ruby>に含まれるメチル水銀が原因で<span class="keyword">水俣病</span>が発生しました。四大<ruby>公害病<rp>(</rp><rt>こうがいびょう</rt><rp>)</rp></ruby>の一つです。',
+        '<strong>正解はC「メチル<ruby>水銀<rp>(</rp><rt>すいぎん</rt><rp>)</rp></ruby>」</strong>です。工場<ruby>排水<rp>(</rp><rt>はいすい</rt><rp>)</rp></ruby>に含まれるメチル水銀が原因で<span class="keyword">水俣病</span>が発生しました。四大<ruby>公害病<rp>(</rp><rt>こうがいびょう</rt><rp>)</rp></ruby>の一つです。',
     },
     {
       type: 'end',

@@ -39,6 +39,12 @@ export const earthShapeChat: HistoryChat = {
       text: '陸地と海洋の割合',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade1/world-shape/continents-oceans.png',
+      alt: '六大陸と三大洋の全体像を示す世界地図',
+      caption: '地球の姿 ― 六大陸と三大洋',
+    },
+    {
       type: 'narrator',
       text: '地球は「<strong>水の<ruby>惑星<rp>(</rp><rt>わくせい</rt><rp>)</rp></ruby></strong>」と呼ばれるほど、<ruby>海洋<rp>(</rp><rt>かいよう</rt><rp>)</rp></ruby>が広がっています。まずは<ruby>陸地<rp>(</rp><rt>りくち</rt><rp>)</rp></ruby>と海洋の割合から見てみましょう。',
     },
@@ -64,6 +70,12 @@ export const earthShapeChat: HistoryChat = {
       text: 'そうなんだ。だから宇宙から見ると地球は青く見えるんだよ。北半球には陸地が多く、南半球には海洋が多い、という特徴もあるよ',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade1/world-shape/ocean-land-ratio-chart.svg',
+      alt: '陸地と海洋の割合を示す円グラフ（準備中）',
+      caption: '地球の表面の約7割が海洋（準備中）出典：国土地理院',
+    },
+    {
       type: 'summary-point',
       text: '地球の表面：<span class="keyword">陸地 約3割</span>・<span class="keyword">海洋 約7割</span>',
     },
@@ -72,11 +84,11 @@ export const earthShapeChat: HistoryChat = {
       question: '地球の表面で海洋が占める割合はおよそどれくらい？',
       options: [
         { letter: 'A', text: '約5割', correct: false },
-        { letter: 'B', text: '約7割', correct: true },
-        { letter: 'C', text: '約9割', correct: false },
+        { letter: 'B', text: '約9割', correct: false },
+        { letter: 'C', text: '約7割', correct: true },
         { letter: 'D', text: '約3割', correct: false },
       ],
-      explanation: '<strong>正解はB</strong>です。地球の表面は<ruby>陸地<rp>(</rp><rt>りくち</rt><rp>)</rp></ruby>が約3割、<ruby>海洋<rp>(</rp><rt>かいよう</rt><rp>)</rp></ruby>が約7割を占めています。',
+      explanation: '<strong>正解はC</strong>です。地球の表面は<ruby>陸地<rp>(</rp><rt>りくち</rt><rp>)</rp></ruby>が約3割、<ruby>海洋<rp>(</rp><rt>かいよう</rt><rp>)</rp></ruby>が約7割を占めています。',
     },
     {
       type: 'date',
@@ -136,11 +148,11 @@ export const earthShapeChat: HistoryChat = {
       question: '六大陸に含まれないものはどれ？',
       options: [
         { letter: 'A', text: 'ユーラシア大陸', correct: false },
-        { letter: 'B', text: 'アフリカ大陸', correct: false },
-        { letter: 'C', text: 'ヨーロッパ大陸', correct: true },
+        { letter: 'B', text: 'ヨーロッパ大陸', correct: true },
+        { letter: 'C', text: 'アフリカ大陸', correct: false },
         { letter: 'D', text: '南極大陸', correct: false },
       ],
-      explanation: '<strong>正解はC</strong>です。ヨーロッパはユーラシア<ruby>大陸<rp>(</rp><rt>たいりく</rt><rp>)</rp></ruby>の一部であり、独立した大陸ではありません。',
+      explanation: '<strong>正解はB</strong>です。ヨーロッパはユーラシア<ruby>大陸<rp>(</rp><rt>たいりく</rt><rp>)</rp></ruby>の一部であり、独立した大陸ではありません。',
     },
     {
       type: 'summary-point',
@@ -150,12 +162,12 @@ export const earthShapeChat: HistoryChat = {
       type: 'quiz',
       question: '世界で最も大きい大陸はどれ？',
       options: [
-        { letter: 'A', text: 'アフリカ大陸', correct: false },
-        { letter: 'B', text: 'ユーラシア大陸', correct: true },
+        { letter: 'A', text: 'ユーラシア大陸', correct: true },
+        { letter: 'B', text: 'アフリカ大陸', correct: false },
         { letter: 'C', text: '北アメリカ大陸', correct: false },
         { letter: 'D', text: '南極大陸', correct: false },
       ],
-      explanation: '<strong>正解はB「ユーラシア<ruby>大陸<rp>(</rp><rt>たいりく</rt><rp>)</rp></ruby>」</strong>です。ヨーロッパとアジアがつながった世界最大の大陸です。',
+      explanation: '<strong>正解はA「ユーラシア<ruby>大陸<rp>(</rp><rt>たいりく</rt><rp>)</rp></ruby>」</strong>です。ヨーロッパとアジアがつながった世界最大の大陸です。',
     },
     {
       type: 'date',
@@ -272,12 +284,12 @@ export const earthShapeChat: HistoryChat = {
       type: 'quiz',
       question: '日本が属するアジア州の地域区分はどれ？',
       options: [
-        { letter: 'A', text: '東アジア', correct: true },
+        { letter: 'A', text: '南アジア', correct: false },
         { letter: 'B', text: '東南アジア', correct: false },
-        { letter: 'C', text: '南アジア', correct: false },
+        { letter: 'C', text: '東アジア', correct: true },
         { letter: 'D', text: '西アジア', correct: false },
       ],
-      explanation: '<strong>正解はA</strong>です。日本は<ruby>東<rp>(</rp><rt>ひがし</rt><rp>)</rp></ruby>アジアに属し、<ruby>中国<rp>(</rp><rt>ちゅうごく</rt><rp>)</rp></ruby>や<ruby>韓国<rp>(</rp><rt>かんこく</rt><rp>)</rp></ruby>、モンゴルなども同じ地域に含まれます。',
+      explanation: '<strong>正解はC</strong>です。日本は<ruby>東<rp>(</rp><rt>ひがし</rt><rp>)</rp></ruby>アジアに属し、<ruby>中国<rp>(</rp><rt>ちゅうごく</rt><rp>)</rp></ruby>や<ruby>韓国<rp>(</rp><rt>かんこく</rt><rp>)</rp></ruby>、モンゴルなども同じ地域に含まれます。',
     },
     {
       type: 'end',

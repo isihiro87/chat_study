@@ -39,6 +39,12 @@ export const oceaniaSocietyChat: HistoryChat = {
       text: '移民と多文化社会',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade1/world-regions/oceania-multiculture-climate.png',
+      alt: 'オセアニアの多文化社会と環境問題の概観',
+      caption: '白豪主義から多文化社会へ・海面上昇とツバルの危機・サンゴ白化',
+    },
+    {
       type: 'narrator',
       text: 'オーストラリアの社会は、<ruby>移民<rp>(</rp><rt>いみん</rt><rp>)</rp></ruby><ruby>政策<rp>(</rp><rt>せいさく</rt><rp>)</rp></ruby>の<ruby>転換<rp>(</rp><rt>てんかん</rt><rp>)</rp></ruby>によって大きく変わりました。かつての<ruby>差別的<rp>(</rp><rt>さべつてき</rt><rp>)</rp></ruby>な政策から、<ruby>多文化<rp>(</rp><rt>たぶんか</rt><rp>)</rp></ruby>社会へと変化した歴史を見てみましょう。',
     },
@@ -103,6 +109,12 @@ export const oceaniaSocietyChat: HistoryChat = {
       text: '<span class="keyword">白豪主義</span>（ヨーロッパ系以外の移民制限）→ 1970年代以降に廃止',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade1/world-regions/australia-immigration-source-chart.svg',
+      alt: 'オーストラリアへの移民出身国別割合グラフ（準備中）',
+      caption: 'イギリス・中国・インド・フィリピンなど多様な出身国（準備中）出典：オーストラリア統計局',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">アジア系移民</span>の受け入れ → <span class="keyword">多文化社会</span>へ。<span class="keyword">先住民の権利尊重</span>も推進',
     },
@@ -110,12 +122,12 @@ export const oceaniaSocietyChat: HistoryChat = {
       type: 'quiz',
       question: 'オーストラリアの白豪主義が廃止されたのはいつ頃？',
       options: [
-        { letter: 'A', text: '1940年代', correct: false },
-        { letter: 'B', text: '1970年代以降', correct: true },
+        { letter: 'A', text: '1970年代以降', correct: true },
+        { letter: 'B', text: '1940年代', correct: false },
         { letter: 'C', text: '1990年代', correct: false },
         { letter: 'D', text: '2000年代', correct: false },
       ],
-      explanation: '<strong>正解はB</strong>です。<ruby>白豪主義<rp>(</rp><rt>はくごうしゅぎ</rt><rp>)</rp></ruby>は1970年代以降に<ruby>廃止<rp>(</rp><rt>はいし</rt><rp>)</rp></ruby>され、<ruby>多文化社会<rp>(</rp><rt>たぶんかしゃかい</rt><rp>)</rp></ruby>へと転換しました。',
+      explanation: '<strong>正解はA</strong>です。<ruby>白豪主義<rp>(</rp><rt>はくごうしゅぎ</rt><rp>)</rp></ruby>は1970年代以降に<ruby>廃止<rp>(</rp><rt>はいし</rt><rp>)</rp></ruby>され、<ruby>多文化社会<rp>(</rp><rt>たぶんかしゃかい</rt><rp>)</rp></ruby>へと転換しました。',
     },
     {
       type: 'date',
@@ -174,10 +186,10 @@ export const oceaniaSocietyChat: HistoryChat = {
       options: [
         { letter: 'A', text: 'グレートバリアリーフ', correct: false },
         { letter: 'B', text: 'キリマンジャロ', correct: false },
-        { letter: 'C', text: 'ウルル（エアーズロック）', correct: true },
-        { letter: 'D', text: 'エベレスト', correct: false },
+        { letter: 'C', text: 'エベレスト', correct: false },
+        { letter: 'D', text: 'ウルル（エアーズロック）', correct: true },
       ],
-      explanation: '<strong>正解はC</strong>です。ウルル（エアーズロック）はアボリジニの<ruby>聖地<rp>(</rp><rt>せいち</rt><rp>)</rp></ruby>で、2019年から<ruby>登山<rp>(</rp><rt>とざん</rt><rp>)</rp></ruby>が<ruby>禁止<rp>(</rp><rt>きんし</rt><rp>)</rp></ruby>されています。',
+      explanation: '<strong>正解はD</strong>です。ウルル（エアーズロック）はアボリジニの<ruby>聖地<rp>(</rp><rt>せいち</rt><rp>)</rp></ruby>で、2019年から<ruby>登山<rp>(</rp><rt>とざん</rt><rp>)</rp></ruby>が<ruby>禁止<rp>(</rp><rt>きんし</rt><rp>)</rp></ruby>されています。',
     },
     {
       type: 'date',
@@ -217,12 +229,12 @@ export const oceaniaSocietyChat: HistoryChat = {
       question: 'オーストラリアがかつてとっていた、ヨーロッパ系以外の移民を制限する政策は何？',
       options: [
         { letter: 'A', text: '鎖国政策', correct: false },
-        { letter: 'B', text: '白豪主義', correct: true },
-        { letter: 'C', text: '移民禁止法', correct: false },
+        { letter: 'B', text: '移民禁止法', correct: false },
+        { letter: 'C', text: '白豪主義', correct: true },
         { letter: 'D', text: '保護貿易政策', correct: false },
       ],
       explanation:
-        '<strong>正解はB「<ruby>白豪主義<rp>(</rp><rt>はくごうしゅぎ</rt><rp>)</rp></ruby>」</strong>です。1970年代以降に<ruby>廃止<rp>(</rp><rt>はいし</rt><rp>)</rp></ruby>され、多文化社会へと<ruby>転換<rp>(</rp><rt>てんかん</rt><rp>)</rp></ruby>しました。',
+        '<strong>正解はC「<ruby>白豪主義<rp>(</rp><rt>はくごうしゅぎ</rt><rp>)</rp></ruby>」</strong>です。1970年代以降に<ruby>廃止<rp>(</rp><rt>はいし</rt><rp>)</rp></ruby>され、多文化社会へと<ruby>転換<rp>(</rp><rt>てんかん</rt><rp>)</rp></ruby>しました。',
     },
     {
       type: 'date',
@@ -293,11 +305,11 @@ export const oceaniaSocietyChat: HistoryChat = {
       question: '海面上昇で国土水没の危機にあるサンゴ礁の国は？',
       options: [
         { letter: 'A', text: 'フィジー', correct: false },
-        { letter: 'B', text: 'ニュージーランド', correct: false },
+        { letter: 'B', text: 'ツバル', correct: true },
         { letter: 'C', text: 'パプアニューギニア', correct: false },
-        { letter: 'D', text: 'ツバル', correct: true },
+        { letter: 'D', text: 'ニュージーランド', correct: false },
       ],
-      explanation: '<strong>正解はD</strong>です。ツバルはサンゴ<ruby>礁<rp>(</rp><rt>しょう</rt><rp>)</rp></ruby>の国で、<ruby>海面上昇<rp>(</rp><rt>かいめんじょうしょう</rt><rp>)</rp></ruby>により国土<ruby>水没<rp>(</rp><rt>すいぼつ</rt><rp>)</rp></ruby>の<ruby>危機<rp>(</rp><rt>きき</rt><rp>)</rp></ruby>に直面しています。',
+      explanation: '<strong>正解はB</strong>です。ツバルはサンゴ<ruby>礁<rp>(</rp><rt>しょう</rt><rp>)</rp></ruby>の国で、<ruby>海面上昇<rp>(</rp><rt>かいめんじょうしょう</rt><rp>)</rp></ruby>により国土<ruby>水没<rp>(</rp><rt>すいぼつ</rt><rp>)</rp></ruby>の<ruby>危機<rp>(</rp><rt>きき</rt><rp>)</rp></ruby>に直面しています。',
     },
     {
       type: 'end',

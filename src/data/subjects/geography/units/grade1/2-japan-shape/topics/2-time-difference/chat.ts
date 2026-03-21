@@ -39,6 +39,12 @@ export const timeDifferenceChat: HistoryChat = {
       text: '経度と時差のしくみ',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade1/japan-shape/time-difference.png',
+      alt: '世界の時差の仕組みを示す概念図',
+      caption: '時差から見た日本の位置',
+    },
+    {
       type: 'narrator',
       text: '世界には<ruby>時差<rp>(</rp><rt>じさ</rt><rp>)</rp></ruby>があり、同じ瞬間でも国によって時刻が違います。なぜ時差が生まれるのか、そのしくみを見ていきましょう。',
     },
@@ -95,12 +101,12 @@ export const timeDifferenceChat: HistoryChat = {
       type: 'quiz',
       question: '経度15度の差は何時間の時差になる？',
       options: [
-        { letter: 'A', text: '30分', correct: false },
-        { letter: 'B', text: '1時間', correct: true },
+        { letter: 'A', text: '1時間', correct: true },
+        { letter: 'B', text: '30分', correct: false },
         { letter: 'C', text: '2時間', correct: false },
         { letter: 'D', text: '15分', correct: false },
       ],
-      explanation: '<strong>正解はB</strong>です。地球は24時間で360度回転するため、360°÷24時間＝<ruby>経度<rp>(</rp><rt>けいど</rt><rp>)</rp></ruby>15度ごとに1時間の<ruby>時差<rp>(</rp><rt>じさ</rt><rp>)</rp></ruby>が生じます。',
+      explanation: '<strong>正解はA</strong>です。地球は24時間で360度回転するため、360°÷24時間＝<ruby>経度<rp>(</rp><rt>けいど</rt><rp>)</rp></ruby>15度ごとに1時間の<ruby>時差<rp>(</rp><rt>じさ</rt><rp>)</rp></ruby>が生じます。',
     },
     {
       type: 'date',
@@ -166,10 +172,10 @@ export const timeDifferenceChat: HistoryChat = {
       options: [
         { letter: 'A', text: '東経120度', correct: false },
         { letter: 'B', text: '東経130度', correct: false },
-        { letter: 'C', text: '東経135度', correct: true },
-        { letter: 'D', text: '東経140度', correct: false },
+        { letter: 'C', text: '東経140度', correct: false },
+        { letter: 'D', text: '東経135度', correct: true },
       ],
-      explanation: '<strong>正解はC「東経135度」</strong>です。<ruby>兵庫県明石市<rp>(</rp><rt>ひょうごけんあかしし</rt><rp>)</rp></ruby>などを通る経線で、日本の標準時の基準になっています。',
+      explanation: '<strong>正解はD「東経135度」</strong>です。<ruby>兵庫県明石市<rp>(</rp><rt>ひょうごけんあかしし</rt><rp>)</rp></ruby>などを通る経線で、日本の標準時の基準になっています。',
     },
     {
       type: 'date',
@@ -242,10 +248,10 @@ export const timeDifferenceChat: HistoryChat = {
       options: [
         { letter: 'A', text: '経度0度', correct: false },
         { letter: 'B', text: '経度90度', correct: false },
-        { letter: 'C', text: '経度135度', correct: false },
-        { letter: 'D', text: '経度180度', correct: true },
+        { letter: 'C', text: '経度180度', correct: true },
+        { letter: 'D', text: '経度135度', correct: false },
       ],
-      explanation: '<strong>正解はD</strong>です。<ruby>日付変更線<rp>(</rp><rt>ひづけへんこうせん</rt><rp>)</rp></ruby>は<ruby>太平洋<rp>(</rp><rt>たいへいよう</rt><rp>)</rp></ruby>上のほぼ経度180度の線に沿って引かれています。',
+      explanation: '<strong>正解はC</strong>です。<ruby>日付変更線<rp>(</rp><rt>ひづけへんこうせん</rt><rp>)</rp></ruby>は<ruby>太平洋<rp>(</rp><rt>たいへいよう</rt><rp>)</rp></ruby>上のほぼ経度180度の線に沿って引かれています。',
     },
     {
       type: 'date',
@@ -320,11 +326,11 @@ export const timeDifferenceChat: HistoryChat = {
       question: '東経135度の日本と西経75度のニューヨークの時差は何時間？',
       options: [
         { letter: 'A', text: '4時間', correct: false },
-        { letter: 'B', text: '9時間', correct: false },
-        { letter: 'C', text: '14時間', correct: true },
+        { letter: 'B', text: '14時間', correct: true },
+        { letter: 'C', text: '9時間', correct: false },
         { letter: 'D', text: '10時間', correct: false },
       ],
-      explanation: '<strong>正解はC</strong>です。東経と<ruby>西経<rp>(</rp><rt>せいけい</rt><rp>)</rp></ruby>なので足し算で135°+75°=210°、210°÷15°=14時間の<ruby>時差<rp>(</rp><rt>じさ</rt><rp>)</rp></ruby>になります。',
+      explanation: '<strong>正解はB</strong>です。東経と<ruby>西経<rp>(</rp><rt>せいけい</rt><rp>)</rp></ruby>なので足し算で135°+75°=210°、210°÷15°=14時間の<ruby>時差<rp>(</rp><rt>じさ</rt><rp>)</rp></ruby>になります。',
     },
     {
       type: 'end',

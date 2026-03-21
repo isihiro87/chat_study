@@ -39,6 +39,12 @@ export const climateChat: HistoryChat = {
       text: '日本の気候の特徴',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade2/japan-features/climate.png',
+      alt: '日本の気候区分と季節風の全体図',
+      caption: '日本の気候の全体像：6つの気候区分と季節風',
+    },
+    {
       type: 'narrator',
       text: '日本は<ruby>四季<rp>(</rp><rt>しき</rt><rp>)</rp></ruby>の変化がはっきりした国です。その気候の特徴と、<ruby>季節<rp>(</rp><rt>きせつ</rt><rp>)</rp></ruby>ごとの<ruby>気象現象<rp>(</rp><rt>きしょうげんしょう</rt><rp>)</rp></ruby>を見ていきましょう。',
     },
@@ -113,12 +119,18 @@ export const climateChat: HistoryChat = {
       type: 'quiz',
       question: '冬に北西から吹く季節風が日本海側にもたらすものは？',
       options: [
-        { letter: 'A', text: '大量の雨', correct: false },
+        { letter: 'A', text: '大量の雪', correct: true },
         { letter: 'B', text: '乾燥した晴天', correct: false },
-        { letter: 'C', text: '大量の雪', correct: true },
+        { letter: 'C', text: '大量の雨', correct: false },
         { letter: 'D', text: '台風', correct: false },
       ],
-      explanation: '<strong>正解はC</strong>です。冬の北西の<ruby>季節風<rp>(</rp><rt>きせつふう</rt><rp>)</rp></ruby>が日本海で<ruby>水蒸気<rp>(</rp><rt>すいじょうき</rt><rp>)</rp></ruby>を含み、山脈にぶつかって日本海側に大雪を降らせます。',
+      explanation: '<strong>正解はA</strong>です。冬の北西の<ruby>季節風<rp>(</rp><rt>きせつふう</rt><rp>)</rp></ruby>が日本海で<ruby>水蒸気<rp>(</rp><rt>すいじょうき</rt><rp>)</rp></ruby>を含み、山脈にぶつかって日本海側に大雪を降らせます。',
+    },
+    {
+      type: 'image',
+      src: '/images/geography/grade2/japan-features/temperature-rainfall-chart.svg',
+      alt: '地域別の気温・降水量比較グラフ（準備中）',
+      caption: '日本海側と太平洋側の気温・降水量の違い（準備中）出典：気象庁',
     },
     {
       type: 'date',
@@ -208,11 +220,11 @@ export const climateChat: HistoryChat = {
       question: '冬に大量の雪が降るのはどの気候区分の地域か？',
       options: [
         { letter: 'A', text: '太平洋側の気候', correct: false },
-        { letter: 'B', text: '日本海側の気候', correct: true },
-        { letter: 'C', text: '瀬戸内の気候', correct: false },
+        { letter: 'B', text: '瀬戸内の気候', correct: false },
+        { letter: 'C', text: '日本海側の気候', correct: true },
         { letter: 'D', text: '中央高地の気候', correct: false },
       ],
-      explanation: '<strong>正解はB「日本海側の気候」</strong>です。冬の北西の<ruby>季節風<rp>(</rp><rt>きせつふう</rt><rp>)</rp></ruby>が日本海で<ruby>水蒸気<rp>(</rp><rt>すいじょうき</rt><rp>)</rp></ruby>を含み、山脈にぶつかって大量の雪を降らせます。',
+      explanation: '<strong>正解はC「日本海側の気候」</strong>です。冬の北西の<ruby>季節風<rp>(</rp><rt>きせつふう</rt><rp>)</rp></ruby>が日本海で<ruby>水蒸気<rp>(</rp><rt>すいじょうき</rt><rp>)</rp></ruby>を含み、山脈にぶつかって大量の雪を降らせます。',
     },
     {
       type: 'end',

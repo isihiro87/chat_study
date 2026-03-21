@@ -39,6 +39,12 @@ export const oceaniaNatureChat: HistoryChat = {
       text: '自然と文化',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade1/world-regions/oceania-resources-trade.png',
+      alt: 'オセアニアの自然と産業の概観',
+      caption: '乾燥大陸オーストラリア・太平洋の島々・鉱産資源と貿易相手の変化',
+    },
+    {
       type: 'narrator',
       text: 'オセアニア<ruby>州<rp>(</rp><rt>しゅう</rt><rp>)</rp></ruby>は、オーストラリア<ruby>大陸<rp>(</rp><rt>たいりく</rt><rp>)</rp></ruby>と<ruby>太平洋<rp>(</rp><rt>たいへいよう</rt><rp>)</rp></ruby>に広がる多くの島々からなります。まずはその自然と<ruby>先住民<rp>(</rp><rt>せんじゅうみん</rt><rp>)</rp></ruby>の文化を見てみましょう。',
     },
@@ -97,11 +103,11 @@ export const oceaniaNatureChat: HistoryChat = {
       question: 'オーストラリアが「乾燥大陸」とよばれる理由は？',
       options: [
         { letter: 'A', text: '面積が小さいから', correct: false },
-        { letter: 'B', text: '内陸部の大部分が砂漠や草原で降水量が少ないから', correct: true },
-        { letter: 'C', text: '人口が少ないから', correct: false },
+        { letter: 'B', text: '人口が少ないから', correct: false },
+        { letter: 'C', text: '内陸部の大部分が砂漠や草原で降水量が少ないから', correct: true },
         { letter: 'D', text: '火山が多いから', correct: false },
       ],
-      explanation: '<strong>正解はB</strong>です。オーストラリアは<ruby>内陸部<rp>(</rp><rt>ないりくぶ</rt><rp>)</rp></ruby>の大部分が<ruby>砂漠<rp>(</rp><rt>さばく</rt><rp>)</rp></ruby>や<ruby>草原<rp>(</rp><rt>そうげん</rt><rp>)</rp></ruby>で<ruby>降水量<rp>(</rp><rt>こうすいりょう</rt><rp>)</rp></ruby>が少ないため「<ruby>乾燥<rp>(</rp><rt>かんそう</rt><rp>)</rp></ruby>大陸」とよばれます。',
+      explanation: '<strong>正解はC</strong>です。オーストラリアは<ruby>内陸部<rp>(</rp><rt>ないりくぶ</rt><rp>)</rp></ruby>の大部分が<ruby>砂漠<rp>(</rp><rt>さばく</rt><rp>)</rp></ruby>や<ruby>草原<rp>(</rp><rt>そうげん</rt><rp>)</rp></ruby>で<ruby>降水量<rp>(</rp><rt>こうすいりょう</rt><rp>)</rp></ruby>が少ないため「<ruby>乾燥<rp>(</rp><rt>かんそう</rt><rp>)</rp></ruby>大陸」とよばれます。',
     },
     {
       type: 'date',
@@ -159,11 +165,11 @@ export const oceaniaNatureChat: HistoryChat = {
       question: '太平洋の島々を分ける三海域に含まれないものはどれ？',
       options: [
         { letter: 'A', text: 'ミクロネシア', correct: false },
-        { letter: 'B', text: 'メラネシア', correct: false },
-        { letter: 'C', text: 'インドネシア', correct: true },
+        { letter: 'B', text: 'インドネシア', correct: true },
+        { letter: 'C', text: 'メラネシア', correct: false },
         { letter: 'D', text: 'ポリネシア', correct: false },
       ],
-      explanation: '<strong>正解はC</strong>です。太平洋の三海域はミクロネシア・メラネシア・ポリネシアです。インドネシアは東南アジアの国です。',
+      explanation: '<strong>正解はB</strong>です。太平洋の三海域はミクロネシア・メラネシア・ポリネシアです。インドネシアは東南アジアの国です。',
     },
     {
       type: 'date',
@@ -226,6 +232,12 @@ export const oceaniaNatureChat: HistoryChat = {
       text: '農畜産業：<span class="keyword">羊・牛の放牧</span>、<span class="keyword">小麦栽培</span>。鉱産資源：<span class="keyword">鉄鉱石</span>・<span class="keyword">石炭</span>',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade1/world-regions/australia-trade-partners-chart.svg',
+      alt: 'オーストラリアの貿易相手国の変化グラフ（準備中）',
+      caption: '1960年代のイギリス中心から現在は中国・日本・韓国が上位に（準備中）出典：オーストラリア外務貿易省',
+    },
+    {
       type: 'summary-point',
       text: '貿易相手：イギリス中心 → <span class="keyword">APEC</span>を通じたアジア太平洋地域へ',
     },
@@ -233,12 +245,12 @@ export const oceaniaNatureChat: HistoryChat = {
       type: 'quiz',
       question: 'オーストラリアが日本や中国に多く輸出している鉱産資源は？',
       options: [
-        { letter: 'A', text: '石油と天然ガス', correct: false },
-        { letter: 'B', text: '鉄鉱石と石炭', correct: true },
+        { letter: 'A', text: '鉄鉱石と石炭', correct: true },
+        { letter: 'B', text: '石油と天然ガス', correct: false },
         { letter: 'C', text: '金とダイヤモンド', correct: false },
         { letter: 'D', text: '銅とアルミニウム', correct: false },
       ],
-      explanation: '<strong>正解はB</strong>です。オーストラリアは<ruby>鉄鉱石<rp>(</rp><rt>てっこうせき</rt><rp>)</rp></ruby>と<ruby>石炭<rp>(</rp><rt>せきたん</rt><rp>)</rp></ruby>をアジア<ruby>諸国<rp>(</rp><rt>しょこく</rt><rp>)</rp></ruby>に多く輸出しています。',
+      explanation: '<strong>正解はA</strong>です。オーストラリアは<ruby>鉄鉱石<rp>(</rp><rt>てっこうせき</rt><rp>)</rp></ruby>と<ruby>石炭<rp>(</rp><rt>せきたん</rt><rp>)</rp></ruby>をアジア<ruby>諸国<rp>(</rp><rt>しょこく</rt><rp>)</rp></ruby>に多く輸出しています。',
     },
     {
       type: 'date',
@@ -296,12 +308,12 @@ export const oceaniaNatureChat: HistoryChat = {
       question: 'オーストラリアが日本や中国に多く輸出している鉱産資源はどれ？',
       options: [
         { letter: 'A', text: '石油と天然ガス', correct: false },
-        { letter: 'B', text: '鉄鉱石と石炭', correct: true },
+        { letter: 'B', text: '銅とアルミニウム', correct: false },
         { letter: 'C', text: '金とダイヤモンド', correct: false },
-        { letter: 'D', text: '銅とアルミニウム', correct: false },
+        { letter: 'D', text: '鉄鉱石と石炭', correct: true },
       ],
       explanation:
-        '<strong>正解はB「<ruby>鉄鉱石<rp>(</rp><rt>てっこうせき</rt><rp>)</rp></ruby>と<ruby>石炭<rp>(</rp><rt>せきたん</rt><rp>)</rp></ruby>」</strong>です。オーストラリアはこれらの<ruby>鉱産<rp>(</rp><rt>こうさん</rt><rp>)</rp></ruby>資源をアジア諸国に多く輸出しています。',
+        '<strong>正解はD「<ruby>鉄鉱石<rp>(</rp><rt>てっこうせき</rt><rp>)</rp></ruby>と<ruby>石炭<rp>(</rp><rt>せきたん</rt><rp>)</rp></ruby>」</strong>です。オーストラリアはこれらの<ruby>鉱産<rp>(</rp><rt>こうさん</rt><rp>)</rp></ruby>資源をアジア諸国に多く輸出しています。',
     },
     {
       type: 'end',

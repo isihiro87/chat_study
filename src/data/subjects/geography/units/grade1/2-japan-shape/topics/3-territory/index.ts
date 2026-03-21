@@ -344,34 +344,6 @@ export const territory: Topic = {
       },
         {
           id: 'geo1-tr-q11',
-          question: '領域を構成する3つの要素の正しい組み合わせはどれ？',
-          options: [
-            '領土・領海・領空',
-            '領土・領湖・領山',
-            '領地・領海・領河',
-            '領土・領水・領空',
-          ],
-          correctIndex: 0,
-          explanation:
-            '領域は領土、領海、領空の3つで構成されます。',
-        difficulty: 'standard',
-      },
-        {
-          id: 'geo1-tr-q12',
-          question: '日本の領海は沿岸から何海里（約何km）か。',
-          options: [
-            '3海里（約5.5km）',
-            '12海里（約22km）',
-            '50海里（約93km）',
-            '200海里（約370km）',
-          ],
-          correctIndex: 1,
-          explanation:
-            '日本の領海は沿岸から12海里（約22km）の範囲です。',
-        difficulty: 'standard',
-      },
-        {
-          id: 'geo1-tr-q13',
           question: '排他的経済水域は沿岸から何海里か。',
           options: [
             '12海里',
@@ -385,7 +357,7 @@ export const territory: Topic = {
         difficulty: 'standard',
       },
         {
-          id: 'geo1-tr-q14',
+          id: 'geo1-tr-q12',
           question: '排他的経済水域で沿岸国が持つ権利はどれ？',
           options: [
             '軍事的支配権',
@@ -399,7 +371,7 @@ export const territory: Topic = {
         difficulty: 'standard',
       },
         {
-          id: 'geo1-tr-q15',
+          id: 'geo1-tr-q13',
           question: '日本の排他的経済水域が広い理由はどれ？',
           options: [
             '国土面積が大きいから',
@@ -413,7 +385,7 @@ export const territory: Topic = {
         difficulty: 'standard',
       },
         {
-          id: 'geo1-tr-q16',
+          id: 'geo1-tr-q14',
           question: '北方領土を現在占拠している国はどこか。',
           options: [
             'アメリカ',
@@ -427,7 +399,7 @@ export const territory: Topic = {
         difficulty: 'standard',
       },
         {
-          id: 'geo1-tr-q17',
+          id: 'geo1-tr-q15',
           question: '竹島を不法に占拠している国はどこか。',
           options: [
             '中国',
@@ -441,7 +413,7 @@ export const territory: Topic = {
         difficulty: 'standard',
       },
         {
-          id: 'geo1-tr-q18',
+          id: 'geo1-tr-q16',
           question: '尖閣諸島について日本政府の立場はどれ？',
           options: [
             '領土問題として交渉中',
@@ -455,7 +427,7 @@ export const territory: Topic = {
         difficulty: 'standard',
       },
         {
-          id: 'geo1-tr-q19',
+          id: 'geo1-tr-q17',
           question: '沖ノ鳥島が水没した場合どのような影響があるか。',
           options: [
             '約10万km²のEEZが失われる',
@@ -469,7 +441,7 @@ export const territory: Topic = {
         difficulty: 'standard',
       },
         {
-          id: 'geo1-tr-q20',
+          id: 'geo1-tr-q18',
           question: '北方領土のうち最も大きい島はどれか。',
           options: [
             '歯舞群島',
@@ -483,7 +455,7 @@ export const territory: Topic = {
         difficulty: 'standard',
       },
         {
-          id: 'geo1-tr-q21',
+          id: 'geo1-tr-q19',
           question: '日本のEEZは国土面積の約何倍か。',
           options: [
             '約3倍',
@@ -497,7 +469,7 @@ export const territory: Topic = {
         difficulty: 'standard',
       },
         {
-          id: 'geo1-tr-q22',
+          id: 'geo1-tr-q20',
           question: '西之島の火山噴火によるEEZへの影響はどれ？',
           options: [
             'EEZが縮小した',
@@ -511,7 +483,7 @@ export const territory: Topic = {
         difficulty: 'standard',
       },
         {
-          id: 'geo1-tr-q23',
+          id: 'geo1-tr-q21',
           question: '尖閣諸島周辺で存在が指摘されている資源はどれ？',
           options: [
             'レアアース',
@@ -525,7 +497,7 @@ export const territory: Topic = {
         difficulty: 'advanced',
       },
         {
-          id: 'geo1-tr-q24',
+          id: 'geo1-tr-q22',
           question: '沖ノ鳥島と南鳥島が属する都道府県はどこ？',
           options: [
             '沖縄県',
@@ -539,7 +511,7 @@ export const territory: Topic = {
         difficulty: 'advanced',
       },
         {
-          id: 'geo1-tr-q25',
+          id: 'geo1-tr-q23',
           question: '領空とは何か。正しいものはどれ？',
           options: [
             '大気圏全体',
@@ -553,7 +525,7 @@ export const territory: Topic = {
         difficulty: 'advanced',
       },
         {
-          id: 'geo1-tr-q26',
+          id: 'geo1-tr-q24',
           question: '日本はおよそ何個の島からなるか。',
           options: [
             '約1,000',
@@ -567,7 +539,7 @@ export const territory: Topic = {
         difficulty: 'advanced',
       },
         {
-          id: 'geo1-tr-q27',
+          id: 'geo1-tr-q25',
           question: '南鳥島周辺の海底で確認されている資源はどれ？',
           options: [
             '石油',
@@ -581,7 +553,7 @@ export const territory: Topic = {
         difficulty: 'advanced',
       },
         {
-          id: 'geo1-tr-q28',
+          id: 'geo1-tr-q26',
           question: '沖ノ鳥島で行われた護岸工事はどれ？',
           options: [
             'ダムの建設',

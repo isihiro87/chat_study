@@ -39,6 +39,12 @@ export const chugokuShikokuIndustryChat: HistoryChat = {
       text: '瀬戸内工業地域と産業',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade2/japan-regions/chugoku-shikoku-overview.jpeg',
+      alt: '中国・四国地方の地図',
+      caption: '中国・四国地方の産業の全体図',
+    },
+    {
       type: 'narrator',
       text: '<ruby>瀬戸内海<rp>(</rp><rt>せとないかい</rt><rp>)</rp></ruby>沿岸の工業と<ruby>農業<rp>(</rp><rt>のうぎょう</rt><rp>)</rp></ruby>を見てみましょう。',
     },
@@ -80,6 +86,12 @@ export const chugokuShikokuIndustryChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<span class="keyword">瀬戸内工業地域</span>：<span class="keyword">水島コンビナート</span>・広島の自動車工業。塩田跡地に工場建設',
+    },
+    {
+      type: 'image',
+      src: '/images/geography/grade2/japan-regions/chugoku-shikoku-industry-chart.svg',
+      alt: '瀬戸内工業地域の製造品出荷額グラフ（準備中）',
+      caption: '瀬戸内工業地域の主要都市別製造品出荷額（準備中）出典：経済産業省',
     },
     {
       type: 'quiz',
@@ -144,13 +156,13 @@ export const chugokuShikokuIndustryChat: HistoryChat = {
       type: 'quiz',
       question: '高知県で温暖な気候とビニールハウスを利用して出荷時期を早める栽培方法を何というか？',
       options: [
-        { letter: 'A', text: '促成栽培', correct: true },
+        { letter: 'A', text: '二毛作', correct: false },
         { letter: 'B', text: '抑制栽培', correct: false },
-        { letter: 'C', text: '二毛作', correct: false },
+        { letter: 'C', text: '促成栽培', correct: true },
         { letter: 'D', text: '輪作', correct: false },
       ],
       explanation:
-        '<strong>正解はA「<ruby>促成栽培<rp>(</rp><rt>そくせいさいばい</rt><rp>)</rp></ruby>」</strong>です。温暖な気候やビニールハウスを利用して出荷時期を早め、なすやピーマンを栽培しています。',
+        '<strong>正解はC「<ruby>促成栽培<rp>(</rp><rt>そくせいさいばい</rt><rp>)</rp></ruby>」</strong>です。温暖な気候やビニールハウスを利用して出荷時期を早め、なすやピーマンを栽培しています。',
     },
     {
       type: 'date',
@@ -224,12 +236,12 @@ export const chugokuShikokuIndustryChat: HistoryChat = {
       question: '徳島県上勝町で高齢者がタブレットを使って行っているビジネスはどれか？',
       options: [
         { letter: 'A', text: 'みかんの通販', correct: false },
-        { letter: 'B', text: '温泉観光の発信', correct: false },
+        { letter: 'B', text: '葉っぱビジネス', correct: true },
         { letter: 'C', text: '手工芸品の販売', correct: false },
-        { letter: 'D', text: '葉っぱビジネス', correct: true },
+        { letter: 'D', text: '温泉観光の発信', correct: false },
       ],
       explanation:
-        '<strong>正解はD「葉っぱビジネス」</strong>です。<ruby>上勝<rp>(</rp><rt>かみかつ</rt><rp>)</rp></ruby>町の葉っぱビジネスは、料理の「つまもの」に使う葉っぱを<ruby>高齢者<rp>(</rp><rt>こうれいしゃ</rt><rp>)</rp></ruby>がタブレットで<ruby>受注<rp>(</rp><rt>じゅちゅう</rt><rp>)</rp></ruby>・出荷するICT活用ビジネスです。',
+        '<strong>正解はB「葉っぱビジネス」</strong>です。<ruby>上勝<rp>(</rp><rt>かみかつ</rt><rp>)</rp></ruby>町の葉っぱビジネスは、料理の「つまもの」に使う葉っぱを<ruby>高齢者<rp>(</rp><rt>こうれいしゃ</rt><rp>)</rp></ruby>がタブレットで<ruby>受注<rp>(</rp><rt>じゅちゅう</rt><rp>)</rp></ruby>・出荷するICT活用ビジネスです。',
     },
     {
       type: 'end',

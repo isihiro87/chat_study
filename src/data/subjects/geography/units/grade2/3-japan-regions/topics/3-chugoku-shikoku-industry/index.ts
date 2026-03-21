@@ -279,21 +279,6 @@ export const chugokuShikokuIndustry: Topic = {
         {
           id: 'geo2-csi-q9',
           question:
-            '瀬戸内海沿岸に石油化学コンビナートが立地した理由として正しいものはどれか。',
-          options: [
-            '労働力が豊富だったから',
-            '石油の産出地に近かったから',
-            '波が穏やかで大型タンカーの航行に適していたから',
-            '鉄道網が発達していたから',
-          ],
-          correctIndex: 2,
-          explanation:
-            '瀬戸内海は波が穏やかで大型タンカーが航行しやすく、原料の輸入や製品の輸出に便利な立地条件を持っていました。',
-          difficulty: 'advanced',
-        },
-        {
-          id: 'geo2-csi-q10',
-          question:
             '島根県松江市でIT企業の誘致による地域おこしのきっかけとなったプログラミング言語はどれか。',
           options: [
             'Ruby',
@@ -307,7 +292,7 @@ export const chugokuShikokuIndustry: Topic = {
           difficulty: 'advanced',
         },
         {
-          id: 'geo2-csi-q11',
+          id: 'geo2-csi-q10',
           question:
             '鳥取県で栽培が盛んな農産物の組み合わせとして正しいものはどれか。',
           options: [
@@ -322,7 +307,7 @@ export const chugokuShikokuIndustry: Topic = {
           difficulty: 'advanced',
         },
         {
-          id: 'geo2-csi-q12',
+          id: 'geo2-csi-q11',
           question: '高知県の促成栽培で主に栽培されている野菜の組み合わせはどれか。',
           options: ['トマトとキュウリ', 'なすとピーマン', 'キャベツとレタス', 'だいこんとにんじん'],
           correctIndex: 1,
@@ -330,7 +315,7 @@ export const chugokuShikokuIndustry: Topic = {
           difficulty: 'basic',
         },
         {
-          id: 'geo2-csi-q13',
+          id: 'geo2-csi-q12',
           question: '瀬戸内地方でかつて塩田が盛んだった気候的理由はどれか。',
           options: ['降水量が少なく日照時間が長い', '冬に雪が多い', '台風が多い', '霧が発生しやすい'],
           correctIndex: 0,
@@ -338,15 +323,7 @@ export const chugokuShikokuIndustry: Topic = {
           difficulty: 'standard',
         },
         {
-          id: 'geo2-csi-q14',
-          question: '中山間地域で過疎化が進む構造的原因として正しいものはどれか。',
-          options: ['外国人観光客の増加', '若者の都市部への流出と公共サービスの低下', '海面上昇による浸水', '大規模農業の発展'],
-          correctIndex: 1,
-          explanation: '若者が就職や進学で都市部に流出し、高齢化が進んで医療・教育施設が減少するなど公共サービスが低下する悪循環が過疎化の原因です。',
-          difficulty: 'standard',
-        },
-        {
-          id: 'geo2-csi-q15',
+          id: 'geo2-csi-q13',
           question: '広島県にある2つの世界遺産の組み合わせとして正しいものはどれか。',
           options: ['姫路城と厳島神社', '原爆ドームと厳島神社', '出雲大社と原爆ドーム', '錦帯橋と原爆ドーム'],
           correctIndex: 1,
@@ -354,7 +331,7 @@ export const chugokuShikokuIndustry: Topic = {
           difficulty: 'basic',
         },
         {
-          id: 'geo2-csi-q16',
+          id: 'geo2-csi-q14',
           question: '中国・四国地方の9県のうち、県名と県庁所在地名が異なる県に含まれないものはどれか。',
           options: ['島根県', '愛媛県', '広島県', '香川県'],
           correctIndex: 2,

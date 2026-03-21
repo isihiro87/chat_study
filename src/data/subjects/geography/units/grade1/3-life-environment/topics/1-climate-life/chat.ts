@@ -156,12 +156,12 @@ export const climateLifeChat: HistoryChat = {
       type: 'quiz',
       question: '乾燥帯で家畜を連れて水や草を求めて移動する生活を何という？',
       options: [
-        { letter: 'A', text: '焼畑農業', correct: false },
+        { letter: 'A', text: '遊牧', correct: true },
         { letter: 'B', text: '放牧', correct: false },
-        { letter: 'C', text: '遊牧', correct: true },
+        { letter: 'C', text: '焼畑農業', correct: false },
         { letter: 'D', text: 'プランテーション', correct: false },
       ],
-      explanation: '<strong>正解はC</strong>です。<ruby>遊牧<rp>(</rp><rt>ゆうぼく</rt><rp>)</rp></ruby>は家畜を連れて水や草を求めて移動する<ruby>乾燥帯<rp>(</rp><rt>かんそうたい</rt><rp>)</rp></ruby>の<ruby>伝統的<rp>(</rp><rt>でんとうてき</rt><rp>)</rp></ruby>な生活です。',
+      explanation: '<strong>正解はA</strong>です。<ruby>遊牧<rp>(</rp><rt>ゆうぼく</rt><rp>)</rp></ruby>は家畜を連れて水や草を求めて移動する<ruby>乾燥帯<rp>(</rp><rt>かんそうたい</rt><rp>)</rp></ruby>の<ruby>伝統的<rp>(</rp><rt>でんとうてき</rt><rp>)</rp></ruby>な生活です。',
     },
     {
       type: 'date',
@@ -217,15 +217,21 @@ export const climateLifeChat: HistoryChat = {
       text: '<span class="keyword">熱帯</span>：風通しのよい家・熱帯雨林・サンゴ礁 / <span class="keyword">高山</span>：リャマ・アルパカ・ポンチョ・じゃがいも',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade1/life-environment/world-climate-zone-distribution.svg',
+      alt: '世界の気候帯別面積割合グラフ（準備中）',
+      caption: '五つの気候帯が占める面積の割合（準備中）出典：ケッペンの気候区分',
+    },
+    {
       type: 'quiz',
       question: 'アンデス山脈の高山地域で飼育されている動物はどれ？',
       options: [
         { letter: 'A', text: 'らくだ', correct: false },
         { letter: 'B', text: 'トナカイ', correct: false },
-        { letter: 'C', text: 'リャマ・アルパカ', correct: true },
-        { letter: 'D', text: 'ヤク', correct: false },
+        { letter: 'C', text: 'ヤク', correct: false },
+        { letter: 'D', text: 'リャマ・アルパカ', correct: true },
       ],
-      explanation: '<strong>正解はC</strong>です。アンデス<ruby>山脈<rp>(</rp><rt>さんみゃく</rt><rp>)</rp></ruby>ではリャマやアルパカを<ruby>放牧<rp>(</rp><rt>ほうぼく</rt><rp>)</rp></ruby>し、その毛からポンチョを織っています。',
+      explanation: '<strong>正解はD</strong>です。アンデス<ruby>山脈<rp>(</rp><rt>さんみゃく</rt><rp>)</rp></ruby>ではリャマやアルパカを<ruby>放牧<rp>(</rp><rt>ほうぼく</rt><rp>)</rp></ruby>し、その毛からポンチョを織っています。',
     },
     {
       type: 'date',

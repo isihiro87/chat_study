@@ -87,10 +87,10 @@ export const researchMethodsChat: HistoryChat = {
       options: [
         { letter: 'A', text: 'できるだけ広いテーマにする', correct: false },
         { letter: 'B', text: '先生が決めたテーマをそのまま使う', correct: false },
-        { letter: 'C', text: '身近な地域を観察して具体的にしぼる', correct: true },
-        { letter: 'D', text: 'インターネットで人気のテーマを選ぶ', correct: false },
+        { letter: 'C', text: 'インターネットで人気のテーマを選ぶ', correct: false },
+        { letter: 'D', text: '身近な地域を観察して具体的にしぼる', correct: true },
       ],
-      explanation: '<strong>正解はC</strong>です。身近な地域を<ruby>観察<rp>(</rp><rt>かんさつ</rt><rp>)</rp></ruby>して<ruby>疑問<rp>(</rp><rt>ぎもん</rt><rp>)</rp></ruby>を見つけ、<ruby>具体的<rp>(</rp><rt>ぐたいてき</rt><rp>)</rp></ruby>にしぼることが大切です。',
+      explanation: '<strong>正解はD</strong>です。身近な地域を<ruby>観察<rp>(</rp><rt>かんさつ</rt><rp>)</rp></ruby>して<ruby>疑問<rp>(</rp><rt>ぎもん</rt><rp>)</rp></ruby>を見つけ、<ruby>具体的<rp>(</rp><rt>ぐたいてき</rt><rp>)</rp></ruby>にしぼることが大切です。',
     },
     {
       type: 'date',
@@ -144,11 +144,11 @@ export const researchMethodsChat: HistoryChat = {
       question: '「駅前に飲食店が多いのは通勤・通学で人通りが多いからではないか」はどれにあたる？',
       options: [
         { letter: 'A', text: '調査テーマ', correct: false },
-        { letter: 'B', text: '仮説', correct: true },
-        { letter: 'C', text: '調査結果', correct: false },
+        { letter: 'B', text: '調査結果', correct: false },
+        { letter: 'C', text: '仮説', correct: true },
         { letter: 'D', text: '考察', correct: false },
       ],
-      explanation: '<strong>正解はB</strong>です。<ruby>根拠<rp>(</rp><rt>こんきょ</rt><rp>)</rp></ruby>（理由）をつけた予想が<ruby>仮説<rp>(</rp><rt>かせつ</rt><rp>)</rp></ruby>です。',
+      explanation: '<strong>正解はC</strong>です。<ruby>根拠<rp>(</rp><rt>こんきょ</rt><rp>)</rp></ruby>（理由）をつけた予想が<ruby>仮説<rp>(</rp><rt>かせつ</rt><rp>)</rp></ruby>です。',
     },
     {
       type: 'date',
@@ -218,12 +218,12 @@ export const researchMethodsChat: HistoryChat = {
       type: 'quiz',
       question: '調査結果を地図上に表したものを何というか？',
       options: [
-        { letter: 'A', text: '白地図', correct: false },
+        { letter: 'A', text: '主題図', correct: true },
         { letter: 'B', text: '地形図', correct: false },
         { letter: 'C', text: 'ルートマップ', correct: false },
-        { letter: 'D', text: '主題図', correct: true },
+        { letter: 'D', text: '白地図', correct: false },
       ],
-      explanation: '<strong>正解はD</strong>です。テーマに合わせて調査結果を地図に表したものが<ruby>主題図<rp>(</rp><rt>しゅだいず</rt><rp>)</rp></ruby>です。',
+      explanation: '<strong>正解はA</strong>です。テーマに合わせて調査結果を地図に表したものが<ruby>主題図<rp>(</rp><rt>しゅだいず</rt><rp>)</rp></ruby>です。',
     },
     {
       type: 'end',

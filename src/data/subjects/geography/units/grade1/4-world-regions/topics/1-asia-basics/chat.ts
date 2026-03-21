@@ -43,6 +43,12 @@ export const asiaBasicsChat: HistoryChat = {
       text: 'アジア<ruby>州<rp>(</rp><rt>しゅう</rt><rp>)</rp></ruby>は世界で最も広く、人口も最も多い地域です。まずは気候や文化の特徴を見てみましょう。',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade1/world-regions/asia-monsoon-map.png',
+      alt: 'アジア州の全体図：季節風・主要山脈・河川',
+      caption: 'アジア州の自然環境と季節風（モンスーン）',
+    },
+    {
       type: 'message',
       side: 'left',
       characterId: 'teacher',
@@ -156,12 +162,12 @@ export const asiaBasicsChat: HistoryChat = {
       type: 'quiz',
       question: 'ヒマラヤ山脈やチベット高原をまとめて何とよぶ？',
       options: [
-        { letter: 'A', text: '世界の庭', correct: false },
+        { letter: 'A', text: '世界の屋根', correct: true },
         { letter: 'B', text: '世界の壁', correct: false },
-        { letter: 'C', text: '世界の屋根', correct: true },
+        { letter: 'C', text: '世界の庭', correct: false },
         { letter: 'D', text: '世界の柱', correct: false },
       ],
-      explanation: '<strong>正解はC</strong>です。ヒマラヤ<ruby>山脈<rp>(</rp><rt>さんみゃく</rt><rp>)</rp></ruby>とチベット<ruby>高原<rp>(</rp><rt>こうげん</rt><rp>)</rp></ruby>は「世界の<ruby>屋根<rp>(</rp><rt>やね</rt><rp>)</rp></ruby>」とよばれます。',
+      explanation: '<strong>正解はA</strong>です。ヒマラヤ<ruby>山脈<rp>(</rp><rt>さんみゃく</rt><rp>)</rp></ruby>とチベット<ruby>高原<rp>(</rp><rt>こうげん</rt><rp>)</rp></ruby>は「世界の<ruby>屋根<rp>(</rp><rt>やね</rt><rp>)</rp></ruby>」とよばれます。',
     },
     {
       type: 'date',
@@ -211,15 +217,21 @@ export const asiaBasicsChat: HistoryChat = {
       text: '<span class="keyword">アジアNIES</span>：韓国・シンガポール・台湾・ホンコン。ハイテク産業で急成長',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade1/world-regions/asia-population-chart.svg',
+      alt: 'アジア州の人口割合グラフ（準備中）',
+      caption: '世界人口の約60%がアジアに集中（準備中）出典：国連人口基金',
+    },
+    {
       type: 'quiz',
       question: 'アジアNIESに含まれない国・地域はどれか？',
       options: [
         { letter: 'A', text: '韓国', correct: false },
         { letter: 'B', text: 'シンガポール', correct: false },
-        { letter: 'C', text: 'タイ', correct: true },
-        { letter: 'D', text: '台湾', correct: false },
+        { letter: 'C', text: '台湾', correct: false },
+        { letter: 'D', text: 'タイ', correct: true },
       ],
-      explanation: '<strong>正解はC「タイ」</strong>です。アジアNIESは韓国・シンガポール・台湾・ホンコンの4つの国・地域を指します。タイはASEANの加盟国です。',
+      explanation: '<strong>正解はD「タイ」</strong>です。アジアNIESは韓国・シンガポール・台湾・ホンコンの4つの国・地域を指します。タイはASEANの加盟国です。',
     },
     {
       type: 'end',

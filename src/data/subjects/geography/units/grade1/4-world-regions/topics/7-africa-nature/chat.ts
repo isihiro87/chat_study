@@ -40,6 +40,12 @@ export const africaNatureChat: HistoryChat = {
       text: 'アフリカの自然と歴史',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade1/world-regions/africa-nature-map.png',
+      alt: 'アフリカの自然環境の概観',
+      caption: 'サハラ砂漠・サヘル・熱帯雨林・サバナ・ナイル川・キリマンジャロの位置関係',
+    },
+    {
       type: 'narrator',
       text: 'アフリカ<ruby>大陸<rp>(</rp><rt>たいりく</rt><rp>)</rp></ruby>は世界で2番目に大きな大陸です。<ruby>砂漠<rp>(</rp><rt>さばく</rt><rp>)</rp></ruby>から<ruby>熱帯雨林<rp>(</rp><rt>ねったいうりん</rt><rp>)</rp></ruby>まで、多様な自然が広がっています。',
     },
@@ -85,6 +91,12 @@ export const africaNatureChat: HistoryChat = {
       caption: 'サハラ砂漠・サヘル・熱帯雨林・ナイル川・キリマンジャロ・大地溝帯',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade1/world-regions/africa-climate-zone-chart.svg',
+      alt: 'アフリカの気候帯別面積割合グラフ（準備中）',
+      caption: '砂漠・ステップ・サバナ・熱帯雨林の面積割合（準備中）出典：FAO統計',
+    },
+    {
       type: 'summary-point',
       text: 'アフリカの自然：<span class="keyword">サハラ砂漠</span>（世界最大）→ <span class="keyword">サヘル</span>（半乾燥）→ <span class="keyword">サバナ</span>（草原）→ <span class="keyword">熱帯雨林</span>（赤道付近）',
     },
@@ -92,12 +104,12 @@ export const africaNatureChat: HistoryChat = {
       type: 'quiz',
       question: 'サハラ砂漠の南側に広がる半乾燥地帯を何という？',
       options: [
-        { letter: 'A', text: 'サバナ', correct: false },
-        { letter: 'B', text: 'サヘル', correct: true },
+        { letter: 'A', text: 'サヘル', correct: true },
+        { letter: 'B', text: 'サバナ', correct: false },
         { letter: 'C', text: 'ステップ', correct: false },
         { letter: 'D', text: 'タイガ', correct: false },
       ],
-      explanation: '<strong>正解はB</strong>です。サヘルはサハラ<ruby>砂漠<rp>(</rp><rt>さばく</rt><rp>)</rp></ruby>の南側に広がる<ruby>半乾燥<rp>(</rp><rt>はんかんそう</rt><rp>)</rp></ruby>地帯で、<ruby>砂漠化<rp>(</rp><rt>さばくか</rt><rp>)</rp></ruby>が深刻です。',
+      explanation: '<strong>正解はA</strong>です。サヘルはサハラ<ruby>砂漠<rp>(</rp><rt>さばく</rt><rp>)</rp></ruby>の南側に広がる<ruby>半乾燥<rp>(</rp><rt>はんかんそう</rt><rp>)</rp></ruby>地帯で、<ruby>砂漠化<rp>(</rp><rt>さばくか</rt><rp>)</rp></ruby>が深刻です。',
     },
     {
       type: 'message',
@@ -137,10 +149,10 @@ export const africaNatureChat: HistoryChat = {
       options: [
         { letter: 'A', text: '経済援助', correct: false },
         { letter: 'B', text: '自由貿易協定の締結', correct: false },
-        { letter: 'C', text: '植民地支配', correct: true },
-        { letter: 'D', text: '文化交流', correct: false },
+        { letter: 'C', text: '文化交流', correct: false },
+        { letter: 'D', text: '植民地支配', correct: true },
       ],
-      explanation: '<strong>正解はC</strong>です。19世紀後半、ヨーロッパ<ruby>列強<rp>(</rp><rt>れっきょう</rt><rp>)</rp></ruby>はアフリカの大部分を<ruby>植民地<rp>(</rp><rt>しょくみんち</rt><rp>)</rp></ruby>として<ruby>支配<rp>(</rp><rt>しはい</rt><rp>)</rp></ruby>しました。',
+      explanation: '<strong>正解はD</strong>です。19世紀後半、ヨーロッパ<ruby>列強<rp>(</rp><rt>れっきょう</rt><rp>)</rp></ruby>はアフリカの大部分を<ruby>植民地<rp>(</rp><rt>しょくみんち</rt><rp>)</rp></ruby>として<ruby>支配<rp>(</rp><rt>しはい</rt><rp>)</rp></ruby>しました。',
     },
 
     // ===== ナイル川とキリマンジャロ =====

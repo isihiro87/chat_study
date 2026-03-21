@@ -113,28 +113,34 @@ export const kinkiNatureChat: HistoryChat = {
       type: 'quiz',
       question: '日本最大の湖で、近畿地方の重要な水源となっている湖はどれか？',
       options: [
-        { letter: 'A', text: '琵琶湖', correct: true },
-        { letter: 'B', text: '浜名湖', correct: false },
+        { letter: 'A', text: '浜名湖', correct: false },
+        { letter: 'B', text: '琵琶湖', correct: true },
         { letter: 'C', text: '諏訪湖', correct: false },
         { letter: 'D', text: '霞ヶ浦', correct: false },
       ],
       explanation:
-        '<strong>正解はA「<ruby>琵琶湖<rp>(</rp><rt>びわこ</rt><rp>)</rp></ruby>」</strong>です。<ruby>滋賀<rp>(</rp><rt>しが</rt><rp>)</rp></ruby>県にある日本最大の湖で、<ruby>淀川<rp>(</rp><rt>よどがわ</rt><rp>)</rp></ruby>を通じて近畿地方の水源になっています。',
+        '<strong>正解はB「<ruby>琵琶湖<rp>(</rp><rt>びわこ</rt><rp>)</rp></ruby>」</strong>です。<ruby>滋賀<rp>(</rp><rt>しが</rt><rp>)</rp></ruby>県にある日本最大の湖で、<ruby>淀川<rp>(</rp><rt>よどがわ</rt><rp>)</rp></ruby>を通じて近畿地方の水源になっています。',
     },
     {
       type: 'summary-point',
       text: '<span class="keyword">リアス海岸</span>（若狭湾・志摩半島）。<span class="keyword">琵琶湖</span>→<span class="keyword">淀川</span>。<span class="keyword">紀伊山地</span>の林業。北部は多雪、南部は<span class="keyword">黒潮</span>で温暖',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade2/japan-regions/kinki-biwa-water-chart.svg',
+      alt: '琵琶湖の水供給量グラフ（準備中）',
+      caption: '琵琶湖は近畿約1400万人の飲み水を供給（準備中）出典：滋賀県',
+    },
+    {
       type: 'quiz',
       question: '琵琶湖から流れ出して大阪湾にそそぐ川は何か？',
       options: [
-        { letter: 'A', text: '木曽川', correct: false },
-        { letter: 'B', text: '淀川', correct: true },
+        { letter: 'A', text: '淀川', correct: true },
+        { letter: 'B', text: '木曽川', correct: false },
         { letter: 'C', text: '利根川', correct: false },
         { letter: 'D', text: '紀ノ川', correct: false },
       ],
-      explanation: '<strong>正解はB</strong>です。<ruby>琵琶湖<rp>(</rp><rt>びわこ</rt><rp>)</rp></ruby>から流れ出す<ruby>淀川<rp>(</rp><rt>よどがわ</rt><rp>)</rp></ruby>は大阪湾にそそぎ、近畿地方の大切な<ruby>水源<rp>(</rp><rt>すいげん</rt><rp>)</rp></ruby>です。',
+      explanation: '<strong>正解はA</strong>です。<ruby>琵琶湖<rp>(</rp><rt>びわこ</rt><rp>)</rp></ruby>から流れ出す<ruby>淀川<rp>(</rp><rt>よどがわ</rt><rp>)</rp></ruby>は大阪湾にそそぎ、近畿地方の大切な<ruby>水源<rp>(</rp><rt>すいげん</rt><rp>)</rp></ruby>です。',
     },
     {
       type: 'date',
@@ -191,11 +197,11 @@ export const kinkiNatureChat: HistoryChat = {
       options: [
         { letter: 'A', text: 'ドーナツ化現象', correct: false },
         { letter: 'B', text: 'ストロー現象', correct: false },
-        { letter: 'C', text: 'オーバーツーリズム', correct: true },
-        { letter: 'D', text: 'ヒートアイランド現象', correct: false },
+        { letter: 'C', text: 'ヒートアイランド現象', correct: false },
+        { letter: 'D', text: 'オーバーツーリズム', correct: true },
       ],
       explanation:
-        '<strong>正解はC「オーバーツーリズム」</strong>です。<ruby>観光公害<rp>(</rp><rt>かんこうこうがい</rt><rp>)</rp></ruby>ともいい、観光客の増えすぎで<ruby>交通渋滞<rp>(</rp><rt>こうつうじゅうたい</rt><rp>)</rp></ruby>やごみ問題が発生しています。',
+        '<strong>正解はD「オーバーツーリズム」</strong>です。<ruby>観光公害<rp>(</rp><rt>かんこうこうがい</rt><rp>)</rp></ruby>ともいい、観光客の増えすぎで<ruby>交通渋滞<rp>(</rp><rt>こうつうじゅうたい</rt><rp>)</rp></ruby>やごみ問題が発生しています。',
     },
     {
       type: 'summary-point',
@@ -206,11 +212,11 @@ export const kinkiNatureChat: HistoryChat = {
       question: '京都で歴史的な町並みを守るために制定されたものは何か？',
       options: [
         { letter: 'A', text: '建築基準法', correct: false },
-        { letter: 'B', text: '景観条例', correct: true },
-        { letter: 'C', text: '文化財保護法', correct: false },
+        { letter: 'B', text: '文化財保護法', correct: false },
+        { letter: 'C', text: '景観条例', correct: true },
         { letter: 'D', text: '都市計画法', correct: false },
       ],
-      explanation: '<strong>正解はB</strong>です。<ruby>景観条例<rp>(</rp><rt>けいかんじょうれい</rt><rp>)</rp></ruby>で建物の高さ制限や<ruby>看板<rp>(</rp><rt>かんばん</rt><rp>)</rp></ruby>の色・大きさを<ruby>規制<rp>(</rp><rt>きせい</rt><rp>)</rp></ruby>しています。',
+      explanation: '<strong>正解はC</strong>です。<ruby>景観条例<rp>(</rp><rt>けいかんじょうれい</rt><rp>)</rp></ruby>で建物の高さ制限や<ruby>看板<rp>(</rp><rt>かんばん</rt><rp>)</rp></ruby>の色・大きさを<ruby>規制<rp>(</rp><rt>きせい</rt><rp>)</rp></ruby>しています。',
     },
     {
       type: 'date',
@@ -274,12 +280,12 @@ export const kinkiNatureChat: HistoryChat = {
       question: '大阪から神戸にかけて広がる、中小企業の技術力が高い工業地帯はどれか？',
       options: [
         { letter: 'A', text: '京浜工業地帯', correct: false },
-        { letter: 'B', text: '中京工業地帯', correct: false },
+        { letter: 'B', text: '阪神工業地帯', correct: true },
         { letter: 'C', text: '北九州工業地帯', correct: false },
-        { letter: 'D', text: '阪神工業地帯', correct: true },
+        { letter: 'D', text: '中京工業地帯', correct: false },
       ],
       explanation:
-        '<strong>正解はD「<ruby>阪神工業地帯<rp>(</rp><rt>はんしんこうぎょうちたい</rt><rp>)</rp></ruby>」</strong>です。大阪から神戸にかけて広がり、<ruby>中小企業<rp>(</rp><rt>ちゅうしょうきぎょう</rt><rp>)</rp></ruby>が多く高い技術力を持つのが特徴です。',
+        '<strong>正解はB「<ruby>阪神工業地帯<rp>(</rp><rt>はんしんこうぎょうちたい</rt><rp>)</rp></ruby>」</strong>です。大阪から神戸にかけて広がり、<ruby>中小企業<rp>(</rp><rt>ちゅうしょうきぎょう</rt><rp>)</rp></ruby>が多く高い技術力を持つのが特徴です。',
     },
     {
       type: 'summary-point',
@@ -289,12 +295,12 @@ export const kinkiNatureChat: HistoryChat = {
       type: 'quiz',
       question: '東大阪市の中小企業が協力して開発した人工衛星は何か？',
       options: [
-        { letter: 'A', text: 'はやぶさ', correct: false },
+        { letter: 'A', text: 'まいど1号', correct: true },
         { letter: 'B', text: 'きぼう', correct: false },
-        { letter: 'C', text: 'まいど1号', correct: true },
+        { letter: 'C', text: 'はやぶさ', correct: false },
         { letter: 'D', text: 'ひまわり', correct: false },
       ],
-      explanation: '<strong>正解はC</strong>です。<ruby>東大阪<rp>(</rp><rt>ひがしおおさか</rt><rp>)</rp></ruby>市の<ruby>町工場<rp>(</rp><rt>まちこうば</rt><rp>)</rp></ruby>が<ruby>協力<rp>(</rp><rt>きょうりょく</rt><rp>)</rp></ruby>して<ruby>人工衛星<rp>(</rp><rt>じんこうえいせい</rt><rp>)</rp></ruby>「まいど1号」を開発しました。',
+      explanation: '<strong>正解はA</strong>です。<ruby>東大阪<rp>(</rp><rt>ひがしおおさか</rt><rp>)</rp></ruby>市の<ruby>町工場<rp>(</rp><rt>まちこうば</rt><rp>)</rp></ruby>が<ruby>協力<rp>(</rp><rt>きょうりょく</rt><rp>)</rp></ruby>して<ruby>人工衛星<rp>(</rp><rt>じんこうえいせい</rt><rp>)</rp></ruby>「まいど1号」を開発しました。',
     },
     {
       type: 'end',

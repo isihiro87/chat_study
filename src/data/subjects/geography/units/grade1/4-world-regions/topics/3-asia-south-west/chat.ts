@@ -43,6 +43,12 @@ export const asiaSouthWestChat: HistoryChat = {
       text: '最後に、<ruby>南<rp>(</rp><rt>みなみ</rt><rp>)</rp></ruby>アジアの大国インドと、<ruby>石油<rp>(</rp><rt>せきゆ</rt><rp>)</rp></ruby>で知られる<ruby>西<rp>(</rp><rt>にし</rt><rp>)</rp></ruby>アジア・<ruby>中央<rp>(</rp><rt>ちゅうおう</rt><rp>)</rp></ruby>アジアを見てみましょう。',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade1/world-regions/south-west-asia-resources.png',
+      alt: '南アジア・西アジアの資源と産業の地図',
+      caption: '南アジア・西アジアの石油資源とICT産業',
+    },
+    {
       type: 'message',
       side: 'left',
       characterId: 'teacher',
@@ -174,12 +180,12 @@ export const asiaSouthWestChat: HistoryChat = {
       type: 'quiz',
       question: 'ヒンドゥー教徒が聖なる川として沐浴する川は？',
       options: [
-        { letter: 'A', text: 'インダス川', correct: false },
+        { letter: 'A', text: 'ガンジス川', correct: true },
         { letter: 'B', text: 'メコン川', correct: false },
-        { letter: 'C', text: 'ガンジス川', correct: true },
+        { letter: 'C', text: 'インダス川', correct: false },
         { letter: 'D', text: '黄河', correct: false },
       ],
-      explanation: '<strong>正解はC</strong>です。<ruby>ガンジス川<rp>(</rp><rt>がんじすがわ</rt><rp>)</rp></ruby>はヒンドゥー<ruby>教徒<rp>(</rp><rt>きょうと</rt><rp>)</rp></ruby>にとって<ruby>聖<rp>(</rp><rt>せい</rt><rp>)</rp></ruby>なる川で、<ruby>沐浴<rp>(</rp><rt>もくよく</rt><rp>)</rp></ruby>が行われます。',
+      explanation: '<strong>正解はA</strong>です。<ruby>ガンジス川<rp>(</rp><rt>がんじすがわ</rt><rp>)</rp></ruby>はヒンドゥー<ruby>教徒<rp>(</rp><rt>きょうと</rt><rp>)</rp></ruby>にとって<ruby>聖<rp>(</rp><rt>せい</rt><rp>)</rp></ruby>なる川で、<ruby>沐浴<rp>(</rp><rt>もくよく</rt><rp>)</rp></ruby>が行われます。',
     },
     {
       type: 'date',
@@ -234,6 +240,12 @@ export const asiaSouthWestChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<span class="keyword">レアメタル</span>：電子機器に不可欠な希少金属。<span class="keyword">ドバイ</span>：AI・観光で産業の多角化',
+    },
+    {
+      type: 'image',
+      src: '/images/geography/grade1/world-regions/west-asia-oil-production-chart.svg',
+      alt: '西アジア主要国の石油生産量グラフ（準備中）',
+      caption: 'OPEC加盟国の石油生産量の比較（準備中）出典：OPEC年次統計',
     },
     {
       type: 'quiz',

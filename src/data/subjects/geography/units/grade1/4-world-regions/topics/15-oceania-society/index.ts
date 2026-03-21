@@ -95,23 +95,8 @@ export const oceaniaSociety: Topic = {
     ],
     quiz: {
       questions: [
-        // basic (10 questions)
         {
           id: 'geo1-oc2-q1',
-          question: '「白豪主義」の説明として正しいものはどれ？',
-          options: [
-            'オーストラリアが白人だけの国を目指した政策',
-            'アボリジニだけに市民権を認めた政策',
-            'ヨーロッパ系以外の移民を制限した政策',
-            'イギリスからの独立を求めた運動',
-          ],
-          correctIndex: 2,
-          explanation:
-            '白豪主義とは、オーストラリアがヨーロッパ系以外の移民を制限していた政策です。1970年代以降に廃止され、多文化社会へと転換しました。',
-          difficulty: 'basic',
-        },
-        {
-          id: 'geo1-oc2-q2',
           question: '地球温暖化による海面上昇の影響を深刻に受けている島国はどれ？',
           options: ['ツバル', 'オーストラリア', 'ニュージーランド', 'フィジー'],
           correctIndex: 0,
@@ -120,7 +105,7 @@ export const oceaniaSociety: Topic = {
           difficulty: 'basic',
         },
         {
-          id: 'geo1-oc2-q3',
+          id: 'geo1-oc2-q2',
           question: 'オーストラリアの先住民を何というか。',
           options: ['マオリ', 'イヌイット', 'アボリジニ', 'インディオ'],
           correctIndex: 2,
@@ -129,7 +114,7 @@ export const oceaniaSociety: Topic = {
           difficulty: 'basic',
         },
         {
-          id: 'geo1-oc2-q4',
+          id: 'geo1-oc2-q3',
           question: 'ニュージーランドの先住民を何というか。',
           options: ['マオリ', 'アボリジニ', 'メラネシアン', 'ポリネシアン'],
           correctIndex: 0,
@@ -138,7 +123,7 @@ export const oceaniaSociety: Topic = {
           difficulty: 'basic',
         },
         {
-          id: 'geo1-oc2-q5',
+          id: 'geo1-oc2-q4',
           question: 'オーストラリアやニュージーランドがかつて植民地だった国はどこか。',
           options: ['フランス', 'オランダ', 'スペイン', 'イギリス'],
           correctIndex: 3,
@@ -147,7 +132,7 @@ export const oceaniaSociety: Topic = {
           difficulty: 'basic',
         },
         {
-          id: 'geo1-oc2-q6',
+          id: 'geo1-oc2-q5',
           question: '白豪主義が廃止されたのは何年代か。',
           options: ['1950年代', '1970年代', '1960年代', '1980年代'],
           correctIndex: 1,
@@ -156,7 +141,7 @@ export const oceaniaSociety: Topic = {
           difficulty: 'basic',
         },
         {
-          id: 'geo1-oc2-q7',
+          id: 'geo1-oc2-q6',
           question: '白豪主義の廃止後、オーストラリアが多く受け入れるようになった移民はどの地域からか。',
           options: ['アフリカ系', '南米系', '中東系', 'アジア系'],
           correctIndex: 3,
@@ -165,7 +150,7 @@ export const oceaniaSociety: Topic = {
           difficulty: 'basic',
         },
         {
-          id: 'geo1-oc2-q8',
+          id: 'geo1-oc2-q7',
           question: 'イギリスの植民地化にともなってオセアニアに広まった宗教はどれか。',
           options: ['イスラム教', 'キリスト教', '仏教', 'ヒンドゥー教'],
           correctIndex: 1,
@@ -174,7 +159,7 @@ export const oceaniaSociety: Topic = {
           difficulty: 'basic',
         },
         {
-          id: 'geo1-oc2-q9',
+          id: 'geo1-oc2-q8',
           question: '多様な文化や言語が共存するオーストラリアの社会を何とよぶか。',
           options: ['単一文化社会', '植民地社会', '多文化社会', '階級社会'],
           correctIndex: 2,
@@ -183,7 +168,7 @@ export const oceaniaSociety: Topic = {
           difficulty: 'basic',
         },
         {
-          id: 'geo1-oc2-q10',
+          id: 'geo1-oc2-q9',
           question: 'アボリジニの聖地とされる巨大な一枚岩の名称はどれか。',
           options: ['グレートバリアリーフ', 'マウントクック', 'タスマニア', 'ウルル'],
           correctIndex: 3,
@@ -193,7 +178,7 @@ export const oceaniaSociety: Topic = {
         },
         // standard (10 questions)
         {
-          id: 'geo1-oc2-q11',
+          id: 'geo1-oc2-q10',
           question: 'サンゴ礁の白化が起こる原因はどれか。',
           options: [
             '海水温の上昇',
@@ -207,49 +192,7 @@ export const oceaniaSociety: Topic = {
           difficulty: 'standard',
         },
         {
-          id: 'geo1-oc2-q12',
-          question: 'シドニーのチャイナタウンが多文化社会の象徴とされる理由として正しいものはどれか。',
-          options: [
-            '中国政府が建設した施設があるから',
-            'オーストラリア最大の貿易港だから',
-            '白豪主義が最初に廃止された場所だから',
-            '中国系移民の文化や食が根づき、多様な文化の共存を示しているから',
-          ],
-          correctIndex: 3,
-          explanation:
-            'シドニーのチャイナタウンには中国系移民の文化や食が根づいており、多文化社会の象徴的な場所です。',
-          difficulty: 'standard',
-        },
-        {
-          id: 'geo1-oc2-q13',
-          question: 'オセアニアの島国が海面上昇の影響を受けやすい理由はどれか。',
-          options: [
-            '火山島が多いから',
-            '人口が少ないから',
-            'サンゴ礁の島は標高が非常に低いから',
-            '赤道に近いから',
-          ],
-          correctIndex: 2,
-          explanation:
-            'サンゴ礁の島は標高が非常に低いため、わずかな海面上昇でも水没の危険があります。',
-          difficulty: 'standard',
-        },
-        {
-          id: 'geo1-oc2-q14',
-          question: 'オーストラリアの貿易相手の変化について正しいものはどれ？',
-          options: [
-            'アジア中心からイギリス中心へ',
-            'イギリス中心からアジア太平洋地域の国々へ',
-            'アメリカ中心からヨーロッパ中心へ',
-            'アフリカ中心から南アメリカ中心へ',
-          ],
-          correctIndex: 1,
-          explanation:
-            'オーストラリアはかつてイギリスとの貿易が中心でしたが、現在は日本や中国などアジア太平洋地域の国々との経済的な結びつきを強めています。',
-          difficulty: 'standard',
-        },
-        {
-          id: 'geo1-oc2-q15',
+          id: 'geo1-oc2-q11',
           question: '1960年代のオーストラリアの輸出品第1位は何だったか。',
           options: ['羊毛', '鉄鉱石', '石炭', '小麦'],
           correctIndex: 0,
@@ -258,7 +201,7 @@ export const oceaniaSociety: Topic = {
           difficulty: 'standard',
         },
         {
-          id: 'geo1-oc2-q16',
+          id: 'geo1-oc2-q12',
           question: 'アボリジニの権利を回復する取り組みとして正しいものはどれか。',
           options: [
             '鉱山の開発を全面禁止した',
@@ -272,7 +215,7 @@ export const oceaniaSociety: Topic = {
           difficulty: 'standard',
         },
         {
-          id: 'geo1-oc2-q17',
+          id: 'geo1-oc2-q13',
           question: '現在のオーストラリアの輸出品第1位は何か。',
           options: ['鉄鉱石', '羊毛', '石炭', '小麦'],
           correctIndex: 0,
@@ -281,7 +224,7 @@ export const oceaniaSociety: Topic = {
           difficulty: 'standard',
         },
         {
-          id: 'geo1-oc2-q18',
+          id: 'geo1-oc2-q14',
           question: 'オーストラリアから日本に輸出される主な資源の組み合わせとして正しいものはどれか。',
           options: [
             '鉄鉱石と石炭',
@@ -294,37 +237,9 @@ export const oceaniaSociety: Topic = {
             'オーストラリアから日本には鉄鉱石と石炭が多く輸出されています。日本は自国での鉱産資源の産出が少ないため大量に輸入しています。',
           difficulty: 'standard',
         },
-        {
-          id: 'geo1-oc2-q19',
-          question: 'オーストラリアの輸出構造が羊毛中心から鉄鉱石中心へ変化した背景として正しいものはどれか。',
-          options: [
-            'ヨーロッパで羊毛の需要が増加したため',
-            'オーストラリアで羊の飼育が禁止されたため',
-            'アジア諸国の工業化で鉄鉱石の需要が急増したため',
-            'アメリカが鉄鉱石の輸入を要請したため',
-          ],
-          correctIndex: 2,
-          explanation:
-            'アジア諸国、特に中国の工業化が急速に進んだことで鉄鉱石の需要が急増し、オーストラリアの輸出構造が大きく変化しました。',
-          difficulty: 'standard',
-        },
-        {
-          id: 'geo1-oc2-q20',
-          question: 'イギリスの植民地化がアボリジニに与えた影響として正しいものはどれか。',
-          options: [
-            'アボリジニの人口が急増した',
-            '伝統的な土地を奪われ、固有の言語・文化が衰退した',
-            'アボリジニの言語が公用語に採用された',
-            'アボリジニが自治権を獲得した',
-          ],
-          correctIndex: 1,
-          explanation:
-            'イギリスの植民地化により、アボリジニは伝統的な土地を奪われて生活基盤を失い、英語やキリスト教の普及で固有の言語・文化が衰退しました。',
-          difficulty: 'standard',
-        },
         // advanced (6 questions)
         {
-          id: 'geo1-oc2-q21',
+          id: 'geo1-oc2-q15',
           question: 'オセアニアの島国が自国だけで温暖化を防ぐことが難しい理由として正しいものはどれか。',
           options: [
             '島国は先進国よりも多くの温室効果ガスを排出しているから',
@@ -338,35 +253,7 @@ export const oceaniaSociety: Topic = {
           difficulty: 'advanced',
         },
         {
-          id: 'geo1-oc2-q22',
-          question: '白豪主義が廃止された経済的背景として最も適切なものはどれか。',
-          options: [
-            'イギリスの経済力が世界一になったため',
-            'アジア太平洋地域の経済成長にともない、経済的結びつきを強める必要があったため',
-            'アフリカとの貿易を拡大するため',
-            'オーストラリアの農業生産が減少したため',
-          ],
-          correctIndex: 1,
-          explanation:
-            'アジア太平洋地域の経済成長にともない、オーストラリアがアジア諸国との経済交流を深める必要があったことが、白豪主義廃止の経済的背景です。',
-          difficulty: 'advanced',
-        },
-        {
-          id: 'geo1-oc2-q23',
-          question: 'ウルルの名称変更が持つ意味として最も適切なものはどれか。',
-          options: [
-            '観光客を増やすためのブランディング',
-            '先住民の文化や歴史を尊重する姿勢の象徴であり、差別への反省の表れ',
-            'イギリスとの関係を断つための政策',
-            '環境保護のための措置',
-          ],
-          correctIndex: 1,
-          explanation:
-            'ウルルの名称変更は、先住民の文化や歴史を尊重する姿勢を示す象徴的な取り組みです。',
-          difficulty: 'advanced',
-        },
-        {
-          id: 'geo1-oc2-q24',
+          id: 'geo1-oc2-q16',
           question: '鉱産資源の輸出に依存する経済構造のリスクとして正しいものはどれか。',
           options: [
             '労働力が不足する',
@@ -380,7 +267,7 @@ export const oceaniaSociety: Topic = {
           difficulty: 'advanced',
         },
         {
-          id: 'geo1-oc2-q25',
+          id: 'geo1-oc2-q17',
           question: '太平洋の島々の一部がかつて日本に統治されていた歴史について正しいものはどれか。',
           options: [
             'オーストラリア全土が日本の植民地であった',
@@ -391,20 +278,6 @@ export const oceaniaSociety: Topic = {
           correctIndex: 1,
           explanation:
             '第一次世界大戦後、パラオなどミクロネシアの島々が日本の委任統治領となり、日本語教育などの影響を受けた歴史があります。',
-          difficulty: 'advanced',
-        },
-        {
-          id: 'geo1-oc2-q26',
-          question: 'オセアニアの島国の経済的課題として正しいものはどれか。',
-          options: [
-            '資源が豊富すぎて管理できない',
-            '人口が多すぎて食料が不足している',
-            '経済規模が小さく産業が限られ、支援や観光業に依存せざるを得ない',
-            '工業化が進みすぎて環境破壊が起きている',
-          ],
-          correctIndex: 2,
-          explanation:
-            'オセアニアの島国は経済規模が小さく産業が限られているため、先進国からの支援や観光業に依存している現状があります。',
           difficulty: 'advanced',
         },
       ],

@@ -99,11 +99,11 @@ export const topographicMapsChat: HistoryChat = {
       question: '5万分の1地形図で地図上の3cmは実際の距離で何mか？',
       options: [
         { letter: 'A', text: '750m', correct: false },
-        { letter: 'B', text: '1,500m', correct: true },
-        { letter: 'C', text: '3,000m', correct: false },
+        { letter: 'B', text: '3,000m', correct: false },
+        { letter: 'C', text: '1,500m', correct: true },
         { letter: 'D', text: '150m', correct: false },
       ],
-      explanation: '<strong>正解はB</strong>です。3cm × 50,000 = 150,000cm = 1,500m（1.5km）です。',
+      explanation: '<strong>正解はC</strong>です。3cm × 50,000 = 150,000cm = 1,500m（1.5km）です。',
     },
     {
       type: 'date',
@@ -171,11 +171,11 @@ export const topographicMapsChat: HistoryChat = {
       question: '等高線の間隔がせまい場所の地形はどれか？',
       options: [
         { letter: 'A', text: 'ゆるやかな傾斜', correct: false },
-        { letter: 'B', text: '平坦な土地', correct: false },
-        { letter: 'C', text: '急な傾斜', correct: true },
+        { letter: 'B', text: '急な傾斜', correct: true },
+        { letter: 'C', text: '平坦な土地', correct: false },
         { letter: 'D', text: '窪地', correct: false },
       ],
-      explanation: '<strong>正解はC</strong>です。<ruby>等高線<rp>(</rp><rt>とうこうせん</rt><rp>)</rp></ruby>の間隔がせまいほど<ruby>傾斜<rp>(</rp><rt>けいしゃ</rt><rp>)</rp></ruby>がきつく、広いほどゆるやかです。',
+      explanation: '<strong>正解はB</strong>です。<ruby>等高線<rp>(</rp><rt>とうこうせん</rt><rp>)</rp></ruby>の間隔がせまいほど<ruby>傾斜<rp>(</rp><rt>けいしゃ</rt><rp>)</rp></ruby>がきつく、広いほどゆるやかです。',
     },
     {
       type: 'date',
@@ -217,12 +217,12 @@ export const topographicMapsChat: HistoryChat = {
       type: 'quiz',
       question: '2万5千分の1地形図で地図上の4cmは実際の距離で何mか？',
       options: [
-        { letter: 'A', text: '100m', correct: false },
+        { letter: 'A', text: '1,000m', correct: true },
         { letter: 'B', text: '500m', correct: false },
-        { letter: 'C', text: '1,000m', correct: true },
+        { letter: 'C', text: '100m', correct: false },
         { letter: 'D', text: '2,000m', correct: false },
       ],
-      explanation: '<strong>正解はC「1,000m」</strong>です。4cm × 25,000 = 100,000cm = 1,000m（1km）です。',
+      explanation: '<strong>正解はA「1,000m」</strong>です。4cm × 25,000 = 100,000cm = 1,000m（1km）です。',
     },
     {
       type: 'summary-point',
@@ -233,11 +233,11 @@ export const topographicMapsChat: HistoryChat = {
       question: '国土地理院が提供する、過去の地形図や空中写真も見られるサービスは？',
       options: [
         { letter: 'A', text: 'Google マップ', correct: false },
-        { letter: 'B', text: '地理院地図', correct: true },
+        { letter: 'B', text: '主題図', correct: false },
         { letter: 'C', text: 'ハザードマップ', correct: false },
-        { letter: 'D', text: '主題図', correct: false },
+        { letter: 'D', text: '地理院地図', correct: true },
       ],
-      explanation: '<strong>正解はB</strong>です。<ruby>国土<rp>(</rp><rt>こくど</rt><rp>)</rp></ruby><ruby>地理院<rp>(</rp><rt>ちりいん</rt><rp>)</rp></ruby>の「地理院地図」で新旧の地形図を比較し、<ruby>土地利用<rp>(</rp><rt>とちりよう</rt><rp>)</rp></ruby>の変化を読み取れます。',
+      explanation: '<strong>正解はD</strong>です。<ruby>国土<rp>(</rp><rt>こくど</rt><rp>)</rp></ruby><ruby>地理院<rp>(</rp><rt>ちりいん</rt><rp>)</rp></ruby>の「地理院地図」で新旧の地形図を比較し、<ruby>土地利用<rp>(</rp><rt>とちりよう</rt><rp>)</rp></ruby>の変化を読み取れます。',
     },
     {
       type: 'end',

@@ -39,6 +39,12 @@ export const energyChat: HistoryChat = {
       text: '鉱産資源の輸入依存',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade2/japan-features/energy.png',
+      alt: '日本の資源・エネルギーの全体図',
+      caption: '日本のエネルギーの全体像：低い自給率と再生可能エネルギー',
+    },
+    {
       type: 'narrator',
       text: '日本は<ruby>資源<rp>(</rp><rt>しげん</rt><rp>)</rp></ruby>やエネルギーの面で、どのような特色があるのでしょうか。まず<ruby>鉱産資源<rp>(</rp><rt>こうさんしげん</rt><rp>)</rp></ruby>について見ていきましょう。',
     },
@@ -92,11 +98,11 @@ export const energyChat: HistoryChat = {
       question: '日本のエネルギー自給率は先進国の中でどのような水準か？',
       options: [
         { letter: 'A', text: '特に高い', correct: false },
-        { letter: 'B', text: '平均的', correct: false },
-        { letter: 'C', text: '特に低い', correct: true },
+        { letter: 'B', text: '特に低い', correct: true },
+        { letter: 'C', text: '平均的', correct: false },
         { letter: 'D', text: '自給率100%', correct: false },
       ],
-      explanation: '<strong>正解はC</strong>です。日本は<ruby>鉱産資源<rp>(</rp><rt>こうさんしげん</rt><rp>)</rp></ruby>に<ruby>乏<rp>(</rp><rt>とぼ</rt><rp>)</rp></ruby>しく、エネルギーの多くを<ruby>輸入<rp>(</rp><rt>ゆにゅう</rt><rp>)</rp></ruby>に<ruby>依存<rp>(</rp><rt>いぞん</rt><rp>)</rp></ruby>しています。',
+      explanation: '<strong>正解はB</strong>です。日本は<ruby>鉱産資源<rp>(</rp><rt>こうさんしげん</rt><rp>)</rp></ruby>に<ruby>乏<rp>(</rp><rt>とぼ</rt><rp>)</rp></ruby>しく、エネルギーの多くを<ruby>輸入<rp>(</rp><rt>ゆにゅう</rt><rp>)</rp></ruby>に<ruby>依存<rp>(</rp><rt>いぞん</rt><rp>)</rp></ruby>しています。',
     },
     {
       type: 'summary-point',
@@ -106,12 +112,18 @@ export const energyChat: HistoryChat = {
       type: 'quiz',
       question: '日本の石油輸入先として最も大きな割合を占める地域はどこか？',
       options: [
-        { letter: 'A', text: '東南アジア', correct: false },
-        { letter: 'B', text: '中東', correct: true },
+        { letter: 'A', text: '中東', correct: true },
+        { letter: 'B', text: '東南アジア', correct: false },
         { letter: 'C', text: 'アフリカ', correct: false },
         { letter: 'D', text: 'ロシア', correct: false },
       ],
-      explanation: '<strong>正解はB</strong>です。日本の<ruby>石油<rp>(</rp><rt>せきゆ</rt><rp>)</rp></ruby>は<ruby>中東<rp>(</rp><rt>ちゅうとう</rt><rp>)</rp></ruby>地域からの輸入が大きな<ruby>割合<rp>(</rp><rt>わりあい</rt><rp>)</rp></ruby>を占めています。',
+      explanation: '<strong>正解はA</strong>です。日本の<ruby>石油<rp>(</rp><rt>せきゆ</rt><rp>)</rp></ruby>は<ruby>中東<rp>(</rp><rt>ちゅうとう</rt><rp>)</rp></ruby>地域からの輸入が大きな<ruby>割合<rp>(</rp><rt>わりあい</rt><rp>)</rp></ruby>を占めています。',
+    },
+    {
+      type: 'image',
+      src: '/images/geography/grade2/japan-features/energy-mix-chart.svg',
+      alt: '日本のエネルギー構成比グラフ（準備中）',
+      caption: '化石燃料と再生可能エネルギーの構成比の推移（準備中）出典：資源エネルギー庁',
     },
     {
       type: 'date',
@@ -159,10 +171,10 @@ export const energyChat: HistoryChat = {
       options: [
         { letter: 'A', text: '風力発電', correct: false },
         { letter: 'B', text: '太陽光発電', correct: false },
-        { letter: 'C', text: '地熱発電', correct: true },
-        { letter: 'D', text: 'バイオマス発電', correct: false },
+        { letter: 'C', text: 'バイオマス発電', correct: false },
+        { letter: 'D', text: '地熱発電', correct: true },
       ],
-      explanation: '<strong>正解はC</strong>です。日本は<ruby>火山国<rp>(</rp><rt>かざんこく</rt><rp>)</rp></ruby>で<ruby>地熱<rp>(</rp><rt>ちねつ</rt><rp>)</rp></ruby>資源が豊富なため、地熱発電の<ruby>潜在的<rp>(</rp><rt>せんざいてき</rt><rp>)</rp></ruby>な可能性が高いです。',
+      explanation: '<strong>正解はD</strong>です。日本は<ruby>火山国<rp>(</rp><rt>かざんこく</rt><rp>)</rp></ruby>で<ruby>地熱<rp>(</rp><rt>ちねつ</rt><rp>)</rp></ruby>資源が豊富なため、地熱発電の<ruby>潜在的<rp>(</rp><rt>せんざいてき</rt><rp>)</rp></ruby>な可能性が高いです。',
     },
     {
       type: 'summary-point',
@@ -245,12 +257,12 @@ export const energyChat: HistoryChat = {
       type: 'quiz',
       question: '3Rに含まれないものはどれか？',
       options: [
-        { letter: 'A', text: 'リデュース', correct: false },
+        { letter: 'A', text: 'リフォーム', correct: true },
         { letter: 'B', text: 'リユース', correct: false },
         { letter: 'C', text: 'リサイクル', correct: false },
-        { letter: 'D', text: 'リフォーム', correct: true },
+        { letter: 'D', text: 'リデュース', correct: false },
       ],
-      explanation: '<strong>正解はD「リフォーム」</strong>です。3Rは<span class="keyword">リデュース</span>（<ruby>廃棄物<rp>(</rp><rt>はいきぶつ</rt><rp>)</rp></ruby>を減らす）・<span class="keyword">リユース</span>（<ruby>繰<rp>(</rp><rt>く</rt><rp>)</rp></ruby>り返し使う）・<span class="keyword">リサイクル</span>（<ruby>再資源化<rp>(</rp><rt>さいしげんか</rt><rp>)</rp></ruby>）の3つです。',
+      explanation: '<strong>正解はA「リフォーム」</strong>です。3Rは<span class="keyword">リデュース</span>（<ruby>廃棄物<rp>(</rp><rt>はいきぶつ</rt><rp>)</rp></ruby>を減らす）・<span class="keyword">リユース</span>（<ruby>繰<rp>(</rp><rt>く</rt><rp>)</rp></ruby>り返し使う）・<span class="keyword">リサイクル</span>（<ruby>再資源化<rp>(</rp><rt>さいしげんか</rt><rp>)</rp></ruby>）の3つです。',
     },
     {
       type: 'end',

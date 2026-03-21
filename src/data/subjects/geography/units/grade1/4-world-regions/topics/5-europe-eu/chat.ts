@@ -43,6 +43,12 @@ export const europeEuChat: HistoryChat = {
       text: '二度の<ruby>世界大戦<rp>(</rp><rt>せかいたいせん</rt><rp>)</rp></ruby>を<ruby>経<rp>(</rp><rt>へ</rt><rp>)</rp></ruby>て、ヨーロッパでは<ruby>平和<rp>(</rp><rt>へいわ</rt><rp>)</rp></ruby>と<ruby>経済<rp>(</rp><rt>けいざい</rt><rp>)</rp></ruby>発展のために<ruby>地域統合<rp>(</rp><rt>ちいきとうごう</rt><rp>)</rp></ruby>が進められました。',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade1/world-regions/eu-integration.png',
+      alt: 'EU統合の仕組み：共通通貨・関税撤廃・自由移動',
+      caption: 'EU（ヨーロッパ連合）統合の全体像',
+    },
+    {
       type: 'message',
       side: 'left',
       characterId: 'teacher',
@@ -91,12 +97,12 @@ export const europeEuChat: HistoryChat = {
       type: 'quiz',
       question: 'EU加盟国の多くが使っている共通通貨は？',
       options: [
-        { letter: 'A', text: 'ドル', correct: false },
+        { letter: 'A', text: 'ユーロ', correct: true },
         { letter: 'B', text: 'ポンド', correct: false },
-        { letter: 'C', text: 'ユーロ', correct: true },
+        { letter: 'C', text: 'ドル', correct: false },
         { letter: 'D', text: 'フラン', correct: false },
       ],
-      explanation: '<strong>正解はC</strong>です。EU加盟国の多くは<ruby>共通通貨<rp>(</rp><rt>きょうつうつうか</rt><rp>)</rp></ruby>ユーロを使用しています。',
+      explanation: '<strong>正解はA</strong>です。EU加盟国の多くは<ruby>共通通貨<rp>(</rp><rt>きょうつうつうか</rt><rp>)</rp></ruby>ユーロを使用しています。',
     },
     {
       type: 'date',
@@ -164,11 +170,11 @@ export const europeEuChat: HistoryChat = {
       question: '郊外の駐車場に車を停めて公共交通機関で中心部に移動する仕組みを何という？',
       options: [
         { letter: 'A', text: 'エコツーリズム', correct: false },
-        { letter: 'B', text: 'パークアンドライド', correct: true },
+        { letter: 'B', text: 'カーシェアリング', correct: false },
         { letter: 'C', text: 'ルーラル・ツーリズム', correct: false },
-        { letter: 'D', text: 'カーシェアリング', correct: false },
+        { letter: 'D', text: 'パークアンドライド', correct: true },
       ],
-      explanation: '<strong>正解はB</strong>です。パークアンドライドは<ruby>郊外<rp>(</rp><rt>こうがい</rt><rp>)</rp></ruby>に車を停め、<ruby>公共交通機関<rp>(</rp><rt>こうきょうこうつうきかん</rt><rp>)</rp></ruby>で中心部に移動する仕組みです。',
+      explanation: '<strong>正解はD</strong>です。パークアンドライドは<ruby>郊外<rp>(</rp><rt>こうがい</rt><rp>)</rp></ruby>に車を停め、<ruby>公共交通機関<rp>(</rp><rt>こうきょうこうつうきかん</rt><rp>)</rp></ruby>で中心部に移動する仕組みです。',
     },
     {
       type: 'date',
@@ -216,6 +222,12 @@ export const europeEuChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<span class="keyword">ルーラル・ツーリズム</span>：農村に滞在し農業体験を楽しむ観光。過疎化防止と文化の継承に貢献',
+    },
+    {
+      type: 'image',
+      src: '/images/geography/grade1/world-regions/eu-trade-volume-chart.svg',
+      alt: 'EU域内貿易額の推移グラフ（準備中）',
+      caption: 'EU統合後の域内貿易額の拡大（準備中）出典：Eurostat',
     },
     {
       type: 'quiz',

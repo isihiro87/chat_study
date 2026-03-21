@@ -115,22 +115,8 @@ export const africaSociety: Topic = {
     ],
     quiz: {
       questions: [
-        // --- basic (10) ---
         {
           id: 'geo1-af3-q1',
-          question: 'アフリカで民族紛争が起きやすい原因のひとつとして正しいものはどれ？',
-          options: [
-            '植民地時代に民族の分布を無視して国境線が引かれたため',
-            '大陸が小さく国が密集しているため',
-            '全ての国が同じ言語を使っているため',
-            '鉄道が発達しすぎたため',
-          ],
-          correctIndex: 0,
-          explanation: '植民地時代にヨーロッパ諸国が民族の分布を無視して直線的に国境を引いたため、独立後に一つの国の中で複数の民族が対立する紛争が起こりやすくなりました。',
-          difficulty: 'basic',
-        },
-        {
-          id: 'geo1-af3-q2',
           question: 'アフリカの国々が協力して平和や経済発展に取り組むために設立された組織はどれ？',
           options: [
             'EU（ヨーロッパ連合）',
@@ -143,7 +129,7 @@ export const africaSociety: Topic = {
           difficulty: 'basic',
         },
         {
-          id: 'geo1-af3-q3',
+          id: 'geo1-af3-q2',
           question: 'サヘル地域で進行している深刻な環境問題はどれ？',
           options: ['砂漠化', '海面上昇', '酸性雨', 'オゾン層の破壊'],
           correctIndex: 0,
@@ -151,7 +137,7 @@ export const africaSociety: Topic = {
           difficulty: 'basic',
         },
         {
-          id: 'geo1-af3-q4',
+          id: 'geo1-af3-q3',
           question: '1994年にフツ族とツチ族の間で大規模な民族紛争が起きた国はどこ？',
           options: ['コンゴ民主共和国', 'ルワンダ', 'ケニア', 'ソマリア'],
           correctIndex: 1,
@@ -159,7 +145,7 @@ export const africaSociety: Topic = {
           difficulty: 'basic',
         },
         {
-          id: 'geo1-af3-q5',
+          id: 'geo1-af3-q4',
           question: '砂漠化の人為的な原因として正しいものはどれか？',
           options: [
             '火山の噴火',
@@ -172,7 +158,7 @@ export const africaSociety: Topic = {
           difficulty: 'basic',
         },
         {
-          id: 'geo1-af3-q6',
+          id: 'geo1-af3-q5',
           question: '日本がアフリカの開発支援のために開催している国際会議はどれか？',
           options: ['G7サミット', 'TICAD', 'APEC', 'COP'],
           correctIndex: 1,
@@ -180,7 +166,7 @@ export const africaSociety: Topic = {
           difficulty: 'basic',
         },
         {
-          id: 'geo1-af3-q7',
+          id: 'geo1-af3-q6',
           question: 'アフリカの都市で人口急増により拡大している問題はどれか？',
           options: [
             '緑地が増えすぎること',
@@ -193,7 +179,7 @@ export const africaSociety: Topic = {
           difficulty: 'basic',
         },
         {
-          id: 'geo1-af3-q8',
+          id: 'geo1-af3-q7',
           question: 'サヘル地域とはアフリカのどこに位置する地帯か？',
           options: [
             'サハラ砂漠の南側に広がる半乾燥地帯',
@@ -206,7 +192,7 @@ export const africaSociety: Topic = {
           difficulty: 'basic',
         },
         {
-          id: 'geo1-af3-q9',
+          id: 'geo1-af3-q8',
           question: 'アフリカの国境線に直線的なものが多い理由はどれか？',
           options: [
             '自然の地形がすべて直線的だったため',
@@ -219,7 +205,7 @@ export const africaSociety: Topic = {
           difficulty: 'basic',
         },
         {
-          id: 'geo1-af3-q10',
+          id: 'geo1-af3-q9',
           question: '政府ではなく民間の立場でアフリカの教育や医療を支援する組織を何というか？',
           options: ['AU', 'NGO', 'UNESCO', 'WHO'],
           correctIndex: 1,
@@ -228,7 +214,7 @@ export const africaSociety: Topic = {
         },
         // --- standard (10) ---
         {
-          id: 'geo1-af3-q11',
+          id: 'geo1-af3-q10',
           question: 'ルワンダで紛争後の和解に用いられた裁判方式を何というか？',
           options: [
             'ガチャチャ裁判',
@@ -241,7 +227,7 @@ export const africaSociety: Topic = {
           difficulty: 'standard',
         },
         {
-          id: 'geo1-af3-q12',
+          id: 'geo1-af3-q11',
           question: 'アフリカの人口は2050年に世界人口のどのくらいを占めると予測されているか？',
           options: ['約10分の1', '約2分の1', '約4分の1', '約3分の2'],
           correctIndex: 2,
@@ -249,7 +235,7 @@ export const africaSociety: Topic = {
           difficulty: 'standard',
         },
         {
-          id: 'geo1-af3-q13',
+          id: 'geo1-af3-q12',
           question: '「アフリカ緑の長城」計画の説明として正しいものはどれか？',
           options: [
             'アフリカを横断する鉄道を建設する計画',
@@ -262,7 +248,7 @@ export const africaSociety: Topic = {
           difficulty: 'standard',
         },
         {
-          id: 'geo1-af3-q14',
+          id: 'geo1-af3-q13',
           question: 'ルワンダが「アフリカのシンガポール」と呼ばれる理由はどれか？',
           options: [
             '面積がシンガポールと同じくらいだから',
@@ -275,7 +261,7 @@ export const africaSociety: Topic = {
           difficulty: 'standard',
         },
         {
-          id: 'geo1-af3-q15',
+          id: 'geo1-af3-q14',
           question: '1914年時点でアフリカで独立を保っていた国はどこか？',
           options: [
             'エジプトとケニア',
@@ -288,68 +274,16 @@ export const africaSociety: Topic = {
           difficulty: 'standard',
         },
         {
-          id: 'geo1-af3-q16',
-          question: '植民地時代にヨーロッパの宗主国がルワンダで行った政策として正しいものはどれか？',
-          options: [
-            'ツチ族を優遇しフツ族との対立をあおった',
-            '全ての民族を平等に扱った',
-            'フツ族だけを国外に追放した',
-            '民族を混合する政策を行った',
-          ],
-          correctIndex: 0,
-          explanation: '植民地時代にベルギーがツチ族を優遇し行政の仲介者としたことで、フツ族との間に深い対立が生まれ、後の紛争の原因となりました。',
-          difficulty: 'standard',
-        },
-        {
-          id: 'geo1-af3-q17',
+          id: 'geo1-af3-q15',
           question: 'アフリカ連合（AU）が設立された年はいつか？',
           options: ['1963年', '2002年', '1994年', '2015年'],
           correctIndex: 1,
           explanation: 'アフリカ連合（AU）は2002年にアフリカ統一機構（OAU）から改組されて設立されました。',
           difficulty: 'standard',
         },
-        {
-          id: 'geo1-af3-q18',
-          question: 'アフリカで食料不足が深刻化している原因の組み合わせとして正しいものはどれか？',
-          options: [
-            '農業生産性の高さと人口減少',
-            '工業生産の停滞と気温低下',
-            '漁業資源の枯渇と海面上昇',
-            '農業生産性の低さと人口急増',
-          ],
-          correctIndex: 3,
-          explanation: 'アフリカでは灌漑設備や農業技術の不足による農業生産性の低さに加え、人口が急増しているため、食料の需要に生産が追いつかない状況です。',
-          difficulty: 'standard',
-        },
-        {
-          id: 'geo1-af3-q19',
-          question: '1960年に17か国が独立したことから「アフリカの年」と呼ばれているが、独立の背景として正しいものはどれか？',
-          options: [
-            '自然災害でヨーロッパの支配が弱まったため',
-            'アフリカで金鉱が発見されたため',
-            '第二次世界大戦後の民族自決の流れが強まったため',
-            'アメリカがアフリカを支配したかったため',
-          ],
-          correctIndex: 2,
-          explanation: '第二次世界大戦後、民族自決の考えが広まり、植民地支配に対する独立運動がアフリカ各地で活発になりました。',
-          difficulty: 'standard',
-        },
-        {
-          id: 'geo1-af3-q20',
-          question: 'アフリカの都市部に人口が集中する主な理由はどれか？',
-          options: [
-            '農村部での生活が困難で仕事や教育を求めて移動するため',
-            '政府が都市への移住を義務化しているため',
-            '都市部の気候が農村部より涼しいため',
-            '都市部でしか食料が手に入らないため',
-          ],
-          correctIndex: 0,
-          explanation: '農村部では生活が厳しいため、仕事や教育の機会を求めて多くの人が都市部に移動しています。',
-          difficulty: 'standard',
-        },
         // --- advanced (5) ---
         {
-          id: 'geo1-af3-q21',
+          id: 'geo1-af3-q16',
           question: 'ルワンダの紛争後の復興で、ICT産業が選ばれた理由として最も適切なものはどれか？',
           options: [
             '鉱物資源が豊富でIT機器の材料が入手しやすいため',
@@ -362,7 +296,7 @@ export const africaSociety: Topic = {
           difficulty: 'advanced',
         },
         {
-          id: 'geo1-af3-q22',
+          id: 'geo1-af3-q17',
           question: 'AUの地域統合がEUほど進んでいない理由として最も適切なものはどれか？',
           options: [
             'アフリカの国の数が少なすぎるため',
@@ -375,46 +309,7 @@ export const africaSociety: Topic = {
           difficulty: 'advanced',
         },
         {
-          id: 'geo1-af3-q23',
-          question: '砂漠化が「社会問題」でもある理由として最も適切なものはどれか？',
-          options: [
-            '砂漠化により気温が下がるから',
-            '砂漠が美しい観光資源になるから',
-            '耕作地の喪失が貧困・都市への人口流入・紛争の原因になるから',
-            '砂漠化で新しい鉱物が発見されるから',
-          ],
-          correctIndex: 2,
-          explanation: '砂漠化により農民や遊牧民が生活の場を失い、都市への人口流入がスラムの拡大を招き、水資源をめぐる争いが紛争に発展するケースもあります。',
-          difficulty: 'advanced',
-        },
-        {
-          id: 'geo1-af3-q24',
-          question: 'アフリカの人口急増が「機会」になるための条件として最も重要なものはどれか？',
-          options: [
-            '鉱物資源の輸出量を増やすこと',
-            '教育の充実と雇用機会の創出',
-            '先進国への移民を増やすこと',
-            '農業を全面的に禁止すること',
-          ],
-          correctIndex: 1,
-          explanation: '人口急増を経済成長のエンジンにするには、若い労働力が活躍できるよう教育を充実させ、雇用機会を創出することが不可欠です。',
-          difficulty: 'advanced',
-        },
-        {
-          id: 'geo1-af3-q25',
-          question: '「アフリカの課題は世界全体の課題である」という考え方の根拠として最も適切なものはどれか？',
-          options: [
-            'アフリカの面積が世界最大だから',
-            '資源・環境・人口の面で世界は相互依存の関係にあるから',
-            'アフリカの言語が世界共通語だから',
-            'アフリカが世界を支配しているから',
-          ],
-          correctIndex: 1,
-          explanation: 'アフリカの資源は世界の製造業に不可欠であり、環境問題は国境を越えて影響し、人口増加は移民や食料問題として世界に影響します。グローバル化による相互依存がその根拠です。',
-          difficulty: 'advanced',
-        },
-        {
-          id: 'geo1-af3-q26',
+          id: 'geo1-af3-q18',
           question: 'アフリカの多くの国で英語やフランス語が公用語として使われている理由はどれか？',
           options: [
             '国連がアフリカの公用語を定めたため',
@@ -427,7 +322,7 @@ export const africaSociety: Topic = {
           difficulty: 'standard',
         },
         {
-          id: 'geo1-af3-q27',
+          id: 'geo1-af3-q19',
           question: 'サハラ砂漠の北側と南側で文化が大きく異なる地理的な理由はどれか？',
           options: [
             'サハラ砂漠が巨大な地理的障壁となり南北の交流が限られたため',

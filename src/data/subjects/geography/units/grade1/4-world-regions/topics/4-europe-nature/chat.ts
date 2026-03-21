@@ -43,6 +43,12 @@ export const europeNatureChat: HistoryChat = {
       text: 'ヨーロッパ<ruby>州<rp>(</rp><rt>しゅう</rt><rp>)</rp></ruby>は<ruby>高緯度<rp>(</rp><rt>こういど</rt><rp>)</rp></ruby>にありながら、<ruby>温暖<rp>(</rp><rt>おんだん</rt><rp>)</rp></ruby>な<ruby>気候<rp>(</rp><rt>きこう</rt><rp>)</rp></ruby>に<ruby>恵<rp>(</rp><rt>めぐ</rt><rp>)</rp></ruby>まれています。その理由と、多様な文化について見ていきましょう。',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade1/world-regions/europe-climate-current.png',
+      alt: '北大西洋海流と偏西風がヨーロッパを温める仕組み',
+      caption: 'ヨーロッパ州の自然環境：北大西洋海流と偏西風',
+    },
+    {
       type: 'message',
       side: 'left',
       characterId: 'teacher',
@@ -92,12 +98,12 @@ export const europeNatureChat: HistoryChat = {
       question: 'ヨーロッパが高緯度の割に温暖な理由として正しいものはどれ？',
       options: [
         { letter: 'A', text: '赤道に近いから', correct: false },
-        { letter: 'B', text: '北大西洋海流と偏西風の影響', correct: true },
+        { letter: 'B', text: '標高が非常に低いから', correct: false },
         { letter: 'C', text: '火山活動が活発だから', correct: false },
-        { letter: 'D', text: '標高が非常に低いから', correct: false },
+        { letter: 'D', text: '北大西洋海流と偏西風の影響', correct: true },
       ],
       explanation:
-        '<strong>正解はB「<ruby>北大西洋海流<rp>(</rp><rt>きたたいせいようかいりゅう</rt><rp>)</rp></ruby>と<ruby>偏西風<rp>(</rp><rt>へんせいふう</rt><rp>)</rp></ruby>の影響」</strong>です。暖流の北大西洋海流が暖かい空気をもたらし、偏西風が内陸まで運びます。',
+        '<strong>正解はD「<ruby>北大西洋海流<rp>(</rp><rt>きたたいせいようかいりゅう</rt><rp>)</rp></ruby>と<ruby>偏西風<rp>(</rp><rt>へんせいふう</rt><rp>)</rp></ruby>の影響」</strong>です。暖流の北大西洋海流が暖かい空気をもたらし、偏西風が内陸まで運びます。',
     },
     {
       type: 'date',
@@ -158,11 +164,11 @@ export const europeNatureChat: HistoryChat = {
       question: 'フィヨルドが多く見られるヨーロッパの国はどこ？',
       options: [
         { letter: 'A', text: 'フランス', correct: false },
-        { letter: 'B', text: 'ノルウェー', correct: true },
-        { letter: 'C', text: 'スペイン', correct: false },
+        { letter: 'B', text: 'スペイン', correct: false },
+        { letter: 'C', text: 'ノルウェー', correct: true },
         { letter: 'D', text: 'イタリア', correct: false },
       ],
-      explanation: '<strong>正解はB</strong>です。フィヨルドはノルウェーの海岸線に多く見られ、<ruby>氷河<rp>(</rp><rt>ひょうが</rt><rp>)</rp></ruby>が<ruby>削<rp>(</rp><rt>けず</rt><rp>)</rp></ruby>ったU字<ruby>谷<rp>(</rp><rt>だに</rt><rp>)</rp></ruby>に海水が入り込んでできました。',
+      explanation: '<strong>正解はC</strong>です。フィヨルドはノルウェーの海岸線に多く見られ、<ruby>氷河<rp>(</rp><rt>ひょうが</rt><rp>)</rp></ruby>が<ruby>削<rp>(</rp><rt>けず</rt><rp>)</rp></ruby>ったU字<ruby>谷<rp>(</rp><rt>だに</rt><rp>)</rp></ruby>に海水が入り込んでできました。',
     },
     {
       type: 'date',
@@ -284,16 +290,22 @@ export const europeNatureChat: HistoryChat = {
       text: '言語3系統：<span class="keyword">ゲルマン系</span>（英語・ドイツ語）、<span class="keyword">ラテン系</span>（仏語・西語）、<span class="keyword">スラブ系</span>（露語）。移民増加で<span class="keyword">イスラム教</span>も',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade1/world-regions/eu-population-area-chart.svg',
+      alt: 'ヨーロッパ主要国の人口と面積の比較グラフ（準備中）',
+      caption: 'ヨーロッパ主要国の人口・面積ランキング（準備中）出典：Eurostat',
+    },
+    {
       type: 'quiz',
       question: 'フィヨルドはどのようにしてできた地形か？',
       options: [
-        { letter: 'A', text: '火山の噴火でできた', correct: false },
-        { letter: 'B', text: '氷河が削ったU字谷に海水が入り込んだ', correct: true },
+        { letter: 'A', text: '氷河が削ったU字谷に海水が入り込んだ', correct: true },
+        { letter: 'B', text: '火山の噴火でできた', correct: false },
         { letter: 'C', text: '川の侵食でできた', correct: false },
         { letter: 'D', text: '地震で地面が裂けてできた', correct: false },
       ],
       explanation:
-        '<strong>正解はB「<ruby>氷河<rp>(</rp><rt>ひょうが</rt><rp>)</rp></ruby>が<ruby>削<rp>(</rp><rt>けず</rt><rp>)</rp></ruby>ったU字<ruby>谷<rp>(</rp><rt>だに</rt><rp>)</rp></ruby>に<ruby>海水<rp>(</rp><rt>かいすい</rt><rp>)</rp></ruby>が入り込んだ」</strong>です。フィヨルドはスカンディナビア半島のノルウェーに多く見られます。',
+        '<strong>正解はA「<ruby>氷河<rp>(</rp><rt>ひょうが</rt><rp>)</rp></ruby>が<ruby>削<rp>(</rp><rt>けず</rt><rp>)</rp></ruby>ったU字<ruby>谷<rp>(</rp><rt>だに</rt><rp>)</rp></ruby>に<ruby>海水<rp>(</rp><rt>かいすい</rt><rp>)</rp></ruby>が入り込んだ」</strong>です。フィヨルドはスカンディナビア半島のノルウェーに多く見られます。',
     },
     {
       type: 'end',

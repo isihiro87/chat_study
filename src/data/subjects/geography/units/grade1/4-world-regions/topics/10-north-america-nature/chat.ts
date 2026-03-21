@@ -39,6 +39,12 @@ export const northAmericaNatureChat: HistoryChat = {
       text: '自然環境と多文化社会',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade1/world-regions/north-america-agriculture-map.png',
+      alt: '北アメリカの自然と農業の概観',
+      caption: 'ロッキー山脈・グレートプレーンズ・ミシシッピ川と適地適作の農業地帯',
+    },
+    {
       type: 'narrator',
       text: '<ruby>北<rp>(</rp><rt>きた</rt><rp>)</rp></ruby>アメリカ<ruby>州<rp>(</rp><rt>しゅう</rt><rp>)</rp></ruby>は、雄大な自然と<strong>多様な文化</strong>が共存する地域です。まずは自然環境と人々の多様性を見てみましょう。',
     },
@@ -92,12 +98,12 @@ export const northAmericaNatureChat: HistoryChat = {
       type: 'quiz',
       question: 'アメリカ・カナダ・メキシコの3か国が結んだ経済協定は？',
       options: [
-        { letter: 'A', text: 'EU', correct: false },
-        { letter: 'B', text: 'USMCA', correct: true },
+        { letter: 'A', text: 'USMCA', correct: true },
+        { letter: 'B', text: 'EU', correct: false },
         { letter: 'C', text: 'APEC', correct: false },
         { letter: 'D', text: 'ASEAN', correct: false },
       ],
-      explanation: '<strong>正解はB</strong>です。USMCA（<ruby>米国<rp>(</rp><rt>べいこく</rt><rp>)</rp></ruby>・メキシコ・カナダ<ruby>協定<rp>(</rp><rt>きょうてい</rt><rp>)</rp></ruby>）は3か国の経済的な結びつきを強めています。',
+      explanation: '<strong>正解はA</strong>です。USMCA（<ruby>米国<rp>(</rp><rt>べいこく</rt><rp>)</rp></ruby>・メキシコ・カナダ<ruby>協定<rp>(</rp><rt>きょうてい</rt><rp>)</rp></ruby>）は3か国の経済的な結びつきを強めています。',
     },
     {
       type: 'date',
@@ -158,11 +164,11 @@ export const northAmericaNatureChat: HistoryChat = {
       question: 'アメリカとカナダの国境付近にある世界最大の淡水湖群は？',
       options: [
         { letter: 'A', text: 'カスピ海', correct: false },
-        { letter: 'B', text: '五大湖', correct: true },
+        { letter: 'B', text: 'ビクトリア湖', correct: false },
         { letter: 'C', text: 'バイカル湖', correct: false },
-        { letter: 'D', text: 'ビクトリア湖', correct: false },
+        { letter: 'D', text: '五大湖', correct: true },
       ],
-      explanation: '<strong>正解はB</strong>です。<ruby>五大湖<rp>(</rp><rt>ごだいこ</rt><rp>)</rp></ruby>はアメリカとカナダの<ruby>国境<rp>(</rp><rt>こっきょう</rt><rp>)</rp></ruby>付近にある世界最大の<ruby>淡水湖群<rp>(</rp><rt>たんすいこぐん</rt><rp>)</rp></ruby>です。',
+      explanation: '<strong>正解はD</strong>です。<ruby>五大湖<rp>(</rp><rt>ごだいこ</rt><rp>)</rp></ruby>はアメリカとカナダの<ruby>国境<rp>(</rp><rt>こっきょう</rt><rp>)</rp></ruby>付近にある世界最大の<ruby>淡水湖群<rp>(</rp><rt>たんすいこぐん</rt><rp>)</rp></ruby>です。',
     },
     {
       type: 'date',
@@ -219,6 +225,12 @@ export const northAmericaNatureChat: HistoryChat = {
       src: '/images/geography/grade1/world-regions/north-america-agriculture-map.png',
       alt: '北アメリカの適地適作',
       caption: '小麦地帯・とうもろこし地帯・綿花地帯・酪農地帯の分布',
+    },
+    {
+      type: 'image',
+      src: '/images/geography/grade1/world-regions/us-agricultural-production-chart.svg',
+      alt: 'アメリカの主要農産物生産量グラフ（準備中）',
+      caption: 'とうもろこし・大豆・小麦の生産量と世界シェア（準備中）出典：USDA統計',
     },
     {
       type: 'summary-point',
@@ -287,11 +299,11 @@ export const northAmericaNatureChat: HistoryChat = {
       question: 'アメリカの農業で、気候や土壌に合わせて作物を栽培する方法を何という？',
       options: [
         { letter: 'A', text: '二毛作', correct: false },
-        { letter: 'B', text: '焼畑農業', correct: false },
-        { letter: 'C', text: '適地適作', correct: true },
+        { letter: 'B', text: '適地適作', correct: true },
+        { letter: 'C', text: '焼畑農業', correct: false },
         { letter: 'D', text: '混合農業', correct: false },
       ],
-      explanation: '<strong>正解はC「<ruby>適地適作<rp>(</rp><rt>てきちてきさく</rt><rp>)</rp></ruby>」</strong>です。その土地の<ruby>気候<rp>(</rp><rt>きこう</rt><rp>)</rp></ruby>や<ruby>土壌<rp>(</rp><rt>どじょう</rt><rp>)</rp></ruby>に最も適した作物を栽培する方法で、アメリカ農業の大きな特徴です。',
+      explanation: '<strong>正解はB「<ruby>適地適作<rp>(</rp><rt>てきちてきさく</rt><rp>)</rp></ruby>」</strong>です。その土地の<ruby>気候<rp>(</rp><rt>きこう</rt><rp>)</rp></ruby>や<ruby>土壌<rp>(</rp><rt>どじょう</rt><rp>)</rp></ruby>に最も適した作物を栽培する方法で、アメリカ農業の大きな特徴です。',
     },
     {
       type: 'end',

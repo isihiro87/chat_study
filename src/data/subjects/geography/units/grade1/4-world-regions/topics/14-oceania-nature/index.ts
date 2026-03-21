@@ -144,20 +144,6 @@ export const oceaniaNature: Topic = {
       questions: [
         {
           id: 'geo1-oc1-q1',
-          question: 'オーストラリア大陸が「乾燥大陸」とよばれる理由として正しいものはどれ？',
-          options: [
-            '内陸部の大部分が砂漠や草原で降水量が少ないから',
-            '大陸全体が熱帯に位置するから',
-            '大陸を流れる大きな川がないから',
-            '年間を通じて気温が高いから',
-          ],
-          correctIndex: 0,
-          explanation:
-            'オーストラリア大陸は内陸部の大部分が砂漠や草原で占められており、降水量が少ないことから「乾燥大陸」とよばれています。',
-        difficulty: 'basic',
-      },
-        {
-          id: 'geo1-oc1-q2',
           question: 'オーストラリアの先住民として正しいものはどれ？',
           options: ['マオリ', 'イヌイット', 'アボリジニ', 'インディオ'],
           correctIndex: 2,
@@ -166,7 +152,7 @@ export const oceaniaNature: Topic = {
         difficulty: 'basic',
       },
         {
-          id: 'geo1-oc1-q3',
+          id: 'geo1-oc1-q2',
           question: 'オーストラリアが日本や中国に輸出している主な鉱産資源の組み合わせとして正しいものはどれ？',
           options: [
             '石油と天然ガス',
@@ -180,21 +166,7 @@ export const oceaniaNature: Topic = {
         difficulty: 'basic',
       },
         {
-          id: 'geo1-oc1-q4',
-          question: 'オーストラリアの貿易相手の変化について正しいものはどれ？',
-          options: [
-            'イギリス中心からAPECを通じたアジア太平洋地域へ',
-            'アジア中心からイギリス中心へ',
-            'アメリカ中心からヨーロッパ中心へ',
-            'アフリカ中心から南アメリカ中心へ',
-          ],
-          correctIndex: 0,
-          explanation:
-            'オーストラリアはかつてイギリスとの貿易が中心でしたが、現在はAPEC（アジア太平洋経済協力会議）を通じてアジア太平洋地域の国々との経済的な結び付きを強めています。',
-        difficulty: 'basic',
-      },
-        {
-          id: 'geo1-oc1-q5',
+          id: 'geo1-oc1-q3',
           question: '太平洋の島々を大きく三つの海域に分けたとき、正しい組み合わせはどれ？',
           options: [
             'ミクロネシア・メラネシア・ポリネシア',
@@ -208,7 +180,7 @@ export const oceaniaNature: Topic = {
         difficulty: 'basic',
       },
         {
-          id: 'geo1-oc1-q6',
+          id: 'geo1-oc1-q4',
           question: 'グレートバリアリーフについて正しいものはどれ？',
           options: [
             'ニュージーランドの南島に広がるサンゴ礁',
@@ -222,7 +194,7 @@ export const oceaniaNature: Topic = {
         difficulty: 'basic',
       },
         {
-          id: 'geo1-oc1-q7',
+          id: 'geo1-oc1-q5',
           question: '1960年代のオーストラリアの輸出品第1位は何だったか？',
           options: ['鉄鉱石', '石炭', '羊毛', '小麦'],
           correctIndex: 2,
@@ -231,7 +203,7 @@ export const oceaniaNature: Topic = {
         difficulty: 'basic',
       },
         {
-          id: 'geo1-oc1-q8',
+          id: 'geo1-oc1-q6',
           question: 'アルミニウムの原料となる、オーストラリアで産出される鉱石は何か？',
           options: ['鉄鉱石', 'レアメタル', '石灰石', 'ボーキサイト'],
           correctIndex: 3,
@@ -240,7 +212,7 @@ export const oceaniaNature: Topic = {
         difficulty: 'basic',
       },
         {
-          id: 'geo1-oc1-q9',
+          id: 'geo1-oc1-q7',
           question: 'オーストラリアが1970年代まで行っていた移民制限政策を何というか。',
           options: ['白豪主義', '鎖国政策', 'アパルトヘイト', '排外主義'],
           correctIndex: 0,
@@ -248,7 +220,7 @@ export const oceaniaNature: Topic = {
         difficulty: 'basic',
       },
         {
-          id: 'geo1-oc1-q10',
+          id: 'geo1-oc1-q8',
           question: '白豪主義の廃止後、オーストラリアが多く受け入れるようになった移民はどの地域からか。',
           options: ['アフリカ系', 'アジア系', '南米系', '中東系'],
           correctIndex: 1,
@@ -256,7 +228,7 @@ export const oceaniaNature: Topic = {
         difficulty: 'basic',
       },
         {
-          id: 'geo1-oc1-q11',
+          id: 'geo1-oc1-q9',
           question: '多様な文化や言語が共存するオーストラリアの社会を何とよぶか。',
           options: ['単一文化社会', '植民地社会', '移民社会', '多文化社会'],
           correctIndex: 3,
@@ -264,7 +236,7 @@ export const oceaniaNature: Topic = {
         difficulty: 'standard',
       },
         {
-          id: 'geo1-oc1-q12',
+          id: 'geo1-oc1-q10',
           question: 'ニュージーランドの先住民の伝統的な踊りで、ラグビーチームが試合前に行うものは何か。',
           options: ['フラダンス', 'サンバ', 'ハカ', 'カポエイラ'],
           correctIndex: 2,
@@ -272,7 +244,7 @@ export const oceaniaNature: Topic = {
         difficulty: 'standard',
       },
         {
-          id: 'geo1-oc1-q13',
+          id: 'geo1-oc1-q11',
           question: '地球温暖化による海面上昇で国土水没の危機に直面している島国はどこか。',
           options: ['フィジー', 'パプアニューギニア', 'ツバル', 'サモア'],
           correctIndex: 2,
@@ -280,7 +252,7 @@ export const oceaniaNature: Topic = {
         difficulty: 'standard',
       },
         {
-          id: 'geo1-oc1-q14',
+          id: 'geo1-oc1-q12',
           question: 'サンゴ礁の白化が起こる原因はどれか。',
           options: [
             '海水温の上昇',
@@ -293,7 +265,7 @@ export const oceaniaNature: Topic = {
         difficulty: 'standard',
       },
         {
-          id: 'geo1-oc1-q15',
+          id: 'geo1-oc1-q13',
           question: 'オーストラリアやニュージーランドがかつて植民地だった国はどこか。',
           options: ['フランス', 'オランダ', 'スペイン', 'イギリス'],
           correctIndex: 3,
@@ -301,7 +273,7 @@ export const oceaniaNature: Topic = {
         difficulty: 'standard',
       },
         {
-          id: 'geo1-oc1-q16',
+          id: 'geo1-oc1-q14',
           question: 'アボリジニの聖地とされる巨大な一枚岩の名称はどれか。',
           options: ['グレートバリアリーフ', 'マウントクック', 'タスマニア', 'ウルル'],
           correctIndex: 3,
@@ -309,7 +281,7 @@ export const oceaniaNature: Topic = {
         difficulty: 'standard',
       },
         {
-          id: 'geo1-oc1-q17',
+          id: 'geo1-oc1-q15',
           question: '現在のオーストラリアの輸出品第1位は何か。',
           options: ['羊毛', '石炭', '鉄鉱石', '小麦'],
           correctIndex: 2,
@@ -317,7 +289,7 @@ export const oceaniaNature: Topic = {
         difficulty: 'standard',
       },
         {
-          id: 'geo1-oc1-q18',
+          id: 'geo1-oc1-q16',
           question: 'ミクロネシアという名称の意味はどれか。',
           options: ['多くの島々', '小さな島々', '黒い島々', '大きな島々'],
           correctIndex: 1,
@@ -325,7 +297,7 @@ export const oceaniaNature: Topic = {
         difficulty: 'standard',
       },
         {
-          id: 'geo1-oc1-q19',
+          id: 'geo1-oc1-q17',
           question: 'APECが設立された年はいつか。',
           options: ['1979年', '1989年', '1999年', '2001年'],
           correctIndex: 1,
@@ -333,33 +305,7 @@ export const oceaniaNature: Topic = {
         difficulty: 'standard',
       },
         {
-          id: 'geo1-oc1-q20',
-          question: 'オーストラリアでさかんな農畜産業の正しい組み合わせはどれか。',
-          options: [
-            '稲作・養豚・大豆栽培',
-            '牧羊・牧牛・小麦栽培',
-            '果物栽培・漁業・養蚕',
-            'コーヒー栽培・牧羊・とうもろこし',
-          ],
-          correctIndex: 1,
-          explanation: 'オーストラリアでは羊の放牧、牛の放牧、小麦の栽培がさかんです。',
-        difficulty: 'standard',
-      },
-        {
-          id: 'geo1-oc1-q21',
-          question: 'オセアニアの島国が海面上昇の影響を受けやすい理由はどれか。',
-          options: [
-            '火山島が多いから',
-            '人口が少ないから',
-            'サンゴ礁の島は標高が非常に低いから',
-            '赤道に近いから',
-          ],
-          correctIndex: 2,
-          explanation: 'サンゴ礁の島は標高が非常に低いため、わずかな海面上昇でも水没の危険があります。',
-        difficulty: 'standard',
-      },
-        {
-          id: 'geo1-oc1-q22',
+          id: 'geo1-oc1-q18',
           question: 'アボリジニはおよそ何年前からオーストラリアに暮らしてきたとされるか。',
           options: ['約1000年前', '約5000年前', '約1万年前', '約5万年前'],
           correctIndex: 3,
@@ -367,7 +313,7 @@ export const oceaniaNature: Topic = {
         difficulty: 'standard',
       },
         {
-          id: 'geo1-oc1-q23',
+          id: 'geo1-oc1-q19',
           question: 'ニュージーランドの南島の気候帯はどれか。',
           options: ['温帯', '熱帯', '乾燥帯', '寒帯'],
           correctIndex: 0,
@@ -375,7 +321,7 @@ export const oceaniaNature: Topic = {
         difficulty: 'advanced',
       },
         {
-          id: 'geo1-oc1-q24',
+          id: 'geo1-oc1-q20',
           question: 'オーストラリアの内陸部の鉱山から港まで資源を運ぶ主な交通手段はどれか。',
           options: ['トラック', '船舶', '鉄道', 'パイプライン'],
           correctIndex: 2,
@@ -383,7 +329,7 @@ export const oceaniaNature: Topic = {
         difficulty: 'advanced',
       },
         {
-          id: 'geo1-oc1-q25',
+          id: 'geo1-oc1-q21',
           question: 'イギリスの植民地化にともなってオセアニアに広まった宗教はどれか。',
           options: ['イスラム教', 'キリスト教', '仏教', 'ヒンドゥー教'],
           correctIndex: 1,
@@ -391,7 +337,7 @@ export const oceaniaNature: Topic = {
         difficulty: 'advanced',
       },
         {
-          id: 'geo1-oc1-q26',
+          id: 'geo1-oc1-q22',
           question: 'グレートバリアリーフのおよその長さはどのくらいか。',
           options: ['約500km', '約2000km', '約1000km', '約5000km'],
           correctIndex: 1,
@@ -399,24 +345,11 @@ export const oceaniaNature: Topic = {
         difficulty: 'advanced',
       },
         {
-          id: 'geo1-oc1-q27',
+          id: 'geo1-oc1-q23',
           question: '太平洋の島国が国際社会に訴えている環境問題はどれか。',
           options: ['酸性雨', '砂漠化', 'オゾン層の破壊', '海面上昇への対策'],
           correctIndex: 3,
           explanation: '太平洋の島国は地球温暖化による海面上昇への対策を国際社会に訴えています。',
-        difficulty: 'advanced',
-      },
-        {
-          id: 'geo1-oc1-q28',
-          question: '太平洋の島々に多い二つの種類の島の正しい組み合わせはどれか。',
-          options: [
-            '大陸島と火山島',
-            '火山島とサンゴ礁の島',
-            'サンゴ礁の島と氷河島',
-            '人工島と火山島',
-          ],
-          correctIndex: 1,
-          explanation: '太平洋の島々には火山島（比較的標高が高い）とサンゴ礁の島（標高が非常に低い）が多くあります。',
         difficulty: 'advanced',
       },
       ],

@@ -39,6 +39,12 @@ export const southAmericaDevelopmentChat: HistoryChat = {
       text: '開発と環境問題',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade1/world-regions/amazon-development.png',
+      alt: '南アメリカの開発と環境問題の概観',
+      caption: 'アマゾン熱帯雨林の開発・バイオエタノール・鉱産資源と持続可能な開発',
+    },
+    {
       type: 'narrator',
       text: '南アメリカ州では<ruby>経済<rp>(</rp><rt>けいざい</rt><rp>)</rp></ruby>発展のための開発が進む一方で、深刻な<ruby>環境<rp>(</rp><rt>かんきょう</rt><rp>)</rp></ruby>問題も起きています。開発と環境のバランスを考えてみましょう。',
     },
@@ -109,6 +115,12 @@ export const southAmericaDevelopmentChat: HistoryChat = {
       text: '<span class="keyword">大豆畑・牧場開発</span>による熱帯雨林の減少が深刻な問題',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade1/world-regions/brazil-bioethanol-production-chart.svg',
+      alt: 'ブラジルのバイオエタノール生産量推移グラフ（準備中）',
+      caption: 'ブラジルはアメリカに次ぐ世界第2位のバイオエタノール生産国（準備中）出典：RFA統計',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">バイオエタノール</span>：サトウキビから作る再生可能な燃料',
     },
@@ -116,12 +128,12 @@ export const southAmericaDevelopmentChat: HistoryChat = {
       type: 'quiz',
       question: 'ブラジルでサトウキビから作られている再生可能な燃料は？',
       options: [
-        { letter: 'A', text: '天然ガス', correct: false },
-        { letter: 'B', text: 'バイオエタノール', correct: true },
+        { letter: 'A', text: 'バイオエタノール', correct: true },
+        { letter: 'B', text: '天然ガス', correct: false },
         { letter: 'C', text: '石炭', correct: false },
         { letter: 'D', text: '水素', correct: false },
       ],
-      explanation: '<strong>正解はB</strong>です。バイオエタノールはサトウキビから作る<ruby>再生可能<rp>(</rp><rt>さいせいかのう</rt><rp>)</rp></ruby>な<ruby>燃料<rp>(</rp><rt>ねんりょう</rt><rp>)</rp></ruby>です。',
+      explanation: '<strong>正解はA</strong>です。バイオエタノールはサトウキビから作る<ruby>再生可能<rp>(</rp><rt>さいせいかのう</rt><rp>)</rp></ruby>な<ruby>燃料<rp>(</rp><rt>ねんりょう</rt><rp>)</rp></ruby>です。',
     },
     {
       type: 'date',
@@ -187,10 +199,10 @@ export const southAmericaDevelopmentChat: HistoryChat = {
       options: [
         { letter: 'A', text: '大豆', correct: false },
         { letter: 'B', text: '小麦', correct: false },
-        { letter: 'C', text: 'コーヒー豆', correct: true },
-        { letter: 'D', text: 'サトウキビ', correct: false },
+        { letter: 'C', text: 'サトウキビ', correct: false },
+        { letter: 'D', text: 'コーヒー豆', correct: true },
       ],
-      explanation: '<strong>正解はC</strong>です。ブラジルはコーヒー豆の生産量が世界一です。',
+      explanation: '<strong>正解はD</strong>です。ブラジルはコーヒー豆の生産量が世界一です。',
     },
     {
       type: 'date',

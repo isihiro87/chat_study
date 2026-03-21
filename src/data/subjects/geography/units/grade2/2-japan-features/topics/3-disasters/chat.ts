@@ -39,6 +39,12 @@ export const disastersChat: HistoryChat = {
       text: '地震・津波・火山による災害',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade2/japan-features/disasters.png',
+      alt: '日本の自然災害と防災の全体図',
+      caption: '日本の自然災害の全体像：地震・津波・火山・台風と防災',
+    },
+    {
       type: 'narrator',
       text: '日本は世界でも<ruby>自然災害<rp>(</rp><rt>しぜんさいがい</rt><rp>)</rp></ruby>が多い国のひとつです。どのような災害が起こるのか、そしてどう備えるのかを学びましょう。',
     },
@@ -99,6 +105,12 @@ export const disastersChat: HistoryChat = {
       explanation: '<strong>正解はA</strong>です。日本は<ruby>環太平洋造山帯<rp>(</rp><rt>かんたいへいようぞうざんたい</rt><rp>)</rp></ruby>に位置しており、<ruby>地震<rp>(</rp><rt>じしん</rt><rp>)</rp></ruby>や<ruby>火山<rp>(</rp><rt>かざん</rt><rp>)</rp></ruby>活動が活発です。',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade2/japan-features/earthquake-frequency-chart.svg',
+      alt: '日本の地震・台風の年間発生件数グラフ（準備中）',
+      caption: '日本における地震・台風の発生頻度の推移（準備中）出典：気象庁',
+    },
+    {
       type: 'date',
       text: '気象災害',
     },
@@ -150,11 +162,11 @@ export const disastersChat: HistoryChat = {
       question: '短時間に大量の雨が降り、土石流や洪水の原因となる現象を何というか？',
       options: [
         { letter: 'A', text: '台風', correct: false },
-        { letter: 'B', text: '集中豪雨', correct: true },
+        { letter: 'B', text: '干害', correct: false },
         { letter: 'C', text: '冷害', correct: false },
-        { letter: 'D', text: '干害', correct: false },
+        { letter: 'D', text: '集中豪雨', correct: true },
       ],
-      explanation: '<strong>正解はB</strong>です。<ruby>集中豪雨<rp>(</rp><rt>しゅうちゅうごうう</rt><rp>)</rp></ruby>は短時間に大量の雨が降る<ruby>現象<rp>(</rp><rt>げんしょう</rt><rp>)</rp></ruby>で、<ruby>土石流<rp>(</rp><rt>どせきりゅう</rt><rp>)</rp></ruby>や<ruby>洪水<rp>(</rp><rt>こうずい</rt><rp>)</rp></ruby>の原因になります。',
+      explanation: '<strong>正解はD</strong>です。<ruby>集中豪雨<rp>(</rp><rt>しゅうちゅうごうう</rt><rp>)</rp></ruby>は短時間に大量の雨が降る<ruby>現象<rp>(</rp><rt>げんしょう</rt><rp>)</rp></ruby>で、<ruby>土石流<rp>(</rp><rt>どせきりゅう</rt><rp>)</rp></ruby>や<ruby>洪水<rp>(</rp><rt>こうずい</rt><rp>)</rp></ruby>の原因になります。',
     },
     {
       type: 'summary-point',
@@ -223,11 +235,11 @@ export const disastersChat: HistoryChat = {
       question: '自分の身を自分で守ることを防災の分野で何というか？',
       options: [
         { letter: 'A', text: '公助', correct: false },
-        { letter: 'B', text: '共助', correct: false },
+        { letter: 'B', text: '自助', correct: true },
         { letter: 'C', text: '互助', correct: false },
-        { letter: 'D', text: '自助', correct: true },
+        { letter: 'D', text: '共助', correct: false },
       ],
-      explanation: '<strong>正解はD</strong>です。<ruby>自助<rp>(</rp><rt>じじょ</rt><rp>)</rp></ruby>は自分の身を自分で守ること、<ruby>共助<rp>(</rp><rt>きょうじょ</rt><rp>)</rp></ruby>は地域で助け合うこと、<ruby>公助<rp>(</rp><rt>こうじょ</rt><rp>)</rp></ruby>は国や<ruby>自治体<rp>(</rp><rt>じちたい</rt><rp>)</rp></ruby>の支援です。',
+      explanation: '<strong>正解はB</strong>です。<ruby>自助<rp>(</rp><rt>じじょ</rt><rp>)</rp></ruby>は自分の身を自分で守ること、<ruby>共助<rp>(</rp><rt>きょうじょ</rt><rp>)</rp></ruby>は地域で助け合うこと、<ruby>公助<rp>(</rp><rt>こうじょ</rt><rp>)</rp></ruby>は国や<ruby>自治体<rp>(</rp><rt>じちたい</rt><rp>)</rp></ruby>の支援です。',
     },
     {
       type: 'summary-point',
@@ -237,12 +249,12 @@ export const disastersChat: HistoryChat = {
       type: 'quiz',
       question: '地域ごとの災害リスクや避難場所を示した地図を何というか？',
       options: [
-        { letter: 'A', text: '地形図', correct: false },
-        { letter: 'B', text: 'ハザードマップ', correct: true },
+        { letter: 'A', text: 'ハザードマップ', correct: true },
+        { letter: 'B', text: '地形図', correct: false },
         { letter: 'C', text: '天気図', correct: false },
         { letter: 'D', text: '路線図', correct: false },
       ],
-      explanation: '<strong>正解はB「ハザードマップ」</strong>です。地域の<ruby>災害<rp>(</rp><rt>さいがい</rt><rp>)</rp></ruby>リスク（<ruby>浸水<rp>(</rp><rt>しんすい</rt><rp>)</rp></ruby>区域、<ruby>土砂災害<rp>(</rp><rt>どしゃさいがい</rt><rp>)</rp></ruby><ruby>危険箇所<rp>(</rp><rt>きけんかしょ</rt><rp>)</rp></ruby>など）や<ruby>避難場所<rp>(</rp><rt>ひなんばしょ</rt><rp>)</rp></ruby>を示した地図です。',
+      explanation: '<strong>正解はA「ハザードマップ」</strong>です。地域の<ruby>災害<rp>(</rp><rt>さいがい</rt><rp>)</rp></ruby>リスク（<ruby>浸水<rp>(</rp><rt>しんすい</rt><rp>)</rp></ruby>区域、<ruby>土砂災害<rp>(</rp><rt>どしゃさいがい</rt><rp>)</rp></ruby><ruby>危険箇所<rp>(</rp><rt>きけんかしょ</rt><rp>)</rp></ruby>など）や<ruby>避難場所<rp>(</rp><rt>ひなんばしょ</rt><rp>)</rp></ruby>を示した地図です。',
     },
     {
       type: 'end',

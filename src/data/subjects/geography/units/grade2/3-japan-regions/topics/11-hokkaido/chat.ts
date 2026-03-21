@@ -98,12 +98,12 @@ export const hokkaidoChat: HistoryChat = {
       question: '北海道が属する気候帯はどれ？',
       options: [
         { letter: 'A', text: '温帯', correct: false },
-        { letter: 'B', text: '亜熱帯', correct: false },
-        { letter: 'C', text: '亜寒帯（冷帯）', correct: true },
+        { letter: 'B', text: '亜寒帯（冷帯）', correct: true },
+        { letter: 'C', text: '亜熱帯', correct: false },
         { letter: 'D', text: '熱帯', correct: false },
       ],
       explanation:
-        '<strong>正解はC「<ruby>亜寒帯<rp>(</rp><rt>あかんたい</rt><rp>)</rp></ruby>（<ruby>冷帯<rp>(</rp><rt>れいたい</rt><rp>)</rp></ruby>）」</strong>です。冬は<ruby>氷点下<rp>(</rp><rt>ひょうてんか</rt><rp>)</rp></ruby>20度以下になることもあり、<ruby>梅雨<rp>(</rp><rt>つゆ</rt><rp>)</rp></ruby>がないのが特徴です。',
+        '<strong>正解はB「<ruby>亜寒帯<rp>(</rp><rt>あかんたい</rt><rp>)</rp></ruby>（<ruby>冷帯<rp>(</rp><rt>れいたい</rt><rp>)</rp></ruby>）」</strong>です。冬は<ruby>氷点下<rp>(</rp><rt>ひょうてんか</rt><rp>)</rp></ruby>20度以下になることもあり、<ruby>梅雨<rp>(</rp><rt>つゆ</rt><rp>)</rp></ruby>がないのが特徴です。',
     },
     {
       type: 'date',
@@ -232,16 +232,22 @@ export const hokkaidoChat: HistoryChat = {
       text: '<span class="keyword">石狩平野</span>の稲作（<span class="keyword">客土</span>）、<span class="keyword">十勝平野</span>の<span class="keyword">輪作</span>、<span class="keyword">根釧台地</span>の<span class="keyword">酪農</span>（生乳日本一）',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade2/japan-regions/hokkaido-agriculture-chart.svg',
+      alt: '北海道の農産物の全国シェアグラフ（準備中）',
+      caption: '北海道は生乳・じゃがいも・小麦などで全国シェア1位（準備中）出典：農林水産省',
+    },
+    {
       type: 'quiz',
       question: '十勝平野で行われている、作物を順番に変えて栽培する方法を何というか？',
       options: [
         { letter: 'A', text: '二毛作', correct: false },
-        { letter: 'B', text: '輪作', correct: true },
+        { letter: 'B', text: '混合農業', correct: false },
         { letter: 'C', text: '促成栽培', correct: false },
-        { letter: 'D', text: '混合農業', correct: false },
+        { letter: 'D', text: '輪作', correct: true },
       ],
       explanation:
-        '<strong>正解はB「<ruby>輪作<rp>(</rp><rt>りんさく</rt><rp>)</rp></ruby>」</strong>です。じゃがいも→小麦→てんさい→豆類のように作物を順番に変えて、土地の力を回復させる<ruby>農法<rp>(</rp><rt>のうほう</rt><rp>)</rp></ruby>です。',
+        '<strong>正解はD「<ruby>輪作<rp>(</rp><rt>りんさく</rt><rp>)</rp></ruby>」</strong>です。じゃがいも→小麦→てんさい→豆類のように作物を順番に変えて、土地の力を回復させる<ruby>農法<rp>(</rp><rt>のうほう</rt><rp>)</rp></ruby>です。',
     },
     {
       type: 'date',
@@ -323,11 +329,11 @@ export const hokkaidoChat: HistoryChat = {
       options: [
         { letter: 'A', text: '埋め立て', correct: false },
         { letter: 'B', text: '干拓', correct: false },
-        { letter: 'C', text: '開墾', correct: false },
-        { letter: 'D', text: '客土', correct: true },
+        { letter: 'C', text: '客土', correct: true },
+        { letter: 'D', text: '開墾', correct: false },
       ],
       explanation:
-        '<strong>正解はD「<ruby>客土<rp>(</rp><rt>きゃくど</rt><rp>)</rp></ruby>」</strong>です。よその土を運んでくる土地改良の方法で、<ruby>石狩平野<rp>(</rp><rt>いしかりへいや</rt><rp>)</rp></ruby>の<ruby>泥炭地<rp>(</rp><rt>でいたんち</rt><rp>)</rp></ruby>を稲作に適した土地に変えました。',
+        '<strong>正解はC「<ruby>客土<rp>(</rp><rt>きゃくど</rt><rp>)</rp></ruby>」</strong>です。よその土を運んでくる土地改良の方法で、<ruby>石狩平野<rp>(</rp><rt>いしかりへいや</rt><rp>)</rp></ruby>の<ruby>泥炭地<rp>(</rp><rt>でいたんち</rt><rp>)</rp></ruby>を稲作に適した土地に変えました。',
     },
     {
       type: 'end',

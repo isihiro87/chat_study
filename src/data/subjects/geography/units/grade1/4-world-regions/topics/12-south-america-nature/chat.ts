@@ -39,6 +39,12 @@ export const southAmericaNatureChat: HistoryChat = {
       text: '自然と文化',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade1/world-regions/south-america-nature-map.png',
+      alt: '南アメリカの自然と文化の概観',
+      caption: 'アマゾン川・アンデス山脈・パンパと混血文化・日系移民の分布',
+    },
+    {
       type: 'narrator',
       text: '南アメリカ州には、世界最大の<ruby>流域<rp>(</rp><rt>りゅういき</rt><rp>)</rp></ruby>面積を持つ<strong>アマゾン川</strong>と、南北に連なる<strong>アンデス<ruby>山脈<rp>(</rp><rt>さんみゃく</rt><rp>)</rp></ruby></strong>があります。まずは自然と文化の特徴を見ていきましょう。',
     },
@@ -96,6 +102,12 @@ export const southAmericaNatureChat: HistoryChat = {
       src: '/images/geography/grade1/world-regions/south-america-nature-map.png',
       alt: '南アメリカの自然と文化',
       caption: 'アマゾン川・アンデス山脈・パンパと多様な文化',
+    },
+    {
+      type: 'image',
+      src: '/images/geography/grade1/world-regions/amazon-deforestation-chart.svg',
+      alt: 'アマゾン熱帯雨林の面積減少推移グラフ（準備中）',
+      caption: 'アマゾンの森林面積は過去50年で約17%減少（準備中）出典：ブラジル国立宇宙研究所（INPE）',
     },
     {
       type: 'summary-point',
@@ -236,12 +248,12 @@ export const southAmericaNatureChat: HistoryChat = {
       type: 'quiz',
       question: 'アルゼンチンの大草原「パンパ」でさかんな産業は？',
       options: [
-        { letter: 'A', text: '稲作', correct: false },
+        { letter: 'A', text: '大規模な牧畜', correct: true },
         { letter: 'B', text: 'ICT産業', correct: false },
-        { letter: 'C', text: '大規模な牧畜', correct: true },
+        { letter: 'C', text: '稲作', correct: false },
         { letter: 'D', text: '鉱山開発', correct: false },
       ],
-      explanation: '<strong>正解はC</strong>です。パンパでは広大な<ruby>草原<rp>(</rp><rt>そうげん</rt><rp>)</rp></ruby>で<ruby>牛<rp>(</rp><rt>うし</rt><rp>)</rp></ruby>の<ruby>放牧<rp>(</rp><rt>ほうぼく</rt><rp>)</rp></ruby>が行われ、アルゼンチンの<ruby>牛肉<rp>(</rp><rt>ぎゅうにく</rt><rp>)</rp></ruby>は世界的に有名です。',
+      explanation: '<strong>正解はA</strong>です。パンパでは広大な<ruby>草原<rp>(</rp><rt>そうげん</rt><rp>)</rp></ruby>で<ruby>牛<rp>(</rp><rt>うし</rt><rp>)</rp></ruby>の<ruby>放牧<rp>(</rp><rt>ほうぼく</rt><rp>)</rp></ruby>が行われ、アルゼンチンの<ruby>牛肉<rp>(</rp><rt>ぎゅうにく</rt><rp>)</rp></ruby>は世界的に有名です。',
     },
     {
       type: 'date',

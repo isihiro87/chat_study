@@ -39,6 +39,12 @@ export const industryChat: HistoryChat = {
       text: '農業と食料自給率',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade2/japan-features/industry.png',
+      alt: '日本の産業・交通の全体図',
+      caption: '日本の産業の全体像：農業・工業・サービス業と交通網',
+    },
+    {
       type: 'narrator',
       text: '日本の<ruby>産業<rp>(</rp><rt>さんぎょう</rt><rp>)</rp></ruby>にはどのような特色があるのでしょうか。まず<ruby>農業<rp>(</rp><rt>のうぎょう</rt><rp>)</rp></ruby>と<ruby>食料自給率<rp>(</rp><rt>しょくりょうじきゅうりつ</rt><rp>)</rp></ruby>から見ていきましょう。',
     },
@@ -91,12 +97,12 @@ export const industryChat: HistoryChat = {
       type: 'quiz',
       question: '日本のカロリーベースの食料自給率はおよそ何%か？',
       options: [
-        { letter: 'A', text: '約20%', correct: false },
-        { letter: 'B', text: '約40%', correct: true },
+        { letter: 'A', text: '約40%', correct: true },
+        { letter: 'B', text: '約20%', correct: false },
         { letter: 'C', text: '約60%', correct: false },
         { letter: 'D', text: '約80%', correct: false },
       ],
-      explanation: '<strong>正解はB</strong>です。日本の<ruby>食料自給率<rp>(</rp><rt>しょくりょうじきゅうりつ</rt><rp>)</rp></ruby>はカロリーベースで約40%前後と、<ruby>先進国<rp>(</rp><rt>せんしんこく</rt><rp>)</rp></ruby>でも低い水準です。',
+      explanation: '<strong>正解はA</strong>です。日本の<ruby>食料自給率<rp>(</rp><rt>しょくりょうじきゅうりつ</rt><rp>)</rp></ruby>はカロリーベースで約40%前後と、<ruby>先進国<rp>(</rp><rt>せんしんこく</rt><rp>)</rp></ruby>でも低い水準です。',
     },
     {
       type: 'summary-point',
@@ -108,10 +114,16 @@ export const industryChat: HistoryChat = {
       options: [
         { letter: 'A', text: 'ブランド農業', correct: false },
         { letter: 'B', text: '近郊農業', correct: false },
-        { letter: 'C', text: 'スマート農業', correct: true },
-        { letter: 'D', text: '有機農業', correct: false },
+        { letter: 'C', text: '有機農業', correct: false },
+        { letter: 'D', text: 'スマート農業', correct: true },
       ],
-      explanation: '<strong>正解はC</strong>です。スマート<ruby>農業<rp>(</rp><rt>のうぎょう</rt><rp>)</rp></ruby>はITを活用して<ruby>効率的<rp>(</rp><rt>こうりつてき</rt><rp>)</rp></ruby>に<ruby>農作業<rp>(</rp><rt>のうさぎょう</rt><rp>)</rp></ruby>を行う新しい農業の形です。',
+      explanation: '<strong>正解はD</strong>です。スマート<ruby>農業<rp>(</rp><rt>のうぎょう</rt><rp>)</rp></ruby>はITを活用して<ruby>効率的<rp>(</rp><rt>こうりつてき</rt><rp>)</rp></ruby>に<ruby>農作業<rp>(</rp><rt>のうさぎょう</rt><rp>)</rp></ruby>を行う新しい農業の形です。',
+    },
+    {
+      type: 'image',
+      src: '/images/geography/grade2/japan-features/industrial-output-chart.svg',
+      alt: '日本の産業別生産額の構成比グラフ（準備中）',
+      caption: '第一次・第二次・第三次産業の生産額と就業者数の推移（準備中）出典：内閣府',
     },
     {
       type: 'date',
@@ -158,11 +170,11 @@ export const industryChat: HistoryChat = {
       question: '関東から九州北部の太平洋沿いに工業地帯が連なる地域を何というか？',
       options: [
         { letter: 'A', text: '東海道', correct: false },
-        { letter: 'B', text: '太平洋ベルト', correct: true },
-        { letter: 'C', text: '四大工業地帯', correct: false },
+        { letter: 'B', text: '四大工業地帯', correct: false },
+        { letter: 'C', text: '太平洋ベルト', correct: true },
         { letter: 'D', text: '臨海工業地域', correct: false },
       ],
-      explanation: '<strong>正解はB</strong>です。<ruby>太平洋<rp>(</rp><rt>たいへいよう</rt><rp>)</rp></ruby>ベルトは<ruby>関東<rp>(</rp><rt>かんとう</rt><rp>)</rp></ruby>から<ruby>九州<rp>(</rp><rt>きゅうしゅう</rt><rp>)</rp></ruby>北部にかけて<ruby>工業地帯<rp>(</rp><rt>こうぎょうちたい</rt><rp>)</rp></ruby>が集中する地域です。',
+      explanation: '<strong>正解はC</strong>です。<ruby>太平洋<rp>(</rp><rt>たいへいよう</rt><rp>)</rp></ruby>ベルトは<ruby>関東<rp>(</rp><rt>かんとう</rt><rp>)</rp></ruby>から<ruby>九州<rp>(</rp><rt>きゅうしゅう</rt><rp>)</rp></ruby>北部にかけて<ruby>工業地帯<rp>(</rp><rt>こうぎょうちたい</rt><rp>)</rp></ruby>が集中する地域です。',
     },
     {
       type: 'summary-point',
@@ -173,11 +185,11 @@ export const industryChat: HistoryChat = {
       question: '四大工業地帯に含まれないものはどれ？',
       options: [
         { letter: 'A', text: '京浜', correct: false },
-        { letter: 'B', text: '中京', correct: false },
-        { letter: 'C', text: '京葉', correct: true },
+        { letter: 'B', text: '京葉', correct: true },
+        { letter: 'C', text: '中京', correct: false },
         { letter: 'D', text: '阪神', correct: false },
       ],
-      explanation: '<strong>正解はC</strong>です。<ruby>四大工業地帯<rp>(</rp><rt>よんだいこうぎょうちたい</rt><rp>)</rp></ruby>は<ruby>京浜<rp>(</rp><rt>けいひん</rt><rp>)</rp></ruby>・<ruby>中京<rp>(</rp><rt>ちゅうきょう</rt><rp>)</rp></ruby>・<ruby>阪神<rp>(</rp><rt>はんしん</rt><rp>)</rp></ruby>・<ruby>北九州<rp>(</rp><rt>きたきゅうしゅう</rt><rp>)</rp></ruby>です。<ruby>京葉<rp>(</rp><rt>けいよう</rt><rp>)</rp></ruby>は工業「地域」です。',
+      explanation: '<strong>正解はB</strong>です。<ruby>四大工業地帯<rp>(</rp><rt>よんだいこうぎょうちたい</rt><rp>)</rp></ruby>は<ruby>京浜<rp>(</rp><rt>けいひん</rt><rp>)</rp></ruby>・<ruby>中京<rp>(</rp><rt>ちゅうきょう</rt><rp>)</rp></ruby>・<ruby>阪神<rp>(</rp><rt>はんしん</rt><rp>)</rp></ruby>・<ruby>北九州<rp>(</rp><rt>きたきゅうしゅう</rt><rp>)</rp></ruby>です。<ruby>京葉<rp>(</rp><rt>けいよう</rt><rp>)</rp></ruby>は工業「地域」です。',
     },
     {
       type: 'date',
@@ -230,12 +242,12 @@ export const industryChat: HistoryChat = {
       type: 'quiz',
       question: '東京・名古屋・大阪を結ぶ交通の大動脈となっている新幹線はどれ？',
       options: [
-        { letter: 'A', text: '東北新幹線', correct: false },
+        { letter: 'A', text: '東海道新幹線', correct: true },
         { letter: 'B', text: '北陸新幹線', correct: false },
         { letter: 'C', text: '山陽新幹線', correct: false },
-        { letter: 'D', text: '東海道新幹線', correct: true },
+        { letter: 'D', text: '東北新幹線', correct: false },
       ],
-      explanation: '<strong>正解はD</strong>です。<ruby>東海道新幹線<rp>(</rp><rt>とうかいどうしんかんせん</rt><rp>)</rp></ruby>は東京・名古屋・大阪を結ぶ日本の交通の<ruby>大動脈<rp>(</rp><rt>だいどうみゃく</rt><rp>)</rp></ruby>です。',
+      explanation: '<strong>正解はA</strong>です。<ruby>東海道新幹線<rp>(</rp><rt>とうかいどうしんかんせん</rt><rp>)</rp></ruby>は東京・名古屋・大阪を結ぶ日本の交通の<ruby>大動脈<rp>(</rp><rt>だいどうみゃく</rt><rp>)</rp></ruby>です。',
     },
     {
       type: 'summary-point',
@@ -247,10 +259,10 @@ export const industryChat: HistoryChat = {
       options: [
         { letter: 'A', text: '第一次産業', correct: false },
         { letter: 'B', text: '第二次産業', correct: false },
-        { letter: 'C', text: '第三次産業', correct: true },
-        { letter: 'D', text: '第四次産業', correct: false },
+        { letter: 'C', text: '第四次産業', correct: false },
+        { letter: 'D', text: '第三次産業', correct: true },
       ],
-      explanation: '<strong>正解はC「<ruby>第三次産業<rp>(</rp><rt>だいさんじさんぎょう</rt><rp>)</rp></ruby>」</strong>です。サービス業・商業・<ruby>運輸業<rp>(</rp><rt>うんゆぎょう</rt><rp>)</rp></ruby>・<ruby>情報通信業<rp>(</rp><rt>じょうほうつうしんぎょう</rt><rp>)</rp></ruby>などが含まれ、<ruby>就業者<rp>(</rp><rt>しゅうぎょうしゃ</rt><rp>)</rp></ruby>の約7割を占めています。',
+      explanation: '<strong>正解はD「<ruby>第三次産業<rp>(</rp><rt>だいさんじさんぎょう</rt><rp>)</rp></ruby>」</strong>です。サービス業・商業・<ruby>運輸業<rp>(</rp><rt>うんゆぎょう</rt><rp>)</rp></ruby>・<ruby>情報通信業<rp>(</rp><rt>じょうほうつうしんぎょう</rt><rp>)</rp></ruby>などが含まれ、<ruby>就業者<rp>(</rp><rt>しゅうぎょうしゃ</rt><rp>)</rp></ruby>の約7割を占めています。',
     },
     {
       type: 'end',

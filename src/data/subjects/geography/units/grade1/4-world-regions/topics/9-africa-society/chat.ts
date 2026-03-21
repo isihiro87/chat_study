@@ -40,6 +40,12 @@ export const africaSocietyChat: HistoryChat = {
       text: '社会の変化',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade1/world-regions/africa-borders-conflicts.png',
+      alt: 'アフリカの社会変化の概観',
+      caption: '植民地時代の直線的国境線・民族紛争・砂漠化・ルワンダの和解と復興',
+    },
+    {
       type: 'narrator',
       text: '<ruby>植民地<rp>(</rp><rt>しょくみんち</rt><rp>)</rp></ruby>時代の<ruby>影響<rp>(</rp><rt>えいきょう</rt><rp>)</rp></ruby>はアフリカの社会にも深く残っています。<ruby>独立<rp>(</rp><rt>どくりつ</rt><rp>)</rp></ruby>後の課題と、それに取り組む動きを見てみましょう。',
     },
@@ -84,6 +90,12 @@ export const africaSocietyChat: HistoryChat = {
       characterId: 'student',
       expression: 'surprised',
       text: '4分の1！？すごい増え方ですね',
+    },
+    {
+      type: 'image',
+      src: '/images/geography/grade1/world-regions/africa-population-growth-chart.svg',
+      alt: 'アフリカの人口増加率の推移グラフ（準備中）',
+      caption: 'アフリカの人口は2050年に約25億人に達する見込み（準備中）出典：国連人口推計',
     },
     {
       type: 'message',
@@ -131,12 +143,12 @@ export const africaSocietyChat: HistoryChat = {
       type: 'quiz',
       question: 'アフリカの国々が協力して平和や経済発展に取り組む組織は？',
       options: [
-        { letter: 'A', text: 'EU', correct: false },
+        { letter: 'A', text: 'AU（アフリカ連合）', correct: true },
         { letter: 'B', text: 'ASEAN', correct: false },
-        { letter: 'C', text: 'AU（アフリカ連合）', correct: true },
+        { letter: 'C', text: 'EU', correct: false },
         { letter: 'D', text: 'OPEC', correct: false },
       ],
-      explanation: '<strong>正解はC</strong>です。AU（アフリカ<ruby>連合<rp>(</rp><rt>れんごう</rt><rp>)</rp></ruby>）は2002年に設立され、アフリカの<ruby>平和<rp>(</rp><rt>へいわ</rt><rp>)</rp></ruby>と<ruby>経済<rp>(</rp><rt>けいざい</rt><rp>)</rp></ruby>発展に取り組んでいます。',
+      explanation: '<strong>正解はA</strong>です。AU（アフリカ<ruby>連合<rp>(</rp><rt>れんごう</rt><rp>)</rp></ruby>）は2002年に設立され、アフリカの<ruby>平和<rp>(</rp><rt>へいわ</rt><rp>)</rp></ruby>と<ruby>経済<rp>(</rp><rt>けいざい</rt><rp>)</rp></ruby>発展に取り組んでいます。',
     },
 
     // ===== 砂漠化問題 =====
@@ -198,12 +210,12 @@ export const africaSocietyChat: HistoryChat = {
       type: 'quiz',
       question: 'サヘル地域の砂漠化を防ぐ植林計画の名前は？',
       options: [
-        { letter: 'A', text: 'アフリカ緑の長城', correct: true },
+        { letter: 'A', text: 'アフリカ森林保全条約', correct: false },
         { letter: 'B', text: 'グリーンニューディール', correct: false },
         { letter: 'C', text: 'サハラ再生計画', correct: false },
-        { letter: 'D', text: 'アフリカ森林保全条約', correct: false },
+        { letter: 'D', text: 'アフリカ緑の長城', correct: true },
       ],
-      explanation: '<strong>正解はA</strong>です。「アフリカ<ruby>緑<rp>(</rp><rt>みどり</rt><rp>)</rp></ruby>の<ruby>長城<rp>(</rp><rt>ちょうじょう</rt><rp>)</rp></ruby>」は東西約8000kmにわたって植林する大計画です。',
+      explanation: '<strong>正解はD</strong>です。「アフリカ<ruby>緑<rp>(</rp><rt>みどり</rt><rp>)</rp></ruby>の<ruby>長城<rp>(</rp><rt>ちょうじょう</rt><rp>)</rp></ruby>」は東西約8000kmにわたって植林する大計画です。',
     },
 
     // ===== ルワンダの民族紛争と和解 =====
@@ -275,12 +287,12 @@ export const africaSocietyChat: HistoryChat = {
       question: 'アフリカで民族紛争が起きやすい原因のひとつとして正しいものはどれ？',
       options: [
         { letter: 'A', text: '大陸が小さく国が密集しているため', correct: false },
-        { letter: 'B', text: '植民地時代に民族の分布を無視して国境線が引かれたため', correct: true },
-        { letter: 'C', text: '全ての国が同じ言語を使っているため', correct: false },
+        { letter: 'B', text: '全ての国が同じ言語を使っているため', correct: false },
+        { letter: 'C', text: '植民地時代に民族の分布を無視して国境線が引かれたため', correct: true },
         { letter: 'D', text: '鉄道が発達しすぎたため', correct: false },
       ],
       explanation:
-        '<strong>正解はB</strong>です。植民地時代にヨーロッパ<ruby>諸国<rp>(</rp><rt>しょこく</rt><rp>)</rp></ruby>が<ruby>民族<rp>(</rp><rt>みんぞく</rt><rp>)</rp></ruby>の分布を無視して直線的に<ruby>国境<rp>(</rp><rt>こっきょう</rt><rp>)</rp></ruby>を引いたため、独立後に一つの国の中で複数の民族が対立する<ruby>紛争<rp>(</rp><rt>ふんそう</rt><rp>)</rp></ruby>が起こりやすくなりました。',
+        '<strong>正解はC</strong>です。植民地時代にヨーロッパ<ruby>諸国<rp>(</rp><rt>しょこく</rt><rp>)</rp></ruby>が<ruby>民族<rp>(</rp><rt>みんぞく</rt><rp>)</rp></ruby>の分布を無視して直線的に<ruby>国境<rp>(</rp><rt>こっきょう</rt><rp>)</rp></ruby>を引いたため、独立後に一つの国の中で複数の民族が対立する<ruby>紛争<rp>(</rp><rt>ふんそう</rt><rp>)</rp></ruby>が起こりやすくなりました。',
     },
 
     // ===== まとめ =====

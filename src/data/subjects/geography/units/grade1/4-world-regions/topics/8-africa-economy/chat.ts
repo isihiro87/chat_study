@@ -40,6 +40,12 @@ export const africaEconomyChat: HistoryChat = {
       text: '産業の課題',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade1/world-regions/africa-monoculture-economy.png',
+      alt: 'アフリカの産業と経済の概観',
+      caption: 'モノカルチャー経済の構造とプランテーション・レアメタルの分布',
+    },
+    {
       type: 'narrator',
       text: '<ruby>植民地<rp>(</rp><rt>しょくみんち</rt><rp>)</rp></ruby>時代の影響は、アフリカの<ruby>産業<rp>(</rp><rt>さんぎょう</rt><rp>)</rp></ruby>にも大きく残っています。',
     },
@@ -118,11 +124,11 @@ export const africaEconomyChat: HistoryChat = {
       question: 'プランテーションで栽培される商品作物に含まれないものは？',
       options: [
         { letter: 'A', text: 'カカオ', correct: false },
-        { letter: 'B', text: 'コーヒー', correct: false },
-        { letter: 'C', text: '米', correct: true },
+        { letter: 'B', text: '米', correct: true },
+        { letter: 'C', text: 'コーヒー', correct: false },
         { letter: 'D', text: '天然ゴム', correct: false },
       ],
-      explanation: '<strong>正解はC</strong>です。プランテーションではカカオ・コーヒー・天然ゴムなどの<ruby>商品作物<rp>(</rp><rt>しょうひんさくもつ</rt><rp>)</rp></ruby>が<ruby>栽培<rp>(</rp><rt>さいばい</rt><rp>)</rp></ruby>されます。米は主に自給用の作物です。',
+      explanation: '<strong>正解はB</strong>です。プランテーションではカカオ・コーヒー・天然ゴムなどの<ruby>商品作物<rp>(</rp><rt>しょうひんさくもつ</rt><rp>)</rp></ruby>が<ruby>栽培<rp>(</rp><rt>さいばい</rt><rp>)</rp></ruby>されます。米は主に自給用の作物です。',
     },
 
     // ===== ギニア湾沿岸のカカオ生産 =====
@@ -170,6 +176,12 @@ export const africaEconomyChat: HistoryChat = {
       text: '<strong><span class="keyword">フェアトレード</span></strong>という取り組みがあるよ。<ruby>生産者<rp>(</rp><rt>せいさんしゃ</rt><rp>)</rp></ruby>に<ruby>適正<rp>(</rp><rt>てきせい</rt><rp>)</rp></ruby>な価格を<ruby>支払<rp>(</rp><rt>しはら</rt><rp>)</rp></ruby>って、<ruby>児童労働<rp>(</rp><rt>じどうろうどう</rt><rp>)</rp></ruby>をなくすことも目指しているんだ',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade1/world-regions/africa-cacao-production-chart.svg',
+      alt: 'カカオ豆の生産量上位国グラフ（準備中）',
+      caption: 'コートジボワール・ガーナが世界の約60%を生産（準備中）出典：FAO統計',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">ギニア湾</span>沿岸（ガーナ・コートジボワール）＝世界有数の<span class="keyword">カカオ</span>産地 / <span class="keyword">フェアトレード</span>で生産者の生活改善',
     },
@@ -177,12 +189,12 @@ export const africaEconomyChat: HistoryChat = {
       type: 'quiz',
       question: '生産者に適正な価格を支払って児童労働をなくす取り組みは？',
       options: [
-        { letter: 'A', text: 'アグリビジネス', correct: false },
-        { letter: 'B', text: 'フェアトレード', correct: true },
+        { letter: 'A', text: 'フェアトレード', correct: true },
+        { letter: 'B', text: 'アグリビジネス', correct: false },
         { letter: 'C', text: 'モノカルチャー', correct: false },
         { letter: 'D', text: 'プランテーション', correct: false },
       ],
-      explanation: '<strong>正解はB</strong>です。フェアトレードは<ruby>生産者<rp>(</rp><rt>せいさんしゃ</rt><rp>)</rp></ruby>に<ruby>適正<rp>(</rp><rt>てきせい</rt><rp>)</rp></ruby>な価格を<ruby>支払<rp>(</rp><rt>しはら</rt><rp>)</rp></ruby>い、<ruby>児童労働<rp>(</rp><rt>じどうろうどう</rt><rp>)</rp></ruby>をなくすことも目指しています。',
+      explanation: '<strong>正解はA</strong>です。フェアトレードは<ruby>生産者<rp>(</rp><rt>せいさんしゃ</rt><rp>)</rp></ruby>に<ruby>適正<rp>(</rp><rt>てきせい</rt><rp>)</rp></ruby>な価格を<ruby>支払<rp>(</rp><rt>しはら</rt><rp>)</rp></ruby>い、<ruby>児童労働<rp>(</rp><rt>じどうろうどう</rt><rp>)</rp></ruby>をなくすことも目指しています。',
     },
 
     // ===== ICT・携帯電話の活用 =====
@@ -248,11 +260,11 @@ export const africaEconomyChat: HistoryChat = {
       options: [
         { letter: 'A', text: '混合農業', correct: false },
         { letter: 'B', text: 'プランテーション経済', correct: false },
-        { letter: 'C', text: 'モノカルチャー経済', correct: true },
-        { letter: 'D', text: '自給自足経済', correct: false },
+        { letter: 'C', text: '自給自足経済', correct: false },
+        { letter: 'D', text: 'モノカルチャー経済', correct: true },
       ],
       explanation:
-        '<strong>正解はC「モノカルチャー<ruby>経済<rp>(</rp><rt>けいざい</rt><rp>)</rp></ruby>」</strong>です。カカオやコーヒーなど特定の<ruby>産物<rp>(</rp><rt>さんぶつ</rt><rp>)</rp></ruby>の<ruby>輸出<rp>(</rp><rt>ゆしゅつ</rt><rp>)</rp></ruby>に頼るため、国際<ruby>価格<rp>(</rp><rt>かかく</rt><rp>)</rp></ruby>の変動で経済が不安定になりやすいのが特徴です。',
+        '<strong>正解はD「モノカルチャー<ruby>経済<rp>(</rp><rt>けいざい</rt><rp>)</rp></ruby>」</strong>です。カカオやコーヒーなど特定の<ruby>産物<rp>(</rp><rt>さんぶつ</rt><rp>)</rp></ruby>の<ruby>輸出<rp>(</rp><rt>ゆしゅつ</rt><rp>)</rp></ruby>に頼るため、国際<ruby>価格<rp>(</rp><rt>かかく</rt><rp>)</rp></ruby>の変動で経済が不安定になりやすいのが特徴です。',
     },
 
     // ===== まとめ =====

@@ -43,6 +43,12 @@ export const cultureReligionChat: HistoryChat = {
       text: '世界の人々は、住んでいる地域の<ruby>気候<rp>(</rp><rt>きこう</rt><rp>)</rp></ruby>や<ruby>環境<rp>(</rp><rt>かんきょう</rt><rp>)</rp></ruby>に合わせて、さまざまな<ruby>生活<rp>(</rp><rt>せいかつ</rt><rp>)</rp></ruby>の<ruby>工夫<rp>(</rp><rt>くふう</rt><rp>)</rp></ruby>をしてきました。まずは住居について見てみましょう。',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade1/life-environment/world-religions.png',
+      alt: '世界の主な宗教の分布を色分けした地図',
+      caption: '世界の宗教分布と多様な生活・文化',
+    },
+    {
       type: 'message',
       side: 'left',
       characterId: 'teacher',
@@ -99,12 +105,12 @@ export const cultureReligionChat: HistoryChat = {
       type: 'quiz',
       question: '乾燥帯で昼の猛暑と夜の冷え込みを防ぐために使われる建材はどれ？',
       options: [
-        { letter: 'A', text: '日干しれんが', correct: true },
+        { letter: 'A', text: 'サンゴ石', correct: false },
         { letter: 'B', text: '雪のブロック', correct: false },
         { letter: 'C', text: '木材', correct: false },
-        { letter: 'D', text: 'サンゴ石', correct: false },
+        { letter: 'D', text: '日干しれんが', correct: true },
       ],
-      explanation: '<strong>正解はA</strong>です。<ruby>日干<rp>(</rp><rt>ひぼ</rt><rp>)</rp></ruby>しれんが（アドベ）は<ruby>厚<rp>(</rp><rt>あつ</rt><rp>)</rp></ruby>い<ruby>壁<rp>(</rp><rt>かべ</rt><rp>)</rp></ruby>を作ることで昼夜の<ruby>気温差<rp>(</rp><rt>きおんさ</rt><rp>)</rp></ruby>を<ruby>和<rp>(</rp><rt>やわ</rt><rp>)</rp></ruby>らげます。',
+      explanation: '<strong>正解はD</strong>です。<ruby>日干<rp>(</rp><rt>ひぼ</rt><rp>)</rp></ruby>しれんが（アドベ）は<ruby>厚<rp>(</rp><rt>あつ</rt><rp>)</rp></ruby>い<ruby>壁<rp>(</rp><rt>かべ</rt><rp>)</rp></ruby>を作ることで昼夜の<ruby>気温差<rp>(</rp><rt>きおんさ</rt><rp>)</rp></ruby>を<ruby>和<rp>(</rp><rt>やわ</rt><rp>)</rp></ruby>らげます。',
     },
     {
       type: 'date',
@@ -165,11 +171,11 @@ export const cultureReligionChat: HistoryChat = {
       question: '稲作が盛んなアジアの主食はどれ？',
       options: [
         { letter: 'A', text: 'パン', correct: false },
-        { letter: 'B', text: '米', correct: true },
-        { letter: 'C', text: 'ナン', correct: false },
+        { letter: 'B', text: 'ナン', correct: false },
+        { letter: 'C', text: '米', correct: true },
         { letter: 'D', text: 'じゃがいも', correct: false },
       ],
-      explanation: '<strong>正解はB</strong>です。<ruby>稲作<rp>(</rp><rt>いなさく</rt><rp>)</rp></ruby>が<ruby>盛<rp>(</rp><rt>さか</rt><rp>)</rp></ruby>んなアジアでは米が主食として食べられています。',
+      explanation: '<strong>正解はC</strong>です。<ruby>稲作<rp>(</rp><rt>いなさく</rt><rp>)</rp></ruby>が<ruby>盛<rp>(</rp><rt>さか</rt><rp>)</rp></ruby>んなアジアでは米が主食として食べられています。',
     },
     {
       type: 'date',
@@ -314,6 +320,12 @@ export const cultureReligionChat: HistoryChat = {
       text: 'ヒンドゥー教の<ruby>信者<rp>(</rp><rt>しんじゃ</rt><rp>)</rp></ruby>は約<strong>12<ruby>億人<rp>(</rp><rt>おくにん</rt><rp>)</rp></ruby></strong>もいるんだ。<ruby>聖<rp>(</rp><rt>せい</rt><rp>)</rp></ruby>なる<strong><span class="keyword"><ruby>ガンジス川<rp>(</rp><rt>がんじすがわ</rt><rp>)</rp></ruby></span></strong>での<strong><span class="keyword"><ruby>沐浴<rp>(</rp><rt>もくよく</rt><rp>)</rp></ruby></span></strong>（体を清めること）も大切な<ruby>儀式<rp>(</rp><rt>ぎしき</rt><rp>)</rp></ruby>で、川の水で<ruby>罪<rp>(</rp><rt>つみ</rt><rp>)</rp></ruby>が洗い流されると信じられているよ',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade1/life-environment/world-religion-population.svg',
+      alt: '世界の宗教別信者数の円グラフ（準備中）',
+      caption: 'キリスト教約24億人・イスラーム約19億人・ヒンドゥー教約12億人・仏教約5億人（準備中）出典：Pew Research Center',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',
@@ -364,13 +376,13 @@ export const cultureReligionChat: HistoryChat = {
       type: 'quiz',
       question: '「世界三大宗教」に含まれないのはどれ？',
       options: [
-        { letter: 'A', text: 'キリスト教', correct: false },
+        { letter: 'A', text: 'ヒンドゥー教', correct: true },
         { letter: 'B', text: 'イスラーム', correct: false },
-        { letter: 'C', text: 'ヒンドゥー教', correct: true },
+        { letter: 'C', text: 'キリスト教', correct: false },
         { letter: 'D', text: '仏教', correct: false },
       ],
       explanation:
-        '<strong>正解はC「ヒンドゥー<ruby>教<rp>(</rp><rt>きょう</rt><rp>)</rp></ruby>」</strong>です。ヒンドゥー教は<ruby>信者数<rp>(</rp><rt>しんじゃすう</rt><rp>)</rp></ruby>は多いですが、主にインドで<ruby>信仰<rp>(</rp><rt>しんこう</rt><rp>)</rp></ruby>されており、世界各地には広がっていないため、世界三大宗教には含まれません。',
+        '<strong>正解はA「ヒンドゥー<ruby>教<rp>(</rp><rt>きょう</rt><rp>)</rp></ruby>」</strong>です。ヒンドゥー教は<ruby>信者数<rp>(</rp><rt>しんじゃすう</rt><rp>)</rp></ruby>は多いですが、主にインドで<ruby>信仰<rp>(</rp><rt>しんこう</rt><rp>)</rp></ruby>されており、世界各地には広がっていないため、世界三大宗教には含まれません。',
     },
     {
       type: 'end',

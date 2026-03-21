@@ -237,19 +237,6 @@ export const africaNature: Topic = {
       },
         {
           id: 'geo1-af1-q14',
-          question: 'アフリカの気候帯の分布として正しいものはどれか。',
-          options: [
-            '赤道を中心にほぼ対称的に分布',
-            '赤道付近に砂漠、周辺に熱帯雨林',
-            '北から南まで均一な気候',
-            '南部のみ多様な気候',
-          ],
-          correctIndex: 0,
-          explanation: '赤道付近に熱帯雨林があり、その外側にサバナ、ステップ、砂漠が対称的に分布しています。',
-        difficulty: 'standard',
-      },
-        {
-          id: 'geo1-af1-q15',
           question: '日本がアフリカの開発支援のために開催している国際会議はどれか。',
           options: ['TICAD', 'APEC', 'G7', 'COP'],
           correctIndex: 0,
@@ -257,7 +244,7 @@ export const africaNature: Topic = {
         difficulty: 'standard',
       },
         {
-          id: 'geo1-af1-q16',
+          id: 'geo1-af1-q15',
           question: 'サハラ砂漠より南のアフリカで英語やフランス語が使われている理由はどれか。',
           options: [
             '国連が公用語に定めたから',
@@ -270,7 +257,7 @@ export const africaNature: Topic = {
         difficulty: 'standard',
       },
         {
-          id: 'geo1-af1-q17',
+          id: 'geo1-af1-q16',
           question: 'アフリカから産出される代表的な鉱産資源として正しくないものはどれか。',
           options: ['金', 'ダイヤモンド', '石油', 'ボーキサイト'],
           correctIndex: 3,
@@ -278,7 +265,7 @@ export const africaNature: Topic = {
         difficulty: 'standard',
       },
         {
-          id: 'geo1-af1-q18',
+          id: 'geo1-af1-q17',
           question: 'ナイル川が注ぐ海はどれか。',
           options: ['大西洋', 'インド洋', '紅海', '地中海'],
           correctIndex: 3,
@@ -286,33 +273,7 @@ export const africaNature: Topic = {
         difficulty: 'standard',
       },
         {
-          id: 'geo1-af1-q19',
-          question: '植民地時代の国境線の引き方がもたらした問題はどれか。',
-          options: [
-            '国の面積が均一になった',
-            '民族が国境で分断され紛争が起きやすくなった',
-            '貿易が活発になった',
-            '自然環境が保護された',
-          ],
-          correctIndex: 1,
-          explanation: '民族の分布を無視した国境線により、一つの国に複数の民族が混在し、民族紛争が起こりやすくなりました。',
-        difficulty: 'standard',
-      },
-        {
-          id: 'geo1-af1-q20',
-          question: 'モノカルチャー経済の最大の問題点はどれか。',
-          options: [
-            '労働力が不足すること',
-            '技術が向上しないこと',
-            '国際価格の変動で経済が不安定になること',
-            '人口が増加すること',
-          ],
-          correctIndex: 2,
-          explanation: '国際価格が下落すると国の収入が大幅に減少し、経済が不安定になることがモノカルチャー経済の最大の問題です。',
-        difficulty: 'standard',
-      },
-        {
-          id: 'geo1-af1-q21',
+          id: 'geo1-af1-q18',
           question: 'アフリカの都市で急速な人口増加により広がっている問題はどれか。',
           options: ['過疎化', 'スラムの拡大', '高齢化', '人口減少'],
           correctIndex: 1,
@@ -320,7 +281,7 @@ export const africaNature: Topic = {
         difficulty: 'standard',
       },
         {
-          id: 'geo1-af1-q22',
+          id: 'geo1-af1-q19',
           question: 'サハラ砂漠の南側に木を植えて砂漠の拡大を防ぐ計画を何というか。',
           options: ['アフリカ緑の長城', 'グリーンベルト運動', 'サヘル計画', '砂漠緑化事業'],
           correctIndex: 0,
@@ -328,7 +289,7 @@ export const africaNature: Topic = {
         difficulty: 'standard',
       },
         {
-          id: 'geo1-af1-q23',
+          id: 'geo1-af1-q20',
           question: 'アフリカ大陸にある国の数はおよそいくつか。',
           options: ['約30か国', '約40か国', '約54か国', '約70か国'],
           correctIndex: 2,
@@ -336,7 +297,7 @@ export const africaNature: Topic = {
         difficulty: 'advanced',
       },
         {
-          id: 'geo1-af1-q24',
+          id: 'geo1-af1-q21',
           question: 'コーヒーの原産地とされるアフリカの国はどこか。',
           options: ['ガーナ', 'エチオピア', 'ケニア', '南アフリカ'],
           correctIndex: 1,
@@ -344,7 +305,7 @@ export const africaNature: Topic = {
         difficulty: 'advanced',
       },
         {
-          id: 'geo1-af1-q25',
+          id: 'geo1-af1-q22',
           question: 'アフリカの教育や医療分野で活動している民間組織を何というか。',
           options: ['国連', 'AU', 'NGO', 'WHO'],
           correctIndex: 2,
@@ -352,7 +313,7 @@ export const africaNature: Topic = {
         difficulty: 'advanced',
       },
         {
-          id: 'geo1-af1-q26',
+          id: 'geo1-af1-q23',
           question: '熱帯雨林の周辺に広がる、雨季と乾季がある草原地帯を何というか。',
           options: ['ステップ', 'タイガ', 'サバナ', 'パンパ'],
           correctIndex: 2,
@@ -360,7 +321,7 @@ export const africaNature: Topic = {
         difficulty: 'advanced',
       },
         {
-          id: 'geo1-af1-q27',
+          id: 'geo1-af1-q24',
           question: 'アフリカの人口は2050年には世界人口のどのくらいを占めると予測されているか。',
           options: ['約10分の1', '約4分の1', '約半分', '約3分の2'],
           correctIndex: 1,
@@ -368,7 +329,7 @@ export const africaNature: Topic = {
         difficulty: 'advanced',
       },
         {
-          id: 'geo1-af1-q28',
+          id: 'geo1-af1-q25',
           question: 'アフリカ南端の気候帯はどれか。',
           options: ['熱帯', '乾燥帯', '寒帯', '温帯'],
           correctIndex: 3,

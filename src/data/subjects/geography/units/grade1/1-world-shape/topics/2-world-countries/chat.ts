@@ -39,6 +39,12 @@ export const worldCountriesChat: HistoryChat = {
       text: '国旗と国名のひみつ',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade1/world-shape/flag-patterns.png',
+      alt: '世界各国の国旗パターンと国境・人口の概観',
+      caption: '世界のさまざまな国々 ― 国旗・国境・面積・人口',
+    },
+    {
       type: 'narrator',
       text: '<ruby>世界<rp>(</rp><rt>せかい</rt><rp>)</rp></ruby>には<ruby>約<rp>(</rp><rt>やく</rt><rp>)</rp></ruby>200の<ruby>国<rp>(</rp><rt>くに</rt><rp>)</rp></ruby>があり、それぞれが<ruby>独自<rp>(</rp><rt>どくじ</rt><rp>)</rp></ruby>の<strong><span class="keyword"><ruby>国旗<rp>(</rp><rt>こっき</rt><rp>)</rp></ruby></span></strong>を<ruby>持<rp>(</rp><rt>も</rt><rp>)</rp></ruby>っています。<ruby>国旗<rp>(</rp><rt>こっき</rt><rp>)</rp></ruby>のデザインには、その<ruby>国<rp>(</rp><rt>くに</rt><rp>)</rp></ruby>の<ruby>自然<rp>(</rp><rt>しぜん</rt><rp>)</rp></ruby>や<ruby>歴史<rp>(</rp><rt>れきし</rt><rp>)</rp></ruby>、<ruby>宗教<rp>(</rp><rt>しゅうきょう</rt><rp>)</rp></ruby>が<ruby>込<rp>(</rp><rt>こ</rt><rp>)</rp></ruby>められています。',
     },
@@ -156,12 +162,12 @@ export const worldCountriesChat: HistoryChat = {
       type: 'quiz',
       question: '「赤道」を意味する国名を持つ国はどれ？',
       options: [
-        { letter: 'A', text: 'コロンビア', correct: false },
+        { letter: 'A', text: 'エクアドル', correct: true },
         { letter: 'B', text: 'フィリピン', correct: false },
-        { letter: 'C', text: 'エクアドル', correct: true },
+        { letter: 'C', text: 'コロンビア', correct: false },
         { letter: 'D', text: 'インド', correct: false },
       ],
-      explanation: '<strong>正解はC</strong>です。エクアドルはスペイン語で「<ruby>赤道<rp>(</rp><rt>せきどう</rt><rp>)</rp></ruby>」を意味します。',
+      explanation: '<strong>正解はA</strong>です。エクアドルはスペイン語で「<ruby>赤道<rp>(</rp><rt>せきどう</rt><rp>)</rp></ruby>」を意味します。',
     },
     {
       type: 'date',
@@ -230,11 +236,11 @@ export const worldCountriesChat: HistoryChat = {
       options: [
         { letter: 'A', text: '自然の地形がないから', correct: false },
         { letter: 'B', text: '住民が話し合って決めたから', correct: false },
-        { letter: 'C', text: '植民地時代にヨーロッパの国が緯線・経線で引いたから', correct: true },
-        { letter: 'D', text: '国連が決めたから', correct: false },
+        { letter: 'C', text: '国連が決めたから', correct: false },
+        { letter: 'D', text: '植民地時代にヨーロッパの国が緯線・経線で引いたから', correct: true },
       ],
       explanation:
-        '<strong>正解はC</strong>です。アフリカの<ruby>直線的<rp>(</rp><rt>ちょくせんてき</rt><rp>)</rp></ruby>な<ruby>国境<rp>(</rp><rt>こっきょう</rt><rp>)</rp></ruby>の<ruby>多<rp>(</rp><rt>おお</rt><rp>)</rp></ruby>くは、<ruby>植民地時代<rp>(</rp><rt>しょくみんちじだい</rt><rp>)</rp></ruby>にヨーロッパ<ruby>諸国<rp>(</rp><rt>しょこく</rt><rp>)</rp></ruby>が<ruby>緯線<rp>(</rp><rt>いせん</rt><rp>)</rp></ruby>・<ruby>経線<rp>(</rp><rt>けいせん</rt><rp>)</rp></ruby>に<ruby>沿<rp>(</rp><rt>そ</rt><rp>)</rp></ruby>って<ruby>引<rp>(</rp><rt>ひ</rt><rp>)</rp></ruby>いた<strong><span class="keyword"><ruby>人為的国境<rp>(</rp><rt>じんいてきこっきょう</rt><rp>)</rp></ruby></span></strong>です。',
+        '<strong>正解はD</strong>です。アフリカの<ruby>直線的<rp>(</rp><rt>ちょくせんてき</rt><rp>)</rp></ruby>な<ruby>国境<rp>(</rp><rt>こっきょう</rt><rp>)</rp></ruby>の<ruby>多<rp>(</rp><rt>おお</rt><rp>)</rp></ruby>くは、<ruby>植民地時代<rp>(</rp><rt>しょくみんちじだい</rt><rp>)</rp></ruby>にヨーロッパ<ruby>諸国<rp>(</rp><rt>しょこく</rt><rp>)</rp></ruby>が<ruby>緯線<rp>(</rp><rt>いせん</rt><rp>)</rp></ruby>・<ruby>経線<rp>(</rp><rt>けいせん</rt><rp>)</rp></ruby>に<ruby>沿<rp>(</rp><rt>そ</rt><rp>)</rp></ruby>って<ruby>引<rp>(</rp><rt>ひ</rt><rp>)</rp></ruby>いた<strong><span class="keyword"><ruby>人為的国境<rp>(</rp><rt>じんいてきこっきょう</rt><rp>)</rp></ruby></span></strong>です。',
     },
     {
       type: 'date',
@@ -319,6 +325,12 @@ export const worldCountriesChat: HistoryChat = {
       characterId: 'teacher',
       expression: 'explaining',
       text: '<ruby>日本<rp>(</rp><rt>にほん</rt><rp>)</rp></ruby>の<ruby>面積<rp>(</rp><rt>めんせき</rt><rp>)</rp></ruby>は<ruby>世界<rp>(</rp><rt>せかい</rt><rp>)</rp></ruby>で<strong>61<ruby>番目<rp>(</rp><rt>ばんめ</rt><rp>)</rp></ruby></strong>くらいの<ruby>大<rp>(</rp><rt>おお</rt><rp>)</rp></ruby>きさだよ。<ruby>決<rp>(</rp><rt>けっ</rt><rp>)</rp></ruby>して<ruby>小<rp>(</rp><rt>ちい</rt><rp>)</rp></ruby>さい<ruby>国<rp>(</rp><rt>くに</rt><rp>)</rp></ruby>ではないんだ',
+    },
+    {
+      type: 'image',
+      src: '/images/geography/grade1/world-shape/world-population-by-continent-chart.svg',
+      alt: '大陸別の世界人口の割合を示すグラフ（準備中）',
+      caption: '大陸別の世界人口（準備中）出典：国連人口基金',
     },
     {
       type: 'summary-point',

@@ -39,6 +39,12 @@ export const chubuHighlandChat: HistoryChat = {
       text: '中央高地の農業と工業',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade2/japan-regions/chubu-regions.png',
+      alt: '中部地方の中央高地と北陸の図',
+      caption: '中央高地と北陸の産業・農業の全体図',
+    },
+    {
       type: 'narrator',
       text: '中央高地の<ruby>冷涼<rp>(</rp><rt>れいりょう</rt><rp>)</rp></ruby>な気候は、独自の農業と工業を生み出しました。',
     },
@@ -88,16 +94,22 @@ export const chubuHighlandChat: HistoryChat = {
       text: '<span class="keyword">抑制栽培</span>で高原野菜（八ヶ岳のレタス）。<span class="keyword">甲府盆地</span>の扇状地で果樹栽培。<span class="keyword">諏訪</span>は精密機械→コンピューター関連に転換',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade2/japan-regions/chubu-fruit-production-chart.svg',
+      alt: '甲府盆地の果樹生産量グラフ（準備中）',
+      caption: '山梨県はぶどう・ももの生産量が全国1位（準備中）出典：農林水産省',
+    },
+    {
       type: 'quiz',
       question: '中央高地で冷涼な気候を利用して、出荷時期を遅らせる栽培方法を何というか？',
       options: [
         { letter: 'A', text: '促成栽培', correct: false },
-        { letter: 'B', text: '抑制栽培', correct: true },
+        { letter: 'B', text: '輪作', correct: false },
         { letter: 'C', text: '二毛作', correct: false },
-        { letter: 'D', text: '輪作', correct: false },
+        { letter: 'D', text: '抑制栽培', correct: true },
       ],
       explanation:
-        '<strong>正解はB「<ruby>抑制栽培<rp>(</rp><rt>よくせいさいばい</rt><rp>)</rp></ruby>」</strong>です。涼しい高原で野菜を育て、出荷時期を遅らせることで、他の産地と<ruby>競合<rp>(</rp><rt>きょうごう</rt><rp>)</rp></ruby>しない時期に出荷できます。',
+        '<strong>正解はD「<ruby>抑制栽培<rp>(</rp><rt>よくせいさいばい</rt><rp>)</rp></ruby>」</strong>です。涼しい高原で野菜を育て、出荷時期を遅らせることで、他の産地と<ruby>競合<rp>(</rp><rt>きょうごう</rt><rp>)</rp></ruby>しない時期に出荷できます。',
     },
     {
       type: 'date',
@@ -171,12 +183,12 @@ export const chubuHighlandChat: HistoryChat = {
       question: '北陸地方で伝統的工芸品が発達した背景として正しいものはどれか？',
       options: [
         { letter: 'A', text: '温暖な気候で農業の合間に行った', correct: false },
-        { letter: 'B', text: '冬の豪雪で農作業ができず副業として手工業が発達した', correct: true },
-        { letter: 'C', text: '外国からの技術伝来で始まった', correct: false },
+        { letter: 'B', text: '外国からの技術伝来で始まった', correct: false },
+        { letter: 'C', text: '冬の豪雪で農作業ができず副業として手工業が発達した', correct: true },
         { letter: 'D', text: '大都市の需要に応えるために始まった', correct: false },
       ],
       explanation:
-        '<strong>正解はB</strong>です。北陸は冬に<ruby>大量<rp>(</rp><rt>たいりょう</rt><rp>)</rp></ruby>の雪が降る<ruby>豪雪<rp>(</rp><rt>ごうせつ</rt><rp>)</rp></ruby>地帯で、<ruby>農閑期<rp>(</rp><rt>のうかんき</rt><rp>)</rp></ruby>の<ruby>副業<rp>(</rp><rt>ふくぎょう</rt><rp>)</rp></ruby>として<ruby>手工業<rp>(</rp><rt>しゅこうぎょう</rt><rp>)</rp></ruby>が発達し、<ruby>輪島塗<rp>(</rp><rt>わじまぬり</rt><rp>)</rp></ruby>・<ruby>鯖江<rp>(</rp><rt>さばえ</rt><rp>)</rp></ruby>のメガネなどの伝統的工芸品につながりました。',
+        '<strong>正解はC</strong>です。北陸は冬に<ruby>大量<rp>(</rp><rt>たいりょう</rt><rp>)</rp></ruby>の雪が降る<ruby>豪雪<rp>(</rp><rt>ごうせつ</rt><rp>)</rp></ruby>地帯で、<ruby>農閑期<rp>(</rp><rt>のうかんき</rt><rp>)</rp></ruby>の<ruby>副業<rp>(</rp><rt>ふくぎょう</rt><rp>)</rp></ruby>として<ruby>手工業<rp>(</rp><rt>しゅこうぎょう</rt><rp>)</rp></ruby>が発達し、<ruby>輪島塗<rp>(</rp><rt>わじまぬり</rt><rp>)</rp></ruby>・<ruby>鯖江<rp>(</rp><rt>さばえ</rt><rp>)</rp></ruby>のメガネなどの伝統的工芸品につながりました。',
     },
     {
       type: 'end',

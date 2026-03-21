@@ -39,6 +39,12 @@ export const europeIssuesChat: HistoryChat = {
       text: '統合の課題',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade1/world-regions/eu-challenges-russia.png',
+      alt: 'EUの課題とロシアの概観',
+      caption: 'EU統合の課題（経済格差・移民問題・ブレグジット）とロシアの資源',
+    },
+    {
       type: 'narrator',
       text: 'EU<ruby>統合<rp>(</rp><rt>とうごう</rt><rp>)</rp></ruby>は大きな成果を上げましたが、さまざまな<ruby>課題<rp>(</rp><rt>かだい</rt><rp>)</rp></ruby>も<ruby>抱<rp>(</rp><rt>かか</rt><rp>)</rp></ruby>えています。',
     },
@@ -83,6 +89,12 @@ export const europeIssuesChat: HistoryChat = {
       characterId: 'student',
       expression: 'surprised',
       text: 'イギリスが離脱！統合にはメリットもあるけど、課題も大きいんですね',
+    },
+    {
+      type: 'image',
+      src: '/images/geography/grade1/world-regions/eu-renewable-energy-chart.svg',
+      alt: 'EU主要国の再生可能エネルギー比率グラフ（準備中）',
+      caption: 'ドイツ・フランス・スウェーデンなどの再エネ比率の比較（準備中）出典：Eurostat',
     },
     {
       type: 'message',

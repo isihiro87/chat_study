@@ -39,6 +39,12 @@ export const territoryChat: HistoryChat = {
       text: '日本の領域（領土・領海・領空）',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade1/japan-shape/territory-eez.png',
+      alt: '日本の領土・領海・排他的経済水域の全体像',
+      caption: '日本の領域の特色 ― 領土・領海・EEZ',
+    },
+    {
       type: 'narrator',
       text: '国の<ruby>主権<rp>(</rp><rt>しゅけん</rt><rp>)</rp></ruby>がおよぶ範囲を<strong><ruby>領域<rp>(</rp><rt>りょういき</rt><rp>)</rp></ruby></strong>といいます。日本の領域はどのような範囲で構成されているのか、見てみましょう。',
     },
@@ -91,12 +97,12 @@ export const territoryChat: HistoryChat = {
       type: 'quiz',
       question: '日本の領海は沿岸からどこまでの範囲？',
       options: [
-        { letter: 'A', text: '12海里', correct: true },
+        { letter: 'A', text: '50海里', correct: false },
         { letter: 'B', text: '200海里', correct: false },
         { letter: 'C', text: '100海里', correct: false },
-        { letter: 'D', text: '50海里', correct: false },
+        { letter: 'D', text: '12海里', correct: true },
       ],
-      explanation: '<strong>正解はA</strong>です。<ruby>領海<rp>(</rp><rt>りょうかい</rt><rp>)</rp></ruby>は<ruby>沿岸<rp>(</rp><rt>えんがん</rt><rp>)</rp></ruby>から12<ruby>海里<rp>(</rp><rt>かいり</rt><rp>)</rp></ruby>（約22km）の範囲です。200海里は<ruby>排他的経済水域<rp>(</rp><rt>はいたてきけいざいすいいき</rt><rp>)</rp></ruby>の範囲です。',
+      explanation: '<strong>正解はD</strong>です。<ruby>領海<rp>(</rp><rt>りょうかい</rt><rp>)</rp></ruby>は<ruby>沿岸<rp>(</rp><rt>えんがん</rt><rp>)</rp></ruby>から12<ruby>海里<rp>(</rp><rt>かいり</rt><rp>)</rp></ruby>（約22km）の範囲です。200海里は<ruby>排他的経済水域<rp>(</rp><rt>はいたてきけいざいすいいき</rt><rp>)</rp></ruby>の範囲です。',
     },
     {
       type: 'date',
@@ -154,6 +160,12 @@ export const territoryChat: HistoryChat = {
       characterId: 'teacher',
       expression: 'explaining',
       text: 'また<strong><span class="keyword"><ruby>南鳥島<rp>(</rp><rt>みなみとりしま</rt><rp>)</rp></ruby></span></strong>は日本<ruby>最東端<rp>(</rp><rt>さいとうたん</rt><rp>)</rp></ruby>の島で、周辺の海底には<strong>レアアース</strong>（<ruby>希少金属<rp>(</rp><rt>きしょうきんぞく</rt><rp>)</rp></ruby>）などの<ruby>資源<rp>(</rp><rt>しげん</rt><rp>)</rp></ruby>が確認されているよ',
+    },
+    {
+      type: 'image',
+      src: '/images/geography/grade1/japan-shape/japan-eez-area-comparison-chart.svg',
+      alt: '日本の領土面積とEEZ面積の比較グラフ（準備中）',
+      caption: '日本の領土（約38万km²）とEEZ（約405万km²）の比較（準備中）出典：海上保安庁',
     },
     {
       type: 'summary-point',
@@ -218,12 +230,12 @@ export const territoryChat: HistoryChat = {
       question: '日本最南端の島で、約40万km²のEEZ確保に重要な島はどれ？',
       options: [
         { letter: 'A', text: '南鳥島', correct: false },
-        { letter: 'B', text: '沖ノ鳥島', correct: true },
-        { letter: 'C', text: '与那国島', correct: false },
+        { letter: 'B', text: '与那国島', correct: false },
+        { letter: 'C', text: '沖ノ鳥島', correct: true },
         { letter: 'D', text: '択捉島', correct: false },
       ],
       explanation:
-        '<strong>正解はB「<ruby>沖<rp>(</rp><rt>おき</rt><rp>)</rp></ruby>ノ<ruby>鳥島<rp>(</rp><rt>とりしま</rt><rp>)</rp></ruby>」</strong>です。日本最南端の島で、この島があることで約40万km²もの排他的経済水域が確保されています。',
+        '<strong>正解はC「<ruby>沖<rp>(</rp><rt>おき</rt><rp>)</rp></ruby>ノ<ruby>鳥島<rp>(</rp><rt>とりしま</rt><rp>)</rp></ruby>」</strong>です。日本最南端の島で、この島があることで約40万km²もの排他的経済水域が確保されています。',
     },
     {
       type: 'date',
@@ -306,11 +318,11 @@ export const territoryChat: HistoryChat = {
       question: '北方領土の4つの島に含まれないものはどれ？',
       options: [
         { letter: 'A', text: '択捉島', correct: false },
-        { letter: 'B', text: '国後島', correct: false },
-        { letter: 'C', text: '竹島', correct: true },
+        { letter: 'B', text: '竹島', correct: true },
+        { letter: 'C', text: '国後島', correct: false },
         { letter: 'D', text: '歯舞群島', correct: false },
       ],
-      explanation: '<strong>正解はC</strong>です。<ruby>竹島<rp>(</rp><rt>たけしま</rt><rp>)</rp></ruby>は<ruby>島根県<rp>(</rp><rt>しまねけん</rt><rp>)</rp></ruby>に属する島で、<ruby>北方領土<rp>(</rp><rt>ほっぽうりょうど</rt><rp>)</rp></ruby>とは別の<ruby>領土問題<rp>(</rp><rt>りょうどもんだい</rt><rp>)</rp></ruby>です。',
+      explanation: '<strong>正解はB</strong>です。<ruby>竹島<rp>(</rp><rt>たけしま</rt><rp>)</rp></ruby>は<ruby>島根県<rp>(</rp><rt>しまねけん</rt><rp>)</rp></ruby>に属する島で、<ruby>北方領土<rp>(</rp><rt>ほっぽうりょうど</rt><rp>)</rp></ruby>とは別の<ruby>領土問題<rp>(</rp><rt>りょうどもんだい</rt><rp>)</rp></ruby>です。',
     },
     {
       type: 'end',

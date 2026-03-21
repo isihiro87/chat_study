@@ -119,14 +119,6 @@ export const kantoIndustry: Topic = {
         },
         {
           id: 'geo2-kti-q4',
-          question: '千葉県や茨城県で近郊農業が発達した理由として最も適切なものはどれか。',
-          options: ['火山灰の土壌が肥沃だから', '東京という大消費地に近いから', '年間降水量が多いから', '広い平野で機械化しやすいから'],
-          correctIndex: 1,
-          explanation: '東京という大消費地に近い立地を生かし、新鮮な野菜を素早く届けられるため<span class="keyword">近郊農業</span>が発達しました。',
-          difficulty: 'standard',
-        },
-        {
-          id: 'geo2-kti-q5',
           question: '千葉県の臨海部に石油化学コンビナートが集まる工業地域を何というか。',
           options: ['京浜工業地帯', '京葉工業地域', '北関東工業地域', '鹿島臨海工業地域'],
           correctIndex: 1,
@@ -134,7 +126,7 @@ export const kantoIndustry: Topic = {
           difficulty: 'standard',
         },
         {
-          id: 'geo2-kti-q6',
+          id: 'geo2-kti-q5',
           question: '群馬県太田市で盛んな工業はどれか。',
           options: ['自動車工業', '石油化学工業', '食品加工業', '繊維工業'],
           correctIndex: 0,
@@ -142,7 +134,7 @@ export const kantoIndustry: Topic = {
           difficulty: 'standard',
         },
         {
-          id: 'geo2-kti-q7',
+          id: 'geo2-kti-q6',
           question: '群馬県の特産品で全国生産量の大部分を占める食品はどれか。',
           options: ['納豆', '落花生', 'そば', 'こんにゃく'],
           correctIndex: 3,
@@ -150,7 +142,7 @@ export const kantoIndustry: Topic = {
           difficulty: 'standard',
         },
         {
-          id: 'geo2-kti-q8',
+          id: 'geo2-kti-q7',
           question: '群馬県嬬恋村の高冷地で栽培が盛んな野菜はどれか。',
           options: ['トマト', 'キャベツ', 'レタス', 'きゅうり'],
           correctIndex: 1,
@@ -158,7 +150,7 @@ export const kantoIndustry: Topic = {
           difficulty: 'advanced',
         },
         {
-          id: 'geo2-kti-q9',
+          id: 'geo2-kti-q8',
           question: '千葉県や茨城県で生産が盛んな豆類はどれか。',
           options: ['大豆', '小豆', 'えんどう豆', '落花生'],
           correctIndex: 3,
@@ -166,15 +158,7 @@ export const kantoIndustry: Topic = {
           difficulty: 'advanced',
         },
         {
-          id: 'geo2-kti-q10',
-          question: '北関東工業地域で高速道路沿いに工場が立地している理由として最も適切なものはどれか。',
-          options: ['港に近く原料輸入に便利だから', '労働力が豊富だから', '製品の輸送が効率的で広い用地を確保できるから', '電力が安いから'],
-          correctIndex: 2,
-          explanation: '北関東工業地域は<ruby>高速道路<rp>(</rp><rt>こうそくどうろ</rt><rp>)</rp></ruby>で製品や部品を効率的に輸送でき、<ruby>内陸部<rp>(</rp><rt>ないりくぶ</rt><rp>)</rp></ruby>は<ruby>臨海部<rp>(</rp><rt>りんかいぶ</rt><rp>)</rp></ruby>より地価が安く広い工場用地を確保できます。',
-          difficulty: 'advanced',
-        },
-        {
-          id: 'geo2-kti-q11',
+          id: 'geo2-kti-q9',
           question: '栃木県で生産される伝統的な焼き物はどれか。',
           options: ['益子焼', '有田焼', '信楽焼', '瀬戸焼'],
           correctIndex: 0,

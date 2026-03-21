@@ -43,6 +43,12 @@ export const climateZonesChat: HistoryChat = {
       text: '世界の<ruby>気候<rp>(</rp><rt>きこう</rt><rp>)</rp></ruby>は、<ruby>緯度<rp>(</rp><rt>いど</rt><rp>)</rp></ruby>や地形の影響を受けて大きく<strong>五つの<ruby>気候帯<rp>(</rp><rt>きこうたい</rt><rp>)</rp></ruby></strong>に分けられます。赤道から<ruby>極地<rp>(</rp><rt>きょくち</rt><rp>)</rp></ruby>に向かって順に見ていきましょう。',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade1/life-environment/climate-zone-classification.png',
+      alt: '気候区の分類と雨温図の概要',
+      caption: '5つの気候帯とさらに細かい気候区の分類',
+    },
+    {
       type: 'message',
       side: 'left',
       characterId: 'teacher',
@@ -78,12 +84,12 @@ export const climateZonesChat: HistoryChat = {
       type: 'quiz',
       question: '赤道に近い低緯度地域に分布する気候帯はどれ？',
       options: [
-        { letter: 'A', text: '熱帯', correct: true },
-        { letter: 'B', text: '温帯', correct: false },
+        { letter: 'A', text: '温帯', correct: false },
+        { letter: 'B', text: '熱帯', correct: true },
         { letter: 'C', text: '亜寒帯', correct: false },
         { letter: 'D', text: '寒帯', correct: false },
       ],
-      explanation: '<strong>正解はA</strong>です。<ruby>熱帯<rp>(</rp><rt>ねったい</rt><rp>)</rp></ruby>は<ruby>赤道<rp>(</rp><rt>せきどう</rt><rp>)</rp></ruby>付近の<ruby>低緯度<rp>(</rp><rt>ていいど</rt><rp>)</rp></ruby>地域に分布し、一年を通じて気温が高いのが特徴です。',
+      explanation: '<strong>正解はB</strong>です。<ruby>熱帯<rp>(</rp><rt>ねったい</rt><rp>)</rp></ruby>は<ruby>赤道<rp>(</rp><rt>せきどう</rt><rp>)</rp></ruby>付近の<ruby>低緯度<rp>(</rp><rt>ていいど</rt><rp>)</rp></ruby>地域に分布し、一年を通じて気温が高いのが特徴です。',
     },
     {
       type: 'date',
@@ -140,12 +146,12 @@ export const climateZonesChat: HistoryChat = {
       type: 'quiz',
       question: '雨季と乾季がはっきり分かれ、草原が広がる熱帯の気候区はどれ？',
       options: [
-        { letter: 'A', text: '熱帯雨林気候', correct: false },
-        { letter: 'B', text: 'サバナ気候', correct: true },
+        { letter: 'A', text: 'サバナ気候', correct: true },
+        { letter: 'B', text: '熱帯雨林気候', correct: false },
         { letter: 'C', text: 'ステップ気候', correct: false },
         { letter: 'D', text: '砂漠気候', correct: false },
       ],
-      explanation: '<strong>正解はB</strong>です。サバナ気候は<ruby>雨季<rp>(</rp><rt>うき</rt><rp>)</rp></ruby>と<ruby>乾季<rp>(</rp><rt>かんき</rt><rp>)</rp></ruby>がはっきり分かれ、<ruby>草原<rp>(</rp><rt>そうげん</rt><rp>)</rp></ruby>が広がるのが特徴です。',
+      explanation: '<strong>正解はA</strong>です。サバナ気候は<ruby>雨季<rp>(</rp><rt>うき</rt><rp>)</rp></ruby>と<ruby>乾季<rp>(</rp><rt>かんき</rt><rp>)</rp></ruby>がはっきり分かれ、<ruby>草原<rp>(</rp><rt>そうげん</rt><rp>)</rp></ruby>が広がるのが特徴です。',
     },
     {
       type: 'date',
@@ -218,10 +224,10 @@ export const climateZonesChat: HistoryChat = {
       options: [
         { letter: 'A', text: '温暖湿潤気候', correct: false },
         { letter: 'B', text: '西岸海洋性気候', correct: false },
-        { letter: 'C', text: '地中海性気候', correct: true },
-        { letter: 'D', text: 'ツンドラ気候', correct: false },
+        { letter: 'C', text: 'ツンドラ気候', correct: false },
+        { letter: 'D', text: '地中海性気候', correct: true },
       ],
-      explanation: '<strong>正解はC</strong>です。<ruby>地中海性気候<rp>(</rp><rt>ちちゅうかいせいきこう</rt><rp>)</rp></ruby>は夏に<ruby>乾燥<rp>(</rp><rt>かんそう</rt><rp>)</rp></ruby>し冬に雨が多い気候で、<ruby>地中海<rp>(</rp><rt>ちちゅうかい</rt><rp>)</rp></ruby>沿岸に広がっています。',
+      explanation: '<strong>正解はD</strong>です。<ruby>地中海性気候<rp>(</rp><rt>ちちゅうかいせいきこう</rt><rp>)</rp></ruby>は夏に<ruby>乾燥<rp>(</rp><rt>かんそう</rt><rp>)</rp></ruby>し冬に雨が多い気候で、<ruby>地中海<rp>(</rp><rt>ちちゅうかい</rt><rp>)</rp></ruby>沿岸に広がっています。',
     },
     {
       type: 'date',
@@ -289,6 +295,12 @@ export const climateZonesChat: HistoryChat = {
     {
       type: 'summary-point',
       text: '<span class="keyword">ケッペンの気候区分</span>：温帯3区分（降雨パターン）・乾燥帯2区分（降水量の差）・<span class="keyword">高山気候</span>：標高100mで約0.6℃低下',
+    },
+    {
+      type: 'image',
+      src: '/images/geography/grade1/life-environment/climate-temperature-rainfall-comparison.svg',
+      alt: '各気候区の気温と降水量を比較する雨温図（準備中）',
+      caption: '代表都市の雨温図で気候区の特徴を比較（準備中）出典：気象庁・世界気象機関',
     },
     {
       type: 'quiz',

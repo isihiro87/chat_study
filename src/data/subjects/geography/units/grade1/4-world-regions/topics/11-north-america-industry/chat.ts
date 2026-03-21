@@ -39,6 +39,12 @@ export const northAmericaIndustryChat: HistoryChat = {
       text: '工業の変化とICT産業',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade1/world-regions/north-america-industry-shift.png',
+      alt: '北アメリカの工業と生活文化の概観',
+      caption: 'ラストベルトからサンベルト・シリコンバレーへの産業移動と多文化社会',
+    },
+    {
       type: 'narrator',
       text: 'アメリカの<ruby>工業<rp>(</rp><rt>こうぎょう</rt><rp>)</rp></ruby>は、<ruby>五大湖<rp>(</rp><rt>ごだいこ</rt><rp>)</rp></ruby>周辺の<ruby>重工業<rp>(</rp><rt>じゅうこうぎょう</rt><rp>)</rp></ruby>から、<ruby>先端<rp>(</rp><rt>せんたん</rt><rp>)</rp></ruby>技術産業へと大きく変化しました。',
     },
@@ -91,6 +97,12 @@ export const northAmericaIndustryChat: HistoryChat = {
       caption: '五大湖周辺の旧工業地帯からシリコンバレー・サンベルトへの産業移動',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade1/world-regions/us-industry-output-chart.svg',
+      alt: 'アメリカの産業別GDPの推移グラフ（準備中）',
+      caption: '製造業からICT・サービス業中心への産業構造の変化（準備中）出典：Bureau of Economic Analysis',
+    },
+    {
       type: 'summary-point',
       text: '<span class="keyword">ラストベルト</span>（五大湖周辺の衰退）→ <span class="keyword">サンベルト</span>・<span class="keyword">シリコンバレー</span>（ICT産業）へ移行',
     },
@@ -98,12 +110,12 @@ export const northAmericaIndustryChat: HistoryChat = {
       type: 'quiz',
       question: 'ICT企業が集中するカリフォルニア州の地域は？',
       options: [
-        { letter: 'A', text: 'ラストベルト', correct: false },
-        { letter: 'B', text: 'シリコンバレー', correct: true },
+        { letter: 'A', text: 'シリコンバレー', correct: true },
+        { letter: 'B', text: 'ラストベルト', correct: false },
         { letter: 'C', text: 'ウォール街', correct: false },
         { letter: 'D', text: 'サンベルト', correct: false },
       ],
-      explanation: '<strong>正解はB</strong>です。シリコンバレーにはGoogleやAppleなどのICT企業が集中しています。',
+      explanation: '<strong>正解はA</strong>です。シリコンバレーにはGoogleやAppleなどのICT企業が集中しています。',
     },
     {
       type: 'date',
@@ -165,10 +177,10 @@ export const northAmericaIndustryChat: HistoryChat = {
       options: [
         { letter: 'A', text: 'アボリジニ', correct: false },
         { letter: 'B', text: 'マオリ', correct: false },
-        { letter: 'C', text: 'ヒスパニック', correct: true },
-        { letter: 'D', text: 'イヌイット', correct: false },
+        { letter: 'C', text: 'イヌイット', correct: false },
+        { letter: 'D', text: 'ヒスパニック', correct: true },
       ],
-      explanation: '<strong>正解はC</strong>です。ヒスパニックは<ruby>中南米<rp>(</rp><rt>ちゅうなんべい</rt><rp>)</rp></ruby>出身のスペイン語を話す人々で、アメリカの重要な<ruby>労働力<rp>(</rp><rt>ろうどうりょく</rt><rp>)</rp></ruby>になっています。',
+      explanation: '<strong>正解はD</strong>です。ヒスパニックは<ruby>中南米<rp>(</rp><rt>ちゅうなんべい</rt><rp>)</rp></ruby>出身のスペイン語を話す人々で、アメリカの重要な<ruby>労働力<rp>(</rp><rt>ろうどうりょく</rt><rp>)</rp></ruby>になっています。',
     },
     {
       type: 'date',
@@ -221,12 +233,12 @@ export const northAmericaIndustryChat: HistoryChat = {
       type: 'quiz',
       question: 'ニューヨークに本部が置かれている国際機関は？',
       options: [
-        { letter: 'A', text: '国連（国際連合）', correct: true },
+        { letter: 'A', text: 'ASEAN', correct: false },
         { letter: 'B', text: 'EU', correct: false },
-        { letter: 'C', text: 'ASEAN', correct: false },
+        { letter: 'C', text: '国連（国際連合）', correct: true },
         { letter: 'D', text: 'OPEC', correct: false },
       ],
-      explanation: '<strong>正解はA</strong>です。<ruby>国連<rp>(</rp><rt>こくれん</rt><rp>)</rp></ruby>（<ruby>国際連合<rp>(</rp><rt>こくさいれんごう</rt><rp>)</rp></ruby>）の本部はニューヨークに置かれています。',
+      explanation: '<strong>正解はC</strong>です。<ruby>国連<rp>(</rp><rt>こくれん</rt><rp>)</rp></ruby>（<ruby>国際連合<rp>(</rp><rt>こくさいれんごう</rt><rp>)</rp></ruby>）の本部はニューヨークに置かれています。',
     },
     {
       type: 'date',

@@ -39,6 +39,12 @@ export const japanPositionChat: HistoryChat = {
       text: '緯度・経度で見る日本の位置',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade1/japan-shape/japan-position.png',
+      alt: '世界地図の中での日本の位置',
+      caption: '世界の中での日本の位置',
+    },
+    {
       type: 'narrator',
       text: '日本は世界のどのあたりに位置しているのでしょうか？まずは<strong><ruby>緯度<rp>(</rp><rt>いど</rt><rp>)</rp></ruby></strong>と<strong><ruby>経度<rp>(</rp><rt>けいど</rt><rp>)</rp></ruby></strong>を使って、日本の位置を確認してみましょう。',
     },
@@ -96,11 +102,11 @@ export const japanPositionChat: HistoryChat = {
       question: '日本の標準時子午線が通る都市はどれ？',
       options: [
         { letter: 'A', text: '東京都', correct: false },
-        { letter: 'B', text: '兵庫県明石市', correct: true },
+        { letter: 'B', text: '京都市', correct: false },
         { letter: 'C', text: '大阪市', correct: false },
-        { letter: 'D', text: '京都市', correct: false },
+        { letter: 'D', text: '兵庫県明石市', correct: true },
       ],
-      explanation: '<strong>正解はB</strong>です。日本の<ruby>標準時子午線<rp>(</rp><rt>ひょうじゅんじしごせん</rt><rp>)</rp></ruby>は東経135度で、<ruby>兵庫県明石市<rp>(</rp><rt>ひょうごけんあかしし</rt><rp>)</rp></ruby>を通っています。',
+      explanation: '<strong>正解はD</strong>です。日本の<ruby>標準時子午線<rp>(</rp><rt>ひょうじゅんじしごせん</rt><rp>)</rp></ruby>は東経135度で、<ruby>兵庫県明石市<rp>(</rp><rt>ひょうごけんあかしし</rt><rp>)</rp></ruby>を通っています。',
     },
     {
       type: 'date',
@@ -284,11 +290,11 @@ export const japanPositionChat: HistoryChat = {
       question: '沖縄とほぼ同じ緯度にあるアフリカの地形はどれ？',
       options: [
         { letter: 'A', text: 'キリマンジャロ山', correct: false },
-        { letter: 'B', text: 'ナイル川', correct: false },
-        { letter: 'C', text: 'サハラ砂漠の中央部', correct: true },
+        { letter: 'B', text: 'サハラ砂漠の中央部', correct: true },
+        { letter: 'C', text: 'ナイル川', correct: false },
         { letter: 'D', text: '地中海沿岸', correct: false },
       ],
-      explanation: '<strong>正解はC</strong>です。サハラ<ruby>砂漠<rp>(</rp><rt>さばく</rt><rp>)</rp></ruby>の中央部（北緯約26度）は<ruby>沖縄<rp>(</rp><rt>おきなわ</rt><rp>)</rp></ruby>とほぼ同じ緯度ですが、気候は大きく異なります。',
+      explanation: '<strong>正解はB</strong>です。サハラ<ruby>砂漠<rp>(</rp><rt>さばく</rt><rp>)</rp></ruby>の中央部（北緯約26度）は<ruby>沖縄<rp>(</rp><rt>おきなわ</rt><rp>)</rp></ruby>とほぼ同じ緯度ですが、気候は大きく異なります。',
     },
     {
       type: 'end',

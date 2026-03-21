@@ -143,19 +143,6 @@ export const chubuHighland: Topic = {
         },
         {
           id: 'geo2-cbh-q5',
-          question: '山梨県の<ruby>甲府<rp>(</rp><rt>こうふ</rt><rp>)</rp></ruby>盆地で果樹栽培が盛んな理由として正しいものはどれか。',
-          options: [
-            '火山灰の土壌が果樹に適しているから',
-            '<ruby>扇状地<rp>(</rp><rt>せんじょうち</rt><rp>)</rp></ruby>で水はけがよく日照時間が長いから',
-            '降水量が多く水が豊富だから',
-            '海に近く温暖な気候だから',
-          ],
-          correctIndex: 1,
-          explanation: '甲府盆地は<span class="keyword"><ruby>扇状地<rp>(</rp><rt>せんじょうち</rt><rp>)</rp></ruby></span>で水はけがよく果樹の根腐れが起きにくい。また盆地のため日照時間が長く<ruby>寒暖差<rp>(</rp><rt>かんだんさ</rt><rp>)</rp></ruby>が大きいことが果実の糖度を高めます。',
-          difficulty: 'standard',
-        },
-        {
-          id: 'geo2-cbh-q6',
           question: '北陸地方で冬の副業から発展した産業として正しくないものはどれか。',
           options: [
             '<ruby>輪島塗<rp>(</rp><rt>わじまぬり</rt><rp>)</rp></ruby>（石川県）',
@@ -168,7 +155,7 @@ export const chubuHighland: Topic = {
           difficulty: 'standard',
         },
         {
-          id: 'geo2-cbh-q7',
+          id: 'geo2-cbh-q6',
           question: '長野県の<ruby>諏訪<rp>(</rp><rt>すわ</rt><rp>)</rp></ruby>地方がかつて「東洋のスイス」とよばれた理由はどれか。',
           options: [
             '時計・カメラなどの精密機械工業が盛んだったから',
@@ -181,7 +168,7 @@ export const chubuHighland: Topic = {
           difficulty: 'standard',
         },
         {
-          id: 'geo2-cbh-q8',
+          id: 'geo2-cbh-q7',
           question: '中央高地の気候の特徴として正しいものはどれか。',
           options: [
             '冬に大量の雪が降る',
@@ -194,7 +181,7 @@ export const chubuHighland: Topic = {
           difficulty: 'standard',
         },
         {
-          id: 'geo2-cbh-q9',
+          id: 'geo2-cbh-q8',
           question: '富山市がLRT（次世代型路面電車）を導入して目指している都市の形態は何か。',
           options: ['スマートシティ', 'コンパクトシティ', 'エコタウン', 'メガシティ'],
           correctIndex: 1,
@@ -202,7 +189,7 @@ export const chubuHighland: Topic = {
           difficulty: 'advanced',
         },
         {
-          id: 'geo2-cbh-q10',
+          id: 'geo2-cbh-q9',
           question: '<ruby>諏訪<rp>(</rp><rt>すわ</rt><rp>)</rp></ruby>地方の工業は精密機械から現在どのような産業に変化しているか。',
           options: ['自動車産業', '食品加工業', '繊維産業', 'コンピューター関連産業'],
           correctIndex: 3,
@@ -210,7 +197,7 @@ export const chubuHighland: Topic = {
           difficulty: 'advanced',
         },
         {
-          id: 'geo2-cbh-q11',
+          id: 'geo2-cbh-q10',
           question: '北陸地方で伝統的工芸品が発達した背景として正しいものはどれか。',
           options: [
             '温暖な気候で農業の合間に行った',

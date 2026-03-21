@@ -39,6 +39,12 @@ export const regionalDivisionChat: HistoryChat = {
       text: '地域区分とは何か',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade2/japan-features/regional-division.png',
+      alt: 'さまざまな視点による地域区分の全体図',
+      caption: '地域区分の全体像：多様な視点で見る日本の地域',
+    },
+    {
       type: 'narrator',
       text: '日本をさまざまな<ruby>視点<rp>(</rp><rt>してん</rt><rp>)</rp></ruby>で分けてみると、それぞれの地域の特色が見えてきます。<ruby>地域区分<rp>(</rp><rt>ちいきくぶん</rt><rp>)</rp></ruby>の考え方を学びましょう。',
     },
@@ -107,11 +113,11 @@ export const regionalDivisionChat: HistoryChat = {
       question: '人口や産業などの特徴による地域区分の基準を何というか？',
       options: [
         { letter: 'A', text: '自然的特徴', correct: false },
-        { letter: 'B', text: '人文的特徴', correct: true },
-        { letter: 'C', text: '歴史的特徴', correct: false },
+        { letter: 'B', text: '歴史的特徴', correct: false },
+        { letter: 'C', text: '人文的特徴', correct: true },
         { letter: 'D', text: '経済的特徴', correct: false },
       ],
-      explanation: '<strong>正解はB</strong>です。人口・産業・文化などの特徴を<ruby>人文的<rp>(</rp><rt>じんぶんてき</rt><rp>)</rp></ruby>特徴といい、地形・気候は<ruby>自然的<rp>(</rp><rt>しぜんてき</rt><rp>)</rp></ruby>特徴です。',
+      explanation: '<strong>正解はC</strong>です。人口・産業・文化などの特徴を<ruby>人文的<rp>(</rp><rt>じんぶんてき</rt><rp>)</rp></ruby>特徴といい、地形・気候は<ruby>自然的<rp>(</rp><rt>しぜんてき</rt><rp>)</rp></ruby>特徴です。',
     },
     {
       type: 'date',
@@ -165,11 +171,17 @@ export const regionalDivisionChat: HistoryChat = {
       question: '都市部と農村部に分ける地域区分で使う視点はどれ？',
       options: [
         { letter: 'A', text: '標高', correct: false },
-        { letter: 'B', text: '移動時間', correct: false },
-        { letter: 'C', text: '人口密度', correct: true },
+        { letter: 'B', text: '人口密度', correct: true },
+        { letter: 'C', text: '移動時間', correct: false },
         { letter: 'D', text: '気温', correct: false },
       ],
-      explanation: '<strong>正解はC</strong>です。<ruby>人口密度<rp>(</rp><rt>じんこうみつど</rt><rp>)</rp></ruby>の<ruby>違<rp>(</rp><rt>ちが</rt><rp>)</rp></ruby>いで都市部と農村部を区分できます。',
+      explanation: '<strong>正解はB</strong>です。<ruby>人口密度<rp>(</rp><rt>じんこうみつど</rt><rp>)</rp></ruby>の<ruby>違<rp>(</rp><rt>ちが</rt><rp>)</rp></ruby>いで都市部と農村部を区分できます。',
+    },
+    {
+      type: 'image',
+      src: '/images/geography/grade2/japan-features/regional-population-chart.svg',
+      alt: '7地方別の人口比較グラフ（準備中）',
+      caption: '7つの地方区分ごとの人口と面積の比較（準備中）出典：総務省統計局',
     },
     {
       type: 'date',
@@ -229,12 +241,12 @@ export const regionalDivisionChat: HistoryChat = {
       type: 'quiz',
       question: '7地方区分だけでは捉えきれない特色の例として正しいものはどれ？',
       options: [
-        { letter: 'A', text: '北海道は面積が広い', correct: false },
-        { letter: 'B', text: '同じ中部地方でも日本海側と太平洋側で気候が異なる', correct: true },
+        { letter: 'A', text: '同じ中部地方でも日本海側と太平洋側で気候が異なる', correct: true },
+        { letter: 'B', text: '北海道は面積が広い', correct: false },
         { letter: 'C', text: '九州は南に位置する', correct: false },
         { letter: 'D', text: '関東は人口が多い', correct: false },
       ],
-      explanation: '<strong>正解はB</strong>です。同じ<ruby>中部地方<rp>(</rp><rt>ちゅうぶちほう</rt><rp>)</rp></ruby>でも日本海側と太平洋側では気候が大きく異なるため、7地方区分だけでは<ruby>捉<rp>(</rp><rt>とら</rt><rp>)</rp></ruby>えきれません。',
+      explanation: '<strong>正解はA</strong>です。同じ<ruby>中部地方<rp>(</rp><rt>ちゅうぶちほう</rt><rp>)</rp></ruby>でも日本海側と太平洋側では気候が大きく異なるため、7地方区分だけでは<ruby>捉<rp>(</rp><rt>とら</rt><rp>)</rp></ruby>えきれません。',
     },
     {
       type: 'summary-point',
@@ -246,10 +258,10 @@ export const regionalDivisionChat: HistoryChat = {
       options: [
         { letter: 'A', text: '5つ', correct: false },
         { letter: 'B', text: '6つ', correct: false },
-        { letter: 'C', text: '7つ', correct: true },
-        { letter: 'D', text: '8つ', correct: false },
+        { letter: 'C', text: '8つ', correct: false },
+        { letter: 'D', text: '7つ', correct: true },
       ],
-      explanation: '<strong>正解はC「7つ」</strong>です。<ruby>北海道<rp>(</rp><rt>ほっかいどう</rt><rp>)</rp></ruby>・<ruby>東北<rp>(</rp><rt>とうほく</rt><rp>)</rp></ruby>・<ruby>関東<rp>(</rp><rt>かんとう</rt><rp>)</rp></ruby>・<ruby>中部<rp>(</rp><rt>ちゅうぶ</rt><rp>)</rp></ruby>・<ruby>近畿<rp>(</rp><rt>きんき</rt><rp>)</rp></ruby>・<ruby>中国四国<rp>(</rp><rt>ちゅうごくしこく</rt><rp>)</rp></ruby>・<ruby>九州<rp>(</rp><rt>きゅうしゅう</rt><rp>)</rp></ruby>の7つです。',
+      explanation: '<strong>正解はD「7つ」</strong>です。<ruby>北海道<rp>(</rp><rt>ほっかいどう</rt><rp>)</rp></ruby>・<ruby>東北<rp>(</rp><rt>とうほく</rt><rp>)</rp></ruby>・<ruby>関東<rp>(</rp><rt>かんとう</rt><rp>)</rp></ruby>・<ruby>中部<rp>(</rp><rt>ちゅうぶ</rt><rp>)</rp></ruby>・<ruby>近畿<rp>(</rp><rt>きんき</rt><rp>)</rp></ruby>・<ruby>中国四国<rp>(</rp><rt>ちゅうごくしこく</rt><rp>)</rp></ruby>・<ruby>九州<rp>(</rp><rt>きゅうしゅう</rt><rp>)</rp></ruby>の7つです。',
     },
     {
       type: 'end',

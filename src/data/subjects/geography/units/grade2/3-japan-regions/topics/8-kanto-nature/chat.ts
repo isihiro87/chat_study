@@ -131,13 +131,13 @@ export const kantoNatureChat: HistoryChat = {
       type: 'quiz',
       question: '関東平野の台地を覆う火山灰が堆積した赤土の層を何というか？',
       options: [
-        { letter: 'A', text: 'シラス台地', correct: false },
-        { letter: 'B', text: '関東ローム層', correct: true },
+        { letter: 'A', text: '関東ローム層', correct: true },
+        { letter: 'B', text: 'シラス台地', correct: false },
         { letter: 'C', text: '洪積台地', correct: false },
         { letter: 'D', text: 'ローム台地', correct: false },
       ],
       explanation:
-        '<strong>正解はB「<ruby>関東<rp>(</rp><rt>かんとう</rt><rp>)</rp></ruby>ローム<ruby>層<rp>(</rp><rt>そう</rt><rp>)</rp></ruby>」</strong>です。<ruby>火山灰<rp>(</rp><rt>かざんばい</rt><rp>)</rp></ruby>が<ruby>堆積<rp>(</rp><rt>たいせき</rt><rp>)</rp></ruby>してできた赤土の層で、水はけがよく<ruby>畑作<rp>(</rp><rt>はたさく</rt><rp>)</rp></ruby>に利用されています。',
+        '<strong>正解はA「<ruby>関東<rp>(</rp><rt>かんとう</rt><rp>)</rp></ruby>ローム<ruby>層<rp>(</rp><rt>そう</rt><rp>)</rp></ruby>」</strong>です。<ruby>火山灰<rp>(</rp><rt>かざんばい</rt><rp>)</rp></ruby>が<ruby>堆積<rp>(</rp><rt>たいせき</rt><rp>)</rp></ruby>してできた赤土の層で、水はけがよく<ruby>畑作<rp>(</rp><rt>はたさく</rt><rp>)</rp></ruby>に利用されています。',
     },
     {
       type: 'date',
@@ -201,16 +201,22 @@ export const kantoNatureChat: HistoryChat = {
       text: '<span class="keyword">世界都市・東京</span>に政治・経済・情報が集中。<span class="keyword">一極集中</span>と<span class="keyword">昼夜間人口の差</span>が特徴。大都市圏は約3700万人（日本の人口の約<span class="keyword">3分の1</span>）',
     },
     {
+      type: 'image',
+      src: '/images/geography/grade2/japan-regions/kanto-population-chart.svg',
+      alt: '関東地方の人口密度グラフ（準備中）',
+      caption: '東京都の人口密度は全国平均の約20倍（準備中）出典：総務省統計局',
+    },
+    {
       type: 'quiz',
       question: '東京都心で昼間人口が夜間人口を大幅に上回る理由は？',
       options: [
         { letter: 'A', text: '外国人観光客が多いため', correct: false },
         { letter: 'B', text: '都心に工場が集中しているため', correct: false },
-        { letter: 'C', text: '郊外から通勤・通学する人が多いため', correct: true },
-        { letter: 'D', text: '夜間に人口が流出するため', correct: false },
+        { letter: 'C', text: '夜間に人口が流出するため', correct: false },
+        { letter: 'D', text: '郊外から通勤・通学する人が多いため', correct: true },
       ],
       explanation:
-        '<strong>正解はC「<ruby>郊外<rp>(</rp><rt>こうがい</rt><rp>)</rp></ruby>から通勤・通学する人が多いため」</strong>です。<ruby>神奈川<rp>(</rp><rt>かながわ</rt><rp>)</rp></ruby>・<ruby>埼玉<rp>(</rp><rt>さいたま</rt><rp>)</rp></ruby>・<ruby>千葉<rp>(</rp><rt>ちば</rt><rp>)</rp></ruby>から多くの人が都心に通うため、<span class="keyword"><ruby>昼間人口<rp>(</rp><rt>ちゅうかんじんこう</rt><rp>)</rp></ruby></span>が<ruby>夜間人口<rp>(</rp><rt>やかんじんこう</rt><rp>)</rp></ruby>を大幅に上回ります。',
+        '<strong>正解はD「<ruby>郊外<rp>(</rp><rt>こうがい</rt><rp>)</rp></ruby>から通勤・通学する人が多いため」</strong>です。<ruby>神奈川<rp>(</rp><rt>かながわ</rt><rp>)</rp></ruby>・<ruby>埼玉<rp>(</rp><rt>さいたま</rt><rp>)</rp></ruby>・<ruby>千葉<rp>(</rp><rt>ちば</rt><rp>)</rp></ruby>から多くの人が都心に通うため、<span class="keyword"><ruby>昼間人口<rp>(</rp><rt>ちゅうかんじんこう</rt><rp>)</rp></ruby></span>が<ruby>夜間人口<rp>(</rp><rt>やかんじんこう</rt><rp>)</rp></ruby>を大幅に上回ります。',
     },
     {
       type: 'end',
