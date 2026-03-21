@@ -167,7 +167,7 @@ export const kaseiCulture: Topic = {
         {
           id: 'q5',
           question: '化政文化が栄えた中心地はどこか？',
-          options: ['上方（京都・大阪）', '江戸（現在の東京）', '長崎（貿易の窓口）', '鎌倉（古都）'],
+          options: ['上方', '江戸', '長崎', '鎌倉'],
           correctIndex: 1,
           explanation: '化政文化は江戸を中心に、庶民（町人）が担い手となって栄えました。',
           difficulty: 'basic',
@@ -191,7 +191,7 @@ export const kaseiCulture: Topic = {
         {
           id: 'q8',
           question: '五・七・五で社会を風刺する短い詩を何という？',
-          options: ['狂歌（短歌形式の風刺）', '俳諧（芸術的な俳句）', '川柳（風刺的な短詩）', '和歌（古典的な短歌）'],
+          options: ['狂歌', '俳諧', '川柳', '和歌'],
           correctIndex: 2,
           explanation: '川柳は季語を必要とせず、社会や人間の面白さを五・七・五で表現しました。',
           difficulty: 'standard',
@@ -228,7 +228,7 @@ export const kaseiCulture: Topic = {
         {
           id: 'q12',
           question: '五・七・五・七・七の短歌形式で社会を風刺する詩を何という？',
-          options: ['川柳（五七五の風刺詩）', '狂歌（短歌形式の風刺）', '俳諧（芸術的な俳句）', '和歌（古典的な短歌）'],
+          options: ['川柳', '狂歌', '俳諧', '和歌'],
           correctIndex: 1,
           explanation: '狂歌は和歌の形式をとりながら、滑稽や風刺の内容を詠んだ化政文化の文学です。',
           difficulty: 'standard',
@@ -236,7 +236,7 @@ export const kaseiCulture: Topic = {
         {
           id: 'q13',
           question: '化政文化が栄えた時期の年号は？',
-          options: ['元禄（17世紀末ごろ）', '享保（18世紀前半）', '文化・文政（19世紀初め）', '天保（19世紀半ば）'],
+          options: ['元禄', '享保', '文化・文政', '天保'],
           correctIndex: 2,
           explanation: '化政文化は文化・文政年間（19世紀初め）に江戸を中心に栄えた庶民文化です。',
           difficulty: 'basic',
@@ -260,7 +260,7 @@ export const kaseiCulture: Topic = {
         {
           id: 'q16',
           question: '葛飾北斎の「富嶽三十六景」の中で最も有名な作品は？',
-          options: ['凱風快晴（赤富士）', '神奈川沖浪裏（大波と富士）', '甲州犬目峠（山道の旅人）', '武州千住（隅田川の風景）'],
+          options: ['凱風快晴', '神奈川沖浪裏', '甲州犬目峠', '武州千住'],
           correctIndex: 1,
           explanation: '「神奈川沖浪裏」は大波と富士山を描いた構図で、世界的に有名な浮世絵です。',
           difficulty: 'standard',
@@ -276,7 +276,7 @@ export const kaseiCulture: Topic = {
         {
           id: 'q18',
           question: '化政文化の担い手は主にどのような人々か？',
-          options: ['武士（幕府の家臣）', '公家（朝廷の貴族）', '江戸の庶民（町人）', '僧侶（寺院の宗教者）'],
+          options: ['武士たち', '公家たち', '江戸の庶民', '僧侶たち'],
           correctIndex: 2,
           explanation: '化政文化は江戸の庶民（町人）が担い手となり、庶民の生活や楽しみを反映しました。',
           difficulty: 'basic',

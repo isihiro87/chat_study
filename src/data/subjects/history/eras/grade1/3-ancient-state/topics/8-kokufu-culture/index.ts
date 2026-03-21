@@ -186,7 +186,7 @@ export const kokufuCulture: Topic = {
         {
           id: 'q12',
           question: '紫式部が仕えていたのは誰か？',
-          options: ['一条天皇の中宮・定子', '藤原道長の娘・彰子', '桓武天皇', '推古天皇'],
+          options: ['一条天皇の中宮・定子', '藤原道長の娘・彰子', '桓武天皇の后', '推古天皇の后'],
           correctIndex: 1,
           explanation: '紫式部は藤原道長の娘・彰子に仕えていた女房です。',
           difficulty: 'standard',
@@ -194,7 +194,7 @@ export const kokufuCulture: Topic = {
         {
           id: 'q13',
           question: '清少納言が仕えていたのは誰か？',
-          options: ['藤原道長の娘・彰子', '一条天皇の中宮・定子', '推古天皇', '持統天皇'],
+          options: ['藤原道長の娘・彰子', '一条天皇の中宮・定子', '推古天皇の女官', '持統天皇の侍女'],
           correctIndex: 1,
           explanation: '清少納言は一条天皇の中宮・定子に仕えていた女房です。',
           difficulty: 'standard',
@@ -218,7 +218,7 @@ export const kokufuCulture: Topic = {
         {
           id: 'q16',
           question: 'カタカナは漢字のどの部分をもとに作られたか？',
-          options: ['草書体', '一部（偏や旁の一部分）', '全体を簡略化', '読み方'],
+          options: ['草書体をくずしたもの', '一部', '全体を極限まで簡略化', '音の読み方をそのまま記号化'],
           correctIndex: 1,
           explanation: 'カタカナは漢字の一部（偏や旁の一部分）をもとに作られました。',
           difficulty: 'standard',
@@ -226,7 +226,7 @@ export const kokufuCulture: Topic = {
         {
           id: 'q17',
           question: '仮名文字ができたことで何が可能になったか？',
-          options: ['日本語の繊細な感情を自由に表現できるようになった', '外国語を書けるようになった', '法律を書けるようになった', '数学を学べるようになった'],
+          options: ['日本語の繊細な感情を自由に表現できるようになった', '外国の言葉や文章を書けるようになった', '朝廷の法律や命令を書けるようになった', '中国から伝わった数学を学べるようになった'],
           correctIndex: 0,
           explanation: '仮名文字により日本語の繊細な感情を自由に表現できるようになりました。',
           difficulty: 'standard',
@@ -242,7 +242,7 @@ export const kokufuCulture: Topic = {
         {
           id: 'q19',
           question: '大和絵の特徴は？',
-          options: ['中国の風景を描いた', '仏像を描いた', '日本の風景や貴族の生活を描いた', '戦争の場面を描いた'],
+          options: ['中国の名所や風景を模写して描いた', '仏教の仏像や寺院を描いた', '日本の風景や貴族の生活を描いた', '武士の戦争や合戦の場面を描いた'],
           correctIndex: 2,
           explanation: '大和絵は日本の風景や四季、貴族の生活を描いた日本独自の絵画です。',
           difficulty: 'standard',
@@ -250,7 +250,7 @@ export const kokufuCulture: Topic = {
         {
           id: 'q20',
           question: '遣唐使が中止されても日宋貿易が行われたことは何を意味するか？',
-          options: ['正式な使節は中止されたが民間レベルの交流は続いた', '遣唐使は再開された', '宋が日本を攻撃した', '貿易は禁止された'],
+          options: ['正式な使節は中止されたが民間レベルの交流は続いた', '遣唐使の中止後に別の形で使節が再開された', '宋が軍を送って日本に圧力をかけた', '朝廷が全ての海外との交流を禁止した'],
           correctIndex: 0,
           explanation: '正式な使節は中止されましたが、民間レベルの交流は続いていました。',
           difficulty: 'standard',
@@ -266,7 +266,7 @@ export const kokufuCulture: Topic = {
         {
           id: 'q22',
           question: '仮名文字が発達する前に文章を書く際に使われていた文字は？',
-          options: ['ひらがな', 'カタカナ', '漢字（万葉仮名を含む）', 'ローマ字'],
+          options: ['ひらがなで書いていた', 'カタカナで書いていた', '漢字', '外来のローマ字を使っていた'],
           correctIndex: 2,
           explanation: '仮名文字が発達する前は漢字（万葉仮名を含む）で文章を書いていました。',
           difficulty: 'standard',
@@ -290,7 +290,7 @@ export const kokufuCulture: Topic = {
         {
           id: 'q25',
           question: '寝殿造の特徴として正しいものは？',
-          options: ['石造りの城', '多層の塔', '茅葺き屋根の農家', '中央に寝殿を置き渡り廊下で対屋を結ぶ'],
+          options: ['石造りの堅固な城塞建築', '複数の層を持つ五重や三重の塔', '農民が住む茅葺き屋根の素朴な住居', '中央に寝殿を置き渡り廊下で対屋を結ぶ'],
           correctIndex: 3,
           explanation: '寝殿造は中央に寝殿を置き、渡り廊下で対屋を結び、庭に池を配した様式です。',
           difficulty: 'advanced',

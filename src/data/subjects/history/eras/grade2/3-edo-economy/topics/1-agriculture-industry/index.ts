@@ -155,7 +155,7 @@ export const agricultureIndustry: Topic = {
         {
           id: 'q1',
           question: '江戸時代に稲の脱穀を効率化した農具は？',
-          options: ['水車', '備中ぐわ', '千歯こき', '唐箕'],
+          options: ['用水を引く水車', '備中ぐわ', '千歯こき', '風で選別する唐箕'],
           correctIndex: 2,
           explanation: '千歯こきは、歯の間に稲穂を通して脱穀する道具で、作業効率が大幅に向上しました。',
           difficulty: 'basic',
@@ -163,7 +163,7 @@ export const agricultureIndustry: Topic = {
         {
           id: 'q2',
           question: '鉄製で土を深く耕すことができた農具は？',
-          options: ['千歯こき', '唐箕', 'こきばし', '備中ぐわ'],
+          options: ['脱穀用の千歯こき', '風で選別する唐箕', '従来の脱穀道具こきばし', '備中ぐわ'],
           correctIndex: 3,
           explanation: '備中ぐわは先が分かれた鉄製の農具で、従来の平ぐわより効率よく深く耕せました。',
           difficulty: 'basic',
@@ -171,7 +171,7 @@ export const agricultureIndustry: Topic = {
         {
           id: 'q3',
           question: 'いわしを干して作られた、江戸時代を代表する肥料は？',
-          options: ['干鰯（ほしか）', '堆肥', '油かす', '草木灰'],
+          options: ['干鰯', '堆肥', '油かす', '草木灰'],
           correctIndex: 0,
           explanation: '干鰯はいわしを干した肥料で、金肥の代表的なものとして商品作物の栽培を支えました。',
           difficulty: 'basic',

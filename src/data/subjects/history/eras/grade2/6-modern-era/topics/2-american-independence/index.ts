@@ -333,7 +333,7 @@ export const americanIndependence: Topic = {
         {
           id: 'q18',
           question: '独立宣言が発表された日は現在何の記念日になっているか？',
-          options: ['感謝祭', '独立記念日（7月4日）', '建国記念日（1月1日）', '大統領就任日'],
+          options: ['感謝祭', '独立記念日', '建国記念日', '大統領就任日'],
           correctIndex: 1,
           explanation: '1776年7月4日に独立宣言が発表され、7月4日はアメリカの独立記念日です。',
           difficulty: 'advanced',

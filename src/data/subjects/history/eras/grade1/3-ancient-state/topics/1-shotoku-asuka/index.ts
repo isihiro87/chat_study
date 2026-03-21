@@ -184,7 +184,7 @@ export const shotokuAsuka: Topic = {
         {
           id: 'q13',
           question: '十七条の憲法は誰に向けて書かれたものか？',
-          options: ['農民', '天皇', '役人（豪族）', '僧侶'],
+          options: ['農民', '天皇', '役人', '僧侶'],
           correctIndex: 2,
           explanation: '十七条の憲法は役人（豪族）の心構えを示すために作られました。',
           difficulty: 'standard',
@@ -192,7 +192,7 @@ export const shotokuAsuka: Topic = {
         {
           id: 'q14',
           question: '十七条の憲法の第二条で敬うべきとしたものは？',
-          options: ['天皇', '三宝（仏・法・僧）', '先祖', '自然'],
+          options: ['天皇', '三宝', '先祖', '自然'],
           correctIndex: 1,
           explanation: '第二条では仏教の三宝（仏・法・僧）を敬うべきとしました。',
           difficulty: 'standard',
@@ -288,7 +288,7 @@ export const shotokuAsuka: Topic = {
         {
           id: 'q26',
           question: '冠位十二階の目的は何か？',
-          options: ['仏教を広めること', '農民を保護すること', '外国との貿易を促進すること', '天皇中心の政治体制を作ること'],
+          options: ['仏教を全国に広めること', '農民の生活を豊かに保護すること', '外国との交流を通じて貿易を盛んにすること', '天皇中心の政治体制を作ること'],
           correctIndex: 3,
           explanation: '冠位十二階は才能や功績で地位を決め、天皇中心の政治体制を作ることが目的でした。',
           difficulty: 'advanced',
@@ -296,7 +296,7 @@ export const shotokuAsuka: Topic = {
         {
           id: 'q27',
           question: '聖徳太子が仏教をどのように活用しようとしたか？',
-          options: ['仏教を禁止しようとした', '農業に活用しようとした', '外国に布教しようとした', '政治に取り入れ国を安定させようとした'],
+          options: ['仏教の信仰を全面的に禁止しようとした', '農業の技術改善に活用しようとした', '外国の仏教国に布教活動をしようとした', '政治に取り入れ国を安定させようとした'],
           correctIndex: 3,
           explanation: '聖徳太子は仏教を政治に取り入れ、国を安定させようとしました。',
           difficulty: 'advanced',

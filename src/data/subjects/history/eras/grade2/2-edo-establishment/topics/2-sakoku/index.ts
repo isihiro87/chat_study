@@ -84,7 +84,7 @@ export const sakoku: Topic = {
         {
           id: 'q4',
           question: '江戸幕府が外国との交流を厳しく制限した政策を何という？',
-          options: ['禁教令', '鎖国', '朱印船貿易', '宗門改'],
+          options: ['禁教令', '鎖国', '朱印船', '宗門改'],
           correctIndex: 1,
           explanation: '鎖国は幕府が外国との交流を制限した政策ですが、完全に断ったわけではありません。',
           difficulty: 'basic',
@@ -108,7 +108,7 @@ export const sakoku: Topic = {
         {
           id: 'q7',
           question: '1612年に家康がキリスト教を禁止するために出した命令は？',
-          options: ['鎖国令', 'バテレン追放令', '禁教令', '宗門改'],
+          options: ['鎖国令', '追放令', '禁教令', '宗門改'],
           correctIndex: 2,
           explanation: '禁教令は1612年に家康が出したキリスト教禁止の命令で、やがて全国に拡大されました。',
           difficulty: 'basic',
@@ -156,7 +156,7 @@ export const sakoku: Topic = {
         {
           id: 'q13',
           question: '鎖国下でオランダ以外に貿易が許されたアジアの国は？',
-          options: ['朝鮮', '琉球', '清（中国）', 'インド'],
+          options: ['宋', '元', '清', '明'],
           correctIndex: 2,
           explanation: '清（中国）の商人は唐人屋敷に住み、長崎で貿易を行いました。',
           difficulty: 'standard',
@@ -164,7 +164,7 @@ export const sakoku: Topic = {
         {
           id: 'q14',
           question: '幕府がキリスト教を危険視した理由は？',
-          options: ['貿易を妨害するため', '身分制度を揺るがす教えだったため', '外国語を広めたため', '仏教と対立したため'],
+          options: ['キリシタン大名が幕府への反乱を計画したため', '身分制度を揺るがす教えだったため', '宣教師が日本語ではなく外国語を広めたため', '寺社の権威を否定して仏教と激しく対立したため'],
           correctIndex: 1,
           explanation: '「神の前に平等」の教えが身分制度に基づく支配を揺るがしかねないと幕府は考えました。',
           difficulty: 'advanced',

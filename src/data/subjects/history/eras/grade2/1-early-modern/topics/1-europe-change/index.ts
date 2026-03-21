@@ -68,7 +68,7 @@ export const europeChange: Topic = {
         {
           id: 'q2',
           question: 'ローマ教皇が販売し、ルターが批判した「罪が許される」とする札を何という？',
-          options: ['聖書（バイブル）', '御朱印（参拝証）', '免罪符（贖宥状）', '踏み絵（絵踏）'],
+          options: ['聖書', '御朱印', '免罪符', '踏み絵'],
           correctIndex: 2,
           explanation: '免罪符（贖宥状）はローマ教皇が資金集めのために販売し、ルターの宗教改革の直接のきっかけとなりました。',
           difficulty: 'basic',
@@ -100,7 +100,7 @@ export const europeChange: Topic = {
         {
           id: 'q6',
           question: 'ローマ教皇が聖地エルサレム奪還のために呼びかけた遠征は？',
-          options: ['宗教改革', '十字軍', 'ルネサンス運動', 'レコンキスタ'],
+          options: ['宗教改革', '十字軍', '宗教運動', '国土回復'],
           correctIndex: 1,
           explanation: '十字軍は11世紀以降、ローマ教皇が聖地エルサレムの奪還を目指して呼びかけた遠征です。',
           difficulty: 'standard',
@@ -116,7 +116,7 @@ export const europeChange: Topic = {
         {
           id: 'q8',
           question: '「モナ・リザ」を描いたルネサンスの芸術家は？',
-          options: ['ミケランジェロ', 'ラファエロ', 'レオナルド・ダ・ヴィンチ', 'ボッティチェリ'],
+          options: ['ミケランジェロ', 'ラファエロ・サンツィオ', 'レオナルド・ダ・ヴィンチ', 'ボッティチェリ'],
           correctIndex: 2,
           explanation: 'レオナルド・ダ・ヴィンチは「モナ・リザ」「最後の晩餐」を描いたルネサンスの巨匠です。',
           difficulty: 'basic',
@@ -156,7 +156,7 @@ export const europeChange: Topic = {
         {
           id: 'q13',
           question: '11世紀にイスラム勢力が征服した、3宗教の聖地はどこ？',
-          options: ['ローマ', 'メッカ', 'エルサレム', 'コンスタンティノープル'],
+          options: ['ローマ', 'メッカ', 'エルサレム', 'ビザンティウム'],
           correctIndex: 2,
           explanation: 'エルサレムはキリスト教・イスラム教・ユダヤ教にとっての聖地です。',
           difficulty: 'basic',

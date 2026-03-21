@@ -81,7 +81,7 @@ export const muromachiIndustry: Topic = {
         {
           id: 'q1',
           question: '商人や手工業者が寺社の保護を受けて営業を独占した団体は？',
-          options: ['座', '惣', '町衆', '馬借'],
+          options: ['座', '惣', '組', '飛脚'],
           correctIndex: 0,
           explanation: '座は商人や手工業者が寺社の保護を受けて営業の独占権を得るために作った同業者の団体です。',
           difficulty: 'basic',
@@ -89,7 +89,7 @@ export const muromachiIndustry: Topic = {
         {
           id: 'q2',
           question: '馬を使って物資の運搬を行った室町時代の運送業者を何という？',
-          options: ['座', '馬借', '問', '飛脚'],
+          options: ['座敷', '馬借', '問屋', '飛脚'],
           correctIndex: 1,
           explanation: '馬借は馬を利用して物資の運送を担った業者で、商業の発展とともに活躍しました。',
           difficulty: 'basic',
@@ -97,7 +97,7 @@ export const muromachiIndustry: Topic = {
         {
           id: 'q3',
           question: '室町時代に定期市が月6回開かれるようになったものを何という？',
-          options: ['三斎市', '楽市', '朝市', '六斎市'],
+          options: ['三斎市', '楽市場', '朝の市', '六斎市'],
           correctIndex: 3,
           explanation: '六斎市は月に6回開かれる定期市で、鎌倉時代の月3回の三斎市から増加しました。',
           difficulty: 'basic',
@@ -113,7 +113,7 @@ export const muromachiIndustry: Topic = {
         {
           id: 'q5',
           question: '京都で絹織物の生産が盛んだった地域はどこか？',
-          options: ['堺', '西陣', '博多', '鎌倉'],
+          options: ['堺市', '西陣', '博多', '鎌倉'],
           correctIndex: 1,
           explanation: '西陣は京都で絹織物の生産が盛んだった地域で、現在も西陣織として有名です。',
           difficulty: 'basic',
@@ -121,7 +121,7 @@ export const muromachiIndustry: Topic = {
         {
           id: 'q6',
           question: '室町時代に肥料として利用されるようになった堆肥は何から作られた？',
-          options: ['魚の骨', '牛馬の糞', '海藻', '木の葉'],
+          options: ['魚の骨', '牛馬の糞', '海草類', '木の葉'],
           correctIndex: 1,
           explanation: '堆肥は牛馬の糞を発酵させて作られた肥料で、室町時代に普及しました。',
           difficulty: 'basic',
@@ -129,7 +129,7 @@ export const muromachiIndustry: Topic = {
         {
           id: 'q7',
           question: '室町時代にかんがいのために利用されるようになった道具は？',
-          options: ['鉄製農具', '水車', '石臼', '鋤'],
+          options: ['鉄鍬', '水車', '石臼', '石鎌'],
           correctIndex: 1,
           explanation: '水車はかんがい（田に水を引く）のために利用され、農業の効率を向上させました。',
           difficulty: 'basic',
@@ -137,7 +137,7 @@ export const muromachiIndustry: Topic = {
         {
           id: 'q8',
           question: '座が寺社に税を納める代わりに得ていたものは？',
-          options: ['軍事力', '営業の独占権', '土地', '官職'],
+          options: ['軍事力強化', '営業の独占権', '土地所有権', '官職登用権'],
           correctIndex: 1,
           explanation: '座のメンバーは寺社に税を納める代わりに、その地域での営業の独占権を得ていました。',
           difficulty: 'basic',
@@ -145,7 +145,7 @@ export const muromachiIndustry: Topic = {
         {
           id: 'q9',
           question: '室町時代に流通した明銭の代表的なものは？',
-          options: ['和同開珎', '寛永通宝', '永楽通宝', '大判'],
+          options: ['和同開珎', '寛永通宝', '永楽通宝', '大判金'],
           correctIndex: 2,
           explanation: '永楽通宝は明から輸入された代表的な銅銭で、日本国内で広く流通しました。',
           difficulty: 'basic',
@@ -153,7 +153,7 @@ export const muromachiIndustry: Topic = {
         {
           id: 'q10',
           question: '鎌倉時代の定期市と室町時代の定期市の違いは？',
-          options: ['変化はなかった', '鎌倉は月3回の三斎市、室町は月6回の六斎市', '鎌倉は月6回、室町は月3回', '室町時代には定期市がなくなった'],
+          options: ['定期市の回数は変わらなかった', '鎌倉は月3回の三斎市、室町は月6回の六斎市', '鎌倉は月6回、室町は月3回', '室町時代には定期市がなくなった'],
           correctIndex: 1,
           explanation: '鎌倉時代は月3回の三斎市でしたが、室町時代には月6回の六斎市に増えました。',
           difficulty: 'basic',
@@ -169,7 +169,7 @@ export const muromachiIndustry: Topic = {
         {
           id: 'q12',
           question: '運送業と倉庫業を兼ねた業者を何という？',
-          options: ['問（とい）', '馬借', '土倉', '座'],
+          options: ['問（とい）', '馬借業者', '土倉業者', '座の商人'],
           correctIndex: 0,
           explanation: '問（とい）は運送業と倉庫業を兼ねた業者で、物資の保管と運搬を行いました。',
           difficulty: 'standard',
@@ -177,7 +177,7 @@ export const muromachiIndustry: Topic = {
         {
           id: 'q13',
           question: '桑の栽培が増えた理由は何の生産に関係している？',
-          options: ['蚕を育てて生糸を取る養蚕業', '紙の生産', '薬の製造', '染料の生産'],
+          options: ['蚕を育てて生糸を取る養蚕業', '楮や三椏を原料として用いる紙の生産', '草根木皮を乾燥させた漢方薬の製造', '藍草などを使った布の染料の生産'],
           correctIndex: 0,
           explanation: '桑は蚕の餌となるため、養蚕業（蚕を育てて生糸を取る）の発展に伴い栽培が増えました。',
           difficulty: 'standard',
@@ -185,7 +185,7 @@ export const muromachiIndustry: Topic = {
         {
           id: 'q14',
           question: '質物を取って金を貸す高利貸しの業者を何という？',
-          options: ['問', '馬借', '土倉', '座'],
+          options: ['問屋', '馬借', '土倉', '座敷'],
           correctIndex: 2,
           explanation: '土倉は質物を取って金を貸す高利貸しの業者で、幕府の財源にもなりました。',
           difficulty: 'standard',
@@ -193,7 +193,7 @@ export const muromachiIndustry: Topic = {
         {
           id: 'q15',
           question: '座が自由な商業の発展を妨げた面として正しいのは？',
-          options: ['新しい商人が参入することを制限した', '価格を安くしすぎた', '商品を外国に輸出した', '税を納めなかった'],
+          options: ['新しい商人が参入することを制限した', '商品の価格を不当に安く設定して既存商人を圧迫した', '座の商品を独断で外国に輸出して国内流通を減らした', '寺社への税を拒否して保護者との関係を断ち切った'],
           correctIndex: 0,
           explanation: '座は営業を独占して新しい商人の参入を制限したため、自由な商業を妨げる面もありました。',
           difficulty: 'standard',
@@ -201,7 +201,7 @@ export const muromachiIndustry: Topic = {
         {
           id: 'q16',
           question: '室町時代に各地で生産が盛んになった手工業製品として正しくないのは？',
-          options: ['陶器', '鋳物類', '紙', '自動車'],
+          options: ['陶器', '鋳物類', '和紙', '自動車'],
           correctIndex: 3,
           explanation: '室町時代には陶器・鋳物類・紙などの手工業製品が各地で生産されました。自動車は近代の製品です。',
           difficulty: 'standard',
@@ -209,7 +209,7 @@ export const muromachiIndustry: Topic = {
         {
           id: 'q17',
           question: '博多（福岡県）で盛んだった手工業製品は？',
-          options: ['陶器', '紙', '絹織物', '刀剣'],
+          options: ['陶器', '和紙', '絹織物', '刀剣'],
           correctIndex: 2,
           explanation: '博多では絹織物の生産が盛んで、博多織として知られています。',
           difficulty: 'standard',
@@ -217,7 +217,7 @@ export const muromachiIndustry: Topic = {
         {
           id: 'q18',
           question: '室町時代の農業と商業の関係として正しいのは？',
-          options: ['商品作物の栽培が増え農民が市場で売るようになった', '農業と商業は無関係', '農業が衰退して商業が発展した', '商業が衰退して農業が発展した'],
+          options: ['商品作物の栽培が増え農民が市場で売るようになった', '農業と商業は別々に発展し互いに影響を与えなかった', '農業技術の低下で食料が不足し商業が代わりに発展した', '六斎市などの商業活動が衰退して農業に人手が戻った'],
           correctIndex: 0,
           explanation: '商品作物の栽培が増加し、農民は市場で売るための作物も育てるようになりました。',
           difficulty: 'standard',
@@ -233,7 +233,7 @@ export const muromachiIndustry: Topic = {
         {
           id: 'q20',
           question: '酒屋が金融業を兼ねていた理由は？',
-          options: ['幕府に命じられたから', '寺社に命じられたから', '酒造業で得た資金を元手に高利貸しを行ったから', '特に理由はない'],
+          options: ['幕府から金融業を行うよう直接命令を受けたから', '寺社から信徒への融資を代行するよう命じられたから', '酒造業で得た資金を元手に高利貸しを行ったから', '酒造と金融は昔から一体の業種であり特に理由はない'],
           correctIndex: 2,
           explanation: '酒屋は酒造業で得た資金を元手に高利貸し（金融業）も行い、幕府の財源にもなりました。',
           difficulty: 'standard',
@@ -241,7 +241,7 @@ export const muromachiIndustry: Topic = {
         {
           id: 'q21',
           question: '室町時代の農業の発達を支えた3つの要素は？',
-          options: ['鉄製農具・石臼・鎌', '荘園・公領・年貢', '外国の技術・仏教・貿易', '二毛作の普及・水車の利用・堆肥の普及'],
+          options: ['鉄製農具と石臼と鎌の利用', '荘園・公領・年貢', '外国の技術・仏教・貿易', '二毛作の普及・水車の利用・堆肥の普及'],
           correctIndex: 3,
           explanation: '二毛作の普及、水車によるかんがい、堆肥（牛馬の糞）の利用が農業の発達を支えました。',
           difficulty: 'standard',
@@ -249,7 +249,7 @@ export const muromachiIndustry: Topic = {
         {
           id: 'q22',
           question: '馬借と問の違いとして正しいのは？',
-          options: ['馬借は運送のみ、問は運送と倉庫業を兼ねる', '馬借は倉庫業、問は運送業', '同じ意味', '馬借は金融業'],
+          options: ['馬借は運送のみ、問は運送と倉庫業を兼ねる', '馬借は物資の保管を行う倉庫業、問は荷物の配達を行う運送業', '馬借と問は同じ業務を行う全く同じ意味の業種である', '馬借は商人への金貸しを行う金融業、問は運送業を担当した'],
           correctIndex: 0,
           explanation: '馬借は馬を使った運送業者で、問（とい）は運送業と倉庫業を兼ねた業者です。',
           difficulty: 'standard',
@@ -265,7 +265,7 @@ export const muromachiIndustry: Topic = {
         {
           id: 'q24',
           question: '座が保護を受けていた組織は？',
-          options: ['幕府', '朝廷', '寺社', '戦国大名'],
+          options: ['幕府', '朝廷', '寺社', '大名'],
           correctIndex: 2,
           explanation: '座は寺社の保護を受けて営業の独占権を得ていました。',
           difficulty: 'advanced',
@@ -281,7 +281,7 @@ export const muromachiIndustry: Topic = {
         {
           id: 'q26',
           question: '漆（うるし）の栽培が増えた理由は？',
-          options: ['食用にするため', '燃料として使うため', '衣服の材料として', '塗料の材料として需要があったため'],
+          options: ['漆の実を調理して料理に使う食用素材として需要があったため', '漆の木材を燃やして暖を取る燃料として利用されたため', '漆の繊維を紡いで布を織る衣服の材料として需要があったため', '塗料の材料として需要があったため'],
           correctIndex: 3,
           explanation: '漆は器や家具の塗料として需要があり、商品作物として栽培が増加しました。',
           difficulty: 'advanced',
@@ -289,7 +289,7 @@ export const muromachiIndustry: Topic = {
         {
           id: 'q27',
           question: '室町時代の農村での共同作業の仕組みを何という？',
-          options: ['惣', '寄合', '座', '結（ゆい）'],
+          options: ['惣掟', '寄合制', '座制度', '結（ゆい）'],
           correctIndex: 3,
           explanation: '結（ゆい）は田植えや稲刈りなどの農作業を村人が共同で行う仕組みです。',
           difficulty: 'advanced',
@@ -297,7 +297,7 @@ export const muromachiIndustry: Topic = {
         {
           id: 'q28',
           question: '室町時代の産業を農業・手工業・商業の面からまとめると？',
-          options: ['全体的に衰退した', '農業を中心に発展した', '外国貿易を中心に発展した', '農業は二毛作、手工業は絹織物、商業は六斎市と座が発展した'],
+          options: ['戦乱が続き農業・手工業・商業のいずれも全体的に衰退した', '他の分野は停滞し二毛作の普及によって農業だけが中心に発展した', '日明貿易や琉球の中継貿易などの外国貿易を中心に産業が発展した', '農業は二毛作、手工業は絹織物、商業は六斎市と座が発展した'],
           correctIndex: 3,
           explanation: '農業は二毛作の普及、手工業は絹織物などの生産、商業は六斎市の増加と座の活動で発展しました。',
           difficulty: 'advanced',

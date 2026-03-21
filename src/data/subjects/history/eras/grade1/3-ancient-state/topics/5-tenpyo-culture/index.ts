@@ -242,7 +242,7 @@ export const tenpyoCulture: Topic = {
         {
           id: 'q19',
           question: '奈良の大仏は何という材料で造られたか？',
-          options: ['鉄', '金', '石', '銅（青銅）'],
+          options: ['鉄', '金', '石', '銅'],
           correctIndex: 3,
           explanation: '奈良の大仏は銅（青銅）で造られました。',
           difficulty: 'standard',
@@ -282,7 +282,7 @@ export const tenpyoCulture: Topic = {
         {
           id: 'q24',
           question: '鑑真を招いた目的は？',
-          options: ['日本の仏教界に正式な戒律を確立するため', '建築技術を学ぶため', '貿易を促進するため', '外交使節として'],
+          options: ['日本の仏教界に正式な戒律を確立するため', '唐の建築技術を日本に持ち帰るため', '唐との貿易関係を強化し促進するため', '隋唐への公式な外交使節として'],
           correctIndex: 0,
           explanation: '鑑真を招いたのは日本の仏教界に正式な戒律を確立するためです。',
           difficulty: 'advanced',
@@ -290,7 +290,7 @@ export const tenpyoCulture: Topic = {
         {
           id: 'q25',
           question: '天平文化と飛鳥文化の違いとして正しいものは？',
-          options: ['天平文化は仏教と無関係', '飛鳥文化の方が国際的', '飛鳥文化は日本独自の文化', '天平文化は唐の影響がより強く国際色豊か'],
+          options: ['天平文化は仏教とは全く無関係の文化', '飛鳥文化の方がより国際色豊かである', '飛鳥文化は唐の影響を受けた日本独自の文化', '天平文化は唐の影響がより強く国際色豊か'],
           correctIndex: 3,
           explanation: '天平文化は唐の影響がより強く、シルクロード経由で国際色豊かな文化です。',
           difficulty: 'advanced',

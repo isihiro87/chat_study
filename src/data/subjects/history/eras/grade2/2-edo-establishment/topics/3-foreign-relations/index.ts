@@ -75,7 +75,7 @@ export const foreignRelations: Topic = {
         {
           id: 'q3',
           question: '将軍の代替わりごとに朝鮮から日本へ派遣された使節は？',
-          options: ['朝鮮通信使', '遣明使', '琉球使節', '遣唐使'],
+          options: ['朝鮮通信使', '遣明貿易使節', '琉球の使節', '奈良時代の遣唐使'],
           correctIndex: 0,
           explanation: '朝鮮通信使は将軍の代替わりに合わせて派遣され、日本各地で文化交流が行われました。',
           difficulty: 'standard',
@@ -83,7 +83,7 @@ export const foreignRelations: Topic = {
         {
           id: 'q4',
           question: '鎖国下で長崎に設けられた中国人の居住地区は？',
-          options: ['出島', '唐人屋敷', '倭館', '蔵屋敷'],
+          options: ['出島港', '唐人屋敷', '倭館地', '蔵屋敷'],
           correctIndex: 1,
           explanation: '唐人屋敷は長崎に設けられた中国人の居住地区で、清の商人が住み貿易を行いました。',
           difficulty: 'basic',
@@ -91,7 +91,7 @@ export const foreignRelations: Topic = {
         {
           id: 'q5',
           question: 'オランダが幕府に提出した海外情報の報告書は？',
-          options: ['朱印状', 'オランダ風説書', '武家諸法度', '禁教令'],
+          options: ['朱印状書', 'オランダ風説書', '武家諸法度', '禁教政策'],
           correctIndex: 1,
           explanation: 'オランダ風説書はオランダ商館が幕府に提出した海外の情報をまとめた報告書です。',
           difficulty: 'basic',
@@ -99,7 +99,7 @@ export const foreignRelations: Topic = {
         {
           id: 'q6',
           question: '銀の代わりに日本が長崎貿易で輸出した海産物を何という？',
-          options: ['生糸', '俵物', '香辛料', '陶磁器'],
+          options: ['生糸', '俵物', '香料', '陶器'],
           correctIndex: 1,
           explanation: '俵物は干しなまこ・干しアワビなどの海産物で、銀の流出を防ぐために輸出されました。',
           difficulty: 'standard',
@@ -123,7 +123,7 @@ export const foreignRelations: Topic = {
         {
           id: 'q9',
           question: '長崎での貿易を管理した幕府の役職は？',
-          options: ['老中', '長崎奉行', '大目付', '勘定奉行'],
+          options: ['老中職', '長崎奉行', '大目付', '勘定奉行'],
           correctIndex: 1,
           explanation: '長崎奉行は長崎の貿易を管理し、幕府の直轄地として行政を担いました。',
           difficulty: 'standard',

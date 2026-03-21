@@ -208,7 +208,7 @@ export const handenTax: Topic = {
         {
           id: 'q16',
           question: '防人の旅費や食料は誰が負担したか？',
-          options: ['国家', '国司', '本人（自弁）', '地方の豪族'],
+          options: ['国家', '国司', '本人', '地方の豪族'],
           correctIndex: 2,
           explanation: '防人の旅費や食料は本人が負担する自弁制でした。',
           difficulty: 'standard',
@@ -256,7 +256,7 @@ export const handenTax: Topic = {
         {
           id: 'q22',
           question: '重い税負担に耐えかねた農民がとった行動は？',
-          options: ['逃亡した', '反乱を起こした', '外国に移住した', '僧侶になった'],
+          options: ['逃亡した', '集団で大規模な反乱を起こした', '船で外国の土地へ移住した', '寺院に入り僧侶になった'],
           correctIndex: 0,
           explanation: '重い税負担に耐えかねた農民は戸籍から逃れて別の土地に逃亡しました。',
           difficulty: 'standard',
@@ -280,7 +280,7 @@ export const handenTax: Topic = {
         {
           id: 'q25',
           question: '律令制度が衰退した最大の原因の一つは？',
-          options: ['外国の侵攻', '天皇の退位', '仏教の衰退', '荘園の拡大で公地・公民制が崩壊'],
+          options: ['外国からの度重なる侵攻と戦争', '天皇が相次いで退位したため', '仏教の影響力が急速に衰退したため', '荘園の拡大で公地・公民制が崩壊'],
           correctIndex: 3,
           explanation: '墾田永年私財法による荘園の拡大で公地・公民制が崩壊し、律令制度が衰退しました。',
           difficulty: 'advanced',

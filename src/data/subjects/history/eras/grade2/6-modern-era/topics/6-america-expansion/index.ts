@@ -212,7 +212,7 @@ export const americaExpansion: Topic = {
         {
           id: 'q5',
           question: '南北戦争で勝利したのはどちら？',
-          options: ['南部', '引き分け', '北部', 'イギリスの介入で終了'],
+          options: ['南部', '北軍南軍痛み分け', '北部', 'イギリスの仲介和平'],
           correctIndex: 2,
           explanation:
             '工業力で勝る北部が勝利し、アメリカの国の統一が維持されました。',
@@ -262,7 +262,7 @@ export const americaExpansion: Topic = {
         {
           id: 'q11',
           question: '西部開拓の過程で土地を奪われた人々は？',
-          options: ['アフリカ系アメリカ人', '先住民（ネイティブアメリカン）', 'ヨーロッパからの移民', 'アジアからの移民'],
+          options: ['アフリカ系住民', '先住民', '欧州からの移民', 'アジア系移民'],
           correctIndex: 1,
           explanation: 'ヨーロッパからの移民による開拓で先住民は土地を追われました。',
           difficulty: 'standard',
@@ -270,7 +270,7 @@ export const americaExpansion: Topic = {
         {
           id: 'q12',
           question: 'アメリカの南部が支持した貿易政策は？',
-          options: ['保護貿易（関税が高い）', '自由貿易（関税が低い）', '鎖国政策（貿易禁止）', '管理貿易（政府の統制）'],
+          options: ['保護貿易', '自由貿易', '鎖国政策', '管理貿易'],
           correctIndex: 1,
           explanation: '南部は綿花を自由に輸出できるよう、関税の低い自由貿易を支持しました。',
           difficulty: 'standard',

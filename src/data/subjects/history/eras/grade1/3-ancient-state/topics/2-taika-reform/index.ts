@@ -168,7 +168,7 @@ export const taikaReform: Topic = {
         {
           id: 'q11',
           question: '「大化」とは日本で初めて定められた何か？',
-          options: ['法律', '年号（元号）', '官職', '貨幣'],
+          options: ['法律', '年号', '官職', '貨幣'],
           correctIndex: 1,
           explanation: '「大化」は日本で初めて定められた年号（元号）です。',
           difficulty: 'standard',
@@ -256,7 +256,7 @@ export const taikaReform: Topic = {
         {
           id: 'q22',
           question: '白村江の戦いの敗北が日本に与えた影響は？',
-          options: ['国防を強化し律令国家の建設を加速させた', '仏教を廃止した', '鎖国政策を始めた', '唐に服従した'],
+          options: ['国防を強化し律令国家の建設を加速させた', '仏教の布教活動を全面的に廃止した', '外国との交流を絶つ鎖国政策を始めた', '戦争に負けたため唐に服従した'],
           correctIndex: 0,
           explanation: '白村江の敗戦後、国防の強化を急ぐとともに律令国家の建設を加速させました。',
           difficulty: 'standard',
@@ -264,7 +264,7 @@ export const taikaReform: Topic = {
         {
           id: 'q23',
           question: '大化の改新で定められた地方を治める行政区画は？',
-          options: ['国・郡・里', '都道府県', '藩', '領地'],
+          options: ['国・郡・里', '都・道・府・県', '藩・領・代', '国・村・組'],
           correctIndex: 0,
           explanation: '大化の改新では国・郡・里の行政区画の設置が定められました。',
           difficulty: 'advanced',

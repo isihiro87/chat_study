@@ -196,10 +196,10 @@ export const prefectures: Topic = {
           id: 'geo1-pf-q1',
           question: '廃藩置県が行われたのはいつ？',
           options: [
-            '1853年（嘉永6年）',
-            '1868年（明治元年）',
-            '1889年（明治22年）',
-            '1871年（明治4年）',
+            '1853年',
+            '1868年',
+            '1889年',
+            '1871年',
           ],
           correctIndex: 3,
           explanation:
@@ -224,10 +224,10 @@ export const prefectures: Topic = {
           id: 'geo1-pf-q3',
           question: '7地方区分のうち、含まれる県の数が最も多い地方はどれ？',
           options: [
-            '中部地方（9県）',
-            '東北地方（6県）',
-            '関東地方（1都6県）',
-            '九州地方（8県）',
+            '中部地方',
+            '東北地方',
+            '関東地方',
+            '九州地方',
           ],
           correctIndex: 0,
           explanation:

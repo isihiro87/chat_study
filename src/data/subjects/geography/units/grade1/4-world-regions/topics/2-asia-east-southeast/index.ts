@@ -210,7 +210,7 @@ export const asiaEastSoutheast: Topic = {
         {
           id: 'geo1-as2-q14',
           question: '韓国の首都ソウルで問題となっている人口に関する課題はどれか。',
-          options: ['人口の減少', '人口の分散', '過密（人口集中）', '高齢化のみ'],
+          options: ['人口の減少', '人口の分散', '過密', '高齢化のみ'],
           correctIndex: 2,
           explanation: '韓国では首都ソウルへの人口集中（過密）が深刻で、住宅不足や交通渋滞などの問題を引き起こしています。',
           difficulty: 'standard',

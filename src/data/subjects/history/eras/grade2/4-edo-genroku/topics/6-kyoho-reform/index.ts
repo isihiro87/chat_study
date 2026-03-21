@@ -183,7 +183,7 @@ export const kyohoReform: Topic = {
         {
           id: 'q4',
           question: '裁判の基準となる法律を定めたものは？',
-          options: ['禁中並公家諸法度（朝廷の法）', '武家諸法度（大名の法）', '御成敗式目（鎌倉の法）', '公事方御定書（裁判の法）'],
+          options: ['禁中並公家諸法度', '武家諸法度', '御成敗式目', '公事方御定書'],
           correctIndex: 3,
           explanation:
             '公事方御定書では、盗みの被害額による刑罰の違いなど、具体的な基準が定められました。',
@@ -193,7 +193,7 @@ export const kyohoReform: Topic = {
           id: 'q5',
           question:
             '問屋が農民に道具やお金を貸して家で製品を作らせる仕組みを何という？',
-          options: ['工場制手工業（マニュファクチュア）', '問屋制家内工業（農村の副業）', '株仲間（商人の同業組合）', '座（中世の同業者団体）'],
+          options: ['工場制手工業', '問屋制家内工業', '株仲間制生産', '座による生産'],
           correctIndex: 1,
           explanation:
             '問屋制家内工業により、農民は農業以外の収入を得られるようになりました。',
@@ -203,10 +203,10 @@ export const kyohoReform: Topic = {
           id: 'q6',
           question: '作業場に人を集めて分業で製品を作る仕組みを何という？',
           options: [
-            '工場制手工業（マニュファクチュア）',
-            '座（中世の同業者団体）',
-            '問屋制家内工業（農村の副業）',
-            '株仲間（商人の同業組合）',
+            '工場制手工業',
+            '座による生産',
+            '問屋制家内工業',
+            '株仲間制生産',
           ],
           correctIndex: 0,
           explanation:
@@ -216,7 +216,7 @@ export const kyohoReform: Topic = {
         {
           id: 'q7',
           question: '吉宗はもともとどの藩の藩主だったか？',
-          options: ['水戸藩（茨城の藩）', '尾張藩（愛知の藩）', '紀伊藩（和歌山の藩）', '薩摩藩（鹿児島の藩）'],
+          options: ['水戸藩', '尾張藩', '紀伊藩', '薩摩藩'],
           correctIndex: 2,
           explanation: '吉宗は紀伊徳川家の出身で、8代将軍に就任しました。',
           difficulty: 'basic',
@@ -248,7 +248,7 @@ export const kyohoReform: Topic = {
         {
           id: 'q11',
           question: '貨幣経済の浸透で土地を手放し、地主から借りて耕す農民を何という？',
-          options: ['地主（土地の所有者）', '小作人（土地を借りる農民）', '庄屋（村の代表者）', '名主（村の有力者）'],
+          options: ['地主', '小作人', '庄屋', '名主'],
           correctIndex: 1,
           explanation: '小作人は没落した百姓で、地主から土地を借りて耕作しました。',
           difficulty: 'standard',
@@ -256,7 +256,7 @@ export const kyohoReform: Topic = {
         {
           id: 'q12',
           question: '18世紀以降、年貢の軽減を求めて村が団結した行動を何という？',
-          options: ['打ちこわし（商人への暴動）', '百姓一揆（農民の団結行動）', '蛮社の獄（学者の処罰事件）', '大塩の乱（元役人の反乱）'],
+          options: ['打ちこわし', '百姓一揆', '蛮社の獄', '大塩の乱'],
           correctIndex: 1,
           explanation: '百姓一揆は18世紀以降に激増し、年貢の軽減などを要求しました。',
           difficulty: 'standard',
@@ -264,7 +264,7 @@ export const kyohoReform: Topic = {
         {
           id: 'q13',
           question: '米の買い占めに怒った都市の庶民が商人を襲った行動を何という？',
-          options: ['百姓一揆（農村の団結行動）', '打ちこわし（都市の暴動）', '大塩の乱（元役人の反乱）', '島原の乱（宗教的反乱）'],
+          options: ['百姓一揆', '打ちこわし', '大塩の乱', '島原の乱'],
           correctIndex: 1,
           explanation: '打ちこわしは米価高騰に苦しむ庶民が、商店を破壊して食料を奪った行動です。',
           difficulty: 'advanced',
@@ -272,7 +272,7 @@ export const kyohoReform: Topic = {
         {
           id: 'q14',
           question: '一揆で首謀者を特定させないために使われた署名方法は？',
-          options: ['連名状（名前を連ねた書状）', '血判状（血で署名した書状）', 'からかさ連判状（円形署名）', '起請文（神への誓い文書）'],
+          options: ['連名状', '血判状', 'からかさ連判状', '起請文'],
           correctIndex: 2,
           explanation: 'からかさ連判状は円形に署名することで、指導者が特定されないようにしました。',
           difficulty: 'advanced',
@@ -288,7 +288,7 @@ export const kyohoReform: Topic = {
         {
           id: 'q16',
           question: '没落した百姓から土地を買い集め、裕福になった層を何という？',
-          options: ['小作人（土地なし農民）', '地主（土地所有の富裕層）', '両替商（金融業の商人）', '問屋（流通業の商人）'],
+          options: ['小作人', '地主', '両替商', '問屋'],
           correctIndex: 1,
           explanation: '地主は没落した農民の土地を買い集め、小作人を使って農村の支配を強めました。',
           difficulty: 'standard',
@@ -296,7 +296,7 @@ export const kyohoReform: Topic = {
         {
           id: 'q17',
           question: '享保の改革は三大改革の中で何番目に行われたか？',
-          options: ['1番目（最初の改革）', '2番目（中間の改革）', '3番目（最後の改革）', '三大改革に含まれない'],
+          options: ['1番目', '2番目', '3番目', '三大改革に含まれない'],
           correctIndex: 0,
           explanation: '享保の改革は三大改革の中で最初に行われ、唯一一定の成功を収めました。',
           difficulty: 'standard',
@@ -304,7 +304,7 @@ export const kyohoReform: Topic = {
         {
           id: 'q18',
           question: '吉宗が重視した実学として輸入制限を緩和した学問は？',
-          options: ['国学（日本古典の研究）', '朱子学（儒教の正統学問）', '蘭学（西洋の学問）', '陽明学（実践重視の儒学）'],
+          options: ['国学', '朱子学', '蘭学', '陽明学'],
           correctIndex: 2,
           explanation: '吉宗は漢訳洋書の輸入制限を緩和し、蘭学の発展のきっかけを作りました。',
           difficulty: 'advanced',

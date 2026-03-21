@@ -248,7 +248,7 @@ export const ritsuryoNara: Topic = {
         {
           id: 'q21',
           question: '平城京で商品を売買するために開かれた場所は？',
-          options: ['朱雀大路', '大宰府', '平城宮', '市（東市・西市）'],
+          options: ['朱雀大路', '大宰府', '平城宮', '市'],
           correctIndex: 3,
           explanation: '平城京では東市と西市が開かれ、商品の売買が行われました。',
           difficulty: 'standard',

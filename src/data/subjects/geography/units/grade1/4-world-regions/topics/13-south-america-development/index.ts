@@ -132,7 +132,7 @@ export const southAmericaDevelopment: Topic = {
         {
           id: 'geo1-sa2-q4',
           question: 'アルゼンチンのパンパでさかんに行われている農業はどれ？',
-          options: ['稲作', '焼畑農業', 'ぶどう栽培', '牧畜（牛の放牧）'],
+          options: ['稲作', '焼畑農業', 'ぶどう栽培', '牧畜'],
           correctIndex: 3,
           explanation: 'パンパは広大な草原で、牛の放牧を中心とした牧畜がさかんです。',
           difficulty: 'basic',

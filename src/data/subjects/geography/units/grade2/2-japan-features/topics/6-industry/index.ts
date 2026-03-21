@@ -327,7 +327,7 @@ export const industry: Topic = {
           options: [
             '自動車工業',
             '印刷業',
-            '化学工業（石油化学コンビナート）',
+            '化学工業',
             '食品加工業',
           ],
           correctIndex: 2,

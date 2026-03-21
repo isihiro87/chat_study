@@ -173,7 +173,7 @@ export const tempoReform: Topic = {
         {
           id: 'q3',
           question: '天保の改革で、大名の領地を幕府直轄にしようとして失敗した法令は？',
-          options: ['上知令', '倹約令', '人返し令', '株仲間解散令'],
+          options: ['上知令', '倹約令', '人返し令', '株仲間令'],
           correctIndex: 0,
           explanation:
             '上知令は大名たちの猛反対にあい、水野忠邦は失脚しました。',
@@ -190,7 +190,7 @@ export const tempoReform: Topic = {
         {
           id: 'q5',
           question: '江戸に流入した農民を農村に帰す命令を何という？',
-          options: ['倹約令（贅沢の禁止）', '人返し令（帰農の命令）', '上知令（土地の直轄化）', '棄捐令（借金の帳消し）'],
+          options: ['倹約令', '人返し令', '上知令', '棄捐令'],
           correctIndex: 1,
           explanation: '人返し令は農村の復興を目指した政策でしたが、効果は限定的でした。',
           difficulty: 'basic',
@@ -214,7 +214,7 @@ export const tempoReform: Topic = {
         {
           id: 'q8',
           question: '天保の改革は三大改革の何番目か？',
-          options: ['1番目（最初の改革）', '2番目（中間の改革）', '3番目（最後の改革）', '三大改革に含まれない'],
+          options: ['1番目', '2番目', '3番目', '三大改革に含まれない'],
           correctIndex: 2,
           explanation: '天保の改革は享保→寛政→天保の順で、3番目（最後）の改革です。',
           difficulty: 'basic',
@@ -238,7 +238,7 @@ export const tempoReform: Topic = {
         {
           id: 'q11',
           question: '天保のころ独自の改革で力を蓄えた有力な藩を何という？',
-          options: ['旗本（幕府直臣の武士）', '雄藩（有力な大名の藩）', '親藩（徳川一族の藩）', '譜代（古参の家臣の藩）'],
+          options: ['旗本', '雄藩', '親藩', '譜代'],
           correctIndex: 1,
           explanation: '薩摩藩や長州藩などの雄藩は独自の改革で財政再建に成功し、幕末に大きな力を持ちました。',
           difficulty: 'advanced',

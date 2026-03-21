@@ -122,7 +122,7 @@ export const eastAsiaTrade: Topic = {
         {
           id: 'q4',
           question: '1392年に高麗を滅ぼして朝鮮国を建てた人物は？',
-          options: ['尚氏', 'チンギス・ハン', '李成桂', 'フビライ・ハン'],
+          options: ['尚氏', 'チンギス', '李成桂', 'フビライ'],
           correctIndex: 2,
           explanation: '李成桂は1392年に高麗を滅ぼして朝鮮国を建てました。',
           difficulty: 'basic',
@@ -130,7 +130,7 @@ export const eastAsiaTrade: Topic = {
         {
           id: 'q5',
           question: '朝鮮国で民衆の教育のために作られた独自の文字を何という？',
-          options: ['漢字', '仮名', 'アルファベット', 'ハングル'],
+          options: ['漢字体', '仮名文字', 'アルファベット', 'ハングル'],
           correctIndex: 3,
           explanation: 'ハングル（訓民正音）は朝鮮国で作られた独自の文字で、漢字を読めない民衆の教育に利用されました。',
           difficulty: 'basic',
@@ -154,7 +154,7 @@ export const eastAsiaTrade: Topic = {
         {
           id: 'q8',
           question: '15世紀に和人の進出に反発して戦いを起こしたアイヌの首長は？',
-          options: ['コシャマイン', 'シャクシャイン', '安藤氏', 'アテルイ'],
+          options: ['コシャマイン', 'シャクシャイン', '安藤一族', 'アテルイ'],
           correctIndex: 0,
           explanation: 'コシャマインは和人の北海道への進出と不公平な扱いに反発して蜂起したアイヌの首長です。',
           difficulty: 'basic',
@@ -170,7 +170,7 @@ export const eastAsiaTrade: Topic = {
         {
           id: 'q10',
           question: '日明貿易で日本が明から大量に輸入し、国内の商取引に使われたものは？',
-          options: ['銅銭', '生糸', '書画', '陶磁器'],
+          options: ['銅銭', '生糸', '書画', '陶器'],
           correctIndex: 0,
           explanation: '銅銭は日明貿易で日本が明から大量に輸入し、当時通貨が不足していた日本国内の商取引に広く流通しました。',
           difficulty: 'basic',
@@ -178,7 +178,7 @@ export const eastAsiaTrade: Topic = {
         {
           id: 'q11',
           question: '明を建国した民族は？',
-          options: ['モンゴル民族', '満州民族', '漢民族', 'トルコ民族'],
+          options: ['モンゴル族', '満州族', '漢民族', 'トルコ族'],
           correctIndex: 2,
           explanation: '明は漢民族が元（モンゴル民族）を北方に退けて建国した王朝です。',
           difficulty: 'standard',
@@ -186,7 +186,7 @@ export const eastAsiaTrade: Topic = {
         {
           id: 'q12',
           question: '勘合の仕組みとして正しいのは？',
-          options: ['金属の印を押す', '一枚の札を二つに割って合わせて確認する', '暗号を使う', '旗の色で区別する'],
+          options: ['船に金属の官印を押して役人が確認する', '一枚の札を二つに割って合わせて確認する', '船長が暗号を記した書状を提示する', '船に掲げる旗の色と模様で区別する'],
           correctIndex: 1,
           explanation: '勘合は一枚の札を二つに割って日本と明で半分ずつ持ち、合わせることで正式な船と証明しました。',
           difficulty: 'standard',
@@ -194,7 +194,7 @@ export const eastAsiaTrade: Topic = {
         {
           id: 'q13',
           question: 'ハングルの正式名称は？',
-          options: ['漢字', '万葉仮名', '訓民正音', '梵字'],
+          options: ['漢文字', '万葉仮名', '訓民正音', '梵字文字'],
           correctIndex: 2,
           explanation: 'ハングルの正式名称は訓民正音で、「民を教える正しい音」という意味です。',
           difficulty: 'standard',
@@ -226,7 +226,7 @@ export const eastAsiaTrade: Topic = {
         {
           id: 'q17',
           question: '中継貿易とはどのような貿易？',
-          options: ['直接輸出入する貿易', '各地の産物を集めて別の地域に仲介する貿易', '物々交換の貿易', '朝貢貿易'],
+          options: ['生産国と消費国が直接取引する輸出入の貿易', '各地の産物を集めて別の地域に仲介する貿易', '金銭を使わず産物を等価で交換する物々交換の貿易', '臣下の国が宗主国に定期的に貢ぎ物を献上する朝貢貿易'],
           correctIndex: 1,
           explanation: '中継貿易は各地の産物を集めて別の地域に転売する貿易形態で、琉球王国はこれで繁栄しました。',
           difficulty: 'standard',
@@ -258,7 +258,7 @@ export const eastAsiaTrade: Topic = {
         {
           id: 'q21',
           question: '琉球王国が中継貿易で繁栄できた理由は？',
-          options: ['日本・中国・東南アジアの中間に位置する地理的利点', '軍事力が強かったから', '大量の銀を産出したから', '朝廷の保護を受けたから'],
+          options: ['日本・中国・東南アジアの中間に位置する地理的利点', '周辺諸国に対して圧倒的な軍事力を持っていたから', '島内から大量の銀を産出して財力を蓄えたから', '中国の明朝廷から特別な保護と支援を受けたから'],
           correctIndex: 0,
           explanation: '琉球王国は日本・中国・東南アジアのほぼ中間に位置する地理的利点を活かして中継貿易で繁栄しました。',
           difficulty: 'standard',
@@ -274,7 +274,7 @@ export const eastAsiaTrade: Topic = {
         {
           id: 'q23',
           question: '琉球王国とアイヌ民族に共通する点は？',
-          options: ['どちらも幕府に従った', 'どちらも農耕民族だった', 'どちらも独自の文化を持ち交易で生活していた', 'どちらも中国に服属した'],
+          options: ['どちらも幕府の統制下に入った', 'どちらも農耕中心の民族だった', 'どちらも独自の文化を持ち交易で生活していた', 'どちらも中国の朝廷に服属した'],
           correctIndex: 2,
           explanation: '琉球もアイヌもそれぞれ独自の文化を持ち、交易で生活していた点が共通しています。',
           difficulty: 'advanced',
@@ -290,7 +290,7 @@ export const eastAsiaTrade: Topic = {
         {
           id: 'q25',
           question: 'アイヌ民族の主な生活手段は？',
-          options: ['稲作と養蚕', '牧畜と遊牧', '都市での商業', '狩りや漁と独自の交易'],
+          options: ['水田を開いての稲作と桑を育てての養蚕', '牛や馬を飼う牧畜と草原を移動する遊牧', '城下町などの都市に定住しての商業活動', '狩りや漁と独自の交易'],
           correctIndex: 3,
           explanation: 'アイヌ民族は狩りや漁を行い、独自の交易活動を展開していました。',
           difficulty: 'advanced',
@@ -298,7 +298,7 @@ export const eastAsiaTrade: Topic = {
         {
           id: 'q26',
           question: '勘合貿易で日本が大量に輸入した銅銭の国内での用途は？',
-          options: ['仏像の材料', '武器の材料', '装飾品の材料', '商取引に流通する貨幣として使われた'],
+          options: ['寺院や神社に奉納する仏像を鋳造する材料として使われた', '刀剣や鎧などの武器・武具を製造する材料として使われた', '貴族や武士が身に付ける高価な装飾品の材料として使われた', '商取引に流通する貨幣として使われた'],
           correctIndex: 3,
           explanation: '銅銭は国内の商取引に広く流通する貨幣として使われ、貨幣経済の発展に寄与しました。',
           difficulty: 'advanced',
@@ -306,7 +306,7 @@ export const eastAsiaTrade: Topic = {
         {
           id: 'q27',
           question: '朝鮮国と日本の関係として正しいのは？',
-          options: ['敵対していた', '日本が朝鮮を支配した', '全く交流がなかった', '交流・貿易を行い、倭寇の取り締まりも求めた'],
+          options: ['互いに激しく敵対して戦争を行った', '日本が朝鮮を支配した', '互いに全く交流がなかった', '交流・貿易を行い、倭寇の取り締まりも求めた'],
           correctIndex: 3,
           explanation: '朝鮮国は日本と交流・貿易を行い、同時に倭寇の取り締まりも求めていました。',
           difficulty: 'advanced',

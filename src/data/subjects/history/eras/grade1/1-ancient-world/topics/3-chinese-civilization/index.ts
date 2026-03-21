@@ -409,7 +409,7 @@ export const chineseCivilization: Topic = {
         {
           id: 'q21',
           question: 'シルクロードの交易で砂漠を移動するのに使われた動物は？',
-          options: ['馬', 'ロバ', '象', 'ラクダ'],
+          options: ['足の速い馬', '荷物を運ぶロバ', '力強い象', 'ラクダ'],
           correctIndex: 3,
           explanation: 'ラクダは砂漠を長距離移動するのに適しており、シルクロードの交易で使われました。',
           difficulty: 'standard',
@@ -425,7 +425,7 @@ export const chineseCivilization: Topic = {
         {
           id: 'q23',
           question: '甲骨文字は現在のどの文字のもとになったか？',
-          options: ['ひらがな', 'アルファベット', '漢字', 'くさび形文字'],
+          options: ['仮名', '篆書', '漢字', '隷書'],
           correctIndex: 2,
           explanation: '甲骨文字は次第に簡略化されて漢字へと発展しました。',
           difficulty: 'advanced',

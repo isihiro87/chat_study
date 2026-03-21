@@ -67,7 +67,7 @@ export const ryukyuAinu: Topic = {
         {
           id: 'q2',
           question: '1669年に不公平な交易に抵抗して蜂起したアイヌの首長は？',
-          options: ['コシャマイン', 'シャクシャイン', 'メナシ', 'クナシリ'],
+          options: ['コシャマイン', 'シャクシャイン', 'メナシクル', 'クナシリ'],
           correctIndex: 1,
           explanation: 'シャクシャインは松前藩との不公平な交易に不満を持ち、蜂起しましたが鎮圧されました。',
           difficulty: 'basic',
@@ -91,7 +91,7 @@ export const ryukyuAinu: Topic = {
         {
           id: 'q5',
           question: '江戸時代の北海道・千島列島・樺太の呼び方は？',
-          options: ['蝦夷地', '北方領土', '松前地', '日本海地域'],
+          options: ['蝦夷地', '北方領土', '松前地', '日本海域'],
           correctIndex: 0,
           explanation: '蝦夷地は江戸時代の北海道・千島列島・樺太の総称です。',
           difficulty: 'basic',
@@ -155,7 +155,7 @@ export const ryukyuAinu: Topic = {
         {
           id: 'q13',
           question: '薩摩藩が琉球を通じて間接的に交易していた国は？',
-          options: ['オランダ', '朝鮮', '中国（清）', 'ポルトガル'],
+          options: ['英国', '朝鮮', '中国', '仏国'],
           correctIndex: 2,
           explanation: '薩摩藩は琉球を通じて中国（清）と間接的に交易し、利益を得ていました。',
           difficulty: 'advanced',

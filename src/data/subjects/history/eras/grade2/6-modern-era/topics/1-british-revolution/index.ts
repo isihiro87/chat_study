@@ -299,7 +299,7 @@ export const britishRevolution: Topic = {
         {
           id: 'q15',
           question: 'イギリスで名誉革命後に確立された政治の仕組みは？',
-          options: ['絶対王政（国王の専制）', '共和制（国王なしの政治）', '封建制（土地に基づく制度）', '議会政治（代表者による政治）'],
+          options: ['絶対王政', '共和制', '封建制', '議会政治'],
           correctIndex: 3,
           explanation: '名誉革命後、権利章典により国王は議会に従うことが定められ、議会政治が確立しました。',
           difficulty: 'basic',
@@ -316,7 +316,7 @@ export const britishRevolution: Topic = {
           id: 'q17',
           question: 'ピューリタン革命と名誉革命の共通点は？',
           options: [
-            '国王の処刑',
+            '国王が処刑された',
             '議会が国王と対立した',
             '外国の軍事介入があった',
             '共和制が長期間続いた',

@@ -134,7 +134,7 @@ export const threeCapitals: Topic = {
         {
           id: 'q1',
           question: '「天下の台所」と呼ばれた都市はどこ？',
-          options: ['江戸', '大阪', '京都', '堺'],
+          options: ['江戸', '大阪', '京都', '堺市'],
           correctIndex: 1,
           explanation: '大阪は全国から米や特産物が集まり、「天下の台所」と呼ばれる経済の中心地でした。',
           difficulty: 'basic',
@@ -142,7 +142,7 @@ export const threeCapitals: Topic = {
         {
           id: 'q2',
           question: '江戸時代に人口100万を超え、政治の中心だった都市は？',
-          options: ['江戸', '堺', '大阪', '京都'],
+          options: ['江戸', '堺市', '大阪', '京都'],
           correctIndex: 0,
           explanation: '江戸は「将軍のお膝元」として政治の中心地であり、当時世界最大級の都市でした。',
           difficulty: 'basic',
@@ -182,7 +182,7 @@ export const threeCapitals: Topic = {
         {
           id: 'q7',
           question: '天皇のいる都として文化の中心であった都市は？',
-          options: ['江戸', '大阪', '京都', '堺'],
+          options: ['江戸', '大阪', '京都', '堺市'],
           correctIndex: 2,
           explanation: '京都は朝廷があり、西陣織や清水焼など文化・伝統工芸の中心でした。',
           difficulty: 'basic',
@@ -190,7 +190,7 @@ export const threeCapitals: Topic = {
         {
           id: 'q8',
           question: '同じ職種の商人や職人が作った同業者組合を何という？',
-          options: ['座', '株仲間', '五人組', '問屋'],
+          options: ['座所', '株仲間', '五人組', '問屋'],
           correctIndex: 1,
           explanation: '株仲間は幕府から営業の独占を認められた商人の同業者組合です。',
           difficulty: 'basic',
@@ -198,7 +198,7 @@ export const threeCapitals: Topic = {
         {
           id: 'q9',
           question: '江戸で「現金掛け値なし」の商法で成功した商家は？',
-          options: ['鴻池', '住友', '三井越後屋', '角倉'],
+          options: ['鴻池商家', '住友商家', '三井越後屋', '角倉商家'],
           correctIndex: 2,
           explanation: '三井越後屋は定価販売と現金取引で庶民に人気を博した江戸の商家です。',
           difficulty: 'standard',
@@ -222,7 +222,7 @@ export const threeCapitals: Topic = {
         {
           id: 'q12',
           question: '株仲間が幕府に納めた営業税を何という？',
-          options: ['年貢', '運上金・冥加金', '関税', '地租'],
+          options: ['農民が納める年貢', '運上金・冥加金', '輸入品への関税', '明治時代の地租'],
           correctIndex: 1,
           explanation: '株仲間は運上金・冥加金を幕府に納めることで、営業の独占権を得ました。',
           difficulty: 'advanced',

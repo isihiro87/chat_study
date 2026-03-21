@@ -227,9 +227,9 @@ export const fallOfBakufu: Topic = {
             '大政奉還の後、天皇中心の新政府を作ることを宣言した命令は？',
           options: [
             '王政復古の大号令',
-            '教育勅語',
+            '明治の教育勅語',
             '五箇条の御誓文',
-            '廃藩置県',
+            '廃藩置県の命令',
           ],
           correctIndex: 0,
           explanation:
@@ -249,7 +249,7 @@ export const fallOfBakufu: Topic = {
           id: 'q6',
           question:
             '幕末に民衆の間で流行した、世直しへの期待を込めた踊りは？',
-          options: ['盆踊り', 'ええじゃないか', '花笠踊り', '阿波踊り'],
+          options: ['盆踊り騒ぎ', 'ええじゃないか', '花笠踊り騒ぎ', '阿波踊り騒ぎ'],
           correctIndex: 1,
           explanation:
             '「ええじゃないか」は社会の大変動の中で民衆が世直しへの期待を込めて各地で踊った運動です。',
@@ -286,10 +286,10 @@ export const fallOfBakufu: Topic = {
           id: 'q10',
           question: '戊辰戦争の最初の戦いが行われた場所は？',
           options: [
-            '江戸城',
+            '江戸城付近',
             '鳥羽・伏見',
-            '函館',
-            '会津若松',
+            '函館近辺',
+            '会津若松城',
           ],
           correctIndex: 1,
           explanation:

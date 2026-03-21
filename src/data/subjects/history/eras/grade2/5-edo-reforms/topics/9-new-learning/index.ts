@@ -146,7 +146,7 @@ export const newLearning: Topic = {
         {
           id: 'q4',
           question: '庶民の子が読み書きを学んだ教育施設は？',
-          options: ['藩校', '寺子屋', '私塾', '昌平坂学問所'],
+          options: ['藩校', '寺子屋', '私塾', '学問所'],
           correctIndex: 1,
           explanation:
             '寺子屋では庶民の子が「読み・書き・そろばん」を学びました。藩校は武士の子が通う学校です。',
@@ -155,7 +155,7 @@ export const newLearning: Topic = {
         {
           id: 'q5',
           question: '「解体新書」の原書であるオランダ語の医学書の名前は？',
-          options: ['蘭学事始', '医学入門', 'ターヘル・アナトミア', '本草綱目'],
+          options: ['蘭学事始書', '医学の入門書', 'ターヘル・アナトミア', '本草綱目の書'],
           correctIndex: 2,
           explanation: 'ターヘル・アナトミアはオランダ語の解剖学書で、杉田玄白らが翻訳しました。',
           difficulty: 'advanced',
@@ -195,7 +195,7 @@ export const newLearning: Topic = {
         {
           id: 'q10',
           question: '国学が復古神道と結びつき、やがて影響を与えた思想は？',
-          options: ['蘭学（西洋の学問）', '朱子学（正統の儒学）', '陽明学（実践の儒学）', '尊王攘夷思想（天皇を尊ぶ）'],
+          options: ['蘭学', '朱子学', '陽明学', '尊王攘夷思想'],
           correctIndex: 3,
           explanation: '国学は日本固有の精神を探求する中で、尊王攘夷思想に影響を与えました。',
           difficulty: 'advanced',
@@ -211,7 +211,7 @@ export const newLearning: Topic = {
         {
           id: 'q12',
           question: '武士の子弟のために藩が設けた教育機関は？',
-          options: ['寺子屋（庶民の学校）', '適塾（緒方洪庵の私塾）', '藩校（藩士の学校）', '鳴滝塾（シーボルトの私塾）'],
+          options: ['寺子屋', '適塾', '藩校', '鳴滝塾'],
           correctIndex: 2,
           explanation: '藩校は藩が武士の子弟の教育のために設立した教育機関です。',
           difficulty: 'basic',
@@ -236,10 +236,10 @@ export const newLearning: Topic = {
           id: 'q15',
           question: '国学と蘭学の違いとして正しいのは？',
           options: [
-            '国学は中国の学問、蘭学は西洋の学問',
+            '国学は中国古典の研究、蘭学はフランス語を通じた学問',
             '国学は日本古典の研究、蘭学はオランダ語を通じた西洋の学問',
-            '国学は医学、蘭学は文学',
-            '国学は武士の学問、蘭学は庶民の学問',
+            '国学は医学・解剖学、蘭学は詩歌・文学',
+            '国学は武士のみの学問、蘭学は商人だけの学問',
           ],
           correctIndex: 1,
           explanation: '国学は日本の古典を研究し固有の精神を探求、蘭学はオランダ語を通じて西洋の学問を学びました。',
@@ -256,7 +256,7 @@ export const newLearning: Topic = {
         {
           id: 'q17',
           question: '藩校の例として正しいのは？',
-          options: ['適塾（大阪の私塾）', '鳴滝塾（長崎の私塾）', '日新館（会津藩の藩校）', '寺子屋（庶民の学校）'],
+          options: ['適塾', '鳴滝塾', '日新館', '寺子屋'],
           correctIndex: 2,
           explanation: '日新館は会津藩の藩校で、武士の子弟に武術や学問を教えました。',
           difficulty: 'standard',

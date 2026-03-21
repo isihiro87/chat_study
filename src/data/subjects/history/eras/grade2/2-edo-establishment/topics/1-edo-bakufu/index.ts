@@ -69,7 +69,7 @@ export const edoBakufu: Topic = {
         {
           id: 'q2',
           question: '大名が領地と江戸を1年おきに往復する制度を何という？',
-          options: ['武家諸法度', '参勤交代', '幕藩体制', '禁中並公家諸法度'],
+          options: ['武家諸法度', '参勤交代', '幕藩体制', '禁中諸法度'],
           correctIndex: 1,
           explanation: '参勤交代は3代将軍家光のときに制度化され、大名に莫大な費用がかかりました。',
           difficulty: 'basic',
@@ -77,7 +77,7 @@ export const edoBakufu: Topic = {
         {
           id: 'q3',
           question: '関ヶ原の戦い以前から徳川家に従っていた大名を何という？',
-          options: ['外様大名', '親藩', '旗本', '譜代大名'],
+          options: ['外様大名', '親族大名', '直参旗本', '譜代大名'],
           correctIndex: 3,
           explanation: '譜代大名は関ヶ原以前から家康に従い、幕府の要職に就くことが多かったです。',
           difficulty: 'standard',
@@ -101,7 +101,7 @@ export const edoBakufu: Topic = {
         {
           id: 'q6',
           question: '徳川家の一族である大名を何という？',
-          options: ['外様大名', '親藩', '譜代大名', '旗本'],
+          options: ['外様', '親藩', '譜代', '旗本'],
           correctIndex: 1,
           explanation: '親藩は徳川家の一族で、尾張・紀伊・水戸の御三家が代表的です。',
           difficulty: 'basic',
@@ -109,7 +109,7 @@ export const edoBakufu: Topic = {
         {
           id: 'q7',
           question: '関ヶ原の戦い以後に従うようになった大名を何という？',
-          options: ['親藩', '譜代大名', '旗本', '外様大名'],
+          options: ['徳川親族', '譜代大名', '直参旗本', '外様大名'],
           correctIndex: 3,
           explanation: '外様大名は関ヶ原以後に従った大名で、江戸から遠い地方に配置されました。',
           difficulty: 'standard',
@@ -133,7 +133,7 @@ export const edoBakufu: Topic = {
         {
           id: 'q10',
           question: '天皇や公家の行動を制限した法律は？',
-          options: ['武家諸法度', '大宝律令', '禁中並公家諸法度', '御成敗式目'],
+          options: ['武家諸法度', '大宝の律令', '禁中並公家諸法度', '御成敗式目'],
           correctIndex: 2,
           explanation: '禁中並公家諸法度は天皇や公家の行動を制限し、幕府の権威を保つために定められました。',
           difficulty: 'standard',
@@ -157,7 +157,7 @@ export const edoBakufu: Topic = {
         {
           id: 'q13',
           question: '江戸幕府に常に置かれた最高職は？',
-          options: ['大老', '老中', '若年寄', '奉行'],
+          options: ['大老', '老中', '若年', '奉行'],
           correctIndex: 1,
           explanation: '老中は幕政の中心を担う最高職で、常に置かれていました。',
           difficulty: 'standard',
@@ -165,7 +165,7 @@ export const edoBakufu: Topic = {
         {
           id: 'q14',
           question: '幕府が直接支配した土地を何と呼ぶ？',
-          options: ['藩領', '荘園', '幕領（天領）', '御料所'],
+          options: ['藩領', '荘園', '幕領', '御料所'],
           correctIndex: 2,
           explanation: '幕領（天領）は幕府が直接支配した土地で、主要な鉱山や都市を含みました。',
           difficulty: 'advanced',
@@ -189,7 +189,7 @@ export const edoBakufu: Topic = {
         {
           id: 'q17',
           question: '家康をまつる日光にある有名な建物は？',
-          options: ['東大寺', '金閣寺', '日光東照宮', '清水寺'],
+          options: ['奈良東大寺', '京都金閣寺', '日光東照宮', '京都清水寺'],
           correctIndex: 2,
           explanation: '日光東照宮は家康をまつる建物で、幕府の権威の象徴となりました。',
           difficulty: 'advanced',

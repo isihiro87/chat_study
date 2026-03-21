@@ -207,7 +207,7 @@ export const cultureReligion: Topic = {
           question: '「世界三大宗教」に含まれないのはどれ？',
           options: [
             'キリスト教',
-            'イスラーム（イスラム教）',
+            'イスラーム',
             'ヒンドゥー教',
             '仏教',
           ],

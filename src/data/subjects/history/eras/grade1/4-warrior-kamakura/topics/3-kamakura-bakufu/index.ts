@@ -198,7 +198,7 @@ export const kamakuraBakufu: Topic = {
         {
           id: 'q13',
           question: '御家人の「奉公」に含まれるものはどれ？',
-          options: ['年貢の免除', '戦いや京都・鎌倉の警護', '荘園の開墾', '朝廷への出仕'],
+          options: ['将軍から与えられた年貢の免除', '戦いや京都・鎌倉の警護', '新たな荘園の開墾と管理', '天皇や朝廷に直接出仕すること'],
           correctIndex: 1,
           explanation: '奉公とは御家人が将軍のために戦いに参加したり、京都や鎌倉の警護を行ったりすることです。',
           difficulty: 'standard',
@@ -262,7 +262,7 @@ export const kamakuraBakufu: Topic = {
         {
           id: 'q21',
           question: '承久の乱が幕府に与えた最大の影響は？',
-          options: ['幕府が滅亡した', '御家人の領地が減った', '朝廷に対する幕府の優位が確立した', '北条氏が執権から外された'],
+          options: ['幕府は後鳥羽上皇に敗れて滅亡した', '後鳥羽上皇の軍に押されて御家人の領地が減った', '朝廷に対する幕府の優位が確立した', '承久の乱後に北条氏が執権の地位から外された'],
           correctIndex: 2,
           explanation: '承久の乱で幕府が勝利し、朝廷に対する幕府の優位が確立、支配が西日本にも広がりました。',
           difficulty: 'standard',
@@ -270,7 +270,7 @@ export const kamakuraBakufu: Topic = {
         {
           id: 'q22',
           question: '御成敗式目が適用されたのはどのような人々？',
-          options: ['貴族', '僧侶', '武士（御家人）', '農民'],
+          options: ['貴族', '僧侶', '武士', '農民'],
           correctIndex: 2,
           explanation: '御成敗式目は武士（御家人）に適用され、貴族や寺社には従来の法律が適用されました。',
           difficulty: 'standard',
@@ -278,7 +278,7 @@ export const kamakuraBakufu: Topic = {
         {
           id: 'q23',
           question: '「いざ鎌倉」という言葉の意味として正しいのは？',
-          options: ['鎌倉に遊びに行くこと', '鎌倉を攻撃すること', '鎌倉で商売すること', '非常事態に将軍のもとへ駆けつける御家人の覚悟'],
+          options: ['御家人が鎌倉に遊びに行くこと', '敵が鎌倉を攻撃しようとすること', '商人が鎌倉で商売を始めること', '非常事態に将軍のもとへ駆けつける御家人の覚悟'],
           correctIndex: 3,
           explanation: '「いざ鎌倉」は非常事態が起きたとき、御家人が将軍のもと（鎌倉）へすぐに駆けつけるという覚悟を表す言葉です。',
           difficulty: 'advanced',
@@ -294,7 +294,7 @@ export const kamakuraBakufu: Topic = {
         {
           id: 'q25',
           question: '源頼朝が全国に守護・地頭を置いた意義は？',
-          options: ['貿易を促進するため', '朝廷を守るため', '仏教を広めるため', '全国に幕府の支配を及ぼし武士の統治体制を確立した'],
+          options: ['宋との貿易を全国的に促進するため', '天皇や朝廷の権威と安全を守るため', '各地の寺院を通じて仏教を民衆に広めるため', '全国に幕府の支配を及ぼし武士の統治体制を確立した'],
           correctIndex: 3,
           explanation: '守護・地頭の設置により全国の土地に幕府の支配が及び、武士による統治体制が確立しました。',
           difficulty: 'advanced',
@@ -318,7 +318,7 @@ export const kamakuraBakufu: Topic = {
         {
           id: 'q28',
           question: '源氏の将軍が途絶えた後、幕府の政治は実質的にだれが行った？',
-          options: ['朝廷の貴族', '御家人の合議', '源氏の親戚', '北条氏（執権）'],
+          options: ['朝廷の貴族', '御家人の合議', '源氏の親戚', '北条氏'],
           correctIndex: 3,
           explanation: '源氏の将軍が3代で途絶えた後、北条氏が執権として幕府の政治を主導しました。',
           difficulty: 'advanced',

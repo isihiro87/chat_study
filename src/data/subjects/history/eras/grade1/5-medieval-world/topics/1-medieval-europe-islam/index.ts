@@ -68,7 +68,7 @@ export const medievalEuropeIslam: Topic = {
         {
           id: 'q1',
           question: '西ヨーロッパでカトリック教会の頂点に立った指導者は？',
-          options: ['皇帝', '大司教', 'ローマ教皇', '国王'],
+          options: ['世俗皇帝', '大司教', 'ローマ教皇', '諸侯国王'],
           correctIndex: 2,
           explanation: 'ローマ教皇は中世ヨーロッパにおいてカトリック教会の最高権威として大きな力を持ちました。',
           difficulty: 'basic',
@@ -172,7 +172,7 @@ export const medievalEuropeIslam: Topic = {
         {
           id: 'q14',
           question: '十字軍の遠征がヨーロッパにもたらした経済的な影響は？',
-          options: ['農業の衰退', '東西貿易の活発化', '人口の減少', '教会の繁栄'],
+          options: ['農業生産の急激な衰退', '東西貿易の活発化', '疫病による人口の急減', '教皇権威のさらなる上昇'],
           correctIndex: 1,
           explanation: '十字軍の遠征を通じてヨーロッパとイスラーム世界の交流が深まり、東西貿易が活発になりました。',
           difficulty: 'standard',

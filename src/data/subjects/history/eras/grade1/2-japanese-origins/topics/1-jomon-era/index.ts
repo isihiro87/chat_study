@@ -412,7 +412,7 @@ export const jomonEra: Topic = {
         {
           id: 'q20',
           question: '縄文時代にアクセサリーとして身につけた勾玉の材料は？',
-          options: ['金', '銅', 'ヒスイ（翡翠）', '鉄'],
+          options: ['金や銀', '銅や錫', 'ヒスイ', '鉄や青銅'],
           correctIndex: 2,
           explanation: '縄文時代の勾玉にはヒスイ（翡翠）が使われました。',
           difficulty: 'standard',

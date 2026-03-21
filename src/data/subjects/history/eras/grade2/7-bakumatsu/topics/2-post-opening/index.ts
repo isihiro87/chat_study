@@ -244,10 +244,10 @@ export const postOpening: Topic = {
           question:
             '開港後、日本と外国の金銀交換比率の違いから起きた経済問題は？',
           options: [
-            '物価の下落',
+            '国内物価の下落と消費の落ち込み',
             '金の流出と物価高騰',
-            '銀の不足',
-            '貿易の停止',
+            '国内の銀が不足して決済が困難',
+            '輸出入が停止して商業が衰退',
           ],
           correctIndex: 1,
           explanation:
@@ -343,10 +343,10 @@ export const postOpening: Topic = {
           question:
             '安政の大獄が起きた直接の原因は？',
           options: [
-            'ペリーが来航したこと',
-            '西南戦争が起きたこと',
+            '黒船ペリーが浦賀に来航したこと',
+            '西南戦争で士族が政府に反乱したこと',
             '朝廷の許可なく条約を結んだことへの批判',
-            '薩長同盟が結ばれたこと',
+            '薩長同盟が密かに締結されたこと',
           ],
           correctIndex: 2,
           explanation:
@@ -383,10 +383,10 @@ export const postOpening: Topic = {
           question:
             '開国後の日本で輸入品として多かったものは？',
           options: [
-            '米と大豆',
-            '生糸と茶',
+            '米と大豆類',
+            '生糸と緑茶',
             '毛織物と綿織物',
-            '金と銀',
+            '金貨と銀貨',
           ],
           correctIndex: 2,
           explanation:

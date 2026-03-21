@@ -182,7 +182,7 @@ export const tanumaPolitics: Topic = {
         {
           id: 'q4',
           question: '田沼意次が幕府で就いた役職は？',
-          options: ['将軍（最高権力者）', '大名（領地の支配者）', '老中（幕政の最高職）', '大老（臨時の最高職）'],
+          options: ['将軍', '大名', '老中', '大老'],
           correctIndex: 2,
           explanation: '田沼意次は老中として実権を握り、独自の経済政策を推進しました。',
           difficulty: 'basic',
@@ -198,7 +198,7 @@ export const tanumaPolitics: Topic = {
         {
           id: 'q6',
           question: '株仲間から幕府が徴収した営業税を何という？',
-          options: ['年貢（農業の税金）', '関税（貿易の税金）', '運上金・冥加金（営業税）', '地租（明治の土地税）'],
+          options: ['年貢', '関税', '運上金・冥加金', '地租'],
           correctIndex: 2,
           explanation: '田沼は株仲間を公認する代わりに運上金・冥加金を徴収して収入を増やしました。',
           difficulty: 'standard',
@@ -206,7 +206,7 @@ export const tanumaPolitics: Topic = {
         {
           id: 'q7',
           question: '田沼意次が干拓を計画した千葉県の沼は？',
-          options: ['琵琶湖（滋賀県の湖）', '霞ヶ浦（茨城県の湖）', '印旛沼（千葉県の沼）', '諏訪湖（長野県の湖）'],
+          options: ['琵琶湖', '霞ヶ浦', '印旛沼', '諏訪湖'],
           correctIndex: 2,
           explanation: '印旛沼の干拓で新たな農地を得る計画でしたが、洪水などで失敗しました。',
           difficulty: 'standard',
@@ -214,7 +214,7 @@ export const tanumaPolitics: Topic = {
         {
           id: 'q8',
           question: '田沼意次が開発を計画した北方の地域は？',
-          options: ['琉球（沖縄方面）', '蝦夷地（北海道方面）', '対馬（九州北方の島）', '樺太（北方の大きな島）'],
+          options: ['琉球', '蝦夷地', '対馬', '樺太'],
           correctIndex: 1,
           explanation: '田沼は蝦夷地（北海道）の開発を計画し、ロシアとの交易も視野に入れていました。',
           difficulty: 'standard',
@@ -222,7 +222,7 @@ export const tanumaPolitics: Topic = {
         {
           id: 'q9',
           question: '天明のききんの一因となった1783年の自然災害は？',
-          options: ['大地震（関東地方の地震）', '大洪水（河川の氾濫）', '浅間山の噴火（火山災害）', '大津波（沿岸部の津波）'],
+          options: ['大地震', '大洪水', '浅間山の噴火', '大津波'],
           correctIndex: 2,
           explanation: '浅間山の大噴火で火山灰が日照を遮り、全国的な凶作を引き起こしました。',
           difficulty: 'standard',
@@ -238,7 +238,7 @@ export const tanumaPolitics: Topic = {
         {
           id: 'q11',
           question: '田沼の政治と三大改革の最大の違いは？',
-          options: ['外交政策の違い', '商業重視か農業重視かの違い', '教育政策の違い', '軍事政策の違い'],
+          options: ['鎖国か開国かという外交の違い', '商業重視か農業重視かの違い', '寺子屋か藩校かの教育の違い', '騎馬か鉄砲かの軍事の違い'],
           correctIndex: 1,
           explanation: '田沼は商業を利用した積極財政、三大改革はいずれも倹約・農業重視が基本でした。',
           difficulty: 'advanced',
@@ -254,7 +254,7 @@ export const tanumaPolitics: Topic = {
         {
           id: 'q13',
           question: '俵物とともに長崎貿易で重要な輸出品だった金属は？',
-          options: ['金（金貨の原料）', '銀（銀貨の原料）', '銅（中国への輸出品）', '鉄（武器の原料）'],
+          options: ['金', '銀', '銅', '鉄'],
           correctIndex: 2,
           explanation: '銅は俵物とともに中国やオランダへの主要な輸出品でした。',
           difficulty: 'advanced',

@@ -182,7 +182,7 @@ export const transportation: Topic = {
         {
           id: 'q7',
           question: '五街道の起点となった場所はどこ？',
-          options: ['京都御所', '大阪城', '日本橋（江戸）', '二条城（京都）'],
+          options: ['京都御所', '大阪城', '日本橋', '二条城'],
           correctIndex: 2,
           explanation: '五街道の起点は江戸の日本橋で、現在も道路の起点として知られています。',
           difficulty: 'basic',

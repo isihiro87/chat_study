@@ -139,7 +139,7 @@ export const europeSpread: Topic = {
         {
           id: 'q11',
           question: 'コロンブスが到達した場所をどこだと思っていたか？',
-          options: ['アフリカ大陸', 'アジア（インド）', 'オーストラリア大陸', 'ヨーロッパの離島'],
+          options: ['アフリカ', 'アジア', 'アメリカ', 'ヨーロッパ'],
           correctIndex: 1,
           explanation: 'コロンブスは到達した場所をアジア（インド）だと信じ、先住民をインディオと呼びました。',
           difficulty: 'basic',
@@ -155,7 +155,7 @@ export const europeSpread: Topic = {
         {
           id: 'q13',
           question: '三角貿易でアフリカからアメリカ大陸へ送られたのは？',
-          options: ['香辛料', '金銀', '奴隷（黒人奴隷）', '武器'],
+          options: ['香辛料', '金銀', '奴隷', '武器'],
           correctIndex: 2,
           explanation: '三角貿易ではアフリカから多くの人々がアメリカ大陸に奴隷として送られました。',
           difficulty: 'standard',

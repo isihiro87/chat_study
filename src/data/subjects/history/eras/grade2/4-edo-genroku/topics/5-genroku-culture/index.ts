@@ -193,7 +193,7 @@ export const genrokuCulture: Topic = {
         {
           id: 'q4',
           question: '元禄文化が栄えた中心地はどこ？',
-          options: ['江戸（現在の東京）', '長崎（出島の町）', '上方（大阪・京都）', '鎌倉（古都）'],
+          options: ['江戸', '長崎', '上方', '鎌倉'],
           correctIndex: 2,
           explanation: '元禄文化は大阪・京都（上方）を中心に、経済力をつけた町人が担い手となって花開きました。',
           difficulty: 'standard',
@@ -217,7 +217,7 @@ export const genrokuCulture: Topic = {
         {
           id: 'q7',
           question: '元禄文化の担い手は主にどのような身分の人々だったか？',
-          options: ['武士（幕府の家臣）', '公家（朝廷の貴族）', '町人（商人・職人）', '僧侶（寺院の宗教者）'],
+          options: ['武士', '公家', '町人', '僧侶'],
           correctIndex: 2,
           explanation: '経済力をつけた町人が文化の担い手となり、活気ある庶民文化が生まれました。',
           difficulty: 'basic',
@@ -241,7 +241,7 @@ export const genrokuCulture: Topic = {
         {
           id: 'q10',
           question: '三味線の伴奏と語りに合わせて人形を動かす演劇を何という？',
-          options: ['歌舞伎（派手な演劇）', '能楽（古典的な舞台）', '人形浄瑠璃（人形劇）', '狂言（喜劇的な芸能）'],
+          options: ['歌舞伎芝居', '能楽舞台', '人形浄瑠璃', '狂言劇場'],
           correctIndex: 2,
           explanation: '人形浄瑠璃は大阪を中心に発達し、近松門左衛門の脚本で人気を博しました。',
           difficulty: 'basic',
@@ -249,7 +249,7 @@ export const genrokuCulture: Topic = {
         {
           id: 'q11',
           question: '元禄時代に「天下の台所」と呼ばれた都市はどこか？',
-          options: ['京都（朝廷の所在地）', '大阪（経済の中心地）', '江戸（将軍のお膝元）', '長崎（貿易の窓口）'],
+          options: ['京都', '大阪', '江戸', '長崎'],
           correctIndex: 1,
           explanation: '大阪は全国の物産が集まる経済の中心地として「天下の台所」と呼ばれました。',
           difficulty: 'basic',
@@ -265,7 +265,7 @@ export const genrokuCulture: Topic = {
         {
           id: 'q13',
           question: '「現金掛け値なし」の商法で庶民に人気を博した商家は？',
-          options: ['住友家（銅の精錬）', '鴻池家（酒造で発展）', '三井越後屋（定価販売）', '淀屋（米の仲買い）'],
+          options: ['住友家の店', '鴻池屋の店', '三井越後屋', '淀屋の店'],
           correctIndex: 2,
           explanation: '三井越後屋は定価販売という画期的な商法で庶民に支持されました。',
           difficulty: 'advanced',
@@ -289,7 +289,7 @@ export const genrokuCulture: Topic = {
         {
           id: 'q16',
           question: '金銀の交換を行い、金融業を営んだ商人を何という？',
-          options: ['問屋（流通の卸売商）', '両替商（金融の専門商）', '株仲間（同業者の組合）', '蔵元（藩の財政代行）'],
+          options: ['問屋', '両替商', '株仲間', '蔵元'],
           correctIndex: 1,
           explanation: '両替商は西日本で発達し、現在の銀行に近い金融業を営みました。',
           difficulty: 'advanced',

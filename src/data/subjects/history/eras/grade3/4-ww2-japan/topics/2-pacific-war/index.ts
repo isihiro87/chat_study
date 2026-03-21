@@ -167,9 +167,9 @@ export const pacificWar: Topic = {
           question: '日本がアジアへの侵出を正当化するために掲げたスローガンは？',
           options: [
             '「大東亜共栄圏」',
-            '富国強兵',
-            '殖産興業',
-            '脱亜入欧',
+            '「八紘一宇」',
+            '「大アジア主義」',
+            '「東洋平和論」',
 ],
           correctIndex: 0,
           explanation:

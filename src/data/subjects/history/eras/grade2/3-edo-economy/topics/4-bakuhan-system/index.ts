@@ -134,7 +134,7 @@ export const bakuhanSystem: Topic = {
         {
           id: 'q1',
           question: '大名が1年おきに江戸と領地を往復する制度は？',
-          options: ['参勤交代', '武家諸法度', '鎖国', '禁中並公家諸法度'],
+          options: ['参勤交代', '武家諸法度', '鎖国令', '禁中法度'],
           correctIndex: 0,
           explanation: '参勤交代は3代将軍家光の時に制度化され、大名の経済力を弱めて反乱を防ぐ効果がありました。',
           difficulty: 'basic',
@@ -158,7 +158,7 @@ export const bakuhanSystem: Topic = {
         {
           id: 'q4',
           question: '綱吉が発令した、極端な動物愛護を命じた法令は？',
-          options: ['武家諸法度', '生類憐みの令', '禁中並公家諸法度', '鎖国令'],
+          options: ['武家諸法度', '生類憐みの令', '禁中並公家諸法度', '鎖国政策'],
           correctIndex: 1,
           explanation: '生類憐みの令は犬をはじめとする生き物の保護を命じ、庶民の生活に大きな混乱を招きました。',
           difficulty: 'standard',
@@ -182,7 +182,7 @@ export const bakuhanSystem: Topic = {
         {
           id: 'q7',
           question: '綱吉が学問を奨励するために建てた施設は？',
-          options: ['日光東照宮', '昌平坂学問所', '湯島聖堂', '明倫館'],
+          options: ['日光東照宮', '昌平坂塾', '湯島聖堂', '明倫館'],
           correctIndex: 2,
           explanation: '湯島聖堂は綱吉が建てた孔子をまつる施設で、朱子学の普及に貢献しました。',
           difficulty: 'basic',
@@ -190,7 +190,7 @@ export const bakuhanSystem: Topic = {
         {
           id: 'q8',
           question: '綱吉が重んじた学問は何？',
-          options: ['国学', '蘭学', '朱子学（儒学）', '陽明学'],
+          options: ['国学', '蘭学', '朱子学', '陽明学'],
           correctIndex: 2,
           explanation: '綱吉は朱子学（儒学）を重んじ、文治政治を進めました。',
           difficulty: 'standard',
@@ -222,7 +222,7 @@ export const bakuhanSystem: Topic = {
         {
           id: 'q12',
           question: '新井白石が長崎貿易を制限するために出した法令は？',
-          options: ['武家諸法度', '鎖国令', '海舶互市新例', '禁教令'],
+          options: ['武家諸法度', '鎖国政策', '海舶互市新例', '禁教政策'],
           correctIndex: 2,
           explanation: '海舶互市新例はオランダや清との貿易額に上限を設け、金銀の流出を防ぎました。',
           difficulty: 'advanced',
@@ -230,7 +230,7 @@ export const bakuhanSystem: Topic = {
         {
           id: 'q13',
           question: '幕府の財政が次第に悪化した主な原因は？',
-          options: ['農業の衰退', '米価の下落と出費の増大', '鎖国の解除', '外国との戦争'],
+          options: ['農業技術の衰退と不作', '米価の下落と出費の増大', '鎖国政策による貿易減少', '外国との戦争による出費'],
           correctIndex: 1,
           explanation: '米価の下落や出費の増大、貨幣経済の浸透により幕府の財政は悪化しました。',
           difficulty: 'basic',

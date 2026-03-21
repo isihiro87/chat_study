@@ -230,7 +230,7 @@ export const disasters: Topic = {
         {
           id: 'geo2-ds-q10',
           question: 'ハザードマップを主に作成するのはどこか？',
-          options: ['気象庁', '学校', '消防署', '自治体（市町村）'],
+          options: ['気象庁', '学校', '消防署', '自治体'],
           correctIndex: 3,
           explanation: 'ハザードマップは自治体（市町村）が作成し、住民に配布します。',
           difficulty: 'standard',

@@ -538,7 +538,7 @@ export const flowerSeed: Topic = {
           options: [
             '被子植物',
             '裸子植物',
-            '両方',
+            '種子植物全体',
             'シダ植物',
           ],
           correctIndex: 0,
@@ -552,8 +552,8 @@ export const flowerSeed: Topic = {
           options: [
             '果実ができない',
             '果実ができる',
-            '花弁がくっついている',
-            '花弁が離れている',
+            '合弁花になる',
+            '離弁花になる',
           ],
           correctIndex: 0,
           explanation:
@@ -565,9 +565,9 @@ export const flowerSeed: Topic = {
           question: '単子葉類の根のつくりとして正しいものはどれか？',
           options: [
             'ひげ根',
-            '主根と側根',
-            '仮根',
-            '地下茎',
+            '主根系',
+            '支持根',
+            '気根',
           ],
           correctIndex: 0,
           explanation:

@@ -211,10 +211,10 @@ export const territory: Topic = {
           id: 'geo1-tr-q1',
           question: '日本の領海は沿岸からどこまでの範囲か。',
           options: [
-            '3海里（約5.6km）',
-            '12海里（約22km）',
-            '200海里（約370km）',
-            '350海里（約650km）',
+            '3海里',
+            '12海里',
+            '200海里',
+            '350海里',
           ],
           correctIndex: 1,
           explanation:

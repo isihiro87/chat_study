@@ -112,7 +112,7 @@ export const sekkanPolitics: Topic = {
         {
           id: 'q4',
           question: '幼い天皇に代わって政治を行う役職は？',
-          options: ['関白', '太政大臣', '摂政', '征夷大将軍'],
+          options: ['関白', '大臣', '摂政', '参議'],
           correctIndex: 2,
           explanation: '摂政は幼い天皇に代わって政治を行い、関白は成長した天皇を補佐する役職です。',
           difficulty: 'basic',
@@ -128,7 +128,7 @@ export const sekkanPolitics: Topic = {
         {
           id: 'q6',
           question: '藤原道長が自らの栄華をたとえた「この世をば…」の歌で、何にたとえた？',
-          options: ['太陽', '富士山', '桜', '望月（満月）'],
+          options: ['朝日', '富士山の頂上', '満開の桜', '望月'],
           correctIndex: 3,
           explanation: '道長は「この世をば わが世とぞ思ふ 望月の 欠けたることも なしと思へば」と詠み、自分の栄華を欠けることのない満月にたとえました。',
           difficulty: 'basic',
@@ -160,7 +160,7 @@ export const sekkanPolitics: Topic = {
         {
           id: 'q10',
           question: '摂関政治が衰退した後に始まった、上皇が実権を握る政治は？',
-          options: ['武家政治', '建武の新政', '執権政治', '院政'],
+          options: ['幕府政治', '天皇政治', '執権政治', '院政'],
           correctIndex: 3,
           explanation: '院政は退位した天皇（上皇）が直接政治の実権を握る政治形態です。',
           difficulty: 'basic',
@@ -208,7 +208,7 @@ export const sekkanPolitics: Topic = {
         {
           id: 'q16',
           question: '寝殿造の庭には何が造られたか？',
-          options: ['池や築山のある庭園', '城壁', '田畑', '市場'],
+          options: ['池や築山のある庭園', '石垣と堀をめぐらせた城', '米や麦を育てる田畑', '商人が集まる市場'],
           correctIndex: 0,
           explanation: '寝殿造の庭には池や築山のある美しい庭園が造られました。',
           difficulty: 'standard',
@@ -216,7 +216,7 @@ export const sekkanPolitics: Topic = {
         {
           id: 'q17',
           question: '日宋貿易でおもに輸入されたものは？',
-          options: ['米と絹', '宋銭・陶磁器・書籍', '武器と馬', '木材と石材'],
+          options: ['米・絹・木綿', '宋銭・陶磁器・書籍', '刀剣・弓矢・馬', '木材・石材・漆器'],
           correctIndex: 1,
           explanation: '日宋貿易では宋銭・陶磁器・書籍などが輸入されました。',
           difficulty: 'standard',
@@ -232,7 +232,7 @@ export const sekkanPolitics: Topic = {
         {
           id: 'q19',
           question: '摂関政治が衰退した最大の理由は？',
-          options: ['外国の侵攻', '藤原氏と外戚関係のない天皇が即位したこと', '仏教の衰退', '農民の反乱'],
+          options: ['外国が日本に侵攻してきたこと', '藤原氏と外戚関係のない天皇が即位したこと', '朝廷内で仏教の力が衰退したこと', '地方の農民が大規模な反乱を起こしたこと'],
           correctIndex: 1,
           explanation: '藤原氏と外戚関係のない天皇が即位すると、摂関政治は弱まりました。',
           difficulty: 'standard',
@@ -240,7 +240,7 @@ export const sekkanPolitics: Topic = {
         {
           id: 'q20',
           question: '藤原頼通以降に摂関政治が弱まった理由は？',
-          options: ['戦争に敗れたから', '頼通には天皇の后となる娘がいなかったから', '天皇が幼帝だったから', '外国からの圧力'],
+          options: ['他氏との戦争に敗れて勢力を失ったから', '頼通には天皇の后となる娘がいなかったから', '後継ぎの天皇がすべて幼帝だったから', '宋や高麗から政治への干渉があったから'],
           correctIndex: 1,
           explanation: '藤原頼通には天皇のきさきとなる娘がおらず、外戚の地位を維持できなくなりました。',
           difficulty: 'standard',
@@ -248,7 +248,7 @@ export const sekkanPolitics: Topic = {
         {
           id: 'q21',
           question: '貴族社会で和歌を詠むことが重要視された理由は？',
-          options: ['法律で定められていたから', '教養の証であり恋愛や社交の手段だったから', '税の代わりだったから', '宗教的義務だったから'],
+          options: ['朝廷の法律で詠むことが定められていたから', '教養の証であり恋愛や社交の手段だったから', '和歌を納めることで税の代わりになったから', '仏教の教えで和歌を詠む義務があったから'],
           correctIndex: 1,
           explanation: '和歌は教養の証であり、恋愛や社交の手段として貴族社会で重要視されました。',
           difficulty: 'standard',
@@ -256,7 +256,7 @@ export const sekkanPolitics: Topic = {
         {
           id: 'q22',
           question: '中臣鎌足が藤原姓を賜ったのは何の功績によるか？',
-          options: ['大化の改新に協力した功績', '蝦夷征伐', '仏教の普及', '遣唐使の派遣'],
+          options: ['大化の改新に協力した功績', '東北の蝦夷征伐の功績', '全国への仏教普及の功績', '遣唐使を成功させた功績'],
           correctIndex: 0,
           explanation: '中臣鎌足は大化の改新に協力した功績により藤原姓を賜りました。',
           difficulty: 'standard',
@@ -272,7 +272,7 @@ export const sekkanPolitics: Topic = {
         {
           id: 'q24',
           question: '平等院鳳凰堂が建てられた場所はどこか？',
-          options: ['宇治（京都府）', '京都市内', '奈良', '大阪'],
+          options: ['宇治', '京都市内', '奈良', '大阪'],
           correctIndex: 0,
           explanation: '平等院鳳凰堂は宇治（京都府）に建てられました。',
           difficulty: 'advanced',

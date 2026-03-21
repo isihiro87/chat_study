@@ -456,10 +456,10 @@ export const timeDifference: Topic = {
           id: 'geo1-td-q21',
           question: '日本国内に時差はあるか。',
           options: [
-            'ある（東西で1時間）',
+            'ある',
             'ない',
-            'ある（南北で30分）',
-            'ある（季節で変わる）',
+            'ある',
+            'ある',
           ],
           correctIndex: 1,
           explanation:
@@ -526,10 +526,10 @@ export const timeDifference: Topic = {
           id: 'geo1-td-q26',
           question: '360÷24の計算結果はいくつか。この数字の意味は？',
           options: [
-            '12（1時間で地球が回る角度）',
-            '15（経度1時間分の角度）',
-            '20（1日の有効時間）',
-            '24（時差の最大値）',
+            '12',
+            '15',
+            '20',
+            '24',
           ],
           correctIndex: 1,
           explanation:

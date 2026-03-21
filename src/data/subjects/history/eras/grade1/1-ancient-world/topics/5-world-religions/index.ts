@@ -252,7 +252,7 @@ export const worldReligions: Topic = {
         {
           id: 'q4',
           question: 'イスラームの聖典は何と呼ばれる？',
-          options: ['聖書', 'クルアーン', 'ヴェーダ', '論語'],
+          options: ['旧約聖書', 'クルアーン', 'ヴェーダ', 'タルムード'],
           correctIndex: 1,
           explanation: 'クルアーン（コーラン）はイスラームの聖典で、ムハンマドへの啓示をまとめたものです。',
           difficulty: 'basic',
@@ -345,7 +345,7 @@ export const worldReligions: Topic = {
         {
           id: 'q15',
           question: 'キリスト教でイエスが処刑された方法は？',
-          options: ['斬首', '毒殺', '十字架にかけられた', '投獄'],
+          options: ['剣で斬首された', '毒杯を飲まされた', '十字架にかけられた', '牢獄に閉じ込められた'],
           correctIndex: 2,
           explanation: 'イエスは十字架にかけられて処刑されました。',
           difficulty: 'standard',
@@ -411,7 +411,7 @@ export const worldReligions: Topic = {
         {
           id: 'q22',
           question: 'キリスト教を公認したローマ皇帝は？',
-          options: ['コンスタンティヌス帝', 'ネロ', 'テオドシウス1世', 'オクタウィアヌス'],
+          options: ['コンスタンティヌス帝', 'ネロ皇帝', 'テオドシウス1世', 'オクタウィアヌス'],
           correctIndex: 0,
           explanation: 'コンスタンティヌス帝がキリスト教を公認し、その後テオドシウス1世が国教化しました。',
           difficulty: 'standard',
@@ -462,9 +462,9 @@ export const worldReligions: Topic = {
           id: 'q27',
           question: 'イスラームが急速に広まった地域は？',
           options: [
-            'ヨーロッパ全域',
-            'アメリカ大陸',
-            '東アジア全域',
+            'ローマを中心にヨーロッパ全域に広まった',
+            '新大陸に渡りアメリカ全域に広まった',
+            '中国を起点に東アジア全域に広まった',
             'アラビア半島から西アジア・北アフリカ',
           ],
           correctIndex: 3,
@@ -475,9 +475,9 @@ export const worldReligions: Topic = {
           id: 'q28',
           question: '一神教と多神教の違いとして正しいものは？',
           options: [
-            '一神教は神がいない、多神教は神が1人',
-            '一神教と多神教に違いはない',
-            '一神教は仏教、多神教はキリスト教',
+            '一神教は神を信じず、多神教は1人の神だけを信じる',
+            '一神教と多神教はどちらも同じ考え方である',
+            '一神教は仏教のことで、多神教はキリスト教のことである',
             '一神教は唯一の神を信じる、多神教は複数の神を信じる',
           ],
           correctIndex: 3,

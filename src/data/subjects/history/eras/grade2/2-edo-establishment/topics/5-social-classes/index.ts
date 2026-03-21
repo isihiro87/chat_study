@@ -75,7 +75,7 @@ export const socialClasses: Topic = {
         {
           id: 'q3',
           question: '自分の土地を持ち、村役人として村の自治を行った百姓を何という？',
-          options: ['本百姓', '名主', '水のみ百姓', '小作人'],
+          options: ['本百姓', '名主', '貧農百姓', '小作人'],
           correctIndex: 0,
           explanation: '本百姓は自分の土地を持ち、年貢を直接納め、村の自治を担う中心的な存在でした。',
           difficulty: 'standard',

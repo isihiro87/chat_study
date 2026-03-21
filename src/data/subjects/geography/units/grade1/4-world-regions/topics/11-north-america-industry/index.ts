@@ -238,7 +238,7 @@ export const northAmericaIndustry: Topic = {
         {
           id: 'geo1-na2-q13',
           question: 'ニューヨークに本部が置かれている国際機関はどれ？',
-          options: ['WHO（世界保健機関）', 'EU（欧州連合）', 'NATO（北大西洋条約機構）', '国際連合（国連）'],
+          options: ['WHO（世界保健機関）', 'EU（欧州連合）', 'NATO（北大西洋条約機構）', '国際連合'],
           correctIndex: 3,
           explanation: 'ニューヨークには国際連合（国連）の本部が置かれており、世界の平和と安全を守る活動の中心地となっています。',
           difficulty: 'standard',

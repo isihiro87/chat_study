@@ -251,10 +251,10 @@ export const chugokuShikokuNature: Topic = {
           question:
             '本州四国連絡橋のルートに含まれないものはどれか。',
           options: [
-            '関門橋（下関・門司ルート）',
-            'しまなみ海道（尾道・今治ルート）',
-            '明石海峡大橋（神戸・鳴門ルート）',
-            '瀬戸大橋（児島・坂出ルート）',
+            '関門橋',
+            'しまなみ海道',
+            '明石海峡大橋',
+            '瀬戸大橋',
           ],
           correctIndex: 0,
           explanation:

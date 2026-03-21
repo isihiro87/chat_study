@@ -212,7 +212,7 @@ export const industrialRevolution: Topic = {
         {
           id: 'q5',
           question: '産業革命後、長時間労働や低賃金に対抗するため労働者が作った団体は？',
-          options: ['労働組合', '政党', '議会', '軍隊'],
+          options: ['労働組合', '政治政党', '議会団体', '軍の組合'],
           correctIndex: 0,
           explanation:
             '労働者は労働組合を結成し、資本家と交渉して労働条件の改善を求めました。',
@@ -271,10 +271,10 @@ export const industrialRevolution: Topic = {
           id: 'q12',
           question: '産業革命が世界に広がった結果、欧米列強が行ったことは？',
           options: [
-            '鎖国政策の採用',
+            '外国との貿易を制限する鎖国政策',
             'アジア・アフリカの植民地獲得',
-            '農業への回帰',
-            '軍縮による平和外交',
+            '農業中心に戻る経済政策への回帰',
+            '軍縮を進めて平和的な外交を展開',
           ],
           correctIndex: 1,
           explanation: '欧米列強は原料と市場を求めてアジア・アフリカを植民地化していきました。',
@@ -291,7 +291,7 @@ export const industrialRevolution: Topic = {
         {
           id: 'q14',
           question: '産業革命以前の主な生産方式は？',
-          options: ['工場制機械工業', '重工業', '手工業（家内工業）', '化学工業'],
+          options: ['工場制機械工業', '重工業', '手工業', '化学工業'],
           correctIndex: 2,
           explanation: '産業革命以前は手工業（家内工業）が主な生産方式でした。',
           difficulty: 'basic',

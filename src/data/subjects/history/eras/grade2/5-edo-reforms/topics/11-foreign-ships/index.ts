@@ -125,7 +125,7 @@ export const foreignShips: Topic = {
         {
           id: 'q1',
           question: '1825年に幕府が出した、外国船を追い払う命令は？',
-          options: ['海防令（沿岸警備）', '禁教令（キリスト教禁止）', '鎖国令（貿易制限）', '異国船打払令（砲撃命令）'],
+          options: ['海岸防衛令', '外国禁教令', '鎖国強化令', '異国船打払令'],
           correctIndex: 3,
           explanation:
             '異国船打払令は外国船を見つけ次第砲撃して追い払う強硬な政策でした。',
@@ -184,7 +184,7 @@ export const foreignShips: Topic = {
         {
           id: 'q8',
           question: '大塩平八郎の乱の目的は何だったか？',
-          options: ['幕府を倒すため', '飢饉で苦しむ民を救うため', '外国との貿易を開くため', '藩の独立を図るため'],
+          options: ['幕府の権力を倒すため', '飢饉で苦しむ民を救うため', '外国との貿易を開くため', '藩の独立を勝ち取るため'],
           correctIndex: 1,
           explanation: '大塩平八郎はききんに苦しむ貧しい人々を救うために乱を起こしました。',
           difficulty: 'basic',
@@ -208,7 +208,7 @@ export const foreignShips: Topic = {
         {
           id: 'q11',
           question: '大塩平八郎が教えていた学問は？',
-          options: ['蘭学（西洋の学問）', '朱子学（正統の儒学）', '国学（日本古典の研究）', '陽明学（実践重視の儒学）'],
+          options: ['蘭学', '朱子学', '国学', '陽明学'],
           correctIndex: 3,
           explanation: '大塩平八郎は知行合一を重視する陽明学を教えていました。',
           difficulty: 'advanced',
@@ -261,7 +261,7 @@ export const foreignShips: Topic = {
         {
           id: 'q17',
           question: '大塩平八郎がかつて務めていた役職は？',
-          options: ['大名（藩の領主）', '老中（幕政の最高職）', '大阪町奉行所の与力', '長崎奉行（貿易管理）'],
+          options: ['大名', '老中', '大阪町奉行所の与力', '長崎奉行'],
           correctIndex: 2,
           explanation: '元幕府役人（大阪町奉行所の与力）による反乱は幕府に大きな衝撃を与えました。',
           difficulty: 'advanced',

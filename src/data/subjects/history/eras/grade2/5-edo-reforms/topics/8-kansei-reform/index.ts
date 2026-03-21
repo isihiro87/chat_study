@@ -180,7 +180,7 @@ export const kanseiReform: Topic = {
         {
           id: 'q4',
           question: '寛政異学の禁で唯一認められた学問は？',
-          options: ['蘭学（西洋の学問）', '国学（日本古典の研究）', '朱子学（儒教の正統学問）', '陽明学（実践重視の儒学）'],
+          options: ['蘭学', '国学', '朱子学', '陽明学'],
           correctIndex: 2,
           explanation: '松平定信は朱子学を正統学問とし、他の学問を昌平坂学問所で教えることを禁じました。',
           difficulty: 'basic',
@@ -196,7 +196,7 @@ export const kanseiReform: Topic = {
         {
           id: 'q6',
           question: '江戸に流入した農民を故郷に帰す政策は？',
-          options: ['棄捐令（借金の帳消し）', '倹約令（贅沢の禁止）', '旧里帰農令（帰還の命令）', '上知令（土地の直轄化）'],
+          options: ['棄捐令', '倹約令', '旧里帰農令', '上知令'],
           correctIndex: 2,
           explanation: '旧里帰農令は農村の人口回復と復興を目指した政策です。',
           difficulty: 'standard',
@@ -204,7 +204,7 @@ export const kanseiReform: Topic = {
         {
           id: 'q7',
           question: '松平定信はだれの孫にあたるか？',
-          options: ['徳川綱吉（5代将軍）', '徳川吉宗（8代将軍）', '徳川家光（3代将軍）', '徳川家康（初代将軍）'],
+          options: ['徳川綱吉', '徳川吉宗', '徳川家光', '徳川家康'],
           correctIndex: 1,
           explanation: '松平定信は徳川吉宗の孫で、祖父の政治をお手本に寛政の改革を行いました。',
           difficulty: 'basic',
@@ -244,7 +244,7 @@ export const kanseiReform: Topic = {
         {
           id: 'q12',
           question: '寛政の改革は三大改革の何番目に行われたか？',
-          options: ['1番目（最初の改革）', '2番目（中間の改革）', '3番目（最後の改革）', '三大改革に含まれない'],
+          options: ['1番目', '2番目', '3番目', '三大改革に含まれない'],
           correctIndex: 1,
           explanation: '寛政の改革は享保の改革（1番目）と天保の改革（3番目）の間に行われました。',
           difficulty: 'basic',
@@ -252,7 +252,7 @@ export const kanseiReform: Topic = {
         {
           id: 'q13',
           question: '各藩が人材育成のために領内に設立した教育機関は？',
-          options: ['寺子屋（庶民の学校）', '藩校（藩士の学校）', '私塾（民間の学校）', '昌平坂学問所（幕府の学校）'],
+          options: ['寺子屋', '藩校', '私塾', '昌平坂学問所'],
           correctIndex: 1,
           explanation: '藩校は藩士の子弟の教育にあたり、熊本藩の時習館などが有名です。',
           difficulty: 'basic',
@@ -260,7 +260,7 @@ export const kanseiReform: Topic = {
         {
           id: 'q14',
           question: '財政難の藩が経済立て直しのために独自に発行した紙幣は？',
-          options: ['藩札（藩の紙幣）', '小判（幕府の金貨）', '丁銀（幕府の銀貨）', '永楽通宝（中国の銅銭）'],
+          options: ['藩札', '小判', '丁銀', '永楽通宝'],
           correctIndex: 0,
           explanation: '藩札は各藩が金銀の流出を防ぎ、財政を支えるために流通させた独自の紙幣です。',
           difficulty: 'standard',
@@ -268,7 +268,7 @@ export const kanseiReform: Topic = {
         {
           id: 'q15',
           question: '寛政の改革が田沼の政治と最も異なる点は？',
-          options: ['外交政策への注力', '商業利用でなく倹約と農業重視', '蘭学の積極的な導入', '株仲間の更なる奨励'],
+          options: ['外交政策を重視した', '商業利用でなく倹約と農業重視', '蘭学を積極的に導入した', '株仲間をさらに奨励した'],
           correctIndex: 1,
           explanation: '松平定信は田沼の商業重視を否定し、倹約と農業重視に立ち返りました。',
           difficulty: 'advanced',
@@ -276,7 +276,7 @@ export const kanseiReform: Topic = {
         {
           id: 'q16',
           question: '棄捐令で損失を被った、旗本に金を貸していた商人を何という？',
-          options: ['問屋（流通の卸売商）', '両替商（金融の専門商）', '札差（旗本の金融業者）', '蔵元（藩の財政代行）'],
+          options: ['問屋', '両替商', '札差', '蔵元'],
           correctIndex: 2,
           explanation: '札差は旗本の米を仲介して販売し金融業を営んでいたが、棄捐令で貸金を失いました。',
           difficulty: 'advanced',
@@ -292,7 +292,7 @@ export const kanseiReform: Topic = {
         {
           id: 'q18',
           question: '昌平坂学問所はもともとだれが建てた施設をもとにしているか？',
-          options: ['徳川家康（初代将軍）', '徳川綱吉（5代将軍）', '徳川吉宗（8代将軍）', '松平定信（老中）'],
+          options: ['徳川家康', '徳川綱吉', '徳川吉宗', '松平定信'],
           correctIndex: 1,
           explanation: '昌平坂学問所は徳川綱吉が設けた湯島聖堂を基盤とする幕府の学校です。',
           difficulty: 'advanced',

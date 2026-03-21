@@ -268,10 +268,10 @@ export const koreaAnnexation: Topic = {
           id: 'q9',
           question: '韓国併合後に行われた政策は？',
           options: [
-            '民主化政策',
-            '同化政策（植民地支配）',
-            '独立支援政策',
-            '自治権拡大政策',
+            '民主化・議会設立政策',
+            '同化政策',
+            '朝鮮の独立を支援する政策',
+            '朝鮮に自治権を与える政策',
           ],
           correctIndex: 1,
           explanation:
@@ -346,10 +346,10 @@ export const koreaAnnexation: Topic = {
           id: 'q16',
           question: '南満州鉄道が設立された目的は？',
           options: [
-            '朝鮮との交通を整備するため',
+            '日本本土と朝鮮半島の交通網を整備するため',
             'ポーツマス条約で得た利権を活用し満州での影響力を拡大するため',
-            'ロシアとの貿易を促進するため',
-            '中国全土に鉄道網を広げるため',
+            'ロシアとの貿易ルートを確保して収益を上げるため',
+            '中国全土に日本の鉄道ネットワークを広げるため',
           ],
           correctIndex: 1,
           explanation:
@@ -360,10 +360,10 @@ export const koreaAnnexation: Topic = {
           id: 'q17',
           question: '辛亥革命後に実権を握った袁世凱の元の立場は？',
           options: [
-            '革命家',
+            '民間の革命運動家',
             '清の軍人',
-            '留学生',
-            '商人',
+            '日本への留学生',
+            '上海の商人',
           ],
           correctIndex: 1,
           explanation:
@@ -375,9 +375,9 @@ export const koreaAnnexation: Topic = {
           question: '中華民国はアジアで何番目の共和国だった？',
           options: [
             'アジア初の共和国',
-            'アジアで2番目の共和国',
-            'アジアで3番目の共和国',
-            'アジアで最後の共和国',
+            'アジアで2番目に建国された共和国',
+            'アジアで3番目に成立した共和国',
+            'アジアで最後に建国された共和国',
           ],
           correctIndex: 0,
           explanation:

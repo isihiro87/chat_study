@@ -194,7 +194,7 @@ export const japanIndustrialRevolution: Topic = {
           options: [
             '重化学工業',
             '造船業',
-            '軽工業（綿糸・生糸）',
+            '軽工業',
             '鉄鋼業',
           ],
           correctIndex: 2,
@@ -314,8 +314,8 @@ export const japanIndustrialRevolution: Topic = {
           options: [
             '三井・三菱・住友・安田',
             '三井・三菱・日立・東芝',
-            '住友・安田・松下・日産',
-            '三井・三菱・住友・トヨタ',
+            '三井・住友・安田・松下',
+            '三菱・住友・三井・トヨタ',
           ],
           correctIndex: 0,
           explanation:
@@ -390,10 +390,10 @@ export const japanIndustrialRevolution: Topic = {
           id: 'q18',
           question: '産業革命に伴う社会問題として正しいものは？',
           options: [
-            '農村の人口増加と食料不足',
+            '農村の急激な人口増加と食料不足',
             '低賃金・長時間労働と公害問題',
-            '外国人労働者との競争',
-            '学校の不足と教育問題',
+            '外国人労働者との賃金競争問題',
+            '学校施設の不足と教育費の問題',
           ],
           correctIndex: 1,
           explanation:

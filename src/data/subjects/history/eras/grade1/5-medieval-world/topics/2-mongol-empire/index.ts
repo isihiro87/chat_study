@@ -178,7 +178,7 @@ export const mongolEmpire: Topic = {
         {
           id: 'q12',
           question: 'フビライ・ハンはチンギス・ハンとどのような関係か？',
-          options: ['父子', '兄弟', '祖父と孫', '叔父と甥'],
+          options: ['父と子', '兄と弟', '祖父と孫', '叔父と甥'],
           correctIndex: 2,
           explanation: 'フビライ・ハンはチンギス・ハンの孫にあたり、モンゴル帝国の第5代皇帝として国号を元と定めました。',
           difficulty: 'standard',
@@ -194,7 +194,7 @@ export const mongolEmpire: Topic = {
         {
           id: 'q14',
           question: 'マルコ・ポーロが日本に実際に来たことはあるか？',
-          options: ['何度も来日した', '一度来日した', '来ていない（伝聞をもとに紹介）', '来日して天皇に謁見した'],
+          options: ['何度も来日した', '一度来日した', '来ていない', '天皇に謁見した'],
           correctIndex: 2,
           explanation: 'マルコ・ポーロは実際には日本に来ておらず、伝聞をもとに日本を「黄金の国ジパング」と紹介しました。',
           difficulty: 'standard',
@@ -202,7 +202,7 @@ export const mongolEmpire: Topic = {
         {
           id: 'q15',
           question: '「世界の記述」がヨーロッパに与えた影響として正しいのは？',
-          options: ['ヨーロッパの鎖国を進めた', 'アジアへの興味を抱かせ大航海時代につながった', 'モンゴルとの戦争を引き起こした', '影響はなかった'],
+          options: ['アジアへの恐怖を広めヨーロッパ諸国の鎖国を進めた', 'アジアへの興味を抱かせ大航海時代につながった', 'ヨーロッパ諸国がモンゴル帝国への攻撃を決意した', 'ヨーロッパの人々にはほとんど影響はなかった'],
           correctIndex: 1,
           explanation: '「世界の記述」はヨーロッパの人々にアジアへの興味を抱かせ、のちの大航海時代にもつながりました。',
           difficulty: 'standard',
@@ -218,7 +218,7 @@ export const mongolEmpire: Topic = {
         {
           id: 'q17',
           question: 'フビライ・ハンが日本に求めたことは何？',
-          options: ['貿易と朝貢（服属）', '軍事同盟', '仏教の布教', '技術者の派遣'],
+          options: ['貿易と朝貢', '軍事同盟の締結', '仏教の布教', '職人の派遣'],
           correctIndex: 0,
           explanation: 'フビライ・ハンは日本に使者を送り、貿易や朝貢（服属）を求めました。',
           difficulty: 'standard',
@@ -226,7 +226,7 @@ export const mongolEmpire: Topic = {
         {
           id: 'q18',
           question: '元の大都は現在のどの国の首都にあたる？',
-          options: ['韓国のソウル', '日本の東京', '中国の北京', 'モンゴルのウランバートル'],
+          options: ['韓国のソウル', '日本の東京', '中国の北京', 'モンゴルの首都'],
           correctIndex: 2,
           explanation: '元の大都は現在の中国の首都・北京にあたります。',
           difficulty: 'standard',
@@ -234,7 +234,7 @@ export const mongolEmpire: Topic = {
         {
           id: 'q19',
           question: 'モンゴル帝国の特徴を「統治」の面から述べたものとして正しいのは？',
-          options: ['他民族の宗教や言語を認める柔軟な統治を行った', '全民族にモンゴル語を強制した', '征服した民族を奴隷にした', '宗教を禁止した'],
+          options: ['他民族の宗教や言語を認める柔軟な統治を行った', '征服した全民族にモンゴル語の使用を強制した', '征服した民族をすべてモンゴル人の奴隷にした', '征服地でイスラーム以外の全宗教を禁止した'],
           correctIndex: 0,
           explanation: 'モンゴル帝国は征服した地域の宗教や言語を認める柔軟な統治方針をとり、帝国の安定を図りました。',
           difficulty: 'standard',
@@ -266,7 +266,7 @@ export const mongolEmpire: Topic = {
         {
           id: 'q23',
           question: '高麗があった地域は現在のどこ？',
-          options: ['朝鮮半島（韓国・北朝鮮）', '中国', 'モンゴル', '日本'],
+          options: ['朝鮮半島', '中国', 'モンゴル', '日本'],
           correctIndex: 0,
           explanation: '高麗は朝鮮半島にあった国で、現在の韓国・北朝鮮にあたる地域にありました。',
           difficulty: 'advanced',
@@ -274,7 +274,7 @@ export const mongolEmpire: Topic = {
         {
           id: 'q24',
           question: 'モンゴル帝国の広がりがもたらした最大の効果は？',
-          options: ['全地域の統一言語', '仏教の統一', '鎖国政策', '東西の人・物・文化の交流の活発化'],
+          options: ['モンゴル語による全地域の言語統一', '征服したすべての地域での仏教信仰の統一', '帝国内の商業を禁じる厳しい鎖国政策', '東西の人・物・文化の交流の活発化'],
           correctIndex: 3,
           explanation: 'モンゴル帝国の広大な領域と交通路整備により、東西の人・物・文化の交流が飛躍的に活発化しました。',
           difficulty: 'advanced',
@@ -282,7 +282,7 @@ export const mongolEmpire: Topic = {
         {
           id: 'q25',
           question: 'チンギス・ハンの子孫はどのくらいの範囲を支配した？',
-          options: ['モンゴル高原周辺', '中国全土', 'アフリカまで', 'ユーラシア大陸の大部分'],
+          options: ['モンゴル高原周辺', '中国全土のみ', 'アフリカ大陸まで', 'ユーラシア大陸の大部分'],
           correctIndex: 3,
           explanation: 'チンギス・ハンの子孫はユーラシア大陸の大部分を支配するまでに領土を広げました。',
           difficulty: 'advanced',

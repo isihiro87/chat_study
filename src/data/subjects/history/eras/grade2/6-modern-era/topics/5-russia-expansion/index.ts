@@ -242,7 +242,7 @@ export const russiaExpansion: Topic = {
         {
           id: 'q8',
           question: '19世紀のロシアの政治体制は？',
-          options: ['立憲君主制（議会政治）', '共和制（大統領制）', '専制政治（ツァーリの独裁）', '議院内閣制（議会中心）'],
+          options: ['立憲君主制', '共和制', '専制政治', '議院内閣制'],
           correctIndex: 2,
           explanation: 'ロシアはツァーリ（皇帝）が絶対的な権力を握る専制政治でした。',
           difficulty: 'standard',
@@ -267,10 +267,10 @@ export const russiaExpansion: Topic = {
           id: 'q11',
           question: 'クリミア戦争でロシアが敗北した主な原因は？',
           options: [
-            '兵士の数が少なかったため',
-            '近代化の遅れ（工業力の不足）',
-            '同盟国がいなかったため',
-            '国内で革命が起きたため',
+            '兵士数の不足',
+            '近代化の遅れ',
+            '同盟国の欠如',
+            '国内革命の発生',
           ],
           correctIndex: 1,
           explanation: 'ロシアは西ヨーロッパに比べて工業化や軍事技術が遅れており、敗北しました。',

@@ -185,7 +185,7 @@ export const frenchRevolution: Topic = {
         {
           id: 'q2',
           question: 'フランス革命前、人口の98%を占め重い税に苦しんでいたのは？',
-          options: ['第一身分（聖職者）', '第二身分（貴族）', '国王', '第三身分（平民）'],
+          options: ['第一身分', '第二身分', '国王', '第三身分'],
           correctIndex: 3,
           explanation:
             '第三身分（平民）だけが重い税を負担し、聖職者や貴族は税を免除されていました。',
