@@ -60,7 +60,8 @@ export function ChatQuiz({
     }
   }, [showExplanation]);
 
-  const handleSelect = (index: number) => {
+  const handleSelect = (e: React.MouseEvent, index: number) => {
+    e.stopPropagation();
     if (isAnswered) return;
     onSelectAnswer(index);
 
@@ -122,7 +123,7 @@ export function ChatQuiz({
             return (
               <motion.button
                 key={option.letter}
-                onClick={() => handleSelect(index)}
+                onClick={(e) => handleSelect(e, index)}
                 disabled={isAnswered}
                 className={`flex w-full items-center gap-3 rounded-lg border-2 px-4 py-3 text-left transition-all ${bgColor} ${borderColor} ${!isAnswered ? 'hover:bg-white/20 hover:border-white/40' : ''}`}
                 animate={
