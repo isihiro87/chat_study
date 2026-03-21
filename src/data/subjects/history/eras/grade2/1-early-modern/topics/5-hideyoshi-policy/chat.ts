@@ -106,10 +106,10 @@ export const hideyoshiPolicyChat: HistoryChat = {
       options: [
         { letter: 'A', text: '刀狩', correct: false },
         { letter: 'B', text: '楽市楽座', correct: false },
-        { letter: 'C', text: '地租改正', correct: false },
-        { letter: 'D', text: '太閤検地', correct: true },
+        { letter: 'C', text: '太閤検地', correct: true },
+        { letter: 'D', text: '地租改正', correct: false },
       ],
-      explanation: '<strong>正解はD「<ruby>太閤検地<rp>(</rp><rt>たいこうけんち</rt><rp>)</rp></ruby>」</strong>です。秀吉は全国の田畑を調査し、<strong><ruby>石高<rp>(</rp><rt>こくだか</rt><rp>)</rp></ruby></strong>（米の<ruby>収穫量<rp>(</rp><rt>しゅうかくりょう</rt><rp>)</rp></ruby>）で土地の価値を統一的に表しました。',
+      explanation: '<strong>正解はC「<ruby>太閤検地<rp>(</rp><rt>たいこうけんち</rt><rp>)</rp></ruby>」</strong>です。秀吉は全国の田畑を調査し、<strong><ruby>石高<rp>(</rp><rt>こくだか</rt><rp>)</rp></ruby></strong>（米の<ruby>収穫量<rp>(</rp><rt>しゅうかくりょう</rt><rp>)</rp></ruby>）で土地の価値を統一的に表しました。',
     },
     {
       type: 'narrator',

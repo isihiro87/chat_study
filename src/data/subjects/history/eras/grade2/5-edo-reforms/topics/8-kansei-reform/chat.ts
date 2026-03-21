@@ -77,11 +77,11 @@ export const kanseiReformChat: HistoryChat = {
       options: [
         { letter: 'A', text: '田沼意次', correct: false },
         { letter: 'B', text: '水野忠邦', correct: false },
-        { letter: 'C', text: '新井白石', correct: false },
-        { letter: 'D', text: '松平定信', correct: true },
+        { letter: 'C', text: '松平定信', correct: true },
+        { letter: 'D', text: '新井白石', correct: false },
       ],
       explanation:
-        '<strong>正解はD「<ruby>松平定信<rp>(</rp><rt>まつだいらさだのぶ</rt><rp>)</rp></ruby>」</strong>です。<ruby>徳川吉宗<rp>(</rp><rt>とくがわよしむね</rt><rp>)</rp></ruby>の孫で、祖父の政治をお手本に厳しい改革を行いました。',
+        '<strong>正解はC「<ruby>松平定信<rp>(</rp><rt>まつだいらさだのぶ</rt><rp>)</rp></ruby>」</strong>です。<ruby>徳川吉宗<rp>(</rp><rt>とくがわよしむね</rt><rp>)</rp></ruby>の孫で、祖父の政治をお手本に厳しい改革を行いました。',
     },
     {
       type: 'message',
@@ -126,12 +126,12 @@ export const kanseiReformChat: HistoryChat = {
       question: '寛政の改革で、旗本や御家人の借金を帳消しにした法令は？',
       options: [
         { letter: 'A', text: '囲い米の制', correct: false },
-        { letter: 'B', text: '倹約令', correct: false },
-        { letter: 'C', text: '棄捐令', correct: true },
+        { letter: 'B', text: '棄捐令', correct: true },
+        { letter: 'C', text: '倹約令', correct: false },
         { letter: 'D', text: '上知令', correct: false },
       ],
       explanation:
-        '<strong>正解はC「<ruby>棄捐令<rp>(</rp><rt>きえんれい</rt><rp>)</rp></ruby>」</strong>です。生活に困る<ruby>旗本<rp>(</rp><rt>はたもと</rt><rp>)</rp></ruby>や<ruby>御家人<rp>(</rp><rt>ごけにん</rt><rp>)</rp></ruby>の借金を帳消しにして救済しました。',
+        '<strong>正解はB「<ruby>棄捐令<rp>(</rp><rt>きえんれい</rt><rp>)</rp></ruby>」</strong>です。生活に困る<ruby>旗本<rp>(</rp><rt>はたもと</rt><rp>)</rp></ruby>や<ruby>御家人<rp>(</rp><rt>ごけにん</rt><rp>)</rp></ruby>の借金を帳消しにして救済しました。',
     },
     {
       type: 'date',
@@ -181,13 +181,13 @@ export const kanseiReformChat: HistoryChat = {
       type: 'quiz',
       question: '1792年に蝦夷地の根室に来航したロシアの使節は？',
       options: [
-        { letter: 'A', text: 'レザノフ', correct: false },
+        { letter: 'A', text: 'ラクスマン', correct: true },
         { letter: 'B', text: 'ペリー', correct: false },
-        { letter: 'C', text: 'ラクスマン', correct: true },
+        { letter: 'C', text: 'レザノフ', correct: false },
         { letter: 'D', text: 'プチャーチン', correct: false },
       ],
       explanation:
-        '<strong>正解はC「ラクスマン」</strong>です。<ruby>通商<rp>(</rp><rt>つうしょう</rt><rp>)</rp></ruby>を求めて来航しましたが、幕府は拒否しました。',
+        '<strong>正解はA「ラクスマン」</strong>です。<ruby>通商<rp>(</rp><rt>つうしょう</rt><rp>)</rp></ruby>を求めて来航しましたが、幕府は拒否しました。',
     },
     {
       type: 'end',

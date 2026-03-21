@@ -104,13 +104,13 @@ export const socialClassesChat: HistoryChat = {
       type: 'quiz',
       question: '江戸時代、百姓を5戸ずつ組にして連帯責任を負わせた制度は？',
       options: [
-        { letter: 'A', text: '五人組', correct: true },
+        { letter: 'A', text: '検地', correct: false },
         { letter: 'B', text: '参勤交代', correct: false },
         { letter: 'C', text: '班田収授法', correct: false },
-        { letter: 'D', text: '検地', correct: false },
+        { letter: 'D', text: '五人組', correct: true },
       ],
       explanation:
-        '<strong>正解はA「<ruby>五人組<rp>(</rp><rt>ごにんぐみ</rt><rp>)</rp></ruby>」</strong>です。<ruby>年貢<rp>(</rp><rt>ねんぐ</rt><rp>)</rp></ruby>の<ruby>納入<rp>(</rp><rt>のうにゅう</rt><rp>)</rp></ruby>や犯罪の防止のため、近隣の百姓を5戸ずつ組にして互いに監視・連帯責任を負わせました。',
+        '<strong>正解はD「<ruby>五人組<rp>(</rp><rt>ごにんぐみ</rt><rp>)</rp></ruby>」</strong>です。<ruby>年貢<rp>(</rp><rt>ねんぐ</rt><rp>)</rp></ruby>の<ruby>納入<rp>(</rp><rt>のうにゅう</rt><rp>)</rp></ruby>や犯罪の防止のため、近隣の百姓を5戸ずつ組にして互いに監視・連帯責任を負わせました。',
     },
     {
       type: 'narrator',
@@ -160,12 +160,12 @@ export const socialClassesChat: HistoryChat = {
       question: '江戸時代、自分の田畑を持つ百姓を何という？',
       options: [
         { letter: 'A', text: '水のみ百姓', correct: false },
-        { letter: 'B', text: '本百姓', correct: true },
-        { letter: 'C', text: '小作人', correct: false },
+        { letter: 'B', text: '小作人', correct: false },
+        { letter: 'C', text: '本百姓', correct: true },
         { letter: 'D', text: '名主', correct: false },
       ],
       explanation:
-        '<strong>正解はB「<ruby>本百姓<rp>(</rp><rt>ほんびゃくしょう</rt><rp>)</rp></ruby>」</strong>です。自分の田畑を持ち<ruby>年貢<rp>(</rp><rt>ねんぐ</rt><rp>)</rp></ruby>を納める百姓で、村の運営にも参加しました。田畑を持たない百姓は<ruby>水<rp>(</rp><rt>みず</rt><rp>)</rp></ruby>のみ百姓と呼ばれました。',
+        '<strong>正解はC「<ruby>本百姓<rp>(</rp><rt>ほんびゃくしょう</rt><rp>)</rp></ruby>」</strong>です。自分の田畑を持ち<ruby>年貢<rp>(</rp><rt>ねんぐ</rt><rp>)</rp></ruby>を納める百姓で、村の運営にも参加しました。田畑を持たない百姓は<ruby>水<rp>(</rp><rt>みず</rt><rp>)</rp></ruby>のみ百姓と呼ばれました。',
     },
     {
       type: 'end',

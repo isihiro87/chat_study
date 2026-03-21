@@ -139,13 +139,13 @@ export const agricultureIndustryChat: HistoryChat = {
       type: 'quiz',
       question: 'いわしを干した肥料を何という？',
       options: [
-        { letter: 'A', text: '干鰯（ほしか）', correct: true },
+        { letter: 'A', text: '油かす', correct: false },
         { letter: 'B', text: '金肥', correct: false },
-        { letter: 'C', text: '油かす', correct: false },
+        { letter: 'C', text: '干鰯（ほしか）', correct: true },
         { letter: 'D', text: '堆肥', correct: false },
       ],
       explanation:
-        '<strong>正解はA「<ruby>干鰯<rp>(</rp><rt>ほしか</rt><rp>)</rp></ruby>」</strong>です。いわしを干した<ruby>肥料<rp>(</rp><rt>ひりょう</rt><rp>)</rp></ruby>で、<ruby>金肥<rp>(</rp><rt>きんぴ</rt><rp>)</rp></ruby>の代表的なものでした。',
+        '<strong>正解はC「<ruby>干鰯<rp>(</rp><rt>ほしか</rt><rp>)</rp></ruby>」</strong>です。いわしを干した<ruby>肥料<rp>(</rp><rt>ひりょう</rt><rp>)</rp></ruby>で、<ruby>金肥<rp>(</rp><rt>きんぴ</rt><rp>)</rp></ruby>の代表的なものでした。',
     },
     {
       type: 'end',

@@ -76,12 +76,12 @@ export const westernAsiaInvasionChat: HistoryChat = {
       question: '1840年、イギリスが清に仕掛けた戦争は？',
       options: [
         { letter: 'A', text: '南北戦争', correct: false },
-        { letter: 'B', text: 'クリミア戦争', correct: false },
-        { letter: 'C', text: 'アヘン戦争', correct: true },
+        { letter: 'B', text: 'アヘン戦争', correct: true },
+        { letter: 'C', text: 'クリミア戦争', correct: false },
         { letter: 'D', text: '独立戦争', correct: false },
       ],
       explanation:
-        '<strong>正解はC「<ruby>アヘン戦争<rp>(</rp><rt>あへんせんそう</rt><rp>)</rp></ruby>」</strong>です。<ruby>清<rp>(</rp><rt>しん</rt><rp>)</rp></ruby>がアヘンの<ruby>密輸<rp>(</rp><rt>みつゆ</rt><rp>)</rp></ruby>を取り締まったことへの<ruby>報復<rp>(</rp><rt>ほうふく</rt><rp>)</rp></ruby>でした。',
+        '<strong>正解はB「<ruby>アヘン戦争<rp>(</rp><rt>あへんせんそう</rt><rp>)</rp></ruby>」</strong>です。<ruby>清<rp>(</rp><rt>しん</rt><rp>)</rp></ruby>がアヘンの<ruby>密輸<rp>(</rp><rt>みつゆ</rt><rp>)</rp></ruby>を取り締まったことへの<ruby>報復<rp>(</rp><rt>ほうふく</rt><rp>)</rp></ruby>でした。',
     },
     {
       type: 'narrator',
@@ -116,13 +116,13 @@ export const westernAsiaInvasionChat: HistoryChat = {
       type: 'quiz',
       question: '輸入品にかける税率を自国で決める権利を何という？',
       options: [
-        { letter: 'A', text: '領事裁判権', correct: false },
+        { letter: 'A', text: '関税自主権', correct: true },
         { letter: 'B', text: '最恵国待遇', correct: false },
         { letter: 'C', text: '治外法権', correct: false },
-        { letter: 'D', text: '関税自主権', correct: true },
+        { letter: 'D', text: '領事裁判権', correct: false },
       ],
       explanation:
-        '<strong>正解はD「<ruby>関税自主権<rp>(</rp><rt>かんぜいじしゅけん</rt><rp>)</rp></ruby>」</strong>です。<ruby>清<rp>(</rp><rt>しん</rt><rp>)</rp></ruby>は<ruby>南京条約<rp>(</rp><rt>なんきんじょうやく</rt><rp>)</rp></ruby>でこの権利を失い、自国<ruby>産業<rp>(</rp><rt>さんぎょう</rt><rp>)</rp></ruby>を守れなくなりました。',
+        '<strong>正解はA「<ruby>関税自主権<rp>(</rp><rt>かんぜいじしゅけん</rt><rp>)</rp></ruby>」</strong>です。<ruby>清<rp>(</rp><rt>しん</rt><rp>)</rp></ruby>は<ruby>南京条約<rp>(</rp><rt>なんきんじょうやく</rt><rp>)</rp></ruby>でこの権利を失い、自国<ruby>産業<rp>(</rp><rt>さんぎょう</rt><rp>)</rp></ruby>を守れなくなりました。',
     },
     {
       type: 'end',

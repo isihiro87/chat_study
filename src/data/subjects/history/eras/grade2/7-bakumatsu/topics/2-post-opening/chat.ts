@@ -87,11 +87,11 @@ export const postOpeningChat: HistoryChat = {
       options: [
         { letter: 'A', text: '禁門の変', correct: false },
         { letter: 'B', text: '桜田門外の変', correct: false },
-        { letter: 'C', text: '安政の大獄', correct: true },
-        { letter: 'D', text: '薩英戦争', correct: false },
+        { letter: 'C', text: '薩英戦争', correct: false },
+        { letter: 'D', text: '安政の大獄', correct: true },
       ],
       explanation:
-        '<strong>正解はC「<ruby>安政の大獄<rp>(</rp><rt>あんせいのたいごく</rt><rp>)</rp></ruby>」</strong>です。<ruby>吉田松陰<rp>(</rp><rt>よしだしょういん</rt><rp>)</rp></ruby>らが<ruby>処刑<rp>(</rp><rt>しょけい</rt><rp>)</rp></ruby>され、多くの<ruby>大名<rp>(</rp><rt>だいみょう</rt><rp>)</rp></ruby>・<ruby>公家<rp>(</rp><rt>くげ</rt><rp>)</rp></ruby>が<ruby>処分<rp>(</rp><rt>しょぶん</rt><rp>)</rp></ruby>されました。',
+        '<strong>正解はD「<ruby>安政の大獄<rp>(</rp><rt>あんせいのたいごく</rt><rp>)</rp></ruby>」</strong>です。<ruby>吉田松陰<rp>(</rp><rt>よしだしょういん</rt><rp>)</rp></ruby>らが<ruby>処刑<rp>(</rp><rt>しょけい</rt><rp>)</rp></ruby>され、多くの<ruby>大名<rp>(</rp><rt>だいみょう</rt><rp>)</rp></ruby>・<ruby>公家<rp>(</rp><rt>くげ</rt><rp>)</rp></ruby>が<ruby>処分<rp>(</rp><rt>しょぶん</rt><rp>)</rp></ruby>されました。',
     },
     {
       type: 'message',
@@ -135,11 +135,11 @@ export const postOpeningChat: HistoryChat = {
       options: [
         { letter: 'A', text: '長崎', correct: false },
         { letter: 'B', text: '函館', correct: false },
-        { letter: 'C', text: '神戸', correct: false },
-        { letter: 'D', text: '横浜', correct: true },
+        { letter: 'C', text: '横浜', correct: true },
+        { letter: 'D', text: '神戸', correct: false },
       ],
       explanation:
-        '<strong>正解はD「<ruby>横浜<rp>(</rp><rt>よこはま</rt><rp>)</rp></ruby>」</strong>です。イギリスを相手に<ruby>生糸<rp>(</rp><rt>きいと</rt><rp>)</rp></ruby>などを<ruby>輸出<rp>(</rp><rt>ゆしゅつ</rt><rp>)</rp></ruby>する最大の<ruby>貿易港<rp>(</rp><rt>ぼうえきこう</rt><rp>)</rp></ruby>となりました。',
+        '<strong>正解はC「<ruby>横浜<rp>(</rp><rt>よこはま</rt><rp>)</rp></ruby>」</strong>です。イギリスを相手に<ruby>生糸<rp>(</rp><rt>きいと</rt><rp>)</rp></ruby>などを<ruby>輸出<rp>(</rp><rt>ゆしゅつ</rt><rp>)</rp></ruby>する最大の<ruby>貿易港<rp>(</rp><rt>ぼうえきこう</rt><rp>)</rp></ruby>となりました。',
     },
     {
       type: 'end',

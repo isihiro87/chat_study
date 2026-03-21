@@ -36,7 +36,7 @@ export const europeChangeChat: HistoryChat = {
   content: [
     {
       type: 'date',
-      text: '14世紀〜16世紀',
+      text: '4世紀〜16世紀',
     },
     {
       type: 'narrator',
@@ -91,12 +91,12 @@ export const europeChangeChat: HistoryChat = {
       type: 'quiz',
       question: '14世紀にイタリアで始まった、古代ギリシャ・ローマの文化を復興しようとする運動を何という？',
       options: [
-        { letter: 'A', text: '産業革命', correct: false },
+        { letter: 'A', text: 'ルネサンス', correct: true },
         { letter: 'B', text: '宗教改革', correct: false },
-        { letter: 'C', text: 'ルネサンス', correct: true },
+        { letter: 'C', text: '産業革命', correct: false },
         { letter: 'D', text: '啓蒙思想', correct: false },
       ],
-      explanation: '<strong>正解はC「ルネサンス」</strong>です。14世紀のイタリアから始まった<ruby>文芸復興<rp>(</rp><rt>ぶんげいふっこう</rt><rp>)</rp></ruby>運動で、人間中心の考え方が広まりました。',
+      explanation: '<strong>正解はA「ルネサンス」</strong>です。14世紀のイタリアから始まった<ruby>文芸復興<rp>(</rp><rt>ぶんげいふっこう</rt><rp>)</rp></ruby>運動で、人間中心の考え方が広まりました。',
     },
     {
       type: 'narrator',
@@ -140,10 +140,10 @@ export const europeChangeChat: HistoryChat = {
       options: [
         { letter: 'A', text: '聖書', correct: false },
         { letter: 'B', text: '聖遺物', correct: false },
-        { letter: 'C', text: '免罪符', correct: true },
-        { letter: 'D', text: '十字架', correct: false },
+        { letter: 'C', text: '十字架', correct: false },
+        { letter: 'D', text: '免罪符', correct: true },
       ],
-      explanation: '<strong>正解はC「<ruby>免罪符<rp>(</rp><rt>めんざいふ</rt><rp>)</rp></ruby>」</strong>です。カトリック教会が<ruby>罪<rp>(</rp><rt>つみ</rt><rp>)</rp></ruby>の許しを得られるとして販売した免罪符（<ruby>贖宥状<rp>(</rp><rt>しょくゆうじょう</rt><rp>)</rp></ruby>）に対し、ルターが批判して<strong>宗教改革</strong>が始まりました。',
+      explanation: '<strong>正解はD「<ruby>免罪符<rp>(</rp><rt>めんざいふ</rt><rp>)</rp></ruby>」</strong>です。カトリック教会が<ruby>罪<rp>(</rp><rt>つみ</rt><rp>)</rp></ruby>の許しを得られるとして販売した免罪符（<ruby>贖宥状<rp>(</rp><rt>しょくゆうじょう</rt><rp>)</rp></ruby>）に対し、ルターが批判して<strong>宗教改革</strong>が始まりました。',
     },
     {
       type: 'end',

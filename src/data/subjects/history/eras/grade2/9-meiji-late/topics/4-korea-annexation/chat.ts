@@ -78,13 +78,13 @@ export const koreaAnnexationChat: HistoryChat = {
       type: 'quiz',
       question: '1910年に日本が韓国を植民地にしたことを何という？',
       options: [
-        { letter: 'A', text: '版籍奉還', correct: false },
+        { letter: 'A', text: '韓国併合', correct: true },
         { letter: 'B', text: '琉球処分', correct: false },
         { letter: 'C', text: '廃藩置県', correct: false },
-        { letter: 'D', text: '韓国併合', correct: true },
+        { letter: 'D', text: '版籍奉還', correct: false },
       ],
       explanation:
-        '<strong>正解はD「<ruby>韓国併合<rp>(</rp><rt>かんこくへいごう</rt><rp>)</rp></ruby>」</strong>です。<ruby>朝鮮総督府<rp>(</rp><rt>ちょうせんそうとくふ</rt><rp>)</rp></ruby>を置いて<ruby>植民地<rp>(</rp><rt>しょくみんち</rt><rp>)</rp></ruby>として支配しました。',
+        '<strong>正解はA「<ruby>韓国併合<rp>(</rp><rt>かんこくへいごう</rt><rp>)</rp></ruby>」</strong>です。<ruby>朝鮮総督府<rp>(</rp><rt>ちょうせんそうとくふ</rt><rp>)</rp></ruby>を置いて<ruby>植民地<rp>(</rp><rt>しょくみんち</rt><rp>)</rp></ruby>として支配しました。',
     },
     {
       type: 'narrator',

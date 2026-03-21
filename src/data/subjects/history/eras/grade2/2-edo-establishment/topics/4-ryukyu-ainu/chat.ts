@@ -109,13 +109,13 @@ export const ryukyuAinuChat: HistoryChat = {
       type: 'quiz',
       question: '琉球王国を支配下に置いた藩は？',
       options: [
-        { letter: 'A', text: '薩摩藩', correct: true },
+        { letter: 'A', text: '長州藩', correct: false },
         { letter: 'B', text: '対馬藩', correct: false },
         { letter: 'C', text: '松前藩', correct: false },
-        { letter: 'D', text: '長州藩', correct: false },
+        { letter: 'D', text: '薩摩藩', correct: true },
       ],
       explanation:
-        '<strong>正解はA「<ruby>薩摩藩<rp>(</rp><rt>さつまはん</rt><rp>)</rp></ruby>」</strong>です。1609年に薩摩藩が琉球に<ruby>侵攻<rp>(</rp><rt>しんこう</rt><rp>)</rp></ruby>し、以後支配下に置きました。琉球は薩摩藩と清の両方に属する形となりました。',
+        '<strong>正解はD「<ruby>薩摩藩<rp>(</rp><rt>さつまはん</rt><rp>)</rp></ruby>」</strong>です。1609年に薩摩藩が琉球に<ruby>侵攻<rp>(</rp><rt>しんこう</rt><rp>)</rp></ruby>し、以後支配下に置きました。琉球は薩摩藩と清の両方に属する形となりました。',
     },
     {
       type: 'narrator',
@@ -166,11 +166,11 @@ export const ryukyuAinuChat: HistoryChat = {
       options: [
         { letter: 'A', text: '天草四郎', correct: false },
         { letter: 'B', text: 'ラクスマン', correct: false },
-        { letter: 'C', text: 'コシャマイン', correct: false },
-        { letter: 'D', text: 'シャクシャイン', correct: true },
+        { letter: 'C', text: 'シャクシャイン', correct: true },
+        { letter: 'D', text: 'コシャマイン', correct: false },
       ],
       explanation:
-        '<strong>正解はD「シャクシャイン」</strong>です。<ruby>松前藩<rp>(</rp><rt>まつまえはん</rt><rp>)</rp></ruby>の不公平な交易に対し、アイヌの人々を率いて<ruby>蜂起<rp>(</rp><rt>ほうき</rt><rp>)</rp></ruby>しましたが<ruby>鎮圧<rp>(</rp><rt>ちんあつ</rt><rp>)</rp></ruby>されました。',
+        '<strong>正解はC「シャクシャイン」</strong>です。<ruby>松前藩<rp>(</rp><rt>まつまえはん</rt><rp>)</rp></ruby>の不公平な交易に対し、アイヌの人々を率いて<ruby>蜂起<rp>(</rp><rt>ほうき</rt><rp>)</rp></ruby>しましたが<ruby>鎮圧<rp>(</rp><rt>ちんあつ</rt><rp>)</rp></ruby>されました。',
     },
     {
       type: 'end',

@@ -85,13 +85,13 @@ export const japanIndustrialRevolutionChat: HistoryChat = {
       type: 'quiz',
       question: '1901年に操業を開始した、重工業発展の基礎となった製鉄所は？',
       options: [
-        { letter: 'A', text: '横須賀造船所', correct: false },
+        { letter: 'A', text: '八幡製鉄所', correct: true },
         { letter: 'B', text: '富岡製糸場', correct: false },
         { letter: 'C', text: '長崎造船所', correct: false },
-        { letter: 'D', text: '八幡製鉄所', correct: true },
+        { letter: 'D', text: '横須賀造船所', correct: false },
       ],
       explanation:
-        '<strong>正解はD「<ruby>八幡製鉄所<rp>(</rp><rt>やはたせいてつしょ</rt><rp>)</rp></ruby>」</strong>です。<ruby>日清戦争<rp>(</rp><rt>にっしんせんそう</rt><rp>)</rp></ruby>の<ruby>賠償金<rp>(</rp><rt>ばいしょうきん</rt><rp>)</rp></ruby>で建設され、<ruby>重化学工業<rp>(</rp><rt>じゅうかがくこうぎょう</rt><rp>)</rp></ruby>発展の基礎となりました。',
+        '<strong>正解はA「<ruby>八幡製鉄所<rp>(</rp><rt>やはたせいてつしょ</rt><rp>)</rp></ruby>」</strong>です。<ruby>日清戦争<rp>(</rp><rt>にっしんせんそう</rt><rp>)</rp></ruby>の<ruby>賠償金<rp>(</rp><rt>ばいしょうきん</rt><rp>)</rp></ruby>で建設され、<ruby>重化学工業<rp>(</rp><rt>じゅうかがくこうぎょう</rt><rp>)</rp></ruby>発展の基礎となりました。',
     },
     {
       type: 'narrator',
@@ -140,13 +140,13 @@ export const japanIndustrialRevolutionChat: HistoryChat = {
       type: 'quiz',
       question: '足尾銅山鉱毒事件で被害農民のために闘った議員は？',
       options: [
-        { letter: 'A', text: '田中正造', correct: true },
+        { letter: 'A', text: '大隈重信', correct: false },
         { letter: 'B', text: '板垣退助', correct: false },
         { letter: 'C', text: '幸徳秋水', correct: false },
-        { letter: 'D', text: '大隈重信', correct: false },
+        { letter: 'D', text: '田中正造', correct: true },
       ],
       explanation:
-        '<strong>正解はA「<ruby>田中正造<rp>(</rp><rt>たなかしょうぞう</rt><rp>)</rp></ruby>」</strong>です。<ruby>天皇<rp>(</rp><rt>てんのう</rt><rp>)</rp></ruby>に<ruby>直訴<rp>(</rp><rt>じきそ</rt><rp>)</rp></ruby>しようとしたことでも有名です。',
+        '<strong>正解はD「<ruby>田中正造<rp>(</rp><rt>たなかしょうぞう</rt><rp>)</rp></ruby>」</strong>です。<ruby>天皇<rp>(</rp><rt>てんのう</rt><rp>)</rp></ruby>に<ruby>直訴<rp>(</rp><rt>じきそ</rt><rp>)</rp></ruby>しようとしたことでも有名です。',
     },
     {
       type: 'end',

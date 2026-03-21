@@ -77,13 +77,13 @@ export const openingJapanChat: HistoryChat = {
       type: 'quiz',
       question: '1853年に黒船で浦賀に来航したアメリカの軍人は？',
       options: [
-        { letter: 'A', text: 'ペリー', correct: true },
+        { letter: 'A', text: 'ワシントン', correct: false },
         { letter: 'B', text: 'ハリス', correct: false },
-        { letter: 'C', text: 'ワシントン', correct: false },
+        { letter: 'C', text: 'ペリー', correct: true },
         { letter: 'D', text: 'リンカン', correct: false },
       ],
       explanation:
-        '<strong>正解はA「ペリー」</strong>です。<ruby>蒸気<rp>(</rp><rt>じょうき</rt><rp>)</rp></ruby>をあげる<ruby>黒船<rp>(</rp><rt>くろふね</rt><rp>)</rp></ruby>に人々は<ruby>驚<rp>(</rp><rt>おどろ</rt><rp>)</rp></ruby>き、日本の<ruby>開国<rp>(</rp><rt>かいこく</rt><rp>)</rp></ruby>を<ruby>迫<rp>(</rp><rt>せま</rt><rp>)</rp></ruby>りました。',
+        '<strong>正解はC「ペリー」</strong>です。<ruby>蒸気<rp>(</rp><rt>じょうき</rt><rp>)</rp></ruby>をあげる<ruby>黒船<rp>(</rp><rt>くろふね</rt><rp>)</rp></ruby>に人々は<ruby>驚<rp>(</rp><rt>おどろ</rt><rp>)</rp></ruby>き、日本の<ruby>開国<rp>(</rp><rt>かいこく</rt><rp>)</rp></ruby>を<ruby>迫<rp>(</rp><rt>せま</rt><rp>)</rp></ruby>りました。',
     },
     {
       type: 'message',
@@ -142,12 +142,12 @@ export const openingJapanChat: HistoryChat = {
       question: '日米修好通商条約で日本が認めた、外国人を日本の法律で裁けない権利は？',
       options: [
         { letter: 'A', text: '関税自主権', correct: false },
-        { letter: 'B', text: '治安維持権', correct: false },
+        { letter: 'B', text: '領事裁判権', correct: true },
         { letter: 'C', text: '最恵国待遇', correct: false },
-        { letter: 'D', text: '領事裁判権', correct: true },
+        { letter: 'D', text: '治安維持権', correct: false },
       ],
       explanation:
-        '<strong>正解はD「<ruby>領事裁判権<rp>(</rp><rt>りょうじさいばんけん</rt><rp>)</rp></ruby>」</strong>です。外国人の<ruby>犯罪<rp>(</rp><rt>はんざい</rt><rp>)</rp></ruby>をその国の<ruby>法律<rp>(</rp><rt>ほうりつ</rt><rp>)</rp></ruby>で<ruby>裁<rp>(</rp><rt>さば</rt><rp>)</rp></ruby>く<ruby>権利<rp>(</rp><rt>けんり</rt><rp>)</rp></ruby>で、<ruby>治外法権<rp>(</rp><rt>ちがいほうけん</rt><rp>)</rp></ruby>とも呼ばれます。',
+        '<strong>正解はB「<ruby>領事裁判権<rp>(</rp><rt>りょうじさいばんけん</rt><rp>)</rp></ruby>」</strong>です。外国人の<ruby>犯罪<rp>(</rp><rt>はんざい</rt><rp>)</rp></ruby>をその国の<ruby>法律<rp>(</rp><rt>ほうりつ</rt><rp>)</rp></ruby>で<ruby>裁<rp>(</rp><rt>さば</rt><rp>)</rp></ruby>く<ruby>権利<rp>(</rp><rt>けんり</rt><rp>)</rp></ruby>で、<ruby>治外法権<rp>(</rp><rt>ちがいほうけん</rt><rp>)</rp></ruby>とも呼ばれます。',
     },
     {
       type: 'end',

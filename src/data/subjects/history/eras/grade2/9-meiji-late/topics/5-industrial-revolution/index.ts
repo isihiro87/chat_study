@@ -114,6 +114,76 @@ export const japanIndustrialRevolution: Topic = {
         explanation: '社会主義思想の弾圧のきっかけとなった。',
         difficulty: 'advanced',
       },
+      {
+        id: 'fc11',
+        front: '八幡製鉄所',
+        back: '福岡県北九州市に建設された官営の製鉄所は？',
+        explanation: '日清戦争の賠償金で建設された。',
+        difficulty: 'basic',
+      },
+      {
+        id: 'fc12',
+        front: '1901年',
+        back: '八幡製鉄所が操業を開始した年は？',
+        explanation: '重化学工業発展の基礎となった。',
+        difficulty: 'basic',
+      },
+      {
+        id: 'fc13',
+        front: '綿糸',
+        back: '日本の産業革命で最初に発展した軽工業の製品は？',
+        explanation: '日清戦争後には輸出量が輸入量を上回った。',
+        difficulty: 'standard',
+      },
+      {
+        id: 'fc14',
+        front: '渡良瀬川',
+        back: '足尾銅山の鉱毒で汚染された川は？',
+        explanation: '農作物に大きな被害を与えた。',
+        difficulty: 'standard',
+      },
+      {
+        id: 'fc15',
+        front: '女工哀史',
+        back: '女性労働者の過酷な労働を描いた作品は？',
+        explanation: '製糸工場などでの低賃金・長時間労働の実態を伝えた。',
+        difficulty: 'advanced',
+      },
+      {
+        id: 'fc16',
+        front: '三井',
+        back: '明治時代に成長した代表的な財閥の一つは？',
+        explanation: '三菱・住友・安田とともに四大財閥と呼ばれた。',
+        difficulty: 'standard',
+      },
+      {
+        id: 'fc17',
+        front: '栃木県',
+        back: '足尾銅山がある都道府県は？',
+        explanation: '日本初の公害事件として知られる。',
+        difficulty: 'standard',
+      },
+      {
+        id: 'fc18',
+        front: '紡績業',
+        back: '糸を紡ぐ軽工業の一分野は？',
+        explanation: '日本の産業革命は紡績業・製糸業から始まった。',
+        difficulty: 'standard',
+      },
+      {
+        id: 'fc19',
+        front: '公害',
+        back: '足尾銅山鉱毒事件のような、産業活動による環境汚染は？',
+        explanation: '日本最初の大規模な公害問題。',
+        difficulty: 'advanced',
+      },
+      {
+        id: 'fc20',
+        front: '社会主義',
+        back: '資本家と労働者の格差をなくそうとする思想は？',
+        explanation: '大逆事件をきっかけに政府の弾圧が強まった。',
+        difficulty: 'advanced',
+      },
     ],
     quiz: {
       questions: [
@@ -191,6 +261,144 @@ export const japanIndustrialRevolution: Topic = {
           explanation:
             '工女たちの低賃金・長時間労働など労働問題が深刻化し、労働争議（ストライキ）も増えました。',
           difficulty: 'standard',
+        },
+        {
+          id: 'q7',
+          question: '八幡製鉄所が建設されたお金の出どころは？',
+          options: [
+            '地租改正の税収',
+            '日清戦争の賠償金',
+            '外国からの借金',
+            '民間企業の出資',
+          ],
+          correctIndex: 1,
+          explanation:
+            '日清戦争で得た賠償金2億両の一部が八幡製鉄所の建設に使われました。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'q8',
+          question: '八幡製鉄所が操業を開始した年は？',
+          options: ['1894年', '1897年', '1901年', '1905年'],
+          correctIndex: 2,
+          explanation:
+            '1901年に官営の八幡製鉄所が操業を開始し、重化学工業の基礎が築かれました。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'q9',
+          question: '足尾銅山鉱毒事件で汚染された川は？',
+          options: ['利根川', '渡良瀬川', '多摩川', '荒川'],
+          correctIndex: 1,
+          explanation:
+            '足尾銅山の鉱毒が渡良瀬川を汚染し、農作物に大きな被害を与えました。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'q10',
+          question: '田中正造は天皇にどうしようとしたことで有名？',
+          options: [
+            '手紙を出そうとした',
+            '直訴しようとした',
+            '面会を求めた',
+            '軍隊を要請した',
+          ],
+          correctIndex: 1,
+          explanation:
+            '田中正造は足尾銅山鉱毒事件の被害を天皇に直訴しようとしたことで有名です。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'q11',
+          question: '明治時代に成長した四大財閥は？',
+          options: [
+            '三井・三菱・住友・安田',
+            '三井・三菱・日立・東芝',
+            '住友・安田・松下・日産',
+            '三井・三菱・住友・トヨタ',
+          ],
+          correctIndex: 0,
+          explanation:
+            '三井・三菱・住友・安田の四大財閥が産業革命の中で大きく成長しました。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'q12',
+          question: '日清戦争後に綿糸の輸出量はどうなった？',
+          options: [
+            '大幅に減少した',
+            '輸入量を上回った',
+            '変化がなかった',
+            '輸出が禁止された',
+          ],
+          correctIndex: 1,
+          explanation:
+            '日清戦争後、綿糸の輸出量が輸入量を上回り、日本の産業革命の成果が表れました。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'q13',
+          question: '八幡製鉄所がある場所は？',
+          options: ['東京都', '福岡県北九州市', '大阪府', '広島県'],
+          correctIndex: 1,
+          explanation:
+            '八幡製鉄所は福岡県北九州市に建設されました。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'q14',
+          question: '足尾銅山がある都道府県は？',
+          options: ['群馬県', '栃木県', '茨城県', '埼玉県'],
+          correctIndex: 1,
+          explanation:
+            '足尾銅山は栃木県にあり、鉱毒事件は日本最初の大規模な公害問題です。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'q15',
+          question: '大逆事件で処刑された代表的な人物は？',
+          options: ['田中正造', '幸徳秋水', '板垣退助', '福沢諭吉'],
+          correctIndex: 1,
+          explanation:
+            '幸徳秋水は大逆事件で天皇暗殺を計画したとして処刑されました。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'q16',
+          question: '女性労働者の過酷な労働環境を描いた作品は？',
+          options: ['学問のすゝめ', '女工哀史', '坊っちゃん', '蟹工船'],
+          correctIndex: 1,
+          explanation:
+            '「女工哀史」は製糸工場などでの低賃金・長時間労働の実態を伝えた作品です。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'q17',
+          question: '日本の産業革命の発展順序は？',
+          options: [
+            '重工業から軽工業へ',
+            '軽工業から重工業へ',
+            '農業から軽工業へ',
+            '商業から重工業へ',
+          ],
+          correctIndex: 1,
+          explanation:
+            '日本の産業革命はまず軽工業（綿糸・生糸）から始まり、次に重化学工業へと発展しました。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'q18',
+          question: '産業革命に伴う社会問題として正しいものは？',
+          options: [
+            '農村の人口増加と食料不足',
+            '低賃金・長時間労働と公害問題',
+            '外国人労働者との競争',
+            '学校の不足と教育問題',
+          ],
+          correctIndex: 1,
+          explanation:
+            '産業革命に伴い、低賃金・長時間労働の労働問題と足尾銅山のような公害問題が深刻化しました。',
+          difficulty: 'basic',
         },
       ],
     },

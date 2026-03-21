@@ -88,13 +88,13 @@ export const threeReformsSummaryChat: HistoryChat = {
       type: 'quiz',
       question: '享保の改革を行った8代将軍は？',
       options: [
-        { letter: 'A', text: '徳川綱吉', correct: false },
-        { letter: 'B', text: '徳川吉宗', correct: true },
+        { letter: 'A', text: '徳川吉宗', correct: true },
+        { letter: 'B', text: '徳川綱吉', correct: false },
         { letter: 'C', text: '徳川慶喜', correct: false },
         { letter: 'D', text: '徳川家斉', correct: false },
       ],
       explanation:
-        '<strong>正解はB「<ruby>徳川吉宗<rp>(</rp><rt>とくがわよしむね</rt><rp>)</rp></ruby>」</strong>です。「<ruby>米将軍<rp>(</rp><rt>こめしょうぐん</rt><rp>)</rp></ruby>」とも呼ばれ、<strong>三大改革</strong>で唯一成功した改革を行いました。',
+        '<strong>正解はA「<ruby>徳川吉宗<rp>(</rp><rt>とくがわよしむね</rt><rp>)</rp></ruby>」</strong>です。「<ruby>米将軍<rp>(</rp><rt>こめしょうぐん</rt><rp>)</rp></ruby>」とも呼ばれ、<strong>三大改革</strong>で唯一成功した改革を行いました。',
     },
     {
       type: 'message',
@@ -129,13 +129,13 @@ export const threeReformsSummaryChat: HistoryChat = {
       type: 'quiz',
       question: '寛政の改革を行った、吉宗の孫である老中は？',
       options: [
-        { letter: 'A', text: '松平定信', correct: true },
+        { letter: 'A', text: '井伊直弼', correct: false },
         { letter: 'B', text: '田沼意次', correct: false },
         { letter: 'C', text: '水野忠邦', correct: false },
-        { letter: 'D', text: '井伊直弼', correct: false },
+        { letter: 'D', text: '松平定信', correct: true },
       ],
       explanation:
-        '<strong>正解はA「<ruby>松平定信<rp>(</rp><rt>まつだいらさだのぶ</rt><rp>)</rp></ruby>」</strong>です。吉宗の孫で、祖父の政治をお手本にしましたが厳しすぎて失敗しました。',
+        '<strong>正解はD「<ruby>松平定信<rp>(</rp><rt>まつだいらさだのぶ</rt><rp>)</rp></ruby>」</strong>です。吉宗の孫で、祖父の政治をお手本にしましたが厳しすぎて失敗しました。',
     },
     {
       type: 'message',
@@ -208,12 +208,12 @@ export const threeReformsSummaryChat: HistoryChat = {
       question: '三大改革で唯一、将軍自らが行い成功した改革は？',
       options: [
         { letter: 'A', text: '天保の改革', correct: false },
-        { letter: 'B', text: '寛政の改革', correct: false },
-        { letter: 'C', text: '享保の改革', correct: true },
+        { letter: 'B', text: '享保の改革', correct: true },
+        { letter: 'C', text: '寛政の改革', correct: false },
         { letter: 'D', text: '田沼の政治', correct: false },
       ],
       explanation:
-        '<strong>正解はC「<ruby>享保<rp>(</rp><rt>きょうほう</rt><rp>)</rp></ruby>の改革」</strong>です。8代将軍<strong>吉宗</strong>が自ら行った改革で、一定の成功を収めました。<strong>寛政</strong>・<strong>天保</strong>は老中が行い失敗しました。',
+        '<strong>正解はB「<ruby>享保<rp>(</rp><rt>きょうほう</rt><rp>)</rp></ruby>の改革」</strong>です。8代将軍<strong>吉宗</strong>が自ら行った改革で、一定の成功を収めました。<strong>寛政</strong>・<strong>天保</strong>は老中が行い失敗しました。',
     },
     {
       type: 'message',
@@ -237,13 +237,13 @@ export const threeReformsSummaryChat: HistoryChat = {
       type: 'quiz',
       question: '三大改革の実施者を古い順に並べると？',
       options: [
-        { letter: 'A', text: '定信→吉宗→忠邦', correct: false },
-        { letter: 'B', text: '吉宗→定信→忠邦', correct: true },
+        { letter: 'A', text: '吉宗→定信→忠邦', correct: true },
+        { letter: 'B', text: '定信→吉宗→忠邦', correct: false },
         { letter: 'C', text: '忠邦→定信→吉宗', correct: false },
         { letter: 'D', text: '吉宗→忠邦→定信', correct: false },
       ],
       explanation:
-        '<strong>正解はB「吉宗→定信→忠邦」</strong>です。<strong><ruby>享保<rp>(</rp><rt>きょうほう</rt><rp>)</rp></ruby></strong>（1716年〜）→<strong><ruby>寛政<rp>(</rp><rt>かんせい</rt><rp>)</rp></ruby></strong>（1787年〜）→<strong><ruby>天保<rp>(</rp><rt>てんぽう</rt><rp>)</rp></ruby></strong>（1841年〜）の順番です。',
+        '<strong>正解はA「吉宗→定信→忠邦」</strong>です。<strong><ruby>享保<rp>(</rp><rt>きょうほう</rt><rp>)</rp></ruby></strong>（1716年〜）→<strong><ruby>寛政<rp>(</rp><rt>かんせい</rt><rp>)</rp></ruby></strong>（1787年〜）→<strong><ruby>天保<rp>(</rp><rt>てんぽう</rt><rp>)</rp></ruby></strong>（1841年〜）の順番です。',
     },
     {
       type: 'message',
@@ -281,13 +281,13 @@ export const threeReformsSummaryChat: HistoryChat = {
       type: 'quiz',
       question: '三大改革と異なり、商業を重視した政治を行ったのは？',
       options: [
-        { letter: 'A', text: '田沼意次', correct: true },
+        { letter: 'A', text: '水野忠邦', correct: false },
         { letter: 'B', text: '松平定信', correct: false },
         { letter: 'C', text: '徳川吉宗', correct: false },
-        { letter: 'D', text: '水野忠邦', correct: false },
+        { letter: 'D', text: '田沼意次', correct: true },
       ],
       explanation:
-        '<strong>正解はA「<ruby>田沼意次<rp>(</rp><rt>たぬまおきつぐ</rt><rp>)</rp></ruby>」</strong>です。<ruby>享保<rp>(</rp><rt>きょうほう</rt><rp>)</rp></ruby>と<ruby>寛政<rp>(</rp><rt>かんせい</rt><rp>)</rp></ruby>の間に、<ruby>株仲間<rp>(</rp><rt>かぶなかま</rt><rp>)</rp></ruby>の<ruby>奨励<rp>(</rp><rt>しょうれい</rt><rp>)</rp></ruby>など商業重視の政策を行いました。',
+        '<strong>正解はD「<ruby>田沼意次<rp>(</rp><rt>たぬまおきつぐ</rt><rp>)</rp></ruby>」</strong>です。<ruby>享保<rp>(</rp><rt>きょうほう</rt><rp>)</rp></ruby>と<ruby>寛政<rp>(</rp><rt>かんせい</rt><rp>)</rp></ruby>の間に、<ruby>株仲間<rp>(</rp><rt>かぶなかま</rt><rp>)</rp></ruby>の<ruby>奨励<rp>(</rp><rt>しょうれい</rt><rp>)</rp></ruby>など商業重視の政策を行いました。',
     },
     {
       type: 'end',

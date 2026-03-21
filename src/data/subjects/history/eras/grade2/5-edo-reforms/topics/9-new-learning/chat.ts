@@ -91,13 +91,13 @@ export const newLearningChat: HistoryChat = {
       type: 'quiz',
       question: '「古事記伝」を完成させた国学者は？',
       options: [
-        { letter: 'A', text: '本居宣長', correct: true },
+        { letter: 'A', text: '伊能忠敬', correct: false },
         { letter: 'B', text: '杉田玄白', correct: false },
-        { letter: 'C', text: '伊能忠敬', correct: false },
+        { letter: 'C', text: '本居宣長', correct: true },
         { letter: 'D', text: '平賀源内', correct: false },
       ],
       explanation:
-        '<strong>正解はA「<ruby>本居宣長<rp>(</rp><rt>もとおりのりなが</rt><rp>)</rp></ruby>」</strong>です。35年をかけて<ruby>古事記<rp>(</rp><rt>こじき</rt><rp>)</rp></ruby>を研究し、<strong>国学</strong>を大成しました。',
+        '<strong>正解はC「<ruby>本居宣長<rp>(</rp><rt>もとおりのりなが</rt><rp>)</rp></ruby>」</strong>です。35年をかけて<ruby>古事記<rp>(</rp><rt>こじき</rt><rp>)</rp></ruby>を研究し、<strong>国学</strong>を大成しました。',
     },
     {
       type: 'message',
@@ -141,13 +141,13 @@ export const newLearningChat: HistoryChat = {
       type: 'quiz',
       question: '杉田玄白らが翻訳した医学書は？',
       options: [
-        { letter: 'A', text: '解体新書', correct: true },
-        { letter: 'B', text: '蘭学事始', correct: false },
+        { letter: 'A', text: '蘭学事始', correct: false },
+        { letter: 'B', text: '解体新書', correct: true },
         { letter: 'C', text: '農学全書', correct: false },
         { letter: 'D', text: '古事記伝', correct: false },
       ],
       explanation:
-        '<strong>正解はA「<ruby>解体新書<rp>(</rp><rt>かいたいしんしょ</rt><rp>)</rp></ruby>」</strong>です。オランダ語の解剖書を<ruby>翻訳<rp>(</rp><rt>ほんやく</rt><rp>)</rp></ruby>し、西洋医学を日本に紹介しました。',
+        '<strong>正解はB「<ruby>解体新書<rp>(</rp><rt>かいたいしんしょ</rt><rp>)</rp></ruby>」</strong>です。オランダ語の解剖書を<ruby>翻訳<rp>(</rp><rt>ほんやく</rt><rp>)</rp></ruby>し、西洋医学を日本に紹介しました。',
     },
     {
       type: 'message',
@@ -185,13 +185,13 @@ export const newLearningChat: HistoryChat = {
       type: 'quiz',
       question: '日本全国を測量して精密な日本地図を作ったのは？',
       options: [
-        { letter: 'A', text: '本居宣長', correct: false },
+        { letter: 'A', text: '伊能忠敬', correct: true },
         { letter: 'B', text: '杉田玄白', correct: false },
-        { letter: 'C', text: '伊能忠敬', correct: true },
+        { letter: 'C', text: '本居宣長', correct: false },
         { letter: 'D', text: '間宮林蔵', correct: false },
       ],
       explanation:
-        '<strong>正解はC「<ruby>伊能忠敬<rp>(</rp><rt>いのうただたか</rt><rp>)</rp></ruby>」</strong>です。50歳から測量を学び、17年かけて日本全国を測量しました。',
+        '<strong>正解はA「<ruby>伊能忠敬<rp>(</rp><rt>いのうただたか</rt><rp>)</rp></ruby>」</strong>です。50歳から測量を学び、17年かけて日本全国を測量しました。',
     },
     {
       type: 'message',
@@ -222,13 +222,13 @@ export const newLearningChat: HistoryChat = {
       type: 'quiz',
       question: '庶民の子が読み書きを学んだ教育施設は？',
       options: [
-        { letter: 'A', text: '寺子屋', correct: true },
+        { letter: 'A', text: '私塾', correct: false },
         { letter: 'B', text: '藩校', correct: false },
         { letter: 'C', text: '昌平坂学問所', correct: false },
-        { letter: 'D', text: '私塾', correct: false },
+        { letter: 'D', text: '寺子屋', correct: true },
       ],
       explanation:
-        '<strong>正解はA「<ruby>寺子屋<rp>(</rp><rt>てらこや</rt><rp>)</rp></ruby>」</strong>です。庶民の子が「読み・書き・そろばん」を学びました。<strong><ruby>藩校<rp>(</rp><rt>はんこう</rt><rp>)</rp></ruby></strong>は武士の子が通う学校です。',
+        '<strong>正解はD「<ruby>寺子屋<rp>(</rp><rt>てらこや</rt><rp>)</rp></ruby>」</strong>です。庶民の子が「読み・書き・そろばん」を学びました。<strong><ruby>藩校<rp>(</rp><rt>はんこう</rt><rp>)</rp></ruby></strong>は武士の子が通う学校です。',
     },
     {
       type: 'end',

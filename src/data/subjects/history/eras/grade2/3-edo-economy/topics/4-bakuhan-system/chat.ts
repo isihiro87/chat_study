@@ -155,11 +155,11 @@ export const bakuhanSystemChat: HistoryChat = {
       options: [
         { letter: 'A', text: '武家諸法度', correct: false },
         { letter: 'B', text: '鎖国', correct: false },
-        { letter: 'C', text: '参勤交代', correct: true },
-        { letter: 'D', text: '検地', correct: false },
+        { letter: 'C', text: '検地', correct: false },
+        { letter: 'D', text: '参勤交代', correct: true },
       ],
       explanation:
-        '<strong>正解はC「<ruby>参勤交代<rp>(</rp><rt>さんきんこうたい</rt><rp>)</rp></ruby>」</strong>です。3代<ruby>将軍<rp>(</rp><rt>しょうぐん</rt><rp>)</rp></ruby><ruby>家光<rp>(</rp><rt>いえみつ</rt><rp>)</rp></ruby>の時に制度化され、<ruby>大名<rp>(</rp><rt>だいみょう</rt><rp>)</rp></ruby>の<ruby>妻子<rp>(</rp><rt>さいし</rt><rp>)</rp></ruby>は江戸に住むことが<ruby>義務<rp>(</rp><rt>ぎむ</rt><rp>)</rp></ruby>づけられました。',
+        '<strong>正解はD「<ruby>参勤交代<rp>(</rp><rt>さんきんこうたい</rt><rp>)</rp></ruby>」</strong>です。3代<ruby>将軍<rp>(</rp><rt>しょうぐん</rt><rp>)</rp></ruby><ruby>家光<rp>(</rp><rt>いえみつ</rt><rp>)</rp></ruby>の時に制度化され、<ruby>大名<rp>(</rp><rt>だいみょう</rt><rp>)</rp></ruby>の<ruby>妻子<rp>(</rp><rt>さいし</rt><rp>)</rp></ruby>は江戸に住むことが<ruby>義務<rp>(</rp><rt>ぎむ</rt><rp>)</rp></ruby>づけられました。',
     },
     {
       type: 'end',

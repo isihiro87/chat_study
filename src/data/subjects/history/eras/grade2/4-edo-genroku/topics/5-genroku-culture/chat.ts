@@ -91,13 +91,13 @@ export const genrokuCultureChat: HistoryChat = {
       type: 'quiz',
       question: '「奥の細道」を書いた俳諧師は？',
       options: [
-        { letter: 'A', text: '松尾芭蕉', correct: true },
+        { letter: 'A', text: '井原西鶴', correct: false },
         { letter: 'B', text: '近松門左衛門', correct: false },
         { letter: 'C', text: '菱川師宣', correct: false },
-        { letter: 'D', text: '井原西鶴', correct: false },
+        { letter: 'D', text: '松尾芭蕉', correct: true },
       ],
       explanation:
-        '<strong>正解はA「<ruby>松尾芭蕉<rp>(</rp><rt>まつおばしょう</rt><rp>)</rp></ruby>」</strong>です。<ruby>芭蕉<rp>(</rp><rt>ばしょう</rt><rp>)</rp></ruby>は<ruby>東北<rp>(</rp><rt>とうほく</rt><rp>)</rp></ruby>・<ruby>北陸<rp>(</rp><rt>ほくりく</rt><rp>)</rp></ruby>を旅し、その<ruby>紀行文<rp>(</rp><rt>きこうぶん</rt><rp>)</rp></ruby>「<ruby>奥の細道<rp>(</rp><rt>おくのほそみち</rt><rp>)</rp></ruby>」は<ruby>俳諧<rp>(</rp><rt>はいかい</rt><rp>)</rp></ruby>文学の<ruby>傑作<rp>(</rp><rt>けっさく</rt><rp>)</rp></ruby>です。',
+        '<strong>正解はD「<ruby>松尾芭蕉<rp>(</rp><rt>まつおばしょう</rt><rp>)</rp></ruby>」</strong>です。<ruby>芭蕉<rp>(</rp><rt>ばしょう</rt><rp>)</rp></ruby>は<ruby>東北<rp>(</rp><rt>とうほく</rt><rp>)</rp></ruby>・<ruby>北陸<rp>(</rp><rt>ほくりく</rt><rp>)</rp></ruby>を旅し、その<ruby>紀行文<rp>(</rp><rt>きこうぶん</rt><rp>)</rp></ruby>「<ruby>奥の細道<rp>(</rp><rt>おくのほそみち</rt><rp>)</rp></ruby>」は<ruby>俳諧<rp>(</rp><rt>はいかい</rt><rp>)</rp></ruby>文学の<ruby>傑作<rp>(</rp><rt>けっさく</rt><rp>)</rp></ruby>です。',
     },
     {
       type: 'message',
@@ -137,11 +137,11 @@ export const genrokuCultureChat: HistoryChat = {
       options: [
         { letter: 'A', text: '井原西鶴', correct: false },
         { letter: 'B', text: '菱川師宣', correct: false },
-        { letter: 'C', text: '松尾芭蕉', correct: false },
-        { letter: 'D', text: '近松門左衛門', correct: true },
+        { letter: 'C', text: '近松門左衛門', correct: true },
+        { letter: 'D', text: '松尾芭蕉', correct: false },
       ],
       explanation:
-        '<strong>正解はD「<ruby>近松門左衛門<rp>(</rp><rt>ちかまつもんざえもん</rt><rp>)</rp></ruby>」</strong>です。「日本のシェイクスピア」とも呼ばれ、<ruby>義理<rp>(</rp><rt>ぎり</rt><rp>)</rp></ruby>と<ruby>人情<rp>(</rp><rt>にんじょう</rt><rp>)</rp></ruby>の<ruby>葛藤<rp>(</rp><rt>かっとう</rt><rp>)</rp></ruby>を描きました。',
+        '<strong>正解はC「<ruby>近松門左衛門<rp>(</rp><rt>ちかまつもんざえもん</rt><rp>)</rp></ruby>」</strong>です。「日本のシェイクスピア」とも呼ばれ、<ruby>義理<rp>(</rp><rt>ぎり</rt><rp>)</rp></ruby>と<ruby>人情<rp>(</rp><rt>にんじょう</rt><rp>)</rp></ruby>の<ruby>葛藤<rp>(</rp><rt>かっとう</rt><rp>)</rp></ruby>を描きました。',
     },
     {
       type: 'end',

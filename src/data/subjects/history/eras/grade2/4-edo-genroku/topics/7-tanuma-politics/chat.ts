@@ -84,13 +84,13 @@ export const tanumaPoliticsChat: HistoryChat = {
       type: 'quiz',
       question: '田沼意次が公認した商人の同業者組合を何という？',
       options: [
-        { letter: 'A', text: '両替商', correct: false },
+        { letter: 'A', text: '株仲間', correct: true },
         { letter: 'B', text: '問屋', correct: false },
-        { letter: 'C', text: '株仲間', correct: true },
+        { letter: 'C', text: '両替商', correct: false },
         { letter: 'D', text: '座', correct: false },
       ],
       explanation:
-        '<strong>正解はC「<ruby>株仲間<rp>(</rp><rt>かぶなかま</rt><rp>)</rp></ruby>」</strong>です。田沼は<strong>株仲間</strong>を認める代わりに<ruby>税金<rp>(</rp><rt>ぜいきん</rt><rp>)</rp></ruby>を<ruby>徴収<rp>(</rp><rt>ちょうしゅう</rt><rp>)</rp></ruby>し、<ruby>財政収入<rp>(</rp><rt>ざいせいしゅうにゅう</rt><rp>)</rp></ruby>を増やそうとしました。',
+        '<strong>正解はA「<ruby>株仲間<rp>(</rp><rt>かぶなかま</rt><rp>)</rp></ruby>」</strong>です。田沼は<strong>株仲間</strong>を認める代わりに<ruby>税金<rp>(</rp><rt>ぜいきん</rt><rp>)</rp></ruby>を<ruby>徴収<rp>(</rp><rt>ちょうしゅう</rt><rp>)</rp></ruby>し、<ruby>財政収入<rp>(</rp><rt>ざいせいしゅうにゅう</rt><rp>)</rp></ruby>を増やそうとしました。',
     },
     {
       type: 'message',
@@ -129,12 +129,12 @@ export const tanumaPoliticsChat: HistoryChat = {
       question: '田沼意次が長崎貿易で輸出を増やした海産物を何という？',
       options: [
         { letter: 'A', text: '干鰯', correct: false },
-        { letter: 'B', text: '俵物', correct: true },
+        { letter: 'B', text: '塩', correct: false },
         { letter: 'C', text: '昆布', correct: false },
-        { letter: 'D', text: '塩', correct: false },
+        { letter: 'D', text: '俵物', correct: true },
       ],
       explanation:
-        '<strong>正解はB「<ruby>俵物<rp>(</rp><rt>たわらもの</rt><rp>)</rp></ruby>」</strong>です。干しアワビ、いりこ、ふかひれなどの<ruby>海産物<rp>(</rp><rt>かいさんぶつ</rt><rp>)</rp></ruby>を中国へ<ruby>輸出<rp>(</rp><rt>ゆしゅつ</rt><rp>)</rp></ruby>しました。',
+        '<strong>正解はD「<ruby>俵物<rp>(</rp><rt>たわらもの</rt><rp>)</rp></ruby>」</strong>です。干しアワビ、いりこ、ふかひれなどの<ruby>海産物<rp>(</rp><rt>かいさんぶつ</rt><rp>)</rp></ruby>を中国へ<ruby>輸出<rp>(</rp><rt>ゆしゅつ</rt><rp>)</rp></ruby>しました。',
     },
     {
       type: 'message',

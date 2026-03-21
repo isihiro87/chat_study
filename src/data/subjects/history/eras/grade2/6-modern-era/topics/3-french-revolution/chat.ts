@@ -82,11 +82,11 @@ export const frenchRevolutionChat: HistoryChat = {
       options: [
         { letter: 'A', text: '名誉革命', correct: false },
         { letter: 'B', text: 'ボストン茶会事件', correct: false },
-        { letter: 'C', text: 'バスティーユ牢獄襲撃', correct: true },
-        { letter: 'D', text: '三部会召集', correct: false },
+        { letter: 'C', text: '三部会召集', correct: false },
+        { letter: 'D', text: 'バスティーユ牢獄襲撃', correct: true },
       ],
       explanation:
-        '<strong>正解はC「バスティーユ<ruby>牢獄<rp>(</rp><rt>ろうごく</rt><rp>)</rp></ruby><ruby>襲撃<rp>(</rp><rt>しゅうげき</rt><rp>)</rp></ruby>」</strong>です。1789年7月14日に起こり、<strong>フランス革命</strong>の<ruby>象徴<rp>(</rp><rt>しょうちょう</rt><rp>)</rp></ruby>となりました。',
+        '<strong>正解はD「バスティーユ<ruby>牢獄<rp>(</rp><rt>ろうごく</rt><rp>)</rp></ruby><ruby>襲撃<rp>(</rp><rt>しゅうげき</rt><rp>)</rp></ruby>」</strong>です。1789年7月14日に起こり、<strong>フランス革命</strong>の<ruby>象徴<rp>(</rp><rt>しょうちょう</rt><rp>)</rp></ruby>となりました。',
     },
     {
       type: 'narrator',
@@ -115,12 +115,12 @@ export const frenchRevolutionChat: HistoryChat = {
       question: 'フランス革命で発表された、自由・平等・国民主権を謳った文書は？',
       options: [
         { letter: 'A', text: '独立宣言', correct: false },
-        { letter: 'B', text: '人権宣言', correct: true },
-        { letter: 'C', text: 'ナポレオン法典', correct: false },
+        { letter: 'B', text: 'ナポレオン法典', correct: false },
+        { letter: 'C', text: '人権宣言', correct: true },
         { letter: 'D', text: '権利章典', correct: false },
       ],
       explanation:
-        '<strong>正解はB「<ruby>人権宣言<rp>(</rp><rt>じんけんせんげん</rt><rp>)</rp></ruby>」</strong>です。「人は生まれながらにして自由で<ruby>平等<rp>(</rp><rt>びょうどう</rt><rp>)</rp></ruby>」という<ruby>理念<rp>(</rp><rt>りねん</rt><rp>)</rp></ruby>を世界に広めました。',
+        '<strong>正解はC「<ruby>人権宣言<rp>(</rp><rt>じんけんせんげん</rt><rp>)</rp></ruby>」</strong>です。「人は生まれながらにして自由で<ruby>平等<rp>(</rp><rt>びょうどう</rt><rp>)</rp></ruby>」という<ruby>理念<rp>(</rp><rt>りねん</rt><rp>)</rp></ruby>を世界に広めました。',
     },
     {
       type: 'narrator',

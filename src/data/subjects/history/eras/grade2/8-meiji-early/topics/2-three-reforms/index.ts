@@ -114,6 +114,76 @@ export const threeReforms: Topic = {
         explanation: 'この一揆により税率が3%から2.5%に引き下げられた。',
         difficulty: 'advanced',
       },
+      {
+        id: 'fc11',
+        front: '6歳以上',
+        back: '学制で小学校に通うことになった子どもの年齢は？',
+        explanation: '男女すべてが対象とされた。',
+        difficulty: 'basic',
+      },
+      {
+        id: 'fc12',
+        front: '満20歳',
+        back: '徴兵令で兵役の義務が課せられた年齢は？',
+        explanation: '身分に関わらず適用された。',
+        difficulty: 'basic',
+      },
+      {
+        id: 'fc13',
+        front: '現金（金納）',
+        back: '地租改正で税金を納める方法は？',
+        explanation: '米で納める物納から現金で納める方法に変わった。',
+        difficulty: 'standard',
+      },
+      {
+        id: 'fc14',
+        front: '3%',
+        back: '地租改正で定められた税率は地価の何%？',
+        explanation: 'のちに2.5%に引き下げられた。',
+        difficulty: 'standard',
+      },
+      {
+        id: 'fc15',
+        front: '2.5%',
+        back: '地租改正反対一揆の結果、引き下げられた税率は？',
+        explanation: '1877年に3%から2.5%に引き下げられた。',
+        difficulty: 'standard',
+      },
+      {
+        id: 'fc16',
+        front: '授業料',
+        back: '学制に対する不満の原因となった、家庭が負担する費用は？',
+        explanation: '教育費は家庭負担だったため、農家などから反対が出た。',
+        difficulty: 'standard',
+      },
+      {
+        id: 'fc17',
+        front: '物納',
+        back: '地租改正前に米で税を納めていた方法は？',
+        explanation: '米の収穫量に基づいていたため、政府の収入が不安定だった。',
+        difficulty: 'advanced',
+      },
+      {
+        id: 'fc18',
+        front: '1872年',
+        back: '学制が出された年は？',
+        explanation: '全国に小学校が設置された。',
+        difficulty: 'basic',
+      },
+      {
+        id: 'fc19',
+        front: '1873年',
+        back: '徴兵令と地租改正が行われた年は？',
+        explanation: '同じ年に兵制と税制の大改革が行われた。',
+        difficulty: 'basic',
+      },
+      {
+        id: 'fc20',
+        front: '土地所有者',
+        back: '地租改正で、税金を納める義務を負ったのは？',
+        explanation: '地券を持つ土地の所有者が納税の責任を負った。',
+        difficulty: 'standard',
+      },
     ],
     quiz: {
       questions: [
@@ -175,6 +245,152 @@ export const threeReforms: Topic = {
           explanation:
             '教育・軍隊・税金の三分野で行われた大きな改革を三大改革と呼びます。',
           difficulty: 'standard',
+        },
+        {
+          id: 'q7',
+          question: '学制で小学校に通うことになった子どもの年齢は？',
+          options: ['4歳以上', '5歳以上', '6歳以上', '7歳以上'],
+          correctIndex: 2,
+          explanation:
+            '学制により6歳以上の男女すべてが小学校教育を受けることとされました。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'q8',
+          question: '学制に対して農家などから不満が出た理由は？',
+          options: [
+            '授業内容が難しすぎたため',
+            '授業料が家庭負担だったため',
+            '男子しか通えなかったため',
+            '学校が遠すぎたため',
+          ],
+          correctIndex: 1,
+          explanation:
+            '授業料は家庭負担で、子どもを働き手と考えていた農家には大きな負担でした。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'q9',
+          question: '徴兵令で兵役の義務が課せられた年齢は？',
+          options: ['満15歳', '満18歳', '満20歳', '満25歳'],
+          correctIndex: 2,
+          explanation:
+            '徴兵令により満20歳の男子に身分に関わらず兵役の義務が課されました。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'q10',
+          question: '地租改正前の税の納め方は？',
+          options: [
+            '現金で納めた',
+            '米で納めた（物納）',
+            '労働で納めた',
+            '綿花で納めた',
+          ],
+          correctIndex: 1,
+          explanation:
+            '地租改正前は収穫した米で税を納めていましたが、改正後は現金で納めるようになりました。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'q11',
+          question: '地租改正の主な目的は？',
+          options: [
+            '農民の負担を軽くするため',
+            '政府の税収を安定させるため',
+            '外国との貿易を促進するため',
+            '武士の給料を確保するため',
+          ],
+          correctIndex: 1,
+          explanation:
+            '米の収穫量に左右されず、地価に基づく一定の税収を得るために地租改正が行われました。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'q12',
+          question: '徴兵令に反対して各地で起きた一揆は？',
+          options: [
+            '地租改正反対一揆',
+            '百姓一揆',
+            '血税一揆',
+            '打ちこわし',
+          ],
+          correctIndex: 2,
+          explanation:
+            '「血税」という言葉を「血を取られる」と誤解して起きた反対運動を血税一揆といいます。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'q13',
+          question: '学制が出された年は？',
+          options: ['1871年', '1872年', '1873年', '1874年'],
+          correctIndex: 1,
+          explanation:
+            '1872年に学制が出され、全国に小学校が設立されました。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'q14',
+          question: '地租改正で税金を納める義務を負ったのは？',
+          options: [
+            '米を作った農民',
+            '地券を持つ土地所有者',
+            '全ての国民',
+            '村の名主',
+          ],
+          correctIndex: 1,
+          explanation:
+            '地券を発行された土地所有者が地価の3%を現金で納める義務を負いました。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'q15',
+          question: '徴兵令と地租改正が行われたのは同じ年だが、それは何年？',
+          options: ['1871年', '1872年', '1873年', '1874年'],
+          correctIndex: 2,
+          explanation:
+            '1873年に徴兵令と地租改正の両方が行われました。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'q16',
+          question:
+            '地租改正で税率が3%から引き下げられたきっかけは？',
+          options: [
+            '外国からの圧力',
+            '天皇の命令',
+            '各地で反対一揆が起きたため',
+            '政府の税収が十分だったため',
+          ],
+          correctIndex: 2,
+          explanation:
+            '農民の重い負担に反対する一揆が各地で起きたため、1877年に税率が2.5%に引き下げられました。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'q17',
+          question:
+            '徴兵令の基本となる「国民みんなが兵役を負う」考え方は？',
+          options: ['富国強兵', '殖産興業', '国民皆兵', '四民平等'],
+          correctIndex: 2,
+          explanation:
+            '国民皆兵の原則に基づき、身分に関わらず兵役の義務が課されました。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'q18',
+          question:
+            '三大改革で改革された3つの分野は？',
+          options: [
+            '政治・経済・外交',
+            '教育・軍隊・税金',
+            '農業・工業・商業',
+            '法律・警察・裁判',
+          ],
+          correctIndex: 1,
+          explanation:
+            '学制（教育）・徴兵令（軍隊）・地租改正（税金）の3分野で改革が行われました。',
+          difficulty: 'advanced',
         },
       ],
     },

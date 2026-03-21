@@ -154,13 +154,13 @@ export const internationalRelationsChat: HistoryChat = {
       type: 'quiz',
       question: '1879年、琉球を沖縄県とした一連の動きを何という？',
       options: [
-        { letter: 'A', text: '琉球処分', correct: true },
+        { letter: 'A', text: '廃藩置県', correct: false },
         { letter: 'B', text: '版籍奉還', correct: false },
         { letter: 'C', text: '征韓論', correct: false },
-        { letter: 'D', text: '廃藩置県', correct: false },
+        { letter: 'D', text: '琉球処分', correct: true },
       ],
       explanation:
-        '<strong>正解はA「<ruby>琉球処分<rp>(</rp><rt>りゅうきゅうしょぶん</rt><rp>)</rp></ruby>」</strong>です。<ruby>清<rp>(</rp><rt>しん</rt><rp>)</rp></ruby>の<ruby>反対<rp>(</rp><rt>はんたい</rt><rp>)</rp></ruby>を<ruby>押<rp>(</rp><rt>お</rt><rp>)</rp></ruby>し切って<ruby>沖縄県<rp>(</rp><rt>おきなわけん</rt><rp>)</rp></ruby>を設置しました。',
+        '<strong>正解はD「<ruby>琉球処分<rp>(</rp><rt>りゅうきゅうしょぶん</rt><rp>)</rp></ruby>」</strong>です。<ruby>清<rp>(</rp><rt>しん</rt><rp>)</rp></ruby>の<ruby>反対<rp>(</rp><rt>はんたい</rt><rp>)</rp></ruby>を<ruby>押<rp>(</rp><rt>お</rt><rp>)</rp></ruby>し切って<ruby>沖縄県<rp>(</rp><rt>おきなわけん</rt><rp>)</rp></ruby>を設置しました。',
     },
     {
       type: 'end',

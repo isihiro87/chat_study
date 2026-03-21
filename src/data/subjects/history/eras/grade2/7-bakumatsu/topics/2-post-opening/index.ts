@@ -114,6 +114,76 @@ export const postOpening: Topic = {
         explanation: '「夷」は外国人を指す言葉。',
         difficulty: 'standard',
       },
+      {
+        id: 'fc11',
+        front: '尊王',
+        back: '天皇を尊ぶという考え方を何という？',
+        explanation: '攘夷と合わせて「尊王攘夷」というスローガンになった。',
+        difficulty: 'basic',
+      },
+      {
+        id: 'fc12',
+        front: '茶',
+        back: '生糸とともに開港後の日本の主要な輸出品となった農産物は？',
+        explanation: '主にアメリカへ輸出された。',
+        difficulty: 'standard',
+      },
+      {
+        id: 'fc13',
+        front: 'イギリス',
+        back: '開港後、日本の最大の貿易相手国は？',
+        explanation: '横浜を通じて生糸などを大量に輸入した。',
+        difficulty: 'standard',
+      },
+      {
+        id: 'fc14',
+        front: '毛織物',
+        back: '開港後の日本の主な輸入品の一つは？',
+        explanation: '綿織物とともに外国から大量に輸入された。',
+        difficulty: 'standard',
+      },
+      {
+        id: 'fc15',
+        front: '松下村塾',
+        back: '吉田松陰が開いた私塾は？',
+        explanation: '高杉晋作・伊藤博文・木戸孝允らを輩出した。',
+        difficulty: 'standard',
+      },
+      {
+        id: 'fc16',
+        front: '1860年',
+        back: '桜田門外の変が起きた年は？',
+        explanation: '水戸藩の浪士らが井伊直弼を暗殺した。',
+        difficulty: 'standard',
+      },
+      {
+        id: 'fc17',
+        front: '水戸藩',
+        back: '桜田門外の変で井伊直弼を襲撃した浪士たちの出身藩は？',
+        explanation: '安政の大獄で処罰されたことへの報復だった。',
+        difficulty: 'advanced',
+      },
+      {
+        id: 'fc18',
+        front: '綿織物',
+        back: '開港後に外国から大量に輸入された製品の一つは？',
+        explanation: '安い外国製品の流入で国内の手工業者が打撃を受けた。',
+        difficulty: 'advanced',
+      },
+      {
+        id: 'fc19',
+        front: '金銀比価の違い',
+        back: '開港後、大量の金が海外に流出した原因は？',
+        explanation: '日本では金1に対し銀5だが、海外では金1に対し銀15だった。',
+        difficulty: 'advanced',
+      },
+      {
+        id: 'fc20',
+        front: '万延小判',
+        back: '金の流出を防ぐために幕府が発行した質を落とした金貨は？',
+        explanation: '金の含有量を減らしたため、さらに物価高騰を招いた。',
+        difficulty: 'advanced',
+      },
     ],
     quiz: {
       questions: [
@@ -182,6 +252,145 @@ export const postOpening: Topic = {
           correctIndex: 1,
           explanation:
             '日本では金が銀に対して安かったため大量の金が海外に流出し、物価が高騰して人々の生活は苦しくなりました。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'q7',
+          question: '開港後、日本の主な輸出品は何だった？',
+          options: ['米と塩', '生糸と茶', '金と銀', '刀と陶器'],
+          correctIndex: 1,
+          explanation:
+            '開港後、日本は主に生糸と茶を輸出し、毛織物や綿織物を輸入しました。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'q8',
+          question: '吉田松陰が開いた私塾は？',
+          options: ['適塾', '松下村塾', '咸宜園', '鳴滝塾'],
+          correctIndex: 1,
+          explanation:
+            '松下村塾からは高杉晋作・伊藤博文・木戸孝允など維新の志士が多数輩出されました。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'q9',
+          question: '安政の大獄で処罰された人物として正しいのは？',
+          options: ['坂本龍馬', '吉田松陰', '西郷隆盛', '高杉晋作'],
+          correctIndex: 1,
+          explanation:
+            '吉田松陰は安政の大獄で処刑された代表的な人物です。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'q10',
+          question: '桜田門外の変で井伊直弼を襲撃したのは主にどの藩の浪士？',
+          options: ['長州藩の浪士', '薩摩藩の浪士', '水戸藩の浪士', '土佐藩の浪士'],
+          correctIndex: 2,
+          explanation:
+            '水戸藩の浪士を中心とする攘夷派が安政の大獄への報復として井伊直弼を襲撃しました。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'q11',
+          question: '「尊王」の意味として正しいものは？',
+          options: [
+            '外国を追い払うこと',
+            '天皇を尊ぶこと',
+            '幕府を倒すこと',
+            '武士の特権を守ること',
+          ],
+          correctIndex: 1,
+          explanation:
+            '「尊王」は天皇を尊ぶという意味で、「攘夷」と合わせて尊王攘夷運動のスローガンとなりました。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'q12',
+          question: '開港後、日本の最大の貿易相手国は？',
+          options: ['アメリカ', 'フランス', 'イギリス', 'オランダ'],
+          correctIndex: 2,
+          explanation:
+            'イギリスが日本の最大の貿易相手国で、横浜を通じた生糸貿易が中心でした。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'q13',
+          question:
+            '幕府と朝廷が協力しようとする政策を何という？',
+          options: ['尊王攘夷', '公武合体', '倒幕運動', '開国和親'],
+          correctIndex: 1,
+          explanation:
+            '公武合体は幕府が権威を取り戻すために朝廷と協力しようとした政策ですが、うまくいきませんでした。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'q14',
+          question:
+            '開国後に物価が上昇した主な理由は？',
+          options: [
+            '戦争で物資が破壊されたため',
+            '輸出増加で国内の品不足が起きたため',
+            '政府が増税したため',
+            '自然災害が続いたため',
+          ],
+          correctIndex: 1,
+          explanation:
+            '生糸などの輸出が増えて国内の品不足が起き、さらに安い外国製品が流入して物価が上昇しました。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'q15',
+          question:
+            '安政の大獄が起きた直接の原因は？',
+          options: [
+            'ペリーが来航したこと',
+            '西南戦争が起きたこと',
+            '朝廷の許可なく条約を結んだことへの批判',
+            '薩長同盟が結ばれたこと',
+          ],
+          correctIndex: 2,
+          explanation:
+            '井伊直弼が勅許を得ずに日米修好通商条約を結んだことへの批判に対し、反対派を弾圧しました。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'q16',
+          question:
+            '金が海外に大量に流出した原因は？',
+          options: [
+            '日本が外国に金を輸出したため',
+            '日本と外国で金銀の交換比率が違ったため',
+            '外国が日本の金山を支配したため',
+            '幕府が外国に金を贈ったため',
+          ],
+          correctIndex: 1,
+          explanation:
+            '日本では金1に対し銀5だったが海外では金1に対し銀15で、この差を利用して金が流出しました。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'q17',
+          question:
+            '幕末に各地で民衆の間に広まった騒動は？',
+          options: ['百姓一揆', 'ええじゃないか', '打ちこわし', '島原の乱'],
+          correctIndex: 1,
+          explanation:
+            '「ええじゃないか」は社会不安の中で世直しへの期待を込めて各地で踊り騒いだ騒動です。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'q18',
+          question:
+            '開国後の日本で輸入品として多かったものは？',
+          options: [
+            '米と大豆',
+            '生糸と茶',
+            '毛織物と綿織物',
+            '金と銀',
+          ],
+          correctIndex: 2,
+          explanation:
+            '開港後、安い毛織物や綿織物が大量に輸入され、国内の手工業者が打撃を受けました。',
           difficulty: 'standard',
         },
       ],

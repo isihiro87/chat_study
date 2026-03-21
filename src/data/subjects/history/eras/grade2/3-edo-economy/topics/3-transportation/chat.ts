@@ -154,11 +154,11 @@ export const transportationChat: HistoryChat = {
       options: [
         { letter: 'A', text: '三街道', correct: false },
         { letter: 'B', text: '十街道', correct: false },
-        { letter: 'C', text: '七街道', correct: false },
-        { letter: 'D', text: '五街道', correct: true },
+        { letter: 'C', text: '五街道', correct: true },
+        { letter: 'D', text: '七街道', correct: false },
       ],
       explanation:
-        '<strong>正解はD「<ruby>五街道<rp>(</rp><rt>ごかいどう</rt><rp>)</rp></ruby>」</strong>です。<ruby>東海道<rp>(</rp><rt>とうかいどう</rt><rp>)</rp></ruby>・<ruby>中山道<rp>(</rp><rt>なかせんどう</rt><rp>)</rp></ruby>・<ruby>日光街道<rp>(</rp><rt>にっこうかいどう</rt><rp>)</rp></ruby>・<ruby>奥州街道<rp>(</rp><rt>おうしゅうかいどう</rt><rp>)</rp></ruby>・<ruby>甲州街道<rp>(</rp><rt>こうしゅうかいどう</rt><rp>)</rp></ruby>の5つです。',
+        '<strong>正解はC「<ruby>五街道<rp>(</rp><rt>ごかいどう</rt><rp>)</rp></ruby>」</strong>です。<ruby>東海道<rp>(</rp><rt>とうかいどう</rt><rp>)</rp></ruby>・<ruby>中山道<rp>(</rp><rt>なかせんどう</rt><rp>)</rp></ruby>・<ruby>日光街道<rp>(</rp><rt>にっこうかいどう</rt><rp>)</rp></ruby>・<ruby>奥州街道<rp>(</rp><rt>おうしゅうかいどう</rt><rp>)</rp></ruby>・<ruby>甲州街道<rp>(</rp><rt>こうしゅうかいどう</rt><rp>)</rp></ruby>の5つです。',
     },
     {
       type: 'end',

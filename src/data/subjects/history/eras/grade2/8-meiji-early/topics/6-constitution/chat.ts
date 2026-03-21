@@ -86,12 +86,12 @@ export const constitutionChat: HistoryChat = {
       question: '初代内閣総理大臣となった人物は？',
       options: [
         { letter: 'A', text: '板垣退助', correct: false },
-        { letter: 'B', text: '大隈重信', correct: false },
+        { letter: 'B', text: '伊藤博文', correct: true },
         { letter: 'C', text: '岩倉具視', correct: false },
-        { letter: 'D', text: '伊藤博文', correct: true },
+        { letter: 'D', text: '大隈重信', correct: false },
       ],
       explanation:
-        '<strong>正解はD「<ruby>伊藤博文<rp>(</rp><rt>いとうひろぶみ</rt><rp>)</rp></ruby>」</strong>です。1885年に<ruby>内閣制度<rp>(</rp><rt>ないかくせいど</rt><rp>)</rp></ruby>が<ruby>発足<rp>(</rp><rt>ほっそく</rt><rp>)</rp></ruby>し、<ruby>伊藤<rp>(</rp><rt>いとう</rt><rp>)</rp></ruby>が<ruby>初代<rp>(</rp><rt>しょだい</rt><rp>)</rp></ruby><ruby>総理大臣<rp>(</rp><rt>そうりだいじん</rt><rp>)</rp></ruby>になりました。',
+        '<strong>正解はB「<ruby>伊藤博文<rp>(</rp><rt>いとうひろぶみ</rt><rp>)</rp></ruby>」</strong>です。1885年に<ruby>内閣制度<rp>(</rp><rt>ないかくせいど</rt><rp>)</rp></ruby>が<ruby>発足<rp>(</rp><rt>ほっそく</rt><rp>)</rp></ruby>し、<ruby>伊藤<rp>(</rp><rt>いとう</rt><rp>)</rp></ruby>が<ruby>初代<rp>(</rp><rt>しょだい</rt><rp>)</rp></ruby><ruby>総理大臣<rp>(</rp><rt>そうりだいじん</rt><rp>)</rp></ruby>になりました。',
     },
     {
       type: 'message',
@@ -156,13 +156,13 @@ export const constitutionChat: HistoryChat = {
       type: 'quiz',
       question: '大日本帝国憲法で、国の主権者とされたのは？',
       options: [
-        { letter: 'A', text: '国民', correct: false },
+        { letter: 'A', text: '天皇', correct: true },
         { letter: 'B', text: '帝国議会', correct: false },
         { letter: 'C', text: '内閣総理大臣', correct: false },
-        { letter: 'D', text: '天皇', correct: true },
+        { letter: 'D', text: '国民', correct: false },
       ],
       explanation:
-        '<strong>正解はD「<ruby>天皇<rp>(</rp><rt>てんのう</rt><rp>)</rp></ruby>」</strong>です。<ruby>天皇<rp>(</rp><rt>てんのう</rt><rp>)</rp></ruby>は国の<ruby>元首<rp>(</rp><rt>げんしゅ</rt><rp>)</rp></ruby>で<ruby>神聖<rp>(</rp><rt>しんせい</rt><rp>)</rp></ruby>な<ruby>存在<rp>(</rp><rt>そんざい</rt><rp>)</rp></ruby>とされました（<ruby>天皇主権<rp>(</rp><rt>てんのうしゅけん</rt><rp>)</rp></ruby>）。',
+        '<strong>正解はA「<ruby>天皇<rp>(</rp><rt>てんのう</rt><rp>)</rp></ruby>」</strong>です。<ruby>天皇<rp>(</rp><rt>てんのう</rt><rp>)</rp></ruby>は国の<ruby>元首<rp>(</rp><rt>げんしゅ</rt><rp>)</rp></ruby>で<ruby>神聖<rp>(</rp><rt>しんせい</rt><rp>)</rp></ruby>な<ruby>存在<rp>(</rp><rt>そんざい</rt><rp>)</rp></ruby>とされました（<ruby>天皇主権<rp>(</rp><rt>てんのうしゅけん</rt><rp>)</rp></ruby>）。',
     },
     {
       type: 'end',

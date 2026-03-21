@@ -111,12 +111,12 @@ export const nobunagaHideyoshiChat: HistoryChat = {
       type: 'quiz',
       question: '織田信長が城下の商工業を活性化するために行った政策は何？',
       options: [
-        { letter: 'A', text: '刀狩', correct: false },
+        { letter: 'A', text: '楽市楽座', correct: true },
         { letter: 'B', text: '参勤交代', correct: false },
         { letter: 'C', text: '太閤検地', correct: false },
-        { letter: 'D', text: '楽市楽座', correct: true },
+        { letter: 'D', text: '刀狩', correct: false },
       ],
-      explanation: '<strong>正解はD「<ruby>楽市楽座<rp>(</rp><rt>らくいちらくざ</rt><rp>)</rp></ruby>」</strong>です。<ruby>織田信長<rp>(</rp><rt>おだのぶなが</rt><rp>)</rp></ruby>は<ruby>座<rp>(</rp><rt>ざ</rt><rp>)</rp></ruby>の<ruby>特権<rp>(</rp><rt>とっけん</rt><rp>)</rp></ruby>を<ruby>廃止<rp>(</rp><rt>はいし</rt><rp>)</rp></ruby>し、<ruby>誰<rp>(</rp><rt>だれ</rt><rp>)</rp></ruby>でも自由に商売ができる<strong>楽市楽座</strong>の政策を実施しました。',
+      explanation: '<strong>正解はA「<ruby>楽市楽座<rp>(</rp><rt>らくいちらくざ</rt><rp>)</rp></ruby>」</strong>です。<ruby>織田信長<rp>(</rp><rt>おだのぶなが</rt><rp>)</rp></ruby>は<ruby>座<rp>(</rp><rt>ざ</rt><rp>)</rp></ruby>の<ruby>特権<rp>(</rp><rt>とっけん</rt><rp>)</rp></ruby>を<ruby>廃止<rp>(</rp><rt>はいし</rt><rp>)</rp></ruby>し、<ruby>誰<rp>(</rp><rt>だれ</rt><rp>)</rp></ruby>でも自由に商売ができる<strong>楽市楽座</strong>の政策を実施しました。',
     },
     {
       type: 'narrator',

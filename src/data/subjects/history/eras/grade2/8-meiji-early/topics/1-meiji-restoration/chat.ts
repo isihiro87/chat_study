@@ -121,13 +121,13 @@ export const meijiRestorationChat: HistoryChat = {
       type: 'quiz',
       question: '1871年、藩を廃止して県を設置した改革は？',
       options: [
-        { letter: 'A', text: '廃藩置県', correct: true },
+        { letter: 'A', text: '徴兵令', correct: false },
         { letter: 'B', text: '版籍奉還', correct: false },
         { letter: 'C', text: '地租改正', correct: false },
-        { letter: 'D', text: '徴兵令', correct: false },
+        { letter: 'D', text: '廃藩置県', correct: true },
       ],
       explanation:
-        '<strong>正解はA「<ruby>廃藩置県<rp>(</rp><rt>はいはんちけん</rt><rp>)</rp></ruby>」</strong>です。日本全国が政府の<ruby>直接支配<rp>(</rp><rt>ちょくせつしはい</rt><rp>)</rp></ruby>下に置かれ、<ruby>中央集権<rp>(</rp><rt>ちゅうおうしゅうけん</rt><rp>)</rp></ruby>国家が<ruby>確立<rp>(</rp><rt>かくりつ</rt><rp>)</rp></ruby>しました。',
+        '<strong>正解はD「<ruby>廃藩置県<rp>(</rp><rt>はいはんちけん</rt><rp>)</rp></ruby>」</strong>です。日本全国が政府の<ruby>直接支配<rp>(</rp><rt>ちょくせつしはい</rt><rp>)</rp></ruby>下に置かれ、<ruby>中央集権<rp>(</rp><rt>ちゅうおうしゅうけん</rt><rp>)</rp></ruby>国家が<ruby>確立<rp>(</rp><rt>かくりつ</rt><rp>)</rp></ruby>しました。',
     },
     {
       type: 'narrator',

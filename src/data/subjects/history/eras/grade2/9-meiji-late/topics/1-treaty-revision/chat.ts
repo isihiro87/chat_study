@@ -85,13 +85,13 @@ export const treatyRevisionChat: HistoryChat = {
       type: 'quiz',
       question: '日本人乗客が見殺しにされ、領事裁判権撤廃の世論が高まった事件は？',
       options: [
-        { letter: 'A', text: '甲午農民戦争', correct: false },
+        { letter: 'A', text: 'ノルマントン号事件', correct: true },
         { letter: 'B', text: '江華島事件', correct: false },
         { letter: 'C', text: '大津事件', correct: false },
-        { letter: 'D', text: 'ノルマントン号事件', correct: true },
+        { letter: 'D', text: '甲午農民戦争', correct: false },
       ],
       explanation:
-        '<strong>正解はD「ノルマントン<ruby>号<rp>(</rp><rt>ごう</rt><rp>)</rp></ruby>事件」</strong>です。イギリス人<ruby>船長<rp>(</rp><rt>せんちょう</rt><rp>)</rp></ruby>が軽い罪で済んだことで国民の怒りが高まりました。',
+        '<strong>正解はA「ノルマントン<ruby>号<rp>(</rp><rt>ごう</rt><rp>)</rp></ruby>事件」</strong>です。イギリス人<ruby>船長<rp>(</rp><rt>せんちょう</rt><rp>)</rp></ruby>が軽い罪で済んだことで国民の怒りが高まりました。',
     },
     {
       type: 'narrator',
@@ -135,11 +135,11 @@ export const treatyRevisionChat: HistoryChat = {
       options: [
         { letter: 'A', text: '井上馨', correct: false },
         { letter: 'B', text: '陸奥宗光', correct: false },
-        { letter: 'C', text: '小村寿太郎', correct: true },
-        { letter: 'D', text: '伊藤博文', correct: false },
+        { letter: 'C', text: '伊藤博文', correct: false },
+        { letter: 'D', text: '小村寿太郎', correct: true },
       ],
       explanation:
-        '<strong>正解はC「<ruby>小村寿太郎<rp>(</rp><rt>こむらじゅたろう</rt><rp>)</rp></ruby>」</strong>です。これで不平等条約の改正は完全に達成されました。',
+        '<strong>正解はD「<ruby>小村寿太郎<rp>(</rp><rt>こむらじゅたろう</rt><rp>)</rp></ruby>」</strong>です。これで不平等条約の改正は完全に達成されました。',
     },
     {
       type: 'end',

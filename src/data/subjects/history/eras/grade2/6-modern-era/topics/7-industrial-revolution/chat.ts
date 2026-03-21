@@ -77,13 +77,13 @@ export const industrialRevolutionChat: HistoryChat = {
       type: 'quiz',
       question: '蒸気機関を改良し、産業革命を推進したのは？',
       options: [
-        { letter: 'A', text: 'ニュートン', correct: false },
+        { letter: 'A', text: 'ワット', correct: true },
         { letter: 'B', text: 'スティーブンソン', correct: false },
         { letter: 'C', text: 'ダーウィン', correct: false },
-        { letter: 'D', text: 'ワット', correct: true },
+        { letter: 'D', text: 'ニュートン', correct: false },
       ],
       explanation:
-        '<strong>正解はD「ワット」</strong>です。<ruby>改良<rp>(</rp><rt>かいりょう</rt><rp>)</rp></ruby>された<ruby>蒸気機関<rp>(</rp><rt>じょうきかん</rt><rp>)</rp></ruby>は工場や<ruby>交通機関<rp>(</rp><rt>こうつうきかん</rt><rp>)</rp></ruby>の<ruby>動力<rp>(</rp><rt>どうりょく</rt><rp>)</rp></ruby>となりました。',
+        '<strong>正解はA「ワット」</strong>です。<ruby>改良<rp>(</rp><rt>かいりょう</rt><rp>)</rp></ruby>された<ruby>蒸気機関<rp>(</rp><rt>じょうきかん</rt><rp>)</rp></ruby>は工場や<ruby>交通機関<rp>(</rp><rt>こうつうきかん</rt><rp>)</rp></ruby>の<ruby>動力<rp>(</rp><rt>どうりょく</rt><rp>)</rp></ruby>となりました。',
     },
     {
       type: 'narrator',
@@ -126,11 +126,11 @@ export const industrialRevolutionChat: HistoryChat = {
       options: [
         { letter: 'A', text: '議会', correct: false },
         { letter: 'B', text: '政党', correct: false },
-        { letter: 'C', text: '労働組合', correct: true },
-        { letter: 'D', text: '軍隊', correct: false },
+        { letter: 'C', text: '軍隊', correct: false },
+        { letter: 'D', text: '労働組合', correct: true },
       ],
       explanation:
-        '<strong>正解はC「<ruby>労働組合<rp>(</rp><rt>ろうどうくみあい</rt><rp>)</rp></ruby>」</strong>です。<ruby>長時間労働<rp>(</rp><rt>ちょうじかんろうどう</rt><rp>)</rp></ruby>や<ruby>低賃金<rp>(</rp><rt>ていちんぎん</rt><rp>)</rp></ruby>に<ruby>対抗<rp>(</rp><rt>たいこう</rt><rp>)</rp></ruby>するため、<ruby>労働者<rp>(</rp><rt>ろうどうしゃ</rt><rp>)</rp></ruby>が<ruby>団結<rp>(</rp><rt>だんけつ</rt><rp>)</rp></ruby>して作りました。',
+        '<strong>正解はD「<ruby>労働組合<rp>(</rp><rt>ろうどうくみあい</rt><rp>)</rp></ruby>」</strong>です。<ruby>長時間労働<rp>(</rp><rt>ちょうじかんろうどう</rt><rp>)</rp></ruby>や<ruby>低賃金<rp>(</rp><rt>ていちんぎん</rt><rp>)</rp></ruby>に<ruby>対抗<rp>(</rp><rt>たいこう</rt><rp>)</rp></ruby>するため、<ruby>労働者<rp>(</rp><rt>ろうどうしゃ</rt><rp>)</rp></ruby>が<ruby>団結<rp>(</rp><rt>だんけつ</rt><rp>)</rp></ruby>して作りました。',
     },
     {
       type: 'end',

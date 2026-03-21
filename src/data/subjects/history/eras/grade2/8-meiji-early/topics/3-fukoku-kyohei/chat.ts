@@ -85,13 +85,13 @@ export const fukokuKyoheiChat: HistoryChat = {
       type: 'quiz',
       question: 'フランスの技術を導入して建設された官営模範工場は？',
       options: [
-        { letter: 'A', text: '八幡製鉄所', correct: false },
-        { letter: 'B', text: '富岡製糸場', correct: true },
+        { letter: 'A', text: '富岡製糸場', correct: true },
+        { letter: 'B', text: '八幡製鉄所', correct: false },
         { letter: 'C', text: '長崎造船所', correct: false },
         { letter: 'D', text: '横須賀造船所', correct: false },
       ],
       explanation:
-        '<strong>正解はB「<ruby>富岡製糸場<rp>(</rp><rt>とみおかせいしじょう</rt><rp>)</rp></ruby>」</strong>です。<ruby>群馬県<rp>(</rp><rt>ぐんまけん</rt><rp>)</rp></ruby>に建設され、<ruby>高品質<rp>(</rp><rt>こうひんしつ</rt><rp>)</rp></ruby>な<ruby>生糸<rp>(</rp><rt>きいと</rt><rp>)</rp></ruby>を生産しました。',
+        '<strong>正解はA「<ruby>富岡製糸場<rp>(</rp><rt>とみおかせいしじょう</rt><rp>)</rp></ruby>」</strong>です。<ruby>群馬県<rp>(</rp><rt>ぐんまけん</rt><rp>)</rp></ruby>に建設され、<ruby>高品質<rp>(</rp><rt>こうひんしつ</rt><rp>)</rp></ruby>な<ruby>生糸<rp>(</rp><rt>きいと</rt><rp>)</rp></ruby>を生産しました。',
     },
     {
       type: 'narrator',
@@ -133,12 +133,12 @@ export const fukokuKyoheiChat: HistoryChat = {
       question: '「学問のすゝめ」を著した思想家は？',
       options: [
         { letter: 'A', text: '中江兆民', correct: false },
-        { letter: 'B', text: '福沢諭吉', correct: true },
+        { letter: 'B', text: '西郷隆盛', correct: false },
         { letter: 'C', text: '板垣退助', correct: false },
-        { letter: 'D', text: '西郷隆盛', correct: false },
+        { letter: 'D', text: '福沢諭吉', correct: true },
       ],
       explanation:
-        '<strong>正解はB「<ruby>福沢諭吉<rp>(</rp><rt>ふくざわゆきち</rt><rp>)</rp></ruby>」</strong>です。「天は人の上に人を<ruby>造<rp>(</rp><rt>つく</rt><rp>)</rp></ruby>らず」で知られ、<ruby>学問<rp>(</rp><rt>がくもん</rt><rp>)</rp></ruby>の大切さを<ruby>訴<rp>(</rp><rt>うった</rt><rp>)</rp></ruby>えました。',
+        '<strong>正解はD「<ruby>福沢諭吉<rp>(</rp><rt>ふくざわゆきち</rt><rp>)</rp></ruby>」</strong>です。「天は人の上に人を<ruby>造<rp>(</rp><rt>つく</rt><rp>)</rp></ruby>らず」で知られ、<ruby>学問<rp>(</rp><rt>がくもん</rt><rp>)</rp></ruby>の大切さを<ruby>訴<rp>(</rp><rt>うった</rt><rp>)</rp></ruby>えました。',
     },
     {
       type: 'end',

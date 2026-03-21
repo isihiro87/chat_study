@@ -96,13 +96,13 @@ export const sakokuChat: HistoryChat = {
       type: 'quiz',
       question: '1637年に九州で起こったキリシタンの大規模な一揆は？',
       options: [
-        { letter: 'A', text: '島原・天草一揆', correct: true },
+        { letter: 'A', text: '百姓一揆', correct: false },
         { letter: 'B', text: '加賀の一向一揆', correct: false },
-        { letter: 'C', text: '百姓一揆', correct: false },
+        { letter: 'C', text: '島原・天草一揆', correct: true },
         { letter: 'D', text: '打ちこわし', correct: false },
       ],
       explanation:
-        '<strong>正解はA「<ruby>島原<rp>(</rp><rt>しまばら</rt><rp>)</rp></ruby>・<ruby>天草一揆<rp>(</rp><rt>あまくさいっき</rt><rp>)</rp></ruby>」</strong>です。<ruby>天草四郎<rp>(</rp><rt>あまくさしろう</rt><rp>)</rp></ruby>を大将に、キリシタンの農民約3万7千人が蜂起しましたが鎮圧されました。',
+        '<strong>正解はC「<ruby>島原<rp>(</rp><rt>しまばら</rt><rp>)</rp></ruby>・<ruby>天草一揆<rp>(</rp><rt>あまくさいっき</rt><rp>)</rp></ruby>」</strong>です。<ruby>天草四郎<rp>(</rp><rt>あまくさしろう</rt><rp>)</rp></ruby>を大将に、キリシタンの農民約3万7千人が蜂起しましたが鎮圧されました。',
     },
     {
       type: 'image',
@@ -150,13 +150,13 @@ export const sakokuChat: HistoryChat = {
       type: 'quiz',
       question: '鎖国の完成後、ヨーロッパで唯一日本との貿易を許された国は？',
       options: [
-        { letter: 'A', text: 'オランダ', correct: true },
-        { letter: 'B', text: 'スペイン', correct: false },
+        { letter: 'A', text: 'スペイン', correct: false },
+        { letter: 'B', text: 'オランダ', correct: true },
         { letter: 'C', text: 'イギリス', correct: false },
         { letter: 'D', text: 'ポルトガル', correct: false },
       ],
       explanation:
-        '<strong>正解はA「オランダ」</strong>です。オランダはキリスト教の<ruby>布教<rp>(</rp><rt>ふきょう</rt><rp>)</rp></ruby>を行わなかったため、長崎の<ruby>出島<rp>(</rp><rt>でじま</rt><rp>)</rp></ruby>での貿易が認められました。',
+        '<strong>正解はB「オランダ」</strong>です。オランダはキリスト教の<ruby>布教<rp>(</rp><rt>ふきょう</rt><rp>)</rp></ruby>を行わなかったため、長崎の<ruby>出島<rp>(</rp><rt>でじま</rt><rp>)</rp></ruby>での貿易が認められました。',
     },
     {
       type: 'end',

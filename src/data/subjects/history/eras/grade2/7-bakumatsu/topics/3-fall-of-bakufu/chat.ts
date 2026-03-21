@@ -125,13 +125,13 @@ export const fallOfBakufuChat: HistoryChat = {
       type: 'quiz',
       question: '1867年、徳川慶喜が政権を朝廷に返したことを何という？',
       options: [
-        { letter: 'A', text: '大政奉還', correct: true },
+        { letter: 'A', text: '廃藩置県', correct: false },
         { letter: 'B', text: '版籍奉還', correct: false },
-        { letter: 'C', text: '廃藩置県', correct: false },
+        { letter: 'C', text: '大政奉還', correct: true },
         { letter: 'D', text: '王政復古', correct: false },
       ],
       explanation:
-        '<strong>正解はA「<ruby>大政奉還<rp>(</rp><rt>たいせいほうかん</rt><rp>)</rp></ruby>」</strong>です。約260年<ruby>続<rp>(</rp><rt>つづ</rt><rp>)</rp></ruby>いた<ruby>江戸幕府<rp>(</rp><rt>えどばくふ</rt><rp>)</rp></ruby>の<ruby>政権<rp>(</rp><rt>せいけん</rt><rp>)</rp></ruby>が終わりました。',
+        '<strong>正解はC「<ruby>大政奉還<rp>(</rp><rt>たいせいほうかん</rt><rp>)</rp></ruby>」</strong>です。約260年<ruby>続<rp>(</rp><rt>つづ</rt><rp>)</rp></ruby>いた<ruby>江戸幕府<rp>(</rp><rt>えどばくふ</rt><rp>)</rp></ruby>の<ruby>政権<rp>(</rp><rt>せいけん</rt><rp>)</rp></ruby>が終わりました。',
     },
     {
       type: 'narrator',

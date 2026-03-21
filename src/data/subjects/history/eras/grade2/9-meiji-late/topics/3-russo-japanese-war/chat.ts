@@ -73,11 +73,11 @@ export const russoJapaneseWarChat: HistoryChat = {
       options: [
         { letter: 'A', text: '日独同盟', correct: false },
         { letter: 'B', text: '三国同盟', correct: false },
-        { letter: 'C', text: '日清同盟', correct: false },
-        { letter: 'D', text: '日英同盟', correct: true },
+        { letter: 'C', text: '日英同盟', correct: true },
+        { letter: 'D', text: '日清同盟', correct: false },
       ],
       explanation:
-        '<strong>正解はD「<ruby>日英同盟<rp>(</rp><rt>にちえいどうめい</rt><rp>)</rp></ruby>」</strong>です。ロシアの南下を<ruby>警戒<rp>(</rp><rt>けいかい</rt><rp>)</rp></ruby>する両国の<ruby>利害<rp>(</rp><rt>りがい</rt><rp>)</rp></ruby>が<ruby>一致<rp>(</rp><rt>いっち</rt><rp>)</rp></ruby>しました。',
+        '<strong>正解はC「<ruby>日英同盟<rp>(</rp><rt>にちえいどうめい</rt><rp>)</rp></ruby>」</strong>です。ロシアの南下を<ruby>警戒<rp>(</rp><rt>けいかい</rt><rp>)</rp></ruby>する両国の<ruby>利害<rp>(</rp><rt>りがい</rt><rp>)</rp></ruby>が<ruby>一致<rp>(</rp><rt>いっち</rt><rp>)</rp></ruby>しました。',
     },
     {
       type: 'narrator',

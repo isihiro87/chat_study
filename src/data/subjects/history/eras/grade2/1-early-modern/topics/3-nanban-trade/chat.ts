@@ -97,12 +97,12 @@ export const nanbanTradeChat: HistoryChat = {
       type: 'quiz',
       question: '1543年にポルトガル人によって日本に伝えられたものは何？',
       options: [
-        { letter: 'A', text: 'キリスト教', correct: false },
+        { letter: 'A', text: '鉄砲', correct: true },
         { letter: 'B', text: '活版印刷', correct: false },
-        { letter: 'C', text: '鉄砲', correct: true },
+        { letter: 'C', text: 'キリスト教', correct: false },
         { letter: 'D', text: '羅針盤', correct: false },
       ],
-      explanation: '<strong>正解はC「<ruby>鉄砲<rp>(</rp><rt>てっぽう</rt><rp>)</rp></ruby>」</strong>です。1543年にポルトガル人が<ruby>種子島<rp>(</rp><rt>たねがしま</rt><rp>)</rp></ruby>に<ruby>漂着<rp>(</rp><rt>ひょうちゃく</rt><rp>)</rp></ruby>し、<strong>鉄砲</strong>が<ruby>伝来<rp>(</rp><rt>でんらい</rt><rp>)</rp></ruby>しました。<ruby>戦国時代<rp>(</rp><rt>せんごくじだい</rt><rp>)</rp></ruby>の戦い方を大きく変えました。',
+      explanation: '<strong>正解はA「<ruby>鉄砲<rp>(</rp><rt>てっぽう</rt><rp>)</rp></ruby>」</strong>です。1543年にポルトガル人が<ruby>種子島<rp>(</rp><rt>たねがしま</rt><rp>)</rp></ruby>に<ruby>漂着<rp>(</rp><rt>ひょうちゃく</rt><rp>)</rp></ruby>し、<strong>鉄砲</strong>が<ruby>伝来<rp>(</rp><rt>でんらい</rt><rp>)</rp></ruby>しました。<ruby>戦国時代<rp>(</rp><rt>せんごくじだい</rt><rp>)</rp></ruby>の戦い方を大きく変えました。',
     },
     {
       type: 'narrator',

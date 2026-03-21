@@ -105,13 +105,13 @@ export const threeCapitalsChat: HistoryChat = {
       type: 'quiz',
       question: '「天下の台所」と呼ばれた都市はどこ？',
       options: [
-        { letter: 'A', text: '大阪', correct: true },
+        { letter: 'A', text: '江戸', correct: false },
         { letter: 'B', text: '京都', correct: false },
-        { letter: 'C', text: '江戸', correct: false },
+        { letter: 'C', text: '大阪', correct: true },
         { letter: 'D', text: '堺', correct: false },
       ],
       explanation:
-        '<strong>正解はA「<ruby>大阪<rp>(</rp><rt>おおさか</rt><rp>)</rp></ruby>」</strong>です。全国の米や<ruby>特産物<rp>(</rp><rt>とくさんぶつ</rt><rp>)</rp></ruby>が集まり、<ruby>経済<rp>(</rp><rt>けいざい</rt><rp>)</rp></ruby>の中心地として<ruby>栄<rp>(</rp><rt>さか</rt><rp>)</rp></ruby>えました。',
+        '<strong>正解はC「<ruby>大阪<rp>(</rp><rt>おおさか</rt><rp>)</rp></ruby>」</strong>です。全国の米や<ruby>特産物<rp>(</rp><rt>とくさんぶつ</rt><rp>)</rp></ruby>が集まり、<ruby>経済<rp>(</rp><rt>けいざい</rt><rp>)</rp></ruby>の中心地として<ruby>栄<rp>(</rp><rt>さか</rt><rp>)</rp></ruby>えました。',
     },
     {
       type: 'message',
@@ -150,12 +150,12 @@ export const threeCapitalsChat: HistoryChat = {
       question: '大阪に置かれた、各藩の米や特産物を売る施設は？',
       options: [
         { letter: 'A', text: '問屋', correct: false },
-        { letter: 'B', text: '株仲間', correct: false },
-        { letter: 'C', text: '蔵屋敷', correct: true },
+        { letter: 'B', text: '蔵屋敷', correct: true },
+        { letter: 'C', text: '株仲間', correct: false },
         { letter: 'D', text: '両替商', correct: false },
       ],
       explanation:
-        '<strong>正解はC「<ruby>蔵屋敷<rp>(</rp><rt>くらやしき</rt><rp>)</rp></ruby>」</strong>です。各<ruby>藩<rp>(</rp><rt>はん</rt><rp>)</rp></ruby>が大阪に設置し、米や<ruby>特産物<rp>(</rp><rt>とくさんぶつ</rt><rp>)</rp></ruby>の売買を行いました。',
+        '<strong>正解はB「<ruby>蔵屋敷<rp>(</rp><rt>くらやしき</rt><rp>)</rp></ruby>」</strong>です。各<ruby>藩<rp>(</rp><rt>はん</rt><rp>)</rp></ruby>が大阪に設置し、米や<ruby>特産物<rp>(</rp><rt>とくさんぶつ</rt><rp>)</rp></ruby>の売買を行いました。',
     },
     {
       type: 'end',

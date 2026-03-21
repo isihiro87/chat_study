@@ -130,11 +130,11 @@ export const foreignShipsChat: HistoryChat = {
       options: [
         { letter: 'A', text: '桜田門外の変', correct: false },
         { letter: 'B', text: '禁門の変', correct: false },
-        { letter: 'C', text: '安政の大獄', correct: false },
-        { letter: 'D', text: '蛮社の獄', correct: true },
+        { letter: 'C', text: '蛮社の獄', correct: true },
+        { letter: 'D', text: '安政の大獄', correct: false },
       ],
       explanation:
-        '<strong>正解はD「<ruby>蛮社<rp>(</rp><rt>ばんしゃ</rt><rp>)</rp></ruby>の<ruby>獄<rp>(</rp><rt>ごく</rt><rp>)</rp></ruby>」</strong>です。<strong><ruby>渡辺崋山<rp>(</rp><rt>わたなべかざん</rt><rp>)</rp></ruby></strong>や<strong><ruby>高野長英<rp>(</rp><rt>たかのちょうえい</rt><rp>)</rp></ruby></strong>らが処罰され、幕府の厳しい姿勢が示されました。',
+        '<strong>正解はC「<ruby>蛮社<rp>(</rp><rt>ばんしゃ</rt><rp>)</rp></ruby>の<ruby>獄<rp>(</rp><rt>ごく</rt><rp>)</rp></ruby>」</strong>です。<strong><ruby>渡辺崋山<rp>(</rp><rt>わたなべかざん</rt><rp>)</rp></ruby></strong>や<strong><ruby>高野長英<rp>(</rp><rt>たかのちょうえい</rt><rp>)</rp></ruby></strong>らが処罰され、幕府の厳しい姿勢が示されました。',
     },
     {
       type: 'date',
@@ -190,13 +190,13 @@ export const foreignShipsChat: HistoryChat = {
       type: 'quiz',
       question: '1837年に大阪で乱を起こした元幕府役人は？',
       options: [
-        { letter: 'A', text: '大塩平八郎', correct: true },
-        { letter: 'B', text: '渡辺崋山', correct: false },
+        { letter: 'A', text: '渡辺崋山', correct: false },
+        { letter: 'B', text: '大塩平八郎', correct: true },
         { letter: 'C', text: '高野長英', correct: false },
         { letter: 'D', text: '間宮林蔵', correct: false },
       ],
       explanation:
-        '<strong>正解はA「<ruby>大塩平八郎<rp>(</rp><rt>おおしおへいはちろう</rt><rp>)</rp></ruby>」</strong>です。<ruby>飢饉<rp>(</rp><rt>ききん</rt><rp>)</rp></ruby>に苦しむ民を救うため、元幕府役人が乱を起こしたことは大きな衝撃でした。',
+        '<strong>正解はB「<ruby>大塩平八郎<rp>(</rp><rt>おおしおへいはちろう</rt><rp>)</rp></ruby>」</strong>です。<ruby>飢饉<rp>(</rp><rt>ききん</rt><rp>)</rp></ruby>に苦しむ民を救うため、元幕府役人が乱を起こしたことは大きな衝撃でした。',
     },
     {
       type: 'end',

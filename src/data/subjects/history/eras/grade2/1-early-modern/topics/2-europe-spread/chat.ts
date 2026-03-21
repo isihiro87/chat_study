@@ -91,12 +91,12 @@ export const europeSpreadChat: HistoryChat = {
       type: 'quiz',
       question: '1492年にスペインの援助を受けて大西洋を横断し、西インド諸島に到達した人物は誰？',
       options: [
-        { letter: 'A', text: 'バスコ・ダ・ガマ', correct: false },
+        { letter: 'A', text: 'コロンブス', correct: true },
         { letter: 'B', text: 'マゼラン', correct: false },
-        { letter: 'C', text: 'コロンブス', correct: true },
+        { letter: 'C', text: 'バスコ・ダ・ガマ', correct: false },
         { letter: 'D', text: 'マルコ・ポーロ', correct: false },
       ],
-      explanation: '<strong>正解はC「コロンブス」</strong>です。1492年にスペインの<ruby>援助<rp>(</rp><rt>えんじょ</rt><rp>)</rp></ruby>で<ruby>大西洋<rp>(</rp><rt>たいせいよう</rt><rp>)</rp></ruby>を<ruby>横断<rp>(</rp><rt>おうだん</rt><rp>)</rp></ruby>し、西インド<ruby>諸島<rp>(</rp><rt>しょとう</rt><rp>)</rp></ruby>に到達しました。本人はアジアと信じていました。',
+      explanation: '<strong>正解はA「コロンブス」</strong>です。1492年にスペインの<ruby>援助<rp>(</rp><rt>えんじょ</rt><rp>)</rp></ruby>で<ruby>大西洋<rp>(</rp><rt>たいせいよう</rt><rp>)</rp></ruby>を<ruby>横断<rp>(</rp><rt>おうだん</rt><rp>)</rp></ruby>し、西インド<ruby>諸島<rp>(</rp><rt>しょとう</rt><rp>)</rp></ruby>に到達しました。本人はアジアと信じていました。',
     },
     {
       type: 'narrator',

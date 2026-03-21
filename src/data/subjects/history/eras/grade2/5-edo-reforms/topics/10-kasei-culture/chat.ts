@@ -80,11 +80,11 @@ export const kaseiCultureChat: HistoryChat = {
       options: [
         { letter: 'A', text: '式亭三馬', correct: false },
         { letter: 'B', text: '曲亭馬琴', correct: false },
-        { letter: 'C', text: '十返舎一九', correct: true },
-        { letter: 'D', text: '井原西鶴', correct: false },
+        { letter: 'C', text: '井原西鶴', correct: false },
+        { letter: 'D', text: '十返舎一九', correct: true },
       ],
       explanation:
-        '<strong>正解はC「<ruby>十返舎一九<rp>(</rp><rt>じっぺんしゃいっく</rt><rp>)</rp></ruby>」</strong>です。<ruby>弥次郎兵衛<rp>(</rp><rt>やじろべえ</rt><rp>)</rp></ruby>と<ruby>喜多八<rp>(</rp><rt>きたはち</rt><rp>)</rp></ruby>の東海道旅行記で、庶民に大人気でした。',
+        '<strong>正解はD「<ruby>十返舎一九<rp>(</rp><rt>じっぺんしゃいっく</rt><rp>)</rp></ruby>」</strong>です。<ruby>弥次郎兵衛<rp>(</rp><rt>やじろべえ</rt><rp>)</rp></ruby>と<ruby>喜多八<rp>(</rp><rt>きたはち</rt><rp>)</rp></ruby>の東海道旅行記で、庶民に大人気でした。',
     },
     {
       type: 'message',
@@ -166,12 +166,12 @@ export const kaseiCultureChat: HistoryChat = {
       question: '「富嶽三十六景」を描いた浮世絵師は？',
       options: [
         { letter: 'A', text: '喜多川歌麿', correct: false },
-        { letter: 'B', text: '菱川師宣', correct: false },
+        { letter: 'B', text: '葛飾北斎', correct: true },
         { letter: 'C', text: '歌川広重', correct: false },
-        { letter: 'D', text: '葛飾北斎', correct: true },
+        { letter: 'D', text: '菱川師宣', correct: false },
       ],
       explanation:
-        '<strong>正解はD「<ruby>葛飾北斎<rp>(</rp><rt>かつしかほくさい</rt><rp>)</rp></ruby>」</strong>です。「<ruby>神奈川沖浪裏<rp>(</rp><rt>かながわおきなみうら</rt><rp>)</rp></ruby>」などは世界的に有名で、ゴッホにも影響を与えました。',
+        '<strong>正解はB「<ruby>葛飾北斎<rp>(</rp><rt>かつしかほくさい</rt><rp>)</rp></ruby>」</strong>です。「<ruby>神奈川沖浪裏<rp>(</rp><rt>かながわおきなみうら</rt><rp>)</rp></ruby>」などは世界的に有名で、ゴッホにも影響を与えました。',
     },
     {
       type: 'message',
@@ -195,13 +195,13 @@ export const kaseiCultureChat: HistoryChat = {
       type: 'quiz',
       question: '「東海道五十三次」を描いた浮世絵師は？',
       options: [
-        { letter: 'A', text: '葛飾北斎', correct: false },
-        { letter: 'B', text: '歌川広重', correct: true },
+        { letter: 'A', text: '歌川広重', correct: true },
+        { letter: 'B', text: '葛飾北斎', correct: false },
         { letter: 'C', text: '喜多川歌麿', correct: false },
         { letter: 'D', text: '東洲斎写楽', correct: false },
       ],
       explanation:
-        '<strong>正解はB「<ruby>歌川広重<rp>(</rp><rt>うたがわひろしげ</rt><rp>)</rp></ruby>」</strong>です。東海道の<ruby>宿場<rp>(</rp><rt>しゅくば</rt><rp>)</rp></ruby>を描いた風景画で、旅の情景が美しく表現されています。',
+        '<strong>正解はA「<ruby>歌川広重<rp>(</rp><rt>うたがわひろしげ</rt><rp>)</rp></ruby>」</strong>です。東海道の<ruby>宿場<rp>(</rp><rt>しゅくば</rt><rp>)</rp></ruby>を描いた風景画で、旅の情景が美しく表現されています。',
     },
     {
       type: 'end',

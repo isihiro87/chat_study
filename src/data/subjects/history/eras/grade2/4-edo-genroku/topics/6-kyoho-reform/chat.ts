@@ -84,13 +84,13 @@ export const kyohoReformChat: HistoryChat = {
       type: 'quiz',
       question: '享保の改革を行った8代将軍は誰？',
       options: [
-        { letter: 'A', text: '徳川綱吉', correct: false },
-        { letter: 'B', text: '徳川吉宗', correct: true },
+        { letter: 'A', text: '徳川吉宗', correct: true },
+        { letter: 'B', text: '徳川綱吉', correct: false },
         { letter: 'C', text: '徳川家斉', correct: false },
         { letter: 'D', text: '徳川慶喜', correct: false },
       ],
       explanation:
-        '<strong>正解はB「<ruby>徳川吉宗<rp>(</rp><rt>とくがわよしむね</rt><rp>)</rp></ruby>」</strong>です。8代将軍吉宗は「<ruby>米将軍<rp>(</rp><rt>こめしょうぐん</rt><rp>)</rp></ruby>」とも呼ばれ、<ruby>享保<rp>(</rp><rt>きょうほう</rt><rp>)</rp></ruby>の<ruby>改革<rp>(</rp><rt>かいかく</rt><rp>)</rp></ruby>で幕府の立て直しを図りました。',
+        '<strong>正解はA「<ruby>徳川吉宗<rp>(</rp><rt>とくがわよしむね</rt><rp>)</rp></ruby>」</strong>です。8代将軍吉宗は「<ruby>米将軍<rp>(</rp><rt>こめしょうぐん</rt><rp>)</rp></ruby>」とも呼ばれ、<ruby>享保<rp>(</rp><rt>きょうほう</rt><rp>)</rp></ruby>の<ruby>改革<rp>(</rp><rt>かいかく</rt><rp>)</rp></ruby>で幕府の立て直しを図りました。',
     },
     {
       type: 'summary-point',
@@ -101,12 +101,12 @@ export const kyohoReformChat: HistoryChat = {
       question: '大名に米を献上させる代わりに参勤交代の江戸滞在を短くした制度は？',
       options: [
         { letter: 'A', text: '目安箱', correct: false },
-        { letter: 'B', text: '上げ米の制', correct: true },
+        { letter: 'B', text: '倹約令', correct: false },
         { letter: 'C', text: '公事方御定書', correct: false },
-        { letter: 'D', text: '倹約令', correct: false },
+        { letter: 'D', text: '上げ米の制', correct: true },
       ],
       explanation:
-        '<strong>正解はB「<ruby>上<rp>(</rp><rt>あ</rt><rp>)</rp></ruby>げ<ruby>米<rp>(</rp><rt>まい</rt><rp>)</rp></ruby>の<ruby>制<rp>(</rp><rt>せい</rt><rp>)</rp></ruby>」</strong>です。<ruby>幕府<rp>(</rp><rt>ばくふ</rt><rp>)</rp></ruby>の<ruby>財政難<rp>(</rp><rt>ざいせいなん</rt><rp>)</rp></ruby>を助ける代わりに、大名の<ruby>負担<rp>(</rp><rt>ふたん</rt><rp>)</rp></ruby>を軽くする制度でした。',
+        '<strong>正解はD「<ruby>上<rp>(</rp><rt>あ</rt><rp>)</rp></ruby>げ<ruby>米<rp>(</rp><rt>まい</rt><rp>)</rp></ruby>の<ruby>制<rp>(</rp><rt>せい</rt><rp>)</rp></ruby>」</strong>です。<ruby>幕府<rp>(</rp><rt>ばくふ</rt><rp>)</rp></ruby>の<ruby>財政難<rp>(</rp><rt>ざいせいなん</rt><rp>)</rp></ruby>を助ける代わりに、大名の<ruby>負担<rp>(</rp><rt>ふたん</rt><rp>)</rp></ruby>を軽くする制度でした。',
     },
     {
       type: 'message',
@@ -146,11 +146,11 @@ export const kyohoReformChat: HistoryChat = {
       options: [
         { letter: 'A', text: '訴状箱', correct: false },
         { letter: 'B', text: '意見箱', correct: false },
-        { letter: 'C', text: '投書箱', correct: false },
-        { letter: 'D', text: '目安箱', correct: true },
+        { letter: 'C', text: '目安箱', correct: true },
+        { letter: 'D', text: '投書箱', correct: false },
       ],
       explanation:
-        '<strong>正解はD「<ruby>目安箱<rp>(</rp><rt>めやすばこ</rt><rp>)</rp></ruby>」</strong>です。目安箱への<ruby>投書<rp>(</rp><rt>とうしょ</rt><rp>)</rp></ruby>から<ruby>小石川養生所<rp>(</rp><rt>こいしかわようじょうしょ</rt><rp>)</rp></ruby>（病院）が作られるなど、実際に政策に<ruby>反映<rp>(</rp><rt>はんえい</rt><rp>)</rp></ruby>されました。',
+        '<strong>正解はC「<ruby>目安箱<rp>(</rp><rt>めやすばこ</rt><rp>)</rp></ruby>」</strong>です。目安箱への<ruby>投書<rp>(</rp><rt>とうしょ</rt><rp>)</rp></ruby>から<ruby>小石川養生所<rp>(</rp><rt>こいしかわようじょうしょ</rt><rp>)</rp></ruby>（病院）が作られるなど、実際に政策に<ruby>反映<rp>(</rp><rt>はんえい</rt><rp>)</rp></ruby>されました。',
     },
     {
       type: 'message',
@@ -222,13 +222,13 @@ export const kyohoReformChat: HistoryChat = {
       type: 'quiz',
       question: '問屋が農民に道具やお金を貸して家で製品を作らせる仕組みを何という？',
       options: [
-        { letter: 'A', text: '工場制手工業', correct: false },
+        { letter: 'A', text: '問屋制家内工業', correct: true },
         { letter: 'B', text: '株仲間', correct: false },
-        { letter: 'C', text: '問屋制家内工業', correct: true },
+        { letter: 'C', text: '工場制手工業', correct: false },
         { letter: 'D', text: '座', correct: false },
       ],
       explanation:
-        '<strong>正解はC「<ruby>問屋制家内工業<rp>(</rp><rt>とんやせいかないこうぎょう</rt><rp>)</rp></ruby>」</strong>です。<ruby>農民<rp>(</rp><rt>のうみん</rt><rp>)</rp></ruby>は<ruby>農業<rp>(</rp><rt>のうぎょう</rt><rp>)</rp></ruby>以外の<ruby>収入<rp>(</rp><rt>しゅうにゅう</rt><rp>)</rp></ruby>を得られるようになりました。',
+        '<strong>正解はA「<ruby>問屋制家内工業<rp>(</rp><rt>とんやせいかないこうぎょう</rt><rp>)</rp></ruby>」</strong>です。<ruby>農民<rp>(</rp><rt>のうみん</rt><rp>)</rp></ruby>は<ruby>農業<rp>(</rp><rt>のうぎょう</rt><rp>)</rp></ruby>以外の<ruby>収入<rp>(</rp><rt>しゅうにゅう</rt><rp>)</rp></ruby>を得られるようになりました。',
     },
     {
       type: 'summary-point',
@@ -238,13 +238,13 @@ export const kyohoReformChat: HistoryChat = {
       type: 'quiz',
       question: '作業場に人を集めて分業で製品を作る仕組みを何という？',
       options: [
-        { letter: 'A', text: '工場制手工業（マニュファクチュア）', correct: true },
+        { letter: 'A', text: '問屋制家内工業', correct: false },
         { letter: 'B', text: '座', correct: false },
         { letter: 'C', text: '株仲間', correct: false },
-        { letter: 'D', text: '問屋制家内工業', correct: false },
+        { letter: 'D', text: '工場制手工業（マニュファクチュア）', correct: true },
       ],
       explanation:
-        '<strong>正解はA「<ruby>工場制手工業<rp>(</rp><rt>こうじょうせいしゅこうぎょう</rt><rp>)</rp></ruby>（マニュファクチュア）」</strong>です。<ruby>分業<rp>(</rp><rt>ぶんぎょう</rt><rp>)</rp></ruby>により、より<ruby>効率的<rp>(</rp><rt>こうりつてき</rt><rp>)</rp></ruby>に生産できるようになりました。',
+        '<strong>正解はD「<ruby>工場制手工業<rp>(</rp><rt>こうじょうせいしゅこうぎょう</rt><rp>)</rp></ruby>（マニュファクチュア）」</strong>です。<ruby>分業<rp>(</rp><rt>ぶんぎょう</rt><rp>)</rp></ruby>により、より<ruby>効率的<rp>(</rp><rt>こうりつてき</rt><rp>)</rp></ruby>に生産できるようになりました。',
     },
     {
       type: 'end',

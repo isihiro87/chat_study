@@ -93,12 +93,12 @@ export const meijiCultureChat: HistoryChat = {
       question: '「吾輩は猫である」「坊っちゃん」を書いた作家は？',
       options: [
         { letter: 'A', text: '二葉亭四迷', correct: false },
-        { letter: 'B', text: '森鷗外', correct: false },
+        { letter: 'B', text: '夏目漱石', correct: true },
         { letter: 'C', text: '正岡子規', correct: false },
-        { letter: 'D', text: '夏目漱石', correct: true },
+        { letter: 'D', text: '森鷗外', correct: false },
       ],
       explanation:
-        '<strong>正解はD「<ruby>夏目漱石<rp>(</rp><rt>なつめそうせき</rt><rp>)</rp></ruby>」</strong>です。イギリスに<ruby>留学<rp>(</rp><rt>りゅうがく</rt><rp>)</rp></ruby>し、<ruby>近代<rp>(</rp><rt>きんだい</rt><rp>)</rp></ruby>日本を<ruby>代表<rp>(</rp><rt>だいひょう</rt><rp>)</rp></ruby>する<ruby>文豪<rp>(</rp><rt>ぶんごう</rt><rp>)</rp></ruby>となりました。',
+        '<strong>正解はB「<ruby>夏目漱石<rp>(</rp><rt>なつめそうせき</rt><rp>)</rp></ruby>」</strong>です。イギリスに<ruby>留学<rp>(</rp><rt>りゅうがく</rt><rp>)</rp></ruby>し、<ruby>近代<rp>(</rp><rt>きんだい</rt><rp>)</rp></ruby>日本を<ruby>代表<rp>(</rp><rt>だいひょう</rt><rp>)</rp></ruby>する<ruby>文豪<rp>(</rp><rt>ぶんごう</rt><rp>)</rp></ruby>となりました。',
     },
     {
       type: 'narrator',

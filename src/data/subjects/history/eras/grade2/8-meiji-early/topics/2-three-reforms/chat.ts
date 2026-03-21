@@ -99,12 +99,12 @@ export const threeReformsChat: HistoryChat = {
       question: '1873年に出された、満20歳の男子に兵役を課す法律は？',
       options: [
         { letter: 'A', text: '学制', correct: false },
-        { letter: 'B', text: '地租改正', correct: false },
+        { letter: 'B', text: '徴兵令', correct: true },
         { letter: 'C', text: '廃藩置県', correct: false },
-        { letter: 'D', text: '徴兵令', correct: true },
+        { letter: 'D', text: '地租改正', correct: false },
       ],
       explanation:
-        '<strong>正解はD「<ruby>徴兵令<rp>(</rp><rt>ちょうへいれい</rt><rp>)</rp></ruby>」</strong>です。<ruby>国民皆兵<rp>(</rp><rt>こくみんかいへい</rt><rp>)</rp></ruby>の<ruby>原則<rp>(</rp><rt>げんそく</rt><rp>)</rp></ruby>で、<ruby>武士<rp>(</rp><rt>ぶし</rt><rp>)</rp></ruby>だけでなく<ruby>国民全員<rp>(</rp><rt>こくみんぜんいん</rt><rp>)</rp></ruby>が<ruby>兵役<rp>(</rp><rt>へいえき</rt><rp>)</rp></ruby>を<ruby>負<rp>(</rp><rt>お</rt><rp>)</rp></ruby>うようになりました。',
+        '<strong>正解はB「<ruby>徴兵令<rp>(</rp><rt>ちょうへいれい</rt><rp>)</rp></ruby>」</strong>です。<ruby>国民皆兵<rp>(</rp><rt>こくみんかいへい</rt><rp>)</rp></ruby>の<ruby>原則<rp>(</rp><rt>げんそく</rt><rp>)</rp></ruby>で、<ruby>武士<rp>(</rp><rt>ぶし</rt><rp>)</rp></ruby>だけでなく<ruby>国民全員<rp>(</rp><rt>こくみんぜんいん</rt><rp>)</rp></ruby>が<ruby>兵役<rp>(</rp><rt>へいえき</rt><rp>)</rp></ruby>を<ruby>負<rp>(</rp><rt>お</rt><rp>)</rp></ruby>うようになりました。',
     },
     {
       type: 'message',
@@ -149,13 +149,13 @@ export const threeReformsChat: HistoryChat = {
       type: 'quiz',
       question: '地租改正で、税額の基準とされた土地の価格を何という？',
       options: [
-        { letter: 'A', text: '地券', correct: false },
-        { letter: 'B', text: '地価', correct: true },
+        { letter: 'A', text: '地価', correct: true },
+        { letter: 'B', text: '地券', correct: false },
         { letter: 'C', text: '年貢', correct: false },
         { letter: 'D', text: '地租', correct: false },
       ],
       explanation:
-        '<strong>正解はB「<ruby>地価<rp>(</rp><rt>ちか</rt><rp>)</rp></ruby>」</strong>です。<ruby>地価<rp>(</rp><rt>ちか</rt><rp>)</rp></ruby>の3%（後に2.5%）を<ruby>現金<rp>(</rp><rt>げんきん</rt><rp>)</rp></ruby>で<ruby>納<rp>(</rp><rt>おさ</rt><rp>)</rp></ruby>める<ruby>制度<rp>(</rp><rt>せいど</rt><rp>)</rp></ruby>でした。',
+        '<strong>正解はA「<ruby>地価<rp>(</rp><rt>ちか</rt><rp>)</rp></ruby>」</strong>です。<ruby>地価<rp>(</rp><rt>ちか</rt><rp>)</rp></ruby>の3%（後に2.5%）を<ruby>現金<rp>(</rp><rt>げんきん</rt><rp>)</rp></ruby>で<ruby>納<rp>(</rp><rt>おさ</rt><rp>)</rp></ruby>める<ruby>制度<rp>(</rp><rt>せいど</rt><rp>)</rp></ruby>でした。',
     },
     {
       type: 'end',

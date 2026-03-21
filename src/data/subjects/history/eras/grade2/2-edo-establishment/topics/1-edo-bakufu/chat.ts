@@ -156,13 +156,13 @@ export const edoBakufuChat: HistoryChat = {
       type: 'quiz',
       question: '大名が1年おきに江戸と領地を往復する制度は？',
       options: [
-        { letter: 'A', text: '参勤交代', correct: true },
-        { letter: 'B', text: '検地', correct: false },
+        { letter: 'A', text: '検地', correct: false },
+        { letter: 'B', text: '参勤交代', correct: true },
         { letter: 'C', text: '鎖国', correct: false },
         { letter: 'D', text: '武家諸法度', correct: false },
       ],
       explanation:
-        '<strong>正解はA「<ruby>参勤交代<rp>(</rp><rt>さんきんこうたい</rt><rp>)</rp></ruby>」</strong>です。3代<ruby>将軍<rp>(</rp><rt>しょうぐん</rt><rp>)</rp></ruby><ruby>家光<rp>(</rp><rt>いえみつ</rt><rp>)</rp></ruby>の時に制度化され、大名の経済力を弱めて反乱を防ぐ目的がありました。',
+        '<strong>正解はB「<ruby>参勤交代<rp>(</rp><rt>さんきんこうたい</rt><rp>)</rp></ruby>」</strong>です。3代<ruby>将軍<rp>(</rp><rt>しょうぐん</rt><rp>)</rp></ruby><ruby>家光<rp>(</rp><rt>いえみつ</rt><rp>)</rp></ruby>の時に制度化され、大名の経済力を弱めて反乱を防ぐ目的がありました。',
     },
     {
       type: 'end',

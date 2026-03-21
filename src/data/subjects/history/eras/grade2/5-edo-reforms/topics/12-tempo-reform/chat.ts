@@ -85,12 +85,12 @@ export const tempoReformChat: HistoryChat = {
       question: '天保の改革を行った老中は？',
       options: [
         { letter: 'A', text: '松平定信', correct: false },
-        { letter: 'B', text: '田沼意次', correct: false },
-        { letter: 'C', text: '水野忠邦', correct: true },
+        { letter: 'B', text: '水野忠邦', correct: true },
+        { letter: 'C', text: '田沼意次', correct: false },
         { letter: 'D', text: '徳川吉宗', correct: false },
       ],
       explanation:
-        '<strong>正解はC「<ruby>水野忠邦<rp>(</rp><rt>みずのただくに</rt><rp>)</rp></ruby>」</strong>です。江戸幕府最後の<ruby>幕政<rp>(</rp><rt>ばくせい</rt><rp>)</rp></ruby>改革を行いましたが、厳しすぎて失敗しました。',
+        '<strong>正解はB「<ruby>水野忠邦<rp>(</rp><rt>みずのただくに</rt><rp>)</rp></ruby>」</strong>です。江戸幕府最後の<ruby>幕政<rp>(</rp><rt>ばくせい</rt><rp>)</rp></ruby>改革を行いましたが、厳しすぎて失敗しました。',
     },
     {
       type: 'message',
@@ -128,13 +128,13 @@ export const tempoReformChat: HistoryChat = {
       type: 'quiz',
       question: '天保の改革で、物価を下げるために解散させられたものは？',
       options: [
-        { letter: 'A', text: '藩校', correct: false },
+        { letter: 'A', text: '株仲間', correct: true },
         { letter: 'B', text: '寺子屋', correct: false },
         { letter: 'C', text: '問屋', correct: false },
-        { letter: 'D', text: '株仲間', correct: true },
+        { letter: 'D', text: '藩校', correct: false },
       ],
       explanation:
-        '<strong>正解はD「<ruby>株仲間<rp>(</rp><rt>かぶなかま</rt><rp>)</rp></ruby>」</strong>です。<ruby>物価<rp>(</rp><rt>ぶっか</rt><rp>)</rp></ruby>高の原因として解散させましたが、かえって<ruby>流通<rp>(</rp><rt>りゅうつう</rt><rp>)</rp></ruby>が混乱しました。',
+        '<strong>正解はA「<ruby>株仲間<rp>(</rp><rt>かぶなかま</rt><rp>)</rp></ruby>」</strong>です。<ruby>物価<rp>(</rp><rt>ぶっか</rt><rp>)</rp></ruby>高の原因として解散させましたが、かえって<ruby>流通<rp>(</rp><rt>りゅうつう</rt><rp>)</rp></ruby>が混乱しました。',
     },
     {
       type: 'message',
@@ -184,12 +184,12 @@ export const tempoReformChat: HistoryChat = {
       question: '天保の改革で、大名の領地を幕府直轄にしようとして失敗した法令は？',
       options: [
         { letter: 'A', text: '株仲間解散令', correct: false },
-        { letter: 'B', text: '上知令', correct: true },
+        { letter: 'B', text: '人返し令', correct: false },
         { letter: 'C', text: '倹約令', correct: false },
-        { letter: 'D', text: '人返し令', correct: false },
+        { letter: 'D', text: '上知令', correct: true },
       ],
       explanation:
-        '<strong>正解はB「<ruby>上知令<rp>(</rp><rt>あげちれい</rt><rp>)</rp></ruby>」</strong>です。大名たちの<ruby>猛反対<rp>(</rp><rt>もうはんたい</rt><rp>)</rp></ruby>にあい、<ruby>水野忠邦<rp>(</rp><rt>みずのただくに</rt><rp>)</rp></ruby>は<ruby>失脚<rp>(</rp><rt>しっきゃく</rt><rp>)</rp></ruby>しました。',
+        '<strong>正解はD「<ruby>上知令<rp>(</rp><rt>あげちれい</rt><rp>)</rp></ruby>」</strong>です。大名たちの<ruby>猛反対<rp>(</rp><rt>もうはんたい</rt><rp>)</rp></ruby>にあい、<ruby>水野忠邦<rp>(</rp><rt>みずのただくに</rt><rp>)</rp></ruby>は<ruby>失脚<rp>(</rp><rt>しっきゃく</rt><rp>)</rp></ruby>しました。',
     },
     {
       type: 'end',

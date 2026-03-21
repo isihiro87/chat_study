@@ -91,13 +91,13 @@ export const americaExpansionChat: HistoryChat = {
       type: 'quiz',
       question: '北部と南部の対立で、南部の大農場で栽培された主要作物は？',
       options: [
-        { letter: 'A', text: '茶', correct: false },
-        { letter: 'B', text: '綿花', correct: true },
+        { letter: 'A', text: '綿花', correct: true },
+        { letter: 'B', text: '茶', correct: false },
         { letter: 'C', text: '小麦', correct: false },
         { letter: 'D', text: 'タバコ', correct: false },
       ],
       explanation:
-        '<strong>正解はB「<ruby>綿花<rp>(</rp><rt>めんか</rt><rp>)</rp></ruby>」</strong>です。南部の綿花はイギリスに<ruby>輸出<rp>(</rp><rt>ゆしゅつ</rt><rp>)</rp></ruby>され、<ruby>奴隷<rp>(</rp><rt>どれい</rt><rp>)</rp></ruby><ruby>労働<rp>(</rp><rt>ろうどう</rt><rp>)</rp></ruby>で<ruby>栽培<rp>(</rp><rt>さいばい</rt><rp>)</rp></ruby>されていました。',
+        '<strong>正解はA「<ruby>綿花<rp>(</rp><rt>めんか</rt><rp>)</rp></ruby>」</strong>です。南部の綿花はイギリスに<ruby>輸出<rp>(</rp><rt>ゆしゅつ</rt><rp>)</rp></ruby>され、<ruby>奴隷<rp>(</rp><rt>どれい</rt><rp>)</rp></ruby><ruby>労働<rp>(</rp><rt>ろうどう</rt><rp>)</rp></ruby>で<ruby>栽培<rp>(</rp><rt>さいばい</rt><rp>)</rp></ruby>されていました。',
     },
     {
       type: 'narrator',
@@ -130,12 +130,12 @@ export const americaExpansionChat: HistoryChat = {
       question: '南北戦争中に奴隷解放宣言を出した大統領は？',
       options: [
         { letter: 'A', text: 'ワシントン', correct: false },
-        { letter: 'B', text: 'リンカン', correct: true },
+        { letter: 'B', text: 'ルーズベルト', correct: false },
         { letter: 'C', text: 'ジェファソン', correct: false },
-        { letter: 'D', text: 'ルーズベルト', correct: false },
+        { letter: 'D', text: 'リンカン', correct: true },
       ],
       explanation:
-        '<strong>正解はB「リンカン」</strong>です。1863年に<ruby>奴隷解放宣言<rp>(</rp><rt>どれいかいほうせんげん</rt><rp>)</rp></ruby>を出し、「人民の、人民による、人民のための政治」と<ruby>演説<rp>(</rp><rt>えんぜつ</rt><rp>)</rp></ruby>しました。',
+        '<strong>正解はD「リンカン」</strong>です。1863年に<ruby>奴隷解放宣言<rp>(</rp><rt>どれいかいほうせんげん</rt><rp>)</rp></ruby>を出し、「人民の、人民による、人民のための政治」と<ruby>演説<rp>(</rp><rt>えんぜつ</rt><rp>)</rp></ruby>しました。',
     },
     {
       type: 'end',

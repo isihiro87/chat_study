@@ -87,11 +87,11 @@ export const sinoJapaneseWarChat: HistoryChat = {
       options: [
         { letter: 'A', text: '南京条約', correct: false },
         { letter: 'B', text: 'ポーツマス条約', correct: false },
-        { letter: 'C', text: '日朝修好条規', correct: false },
-        { letter: 'D', text: '下関条約', correct: true },
+        { letter: 'C', text: '下関条約', correct: true },
+        { letter: 'D', text: '日朝修好条規', correct: false },
       ],
       explanation:
-        '<strong>正解はD「<ruby>下関条約<rp>(</rp><rt>しものせきじょうやく</rt><rp>)</rp></ruby>」</strong>です。<ruby>遼東半島<rp>(</rp><rt>りゃおとんはんとう</rt><rp>)</rp></ruby>・<ruby>台湾<rp>(</rp><rt>たいわん</rt><rp>)</rp></ruby>の<ruby>割譲<rp>(</rp><rt>かつじょう</rt><rp>)</rp></ruby>、賠償金2億両などが定められました。',
+        '<strong>正解はC「<ruby>下関条約<rp>(</rp><rt>しものせきじょうやく</rt><rp>)</rp></ruby>」</strong>です。<ruby>遼東半島<rp>(</rp><rt>りゃおとんはんとう</rt><rp>)</rp></ruby>・<ruby>台湾<rp>(</rp><rt>たいわん</rt><rp>)</rp></ruby>の<ruby>割譲<rp>(</rp><rt>かつじょう</rt><rp>)</rp></ruby>、賠償金2億両などが定められました。',
     },
     {
       type: 'narrator',
@@ -141,12 +141,12 @@ export const sinoJapaneseWarChat: HistoryChat = {
       question: '三国干渉後、ロシアへの復讐を誓った合言葉は？',
       options: [
         { letter: 'A', text: '富国強兵', correct: false },
-        { letter: 'B', text: '尊王攘夷', correct: false },
-        { letter: 'C', text: '臥薪嘗胆', correct: true },
+        { letter: 'B', text: '臥薪嘗胆', correct: true },
+        { letter: 'C', text: '尊王攘夷', correct: false },
         { letter: 'D', text: '殖産興業', correct: false },
       ],
       explanation:
-        '<strong>正解はC「<ruby>臥薪嘗胆<rp>(</rp><rt>がしんしょうたん</rt><rp>)</rp></ruby>」</strong>です。「<ruby>苦労<rp>(</rp><rt>くろう</rt><rp>)</rp></ruby>に<ruby>耐<rp>(</rp><rt>た</rt><rp>)</rp></ruby>えて<ruby>復讐<rp>(</rp><rt>ふくしゅう</rt><rp>)</rp></ruby>の機会を待つ」という意味です。',
+        '<strong>正解はB「<ruby>臥薪嘗胆<rp>(</rp><rt>がしんしょうたん</rt><rp>)</rp></ruby>」</strong>です。「<ruby>苦労<rp>(</rp><rt>くろう</rt><rp>)</rp></ruby>に<ruby>耐<rp>(</rp><rt>た</rt><rp>)</rp></ruby>えて<ruby>復讐<rp>(</rp><rt>ふくしゅう</rt><rp>)</rp></ruby>の機会を待つ」という意味です。',
     },
     {
       type: 'end',

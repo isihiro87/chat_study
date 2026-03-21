@@ -114,6 +114,76 @@ export const russoJapaneseWar: Topic = {
         explanation: '初代統監は伊藤博文が務めた。',
         difficulty: 'advanced',
       },
+      {
+        id: 'fc11',
+        front: '1904年',
+        back: '日露戦争が始まった年は？',
+        explanation: '日本はロシアとの戦争に踏み切った。',
+        difficulty: 'basic',
+      },
+      {
+        id: 'fc12',
+        front: '1902年',
+        back: '日英同盟が結ばれた年は？',
+        explanation: 'ロシアの南下に対抗するために結ばれた。',
+        difficulty: 'basic',
+      },
+      {
+        id: 'fc13',
+        front: 'アメリカ大統領',
+        back: 'ポーツマス条約の仲介を行った人物の役職は？',
+        explanation: 'セオドア・ルーズベルトが仲介した。',
+        difficulty: 'standard',
+      },
+      {
+        id: 'fc14',
+        front: '君死にたまふこと勿れ',
+        back: '与謝野晶子が弟の身を案じて詠んだ詩は？',
+        explanation: '日露戦争に対する反戦の思いが込められている。',
+        difficulty: 'standard',
+      },
+      {
+        id: 'fc15',
+        front: '南満州鉄道',
+        back: '日露戦争後に設立された、満州での鉄道会社は？',
+        explanation: '「満鉄」と呼ばれ、大陸進出の拠点となった。',
+        difficulty: 'standard',
+      },
+      {
+        id: 'fc16',
+        front: '韓国の優越権',
+        back: 'ポーツマス条約で日本が獲得した、韓国に関する権利は？',
+        explanation: 'のちの韓国併合につながった。',
+        difficulty: 'standard',
+      },
+      {
+        id: 'fc17',
+        front: '1905年',
+        back: 'ポーツマス条約が結ばれた年は？',
+        explanation: '日露戦争の講和条約として結ばれた。',
+        difficulty: 'basic',
+      },
+      {
+        id: 'fc18',
+        front: 'アジアの民族独立運動',
+        back: '日露戦争の勝利がアジアに与えた影響は？',
+        explanation: '有色人種の国が白人大国に勝ったことで刺激された。',
+        difficulty: 'advanced',
+      },
+      {
+        id: 'fc19',
+        front: 'ロシアの南下政策',
+        back: '日英同盟が結ばれた背景にあるロシアの動きは？',
+        explanation: 'ロシアは不凍港を求めて南下を続けていた。',
+        difficulty: 'standard',
+      },
+      {
+        id: 'fc20',
+        front: '国力の限界',
+        back: '日本がポーツマス条約で賠償金を得られなかった理由は？',
+        explanation: '戦争が長引けば日本も持たない状況だった。',
+        difficulty: 'advanced',
+      },
     ],
     quiz: {
       questions: [
@@ -200,6 +270,135 @@ export const russoJapaneseWar: Topic = {
           explanation:
             '1900年の義和団事件の鎮圧後もロシアは満州に軍隊を駐留させ、日本との対立が深まりました。',
           difficulty: 'standard',
+        },
+        {
+          id: 'q7',
+          question: '日露戦争が始まった年は？',
+          options: ['1900年', '1902年', '1904年', '1905年'],
+          correctIndex: 2,
+          explanation:
+            '1904年に日本はロシアとの戦争に踏み切りました。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'q8',
+          question: '日英同盟が結ばれた年は？',
+          options: ['1894年', '1900年', '1902年', '1904年'],
+          correctIndex: 2,
+          explanation:
+            '1902年にロシアの南下に対抗するため日英同盟が結ばれました。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'q9',
+          question: 'ポーツマス条約の仲介を行った国は？',
+          options: ['イギリス', 'フランス', 'ドイツ', 'アメリカ'],
+          correctIndex: 3,
+          explanation:
+            'アメリカのセオドア・ルーズベルト大統領が日露戦争の講和を仲介しました。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'q10',
+          question: '日比谷焼き討ち事件が起きた理由は？',
+          options: [
+            '日本が戦争に敗北したから',
+            '賠償金が得られなかったから',
+            '領土を奪われたから',
+            '増税が行われたから',
+          ],
+          correctIndex: 1,
+          explanation:
+            'ポーツマス条約で賠償金が得られなかったことに対する国民の怒りが爆発しました。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'q11',
+          question: '日露戦争後に設立された満州の鉄道会社の略称は？',
+          options: ['東鉄', '北鉄', '満鉄', '南鉄'],
+          correctIndex: 2,
+          explanation:
+            '南満州鉄道株式会社は「満鉄」と略称され、日本の大陸進出の拠点となりました。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'q12',
+          question: '日露戦争の勝利がアジアに与えた影響は？',
+          options: [
+            'アジア各国が日本と同盟を結んだ',
+            'アジアの民族独立運動が刺激された',
+            'アジア各国がロシアに降伏した',
+            'アジアで戦争が増加した',
+          ],
+          correctIndex: 1,
+          explanation:
+            '有色人種の国が白人大国に勝ったことで、アジアの民族独立運動が刺激されました。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'q13',
+          question: 'ポーツマス条約で日本が獲得したものとして正しくないのは？',
+          options: ['南樺太', '韓国の優越権', '旅順・大連の租借権', '賠償金2億両'],
+          correctIndex: 3,
+          explanation:
+            'ポーツマス条約では賠償金は得られず、これが国民の不満を招きました。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'q14',
+          question: '日英同盟が結ばれた背景は？',
+          options: [
+            '日本とイギリスが貿易を拡大するため',
+            'ロシアの南下政策に対抗するため',
+            'フランスに対抗するため',
+            '中国と同盟を結ぶため',
+          ],
+          correctIndex: 1,
+          explanation:
+            'ロシアの南下を警戒する日本とイギリスの利害が一致して日英同盟が結ばれました。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'q15',
+          question: 'ポーツマス条約が結ばれた年は？',
+          options: ['1902年', '1904年', '1905年', '1910年'],
+          correctIndex: 2,
+          explanation:
+            '1905年にアメリカの仲介でポーツマス条約が結ばれました。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'q16',
+          question: '義和団事件が起きた年は？',
+          options: ['1894年', '1898年', '1900年', '1902年'],
+          correctIndex: 2,
+          explanation:
+            '1900年に清で義和団事件が起き、ロシアはこの鎮圧後も満州に軍隊を駐留させました。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'q17',
+          question: '日露戦争後にソウルに設置された機関は？',
+          options: ['朝鮮総督府', '韓国統監府', '満鉄本社', '関東都督府'],
+          correctIndex: 1,
+          explanation:
+            '日露戦争後にソウルに韓国統監府が設置され、初代統監に伊藤博文が就任しました。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'q18',
+          question:
+            '日本がポーツマス条約で賠償金を得られなかった主な理由は？',
+          options: [
+            '日本が戦争に負けたから',
+            '日本の国力が限界に達していたから',
+            'イギリスが反対したから',
+            'ロシアが崩壊したから',
+          ],
+          correctIndex: 1,
+          explanation:
+            '日本は戦争を続ける国力が限界に達しており、賠償金なしでも講和を受け入れざるを得ませんでした。',
+          difficulty: 'advanced',
         },
       ],
     },

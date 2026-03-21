@@ -114,6 +114,76 @@ export const fukokuKyohei: Topic = {
         explanation: '日本初の鉄道で、殖産興業の象徴となった。',
         difficulty: 'advanced',
       },
+      {
+        id: 'fc11',
+        front: 'ガス灯',
+        back: '文明開化で都市に設置された照明は？',
+        explanation: '東京の銀座などに設置され、夜の街を明るくした。',
+        difficulty: 'basic',
+      },
+      {
+        id: 'fc12',
+        front: '牛鍋',
+        back: '文明開化で広まった、牛肉を使った新しい食文化は？',
+        explanation: '仏教の影響で避けられていた肉食が広まるきっかけとなった。',
+        difficulty: 'standard',
+      },
+      {
+        id: 'fc13',
+        front: '前島密',
+        back: '郵便制度を整備した人物は？',
+        explanation: '日本の近代郵便制度の基礎を築いた。',
+        difficulty: 'standard',
+      },
+      {
+        id: 'fc14',
+        front: '郵便制度',
+        back: '前島密が整備した、手紙を届ける近代的な仕組みは？',
+        explanation: '殖産興業政策の一環として全国に整備された。',
+        difficulty: 'standard',
+      },
+      {
+        id: 'fc15',
+        front: '群馬県',
+        back: '富岡製糸場がある都道府県は？',
+        explanation: '現在は世界文化遺産に登録されている。',
+        difficulty: 'standard',
+      },
+      {
+        id: 'fc16',
+        front: '円・銭・厘',
+        back: '明治政府が導入した統一貨幣の単位は？',
+        explanation: '全国共通の通貨制度が作られた。',
+        difficulty: 'advanced',
+      },
+      {
+        id: 'fc17',
+        front: 'レンガ造り',
+        back: '文明開化で都市に建てられた西洋風の建物の建材は？',
+        explanation: '銀座にレンガ街が作られた。',
+        difficulty: 'standard',
+      },
+      {
+        id: 'fc18',
+        front: '洋服',
+        back: '文明開化で広まった、西洋式の衣服は？',
+        explanation: '和服に代わって官吏や軍人を中心に広まった。',
+        difficulty: 'basic',
+      },
+      {
+        id: 'fc19',
+        front: '東洋のルソー',
+        back: '中江兆民の別名は？',
+        explanation: 'ルソーの思想を紹介したことからこう呼ばれた。',
+        difficulty: 'advanced',
+      },
+      {
+        id: 'fc20',
+        front: '新橋・横浜間',
+        back: '日本初の鉄道が開通した区間は？',
+        explanation: '1872年に開通した。',
+        difficulty: 'basic',
+      },
     ],
     quiz: {
       questions: [
@@ -175,6 +245,133 @@ export const fukokuKyohei: Topic = {
           explanation:
             '日本初の鉄道が新橋・横浜間で開通し、殖産興業の象徴となりました。',
           difficulty: 'standard',
+        },
+        {
+          id: 'q7',
+          question: '近代的な産業を育成する政策を何という？',
+          options: ['富国強兵', '殖産興業', '文明開化', '四民平等'],
+          correctIndex: 1,
+          explanation:
+            '殖産興業は官営模範工場の建設や鉄道の開通などを通じて近代産業を育てる政策です。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'q8',
+          question: '富岡製糸場で主に生産されたものは？',
+          options: ['綿糸', '生糸', '鉄鋼', '武器'],
+          correctIndex: 1,
+          explanation:
+            '富岡製糸場はフランスの技術を導入して高品質な生糸を生産しました。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'q9',
+          question: '郵便制度を整備した人物は？',
+          options: ['福沢諭吉', '中江兆民', '前島密', '伊藤博文'],
+          correctIndex: 2,
+          explanation:
+            '前島密は日本の近代郵便制度の基礎を築きました。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'q10',
+          question: '文明開化で広まった新しい食文化は？',
+          options: ['天ぷら', '寿司', '牛鍋', 'うなぎ'],
+          correctIndex: 2,
+          explanation:
+            '文明開化で牛肉を食べる習慣が広まり、牛鍋が流行しました。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'q11',
+          question:
+            '「天は人の上に人を造らず」で有名な思想家は？',
+          options: ['中江兆民', '伊藤博文', '板垣退助', '福沢諭吉'],
+          correctIndex: 3,
+          explanation:
+            '福沢諭吉は「学問のすゝめ」で人間の平等と学問の大切さを説きました。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'q12',
+          question: '明治政府が太陽暦を採用したのは何年？',
+          options: ['1871年', '1872年', '1873年', '1874年'],
+          correctIndex: 2,
+          explanation:
+            '1873年（明治5年の末）に太陽暦が採用され、1日24時間・1週間7日の暦になりました。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'q13',
+          question: '富岡製糸場がある都道府県は？',
+          options: ['東京都', '群馬県', '長野県', '栃木県'],
+          correctIndex: 1,
+          explanation:
+            '富岡製糸場は群馬県にあり、現在は世界文化遺産に登録されています。',
+          difficulty: 'standard',
+        },
+        {
+          id: 'q14',
+          question: '官営模範工場の目的は？',
+          options: [
+            '政府の利益を最大化するため',
+            '民間の産業発展の手本とするため',
+            '外国に輸出するため',
+            '軍隊に物資を供給するため',
+          ],
+          correctIndex: 1,
+          explanation:
+            '官営模範工場は政府が率先して近代的な工場を建設し、民間の産業発展を促す目的でした。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'q15',
+          question: '明治政府が導入した統一貨幣の単位は？',
+          options: [
+            '両・分・朱',
+            '円・銭・厘',
+            'ドル・セント',
+            '貫・匁・分',
+          ],
+          correctIndex: 1,
+          explanation:
+            '全国共通の通貨制度として円・銭・厘が導入されました。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'q16',
+          question:
+            '文明開化で都市に設置された照明は？',
+          options: ['ろうそく', '行灯', 'ガス灯', '電灯'],
+          correctIndex: 2,
+          explanation:
+            'ガス灯が東京の銀座などに設置され、近代的な都市の象徴となりました。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'q17',
+          question:
+            '中江兆民が紹介した思想家は？',
+          options: ['モンテスキュー', 'ルソー', 'ロック', 'ヴォルテール'],
+          correctIndex: 1,
+          explanation:
+            '中江兆民はルソーの思想を紹介し、「東洋のルソー」と呼ばれました。',
+          difficulty: 'advanced',
+        },
+        {
+          id: 'q18',
+          question:
+            '殖産興業政策の具体例として正しくないものは？',
+          options: [
+            '鉄道の開通',
+            '富岡製糸場の建設',
+            '郵便制度の整備',
+            '大政奉還の実行',
+          ],
+          correctIndex: 3,
+          explanation:
+            '大政奉還は幕末の出来事であり、殖産興業政策ではありません。',
+          difficulty: 'advanced',
         },
       ],
     },
