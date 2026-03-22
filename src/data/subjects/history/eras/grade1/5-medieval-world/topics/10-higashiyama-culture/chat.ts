@@ -261,7 +261,7 @@ export const higashiyamaCultureChat: HistoryChat = {
       side: 'left',
       characterId: 'yoshimitsu',
       expression: 'excited',
-      text: '<ruby>栃木県<rp>(</rp><rt>とちぎけん</rt><rp>)</rp></ruby>の<strong><span class="keyword"><ruby>足利学校<rp>(</rp><rt>あしかががっこう</rt><rp>)</rp></ruby></span></strong>には全国から人材が集まり、<ruby>儒学<rp>(</rp><rt>じゅがく</rt><rp>)</rp></ruby>などを学んだ。<ruby>宣教師<rp>(</rp><rt>せんきょうし</rt><rp>)</rp></ruby>の<ruby>ザビエル<rp>(</rp><rt></rt><rp>)</rp></ruby>が「日本最大の<ruby>学府<rp>(</rp><rt>がくふ</rt><rp>)</rp></ruby>」と記録したほどなんだ',
+      text: '<ruby>栃木県<rp>(</rp><rt>とちぎけん</rt><rp>)</rp></ruby>の<strong><span class="keyword"><ruby>足利学校<rp>(</rp><rt>あしかががっこう</rt><rp>)</rp></ruby></span></strong>には全国から人材が集まり、<ruby>儒学<rp>(</rp><rt>じゅがく</rt><rp>)</rp></ruby>などを学んだ。<ruby>宣教師<rp>(</rp><rt>せんきょうし</rt><rp>)</rp></ruby>のザビエルが「日本最大の<ruby>学府<rp>(</rp><rt>がくふ</rt><rp>)</rp></ruby>」と記録したほどなんだ',
     },
     {
       type: 'summary-point',

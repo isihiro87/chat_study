@@ -40,14 +40,14 @@ export const europeChangeChat: HistoryChat = {
     },
     {
       type: 'narrator',
-      text: '14世紀のイタリアから、古代ギリシャ・ローマの文化を手本に人間の<ruby>個性<rp>(</rp><rt>こせい</rt><rp>)</rp></ruby>や自由を<ruby>重視<rp>(</rp><rt>じゅうし</rt><rp>)</rp></ruby>する<strong><span class="keyword"><ruby>ルネサンス<rp>(</rp><rt>文芸復興</rt><rp>)</rp></ruby></span></strong>が始まりました。',
+      text: '14世紀のイタリアから、古代ギリシャ・ローマの文化を手本に人間の<ruby>個性<rp>(</rp><rt>こせい</rt><rp>)</rp></ruby>や自由を<ruby>重視<rp>(</rp><rt>じゅうし</rt><rp>)</rp></ruby>する<strong><span class="keyword">ルネサンス</span></strong>が始まりました。',
     },
     {
       type: 'message',
       side: 'left',
       characterId: 'scholar',
       expression: 'explaining',
-      text: '<span data-tooltip="14世紀にイタリアで始まった、古代ギリシャ・ローマの文化を復興しようとする運動">ルネサンス</span>では<ruby>レオナルド・ダ・ヴィンチ<rp>(</rp><rt>れおなるど・だ・う゛ぃんち</rt><rp>)</rp></ruby>や<ruby>ミケランジェロ<rp>(</rp><rt>みけらんじぇろ</rt><rp>)</rp></ruby>など<ruby>偉大<rp>(</rp><rt>いだい</rt><rp>)</rp></ruby>な<ruby>芸術家<rp>(</rp><rt>げいじゅつか</rt><rp>)</rp></ruby>が活躍したんだ。人間中心の考え方が広まったんだよ',
+      text: '<span data-tooltip="14世紀にイタリアで始まった、古代ギリシャ・ローマの文化を復興しようとする運動">ルネサンス</span>ではレオナルド・ダ・ヴィンチやミケランジェロなど<ruby>偉大<rp>(</rp><rt>いだい</rt><rp>)</rp></ruby>な<ruby>芸術家<rp>(</rp><rt>げいじゅつか</rt><rp>)</rp></ruby>が活躍したんだ。人間中心の考え方が広まったんだよ',
     },
     {
       type: 'image',
@@ -148,7 +148,7 @@ export const europeChangeChat: HistoryChat = {
     {
       type: 'end',
       points: [
-        '<strong><ruby>ルネサンス<rp>(</rp><rt>文芸復興</rt><rp>)</rp></ruby></strong>：14世紀イタリアから始まった文芸復興。人間中心の考え方',
+        '<strong>ルネサンス</strong>：14世紀イタリアから始まった文芸復興。人間中心の考え方',
         '<strong>三大発明</strong>：<strong><ruby>活版印刷<rp>(</rp><rt>かっぱんいんさつ</rt><rp>)</rp></ruby></strong>・<strong><ruby>羅針盤<rp>(</rp><rt>らしんばん</rt><rp>)</rp></ruby></strong>・<ruby>火薬<rp>(</rp><rt>かやく</rt><rp>)</rp></ruby>の改良',
         '<strong><ruby>宗教改革<rp>(</rp><rt>しゅうきょうかいかく</rt><rp>)</rp></ruby></strong>：<strong>ルター</strong>が<strong><ruby>免罪符<rp>(</rp><rt>めんざいふ</rt><rp>)</rp></ruby></strong>を批判。<strong>プロテスタント</strong>の誕生',
         '<strong><ruby>イエズス会<rp>(</rp><rt>いえずすかい</rt><rp>)</rp></ruby></strong>：カトリック側の<ruby>対抗改革<rp>(</rp><rt>たいこうかいかく</rt><rp>)</rp></ruby>。アジアへの布教活動',

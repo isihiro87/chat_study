@@ -40,7 +40,7 @@ export const greeceRomeChat: HistoryChat = {
     },
     {
       type: 'narrator',
-      text: 'ギリシャでは<strong><span class="keyword"><ruby>ポリス<rp>(</rp><rt>ぽりす</rt><rp>)</rp></ruby></span></strong>と呼ばれる<ruby>都市国家<rp>(</rp><rt>としこっか</rt><rp>)</rp></ruby>が形成されました。',
+      text: 'ギリシャでは<strong><span class="keyword">ポリス</span></strong>と呼ばれる<ruby>都市国家<rp>(</rp><rt>としこっか</rt><rp>)</rp></ruby>が形成されました。',
     },
     {
       type: 'message',
@@ -182,7 +182,7 @@ export const greeceRomeChat: HistoryChat = {
     {
       type: 'end',
       points: [
-        '<strong><ruby>ポリス<rp>(</rp><rt>ぽりす</rt><rp>)</rp></ruby></strong>：ギリシャの<ruby>都市国家<rp>(</rp><rt>としこっか</rt><rp>)</rp></ruby>',
+        '<strong>ポリス</strong>：ギリシャの<ruby>都市国家<rp>(</rp><rt>としこっか</rt><rp>)</rp></ruby>',
         'アテネの<strong><ruby>民主政<rp>(</rp><rt>みんしゅせい</rt><rp>)</rp></ruby></strong>：<ruby>市民<rp>(</rp><rt>しみん</rt><rp>)</rp></ruby>全員が参加',
         '<strong>ヘレニズム</strong>：東西文化の<ruby>融合<rp>(</rp><rt>ゆうごう</rt><rp>)</rp></ruby>',
         'ローマ：<strong><ruby>共和政<rp>(</rp><rt>きょうわせい</rt><rp>)</rp></ruby></strong>→<strong><ruby>帝政<rp>(</rp><rt>ていせい</rt><rp>)</rp></ruby></strong>、<strong>コロッセオ</strong>・<strong><ruby>水道橋<rp>(</rp><rt>すいどうきょう</rt><rp>)</rp></ruby></strong>',

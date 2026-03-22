@@ -118,7 +118,7 @@ export const chugokuShikokuIndustryChat: HistoryChat = {
       side: 'left',
       characterId: 'teacher',
       expression: 'explaining',
-      text: '<ruby>高知<rp>(</rp><rt>こうち</rt><rp>)</rp></ruby>県では温暖な気候とビニールハウスを使った<strong><span class="keyword"><ruby>促成栽培<rp>(</rp><rt>そくせいさいばい</rt><rp>)</rp></ruby></span></strong>が盛んだよ。<ruby>なす<rp>(</rp><rt>なす</rt><rp>)</rp></ruby>や<ruby>ピーマン<rp>(</rp><rt>ぴーまん</rt><rp>)</rp></ruby>を他の地域より早く出荷できるんだ',
+      text: '<ruby>高知<rp>(</rp><rt>こうち</rt><rp>)</rp></ruby>県では温暖な気候とビニールハウスを使った<strong><span class="keyword"><ruby>促成栽培<rp>(</rp><rt>そくせいさいばい</rt><rp>)</rp></ruby></span></strong>が盛んだよ。<ruby>なす<rp>(</rp><rt>なす</rt><rp>)</rp></ruby>やピーマンを他の地域より早く出荷できるんだ',
     },
     {
       type: 'message',

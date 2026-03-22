@@ -58,7 +58,7 @@ export const postwarCultureChat: HistoryChat = {
     },
     {
       type: 'narrator',
-      text: '<strong>テレビ放送</strong>の開始で<strong><span class="keyword"><span data-tooltip="テレビ・新聞・ラジオなど、大衆に情報を一斉に伝える手段の総称"><ruby>マスメディア<rp>(</rp><rt>ますめでぃあ</rt><rp>)</rp></ruby></span></span></strong>の時代が<ruby>到来<rp>(</rp><rt>とうらい</rt><rp>)</rp></ruby>しました。テレビは戦後<ruby>最大<rp>(</rp><rt>さいだい</rt><rp>)</rp></ruby>の<ruby>娯楽<rp>(</rp><rt>ごらく</rt><rp>)</rp></ruby>メディアとなり、国民の生活を大きく変えました。',
+      text: '<strong>テレビ放送</strong>の開始で<strong><span class="keyword"><span data-tooltip="テレビ・新聞・ラジオなど、大衆に情報を一斉に伝える手段の総称">マスメディア</span></span></strong>の時代が<ruby>到来<rp>(</rp><rt>とうらい</rt><rp>)</rp></ruby>しました。テレビは戦後<ruby>最大<rp>(</rp><rt>さいだい</rt><rp>)</rp></ruby>の<ruby>娯楽<rp>(</rp><rt>ごらく</rt><rp>)</rp></ruby>メディアとなり、国民の生活を大きく変えました。',
     },
     {
       type: 'message',
@@ -154,7 +154,7 @@ export const postwarCultureChat: HistoryChat = {
       type: 'end',
       points: [
         '<strong><ruby>湯川秀樹<rp>(</rp><rt>ゆかわひでき</rt><rp>)</rp></ruby></strong>が1949年に日本人初のノーベル<ruby>物理学賞<rp>(</rp><rt>ぶつりがくしょう</rt><rp>)</rp></ruby>を<ruby>受賞<rp>(</rp><rt>じゅしょう</rt><rp>)</rp></ruby>',
-        '1953年に<strong><ruby>テレビ放送<rp>(</rp><rt>てれびほうそう</rt><rp>)</rp></ruby></strong>開始、<strong><ruby>マスメディア<rp>(</rp><rt>ますめでぃあ</rt><rp>)</rp></ruby></strong>の時代に',
+        '1953年に<strong><ruby>テレビ放送<rp>(</rp><rt>てれびほうそう</rt><rp>)</rp></ruby></strong>開始、<strong>マスメディア</strong>の時代に',
         '<strong><ruby>手塚治虫<rp>(</rp><rt>てづかおさむ</rt><rp>)</rp></ruby></strong>が「<strong><ruby>鉄腕<rp>(</rp><rt>てつわん</rt><rp>)</rp></ruby>アトム</strong>」で<ruby>漫画<rp>(</rp><rt>まんが</rt><rp>)</rp></ruby>・アニメ文化の<ruby>基礎<rp>(</rp><rt>きそ</rt><rp>)</rp></ruby>を<ruby>築<rp>(</rp><rt>きず</rt><rp>)</rp></ruby>く',
         '<strong><ruby>黒澤明<rp>(</rp><rt>くろさわあきら</rt><rp>)</rp></ruby></strong>が世界的に<ruby>評価<rp>(</rp><rt>ひょうか</rt><rp>)</rp></ruby>、「<strong>ゴジラ</strong>」が世界中で人気に',
         '<strong><ruby>川端康成<rp>(</rp><rt>かわばたやすなり</rt><rp>)</rp></ruby></strong>が1968年にノーベル<ruby>文学賞<rp>(</rp><rt>ぶんがくしょう</rt><rp>)</rp></ruby>を<ruby>受賞<rp>(</rp><rt>じゅしょう</rt><rp>)</rp></ruby>',

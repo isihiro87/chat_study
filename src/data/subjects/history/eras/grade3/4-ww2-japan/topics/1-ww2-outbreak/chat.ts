@@ -40,7 +40,7 @@ export const ww2OutbreakChat: HistoryChat = {
     },
     {
       type: 'narrator',
-      text: '1939年、ドイツの<strong><span class="keyword"><ruby>ヒトラー<rp>(</rp><rt>ひとらー</rt><rp>)</rp></ruby></span></strong>が<ruby>ポーランド<rp>(</rp><rt>ぽーらんど</rt><rp>)</rp></ruby>に<ruby>侵攻<rp>(</rp><rt>しんこう</rt><rp>)</rp></ruby>し、<strong><span class="keyword"><ruby>第二次世界大戦<rp>(</rp><rt>だいにじせかいたいせん</rt><rp>)</rp></ruby></span></strong>が始まりました。',
+      text: '1939年、ドイツの<strong><span class="keyword">ヒトラー</span></strong>がポーランドに<ruby>侵攻<rp>(</rp><rt>しんこう</rt><rp>)</rp></ruby>し、<strong><span class="keyword"><ruby>第二次世界大戦<rp>(</rp><rt>だいにじせかいたいせん</rt><rp>)</rp></ruby></span></strong>が始まりました。',
     },
     {
       type: 'message',
@@ -75,7 +75,7 @@ export const ww2OutbreakChat: HistoryChat = {
       side: 'left',
       characterId: 'teacher',
       expression: 'explaining',
-      text: '<span data-tooltip="ナチス・ドイツによるユダヤ人への組織的な大量虐殺"><strong><span class="keyword"><ruby>ホロコースト<rp>(</rp><rt>ほろこーすと</rt><rp>)</rp></ruby></span></strong></span>と呼ばれるユダヤ<ruby>人<rp>(</rp><rt>じん</rt><rp>)</rp></ruby>への<ruby>大量虐殺<rp>(</rp><rt>たいりょうぎゃくさつ</rt><rp>)</rp></ruby>が行われたんだ。<ruby>強制収容所<rp>(</rp><rt>きょうせいしゅうようじょ</rt><rp>)</rp></ruby>に送られ、<ruby>人類史上<rp>(</rp><rt>じんるいしじょう</rt><rp>)</rp></ruby>最悪の<ruby>悲劇<rp>(</rp><rt>ひげき</rt><rp>)</rp></ruby>の一つになったんだよ',
+      text: '<span data-tooltip="ナチス・ドイツによるユダヤ人への組織的な大量虐殺"><strong><span class="keyword">ホロコースト</span></strong></span>と呼ばれるユダヤ<ruby>人<rp>(</rp><rt>じん</rt><rp>)</rp></ruby>への<ruby>大量虐殺<rp>(</rp><rt>たいりょうぎゃくさつ</rt><rp>)</rp></ruby>が行われたんだ。<ruby>強制収容所<rp>(</rp><rt>きょうせいしゅうようじょ</rt><rp>)</rp></ruby>に送られ、<ruby>人類史上<rp>(</rp><rt>じんるいしじょう</rt><rp>)</rp></ruby>最悪の<ruby>悲劇<rp>(</rp><rt>ひげき</rt><rp>)</rp></ruby>の一つになったんだよ',
     },
     {
       type: 'summary-point',
@@ -91,7 +91,7 @@ export const ww2OutbreakChat: HistoryChat = {
         { letter: 'D', text: 'イギリス空爆', correct: false },
       ],
       explanation:
-        '<strong>正解はC「<ruby>ポーランド<rp>(</rp><rt>ぽーらんど</rt><rp>)</rp></ruby><ruby>侵攻<rp>(</rp><rt>しんこう</rt><rp>)</rp></ruby>」</strong>です。1939年にドイツがポーランドに侵攻し、<ruby>第二次世界大戦<rp>(</rp><rt>だいにじせかいたいせん</rt><rp>)</rp></ruby>が始まりました。',
+        '<strong>正解はC「ポーランド<ruby>侵攻<rp>(</rp><rt>しんこう</rt><rp>)</rp></ruby>」</strong>です。1939年にドイツがポーランドに侵攻し、<ruby>第二次世界大戦<rp>(</rp><rt>だいにじせかいたいせん</rt><rp>)</rp></ruby>が始まりました。',
     },
     {
       type: 'narrator',
@@ -185,9 +185,9 @@ export const ww2OutbreakChat: HistoryChat = {
     {
       type: 'end',
       points: [
-        '<strong>1939年ドイツの<ruby>ポーランド<rp>(</rp><rt>ぽーらんど</rt><rp>)</rp></ruby><ruby>侵攻<rp>(</rp><rt>しんこう</rt><rp>)</rp></ruby></strong>で<ruby>第二次世界大戦<rp>(</rp><rt>だいにじせかいたいせん</rt><rp>)</rp></ruby>が始まった',
+        '<strong>1939年ドイツのポーランド<ruby>侵攻<rp>(</rp><rt>しんこう</rt><rp>)</rp></ruby></strong>で<ruby>第二次世界大戦<rp>(</rp><rt>だいにじせかいたいせん</rt><rp>)</rp></ruby>が始まった',
         '<strong><ruby>日独伊三国同盟<rp>(</rp><rt>にちどくいさんごくどうめい</rt><rp>)</rp></ruby></strong>（1940年）で日本は<ruby>枢軸国<rp>(</rp><rt>すうじくこく</rt><rp>)</rp></ruby>に加わった',
-        '<strong><ruby>ホロコースト<rp>(</rp><rt>ほろこーすと</rt><rp>)</rp></ruby></strong>：ナチス・ドイツによるユダヤ<ruby>人<rp>(</rp><rt>じん</rt><rp>)</rp></ruby>の<ruby>大量虐殺<rp>(</rp><rt>たいりょうぎゃくさつ</rt><rp>)</rp></ruby>',
+        '<strong>ホロコースト</strong>：ナチス・ドイツによるユダヤ<ruby>人<rp>(</rp><rt>じん</rt><rp>)</rp></ruby>の<ruby>大量虐殺<rp>(</rp><rt>たいりょうぎゃくさつ</rt><rp>)</rp></ruby>',
         '<strong>ABCD<ruby>包囲陣<rp>(</rp><rt>ほういじん</rt><rp>)</rp></ruby></strong>で日本への<ruby>石油<rp>(</rp><rt>せきゆ</rt><rp>)</rp></ruby><ruby>輸出<rp>(</rp><rt>ゆしゅつ</rt><rp>)</rp></ruby>が<ruby>禁止<rp>(</rp><rt>きんし</rt><rp>)</rp></ruby>された',
         '日本の<strong><ruby>南進<rp>(</rp><rt>なんしん</rt><rp>)</rp></ruby>政策</strong>が米英との<ruby>対立<rp>(</rp><rt>たいりつ</rt><rp>)</rp></ruby>を深めた',
       ],

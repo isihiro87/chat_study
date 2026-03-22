@@ -255,7 +255,7 @@ export const hokkaidoChat: HistoryChat = {
     },
     {
       type: 'narrator',
-      text: '北海道は食の<ruby>ブランド<rp>(</rp><rt>ぶらんど</rt><rp>)</rp></ruby>化と豊かな<ruby>自然<rp>(</rp><rt>しぜん</rt><rp>)</rp></ruby>を生かした<ruby>観光<rp>(</rp><rt>かんこう</rt><rp>)</rp></ruby>にも力を入れています。',
+      text: '北海道は食のブランド化と豊かな<ruby>自然<rp>(</rp><rt>しぜん</rt><rp>)</rp></ruby>を生かした<ruby>観光<rp>(</rp><rt>かんこう</rt><rp>)</rp></ruby>にも力を入れています。',
     },
     {
       type: 'message',

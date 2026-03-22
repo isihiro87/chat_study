@@ -113,13 +113,6 @@ export const chineseCivilizationChat: HistoryChat = {
       type: 'message',
       side: 'right',
       characterId: 'student',
-      expression: 'curious',
-      text: '秦の後はどうなったんですか？',
-    },
-    {
-      type: 'message',
-      side: 'right',
-      characterId: 'student',
       expression: 'thinking',
       text: '始皇帝は書物を燃やしたって本当ですか？',
     },
@@ -132,10 +125,17 @@ export const chineseCivilizationChat: HistoryChat = {
     },
     {
       type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: '秦の後はどうなったんですか？',
+    },
+    {
+      type: 'message',
       side: 'left',
       characterId: 'teacher',
       expression: 'happy',
-      text: 'その後、<strong><span class="keyword"><ruby>劉邦<rp>(</rp><rt>りゅうほう</rt><rp>)</rp></ruby></span></strong>が<strong><span class="keyword"><ruby>漢<rp>(</rp><rt>かん</rt><rp>)</rp></ruby></span></strong>を<ruby>建国<rp>(</rp><rt>けんこく</rt><rp>)</rp></ruby>したんだ。漢では孔子の教え＝<strong><ruby>儒教<rp>(</rp><rt>じゅきょう</rt><rp>)</rp></ruby></strong>が国の学問として<ruby>採用<rp>(</rp><rt>さいよう</rt><rp>)</rp></ruby>されたんだよ',
+      text: '<strong><span class="keyword"><ruby>漢<rp>(</rp><rt>かん</rt><rp>)</rp></ruby></span></strong>という国が<ruby>建国<rp>(</rp><rt>けんこく</rt><rp>)</rp></ruby>されたんだ。漢では孔子の教え＝<strong><ruby>儒教<rp>(</rp><rt>じゅきょう</rt><rp>)</rp></ruby></strong>が国の学問として<ruby>採用<rp>(</rp><rt>さいよう</rt><rp>)</rp></ruby>されたんだよ',
     },
     {
       type: 'message',

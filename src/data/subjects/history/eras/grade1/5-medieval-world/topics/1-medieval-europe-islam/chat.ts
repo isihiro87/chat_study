@@ -106,7 +106,7 @@ export const medievalEuropeIslamChat: HistoryChat = {
       side: 'left',
       characterId: 'knight',
       expression: 'explaining',
-      text: 'イスラーム世界ではインド生まれの<strong>ゼロ</strong>の<ruby>概念<rp>(</rp><rt>がいねん</rt><rp>)</rp></ruby>を取り入れ、<strong><ruby>医学<rp>(</rp><rt>いがく</rt><rp>)</rp></ruby></strong>も世界最高<ruby>水準<rp>(</rp><rt>すいじゅん</rt><rp>)</rp></ruby>に達したんだ。<strong><span class="keyword"><ruby>アラベスク<rp>(</rp><rt>あらべすく</rt><rp>)</rp></ruby></span></strong>と呼ばれる美しい<span data-tooltip="直線や曲線を組み合わせた規則的な模様"><ruby>幾何学模様<rp>(</rp><rt>きかがくもよう</rt><rp>)</rp></ruby></span>の<ruby>芸術<rp>(</rp><rt>げいじゅつ</rt><rp>)</rp></ruby>も生まれた',
+      text: 'イスラーム世界ではインド生まれの<strong>ゼロ</strong>の<ruby>概念<rp>(</rp><rt>がいねん</rt><rp>)</rp></ruby>を取り入れ、<strong><ruby>医学<rp>(</rp><rt>いがく</rt><rp>)</rp></ruby></strong>も世界最高<ruby>水準<rp>(</rp><rt>すいじゅん</rt><rp>)</rp></ruby>に達したんだ。<strong><span class="keyword">アラベスク</span></strong>と呼ばれる美しい<span data-tooltip="直線や曲線を組み合わせた規則的な模様"><ruby>幾何学模様<rp>(</rp><rt>きかがくもよう</rt><rp>)</rp></ruby></span>の<ruby>芸術<rp>(</rp><rt>げいじゅつ</rt><rp>)</rp></ruby>も生まれた',
     },
     {
       type: 'message',

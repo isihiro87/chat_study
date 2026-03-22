@@ -117,7 +117,7 @@ export const asiaBasicsChat: HistoryChat = {
       side: 'left',
       characterId: 'teacher',
       expression: 'explaining',
-      text: 'アジア州には<strong><span class="keyword"><ruby>ヒマラヤ<rp>(</rp><rt>ひまらや</rt><rp>)</rp></ruby>山脈</span></strong>という世界最大の山脈があるよ。世界最高峰のエベレスト（<ruby>標高<rp>(</rp><rt>ひょうこう</rt><rp>)</rp></ruby>約8849m）もここにあるんだ',
+      text: 'アジア州には<strong><span class="keyword">ヒマラヤ山脈</span></strong>という世界最大の山脈があるよ。世界最高峰のエベレスト（<ruby>標高<rp>(</rp><rt>ひょうこう</rt><rp>)</rp></ruby>約8849m）もここにあるんだ',
     },
     {
       type: 'message',

@@ -263,7 +263,7 @@ export const asiaSouthWestChat: HistoryChat = {
       points: [
         '<strong>インド</strong>：<ruby>人口急増<rp>(</rp><rt>じんこうきゅうぞう</rt><rp>)</rp></ruby>・ICT産業の発展。<ruby>貧富<rp>(</rp><rt>ひんぷ</rt><rp>)</rp></ruby>の格差が課題',
         '<strong><ruby>ヒンドゥー教<rp>(</rp><rt>ひんどぅーきょう</rt><rp>)</rp></ruby></strong>：ガンジス川で<ruby>沐浴<rp>(</rp><rt>もくよく</rt><rp>)</rp></ruby>。<strong>再生可能エネルギー</strong>の導入も進む',
-        '<strong>西アジア</strong>：イスラーム・<strong>OPEC</strong>・<ruby>レアメタル<rp>(</rp><rt>れあめたる</rt><rp>)</rp></ruby>。<strong>ドバイ</strong>では産業の<ruby>多角化<rp>(</rp><rt>たかくか</rt><rp>)</rp></ruby>',
+        '<strong>西アジア</strong>：イスラーム・<strong>OPEC</strong>・レアメタル。<strong>ドバイ</strong>では産業の<ruby>多角化<rp>(</rp><rt>たかくか</rt><rp>)</rp></ruby>',
       ],
     },
   ],

@@ -53,7 +53,7 @@ export const industryChat: HistoryChat = {
       side: 'left',
       characterId: 'teacher',
       expression: 'explaining',
-      text: '日本の<strong><span class="keyword"><ruby>食料自給率<rp>(</rp><rt>しょくりょうじきゅうりつ</rt><rp>)</rp></ruby></span></strong>は<ruby>カロリー<rp>(</rp><rt>かろりー</rt><rp>)</rp></ruby>ベースで<strong>約40%前後</strong>と、先進国の中でも低い水準なんだ',
+      text: '日本の<strong><span class="keyword"><ruby>食料自給率<rp>(</rp><rt>しょくりょうじきゅうりつ</rt><rp>)</rp></ruby></span></strong>はカロリーベースで<strong>約40%前後</strong>と、先進国の中でも低い水準なんだ',
     },
     {
       type: 'message',

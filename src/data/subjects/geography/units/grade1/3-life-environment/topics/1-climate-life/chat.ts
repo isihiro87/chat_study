@@ -132,7 +132,7 @@ export const climateLifeChat: HistoryChat = {
       side: 'left',
       characterId: 'teacher',
       expression: 'excited',
-      text: 'そのとおり！次に<ruby>乾燥帯<rp>(</rp><rt>かんそうたい</rt><rp>)</rp></ruby>だけど、<ruby>サハラ砂漠<rp>(</rp><rt>さはらさばく</rt><rp>)</rp></ruby>や<ruby>サヘル<rp>(</rp><rt>さへる</rt><rp>)</rp></ruby>地域では<strong><span class="keyword">オアシス</span></strong>の水を使った農業や、家畜を連れて移動する<strong><span class="keyword"><ruby>遊牧<rp>(</rp><rt>ゆうぼく</rt><rp>)</rp></ruby></span></strong>が行われているんだ',
+      text: 'そのとおり！次に<ruby>乾燥帯<rp>(</rp><rt>かんそうたい</rt><rp>)</rp></ruby>だけど、<ruby>サハラ砂漠<rp>(</rp><rt>さはらさばく</rt><rp>)</rp></ruby>やサヘル地域では<strong><span class="keyword">オアシス</span></strong>の水を使った農業や、家畜を連れて移動する<strong><span class="keyword"><ruby>遊牧<rp>(</rp><rt>ゆうぼく</rt><rp>)</rp></ruby></span></strong>が行われているんだ',
     },
     {
       type: 'message',

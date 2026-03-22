@@ -264,7 +264,7 @@ export const territoryChat: HistoryChat = {
       side: 'left',
       characterId: 'teacher',
       expression: 'thinking',
-      text: '北方領土は<strong>日本<ruby>固有<rp>(</rp><rt>こゆう</rt><rp>)</rp></ruby>の領土</strong>だけど、1945年以降<ruby>ロシア<rp>(</rp><rt>ろしあ</rt><rp>)</rp></ruby>（旧ソ<ruby>連<rp>(</rp><rt>れん</rt><rp>)</rp></ruby>）に<ruby>占拠<rp>(</rp><rt>せんきょ</rt><rp>)</rp></ruby>されている状態なんだ。日本は<ruby>返還<rp>(</rp><rt>へんかん</rt><rp>)</rp></ruby>を求めて<ruby>交渉<rp>(</rp><rt>こうしょう</rt><rp>)</rp></ruby>を続けているよ',
+      text: '北方領土は<strong>日本<ruby>固有<rp>(</rp><rt>こゆう</rt><rp>)</rp></ruby>の領土</strong>だけど、1945年以降ロシア（旧ソ<ruby>連<rp>(</rp><rt>れん</rt><rp>)</rp></ruby>）に<ruby>占拠<rp>(</rp><rt>せんきょ</rt><rp>)</rp></ruby>されている状態なんだ。日本は<ruby>返還<rp>(</rp><rt>へんかん</rt><rp>)</rp></ruby>を求めて<ruby>交渉<rp>(</rp><rt>こうしょう</rt><rp>)</rp></ruby>を続けているよ',
     },
     {
       type: 'message',

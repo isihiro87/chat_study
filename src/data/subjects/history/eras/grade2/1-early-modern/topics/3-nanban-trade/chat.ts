@@ -149,7 +149,7 @@ export const nanbanTradeChat: HistoryChat = {
         { letter: 'C', text: 'ヴァリニャーノ', correct: false },
         { letter: 'D', text: 'フランシスコ・ザビエル', correct: true },
       ],
-      explanation: '<strong>正解はD「フランシスコ・<ruby>ザビエル<rp>(</rp><rt>ざびえる</rt><rp>)</rp></ruby>」</strong>です。1549年に<ruby>イエズス会<rp>(</rp><rt>いえずすかい</rt><rp>)</rp></ruby>の<ruby>宣教師<rp>(</rp><rt>せんきょうし</rt><rp>)</rp></ruby>として<ruby>鹿児島<rp>(</rp><rt>かごしま</rt><rp>)</rp></ruby>に上陸し、日本にキリスト教を伝えました。',
+      explanation: '<strong>正解はD「フランシスコ・ザビエル」</strong>です。1549年に<ruby>イエズス会<rp>(</rp><rt>いえずすかい</rt><rp>)</rp></ruby>の<ruby>宣教師<rp>(</rp><rt>せんきょうし</rt><rp>)</rp></ruby>として<ruby>鹿児島<rp>(</rp><rt>かごしま</rt><rp>)</rp></ruby>に上陸し、日本にキリスト教を伝えました。',
     },
     {
       type: 'end',

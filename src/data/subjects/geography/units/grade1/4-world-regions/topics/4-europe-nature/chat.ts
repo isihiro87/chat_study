@@ -139,7 +139,7 @@ export const europeNatureChat: HistoryChat = {
       side: 'left',
       characterId: 'teacher',
       expression: 'happy',
-      text: '<ruby>ノルウェー<rp>(</rp><rt>のるうぇー</rt><rp>)</rp></ruby>の海岸線に多く見られるよ。<ruby>スカンディナビア<rp>(</rp><rt>すかんでぃなびあ</rt><rp>)</rp></ruby><ruby>半島<rp>(</rp><rt>はんとう</rt><rp>)</rp></ruby>の<ruby>複雑<rp>(</rp><rt>ふくざつ</rt><rp>)</rp></ruby>な海岸線はフィヨルドのおかげなんだ',
+      text: 'ノルウェーの海岸線に多く見られるよ。スカンディナビア<ruby>半島<rp>(</rp><rt>はんとう</rt><rp>)</rp></ruby>の<ruby>複雑<rp>(</rp><rt>ふくざつ</rt><rp>)</rp></ruby>な海岸線はフィヨルドのおかげなんだ',
     },
     {
       type: 'message',

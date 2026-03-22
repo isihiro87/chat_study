@@ -40,7 +40,7 @@ export const coldWarEndChat: HistoryChat = {
     },
     {
       type: 'narrator',
-      text: '1985年、ソ<ruby>連<rp>(</rp><rt>れん</rt><rp>)</rp></ruby>の新しい<ruby>指導者<rp>(</rp><rt>しどうしゃ</rt><rp>)</rp></ruby>として<strong><span class="keyword"><ruby>ゴルバチョフ<rp>(</rp><rt>ごるばちょふ</rt><rp>)</rp></ruby></span></strong>が<ruby>登場<rp>(</rp><rt>とうじょう</rt><rp>)</rp></ruby>しました。彼は<strong><span class="keyword"><ruby>ペレストロイカ<rp>(</rp><rt>ぺれすとろいか</rt><rp>)</rp></ruby></span></strong>（<ruby>改革<rp>(</rp><rt>かいかく</rt><rp>)</rp></ruby>）や<strong><span class="keyword"><ruby>グラスノスチ<rp>(</rp><rt>ぐらすのすち</rt><rp>)</rp></ruby></span></strong>（<ruby>情報公開<rp>(</rp><rt>じょうほうこうかい</rt><rp>)</rp></ruby>）を<ruby>掲<rp>(</rp><rt>かか</rt><rp>)</rp></ruby>げ、ソ連の<ruby>立<rp>(</rp><rt>た</rt><rp>)</rp></ruby>て<ruby>直<rp>(</rp><rt>なお</rt><rp>)</rp></ruby>しを<ruby>図<rp>(</rp><rt>はか</rt><rp>)</rp></ruby>ります。',
+      text: '1985年、ソ<ruby>連<rp>(</rp><rt>れん</rt><rp>)</rp></ruby>の新しい<ruby>指導者<rp>(</rp><rt>しどうしゃ</rt><rp>)</rp></ruby>として<strong><span class="keyword">ゴルバチョフ</span></strong>が<ruby>登場<rp>(</rp><rt>とうじょう</rt><rp>)</rp></ruby>しました。彼は<strong><span class="keyword">ペレストロイカ</span></strong>（<ruby>改革<rp>(</rp><rt>かいかく</rt><rp>)</rp></ruby>）や<strong><span class="keyword">グラスノスチ</span></strong>（<ruby>情報公開<rp>(</rp><rt>じょうほうこうかい</rt><rp>)</rp></ruby>）を<ruby>掲<rp>(</rp><rt>かか</rt><rp>)</rp></ruby>げ、ソ連の<ruby>立<rp>(</rp><rt>た</rt><rp>)</rp></ruby>て<ruby>直<rp>(</rp><rt>なお</rt><rp>)</rp></ruby>しを<ruby>図<rp>(</rp><rt>はか</rt><rp>)</rp></ruby>ります。',
     },
     {
       type: 'message',
@@ -162,7 +162,7 @@ export const coldWarEndChat: HistoryChat = {
     {
       type: 'end',
       points: [
-        '<strong><ruby>ゴルバチョフ<rp>(</rp><rt>ごるばちょふ</rt><rp>)</rp></ruby></strong>（1985年〜）が<ruby>ペレストロイカ<rp>(</rp><rt>ぺれすとろいか</rt><rp>)</rp></ruby>で<ruby>改革<rp>(</rp><rt>かいかく</rt><rp>)</rp></ruby>を<ruby>推進<rp>(</rp><rt>すいしん</rt><rp>)</rp></ruby>',
+        '<strong>ゴルバチョフ</strong>（1985年〜）がペレストロイカで<ruby>改革<rp>(</rp><rt>かいかく</rt><rp>)</rp></ruby>を<ruby>推進<rp>(</rp><rt>すいしん</rt><rp>)</rp></ruby>',
         '<strong>ベルリンの<ruby>壁<rp>(</rp><rt>かべ</rt><rp>)</rp></ruby></strong>（1989年）が<ruby>取<rp>(</rp><rt>と</rt><rp>)</rp></ruby>り<ruby>壊<rp>(</rp><rt>こわ</rt><rp>)</rp></ruby>され<ruby>東西統一<rp>(</rp><rt>とうざいとういつ</rt><rp>)</rp></ruby>へ',
         '<strong>マルタ<ruby>会談<rp>(</rp><rt>かいだん</rt><rp>)</rp></ruby></strong>（1989年）で<ruby>米<rp>(</rp><rt>べい</rt><rp>)</rp></ruby>ソが<ruby>冷戦<rp>(</rp><rt>れいせん</rt><rp>)</rp></ruby><ruby>終結<rp>(</rp><rt>しゅうけつ</rt><rp>)</rp></ruby>を<ruby>宣言<rp>(</rp><rt>せんげん</rt><rp>)</rp></ruby>',
         '<strong>ソ<ruby>連<rp>(</rp><rt>れん</rt><rp>)</rp></ruby><ruby>解体<rp>(</rp><rt>かいたい</rt><rp>)</rp></ruby></strong>（1991年）・<strong>EU<ruby>発足<rp>(</rp><rt>ほっそく</rt><rp>)</rp></ruby></strong>（1993年）で<ruby>新<rp>(</rp><rt>あたら</rt><rp>)</rp></ruby>しい<ruby>秩序<rp>(</rp><rt>ちつじょ</rt><rp>)</rp></ruby>へ',

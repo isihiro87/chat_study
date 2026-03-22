@@ -121,7 +121,7 @@ export const ancientCivilizationsChat: HistoryChat = {
       side: 'left',
       characterId: 'scholar',
       expression: 'explaining',
-      text: '<strong>エジプト文明</strong>では王のことを<span data-tooltip="古代エジプトの王の呼び名。「大きな家」という意味"><ruby>ファラオ<rp>(</rp><rt>ふぁらお</rt><rp>)</rp></ruby></span>と呼んだんだ。<strong>ピラミッド</strong>はファラオの<ruby>墓<rp>(</rp><rt>はか</rt><rp>)</rp></ruby>として建てられた巨大な<ruby>建造物<rp>(</rp><rt>けんぞうぶつ</rt><rp>)</rp></ruby>だよ',
+      text: '<strong>エジプト文明</strong>では王のことを<span data-tooltip="古代エジプトの王の呼び名。「大きな家」という意味">ファラオ</span>と呼んだんだ。<strong>ピラミッド</strong>はファラオの<ruby>墓<rp>(</rp><rt>はか</rt><rp>)</rp></ruby>として建てられた巨大な<ruby>建造物<rp>(</rp><rt>けんぞうぶつ</rt><rp>)</rp></ruby>だよ',
     },
     {
       type: 'message',
@@ -155,7 +155,7 @@ export const ancientCivilizationsChat: HistoryChat = {
       side: 'left',
       characterId: 'scholar',
       expression: 'explaining',
-      text: '<strong><span class="keyword"><ruby>インダス文明<rp>(</rp><rt>いんだすぶんめい</rt><rp>)</rp></ruby></span></strong>だね。<ruby>モヘンジョ・ダロ<rp>(</rp><rt>もへんじょ・だろ</rt><rp>)</rp></ruby>などの<ruby>計画都市<rp>(</rp><rt>けいかくとし</rt><rp>)</rp></ruby>が有名だけど、やがて<ruby>衰退<rp>(</rp><rt>すいたい</rt><rp>)</rp></ruby>して<strong><span class="keyword">アーリヤ<ruby>人<rp>(</rp><rt>じん</rt><rp>)</rp></ruby></span></strong>が<ruby>侵入<rp>(</rp><rt>しんにゅう</rt><rp>)</rp></ruby>してきたんだ',
+      text: '<strong><span class="keyword"><ruby>インダス文明<rp>(</rp><rt>いんだすぶんめい</rt><rp>)</rp></ruby></span></strong>だね。モヘンジョ・ダロなどの<ruby>計画都市<rp>(</rp><rt>けいかくとし</rt><rp>)</rp></ruby>が有名だけど、やがて<ruby>衰退<rp>(</rp><rt>すいたい</rt><rp>)</rp></ruby>して<strong><span class="keyword">アーリヤ<ruby>人<rp>(</rp><rt>じん</rt><rp>)</rp></ruby></span></strong>が<ruby>侵入<rp>(</rp><rt>しんにゅう</rt><rp>)</rp></ruby>してきたんだ',
     },
     {
       type: 'message',
@@ -177,7 +177,7 @@ export const ancientCivilizationsChat: HistoryChat = {
         { letter: 'C', text: 'パルテノン神殿', correct: false },
         { letter: 'D', text: 'ピラミッド', correct: true },
       ],
-      explanation: '<strong>正解はD「ピラミッド」</strong>です。王（<ruby>ファラオ<rp>(</rp><rt>ふぁらお</rt><rp>)</rp></ruby>）の<ruby>墓<rp>(</rp><rt>はか</rt><rp>)</rp></ruby>として建設された<ruby>巨大<rp>(</rp><rt>きょだい</rt><rp>)</rp></ruby><ruby>建造物<rp>(</rp><rt>けんぞうぶつ</rt><rp>)</rp></ruby>です。',
+      explanation: '<strong>正解はD「ピラミッド」</strong>です。王（ファラオ）の<ruby>墓<rp>(</rp><rt>はか</rt><rp>)</rp></ruby>として建設された<ruby>巨大<rp>(</rp><rt>きょだい</rt><rp>)</rp></ruby><ruby>建造物<rp>(</rp><rt>けんぞうぶつ</rt><rp>)</rp></ruby>です。',
     },
     {
       type: 'end',

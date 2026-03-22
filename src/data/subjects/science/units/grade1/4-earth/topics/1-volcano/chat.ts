@@ -36,7 +36,7 @@ export const volcanoChat: HistoryChat = {
   content: [
     {
       type: 'date',
-      text: '<ruby>マグマ<rp>(</rp><rt>まぐま</rt><rp>)</rp></ruby>と<ruby>火山<rp>(</rp><rt>かざん</rt><rp>)</rp></ruby>の<ruby>形<rp>(</rp><rt>かたち</rt><rp>)</rp></ruby>',
+      text: 'マグマと<ruby>火山<rp>(</rp><rt>かざん</rt><rp>)</rp></ruby>の<ruby>形<rp>(</rp><rt>かたち</rt><rp>)</rp></ruby>',
     },
     {
       type: 'narrator',

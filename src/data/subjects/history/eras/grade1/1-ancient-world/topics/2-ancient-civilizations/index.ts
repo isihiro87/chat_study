@@ -169,12 +169,6 @@ export const ancientCivilizations: Topic = {
         difficulty: 'standard',
       },
       {
-        id: 'fc20',
-        front: 'ミイラ',
-        back: 'エジプトで来世の復活を信じて死者の体を保存した方法は？',
-        difficulty: 'standard',
-      },
-      {
         id: 'fc21',
         front: 'ナイル川',
         back: 'エジプト文明が発達した川は？',
@@ -202,12 +196,6 @@ export const ancientCivilizations: Topic = {
         id: 'fc25',
         front: 'カースト制度',
         back: 'アーリヤ人がインドにもたらした身分制度は？',
-        difficulty: 'advanced',
-      },
-      {
-        id: 'fc26',
-        front: '同害復讐法',
-        back: '受けた害と同じだけの罰を与えるハンムラビ法典の考え方を何という？',
         difficulty: 'advanced',
       },
       {
@@ -403,19 +391,6 @@ export const ancientCivilizations: Topic = {
           difficulty: 'standard',
         },
         {
-          id: 'q19',
-          question: 'ハンムラビ法典の「同害復讐法」とはどのような考え方か？',
-          options: [
-            '受けた害と同じだけの罰を与える考え方',
-            '目上の人を敬う考え方',
-            '弱者を助ける考え方',
-            '王の権力は絶対という考え方',
-          ],
-          correctIndex: 0,
-          explanation: '同害復讐法は「目には目を、歯には歯を」に代表される、受けた害と同等の罰を与える考え方です。',
-          difficulty: 'standard',
-        },
-        {
           id: 'q20',
           question: 'モヘンジョ＝ダロとともにインダス文明の代表的な都市遺跡は？',
           options: ['ハラッパー', 'バビロン', 'メンフィス', '洛陽'],
@@ -434,9 +409,9 @@ export const ancientCivilizations: Topic = {
         {
           id: 'q22',
           question: '中国文明が発生した代表的な川は？',
-          options: ['淮河', '泾水', '黄河', '長江'],
+          options: ['淮河', 'メコン川', '黄河', 'ガンジス川'],
           correctIndex: 2,
-          explanation: '中国文明は黄河と長江の流域で発生しました。',
+          explanation: '中国文明は黄河と長江の流域で発生しました。黄河流域が代表的です。',
           difficulty: 'standard',
         },
         {

@@ -189,7 +189,7 @@ export const massCultureChat: HistoryChat = {
     {
       type: 'end',
       points: [
-        '<strong><ruby>ラジオ<rp>(</rp><rt>らじお</rt><rp>)</rp></ruby></strong>（1925年）・<strong><ruby>映画<rp>(</rp><rt>えいが</rt><rp>)</rp></ruby></strong>・<strong><ruby>野球<rp>(</rp><rt>やきゅう</rt><rp>)</rp></ruby></strong>など<ruby>大衆娯楽<rp>(</rp><rt>たいしゅうごらく</rt><rp>)</rp></ruby>が<ruby>発達<rp>(</rp><rt>はったつ</rt><rp>)</rp></ruby>',
+        '<strong>ラジオ</strong>（1925年）・<strong><ruby>映画<rp>(</rp><rt>えいが</rt><rp>)</rp></ruby></strong>・<strong><ruby>野球<rp>(</rp><rt>やきゅう</rt><rp>)</rp></ruby></strong>など<ruby>大衆娯楽<rp>(</rp><rt>たいしゅうごらく</rt><rp>)</rp></ruby>が<ruby>発達<rp>(</rp><rt>はったつ</rt><rp>)</rp></ruby>',
         '<strong><ruby>文化住宅<rp>(</rp><rt>ぶんかじゅうたく</rt><rp>)</rp></ruby></strong>・<strong><ruby>洋食<rp>(</rp><rt>ようしょく</rt><rp>)</rp></ruby></strong>・<strong>バスガール</strong>で生活が<ruby>近代化<rp>(</rp><rt>きんだいか</rt><rp>)</rp></ruby>',
         '<strong><ruby>芥川龍之介<rp>(</rp><rt>あくたがわりゅうのすけ</rt><rp>)</rp></ruby></strong>「<ruby>羅生門<rp>(</rp><rt>らしょうもん</rt><rp>)</rp></ruby>」、<strong><ruby>志賀直哉<rp>(</rp><rt>しがなおや</rt><rp>)</rp></ruby></strong>「<ruby>暗夜行路<rp>(</rp><rt>あんやこうろ</rt><rp>)</rp></ruby>」',
         '<strong><ruby>小林多喜二<rp>(</rp><rt>こばやしたきじ</rt><rp>)</rp></ruby></strong>「<ruby>蟹工船<rp>(</rp><rt>かにこうせん</rt><rp>)</rp></ruby>」など<strong><ruby>プロレタリア文学<rp>(</rp><rt>ぷろれたりあぶんがく</rt><rp>)</rp></ruby></strong>の登場',

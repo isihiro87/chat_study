@@ -268,7 +268,7 @@ export const southAmericaNatureChat: HistoryChat = {
       side: 'left',
       characterId: 'teacher',
       expression: 'explaining',
-      text: '20世紀初頭から、日本から多くの人が<strong><span class="keyword">日系<ruby>移民<rp>(</rp><rt>いみん</rt><rp>)</rp></ruby></span></strong>としてブラジルに渡ったんだ。最初はおもに<ruby>コーヒー<rp>(</rp><rt></rt><rp>)</rp></ruby>農園で働いていたんだよ',
+      text: '20世紀初頭から、日本から多くの人が<strong><span class="keyword">日系<ruby>移民<rp>(</rp><rt>いみん</rt><rp>)</rp></ruby></span></strong>としてブラジルに渡ったんだ。最初はおもにコーヒー農園で働いていたんだよ',
     },
     {
       type: 'message',

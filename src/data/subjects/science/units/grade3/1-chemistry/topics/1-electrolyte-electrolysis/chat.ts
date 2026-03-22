@@ -233,7 +233,7 @@ export const electrolyteElectrolysisChat: HistoryChat = {
       side: 'left',
       characterId: 'teacher',
       expression: 'explaining',
-      text: '<ruby>陰極<rp>(</rp><rt>いんきょく</rt><rp>)</rp></ruby>からは<strong><ruby>水素<rp>(</rp><rt>すいそ</rt><rp>)</rp></ruby></strong>が発生するよ。<ruby>確認方法<rp>(</rp><rt>かくにんほうほう</rt><rp>)</rp></ruby>は、火のついた<ruby>マッチ<rp>(</rp><rt>まっち</rt><rp>)</rp></ruby>を近づけると<strong>ポンと音を立てて<ruby>燃<rp>(</rp><rt>も</rt><rp>)</rp></ruby>える</strong>こと。これが<ruby>水素<rp>(</rp><rt>すいそ</rt><rp>)</rp></ruby>の特徴だね',
+      text: '<ruby>陰極<rp>(</rp><rt>いんきょく</rt><rp>)</rp></ruby>からは<strong><ruby>水素<rp>(</rp><rt>すいそ</rt><rp>)</rp></ruby></strong>が発生するよ。<ruby>確認方法<rp>(</rp><rt>かくにんほうほう</rt><rp>)</rp></ruby>は、火のついたマッチを近づけると<strong>ポンと音を立てて<ruby>燃<rp>(</rp><rt>も</rt><rp>)</rp></ruby>える</strong>こと。これが<ruby>水素<rp>(</rp><rt>すいそ</rt><rp>)</rp></ruby>の特徴だね',
     },
     {
       type: 'message',

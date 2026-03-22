@@ -61,12 +61,6 @@ export const humanOrigins: Topic = {
         difficulty: 'basic',
       },
       {
-        id: 'fc2',
-        front: '二足歩行',
-        back: '猿人が始めた、人類の大きな特徴となる歩き方は？',
-        difficulty: 'basic',
-      },
-      {
         id: 'fc3',
         front: '原人',
         back: '約240万年前に現れ火を使うようになった人類は？',
@@ -169,39 +163,9 @@ export const humanOrigins: Topic = {
         difficulty: 'standard',
       },
       {
-        id: 'fc20',
-        front: '移動生活',
-        back: '旧石器時代の人々が獲物を追いながら行った暮らし方は？',
-        difficulty: 'standard',
-      },
-      {
-        id: 'fc21',
-        front: '洞窟壁画',
-        back: 'ラスコーやアルタミラに残る旧石器時代の絵を何という？',
-        difficulty: 'standard',
-      },
-      {
-        id: 'fc22',
-        front: '農業革命',
-        back: '新石器時代に農耕が始まったことを何と呼ぶ？',
-        difficulty: 'standard',
-      },
-      {
         id: 'fc23',
         front: '集落',
         back: '定住生活が始まり人々が集まって住んだ場所を何という？',
-        difficulty: 'advanced',
-      },
-      {
-        id: 'fc24',
-        front: '出アフリカ',
-        back: '新人がアフリカから世界各地に広がったことを何と呼ぶ？',
-        difficulty: 'advanced',
-      },
-      {
-        id: 'fc25',
-        front: '火の使用',
-        back: '原人から始まった、暖をとったり食物を加熱したりする技術は？',
         difficulty: 'advanced',
       },
       {
@@ -484,19 +448,6 @@ export const humanOrigins: Topic = {
           ],
           correctIndex: 3,
           explanation: '氷河時代の終わりによる気候変動と、人類による狩猟の影響で絶滅したと考えられています。',
-          difficulty: 'advanced',
-        },
-        {
-          id: 'q28',
-          question: '新石器時代に始まった農耕が「農業革命」と呼ばれる理由は？',
-          options: [
-            '鉄製の農具を使い始めたから',
-            '文字の発明が農業の発展を促したから',
-            '農地をめぐる戦争が技術を進歩させたから',
-            '食料生産の開始が人類史の大きな転換点だったから',
-          ],
-          correctIndex: 3,
-          explanation: '農耕の開始は食料生産への転換であり、人類の歴史における大きな転換点だったため農業革命と呼ばれます。',
           difficulty: 'advanced',
         },
       ],

@@ -198,7 +198,7 @@ export const oceaniaNatureChat: HistoryChat = {
       side: 'left',
       characterId: 'teacher',
       expression: 'excited',
-      text: '<strong><span class="keyword"><ruby>鉄鉱石<rp>(</rp><rt>てっこうせき</rt><rp>)</rp></ruby></span></strong>や<strong><span class="keyword"><ruby>石炭<rp>(</rp><rt>せきたん</rt><rp>)</rp></ruby></span></strong>が特に重要だよ。日本や中国など<ruby>アジア<rp>(</rp><rt>あじあ</rt><rp>)</rp></ruby><ruby>諸国<rp>(</rp><rt>しょこく</rt><rp>)</rp></ruby>にたくさん輸出しているんだ',
+      text: '<strong><span class="keyword"><ruby>鉄鉱石<rp>(</rp><rt>てっこうせき</rt><rp>)</rp></ruby></span></strong>や<strong><span class="keyword"><ruby>石炭<rp>(</rp><rt>せきたん</rt><rp>)</rp></ruby></span></strong>が特に重要だよ。日本や中国などアジア<ruby>諸国<rp>(</rp><rt>しょこく</rt><rp>)</rp></ruby>にたくさん輸出しているんだ',
     },
     {
       type: 'message',

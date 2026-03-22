@@ -268,7 +268,7 @@ export const solarSystemPlanetsChat: HistoryChat = {
       side: 'left',
       characterId: 'teacher',
       expression: 'thinking',
-      text: 'そうだね。冥王星や<ruby>エリス<rp>(</rp><rt>えりす</rt><rp>)</rp></ruby>などは<ruby>海王星<rp>(</rp><rt>かいおうせい</rt><rp>)</rp></ruby>より外側にある天体で、<strong><span class="keyword"><span data-tooltip="海王星より外側にある冥王星やエリスなどの天体"><ruby>太陽系外縁天体<rp>(</rp><rt>たいようけいがいえんてんたい</rt><rp>)</rp></ruby></span></span></strong>に分類されているよ',
+      text: 'そうだね。冥王星やエリスなどは<ruby>海王星<rp>(</rp><rt>かいおうせい</rt><rp>)</rp></ruby>より外側にある天体で、<strong><span class="keyword"><span data-tooltip="海王星より外側にある冥王星やエリスなどの天体"><ruby>太陽系外縁天体<rp>(</rp><rt>たいようけいがいえんてんたい</rt><rp>)</rp></ruby></span></span></strong>に分類されているよ',
     },
     {
       type: 'image',

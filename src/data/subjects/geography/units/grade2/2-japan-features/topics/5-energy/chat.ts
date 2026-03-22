@@ -225,7 +225,7 @@ export const energyChat: HistoryChat = {
       side: 'left',
       characterId: 'teacher',
       expression: 'excited',
-      text: '<strong><span class="keyword"><ruby>都市鉱山<rp>(</rp><rt>としこうざん</rt><rp>)</rp></ruby></span></strong>とは、使い終わった<ruby>携帯電話<rp>(</rp><rt>けいたいでんわ</rt><rp>)</rp></ruby>やパソコンなどから、金や銀、<ruby>レアメタル<rp>(</rp><rt>れあめたる</rt><rp>)</rp></ruby>（<ruby>希少金属<rp>(</rp><rt>きしょうきんぞく</rt><rp>)</rp></ruby>）を回収する考え方だよ。日本の都市鉱山に<ruby>眠<rp>(</rp><rt>ねむ</rt><rp>)</rp></ruby>るレアメタルの量は世界有数ともいわれているんだ',
+      text: '<strong><span class="keyword"><ruby>都市鉱山<rp>(</rp><rt>としこうざん</rt><rp>)</rp></ruby></span></strong>とは、使い終わった<ruby>携帯電話<rp>(</rp><rt>けいたいでんわ</rt><rp>)</rp></ruby>やパソコンなどから、金や銀、レアメタル（<ruby>希少金属<rp>(</rp><rt>きしょうきんぞく</rt><rp>)</rp></ruby>）を回収する考え方だよ。日本の都市鉱山に<ruby>眠<rp>(</rp><rt>ねむ</rt><rp>)</rp></ruby>るレアメタルの量は世界有数ともいわれているんだ',
     },
     {
       type: 'message',
@@ -247,7 +247,7 @@ export const energyChat: HistoryChat = {
         { letter: 'C', text: '3R', correct: false },
         { letter: 'D', text: 'エコタウン', correct: false },
       ],
-      explanation: '<strong>正解はB</strong>です。<ruby>都市鉱山<rp>(</rp><rt>としこうざん</rt><rp>)</rp></ruby>は使用済み電子機器から金や銀、<ruby>レアメタル<rp>(</rp><rt>れあめたる</rt><rp>)</rp></ruby>を回収する考え方です。',
+      explanation: '<strong>正解はB</strong>です。<ruby>都市鉱山<rp>(</rp><rt>としこうざん</rt><rp>)</rp></ruby>は使用済み電子機器から金や銀、レアメタルを回収する考え方です。',
     },
     {
       type: 'summary-point',
@@ -270,7 +270,7 @@ export const energyChat: HistoryChat = {
         '日本は<strong><ruby>鉱産資源<rp>(</rp><rt>こうさんしげん</rt><rp>)</rp></ruby>に<ruby>乏<rp>(</rp><rt>とぼ</rt><rp>)</rp></ruby>しく</strong>、エネルギーの多くを<strong>輸入に<ruby>依存<rp>(</rp><rt>いぞん</rt><rp>)</rp></ruby></strong>（<ruby>石油<rp>(</rp><rt>せきゆ</rt><rp>)</rp></ruby>は<ruby>中東<rp>(</rp><rt>ちゅうとう</rt><rp>)</rp></ruby>に大きく依存）',
         '<strong><ruby>再生可能<rp>(</rp><rt>さいせいかのう</rt><rp>)</rp></ruby>エネルギー</strong>：太陽光・風力・水力・<ruby>地熱<rp>(</rp><rt>ちねつ</rt><rp>)</rp></ruby>・バイオマス発電（日本は地熱資源が豊富）',
         '<strong>3R</strong>：リデュース（減らす）・リユース（再使用）・リサイクル（<ruby>再資源化<rp>(</rp><rt>さいしげんか</rt><rp>)</rp></ruby>）',
-        '<strong><ruby>都市鉱山<rp>(</rp><rt>としこうざん</rt><rp>)</rp></ruby></strong>：使用済み電子機器から<ruby>レアメタル<rp>(</rp><rt>れあめたる</rt><rp>)</rp></ruby>（<ruby>希少金属<rp>(</rp><rt>きしょうきんぞく</rt><rp>)</rp></ruby>）を回収して再利用',
+        '<strong><ruby>都市鉱山<rp>(</rp><rt>としこうざん</rt><rp>)</rp></ruby></strong>：使用済み電子機器からレアメタル（<ruby>希少金属<rp>(</rp><rt>きしょうきんぞく</rt><rp>)</rp></ruby>）を回収して再利用',
       ],
     },
   ],

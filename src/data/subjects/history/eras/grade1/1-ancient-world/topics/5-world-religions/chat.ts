@@ -47,7 +47,7 @@ export const worldReligionsChat: HistoryChat = {
       side: 'left',
       characterId: 'teacher',
       expression: 'explaining',
-      text: '<ruby>紀元前<rp>(</rp><rt>きげんぜん</rt><rp>)</rp></ruby>5<ruby>世紀<rp>(</rp><rt>せいき</rt><rp>)</rp></ruby>にインドで<strong><span class="keyword"><ruby>シャカ<rp>(</rp><rt>しゃか</rt><rp>)</rp></ruby></span></strong>が<span data-tooltip="苦しみから解放される道を説いた宗教。アジアを中心に広まった"><strong>仏教</strong></span>を開いたんだ。人の苦しみから<ruby>解放<rp>(</rp><rt>かいほう</rt><rp>)</rp></ruby>される道を説いたんだよ',
+      text: '<ruby>紀元前<rp>(</rp><rt>きげんぜん</rt><rp>)</rp></ruby>5<ruby>世紀<rp>(</rp><rt>せいき</rt><rp>)</rp></ruby>にインドで<strong><span class="keyword">シャカ</span></strong>が<span data-tooltip="苦しみから解放される道を説いた宗教。アジアを中心に広まった"><strong>仏教</strong></span>を開いたんだ。人の苦しみから<ruby>解放<rp>(</rp><rt>かいほう</rt><rp>)</rp></ruby>される道を説いたんだよ',
     },
     {
       type: 'message',
@@ -96,11 +96,11 @@ export const worldReligionsChat: HistoryChat = {
         { letter: 'C', text: 'イエス', correct: false },
         { letter: 'D', text: 'シャカ', correct: true },
       ],
-      explanation: '<strong>正解はD「<ruby>シャカ<rp>(</rp><rt>しゃか</rt><rp>)</rp></ruby>」</strong>です。<ruby>釈迦<rp>(</rp><rt>しゃか</rt><rp>)</rp></ruby>は<ruby>紀元前<rp>(</rp><rt>きげんぜん</rt><rp>)</rp></ruby>5<ruby>世紀<rp>(</rp><rt>せいき</rt><rp>)</rp></ruby>頃のインドで<strong>仏教</strong>を開きました。',
+      explanation: '<strong>正解はD「シャカ」</strong>です。<ruby>釈迦<rp>(</rp><rt>しゃか</rt><rp>)</rp></ruby>は<ruby>紀元前<rp>(</rp><rt>きげんぜん</rt><rp>)</rp></ruby>5<ruby>世紀<rp>(</rp><rt>せいき</rt><rp>)</rp></ruby>頃のインドで<strong>仏教</strong>を開きました。',
     },
     {
       type: 'narrator',
-      text: '7<ruby>世紀<rp>(</rp><rt>せいき</rt><rp>)</rp></ruby>、アラビア<ruby>半島<rp>(</rp><rt>はんとう</rt><rp>)</rp></ruby>で<strong><span class="keyword">ムハンマド</span></strong>が<strong>イスラーム</strong>を開きました。<ruby>聖典<rp>(</rp><rt>せいてん</rt><rp>)</rp></ruby>は<strong><span class="keyword"><ruby>クルアーン<rp>(</rp><rt>くるあーん</rt><rp>)</rp></ruby>（コーラン）</span></strong>です。',
+      text: '7<ruby>世紀<rp>(</rp><rt>せいき</rt><rp>)</rp></ruby>、アラビア<ruby>半島<rp>(</rp><rt>はんとう</rt><rp>)</rp></ruby>で<strong><span class="keyword">ムハンマド</span></strong>が<strong>イスラーム</strong>を開きました。<ruby>聖典<rp>(</rp><rt>せいてん</rt><rp>)</rp></ruby>は<strong><span class="keyword">クルアーン（コーラン）</span></strong>です。',
     },
     {
       type: 'message',
@@ -176,9 +176,9 @@ export const worldReligionsChat: HistoryChat = {
     {
       type: 'end',
       points: [
-        '<strong><ruby>仏教<rp>(</rp><rt>ぶっきょう</rt><rp>)</rp></ruby></strong>：<strong><ruby>シャカ<rp>(</rp><rt>しゃか</rt><rp>)</rp></ruby></strong>がインドで開く（<ruby>紀元前<rp>(</rp><rt>きげんぜん</rt><rp>)</rp></ruby>5<ruby>世紀<rp>(</rp><rt>せいき</rt><rp>)</rp></ruby>）',
+        '<strong><ruby>仏教<rp>(</rp><rt>ぶっきょう</rt><rp>)</rp></ruby></strong>：<strong>シャカ</strong>がインドで開く（<ruby>紀元前<rp>(</rp><rt>きげんぜん</rt><rp>)</rp></ruby>5<ruby>世紀<rp>(</rp><rt>せいき</rt><rp>)</rp></ruby>）',
         '<strong>キリスト<ruby>教<rp>(</rp><rt>きょう</rt><rp>)</rp></ruby></strong>：<strong>イエス</strong>が神の<ruby>愛<rp>(</rp><rt>あい</rt><rp>)</rp></ruby>を説く → <strong><ruby>ローマ帝国<rp>(</rp><rt>ろーまていこく</rt><rp>)</rp></ruby></strong>の<ruby>国教<rp>(</rp><rt>こっきょう</rt><rp>)</rp></ruby>',
-        '<strong>イスラーム</strong>：<strong>ムハンマド</strong>が開く（7<ruby>世紀<rp>(</rp><rt>せいき</rt><rp>)</rp></ruby>）、<ruby>聖典<rp>(</rp><rt>せいてん</rt><rp>)</rp></ruby>は<strong><ruby>クルアーン<rp>(</rp><rt>くるあーん</rt><rp>)</rp></ruby></strong>',
+        '<strong>イスラーム</strong>：<strong>ムハンマド</strong>が開く（7<ruby>世紀<rp>(</rp><rt>せいき</rt><rp>)</rp></ruby>）、<ruby>聖典<rp>(</rp><rt>せいてん</rt><rp>)</rp></ruby>は<strong>クルアーン</strong>',
         '<strong>エルサレム</strong>：<strong><ruby>ユダヤ教<rp>(</rp><rt>ゆだやきょう</rt><rp>)</rp></ruby></strong>・<strong>キリスト教</strong>・<strong>イスラーム</strong>共通の<ruby>聖地<rp>(</rp><rt>せいち</rt><rp>)</rp></ruby>',
         '<strong><ruby>ヒンドゥー教<rp>(</rp><rt>ひんどぅーきょう</rt><rp>)</rp></ruby></strong>：インドの<ruby>多神教<rp>(</rp><rt>たしんきょう</rt><rp>)</rp></ruby>、<strong>カースト<ruby>制度<rp>(</rp><rt>せいど</rt><rp>)</rp></ruby></strong>と結びつく',
       ],

@@ -138,7 +138,7 @@ export const chubuHighland: Topic = {
           question: '長野県の<ruby>八ヶ岳<rp>(</rp><rt>やつがたけ</rt><rp>)</rp></ruby>山麓で栽培されている代表的な高原野菜はどれか。',
           options: ['トマト', 'レタス', 'ほうれん草', 'にんじん'],
           correctIndex: 1,
-          explanation: '八ヶ岳山麓では冷涼な気候を生かした<span class="keyword"><ruby>抑制栽培<rp>(</rp><rt>よくせいさいばい</rt><rp>)</rp></ruby></span>で<ruby>レタス<rp>(</rp><rt>レタス</rt><rp>)</rp></ruby>などの高原野菜を夏に出荷しています。',
+          explanation: '八ヶ岳山麓では冷涼な気候を生かした<span class="keyword"><ruby>抑制栽培<rp>(</rp><rt>よくせいさいばい</rt><rp>)</rp></ruby></span>でレタスなどの高原野菜を夏に出荷しています。',
           difficulty: 'basic',
         },
         {

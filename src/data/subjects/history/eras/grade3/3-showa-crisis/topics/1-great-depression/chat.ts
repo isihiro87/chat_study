@@ -61,7 +61,7 @@ export const greatDepressionChat: HistoryChat = {
       side: 'left',
       characterId: 'teacher',
       expression: 'happy',
-      text: 'アメリカの<strong><ruby>ルーズベルト<rp>(</rp><rt>ルーズベルト</rt><rp>)</rp></ruby><ruby>大統領<rp>(</rp><rt>だいとうりょう</rt><rp>)</rp></ruby></strong>が<strong><span class="keyword"><ruby>ニューディール政策<rp>(</rp><rt>ニューディールせいさく</rt><rp>)</rp></ruby></span></strong>を<ruby>実施<rp>(</rp><rt>じっし</rt><rp>)</rp></ruby>したんだ。ダムや道路などの<span data-tooltip="国が行う大規模な建設工事のこと。雇用を生み出す効果がある"><ruby>公共事業<rp>(</rp><rt>こうきょうじぎょう</rt><rp>)</rp></ruby></span>で<ruby>雇用<rp>(</rp><rt>こよう</rt><rp>)</rp></ruby>を生み出して<ruby>経済<rp>(</rp><rt>けいざい</rt><rp>)</rp></ruby>の立て直しを図ったんだよ',
+      text: 'アメリカの<strong>ルーズベルト<ruby>大統領<rp>(</rp><rt>だいとうりょう</rt><rp>)</rp></ruby></strong>が<strong><span class="keyword"><ruby>ニューディール政策<rp>(</rp><rt>ニューディールせいさく</rt><rp>)</rp></ruby></span></strong>を<ruby>実施<rp>(</rp><rt>じっし</rt><rp>)</rp></ruby>したんだ。ダムや道路などの<span data-tooltip="国が行う大規模な建設工事のこと。雇用を生み出す効果がある"><ruby>公共事業<rp>(</rp><rt>こうきょうじぎょう</rt><rp>)</rp></ruby></span>で<ruby>雇用<rp>(</rp><rt>こよう</rt><rp>)</rp></ruby>を生み出して<ruby>経済<rp>(</rp><rt>けいざい</rt><rp>)</rp></ruby>の立て直しを図ったんだよ',
     },
     {
       type: 'summary-point',
@@ -99,7 +99,7 @@ export const greatDepressionChat: HistoryChat = {
     },
     {
       type: 'narrator',
-      text: 'ドイツでは<strong><ruby>ヒトラー<rp>(</rp><rt>ヒトラー</rt><rp>)</rp></ruby></strong>率いる<strong><span class="keyword"><ruby>ナチス<rp>(</rp><rt>ナチス</rt><rp>)</rp></ruby>（ナチ<ruby>党<rp>(</rp><rt>とう</rt><rp>)</rp></ruby>）</span></strong>が<ruby>台頭<rp>(</rp><rt>たいとう</rt><rp>)</rp></ruby>。イタリアでは<strong><ruby>ムッソリーニ<rp>(</rp><rt>ムッソリーニ</rt><rp>)</rp></ruby></strong>が<ruby>独裁<rp>(</rp><rt>どくさい</rt><rp>)</rp></ruby>政治を行い、<strong><span class="keyword"><ruby>ファシズム<rp>(</rp><rt>ファシズム</rt><rp>)</rp></ruby></span></strong>が広がりました。',
+      text: 'ドイツでは<strong>ヒトラー</strong>率いる<strong><span class="keyword">ナチス（ナチ<ruby>党<rp>(</rp><rt>とう</rt><rp>)</rp></ruby>）</span></strong>が<ruby>台頭<rp>(</rp><rt>たいとう</rt><rp>)</rp></ruby>。イタリアでは<strong>ムッソリーニ</strong>が<ruby>独裁<rp>(</rp><rt>どくさい</rt><rp>)</rp></ruby>政治を行い、<strong><span class="keyword">ファシズム</span></strong>が広がりました。',
     },
     {
       type: 'message',
@@ -137,7 +137,7 @@ export const greatDepressionChat: HistoryChat = {
         '<strong><ruby>世界恐慌<rp>(</rp><rt>せかいきょうこう</rt><rp>)</rp></ruby></strong>（1929年）：ニューヨーク<ruby>株価<rp>(</rp><rt>かぶか</rt><rp>)</rp></ruby>大暴落から世界に<ruby>拡大<rp>(</rp><rt>かくだい</rt><rp>)</rp></ruby>',
         '<strong><ruby>ニューディール政策<rp>(</rp><rt>ニューディールせいさく</rt><rp>)</rp></ruby></strong>：<ruby>ルーズベルト大統領<rp>(</rp><rt>ルーズベルトだいとうりょう</rt><rp>)</rp></ruby>が<ruby>公共事業<rp>(</rp><rt>こうきょうじぎょう</rt><rp>)</rp></ruby>で<ruby>経済<rp>(</rp><rt>けいざい</rt><rp>)</rp></ruby>回復',
         '<strong><ruby>ブロック経済<rp>(</rp><rt>ブロックけいざい</rt><rp>)</rp></ruby></strong>：<ruby>英仏<rp>(</rp><rt>えいふつ</rt><rp>)</rp></ruby>は<ruby>植民地<rp>(</rp><rt>しょくみんち</rt><rp>)</rp></ruby>と<ruby>貿易<rp>(</rp><rt>ぼうえき</rt><rp>)</rp></ruby>、日独伊は<ruby>打撃<rp>(</rp><rt>だげき</rt><rp>)</rp></ruby>を受けた',
-        '<strong><ruby>ファシズム<rp>(</rp><rt>ファシズム</rt><rp>)</rp></ruby></strong>：ムッソリーニ（<ruby>伊<rp>(</rp><rt>い</rt><rp>)</rp></ruby>）・ヒトラー（<ruby>独<rp>(</rp><rt>どく</rt><rp>)</rp></ruby>）が<ruby>独裁<rp>(</rp><rt>どくさい</rt><rp>)</rp></ruby>政治',
+        '<strong>ファシズム</strong>：ムッソリーニ（<ruby>伊<rp>(</rp><rt>い</rt><rp>)</rp></ruby>）・ヒトラー（<ruby>独<rp>(</rp><rt>どく</rt><rp>)</rp></ruby>）が<ruby>独裁<rp>(</rp><rt>どくさい</rt><rp>)</rp></ruby>政治',
         '<strong><ruby>昭和恐慌<rp>(</rp><rt>しょうわきょうこう</rt><rp>)</rp></ruby></strong>：日本でも<ruby>農村<rp>(</rp><rt>のうそん</rt><rp>)</rp></ruby><ruby>困窮<rp>(</rp><rt>こんきゅう</rt><rp>)</rp></ruby>・<ruby>失業者<rp>(</rp><rt>しつぎょうしゃ</rt><rp>)</rp></ruby><ruby>増大<rp>(</rp><rt>ぞうだい</rt><rp>)</rp></ruby>で社会不安が<ruby>拡大<rp>(</rp><rt>かくだい</rt><rp>)</rp></ruby>',
       ],
     },

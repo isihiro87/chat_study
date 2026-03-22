@@ -36,11 +36,11 @@ export const microscopeDetailChat: HistoryChat = {
   content: [
     {
       type: 'date',
-      text: '<ruby>プレパラート<rp>(</rp><rt>ぷれぱらーと</rt><rp>)</rp></ruby>の作り方',
+      text: 'プレパラートの作り方',
     },
     {
       type: 'narrator',
-      text: '<ruby>顕微鏡<rp>(</rp><rt>けんびきょう</rt><rp>)</rp></ruby>で<ruby>観察<rp>(</rp><rt>かんさつ</rt><rp>)</rp></ruby>するための<ruby>プレパラート<rp>(</rp><rt>ぷれぱらーと</rt><rp>)</rp></ruby>の作り方を学びましょう。',
+      text: '<ruby>顕微鏡<rp>(</rp><rt>けんびきょう</rt><rp>)</rp></ruby>で<ruby>観察<rp>(</rp><rt>かんさつ</rt><rp>)</rp></ruby>するためのプレパラートの作り方を学びましょう。',
     },
     {
       type: 'message',

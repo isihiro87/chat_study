@@ -308,7 +308,7 @@ export const timeDifferenceChat: HistoryChat = {
       side: 'left',
       characterId: 'teacher',
       expression: 'explaining',
-      text: '例えばハワイから日本へ飛行機で移動すると、日付変更線を<strong>西から東→東から西</strong>に越えるから日付が<strong>1日進む</strong>んだ。午前中に出発しても、到着は翌日になることがあるよ',
+      text: '例えばハワイから日本へ飛行機で移動すると、日付変更線を<strong>東から西へ</strong>越えるから日付が<strong>1日進む</strong>んだ。午前中に出発しても、到着は翌日になることがあるよ',
     },
     {
       type: 'message',

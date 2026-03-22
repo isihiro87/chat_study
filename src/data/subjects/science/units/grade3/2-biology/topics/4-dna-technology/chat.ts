@@ -156,7 +156,7 @@ export const dnaTechnologyChat: HistoryChat = {
       side: 'right',
       characterId: 'student',
       expression: 'thinking',
-      text: '「<ruby>クローン<rp></rp><rt></rt><rp></rp></ruby>」という言葉も聞いたことがあります。遺伝子と関係があるんですか？',
+      text: '「クローン」という言葉も聞いたことがあります。遺伝子と関係があるんですか？',
     },
     {
       type: 'message',

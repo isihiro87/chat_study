@@ -288,7 +288,7 @@ export const kyushuChat: HistoryChat = {
       side: 'left',
       characterId: 'teacher',
       expression: 'happy',
-      text: '市民運動がきっかけで環境改善が進んだんだよ。今では<strong><span class="keyword">エコタウン事業</span></strong>で<ruby>リサイクル<rp>(</rp><rt>りさいくる</rt><rp>)</rp></ruby>産業が<ruby>集積<rp>(</rp><rt>しゅうせき</rt><rp>)</rp></ruby>していて、世界的にも評価されているんだ',
+      text: '市民運動がきっかけで環境改善が進んだんだよ。今では<strong><span class="keyword">エコタウン事業</span></strong>でリサイクル産業が<ruby>集積<rp>(</rp><rt>しゅうせき</rt><rp>)</rp></ruby>していて、世界的にも評価されているんだ',
     },
     {
       type: 'message',

@@ -124,7 +124,7 @@ export const europeIssuesChat: HistoryChat = {
     },
     {
       type: 'narrator',
-      text: 'ヨーロッパとアジアにまたがる<ruby>ロシア<rp>(</rp><rt>ろしあ</rt><rp>)</rp></ruby>は、世界最大の<ruby>国土<rp>(</rp><rt>こくど</rt><rp>)</rp></ruby>と<ruby>豊富<rp>(</rp><rt>ほうふ</rt><rp>)</rp></ruby>な<ruby>資源<rp>(</rp><rt>しげん</rt><rp>)</rp></ruby>を持っています。',
+      text: 'ヨーロッパとアジアにまたがるロシアは、世界最大の<ruby>国土<rp>(</rp><rt>こくど</rt><rp>)</rp></ruby>と<ruby>豊富<rp>(</rp><rt>ほうふ</rt><rp>)</rp></ruby>な<ruby>資源<rp>(</rp><rt>しげん</rt><rp>)</rp></ruby>を持っています。',
     },
     {
       type: 'message',

@@ -133,7 +133,7 @@ export const russianRevolutionChat: HistoryChat = {
         { letter: 'D', text: '1917年', correct: false },
       ],
       explanation:
-        '<strong>正解はC「1922年」</strong>です。同じ年に日本も<ruby>シベリア<rp>(</rp><rt>しべりあ</rt><rp>)</rp></ruby>から<ruby>撤兵<rp>(</rp><rt>てっぺい</rt><rp>)</rp></ruby>しました。',
+        '<strong>正解はC「1922年」</strong>です。同じ年に日本もシベリアから<ruby>撤兵<rp>(</rp><rt>てっぺい</rt><rp>)</rp></ruby>しました。',
     },
     {
       type: 'narrator',

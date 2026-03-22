@@ -191,7 +191,7 @@ export const jomonEraChat: HistoryChat = {
       side: 'left',
       characterId: 'archaeologist',
       expression: 'excited',
-      text: '<ruby>青森県<rp>(</rp><rt>あおもりけん</rt><rp>)</rp></ruby>の<strong><span class="keyword"><ruby>三内丸山遺跡<rp>(</rp><rt>さんないまるやまいせき</rt><rp>)</rp></ruby></span></strong>は約1700年も続いた大きな集落だよ。クリの木を<ruby>栽培<rp>(</rp><rt>さいばい</rt><rp>)</rp></ruby>したり、<ruby>ヒスイ<rp>(</rp><rt>ひすい</rt><rp>)</rp></ruby>の<ruby>装飾品<rp>(</rp><rt>そうしょくひん</rt><rp>)</rp></ruby>も見つかっているんだ。遠くとの<ruby>交易<rp>(</rp><rt>こうえき</rt><rp>)</rp></ruby>も行われていたことがわかるよ',
+      text: '<ruby>青森県<rp>(</rp><rt>あおもりけん</rt><rp>)</rp></ruby>の<strong><span class="keyword"><ruby>三内丸山遺跡<rp>(</rp><rt>さんないまるやまいせき</rt><rp>)</rp></ruby></span></strong>は約1700年も続いた大きな集落だよ。クリの木を<ruby>栽培<rp>(</rp><rt>さいばい</rt><rp>)</rp></ruby>したり、ヒスイの<ruby>装飾品<rp>(</rp><rt>そうしょくひん</rt><rp>)</rp></ruby>も見つかっているんだ。遠くとの<ruby>交易<rp>(</rp><rt>こうえき</rt><rp>)</rp></ruby>も行われていたことがわかるよ',
     },
     {
       type: 'image',

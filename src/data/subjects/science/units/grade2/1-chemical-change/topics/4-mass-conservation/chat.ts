@@ -139,7 +139,7 @@ export const massConservationChat: HistoryChat = {
       side: 'left',
       characterId: 'teacher',
       expression: 'happy',
-      text: 'そう！<ruby>マグネシウム<rp>(</rp><rt>まぐねしうむ</rt><rp>)</rp></ruby>と<ruby>酸素<rp>(</rp><rt>さんそ</rt><rp>)</rp></ruby>の<ruby>質量比<rp>(</rp><rt>しつりょうひ</rt><rp>)</rp></ruby>は<strong>3:2</strong>だよ。これらの<ruby>比<rp>(</rp><rt>ひ</rt><rp>)</rp></ruby>は<ruby>量<rp>(</rp><rt>りょう</rt><rp>)</rp></ruby>を変えても<strong>いつも<ruby>一定<rp>(</rp><rt>いってい</rt><rp>)</rp></ruby></strong>なんだ',
+      text: 'そう！マグネシウムと<ruby>酸素<rp>(</rp><rt>さんそ</rt><rp>)</rp></ruby>の<ruby>質量比<rp>(</rp><rt>しつりょうひ</rt><rp>)</rp></ruby>は<strong>3:2</strong>だよ。これらの<ruby>比<rp>(</rp><rt>ひ</rt><rp>)</rp></ruby>は<ruby>量<rp>(</rp><rt>りょう</rt><rp>)</rp></ruby>を変えても<strong>いつも<ruby>一定<rp>(</rp><rt>いってい</rt><rp>)</rp></ruby></strong>なんだ',
     },
     {
       type: 'message',
