@@ -171,6 +171,15 @@ export function QuizView({ quiz, onProgressChange, onComplete, onCompleteWithDif
     return { questions: activeQuestions };
   }, [quiz, setupComplete, activeQuestions]);
 
+  // 「続きの問題を解く」は初回クイズかつ残り問題があるときのみ表示
+  const hasRemainingQuestions = useMemo(() => {
+    if (!setupConfig || quizGeneration > 0) return false;
+    const totalFiltered = quiz.questions.filter((q) =>
+      setupConfig.selectedDifficulties.includes(q.difficulty ?? 'standard'),
+    ).length;
+    return activeQuestions.length < totalFiltered;
+  }, [setupConfig, quizGeneration, quiz.questions, activeQuestions.length]);
+
   const {
     isStarted,
     currentIndex,
@@ -364,7 +373,7 @@ export function QuizView({ quiz, onProgressChange, onComplete, onCompleteWithDif
                 </button>
               )}
 
-              {setupConfig && (
+              {hasRemainingQuestions && (
                 <button
                   onClick={handleNewQuestions}
                   className="flex items-center justify-center gap-2 rounded-full border-2 border-amber-400 bg-amber-50 px-6 py-3.5 font-bold text-amber-700 transition-transform active:scale-95"
