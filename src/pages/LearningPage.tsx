@@ -79,11 +79,15 @@ export function LearningPage() {
     return !localStorage.getItem('ai_image_notice_dismissed');
   });
 
-  // 復帰ダイアログ
+  // 復帰ダイアログ: resumeModeはtrue初期化（コンポーネントがマウント時にsavedStateを読めるように）
+  // 「初めから」選択時にfalseにしてcontentKeyで再マウント
   const [showResumeDialog, setShowResumeDialog] = useState(() => {
     return topicId ? hasResumeState(topicId) : false;
   });
-  const [resumeMode, setResumeMode] = useState(false);
+  const [resumeMode, setResumeMode] = useState(() => {
+    return topicId ? hasResumeState(topicId) : false;
+  });
+  const [contentKey, setContentKey] = useState(0);
 
   const {
     markChatRead,
@@ -450,7 +454,7 @@ export function LearningPage() {
             </div>
           )}
           <ChatContainer
-            key={topicId}
+            key={`${topicId}-${contentKey}`}
             chat={chat}
             embedded
             onNavigateToFlashcard={() => setActiveTab('flashcard')}
@@ -474,7 +478,7 @@ export function LearningPage() {
           {progressHeader(exampleProgress)}
           <main className="flex-1 overflow-hidden">
             <ExampleView
-              key={topicId}
+              key={`${topicId}-${contentKey}`}
               examples={content.examples}
               onProgressChange={handleExampleProgressChange}
               onComplete={handleExampleComplete}
@@ -491,7 +495,7 @@ export function LearningPage() {
         {progressHeader(cardProgress)}
         <main className="flex-1 overflow-hidden">
           <FlashcardDeck
-            key={topicId}
+            key={`${topicId}-${contentKey}`}
             cards={content.flashcards}
             onProgressChange={handleCardProgressChange}
             onComplete={handleFlashcardComplete}
@@ -511,7 +515,7 @@ export function LearningPage() {
         {progressHeader(quizProgress)}
         <main className="flex-1 overflow-hidden">
           <QuizView
-            key={topicId}
+            key={`${topicId}-${contentKey}`}
             quiz={content.quiz}
             onProgressChange={handleQuizProgressChange}
             onComplete={handleQuizComplete}
@@ -567,11 +571,12 @@ export function LearningPage() {
       {showResumeDialog && (
         <ResumeDialog
           onResume={() => {
-            setResumeMode(true);
             setShowResumeDialog(false);
           }}
           onRestart={() => {
             if (topicId) clearAllResumeState(topicId);
+            setResumeMode(false);
+            setContentKey((k) => k + 1);
             setShowResumeDialog(false);
           }}
         />

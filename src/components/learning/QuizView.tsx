@@ -222,6 +222,7 @@ export function QuizView({ quiz, onProgressChange, onComplete, onCompleteWithDif
     isAnswered,
     isComplete,
     score,
+    answers,
     start,
     selectAnswer,
     submitReorderAnswer,
