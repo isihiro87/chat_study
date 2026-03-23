@@ -145,12 +145,6 @@ export const worldReligions: Topic = {
         difficulty: 'standard',
       },
       {
-        id: 'fc16',
-        front: '使徒',
-        back: 'イエスの12人の弟子たちを何と呼ぶ？',
-        difficulty: 'standard',
-      },
-      {
         id: 'fc17',
         front: '旧約聖書',
         back: 'ユダヤ教の聖典であり、キリスト教の聖書の一部でもあるのは？',
@@ -181,27 +175,9 @@ export const worldReligions: Topic = {
         difficulty: 'standard',
       },
       {
-        id: 'fc22',
-        front: 'テオドシウス1世',
-        back: 'キリスト教を国教化したローマ皇帝は？',
-        difficulty: 'standard',
-      },
-      {
-        id: 'fc23',
-        front: 'コンスタンティヌス帝',
-        back: 'キリスト教を公認したローマ皇帝は？',
-        difficulty: 'advanced',
-      },
-      {
         id: 'fc24',
         front: '1日5回',
         back: 'イスラームの信者がメッカの方角に向かって行う礼拝の回数は？',
-        difficulty: 'advanced',
-      },
-      {
-        id: 'fc25',
-        front: 'ハッジ',
-        back: 'イスラームで信者が生涯に一度は行うべきメッカへの巡礼を何という？',
         difficulty: 'advanced',
       },
       {
@@ -398,22 +374,6 @@ export const worldReligions: Topic = {
           options: ['中国', 'パレスチナ', 'インド', 'アラビア半島'],
           correctIndex: 2,
           explanation: 'シャカはインド（ブッダガヤ）で悟りを開きました。',
-          difficulty: 'standard',
-        },
-        {
-          id: 'q21',
-          question: 'イスラームで信者が生涯に一度は行うべきメッカへの巡礼を何という？',
-          options: ['ハッジ', 'ジハード', 'ラマダン', 'ザカート'],
-          correctIndex: 0,
-          explanation: 'ハッジはイスラームで定められた、信者が生涯に一度は行うべきメッカへの巡礼です。',
-          difficulty: 'standard',
-        },
-        {
-          id: 'q22',
-          question: 'キリスト教を公認したローマ皇帝は？',
-          options: ['コンスタンティヌス帝', 'ネロ皇帝', 'テオドシウス1世', 'オクタウィアヌス'],
-          correctIndex: 0,
-          explanation: 'コンスタンティヌス帝がキリスト教を公認し、その後テオドシウス1世が国教化しました。',
           difficulty: 'standard',
         },
         {

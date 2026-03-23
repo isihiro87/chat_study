@@ -61,7 +61,7 @@ export const worldReligionsChat: HistoryChat = {
       side: 'left',
       characterId: 'teacher',
       expression: 'happy',
-      text: 'パレスチナで<strong><span class="keyword">イエス</span></strong>が神の<ruby>愛<rp>(</rp><rt>あい</rt><rp>)</rp></ruby>による<ruby>救<rp>(</rp><rt>すく</rt><rp>)</rp></ruby>いを説いたのが始まりだよ。やがて<strong><ruby>ローマ帝国<rp>(</rp><rt>ろーまていこく</rt><rp>)</rp></ruby></strong>の<ruby>国教<rp>(</rp><rt>こっきょう</rt><rp>)</rp></ruby>になったんだ',
+      text: '<strong>1世紀</strong>に、パレスチナで<strong><span class="keyword">イエス</span></strong>が神の<ruby>愛<rp>(</rp><rt>あい</rt><rp>)</rp></ruby>による<ruby>救<rp>(</rp><rt>すく</rt><rp>)</rp></ruby>いを説いたのが始まりだよ。やがて<strong><ruby>ローマ帝国<rp>(</rp><rt>ろーまていこく</rt><rp>)</rp></ruby></strong>の<ruby>国教<rp>(</rp><rt>こっきょう</rt><rp>)</rp></ruby>になったんだ',
     },
     {
       type: 'message',

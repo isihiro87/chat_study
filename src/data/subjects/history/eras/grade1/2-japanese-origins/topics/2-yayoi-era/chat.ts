@@ -78,6 +78,12 @@ export const yayoiEraChat: HistoryChat = {
       text: '<strong><span class="keyword"><ruby>鉄器<rp>(</rp><rt>てっき</rt><rp>)</rp></ruby></span></strong>で<ruby>農具<rp>(</rp><rt>のうぐ</rt><rp>)</rp></ruby>や武器を作り、<strong><span class="keyword"><ruby>銅鐸<rp>(</rp><rt>どうたく</rt><rp>)</rp></ruby></span></strong>は祭りの<ruby>宝物<rp>(</rp><rt>たからもの</rt><rp>)</rp></ruby>として大切にされていたんだよ！<strong><span class="keyword"><ruby>銅鏡<rp>(</rp><rt>どうきょう</rt><rp>)</rp></ruby></span></strong>や<strong><span class="keyword"><ruby>銅剣<rp>(</rp><rt>どうけん</rt><rp>)</rp></ruby></span></strong>も<ruby>儀式<rp>(</rp><rt>ぎしき</rt><rp>)</rp></ruby>に使われたんだ',
     },
     {
+      type: 'image',
+      src: '/images/history/grade1/2-japanese-origins/yayoi-rice-farming.png',
+      alt: '弥生時代の稲作',
+      caption: '水田での稲作、高床倉庫、石包丁',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',
@@ -92,10 +98,18 @@ export const yayoiEraChat: HistoryChat = {
       text: '<strong><span class="keyword"><ruby>石包丁<rp>(</rp><rt>いしぼうちょう</rt><rp>)</rp></ruby></span></strong>という半月形の石の道具を使って、稲の<ruby>穂<rp>(</rp><rt>ほ</rt><rp>)</rp></ruby>をつみ取ったんだよ',
     },
     {
-      type: 'image',
-      src: '/images/history/grade1/2-japanese-origins/yayoi-rice-farming.png',
-      alt: '弥生時代の稲作',
-      caption: '水田での稲作、高床倉庫、石包丁',
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: 'この時代の土器はどんなものだったんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: '<strong><span class="keyword"><ruby>弥生土器<rp>(</rp><rt>やよいどき</rt><rp>)</rp></ruby></span></strong>という土器が使われていたよ。<ruby>縄文土器<rp>(</rp><rt>じょうもんどき</rt><rp>)</rp></ruby>と比べて<ruby>薄手<rp>(</rp><rt>うすで</rt><rp>)</rp></ruby>で<ruby>硬<rp>(</rp><rt>かた</rt><rp>)</rp></ruby>く、シンプルな形をしているのが特徴だよ',
     },
     {
       type: 'summary-point',
@@ -177,7 +191,7 @@ export const yayoiEraChat: HistoryChat = {
       side: 'left',
       characterId: 'teacher',
       expression: 'explaining',
-      text: '長い<ruby>争<rp>(</rp><rt>あらそ</rt><rp>)</rp></ruby>いの末、<strong><span class="keyword"><ruby>卑弥呼<rp>(</rp><rt>ひみこ</rt><rp>)</rp></ruby></span></strong>が<strong><span class="keyword"><ruby>邪馬台国<rp>(</rp><rt>やまたいこく</rt><rp>)</rp></ruby></span></strong>の女王として30あまりの国をまとめたんだ。<ruby>まじない<rp>(</rp><rt></rt><rp>)</rp></ruby>の力で人々の心をおさめたんだよ',
+      text: '長い<ruby>争<rp>(</rp><rt>あらそ</rt><rp>)</rp></ruby>いの末、<strong><span class="keyword"><ruby>卑弥呼<rp>(</rp><rt>ひみこ</rt><rp>)</rp></ruby></span></strong>が<strong><span class="keyword"><ruby>邪馬台国<rp>(</rp><rt>やまたいこく</rt><rp>)</rp></ruby></span></strong>の女王として30あまりの国をまとめたんだ。まじないの力で人々の心をおさめたんだよ',
     },
     {
       type: 'message',

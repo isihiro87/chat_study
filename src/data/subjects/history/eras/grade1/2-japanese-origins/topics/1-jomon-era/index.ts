@@ -111,7 +111,7 @@ export const jomonEra: Topic = {
       {
         id: 'fc10',
         front: '縄文時代',
-        back: '約1万数千年前から土器を使い始めた時代は？',
+        back: '約1万数千年前から日本で土器を使い始めた時代は？',
         difficulty: 'basic',
       },
       {
@@ -169,12 +169,6 @@ export const jomonEra: Topic = {
         difficulty: 'standard',
       },
       {
-        id: 'fc20',
-        front: '貯蔵穴',
-        back: 'ドングリやクルミなどの木の実を保存するために掘った穴は？',
-        difficulty: 'standard',
-      },
-      {
         id: 'fc21',
         front: '群馬県',
         back: '岩宿遺跡がある県は？',
@@ -187,33 +181,9 @@ export const jomonEra: Topic = {
         difficulty: 'standard',
       },
       {
-        id: 'fc23',
-        front: 'ヒスイ（翡翠）',
-        back: '縄文時代にアクセサリーとして使われた勾玉の材料は？',
-        difficulty: 'advanced',
-      },
-      {
         id: 'fc24',
         front: '釣り針',
         back: '縄文時代に骨や角で作られた魚をとるための道具は？',
-        difficulty: 'advanced',
-      },
-      {
-        id: 'fc25',
-        front: '海面上昇',
-        back: '氷河時代が終わり気候が温暖になった結果、日本列島が大陸から切り離された原因は？',
-        difficulty: 'advanced',
-      },
-      {
-        id: 'fc26',
-        front: 'クリの木',
-        back: '三内丸山遺跡の大型建物に使われていた木材は？',
-        difficulty: 'advanced',
-      },
-      {
-        id: 'fc27',
-        front: '交易（物の交換）',
-        back: '遠方から黒曜石が見つかることで明らかになった縄文時代の活動は？',
         difficulty: 'advanced',
       },
       {
@@ -313,21 +283,6 @@ export const jomonEra: Topic = {
           difficulty: 'basic',
         },
         {
-          id: 'q10',
-          question:
-            '氷河時代が終わり定住生活が始まったきっかけとなった変化は？',
-          options: [
-            '気候の温暖化',
-            '稲作の伝来',
-            '金属器の伝来',
-            '仏教の伝来',
-          ],
-          correctIndex: 0,
-          explanation:
-            '氷河時代が終わり気候が温暖になると、食料が豊富になり定住生活が始まりました。',
-          difficulty: 'basic',
-        },
-        {
           id: 'q11',
           question: '岩宿遺跡を発見した人物はだれか？',
           options: ['相沢忠洋', '本居宣長', '杉田玄白', '伊能忠敬'],
@@ -380,9 +335,9 @@ export const jomonEra: Topic = {
           question: '気候が温暖になると海面はどうなったか？',
           options: [
             '海面が上昇して日本列島が大陸から離れた',
-            '海面が低下した',
-            '海面は変化しなかった',
-            '海がなくなった',
+            '海面が低下して大陸とさらにつながった',
+            '海面は変わらず島の形だけが変わった',
+            '海水の温度だけが変わり地形は変わらなかった',
           ],
           correctIndex: 0,
           explanation: '気候が温暖になると海面が上昇し、日本列島は大陸から切り離されました。',
@@ -399,22 +354,6 @@ export const jomonEra: Topic = {
           ],
           correctIndex: 0,
           explanation: '遠方の黒曜石が見つかることから、すでに広い範囲での物の交換（交易）が行われていたとわかります。',
-          difficulty: 'standard',
-        },
-        {
-          id: 'q19',
-          question: '三内丸山遺跡で見つかった大型建物に使われていた木材は？',
-          options: ['スギ', 'ヒノキ', 'クリの木', 'マツ'],
-          correctIndex: 2,
-          explanation: '三内丸山遺跡の大型建物にはクリの木が使われていました。',
-          difficulty: 'standard',
-        },
-        {
-          id: 'q20',
-          question: '縄文時代にアクセサリーとして身につけた勾玉の材料は？',
-          options: ['金や銀', '銅や錫', 'ヒスイ', '鉄や青銅'],
-          correctIndex: 2,
-          explanation: '縄文時代の勾玉にはヒスイ（翡翠）が使われました。',
           difficulty: 'standard',
         },
         {
@@ -455,9 +394,9 @@ export const jomonEra: Topic = {
           id: 'q24',
           question: '旧石器時代から縄文時代への大きな環境変化は？',
           options: [
-            '火山の大噴火',
-            '大陸が沈没した',
-            '隕石の衝突',
+            '大規模な火山の噴火で地形が大きく変わった',
+            '大陸が沈没して海に沈んでしまった',
+            '巨大な隕石が衝突して環境が激変した',
             '氷河時代が終わり気候が温暖になった',
           ],
           correctIndex: 3,
@@ -491,14 +430,6 @@ export const jomonEra: Topic = {
           options: ['青森県', '静岡県', '佐賀県', '群馬県'],
           correctIndex: 3,
           explanation: '岩宿遺跡は群馬県にあり、日本の旧石器時代を証明した重要な遺跡です。',
-          difficulty: 'advanced',
-        },
-        {
-          id: 'q28',
-          question: '縄文時代にドングリやクルミを保存するために使った穴を何という？',
-          options: ['たて穴住居', '貝塚', '古墳', '貯蔵穴'],
-          correctIndex: 3,
-          explanation: '貯蔵穴は木の実を保存するために掘った穴です。',
           difficulty: 'advanced',
         },
       ],

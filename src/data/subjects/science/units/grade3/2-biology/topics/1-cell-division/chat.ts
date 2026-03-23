@@ -233,7 +233,7 @@ export const cellDivisionChat: HistoryChat = {
       side: 'left',
       characterId: 'teacher',
       expression: 'explaining',
-      text: '植物には<strong><span class="keyword"><span data-tooltip="植物のからだの一部から新しい個体ができる無性生殖"><ruby>栄養生殖<rp>(</rp><rt>えいようせいしょく</rt><rp>)</rp></ruby></span></span></strong>があるよ。からだの一部から新しい個体ができるんだ。<br/>・<strong>ジャガイモ</strong>のいも<br/>・<strong>サツマイモ</strong>のいも<br/>・<strong>オランダイチゴ</strong>の<ruby>走出枝<rp>(</rp><rt>そうしゅつし</rt><rp>)</rp></ruby><br/>・<strong>コダカラベンケイ</strong>の葉のふち<br/>・<strong>ヤマノイモ</strong>の<ruby>むかご<rp>(</rp><rt>むかご</rt><rp>)</rp></ruby><br/><strong><ruby>接<rp>(</rp><rt>つ</rt><rp>)</rp></ruby>ぎ木</strong>も栄養生殖の一種だよ',
+      text: '植物には<strong><span class="keyword"><span data-tooltip="植物のからだの一部から新しい個体ができる無性生殖"><ruby>栄養生殖<rp>(</rp><rt>えいようせいしょく</rt><rp>)</rp></ruby></span></span></strong>があるよ。からだの一部から新しい個体ができるんだ。<br/>・<strong>ジャガイモ</strong>のいも<br/>・<strong>サツマイモ</strong>のいも<br/>・<strong>オランダイチゴ</strong>の<ruby>走出枝<rp>(</rp><rt>そうしゅつし</rt><rp>)</rp></ruby><br/>・<strong>コダカラベンケイ</strong>の葉のふち<br/>・<strong>ヤマノイモ</strong>のむかご<br/><strong><ruby>接<rp>(</rp><rt>つ</rt><rp>)</rp></ruby>ぎ木</strong>も栄養生殖の一種だよ',
     },
     {
       type: 'message',

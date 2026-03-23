@@ -62,7 +62,7 @@ export const evolutionEvidenceChat: HistoryChat = {
       side: 'left',
       characterId: 'teacher',
       expression: 'excited',
-      text: '<ruby>始祖鳥<rp>(</rp><rt>しそちょう</rt><rp>)</rp></ruby>には<strong><ruby>鳥類<rp>(</rp><rt>ちょうるい</rt><rp>)</rp></ruby>の<ruby>特徴<rp>(</rp><rt>とくちょう</rt><rp>)</rp></ruby></strong>と<strong><ruby>ハチュウ類<rp>(</rp><rt>はちゅうるい</rt><rp>)</rp></ruby>の特徴</strong>の<strong>両方</strong>があるんだ！<br/><br/>🐦 <strong>鳥類の特徴</strong>：前あしが<ruby>つばさ<rp>(</rp><rt></rt><rp>)</rp></ruby>になっている、<ruby>羽毛<rp>(</rp><rt>うもう</rt><rp>)</rp></ruby>がある<br/>🦎 <strong>ハチュウ類の特徴</strong>：つばさに<ruby>爪<rp>(</rp><rt>つめ</rt><rp>)</rp></ruby>がある、くちばしに<ruby>歯<rp>(</rp><rt>は</rt><rp>)</rp></ruby>がある、<ruby>尾骨<rp>(</rp><rt>びこつ</rt><rp>)</rp></ruby>がある',
+      text: '<ruby>始祖鳥<rp>(</rp><rt>しそちょう</rt><rp>)</rp></ruby>には<strong><ruby>鳥類<rp>(</rp><rt>ちょうるい</rt><rp>)</rp></ruby>の<ruby>特徴<rp>(</rp><rt>とくちょう</rt><rp>)</rp></ruby></strong>と<strong><ruby>ハチュウ類<rp>(</rp><rt>はちゅうるい</rt><rp>)</rp></ruby>の特徴</strong>の<strong>両方</strong>があるんだ！<br/><br/>🐦 <strong>鳥類の特徴</strong>：前あしがつばさになっている、<ruby>羽毛<rp>(</rp><rt>うもう</rt><rp>)</rp></ruby>がある<br/>🦎 <strong>ハチュウ類の特徴</strong>：つばさに<ruby>爪<rp>(</rp><rt>つめ</rt><rp>)</rp></ruby>がある、くちばしに<ruby>歯<rp>(</rp><rt>は</rt><rp>)</rp></ruby>がある、<ruby>尾骨<rp>(</rp><rt>びこつ</rt><rp>)</rp></ruby>がある',
     },
     {
       type: 'image',

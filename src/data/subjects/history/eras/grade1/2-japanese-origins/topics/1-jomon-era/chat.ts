@@ -113,7 +113,7 @@ export const jomonEraChat: HistoryChat = {
       side: 'left',
       characterId: 'archaeologist',
       expression: 'happy',
-      text: '気候が温かくなると森が広がり、<ruby>木<rp>(</rp><rt>き</rt><rp>)</rp></ruby>の<ruby>実<rp>(</rp><rt>み</rt><rp>)</rp></ruby>や<ruby>魚介類<rp>(</rp><rt>ぎょかいるい</rt><rp>)</rp></ruby>が<ruby>豊富<rp>(</rp><rt>ほうふ</rt><rp>)</rp></ruby>に手に入るようになったんだ。人々は<strong><span class="keyword"><ruby>たて穴住居<rp>(</rp><rt>たてあなじゅうきょ</rt><rp>)</rp></ruby></span></strong>を作って<ruby>定住<rp>(</rp><rt>ていじゅう</rt><rp>)</rp></ruby>を始めたんだよ',
+      text: '気候が温かくなると森が広がり、<ruby>木<rp>(</rp><rt>き</rt><rp>)</rp></ruby>の<ruby>実<rp>(</rp><rt>み</rt><rp>)</rp></ruby>や<ruby>魚介類<rp>(</rp><rt>ぎょかいるい</rt><rp>)</rp></ruby>が<ruby>豊富<rp>(</rp><rt>ほうふ</rt><rp>)</rp></ruby>に手に入るようになったんだ。人々は<strong><span class="keyword">たて<ruby>穴住居<rp>(</rp><rt>あなじゅうきょ</rt><rp>)</rp></ruby></span></strong>を作って<ruby>定住<rp>(</rp><rt>ていじゅう</rt><rp>)</rp></ruby>を始めたんだよ',
     },
     {
       type: 'message',
@@ -213,13 +213,13 @@ export const jomonEraChat: HistoryChat = {
         { letter: 'D', text: '高床倉庫', correct: false },
       ],
       explanation:
-        '<strong>正解はC「<ruby>たて穴住居<rp>(</rp><rt>たてあなじゅうきょ</rt><rp>)</rp></ruby>」</strong>です。地面を<ruby>掘<rp>(</rp><rt>ほ</rt><rp>)</rp></ruby>り下げて柱を立て、屋根をかけた住居です。',
+        '<strong>正解はC「たて<ruby>穴住居<rp>(</rp><rt>あなじゅうきょ</rt><rp>)</rp></ruby>」</strong>です。地面を<ruby>掘<rp>(</rp><rt>ほ</rt><rp>)</rp></ruby>り下げて柱を立て、屋根をかけた住居です。',
     },
     {
       type: 'end',
       points: [
         '<strong><ruby>旧石器時代<rp>(</rp><rt>きゅうせっきじだい</rt><rp>)</rp></ruby></strong>：<strong><ruby>打製石器<rp>(</rp><rt>だせいせっき</rt><rp>)</rp></ruby></strong>で<ruby>狩猟<rp>(</rp><rt>しゅりょう</rt><rp>)</rp></ruby>・移動生活、<strong><ruby>岩宿遺跡<rp>(</rp><rt>いわじゅくいせき</rt><rp>)</rp></ruby></strong>で証明',
-        '<strong><ruby>縄文時代<rp>(</rp><rt>じょうもんじだい</rt><rp>)</rp></ruby></strong>：<strong><ruby>縄文土器<rp>(</rp><rt>じょうもんどき</rt><rp>)</rp></ruby></strong>と<strong><ruby>たて穴住居<rp>(</rp><rt>たてあなじゅうきょ</rt><rp>)</rp></ruby></strong>で定住',
+        '<strong><ruby>縄文時代<rp>(</rp><rt>じょうもんじだい</rt><rp>)</rp></ruby></strong>：<strong><ruby>縄文土器<rp>(</rp><rt>じょうもんどき</rt><rp>)</rp></ruby></strong>と<strong>たて<ruby>穴住居<rp>(</rp><rt>あなじゅうきょ</rt><rp>)</rp></ruby></strong>で定住',
         '<strong><ruby>土偶<rp>(</rp><rt>どぐう</rt><rp>)</rp></ruby></strong>：<ruby>祈<rp>(</rp><rt>いの</rt><rp>)</rp></ruby>りや<ruby>魔<rp>(</rp><rt>ま</rt><rp>)</rp></ruby>よけ、<strong><ruby>貝塚<rp>(</rp><rt>かいづか</rt><rp>)</rp></ruby></strong>：生活のあと',
         '<strong><ruby>三内丸山遺跡<rp>(</rp><rt>さんないまるやまいせき</rt><rp>)</rp></ruby></strong>（<ruby>青森県<rp>(</rp><rt>あおもりけん</rt><rp>)</rp></ruby>）：縄文時代の大規模集落',
       ],

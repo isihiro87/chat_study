@@ -175,7 +175,7 @@ export const higashiyamaCultureChat: HistoryChat = {
       side: 'left',
       characterId: 'yoshimitsu',
       expression: 'explaining',
-      text: '<strong><span class="keyword"><ruby>茶<rp>(</rp><rt>ちゃ</rt><rp>)</rp></ruby>の<ruby>湯<rp>(</rp><rt>ゆ</rt><rp>)</rp></ruby></span></strong>（<ruby>侘<rp>(</rp><rt>わ</rt><rp>)</rp></ruby>び<ruby>茶<rp>(</rp><rt>ちゃ</rt><rp>)</rp></ruby>）はこの時代に始まったんだ。<ruby>質素<rp>(</rp><rt>しっそ</rt><rp>)</rp></ruby>で<ruby>静<rp>(</rp><rt>しず</rt><rp>)</rp></ruby>かな美、つまり「<strong><ruby>わび<rp>(</rp><rt></rt><rp>)</rp></ruby></strong>」の精神を大切にする文化だよ',
+      text: '<strong><span class="keyword"><ruby>茶<rp>(</rp><rt>ちゃ</rt><rp>)</rp></ruby>の<ruby>湯<rp>(</rp><rt>ゆ</rt><rp>)</rp></ruby></span></strong>（<ruby>侘<rp>(</rp><rt>わ</rt><rp>)</rp></ruby>び<ruby>茶<rp>(</rp><rt>ちゃ</rt><rp>)</rp></ruby>）はこの時代に始まったんだ。<ruby>質素<rp>(</rp><rt>しっそ</rt><rp>)</rp></ruby>で<ruby>静<rp>(</rp><rt>しず</rt><rp>)</rp></ruby>かな美、つまり「<strong>わび</strong>」の精神を大切にする文化だよ',
     },
     {
       type: 'message',

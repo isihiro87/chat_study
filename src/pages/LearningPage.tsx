@@ -20,10 +20,15 @@ import { getSubject } from '../data/subjects';
 import { SEOHead } from '../components/common/SEOHead';
 import { estimateReadingTime } from '../utils/estimateReadingTime';
 import { trackEvent } from '../utils/gtag';
+import { classifyError, handleChunkError } from '../utils/classifyError';
+import { ErrorScreen } from '../components/common/ErrorScreen';
+import type { LoadErrorType } from '../utils/classifyError';
 import { useStudyProgress } from '../hooks/useStudyProgress';
 import { useTopicNavigation } from '../hooks/useTopicNavigation';
 import type { TabType, TopicContent, Difficulty } from '../data/types';
 import type { HistoryChat } from '../data/history-chat/types';
+
+const AI_IMAGE_NOTICE_SUBJECTS = new Set(['history', 'geography', 'science']);
 
 export function LearningPage() {
   const { subjectId, eraId, topicId } = useParams<{
@@ -41,7 +46,7 @@ export function LearningPage() {
   const [content, setContent] = useState<TopicContent | null>(null);
   const [chat, setChat] = useState<HistoryChat | null>(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [loadError, setLoadError] = useState(false);
+  const [loadError, setLoadError] = useState<LoadErrorType | null>(null);
 
   const [activeTab, setActiveTabRaw] = useState<TabType>(() => {
     if (topicId) {
@@ -67,6 +72,9 @@ export function LearningPage() {
   const [summaryTopicIds, setSummaryTopicIds] = useState<string[]>([]);
   const [showOnboarding, setShowOnboarding] = useState(() => {
     return !localStorage.getItem('learningpage_onboarded');
+  });
+  const [showAiImageNotice, setShowAiImageNotice] = useState(() => {
+    return !localStorage.getItem('ai_image_notice_dismissed');
   });
 
   const {
@@ -94,7 +102,7 @@ export function LearningPage() {
   // 非同期でコンテンツとチャットをロード
   const loadContent = useCallback(async (tid: string, chatId?: string) => {
     setIsLoading(true);
-    setLoadError(false);
+    setLoadError(null);
     setContent(null);
     setChat(null);
     try {
@@ -104,8 +112,12 @@ export function LearningPage() {
       ]);
       setContent(loadedContent ?? null);
       setChat(loadedChat ?? null);
-    } catch {
-      setLoadError(true);
+    } catch (err) {
+      const errorType = classifyError(err);
+      if (errorType === 'chunk') {
+        handleChunkError();
+      }
+      setLoadError(errorType);
     } finally {
       setIsLoading(false);
     }
@@ -254,39 +266,46 @@ export function LearningPage() {
 
   if (loadError) {
     return (
-      <div className="flex min-h-screen flex-col items-center justify-center bg-[#FAF9F7] px-4">
-        <span className="mb-4 text-6xl">😵</span>
-        <h1
-          className="mb-2 text-xl font-bold text-gray-800"
-          style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
-        >
-          読み込みに失敗しました
-        </h1>
-        <p
-          className="mb-6 text-center text-sm text-gray-500"
-          style={{ fontFamily: "'Noto Sans JP', sans-serif" }}
-        >
-          コンテンツの取得中にエラーが発生しました。
-          <br />
-          もう一度お試しください。
-        </p>
-        <button
-          onClick={() => loadContent(topicId!, topic.chatId ?? undefined)}
-          className="rounded-full bg-gray-800 px-6 py-3 text-sm font-semibold text-white active:scale-95"
-          style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
-        >
-          再試行
-        </button>
-      </div>
+      <ErrorScreen
+        errorType={loadError}
+        onRetry={() => loadContent(topicId!, topic.chatId ?? undefined)}
+      />
     );
   }
 
   if (isLoading || !content) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-[#FAF9F7]">
-        <div className="text-center">
-          <div className="mx-auto h-8 w-8 animate-spin rounded-full border-4 border-gray-200 border-t-amber-500" />
-          <p className="mt-3 text-sm text-gray-500">読み込み中...</p>
+      <div className="flex min-h-screen flex-col bg-[#FAF9F7]">
+        {/* ヘッダースケルトン */}
+        <div className="bg-white shadow-sm">
+          <div className="flex items-center px-4 py-3">
+            <div className="mr-3 h-10 w-10 animate-pulse rounded-full bg-gray-200" />
+            <div className="flex-1">
+              <div className="h-5 w-32 animate-pulse rounded bg-gray-200" />
+              <div className="mt-1 h-3 w-20 animate-pulse rounded bg-gray-100" />
+            </div>
+          </div>
+        </div>
+        {/* コンテンツスケルトン */}
+        <div className="flex-1 p-4">
+          <div className="space-y-4">
+            <div className="h-24 w-full animate-pulse rounded-2xl bg-gray-200" />
+            <div className="h-16 w-full animate-pulse rounded-2xl bg-gray-200" />
+            <div className="h-20 w-3/4 animate-pulse rounded-2xl bg-gray-200" />
+            <div className="h-16 w-full animate-pulse rounded-2xl bg-gray-200" />
+            <div className="h-12 w-2/3 animate-pulse rounded-2xl bg-gray-200" />
+          </div>
+        </div>
+        {/* タブバースケルトン */}
+        <div className="border-t border-gray-200 bg-white px-4 py-2">
+          <div className="flex justify-around">
+            {[...Array(5)].map((_, i) => (
+              <div key={i} className="flex flex-col items-center gap-1">
+                <div className="h-6 w-6 animate-pulse rounded bg-gray-200" />
+                <div className="h-2 w-8 animate-pulse rounded bg-gray-100" />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     );
@@ -407,6 +426,21 @@ export function LearningPage() {
           style={{ display: activeTab === 'chat' ? 'flex' : 'none' }}
         >
           {chatHeader}
+          {showAiImageNotice && subjectId && AI_IMAGE_NOTICE_SUBJECTS.has(subjectId) && (
+            <div className="flex items-center gap-2 bg-amber-50 px-4 py-2 text-xs text-amber-700">
+              <span className="flex-1">AIが画像を作ってることがあるよ。間違ってることもあるから、もしおかしいと思ったら調べてみてね！</span>
+              <button
+                onClick={() => {
+                  setShowAiImageNotice(false);
+                  localStorage.setItem('ai_image_notice_dismissed', '1');
+                }}
+                className="flex-shrink-0 rounded-full p-1 hover:bg-amber-100"
+                aria-label="閉じる"
+              >
+                <X className="h-3.5 w-3.5" />
+              </button>
+            </div>
+          )}
           <ChatContainer
             key={topicId}
             chat={chat}

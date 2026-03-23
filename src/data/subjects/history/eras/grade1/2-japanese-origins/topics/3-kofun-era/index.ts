@@ -117,21 +117,9 @@ export const kofunEra: Topic = {
         difficulty: 'basic',
       },
       {
-        id: 'fc8',
-        front: '雄略天皇',
-        back: 'ワカタケル大王は後の何天皇にあたるか？',
-        difficulty: 'basic',
-      },
-      {
         id: 'fc9',
         front: '稲荷山古墳',
         back: '埼玉県にある、ワカタケル大王の名が刻まれた鉄剣が出土した古墳は？',
-        difficulty: 'basic',
-      },
-      {
-        id: 'fc10',
-        front: '倭の五王',
-        back: '5世紀に中国の宋に使いを送った5人の倭の王は？',
         difficulty: 'basic',
       },
       {
@@ -213,18 +201,6 @@ export const kofunEra: Topic = {
         difficulty: 'advanced',
       },
       {
-        id: 'fc24',
-        front: '機織り',
-        back: '渡来人が伝えた布を織る技術は？',
-        difficulty: 'advanced',
-      },
-      {
-        id: 'fc25',
-        front: '甲冑',
-        back: '古墳の副葬品として出土する、戦いの時に身につけたよろいとかぶとは？',
-        difficulty: 'advanced',
-      },
-      {
         id: 'fc26',
         front: '豪族',
         back: '大和政権で大王のもとにまとめられた各地の有力者は？',
@@ -233,7 +209,7 @@ export const kofunEra: Topic = {
       {
         id: 'fc27',
         front: '3世紀後半〜7世紀',
-        back: '古墳時代が続いたおよその期間は？',
+        back: '古墳時代はいつからいつ頃まで続いた？',
         difficulty: 'advanced',
       },
       {
@@ -326,16 +302,6 @@ export const kofunEra: Topic = {
           correctIndex: 0,
           explanation:
             '大仙古墳は大阪府堺市にある日本最大級の前方後円墳です。',
-          difficulty: 'basic',
-        },
-        {
-          id: 'q10',
-          question:
-            '5世紀に中国の宋に使いを送った倭の5人の王を何という？',
-          options: ['天皇', '大王', '倭の五王', '将軍'],
-          correctIndex: 2,
-          explanation:
-            '倭の五王は5世紀に中国の宋に使いを送り、宋書にその活動が記録されています。',
           difficulty: 'basic',
         },
         {

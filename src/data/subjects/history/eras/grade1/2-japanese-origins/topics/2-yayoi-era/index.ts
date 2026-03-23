@@ -197,27 +197,9 @@ export const yayoiEra: Topic = {
         difficulty: 'standard',
       },
       {
-        id: 'fc23',
-        front: '漢書地理志',
-        back: '1世紀に倭に100あまりの「くに」があったと記した中国の歴史書は？',
-        difficulty: 'advanced',
-      },
-      {
-        id: 'fc24',
-        front: '畿内説と九州説',
-        back: '邪馬台国の場所について議論されている2つの説は？',
-        difficulty: 'advanced',
-      },
-      {
         id: 'fc25',
         front: '貧富の差',
         back: '稲作による収穫量の違いから生まれた社会の変化は？',
-        difficulty: 'advanced',
-      },
-      {
-        id: 'fc26',
-        front: '木製のくわ',
-        back: '弥生時代に田植え前に土を耕すために使われた農具は？',
         difficulty: 'advanced',
       },
       {
@@ -440,14 +422,6 @@ export const yayoiEra: Topic = {
           difficulty: 'standard',
         },
         {
-          id: 'q21',
-          question: '1世紀に倭に100あまりのくにがあったと記した中国の歴史書は？',
-          options: ['漢書地理志', '魏志倭人伝', '宋書', '古事記'],
-          correctIndex: 0,
-          explanation: '漢書地理志には1世紀ごろ倭に100あまりのくにがあったと記されています。',
-          difficulty: 'standard',
-        },
-        {
           id: 'q22',
           question: '鉄器が実用品、青銅器が祭り用として使い分けられた理由は？',
           options: [
@@ -482,14 +456,6 @@ export const yayoiEra: Topic = {
           options: ['古事記', '日本書紀', '漢書地理志', '魏志倭人伝'],
           correctIndex: 3,
           explanation: '卑弥呼のことは中国の歴史書「魏志倭人伝」に記されています。',
-          difficulty: 'advanced',
-        },
-        {
-          id: 'q26',
-          question: '奴国は現在のどの地域にあったとされるか？',
-          options: ['奈良県', '佐賀県', '静岡県', '福岡県博多付近'],
-          correctIndex: 3,
-          explanation: '奴国は現在の福岡県博多付近にあったとされています。',
           difficulty: 'advanced',
         },
         {

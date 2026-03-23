@@ -64,6 +64,12 @@ export const kofunEraChat: HistoryChat = {
       text: '<strong><span class="keyword"><ruby>前方後円墳<rp>(</rp><rt>ぜんぽうこうえんふん</rt><rp>)</rp></ruby></span></strong>だ！<span data-tooltip="上から見ると鍵穴のような形。四角い部分（前方）と丸い部分（後円）を組み合わせた日本独自の墓"><ruby>鍵穴<rp>(</rp><rt>かぎあな</rt><rp>)</rp></ruby>のような形</span>をした日本<ruby>独自<rp>(</rp><rt>どくじ</rt><rp>)</rp></ruby>のお墓で、大王の力の<ruby>証<rp>(</rp><rt>あかし</rt><rp>)</rp></ruby>だよ。<ruby>大阪府<rp>(</rp><rt>おおさかふ</rt><rp>)</rp></ruby><ruby>堺市<rp>(</rp><rt>さかいし</rt><rp>)</rp></ruby>の<strong><span class="keyword"><ruby>大仙古墳<rp>(</rp><rt>だいせんこふん</rt><rp>)</rp></ruby></span></strong>は日本最大級だよ',
     },
     {
+      type: 'image',
+      src: '/images/history/grade1/2-japanese-origins/keyhole-tomb-diagram.png',
+      alt: '前方後円墳',
+      caption: '鍵穴型の古墳とはにわの配置',
+    },
+    {
       type: 'message',
       side: 'right',
       characterId: 'student',
@@ -76,12 +82,6 @@ export const kofunEraChat: HistoryChat = {
       characterId: 'teacher',
       expression: 'happy',
       text: 'あれは<strong><span class="keyword"><ruby>埴輪<rp>(</rp><rt>はにわ</rt><rp>)</rp></ruby></span></strong>だよ。人や馬、家などの形をした<ruby>焼<rp>(</rp><rt>や</rt><rp>)</rp></ruby>き物で、<strong>古墳</strong>の周りに並べて飾ったんだ。<ruby>死者<rp>(</rp><rt>ししゃ</rt><rp>)</rp></ruby>の<ruby>魂<rp>(</rp><rt>たましい</rt><rp>)</rp></ruby>を守る<ruby>役割<rp>(</rp><rt>やくわり</rt><rp>)</rp></ruby>があったと考えられているよ',
-    },
-    {
-      type: 'image',
-      src: '/images/history/grade1/2-japanese-origins/keyhole-tomb-diagram.png',
-      alt: '前方後円墳',
-      caption: '鍵穴型の古墳とはにわの配置',
     },
     {
       type: 'summary-point',
@@ -105,7 +105,7 @@ export const kofunEraChat: HistoryChat = {
     },
     {
       type: 'narrator',
-      text: '<strong><span class="keyword"><ruby>ワカタケル大王<rp>(</rp><rt>わかたけるおおきみ</rt><rp>)</rp></ruby></span></strong>の名が<ruby>刻<rp>(</rp><rt>きざ</rt><rp>)</rp></ruby>まれた<ruby>鉄剣<rp>(</rp><rt>てっけん</rt><rp>)</rp></ruby>が<ruby>関東<rp>(</rp><rt>かんとう</rt><rp>)</rp></ruby>と<ruby>九州<rp>(</rp><rt>きゅうしゅう</rt><rp>)</rp></ruby>で出土し、<ruby>大和政権<rp>(</rp><rt>やまとせいけん</rt><rp>)</rp></ruby>の<ruby>支配<rp>(</rp><rt>しはい</rt><rp>)</rp></ruby>が広く<ruby>及<rp>(</rp><rt>およ</rt><rp>)</rp></ruby>んでいたことがわかりました。',
+      text: '<strong><span class="keyword">ワカタケル大王</span></strong>の名が<ruby>刻<rp>(</rp><rt>きざ</rt><rp>)</rp></ruby>まれた<ruby>鉄剣<rp>(</rp><rt>てっけん</rt><rp>)</rp></ruby>が<ruby>関東<rp>(</rp><rt>かんとう</rt><rp>)</rp></ruby>と<ruby>九州<rp>(</rp><rt>きゅうしゅう</rt><rp>)</rp></ruby>で出土し、<ruby>大和政権<rp>(</rp><rt>やまとせいけん</rt><rp>)</rp></ruby>の<ruby>支配<rp>(</rp><rt>しはい</rt><rp>)</rp></ruby>が広く<ruby>及<rp>(</rp><rt>およ</rt><rp>)</rp></ruby>んでいたことがわかりました。',
     },
     {
       type: 'message',
@@ -155,7 +155,7 @@ export const kofunEraChat: HistoryChat = {
         { letter: 'D', text: '推古天皇', correct: false },
       ],
       explanation:
-        '<strong>正解はB「<ruby>ワカタケル大王<rp>(</rp><rt>わかたけるおおきみ</rt><rp>)</rp></ruby>」</strong>です。後の<ruby>雄略天皇<rp>(</rp><rt>ゆうりゃくてんのう</rt><rp>)</rp></ruby>にあたり、大和政権の広い支配を示す証拠です。',
+        '<strong>正解はB「ワカタケル大王」</strong>です。後の<ruby>雄略天皇<rp>(</rp><rt>ゆうりゃくてんのう</rt><rp>)</rp></ruby>にあたり、大和政権の広い支配を示す証拠です。',
     },
     {
       type: 'date',
@@ -235,7 +235,7 @@ export const kofunEraChat: HistoryChat = {
       points: [
         '<strong><ruby>大和政権<rp>(</rp><rt>やまとせいけん</rt><rp>)</rp></ruby></strong>：<ruby>奈良盆地<rp>(</rp><rt>ならぼんち</rt><rp>)</rp></ruby>中心、<strong><ruby>大王<rp>(</rp><rt>おおきみ</rt><rp>)</rp></ruby></strong>が頂点',
         '<strong><ruby>前方後円墳<rp>(</rp><rt>ぜんぽうこうえんふん</rt><rp>)</rp></ruby></strong>：日本<ruby>独自<rp>(</rp><rt>どくじ</rt><rp>)</rp></ruby>の巨大な墓、<strong><ruby>大仙古墳<rp>(</rp><rt>だいせんこふん</rt><rp>)</rp></ruby></strong>が最大級、<strong><ruby>埴輪<rp>(</rp><rt>はにわ</rt><rp>)</rp></ruby></strong>を配置',
-        '<strong><ruby>ワカタケル大王<rp>(</rp><rt>わかたけるおおきみ</rt><rp>)</rp></ruby></strong>：<ruby>稲荷山古墳<rp>(</rp><rt>いなりやまこふん</rt><rp>)</rp></ruby>の<ruby>鉄剣<rp>(</rp><rt>てっけん</rt><rp>)</rp></ruby> → 関東〜九州の支配',
+        '<strong>ワカタケル大王</strong>：<ruby>稲荷山古墳<rp>(</rp><rt>いなりやまこふん</rt><rp>)</rp></ruby>の<ruby>鉄剣<rp>(</rp><rt>てっけん</rt><rp>)</rp></ruby> → 関東〜九州の支配',
         '<strong><ruby>渡来人<rp>(</rp><rt>とらいじん</rt><rp>)</rp></ruby></strong>：<strong><ruby>須恵器<rp>(</rp><rt>すえき</rt><rp>)</rp></ruby></strong>・<strong><ruby>漢字<rp>(</rp><rt>かんじ</rt><rp>)</rp></ruby></strong>・<strong><ruby>仏教<rp>(</rp><rt>ぶっきょう</rt><rp>)</rp></ruby></strong>・<strong><ruby>儒教<rp>(</rp><rt>じゅきょう</rt><rp>)</rp></ruby></strong>を伝える',
       ],
     },

@@ -112,7 +112,7 @@ export const vertebratesChat: HistoryChat = {
       side: 'left',
       characterId: 'teacher',
       expression: 'explaining',
-      text: '<ruby>体表<rp>(</rp><rt>たいひょう</rt><rp>)</rp></ruby>を<ruby>比較<rp>(</rp><rt>ひかく</rt><rp>)</rp></ruby>してみよう！<br/><strong><span class="keyword"><ruby>魚類<rp>(</rp><rt>ぎょるい</rt><rp>)</rp></ruby></span></strong>＝<ruby>うろこ<rp>(</rp><rt></rt><rp>)</rp></ruby><br/><strong><span class="keyword"><ruby>両生類<rp>(</rp><rt>りょうせいるい</rt><rp>)</rp></ruby></span></strong>＝しめった<ruby>皮膚<rp>(</rp><rt>ひふ</rt><rp>)</rp></ruby><br/><strong><span class="keyword">ハチュウ<ruby>類<rp>(</rp><rt>るい</rt><rp>)</rp></ruby></span></strong>＝うろこ・こうら<br/><strong><span class="keyword"><ruby>鳥類<rp>(</rp><rt>ちょうるい</rt><rp>)</rp></ruby></span></strong>＝<ruby>羽毛<rp>(</rp><rt>うもう</rt><rp>)</rp></ruby><br/><strong><span class="keyword"><ruby>哺乳類<rp>(</rp><rt>ほにゅうるい</rt><rp>)</rp></ruby></span></strong>＝<ruby>毛<rp>(</rp><rt>け</rt><rp>)</rp></ruby>',
+      text: '<ruby>体表<rp>(</rp><rt>たいひょう</rt><rp>)</rp></ruby>を<ruby>比較<rp>(</rp><rt>ひかく</rt><rp>)</rp></ruby>してみよう！<br/><strong><span class="keyword"><ruby>魚類<rp>(</rp><rt>ぎょるい</rt><rp>)</rp></ruby></span></strong>＝うろこ<br/><strong><span class="keyword"><ruby>両生類<rp>(</rp><rt>りょうせいるい</rt><rp>)</rp></ruby></span></strong>＝しめった<ruby>皮膚<rp>(</rp><rt>ひふ</rt><rp>)</rp></ruby><br/><strong><span class="keyword">ハチュウ<ruby>類<rp>(</rp><rt>るい</rt><rp>)</rp></ruby></span></strong>＝うろこ・こうら<br/><strong><span class="keyword"><ruby>鳥類<rp>(</rp><rt>ちょうるい</rt><rp>)</rp></ruby></span></strong>＝<ruby>羽毛<rp>(</rp><rt>うもう</rt><rp>)</rp></ruby><br/><strong><span class="keyword"><ruby>哺乳類<rp>(</rp><rt>ほにゅうるい</rt><rp>)</rp></ruby></span></strong>＝<ruby>毛<rp>(</rp><rt>け</rt><rp>)</rp></ruby>',
     },
     {
       type: 'message',
