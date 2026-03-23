@@ -4,6 +4,8 @@ import {
   saveProgress,
   getTopicProgress as getStoredTopicProgress,
   updateStreak,
+  calculateNextReviewDate,
+  postponeReviewDate,
   DEFAULT_TOPIC_PROGRESS,
 } from '../utils/studyProgressStorage';
 import { allTopics, getTopicsByEra } from '../data/subjects/registry';
@@ -99,6 +101,10 @@ export function useStudyProgress() {
           ? Array.from(new Set([...prevDifficulties, ...difficulties]))
           : prevDifficulties;
 
+        // 復習スケジューラー: 次の復習日を計算
+        const reviewCount = tp.reviewCount ?? 0;
+        const nextReviewDate = calculateNextReviewDate(newRate, reviewCount);
+
         if (newRate > currentBestRate) {
           isNewBest = true;
           return {
@@ -107,12 +113,16 @@ export function useStudyProgress() {
             quizTotalQuestions: total,
             quizCompletedDifficulties: mergedDifficulties.length > 0 ? mergedDifficulties : undefined,
             lastStudiedAt: new Date().toISOString(),
+            nextReviewDate,
+            reviewCount: reviewCount + 1,
           };
         }
         return {
           ...tp,
           quizCompletedDifficulties: mergedDifficulties.length > 0 ? mergedDifficulties : undefined,
           lastStudiedAt: new Date().toISOString(),
+          nextReviewDate,
+          reviewCount: reviewCount + 1,
         };
       });
       return { isNewBest };
@@ -198,11 +208,15 @@ export function useStudyProgress() {
 
   const getReviewRecommendations = useCallback(
     (limit: number): ReviewRecommendation[] => {
+      const today = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
       const candidates: ReviewRecommendation[] = [];
       for (const [topicId, tp] of Object.entries(progress.topics)) {
         if (tp.quizBestScore !== null && tp.quizTotalQuestions !== null && tp.quizTotalQuestions > 0) {
+          // nextReviewDateがある場合: 今日以前のものだけ表示
+          // nextReviewDateがない場合（既存データ）: スコアが満点未満なら表示
+          const isDue = tp.nextReviewDate ? tp.nextReviewDate <= today : true;
           const rate = tp.quizBestScore / tp.quizTotalQuestions;
-          if (rate < 1) {
+          if (isDue && rate < 1) {
             const topic = allTopics.find((t) => t.id === topicId);
             if (topic) {
               candidates.push({
@@ -214,7 +228,13 @@ export function useStudyProgress() {
           }
         }
       }
+      // nextReviewDateが早い順 → スコアが低い順
       candidates.sort((a, b) => {
+        const tpA = progress.topics[a.topic.id];
+        const tpB = progress.topics[b.topic.id];
+        const dateA = tpA?.nextReviewDate ?? '';
+        const dateB = tpB?.nextReviewDate ?? '';
+        if (dateA !== dateB) return dateA.localeCompare(dateB);
         const rateA = a.quizBestScore / a.quizTotalQuestions;
         const rateB = b.quizBestScore / b.quizTotalQuestions;
         return rateA - rateB;
@@ -222,6 +242,22 @@ export function useStudyProgress() {
       return candidates.slice(0, limit);
     },
     [progress],
+  );
+
+  const postponeReview = useCallback(
+    (topicId: string, days: number) => {
+      const current = loadProgress();
+      const tp = getStoredTopicProgress(current, topicId);
+      const updated: StudyProgress = {
+        ...current,
+        topics: {
+          ...current.topics,
+          [topicId]: { ...tp, nextReviewDate: postponeReviewDate(days) },
+        },
+      };
+      save(updated);
+    },
+    [save],
   );
 
   const bookmarkedTopicIds = useMemo(() => progress.bookmarkedTopicIds ?? [], [progress]);
@@ -258,6 +294,7 @@ export function useStudyProgress() {
     lastStudiedTopicId,
     getNextTopicToStudy,
     getReviewRecommendations,
+    postponeReview,
     bookmarkedTopicIds,
     toggleBookmark,
     isBookmarked,

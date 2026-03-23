@@ -2,10 +2,25 @@ import { useState } from 'react';
 import { Header } from '../components/common/Header';
 import { SEOHead } from '../components/common/SEOHead';
 import { clearProgress } from '../utils/studyProgressStorage';
+import { loadTheme, saveTheme, applyTheme } from '../utils/themeStorage';
+import type { ThemeMode } from '../utils/themeStorage';
+
+const themeOptions: { value: ThemeMode; label: string }[] = [
+  { value: 'system', label: '自動' },
+  { value: 'light', label: 'ライト' },
+  { value: 'dark', label: 'ダーク' },
+];
 
 export function SettingsPage() {
   const [showConfirm, setShowConfirm] = useState(false);
   const [cleared, setCleared] = useState(false);
+  const [theme, setTheme] = useState<ThemeMode>(loadTheme);
+
+  const handleThemeChange = (mode: ThemeMode) => {
+    setTheme(mode);
+    saveTheme(mode);
+    applyTheme(mode);
+  };
 
   const handleReset = () => {
     clearProgress();
@@ -24,7 +39,28 @@ export function SettingsPage() {
         ]}
       />
       <Header title="設定" showBack />
-      <main className="mx-auto max-w-md px-4 py-6">
+      <main className="mx-auto max-w-md space-y-4 px-4 py-6">
+        {/* テーマ設定 */}
+        <div className="rounded-xl bg-white p-4 shadow-sm">
+          <h2 className="mb-4 text-sm font-semibold text-gray-600">テーマ</h2>
+          <div className="flex gap-2">
+            {themeOptions.map((opt) => (
+              <button
+                key={opt.value}
+                onClick={() => handleThemeChange(opt.value)}
+                className={`flex-1 rounded-lg border-2 py-2.5 text-sm font-medium transition-colors ${
+                  theme === opt.value
+                    ? 'border-amber-500 bg-amber-50 text-amber-700'
+                    : 'border-gray-200 bg-white text-gray-600'
+                }`}
+              >
+                {opt.label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* 学習データ */}
         <div className="rounded-xl bg-white p-4 shadow-sm">
           <h2 className="mb-4 text-sm font-semibold text-gray-600">学習データ</h2>
           {cleared ? (

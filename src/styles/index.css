@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Zen+Maru+Gothic:wght@400;500;700&display=swap');
 
 html {
@@ -9,6 +11,44 @@ html {
 body {
   background-color: #FAF9F7;
   color: #1f2937;
+}
+
+/* ダークモード基本色 */
+.dark body {
+  background-color: #1a1a1a;
+  color: #e5e5e5;
+}
+
+.dark .bg-\[\#FAF9F7\] {
+  background-color: #1a1a1a;
+}
+
+.dark .bg-white {
+  background-color: #262626;
+}
+
+.dark .bg-gray-50 {
+  background-color: #1f1f1f;
+}
+
+.dark .border-gray-200 {
+  border-color: #404040;
+}
+
+.dark .text-gray-800 {
+  color: #e5e5e5;
+}
+
+.dark .text-gray-600 {
+  color: #a3a3a3;
+}
+
+.dark .text-gray-500 {
+  color: #a3a3a3;
+}
+
+.dark .text-gray-400 {
+  color: #737373;
 }
 
 /* タップ時のハイライトを無効化（スマホ対応） */
@@ -23,6 +63,14 @@ button {
 
 button:disabled {
   cursor: default;
+}
+
+/* キーボードフォーカス表示（アクセシビリティ） */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  outline: 2px solid #F59E0B;
+  outline-offset: 2px;
 }
 
 /* スクロールバーを目立たなく */

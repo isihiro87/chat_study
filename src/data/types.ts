@@ -204,4 +204,6 @@ export interface TopicProgress {
   quizTotalQuestions: number | null;
   quizCompletedDifficulties?: Difficulty[];
   lastStudiedAt: string;
+  nextReviewDate?: string;  // YYYY-MM-DD 次の復習日
+  reviewCount?: number;     // 復習回数
 }

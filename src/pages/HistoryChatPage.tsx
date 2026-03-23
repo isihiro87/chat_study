@@ -3,22 +3,29 @@ import { useParams } from 'react-router-dom';
 import { ChatContainer } from '../components/history-chat/ChatContainer';
 import { SEOHead } from '../components/common/SEOHead';
 import { loadChat } from '../data/subjects/registry';
+import { classifyError, handleChunkError } from '../utils/classifyError';
+import { ErrorScreen } from '../components/common/ErrorScreen';
+import type { LoadErrorType } from '../utils/classifyError';
 import type { HistoryChat } from '../data/history-chat/types';
 
 export function HistoryChatPage() {
   const { chatId } = useParams<{ chatId: string }>();
   const [chat, setChat] = useState<HistoryChat | undefined>(undefined);
   const [isLoading, setIsLoading] = useState(true);
-  const [loadError, setLoadError] = useState(false);
+  const [loadError, setLoadError] = useState<LoadErrorType | null>(null);
 
   const loadChatData = useCallback(async (id: string) => {
     setIsLoading(true);
-    setLoadError(false);
+    setLoadError(null);
     try {
       const data = await loadChat(id);
       setChat(data);
-    } catch {
-      setLoadError(true);
+    } catch (err) {
+      const errorType = classifyError(err);
+      if (errorType === 'chunk') {
+        handleChunkError();
+      }
+      setLoadError(errorType);
     } finally {
       setIsLoading(false);
     }
@@ -34,38 +41,49 @@ export function HistoryChatPage() {
 
   if (isLoading) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-[#FAF9F7]">
-        <div className="h-8 w-8 animate-spin rounded-full border-4 border-gray-300 border-t-amber-500" />
+      <div className="flex min-h-screen flex-col bg-[#FAF9F7]">
+        {/* ヘッダースケルトン */}
+        <div className="bg-white shadow-sm">
+          <div className="flex items-center px-4 py-3">
+            <div className="mr-3 h-10 w-10 animate-pulse rounded-full bg-gray-200" />
+            <div className="flex-1">
+              <div className="h-5 w-40 animate-pulse rounded bg-gray-200" />
+              <div className="mt-1 h-3 w-24 animate-pulse rounded bg-gray-100" />
+            </div>
+          </div>
+          <div className="mx-4 mb-2 h-1.5 animate-pulse rounded-full bg-gray-200" />
+        </div>
+        {/* チャットメッセージスケルトン */}
+        <div className="flex-1 space-y-4 p-4">
+          <div className="flex gap-3">
+            <div className="h-8 w-8 flex-shrink-0 animate-pulse rounded-full bg-gray-200" />
+            <div className="h-16 w-3/4 animate-pulse rounded-2xl bg-gray-200" />
+          </div>
+          <div className="flex justify-end">
+            <div className="h-12 w-2/3 animate-pulse rounded-2xl bg-gray-200" />
+          </div>
+          <div className="flex gap-3">
+            <div className="h-8 w-8 flex-shrink-0 animate-pulse rounded-full bg-gray-200" />
+            <div className="h-24 w-3/4 animate-pulse rounded-2xl bg-gray-200" />
+          </div>
+          <div className="flex justify-end">
+            <div className="h-10 w-1/2 animate-pulse rounded-2xl bg-gray-200" />
+          </div>
+          <div className="flex gap-3">
+            <div className="h-8 w-8 flex-shrink-0 animate-pulse rounded-full bg-gray-200" />
+            <div className="h-16 w-2/3 animate-pulse rounded-2xl bg-gray-200" />
+          </div>
+        </div>
       </div>
     );
   }
 
   if (loadError) {
     return (
-      <div className="flex min-h-screen flex-col items-center justify-center bg-[#FAF9F7] px-4">
-        <span className="mb-4 text-6xl">😵</span>
-        <h1
-          className="mb-2 text-xl font-bold text-gray-800"
-          style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
-        >
-          読み込みに失敗しました
-        </h1>
-        <p
-          className="mb-6 text-center text-sm text-gray-500"
-          style={{ fontFamily: "'Noto Sans JP', sans-serif" }}
-        >
-          チャットの取得中にエラーが発生しました。
-          <br />
-          もう一度お試しください。
-        </p>
-        <button
-          onClick={() => chatId && loadChatData(chatId)}
-          className="rounded-full bg-gray-800 px-6 py-3 text-sm font-semibold text-white active:scale-95"
-          style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
-        >
-          再試行
-        </button>
-      </div>
+      <ErrorScreen
+        errorType={loadError}
+        onRetry={() => chatId && loadChatData(chatId)}
+      />
     );
   }
 
