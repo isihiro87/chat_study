@@ -47,7 +47,7 @@ export const sekkanPoliticsChat: HistoryChat = {
       side: 'left',
       characterId: 'michinaga',
       expression: 'explaining',
-      text: '<span data-tooltip="天皇の母方の親せきのこと。藤原氏はこの立場を利用して政治の実権を握った"><ruby>外戚<rp>(</rp><rt>がいせき</rt><rp>)</rp></ruby></span>というのは、天皇のお母さん側の<ruby>親戚<rp>(</rp><rt>しんせき</rt><rp>)</rp></ruby>のことだよ。<ruby>藤原氏<rp>(</rp><rt>ふじわらし</rt><rp>)</rp></ruby>は娘を天皇に嫁がせて、この立場を手に入れたんだ',
+      text: '<ruby>藤原氏<rp>(</rp><rt>ふじわらし</rt><rp>)</rp></ruby>はまず<ruby>娘<rp>(</rp><rt>むすめ</rt><rp>)</rp></ruby>を天皇のきさき（<ruby>后<rp>(</rp><rt>きさき</rt><rp>)</rp></ruby>）にするんだ。その娘が<ruby>皇子<rp>(</rp><rt>おうじ</rt><rp>)</rp></ruby>を産み、その皇子が次の天皇になると、藤原氏は天皇のおじいさん＝<span data-tooltip="天皇の母方の親せきのこと。藤原氏はこの立場を利用して政治の実権を握った"><strong><span class="keyword"><ruby>外戚<rp>(</rp><rt>がいせき</rt><rp>)</rp></ruby></span></strong></span>になれるんだよ。こうして政治の<ruby>実権<rp>(</rp><rt>じっけん</rt><rp>)</rp></ruby>を<ruby>握<rp>(</rp><rt>にぎ</rt><rp>)</rp></ruby>ったんだ',
     },
     {
       type: 'message',
@@ -75,7 +75,7 @@ export const sekkanPoliticsChat: HistoryChat = {
       side: 'left',
       characterId: 'michinaga',
       expression: 'excited',
-      text: 'そうだよ！特に<strong><span class="keyword"><ruby>藤原道長<rp>(</rp><rt>ふじわらのみちなが</rt><rp>)</rp></ruby></span></strong>は「この世をば わが世とぞ思ふ <ruby>望月<rp>(</rp><rt>もちづき</rt><rp>)</rp></ruby>の 欠けたることも なしと思へば」と<ruby>詠<rp>(</rp><rt>よ</rt><rp>)</rp></ruby>んだほどの<ruby>栄華<rp>(</rp><rt>えいが</rt><rp>)</rp></ruby>を<ruby>誇<rp>(</rp><rt>ほこ</rt><rp>)</rp></ruby>ったんだ',
+      text: 'そうだよ！特に<strong><span class="keyword"><ruby>藤原道長<rp>(</rp><rt>ふじわらのみちなが</rt><rp>)</rp></ruby></span></strong>は「この世をば わが世とぞ思ふ <ruby>望月<rp>(</rp><rt>もちづき</rt><rp>)</rp></ruby>の 欠けたることも なしと思へば」と<ruby>詠<rp>(</rp><rt>よ</rt><rp>)</rp></ruby>んだんだ。「この世は自分のためにあるようなもの。<ruby>満月<rp>(</rp><rt>まんげつ</rt><rp>)</rp></ruby>のように何も欠けたものはない」という意味で、それほどの<ruby>栄華<rp>(</rp><rt>えいが</rt><rp>)</rp></ruby>を<ruby>誇<rp>(</rp><rt>ほこ</rt><rp>)</rp></ruby>ったんだよ',
     },
     {
       type: 'image',
