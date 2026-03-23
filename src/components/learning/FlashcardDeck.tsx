@@ -2,11 +2,19 @@ import { useState, useEffect, useRef, useMemo } from 'react';
 import { motion, AnimatePresence, useMotionValue, useTransform, type PanInfo } from 'framer-motion';
 import { RotateCcw, Check, ChevronLeft, ChevronRight, Layers, ArrowLeft, ArrowRight, AlertTriangle, MessageCircle } from 'lucide-react';
 import { useFlashcard } from '../../hooks/useFlashcard';
+import type { FlashcardSavedState } from '../../hooks/useFlashcard';
 import type { Flashcard } from '../../data/types';
 import { MathText } from '../common/MathText';
 import { ProgressIndicator } from '../common/ProgressIndicator';
 import { buildChatGPTUrl } from '../../utils/chatgptPrompt';
 import FlashcardSetup from './FlashcardSetup';
+import { saveResumeState, loadResumeState, clearResumeState } from '../../utils/resumeState';
+
+interface FlashcardResumeState {
+  activeCardIds: string[];
+  batchSize?: number;
+  flashcard: FlashcardSavedState;
+}
 
 interface ChatGPTInfo {
   subjectId: string;
@@ -20,13 +28,30 @@ interface FlashcardDeckProps {
   onComplete?: () => void;
   chatGPTInfo?: ChatGPTInfo;
   subjectId?: string;
+  topicId?: string;
+  resumeMode?: boolean;
 }
 
-export function FlashcardDeck({ cards, onProgressChange, onComplete, chatGPTInfo, subjectId }: FlashcardDeckProps) {
+export function FlashcardDeck({ cards, onProgressChange, onComplete, chatGPTInfo, subjectId, topicId, resumeMode }: FlashcardDeckProps) {
+  // 復元状態の読み込み
+  const [resumeData] = useState<FlashcardResumeState | null>(() => {
+    if (resumeMode && topicId) {
+      return loadResumeState<FlashcardResumeState>(topicId, 'flashcard');
+    }
+    return null;
+  });
+
   // セットアップ状態
-  const [setupComplete, setSetupComplete] = useState(false);
-  const [activeCards, setActiveCards] = useState<Flashcard[]>(cards);
-  const [activeBatchSize, setActiveBatchSize] = useState<number | undefined>(undefined);
+  const [setupComplete, setSetupComplete] = useState(resumeData !== null);
+  const [activeCards, setActiveCards] = useState<Flashcard[]>(() => {
+    if (resumeData) {
+      return cards.filter((c) => resumeData.activeCardIds.includes(c.id));
+    }
+    return cards;
+  });
+  const [activeBatchSize, setActiveBatchSize] = useState<number | undefined>(
+    resumeData?.batchSize,
+  );
 
   const {
     currentIndex,
@@ -39,6 +64,8 @@ export function FlashcardDeck({ cards, onProgressChange, onComplete, chatGPTInfo
     reviewCount,
     notRememberedCount,
     sessionHistory,
+    rememberedIds,
+    reviewQueueIds,
     currentBatchIndex,
     totalBatches,
     isBatchComplete,
@@ -50,7 +77,7 @@ export function FlashcardDeck({ cards, onProgressChange, onComplete, chatGPTInfo
     resetWithReviewOnly,
     swipeLeft,
     swipeRight,
-  } = useFlashcard(activeCards, activeBatchSize);
+  } = useFlashcard(activeCards, activeBatchSize, resumeData?.flashcard);
 
   // ドラッグ位置を追跡
   const x = useMotionValue(0);
@@ -81,8 +108,26 @@ export function FlashcardDeck({ cards, onProgressChange, onComplete, chatGPTInfo
     if (isComplete && !completeCalled.current) {
       completeCalled.current = true;
       onComplete?.();
+      if (topicId) clearResumeState(topicId, 'flashcard');
     }
-  }, [isComplete, onComplete]);
+  }, [isComplete, onComplete, topicId]);
+
+  // 自動保存: カード振り分けごとにsessionStorageに保存
+  useEffect(() => {
+    if (!topicId || !setupComplete || isComplete) return;
+    if (currentIndex === 0 && rememberedIds.size === 0) return;
+    saveResumeState<FlashcardResumeState>(topicId, 'flashcard', {
+      activeCardIds: activeCards.map((c) => c.id),
+      batchSize: activeBatchSize,
+      flashcard: {
+        currentIndex,
+        rememberedIds: [...rememberedIds],
+        reviewQueueIds,
+        isReviewMode,
+        currentBatchIndex,
+      },
+    });
+  }, [topicId, setupComplete, isComplete, currentIndex, rememberedIds, reviewQueueIds, isReviewMode, currentBatchIndex, activeCards, activeBatchSize]);
 
   const [showHint, setShowHint] = useState(false);
   // 初回説明表示（セッション中のみ有効、localStorageに保存しない）

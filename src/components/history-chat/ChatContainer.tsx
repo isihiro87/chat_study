@@ -1,8 +1,10 @@
-import { useRef, useEffect, useMemo } from 'react';
+import { useRef, useEffect, useMemo, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useHistoryChat } from '../../hooks/useHistoryChat';
+import type { ChatSavedState } from '../../hooks/useHistoryChat';
 import { useTooltip } from '../../hooks/useTooltip';
 import { useSpeechSynthesis } from '../../hooks/useSpeechSynthesis';
+import { saveResumeState, loadResumeState, clearResumeState } from '../../utils/resumeState';
 import { estimateReadingTime } from '../../utils/estimateReadingTime';
 import { ChatHeader } from './ChatHeader';
 import { DateSeparator } from './DateSeparator';
@@ -25,9 +27,19 @@ interface ChatContainerProps {
   onComplete?: () => void;
   onProgressChange?: (current: number, total: number) => void;
   subjectId?: string;
+  topicId?: string;
+  resumeMode?: boolean;
 }
 
-export function ChatContainer({ chat, embedded = false, onNavigateToFlashcard, onNavigateToQuiz, onNavigateToExample, onComplete, onProgressChange, subjectId }: ChatContainerProps) {
+export function ChatContainer({ chat, embedded = false, onNavigateToFlashcard, onNavigateToQuiz, onNavigateToExample, onComplete, onProgressChange, subjectId, topicId, resumeMode }: ChatContainerProps) {
+  // 復元状態の読み込み
+  const [resumeData] = useState<ChatSavedState | null>(() => {
+    if (resumeMode && topicId) {
+      return loadResumeState<ChatSavedState>(topicId, 'chat');
+    }
+    return null;
+  });
+
   const {
     shownIndex,
     visibleContent,
@@ -36,6 +48,7 @@ export function ChatContainer({ chat, embedded = false, onNavigateToFlashcard, o
     hasTapped,
     isWaitingForQuiz,
     quizAnswers,
+    quizResults,
     score,
     totalQuizzes,
     isWaitingForWhiteboard,
@@ -44,7 +57,7 @@ export function ChatContainer({ chat, embedded = false, onNavigateToFlashcard, o
     selectAnswer,
     stepBack,
     reset,
-  } = useHistoryChat(chat);
+  } = useHistoryChat(chat, resumeData ?? undefined);
 
   const scrollRef = useRef<HTMLDivElement>(null);
   const endRef = useRef<HTMLDivElement>(null);
@@ -85,8 +98,23 @@ export function ChatContainer({ chat, embedded = false, onNavigateToFlashcard, o
     if (isComplete && !completeCalled.current) {
       completeCalled.current = true;
       onComplete?.();
+      if (topicId) clearResumeState(topicId, 'chat');
     }
-  }, [isComplete, onComplete]);
+  }, [isComplete, onComplete, topicId]);
+
+  // 自動保存: 進行ごとにsessionStorageに保存
+  useEffect(() => {
+    if (!topicId || isComplete) return;
+    const initIndex = chat.content.findIndex(
+      (c) => c.type === 'message' || c.type === 'quiz',
+    );
+    if (shownIndex <= (initIndex >= 0 ? initIndex : 1)) return;
+    saveResumeState<ChatSavedState>(topicId, 'chat', {
+      shownIndex,
+      quizAnswers,
+      quizResults,
+    });
+  }, [topicId, isComplete, shownIndex, quizAnswers, quizResults, chat.content]);
 
   // 新しい要素が表示されたら自動スクロール
   // 結果画面（end）表示時はカード上端が見えるようにスクロール

@@ -25,16 +25,23 @@ interface UseQuizReturn {
   reviewScore: number;
 }
 
-export function useQuiz(quiz: Quiz): UseQuizReturn {
-  const [isStarted, setIsStarted] = useState(false);
-  const [currentIndex, setCurrentIndex] = useState(0);
+export interface QuizSavedState {
+  isStarted: boolean;
+  currentIndex: number;
+  answers: (number | null)[];
+  score: number;
+}
+
+export function useQuiz(quiz: Quiz, savedState?: QuizSavedState): UseQuizReturn {
+  const [isStarted, setIsStarted] = useState(savedState?.isStarted ?? false);
+  const [currentIndex, setCurrentIndex] = useState(savedState?.currentIndex ?? 0);
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
   const [isAnswered, setIsAnswered] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
   const [answers, setAnswers] = useState<(number | null)[]>(
-    new Array(quiz.questions.length).fill(null),
+    savedState?.answers ?? new Array(quiz.questions.length).fill(null),
   );
-  const [score, setScore] = useState(0);
+  const [score, setScore] = useState(savedState?.score ?? 0);
 
   const [isReviewMode, setIsReviewMode] = useState(false);
   const [reviewQuestionIndices, setReviewQuestionIndices] = useState<number[]>([]);

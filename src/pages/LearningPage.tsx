@@ -25,6 +25,8 @@ import { ErrorScreen } from '../components/common/ErrorScreen';
 import type { LoadErrorType } from '../utils/classifyError';
 import { useStudyProgress } from '../hooks/useStudyProgress';
 import { useTopicNavigation } from '../hooks/useTopicNavigation';
+import { hasResumeState, clearAllResumeState } from '../utils/resumeState';
+import { ResumeDialog } from '../components/common/ResumeDialog';
 import type { TabType, TopicContent, Difficulty } from '../data/types';
 import type { HistoryChat } from '../data/history-chat/types';
 
@@ -76,6 +78,12 @@ export function LearningPage() {
   const [showAiImageNotice, setShowAiImageNotice] = useState(() => {
     return !localStorage.getItem('ai_image_notice_dismissed');
   });
+
+  // 復帰ダイアログ
+  const [showResumeDialog, setShowResumeDialog] = useState(() => {
+    return topicId ? hasResumeState(topicId) : false;
+  });
+  const [resumeMode, setResumeMode] = useState(false);
 
   const {
     markChatRead,
@@ -451,6 +459,8 @@ export function LearningPage() {
             onComplete={handleChatComplete}
             onProgressChange={handleChatProgressChange}
             subjectId={subjectId}
+            topicId={topicId}
+            resumeMode={resumeMode}
           />
         </div>
       )}
@@ -487,6 +497,8 @@ export function LearningPage() {
             onComplete={handleFlashcardComplete}
             chatGPTInfo={subjectId ? { subjectId, topicName: topic.name, topicSubtitle: topic.subtitle } : undefined}
             subjectId={subjectId}
+            topicId={topicId}
+            resumeMode={resumeMode}
           />
         </main>
       </div>
@@ -508,6 +520,8 @@ export function LearningPage() {
             navigation={topicNavigation}
             chatGPTInfo={subjectId ? { subjectId, topicName: topic.name, topicSubtitle: topic.subtitle } : undefined}
             subjectId={subjectId}
+            topicId={topicId}
+            resumeMode={resumeMode}
           />
         </main>
       </div>
@@ -548,6 +562,20 @@ export function LearningPage() {
         disabledTabs={disabledTabs}
         completedTabs={completedTabs}
       />
+
+      {/* 復帰ダイアログ */}
+      {showResumeDialog && (
+        <ResumeDialog
+          onResume={() => {
+            setResumeMode(true);
+            setShowResumeDialog(false);
+          }}
+          onRestart={() => {
+            if (topicId) clearAllResumeState(topicId);
+            setShowResumeDialog(false);
+          }}
+        />
+      )}
 
       {/* まとめクイズポップアップ */}
       {showSummaryPopup && (

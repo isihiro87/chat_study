@@ -23,6 +23,8 @@ interface UseFlashcardReturn {
   isComplete: boolean;
   isReviewMode: boolean;
   rememberedCount: number;
+  rememberedIds: Set<string>;
+  reviewQueueIds: string[];
   totalCards: number;
   reviewCount: number;
   notRememberedCount: number;
@@ -43,13 +45,23 @@ interface UseFlashcardReturn {
   swipeRight: () => void;
 }
 
-export function useFlashcard(cards: Flashcard[], batchSize?: number): UseFlashcardReturn {
-  const [currentIndex, setCurrentIndex] = useState(0);
+export interface FlashcardSavedState {
+  currentIndex: number;
+  rememberedIds: string[];
+  reviewQueueIds: string[];
+  isReviewMode: boolean;
+  currentBatchIndex: number;
+}
+
+export function useFlashcard(cards: Flashcard[], batchSize?: number, savedState?: FlashcardSavedState): UseFlashcardReturn {
+  const [currentIndex, setCurrentIndex] = useState(savedState?.currentIndex ?? 0);
   const [isFlipped, setIsFlipped] = useState(false);
-  const [remembered, setRemembered] = useState<Set<string>>(new Set());
-  const [reviewQueue, setReviewQueue] = useState<string[]>([]);
+  const [remembered, setRemembered] = useState<Set<string>>(
+    savedState ? new Set(savedState.rememberedIds) : new Set(),
+  );
+  const [reviewQueue, setReviewQueue] = useState<string[]>(savedState?.reviewQueueIds ?? []);
   const [pendingReview, setPendingReview] = useState<string[]>([]);
-  const [isReviewMode, setIsReviewMode] = useState(false);
+  const [isReviewMode, setIsReviewMode] = useState(savedState?.isReviewMode ?? false);
   const [isComplete, setIsComplete] = useState(false);
   // 最後のカードを処理した後の遷移をuseEffectで行うためのフラグ
   const [needsTransition, setNeedsTransition] = useState(false);
@@ -61,7 +73,7 @@ export function useFlashcard(cards: Flashcard[], batchSize?: number): UseFlashca
   const [firstRoundStats, setFirstRoundStats] = useState({ remembered: 0, total: 0 });
 
   // セット制
-  const [currentBatchIndex, setCurrentBatchIndex] = useState(0);
+  const [currentBatchIndex, setCurrentBatchIndex] = useState(savedState?.currentBatchIndex ?? 0);
   const [isBatchComplete, setIsBatchComplete] = useState(false);
 
   const batches = useMemo(() => {
@@ -310,6 +322,8 @@ export function useFlashcard(cards: Flashcard[], batchSize?: number): UseFlashca
     isComplete,
     isReviewMode,
     rememberedCount: remembered.size,
+    rememberedIds: remembered,
+    reviewQueueIds: reviewQueue,
     totalCards: cards.length,
     reviewCount: isReviewMode
       ? currentCards.length

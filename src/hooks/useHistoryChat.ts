@@ -42,16 +42,28 @@ function getInitialShownIndex(content: ChatContent[]): number {
   return 1;
 }
 
-export function useHistoryChat(chat: HistoryChat): UseHistoryChatReturn {
+export interface ChatSavedState {
+  shownIndex: number;
+  quizAnswers: Record<number, number | null>;
+  quizResults: Record<number, boolean>;
+}
+
+export function useHistoryChat(chat: HistoryChat, savedState?: ChatSavedState): UseHistoryChatReturn {
   // 表示済み要素数（日付+最初のナレーションまで自動表示）
-  const [shownIndex, setShownIndex] = useState(() => getInitialShownIndex(chat.content));
+  const [shownIndex, setShownIndex] = useState(
+    savedState?.shownIndex ?? getInitialShownIndex(chat.content),
+  );
 
   // タップ回数（3回タップするまでヒントを表示し続ける）
-  const [tapCount, setTapCount] = useState(0);
+  const [tapCount, setTapCount] = useState(savedState ? 3 : 0);
 
   // クイズ回答状態
-  const [quizAnswers, setQuizAnswers] = useState<Record<number, number | null>>({});
-  const [quizResults, setQuizResults] = useState<Record<number, boolean>>({});
+  const [quizAnswers, setQuizAnswers] = useState<Record<number, number | null>>(
+    savedState?.quizAnswers ?? {},
+  );
+  const [quizResults, setQuizResults] = useState<Record<number, boolean>>(
+    savedState?.quizResults ?? {},
+  );
 
   // ホワイトボードステップ進行状態（contentIndex → 表示済みステップ数）
   const [whiteboardProgress, setWhiteboardProgress] = useState<Record<number, number>>({});

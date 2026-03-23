@@ -2,11 +2,20 @@ import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Check, X, RotateCcw, Trophy, RefreshCw, ChevronLeft, ChevronRight, Shuffle, Settings, MessageCircle } from 'lucide-react';
 import { useQuiz } from '../../hooks/useQuiz';
+import type { QuizSavedState } from '../../hooks/useQuiz';
 import type { Quiz, QuizQuestion, Difficulty } from '../../data/types';
 import { MathText } from '../common/MathText';
 import { ProgressIndicator } from '../common/ProgressIndicator';
 import { buildChatGPTUrl } from '../../utils/chatgptPrompt';
 import QuizSetup, { type QuizSetupConfig } from './QuizSetup';
+import { saveResumeState, loadResumeState, clearResumeState } from '../../utils/resumeState';
+
+interface QuizResumeState {
+  setupConfig: QuizSetupConfig;
+  activeQuestionIds: string[];
+  selectedDifficulties: Difficulty[];
+  quiz: QuizSavedState;
+}
 
 interface ChatGPTInfo {
   subjectId: string;
@@ -30,6 +39,8 @@ interface QuizViewProps {
   extraResultButtons?: React.ReactNode;
   chatGPTInfo?: ChatGPTInfo;
   subjectId?: string;
+  topicId?: string;
+  resumeMode?: boolean;
 }
 
 function ResultMessage({ percentage }: { percentage: number }) {
@@ -157,14 +168,38 @@ function ReorderQuestionInput({
   );
 }
 
-export function QuizView({ quiz, onProgressChange, onComplete, onCompleteWithDifficulties, onCompleteWithWrongQuestions, isNewBest, navigation, extraResultButtons, chatGPTInfo, subjectId }: QuizViewProps) {
+export function QuizView({ quiz, onProgressChange, onComplete, onCompleteWithDifficulties, onCompleteWithWrongQuestions, isNewBest, navigation, extraResultButtons, chatGPTInfo, subjectId, topicId, resumeMode }: QuizViewProps) {
+  // 復元状態の読み込み（初回レンダー時のみ）
+  const [resumeData] = useState<QuizResumeState | null>(() => {
+    if (resumeMode && topicId) {
+      return loadResumeState<QuizResumeState>(topicId, 'quiz');
+    }
+    return null;
+  });
+
   // セットアップ状態
-  const [setupComplete, setSetupComplete] = useState(false);
-  const [activeQuestions, setActiveQuestions] = useState<QuizQuestion[]>([]);
-  const [selectedDifficulties, setSelectedDifficulties] = useState<Difficulty[]>([]);
-  const [setupConfig, setSetupConfig] = useState<QuizSetupConfig | null>(null);
+  const [setupComplete, setSetupComplete] = useState(resumeData !== null);
+  const [activeQuestions, setActiveQuestions] = useState<QuizQuestion[]>(() => {
+    if (resumeData) {
+      return quiz.questions.filter((q) =>
+        resumeData.activeQuestionIds.includes(q.id),
+      );
+    }
+    return [];
+  });
+  const [selectedDifficulties, setSelectedDifficulties] = useState<Difficulty[]>(
+    resumeData?.selectedDifficulties ?? [],
+  );
+  const [setupConfig, setSetupConfig] = useState<QuizSetupConfig | null>(
+    resumeData?.setupConfig ?? null,
+  );
   const [quizGeneration, setQuizGeneration] = useState(0);
-  const [usedQuestionIds, setUsedQuestionIds] = useState<Set<string>>(new Set());
+  const [usedQuestionIds, setUsedQuestionIds] = useState<Set<string>>(() => {
+    if (resumeData) {
+      return new Set(resumeData.activeQuestionIds);
+    }
+    return new Set();
+  });
 
   const filteredQuiz = useMemo<Quiz>(() => {
     if (!setupComplete) return quiz;
@@ -200,11 +235,25 @@ export function QuizView({ quiz, onProgressChange, onComplete, onCompleteWithDif
     totalQuestions,
     currentQuestion,
     reviewScore,
-  } = useQuiz(filteredQuiz);
+  } = useQuiz(filteredQuiz, resumeData?.quiz);
 
   useEffect(() => {
     onProgressChange?.(currentIndex + 1, totalQuestions);
   }, [currentIndex, totalQuestions, onProgressChange]);
+
+  // 自動保存: 回答ごとにsessionStorageに保存
+  useEffect(() => {
+    if (!topicId || !setupComplete || isComplete || isReviewMode) return;
+    if (!isStarted) return;
+    const answeredCount = answers.filter((a) => a !== null).length;
+    if (answeredCount === 0) return;
+    saveResumeState<QuizResumeState>(topicId, 'quiz', {
+      setupConfig: setupConfig!,
+      activeQuestionIds: activeQuestions.map((q) => q.id),
+      selectedDifficulties,
+      quiz: { isStarted, currentIndex, answers, score },
+    });
+  }, [topicId, setupComplete, isComplete, isReviewMode, isStarted, currentIndex, answers, score, setupConfig, activeQuestions, selectedDifficulties]);
 
   // 「続きの問題を解く」で問題セットが変わったら、新しいquizでreset
   useEffect(() => {
@@ -229,8 +278,9 @@ export function QuizView({ quiz, onProgressChange, onComplete, onCompleteWithDif
         const wrongQs = wrongAnswers.map((idx) => filteredQuiz.questions[idx]);
         onCompleteWithWrongQuestions(wrongQs);
       }
+      if (topicId) clearResumeState(topicId, 'quiz');
     }
-  }, [isComplete, isReviewMode, score, filteredQuiz.questions.length, onComplete, onCompleteWithDifficulties, onCompleteWithWrongQuestions, wrongAnswers, filteredQuiz.questions, selectedDifficulties]);
+  }, [isComplete, isReviewMode, score, filteredQuiz.questions.length, onComplete, onCompleteWithDifficulties, onCompleteWithWrongQuestions, wrongAnswers, filteredQuiz.questions, selectedDifficulties, topicId]);
 
   // 続きの問題を解く: 同じ設定で再選定（出題済み問題を除外）
   const handleNewQuestions = () => {
@@ -289,6 +339,7 @@ export function QuizView({ quiz, onProgressChange, onComplete, onCompleteWithDif
     setSetupComplete(false);
     setSetupConfig(null);
     setUsedQuestionIds(new Set());
+    if (topicId) clearResumeState(topicId, 'quiz');
   };
 
   // セットアップ画面
