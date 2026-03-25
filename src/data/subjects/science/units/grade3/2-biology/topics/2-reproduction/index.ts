@@ -130,6 +130,7 @@ export const reproduction: Topic = {
         id: 'sci3-rep-fc2',
         front: '生殖細胞（動物：卵と精子、被子植物：卵細胞と精細胞）',
         back: '生殖のための特別な細胞を何という？動物と植物での名称もそれぞれ答えよ。',
+        explanation: '生殖細胞は減数分裂でつくられ、染色体数が体細胞の半分になっている。',
         difficulty: 'basic',
       },
       {
@@ -157,6 +158,7 @@ export const reproduction: Topic = {
         id: 'sci3-rep-fc6',
         front: '花粉→花粉管がのびる→精細胞が胚珠の卵細胞と受精→受精卵→胚→種子',
         back: '被子植物の受精の過程を順に説明せよ。',
+        explanation: '花粉がめしべにつくと花粉管がのび、精細胞が胚珠の卵細胞まで届いて受精する。',
         difficulty: 'standard',
       },
       {
@@ -170,6 +172,7 @@ export const reproduction: Topic = {
         id: 'sci3-rep-fc8',
         front: '同じ品質→無性生殖（クローンで同じ形質を維持）、新品種→有性生殖（多様な形質を得る）',
         back: '農業で同じ品質のものを作りたいとき・新品種をつくりたいとき、それぞれどちらの生殖を利用する？',
+        explanation: '無性生殖は親と同じ形質を確実に再現でき、有性生殖は多様な組み合わせから優れた品種を選べる。',
         difficulty: 'advanced',
       },
       {
@@ -183,6 +186,7 @@ export const reproduction: Topic = {
         id: 'sci3-rep-fc10',
         front: '花粉管がのびて精細胞が胚珠の卵細胞に届く',
         back: '被子植物の有性生殖で、精細胞が卵細胞に届くしくみは？',
+        explanation: '花粉管は花柱を通って胚珠まで伸び、その中を精細胞が移動して受精が行われる。',
         difficulty: 'standard',
       },
       {
@@ -196,6 +200,7 @@ export const reproduction: Topic = {
         id: 'sci3-rep-fc12',
         front: '受精卵',
         back: '雌雄の生殖細胞が結合し核が合体してできる細胞を何という？',
+        explanation: '受精卵は体細胞分裂をくり返して発生し、やがて個体になる。',
         difficulty: 'basic',
       },
     ],

@@ -90,41 +90,49 @@ export const quadFuncParabola: Topic = {
       {
         id: 'math-g3-qf-pb-fc4',
         front: '$y$ 軸（$x = 0$ の直線）', back: '$y = ax^2$ のグラフの対称軸は？',
+        explanation: '$x$ を $-x$ に置き換えても式が変わらないので $y$ 軸対称',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-qf-pb-fc5',
         front: '原点 $(0, 0)$', back: '$y = ax^2$ のグラフの頂点は？',
+        explanation: '$x = 0$ のとき $y = 0$ で、ここが最小値（$a>0$）または最大値（$a<0$）',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-qf-pb-fc6',
         front: '上に開く（U字型）', back: '$a > 0$ のとき、放物線はどちらに開く？',
+        explanation: '$a > 0$ なら $y$ は常に $0$ 以上。原点が最低点になる',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-qf-pb-fc7',
         front: '下に開く（$\\cap$字型）', back: '$a < 0$ のとき、放物線はどちらに開く？',
+        explanation: '$a < 0$ なら $y$ は常に $0$ 以下。原点が最高点になる',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-qf-pb-fc8',
         front: '細くなる（急になる）', back: '$|a|$ が大きいとき、放物線の開き方はどうなる？',
+        explanation: '$|a|$ が大きいほど同じ $x$ の変化に対して $y$ の変化が大きくなる',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-qf-pb-fc9',
         front: '広くなる（ゆるやかになる）', back: '$|a|$ が小さいとき、放物線の開き方はどうなる？',
+        explanation: '$|a|$ が小さいほど $y$ の変化がゆるやかで、グラフが横に広がる',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-qf-pb-fc10',
         front: '4倍（$2^2 = 4$）', back: '$y = ax^2$ で $x$ が2倍になると $y$ は何倍？',
+        explanation: '$a(2x)^2 = 4ax^2$ なので $y$ は $2^2 = 4$ 倍になる',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-qf-pb-fc11',
         front: '9倍（$3^2 = 9$）', back: '$y = ax^2$ で $x$ が3倍になると $y$ は何倍？',
+        explanation: '$a(3x)^2 = 9ax^2$ なので $y$ は $3^2 = 9$ 倍になる',
         difficulty: 'basic',
       },
       {
@@ -142,21 +150,25 @@ export const quadFuncParabola: Topic = {
       {
         id: 'math-g3-qf-pb-fc14',
         front: '$y = 3x^2$（$|a|$ が大きいほど細い）', back: '$y = x^2$ と $y = 3x^2$ ではどちらが細いグラフ？',
+        explanation: '$|3| > |1|$ なので $y = 3x^2$ の方が急で細いグラフになる',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-qf-pb-fc15',
         front: '比例は直線のグラフ、$y = ax^2$ は放物線（曲線）のグラフになる。', back: '比例 $y = ax$ と $y = ax^2$ の違いは？',
+        explanation: '比例は変化の割合が一定だが、$y = ax^2$ は区間によって変わる',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-qf-pb-fc16',
         front: '等しくなる（$a \\cdot x^2 = a \\cdot (-x)^2$）', back: '$y = ax^2$ のグラフで、$x$ と $-x$ の $y$ の値はどうなる？',
+        explanation: '$(-x)^2 = x^2$ なので、$x$ と $-x$ で同じ $y$ になる（$y$ 軸対称）',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-qf-pb-fc17',
         front: '$y = x^2$（$y$ は $x$ の2乗に比例、$a = 1$）', back: '正方形の1辺 $x$ cm と面積 $y$ cm² の関係式は？',
+        explanation: '正方形の面積 $=$ 1辺 $\\times$ 1辺 $= x^2$',
         difficulty: 'standard',
       },
       {
@@ -180,6 +192,7 @@ export const quadFuncParabola: Topic = {
       {
         id: 'math-g3-qf-pb-fc21',
         front: '16倍（$4^2 = 16$）', back: '$y = ax^2$ で $x$ が4倍になると $y$ は何倍？',
+        explanation: '$a(4x)^2 = 16ax^2$ なので $4^2 = 16$ 倍',
         difficulty: 'standard',
       },
       {
@@ -203,6 +216,7 @@ export const quadFuncParabola: Topic = {
       {
         id: 'math-g3-qf-pb-fc25',
         front: '$a$ の符号で開く方向、$|a|$ の大小で幅がわかる', back: '$y = ax^2$ で $a$ からわかる情報は？',
+        explanation: '$a > 0$ で上開き、$a < 0$ で下開き。$|a|$ が大きいほど細い',
         difficulty: 'advanced',
       },
       {

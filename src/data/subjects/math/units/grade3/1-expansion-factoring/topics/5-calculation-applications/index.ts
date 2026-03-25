@@ -69,12 +69,14 @@ export const calcApplications: Topic = {
         id: 'math-g3-ca-fc1',
         front: '2n−1, 2n+1（nは整数）', back: '整数の性質の証明で「連続する2つの奇数」を文字で表すと？',
         hint: '奇数は2の倍数でない数',
+        explanation: '奇数は $2n+1$ の形で表せる。連続する奇数は差が2なので $2n-1$ と $2n+1$',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-ca-fc2',
         front: '○ × (整数) の形にまとめる', back: '○の倍数であることを証明するには、式をどんな形にする？',
         hint: '例：8n² なら 8×n² で8の倍数',
+        explanation: '因数分解して「○×(整数の式)」の形にすれば、○の倍数だと示せる',
         difficulty: 'basic',
       },
       {
@@ -95,6 +97,7 @@ export const calcApplications: Topic = {
         id: 'math-g3-ca-fc9',
         front: '2n, 2n+2（nは整数）', back: '連続する2つの偶数を文字で表すと？',
         hint: '偶数は2の倍数',
+        explanation: '偶数は $2n$ の形。連続する偶数は差が2なので $2n$ と $2n+2$',
         difficulty: 'basic',
       },
       {
@@ -115,12 +118,14 @@ export const calcApplications: Topic = {
         id: 'math-g3-ca-fc14',
         front: '道の真ん中を通る線の長さ', back: '道の面積 S = mℓ の「ℓ」は何？',
         hint: '幅m × 真ん中の長さ',
+        explanation: '道の面積は「幅×道の真ん中を通る線の長さ」で求められる',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-ca-fc15',
         front: 'n−1, n, n+1', back: '連続する3つの整数の真ん中をnとおくと、3つの整数は？',
         hint: '真ん中を基準にする',
+        explanation: '真ん中をnとおくと前後の数は $n-1$ と $n+1$。展開時に打ち消し合う項ができやすい',
         difficulty: 'standard',
       },
       {
@@ -134,6 +139,7 @@ export const calcApplications: Topic = {
         id: 'math-g3-ca-fc18',
         front: 'はい。整数×整数＝整数なので n² も整数', back: '「nは整数」のとき、n²は整数か？',
         hint: '証明で「○×(整数)」と書くために重要',
+        explanation: '整数の積は整数なので $n^2$ も整数。証明の結論で「○の倍数」と言うために必要',
         difficulty: 'standard',
       },
       {

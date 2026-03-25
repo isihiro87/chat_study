@@ -67,21 +67,25 @@ export const quadEqBasics: Topic = {
       {
         id: 'math-g3-qeb-fc3',
         front: 'ax² + bx + c = 0（a ≠ 0）', back: '二次方程式の標準形',
+        explanation: '$a = 0$ だと二次の項が消えて一次方程式になるので $a \\neq 0$ が条件',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-qeb-fc4',
         front: '最大2つ', back: '二次方程式の解は最大いくつ？',
+        explanation: '$x^2 = k$ で $k > 0$ なら $\\pm\\sqrt{k}$ の2つ、$k = 0$ なら1つ、$k < 0$ なら解なし',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-qeb-fc5',
         front: 'x = ±√k（2つの解）', back: 'x² = k（k > 0）の解は？',
+        explanation: '平方根の定義より、2乗して $k$ になる数は正と負の2つある',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-qeb-fc6',
         front: 'x = 0（解は1つ）', back: 'x² = k で k = 0 のとき解は？',
+        explanation: '$x^2 = 0$ を満たすのは $x = 0$ のみ。$\\pm 0$ は結局0なので解は1つ',
         difficulty: 'basic',
       },
       {
@@ -93,6 +97,7 @@ export const quadEqBasics: Topic = {
       {
         id: 'math-g3-qeb-fc8',
         front: 'x = ±5', back: 'x² = 25 の解は？',
+        explanation: '$5^2 = 25$、$(-5)^2 = 25$ なので $x = \\pm 5$',
         difficulty: 'basic',
       },
       {
@@ -111,6 +116,7 @@ export const quadEqBasics: Topic = {
         id: 'math-g3-qeb-fc12',
         front: 'x = ±4', back: '2x² − 32 = 0 の解は？',
         hint: 'x² = 16',
+        explanation: '$2x^2 = 32$ より $x^2 = 16$、$x = \\pm 4$',
         difficulty: 'basic',
       },
       {
@@ -122,6 +128,7 @@ export const quadEqBasics: Topic = {
       {
         id: 'math-g3-qeb-fc14',
         front: 'x = 3 ± √5', back: '(x − 3)² = 5 の解は？',
+        explanation: '$x - 3 = \\pm\\sqrt{5}$ と平方根をとり、$x = 3 \\pm \\sqrt{5}$',
         difficulty: 'standard',
       },
       {
@@ -133,11 +140,13 @@ export const quadEqBasics: Topic = {
       {
         id: 'math-g3-qeb-fc16',
         front: '解が1つしか求まらず、不正解になる', back: '二次方程式で ± を忘れるとどうなる？',
+        explanation: '平方根は正と負の2つがある。片方だけでは解が不足するので必ず $\\pm$ をつけよう',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-qeb-fc17',
         front: 'xの最高次数が2であること', back: '「二次」とは何の次数が2？',
+        explanation: '方程式の左辺を整理したとき、$x$ の最高の累乗が2なら二次方程式',
         difficulty: 'standard',
       },
       {
@@ -149,11 +158,13 @@ export const quadEqBasics: Topic = {
       {
         id: 'math-g3-qeb-fc19',
         front: 'x = ±√7', back: 'x² = 7 の解は？',
+        explanation: '7は整数の2乗でないのでルートのまま。$x = \\pm\\sqrt{7}$',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-qeb-fc20',
         front: 'x = −1 ± √6', back: '(x + 1)² = 6 の解は？',
+        explanation: '$x + 1 = \\pm\\sqrt{6}$ より $x = -1 \\pm \\sqrt{6}$',
         difficulty: 'standard',
       },
       {
@@ -171,6 +182,7 @@ export const quadEqBasics: Topic = {
       {
         id: 'math-g3-qeb-fc23',
         front: 'x = 5 ± √3', back: '(x − 5)² = 3 の解は？',
+        explanation: '$x - 5 = \\pm\\sqrt{3}$ より $x = 5 \\pm \\sqrt{3}$',
         difficulty: 'advanced',
       },
       {
@@ -182,6 +194,7 @@ export const quadEqBasics: Topic = {
       {
         id: 'math-g3-qeb-fc25',
         front: 'x = −2 ± √10', back: '(x + 2)² = 10 の解は？',
+        explanation: '$x + 2 = \\pm\\sqrt{10}$ より $x = -2 \\pm \\sqrt{10}$',
         difficulty: 'advanced',
       },
       {

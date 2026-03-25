@@ -131,12 +131,14 @@ export const evolutionEvidence: Topic = {
         id: 'sci3-ee-fc2',
         front: '前あしがつばさになっている、羽毛がある',
         back: '始祖鳥がもつ鳥類の特徴を2つ答えよ。',
+        explanation: '現在の鳥類と同じく、飛翔に適した羽毛とつばさの構造をもっていた。',
         difficulty: 'basic',
       },
       {
         id: 'sci3-ee-fc3',
         front: 'つばさに爪がある、くちばしに歯がある、尾骨がある',
         back: '始祖鳥がもつハチュウ類の特徴を3つ答えよ。',
+        explanation: '現在の鳥類にはない歯・爪・尾骨をもち、ハチュウ類からの進化の途中であることを示す。',
         difficulty: 'basic',
       },
       {
@@ -174,12 +176,14 @@ export const evolutionEvidence: Topic = {
         id: 'sci3-ee-fc8',
         front: '遺伝子に変化（突然変異）が生じ、その変化が環境に適応して受け継がれた結果',
         back: '生物の形の違いが生じる理由を進化の観点で説明せよ。',
+        explanation: '突然変異で生じた形質の変化が自然選択によって受け継がれ、長い年月を経て種の特徴になった。',
         difficulty: 'advanced',
       },
       {
         id: 'sci3-ee-fc9',
         front: 'ユーステノプテロン（魚類↔両生類）、イクチオステガ（魚類↔両生類）、始祖鳥（ハチュウ類↔鳥類）',
         back: '2つの動物群の特徴を併せもつ化石生物の組み合わせを3つ答えよ。',
+        explanation: 'これらの中間的な化石生物は、異なる動物群の間の進化的なつながりを示す証拠となる。',
         difficulty: 'advanced',
       },
       {
@@ -193,6 +197,7 @@ export const evolutionEvidence: Topic = {
         id: 'sci3-ee-fc11',
         front: '中生代（約1億5000万年前）',
         back: '始祖鳥の化石が発見された時代はいつ？',
+        explanation: '恐竜が繁栄していた中生代に始祖鳥は生息しており、ハチュウ類から鳥類への進化を示す。',
         difficulty: 'standard',
       },
       {

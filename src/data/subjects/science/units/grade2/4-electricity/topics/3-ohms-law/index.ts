@@ -77,14 +77,14 @@ export const ohmsLaw: Topic = {
     },
     videos: [],
     flashcards: [
-      { id: 'sci2-ohms-fc1', front: 'V＝R×I（電圧＝抵抗×電流）。電圧と電流は比例する', back: 'オームの法則とは？', difficulty: 'basic' },
-      { id: 'sci2-ohms-fc2', front: 'Ω（オーム）。電流の流れにくさを表す', back: '抵抗の単位は？', difficulty: 'basic' },
-      { id: 'sci2-ohms-fc3', front: 'R＝V÷I。電圧を電流で割ると求まる', back: '抵抗を求める式は？', difficulty: 'basic' },
-      { id: 'sci2-ohms-fc4', front: 'I＝V÷R。電圧を抵抗で割ると求まる', back: '電流を求める式は？', difficulty: 'standard' },
-      { id: 'sci2-ohms-fc5', front: 'R＝R₁＋R₂（各抵抗の和）', back: '直列回路の合成抵抗を求める式は？', difficulty: 'standard' },
-      { id: 'sci2-ohms-fc6', front: '1/R＝1/R₁＋1/R₂（逆数の和）。合成抵抗はどの抵抗よりも小さくなる', back: '並列回路の合成抵抗を求める式は？特徴は？', difficulty: 'standard' },
-      { id: 'sci2-ohms-fc7', front: '一方向にしか電流を流さない電子部品。逆向きにつなぐと光らない', back: '発光ダイオード（LED）の特徴は？', difficulty: 'standard' },
-      { id: 'sci2-ohms-fc8', front: '太い（断面積が大きい）ほど抵抗は小さくなる。抵抗は断面積に反比例', back: '電熱線が太くなると抵抗はどうなる？', difficulty: 'advanced' },
+      { id: 'sci2-ohms-fc1', front: 'V＝R×I（電圧＝抵抗×電流）。電圧と電流は比例する', back: 'オームの法則とは？', explanation: '抵抗が一定のとき、電圧を2倍にすると電流も2倍になる比例関係です。', difficulty: 'basic' },
+      { id: 'sci2-ohms-fc2', front: 'Ω（オーム）。電流の流れにくさを表す', back: '抵抗の単位は？', explanation: '抵抗値が大きいほど電流が流れにくく、同じ電圧でも流れる電流が小さくなります。', difficulty: 'basic' },
+      { id: 'sci2-ohms-fc3', front: 'R＝V÷I。電圧を電流で割ると求まる', back: '抵抗を求める式は？', explanation: 'オームの法則V＝RIを変形して抵抗を求めます。', difficulty: 'basic' },
+      { id: 'sci2-ohms-fc4', front: 'I＝V÷R。電圧を抵抗で割ると求まる', back: '電流を求める式は？', explanation: 'オームの法則を変形して、電圧と抵抗から流れる電流を求めます。', difficulty: 'standard' },
+      { id: 'sci2-ohms-fc5', front: 'R＝R₁＋R₂（各抵抗の和）', back: '直列回路の合成抵抗を求める式は？', explanation: '一本道に抵抗が連なるため、全体の抵抗は各抵抗を足し合わせた値になります。', difficulty: 'standard' },
+      { id: 'sci2-ohms-fc6', front: '1/R＝1/R₁＋1/R₂（逆数の和）。合成抵抗はどの抵抗よりも小さくなる', back: '並列回路の合成抵抗を求める式は？特徴は？', explanation: '通り道が増えると電流が流れやすくなるため、合成抵抗は各抵抗より小さくなります。', difficulty: 'standard' },
+      { id: 'sci2-ohms-fc7', front: '一方向にしか電流を流さない電子部品。逆向きにつなぐと光らない', back: '発光ダイオード（LED）の特徴は？', explanation: 'LEDは電流の向きを制限する性質があり、直流・交流の判別にも利用できます。', difficulty: 'standard' },
+      { id: 'sci2-ohms-fc8', front: '太い（断面積が大きい）ほど抵抗は小さくなる。抵抗は断面積に反比例', back: '電熱線が太くなると抵抗はどうなる？', explanation: '断面積が大きいと電子の通り道が広がり、電流が流れやすくなります。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [

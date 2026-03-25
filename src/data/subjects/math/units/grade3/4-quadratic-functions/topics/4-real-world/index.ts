@@ -67,6 +67,7 @@ export const quadFuncRealWorld: Topic = {
       {
         id: 'math-g3-qf-rw-fc1',
         front: '0.006 × 60² = 0.006 × 3600 = 21.6m', back: 'y = 0.006x² の制動距離で、時速60kmのとき何m？',
+        explanation: '速度を2乗してから比例定数をかける。$60^2 = 3600$',
         difficulty: 'basic',
       },
       {
@@ -78,6 +79,7 @@ export const quadFuncRealWorld: Topic = {
       {
         id: 'math-g3-qf-rw-fc3',
         front: '停止距離 ＝ 空走距離 ＋ 制動距離', back: '停止距離の求め方は？',
+        explanation: '空走距離は反応時間中に進む距離、制動距離はブレーキで止まるまでの距離',
         difficulty: 'basic',
       },
       {
@@ -89,6 +91,7 @@ export const quadFuncRealWorld: Topic = {
       {
         id: 'math-g3-qf-rw-fc7',
         front: 'T² = aL（周期の2乗がひもの長さに比例）', back: 'ふりこの周期Tとひもの長さLの関係式は？',
+        explanation: '周期そのものではなく2乗が長さに比例する点に注意',
         difficulty: 'basic',
       },
       {
@@ -106,86 +109,103 @@ export const quadFuncRealWorld: Topic = {
       {
         id: 'math-g3-qf-rw-fc10',
         front: '正方形や三角形などが重なり始めるとき、重なる部分が二等辺三角形になるケースなど', back: '図形の移動で面積がx²に比例するのはどんなとき？',
+        explanation: '底辺と高さの両方が移動距離 $x$ に比例するとき面積は $x^2$ に比例する',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-qf-rw-fc11',
         front: '料金表のように、ある区間で値が一定で、区間が変わると段階的に値が変わるグラフ', back: '階段状グラフとはどんなグラフ？',
+        explanation: '郵便料金やタクシー料金など実生活でよく見られる',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-qf-rw-fc12',
         front: '時間の2乗に比例する（y = ax²の形）', back: '斜面を転がるボールの移動距離は時間とどんな関係？',
+        explanation: '等加速度運動なので距離は時間の2乗に比例する',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-qf-rw-fc13',
         front: '0.006 × 40² = 0.006 × 1600 = 9.6m', back: 'y = 0.006x² の制動距離で、時速40kmのとき何m？',
+        explanation: '$40^2 = 1600$ に比例定数 $0.006$ をかける',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-qf-rw-fc14',
         front: '一次関数（直線のグラフ）になる', back: '水そうの底面積が一定のとき、水面の高さと時間の関係は？',
+        explanation: '毎分同じ量の水が入り底面積が一定なので高さは一定割合で増加する',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-qf-rw-fc15',
         front: '底面が広くなるところで水面の上昇が遅くなる（グラフの傾きが小さくなる）', back: '水そうの底面が途中で太くなると水面の上がり方はどうなる？',
+        explanation: '同じ水量でも底面が広いと高さの増え方が小さくなる',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-qf-rw-fc16',
         front: '0.006 × 50² = 0.006 × 2500 = 15m', back: 'y = 0.006x² の制動距離で、時速50kmのとき何m？',
+        explanation: '$50^2 = 2500$ に比例定数 $0.006$ をかける',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-qf-rw-fc17',
         front: '時速50km: $0.01 \\times 2500 = 25$ m\n時速100km: $0.01 \\times 10000 = 100$ m（4倍！）', back: '$y = 0.01v^2$ で時速50kmと100kmの制動距離を比べると？',
+        explanation: '速度が2倍になると制動距離は $2^2 = 4$ 倍になる',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-qf-rw-fc18',
         front: '9倍（3² = 9）。速度3倍で制動距離9倍。', back: '速度が3倍になると制動距離は何倍？',
+        explanation: '制動距離は速度の2乗に比例するので $3^2 = 9$ 倍',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-qf-rw-fc19',
         front: '0.006 × 80² = 0.006 × 6400 = 38.4m', back: 'y = 0.006x² の制動距離で、時速80kmのとき何m？',
+        explanation: '$80^2 = 6400$ に比例定数 $0.006$ をかける',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-qf-rw-fc20',
         front: '$L = 100$ cm（$T^2 = 0.04L$ に $T=2$ を代入: $4 = 0.04L$ → $L = 100$）', back: '$T^2 = 0.04L$ で周期を2秒にするにはひもの長さは？',
+        explanation: '$T = 2$ を代入して $L$ について解く',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-qf-rw-fc22',
         front: '底面の形が変わるところで水面の上昇速度が変わる', back: '段付き水そうで水面の上がり方が変わる理由は？',
+        explanation: '底面積が変わるとグラフの傾きが変わり、折れ線になる',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-qf-rw-fc23',
         front: '空走距離は速度の1次関数、制動距離は2次関数\n速度が大きいほど制動距離の割合が増える', back: '停止距離で空走距離と制動距離の増え方の違いは？',
+        explanation: '高速になるほど2次関数の制動距離が支配的になり危険が増す',
         difficulty: 'advanced',
       },
       {
         id: 'math-g3-qf-rw-fc24',
         front: '移動距離 y = ax² の変化の割合 = a(p+q)', back: '斜面を転がるボールの平均の速さの求め方は？',
+        explanation: '変化の割合の公式をそのまま使える。$p$ 秒後から $q$ 秒後の区間',
         difficulty: 'advanced',
       },
       {
         id: 'math-g3-qf-rw-fc25',
         front: '比例 y = ax は直線、2乗に比例 y = ax² は放物線\n反比例 y = a/x は双曲線', back: 'これまでに学んだ関数の種類と特徴は？',
+        explanation: 'それぞれグラフの形が異なり、変化の仕方も違う',
         difficulty: 'advanced',
       },
       {
         id: 'math-g3-qf-rw-fc26',
         front: '0.01 × 100² = 0.01 × 10000 = 100m', back: 'y = 0.01v² で時速100kmの制動距離は？',
+        explanation: '$100^2 = 10000$ に比例定数 $0.01$ をかける',
         difficulty: 'advanced',
       },
       {
         id: 'math-g3-qf-rw-fc27',
         front: 'T² = 0.04 × 400 = 16 → T = 4秒', back: 'T² = 0.04L で L = 400cm のとき周期は？',
+        explanation: '$T^2 = 16$ より $T = \\sqrt{16} = 4$ 秒',
         difficulty: 'advanced',
       },
       { id: 'math-g3-qf-rw-fc29', front: '$y = 5t^2$', back: '自由落下で $t$ 秒後の落下距離 $y$ m の式は？（概算）', explanation: '重力加速度 $g \\approx 10$ m/s$^2$。', difficulty: 'basic' },

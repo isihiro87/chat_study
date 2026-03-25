@@ -96,6 +96,7 @@ export const monomialMulDiv: Topic = {
       {
         id: 'math-g2-mmd-fc10',
         front: '$a^n b^n$（それぞれの因数を $n$ 乗する）', back: '$(ab)^n$ を展開すると？',
+        explanation: '積の累乗は、各因数をそれぞれ $n$ 乗する。例: $(2x)^3 = 2^3 \\cdot x^3 = 8x^3$',
         difficulty: 'basic',
       },
       {

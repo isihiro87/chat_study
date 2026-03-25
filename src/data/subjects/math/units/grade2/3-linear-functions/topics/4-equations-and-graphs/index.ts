@@ -70,6 +70,7 @@ export const equationsAndGraphs: Topic = {
       {
         id: 'math-g2-eq-and-graphs-fc2',
         front: '$y = -2x + 6$（傾き $-2$、切片 $6$）', back: '$2x + y = 6$ を $y =$ の形に変形すると？',
+        explanation: '$y$ について解くと一次関数の形になり、傾きと切片が分かる。',
         difficulty: 'basic',
       },
       {
@@ -115,16 +116,19 @@ export const equationsAndGraphs: Topic = {
       {
         id: 'math-g2-eq-and-graphs-fc14',
         front: '$y = 0$ は $x$ 軸、$x = 0$ は $y$ 軸そのもの。', back: '$y = 0$ のグラフと $x = 0$ のグラフは何？',
+        explanation: '$y = 0$ はすべての $y$ 座標が $0$ → $x$ 軸。$x = 0$ も同様に $y$ 軸。',
         difficulty: 'standard',
       },
       {
         id: 'math-g2-eq-and-graphs-fc15',
         front: '$x = 0$ のとき $(0, 6)$、$y = 0$ のとき $(4, 0)$。', back: '$3x + 2y = 12$ のグラフが通る2点（$x=0$ と $y=0$）は？',
+        explanation: '$x = 0$ と $y = 0$ を代入して切片を求めると、グラフが描ける。',
         difficulty: 'standard',
       },
       {
         id: 'math-g2-eq-and-graphs-fc16',
         front: '$x + 1 = -x + 5$ → $2x = 4$ → $x = 2, y = 3$。交点 $(2, 3)$。', back: '直線 $y = x + 1$ と $y = -x + 5$ の交点は？',
+        explanation: '2つの式を等しいとおいて連立方程式を解くと交点が求まる。',
         difficulty: 'standard',
       },
       { id: 'math-g2-eq-and-graphs-fc17', front: '$y = 0$ →$x$ 切片、$x = 0$ →$y$ 切片', explanation: 'それぞれ代入して求める', back: '切片の2つの求め方は？', difficulty: 'standard' },

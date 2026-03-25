@@ -75,6 +75,7 @@ export const expansionBasics: Topic = {
         id: 'math-g3-eb-fc5',
         front: '$3x + 12$', back: '$3(x+4)$ を展開すると？',
         hint: '3をxにも4にもかける',
+        explanation: '分配法則で $3 \\times x + 3 \\times 4 = 3x + 12$',
         difficulty: 'basic',
       },
       {
@@ -102,6 +103,7 @@ export const expansionBasics: Topic = {
         id: 'math-g3-eb-fc10',
         front: '$8x + 4$', back: '$(8x^2+4x)\\div x$ の答えは？',
         hint: '各項をxで割る',
+        explanation: '$8x^2 \\div x = 8x$、$4x \\div x = 4$ で $8x + 4$',
         difficulty: 'basic',
       },
       {
@@ -122,6 +124,7 @@ export const expansionBasics: Topic = {
         id: 'math-g3-eb-fc13',
         front: '$-2a + 4b$', back: '$(6a^2b-12ab^2)\\div(-3ab)$ の答えは？',
         hint: '各項を $-3ab$ で割る。符号に注意',
+        explanation: '$6a^2b \\div (-3ab) = -2a$、$-12ab^2 \\div (-3ab) = 4b$',
         difficulty: 'standard',
       },
       {
@@ -149,6 +152,7 @@ export const expansionBasics: Topic = {
         id: 'math-g3-eb-fc18',
         front: '$-6xy - 10y^2$', back: '$(3x+5y)\\times(-2y)$ を展開すると？',
         hint: '両方の項に $-2y$ をかける',
+        explanation: '$3x \\times (-2y) = -6xy$、$5y \\times (-2y) = -10y^2$',
         difficulty: 'standard',
       },
       {
@@ -169,6 +173,7 @@ export const expansionBasics: Topic = {
         id: 'math-g3-eb-fc22',
         front: '$6x^2 - 4x$', back: '$2x(3x-2)$ を展開すると？',
         hint: '$2x$ を各項にかける',
+        explanation: '$2x \\times 3x = 6x^2$、$2x \\times (-2) = -4x$',
         difficulty: 'standard',
       },
       {
@@ -182,12 +187,14 @@ export const expansionBasics: Topic = {
         id: 'math-g3-eb-fc24',
         front: '$4x + 2$', back: '$(12x^2+6x) \\div 3x$ の答えは？',
         hint: '各項を $3x$ で割る',
+        explanation: '$12x^2 \\div 3x = 4x$、$6x \\div 3x = 2$',
         difficulty: 'advanced',
       },
       {
         id: 'math-g3-eb-fc25',
         front: '$ab - 3a + 4b - 12$', back: '$(a+4)(b-3)$ を展開すると？',
         hint: '4つの積を順に出す',
+        explanation: '$a \\times b + a \\times (-3) + 4 \\times b + 4 \\times (-3)$',
         difficulty: 'advanced',
       },
       {
@@ -208,6 +215,7 @@ export const expansionBasics: Topic = {
         id: 'math-g3-eb-fc28',
         front: '$-3a + 2b$', back: '$(9a^2b - 6ab^2) \\div (-3ab)$ の答えは？',
         hint: '各項を $-3ab$ で割る。符号注意',
+        explanation: '$9a^2b \\div (-3ab) = -3a$、$-6ab^2 \\div (-3ab) = 2b$',
         difficulty: 'advanced',
       },
       { id: 'math-g3-eb-fc31', front: '$4$ 個（$ac, ad, bc, bd$）', back: '$(a+b)(c+d)$ を展開すると何個の項の積ができる？', explanation: '各項どうしをすべてかける。', difficulty: 'basic' },

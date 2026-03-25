@@ -69,12 +69,14 @@ export const kanseiReform: Topic = {
         id: 'fc7',
         front: '棄捐令',
         back: '寛政の改革で旗本・御家人の借金を帳消しにした法令は？',
+        explanation: '札差からの借金を帳消しにして武士の生活を救済したが、商人の反発を招いた。',
         difficulty: 'standard',
       },
       {
         id: 'fc8',
         front: '寛政異学の禁',
         back: '松平定信が朱子学以外の学問を禁じた政策は？',
+        explanation: '昌平坂学問所で朱子学のみを教えることとし、思想統制を強化した。',
         difficulty: 'standard',
       },
       {

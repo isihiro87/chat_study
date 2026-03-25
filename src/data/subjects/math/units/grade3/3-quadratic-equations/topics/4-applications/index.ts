@@ -67,11 +67,13 @@ export const quadEqApps: Topic = {
       {
         id: 'math-g3-qea-fc3',
         front: '$n, n+1$（小さい方を $n$ とする）', back: '連続する2つの整数の表し方',
+        explanation: '連続する整数は差が1。小さい方を $n$ とおくと次は $n+1$',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-qea-fc4',
         front: '$n-1, n, n+1$（真ん中を $n$ とする）', back: '連続する3つの整数の表し方',
+        explanation: '真ん中を基準にすると展開時に打ち消し合う項ができて計算が楽になる',
         difficulty: 'basic',
       },
       {
@@ -89,11 +91,13 @@ export const quadEqApps: Topic = {
       {
         id: 'math-g3-qea-fc9',
         front: '$x$（切り取った正方形の1辺）', back: '厚紙から箱を作る：高さ',
+        explanation: '切り取った正方形の辺がそのまま折り上げた箱の高さになる',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-qea-fc10',
         front: '$0 < x < \\dfrac{\\text{短い辺}}{2}$', back: '厚紙から箱を作る：$x$ の範囲',
+        explanation: '底面の辺が正になる条件。短い辺 $- 2x > 0$ から求まる',
         difficulty: 'basic',
       },
       {
@@ -105,66 +109,79 @@ export const quadEqApps: Topic = {
       {
         id: 'math-g3-qea-fc12',
         front: '$\\dfrac{1}{2}(a-x) \\cdot x = \\dfrac{x(a-x)}{2}$', back: '動点：△BPQの面積（1辺 $a$ の正方形、P:A→B、Q:B→C）',
+        explanation: 'BP $= a - x$、BQ $= x$ なので三角形の面積 $= \\frac{1}{2} \\times$ 底辺 $\\times$ 高さ',
         difficulty: 'basic',
       },
       {
         id: 'math-g3-qea-fc13',
         front: '$x$ の範囲内にある解はすべて答え（2つとも答えの場合あり）', back: '動点の問題：解が2つ出たら？',
+        explanation: '解の吟味で $0 < x < a$ の範囲内にあるか確認。両方範囲内なら両方答え',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-qea-fc14',
         front: '$n = 8$（$n(n+1) = 72$ → $n^2+n-72=0$ → $(n+9)(n-8)=0$）', back: '連続する2つの正の整数の積が72。小さい方は？',
+        explanation: '$n = -9$ は正の整数でないので不適。$n = 8$ が答え',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-qea-fc15',
         front: '横 $9$ cm（$x(x-3)=54$ → $(x-9)(x+6)=0$、$x>0$ より $x=9$）', back: '縦が横より3cm短く面積54cm²の長方形。横は？',
+        explanation: '横を $x$ とおくと縦は $x-3$。長さは正なので $x = -6$ は不適',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-qea-fc16',
         front: '$6$ と $7$（$x(13-x)=42$ → $(x-6)(x-7)=0$）', back: '周が26cm、面積42cm²の長方形の辺の長さは？',
+        explanation: '周26cmなので縦+横=13。横を $x$ とすると縦は $13-x$',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-qea-fc17',
         front: '$x(\\text{幅} - 2x)$（高さ $\\times$ 底面の幅）', back: '鉄板の折り曲げ問題：断面積',
+        explanation: '両端を $x$ ずつ折り上げるので、底面の幅は元の幅 $- 2x$',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-qea-fc19',
         front: '$n(n+2)$（$n$ は奇数）', back: '連続する2つの奇数の積の表し方は？（小さい方を $n$）',
+        explanation: '連続する奇数は差が2なので $n$ と $n+2$',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-qea-fc20',
         front: '道幅 $2$ m（$(20-x)(30-x)=504$ → $(x-2)(x-48)=0$、$x<20$ より $x=2$）', back: '縦20m横30mの土地で道幅xmの道を作り残り504m²。道幅は？',
+        explanation: '道を端に寄せると残りは $(20-x) \\times (30-x)$。$x=48$ は辺より大きいので不適',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-qea-fc21',
         front: '$x > 0$、$x$ が整数、$0 < x < \\frac{\\text{辺}}{2}$ など', back: '解の吟味で確認する条件の例は？',
+        explanation: '方程式の解がそのまま答えとは限らない。問題の条件に合うか必ず確認しよう',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-qea-fc22',
         front: '$(\\text{元の幅}) - 2x$（$x$ は折る長さ）', back: '鉄板の折り曲げ問題で底面の幅は？',
+        explanation: '左右両端を折り上げるので、底面の幅は元の幅から $2x$ 引いた値',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-qea-fc23',
         front: '$n = 6$（$n^2+(n+1)^2=85$ → $2n^2+2n-84=0$ → $(n+7)(n-6)=0$）', back: '連続する2つの正の整数の2乗の和が85。小さい方は？',
+        explanation: '$n = -7$ は正の整数でないので不適。$6^2 + 7^2 = 36 + 49 = 85$ で確認',
         difficulty: 'advanced',
       },
       {
         id: 'math-g3-qea-fc24',
         front: '$(10+x)(15+x) = $ 目標面積 として方程式を立てる', back: '花壇を伸ばす問題の式の立て方は？',
+        explanation: '縦横を同じ長さ $x$ だけ伸ばすので、新しい面積は $(10+x)(15+x)$',
         difficulty: 'advanced',
       },
       {
         id: 'math-g3-qea-fc26',
         front: '$n^2 + (n+1)^2 = $ 目標値 として方程式を立てる', back: '連続する2つの整数の2乗の和の問題は？',
+        explanation: '展開して整理すると $2n^2 + 2n + 1 = $ 目標値 の二次方程式になる',
         difficulty: 'advanced',
       },
       { id: 'math-g3-qea-fc31', front: '$7$', back: '連続する $2$ つの正の整数の積が $56$。小さい方は？', explanation: '$n(n+1) = 56$、$n^2 + n - 56 = 0$、$(n+8)(n-7) = 0$。', difficulty: 'basic' },

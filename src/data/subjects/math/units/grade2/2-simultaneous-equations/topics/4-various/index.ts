@@ -108,6 +108,7 @@ export const variousSimulEq: Topic = {
       {
         id: 'math-g2-var-fc11',
         front: '$A = B$ と $B = C$（または $A = C$）の2つに分けて連立方程式にする', back: '$A = B = C$ の形はどう解く？',
+        explanation: '$A = B = C$ から $A = B$ と $B = C$ の2式を作り、連立方程式として解く。',
         difficulty: 'basic',
       },
       {
@@ -119,6 +120,7 @@ export const variousSimulEq: Topic = {
       {
         id: 'math-g2-var-fc13',
         front: '$\\begin{cases} 3x + y = 10 \\\\ 2x + 3y = 10 \\end{cases}$', back: '$3x + y = 2x + 3y = 10$ を連立方程式にすると？',
+        explanation: '$3x + y = 10$ と $2x + 3y = 10$ の2式に分ける。',
         difficulty: 'standard',
       },
       {
@@ -142,6 +144,7 @@ export const variousSimulEq: Topic = {
       {
         id: 'math-g2-var-fc20',
         front: '両辺に $2$ をかけて $x + y = 6$', back: '$\\frac{x+y}{2} = 3$ を整理すると？',
+        explanation: '分母をはらうために両辺に $2$ をかける。',
         difficulty: 'standard',
       },
       { id: 'math-g2-var-fc30', front: '$2x + y = 5$', back: '$2(x + 3) + y = 11$ を整理すると？', explanation: '$2x + 6 + y = 11$ → $2x + y = 5$。', difficulty: 'basic' },

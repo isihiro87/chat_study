@@ -75,14 +75,14 @@ export const cathodeElectron: Topic = {
     },
     videos: [],
     flashcards: [
-      { id: 'sci2-cathode-fc1', front: 'クルックス管で−極から＋極へ向かう粒子の流れ。正体は電子', back: '陰極線（電子線）とは何？その正体は？', difficulty: 'basic' },
-      { id: 'sci2-cathode-fc2', front: '逆向き。電子は−極→＋極、電流は歴史的に＋極→−極と定義', back: '電流の向きと電子の移動の向きはどのような関係？', difficulty: 'basic' },
-      { id: 'sci2-cathode-fc3', front: '真空放電を調べるためのガラス管の装置', back: 'クルックス管（真空放電管）とは何？', difficulty: 'basic' },
-      { id: 'sci2-cathode-fc4', front: 'X線やα線、β線、γ線などの総称。物質を透過する性質をもつ', back: '放射線とは何？どのような性質がある？', difficulty: 'basic' },
-      { id: 'sci2-cathode-fc5', front: '放射線を出す物質。ウランやラジウムなど。自然界にも存在する', back: '放射性物質とは何？', difficulty: 'standard' },
-      { id: 'sci2-cathode-fc6', front: '放射線が物質を通り抜ける性質。α線は紙で、γ線は鉛やコンクリートで遮る', back: '透過性とは何？放射線の種類による違いは？', difficulty: 'standard' },
-      { id: 'sci2-cathode-fc7', front: '陰極線が磁石で曲がる→電気をもった粒子。十字形の影→直進性がある', back: 'クルックス管の実験でわかる陰極線の2つの性質は？', difficulty: 'standard' },
-      { id: 'sci2-cathode-fc8', front: 'A（アンペア）', back: '電流の大きさを表す単位は？', difficulty: 'advanced' },
+      { id: 'sci2-cathode-fc1', front: 'クルックス管で−極から＋極へ向かう粒子の流れ。正体は電子', back: '陰極線（電子線）とは何？その正体は？', explanation: '陰極（−極）から飛び出す粒子の流れで、電子であることが実験で確認されました。', difficulty: 'basic' },
+      { id: 'sci2-cathode-fc2', front: '逆向き。電子は−極→＋極、電流は歴史的に＋極→−極と定義', back: '電流の向きと電子の移動の向きはどのような関係？', explanation: '電子発見前に電流の向きが決められたため、実際の電子の移動とは逆向きになります。', difficulty: 'basic' },
+      { id: 'sci2-cathode-fc3', front: '真空放電を調べるためのガラス管の装置', back: 'クルックス管（真空放電管）とは何？', explanation: '管内を低圧にして高電圧をかけ、陰極線の性質を調べる実験装置です。', difficulty: 'basic' },
+      { id: 'sci2-cathode-fc4', front: 'X線やα線、β線、γ線などの総称。物質を透過する性質をもつ', back: '放射線とは何？どのような性質がある？', explanation: '放射線は目に見えませんが物質を通り抜ける力をもち、医療や工業で利用されます。', difficulty: 'basic' },
+      { id: 'sci2-cathode-fc5', front: '放射線を出す物質。ウランやラジウムなど。自然界にも存在する', back: '放射性物質とは何？', explanation: '不安定な原子核をもつ物質が自然に崩壊しながら放射線を放出します。', difficulty: 'standard' },
+      { id: 'sci2-cathode-fc6', front: '放射線が物質を通り抜ける性質。α線は紙で、γ線は鉛やコンクリートで遮る', back: '透過性とは何？放射線の種類による違いは？', explanation: '放射線の種類によって透過力が異なり、遮蔽に必要な材料も変わります。', difficulty: 'standard' },
+      { id: 'sci2-cathode-fc7', front: '陰極線が磁石で曲がる→電気をもった粒子。十字形の影→直進性がある', back: 'クルックス管の実験でわかる陰極線の2つの性質は？', explanation: '磁石で曲がることから電荷をもつ粒子とわかり、影から直進性も確認できます。', difficulty: 'standard' },
+      { id: 'sci2-cathode-fc8', front: 'A（アンペア）', back: '電流の大きさを表す単位は？', explanation: '1秒間に導線の断面を通過する電気の量を表す単位です。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [

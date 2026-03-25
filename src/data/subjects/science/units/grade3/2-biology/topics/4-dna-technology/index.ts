@@ -134,6 +134,7 @@ export const dnaTechnology: Topic = {
         id: 'sci3-dt-fc3',
         front: '突然変異',
         back: '遺伝子（DNA）が放射線や紫外線などで変化することを何という？',
+        explanation: 'DNAの塩基配列が変化し、新しい形質が現れることがある。進化の原動力の一つ。',
         difficulty: 'basic',
       },
       {
@@ -148,6 +149,7 @@ export const dnaTechnology: Topic = {
         id: 'sci3-dt-fc5',
         front: '害虫に強い作物、日持ちの良いトマト、青色のバラやカーネーション',
         back: '遺伝子組換え技術で作られた農作物の例を挙げよ',
+        explanation: '他の生物の遺伝子を導入することで、自然では得られない性質を持つ作物をつくることができる。',
         difficulty: 'standard',
       },
       {

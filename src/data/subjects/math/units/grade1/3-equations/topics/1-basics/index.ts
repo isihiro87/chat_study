@@ -66,7 +66,7 @@ export const eqBasics: Topic = {
       { id: 'math-g1-eq-b-fc10', front: '$\\dfrac{B}{C}$', back: '$A = B$ のとき、$\\dfrac{A}{C} =$ ？', explanation: '$C \\neq 0$ で両辺を割っても等式は成り立つ', difficulty: 'standard' },
 
       // === 移項（basic〜standard） ===
-      { id: 'math-g1-eq-b-fc13', front: '$+$ の項を移項すると $-$ に、$-$ の項を移項すると $+$ になる', back: '移項するとき符号はどうなる？', difficulty: 'basic' },
+      { id: 'math-g1-eq-b-fc13', front: '$+$ の項を移項すると $-$ に、$-$ の項を移項すると $+$ になる', back: '移項するとき符号はどうなる？', explanation: '等式の性質（両辺から同じ数を引く・加える）の結果、符号が反転する。', difficulty: 'basic' },
 
       // === 基本手順（standard） ===
 
@@ -79,7 +79,7 @@ export const eqBasics: Topic = {
       { id: 'math-g1-eq-b-fc23', front: '$x = 5$', back: '$5x - 8 = 17$ の解は？', explanation: '移項して $5x = 25$、両辺を $5$ で割る', difficulty: 'standard' },
 
       // === 両辺にxがある方程式（standard〜advanced） ===
-      { id: 'math-g1-eq-b-fc24', front: '$x$ の項を左辺、数の項を右辺にそれぞれ移項してまとめる', back: '両辺に $x$ がある方程式の解き方は？', difficulty: 'standard' },
+      { id: 'math-g1-eq-b-fc24', front: '$x$ の項を左辺、数の項を右辺にそれぞれ移項してまとめる', back: '両辺に $x$ がある方程式の解き方は？', explanation: '例: $6x + 3 = 4x + 9$ → $2x = 6$ → $x = 3$。', difficulty: 'standard' },
       { id: 'math-g1-eq-b-fc25', front: '$x = 3$', back: '$6x + 3 = 4x + 9$ の解は？', explanation: '$4x$ と $+3$ を移項して $2x = 6$', difficulty: 'standard' },
       { id: 'math-g1-eq-b-fc26', front: '$x = 4$', back: '$8x - 3 = 5x + 9$ の解は？', explanation: '$5x$ と $-3$ を移項して $3x = 12$', difficulty: 'standard' },
 

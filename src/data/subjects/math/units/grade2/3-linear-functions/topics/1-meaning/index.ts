@@ -82,6 +82,7 @@ export const linearFuncMeaning: Topic = {
       {
         id: 'math-g2-linear-func-meaning-fc10',
         front: '$y$ の増加量 $= a \\times n$（変化の割合 $\\times$ $x$ の増加量）', back: '一次関数で $x$ の増加量が $n$ のとき、$y$ の増加量は？',
+        explanation: '$y$ の増加量 $=$ 変化の割合 $\\times$ $x$ の増加量が基本公式。',
         difficulty: 'basic',
       },
       {
@@ -111,7 +112,7 @@ export const linearFuncMeaning: Topic = {
       },
       { id: 'math-g2-linear-func-meaning-fc17', front: '一次関数でもあり比例でもある', explanation: '$b = 0$ の一次関数 $=$ 比例', back: '$y = 3x$ は一次関数？比例？', difficulty: 'standard' },
       { id: 'math-g2-linear-func-meaning-fc19', front: '一次関数ではない', explanation: '$a = 0$ だと $y = b$（定数）で $x$ が変わっても $y$ が変化しない', back: '$y = 5$ は一次関数？', difficulty: 'standard' },
-      { id: 'math-g2-linear-func-meaning-fc21', front: '温度の変化、水そうの水量、料金など', back: '一次関数の身近な例は？', difficulty: 'standard' },
+      { id: 'math-g2-linear-func-meaning-fc21', front: '温度の変化、水そうの水量、料金など', back: '一次関数の身近な例は？', explanation: '一定の割合で変化する現象は一次関数で表せる。', difficulty: 'standard' },
       { id: 'math-g2-linear-func-meaning-fc23', front: '一定ではない', explanation: '区間によって変化の割合が変わる', back: '$y = x^2$ の変化の割合は一定？', difficulty: 'advanced' },
       { id: 'math-g2-linear-func-meaning-fc24', front: '傾き $a$ の正負で決まる', explanation: '$a > 0$ なら右上がり、$a < 0$ なら右下がり', back: '一次関数のグラフの向きは何で決まる？', difficulty: 'advanced' },
       { id: 'math-g2-linear-func-meaning-fc26', front: '$|a|$ が大きいほど急になる', explanation: '$a$ の絶対値がグラフの急さを決める', back: '傾きの大きさとグラフの関係は？', difficulty: 'advanced' },

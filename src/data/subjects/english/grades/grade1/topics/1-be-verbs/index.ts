@@ -215,6 +215,7 @@ export const beVerbs: Topic = {
         front: "He's = He is",
         back: '"He\'s" をフルに書くと？',
         hint: "'s は is のみじかい形だよ。",
+        explanation: "'s は is の短縮形。He's = He is と覚えよう。",
         difficulty: 'basic',
       },
       {
@@ -222,6 +223,7 @@ export const beVerbs: Topic = {
         front: "She's = She is",
         back: '"She\'s" をフルに書くと？',
         hint: "'s は is のみじかい形。She + is = ?",
+        explanation: "'s は is の短縮形。She's = She is だよ。",
         difficulty: 'basic',
       },
       {
@@ -229,6 +231,7 @@ export const beVerbs: Topic = {
         front: "It's = It is",
         back: '"It\'s" をフルに書くと？',
         hint: "it（それ）も 's = is が使えるよ。",
+        explanation: "'s は is の短縮形。It's = It is だよ。",
         difficulty: 'basic',
       },
       {
@@ -236,6 +239,7 @@ export const beVerbs: Topic = {
         front: "That's = That is",
         back: '"That\'s" をフルに書くと？',
         hint: "that（あれ）も 's = is でみじかくできるよ。",
+        explanation: "'s は is の短縮形。That's = That is だよ。",
         difficulty: 'basic',
       },
       {
@@ -243,6 +247,7 @@ export const beVerbs: Topic = {
         front: 'are',
         back: 'We (　　) in Class 1-2.\n（私たちは1年2組です。）',
         hint: '「私たち = we」は2人いじょう。2人いじょうのbe動詞は…？',
+        explanation: 'we（私たち）は2人以上だから are を使うよ。',
         difficulty: 'standard',
       },
       {
@@ -250,6 +255,7 @@ export const beVerbs: Topic = {
         front: 'are',
         back: 'You (　　) a rugby fan.\n（あなたはラグビーのファンです。）',
         hint: '「あなた = you」のbe動詞は…？',
+        explanation: 'you（あなた）のbe動詞は are だよ。1人でも you は are を使うよ。',
         difficulty: 'standard',
       },
       {
@@ -257,6 +263,7 @@ export const beVerbs: Topic = {
         front: "We're = We are",
         back: '"We\'re" をフルに書くと？',
         hint: "'re は are のみじかい形だよ。",
+        explanation: "'re は are の短縮形。We're = We are だよ。",
         difficulty: 'standard',
       },
       {
@@ -264,6 +271,7 @@ export const beVerbs: Topic = {
         front: "They're = They are",
         back: '"They\'re" をフルに書くと？',
         hint: "'re は are のみじかい形。They + are = ?",
+        explanation: "'re は are の短縮形。They're = They are だよ。",
         difficulty: 'standard',
       },
       {
@@ -271,6 +279,7 @@ export const beVerbs: Topic = {
         front: "No, I'm not.",
         back: 'Are you from Osaka?\n（あなたは大阪しゅっしんですか？）\nに「いいえ」で答えると？',
         hint: '「あなたは〜？」と聞かれたら I を使って答えるよ。',
+        explanation: "you（あなた）について聞かれたら I（私）で答えるよ。No, I'm not. が正解。",
         difficulty: 'advanced',
       },
       {
@@ -278,6 +287,7 @@ export const beVerbs: Topic = {
         front: 'am',
         back: 'I (　　) in the basketball club.\n（私はバスケットボール部に入っています。）',
         hint: '「私 = I」のbe動詞は？部活を紹介するときも同じだよ。',
+        explanation: 'I のbe動詞は am。I am in 〜. で「〜に所属しています」と言えるよ。',
         difficulty: 'advanced',
       },
       {
@@ -285,6 +295,7 @@ export const beVerbs: Topic = {
         front: "You're = You are",
         back: '"You\'re" をフルに書くと？',
         hint: "'re は are のみじかい形。You + are = ?",
+        explanation: "'re は are の短縮形。You're = You are だよ。",
         difficulty: 'standard',
       },
       {
@@ -292,6 +303,7 @@ export const beVerbs: Topic = {
         front: "No, they aren't.",
         back: 'Are they in the gym?\n（彼らは体育館にいますか？）\nに「いいえ」で答えると？',
         hint: 'they について聞かれたら they で答えるよ。',
+        explanation: "they について聞かれたら they で答えるよ。No, they aren't. が正解。",
         difficulty: 'advanced',
       },
     ],

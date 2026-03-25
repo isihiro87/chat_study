@@ -93,6 +93,7 @@ export const slopeIntercept: Topic = {
       {
         id: 'math-g2-slope-intercept-fc8',
         front: '切片から「右に4、下に3」進んだ点をとる。', back: '傾きが $-\\dfrac{3}{4}$ のとき、次の点はどうとる？',
+        explanation: '分母が $x$ の増加分 $4$、分子が $y$ の減少分 $3$（負なので下に進む）。',
         difficulty: 'basic',
       },
       {

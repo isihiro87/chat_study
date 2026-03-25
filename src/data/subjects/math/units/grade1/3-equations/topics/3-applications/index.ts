@@ -52,7 +52,7 @@ export const eqApplications: Topic = {
       // === 文章題の手順（basic）===
       // === 代金の問題（standard）===
       { id: 'math-g1-eq-a-fc11', front: '$x = 4$', back: '1本 $120$ 円の鉛筆 $x$ 本と $50$ 円の消しゴム1個で $530$ 円。$x$ は？', explanation: '$120x + 50 = 530$ → $120x = 480$', difficulty: 'standard' },
-      { id: 'math-g1-eq-a-fc12', front: 'りんご $x$ 個、みかん $(8 - x)$ 個のように、一方を $x$ で表す', back: '2種類の品物を合わせて $8$ 個買う問題で、$x$ を使ってどう表す？', difficulty: 'standard' },
+      { id: 'math-g1-eq-a-fc12', front: 'りんご $x$ 個、みかん $(8 - x)$ 個のように、一方を $x$ で表す', back: '2種類の品物を合わせて $8$ 個買う問題で、$x$ を使ってどう表す？', explanation: '合計が決まっているとき、片方を $x$ とおけばもう片方は（合計 $- x$）で表せる。', difficulty: 'standard' },
       { id: 'math-g1-eq-a-fc13', front: '$x = 5$', back: '$200$ 円のりんごと $100$ 円のみかんを合わせて $8$ 個買い、$1300$ 円だった。りんごは何個？', explanation: '$200x + 100(8 - x) = 1300$ → $100x = 500$', difficulty: 'standard' },
       { id: 'math-g1-eq-a-fc14', front: '$x = 1200$（$1200$ 円）', back: '定価の $2$ 割引きで買ったら $960$ 円。定価は？', explanation: '$0.8x = 960$ → $x = 1200$', difficulty: 'standard' },
       // === 過不足の問題（standard）===
@@ -64,7 +64,7 @@ export const eqApplications: Topic = {
       { id: 'math-g1-eq-a-fc20', front: '$x = 7$', back: '比例式 $2 : 3 = (x+1) : 12$ の $x$ は？', explanation: '$3(x+1) = 24$ → $3x = 21$', difficulty: 'standard' },
       // === 速さの問題（advanced）===
       { id: 'math-g1-eq-a-fc22', front: '$12$ km', back: '行き時速4km、帰り時速6km、往復5時間。片道の距離は？', explanation: '$\\dfrac{x}{4} + \\dfrac{x}{6} = 5$ → $5x = 60$', difficulty: 'advanced' },
-      { id: 'math-g1-eq-a-fc23', front: '2人の道のりが等しくなること', back: '追いつき問題で「追いついた」とはどういう意味？', difficulty: 'advanced' },
+      { id: 'math-g1-eq-a-fc23', front: '2人の道のりが等しくなること', back: '追いつき問題で「追いついた」とはどういう意味？', explanation: '先に出発した人の道のり $=$ 後から出発した人の道のり、で方程式を立てる。', difficulty: 'advanced' },
       { id: 'math-g1-eq-a-fc24', front: '$15$ 分後', back: '兄が分速 $60$ m で出発し、$10$ 分後に弟が分速 $100$ m で追いかける。何分後に追いつく？', explanation: '$60(x+10) = 100x$ → $40x = 600$', difficulty: 'advanced' },
       // === 比例式の利用（advanced）===
       { id: 'math-g1-eq-a-fc25', front: '弟 $600$ 円、兄 $1200$ 円', back: '兄と弟で合計 $1800$ 円、兄は弟の2倍。それぞれいくら？', explanation: '$x + 2x = 1800$ → $x = 600$', difficulty: 'advanced' },

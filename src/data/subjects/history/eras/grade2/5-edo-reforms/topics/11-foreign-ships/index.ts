@@ -23,11 +23,11 @@ export const foreignShips: Topic = {
     },
     videos: [],
     flashcards: [
-      { id: 'fc1', front: '異国船打払令', back: '1825年に幕府が出した外国船を砲撃して追い払う命令は？', difficulty: 'basic' },
-      { id: 'fc2', front: 'フェートン号事件', back: '1808年にイギリス軍艦が長崎に侵入した事件は？', difficulty: 'standard' },
-      { id: 'fc3', front: 'アヘン戦争', back: '1840年に清がイギリスに敗れ、幕府に衝撃を与えた戦争は？', difficulty: 'standard' },
-      { id: 'fc4', front: '蛮社の獄', back: '異国船打払令を批判した渡辺崋山・高野長英らが処罰された事件は？', difficulty: 'standard' },
-      { id: 'fc5', front: '大塩平八郎', back: '1837年にききんに苦しむ民を救うため大阪で乱を起こした元幕府役人は？', difficulty: 'standard' },
+      { id: 'fc1', front: '異国船打払令', explanation: '外国船を見つけ次第砲撃して追い払う強硬な命令で、モリソン号事件の原因となった。', back: '1825年に幕府が出した外国船を砲撃して追い払う命令は？', difficulty: 'basic' },
+      { id: 'fc2', front: 'フェートン号事件', explanation: 'イギリス軍艦が長崎港に侵入しオランダ商館員を人質にした事件で、幕府に衝撃を与えた。', back: '1808年にイギリス軍艦が長崎に侵入した事件は？', difficulty: 'standard' },
+      { id: 'fc3', front: 'アヘン戦争', explanation: '大国の清がイギリスに敗北したことで、幕府は異国船打払令を緩和して薪水給与令を出した。', back: '1840年に清がイギリスに敗れ、幕府に衝撃を与えた戦争は？', difficulty: 'standard' },
+      { id: 'fc4', front: '蛮社の獄', explanation: '蘭学者たちが幕府の外交政策を批判したとして弾圧された事件。', back: '異国船打払令を批判した渡辺崋山・高野長英らが処罰された事件は？', difficulty: 'standard' },
+      { id: 'fc5', front: '大塩平八郎', explanation: '大阪町奉行所の元与力で、陽明学の知行合一の精神から行動を起こした。', back: '1837年にききんに苦しむ民を救うため大阪で乱を起こした元幕府役人は？', difficulty: 'standard' },
       {
         id: 'fc6',
         front: 'ラクスマン',

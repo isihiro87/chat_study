@@ -93,11 +93,13 @@ export const literalExpressions: Topic = {
       {
         id: 'math-g2-le-fc3',
         front: '$n, n + 1, n + 2$\n（$n$ は整数）', back: '連続する3つの整数の表し方は？',
+        explanation: '最小の整数を $n$ とおくと、次は $n+1$、その次は $n+2$ と1ずつ増える。',
         difficulty: 'basic',
       },
       {
         id: 'math-g2-le-fc4',
         front: '$2n, 2n + 2, 2n + 4$\n（$n$ は整数）', back: '連続する3つの偶数の表し方は？',
+        explanation: '偶数は $2n$ で表し、次の偶数は $2$ ずつ増えるので $2n+2$, $2n+4$ となる。',
         difficulty: 'basic',
       },
       {
@@ -170,7 +172,7 @@ export const literalExpressions: Topic = {
       { id: 'math-g2-le-fc20', front: '偶数', back: '奇数 − 奇数 = ？', explanation: '$(2m+1) - (2n+1) = 2(m-n)$', difficulty: 'standard' },
       { id: 'math-g2-le-fc21', front: '$x = \\dfrac{y - b}{a}$', back: '$y = ax + b$ を $x$ について解くと？', explanation: '$ax = y - b$ → $x = \\dfrac{y - b}{a}$', difficulty: 'standard' },
       { id: 'math-g2-le-fc22', front: '5の倍数', back: '連続する5つの整数の和は何の倍数？', explanation: '$n+(n+1)+(n+2)+(n+3)+(n+4) = 5(n+2)$', difficulty: 'standard' },
-      { id: 'math-g2-le-fc23', front: '$2n + 1, 2n + 3, 2n + 5$（$n$ は整数）', back: '連続する3つの奇数の表し方は？', difficulty: 'advanced' },
+      { id: 'math-g2-le-fc23', front: '$2n + 1, 2n + 3, 2n + 5$（$n$ は整数）', back: '連続する3つの奇数の表し方は？', explanation: '奇数は $2n+1$ で表し、次の奇数は $2$ ずつ増える。', difficulty: 'advanced' },
       { id: 'math-g2-le-fc24', front: '3の倍数', back: '連続する3つの奇数の和は何の倍数？', explanation: '$(2n+1)+(2n+3)+(2n+5) = 6n + 9 = 3(2n + 3)$', difficulty: 'advanced' },
       { id: 'math-g2-le-fc25', front: '$r = \\dfrac{C}{2\\pi}$', back: '$C = 2\\pi r$ を $r$ について解くと？', explanation: '両辺を $2\\pi$ で割る', difficulty: 'advanced' },
       { id: 'math-g2-le-fc26', front: '奇数', back: '偶数 + 奇数 = ？', explanation: '$2m + (2n+1) = 2(m+n) + 1$', difficulty: 'advanced' },

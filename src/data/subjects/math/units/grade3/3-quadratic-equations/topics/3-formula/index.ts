@@ -81,6 +81,7 @@ export const quadFormula: Topic = {
       {
         id: 'math-g3-qf-fc6',
         front: '異なる2つの実数解がある', back: '判別式 > 0 のとき',
+        explanation: 'b²−4ac > 0 なら√の中が正になり、±で2つの異なる解が出る。',
         difficulty: 'basic',
       },
       {

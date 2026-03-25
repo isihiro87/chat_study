@@ -80,7 +80,7 @@ export const sqrtMeaning: Topic = {
       { id: 'math-g3-sqrt-meaning-fc11', front: '$1.7320508\\ldots$', back: '$\\sqrt{3}$ の近似値は？', explanation: '語呂合わせ：ひとなみにおごれや。', difficulty: 'basic' },
       { id: 'math-g3-sqrt-meaning-fc12', front: '$2.2360679\\ldots$', back: '$\\sqrt{5}$ の近似値は？', explanation: '語呂合わせ：ふじさんろくおうむなく。', difficulty: 'basic' },
       { id: 'math-g3-sqrt-meaning-fc14', front: '$a < b$ ならば $-\\sqrt{a} > -\\sqrt{b}$', back: '負の平方根の大小比較', explanation: '負になると不等号が逆転する。', difficulty: 'standard' },
-      { id: 'math-g3-sqrt-meaning-fc18', front: '誤差 $=$ 近似値 $-$ 真の値', back: '誤差の求め方', difficulty: 'basic' },
+      { id: 'math-g3-sqrt-meaning-fc18', front: '誤差 $=$ 近似値 $-$ 真の値', back: '誤差の求め方', explanation: '近似値から真の値を引いた差が誤差。正負どちらの値もとりうる。', difficulty: 'basic' },
       { id: 'math-g3-sqrt-meaning-fc20', front: '$a \\times 10^n$ の形', back: '有効数字の表し方', explanation: '例: $4500$ を有効数字2けた → $4.5 \\times 10^3$。', difficulty: 'standard' },
       // --- 以下、ichimondittou.md から追加 ---
       { id: 'math-g3-sqrt-meaning-fc21', front: '$\\pm 5$', back: '$25$ の平方根は？', explanation: '$5^2 = 25$、$(-5)^2 = 25$ なので $\\pm 5$。', difficulty: 'basic' },

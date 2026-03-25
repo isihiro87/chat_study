@@ -180,21 +180,25 @@ export const rateOfChange: Topic = {
       {
         id: 'math-g3-qf-rc-fc24',
         front: 'x² = 4x → x(x−4) = 0 → (0,0) と (4,16)', back: 'y = x² と y = 4x の交点は？',
+        explanation: '2つの式を等号で結び、二次方程式を解いて $x$ を求める',
         difficulty: 'advanced',
       },
       {
         id: 'math-g3-qf-rc-fc25',
         front: '2点を通る直線の傾き = 変化の割合と同じ', back: '放物線上の2点を通る直線の傾きの意味は？',
+        explanation: '公式 $a(p+q)$ の値がそのまま2点を結ぶ直線の傾きになる',
         difficulty: 'advanced',
       },
       {
         id: 'math-g3-qf-rc-fc26',
         front: '4(0 + 3) = 12 cm/秒', back: 'y = 4x² で 0秒後→3秒後の平均の速さは？',
+        explanation: '平均の速さ $=$ 変化の割合 $= a(p+q)$ で求められる',
         difficulty: 'advanced',
       },
       {
         id: 'math-g3-qf-rc-fc27',
         front: '正しくない。y = ax² では区間によって変わる。', back: 'y = ax² の変化の割合は常に a に等しい？',
+        explanation: '一次関数 $y = ax + b$ では常に $a$ だが、$y = ax^2$ は区間ごとに異なる',
         difficulty: 'advanced',
       },
       { id: 'math-g3-qf-rc-fc31', front: '一定ではない（区間によって変わる）', back: '$y = ax^2$ の変化の割合は一定？', explanation: '一次関数では一定。', difficulty: 'basic' },

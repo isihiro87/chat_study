@@ -69,18 +69,21 @@ export const elimination: Topic = {
         id: 'math-g2-elim-fc2',
         front: '2つの式を足す → 文字が消える', back: '符号が逆（+yと−y）のとき',
         hint: '+y + (−y) = 0',
+        explanation: '符号が逆の項は足すと $0$ になって消去できる。',
         difficulty: 'basic',
       },
       {
         id: 'math-g2-elim-fc3',
         front: '一方の式からもう一方を引く → 文字が消える', back: '係数が同じ（+2yと+2y）のとき',
         hint: '+2y − (+2y) = 0',
+        explanation: '同じ係数の項は引くと $0$ になって消去できる。',
         difficulty: 'basic',
       },
       {
         id: 'math-g2-elim-fc7',
         front: 'もとの式に代入して、もう1つの文字を求める', back: '加減法で1つの文字が求まったら？',
         hint: '代入→もう1つの値',
+        explanation: '求まった値をどちらかの式に代入すれば、もう1つの値が分かる。',
         difficulty: 'basic',
       },
       {
@@ -94,6 +97,7 @@ export const elimination: Topic = {
         id: 'math-g2-elim-fc14',
         front: '係数をそろえやすい方（少ない倍数で揃う方）を選ぶと楽', back: '「消去する文字」は $x$ と $y$ のどちらを選ぶ？',
         hint: '計算が簡単になる方を選ぼう',
+        explanation: '係数の最小公倍数が小さい方を消去すると計算が楽になる。',
         difficulty: 'standard',
       },
       {
@@ -107,6 +111,7 @@ export const elimination: Topic = {
         id: 'math-g2-elim-fc18',
         front: 'まず10倍や100倍して整数にしてから加減法を使う', back: '小数の係数があるときは？',
         hint: '例: $0.2x + 0.3y = 1.3$ → 10倍して $2x + 3y = 13$',
+        explanation: '小数のまま計算するとミスしやすいので、先に整数に直すのがコツ。',
         difficulty: 'standard',
       },
       { id: 'math-g2-elim-fc29', front: '消去したい文字の係数の絶対値が等しいこと', back: '加減法で文字を消去するために必要な条件は？', explanation: '等しくなければ片方の式を何倍かする。', difficulty: 'basic' },

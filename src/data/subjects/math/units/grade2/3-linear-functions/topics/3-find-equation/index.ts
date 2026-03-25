@@ -66,11 +66,13 @@ export const findLinearEquation: Topic = {
       {
         id: 'math-g2-find-linear-eq-fc2',
         front: '$y = ax + b$ にそのまま $a$ と $b$ を代入するだけ', back: '傾きと切片がわかっているときの式の求め方は？',
+        explanation: '最もシンプルなパターン。傾きと切片を直接当てはめる。',
         difficulty: 'basic',
       },
       {
         id: 'math-g2-find-linear-eq-fc7',
         front: '一次関数では、変化の割合 $=$ 傾き $a$（常に一定）', back: '「変化の割合」と「傾き」の関係は？',
+        explanation: '変化の割合が与えられたら、それがそのまま傾き $a$ になる。',
         difficulty: 'basic',
       },
       {
@@ -92,6 +94,7 @@ export const findLinearEquation: Topic = {
       {
         id: 'math-g2-find-linear-eq-fc11',
         front: '傾きの計算で分数が出そうなとき、または2つの式に代入してまとめて解きたいとき', back: '連立方程式法はどんなときに便利？',
+        explanation: '2点を $y = ax + b$ に代入して $a$, $b$ の連立方程式を解く方法。',
         difficulty: 'basic',
       },
       {
@@ -102,16 +105,19 @@ export const findLinearEquation: Topic = {
       {
         id: 'math-g2-find-linear-eq-fc13',
         front: '$y = 0$ を式に代入して $x$ について解く。この $x$ の値を $x$ 切片という。', back: 'グラフが $x$ 軸と交わる点の座標の求め方は？',
+        explanation: '$x$ 軸上では $y = 0$ なので、$0 = ax + b$ を解いて $x = -b/a$。',
         difficulty: 'standard',
       },
       {
         id: 'math-g2-find-linear-eq-fc14',
         front: '平行な2直線の傾きは等しい（$a_1 = a_2$）。切片 $b$ だけが異なる。', back: '平行な2直線の傾きの関係は？',
+        explanation: '「平行」と言われたら、元の直線の傾きをそのまま使う。',
         difficulty: 'standard',
       },
       {
         id: 'math-g2-find-linear-eq-fc16',
         front: '$y = -2x + b$ に $(3, 1)$ を代入: $1 = -6 + b$ → $b = 7$', back: '「傾き $-2$、点 $(3, 1)$ を通る」→ 切片 $b$ の求め方は？',
+        explanation: '傾きを代入した式に通る点の座標を入れて $b$ を求める。',
         difficulty: 'standard',
       },
       { id: 'math-g2-find-linear-eq-fc18', front: '$y = 0$ を代入して $x$ を求める', explanation: '$0 = ax + b$ → $x = -\\dfrac{b}{a}$', back: '$x$ 切片の求め方は？', difficulty: 'standard' },

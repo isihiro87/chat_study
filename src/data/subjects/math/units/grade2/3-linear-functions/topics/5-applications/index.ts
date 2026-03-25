@@ -82,6 +82,7 @@ export const linearFuncApplications: Topic = {
       {
         id: 'math-g2-lfapps-fc3',
         front: '引き返している（出発地に向かって戻っている）', back: '距離と時間のグラフで、右下がりの部分は？',
+        explanation: '距離が減っている＝出発地に向かって戻っていることを意味する。',
         difficulty: 'basic',
       },
       {
@@ -92,41 +93,49 @@ export const linearFuncApplications: Topic = {
       {
         id: 'math-g2-lfapps-fc5',
         front: '出会う時刻（出発してからの時間）', back: '2人のグラフの交点の x 座標は？',
+        explanation: '$x$ 軸が時間を表すので、交点の $x$ 座標が出会う時刻になる。',
         difficulty: 'basic',
       },
       {
         id: 'math-g2-lfapps-fc6',
         front: '出会う場所（出発地からの距離）', back: '2人のグラフの交点の y 座標は？',
+        explanation: '$y$ 軸が距離を表すので、交点の $y$ 座標が出会う場所の距離になる。',
         difficulty: 'basic',
       },
       {
         id: 'math-g2-lfapps-fc7',
         front: '2人の間の距離 ÷（2人の速さの和）', back: '向かい合って進む2人が出会うまでの時間は？',
+        explanation: '向かい合うと互いに近づくので、距離の縮まる速さは速さの和になる。',
         difficulty: 'basic',
       },
       {
         id: 'math-g2-lfapps-fc8',
         front: '2人の間の距離 ÷（速い人の速さ − 遅い人の速さ）', back: '追いかける問題で追いつくまでの時間は？',
+        explanation: '同じ方向に進むので、距離の縮まる速さは速さの差になる。',
         difficulty: 'basic',
       },
       {
         id: 'math-g2-lfapps-fc9',
         front: 'a（正の値）。水を入れるので右上がりのグラフ', back: '水そうに毎分 a L ずつ水を入れるとき、傾きは？',
+        explanation: '毎分の増加量がそのまま傾きになる。水が増えるので正の値。',
         difficulty: 'basic',
       },
       {
         id: 'math-g2-lfapps-fc10',
         front: '−b（負の値）。水を抜くので右下がりのグラフ', back: '水そうから毎分 b L ずつ水を抜くとき、傾きは？',
+        explanation: '毎分の減少量が傾きになる。水が減るので負の値。',
         difficulty: 'basic',
       },
       {
         id: 'math-g2-lfapps-fc11',
         front: 'y = 3x + 20', back: '初期水量 20L、毎分 3L 入れるとき、x 分後の水量 y は？',
+        explanation: '切片が初期水量 $20$、傾きが毎分の増加量 $3$。',
         difficulty: 'basic',
       },
       {
         id: 'math-g2-lfapps-fc12',
         front: '点がどの辺の上にあるかで変域を分ける（場合分け）', back: '動く点の問題で、まず何を考える？',
+        explanation: '点が辺を移るたびに式が変わるので、変域ごとに分けて考える。',
         difficulty: 'basic',
       },
       {
@@ -137,11 +146,13 @@ export const linearFuncApplications: Topic = {
       {
         id: 'math-g2-lfapps-fc17',
         front: '80 × 15 = 1200m', back: '分速 80m で 15 分歩いたときの距離は？',
+        explanation: '距離 $=$ 速さ $\\times$ 時間の公式を使う。',
         difficulty: 'standard',
       },
       {
         id: 'math-g2-lfapps-fc18',
         front: '面積は一定（変化しない）。底辺も高さも変わらないから', back: '点 P が底辺に平行な辺の上を動くとき、三角形の面積はどうなる？',
+        explanation: '底辺に平行に動くと高さが変わらないので面積は一定になる。',
         difficulty: 'standard',
       },
       { id: 'math-g2-lfapps-fc20', front: '速さが変わったことを表す', explanation: '傾きが変わる＝速さが変化した', back: '距離と時間のグラフで折れ線になる部分は？', difficulty: 'standard' },

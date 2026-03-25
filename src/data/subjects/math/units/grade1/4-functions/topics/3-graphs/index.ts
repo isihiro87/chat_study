@@ -55,7 +55,7 @@ export const funcGraphs: Topic = {
     videos: [],
     flashcards: [
       // --- basic (12枚) ---
-      { id: 'math-g1-graphs-fc2', front: '比例の関係（道のり $=$ 速さ $\\times$ 時間）', back: '速さ一定のとき、道のりと時間はどんな関係？', difficulty: 'basic' },
+      { id: 'math-g1-graphs-fc2', front: '比例の関係（道のり $=$ 速さ $\\times$ 時間）', back: '速さ一定のとき、道のりと時間はどんな関係？', explanation: '速さが一定なら $y = ax$ の形になるので比例。', difficulty: 'basic' },
       { id: 'math-g1-graphs-fc3', front: '代金 $=$ 単価 $\\times$ 個数', back: '単価一定のとき、代金と個数はどんな関係？', explanation: '比例の関係', difficulty: 'basic' },
       { id: 'math-g1-graphs-fc4', front: '$y = 3x$', back: '比例のグラフが点 $(4, 12)$ を通るとき、式は？', explanation: '$a = \\frac{12}{4} = 3$', difficulty: 'basic' },
       { id: 'math-g1-graphs-fc5', front: '$y = 60x$', back: '時速 $60$ km で走る車の $x$ 時間後の道のり $y$ の式は？', explanation: '道のり $=$ 速さ $\\times$ 時間', difficulty: 'basic' },
@@ -67,7 +67,7 @@ export const funcGraphs: Topic = {
       { id: 'math-g1-graphs-fc20', front: '$y = 15x$', back: '針金 $1$ m の重さが $15$ g のとき、$x$ m の重さ $y$ g の式は？', explanation: '$1$ m あたり $15$ g', difficulty: 'basic' },
       // --- standard (12枚) ---
       { id: 'math-g1-graphs-fc7', front: '反比例の関係', back: '面積一定の長方形で縦と横はどんな関係？', explanation: '縦 $\\times$ 横 $=$ 面積で積が一定', difficulty: 'standard' },
-      { id: 'math-g1-graphs-fc8', front: '$\\frac{y}{x}$ が一定なら比例、$xy$ が一定なら反比例', back: '比例か反比例かの見分け方は？', difficulty: 'standard' },
+      { id: 'math-g1-graphs-fc8', front: '$\\frac{y}{x}$ が一定なら比例、$xy$ が一定なら反比例', back: '比例か反比例かの見分け方は？', explanation: '表を作って商か積が一定かを確かめよう。', difficulty: 'standard' },
       { id: 'math-g1-graphs-fc9', front: '反比例', back: '仕事量の問題で、人数と日数はどんな関係？', explanation: '仕事量一定のとき、人数 $\\times$ 日数 $=$ 一定', difficulty: 'standard' },
       { id: 'math-g1-graphs-fc11', front: '$3$ 日', back: '$12$ 人で $5$ 日の仕事を $20$ 人ですると何日？', explanation: '$y = \\frac{60}{x}$（$xy = 60$ → 反比例）。$x = 20$ のとき $y = 3$', difficulty: 'standard' },
       { id: 'math-g1-graphs-fc21', front: '$y = \\frac{300}{x}$', back: 'てんびんの左に $30$ g を支点から $10$ cm に置いた。右の $x$ cm に $y$ g を置く式は？', explanation: '$30 \\times 10 = 300$', difficulty: 'standard' },
@@ -77,7 +77,7 @@ export const funcGraphs: Topic = {
       { id: 'math-g1-graphs-fc25', front: '$y = \\frac{36}{x}$', back: '面積 $36$ cm$^2$ の長方形の縦 $x$ cm と横 $y$ cm の関係式は？', explanation: '$xy = 36$ で反比例', difficulty: 'standard' },
       { id: 'math-g1-graphs-fc26', front: '$y = 20x$', back: '分速 $60$ m の A と分速 $80$ m の B が同時出発。$x$ 分後の距離の差 $y$ m の式は？', explanation: '$80x - 60x = 20x$', difficulty: 'standard' },
       // --- advanced (6枚) ---
-      { id: 'math-g1-graphs-fc13', front: '2つのグラフの交点を読み取ることで、両方の条件を同時に満たす値がわかる', back: '2つのグラフの交点は何を表す？', difficulty: 'advanced' },
+      { id: 'math-g1-graphs-fc13', front: '2つのグラフの交点を読み取ることで、両方の条件を同時に満たす値がわかる', back: '2つのグラフの交点は何を表す？', explanation: '交点の座標が、2つの式を同時に成り立たせる $x, y$ の値。', difficulty: 'advanced' },
       { id: 'math-g1-graphs-fc14', front: '$6$ cm', back: '面積 $48$ cm$^2$ の長方形で縦 $8$ cm のとき横は？', explanation: '$\\frac{48}{8} = 6$。面積一定の反比例の問題', difficulty: 'advanced' },
       { id: 'math-g1-graphs-fc27', front: '$a = 18$', back: '$y = 2x$ と $y = \\frac{a}{x}$ が点 $(3, b)$ で交わるとき $a$ は？', explanation: '点 $(3, 6)$ を通るから $a = 3 \\times 6$', difficulty: 'advanced' },
       { id: 'math-g1-graphs-fc28', front: '$(1, 18), (2, 9), (3, 6), (6, 3), (9, 2), (18, 1)$ の $6$ 個', back: '$y = \\frac{18}{x}$ で $x > 0$ のとき、$x, y$ がともに整数の点は？', explanation: '$18$ の正の約数の組み合わせ', difficulty: 'advanced' },

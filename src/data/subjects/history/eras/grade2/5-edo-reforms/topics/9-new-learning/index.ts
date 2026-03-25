@@ -23,11 +23,11 @@ export const newLearning: Topic = {
     },
     videos: [],
     flashcards: [
-      { id: 'fc1', front: '国学', back: '日本の古典を研究し、日本固有の精神を探る学問は？', difficulty: 'basic' },
-      { id: 'fc2', front: '本居宣長', back: '35年かけて「古事記伝」を著した国学者は？', difficulty: 'basic' },
-      { id: 'fc3', front: '蘭学', back: 'オランダ語を通じて西洋の学問を学ぶ学問は？', difficulty: 'basic' },
-      { id: 'fc4', front: '解体新書', back: '杉田玄白らがオランダ語の解剖書を翻訳した医学書は？', difficulty: 'basic' },
-      { id: 'fc5', front: '伊能忠敬', back: '日本全国を測量して精密な日本地図を作った人物は？', difficulty: 'basic' },
+      { id: 'fc1', front: '国学', explanation: '古事記や万葉集など日本の古典を通じて、儒教・仏教以前の日本の精神を探求した。', back: '日本の古典を研究し、日本固有の精神を探る学問は？', difficulty: 'basic' },
+      { id: 'fc2', front: '本居宣長', explanation: '三重県松阪の医師で、国学を大成した人物として知られる。', back: '35年かけて「古事記伝」を著した国学者は？', difficulty: 'basic' },
+      { id: 'fc3', front: '蘭学', explanation: '鎖国下でも出島を通じてオランダとの交流があり、そこから西洋の知識を吸収した。', back: 'オランダ語を通じて西洋の学問を学ぶ学問は？', difficulty: 'basic' },
+      { id: 'fc4', front: '解体新書', explanation: '1774年に刊行され、日本の西洋医学の出発点となった。', back: '杉田玄白らがオランダ語の解剖書を翻訳した医学書は？', difficulty: 'basic' },
+      { id: 'fc5', front: '伊能忠敬', explanation: '50歳から天文学を学び始め、17年かけて日本全国を歩いて測量した。', back: '日本全国を測量して精密な日本地図を作った人物は？', difficulty: 'basic' },
       {
         id: 'fc6',
         front: '適塾',
@@ -42,7 +42,7 @@ export const newLearning: Topic = {
         explanation: 'オランダ商館医が直接指導し、日本の西洋医学の発展に寄与した。',
         difficulty: 'standard',
       },
-      { id: 'fc8', front: '杉田玄白', back: '前野良沢とともに「解体新書」を翻訳した蘭学者は？', difficulty: 'standard' },
+      { id: 'fc8', front: '杉田玄白', explanation: '小浜藩の医者で、解剖の見学をきっかけに西洋医学の正確さに感銘を受けた。', back: '前野良沢とともに「解体新書」を翻訳した蘭学者は？', difficulty: 'standard' },
       {
         id: 'fc9',
         front: '前野良沢',

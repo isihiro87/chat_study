@@ -107,6 +107,7 @@ export const presentProgressive: Topic = {
         front: 'eating',
         back: 'eat の ing 形は？',
         hint: 'ふつうにそのまま ing をつけるよ',
+        explanation: 'eat はそのまま ing をつけるタイプ。eat → eating',
         difficulty: 'basic',
       },
       {
@@ -114,6 +115,7 @@ export const presentProgressive: Topic = {
         front: 'watching',
         back: 'watch の ing 形は？',
         hint: 'ふつうにそのまま ing をつけるよ',
+        explanation: 'watch はそのまま ing をつけるタイプ。watch → watching',
         difficulty: 'basic',
       },
       {
@@ -121,6 +123,7 @@ export const presentProgressive: Topic = {
         front: 'listening',
         back: 'listen の ing 形は？',
         hint: 'ふつうにそのまま ing をつけるよ',
+        explanation: 'listen はそのまま ing をつけるタイプ。listen → listening',
         difficulty: 'basic',
       },
       {
@@ -128,6 +131,7 @@ export const presentProgressive: Topic = {
         front: 'cooking',
         back: 'cook の ing 形は？',
         hint: 'ふつうにそのまま ing をつけるよ',
+        explanation: 'cook はそのまま ing をつけるタイプ。cook → cooking',
         difficulty: 'basic',
       },
       {
@@ -135,6 +139,7 @@ export const presentProgressive: Topic = {
         front: 'singing',
         back: 'sing の ing 形は？',
         hint: 'ふつうにそのまま ing をつけるよ',
+        explanation: 'sing はそのまま ing をつけるタイプ。sing → singing',
         difficulty: 'basic',
       },
       {
@@ -142,6 +147,7 @@ export const presentProgressive: Topic = {
         front: 'sleeping',
         back: 'sleep の ing 形は？',
         hint: 'ふつうにそのまま ing をつけるよ',
+        explanation: 'sleep はそのまま ing をつけるタイプ。sleep → sleeping',
         difficulty: 'basic',
       },
       // --- ing form: e-ending ---

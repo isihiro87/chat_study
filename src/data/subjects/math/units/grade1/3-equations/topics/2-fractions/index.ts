@@ -51,8 +51,8 @@ export const eqFractions: Topic = {
       { id: 'math-g1-eq-f-fc7', front: '$x = 3$', back: '$0.7x = 2.1$ の解は？', explanation: '$10$ 倍して $7x = 21$', difficulty: 'basic' },
       { id: 'math-g1-eq-f-fc8', front: '$x = 2$', back: '$0.6x - 1.2 = 0$ の解は？', explanation: '$10$ 倍して $6x - 12 = 0$、$6x = 12$', difficulty: 'basic' },
       { id: 'math-g1-eq-f-fc9', front: '$x = 15$', back: '$\\dfrac{x}{5} = 3$ の解は？', explanation: '両辺に $5$ をかけて $x = 15$', difficulty: 'basic' },
-      { id: 'math-g1-eq-f-fc10', front: '$6$', back: '$2$ と $3$ の最小公倍数は？', difficulty: 'basic' },
-      { id: 'math-g1-eq-f-fc11', front: '$12$', back: '$3$ と $4$ の最小公倍数は？', difficulty: 'basic' },
+      { id: 'math-g1-eq-f-fc10', front: '$6$', back: '$2$ と $3$ の最小公倍数は？', explanation: '$2$ の倍数: $2, 4, 6, \\ldots$、$3$ の倍数: $3, 6, \\ldots$。共通で最小なのは $6$。', difficulty: 'basic' },
+      { id: 'math-g1-eq-f-fc11', front: '$12$', back: '$3$ と $4$ の最小公倍数は？', explanation: '$3$ の倍数: $3, 6, 9, 12, \\ldots$、$4$ の倍数: $4, 8, 12, \\ldots$。共通で最小なのは $12$。', difficulty: 'basic' },
       // --- standard (12) ---
       { id: 'math-g1-eq-f-fc13', front: '$x = 12$', back: '$\\dfrac{x}{3} = 4$ の解は？', explanation: '両辺に $3$ をかけて $x = 12$', difficulty: 'standard' },
       { id: 'math-g1-eq-f-fc14', front: '$x = 6$', back: '$\\dfrac{x}{2} + \\dfrac{x}{3} = 5$ の解は？', explanation: '分母 $2,3$ の最小公倍数 $6$ をかけて $3x + 2x = 30$', difficulty: 'standard' },
