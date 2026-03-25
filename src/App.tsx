@@ -90,9 +90,19 @@ function PageViewTracker() {
 
 function AuthGuard() {
   const { user, loading } = useAuth();
+  const { pathname } = useLocation();
   const [guestMode, setGuestMode] = useState(
     () => sessionStorage.getItem('guest-mode') === 'true',
   );
+
+  // LINEコールバックは認証前でもアクセス可能にする
+  if (pathname === '/auth/line/callback') {
+    return (
+      <Suspense fallback={null}>
+        <LineCallbackPage />
+      </Suspense>
+    );
+  }
 
   if (loading) {
     return (
