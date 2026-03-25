@@ -1,0 +1,190 @@
+📁 src/data/subjects/history/eras/grade2/3-edo-economy/topics/4-bakuhan-system/index.ts
+  q8 (ratio: 3.00) - 綱吉が重んじた学問は何？
+      [2] 国学
+      [2] 蘭学
+    ✓ [7] 朱子学（儒学）
+      [3] 陽明学
+  q13 (ratio: 2.06) - 幕府の財政が次第に悪化した主な原因は？
+      [5] 農業の衰退
+    ✓ [11] 米価の下落と出費の増大
+      [5] 鎖国の解除
+      [6] 外国との戦争
+
+
+📁 src/data/subjects/history/eras/grade2/4-edo-genroku/topics/7-tanuma-politics/index.ts
+  q11 (ratio: 1.86) - 田沼の政治と三大改革の最大の違いは？
+      [7] 外交政策の違い
+    ✓ [13] 商業重視か農業重視かの違い
+      [7] 教育政策の違い
+      [7] 軍事政策の違い
+  q15 (ratio: 2.00) - 俵物の代表的な品目として正しいのは？
+      [6] 米・麦・大豆
+      [6] 綿・絹・木綿
+    ✓ [14] 干しアワビ・いりこ・ふかひれ
+      [9] 陶磁器・漆器・屏風
+
+
+📁 src/data/subjects/history/eras/grade2/5-edo-reforms/topics/9-new-learning/index.ts
+  q5 (ratio: 2.50) - 「解体新書」の原書であるオランダ語の医学書の名前は？
+      [4] 蘭学事始
+      [4] 医学入門
+    ✓ [10] ターヘル・アナトミア
+      [4] 本草綱目
+  q15 (ratio: 1.87) - 国学と蘭学の違いとして正しいのは？
+      [17] 国学は中国の学問、蘭学は西洋の学問
+    ✓ [28] 国学は日本古典の研究、蘭学はオランダ語を通じた西洋の学問
+      [11] 国学は医学、蘭学は文学
+      [17] 国学は武士の学問、蘭学は庶民の学問
+
+
+📁 src/data/subjects/history/eras/grade2/6-modern-era/topics/2-american-independence/index.ts
+  q4 (ratio: 0.53) - アメリカ独立宣言の理念に大きな影響を与えた啓蒙思想家は？
+    ✓ [3] ロック
+      [5] ナポレオン
+      [5] ビスマルク
+      [7] モンテスキュー
+
+
+📁 src/data/subjects/history/eras/grade2/6-modern-era/topics/4-nationalism-europe/index.ts
+  q17 (ratio: 2.53) - ウィーン体制が崩壊していった原因は？
+      [7] 大国同士の戦争
+      [6] 経済的な破綻
+    ✓ [16] 自由主義とナショナリズムの広がり
+      [6] 植民地の反乱
+  q18 (ratio: 1.83) - 19世紀のヨーロッパで「国民」という意識が生まれた主な要因は？
+      [8] 王権神授説の普及
+    ✓ [14] 同じ言語・文化を持つ仲間意識
+      [7] 宗教的な一体感
+      [8] 経済的な利害関係
+
+
+📁 src/data/subjects/history/eras/grade2/6-modern-era/topics/6-america-expansion/index.ts
+  q5 (ratio: 0.38) - 南北戦争で勝利したのはどちら？
+      [2] 南部
+      [4] 引き分け
+    ✓ [2] 北部
+      [10] イギリスの介入で終了
+  q6 (ratio: 1.93) - リンカンが「人民の、人民による、人民のための政治」と述べた演説は？
+      [4] 独立宣言
+      [4] 就任演説
+      [6] 奴隷解放宣言
+    ✓ [9] ゲティスバーグ演説
+
+
+📁 src/data/subjects/history/eras/grade2/6-modern-era/topics/7-industrial-revolution/index.ts
+  q1 (ratio: 0.50) - 産業革命で蒸気機関を改良したイギリスの技術者は？
+      [5] ダーウィン
+    ✓ [3] ワット
+      [5] ニュートン
+      [8] スティーブンソン
+  q5 (ratio: 2.00) - 産業革命後、長時間労働や低賃金に対抗するため労働者が作った団体は？
+    ✓ [4] 労働組合
+      [2] 政党
+      [2] 議会
+      [2] 軍隊
+  q6 (ratio: 1.88) - イギリスの産業革命が最初に始まった工業分野は？
+      [3] 鉄鋼業
+      [3] 造船業
+    ✓ [5] 綿織物工業
+      [2] 鉱業
+  q8 (ratio: 1.85) - 蒸気機関車を実用化したイギリスの技術者は？
+      [3] ワット
+    ✓ [8] スティーブンソン
+      [5] ニュートン
+      [5] ダーウィン
+  q12 (ratio: 1.91) - 産業革命が世界に広がった結果、欧米列強が行ったことは？
+      [7] 鎖国政策の採用
+    ✓ [14] アジア・アフリカの植民地獲得
+      [6] 農業への回帰
+      [9] 軍縮による平和外交
+  q14 (ratio: 1.93) - 産業革命以前の主な生産方式は？
+      [7] 工場制機械工業
+      [3] 重工業
+    ✓ [9] 手工業（家内工業）
+      [4] 化学工業
+
+
+📁 src/data/subjects/history/eras/grade2/6-modern-era/topics/8-western-asia-invasion/index.ts
+  q7 (ratio: 0.43) - 三角貿易で清からイギリスに輸出された主な産物は？
+      [3] 綿織物
+      [1] 絹
+    ✓ [1] 茶
+      [3] アヘン
+  q18 (ratio: 1.93) - 安い綿織物の流入で壊滅的な打撃を受けたインドの産業は？
+      [4] 鉄鋼産業
+    ✓ [9] 伝統的な綿織物産業
+      [5] 香辛料産業
+      [5] 陶磁器産業
+
+
+📁 src/data/subjects/history/eras/grade2/7-bakumatsu/topics/1-opening-japan/index.ts
+  q12 (ratio: 2.25) - 日米修好通商条約で、日本が自由に決められなかった税は？
+      [3] 所得税
+      [3] 人頭税
+    ✓ [6] 輸入品の関税
+      [2] 地租
+
+
+📁 src/data/subjects/history/eras/grade2/7-bakumatsu/topics/2-post-opening/index.ts
+  q6 (ratio: 1.93) - 開港後、日本と外国の金銀交換比率の違いから起きた経済問題は？
+      [5] 物価の下落
+    ✓ [9] 金の流出と物価高騰
+      [4] 銀の不足
+      [5] 貿易の停止
+  q15 (ratio: 1.84) - 安政の大獄が起きた直接の原因は？
+      [10] ペリーが来航したこと
+      [10] 西南戦争が起きたこと
+    ✓ [19] 朝廷の許可なく条約を結んだことへの批判
+      [11] 薩長同盟が結ばれたこと
+  q18 (ratio: 1.91) - 開国後の日本で輸入品として多かったものは？
+      [4] 米と大豆
+      [4] 生糸と茶
+    ✓ [7] 毛織物と綿織物
+      [3] 金と銀
+
+
+📁 src/data/subjects/history/eras/grade2/7-bakumatsu/topics/3-fall-of-bakufu/index.ts
+  q6 (ratio: 1.91) - 幕末に民衆の間で流行した、世直しへの期待を込めた踊りは？
+      [3] 盆踊り
+    ✓ [7] ええじゃないか
+      [4] 花笠踊り
+      [4] 阿波踊り
+
+
+📁 src/data/subjects/history/eras/grade2/8-meiji-early/topics/2-three-reforms/index.ts
+  q1 (ratio: 0.55) - 1872年に出された、6歳以上の男女全員に教育を受けさせる制度は？
+    ✓ [2] 学制
+      [3] 徴兵令
+      [4] 教育勅語
+      [4] 地租改正
+  q14 (ratio: 1.88) - 地租改正で税金を納める義務を負ったのは？
+      [7] 米を作った農民
+    ✓ [10] 地券を持つ土地所有者
+      [5] 全ての国民
+      [4] 村の名主
+
+
+📁 src/data/subjects/history/eras/grade2/8-meiji-early/topics/5-freedom-movement/index.ts
+  q5 (ratio: 1.94) - 西南戦争で政府軍が勝利した結果、反対運動はどう変わった？
+      [12] 武力闘争がさらに激化した
+      [10] 反対運動がなくなった
+    ✓ [20] 武力ではなく言論による運動が中心になった
+      [9] 外国に助けを求めた
+  q7 (ratio: 1.96) - 自由民権運動が始まった背景は？
+      [7] 外国からの圧力
+    ✓ [17] 薩長出身者が政治を独占していたこと
+      [11] 天皇が国会を求めたこと
+      [8] 戊辰戦争への不満
+  q17 (ratio: 0.48) - 西南戦争での西郷隆盛の最後は？
+      [7] 政府に降伏した
+      [7] 海外に逃亡した
+    ✓ [4] 自決した
+      [11] 捕らえられて処刑された
+
+
+📁 src/data/subjects/history/eras/grade2/8-meiji-early/topics/6-constitution/index.ts
+  q3 (ratio: 0.50) - 大日本帝国憲法で、国の主権者とされたのは？
+      [2] 国民
+      [4] 帝国議会
+    ✓ [2] 天皇
+      [6] 内閣総理大臣
