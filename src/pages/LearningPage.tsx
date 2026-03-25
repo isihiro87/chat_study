@@ -18,6 +18,7 @@ import { Header } from '../components/common/Header';
 import { getTopic, loadChat, loadTopicContent, getEra } from '../data/subjects/registry';
 import { getSubject } from '../data/subjects';
 import { SEOHead } from '../components/common/SEOHead';
+import { saveQuizAttempt, saveFlashcardSession } from '../firebase/firestore';
 import { estimateReadingTime } from '../utils/estimateReadingTime';
 import { trackEvent } from '../utils/gtag';
 import { classifyError, handleChunkError } from '../utils/classifyError';
@@ -236,6 +237,19 @@ export function LearningPage() {
     }
   }, [topicId, markFlashcardCompleted]);
 
+  const handleFlashcardCompleteWithDetails = useCallback(
+    (data: { totalCards: number; firstRoundRemembered: number; firstRoundTotal: number; reviewRounds: number; cardResults: { cardId: string; rememberedCount: number; againCount: number }[] }) => {
+      if (!topicId || !subjectId || !eraId) return;
+      saveFlashcardSession({
+        topicId,
+        subjectId,
+        eraId,
+        ...data,
+      });
+    },
+    [topicId, subjectId, eraId],
+  );
+
   const handleExampleComplete = useCallback(() => {
     if (topicId) markExampleCompleted(topicId);
   }, [topicId, markExampleCompleted]);
@@ -266,6 +280,28 @@ export function LearningPage() {
       }
     },
     [topicId, updateQuizScore],
+  );
+
+  const handleQuizCompleteWithDetails = useCallback(
+    (data: { score: number; total: number; answers: (number | null)[]; timings: number[]; questions: { id: string; correctIndex: number }[]; difficulties: string[] }) => {
+      if (!topicId || !subjectId || !eraId) return;
+      saveQuizAttempt({
+        topicId,
+        subjectId,
+        eraId,
+        difficulty: data.difficulties,
+        score: data.score,
+        totalQuestions: data.total,
+        answers: data.questions.map((q, i) => ({
+          questionIndex: i,
+          correct: data.answers[i] === q.correctIndex,
+          chosenOption: data.answers[i],
+          correctOption: q.correctIndex,
+          timeMs: data.timings[i] ?? 0,
+        })),
+      });
+    },
+    [topicId, subjectId, eraId],
   );
 
   if (!topic) {
@@ -499,6 +535,7 @@ export function LearningPage() {
             cards={content.flashcards}
             onProgressChange={handleCardProgressChange}
             onComplete={handleFlashcardComplete}
+            onCompleteWithDetails={handleFlashcardCompleteWithDetails}
             chatGPTInfo={subjectId ? { subjectId, topicName: topic.name, topicSubtitle: topic.subtitle } : undefined}
             subjectId={subjectId}
             topicId={topicId}
@@ -520,6 +557,7 @@ export function LearningPage() {
             onProgressChange={handleQuizProgressChange}
             onComplete={handleQuizComplete}
             onCompleteWithDifficulties={handleQuizCompleteWithDifficulties}
+            onCompleteWithDetails={handleQuizCompleteWithDetails}
             isNewBest={quizNewBest}
             navigation={topicNavigation}
             chatGPTInfo={subjectId ? { subjectId, topicName: topic.name, topicSubtitle: topic.subtitle } : undefined}

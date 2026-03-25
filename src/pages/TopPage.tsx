@@ -4,6 +4,7 @@ import { Scroll, Calculator, Languages, Globe, FlaskConical, Lock, ChevronRight,
 import { subjects } from '../data/subjects';
 import { getTopic, getEra, allTopics } from '../data/subjects/registry';
 import { useStudyProgress } from '../hooks/useStudyProgress';
+import { useAuth } from '../contexts/AuthContext';
 import { trackEvent } from '../utils/gtag';
 import { SEOHead } from '../components/common/SEOHead';
 import { SurveyPopup, useSurveyPopup } from '../components/common/SurveyPopup';
@@ -64,6 +65,7 @@ const subjectNameMap: Record<string, string> = {
 };
 
 export function TopPage() {
+  const { user } = useAuth();
   const {
     streak,
     totalStudiedTopics,
@@ -139,15 +141,30 @@ export function TopPage() {
         <h1 className="text-center text-2xl font-bold text-primary">
           チャットでスタディ
         </h1>
-        <p className="mt-1 text-center text-sm text-gray-500">
-          中学生のためのスマホ学習
-        </p>
+        {user ? (
+          <p className="mt-1 text-center text-sm text-gray-500">
+            ようこそ、{user.displayName?.split(' ')[0] ?? 'ゲスト'}さん
+          </p>
+        ) : (
+          <p className="mt-1 text-center text-sm text-gray-500">
+            中学生のためのスマホ学習
+          </p>
+        )}
         <Link
           to="/settings"
           className="absolute right-4 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full hover:bg-gray-100 active:bg-gray-200"
           aria-label="設定"
         >
-          <Settings className="h-5 w-5 text-gray-400" />
+          {user?.photoURL ? (
+            <img
+              src={user.photoURL}
+              alt=""
+              className="h-8 w-8 rounded-full"
+              referrerPolicy="no-referrer"
+            />
+          ) : (
+            <Settings className="h-5 w-5 text-gray-400" />
+          )}
         </Link>
       </header>
 

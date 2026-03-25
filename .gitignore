@@ -10,6 +10,7 @@ yarn-error.log*
 # Build outputs
 dist/
 build/
+functions/lib/
 *.tsbuildinfo
 
 # Environment variables
@@ -47,3 +48,4 @@ coverage/
 
 # SEO analysis (local only)
 seo-keywords.md
+functions/lib/

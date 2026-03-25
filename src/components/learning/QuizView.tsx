@@ -34,6 +34,7 @@ interface QuizViewProps {
   onComplete?: (score: number, total: number) => void;
   onCompleteWithDifficulties?: (score: number, total: number, difficulties: Difficulty[]) => void;
   onCompleteWithWrongQuestions?: (wrongQuestions: QuizQuestion[]) => void;
+  onCompleteWithDetails?: (data: { score: number; total: number; answers: (number | null)[]; timings: number[]; questions: QuizQuestion[]; difficulties: string[] }) => void;
   isNewBest?: boolean;
   navigation?: TopicNavigationInfo;
   extraResultButtons?: React.ReactNode;
@@ -168,7 +169,7 @@ function ReorderQuestionInput({
   );
 }
 
-export function QuizView({ quiz, onProgressChange, onComplete, onCompleteWithDifficulties, onCompleteWithWrongQuestions, isNewBest, navigation, extraResultButtons, chatGPTInfo, subjectId, topicId, resumeMode }: QuizViewProps) {
+export function QuizView({ quiz, onProgressChange, onComplete, onCompleteWithDifficulties, onCompleteWithWrongQuestions, onCompleteWithDetails, isNewBest, navigation, extraResultButtons, chatGPTInfo, subjectId, topicId, resumeMode }: QuizViewProps) {
   // 復元状態の読み込み（初回レンダー時のみ）
   const [resumeData] = useState<QuizResumeState | null>(() => {
     if (resumeMode && topicId) {
@@ -236,6 +237,7 @@ export function QuizView({ quiz, onProgressChange, onComplete, onCompleteWithDif
     totalQuestions,
     currentQuestion,
     reviewScore,
+    answerTimings,
   } = useQuiz(filteredQuiz, resumeData?.quiz);
 
   useEffect(() => {
@@ -279,9 +281,17 @@ export function QuizView({ quiz, onProgressChange, onComplete, onCompleteWithDif
         const wrongQs = wrongAnswers.map((idx) => filteredQuiz.questions[idx]);
         onCompleteWithWrongQuestions(wrongQs);
       }
+      onCompleteWithDetails?.({
+        score,
+        total: filteredQuiz.questions.length,
+        answers,
+        timings: answerTimings,
+        questions: filteredQuiz.questions,
+        difficulties: selectedDifficulties,
+      });
       if (topicId) clearResumeState(topicId, 'quiz');
     }
-  }, [isComplete, isReviewMode, score, filteredQuiz.questions.length, onComplete, onCompleteWithDifficulties, onCompleteWithWrongQuestions, wrongAnswers, filteredQuiz.questions, selectedDifficulties, topicId]);
+  }, [isComplete, isReviewMode, score, filteredQuiz.questions.length, onComplete, onCompleteWithDifficulties, onCompleteWithWrongQuestions, onCompleteWithDetails, wrongAnswers, filteredQuiz.questions, selectedDifficulties, topicId, answers, answerTimings]);
 
   // 続きの問題を解く: 同じ設定で再選定（出題済み問題を除外）
   const handleNewQuestions = () => {

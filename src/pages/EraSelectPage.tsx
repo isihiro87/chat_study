@@ -6,6 +6,7 @@ import { SEOHead } from '../components/common/SEOHead';
 import { getSubject } from '../data/subjects';
 import { getErasBySubject, getTopicsByEra } from '../data/subjects/registry';
 import { useStudyProgress } from '../hooks/useStudyProgress';
+import { useAuth } from '../contexts/AuthContext';
 
 const allGrades = [
   { value: 1, label: '中1' },
@@ -16,7 +17,8 @@ const allGrades = [
 export function EraSelectPage() {
   const { subjectId } = useParams<{ subjectId: string }>();
   const subject = subjectId ? getSubject(subjectId) : undefined;
-  const [selectedGrade, setSelectedGrade] = useState(1);
+  const { userProfile } = useAuth();
+  const [selectedGrade, setSelectedGrade] = useState(() => userProfile.grade ?? 1);
   const { getEraProgress, getCompletionStatus, getTopicProgress } = useStudyProgress();
 
   // 学年切り替え時にスクロール位置をリセット

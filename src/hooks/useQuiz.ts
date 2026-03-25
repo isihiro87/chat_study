@@ -1,4 +1,4 @@
-import { useState, useCallback, useMemo } from 'react';
+import { useState, useCallback, useMemo, useRef } from 'react';
 import type { Quiz, QuizQuestion } from '../data/types';
 
 interface UseQuizReturn {
@@ -23,6 +23,7 @@ interface UseQuizReturn {
   originalTotal: number;
   currentQuestion: QuizQuestion | undefined;
   reviewScore: number;
+  answerTimings: number[];
 }
 
 export interface QuizSavedState {
@@ -48,6 +49,8 @@ export function useQuiz(quiz: Quiz, savedState?: QuizSavedState): UseQuizReturn 
   const [reviewScore, setReviewScore] = useState(0);
   const [reorderAnswer, setReorderAnswer] = useState<number[] | null>(null);
   const [reviewAnswers, setReviewAnswers] = useState<(boolean | null)[]>([]);
+  const [answerTimings, setAnswerTimings] = useState<number[]>([]);
+  const questionStartTime = useRef(Date.now());
 
   const wrongAnswers = useMemo(() => {
     const wrong: number[] = [];
@@ -93,6 +96,8 @@ export function useQuiz(quiz: Quiz, savedState?: QuizSavedState): UseQuizReturn 
     (index: number) => {
       if (isAnswered) return;
 
+      const elapsed = Date.now() - questionStartTime.current;
+      setAnswerTimings((prev) => [...prev, elapsed]);
       setSelectedAnswer(index);
       setIsAnswered(true);
 
@@ -125,6 +130,8 @@ export function useQuiz(quiz: Quiz, savedState?: QuizSavedState): UseQuizReturn 
     (order: number[]) => {
       if (isAnswered) return;
 
+      const elapsed = Date.now() - questionStartTime.current;
+      setAnswerTimings((prev) => [...prev, elapsed]);
       setReorderAnswer(order);
       setIsAnswered(true);
 
@@ -169,6 +176,7 @@ export function useQuiz(quiz: Quiz, savedState?: QuizSavedState): UseQuizReturn 
       setSelectedAnswer(null);
       setIsAnswered(false);
       setReorderAnswer(null);
+      questionStartTime.current = Date.now();
     } else {
       setIsComplete(true);
     }
@@ -176,6 +184,7 @@ export function useQuiz(quiz: Quiz, savedState?: QuizSavedState): UseQuizReturn 
 
   const start = useCallback(() => {
     setIsStarted(true);
+    questionStartTime.current = Date.now();
   }, []);
 
   const reset = useCallback(() => {
@@ -191,6 +200,8 @@ export function useQuiz(quiz: Quiz, savedState?: QuizSavedState): UseQuizReturn 
     setReviewScore(0);
     setReorderAnswer(null);
     setReviewAnswers([]);
+    setAnswerTimings([]);
+    questionStartTime.current = Date.now();
   }, [quiz.questions.length]);
 
   const startReview = useCallback(() => {
@@ -231,5 +242,6 @@ export function useQuiz(quiz: Quiz, savedState?: QuizSavedState): UseQuizReturn 
     originalTotal,
     currentQuestion,
     reviewScore,
+    answerTimings,
   };
 }

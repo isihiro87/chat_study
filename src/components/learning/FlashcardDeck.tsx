@@ -26,13 +26,14 @@ interface FlashcardDeckProps {
   cards: Flashcard[];
   onProgressChange?: (current: number, total: number) => void;
   onComplete?: () => void;
+  onCompleteWithDetails?: (data: { totalCards: number; firstRoundRemembered: number; firstRoundTotal: number; reviewRounds: number; cardResults: { cardId: string; rememberedCount: number; againCount: number }[] }) => void;
   chatGPTInfo?: ChatGPTInfo;
   subjectId?: string;
   topicId?: string;
   resumeMode?: boolean;
 }
 
-export function FlashcardDeck({ cards, onProgressChange, onComplete, chatGPTInfo, subjectId, topicId, resumeMode }: FlashcardDeckProps) {
+export function FlashcardDeck({ cards, onProgressChange, onComplete, onCompleteWithDetails, chatGPTInfo, subjectId, topicId, resumeMode }: FlashcardDeckProps) {
   // 復元状態の読み込み
   const [resumeData] = useState<FlashcardResumeState | null>(() => {
     if (resumeMode && topicId) {
@@ -108,9 +109,20 @@ export function FlashcardDeck({ cards, onProgressChange, onComplete, chatGPTInfo
     if (isComplete && !completeCalled.current) {
       completeCalled.current = true;
       onComplete?.();
+      onCompleteWithDetails?.({
+        totalCards: cards.length,
+        firstRoundRemembered: sessionHistory.firstRoundRemembered,
+        firstRoundTotal: sessionHistory.firstRoundTotal,
+        reviewRounds: sessionHistory.reviewRounds,
+        cardResults: Array.from(sessionHistory.cardHistories.entries()).map(([cardId, h]) => ({
+          cardId,
+          rememberedCount: h.rememberedCount,
+          againCount: h.againCount,
+        })),
+      });
       if (topicId) clearResumeState(topicId, 'flashcard');
     }
-  }, [isComplete, onComplete, topicId]);
+  }, [isComplete, onComplete, onCompleteWithDetails, topicId, cards.length, sessionHistory]);
 
   // 自動保存: カード振り分けごとにsessionStorageに保存
   useEffect(() => {

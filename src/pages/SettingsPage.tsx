@@ -1,25 +1,24 @@
 import { useState } from 'react';
 import { Header } from '../components/common/Header';
 import { SEOHead } from '../components/common/SEOHead';
+import { ProfileMenu } from '../components/auth/ProfileMenu';
 import { clearProgress } from '../utils/studyProgressStorage';
-import { loadTheme, saveTheme, applyTheme } from '../utils/themeStorage';
-import type { ThemeMode } from '../utils/themeStorage';
+import { useAuth } from '../contexts/AuthContext';
 
-const themeOptions: { value: ThemeMode; label: string }[] = [
-  { value: 'system', label: '自動' },
-  { value: 'light', label: 'ライト' },
-  { value: 'dark', label: 'ダーク' },
+const gradeOptions = [
+  { value: null as number | null, label: '未設定' },
+  { value: 1, label: '1年' },
+  { value: 2, label: '2年' },
+  { value: 3, label: '3年' },
 ];
 
 export function SettingsPage() {
+  const { userProfile, updateUserProfile } = useAuth();
   const [showConfirm, setShowConfirm] = useState(false);
   const [cleared, setCleared] = useState(false);
-  const [theme, setTheme] = useState<ThemeMode>(loadTheme);
 
-  const handleThemeChange = (mode: ThemeMode) => {
-    setTheme(mode);
-    saveTheme(mode);
-    applyTheme(mode);
+  const handleGradeChange = (value: number | null) => {
+    updateUserProfile({ grade: value });
   };
 
   const handleReset = () => {
@@ -40,16 +39,19 @@ export function SettingsPage() {
       />
       <Header title="設定" showBack />
       <main className="mx-auto max-w-md space-y-4 px-4 py-6">
-        {/* テーマ設定 */}
+        {/* アカウント */}
+        <ProfileMenu />
+
+        {/* 学年設定 */}
         <div className="rounded-xl bg-white p-4 shadow-sm">
-          <h2 className="mb-4 text-sm font-semibold text-gray-600">テーマ</h2>
+          <h2 className="mb-4 text-sm font-semibold text-gray-600">学年</h2>
           <div className="flex gap-2">
-            {themeOptions.map((opt) => (
+            {gradeOptions.map((opt) => (
               <button
-                key={opt.value}
-                onClick={() => handleThemeChange(opt.value)}
+                key={String(opt.value)}
+                onClick={() => handleGradeChange(opt.value)}
                 className={`flex-1 rounded-lg border-2 py-2.5 text-sm font-medium transition-colors ${
-                  theme === opt.value
+                  userProfile.grade === opt.value
                     ? 'border-amber-500 bg-amber-50 text-amber-700'
                     : 'border-gray-200 bg-white text-gray-600'
                 }`}

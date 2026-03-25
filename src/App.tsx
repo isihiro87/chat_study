@@ -4,7 +4,8 @@ import { motion } from 'framer-motion';
 import { TopPage } from './pages/TopPage';
 import { ErrorBoundary } from './components/common/ErrorBoundary';
 import { NotFoundPage } from './pages/NotFoundPage';
-import { PasswordGate } from './components/common/PasswordGate';
+import { AuthProvider, useAuth } from './contexts/AuthContext';
+import { LoginPage } from './components/auth/LoginPage';
 import { pageview } from './utils/gtag';
 
 const EraSelectPage = lazy(() => import('./pages/EraSelectPage').then(m => ({ default: m.EraSelectPage })));
@@ -13,6 +14,8 @@ const LearningPage = lazy(() => import('./pages/LearningPage').then(m => ({ defa
 const HistoryChatPage = lazy(() => import('./pages/HistoryChatPage').then(m => ({ default: m.HistoryChatPage })));
 const RandomQuizPage = lazy(() => import('./pages/RandomQuizPage').then(m => ({ default: m.RandomQuizPage })));
 const SettingsPage = lazy(() => import('./pages/SettingsPage').then(m => ({ default: m.SettingsPage })));
+const LineCallbackPage = lazy(() => import('./pages/LineCallbackPage').then(m => ({ default: m.LineCallbackPage })));
+const AdminPage = lazy(() => import('./pages/AdminPage').then(m => ({ default: m.AdminPage })));
 
 // ルート変更時にスクロール位置を復元またはリセット
 function ScrollRestoration() {
@@ -68,6 +71,8 @@ function AnimatedRoutes() {
           <Route path="/subjects/:subjectId/eras/:eraId/topics/:topicId" element={<LearningPage />} />
           <Route path="/chat/:chatId" element={<HistoryChatPage />} />
           <Route path="/settings" element={<SettingsPage />} />
+          <Route path="/auth/line/callback" element={<LineCallbackPage />} />
+          <Route path="/admin" element={<AdminPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>
@@ -83,33 +88,51 @@ function PageViewTracker() {
   return null;
 }
 
-const AUTH_KEY = 'marutto-authenticated';
-
-function App() {
-  const [authenticated, setAuthenticated] = useState(
-    () => localStorage.getItem(AUTH_KEY) === 'true'
+function AuthGuard() {
+  const { user, loading } = useAuth();
+  const [guestMode, setGuestMode] = useState(
+    () => sessionStorage.getItem('guest-mode') === 'true',
   );
 
-  const handleAuthenticated = () => {
-    localStorage.setItem(AUTH_KEY, 'true');
-    setAuthenticated(true);
-  };
-
-  if (!authenticated) {
+  if (loading) {
     return (
-      <ErrorBoundary>
-        <PasswordGate onAuthenticated={handleAuthenticated} />
-      </ErrorBoundary>
+      <div className="min-h-screen bg-[#FAF9F7] flex items-center justify-center">
+        <p
+          className="text-gray-400 text-sm"
+          style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+        >
+          読み込み中...
+        </p>
+      </div>
+    );
+  }
+
+  if (!user && !guestMode) {
+    return (
+      <LoginPage
+        onGuestAccess={() => {
+          sessionStorage.setItem('guest-mode', 'true');
+          setGuestMode(true);
+        }}
+      />
     );
   }
 
   return (
+    <div className="min-h-screen bg-[#FAF9F7]">
+      <ScrollRestoration />
+      <PageViewTracker />
+      <AnimatedRoutes />
+    </div>
+  );
+}
+
+function App() {
+  return (
     <ErrorBoundary>
-      <div className="min-h-screen bg-[#FAF9F7]">
-        <ScrollRestoration />
-        <PageViewTracker />
-        <AnimatedRoutes />
-      </div>
+      <AuthProvider>
+        <AuthGuard />
+      </AuthProvider>
     </ErrorBoundary>
   );
 }
