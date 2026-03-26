@@ -36,6 +36,13 @@ export const subjects: Subject[] = [
     description: '世界と日本の地理を学ぼう',
     isAvailable: true,
   },
+  {
+    id: 'fe-exam',
+    name: '基本情報技術者',
+    icon: 'monitor',
+    description: '基本情報技術者試験対策',
+    isAvailable: false,
+  },
 ];
 
 export function getSubject(id: string): Subject | undefined {

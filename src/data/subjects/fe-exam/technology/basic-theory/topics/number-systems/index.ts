@@ -1,0 +1,137 @@
+import type { Topic } from '../../../../../../types';
+
+export const numberSystems: Topic = {
+  id: 'fe-number-systems',
+  eraId: 'fe-basic-theory',
+  name: '基数変換',
+  subtitle: '2進数・10進数・16進数の変換',
+  icon: '🔢',
+  order: 1,
+  content: {
+    explanation: {
+      sections: [
+        {
+          title: '基数とは',
+          content:
+            '基数とは、数を表現するときに使う数字の種類の数です。私たちが普段使う10進数は0〜9の10種類の数字を使うため基数は10です。コンピュータは電気のON/OFFで情報を扱うため、0と1の2種類だけを使う2進数（基数2）が基本です。また、2進数を短く表記するために16進数（基数16、0〜9とA〜Fを使用）もよく使われます。',
+          keyPoints: [
+            '10進数: 基数10（0〜9の10種類）',
+            '2進数: 基数2（0と1の2種類）',
+            '16進数: 基数16（0〜9, A〜Fの16種類）',
+          ],
+        },
+        {
+          title: '10進数から2進数への変換',
+          content:
+            '10進数を2進数に変換するには、10進数を2で割り続けて余りを下から読みます。例えば10進数の13を変換すると、13÷2=6余り1、6÷2=3余り0、3÷2=1余り1、1÷2=0余り1となり、余りを下から読んで1101(2)となります。',
+          keyPoints: [
+            '10進数を2で繰り返し割る',
+            '余りを下から順に読む',
+            '例: 13(10) → 1101(2)',
+          ],
+        },
+        {
+          title: '2進数から10進数への変換',
+          content:
+            '2進数を10進数に変換するには、各桁に2の重み（右から2^0, 2^1, 2^2, ...）を掛けて合計します。例えば1101(2)は、1×2^3 + 1×2^2 + 0×2^1 + 1×2^0 = 8 + 4 + 0 + 1 = 13(10)です。',
+          keyPoints: [
+            '各桁に2のべき乗の重みを掛ける',
+            '右端が2^0、左に1つ進むごとに指数が1増える',
+            '例: 1101(2) → 8+4+0+1 = 13(10)',
+          ],
+        },
+        {
+          title: '2進数と16進数の変換',
+          content:
+            '2進数と16進数は相性が良く、2進数4桁が16進数1桁に対応します。2進数を右から4桁ずつ区切り、それぞれを16進数に変換します。例えば11010110(2)は、1101 0110 → D6(16)です。逆に16進数から2進数へは、各桁を4桁の2進数に展開します。',
+          keyPoints: [
+            '2進数4桁 = 16進数1桁',
+            '右から4桁ずつ区切って変換',
+            '例: 11010110(2) → D6(16)',
+          ],
+        },
+      ],
+    },
+    videos: [],
+    flashcards: [
+      { id: 'fe-ns-fc1', front: '2', back: 'コンピュータが基本的に使用する基数は？', explanation: 'コンピュータは電気のON/OFFで動作するため、0と1の2進数が基本です。', difficulty: 'basic' },
+      { id: 'fe-ns-fc2', front: '1101(2)', back: '10進数の13を2進数で表すと？', explanation: '13÷2=6余り1、6÷2=3余り0、3÷2=1余り1、1÷2=0余り1。余りを下から読んで1101。', difficulty: 'basic' },
+      { id: 'fe-ns-fc3', front: '13', back: '2進数1101を10進数に変換すると？', explanation: '1×8 + 1×4 + 0×2 + 1×1 = 13。', difficulty: 'basic' },
+      { id: 'fe-ns-fc4', front: '4桁', back: '2進数何桁が16進数1桁に対応する？', explanation: '2^4=16なので、2進数4桁で16通り=16進数1桁分を表現できます。', difficulty: 'basic' },
+      { id: 'fe-ns-fc5', front: '0〜9, A〜F', back: '16進数で使用する文字は？', explanation: '0〜9の数字とA(10)〜F(15)のアルファベットで16種類を表します。', difficulty: 'basic' },
+      { id: 'fe-ns-fc6', front: 'FF(16)', back: '10進数の255を16進数で表すと？', explanation: '255÷16=15余り15。15=F なので FF(16)。', difficulty: 'standard' },
+      { id: 'fe-ns-fc7', front: '11111111(2)', back: '16進数FFを2進数で表すと？', explanation: 'F=1111(2)なので、FF=11111111(2)。8ビットすべてが1の状態です。', difficulty: 'standard' },
+      { id: 'fe-ns-fc8', front: '10進数を2で割り続けて余りを下から読む', back: '10進数から2進数への変換方法は？', explanation: '商が0になるまで2で割り、出てきた余りを下から順に並べます。', difficulty: 'basic' },
+      { id: 'fe-ns-fc9', front: '各桁に2のべき乗の重みを掛けて合計', back: '2進数から10進数への変換方法は？', explanation: '右端から2^0, 2^1, 2^2,...の重みを各桁に掛けて全て足します。', difficulty: 'basic' },
+      { id: 'fe-ns-fc10', front: 'A=10, B=11, C=12, D=13, E=14, F=15', back: '16進数のA〜Fが表す10進数の値は？', explanation: '10以上の数を1文字で表すためにアルファベットを使います。', difficulty: 'standard' },
+    ],
+    quiz: {
+      questions: [
+        {
+          id: 'fe-ns-q1',
+          question: '10進数の25を2進数で表したものはどれか。',
+          options: ['10101', '11001', '11010', '10110'],
+          correctIndex: 1,
+          explanation: '25=16+8+1=2^4+2^3+2^0 → 11001(2)',
+          difficulty: 'basic',
+        },
+        {
+          id: 'fe-ns-q2',
+          question: '2進数10110を10進数で表したものはどれか。',
+          options: ['18', '20', '22', '24'],
+          correctIndex: 2,
+          explanation: '1×16 + 0×8 + 1×4 + 1×2 + 0×1 = 22',
+          difficulty: 'basic',
+        },
+        {
+          id: 'fe-ns-q3',
+          question: '16進数の2Aを10進数で表したものはどれか。',
+          options: ['32', '38', '42', '44'],
+          correctIndex: 2,
+          explanation: '2×16 + A(10)×1 = 32 + 10 = 42',
+          difficulty: 'standard',
+        },
+        {
+          id: 'fe-ns-q4',
+          question: '2進数4桁は16進数何桁に対応するか。',
+          options: ['1桁', '2桁', '3桁', '4桁'],
+          correctIndex: 0,
+          explanation: '2^4=16なので、2進数4桁で16進数1桁を表現できます。',
+          difficulty: 'basic',
+        },
+        {
+          id: 'fe-ns-q5',
+          question: '16進数のFFを10進数で表したものはどれか。',
+          options: ['240', '250', '255', '256'],
+          correctIndex: 2,
+          explanation: '15×16 + 15×1 = 240 + 15 = 255',
+          difficulty: 'standard',
+        },
+        {
+          id: 'fe-ns-q6',
+          question: '10進数の200を16進数で表したものはどれか。',
+          options: ['C0', 'C8', 'CA', 'D0'],
+          correctIndex: 1,
+          explanation: '200÷16=12余り8 → C8(16)',
+          difficulty: 'standard',
+        },
+        {
+          id: 'fe-ns-q7',
+          question: '2進数11010110を16進数で表したものはどれか。',
+          options: ['B6', 'C6', 'D6', 'E6'],
+          correctIndex: 2,
+          explanation: '1101=D, 0110=6 → D6(16)',
+          difficulty: 'standard',
+        },
+        {
+          id: 'fe-ns-q8',
+          question: '8ビットで表現できる最大の符号なし整数を10進数で表したものはどれか。',
+          options: ['127', '128', '255', '256'],
+          correctIndex: 2,
+          explanation: '8ビット全て1の場合: 11111111(2) = 255(10)',
+          difficulty: 'standard',
+        },
+      ],
+    },
+  },
+};

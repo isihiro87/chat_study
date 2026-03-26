@@ -16,6 +16,7 @@ const RandomQuizPage = lazy(() => import('./pages/RandomQuizPage').then(m => ({ 
 const SettingsPage = lazy(() => import('./pages/SettingsPage').then(m => ({ default: m.SettingsPage })));
 const LineCallbackPage = lazy(() => import('./pages/LineCallbackPage').then(m => ({ default: m.LineCallbackPage })));
 const AdminPage = lazy(() => import('./pages/AdminPage').then(m => ({ default: m.AdminPage })));
+const FEExamTopPage = lazy(() => import('./pages/FEExamTopPage').then(m => ({ default: m.FEExamTopPage })));
 
 // ルート変更時にスクロール位置を復元またはリセット
 function ScrollRestoration() {
@@ -70,6 +71,7 @@ function AnimatedRoutes() {
           <Route path="/subjects/:subjectId/eras/:eraId" element={<TopicSelectPage />} />
           <Route path="/subjects/:subjectId/eras/:eraId/topics/:topicId" element={<LearningPage />} />
           <Route path="/chat/:chatId" element={<HistoryChatPage />} />
+          <Route path="/fe-exam" element={<FEExamTopPage />} />
           <Route path="/settings" element={<SettingsPage />} />
           <Route path="/auth/line/callback" element={<LineCallbackPage />} />
           <Route path="/admin" element={<AdminPage />} />

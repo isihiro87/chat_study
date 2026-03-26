@@ -49,3 +49,4 @@ coverage/
 # SEO analysis (local only)
 seo-keywords.md
 functions/lib/
+src/data/subjects/fe-exam/contents/*.pdf
