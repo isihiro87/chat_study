@@ -97,6 +97,7 @@ export const securityManagement: Topic = {
         },
       ],
     },
+    chatId: 'fe-security-management',
     videos: [],
     flashcards: [
       { id: 'fe-sm-fc1', front: '機密性（Confidentiality）', back: '許可された者だけが情報にアクセスできる性質を何という？', explanation: 'CIAの「C」にあたり、アクセス制御や暗号化で確保します。', difficulty: 'basic' },

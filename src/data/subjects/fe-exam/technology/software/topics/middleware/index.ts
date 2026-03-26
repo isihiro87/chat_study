@@ -165,6 +165,7 @@ export const middleware: Topic = {
         },
       ],
     },
+    chatId: 'fe-middleware',
     videos: [],
     flashcards: [
       { id: 'fe-mw-fc1', front: 'OSとアプリケーションの間に位置するソフトウェア', back: 'ミドルウェアとは何か？', explanation: '共通機能を提供し、アプリケーション開発の効率を高めます。', difficulty: 'basic' },

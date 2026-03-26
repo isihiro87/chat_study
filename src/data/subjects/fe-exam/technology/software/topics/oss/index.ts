@@ -143,6 +143,7 @@ export const oss: Topic = {
         },
       ],
     },
+    chatId: 'fe-oss',
     videos: [],
     flashcards: [
       { id: 'fe-oss-fc1', front: 'ソースコードが公開され、自由に利用・改変・再配布できるソフトウェア', back: 'オープンソースソフトウェア（OSS）とは？', explanation: '無料で使えるかどうかではなく、ソースコードの公開と利用の自由が本質です。', difficulty: 'basic' },

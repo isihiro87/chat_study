@@ -42,6 +42,7 @@ export const nosql: Topic = {
         },
       ],
     },
+    chatId: 'fe-nosql',
     videos: [],
     flashcards: [
       { id: 'fe-nosql-fc1', front: 'Key-Value型データベース', back: 'キーと値のペアでデータを管理するNoSQL（Redis、DynamoDB等）', explanation: '高速な読み書きが可能で、キャッシュやセッション管理に使われます。', difficulty: 'basic' },

@@ -100,6 +100,8 @@ export const devProcess: Topic = {
         },
       ],
     },
+    chatId: 'fe-dev-process',
+
     videos: [],
     flashcards: [
       { id: 'fe-dp-fc1', front: '共通フレーム（SLCP-JCF2013）', back: 'ソフトウェアのライフサイクル全体をカバーするガイドライン', explanation: 'ISO/IEC 12207を基に日本向けに策定。発注者と受注者の認識を合わせることが目的です。', difficulty: 'standard' },

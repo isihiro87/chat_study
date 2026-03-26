@@ -154,6 +154,7 @@ export const osBasics: Topic = {
         },
       ],
     },
+    chatId: 'fe-os-basics',
     videos: [],
     flashcards: [
       { id: 'fe-os-fc1', front: 'ハードウェア資源の管理とアプリケーション実行環境の提供', back: 'OSの主な役割は？', explanation: 'OSはCPU・メモリ・入出力装置を管理し、アプリケーションが動作する基盤を提供します。', difficulty: 'basic' },

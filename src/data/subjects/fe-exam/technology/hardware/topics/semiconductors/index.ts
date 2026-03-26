@@ -143,6 +143,7 @@ export const semiconductors: Topic = {
         },
       ],
     },
+    chatId: 'fe-semiconductors',
     videos: [],
     flashcards: [
       { id: 'fe-semi-fc1', front: 'ダイオード', back: '電流を一方向にだけ流す半導体素子は？', explanation: '整流作用を持ち、交流を直流に変換する回路などに使われます。', difficulty: 'basic' },

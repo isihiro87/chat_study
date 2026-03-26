@@ -45,6 +45,8 @@ export const serviceOperation: Topic = {
         { title: '可用性管理とキャパシティ管理', content: '可用性管理は可用性 = MTBF ÷ (MTBF + MTTR) × 100%で測定します。MTBF（Mean Time Between Failures）は平均故障間隔、MTTR（Mean Time To Repair）は平均修復時間です。キャパシティ管理は適切なコストで十分な処理能力を確保するプロセスです。', keyPoints: ['可用性 = MTBF ÷ (MTBF + MTTR) × 100%', 'MTBF: 平均故障間隔 / MTTR: 平均修復時間', 'キャパシティ管理: 適切なコストで十分な処理能力を確保'] },
       ],
     },
+    chatId: 'fe-service-operation',
+
     videos: [],
     flashcards: [
       { id: 'fe-so-fc1', front: 'サービスデスク', back: '利用者からの問い合わせや障害報告を一元的に受け付ける窓口（SPOC）', explanation: 'Single Point of Contactとして機能します。', difficulty: 'basic' },

@@ -84,6 +84,7 @@ export const shiftOperations: Topic = {
         },
       ],
     },
+    chatId: 'fe-shift-operations',
     videos: [],
     flashcards: [
       {

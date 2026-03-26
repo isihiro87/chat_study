@@ -81,6 +81,7 @@ export const numberSystems: Topic = {
         },
       ],
     },
+    chatId: 'fe-number-systems',
     videos: [],
     flashcards: [
       { id: 'fe-ns-fc1', front: '2', back: 'コンピュータが基本的に使用する基数は？', explanation: 'コンピュータは電気のON/OFFで動作するため、0と1の2進数が基本です。', difficulty: 'basic' },

@@ -163,6 +163,7 @@ export const processor: Topic = {
         },
       ],
     },
+    chatId: 'fe-processor',
     videos: [],
     flashcards: [
       { id: 'fe-proc-fc1', front: '制御装置・演算装置（ALU）・レジスタ', back: 'CPUを構成する3つの主要な要素は？', explanation: '制御装置は命令の解読と指示、演算装置は計算、レジスタはデータの一時記憶を担当します。', difficulty: 'basic' },

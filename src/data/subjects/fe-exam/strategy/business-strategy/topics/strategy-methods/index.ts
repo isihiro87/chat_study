@@ -94,6 +94,8 @@ export const strategyMethods: Topic = {
         },
       ],
     },
+    chatId: 'fe-strategy-methods',
+
     videos: [],
     flashcards: [
       { id: 'fe-strategy-methods-fc1', front: '強み・弱み・機会・脅威の4視点で企業環境を分析する手法', back: 'SWOT分析とは？', explanation: '内部環境（S/W）と外部環境（O/T）を整理して戦略を立案します。', difficulty: 'basic' },

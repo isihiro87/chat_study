@@ -81,6 +81,8 @@ export const planning: Topic = {
         },
       ],
     },
+    chatId: 'fe-planning',
+
     videos: [],
     flashcards: [
       { id: 'fe-planning-fc1', front: '経営戦略に基づいて、どの業務をいつまでにシステム化するかを具体的に計画すること', back: 'システム化計画とは？', explanation: '対象範囲・スケジュール・費用・体制・リスクを明確にします。', difficulty: 'basic' },

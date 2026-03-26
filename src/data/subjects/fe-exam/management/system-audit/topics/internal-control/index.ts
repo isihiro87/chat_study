@@ -76,6 +76,8 @@ export const internalControl: Topic = {
         },
       ],
     },
+    chatId: 'fe-internal-control',
+
     videos: [],
     flashcards: [
       { id: 'fe-ic-fc1', front: '内部統制の4つの目的', back: '業務の有効性・効率性/財務報告の信頼性/法令遵守/資産の保全', explanation: '組織の業務が適正に行われることを確保するための仕組みの目的です。', difficulty: 'basic' },

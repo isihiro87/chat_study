@@ -58,6 +58,7 @@ export const mediaTech: Topic = {
         },
       ],
     },
+    chatId: 'fe-media-tech',
     videos: [],
     flashcards: [
       { id: 'fe-mt-fc1', front: 'JPEG', back: '非可逆圧縮の画像形式（写真向き、透過非対応）', explanation: '人間の目に感知しにくい高周波成分を除去して圧縮します。圧縮するたびに画質が劣化します。', difficulty: 'basic' },

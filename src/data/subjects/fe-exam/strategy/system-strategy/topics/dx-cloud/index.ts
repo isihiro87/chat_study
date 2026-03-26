@@ -81,6 +81,8 @@ export const dxCloud: Topic = {
         },
       ],
     },
+    chatId: 'fe-dx-cloud',
+
     videos: [],
     flashcards: [
       { id: 'fe-dx-cloud-fc1', front: 'デジタル技術を活用してビジネスモデルや業務プロセスを根本的に変革すること', back: 'DX（デジタルトランスフォーメーション）とは？', explanation: '単なるIT化ではなく、デジタル技術を前提とした新しい価値の創造を目指します。', difficulty: 'basic' },

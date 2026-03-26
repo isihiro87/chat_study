@@ -101,6 +101,7 @@ export const errors: Topic = {
         },
       ],
     },
+    chatId: 'fe-errors',
     videos: [],
     flashcards: [
       {

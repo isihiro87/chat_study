@@ -33,6 +33,8 @@ export const marketing: Topic = {
         ] },
       ],
     },
+    chatId: 'fe-marketing',
+
     videos: [],
     flashcards: [
       { id: 'fe-marketing-fc1', front: 'Product（製品）・Price（価格）・Place（流通）・Promotion（販促）', back: 'マーケティングミックス（4P）とは？', explanation: '4つの要素を組み合わせて最適なマーケティング戦略を立案します。', difficulty: 'basic' },

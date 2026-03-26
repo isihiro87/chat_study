@@ -71,6 +71,7 @@ export const adderCircuits: Topic = {
         },
       ],
     },
+    chatId: 'fe-adder-circuits',
     videos: [],
     flashcards: [
       { id: 'fe-add-fc1', front: '2進数の加算（足し算）を行う論理回路', back: '加算器とは何か？', explanation: 'コンピュータ内部で2進数の足し算を行う基本回路で、半加算器と全加算器があります。', difficulty: 'basic' },

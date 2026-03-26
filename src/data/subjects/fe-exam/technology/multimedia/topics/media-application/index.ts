@@ -58,6 +58,7 @@ export const mediaApplication: Topic = {
         },
       ],
     },
+    chatId: 'fe-media-application',
     videos: [],
     flashcards: [
       { id: 'fe-ma-fc1', front: 'AR（拡張現実）', back: '現実世界にデジタル情報を重ね合わせる技術', explanation: 'スマホのカメラ映像にCGを合成するなど、現実を「拡張」する技術です。Pokemon GOが代表例。', difficulty: 'basic' },

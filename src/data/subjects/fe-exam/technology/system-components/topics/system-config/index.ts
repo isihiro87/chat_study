@@ -167,6 +167,7 @@ export const systemConfig: Topic = {
         },
       ],
     },
+    chatId: 'fe-system-config',
     videos: [],
     flashcards: [
       {

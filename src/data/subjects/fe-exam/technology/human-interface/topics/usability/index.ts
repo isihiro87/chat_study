@@ -53,6 +53,7 @@ export const usability: Topic = {
         },
       ],
     },
+    chatId: 'fe-usability',
     videos: [],
     flashcards: [
       { id: 'fe-ux-fc1', front: 'ユーザビリティ（ISO 9241-11）', back: '有効さ・効率・満足度の3つの指標で評価される使いやすさ', explanation: '特定のユーザが特定の利用状況で目標を達成する際の有効さ・効率・満足度です。', difficulty: 'basic' },

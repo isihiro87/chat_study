@@ -42,6 +42,7 @@ export const protocol: Topic = {
         },
       ],
     },
+    chatId: 'fe-protocol',
     videos: [],
     flashcards: [
       { id: 'fe-pr-fc1', front: '7層（ア・プ・セ・ト・ネ・デ・ブ）', back: 'OSI基本参照モデルの構成', explanation: 'アプリケーション・プレゼンテーション・セション・トランスポート・ネットワーク・データリンク・物理の7層。', difficulty: 'basic' },

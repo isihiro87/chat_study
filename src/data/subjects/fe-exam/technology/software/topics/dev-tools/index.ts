@@ -143,6 +143,7 @@ export const devTools: Topic = {
         },
       ],
     },
+    chatId: 'fe-dev-tools',
     videos: [],
     flashcards: [
       { id: 'fe-dt-fc1', front: 'コンパイラ', back: 'ソースコード全体を一括して機械語に翻訳するプログラムは？', explanation: '翻訳後の実行速度が速いですが、翻訳自体には時間がかかります。', difficulty: 'basic' },

@@ -91,6 +91,7 @@ export const logicOperations: Topic = {
         },
       ],
     },
+    chatId: 'fe-logic-operations',
     videos: [],
     flashcards: [
       { id: 'fe-log-fc1', front: '少なくとも一方が1なら出力1', back: '論理和（OR）の動作は？', explanation: 'ORは入力のどちらか一方でも1であれば出力が1になります。両方0のときだけ出力が0です。', difficulty: 'basic' },

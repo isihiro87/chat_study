@@ -45,6 +45,7 @@ export const sql: Topic = {
         },
       ],
     },
+    chatId: 'fe-sql',
     videos: [],
     flashcards: [
       { id: 'fe-sql-fc1', front: 'SELECT文の処理順序', back: 'FROM → WHERE → GROUP BY → HAVING → SELECT → ORDER BY', explanation: 'SQL文の記述順序と処理順序は異なります。WHEREは集約前、HAVINGは集約後に評価されます。', difficulty: 'standard' },

@@ -33,6 +33,8 @@ export const managementSystems: Topic = {
         ] },
       ],
     },
+    chatId: 'fe-management-systems',
+
     videos: [],
     flashcards: [
       { id: 'fe-management-systems-fc1', front: '企業の基幹業務を統合的に管理するパッケージシステム', back: 'ERP（Enterprise Resource Planning）とは？', explanation: '会計・人事・生産・販売・在庫などのデータを一元管理します。', difficulty: 'basic' },

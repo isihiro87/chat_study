@@ -159,6 +159,7 @@ export const clientServer: Topic = {
         },
       ],
     },
+    chatId: 'fe-client-server',
     videos: [],
     flashcards: [
       { id: 'fe-cs-fc1', front: '1台のホストにデータ・処理を集中させる方式', back: '集中処理とは？', explanation: '管理が容易で一貫性を保ちやすいが、ホスト障害時にシステム全体が停止するリスクがあります。', difficulty: 'basic' },

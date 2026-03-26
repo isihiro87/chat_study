@@ -45,6 +45,7 @@ export const networkServices: Topic = {
         { title: 'クラウドサービス', content: 'クラウドサービスは、インターネット経由でコンピュータ資源を提供するサービスです。提供範囲により3つに分類されます。SaaS（Software as a Service）はソフトウェアをサービスとして提供するもので、Gmail、Microsoft 365、Salesforceなどが例です。利用者はソフトウェアを利用するだけで、インフラやプラットフォームの管理は不要です。PaaS（Platform as a Service）はアプリケーションの開発・実行環境を提供するもので、Google App Engine、Heroku、AWS Elastic Beanstalkなどが例です。利用者はアプリケーションの開発に集中でき、OSやミドルウェアの管理は不要です。IaaS（Infrastructure as a Service）はサーバ、ストレージ、ネットワークなどのインフラを仮想的に提供するもので、AWS EC2、Google Compute Engine、Microsoft Azureなどが例です。利用者はOSやミドルウェアの選択・管理も行います。管理範囲は SaaS < PaaS < IaaS の順に広くなります。', keyPoints: ['SaaS: ソフトウェアを提供（Gmail、Office 365等）、管理不要', 'PaaS: 開発・実行環境を提供（GAE、Heroku等）、OSの管理不要', 'IaaS: インフラを提供（AWS EC2等）、OS以上は利用者が管理', '利用者の管理範囲: SaaS（最小）< PaaS < IaaS（最大）'] },
       ],
     },
+    chatId: 'fe-network-services',
     videos: [],
     flashcards: [
       { id: 'fe-ns2-fc1', front: 'IPアドレスを基にパケットを転送し異なるネットワークを接続する機器', back: 'ルータ（第3層・ネットワーク層）', explanation: 'ルータはOSI第3層で動作し、IPアドレスを見て最適な経路にパケットを転送します。', difficulty: 'basic' },

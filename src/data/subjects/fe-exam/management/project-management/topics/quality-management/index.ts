@@ -45,6 +45,8 @@ export const qualityManagement: Topic = {
         { title: '品質メトリクス', content: '品質メトリクスは、ソフトウェアの品質を定量的に測定・評価するための指標です。バグ密度（コード行数あたりのバグ数）、テストカバレッジ（テストで実行されたコードの割合）、MTBF（Mean Time Between Failures: 平均故障間隔）などがあります。これらのメトリクスを活用して品質を客観的に評価し、改善活動に役立てます。', keyPoints: ['バグ密度: コード行数あたりのバグ数', 'テストカバレッジ: テストで実行されたコードの割合', 'MTBF: 平均故障間隔（大きいほど信頼性が高い）'] },
       ],
     },
+    chatId: 'fe-quality-management',
+
     videos: [],
     flashcards: [
       { id: 'fe-qm-fc1', front: '品質マネジメントの3つの活動', back: '品質計画（基準策定）・品質保証（プロセス監査）・品質管理（成果物検証）', explanation: '品質は上流工程から計画的に確保することが重要です。', difficulty: 'basic' },

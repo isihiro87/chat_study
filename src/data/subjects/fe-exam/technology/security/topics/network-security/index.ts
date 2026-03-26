@@ -79,6 +79,7 @@ export const networkSecurity: Topic = {
         },
       ],
     },
+    chatId: 'fe-network-security',
     videos: [],
     flashcards: [
       { id: 'fe-nse-fc1', front: 'SQLインジェクション', back: 'Webアプリの入力欄に不正なSQL文を挿入してデータベースを不正操作する攻撃は？', explanation: '入力値のエスケープ処理やプレースホルダの使用が対策になります。', difficulty: 'basic' },

@@ -76,6 +76,7 @@ export const authenticationAccess: Topic = {
         },
       ],
     },
+    chatId: 'fe-authentication-access',
     videos: [],
     flashcards: [
       { id: 'fe-aa-fc1', front: '多要素認証', back: '知識・所持・生体の認証要素のうち2つ以上を組み合わせる認証方式を何という？', explanation: 'パスワード（知識）+ワンタイムパスワード（所持）のように異なる種類を組み合わせます。', difficulty: 'basic' },

@@ -33,6 +33,7 @@ export const laborTradeLaw: Topic = {
         ] },
       ],
     },
+    chatId: 'fe-labor-trade-law',
     videos: [],
     flashcards: [
       { id: 'fe-ltl-fc1', front: '労働条件の最低基準を定めた法律（1日8時間・週40時間）', back: '労働基準法とは？', explanation: '超過勤務には36協定の締結と割増賃金の支払いが必要です。', difficulty: 'basic' },

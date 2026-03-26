@@ -42,6 +42,7 @@ export const networkBasics: Topic = {
         },
       ],
     },
+    chatId: 'fe-network-basics',
     videos: [],
     flashcards: [
       { id: 'fe-nb-fc1', front: 'CSMA/CD', back: 'イーサネットで使われるアクセス制御方式', explanation: '送信前に回線を監視し、衝突を検出したらランダム時間後に再送します。', difficulty: 'basic' },

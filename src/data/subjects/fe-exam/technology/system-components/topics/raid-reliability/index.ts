@@ -156,6 +156,7 @@ export const raidReliability: Topic = {
         },
       ],
     },
+    chatId: 'fe-raid-reliability',
     videos: [],
     flashcards: [
       { id: 'fe-rr-fc1', front: 'ストライピング（データを複数ディスクに分散書込み、冗長性なし）', back: 'RAID0の特徴は？', explanation: 'RAID0はデータを複数ディスクに分散することで高速化しますが、1台でも故障するとデータが失われます。', difficulty: 'basic' },

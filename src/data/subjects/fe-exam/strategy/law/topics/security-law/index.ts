@@ -33,6 +33,7 @@ export const securityLaw: Topic = {
         ] },
       ],
     },
+    chatId: 'fe-security-law',
     videos: [],
     flashcards: [
       { id: 'fe-sl-fc1', front: 'ネットワーク経由で他人のコンピュータに不正にアクセスする行為を禁止する法律', back: '不正アクセス禁止法とは？', explanation: 'なりすまし行為やセキュリティホール攻撃が禁止されます。', difficulty: 'basic' },

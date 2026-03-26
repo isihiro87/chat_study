@@ -33,6 +33,8 @@ export const aiIot: Topic = {
         ] },
       ],
     },
+    chatId: 'fe-ai-iot',
+
     videos: [],
     flashcards: [
       { id: 'fe-ai-iot-fc1', front: '大量のデータからパターンやルールを自動的に学習する技術', back: '機械学習とは？', explanation: '教師あり学習・教師なし学習・強化学習に分類されます。', difficulty: 'basic' },

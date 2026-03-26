@@ -143,6 +143,7 @@ export const logicCircuits: Topic = {
         },
       ],
     },
+    chatId: 'fe-logic-circuits',
     videos: [],
     flashcards: [
       { id: 'fe-lc-fc1', front: 'AND（論理積）', back: '2つの入力が両方1のときだけ出力が1になる論理ゲートは？', explanation: '掛け算のイメージで、1×1=1、それ以外は0です。', difficulty: 'basic' },

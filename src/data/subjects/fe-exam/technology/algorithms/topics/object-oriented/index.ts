@@ -92,6 +92,7 @@ export const objectOriented: Topic = {
         },
       ],
     },
+    chatId: 'fe-object-oriented',
     videos: [],
     flashcards: [
       // basic (10)

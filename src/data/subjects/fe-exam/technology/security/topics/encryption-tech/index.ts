@@ -117,6 +117,7 @@ export const encryptionTech: Topic = {
         },
       ],
     },
+    chatId: 'fe-encryption-tech',
     videos: [],
     flashcards: [
       { id: 'fe-et-fc1', front: '共通鍵暗号方式', back: '暗号化と復号に同じ鍵を使用する暗号方式を何という？', explanation: 'AESやDESが代表的なアルゴリズムで、処理速度が速いのが特徴です。', difficulty: 'basic' },

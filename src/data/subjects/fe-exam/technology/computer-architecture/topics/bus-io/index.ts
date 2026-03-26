@@ -151,6 +151,7 @@ export const busIo: Topic = {
         },
       ],
     },
+    chatId: 'fe-bus-io',
     videos: [],
     flashcards: [
       { id: 'fe-bio-fc1', front: 'データバス・アドレスバス・制御バス', back: 'コンピュータのバスの3種類は？', explanation: 'データの送受信、アドレスの指定、制御信号の伝送をそれぞれ担当します。', difficulty: 'basic' },

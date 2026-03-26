@@ -33,6 +33,7 @@ export const intellectualProperty: Topic = {
         ] },
       ],
     },
+    chatId: 'fe-intellectual-property',
     videos: [],
     flashcards: [
       { id: 'fe-ip-fc1', front: '発明を保護する権利。出願から20年', back: '特許権とは？', explanation: '産業財産権の一つで、特許庁に出願・登録して取得します。', difficulty: 'basic' },

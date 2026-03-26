@@ -81,6 +81,7 @@ export const design: Topic = {
         },
       ],
     },
+    chatId: 'fe-design',
     videos: [],
     flashcards: [
       { id: 'fe-des-fc1', front: '利用者の要求をもとにシステム全体の機能・性能を定義する工程', back: 'システム要件定義', explanation: 'システム要件定義では、利用者の業務要件を分析し、システムが実現すべき機能と非機能を明確化します。', difficulty: 'basic' },

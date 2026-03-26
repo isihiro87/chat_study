@@ -93,6 +93,7 @@ export const dataStructures: Topic = {
         },
       ],
     },
+    chatId: 'fe-data-structures',
     videos: [],
     flashcards: [
       // basic (10)

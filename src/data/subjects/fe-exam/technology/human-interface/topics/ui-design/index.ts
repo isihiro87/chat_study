@@ -62,6 +62,7 @@ export const uiDesign: Topic = {
         },
       ],
     },
+    chatId: 'fe-ui-design',
     videos: [],
     flashcards: [
       { id: 'fe-uid-fc1', front: 'GUI', back: 'アイコンやメニューなどのグラフィカル要素で操作するインタフェース', explanation: 'Graphical User Interfaceの略。直感的で初心者にも使いやすいのが特徴です。', difficulty: 'basic' },

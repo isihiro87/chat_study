@@ -84,6 +84,7 @@ export const programmingBasics: Topic = {
         },
       ],
     },
+    chatId: 'fe-programming-basics',
     videos: [],
     flashcards: [
       // basic (10)

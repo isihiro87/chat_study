@@ -45,6 +45,8 @@ export const itilBasics: Topic = {
         { title: '変更管理・リリース管理・ファシリティマネジメント', content: '変更管理は、ITサービスやインフラの変更を安全に実施するためのプロセスです。CAB（Change Advisory Board：変更諮問委員会）が変更の承認判断を行います。リリース管理は、テスト済みの変更を本番環境に確実に展開するプロセスです。ファシリティマネジメントは、データセンターやサーバルームなどの物理的環境を管理する活動で、空調・電源・入退室管理・防災対策などが含まれます。', keyPoints: ['変更管理: 変更の影響を最小化（CABが承認判断）', 'リリース管理: テスト済みの変更を本番環境に確実に展開', 'ファシリティマネジメント: 物理的環境管理（空調・電源・入退室・防災）'] },
       ],
     },
+    chatId: 'fe-itil-basics',
+
     videos: [],
     flashcards: [
       { id: 'fe-itil-fc1', front: 'ITIL', back: 'ITサービスマネジメントのベストプラクティスをまとめたフレームワーク', explanation: 'Information Technology Infrastructure Libraryの略です。', difficulty: 'basic' },

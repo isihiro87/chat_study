@@ -151,6 +151,7 @@ export const memory: Topic = {
         },
       ],
     },
+    chatId: 'fe-memory',
     videos: [],
     flashcards: [
       { id: 'fe-mem-fc1', front: 'DRAM', back: 'コンデンサに電荷を蓄えて記憶し、主記憶に使われるRAMの種類は？', explanation: 'DRAMは安価で大容量化しやすいですが、定期的なリフレッシュ（再書込み）が必要です。', difficulty: 'basic' },

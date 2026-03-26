@@ -111,6 +111,7 @@ export const complementFixedPoint: Topic = {
         },
       ],
     },
+    chatId: 'fe-complement-fixed-point',
     videos: [],
     flashcards: [
       {

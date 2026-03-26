@@ -82,6 +82,7 @@ export const testing: Topic = {
         },
       ],
     },
+    chatId: 'fe-testing',
     videos: [],
     flashcards: [
       { id: 'fe-tst-fc1', front: 'プログラムの内部構造（ロジック）に着目して行うテスト技法', back: 'ホワイトボックステスト', explanation: 'プログラムの分岐や条件などの内部ロジックを確認するテストで、単体テストで主に使用されます。', difficulty: 'basic' },

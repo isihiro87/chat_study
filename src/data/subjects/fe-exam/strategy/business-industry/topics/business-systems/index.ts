@@ -33,6 +33,8 @@ export const businessSystems: Topic = {
         ] },
       ],
     },
+    chatId: 'fe-business-systems',
+
     videos: [],
     flashcards: [
       { id: 'fe-business-systems-fc1', front: '商品が販売された時点で情報を記録・管理するシステム', back: 'POS（Point Of Sale）システムとは？', explanation: 'バーコードの読み取りで売上データをリアルタイムに収集します。', difficulty: 'basic' },

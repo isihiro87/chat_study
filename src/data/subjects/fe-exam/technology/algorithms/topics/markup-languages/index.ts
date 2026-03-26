@@ -91,6 +91,7 @@ export const markupLanguages: Topic = {
         },
       ],
     },
+    chatId: 'fe-markup-languages',
     videos: [],
     flashcards: [
       // basic (10)

@@ -46,6 +46,7 @@ export const ipAddress: Topic = {
         { title: 'NAT/NAPT（IPマスカレード）', content: 'NAT（Network Address Translation）は、プライベートIPアドレスとグローバルIPアドレスを相互に変換する技術です。LAN内の機器がインターネットに接続する際に、ルータがプライベートIPアドレスをグローバルIPアドレスに変換します。しかし基本のNATは1対1変換のため、同時にインターネット接続できる機器数がグローバルIPの数に制限されます。NAPT（Network Address Port Translation、IPマスカレード）はIPアドレスに加えてポート番号も変換することで、1つのグローバルIPアドレスで複数の機器が同時にインターネット接続できます。家庭のルータで一般的に使われているのはNAPTです。', keyPoints: ['NAT: プライベートIPとグローバルIPを1対1で変換', 'NAPT（IPマスカレード）: IPアドレス＋ポート番号を変換し、1つのグローバルIPで複数台接続', '家庭用ルータは一般的にNAPTを使用'] },
       ],
     },
+    chatId: 'fe-ip-address',
     videos: [],
     flashcards: [
       { id: 'fe-ip-fc1', front: 'IPv4のIPアドレスは何ビットで構成される？', back: '32ビット（4バイト）', explanation: '8ビットずつ4つに区切り、10進数で「192.168.1.1」のように表記します。', difficulty: 'basic' },

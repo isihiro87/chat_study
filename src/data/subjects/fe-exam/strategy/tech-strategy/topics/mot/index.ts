@@ -34,6 +34,8 @@ export const mot: Topic = {
         ] },
       ],
     },
+    chatId: 'fe-mot',
+
     videos: [],
     flashcards: [
       { id: 'fe-mot-fc1', front: '技術を経営の視点から戦略的に管理・活用する考え方', back: 'MOT（Management of Technology：技術経営）とは？', explanation: '優れた技術をビジネスの成功に結びつけることが目的です。', difficulty: 'basic' },

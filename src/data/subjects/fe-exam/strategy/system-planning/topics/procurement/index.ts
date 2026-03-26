@@ -81,6 +81,8 @@ export const procurement: Topic = {
         },
       ],
     },
+    chatId: 'fe-procurement',
+
     videos: [],
     flashcards: [
       { id: 'fe-procurement-fc1', front: 'ベンダに対して技術力・実績などの情報提供を求める文書', back: 'RFI（Request For Information：情報提供依頼書）とは？', explanation: '調達の初期段階でベンダの基本情報を収集するために使います。', difficulty: 'basic' },

@@ -42,6 +42,7 @@ export const rdbmsBasics: Topic = {
         },
       ],
     },
+    chatId: 'fe-rdbms-basics',
     videos: [],
     flashcards: [
       { id: 'fe-rdb-fc1', front: '関係データベースの「行」の別名は？', back: 'タプル（レコード/組）', explanation: '関係モデルでは行をタプル、列を属性（アトリビュート）と呼びます。', difficulty: 'basic' },

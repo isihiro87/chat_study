@@ -91,6 +91,7 @@ export const requirements: Topic = {
         },
       ],
     },
+    chatId: 'fe-requirements',
     videos: [],
     flashcards: [
       { id: 'fe-req-fc1', front: '経営戦略に基づいてIT活用の方向性を決め、適切に管理する仕組み', back: 'ITガバナンスとは？', explanation: 'ITガバナンスは、経営戦略と整合したIT戦略を策定・実行し、組織全体のIT投資・リスク・成果を統治する仕組みです。', difficulty: 'basic' },

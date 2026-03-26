@@ -99,6 +99,8 @@ export const auditBasics: Topic = {
         },
       ],
     },
+    chatId: 'fe-audit-basics',
+
     videos: [],
     flashcards: [
       { id: 'fe-audit-fc1', front: 'システム監査', back: '独立した立場からISの信頼性・安全性・効率性を点検・評価する活動', explanation: '被監査部門から独立したシステム監査人が客観的に実施します。', difficulty: 'basic' },

@@ -121,6 +121,7 @@ export const sortingSearching: Topic = {
         },
       ],
     },
+    chatId: 'fe-sorting-searching',
     videos: [],
     flashcards: [
       // basic (10)

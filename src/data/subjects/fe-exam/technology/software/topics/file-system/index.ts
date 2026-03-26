@@ -143,6 +143,7 @@ export const fileSystem: Topic = {
         },
       ],
     },
+    chatId: 'fe-file-system',
     videos: [],
     flashcards: [
       { id: 'fe-fs-fc1', front: 'ルートディレクトリ', back: 'ディレクトリ構造の最上位にあるディレクトリは？', explanation: '木構造の根（ルート）に相当し、すべてのファイルの起点です。', difficulty: 'basic' },

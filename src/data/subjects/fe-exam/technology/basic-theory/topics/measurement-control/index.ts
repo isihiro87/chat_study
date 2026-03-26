@@ -91,6 +91,7 @@ export const measurementControl: Topic = {
         },
       ],
     },
+    chatId: 'fe-measurement-control',
     videos: [],
     flashcards: [
       { id: 'fe-mc-fc1', front: '標本化（サンプリング）→ 量子化 → 符号化', back: 'A/D変換の3つの手順を順番に答えよ', explanation: 'アナログ信号を一定間隔で取り出し（標本化）、整数値に丸め（量子化）、2進数に変換（符号化）します。', difficulty: 'basic' },

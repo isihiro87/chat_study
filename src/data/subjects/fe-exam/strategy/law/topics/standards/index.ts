@@ -32,6 +32,7 @@ export const standards: Topic = {
         ] },
       ],
     },
+    chatId: 'fe-standards',
     videos: [],
     flashcards: [
       { id: 'fe-std-fc1', front: '国際標準化機構。国際規格を策定する組織', back: 'ISO（International Organization for Standardization）とは？', explanation: 'ISO 9001（品質）やISO 14001（環境）などの規格を策定しています。', difficulty: 'basic' },

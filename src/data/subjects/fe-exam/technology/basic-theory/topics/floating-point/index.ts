@@ -91,6 +91,7 @@ export const floatingPoint: Topic = {
         },
       ],
     },
+    chatId: 'fe-floating-point',
     videos: [],
     flashcards: [
       {

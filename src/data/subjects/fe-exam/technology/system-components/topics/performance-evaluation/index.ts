@@ -146,6 +146,7 @@ export const performanceEvaluation: Topic = {
         },
       ],
     },
+    chatId: 'fe-performance-evaluation',
     videos: [],
     flashcards: [
       {

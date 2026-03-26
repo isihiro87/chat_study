@@ -93,6 +93,7 @@ export const implementation: Topic = {
         },
       ],
     },
+    chatId: 'fe-implementation',
     videos: [],
     flashcards: [
       { id: 'fe-impl-fc1', front: '要件定義→設計→実装→テスト→運用を順番に進め、後戻りが困難な開発モデル', back: 'ウォーターフォールモデル', explanation: '滝（ウォーターフォール）のように上流から下流へ一方向に進む開発手法で、大規模プロジェクトに適しています。', difficulty: 'basic' },

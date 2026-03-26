@@ -33,6 +33,8 @@ export const organization: Topic = {
         ] },
       ],
     },
+    chatId: 'fe-organization',
+
     videos: [],
     flashcards: [
       { id: 'fe-organization-fc1', front: '営業・製造・経理など機能ごとに部門を分ける組織構造', back: '職能別組織とは？', explanation: '専門性が高まりますが、部門間の連携が課題になることがあります。', difficulty: 'basic' },

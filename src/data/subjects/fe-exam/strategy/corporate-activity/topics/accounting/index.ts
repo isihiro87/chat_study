@@ -33,6 +33,8 @@ export const accounting: Topic = {
         ] },
       ],
     },
+    chatId: 'fe-accounting',
+
     videos: [],
     flashcards: [
       { id: 'fe-accounting-fc1', front: 'ある時点の資産・負債・純資産を示す財務諸表', back: '貸借対照表（B/S）とは？', explanation: '企業の財政状態を表します。資産=負債+純資産の関係が成り立ちます。', difficulty: 'basic' },

@@ -33,6 +33,8 @@ export const orIe: Topic = {
         ] },
       ],
     },
+    chatId: 'fe-or-ie',
+
     videos: [],
     flashcards: [
       { id: 'fe-or-ie-fc1', front: '制約条件のもとで目的関数の最適解を求める数学的手法', back: '線形計画法とは？', explanation: '利益最大化やコスト最小化の問題を解くOR手法の一つです。', difficulty: 'basic' },

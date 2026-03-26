@@ -87,6 +87,8 @@ export const configManagement: Topic = {
         },
       ],
     },
+    chatId: 'fe-config-management',
+
     videos: [],
     flashcards: [
       { id: 'fe-cm-fc1', front: '構成管理（SCM）', back: '成果物を識別・管理し最新かつ正確な状態を維持する活動', explanation: 'ドキュメント・ソースコード等の変更履歴を追跡し、任意時点の状態を再現可能にします。', difficulty: 'basic' },

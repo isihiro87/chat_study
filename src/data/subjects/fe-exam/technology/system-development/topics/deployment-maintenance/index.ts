@@ -82,6 +82,7 @@ export const deploymentMaintenance: Topic = {
         },
       ],
     },
+    chatId: 'fe-deployment-maintenance',
     videos: [],
     flashcards: [
       { id: 'fe-dm-fc1', front: '旧システムと新システムを一定期間同時に稼働させて動作を確認する方式', back: '並行稼働（並行運転）方式', explanation: '両システムの処理結果を比較することで新システムの信頼性を確認できますが、コストと労力がかかります。', difficulty: 'basic' },

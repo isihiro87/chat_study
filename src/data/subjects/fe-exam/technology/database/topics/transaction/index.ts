@@ -42,6 +42,7 @@ export const transaction: Topic = {
         },
       ],
     },
+    chatId: 'fe-transaction',
     videos: [],
     flashcards: [
       { id: 'fe-trx-fc1', front: 'ACID特性の「A」', back: '原子性（Atomicity）: 全て実行 or 全て取消', explanation: 'All or Nothingの性質です。', difficulty: 'basic' },

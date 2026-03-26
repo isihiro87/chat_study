@@ -81,6 +81,8 @@ export const isStrategy: Topic = {
         },
       ],
     },
+    chatId: 'fe-is-strategy',
+
     videos: [],
     flashcards: [
       { id: 'fe-is-strategy-fc1', front: '経営戦略に基づいてITをどのように活用するかを定めた方針', back: '情報システム戦略（IS戦略）とは？', explanation: '経営目標達成に向けて、業務にどのようなシステムを導入するかを計画します。', difficulty: 'basic' },

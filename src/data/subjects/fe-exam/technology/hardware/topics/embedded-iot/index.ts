@@ -74,6 +74,7 @@ export const embeddedIot: Topic = {
         },
       ],
     },
+    chatId: 'fe-embedded-iot',
     videos: [],
     flashcards: [
       { id: 'fe-eiot-fc1', front: '組込みシステム（エンベデッドシステム）', back: '特定の機能を実現するためにハードウェアに組み込まれたコンピュータシステムは？', explanation: '家電、自動車、産業機器など身の回りの多くの機器に搭載されています。', difficulty: 'basic' },
