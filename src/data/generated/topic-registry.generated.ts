@@ -141,7 +141,7 @@ export const topicMetas: TopicMeta[] = [
   { id: "fe-or-ie", eraId: "fe-corporate-activity", name: "OR・IE", subtitle: "線形計画法・在庫管理・品質管理・QC7つ道具", icon: "📈", order: 2, chatId: null, hasExamples: false },
   { id: "fe-organization", eraId: "fe-corporate-activity", name: "経営組織論", subtitle: "企業形態・組織構造・CEO/CIO/CISO", icon: "👥", order: 1, chatId: null, hasExamples: false },
   { id: "fe-intellectual-property", eraId: "fe-law", name: "知的財産権", subtitle: "著作権法・特許法・商標法・不正競争防止法", icon: "©️", order: 1, chatId: null, hasExamples: false },
-  { id: "fe-labor-trade-law", eraId: "fe-law", name: "労働・取引関連法規", subtitle: "労働基準法・中小受託取引適正化法・契約", icon: "📜", order: 3, chatId: null, hasExamples: false },
+  { id: "fe-labor-trade-law", eraId: "fe-law", name: "労働・取引関連法規", subtitle: "労働基準法・下請法・独占禁止法・契約", icon: "📜", order: 3, chatId: null, hasExamples: false },
   { id: "fe-security-law", eraId: "fe-law", name: "セキュリティ関連法規", subtitle: "不正アクセス禁止法・個人情報保護法", icon: "🔒", order: 2, chatId: null, hasExamples: false },
   { id: "fe-standards", eraId: "fe-law", name: "標準化", subtitle: "ISO・JIS・IEEE・技術者倫理", icon: "🏛️", order: 4, chatId: null, hasExamples: false },
   { id: "fe-planning", eraId: "fe-system-planning", name: "システム化計画", subtitle: "情報化投資計画・システム化計画・要件定義", icon: "📋", order: 1, chatId: null, hasExamples: false },

@@ -9,6 +9,35 @@ export const deploymentMaintenance: Topic = {
   order: 5,
   content: {
     explanation: {
+      slides: [
+        {
+          id: 'fe-dm-slide1',
+          title: '3つの移行方式の違い',
+          slides: [
+            { type: 'question', question: '旧システムから新システムへの切り替え方法は？', subtext: 'リスクとコストのバランス', emoji: '🔄' },
+            { type: 'reason', headline: '3つの移行方式', points: ['一斉移行: 一度に切り替え（短期間だがリスク大）', '段階移行: 機能や拠点ごとに段階的に移行（リスク分散）', '並行稼働: 新旧同時に動かし比較（安全だが高コスト）'] },
+            { type: 'conclusion', conclusion: 'リスクとコストのトレードオフで最適な移行方式を選択', keywords: [{ text: '一斉移行', isImportant: true }, { text: '段階移行', isImportant: true }, { text: '並行稼働', isImportant: true }], nextHint: '次は保守の種類を学ぼう' },
+          ],
+        },
+        {
+          id: 'fe-dm-slide2',
+          title: '4種類のソフトウェア保守',
+          slides: [
+            { type: 'question', question: 'ソフトウェア保守は何種類に分類される？', subtext: '最も割合が大きいのはどれ？', emoji: '🔧' },
+            { type: 'reason', headline: '保守の4種類', points: ['是正保守: バグの修正', '適応保守: 環境変化（OS更新・法改正）への対応', '完全化保守: 性能改善・機能追加（最も割合が大きい）', '予防保守: 潜在的な問題の事前修正'] },
+            { type: 'conclusion', conclusion: '完全化保守が全体の50%以上を占める最大の保守活動', keywords: [{ text: '是正保守', isImportant: true }, { text: '適応保守', isImportant: true }, { text: '完全化保守', isImportant: true }], nextHint: '次は運用管理を学ぼう' },
+          ],
+        },
+        {
+          id: 'fe-dm-slide3',
+          title: '運用管理の基本',
+          slides: [
+            { type: 'question', question: 'システムを安定稼働させるための管理活動は？', subtext: '運用管理の3つの柱', emoji: '📡' },
+            { type: 'reason', headline: '運用管理の基本活動', points: ['ジョブ管理: バッチ処理のスケジュール管理', '障害管理: 障害の検知・対応・記録', '性能管理: レスポンスタイムやスループットの監視'] },
+            { type: 'conclusion', conclusion: 'ジョブ・障害・性能の3つの管理でシステムの安定稼働を実現', keywords: [{ text: 'ジョブ管理', isImportant: true }, { text: '障害管理', isImportant: true }, { text: 'バックアップ', isImportant: false }], nextHint: '次のトピックへ進もう' },
+          ],
+        },
+      ],
       sections: [
         {
           title: '導入（移行）',
@@ -55,163 +84,59 @@ export const deploymentMaintenance: Topic = {
     },
     videos: [],
     flashcards: [
-      {
-        id: 'fe-dm-fc1',
-        front: '旧システムと新システムを一定期間同時に稼働させて動作を確認する方式',
-        back: '並行稼働（並行運転）方式',
-        explanation:
-          '両システムの処理結果を比較することで新システムの信頼性を確認できますが、コストと労力がかかります。',
-        difficulty: 'basic',
-      },
-      {
-        id: 'fe-dm-fc2',
-        front: '発注者が新システムの納品物を確認し、契約どおりの品質・機能を検証するテスト',
-        back: '受入テスト（検収テスト）',
-        explanation:
-          '受入テストは運用テストの一部で、発注者が主体となって実施します。合格すれば検収完了です。',
-        difficulty: 'basic',
-      },
-      {
-        id: 'fe-dm-fc3',
-        front: 'ある時点で旧システムから新システムへ一度に切り替える移行方式',
-        back: '一斉移行方式',
-        explanation:
-          '移行期間が短くコストは抑えられますが、新システムに問題があった場合のリスクが高い方式です。',
-        difficulty: 'basic',
-      },
-      {
-        id: 'fe-dm-fc4',
-        front: '機能や拠点ごとに少しずつ新システムに移行する方式',
-        back: '段階移行方式',
-        explanation:
-          'リスクを分散でき、問題があっても影響範囲を限定できますが、移行期間は長くなります。',
-        difficulty: 'basic',
-      },
-      {
-        id: 'fe-dm-fc5',
-        front: '発見されたバグ（障害）を修正する保守の種類',
-        back: '是正保守',
-        explanation:
-          '是正保守は、運用中に発見された不具合やバグを修正して正しい動作に戻す保守活動です。',
-        difficulty: 'basic',
-      },
-      {
-        id: 'fe-dm-fc6',
-        front: 'OS更新や法改正などの環境変化に対応するための保守の種類',
-        back: '適応保守',
-        explanation:
-          '適応保守は、ソフトウェアの動作環境や外部要因の変化に適応させるための保守です。',
-        difficulty: 'basic',
-      },
-      {
-        id: 'fe-dm-fc7',
-        front: '性能改善や機能追加などソフトウェアを改良する保守（保守の中で最も割合が大きい）',
-        back: '完全化保守（改良保守）',
-        explanation:
-          '利用者の要望に応じて機能を追加したり、処理性能を改善したりする保守で、保守作業全体の50%以上を占めます。',
-        difficulty: 'standard',
-      },
-      {
-        id: 'fe-dm-fc8',
-        front: '潜在的な問題を事前に発見・修正して将来の障害を防ぐ保守の種類',
-        back: '予防保守',
-        explanation:
-          '予防保守は、現時点では障害が発生していないが、将来問題になりそうな箇所を事前に修正する保守です。',
-        difficulty: 'standard',
-      },
+      { id: 'fe-dm-fc1', front: '旧システムと新システムを一定期間同時に稼働させて動作を確認する方式', back: '並行稼働（並行運転）方式', explanation: '両システムの処理結果を比較することで新システムの信頼性を確認できますが、コストと労力がかかります。', difficulty: 'basic' },
+      { id: 'fe-dm-fc2', front: '発注者が新システムの納品物を確認し、契約どおりの品質・機能を検証するテスト', back: '受入テスト（検収テスト）', explanation: '受入テストは運用テストの一部で、発注者が主体となって実施します。合格すれば検収完了です。', difficulty: 'basic' },
+      { id: 'fe-dm-fc3', front: 'ある時点で旧システムから新システムへ一度に切り替える移行方式', back: '一斉移行方式', explanation: '移行期間が短くコストは抑えられますが、新システムに問題があった場合のリスクが高い方式です。', difficulty: 'basic' },
+      { id: 'fe-dm-fc4', front: '機能や拠点ごとに少しずつ新システムに移行する方式', back: '段階移行方式', explanation: 'リスクを分散でき、問題があっても影響範囲を限定できますが、移行期間は長くなります。', difficulty: 'basic' },
+      { id: 'fe-dm-fc5', front: '発見されたバグ（障害）を修正する保守の種類', back: '是正保守', explanation: '是正保守は、運用中に発見された不具合やバグを修正して正しい動作に戻す保守活動です。', difficulty: 'basic' },
+      { id: 'fe-dm-fc6', front: 'OS更新や法改正などの環境変化に対応するための保守の種類', back: '適応保守', explanation: '適応保守は、ソフトウェアの動作環境や外部要因の変化に適応させるための保守です。', difficulty: 'basic' },
+      { id: 'fe-dm-fc7', front: '性能改善や機能追加などソフトウェアを改良する保守（保守の中で最も割合が大きい）', back: '完全化保守（改良保守）', explanation: '利用者の要望に応じて機能を追加したり、処理性能を改善したりする保守で、保守作業全体の50%以上を占めます。', difficulty: 'standard' },
+      { id: 'fe-dm-fc8', front: '潜在的な問題を事前に発見・修正して将来の障害を防ぐ保守の種類', back: '予防保守', explanation: '予防保守は、現時点では障害が発生していないが、将来問題になりそうな箇所を事前に修正する保守です。', difficulty: 'standard' },
+      { id: 'fe-dm-fc9', front: '移行計画で策定すべき主な内容', back: 'データ移行の方法・移行スケジュール・移行体制・リスク対策', explanation: '移行を安全に行うために事前に計画を立てます。', difficulty: 'basic' },
+      { id: 'fe-dm-fc10', front: '旧システムのデータを新システムに移し、整合性を検証すること', back: 'データ移行', explanation: 'データの欠損や不整合がないか検証し、品質を確保します。', difficulty: 'basic' },
+      { id: 'fe-dm-fc11', front: 'バッチ処理のスケジュールを管理する運用管理活動', back: 'ジョブ管理', explanation: '定期的に実行するバッチ処理の順序やスケジュールを管理します。', difficulty: 'standard' },
+      { id: 'fe-dm-fc12', front: '障害の検知・対応・記録を行う運用管理活動', back: '障害管理', explanation: '障害発生時の迅速な対応と、再発防止のための記録・分析を行います。', difficulty: 'standard' },
+      { id: 'fe-dm-fc13', front: 'レスポンスタイムやスループットを監視する運用管理活動', back: '性能管理', explanation: 'システムの処理能力が要求水準を満たしているか継続的に監視します。', difficulty: 'standard' },
+      { id: 'fe-dm-fc14', front: 'すべてのデータを丸ごとバックアップする方式', back: 'フルバックアップ', explanation: '復旧が容易ですが、データ量が多く時間がかかります。', difficulty: 'basic' },
+      { id: 'fe-dm-fc15', front: '前回のフルバックアップ以降に変更されたデータだけをバックアップする方式', back: '差分バックアップ', explanation: '復旧時はフルバックアップと最新の差分バックアップの2つが必要です。', difficulty: 'standard' },
+      { id: 'fe-dm-fc16', front: '前回のバックアップ以降に変更されたデータだけをバックアップする方式', back: '増分バックアップ', explanation: 'バックアップ時間は最短ですが、復旧時にフルバックアップと全増分が必要です。', difficulty: 'standard' },
+      { id: 'fe-dm-fc17', front: '一斉移行方式のメリット', back: '移行期間が短くコストを抑えやすい', explanation: '一度に切り替えるため並行稼働のコストがかかりません。', difficulty: 'basic' },
+      { id: 'fe-dm-fc18', front: '一斉移行方式のデメリット', back: '新システムに問題があった場合のリスクが高い', explanation: '切り戻しが困難で、全ユーザに影響が及ぶ可能性があります。', difficulty: 'basic' },
+      { id: 'fe-dm-fc19', front: '段階移行方式のメリット', back: 'リスクを分散でき問題の影響範囲を限定できる', explanation: '一部の機能や拠点ごとに移行するため、問題があっても全体に波及しません。', difficulty: 'standard' },
+      { id: 'fe-dm-fc20', front: '並行稼働方式のメリット', back: '新旧の結果を比較でき最も安全な移行方式', explanation: '旧システムを動かしたまま新システムの動作確認ができるため信頼性が高いです。', difficulty: 'standard' },
+      { id: 'fe-dm-fc21', front: '並行稼働方式のデメリット', back: '両システムを同時運用するため人件費やインフラコストが高い', explanation: '最も安全ですが最もコストがかかる移行方式です。', difficulty: 'standard' },
+      { id: 'fe-dm-fc22', front: 'ソフトウェア保守の4種類', back: '是正保守・適応保守・完全化保守・予防保守', explanation: '完全化保守が最も大きな割合を占めます。', difficulty: 'basic' },
+      { id: 'fe-dm-fc23', front: '消費税率の変更に伴うシステム改修はどの保守に該当するか', back: '適応保守', explanation: '法改正という外部環境の変化に対応する保守は適応保守です。', difficulty: 'standard' },
+      { id: 'fe-dm-fc24', front: '将来のデータ増加に備えてデータベースの構造を最適化する保守', back: '予防保守', explanation: '現時点では問題がないが将来問題になりうる箇所を事前に対処する保守です。', difficulty: 'advanced' },
+      { id: 'fe-dm-fc25', front: 'ユーザから要望された新機能を追加する保守', back: '完全化保守（改良保守）', explanation: '機能追加や性能改善など、ソフトウェアを改良する活動は完全化保守に分類されます。', difficulty: 'basic' },
+      { id: 'fe-dm-fc26', front: 'システムの稼働状況やリソース使用率を常時監視する活動', back: 'システム監視', explanation: '異常を早期に検知し、障害発生前に対策を講じることが目的です。', difficulty: 'basic' },
+      { id: 'fe-dm-fc27', front: 'バックアップの復旧時間が最も短い方式', back: 'フルバックアップ', explanation: '全データがバックアップされているため、それだけで完全に復旧できます。', difficulty: 'standard' },
+      { id: 'fe-dm-fc28', front: 'バックアップの取得時間が最も短い方式', back: '増分バックアップ', explanation: '前回のバックアップ以降の変更分だけ取得するため最も高速です。', difficulty: 'standard' },
+      { id: 'fe-dm-fc29', front: '移行方式の選択で考慮すべき2つの主要因', back: 'リスクとコスト', explanation: '安全性（リスク低減）とコストはトレードオフの関係にあります。', difficulty: 'basic' },
+      { id: 'fe-dm-fc30', front: '受入テストに合格した後の手続き', back: '検収完了（契約上の納品承認）', explanation: '受入テスト合格により発注者が正式に納品を承認し、検収が完了します。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
-        {
-          id: 'fe-dm-q1',
-          question:
-            '並行稼働方式の特徴として最も適切なものはどれか。',
-          options: [
-            '旧システムを即座に停止し、新システムに一度に切り替える',
-            '機能ごとに段階的に新システムに移行する',
-            '旧システムと新システムを同時に稼働させて結果を比較する',
-            '新システムの一部機能のみを先行してリリースする',
-          ],
-          correctIndex: 2,
-          explanation:
-            '並行稼働方式は、旧システムと新システムを一定期間同時に稼働させ、処理結果を比較して新システムの信頼性を確認する方式です。',
-          difficulty: 'basic',
-        },
-        {
-          id: 'fe-dm-q2',
-          question:
-            '受入テスト（検収テスト）の主な実施者は誰か。',
-          options: [
-            '開発者（プログラマ）',
-            'テスト担当者',
-            '運用担当者',
-            '発注者（利用者）',
-          ],
-          correctIndex: 3,
-          explanation:
-            '受入テストは発注者が主体となって実施し、納品物が契約どおりの品質・機能を満たしているかを検証します。',
-          difficulty: 'basic',
-        },
-        {
-          id: 'fe-dm-q3',
-          question:
-            '是正保守の説明として最も適切なものはどれか。',
-          options: [
-            '性能改善や機能追加を行う保守',
-            '発見されたバグを修正する保守',
-            '環境変化に対応するための保守',
-            '潜在的な問題を事前に修正する保守',
-          ],
-          correctIndex: 1,
-          explanation:
-            '是正保守は、運用中に発見されたバグ（障害）を修正する保守活動です。',
-          difficulty: 'basic',
-        },
-        {
-          id: 'fe-dm-q4',
-          question:
-            'ソフトウェア保守の4種類のうち、最も大きな割合を占めるのはどれか。',
-          options: [
-            '是正保守',
-            '適応保守',
-            '完全化保守',
-            '予防保守',
-          ],
-          correctIndex: 2,
-          explanation:
-            '完全化保守（改良保守）は機能追加や性能改善を行う保守で、保守作業全体の中で最も大きな割合（50%以上）を占めます。',
-          difficulty: 'standard',
-        },
-        {
-          id: 'fe-dm-q5',
-          question:
-            '法改正に伴いシステムの計算ロジックを変更する保守はどの種類に該当するか。',
-          options: [
-            '是正保守',
-            '適応保守',
-            '完全化保守',
-            '予防保守',
-          ],
-          correctIndex: 1,
-          explanation:
-            '法改正という外部環境の変化に対応するための保守は、適応保守に該当します。',
-          difficulty: 'standard',
-        },
-        {
-          id: 'fe-dm-q6',
-          question:
-            '一斉移行方式の利点として最も適切なものはどれか。',
-          options: [
-            'リスクを分散できる',
-            '旧システムとの比較確認ができる',
-            '移行期間が短く、コストを抑えやすい',
-            '問題発生時の影響範囲が限定される',
-          ],
-          correctIndex: 2,
-          explanation:
-            '一斉移行方式は一度に切り替えるため移行期間が短く、並行稼働のコストがかかりません。ただしリスクは高くなります。',
-          difficulty: 'basic',
-        },
+        { id: 'fe-dm-q1', question: '並行稼働方式の特徴として最も適切なものはどれか。', options: ['旧システムを即座に停止し、新システムに一度に切り替える', '機能ごとに段階的に新システムに移行する', '旧システムと新システムを同時に稼働させて結果を比較する', '新システムの一部機能のみを先行してリリースする'], correctIndex: 2, explanation: '並行稼働方式は、旧システムと新システムを一定期間同時に稼働させ、処理結果を比較して新システムの信頼性を確認する方式です。', difficulty: 'basic' },
+        { id: 'fe-dm-q2', question: '受入テスト（検収テスト）の主な実施者は誰か。', options: ['開発者（プログラマ）', 'テスト担当者', '運用担当者', '発注者（利用者）'], correctIndex: 3, explanation: '受入テストは発注者が主体となって実施し、納品物が契約どおりの品質・機能を満たしているかを検証します。', difficulty: 'basic' },
+        { id: 'fe-dm-q3', question: '是正保守の説明として最も適切なものはどれか。', options: ['性能改善や機能追加を行う保守', '発見されたバグを修正する保守', '環境変化に対応するための保守', '潜在的な問題を事前に修正する保守'], correctIndex: 1, explanation: '是正保守は、運用中に発見されたバグ（障害）を修正する保守活動です。', difficulty: 'basic' },
+        { id: 'fe-dm-q4', question: 'ソフトウェア保守の4種類のうち、最も大きな割合を占めるのはどれか。', options: ['是正保守', '適応保守', '完全化保守', '予防保守'], correctIndex: 2, explanation: '完全化保守（改良保守）は機能追加や性能改善を行う保守で、保守作業全体の中で最も大きな割合（50%以上）を占めます。', difficulty: 'standard' },
+        { id: 'fe-dm-q5', question: '法改正に伴いシステムの計算ロジックを変更する保守はどの種類に該当するか。', options: ['是正保守', '適応保守', '完全化保守', '予防保守'], correctIndex: 1, explanation: '法改正という外部環境の変化に対応するための保守は、適応保守に該当します。', difficulty: 'standard' },
+        { id: 'fe-dm-q6', question: '一斉移行方式の利点として最も適切なものはどれか。', options: ['リスクを分散できる', '旧システムとの比較確認ができる', '移行期間が短く、コストを抑えやすい', '問題発生時の影響範囲が限定される'], correctIndex: 2, explanation: '一斉移行方式は一度に切り替えるため移行期間が短く、並行稼働のコストがかかりません。ただしリスクは高くなります。', difficulty: 'basic' },
+        { id: 'fe-dm-q7', question: '予防保守の説明として最も適切なものはどれか。', options: ['発見されたバグを修正する', '環境変化に対応する', '性能改善や機能追加を行う', '潜在的な問題を事前に修正して将来の障害を防ぐ'], correctIndex: 3, explanation: '予防保守は現時点では問題がないが、将来障害につながりそうな箇所を事前に修正する保守です。', difficulty: 'standard' },
+        { id: 'fe-dm-q8', question: '段階移行方式の特徴として正しいものはどれか。', options: ['一度に全機能を切り替える', '機能や拠点ごとに段階的に移行しリスクを分散する', '新旧システムを同時に稼働させて結果を比較する', '移行期間が最も短い'], correctIndex: 1, explanation: '段階移行方式は機能や拠点ごとに段階的に移行する方式で、問題の影響範囲を限定できます。', difficulty: 'basic' },
+        { id: 'fe-dm-q9', question: 'フルバックアップの特徴として正しいものはどれか。', options: ['バックアップ時間が最短', '復旧に複数のバックアップが必要', '全データを丸ごとバックアップし復旧が容易', '前回からの変更分だけバックアップ'], correctIndex: 2, explanation: 'フルバックアップは全データを丸ごとバックアップするため、復旧は容易ですがデータ量が多く時間がかかります。', difficulty: 'basic' },
+        { id: 'fe-dm-q10', question: '増分バックアップの特徴として正しいものはどれか。', options: ['全データをバックアップする', '復旧には最新のバックアップだけで足りる', 'バックアップ取得時間は最短だが復旧にフルと全増分が必要', '差分バックアップより復旧時間が短い'], correctIndex: 2, explanation: '増分バックアップは前回バックアップ以降の変更分だけ取得するため高速ですが、復旧にはフルバックアップと全ての増分バックアップが必要です。', difficulty: 'standard' },
+        { id: 'fe-dm-q11', question: 'ジョブ管理の説明として正しいものはどれか。', options: ['障害の検知と対応を管理する', 'バッチ処理のスケジュールを管理する', 'レスポンスタイムを監視する', 'バックアップを実行する'], correctIndex: 1, explanation: 'ジョブ管理はバッチ処理（定時処理）のスケジュールや実行順序を管理する運用管理活動です。', difficulty: 'standard' },
+        { id: 'fe-dm-q12', question: '移行計画に含めるべき内容として適切でないものはどれか。', options: ['データ移行の方法', '移行スケジュール', 'ソースコードのレビュー', 'リスク対策'], correctIndex: 2, explanation: 'ソースコードのレビューは開発工程の活動であり、移行計画には含まれません。移行計画にはデータ移行・スケジュール・体制・リスク対策が含まれます。', difficulty: 'standard' },
+        { id: 'fe-dm-q13', question: '完全化保守の具体例として正しいものはどれか。', options: ['バグの修正', 'OS更新への対応', 'ユーザ要望による新機能の追加', '将来の障害予防のためのコード修正'], correctIndex: 2, explanation: 'ユーザ要望による新機能の追加は、ソフトウェアを改良する完全化保守に該当します。', difficulty: 'basic' },
+        { id: 'fe-dm-q14', question: 'データ移行で最も重要な確認事項はどれか。', options: ['移行にかかるコスト', 'データの整合性', '移行の速度', '移行担当者の人数'], correctIndex: 1, explanation: 'データ移行ではデータの欠損や不整合がないことを検証し、データの整合性を確認することが最も重要です。', difficulty: 'standard' },
+        { id: 'fe-dm-q15', question: '差分バックアップの説明として正しいものはどれか。', options: ['全データをバックアップする', '前回のフルバックアップ以降の変更分をバックアップする', '前回のバックアップ以降の変更分をバックアップする', 'バックアップ取得時間が最も長い'], correctIndex: 1, explanation: '差分バックアップは前回のフルバックアップ以降に変更されたデータをバックアップします。復旧にはフルと最新の差分の2つが必要です。', difficulty: 'standard' },
+        { id: 'fe-dm-q16', question: '3つの移行方式のうち、最も安全だが最もコストがかかるのはどれか。', options: ['一斉移行方式', '段階移行方式', '並行稼働方式', 'どれも同じ'], correctIndex: 2, explanation: '並行稼働方式は新旧を同時稼働させ結果を比較するため最も安全ですが、両システムの運用コストがかかります。', difficulty: 'basic' },
+        { id: 'fe-dm-q17', question: '運用管理に含まれない活動はどれか。', options: ['ジョブ管理', '障害管理', '性能管理', '要件定義'], correctIndex: 3, explanation: '要件定義は開発工程の上流活動であり、運用管理には含まれません。運用管理はジョブ・障害・性能の管理です。', difficulty: 'basic' },
+        { id: 'fe-dm-q18', question: '消費税率変更に伴うシステム改修はどの保守に分類されるか。', options: ['是正保守', '適応保守', '完全化保守', '予防保守'], correctIndex: 1, explanation: '法改正（消費税率変更）という外部環境の変化に対応するシステム改修は適応保守に分類されます。', difficulty: 'standard' },
+        { id: 'fe-dm-q19', question: 'バグ発見による修正と将来の障害予防の修正を正しく分類したものはどれか。', options: ['どちらも是正保守', 'バグ修正は是正保守、障害予防は予防保守', 'どちらも予防保守', 'バグ修正は予防保守、障害予防は是正保守'], correctIndex: 1, explanation: '発見されたバグの修正は是正保守、将来の障害を防ぐための事前修正は予防保守に分類されます。', difficulty: 'standard' },
+        { id: 'fe-dm-q20', question: 'システム監視で異常を早期に検知する主な目的はどれか。', options: ['開発コストを削減するため', '障害発生前に対策を講じ安定稼働を維持するため', 'プロジェクトの進捗を管理するため', '利用者の要求を収集するため'], correctIndex: 1, explanation: 'システム監視は稼働状況やリソース使用率を常時監視し、異常を早期に検知して障害を未然に防ぐことが目的です。', difficulty: 'basic' },
       ],
     },
   },

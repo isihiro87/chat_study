@@ -97,12 +97,22 @@ function AuthGuard() {
     () => sessionStorage.getItem('guest-mode') === 'true',
   );
 
-  // LINEコールバックは認証前でもアクセス可能にする
+  // LINEコールバック・FE試験ページは認証前でもアクセス可能にする
   if (pathname === '/auth/line/callback') {
     return (
       <Suspense fallback={null}>
         <LineCallbackPage />
       </Suspense>
+    );
+  }
+
+  if (pathname.startsWith('/fe-exam') || pathname.startsWith('/subjects/fe-exam')) {
+    return (
+      <div className="min-h-screen bg-[#FAF9F7]">
+        <ScrollRestoration />
+        <PageViewTracker />
+        <AnimatedRoutes />
+      </div>
     );
   }
 
