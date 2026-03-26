@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 420" font-family="'Noto Sans JP', sans-serif">
+  <style>
+    .area-box { rx: 10; ry: 10; stroke-width: 1.5; }
+    .area-label { font-size: 11px; font-weight: 600; text-anchor: middle; dominant-baseline: central; }
+    .center-box { rx: 14; ry: 14; stroke-width: 2.5; }
+    .center-label { font-size: 14px; font-weight: 700; fill: #fff; text-anchor: middle; dominant-baseline: central; }
+    .center-sub { font-size: 10px; fill: #fff; text-anchor: middle; dominant-baseline: central; opacity: 0.85; }
+    .connector { stroke: #D1D5DB; stroke-width: 1.5; fill: none; }
+  </style>
+
+  <!-- タイトル -->
+  <text x="300" y="28" style="font-size:16px;font-weight:700;fill:#1F2937;text-anchor:middle">PMBOKの10の知識エリア</text>
+
+  <!-- 中央: 統合マネジメント -->
+  <rect x="215" y="170" width="170" height="60" class="center-box" fill="#F59E0B" stroke="#D97706"/>
+  <text x="300" y="193" class="center-label">統合マネジメント</text>
+  <text x="300" y="213" class="center-sub">他の9エリアを統合管理</text>
+
+  <!-- コネクタ線 -->
+  <line x1="300" y1="170" x2="300" y2="100" class="connector"/>
+  <line x1="300" y1="230" x2="300" y2="290" class="connector"/>
+  <line x1="215" y1="200" x2="100" y2="200" class="connector"/>
+  <line x1="385" y1="200" x2="500" y2="200" class="connector"/>
+  <line x1="230" y1="175" x2="140" y2="110" class="connector"/>
+  <line x1="370" y1="175" x2="460" y2="110" class="connector"/>
+  <line x1="230" y1="225" x2="140" y2="300" class="connector"/>
+  <line x1="370" y1="225" x2="460" y2="300" class="connector"/>
+  <line x1="250" y1="230" x2="200" y2="340" class="connector"/>
+
+  <!-- 上段 -->
+  <rect x="230" y="55" width="140" height="42" class="area-box" fill="#EFF6FF" stroke="#3B82F6"/>
+  <text x="300" y="76" class="area-label" fill="#1D4ED8">スコープ</text>
+
+  <rect x="60" y="65" width="130" height="42" class="area-box" fill="#EFF6FF" stroke="#3B82F6"/>
+  <text x="125" y="78" class="area-label" fill="#1D4ED8">タイム</text>
+  <text x="125" y="96" style="font-size:9px;fill:#6B7280;text-anchor:middle">(スケジュール)</text>
+
+  <rect x="410" y="65" width="130" height="42" class="area-box" fill="#EFF6FF" stroke="#3B82F6"/>
+  <text x="475" y="86" class="area-label" fill="#1D4ED8">コスト</text>
+
+  <!-- 左右 -->
+  <rect x="10" y="178" width="130" height="42" class="area-box" fill="#F0FDF4" stroke="#10B981"/>
+  <text x="75" y="199" class="area-label" fill="#047857">品質</text>
+
+  <rect x="460" y="178" width="130" height="42" class="area-box" fill="#F0FDF4" stroke="#10B981"/>
+  <text x="525" y="199" class="area-label" fill="#047857">資源</text>
+
+  <!-- 下段 -->
+  <rect x="60" y="278" width="140" height="42" class="area-box" fill="#FDF2F8" stroke="#EC4899"/>
+  <text x="130" y="291" class="area-label" fill="#BE185D">コミュニケーション</text>
+
+  <rect x="400" y="278" width="140" height="42" class="area-box" fill="#FDF2F8" stroke="#EC4899"/>
+  <text x="470" y="299" class="area-label" fill="#BE185D">リスク</text>
+
+  <rect x="130" y="332" width="140" height="42" class="area-box" fill="#FEF3C7" stroke="#F59E0B"/>
+  <text x="200" y="353" class="area-label" fill="#92400E">調達</text>
+
+  <rect x="330" y="332" width="160" height="42" class="area-box" fill="#FEF3C7" stroke="#F59E0B"/>
+  <text x="410" y="353" class="area-label" fill="#92400E">ステークホルダ</text>
+
+  <!-- 追加コネクタ -->
+  <line x1="350" y1="230" x2="410" y2="332" class="connector"/>
+</svg>

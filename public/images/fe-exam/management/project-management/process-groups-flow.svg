@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 260" font-family="'Noto Sans JP', sans-serif">
+  <style>
+    .box { rx: 12; ry: 12; stroke-width: 2; }
+    .label { font-size: 13px; font-weight: 600; fill: #fff; text-anchor: middle; dominant-baseline: central; }
+    .sub { font-size: 10px; fill: #fff; text-anchor: middle; dominant-baseline: central; opacity: 0.85; }
+    .arrow { fill: none; stroke: #9CA3AF; stroke-width: 2; marker-end: url(#arrowhead); }
+    .monitor-label { font-size: 11px; fill: #6B7280; text-anchor: middle; font-weight: 500; }
+    .monitor-box { rx: 10; ry: 10; stroke-width: 2; stroke-dasharray: 6 3; }
+  </style>
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#9CA3AF"/>
+    </marker>
+  </defs>
+
+  <!-- 5つのプロセス群 -->
+  <rect x="10" y="80" width="100" height="56" class="box" fill="#3B82F6" stroke="#2563EB"/>
+  <text x="60" y="100" class="label">立上げ</text>
+  <text x="60" y="118" class="sub">Initiating</text>
+
+  <rect x="135" y="80" width="100" height="56" class="box" fill="#8B5CF6" stroke="#7C3AED"/>
+  <text x="185" y="100" class="label">計画</text>
+  <text x="185" y="118" class="sub">Planning</text>
+
+  <rect x="260" y="80" width="100" height="56" class="box" fill="#F59E0B" stroke="#D97706"/>
+  <text x="310" y="100" class="label">実行</text>
+  <text x="310" y="118" class="sub">Executing</text>
+
+  <rect x="385" y="80" width="100" height="56" class="box" fill="#10B981" stroke="#059669"/>
+  <text x="435" y="100" class="label">終結</text>
+  <text x="435" y="118" class="sub">Closing</text>
+
+  <!-- 矢印 -->
+  <line x1="112" y1="108" x2="133" y2="108" class="arrow"/>
+  <line x1="237" y1="108" x2="258" y2="108" class="arrow"/>
+  <line x1="362" y1="108" x2="383" y2="108" class="arrow"/>
+
+  <!-- 監視・コントロール（下に横長） -->
+  <rect x="115" y="170" width="290" height="50" class="monitor-box" fill="#FEF3C7" stroke="#F59E0B"/>
+  <text x="260" y="190" class="monitor-label">監視・コントロール</text>
+  <text x="260" y="206" style="font-size:9px;fill:#92400E;text-anchor:middle">Monitoring &amp; Controlling</text>
+
+  <!-- 監視から上への接続線 -->
+  <line x1="200" y1="170" x2="200" y2="138" stroke="#F59E0B" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <line x1="310" y1="170" x2="310" y2="138" stroke="#F59E0B" stroke-width="1.5" stroke-dasharray="4 3"/>
+
+  <!-- タイトル -->
+  <text x="260" y="30" style="font-size:16px;font-weight:700;fill:#1F2937;text-anchor:middle">PMBOKの5つのプロセス群</text>
+  <text x="260" y="52" style="font-size:11px;fill:#6B7280;text-anchor:middle">監視・コントロールは全期間を通じて実施</text>
+</svg>
