@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Header } from '../components/common/Header';
 import { SEOHead } from '../components/common/SEOHead';
 import { ProfileMenu } from '../components/auth/ProfileMenu';
 import { clearProgress } from '../utils/studyProgressStorage';
 import { useAuth } from '../contexts/AuthContext';
+import { type ThemeMode, loadTheme, saveTheme, applyTheme } from '../utils/themeStorage';
 
 const gradeOptions = [
   { value: null as number | null, label: '未設定' },
@@ -12,10 +13,32 @@ const gradeOptions = [
   { value: 3, label: '3年' },
 ];
 
+const themeOptions: { value: ThemeMode; label: string }[] = [
+  { value: 'light', label: 'ライト' },
+  { value: 'dark', label: 'ダーク' },
+  { value: 'system', label: '端末に合わせる' },
+];
+
 export function SettingsPage() {
   const { userProfile, updateUserProfile } = useAuth();
   const [showConfirm, setShowConfirm] = useState(false);
   const [cleared, setCleared] = useState(false);
+  const [theme, setTheme] = useState<ThemeMode>(loadTheme);
+
+  const handleThemeChange = (mode: ThemeMode) => {
+    setTheme(mode);
+    saveTheme(mode);
+    applyTheme(mode);
+  };
+
+  // system モード時にOS設定変更を追従
+  useEffect(() => {
+    if (theme !== 'system') return;
+    const mq = window.matchMedia('(prefers-color-scheme: dark)');
+    const handler = () => applyTheme('system');
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, [theme]);
 
   const handleGradeChange = (value: number | null) => {
     updateUserProfile({ grade: value });
@@ -41,6 +64,26 @@ export function SettingsPage() {
       <main className="mx-auto max-w-md space-y-4 px-4 py-6">
         {/* アカウント */}
         <ProfileMenu />
+
+        {/* テーマ設定 */}
+        <div className="rounded-xl bg-white p-4 shadow-sm">
+          <h2 className="mb-4 text-sm font-semibold text-gray-600">テーマ</h2>
+          <div className="flex gap-2">
+            {themeOptions.map((opt) => (
+              <button
+                key={opt.value}
+                onClick={() => handleThemeChange(opt.value)}
+                className={`flex-1 rounded-lg border-2 py-2.5 text-sm font-medium transition-colors ${
+                  theme === opt.value
+                    ? 'border-amber-500 bg-amber-50 text-amber-700'
+                    : 'border-gray-200 bg-white text-gray-600'
+                }`}
+              >
+                {opt.label}
+              </button>
+            ))}
+          </div>
+        </div>
 
         {/* 学年設定 */}
         <div className="rounded-xl bg-white p-4 shadow-sm">

@@ -6,7 +6,7 @@ export function loadTheme(): ThemeMode {
   if (typeof window === 'undefined') return 'system';
   const saved = localStorage.getItem(STORAGE_KEY);
   if (saved === 'light' || saved === 'dark' || saved === 'system') return saved;
-  return 'system';
+  return 'light';
 }
 
 export function saveTheme(mode: ThemeMode): void {
