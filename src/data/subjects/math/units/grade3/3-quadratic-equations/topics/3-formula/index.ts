@@ -43,12 +43,12 @@ export const quadFormula: Topic = {
         {
           title: '判別式 b²−4ac と解の個数',
           content:
-            '解の公式のルートの中身 b²−4ac を「判別式」というよ。判別式の符号で解の個数がわかるんだ。判別式が0のとき解は1つだけで、これを「重解」と呼ぶよ。',
+            '解の公式のルートの中身 b²−4ac を「判別式」というよ。判別式の符号で解の個数がわかるんだ。判別式が0のとき、解は1つだけになるよ。',
           keyPoints: [
             'b²−4ac > 0 → 異なる2つの実数解',
-            'b²−4ac = 0 → 重解（解が1つ）',
+            'b²−4ac = 0 → 解は1つだけ',
             'b²−4ac < 0 → 実数解なし',
-            '重解のとき x = −b / 2a'
+            '解が1つだけのとき x = −b / 2a'
           ],
         },
         {
@@ -86,7 +86,7 @@ export const quadFormula: Topic = {
       },
       {
         id: 'math-g3-qf-fc7',
-        front: '重解（解が1つだけ）', back: '判別式 = 0 のとき',
+        front: '解は1つだけ', back: '判別式 = 0 のとき',
         explanation: 'x = −b / 2a で求まる',
         difficulty: 'basic',
       },
@@ -116,7 +116,7 @@ export const quadFormula: Topic = {
       },
       {
         id: 'math-g3-qf-fc18',
-        front: '判別式=0（重解）、x=3', back: 'x²−6x+9=0 の判別式と解',
+        front: '判別式=0、x=3', back: 'x²−6x+9=0 の判別式と解',
         explanation: 'b²−4ac = 36−36 = 0、x = 6/2 = 3',
         difficulty: 'standard',
       },
@@ -171,7 +171,7 @@ export const quadFormula: Topic = {
       { id: 'math-g3-qf-fc32', front: '$x = \\dfrac{3 \\pm \\sqrt{5}}{2}$', back: '$x^2 - 3x + 1 = 0$ を解の公式で解くと？', explanation: '$a=1, b=-3, c=1$。$\\sqrt{9-4} = \\sqrt{5}$。', difficulty: 'standard' },
       { id: 'math-g3-qf-fc33', front: '$x = \\dfrac{-5 \\pm \\sqrt{13}}{6}$', back: '$3x^2 + 5x + 1 = 0$ を解の公式で解くと？', explanation: '$b^2 - 4ac = 25 - 12 = 13$。', difficulty: 'standard' },
       { id: 'math-g3-qf-fc34', front: '$x = 2 \\pm \\sqrt{3}$', back: '$x^2 - 4x + 1 = 0$ を解の公式で解くと？', explanation: '$\\dfrac{4 \\pm \\sqrt{12}}{2} = \\dfrac{4 \\pm 2\\sqrt{3}}{2}$。', difficulty: 'standard' },
-      { id: 'math-g3-qf-fc36', front: '正→異なる $2$ つの実数解、$0$→重解、負→実数解なし', back: '判別式 $b^2 - 4ac$ の値と解の関係は？', explanation: '解の個数を判定できる。', difficulty: 'standard' },
+      { id: 'math-g3-qf-fc36', front: '正→異なる $2$ つの実数解、$0$→解は1つだけ、負→実数解なし', back: '判別式 $b^2 - 4ac$ の値と解の関係は？', explanation: '解の個数を判定できる。', difficulty: 'standard' },
       { id: 'math-g3-qf-fc39', front: '$x = \\dfrac{1 \\pm \\sqrt{7}}{2}$', back: '$2x^2 - 2x - 3 = 0$ を解の公式で解くと？', explanation: '$b^2 - 4ac = 4 + 24 = 28$、$\\sqrt{28} = 2\\sqrt{7}$。', difficulty: 'advanced' }
     ],
     quiz: {
@@ -194,10 +194,10 @@ export const quadFormula: Topic = {
           id: 'math-g3-qf-q2',
           question: '$x^2 + 2x - 3 = 0$ を解の公式で解くと？（$a=1, b=2, c=-3$）',
           options: [
-            '$x = 1, x = 3$',
-            '$x = -1, x = 3$',
-            '$x = 1, x = -3$',
-            '$x = -1, x = -3$'
+            '$x = 1,3$',
+            '$x = -1,3$',
+            '$x = 1,-3$',
+            '$x = -1,-3$'
           ],
           correctIndex: 2,
           explanation:
@@ -210,7 +210,7 @@ export const quadFormula: Topic = {
           options: ['1個', '0個', '2個', '無限にある'],
           correctIndex: 0,
           explanation:
-            '$b^2-4ac = 0$ のとき $\\sqrt{0} = 0$ なので $\\pm$ の部分が消えて解は1つ（重解）だよ。',
+            '$b^2-4ac = 0$ のとき $\\sqrt{0} = 0$ なので $\\pm$ の部分が消えて解は1つだよ。',
           difficulty: 'basic',
         },
         {
@@ -261,7 +261,7 @@ export const quadFormula: Topic = {
           options: ['$72$', '$0$', '$-72$', '$36$'],
           correctIndex: 1,
           explanation:
-            '$b^2-4ac = (-6)^2 - 4 \\times 1 \\times 9 = 36 - 36 = 0$。\n重解 $x = 3$ だよ。',
+            '$b^2-4ac = (-6)^2 - 4 \\times 1 \\times 9 = 36 - 36 = 0$。\n解は $x = 3$ の1つだけだよ。',
           difficulty: 'basic',
         },
         {
@@ -269,7 +269,7 @@ export const quadFormula: Topic = {
           question: '$x^2 + 4x + 5 = 0$ の判別式が $-4$ のとき、この方程式の解は？',
           options: [
             '異なる2つの実数解',
-            '重解が1つ',
+            '解は1つだけ',
             '実数解なし',
             '$x = -2$'
           ],
@@ -323,11 +323,11 @@ export const quadFormula: Topic = {
         {
           id: 'math-g3-qf-q12',
           question:
-            '$x^2 - 4x + k = 0$ が重解をもつとき、$k$ の値は？',
+            '$x^2 - 4x + k = 0$ が解が1つだけになるとき、$k$ の値は？',
           options: ['$8$', '$4$', '$2$', '$16$'],
           correctIndex: 1,
           explanation:
-            '重解の条件: $b^2-4ac = 0$。$16 - 4k = 0$ より $k = 4$ だよ。',
+            '解が1つだけになる条件: $b^2-4ac = 0$。$16 - 4k = 0$ より $k = 4$ だよ。',
           difficulty: 'standard',
         },
         {
@@ -364,7 +364,7 @@ export const quadFormula: Topic = {
           options: [
             '$24$、解2つ',
             '$-16$、解なし',
-            '$0$、重解',
+            '$0$、解は1つだけ',
             '$16$、解2つ'
           ],
           correctIndex: 1,
@@ -376,10 +376,10 @@ export const quadFormula: Topic = {
           id: 'math-g3-qf-q16',
           question: '$3x^2 - 2x - 1 = 0$ を解の公式で解くと？',
           options: [
-            '$x = -1, x = \\frac{1}{3}$',
-            '$x = \\frac{1}{3}, x = -1$',
-            '$x = 1, x = \\frac{1}{3}$',
-            '$x = 1, x = -\\frac{1}{3}$'
+            '$x = -1,\\frac{1}{3}$',
+            '$x = \\frac{1}{3},-\\frac{1}{3}$',
+            '$x = 1,\\frac{1}{3}$',
+            '$x = 1,-\\frac{1}{3}$'
           ],
           correctIndex: 3,
           explanation:
@@ -458,7 +458,7 @@ export const quadFormula: Topic = {
         },
         {
           id: 'math-g3-qf-q22',
-          question: '$x^2 - 8x + k = 0$ が重解をもつとき、$k$ の値は？',
+          question: '$x^2 - 8x + k = 0$ が解が1つだけになるとき、$k$ の値は？',
           options: ['$8$', '$64$', '$32$', '$16$'],
           correctIndex: 3,
           explanation:
@@ -566,10 +566,10 @@ export const quadFormula: Topic = {
             {
               title: 'Step 2: $(x+2)^2 = 9$ を解く',
               content: '$x+2 = \\pm 3$。$x = -2+3 = 1$ または $x = -2-3 = -5$。',
-              highlight: '$x = 1, x = -5$',
+              highlight: '$x = 1,-5$',
             }
           ],
-          answer: '$x = 1, x = -5$',
+          answer: '$x = 1,-5$',
         },
         {
           id: 'math-g3-qf-ex2',
@@ -584,10 +584,10 @@ export const quadFormula: Topic = {
               title: 'Step 2: 計算する',
               content:
                 '$x = \\frac{-5 \\pm \\sqrt{49}}{4} = \\frac{-5 \\pm 7}{4}$。$x = \\frac{2}{4} = \\frac{1}{2}$ または $x = \\frac{-12}{4} = -3$。',
-              highlight: '$x = \\frac{1}{2}, x = -3$',
+              highlight: '$x = \\frac{1}{2},-3$',
             }
           ],
-          answer: '$x = \\frac{1}{2}, x = -3$',
+          answer: '$x = \\frac{1}{2},-3$',
         },
         {
           id: 'math-g3-qf-ex3',

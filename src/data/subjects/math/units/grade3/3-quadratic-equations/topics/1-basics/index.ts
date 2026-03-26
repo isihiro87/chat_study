@@ -291,10 +291,10 @@ export const quadEqBasics: Topic = {
           id: 'math-g3-quad-eq-basics-q7',
           question: '$(x + 5)^2 = 25$ の解は？',
           options: [
-            '$x = -5, x = -10$',
-            '$x = 5, x = -5$',
-            '$x = 0, x = 10$',
-            '$x = 0, x = -10$',
+            '$x = -5,-10$',
+            '$x = 5,-5$',
+            '$x = 0,10$',
+            '$x = 0,-10$',
           ],
           correctIndex: 3,
           explanation:
@@ -346,10 +346,10 @@ export const quadEqBasics: Topic = {
           id: 'math-g3-quad-eq-basics-q12',
           question: '$(x - 4)^2 = 16$ の解は？',
           options: [
-            '$x = 0, x = -8$',
-            '$x = 4, x = -4$',
-            '$x = 0, x = 8$',
-            '$x = 8, x = -8$',
+            '$x = 0,-8$',
+            '$x = 4,-4$',
+            '$x = 0,8$',
+            '$x = 8,-8$',
           ],
           correctIndex: 2,
           explanation:
@@ -425,10 +425,10 @@ export const quadEqBasics: Topic = {
           id: 'math-g3-qeb-q18',
           question: '$(x + 3)^2 = 4$ の解は？',
           options: [
-            '$x = -1, x = -5$',
-            '$x = 1, x = 5$',
-            '$x = 1, x = -7$',
-            '$x = -1, x = 5$',
+            '$x = -1,-5$',
+            '$x = 1,5$',
+            '$x = 1,-7$',
+            '$x = -1,5$',
           ],
           correctIndex: 0,
           explanation:
@@ -532,10 +532,10 @@ export const quadEqBasics: Topic = {
           id: 'math-g3-qeb-q26',
           question: '$3(x + 2)^2 = 48$ の解は？',
           options: [
-            '$x = 2, x = -6$',
+            '$x = 2,-6$',
             '$x = -2 \\pm 4$',
-            '$x = 2, x = 6$',
-            '$x = -6, x = 2$',
+            '$x = 2,6$',
+            '$x = -2,6$',
           ],
           correctIndex: 0,
           explanation:
@@ -560,10 +560,10 @@ export const quadEqBasics: Topic = {
           id: 'math-g3-qeb-q28',
           question: '$(x + 7)^2 = 49$ の解は？',
           options: [
-            '$x = 0, x = -14$',
-            '$x = 0, x = 14$',
-            '$x = 7, x = -7$',
-            '$x = -7, x = -14$',
+            '$x = 0,-14$',
+            '$x = 0,14$',
+            '$x = 7,-7$',
+            '$x = -7,-14$',
           ],
           correctIndex: 0,
           explanation:
@@ -591,7 +591,7 @@ export const quadEqBasics: Topic = {
               highlight: '$x = \\pm 4$',
             },
           ],
-          answer: '$x = 4, x = -4$',
+          answer: '$x = \\pm 4$',
         },
         {
           id: 'math-g3-quad-eq-basics-ex2',
@@ -608,7 +608,7 @@ export const quadEqBasics: Topic = {
               highlight: '$x = \\pm 3$',
             },
           ],
-          answer: '$x = 3, x = -3$',
+          answer: '$x = \\pm 3$',
         },
         {
           id: 'math-g3-quad-eq-basics-ex3',
@@ -632,7 +632,7 @@ export const quadEqBasics: Topic = {
               highlight: '$x = 3 \\pm \\sqrt{2}$',
             },
           ],
-          answer: '$x = 3 + \\sqrt{2},\\; x = 3 - \\sqrt{2}$',
+          answer: '$x = 3 \\pm \\sqrt{2}$',
         },
         {
           id: 'math-g3-quad-eq-basics-ex4',
@@ -654,10 +654,10 @@ export const quadEqBasics: Topic = {
               title: 'Step 3: x について解く',
               content:
                 '$x = -1 + \\frac{7}{2} = \\frac{5}{2}$ または $x = -1 - \\frac{7}{2} = -\\frac{9}{2}$。',
-              highlight: '$x = \\frac{5}{2},\\; x = -\\frac{9}{2}$',
+              highlight: '$x = \\frac{5}{2},\\;-\\frac{9}{2}$',
             },
           ],
-          answer: '$x = \\frac{5}{2},\\; x = -\\frac{9}{2}$',
+          answer: '$x = \\frac{5}{2},\\;-\\frac{9}{2}$',
         },
         {
           id: 'math-g3-quad-eq-basics-ex5',
@@ -676,7 +676,7 @@ export const quadEqBasics: Topic = {
               highlight: '$x = \\pm 3\\sqrt{3}$',
             },
           ],
-          answer: '$x = 3\\sqrt{3},\\; x = -3\\sqrt{3}$',
+          answer: '$x = \\pm 3\\sqrt{3}$',
         },
         {
           id: 'math-g3-quad-eq-basics-ex6',
@@ -700,7 +700,7 @@ export const quadEqBasics: Topic = {
               highlight: '$x = -2 \\pm 2\\sqrt{2}$',
             },
           ],
-          answer: '$x = -2 + 2\\sqrt{2},\\; x = -2 - 2\\sqrt{2}$',
+          answer: '$x = -2 \\pm 2\\sqrt{2}$',
         },
       ],
     },

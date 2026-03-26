@@ -36,8 +36,8 @@ export const quadEqFactoring: Topic = {
             '因数分解の公式を使えば、特別な形の二次方程式もスイスイ解けるよ。x²−a²=0 なら和と差の積、x²±2ax+a²=0 なら完全平方式を使おう。',
           keyPoints: [
             'x²−a² = 0 → (x+a)(x−a) = 0 → x = ±a',
-            'x²−2ax+a² = 0 → (x−a)² = 0 → x = a（重解）',
-            'x²+2ax+a² = 0 → (x+a)² = 0 → x = −a（重解）'
+            'x²−2ax+a² = 0 → (x−a)² = 0 → x = a',
+            'x²+2ax+a² = 0 → (x+a)² = 0 → x = −a'
           ],
         },
         {
@@ -72,7 +72,7 @@ export const quadEqFactoring: Topic = {
       },
       {
         id: 'math-g3-qef-fc5',
-        front: 'x=1（重解）', back: 'x²−2x+1=0 の解は？',
+        front: 'x=1', back: 'x²−2x+1=0 の解は？',
         explanation: '(x−1)²=0 → 完全平方式',
         difficulty: 'basic',
       },
@@ -132,14 +132,14 @@ export const quadEqFactoring: Topic = {
       },
       {
         id: 'math-g3-qef-fc15',
-        front: '−4で割って x²−2x+1=0\n(x−1)²=0 → x=1（重解）', back: '−4x²+8x−4=0 を因数分解で解け',
+        front: '−4で割って x²−2x+1=0\n(x−1)²=0 → x=1', back: '−4x²+8x−4=0 を因数分解で解け',
         explanation: '全体を最大公約数で割ってから因数分解すると楽になる。',
         difficulty: 'standard',
       },
       {
         id: 'math-g3-qef-fc16',
-        front: 'x=−3（重解）\n(x+3)²=0', back: 'x²+6x+9=0 の解は？',
-        explanation: '(a+b)²=a²+2ab+b² の形。完全平方式なので重解になる。',
+        front: 'x=−3\n(x+3)²=0', back: 'x²+6x+9=0 の解は？',
+        explanation: '(a+b)²=a²+2ab+b² の形。完全平方式なので解は1つだけになる。',
         difficulty: 'standard',
       },
       {
@@ -156,7 +156,7 @@ export const quadEqFactoring: Topic = {
       },
       {
         id: 'math-g3-qef-fc19',
-        front: 'x=5（重解）\n(x−5)²=0', back: 'x²−10x+25=0 の解は？',
+        front: 'x=5\n(x−5)²=0', back: 'x²−10x+25=0 の解は？',
         explanation: '(a−b)²=a²−2ab+b² の形。25=5² なので完全平方式。',
         difficulty: 'standard',
       },
@@ -180,8 +180,8 @@ export const quadEqFactoring: Topic = {
       },
       {
         id: 'math-g3-qef-fc23',
-        front: 'x=−4（重解）\n(x+4)²=0', back: 'x²+8x+16=0 の解は？',
-        explanation: '16=4²、8=2×4 なので完全平方式(x+4)²。重解に注意。',
+        front: 'x=−4\n(x+4)²=0', back: 'x²+8x+16=0 の解は？',
+        explanation: '16=4²、8=2×4 なので完全平方式(x+4)²。解は1つだけになるよ。',
         difficulty: 'advanced',
       },
       {
@@ -212,12 +212,12 @@ export const quadEqFactoring: Topic = {
       { id: 'math-g3-qef-fc31', front: '$x = -1$ または $x = -6$', back: '$x^2 + 7x + 6 = 0$ の解は？', explanation: '$(x+1)(x+6) = 0$。', difficulty: 'basic' },
       { id: 'math-g3-qef-fc32', front: '$x = 3$ または $x = -4$', back: '$x^2 + x - 12 = 0$ の解は？', explanation: '$(x-3)(x+4) = 0$。', difficulty: 'standard' },
       { id: 'math-g3-qef-fc33', front: '$x = 0$ または $x = 5$', back: '$x^2 - 5x = 0$ の解は？', explanation: '$x(x-5) = 0$。', difficulty: 'basic' },
-      { id: 'math-g3-qef-fc34', front: '$x = 4$（重解）', back: '$x^2 - 8x + 16 = 0$ の解は？', explanation: '$(x-4)^2 = 0$。', difficulty: 'standard' },
+      { id: 'math-g3-qef-fc34', front: '$x = 4$', back: '$x^2 - 8x + 16 = 0$ の解は？', explanation: '$(x-4)^2 = 0$。', difficulty: 'standard' },
       { id: 'math-g3-qef-fc35', front: '$x = 5$ または $x = -5$', back: '$x^2 - 25 = 0$ の解は？', explanation: '$(x+5)(x-5) = 0$。', difficulty: 'standard' },
-      { id: 'math-g3-qef-fc36', front: '$x = -3$（重解）', back: '$x^2 + 6x + 9 = 0$ の解は？', explanation: '$(x+3)^2 = 0$。', difficulty: 'standard' },
+      { id: 'math-g3-qef-fc36', front: '$x = -3$', back: '$x^2 + 6x + 9 = 0$ の解は？', explanation: '$(x+3)^2 = 0$。', difficulty: 'standard' },
       { id: 'math-g3-qef-fc37', front: '$x = 0$ または $x = 3$', back: '$2x^2 - 6x = 0$ の解は？', explanation: '$2x(x-3) = 0$。', difficulty: 'standard' },
       { id: 'math-g3-qef-fc38', front: '$x$ で割ると $x = 0$ の解を失う', back: '$x^2 = 5x$ で $x$ で割ってはいけない理由は？', explanation: '移項して $x^2 - 5x = 0$ にする。', difficulty: 'advanced' },
-      { id: 'math-g3-qef-fc39', front: '重解（同じ解が $2$ つ）', back: '$(x-a)^2 = 0$ の解の特徴は？', explanation: '$x = a$ の重解。', difficulty: 'advanced' }
+      { id: 'math-g3-qef-fc39', front: '解は $x = a$ の1つだけ', back: '$(x-a)^2 = 0$ の解の特徴は？', explanation: '同じ解が2つ重なるので、解は1つだけになる。', difficulty: 'advanced' }
     ],
     quiz: {
       questions: [
@@ -225,10 +225,10 @@ export const quadEqFactoring: Topic = {
           id: 'math-g3-qef-q1',
           question: '$(x - 4)(x + 1) = 0$ の解は？',
           options: [
-            '$x = 4, x = 1$',
-            '$x = -4, x = 1$',
-            '$x = -4, x = -1$',
-            '$x = 4, x = -1$'
+            '$x = 4,1$',
+            '$x = -4,1$',
+            '$x = -4,-1$',
+            '$x = 4,-1$'
           ],
           correctIndex: 3,
           explanation:
@@ -239,10 +239,10 @@ export const quadEqFactoring: Topic = {
           id: 'math-g3-qef-q2',
           question: '$x^2 - 5x + 6 = 0$ の解は？',
           options: [
-            '$x = 2, x = 3$',
-            '$x = 1, x = 6$',
-            '$x = -2, x = -3$',
-            '$x = -1, x = -6$'
+            '$x = 2,3$',
+            '$x = 1,6$',
+            '$x = -2,-3$',
+            '$x = -1,-6$'
           ],
           correctIndex: 0,
           explanation:
@@ -253,10 +253,10 @@ export const quadEqFactoring: Topic = {
           id: 'math-g3-qef-q3',
           question: '$x^2 + x - 12 = 0$ の解は？',
           options: [
-            '$x = 2, x = -6$',
-            '$x = -3, x = 4$',
-            '$x = 3, x = -4$',
-            '$x = 6, x = -2$'
+            '$x = 2,-6$',
+            '$x = -3,4$',
+            '$x = 3,-4$',
+            '$x = 6,-2$'
           ],
           correctIndex: 2,
           explanation:
@@ -268,8 +268,8 @@ export const quadEqFactoring: Topic = {
           question: '$x^2 - 6x = 0$ の解は？',
           options: [
             '$x = 6$',
-            '$x = 0, x = 6$',
-            '$x = 0, x = -6$',
+            '$x = 0,6$',
+            '$x = 0,-6$',
             '$x = -6$'
           ],
           correctIndex: 1,
@@ -295,24 +295,24 @@ export const quadEqFactoring: Topic = {
           id: 'math-g3-qef-q6',
           question: '$x^2 - 2x + 1 = 0$ の解は？',
           options: [
-            '$x = 1, x = -1$',
-            '$x = 2, x = -1$',
-            '$x = -1$（重解）',
-            '$x = 1$（重解）'
+            '$x = 1,-1$',
+            '$x = 2,-1$',
+            '$x = -1$',
+            '$x = 1$'
           ],
           correctIndex: 3,
           explanation:
-            '$(x - 1)^2 = 0$ → $x = 1$（重解）。完全平方式だよ。',
+            '$(x - 1)^2 = 0$ → $x = 1$。完全平方式だよ。',
           difficulty: 'basic',
         },
         {
           id: 'math-g3-qef-q7',
           question: '$-x^2 + 5x - 6 = 0$ の解は？',
           options: [
-            '$x = 2, x = 3$',
-            '$x = -2, x = -3$',
-            '$x = 1, x = 6$',
-            '$x = -1, x = -6$'
+            '$x = 2,3$',
+            '$x = -2,-3$',
+            '$x = 1,6$',
+            '$x = -1,-6$'
           ],
           correctIndex: 0,
           explanation:
@@ -323,10 +323,10 @@ export const quadEqFactoring: Topic = {
           id: 'math-g3-qef-q8',
           question: '$2x^2 - 10x + 12 = 0$ の解は？',
           options: [
-            '$x = 1, x = 6$',
-            '$x = -2, x = -3$',
-            '$x = 2, x = 3$',
-            '$x = -1, x = 5$'
+            '$x = 1,6$',
+            '$x = -2,-3$',
+            '$x = 2,3$',
+            '$x = -1,5$'
           ],
           correctIndex: 2,
           explanation:
@@ -337,24 +337,24 @@ export const quadEqFactoring: Topic = {
           id: 'math-g3-qef-q9',
           question: '$x^2 + 6x + 9 = 0$ の解は？',
           options: [
-            '$x = -3$（重解）',
-            '$x = 3$（重解）',
-            '$x = 3, x = -3$',
-            '$x = 1, x = 9$'
+            '$x = -3$',
+            '$x = 3$',
+            '$x = 3,-3$',
+            '$x = 1,9$'
           ],
           correctIndex: 0,
           explanation:
-            '$(x + 3)^2 = 0$ → $x = -3$（重解）。完全平方式だよ。',
+            '$(x + 3)^2 = 0$ → $x = -3$。完全平方式だよ。',
           difficulty: 'basic',
         },
         {
           id: 'math-g3-qef-q10',
           question: '$(x - 3)(x - 4) = 2$ の解は？',
           options: [
-            '$x = 3, x = 4$',
-            '$x = 2, x = 5$',
-            '$x = 1, x = 6$',
-            '$x = -2, x = -5$'
+            '$x = 3,4$',
+            '$x = 2,5$',
+            '$x = 1,6$',
+            '$x = -2,-5$'
           ],
           correctIndex: 1,
           explanation:
@@ -380,9 +380,9 @@ export const quadEqFactoring: Topic = {
           question: '$3x^2 + 12x = 0$ の解は？',
           options: [
             '$x = 4$',
-            '$x = 0, x = 4$',
+            '$x = 0,4$',
             '$x = -4$',
-            '$x = 0, x = -4$'
+            '$x = 0,-4$'
           ],
           correctIndex: 3,
           explanation:
@@ -393,10 +393,10 @@ export const quadEqFactoring: Topic = {
           id: 'math-g3-qef-q13',
           question: '$x^2 - 2x - 8 = 0$ の解は？',
           options: [
-            '$x = 2, x = -4$',
-            '$x = -2, x = 4$',
-            '$x = 4, x = -2$',
-            '$x = 1, x = -8$'
+            '$x = 2,-4$',
+            '$x = 2,4$',
+            '$x = 4,-2$',
+            '$x = 1,-8$'
           ],
           correctIndex: 2,
           explanation:
@@ -407,14 +407,14 @@ export const quadEqFactoring: Topic = {
           id: 'math-g3-qef-q14',
           question: '$x^2 - 10x + 25 = 0$ の解は？',
           options: [
-            '$x = 5, x = -5$',
-            '$x = 5$（重解）',
-            '$x = -5$（重解）',
+            '$x = 5,-5$',
+            '$x = 5$',
+            '$x = -5$',
             '$x = 25$'
           ],
           correctIndex: 1,
           explanation:
-            '$(x-5)^2 = 0$ → $x = 5$（重解）。完全平方式だよ。',
+            '$(x-5)^2 = 0$ → $x = 5$。完全平方式だよ。',
           difficulty: 'standard',
         },
         {
@@ -423,8 +423,8 @@ export const quadEqFactoring: Topic = {
           options: [
             '$x = 5$',
             '$x = -5$',
-            '$x = 0, x = 5$',
-            '$x = 0, x = -5$'
+            '$x = 0,5$',
+            '$x = 0,-5$'
           ],
           correctIndex: 3,
           explanation:
@@ -435,10 +435,10 @@ export const quadEqFactoring: Topic = {
           id: 'math-g3-qef-q16',
           question: '$3x^2 - 3x - 18 = 0$ の解は？',
           options: [
-            '$x = 2, x = -3$',
-            '$x = -2, x = 3$',
-            '$x = 3, x = -2$',
-            '$x = 6, x = -1$'
+            '$x = 2,-3$',
+            '$x = -3,2$',
+            '$x = 3,-2$',
+            '$x = 6,-1$'
           ],
           correctIndex: 2,
           explanation:
@@ -449,14 +449,14 @@ export const quadEqFactoring: Topic = {
           id: 'math-g3-qef-q17',
           question: '$x^2 + 8x + 16 = 0$ の解は？',
           options: [
-            '$x = 4$（重解）',
-            '$x = 4, x = -4$',
-            '$x = 2, x = 8$',
-            '$x = -4$（重解）'
+            '$x = 4$',
+            '$x = 4,-4$',
+            '$x = 2,8$',
+            '$x = -4$'
           ],
           correctIndex: 3,
           explanation:
-            '$(x+4)^2 = 0$ → $x = -4$（重解）。',
+            '$(x+4)^2 = 0$ → $x = -4$。',
           difficulty: 'standard',
         },
         {
@@ -477,10 +477,10 @@ export const quadEqFactoring: Topic = {
           id: 'math-g3-qef-q19',
           question: '$x^2 + 5x - 14 = 0$ の解は？',
           options: [
-            '$x = 2, x = -7$',
-            '$x = -2, x = 7$',
-            '$x = 7, x = -2$',
-            '$x = 14, x = -1$'
+            '$x = 2,-7$',
+            '$x = -2,7$',
+            '$x = 7,2$',
+            '$x = 14,-1$'
           ],
           correctIndex: 0,
           explanation:
@@ -492,8 +492,8 @@ export const quadEqFactoring: Topic = {
           question: '$x^2 = 8x$ の解は？',
           options: [
             '$x = 8$',
-            '$x = 0, x = -8$',
-            '$x = 0, x = 8$',
+            '$x = 0,-8$',
+            '$x = 0,8$',
             '$x = \\pm 8$'
           ],
           correctIndex: 2,
@@ -505,10 +505,10 @@ export const quadEqFactoring: Topic = {
           id: 'math-g3-qef-q21',
           question: '$-x^2 + 5x + 6 = 0$ の解は？',
           options: [
-            '$x = -1, x = 6$',
-            '$x = 6, x = -1$',
-            '$x = 2, x = 3$',
-            '$x = -2, x = -3$'
+            '$x = 1,-6$',
+            '$x = 6,-1$',
+            '$x = 2,3$',
+            '$x = -2,-3$'
           ],
           correctIndex: 1,
           explanation:
@@ -519,10 +519,10 @@ export const quadEqFactoring: Topic = {
           id: 'math-g3-qef-q22',
           question: '$x^2 - 4x - 12 = 0$ の解は？',
           options: [
-            '$x = 6, x = -2$',
-            '$x = -6, x = 2$',
-            '$x = 4, x = -3$',
-            '$x = 3, x = -4$'
+            '$x = 6,-2$',
+            '$x = -6,2$',
+            '$x = 4,-3$',
+            '$x = 3,-4$'
           ],
           correctIndex: 0,
           explanation:
@@ -547,24 +547,24 @@ export const quadEqFactoring: Topic = {
           id: 'math-g3-qef-q24',
           question: '$x^2 + 12x + 36 = 0$ の解は？',
           options: [
-            '$x = 6$（重解）',
-            '$x = -6$（重解）',
-            '$x = 6, x = -6$',
+            '$x = 6$',
+            '$x = -6$',
+            '$x = 6,-6$',
             '$x = -12$'
           ],
           correctIndex: 1,
           explanation:
-            '$(x+6)^2 = 0$ → $x = -6$（重解）。',
+            '$(x+6)^2 = 0$ → $x = -6$。',
           difficulty: 'advanced',
         },
         {
           id: 'math-g3-qef-q25',
           question: '$(x - 1)(x + 3) = 5$ の解は？',
           options: [
-            '$x = 1, x = -3$',
-            '$x = -1, x = 5$',
-            '$x = 4, x = -2$',
-            '$x = 2, x = -4$'
+            '$x = 1,-3$',
+            '$x = -1,5$',
+            '$x = 4,-2$',
+            '$x = 2,-4$'
           ],
           correctIndex: 3,
           explanation:
@@ -589,10 +589,10 @@ export const quadEqFactoring: Topic = {
           id: 'math-g3-qef-q27',
           question: '$x^2 - 3x - 10 = 0$ の解は？',
           options: [
-            '$x = 5, x = -2$',
-            '$x = -5, x = 2$',
-            '$x = 10, x = -1$',
-            '$x = -10, x = 1$'
+            '$x = 5,-2$',
+            '$x = -5,2$',
+            '$x = 10,-1$',
+            '$x = -10,1$'
           ],
           correctIndex: 0,
           explanation:
@@ -605,8 +605,8 @@ export const quadEqFactoring: Topic = {
           options: [
             '$x = 7$',
             '$x = -7$',
-            '$x = 0, x = 7$',
-            '$x = 0, x = -7$'
+            '$x = 0,7$',
+            '$x = 0,-7$'
           ],
           correctIndex: 2,
           explanation:
@@ -630,10 +630,10 @@ export const quadEqFactoring: Topic = {
             {
               title: 'Step 2: $A \\times B = 0$ の原則を使う',
               content: '$x-2 = 0$ → $x = 2$、$x-3 = 0$ → $x = 3$。',
-              highlight: '$x = 2, x = 3$',
+              highlight: '$x = 2,3$',
             }
           ],
-          answer: '$x = 2, x = 3$',
+          answer: '$x = 2,3$',
         },
         {
           id: 'math-g3-qef-ex2',
@@ -647,10 +647,10 @@ export const quadEqFactoring: Topic = {
             {
               title: 'Step 2: $A \\times B = 0$ の原則を使う',
               content: '$x = 0$ または $x - 6 = 0$ → $x = 6$。$x = 0$ を忘れないでね！',
-              highlight: '$x = 0, x = 6$',
+              highlight: '$x = 0,6$',
             }
           ],
-          answer: '$x = 0, x = 6$',
+          answer: '$x = 0,6$',
         },
         {
           id: 'math-g3-qef-ex3',
@@ -668,7 +668,7 @@ export const quadEqFactoring: Topic = {
               highlight: '$x = \\pm 3$',
             }
           ],
-          answer: '$x = 3, x = -3$',
+          answer: '$x = \\pm 3$',
         },
         {
           id: 'math-g3-qef-ex4',
@@ -681,12 +681,12 @@ export const quadEqFactoring: Topic = {
               highlight: '$(x-1)^2 = 0$',
             },
             {
-              title: 'Step 2: 重解を求める',
-              content: '$(x-1)^2 = 0$ → $x - 1 = 0$ → $x = 1$。解が1つだけ（重解）になるよ。',
-              highlight: '$x = 1$（重解）',
+              title: 'Step 2: 解を求める',
+              content: '$(x-1)^2 = 0$ → $x - 1 = 0$ → $x = 1$。解が1つだけになるよ。',
+              highlight: '$x = 1$',
             }
           ],
-          answer: '$x = 1$（重解）',
+          answer: '$x = 1$',
         },
         {
           id: 'math-g3-qef-ex5',
@@ -702,11 +702,11 @@ export const quadEqFactoring: Topic = {
             {
               title: 'Step 2: 因数分解して解く',
               content:
-                '$(x-1)^2 = 0$ → $x = 1$（重解）。まず係数をそろえるのがコツ！',
-              highlight: '$x = 1$（重解）',
+                '$(x-1)^2 = 0$ → $x = 1$。まず係数をそろえるのがコツ！',
+              highlight: '$x = 1$',
             }
           ],
-          answer: '$x = 1$（重解）',
+          answer: '$x = 1$',
         },
         {
           id: 'math-g3-qef-ex6',
@@ -723,10 +723,10 @@ export const quadEqFactoring: Topic = {
               title: 'Step 2: 因数分解して解く',
               content:
                 'かけて10、たして$-7$ → $-2$ と $-5$。$(x-2)(x-5) = 0$。',
-              highlight: '$x = 2, x = 5$',
+              highlight: '$x = 2,5$',
             }
           ],
-          answer: '$x = 2, x = 5$',
+          answer: '$x = 2,5$',
         }
       ],
     },

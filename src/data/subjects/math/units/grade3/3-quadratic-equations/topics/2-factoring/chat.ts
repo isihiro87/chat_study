@@ -88,10 +88,10 @@ export const quadEqFactoringChat: HistoryChat = {
       type: 'quiz',
       question: '$(x - 4)(x + 7) = 0$ の<ruby>解<rt>かい</rt></ruby>は？',
       options: [
-        { letter: 'A', text: '$x = -4, x = 7$', correct: false },
-        { letter: 'B', text: '$x = 4, x = 7$', correct: false },
-        { letter: 'C', text: '$x = 4, x = -7$', correct: true },
-        { letter: 'D', text: '$x = -4, x = -7$', correct: false },
+        { letter: 'A', text: '$x = -4,7$', correct: false },
+        { letter: 'B', text: '$x = 4,7$', correct: false },
+        { letter: 'C', text: '$x = 4,-7$', correct: true },
+        { letter: 'D', text: '$x = -4,-7$', correct: false },
       ],
       explanation:
         '$x - 4 = 0$ → $x = 4$、$x + 7 = 0$ → $x = -7$。$\\textcolor{#D97706}{x = 4, -7}$',
@@ -185,7 +185,7 @@ export const quadEqFactoringChat: HistoryChat = {
           annotation: '$A \\times B = 0$ の<ruby>原則<rt>げんそく</rt></ruby>',
         },
         {
-          formula: '$x = 0, x = 6$',
+          formula: '$x = 0,6$',
           isResult: true,
           annotation: '$\\textcolor{#D97706}{x = 0}$ を<ruby>忘<rt>わす</rt></ruby>れがち！<ruby>要注意<rt>ようちゅうい</rt></ruby>！',
         },
@@ -202,10 +202,10 @@ export const quadEqFactoringChat: HistoryChat = {
       type: 'quiz',
       question: '$x^2 + x - 12 = 0$ の<ruby>解<rt>かい</rt></ruby>は？',
       options: [
-        { letter: 'A', text: '$x = -3, x = 4$', correct: false },
-        { letter: 'B', text: '$x = 3, x = -4$', correct: true },
-        { letter: 'C', text: '$x = 2, x = -6$', correct: false },
-        { letter: 'D', text: '$x = 6, x = -2$', correct: false },
+        { letter: 'A', text: '$x = -3,4$', correct: false },
+        { letter: 'B', text: '$x = 3,-4$', correct: true },
+        { letter: 'C', text: '$x = 2,-6$', correct: false },
+        { letter: 'D', text: '$x = 6,-2$', correct: false },
       ],
       explanation:
         '$x^2 + x - 12 = (x + 4)(x - 3) = 0$。\n$x = -4$ または $x = 3$ だよ。かけて$-12$、たして$+1$になる<ruby>数<rt>すう</rt></ruby>は $+4$ と $-3$！',
@@ -219,8 +219,8 @@ export const quadEqFactoringChat: HistoryChat = {
       question: '$x^2 + 3x = 0$ の<ruby>解<rt>かい</rt></ruby>は？',
       options: [
         { letter: 'A', text: '$x = 3$', correct: false },
-        { letter: 'B', text: '$x = 0, x = -3$', correct: true },
-        { letter: 'C', text: '$x = 0, x = 3$', correct: false },
+        { letter: 'B', text: '$x = 0,-3$', correct: true },
+        { letter: 'C', text: '$x = 0,3$', correct: false },
         { letter: 'D', text: '$x = -3$', correct: false },
       ],
       explanation:
@@ -228,7 +228,7 @@ export const quadEqFactoringChat: HistoryChat = {
     },
     {
       type: 'date',
-      text: '<ruby>完全平方式<rt>かんぜんへいほうしき</rt></ruby>と<ruby>重解<rt>じゅうかい</rt></ruby>',
+      text: '<ruby>完全平方式<rt>かんぜんへいほうしき</rt></ruby>と<ruby>解<rt>かい</rt></ruby>が1つだけのパターン',
     },
     {
       type: 'message',
@@ -260,7 +260,7 @@ export const quadEqFactoringChat: HistoryChat = {
         {
           formula: '$x - 1 = 0 \\rightarrow x = 1$',
           isResult: true,
-          annotation: '<ruby>解<rt>かい</rt></ruby>が1つだけ → これを$\\textcolor{#D97706}{\\text{重解}}$という',
+          annotation: '<ruby>解<rt>かい</rt></ruby>が1つだけ → <ruby>解<rt>かい</rt></ruby>が$\\textcolor{#D97706}{\\text{1つだけ}}$になる！',
         },
       ],
     },
@@ -276,23 +276,23 @@ export const quadEqFactoringChat: HistoryChat = {
       side: 'left',
       characterId: 'teacher',
       expression: 'happy',
-      text: '「$x = 1$ と $x = 1$」で<ruby>同<rt>おな</rt></ruby>じ<ruby>値<rt>あたい</rt></ruby>が2つ<ruby>重<rt>かさ</rt></ruby>なっているんだ。これを<ruby>重解<rt>じゅうかい</rt></ruby>というよ！',
+      text: '「$x = 1$ と $x = 1$」で<ruby>同<rt>おな</rt></ruby>じ<ruby>値<rt>あたい</rt></ruby>が2つ<ruby>重<rt>かさ</rt></ruby>なっているんだ。だから<ruby>解<rt>かい</rt></ruby>は1つだけになるんだ！',
     },
     {
       type: 'summary-point',
-      text: '$(x - a)^2 = 0$ → $x = a$（<ruby>重解<rt>じゅうかい</rt></ruby>）。<ruby>解<rt>かい</rt></ruby>が1つだけになるパターン！',
+      text: '$(x - a)^2 = 0$ → $x = a$。<ruby>解<rt>かい</rt></ruby>が1つだけになるパターン！',
     },
     {
       type: 'quiz',
       question: '$x^2 + 6x + 9 = 0$ の<ruby>解<rt>かい</rt></ruby>は？',
       options: [
-        { letter: 'A', text: '$x = 3$（<ruby>重解<rt>じゅうかい</rt></ruby>）', correct: false },
-        { letter: 'B', text: '$x = -3, x = 3$', correct: false },
+        { letter: 'A', text: '$x = 3$', correct: false },
+        { letter: 'B', text: '$x = -3,3$', correct: false },
         { letter: 'C', text: '$x = -9$', correct: false },
-        { letter: 'D', text: '$x = -3$（<ruby>重解<rt>じゅうかい</rt></ruby>）', correct: true },
+        { letter: 'D', text: '$x = -3$', correct: true },
       ],
       explanation:
-        '$(x+3)^2 = 0$ なので $x + 3 = 0$ → $x = \\textcolor{#D97706}{-3}$（<ruby>重解<rt>じゅうかい</rt></ruby>）',
+        '$(x+3)^2 = 0$ なので $x + 3 = 0$ → $x = \\textcolor{#D97706}{-3}$',
     },
     {
       type: 'date',
@@ -344,7 +344,7 @@ export const quadEqFactoringChat: HistoryChat = {
       question: '$x^2 - 25 = 0$ の<ruby>解<rt>かい</rt></ruby>は？',
       options: [
         { letter: 'A', text: '$x = \\pm 5$', correct: true },
-        { letter: 'B', text: '$x = 5$（<ruby>重解<rt>じゅうかい</rt></ruby>）', correct: false },
+        { letter: 'B', text: '$x = 5$', correct: false },
         { letter: 'C', text: '$x = \\pm 25$', correct: false },
         { letter: 'D', text: '$x = 25$', correct: false },
       ],
@@ -395,7 +395,7 @@ export const quadEqFactoringChat: HistoryChat = {
           annotation: '<ruby>完全平方式<rt>かんぜんへいほうしき</rt></ruby>で<ruby>因数分解<rt>いんすうぶんかい</rt></ruby>',
         },
         {
-          formula: '$x = 1$（<ruby>重解<rt>じゅうかい</rt></ruby>）',
+          formula: '$x = 1$',
           isResult: true,
           annotation: 'まず<ruby>係数<rt>けいすう</rt></ruby>をそろえるのがコツ！',
         },
@@ -416,13 +416,13 @@ export const quadEqFactoringChat: HistoryChat = {
       type: 'quiz',
       question: '$3x^2 - 12x + 12 = 0$ の<ruby>解<rt>かい</rt></ruby>は？',
       options: [
-        { letter: 'A', text: '$x = 2$（<ruby>重解<rt>じゅうかい</rt></ruby>）', correct: true },
-        { letter: 'B', text: '$x = -2$（<ruby>重解<rt>じゅうかい</rt></ruby>）', correct: false },
-        { letter: 'C', text: '$x = 2, x = -2$', correct: false },
-        { letter: 'D', text: '$x = 4$（<ruby>重解<rt>じゅうかい</rt></ruby>）', correct: false },
+        { letter: 'A', text: '$x = 2$', correct: true },
+        { letter: 'B', text: '$x = -2$', correct: false },
+        { letter: 'C', text: '$x = 2,-2$', correct: false },
+        { letter: 'D', text: '$x = 4$', correct: false },
       ],
       explanation:
-        '3で<ruby>割<rt>わ</rt></ruby>ると $x^2 - 4x + 4 = 0$ → $(x-2)^2 = 0$ → $x = \\textcolor{#D97706}{2}$（<ruby>重解<rt>じゅうかい</rt></ruby>）',
+        '3で<ruby>割<rt>わ</rt></ruby>ると $x^2 - 4x + 4 = 0$ → $(x-2)^2 = 0$ → $x = \\textcolor{#D97706}{2}$',
     },
     {
       type: 'end',
@@ -430,7 +430,7 @@ export const quadEqFactoringChat: HistoryChat = {
         '$A \\times B = 0 \\rightarrow A = 0$ または $B = 0$ が<ruby>大原則<rt>だいげんそく</rt></ruby>',
         'まず<ruby>右辺<rt>うへん</rt></ruby>を0にして<ruby>左辺<rt>さへん</rt></ruby>を<ruby>因数分解<rt>いんすうぶんかい</rt></ruby>',
         '$x(x - a) = 0$ のとき、$x = 0$ も<ruby>解<rt>かい</rt></ruby>になる！',
-        '$(x - a)^2 = 0$ → $x = a$（<ruby>重解<rt>じゅうかい</rt></ruby>）',
+        '$(x - a)^2 = 0$ → $x = a$',
         '$x^2 - a^2 = 0$ → $(x+a)(x-a) = 0$ → $x = \\pm a$',
         '<ruby>係数<rt>けいすう</rt></ruby>が1でないときは<ruby>割<rt>わ</rt></ruby>って<ruby>整理<rt>せいり</rt></ruby>してから<ruby>因数分解<rt>いんすうぶんかい</rt></ruby>',
       ],
