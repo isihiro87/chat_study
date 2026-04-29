@@ -4,12 +4,22 @@ import {
   signInWithPopup,
   signInWithCustomToken,
   signOut as firebaseSignOut,
+  deleteUser,
   GoogleAuthProvider,
   type User,
 } from 'firebase/auth';
-import { doc, getDoc, setDoc, serverTimestamp } from 'firebase/firestore';
+import {
+  collection,
+  deleteDoc,
+  doc,
+  getDoc,
+  getDocs,
+  setDoc,
+  serverTimestamp,
+} from 'firebase/firestore';
 import { auth, db } from '../firebase/config';
 import { retryAsync } from '../utils/retryAsync';
+import { clearProgress } from '../utils/studyProgressStorage';
 
 interface UserProfile {
   grade: number | null;
@@ -23,6 +33,7 @@ interface AuthContextType {
   signInWithLine: () => void;
   signOut: () => Promise<void>;
   updateUserProfile: (data: Partial<UserProfile>) => Promise<void>;
+  deleteAccount: () => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextType | null>(null);
@@ -57,6 +68,11 @@ function markLastActive(uid: string): void {
   } catch {
     // localStorage が使えない環境では握り潰す
   }
+}
+
+async function deleteSubcollection(uid: string, name: string): Promise<void> {
+  const snap = await getDocs(collection(db, `users/${uid}/${name}`));
+  await Promise.all(snap.docs.map((d) => deleteDoc(d.ref)));
 }
 
 function getLineLoginUrl(): string {
@@ -165,8 +181,34 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
   }, [user]);
 
+  const deleteAccount = useCallback(async () => {
+    const current = auth.currentUser;
+    if (!current) {
+      throw new Error('No authenticated user');
+    }
+    const uid = current.uid;
+
+    await deleteSubcollection(uid, 'quizAttempts');
+    await deleteSubcollection(uid, 'flashcardSessions');
+    await deleteSubcollection(uid, 'studyEvents');
+    await deleteDoc(doc(db, `users/${uid}`));
+
+    try {
+      localStorage.removeItem(`auth:lastActiveAt:${uid}`);
+    } catch {
+      // ignore
+    }
+    try {
+      clearProgress();
+    } catch {
+      // ignore
+    }
+
+    await deleteUser(current);
+  }, []);
+
   return (
-    <AuthContext.Provider value={{ user, loading, userProfile, signInWithGoogle, signInWithLine, signOut, updateUserProfile }}>
+    <AuthContext.Provider value={{ user, loading, userProfile, signInWithGoogle, signInWithLine, signOut, updateUserProfile, deleteAccount }}>
       {children}
     </AuthContext.Provider>
   );

@@ -20,10 +20,13 @@ const themeOptions: { value: ThemeMode; label: string }[] = [
 ];
 
 export function SettingsPage() {
-  const { userProfile, updateUserProfile } = useAuth();
+  const { userProfile, updateUserProfile, deleteAccount } = useAuth();
   const [showConfirm, setShowConfirm] = useState(false);
   const [cleared, setCleared] = useState(false);
   const [theme, setTheme] = useState<ThemeMode>(loadTheme);
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+  const [deleting, setDeleting] = useState(false);
+  const [deleteError, setDeleteError] = useState<string | null>(null);
 
   const handleThemeChange = (mode: ThemeMode) => {
     setTheme(mode);
@@ -48,6 +51,23 @@ export function SettingsPage() {
     clearProgress();
     setShowConfirm(false);
     setCleared(true);
+  };
+
+  const handleDelete = async () => {
+    setDeleteError(null);
+    setDeleting(true);
+    try {
+      await deleteAccount();
+      // 成功時: AuthGuard が user=null を検知して LoginPage に遷移
+    } catch (e) {
+      const code = (e as { code?: string }).code;
+      if (code === 'auth/requires-recent-login') {
+        setDeleteError('セキュリティ確認のため、もう一度ログインしてからやり直してください');
+      } else {
+        setDeleteError('退会処理に失敗しました。時間をおいて再度お試しください');
+      }
+      setDeleting(false);
+    }
   };
 
   return (
@@ -138,6 +158,45 @@ export function SettingsPage() {
               className="w-full rounded-lg border border-gray-200 bg-white py-2.5 text-sm font-semibold text-red-500 active:bg-gray-50"
             >
               学習データをリセット
+            </button>
+          )}
+        </div>
+
+        {/* 退会 */}
+        <div className="rounded-xl bg-white p-4 shadow-sm">
+          <h2 className="mb-4 text-sm font-semibold text-gray-600">退会</h2>
+          {showDeleteConfirm ? (
+            <div className="space-y-3">
+              <p className="text-sm text-red-600">
+                アカウントとすべての学習データが削除されます。この操作は取り消せません。
+              </p>
+              {deleteError && (
+                <p role="alert" className="text-sm text-red-600">{deleteError}</p>
+              )}
+              <div className="flex gap-2">
+                <button
+                  onClick={handleDelete}
+                  disabled={deleting}
+                  aria-busy={deleting}
+                  className="flex-1 rounded-lg bg-red-500 py-2.5 text-sm font-semibold text-white active:bg-red-600 disabled:opacity-50"
+                >
+                  {deleting ? '退会処理中...' : '本当に退会する'}
+                </button>
+                <button
+                  onClick={() => { setShowDeleteConfirm(false); setDeleteError(null); }}
+                  disabled={deleting}
+                  className="flex-1 rounded-lg border border-gray-200 bg-white py-2.5 text-sm font-semibold text-gray-600 active:bg-gray-50 disabled:opacity-50"
+                >
+                  キャンセル
+                </button>
+              </div>
+            </div>
+          ) : (
+            <button
+              onClick={() => setShowDeleteConfirm(true)}
+              className="w-full rounded-lg border border-red-200 bg-white py-2.5 text-sm font-semibold text-red-500 active:bg-red-50"
+            >
+              退会する
             </button>
           )}
         </div>
