@@ -62,6 +62,7 @@ export function FlashcardDeck({ cards, onProgressChange, onComplete, onCompleteW
     isReviewMode,
     rememberedCount,
     totalCards,
+    currentBatchTotal,
     reviewCount,
     notRememberedCount,
     sessionHistory,
@@ -96,12 +97,12 @@ export function FlashcardDeck({ cards, onProgressChange, onComplete, onCompleteW
     ['rgb(239, 68, 68)', 'rgb(239, 68, 68)', 'rgb(252, 211, 77)', 'rgb(34, 197, 94)', 'rgb(34, 197, 94)']
   );
 
-  // プログレス通知
-  const total = isReviewMode ? reviewCount : totalCards;
+  // プログレス通知（スタート画面で指定した枚数を分母にする）
+  const total = isReviewMode ? reviewCount : currentBatchTotal;
 
   useEffect(() => {
-    onProgressChange?.(currentIndex + 1, total || totalCards);
-  }, [currentIndex, total, totalCards, onProgressChange]);
+    onProgressChange?.(currentIndex + 1, total || currentBatchTotal);
+  }, [currentIndex, total, currentBatchTotal, onProgressChange]);
 
   // フラッシュカード完了時のコールバック（1回のみ発火）
   const completeCalled = useRef(false);
@@ -489,7 +490,7 @@ export function FlashcardDeck({ cards, onProgressChange, onComplete, onCompleteW
     setDragDirection(null);
   };
 
-  const currentCards = isReviewMode ? reviewCount : totalCards;
+  const currentCards = isReviewMode ? reviewCount : currentBatchTotal;
   const canGoPrev = currentIndex > 0;
   const canGoNext = currentIndex < currentCards - 1;
 
@@ -638,7 +639,7 @@ export function FlashcardDeck({ cards, onProgressChange, onComplete, onCompleteW
           {/* プログレスインジケーター */}
           <ProgressIndicator
             current={currentIndex}
-            total={isReviewMode ? reviewCount : totalCards}
+            total={isReviewMode ? reviewCount : currentBatchTotal}
             variant={isReviewMode ? 'review' : 'default'}
             showLabel={false}
           />
@@ -657,7 +658,7 @@ export function FlashcardDeck({ cards, onProgressChange, onComplete, onCompleteW
               <span>前へ</span>
             </button>
             <span className="w-12 text-center text-xs text-gray-400">
-              {currentIndex + 1}/{isReviewMode ? reviewCount : totalCards}
+              {currentIndex + 1}/{isReviewMode ? reviewCount : currentBatchTotal}
             </span>
             <button
               onClick={(e) => {

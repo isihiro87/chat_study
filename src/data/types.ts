@@ -182,7 +182,7 @@ export interface QuizQuestion {
 }
 
 // タブの種類
-export type TabType = 'video' | 'flashcard' | 'quiz' | 'chat' | 'example';
+export type TabType = 'video' | 'flashcard' | 'quiz' | 'chat';
 
 // 学習進捗
 export interface StudyProgress {

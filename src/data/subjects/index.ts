@@ -19,14 +19,14 @@ export const subjects: Subject[] = [
     id: 'math',
     name: '数学',
     icon: 'calculator',
-    description: '代数を中心に学ぼう',
+    description: '代数を中心に学ぼう（準備中）',
     isAvailable: true,
   },
   {
     id: 'science',
     name: '理科',
     icon: 'flask-conical',
-    description: '化学・生物・物理・地学',
+    description: '化学・生物・物理・地学（準備中）',
     isAvailable: true,
   },
   {
@@ -35,13 +35,6 @@ export const subjects: Subject[] = [
     icon: 'globe',
     description: '世界と日本の地理を学ぼう',
     isAvailable: true,
-  },
-  {
-    id: 'fe-exam',
-    name: '基本情報技術者',
-    icon: 'monitor',
-    description: '基本情報技術者試験対策',
-    isAvailable: false,
   },
 ];
 

@@ -28,7 +28,7 @@ export function clearResumeState(topicId: string, tabType: TabType): void {
 }
 
 export function clearAllResumeState(topicId: string): void {
-  const tabs: TabType[] = ['quiz', 'flashcard', 'chat', 'example', 'video'];
+  const tabs: TabType[] = ['quiz', 'flashcard', 'chat', 'video'];
   for (const tab of tabs) {
     sessionStorage.removeItem(`${RESUME_PREFIX}${topicId}:${tab}`);
   }

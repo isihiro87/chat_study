@@ -1,5 +1,5 @@
 import { memo, useCallback } from 'react';
-import { Video, Layers, HelpCircle, MessageCircle, BookOpen } from 'lucide-react';
+import { Video, Layers, HelpCircle, MessageCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 import type { TabType } from '../../data/types';
 
@@ -13,7 +13,6 @@ interface TabBarProps {
 
 const allTabs: { id: TabType; label: string; icon: React.ElementType }[] = [
   { id: 'chat', label: 'チャット', icon: MessageCircle },
-  { id: 'example', label: '例題', icon: BookOpen },
   { id: 'flashcard', label: 'カード', icon: Layers },
   { id: 'quiz', label: 'クイズ', icon: HelpCircle },
   { id: 'video', label: '動画', icon: Video },

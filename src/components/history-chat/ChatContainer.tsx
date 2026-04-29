@@ -23,7 +23,6 @@ interface ChatContainerProps {
   embedded?: boolean; // TabBar内に埋め込む場合はtrue
   onNavigateToFlashcard?: () => void;
   onNavigateToQuiz?: () => void;
-  onNavigateToExample?: () => void;
   onComplete?: () => void;
   onProgressChange?: (current: number, total: number) => void;
   subjectId?: string;
@@ -31,7 +30,7 @@ interface ChatContainerProps {
   resumeMode?: boolean;
 }
 
-export function ChatContainer({ chat, embedded = false, onNavigateToFlashcard, onNavigateToQuiz, onNavigateToExample, onComplete, onProgressChange, subjectId, topicId, resumeMode }: ChatContainerProps) {
+export function ChatContainer({ chat, embedded = false, onNavigateToFlashcard, onNavigateToQuiz, onComplete, onProgressChange, subjectId, topicId, resumeMode }: ChatContainerProps) {
   // 復元状態の読み込み
   const [resumeData] = useState<ChatSavedState | null>(() => {
     if (resumeMode && topicId) {
@@ -265,7 +264,6 @@ export function ChatContainer({ chat, embedded = false, onNavigateToFlashcard, o
                         onReplay={reset}
                         onNavigateToFlashcard={onNavigateToFlashcard}
                         onNavigateToQuiz={onNavigateToQuiz}
-                        onNavigateToExample={onNavigateToExample}
                         chatTitle={chat.title}
                         chatSubtitle={chat.subtitle}
                         subjectId={subjectId}

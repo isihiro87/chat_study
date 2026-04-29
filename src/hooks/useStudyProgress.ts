@@ -74,17 +74,6 @@ export function useStudyProgress() {
     [recordActivity],
   );
 
-  const markExampleCompleted = useCallback(
-    (topicId: string) => {
-      recordActivity(topicId, (tp) => ({
-        ...tp,
-        exampleCompleted: true,
-        lastStudiedAt: new Date().toISOString(),
-      }));
-    },
-    [recordActivity],
-  );
-
   const updateQuizScore = useCallback(
     (topicId: string, score: number, total: number, difficulties?: Difficulty[]): { isNewBest: boolean } => {
       let isNewBest = false;
@@ -282,7 +271,6 @@ export function useStudyProgress() {
   return {
     markChatRead,
     markFlashcardCompleted,
-    markExampleCompleted,
     updateQuizScore,
     getTopicProgress,
     getCompletionStatus,

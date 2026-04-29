@@ -26,6 +26,7 @@ interface UseFlashcardReturn {
   rememberedIds: Set<string>;
   reviewQueueIds: string[];
   totalCards: number;
+  currentBatchTotal: number;
   reviewCount: number;
   notRememberedCount: number;
   sessionHistory: SessionHistory;
@@ -325,6 +326,7 @@ export function useFlashcard(cards: Flashcard[], batchSize?: number, savedState?
     rememberedIds: remembered,
     reviewQueueIds: reviewQueue,
     totalCards: cards.length,
+    currentBatchTotal: activeBatchCards.length,
     reviewCount: isReviewMode
       ? currentCards.length
       : reviewQueue.length,
