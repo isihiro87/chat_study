@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useState } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import { Routes, Route, useLocation, useNavigationType } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { TopPage } from './pages/TopPage';
@@ -16,7 +16,6 @@ const RandomQuizPage = lazy(() => import('./pages/RandomQuizPage').then(m => ({ 
 const SettingsPage = lazy(() => import('./pages/SettingsPage').then(m => ({ default: m.SettingsPage })));
 const LineCallbackPage = lazy(() => import('./pages/LineCallbackPage').then(m => ({ default: m.LineCallbackPage })));
 const AdminPage = lazy(() => import('./pages/AdminPage').then(m => ({ default: m.AdminPage })));
-const FEExamTopPage = lazy(() => import('./pages/FEExamTopPage').then(m => ({ default: m.FEExamTopPage })));
 
 // ルート変更時にスクロール位置を復元またはリセット
 function ScrollRestoration() {
@@ -71,7 +70,6 @@ function AnimatedRoutes() {
           <Route path="/subjects/:subjectId/eras/:eraId" element={<TopicSelectPage />} />
           <Route path="/subjects/:subjectId/eras/:eraId/topics/:topicId" element={<LearningPage />} />
           <Route path="/chat/:chatId" element={<HistoryChatPage />} />
-          <Route path="/fe-exam" element={<FEExamTopPage />} />
           <Route path="/settings" element={<SettingsPage />} />
           <Route path="/auth/line/callback" element={<LineCallbackPage />} />
           <Route path="/admin" element={<AdminPage />} />
@@ -93,26 +91,13 @@ function PageViewTracker() {
 function AuthGuard() {
   const { user, loading } = useAuth();
   const { pathname } = useLocation();
-  const [guestMode, setGuestMode] = useState(
-    () => sessionStorage.getItem('guest-mode') === 'true',
-  );
 
-  // LINEコールバック・FE試験ページは認証前でもアクセス可能にする
+  // LINEコールバックは認証前でもアクセス可能にする
   if (pathname === '/auth/line/callback') {
     return (
       <Suspense fallback={null}>
         <LineCallbackPage />
       </Suspense>
-    );
-  }
-
-  if (pathname.startsWith('/fe-exam') || pathname.startsWith('/subjects/fe-exam')) {
-    return (
-      <div className="min-h-screen bg-[#FAF9F7]">
-        <ScrollRestoration />
-        <PageViewTracker />
-        <AnimatedRoutes />
-      </div>
     );
   }
 
@@ -129,15 +114,8 @@ function AuthGuard() {
     );
   }
 
-  if (!user && !guestMode) {
-    return (
-      <LoginPage
-        onGuestAccess={() => {
-          sessionStorage.setItem('guest-mode', 'true');
-          setGuestMode(true);
-        }}
-      />
-    );
+  if (!user) {
+    return <LoginPage />;
   }
 
   return (

@@ -1,23 +1,10 @@
-import { useState, type FormEvent } from 'react';
+import { useState } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 
-// 2026-04-01 以降はゲストモード無効化
-const GUEST_DEADLINE = new Date('2026-04-01T00:00:00+09:00');
-const GUEST_PASSWORD = 'chat';
-
-interface LoginPageProps {
-  onGuestAccess?: () => void;
-}
-
-export function LoginPage({ onGuestAccess }: LoginPageProps) {
+export function LoginPage() {
   const { signInWithGoogle, signInWithLine } = useAuth();
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
-  const [showGuestForm, setShowGuestForm] = useState(false);
-  const [guestPassword, setGuestPassword] = useState('');
-  const [guestError, setGuestError] = useState(false);
-
-  const isGuestAvailable = onGuestAccess && Date.now() < GUEST_DEADLINE.getTime();
 
   const handleGoogleLogin = async () => {
     setError(null);
@@ -37,16 +24,6 @@ export function LoginPage({ onGuestAccess }: LoginPageProps) {
       }
     } finally {
       setLoading(false);
-    }
-  };
-
-  const handleGuestSubmit = (e: FormEvent) => {
-    e.preventDefault();
-    if (guestPassword === GUEST_PASSWORD) {
-      onGuestAccess?.();
-    } else {
-      setGuestError(true);
-      setGuestPassword('');
     }
   };
 
@@ -108,55 +85,8 @@ export function LoginPage({ onGuestAccess }: LoginPageProps) {
           <p className="text-red-500 text-sm mt-3 text-center">{error}</p>
         )}
 
-        {/* ゲストモード（パスワード入力） */}
-        {isGuestAvailable && !showGuestForm && (
-          <button
-            onClick={() => setShowGuestForm(true)}
-            className="w-full mt-4 py-2.5 text-sm text-gray-400 hover:text-gray-600 hover:underline active:text-gray-500 transition-colors"
-            style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
-          >
-            ログインせずに使う
-          </button>
-        )}
-
-        {isGuestAvailable && showGuestForm && (
-          <form onSubmit={handleGuestSubmit} className="mt-4">
-            <label htmlFor="guest-password" className="block text-xs text-gray-500 mb-1">
-              パスワードを入力してください
-            </label>
-            <div className="flex gap-2">
-              <input
-                id="guest-password"
-                type="password"
-                value={guestPassword}
-                onChange={(e) => {
-                  setGuestPassword(e.target.value);
-                  setGuestError(false);
-                }}
-                className="flex-1 px-3 py-2 border border-gray-200 rounded-lg text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
-                autoComplete="off"
-                autoFocus
-              />
-              <button
-                type="submit"
-                className="px-4 py-2 bg-gray-800 text-white text-sm rounded-lg active:scale-95 transition-transform"
-                style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
-              >
-                OK
-              </button>
-            </div>
-            {guestError && (
-              <p className="text-red-500 text-xs mt-1">
-                パスワードが違います
-              </p>
-            )}
-          </form>
-        )}
-
         <p className="text-xs text-gray-400 text-center mt-6 leading-relaxed">
-          {isGuestAvailable
-            ? '4月からはログインが必要になります。引き続き無料で使えます。'
-            : 'ログインすると学習の進捗を保存できます'}
+          ログインすると学習の進捗を保存できます
         </p>
       </div>
     </div>

@@ -29,6 +29,7 @@ const AuthContext = createContext<AuthContextType | null>(null);
 const googleProvider = new GoogleAuthProvider();
 
 const LINE_LOGIN_CHANNEL_ID = import.meta.env.VITE_LINE_LOGIN_CHANNEL_ID;
+const LINE_AUTH_FN_URL = import.meta.env.VITE_LINE_AUTH_FN_URL;
 const LINE_CALLBACK_PATH = '/auth/line/callback';
 
 const DEFAULT_PROFILE: UserProfile = { grade: null };
@@ -54,10 +55,13 @@ export async function handleLineCallback(code: string, state: string): Promise<v
   }
   sessionStorage.removeItem('line-login-state');
 
-  const redirectUri = `${window.location.origin}${LINE_CALLBACK_PATH}`;
-  const functionUrl = `https://asia-northeast1-chatstudy-63477.cloudfunctions.net/createLineCustomToken`;
+  if (!LINE_AUTH_FN_URL) {
+    throw new Error('VITE_LINE_AUTH_FN_URL is not configured');
+  }
 
-  const res = await fetch(functionUrl, {
+  const redirectUri = `${window.location.origin}${LINE_CALLBACK_PATH}`;
+
+  const res = await fetch(LINE_AUTH_FN_URL, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ code, redirectUri }),
