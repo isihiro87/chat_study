@@ -6,6 +6,12 @@ export function LoginPage() {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
+  const handleLineLogin = () => {
+    setError(null);
+    setLoading(true);
+    signInWithLine();
+  };
+
   const handleGoogleLogin = async () => {
     setError(null);
     setLoading(true);
@@ -46,6 +52,7 @@ export function LoginPage() {
         <button
           onClick={handleGoogleLogin}
           disabled={loading}
+          aria-busy={loading}
           className="w-full flex items-center justify-center gap-3 bg-white border border-gray-200 rounded-full py-3 px-4 text-gray-700 font-medium hover:bg-gray-50 hover:border-gray-300 active:scale-95 transition-all disabled:opacity-50"
           style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
         >
@@ -72,8 +79,9 @@ export function LoginPage() {
 
         {/* LINEログイン */}
         <button
-          onClick={signInWithLine}
+          onClick={handleLineLogin}
           disabled={loading}
+          aria-busy={loading}
           className="w-full mt-3 flex items-center justify-center gap-3 bg-[#06C755] rounded-full py-3 px-4 text-white font-medium hover:bg-[#05b64c] active:scale-95 transition-all disabled:opacity-50"
           style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
         >
@@ -84,7 +92,7 @@ export function LoginPage() {
         </button>
 
         {error && (
-          <p className="text-red-500 text-sm mt-3 text-center">{error}</p>
+          <p role="alert" className="text-red-500 text-sm mt-3 text-center">{error}</p>
         )}
 
         <p className="text-xs text-gray-400 text-center mt-6 leading-relaxed">

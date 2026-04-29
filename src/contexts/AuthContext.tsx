@@ -9,6 +9,7 @@ import {
 } from 'firebase/auth';
 import { doc, getDoc, setDoc, serverTimestamp } from 'firebase/firestore';
 import { auth, db } from '../firebase/config';
+import { retryAsync } from '../utils/retryAsync';
 
 interface UserProfile {
   grade: number | null;
@@ -111,13 +112,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       if (firebaseUser) {
         const userDoc = doc(db, `users/${firebaseUser.uid}`);
         try {
-          const snap = await getDoc(userDoc);
+          const snap = await retryAsync(() => getDoc(userDoc));
           if (snap.exists()) {
             const data = snap.data();
             setUserProfile({ grade: data.grade ?? null });
           }
-        } catch {
-          // Firestoreエラーは無視（オフライン等）
+        } catch (e) {
+          console.warn('[auth] Failed to load user profile after retries', e);
         }
         if (shouldWriteLastActive(firebaseUser.uid)) {
           try {

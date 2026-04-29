@@ -36,7 +36,7 @@ export function LineCallbackPage() {
       <div className="bg-white rounded-2xl shadow-sm p-8 w-full max-w-sm text-center">
         {error ? (
           <>
-            <p className="text-red-500 text-sm mb-4">{error}</p>
+            <p role="alert" className="text-red-500 text-sm mb-4">{error}</p>
             <button
               onClick={() => navigate('/', { replace: true })}
               className="text-sm text-amber-500 underline"
