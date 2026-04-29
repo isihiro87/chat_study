@@ -19,6 +19,8 @@ export function LoginPage() {
         // ユーザーがキャンセルした場合はエラー表示しない
       } else if (code === 'auth/network-request-failed') {
         setError('ネットワーク接続を確認してください');
+      } else if (code === 'auth/account-exists-with-different-credential') {
+        setError('このメールアドレスは別の方法（LINEなど）で登録されています。最初に使った方法でログインしてください');
       } else {
         setError('ログインに失敗しました。もう一度お試しください');
       }

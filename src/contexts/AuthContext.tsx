@@ -27,12 +27,36 @@ interface AuthContextType {
 const AuthContext = createContext<AuthContextType | null>(null);
 
 const googleProvider = new GoogleAuthProvider();
+googleProvider.setCustomParameters({ prompt: 'select_account' });
 
 const LINE_LOGIN_CHANNEL_ID = import.meta.env.VITE_LINE_LOGIN_CHANNEL_ID;
 const LINE_AUTH_FN_URL = import.meta.env.VITE_LINE_AUTH_FN_URL;
 const LINE_CALLBACK_PATH = '/auth/line/callback';
 
 const DEFAULT_PROFILE: UserProfile = { grade: null };
+
+// 24時間以内の lastActiveAt 重複書き込みを抑止する
+const ACTIVE_THRESHOLD_MS = 24 * 60 * 60 * 1000;
+
+function shouldWriteLastActive(uid: string): boolean {
+  try {
+    const last = localStorage.getItem(`auth:lastActiveAt:${uid}`);
+    if (!last) return true;
+    const lastMs = Number(new Date(last));
+    if (Number.isNaN(lastMs)) return true;
+    return Date.now() - lastMs > ACTIVE_THRESHOLD_MS;
+  } catch {
+    return true;
+  }
+}
+
+function markLastActive(uid: string): void {
+  try {
+    localStorage.setItem(`auth:lastActiveAt:${uid}`, new Date().toISOString());
+  } catch {
+    // localStorage が使えない環境では握り潰す
+  }
+}
 
 function getLineLoginUrl(): string {
   const redirectUri = `${window.location.origin}${LINE_CALLBACK_PATH}`;
@@ -85,23 +109,29 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
       setUser(firebaseUser);
       if (firebaseUser) {
-        // Firestoreからプロフィール読み込み + 最終アクティブ日時更新
+        const userDoc = doc(db, `users/${firebaseUser.uid}`);
         try {
-          const userDoc = doc(db, `users/${firebaseUser.uid}`);
           const snap = await getDoc(userDoc);
           if (snap.exists()) {
             const data = snap.data();
             setUserProfile({ grade: data.grade ?? null });
           }
-          await setDoc(userDoc, {
-            displayName: firebaseUser.displayName || null,
-            email: firebaseUser.email || null,
-            photoURL: firebaseUser.photoURL || null,
-            provider: firebaseUser.providerData[0]?.providerId === 'google.com' ? 'google' : 'line',
-            lastActiveAt: serverTimestamp(),
-          }, { merge: true });
         } catch {
           // Firestoreエラーは無視（オフライン等）
+        }
+        if (shouldWriteLastActive(firebaseUser.uid)) {
+          try {
+            await setDoc(userDoc, {
+              displayName: firebaseUser.displayName || null,
+              email: firebaseUser.email || null,
+              photoURL: firebaseUser.photoURL || null,
+              provider: firebaseUser.providerData[0]?.providerId === 'google.com' ? 'google' : 'line',
+              lastActiveAt: serverTimestamp(),
+            }, { merge: true });
+            markLastActive(firebaseUser.uid);
+          } catch {
+            // Firestoreエラーは無視（オフライン等）
+          }
         }
       } else {
         setUserProfile(DEFAULT_PROFILE);
