@@ -292,28 +292,7 @@ interface HeaderProps {
 
 ---
 
-#### ProgressBar（プログレスバー）
-
-**責務**:
-- 学習進捗の可視化
-
-**Props**:
-```typescript
-interface ProgressBarProps {
-  current: number;
-  total: number;
-}
-```
-
 ### 学習モードコンポーネント
-
-#### ExplanationView（説明資料ビュー）
-
-**責務**:
-- 説明セクションの表示
-- 画像・キーポイントの表示
-
----
 
 #### VideoPlayer（動画プレイヤー）
 

@@ -256,7 +256,7 @@ export function LearningPage() {
         }
       }
     },
-    [topicId, updateQuizScore],
+    [topicId, subjectId, era?.grade, updateQuizScore],
   );
 
   const handleQuizCompleteWithDifficulties = useCallback(

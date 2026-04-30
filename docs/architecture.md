@@ -14,12 +14,13 @@
 
 | 技術 | バージョン | 用途 | 選定理由 |
 |------|-----------|------|----------|
-| React | 18.x | UIフレームワーク | コンポーネント指向、豊富なエコシステム |
+| React | 19.x | UIフレームワーク | コンポーネント指向、豊富なエコシステム |
 | Vite | 5.x | ビルドツール | 高速な開発サーバー、HMR対応 |
-| React Router | 6.x | ルーティング | 宣言的ルーティング、シンプルなAPI |
-| Tailwind CSS | 3.x | スタイリング | ユーティリティファースト、レスポンシブ対応が容易 |
-| Framer Motion | 11.x | アニメーション | ジェスチャー対応、直感的なAPI |
+| React Router | 7.x | ルーティング | 宣言的ルーティング、シンプルなAPI |
+| Tailwind CSS | 4.x | スタイリング | ユーティリティファースト、レスポンシブ対応が容易 |
+| Framer Motion | 12.x | アニメーション | ジェスチャー対応、直感的なAPI |
 | Lucide React | 0.x | アイコン | 軽量、シンプル、カスタマイズ可能 |
+| Firebase | 12.x | 認証・データベース | Google/LINE認証、Firestore永続化 |
 
 ### 開発ツール
 
@@ -37,16 +38,19 @@
 ```
 ┌─────────────────────────────────────────────────────┐
 │                    Pages                             │
-│  (TopPage, UnitSelectPage, LearningPage)            │
+│  (TopPage, EraSelectPage, TopicSelectPage,          │
+│   LearningPage, RandomQuizPage, HistoryChatPage)    │
 ├─────────────────────────────────────────────────────┤
 │                   Components                         │
-│  (TabBar, Header, VideoPlayer, FlashcardDeck, etc.) │
+│  (TabBar, Header, VideoPlayer, FlashcardDeck,       │
+│   QuizView, ChatContainer, etc.)                     │
 ├─────────────────────────────────────────────────────┤
 │                    Hooks                             │
-│  (useSwipe, useLocalStorage, useQuiz, etc.)         │
+│  (useQuiz, useFlashcard, useStudyProgress,          │
+│   useTopicNavigation, useHistoryChat, etc.)         │
 ├─────────────────────────────────────────────────────┤
 │                    Data                              │
-│  (JSON files, types, constants)                      │
+│  (TS modules, types, registry)                       │
 └─────────────────────────────────────────────────────┘
 ```
 
@@ -76,30 +80,59 @@
 src/
 ├── pages/                    # ページコンポーネント
 │   ├── TopPage.tsx
-│   ├── UnitSelectPage.tsx
-│   └── LearningPage.tsx
+│   ├── EraSelectPage.tsx
+│   ├── TopicSelectPage.tsx
+│   ├── LearningPage.tsx
+│   ├── RandomQuizPage.tsx
+│   ├── HistoryChatPage.tsx
+│   ├── SettingsPage.tsx
+│   ├── LineCallbackPage.tsx
+│   ├── NotFoundPage.tsx
+│   └── AdminPage.tsx
 ├── components/               # 共通コンポーネント
 │   ├── common/              # 汎用UI
 │   │   ├── Header.tsx
 │   │   ├── TabBar.tsx
-│   │   └── ProgressBar.tsx
-│   └── learning/            # 学習機能
-│       ├── ExplanationView.tsx
-│       ├── VideoPlayer.tsx
-│       ├── FlashcardDeck.tsx
-│       └── QuizView.tsx
+│   │   ├── ProgressIndicator.tsx
+│   │   ├── ErrorBoundary.tsx
+│   │   ├── ErrorScreen.tsx
+│   │   ├── ImageLightbox.tsx
+│   │   ├── MathText.tsx
+│   │   ├── ResumeDialog.tsx
+│   │   ├── SEOHead.tsx
+│   │   └── SurveyPopup.tsx
+│   ├── learning/            # 学習機能
+│   │   ├── VideoPlayer.tsx
+│   │   ├── FlashcardDeck.tsx
+│   │   ├── FlashcardSetup.tsx
+│   │   ├── QuizView.tsx
+│   │   └── QuizSetup.tsx
+│   ├── history-chat/        # チャット形式学習（歴史・地理）
+│   ├── random-quiz/         # ランダムクイズ
+│   └── auth/                # 認証関連
 ├── hooks/                    # カスタムフック
-│   ├── useSwipe.ts
-│   ├── useLocalStorage.ts
-│   └── useQuiz.ts
+│   ├── useQuiz.ts
+│   ├── useFlashcard.ts
+│   ├── useStudyProgress.ts
+│   ├── useHistoryChat.ts
+│   ├── useTopicNavigation.ts
+│   ├── useSpeechSynthesis.ts
+│   └── useTooltip.ts
+├── contexts/                 # React Context
+│   └── AuthContext.tsx
+├── firebase/                 # Firebase設定・操作
+│   ├── config.ts
+│   └── firestore.ts
 ├── data/                     # 静的データ
-│   ├── subjects/
-│   │   └── history/
-│   │       ├── index.ts
-│   │       └── units/
-│   │           ├── ancient-japan.ts
-│   │           └── ...
+│   ├── subjects/             # 教科別コンテンツ
+│   │   ├── english/
+│   │   ├── geography/
+│   │   ├── history/
+│   │   ├── math/
+│   │   └── science/
+│   ├── generated/            # ビルド時生成（topic-registry等）
 │   └── types.ts
+├── utils/                    # ユーティリティ
 ├── styles/                   # グローバルスタイル
 │   └── index.css
 ├── App.tsx                   # ルートコンポーネント
@@ -107,7 +140,6 @@ src/
 
 public/
 ├── images/                   # 画像アセット
-│   └── history/
 └── favicon.ico
 ```
 

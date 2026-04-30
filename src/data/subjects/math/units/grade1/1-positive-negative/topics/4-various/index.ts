@@ -251,7 +251,7 @@ export const variousCalc: Topic = {
         },
         {
           id: 'math-g1-various-q17',
-          question: '$\{(-3) + 5\} \\times (-2)$ の計算結果は？',
+          question: '$\\{(-3) + 5\\} \\times (-2)$ の計算結果は？',
           options: ['$-4$', '$+4$', '$-16$', '$+16$'],
           correctIndex: 0,
           explanation: 'かっこの中: $(-3) + 5 = 2$。\n$2 \\times (-2) = -4$ だよ。',
@@ -302,7 +302,7 @@ export const variousCalc: Topic = {
           question: '$15 \\times (-6) + 15 \\times (-4)$ を分配法則で計算すると？',
           options: ['$-30$', '$+150$', '$+30$', '$-150$'],
           correctIndex: 3,
-          explanation: '$15 \\times \{(-6) + (-4)\} = 15 \\times (-10) = -150$ だよ。',
+          explanation: '$15 \\times \\{(-6) + (-4)\\} = 15 \\times (-10) = -150$ だよ。',
           difficulty: 'advanced',
         },
         {

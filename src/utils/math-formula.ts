@@ -74,10 +74,12 @@ function convertSqrtToKatex(html: string): string {
     return `$${pmTex}\\sqrt{${letter}}$`;
   });
 
-  // HTMLタグ復元
+  // HTMLタグ復元 — \x01 はプレースホルダ用の意図した制御文字
+  // eslint-disable-next-line no-control-regex
   escaped = escaped.replace(/\x01TAG(\d+)\x01/g, (_m, idx: string) => htmlTags[Number(idx)]);
 
-  // KaTeXブロック復元
+  // KaTeXブロック復元 — \x00 はプレースホルダ用の意図した制御文字
+  // eslint-disable-next-line no-control-regex
   escaped = escaped.replace(/\x00KATEX(\d+)\x00/g, (_m, idx: string) => katexBlocks[Number(idx)]);
 
   return escaped;

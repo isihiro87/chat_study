@@ -44,9 +44,16 @@ marutto-study/
 **例**:
 ```
 pages/
-├── TopPage.tsx              # トップページ（科目選択）
-├── UnitSelectPage.tsx       # 単元選択ページ
-└── LearningPage.tsx         # 学習ページ（タブ切替）
+├── TopPage.tsx              # トップページ（教科選択・ダッシュボード）
+├── EraSelectPage.tsx        # 学年・時代選択ページ
+├── TopicSelectPage.tsx      # トピック選択ページ
+├── LearningPage.tsx         # 学習ページ（タブ切替）
+├── RandomQuizPage.tsx       # 教科横断ランダムクイズ
+├── HistoryChatPage.tsx      # 対話形式の歴史/地理チャット
+├── SettingsPage.tsx         # 設定（プロフィール・退会）
+├── LineCallbackPage.tsx     # LINEログインコールバック
+├── NotFoundPage.tsx         # 404
+└── AdminPage.tsx            # 管理用
 ```
 
 #### components/
@@ -67,19 +74,23 @@ components/
 ├── common/                  # 汎用UIコンポーネント
 │   ├── Header.tsx
 │   ├── TabBar.tsx
-│   ├── ProgressBar.tsx
-│   ├── Button.tsx
-│   └── Card.tsx
+│   ├── ProgressIndicator.tsx
+│   ├── ErrorBoundary.tsx
+│   ├── ErrorScreen.tsx
+│   ├── ImageLightbox.tsx
+│   ├── MathText.tsx
+│   ├── ResumeDialog.tsx
+│   ├── SEOHead.tsx
+│   └── SurveyPopup.tsx
 ├── learning/                # 学習機能コンポーネント
-│   ├── ExplanationView.tsx
 │   ├── VideoPlayer.tsx
-│   ├── VerticalVideoFeed.tsx
 │   ├── FlashcardDeck.tsx
-│   ├── Flashcard.tsx
+│   ├── FlashcardSetup.tsx
 │   ├── QuizView.tsx
-│   └── QuizResult.tsx
-└── icons/                   # アイコンコンポーネント（必要に応じて）
-    └── SubjectIcon.tsx
+│   └── QuizSetup.tsx
+├── history-chat/            # チャット形式学習（歴史・地理）
+├── random-quiz/             # ランダムクイズ関連
+└── auth/                    # 認証関連
 ```
 
 **依存関係**:
@@ -95,16 +106,18 @@ components/
 
 **命名規則**:
 - camelCase + `use` プレフィックス
-- 例: `useSwipe.ts`, `useLocalStorage.ts`
+- 例: `useQuiz.ts`, `useFlashcard.ts`
 
 **例**:
 ```
 hooks/
-├── useSwipe.ts              # スワイプジェスチャー
-├── useLocalStorage.ts       # localStorage管理
 ├── useQuiz.ts               # クイズの状態管理
 ├── useFlashcard.ts          # フラッシュカードの状態管理
-└── useFirstVisit.ts         # 初回訪問検知（ガイド表示用）
+├── useStudyProgress.ts      # 学習進捗・SM-2復習スケジューリング
+├── useHistoryChat.ts        # 歴史/地理チャットの状態管理
+├── useTopicNavigation.ts    # 前後トピックのナビゲーション
+├── useSpeechSynthesis.ts    # 音声読み上げ
+└── useTooltip.ts            # ツールチップ表示
 ```
 
 **依存関係**:

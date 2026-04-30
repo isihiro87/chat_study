@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState, useCallback, type ReactNode } from 'react';
+import { createContext, useContext, useEffect, useState, useCallback, useMemo, type ReactNode } from 'react';
 import {
   onAuthStateChanged,
   signInWithPopup,
@@ -16,6 +16,7 @@ import {
   getDocs,
   setDoc,
   serverTimestamp,
+  writeBatch,
 } from 'firebase/firestore';
 import { auth, db } from '../firebase/config';
 import { retryAsync } from '../utils/retryAsync';
@@ -70,9 +71,16 @@ function markLastActive(uid: string): void {
   }
 }
 
+// Firestore writeBatch の上限（1コミットあたり500オペレーション）
+const FIRESTORE_BATCH_LIMIT = 500;
+
 async function deleteSubcollection(uid: string, name: string): Promise<void> {
   const snap = await getDocs(collection(db, `users/${uid}/${name}`));
-  await Promise.all(snap.docs.map((d) => deleteDoc(d.ref)));
+  for (let i = 0; i < snap.docs.length; i += FIRESTORE_BATCH_LIMIT) {
+    const batch = writeBatch(db);
+    snap.docs.slice(i, i + FIRESTORE_BATCH_LIMIT).forEach((d) => batch.delete(d.ref));
+    await batch.commit();
+  }
 }
 
 function getLineLoginUrl(): string {
@@ -158,17 +166,17 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return unsubscribe;
   }, []);
 
-  const signInWithGoogle = async () => {
+  const signInWithGoogle = useCallback(async () => {
     await signInWithPopup(auth, googleProvider);
-  };
+  }, []);
 
-  const signInWithLine = () => {
+  const signInWithLine = useCallback(() => {
     window.location.href = getLineLoginUrl();
-  };
+  }, []);
 
-  const signOut = async () => {
+  const signOut = useCallback(async () => {
     await firebaseSignOut(auth);
-  };
+  }, []);
 
   const updateUserProfile = useCallback(async (data: Partial<UserProfile>) => {
     setUserProfile((prev) => ({ ...prev, ...data }));
@@ -207,11 +215,21 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     await deleteUser(current);
   }, []);
 
-  return (
-    <AuthContext.Provider value={{ user, loading, userProfile, signInWithGoogle, signInWithLine, signOut, updateUserProfile, deleteAccount }}>
-      {children}
-    </AuthContext.Provider>
+  const value = useMemo<AuthContextType>(
+    () => ({
+      user,
+      loading,
+      userProfile,
+      signInWithGoogle,
+      signInWithLine,
+      signOut,
+      updateUserProfile,
+      deleteAccount,
+    }),
+    [user, loading, userProfile, signInWithGoogle, signInWithLine, signOut, updateUserProfile, deleteAccount],
   );
+
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
 
 export function useAuth(): AuthContextType {

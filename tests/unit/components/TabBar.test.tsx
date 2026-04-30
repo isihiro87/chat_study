@@ -16,23 +16,22 @@ describe('TabBar', () => {
     onTabChange: vi.fn(),
   };
 
-  it('renders all 5 tabs by default', () => {
+  it('renders all 4 tabs by default', () => {
     render(<TabBar {...defaultProps} />);
     const tabs = screen.getAllByRole('tab');
-    expect(tabs).toHaveLength(5);
+    expect(tabs).toHaveLength(4);
     expect(screen.getByText('チャット')).toBeInTheDocument();
-    expect(screen.getByText('例題')).toBeInTheDocument();
     expect(screen.getByText('カード')).toBeInTheDocument();
     expect(screen.getByText('クイズ')).toBeInTheDocument();
     expect(screen.getByText('動画')).toBeInTheDocument();
   });
 
   it('hides tabs specified in hiddenTabs', () => {
-    render(<TabBar {...defaultProps} hiddenTabs={['video', 'example']} />);
+    render(<TabBar {...defaultProps} hiddenTabs={['video', 'quiz']} />);
     const tabs = screen.getAllByRole('tab');
-    expect(tabs).toHaveLength(3);
+    expect(tabs).toHaveLength(2);
     expect(screen.queryByText('動画')).not.toBeInTheDocument();
-    expect(screen.queryByText('例題')).not.toBeInTheDocument();
+    expect(screen.queryByText('クイズ')).not.toBeInTheDocument();
   });
 
   it('calls onTabChange with correct tab id when clicked', () => {
@@ -75,6 +74,6 @@ describe('TabBar', () => {
     render(<TabBar activeTab="chat" onTabChange={onTabChange} />);
     const chatTab = screen.getByRole('tab', { name: /チャットタブ/ });
     fireEvent.keyDown(chatTab, { key: 'ArrowRight' });
-    expect(onTabChange).toHaveBeenCalledWith('example');
+    expect(onTabChange).toHaveBeenCalledWith('flashcard');
   });
 });

@@ -1,8 +1,19 @@
 import eslint from '@eslint/js';
 import tseslint from 'typescript-eslint';
 import prettierConfig from 'eslint-config-prettier';
+import globals from 'globals';
 
 export default tseslint.config(
+  {
+    ignores: [
+      'node_modules/**',
+      'dist/**',
+      'coverage/**',
+      '.steering/**',
+      'functions/lib/**',
+      'functions/node_modules/**',
+    ],
+  },
   eslint.configs.recommended,
   ...tseslint.configs.recommended,
   prettierConfig,
@@ -18,6 +29,19 @@ export default tseslint.config(
     },
   },
   {
-    ignores: ['node_modules/**', 'dist/**', '.steering/**'],
+    files: [
+      'scripts/**/*.{ts,mjs,js}',
+      'functions/src/**/*.ts',
+      '*.config.{js,ts,mjs}',
+      'vite.config.ts',
+      'vitest.config.ts',
+      'postcss.config.js',
+      'tailwind.config.js',
+    ],
+    languageOptions: {
+      globals: {
+        ...globals.node,
+      },
+    },
   }
 );

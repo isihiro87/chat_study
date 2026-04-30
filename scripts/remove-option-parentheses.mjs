@@ -12,7 +12,9 @@ function findFiles(dir) {
       if (entry.isDirectory()) results.push(...findFiles(fullPath));
       else if (entry.name === 'index.ts') results.push(fullPath);
     }
-  } catch(e) {}
+  } catch {
+    // ディレクトリが存在しない場合は無視
+  }
   return results;
 }
 

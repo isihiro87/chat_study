@@ -230,7 +230,7 @@ export const elimination: Topic = {
         },
         {
           id: 'math-g2-elim-q10',
-          question: '$\\begin{cases} 2x + y = 7 \\\\ 2x - 3y = -5 \\\end{cases}$ を解くと？',
+          question: '$\\begin{cases} 2x + y = 7 \\\\ 2x - 3y = -5 \\end{cases}$ を解くと？',
           options: ['$x = 1, y = 5$', '$x = 2, y = 3$', '$x = 3, y = 1$', '$x = 4, y = -1$'],
           correctIndex: 1,
           explanation:
@@ -271,7 +271,7 @@ export const elimination: Topic = {
         },
         {
           id: 'math-g2-elim-q15',
-          question: '$\\begin{cases} 3x + 4y = 21 \\\\ x + 4y = 13 \\\end{cases}$ を加減法で解くと？',
+          question: '$\\begin{cases} 3x + 4y = 21 \\\\ x + 4y = 13 \\end{cases}$ を加減法で解くと？',
           options: ['$x = 4, y = \\frac{9}{4}$', '$x = 2, y = 3$', '$x = 5, y = 2$', '$x = 3, y = 3$'],
           correctIndex: 0,
           explanation: '①−②で $4y$ が消え $2x = 8$、$x = 4$。$4 + 4y = 13$ → $y = \\frac{9}{4}$ だよ。',
@@ -388,7 +388,7 @@ export const elimination: Topic = {
         {
           id: 'math-g2-elim-ex1',
           question:
-            '次の連立方程式を加減法で解こう。\n$\\begin{cases} x + y = 7 \\\\ x - y = 3 \\\end{cases}$',
+            '次の連立方程式を加減法で解こう。\n$\\begin{cases} x + y = 7 \\\\ x - y = 3 \\end{cases}$',
           steps: [
             {
               title: 'Step 1: 係数を確認する',
@@ -418,7 +418,7 @@ export const elimination: Topic = {
         {
           id: 'math-g2-elim-ex2',
           question:
-            '次の連立方程式を加減法で解こう。\n$\\begin{cases} 3x + 2y = 13 \\\\ x + 2y = 7 \\\end{cases}$',
+            '次の連立方程式を加減法で解こう。\n$\\begin{cases} 3x + 2y = 13 \\\\ x + 2y = 7 \\end{cases}$',
           steps: [
             {
               title: 'Step 1: 係数を確認する',
@@ -448,7 +448,7 @@ export const elimination: Topic = {
         {
           id: 'math-g2-elim-ex3',
           question:
-            '次の連立方程式を加減法で解こう。\n$\\begin{cases} 2x + 3y = 16 \\\\ x + y = 6 \\\end{cases}$',
+            '次の連立方程式を加減法で解こう。\n$\\begin{cases} 2x + 3y = 16 \\\\ x + y = 6 \\end{cases}$',
           steps: [
             {
               title: 'Step 1: 係数がそのまま消えないことを確認',
@@ -479,7 +479,7 @@ export const elimination: Topic = {
         {
           id: 'math-g2-elim-ex4',
           question:
-            '次の連立方程式を加減法で解こう。\n$\\begin{cases} 2x + 3y = 12 \\\\ 3x + 2y = 13 \\\end{cases}$',
+            '次の連立方程式を加減法で解こう。\n$\\begin{cases} 2x + 3y = 12 \\\\ 3x + 2y = 13 \\end{cases}$',
           steps: [
             {
               title: 'Step 1: 両方の式を定数倍する必要がある',
@@ -510,7 +510,7 @@ export const elimination: Topic = {
         {
           id: 'math-g2-elim-ex5',
           question:
-            '次の連立方程式を加減法で解こう。\n$\\begin{cases} x + 2y = 11 \\\\ 3x - y = 5 \\\end{cases}$',
+            '次の連立方程式を加減法で解こう。\n$\\begin{cases} x + 2y = 11 \\\\ 3x - y = 5 \\end{cases}$',
           steps: [
             {
               title: 'Step 1: どの文字を消すか考える',
@@ -541,7 +541,7 @@ export const elimination: Topic = {
         {
           id: 'math-g2-elim-ex6',
           question:
-            '次の連立方程式を加減法で解いて、検算もしよう。\n$\\begin{cases} 3x + 2y = 19 \\\\ x + y = 8 \\\end{cases}$',
+            '次の連立方程式を加減法で解いて、検算もしよう。\n$\\begin{cases} 3x + 2y = 19 \\\\ x + y = 8 \\end{cases}$',
           steps: [
             {
               title: 'Step 1: ②を2倍して係数をそろえる',
