@@ -10,6 +10,7 @@ import { thirdPersonSingularChat } from '../subjects/english/grades/grade1/topic
 import { pronounsChat } from '../subjects/english/grades/grade1/topics/6-pronouns/chat';
 import { presentProgressiveChat } from '../subjects/english/grades/grade1/topics/7-present-progressive/chat';
 import { pastTenseChat } from '../subjects/english/grades/grade1/topics/8-past-tense/chat';
+import { imperativesChat } from '../subjects/english/grades/grade1/topics/9-imperatives/chat';
 // Grade 2
 import { sentenceStructuresChat } from '../subjects/english/grades/grade2/topics/1-sentence-structures/chat';
 import { conjunctionsChat } from '../subjects/english/grades/grade2/topics/2-conjunctions/chat';
@@ -41,6 +42,7 @@ const chatMap: Record<string, HistoryChat> = {
   [pronounsChat.id]: pronounsChat,
   [presentProgressiveChat.id]: presentProgressiveChat,
   [pastTenseChat.id]: pastTenseChat,
+  [imperativesChat.id]: imperativesChat,
   // Grade 2
   [sentenceStructuresChat.id]: sentenceStructuresChat,
   [conjunctionsChat.id]: conjunctionsChat,

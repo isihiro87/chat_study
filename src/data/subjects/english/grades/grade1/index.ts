@@ -9,6 +9,7 @@ import { thirdPersonSingular } from './topics/5-third-person-singular';
 import { pronouns } from './topics/6-pronouns';
 import { presentProgressive } from './topics/7-present-progressive';
 import { pastTense } from './topics/8-past-tense';
+import { imperatives } from './topics/9-imperatives';
 
 export const englishGrade1Era: Era = {
   id: 'english-grade1',
@@ -32,4 +33,5 @@ export const englishGrade1Topics: Topic[] = [
   pronouns,
   presentProgressive,
   pastTense,
+  imperatives,
 ];
