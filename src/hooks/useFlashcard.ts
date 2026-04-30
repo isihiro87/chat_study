@@ -87,7 +87,11 @@ export function useFlashcard(cards: Flashcard[], batchSize?: number, savedState?
   }, [cards, batchSize]);
 
   const totalBatches = batches.length;
-  const activeBatchCards = batches[currentBatchIndex] ?? [];
+  // `?? []` は OOB 時に毎レンダ新しい配列参照を返してしまうため useMemo で安定化
+  const activeBatchCards = useMemo(
+    () => batches[currentBatchIndex] ?? [],
+    [batches, currentBatchIndex],
+  );
 
   // 現在のカードリスト（通常モード or 復習モード）
   const currentCards = useMemo(() => {

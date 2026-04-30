@@ -138,7 +138,7 @@ export function LearningPage() {
       return;
     }
     void loadContent(topicId, topic.chatId ?? undefined);
-  }, [topicId, topic?.chatId, loadContent]);
+  }, [topicId, topic, loadContent]);
 
   // 前後トピックのプリフェッチ（メインコンテンツ読み込み後）
   useEffect(() => {
@@ -181,7 +181,7 @@ export function LearningPage() {
   // トピック変更時にデフォルトタブにリセット（別トピックへの遷移対応）
   useEffect(() => {
     setActiveTab(topic?.chatId ? 'chat' : 'flashcard');
-  }, [topicId, topic?.chatId]);
+  }, [topicId, topic?.chatId, setActiveTab]);
 
   // タブ切り替え時にスクロール位置をリセット
   useEffect(() => {

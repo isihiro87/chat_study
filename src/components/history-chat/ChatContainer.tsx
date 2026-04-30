@@ -78,7 +78,7 @@ export function ChatContainer({ chat, embedded = false, onNavigateToFlashcard, o
       map[char.id] = char;
     });
     return map;
-  }, [chat.characters]);
+  }, [chat]);
 
   // 進捗率を計算
   const progress = Math.round((shownIndex / totalContent) * 100);

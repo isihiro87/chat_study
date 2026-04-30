@@ -75,9 +75,12 @@ describe('saveProgress', () => {
     Storage.prototype.setItem = () => {
       throw new DOMException('QuotaExceededError');
     };
-    expect(() => saveProgress(DEFAULT_PROGRESS)).not.toThrow();
-    Storage.prototype.setItem = setItemOriginal;
-    warnSpy.mockRestore();
+    try {
+      expect(() => saveProgress(DEFAULT_PROGRESS)).not.toThrow();
+    } finally {
+      Storage.prototype.setItem = setItemOriginal;
+      warnSpy.mockRestore();
+    }
   });
 });
 

@@ -62,7 +62,7 @@ function AnimatedRoutes() {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.15 }}
     >
-      <Suspense fallback={null}>
+      <Suspense fallback={<div className="min-h-screen bg-[#FAF9F7]" />}>
         <Routes location={location}>
           <Route path="/" element={<TopPage />} />
           <Route path="/subjects/:subjectId" element={<EraSelectPage />} />
@@ -95,7 +95,7 @@ function AuthGuard() {
   // LINEコールバックは認証前でもアクセス可能にする
   if (pathname === '/auth/line/callback') {
     return (
-      <Suspense fallback={null}>
+      <Suspense fallback={<div className="min-h-screen bg-[#FAF9F7]" />}>
         <LineCallbackPage />
       </Suspense>
     );
