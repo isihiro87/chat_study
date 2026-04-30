@@ -236,8 +236,8 @@ export const imperatives: Topic = {
         {
           id: 'eng-imp-q4',
           question: '「(　　) your hands.（手を洗いなさい。）」\nの (　　) に入るのは？',
-          options: ['Wash', 'Washes', 'Washing', 'To wash'],
-          correctIndex: 0,
+          options: ['To wash', 'Washes', 'Washing', 'Wash'],
+          correctIndex: 3,
           explanation: '命令文は動詞の原形（Wash）から始めるよ。',
           difficulty: 'basic',
         },
@@ -313,8 +313,8 @@ export const imperatives: Topic = {
         {
           id: 'eng-imp-q11',
           question: '「(　　) read this book.（この本を読んでください。）」\nの (　　) に入るのは？',
-          options: ['Please', 'Let', 'Do', 'Does'],
-          correctIndex: 0,
+          options: ['Does', 'Let', 'Do', 'Please'],
+          correctIndex: 3,
           explanation: '丁寧な「〜してください」は Please ＋ 動詞の原形。',
           difficulty: 'standard',
         },
@@ -422,8 +422,8 @@ export const imperatives: Topic = {
         {
           id: 'eng-imp-q22',
           question: '「Do not (　　) loudly in this room.（この部屋で大きな声で話してはいけません。）」\nの (　　) に入るのは？',
-          options: ['speak', 'speaks', 'speaking', 'to speak'],
-          correctIndex: 0,
+          options: ['to speak', 'speaks', 'speaking', 'speak'],
+          correctIndex: 3,
           explanation: 'Do not のあとは動詞の原形（speak）だよ。',
           difficulty: 'advanced',
         },

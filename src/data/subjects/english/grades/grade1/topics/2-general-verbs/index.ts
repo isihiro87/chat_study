@@ -327,8 +327,8 @@ export const generalVerbs: Topic = {
         {
           id: 'eng-gv-q2',
           question: '「I (　　) English.（私は英語が好きです。）」\nの (　　) に入るのは？',
-          options: ['am', 'like', 'is', 'are'],
-          correctIndex: 1,
+          options: ['am', 'is', 'are', 'like'],
+          correctIndex: 3,
           explanation: '「好き」は一般動詞 like。be動詞といっしょに使ってはいけないよ。',
           difficulty: 'basic',
         },
@@ -420,8 +420,8 @@ export const generalVerbs: Topic = {
         {
           id: 'eng-gv-q11',
           question: '「I (　　) soccer every day.（私は毎日サッカーをします。）」\nの (　　) に入るのは？',
-          options: ['plays', 'play', 'am', 'do'],
-          correctIndex: 1,
+          options: ['plays', 'am', 'do', 'play'],
+          correctIndex: 3,
           explanation: 'I のときは動詞はそのままの形（play）だよ。3人称単数の plays は使わないよ。',
           difficulty: 'standard',
         },
@@ -436,8 +436,8 @@ export const generalVerbs: Topic = {
         {
           id: 'eng-gv-q13',
           question: '「(　　) you study Japanese?（あなたは日本語を勉強しますか？）」\nの (　　) に入るのは？',
-          options: ['Are', 'Do', 'Is', 'Am'],
-          correctIndex: 1,
+          options: ['Are', 'Is', 'Am', 'Do'],
+          correctIndex: 3,
           explanation: 'you の「〜しますか？」は Do を文のいちばん最初に置くよ。',
           difficulty: 'standard',
         },

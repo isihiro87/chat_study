@@ -284,8 +284,8 @@ export const questionPatterns: Topic = {
         {
           id: 'eng-qp-q11',
           question: '「(　　) do you meet your friends?（あなたはいつ友達に会いますか？）」\nの (　　) に入るのは？',
-          options: ['How', 'Who', 'When', 'Where'],
-          correctIndex: 2,
+          options: ['How', 'Who', 'Where', 'When'],
+          correctIndex: 3,
           explanation: '「いつ」は When でたずねるよ。',
           difficulty: 'standard',
         },
@@ -293,8 +293,8 @@ export const questionPatterns: Topic = {
         {
           id: 'eng-qp-q12',
           question: '「(　　) do you do after school?（あなたは放課後に何をしますか？）」\nの (　　) に入るのは？',
-          options: ['Who', 'Where', 'What', 'When'],
-          correctIndex: 2,
+          options: ['Who', 'Where', 'When', 'What'],
+          correctIndex: 3,
           explanation: '「何を」は What でたずねるよ。What do you do 〜? で「〜で何をしますか？」。',
           difficulty: 'advanced',
         },

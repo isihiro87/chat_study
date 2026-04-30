@@ -217,8 +217,8 @@ export const nouns: Topic = {
         {
           id: 'eng-noun-q4',
           question: '「I have two (　　).（私はペンを2本持っています。）」\nの (　　) に入るのは？',
-          options: ['pen', 'pens', 'penes', 'a pen'],
-          correctIndex: 1,
+          options: ['pen', 'penes', 'a pen', 'pens'],
+          correctIndex: 3,
           explanation: '2本以上のときはおしりに s をつけるよ。pen → pens。',
           difficulty: 'standard',
         },
@@ -402,8 +402,8 @@ export const nouns: Topic = {
         {
           id: 'eng-noun-q22',
           question: '「I have two (　　).（私は兄弟が2人います。）」\nの (　　) に入るのは？',
-          options: ['brother', 'brothers', 'brotheres', 'a brother'],
-          correctIndex: 1,
+          options: ['brother', 'brotheres', 'a brother', 'brothers'],
+          correctIndex: 3,
           explanation: '2人以上のときは s をつけるよ。brother → brothers。',
           difficulty: 'standard',
         },
@@ -418,8 +418,8 @@ export const nouns: Topic = {
         {
           id: 'eng-noun-q24',
           question: '「There are three (　　) in the box.（その箱の中に3つのボールがあります。）」\nの (　　) に入るのは？',
-          options: ['ball', 'balls', 'balles', 'a ball'],
-          correctIndex: 1,
+          options: ['ball', 'balles', 'a ball', 'balls'],
+          correctIndex: 3,
           explanation: '3つ以上のときは s をつけるよ。balls。There are は2つ以上の「〜があります」。',
           difficulty: 'advanced',
         },

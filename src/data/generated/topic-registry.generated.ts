@@ -76,6 +76,7 @@ export const eraMetas: Era[] = [
 // All topic metadata (lightweight, no content)
 export const topicMetas: TopicMeta[] = [
   { id: "eng-be-verbs", eraId: "english-grade1", name: "be動詞", subtitle: "am / is / are の使い分けをマスター", icon: "🔤", order: 1, chatId: "eng-be-verbs", hasExamples: true },
+  { id: "eng-exclamatives", eraId: "english-grade1", name: "感嘆文", subtitle: "How ~! / What a ~!", icon: "❗", order: 12, chatId: "eng-exclamatives", hasExamples: true },
   { id: "eng-general-verbs", eraId: "english-grade1", name: "一般動詞", subtitle: "like / play / study ... 動きを表すことば", icon: "🏃", order: 2, chatId: "eng-general-verbs", hasExamples: true },
   { id: "eng-nouns", eraId: "english-grade1", name: "名詞", subtitle: "単数・複数 / this・that", icon: "📝", order: 3, chatId: "eng-nouns", hasExamples: true },
   { id: "eng-nouns-advanced", eraId: "english-grade1", name: "名詞の応用", subtitle: "不規則複数形 / How many / these・those", icon: "📝", order: 4, chatId: "eng-nouns-advanced", hasExamples: true },
@@ -366,6 +367,7 @@ export const topicMetas: TopicMeta[] = [
 // Lazy content loaders (dynamic import, not loaded until called)
 export const contentLoaders: Record<string, () => Promise<TopicContent>> = {
   "eng-be-verbs": () => import("./../subjects/english/grades/grade1/topics/1-be-verbs/index.ts").then(m => m.beVerbs.content),
+  "eng-exclamatives": () => import("./../subjects/english/grades/grade1/topics/10-exclamatives/index.ts").then(m => m.exclamatives.content),
   "eng-general-verbs": () => import("./../subjects/english/grades/grade1/topics/2-general-verbs/index.ts").then(m => m.generalVerbs.content),
   "eng-nouns": () => import("./../subjects/english/grades/grade1/topics/3-nouns/index.ts").then(m => m.nouns.content),
   "eng-nouns-advanced": () => import("./../subjects/english/grades/grade1/topics/3b-nouns-advanced/index.ts").then(m => m.nounsAdvanced.content),
@@ -656,6 +658,7 @@ export const contentLoaders: Record<string, () => Promise<TopicContent>> = {
 // Lazy chat loaders (dynamic import, not loaded until called)
 export const chatLoaders: Record<string, () => Promise<HistoryChat>> = {
   "eng-be-verbs": () => import("./../subjects/english/grades/grade1/topics/1-be-verbs/chat.ts").then(m => m.beVerbsChat),
+  "eng-exclamatives": () => import("./../subjects/english/grades/grade1/topics/10-exclamatives/chat.ts").then(m => m.exclamativesChat),
   "eng-general-verbs": () => import("./../subjects/english/grades/grade1/topics/2-general-verbs/chat.ts").then(m => m.generalVerbsChat),
   "eng-nouns": () => import("./../subjects/english/grades/grade1/topics/3-nouns/chat.ts").then(m => m.nounsChat),
   "eng-nouns-advanced": () => import("./../subjects/english/grades/grade1/topics/3b-nouns-advanced/chat.ts").then(m => m.nounsAdvancedChat),

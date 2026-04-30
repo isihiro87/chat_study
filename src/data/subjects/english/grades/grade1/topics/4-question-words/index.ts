@@ -193,8 +193,8 @@ export const questionWords: Topic = {
         {
           id: 'eng-qw-q4',
           question: '「(　　) is your bag?（あなたのかばんはどこにありますか？）」\nの (　　) に入るのは？',
-          options: ['What', 'Who', 'Where', 'How'],
-          correctIndex: 2,
+          options: ['What', 'Who', 'How', 'Where'],
+          correctIndex: 3,
           explanation: '「どこ」（場所）は Where でたずねるよ。',
           difficulty: 'basic',
         },
@@ -243,8 +243,8 @@ export const questionWords: Topic = {
         {
           id: 'eng-qw-q10',
           question: '「(　　) is your favorite color?（あなたの好きな色は何ですか？）」\nの (　　) に入るのは？',
-          options: ['Who', 'What', 'Where', 'When'],
-          correctIndex: 1,
+          options: ['Who', 'Where', 'When', 'What'],
+          correctIndex: 3,
           explanation: '「何」をたずねるときは What。What is your favorite 〜? で「好きな〜は何？」。',
           difficulty: 'advanced',
         },

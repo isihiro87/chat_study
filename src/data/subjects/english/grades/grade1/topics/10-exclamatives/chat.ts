@@ -1,0 +1,210 @@
+import type { HistoryChat } from '../../../../../../../data/history-chat/types';
+
+export const exclamativesChat: HistoryChat = {
+  id: 'eng-exclamatives',
+  icon: '❗',
+  title: '感嘆文をマスターしよう',
+  subtitle: '〜中1英語〜 How ~! / What a ~!',
+  characters: [
+    {
+      id: 'teacher',
+      name: '先生',
+      emoji: '👩‍🏫',
+      colorFrom: '#7c3aed',
+      colorTo: '#a78bfa',
+      expressions: {
+        explaining: '🧑‍🏫',
+        happy: '😊',
+        encouraging: '💪',
+        thinking: '🤔',
+      },
+    },
+    {
+      id: 'student',
+      name: '生徒',
+      emoji: '👦',
+      colorFrom: '#059669',
+      colorTo: '#34d399',
+      expressions: {
+        curious: '🙋‍♂️',
+        surprised: '😲',
+        thinking: '🤔',
+        happy: '😄',
+        confused: '😵‍💫',
+      },
+    },
+  ],
+  content: [
+    {
+      type: 'date',
+      text: 'How で「なんて〜！」と<ruby>強調<rt>きょうちょう</rt></ruby>する',
+    },
+    {
+      type: 'narrator',
+      text: '<ruby>感動<rt>かんどう</rt></ruby>や<ruby>驚<rt>おどろ</rt></ruby>きを<ruby>表<rt>あらわ</rt></ruby>す<ruby>文<rt>ぶん</rt></ruby>を<strong><ruby>感嘆文<rt>かんたんぶん</rt></ruby></strong>と<ruby>呼<rt>よ</rt></ruby>ぶよ。<ruby>例文<rt>れいぶん</rt></ruby>から見ていこう！',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: 'まずこの<ruby>例文<rt>れいぶん</rt></ruby>を見てみよう！<br/><br/><strong>How big!</strong>（なんて<ruby>大<rt>おお</rt></ruby>きいのでしょう。）<br/><strong>How beautiful!</strong>（なんて<ruby>美<rt>うつく</rt></ruby>しいのでしょう。）',
+      speakable: ['How big!', 'How beautiful!'],
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'curious',
+      text: 'How の<ruby>後<rt>うし</rt></ruby>ろに big とか beautiful がきてる！ How って「どう？」じゃなかったんですか？',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: 'いいところに<ruby>気<rt>き</rt></ruby>づいたね！ How には<ruby>疑問詞<rt>ぎもんし</rt></ruby>「どのように？」のほかに、<strong>「なんて〜！」</strong>と<ruby>形容詞<rt>けいようし</rt></ruby>を<ruby>強<rt>つよ</rt></ruby>める<ruby>使<rt>つか</rt></ruby>い方もあるんだ。<br/><br/><strong>How + <ruby>形容詞<rt>けいようし</rt></ruby>！</strong>で「なんて〜！」になるよ。文の<ruby>最後<rt>さいご</rt></ruby>には <strong>!</strong>（<ruby>感嘆符<rt>かんたんふ</rt></ruby>）をつけよう！',
+    },
+    {
+      type: 'summary-point',
+      text: '<strong>How + <ruby>形容詞<rt>けいようし</rt></ruby>！</strong> ＝「なんて〜！」（みじかい<ruby>感嘆文<rt>かんたんぶん</rt></ruby>）',
+    },
+    {
+      type: 'quiz',
+      question: '「なんて<ruby>大<rt>おお</rt></ruby>きいのでしょう。」を<ruby>英語<rt>えいご</rt></ruby>にすると？',
+      options: [
+        { letter: 'A', text: 'What big!', correct: false },
+        { letter: 'B', text: 'How big!', correct: true },
+        { letter: 'C', text: 'How a big!', correct: false },
+        { letter: 'D', text: 'What a big!', correct: false },
+      ],
+      explanation: '<ruby>形容詞<rt>けいようし</rt></ruby>だけを<ruby>強<rt>つよ</rt></ruby>めるときは <strong>How + <ruby>形容詞<rt>けいようし</rt></ruby>！</strong>。',
+    },
+    {
+      type: 'date',
+      text: 'What で「なんて〜な<ruby>名詞<rt>めいし</rt></ruby>！」と<ruby>強調<rt>きょうちょう</rt></ruby>する',
+    },
+    {
+      type: 'narrator',
+      text: '<ruby>名詞<rt>めいし</rt></ruby>を<ruby>含<rt>ふく</rt></ruby>めて「なんてすてきな〜！」と<ruby>言<rt>い</rt></ruby>いたいときは <strong>What</strong> を使うよ。<ruby>例文<rt>れいぶん</rt></ruby>で見てみよう！',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: 'この2つの<ruby>例文<rt>れいぶん</rt></ruby>を見てみよう！<br/><br/><strong>What a nice bag!</strong>（なんてすてきなかばんでしょう。）<br/><strong>What an interesting book!</strong>（なんておもしろい本でしょう。）<br/><br/>What の<ruby>後<rt>うし</rt></ruby>ろに <strong>a</strong>（または <strong>an</strong>）+ <ruby>形容詞<rt>けいようし</rt></ruby> + <ruby>名詞<rt>めいし</rt></ruby> がきているね！',
+      speakable: ['What a nice bag!', 'What an interesting book!'],
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'thinking',
+      text: 'a と an の<ruby>使<rt>つか</rt></ruby>い<ruby>分<rt>わ</rt></ruby>けは<ruby>名詞<rt>めいし</rt></ruby>のときと<ruby>同<rt>おな</rt></ruby>じですね！',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: 'その<ruby>通<rt>とお</rt></ruby>り！ <ruby>形容詞<rt>けいようし</rt></ruby>の<ruby>最初<rt>さいしょ</rt></ruby>の<ruby>音<rt>おと</rt></ruby>が<ruby>母音<rt>ぼいん</rt></ruby>（a / i / u / e / o）なら <strong>an</strong>、<ruby>子音<rt>しいん</rt></ruby>なら <strong>a</strong> を使うよ。<br/><br/>What <strong>a</strong> nice bag!（nice は子音 n）<br/>What <strong>an</strong> interesting book!（interesting は<ruby>母音<rt>ぼいん</rt></ruby> i）',
+    },
+    {
+      type: 'summary-point',
+      text: '<strong>What + a/an + <ruby>形容詞<rt>けいようし</rt></ruby> + <ruby>名詞<rt>めいし</rt></ruby>！</strong> ＝「なんて〜な…でしょう！」',
+    },
+    {
+      type: 'quiz',
+      question: '<ruby>空欄<rt>くうらん</rt></ruby>に入る語として<ruby>正<rt>ただ</rt></ruby>しいものを選びなさい。\n(　　) an interesting story!',
+      options: [
+        { letter: 'A', text: 'How', correct: false },
+        { letter: 'B', text: 'What', correct: true },
+        { letter: 'C', text: 'Is', correct: false },
+        { letter: 'D', text: 'This', correct: false },
+      ],
+      explanation: 'an interesting story という<ruby>名詞<rt>めいし</rt></ruby>のまとまりがあるので <strong>What</strong> を使うよ。',
+    },
+    {
+      type: 'date',
+      text: '<ruby>主語<rt>しゅご</rt></ruby> + be<ruby>動詞<rt>どうし</rt></ruby> をうしろにつける<ruby>完成形<rt>かんせいけい</rt></ruby>',
+    },
+    {
+      type: 'narrator',
+      text: '「<strong>この</strong>犬はなんて<ruby>かわい<rt>かわい</rt></ruby>いのでしょう」のように、<ruby>具体的<rt>ぐたいてき</rt></ruby>に<ruby>何<rt>なに</rt></ruby>のことかを<ruby>言<rt>い</rt></ruby>いたいときは、<ruby>後<rt>うし</rt></ruby>ろに<strong>主語 + be<ruby>動詞<rt>どうし</rt></ruby></strong>をつけるよ。',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: 'この<ruby>例文<rt>れいぶん</rt></ruby>を見てみよう！<br/><br/><strong>How cute this dog is!</strong>（この犬はなんてかわいいのでしょう。）<br/><strong>What an old house this is!</strong>（これはなんて<ruby>古<rt>ふる</rt></ruby>い家でしょう。）<br/><strong>What a good tennis player he is!</strong>（彼はなんて<ruby>上手<rt>じょうず</rt></ruby>なテニス選手でしょう。）',
+      speakable: ['How cute this dog is!', 'What an old house this is!', 'What a good tennis player he is!'],
+    },
+    {
+      type: 'message',
+      side: 'right',
+      characterId: 'student',
+      expression: 'surprised',
+      text: 'うしろに「this dog is」「he is」がついてる！ <ruby>主語<rt>しゅご</rt></ruby>と be<ruby>動詞<rt>どうし</rt></ruby>を<ruby>最後<rt>さいご</rt></ruby>に<ruby>置<rt>お</rt></ruby>くんですね！',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'happy',
+      text: 'そう！<ruby>語順<rt>ごじゅん</rt></ruby>を<ruby>整理<rt>せいり</rt></ruby>するとこうなるよ。<br/><br/>📘 <strong>How + <ruby>形容詞<rt>けいようし</rt></ruby> + <ruby>主語<rt>しゅご</rt></ruby> + be<ruby>動詞<rt>どうし</rt></ruby>！</strong><br/>　How cute / this dog / is!<br/><br/>📘 <strong>What + a/an + <ruby>形容詞<rt>けいようし</rt></ruby> + <ruby>名詞<rt>めいし</rt></ruby> + <ruby>主語<rt>しゅご</rt></ruby> + be<ruby>動詞<rt>どうし</rt></ruby>！</strong><br/>　What / an old house / this / is!<br/><br/>be<ruby>動詞<rt>どうし</rt></ruby>は<ruby>主語<rt>しゅご</rt></ruby>に<ruby>合<rt>あ</rt></ruby>わせる（this / he / she は is、they / these は are）よ。',
+    },
+    {
+      type: 'summary-point',
+      text: '<strong>How + <ruby>形容詞<rt>けいようし</rt></ruby> + <ruby>主語<rt>しゅご</rt></ruby> + be<ruby>動詞<rt>どうし</rt></ruby>！</strong> ／ <strong>What + a/an + <ruby>形容詞<rt>けいようし</rt></ruby> + <ruby>名詞<rt>めいし</rt></ruby> + <ruby>主語<rt>しゅご</rt></ruby> + be<ruby>動詞<rt>どうし</rt></ruby>！</strong>',
+    },
+    {
+      type: 'quiz',
+      question: '「この車はなんて<ruby>古<rt>ふる</rt></ruby>いのでしょう。」に合う英文を選びなさい。',
+      options: [
+        { letter: 'A', text: 'What old this car is!', correct: false },
+        { letter: 'B', text: 'How old this car is!', correct: true },
+        { letter: 'C', text: 'What an old this car is!', correct: false },
+        { letter: 'D', text: 'How an old car is!', correct: false },
+      ],
+      explanation: 'old という<ruby>形容詞<rt>けいようし</rt></ruby>を<ruby>強<rt>つよ</rt></ruby>めているので <strong>How old this car is!</strong>。',
+    },
+    {
+      type: 'date',
+      text: '<ruby>複数<rt>ふくすう</rt></ruby><ruby>名詞<rt>めいし</rt></ruby>のときは a / an なし',
+    },
+    {
+      type: 'message',
+      side: 'left',
+      characterId: 'teacher',
+      expression: 'explaining',
+      text: '<ruby>最後<rt>さいご</rt></ruby>に<ruby>注意点<rt>ちゅういてん</rt></ruby>！<br/><br/><strong>What cute cats these are!</strong>（これらはなんてかわいい猫たちでしょう。）<br/><br/>cats は<ruby>複数<rt>ふくすう</rt></ruby><ruby>名詞<rt>めいし</rt></ruby>だね。<ruby>複数<rt>ふくすう</rt></ruby>のときは <strong>a / an はつけない</strong>よ。<br/><br/>✗ What <strong>a</strong> cute cats these are!<br/>◯ What cute cats these are!',
+      speakable: ['What cute cats these are!'],
+    },
+    {
+      type: 'summary-point',
+      text: '<ruby>複数名詞<rt>ふくすうめいし</rt></ruby>（cats / dogs / books など）のときは <strong>a / an はつけない</strong>',
+    },
+    {
+      type: 'quiz',
+      question: '「これらはなんてかわいい犬たちでしょう。」に合う英文を選びなさい。',
+      options: [
+        { letter: 'A', text: 'What cute dogs these are!', correct: true },
+        { letter: 'B', text: 'What a cute dogs these are!', correct: false },
+        { letter: 'C', text: 'How cute dogs these are!', correct: false },
+        { letter: 'D', text: 'What cute dog these are!', correct: false },
+      ],
+      explanation: 'dogs は<ruby>複数名詞<rt>ふくすうめいし</rt></ruby>なので <strong>a はつけない</strong>。What + <ruby>形容詞<rt>けいようし</rt></ruby> + <ruby>複数名詞<rt>ふくすうめいし</rt></ruby> + <ruby>主語<rt>しゅご</rt></ruby> + be<ruby>動詞<rt>どうし</rt></ruby>！',
+    },
+    {
+      type: 'end',
+      points: [
+        '<strong>How + <ruby>形容詞<rt>けいようし</rt></ruby>！</strong>（みじかい<ruby>感嘆<rt>かんたん</rt></ruby>）',
+        '<strong>What + a/an + <ruby>形容詞<rt>けいようし</rt></ruby> + <ruby>名詞<rt>めいし</rt></ruby>！</strong>（<ruby>名詞<rt>めいし</rt></ruby>を<ruby>含<rt>ふく</rt></ruby>む<ruby>感嘆<rt>かんたん</rt></ruby>）',
+        '<ruby>完成形<rt>かんせいけい</rt></ruby>: How / What の<ruby>感嘆文<rt>かんたんぶん</rt></ruby>のうしろに <strong>主語 + be<ruby>動詞<rt>どうし</rt></ruby></strong> をつける',
+        '<ruby>複数名詞<rt>ふくすうめいし</rt></ruby>のときは <strong>a / an をつけない</strong>',
+      ],
+    },
+  ],
+};
