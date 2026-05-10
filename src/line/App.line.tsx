@@ -5,6 +5,8 @@
  * - `/welcome`            : 公式LINE 友だち追加誘導 + LINEログイン
  * - `/auth/line/callback` : LINE Login OAuth コールバック処理
  * - `/liff/units`         : リッチメニュー「単元を選ぶ」からの LIFF エントリ
+ * - `/liff/test-range`    : リッチメニュー「テスト範囲設定」からの LIFF エントリ
+ * - `/liff/report`        : リッチメニュー「成績・記録」からの LIFF エントリ
  * - その他               : NotFoundPage
  *
  * `/` は `/welcome` にリダイレクト。学習体験ページ（LearningPage / 263トピック等）は
@@ -22,6 +24,14 @@ const WelcomePage = lazy(() =>
 );
 const LiffUnitsPage = lazy(() =>
   import('../pages/LiffUnitsPage').then((m) => ({ default: m.LiffUnitsPage }))
+);
+const LiffTestRangePage = lazy(() =>
+  import('../pages/LiffTestRangePage').then((m) => ({
+    default: m.LiffTestRangePage,
+  }))
+);
+const LiffReportPage = lazy(() =>
+  import('../pages/LiffReportPage').then((m) => ({ default: m.LiffReportPage }))
 );
 const LineCallbackPage = lazy(() =>
   import('../pages/LineCallbackPage').then((m) => ({ default: m.LineCallbackPage }))
@@ -58,6 +68,8 @@ function LineAuthGuard() {
         <Route path="/welcome" element={<WelcomePage />} />
         <Route path="/auth/line/callback" element={<LineCallbackPage />} />
         <Route path="/liff/units" element={<LiffUnitsPage />} />
+        <Route path="/liff/test-range" element={<LiffTestRangePage />} />
+        <Route path="/liff/report" element={<LiffReportPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Suspense>

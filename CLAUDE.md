@@ -152,7 +152,10 @@ UIを実装・変更する際は必ず `docs/design-guide.md` を参照するこ
 **運用上の重要点**:
 - Web版に変更を入れる場合: `src/App.tsx` 配下、`src/pages/` の Web 用ページ、`src/data/subjects/` などを編集
 - LINE版に変更を入れる場合: `src/line/App.line.tsx`、`src/pages/Welcome*`/`Liff*`/`LineCallback*`、共有 AuthContext を編集
-- LIFF endpoint URL: `https://line.chatstudy.jp/liff/units`（LINE Developers Console で管理）
+- LIFF endpoint URL（LINE Developers Console で管理）:
+  - `https://line.chatstudy.jp/liff/units` (リッチメニュー「単元を選ぶ」)
+  - `https://line.chatstudy.jp/liff/test-range` (premium「テスト範囲設定」)
+  - `https://line.chatstudy.jp/liff/report` (premium「成績・記録」)
 - LINE Login OAuth Callback URL: 両ドメイン分（`www.chatstudy.jp` / `line.chatstudy.jp`）を LINE Developers に登録
 - **bundle に学習データが混入していないか**は `grep -r LearningPage dist-line/` などで確認。混入していたら `src/line/App.line.tsx` の import チェーンに不要な依存が紛れた合図
 

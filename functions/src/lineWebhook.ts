@@ -1120,6 +1120,12 @@ async function handleWeakReviewPostback(
     return;
   }
 
+  const testScopeTopics: string[] = Array.isArray(userData?.testScope?.topics)
+    ? (userData!.testScope.topics as unknown[]).filter(
+        (t): t is string => typeof t === "string"
+      )
+    : [];
+
   let wrongAnswers: FirebaseFirestore.QueryDocumentSnapshot[] = [];
   try {
     const snap = await db
@@ -1140,14 +1146,31 @@ async function handleWeakReviewPostback(
     return;
   }
 
+  // テスト範囲が設定されていれば誤答歴も範囲内に絞り込む
+  const scopedAnswers =
+    testScopeTopics.length > 0
+      ? wrongAnswers.filter((doc) => {
+          const topic = doc.get("topic");
+          return typeof topic === "string" && testScopeTopics.includes(topic);
+        })
+      : wrongAnswers;
+
   const questionIds = Array.from(
     new Set(
-      wrongAnswers
+      scopedAnswers
         .map((doc) => doc.get("questionId"))
         .filter((id): id is string => typeof id === "string" && id.length > 0)
     )
   );
   if (questionIds.length === 0) {
+    if (testScopeTopics.length > 0 && wrongAnswers.length > 0) {
+      await replyText(
+        replyToken,
+        "テスト範囲内ではまだ苦手な問題がありません。範囲を広げてみてね",
+        "(weak_review empty in scope)"
+      );
+      return;
+    }
     await replyText(
       replyToken,
       getWeakReviewIntro({ empty: true }),
@@ -1517,6 +1540,7 @@ async function handleAnswerPostback(
       isCorrect,
       subject: question.subject,
       grade: question.grade,
+      topic: question.topic,
       answeredAt: FieldValue.serverTimestamp(),
     });
   } catch (error) {
@@ -1626,6 +1650,12 @@ export async function selectAndSendQuestion(
     ? userData.recentQuestionIds
     : [];
 
+  const testScopeTopics: string[] = Array.isArray(userData.testScope?.topics)
+    ? (userData.testScope.topics as unknown[]).filter(
+        (t): t is string => typeof t === "string"
+      )
+    : [];
+
   const snap = await db
     .collection("questions")
     .where("subject", "==", subject)
@@ -1652,8 +1682,45 @@ export async function selectAndSendQuestion(
     return;
   }
 
-  const candidates = snap.docs.filter((d) => !recentIds.includes(d.id));
-  const pool = candidates.length > 0 ? candidates : snap.docs;
+  // テスト範囲が設定されていれば topic で絞り込む
+  const scopedDocs =
+    testScopeTopics.length > 0
+      ? snap.docs.filter((d) => {
+          const topic = d.get("topic");
+          return typeof topic === "string" && testScopeTopics.includes(topic);
+        })
+      : snap.docs;
+
+  if (testScopeTopics.length > 0 && scopedDocs.length === 0) {
+    console.warn(
+      "[lineWebhook] selectAndSendQuestion: no questions in testScope",
+      uid,
+      testScopeTopics
+    );
+    if (replyToken) {
+      try {
+        const client = await getLineClient();
+        await client.replyMessage({
+          replyToken,
+          messages: [
+            {
+              type: "text",
+              text: "テスト範囲に該当する問題が準備中です。範囲を見直してね",
+            },
+          ],
+        });
+      } catch (error) {
+        console.error(
+          "[lineWebhook] selectAndSendQuestion testScope empty reply failed:",
+          error
+        );
+      }
+    }
+    return;
+  }
+
+  const candidates = scopedDocs.filter((d) => !recentIds.includes(d.id));
+  const pool = candidates.length > 0 ? candidates : scopedDocs;
   const picked = pool[Math.floor(Math.random() * pool.length)];
   const question = picked.data() as Question;
 

@@ -372,7 +372,33 @@ src/data/subjects/
 ### `answers` コレクション（M4で新設）
 
 - パス: `answers/{auto-id}`
-- フィールド: `uid`, `questionId`, `choice` (0-3), `isCorrect`, `subject`, `grade` (冗長保持), `answeredAt`
+- フィールド: `uid`, `questionId`, `choice` (0-3), `isCorrect`, `subject`, `grade` (冗長保持), `topic` (冗長保持・byTopic 集計用), `answeredAt`
+
+### `users/{uid}.stats`（事前計算サマリ）
+
+- 書き込み元: `onAnswerCreated` Function（answers 書込みの trigger で同期更新）
+- スキーマ:
+  ```
+  stats: {
+    totalAnswered: number,
+    totalCorrect: number,
+    bySubject: { [subjectId]: { total, correct } },
+    byTopic:   { [topicJa]: { total, correct } },
+    streak: { current, longest, lastStudyDate ("YYYY-MM-DD" JST) },
+    lastAnsweredAt: Timestamp,
+  }
+  ```
+- 読み取り元: `LiffReportPage`（users/{uid} 1 件 read のみで O(1)）
+- byTopic の key は `Question.topic` の日本語文字列（topicMetas のスラッグではない）
+- 既存ユーザーへは `scripts/backfill-user-stats.ts` で過去 answers を再計算して反映
+
+### `users/{uid}.testScope`（テスト範囲）
+
+- 書き込み元: `LiffTestRangePage`（公式LINE 有料リッチメニュー「テスト範囲設定」）
+- スキーマ: `{ topics: string[], updatedAt: Timestamp }`
+- topics は `Question.topic` の日本語文字列の配列（粒度を Question データに揃える）
+- 読み取り元: `selectAndSendQuestion` / `handleWeakReview`（postback 「追加で解く」「苦手を復習」で出題候補をフィルタ）
+- 空配列または未設定なら従来通り全範囲から出題
 - ユーザーが選択肢ボタンを押すたびに新規ドキュメントが追加される（重複回答も毎回追記）
 - `subject` / `grade` は集計時に `questions` への JOIN なしで教科別・学年別の集計が可能になるため冗長保持
 - M5（苦手復習キュー）で `where("uid", "==", X).where("isCorrect", "==", false)` を使って苦手問題抽出に使用予定

@@ -149,10 +149,22 @@ PNG パレット圧縮で 1MB を超える場合、JPEG に自動フォールバ
 LIFF が確定したら、JSON 内の `PLACEHOLDER_*` を一括置換する。
 
 ```bash
-# 例: streak の LIFF を本番 URL に差し替える
-sed -i 's|https://liff.line.me/PLACEHOLDER_streak|https://liff.line.me/2009999999-streakABC|g' \
-  data/line-richmenu/free-richmenu.json data/line-richmenu/premium-richmenu.json
+# 例: テスト範囲設定 LIFF を本番 URL に差し替える
+sed -i 's|https://liff.line.me/PLACEHOLDER_test_range|https://liff.line.me/2009587166-XXXXXXX1|g' \
+  data/line-richmenu/premium-richmenu.json
+
+# 例: 成績・記録 LIFF を本番 URL に差し替える
+sed -i 's|https://liff.line.me/PLACEHOLDER_report|https://liff.line.me/2009587166-YYYYYYY2|g' \
+  data/line-richmenu/premium-richmenu.json
 ```
+
+LIFF 一覧:
+
+| LIFF | Endpoint URL | 配置 |
+|------|-------------|------|
+| `VITE_LIFF_ID_UNITS` | `https://line.chatstudy.jp/liff/units` | free + premium「単元を選ぶ」 |
+| `VITE_LIFF_ID_TEST_RANGE` | `https://line.chatstudy.jp/liff/test-range` | premium「テスト範囲設定」 |
+| `VITE_LIFF_ID_REPORT` | `https://line.chatstudy.jp/liff/report` | premium「成績・記録」 |
 
 未確定のキー一覧:
 ```bash
