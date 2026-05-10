@@ -44,8 +44,8 @@ export function LoginPage() {
         >
           チャットでスタディ
         </h1>
-        <p className="text-sm text-gray-400 text-center mb-8">
-          中学生のためのスマホ学習サイト
+        <p className="text-xs text-gray-400 text-center mb-8">
+          運営者・メンテナンス用ログイン
         </p>
 
         {/* Googleログイン */}
@@ -96,7 +96,7 @@ export function LoginPage() {
         )}
 
         <p className="text-xs text-gray-400 text-center mt-6 leading-relaxed">
-          ログインすると学習の進捗を保存できます
+          一般のユーザーは <a href="/welcome" className="text-amber-500 underline">公式LINEから</a> ご利用ください
         </p>
       </div>
     </div>

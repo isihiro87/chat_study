@@ -2,6 +2,22 @@ import { useEffect, useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { handleLineCallback } from '../contexts/AuthContext';
 
+const POST_LOGIN_NEXT_KEY = 'post-login-next';
+
+function popPostLoginNext(): string {
+  let next: string | null = null;
+  try {
+    next = sessionStorage.getItem(POST_LOGIN_NEXT_KEY);
+    sessionStorage.removeItem(POST_LOGIN_NEXT_KEY);
+  } catch {
+    // sessionStorage 不可なら / にフォールバック
+  }
+  if (!next) return '/';
+  // オープンリダイレクト防止: 必ず '/' 始まり、'//' で始まらない
+  if (!next.startsWith('/') || next.startsWith('//')) return '/';
+  return next;
+}
+
 export function LineCallbackPage() {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
@@ -24,7 +40,7 @@ export function LineCallbackPage() {
 
     handleLineCallback(code, state)
       .then(() => {
-        navigate('/', { replace: true });
+        navigate(popPostLoginNext(), { replace: true });
       })
       .catch(() => {
         setError('LINEログインに失敗しました。もう一度お試しください');

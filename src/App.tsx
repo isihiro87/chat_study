@@ -1,5 +1,5 @@
 import { lazy, Suspense, useEffect } from 'react';
-import { Routes, Route, useLocation, useNavigationType } from 'react-router-dom';
+import { Routes, Route, useLocation, useNavigationType, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { TopPage } from './pages/TopPage';
 import { ErrorBoundary } from './components/common/ErrorBoundary';
@@ -7,6 +7,7 @@ import { NotFoundPage } from './pages/NotFoundPage';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import { LoginPage } from './components/auth/LoginPage';
 import { pageview } from './utils/gtag';
+import { isPublicPath } from './utils/authGuard';
 
 const EraSelectPage = lazy(() => import('./pages/EraSelectPage').then(m => ({ default: m.EraSelectPage })));
 const TopicSelectPage = lazy(() => import('./pages/TopicSelectPage').then(m => ({ default: m.TopicSelectPage })));
@@ -15,7 +16,9 @@ const HistoryChatPage = lazy(() => import('./pages/HistoryChatPage').then(m => (
 const RandomQuizPage = lazy(() => import('./pages/RandomQuizPage').then(m => ({ default: m.RandomQuizPage })));
 const SettingsPage = lazy(() => import('./pages/SettingsPage').then(m => ({ default: m.SettingsPage })));
 const LineCallbackPage = lazy(() => import('./pages/LineCallbackPage').then(m => ({ default: m.LineCallbackPage })));
+const LiffUnitsPage = lazy(() => import('./pages/LiffUnitsPage').then(m => ({ default: m.LiffUnitsPage })));
 const AdminPage = lazy(() => import('./pages/AdminPage').then(m => ({ default: m.AdminPage })));
+const WelcomePage = lazy(() => import('./pages/WelcomePage').then(m => ({ default: m.WelcomePage })));
 
 // ルート変更時にスクロール位置を復元またはリセット
 function ScrollRestoration() {
@@ -72,6 +75,8 @@ function AnimatedRoutes() {
           <Route path="/chat/:chatId" element={<HistoryChatPage />} />
           <Route path="/settings" element={<SettingsPage />} />
           <Route path="/auth/line/callback" element={<LineCallbackPage />} />
+          <Route path="/liff/units" element={<LiffUnitsPage />} />
+          <Route path="/welcome" element={<WelcomePage />} />
           <Route path="/admin" element={<AdminPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
@@ -90,13 +95,24 @@ function PageViewTracker() {
 
 function AuthGuard() {
   const { user, loading } = useAuth();
-  const { pathname } = useLocation();
+  const location = useLocation();
+  const { pathname } = location;
 
-  // LINEコールバックは認証前でもアクセス可能にする
+  // LINEコールバックと LIFF エントリは認証前でもアクセス可能にする
   if (pathname === '/auth/line/callback') {
     return (
       <Suspense fallback={<div className="min-h-screen bg-[#FAF9F7]" />}>
         <LineCallbackPage />
+      </Suspense>
+    );
+  }
+  if (pathname.startsWith('/liff/')) {
+    return (
+      <Suspense fallback={<div className="min-h-screen bg-[#FAF9F7]" />}>
+        <Routes>
+          <Route path="/liff/units" element={<LiffUnitsPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
       </Suspense>
     );
   }
@@ -114,8 +130,22 @@ function AuthGuard() {
     );
   }
 
+  // 未認証: 公開パスならそのまま render、/admin なら LoginPage、それ以外は /welcome に誘導
   if (!user) {
-    return <LoginPage />;
+    if (isPublicPath(pathname)) {
+      return (
+        <div className="min-h-screen bg-[#FAF9F7]">
+          <ScrollRestoration />
+          <PageViewTracker />
+          <AnimatedRoutes />
+        </div>
+      );
+    }
+    if (pathname === '/admin') {
+      return <LoginPage />;
+    }
+    const next = encodeURIComponent(pathname + location.search);
+    return <Navigate to={`/welcome?next=${next}`} replace />;
   }
 
   return (
