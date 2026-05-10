@@ -1,0 +1,32 @@
+[
+  {
+    "id": "q-english-g3-001",
+    "subject": "english",
+    "grade": "中3",
+    "topic": "受動態",
+    "text": "This book ___ written by him. の空欄に入る語は？",
+    "choices": ["is", "was", "has", "does"],
+    "correctChoiceId": 1,
+    "explanation": "過去の受動態は be 動詞の過去形(was/were) + 過去分詞です。"
+  },
+  {
+    "id": "q-english-g3-002",
+    "subject": "english",
+    "grade": "中3",
+    "topic": "現在完了形",
+    "text": "I have ___ him for ten years. の空欄に入る語は？",
+    "choices": ["know", "knows", "knew", "known"],
+    "correctChoiceId": 3,
+    "explanation": "現在完了形は have/has + 過去分詞。know の過去分詞は known。"
+  },
+  {
+    "id": "q-english-g3-003",
+    "subject": "english",
+    "grade": "中3",
+    "topic": "関係代名詞",
+    "text": "The boy ___ is running is my brother. の空欄に入る語は？",
+    "choices": ["who", "which", "whose", "what"],
+    "correctChoiceId": 0,
+    "explanation": "先行詞が「人」のときの主格関係代名詞は who です。"
+  }
+]

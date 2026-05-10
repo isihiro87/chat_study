@@ -252,6 +252,129 @@ src/data/subjects/
 - **新単元追加**: unitsフォルダにファイル追加
 - **新学習モード追加**: componentsに新コンポーネント追加
 
+## バックエンド（Firebase Cloud Functions）
+
+フロントエンドは静的配信（Vercel）だが、外部サービス連携やサーバ側処理が必要な機能は Firebase Cloud Functions（リージョン: `asia-northeast1`）で受ける。実装は `functions/src/` 配下、デプロイ単位は1ファンクション=1ファイル。
+
+### 現在のファンクション
+
+| Function | 種類 | ソース | 役割 |
+|----------|------|--------|------|
+| `createLineCustomToken` | HTTPS onRequest | `functions/src/index.ts` | LINE Login（Web）の OAuth コードを Firebase Auth カスタムトークンと交換する |
+| `lineWebhook` | HTTPS onRequest | `functions/src/lineWebhook.ts` | LINE Messaging API（公式LINE）の Webhook 受信 |
+| `dailyQuiz06` / `dailyQuiz07` / `dailyQuiz17` / `dailyQuiz19` | pubsub.schedule | `functions/src/dailyQuiz.ts` | JST 朝6時/朝7時/夕方5時/夜7時 にユーザーへ問題を push 配信 |
+| `syncRichMenuToPlan` | HTTPS Callable | `functions/src/syncRichMenuToPlan.ts` | 管理者が個別ユーザーの課金プラン（free/premium）を切り替える。LINE 側のリッチメニューリンク変更と Firestore 更新を1コマンドで行う |
+
+### LINE 連携の整理
+
+本プロジェクトは LINE Developers の **2つの異なるチャネル** を使う:
+
+1. **LINE Login チャネル** … Web の `/login` から Firebase Auth へ橋渡し（`createLineCustomToken`）
+2. **Messaging API チャネル** … 公式LINEの友だち追加・トーク（`lineWebhook`）
+
+両者は別チャネルだが、ユーザーは同一の LINE アカウントを使う。そのため Firestore 上は **共通の uid 規約** で1ドキュメントにマージされる:
+
+- **uid 規約**: `uid = line:{lineUserId}`（`event.source.userId` または LINE Profile API の `userId`）
+- **保存先**: `users/{uid}`
+- **環境変数の命名分離**:
+  - LINE Login: `LINE_LOGIN_CHANNEL_ID` / `LINE_LOGIN_CHANNEL_SECRET`
+  - Messaging API: `LINE_MESSAGING_CHANNEL_SECRET` / `LINE_MESSAGING_CHANNEL_ACCESS_TOKEN`
+
+### `lineWebhook` の現マイルストーン対応範囲
+
+- `follow` イベント: 学年選択ボタン（中1/中2/中3）を返信、`users/{uid}` に `provider` / `lineUserId` / `status` / `source: "messaging-webhook"` / `updatedAt` を upsert
+- `postback` イベント（`type=select_grade`）: 学年を `users/{uid}.grade` に保存、確認テキスト + 教科選択ボタン（歴史 / 英語）を返信
+- `postback` イベント（`type=select_subject`）: 教科を `users/{uid}.subject` に保存（`"history"` / `"english"`）、確認テキスト + 配信時間選択ボタン（朝6時/朝7時/夕方5時/夜7時）を返信
+- `postback` イベント（`type=select_time`）: 配信時間を `users/{uid}.preferredHour` に保存（`6` / `7` / `17` / `19`）、確認テキスト + 1問目を即送信
+- `postback` イベント（`type=answer`）: M4 で本実装。`questions/{questionId}` を取得 → 正誤判定 → 「正解！」or「不正解。正解は『○○』でした。」+ 解説テキストを返信 → `answers/{auto-id}` に記録（`uid`, `questionId`, `choice`, `isCorrect`, `subject`, `grade`, `answeredAt`）。M5 で重複回答防止追加（`users/{uid}.lastAnsweredQuestionId` で同一問題への再押下を弾く）
+- `message` イベント（type=text）: M5 で新設。テキスト本文「設定変更」「せってい変更」を受信したら `users/{uid}.preferredHour` を削除して学年選択ボタンを再送信。設定変更は **1日1回まで**（`users/{uid}.lastSettingsChangeAt` で制限）
+
+### M5 で追加した運用上の制限
+
+- **学年/教科/時間ボタンの再押下防止**: `users/{uid}.preferredHour` 設定済みのユーザーは `select_grade`/`select_subject`/`select_time` postback を受けても「すでに〇〇で登録済みです」テキストのみ返す（フローを進めない）
+- **回答ボタンの重複押下防止**: 同じ `questionId` に対する2回目以降の `answer` postback は `users/{uid}.lastAnsweredQuestionId` で弾く
+- **1日1問制限**: `users/{uid}.lastQuestionDeliveredAt` を JST 暦日で比較。当日すでに送信済みなら reply 経由・push 経由どちらでも新規問題を送らない（reply 経由は案内テキスト返信、push 経由はスキップしてログ記録）
+- **設定変更の1日1回制限**: `users/{uid}.lastSettingsChangeAt` を JST 暦日で比較。当日すでに「設定変更」コマンドを使ったユーザーは2回目以降を弾く
+- **登録時の翌日案内**: 時間選択直後の reply に「次回は明日の{時間}にお届けします」を含める
+
+### `dailyQuiz` の動作
+
+- 4つの Pub/Sub schedule ファンクション（`dailyQuiz06/07/17/19`）が Cloud Scheduler により JST 朝6時/朝7時/夕方5時/夜7時に起動
+- 共通ロジック `runDailyQuiz(hour)` が `users` から `preferredHour == hour && status == "active"` のユーザーを抽出
+- 各ユーザーに対して `selectAndSendQuestion(uid)` を `Promise.allSettled` で並列実行
+- LINE Messaging API の `pushMessage` で問題を配信
+- 同じ問題が連続で出ないよう `users/{uid}.recentQuestionIds`（直近10件、FIFO）で重複回避
+
+> ⚠️ Firebase Functions v1 の `pubsub.schedule()` の制約で、Cloud Scheduler ジョブ自体は **App Engine デフォルトロケーション（`us-central1`）** に作成される。Functions 本体は `asia-northeast1` で動作。タイムゾーンは `Asia/Tokyo` を指定しているため配信時刻に影響なし。
+
+### `answers` コレクション（M4で新設）
+
+- パス: `answers/{auto-id}`
+- フィールド: `uid`, `questionId`, `choice` (0-3), `isCorrect`, `subject`, `grade` (冗長保持), `answeredAt`
+- ユーザーが選択肢ボタンを押すたびに新規ドキュメントが追加される（重複回答も毎回追記）
+- `subject` / `grade` は集計時に `questions` への JOIN なしで教科別・学年別の集計が可能になるため冗長保持
+- M5（苦手復習キュー）で `where("uid", "==", X).where("isCorrect", "==", false)` を使って苦手問題抽出に使用予定
+
+### 問題メッセージのデザイン（M4で Flex Message 化）
+
+- 問題提示は **Flex Message bubble**（`buildQuestionMessage`）で構築
+- bubble 内に問題文（`wrap: true` で長文対応）+ 縦4ボタン（選択肢）
+- 各ボタンは `style: "secondary"`、`height: "sm"`、`spacing: "sm"` で押しやすいサイズに統一
+- postback `data` 形式は M3 から不変: `type=answer&questionId=...&choice=<0-3>`
+
+### `questions` コレクション（M3で新設）
+
+- パス: `questions/{questionId}`
+- フィールド: `subject`, `grade`, `text`, `choices[4]`, `correctChoiceId`, `explanation`, `createdAt`
+- 投入は `scripts/seed-line-questions.ts`（手動 1回実行）で行う
+- M3 ではサンプル18問（歴史×3学年×3問 + 英語×3学年×3問）を投入
+- 既存 `src/data/subjects/` の全量同期は別マイルストーン（M3.5 等）で検討
+
+苦手復習（M5）、Hosting rewrites（M6）、教科の追加は別マイルストーンで実装予定。
+
+### Webhook URL
+
+- 直接URL: `https://asia-northeast1-chatstudy-63477.cloudfunctions.net/lineWebhook`
+- 将来: Firebase Hosting または Vercel rewrites で `https://www.chatstudy.jp/api/line/webhook` へカスタムドメイン化（別マイルストーン）
+
+### リッチメニュー × プラン切替
+
+公式LINE 上に **無料用（4ボタン）／有料用（6ボタン）** の2種のリッチメニューを設置し、Messaging API のユーザー単位リンクで出し分ける。
+
+**コンポーネント**:
+
+| 場所 | 役割 |
+|------|------|
+| `data/line-richmenu/{free,premium}-richmenu.json` | リッチメニュー定義（areas・action）の正本。バージョン管理対象 |
+| `data/line-richmenu/state.json` | LINE 側で生成された `richMenuId` の永続化先（バージョン管理対象、secret は含まない） |
+| `data/line-richmenu/{free.png, premium.{png,jpg}}` | アップロード用画像（2500×1686、1MB 以下） |
+| `data/line-richmenu/raw/*` | 画像素材（変換前） |
+| `scripts/manage-line-richmenu.ts` | LINE API を直叩きする CLI（list / create / upload / set-default / link / unlink / delete） |
+| `scripts/prepare-richmenu-images.ts` | sharp で 2500×1686 にリサイズ、PNG パレット → JPEG fallback で 1MB 以下に圧縮 |
+| `syncRichMenuToPlan` | 管理者が個別ユーザーのプランを切り替える HTTPS Callable |
+| `lineWebhook` の `extra_question` / `weak_review` postback | 有料メニューの「追加で解く」「苦手を復習」を即時に問題返信で処理 |
+
+**`users/{uid}` への追加フィールド**（`plan/premiumUntil/richMenuType/lastRichMenuUpdatedAt`）はクライアントから書けない。`firestore.rules` の `touchesProtectedUserFields` ヘルパーで保護され、書き込みは `syncRichMenuToPlan`（admin SDK）経由のみ。
+
+**プラン判定**: `lineWebhook.ts` の `getUserPlan(userData)` ヘルパーが `plan === "premium"` かつ `premiumUntil > now` のときだけ `"premium"` を返す。期限切れは自動的に `"free"` 扱いになるが、LINE 側のメニュー切替は別タスク（自動巻き戻しジョブはスコープ外）。
+
+**`extra_question` の動作**:
+- `selectAndSendQuestion` に `bypassDailyLimit?: boolean` を追加
+- premium ユーザーの場合のみ「当日送信済み」の早期 return をスキップして、即時に1問送る
+- free ユーザーの場合は「もっと解くにはプレミアムが必要」という案内テキストを返す（リッチメニュー上には現れないが、古い menu 経由で到達するケースのガード）
+
+**`weak_review` の動作**:
+- `answers` を `where(uid).where(isCorrect=false).orderBy(answeredAt desc).limit(50)` で取得
+- `questionId` を unique 化し、ランダム1件の `questions/{id}` を取り出して `buildQuestionMessage` で再出題
+- 候補が0件なら「まずは追加問題を解こう」と案内
+- `lastQuestionDeliveredAt` は更新する（`dailyQuiz` とのバッティング回避）
+
+**運用**: 詳細手順・トラブルシュートは `docs/operations/line-richmenu.md` を参照。
+
+### 運用手順
+
+デプロイ・環境変数設定・LINE Developers 側の操作・トラブルシュートは `docs/operations/line-webhook-deploy.md` を参照。リッチメニューに関する手順は `docs/operations/line-richmenu.md` を参照。
+
 ## テスト戦略
 
 ### ユニットテスト

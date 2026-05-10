@@ -136,6 +136,17 @@ UIを実装・変更する際は必ず `docs/design-guide.md` を参照するこ
 - `design.md`: 変更内容の設計
 - `tasklist.md`: タスクリスト
 
+## 公式LINE 運用コマンド
+
+公式LINE の **無料 ↔ 有料 リッチメニュー切替** は短い指示でリクエスト可能:
+
+- 「`U429b1d951fc7236c9e8e85e5ca96b910` をプレミアムに切り替えて（来月末まで）」
+- 「`U429...` を解約」「`U429...` を無料に戻して」
+
+→ Claude は `switch-line-plan` スキルを呼び出し、`scripts/manage-line-richmenu.ts sync-plan ...` を実行する（LINE 側のメニューリンクと Firestore の `plan/premiumUntil/richMenuType/lastRichMenuUpdatedAt` を一括更新）。
+
+詳細は `docs/operations/line-richmenu.md` §6 を参照。
+
 ## 開発プロセス
 
 ### 初回セットアップ

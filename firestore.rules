@@ -1,11 +1,24 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
+    // 課金状態・リッチメニュー種別など、Cloud Functions（admin SDK）でのみ書き換えるべきフィールド。
+    // クライアントは読めるが書けない。admin SDK はルールをバイパスするため、Functions 側からは普通に書ける。
+    function touchesProtectedUserFields(keys) {
+      return keys.hasAny(['plan', 'premiumUntil', 'richMenuType', 'lastRichMenuUpdatedAt']);
+    }
+
     // ユーザーは自分のデータのみ読み書き可能
     match /users/{userId} {
-      allow read, write: if request.auth != null && request.auth.uid == userId;
+      allow read: if request.auth != null && request.auth.uid == userId;
       // 管理者は全ユーザーデータを読み取り可能
       allow read: if request.auth != null && request.auth.token.email == 'ishimotty.gst@gmail.com';
+
+      // 書き込みは「保護フィールドに触っていないこと」を必須にする
+      allow create: if request.auth != null && request.auth.uid == userId
+        && !touchesProtectedUserFields(request.resource.data.keys());
+      allow update: if request.auth != null && request.auth.uid == userId
+        && !touchesProtectedUserFields(request.resource.data.diff(resource.data).affectedKeys());
+      allow delete: if request.auth != null && request.auth.uid == userId;
 
       match /{subcollection}/{document} {
         allow read, write: if request.auth != null && request.auth.uid == userId;

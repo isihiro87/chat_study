@@ -1,0 +1,32 @@
+[
+  {
+    "id": "q-history-g3-001",
+    "subject": "history",
+    "grade": "中3",
+    "topic": "明治時代",
+    "text": "1889年に発布された明治政府の憲法は？",
+    "choices": ["日本国憲法", "大日本帝国憲法", "五箇条の御誓文", "教育勅語"],
+    "correctChoiceId": 1,
+    "explanation": "1889年、君主主権の大日本帝国憲法(明治憲法)が発布されました。"
+  },
+  {
+    "id": "q-history-g3-002",
+    "subject": "history",
+    "grade": "中3",
+    "topic": "第一次世界大戦",
+    "text": "第一次世界大戦が始まったのは何年？",
+    "choices": ["1894年", "1904年", "1914年", "1939年"],
+    "correctChoiceId": 2,
+    "explanation": "1914年にサラエボ事件をきっかけに第一次世界大戦が始まりました。"
+  },
+  {
+    "id": "q-history-g3-003",
+    "subject": "history",
+    "grade": "中3",
+    "topic": "戦後・日本国憲法",
+    "text": "日本国憲法が施行されたのは何年？",
+    "choices": ["1945年", "1946年", "1947年", "1948年"],
+    "correctChoiceId": 2,
+    "explanation": "1947年5月3日に日本国憲法が施行されました(憲法記念日)。"
+  }
+]

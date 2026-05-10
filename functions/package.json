@@ -10,8 +10,9 @@
     "node": "22"
   },
   "dependencies": {
+    "@line/bot-sdk": "^11.0.0",
     "firebase-admin": "^13.7.0",
-    "firebase-functions": "^7.2.2"
+    "firebase-functions": "^7.2.5"
   },
   "devDependencies": {
     "typescript": "^5.7.0"

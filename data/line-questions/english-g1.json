@@ -1,0 +1,32 @@
+[
+  {
+    "id": "q-english-g1-001",
+    "subject": "english",
+    "grade": "中1",
+    "topic": "be動詞",
+    "text": "I ___ a student. の空欄に入る語は？",
+    "choices": ["am", "is", "are", "be"],
+    "correctChoiceId": 0,
+    "explanation": "主語が I のときの be 動詞は am です。"
+  },
+  {
+    "id": "q-english-g1-002",
+    "subject": "english",
+    "grade": "中1",
+    "topic": "三人称単数現在",
+    "text": "She ___ tennis every day. の空欄に入る語は？",
+    "choices": ["play", "plays", "playing", "played"],
+    "correctChoiceId": 1,
+    "explanation": "主語が三人称単数で現在の習慣を表すときは動詞に -s をつけます。"
+  },
+  {
+    "id": "q-english-g1-003",
+    "subject": "english",
+    "grade": "中1",
+    "topic": "一般動詞の疑問文",
+    "text": "Do you ___ a brother? の空欄に入る語は？",
+    "choices": ["has", "have", "having", "had"],
+    "correctChoiceId": 1,
+    "explanation": "Do you で始まる疑問文では動詞は原形(have)のままです。"
+  }
+]

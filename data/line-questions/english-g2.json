@@ -1,0 +1,32 @@
+[
+  {
+    "id": "q-english-g2-001",
+    "subject": "english",
+    "grade": "中2",
+    "topic": "過去形",
+    "text": "I ___ to the park yesterday. の空欄に入る語は？",
+    "choices": ["go", "goes", "went", "going"],
+    "correctChoiceId": 2,
+    "explanation": "yesterday は過去を表すので go の過去形 went を使います。"
+  },
+  {
+    "id": "q-english-g2-002",
+    "subject": "english",
+    "grade": "中2",
+    "topic": "未来表現 (will)",
+    "text": "I will ___ English tomorrow. の空欄に入る語は？",
+    "choices": ["study", "studies", "studying", "studied"],
+    "correctChoiceId": 0,
+    "explanation": "will の後の動詞は原形になります。"
+  },
+  {
+    "id": "q-english-g2-003",
+    "subject": "english",
+    "grade": "中2",
+    "topic": "to不定詞",
+    "text": "She wants ___ English. の空欄に入る語は？",
+    "choices": ["study", "studies", "to study", "studying"],
+    "correctChoiceId": 2,
+    "explanation": "want の後は to不定詞(to + 動詞の原形)が続きます。"
+  }
+]

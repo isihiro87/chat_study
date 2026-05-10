@@ -1,0 +1,32 @@
+[
+  {
+    "id": "q-history-g1-001",
+    "subject": "history",
+    "grade": "中1",
+    "topic": "縄文・弥生時代",
+    "text": "縄文時代の代表的な土器の名前は？",
+    "choices": ["縄文土器", "弥生土器", "須恵器", "土師器"],
+    "correctChoiceId": 0,
+    "explanation": "縄文時代は表面に縄目模様が特徴の縄文土器が使われました。"
+  },
+  {
+    "id": "q-history-g1-002",
+    "subject": "history",
+    "grade": "中1",
+    "topic": "縄文・弥生時代",
+    "text": "弥生時代に大陸から伝わった主な農業は？",
+    "choices": ["焼畑", "稲作", "麦作", "牧畜"],
+    "correctChoiceId": 1,
+    "explanation": "弥生時代には大陸から稲作が伝わり、定住生活が広がりました。"
+  },
+  {
+    "id": "q-history-g1-003",
+    "subject": "history",
+    "grade": "中1",
+    "topic": "飛鳥時代",
+    "text": "飛鳥時代に十七条憲法を制定したのは誰？",
+    "choices": ["中大兄皇子", "蘇我馬子", "聖徳太子", "天智天皇"],
+    "correctChoiceId": 2,
+    "explanation": "聖徳太子(厩戸王)が役人の心得として十七条憲法を制定しました。"
+  }
+]

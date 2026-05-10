@@ -1,5 +1,15 @@
 import * as functions from "firebase-functions/v1";
 
+export { lineWebhook } from "./lineWebhook";
+export {
+  dailyQuiz06,
+  dailyQuiz07,
+  dailyQuiz17,
+  dailyQuiz19,
+} from "./dailyQuiz";
+export { onAnswerCreated } from "./onAnswerCreated";
+export { syncRichMenuToPlan } from "./syncRichMenuToPlan";
+
 const LINE_LOGIN_CHANNEL_ID = process.env.LINE_LOGIN_CHANNEL_ID || "";
 const LINE_LOGIN_CHANNEL_SECRET = process.env.LINE_LOGIN_CHANNEL_SECRET || "";
 

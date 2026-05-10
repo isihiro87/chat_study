@@ -1,0 +1,32 @@
+[
+  {
+    "id": "q-history-g2-001",
+    "subject": "history",
+    "grade": "中2",
+    "topic": "戦国時代",
+    "text": "1543年に種子島に伝来したものは？",
+    "choices": ["鉄砲", "キリスト教", "茶", "印刷術"],
+    "correctChoiceId": 0,
+    "explanation": "1543年、ポルトガル人によって鉄砲が種子島に伝来しました。"
+  },
+  {
+    "id": "q-history-g2-002",
+    "subject": "history",
+    "grade": "中2",
+    "topic": "江戸幕府の成立",
+    "text": "1603年に江戸幕府を開いた人物は？",
+    "choices": ["豊臣秀吉", "織田信長", "徳川家康", "伊達政宗"],
+    "correctChoiceId": 2,
+    "explanation": "徳川家康が1603年に征夷大将軍となり江戸幕府を開きました。"
+  },
+  {
+    "id": "q-history-g2-003",
+    "subject": "history",
+    "grade": "中2",
+    "topic": "江戸時代の社会",
+    "text": "江戸時代に最も人口が多かった身分は？",
+    "choices": ["武士", "百姓", "町人", "公家"],
+    "correctChoiceId": 1,
+    "explanation": "江戸時代の総人口の約8割を百姓(農民)が占めていました。"
+  }
+]
