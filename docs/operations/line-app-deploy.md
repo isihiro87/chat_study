@@ -125,17 +125,32 @@ npm run preview:line
 
 ### 2-3. Environment Variables
 
-LINE 版に必要な環境変数だけを設定:
+LINE 版に必要な環境変数を設定。**Firebase 環境変数 6個 + LINE 関連 3個 + モード 1個 = 計10個（必須）**。`src/utils/validateEnv.ts` が起動時に Firebase 6個の存在チェックを行い、ひとつでも欠けると JS が早期 throw する点に注意。
+
+#### 必須（10個）
 
 | キー | 値 |
 |------|----|
-| `VITE_FIREBASE_API_KEY` | Web版と同じ（Firebase Console > Web SDK 設定から） |
+| `VITE_FIREBASE_API_KEY` | `AIzaSyBJuODbPmpu_fiJ8a1ffzDIUwEFszol5Cc` |
+| `VITE_FIREBASE_AUTH_DOMAIN` | `chatstudy-63477.firebaseapp.com` |
+| `VITE_FIREBASE_PROJECT_ID` | `chatstudy-63477` |
+| `VITE_FIREBASE_STORAGE_BUCKET` | `chatstudy-63477.firebasestorage.app` |
+| `VITE_FIREBASE_MESSAGING_SENDER_ID` | `283901969847` |
+| `VITE_FIREBASE_APP_ID` | `1:283901969847:web:9efd3b421e8cdb16091432` |
 | `VITE_LINE_LOGIN_CHANNEL_ID` | `2009587166` |
 | `VITE_LINE_AUTH_FN_URL` | `https://asia-northeast1-chatstudy-63477.cloudfunctions.net/createLineCustomToken` |
 | `VITE_LIFF_ID_UNITS` | `2009587166-LjyCza2c` |
 | `VITE_MODE` | `line` |
 
-> ⚠️ Web 版と同じ Firebase プロジェクトを参照するため、`VITE_FIREBASE_*` は Web 版と同値にする。
+#### 任意（GA計測）
+
+| キー | 値 |
+|------|----|
+| `VITE_FIREBASE_MEASUREMENT_ID` | `G-PW47GDC47V` |
+
+> ⚠️ Web 版と同じ Firebase プロジェクトを参照するため、`VITE_FIREBASE_*` は Web 版と同値にする。値はリポジトリの `/.env`（コミット対象外）から取得。
+>
+> ⚠️ **Vite は build 時に環境変数を bundle に焼き込む**ため、ENV を追加・変更したあとは Vercel ダッシュボードで **Redeploy**（既存デプロイの右上メニュー「Redeploy」）をクリックして再ビルドする必要がある。Save するだけでは反映されない。
 
 ### 2-4. Deploy
 
@@ -243,6 +258,10 @@ LINE 版ドメインに切り替える。
 ### ❌ Vercel build で `Cannot find module 'tailwindcss'` 等のエラー
 - `package.json` の `devDependencies` に `@tailwindcss/vite` `tailwindcss` が含まれているか確認
 - Vercel Install Command が `npm install`（`npm install --production` ではない）になっているか
+
+### ❌ ブラウザコンソールに `Uncaught Error: Missing Firebase env: VITE_FIREBASE_AUTH_DOMAIN, ...`
+- `src/utils/validateEnv.ts` が Firebase 6個の env をすべて要求している。Vercel に **6個全部** が設定されているか §2-3 と照合
+- 追加後は **Redeploy 必須**（save のみでは反映されない、Vite は build 時に env を bundle に焼き込む）
 
 ---
 
