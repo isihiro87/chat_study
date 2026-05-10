@@ -158,6 +158,45 @@ LINE 版に必要な環境変数を設定。**Firebase 環境変数 6個 + LINE 
 
 「Deploy」を押す。初回ビルドは数十秒〜1分で完了。`https://chatstudy-line-<random>.vercel.app/welcome` で確認できる。
 
+### 2-5. Ignored Build Step（推奨）
+
+Vercel は build concurrency = 1 のため、Web 版 build（200MB+ prerender、10分以上）が走っている間は LINE 版 build が queue で待たされる。**Ignored Build Step** を両プロジェクトに設定して、無関係な変更時は build をスキップさせる。
+
+> 仕組み: コマンドが exit 0 → build スキップ、exit 1 → build 実行。`git diff --quiet` は変更なしで exit 0、変更ありで exit 1 を返すので、`-- <paths>` でフィルタすれば狙った paths にだけ反応するようになる。
+
+**設定場所**: Vercel ダッシュボード → 各プロジェクト → Settings → **Git** → **Ignored Build Step** に下記コマンドを貼り付け → Save。
+
+#### chatstudy-web（Web版）
+
+LINE-only files（`src/line/`、`vite.config.line.ts`、`index.line.html`、`public_line/`、`src/main.line.tsx`）のみの変更時は Web版 build をスキップ:
+
+```bash
+git diff --quiet HEAD^ HEAD -- ':!src/line/' ':!src/main.line.tsx' ':!vite.config.line.ts' ':!index.line.html' ':!public_line/'
+```
+
+#### chatstudy-line（LINE版）
+
+LINE版が依存する paths（LINE専用 + 共有モジュール + 設定ファイル）に変更があった時だけ build:
+
+```bash
+git diff --quiet HEAD^ HEAD -- 'src/line/' 'src/main.line.tsx' 'vite.config.line.ts' 'index.line.html' 'public_line/' 'package.json' 'package-lock.json' 'src/contexts/' 'src/firebase/' 'src/utils/authGuard.ts' 'src/pages/WelcomePage.tsx' 'src/pages/LiffUnitsPage.tsx' 'src/pages/LineCallbackPage.tsx' 'src/pages/NotFoundPage.tsx' 'src/components/common/' 'src/styles/' 'src/data/generated/' 'tailwind.config.js' 'postcss.config.js' 'tsconfig.json' 'vercel.json'
+```
+
+> ⚠️ LINE版は LiffUnitsPage が `src/data/generated/topic-registry.generated.ts` を import するため、`src/data/generated/` を watch list に含めること。`src/data/subjects/` の content-only 変更（registry 再生成なし）では LINE版 build をスキップできる。
+>
+> ⚠️ 共有モジュール（AuthContext / Firebase config 等）を新規追加・移動した場合は、上記の path list を更新すること。
+
+#### 動作確認
+
+設定後、test commit を push して Vercel ダッシュボードで両プロジェクトの動きを確認:
+
+| 変更内容 | chatstudy-web | chatstudy-line |
+|---------|--------------|---------------|
+| `src/line/foo.tsx` のみ | ⊘ Skipped | ✓ Build |
+| `src/data/subjects/foo/index.ts` のみ | ✓ Build | ⊘ Skipped |
+| `src/contexts/AuthContext.tsx`（共有） | ✓ Build | ✓ Build |
+| `package.json` | ✓ Build | ✓ Build |
+
 ---
 
 ## 3. ドメイン設定（user 作業）
