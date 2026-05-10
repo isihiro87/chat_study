@@ -9,6 +9,7 @@ export default tseslint.config(
     ignores: [
       'node_modules/**',
       'dist/**',
+      'dist-line/**',
       'coverage/**',
       '.steering/**',
       'functions/lib/**',
