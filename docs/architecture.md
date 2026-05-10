@@ -33,13 +33,75 @@
 
 ## アーキテクチャパターン
 
-### フロントエンドアーキテクチャ
+### 2アプリ構成（Web版 / LINE版）
+
+このリポジトリは1つの React コードベースから **2 種類の Web アプリ**をビルドして、それぞれ別ドメインで配信する。
+
+| アプリ | エントリ | ビルド | 出力 | デプロイ先 | 用途 |
+|--------|---------|--------|------|-----------|------|
+| **Web版** | `index.html` → `src/main.tsx` → `src/App.tsx` | `npm run build` | `dist/` | `https://www.chatstudy.jp/` | 263トピックの学習体験全部 |
+| **LINE版** | `index.line.html` → `src/main.line.tsx` → `src/line/App.line.tsx` | `npm run build:line` | `dist-line/` | `https://line.chatstudy.jp/` | 公式LINE誘導 + LIFF（slim） |
+
+**共有モジュール**（両方の build に含まれる）:
+- `src/contexts/AuthContext.tsx` — Firebase Auth + LINE Login 認証
+- `src/firebase/config.ts` — Firebase SDK 初期化
+- `src/utils/authGuard.ts` — `isPublicPath()` ヘルパー（Web版のみで使用）
+- `src/pages/WelcomePage.tsx` — LINE誘導ページ（公式LINE友だち追加 + ログイン併記）
+- `src/pages/LiffUnitsPage.tsx` — LIFF エントリページ（リッチメニュー「単元を選ぶ」着地）
+- `src/pages/LineCallbackPage.tsx` — LINE Login OAuth コールバック処理
+- `src/pages/NotFoundPage.tsx` — 404
+- `src/components/common/ErrorBoundary.tsx`
+
+**LINE版にだけ含まれないもの**:
+- 学習体験ページ全部（TopPage / EraSelectPage / TopicSelectPage / LearningPage / RandomQuizPage / HistoryChatPage / SettingsPage / AdminPage / LoginPage）
+- `src/data/subjects/` 配下の263トピック
+- 学習用 Components（FlashcardDeck / QuizView / VideoPlayer / ChatContainer 等）
+- `katex` / theme / SSR/prerender / sitemap / image-optimizer / PWA
+
+→ Vite の tree-shaking が `src/line/App.line.tsx` から到達できないモジュールを bundle から除外することで、LINE 版は Web 版の 1/200 のサイズ（dist 200MB → dist-line 1MB前後）になる。
+
+```
+┌────────────────────────────────────────────────────────┐
+│          リポジトリ chat_study                          │
+│                                                        │
+│  ┌─────────────────────┐     ┌────────────────────┐  │
+│  │ Web版エントリ       │     │ LINE版エントリ      │  │
+│  │ src/main.tsx        │     │ src/main.line.tsx   │  │
+│  │ → src/App.tsx       │     │ → src/line/App.line │  │
+│  └──────────┬──────────┘     └──────────┬─────────┘  │
+│             │                            │             │
+│             ▼                            ▼             │
+│  ┌─────────────────────────────────────────────────┐  │
+│  │     共有: AuthContext / WelcomePage /            │  │
+│  │     LiffUnitsPage / LineCallbackPage 等           │  │
+│  └─────────────────────────────────────────────────┘  │
+│                                                        │
+│  ┌─────────────────────┐                              │
+│  │ Web版固有:           │                              │
+│  │ - LearningPage       │                              │
+│  │ - 263 topics data    │                              │
+│  │ - Flashcard / Quiz   │                              │
+│  └─────────────────────┘                              │
+└────────────────────────────────────────────────────────┘
+       │                                    │
+       │ npm run build                      │ npm run build:line
+       ▼                                    ▼
+   dist/ (200MB)                       dist-line/ (1MB)
+       │                                    │
+       ▼                                    ▼
+   www.chatstudy.jp                    line.chatstudy.jp
+```
+
+詳細運用: `docs/operations/line-app-deploy.md`
+
+### フロントエンドアーキテクチャ（Web版）
 
 ```
 ┌─────────────────────────────────────────────────────┐
 │                    Pages                             │
 │  (TopPage, EraSelectPage, TopicSelectPage,          │
-│   LearningPage, RandomQuizPage, HistoryChatPage)    │
+│   LearningPage, RandomQuizPage, HistoryChatPage,    │
+│   WelcomePage, LiffUnitsPage, LineCallbackPage)     │
 ├─────────────────────────────────────────────────────┤
 │                   Components                         │
 │  (TabBar, Header, VideoPlayer, FlashcardDeck,       │

@@ -136,6 +136,28 @@ UIを実装・変更する際は必ず `docs/design-guide.md` を参照するこ
 - `design.md`: 変更内容の設計
 - `tasklist.md`: タスクリスト
 
+## 2つのアプリ構成（Web版 / LINE版）
+
+このリポジトリは1つの React コードベースから **2 種類の Web アプリ**をビルドして、それぞれ別ドメインで配信する。
+
+| アプリ | エントリ | ビルド | 出力先 | デプロイ先 | 役割 |
+|--------|---------|--------|--------|-----------|------|
+| **Web版**（フル学習サイト） | `index.html` → `src/main.tsx` → `src/App.tsx` | `npm run build` | `dist/` | `https://www.chatstudy.jp/` | 263トピックの学習体験全部（TopPage / EraSelect / TopicSelect / LearningPage / RandomQuiz / HistoryChat / Settings / Admin） |
+| **LINE版**（公式LINE誘導 + LIFF） | `index.line.html` → `src/main.line.tsx` → `src/line/App.line.tsx` | `npm run build:line` | `dist-line/` | `https://line.chatstudy.jp/` | WelcomePage / LiffUnitsPage / LineCallbackPage の slim ビルド（学習データは含まない） |
+
+**共有モジュール**: `src/contexts/AuthContext.tsx` / `src/firebase/config.ts` / `src/utils/authGuard.ts` / `src/pages/{WelcomePage,LiffUnitsPage,LineCallbackPage,NotFoundPage}.tsx` / `src/components/common/ErrorBoundary.tsx`
+
+**LINE版にだけ含まれないもの**: 学習体験ページ（LearningPage / TopPage / 263トピックデータ / Flashcard / Quiz / VideoPlayer / ChatContainer / katex / theme / SSR/prerender）
+
+**運用上の重要点**:
+- Web版に変更を入れる場合: `src/App.tsx` 配下、`src/pages/` の Web 用ページ、`src/data/subjects/` などを編集
+- LINE版に変更を入れる場合: `src/line/App.line.tsx`、`src/pages/Welcome*`/`Liff*`/`LineCallback*`、共有 AuthContext を編集
+- LIFF endpoint URL: `https://line.chatstudy.jp/liff/units`（LINE Developers Console で管理）
+- LINE Login OAuth Callback URL: 両ドメイン分（`www.chatstudy.jp` / `line.chatstudy.jp`）を LINE Developers に登録
+- **bundle に学習データが混入していないか**は `grep -r LearningPage dist-line/` などで確認。混入していたら `src/line/App.line.tsx` の import チェーンに不要な依存が紛れた合図
+
+詳細: `docs/operations/line-app-deploy.md`、`.steering/20260510-line-app-split/`
+
 ## 公式LINE 運用コマンド
 
 公式LINE の **無料 ↔ 有料 リッチメニュー切替** は短い指示でリクエスト可能:
