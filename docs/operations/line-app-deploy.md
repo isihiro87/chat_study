@@ -133,7 +133,7 @@ LINE 版に必要な環境変数を設定。**Firebase 環境変数 6個 + LINE 
 
 | キー | 値 |
 |------|----|
-| `VITE_FIREBASE_API_KEY` | `AIzaSyBJuODbPmpu_fiJ8a1ffzDIUwEFszol5Cc` |
+| `VITE_FIREBASE_API_KEY` | （`.env` / Vercel env を参照。GitHub secret scanning に検知されるため doc には書かない） |
 | `VITE_FIREBASE_AUTH_DOMAIN` | `chatstudy-63477.firebaseapp.com` |
 | `VITE_FIREBASE_PROJECT_ID` | `chatstudy-63477` |
 | `VITE_FIREBASE_STORAGE_BUCKET` | `chatstudy-63477.firebasestorage.app` |
