@@ -190,7 +190,7 @@ export function LiffReportPage() {
   }
 
   if (!user) {
-    return <Navigate to="/welcome" replace />;
+    return <Navigate to="/welcome?next=/liff/report" replace />;
   }
 
   if (status === 'loading') {

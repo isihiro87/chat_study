@@ -180,7 +180,7 @@ export function LiffTestRangePage() {
   }
 
   if (!user) {
-    return <Navigate to="/welcome" replace />;
+    return <Navigate to="/welcome?next=/liff/test-range" replace />;
   }
 
   return (
