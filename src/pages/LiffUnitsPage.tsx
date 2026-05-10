@@ -1,74 +1,191 @@
-import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../contexts/AuthContext';
+import { useEffect, useMemo, useState } from 'react';
+import {
+  eraMetas,
+  topicMetas,
+} from '../data/generated/topic-registry.generated';
+
+const WEB_BASE_URL = 'https://www.chatstudy.jp';
+
+type Subject = 'english' | 'history';
+type Grade = 1 | 2 | 3;
+
+const SUBJECTS: { id: Subject; label: string; emoji: string }[] = [
+  { id: 'english', label: '英語', emoji: '🔤' },
+  { id: 'history', label: '歴史', emoji: '⏳' },
+];
+
+const GRADES: { value: Grade; label: string }[] = [
+  { value: 1, label: '中1' },
+  { value: 2, label: '中2' },
+  { value: 3, label: '中3' },
+];
 
 /**
- * LINE 公式アカウントのリッチメニュー「単元を選ぶ」から開かれる LIFF ページ。
+ * 公式LINE のリッチメニュー「単元を選ぶ」から開かれる LIFF ページ。
  *
- * 動作:
- * - LIFF SDK を初期化（`VITE_LIFF_ID_UNITS` が設定されていれば）
- * - すでに Firebase Auth 済みなら `/` へ遷移
- * - 未認証なら既存の LINE Login OAuth フローを起動（`signInWithLine` →
- *   `/auth/line/callback` → Firebase Custom Token → `/` リダイレクト）
+ * 英語・歴史の単元一覧を学年タブで切り替えて表示する。
+ * トピックをタップすると Web 版（www.chatstudy.jp）の対応学習ページに遷移する。
  *
- * LIFF ID 未設定の場合は SDK 初期化を黙ってスキップして、純粋な OAuth リダイレクトだけ行う。
+ * 実装メモ:
+ * - 単元メタデータは `src/data/generated/topic-registry.generated.ts` の
+ *   `eraMetas` / `topicMetas` から取得（学習体験データ本体は含まれない）
+ * - 英語・歴史以外は当 UI に含めない
+ * - LIFF SDK は VITE_LIFF_ID_UNITS が設定されていれば初期化、未設定なら通常 SPA として動作
  */
 export function LiffUnitsPage() {
-  const { user, loading, signInWithLine } = useAuth();
-  const navigate = useNavigate();
-  const [error, setError] = useState<string | null>(null);
+  const [subject, setSubject] = useState<Subject>('english');
+  const [grade, setGrade] = useState<Grade>(1);
 
   useEffect(() => {
-    if (loading) return;
-
     let cancelled = false;
     (async () => {
       const liffId = import.meta.env.VITE_LIFF_ID_UNITS as string | undefined;
-      if (liffId) {
-        try {
-          const liff = (await import('@line/liff')).default;
-          await liff.init({ liffId });
-        } catch (err) {
-          console.warn('[LiffUnitsPage] liff.init failed', err);
-          // 初期化失敗してもログイン誘導は試みる（外部ブラウザでも動かしたいケース）
-        }
-      }
-      if (cancelled) return;
-
-      if (user) {
-        navigate('/', { replace: true });
-        return;
-      }
-
+      if (!liffId) return;
       try {
-        signInWithLine();
+        const liff = (await import('@line/liff')).default;
+        if (cancelled) return;
+        await liff.init({ liffId });
       } catch (err) {
-        console.error('[LiffUnitsPage] signInWithLine failed', err);
-        setError('LINEログインを開始できませんでした。再度メニューから開きなおしてください。');
+        console.warn('[LiffUnitsPage] liff.init failed', err);
       }
     })();
-
     return () => {
       cancelled = true;
     };
-  }, [loading, user, navigate, signInWithLine]);
+  }, []);
+
+  // 表示中の教科×学年 に該当する Era 一覧
+  const visibleEras = useMemo(() => {
+    return eraMetas
+      .filter((e) => e.subjectId === subject && (e.grade ?? null) === grade)
+      .sort((a, b) => a.order - b.order);
+  }, [subject, grade]);
+
+  // 表示中の era 配下のトピックを era 単位でグループ化
+  const groupedTopics = useMemo(() => {
+    return visibleEras.map((era) => ({
+      era,
+      topics: topicMetas
+        .filter((t) => t.eraId === era.id)
+        .sort((a, b) => a.order - b.order),
+    }));
+  }, [visibleEras]);
+
+  const handleTopicClick = (eraId: string, topicId: string) => {
+    const url = `${WEB_BASE_URL}/subjects/${subject}/eras/${eraId}/topics/${topicId}`;
+    window.location.href = url;
+  };
 
   return (
-    <div className="min-h-screen bg-[#FAF9F7] flex items-center justify-center px-4">
-      <div className="bg-white rounded-2xl shadow-sm p-8 w-full max-w-sm text-center">
-        {error ? (
-          <p role="alert" className="text-red-500 text-sm">
-            {error}
-          </p>
-        ) : (
-          <p
-            className="text-gray-400 text-sm"
+    <div className="min-h-screen bg-[#FAF9F7] pb-12">
+      <header className="bg-white shadow-sm">
+        <div className="max-w-2xl mx-auto px-4 py-4">
+          <h1
+            className="text-lg font-bold text-gray-800 text-center"
             style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
           >
-            単元選択画面へ移動中...
+            📚 単元を選ぶ
+          </h1>
+        </div>
+      </header>
+
+      <main className="max-w-2xl mx-auto px-4">
+        {/* 教科タブ */}
+        <div className="flex gap-2 mt-4">
+          {SUBJECTS.map((s) => {
+            const active = subject === s.id;
+            return (
+              <button
+                key={s.id}
+                onClick={() => setSubject(s.id)}
+                className={`flex-1 rounded-full py-2.5 px-4 text-sm font-medium transition ${
+                  active
+                    ? 'bg-amber-500 text-white'
+                    : 'bg-white text-gray-700 border border-gray-200 hover:border-amber-300'
+                }`}
+                style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+              >
+                <span className="mr-1">{s.emoji}</span>
+                {s.label}
+              </button>
+            );
+          })}
+        </div>
+
+        {/* 学年タブ */}
+        <div className="flex gap-2 mt-3">
+          {GRADES.map((g) => {
+            const active = grade === g.value;
+            return (
+              <button
+                key={g.value}
+                onClick={() => setGrade(g.value)}
+                className={`flex-1 rounded-full py-2 text-sm font-medium transition ${
+                  active
+                    ? 'bg-gray-800 text-white'
+                    : 'bg-white text-gray-600 border border-gray-200 hover:border-gray-400'
+                }`}
+                style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+              >
+                {g.label}
+              </button>
+            );
+          })}
+        </div>
+
+        {/* 単元一覧 */}
+        {groupedTopics.length === 0 && (
+          <p className="text-center text-sm text-gray-400 mt-12">
+            この学年の単元はまだありません。
           </p>
         )}
-      </div>
+
+        {groupedTopics.map(({ era, topics }) => (
+          <section key={era.id} className="mt-6">
+            <div className="flex items-baseline gap-2 mb-2 px-1">
+              <span className="text-lg">{era.icon}</span>
+              <h2
+                className="text-base font-bold text-gray-800"
+                style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+              >
+                {era.name}
+              </h2>
+              <span className="text-xs text-gray-400">{era.period}</span>
+            </div>
+            <ul className="space-y-2">
+              {topics.map((t) => (
+                <li key={t.id}>
+                  <button
+                    onClick={() => handleTopicClick(era.id, t.id)}
+                    className="w-full bg-white border border-gray-200 rounded-2xl px-4 py-3 text-left hover:border-amber-300 active:scale-[0.99] transition"
+                  >
+                    <div className="flex items-center gap-3">
+                      <span className="text-2xl flex-shrink-0">{t.icon}</span>
+                      <div className="flex-1 min-w-0">
+                        <div
+                          className="font-medium text-gray-800 text-sm truncate"
+                          style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+                        >
+                          {t.name}
+                        </div>
+                        {t.subtitle && (
+                          <div className="text-xs text-gray-500 truncate mt-0.5">
+                            {t.subtitle}
+                          </div>
+                        )}
+                      </div>
+                      <span className="text-gray-300">›</span>
+                    </div>
+                  </button>
+                </li>
+              ))}
+            </ul>
+            {topics.length === 0 && (
+              <p className="text-xs text-gray-400 px-1">準備中...</p>
+            )}
+          </section>
+        ))}
+      </main>
     </div>
   );
 }
