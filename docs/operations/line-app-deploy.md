@@ -77,6 +77,8 @@ dist-line/assets/LiffUnitsPage-*.js 1.2 kB │ gzip: 0.8 kB
 ✓ built in <1 min（本番Vercelでは30秒前後）
 ```
 
+> ⚠️ ビルド最終ステップで `dist-line/index.line.html` → `dist-line/index.html` にリネームされる（`package.json` の `build:line` script 内 `&& mv ...`）。共有 `vercel.json` の rewrite (`destination: /index.html`) を LINE 版でも効かせるための処理。
+
 ### サイズ確認
 
 ```bash
@@ -231,10 +233,11 @@ LINE 版ドメインに切り替える。
 
 ## 7. トラブルシュート
 
-### ❌ `https://line.chatstudy.jp/welcome` が 404
+### ❌ `https://line.chatstudy.jp/welcome` が 404 (Vercel platform 404 NOT_FOUND)
 - Vercel の Output Directory が `dist-line` になっているか確認
-- `_redirects` が `dist-line/` に含まれているか確認（SPA fallback）
-- `public_line/_redirects` が `/*    /index.line.html   200` になっているか確認
+- **`dist-line/index.html` が存在するか確認**（共有 `vercel.json` の rewrite が `/index.html` を見るため、`index.line.html` のままだと 404 になる）
+- 解決: `package.json` の `build:line` で `mv dist-line/index.line.html dist-line/index.html` が走っているか確認。走っていれば Vercel の Redeploy で再ビルド
+- `public_line/_redirects` は **Netlify 形式で Vercel では無視**されるため SPA fallback には効かない。`vercel.json` の rewrites が SPA fallback を担う
 
 ### ❌ LIFF が `Invalid endpoint URL` エラー
 - LINE Developers Console の Endpoint URL が `https://line.chatstudy.jp/liff/units` になっているか確認
