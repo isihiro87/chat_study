@@ -19,7 +19,39 @@
  * 既に stats フィールドがあるユーザーは上書きされる（idempotent）。
  */
 
-import { nextStreakState, getJstDateString, type StreakState } from "../functions/src/streakState";
+// streakState ロジックは functions/src/streakState.ts と同等。CJS/ESM 不整合を
+// 回避するために inline 化（このスクリプトは 1 回限りの運用）。
+const JST_OFFSET_MS = 9 * 60 * 60 * 1000;
+
+function getJstDateString(date: Date): string {
+  const jst = new Date(date.getTime() + JST_OFFSET_MS);
+  return jst.toISOString().slice(0, 10);
+}
+
+function getYesterdayJstDateString(today: string): string {
+  const d = new Date(`${today}T00:00:00Z`);
+  d.setUTCDate(d.getUTCDate() - 1);
+  return d.toISOString().slice(0, 10);
+}
+
+interface StreakState {
+  current: number;
+  longest: number;
+  lastStudyDate: string;
+}
+
+function nextStreakState(prev: StreakState | null, todayJst: string): StreakState {
+  if (!prev) {
+    return { current: 1, longest: 1, lastStudyDate: todayJst };
+  }
+  if (prev.lastStudyDate === todayJst) {
+    return prev;
+  }
+  const yesterday = getYesterdayJstDateString(todayJst);
+  const current = prev.lastStudyDate === yesterday ? prev.current + 1 : 1;
+  const longest = Math.max(prev.longest ?? 0, current);
+  return { current, longest, lastStudyDate: todayJst };
+}
 
 const FIREBASE_PROJECT_ID = "chatstudy-63477";
 
