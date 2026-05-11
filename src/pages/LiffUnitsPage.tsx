@@ -26,8 +26,12 @@ async function loadHistoryEras(grade: GradeNum): Promise<StudyEra[] | null> {
       const m = await import('../data/generated/line-study-history-g2.generated');
       return m.lineStudyHistoryEras;
     }
+    case 3: {
+      const m = await import('../data/generated/line-study-history-g3.generated');
+      return m.lineStudyHistoryEras;
+    }
     default:
-      return null; // 中3 は未実装
+      return null;
   }
 }
 

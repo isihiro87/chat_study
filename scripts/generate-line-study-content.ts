@@ -46,6 +46,15 @@ const GRADE_FOLDERS: Record<number, string[]> = {
     '11-meiji-early',
     '12-meiji-late',
   ],
+  3: [
+    '13-ww1-japan',
+    '14-taisho-democracy',
+    '15-showa-crisis',
+    '16-ww2-japan',
+    '17-postwar-japan',
+    '18-cold-war-era',
+    '19-modern-world',
+  ],
 };
 
 const ERA_DISPLAY_NAMES: Record<string, { name: string; icon: string; period: string }> = {
@@ -63,6 +72,14 @@ const ERA_DISPLAY_NAMES: Record<string, { name: string; icon: string; period: st
   bakumatsu: { name: '幕末', icon: '⚔️', period: '1853年〜1868年' },
   'meiji-early': { name: '明治時代（前期）', icon: '🌅', period: '1868年〜1889年' },
   'meiji-late': { name: '明治時代（後期）', icon: '🏭', period: '1889年〜1912年' },
+  // grade 3
+  'ww1-japan': { name: '第一次世界大戦と日本', icon: '⚔️', period: '1914年〜1920年代' },
+  'taisho-democracy': { name: '大正デモクラシー', icon: '🗳️', period: '1910年代〜1920年代' },
+  'showa-crisis': { name: '世界恐慌と日本の中国侵略', icon: '🌑', period: '1929年〜1937年' },
+  'ww2-japan': { name: '第二次世界大戦と日本', icon: '💣', period: '1939年〜1945年' },
+  'postwar-japan': { name: '戦後の日本', icon: '🕊️', period: '1945年〜1952年' },
+  'cold-war-era': { name: '冷戦と日本の成長', icon: '🌐', period: '1950年代〜1970年代' },
+  'modern-world': { name: '現代の世界と日本', icon: '🌏', period: '1989年〜現在' },
 };
 
 interface RawFlashcard {
