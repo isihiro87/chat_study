@@ -1,12 +1,12 @@
 {
   "premium": {
-    "richMenuId": "richmenu-03555ed81ff125bceb5ed0461f0d1aff",
-    "createdAt": "2026-05-11T04:05:59.242Z",
+    "richMenuId": "richmenu-ecb9a8e29f97c347df122c9455e36615",
+    "createdAt": "2026-05-11T07:11:59.513Z",
     "imageUploaded": true
   },
   "free": {
-    "richMenuId": "richmenu-b6ecea78d37d5f2355d2dca2cc8e680e",
-    "createdAt": "2026-05-11T04:06:14.959Z",
+    "richMenuId": "richmenu-f37272752b4a46c6ed0ae03df14f70e4",
+    "createdAt": "2026-05-11T07:12:15.634Z",
     "imageUploaded": true
   }
 }
