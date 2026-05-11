@@ -7,9 +7,72 @@
     <meta name="description" content="中学生のためのスマホ学習サイト。公式LINEから始める" />
     <meta name="robots" content="noindex,nofollow" />
     <title>チャットでスタディ｜公式LINE</title>
+
+    <!-- Firebase 系ドメインへの接続を前倒し（DNS / TCP / TLS のハンドシェイク短縮） -->
+    <link rel="preconnect" href="https://firestore.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://identitytoolkit.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://securetoken.googleapis.com" crossorigin />
+    <link rel="dns-prefetch" href="https://firestore.googleapis.com" />
+    <link rel="dns-prefetch" href="https://identitytoolkit.googleapis.com" />
+    <link rel="dns-prefetch" href="https://securetoken.googleapis.com" />
+
+    <!--
+      First-paint の loading 表示。JS の download / parse / React mount まで
+      数秒かかる間、ユーザーに真っ白画面を見せないために HTML に直接 inline。
+      React がマウントすると <div id="root"> の中身は置き換わるため自動的に消える。
+    -->
+    <style>
+      html, body { margin: 0; padding: 0; height: 100%; }
+      body {
+        background: #FAF9F7;
+        font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Noto Sans JP', sans-serif;
+        color: #6B7280;
+      }
+      #root { min-height: 100vh; }
+      .initial-loading {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 0 16px;
+        box-sizing: border-box;
+      }
+      .initial-loading-dots {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 16px;
+      }
+      .initial-loading-dot {
+        width: 12px;
+        height: 12px;
+        background: #F59E0B;
+        border-radius: 50%;
+        animation: initial-loading-bounce 0.9s infinite ease-in-out;
+      }
+      .initial-loading-dot:nth-child(2) { animation-delay: 0.15s; }
+      .initial-loading-dot:nth-child(3) { animation-delay: 0.3s; }
+      .initial-loading-text {
+        font-size: 14px;
+        margin: 0;
+      }
+      @keyframes initial-loading-bounce {
+        0%, 80%, 100% { transform: translateY(0); }
+        40% { transform: translateY(-10px); }
+      }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <div class="initial-loading" role="status" aria-live="polite">
+        <div class="initial-loading-dots" aria-hidden="true">
+          <span class="initial-loading-dot"></span>
+          <span class="initial-loading-dot"></span>
+          <span class="initial-loading-dot"></span>
+        </div>
+        <p class="initial-loading-text">読み込み中...</p>
+      </div>
+    </div>
     <script type="module" src="/src/main.line.tsx"></script>
   </body>
 </html>
