@@ -1,0 +1,330 @@
+{
+  "subjectId": "history",
+  "eraId": "modern-era",
+  "topicId": "french-revolution",
+  "name": "フランス革命",
+  "subtitle": "自由・平等・友愛の理想",
+  "icon": "🇫🇷",
+  "order": 3,
+  "chatId": "french-revolution",
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "フランス革命",
+      "back": "1789年に始まった、絶対王政を打倒した市民革命は？",
+      "explanation": "バスティーユ牢獄襲撃をきっかけに始まり、国王を処刑した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "人権宣言",
+      "back": "フランス革命で発表された、自由・平等・国民主権を謳った宣言は？",
+      "explanation": "「人は生まれながらにして自由で平等な権利を持つ」と宣言した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "バスティーユ牢獄",
+      "back": "1789年7月14日に市民が襲撃したパリの監獄は？",
+      "explanation": "フランス革命の始まりを象徴する事件。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "第三身分",
+      "back": "フランス革命前、人口の98%を占め重い税に苦しんでいた平民は？",
+      "explanation": "聖職者（第一身分）や貴族（第二身分）と違い税を負担していた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc5",
+      "front": "ルイ16世",
+      "back": "フランス革命で処刑されたフランス国王は？",
+      "explanation": "絶対王政の象徴として、1793年にギロチンで処刑された。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc6",
+      "front": "ナポレオン",
+      "back": "革命後の混乱を収拾し、皇帝となったフランスの軍人は？",
+      "explanation": "ヨーロッパの大部分を征服し、ナポレオン法典を制定した。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc7",
+      "front": "ナポレオン法典",
+      "back": "ナポレオンが制定した、個人の自由と財産権を保障した民法は？",
+      "explanation": "近代市民社会のルールとして各国の法律に影響を与えた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc8",
+      "front": "三部会",
+      "back": "聖職者・貴族・平民の代表で構成されるフランスの身分制議会は？",
+      "explanation": "1789年に175年ぶりに召集され、革命のきっかけとなった。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc9",
+      "front": "国民主権",
+      "back": "国の政治を決める権利は国民にあるという考え方は？",
+      "explanation": "ルソーが唱え、人権宣言にも盛り込まれた。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc10",
+      "front": "ウィーン会議",
+      "back": "ナポレオン失脚後に開かれた、ヨーロッパの秩序を戻す国際会議は？",
+      "explanation": "革命前のヨーロッパの秩序に戻すことを目的とした。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc11",
+      "front": "絶対王政",
+      "back": "国王が絶対的な権力を持つ政治体制は？",
+      "explanation": "フランス革命前のフランスの政治体制。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc12",
+      "front": "第一身分",
+      "back": "フランス革命前の身分制で聖職者を何と呼んだか？",
+      "explanation": "税を免除される特権階級の一つ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc13",
+      "front": "第二身分",
+      "back": "フランス革命前の身分制で貴族を何と呼んだか？",
+      "explanation": "税を免除される特権階級の一つ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc15",
+      "front": "1789年",
+      "back": "フランス革命が起きた年は？",
+      "explanation": "バスティーユ牢獄襲撃をきっかけに革命が始まった。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc16",
+      "front": "自由・平等・友愛",
+      "back": "フランス革命の理想を表すスローガンは？",
+      "explanation": "革命の理念として広く知られる。",
+      "difficulty": "basic"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "フランス革命のきっかけとなった1789年の事件は？",
+        "options": [
+          "バスティーユ牢獄襲撃",
+          "アヘン戦争",
+          "名誉革命",
+          "ボストン茶会事件"
+        ],
+        "correctIndex": 0,
+        "explanation": "1789年7月14日のバスティーユ牢獄襲撃がフランス革命の始まりです。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "フランス革命前、人口の98%を占め重い税に苦しんでいたのは？",
+        "options": [
+          "第一身分",
+          "第二身分",
+          "国王",
+          "第三身分"
+        ],
+        "correctIndex": 3,
+        "explanation": "第三身分だけが重い税を負担していました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "フランス革命で発表された文書は？",
+        "options": [
+          "独立宣言",
+          "権利章典",
+          "人権宣言",
+          "ナポレオン法典"
+        ],
+        "correctIndex": 2,
+        "explanation": "人権宣言は「人は生まれながらにして自由で平等」という理念を世界に広めました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "フランス革命で処刑された国王は？",
+        "options": [
+          "ルイ14世",
+          "シャルル1世",
+          "ナポレオン",
+          "ルイ16世"
+        ],
+        "correctIndex": 3,
+        "explanation": "ルイ16世は1793年にギロチンで処刑されました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q5",
+        "question": "革命後皇帝となったフランスの軍人は？",
+        "options": [
+          "ナポレオン",
+          "ビスマルク",
+          "ロベスピエール",
+          "クロムウェル"
+        ],
+        "correctIndex": 0,
+        "explanation": "ナポレオンは皇帝に即位し、ヨーロッパの大部分を支配しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q6",
+        "question": "ナポレオンが制定した民法は？",
+        "options": [
+          "人権宣言",
+          "権利章典",
+          "合衆国憲法",
+          "ナポレオン法典"
+        ],
+        "correctIndex": 3,
+        "explanation": "ナポレオン法典は近代市民社会のルールとして各国に影響を与えました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q7",
+        "question": "フランス革命前の身分制で第一身分は？",
+        "options": [
+          "貴族",
+          "聖職者",
+          "平民",
+          "国王"
+        ],
+        "correctIndex": 1,
+        "explanation": "第一身分は聖職者で、税を免除される特権階級でした。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q8",
+        "question": "175年ぶりに召集された会議は？",
+        "options": [
+          "国民議会",
+          "三部会",
+          "ウィーン会議",
+          "制憲議会"
+        ],
+        "correctIndex": 1,
+        "explanation": "三部会は聖職者・貴族・平民の代表で構成される身分制議会です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q9",
+        "question": "ナポレオン失脚後に開かれた国際会議は？",
+        "options": [
+          "パリ会議",
+          "ウィーン会議",
+          "ベルリン会議",
+          "ロンドン会議"
+        ],
+        "correctIndex": 1,
+        "explanation": "ウィーン会議は革命前のヨーロッパの秩序に戻すために開かれました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q10",
+        "question": "ナポレオンが失敗した遠征先は？",
+        "options": [
+          "イギリス",
+          "エジプト",
+          "ロシア",
+          "スペイン"
+        ],
+        "correctIndex": 2,
+        "explanation": "ロシア遠征で冬将軍に苦しめられ、大軍を失いました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q11",
+        "question": "フランス革命が起きた年は？",
+        "options": [
+          "1776年",
+          "1783年",
+          "1789年",
+          "1804年"
+        ],
+        "correctIndex": 2,
+        "explanation": "1789年にバスティーユ牢獄襲撃をきっかけに始まりました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q12",
+        "question": "フランス革命前の政治体制は？",
+        "options": [
+          "立憲君主制",
+          "共和制",
+          "絶対王政",
+          "封建制"
+        ],
+        "correctIndex": 2,
+        "explanation": "革命前のフランスは絶対王政でした。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q13",
+        "question": "フランス革命の理想を表すスローガンは？",
+        "options": [
+          "代表なくして課税なし",
+          "自由・平等・友愛",
+          "人民の人民による政治",
+          "鉄と血による統一"
+        ],
+        "correctIndex": 1,
+        "explanation": "「自由・平等・友愛」をスローガンに掲げました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q14",
+        "question": "ルイ16世が処刑された年は？",
+        "options": [
+          "1789年",
+          "1791年",
+          "1793年",
+          "1799年"
+        ],
+        "correctIndex": 2,
+        "explanation": "ルイ16世は1793年にギロチンで処刑されました。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q15",
+        "question": "ナポレオンが皇帝に即位した年は？",
+        "options": [
+          "1789年",
+          "1799年",
+          "1804年",
+          "1815年"
+        ],
+        "correctIndex": 2,
+        "explanation": "ナポレオンは1804年に皇帝に即位しました。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q16",
+        "question": "人権宣言に影響を与えた啓蒙思想家は？",
+        "options": [
+          "ビスマルク",
+          "クロムウェル",
+          "ルソー",
+          "ワシントン"
+        ],
+        "correctIndex": 2,
+        "explanation": "ルソーの国民主権の思想が人権宣言に影響を与えました。",
+        "difficulty": "standard"
+      }
+    ]
+  }
+}

@@ -1,0 +1,271 @@
+{
+  "subjectId": "history",
+  "eraId": "showa-crisis",
+  "topicId": "manchurian-incident",
+  "name": "満州事変と軍部の暴走",
+  "subtitle": "政党政治の崩壊",
+  "icon": "🔥",
+  "order": 2,
+  "chatId": "manchurian-incident",
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "満州事変",
+      "back": "1931年、関東軍が起こした中国侵略のきっかけとなった事件は？",
+      "explanation": "柳条湖事件で南満州鉄道を爆破し、これを口実に軍事行動を起こした。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "柳条湖事件",
+      "back": "1931年9月、関東軍が南満州鉄道を爆破した事件は？",
+      "explanation": "満州事変の引き金。中国軍の仕業と偽った。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "1931年",
+      "back": "満州事変が起きた年は？",
+      "explanation": "柳条湖事件をきっかけとした。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "満州国",
+      "back": "1932年、日本が満州に作った傀儡国家は？",
+      "explanation": "清の最後の皇帝・溥儀を執政（後に皇帝）に据えた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc5",
+      "front": "1932年",
+      "back": "満州国建国・五・一五事件の年は？",
+      "explanation": "政党政治が事実上終わった年。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc6",
+      "front": "溥儀（ふぎ）",
+      "back": "満州国の執政（後に皇帝）となった清の最後の皇帝は？",
+      "explanation": "宣統帝として知られる。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc7",
+      "front": "リットン調査団",
+      "back": "国際連盟が満州事変を調査するため派遣した団体は？",
+      "explanation": "満州国を認めず日本に撤退を勧告した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc8",
+      "front": "国際連盟脱退",
+      "back": "1933年、リットン調査団の報告を不服として日本がとった行動は？",
+      "explanation": "国際的孤立を深めた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc9",
+      "front": "1933年",
+      "back": "日本が国際連盟を脱退した年は？",
+      "explanation": "国際的に孤立する転換点となった。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc10",
+      "front": "五・一五事件",
+      "back": "1932年、海軍青年将校らが犬養毅首相を暗殺した事件は？",
+      "explanation": "政党政治が事実上終わった。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc11",
+      "front": "犬養毅",
+      "back": "五・一五事件で暗殺された首相は？",
+      "explanation": "立憲政友会総裁。「話せばわかる」と言ったとされる。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc12",
+      "front": "二・二六事件",
+      "back": "1936年、陸軍青年将校らが起こしたクーデター未遂事件は？",
+      "explanation": "高橋是清蔵相らが暗殺された。鎮圧された後、軍部の発言力が強まった。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc13",
+      "front": "1936年",
+      "back": "二・二六事件が起きた年は？",
+      "explanation": "雪の降る東京で起きた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc14",
+      "front": "関東軍",
+      "back": "満州に駐留していた日本陸軍の部隊は？",
+      "explanation": "満州事変などを独断で進めた。",
+      "difficulty": "standard"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "1931年に始まった日本の中国侵略のきっかけは？",
+        "options": [
+          "満州事変",
+          "日中戦争",
+          "二十一か条要求",
+          "義和団事件"
+        ],
+        "correctIndex": 0,
+        "explanation": "満州事変は柳条湖事件から始まりました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "1932年に日本が建国した傀儡国家は？",
+        "options": [
+          "朝鮮国",
+          "蒙古国",
+          "中華民国",
+          "満州国"
+        ],
+        "correctIndex": 3,
+        "explanation": "満州国は溥儀を皇帝として作られました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "1932年に犬養毅首相が暗殺された事件は？",
+        "options": [
+          "二・二六事件",
+          "血盟団事件",
+          "桜田門外の変",
+          "五・一五事件"
+        ],
+        "correctIndex": 3,
+        "explanation": "五・一五事件で政党政治が事実上終わりました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "1936年に陸軍青年将校が起こしたクーデター未遂事件は？",
+        "options": [
+          "二・二六事件",
+          "五・一五事件",
+          "三月事件",
+          "ノモンハン事件"
+        ],
+        "correctIndex": 0,
+        "explanation": "二・二六事件は鎮圧後、軍部の発言力が強まりました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q5",
+        "question": "国際連盟が派遣した満州事変の調査団は？",
+        "options": [
+          "リットン調査団",
+          "国際監視団",
+          "ハル調査団",
+          "ウィルソン委員会"
+        ],
+        "correctIndex": 0,
+        "explanation": "リットン調査団は日本に撤退を勧告しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q6",
+        "question": "日本が国際連盟を脱退した年は？",
+        "options": [
+          "1931年",
+          "1932年",
+          "1933年",
+          "1936年"
+        ],
+        "correctIndex": 2,
+        "explanation": "1933年に脱退しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q7",
+        "question": "満州国の元首となった人物は？",
+        "options": [
+          "袁世凱",
+          "孫文",
+          "溥儀",
+          "蒋介石"
+        ],
+        "correctIndex": 2,
+        "explanation": "清の最後の皇帝・溥儀でした。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q8",
+        "question": "柳条湖事件で爆破されたのは？",
+        "options": [
+          "朝鮮鉄道",
+          "京漢鉄道",
+          "シベリア鉄道",
+          "南満州鉄道"
+        ],
+        "correctIndex": 3,
+        "explanation": "南満州鉄道が爆破されました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q9",
+        "question": "二・二六事件で暗殺された蔵相は？",
+        "options": [
+          "浜口雄幸",
+          "高橋是清",
+          "鳩山一郎",
+          "犬養毅"
+        ],
+        "correctIndex": 1,
+        "explanation": "高橋是清蔵相が暗殺されました。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q10",
+        "question": "満州事変を独断で進めた日本軍は？",
+        "options": [
+          "朝鮮軍",
+          "関東軍",
+          "支那派遣軍",
+          "南方軍"
+        ],
+        "correctIndex": 1,
+        "explanation": "関東軍が独断で進めました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q11",
+        "question": "満州国建国の年は？",
+        "options": [
+          "1929年",
+          "1931年",
+          "1932年",
+          "1937年"
+        ],
+        "correctIndex": 2,
+        "explanation": "1932年に建国されました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q12",
+        "question": "五・一五事件以降の政治の変化は？",
+        "options": [
+          "政党政治の継続",
+          "政党政治の終焉",
+          "天皇親政の復活",
+          "民主主義の確立"
+        ],
+        "correctIndex": 1,
+        "explanation": "政党政治が事実上終わり、軍部の発言力が強まりました。",
+        "difficulty": "standard"
+      }
+    ]
+  }
+}

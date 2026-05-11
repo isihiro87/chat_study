@@ -1,0 +1,391 @@
+{
+  "subjectId": "history",
+  "eraId": "medieval-world",
+  "topicId": "mongol-invasion",
+  "name": "元寇と鎌倉幕府の滅亡",
+  "subtitle": "元の襲来から建武の新政へ",
+  "icon": "⚔️",
+  "order": 3,
+  "chatId": "mongol-invasion",
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "元寇",
+      "back": "13世紀後半に元が二度にわたり日本へ攻めてきたことを何という？",
+      "explanation": "文永の役（1274年）と弘安の役（1281年）の二度の襲来を指す。鎌倉幕府の衰えにつながった。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "北条時宗",
+      "back": "二度の元寇に際し防衛を指揮した鎌倉幕府の執権は？",
+      "explanation": "第8代執権として元の服属要求を拒否し、博多湾に石塁を築かせた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "文永の役",
+      "back": "1274年、元軍が日本を攻めた最初の戦いは？",
+      "explanation": "対馬・壱岐を攻め、博多湾に上陸した。元と高麗の連合軍が集団戦法とてつはうで攻めた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "弘安の役",
+      "back": "1281年、元が再び日本を攻めた戦いは？",
+      "explanation": "石の防壁や暴風雨で元軍が大打撃を受け、退いた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc5",
+      "front": "てつはう",
+      "back": "元軍が使った火薬を利用した武器は？",
+      "explanation": "日本の武士を苦しめた。元軍の集団戦法と合わせて出題される。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc6",
+      "front": "集団戦法",
+      "back": "元軍が用いた、統制のとれた大勢の兵士による戦い方は？",
+      "explanation": "一騎打ちが主流だった日本の武士にとって初めて経験する戦い方だった。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc7",
+      "front": "石の防壁（石塁）",
+      "back": "弘安の役に備えて博多湾に築かれた防衛施設は？",
+      "explanation": "北条時宗の指示で築かれ、弘安の役で元軍の上陸を効果的に防いだ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc8",
+      "front": "蒙古襲来絵詞",
+      "back": "恩賞を求めて幕府に訴える御家人の様子を描いた絵巻は？",
+      "explanation": "元寇の戦闘の様子や御家人の恩賞要求が描かれた貴重な史料。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc9",
+      "front": "永仁の徳政令",
+      "back": "1297年、幕府が御家人を救うために出した法令は？",
+      "explanation": "借金の帳消しや土地の取り戻しを認めた。効果は一時的で、かえって金貸しが御家人に金を貸さなくなった。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc10",
+      "front": "悪党",
+      "back": "鎌倉時代末期、荘園領主や幕府の命令に従わず活動した武士は？",
+      "explanation": "「悪人」という意味だけでなく、幕府に従わない勢力を指す。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc11",
+      "front": "後醍醐天皇",
+      "back": "鎌倉幕府を倒し、天皇中心の政治をめざした人物は？",
+      "explanation": "建武の新政を始めた。足利尊氏や新田義貞の協力を得て鎌倉幕府を倒した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc12",
+      "front": "足利尊氏",
+      "back": "京都の六波羅探題を攻め落とした有力御家人は？",
+      "explanation": "北条氏への権力集中に不満を持ち、幕府を裏切って後醍醐天皇に味方した。のちに室町幕府を開く。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc13",
+      "front": "新田義貞",
+      "back": "鎌倉を攻めて幕府を滅ぼした武将は？",
+      "explanation": "1333年に鎌倉を攻め落とし、約150年続いた鎌倉幕府を直接滅ぼした。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc14",
+      "front": "1333年",
+      "back": "鎌倉幕府が滅亡した年は？",
+      "explanation": "足利尊氏が六波羅探題を、新田義貞が鎌倉を攻めて幕府が倒れた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc15",
+      "front": "建武の新政",
+      "back": "後醍醐天皇が始めた天皇中心の政治は？",
+      "explanation": "貴族を重視したため武士の不満を招き、約2年で崩れた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc16",
+      "front": "分割相続",
+      "back": "御家人の領地が次第に減少していった原因となった相続方法は？",
+      "explanation": "親の領地を子供たちに分けて相続させるため、世代ごとに一人あたりの領地が減った。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc18",
+      "front": "博多湾",
+      "back": "元軍が九州北部に上陸した場所で、石塁が築かれた湾は？",
+      "explanation": "現在の福岡市にあり、弘安の役に備えて約20kmの石塁が築かれた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc20",
+      "front": "暴風雨",
+      "back": "弘安の役で元軍が大打撃を受けた自然現象は？",
+      "explanation": "台風とも言われる暴風雨が元軍の艦隊を壊滅させ、日本の防衛に貢献した。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc21",
+      "front": "第8代執権",
+      "back": "北条時宗は鎌倉幕府の何代目の執権？",
+      "explanation": "若くして執権となり、二度の元寇を指揮して日本を守った。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc22",
+      "front": "楠木正成",
+      "back": "後醍醐天皇に味方し、鎌倉幕府倒幕に活躍した武将は？",
+      "explanation": "ゲリラ戦で幕府軍を苦しめ、後醍醐天皇への忠義で知られる武将。",
+      "difficulty": "advanced"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "1274年に起こった元の最初の襲来はどれですか。",
+        "options": [
+          "弘安の役",
+          "応仁の乱",
+          "承久の乱",
+          "文永の役"
+        ],
+        "correctIndex": 3,
+        "explanation": "1274年が文永の役、1281年が弘安の役です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "文永の役と弘安の役を合わせて何といいますか。",
+        "options": [
+          "元寇",
+          "南北朝の動乱",
+          "倭寇",
+          "建武の新政"
+        ],
+        "correctIndex": 0,
+        "explanation": "元の2度の襲来を元寇といいます。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "二度の元寇に際し、防衛を指揮した鎌倉幕府の執権は？",
+        "options": [
+          "北条時宗",
+          "北条泰時",
+          "北条義時",
+          "北条時頼"
+        ],
+        "correctIndex": 0,
+        "explanation": "北条時宗は第8代執権として二度の元寇を指揮しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "元軍が使用した、火薬を用いた武器は何と呼ばれた？",
+        "options": [
+          "火縄銃",
+          "大砲",
+          "投石機",
+          "てつはう"
+        ],
+        "correctIndex": 3,
+        "explanation": "てつはうは元軍が用いた火薬を使った武器です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q5",
+        "question": "弘安の役に備えて博多湾に築かれた防衛施設は？",
+        "options": [
+          "木製の城壁",
+          "竹や木の柵",
+          "深い水堀",
+          "石の防壁"
+        ],
+        "correctIndex": 3,
+        "explanation": "石の防壁（石塁）が築かれ、元軍の上陸を効果的に防ぎました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q6",
+        "question": "鎌倉幕府を倒し、天皇中心の政治を始めた天皇はだれですか。",
+        "options": [
+          "後鳥羽上皇",
+          "白河上皇",
+          "後三条天皇",
+          "後醍醐天皇"
+        ],
+        "correctIndex": 3,
+        "explanation": "後醍醐天皇は建武の新政を始めました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q7",
+        "question": "御家人を救うため、借金の帳消しなどを認めた法令はどれですか。",
+        "options": [
+          "御成敗式目",
+          "永仁の徳政令",
+          "武家諸法度",
+          "大宝律令"
+        ],
+        "correctIndex": 1,
+        "explanation": "永仁の徳政令は御家人救済を目的に出されましたが、効果は限られました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q8",
+        "question": "鎌倉時代末期、荘園領主や幕府に従わず活動した武士を何といいますか。",
+        "options": [
+          "守護大名",
+          "僧兵",
+          "悪党",
+          "御家人"
+        ],
+        "correctIndex": 2,
+        "explanation": "悪党は幕府や荘園領主の支配に従わない武士です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q9",
+        "question": "元軍が日本の武士を苦しめた戦い方として正しいものはどれですか。",
+        "options": [
+          "一騎打ちのみで戦った",
+          "集団戦法や火薬の武器を使った",
+          "鉄砲を大量に使った",
+          "城を築いて長期戦だけを行った"
+        ],
+        "correctIndex": 1,
+        "explanation": "元軍は集団戦法や「てつはう」を使いました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q11",
+        "question": "京都の六波羅探題を攻め落とし、後醍醐天皇に味方した武将は？",
+        "options": [
+          "源義経",
+          "北条政子",
+          "楠木正成",
+          "足利尊氏"
+        ],
+        "correctIndex": 3,
+        "explanation": "足利尊氏は六波羅探題を攻め落としました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q12",
+        "question": "鎌倉を攻めて幕府を直接滅ぼした武将は？",
+        "options": [
+          "足利尊氏",
+          "足利義満",
+          "楠木正成",
+          "新田義貞"
+        ],
+        "correctIndex": 3,
+        "explanation": "新田義貞は1333年に鎌倉を攻め、鎌倉幕府を直接滅ぼしました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q13",
+        "question": "建武の新政が短期間で崩れた理由として正しいものはどれですか。",
+        "options": [
+          "武士より貴族を重視したため",
+          "元軍が京都を占領したため",
+          "守護が全員廃止されたため",
+          "鎌倉幕府が再び強くなったため"
+        ],
+        "correctIndex": 0,
+        "explanation": "建武の新政は貴族重視だったため、武士の不満を招きました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q14",
+        "question": "文永の役で元軍が最初に攻撃した地域は？",
+        "options": [
+          "九州北部",
+          "対馬・壱岐",
+          "本州",
+          "四国"
+        ],
+        "correctIndex": 1,
+        "explanation": "文永の役で元軍はまず対馬と壱岐を攻撃しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q15",
+        "question": "鎌倉幕府が滅亡した年は？",
+        "options": [
+          "1281年",
+          "1297年",
+          "1333年",
+          "1338年"
+        ],
+        "correctIndex": 2,
+        "explanation": "1333年に幕府が滅亡しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q18",
+        "question": "御家人の領地が次第に減少していった原因となった相続の方法は？",
+        "options": [
+          "長子相続",
+          "一括相続",
+          "分割相続",
+          "養子相続"
+        ],
+        "correctIndex": 2,
+        "explanation": "分割相続により世代を重ねるごとに一人あたりの領地が減少しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q19",
+        "question": "石の防壁（石塁）はどこに築かれた？",
+        "options": [
+          "対馬",
+          "鎌倉",
+          "博多湾",
+          "壇ノ浦"
+        ],
+        "correctIndex": 2,
+        "explanation": "弘安の役に備えて博多湾に築かれました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q21",
+        "question": "次のできごとを古い順に並べたものとして正しいものはどれですか。",
+        "options": [
+          "元寇→鎌倉幕府滅亡→建武の新政→室町幕府成立",
+          "建武の新政→元寇→室町幕府成立→鎌倉幕府滅亡",
+          "鎌倉幕府滅亡→元寇→建武の新政→室町幕府成立",
+          "室町幕府成立→元寇→鎌倉幕府滅亡→建武の新政"
+        ],
+        "correctIndex": 0,
+        "explanation": "元寇は1274・1281年、鎌倉幕府滅亡は1333年、建武の新政は1334年、室町幕府成立は1338年です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q22",
+        "question": "北条時宗は鎌倉幕府の何代目の執権？",
+        "options": [
+          "第3代",
+          "第5代",
+          "第8代",
+          "第10代"
+        ],
+        "correctIndex": 2,
+        "explanation": "北条時宗は鎌倉幕府の第8代執権です。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

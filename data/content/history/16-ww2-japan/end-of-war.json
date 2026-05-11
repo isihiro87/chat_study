@@ -1,0 +1,271 @@
+{
+  "subjectId": "history",
+  "eraId": "ww2-japan",
+  "topicId": "end-of-war",
+  "name": "終戦への道",
+  "subtitle": "原爆と降伏",
+  "icon": "🕊️",
+  "order": 4,
+  "chatId": "end-of-war",
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "ヤルタ会談",
+      "back": "1945年2月、米英ソが戦後処理を話し合った会談は？",
+      "explanation": "ソ連の対日参戦が秘密協定で決められた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc2",
+      "front": "ポツダム宣言",
+      "back": "1945年7月、米英中（後にソ連も）が日本に降伏を勧告した宣言は？",
+      "explanation": "日本は当初黙殺し、原爆投下とソ連参戦を招いた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "1945年",
+      "back": "ポツダム宣言・原爆投下・終戦の年は？",
+      "explanation": "第二次世界大戦が終わった年。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "広島原爆",
+      "back": "1945年8月6日に原子爆弾が投下された都市は？",
+      "explanation": "人類史上初の核兵器の実戦使用。約14万人が犠牲となった。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc5",
+      "front": "1945年8月6日",
+      "back": "広島に原爆が投下された日は？",
+      "explanation": "毎年原爆死没者慰霊式典が行われる。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc6",
+      "front": "長崎原爆",
+      "back": "1945年8月9日に原子爆弾が投下された都市は？",
+      "explanation": "約7万人が犠牲となった。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc7",
+      "front": "1945年8月9日",
+      "back": "長崎に原爆が投下された日は？",
+      "explanation": "ソ連の対日参戦と同日。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc8",
+      "front": "ソ連参戦",
+      "back": "1945年8月8日に日ソ中立条約を破棄して日本に攻め込んだソ連の行動は？",
+      "explanation": "ヤルタ会談の秘密協定に基づく。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc9",
+      "front": "8月15日",
+      "back": "昭和天皇が玉音放送で終戦を国民に伝えた日は？",
+      "explanation": "ポツダム宣言受諾を国民に告げた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc10",
+      "front": "玉音放送",
+      "back": "昭和天皇が直接ラジオで国民に終戦を伝えた放送は？",
+      "explanation": "「耐え難きを耐え」の一節で有名。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc11",
+      "front": "ポツダム宣言受諾",
+      "back": "1945年8月14日に日本が決定した内容は？",
+      "explanation": "翌日に玉音放送で国民に告げられた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc12",
+      "front": "1945年9月2日",
+      "back": "戦艦ミズーリ艦上で日本が降伏文書に調印した日は？",
+      "explanation": "正式に第二次世界大戦が終結した日。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc13",
+      "front": "鈴木貫太郎",
+      "back": "終戦時の日本の首相は？",
+      "explanation": "ポツダム宣言受諾を主導した。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc14",
+      "front": "ミズーリ号",
+      "back": "日本が降伏文書に調印した戦艦は？",
+      "explanation": "東京湾に停泊していたアメリカの戦艦。",
+      "difficulty": "advanced"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "広島に原爆が投下された日は？",
+        "options": [
+          "8月6日",
+          "8月9日",
+          "8月15日",
+          "9月2日"
+        ],
+        "correctIndex": 0,
+        "explanation": "1945年8月6日です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "長崎に原爆が投下された日は？",
+        "options": [
+          "8月6日",
+          "9月2日",
+          "8月15日",
+          "8月9日"
+        ],
+        "correctIndex": 3,
+        "explanation": "1945年8月9日です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "昭和天皇が玉音放送で終戦を伝えた日は？",
+        "options": [
+          "8月6日",
+          "8月9日",
+          "8月15日",
+          "9月2日"
+        ],
+        "correctIndex": 2,
+        "explanation": "1945年8月15日です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "1945年7月に日本に降伏を勧告した宣言は？",
+        "options": [
+          "カイロ宣言",
+          "ヤルタ協定",
+          "ポツダム宣言",
+          "サンフランシスコ宣言"
+        ],
+        "correctIndex": 2,
+        "explanation": "ポツダム宣言が降伏を勧告しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q5",
+        "question": "日本が降伏文書に調印した日は？",
+        "options": [
+          "8月15日",
+          "12月8日",
+          "10月3日",
+          "9月2日"
+        ],
+        "correctIndex": 3,
+        "explanation": "1945年9月2日です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q6",
+        "question": "1945年2月に米英ソが戦後処理を話し合った会談は？",
+        "options": [
+          "カイロ会談",
+          "テヘラン会談",
+          "ポツダム会談",
+          "ヤルタ会談"
+        ],
+        "correctIndex": 3,
+        "explanation": "ヤルタ会談でソ連の対日参戦が秘密協定で決められました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q7",
+        "question": "ソ連が対日参戦した日は？",
+        "options": [
+          "8月6日",
+          "8月8日",
+          "8月15日",
+          "9月2日"
+        ],
+        "correctIndex": 1,
+        "explanation": "1945年8月8日です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q8",
+        "question": "終戦時の日本の首相は？",
+        "options": [
+          "東条英機",
+          "小磯国昭",
+          "鈴木貫太郎",
+          "幣原喜重郎"
+        ],
+        "correctIndex": 2,
+        "explanation": "鈴木貫太郎がポツダム宣言受諾を主導しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q9",
+        "question": "日本が降伏文書に調印した戦艦は？",
+        "options": [
+          "ミズーリ",
+          "アリゾナ",
+          "エンタープライズ",
+          "ニミッツ"
+        ],
+        "correctIndex": 0,
+        "explanation": "戦艦ミズーリ艦上で行われました。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q10",
+        "question": "広島原爆の犠牲者はおよそ？",
+        "options": [
+          "1万人",
+          "5万人",
+          "14万人",
+          "50万人"
+        ],
+        "correctIndex": 2,
+        "explanation": "1945年末までに約14万人が犠牲となりました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q11",
+        "question": "ソ連参戦の根拠となった協定は？",
+        "options": [
+          "ポーランド分割協定",
+          "ヤルタ秘密協定",
+          "ベルサイユ条約",
+          "三国同盟"
+        ],
+        "correctIndex": 1,
+        "explanation": "ヤルタ会談の秘密協定でソ連参戦が決められました。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q12",
+        "question": "ポツダム宣言を最初に発表した国は？",
+        "options": [
+          "米英中",
+          "米英ソ",
+          "英仏中",
+          "米英仏"
+        ],
+        "correctIndex": 0,
+        "explanation": "発表時はアメリカ・イギリス・中国の三国でした。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

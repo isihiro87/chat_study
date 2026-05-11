@@ -1,0 +1,403 @@
+{
+  "subjectId": "history",
+  "eraId": "medieval-world",
+  "topicId": "muromachi-industry",
+  "name": "室町時代の産業",
+  "subtitle": "農業・手工業・商業の発展",
+  "icon": "🌾",
+  "order": 6,
+  "chatId": "muromachi-industry",
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "二毛作",
+      "back": "同じ土地で年に2回、異なる作物を栽培する農業技術は？",
+      "explanation": "鎌倉時代から普及し、室町時代にはさらに各地に広がった。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "三毛作",
+      "back": "一部の温暖な地域で行われた、年に3回作物を栽培する方法は？",
+      "explanation": "温暖な地域で行われ、二毛作をさらに発展させた農法。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc3",
+      "front": "水車",
+      "back": "かんがいのために利用された道具は？",
+      "explanation": "川の水を田に引き上げる仕組みで、農業の効率を向上させた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "堆肥",
+      "back": "牛馬の糞を使って作られた肥料は？",
+      "explanation": "鎌倉時代の草木灰に加え、より効果的な肥料として室町時代に普及した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc5",
+      "front": "商品作物",
+      "back": "市場で売ることを目的に栽培された麻・桑・茶・漆などは？",
+      "explanation": "自給自足から市場向けの農業へと変化したことを示す。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc6",
+      "front": "馬借",
+      "back": "馬を使って荷物を運んだ運送業者は？",
+      "explanation": "交通や商業の発達を示す。室町時代の流通と関係する。土一揆にも参加した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc7",
+      "front": "問（とい）",
+      "back": "港や交通の要地で、商品の保管や運送を行った業者は？",
+      "explanation": "馬借とともに流通の発達を示す。室町時代に運送業と倉庫業を兼ねた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc8",
+      "front": "座",
+      "back": "商工業者が同業者ごとにつくった組織は？",
+      "explanation": "営業の独占を認められることがあった。織物・油・酒などの商工業と関係。寺社の保護を受けた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc9",
+      "front": "六斎市",
+      "back": "室町時代に月6回開かれるようになった定期市は？",
+      "explanation": "鎌倉時代の月3回（三斎市）から倍増し、商業の発展を示した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc10",
+      "front": "宋銭・明銭",
+      "back": "室町時代に中国から輸入されて流通した貨幣は？",
+      "explanation": "日本では独自の通貨が十分になく、中国の銅銭が広く流通した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc11",
+      "front": "西陣",
+      "back": "京都で絹織物の生産が盛んだった地域は？",
+      "explanation": "応仁の乱の西軍の陣地があった場所で、現在も西陣織で有名。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc12",
+      "front": "博多",
+      "back": "西陣とともに絹織物の生産が盛んだった福岡県の地域は？",
+      "explanation": "博多織で知られ、大陸との貿易拠点としても栄えた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc13",
+      "front": "土倉",
+      "back": "質物を取って金を貸す高利貸しの業者は？",
+      "explanation": "幕府の財源にもなったが、土一揆の攻撃対象にもなった。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc14",
+      "front": "酒屋",
+      "back": "酒造業と金融業を兼ね、高利貸しを行った業者は？",
+      "explanation": "酒造業で得た資金を元手に金融業を行い、幕府に税を納めた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc17",
+      "front": "養蚕業",
+      "back": "桑の栽培が増えたことと関係する産業は？",
+      "explanation": "桑は蚕の餌で、絹織物の原料となる生糸を得るための産業。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc18",
+      "front": "営業の独占権",
+      "back": "座のメンバーが寺社に税を納める代わりに得ていたものは？",
+      "explanation": "その地域での営業を独占でき、外部の商人の参入を制限した。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc20",
+      "front": "三斎市",
+      "back": "鎌倉時代に月3回開かれた定期市の呼び名は？",
+      "explanation": "鎌倉時代は月3回だったが、室町時代には月6回の六斎市に増えた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc22",
+      "front": "西陣織",
+      "back": "京都の西陣で生産された絹織物の名称は？",
+      "explanation": "京都の西陣で生産された高級絹織物で、応仁の乱後に発展した。",
+      "difficulty": "advanced"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "室町時代、馬を使って荷物を運んだ運送業者を何といいますか。",
+        "options": [
+          "馬借",
+          "土倉",
+          "酒屋",
+          "惣領"
+        ],
+        "correctIndex": 0,
+        "explanation": "馬借は交通・流通の発達を示す用語です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "同業者がつくり、営業の独占を認められることがあった組織はどれですか。",
+        "options": [
+          "惣領",
+          "管領",
+          "守護",
+          "座"
+        ],
+        "correctIndex": 3,
+        "explanation": "座は商工業者の同業者組織です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "室町時代に定期市が月6回開かれるようになったものを何という？",
+        "options": [
+          "三斎市",
+          "楽市場",
+          "朝の市",
+          "六斎市"
+        ],
+        "correctIndex": 3,
+        "explanation": "六斎市は月に6回開かれる定期市で、鎌倉時代の月3回の三斎市から増加しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "室町時代に中国から輸入されて日本で広く流通した貨幣はどれか？",
+        "options": [
+          "和同開珎",
+          "寛永通宝",
+          "宋銭・明銭",
+          "大判・小判"
+        ],
+        "correctIndex": 2,
+        "explanation": "宋銭や明銭は中国から輸入された貨幣で、永楽通宝などが日本で広く流通しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q5",
+        "question": "京都で絹織物の生産が盛んだった地域はどこか？",
+        "options": [
+          "堺市",
+          "西陣",
+          "博多",
+          "鎌倉"
+        ],
+        "correctIndex": 1,
+        "explanation": "西陣は京都で絹織物の生産が盛んだった地域です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q6",
+        "question": "室町時代に肥料として利用されるようになった堆肥は何から作られた？",
+        "options": [
+          "魚の骨",
+          "牛馬の糞",
+          "海草類",
+          "木の葉"
+        ],
+        "correctIndex": 1,
+        "explanation": "堆肥は牛馬の糞を発酵させて作られた肥料で、室町時代に普及しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q7",
+        "question": "室町時代にかんがいのために利用されるようになった道具は？",
+        "options": [
+          "鉄鍬",
+          "水車",
+          "石臼",
+          "石鎌"
+        ],
+        "correctIndex": 1,
+        "explanation": "水車はかんがい（田に水を引く）のために利用されました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q8",
+        "question": "座が寺社に税を納める代わりに得ていたものは？",
+        "options": [
+          "軍事力強化",
+          "営業の独占権",
+          "土地所有権",
+          "官職登用権"
+        ],
+        "correctIndex": 1,
+        "explanation": "座のメンバーは寺社に税を納める代わりに、その地域での営業の独占権を得ていました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q9",
+        "question": "室町時代に流通した明銭の代表的なものは？",
+        "options": [
+          "和同開珎",
+          "寛永通宝",
+          "永楽通宝",
+          "大判金"
+        ],
+        "correctIndex": 2,
+        "explanation": "永楽通宝は明から輸入された代表的な銅銭です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q10",
+        "question": "鎌倉時代の定期市と室町時代の定期市の違いは？",
+        "options": [
+          "定期市の回数は変わらなかった",
+          "鎌倉は月3回、室町は月6回",
+          "鎌倉は月6回、室町は月3回",
+          "室町時代には定期市がなくなった"
+        ],
+        "correctIndex": 1,
+        "explanation": "鎌倉時代は月3回の三斎市でしたが、室町時代には月6回の六斎市に増えました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q11",
+        "question": "室町時代に栽培が増加した商品作物として正しいのは？",
+        "options": [
+          "米・麦・大豆",
+          "麻・桑・茶・漆",
+          "綿花・とうもろこし",
+          "じゃがいも・さつまいも"
+        ],
+        "correctIndex": 1,
+        "explanation": "麻・桑・茶・漆などの商品作物の栽培が増加し、市場で売るための農業が広がりました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q12",
+        "question": "運送業と倉庫業を兼ねた業者を何という？",
+        "options": [
+          "問（とい）",
+          "馬借業者",
+          "土倉業者",
+          "座の商人"
+        ],
+        "correctIndex": 0,
+        "explanation": "問（とい）は運送業と倉庫業を兼ねた業者です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q13",
+        "question": "桑の栽培が増えた理由は何の生産に関係している？",
+        "options": [
+          "養蚕業",
+          "和紙の生産",
+          "漢方薬の製造",
+          "藍染め"
+        ],
+        "correctIndex": 0,
+        "explanation": "桑は蚕の餌となるため、養蚕業の発展に伴い栽培が増えました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q14",
+        "question": "質物を取って金を貸す高利貸しの業者を何という？",
+        "options": [
+          "問屋",
+          "馬借",
+          "土倉",
+          "座敷"
+        ],
+        "correctIndex": 2,
+        "explanation": "土倉は質物を取って金を貸す高利貸しの業者で、幕府の財源にもなりました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q15",
+        "question": "座が自由な商業の発展を妨げた面として正しいのは？",
+        "options": [
+          "新しい商人の参入を制限した",
+          "商品の価格を不当に安く設定した",
+          "座の商品を独断で輸出した",
+          "寺社への税を拒否した"
+        ],
+        "correctIndex": 0,
+        "explanation": "座は営業を独占して新しい商人の参入を制限したため、自由な商業を妨げる面もありました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q16",
+        "question": "室町時代に各地で生産が盛んになった手工業製品として正しくないのは？",
+        "options": [
+          "陶器",
+          "鋳物類",
+          "和紙",
+          "自動車"
+        ],
+        "correctIndex": 3,
+        "explanation": "室町時代には陶器・鋳物類・紙などが各地で生産されました。自動車は近代の製品です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q17",
+        "question": "博多（福岡県）で盛んだった手工業製品は？",
+        "options": [
+          "陶器",
+          "和紙",
+          "絹織物",
+          "刀剣"
+        ],
+        "correctIndex": 2,
+        "explanation": "博多では絹織物の生産が盛んで、博多織として知られています。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q19",
+        "question": "室町時代の一部地域で行われた、年に3回作物を栽培する方法は？",
+        "options": [
+          "二毛作",
+          "輪作",
+          "三毛作",
+          "混作"
+        ],
+        "correctIndex": 2,
+        "explanation": "三毛作は温暖な一部地域で行われた、年に3回作物を栽培する農法です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q21",
+        "question": "茶の栽培が盛んになった背景にある室町時代の文化は？",
+        "options": [
+          "能楽の流行",
+          "連歌の発展",
+          "水墨画の流行",
+          "茶の湯の普及"
+        ],
+        "correctIndex": 3,
+        "explanation": "茶を飲む文化（茶の湯）が広がったことで、茶の需要が増え栽培も盛んになりました。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q22",
+        "question": "座が保護を受けていた組織は？",
+        "options": [
+          "幕府",
+          "朝廷",
+          "寺社",
+          "大名"
+        ],
+        "correctIndex": 2,
+        "explanation": "座は寺社の保護を受けて営業の独占権を得ていました。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

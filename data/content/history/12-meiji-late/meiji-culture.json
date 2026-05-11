@@ -1,0 +1,351 @@
+{
+  "subjectId": "history",
+  "eraId": "meiji-late",
+  "topicId": "meiji-culture",
+  "name": "明治の文化",
+  "subtitle": "近代日本の文学と科学",
+  "icon": "📚",
+  "order": 6,
+  "chatId": "meiji-culture",
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "言文一致",
+      "back": "話し言葉に近い文体で文学作品を書く運動は？",
+      "explanation": "二葉亭四迷が「浮雲」で実践した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "二葉亭四迷",
+      "back": "「浮雲」で言文一致体を実践した作家は？",
+      "explanation": "近代日本文学の出発点とされる。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc3",
+      "front": "夏目漱石",
+      "back": "「坊っちゃん」「吾輩は猫である」「こころ」などを著した作家は？",
+      "explanation": "イギリス留学後、近代日本人の苦悩を描いた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "森鴎外",
+      "back": "「舞姫」「高瀬舟」などを著した作家・医師は？",
+      "explanation": "ドイツ留学経験を基に近代知識人の苦悩を描いた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc5",
+      "front": "樋口一葉",
+      "back": "「たけくらべ」「にごりえ」を著した女性作家は？",
+      "explanation": "5千円札の肖像になった。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc6",
+      "front": "正岡子規",
+      "back": "俳句・短歌の革新運動を進めた俳人は？",
+      "explanation": "写生を重視した。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc7",
+      "front": "石川啄木",
+      "back": "「一握の砂」「悲しき玩具」を著した歌人は？",
+      "explanation": "三行書きの短歌で知られる。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc8",
+      "front": "与謝野晶子",
+      "back": "「みだれ髪」を著した歌人で、日露戦争に反対した人物は？",
+      "explanation": "「君死にたまふことなかれ」が有名。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc9",
+      "front": "北里柴三郎",
+      "back": "破傷風の血清療法を発見した細菌学者は？",
+      "explanation": "ペスト菌の発見でも有名。新千円札の肖像。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc10",
+      "front": "野口英世",
+      "back": "黄熱病を研究したアフリカで没した細菌学者は？",
+      "explanation": "千円札の肖像にもなった。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc11",
+      "front": "志賀潔",
+      "back": "赤痢菌を発見した細菌学者は？",
+      "explanation": "北里柴三郎の弟子。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc12",
+      "front": "高峰譲吉",
+      "back": "アドレナリンの抽出とタカジアスターゼの発明で有名な科学者は？",
+      "explanation": "酵素の研究で世界的に活躍した。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc13",
+      "front": "黒田清輝",
+      "back": "「湖畔」を描いた西洋画家は？",
+      "explanation": "フランス留学で印象派を学び日本に伝えた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc14",
+      "front": "横山大観",
+      "back": "「無我」などを描いた日本画家は？",
+      "explanation": "岡倉天心とともに日本美術の発展に尽くした。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc15",
+      "front": "岡倉天心",
+      "back": "東京美術学校の設立に尽力し、日本美術を世界に紹介した美術指導者は？",
+      "explanation": "「東洋の理想」「茶の本」などを英語で著した。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc16",
+      "front": "滝廉太郎",
+      "back": "「荒城の月」「箱根八里」「花」などを作曲した音楽家は？",
+      "explanation": "23歳で亡くなったが日本音楽史に大きな影響を残した。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc17",
+      "front": "義務教育",
+      "back": "明治後期に4年から6年に延長された学校教育は？",
+      "explanation": "1907年に義務教育が6年に延長され、就学率はほぼ100%になった。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc18",
+      "front": "教育勅語",
+      "back": "1890年に発布された、国民道徳の基本を示した文書は？",
+      "explanation": "戦前の国民教育の柱となった。",
+      "difficulty": "standard"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "「吾輩は猫である」「坊っちゃん」を著した作家は？",
+        "options": [
+          "森鴎外",
+          "島崎藤村",
+          "二葉亭四迷",
+          "夏目漱石"
+        ],
+        "correctIndex": 3,
+        "explanation": "夏目漱石は近代日本人の苦悩を描きました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "「舞姫」「高瀬舟」を著した作家・医師は？",
+        "options": [
+          "夏目漱石",
+          "森鴎外",
+          "正岡子規",
+          "石川啄木"
+        ],
+        "correctIndex": 1,
+        "explanation": "森鴎外はドイツ留学の経験を基に作品を著しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "破傷風の血清療法を発見した細菌学者は？",
+        "options": [
+          "野口英世",
+          "北里柴三郎",
+          "志賀潔",
+          "高峰譲吉"
+        ],
+        "correctIndex": 1,
+        "explanation": "北里柴三郎の研究は世界的に評価されました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "アフリカで黄熱病を研究して亡くなった細菌学者は？",
+        "options": [
+          "北里柴三郎",
+          "野口英世",
+          "志賀潔",
+          "高峰譲吉"
+        ],
+        "correctIndex": 1,
+        "explanation": "野口英世は世界的な細菌学者として活躍しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q5",
+        "question": "話し言葉に近い文体で文学を書く運動は？",
+        "options": [
+          "写生文",
+          "言文一致",
+          "雅文体",
+          "和漢混淆文"
+        ],
+        "correctIndex": 1,
+        "explanation": "言文一致運動は二葉亭四迷が実践しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q6",
+        "question": "「たけくらべ」を著した女性作家は？",
+        "options": [
+          "樋口一葉",
+          "与謝野晶子",
+          "正岡子規",
+          "石川啄木"
+        ],
+        "correctIndex": 0,
+        "explanation": "樋口一葉は5千円札の肖像にもなりました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q7",
+        "question": "俳句・短歌の革新を進めた俳人は？",
+        "options": [
+          "正岡子規",
+          "石川啄木",
+          "与謝野晶子",
+          "夏目漱石"
+        ],
+        "correctIndex": 0,
+        "explanation": "正岡子規は写生を重視しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q8",
+        "question": "「みだれ髪」を著し日露戦争に反対した歌人は？",
+        "options": [
+          "樋口一葉",
+          "石川啄木",
+          "与謝野晶子",
+          "正岡子規"
+        ],
+        "correctIndex": 2,
+        "explanation": "与謝野晶子は「君死にたまふことなかれ」でも有名です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q9",
+        "question": "「荒城の月」を作曲した音楽家は？",
+        "options": [
+          "山田耕筰",
+          "瀧廉太郎",
+          "中山晋平",
+          "成田為三"
+        ],
+        "correctIndex": 1,
+        "explanation": "瀧廉太郎は23歳で亡くなりましたが多くの名曲を残しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q10",
+        "question": "「湖畔」を描いた西洋画家は？",
+        "options": [
+          "黒田清輝",
+          "横山大観",
+          "竹内栖鳳",
+          "藤島武二"
+        ],
+        "correctIndex": 0,
+        "explanation": "黒田清輝は印象派を日本に伝えました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q11",
+        "question": "日本美術を世界に紹介した美術指導者は？",
+        "options": [
+          "岡倉天心",
+          "黒田清輝",
+          "横山大観",
+          "高村光雲"
+        ],
+        "correctIndex": 0,
+        "explanation": "岡倉天心は東京美術学校の設立に尽力しました。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q12",
+        "question": "赤痢菌を発見した細菌学者は？",
+        "options": [
+          "北里柴三郎",
+          "野口英世",
+          "志賀潔",
+          "鈴木梅太郎"
+        ],
+        "correctIndex": 2,
+        "explanation": "志賀潔は北里柴三郎の弟子でした。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q13",
+        "question": "「一握の砂」を著した歌人は？",
+        "options": [
+          "正岡子規",
+          "石川啄木",
+          "与謝野晶子",
+          "若山牧水"
+        ],
+        "correctIndex": 1,
+        "explanation": "石川啄木は三行書きの短歌で知られます。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q14",
+        "question": "1907年に義務教育は何年に延長された？",
+        "options": [
+          "3年",
+          "4年",
+          "5年",
+          "6年"
+        ],
+        "correctIndex": 3,
+        "explanation": "義務教育が6年に延長されました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q15",
+        "question": "1890年に発布された国民道徳の基本を示した文書は？",
+        "options": [
+          "大日本帝国憲法",
+          "教育勅語",
+          "五箇条の御誓文",
+          "軍人勅諭"
+        ],
+        "correctIndex": 1,
+        "explanation": "教育勅語は戦前の国民教育の柱でした。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q16",
+        "question": "アドレナリンの抽出で有名な科学者は？",
+        "options": [
+          "北里柴三郎",
+          "野口英世",
+          "高峰譲吉",
+          "鈴木梅太郎"
+        ],
+        "correctIndex": 2,
+        "explanation": "高峰譲吉はタカジアスターゼも発明しました。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

@@ -1,0 +1,223 @@
+{
+  "subjectId": "history",
+  "eraId": "ww2-japan",
+  "topicId": "wartime-life",
+  "name": "銃後の苦しみと総動員",
+  "subtitle": "戦時下の暮らし",
+  "icon": "🏭",
+  "order": 3,
+  "chatId": "wartime-life",
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "配給制",
+      "back": "戦時下に米・砂糖・衣料品などを国が割り当てた制度は？",
+      "explanation": "物資が不足するなか、すべての国民に最小限の物資を分配した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "切符制",
+      "back": "衣料品や砂糖などを配給するために用いられたチケット制度は？",
+      "explanation": "配給制と組み合わせて運用された。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc3",
+      "front": "学徒出陣",
+      "back": "戦争末期、文系大学生らが繰り上げ卒業で出征したことは？",
+      "explanation": "1943年に開始。多くの若者が戦地に送られた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "勤労動員",
+      "back": "中学生や女学生も工場で働くようになったことは？",
+      "explanation": "労働力不足を補うため動員された。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc5",
+      "front": "学童疎開",
+      "back": "都市の小学生を空襲から守るため地方へ送ったことは？",
+      "explanation": "親元を離れた集団疎開生活を強いられた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc6",
+      "front": "創氏改名",
+      "back": "朝鮮人に日本式の姓名を名乗らせた政策は？",
+      "explanation": "皇民化政策の一つ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc7",
+      "front": "皇民化政策",
+      "back": "朝鮮・台湾の人々に日本人化を強要した政策は？",
+      "explanation": "日本語使用・神社参拝・創氏改名などを強要した。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc8",
+      "front": "強制連行",
+      "back": "朝鮮・中国の人々を日本の鉱山や工場で働かせたことは？",
+      "explanation": "労働力不足を補うために行われた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc12",
+      "front": "国民学校",
+      "back": "1941年から尋常小学校が改称されたものは？",
+      "explanation": "戦時下の皇国民育成を目的とした。",
+      "difficulty": "advanced"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "戦時下に物資を国が割り当てた制度は？",
+        "options": [
+          "自由販売",
+          "輸出規制",
+          "市場経済",
+          "配給制"
+        ],
+        "correctIndex": 3,
+        "explanation": "配給制で米・砂糖などが分配されました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "1943年から大学生が戦地に送られたことを？",
+        "options": [
+          "勤労動員",
+          "学童疎開",
+          "学徒出陣",
+          "徴用"
+        ],
+        "correctIndex": 2,
+        "explanation": "学徒出陣で多くの若者が出征しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "都市の小学生を空襲から守るため地方へ送ったことは？",
+        "options": [
+          "学徒出陣",
+          "学童疎開",
+          "勤労動員",
+          "徴兵"
+        ],
+        "correctIndex": 1,
+        "explanation": "学童疎開で親元を離れた集団生活を強いられました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "中学生らも工場で働くことになったのは？",
+        "options": [
+          "勤労動員",
+          "学童疎開",
+          "学徒出陣",
+          "徴用"
+        ],
+        "correctIndex": 0,
+        "explanation": "勤労動員で労働力不足を補いました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q5",
+        "question": "朝鮮人に日本式の姓名を強制した政策は？",
+        "options": [
+          "創氏改名",
+          "皇民化",
+          "強制連行",
+          "同化政策"
+        ],
+        "correctIndex": 0,
+        "explanation": "創氏改名は皇民化政策の一環でした。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q6",
+        "question": "朝鮮・台湾の人々に日本人化を強要した政策の総称は？",
+        "options": [
+          "創氏改名",
+          "皇民化政策",
+          "強制連行",
+          "同化政策"
+        ],
+        "correctIndex": 1,
+        "explanation": "皇民化政策の中に創氏改名なども含まれます。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q8",
+        "question": "1941年から改称された小学校は？",
+        "options": [
+          "国民学校",
+          "皇国学校",
+          "尋常学校",
+          "高等学校"
+        ],
+        "correctIndex": 0,
+        "explanation": "国民学校に改称されました。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q9",
+        "question": "本土決戦に備え民間人が行った訓練は？",
+        "options": [
+          "竹槍訓練",
+          "射撃訓練",
+          "白兵訓練",
+          "防空訓練"
+        ],
+        "correctIndex": 0,
+        "explanation": "竹槍訓練が行われましたが実効性は乏しいものでした。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q10",
+        "question": "金属不足で行われたのは？",
+        "options": [
+          "米の自給",
+          "鉄製品の供出",
+          "食塩の生産",
+          "石炭の輸入"
+        ],
+        "correctIndex": 1,
+        "explanation": "寺の鐘・なべなどが武器製造のため供出されました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q11",
+        "question": "朝鮮・中国の人々を日本の鉱山等で働かせたことは？",
+        "options": [
+          "勤労動員",
+          "学徒出陣",
+          "強制連行",
+          "皇民化"
+        ],
+        "correctIndex": 2,
+        "explanation": "強制連行で労働力不足を補いました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q12",
+        "question": "切符制が組み合わされた制度は？",
+        "options": [
+          "配給制",
+          "徴兵制",
+          "学徒動員",
+          "強制連行"
+        ],
+        "correctIndex": 0,
+        "explanation": "配給制とともに用いられました。",
+        "difficulty": "standard"
+      }
+    ]
+  }
+}

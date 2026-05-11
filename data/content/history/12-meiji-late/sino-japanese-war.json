@@ -1,0 +1,303 @@
+{
+  "subjectId": "history",
+  "eraId": "meiji-late",
+  "topicId": "sino-japanese-war",
+  "name": "日清戦争と三国干渉",
+  "subtitle": "朝鮮をめぐる対立",
+  "icon": "⚔️",
+  "order": 2,
+  "chatId": "sino-japanese-war",
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "日清戦争",
+      "back": "1894〜95年に朝鮮をめぐって日本と清が戦った戦争は？",
+      "explanation": "甲午農民戦争（東学党の乱）をきっかけに勃発した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "下関条約",
+      "back": "1895年に日清戦争の講和として結ばれた条約は？",
+      "explanation": "日本側は伊藤博文・陸奥宗光、清側は李鴻章が交渉した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "遼東半島",
+      "back": "下関条約で日本が獲得した中国東北部の半島は？",
+      "explanation": "三国干渉により返還させられた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "台湾",
+      "back": "下関条約で日本が獲得した島は？",
+      "explanation": "日本初の植民地となり、1945年まで日本領だった。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc5",
+      "front": "賠償金",
+      "back": "下関条約で清が日本に支払った2億両は？",
+      "explanation": "八幡製鉄所の建設費などに使われた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc6",
+      "front": "三国干渉",
+      "back": "ロシア・ドイツ・フランスが遼東半島の返還を日本に迫った事件は？",
+      "explanation": "日本は要求を受け入れて返還した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc7",
+      "front": "甲午農民戦争（東学党の乱）",
+      "back": "日清戦争のきっかけとなった朝鮮の農民反乱は？",
+      "explanation": "東学の信徒が中心となった反乱。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc8",
+      "front": "李鴻章",
+      "back": "下関条約で清側を代表した政治家は？",
+      "explanation": "清の有力政治家として活躍した。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc9",
+      "front": "臥薪嘗胆",
+      "back": "三国干渉後、日本国民が掲げた合言葉は？",
+      "explanation": "ロシアへの復讐心を表す言葉。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc10",
+      "front": "八幡製鉄所",
+      "back": "下関条約の賠償金などで建設された官営製鉄所は？",
+      "explanation": "日本の重工業の基礎となった。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc11",
+      "front": "1894年",
+      "back": "日清戦争が始まった年は？",
+      "explanation": "甲午農民戦争を契機に開戦した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc12",
+      "front": "1895年",
+      "back": "下関条約が結ばれ、日清戦争が終結した年は？",
+      "explanation": "日本が勝利し、清に有利な条約を結んだ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc13",
+      "front": "ロシア",
+      "back": "三国干渉を主導した国は？",
+      "explanation": "南下政策を進めるロシアが中心だった。",
+      "difficulty": "standard"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "1894〜95年に日本と清が戦った戦争は？",
+        "options": [
+          "日露戦争",
+          "甲申事変",
+          "義和団事件",
+          "日清戦争"
+        ],
+        "correctIndex": 3,
+        "explanation": "日清戦争は朝鮮をめぐる対立から起きました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "日清戦争の講和条約は？",
+        "options": [
+          "下関条約",
+          "ポーツマス条約",
+          "南京条約",
+          "天津条約"
+        ],
+        "correctIndex": 0,
+        "explanation": "1895年に下関条約が結ばれました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "下関条約で日本が獲得した中国東北部の半島は？",
+        "options": [
+          "山東半島",
+          "雷州半島",
+          "朝鮮半島",
+          "遼東半島"
+        ],
+        "correctIndex": 3,
+        "explanation": "遼東半島は三国干渉で返還されました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "下関条約で日本が獲得した島は？",
+        "options": [
+          "沖縄",
+          "樺太",
+          "海南島",
+          "台湾"
+        ],
+        "correctIndex": 3,
+        "explanation": "台湾は日本初の植民地となりました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q5",
+        "question": "遼東半島の返還を日本に迫った事件は？",
+        "options": [
+          "三国干渉",
+          "義和団事件",
+          "辛亥革命",
+          "ポーツマス条約"
+        ],
+        "correctIndex": 0,
+        "explanation": "ロシア・ドイツ・フランスによる干渉でした。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q6",
+        "question": "三国干渉を主導した国は？",
+        "options": [
+          "アメリカ",
+          "イギリス",
+          "ロシア",
+          "ドイツ"
+        ],
+        "correctIndex": 2,
+        "explanation": "南下政策を進めるロシアが中心でした。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q7",
+        "question": "下関条約の日本側の交渉者は？",
+        "options": [
+          "伊藤博文・陸奥宗光",
+          "山県有朋・小村寿太郎",
+          "大久保利通・板垣退助",
+          "西郷従道・松方正義"
+        ],
+        "correctIndex": 0,
+        "explanation": "伊藤博文と陸奥宗光が交渉しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q8",
+        "question": "三国干渉後、日本国民が掲げた合言葉は？",
+        "options": [
+          "和魂洋才",
+          "臥薪嘗胆",
+          "脱亜入欧",
+          "富国強兵"
+        ],
+        "correctIndex": 1,
+        "explanation": "ロシアへの復讐心を表す言葉でした。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q9",
+        "question": "下関条約の賠償金などで建設された官営製鉄所は？",
+        "options": [
+          "富岡製糸場",
+          "八幡製鉄所",
+          "横須賀造船所",
+          "長崎造船所"
+        ],
+        "correctIndex": 1,
+        "explanation": "八幡製鉄所は重工業の基礎となりました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q10",
+        "question": "日清戦争のきっかけとなった朝鮮の反乱は？",
+        "options": [
+          "義和団事件",
+          "甲申事変",
+          "甲午農民戦争",
+          "壬午軍乱"
+        ],
+        "correctIndex": 2,
+        "explanation": "東学党の乱とも呼ばれます。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q11",
+        "question": "下関条約で清側を代表した政治家は？",
+        "options": [
+          "李鴻章",
+          "袁世凱",
+          "孫文",
+          "蒋介石"
+        ],
+        "correctIndex": 0,
+        "explanation": "李鴻章が清側の交渉を担当しました。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q12",
+        "question": "日清戦争が始まった年は？",
+        "options": [
+          "1890年",
+          "1894年",
+          "1900年",
+          "1904年"
+        ],
+        "correctIndex": 1,
+        "explanation": "1894年に開戦しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q13",
+        "question": "日清戦争の結果として正しいものは？",
+        "options": [
+          "清の勝利",
+          "日本の勝利",
+          "引き分け",
+          "外国の介入で中止"
+        ],
+        "correctIndex": 1,
+        "explanation": "近代化を進めた日本が勝利しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q14",
+        "question": "三国干渉に応じて日本が返還した地域は？",
+        "options": [
+          "台湾",
+          "遼東半島",
+          "朝鮮",
+          "樺太"
+        ],
+        "correctIndex": 1,
+        "explanation": "遼東半島を清に返還しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q15",
+        "question": "下関条約で清が支払った賠償金はおよそ？",
+        "options": [
+          "1千万両",
+          "2億両",
+          "10億両",
+          "50億両"
+        ],
+        "correctIndex": 1,
+        "explanation": "約2億両（当時の日本歳入の約3年分）でした。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

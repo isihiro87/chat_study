@@ -1,0 +1,271 @@
+{
+  "subjectId": "history",
+  "eraId": "cold-war-era",
+  "topicId": "cold-war",
+  "name": "冷戦の始まり",
+  "subtitle": "二つの超大国の対立",
+  "icon": "🌐",
+  "order": 1,
+  "chatId": "cold-war",
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "冷戦",
+      "back": "戦後のアメリカとソ連の直接戦争にならない対立は？",
+      "explanation": "「冷たい戦争」と呼ばれた。1947年から1989年まで続いた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "東西陣営",
+      "back": "アメリカ中心の資本主義陣営とソ連中心の社会主義陣営の対立は？",
+      "explanation": "東側はソ連・東欧、西側はアメリカ・西欧が中心。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "NATO",
+      "back": "1949年に結成された西側諸国の軍事同盟は？",
+      "explanation": "北大西洋条約機構の略称。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "ワルシャワ条約機構",
+      "back": "1955年に結成された東側諸国の軍事同盟は？",
+      "explanation": "NATOに対抗してソ連が結成した。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc5",
+      "front": "国際連合",
+      "back": "1945年に発足した世界平和を目指す国際機関は？",
+      "explanation": "国際連盟に代わって作られた。本部はニューヨーク。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc6",
+      "front": "1945年",
+      "back": "国際連合が発足した年は？",
+      "explanation": "第二次世界大戦終結の年に発足した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc7",
+      "front": "安全保障理事会",
+      "back": "国連の中で世界平和を維持する責任を持つ機関は？",
+      "explanation": "常任理事国（米英仏ソ中）は拒否権を持つ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc8",
+      "front": "ベルリンの壁",
+      "back": "1961年に東ドイツが東西ベルリンを隔てるために築いた壁は？",
+      "explanation": "冷戦の象徴。1989年に崩壊した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc9",
+      "front": "朝鮮戦争",
+      "back": "1950年に北朝鮮が韓国に攻め込んで始まった戦争は？",
+      "explanation": "冷戦のアジアでの代理戦争。日本は特需景気となった。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc10",
+      "front": "1950年",
+      "back": "朝鮮戦争が始まった年は？",
+      "explanation": "1953年に休戦協定が結ばれた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc11",
+      "front": "ベトナム戦争",
+      "back": "1960〜75年にベトナムで起きた戦争は？",
+      "explanation": "アメリカは北ベトナムと戦ったが敗北し撤退した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc12",
+      "front": "中華人民共和国",
+      "back": "1949年に毛沢東が建国した国は？",
+      "explanation": "国共内戦に勝利し、中国大陸を支配した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc13",
+      "front": "1949年",
+      "back": "中華人民共和国が成立した年は？",
+      "explanation": "NATOが結成された年でもある。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc14",
+      "front": "キューバ危機",
+      "back": "1962年、米ソが核戦争寸前まで対立した事件は？",
+      "explanation": "ソ連がキューバにミサイル基地を建設しようとした。",
+      "difficulty": "standard"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "戦後の米ソの対立を何と呼ぶ？",
+        "options": [
+          "第三次世界大戦",
+          "代理戦争",
+          "宗教戦争",
+          "冷戦"
+        ],
+        "correctIndex": 3,
+        "explanation": "「冷たい戦争」と呼ばれました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "1945年に発足した国際機関は？",
+        "options": [
+          "国際連盟",
+          "NATO",
+          "EU",
+          "国際連合"
+        ],
+        "correctIndex": 3,
+        "explanation": "国際連合が発足しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "1949年結成の西側諸国の軍事同盟は？",
+        "options": [
+          "NATO",
+          "WTO",
+          "ワルシャワ条約機構",
+          "OAU"
+        ],
+        "correctIndex": 0,
+        "explanation": "北大西洋条約機構（NATO）です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "1950年に始まった朝鮮半島での戦争は？",
+        "options": [
+          "太平洋戦争",
+          "湾岸戦争",
+          "ベトナム戦争",
+          "朝鮮戦争"
+        ],
+        "correctIndex": 3,
+        "explanation": "朝鮮戦争は冷戦のアジアでの代理戦争です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q5",
+        "question": "1949年に建国された中国の社会主義国は？",
+        "options": [
+          "中華民国",
+          "中華人民共和国",
+          "満州国",
+          "蒙古人民共和国"
+        ],
+        "correctIndex": 1,
+        "explanation": "毛沢東が中華人民共和国を建国しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q6",
+        "question": "冷戦の象徴とされた壁は？",
+        "options": [
+          "万里の長城",
+          "ベルリンの壁",
+          "イェルサレムの壁",
+          "サウサンプトンの壁"
+        ],
+        "correctIndex": 1,
+        "explanation": "ベルリンの壁が冷戦の象徴でした。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q7",
+        "question": "国連の中で世界平和を維持する機関は？",
+        "options": [
+          "総会",
+          "事務局",
+          "安全保障理事会",
+          "国際司法裁判所"
+        ],
+        "correctIndex": 2,
+        "explanation": "安全保障理事会が責任を負います。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q8",
+        "question": "ワルシャワ条約機構を結成したのは？",
+        "options": [
+          "アメリカ",
+          "ソ連",
+          "中国",
+          "フランス"
+        ],
+        "correctIndex": 1,
+        "explanation": "ソ連がNATOに対抗して結成しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q9",
+        "question": "1962年に米ソが核戦争寸前となった事件は？",
+        "options": [
+          "朝鮮戦争",
+          "キューバ危機",
+          "ベトナム戦争",
+          "ベルリン封鎖"
+        ],
+        "correctIndex": 1,
+        "explanation": "キューバ危機です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q10",
+        "question": "ベトナム戦争に介入し撤退した国は？",
+        "options": [
+          "ソ連",
+          "アメリカ",
+          "中国",
+          "フランス"
+        ],
+        "correctIndex": 1,
+        "explanation": "アメリカが介入しましたが敗北しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q11",
+        "question": "安全保障理事会の常任理事国に含まれないのは？",
+        "options": [
+          "アメリカ",
+          "イギリス",
+          "日本",
+          "中国"
+        ],
+        "correctIndex": 2,
+        "explanation": "常任理事国は米英仏ロ中で日本は含まれません。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q12",
+        "question": "朝鮮戦争休戦の年は？",
+        "options": [
+          "1950年",
+          "1953年",
+          "1960年",
+          "1965年"
+        ],
+        "correctIndex": 1,
+        "explanation": "1953年に休戦協定が結ばれました。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

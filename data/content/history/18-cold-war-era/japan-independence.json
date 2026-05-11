@@ -1,0 +1,278 @@
+{
+  "subjectId": "history",
+  "eraId": "cold-war-era",
+  "topicId": "japan-independence",
+  "name": "日本の独立回復",
+  "subtitle": "占領からの脱却と安保体制",
+  "icon": "🗾",
+  "order": 2,
+  "chatId": "japan-independence",
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "サンフランシスコ平和条約",
+      "back": "1951年、日本と連合国48か国が結んだ講和条約は？",
+      "explanation": "翌1952年に発効し、日本は独立を回復した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "1951年",
+      "back": "サンフランシスコ平和条約が結ばれた年は？",
+      "explanation": "翌年に発効し、日本は独立した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "1952年",
+      "back": "サンフランシスコ平和条約が発効し日本が独立を回復した年は？",
+      "explanation": "GHQによる占領が終わった。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc4",
+      "front": "吉田茂",
+      "back": "サンフランシスコ平和条約・日米安全保障条約に調印した首相は？",
+      "explanation": "戦後復興期の首相として活躍した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc5",
+      "front": "日米安全保障条約",
+      "back": "1951年に日米間で結ばれた、米軍の日本駐留を認める条約は？",
+      "explanation": "サンフランシスコ平和条約と同日に結ばれた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc6",
+      "front": "警察予備隊",
+      "back": "1950年、朝鮮戦争を背景に作られた組織は？",
+      "explanation": "後に保安隊、自衛隊となった。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc7",
+      "front": "自衛隊",
+      "back": "1954年に発足した日本の防衛組織は？",
+      "explanation": "警察予備隊→保安隊→自衛隊と変化した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc8",
+      "front": "1954年",
+      "back": "自衛隊が発足した年は？",
+      "explanation": "防衛庁が設置された。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc9",
+      "front": "朝鮮特需",
+      "back": "朝鮮戦争による軍需物資の発注で日本が経済復興した好景気は？",
+      "explanation": "日本経済の復興を加速させた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc10",
+      "front": "新日米安全保障条約",
+      "back": "1960年に岸信介内閣が改定した日米安保条約は？",
+      "explanation": "条約改定に反対する安保闘争が大規模に起きた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc11",
+      "front": "1960年",
+      "back": "新日米安全保障条約が結ばれ、安保闘争が起きた年は？",
+      "explanation": "岸信介内閣は条約成立後に退陣した。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc12",
+      "front": "安保闘争",
+      "back": "1960年の新安保条約改定に反対した大規模な国民運動は？",
+      "explanation": "デモが連日国会を取り巻いた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc13",
+      "front": "岸信介",
+      "back": "新安保条約を成立させた首相は？",
+      "explanation": "条約成立後、安保闘争の混乱の中で退陣した。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc14",
+      "front": "沖縄返還",
+      "back": "1972年、アメリカから日本に返還された地域は？",
+      "explanation": "佐藤栄作内閣の時に実現した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc15",
+      "front": "1972年",
+      "back": "沖縄が日本に復帰した年は？",
+      "explanation": "佐藤栄作内閣の時に実現した。",
+      "difficulty": "basic"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "1951年に結ばれた日本独立の条約は？",
+        "options": [
+          "ポーツマス条約",
+          "日韓基本条約",
+          "下関条約",
+          "サンフランシスコ平和条約"
+        ],
+        "correctIndex": 3,
+        "explanation": "サンフランシスコ平和条約で日本は独立を回復しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "1951年にサンフランシスコ平和条約と同日に結ばれた条約は？",
+        "options": [
+          "日米安全保障条約",
+          "日韓基本条約",
+          "日中平和友好条約",
+          "日ソ共同宣言"
+        ],
+        "correctIndex": 0,
+        "explanation": "日米安全保障条約も同日に結ばれました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "1954年に発足した日本の防衛組織は？",
+        "options": [
+          "警察予備隊",
+          "保安隊",
+          "自衛隊",
+          "国軍"
+        ],
+        "correctIndex": 2,
+        "explanation": "警察予備隊→保安隊→自衛隊と変化しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "1960年に新安保条約改定に反対した国民運動は？",
+        "options": [
+          "55年体制",
+          "労働運動",
+          "学生運動",
+          "安保闘争"
+        ],
+        "correctIndex": 3,
+        "explanation": "安保闘争では連日国会が取り巻かれました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q5",
+        "question": "1972年に日本に返還された地域は？",
+        "options": [
+          "北方領土",
+          "尖閣諸島",
+          "竹島",
+          "沖縄"
+        ],
+        "correctIndex": 3,
+        "explanation": "佐藤栄作内閣の時に実現しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q6",
+        "question": "サンフランシスコ平和条約に調印した首相は？",
+        "options": [
+          "吉田茂",
+          "鳩山一郎",
+          "岸信介",
+          "池田勇人"
+        ],
+        "correctIndex": 0,
+        "explanation": "吉田茂が調印しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q7",
+        "question": "新日米安全保障条約を成立させた首相は？",
+        "options": [
+          "吉田茂",
+          "鳩山一郎",
+          "岸信介",
+          "佐藤栄作"
+        ],
+        "correctIndex": 2,
+        "explanation": "岸信介内閣が改定しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q8",
+        "question": "朝鮮戦争による日本の好景気は？",
+        "options": [
+          "神武景気",
+          "朝鮮特需",
+          "岩戸景気",
+          "いざなぎ景気"
+        ],
+        "correctIndex": 1,
+        "explanation": "朝鮮特需で経済が復興しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q9",
+        "question": "1950年に作られた自衛隊の前身は？",
+        "options": [
+          "警察予備隊",
+          "保安隊",
+          "海軍",
+          "陸軍"
+        ],
+        "correctIndex": 0,
+        "explanation": "警察予備隊が始まりです。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q10",
+        "question": "サンフランシスコ平和条約が発効したのは？",
+        "options": [
+          "1945年",
+          "1951年",
+          "1952年",
+          "1954年"
+        ],
+        "correctIndex": 2,
+        "explanation": "1952年に発効し独立しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q11",
+        "question": "沖縄を返還させた首相は？",
+        "options": [
+          "田中角栄",
+          "佐藤栄作",
+          "池田勇人",
+          "三木武夫"
+        ],
+        "correctIndex": 1,
+        "explanation": "佐藤栄作内閣で沖縄返還が実現しました。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q12",
+        "question": "サンフランシスコ平和条約に調印しなかった国は？",
+        "options": [
+          "アメリカ",
+          "イギリス",
+          "ソ連",
+          "フランス"
+        ],
+        "correctIndex": 2,
+        "explanation": "ソ連は調印を拒否しました。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

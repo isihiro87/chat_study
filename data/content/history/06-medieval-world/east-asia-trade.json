@@ -1,0 +1,391 @@
+{
+  "subjectId": "history",
+  "eraId": "medieval-world",
+  "topicId": "east-asia-trade",
+  "name": "東アジアとの交流",
+  "subtitle": "日明貿易と琉球・アイヌ",
+  "icon": "🚢",
+  "order": 5,
+  "chatId": "east-asia-trade",
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "倭寇",
+      "back": "朝鮮や中国の沿岸をおそった海賊は？",
+      "explanation": "14世紀ごろの海賊。日本人だけでなく朝鮮人や中国人もいた。足利義満は倭寇を禁止して明と貿易した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "日明貿易",
+      "back": "室町幕府と明との貿易は？",
+      "explanation": "足利義満が始めた。平清盛の日宋貿易と区別する。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "勘合貿易",
+      "back": "勘合という証明書を使った日明貿易の別名は？",
+      "explanation": "勘合を使って正式な貿易船と倭寇を区別した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "勘合",
+      "back": "正式な貿易船と倭寇を区別するための合い札は？",
+      "explanation": "一枚の札を二つに割り、日本と明で半分ずつ持って照合する仕組み。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc5",
+      "front": "足利義満",
+      "back": "日明貿易を始めた室町幕府の第3代将軍は？",
+      "explanation": "南北朝統一・金閣建立・日明貿易開始など多くの功績を残した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc6",
+      "front": "明",
+      "back": "漢民族が元を倒して建てた中国の王朝は？",
+      "explanation": "14世紀に成立し、室町幕府と勘合貿易を行った。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc7",
+      "front": "李成桂",
+      "back": "1392年に高麗を滅ぼして朝鮮国を建てた人物は？",
+      "explanation": "高麗の武将から国王となり、朝鮮半島に新たな王朝を開いた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc8",
+      "front": "朝鮮国",
+      "back": "李成桂が高麗をほろぼして建てた国は？",
+      "explanation": "日本とも国交を結んだ。ハングルの制定と結びつける。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc9",
+      "front": "ハングル（訓民正音）",
+      "back": "朝鮮国で作られた独自の文字は？",
+      "explanation": "漢字を読めない民衆の教育のために作られた表音文字。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc10",
+      "front": "琉球王国",
+      "back": "尚氏が沖縄島を統一して建てた国は？",
+      "explanation": "首里を都とした。中継貿易で栄えた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc11",
+      "front": "尚氏",
+      "back": "沖縄島を統一して琉球王国を建てた一族は？",
+      "explanation": "三つに分かれていた沖縄島を統一し、琉球王国を建国した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc12",
+      "front": "首里",
+      "back": "琉球王国の都はどこ？",
+      "explanation": "現在の沖縄県那覇市にあり、首里城が王国の中心だった。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc13",
+      "front": "中継貿易",
+      "back": "各地の産物を別の地域へ運んで利益を得る貿易は？",
+      "explanation": "琉球王国が栄えた理由。日本・中国・朝鮮・東南アジアを結ぶ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc14",
+      "front": "アイヌ民族",
+      "back": "蝦夷地に住み、狩りや漁、交易を行っていた人々は？",
+      "explanation": "和人との交易やコシャマインの戦いと関係する。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc15",
+      "front": "コシャマイン",
+      "back": "15世紀半ば、和人との交易をめぐって戦ったアイヌ民族の首長は？",
+      "explanation": "蝦夷地での対立として押さえる。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc16",
+      "front": "安藤氏",
+      "back": "青森県の十三湊を拠点にアイヌとの交易を仲立ちした一族は？",
+      "explanation": "本州とアイヌの間の交易を仲介し、日本海交易で栄えた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc17",
+      "front": "十三湊",
+      "back": "安藤氏がアイヌとの交易の拠点とした青森県の港は？",
+      "explanation": "津軽半島にあった港で、日本海交易とアイヌ交易の要所だった。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc18",
+      "front": "蝦夷地",
+      "back": "アイヌ民族が暮らしていた北海道の昔の呼び名は？",
+      "explanation": "明治時代に北海道と改称されるまでこう呼ばれていた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc19",
+      "front": "朝貢貿易",
+      "back": "中国皇帝に貢ぎ物を差し出し、その見返りとして貿易を認められる形式は？",
+      "explanation": "日明貿易は朝貢形式で行われた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc22",
+      "front": "1392年",
+      "back": "朝鮮国が建国された年は？",
+      "explanation": "足利義満が南北朝を統一した年と同じ年に朝鮮半島でも新王朝が成立した。",
+      "difficulty": "advanced"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "14世紀ごろ、中国や朝鮮の沿岸をおそった海賊を何といいますか。",
+        "options": [
+          "悪党",
+          "馬借",
+          "御家人",
+          "倭寇"
+        ],
+        "correctIndex": 3,
+        "explanation": "倭寇は大陸沿岸を荒らした海賊です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "足利義満が明と始めた貿易はどれですか。",
+        "options": [
+          "日宋貿易",
+          "南蛮貿易",
+          "日明貿易",
+          "朱印船貿易"
+        ],
+        "correctIndex": 2,
+        "explanation": "室町時代の明との貿易は日明貿易です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "日明貿易で正式な貿易船を区別するために使われた証明書はどれですか。",
+        "options": [
+          "勘合",
+          "宋銭",
+          "御成敗式目",
+          "徳政令"
+        ],
+        "correctIndex": 0,
+        "explanation": "勘合を使ったため、日明貿易は勘合貿易とも呼ばれます。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q4",
+        "question": "日宋貿易と日明貿易の組み合わせとして正しいものはどれですか。",
+        "options": [
+          "日宋貿易—足利義満、日明貿易—平清盛",
+          "日宋貿易—平清盛、日明貿易—足利義満",
+          "日宋貿易—源頼朝、日明貿易—北条泰時",
+          "日宋貿易—後醍醐天皇、日明貿易—足利尊氏"
+        ],
+        "correctIndex": 1,
+        "explanation": "平清盛は日宋貿易、足利義満は日明貿易を進めました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q5",
+        "question": "高麗をほろぼして朝鮮国を建てた人物はだれですか。",
+        "options": [
+          "李成桂",
+          "チンギス・ハン",
+          "フビライ・ハン",
+          "尚氏"
+        ],
+        "correctIndex": 0,
+        "explanation": "李成桂が朝鮮国を建てました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q6",
+        "question": "朝鮮国で作られた文字はどれですか。",
+        "options": [
+          "かな文字",
+          "ハングル",
+          "楔形文字",
+          "漢字"
+        ],
+        "correctIndex": 1,
+        "explanation": "ハングルは朝鮮国で作られた文字です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q7",
+        "question": "尚氏が沖縄島を統一して建てた国はどれですか。",
+        "options": [
+          "高麗",
+          "元",
+          "琉球王国",
+          "明"
+        ],
+        "correctIndex": 2,
+        "explanation": "琉球王国は首里を都としました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q8",
+        "question": "琉球王国が栄えた理由として最も適切なものはどれですか。",
+        "options": [
+          "鎌倉幕府を倒したから",
+          "中継貿易を行ったから",
+          "元寇を防いだから",
+          "守護大名を任命したから"
+        ],
+        "correctIndex": 1,
+        "explanation": "琉球王国は日本・中国・朝鮮・東南アジアを結ぶ中継貿易で栄えました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q9",
+        "question": "蝦夷地に住み、狩りや漁、交易を行っていた人々はどれですか。",
+        "options": [
+          "アイヌ民族",
+          "倭寇",
+          "僧兵",
+          "琉球人"
+        ],
+        "correctIndex": 0,
+        "explanation": "アイヌ民族は蝦夷地に住んでいました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q10",
+        "question": "15世紀半ば、和人との交易をめぐって戦ったアイヌ民族の首長はだれですか。",
+        "options": [
+          "尚氏",
+          "コシャマイン",
+          "李成桂",
+          "足利義政"
+        ],
+        "correctIndex": 1,
+        "explanation": "コシャマインはアイヌ民族の首長です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q11",
+        "question": "明を建国した民族は？",
+        "options": [
+          "モンゴル族",
+          "満州族",
+          "漢民族",
+          "トルコ族"
+        ],
+        "correctIndex": 2,
+        "explanation": "明は漢民族が元（モンゴル民族）を北方に退けて建国した王朝です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q12",
+        "question": "勘合の仕組みとして正しいのは？",
+        "options": [
+          "船に金属の官印を押して役人が確認する",
+          "一枚の札を二つに割って合わせて確認する",
+          "船長が暗号を記した書状を提示する",
+          "船に掲げる旗の色と模様で区別する"
+        ],
+        "correctIndex": 1,
+        "explanation": "勘合は一枚の札を二つに割って日本と明で半分ずつ持ち、合わせることで正式な船と証明しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q13",
+        "question": "ハングルの正式名称は？",
+        "options": [
+          "漢文字",
+          "万葉仮名",
+          "訓民正音",
+          "梵字文字"
+        ],
+        "correctIndex": 2,
+        "explanation": "ハングルの正式名称は訓民正音で、「民を教える正しい音」という意味です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q14",
+        "question": "日明貿易で日本から輸出された品物として正しいのは？",
+        "options": [
+          "銅銭・生糸・絹織物",
+          "銅・刀剣・硫黄",
+          "茶・米・塩",
+          "金・銀・真珠"
+        ],
+        "correctIndex": 1,
+        "explanation": "日本から銅・刀剣・硫黄が輸出され、明から銅銭・生糸・絹織物が輸入されました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q15",
+        "question": "琉球王国の都はどこ？",
+        "options": [
+          "那覇",
+          "首里",
+          "名護",
+          "宮古"
+        ],
+        "correctIndex": 1,
+        "explanation": "琉球王国の都は首里で、現在の沖縄県那覇市にあります。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q17",
+        "question": "蝦夷地とは現在のどの地域？",
+        "options": [
+          "北海道",
+          "東北地方",
+          "九州",
+          "沖縄"
+        ],
+        "correctIndex": 0,
+        "explanation": "蝦夷地は現在の北海道のことで、アイヌ民族が暮らしていました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q19",
+        "question": "朝鮮国が建国された年は？",
+        "options": [
+          "1392年",
+          "1368年",
+          "1428年",
+          "1467年"
+        ],
+        "correctIndex": 0,
+        "explanation": "朝鮮国は1392年に李成桂が高麗を滅ぼして建国しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q22",
+        "question": "十三湊はどの都道府県にある？",
+        "options": [
+          "北海道",
+          "秋田県",
+          "青森県",
+          "岩手県"
+        ],
+        "correctIndex": 2,
+        "explanation": "十三湊は青森県にあり、安藤氏がアイヌとの交易の拠点としていました。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

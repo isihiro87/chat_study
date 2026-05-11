@@ -1,0 +1,257 @@
+{
+  "subjectId": "history",
+  "eraId": "taisho-democracy",
+  "topicId": "social-movements",
+  "name": "社会運動の広がり",
+  "subtitle": "差別との闘いと権利の主張",
+  "icon": "✊",
+  "order": 2,
+  "chatId": "social-movements",
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "労働運動",
+      "back": "労働者が労働条件改善を求めて行った運動は？",
+      "explanation": "大正期に労働組合が次々と結成された。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "農民運動",
+      "back": "小作料の引き下げなどを求めた農民の運動は？",
+      "explanation": "1922年に日本農民組合が結成された。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc3",
+      "front": "全国水平社",
+      "back": "1922年、部落差別の解消を目指して結成された組織は？",
+      "explanation": "差別からの解放を目指した。「水平社宣言」を発表。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "1922年",
+      "back": "全国水平社・日本農民組合が結成された年は？",
+      "explanation": "社会運動が広がる転換点となった年。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc5",
+      "front": "平塚らいてう",
+      "back": "「青鞜」を創刊し、女性解放運動を進めた人物は？",
+      "explanation": "「元始女性は太陽であった」の宣言で有名。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc6",
+      "front": "青鞜",
+      "back": "1911年に平塚らいてうが創刊した女性誌は？",
+      "explanation": "女性の自立を訴えた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc7",
+      "front": "新婦人協会",
+      "back": "1920年、平塚らいてう・市川房枝らが結成した女性団体は？",
+      "explanation": "女性の政治参加を目指した。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc8",
+      "front": "市川房枝",
+      "back": "婦人参政権獲得運動の中心となった人物は？",
+      "explanation": "戦後の参議院議員としても活躍した。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc9",
+      "front": "アイヌ",
+      "back": "北海道旧土人保護法によって生活が圧迫された北方民族は？",
+      "explanation": "明治政府による同化政策で文化が失われた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc10",
+      "front": "水平社宣言",
+      "back": "1922年、全国水平社の結成大会で発表された宣言は？",
+      "explanation": "「人の世に熱あれ、人間に光あれ」で結ばれる。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc11",
+      "front": "関東大震災",
+      "back": "1923年に起きた、関東地方の大地震は？",
+      "explanation": "死者・行方不明者10万人以上。朝鮮人虐殺など社会不安が広がった。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc12",
+      "front": "1923年",
+      "back": "関東大震災が起きた年は？",
+      "explanation": "9月1日に発生した。",
+      "difficulty": "basic"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "1922年に部落差別の解消を目指して結成された組織は？",
+        "options": [
+          "新婦人協会",
+          "日本農民組合",
+          "労農党",
+          "全国水平社"
+        ],
+        "correctIndex": 3,
+        "explanation": "全国水平社が水平社宣言を発表しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "「青鞜」を創刊した女性解放運動家は？",
+        "options": [
+          "平塚らいてう",
+          "市川房枝",
+          "津田梅子",
+          "与謝野晶子"
+        ],
+        "correctIndex": 0,
+        "explanation": "平塚らいてうが青鞜を創刊しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "1923年に関東地方で起きた大災害は？",
+        "options": [
+          "関東大震災",
+          "東日本大震災",
+          "阪神淡路大震災",
+          "三陸地震"
+        ],
+        "correctIndex": 0,
+        "explanation": "関東大震災で大きな被害が出ました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "1920年に女性の政治参加を目指して結成された団体は？",
+        "options": [
+          "青鞜社",
+          "労農党",
+          "全国水平社",
+          "新婦人協会"
+        ],
+        "correctIndex": 3,
+        "explanation": "新婦人協会は平塚らいてう・市川房枝らが結成しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q5",
+        "question": "婦人参政権獲得運動を進めた人物は？",
+        "options": [
+          "平塚らいてう",
+          "与謝野晶子",
+          "津田梅子",
+          "市川房枝"
+        ],
+        "correctIndex": 3,
+        "explanation": "市川房枝は戦後も参議院議員として活躍しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q6",
+        "question": "全国水平社が結成された年は？",
+        "options": [
+          "1912年",
+          "1918年",
+          "1922年",
+          "1925年"
+        ],
+        "correctIndex": 2,
+        "explanation": "1922年に結成されました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q7",
+        "question": "農民運動を推進した1922年結成の団体は？",
+        "options": [
+          "全国農民連合",
+          "日本農民組合",
+          "農地解放同盟",
+          "農村振興会"
+        ],
+        "correctIndex": 1,
+        "explanation": "日本農民組合が小作争議を主導しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q8",
+        "question": "関東大震災が起きた日付は？",
+        "options": [
+          "1月17日",
+          "3月11日",
+          "9月1日",
+          "12月7日"
+        ],
+        "correctIndex": 2,
+        "explanation": "1923年9月1日に発生しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q9",
+        "question": "「元始女性は太陽であった」を宣言したのは？",
+        "options": [
+          "市川房枝",
+          "津田梅子",
+          "平塚らいてう",
+          "与謝野晶子"
+        ],
+        "correctIndex": 2,
+        "explanation": "青鞜創刊号で平塚らいてうが宣言しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q10",
+        "question": "水平社宣言の有名な結語は？",
+        "options": [
+          "「人の世に熱あれ、人間に光あれ」",
+          "「自由・平等・博愛」",
+          "「天は人の上に人を造らず」",
+          "「神は死んだ」"
+        ],
+        "correctIndex": 0,
+        "explanation": "「人の世に熱あれ、人間に光あれ」で結ばれます。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q11",
+        "question": "関東大震災後に起きた社会問題は？",
+        "options": [
+          "朝鮮人虐殺",
+          "労働者ストライキの増加",
+          "農民の都市集中",
+          "外国人の急増"
+        ],
+        "correctIndex": 0,
+        "explanation": "デマにより朝鮮人虐殺などが起きました。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q12",
+        "question": "「青鞜」が創刊されたのは？",
+        "options": [
+          "1900年",
+          "1911年",
+          "1920年",
+          "1925年"
+        ],
+        "correctIndex": 1,
+        "explanation": "1911年に創刊されました。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

@@ -1,0 +1,271 @@
+{
+  "subjectId": "history",
+  "eraId": "cold-war-era",
+  "topicId": "postwar-culture",
+  "name": "戦後の文化",
+  "subtitle": "マスメディアと日本文化の発信",
+  "icon": "📺",
+  "order": 5,
+  "chatId": "postwar-culture",
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "テレビ放送",
+      "back": "1953年に日本で本放送が始まったメディアは？",
+      "explanation": "NHKと日本テレビが放送開始。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "1953年",
+      "back": "日本でテレビ放送が始まった年は？",
+      "explanation": "戦後の大衆文化を象徴するメディア。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc3",
+      "front": "マスメディア",
+      "back": "新聞・テレビ・ラジオなど大量に情報を伝える媒体は？",
+      "explanation": "戦後、生活に大きな影響を与えるようになった。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "湯川秀樹",
+      "back": "1949年に日本人初のノーベル賞（物理学賞）を受賞した科学者は？",
+      "explanation": "中間子理論で受賞した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc5",
+      "front": "中間子理論",
+      "back": "湯川秀樹がノーベル賞を受賞した研究テーマは？",
+      "explanation": "1935年に提唱、1949年に受賞。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc6",
+      "front": "1949年",
+      "back": "湯川秀樹がノーベル賞を受賞した年は？",
+      "explanation": "敗戦間もない日本に希望を与えた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc7",
+      "front": "川端康成",
+      "back": "1968年にノーベル文学賞を受賞した日本人初の作家は？",
+      "explanation": "「雪国」「伊豆の踊子」などで知られる。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc8",
+      "front": "黒澤明",
+      "back": "「羅生門」「七人の侍」などで世界的に有名な映画監督は？",
+      "explanation": "ヴェネチア国際映画祭で金獅子賞を受賞。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc9",
+      "front": "手塚治虫",
+      "back": "「鉄腕アトム」「火の鳥」などを著した「マンガの神様」は？",
+      "explanation": "日本のマンガ・アニメ文化の基礎を作った。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc10",
+      "front": "アニメ",
+      "back": "手塚治虫らが発展させた日本独自の動画文化は？",
+      "explanation": "現在では世界中に愛好者がいる。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc11",
+      "front": "三島由紀夫",
+      "back": "「金閣寺」「潮騒」などを著した戦後の作家は？",
+      "explanation": "1970年に割腹自殺した。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc12",
+      "front": "美空ひばり",
+      "back": "戦後を代表する歌手は？",
+      "explanation": "「リンゴ追分」「川の流れのように」などで国民的人気となった。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc13",
+      "front": "司馬遼太郎",
+      "back": "「竜馬がゆく」「坂の上の雲」などを著した歴史小説家は？",
+      "explanation": "歴史を題材にした作品で人気を集めた。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc14",
+      "front": "佐藤栄作",
+      "back": "1974年にノーベル平和賞を受賞した日本人元首相は？",
+      "explanation": "非核三原則の表明などが評価された。",
+      "difficulty": "standard"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "日本人初のノーベル賞受賞者は？",
+        "options": [
+          "湯川秀樹",
+          "朝永振一郎",
+          "野依良治",
+          "山中伸弥"
+        ],
+        "correctIndex": 0,
+        "explanation": "湯川秀樹が1949年に物理学賞を受賞しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "「雪国」「伊豆の踊子」を著した作家は？",
+        "options": [
+          "川端康成",
+          "三島由紀夫",
+          "大江健三郎",
+          "司馬遼太郎"
+        ],
+        "correctIndex": 0,
+        "explanation": "川端康成は1968年にノーベル文学賞を受賞しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "「鉄腕アトム」を著した「マンガの神様」は？",
+        "options": [
+          "手塚治虫",
+          "石ノ森章太郎",
+          "藤子・F・不二雄",
+          "鳥山明"
+        ],
+        "correctIndex": 0,
+        "explanation": "手塚治虫は日本マンガ・アニメ文化の基礎を作りました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "「七人の侍」「羅生門」で世界的に有名な映画監督は？",
+        "options": [
+          "黒澤明",
+          "小津安二郎",
+          "溝口健二",
+          "宮崎駿"
+        ],
+        "correctIndex": 0,
+        "explanation": "黒澤明はヴェネチア国際映画祭で金獅子賞を受賞しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q5",
+        "question": "日本でテレビ本放送が始まった年は？",
+        "options": [
+          "1945年",
+          "1950年",
+          "1953年",
+          "1960年"
+        ],
+        "correctIndex": 2,
+        "explanation": "1953年に始まりました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q6",
+        "question": "湯川秀樹がノーベル賞を受賞した分野は？",
+        "options": [
+          "物理学",
+          "化学",
+          "医学",
+          "文学"
+        ],
+        "correctIndex": 0,
+        "explanation": "中間子理論で物理学賞を受賞しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q7",
+        "question": "「金閣寺」「潮騒」を著した作家は？",
+        "options": [
+          "川端康成",
+          "司馬遼太郎",
+          "大江健三郎",
+          "三島由紀夫"
+        ],
+        "correctIndex": 3,
+        "explanation": "三島由紀夫は戦後を代表する作家の一人です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q8",
+        "question": "戦後を代表する国民的歌手は？",
+        "options": [
+          "美空ひばり",
+          "石原裕次郎",
+          "島倉千代子",
+          "三波春夫"
+        ],
+        "correctIndex": 0,
+        "explanation": "美空ひばりが戦後を代表する歌手でした。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q9",
+        "question": "1974年にノーベル平和賞を受賞した日本人は？",
+        "options": [
+          "田中角栄",
+          "鳩山一郎",
+          "吉田茂",
+          "佐藤栄作"
+        ],
+        "correctIndex": 3,
+        "explanation": "佐藤栄作元首相が受賞しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q10",
+        "question": "湯川秀樹がノーベル賞を受賞した年は？",
+        "options": [
+          "1945年",
+          "1964年",
+          "1955年",
+          "1949年"
+        ],
+        "correctIndex": 3,
+        "explanation": "1949年に受賞しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q11",
+        "question": "川端康成がノーベル文学賞を受賞した年は？",
+        "options": [
+          "1949年",
+          "1964年",
+          "1968年",
+          "1972年"
+        ],
+        "correctIndex": 2,
+        "explanation": "1968年に受賞しました。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q12",
+        "question": "「竜馬がゆく」「坂の上の雲」を著したのは？",
+        "options": [
+          "三島由紀夫",
+          "司馬遼太郎",
+          "井上靖",
+          "松本清張"
+        ],
+        "correctIndex": 1,
+        "explanation": "司馬遼太郎の歴史小説です。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

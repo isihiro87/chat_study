@@ -1,0 +1,310 @@
+{
+  "subjectId": "history",
+  "eraId": "modern-era",
+  "topicId": "american-independence",
+  "name": "アメリカの独立革命",
+  "subtitle": "新しい国の誕生",
+  "icon": "🗽",
+  "order": 2,
+  "chatId": "american-independence",
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "代表なくして課税なし",
+      "back": "アメリカ植民地の人々が掲げたスローガンは？",
+      "explanation": "自分たちの代表がいないイギリス議会の課税に反発したスローガン。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "ワシントン",
+      "back": "アメリカ独立戦争の総司令官で、初代大統領となった人物は？",
+      "explanation": "独立戦争を勝利に導き、アメリカ建国の父と呼ばれる。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "独立宣言",
+      "back": "「すべての人間は平等」という理念を掲げた1776年の文書は？",
+      "explanation": "ロックの思想に基づき、生命・自由・幸福追求の権利を謳った。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "独立戦争",
+      "back": "アメリカがイギリスからの独立を勝ち取った戦争は？",
+      "explanation": "1775年に始まり、1783年にイギリスが独立を承認した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc5",
+      "front": "ボストン茶会事件",
+      "back": "イギリスの茶への課税に抗議して茶を海に投げ捨てた事件は？",
+      "explanation": "独立戦争のきっかけの一つとなった象徴的な事件。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc6",
+      "front": "合衆国憲法",
+      "back": "アメリカで1787年に制定された世界初の近代的成文憲法は？",
+      "explanation": "三権分立や連邦制などを定め、各国の憲法の模範となった。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc7",
+      "front": "ジェファソン",
+      "back": "独立宣言の主な起草者で、第3代大統領となった人物は？",
+      "explanation": "「すべての人間は平等に創られた」という言葉を書いた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc8",
+      "front": "13植民地",
+      "back": "イギリスが北アメリカ東部に建設した植民地の数は？",
+      "explanation": "これらの植民地が独立してアメリカ合衆国が誕生した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc9",
+      "front": "1776年",
+      "back": "アメリカ独立宣言が出された年は？",
+      "explanation": "7月4日に発表され、アメリカの独立記念日となっている。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc10",
+      "front": "1783年",
+      "back": "イギリスがアメリカの独立を正式に認めた年は？",
+      "explanation": "パリ条約でイギリスがアメリカの独立を正式に承認した。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc11",
+      "front": "パリ条約",
+      "back": "アメリカ独立戦争の講和条約は？",
+      "explanation": "1783年に締結され、イギリスがアメリカの独立を承認した。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc12",
+      "front": "1787年",
+      "back": "アメリカ合衆国憲法が制定された年は？",
+      "explanation": "世界初の近代的な成文憲法として三権分立を定めた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc13",
+      "front": "連邦制",
+      "back": "各州が一定の自治権を持ちつつ連邦政府のもとにまとまる仕組みは？",
+      "explanation": "アメリカ合衆国憲法で定められた国家の基本構造。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc15",
+      "front": "ロック",
+      "back": "アメリカ独立宣言の理念に大きな影響を与えた啓蒙思想家は？",
+      "explanation": "抵抗権や自然権の考えが独立宣言に反映された。",
+      "difficulty": "standard"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "アメリカ独立戦争の総司令官で、初代大統領となった人物は？",
+        "options": [
+          "リンカン",
+          "ジェファソン",
+          "フランクリン",
+          "ワシントン"
+        ],
+        "correctIndex": 3,
+        "explanation": "ワシントンは独立戦争を勝利に導き、初代大統領となりました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "アメリカ植民地の人々が掲げたスローガンは？",
+        "options": [
+          "自由・平等・友愛",
+          "万人は平等",
+          "王権神授説",
+          "代表なくして課税なし"
+        ],
+        "correctIndex": 3,
+        "explanation": "代表がいないイギリス議会の課税に反対するスローガンでした。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "1776年に発表された文書は？",
+        "options": [
+          "権利章典",
+          "人権宣言",
+          "独立宣言",
+          "合衆国憲法"
+        ],
+        "correctIndex": 2,
+        "explanation": "独立宣言は「すべての人間は平等」と宣言しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "独立宣言の理念に影響を与えた啓蒙思想家は？",
+        "options": [
+          "ロック",
+          "ナポレオン",
+          "ビスマルク",
+          "モンテスキュー"
+        ],
+        "correctIndex": 0,
+        "explanation": "ロックの抵抗権が独立宣言に反映されました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q5",
+        "question": "独立戦争でアメリカ側を支援した国は？",
+        "options": [
+          "ロシア",
+          "オランダ",
+          "スペイン",
+          "フランス"
+        ],
+        "correctIndex": 3,
+        "explanation": "フランスはアメリカ独立戦争でアメリカ側を支援しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q6",
+        "question": "イギリスがアメリカの独立を認めた年は？",
+        "options": [
+          "1775年",
+          "1776年",
+          "1783年",
+          "1789年"
+        ],
+        "correctIndex": 2,
+        "explanation": "1783年のパリ条約で独立が承認されました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q7",
+        "question": "イギリスが北アメリカ東部に建設した植民地は何か所？",
+        "options": [
+          "7か所",
+          "10か所",
+          "13か所",
+          "15か所"
+        ],
+        "correctIndex": 2,
+        "explanation": "13植民地が独立しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q8",
+        "question": "独立宣言の起草者で、第3代大統領は？",
+        "options": [
+          "ワシントン",
+          "フランクリン",
+          "ジェファソン",
+          "リンカン"
+        ],
+        "correctIndex": 2,
+        "explanation": "ジェファソンは独立宣言の主な起草者です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q9",
+        "question": "アメリカ合衆国憲法が制定された年は？",
+        "options": [
+          "1776年",
+          "1783年",
+          "1787年",
+          "1789年"
+        ],
+        "correctIndex": 2,
+        "explanation": "1787年に制定されました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q10",
+        "question": "合衆国憲法で採用された政治の仕組みは？",
+        "options": [
+          "立憲君主制",
+          "絶対王政",
+          "三権分立",
+          "議院内閣制"
+        ],
+        "correctIndex": 2,
+        "explanation": "モンテスキューの三権分立の思想を取り入れました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q11",
+        "question": "茶への課税に抗議して茶を海に投げ捨てた事件は？",
+        "options": [
+          "独立宣言の発表",
+          "ボストン茶会事件",
+          "パリ条約の締結",
+          "バスティーユ牢獄襲撃"
+        ],
+        "correctIndex": 1,
+        "explanation": "ボストン茶会事件は独立戦争のきっかけの一つです。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q12",
+        "question": "アメリカ独立宣言が影響を与えた革命は？",
+        "options": [
+          "産業革命",
+          "フランス革命",
+          "ロシア革命",
+          "名誉革命"
+        ],
+        "correctIndex": 1,
+        "explanation": "アメリカ独立宣言はフランス革命に大きな影響を与えました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q13",
+        "question": "アメリカ独立戦争の講和条約は？",
+        "options": [
+          "南京条約",
+          "パリ条約",
+          "ウィーン条約",
+          "ロンドン条約"
+        ],
+        "correctIndex": 1,
+        "explanation": "1783年のパリ条約でイギリスが独立を承認しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q14",
+        "question": "独立宣言で謳われた基本的な権利は？",
+        "options": [
+          "信教の自由・表現の自由",
+          "生命・自由・幸福追求の権利",
+          "選挙権・住居の自由",
+          "教育を受ける権利"
+        ],
+        "correctIndex": 1,
+        "explanation": "ロックの思想に基づき、生命・自由・幸福追求の権利を謳いました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q15",
+        "question": "植民地の人々が反発した主な理由は？",
+        "options": [
+          "宗教の弾圧",
+          "本国の重い課税",
+          "土地を奪われたから",
+          "奴隷制度"
+        ],
+        "correctIndex": 1,
+        "explanation": "代表がいないイギリス議会の重い課税に反発しました。",
+        "difficulty": "basic"
+      }
+    ]
+  }
+}

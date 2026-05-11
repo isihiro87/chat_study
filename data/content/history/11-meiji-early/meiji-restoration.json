@@ -1,0 +1,311 @@
+{
+  "subjectId": "history",
+  "eraId": "meiji-early",
+  "topicId": "meiji-restoration",
+  "name": "明治維新と新政府",
+  "subtitle": "五箇条の御誓文と中央集権化",
+  "icon": "🌅",
+  "order": 1,
+  "chatId": "meiji-restoration",
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "明治維新",
+      "back": "明治政府が行った政治・社会の大改革は？",
+      "explanation": "江戸幕府に代わる天皇中心の新しい国づくり。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "五箇条の御誓文",
+      "back": "1868年に明治天皇が発表した、新しい国づくりの基本方針は？",
+      "explanation": "広く会議を開く、開国和親などの方針を示した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "版籍奉還",
+      "back": "1869年、藩主が土地と人民を朝廷に返したことは？",
+      "explanation": "中央集権化の第一歩。「版」は土地、「籍」は人民。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "廃藩置県",
+      "back": "1871年、藩を廃止して県を設置した改革は？",
+      "explanation": "政府が任命した役人が治めるようになった。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc5",
+      "front": "四民平等",
+      "back": "江戸時代の身分制度を改め、平等な社会を目指したことは？",
+      "explanation": "華族・士族・平民に分けられた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc6",
+      "front": "解放令",
+      "back": "1871年、えた・ひにんと呼ばれた人々を平民としたお触れは？",
+      "explanation": "形式上は平民となったが、差別は根強く残った。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc7",
+      "front": "藩閥政治",
+      "back": "薩摩・長州など特定の藩出身者が政治を独占したことは？",
+      "explanation": "自由民権運動で批判の対象となった。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc8",
+      "front": "華族",
+      "back": "明治時代に公家や大名がなった身分は？",
+      "explanation": "皇族の下、士族の上に位置づけられた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc9",
+      "front": "士族",
+      "back": "明治時代にもと武士がなった身分は？",
+      "explanation": "特権を失い、不満を持つ者も多かった。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc10",
+      "front": "中央集権",
+      "back": "中央政府に権力を集中させる政治体制は？",
+      "explanation": "廃藩置県で確立された。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc11",
+      "front": "東京",
+      "back": "江戸の名称を変えた新しい首都の名前は？",
+      "explanation": "明治政府が首都を京都から移した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc12",
+      "front": "県令",
+      "back": "廃藩置県後に中央から派遣されて県を治めた役人は？",
+      "explanation": "のちに県知事と呼ばれるようになった。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc13",
+      "front": "薩長土肥",
+      "back": "明治維新の中心となった4つの藩の総称は？",
+      "explanation": "薩摩藩・長州藩・土佐藩・肥前藩のこと。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc14",
+      "front": "1868年",
+      "back": "五箇条の御誓文が発表された年は？",
+      "explanation": "明治天皇が新しい国づくりの方針を示した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc15",
+      "front": "1869年",
+      "back": "版籍奉還が行われた年は？",
+      "explanation": "藩主が土地と人民を朝廷に返した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc16",
+      "front": "1871年",
+      "back": "廃藩置県が行われた年は？",
+      "explanation": "藩を廃止して県を設置した画期的な改革。",
+      "difficulty": "basic"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "1868年に発表された新しい国づくりの基本方針は？",
+        "options": [
+          "五箇条の御誓文",
+          "大日本帝国憲法",
+          "王政復古の大号令",
+          "教育勅語"
+        ],
+        "correctIndex": 0,
+        "explanation": "五箇条の御誓文は新しい国づくりの方針を示しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "1869年、藩主が土地と人民を朝廷に返したことは？",
+        "options": [
+          "廃藩置県",
+          "大政奉還",
+          "地租改正",
+          "版籍奉還"
+        ],
+        "correctIndex": 3,
+        "explanation": "版籍奉還は中央集権化の第一歩でした。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "1871年、藩を廃止して県を設置した改革は？",
+        "options": [
+          "版籍奉還",
+          "殖産興業",
+          "地租改正",
+          "廃藩置県"
+        ],
+        "correctIndex": 3,
+        "explanation": "廃藩置県により中央集権国家が確立しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q4",
+        "question": "薩摩・長州など特定の藩出身者が政治を独占したことは？",
+        "options": [
+          "四民平等",
+          "立憲政治",
+          "藩閥政治",
+          "公武合体"
+        ],
+        "correctIndex": 2,
+        "explanation": "藩閥政治は自由民権運動で批判されました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q5",
+        "question": "江戸時代の身分制度を改め、平等な社会を目指したことは？",
+        "options": [
+          "四民平等",
+          "解放令",
+          "版籍奉還",
+          "廃藩置県"
+        ],
+        "correctIndex": 0,
+        "explanation": "四民平等により華族・士族・平民に分けられました。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q6",
+        "question": "江戸の名称は何に変更された？",
+        "options": [
+          "大阪",
+          "東京",
+          "京都",
+          "横浜"
+        ],
+        "correctIndex": 1,
+        "explanation": "明治政府は江戸を東京と改称しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q7",
+        "question": "廃藩置県後、中央から派遣された役人は？",
+        "options": [
+          "藩主",
+          "県令",
+          "将軍",
+          "大名"
+        ],
+        "correctIndex": 1,
+        "explanation": "県令（のち県知事）が県を治めました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q8",
+        "question": "明治維新の中心となった4つの藩は？",
+        "options": [
+          "薩摩・長州・土佐・肥前",
+          "薩摩・長州・水戸・加賀",
+          "薩摩・長州・土佐・尾張",
+          "薩摩・長州・紀伊・肥前"
+        ],
+        "correctIndex": 0,
+        "explanation": "薩長土肥が明治政府の中心となりました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q9",
+        "question": "版籍奉還が行われたのは何年？",
+        "options": [
+          "1868年",
+          "1869年",
+          "1871年",
+          "1873年"
+        ],
+        "correctIndex": 1,
+        "explanation": "1869年に版籍奉還が行われました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q10",
+        "question": "廃藩置県が行われたのは何年？",
+        "options": [
+          "1868年",
+          "1869年",
+          "1871年",
+          "1873年"
+        ],
+        "correctIndex": 2,
+        "explanation": "1871年に廃藩置県が行われました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q12",
+        "question": "版籍奉還の「版」「籍」は？",
+        "options": [
+          "版＝法律、籍＝財産",
+          "版＝土地、籍＝人民",
+          "版＝武器、籍＝城",
+          "版＝米、籍＝金"
+        ],
+        "correctIndex": 1,
+        "explanation": "「版」は土地、「籍」は人民を意味します。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q13",
+        "question": "明治時代に公家や大名がなった身分は？",
+        "options": [
+          "平民",
+          "士族",
+          "華族",
+          "皇族"
+        ],
+        "correctIndex": 2,
+        "explanation": "華族は皇族の下、士族の上の身分。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q14",
+        "question": "廃藩置県の目的は？",
+        "options": [
+          "武士の反乱を防ぐため",
+          "中央集権国家を確立するため",
+          "外国との貿易を促進するため",
+          "国民に選挙権を与えるため"
+        ],
+        "correctIndex": 1,
+        "explanation": "中央集権国家の確立のために行われました。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q15",
+        "question": "五箇条の御誓文が発表されたのは？",
+        "options": [
+          "1867年",
+          "1868年",
+          "1869年",
+          "1871年"
+        ],
+        "correctIndex": 1,
+        "explanation": "1868年に発表されました。",
+        "difficulty": "basic"
+      }
+    ]
+  }
+}

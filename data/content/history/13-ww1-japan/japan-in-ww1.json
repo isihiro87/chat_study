@@ -1,0 +1,250 @@
+{
+  "subjectId": "history",
+  "eraId": "ww1-japan",
+  "topicId": "japan-in-ww1",
+  "name": "日本の参戦と二十一か条の要求",
+  "subtitle": "アジアへの野心",
+  "icon": "🇯🇵",
+  "order": 2,
+  "chatId": "japan-in-ww1",
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "日英同盟",
+      "back": "日本が第一次世界大戦で連合国側に参戦した根拠となった同盟は？",
+      "explanation": "1902年に結ばれた日英の同盟。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "山東省",
+      "back": "日本が第一次世界大戦中に占領した中国のドイツ租借地は？",
+      "explanation": "青島など。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc3",
+      "front": "南洋諸島",
+      "back": "第一次世界大戦中に日本が占領した太平洋のドイツ領は？",
+      "explanation": "戦後、委任統治領となった。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc4",
+      "front": "二十一か条の要求",
+      "back": "1915年、日本が中国（袁世凱政権）に突きつけた要求は？",
+      "explanation": "山東省のドイツ権益継承などを求め、中国に強い反発を生んだ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc5",
+      "front": "1915年",
+      "back": "二十一か条の要求が突きつけられた年は？",
+      "explanation": "中国の反日感情が高まる原因となった。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc6",
+      "front": "大戦景気",
+      "back": "第一次世界大戦中の日本の好景気は？",
+      "explanation": "ヨーロッパからの輸出激減で日本製品の需要が拡大した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc7",
+      "front": "成金",
+      "back": "大戦景気で急に金持ちになった人々は？",
+      "explanation": "船成金など、戦争特需で巨富を得た。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc8",
+      "front": "米騒動",
+      "back": "1918年、米価高騰に怒った民衆が起こした騒動は？",
+      "explanation": "全国に広がり、寺内内閣は退陣に追い込まれた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc9",
+      "front": "1918年",
+      "back": "米騒動が起きた年は？",
+      "explanation": "シベリア出兵による米の買い占めも背景にあった。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc10",
+      "front": "シベリア出兵",
+      "back": "1918〜22年、ロシア革命に干渉するため日本軍が出兵したのは？",
+      "explanation": "多くの犠牲を出し成果なく撤退した。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc11",
+      "front": "袁世凱",
+      "back": "二十一か条の要求を受け入れた当時の中国の権力者は？",
+      "explanation": "中華民国の臨時大総統。",
+      "difficulty": "advanced"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "日本が第一次世界大戦で参戦した根拠となった同盟は？",
+        "options": [
+          "日米同盟",
+          "三国同盟",
+          "日露同盟",
+          "日英同盟"
+        ],
+        "correctIndex": 3,
+        "explanation": "日英同盟を理由に連合国側で参戦しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "1915年に日本が中国に突きつけた要求は？",
+        "options": [
+          "二十一か条の要求",
+          "ポーツマス条約",
+          "下関条約",
+          "日華親善条約"
+        ],
+        "correctIndex": 0,
+        "explanation": "二十一か条の要求は中国の反発を招きました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "1918年に米価高騰で起きた騒動は？",
+        "options": [
+          "打ちこわし",
+          "ええじゃないか",
+          "百姓一揆",
+          "米騒動"
+        ],
+        "correctIndex": 3,
+        "explanation": "米騒動は全国に広がり寺内内閣を退陣に追い込みました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "第一次世界大戦中の日本の好景気は？",
+        "options": [
+          "バブル景気",
+          "神武景気",
+          "高度経済成長",
+          "大戦景気"
+        ],
+        "correctIndex": 3,
+        "explanation": "ヨーロッパの戦争で日本製品の需要が拡大しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q5",
+        "question": "1918〜22年のロシア革命への日本の干渉戦争は？",
+        "options": [
+          "日露戦争",
+          "シベリア出兵",
+          "義和団事件",
+          "満州事変"
+        ],
+        "correctIndex": 1,
+        "explanation": "シベリア出兵は成果なく撤退しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q6",
+        "question": "二十一か条の要求の主な目的の1つは？",
+        "options": [
+          "米国の権益確保",
+          "山東省のドイツ権益継承",
+          "ロシアからの領土獲得",
+          "東南アジア進出"
+        ],
+        "correctIndex": 1,
+        "explanation": "山東省のドイツ権益継承などを要求しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q7",
+        "question": "二十一か条の要求を受け入れた中国の権力者は？",
+        "options": [
+          "孫文",
+          "袁世凱",
+          "蒋介石",
+          "李鴻章"
+        ],
+        "correctIndex": 1,
+        "explanation": "中華民国の袁世凱が受諾しました。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q8",
+        "question": "大戦景気で急に金持ちになった人々は？",
+        "options": [
+          "浪人",
+          "成金",
+          "豪商",
+          "豪農"
+        ],
+        "correctIndex": 1,
+        "explanation": "船成金など戦争特需で巨富を得ました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q9",
+        "question": "米騒動の背景にあった軍事行動は？",
+        "options": [
+          "日露戦争",
+          "シベリア出兵",
+          "義和団事件",
+          "二・二六事件"
+        ],
+        "correctIndex": 1,
+        "explanation": "シベリア出兵に伴う米の買い占めが原因の一つでした。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q10",
+        "question": "第一次世界大戦中に日本が占領した中国の地域は？",
+        "options": [
+          "遼東半島",
+          "山東省",
+          "海南島",
+          "台湾"
+        ],
+        "correctIndex": 1,
+        "explanation": "ドイツの租借地であった山東省を占領しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q11",
+        "question": "米騒動が起きた年は？",
+        "options": [
+          "1914年",
+          "1917年",
+          "1918年",
+          "1923年"
+        ],
+        "correctIndex": 2,
+        "explanation": "1918年に起きました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q12",
+        "question": "第一次世界大戦中に日本が占領した太平洋のドイツ領は？",
+        "options": [
+          "小笠原諸島",
+          "南洋諸島",
+          "アリューシャン列島",
+          "サハリン"
+        ],
+        "correctIndex": 1,
+        "explanation": "南洋諸島は戦後委任統治領となりました。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

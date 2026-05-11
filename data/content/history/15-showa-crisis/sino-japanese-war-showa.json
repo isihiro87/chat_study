@@ -1,0 +1,271 @@
+{
+  "subjectId": "history",
+  "eraId": "showa-crisis",
+  "topicId": "sino-japanese-war-showa",
+  "name": "日中戦争の泥沼化",
+  "subtitle": "戦時体制への突入",
+  "icon": "⚔️",
+  "order": 3,
+  "chatId": "sino-japanese-war-showa",
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "日中戦争",
+      "back": "1937〜45年に日本と中国が戦った戦争は？",
+      "explanation": "盧溝橋事件をきっかけに始まり、太平洋戦争へとつながった。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "盧溝橋事件",
+      "back": "1937年7月、北京郊外で日中両軍が衝突した事件は？",
+      "explanation": "日中戦争のきっかけとなった。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "1937年",
+      "back": "日中戦争が始まった年は？",
+      "explanation": "盧溝橋事件をきっかけに戦争が拡大した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "南京事件",
+      "back": "1937年12月、日本軍が南京で多数の市民・捕虜を殺害した事件は？",
+      "explanation": "国際的に大きな批判を受けた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc5",
+      "front": "国共合作",
+      "back": "日本に対抗するため中国の国民党と共産党が結んだ協力関係は？",
+      "explanation": "蒋介石と毛沢東が手を結んだ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc6",
+      "front": "蒋介石",
+      "back": "中国国民党を率いて日本と戦った指導者は？",
+      "explanation": "首都を南京から重慶へ移し抵抗を続けた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc7",
+      "front": "毛沢東",
+      "back": "中国共産党を率いた指導者は？",
+      "explanation": "戦後の中華人民共和国の建国者となる。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc8",
+      "front": "国家総動員法",
+      "back": "1938年に制定された、戦争のために国民・物資をすべて動員できるとした法律は？",
+      "explanation": "近衛文麿内閣が制定。議会の承認なく統制可能になった。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc9",
+      "front": "1938年",
+      "back": "国家総動員法が制定された年は？",
+      "explanation": "戦時体制を法的に整える法律だった。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc10",
+      "front": "近衛文麿",
+      "back": "国家総動員法を制定した首相は？",
+      "explanation": "後に新体制運動を進めた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc11",
+      "front": "大政翼賛会",
+      "back": "1940年、すべての政党を解散させて作られた国民組織は？",
+      "explanation": "政党政治が完全に終わり、一党独裁体制となった。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc12",
+      "front": "1940年",
+      "back": "大政翼賛会が結成された年は？",
+      "explanation": "日独伊三国同盟もこの年に結ばれた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc13",
+      "front": "日独伊三国同盟",
+      "back": "1940年に日本・ドイツ・イタリアが結んだ軍事同盟は？",
+      "explanation": "アメリカとの対立を決定的にした。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc14",
+      "front": "重慶",
+      "back": "蒋介石政府が南京から移った臨時首都は？",
+      "explanation": "日本軍は何度も空爆したが、降伏させられなかった。",
+      "difficulty": "advanced"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "1937年に日中戦争のきっかけとなった事件は？",
+        "options": [
+          "柳条湖事件",
+          "義和団事件",
+          "張作霖爆殺事件",
+          "盧溝橋事件"
+        ],
+        "correctIndex": 3,
+        "explanation": "盧溝橋事件で日中の全面戦争が始まりました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "1938年に制定された戦時統制法は？",
+        "options": [
+          "治安維持法",
+          "戒厳令",
+          "国民徴用令",
+          "国家総動員法"
+        ],
+        "correctIndex": 3,
+        "explanation": "国家総動員法で議会の承認なく統制可能になりました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "1940年に結成された全国民組織は？",
+        "options": [
+          "大政翼賛会",
+          "国民連合",
+          "新体制党",
+          "皇道派"
+        ],
+        "correctIndex": 0,
+        "explanation": "大政翼賛会で政党政治が完全に終わりました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "1940年に日独伊が結んだ軍事同盟は？",
+        "options": [
+          "三国干渉",
+          "三国同盟",
+          "日独伊三国同盟",
+          "枢軸同盟"
+        ],
+        "correctIndex": 2,
+        "explanation": "アメリカとの対立を決定的にしました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q5",
+        "question": "国民党と共産党の対日協力関係は？",
+        "options": [
+          "国共合作",
+          "中華同盟",
+          "孫中山連合",
+          "重慶連合"
+        ],
+        "correctIndex": 0,
+        "explanation": "国共合作で蒋介石と毛沢東が手を結びました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q6",
+        "question": "中国国民党の指導者は？",
+        "options": [
+          "孫文",
+          "袁世凱",
+          "毛沢東",
+          "蒋介石"
+        ],
+        "correctIndex": 3,
+        "explanation": "蒋介石が国民党を率いました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q7",
+        "question": "中国共産党の指導者で後に中華人民共和国を建国したのは？",
+        "options": [
+          "蒋介石",
+          "孫文",
+          "毛沢東",
+          "周恩来"
+        ],
+        "correctIndex": 2,
+        "explanation": "毛沢東が中華人民共和国を建国しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q8",
+        "question": "1937年12月、日本軍が中国の首都で多数の市民を殺害した事件は？",
+        "options": [
+          "盧溝橋事件",
+          "南京事件",
+          "上海事変",
+          "通州事件"
+        ],
+        "correctIndex": 1,
+        "explanation": "南京事件は国際的に大きな批判を受けました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q9",
+        "question": "国家総動員法を制定した首相は？",
+        "options": [
+          "近衛文麿",
+          "東条英機",
+          "犬養毅",
+          "若槻礼次郎"
+        ],
+        "correctIndex": 0,
+        "explanation": "近衛文麿内閣が制定しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q10",
+        "question": "日中戦争が始まった年は？",
+        "options": [
+          "1931年",
+          "1937年",
+          "1939年",
+          "1941年"
+        ],
+        "correctIndex": 1,
+        "explanation": "1937年に盧溝橋事件から拡大しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q11",
+        "question": "蒋介石政府が首都を移した場所は？",
+        "options": [
+          "上海",
+          "重慶",
+          "広州",
+          "香港"
+        ],
+        "correctIndex": 1,
+        "explanation": "重慶を臨時首都として抵抗を続けました。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q12",
+        "question": "大政翼賛会の特徴は？",
+        "options": [
+          "多党制の継続",
+          "一党体制の組織",
+          "天皇親政の組織",
+          "軍人だけの組織"
+        ],
+        "correctIndex": 1,
+        "explanation": "すべての政党を解散させて作られました。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

@@ -1,0 +1,337 @@
+{
+  "subjectId": "history",
+  "eraId": "meiji-early",
+  "topicId": "constitution",
+  "name": "大日本帝国憲法と議会",
+  "subtitle": "立憲国家への歩み",
+  "icon": "📜",
+  "order": 6,
+  "chatId": "constitution",
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "大日本帝国憲法",
+      "back": "1889年に発布された、天皇主権の憲法は？",
+      "explanation": "ドイツの憲法を参考に作られた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "伊藤博文",
+      "back": "初代内閣総理大臣で、憲法制定の中心となった人物は？",
+      "explanation": "ドイツで憲法を学び、大日本帝国憲法を作成した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "内閣制度",
+      "back": "1885年に発足した、総理大臣と各大臣による政治の仕組みは？",
+      "explanation": "伊藤博文が初代内閣総理大臣となった。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "天皇主権",
+      "back": "大日本帝国憲法で、国の主権が天皇にあるとされたことは？",
+      "explanation": "天皇は国の元首で神聖な存在とされた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc5",
+      "front": "臣民",
+      "back": "大日本帝国憲法で国民を指した言葉は？",
+      "explanation": "法律の範囲内で権利が認められた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc6",
+      "front": "帝国議会",
+      "back": "大日本帝国憲法で設置された議会は？",
+      "explanation": "貴族院と衆議院の二院制だった。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc7",
+      "front": "貴族院",
+      "back": "皇族・華族・勅選議員からなる議院は？",
+      "explanation": "帝国議会の上院にあたる。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc8",
+      "front": "衆議院",
+      "back": "選挙で選ばれた議員からなる議院は？",
+      "explanation": "帝国議会の下院にあたる。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc9",
+      "front": "教育勅語",
+      "back": "1890年に出された、道徳教育の基本を示した文書は？",
+      "explanation": "天皇への忠誠と親への孝行を教えた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc10",
+      "front": "1889年",
+      "back": "大日本帝国憲法が発布された年は？",
+      "explanation": "2月11日に発布された。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc11",
+      "front": "1890年",
+      "back": "第1回帝国議会が開かれた年は？",
+      "explanation": "教育勅語もこの年に出された。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc12",
+      "front": "プロイセン",
+      "back": "伊藤博文が憲法の手本としたドイツの国は？",
+      "explanation": "君主の権限が強い憲法だったため参考にされた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc14",
+      "front": "満25歳以上の男子",
+      "back": "第1回衆議院選挙で選挙権を持つ年齢と性別の条件は？",
+      "explanation": "女性に選挙権はなく、財産条件も必要だった。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc15",
+      "front": "約1.1%",
+      "back": "第1回衆議院選挙で選挙権を持つ人は全人口の約何%？",
+      "explanation": "非常に限られた人だけが選挙権を持っていた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc16",
+      "front": "欽定憲法",
+      "back": "天皇が国民に与える形で発布された憲法の形式は？",
+      "explanation": "大日本帝国憲法は天皇が「与える」形で発布された。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc17",
+      "front": "1885年",
+      "back": "内閣制度が発足した年は？",
+      "explanation": "伊藤博文が初代内閣総理大臣に就任した。",
+      "difficulty": "basic"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "憲法制定のためドイツで調査した人物は？",
+        "options": [
+          "大隈重信",
+          "板垣退助",
+          "岩倉具視",
+          "伊藤博文"
+        ],
+        "correctIndex": 3,
+        "explanation": "伊藤博文はプロイセンの憲法を学びました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "1885年に発足した内閣制度の初代内閣総理大臣は？",
+        "options": [
+          "伊藤博文",
+          "大隈重信",
+          "板垣退助",
+          "岩倉具視"
+        ],
+        "correctIndex": 0,
+        "explanation": "伊藤博文が初代内閣総理大臣となりました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "大日本帝国憲法で、国の主権者は？",
+        "options": [
+          "国民",
+          "帝国議会",
+          "天皇",
+          "内閣総理大臣"
+        ],
+        "correctIndex": 2,
+        "explanation": "天皇主権のもと、国民は「臣民」と呼ばれました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "帝国議会は何の二院制？",
+        "options": [
+          "参議院と衆議院",
+          "枢密院と衆議院",
+          "元老院と衆議院",
+          "貴族院と衆議院"
+        ],
+        "correctIndex": 3,
+        "explanation": "貴族院と衆議院の二院制でした。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q5",
+        "question": "第1回衆議院議員総選挙で選挙権を持っていたのは全人口の約何%？",
+        "options": [
+          "約10%",
+          "約5%",
+          "約1.1%",
+          "約20%"
+        ],
+        "correctIndex": 2,
+        "explanation": "全人口の約1.1%でした。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q6",
+        "question": "1890年に出された道徳教育の文書は？",
+        "options": [
+          "五箇条の御誓文",
+          "教育勅語",
+          "学制",
+          "大日本帝国憲法"
+        ],
+        "correctIndex": 1,
+        "explanation": "教育勅語は天皇への忠誠と親への孝行を教えました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q7",
+        "question": "大日本帝国憲法が発布されたのは何年？",
+        "options": [
+          "1885年",
+          "1889年",
+          "1890年",
+          "1895年"
+        ],
+        "correctIndex": 1,
+        "explanation": "1889年2月11日に発布されました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q8",
+        "question": "大日本帝国憲法で国民は何と呼ばれた？",
+        "options": [
+          "市民",
+          "国民",
+          "臣民",
+          "人民"
+        ],
+        "correctIndex": 2,
+        "explanation": "国民は「臣民」と呼ばれました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q9",
+        "question": "プロイセンの憲法を参考にした理由は？",
+        "options": [
+          "民主主義が進んでいた",
+          "議会の力が強い",
+          "君主の権限が強い",
+          "最も古い"
+        ],
+        "correctIndex": 2,
+        "explanation": "君主の権限が強く、天皇の権限維持に適していました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q10",
+        "question": "第1回衆議院選挙の選挙権の条件は？",
+        "options": [
+          "20歳以上の全国民",
+          "直接国税15円以上を納める25歳以上の男子",
+          "直接国税10円以上を納める20歳以上の男子",
+          "華族と士族のみ"
+        ],
+        "correctIndex": 1,
+        "explanation": "納税条件と性別条件がありました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q11",
+        "question": "第1回帝国議会が開かれたのは？",
+        "options": [
+          "1885年",
+          "1889年",
+          "1890年",
+          "1895年"
+        ],
+        "correctIndex": 2,
+        "explanation": "1890年に開かれました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q12",
+        "question": "内閣制度が発足した年は？",
+        "options": [
+          "1881年",
+          "1885年",
+          "1889年",
+          "1890年"
+        ],
+        "correctIndex": 1,
+        "explanation": "1885年に発足しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q13",
+        "question": "大日本帝国憲法の特徴は？",
+        "options": [
+          "国民主権で広い権利を保障",
+          "天皇主権で権利は法律の範囲内",
+          "議会に全権限",
+          "地方分権重視"
+        ],
+        "correctIndex": 1,
+        "explanation": "天皇主権で国民は臣民として権利が認められました。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q14",
+        "question": "貴族院の議員はどう選ばれた？",
+        "options": [
+          "国民の選挙",
+          "皇族・華族・勅選議員",
+          "県知事が任命",
+          "総理大臣が指名"
+        ],
+        "correctIndex": 1,
+        "explanation": "皇族・華族・勅選議員で構成されました。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q16",
+        "question": "大日本帝国憲法の発布日は？",
+        "options": [
+          "1月1日",
+          "2月11日",
+          "4月29日",
+          "11月3日"
+        ],
+        "correctIndex": 1,
+        "explanation": "紀元節にあたる2月11日に発布されました。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q17",
+        "question": "天皇が国民に「与える」形の憲法の形式は？",
+        "options": [
+          "民定憲法",
+          "欽定憲法",
+          "協約憲法",
+          "制定憲法"
+        ],
+        "correctIndex": 1,
+        "explanation": "大日本帝国憲法は欽定憲法でした。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

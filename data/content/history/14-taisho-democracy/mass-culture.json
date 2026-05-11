@@ -1,0 +1,264 @@
+{
+  "subjectId": "history",
+  "eraId": "taisho-democracy",
+  "topicId": "mass-culture",
+  "name": "大衆文化の成熟",
+  "subtitle": "メディアと生活の近代化",
+  "icon": "📻",
+  "order": 3,
+  "chatId": "mass-culture",
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "大衆文化",
+      "back": "大正〜昭和初期に都市の一般大衆に広がった文化は？",
+      "explanation": "新聞・雑誌・ラジオ・映画などのメディアが普及した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "ラジオ放送",
+      "back": "1925年に日本で始まったメディアは？",
+      "explanation": "東京・大阪・名古屋で開始。後にNHKとなる。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "1925年",
+      "back": "日本でラジオ放送が始まった年は？",
+      "explanation": "普通選挙法・治安維持法と同年。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc4",
+      "front": "活動写真（映画）",
+      "back": "大正期に普及した映像メディアは？",
+      "explanation": "無声映画から音声付きへと発展した。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc5",
+      "front": "大衆雑誌",
+      "back": "「キング」「主婦の友」など発行部数100万部を超えた雑誌は？",
+      "explanation": "「キング」は1925年創刊。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc6",
+      "front": "円本",
+      "back": "1冊1円で売り出され、ベストセラーとなった文学全集は？",
+      "explanation": "「現代日本文学全集」など。読書の大衆化につながった。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc7",
+      "front": "モボ・モガ",
+      "back": "大正末〜昭和初期の流行を取り入れた若者を呼んだ言葉は？",
+      "explanation": "モダンボーイ・モダンガールの略。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc8",
+      "front": "芥川龍之介",
+      "back": "「羅生門」「鼻」を著した大正期の作家は？",
+      "explanation": "新思潮派の代表。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc9",
+      "front": "志賀直哉",
+      "back": "「暗夜行路」を著した白樺派の作家は？",
+      "explanation": "白樺派は人道主義・個人主義を掲げた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc10",
+      "front": "小林多喜二",
+      "back": "「蟹工船」を著したプロレタリア文学の作家は？",
+      "explanation": "労働者の苦しみを描いた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc11",
+      "front": "白樺派",
+      "back": "武者小路実篤・志賀直哉らが結成した文学の流派は？",
+      "explanation": "人道主義・理想主義を特徴とした。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc12",
+      "front": "プロレタリア文学",
+      "back": "労働者・農民の生活を描いた文学運動は？",
+      "explanation": "小林多喜二「蟹工船」、徳永直「太陽のない街」など。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc13",
+      "front": "文化住宅",
+      "back": "和洋折衷で台所や応接間を備えた都市住宅は？",
+      "explanation": "サラリーマンを中心に普及した。",
+      "difficulty": "advanced"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "日本でラジオ放送が始まった年は？",
+        "options": [
+          "1918年",
+          "1923年",
+          "1925年",
+          "1930年"
+        ],
+        "correctIndex": 2,
+        "explanation": "1925年に放送が始まりました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "「羅生門」「鼻」を著した作家は？",
+        "options": [
+          "夏目漱石",
+          "小林多喜二",
+          "志賀直哉",
+          "芥川龍之介"
+        ],
+        "correctIndex": 3,
+        "explanation": "芥川龍之介は新思潮派の代表です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "「蟹工船」を著したプロレタリア文学の作家は？",
+        "options": [
+          "志賀直哉",
+          "芥川龍之介",
+          "小林多喜二",
+          "武者小路実篤"
+        ],
+        "correctIndex": 2,
+        "explanation": "小林多喜二は労働者の苦しみを描きました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q4",
+        "question": "大正末〜昭和初期の流行を取り入れた若者は？",
+        "options": [
+          "カバヤ",
+          "モボ・モガ",
+          "ハイカラ",
+          "尖端"
+        ],
+        "correctIndex": 1,
+        "explanation": "モダンボーイ・モダンガールの略です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q5",
+        "question": "1冊1円で売られベストセラーとなった文学全集は？",
+        "options": [
+          "文庫本",
+          "円本",
+          "新書",
+          "豆本"
+        ],
+        "correctIndex": 1,
+        "explanation": "円本が読書の大衆化をもたらしました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q6",
+        "question": "志賀直哉・武者小路実篤らの文学流派は？",
+        "options": [
+          "白樺派",
+          "新思潮派",
+          "プロレタリア派",
+          "自然主義"
+        ],
+        "correctIndex": 0,
+        "explanation": "白樺派は人道主義・理想主義を掲げました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q7",
+        "question": "「暗夜行路」を著した白樺派の作家は？",
+        "options": [
+          "志賀直哉",
+          "芥川龍之介",
+          "夏目漱石",
+          "石川啄木"
+        ],
+        "correctIndex": 0,
+        "explanation": "志賀直哉は白樺派の代表的作家です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q8",
+        "question": "発行部数100万部を超えた大衆雑誌は？",
+        "options": [
+          "キング",
+          "中央公論",
+          "改造",
+          "新潮"
+        ],
+        "correctIndex": 0,
+        "explanation": "1925年創刊の「キング」が大衆雑誌の代表でした。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q9",
+        "question": "労働者・農民の生活を描いた文学運動は？",
+        "options": [
+          "白樺派",
+          "新感覚派",
+          "プロレタリア文学",
+          "新思潮派"
+        ],
+        "correctIndex": 2,
+        "explanation": "プロレタリア文学が広がりました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q10",
+        "question": "大正〜昭和初期の都市住宅は？",
+        "options": [
+          "長屋",
+          "文化住宅",
+          "町家",
+          "兵舎"
+        ],
+        "correctIndex": 1,
+        "explanation": "和洋折衷の文化住宅がサラリーマン層に普及しました。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q11",
+        "question": "ラジオ放送を行う放送局の後身は？",
+        "options": [
+          "民放各社",
+          "NHK",
+          "電通",
+          "共同通信"
+        ],
+        "correctIndex": 1,
+        "explanation": "後にNHK（日本放送協会）となりました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q12",
+        "question": "大衆文化の発展を支えたメディアに含まれないものは？",
+        "options": [
+          "ラジオ",
+          "映画",
+          "雑誌",
+          "テレビ"
+        ],
+        "correctIndex": 3,
+        "explanation": "テレビは戦後の普及です。",
+        "difficulty": "basic"
+      }
+    ]
+  }
+}

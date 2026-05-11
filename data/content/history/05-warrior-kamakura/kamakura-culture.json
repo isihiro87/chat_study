@@ -1,0 +1,498 @@
+{
+  "subjectId": "history",
+  "eraId": "warrior-kamakura",
+  "topicId": "kamakura-culture",
+  "name": "鎌倉文化と新しい仏教",
+  "subtitle": "力強い文化と鎌倉新仏教",
+  "icon": "🙏",
+  "order": 5,
+  "chatId": "kamakura-culture",
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "東大寺南大門",
+      "back": "鎌倉時代に再建された東大寺の門は？",
+      "explanation": "力強い建築様式が特徴。金剛力士像とセットで出題されやすい。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "金剛力士像",
+      "back": "東大寺南大門にある、運慶・快慶らが作った力強い彫刻は？",
+      "explanation": "写実的で筋肉の描写に優れ、鎌倉文化の力強さを象徴する作品。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "快慶",
+      "back": "運慶とともに金剛力士像を制作した仏師は？",
+      "explanation": "運慶の弟子筋にあたる仏師で、繊細で端正な作風でも知られる。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc5",
+      "front": "平家物語",
+      "back": "源氏と平氏の戦いをえがいた軍記物語は？",
+      "explanation": "琵琶法師によって語り伝えられた。冒頭の「祇園精舎の鐘の声」が有名。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc6",
+      "front": "琵琶法師",
+      "back": "平家物語を琵琶の伴奏で各地に語り歩いた芸能者は？",
+      "explanation": "琵琶の伴奏で語ることで、文字が読めない人々にも物語を届けた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc7",
+      "front": "方丈記",
+      "back": "鴨長明が書いた随筆は？",
+      "explanation": "災害や世のはかなさを記した。徒然草と並ぶ鎌倉時代の三大随筆の一つ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc8",
+      "front": "鴨長明",
+      "back": "方丈記を書いた人物は？",
+      "explanation": "四畳半ほどの小さな庵（方丈）に住みながら随筆を書いた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc9",
+      "front": "徒然草",
+      "back": "兼好法師が書いた随筆は？",
+      "explanation": "民衆の姿や人生について述べた。「つれづれなるままに」で始まる。方丈記と並ぶ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc10",
+      "front": "兼好法師",
+      "back": "徒然草を書いた人物は？（吉田兼好ともいう）",
+      "explanation": "鎌倉末期から南北朝時代の随筆家。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc11",
+      "front": "新古今和歌集",
+      "back": "後鳥羽上皇の命令で編集された和歌集は？",
+      "explanation": "藤原定家や西行らの歌が収められた。平安文化を受けつぐ貴族的な文化。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc12",
+      "front": "法然",
+      "back": "「南無阿弥陀仏」と念仏を唱えれば救われると説いた浄土宗の開祖は？",
+      "explanation": "念仏を唱えるだけで救われるという簡潔な教えで民衆に広まった。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc13",
+      "front": "親鸞",
+      "back": "法然の弟子で、阿弥陀如来を信じる浄土真宗を開いたのは？",
+      "explanation": "阿弥陀仏を信じる心さえあれば悪人でも救われると説いた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc14",
+      "front": "一遍",
+      "back": "「踊念仏」を広め、時宗を開いた人物は？",
+      "explanation": "踊りながら念仏を唱える独自の布教方法で全国を巡った。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc15",
+      "front": "日蓮",
+      "back": "法華経の題目「南無妙法蓮華経」を唱えて救われると説いたのは？",
+      "explanation": "法華経こそ唯一の正しい教えであると主張し、他宗派を厳しく批判した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc16",
+      "front": "栄西",
+      "back": "宋から禅宗を伝え、臨済宗を広めた僧は？",
+      "explanation": "中国から臨済宗を伝え、座禅と問答を重視した。日本に喫茶の習慣を広めたともいわれる。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc17",
+      "front": "道元",
+      "back": "曹洞宗を開いた僧は？",
+      "explanation": "座禅による修行を重視。只管打坐（ひたすら座禅）を説き、越前（福井県）に永平寺を開いた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc18",
+      "front": "浄土宗",
+      "back": "法然が開いた、念仏を唱えれば救われると説く宗派は？",
+      "explanation": "「南無阿弥陀仏」と唱えることで誰でも極楽往生できるとした。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc19",
+      "front": "浄土真宗",
+      "back": "親鸞が開いた、阿弥陀仏を信じる心を重視する宗派は？",
+      "explanation": "法然の教えをさらに発展させ、信心を最も重視する宗派として広まった。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc20",
+      "front": "時宗",
+      "back": "一遍が開いた、踊念仏で知られる宗派は？",
+      "explanation": "踊りながら念仏を唱える布教で全国に広まった。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc21",
+      "front": "日蓮宗",
+      "back": "日蓮が開いた、法華経の題目を重視する宗派は？（法華宗ともいう）",
+      "explanation": "法華経の題目「南無妙法蓮華経」を唱えることが唯一の救いの道とした。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc22",
+      "front": "臨済宗",
+      "back": "栄西が伝えた禅宗の宗派で、座禅と問答を重視するのは？",
+      "explanation": "座禅に加えて問答（公案）で悟りを目指し、武士や幕府に保護された。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc23",
+      "front": "曹洞宗",
+      "back": "道元が伝えた禅宗の宗派で、ひたすら座禅を行うのは？",
+      "explanation": "問答よりもひたすら座禅を行うことで悟りを目指す教え。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc24",
+      "front": "南無阿弥陀仏",
+      "back": "浄土宗・浄土真宗で唱える念仏は？",
+      "explanation": "阿弥陀仏への帰依を表す念仏で、唱えるだけで救われるとされた。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc25",
+      "front": "南無妙法蓮華経",
+      "back": "日蓮宗で唱える題目は？",
+      "explanation": "法華経に帰依する意味の題目で、日蓮が唯一の救いの道と説いた。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc26",
+      "front": "只管打坐",
+      "back": "道元が説いた、ひたすら座禅を行うことを何という？",
+      "explanation": "余計なことを考えずただ座禅に打ち込むことで悟りに至るとする教え。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc27",
+      "front": "祇園精舎の鐘の声",
+      "back": "平家物語の冒頭の有名な一節の最初の部分は？",
+      "explanation": "「諸行無常の響きあり」と続く、万物の移り変わりを象徴する名句。",
+      "difficulty": "advanced"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "鎌倉時代、寺社の門前や交通の便利な場所で決まった日に開かれた市場を何といいますか。",
+        "options": [
+          "朝市",
+          "楽市",
+          "定期市",
+          "座"
+        ],
+        "correctIndex": 2,
+        "explanation": "定期市は決まった日に開かれる市場です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "東大寺南大門に置かれた力強い彫刻はどれですか。",
+        "options": [
+          "埴輪",
+          "阿修羅像",
+          "鳥獣人物戯画",
+          "金剛力士像"
+        ],
+        "correctIndex": 3,
+        "explanation": "金剛力士像は鎌倉文化の力強さを表します。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "金剛力士像の制作に関わった仏師はだれですか。",
+        "options": [
+          "運慶",
+          "鑑真",
+          "雪舟",
+          "西行"
+        ],
+        "correctIndex": 0,
+        "explanation": "運慶は鎌倉時代の仏師です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "後鳥羽上皇の命令で編集された和歌集はどれですか。",
+        "options": [
+          "万葉集",
+          "古今和歌集",
+          "新古今和歌集",
+          "平家物語"
+        ],
+        "correctIndex": 2,
+        "explanation": "新古今和歌集は鎌倉時代に編集された和歌集です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q5",
+        "question": "方丈記を書いた人物はだれですか。",
+        "options": [
+          "兼好法師",
+          "鴨長明",
+          "藤原定家",
+          "一遍"
+        ],
+        "correctIndex": 1,
+        "explanation": "方丈記は鴨長明の随筆です。兼好法師は徒然草です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q6",
+        "question": "源氏と平氏の戦いをえがき、琵琶法師が語り伝えた作品はどれですか。",
+        "options": [
+          "平家物語",
+          "徒然草",
+          "方丈記",
+          "太平記"
+        ],
+        "correctIndex": 0,
+        "explanation": "平家物語は軍記物語です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q7",
+        "question": "平家物語を語り伝えた人々を何といいますか。",
+        "options": [
+          "連歌師",
+          "僧兵",
+          "琵琶法師",
+          "御家人"
+        ],
+        "correctIndex": 2,
+        "explanation": "琵琶法師は琵琶を演奏しながら平家物語を語りました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q8",
+        "question": "徒然草を書いた人物はだれですか。",
+        "options": [
+          "道元",
+          "兼好法師",
+          "法然",
+          "運慶"
+        ],
+        "correctIndex": 1,
+        "explanation": "徒然草は兼好法師の随筆です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q9",
+        "question": "「南無阿弥陀仏」と念仏を唱えれば救われると説いた浄土宗の開祖は？",
+        "options": [
+          "一遍",
+          "親鸞",
+          "日蓮",
+          "法然"
+        ],
+        "correctIndex": 3,
+        "explanation": "法然は念仏を唱えることで誰でも救われると説き、浄土宗を開きました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q10",
+        "question": "浄土真宗を開いた僧はだれですか。",
+        "options": [
+          "一遍",
+          "道元",
+          "親鸞",
+          "日蓮"
+        ],
+        "correctIndex": 2,
+        "explanation": "親鸞は法然の弟子で、浄土真宗を開きました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q11",
+        "question": "時宗を開き、踊念仏を広めた僧はだれですか。",
+        "options": [
+          "法然",
+          "一遍",
+          "栄西",
+          "道元"
+        ],
+        "correctIndex": 1,
+        "explanation": "一遍は時宗を開きました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q12",
+        "question": "臨済宗を伝えた僧はだれですか。",
+        "options": [
+          "親鸞",
+          "一遍",
+          "道元",
+          "栄西"
+        ],
+        "correctIndex": 3,
+        "explanation": "栄西は臨済宗を伝えました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q13",
+        "question": "曹洞宗を開いた僧はだれですか。",
+        "options": [
+          "道元",
+          "法然",
+          "日蓮",
+          "鴨長明"
+        ],
+        "correctIndex": 0,
+        "explanation": "道元は曹洞宗を開きました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q14",
+        "question": "鎌倉新仏教について正しい組み合わせはどれですか。",
+        "options": [
+          "法然—曹洞宗",
+          "親鸞—浄土真宗",
+          "栄西—時宗",
+          "日蓮—浄土宗"
+        ],
+        "correctIndex": 1,
+        "explanation": "親鸞は浄土真宗です。法然は浄土宗、栄西は臨済宗、日蓮は日蓮宗です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q15",
+        "question": "日蓮の教えとして正しいものはどれですか。",
+        "options": [
+          "座禅だけで悟りを開く",
+          "踊念仏を行う",
+          "法華経の題目を唱える",
+          "念仏を一度も唱えない"
+        ],
+        "correctIndex": 2,
+        "explanation": "日蓮は法華経の題目を唱えることを説きました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q16",
+        "question": "金剛力士像の作風の特徴として正しいのは？",
+        "options": [
+          "優美でおだやかな表現",
+          "写実的で力強い表現",
+          "抽象的な幾何学模様",
+          "小さく繊細な作品"
+        ],
+        "correctIndex": 1,
+        "explanation": "金剛力士像は写実的で力強い表現が特徴で、筋肉の描写や動きの表現に優れています。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q17",
+        "question": "座禅で自らを鍛えて悟りを開こうとする、武士に好まれた仏教の宗派は？",
+        "options": [
+          "禅宗",
+          "日蓮宗",
+          "時宗",
+          "浄土宗"
+        ],
+        "correctIndex": 0,
+        "explanation": "禅宗は座禅による修行で悟りを目指す教えで、武士の精神に合い広く支持されました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q18",
+        "question": "鎌倉新仏教を大きく分けると、どの3つの系統になる？",
+        "options": [
+          "戒律系・修行系・信仰系",
+          "念仏系・題目系・座禅系",
+          "天台系・真言系・禅系",
+          "密教系・顕教系・浄土系"
+        ],
+        "correctIndex": 1,
+        "explanation": "鎌倉新仏教は念仏系（浄土宗・浄土真宗・時宗）、題目系（日蓮宗）、座禅系（臨済宗・曹洞宗）の3系統に分けられます。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q22",
+        "question": "浄土宗・浄土真宗・時宗に共通する教えのポイントは？",
+        "options": [
+          "念仏「南無阿弥陀仏」を唱えて救われる",
+          "座禅をひたすら行って自力で悟りを開く",
+          "法華経の題目を唱える",
+          "断食や苦行を積んで悟る"
+        ],
+        "correctIndex": 0,
+        "explanation": "浄土宗（法然）・浄土真宗（親鸞）・時宗（一遍）はいずれも念仏を唱えることで救われるという教えです。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q23",
+        "question": "臨済宗と曹洞宗の違いとして正しいのは？",
+        "options": [
+          "臨済宗は念仏、曹洞宗は題目",
+          "違いはない",
+          "臨済宗は庶民向け、曹洞宗は貴族向け",
+          "臨済宗は座禅と問答、曹洞宗はひたすら座禅"
+        ],
+        "correctIndex": 3,
+        "explanation": "臨済宗は座禅に加えて問答（公案）を重視し、曹洞宗はひたすら座禅を行う（只管打坐）ことを重視しました。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q24",
+        "question": "平家物語の冒頭の有名な一節として正しいのは？",
+        "options": [
+          "春はあけぼの",
+          "ゆく河の流れは絶えずして",
+          "つれづれなるままに",
+          "祇園精舎の鐘の声"
+        ],
+        "correctIndex": 3,
+        "explanation": "「祇園精舎の鐘の声、諸行無常の響きあり」は平家物語の冒頭の有名な一節です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q26",
+        "question": "道元が説いた「只管打坐」の意味は？",
+        "options": [
+          "念仏を唱えること",
+          "問答で修行すること",
+          "ひたすら座禅を行うこと",
+          "各地を巡ること"
+        ],
+        "correctIndex": 2,
+        "explanation": "只管打坐は「ひたすら座禅を行う」という意味で、道元の曹洞宗の中心的な教えです。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q27",
+        "question": "徒然草を書いた兼好法師の別名は？",
+        "options": [
+          "紫式部",
+          "清少納言",
+          "鴨長明",
+          "吉田兼好"
+        ],
+        "correctIndex": 3,
+        "explanation": "兼好法師は吉田兼好ともいい、徒然草を書いた鎌倉時代の随筆家です。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

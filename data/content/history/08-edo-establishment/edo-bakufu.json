@@ -1,0 +1,378 @@
+{
+  "subjectId": "history",
+  "eraId": "edo-establishment",
+  "topicId": "edo-bakufu",
+  "name": "江戸幕府の成立",
+  "subtitle": "幕藩体制と大名統制",
+  "icon": "🏯",
+  "order": 1,
+  "chatId": "edo-bakufu",
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "徳川家康",
+      "back": "関ヶ原の戦いに勝ち、1603年に江戸幕府を開いた人物は？",
+      "explanation": "初代将軍。豊臣秀吉とは別人物。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "関ヶ原の戦い",
+      "back": "1600年、徳川家康が石田三成らを破った戦いは？",
+      "explanation": "天下分け目の戦い。江戸幕府成立につながる。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "江戸幕府",
+      "back": "1603年に徳川家康が開いた幕府は？",
+      "explanation": "江戸を政治の中心とし、約260年続いた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "征夷大将軍",
+      "back": "武家政権の最高職。家康は1603年に任命されたのは？",
+      "explanation": "秀吉の関白と区別する。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc5",
+      "front": "大坂の陣",
+      "back": "1614〜1615年、徳川氏が豊臣氏を滅ぼした戦いは？",
+      "explanation": "幕府の支配が安定するきっかけ。冬の陣と夏の陣の二度。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc6",
+      "front": "大名",
+      "back": "将軍から1万石以上の領地を与えられた武士は？",
+      "explanation": "親藩・譜代・外様に分けられる。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc7",
+      "front": "親藩",
+      "back": "徳川氏の一族の大名は？",
+      "explanation": "尾張・紀伊・水戸の御三家が代表的。譜代・外様との違いを問われやすい。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc8",
+      "front": "譜代大名",
+      "back": "関ヶ原の戦い以前から徳川氏に従っていた大名は？",
+      "explanation": "幕府の重要な役職につくことが多い。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc9",
+      "front": "外様大名",
+      "back": "関ヶ原の戦いの前後から徳川氏に従った大名は？",
+      "explanation": "幕府から警戒され、遠くに配置されることが多かった。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc10",
+      "front": "武家諸法度",
+      "back": "大名を統制するために出された法令は？",
+      "explanation": "城の修理や結婚などにも制限があった。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc11",
+      "front": "参勤交代",
+      "back": "大名に江戸と領地を1年おきに行き来させた制度は？",
+      "explanation": "徳川家光の時代に制度化。大名の財政負担が大きい。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc12",
+      "front": "幕藩体制",
+      "back": "幕府と藩が全国を支配した江戸時代の政治体制は？",
+      "explanation": "幕府が大名を統制し、藩が領地を支配した。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc13",
+      "front": "禁中並公家諸法度",
+      "back": "天皇や公家を統制するために定めた法律は？",
+      "explanation": "天皇は学問に専念すべきとし、政治的な活動を制限した。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc14",
+      "front": "老中",
+      "back": "江戸幕府に常に置かれた最高職は？",
+      "explanation": "複数の譜代大名が交代で務め、幕政全般を統括した。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc15",
+      "front": "旗本",
+      "back": "将軍に会える、1万石未満の将軍直属の家臣は？",
+      "explanation": "将軍に直接会える「お目見え」以上の格式を持つ直属の家臣。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc16",
+      "front": "御家人",
+      "back": "将軍に直接会えない、1万石未満の将軍直属の家臣は？",
+      "explanation": "旗本と違い将軍に直接会う「お目見え」が許されなかった下級の直臣。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc17",
+      "front": "幕領",
+      "back": "幕府が直接支配した土地は？",
+      "explanation": "天領とも呼ばれ、主要な都市や鉱山を含む約400万石の領地。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc18",
+      "front": "日光東照宮",
+      "back": "家康をまつる、日光にある有名な建物は？",
+      "explanation": "3代将軍家光が大改修し、豪華絢爛な彫刻で幕府の権威を示した。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc19",
+      "front": "石田三成",
+      "back": "関ヶ原の戦いで西軍を率いた豊臣方の大名は？",
+      "explanation": "豊臣秀吉の側近として活躍したが、関ヶ原で敗れて処刑された。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc20",
+      "front": "御三家",
+      "back": "尾張・紀伊・水戸の親藩の中でも特に格式の高い3家は？",
+      "explanation": "将軍家の血統が途絶えた場合に、将軍を出す役割を持つ。",
+      "difficulty": "standard"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "関ヶ原の戦いに勝ち、1603年に江戸幕府を開いた人物はだれですか。",
+        "options": [
+          "豊臣秀吉",
+          "石田三成",
+          "織田信長",
+          "徳川家康"
+        ],
+        "correctIndex": 3,
+        "explanation": "徳川家康は関ヶ原の戦いに勝ち、征夷大将軍となって江戸幕府を開きました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "1600年、徳川家康が石田三成らを破った戦いはどれですか。",
+        "options": [
+          "長篠の戦い",
+          "桶狭間の戦い",
+          "関ヶ原の戦い",
+          "大坂の陣"
+        ],
+        "correctIndex": 2,
+        "explanation": "関ヶ原の戦いは江戸幕府成立の前提となった戦いです。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "徳川家康が1603年に任命された武家政権の最高職は何ですか。",
+        "options": [
+          "関白",
+          "執権",
+          "太政大臣",
+          "征夷大将軍"
+        ],
+        "correctIndex": 3,
+        "explanation": "家康は征夷大将軍となり、江戸幕府を開きました。秀吉は関白です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "大坂の陣の結果として正しいものはどれですか。",
+        "options": [
+          "豊臣氏が滅亡した",
+          "室町幕府が滅亡した",
+          "鎌倉幕府が成立した",
+          "明との貿易が始まった"
+        ],
+        "correctIndex": 0,
+        "explanation": "大坂の陣で豊臣氏が滅び、江戸幕府の支配が強まりました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q5",
+        "question": "将軍から1万石以上の領地を与えられた武士を何といいますか。",
+        "options": [
+          "町人",
+          "百姓",
+          "大名",
+          "商人"
+        ],
+        "correctIndex": 2,
+        "explanation": "大名は1万石以上の領地を持つ武士です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q6",
+        "question": "譜代大名の説明として正しいものはどれですか。",
+        "options": [
+          "徳川氏の一族の大名",
+          "古くからの徳川氏の家臣",
+          "関ヶ原後に従った大名",
+          "朝廷に仕える貴族"
+        ],
+        "correctIndex": 1,
+        "explanation": "徳川氏の一族は親藩、関ヶ原後に従った大名は外様です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q7",
+        "question": "大名を統制するために幕府が出した法令はどれですか。",
+        "options": [
+          "武家諸法度",
+          "御成敗式目",
+          "十七条の憲法",
+          "刀狩令"
+        ],
+        "correctIndex": 0,
+        "explanation": "武家諸法度は大名を取りしまるための法令です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q8",
+        "question": "大名に江戸と領地を1年おきに行き来させた制度は何ですか。",
+        "options": [
+          "楽市・楽座",
+          "参勤交代",
+          "太閤検地",
+          "宗門改め"
+        ],
+        "correctIndex": 1,
+        "explanation": "参勤交代は大名の財政を圧迫し、幕府への反抗を防ぐ効果がありました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q9",
+        "question": "参勤交代が大名に与えた影響として最も適切なものはどれですか。",
+        "options": [
+          "大名の財政負担が大きくなった",
+          "大名が自由に海外貿易をした",
+          "農民が武士になった",
+          "キリスト教が広まった"
+        ],
+        "correctIndex": 0,
+        "explanation": "江戸との往復や江戸屋敷の維持に多くの費用がかかりました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q10",
+        "question": "幕府と藩が全国を支配した江戸時代の政治体制を何といいますか。",
+        "options": [
+          "摂関政治",
+          "院政",
+          "幕藩体制",
+          "律令政治"
+        ],
+        "correctIndex": 2,
+        "explanation": "江戸時代は幕府と藩が支配する幕藩体制でした。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q11",
+        "question": "参勤交代を制度化した将軍は誰？",
+        "options": [
+          "徳川家康",
+          "徳川秀忠",
+          "徳川家光",
+          "徳川綱吉"
+        ],
+        "correctIndex": 2,
+        "explanation": "3代将軍徳川家光のときに参勤交代が制度化されました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q12",
+        "question": "天皇や公家の行動を制限した法律は？",
+        "options": [
+          "武家諸法度",
+          "大宝律令",
+          "禁中並公家諸法度",
+          "御成敗式目"
+        ],
+        "correctIndex": 2,
+        "explanation": "禁中並公家諸法度は天皇や公家の行動を制限しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q13",
+        "question": "関ヶ原の戦いで西軍を率いた人物は？",
+        "options": [
+          "徳川家康",
+          "豊臣秀頼",
+          "石田三成",
+          "明智光秀"
+        ],
+        "correctIndex": 2,
+        "explanation": "石田三成は豊臣方の大名として西軍を率いました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q14",
+        "question": "将軍に直接会える1万石未満の将軍直属の家臣を何という？",
+        "options": [
+          "大名",
+          "御家人",
+          "旗本",
+          "老中"
+        ],
+        "correctIndex": 2,
+        "explanation": "旗本は将軍に直接会える1万石未満の将軍直属の家臣です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q15",
+        "question": "江戸幕府に常に置かれた最高職は？",
+        "options": [
+          "大老",
+          "老中",
+          "若年寄",
+          "奉行"
+        ],
+        "correctIndex": 1,
+        "explanation": "老中は幕政の中心を担う最高職です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q16",
+        "question": "幕府が直接支配した土地を何と呼ぶ？",
+        "options": [
+          "藩領",
+          "荘園",
+          "幕領",
+          "御料所"
+        ],
+        "correctIndex": 2,
+        "explanation": "幕領（天領）は幕府が直接支配した土地で、主要な鉱山や都市を含みました。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q17",
+        "question": "外様大名が江戸から遠い地方に配置された理由は？",
+        "options": [
+          "領地が広いため",
+          "反乱を防ぐため",
+          "農業が盛んなため",
+          "貿易を担当するため"
+        ],
+        "correctIndex": 1,
+        "explanation": "外様大名は信用が低く、幕府への反乱を防ぐため江戸から遠い地方に配置されました。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

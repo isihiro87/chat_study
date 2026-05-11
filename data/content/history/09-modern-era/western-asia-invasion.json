@@ -1,0 +1,310 @@
+{
+  "subjectId": "history",
+  "eraId": "modern-era",
+  "topicId": "western-asia-invasion",
+  "name": "欧米のアジア侵略",
+  "subtitle": "アヘン戦争とアジアの植民地化",
+  "icon": "⚔️",
+  "order": 8,
+  "chatId": "western-asia-invasion",
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "アヘン戦争",
+      "back": "1840年、イギリスが清（中国）に仕掛けた戦争は？",
+      "explanation": "清がアヘンの密輸を取り締まったことをきっかけに始まった。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "三角貿易",
+      "back": "イギリス・インド・清の間で行われた貿易は？",
+      "explanation": "イギリス→インド（綿織物）→清（アヘン）→イギリス（茶）の流れ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "南京条約",
+      "back": "アヘン戦争後に清がイギリスと結んだ不平等条約は？",
+      "explanation": "香港の割譲、関税自主権の喪失などを定めた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "関税自主権",
+      "back": "輸入品にかける税率を自国で決める権利は？",
+      "explanation": "清は南京条約でこの権利を失った。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc5",
+      "front": "領事裁判権",
+      "back": "外国人が犯罪を犯してもその国の法律で裁く権利は？",
+      "explanation": "清は南京条約でイギリスにこの権利を認めた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc6",
+      "front": "香港",
+      "back": "アヘン戦争後、イギリスに割譲された中国南部の地域は？",
+      "explanation": "1997年まで約150年間イギリスの植民地だった。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc7",
+      "front": "インド大反乱",
+      "back": "1857年、イギリス支配に対してインドで起きた反乱は？",
+      "explanation": "セポイの反乱とも呼ばれ、鎮圧後イギリスの支配が強化された。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc8",
+      "front": "アヘン",
+      "back": "イギリスがインドから清に密輸した麻薬は？",
+      "explanation": "中毒者が増え、清の社会問題となった。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc9",
+      "front": "不平等条約",
+      "back": "一方に不利な条件を押し付けた条約は？",
+      "explanation": "関税自主権の喪失や領事裁判権の承認などが特徴。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc10",
+      "front": "清",
+      "back": "アヘン戦争でイギリスに敗れた当時の中国の国名は？",
+      "explanation": "南京条約で香港を割譲するなど不平等条約を結ばされた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc11",
+      "front": "太平天国の乱",
+      "back": "清で起きた大規模な農民反乱は？",
+      "explanation": "アヘン戦争後の社会的混乱の中で起きた反乱。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc12",
+      "front": "インド帝国",
+      "back": "インド大反乱後にイギリスが建設した植民地国家は？",
+      "explanation": "イギリス国王がインド皇帝を兼ねる体制が作られた。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc13",
+      "front": "1840年",
+      "back": "アヘン戦争が起きた年は？",
+      "explanation": "清のアヘン密輸取り締まりへの報復としてイギリスが開戦した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc14",
+      "front": "セポイの反乱",
+      "back": "インド大反乱の別名は？",
+      "explanation": "イギリスに雇われたインド人傭兵が反乱を起こした。",
+      "difficulty": "advanced"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "1840年、イギリスが清に仕掛けた戦争は？",
+        "options": [
+          "独立戦争",
+          "クリミア戦争",
+          "南北戦争",
+          "アヘン戦争"
+        ],
+        "correctIndex": 3,
+        "explanation": "アヘン戦争はアヘンの取り締まりへの報復として始まりました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "イギリス・インド・清の間で行われた貿易は？",
+        "options": [
+          "自由貿易",
+          "保護貿易",
+          "三角貿易",
+          "朝貢貿易"
+        ],
+        "correctIndex": 2,
+        "explanation": "三角貿易ではイギリスがアヘンを清に密輸しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "アヘン戦争後の不平等条約は？",
+        "options": [
+          "日米和親条約",
+          "下関条約",
+          "パリ条約",
+          "南京条約"
+        ],
+        "correctIndex": 3,
+        "explanation": "南京条約で清は香港を割譲しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "輸入品にかける税率を自国で決める権利は？",
+        "options": [
+          "関税自主権",
+          "最恵国待遇",
+          "領事裁判権",
+          "治外法権"
+        ],
+        "correctIndex": 0,
+        "explanation": "清は関税自主権を失いました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q5",
+        "question": "1857年にインドで起きた反乱は？",
+        "options": [
+          "フランス革命",
+          "ピューリタン革命",
+          "インド大反乱",
+          "太平天国の乱"
+        ],
+        "correctIndex": 2,
+        "explanation": "インド大反乱はイギリスの支配に対する大規模な反乱です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q6",
+        "question": "アヘン戦争後イギリスに割譲された地域は？",
+        "options": [
+          "上海",
+          "マカオ",
+          "台湾",
+          "香港"
+        ],
+        "correctIndex": 3,
+        "explanation": "香港は1997年まで約150年間イギリスの植民地でした。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q7",
+        "question": "三角貿易で清からイギリスに輸出された主な産物は？",
+        "options": [
+          "綿",
+          "絹",
+          "茶",
+          "銀"
+        ],
+        "correctIndex": 2,
+        "explanation": "イギリスでの紅茶の流行により大量の茶が輸入されました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q8",
+        "question": "三角貿易でイギリスからインドに輸出されたものは？",
+        "options": [
+          "アヘン",
+          "紅茶",
+          "綿織物",
+          "銀貨"
+        ],
+        "correctIndex": 2,
+        "explanation": "イギリスは産業革命で大量生産した安い綿織物を輸出しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q9",
+        "question": "アヘン戦争が起きた年は？",
+        "options": [
+          "1830年",
+          "1840年",
+          "1850年",
+          "1860年"
+        ],
+        "correctIndex": 1,
+        "explanation": "1840年に始まりました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q10",
+        "question": "清で起きた大規模な農民反乱は？",
+        "options": [
+          "インド大反乱",
+          "太平天国の乱",
+          "フランス革命",
+          "辛亥革命"
+        ],
+        "correctIndex": 1,
+        "explanation": "太平天国の乱はアヘン戦争後の社会的混乱の中で起きました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q11",
+        "question": "外国人が犯罪を犯してもその国の法律で裁く権利は？",
+        "options": [
+          "関税自主権",
+          "最恵国待遇",
+          "領事裁判権",
+          "治外法権"
+        ],
+        "correctIndex": 2,
+        "explanation": "領事裁判権は不平等条約の典型例です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q13",
+        "question": "インド大反乱の別名は？",
+        "options": [
+          "太平天国の乱",
+          "セポイの反乱",
+          "ボクサーの乱",
+          "マオリ戦争"
+        ],
+        "correctIndex": 1,
+        "explanation": "セポイ（傭兵）の反乱とも呼ばれます。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q14",
+        "question": "南京条約で清が開港した港は何か所か？",
+        "options": [
+          "1か所",
+          "3か所",
+          "5か所",
+          "10か所"
+        ],
+        "correctIndex": 2,
+        "explanation": "上海など5か所の港を開港させられました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q15",
+        "question": "インド大反乱後にイギリスが建設した植民地国家は？",
+        "options": [
+          "インド共和国",
+          "インド帝国",
+          "東インド会社",
+          "ムガル帝国"
+        ],
+        "correctIndex": 1,
+        "explanation": "イギリスはインド帝国を建設しました。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q16",
+        "question": "安い綿織物の流入で打撃を受けたインドの産業は？",
+        "options": [
+          "鉄鋼産業",
+          "綿織物産業",
+          "香辛料産業",
+          "陶磁器産業"
+        ],
+        "correctIndex": 1,
+        "explanation": "インドの伝統的な綿織物産業は壊滅しました。",
+        "difficulty": "basic"
+      }
+    ]
+  }
+}

@@ -1,0 +1,511 @@
+{
+  "subjectId": "history",
+  "eraId": "ancient-state",
+  "topicId": "ritsuryo-nara",
+  "name": "律令国家と奈良時代",
+  "subtitle": "大宝律令と平城京",
+  "icon": "📜",
+  "order": 3,
+  "chatId": "ritsuryo-nara",
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "大宝律令",
+      "back": "701年に完成した律令を何という？",
+      "explanation": "701年に完成した法典。律（刑罰）と令（政治）で国を治める仕組みが整った。唐の制度を参考にした。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "律令",
+      "back": "律は刑罰、令は政治のしくみを定めた法律は？",
+      "explanation": "律は刑罰、令は政治のしくみを定めた法律。唐の制度を参考にした。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "平城京",
+      "back": "710年に奈良に置かれた都は？",
+      "explanation": "710年に元明天皇のもとで遷都。唐の長安をモデルに碁盤の目状に整備された。奈良時代の中心。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "奈良時代",
+      "back": "平城京に都が置かれた約80年間を何時代という？",
+      "explanation": "平城京を中心に、律令にもとづく政治が行われた時代。班田収授法・租庸調・天平文化が重要。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc5",
+      "front": "太政官",
+      "back": "律令国家で行政を行う最高機関は？",
+      "explanation": "律令国家で政治全般を担当した役所。神祇官と並ぶ中央の二官のひとつ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc6",
+      "front": "神祇官",
+      "back": "神事や祭祀を司り、太政官と並ぶ機関は？",
+      "explanation": "神々の祭りを担当した役所。政治を担当する太政官と区別。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc7",
+      "front": "二官八省",
+      "back": "太政官・神祇官の二官と八省からなる律令制の中央組織は？",
+      "explanation": "律令国家の中央政治のしくみ。太政官・神祇官と八省からなる。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc8",
+      "front": "国司",
+      "back": "都から地方の国に派遣された役職は？",
+      "explanation": "中央から地方の国に派遣された役人。地方政治を監督した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc9",
+      "front": "郡司",
+      "back": "地方の有力豪族が任命された役職は？",
+      "explanation": "地方で郡を治めた役人。多くは地方豪族が任命された。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc10",
+      "front": "律",
+      "back": "律令のうち、刑罰に関する決まりは？",
+      "explanation": "律令のうち刑罰に関する決まり。犯罪と罰則を定めた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc11",
+      "front": "令",
+      "back": "律令のうち、政治に関する決まりは？",
+      "explanation": "律令のうち政治に関する決まり。行政の仕組みや官職を定めた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc12",
+      "front": "和同開珎",
+      "back": "708年に初めて鋳造された流通貨幣を何という？",
+      "explanation": "708年に発行された貨幣。日本最古の流通貨幣。奈良時代の貨幣としてよく出る。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc13",
+      "front": "大宰府",
+      "back": "古代に九州の外交や防衛を担った役所は？",
+      "explanation": "九州に置かれ、外交や防衛を担当した役所。白村江の戦い後の防衛と関係。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc14",
+      "front": "朱雀大路",
+      "back": "平城京の中央を南北に通る大道路は？",
+      "explanation": "平城京の中央を南北に通る大通り。都を左京と右京に分けた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc15",
+      "front": "長安",
+      "back": "平城京のモデルとなった唐の都は？",
+      "explanation": "唐の都で平城京のモデル。碁盤の目状の都市計画で知られた国際都市。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc16",
+      "front": "唐",
+      "back": "7〜10世紀に栄え、日本が制度や文化を学んだ中国の大帝国は？",
+      "explanation": "隋の後に中国を支配した大帝国。日本は遣唐使を送り、制度や文化を学んだ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc17",
+      "front": "遣唐使",
+      "back": "唐に制度や文化を学ぶために派遣した使節は？",
+      "explanation": "唐に送られた使節。律令制度・仏教・文化を学ぶために派遣。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc18",
+      "front": "水城",
+      "back": "大宰府を守るために築かれた土塁は？",
+      "explanation": "大宰府を守るために築かれた土塁。唐・新羅の侵攻に備えた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc19",
+      "front": "庚午年籍",
+      "back": "律令国家のための古い戸籍は？",
+      "explanation": "戸籍の一つで、人々を把握して税や兵役を課すためにつくられた。律令国家の人々支配と関係。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc20",
+      "front": "太政大臣",
+      "back": "太政官の長官を何という？",
+      "explanation": "太政官の最高位の官職。律令国家の行政のトップ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc21",
+      "front": "里",
+      "back": "律令制で郡の下に置かれた最小の行政単位は？",
+      "explanation": "律令制で郡の下に置かれた最小の行政単位。住民の把握と管理の基礎。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc22",
+      "front": "駅",
+      "back": "地方と都を結ぶ道路に設けられた、馬を乗り継ぐ施設は？",
+      "explanation": "地方と都を結ぶ道路に設けられた施設。馬を乗り継いで情報を素早く伝えた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc23",
+      "front": "貴族",
+      "back": "律令国家で官職に就き特権を持った高い身分は？",
+      "explanation": "律令国家で官職に就き特権を持った高い身分。政治の中枢を担った。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc24",
+      "front": "国",
+      "back": "律令国家の行政区画のうち、現在の都道府県にあたるものは？",
+      "explanation": "現在の都道府県にあたる律令国家の行政区画。国司が治めた。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc25",
+      "front": "中央集権国家",
+      "back": "地方の政治や土地・人民を中央政府が管理する国家は？",
+      "explanation": "地方の政治や土地・人民を中央政府が管理する国家。大化の改新や律令制度の目標。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc26",
+      "front": "富本銭",
+      "back": "和同開珎より前に作られた古い貨幣は？",
+      "explanation": "日本でつくられた古い貨幣の一つ。和同開珎と混同しやすい。",
+      "difficulty": "advanced"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "701年に完成した日本の律令は？",
+        "options": [
+          "十七条の憲法",
+          "御成敗式目",
+          "大宝律令",
+          "武家諸法度"
+        ],
+        "correctIndex": 2,
+        "explanation": "大宝律令は律（刑罰）と令（政治）からなる法律です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "710年に奈良に移された都はどれですか。",
+        "options": [
+          "藤原京",
+          "平安京",
+          "平城京",
+          "鎌倉"
+        ],
+        "correctIndex": 2,
+        "explanation": "710年に平城京へ都が移り、奈良時代が始まりました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "708年に鋳造された貨幣は？",
+        "options": [
+          "和同開珎",
+          "富本銭",
+          "寛永通宝",
+          "永楽通宝"
+        ],
+        "correctIndex": 0,
+        "explanation": "和同開珎は708年に鋳造された日本最古の流通貨幣です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "律令国家で行政を行う最高機関は？",
+        "options": [
+          "大宰府",
+          "神祇官",
+          "国司",
+          "太政官"
+        ],
+        "correctIndex": 3,
+        "explanation": "太政官は律令国家における行政の最高機関で、国の政治を司りました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q5",
+        "question": "平城京のモデルとなった唐の都はどこ？",
+        "options": [
+          "洛陽",
+          "南京",
+          "開封",
+          "長安"
+        ],
+        "correctIndex": 3,
+        "explanation": "平城京は唐の都・長安をモデルに碁盤の目のように整備されました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q6",
+        "question": "都から地方の国に派遣された役人を何という？",
+        "options": [
+          "郡司",
+          "征夷大将軍",
+          "防人",
+          "国司"
+        ],
+        "correctIndex": 3,
+        "explanation": "国司は都から地方に派遣されて国を治めた役人で、郡司は地元の豪族が任命されました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q7",
+        "question": "律令国家で神事や祭祀を司った機関は？",
+        "options": [
+          "太政官",
+          "大宰府",
+          "神祇官",
+          "国司"
+        ],
+        "correctIndex": 2,
+        "explanation": "神祇官は太政官と並び、神事や祭祀を司る機関です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q8",
+        "question": "律令のうち、刑罰に関するきまりを何という？",
+        "options": [
+          "律",
+          "令",
+          "法",
+          "則"
+        ],
+        "correctIndex": 0,
+        "explanation": "律は刑罰に関するきまり、令は政治のきまりを定めています。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q9",
+        "question": "律令の「律」が意味するものはどれですか。",
+        "options": [
+          "税の種類",
+          "刑罰のきまり",
+          "和歌の形式",
+          "仏教の教え"
+        ],
+        "correctIndex": 1,
+        "explanation": "律は刑罰、令は政治のしくみを定めたきまりです。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q10",
+        "question": "平城京の特徴として正しいものはどれですか。",
+        "options": [
+          "唐の長安を手本にした",
+          "鎌倉幕府の中心だった",
+          "江戸湾の埋め立て地だった",
+          "キリスト教の教会を中心に造られた"
+        ],
+        "correctIndex": 0,
+        "explanation": "平城京は唐の都・長安にならい、碁盤の目のように整えられました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q11",
+        "question": "地方の豪族が任命されることが多く、郡を治めた役人はどれですか。",
+        "options": [
+          "国司",
+          "郡司",
+          "太政大臣",
+          "征夷大将軍"
+        ],
+        "correctIndex": 1,
+        "explanation": "郡司にはその地域の有力な豪族が任命されることが多くありました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q12",
+        "question": "大宝律令はどの国の法律をお手本にしたか？",
+        "options": [
+          "隋",
+          "唐",
+          "新羅",
+          "百済"
+        ],
+        "correctIndex": 1,
+        "explanation": "大宝律令は唐の律令をお手本にして、日本独自の修正を加えました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q13",
+        "question": "太政官のもとに置かれた行政を担当する役所の数はいくつか？",
+        "options": [
+          "六省",
+          "八省",
+          "十省",
+          "四省"
+        ],
+        "correctIndex": 1,
+        "explanation": "太政官のもとには八省が置かれ、二官八省の仕組みが整えられました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q14",
+        "question": "律令制で国の下に置かれた行政単位は？",
+        "options": [
+          "里",
+          "郡",
+          "県",
+          "藩"
+        ],
+        "correctIndex": 1,
+        "explanation": "律令制では国の下に郡、郡の下に里が置かれました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q15",
+        "question": "大宝律令の完成により確立した国家体制は？",
+        "options": [
+          "封建国家",
+          "律令国家",
+          "荘園国家",
+          "武家国家"
+        ],
+        "correctIndex": 1,
+        "explanation": "大宝律令により天皇を中心とした律令国家の体制が確立しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q16",
+        "question": "太政官の長官を何という？",
+        "options": [
+          "国司",
+          "関白",
+          "太政大臣",
+          "征夷大将軍"
+        ],
+        "correctIndex": 2,
+        "explanation": "太政大臣は太政官の長官で、律令国家の最高位の官職です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q17",
+        "question": "律令国家で人々を把握するために作られた台帳は？",
+        "options": [
+          "戸籍",
+          "風土記",
+          "古事記",
+          "木簡"
+        ],
+        "correctIndex": 0,
+        "explanation": "戸籍は律令国家で人々を把握するために6年ごとに作成されました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q18",
+        "question": "朱雀大路の東側を何京という？",
+        "options": [
+          "左京",
+          "右京",
+          "北京",
+          "南京"
+        ],
+        "correctIndex": 0,
+        "explanation": "朱雀大路の東側を左京、西側を右京と呼びました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q19",
+        "question": "平城京の地図が碁盤の目のように区画されていることから、影響を受けたと考えられる国はどれですか。",
+        "options": [
+          "唐",
+          "ローマ帝国",
+          "インド",
+          "エジプト"
+        ],
+        "correctIndex": 0,
+        "explanation": "平城京は唐の長安を手本にして造られました。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q20",
+        "question": "律令国家の行政区画のうち、現在の都道府県にあたるものは？",
+        "options": [
+          "郡",
+          "里",
+          "国",
+          "藩"
+        ],
+        "correctIndex": 2,
+        "explanation": "律令国家の「国」は現在の都道府県にあたる行政区画です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q21",
+        "question": "平城京に都が置かれた期間はおよそ何年間か？",
+        "options": [
+          "約50年間",
+          "約150年間",
+          "約100年間",
+          "約70年間"
+        ],
+        "correctIndex": 3,
+        "explanation": "平城京に都が置かれたのは710年から784年までの約70年間です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q22",
+        "question": "地方と都を結ぶ道路に設けられた馬を乗り継ぐ施設は？",
+        "options": [
+          "関所",
+          "国府",
+          "城柵",
+          "駅"
+        ],
+        "correctIndex": 3,
+        "explanation": "駅は地方と都を結ぶ道路に設けられ、馬を乗り継ぐための施設です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q23",
+        "question": "和同開珎が鋳造されたのは何年か？",
+        "options": [
+          "701年",
+          "723年",
+          "710年",
+          "708年"
+        ],
+        "correctIndex": 3,
+        "explanation": "和同開珎は708年に鋳造された日本最古の流通貨幣です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q24",
+        "question": "遣唐使は何を目的に唐に派遣されたか？",
+        "options": [
+          "軍事同盟のため",
+          "唐を征服するため",
+          "唐の制度を学ぶため",
+          "銅銭を輸入するため"
+        ],
+        "correctIndex": 2,
+        "explanation": "遣唐使は唐の進んだ制度・文化・学問を学ぶために派遣されました。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

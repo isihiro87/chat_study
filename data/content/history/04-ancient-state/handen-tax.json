@@ -1,0 +1,490 @@
+{
+  "subjectId": "history",
+  "eraId": "ancient-state",
+  "topicId": "handen-tax",
+  "name": "班田収授法と税制度",
+  "subtitle": "土地制度と人々の負担",
+  "icon": "🌾",
+  "order": 4,
+  "chatId": "handen-tax",
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "班田収授法",
+      "back": "人々に土地を与え、死後返還させる制度を何という？",
+      "explanation": "6歳以上の男女に口分田を与え、死ぬと国に返させた制度。公地公民と結びつく。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "口分田",
+      "back": "班田収授法で人々に与えられた田は？",
+      "explanation": "班田収授法によって人々に与えられた田。租を納めるもとになった。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "租",
+      "back": "収穫量の約3%を稲で納める税は？",
+      "explanation": "口分田の収穫から納める税。米で納めた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "調",
+      "back": "布や各地の特産物を都へ納める税は？",
+      "explanation": "地方の特産物を納める税。成人男性の負担が重かった。運搬費は農民の自己負担。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc5",
+      "front": "庸",
+      "back": "都での労役の代わりに布を納める税は？",
+      "explanation": "都での労役の代わりに布などを納める税。租・調とセットで覚える。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc6",
+      "front": "防人",
+      "back": "九州の警備に当たった兵士の名称は？",
+      "explanation": "九州北部の守りについた兵士。東国の農民が多く派遣された。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc7",
+      "front": "三世一身法",
+      "back": "723年に開墾した土地の私有を認めた法は？",
+      "explanation": "開墾した土地を3代まで私有できるとした法。開墾を奨励する目的で出された。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc8",
+      "front": "墾田永年私財法",
+      "back": "743年に土地の永久私有を認めた法を何という？",
+      "explanation": "新しく開墾した土地の私有を永久に認めた法。荘園が発生するきっかけ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc9",
+      "front": "荘園",
+      "back": "古代後半の貴族や大寺院が持つ私有地の名称は？",
+      "explanation": "貴族や寺社が私有した土地。公地公民の崩れと関係。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc10",
+      "front": "戸籍",
+      "back": "6歳以上の人々を登録した台帳は？",
+      "explanation": "6年ごとに作成された人民の台帳。口分田の配分の基礎資料となった。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc11",
+      "front": "木簡",
+      "back": "税を納めた際に品物に付けた木札は？",
+      "explanation": "税の品物に付けられた木札。品名・産地・納入者などが記された。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc12",
+      "front": "雑徭",
+      "back": "地方で年間60日を限度とした労役は？",
+      "explanation": "地方で年間60日を限度に課された労役。農繁期にも動員されることがあった。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc13",
+      "front": "奴婢",
+      "back": "官庁や個人に所属して売買もされた身分は？",
+      "explanation": "律令制で最下層の身分。官庁や個人に属して売買もされた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc14",
+      "front": "聖武天皇",
+      "back": "墾田永年私財法を出した天皇は？",
+      "explanation": "国分寺建立や大仏造立を行い、墾田永年私財法を出した天皇。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc15",
+      "front": "6年",
+      "back": "戸籍は何年ごとに作成されたか？",
+      "explanation": "戸籍は6年ごとに作成され、口分田の配分に使われた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc16",
+      "front": "東国",
+      "back": "防人はおもにどの地方の農民から選ばれたか？",
+      "explanation": "防人は主に東国（関東地方など）の農民から選ばれた。遠方からの徴兵だった。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc17",
+      "front": "3年",
+      "back": "防人が任務に就く期間はおよそ何年か？",
+      "explanation": "防人は約3年間、家族と離れて九州北部の防衛にあたった。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc18",
+      "front": "万葉集",
+      "back": "防人たちの望郷の歌が収められた歌集は？",
+      "explanation": "防人たちの望郷の歌が収められた日本最古の歌集。天皇から農民まで幅広く収録。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc19",
+      "front": "農民自身",
+      "back": "調や庸を都まで運ぶ費用は誰が負担したか？",
+      "explanation": "調や庸を都まで運ぶ費用は農民自身が負担した。大きな経済的負担だった。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc20",
+      "front": "本人（自弁）",
+      "back": "防人の旅費や食料は誰が負担したか？",
+      "explanation": "防人の旅費や食料は本人が負担する自弁制だった。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc21",
+      "front": "土地の私有",
+      "back": "班田収授法から墾田永年私財法への変化で認められるようになったことは？",
+      "explanation": "班田収授法では土地の私有は認められなかったが、墾田永年私財法で認められた。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc22",
+      "front": "税の免除",
+      "back": "農民が貴族や寺院に土地を寄進した理由は？",
+      "explanation": "荘園は課税が免除される場合があり、農民は税を逃れるために土地を寄進した。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc23",
+      "front": "723年",
+      "back": "三世一身法が出された年は？",
+      "explanation": "三世一身法が出された年。開墾の奨励を目的としたが効果は薄かった。",
+      "difficulty": "advanced"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "6歳以上の男女に口分田を与え、死ぬと国に返させた制度はどれですか。",
+        "options": [
+          "冠位十二階",
+          "地租改正",
+          "参勤交代",
+          "班田収授法"
+        ],
+        "correctIndex": 3,
+        "explanation": "班田収授法は律令国家の土地制度です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "743年に開墾した土地の永久私有を認めた法は？",
+        "options": [
+          "班田収授法",
+          "三世一身法",
+          "墾田永年私財法",
+          "大宝律令"
+        ],
+        "correctIndex": 2,
+        "explanation": "墾田永年私財法により荘園が広がるきっかけとなりました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "九州北部の守りについた兵士を何といいますか。",
+        "options": [
+          "防人",
+          "御家人",
+          "守護",
+          "足軽"
+        ],
+        "correctIndex": 0,
+        "explanation": "防人は主に東国の農民が派遣され、九州北部を守りました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "口分田の収穫から納める税を何といいますか。",
+        "options": [
+          "租",
+          "庸",
+          "調",
+          "雑徭"
+        ],
+        "correctIndex": 0,
+        "explanation": "租は米で納める税です。庸・調は布や特産物などと関係します。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q5",
+        "question": "地方の特産物を納める税はどれですか。",
+        "options": [
+          "租",
+          "調",
+          "地租",
+          "年貢"
+        ],
+        "correctIndex": 1,
+        "explanation": "調は地方の特産物を納める税です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q6",
+        "question": "都での労役の代わりに布などを納める税はどれですか。",
+        "options": [
+          "租",
+          "庸",
+          "調",
+          "関税"
+        ],
+        "correctIndex": 1,
+        "explanation": "庸は本来の労役の代わりに布などを納める負担です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q7",
+        "question": "墾田永年私財法の前に、開墾地を3代まで私有できるとした法は？",
+        "options": [
+          "三世一身法",
+          "大宝律令",
+          "公地・公民",
+          "班田収授法"
+        ],
+        "correctIndex": 0,
+        "explanation": "三世一身法（723年）は開墾地を3代まで私有できるとしましたが、効果が薄かったため墾田永年私財法が出されました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q8",
+        "question": "墾田永年私財法によって広がった、貴族や寺院の私有地を何という？",
+        "options": [
+          "口分田",
+          "公地",
+          "国府",
+          "荘園"
+        ],
+        "correctIndex": 3,
+        "explanation": "荘園は貴族や大寺院が開墾して所有した私有地で、律令制が崩れる原因となりました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q9",
+        "question": "班田収授法で土地を配分するために何年ごとに作られた台帳は？",
+        "options": [
+          "木簡",
+          "戸籍",
+          "風土記",
+          "古事記"
+        ],
+        "correctIndex": 1,
+        "explanation": "戸籍は6年ごとに作成され、口分田の配分の基礎資料となりました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q10",
+        "question": "荘園が拡大した結果、崩壊していった制度の原則は？",
+        "options": [
+          "公地・公民",
+          "冠位十二階",
+          "十七条の憲法",
+          "墾田永年私財法"
+        ],
+        "correctIndex": 0,
+        "explanation": "荘園の拡大で土地と人民が国家のものという公地・公民の原則が崩壊していきました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q11",
+        "question": "防人はおもにどの地方の農民から選ばれたか？",
+        "options": [
+          "畿内",
+          "北陸",
+          "九州",
+          "東国"
+        ],
+        "correctIndex": 3,
+        "explanation": "防人は主に東国（関東地方など）の農民から選ばれ、九州北部の防衛にあたりました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q12",
+        "question": "口分田は何歳以上の人に与えられたか？",
+        "options": [
+          "3歳以上",
+          "6歳以上",
+          "10歳以上",
+          "15歳以上"
+        ],
+        "correctIndex": 1,
+        "explanation": "口分田は6歳以上のすべての人に与えられました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q13",
+        "question": "墾田永年私財法が出された結果として最も関係が深いものはどれですか。",
+        "options": [
+          "荘園の発生",
+          "鎖国の完成",
+          "武士の幕府の成立",
+          "明治政府の成立"
+        ],
+        "correctIndex": 0,
+        "explanation": "新しく開墾した土地の私有が認められ、貴族や寺社の荘園が増えるきっかけになりました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q14",
+        "question": "班田収授法は中国のどの国の制度をお手本にしたか？",
+        "options": [
+          "隋",
+          "唐",
+          "宋",
+          "漢"
+        ],
+        "correctIndex": 1,
+        "explanation": "班田収授法は唐の均田制をお手本にして作られました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q15",
+        "question": "調や庸を都まで運ぶ費用は誰が負担したか？",
+        "options": [
+          "国家",
+          "国司",
+          "農民自身",
+          "豪族"
+        ],
+        "correctIndex": 2,
+        "explanation": "調や庸の運搬費は農民自身が負担し、大きな負担となっていました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q16",
+        "question": "防人が任務に就く期間はおよそ何年か？",
+        "options": [
+          "1年",
+          "3年",
+          "5年",
+          "10年"
+        ],
+        "correctIndex": 1,
+        "explanation": "防人は約3年間、家族と離れて九州北部の防衛にあたりました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q17",
+        "question": "防人の旅費や食料は誰が負担したか？",
+        "options": [
+          "国家",
+          "国司",
+          "本人",
+          "地方の豪族"
+        ],
+        "correctIndex": 2,
+        "explanation": "防人の旅費や食料は本人が負担する自弁制でした。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q21",
+        "question": "農民が貴族や寺院に土地を寄進した理由は？",
+        "options": [
+          "仏教を信仰していたから",
+          "法律で義務付けられていたから",
+          "税の負担を逃れるため",
+          "報酬をもらえたから"
+        ],
+        "correctIndex": 2,
+        "explanation": "荘園は課税が免除される場合があり、農民は税の負担を逃れるために土地を寄進しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q22",
+        "question": "防人たちの望郷の歌が収められた歌集は？",
+        "options": [
+          "万葉集",
+          "古今和歌集",
+          "古事記",
+          "日本書紀"
+        ],
+        "correctIndex": 0,
+        "explanation": "万葉集に防人たちの望郷の歌が多く収められています。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q23",
+        "question": "奈良時代に農民の負担が重くなったことの影響として考えられるものはどれですか。",
+        "options": [
+          "逃亡や浮浪をする農民が増えた",
+          "すべての農民が貴族になった",
+          "税が完全になくなった",
+          "朝廷がすぐに鎌倉へ移った"
+        ],
+        "correctIndex": 0,
+        "explanation": "租庸調や労役の負担が重く、逃亡する農民も現れました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q24",
+        "question": "三世一身法が出されたのは何年か？",
+        "options": [
+          "701年",
+          "710年",
+          "723年",
+          "743年"
+        ],
+        "correctIndex": 2,
+        "explanation": "三世一身法は723年に出され、開墾地の3代までの私有を認めました。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q25",
+        "question": "墾田永年私財法が出されたのは何年か？",
+        "options": [
+          "743年",
+          "723年",
+          "710年",
+          "752年"
+        ],
+        "correctIndex": 0,
+        "explanation": "墾田永年私財法は743年に出され、開墾した土地の永久私有を認めました。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q26",
+        "question": "律令制度が衰退した最大の原因の一つは？",
+        "options": [
+          "外国からの度重なる侵攻と戦争",
+          "天皇が相次いで退位したため",
+          "仏教の影響力が急速に衰退したため",
+          "荘園の拡大で公地・公民制が崩壊"
+        ],
+        "correctIndex": 3,
+        "explanation": "墾田永年私財法による荘園の拡大で公地・公民制が崩壊し、律令制度が衰退しました。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q27",
+        "question": "地方で年間60日を限度に課された労役は？",
+        "options": [
+          "防人",
+          "庸",
+          "調",
+          "雑徭"
+        ],
+        "correctIndex": 3,
+        "explanation": "雑徭は地方で年間60日を限度に課された労役です。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

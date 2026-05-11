@@ -1,0 +1,330 @@
+{
+  "subjectId": "history",
+  "eraId": "meiji-early",
+  "topicId": "fukoku-kyohei",
+  "name": "富国強兵と文明開化",
+  "subtitle": "殖産興業と西洋文化の流入",
+  "icon": "🏭",
+  "order": 3,
+  "chatId": "fukoku-kyohei",
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "富国強兵",
+      "back": "国を豊かにし、軍隊を強くするという明治政府のスローガンは？",
+      "explanation": "欧米列強に対抗するための国家目標。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "殖産興業",
+      "back": "近代的な産業を育成する政策は？",
+      "explanation": "官営模範工場の建設や鉄道の開通などが行われた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "富岡製糸場",
+      "back": "フランスの技術を導入した群馬県の官営模範工場は？",
+      "explanation": "高品質な生糸を生産し、民間の手本となった。世界文化遺産。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "官営模範工場",
+      "back": "政府が直接運営し、民間の手本とした工場は？",
+      "explanation": "富岡製糸場などが代表例。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc5",
+      "front": "文明開化",
+      "back": "欧米の文化や生活様式が急速に広まった風潮は？",
+      "explanation": "ガス灯、レンガ造り、洋服などが広まった。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc6",
+      "front": "福沢諭吉",
+      "back": "「学問のすゝめ」を著した思想家は？",
+      "explanation": "「天は人の上に人を造らず」で有名。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc7",
+      "front": "学問のすゝめ",
+      "back": "福沢諭吉が著した、学問の重要性を説いた本は？",
+      "explanation": "個人の独立と学問の大切さを訴えた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc8",
+      "front": "中江兆民",
+      "back": "ルソーの思想を紹介し、自由民権運動に影響を与えた思想家は？",
+      "explanation": "「東洋のルソー」とも呼ばれた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc9",
+      "front": "太陽暦",
+      "back": "明治政府が採用した、1日24時間・1週間7日の暦は？",
+      "explanation": "従来の太陰暦に代わって採用された。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc10",
+      "front": "鉄道",
+      "back": "1872年に新橋・横浜間で開通した交通機関は？",
+      "explanation": "日本初の鉄道で、殖産興業の象徴となった。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc11",
+      "front": "ガス灯",
+      "back": "文明開化で都市に設置された照明は？",
+      "explanation": "東京の銀座などに設置された。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc12",
+      "front": "牛鍋",
+      "back": "文明開化で広まった、牛肉を使った新しい食文化は？",
+      "explanation": "仏教の影響で避けられていた肉食が広まるきっかけとなった。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc13",
+      "front": "前島密",
+      "back": "郵便制度を整備した人物は？",
+      "explanation": "日本の近代郵便制度の基礎を築いた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc14",
+      "front": "新橋・横浜間",
+      "back": "日本初の鉄道が開通した区間は？",
+      "explanation": "1872年に開通した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc15",
+      "front": "円・銭・厘",
+      "back": "明治政府が導入した統一貨幣の単位は？",
+      "explanation": "全国共通の通貨制度が作られた。",
+      "difficulty": "advanced"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "明治政府のスローガンで「国を豊かにし軍隊を強くする」は？",
+        "options": [
+          "殖産興業",
+          "尊王攘夷",
+          "富国強兵",
+          "文明開化"
+        ],
+        "correctIndex": 2,
+        "explanation": "富国強兵は欧米列強に対抗するための国家目標です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "群馬県に建設された官営模範工場は？",
+        "options": [
+          "八幡製鉄所",
+          "横須賀造船所",
+          "長崎造船所",
+          "富岡製糸場"
+        ],
+        "correctIndex": 3,
+        "explanation": "富岡製糸場はフランスの技術を導入しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "「学問のすゝめ」を著した思想家は？",
+        "options": [
+          "中江兆民",
+          "伊藤博文",
+          "板垣退助",
+          "福沢諭吉"
+        ],
+        "correctIndex": 3,
+        "explanation": "福沢諭吉は学問の重要性を説きました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "欧米文化が広まった風潮は？",
+        "options": [
+          "文明開化",
+          "殖産興業",
+          "四民平等",
+          "富国強兵"
+        ],
+        "correctIndex": 0,
+        "explanation": "文明開化でガス灯、洋服、牛鍋などが広まりました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q5",
+        "question": "ルソーの思想を紹介した思想家は？",
+        "options": [
+          "福沢諭吉",
+          "中江兆民",
+          "板垣退助",
+          "大隈重信"
+        ],
+        "correctIndex": 1,
+        "explanation": "中江兆民は「東洋のルソー」と呼ばれました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q6",
+        "question": "1872年に新橋・横浜間で開通した交通機関は？",
+        "options": [
+          "鉄道",
+          "路面電車",
+          "馬車",
+          "蒸気船"
+        ],
+        "correctIndex": 0,
+        "explanation": "日本初の鉄道が開通しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q7",
+        "question": "近代産業を育成する政策は？",
+        "options": [
+          "富国強兵",
+          "殖産興業",
+          "文明開化",
+          "四民平等"
+        ],
+        "correctIndex": 1,
+        "explanation": "殖産興業は近代産業を育てる政策です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q8",
+        "question": "富岡製糸場で生産されたものは？",
+        "options": [
+          "綿糸",
+          "生糸",
+          "鉄鋼",
+          "武器"
+        ],
+        "correctIndex": 1,
+        "explanation": "高品質な生糸を生産しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q9",
+        "question": "郵便制度を整備した人物は？",
+        "options": [
+          "福沢諭吉",
+          "中江兆民",
+          "前島密",
+          "伊藤博文"
+        ],
+        "correctIndex": 2,
+        "explanation": "前島密が近代郵便制度の基礎を築きました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q10",
+        "question": "文明開化で広まった新しい食文化は？",
+        "options": [
+          "天ぷら",
+          "寿司",
+          "牛鍋",
+          "うなぎ"
+        ],
+        "correctIndex": 2,
+        "explanation": "牛肉を食べる習慣が広まりました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q11",
+        "question": "「天は人の上に人を造らず」で有名な思想家は？",
+        "options": [
+          "中江兆民",
+          "伊藤博文",
+          "板垣退助",
+          "福沢諭吉"
+        ],
+        "correctIndex": 3,
+        "explanation": "福沢諭吉の「学問のすゝめ」の冒頭です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q12",
+        "question": "太陽暦が採用されたのは何年？",
+        "options": [
+          "1871年",
+          "1872年",
+          "1873年",
+          "1874年"
+        ],
+        "correctIndex": 2,
+        "explanation": "1873年に太陽暦が採用されました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q13",
+        "question": "富岡製糸場がある都道府県は？",
+        "options": [
+          "東京都",
+          "群馬県",
+          "長野県",
+          "栃木県"
+        ],
+        "correctIndex": 1,
+        "explanation": "富岡製糸場は群馬県にあります。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q14",
+        "question": "官営模範工場の目的は？",
+        "options": [
+          "政府の利益を最大化",
+          "産業発展の手本とする",
+          "外国に輸出する",
+          "軍隊に物資を供給する"
+        ],
+        "correctIndex": 1,
+        "explanation": "民間の産業発展を促す目的でした。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q15",
+        "question": "明治政府が導入した統一貨幣の単位は？",
+        "options": [
+          "両・分・朱",
+          "円・銭・厘",
+          "ドル・セント",
+          "貫・匁・分"
+        ],
+        "correctIndex": 1,
+        "explanation": "円・銭・厘の貨幣制度が導入されました。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q16",
+        "question": "文明開化で都市に設置された照明は？",
+        "options": [
+          "ろうそく",
+          "行灯",
+          "ガス灯",
+          "電灯"
+        ],
+        "correctIndex": 2,
+        "explanation": "ガス灯が東京の銀座などに設置されました。",
+        "difficulty": "basic"
+      }
+    ]
+  }
+}

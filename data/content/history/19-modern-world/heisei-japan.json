@@ -1,0 +1,285 @@
+{
+  "subjectId": "history",
+  "eraId": "modern-world",
+  "topicId": "heisei-japan",
+  "name": "平成の日本",
+  "subtitle": "変化する社会と政治",
+  "icon": "🗾",
+  "order": 2,
+  "chatId": "heisei-japan",
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "バブル経済",
+      "back": "1980年代後半、株価と地価が異常に高騰した経済現象は？",
+      "explanation": "1991年に崩壊し、長期不況に入った。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "バブル崩壊",
+      "back": "1991年に株価・地価が下落し、日本経済が長期不況に陥った出来事は？",
+      "explanation": "「失われた30年」の始まり。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "1991年",
+      "back": "バブル崩壊・ソ連解体・湾岸戦争の年は？",
+      "explanation": "世界と日本が大きく変化した年。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc4",
+      "front": "55年体制の終わり",
+      "back": "1993年に自民党単独政権が終わったことは？",
+      "explanation": "細川護熙内閣による非自民連立政権が成立した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc5",
+      "front": "1993年",
+      "back": "55年体制が終わった年は？",
+      "explanation": "細川護熙内閣の成立。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc6",
+      "front": "細川護熙",
+      "back": "1993年に55年体制を終わらせた首相は？",
+      "explanation": "日本新党を率いた非自民連立政権。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc7",
+      "front": "阪神・淡路大震災",
+      "back": "1995年1月17日に発生した兵庫県南部の大地震は？",
+      "explanation": "約6400人の犠牲者。マグニチュード7.3。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc8",
+      "front": "1995年",
+      "back": "阪神・淡路大震災・地下鉄サリン事件の年は？",
+      "explanation": "戦後50年の年。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc9",
+      "front": "地下鉄サリン事件",
+      "back": "1995年3月にオウム真理教が東京の地下鉄で起こしたテロ事件は？",
+      "explanation": "サリンガスで多数の死傷者を出した。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc10",
+      "front": "PKO協力法",
+      "back": "1992年に成立し、自衛隊の海外派遣を可能にした法律は？",
+      "explanation": "国連平和維持活動への参加が可能になった。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc11",
+      "front": "PKO",
+      "back": "国連が紛争地域で行う平和維持活動の略称は？",
+      "explanation": "Peace Keeping Operationsの略。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc12",
+      "front": "東日本大震災",
+      "back": "2011年3月11日に発生した東北地方太平洋沖の大地震は？",
+      "explanation": "マグニチュード9.0。津波で2万人以上の犠牲者。福島原発事故も発生。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc13",
+      "front": "2011年3月11日",
+      "back": "東日本大震災が発生した日は？",
+      "explanation": "東北地方太平洋沖地震。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc14",
+      "front": "福島第一原発事故",
+      "back": "東日本大震災で起きた、原子炉のメルトダウン事故は？",
+      "explanation": "周辺地域は長期間立ち入れなくなった。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc15",
+      "front": "高齢化社会",
+      "back": "65歳以上の人口割合が増えていく社会は？",
+      "explanation": "日本は世界有数の超高齢社会となった。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc16",
+      "front": "少子化",
+      "back": "出生数が減り続ける現象は？",
+      "explanation": "労働人口の減少が課題となっている。",
+      "difficulty": "basic"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "バブル経済が崩壊したのは何年代初頭？",
+        "options": [
+          "1980年代",
+          "2010年代",
+          "2000年代",
+          "1990年代初頭"
+        ],
+        "correctIndex": 3,
+        "explanation": "1991年頃に崩壊しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "1995年に発生した大地震は？",
+        "options": [
+          "関東大震災",
+          "新潟県中越地震",
+          "東日本大震災",
+          "阪神・淡路大震災"
+        ],
+        "correctIndex": 3,
+        "explanation": "阪神・淡路大震災で約6400人が犠牲となりました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "2011年に発生した大地震は？",
+        "options": [
+          "関東大震災",
+          "阪神・淡路大震災",
+          "東日本大震災",
+          "熊本地震"
+        ],
+        "correctIndex": 2,
+        "explanation": "東日本大震災は3月11日に発生しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "55年体制が終わった年は？",
+        "options": [
+          "1989年",
+          "1991年",
+          "1993年",
+          "1995年"
+        ],
+        "correctIndex": 2,
+        "explanation": "1993年に細川護熙内閣が成立しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q5",
+        "question": "1992年に成立した自衛隊海外派遣の法律は？",
+        "options": [
+          "PKO協力法",
+          "安保関連法",
+          "国家総動員法",
+          "自衛隊法"
+        ],
+        "correctIndex": 0,
+        "explanation": "PKO協力法で国連平和維持活動への参加が可能になりました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q6",
+        "question": "1995年3月に起きたテロ事件は？",
+        "options": [
+          "地下鉄サリン事件",
+          "オウム本部襲撃事件",
+          "新宿西口バス放火事件",
+          "あさま山荘事件"
+        ],
+        "correctIndex": 0,
+        "explanation": "オウム真理教による地下鉄サリン事件です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q7",
+        "question": "55年体制を終わらせた首相は？",
+        "options": [
+          "竹下登",
+          "村山富市",
+          "羽田孜",
+          "細川護熙"
+        ],
+        "correctIndex": 3,
+        "explanation": "細川護熙が連立政権を率いました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q8",
+        "question": "東日本大震災で起きた原発事故は？",
+        "options": [
+          "チェルノブイリ原発事故",
+          "福島第一原発事故",
+          "スリーマイル島原発事故",
+          "もんじゅ事故"
+        ],
+        "correctIndex": 1,
+        "explanation": "福島第一原発でメルトダウンが起きました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q9",
+        "question": "東日本大震災の発生日は？",
+        "options": [
+          "1月17日",
+          "3月11日",
+          "9月1日",
+          "12月7日"
+        ],
+        "correctIndex": 1,
+        "explanation": "2011年3月11日です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q10",
+        "question": "阪神・淡路大震災の発生日は？",
+        "options": [
+          "1月17日",
+          "3月11日",
+          "9月1日",
+          "11月3日"
+        ],
+        "correctIndex": 0,
+        "explanation": "1995年1月17日です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q11",
+        "question": "出生数が減り続ける現象は？",
+        "options": [
+          "少子化",
+          "高齢化",
+          "過疎化",
+          "晩婚化"
+        ],
+        "correctIndex": 0,
+        "explanation": "少子化が日本の課題となっています。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q12",
+        "question": "PKOの意味は？",
+        "options": [
+          "国連平和維持活動",
+          "国連難民活動",
+          "国連教育文化活動",
+          "国連保健活動"
+        ],
+        "correctIndex": 0,
+        "explanation": "Peace Keeping Operationsの略です。",
+        "difficulty": "standard"
+      }
+    ]
+  }
+}

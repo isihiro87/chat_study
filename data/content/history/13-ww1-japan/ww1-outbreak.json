@@ -1,0 +1,257 @@
+{
+  "subjectId": "history",
+  "eraId": "ww1-japan",
+  "topicId": "ww1-outbreak",
+  "name": "第一次世界大戦の勃発",
+  "subtitle": "総力戦の衝撃",
+  "icon": "💥",
+  "order": 1,
+  "chatId": "ww1-outbreak",
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "三国協商",
+      "back": "20世紀初頭のイギリス・フランス・ロシアの協力関係は？",
+      "explanation": "三国同盟と対立した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "三国同盟",
+      "back": "ドイツ・オーストリア・イタリアの同盟は？",
+      "explanation": "三国協商と対立した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "バルカン半島",
+      "back": "民族・宗教対立が複雑で「ヨーロッパの火薬庫」と呼ばれた地域は？",
+      "explanation": "第一次世界大戦の発火点となった。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "サラエボ事件",
+      "back": "1914年、オーストリアの皇太子夫妻が暗殺された事件は？",
+      "explanation": "第一次世界大戦のきっかけとなった。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc5",
+      "front": "1914年",
+      "back": "第一次世界大戦が始まった年は？",
+      "explanation": "サラエボ事件をきっかけに開戦した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc6",
+      "front": "1918年",
+      "back": "第一次世界大戦が終結した年は？",
+      "explanation": "ドイツの敗北で約4年半の戦争が終わった。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc7",
+      "front": "総力戦",
+      "back": "国民・経済・科学技術のすべてを動員した戦争のあり方は？",
+      "explanation": "第一次世界大戦から本格化した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc8",
+      "front": "連合国（協商国）",
+      "back": "第一次世界大戦でドイツと戦った陣営は？",
+      "explanation": "イギリス・フランス・ロシア・アメリカ・日本など。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc9",
+      "front": "同盟国",
+      "back": "第一次世界大戦でドイツを中心とした陣営は？",
+      "explanation": "ドイツ・オーストリア・オスマン帝国など。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc10",
+      "front": "戦車・飛行機・毒ガス",
+      "back": "第一次世界大戦で初めて大規模に使用された兵器は？",
+      "explanation": "戦争の様相が大きく変わった。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc11",
+      "front": "アメリカ",
+      "back": "1917年に連合国側で参戦し、戦況を決定づけた国は？",
+      "explanation": "巨大な工業力と兵力で連合国を勝利に導いた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc12",
+      "front": "塹壕戦",
+      "back": "西部戦線で繰り広げられた長期化した防御戦の形式は？",
+      "explanation": "膠着状態が続き、莫大な戦死者を出した。",
+      "difficulty": "advanced"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "第一次世界大戦のきっかけとなった事件は？",
+        "options": [
+          "サラエボ事件",
+          "ノルマントン号事件",
+          "義和団事件",
+          "桜田門外の変"
+        ],
+        "correctIndex": 0,
+        "explanation": "1914年のサラエボ事件が開戦のきっかけでした。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "三国協商の構成国は？",
+        "options": [
+          "独・墺・伊",
+          "日・英・米",
+          "米・英・仏",
+          "英・仏・露"
+        ],
+        "correctIndex": 3,
+        "explanation": "イギリス・フランス・ロシアの三国です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "三国同盟の構成国は？",
+        "options": [
+          "独・墺・伊",
+          "英・仏・露",
+          "米・英・仏",
+          "日・英・米"
+        ],
+        "correctIndex": 0,
+        "explanation": "ドイツ・オーストリア・イタリアの三国です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "「ヨーロッパの火薬庫」と呼ばれた地域は？",
+        "options": [
+          "イベリア半島",
+          "バルカン半島",
+          "スカンジナビア半島",
+          "アラビア半島"
+        ],
+        "correctIndex": 1,
+        "explanation": "民族・宗教対立が複雑なバルカン半島です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q5",
+        "question": "第一次世界大戦が始まった年は？",
+        "options": [
+          "1900年",
+          "1910年",
+          "1914年",
+          "1917年"
+        ],
+        "correctIndex": 2,
+        "explanation": "1914年に開戦しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q6",
+        "question": "第一次世界大戦が終わった年は？",
+        "options": [
+          "1914年",
+          "1917年",
+          "1918年",
+          "1919年"
+        ],
+        "correctIndex": 2,
+        "explanation": "1918年にドイツが降伏しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q7",
+        "question": "1917年に連合国側で参戦し戦局を変えた国は？",
+        "options": [
+          "日本",
+          "アメリカ",
+          "オランダ",
+          "スペイン"
+        ],
+        "correctIndex": 1,
+        "explanation": "アメリカ参戦で連合国が勝利しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q8",
+        "question": "第一次世界大戦で初めて大規模に使用された兵器に含まれないのは？",
+        "options": [
+          "戦車",
+          "飛行機",
+          "毒ガス",
+          "核兵器"
+        ],
+        "correctIndex": 3,
+        "explanation": "核兵器の使用は第二次世界大戦末期でした。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q9",
+        "question": "国民・経済すべてを動員した戦争のあり方は？",
+        "options": [
+          "局地戦",
+          "総力戦",
+          "ゲリラ戦",
+          "海上戦"
+        ],
+        "correctIndex": 1,
+        "explanation": "総力戦は第一次世界大戦から本格化しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q10",
+        "question": "サラエボ事件で暗殺されたのはどこの国の皇太子？",
+        "options": [
+          "ドイツ",
+          "ロシア",
+          "オーストリア",
+          "セルビア"
+        ],
+        "correctIndex": 2,
+        "explanation": "オーストリアの皇太子夫妻が暗殺されました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q11",
+        "question": "西部戦線で展開された長期防御戦の形式は？",
+        "options": [
+          "遊撃戦",
+          "塹壕戦",
+          "騎兵戦",
+          "上陸戦"
+        ],
+        "correctIndex": 1,
+        "explanation": "塹壕戦で膠着し莫大な戦死者を出しました。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q12",
+        "question": "第一次世界大戦の同盟国に含まれないのは？",
+        "options": [
+          "ドイツ",
+          "オーストリア",
+          "オスマン帝国",
+          "イタリア"
+        ],
+        "correctIndex": 3,
+        "explanation": "イタリアは途中で連合国側に転じました。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

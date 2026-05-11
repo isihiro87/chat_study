@@ -1,0 +1,271 @@
+{
+  "subjectId": "history",
+  "eraId": "cold-war-era",
+  "topicId": "postwar-international",
+  "name": "国際社会への復帰",
+  "subtitle": "日本外交の展開",
+  "icon": "🤝",
+  "order": 3,
+  "chatId": "postwar-international",
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "日ソ共同宣言",
+      "back": "1956年に鳩山一郎内閣が結んだ、ソ連との戦争状態を終わらせた宣言は？",
+      "explanation": "国交を回復し、日本の国連加盟への道を開いた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "1956年",
+      "back": "日ソ共同宣言と国連加盟の年は？",
+      "explanation": "日本が国際社会に復帰した転換点。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "国連加盟",
+      "back": "1956年に日本が果たした国際的な復帰は？",
+      "explanation": "日ソ共同宣言でソ連の拒否権が解かれて実現した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "鳩山一郎",
+      "back": "日ソ共同宣言を結び国連加盟を実現した首相は？",
+      "explanation": "55年体制が始まった時の首相。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc5",
+      "front": "55年体制",
+      "back": "1955年から続いた自民党と社会党の二大政党体制は？",
+      "explanation": "自由民主党が長期政権を担った。1993年まで続いた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc6",
+      "front": "自由民主党（自民党）",
+      "back": "1955年に結成された保守政党は？",
+      "explanation": "55年体制で長期政権を担った。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc7",
+      "front": "日韓基本条約",
+      "back": "1965年に佐藤栄作内閣が結んだ、韓国との国交を樹立した条約は？",
+      "explanation": "韓国を朝鮮半島唯一の合法政府と認めた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc8",
+      "front": "1965年",
+      "back": "日韓基本条約が結ばれた年は？",
+      "explanation": "佐藤栄作内閣の時に結ばれた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc9",
+      "front": "日中共同声明",
+      "back": "1972年に田中角栄内閣が出した、中華人民共和国と国交を結んだ声明は？",
+      "explanation": "日本は中華民国（台湾）と断交した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc10",
+      "front": "1972年",
+      "back": "日中共同声明と沖縄返還の年は？",
+      "explanation": "佐藤栄作から田中角栄に首相が代わった年。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc11",
+      "front": "田中角栄",
+      "back": "日中国交正常化を実現した首相は？",
+      "explanation": "「列島改造論」を唱えた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc12",
+      "front": "日中平和友好条約",
+      "back": "1978年に福田赳夫内閣が結んだ、日中の平和を約束する条約は？",
+      "explanation": "日中共同声明から6年後に結ばれた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc13",
+      "front": "非核三原則",
+      "back": "「持たず、作らず、持ち込ませず」の核兵器に関する日本の方針は？",
+      "explanation": "1967年に佐藤栄作首相が表明。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc14",
+      "front": "佐藤栄作",
+      "back": "非核三原則を表明し、ノーベル平和賞を受賞した首相は？",
+      "explanation": "首相在任期間が当時最長だった。",
+      "difficulty": "standard"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "日本が国連に加盟した年は？",
+        "options": [
+          "1945年",
+          "1951年",
+          "1956年",
+          "1972年"
+        ],
+        "correctIndex": 2,
+        "explanation": "1956年に加盟しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "1956年に結ばれたソ連との宣言は？",
+        "options": [
+          "日ソ共同宣言",
+          "日ソ平和条約",
+          "中立条約",
+          "サンフランシスコ条約"
+        ],
+        "correctIndex": 0,
+        "explanation": "日ソ共同宣言で国交が回復しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "1972年に日中国交正常化を実現した首相は？",
+        "options": [
+          "佐藤栄作",
+          "三木武夫",
+          "福田赳夫",
+          "田中角栄"
+        ],
+        "correctIndex": 3,
+        "explanation": "田中角栄が実現しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "1965年に結ばれた韓国との条約は？",
+        "options": [
+          "日韓基本条約",
+          "日韓平和条約",
+          "日韓友好条約",
+          "韓日同盟"
+        ],
+        "correctIndex": 0,
+        "explanation": "日韓基本条約で国交が樹立されました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q5",
+        "question": "1955年から1993年まで続いた政治体制は？",
+        "options": [
+          "55年体制",
+          "60年体制",
+          "戦後体制",
+          "民主体制"
+        ],
+        "correctIndex": 0,
+        "explanation": "55年体制で自民党が長期政権を担いました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q6",
+        "question": "非核三原則の内容は？",
+        "options": [
+          "「持たず、作らず、持ち込ませず」",
+          "「核武装、核共有、核実験」",
+          "「軍縮、軍備、軍事化」",
+          "「自衛、防衛、抑止」"
+        ],
+        "correctIndex": 0,
+        "explanation": "持たず、作らず、持ち込ませずです。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q7",
+        "question": "非核三原則を表明した首相は？",
+        "options": [
+          "池田勇人",
+          "福田赳夫",
+          "田中角栄",
+          "佐藤栄作"
+        ],
+        "correctIndex": 3,
+        "explanation": "1967年に佐藤栄作首相が表明しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q8",
+        "question": "日中国交正常化に伴って日本が断交したのは？",
+        "options": [
+          "中華民国（台湾）",
+          "韓国",
+          "北朝鮮",
+          "ソ連"
+        ],
+        "correctIndex": 0,
+        "explanation": "中華民国（台湾）と断交しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q9",
+        "question": "1978年に結ばれた中国との条約は？",
+        "options": [
+          "日中共同声明",
+          "日中文化協定",
+          "日中安全保障条約",
+          "日中平和友好条約"
+        ],
+        "correctIndex": 3,
+        "explanation": "1978年に日中平和友好条約が結ばれました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q10",
+        "question": "ノーベル平和賞を受賞した日本の首相は？",
+        "options": [
+          "吉田茂",
+          "岸信介",
+          "佐藤栄作",
+          "田中角栄"
+        ],
+        "correctIndex": 2,
+        "explanation": "佐藤栄作がノーベル平和賞を受賞しました。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q11",
+        "question": "1955年に結成された保守政党は？",
+        "options": [
+          "自由党",
+          "民主党",
+          "自由民主党",
+          "民社党"
+        ],
+        "correctIndex": 2,
+        "explanation": "自由民主党（自民党）が結成されました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q12",
+        "question": "日中共同声明と同年に起きた出来事は？",
+        "options": [
+          "沖縄返還",
+          "国連加盟",
+          "東京オリンピック",
+          "日韓基本条約"
+        ],
+        "correctIndex": 0,
+        "explanation": "1972年に沖縄返還も実現しました。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

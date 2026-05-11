@@ -1,0 +1,292 @@
+{
+  "subjectId": "history",
+  "eraId": "cold-war-era",
+  "topicId": "economic-growth",
+  "name": "高度経済成長",
+  "subtitle": "奇跡の経済発展",
+  "icon": "📈",
+  "order": 4,
+  "chatId": "economic-growth",
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "高度経済成長",
+      "back": "1955〜73年に日本経済が年平均約10%成長した時期は？",
+      "explanation": "「東洋の奇跡」と呼ばれた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "1955〜73年",
+      "back": "高度経済成長の時期は？",
+      "explanation": "1973年のオイルショックで終わりを迎えた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc3",
+      "front": "三種の神器",
+      "back": "1950年代後半に普及した電気冷蔵庫・洗濯機・白黒テレビは？",
+      "explanation": "家庭生活が大きく変化した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "3C",
+      "back": "1960年代に普及したカー・カラーテレビ・クーラーは？",
+      "explanation": "新・三種の神器ともいう。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc5",
+      "front": "東京オリンピック",
+      "back": "1964年に開催されたアジア初のオリンピックは？",
+      "explanation": "高度経済成長の象徴。新幹線も開通した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc6",
+      "front": "1964年",
+      "back": "東京オリンピック・東海道新幹線開業の年は？",
+      "explanation": "戦後日本の復興を世界に示した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc7",
+      "front": "東海道新幹線",
+      "back": "1964年に開業した東京〜新大阪間の高速鉄道は？",
+      "explanation": "世界初の高速鉄道。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc8",
+      "front": "大阪万博",
+      "back": "1970年に開催された日本初の国際博覧会は？",
+      "explanation": "「人類の進歩と調和」がテーマ。岡本太郎の「太陽の塔」が有名。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc9",
+      "front": "1970年",
+      "back": "大阪万博が開催された年は？",
+      "explanation": "高度経済成長の絶頂期だった。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc10",
+      "front": "公害",
+      "back": "経済成長の負の側面として生じた、環境汚染による健康被害は？",
+      "explanation": "四大公害病が代表例。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc11",
+      "front": "四大公害病",
+      "back": "水俣病・新潟水俣病・イタイイタイ病・四日市ぜんそくの総称は？",
+      "explanation": "高度経済成長期の負の遺産。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc12",
+      "front": "水俣病",
+      "back": "熊本県で発生した、有機水銀による神経の病気は？",
+      "explanation": "チッソの工場排水が原因。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc13",
+      "front": "イタイイタイ病",
+      "back": "富山県で発生した、カドミウムによる骨の病気は？",
+      "explanation": "三井金属神岡鉱業所の排水が原因。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc14",
+      "front": "四日市ぜんそく",
+      "back": "三重県で発生した、亜硫酸ガスによる呼吸器の病気は？",
+      "explanation": "石油化学コンビナートの煙が原因。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc15",
+      "front": "公害対策基本法",
+      "back": "1967年に制定された公害防止の基本法は？",
+      "explanation": "後に環境基本法に発展した。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc16",
+      "front": "石油危機（オイルショック）",
+      "back": "1973年に第四次中東戦争で石油価格が高騰した出来事は？",
+      "explanation": "高度経済成長は終わり、安定成長期に入った。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc17",
+      "front": "1973年",
+      "back": "石油危機が起きた年は？",
+      "explanation": "高度経済成長の終わりとなった。",
+      "difficulty": "basic"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "1964年に開催されたアジア初のオリンピックは？",
+        "options": [
+          "東京オリンピック",
+          "札幌オリンピック",
+          "長野オリンピック",
+          "ソウルオリンピック"
+        ],
+        "correctIndex": 0,
+        "explanation": "東京オリンピックは高度経済成長の象徴でした。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "1970年に大阪で開催された国際博覧会は？",
+        "options": [
+          "大阪万博",
+          "愛知万博",
+          "つくば博",
+          "横浜博"
+        ],
+        "correctIndex": 0,
+        "explanation": "大阪万博は「人類の進歩と調和」がテーマでした。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "1973年に高度経済成長を終わらせた出来事は？",
+        "options": [
+          "バブル崩壊",
+          "リーマンショック",
+          "プラザ合意",
+          "石油危機（オイルショック）"
+        ],
+        "correctIndex": 3,
+        "explanation": "オイルショックが転換点でした。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "四大公害病に含まれないのは？",
+        "options": [
+          "水俣病",
+          "イタイイタイ病",
+          "四日市ぜんそく",
+          "アスベスト病"
+        ],
+        "correctIndex": 3,
+        "explanation": "四大公害病は水俣病・新潟水俣病・イタイイタイ病・四日市ぜんそくです。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q5",
+        "question": "1950年代後半に普及した三種の神器に含まれないのは？",
+        "options": [
+          "電気冷蔵庫",
+          "白黒テレビ",
+          "洗濯機",
+          "クーラー"
+        ],
+        "correctIndex": 3,
+        "explanation": "クーラーは3Cの一つです。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q6",
+        "question": "1960年代の3Cに含まれるのは？",
+        "options": [
+          "白黒テレビ",
+          "カラーテレビ",
+          "ラジオ",
+          "電球"
+        ],
+        "correctIndex": 1,
+        "explanation": "3Cはカー・カラーテレビ・クーラーです。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q7",
+        "question": "水俣病の原因物質は？",
+        "options": [
+          "有機水銀",
+          "カドミウム",
+          "亜硫酸ガス",
+          "ダイオキシン"
+        ],
+        "correctIndex": 0,
+        "explanation": "有機水銀が原因です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q8",
+        "question": "イタイイタイ病の原因物質は？",
+        "options": [
+          "有機水銀",
+          "カドミウム",
+          "亜硫酸ガス",
+          "ダイオキシン"
+        ],
+        "correctIndex": 1,
+        "explanation": "カドミウムが原因です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q9",
+        "question": "1964年に開業した高速鉄道は？",
+        "options": [
+          "新幹線",
+          "リニア",
+          "在来線",
+          "メトロ"
+        ],
+        "correctIndex": 0,
+        "explanation": "東海道新幹線が開業しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q10",
+        "question": "公害対策基本法が制定された年は？",
+        "options": [
+          "1955年",
+          "1960年",
+          "1967年",
+          "1972年"
+        ],
+        "correctIndex": 2,
+        "explanation": "1967年に制定されました。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q11",
+        "question": "四日市ぜんそくの原因は？",
+        "options": [
+          "有機水銀",
+          "カドミウム",
+          "亜硫酸ガス",
+          "アスベスト"
+        ],
+        "correctIndex": 2,
+        "explanation": "石油化学コンビナートからの亜硫酸ガスが原因です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q12",
+        "question": "高度経済成長期の経済成長率はおよそ？",
+        "options": [
+          "年平均1%",
+          "年平均5%",
+          "年平均10%",
+          "年平均20%"
+        ],
+        "correctIndex": 2,
+        "explanation": "年平均約10%の高成長でした。",
+        "difficulty": "standard"
+      }
+    ]
+  }
+}

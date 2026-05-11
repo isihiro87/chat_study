@@ -1,0 +1,485 @@
+{
+  "subjectId": "history",
+  "eraId": "ancient-state",
+  "topicId": "heian-capital",
+  "name": "平安京と新しい仏教",
+  "subtitle": "桓武天皇の遷都と最澄・空海",
+  "icon": "🏯",
+  "order": 6,
+  "chatId": "heian-capital",
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "平安京",
+      "back": "794年に遷都された京都の都を何という？",
+      "explanation": "794年に桓武天皇が移した都。約400年間日本の首都となった。「鳴くよウグイス平安京」で覚えられる。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "桓武天皇",
+      "back": "平安京へ都を移した天皇は？",
+      "explanation": "平安京へ都を移し、政治の立て直しを進めた天皇。平安時代の始まりと結びつく。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "平安時代",
+      "back": "平安京に都が置かれた約400年間を何時代という？",
+      "explanation": "794年の平安京遷都から鎌倉幕府成立までの時代。貴族政治・国風文化・武士の成長が重要。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "坂上田村麻呂",
+      "back": "征夷大将軍として東北を平定した人物は？",
+      "explanation": "桓武天皇に征夷大将軍に任命され、蝦夷の指導者アテルイを降伏させた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc5",
+      "front": "征夷大将軍",
+      "back": "東北の蝦夷を征討した役職を何という？",
+      "explanation": "もとは東北地方の蝦夷を討つために任命された将軍。後の武家政権の将軍と区別。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc6",
+      "front": "蝦夷",
+      "back": "東北地方に住み朝廷の支配に従わなかった人々は？",
+      "explanation": "古代に東北地方などに住み、朝廷に従わなかった人々を指した呼び名。朝廷の東北支配と関係。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc7",
+      "front": "アテルイ",
+      "back": "朝廷に激しく抵抗した蝦夷の指導者は？",
+      "explanation": "東北地方の蝦夷の指導者。朝廷に激しく抵抗したが坂上田村麻呂に降伏させられた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc8",
+      "front": "最澄",
+      "back": "唐から帰国し、天台宗を開いた僧は？",
+      "explanation": "唐で学び、比叡山延暦寺に天台宗を開いた僧。天台宗・延暦寺と結びつける。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc9",
+      "front": "空海",
+      "back": "真言宗を始め、高野山に寺を建てた僧は？",
+      "explanation": "唐で学び、高野山金剛峯寺に真言宗を開いた僧。弘法大師と呼ばれる。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc10",
+      "front": "天台宗",
+      "back": "最澄が比叡山で開いた宗派は？",
+      "explanation": "最澄が広めた仏教の宗派。比叡山延暦寺が中心。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc11",
+      "front": "真言宗",
+      "back": "空海が高野山で開いた宗派は？",
+      "explanation": "空海が広めた仏教の宗派。高野山金剛峯寺が中心。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc12",
+      "front": "延暦寺",
+      "back": "最澄が比叡山に建てた天台宗の総本山は？",
+      "explanation": "滋賀県の比叡山にある天台宗の総本山。のちに多くの名僧を輩出した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc13",
+      "front": "金剛峯寺",
+      "back": "空海が高野山に建てた真言宗の総本山は？",
+      "explanation": "空海が高野山に建てた真言宗の総本山。密教の修行道場。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc14",
+      "front": "山岳仏教",
+      "back": "山奥で修行を行う新しい仏教の形態は？",
+      "explanation": "最澄・空海が開いた新しい仏教の形態。山奥での修行を重視し、奈良仏教と異なる。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc15",
+      "front": "菅原道真",
+      "back": "894年に遣唐使の派遣中止を提案した人物は？",
+      "explanation": "遣唐使の停止を建議した学者・政治家。894年と結びつける。死後は学問の神として祀られた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc16",
+      "front": "遣唐使の停止",
+      "back": "894年に菅原道真の進言で起きた外交の出来事は？",
+      "explanation": "894年、菅原道真の意見で遣唐使が停止されたこと。国風文化が発達する背景。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc17",
+      "front": "密教",
+      "back": "空海が唐で学んだ秘密の教えは？",
+      "explanation": "空海が唐で学んだ秘密の教え。加持祈祷など特別な修行法が特徴。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc18",
+      "front": "長岡京",
+      "back": "桓武天皇が平安京の前に遷都した都は？",
+      "explanation": "桓武天皇が784年に遷都した都。暗殺事件を機に平安京へ移った。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc19",
+      "front": "弘法大師",
+      "back": "空海の死後の尊称は？",
+      "explanation": "空海の死後に贈られた尊称。「弘法も筆の誤り」のことわざでも知られる。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc20",
+      "front": "多賀城",
+      "back": "東北地方の軍事・政治拠点として設置された城は？",
+      "explanation": "東北地方の軍事・政治拠点として設置された城。蝦夷征伐の前線基地。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc21",
+      "front": "894年",
+      "back": "菅原道真の進言で遣唐使が中止された年は？",
+      "explanation": "菅原道真の進言で遣唐使が中止された年。国風文化発展のきっかけ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc22",
+      "front": "京都市",
+      "back": "平安京は現在のどの都市にあたるか？",
+      "explanation": "平安京は現在の京都市にあたる。約千年間日本の都として機能した。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc23",
+      "front": "蝦夷を征伐すること",
+      "back": "「征夷大将軍」の「征夷」の意味は？",
+      "explanation": "「征夷」は蝦夷を征伐するという意味。この称号は後に武家政権の長にも用いられた。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc24",
+      "front": "滋賀県",
+      "back": "延暦寺は現在のどの都道府県にあるか？",
+      "explanation": "比叡山は滋賀県と京都府の県境にあるが、延暦寺の住所は滋賀県大津市。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc25",
+      "front": "学問の神",
+      "back": "菅原道真は死後に何として祀られたか？",
+      "explanation": "菅原道真は大宰府に左遷された後に亡くなり、のちに学問の神として天満宮に祀られた。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc26",
+      "front": "約400年間",
+      "back": "平安時代はおよそ何年間続いたか？",
+      "explanation": "平安時代は794年から1185年頃まで約400年間続いた長い時代。",
+      "difficulty": "advanced"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "794年に桓武天皇が移した都はどれですか。",
+        "options": [
+          "平城京",
+          "藤原京",
+          "平安京",
+          "鎌倉"
+        ],
+        "correctIndex": 2,
+        "explanation": "794年に平安京へ都が移され、平安時代が始まりました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "平安京へ都を移した天皇は誰ですか。",
+        "options": [
+          "聖武天皇",
+          "後白河天皇",
+          "推古天皇",
+          "桓武天皇"
+        ],
+        "correctIndex": 3,
+        "explanation": "桓武天皇は奈良の仏教勢力の影響などを避け、政治の立て直しを進めました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "征夷大将軍として東北地方の蝦夷を討った人物は誰ですか。",
+        "options": [
+          "坂上田村麻呂",
+          "平清盛",
+          "藤原道長",
+          "菅原道真"
+        ],
+        "correctIndex": 0,
+        "explanation": "坂上田村麻呂は桓武天皇の時代に東北支配を進めました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "比叡山延暦寺に天台宗を開いた僧は誰ですか。",
+        "options": [
+          "空海",
+          "鑑真",
+          "最澄",
+          "行基"
+        ],
+        "correctIndex": 2,
+        "explanation": "最澄は唐で学び、帰国後に天台宗を広めました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q5",
+        "question": "高野山金剛峯寺に真言宗を開いた僧は誰ですか。",
+        "options": [
+          "最澄",
+          "空海",
+          "鑑真",
+          "一遍"
+        ],
+        "correctIndex": 1,
+        "explanation": "空海は唐で学び、真言宗を広めました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q6",
+        "question": "最澄と空海の組み合わせとして正しいものはどれですか。",
+        "options": [
+          "最澄—真言宗、空海—天台宗",
+          "最澄—天台宗、空海—真言宗",
+          "最澄—浄土真宗、空海—日蓮宗",
+          "最澄—禅宗、空海—浄土宗"
+        ],
+        "correctIndex": 1,
+        "explanation": "最澄は天台宗、空海は真言宗です。寺の場所も合わせて覚えます。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q7",
+        "question": "894年に遣唐使の派遣中止を提案した人物は？",
+        "options": [
+          "小野妹子",
+          "藤原道長",
+          "菅原道真",
+          "坂上田村麻呂"
+        ],
+        "correctIndex": 2,
+        "explanation": "菅原道真は唐の衰退を理由に遣唐使の中止を提案しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q8",
+        "question": "桓武天皇が平安京に遷都した理由として正しいものは？",
+        "options": [
+          "唐との貿易のため",
+          "奈良の寺院の政治介入を避けるため",
+          "蝦夷の攻撃から逃れるため",
+          "地震の被害を避けるため"
+        ],
+        "correctIndex": 1,
+        "explanation": "桓武天皇は奈良の大寺院が政治に介入することを嫌い、新しい都・平安京で政治を一新しようとしました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q9",
+        "question": "空海が唐で学んだ教えは何か？",
+        "options": [
+          "禅",
+          "律",
+          "浄土教",
+          "密教"
+        ],
+        "correctIndex": 3,
+        "explanation": "空海は唐で密教を学び、帰国後に真言宗を開きました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q11",
+        "question": "桓武天皇が平安京の前に遷都した都は？",
+        "options": [
+          "藤原京",
+          "平城京",
+          "近江大津宮",
+          "長岡京"
+        ],
+        "correctIndex": 3,
+        "explanation": "桓武天皇は784年に長岡京に遷都しましたが、暗殺事件を機に794年に平安京へ移りました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q12",
+        "question": "蝦夷の指導者で朝廷に激しく抵抗した人物は？",
+        "options": [
+          "坂上田村麻呂",
+          "アテルイ",
+          "菅原道真",
+          "空海"
+        ],
+        "correctIndex": 1,
+        "explanation": "アテルイは蝦夷の指導者として朝廷に激しく抵抗しましたが、坂上田村麻呂に降伏させられました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q13",
+        "question": "平安京は現在のどの都市にあたるか？",
+        "options": [
+          "奈良市",
+          "大阪市",
+          "京都市",
+          "東京都"
+        ],
+        "correctIndex": 2,
+        "explanation": "平安京は現在の京都市にあたります。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q14",
+        "question": "「征夷大将軍」の「征夷」の意味は？",
+        "options": [
+          "都を守ること",
+          "蝦夷を征伐すること",
+          "外国と交易すること",
+          "仏教を広めること"
+        ],
+        "correctIndex": 1,
+        "explanation": "「征夷」は蝦夷を征伐するという意味で、蝦夷討伐の最高司令官が征夷大将軍です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q15",
+        "question": "延暦寺は現在のどの都道府県にあるか？",
+        "options": [
+          "京都府",
+          "滋賀県",
+          "奈良県",
+          "大阪府"
+        ],
+        "correctIndex": 1,
+        "explanation": "延暦寺は滋賀県の比叡山にある天台宗の総本山です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q17",
+        "question": "平安時代はおよそ何年間続いたか？",
+        "options": [
+          "約100年間",
+          "約200年間",
+          "約300年間",
+          "約400年間"
+        ],
+        "correctIndex": 3,
+        "explanation": "平安時代は約400年間（794年〜1185年頃）続きました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q18",
+        "question": "空海の死後の尊称は？",
+        "options": [
+          "弘法大師",
+          "伝教大師",
+          "慈覚大師",
+          "円仁大師"
+        ],
+        "correctIndex": 0,
+        "explanation": "空海は死後に弘法大師の尊称を贈られました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q19",
+        "question": "菅原道真はのちに何として祀られたか？",
+        "options": [
+          "戦の神",
+          "商売の神",
+          "学問の神",
+          "農業の神"
+        ],
+        "correctIndex": 2,
+        "explanation": "菅原道真は太宰府に左遷された後、死後に学問の神として祀られました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q20",
+        "question": "平安時代初期の仏教が奈良時代の仏教と異なる点は？",
+        "options": [
+          "山奥での修行を重視する山岳仏教となった",
+          "国家から強力な保護と支援を受けた",
+          "農民や庶民の間に広く普及した",
+          "朝鮮や中国に積極的に布教した"
+        ],
+        "correctIndex": 0,
+        "explanation": "平安時代初期の仏教は山奥での修行を重視する山岳仏教で、奈良の旧仏教とは異なりました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q21",
+        "question": "比叡山延暦寺がのちに果たした役割は？",
+        "options": [
+          "多くの名僧を輩出する日本仏教の中心",
+          "大陸との交易を行う重要な貿易拠点",
+          "東国を守る重要な軍事防衛の拠点",
+          "天皇が暮らす宮廷の皇居"
+        ],
+        "correctIndex": 0,
+        "explanation": "比叡山延暦寺はのちに多くの名僧を輩出する日本仏教の中心的な存在となりました。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q22",
+        "question": "桓武天皇が政治の立て直しのために行った主な政策は？",
+        "options": [
+          "遷都と蝦夷征伐",
+          "仏教の禁止と貿易促進",
+          "貨幣の発行と税制改革",
+          "遣唐使の派遣と大仏建立"
+        ],
+        "correctIndex": 0,
+        "explanation": "桓武天皇は遷都（長岡京→平安京）と蝦夷征伐で政治の立て直しを図りました。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q23",
+        "question": "最澄が唐で学んだのはおもに何の教えか？",
+        "options": [
+          "密教",
+          "禅",
+          "浄土の教え",
+          "天台の教え"
+        ],
+        "correctIndex": 3,
+        "explanation": "最澄は唐でおもに天台の教えを学び、帰国後に天台宗を開きました。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q24",
+        "question": "蝦夷征伐の拠点として東北に築かれた城は？",
+        "options": [
+          "水城",
+          "大宰府",
+          "藤原京",
+          "多賀城"
+        ],
+        "correctIndex": 3,
+        "explanation": "多賀城は東北地方の軍事・政治拠点として蝦夷征伐に利用されました。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

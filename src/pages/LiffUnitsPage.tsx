@@ -5,26 +5,54 @@ import { db } from '../firebase/config';
 import { useAuth } from '../contexts/AuthContext';
 import { useLiffAuth } from '../hooks/useLiffAuth';
 import { LoadingScreen } from '../components/common/LoadingScreen';
-import {
-  lineStudyHistoryG1,
-  type StudyEra,
-  type StudyTopic,
-  type StudyFlashcard,
-  type StudyQuizQuestion,
+// 型は g1 ファイルから（同じ型を g2 も持つ）。データ本体は動的 import で
+// 学年別に lazy load し、chunk size を最小化する。
+import type {
+  StudyEra,
+  StudyTopic,
+  StudyFlashcard,
+  StudyQuizQuestion,
 } from '../data/generated/line-study-history-g1.generated';
+
+type GradeNum = 1 | 2 | 3;
+
+async function loadHistoryEras(grade: GradeNum): Promise<StudyEra[] | null> {
+  switch (grade) {
+    case 1: {
+      const m = await import('../data/generated/line-study-history-g1.generated');
+      return m.lineStudyHistoryEras;
+    }
+    case 2: {
+      const m = await import('../data/generated/line-study-history-g2.generated');
+      return m.lineStudyHistoryEras;
+    }
+    default:
+      return null; // 中3 は未実装
+  }
+}
+
+const GRADE_LABEL_TO_NUMBER: Record<string, GradeNum> = {
+  中1: 1,
+  中2: 2,
+  中3: 3,
+};
 
 type ViewMode = 'list' | 'setup' | 'fc' | 'quiz' | 'fc-end' | 'quiz-end';
 type SetupKind = 'fc' | 'quiz';
-type Difficulty = 'any' | 'basic' | 'standard' | 'advanced';
+type Difficulty = 'basic' | 'standard' | 'advanced';
+
+const ALL_DIFFICULTIES: Difficulty[] = ['basic', 'standard', 'advanced'];
 
 const DIFFICULTY_OPTIONS: { value: Difficulty; label: string }[] = [
-  { value: 'any', label: 'すべて' },
   { value: 'basic', label: '基本' },
   { value: 'standard', label: '標準' },
   { value: 'advanced', label: '応用' },
 ];
 
 const COUNT_OPTIONS = [5, 10, 20] as const;
+
+// LIFF 現状スコープは歴史のみ。将来教科切替する場合はここに subject を渡す。
+const CURRENT_SUBJECT_ID = 'history';
 
 interface PerTopicStat {
   fcClearCount: number;
@@ -42,15 +70,19 @@ const EMPTY_STAT: PerTopicStat = {
 
 type StudyStatsMap = Record<string, PerTopicStat>;
 
-function difficultyMatch(itemDiff: string | undefined, sel: Difficulty): boolean {
-  if (sel === 'any') return true;
-  return itemDiff === sel;
+function difficultyMatch(
+  itemDiff: string | undefined,
+  selected: Set<Difficulty>
+): boolean {
+  if (selected.size === 0 || selected.size === ALL_DIFFICULTIES.length) return true;
+  if (!itemDiff) return false;
+  return selected.has(itemDiff as Difficulty);
 }
 
 /**
  * 公式LINE のリッチメニュー「じっくり学ぶ」から開かれる LIFF ページ。
  *
- * インライン学習体験を提供（歴史・中1、data/content/history/01〜04）:
+ * インライン学習体験を提供（歴史、grade1/2 対応、data/content/history/01〜12）:
  *  - トピック一覧（時代別 + テスト範囲フィルタ + クリア回数 / 正答率の表示）
  *  - セットアップ: 枚数・問題数の指定、難易度フィルタ
  *  - 暗記カード: フリップ + わかった/わからない振り分け
@@ -58,6 +90,7 @@ function difficultyMatch(itemDiff: string | undefined, sel: Difficulty): boolean
  *  - 完了時に Firestore `users/{uid}.studyStats[topicId]` を更新
  *
  * 認証は `useLiffAuth` 経由で LIFF SDK ID トークン → Firebase Auth。
+ * 学年別データは grade に応じて動的 import（chunk lazy load）。
  */
 export function LiffUnitsPage() {
   const { user, loading } = useAuth();
@@ -68,11 +101,19 @@ export function LiffUnitsPage() {
   const [view, setView] = useState<ViewMode>('list');
   const [currentTopic, setCurrentTopic] = useState<StudyTopic | null>(null);
   const [setupKind, setSetupKind] = useState<SetupKind>('fc');
-  const [setupDifficulty, setSetupDifficulty] = useState<Difficulty>('any');
+  const [setupDifficulties, setSetupDifficulties] = useState<Set<Difficulty>>(
+    new Set(ALL_DIFFICULTIES)
+  );
   const [setupCount, setSetupCount] = useState<number | 'all'>('all');
 
   const [testScopeTopics, setTestScopeTopics] = useState<Set<string>>(new Set());
   const [testScopeLoaded, setTestScopeLoaded] = useState(false);
+  // ユーザーの登録学年（初期値の決定に使う）。
+  const [userGrade, setUserGrade] = useState<GradeNum | null>(null);
+  // 表示中の学年（ユーザー操作で切り替え可能）。初期 = 登録学年。
+  const [selectedGrade, setSelectedGrade] = useState<GradeNum | null>(null);
+  const [historyEras, setHistoryEras] = useState<StudyEra[] | null>(null);
+  const [erasLoading, setErasLoading] = useState(false);
   const [scopeFilterOn, setScopeFilterOn] = useState(true);
   const [studyStats, setStudyStats] = useState<StudyStatsMap>({});
 
@@ -103,6 +144,12 @@ export function LiffUnitsPage() {
           : [];
         setTestScopeTopics(new Set(topics));
 
+        // 学年を取得（中1 / 中2 / 中3）。selectedGrade の初期値にも使う。
+        const gradeLabel = typeof data.grade === 'string' ? data.grade : undefined;
+        const gradeNum = gradeLabel ? GRADE_LABEL_TO_NUMBER[gradeLabel] : undefined;
+        setUserGrade(gradeNum ?? null);
+        setSelectedGrade((prev) => prev ?? gradeNum ?? null);
+
         const statsRaw = (data.studyStats as Record<string, unknown> | undefined) ?? {};
         const stats: StudyStatsMap = {};
         for (const [k, v] of Object.entries(statsRaw)) {
@@ -117,6 +164,21 @@ export function LiffUnitsPage() {
           }
         }
         setStudyStats(stats);
+
+        // 教科ごとの直近難易度選択を復元（未設定なら全部 ON）
+        const prefsRaw = (data.studyPrefs as Record<string, unknown> | undefined) ?? {};
+        const subjectPref = prefsRaw[CURRENT_SUBJECT_ID] as
+          | { difficulties?: unknown }
+          | undefined;
+        if (subjectPref && Array.isArray(subjectPref.difficulties)) {
+          const saved = (subjectPref.difficulties as unknown[]).filter(
+            (d): d is Difficulty =>
+              typeof d === 'string' && (ALL_DIFFICULTIES as string[]).includes(d)
+          );
+          if (saved.length > 0) {
+            setSetupDifficulties(new Set(saved));
+          }
+        }
       } catch (err) {
         console.warn('[LiffUnitsPage] testScope/studyStats load failed', err);
       } finally {
@@ -128,32 +190,53 @@ export function LiffUnitsPage() {
     };
   }, [user, loading]);
 
+  // 選択学年が変わったら対応する教材データを動的 import
+  useEffect(() => {
+    if (selectedGrade === null) {
+      setHistoryEras(null);
+      return;
+    }
+    let cancelled = false;
+    setErasLoading(true);
+    setHistoryEras(null);
+    (async () => {
+      const eras = await loadHistoryEras(selectedGrade);
+      if (cancelled) return;
+      setHistoryEras(eras ?? []);
+      setErasLoading(false);
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, [selectedGrade]);
+
+  const allEras: StudyEra[] = useMemo(() => historyEras ?? [], [historyEras]);
+
   const filteredEras: StudyEra[] = useMemo(() => {
     if (!scopeFilterOn || testScopeTopics.size === 0) {
-      return lineStudyHistoryG1;
+      return allEras;
     }
-    return lineStudyHistoryG1
+    return allEras
       .map((era) => ({
         ...era,
         topics: era.topics.filter((t) => testScopeTopics.has(t.name)),
       }))
       .filter((era) => era.topics.length > 0);
-  }, [scopeFilterOn, testScopeTopics]);
+  }, [scopeFilterOn, testScopeTopics, allEras]);
 
   const totalTopics = useMemo(
-    () => lineStudyHistoryG1.reduce((s, e) => s + e.topics.length, 0),
-    []
+    () => allEras.reduce((s, e) => s + e.topics.length, 0),
+    [allEras]
   );
   const visibleTopics = useMemo(
     () => filteredEras.reduce((s, e) => s + e.topics.length, 0),
     [filteredEras]
   );
 
-  // ---- 共通: セットアップ画面起動 ----
+  // ---- 共通: セットアップ画面起動（前回難易度は維持） ----
   const openSetup = (topic: StudyTopic, kind: SetupKind) => {
     setCurrentTopic(topic);
     setSetupKind(kind);
-    setSetupDifficulty('any');
     setSetupCount('all');
     setView('setup');
   };
@@ -163,7 +246,7 @@ export function LiffUnitsPage() {
     if (!currentTopic) return;
     if (setupKind === 'fc') {
       const filtered = currentTopic.flashcards.filter((c) =>
-        difficultyMatch(c.difficulty, setupDifficulty)
+        difficultyMatch(c.difficulty, setupDifficulties)
       );
       const sampled =
         setupCount === 'all' || filtered.length <= setupCount
@@ -176,7 +259,7 @@ export function LiffUnitsPage() {
       setView('fc');
     } else {
       const filtered = currentTopic.quiz.filter((q) =>
-        difficultyMatch(q.difficulty, setupDifficulty)
+        difficultyMatch(q.difficulty, setupDifficulties)
       );
       const sampled =
         setupCount === 'all' || filtered.length <= setupCount
@@ -186,6 +269,30 @@ export function LiffUnitsPage() {
       setActiveQuizItems(sampled);
       setWrongIds([]);
       setView('quiz');
+    }
+    // 直近の難易度選択を教科ごとに保存（次回セットアップの初期値に使う）
+    void persistDifficultyPref();
+  };
+
+  // ---- 教科ごとの最後の難易度選択を保存 ----
+  const persistDifficultyPref = async () => {
+    if (!user) return;
+    try {
+      const sortedDiffs = ALL_DIFFICULTIES.filter((d) => setupDifficulties.has(d));
+      await setDoc(
+        doc(db, 'users', user.uid),
+        {
+          studyPrefs: {
+            [CURRENT_SUBJECT_ID]: {
+              difficulties: sortedDiffs,
+              updatedAt: serverTimestamp(),
+            },
+          },
+        },
+        { merge: true }
+      );
+    } catch (err) {
+      console.warn('[LiffUnitsPage] studyPrefs save failed', err);
     }
   };
 
@@ -300,9 +407,16 @@ export function LiffUnitsPage() {
       <SetupView
         topic={currentTopic}
         kind={setupKind}
-        difficulty={setupDifficulty}
+        difficulties={setupDifficulties}
         count={setupCount}
-        onChangeDifficulty={setSetupDifficulty}
+        onToggleDifficulty={(d) => {
+          setSetupDifficulties((prev) => {
+            const next = new Set(prev);
+            if (next.has(d)) next.delete(d);
+            else next.add(d);
+            return next;
+          });
+        }}
         onChangeCount={setSetupCount}
         onStart={startWithSetup}
         onBack={backToList}
@@ -369,39 +483,91 @@ export function LiffUnitsPage() {
             📚 じっくり学ぶ
           </h1>
           <p className="text-xs text-gray-500 text-center mt-1">
-            暗記カード＋クイズで深く覚えよう（歴史・中1）
+            暗記カード＋クイズで深く覚えよう（歴史）
           </p>
         </div>
       </header>
 
       <main className="max-w-2xl mx-auto px-4">
-        <section className="mt-4 bg-white rounded-2xl shadow-sm p-4 flex items-center justify-between">
-          <label className="flex items-center gap-2 cursor-pointer">
-            <input
-              type="checkbox"
-              checked={scopeFilterOn}
-              onChange={(e) => setScopeFilterOn(e.target.checked)}
-              className="w-4 h-4 accent-amber-500"
-              disabled={testScopeTopics.size === 0}
-            />
-            <span
-              className="text-sm font-medium text-gray-800"
-              style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
-            >
-              🎯 テスト範囲のみ表示
-            </span>
-          </label>
-          <span className="text-xs text-gray-500">
-            {visibleTopics} / {totalTopics} 単元
-          </span>
-        </section>
-        {testScopeTopics.size === 0 && (
-          <p className="text-xs text-gray-400 mt-2 px-1">
-            テスト範囲が設定されていません。先に「テスト範囲設定」から範囲を選ぶと、ここで絞り込めるよ。
-          </p>
+        {selectedGrade === null && (
+          <div className="mt-8 text-center text-sm text-gray-500">
+            <p>先に教科と学年を設定してください。</p>
+            <p className="text-xs text-gray-400 mt-1">
+              リッチメニュー「設定・サポート」から登録できます。
+            </p>
+          </div>
         )}
 
-        {filteredEras.length === 0 ? (
+        {selectedGrade !== null && (
+          <section className="mt-4 bg-white rounded-2xl shadow-sm p-3">
+            <div className="text-xs text-gray-500 mb-1.5">学年</div>
+            <div className="grid grid-cols-3 gap-2">
+              {([1, 2, 3] as const).map((g) => {
+                const active = selectedGrade === g;
+                const isOwn = userGrade === g;
+                return (
+                  <button
+                    key={g}
+                    onClick={() => setSelectedGrade(g)}
+                    className={`rounded-full py-2 text-xs font-medium transition ${
+                      active
+                        ? 'bg-amber-500 text-white'
+                        : 'bg-white text-gray-700 border border-gray-200 hover:border-amber-300'
+                    }`}
+                    style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+                  >
+                    中{g}
+                    {isOwn && <span className="ml-1 opacity-75">（自分）</span>}
+                  </button>
+                );
+              })}
+            </div>
+          </section>
+        )}
+
+        {selectedGrade !== null && historyEras !== null && historyEras.length === 0 && !erasLoading && (
+          <div className="mt-8 text-center text-sm text-gray-500">
+            <p>中{selectedGrade} の歴史コンテンツは準備中です。</p>
+            <p className="text-xs text-gray-400 mt-1">
+              上のタブから他の学年に切り替えてみてください。
+            </p>
+          </div>
+        )}
+
+        {selectedGrade !== null && erasLoading && <LoadingScreen />}
+
+        {selectedGrade !== null && historyEras !== null && historyEras.length > 0 && (
+          <>
+            <section className="mt-4 bg-white rounded-2xl shadow-sm p-4 flex items-center justify-between">
+              <label className="flex items-center gap-2 cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={scopeFilterOn}
+                  onChange={(e) => setScopeFilterOn(e.target.checked)}
+                  className="w-4 h-4 accent-amber-500"
+                  disabled={testScopeTopics.size === 0}
+                />
+                <span
+                  className="text-sm font-medium text-gray-800"
+                  style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+                >
+                  🎯 テスト範囲のみ表示
+                </span>
+              </label>
+              <span className="text-xs text-gray-500">
+                {visibleTopics} / {totalTopics} 単元
+              </span>
+            </section>
+            {testScopeTopics.size === 0 && (
+              <p className="text-xs text-gray-400 mt-2 px-1">
+                テスト範囲が設定されていません。先に「テスト範囲設定」から範囲を選ぶと、ここで絞り込めるよ。
+              </p>
+            )}
+          </>
+        )}
+
+        {selectedGrade !== null && historyEras !== null && historyEras.length > 0 && (
+          filteredEras.length === 0 ? (
           <p className="mt-8 text-center text-sm text-gray-400">
             テスト範囲に該当する単元がありません。チェックを外すと全範囲表示。
           </p>
@@ -491,7 +657,7 @@ export function LiffUnitsPage() {
               </section>
             ))}
           </div>
-        )}
+        ))}
       </main>
     </div>
   );
@@ -502,30 +668,31 @@ export function LiffUnitsPage() {
 function SetupView({
   topic,
   kind,
-  difficulty,
+  difficulties,
   count,
-  onChangeDifficulty,
+  onToggleDifficulty,
   onChangeCount,
   onStart,
   onBack,
 }: {
   topic: StudyTopic;
   kind: SetupKind;
-  difficulty: Difficulty;
+  difficulties: Set<Difficulty>;
   count: number | 'all';
-  onChangeDifficulty: (d: Difficulty) => void;
+  onToggleDifficulty: (d: Difficulty) => void;
   onChangeCount: (c: number | 'all') => void;
   onStart: () => void;
   onBack: () => void;
 }) {
   const sourceItems = kind === 'fc' ? topic.flashcards : topic.quiz;
   const filteredCount = sourceItems.filter((it) =>
-    difficultyMatch(it.difficulty, difficulty)
+    difficultyMatch(it.difficulty, difficulties)
   ).length;
   const effectiveCount =
     count === 'all' ? filteredCount : Math.min(count, filteredCount);
   const kindLabel = kind === 'fc' ? '暗記カード' : 'クイズ';
   const kindEmoji = kind === 'fc' ? '🃏' : '❓';
+  const noDifficultySelected = difficulties.size === 0;
 
   return (
     <div className="min-h-screen bg-[#FAF9F7] pb-12 flex flex-col">
@@ -556,16 +723,16 @@ function SetupView({
             やる枚数と難易度を選ぼう
           </div>
 
-          {/* 難易度 */}
+          {/* 難易度（複数選択可・前回の選択を記憶） */}
           <div className="mt-2">
-            <div className="text-xs text-gray-500 mb-2">難易度</div>
-            <div className="grid grid-cols-4 gap-2">
+            <div className="text-xs text-gray-500 mb-2">難易度（複数選べる）</div>
+            <div className="grid grid-cols-3 gap-2">
               {DIFFICULTY_OPTIONS.map((d) => {
-                const active = difficulty === d.value;
+                const active = difficulties.has(d.value);
                 return (
                   <button
                     key={d.value}
-                    onClick={() => onChangeDifficulty(d.value)}
+                    onClick={() => onToggleDifficulty(d.value)}
                     className={`rounded-full py-2 text-xs font-medium transition ${
                       active
                         ? 'bg-amber-500 text-white'
@@ -573,11 +740,17 @@ function SetupView({
                     }`}
                     style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
                   >
+                    {active && <span className="mr-1">✓</span>}
                     {d.label}
                   </button>
                 );
               })}
             </div>
+            {noDifficultySelected && (
+              <p className="text-xs text-red-500 mt-1">
+                難易度を 1 つ以上選んでください
+              </p>
+            )}
           </div>
 
           {/* 枚数 */}
@@ -629,7 +802,7 @@ function SetupView({
 
           <button
             onClick={onStart}
-            disabled={effectiveCount === 0}
+            disabled={effectiveCount === 0 || noDifficultySelected}
             className="mt-5 w-full bg-amber-500 hover:bg-amber-600 disabled:bg-gray-200 disabled:text-gray-400 text-white rounded-full py-3 text-sm font-bold transition"
             style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
           >
@@ -712,18 +885,20 @@ function FlashcardView({
           style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
         >
           {!flipped ? (
-            <div>
-              <div className="text-xs text-gray-400 mb-2">語句</div>
-              <div className="text-2xl font-bold text-gray-800 leading-relaxed">
-                {card.front}
+            <div className="w-full">
+              <div className="text-xs text-gray-400 mb-2">問題</div>
+              <div className="text-base text-gray-800 leading-relaxed whitespace-pre-wrap text-left">
+                {card.back}
               </div>
-              <div className="text-xs text-gray-400 mt-4">タップで答えを表示</div>
+              <div className="text-xs text-gray-400 mt-4 text-center">
+                タップで答えを表示
+              </div>
             </div>
           ) : (
             <div className="w-full">
-              <div className="text-xs text-amber-600 mb-2">説明</div>
-              <div className="text-base text-gray-800 leading-relaxed whitespace-pre-wrap text-left">
-                {card.back}
+              <div className="text-xs text-amber-600 mb-2">答え</div>
+              <div className="text-2xl font-bold text-gray-800 leading-relaxed text-center">
+                {card.front}
               </div>
               {card.explanation && (
                 <div className="mt-3 pt-3 border-t border-gray-200 text-xs text-gray-600 text-left whitespace-pre-wrap leading-relaxed">

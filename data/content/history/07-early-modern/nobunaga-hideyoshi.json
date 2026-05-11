@@ -1,0 +1,364 @@
+{
+  "subjectId": "history",
+  "eraId": "early-modern",
+  "topicId": "nobunaga-hideyoshi",
+  "name": "信長・秀吉の天下統一",
+  "subtitle": "安土桃山時代の始まり",
+  "icon": "🏰",
+  "order": 4,
+  "chatId": "nobunaga-hideyoshi",
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "織田信長",
+      "back": "尾張の戦国大名で、桶狭間の戦いで今川義元を破り室町幕府を滅ぼした人物は？",
+      "explanation": "鉄砲の活用、楽市・楽座、比叡山延暦寺攻撃が重要。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "桶狭間の戦い",
+      "back": "1560年、織田信長が今川義元を破った戦いは？",
+      "explanation": "信長が勢力を広げるきっかけ。少数の兵力で大軍を奇襲して破った。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "足利義昭",
+      "back": "室町幕府の第15代将軍で、信長により京都へ入ったが、のちに信長と対立した人物は？",
+      "explanation": "信長が追放し、室町幕府が滅亡。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "室町幕府の滅亡",
+      "back": "1573年、信長が足利義昭を追放して幕府が滅びたことは？",
+      "explanation": "鎌倉幕府滅亡（1333年）と混同しない。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc5",
+      "front": "比叡山延暦寺",
+      "back": "信長が武力で攻撃した仏教勢力の一つで、1571年に焼き討ちにした寺は？",
+      "explanation": "信長は強い仏教勢力をおさえようとした。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc6",
+      "front": "長篠の戦い",
+      "back": "1575年、信長・徳川家康連合軍が鉄砲を活用して武田勝頼を破った戦いは？",
+      "explanation": "鉄砲の有効活用がポイント。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc7",
+      "front": "楽市・楽座",
+      "back": "信長が城下で商工業を発展させるため、税や座の特権をなくした政策は？",
+      "explanation": "商工業の自由化と結びつける。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc8",
+      "front": "関所の廃止",
+      "back": "信長が交通や流通を発展させるために行った政策は？",
+      "explanation": "楽市・楽座と同じく経済政策。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc9",
+      "front": "安土城",
+      "back": "信長が近江（琵琶湖東岸）に築いた城は？",
+      "explanation": "安土桃山時代の名前の由来の一つ。大阪城は豊臣秀吉の拠点。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc10",
+      "front": "本能寺の変",
+      "back": "1582年、信長が家臣の明智光秀に攻められ自害した事件は？",
+      "explanation": "場所は京都の本能寺。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc11",
+      "front": "明智光秀",
+      "back": "1582年に本能寺で信長を襲撃した家臣は？",
+      "explanation": "本能寺の変で謀反を起こし、直後に秀吉に討たれた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc12",
+      "front": "豊臣秀吉",
+      "back": "信長の後継者となり、全国統一を達成した人物は？",
+      "explanation": "関白、太閤検地、刀狩、朝鮮出兵が重要。農民出身で天下人に上り詰めた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc13",
+      "front": "大阪城",
+      "back": "秀吉が政治の拠点として築いた城は？",
+      "explanation": "信長の安土城と区別する。当時日本最大級の城郭。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc14",
+      "front": "関白",
+      "back": "秀吉が天皇から任命された、天皇を補佐する高い官職は？",
+      "explanation": "秀吉は関白に任命され、全国の大名に停戦を命じた。征夷大将軍ではない点に注意。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc15",
+      "front": "全国統一",
+      "back": "1590年、秀吉が北条氏をほろぼして成しとげたことは？",
+      "explanation": "信長ではなく秀吉が完成。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc16",
+      "front": "バテレン追放令",
+      "back": "1587年、秀吉が宣教師の国外追放を命じた法令は？",
+      "explanation": "南蛮貿易はすぐには禁止されなかった。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc17",
+      "front": "安土桃山時代",
+      "back": "信長・秀吉の二人が政権を握った時代の名称は？",
+      "explanation": "信長の安土城と秀吉の伏見桃山城にちなんだ時代名。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc18",
+      "front": "北条氏",
+      "back": "1590年に秀吉が滅ぼした関東の戦国大名は？",
+      "explanation": "小田原城に拠る北条氏を滅ぼし、秀吉の全国統一が完成した。",
+      "difficulty": "standard"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "桶狭間の戦いで今川義元を破った戦国大名はだれですか。",
+        "options": [
+          "豊臣秀吉",
+          "徳川家康",
+          "織田信長",
+          "武田勝頼"
+        ],
+        "correctIndex": 2,
+        "explanation": "織田信長は桶狭間の戦いで今川義元を破り、勢力を広げました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "1573年、織田信長によってほろぼされた幕府はどれですか。",
+        "options": [
+          "鎌倉幕府",
+          "平安幕府",
+          "江戸幕府",
+          "室町幕府"
+        ],
+        "correctIndex": 3,
+        "explanation": "信長は足利義昭を追放し、室町幕府を滅ぼしました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "長篠の戦いで信長が有効に活用した武器は何ですか。",
+        "options": [
+          "鉄砲",
+          "日本刀",
+          "石火矢",
+          "弓矢"
+        ],
+        "correctIndex": 0,
+        "explanation": "長篠の戦いでは鉄砲を活用した戦法が重要です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "楽市・楽座の目的として最も適切なものはどれですか。",
+        "options": [
+          "農民から武器を取り上げるため",
+          "キリスト教を禁止するため",
+          "商工業の発展をうながすため",
+          "朝鮮へ出兵するため"
+        ],
+        "correctIndex": 2,
+        "explanation": "楽市・楽座は税や座の特権をなくし、商工業を活発にする政策です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q5",
+        "question": "1582年、明智光秀が信長を攻め、信長が自害した事件を何といいますか。",
+        "options": [
+          "本能寺の変",
+          "応仁の乱",
+          "承久の乱",
+          "島原・天草一揆"
+        ],
+        "correctIndex": 0,
+        "explanation": "本能寺の変は信長が京都で自害した事件です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q6",
+        "question": "本能寺の変の後、明智光秀を倒し、信長の後継者となった人物はだれですか。",
+        "options": [
+          "足利義昭",
+          "大友宗麟",
+          "今川義元",
+          "豊臣秀吉"
+        ],
+        "correctIndex": 3,
+        "explanation": "羽柴秀吉、のちの豊臣秀吉が信長の後継者となりました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q7",
+        "question": "秀吉が天皇から任命された官職はどれですか。",
+        "options": [
+          "征夷大将軍",
+          "太政大臣",
+          "関白",
+          "執権"
+        ],
+        "correctIndex": 2,
+        "explanation": "秀吉は関白になり、全国の大名に停戦を命じました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q8",
+        "question": "1590年、秀吉がほろぼして全国統一を完成させた大名はどれですか。",
+        "options": [
+          "北条氏",
+          "武田氏",
+          "今川氏",
+          "足利氏"
+        ],
+        "correctIndex": 0,
+        "explanation": "秀吉は関東の北条氏をほろぼし、全国統一を達成しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q9",
+        "question": "バテレン追放令について正しい説明はどれですか。",
+        "options": [
+          "農民から武器を取り上げた命令",
+          "オランダ船を来航させた法令",
+          "大名に参勤交代を命じた法令",
+          "宣教師を国外へ追放しようとした命令"
+        ],
+        "correctIndex": 3,
+        "explanation": "秀吉はキリスト教を危険視し、宣教師の国外追放を命じました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q10",
+        "question": "信長が琵琶湖東岸に築いた豪華な城は？",
+        "options": [
+          "大阪城",
+          "安土城",
+          "姫路城",
+          "名古屋城"
+        ],
+        "correctIndex": 1,
+        "explanation": "安土城は信長が築いた壮大な城で、安土桃山時代の名の由来です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q11",
+        "question": "信長・秀吉の時代を何時代と呼ぶ？",
+        "options": [
+          "戦国時代",
+          "室町時代",
+          "安土桃山時代",
+          "江戸時代"
+        ],
+        "correctIndex": 2,
+        "explanation": "安土桃山時代は安土城と伏見桃山城にちなんだ時代の呼び名です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q12",
+        "question": "信長が敵対して焼き討ちにした比叡山の寺は？",
+        "options": [
+          "東大寺",
+          "延暦寺",
+          "金閣寺",
+          "本願寺"
+        ],
+        "correctIndex": 1,
+        "explanation": "信長は敵対する比叡山延暦寺を焼き討ちにし仏教勢力を弱体化させました。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q13",
+        "question": "信長が流通を活発にするために廃止した施設は？",
+        "options": [
+          "組合",
+          "関所",
+          "城郭",
+          "市場"
+        ],
+        "correctIndex": 1,
+        "explanation": "信長は関所を廃止して物流を自由化し、経済の活性化を図りました。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q14",
+        "question": "秀吉が天下統一の拠点として築いた城は？",
+        "options": [
+          "安土城",
+          "名古屋城",
+          "大阪城",
+          "姫路城"
+        ],
+        "correctIndex": 2,
+        "explanation": "秀吉は大阪城を築き、天下統一の拠点としました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q15",
+        "question": "本能寺の変で信長を討った家臣は誰？",
+        "options": [
+          "豊臣秀吉",
+          "徳川家康",
+          "明智光秀",
+          "柴田勝家"
+        ],
+        "correctIndex": 2,
+        "explanation": "明智光秀は1582年に本能寺で信長を襲撃しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q16",
+        "question": "秀吉のもともとの身分は？",
+        "options": [
+          "武士",
+          "農民",
+          "商人",
+          "公家"
+        ],
+        "correctIndex": 1,
+        "explanation": "秀吉は農民の出身で、信長に仕えて出世し天下統一を達成しました。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q17",
+        "question": "1560年に信長が今川義元を破った戦いは？",
+        "options": [
+          "長篠の戦い",
+          "桶狭間の戦い",
+          "関ヶ原の戦い",
+          "川中島の戦い"
+        ],
+        "correctIndex": 1,
+        "explanation": "桶狭間の戦いで信長は少数の兵で今川義元の大軍を破りました。",
+        "difficulty": "basic"
+      }
+    ]
+  }
+}

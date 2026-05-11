@@ -1,0 +1,303 @@
+{
+  "subjectId": "history",
+  "eraId": "modern-era",
+  "topicId": "russia-expansion",
+  "name": "ロシアの拡大と発展",
+  "subtitle": "凍らない港を求めて",
+  "icon": "🐻",
+  "order": 5,
+  "chatId": "russia-expansion",
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "南下政策",
+      "back": "ロシアが不凍港を求めて南へ勢力を広げようとした政策は？",
+      "explanation": "冬に凍らない港を求めて、黒海や地中海への進出を目指した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "不凍港",
+      "back": "冬でも凍らず一年中使える港は？",
+      "explanation": "ロシアが南下政策で獲得を目指した重要な戦略拠点。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "クリミア戦争",
+      "back": "ロシアの南下政策に対抗してイギリス・フランスなどと戦った戦争は？",
+      "explanation": "1853〜1856年、クリミア半島が舞台。ロシアは敗北。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "農奴解放令",
+      "back": "クリミア戦争後、ロシアで出された農奴を解放する命令は？",
+      "explanation": "1861年、アレクサンドル2世が出した。ロシア近代化の第一歩。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc5",
+      "front": "オスマン帝国",
+      "back": "ロシアの南下を阻止しようとしたトルコ中心の帝国は？",
+      "explanation": "イギリス・フランスと協力してクリミア戦争でロシアと戦った。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc6",
+      "front": "シベリア鉄道",
+      "back": "ロシアがアジア方面で建設した大陸横断鉄道は？",
+      "explanation": "ロシアの東方進出と極東の支配を強めるために建設された。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc7",
+      "front": "アレクサンドル2世",
+      "back": "農奴解放令を出したロシアの皇帝は？",
+      "explanation": "クリミア戦争での敗北を受けて近代化改革を推進した。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc8",
+      "front": "1853年",
+      "back": "クリミア戦争が始まった年は？",
+      "explanation": "ロシアの南下政策がイギリス・フランスとの衝突を招いた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc9",
+      "front": "イギリス",
+      "back": "ロシアの南下政策に最も警戒した国は？",
+      "explanation": "インドへの通商路を脅かされることを恐れた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc10",
+      "front": "農奴",
+      "back": "ロシアで地主に隷属し自由がなかった農民は？",
+      "explanation": "農奴解放令により解放されたが、実質的な自由は限定的だった。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc11",
+      "front": "1861年",
+      "back": "農奴解放令が出された年は？",
+      "explanation": "クリミア戦争敗北後の近代化改革の一環。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc12",
+      "front": "クリミア半島",
+      "back": "クリミア戦争の主な戦場となった半島は？",
+      "explanation": "黒海に突き出た戦略的に重要な場所。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc13",
+      "front": "ツァーリ",
+      "back": "ロシア皇帝の称号は？",
+      "explanation": "専制政治のもとで絶対的な権力を握っていた。",
+      "difficulty": "advanced"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "ロシアが不凍港を求めて南へ進出しようとした政策は？",
+        "options": [
+          "鉄血政策",
+          "開国政策",
+          "南下政策",
+          "植民地政策"
+        ],
+        "correctIndex": 2,
+        "explanation": "南下政策は不凍港を求めてロシアが進めた拡大政策です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "ロシアが獲得を目指した、冬でも凍らない港は？",
+        "options": [
+          "軍港",
+          "自由港",
+          "貿易港",
+          "不凍港"
+        ],
+        "correctIndex": 3,
+        "explanation": "不凍港は一年中使える戦略的に重要な港です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "1853年に起きた、ロシアと英仏が戦った戦争は？",
+        "options": [
+          "クリミア戦争",
+          "南北戦争",
+          "アヘン戦争",
+          "独立戦争"
+        ],
+        "correctIndex": 0,
+        "explanation": "クリミア戦争でロシアは敗北しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q4",
+        "question": "クリミア戦争でロシアと戦った国の組み合わせは？",
+        "options": [
+          "アメリカ・ドイツ・中国",
+          "スペイン・ポルトガル・オランダ",
+          "プロイセン・オーストリア・イタリア",
+          "イギリス・フランス・オスマン帝国"
+        ],
+        "correctIndex": 3,
+        "explanation": "イギリス・フランス・オスマン帝国が連合してロシアと戦いました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q5",
+        "question": "クリミア戦争後のロシアの改革は？",
+        "options": [
+          "普通選挙の導入",
+          "義務教育の開始",
+          "三権分立の確立",
+          "農奴解放令"
+        ],
+        "correctIndex": 3,
+        "explanation": "1861年、アレクサンドル2世が農奴解放令を出しました。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q6",
+        "question": "ロシアの大陸横断鉄道は？",
+        "options": [
+          "東海道鉄道",
+          "シベリア鉄道",
+          "大陸横断鉄道",
+          "オリエント急行"
+        ],
+        "correctIndex": 1,
+        "explanation": "シベリア鉄道は東方進出のために建設されました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q7",
+        "question": "ロシアの南下政策に最も警戒した国は？",
+        "options": [
+          "フランス",
+          "ドイツ",
+          "アメリカ",
+          "イギリス"
+        ],
+        "correctIndex": 3,
+        "explanation": "イギリスはインドへの通商路を脅かされることを恐れました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q8",
+        "question": "19世紀のロシアの政治体制は？",
+        "options": [
+          "立憲君主制",
+          "共和制",
+          "専制政治",
+          "議院内閣制"
+        ],
+        "correctIndex": 2,
+        "explanation": "ツァーリ（皇帝）が絶対的な権力を握る専制政治。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q9",
+        "question": "クリミア戦争が始まった年は？",
+        "options": [
+          "1840年",
+          "1848年",
+          "1853年",
+          "1861年"
+        ],
+        "correctIndex": 2,
+        "explanation": "1853年に始まりました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q10",
+        "question": "農奴解放令を出した皇帝は？",
+        "options": [
+          "ピョートル1世",
+          "ニコライ1世",
+          "アレクサンドル2世",
+          "アレクサンドル3世"
+        ],
+        "correctIndex": 2,
+        "explanation": "アレクサンドル2世が1861年に出しました。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q11",
+        "question": "クリミア戦争でロシアが敗北した主な原因は？",
+        "options": [
+          "兵士数の不足",
+          "近代化の遅れ",
+          "同盟国の欠如",
+          "国内革命の発生"
+        ],
+        "correctIndex": 1,
+        "explanation": "ロシアは西ヨーロッパに比べて工業化や軍事技術が遅れていました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q12",
+        "question": "ロシアが黒海からさらに進出を目指した海は？",
+        "options": [
+          "バルト海",
+          "地中海",
+          "日本海",
+          "北極海"
+        ],
+        "correctIndex": 1,
+        "explanation": "黒海から地中海に出ることが目標でした。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q13",
+        "question": "農奴解放令が出された年は？",
+        "options": [
+          "1848年",
+          "1853年",
+          "1856年",
+          "1861年"
+        ],
+        "correctIndex": 3,
+        "explanation": "1861年に出されました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q14",
+        "question": "ロシアで地主に隷属し自由がなかった農民は？",
+        "options": [
+          "小作人",
+          "農奴",
+          "百姓",
+          "奴隷"
+        ],
+        "correctIndex": 1,
+        "explanation": "農奴は地主に隷属し、農奴解放令で解放されました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q15",
+        "question": "ロシア皇帝の称号は？",
+        "options": [
+          "カイザー",
+          "ツァーリ",
+          "スルタン",
+          "ファラオ"
+        ],
+        "correctIndex": 1,
+        "explanation": "ツァーリはロシア皇帝の称号です。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

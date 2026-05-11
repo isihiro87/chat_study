@@ -1,0 +1,317 @@
+{
+  "subjectId": "history",
+  "eraId": "bakumatsu",
+  "topicId": "post-opening",
+  "name": "開国後の政治と経済",
+  "subtitle": "幕府への批判と尊王攘夷",
+  "icon": "⚡",
+  "order": 2,
+  "chatId": "post-opening",
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "尊王攘夷",
+      "back": "天皇を尊び、外国を追い払おうとする運動は？",
+      "explanation": "開国に反対する人々が掲げたスローガン。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "安政の大獄",
+      "back": "井伊直弼が尊王攘夷派を厳しく処罰した事件は？",
+      "explanation": "吉田松陰らが処刑され、多くの大名・公家が処分された。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "桜田門外の変",
+      "back": "1860年、井伊直弼が暗殺された事件は？",
+      "explanation": "安政の大獄への反発から、水戸藩の浪士らが襲撃した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "吉田松陰",
+      "back": "安政の大獄で処刑された長州藩の思想家は？",
+      "explanation": "松下村塾で高杉晋作や伊藤博文らを育てた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc5",
+      "front": "公武合体",
+      "back": "幕府と朝廷が協力しようとする政策は？",
+      "explanation": "幕府が権威を取り戻そうとしたが、うまくいかなかった。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc6",
+      "front": "生糸",
+      "back": "開港後の日本の主要な輸出品は？",
+      "explanation": "横浜からイギリスなどに大量に輸出された。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc7",
+      "front": "金の流出",
+      "back": "日本と外国の金銀交換比率の違いで起きた問題は？",
+      "explanation": "日本では金が銀に対して安く、大量の金が海外に流出した。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc8",
+      "front": "物価高騰",
+      "back": "開港後、貿易の影響で起きた経済問題は？",
+      "explanation": "輸出増加で国内の品不足が起き、物価が上がった。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc9",
+      "front": "横浜",
+      "back": "開港後に最大の貿易港となった場所は？",
+      "explanation": "日米修好通商条約で開かれた5港の一つ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc10",
+      "front": "尊王",
+      "back": "天皇を尊ぶという考え方を何という？",
+      "explanation": "攘夷と合わせて「尊王攘夷」というスローガンになった。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc11",
+      "front": "攘夷",
+      "back": "外国の勢力を排除しようとする考えは？",
+      "explanation": "「夷」は外国人を指す言葉。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc12",
+      "front": "茶",
+      "back": "生糸とともに開港後の日本の主要な輸出品となった農産物は？",
+      "explanation": "主にアメリカへ輸出された。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc13",
+      "front": "イギリス",
+      "back": "開港後、日本の最大の貿易相手国は？",
+      "explanation": "横浜を通じて生糸などを大量に輸入した。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc14",
+      "front": "松下村塾",
+      "back": "吉田松陰が開いた私塾は？",
+      "explanation": "高杉晋作・伊藤博文・木戸孝允らを輩出した。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc15",
+      "front": "1860年",
+      "back": "桜田門外の変が起きた年は？",
+      "explanation": "水戸藩の浪士らが井伊直弼を暗殺した。",
+      "difficulty": "standard"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "井伊直弼が尊王攘夷派を厳しく処罰した事件は？",
+        "options": [
+          "桜田門外の変",
+          "薩英戦争",
+          "禁門の変",
+          "安政の大獄"
+        ],
+        "correctIndex": 3,
+        "explanation": "安政の大獄で多くの志士が処分されました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "天皇を尊び、外国を追い払おうとする運動は？",
+        "options": [
+          "尊王攘夷",
+          "公武合体",
+          "倒幕運動",
+          "富国強兵"
+        ],
+        "correctIndex": 0,
+        "explanation": "尊王攘夷運動は開国に反対する人々が掲げました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "1860年、井伊直弼が暗殺された事件は？",
+        "options": [
+          "安政の大獄",
+          "禁門の変",
+          "桜田門外の変",
+          "生麦事件"
+        ],
+        "correctIndex": 2,
+        "explanation": "桜田門外の変で水戸藩浪士らが井伊直弼を暗殺しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "松下村塾で多くの志士を育てた長州藩の思想家は？",
+        "options": [
+          "高杉晋作",
+          "伊藤博文",
+          "坂本龍馬",
+          "吉田松陰"
+        ],
+        "correctIndex": 3,
+        "explanation": "吉田松陰は松下村塾で多くの維新の志士を育てました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q5",
+        "question": "開港後の最大の貿易港は？",
+        "options": [
+          "函館",
+          "神戸",
+          "長崎",
+          "横浜"
+        ],
+        "correctIndex": 3,
+        "explanation": "横浜が最大の貿易港となりました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q6",
+        "question": "金銀交換比率の違いで起きた問題は？",
+        "options": [
+          "物価の下落",
+          "金の流出",
+          "銀の不足",
+          "輸出入の停止"
+        ],
+        "correctIndex": 1,
+        "explanation": "大量の金が海外に流出し、物価が高騰しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q7",
+        "question": "開港後の日本の主な輸出品は？",
+        "options": [
+          "米と塩",
+          "生糸と茶",
+          "金と銀",
+          "刀と陶器"
+        ],
+        "correctIndex": 1,
+        "explanation": "生糸と茶が主な輸出品でした。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q8",
+        "question": "吉田松陰が開いた私塾は？",
+        "options": [
+          "適塾",
+          "松下村塾",
+          "咸宜園",
+          "鳴滝塾"
+        ],
+        "correctIndex": 1,
+        "explanation": "松下村塾から多くの維新の志士が輩出されました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q9",
+        "question": "桜田門外の変で井伊直弼を襲撃したのは主にどの藩の浪士？",
+        "options": [
+          "長州藩",
+          "薩摩藩",
+          "水戸藩",
+          "土佐藩"
+        ],
+        "correctIndex": 2,
+        "explanation": "水戸藩の浪士を中心とする攘夷派が襲撃しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q10",
+        "question": "「尊王」の意味は？",
+        "options": [
+          "外国を追い払うこと",
+          "天皇を尊ぶこと",
+          "幕府を倒すこと",
+          "武士の特権を守ること"
+        ],
+        "correctIndex": 1,
+        "explanation": "「尊王」は天皇を尊ぶという意味です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q11",
+        "question": "開港後の最大の貿易相手国は？",
+        "options": [
+          "アメリカ",
+          "フランス",
+          "イギリス",
+          "オランダ"
+        ],
+        "correctIndex": 2,
+        "explanation": "イギリスが最大の貿易相手国でした。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q12",
+        "question": "幕府と朝廷が協力しようとする政策は？",
+        "options": [
+          "尊王攘夷",
+          "公武合体",
+          "倒幕運動",
+          "開国和親"
+        ],
+        "correctIndex": 1,
+        "explanation": "公武合体は幕府が権威を取り戻すための政策でした。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q13",
+        "question": "開国後に物価が上昇した理由は？",
+        "options": [
+          "戦争で物資が破壊された",
+          "輸出増加で国内の品不足",
+          "政府が増税した",
+          "自然災害が続いた"
+        ],
+        "correctIndex": 1,
+        "explanation": "輸出増加で国内の品不足が起きました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q15",
+        "question": "金が海外に大量に流出した原因は？",
+        "options": [
+          "日本が外国に金を輸出した",
+          "金銀の交換比率が違った",
+          "外国が日本の金山を支配した",
+          "幕府が外国に金を贈った"
+        ],
+        "correctIndex": 1,
+        "explanation": "日本では金1:銀5、海外では金1:銀15という比率の差がありました。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q16",
+        "question": "幕末に民衆の間に広まった騒動は？",
+        "options": [
+          "百姓一揆",
+          "ええじゃないか",
+          "打ちこわし",
+          "島原の乱"
+        ],
+        "correctIndex": 1,
+        "explanation": "「ええじゃないか」は世直しへの期待を込めた踊り騒動です。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

@@ -1,0 +1,417 @@
+{
+  "subjectId": "history",
+  "eraId": "ancient-world",
+  "topicId": "chinese-civilization",
+  "name": "中国文明の発展",
+  "subtitle": "殷・周から秦・漢の統一帝国へ",
+  "icon": "🐉",
+  "order": 3,
+  "chatId": "chinese-civilization",
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "中国文明",
+      "back": "黄河や長江の流域で発生した文明は？",
+      "explanation": "黄河と長江の流域で発生。殷の甲骨文字から漢字が発展した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "甲骨文字",
+      "back": "殷で占いの結果を記すのに使われた文字は？",
+      "explanation": "亀の甲羅や牛の骨に刻まれた文字。占いの記録に使われ、漢字のもとになった。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "周",
+      "back": "殷を滅ぼし、その後に支配が弱まった国は？",
+      "explanation": "殷を滅ぼした王朝。やがて支配力が弱まり、春秋戦国時代に入った。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "孔子",
+      "back": "紀元前6世紀に「仁」と「礼」を説いた人物は？",
+      "explanation": "「仁」（思いやり）と「礼」（秩序）を説いた。論語に言行がまとめられている。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc5",
+      "front": "論語",
+      "back": "孔子の言行を弟子がまとめた書物は？",
+      "explanation": "孔子の教えを弟子たちがまとめた書物。儒教の基本経典となった。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc6",
+      "front": "始皇帝",
+      "back": "紀元前3世紀に初めて中国を統一した王は？",
+      "explanation": "紀元前221年に中国を初統一。文字・度量衡の統一や万里の長城の建設を行った。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc7",
+      "front": "万里の長城",
+      "back": "始皇帝が北方民族の侵入を防ぐために築いたのは？",
+      "explanation": "北方の遊牧民族の侵入を防ぐための巨大な防壁。始皇帝が各地の長城をつないだ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc8",
+      "front": "漢",
+      "back": "秦の次に中国を統一し大帝国となった国は？",
+      "explanation": "劉邦が建国し約400年続いた大帝国。儒教を国の学問として採用した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc9",
+      "front": "シルクロード",
+      "back": "中国と西方を結んだ東西交易路の名称は？",
+      "explanation": "中国の絹が西方に運ばれたことが名前の由来。東西の文化・物資の交流路。仏教もこの道で中国に伝わった。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc10",
+      "front": "兵馬俑",
+      "back": "始皇帝の墓のそばに埋められた兵士の焼き物は？",
+      "explanation": "始皇帝の墓のそばに埋められた実物大の兵士の焼き物。数千体が発見された。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc11",
+      "front": "儒教",
+      "back": "孔子の教えをもとにした思想・学問は？",
+      "explanation": "孔子の教えをもとにした思想。仁と礼を重んじ、漢の時代に国の学問となった。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc12",
+      "front": "春秋戦国時代",
+      "back": "周の支配が弱まった後、多くの国が争った時代は？",
+      "explanation": "周の支配が弱まった後の時代。多くの国が争い、諸子百家が活躍した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc13",
+      "front": "焚書坑儒",
+      "back": "始皇帝が書物を焼き儒学者を弾圧した政策は？",
+      "explanation": "始皇帝が思想統制のために行った政策。反対意見を封じ込めようとした。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc14",
+      "front": "絹（シルク）",
+      "back": "シルクロードを通じて中国から西方に運ばれた主な産物は？",
+      "explanation": "シルクロードの名前の由来となった中国の特産品。西方に高値で取引された。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc15",
+      "front": "殷",
+      "back": "中国最古の王朝とされる国は？",
+      "explanation": "中国最古の王朝。甲骨文字で占いを行い政治を決めた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc16",
+      "front": "仁",
+      "back": "孔子が説いた「人を思いやる心」を表す言葉は？",
+      "explanation": "孔子が最も大切にした概念。人を思いやる心、他者への愛情を意味する。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc17",
+      "front": "礼",
+      "back": "孔子が説いた「社会の秩序を守ること」を表す言葉は？",
+      "explanation": "社会の秩序を守るための規範。上下関係や作法を重んじる考え方。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc18",
+      "front": "老子",
+      "back": "孔子と同時代に「無為自然」を説いた思想家は？",
+      "explanation": "「無為自然」を説いた思想家。道教の祖とされる。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc19",
+      "front": "秦",
+      "back": "始皇帝が中国を統一した国は？",
+      "explanation": "紀元前221年に中国を統一し、「皇帝」の称号を初めて用いた。文字・貨幣・度量衡の統一が重要。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc20",
+      "front": "漢字",
+      "back": "甲骨文字が発展して現在使われている文字は？",
+      "explanation": "甲骨文字から篆書・隷書を経て現在の漢字へと発展した。",
+      "difficulty": "advanced"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "殷で占いの結果を記すのに使われた文字は？",
+        "options": [
+          "くさび形文字",
+          "象形文字",
+          "甲骨文字",
+          "アルファベット"
+        ],
+        "correctIndex": 2,
+        "explanation": "甲骨文字は亀の甲羅や牛の骨に刻まれた中国最古の文字です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "「仁」と「礼」を説き、儒教の基礎を築いた人物は？",
+        "options": [
+          "始皇帝",
+          "釈迦",
+          "老子",
+          "孔子"
+        ],
+        "correctIndex": 3,
+        "explanation": "孔子は紀元前6世紀に「仁」（思いやり）と「礼」（秩序）を説きました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "中国を初めて統一した秦の王は誰ですか。",
+        "options": [
+          "劉邦",
+          "武帝",
+          "孔子",
+          "始皇帝"
+        ],
+        "correctIndex": 3,
+        "explanation": "始皇帝は秦を建て、紀元前221年に中国を初めて統一しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "始皇帝が北方民族の侵入を防ぐために築いたものは？",
+        "options": [
+          "ピラミッド",
+          "コロッセオ",
+          "水道橋",
+          "万里の長城"
+        ],
+        "correctIndex": 3,
+        "explanation": "万里の長城は始皇帝が北方の遊牧民族の侵入を防ぐために築きました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q5",
+        "question": "中国と西方を結び、絹などが運ばれた交易路を何といいますか。",
+        "options": [
+          "東海道",
+          "シルクロード",
+          "山陽道",
+          "五街道"
+        ],
+        "correctIndex": 1,
+        "explanation": "シルクロードは中国と西方を結ぶ交易路で、文化や宗教も伝わりました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q6",
+        "question": "孔子の言行を弟子がまとめた書物は？",
+        "options": [
+          "論語",
+          "古事記",
+          "クルアーン",
+          "聖書"
+        ],
+        "correctIndex": 0,
+        "explanation": "論語は孔子の教えや言葉を弟子たちがまとめた書物です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q7",
+        "question": "始皇帝が書物を焼き儒学者を弾圧した政策は？",
+        "options": [
+          "度量衡の統一",
+          "文字の統一",
+          "焚書坑儒",
+          "万里の長城"
+        ],
+        "correctIndex": 2,
+        "explanation": "焚書坑儒は始皇帝が思想統制のために行った政策です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q8",
+        "question": "漢の時代に国の学問として採用されたのは？",
+        "options": [
+          "儒教",
+          "道教",
+          "仏教",
+          "法家"
+        ],
+        "correctIndex": 0,
+        "explanation": "儒教は孔子の教えを基にした思想で、漢の時代に国の学問として採用されました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q9",
+        "question": "甲骨文字はどのようなものに刻まれたか？",
+        "options": [
+          "粘土板や石の板",
+          "亀の甲羅や牛の骨",
+          "竹の簡や木の板",
+          "青銅器の表面"
+        ],
+        "correctIndex": 1,
+        "explanation": "甲骨文字は亀の甲羅や牛の骨に刻まれ、占いの記録に使われました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q11",
+        "question": "孔子が説いた「仁」とはどのような考え方か？",
+        "options": [
+          "法律を守ること",
+          "人を思いやる心",
+          "戦いに勝つこと",
+          "自然のままに生きること"
+        ],
+        "correctIndex": 1,
+        "explanation": "「仁」は人を思いやる心、他者への愛情や慈しみの気持ちを意味します。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q12",
+        "question": "周の支配が弱まった後の多くの国が争った時代は？",
+        "options": [
+          "春秋戦国時代",
+          "弥生時代",
+          "縄文時代",
+          "古墳時代"
+        ],
+        "correctIndex": 0,
+        "explanation": "周の支配が弱まると多くの国が争う春秋戦国時代に入りました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q13",
+        "question": "始皇帝の墓のそばに埋められた兵士の焼き物は？",
+        "options": [
+          "埴輪",
+          "土偶",
+          "銅鐸",
+          "兵馬俑"
+        ],
+        "correctIndex": 3,
+        "explanation": "兵馬俑は始皇帝の墓のそばに埋められた兵士や馬の焼き物です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q14",
+        "question": "シルクロードという名前の由来は？",
+        "options": [
+          "道が絹のように長いから",
+          "中国の絹が西方に運ばれたから",
+          "シルクという人が開いたから",
+          "絹の服を着て旅したから"
+        ],
+        "correctIndex": 1,
+        "explanation": "中国の特産品である絹（シルク）が西方に運ばれたことからシルクロードと名づけられました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q15",
+        "question": "始皇帝が中国全土で統一したものを2つ選ぶとすれば？",
+        "options": [
+          "宗教と農業",
+          "文字と度量衡",
+          "言語と服装",
+          "軍隊と貴族"
+        ],
+        "correctIndex": 1,
+        "explanation": "始皇帝は中国全土で文字と度量衡（長さ・重さ・容量の単位）を統一しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q16",
+        "question": "秦が短期間で滅亡した理由は？",
+        "options": [
+          "外国の軍に攻め込まれたから",
+          "大きな地震で国が荒れたから",
+          "厳しい政治に民が反乱を起こしたから",
+          "王が病気で政治ができなくなったから"
+        ],
+        "correctIndex": 2,
+        "explanation": "厳しい法律と過酷な労役に民が苦しみ、始皇帝の死後反乱が起きて秦は15年で滅亡しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q17",
+        "question": "殷で占いが行われた目的は？",
+        "options": [
+          "娯楽として楽しむため",
+          "文字の書き方を練習するため",
+          "重要な政治を神に問うため",
+          "外国との貿易を決めるため"
+        ],
+        "correctIndex": 2,
+        "explanation": "殷では戦争・農業・天候など重要事項について、占いで神の意志を確認しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q18",
+        "question": "孔子と同時代に「無為自然」を説いた思想家は？",
+        "options": [
+          "始皇帝",
+          "孟子",
+          "老子",
+          "韓非子"
+        ],
+        "correctIndex": 2,
+        "explanation": "老子は「無為自然」を説き、道教の祖とされる思想家です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q19",
+        "question": "漢はどのくらいの期間続いたか？",
+        "options": [
+          "約400年",
+          "約200年",
+          "約100年",
+          "約600年"
+        ],
+        "correctIndex": 0,
+        "explanation": "漢は前漢・後漢を合わせて約400年（紀元前202年〜紀元220年）続きました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q20",
+        "question": "甲骨文字は現在のどの文字のもとになったか？",
+        "options": [
+          "仮名",
+          "篆書",
+          "漢字",
+          "隷書"
+        ],
+        "correctIndex": 2,
+        "explanation": "甲骨文字は次第に簡略化されて漢字へと発展しました。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q21",
+        "question": "シルクロードを通じて西方から中国に伝わったものは？",
+        "options": [
+          "甲骨文字",
+          "絹織物",
+          "仏教",
+          "青銅器"
+        ],
+        "correctIndex": 2,
+        "explanation": "シルクロードを通じて西方からガラス製品や仏教の教えなどが中国に伝わりました。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

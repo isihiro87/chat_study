@@ -1,0 +1,324 @@
+{
+  "subjectId": "history",
+  "eraId": "meiji-late",
+  "topicId": "industrial-revolution",
+  "name": "日本の産業革命",
+  "subtitle": "近代産業の発展と社会問題",
+  "icon": "🏭",
+  "order": 5,
+  "chatId": "industrial-revolution",
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "産業革命",
+      "back": "機械を用いた工業生産が広がり、社会・経済の仕組みが大きく変わることを何という？",
+      "explanation": "日本では明治後期（1890年代〜）に軽工業から始まった。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "軽工業",
+      "back": "繊維など、生活用品をつくる産業を何という？",
+      "explanation": "紡績業や製糸業が日本の産業革命の中心だった。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "重工業",
+      "back": "鉄や機械など、重い物をつくる産業を何という？",
+      "explanation": "日露戦争後に発展した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "紡績業",
+      "back": "綿花から綿糸をつくる産業を何という？",
+      "explanation": "大阪紡績会社などが発展し、綿糸の生産量が世界有数になった。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc5",
+      "front": "製糸業",
+      "back": "蚕の繭から生糸をつくる産業を何という？",
+      "explanation": "生糸は日本最大の輸出品で、外貨獲得の柱だった。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc6",
+      "front": "八幡製鉄所",
+      "back": "1901年に操業を開始した官営製鉄所は？",
+      "explanation": "日清戦争の賠償金などで建設され、日本の重工業の基礎となった。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc7",
+      "front": "1901年",
+      "back": "八幡製鉄所が操業を開始した年は？",
+      "explanation": "日本の重工業の出発点となった。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc8",
+      "front": "財閥",
+      "back": "三井・三菱・住友などの大企業集団は？",
+      "explanation": "金融・商業・工業など多方面で経済を支配した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc9",
+      "front": "三井・三菱・住友・安田",
+      "back": "明治期に発展した四大財閥は？",
+      "explanation": "様々な分野で日本の産業をリードした。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc10",
+      "front": "足尾銅山鉱毒事件",
+      "back": "栃木県で起きた、日本初の公害問題は？",
+      "explanation": "渡良瀬川流域に銅山の鉱毒が流れ込み、農作物や住民に被害が出た。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc11",
+      "front": "田中正造",
+      "back": "足尾銅山鉱毒事件で天皇に直訴した衆議院議員は？",
+      "explanation": "農民の救済のため生涯を捧げた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc12",
+      "front": "労働組合",
+      "back": "労働者が労働条件の改善を求めて結成した組織は？",
+      "explanation": "明治末期から労働運動が広がり始めた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc13",
+      "front": "工場法",
+      "back": "1911年に制定された、労働者を保護する法律は？",
+      "explanation": "12時間労働の制限、12歳未満の労働禁止などを定めたが、不十分だった。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc14",
+      "front": "社会主義",
+      "back": "労働者の立場から平等な社会を目指す思想は？",
+      "explanation": "幸徳秋水らが活動したが、政府に厳しく弾圧された。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc15",
+      "front": "大逆事件",
+      "back": "1910年に幸徳秋水らが処刑された事件は？",
+      "explanation": "天皇暗殺計画の冤罪事件で、社会主義運動への大弾圧となった。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc16",
+      "front": "幸徳秋水",
+      "back": "大逆事件で処刑された社会主義者は？",
+      "explanation": "非戦論者としても活動した。",
+      "difficulty": "advanced"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "日本の産業革命の中心となった軽工業の代表は？",
+        "options": [
+          "造船と鉄鋼",
+          "電機と化学",
+          "石炭と石油",
+          "紡績業と製糸業"
+        ],
+        "correctIndex": 3,
+        "explanation": "紡績業と製糸業が中心でした。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "1901年に操業を開始した官営製鉄所は？",
+        "options": [
+          "富岡製糸場",
+          "八幡製鉄所",
+          "横須賀造船所",
+          "三池炭鉱"
+        ],
+        "correctIndex": 1,
+        "explanation": "八幡製鉄所は日本の重工業の基礎となりました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "足尾銅山鉱毒事件で天皇に直訴した政治家は？",
+        "options": [
+          "田中正造",
+          "幸徳秋水",
+          "片山潜",
+          "板垣退助"
+        ],
+        "correctIndex": 0,
+        "explanation": "田中正造は農民の救済に生涯を捧げました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "明治期に発展した四大財閥に含まれないのは？",
+        "options": [
+          "三井",
+          "三菱",
+          "住友",
+          "野村"
+        ],
+        "correctIndex": 3,
+        "explanation": "四大財閥は三井・三菱・住友・安田でした。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q5",
+        "question": "1911年に制定された労働者保護の法律は？",
+        "options": [
+          "治安維持法",
+          "工場法",
+          "労働組合法",
+          "民法"
+        ],
+        "correctIndex": 1,
+        "explanation": "工場法が制定されましたが内容は不十分でした。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q6",
+        "question": "蚕の繭から生糸をつくる産業は？",
+        "options": [
+          "紡績業",
+          "製糸業",
+          "織物業",
+          "染色業"
+        ],
+        "correctIndex": 1,
+        "explanation": "製糸業は外貨獲得の柱でした。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q7",
+        "question": "綿花から綿糸をつくる産業は？",
+        "options": [
+          "紡績業",
+          "製糸業",
+          "織物業",
+          "染色業"
+        ],
+        "correctIndex": 0,
+        "explanation": "紡績業の代表は大阪紡績会社です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q8",
+        "question": "1910年に幸徳秋水らが処刑された事件は？",
+        "options": [
+          "大逆事件",
+          "二・二六事件",
+          "五・一五事件",
+          "血盟団事件"
+        ],
+        "correctIndex": 0,
+        "explanation": "大逆事件は社会主義運動への大弾圧でした。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q9",
+        "question": "日本最初の公害問題とされるのは？",
+        "options": [
+          "水俣病",
+          "イタイイタイ病",
+          "足尾銅山鉱毒事件",
+          "四日市ぜんそく"
+        ],
+        "correctIndex": 2,
+        "explanation": "足尾銅山鉱毒事件が日本初の公害問題です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q10",
+        "question": "八幡製鉄所の建設費の財源となったのは？",
+        "options": [
+          "所得税",
+          "日清戦争の賠償金",
+          "外国からの借款",
+          "国民の寄付"
+        ],
+        "correctIndex": 1,
+        "explanation": "下関条約で得た賠償金などが使われました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q11",
+        "question": "日本の重工業が本格的に発展したのは？",
+        "options": [
+          "明治初期",
+          "日清戦争前",
+          "日露戦争後",
+          "大正期"
+        ],
+        "correctIndex": 2,
+        "explanation": "日露戦争後に重工業が本格的に発展しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q12",
+        "question": "金融・商業・工業など多方面を支配した大企業集団は？",
+        "options": [
+          "商社",
+          "財閥",
+          "組合",
+          "藩"
+        ],
+        "correctIndex": 1,
+        "explanation": "三井・三菱などの財閥が日本経済を支配しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q13",
+        "question": "工場法が制定された年は？",
+        "options": [
+          "1894年",
+          "1901年",
+          "1911年",
+          "1925年"
+        ],
+        "correctIndex": 2,
+        "explanation": "1911年に工場法が制定されました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q14",
+        "question": "労働者の立場から平等な社会を目指す思想は？",
+        "options": [
+          "資本主義",
+          "社会主義",
+          "民主主義",
+          "全体主義"
+        ],
+        "correctIndex": 1,
+        "explanation": "社会主義が労働運動の理論的支柱でした。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q15",
+        "question": "足尾銅山があったのはどこ？",
+        "options": [
+          "茨城県",
+          "栃木県",
+          "群馬県",
+          "福島県"
+        ],
+        "correctIndex": 1,
+        "explanation": "栃木県の足尾銅山で公害が発生しました。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

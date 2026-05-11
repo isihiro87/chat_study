@@ -1,0 +1,317 @@
+{
+  "subjectId": "history",
+  "eraId": "edo-establishment",
+  "topicId": "ryukyu-ainu",
+  "name": "琉球とアイヌ",
+  "subtitle": "薩摩藩と松前藩の支配",
+  "icon": "🌺",
+  "order": 4,
+  "chatId": "ryukyu-ainu",
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "琉球王国",
+      "back": "薩摩藩に支配されながら、中国とも関係を保った王国は？",
+      "explanation": "現在の沖縄県にあたる。15世紀に成立した王国で、中国との朝貢貿易で繁栄。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "薩摩藩",
+      "back": "琉球の支配を認められ、貿易の利益を独占したのは何藩？",
+      "explanation": "1609年に琉球に侵攻し、表面上は独立国として扱いながら支配した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "琉球使節",
+      "back": "琉球国王や将軍の代替わりの際に江戸へ送られた使節は？",
+      "explanation": "華やかな行列で江戸に向かい、幕府の権威を国内外に示す役割も果たした。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "中継貿易",
+      "back": "琉球が中国の品を日本へ送り利益を得た貿易は？",
+      "explanation": "中国と日本の間に位置する地理的条件を生かした貿易形態。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc5",
+      "front": "奄美群島",
+      "back": "薩摩藩が琉球から取り上げ、直接支配した島々は？",
+      "explanation": "砂糖の生産が盛んで、薩摩藩の重要な財源となった。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc6",
+      "front": "アイヌ民族",
+      "back": "北海道などに住み、独自の文化をもつ人々は？",
+      "explanation": "松前藩と交易した。シャクシャインの戦いと関連する。漁業や狩猟を営んだ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc7",
+      "front": "蝦夷地",
+      "back": "江戸時代の北海道や千島列島、樺太の呼び方は？",
+      "explanation": "アイヌ民族が暮らす地域の総称で、松前藩が窓口を担った。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc8",
+      "front": "松前藩",
+      "back": "アイヌとの交易を独占し、蝦夷地の窓口となった藩は？",
+      "explanation": "米が取れないため石高ではなく交易権で成り立つ特殊な藩だった。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc9",
+      "front": "シャクシャインの戦い",
+      "back": "松前藩との交易をめぐる不満から、アイヌの人々が起こした戦いは？",
+      "explanation": "アイヌと松前藩の関係を問う問題で出る。1669年。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc10",
+      "front": "シャクシャイン",
+      "back": "1669年にアイヌ民族の首長として蜂起した人物は？",
+      "explanation": "松前藩の不公平な交易に抗議して蜂起したが、鎮圧されアイヌの自治は弱まった。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc11",
+      "front": "1669年",
+      "back": "シャクシャインが蜂起した年は？",
+      "explanation": "アイヌの自治が大きく後退した転換点。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc12",
+      "front": "1609年",
+      "back": "薩摩藩が琉球王国に侵攻した年は？",
+      "explanation": "島津氏が約3000の兵で琉球に侵攻し、支配下に置いた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc13",
+      "front": "鮭・昆布・毛皮",
+      "back": "松前藩がアイヌとの交易で主に手に入れた産物は？",
+      "explanation": "蝦夷地の豊かな自然から得られる産物で、本州でも高い価値があった。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc14",
+      "front": "島津氏",
+      "back": "薩摩藩を治めていた大名の氏族は？",
+      "explanation": "鎌倉時代から薩摩を治めた名門で、幕末には倒幕の中心的な役割を果たした。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc15",
+      "front": "朝貢貿易",
+      "back": "琉球が中国に対して行っていた貿易形態は？",
+      "explanation": "中国皇帝に貢物を送り、代わりに恩恵的な贈り物を受ける形式の貿易。",
+      "difficulty": "advanced"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "シャクシャインの戦いが起こった背景として適切なものはどれですか。",
+        "options": [
+          "松前藩への不満が高まったから",
+          "豊臣氏が復活しようとしたから",
+          "倭寇が日本を攻撃したから",
+          "朝鮮通信使が反乱を起こしたから"
+        ],
+        "correctIndex": 0,
+        "explanation": "シャクシャインの戦いは、アイヌの人々と松前藩の交易関係をめぐる対立が背景です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q2",
+        "question": "琉球王国を支配下に置き、貿易の利益を独占した藩は？",
+        "options": [
+          "松前藩",
+          "対馬藩",
+          "長州藩",
+          "薩摩藩"
+        ],
+        "correctIndex": 3,
+        "explanation": "薩摩藩は琉球に侵攻して支配下に置き、中国との中継貿易の利益を独占しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "1669年に不公平な交易に抵抗して蜂起したアイヌの首長は？",
+        "options": [
+          "コシャマイン",
+          "クナシリ",
+          "メナシクル",
+          "シャクシャイン"
+        ],
+        "correctIndex": 3,
+        "explanation": "シャクシャインは松前藩との不公平な交易に不満を持ち、蜂起しましたが鎮圧されました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "アイヌとの交易を独占し、蝦夷地の窓口となった藩は？",
+        "options": [
+          "松前藩",
+          "対馬藩",
+          "長崎藩",
+          "薩摩藩"
+        ],
+        "correctIndex": 0,
+        "explanation": "松前藩は蝦夷地に置かれ、アイヌとの交易を独占する窓口の役割を果たしました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q5",
+        "question": "琉球王国が薩摩藩の支配下でも続けていた貿易は？",
+        "options": [
+          "南蛮貿易",
+          "三角貿易",
+          "中継貿易",
+          "朱印船貿易"
+        ],
+        "correctIndex": 2,
+        "explanation": "琉球は薩摩藩の支配下でも表面上独立を保ち、中国との中継貿易を続けました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q6",
+        "question": "江戸時代の北海道・千島列島・樺太の呼び方は？",
+        "options": [
+          "蝦夷地",
+          "北方領土",
+          "松前地",
+          "日本海域"
+        ],
+        "correctIndex": 0,
+        "explanation": "蝦夷地は江戸時代の北海道・千島列島・樺太の総称です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q7",
+        "question": "薩摩藩が琉球から取り上げて直接支配した島々は？",
+        "options": [
+          "沖縄本島",
+          "先島諸島",
+          "奄美群島",
+          "小笠原諸島"
+        ],
+        "correctIndex": 2,
+        "explanation": "薩摩藩は琉球から奄美群島を取り上げて直接支配し、砂糖の生産を行いました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q8",
+        "question": "琉球国王や将軍の代替わりの際に江戸へ送られた使節は？",
+        "options": [
+          "朝鮮通信使",
+          "琉球使節",
+          "遣明使",
+          "遣唐使"
+        ],
+        "correctIndex": 1,
+        "explanation": "琉球使節は琉球国王の代替わりの際に江戸へ送られました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q9",
+        "question": "シャクシャインの蜂起の主な原因は？",
+        "options": [
+          "キリスト教の弾圧",
+          "不公平な交易条件",
+          "年貢の重さ",
+          "土地の没収"
+        ],
+        "correctIndex": 1,
+        "explanation": "シャクシャインは松前藩との不公平な交易条件に不満を持って蜂起しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q10",
+        "question": "1609年に琉球王国に侵攻した藩は？",
+        "options": [
+          "松前藩",
+          "対馬藩",
+          "長州藩",
+          "薩摩藩"
+        ],
+        "correctIndex": 3,
+        "explanation": "薩摩藩は1609年に琉球王国に侵攻して支配下に置きました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q11",
+        "question": "シャクシャインの蜂起の結果はどうなった？",
+        "options": [
+          "アイヌが勝利した",
+          "松前藩が鎮圧した",
+          "幕府が仲裁した",
+          "和解が成立した"
+        ],
+        "correctIndex": 1,
+        "explanation": "シャクシャインの蜂起は松前藩に鎮圧され、アイヌに対する支配はさらに強まりました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q12",
+        "question": "松前藩がアイヌとの交易で主に手に入れたものは？",
+        "options": [
+          "金銀・鉱石",
+          "鮭・昆布・毛皮",
+          "生糸・絹織物",
+          "香辛料・砂糖"
+        ],
+        "correctIndex": 1,
+        "explanation": "松前藩はアイヌとの交易で鮭・昆布・毛皮などの産物を手に入れました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q13",
+        "question": "薩摩藩が琉球を通じて間接的に交易していた国は？",
+        "options": [
+          "英国",
+          "朝鮮",
+          "中国",
+          "仏国"
+        ],
+        "correctIndex": 2,
+        "explanation": "薩摩藩は琉球を通じて中国（清）と間接的に交易していました。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q14",
+        "question": "アイヌ民族が蝦夷地で主に営んでいた生業は？",
+        "options": [
+          "農業と養蚕",
+          "漁業と狩猟",
+          "商業と手工業",
+          "鉱業と林業"
+        ],
+        "correctIndex": 1,
+        "explanation": "アイヌ民族は蝦夷地で漁業や狩猟を営み、独自の文化を築いていました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q15",
+        "question": "シャクシャインの蜂起は何年に起きた？",
+        "options": [
+          "1609年",
+          "1637年",
+          "1669年",
+          "1689年"
+        ],
+        "correctIndex": 2,
+        "explanation": "1669年にアイヌの首長シャクシャインが蜂起しました。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

@@ -1,0 +1,250 @@
+{
+  "subjectId": "history",
+  "eraId": "ww1-japan",
+  "topicId": "russian-revolution",
+  "name": "ロシア革命とソ連の成立",
+  "subtitle": "社会主義国家の誕生",
+  "icon": "🚩",
+  "order": 3,
+  "chatId": "russian-revolution",
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "ロシア革命",
+      "back": "1917年、ロシアで起きた世界初の社会主義革命は？",
+      "explanation": "戦争の疲弊と食糧不足が背景にあった。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "1917年",
+      "back": "ロシア革命が起きた年は？",
+      "explanation": "第一次世界大戦中の出来事。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "レーニン",
+      "back": "ロシア革命を指導した社会主義者は？",
+      "explanation": "ボリシェビキを率いて世界初の社会主義政権を樹立。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "ソビエト",
+      "back": "労働者・兵士・農民の評議会のことを何という？",
+      "explanation": "ロシア革命で重要な役割を果たした。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc5",
+      "front": "ソ連（ソビエト社会主義共和国連邦）",
+      "back": "1922年に成立した世界初の社会主義国家は？",
+      "explanation": "1991年まで存在した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc6",
+      "front": "1922年",
+      "back": "ソ連が成立した年は？",
+      "explanation": "ロシア革命から5年後に正式に成立した。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc7",
+      "front": "対ソ干渉戦争",
+      "back": "ロシア革命をつぶそうと各国が干渉した戦争は？",
+      "explanation": "日本もシベリア出兵で参加した。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc8",
+      "front": "ボリシェビキ",
+      "back": "レーニンが率いたロシア社会民主労働党の多数派は？",
+      "explanation": "後にロシア共産党となった。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc9",
+      "front": "ニコライ2世",
+      "back": "ロシア革命で退位し処刑された最後の皇帝は？",
+      "explanation": "ロマノフ朝の終わりとなった。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc10",
+      "front": "五か年計画",
+      "back": "スターリンが進めた計画経済政策は？",
+      "explanation": "重工業化を急速に進めた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc11",
+      "front": "スターリン",
+      "back": "レーニンの死後、ソ連の指導者となった人物は？",
+      "explanation": "独裁的な統治を行った。",
+      "difficulty": "standard"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "1917年にロシアで起きた革命は？",
+        "options": [
+          "フランス革命",
+          "名誉革命",
+          "辛亥革命",
+          "ロシア革命"
+        ],
+        "correctIndex": 3,
+        "explanation": "1917年のロシア革命は世界初の社会主義革命です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "ロシア革命を指導した人物は？",
+        "options": [
+          "スターリン",
+          "トロツキー",
+          "プーチン",
+          "レーニン"
+        ],
+        "correctIndex": 3,
+        "explanation": "レーニンがボリシェビキを率いて革命を指導しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "1922年に成立した世界初の社会主義国家は？",
+        "options": [
+          "ソ連",
+          "中華人民共和国",
+          "東ドイツ",
+          "ユーゴスラビア"
+        ],
+        "correctIndex": 0,
+        "explanation": "ソビエト社会主義共和国連邦（ソ連）が成立しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "ロシア革命をつぶそうと各国が出兵した干渉戦争で、日本が行ったのは？",
+        "options": [
+          "シベリア出兵",
+          "義和団派兵",
+          "山東出兵",
+          "朝鮮出兵"
+        ],
+        "correctIndex": 0,
+        "explanation": "シベリア出兵が行われました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q5",
+        "question": "ロシア革命の背景にあった社会問題は？",
+        "options": [
+          "人口爆発",
+          "民族紛争のみ",
+          "宗教対立",
+          "戦争の疲弊"
+        ],
+        "correctIndex": 3,
+        "explanation": "第一次世界大戦の疲弊と食糧不足が背景でした。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q6",
+        "question": "労働者・兵士・農民の評議会を何という？",
+        "options": [
+          "コミンテルン",
+          "ソビエト",
+          "ドゥーマ",
+          "ツァーリ"
+        ],
+        "correctIndex": 1,
+        "explanation": "ソビエト（評議会）が革命の主体でした。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q7",
+        "question": "ソ連が成立した年は？",
+        "options": [
+          "1914年",
+          "1917年",
+          "1919年",
+          "1922年"
+        ],
+        "correctIndex": 3,
+        "explanation": "1922年に正式に成立しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q8",
+        "question": "レーニンが率いたロシア社会民主労働党の多数派は？",
+        "options": [
+          "メンシェビキ",
+          "ボリシェビキ",
+          "エスエル",
+          "カデット"
+        ],
+        "correctIndex": 1,
+        "explanation": "ボリシェビキは後にロシア共産党となりました。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q9",
+        "question": "ロシア革命で退位した最後の皇帝は？",
+        "options": [
+          "ニコライ2世",
+          "アレクサンドル2世",
+          "ピョートル大帝",
+          "イワン雷帝"
+        ],
+        "correctIndex": 0,
+        "explanation": "ニコライ2世が退位しロマノフ朝が終わりました。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q10",
+        "question": "レーニンの死後ソ連の指導者となったのは？",
+        "options": [
+          "スターリン",
+          "トロツキー",
+          "フルシチョフ",
+          "ゴルバチョフ"
+        ],
+        "correctIndex": 0,
+        "explanation": "スターリンが独裁的に統治しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q11",
+        "question": "スターリンが進めた計画経済政策は？",
+        "options": [
+          "新経済政策",
+          "五か年計画",
+          "大躍進",
+          "改革開放"
+        ],
+        "correctIndex": 1,
+        "explanation": "五か年計画で重工業化を急速に進めました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q12",
+        "question": "ソ連が崩壊した年は？",
+        "options": [
+          "1989年",
+          "1991年",
+          "1995年",
+          "2000年"
+        ],
+        "correctIndex": 1,
+        "explanation": "1991年にソ連は解体しました。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

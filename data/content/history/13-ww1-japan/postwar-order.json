@@ -1,0 +1,257 @@
+{
+  "subjectId": "history",
+  "eraId": "ww1-japan",
+  "topicId": "postwar-order",
+  "name": "戦後秩序とアジアの抵抗",
+  "subtitle": "新しい世界と民族の目覚め",
+  "icon": "🌏",
+  "order": 4,
+  "chatId": "postwar-order",
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "パリ講和会議",
+      "back": "1919年、第一次世界大戦の講和を話し合った会議は？",
+      "explanation": "戦勝国がドイツへの賠償などを決めた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "ベルサイユ条約",
+      "back": "1919年、第一次世界大戦の講和条約は？",
+      "explanation": "ドイツに多額の賠償金と領土割譲を課した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "国際連盟",
+      "back": "1920年に発足した世界平和を目指す国際機関は？",
+      "explanation": "アメリカ大統領ウィルソンの提唱。日本は常任理事国となった。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "ウィルソン",
+      "back": "国際連盟を提唱したアメリカ大統領は？",
+      "explanation": "民族自決の理念も提唱した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc5",
+      "front": "民族自決",
+      "back": "それぞれの民族が自らの国家を持つべきという原則は？",
+      "explanation": "ウィルソンが提唱し、アジア・アフリカの独立運動を刺激した。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc6",
+      "front": "ワシントン会議",
+      "back": "1921〜22年、海軍軍縮と太平洋・東アジア問題を話し合った国際会議は？",
+      "explanation": "日英同盟が解消され、海軍主力艦の比率も決められた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc7",
+      "front": "海軍軍縮条約",
+      "back": "ワシントン会議で結ばれた、米英日仏伊の主力艦比率を定めた条約は？",
+      "explanation": "米英5・日3・仏伊1.67の比率となった。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc8",
+      "front": "三・一独立運動",
+      "back": "1919年、朝鮮で起きた日本支配からの独立運動は？",
+      "explanation": "ソウルで「独立万歳」が叫ばれ全国に広がった。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc9",
+      "front": "五・四運動",
+      "back": "1919年、中国で起きた反日・反帝国主義の運動は？",
+      "explanation": "二十一か条要求とベルサイユ条約への抗議として広がった。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc10",
+      "front": "ガンディー",
+      "back": "イギリスから独立を目指したインドの指導者は？",
+      "explanation": "「非暴力・不服従」を掲げた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc11",
+      "front": "非暴力・不服従",
+      "back": "ガンディーが掲げたイギリスへの抵抗手段は？",
+      "explanation": "武力を用いず、納税拒否などで抵抗した。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc12",
+      "front": "1919年",
+      "back": "三・一独立運動、五・四運動、ベルサイユ条約の年は？",
+      "explanation": "戦後秩序の出発点となる年。",
+      "difficulty": "standard"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "1919年の第一次世界大戦の講和条約は？",
+        "options": [
+          "ポーツマス条約",
+          "サンフランシスコ条約",
+          "下関条約",
+          "ベルサイユ条約"
+        ],
+        "correctIndex": 3,
+        "explanation": "ベルサイユ条約はドイツに厳しい条件を課しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "1920年に発足した国際平和機関は？",
+        "options": [
+          "国際連盟",
+          "国際連合",
+          "EU",
+          "NATO"
+        ],
+        "correctIndex": 0,
+        "explanation": "国際連盟はウィルソンの提唱で発足しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "国際連盟を提唱したアメリカ大統領は？",
+        "options": [
+          "セオドア・ルーズベルト",
+          "ウィルソン",
+          "リンカン",
+          "トルーマン"
+        ],
+        "correctIndex": 1,
+        "explanation": "ウィルソンが提唱しましたが、アメリカ自身は不参加でした。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "1919年、朝鮮で起きた独立運動は？",
+        "options": [
+          "三・一独立運動",
+          "五・四運動",
+          "甲申事変",
+          "義和団事件"
+        ],
+        "correctIndex": 0,
+        "explanation": "ソウルで「独立万歳」が叫ばれ全国に広がりました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q5",
+        "question": "1919年、中国で起きた反日運動は？",
+        "options": [
+          "三・一独立運動",
+          "五・四運動",
+          "辛亥革命",
+          "義和団事件"
+        ],
+        "correctIndex": 1,
+        "explanation": "二十一か条要求への抗議として広がりました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q6",
+        "question": "インドで「非暴力・不服従」を掲げた独立運動の指導者は？",
+        "options": [
+          "ガンディー",
+          "ネルー",
+          "孫文",
+          "ホー・チ・ミン"
+        ],
+        "correctIndex": 0,
+        "explanation": "ガンディーがイギリスからの独立を目指しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q7",
+        "question": "1921〜22年に開催された軍縮会議は？",
+        "options": [
+          "ベルサイユ会議",
+          "ヤルタ会議",
+          "ワシントン会議",
+          "ポツダム会議"
+        ],
+        "correctIndex": 2,
+        "explanation": "ワシントン会議で海軍軍縮が決められました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q8",
+        "question": "民族自決の理念を提唱したのは？",
+        "options": [
+          "レーニン",
+          "ウィルソン",
+          "ガンディー",
+          "孫文"
+        ],
+        "correctIndex": 1,
+        "explanation": "ウィルソンが14か条で提唱しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q9",
+        "question": "ワシントン会議で解消された日本の同盟は？",
+        "options": [
+          "日米同盟",
+          "日英同盟",
+          "日露同盟",
+          "日仏同盟"
+        ],
+        "correctIndex": 1,
+        "explanation": "日英同盟が解消されました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q10",
+        "question": "ガンディーの抵抗手段の理念は？",
+        "options": [
+          "武力闘争",
+          "非暴力・不服従",
+          "テロリズム",
+          "経済制裁"
+        ],
+        "correctIndex": 1,
+        "explanation": "非暴力・不服従を掲げました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q11",
+        "question": "ワシントン会議で決められた米英日の海軍主力艦の比率は？",
+        "options": [
+          "5:5:3",
+          "5:5:5",
+          "3:3:3",
+          "10:10:7"
+        ],
+        "correctIndex": 0,
+        "explanation": "米英5・日3の比率が決まりました。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q12",
+        "question": "ベルサイユ条約でドイツに課されたものに含まれないのは？",
+        "options": [
+          "賠償金",
+          "領土割譲",
+          "軍備制限",
+          "植民地拡大"
+        ],
+        "correctIndex": 3,
+        "explanation": "ドイツは植民地を失いました。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

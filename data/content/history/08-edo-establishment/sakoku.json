@@ -1,0 +1,358 @@
+{
+  "subjectId": "history",
+  "eraId": "edo-establishment",
+  "topicId": "sakoku",
+  "name": "鎖国への道",
+  "subtitle": "禁教と貿易制限",
+  "icon": "🔒",
+  "order": 2,
+  "chatId": "sakoku",
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "朱印船貿易",
+      "back": "幕府から朱印状を受けた船が東南アジアと行った貿易は？",
+      "explanation": "初期の江戸幕府は海外貿易を認めていた。家康が奨励。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "朱印状",
+      "back": "幕府が海外渡航を許可した船に与えた証明書は？",
+      "explanation": "将軍の朱印（赤い印章）が押された公式な渡航許可証。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "日本町",
+      "back": "東南アジア各地にできた日本人の町は？",
+      "explanation": "朱印船貿易と関係が深い。鎖国前の海外交流の証拠。タイのアユタヤなど。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc4",
+      "front": "禁教",
+      "back": "キリスト教を禁止することを何という？",
+      "explanation": "江戸幕府はしだいに取りしまりを強めた。島原・天草一揆後にさらに厳しくなった。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc5",
+      "front": "禁教令",
+      "back": "1612年に家康が幕領に対して出した命令は？",
+      "explanation": "キリスト教の広がりが幕府の支配を揺るがすと考えた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc6",
+      "front": "絵踏",
+      "back": "キリスト教徒を見つけるため、キリストやマリアの絵を踏ませた取りしまりは？",
+      "explanation": "宗門改めとともに出題されやすい。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc7",
+      "front": "踏絵",
+      "back": "キリスト教信者かどうかを調べるために踏ませた絵は？",
+      "explanation": "キリストや聖母マリアの像を描いた板で、絵踏の際に使われた道具。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc8",
+      "front": "宗門改め",
+      "back": "人々を寺に所属させ、キリスト教徒でないことを証明させた制度は？",
+      "explanation": "寺請制度と関連する。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc9",
+      "front": "寺請制度",
+      "back": "すべての人を寺院に登録させキリシタンでないことを証明させた制度は？",
+      "explanation": "宗門改と組み合わせて運用され、全国民の宗教を管理する制度。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc10",
+      "front": "島原・天草一揆",
+      "back": "1637年、重い年貢やキリスト教弾圧に苦しんだ人々が起こした一揆は？",
+      "explanation": "幕府の禁教強化につながった。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc11",
+      "front": "天草四郎（益田時貞）",
+      "back": "島原・天草一揆で一揆軍の大将となった少年は？",
+      "explanation": "わずか16歳前後で一揆軍を率いたが、幕府軍に鎮圧された。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc12",
+      "front": "鎖国",
+      "back": "江戸幕府が海外との交流を制限した体制は？",
+      "explanation": "完全に交流を断ったわけではない。長崎など4つの窓口で限定的な交流は続いた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc13",
+      "front": "出島",
+      "back": "長崎に作られた人工島で、のちにオランダ商館が置かれた場所は？",
+      "explanation": "オランダとの貿易の窓口。鎖国下における唯一の西洋との窓口だった。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc14",
+      "front": "オランダ",
+      "back": "鎖国下でヨーロッパで唯一貿易を許された国は？",
+      "explanation": "キリスト教の布教を行わず貿易のみに徹したため、唯一許可された。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc15",
+      "front": "唐人屋敷",
+      "back": "長崎に置かれた中国人の居住地区は？",
+      "explanation": "清の商人が住み、オランダの出島とともに長崎での貿易拠点。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc16",
+      "front": "徳川家光",
+      "back": "キリスト教禁止や鎖国を完成させた将軍は？",
+      "explanation": "3代将軍で、参勤交代の制度化や鎖国体制の完成を行った。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc17",
+      "front": "ポルトガル",
+      "back": "幕府が1639年に来航を禁止したヨーロッパの国は？",
+      "explanation": "キリスト教布教と結びついていたため、オランダより先に禁止された。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc18",
+      "front": "1639年",
+      "back": "ポルトガル船の来航が禁止された年は？",
+      "explanation": "島原・天草一揆の後、幕府はポルトガル船の来航を禁止した。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc19",
+      "front": "1641年",
+      "back": "オランダ商館が出島に移され鎖国が完成した年は？",
+      "explanation": "オランダ商館が平戸から出島に移されたことで鎖国体制が完成。",
+      "difficulty": "standard"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "幕府の許可状を持つ船が東南アジアと行った貿易を何といいますか。",
+        "options": [
+          "朱印船貿易",
+          "南蛮貿易",
+          "勘合貿易",
+          "日宋貿易"
+        ],
+        "correctIndex": 0,
+        "explanation": "朱印船貿易は江戸時代初期にさかんでした。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "朱印船貿易に関係して東南アジア各地にできた日本人の町を何といいますか。",
+        "options": [
+          "城下町",
+          "宿場町",
+          "門前町",
+          "日本町"
+        ],
+        "correctIndex": 3,
+        "explanation": "日本町は海外に進出した日本人が住んだ町です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q3",
+        "question": "キリスト教徒を見つけるため、キリストやマリアの絵を踏ませた取りしまりは何ですか。",
+        "options": [
+          "絵踏",
+          "刀狩",
+          "検地",
+          "参勤交代"
+        ],
+        "correctIndex": 0,
+        "explanation": "絵踏はキリスト教禁止のための取りしまりです。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "人々を寺に所属させ、キリスト教徒でないことを証明させた制度はどれですか。",
+        "options": [
+          "五人組",
+          "宗門改め",
+          "楽市・楽座",
+          "公地公民"
+        ],
+        "correctIndex": 1,
+        "explanation": "宗門改めは禁教政策と関係が深い制度です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q5",
+        "question": "1637年、重い年貢やキリスト教弾圧に苦しんだ人々が起こした一揆はどれですか。",
+        "options": [
+          "応仁の乱",
+          "承久の乱",
+          "島原・天草一揆",
+          "大塩平八郎の乱"
+        ],
+        "correctIndex": 2,
+        "explanation": "島原・天草一揆の後、幕府はキリスト教の取りしまりをさらに強めました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q6",
+        "question": "島原・天草一揆後の幕府の対応として正しいものはどれですか。",
+        "options": [
+          "キリスト教の取りしまりを強めた",
+          "鉄砲を全国に広めた",
+          "室町幕府を復活させた",
+          "大名の海外渡航を自由にした"
+        ],
+        "correctIndex": 0,
+        "explanation": "一揆後、幕府は禁教を徹底し、ポルトガル船の来航も禁止しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q7",
+        "question": "江戸幕府が海外との交流を制限した体制を何といいますか。",
+        "options": [
+          "開国",
+          "鎖国",
+          "遣唐使",
+          "大航海時代"
+        ],
+        "correctIndex": 1,
+        "explanation": "鎖国は海外との交流を制限した体制ですが、完全に交流がなかったわけではありません。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q8",
+        "question": "鎖国下でオランダとの貿易の窓口となった場所はどこですか。",
+        "options": [
+          "長崎の出島",
+          "堺",
+          "博多",
+          "鎌倉"
+        ],
+        "correctIndex": 0,
+        "explanation": "オランダ商館はのちに長崎の出島へ移されました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q9",
+        "question": "1637年に天草四郎を大将として起こった反乱は？",
+        "options": [
+          "加賀の一向一揆",
+          "島原・天草一揆",
+          "百姓一揆",
+          "打ちこわし"
+        ],
+        "correctIndex": 1,
+        "explanation": "島原・天草一揆はキリスト教徒の農民らが起こした大規模な反乱です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q10",
+        "question": "幕府が海外渡航を許可するために船に与えた証明書は？",
+        "options": [
+          "勘合",
+          "御朱印",
+          "朱印状",
+          "渡航状"
+        ],
+        "correctIndex": 2,
+        "explanation": "朱印状は幕府が発行した海外渡航の許可証です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q11",
+        "question": "鎖国を完成させ、ポルトガル船の来航を禁止した将軍はだれ？",
+        "options": [
+          "徳川家康",
+          "徳川秀忠",
+          "徳川綱吉",
+          "徳川家光"
+        ],
+        "correctIndex": 3,
+        "explanation": "3代将軍徳川家光のもとで1639年にポルトガル船の来航が禁止されました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q12",
+        "question": "1612年に家康がキリスト教を禁止するために出した命令は？",
+        "options": [
+          "鎖国令",
+          "追放令",
+          "禁教令",
+          "宗門改"
+        ],
+        "correctIndex": 2,
+        "explanation": "禁教令は1612年に家康が出したキリスト教禁止の命令です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q13",
+        "question": "鎖国下でヨーロッパで唯一貿易を許された国は？",
+        "options": [
+          "スペイン",
+          "イギリス",
+          "ポルトガル",
+          "オランダ"
+        ],
+        "correctIndex": 3,
+        "explanation": "オランダはキリスト教の布教を行わなかったため、唯一貿易を許されました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q14",
+        "question": "1639年に来航を禁止されたヨーロッパの国は？",
+        "options": [
+          "オランダ",
+          "スペイン",
+          "イギリス",
+          "ポルトガル"
+        ],
+        "correctIndex": 3,
+        "explanation": "ポルトガルはキリスト教布教と結びついていたため来航を禁止されました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q15",
+        "question": "鎖国下でオランダ以外に貿易が許されたアジアの国は？",
+        "options": [
+          "宋",
+          "元",
+          "清",
+          "明"
+        ],
+        "correctIndex": 2,
+        "explanation": "清（中国）の商人は唐人屋敷に住み、長崎で貿易を行いました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q17",
+        "question": "すべての人を寺院に登録させキリシタンでないことを証明させた制度は？",
+        "options": [
+          "宗門改",
+          "五人組",
+          "寺請制度",
+          "禁教令"
+        ],
+        "correctIndex": 2,
+        "explanation": "寺請制度は宗門改と組み合わせて運用されました。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

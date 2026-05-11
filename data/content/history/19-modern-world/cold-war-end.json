@@ -1,0 +1,285 @@
+{
+  "subjectId": "history",
+  "eraId": "modern-world",
+  "topicId": "cold-war-end",
+  "name": "冷戦の終結",
+  "subtitle": "新しい世界秩序へ",
+  "icon": "🕊️",
+  "order": 1,
+  "chatId": "cold-war-end",
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "冷戦の終結",
+      "back": "1989年に米ソ首脳が宣言した、約40年続いた対立の終わりは？",
+      "explanation": "マルタ会談でブッシュ大統領とゴルバチョフ書記長が宣言した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "1989年",
+      "back": "ベルリンの壁崩壊・マルタ会談の年は？",
+      "explanation": "冷戦終結を象徴する年。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "ベルリンの壁崩壊",
+      "back": "1989年11月、東西ドイツを隔てる壁が壊された出来事は？",
+      "explanation": "翌年の東西ドイツ統一につながった。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "ゴルバチョフ",
+      "back": "ソ連で改革を進め冷戦終結を主導した最後の指導者は？",
+      "explanation": "ペレストロイカ（建て直し）を進めた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc5",
+      "front": "ペレストロイカ",
+      "back": "ゴルバチョフが進めた政治・経済の改革は？",
+      "explanation": "「建て直し」を意味するロシア語。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc6",
+      "front": "東西ドイツ統一",
+      "back": "1990年に実現したドイツの再統一は？",
+      "explanation": "西ドイツが東ドイツを吸収する形で実現。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc7",
+      "front": "ソ連解体",
+      "back": "1991年に起きたソビエト連邦の崩壊は？",
+      "explanation": "15の共和国に分かれ、社会主義体制が終わった。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc8",
+      "front": "1991年",
+      "back": "ソ連が解体した年は？",
+      "explanation": "冷戦が完全に終わった年。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc9",
+      "front": "湾岸戦争",
+      "back": "1991年、イラクのクウェート侵攻を受けて多国籍軍がイラクを攻撃した戦争は？",
+      "explanation": "アメリカ中心の多国籍軍が組まれた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc10",
+      "front": "EU（ヨーロッパ連合）",
+      "back": "1993年に発足したヨーロッパの統合機構は？",
+      "explanation": "経済・政治的統合を進めている。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc11",
+      "front": "1993年",
+      "back": "EUが発足した年は？",
+      "explanation": "マーストリヒト条約による。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc12",
+      "front": "ユーロ",
+      "back": "EUで導入された共通通貨は？",
+      "explanation": "2002年から一般流通が始まった。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc13",
+      "front": "アメリカ同時多発テロ",
+      "back": "2001年9月11日に起きたテロ事件は？",
+      "explanation": "アフガニスタン戦争・イラク戦争へとつながった。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc14",
+      "front": "2001年9月11日",
+      "back": "アメリカ同時多発テロが起きた日は？",
+      "explanation": "ニューヨークの世界貿易センタービルなどが攻撃された。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc15",
+      "front": "アフガニスタン戦争",
+      "back": "2001年のアメリカ同時多発テロを受けて始まった戦争は？",
+      "explanation": "アメリカがタリバン政権を攻撃した。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc16",
+      "front": "イラク戦争",
+      "back": "2003年にアメリカがイラクのフセイン政権を倒した戦争は？",
+      "explanation": "大量破壊兵器の保有を理由としたが見つからなかった。",
+      "difficulty": "standard"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "ベルリンの壁が崩壊した年は？",
+        "options": [
+          "1985年",
+          "1993年",
+          "1991年",
+          "1989年"
+        ],
+        "correctIndex": 3,
+        "explanation": "1989年11月に崩壊しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "ソ連解体の年は？",
+        "options": [
+          "1989年",
+          "1990年",
+          "1991年",
+          "1993年"
+        ],
+        "correctIndex": 2,
+        "explanation": "1991年にソ連が解体しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "冷戦終結を主導したソ連の指導者は？",
+        "options": [
+          "スターリン",
+          "フルシチョフ",
+          "ブレジネフ",
+          "ゴルバチョフ"
+        ],
+        "correctIndex": 3,
+        "explanation": "ゴルバチョフがペレストロイカを進めました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "1993年に発足したヨーロッパの統合機構は？",
+        "options": [
+          "NATO",
+          "EU",
+          "EEC",
+          "OECD"
+        ],
+        "correctIndex": 1,
+        "explanation": "EU（ヨーロッパ連合）が発足しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q5",
+        "question": "2001年9月11日に起きた事件は？",
+        "options": [
+          "湾岸戦争",
+          "アメリカ同時多発テロ",
+          "イラク戦争",
+          "コソボ紛争"
+        ],
+        "correctIndex": 1,
+        "explanation": "アメリカ同時多発テロが発生しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q6",
+        "question": "ゴルバチョフが進めた改革は？",
+        "options": [
+          "ペレストロイカ",
+          "ニューディール政策",
+          "改革開放",
+          "五か年計画"
+        ],
+        "correctIndex": 0,
+        "explanation": "ペレストロイカ（建て直し）を進めました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q7",
+        "question": "東西ドイツ統一の年は？",
+        "options": [
+          "1989年",
+          "1990年",
+          "1991年",
+          "1993年"
+        ],
+        "correctIndex": 1,
+        "explanation": "1990年に統一されました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q8",
+        "question": "EUの共通通貨は？",
+        "options": [
+          "ユーロ",
+          "ドル",
+          "ポンド",
+          "マルク"
+        ],
+        "correctIndex": 0,
+        "explanation": "ユーロが共通通貨です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q9",
+        "question": "1991年にイラクが侵攻し多国籍軍と戦った戦争は？",
+        "options": [
+          "イラン・イラク戦争",
+          "湾岸戦争",
+          "イラク戦争",
+          "アフガニスタン戦争"
+        ],
+        "correctIndex": 1,
+        "explanation": "湾岸戦争です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q10",
+        "question": "アメリカがイラクのフセイン政権を倒した戦争は？",
+        "options": [
+          "湾岸戦争",
+          "イラク戦争",
+          "アフガニスタン戦争",
+          "クウェート紛争"
+        ],
+        "correctIndex": 1,
+        "explanation": "2003年のイラク戦争です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q11",
+        "question": "冷戦終結を宣言した会談は？",
+        "options": [
+          "ヤルタ会談",
+          "ポツダム会談",
+          "マルタ会談",
+          "プラザ合意"
+        ],
+        "correctIndex": 2,
+        "explanation": "1989年12月のマルタ会談で宣言されました。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q12",
+        "question": "アフガニスタン戦争のきっかけとなった事件は？",
+        "options": [
+          "湾岸戦争",
+          "アメリカ同時多発テロ",
+          "クウェート侵攻",
+          "ソ連解体"
+        ],
+        "correctIndex": 1,
+        "explanation": "アメリカ同時多発テロ後にアフガニスタン戦争が始まりました。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

@@ -1,0 +1,285 @@
+{
+  "subjectId": "history",
+  "eraId": "modern-world",
+  "topicId": "modern-issues",
+  "name": "現代の課題",
+  "subtitle": "持続可能な未来へ",
+  "icon": "🌍",
+  "order": 3,
+  "chatId": "modern-issues",
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "グローバル化",
+      "back": "人・物・お金・情報が国境を超えて世界規模で広がることは？",
+      "explanation": "経済・文化が世界規模でつながっている。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "情報化社会",
+      "back": "コンピュータ・インターネットが日常生活に欠かせない社会は？",
+      "explanation": "1990年代後半から急速に発展した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "インターネット",
+      "back": "1990年代から急速に普及した世界規模のコンピュータネットワークは？",
+      "explanation": "情報化社会の中核技術。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "地球温暖化",
+      "back": "二酸化炭素などの温室効果ガスで地球の気温が上がる問題は？",
+      "explanation": "気候変動を引き起こし、自然災害の激甚化につながっている。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc5",
+      "front": "温室効果ガス",
+      "back": "地球温暖化の原因となる、熱を閉じ込めるガスは？",
+      "explanation": "二酸化炭素・メタン・フロンなど。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc6",
+      "front": "京都議定書",
+      "back": "1997年、京都で採択された温室効果ガス削減の国際条約は？",
+      "explanation": "先進国に削減義務を課した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc7",
+      "front": "1997年",
+      "back": "京都議定書が採択された年は？",
+      "explanation": "気候変動枠組み条約締約国会議で採択された。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc8",
+      "front": "パリ協定",
+      "back": "2015年に採択された温室効果ガス削減の新たな国際枠組みは？",
+      "explanation": "発展途上国も含めた全ての国が削減目標を持つ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc9",
+      "front": "2015年",
+      "back": "パリ協定が採択され、SDGsが採択された年は？",
+      "explanation": "持続可能な世界に向けた重要な年。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc10",
+      "front": "SDGs",
+      "back": "2015年に国連で採択された持続可能な開発目標は？",
+      "explanation": "17の目標・169のターゲットがあり、2030年までの達成を目指す。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc11",
+      "front": "持続可能な開発",
+      "back": "将来の世代の必要を満たす能力を損なうことなく現在の必要を満たす開発は？",
+      "explanation": "1987年に提唱され、SDGsへとつながる考え方。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc12",
+      "front": "国際テロ",
+      "back": "2001年以降世界の脅威となっている、組織的な暴力行為は？",
+      "explanation": "アメリカ同時多発テロ以降、各地で続発。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc13",
+      "front": "難民問題",
+      "back": "戦争・迫害・自然災害で国を追われる人々の問題は？",
+      "explanation": "シリア内戦・ウクライナ戦争などで増加。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc14",
+      "front": "新型コロナウイルス感染症",
+      "back": "2019年末から世界的に流行した感染症は？",
+      "explanation": "経済・社会に大きな影響を与えた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc15",
+      "front": "領土問題",
+      "back": "北方領土・竹島・尖閣諸島など、日本が抱える国境問題は？",
+      "explanation": "近隣諸国との外交課題となっている。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc16",
+      "front": "北方領土",
+      "back": "歯舞群島・色丹島・国後島・択捉島の総称は？",
+      "explanation": "ロシアが実効支配しているが、日本は返還を求めている。",
+      "difficulty": "basic"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "人・物・情報が世界規模で広がることは？",
+        "options": [
+          "地方化",
+          "高齢化",
+          "情報化",
+          "グローバル化"
+        ],
+        "correctIndex": 3,
+        "explanation": "グローバル化が進んでいます。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "2015年に国連で採択された持続可能な開発目標は？",
+        "options": [
+          "SDGs",
+          "MDGs",
+          "京都議定書",
+          "パリ協定"
+        ],
+        "correctIndex": 0,
+        "explanation": "SDGsは2030年までの達成を目指しています。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "1997年に採択された温暖化対策の国際条約は？",
+        "options": [
+          "京都議定書",
+          "パリ協定",
+          "ワシントン条約",
+          "ラムサール条約"
+        ],
+        "correctIndex": 0,
+        "explanation": "京都議定書は先進国に削減義務を課しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "2015年に採択された温暖化対策の新枠組みは？",
+        "options": [
+          "京都議定書",
+          "パリ協定",
+          "リオ宣言",
+          "ストックホルム宣言"
+        ],
+        "correctIndex": 1,
+        "explanation": "パリ協定では全ての国が削減目標を持ちます。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q5",
+        "question": "ロシアが実効支配している北方領土に含まれないのは？",
+        "options": [
+          "歯舞群島",
+          "色丹島",
+          "国後島",
+          "竹島"
+        ],
+        "correctIndex": 3,
+        "explanation": "竹島は韓国との領土問題です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q6",
+        "question": "地球温暖化の主な原因は？",
+        "options": [
+          "温室効果ガス",
+          "オゾン層破壊",
+          "酸性雨",
+          "森林火災"
+        ],
+        "correctIndex": 0,
+        "explanation": "二酸化炭素などの温室効果ガスが原因です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q7",
+        "question": "SDGsの目標数は？",
+        "options": [
+          "10個",
+          "15個",
+          "17個",
+          "20個"
+        ],
+        "correctIndex": 2,
+        "explanation": "17の目標があります。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q8",
+        "question": "1990年代から急速に普及した世界規模のネットワークは？",
+        "options": [
+          "インターネット",
+          "テレビ",
+          "ラジオ",
+          "電話"
+        ],
+        "correctIndex": 0,
+        "explanation": "インターネットが情報化社会の中核です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q9",
+        "question": "2019年末から流行した感染症は？",
+        "options": [
+          "新型コロナウイルス感染症",
+          "SARS",
+          "MERS",
+          "鳥インフルエンザ"
+        ],
+        "correctIndex": 0,
+        "explanation": "COVID-19が世界に大きな影響を与えました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q10",
+        "question": "韓国との領土問題のある島は？",
+        "options": [
+          "竹島",
+          "尖閣諸島",
+          "北方領土",
+          "対馬"
+        ],
+        "correctIndex": 0,
+        "explanation": "竹島が韓国との領土問題です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q11",
+        "question": "中国との領土問題のある諸島は？",
+        "options": [
+          "北方領土",
+          "竹島",
+          "尖閣諸島",
+          "小笠原諸島"
+        ],
+        "correctIndex": 2,
+        "explanation": "尖閣諸島が中国との領土問題です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q12",
+        "question": "持続可能な開発の定義に含まれるのは？",
+        "options": [
+          "短期的な利益の最大化",
+          "将来世代のニーズも満たす",
+          "経済発展のみの追求",
+          "環境保護のみの追求"
+        ],
+        "correctIndex": 1,
+        "explanation": "将来世代のニーズを損なわないことが核心です。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

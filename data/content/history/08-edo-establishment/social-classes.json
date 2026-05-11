@@ -1,0 +1,324 @@
+{
+  "subjectId": "history",
+  "eraId": "edo-establishment",
+  "topicId": "social-classes",
+  "name": "江戸時代の身分制度",
+  "subtitle": "武士・百姓・町人の暮らし",
+  "icon": "👥",
+  "order": 5,
+  "chatId": "social-classes",
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "士農工商",
+      "back": "江戸時代の身分の大まかな分け方は？",
+      "explanation": "武士・百姓・町人などに分けられた。実際には公家・神職・えた・ひにんなどもいた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "武士",
+      "back": "江戸時代に名字・帯刀などの特権を持ち、政治を担った身分は？",
+      "explanation": "全人口の約7%だが、支配階級として政治・軍事を独占した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "百姓",
+      "back": "村に住み、年貢を納めた人々で江戸時代の人口の多くを占めた身分は？",
+      "explanation": "農民だけでなく漁業・林業に関わる人も含む。全人口の約85％。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "町人",
+      "back": "都市に住む商人や職人を何という？",
+      "explanation": "城下町に住み、商工業に従事して営業税を納めた。武士や百姓と区別する。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc5",
+      "front": "五人組",
+      "back": "百姓を数戸ごとにまとめ、年貢納入や犯罪防止に連帯責任を負わせた制度は？",
+      "explanation": "村の支配に利用された。5戸1組で互いに監視し合った。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc6",
+      "front": "年貢",
+      "back": "百姓が収穫した米などを領主に納める税は？",
+      "explanation": "収穫の4〜5割を納めることが多く、百姓の生活を大きく圧迫した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc7",
+      "front": "本百姓",
+      "back": "自分の土地を持ち、村役人として村の自治を行った百姓は？",
+      "explanation": "名主・庄屋・組頭などの村役人を務め、村の運営の中心を担った。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc8",
+      "front": "水のみ百姓",
+      "back": "土地を持たず、小作などを行っていた百姓は？",
+      "explanation": "本百姓から土地を借りて耕作し、貧しい暮らしだった。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc9",
+      "front": "えた身分・ひにん身分",
+      "back": "居住や職業、服装を厳しく制限され差別を受けた身分は？",
+      "explanation": "不当な差別を受けた人々で、身分制度による差別は明治以降も長く続いた。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc10",
+      "front": "名字・帯刀",
+      "back": "武士だけに許された、姓を名乗り刀を差す特権は？",
+      "explanation": "武士の身分を象徴する特権で、他の身分には原則として許されなかった。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc11",
+      "front": "約7％",
+      "back": "武士が全人口に占めていた割合は？",
+      "explanation": "少数の武士が大多数の百姓・町人を支配する構造だった。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc12",
+      "front": "城下町",
+      "back": "町人が住み、商工業に従事していた場所は？",
+      "explanation": "大名の城を中心に発達した都市で、武家地・町人地・寺社地に分かれていた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc13",
+      "front": "五公五民",
+      "back": "収穫の5割を年貢として納め、5割を手元に残す割合は？",
+      "explanation": "「5割が領主（公）、5割が民」の意味で、年貢の負担の重さを表す言葉。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc14",
+      "front": "百姓一揆",
+      "back": "百姓が年貢の軽減などを訴えるために集団で行動することは？",
+      "explanation": "18世紀以降に激増し、からかさ連判状で首謀者を隠すこともあった。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc15",
+      "front": "慶安の御触書",
+      "back": "百姓が守るべき規則を定めた法令は？",
+      "explanation": "倹約や勤勉を求め、百姓の生活態度を細かく規定した法令。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc16",
+      "front": "村請制",
+      "back": "年貢の納入について村全体で連帯責任を負う制度は？",
+      "explanation": "村全体で年貢を納める責任を負い、個人の逃亡を防ぐ効果があった。",
+      "difficulty": "advanced"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "江戸時代、数戸の百姓をまとめて年貢納入や犯罪防止に連帯責任を負わせた制度は何ですか。",
+        "options": [
+          "五人組",
+          "太閤検地",
+          "参勤交代",
+          "関所廃止"
+        ],
+        "correctIndex": 0,
+        "explanation": "五人組は村を支配する仕組みとして使われました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "江戸時代に全人口の約85％を占め、年貢を納めた身分は？",
+        "options": [
+          "公家",
+          "武士",
+          "町人",
+          "百姓"
+        ],
+        "correctIndex": 3,
+        "explanation": "百姓は全人口の約85％を占め、村に住んで米などの年貢を領主に納めました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "城下町に住み、商工業に従事して営業税を納めた身分は？",
+        "options": [
+          "武士",
+          "百姓",
+          "町人",
+          "公家"
+        ],
+        "correctIndex": 2,
+        "explanation": "町人は城下町に住み、商工業に従事して営業税を納めました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "武士だけに許された特権として正しいのは？",
+        "options": [
+          "年貢の免除",
+          "自由な移動",
+          "土地の売買",
+          "名字・帯刀"
+        ],
+        "correctIndex": 3,
+        "explanation": "武士は名字を名乗り刀を差すことが許される特権を持っていました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q5",
+        "question": "自分の土地を持ち、村役人として村の自治を行った百姓を何という？",
+        "options": [
+          "本百姓",
+          "名主",
+          "貧農百姓",
+          "小作人"
+        ],
+        "correctIndex": 0,
+        "explanation": "本百姓は自分の土地を持ち、村の自治を担う中心的な存在でした。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q6",
+        "question": "土地を持たず小作などを行っていた百姓を何という？",
+        "options": [
+          "本百姓",
+          "庄屋",
+          "名主",
+          "水のみ百姓"
+        ],
+        "correctIndex": 3,
+        "explanation": "水のみ百姓は土地を持たず、本百姓の土地を借りて小作を行いました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q7",
+        "question": "百姓が収穫した米などを領主に納める税を何という？",
+        "options": [
+          "営業税",
+          "年貢",
+          "運上金",
+          "冥加金"
+        ],
+        "correctIndex": 1,
+        "explanation": "年貢は百姓が収穫した米などを領主に納める税です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q8",
+        "question": "武士が全人口に占めていた割合は約何％？",
+        "options": [
+          "約3％",
+          "約7％",
+          "約15％",
+          "約25％"
+        ],
+        "correctIndex": 1,
+        "explanation": "武士は全人口の約7％で、少数ながら支配身分として政治を担いました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q9",
+        "question": "「五公五民」とはどのような意味？",
+        "options": [
+          "5人で1組の連帯責任",
+          "収穫の5割を年貢に納める",
+          "5つの身分に分ける制度",
+          "5年ごとに検地を行う制度"
+        ],
+        "correctIndex": 1,
+        "explanation": "五公五民とは収穫の5割を年貢として納め、5割を手元に残すことです。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q10",
+        "question": "百姓が年貢の軽減などを訴えるために集団で行動することを何という？",
+        "options": [
+          "打ちこわし",
+          "百姓一揆",
+          "下剋上",
+          "一向一揆"
+        ],
+        "correctIndex": 1,
+        "explanation": "百姓一揆は百姓が年貢の軽減や領主の不正を訴えるために集団で行動することです。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q11",
+        "question": "百姓が守るべき規則を定めた法令は？",
+        "options": [
+          "武家諸法度",
+          "禁中並公家諸法度",
+          "慶安の御触書",
+          "生類憐みの令"
+        ],
+        "correctIndex": 2,
+        "explanation": "慶安の御触書は百姓の生活態度や労働について細かく規定した法令です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q12",
+        "question": "年貢の納入について村全体で連帯責任を負う制度は？",
+        "options": [
+          "五人組",
+          "村請制",
+          "寺請制度",
+          "宗門改"
+        ],
+        "correctIndex": 1,
+        "explanation": "村請制は年貢を村全体の連帯責任で納める制度です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q13",
+        "question": "町人のうち商人や職人が住んでいた地域を何という？",
+        "options": [
+          "武家地",
+          "町人地",
+          "寺社地",
+          "農村"
+        ],
+        "correctIndex": 1,
+        "explanation": "城下町では武家地・町人地・寺社地に分けられ、町人は町人地に住みました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q14",
+        "question": "武士以外が名字を名乗ったり刀を差したりすることは許されていた？",
+        "options": [
+          "全員に許されていた",
+          "許されていなかった",
+          "町人のみ許された",
+          "百姓のみ許された"
+        ],
+        "correctIndex": 1,
+        "explanation": "名字・帯刀は武士の特権で、武士以外の身分には一部の例外を除き許されていませんでした。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q15",
+        "question": "居住や職業を厳しく制限され不当な差別を受けた身分は？",
+        "options": [
+          "水のみ百姓",
+          "浪人",
+          "えた・ひにん",
+          "町人"
+        ],
+        "correctIndex": 2,
+        "explanation": "えた身分・ひにん身分の人々は居住や職業、服装を厳しく制限されました。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

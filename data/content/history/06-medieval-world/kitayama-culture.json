@@ -1,0 +1,336 @@
+{
+  "subjectId": "history",
+  "eraId": "medieval-world",
+  "topicId": "kitayama-culture",
+  "name": "北山文化と能楽",
+  "subtitle": "金閣と観阿弥・世阿弥",
+  "icon": "🏯",
+  "order": 9,
+  "chatId": "kitayama-culture",
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "北山文化",
+      "back": "足利義満の時代の華やかで公家と武家が融合した文化は？",
+      "explanation": "日明貿易の莫大な富を背景に、貴族と武士の文化が禅宗の影響で融合した。金閣が代表。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "金閣",
+      "back": "足利義満が京都の北山に建てた3層構造の建物は？",
+      "explanation": "1層が寝殿造、2層が武家造、3層が禅宗様で、文化の融合を象徴する。鹿苑寺金閣ともいう。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "能",
+      "back": "観阿弥・世阿弥親子が猿楽から大成した舞台芸術は？",
+      "explanation": "面をつけて舞い、謡と囃子で演じる舞台芸術で、足利義満に保護された。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "狂言",
+      "back": "能の合間に演じられた、こっけいな内容の芸能は？",
+      "explanation": "能の格式高い世界と対照的に、庶民の滑稽さをユーモラスに描いた喜劇。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc5",
+      "front": "観阿弥・世阿弥",
+      "back": "猿楽から能を大成した親子は？",
+      "explanation": "父の観阿弥が能の基礎を作り、子の世阿弥が芸術として完成させた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc6",
+      "front": "鹿苑寺",
+      "back": "金閣がある寺の正式名称は？",
+      "explanation": "足利義満の法号「鹿苑院殿」にちなんで名付けられた寺。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc7",
+      "front": "猿楽",
+      "back": "能のもとになった芸能は？",
+      "explanation": "平安時代から続く芸能で、観阿弥・世阿弥により能へと発展した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc8",
+      "front": "足利義満",
+      "back": "金閣を建て、能を保護した室町幕府の第3代将軍は？",
+      "explanation": "南北朝統一・日明貿易開始など多くの功績を残し、幕府の全盛期を築いた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc9",
+      "front": "日明貿易（勘合貿易）",
+      "back": "北山文化が華やかだった背景にある、明との貿易は？",
+      "explanation": "勘合を用いた正式な貿易で、莫大な利益が文化の華やかさを支えた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc11",
+      "front": "寝殿造",
+      "back": "金閣の1層目の建築様式は？",
+      "explanation": "平安時代の貴族の住宅様式で、公家文化を象徴する。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc12",
+      "front": "禅宗",
+      "back": "室町文化に大きな影響を与えた仏教の宗派は？",
+      "explanation": "水墨画・枯山水・茶の湯など多くの文化に影響を与えた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc13",
+      "front": "世阿弥",
+      "back": "観阿弥の子で、能を芸術として完成させた人物は？",
+      "explanation": "「風姿花伝」を著し、能の美学を理論化して後世に伝えた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc14",
+      "front": "観阿弥",
+      "back": "能を大成した親子のうち、父親の方は？",
+      "explanation": "猿楽を洗練させて能の基礎を作り、足利義満に見出された。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc18",
+      "front": "京都の北山",
+      "back": "金閣が建てられた場所は？",
+      "explanation": "この地名が北山文化の名前の由来となった。",
+      "difficulty": "advanced"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "足利義満のころの文化で、金閣に代表される文化はどれですか。",
+        "options": [
+          "天平文化",
+          "国風文化",
+          "北山文化",
+          "東山文化"
+        ],
+        "correctIndex": 2,
+        "explanation": "北山文化は足利義満のころの文化です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "足利義満が京都の北山に建てた建物はどれですか。",
+        "options": [
+          "金閣",
+          "銀閣",
+          "鹿苑寺",
+          "平等院鳳凰堂"
+        ],
+        "correctIndex": 0,
+        "explanation": "金閣は足利義満が北山に建てた建物で、北山文化を代表します。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "観阿弥・世阿弥親子が猿楽から大成させた伝統芸能は？",
+        "options": [
+          "狂言",
+          "人形浄瑠璃",
+          "歌舞伎",
+          "能"
+        ],
+        "correctIndex": 3,
+        "explanation": "能は観阿弥・世阿弥親子が大成させた伝統芸能で、足利義満に保護されました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "能の合間に演じられる、こっけいな内容の芸能は？",
+        "options": [
+          "歌舞伎",
+          "人形浄瑠璃",
+          "連歌",
+          "狂言"
+        ],
+        "correctIndex": 3,
+        "explanation": "狂言は能の合間に演じられる喜劇で、庶民の日常をユーモラスに描きました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q5",
+        "question": "北山文化が華やかだった背景にある、明との貿易を何というか？",
+        "options": [
+          "南蛮貿易",
+          "朱印船貿易",
+          "勘合貿易",
+          "日宋貿易"
+        ],
+        "correctIndex": 2,
+        "explanation": "足利義満は日明貿易（勘合貿易）で莫大な富を得て、北山文化の華やかさを支えました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q6",
+        "question": "金閣の正式な寺の名前は？",
+        "options": [
+          "慈照寺",
+          "天龍寺",
+          "龍安寺",
+          "鹿苑寺"
+        ],
+        "correctIndex": 3,
+        "explanation": "金閣の正式名称は鹿苑寺（ろくおんじ）です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q8",
+        "question": "金閣の3層は、それぞれどのような建築様式？",
+        "options": [
+          "全層が禅宗様",
+          "1層が寝殿造、2層が武家造、3層が禅宗様",
+          "全層が書院造",
+          "1層が武家造、2層が禅宗様、3層が寝殿造"
+        ],
+        "correctIndex": 1,
+        "explanation": "金閣は1層が寝殿造、2層が武家造、3層が禅宗様で、異なる文化の融合を象徴しています。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q9",
+        "question": "能と狂言の違いとして正しいのは？",
+        "options": [
+          "同じもの",
+          "能は面をつけて幽玄な世界を表現、狂言は庶民的な笑いの劇",
+          "能は喜劇、狂言は悲劇",
+          "能は庶民向け、狂言は貴族向け"
+        ],
+        "correctIndex": 1,
+        "explanation": "能は面をつけて幽玄な世界を表現し、狂言は庶民的な笑いの劇です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q10",
+        "question": "能のもとになった芸能は何？",
+        "options": [
+          "歌舞伎",
+          "猿楽",
+          "人形浄瑠璃",
+          "田楽"
+        ],
+        "correctIndex": 1,
+        "explanation": "能は猿楽をもとに観阿弥・世阿弥親子が大成した舞台芸術です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q12",
+        "question": "室町文化に大きな影響を与えた仏教の宗派は？",
+        "options": [
+          "浄土宗",
+          "日蓮宗",
+          "禅宗",
+          "天台宗"
+        ],
+        "correctIndex": 2,
+        "explanation": "禅宗は室町文化に大きな影響を与え、金閣の3層目や水墨画などに反映されています。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q13",
+        "question": "金閣を建てた足利義満は室町幕府の第何代将軍？",
+        "options": [
+          "初代",
+          "第3代",
+          "第8代",
+          "第15代"
+        ],
+        "correctIndex": 1,
+        "explanation": "足利義満は室町幕府の第3代将軍です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q16",
+        "question": "金閣が建てられた場所は？",
+        "options": [
+          "京都の北山",
+          "京都の東山",
+          "奈良",
+          "鎌倉"
+        ],
+        "correctIndex": 0,
+        "explanation": "金閣は京都の北山に建てられ、北山文化の名前の由来になりました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q19",
+        "question": "能は現在どのような文化遺産に登録されている？",
+        "options": [
+          "世界自然遺産",
+          "日本の国宝",
+          "ユネスコ無形文化遺産",
+          "国定公園"
+        ],
+        "correctIndex": 2,
+        "explanation": "能は現在もユネスコ無形文化遺産に登録されています。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q20",
+        "question": "狂言はどのような場面で演じられた？",
+        "options": [
+          "能の前に演じた",
+          "能と別の場所で演じた",
+          "能の合間に演じた",
+          "祭りの時に演じた"
+        ],
+        "correctIndex": 2,
+        "explanation": "狂言は能の合間に演じられ、能の格式高い世界と対照的な庶民的な笑いを提供しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q21",
+        "question": "金閣と銀閣を建てた人物はそれぞれだれ？",
+        "options": [
+          "どちらも足利義満",
+          "金閣は足利尊氏、銀閣は足利義満",
+          "どちらも足利義政",
+          "金閣は足利義満、銀閣は足利義政"
+        ],
+        "correctIndex": 3,
+        "explanation": "金閣は第3代将軍足利義満が、銀閣は第8代将軍足利義政が建てました。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q22",
+        "question": "猿楽から能が大成した過程で重要だった人物の組み合わせは？",
+        "options": [
+          "雪舟と世阿弥",
+          "法然と親鸞",
+          "足利尊氏と足利義政",
+          "観阿弥・世阿弥と足利義満"
+        ],
+        "correctIndex": 3,
+        "explanation": "観阿弥・世阿弥親子が猿楽から能を大成し、足利義満がそれを保護しました。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q23",
+        "question": "北山文化を象徴する建物と東山文化を象徴する建物は？",
+        "options": [
+          "法隆寺と東大寺",
+          "中尊寺と鹿苑寺",
+          "平等院と厳島神社",
+          "金閣と銀閣"
+        ],
+        "correctIndex": 3,
+        "explanation": "北山文化を象徴する金閣と東山文化を象徴する銀閣は、対照的な文化の特徴を表しています。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

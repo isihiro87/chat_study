@@ -1,0 +1,250 @@
+{
+  "subjectId": "history",
+  "eraId": "ww2-japan",
+  "topicId": "ww2-outbreak",
+  "name": "第二次世界大戦の勃発",
+  "subtitle": "ヨーロッパの炎",
+  "icon": "🔥",
+  "order": 1,
+  "chatId": "ww2-outbreak",
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "第二次世界大戦",
+      "back": "1939〜45年に世界規模で行われた戦争は？",
+      "explanation": "枢軸国と連合国の戦い。約6000万人が犠牲となった。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "1939年9月1日",
+      "back": "第二次世界大戦が始まった日は？",
+      "explanation": "ドイツがポーランドに侵攻した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "ポーランド侵攻",
+      "back": "1939年9月、ドイツが始めた軍事行動は？",
+      "explanation": "イギリスとフランスはドイツに宣戦布告し第二次世界大戦が始まった。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc4",
+      "front": "独ソ不可侵条約",
+      "back": "1939年8月、ドイツとソ連が結んだ条約は？",
+      "explanation": "両国の戦争回避を約束。ヒトラーがポーランド侵攻を決断した背景。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc5",
+      "front": "枢軸国",
+      "back": "第二次世界大戦でドイツ・イタリア・日本など中心国は？",
+      "explanation": "ファシズム諸国が中心。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc6",
+      "front": "連合国",
+      "back": "第二次世界大戦でアメリカ・イギリス・ソ連・中国など反枢軸国は？",
+      "explanation": "民主主義国家と社会主義国家が手を結んだ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc8",
+      "front": "1940年",
+      "back": "ドイツがフランスを降伏させ、日独伊三国同盟が結ばれた年は？",
+      "explanation": "ナチス・ドイツが最盛期を迎えた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc9",
+      "front": "独ソ戦",
+      "back": "1941年6月、ドイツがソ連に攻め込んだ戦いは？",
+      "explanation": "独ソ不可侵条約を破棄してソ連を攻撃した。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc10",
+      "front": "1941年",
+      "back": "独ソ戦と太平洋戦争が始まった年は？",
+      "explanation": "戦争が世界規模に拡大した転換点。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc12",
+      "front": "ホロコースト",
+      "back": "ナチス・ドイツによるユダヤ人大量虐殺は？",
+      "explanation": "約600万人のユダヤ人が殺害されたとされる。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc13",
+      "front": "アウシュビッツ",
+      "back": "ナチスが作った最大の強制収容所は？",
+      "explanation": "現在のポーランドにあり、多くのユダヤ人が殺害された。",
+      "difficulty": "standard"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "第二次世界大戦が始まった年は？",
+        "options": [
+          "1937年",
+          "1945年",
+          "1941年",
+          "1939年"
+        ],
+        "correctIndex": 3,
+        "explanation": "1939年にドイツのポーランド侵攻で始まりました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "第二次世界大戦で日本が属した陣営は？",
+        "options": [
+          "連合国",
+          "枢軸国",
+          "中立国",
+          "三国協商"
+        ],
+        "correctIndex": 1,
+        "explanation": "日独伊が枢軸国の中心でした。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "1939年9月、ドイツが侵攻したのはどこ？",
+        "options": [
+          "フランス",
+          "ポーランド",
+          "ソ連",
+          "イギリス"
+        ],
+        "correctIndex": 1,
+        "explanation": "ポーランド侵攻で開戦しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "ナチス・ドイツによるユダヤ人大量虐殺は？",
+        "options": [
+          "ホロコースト",
+          "アパルトヘイト",
+          "ポグロム",
+          "ジェノサイド条約"
+        ],
+        "correctIndex": 0,
+        "explanation": "ホロコーストで約600万人が犠牲となりました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q5",
+        "question": "1939年に結ばれたドイツとソ連の条約は？",
+        "options": [
+          "独ソ同盟条約",
+          "独ソ不可侵条約",
+          "ベルリン条約",
+          "リガ条約"
+        ],
+        "correctIndex": 1,
+        "explanation": "独ソ不可侵条約がポーランド侵攻の前提でした。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q6",
+        "question": "ドイツが用いた高速戦法は？",
+        "options": [
+          "塹壕戦",
+          "電撃戦",
+          "ゲリラ戦",
+          "海上戦"
+        ],
+        "correctIndex": 1,
+        "explanation": "戦車と航空機を組み合わせた電撃戦でした。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q7",
+        "question": "ドイツがソ連に攻め込んだ年は？",
+        "options": [
+          "1939年",
+          "1940年",
+          "1941年",
+          "1943年"
+        ],
+        "correctIndex": 2,
+        "explanation": "1941年6月に独ソ戦が始まりました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q8",
+        "question": "ナチスが作った最大の強制収容所は？",
+        "options": [
+          "アウシュビッツ",
+          "ダッハウ",
+          "ブッヘンヴァルト",
+          "トレブリンカ"
+        ],
+        "correctIndex": 0,
+        "explanation": "アウシュビッツが最も知られています。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q9",
+        "question": "第二次世界大戦で連合国に含まれない国は？",
+        "options": [
+          "アメリカ",
+          "イギリス",
+          "ソ連",
+          "イタリア"
+        ],
+        "correctIndex": 3,
+        "explanation": "イタリアは枢軸国でした。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q10",
+        "question": "ポーランド侵攻に対してイギリス・フランスが取った行動は？",
+        "options": [
+          "黙認",
+          "ドイツに宣戦布告",
+          "ソ連と同盟",
+          "アメリカに援助要請のみ"
+        ],
+        "correctIndex": 1,
+        "explanation": "宣戦布告し第二次世界大戦が始まりました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q11",
+        "question": "ドイツがフランスを降伏させた年は？",
+        "options": [
+          "1939年",
+          "1940年",
+          "1941年",
+          "1944年"
+        ],
+        "correctIndex": 1,
+        "explanation": "1940年に降伏させました。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q12",
+        "question": "ホロコーストで殺害されたユダヤ人の数はおよそ？",
+        "options": [
+          "10万人",
+          "100万人",
+          "600万人",
+          "5000万人"
+        ],
+        "correctIndex": 2,
+        "explanation": "約600万人とされています。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

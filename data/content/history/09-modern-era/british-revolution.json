@@ -1,0 +1,337 @@
+{
+  "subjectId": "history",
+  "eraId": "modern-era",
+  "topicId": "british-revolution",
+  "name": "イギリスの革命",
+  "subtitle": "議会政治と立憲君主制の確立",
+  "icon": "👑",
+  "order": 1,
+  "chatId": "british-revolution",
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "啓蒙思想",
+      "back": "人間の理性で政治や社会をより良くできるという考え方は？",
+      "explanation": "17〜18世紀のヨーロッパで広まり、革命に大きな影響を与えた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "ロック",
+      "back": "抵抗権を主張したイギリスの思想家は？",
+      "explanation": "「政府が国民の権利を守らないなら、国民は政府を変える権利がある」と主張。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "モンテスキュー",
+      "back": "三権分立を提唱したフランスの思想家は？",
+      "explanation": "立法・行政・司法の三つに権力を分けることで暴走を防ぐと主張。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "ルソー",
+      "back": "国民主権を唱えたフランスの思想家は？",
+      "explanation": "「国の政治を決める権利（主権）は国民にある」と主張。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc5",
+      "front": "ピューリタン革命",
+      "back": "クロムウェルが率いる議会派が国王軍に勝利した革命は？",
+      "explanation": "1649年に国王チャールズ1世を処刑し、一時的に共和制となった。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc6",
+      "front": "クロムウェル",
+      "back": "ピューリタン革命で議会派を率いた指導者は？",
+      "explanation": "議会派を勝利に導き、共和制時代のイギリスを指導した。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc7",
+      "front": "名誉革命",
+      "back": "血を流さずに国王を追放したイギリスの革命は？",
+      "explanation": "1688年、議会が国王ジェームズ2世を追放した無血革命。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc8",
+      "front": "権利章典",
+      "back": "国王が議会の認めた法律に従うことを約束した文書は？",
+      "explanation": "名誉革命後の1689年に制定され、立憲君主制の基礎となった。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc9",
+      "front": "立憲君主制",
+      "back": "憲法に基づいて君主の権力が制限される政治体制は？",
+      "explanation": "イギリスで確立。国王は「君臨すれども統治せず」となった。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc10",
+      "front": "三権分立",
+      "back": "立法・行政・司法の三つに権力を分ける仕組みは？",
+      "explanation": "モンテスキューが提唱した、権力の集中による暴走を防ぐ仕組み。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc11",
+      "front": "チャールズ1世",
+      "back": "ピューリタン革命で処刑されたイギリス国王は？",
+      "explanation": "議会派に敗れ、1649年に処刑された。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc12",
+      "front": "ジェームズ2世",
+      "back": "名誉革命で追放されたイギリス国王は？",
+      "explanation": "1688年、議会が武力衝突なしに追放した。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc13",
+      "front": "ピューリタン",
+      "back": "17世紀イギリスの革命を主導した、カルバン派の信徒たちは？",
+      "explanation": "カルヴァン派のプロテスタント（清教徒）のこと。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc14",
+      "front": "社会契約説",
+      "back": "ロックが唱えた、国家は人々の合意によって作られるという考え方は？",
+      "explanation": "政府は国民との契約により成り立つという理論。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc15",
+      "front": "抵抗権",
+      "back": "政府が国民の権利を守らない場合、国民が政府を変える権利は？",
+      "explanation": "ロックが主張し、アメリカ独立革命に大きな影響を与えた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc16",
+      "front": "1689年",
+      "back": "権利章典が制定された年は？",
+      "explanation": "名誉革命の翌年に制定され、立憲君主制の基礎となった。",
+      "difficulty": "advanced"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "「血を流さない革命」として知られるイギリスの革命は？",
+        "options": [
+          "ピューリタン革命",
+          "産業革命",
+          "フランス革命",
+          "名誉革命"
+        ],
+        "correctIndex": 3,
+        "explanation": "名誉革命は1688年に起こり、武力衝突なしに国王を追放した革命です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "抵抗権を主張した思想家は？",
+        "options": [
+          "モンテスキュー",
+          "ナポレオン",
+          "ルソー",
+          "ロック"
+        ],
+        "correctIndex": 3,
+        "explanation": "ロックは抵抗権を主張し、アメリカ独立やフランス革命に影響を与えました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "三権分立を唱えた思想家は？",
+        "options": [
+          "モンテスキュー",
+          "ロック",
+          "ルソー",
+          "クロムウェル"
+        ],
+        "correctIndex": 0,
+        "explanation": "モンテスキューは権力を三つに分けることで暴走を防ぐと主張しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "ピューリタン革命で議会派を率いた指導者は？",
+        "options": [
+          "ルソー",
+          "ロック",
+          "クロムウェル",
+          "ワシントン"
+        ],
+        "correctIndex": 2,
+        "explanation": "クロムウェルが議会派を率い、国王軍に勝利しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q5",
+        "question": "名誉革命後、国王が議会に従うことを約束した文書は？",
+        "options": [
+          "人権宣言",
+          "権利章典",
+          "独立宣言",
+          "ナポレオン法典"
+        ],
+        "correctIndex": 1,
+        "explanation": "権利章典により立憲君主制の基礎が築かれました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q6",
+        "question": "国民主権を唱えた思想家は？",
+        "options": [
+          "モンテスキュー",
+          "クロムウェル",
+          "ロック",
+          "ルソー"
+        ],
+        "correctIndex": 3,
+        "explanation": "ルソーは国民主権を唱えました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q7",
+        "question": "ピューリタン革命で処刑された国王は？",
+        "options": [
+          "ジェームズ1世",
+          "チャールズ1世",
+          "ジェームズ2世",
+          "チャールズ2世"
+        ],
+        "correctIndex": 1,
+        "explanation": "チャールズ1世は1649年に処刑されました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q8",
+        "question": "ピューリタンとは何か？",
+        "options": [
+          "カトリックの聖職者",
+          "カルヴァン派のプロテスタント",
+          "ルター派の信者",
+          "イギリス国教会の信者"
+        ],
+        "correctIndex": 1,
+        "explanation": "ピューリタンはカルヴァン派のプロテスタント（清教徒）です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q9",
+        "question": "ピューリタン革命後の政治体制は？",
+        "options": [
+          "絶対王政",
+          "共和制",
+          "立憲君主制",
+          "封建制"
+        ],
+        "correctIndex": 1,
+        "explanation": "国王処刑後、共和制が一時的に成立しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q10",
+        "question": "名誉革命で追放された国王は？",
+        "options": [
+          "チャールズ1世",
+          "チャールズ2世",
+          "ジェームズ2世",
+          "ジェームズ1世"
+        ],
+        "correctIndex": 2,
+        "explanation": "1688年にジェームズ2世が追放されました。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q11",
+        "question": "ロックの思想が影響を与えた革命は？",
+        "options": [
+          "産業革命と農業革命",
+          "ピューリタン革命と名誉革命",
+          "アメリカ独立革命とフランス革命",
+          "ロシア革命と中国革命"
+        ],
+        "correctIndex": 2,
+        "explanation": "ロックの抵抗権はアメリカ独立とフランス革命に影響を与えました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q12",
+        "question": "権利章典が制定された年は？",
+        "options": [
+          "1649年",
+          "1688年",
+          "1689年",
+          "1776年"
+        ],
+        "correctIndex": 2,
+        "explanation": "1689年に制定されました。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q13",
+        "question": "啓蒙思想の基本的な考え方は？",
+        "options": [
+          "王権は神から与えられる",
+          "理性で社会をより良くできる",
+          "身分制度は自然の秩序",
+          "宗教が政治を導くべき"
+        ],
+        "correctIndex": 1,
+        "explanation": "啓蒙思想は人間の理性に基づく考え方です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q14",
+        "question": "名誉革命後に確立された政治の仕組みは？",
+        "options": [
+          "絶対王政",
+          "共和制",
+          "封建制",
+          "議会政治"
+        ],
+        "correctIndex": 3,
+        "explanation": "権利章典により議会政治が確立しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q15",
+        "question": "三権分立に含まれないのは？",
+        "options": [
+          "立法権",
+          "行政権",
+          "司法権",
+          "軍事権"
+        ],
+        "correctIndex": 3,
+        "explanation": "三権分立は立法・行政・司法の三つです。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q16",
+        "question": "啓蒙思想家のうちイギリス出身なのは？",
+        "options": [
+          "モンテスキュー",
+          "ルソー",
+          "ロック",
+          "ナポレオン"
+        ],
+        "correctIndex": 2,
+        "explanation": "ロックはイギリス、モンテスキューとルソーはフランスです。",
+        "difficulty": "basic"
+      }
+    ]
+  }
+}

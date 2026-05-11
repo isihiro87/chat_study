@@ -1,0 +1,437 @@
+{
+  "subjectId": "history",
+  "eraId": "medieval-world",
+  "topicId": "muromachi-people",
+  "name": "室町時代の民衆",
+  "subtitle": "惣の自治と土一揆",
+  "icon": "🏘️",
+  "order": 7,
+  "chatId": "muromachi-people",
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "惣（そう）",
+      "back": "村の有力な農民を中心に作られた、村の自治組織を何という？",
+      "explanation": "寄合で村の運営を話し合い、掟を定めて自分たちの力で村を運営した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "土一揆",
+      "back": "農民や馬借が借金帳消しを求めて蜂起した運動は？",
+      "explanation": "土倉や酒屋などの高利貸しを襲撃し、幕府に徳政令の発布を求めた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "町衆",
+      "back": "京都の自治を担い、祇園祭を運営した裕福な商工業者は？",
+      "explanation": "応仁の乱で荒廃した京都を復興させ、祇園祭を復活させた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "正長の土一揆",
+      "back": "1428年に起こった日本最初の大規模な土一揆は？",
+      "explanation": "近畿地方一帯で土倉や酒屋を襲撃した日本初の大規模な農民蜂起。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc5",
+      "front": "寄合",
+      "back": "惣の村人が集まって村の運営を話し合う会議は？",
+      "explanation": "重要事項を合議で決定する会議で、農民の自治意識の高さを示す。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc6",
+      "front": "徳政令",
+      "back": "土一揆で農民が幕府に求めた、借金帳消しの法令は？",
+      "explanation": "借金を帳消しにする法令で、鎌倉時代の永仁の徳政令が先例。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc7",
+      "front": "おきて（掟）",
+      "back": "惣が定めた村の規約を何という？",
+      "explanation": "文書で明確に定められた村の規約で、農民の自治意識の高さを示す。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc8",
+      "front": "会合衆",
+      "back": "堺で合議制の自治を行った有力商人の組織は？",
+      "explanation": "有力商人が話し合いで方針を決定し、堺を「自由都市」として運営した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc9",
+      "front": "入会地",
+      "back": "惣が共同で管理・利用した山林や野原は？",
+      "explanation": "村人が共同で薪や草を採取する場所で、惣が管理ルールを定めた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc10",
+      "front": "祇園祭",
+      "back": "町衆が復興・運営した京都の有名な祭りは？",
+      "explanation": "応仁の乱で中断した後、町衆の力で復活し現在まで続く京都の代表的な祭り。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc11",
+      "front": "堺",
+      "back": "会合衆による合議制の自治で「自由都市」として知られた港町は？",
+      "explanation": "大阪府にある港町。濠で囲まれ、戦国大名にも属さない独自の自治を行った。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc12",
+      "front": "博多",
+      "back": "年行司が自治を行った福岡県の港町は？",
+      "explanation": "大陸との貿易で栄え、有力商人の年行司が自治を担った港町。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc13",
+      "front": "年行司",
+      "back": "博多で自治を担った有力商人の組織は？",
+      "explanation": "堺の会合衆に相当する組織で、博多の港町の自治を行った。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc14",
+      "front": "1428年",
+      "back": "正長の土一揆が起こった年は？",
+      "explanation": "日本で最初の大規模な土一揆が近畿地方で発生した年。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc15",
+      "front": "土倉・酒屋",
+      "back": "土一揆の攻撃対象となった高利貸しの業者を2つ答えよ",
+      "explanation": "高利で金を貸していた業者で、農民の借金苦の原因とされた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc16",
+      "front": "嘉吉の土一揆",
+      "back": "1441年に起こり、幕府が初めて徳政令を出した土一揆は？",
+      "explanation": "幕府が農民の要求に応じて初めて徳政令を発布した画期的な出来事。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc17",
+      "front": "馬借",
+      "back": "土一揆に農民とともに参加した運送業者は？",
+      "explanation": "運送業者として各地を行き来し、農民とともに蜂起に加わった。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc18",
+      "front": "応仁の乱",
+      "back": "京都が焼け野原になり、町衆が復興に力を発揮した戦乱は？",
+      "explanation": "1467年から11年間続いた戦乱で、京都の多くの寺社が焼失した。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc19",
+      "front": "濠（ほり）",
+      "back": "堺の周りに掘られた防御設備は？",
+      "explanation": "堺の自治を守るために周囲に掘られた防御施設で、独立性の象徴。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc20",
+      "front": "自由都市",
+      "back": "堺のように有力商人が自治で運営する都市を何と呼ぶ？",
+      "explanation": "大名の支配を受けず、商人自身が合議で都市を運営する形態。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc21",
+      "front": "合議制",
+      "back": "堺の会合衆が自治を行った際の意思決定の方法は？",
+      "explanation": "有力商人が話し合いで方針を決める仕組みで、一人の独裁ではなかった。",
+      "difficulty": "advanced"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "村の有力な農民を中心に作られた、室町時代の自治組織を何という？",
+        "options": [
+          "座",
+          "町衆",
+          "惣",
+          "寄合"
+        ],
+        "correctIndex": 2,
+        "explanation": "惣は村の自治組織で、寄合を開いて村の運営を話し合いました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "1428年に起こった、日本最初の大規模な土一揆は？",
+        "options": [
+          "正長の土一揆",
+          "山城の国一揆",
+          "加賀の一向一揆",
+          "嘉吉の土一揆"
+        ],
+        "correctIndex": 0,
+        "explanation": "正長の土一揆は1428年に近畿地方で起こった日本最初の大規模な土一揆です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "京都で自治を担い、祇園祭を復興させた裕福な商工業者を何という？",
+        "options": [
+          "馬借",
+          "地頭",
+          "御家人",
+          "町衆"
+        ],
+        "correctIndex": 3,
+        "explanation": "町衆は京都の裕福な商工業者で、応仁の乱で荒れた京都の復興に力を発揮しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "土一揆で農民たちが幕府に求めた、借金の帳消しを命じる法令は？",
+        "options": [
+          "分国法",
+          "武家諸法度",
+          "御成敗式目",
+          "徳政令"
+        ],
+        "correctIndex": 3,
+        "explanation": "徳政令は借金の帳消しを命じる法令で、土一揆の農民たちが幕府に発布を求めました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q5",
+        "question": "堺で合議制の自治を行った有力商人の組織を何という？",
+        "options": [
+          "会合衆",
+          "年行司",
+          "町衆",
+          "座"
+        ],
+        "correctIndex": 0,
+        "explanation": "会合衆は堺で合議制の自治を行った組織で、堺は「自由都市」として知られました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q6",
+        "question": "惣の村人が集まって村の運営を話し合う会議を何という？",
+        "options": [
+          "座",
+          "寄合",
+          "一揆",
+          "評定"
+        ],
+        "correctIndex": 1,
+        "explanation": "寄合は惣の村人が集まって村の重要な問題を合議で決定する会議です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q7",
+        "question": "惣が定めた村の規約を何という？",
+        "options": [
+          "分国法",
+          "おきて",
+          "御成敗式目",
+          "徳政令"
+        ],
+        "correctIndex": 1,
+        "explanation": "おきて（掟）は惣が定めた村の規約で、文書で明確にされました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q8",
+        "question": "土一揆の参加者として農民のほかに加わった人々は？",
+        "options": [
+          "武士",
+          "僧侶",
+          "馬借",
+          "貴族"
+        ],
+        "correctIndex": 2,
+        "explanation": "土一揆には農民のほかに馬借（運送業者）も参加しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q9",
+        "question": "応仁の乱で荒廃した京都を復興させたのは主にどのような人々？",
+        "options": [
+          "幕府の武士",
+          "朝廷の貴族",
+          "町衆",
+          "僧侶"
+        ],
+        "correctIndex": 2,
+        "explanation": "応仁の乱で荒れた京都を復興させたのは町衆の力でした。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q10",
+        "question": "惣が共同で管理・利用した山林や野原を何という？",
+        "options": [
+          "荘園",
+          "公領",
+          "入会地",
+          "私有地"
+        ],
+        "correctIndex": 2,
+        "explanation": "入会地は惣が共同で管理・利用した山林や野原で、薪や草などを採取しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q11",
+        "question": "1441年に幕府が初めて徳政令を出すきっかけとなった土一揆は？",
+        "options": [
+          "正長の土一揆",
+          "嘉吉の土一揆",
+          "山城の国一揆",
+          "加賀の一向一揆"
+        ],
+        "correctIndex": 1,
+        "explanation": "嘉吉の土一揆（1441年）では幕府が初めて徳政令を出して農民の要求に応じました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q12",
+        "question": "博多で自治を担った有力商人の組織を何という？",
+        "options": [
+          "会合衆",
+          "町衆",
+          "年行司",
+          "座"
+        ],
+        "correctIndex": 2,
+        "explanation": "年行司は博多で自治を担った有力商人の組織です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q13",
+        "question": "惣が用水の管理を共同で行った理由は？",
+        "options": [
+          "年貢を増やすため",
+          "水を分配するため",
+          "雨乞いのため",
+          "外敵に備えるため"
+        ],
+        "correctIndex": 1,
+        "explanation": "農業に欠かせない水を公平に分配し、効率的に利用するために共同管理が行われました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q15",
+        "question": "室町時代に港町として発展し自治が行われた代表的な都市を2つ選ぶと？",
+        "options": [
+          "京都と奈良",
+          "堺と博多",
+          "鎌倉と平泉",
+          "大宰府と長崎"
+        ],
+        "correctIndex": 1,
+        "explanation": "堺（大阪府）と博多（福岡県）はともに貿易で栄えた港町で、有力商人による自治が行われました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q17",
+        "question": "正長の土一揆が近畿地方一帯に広がった攻撃対象は？",
+        "options": [
+          "土倉と酒屋",
+          "寺社と神社",
+          "城と砦",
+          "朝廷と幕府"
+        ],
+        "correctIndex": 0,
+        "explanation": "正長の土一揆では近畿地方一帯で高利貸しの土倉や酒屋が襲撃されました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q18",
+        "question": "堺の周りに掘られた防御設備は何？",
+        "options": [
+          "石垣",
+          "城壁",
+          "濠（ほり）",
+          "土塁"
+        ],
+        "correctIndex": 2,
+        "explanation": "堺は周囲に濠を掘って防御し、自治を守る「自由都市」として独自の運営を行いました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q19",
+        "question": "徳政令の具体的な内容は？",
+        "options": [
+          "借金の帳消し",
+          "年貢の増税",
+          "土地の没収",
+          "農業の禁止"
+        ],
+        "correctIndex": 0,
+        "explanation": "徳政令は借金の帳消しを命じる法令で、土一揆の農民たちが幕府に発布を求めました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q20",
+        "question": "町衆が復興した京都の有名な祭りは？",
+        "options": [
+          "祇園祭",
+          "天神祭",
+          "葵祭",
+          "時代祭"
+        ],
+        "correctIndex": 0,
+        "explanation": "祇園祭は応仁の乱で中断した後、町衆の力で復活した京都の有名な祭りです。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q21",
+        "question": "惣の掟（おきて）の特徴として重要な点は？",
+        "options": [
+          "口頭で伝えた",
+          "幕府が作成した",
+          "文書で明確に定めた",
+          "仏教の教えに基づいた"
+        ],
+        "correctIndex": 2,
+        "explanation": "惣の掟は文書で明確に定められた村の規約で、農民の自治意識の高さを示しています。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q22",
+        "question": "室町時代の社会で民衆が力を持つようになった背景は？",
+        "options": [
+          "農業や商業の発展で経済力が向上した",
+          "幕府が民衆に自治の権限を積極的に与えた",
+          "外国貿易で民衆が富を得た",
+          "天皇が民衆の自治を認める命令を出した"
+        ],
+        "correctIndex": 0,
+        "explanation": "農業や商業の発展で経済力が向上し、農民や商人が団結して自治を行う力を持つようになりました。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q24",
+        "question": "会合衆が行った自治の方法は？",
+        "options": [
+          "独裁制",
+          "選挙制",
+          "世襲制",
+          "合議制"
+        ],
+        "correctIndex": 3,
+        "explanation": "会合衆は合議制で堺の自治を行いました。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

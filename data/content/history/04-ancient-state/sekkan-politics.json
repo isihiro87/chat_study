@@ -1,0 +1,497 @@
+{
+  "subjectId": "history",
+  "eraId": "ancient-state",
+  "topicId": "sekkan-politics",
+  "name": "摂関政治",
+  "subtitle": "藤原氏の栄華",
+  "icon": "👑",
+  "order": 7,
+  "chatId": "sekkan-politics",
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "摂関政治",
+      "back": "藤原氏が娘を天皇のきさきにして実権を握った政治を何という？",
+      "explanation": "藤原氏が摂政や関白となって行った政治。天皇との外戚関係を利用した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "摂政",
+      "back": "幼い天皇に代わって政治を行う役職は？",
+      "explanation": "天皇が幼いときなどに代わって政治を行う役職。関白との違いを問われやすい。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "関白",
+      "back": "成長した天皇を補佐する役職を何という？",
+      "explanation": "成人した天皇を補佐して政治を行う役職。摂政と区別する。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "藤原道長",
+      "back": "摂関政治の全盛期を築いた人物は？",
+      "explanation": "摂関政治の全盛期を築いた藤原氏の人物。娘を天皇の后にし、外戚として力を持った。望月の歌で有名。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc5",
+      "front": "藤原頼通",
+      "back": "道長の子で、平等院鳳凰堂を建立した人物は？",
+      "explanation": "藤原道長の子で、平等院鳳凰堂を建てた人物。摂関政治と国風文化に関係。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc6",
+      "front": "外戚",
+      "back": "天皇の母方の親戚のことを何という？",
+      "explanation": "母方の親戚のこと。藤原氏は天皇の外戚となって力を持った。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc7",
+      "front": "望月（満月）",
+      "back": "藤原道長は歌の中で自分の栄華を何にたとえた？",
+      "explanation": "欠けることのない満月に自分の栄華をたとえた。藤原道長の権勢を象徴する歌。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc8",
+      "front": "寝殿造",
+      "back": "平安時代の貴族の住まいに見られる建築様式は？",
+      "explanation": "平安時代の貴族の住宅様式。中央に寝殿を置き渡り廊下で対屋を結ぶ。庭に池を配した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc9",
+      "front": "浄土信仰",
+      "back": "念仏を唱えて極楽浄土に往生することを願う信仰は？",
+      "explanation": "阿弥陀仏にすがり、死後に極楽浄土へ生まれ変わることを願う信仰。平安時代後期に広まった。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc10",
+      "front": "阿弥陀如来",
+      "back": "浄土信仰で信仰の対象とされた仏は？",
+      "explanation": "浄土信仰で信仰の対象とされた仏。極楽浄土に導いてくれると信じられた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc11",
+      "front": "平等院鳳凰堂",
+      "back": "藤原頼通が宇治に建てた阿弥陀堂は？",
+      "explanation": "藤原頼通が宇治に建てた阿弥陀堂。浄土信仰と結びつく。10円硬貨のデザインで有名。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc12",
+      "front": "宋",
+      "back": "10世紀に中国を統一した王朝は？",
+      "explanation": "10世紀に中国を統一した王朝。日宋貿易で宋銭や陶磁器が日本に輸入された。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc13",
+      "front": "院政",
+      "back": "上皇が中心となって政治を行うしくみは？",
+      "explanation": "上皇が院で政治を行うしくみ。白河上皇から本格化。摂関政治の後。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc14",
+      "front": "白河上皇",
+      "back": "院政を本格的に始めた上皇は？",
+      "explanation": "院政を始めた上皇。藤原氏の力をおさえようとした。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc15",
+      "front": "末法思想",
+      "back": "仏教の教えが衰える時代に入るという考え方は？",
+      "explanation": "仏教の教えが衰え、世の中が乱れると考える思想。浄土信仰が広まる背景。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc16",
+      "front": "十二単",
+      "back": "平安貴族の女性が着用した正装は？",
+      "explanation": "平安貴族の女性が着用した正装。何枚もの衣を重ねた華やかな装い。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc17",
+      "front": "日宋貿易",
+      "back": "宋との間で行われた貿易を何という？",
+      "explanation": "宋との間で行われた貿易。宋銭・陶磁器などが輸入され、金・銀・刀剣が輸出された。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc18",
+      "front": "高麗",
+      "back": "10世紀に朝鮮半島を統一した国は？",
+      "explanation": "10世紀に朝鮮半島を統一した国。新羅に代わって半島を支配した。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc19",
+      "front": "1053年",
+      "back": "平等院鳳凰堂が建立された年は？",
+      "explanation": "藤原頼通が平等院鳳凰堂を建立した年。浄土信仰が広まった時代。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc20",
+      "front": "4人",
+      "back": "藤原道長は何人の娘を天皇に嫁がせたか？",
+      "explanation": "藤原道長は4人の娘を天皇に嫁がせて外戚の地位を確立した。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc21",
+      "front": "11世紀（初頭）",
+      "back": "藤原道長の時代は何世紀か？",
+      "explanation": "藤原道長が摂関政治の全盛期を築いたのは11世紀初頭。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc22",
+      "front": "宇治（京都府）",
+      "back": "平等院鳳凰堂が建てられた場所は？",
+      "explanation": "平等院鳳凰堂は京都府宇治市に建てられた。10円硬貨のデザインで有名。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc23",
+      "front": "宋銭・陶磁器",
+      "back": "日宋貿易でおもに輸入されたものは？",
+      "explanation": "日宋貿易では宋銭・陶磁器・書籍が輸入され、日本経済に影響を与えた。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc24",
+      "front": "中臣鎌足",
+      "back": "藤原姓を最初に賜った人物は？",
+      "explanation": "中臣鎌足が大化の改新の功績で天智天皇から藤原姓を賜った。藤原氏の祖。",
+      "difficulty": "advanced"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "藤原氏が摂政や関白となって行った政治を何といいますか。",
+        "options": [
+          "院政",
+          "共和政治",
+          "幕府政治",
+          "摂関政治"
+        ],
+        "correctIndex": 3,
+        "explanation": "摂関政治は藤原氏が天皇との外戚関係を利用して行いました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "天皇が幼いときなどに代わって政治を行う役職はどれですか。",
+        "options": [
+          "関白",
+          "摂政",
+          "征夷大将軍",
+          "国司"
+        ],
+        "correctIndex": 1,
+        "explanation": "摂政は天皇が幼いときなどに政治を代行します。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "成人した天皇を補佐して政治を行う役職はどれですか。",
+        "options": [
+          "摂政",
+          "関白",
+          "防人",
+          "郡司"
+        ],
+        "correctIndex": 1,
+        "explanation": "関白は成人した天皇を補佐します。摂政と区別しましょう。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "摂関政治の全盛期を築いた藤原氏の人物は誰ですか。",
+        "options": [
+          "藤原道長",
+          "藤原頼通",
+          "中臣鎌足",
+          "藤原清衡"
+        ],
+        "correctIndex": 0,
+        "explanation": "藤原道長は娘を天皇の后にし、外戚として大きな力を持ちました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q5",
+        "question": "藤原頼通が宇治に建てた阿弥陀堂はどれですか。",
+        "options": [
+          "法隆寺",
+          "東大寺",
+          "平等院鳳凰堂",
+          "延暦寺"
+        ],
+        "correctIndex": 2,
+        "explanation": "平等院鳳凰堂は浄土信仰を背景に建てられました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q6",
+        "question": "平安時代の貴族の住居の建築様式は？",
+        "options": [
+          "校倉造",
+          "書院造",
+          "数寄屋造",
+          "寝殿造"
+        ],
+        "correctIndex": 3,
+        "explanation": "寝殿造は中央に寝殿を置き、渡り廊下で周囲の建物を結ぶ様式です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q7",
+        "question": "藤原道長が自らの栄華をたとえた「この世をば…」の歌で、何にたとえた？",
+        "options": [
+          "朝日",
+          "富士山の頂上",
+          "満開の桜",
+          "望月"
+        ],
+        "correctIndex": 3,
+        "explanation": "道長は自分の栄華を欠けることのない満月にたとえました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q8",
+        "question": "天皇の母方の親戚のことを何という？",
+        "options": [
+          "関白",
+          "外戚",
+          "摂政",
+          "太政大臣"
+        ],
+        "correctIndex": 1,
+        "explanation": "外戚は天皇の母方の親戚で、藤原氏はこの立場を利用して政治の実権を握りました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q9",
+        "question": "10世紀に中国を統一し、日本との貿易も行った王朝は？",
+        "options": [
+          "唐",
+          "隋",
+          "宋",
+          "元"
+        ],
+        "correctIndex": 2,
+        "explanation": "宋は10世紀に中国を統一し、日宋貿易で宋銭や陶磁器が日本に輸入されました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q10",
+        "question": "浄土信仰で信仰の対象とされた仏は？",
+        "options": [
+          "釈迦如来",
+          "大日如来",
+          "阿弥陀如来",
+          "薬師如来"
+        ],
+        "correctIndex": 2,
+        "explanation": "浄土信仰では阿弥陀如来を信仰し、極楽浄土への往生を願いました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q11",
+        "question": "摂関政治が衰退した後に始まった、上皇が実権を握る政治は？",
+        "options": [
+          "幕府政治",
+          "天皇政治",
+          "執権政治",
+          "院政"
+        ],
+        "correctIndex": 3,
+        "explanation": "院政は退位した天皇（上皇）が直接政治の実権を握る政治形態です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q12",
+        "question": "藤原氏が政治の実権を握れた理由として最も適切なものはどれですか。",
+        "options": [
+          "天皇の外戚となったから",
+          "武士として幕府を開いたから",
+          "中国を統一したから",
+          "すべての荘園を廃止したから"
+        ],
+        "correctIndex": 0,
+        "explanation": "藤原氏は天皇の母方の親戚となり、摂政・関白として政治を動かしました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q13",
+        "question": "阿弥陀仏にすがり、極楽浄土に生まれ変わることを願う信仰はどれですか。",
+        "options": [
+          "浄土信仰",
+          "神道",
+          "儒教",
+          "バラモン教"
+        ],
+        "correctIndex": 0,
+        "explanation": "浄土信仰は平安時代後期に広まりました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q15",
+        "question": "藤原氏の摂関政治をおさえるため、上皇が政治を行ったしくみはどれですか。",
+        "options": [
+          "院政",
+          "摂関政治",
+          "律令政治",
+          "共和政治"
+        ],
+        "correctIndex": 0,
+        "explanation": "院政は上皇が院で政治を行うしくみで、白河上皇から本格化しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q16",
+        "question": "院政を本格的に始めた上皇は誰ですか。",
+        "options": [
+          "白河上皇",
+          "桓武天皇",
+          "聖武天皇",
+          "推古天皇"
+        ],
+        "correctIndex": 0,
+        "explanation": "白河上皇は院政を始め、藤原氏の力をおさえました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q17",
+        "question": "藤原道長は何人の娘を天皇に嫁がせたか？",
+        "options": [
+          "2人",
+          "3人",
+          "4人",
+          "5人"
+        ],
+        "correctIndex": 2,
+        "explanation": "藤原道長は4人の娘を天皇に嫁がせ、摂関政治の全盛期を築きました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q18",
+        "question": "摂関政治を行った藤原氏のもとの姓は？",
+        "options": [
+          "物部氏",
+          "蘇我氏",
+          "中臣氏",
+          "大伴氏"
+        ],
+        "correctIndex": 2,
+        "explanation": "藤原氏のもとの姓は中臣氏で、中臣鎌足が藤原姓を賜りました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q19",
+        "question": "平等院鳳凰堂のデザインが描かれている日本の硬貨は？",
+        "options": [
+          "1円硬貨",
+          "5円硬貨",
+          "10円硬貨",
+          "100円硬貨"
+        ],
+        "correctIndex": 2,
+        "explanation": "平等院鳳凰堂のデザインは10円硬貨に描かれています。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q20",
+        "question": "日宋貿易でおもに輸入されたものは？",
+        "options": [
+          "米・絹・木綿",
+          "宋銭・陶磁器・書籍",
+          "刀剣・弓矢・馬",
+          "木材・石材・漆器"
+        ],
+        "correctIndex": 1,
+        "explanation": "日宋貿易では宋銭・陶磁器・書籍などが輸入されました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q22",
+        "question": "摂関政治と院政の違いとして正しいものはどれですか。",
+        "options": [
+          "摂関政治は藤原氏中心、院政は上皇中心",
+          "摂関政治は武士中心、院政は町人中心",
+          "摂関政治は江戸時代、院政は明治時代",
+          "どちらも中国の皇帝が行った政治"
+        ],
+        "correctIndex": 0,
+        "explanation": "摂関政治は藤原氏、院政は上皇が中心となった政治です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q23",
+        "question": "藤原頼通以降に摂関政治が弱まった理由は？",
+        "options": [
+          "他氏との戦争に敗れて勢力を失ったから",
+          "頼通には天皇の后となる娘がいなかったから",
+          "後継ぎの天皇がすべて幼帝だったから",
+          "宋や高麗から政治への干渉があったから"
+        ],
+        "correctIndex": 1,
+        "explanation": "藤原頼通には天皇のきさきとなる娘がおらず、外戚の地位を維持できなくなりました。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q24",
+        "question": "藤原道長の時代はおよそ何世紀か？",
+        "options": [
+          "11世紀初頭",
+          "10世紀",
+          "9世紀",
+          "12世紀"
+        ],
+        "correctIndex": 0,
+        "explanation": "藤原道長の時代はおよそ11世紀初頭です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q25",
+        "question": "平等院鳳凰堂が建てられた場所はどこか？",
+        "options": [
+          "宇治",
+          "京都市内",
+          "奈良",
+          "大阪"
+        ],
+        "correctIndex": 0,
+        "explanation": "平等院鳳凰堂は宇治（京都府）に建てられました。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q26",
+        "question": "日宋貿易でおもに輸出されたものは？",
+        "options": [
+          "宋銭・陶磁器",
+          "仏像・経典",
+          "米・絹",
+          "金・銀・刀剣・扇"
+        ],
+        "correctIndex": 3,
+        "explanation": "日宋貿易では金・銀・刀剣・扇などが輸出されました。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

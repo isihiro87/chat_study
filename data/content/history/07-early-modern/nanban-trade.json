@@ -1,0 +1,331 @@
+{
+  "subjectId": "history",
+  "eraId": "early-modern",
+  "topicId": "nanban-trade",
+  "name": "南蛮貿易とキリスト教",
+  "subtitle": "鉄砲伝来とザビエルの来日",
+  "icon": "⛪",
+  "order": 3,
+  "chatId": "nanban-trade",
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "鉄砲伝来",
+      "back": "1543年、種子島に漂着したポルトガル人によって日本に伝えられた武器は？",
+      "explanation": "戦国大名の戦い方を変えた。近江の国友や和泉の堺で量産された。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "種子島",
+      "back": "1543年に鉄砲が初めて伝来した九州南方の島は？",
+      "explanation": "ポルトガル人を乗せた中国船が漂着し、鉄砲2挺が伝えられた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "ザビエル",
+      "back": "1549年に日本へキリスト教を伝えたイエズス会の宣教師は？",
+      "explanation": "鹿児島に来航した。アンジロウとの出会いがきっかけ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "南蛮貿易",
+      "back": "ポルトガル人・スペイン人との貿易は？",
+      "explanation": "日本は主に銀を輸出し、生糸などを輸入した。南蛮人とはポルトガル人・スペイン人のこと。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc5",
+      "front": "キリシタン大名",
+      "back": "南蛮貿易の利益などを目的にキリスト教を受け入れた大名は？",
+      "explanation": "九州に多く、大村氏・大友宗麟などが代表。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc6",
+      "front": "天正遣欧使節",
+      "back": "1582年、大友宗麟らキリシタン大名がローマ教皇のもとへ送った少年使節は？",
+      "explanation": "4人の少年が派遣され、8年後に帰国した。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc7",
+      "front": "南蛮文化",
+      "back": "ヨーロッパ人との交流によって日本に伝わった文化は？",
+      "explanation": "活版印刷術やヨーロッパ風の絵画などがある。桃山文化の一部。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc8",
+      "front": "ポルトガル",
+      "back": "1543年に種子島に鉄砲を伝えた国は？",
+      "explanation": "スペインとともに大航海時代を先導し、日本との南蛮貿易を行った。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc9",
+      "front": "国友",
+      "back": "鉄砲の生産地として発展した近江の都市は？",
+      "explanation": "堺とともに鉄砲の量産拠点となり、刀鍛冶の技術が鉄砲製造に生かされた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc10",
+      "front": "堺",
+      "back": "鉄砲の生産地として発展した和泉の都市は？",
+      "explanation": "鉄砲の量産地として発展し商業都市としても繁栄した。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc11",
+      "front": "生糸",
+      "back": "南蛮貿易で日本に輸入された衣料の高級原料は？",
+      "explanation": "中国産の生糸が主な輸入品で、日本の絹織物産業を支えた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc13",
+      "front": "長崎",
+      "back": "1580年にイエズス会に寄進された港町は？",
+      "explanation": "大村純忠が寄進し、南蛮貿易の中心地として繁栄した。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc14",
+      "front": "イエズス会",
+      "back": "ザビエルが所属していたカトリックの修道会は？",
+      "explanation": "カトリックの対抗改革で設立され、アジアや南米への布教を積極的に行った。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc15",
+      "front": "活版印刷術",
+      "back": "宣教師が持ち込み「平家物語」等を印刷した技術は？",
+      "explanation": "天草版平家物語がローマ字で印刷され、日本の印刷文化にも影響を与えた。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc16",
+      "front": "南蛮人",
+      "back": "ポルトガル人やスペイン人を日本人が呼んだ呼び名は？",
+      "explanation": "南方から来た外国人を指す呼び名で、南蛮貿易や南蛮文化の名の由来。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc17",
+      "front": "1543年",
+      "back": "鉄砲が伝来した年は？",
+      "explanation": "ポルトガル人によって種子島に伝えられた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc18",
+      "front": "1549年",
+      "back": "ザビエルが日本に来航した年は？",
+      "explanation": "鹿児島に上陸し、日本でのキリスト教布教を開始した。",
+      "difficulty": "standard"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "1543年、種子島に伝えられ、戦国大名の戦い方を変えた武器は何ですか。",
+        "options": [
+          "刀",
+          "大砲",
+          "弓矢",
+          "鉄砲"
+        ],
+        "correctIndex": 3,
+        "explanation": "鉄砲はポルトガル人によって伝えられ、戦国の戦い方に大きな影響を与えました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "1549年に日本へキリスト教を伝えた宣教師はだれですか。",
+        "options": [
+          "ルター",
+          "コロンブス",
+          "ザビエル",
+          "バスコ・ダ・ガマ"
+        ],
+        "correctIndex": 2,
+        "explanation": "ザビエルはイエズス会の宣教師で、鹿児島に来航しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "ポルトガル人やスペイン人との貿易を何といいますか。",
+        "options": [
+          "南蛮貿易",
+          "三角貿易",
+          "日宋貿易",
+          "勘合貿易"
+        ],
+        "correctIndex": 0,
+        "explanation": "当時、日本ではポルトガル人やスペイン人を南蛮人と呼びました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "南蛮貿易で日本が主に輸出したものはどれですか。",
+        "options": [
+          "生糸",
+          "銀",
+          "香辛料",
+          "綿織物"
+        ],
+        "correctIndex": 1,
+        "explanation": "日本は主に銀を輸出し、明の生糸や絹織物などを輸入しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q5",
+        "question": "九州でキリシタン大名が現れた理由として適切なものはどれですか。",
+        "options": [
+          "貿易の利益を得るため",
+          "鎖国を完成させるため",
+          "征夷大将軍になるため",
+          "武士を農民にするため"
+        ],
+        "correctIndex": 0,
+        "explanation": "九州の大名の中には、貿易の利益を得るためキリスト教を受け入れた者がいました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q6",
+        "question": "大友宗麟らが1582年にローマへ送った少年使節を何といいますか。",
+        "options": [
+          "遣唐使",
+          "朝鮮通信使",
+          "岩倉使節団",
+          "天正遣欧使節"
+        ],
+        "correctIndex": 3,
+        "explanation": "天正遣欧使節はキリシタン大名がローマ教皇のもとへ送った使節です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q7",
+        "question": "次の出来事を古い順に並べたものとして正しいものはどれですか。①鉄砲伝来 ②宗教改革の開始 ③ザビエル来日",
+        "options": [
+          "①→②→③",
+          "②→①→③",
+          "③→②→①",
+          "②→③→①"
+        ],
+        "correctIndex": 1,
+        "explanation": "宗教改革は1517年、鉄砲伝来は1543年、ザビエル来日は1549年です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q8",
+        "question": "1543年にポルトガル人が漂着し鉄砲が伝わった島は？",
+        "options": [
+          "九州本島",
+          "種子島",
+          "対馬",
+          "沖縄本島"
+        ],
+        "correctIndex": 1,
+        "explanation": "1543年にポルトガル人が種子島に漂着し鉄砲が伝来しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q9",
+        "question": "1580年にイエズス会に寄進された港町は？",
+        "options": [
+          "堺港",
+          "長崎",
+          "平戸港",
+          "博多港"
+        ],
+        "correctIndex": 1,
+        "explanation": "大村純忠が長崎をイエズス会に寄進し南蛮貿易の中心地となりました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q10",
+        "question": "キリシタン大名として知られる九州の大名は？",
+        "options": [
+          "織田信長",
+          "武田信玄",
+          "大友宗麟",
+          "上杉謙信"
+        ],
+        "correctIndex": 2,
+        "explanation": "大友宗麟は九州のキリシタン大名で天正遣欧使節にも関わりました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q11",
+        "question": "鉄砲の生産地として発展した和泉の都市は？",
+        "options": [
+          "京",
+          "堺",
+          "博多",
+          "奈良"
+        ],
+        "correctIndex": 1,
+        "explanation": "堺は鉄砲の量産地として発展し商業都市としても繁栄しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q12",
+        "question": "ヨーロッパ人との出会いについて正しいものはどれですか。",
+        "options": [
+          "鉄砲はザビエルによって伝えられた",
+          "南蛮貿易では日本が主に生糸を輸出した",
+          "キリスト教はザビエルによって伝えられた",
+          "天正遣欧使節は徳川家康が送った"
+        ],
+        "correctIndex": 2,
+        "explanation": "鉄砲は1543年にポルトガル人、キリスト教は1549年にザビエルが伝えました。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q13",
+        "question": "南蛮貿易で日本に輸入された衣料の高級原料は？",
+        "options": [
+          "木綿",
+          "生糸",
+          "羊毛",
+          "麻"
+        ],
+        "correctIndex": 1,
+        "explanation": "中国産の生糸が主な輸入品で、日本からは銀が輸出されました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q14",
+        "question": "ポルトガル人やスペイン人を日本人が呼んだ呼び名は？",
+        "options": [
+          "南蛮人",
+          "紅毛人",
+          "西洋人",
+          "異人"
+        ],
+        "correctIndex": 0,
+        "explanation": "ポルトガル人やスペイン人は南蛮人と呼ばれました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q15",
+        "question": "ザビエルが上陸した日本の地はどこ？",
+        "options": [
+          "長崎",
+          "平戸",
+          "鹿児島",
+          "種子島"
+        ],
+        "correctIndex": 2,
+        "explanation": "ザビエルは1549年に鹿児島に上陸し、日本でのキリスト教布教を開始しました。",
+        "difficulty": "basic"
+      }
+    ]
+  }
+}

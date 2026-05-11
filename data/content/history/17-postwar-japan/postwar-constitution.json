@@ -1,0 +1,237 @@
+{
+  "subjectId": "history",
+  "eraId": "postwar-japan",
+  "topicId": "postwar-constitution",
+  "name": "日本国憲法と民主化",
+  "subtitle": "三大原則と社会改革",
+  "icon": "📜",
+  "order": 2,
+  "chatId": "postwar-constitution",
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "日本国憲法",
+      "back": "1946年11月3日に公布、1947年5月3日に施行された憲法は？",
+      "explanation": "国民主権・基本的人権の尊重・平和主義の3つを基本原理とする。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "1946年11月3日",
+      "back": "日本国憲法が公布された日は？",
+      "explanation": "現在の文化の日。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc3",
+      "front": "1947年5月3日",
+      "back": "日本国憲法が施行された日は？",
+      "explanation": "現在の憲法記念日。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc4",
+      "front": "国民主権",
+      "back": "日本国憲法の三大原則の一つで、政治のあり方を国民が決めるという原則は？",
+      "explanation": "天皇主権から国民主権へ転換した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc5",
+      "front": "基本的人権の尊重",
+      "back": "日本国憲法の三大原則の一つで、人が生まれながらに持つ権利を守る原則は？",
+      "explanation": "自由権・社会権などが保障された。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc6",
+      "front": "平和主義",
+      "back": "日本国憲法の三大原則の一つで、戦争放棄を定めた原則は？",
+      "explanation": "第9条で戦争放棄・戦力不保持を定めた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc7",
+      "front": "象徴天皇制",
+      "back": "日本国憲法における天皇の地位は？",
+      "explanation": "「日本国の象徴であり日本国民統合の象徴」と規定された。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc8",
+      "front": "第9条",
+      "back": "戦争放棄・戦力不保持を定めた日本国憲法の条文は？",
+      "explanation": "平和主義の中核条文。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc9",
+      "front": "公布",
+      "back": "新しい法律や憲法を国民に知らせることを何という？",
+      "explanation": "日本国憲法は1946年11月3日に公布された。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc10",
+      "front": "施行",
+      "back": "新しい法律や憲法が実際に効力を持つようになることを何という？",
+      "explanation": "日本国憲法は1947年5月3日に施行された。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc11",
+      "front": "大日本帝国憲法",
+      "back": "日本国憲法の前にあった、1889年制定の憲法は？",
+      "explanation": "天皇主権で、欽定憲法だった。",
+      "difficulty": "standard"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "日本国憲法が施行された日は？",
+        "options": [
+          "11月3日",
+          "12月8日",
+          "8月15日",
+          "5月3日"
+        ],
+        "correctIndex": 3,
+        "explanation": "1947年5月3日（憲法記念日）です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "日本国憲法が公布された日は？",
+        "options": [
+          "11月3日",
+          "5月3日",
+          "8月15日",
+          "12月8日"
+        ],
+        "correctIndex": 0,
+        "explanation": "1946年11月3日（文化の日）です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "日本国憲法の三大原則は？",
+        "options": [
+          "国民主権・基本的人権の尊重・平和主義",
+          "自由・平等・博愛",
+          "天皇主権・国体護持・八紘一宇",
+          "民主・自由・独立"
+        ],
+        "correctIndex": 0,
+        "explanation": "三大原則は国民主権・基本的人権の尊重・平和主義です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "戦争放棄を定めた日本国憲法の条文は？",
+        "options": [
+          "第1条",
+          "第99条",
+          "第25条",
+          "第9条"
+        ],
+        "correctIndex": 3,
+        "explanation": "第9条が平和主義の中核条文です。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q5",
+        "question": "日本国憲法での天皇の地位は？",
+        "options": [
+          "主権者",
+          "国家元首",
+          "元首",
+          "象徴"
+        ],
+        "correctIndex": 3,
+        "explanation": "「日本国の象徴」と規定されました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q6",
+        "question": "明治憲法（大日本帝国憲法）と日本国憲法の最大の違いは？",
+        "options": [
+          "天皇主権から国民主権へ",
+          "象徴天皇制が廃止された",
+          "貴族院が拡大された",
+          "陸軍が強化された"
+        ],
+        "correctIndex": 0,
+        "explanation": "主権が天皇から国民へ移りました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q7",
+        "question": "1947年改正の民法で廃止されたのは？",
+        "options": [
+          "戸主制度",
+          "私有財産制",
+          "養子制度",
+          "婚姻制度"
+        ],
+        "correctIndex": 0,
+        "explanation": "戸主制度や長子相続が廃止されました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q8",
+        "question": "日本国憲法の前文と第9条が示す原則は？",
+        "options": [
+          "平和主義",
+          "国民主権",
+          "基本的人権の尊重",
+          "象徴天皇制"
+        ],
+        "correctIndex": 0,
+        "explanation": "前文と第9条が平和主義を強く示しています。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q9",
+        "question": "日本国憲法の原案を作成したのは？",
+        "options": [
+          "日本政府",
+          "GHQ",
+          "天皇",
+          "国連"
+        ],
+        "correctIndex": 1,
+        "explanation": "GHQが原案（マッカーサー草案）を作成しました。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q11",
+        "question": "明治憲法を制定したのは？",
+        "options": [
+          "1868年",
+          "1889年",
+          "1900年",
+          "1925年"
+        ],
+        "correctIndex": 1,
+        "explanation": "1889年に制定されました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q12",
+        "question": "日本国憲法の第25条が定めているのは？",
+        "options": [
+          "生存権",
+          "戦争放棄",
+          "天皇の地位",
+          "教育の権利"
+        ],
+        "correctIndex": 0,
+        "explanation": "第25条は生存権を定めています。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

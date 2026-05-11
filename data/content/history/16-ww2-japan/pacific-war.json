@@ -1,0 +1,271 @@
+{
+  "subjectId": "history",
+  "eraId": "ww2-japan",
+  "topicId": "pacific-war",
+  "name": "太平洋戦争と日本の敗退",
+  "subtitle": "真珠湾から敗戦へ",
+  "icon": "⚓",
+  "order": 2,
+  "chatId": "pacific-war",
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "太平洋戦争",
+      "back": "1941〜45年に日本がアメリカ・イギリスなどと戦った戦争は？",
+      "explanation": "真珠湾攻撃で開戦した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "真珠湾攻撃",
+      "back": "1941年12月8日、日本海軍がアメリカ海軍基地を奇襲した攻撃は？",
+      "explanation": "ハワイのオアフ島にあるアメリカ海軍基地への奇襲。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "1941年12月8日",
+      "back": "太平洋戦争が始まった日は？",
+      "explanation": "真珠湾攻撃と同時にマレー半島にも上陸した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "東条英機",
+      "back": "真珠湾攻撃時の日本の首相は？",
+      "explanation": "陸軍大将で、戦争を指導した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc5",
+      "front": "ABCD包囲網",
+      "back": "アメリカ・イギリス・中国・オランダが日本に対して行った経済包囲は？",
+      "explanation": "石油や鉄の輸出制限が日本を苦しめた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc6",
+      "front": "大東亜共栄圏",
+      "back": "日本がアジアを欧米から解放すると唱えた構想は？",
+      "explanation": "実態はアジアの植民地化だった。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc7",
+      "front": "ミッドウェー海戦",
+      "back": "1942年6月、日本海軍が大敗北を喫した海戦は？",
+      "explanation": "主力空母4隻を失い、戦況の転換点となった。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc8",
+      "front": "1942年",
+      "back": "ミッドウェー海戦が起きた年は？",
+      "explanation": "この敗北で日本は劣勢に転じた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc9",
+      "front": "ガダルカナル",
+      "back": "アメリカ軍と日本軍が激戦を繰り広げた南太平洋の島は？",
+      "explanation": "日本軍は撤退を余儀なくされた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc10",
+      "front": "サイパン陥落",
+      "back": "1944年、B-29による本土爆撃の拠点となった島の陥落は？",
+      "explanation": "東条内閣退陣のきっかけとなった。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc11",
+      "front": "東京大空襲",
+      "back": "1945年3月10日にアメリカ軍が東京を焼夷弾で大規模爆撃した攻撃は？",
+      "explanation": "約10万人が犠牲となった。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc12",
+      "front": "B-29",
+      "back": "アメリカ軍が日本本土爆撃に使用した大型爆撃機は？",
+      "explanation": "焼夷弾を大量に投下し、各都市を焼き尽くした。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc13",
+      "front": "沖縄戦",
+      "back": "1945年4〜6月、唯一日本本土で行われた地上戦は？",
+      "explanation": "県民の4分の1以上が犠牲となり、ひめゆり学徒隊なども動員された。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc14",
+      "front": "ひめゆり学徒隊",
+      "back": "沖縄戦で看護要員として動員された女子学生たちは？",
+      "explanation": "多くが亡くなった。",
+      "difficulty": "standard"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "1941年12月8日に日本海軍が奇襲した場所は？",
+        "options": [
+          "真珠湾",
+          "サイパン",
+          "ミッドウェー",
+          "硫黄島"
+        ],
+        "correctIndex": 0,
+        "explanation": "ハワイの真珠湾を奇襲しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "真珠湾攻撃時の日本の首相は？",
+        "options": [
+          "近衛文麿",
+          "犬養毅",
+          "若槻礼次郎",
+          "東条英機"
+        ],
+        "correctIndex": 3,
+        "explanation": "東条英機が戦争を指導しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "1942年に日本海軍が大敗した海戦は？",
+        "options": [
+          "真珠湾海戦",
+          "日本海海戦",
+          "レイテ沖海戦",
+          "ミッドウェー海戦"
+        ],
+        "correctIndex": 3,
+        "explanation": "ミッドウェー海戦が戦況の転換点でした。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "1945年に沖縄で行われた地上戦は？",
+        "options": [
+          "沖縄戦",
+          "硫黄島の戦い",
+          "ガダルカナル戦",
+          "ルソン島の戦い"
+        ],
+        "correctIndex": 0,
+        "explanation": "唯一日本本土で行われた地上戦でした。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q5",
+        "question": "日本がアジア解放を掲げて唱えた構想は？",
+        "options": [
+          "大日本帝国",
+          "アジア共同体",
+          "東洋連邦",
+          "大東亜共栄圏"
+        ],
+        "correctIndex": 3,
+        "explanation": "実態は日本によるアジア支配でした。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q6",
+        "question": "1944年に陥落しB-29本土爆撃の拠点となった島は？",
+        "options": [
+          "サイパン",
+          "硫黄島",
+          "沖縄",
+          "グアム"
+        ],
+        "correctIndex": 0,
+        "explanation": "サイパン陥落で本土爆撃が本格化しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q7",
+        "question": "1945年3月10日にあった大空襲は？",
+        "options": [
+          "広島大空襲",
+          "東京大空襲",
+          "大阪大空襲",
+          "横浜大空襲"
+        ],
+        "correctIndex": 1,
+        "explanation": "東京大空襲で約10万人が犠牲となりました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q8",
+        "question": "日本に経済包囲を行ったABCD包囲網のCはどの国？",
+        "options": [
+          "カナダ",
+          "中国",
+          "キューバ",
+          "チリ"
+        ],
+        "correctIndex": 1,
+        "explanation": "ABCDはアメリカ・イギリス・中国・オランダです。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q9",
+        "question": "アメリカ軍が本土爆撃に使った爆撃機は？",
+        "options": [
+          "B-17",
+          "B-29",
+          "F-4",
+          "P-51"
+        ],
+        "correctIndex": 1,
+        "explanation": "B-29が日本各地を爆撃しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q10",
+        "question": "沖縄戦で動員された女子学生隊は？",
+        "options": [
+          "ひめゆり学徒隊",
+          "白虎隊",
+          "婦人挺身隊",
+          "桜花隊"
+        ],
+        "correctIndex": 0,
+        "explanation": "ひめゆり学徒隊が看護要員として動員されました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q11",
+        "question": "サイパン陥落をきっかけに退陣した内閣は？",
+        "options": [
+          "近衛内閣",
+          "東条内閣",
+          "小磯内閣",
+          "鈴木内閣"
+        ],
+        "correctIndex": 1,
+        "explanation": "東条内閣が退陣しました。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q12",
+        "question": "沖縄戦で犠牲となった県民の割合はおよそ？",
+        "options": [
+          "10分の1",
+          "4分の1",
+          "半数",
+          "ほぼ全員"
+        ],
+        "correctIndex": 1,
+        "explanation": "県民の4分の1以上が犠牲になりました。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

@@ -1,0 +1,290 @@
+{
+  "subjectId": "history",
+  "eraId": "meiji-late",
+  "topicId": "treaty-revision",
+  "name": "条約改正",
+  "subtitle": "悲願の達成への道",
+  "icon": "📜",
+  "order": 1,
+  "chatId": "treaty-revision",
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "条約改正",
+      "back": "幕末に結ばれた不平等条約を平等にするための明治政府の悲願は？",
+      "explanation": "領事裁判権の撤廃と関税自主権の回復が目標だった。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "領事裁判権",
+      "back": "外国人を日本の法律で裁けない権利は？",
+      "explanation": "1894年に陸奥宗光が撤廃に成功した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "関税自主権",
+      "back": "輸入品にかける税率を自国で決める権利は？",
+      "explanation": "1911年に小村寿太郎が回復に成功した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "鹿鳴館",
+      "back": "井上馨が条約改正のため西洋風の舞踏会を開いた建物は？",
+      "explanation": "極端な欧化政策で批判を受け、改正交渉は失敗した。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc5",
+      "front": "ノルマントン号事件",
+      "back": "1886年、日本人船客が見殺しにされた事件は？",
+      "explanation": "領事裁判権の不平等さを浮き彫りにした事件。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc6",
+      "front": "陸奥宗光",
+      "back": "1894年、領事裁判権の撤廃に成功した外相は？",
+      "explanation": "イギリスとの間で日英通商航海条約を結んだ。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc7",
+      "front": "小村寿太郎",
+      "back": "1911年、関税自主権の回復に成功した外相は？",
+      "explanation": "ポーツマス条約の交渉でも活躍した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc8",
+      "front": "日英通商航海条約",
+      "back": "1894年に陸奥宗光が結んだ、領事裁判権を撤廃した条約は？",
+      "explanation": "日清戦争直前のタイミングで結ばれた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc9",
+      "front": "井上馨",
+      "back": "鹿鳴館外交で条約改正を目指した外相は？",
+      "explanation": "極端な欧化政策で批判を受けた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc10",
+      "front": "欧化政策",
+      "back": "井上馨が条約改正のために進めた、西洋風の生活様式を取り入れる政策は？",
+      "explanation": "鹿鳴館での舞踏会などが象徴的。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc11",
+      "front": "1894年",
+      "back": "領事裁判権が撤廃された年は？",
+      "explanation": "陸奥宗光がイギリスと日英通商航海条約を結んだ。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc12",
+      "front": "1911年",
+      "back": "関税自主権が完全回復した年は？",
+      "explanation": "小村寿太郎がアメリカと条約を結び、約半世紀越しの条約改正が完成。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc13",
+      "front": "イギリス",
+      "back": "最初に領事裁判権撤廃に応じた国は？",
+      "explanation": "ロシアの南下を警戒し、日本との関係を強化するため譲歩した。",
+      "difficulty": "advanced"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "1894年に領事裁判権の撤廃に成功した外相は？",
+        "options": [
+          "陸奥宗光",
+          "小村寿太郎",
+          "井上馨",
+          "伊藤博文"
+        ],
+        "correctIndex": 0,
+        "explanation": "陸奥宗光がイギリスと日英通商航海条約を結びました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "1911年に関税自主権の回復に成功した外相は？",
+        "options": [
+          "陸奥宗光",
+          "伊藤博文",
+          "井上馨",
+          "小村寿太郎"
+        ],
+        "correctIndex": 3,
+        "explanation": "小村寿太郎がアメリカとの間で関税自主権を回復しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "井上馨が建てた西洋風の舞踏会場は？",
+        "options": [
+          "鹿鳴館",
+          "迎賓館",
+          "国会議事堂",
+          "外務省"
+        ],
+        "correctIndex": 0,
+        "explanation": "鹿鳴館は条約改正のため西洋風の社交場として作られました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "1886年に領事裁判権の不平等さを露呈した事件は？",
+        "options": [
+          "ノルマントン号事件",
+          "生麦事件",
+          "桜田門外の変",
+          "甲申事変"
+        ],
+        "correctIndex": 0,
+        "explanation": "ノルマントン号事件で日本人乗客が見殺しにされました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q5",
+        "question": "外国人を日本の法律で裁けない権利は？",
+        "options": [
+          "関税自主権",
+          "最恵国待遇",
+          "領事裁判権",
+          "通商権"
+        ],
+        "correctIndex": 2,
+        "explanation": "領事裁判権は不平等条約の象徴でした。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q6",
+        "question": "輸入品の税率を自国で決める権利は？",
+        "options": [
+          "領事裁判権",
+          "外交権",
+          "最恵国待遇",
+          "関税自主権"
+        ],
+        "correctIndex": 3,
+        "explanation": "関税自主権の回復が長年の目標でした。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q7",
+        "question": "井上馨の鹿鳴館外交が失敗した理由は？",
+        "options": [
+          "費用が高すぎた",
+          "外国に批判された",
+          "欧化政策への国内反発",
+          "天皇が反対した"
+        ],
+        "correctIndex": 2,
+        "explanation": "国内の批判で改正交渉は失敗しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q8",
+        "question": "最初に領事裁判権撤廃に応じた国は？",
+        "options": [
+          "アメリカ",
+          "ロシア",
+          "フランス",
+          "イギリス"
+        ],
+        "correctIndex": 3,
+        "explanation": "イギリスが最初に応じました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q9",
+        "question": "領事裁判権が撤廃された年は？",
+        "options": [
+          "1886年",
+          "1894年",
+          "1904年",
+          "1911年"
+        ],
+        "correctIndex": 1,
+        "explanation": "1894年に陸奥宗光が成功させました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q10",
+        "question": "関税自主権が完全回復した年は？",
+        "options": [
+          "1894年",
+          "1900年",
+          "1911年",
+          "1920年"
+        ],
+        "correctIndex": 2,
+        "explanation": "1911年に小村寿太郎が成功させました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q11",
+        "question": "条約改正の2つの目標は？",
+        "options": [
+          "領事裁判権撤廃と関税自主権回復",
+          "領土拡大と植民地獲得",
+          "軍縮と平和維持",
+          "鎖国と開国"
+        ],
+        "correctIndex": 0,
+        "explanation": "幕末の不平等条約の2つの不平等点を改正することが目標でした。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q12",
+        "question": "イギリスが領事裁判権撤廃に応じた理由は？",
+        "options": [
+          "日本の経済力",
+          "ロシアの南下への警戒",
+          "アメリカの圧力",
+          "国内世論の変化"
+        ],
+        "correctIndex": 1,
+        "explanation": "ロシアの南下を警戒し日本との関係を強化するためでした。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q13",
+        "question": "鹿鳴館外交の象徴的な活動は？",
+        "options": [
+          "軍隊の派遣",
+          "西洋風の舞踏会",
+          "条約の即時破棄",
+          "鎖国政策"
+        ],
+        "correctIndex": 1,
+        "explanation": "鹿鳴館での西洋風の舞踏会が象徴でした。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q14",
+        "question": "小村寿太郎が活躍した別の有名な交渉は？",
+        "options": [
+          "下関条約",
+          "ポーツマス条約",
+          "日清修好条規",
+          "樺太・千島交換条約"
+        ],
+        "correctIndex": 1,
+        "explanation": "日露戦争後のポーツマス条約交渉でも活躍しました。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

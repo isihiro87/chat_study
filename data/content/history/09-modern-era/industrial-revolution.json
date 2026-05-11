@@ -1,0 +1,323 @@
+{
+  "subjectId": "history",
+  "eraId": "modern-era",
+  "topicId": "industrial-revolution",
+  "name": "産業革命と資本主義",
+  "subtitle": "社会を変えた技術革新",
+  "icon": "🏭",
+  "order": 7,
+  "chatId": "industrial-revolution",
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "産業革命",
+      "back": "技術革新によって社会や経済が大きく変わることを何という？",
+      "explanation": "18世紀後半にイギリスで始まり、世界中に広がった。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "ワット",
+      "back": "蒸気機関を改良し、産業革命を推進したイギリスの技術者は？",
+      "explanation": "改良された蒸気機関は工場の動力や交通機関に使われた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "蒸気機関",
+      "back": "石炭を燃やして蒸気の力で動く装置は？",
+      "explanation": "ワットが改良し、工場や蒸気機関車・蒸気船の動力となった。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc4",
+      "front": "世界の工場",
+      "back": "産業革命後、圧倒的な工業力を持ったイギリスの呼び名は？",
+      "explanation": "工業製品を世界中に輸出し、世界経済の中心となった。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc5",
+      "front": "資本主義",
+      "back": "資本家が労働者を雇い、利益を追求する経済の仕組みは？",
+      "explanation": "産業革命によって成立した新しい経済体制。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc6",
+      "front": "資本家",
+      "back": "工場や機械などの生産手段を持ち、労働者を雇う人は？",
+      "explanation": "産業革命後の社会で経済的な力を持った階級。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc7",
+      "front": "労働組合",
+      "back": "労働者が権利を守るために作った団体は？",
+      "explanation": "長時間労働や低賃金に対抗するため結成された。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc8",
+      "front": "蒸気機関車",
+      "back": "蒸気機関を使って走る陸上交通機関は？",
+      "explanation": "スティーブンソンが実用化し、鉄道網が広がった。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc9",
+      "front": "綿織物工業",
+      "back": "イギリスの産業革命が最初に始まった工業分野は？",
+      "explanation": "紡績機や力織機の発明で大量生産が可能になった。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc10",
+      "front": "社会主義",
+      "back": "資本主義の矛盾を批判し、平等な社会を目指す思想は？",
+      "explanation": "マルクスらが提唱し、労働者の権利を重視した。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc11",
+      "front": "マルクス",
+      "back": "『資本論』を著し、社会主義を理論化した思想家は？",
+      "explanation": "資本主義の問題を分析し、労働者の解放を唱えた。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc12",
+      "front": "工場制機械工業",
+      "back": "工場に機械を設置し労働者を雇って生産する方式は？",
+      "explanation": "産業革命により手工業から機械工業へ転換した。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc13",
+      "front": "スティーブンソン",
+      "back": "蒸気機関車を実用化したイギリスの技術者は？",
+      "explanation": "鉄道網の発展に貢献し、交通革命を推進した。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc14",
+      "front": "18世紀後半",
+      "back": "産業革命が始まったのはおよそいつか？",
+      "explanation": "イギリスの綿織物工業から始まった。",
+      "difficulty": "basic"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "産業革命で蒸気機関を改良したイギリスの技術者は？",
+        "options": [
+          "ダーウィン",
+          "スティーブンソン",
+          "ニュートン",
+          "ワット"
+        ],
+        "correctIndex": 3,
+        "explanation": "ワットは蒸気機関を改良しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "産業革命が最初に始まった国は？",
+        "options": [
+          "イギリス",
+          "ドイツ",
+          "アメリカ",
+          "フランス"
+        ],
+        "correctIndex": 0,
+        "explanation": "18世紀後半にイギリスの綿織物工業から始まりました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "産業革命後のイギリスの呼び名は？",
+        "options": [
+          "日の沈まない国",
+          "大英帝国",
+          "七つの海の支配者",
+          "世界の工場"
+        ],
+        "correctIndex": 3,
+        "explanation": "イギリスは「世界の工場」と呼ばれました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "資本家が労働者を雇い、利益を追求する経済の仕組みは？",
+        "options": [
+          "社会主義",
+          "封建制",
+          "資本主義",
+          "共産主義"
+        ],
+        "correctIndex": 2,
+        "explanation": "資本主義は産業革命によって成立した新しい経済体制です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q5",
+        "question": "労働者が権利を守るために作った団体は？",
+        "options": [
+          "労働組合",
+          "政治政党",
+          "議会団体",
+          "軍の組合"
+        ],
+        "correctIndex": 0,
+        "explanation": "労働者は労働組合を結成し、労働条件の改善を求めました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q6",
+        "question": "イギリスの産業革命が最初に始まった工業分野は？",
+        "options": [
+          "鉄鋼業",
+          "造船業",
+          "綿織物工業",
+          "鉱業"
+        ],
+        "correctIndex": 2,
+        "explanation": "綿織物の大量生産から産業革命が始まりました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q7",
+        "question": "産業革命が始まった時期は？",
+        "options": [
+          "17世紀前半",
+          "17世紀後半",
+          "18世紀前半",
+          "18世紀後半"
+        ],
+        "correctIndex": 3,
+        "explanation": "産業革命は18世紀後半に始まりました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q8",
+        "question": "蒸気機関車を実用化した技術者は？",
+        "options": [
+          "ワット",
+          "スティーブンソン",
+          "ニュートン",
+          "ダーウィン"
+        ],
+        "correctIndex": 1,
+        "explanation": "スティーブンソンが蒸気機関車を実用化しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q9",
+        "question": "「資本論」を著した思想家は？",
+        "options": [
+          "アダム・スミス",
+          "マルクス",
+          "ルソー",
+          "ロック"
+        ],
+        "correctIndex": 1,
+        "explanation": "マルクスは「資本論」で社会主義を理論化しました。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q10",
+        "question": "産業革命で起きた主な労働問題は？",
+        "options": [
+          "人手不足と賃金高騰",
+          "低賃金と長時間労働",
+          "失業率の低下",
+          "農業労働者の増加"
+        ],
+        "correctIndex": 1,
+        "explanation": "低賃金、長時間労働、児童労働などの問題が生まれました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q11",
+        "question": "産業革命が世界に広がった結果、欧米列強が行ったことは？",
+        "options": [
+          "鎖国政策",
+          "アジア・アフリカの植民地獲得",
+          "農業中心への回帰",
+          "軍縮を進めた"
+        ],
+        "correctIndex": 1,
+        "explanation": "原料と市場を求めてアジア・アフリカを植民地化しました。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q12",
+        "question": "工場に機械を設置し労働者を雇って生産する方式は？",
+        "options": [
+          "家内工業",
+          "問屋制家内工業",
+          "工場制機械工業",
+          "工場制手工業"
+        ],
+        "correctIndex": 2,
+        "explanation": "工場制機械工業は産業革命の新しい生産方式です。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q13",
+        "question": "産業革命以前の主な生産方式は？",
+        "options": [
+          "工場制機械工業",
+          "重工業",
+          "手工業",
+          "化学工業"
+        ],
+        "correctIndex": 2,
+        "explanation": "手工業（家内工業）が主な生産方式でした。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q14",
+        "question": "資本主義の矛盾を批判する思想は？",
+        "options": [
+          "自由主義",
+          "帝国主義",
+          "社会主義",
+          "民族主義"
+        ],
+        "correctIndex": 2,
+        "explanation": "社会主義はマルクスらが提唱しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q15",
+        "question": "蒸気機関の燃料は？",
+        "options": [
+          "石油",
+          "天然ガス",
+          "石炭",
+          "木炭"
+        ],
+        "correctIndex": 2,
+        "explanation": "蒸気機関は石炭を燃やして動きました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q16",
+        "question": "産業革命がイギリスで最初に起きた理由として最も適切なのは？",
+        "options": [
+          "人口が多かった",
+          "豊富な石炭があった",
+          "政府が工場を建設した",
+          "他国から技術を導入した"
+        ],
+        "correctIndex": 1,
+        "explanation": "イギリスは豊富な石炭資源と広大な植民地市場を持っていました。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

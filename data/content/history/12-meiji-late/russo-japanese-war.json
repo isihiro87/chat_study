@@ -1,0 +1,324 @@
+{
+  "subjectId": "history",
+  "eraId": "meiji-late",
+  "topicId": "russo-japanese-war",
+  "name": "日露戦争",
+  "subtitle": "大国ロシアとの戦い",
+  "icon": "🇯🇵",
+  "order": 3,
+  "chatId": "russo-japanese-war",
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "日露戦争",
+      "back": "1904〜05年に日本とロシアが戦った戦争は？",
+      "explanation": "満州・朝鮮をめぐる対立が原因。日本が勝利した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "日英同盟",
+      "back": "1902年、ロシアに対抗するために結ばれた日本とイギリスの同盟は？",
+      "explanation": "日露戦争の重要な外交的基盤となった。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "義和団事件",
+      "back": "1900年、中国で起きた排外運動は？",
+      "explanation": "8か国連合軍が鎮圧。ロシアが満州に居座る原因となった。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc4",
+      "front": "ポーツマス条約",
+      "back": "1905年に日露戦争の講和として結ばれた条約は？",
+      "explanation": "アメリカ大統領セオドア・ルーズベルトの仲介で結ばれた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc5",
+      "front": "小村寿太郎",
+      "back": "ポーツマス条約の日本側全権大使は？",
+      "explanation": "外相としてロシアと交渉した。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc6",
+      "front": "セオドア・ルーズベルト",
+      "back": "ポーツマス条約を仲介したアメリカ大統領は？",
+      "explanation": "この功績でノーベル平和賞を受賞した。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc7",
+      "front": "韓国の優越権",
+      "back": "ポーツマス条約で日本が獲得した、朝鮮支配の権利は？",
+      "explanation": "朝鮮を保護国とする道を開いた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc8",
+      "front": "南満州鉄道",
+      "back": "ポーツマス条約で日本が獲得した、満州の鉄道権益は？",
+      "explanation": "満鉄として日本の満州進出の拠点となった。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc9",
+      "front": "樺太の南半分",
+      "back": "ポーツマス条約で日本が獲得した北方の地域は？",
+      "explanation": "北緯50度以南を割譲された。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc10",
+      "front": "東郷平八郎",
+      "back": "日本海海戦でロシアのバルチック艦隊を破った海軍大将は？",
+      "explanation": "「東洋のネルソン」と呼ばれた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc11",
+      "front": "日本海海戦",
+      "back": "1905年、日本海軍がロシアのバルチック艦隊を破った海戦は？",
+      "explanation": "東郷平八郎が指揮した。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc12",
+      "front": "日比谷焼き打ち事件",
+      "back": "ポーツマス条約の内容に不満を持った民衆が起こした暴動は？",
+      "explanation": "賠償金がなかったことへの怒りが背景。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc13",
+      "front": "内村鑑三・幸徳秋水",
+      "back": "日露戦争に反対した非戦論者は？",
+      "explanation": "戦争に反対する立場から論陣を張った。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc14",
+      "front": "与謝野晶子",
+      "back": "「君死にたまふことなかれ」で戦争を批判した歌人は？",
+      "explanation": "弟を案じる詩を発表した。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc15",
+      "front": "1904年",
+      "back": "日露戦争が始まった年は？",
+      "explanation": "旅順攻撃で開戦した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc16",
+      "front": "1905年",
+      "back": "ポーツマス条約が結ばれ、日露戦争が終結した年は？",
+      "explanation": "アメリカの仲介で講和が成立した。",
+      "difficulty": "basic"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "1904〜05年に日本とロシアが戦った戦争は？",
+        "options": [
+          "日清戦争",
+          "シベリア出兵",
+          "義和団事件",
+          "日露戦争"
+        ],
+        "correctIndex": 3,
+        "explanation": "日露戦争は満州・朝鮮をめぐる対立から起きました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "1902年にロシアに対抗するため結ばれた日英の同盟は？",
+        "options": [
+          "日英同盟",
+          "三国協商",
+          "三国同盟",
+          "日米同盟"
+        ],
+        "correctIndex": 0,
+        "explanation": "日英同盟は日露戦争の重要な基盤でした。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q3",
+        "question": "日露戦争の講和条約は？",
+        "options": [
+          "下関条約",
+          "ポーツマス条約",
+          "南京条約",
+          "ベルサイユ条約"
+        ],
+        "correctIndex": 1,
+        "explanation": "1905年にアメリカの仲介で結ばれました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q4",
+        "question": "ポーツマス条約を仲介したアメリカ大統領は？",
+        "options": [
+          "セオドア・ルーズベルト",
+          "フランクリン・ルーズベルト",
+          "ウィルソン",
+          "リンカン"
+        ],
+        "correctIndex": 0,
+        "explanation": "セオドア・ルーズベルトがノーベル平和賞を受賞しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q5",
+        "question": "日本海海戦でバルチック艦隊を破った海軍大将は？",
+        "options": [
+          "乃木希典",
+          "東郷平八郎",
+          "山本五十六",
+          "山県有朋"
+        ],
+        "correctIndex": 1,
+        "explanation": "東郷平八郎は「東洋のネルソン」と呼ばれました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q6",
+        "question": "ポーツマス条約で日本が獲得した地域は？",
+        "options": [
+          "遼東半島",
+          "南満州鉄道",
+          "台湾",
+          "海南島"
+        ],
+        "correctIndex": 1,
+        "explanation": "南満州鉄道の権益と樺太の南半分を得ました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q7",
+        "question": "「君死にたまふことなかれ」で戦争を批判した歌人は？",
+        "options": [
+          "与謝野晶子",
+          "樋口一葉",
+          "石川啄木",
+          "正岡子規"
+        ],
+        "correctIndex": 0,
+        "explanation": "与謝野晶子が弟を案じる詩を発表しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q8",
+        "question": "ポーツマス条約の日本側全権大使は？",
+        "options": [
+          "伊藤博文",
+          "小村寿太郎",
+          "陸奥宗光",
+          "山県有朋"
+        ],
+        "correctIndex": 1,
+        "explanation": "外相の小村寿太郎が交渉しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q9",
+        "question": "ポーツマス条約への不満から起きた事件は？",
+        "options": [
+          "日比谷焼き打ち事件",
+          "桜田門外の変",
+          "二・二六事件",
+          "五・一五事件"
+        ],
+        "correctIndex": 0,
+        "explanation": "賠償金がなかったことへの民衆の怒りでした。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q10",
+        "question": "1900年に中国で起きた排外運動は？",
+        "options": [
+          "太平天国の乱",
+          "義和団事件",
+          "辛亥革命",
+          "甲申事変"
+        ],
+        "correctIndex": 1,
+        "explanation": "義和団事件は日露戦争の前提となりました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q11",
+        "question": "ポーツマス条約で日本が獲得した朝鮮支配の権利は？",
+        "options": [
+          "関税自主権",
+          "韓国の優越権",
+          "領事裁判権",
+          "最恵国待遇"
+        ],
+        "correctIndex": 1,
+        "explanation": "韓国の優越権が後の韓国併合の道を開きました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q12",
+        "question": "日露戦争が始まった年は？",
+        "options": [
+          "1900年",
+          "1902年",
+          "1904年",
+          "1905年"
+        ],
+        "correctIndex": 2,
+        "explanation": "1904年に開戦しました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q13",
+        "question": "日露戦争に反対した代表的な非戦論者は？",
+        "options": [
+          "伊藤博文",
+          "内村鑑三",
+          "東郷平八郎",
+          "小村寿太郎"
+        ],
+        "correctIndex": 1,
+        "explanation": "内村鑑三・幸徳秋水が非戦論を主張しました。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q14",
+        "question": "日本海海戦が行われた年は？",
+        "options": [
+          "1894年",
+          "1900年",
+          "1904年",
+          "1905年"
+        ],
+        "correctIndex": 3,
+        "explanation": "1905年5月に行われました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q15",
+        "question": "日本がポーツマス条約で獲得しなかったものは？",
+        "options": [
+          "南満州鉄道",
+          "樺太の南半分",
+          "賠償金",
+          "韓国の優越権"
+        ],
+        "correctIndex": 2,
+        "explanation": "賠償金は獲得できず、国民の不満を招きました。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}
