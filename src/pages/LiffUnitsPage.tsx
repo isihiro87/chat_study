@@ -5,6 +5,15 @@ import { db } from '../firebase/config';
 import { useAuth } from '../contexts/AuthContext';
 import { useLiffAuth } from '../hooks/useLiffAuth';
 import { LoadingScreen } from '../components/common/LoadingScreen';
+import {
+  loadItemStats,
+  loadAllItemStatsByTopic,
+  updateItemStats,
+  applyResultsToLocalStats,
+  type ItemStatsMap,
+  type ItemResult,
+} from '../firebase/itemStats';
+import { pickItems, countTiers, type PickMode } from '../utils/pickItems';
 // 型は g1 ファイルから（同じ型を g2 も持つ）。データ本体は動的 import で
 // 学年別に lazy load し、chunk size を最小化する。
 import type {
@@ -54,6 +63,34 @@ const DIFFICULTY_OPTIONS: { value: Difficulty; label: string }[] = [
 ];
 
 const COUNT_OPTIONS = [5, 10, 20] as const;
+
+const LS_KEY_SETUP_PREFS = 'liff-units:setupPrefs:v1';
+
+interface PersistedSetupPrefs {
+  count?: number | 'all';
+  randomize?: boolean;
+}
+
+function loadPersistedSetupPrefs(): PersistedSetupPrefs {
+  if (typeof window === 'undefined') return {};
+  try {
+    const raw = window.localStorage.getItem(LS_KEY_SETUP_PREFS);
+    if (!raw) return {};
+    const parsed = JSON.parse(raw) as PersistedSetupPrefs;
+    return parsed && typeof parsed === 'object' ? parsed : {};
+  } catch {
+    return {};
+  }
+}
+
+function savePersistedSetupPrefs(prefs: PersistedSetupPrefs) {
+  if (typeof window === 'undefined') return;
+  try {
+    window.localStorage.setItem(LS_KEY_SETUP_PREFS, JSON.stringify(prefs));
+  } catch {
+    /* ignore quota / privacy mode errors */
+  }
+}
 
 // LIFF 現状スコープは歴史のみ。将来教科切替する場合はここに subject を渡す。
 const CURRENT_SUBJECT_ID = 'history';
@@ -108,7 +145,28 @@ export function LiffUnitsPage() {
   const [setupDifficulties, setSetupDifficulties] = useState<Set<Difficulty>>(
     new Set(ALL_DIFFICULTIES)
   );
-  const [setupCount, setSetupCount] = useState<number | 'all'>('all');
+  const [setupCount, setSetupCount] = useState<number | 'all'>(() => {
+    const p = loadPersistedSetupPrefs();
+    return p.count ?? 10;
+  });
+  const [setupRandomize, setSetupRandomize] = useState<boolean>(() => {
+    const p = loadPersistedSetupPrefs();
+    return p.randomize ?? true;
+  });
+  // 現在のトピックの per-item 統計（Firestore からロード）
+  const [itemStats, setItemStats] = useState<ItemStatsMap>(new Map());
+  // 全トピックの per-item 統計（トピック一覧での進捗ピル用、一括ロード）
+  const [allItemStats, setAllItemStats] = useState<Map<string, ItemStatsMap>>(new Map());
+  // 同一トピック内のセッションで既に出題済みの itemId を追跡（次のN問用）
+  const [sessionSeenFcIds, setSessionSeenFcIds] = useState<Set<string>>(new Set());
+  const [sessionSeenQuizIds, setSessionSeenQuizIds] = useState<Set<string>>(new Set());
+  // 直前の setupCount を保持して end 画面で「次のN問」ボタンに使う
+  const [lastSetupCount, setLastSetupCount] = useState<number | 'all'>(10);
+
+  // setupCount / setupRandomize の変更を localStorage に反映
+  useEffect(() => {
+    savePersistedSetupPrefs({ count: setupCount, randomize: setupRandomize });
+  }, [setupCount, setupRandomize]);
 
   const [testScopeTopics, setTestScopeTopics] = useState<Set<string>>(new Set());
   const [testScopeLoaded, setTestScopeLoaded] = useState(false);
@@ -194,6 +252,19 @@ export function LiffUnitsPage() {
     };
   }, [user, loading]);
 
+  // 初回ロード後、全トピックの itemStats を一括取得（一覧の進捗ピル用）
+  useEffect(() => {
+    if (loading || !user) return;
+    let cancelled = false;
+    void (async () => {
+      const map = await loadAllItemStatsByTopic();
+      if (!cancelled) setAllItemStats(map);
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, [user, loading]);
+
   // 選択学年が変わったら対応する教材データを動的 import
   useEffect(() => {
     if (selectedGrade === null) {
@@ -237,27 +308,39 @@ export function LiffUnitsPage() {
     [filteredEras]
   );
 
-  // ---- 共通: セットアップ画面起動（前回難易度は維持） ----
+  // ---- 共通: セットアップ画面起動（前回難易度は維持、itemStats 読込） ----
   const openSetup = (topic: StudyTopic, kind: SetupKind) => {
     setCurrentTopic(topic);
     setSetupKind(kind);
-    setSetupCount('all');
     setView('setup');
+    // セッション内の既出 ID をリセット（新トピックなので）
+    setSessionSeenFcIds(new Set());
+    setSessionSeenQuizIds(new Set());
+    // 既存の選択値（count, randomize）はそのまま維持＝前回学習体験を保つ
+    // 既に一括ロード済みの stats があれば即時にセット、なければ個別ロード
+    const cached = allItemStats.get(topic.topicId);
+    if (cached) {
+      setItemStats(cached);
+    } else {
+      void (async () => {
+        const stats = await loadItemStats(topic.topicId);
+        setItemStats(stats);
+      })();
+    }
   };
 
   // ---- 共通: セットアップから FC/Quiz を開始 ----
   const startWithSetup = () => {
     if (!currentTopic) return;
+    const mode: PickMode = setupRandomize ? 'random' : 'sequential';
     if (setupKind === 'fc') {
       const filtered = currentTopic.flashcards.filter((c) =>
         difficultyMatch(c.difficulty, setupDifficulties)
       );
-      const sampled =
-        setupCount === 'all' || filtered.length <= setupCount
-          ? filtered
-          : filtered.slice(0, setupCount);
-      if (sampled.length === 0) return;
-      setActiveFcItems(sampled);
+      const picked = pickItems(filtered, itemStats, setupCount, mode);
+      if (picked.length === 0) return;
+      setActiveFcItems(picked);
+      setSessionSeenFcIds(new Set(picked.map((i) => i.id)));
       setKnownIds([]);
       setUnknownIds([]);
       setView('fc');
@@ -265,17 +348,74 @@ export function LiffUnitsPage() {
       const filtered = currentTopic.quiz.filter((q) =>
         difficultyMatch(q.difficulty, setupDifficulties)
       );
-      const sampled =
-        setupCount === 'all' || filtered.length <= setupCount
-          ? filtered
-          : filtered.slice(0, setupCount);
-      if (sampled.length === 0) return;
-      setActiveQuizItems(sampled);
+      const picked = pickItems(filtered, itemStats, setupCount, mode);
+      if (picked.length === 0) return;
+      setActiveQuizItems(picked);
+      setSessionSeenQuizIds(new Set(picked.map((i) => i.id)));
       setWrongIds([]);
       setView('quiz');
     }
+    setLastSetupCount(setupCount);
     // 直近の難易度選択を教科ごとに保存（次回セットアップの初期値に使う）
     void persistDifficultyPref();
+  };
+
+  // ---- 同条件で次のN問を出題（end 画面から） ----
+  const startNextBatch = () => {
+    if (!currentTopic) return;
+    const mode: PickMode = setupRandomize ? 'random' : 'sequential';
+    if (setupKind === 'fc') {
+      const filtered = currentTopic.flashcards.filter((c) =>
+        difficultyMatch(c.difficulty, setupDifficulties)
+      );
+      const picked = pickItems(filtered, itemStats, lastSetupCount, mode, sessionSeenFcIds);
+      if (picked.length === 0) return;
+      setActiveFcItems(picked);
+      setSessionSeenFcIds((prev) => {
+        const next = new Set(prev);
+        picked.forEach((p) => next.add(p.id));
+        return next;
+      });
+      setKnownIds([]);
+      setUnknownIds([]);
+      setView('fc');
+    } else {
+      const filtered = currentTopic.quiz.filter((q) =>
+        difficultyMatch(q.difficulty, setupDifficulties)
+      );
+      const picked = pickItems(filtered, itemStats, lastSetupCount, mode, sessionSeenQuizIds);
+      if (picked.length === 0) return;
+      setActiveQuizItems(picked);
+      setSessionSeenQuizIds((prev) => {
+        const next = new Set(prev);
+        picked.forEach((p) => next.add(p.id));
+        return next;
+      });
+      setWrongIds([]);
+      setView('quiz');
+    }
+  };
+
+  // ---- フラッシュカード end からクイズに進む ----
+  const goToQuizFromFcEnd = () => {
+    if (!currentTopic) return;
+    setSetupKind('quiz');
+    setSessionSeenQuizIds(new Set());
+    setView('setup');
+  };
+
+  // ---- クイズ end から次の単元（同じ era 内の次トピック）に進む ----
+  const getNextTopic = (): StudyTopic | null => {
+    if (!currentTopic) return null;
+    const flat: StudyTopic[] = filteredEras.flatMap((e) => e.topics);
+    const idx = flat.findIndex((t) => t.topicId === currentTopic.topicId);
+    if (idx < 0 || idx >= flat.length - 1) return null;
+    return flat[idx + 1];
+  };
+  const goToNextTopicSetup = () => {
+    const next = getNextTopic();
+    if (!next) return;
+    openSetup(next, 'fc');
   };
 
   // ---- 教科ごとの最後の難易度選択を保存 ----
@@ -306,6 +446,20 @@ export function LiffUnitsPage() {
     setUnknownIds(unknown);
     setView('fc-end');
     void persistStudyStats('fc', currentTopic?.topicId, { increment: true });
+    if (currentTopic) {
+      const results: ItemResult[] = [
+        ...known.map((id) => ({ itemId: id, isCorrect: true })),
+        ...unknown.map((id) => ({ itemId: id, isCorrect: false })),
+      ];
+      const updatedStats = applyResultsToLocalStats(itemStats, results);
+      setItemStats(updatedStats);
+      setAllItemStats((prev) => {
+        const next = new Map(prev);
+        next.set(currentTopic.topicId, updatedStats);
+        return next;
+      });
+      void updateItemStats(currentTopic.topicId, results);
+    }
   };
 
   // ---- Quiz 完了処理 ----
@@ -323,6 +477,21 @@ export function LiffUnitsPage() {
       increment: true,
       accuracy: acc,
     });
+    if (currentTopic) {
+      const wrongSet = new Set(wrong);
+      const results: ItemResult[] = activeQuizItems.map((q) => ({
+        itemId: q.id,
+        isCorrect: !wrongSet.has(q.id),
+      }));
+      const updatedStats = applyResultsToLocalStats(itemStats, results);
+      setItemStats(updatedStats);
+      setAllItemStats((prev) => {
+        const next = new Map(prev);
+        next.set(currentTopic.topicId, updatedStats);
+        return next;
+      });
+      void updateItemStats(currentTopic.topicId, results);
+    }
   };
 
   // ---- Firestore に stats を保存 ----
@@ -413,6 +582,8 @@ export function LiffUnitsPage() {
         kind={setupKind}
         difficulties={setupDifficulties}
         count={setupCount}
+        randomize={setupRandomize}
+        itemStats={itemStats}
         onToggleDifficulty={(d) => {
           setSetupDifficulties((prev) => {
             const next = new Set(prev);
@@ -422,6 +593,7 @@ export function LiffUnitsPage() {
           });
         }}
         onChangeCount={setSetupCount}
+        onChangeRandomize={setSetupRandomize}
         onStart={startWithSetup}
         onBack={backToList}
       />
@@ -438,6 +610,14 @@ export function LiffUnitsPage() {
     );
   }
   if (view === 'fc-end' && currentTopic) {
+    const totalFcInScope = currentTopic.flashcards.filter((c) =>
+      difficultyMatch(c.difficulty, setupDifficulties)
+    ).length;
+    const remainingFcCount = Math.max(0, totalFcInScope - sessionSeenFcIds.size);
+    const nextBatchCount =
+      lastSetupCount === 'all'
+        ? remainingFcCount
+        : Math.min(lastSetupCount, remainingFcCount);
     return (
       <FcEndView
         topic={currentTopic}
@@ -445,8 +625,12 @@ export function LiffUnitsPage() {
         known={knownIds.length}
         unknown={unknownIds.length}
         canReview={unknownIds.length > 0}
+        nextBatchCount={nextBatchCount}
+        canGoToQuiz={remainingFcCount === 0 && currentTopic.quiz.length > 0}
         onReviewUnknown={reviewUnknownFc}
         onRetry={retrySameFc}
+        onNextBatch={startNextBatch}
+        onGoToQuiz={goToQuizFromFcEnd}
         onBack={backToList}
       />
     );
@@ -462,14 +646,27 @@ export function LiffUnitsPage() {
     );
   }
   if (view === 'quiz-end' && currentTopic) {
+    const totalQuizInScope = currentTopic.quiz.filter((q) =>
+      difficultyMatch(q.difficulty, setupDifficulties)
+    ).length;
+    const remainingQuizCount = Math.max(0, totalQuizInScope - sessionSeenQuizIds.size);
+    const nextBatchCount =
+      lastSetupCount === 'all'
+        ? remainingQuizCount
+        : Math.min(lastSetupCount, remainingQuizCount);
+    const nextTopic = getNextTopic();
     return (
       <QuizEndView
         topic={currentTopic}
         correct={lastQuizCorrect}
         total={lastQuizTotal}
         canReview={wrongIds.length > 0}
+        nextBatchCount={nextBatchCount}
+        nextTopicName={remainingQuizCount === 0 ? nextTopic?.name ?? null : null}
         onReviewWrong={reviewWrongQuiz}
         onRetry={retrySameQuiz}
+        onNextBatch={startNextBatch}
+        onGoToNextTopic={goToNextTopicSetup}
         onBack={backToList}
       />
     );
@@ -599,6 +796,13 @@ export function LiffUnitsPage() {
                 <ul className="divide-y divide-gray-100">
                   {era.topics.map((t) => {
                     const stat = studyStats[t.topicId] ?? EMPTY_STAT;
+                    const tStats = allItemStats.get(t.topicId);
+                    const totalItems = t.flashcards.length + t.quiz.length;
+                    const attemptedItems = tStats
+                      ? Array.from(tStats.values()).filter((s) => s.attempts > 0).length
+                      : 0;
+                    const progressPct =
+                      totalItems > 0 ? Math.round((attemptedItems / totalItems) * 100) : 0;
                     return (
                       <li key={t.topicId} className="px-4 py-3">
                         <div className="flex items-center gap-3 mb-2">
@@ -620,6 +824,20 @@ export function LiffUnitsPage() {
                               </div>
                             )}
                           </div>
+                          {totalItems > 0 && (
+                            <span
+                              className={`text-[10px] px-2 py-0.5 rounded-full font-medium whitespace-nowrap ${
+                                progressPct === 0
+                                  ? 'bg-gray-100 text-gray-500'
+                                  : progressPct < 100
+                                    ? 'bg-amber-50 text-amber-700'
+                                    : 'bg-green-50 text-green-700'
+                              }`}
+                              title={`${attemptedItems} / ${totalItems} 問解いた`}
+                            >
+                              {attemptedItems}/{totalItems}
+                            </span>
+                          )}
                         </div>
                         <div className="flex gap-2">
                           <button
@@ -674,8 +892,11 @@ function SetupView({
   kind,
   difficulties,
   count,
+  randomize,
+  itemStats,
   onToggleDifficulty,
   onChangeCount,
+  onChangeRandomize,
   onStart,
   onBack,
 }: {
@@ -683,20 +904,25 @@ function SetupView({
   kind: SetupKind;
   difficulties: Set<Difficulty>;
   count: number | 'all';
+  randomize: boolean;
+  itemStats: ItemStatsMap;
   onToggleDifficulty: (d: Difficulty) => void;
   onChangeCount: (c: number | 'all') => void;
+  onChangeRandomize: (r: boolean) => void;
   onStart: () => void;
   onBack: () => void;
 }) {
   const sourceItems = kind === 'fc' ? topic.flashcards : topic.quiz;
-  const filteredCount = sourceItems.filter((it) =>
+  const filtered = sourceItems.filter((it) =>
     difficultyMatch(it.difficulty, difficulties)
-  ).length;
+  );
+  const filteredCount = filtered.length;
   const effectiveCount =
     count === 'all' ? filteredCount : Math.min(count, filteredCount);
   const kindLabel = kind === 'fc' ? '暗記カード' : 'クイズ';
   const kindEmoji = kind === 'fc' ? '🃏' : '❓';
   const noDifficultySelected = difficulties.size === 0;
+  const tierCounts = countTiers(filtered, itemStats);
 
   return (
     <div className="min-h-screen bg-[#FAF9F7] pb-12 flex flex-col">
@@ -798,10 +1024,54 @@ function SetupView({
             </div>
           </div>
 
+          {/* 出題順 */}
+          <div className="mt-4">
+            <label className="flex items-center gap-2 cursor-pointer select-none">
+              <input
+                type="checkbox"
+                checked={randomize}
+                onChange={(e) => onChangeRandomize(e.target.checked)}
+                className="w-4 h-4 accent-amber-500"
+              />
+              <span
+                className="text-xs text-gray-700"
+                style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+              >
+                ランダム順で出題する
+              </span>
+            </label>
+            <p className="text-[11px] text-gray-400 mt-1 ml-6">
+              チェックを外すと {kind === 'fc' ? 'カード' : '問題'}は登場順に並びます
+            </p>
+          </div>
+
+          {/* 学習進捗プリビュー */}
+          {filteredCount > 0 && (
+            <div className="mt-4 p-3 bg-gray-50 rounded-xl">
+              <div className="text-[11px] text-gray-500 mb-2">
+                この{kindLabel}の学習状況
+              </div>
+              <div className="flex gap-2 text-[11px]">
+                <span className="px-2 py-1 rounded-full bg-white border border-gray-200 text-gray-700">
+                  未着手 <strong>{tierCounts.unseen}</strong>
+                </span>
+                <span className="px-2 py-1 rounded-full bg-red-50 text-red-700">
+                  要復習 <strong>{tierCounts.wrongHeavy}</strong>
+                </span>
+                <span className="px-2 py-1 rounded-full bg-amber-50 text-amber-700">
+                  正解多 <strong>{tierCounts.correctHeavy}</strong>
+                </span>
+              </div>
+            </div>
+          )}
+
           {/* サマリ */}
           <div className="mt-5 p-3 bg-amber-50 rounded-xl text-xs text-amber-800">
             この設定で <strong className="font-bold">{effectiveCount}</strong>{' '}
             {kind === 'fc' ? '枚' : '問'} を{kindLabel}します。
+            <span className="block text-[11px] text-amber-700 mt-1">
+              未着手 → 要復習 → 正解多 の順で優先的に出題されます
+            </span>
           </div>
 
           <button
@@ -945,8 +1215,12 @@ function FcEndView({
   known,
   unknown,
   canReview,
+  nextBatchCount,
+  canGoToQuiz,
   onReviewUnknown,
   onRetry,
+  onNextBatch,
+  onGoToQuiz,
   onBack,
 }: {
   topic: StudyTopic;
@@ -954,8 +1228,12 @@ function FcEndView({
   known: number;
   unknown: number;
   canReview: boolean;
+  nextBatchCount: number;
+  canGoToQuiz: boolean;
   onReviewUnknown: () => void;
   onRetry: () => void;
+  onNextBatch: () => void;
+  onGoToQuiz: () => void;
   onBack: () => void;
 }) {
   const rate = total > 0 ? Math.round((known / total) * 100) : 0;
@@ -997,10 +1275,28 @@ function FcEndView({
             </div>
           </div>
 
+          {canGoToQuiz && (
+            <button
+              onClick={onGoToQuiz}
+              className="w-full bg-amber-500 hover:bg-amber-600 text-white rounded-full py-3 text-sm font-bold mb-2"
+              style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+            >
+              ❓ 問題に進む
+            </button>
+          )}
+          {!canGoToQuiz && nextBatchCount > 0 && (
+            <button
+              onClick={onNextBatch}
+              className="w-full bg-amber-500 hover:bg-amber-600 text-white rounded-full py-3 text-sm font-bold mb-2"
+              style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+            >
+              ▶ 次の {nextBatchCount} 枚を解く
+            </button>
+          )}
           {canReview && (
             <button
               onClick={onReviewUnknown}
-              className="w-full bg-amber-500 hover:bg-amber-600 text-white rounded-full py-3 text-sm font-bold mb-2"
+              className="w-full bg-white border border-amber-300 hover:bg-amber-50 text-amber-700 rounded-full py-3 text-sm font-medium mb-2"
               style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
             >
               ✗ わからなかった {unknown} 枚を復習
@@ -1183,16 +1479,24 @@ function QuizEndView({
   correct,
   total,
   canReview,
+  nextBatchCount,
+  nextTopicName,
   onReviewWrong,
   onRetry,
+  onNextBatch,
+  onGoToNextTopic,
   onBack,
 }: {
   topic: StudyTopic;
   correct: number;
   total: number;
   canReview: boolean;
+  nextBatchCount: number;
+  nextTopicName: string | null;
   onReviewWrong: () => void;
   onRetry: () => void;
+  onNextBatch: () => void;
+  onGoToNextTopic: () => void;
   onBack: () => void;
 }) {
   const acc = total > 0 ? Math.round((correct / total) * 100) : 0;
@@ -1224,10 +1528,28 @@ function QuizEndView({
           </div>
           <div className="text-sm text-gray-600 mb-6">正答率 {acc}%</div>
 
+          {nextTopicName && (
+            <button
+              onClick={onGoToNextTopic}
+              className="w-full bg-amber-500 hover:bg-amber-600 text-white rounded-full py-3 text-sm font-bold mb-2"
+              style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+            >
+              ▶ 次の単元へ：{nextTopicName}
+            </button>
+          )}
+          {!nextTopicName && nextBatchCount > 0 && (
+            <button
+              onClick={onNextBatch}
+              className="w-full bg-amber-500 hover:bg-amber-600 text-white rounded-full py-3 text-sm font-bold mb-2"
+              style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+            >
+              ▶ 次の {nextBatchCount} 問を解く
+            </button>
+          )}
           {canReview && (
             <button
               onClick={onReviewWrong}
-              className="w-full bg-amber-500 hover:bg-amber-600 text-white rounded-full py-3 text-sm font-bold mb-2"
+              className="w-full bg-white border border-amber-300 hover:bg-amber-50 text-amber-700 rounded-full py-3 text-sm font-medium mb-2"
               style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
             >
               ✗ 間違えた {wrong} 問だけ復習
