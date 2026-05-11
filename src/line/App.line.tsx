@@ -8,6 +8,7 @@
  * - `/liff/test-range`    : リッチメニュー「テスト範囲設定」からの LIFF エントリ
  * - `/liff/report`        : リッチメニュー「成績・記録」からの LIFF エントリ
  * - `/liff/settings`      : リッチメニュー「設定・サポート」からの LIFF エントリ
+ * - `/liff/premium-info`  : 無料版「もっと解く」flex からのプレミアム誘導 LIFF
  * - その他               : NotFoundPage
  *
  * `/` は `/welcome` にリダイレクト。学習体験ページ（LearningPage / 263トピック等）は
@@ -37,6 +38,11 @@ const LiffReportPage = lazy(() =>
 const LiffSettingsPage = lazy(() =>
   import('../pages/LiffSettingsPage').then((m) => ({
     default: m.LiffSettingsPage,
+  }))
+);
+const LiffPremiumInfoPage = lazy(() =>
+  import('../pages/LiffPremiumInfoPage').then((m) => ({
+    default: m.LiffPremiumInfoPage,
   }))
 );
 const LineCallbackPage = lazy(() =>
@@ -77,6 +83,7 @@ function LineAuthGuard() {
         <Route path="/liff/test-range" element={<LiffTestRangePage />} />
         <Route path="/liff/report" element={<LiffReportPage />} />
         <Route path="/liff/settings" element={<LiffSettingsPage />} />
+        <Route path="/liff/premium-info" element={<LiffPremiumInfoPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Suspense>

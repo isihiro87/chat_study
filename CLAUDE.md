@@ -153,10 +153,11 @@ UIを実装・変更する際は必ず `docs/design-guide.md` を参照するこ
 - Web版に変更を入れる場合: `src/App.tsx` 配下、`src/pages/` の Web 用ページ、`src/data/subjects/` などを編集
 - LINE版に変更を入れる場合: `src/line/App.line.tsx`、`src/pages/Welcome*`/`Liff*`/`LineCallback*`、共有 AuthContext を編集
 - LIFF endpoint URL（LINE Developers Console で管理）:
-  - `https://line.chatstudy.jp/liff/units` (リッチメニュー「じっくり学ぶ」)
-  - `https://line.chatstudy.jp/liff/test-range` (premium「テスト範囲設定」)
-  - `https://line.chatstudy.jp/liff/report` (premium「成績・記録」)
-  - `https://line.chatstudy.jp/liff/settings` (premium「設定・サポート」)
+  - `https://line.chatstudy.jp/liff/units` (premium「じっくり学ぶ」)
+  - `https://line.chatstudy.jp/liff/test-range` (free + premium「テスト範囲設定」)
+  - `https://line.chatstudy.jp/liff/report` (premium 成績・記録 flex の「詳しく見る」)
+  - `https://line.chatstudy.jp/liff/settings` (premium 設定・サポート flex の「設定画面を開く」)
+  - `https://line.chatstudy.jp/liff/premium-info` (無料版「もっと解く」flex の「詳細を見る」)
 - LINE Login OAuth Callback URL: 両ドメイン分（`www.chatstudy.jp` / `line.chatstudy.jp`）を LINE Developers に登録
 - **bundle に学習データが混入していないか**は `grep -r LearningPage dist-line/` などで確認。混入していたら `src/line/App.line.tsx` の import チェーンに不要な依存が紛れた合図
 

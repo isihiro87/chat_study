@@ -41,17 +41,19 @@
     {
       "bounds": { "x": 833, "y": 843, "width": 834, "height": 843 },
       "action": {
-        "type": "uri",
+        "type": "postback",
         "label": "成績・記録",
-        "uri": "https://liff.line.me/2009587166-BsatoYm2"
+        "data": "type=report_summary",
+        "displayText": "成績・記録"
       }
     },
     {
       "bounds": { "x": 1667, "y": 843, "width": 833, "height": 843 },
       "action": {
-        "type": "uri",
+        "type": "postback",
         "label": "設定・サポート",
-        "uri": "https://liff.line.me/PLACEHOLDER_settings"
+        "data": "type=settings_guide",
+        "displayText": "設定・サポート"
       }
     }
   ]

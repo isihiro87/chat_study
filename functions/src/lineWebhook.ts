@@ -172,6 +172,16 @@ function getUserPlan(userData: Record<string, unknown> | undefined): UserPlan {
 }
 
 const PREMIUM_LANDING_URL = "https://www.chatstudy.jp/premium";
+const CONTACT_URL = "https://www.chatstudy.jp/contact";
+
+// LIFF URL（functions/.env で上書き可能、未設定なら known good fallback）
+const LIFF_REPORT_URL =
+  process.env.LIFF_REPORT_URL ?? "https://liff.line.me/2009587166-BsatoYm2";
+const LIFF_SETTINGS_URL =
+  process.env.LIFF_SETTINGS_URL ?? "https://liff.line.me/2009587166-IvJl78Hk";
+const LIFF_PREMIUM_INFO_URL =
+  process.env.LIFF_PREMIUM_INFO_URL ??
+  "https://line.chatstudy.jp/liff/premium-info";
 
 export const lineWebhook = functions
   .region("asia-northeast1")
@@ -437,6 +447,16 @@ async function handlePostback(event: LineEvent): Promise<void> {
     return;
   }
 
+  if (type === "settings_guide") {
+    await handleSettingsGuidePostback(replyToken);
+    return;
+  }
+
+  if (type === "report_summary") {
+    await handleReportSummaryPostback(uid, replyToken);
+    return;
+  }
+
   if (type === "premium_info") {
     await handlePremiumInfoPostback(replyToken);
     return;
@@ -499,6 +519,61 @@ async function handleSettingsMenuPostback(
     await client.replyMessage({ replyToken, messages: [flex] });
   } catch (error) {
     console.error("[lineWebhook] handleSettingsMenu reply failed:", error);
+  }
+}
+
+async function handleSettingsGuidePostback(
+  replyToken: string | undefined
+): Promise<void> {
+  if (!replyToken) return;
+  const flex = buildSettingsGuideFlexMessage();
+  try {
+    const client = await getLineClient();
+    await client.replyMessage({ replyToken, messages: [flex] });
+  } catch (error) {
+    console.error("[lineWebhook] handleSettingsGuide reply failed:", error);
+  }
+}
+
+async function handleReportSummaryPostback(
+  uid: string,
+  replyToken: string | undefined
+): Promise<void> {
+  if (!replyToken) return;
+  const { db } = await getDb();
+
+  let stats: {
+    totalAnswered: number;
+    totalCorrect: number;
+    streakCurrent: number;
+    streakLongest: number;
+    lastStudyDate: string;
+  } | null = null;
+  try {
+    const userSnap = await db.doc(`users/${uid}`).get();
+    const data = userSnap.exists ? userSnap.data() ?? {} : {};
+    const s = (data.stats as Record<string, unknown> | undefined) ?? null;
+    if (s && typeof s.totalAnswered === "number") {
+      const streak = (s.streak as Record<string, unknown> | undefined) ?? {};
+      stats = {
+        totalAnswered: s.totalAnswered,
+        totalCorrect: typeof s.totalCorrect === "number" ? s.totalCorrect : 0,
+        streakCurrent: typeof streak.current === "number" ? streak.current : 0,
+        streakLongest: typeof streak.longest === "number" ? streak.longest : 0,
+        lastStudyDate:
+          typeof streak.lastStudyDate === "string" ? streak.lastStudyDate : "",
+      };
+    }
+  } catch (error) {
+    console.error("[lineWebhook] handleReportSummary fetch failed:", error);
+  }
+
+  const flex = buildReportSummaryFlexMessage(stats);
+  try {
+    const client = await getLineClient();
+    await client.replyMessage({ replyToken, messages: [flex] });
+  } catch (error) {
+    console.error("[lineWebhook] handleReportSummary reply failed:", error);
   }
 }
 
@@ -891,6 +966,24 @@ function buildStreakFlexMessage(stats: StreakStats) {
           },
         ],
       },
+      footer: {
+        type: "box" as const,
+        layout: "vertical" as const,
+        spacing: "sm" as const,
+        paddingAll: "16px",
+        contents: [
+          {
+            type: "button" as const,
+            style: "secondary" as const,
+            height: "sm" as const,
+            action: {
+              type: "uri" as const,
+              label: "教科別・単元別の記録を見る",
+              uri: LIFF_REPORT_URL,
+            },
+          },
+        ],
+      },
     },
   };
 }
@@ -983,6 +1076,233 @@ function buildSettingsMenuFlexMessage() {
   };
 }
 
+function buildSettingsGuideFlexMessage() {
+  return {
+    type: "flex" as const,
+    altText: "設定・サポート",
+    contents: {
+      type: "bubble" as const,
+      size: "kilo" as const,
+      header: {
+        type: "box" as const,
+        layout: "vertical" as const,
+        backgroundColor: "#F59E0B",
+        paddingAll: "14px",
+        contents: [
+          {
+            type: "text" as const,
+            text: "⚙️ 設定・サポート",
+            color: "#FFFFFF",
+            weight: "bold" as const,
+            size: "md" as const,
+          },
+        ],
+      },
+      body: {
+        type: "box" as const,
+        layout: "vertical" as const,
+        paddingAll: "20px",
+        spacing: "sm" as const,
+        contents: [
+          {
+            type: "text" as const,
+            text: "学年・教科・配信時刻を変えるなら設定画面から、書き込み制限なしで何度でも変更できるよ。",
+            wrap: true,
+            size: "sm" as const,
+            color: "#111827",
+          },
+          {
+            type: "text" as const,
+            text: "解約や問い合わせ・FAQ も設定画面のリンクから。",
+            wrap: true,
+            size: "xs" as const,
+            color: "#6B7280",
+            margin: "sm" as const,
+          },
+        ],
+      },
+      footer: {
+        type: "box" as const,
+        layout: "vertical" as const,
+        spacing: "sm" as const,
+        paddingAll: "16px",
+        contents: [
+          {
+            type: "button" as const,
+            style: "primary" as const,
+            color: "#F59E0B",
+            height: "sm" as const,
+            action: {
+              type: "uri" as const,
+              label: "設定画面を開く",
+              uri: LIFF_SETTINGS_URL,
+            },
+          },
+          {
+            type: "button" as const,
+            style: "secondary" as const,
+            height: "sm" as const,
+            action: {
+              type: "uri" as const,
+              label: "お問い合わせ",
+              uri: CONTACT_URL,
+            },
+          },
+        ],
+      },
+    },
+  };
+}
+
+function buildReportSummaryFlexMessage(
+  stats: {
+    totalAnswered: number;
+    totalCorrect: number;
+    streakCurrent: number;
+    streakLongest: number;
+    lastStudyDate: string;
+  } | null
+) {
+  const accuracy =
+    stats && stats.totalAnswered > 0
+      ? Math.round((stats.totalCorrect / stats.totalAnswered) * 100)
+      : 0;
+  const body =
+    stats === null
+      ? [
+          {
+            type: "text" as const,
+            text: "まだ記録がありません。",
+            wrap: true,
+            size: "sm" as const,
+            color: "#111827",
+            weight: "bold" as const,
+          },
+          {
+            type: "text" as const,
+            text: "1問解くと、ここに連続記録や正答率が表示されるよ。",
+            wrap: true,
+            size: "xs" as const,
+            color: "#6B7280",
+            margin: "sm" as const,
+          },
+        ]
+      : [
+          {
+            type: "box" as const,
+            layout: "horizontal" as const,
+            spacing: "md" as const,
+            contents: [
+              {
+                type: "box" as const,
+                layout: "vertical" as const,
+                flex: 1,
+                contents: [
+                  { type: "text" as const, text: "連続", size: "xxs" as const, color: "#6B7280" },
+                  {
+                    type: "text" as const,
+                    text: `${stats.streakCurrent} 日`,
+                    weight: "bold" as const,
+                    size: "lg" as const,
+                    color: "#F59E0B",
+                  },
+                ],
+              },
+              {
+                type: "box" as const,
+                layout: "vertical" as const,
+                flex: 1,
+                contents: [
+                  { type: "text" as const, text: "解いた", size: "xxs" as const, color: "#6B7280" },
+                  {
+                    type: "text" as const,
+                    text: `${stats.totalAnswered} 問`,
+                    weight: "bold" as const,
+                    size: "lg" as const,
+                    color: "#111827",
+                  },
+                ],
+              },
+              {
+                type: "box" as const,
+                layout: "vertical" as const,
+                flex: 1,
+                contents: [
+                  { type: "text" as const, text: "正答率", size: "xxs" as const, color: "#6B7280" },
+                  {
+                    type: "text" as const,
+                    text: `${accuracy}%`,
+                    weight: "bold" as const,
+                    size: "lg" as const,
+                    color: "#F59E0B",
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            type: "text" as const,
+            text: `最長 ${stats.streakLongest} 日連続${
+              stats.lastStudyDate ? ` ・ 最終: ${stats.lastStudyDate}` : ""
+            }`,
+            size: "xs" as const,
+            color: "#6B7280",
+            margin: "md" as const,
+            wrap: true,
+          },
+        ];
+
+  return {
+    type: "flex" as const,
+    altText: "成績・記録",
+    contents: {
+      type: "bubble" as const,
+      size: "kilo" as const,
+      header: {
+        type: "box" as const,
+        layout: "vertical" as const,
+        backgroundColor: "#F59E0B",
+        paddingAll: "14px",
+        contents: [
+          {
+            type: "text" as const,
+            text: "📊 成績・記録",
+            color: "#FFFFFF",
+            weight: "bold" as const,
+            size: "md" as const,
+          },
+        ],
+      },
+      body: {
+        type: "box" as const,
+        layout: "vertical" as const,
+        paddingAll: "20px",
+        spacing: "sm" as const,
+        contents: body,
+      },
+      footer: {
+        type: "box" as const,
+        layout: "vertical" as const,
+        spacing: "sm" as const,
+        paddingAll: "16px",
+        contents: [
+          {
+            type: "button" as const,
+            style: "primary" as const,
+            color: "#F59E0B",
+            height: "sm" as const,
+            action: {
+              type: "uri" as const,
+              label: "詳しく見る（教科別・単元別）",
+              uri: LIFF_REPORT_URL,
+            },
+          },
+        ],
+      },
+    },
+  };
+}
+
 function buildPremiumInfoFlexMessage() {
   return {
     type: "flex" as const,
@@ -1064,7 +1384,7 @@ function buildPremiumInfoFlexMessage() {
             action: {
               type: "uri" as const,
               label: "詳細を見る",
-              uri: "https://www.chatstudy.jp/premium",
+              uri: LIFF_PREMIUM_INFO_URL,
             },
           },
         ],
