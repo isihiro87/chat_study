@@ -1130,7 +1130,7 @@ function buildTestRangeMenuFlexMessage() {
         contents: [
           {
             type: "text" as const,
-            text: "テスト前に範囲を絞り込もう。",
+            text: "テスト範囲のうち、もう習った単元だけにチェックを入れよう！",
             wrap: true,
             size: "sm" as const,
             color: "#111827",
@@ -1138,7 +1138,7 @@ function buildTestRangeMenuFlexMessage() {
           },
           {
             type: "text" as const,
-            text: "教科書の章や単元から選ぶと、「追加で解く」「苦手を復習」で その範囲内から優先的に出題されるよ。",
+            text: "チェックした単元から「追加で解く」「苦手を復習」の問題が出るよ。まだ習っていないところは外しておくとテスト勉強がはかどる👍",
             wrap: true,
             size: "xs" as const,
             color: "#6B7280",

@@ -282,9 +282,6 @@ export function LiffTestRangePage() {
           >
             🎯 テスト範囲を設定
           </h1>
-          <p className="text-xs text-gray-500 text-center mt-1">
-            選んだ範囲から「追加で解く」「苦手を復習」が出題されるよ
-          </p>
         </div>
       </header>
 
@@ -306,6 +303,27 @@ export function LiffTestRangePage() {
           status === 'error') &&
           userCtx && (
             <>
+              {/* 使い方の説明（中学生向け） */}
+              <section className="mt-4 bg-amber-50 border border-amber-200 rounded-2xl p-4">
+                <h2
+                  className="text-sm font-bold text-amber-800 mb-2"
+                  style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+                >
+                  💡 使い方
+                </h2>
+                <ol className="text-xs text-gray-700 space-y-1.5 leading-relaxed list-decimal list-inside">
+                  <li>
+                    テスト範囲のうち、<strong className="text-amber-700">もう習ったところ</strong>だけにチェックを入れよう
+                  </li>
+                  <li>
+                    チェックした単元から「追加で解く」「苦手を復習」の問題が出るよ
+                  </li>
+                  <li>
+                    まだ習っていないところは外しておくと、テスト勉強がはかどる
+                  </li>
+                </ol>
+              </section>
+
               <div className="mt-4 bg-white rounded-2xl shadow-sm p-4">
                 <div className="text-xs text-gray-500 mb-1">対象</div>
                 <div className="text-sm font-medium text-gray-800">
