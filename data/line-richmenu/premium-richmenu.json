@@ -25,9 +25,10 @@
     {
       "bounds": { "x": 1667, "y": 0, "width": 833, "height": 843 },
       "action": {
-        "type": "uri",
+        "type": "postback",
         "label": "テスト範囲設定",
-        "uri": "https://liff.line.me/2009587166-a3kYf7tu"
+        "data": "type=test_range_menu",
+        "displayText": "テスト範囲設定"
       }
     },
     {

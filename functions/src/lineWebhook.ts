@@ -185,6 +185,9 @@ const LIFF_PREMIUM_INFO_URL =
 const LIFF_HELP_URL =
   process.env.LIFF_HELP_URL ??
   "https://liff.line.me/2009587166-oaTz2NXX";
+const LIFF_TEST_RANGE_URL =
+  process.env.LIFF_TEST_RANGE_URL ??
+  "https://liff.line.me/2009587166-a3kYf7tu";
 
 export const lineWebhook = functions
   .region("asia-northeast1")
@@ -460,6 +463,11 @@ async function handlePostback(event: LineEvent): Promise<void> {
     return;
   }
 
+  if (type === "test_range_menu") {
+    await handleTestRangeMenuPostback(replyToken);
+    return;
+  }
+
   if (type === "premium_info") {
     await handlePremiumInfoPostback(replyToken);
     return;
@@ -522,6 +530,19 @@ async function handleSettingsMenuPostback(
     await client.replyMessage({ replyToken, messages: [flex] });
   } catch (error) {
     console.error("[lineWebhook] handleSettingsMenu reply failed:", error);
+  }
+}
+
+async function handleTestRangeMenuPostback(
+  replyToken: string | undefined
+): Promise<void> {
+  if (!replyToken) return;
+  const flex = buildTestRangeMenuFlexMessage();
+  try {
+    const client = await getLineClient();
+    await client.replyMessage({ replyToken, messages: [flex] });
+  } catch (error) {
+    console.error("[lineWebhook] handleTestRangeMenu reply failed:", error);
   }
 }
 
@@ -1071,6 +1092,75 @@ function buildSettingsMenuFlexMessage() {
               type: "uri" as const,
               label: "プレミアム解約案内",
               uri: "https://www.chatstudy.jp/premium",
+            },
+          },
+        ],
+      },
+    },
+  };
+}
+
+function buildTestRangeMenuFlexMessage() {
+  return {
+    type: "flex" as const,
+    altText: "テスト範囲設定",
+    contents: {
+      type: "bubble" as const,
+      size: "kilo" as const,
+      header: {
+        type: "box" as const,
+        layout: "vertical" as const,
+        backgroundColor: "#F59E0B",
+        paddingAll: "14px",
+        contents: [
+          {
+            type: "text" as const,
+            text: "🎯 テスト範囲設定",
+            color: "#FFFFFF",
+            weight: "bold" as const,
+            size: "md" as const,
+          },
+        ],
+      },
+      body: {
+        type: "box" as const,
+        layout: "vertical" as const,
+        paddingAll: "20px",
+        spacing: "sm" as const,
+        contents: [
+          {
+            type: "text" as const,
+            text: "テスト前に範囲を絞り込もう。",
+            wrap: true,
+            size: "sm" as const,
+            color: "#111827",
+            weight: "bold" as const,
+          },
+          {
+            type: "text" as const,
+            text: "教科書の章や単元から選ぶと、「追加で解く」「苦手を復習」で その範囲内から優先的に出題されるよ。",
+            wrap: true,
+            size: "xs" as const,
+            color: "#6B7280",
+            margin: "sm" as const,
+          },
+        ],
+      },
+      footer: {
+        type: "box" as const,
+        layout: "vertical" as const,
+        spacing: "sm" as const,
+        paddingAll: "16px",
+        contents: [
+          {
+            type: "button" as const,
+            style: "primary" as const,
+            color: "#F59E0B",
+            height: "sm" as const,
+            action: {
+              type: "uri" as const,
+              label: "範囲を設定する",
+              uri: LIFF_TEST_RANGE_URL,
             },
           },
         ],
