@@ -34,9 +34,20 @@ export function useLiffAuth(liffId: string | undefined): { attempted: boolean } 
         await liff.init({ liffId });
         if (cancelled) return;
 
-        // LINE app webview 内で LIFF にログイン済みなら ID トークンを取得して
-        // Firebase Auth へサインインする。これにより /welcome 経由のリダイレクトが不要に。
-        if (liff.isInClient() && liff.isLoggedIn()) {
+        // LINE app webview だが LIFF にまだログインしていない場合は、LIFF SDK の
+        // 内蔵 OAuth フローを発動する。redirect_uri = LIFF endpoint URL なので
+        // 我々の /auth/line/callback を経由せず LINE webview 内で完結する。
+        // 同じ URL に戻ってきたあと、再度この useEffect が走り isLoggedIn = true
+        // になっているので下のブロックに進む。
+        if (liff.isInClient() && !liff.isLoggedIn()) {
+          liff.login();
+          // 画面遷移するのでこのまま return（setAttempted も発火させない）
+          return;
+        }
+
+        // LIFF にログイン済みなら ID トークンを取得して Firebase Auth へサインイン。
+        // これで /welcome 経由のリダイレクトが不要に。
+        if (liff.isLoggedIn()) {
           const idToken = liff.getIDToken();
           if (idToken) {
             try {
