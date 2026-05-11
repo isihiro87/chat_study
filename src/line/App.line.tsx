@@ -5,7 +5,9 @@
  * - `/welcome`            : 公式LINE 友だち追加誘導 + LINEログイン
  * - `/auth/line/callback` : LINE Login OAuth コールバック処理
  * - `/liff/units`         : リッチメニュー「単元を選ぶ」からの LIFF エントリ
- * - `/liff/test-range`    : リッチメニュー「テスト範囲設定」からの LIFF エントリ
+ * - `/liff/scope`         : リッチメニュー「テスト範囲設定」からの LIFF エントリ
+ *                          （旧 `/liff/test-range` は LINE 側のキャッシュ起因で
+ *                          400 が出続けたため、新パスに移行）
  * - `/liff/report`        : リッチメニュー「成績・記録」からの LIFF エントリ
  * - `/liff/settings`      : リッチメニュー「設定・サポート」からの LIFF エントリ
  * - `/liff/premium-info`  : 無料版「もっと解く」flex からのプレミアム誘導 LIFF
@@ -76,6 +78,8 @@ function LineAuthGuard() {
         <Route path="/welcome" element={<WelcomePage />} />
         <Route path="/auth/line/callback" element={<LineCallbackPage />} />
         <Route path="/liff/units" element={<LiffUnitsPage />} />
+        <Route path="/liff/scope" element={<LiffTestRangePage />} />
+        {/* 旧パス: しばらく残しておくが、新パスへ案内 */}
         <Route path="/liff/test-range" element={<LiffTestRangePage />} />
         <Route path="/liff/report" element={<LiffReportPage />} />
         <Route path="/liff/settings" element={<LiffSettingsPage />} />

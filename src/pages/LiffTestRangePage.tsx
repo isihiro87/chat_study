@@ -269,7 +269,7 @@ export function LiffTestRangePage() {
   }
 
   if (!user) {
-    return <Navigate to="/welcome?next=/liff/test-range" replace />;
+    return <Navigate to="/welcome?next=/liff/scope" replace />;
   }
 
   return (
