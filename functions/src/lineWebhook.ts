@@ -184,7 +184,7 @@ const LIFF_PREMIUM_INFO_URL =
   "https://liff.line.me/2009587166-k51bH4LC";
 const LIFF_HELP_URL =
   process.env.LIFF_HELP_URL ??
-  "https://line.chatstudy.jp/liff/help";
+  "https://liff.line.me/2009587166-oaTz2NXX";
 
 export const lineWebhook = functions
   .region("asia-northeast1")
