@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Navigate } from 'react-router-dom';
-import { doc, getDoc } from 'firebase/firestore/lite';
+import { doc, getDoc, setDoc, serverTimestamp } from 'firebase/firestore/lite';
 import { db } from '../firebase/config';
 import { useAuth } from '../contexts/AuthContext';
 import { useLiffAuth } from '../hooks/useLiffAuth';
@@ -13,16 +13,49 @@ import {
   type StudyQuizQuestion,
 } from '../data/generated/line-study-history-g1.generated';
 
-type ViewMode = 'list' | 'fc' | 'quiz';
+type ViewMode = 'list' | 'setup' | 'fc' | 'quiz' | 'fc-end' | 'quiz-end';
+type SetupKind = 'fc' | 'quiz';
+type Difficulty = 'any' | 'basic' | 'standard' | 'advanced';
+
+const DIFFICULTY_OPTIONS: { value: Difficulty; label: string }[] = [
+  { value: 'any', label: 'すべて' },
+  { value: 'basic', label: '基本' },
+  { value: 'standard', label: '標準' },
+  { value: 'advanced', label: '応用' },
+];
+
+const COUNT_OPTIONS = [5, 10, 20] as const;
+
+interface PerTopicStat {
+  fcClearCount: number;
+  quizClearCount: number;
+  quizBestAccuracy: number;
+  quizLastAccuracy: number;
+}
+
+const EMPTY_STAT: PerTopicStat = {
+  fcClearCount: 0,
+  quizClearCount: 0,
+  quizBestAccuracy: 0,
+  quizLastAccuracy: 0,
+};
+
+type StudyStatsMap = Record<string, PerTopicStat>;
+
+function difficultyMatch(itemDiff: string | undefined, sel: Difficulty): boolean {
+  if (sel === 'any') return true;
+  return itemDiff === sel;
+}
 
 /**
  * 公式LINE のリッチメニュー「じっくり学ぶ」から開かれる LIFF ページ。
  *
- * 現状は歴史・中1（data/content/history/01〜04）に限定したインライン学習体験を提供する:
- *  - トピック一覧（時代ごとにグループ）
- *  - 「テスト範囲のみ表示」フィルタ（初期 ON）
- *  - 暗記カード（フリップ式）
- *  - 4 択クイズ（即時フィードバック + スコア）
+ * インライン学習体験を提供（歴史・中1、data/content/history/01〜04）:
+ *  - トピック一覧（時代別 + テスト範囲フィルタ + クリア回数 / 正答率の表示）
+ *  - セットアップ: 枚数・問題数の指定、難易度フィルタ
+ *  - 暗記カード: フリップ + わかった/わからない振り分け
+ *  - クイズ: 4 択 + 間違えた問題のみ復習
+ *  - 完了時に Firestore `users/{uid}.studyStats[topicId]` を更新
  *
  * 認証は `useLiffAuth` 経由で LIFF SDK ID トークン → Firebase Auth。
  */
@@ -34,12 +67,27 @@ export function LiffUnitsPage() {
 
   const [view, setView] = useState<ViewMode>('list');
   const [currentTopic, setCurrentTopic] = useState<StudyTopic | null>(null);
+  const [setupKind, setSetupKind] = useState<SetupKind>('fc');
+  const [setupDifficulty, setSetupDifficulty] = useState<Difficulty>('any');
+  const [setupCount, setSetupCount] = useState<number | 'all'>('all');
+
   const [testScopeTopics, setTestScopeTopics] = useState<Set<string>>(new Set());
   const [testScopeLoaded, setTestScopeLoaded] = useState(false);
-  // 初期 ON
   const [scopeFilterOn, setScopeFilterOn] = useState(true);
+  const [studyStats, setStudyStats] = useState<StudyStatsMap>({});
 
-  // testScope を Firestore から読む
+  // 実行中セッションのアイテム配列
+  const [activeFcItems, setActiveFcItems] = useState<StudyFlashcard[]>([]);
+  const [activeQuizItems, setActiveQuizItems] = useState<StudyQuizQuestion[]>([]);
+
+  // 振り分け結果（end view で利用）
+  const [unknownIds, setUnknownIds] = useState<string[]>([]);
+  const [knownIds, setKnownIds] = useState<string[]>([]);
+  const [wrongIds, setWrongIds] = useState<string[]>([]);
+  const [lastQuizCorrect, setLastQuizCorrect] = useState(0);
+  const [lastQuizTotal, setLastQuizTotal] = useState(0);
+
+  // testScope と studyStats を Firestore から読む
   useEffect(() => {
     if (loading || !user) return;
     let cancelled = false;
@@ -54,8 +102,23 @@ export function LiffUnitsPage() {
             )
           : [];
         setTestScopeTopics(new Set(topics));
+
+        const statsRaw = (data.studyStats as Record<string, unknown> | undefined) ?? {};
+        const stats: StudyStatsMap = {};
+        for (const [k, v] of Object.entries(statsRaw)) {
+          if (v && typeof v === 'object') {
+            const s = v as Partial<PerTopicStat>;
+            stats[k] = {
+              fcClearCount: typeof s.fcClearCount === 'number' ? s.fcClearCount : 0,
+              quizClearCount: typeof s.quizClearCount === 'number' ? s.quizClearCount : 0,
+              quizBestAccuracy: typeof s.quizBestAccuracy === 'number' ? s.quizBestAccuracy : 0,
+              quizLastAccuracy: typeof s.quizLastAccuracy === 'number' ? s.quizLastAccuracy : 0,
+            };
+          }
+        }
+        setStudyStats(stats);
       } catch (err) {
-        console.warn('[LiffUnitsPage] testScope load failed', err);
+        console.warn('[LiffUnitsPage] testScope/studyStats load failed', err);
       } finally {
         if (!cancelled) setTestScopeLoaded(true);
       }
@@ -86,18 +149,141 @@ export function LiffUnitsPage() {
     [filteredEras]
   );
 
-  const openFlashcard = (topic: StudyTopic) => {
+  // ---- 共通: セットアップ画面起動 ----
+  const openSetup = (topic: StudyTopic, kind: SetupKind) => {
     setCurrentTopic(topic);
+    setSetupKind(kind);
+    setSetupDifficulty('any');
+    setSetupCount('all');
+    setView('setup');
+  };
+
+  // ---- 共通: セットアップから FC/Quiz を開始 ----
+  const startWithSetup = () => {
+    if (!currentTopic) return;
+    if (setupKind === 'fc') {
+      const filtered = currentTopic.flashcards.filter((c) =>
+        difficultyMatch(c.difficulty, setupDifficulty)
+      );
+      const sampled =
+        setupCount === 'all' || filtered.length <= setupCount
+          ? filtered
+          : filtered.slice(0, setupCount);
+      if (sampled.length === 0) return;
+      setActiveFcItems(sampled);
+      setKnownIds([]);
+      setUnknownIds([]);
+      setView('fc');
+    } else {
+      const filtered = currentTopic.quiz.filter((q) =>
+        difficultyMatch(q.difficulty, setupDifficulty)
+      );
+      const sampled =
+        setupCount === 'all' || filtered.length <= setupCount
+          ? filtered
+          : filtered.slice(0, setupCount);
+      if (sampled.length === 0) return;
+      setActiveQuizItems(sampled);
+      setWrongIds([]);
+      setView('quiz');
+    }
+  };
+
+  // ---- FC 完了処理 ----
+  const handleFcFinish = (known: string[], unknown: string[]) => {
+    setKnownIds(known);
+    setUnknownIds(unknown);
+    setView('fc-end');
+    void persistStudyStats('fc', currentTopic?.topicId, { increment: true });
+  };
+
+  // ---- Quiz 完了処理 ----
+  const handleQuizFinish = (
+    correct: number,
+    total: number,
+    wrong: string[]
+  ) => {
+    setLastQuizCorrect(correct);
+    setLastQuizTotal(total);
+    setWrongIds(wrong);
+    setView('quiz-end');
+    const acc = total > 0 ? Math.round((correct / total) * 100) : 0;
+    void persistStudyStats('quiz', currentTopic?.topicId, {
+      increment: true,
+      accuracy: acc,
+    });
+  };
+
+  // ---- Firestore に stats を保存 ----
+  const persistStudyStats = async (
+    kind: SetupKind,
+    topicId: string | undefined,
+    args: { increment: boolean; accuracy?: number }
+  ) => {
+    if (!user || !topicId) return;
+    const prev = studyStats[topicId] ?? EMPTY_STAT;
+    const updated: PerTopicStat = {
+      ...prev,
+    };
+    if (kind === 'fc' && args.increment) {
+      updated.fcClearCount = prev.fcClearCount + 1;
+    }
+    if (kind === 'quiz' && args.increment) {
+      updated.quizClearCount = prev.quizClearCount + 1;
+      if (typeof args.accuracy === 'number') {
+        updated.quizLastAccuracy = args.accuracy;
+        updated.quizBestAccuracy = Math.max(prev.quizBestAccuracy, args.accuracy);
+      }
+    }
+    setStudyStats((prevMap) => ({ ...prevMap, [topicId]: updated }));
+    try {
+      await setDoc(
+        doc(db, 'users', user.uid),
+        {
+          studyStats: {
+            [topicId]: { ...updated, updatedAt: serverTimestamp() },
+          },
+        },
+        { merge: true }
+      );
+    } catch (err) {
+      console.warn('[LiffUnitsPage] studyStats save failed', err);
+    }
+  };
+
+  // ---- 振り分けで「わからなかった/間違えた」分だけ繰り返す ----
+  const reviewUnknownFc = () => {
+    if (!currentTopic) return;
+    const items = currentTopic.flashcards.filter((c) => unknownIds.includes(c.id));
+    if (items.length === 0) return;
+    setActiveFcItems(items);
+    setKnownIds([]);
+    setUnknownIds([]);
     setView('fc');
   };
-  const openQuiz = (topic: StudyTopic) => {
-    setCurrentTopic(topic);
+  const reviewWrongQuiz = () => {
+    if (!currentTopic) return;
+    const items = currentTopic.quiz.filter((q) => wrongIds.includes(q.id));
+    if (items.length === 0) return;
+    setActiveQuizItems(items);
+    setWrongIds([]);
+    setView('quiz');
+  };
+  const retrySameFc = () => {
+    setKnownIds([]);
+    setUnknownIds([]);
+    setView('fc');
+  };
+  const retrySameQuiz = () => {
+    setWrongIds([]);
     setView('quiz');
   };
   const backToList = () => {
     setView('list');
     setCurrentTopic(null);
   };
+
+  // ---- レンダー分岐 ----
 
   if (loading || !liffAuthAttempted) {
     return <LoadingScreen />;
@@ -109,13 +295,69 @@ export function LiffUnitsPage() {
     return <LoadingScreen />;
   }
 
+  if (view === 'setup' && currentTopic) {
+    return (
+      <SetupView
+        topic={currentTopic}
+        kind={setupKind}
+        difficulty={setupDifficulty}
+        count={setupCount}
+        onChangeDifficulty={setSetupDifficulty}
+        onChangeCount={setSetupCount}
+        onStart={startWithSetup}
+        onBack={backToList}
+      />
+    );
+  }
   if (view === 'fc' && currentTopic) {
-    return <FlashcardView topic={currentTopic} onBack={backToList} />;
+    return (
+      <FlashcardView
+        topic={currentTopic}
+        items={activeFcItems}
+        onFinish={handleFcFinish}
+        onBack={backToList}
+      />
+    );
+  }
+  if (view === 'fc-end' && currentTopic) {
+    return (
+      <FcEndView
+        topic={currentTopic}
+        total={activeFcItems.length}
+        known={knownIds.length}
+        unknown={unknownIds.length}
+        canReview={unknownIds.length > 0}
+        onReviewUnknown={reviewUnknownFc}
+        onRetry={retrySameFc}
+        onBack={backToList}
+      />
+    );
   }
   if (view === 'quiz' && currentTopic) {
-    return <QuizView topic={currentTopic} onBack={backToList} />;
+    return (
+      <QuizView
+        topic={currentTopic}
+        items={activeQuizItems}
+        onFinish={handleQuizFinish}
+        onBack={backToList}
+      />
+    );
+  }
+  if (view === 'quiz-end' && currentTopic) {
+    return (
+      <QuizEndView
+        topic={currentTopic}
+        correct={lastQuizCorrect}
+        total={lastQuizTotal}
+        canReview={wrongIds.length > 0}
+        onReviewWrong={reviewWrongQuiz}
+        onRetry={retrySameQuiz}
+        onBack={backToList}
+      />
+    );
   }
 
+  // ─── List view ───
   return (
     <div className="min-h-screen bg-[#FAF9F7] pb-12">
       <header className="bg-white shadow-sm">
@@ -133,7 +375,6 @@ export function LiffUnitsPage() {
       </header>
 
       <main className="max-w-2xl mx-auto px-4">
-        {/* テスト範囲フィルタ */}
         <section className="mt-4 bg-white rounded-2xl shadow-sm p-4 flex items-center justify-between">
           <label className="flex items-center gap-2 cursor-pointer">
             <input
@@ -160,7 +401,6 @@ export function LiffUnitsPage() {
           </p>
         )}
 
-        {/* 時代別トピック一覧 */}
         {filteredEras.length === 0 ? (
           <p className="mt-8 text-center text-sm text-gray-400">
             テスト範囲に該当する単元がありません。チェックを外すと全範囲表示。
@@ -182,55 +422,71 @@ export function LiffUnitsPage() {
                       {era.eraName}
                     </h2>
                     {era.eraPeriod && (
-                      <span className="text-xs text-gray-400">
-                        {era.eraPeriod}
-                      </span>
+                      <span className="text-xs text-gray-400">{era.eraPeriod}</span>
                     )}
                   </div>
                 </div>
                 <ul className="divide-y divide-gray-100">
-                  {era.topics.map((t) => (
-                    <li key={t.topicId} className="px-4 py-3">
-                      <div className="flex items-center gap-3 mb-2">
-                        {t.icon && (
-                          <span className="text-xl flex-shrink-0">{t.icon}</span>
-                        )}
-                        <div className="flex-1 min-w-0">
-                          <div
-                            className="text-sm font-medium text-gray-800 truncate"
-                            style={{
-                              fontFamily: "'Zen Maru Gothic', sans-serif",
-                            }}
-                          >
-                            {t.name}
-                          </div>
-                          {t.subtitle && (
-                            <div className="text-xs text-gray-500 truncate mt-0.5">
-                              {t.subtitle}
-                            </div>
+                  {era.topics.map((t) => {
+                    const stat = studyStats[t.topicId] ?? EMPTY_STAT;
+                    return (
+                      <li key={t.topicId} className="px-4 py-3">
+                        <div className="flex items-center gap-3 mb-2">
+                          {t.icon && (
+                            <span className="text-xl flex-shrink-0">{t.icon}</span>
                           )}
+                          <div className="flex-1 min-w-0">
+                            <div
+                              className="text-sm font-medium text-gray-800 truncate"
+                              style={{
+                                fontFamily: "'Zen Maru Gothic', sans-serif",
+                              }}
+                            >
+                              {t.name}
+                            </div>
+                            {t.subtitle && (
+                              <div className="text-xs text-gray-500 truncate mt-0.5">
+                                {t.subtitle}
+                              </div>
+                            )}
+                          </div>
                         </div>
-                      </div>
-                      <div className="flex gap-2">
-                        <button
-                          onClick={() => openFlashcard(t)}
-                          disabled={t.flashcards.length === 0}
-                          className="flex-1 bg-amber-500 hover:bg-amber-600 disabled:bg-gray-200 disabled:text-gray-400 text-white text-xs font-bold rounded-full py-2 transition"
-                          style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
-                        >
-                          🃏 暗記カード ({t.flashcards.length})
-                        </button>
-                        <button
-                          onClick={() => openQuiz(t)}
-                          disabled={t.quiz.length === 0}
-                          className="flex-1 bg-white border border-amber-300 hover:border-amber-500 disabled:bg-gray-100 disabled:text-gray-400 disabled:border-gray-200 text-amber-700 text-xs font-bold rounded-full py-2 transition"
-                          style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
-                        >
-                          ❓ クイズ ({t.quiz.length})
-                        </button>
-                      </div>
-                    </li>
-                  ))}
+                        <div className="flex gap-2">
+                          <button
+                            onClick={() => openSetup(t, 'fc')}
+                            disabled={t.flashcards.length === 0}
+                            className="flex-1 bg-amber-500 hover:bg-amber-600 disabled:bg-gray-200 disabled:text-gray-400 text-white text-xs font-bold rounded-full py-2 transition"
+                            style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+                          >
+                            🃏 暗記カード ({t.flashcards.length})
+                          </button>
+                          <button
+                            onClick={() => openSetup(t, 'quiz')}
+                            disabled={t.quiz.length === 0}
+                            className="flex-1 bg-white border border-amber-300 hover:border-amber-500 disabled:bg-gray-100 disabled:text-gray-400 disabled:border-gray-200 text-amber-700 text-xs font-bold rounded-full py-2 transition"
+                            style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+                          >
+                            ❓ クイズ ({t.quiz.length})
+                          </button>
+                        </div>
+                        {(stat.fcClearCount > 0 || stat.quizClearCount > 0) && (
+                          <div className="mt-2 flex gap-3 text-[11px] text-gray-500">
+                            {stat.fcClearCount > 0 && (
+                              <span>🃏 {stat.fcClearCount}回クリア</span>
+                            )}
+                            {stat.quizClearCount > 0 && (
+                              <span>
+                                ❓ {stat.quizClearCount}回 / 最高{' '}
+                                <span className="text-amber-600 font-bold">
+                                  {stat.quizBestAccuracy}%
+                                </span>
+                              </span>
+                            )}
+                          </div>
+                        )}
+                      </li>
+                    );
+                  })}
                 </ul>
               </section>
             ))}
@@ -241,39 +497,187 @@ export function LiffUnitsPage() {
   );
 }
 
+// ─── Setup View ───────────────────────────────────────────────────
+
+function SetupView({
+  topic,
+  kind,
+  difficulty,
+  count,
+  onChangeDifficulty,
+  onChangeCount,
+  onStart,
+  onBack,
+}: {
+  topic: StudyTopic;
+  kind: SetupKind;
+  difficulty: Difficulty;
+  count: number | 'all';
+  onChangeDifficulty: (d: Difficulty) => void;
+  onChangeCount: (c: number | 'all') => void;
+  onStart: () => void;
+  onBack: () => void;
+}) {
+  const sourceItems = kind === 'fc' ? topic.flashcards : topic.quiz;
+  const filteredCount = sourceItems.filter((it) =>
+    difficultyMatch(it.difficulty, difficulty)
+  ).length;
+  const effectiveCount =
+    count === 'all' ? filteredCount : Math.min(count, filteredCount);
+  const kindLabel = kind === 'fc' ? '暗記カード' : 'クイズ';
+  const kindEmoji = kind === 'fc' ? '🃏' : '❓';
+
+  return (
+    <div className="min-h-screen bg-[#FAF9F7] pb-12 flex flex-col">
+      <header className="bg-white shadow-sm">
+        <div className="max-w-2xl mx-auto px-4 py-3 flex items-center gap-3">
+          <button
+            onClick={onBack}
+            className="text-sm text-amber-600 font-medium hover:text-amber-700"
+          >
+            ← 戻る
+          </button>
+          <div
+            className="flex-1 text-sm font-bold text-gray-800 truncate"
+            style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+          >
+            {kindEmoji} {topic.name}
+          </div>
+        </div>
+      </header>
+
+      <main className="max-w-2xl mx-auto px-4 w-full flex-1">
+        <section className="mt-4 bg-white rounded-2xl shadow-sm p-5">
+          <div className="text-xs text-gray-500 mb-2">{kindLabel}を始める前に</div>
+          <div
+            className="text-base font-bold text-gray-800 mb-4"
+            style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+          >
+            やる枚数と難易度を選ぼう
+          </div>
+
+          {/* 難易度 */}
+          <div className="mt-2">
+            <div className="text-xs text-gray-500 mb-2">難易度</div>
+            <div className="grid grid-cols-4 gap-2">
+              {DIFFICULTY_OPTIONS.map((d) => {
+                const active = difficulty === d.value;
+                return (
+                  <button
+                    key={d.value}
+                    onClick={() => onChangeDifficulty(d.value)}
+                    className={`rounded-full py-2 text-xs font-medium transition ${
+                      active
+                        ? 'bg-amber-500 text-white'
+                        : 'bg-white text-gray-700 border border-gray-200 hover:border-amber-300'
+                    }`}
+                    style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+                  >
+                    {d.label}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* 枚数 */}
+          <div className="mt-4">
+            <div className="text-xs text-gray-500 mb-2">
+              {kind === 'fc' ? '枚数' : '問題数'}
+            </div>
+            <div className="grid grid-cols-4 gap-2">
+              <button
+                onClick={() => onChangeCount('all')}
+                className={`rounded-full py-2 text-xs font-medium transition ${
+                  count === 'all'
+                    ? 'bg-amber-500 text-white'
+                    : 'bg-white text-gray-700 border border-gray-200 hover:border-amber-300'
+                }`}
+                style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+              >
+                全部
+              </button>
+              {COUNT_OPTIONS.map((c) => {
+                const active = count === c;
+                const disabled = filteredCount < c;
+                return (
+                  <button
+                    key={c}
+                    onClick={() => !disabled && onChangeCount(c)}
+                    disabled={disabled}
+                    className={`rounded-full py-2 text-xs font-medium transition ${
+                      active
+                        ? 'bg-amber-500 text-white'
+                        : disabled
+                          ? 'bg-gray-100 text-gray-300'
+                          : 'bg-white text-gray-700 border border-gray-200 hover:border-amber-300'
+                    }`}
+                    style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+                  >
+                    {c}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* サマリ */}
+          <div className="mt-5 p-3 bg-amber-50 rounded-xl text-xs text-amber-800">
+            この設定で <strong className="font-bold">{effectiveCount}</strong>{' '}
+            {kind === 'fc' ? '枚' : '問'} を{kindLabel}します。
+          </div>
+
+          <button
+            onClick={onStart}
+            disabled={effectiveCount === 0}
+            className="mt-5 w-full bg-amber-500 hover:bg-amber-600 disabled:bg-gray-200 disabled:text-gray-400 text-white rounded-full py-3 text-sm font-bold transition"
+            style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+          >
+            開始する
+          </button>
+        </section>
+      </main>
+    </div>
+  );
+}
+
 // ─── Flashcard View ───────────────────────────────────────────────
 
 function FlashcardView({
   topic,
+  items,
+  onFinish,
   onBack,
 }: {
   topic: StudyTopic;
+  items: StudyFlashcard[];
+  onFinish: (known: string[], unknown: string[]) => void;
   onBack: () => void;
 }) {
-  const cards = topic.flashcards;
   const [idx, setIdx] = useState(0);
   const [flipped, setFlipped] = useState(false);
+  const [known, setKnown] = useState<string[]>([]);
+  const [unknown, setUnknown] = useState<string[]>([]);
 
-  if (cards.length === 0) {
+  if (items.length === 0) {
     return (
       <EmptyView title={topic.name} message="暗記カードがありません。" onBack={onBack} />
     );
   }
 
-  const card: StudyFlashcard = cards[idx];
-  const isLast = idx === cards.length - 1;
+  const card: StudyFlashcard = items[idx];
+  const isLast = idx === items.length - 1;
 
-  const next = () => {
+  const grade = (gotIt: boolean) => {
+    const nextKnown = gotIt ? [...known, card.id] : known;
+    const nextUnknown = gotIt ? unknown : [...unknown, card.id];
+    setKnown(nextKnown);
+    setUnknown(nextUnknown);
     if (isLast) {
-      onBack();
+      onFinish(nextKnown, nextUnknown);
       return;
     }
     setIdx((i) => i + 1);
-    setFlipped(false);
-  };
-  const prev = () => {
-    if (idx === 0) return;
-    setIdx((i) => i - 1);
     setFlipped(false);
   };
 
@@ -296,7 +700,7 @@ function FlashcardView({
             </div>
           </div>
           <span className="text-xs text-gray-500 flex-shrink-0">
-            {idx + 1} / {cards.length}
+            {idx + 1} / {items.length}
           </span>
         </div>
       </header>
@@ -332,19 +736,110 @@ function FlashcardView({
 
         <div className="mt-6 flex gap-2 mb-4">
           <button
-            onClick={prev}
-            disabled={idx === 0}
-            className="flex-1 bg-white border border-gray-200 hover:border-gray-400 disabled:opacity-40 text-gray-700 rounded-full py-3 text-sm font-medium transition"
+            onClick={() => grade(false)}
+            className="flex-1 bg-white border-2 border-red-300 hover:border-red-400 text-red-600 rounded-full py-3 text-sm font-bold transition active:scale-[0.99]"
             style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
           >
-            ← 前
+            ✗ わからなかった
           </button>
           <button
-            onClick={next}
-            className="flex-1 bg-amber-500 hover:bg-amber-600 text-white rounded-full py-3 text-sm font-bold transition"
+            onClick={() => grade(true)}
+            className="flex-1 bg-amber-500 hover:bg-amber-600 text-white rounded-full py-3 text-sm font-bold transition active:scale-[0.99]"
             style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
           >
-            {isLast ? '完了' : '次 →'}
+            ✓ わかった
+          </button>
+        </div>
+        <p className="text-xs text-gray-400 text-center mb-4">
+          {flipped ? '振り分けると次のカードへ' : 'カードをめくってから振り分けよう'}
+        </p>
+      </main>
+    </div>
+  );
+}
+
+// ─── Flashcard End View ───────────────────────────────────────────
+
+function FcEndView({
+  topic,
+  total,
+  known,
+  unknown,
+  canReview,
+  onReviewUnknown,
+  onRetry,
+  onBack,
+}: {
+  topic: StudyTopic;
+  total: number;
+  known: number;
+  unknown: number;
+  canReview: boolean;
+  onReviewUnknown: () => void;
+  onRetry: () => void;
+  onBack: () => void;
+}) {
+  const rate = total > 0 ? Math.round((known / total) * 100) : 0;
+  return (
+    <div className="min-h-screen bg-[#FAF9F7] flex flex-col">
+      <header className="bg-white shadow-sm">
+        <div className="max-w-2xl mx-auto px-4 py-3 flex items-center gap-3">
+          <button
+            onClick={onBack}
+            className="text-sm text-amber-600 font-medium hover:text-amber-700"
+          >
+            ← 戻る
+          </button>
+          <div
+            className="flex-1 text-sm font-bold text-gray-800 truncate"
+            style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+          >
+            🃏 {topic.name}
+          </div>
+        </div>
+      </header>
+      <main className="max-w-2xl mx-auto px-4 flex-1 flex items-center justify-center w-full">
+        <div className="bg-white rounded-2xl shadow-sm p-8 text-center w-full">
+          <div className="text-xs text-gray-500 mb-2">完了！</div>
+          <div className="text-4xl font-bold text-amber-600 mb-1">
+            {rate}
+            <span className="text-2xl text-gray-400">%</span>
+          </div>
+          <div className="text-xs text-gray-500 mb-6">わかった率</div>
+
+          <div className="grid grid-cols-2 gap-3 mb-6">
+            <div className="bg-amber-50 rounded-xl p-3">
+              <div className="text-xs text-amber-800">✓ わかった</div>
+              <div className="text-2xl font-bold text-amber-700">{known}</div>
+            </div>
+            <div className="bg-red-50 rounded-xl p-3">
+              <div className="text-xs text-red-700">✗ わからなかった</div>
+              <div className="text-2xl font-bold text-red-600">{unknown}</div>
+            </div>
+          </div>
+
+          {canReview && (
+            <button
+              onClick={onReviewUnknown}
+              className="w-full bg-amber-500 hover:bg-amber-600 text-white rounded-full py-3 text-sm font-bold mb-2"
+              style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+            >
+              ✗ わからなかった {unknown} 枚を復習
+            </button>
+          )}
+          <button
+            onClick={onRetry}
+            className="w-full bg-white border border-gray-200 hover:border-gray-400 text-gray-700 rounded-full py-3 text-sm font-medium mb-2"
+            style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+          >
+            🔄 もう一度はじめから
+          </button>
+          <button
+            onClick={onBack}
+            className="w-full bg-white border border-gray-200 hover:border-gray-400 text-gray-700 rounded-full py-3 text-sm font-medium"
+            style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+          >
+            一覧に戻る
           </button>
         </div>
       </main>
@@ -356,99 +851,49 @@ function FlashcardView({
 
 function QuizView({
   topic,
+  items,
+  onFinish,
   onBack,
 }: {
   topic: StudyTopic;
+  items: StudyQuizQuestion[];
+  onFinish: (correct: number, total: number, wrong: string[]) => void;
   onBack: () => void;
 }) {
-  const questions = topic.quiz;
   const [idx, setIdx] = useState(0);
   const [selected, setSelected] = useState<number | null>(null);
-  const [score, setScore] = useState(0);
-  const [done, setDone] = useState(false);
+  const [correctCount, setCorrectCount] = useState(0);
+  const [wrong, setWrong] = useState<string[]>([]);
 
-  if (questions.length === 0) {
+  if (items.length === 0) {
     return (
       <EmptyView title={topic.name} message="クイズがありません。" onBack={onBack} />
     );
   }
 
-  const q: StudyQuizQuestion = questions[idx];
-  const isLast = idx === questions.length - 1;
+  const q: StudyQuizQuestion = items[idx];
+  const isLast = idx === items.length - 1;
   const answered = selected !== null;
   const correct = selected === q.correctIndex;
 
   const choose = (i: number) => {
     if (answered) return;
     setSelected(i);
-    if (i === q.correctIndex) setScore((s) => s + 1);
+    if (i === q.correctIndex) {
+      setCorrectCount((c) => c + 1);
+    } else {
+      setWrong((w) => [...w, q.id]);
+    }
   };
 
   const next = () => {
     if (isLast) {
-      setDone(true);
+      onFinish(correctCount, items.length, wrong);
       return;
     }
     setIdx((i) => i + 1);
     setSelected(null);
   };
-
-  if (done) {
-    return (
-      <div className="min-h-screen bg-[#FAF9F7] flex flex-col">
-        <header className="bg-white shadow-sm">
-          <div className="max-w-2xl mx-auto px-4 py-3 flex items-center gap-3">
-            <button
-              onClick={onBack}
-              className="text-sm text-amber-600 font-medium hover:text-amber-700"
-            >
-              ← 戻る
-            </button>
-            <div className="flex-1 min-w-0">
-              <div
-                className="text-sm font-bold text-gray-800 truncate"
-                style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
-              >
-                ❓ {topic.name}
-              </div>
-            </div>
-          </div>
-        </header>
-
-        <main className="max-w-2xl mx-auto px-4 flex-1 flex items-center justify-center">
-          <div className="bg-white rounded-2xl shadow-sm p-8 text-center w-full">
-            <div className="text-xs text-gray-500 mb-2">スコア</div>
-            <div className="text-5xl font-bold text-amber-600 mb-2">
-              {score}
-              <span className="text-2xl text-gray-400"> / {questions.length}</span>
-            </div>
-            <div className="text-sm text-gray-600 mb-6">
-              正答率 {Math.round((score / questions.length) * 100)}%
-            </div>
-            <button
-              onClick={() => {
-                setIdx(0);
-                setSelected(null);
-                setScore(0);
-                setDone(false);
-              }}
-              className="w-full bg-amber-500 hover:bg-amber-600 text-white rounded-full py-3 text-sm font-bold mb-2"
-              style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
-            >
-              もう一度挑戦
-            </button>
-            <button
-              onClick={onBack}
-              className="w-full bg-white border border-gray-200 hover:border-gray-400 text-gray-700 rounded-full py-3 text-sm font-medium"
-              style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
-            >
-              一覧に戻る
-            </button>
-          </div>
-        </main>
-      </div>
-    );
-  }
 
   return (
     <div className="min-h-screen bg-[#FAF9F7] flex flex-col">
@@ -469,7 +914,7 @@ function QuizView({
             </div>
           </div>
           <span className="text-xs text-gray-500 flex-shrink-0">
-            Q {idx + 1} / {questions.length}
+            Q {idx + 1} / {items.length}
           </span>
         </div>
       </header>
@@ -547,6 +992,83 @@ function QuizView({
             {isLast ? '結果を見る' : '次の問題 →'}
           </button>
         )}
+      </main>
+    </div>
+  );
+}
+
+// ─── Quiz End View ────────────────────────────────────────────────
+
+function QuizEndView({
+  topic,
+  correct,
+  total,
+  canReview,
+  onReviewWrong,
+  onRetry,
+  onBack,
+}: {
+  topic: StudyTopic;
+  correct: number;
+  total: number;
+  canReview: boolean;
+  onReviewWrong: () => void;
+  onRetry: () => void;
+  onBack: () => void;
+}) {
+  const acc = total > 0 ? Math.round((correct / total) * 100) : 0;
+  const wrong = total - correct;
+  return (
+    <div className="min-h-screen bg-[#FAF9F7] flex flex-col">
+      <header className="bg-white shadow-sm">
+        <div className="max-w-2xl mx-auto px-4 py-3 flex items-center gap-3">
+          <button
+            onClick={onBack}
+            className="text-sm text-amber-600 font-medium hover:text-amber-700"
+          >
+            ← 戻る
+          </button>
+          <div
+            className="flex-1 text-sm font-bold text-gray-800 truncate"
+            style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+          >
+            ❓ {topic.name}
+          </div>
+        </div>
+      </header>
+      <main className="max-w-2xl mx-auto px-4 flex-1 flex items-center justify-center w-full">
+        <div className="bg-white rounded-2xl shadow-sm p-8 text-center w-full">
+          <div className="text-xs text-gray-500 mb-2">スコア</div>
+          <div className="text-5xl font-bold text-amber-600 mb-1">
+            {correct}
+            <span className="text-2xl text-gray-400"> / {total}</span>
+          </div>
+          <div className="text-sm text-gray-600 mb-6">正答率 {acc}%</div>
+
+          {canReview && (
+            <button
+              onClick={onReviewWrong}
+              className="w-full bg-amber-500 hover:bg-amber-600 text-white rounded-full py-3 text-sm font-bold mb-2"
+              style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+            >
+              ✗ 間違えた {wrong} 問だけ復習
+            </button>
+          )}
+          <button
+            onClick={onRetry}
+            className="w-full bg-white border border-gray-200 hover:border-gray-400 text-gray-700 rounded-full py-3 text-sm font-medium mb-2"
+            style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+          >
+            🔄 もう一度はじめから
+          </button>
+          <button
+            onClick={onBack}
+            className="w-full bg-white border border-gray-200 hover:border-gray-400 text-gray-700 rounded-full py-3 text-sm font-medium"
+            style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+          >
+            一覧に戻る
+          </button>
+        </div>
       </main>
     </div>
   );
