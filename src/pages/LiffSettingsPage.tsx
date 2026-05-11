@@ -3,6 +3,7 @@ import { Navigate } from 'react-router-dom';
 import { doc, getDoc, serverTimestamp, setDoc } from 'firebase/firestore';
 import { db } from '../firebase/config';
 import { useAuth } from '../contexts/AuthContext';
+import { LoadingScreen } from '../components/common/LoadingScreen';
 
 type Subject = 'history' | 'english';
 type GradeLabel = '中1' | '中2' | '中3';
@@ -132,11 +133,7 @@ export function LiffSettingsPage() {
   };
 
   if (loading) {
-    return (
-      <div className="min-h-screen bg-[#FAF9F7] flex items-center justify-center">
-        <p className="text-gray-500 text-sm">読み込み中...</p>
-      </div>
-    );
+    return <LoadingScreen />;
   }
 
   if (!user) {
@@ -144,11 +141,7 @@ export function LiffSettingsPage() {
   }
 
   if (status === 'loading') {
-    return (
-      <div className="min-h-screen bg-[#FAF9F7] flex items-center justify-center">
-        <p className="text-gray-500 text-sm">読み込み中...</p>
-      </div>
-    );
+    return <LoadingScreen />;
   }
 
   if (status === 'error' && !settings) {

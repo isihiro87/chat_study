@@ -20,6 +20,7 @@
 import { lazy, Suspense } from 'react';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { ErrorBoundary } from '../components/common/ErrorBoundary';
+import { LoadingScreen } from '../components/common/LoadingScreen';
 import { AuthProvider, useAuth } from '../contexts/AuthContext';
 
 const WelcomePage = lazy(() =>
@@ -61,16 +62,7 @@ function LineAuthGuard() {
   const { pathname } = useLocation();
 
   if (loading) {
-    return (
-      <div className="min-h-screen bg-[#FAF9F7] flex items-center justify-center">
-        <p
-          className="text-gray-400 text-sm"
-          style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
-        >
-          読み込み中...
-        </p>
-      </div>
-    );
+    return <LoadingScreen />;
   }
 
   // ルート `/` は LINE 版では誘導ページ `/welcome` にリダイレクト

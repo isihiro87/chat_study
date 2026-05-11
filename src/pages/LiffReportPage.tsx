@@ -3,6 +3,7 @@ import { Navigate } from 'react-router-dom';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../firebase/config';
 import { useAuth } from '../contexts/AuthContext';
+import { LoadingScreen } from '../components/common/LoadingScreen';
 
 interface PerCount {
   total: number;
@@ -182,11 +183,7 @@ export function LiffReportPage() {
   }, [data]);
 
   if (loading) {
-    return (
-      <div className="min-h-screen bg-[#FAF9F7] flex items-center justify-center">
-        <p className="text-gray-500 text-sm">読み込み中...</p>
-      </div>
-    );
+    return <LoadingScreen />;
   }
 
   if (!user) {
@@ -194,11 +191,7 @@ export function LiffReportPage() {
   }
 
   if (status === 'loading') {
-    return (
-      <div className="min-h-screen bg-[#FAF9F7] flex items-center justify-center">
-        <p className="text-gray-500 text-sm">記録を集計中...</p>
-      </div>
-    );
+    return <LoadingScreen message="記録を集計中..." />;
   }
 
   if (status === 'error') {
