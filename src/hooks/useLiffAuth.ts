@@ -1,45 +1,29 @@
 import { useEffect, useState } from 'react';
 import { signInWithLiffIdToken } from '../contexts/AuthContext';
 
-export interface LiffAuthDebug {
-  initOk: boolean | null;
-  isInClient: boolean | null;
-  isLoggedIn: boolean | null;
-  idTokenPresent: boolean | null;
-  signInOk: boolean | null;
-  err: string | null;
-}
-
 /**
- * LIFF SDK を初期化し、LINE webview 内であれば LIFF の ID トークン経由で
- * Firebase Auth に自動ログインする hook。
+ * LIFF SDK を初期化し、LIFF 内蔵 OAuth → Firebase Auth の fast-path 認証を
+ * 走らせる hook。
  *
- * /welcome → LINE OAuth → /auth/line/callback のリダイレクトチェーンを
- * 経由せず、LIFF webview 内で完結する fast-path 認証を提供する。
+ * 流れ:
+ * 1. liff.init({ liffId }) で SDK 初期化
+ * 2. 未ログインなら liff.login() を発動（redirect_uri = LIFF endpoint なので
+ *    LINE webview 内でも PC ブラウザでも OAuth を完結できる）
+ * 3. 戻ってきたら liff.getIDToken() で ID トークン取得
+ * 4. Cloud Function `createLiffFirebaseToken` で Firebase custom token に変換
+ * 5. signInWithCustomToken で Firebase Auth ログイン
  *
- * 各 LIFF ページでこの hook を呼び出すことで、以下のメリットがある:
- * - ユーザーがログインボタンをタップする必要がない
- * - LINE webview 内 OAuth で稀に 400 を返す問題を回避
- * - 体感速度が大幅に向上
+ * 結果として /welcome → LINE OAuth → /auth/line/callback の手動チェーンを
+ * 経由せず、ユーザータップなしで LIFF ページに到達できる。Firebase Auth
+ * セッションは localStorage に永続化されるため、他の LIFF からも同一
+ * セッションが使い回せる（初回 OAuth 同意のみ）。
  *
- * @param liffId LIFF アプリ ID（VITE_LIFF_ID_* の値）。未指定なら何もしない
- * @returns `attempted` — LIFF 認証の試行が完了したか（成否は問わない）。
- *   この値が true になってから「Firebase Auth に user がいるか」を判定して
- *   redirect 等を行うことで、認証フローが二重に起動するのを防げる。
+ * @param liffId LIFF アプリ ID (`VITE_LIFF_ID_*` の値)。未指定なら何もしない
+ * @returns `attempted` — LIFF 認証の試行が完了したか。これが true になって
+ *   から Firebase Auth の `user` を見て redirect 判定すること。
  */
-export function useLiffAuth(liffId: string | undefined): {
-  attempted: boolean;
-  debug: LiffAuthDebug;
-} {
+export function useLiffAuth(liffId: string | undefined): { attempted: boolean } {
   const [attempted, setAttempted] = useState(false);
-  const [debug, setDebug] = useState<LiffAuthDebug>({
-    initOk: null,
-    isInClient: null,
-    isLoggedIn: null,
-    idTokenPresent: null,
-    signInOk: null,
-    err: null,
-  });
 
   useEffect(() => {
     if (!liffId) {
@@ -48,65 +32,32 @@ export function useLiffAuth(liffId: string | undefined): {
     }
     let cancelled = false;
     (async () => {
-      let local: LiffAuthDebug = {
-        initOk: null,
-        isInClient: null,
-        isLoggedIn: null,
-        idTokenPresent: null,
-        signInOk: null,
-        err: null,
-      };
       try {
         const liff = (await import('@line/liff')).default;
         if (cancelled) return;
         await liff.init({ liffId });
         if (cancelled) return;
-        local = { ...local, initOk: true };
 
-        const inClient = liff.isInClient();
-        local = { ...local, isInClient: inClient };
-
-        const loggedIn = liff.isLoggedIn();
-        local = { ...local, isLoggedIn: loggedIn };
-
-        // 未ログインなら LIFF 内蔵 OAuth を発動する。
-        // isInClient() が false のケース（LINE webview 内なのに外部ブラウザと
-        // 誤判定される LINE アプリのバージョン差）でも、liff.login() は
-        // redirect_uri = LIFF endpoint URL で OAuth を完結できるため両方で動く。
-        if (!loggedIn) {
+        if (!liff.isLoggedIn()) {
+          // 未ログインなら LIFF SDK 内蔵 OAuth を発動。redirect_uri は
+          // LIFF endpoint URL なので /auth/line/callback を経由しない。
+          // 画面遷移するので setAttempted は呼ばずに return。
           liff.login();
-          return; // 画面遷移するのでここで終わり
+          return;
         }
 
-        if (loggedIn) {
-          const idToken = liff.getIDToken();
-          local = { ...local, idTokenPresent: !!idToken };
-          if (idToken) {
-            try {
-              await signInWithLiffIdToken(idToken);
-              local = { ...local, signInOk: true };
-            } catch (err) {
-              local = {
-                ...local,
-                signInOk: false,
-                err: err instanceof Error ? err.message : String(err),
-              };
-              console.warn('[useLiffAuth] signInWithLiffIdToken failed', err);
-            }
-          }
+        const idToken = liff.getIDToken();
+        if (!idToken) return;
+        try {
+          await signInWithLiffIdToken(idToken);
+          // onAuthStateChanged が AuthContext 側で発火する
+        } catch (err) {
+          console.warn('[useLiffAuth] signInWithLiffIdToken failed', err);
         }
       } catch (err) {
-        local = {
-          ...local,
-          initOk: local.initOk ?? false,
-          err: err instanceof Error ? err.message : String(err),
-        };
         console.warn('[useLiffAuth] liff flow failed', err);
       } finally {
-        if (!cancelled) {
-          setDebug(local);
-          setAttempted(true);
-        }
+        if (!cancelled) setAttempted(true);
       }
     })();
     return () => {
@@ -114,5 +65,5 @@ export function useLiffAuth(liffId: string | undefined): {
     };
   }, [liffId]);
 
-  return { attempted, debug };
+  return { attempted };
 }

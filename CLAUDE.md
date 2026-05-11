@@ -159,7 +159,16 @@ UIを実装・変更する際は必ず `docs/design-guide.md` を参照するこ
   - `https://line.chatstudy.jp/liff/settings` (premium 設定・サポート flex の「設定画面を開く」)
   - `https://line.chatstudy.jp/liff/premium-info` (無料版「もっと解く」flex の「詳細を見る」)
   - `https://line.chatstudy.jp/liff/help` (無料版「使い方」flex の「使い方を詳しく見る」)
-- LINE Login OAuth Callback URL: 両ドメイン分（`www.chatstudy.jp` / `line.chatstudy.jp`）を LINE Developers に登録
+- LIFF 認証フロー: 各 LIFF ページは `useLiffAuth` フック経由で
+  `liff.init()` → `liff.login()`（未ログイン時）→ `getIDToken()` →
+  Cloud Function `createLiffFirebaseToken` → `signInWithCustomToken` で
+  Firebase Auth にサインイン。`/welcome` 経由の手動 OAuth は外部ブラウザ
+  fallback として残置。Firebase の永続化は localStorage なので、初回
+  OAuth 同意以降は他の LIFF からも認証セッションを共有できる。
+- LINE Login OAuth Callback URL: 両ドメイン分（`www.chatstudy.jp` / `line.chatstudy.jp`）の
+  `/auth/line/callback` および各 LIFF endpoint URL（`/liff/units` / `/liff/scope` /
+  `/liff/report` / `/liff/settings` / `/liff/help` / `/liff/premium-info`）を
+  LINE Developers Console に登録
 - **bundle に学習データが混入していないか**は `grep -r LearningPage dist-line/` などで確認。混入していたら `src/line/App.line.tsx` の import チェーンに不要な依存が紛れた合図
 
 詳細: `docs/operations/line-app-deploy.md`、`.steering/20260510-line-app-split/`

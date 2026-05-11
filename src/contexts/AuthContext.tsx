@@ -132,9 +132,9 @@ export async function handleLineCallback(code: string, state: string): Promise<v
  * ログインする。LIFF webview 内で /welcome → LINE OAuth → /auth/line/callback の
  * リダイレクトチェーンを回避するための fast-path。
  *
- * 呼び出し条件: liff.init() 完了済み + liff.isInClient() = true +
- * liff.isLoggedIn() = true。これらを満たさない環境では fall back として
- * 従来の signInWithLine フローを使う。
+ * 呼び出し条件: liff.init() 完了済み + liff.isLoggedIn() = true。
+ * これらを満たさない場合は呼ばれず、上位の `useLiffAuth` フックが
+ * `liff.login()` 発動などのフォールバックを行う。
  */
 export async function signInWithLiffIdToken(idToken: string): Promise<void> {
   const url = LINE_AUTH_LIFF_FN_URL as string | undefined;

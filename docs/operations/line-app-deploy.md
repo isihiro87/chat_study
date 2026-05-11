@@ -17,6 +17,46 @@
 
 ---
 
+## 認証フロー（LIFF）
+
+各 LIFF ページは `src/hooks/useLiffAuth.ts` の `useLiffAuth(liffId)` を呼び出す。
+
+```
+ユーザーが LIFF をタップ
+  ↓
+liff.init({ liffId })
+  ↓
+isLoggedIn?
+  ├─ false: liff.login() で LIFF SDK 内蔵 OAuth 発動
+  │           redirect_uri = LIFF endpoint URL のため /auth/line/callback を経由しない
+  │           ↓
+  │         戻りで再度 useLiffAuth 実行 → isLoggedIn=true → 下へ
+  │
+  └─ true: liff.getIDToken() で ID トークン取得
+            ↓
+          Cloud Function `createLiffFirebaseToken` に POST
+            （`VITE_LINE_AUTH_LIFF_FN_URL`）
+            ↓
+          LINE API verify endpoint で id_token を検証
+            ↓
+          uid = `line:{userId}` で Firebase user を確保
+            ↓
+          custom token を返却
+            ↓
+          signInWithCustomToken で Firebase Auth ログイン
+            ↓
+          LIFF ページが render 開始（user 確定）
+```
+
+Firebase 永続化は browserLocalPersistence のため、複数 LIFF 間で
+セッションを共有。OAuth 同意は初回 1 回だけで済む。
+
+外部ブラウザ（PC 等）で LIFF を直接開いた場合も同じフローが動く。
+LIFF SDK 利用不可で fast-path が失敗した場合は `<Navigate to="/welcome">` で
+従来の signInWithLine フローにフォールバック。
+
+---
+
 ## 0. 全体像
 
 ```
