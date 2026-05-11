@@ -21,6 +21,28 @@ export default defineConfig({
     outDir: 'dist-line',
     rollupOptions: {
       input: 'index.line.html',
+      output: {
+        // 重い依存を分離して main bundle を軽量化し、cache 効率も上げる。
+        // - firebase: app/auth/firestore-lite。最大の塊
+        // - react: react と react-dom
+        // - router: react-router-dom
+        manualChunks(id) {
+          if (id.includes('node_modules/firebase') || id.includes('node_modules/@firebase')) {
+            return 'firebase';
+          }
+          if (
+            id.includes('node_modules/react-dom') ||
+            id.includes('node_modules/react/') ||
+            id.endsWith('/react/index.js')
+          ) {
+            return 'react';
+          }
+          if (id.includes('node_modules/react-router')) {
+            return 'router';
+          }
+          return undefined;
+        },
+      },
     },
   },
   resolve: {

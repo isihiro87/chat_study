@@ -1,4 +1,4 @@
-import { doc, getDoc, serverTimestamp, setDoc, type Timestamp } from 'firebase/firestore';
+import { doc, getDoc, serverTimestamp, setDoc, type Timestamp } from 'firebase/firestore/lite';
 import { db } from '../firebase/config';
 
 export interface TestScope {

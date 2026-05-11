@@ -1,7 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
-import { getFirestore } from 'firebase/firestore';
-import { getAnalytics, isSupported } from 'firebase/analytics';
+import { getFirestore } from 'firebase/firestore/lite';
 import { validateEnv } from '../utils/validateEnv';
 
 validateEnv();
@@ -19,8 +18,3 @@ const firebaseConfig = {
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db = getFirestore(app);
-
-// Analytics は対応環境でのみ初期化
-export const analytics = isSupported().then((supported) =>
-  supported ? getAnalytics(app) : null,
-);

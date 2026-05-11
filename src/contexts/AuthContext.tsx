@@ -17,7 +17,7 @@ import {
   setDoc,
   serverTimestamp,
   writeBatch,
-} from 'firebase/firestore';
+} from 'firebase/firestore/lite';
 import { auth, db } from '../firebase/config';
 import { retryAsync } from '../utils/retryAsync';
 import { clearProgress } from '../utils/studyProgressStorage';
