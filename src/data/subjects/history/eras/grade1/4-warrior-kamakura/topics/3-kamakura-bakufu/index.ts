@@ -13,12 +13,12 @@ export const kamakuraBakufu: Topic = {
         {
           title: '鎌倉幕府の成立としくみ',
           content:
-            '1185年、源頼朝は国ごとに守護を、荘園や公領ごとに地頭を置くことを朝廷に認めさせました。守護は軍事や警察の仕事を担当し、地頭は年貢の取り立てや土地の管理を行いました。1192年には頼朝が征夷大将軍に任命され、鎌倉に本格的な武士の政権が成立しました。',
+            '源頼朝は壇ノ浦の戦いで平氏を滅ぼした後、国ごとに守護を、荘園や公領ごとに地頭を置くことを朝廷に認めさせました。守護は軍事や警察の仕事を担当し、地頭は年貢の取り立てや土地の管理を行いました。その後、頼朝は征夷大将軍に任命され、鎌倉に本格的な武士の政権が成立しました。',
           keyPoints: [
-            '1185年：守護・地頭の設置を朝廷が承認',
+            '源頼朝が守護・地頭の設置を朝廷に承認させる',
             '守護：国ごとに置かれた軍事・警察の役職',
             '地頭：荘園・公領ごとに置かれた年貢徴収の役職',
-            '1192年：源頼朝が征夷大将軍に任命',
+            '源頼朝が征夷大将軍に任命され、鎌倉に武士の政権が成立',
           ],
         },
         {
@@ -73,8 +73,8 @@ export const kamakuraBakufu: Topic = {
       { id: 'fc3', front: '地頭', back: '鎌倉幕府が荘園や公領ごとに置き、年貢の取り立てなどを行った役職は？', explanation: '荘園・公領の現地管理を担い、しだいに荘園領主と対立するようになった。', difficulty: 'basic' },
       { id: 'fc4', front: '御家人', back: '将軍に忠誠をちかい、家来となった武士は？', explanation: '将軍との御恩と奉公の関係で結ばれ、「いざ鎌倉」の覚悟を持っていた。', difficulty: 'basic' },
       { id: 'fc5', front: '執権', back: '鎌倉幕府で将軍を補佐し、実権をにぎった役職は？', explanation: '源氏の将軍が途絶えた後、北条氏がこの役職で幕府の政治を主導した。', difficulty: 'basic' },
-      { id: 'fc6', front: '源頼朝', back: '鎌倉幕府を開き、1192年に征夷大将軍に任命された人物は？', explanation: '平氏を滅ぼした後、鎌倉を拠点に日本初の本格的な武家政権を樹立した。', difficulty: 'basic' },
-      { id: 'fc7', front: '征夷大将軍', back: '1192年に源頼朝が朝廷から任命された役職は？', explanation: '武家の棟梁を意味する役職で、以後の幕府の将軍の称号となった。', difficulty: 'basic' },
+      { id: 'fc6', front: '源頼朝', back: '鎌倉幕府を開き、征夷大将軍に任命された人物は？', explanation: '平氏を滅ぼした後、鎌倉を拠点に日本初の本格的な武家政権を樹立した。', difficulty: 'basic' },
+      { id: 'fc7', front: '征夷大将軍', back: '源頼朝が朝廷から任命された、武家の最高位を示す役職は？', explanation: '武家の棟梁を意味する役職で、以後の幕府の将軍の称号となった。', difficulty: 'basic' },
       { id: 'fc8', front: '侍所', back: '鎌倉幕府で御家人の統率を行った役所は？', explanation: '御家人の管理や軍事を担当する幕府の重要機関。', difficulty: 'basic' },
       { id: 'fc9', front: '政所', back: '鎌倉幕府で政務や財政を担当した役所は？', explanation: '幕府の一般行政と財政を管理する機関。', difficulty: 'basic' },
       { id: 'fc10', front: '問注所', back: '鎌倉幕府で裁判を担当した役所は？', explanation: '御家人間の訴訟を裁く機関で、地頭と荘園領主の争いも扱った。', difficulty: 'basic' },
@@ -90,7 +90,7 @@ export const kamakuraBakufu: Topic = {
       { id: 'fc24', front: '封建制度', back: '将軍と御家人のような、土地を仲立ちとした主従関係を何という？', explanation: '御恩と奉公を基本とし、土地の支配権と軍事的奉仕を交換する仕組み。', difficulty: 'advanced' },
       { id: 'fc25', front: '隠岐', back: '承久の乱で敗れた後鳥羽上皇が流された場所は？', explanation: '現在の島根県に属する日本海の島で、流刑地として使われた。', difficulty: 'advanced' },
       { id: 'fc26', front: '51か条', back: '御成敗式目は全部で何か条か？', explanation: '武士の慣習に基づいた裁判基準を51か条にまとめた日本初の武家法。', difficulty: 'advanced' },
-      { id: 'fc27', front: '1185年', back: '源頼朝が守護・地頭の設置を朝廷に認めさせた年は？', explanation: '壇ノ浦の戦いと同年で、全国に幕府の支配が及ぶ基盤を築いた。', difficulty: 'advanced' },
+      { id: 'fc27', front: '新恩給与', back: '将軍が御家人に新たな土地をあたえる御恩を何という？', explanation: '戦功などへの報酬として新たな土地を与えること。先祖伝来の領地の保障は本領安堵という。', difficulty: 'advanced' },
     ],
     quiz: {
       questions: [
@@ -144,10 +144,10 @@ export const kamakuraBakufu: Topic = {
         },
         {
           id: 'q7',
-          question: '1192年に源頼朝が朝廷から任命された役職は？',
+          question: '源頼朝が朝廷から任命された、武家の最高位を示す役職は？',
           options: ['太政大臣', '関白', '征夷大将軍', '執権'],
           correctIndex: 2,
-          explanation: '源頼朝は1192年に征夷大将軍に任命され、名実ともに武家の長となりました。',
+          explanation: '源頼朝は征夷大将軍に任命され、名実ともに武家の長となりました。',
           difficulty: 'basic',
         },
         {
@@ -208,10 +208,10 @@ export const kamakuraBakufu: Topic = {
         },
         {
           id: 'q18',
-          question: '源頼朝が守護・地頭の設置を朝廷に認めさせたのは何年？',
-          options: ['1185年', '1192年', '1221年', '1232年'],
-          correctIndex: 0,
-          explanation: '1185年に源頼朝は守護と地頭の設置を朝廷に認めさせ、全国への支配権を確立しました。',
+          question: '源頼朝が朝廷に守護・地頭の設置を認めさせる契機となった、平氏を滅ぼした戦いは？',
+          options: ['白村江の戦い', '壇ノ浦の戦い', '関ヶ原の戦い', '応仁の乱'],
+          correctIndex: 1,
+          explanation: '壇ノ浦の戦いで平氏を滅ぼした後、頼朝は朝廷に守護・地頭の設置を認めさせ、全国に幕府の支配を広げる基盤を築きました。',
           difficulty: 'standard',
         },
         {

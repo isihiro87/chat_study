@@ -4,7 +4,7 @@ export const kamakuraBakufuChat: HistoryChat = {
   id: 'kamakura-bakufu',
   icon: '🏯',
   title: '鎌倉幕府の成立',
-  subtitle: '〜1185年〜 源頼朝と御恩・奉公',
+  subtitle: '源頼朝と御恩・奉公',
   characters: [
     {
       id: 'teacher',
@@ -36,7 +36,7 @@ export const kamakuraBakufuChat: HistoryChat = {
   content: [
     {
       type: 'date',
-      text: '1185年〜',
+      text: '12世紀末〜',
     },
     {
       type: 'narrator',
@@ -47,7 +47,7 @@ export const kamakuraBakufuChat: HistoryChat = {
       side: 'left',
       characterId: 'teacher',
       expression: 'explaining',
-      text: '1185年、<strong><span class="keyword"><ruby>源頼朝<rp>(</rp><rt>みなもとのよりとも</rt><rp>)</rp></ruby></span></strong>は全国に<strong><span class="keyword"><ruby>守護<rp>(</rp><rt>しゅご</rt><rp>)</rp></ruby></span></strong>と<strong><span class="keyword"><ruby>地頭<rp>(</rp><rt>じとう</rt><rp>)</rp></ruby></span></strong>を置いたんだ。<span data-tooltip="国ごとに置かれ、軍事や警察の仕事をする役職">守護</span>は国ごとに軍事・<ruby>警察<rp>(</rp><rt>けいさつ</rt><rp>)</rp></ruby>を担当し、<span data-tooltip="荘園や公領に置かれ、土地の管理や年貢の取り立てをする役職">地頭</span>は<ruby>荘園<rp>(</rp><rt>しょうえん</rt><rp>)</rp></ruby>・<ruby>公領<rp>(</rp><rt>こうりょう</rt><rp>)</rp></ruby>の管理や<ruby>年貢<rp>(</rp><rt>ねんぐ</rt><rp>)</rp></ruby>の<ruby>徴収<rp>(</rp><rt>ちょうしゅう</rt><rp>)</rp></ruby>を行ったんだよ',
+      text: '<ruby>壇<rp>(</rp><rt>だん</rt><rp>)</rp></ruby>ノ<ruby>浦<rp>(</rp><rt>うら</rt><rp>)</rp></ruby>の戦いで平氏を<ruby>滅<rp>(</rp><rt>ほろ</rt><rp>)</rp></ruby>ぼしたあと、<strong><span class="keyword"><ruby>源頼朝<rp>(</rp><rt>みなもとのよりとも</rt><rp>)</rp></ruby></span></strong>は全国に<strong><span class="keyword"><ruby>守護<rp>(</rp><rt>しゅご</rt><rp>)</rp></ruby></span></strong>と<strong><span class="keyword"><ruby>地頭<rp>(</rp><rt>じとう</rt><rp>)</rp></ruby></span></strong>を置いたんだ。<span data-tooltip="国ごとに置かれ、軍事や警察の仕事をする役職">守護</span>は国ごとに軍事・<ruby>警察<rp>(</rp><rt>けいさつ</rt><rp>)</rp></ruby>を担当し、<span data-tooltip="荘園や公領に置かれ、土地の管理や年貢の取り立てをする役職">地頭</span>は<ruby>荘園<rp>(</rp><rt>しょうえん</rt><rp>)</rp></ruby>・<ruby>公領<rp>(</rp><rt>こうりょう</rt><rp>)</rp></ruby>の管理や<ruby>年貢<rp>(</rp><rt>ねんぐ</rt><rp>)</rp></ruby>の<ruby>徴収<rp>(</rp><rt>ちょうしゅう</rt><rp>)</rp></ruby>を行ったんだよ',
     },
     {
       type: 'message',
@@ -61,7 +61,7 @@ export const kamakuraBakufuChat: HistoryChat = {
       side: 'left',
       characterId: 'teacher',
       expression: 'happy',
-      text: '幕府には3つの重要な役所がある。<strong><span class="keyword"><ruby>侍所<rp>(</rp><rt>さむらいどころ</rt><rp>)</rp></ruby></span></strong>（<ruby>御家人<rp>(</rp><rt>ごけにん</rt><rp>)</rp></ruby>の<ruby>統率<rp>(</rp><rt>とうそつ</rt><rp>)</rp></ruby>）、<strong><span class="keyword"><ruby>政所<rp>(</rp><rt>まんどころ</rt><rp>)</rp></ruby></span></strong>（政務・<ruby>財政<rp>(</rp><rt>ざいせい</rt><rp>)</rp></ruby>）、<strong><span class="keyword"><ruby>問注所<rp>(</rp><rt>もんちゅうじょ</rt><rp>)</rp></ruby></span></strong>（<ruby>裁判<rp>(</rp><rt>さいばん</rt><rp>)</rp></ruby>）だ。1192年には<strong><span class="keyword"><ruby>征夷大将軍<rp>(</rp><rt>せいいたいしょうぐん</rt><rp>)</rp></ruby></span></strong>に<ruby>任命<rp>(</rp><rt>にんめい</rt><rp>)</rp></ruby>されたよ',
+      text: '幕府には3つの重要な役所がある。<strong><span class="keyword"><ruby>侍所<rp>(</rp><rt>さむらいどころ</rt><rp>)</rp></ruby></span></strong>（<ruby>御家人<rp>(</rp><rt>ごけにん</rt><rp>)</rp></ruby>の<ruby>統率<rp>(</rp><rt>とうそつ</rt><rp>)</rp></ruby>）、<strong><span class="keyword"><ruby>政所<rp>(</rp><rt>まんどころ</rt><rp>)</rp></ruby></span></strong>（政務・<ruby>財政<rp>(</rp><rt>ざいせい</rt><rp>)</rp></ruby>）、<strong><span class="keyword"><ruby>問注所<rp>(</rp><rt>もんちゅうじょ</rt><rp>)</rp></ruby></span></strong>（<ruby>裁判<rp>(</rp><rt>さいばん</rt><rp>)</rp></ruby>）だ。<ruby>頼朝<rp>(</rp><rt>よりとも</rt><rp>)</rp></ruby>はその後、<strong><span class="keyword"><ruby>征夷大将軍<rp>(</rp><rt>せいいたいしょうぐん</rt><rp>)</rp></ruby></span></strong>に<ruby>任命<rp>(</rp><rt>にんめい</rt><rp>)</rp></ruby>されたよ',
     },
     {
       type: 'image',

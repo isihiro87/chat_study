@@ -1,0 +1,40 @@
+{
+  "subjectId": "science",
+  "eraId": "grade1-2-chemistry",
+  "topicId": "example-topic",
+  "name": "サンプルトピック",
+  "subtitle": "JSON フォーマットの例",
+  "icon": "🧪",
+  "order": 999,
+  "explanation": {
+    "sections": [
+      {
+        "title": "概要",
+        "content": "ここに解説本文を書きます。",
+        "keyPoints": ["ポイント1", "ポイント2"]
+      }
+    ]
+  },
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "答え（用語）",
+      "back": "問題（質問文）",
+      "explanation": "補足説明（任意）",
+      "difficulty": "basic"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "次のうち正しいものを選びなさい",
+        "options": ["選択肢A", "選択肢B", "選択肢C", "選択肢D"],
+        "correctIndex": 2,
+        "explanation": "正答はCです。理由は…",
+        "difficulty": "basic"
+      }
+    ]
+  }
+}
