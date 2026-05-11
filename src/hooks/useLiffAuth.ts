@@ -66,11 +66,14 @@ export function useLiffAuth(liffId: string | undefined): {
         const inClient = liff.isInClient();
         local = { ...local, isInClient: inClient };
 
-        let loggedIn = liff.isLoggedIn();
+        const loggedIn = liff.isLoggedIn();
         local = { ...local, isLoggedIn: loggedIn };
 
-        if (inClient && !loggedIn) {
-          // LINE webview で未ログインなら LIFF 内蔵 OAuth を発動
+        // 未ログインなら LIFF 内蔵 OAuth を発動する。
+        // isInClient() が false のケース（LINE webview 内なのに外部ブラウザと
+        // 誤判定される LINE アプリのバージョン差）でも、liff.login() は
+        // redirect_uri = LIFF endpoint URL で OAuth を完結できるため両方で動く。
+        if (!loggedIn) {
           liff.login();
           return; // 画面遷移するのでここで終わり
         }
