@@ -3,6 +3,7 @@ import { Navigate } from 'react-router-dom';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../firebase/config';
 import { useAuth } from '../contexts/AuthContext';
+import { useLiffAuth } from '../hooks/useLiffAuth';
 import { LoadingScreen } from '../components/common/LoadingScreen';
 
 interface PerCount {
@@ -59,28 +60,12 @@ function isPerCount(v: unknown): v is PerCount {
  */
 export function LiffReportPage() {
   const { user, loading } = useAuth();
+  const { attempted: liffAuthAttempted } = useLiffAuth(
+    import.meta.env.VITE_LIFF_ID_REPORT as string | undefined
+  );
 
   const [status, setStatus] = useState<Status>('loading');
   const [data, setData] = useState<ReportData | null>(null);
-
-  // LIFF init
-  useEffect(() => {
-    let cancelled = false;
-    (async () => {
-      const liffId = import.meta.env.VITE_LIFF_ID_REPORT as string | undefined;
-      if (!liffId) return;
-      try {
-        const liff = (await import('@line/liff')).default;
-        if (cancelled) return;
-        await liff.init({ liffId });
-      } catch (err) {
-        console.warn('[LiffReportPage] liff.init failed', err);
-      }
-    })();
-    return () => {
-      cancelled = true;
-    };
-  }, []);
 
   useEffect(() => {
     if (loading) return;
@@ -182,7 +167,7 @@ export function LiffReportPage() {
       }));
   }, [data]);
 
-  if (loading) {
+  if (loading || !liffAuthAttempted) {
     return <LoadingScreen />;
   }
 

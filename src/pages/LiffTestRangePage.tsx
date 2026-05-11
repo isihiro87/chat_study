@@ -3,6 +3,7 @@ import { Navigate } from 'react-router-dom';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../firebase/config';
 import { useAuth } from '../contexts/AuthContext';
+import { useLiffAuth } from '../hooks/useLiffAuth';
 import { LoadingScreen } from '../components/common/LoadingScreen';
 import {
   eraMetas,
@@ -60,33 +61,17 @@ type Status =
  */
 export function LiffTestRangePage() {
   const { user, loading } = useAuth();
+  // LIFF webview 内なら ID トークン経由で Firebase Auth に自動ログインする
+  // （/welcome → LINE OAuth のリダイレクトチェーンを回避）
+  const { attempted: liffAuthAttempted } = useLiffAuth(
+    import.meta.env.VITE_LIFF_ID_TEST_RANGE as string | undefined
+  );
 
   const [status, setStatus] = useState<Status>('loading');
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [userCtx, setUserCtx] = useState<UserContext | null>(null);
   const [selected, setSelected] = useState<Set<string>>(new Set());
   const [expandedEras, setExpandedEras] = useState<Set<string>>(new Set());
-
-  // LIFF init
-  useEffect(() => {
-    let cancelled = false;
-    (async () => {
-      const liffId = import.meta.env.VITE_LIFF_ID_TEST_RANGE as
-        | string
-        | undefined;
-      if (!liffId) return;
-      try {
-        const liff = (await import('@line/liff')).default;
-        if (cancelled) return;
-        await liff.init({ liffId });
-      } catch (err) {
-        console.warn('[LiffTestRangePage] liff.init failed', err);
-      }
-    })();
-    return () => {
-      cancelled = true;
-    };
-  }, []);
 
   // Firestore からユーザー情報読み出し
   useEffect(() => {
@@ -264,7 +249,8 @@ export function LiffTestRangePage() {
     }
   };
 
-  if (loading) {
+  // LIFF auth の試行が終わってない / Firebase Auth が確定してない間は loading
+  if (loading || !liffAuthAttempted) {
     return <LoadingScreen />;
   }
 

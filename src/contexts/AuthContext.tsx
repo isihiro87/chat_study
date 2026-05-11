@@ -46,6 +46,7 @@ googleProvider.setCustomParameters({ prompt: 'select_account' });
 
 const LINE_LOGIN_CHANNEL_ID = import.meta.env.VITE_LINE_LOGIN_CHANNEL_ID;
 const LINE_AUTH_FN_URL = import.meta.env.VITE_LINE_AUTH_FN_URL;
+const LINE_AUTH_LIFF_FN_URL = import.meta.env.VITE_LINE_AUTH_LIFF_FN_URL;
 const LINE_CALLBACK_PATH = '/auth/line/callback';
 
 const DEFAULT_PROFILE: UserProfile = { grade: null };
@@ -123,6 +124,39 @@ export async function handleLineCallback(code: string, state: string): Promise<v
     throw new Error(err.error || 'LINE login failed');
   }
 
+  const { customToken } = await res.json();
+  await signInWithCustomToken(auth, customToken);
+}
+
+/**
+ * LIFF SDK の ID トークンを Cloud Function `createLiffFirebaseToken` に送信し、
+ * Firebase の custom token に変換して signInWithCustomToken で Firebase Auth に
+ * ログインする。LIFF webview 内で /welcome → LINE OAuth → /auth/line/callback の
+ * リダイレクトチェーンを回避するための fast-path。
+ *
+ * 呼び出し条件: liff.init() 完了済み + liff.isInClient() = true +
+ * liff.isLoggedIn() = true。これらを満たさない環境では fall back として
+ * 従来の signInWithLine フローを使う。
+ */
+export async function signInWithLiffIdToken(idToken: string): Promise<void> {
+  const url = LINE_AUTH_LIFF_FN_URL as string | undefined;
+  if (!url) {
+    throw new Error('VITE_LINE_AUTH_LIFF_FN_URL is not configured');
+  }
+  const res = await fetch(url, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ idToken }),
+  });
+  if (!res.ok) {
+    let detail = '';
+    try {
+      detail = JSON.stringify(await res.json());
+    } catch {
+      // ignore
+    }
+    throw new Error(`LIFF auth failed: ${res.status} ${detail}`);
+  }
   const { customToken } = await res.json();
   await signInWithCustomToken(auth, customToken);
 }

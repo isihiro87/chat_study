@@ -3,6 +3,7 @@ import { Navigate } from 'react-router-dom';
 import { doc, getDoc, serverTimestamp, setDoc } from 'firebase/firestore';
 import { db } from '../firebase/config';
 import { useAuth } from '../contexts/AuthContext';
+import { useLiffAuth } from '../hooks/useLiffAuth';
 import { LoadingScreen } from '../components/common/LoadingScreen';
 
 type Subject = 'history' | 'english';
@@ -51,28 +52,13 @@ type Status = 'loading' | 'ready' | 'saving' | 'saved' | 'error';
 export function LiffSettingsPage() {
   const { user, loading } = useAuth();
 
+  const { attempted: liffAuthAttempted } = useLiffAuth(
+    import.meta.env.VITE_LIFF_ID_SETTINGS as string | undefined
+  );
+
   const [status, setStatus] = useState<Status>('loading');
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [settings, setSettings] = useState<UserSettings | null>(null);
-
-  // LIFF init
-  useEffect(() => {
-    let cancelled = false;
-    (async () => {
-      const liffId = import.meta.env.VITE_LIFF_ID_SETTINGS as string | undefined;
-      if (!liffId) return;
-      try {
-        const liff = (await import('@line/liff')).default;
-        if (cancelled) return;
-        await liff.init({ liffId });
-      } catch (err) {
-        console.warn('[LiffSettingsPage] liff.init failed', err);
-      }
-    })();
-    return () => {
-      cancelled = true;
-    };
-  }, []);
 
   // Firestore 読み出し
   useEffect(() => {
@@ -132,7 +118,7 @@ export function LiffSettingsPage() {
     }
   };
 
-  if (loading) {
+  if (loading || !liffAuthAttempted) {
     return <LoadingScreen />;
   }
 

@@ -141,6 +141,7 @@ LINE 版に必要な環境変数を設定。**Firebase 環境変数 6個 + LINE 
 | `VITE_FIREBASE_APP_ID` | `1:283901969847:web:9efd3b421e8cdb16091432` |
 | `VITE_LINE_LOGIN_CHANNEL_ID` | `2009587166` |
 | `VITE_LINE_AUTH_FN_URL` | `https://asia-northeast1-chatstudy-63477.cloudfunctions.net/createLineCustomToken` |
+| `VITE_LINE_AUTH_LIFF_FN_URL` | `https://asia-northeast1-chatstudy-63477.cloudfunctions.net/createLiffFirebaseToken`（LIFF ID トークン → Firebase custom token 変換、LIFF webview の fast-path 認証用） |
 | `VITE_LIFF_ID_UNITS` | `2009587166-LjyCza2c` |
 | `VITE_LIFF_ID_TEST_RANGE` | `2009587166-XXXXXXX1`（リッチメニュー「テスト範囲設定」用、Endpoint = `/liff/test-range`） |
 | `VITE_LIFF_ID_REPORT` | `2009587166-YYYYYYY2`（リッチメニュー「成績・記録」用、Endpoint = `/liff/report`） |
