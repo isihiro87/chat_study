@@ -63,9 +63,11 @@ export function LiffTestRangePage() {
   const { user, loading } = useAuth();
   // LIFF webview 内なら ID トークン経由で Firebase Auth に自動ログインする
   // （/welcome → LINE OAuth のリダイレクトチェーンを回避）
-  const { attempted: liffAuthAttempted } = useLiffAuth(
+  const { attempted: liffAuthAttempted, debug: liffDebug } = useLiffAuth(
     import.meta.env.VITE_LIFF_ID_TEST_RANGE as string | undefined
   );
+  // ?debug=1 で LIFF auth 状態を画面表示（一時的なデバッグ用）
+  const debugMode = new URLSearchParams(window.location.search).has('debug');
 
   const [status, setStatus] = useState<Status>('loading');
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -255,6 +257,19 @@ export function LiffTestRangePage() {
   }
 
   if (!user) {
+    if (debugMode) {
+      return (
+        <div className="min-h-screen bg-[#FAF9F7] p-6">
+          <h1 className="text-base font-bold mb-3">🐞 LIFF auth debug</h1>
+          <pre className="bg-white rounded-xl p-4 text-xs whitespace-pre-wrap break-all">
+            {JSON.stringify(liffDebug, null, 2)}
+          </pre>
+          <p className="text-xs text-gray-500 mt-3">
+            次のステップ: /welcome に飛ぶ予定
+          </p>
+        </div>
+      );
+    }
     return <Navigate to="/welcome?next=/liff/scope" replace />;
   }
 
