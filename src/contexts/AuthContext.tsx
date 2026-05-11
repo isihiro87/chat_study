@@ -4,8 +4,6 @@ import {
   signInWithPopup,
   signInWithCustomToken,
   signOut as firebaseSignOut,
-  setPersistence,
-  browserSessionPersistence,
   deleteUser,
   GoogleAuthProvider,
   type User,
@@ -161,9 +159,12 @@ export async function signInWithLiffIdToken(idToken: string): Promise<void> {
   await signInWithCustomToken(auth, customToken);
 }
 
-// LINE 版（line.chatstudy.jp）では、複数 LIFF を同時に開いた場合の
-// IndexedDB ロック競合を回避するため、Auth 永続化を sessionStorage に切り替える。
-// sessionStorage は webview タブ毎に独立しており、タブを閉じるとクリアされる。
+// LINE 版（line.chatstudy.jp）共通の挙動制御フラグ。
+// Auth 永続化は localStorage（browserLocalPersistence、Firebase デフォルト）の
+// まま維持する。これにより複数 LIFF タブ間で認証セッションを共有でき、
+// LIFF を開くたびに OAuth 同意画面を踏まされる体験を回避できる。
+// 複数 LIFF タブ同時利用時の IndexedDB 競合は LIFF_AUTH_TIMEOUT_MS の
+// safety timeout で救済する。
 const IS_LINE_MODE = import.meta.env.VITE_MODE === 'line';
 
 // AuthContext の loading が予期せず長引いた場合に強制的にフォールバックする
@@ -178,12 +179,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     let safetyTimer: number | undefined;
 
-    // LINE 版は session-only 永続化に切り替えてから onAuthStateChanged を購読
-    const persistencePromise = IS_LINE_MODE
-      ? setPersistence(auth, browserSessionPersistence).catch((e) => {
-          console.warn('[auth] setPersistence(sessionStorage) failed', e);
-        })
-      : Promise.resolve();
+    // Firebase の永続化はデフォルト（browserLocalPersistence = localStorage / IndexedDB）
+    // のまま使用。明示的な setPersistence 呼び出しは不要。
+    const persistencePromise: Promise<void> = Promise.resolve();
 
     let unsubscribe: (() => void) | undefined;
     void persistencePromise.then(() => {
