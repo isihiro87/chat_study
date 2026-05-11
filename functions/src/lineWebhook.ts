@@ -1126,16 +1126,18 @@ async function handleWeakReviewPostback(
       )
     : [];
 
-  let wrongAnswers: FirebaseFirestore.QueryDocumentSnapshot[] = [];
+  // 1 クエリで「誤答経験あり」と「直近3回連続正解（=習得済）」の両方を判定する。
+  // limit 300 は 1 日 1 問ペースで約 10 ヶ月分。これを超える heavy user は
+  // 古い誤答が漏れる可能性があるが、当面は許容範囲。
+  let recentAnswers: FirebaseFirestore.QueryDocumentSnapshot[] = [];
   try {
     const snap = await db
       .collection("answers")
       .where("uid", "==", uid)
-      .where("isCorrect", "==", false)
       .orderBy("answeredAt", "desc")
-      .limit(50)
+      .limit(300)
       .get();
-    wrongAnswers = snap.docs;
+    recentAnswers = snap.docs;
   } catch (error) {
     console.error("[lineWebhook] handleWeakReview answers query failed:", error);
     await replyText(
@@ -1146,24 +1148,50 @@ async function handleWeakReviewPostback(
     return;
   }
 
-  // テスト範囲が設定されていれば誤答歴も範囲内に絞り込む
-  const scopedAnswers =
-    testScopeTopics.length > 0
-      ? wrongAnswers.filter((doc) => {
-          const topic = doc.get("topic");
-          return typeof topic === "string" && testScopeTopics.includes(topic);
-        })
-      : wrongAnswers;
+  // questionId 別に状態を集計（answeredAt 降順で渡ってくる前提）
+  const everIncorrect = new Set<string>();
+  const recentByQ = new Map<string, boolean[]>(); // 直近3回の isCorrect 配列
+  const topicByQ = new Map<string, string>();
+  for (const doc of recentAnswers) {
+    const qid = doc.get("questionId");
+    if (typeof qid !== "string") continue;
+    const isCorrect = doc.get("isCorrect") === true;
+    if (!isCorrect) everIncorrect.add(qid);
 
-  const questionIds = Array.from(
-    new Set(
-      scopedAnswers
-        .map((doc) => doc.get("questionId"))
-        .filter((id): id is string => typeof id === "string" && id.length > 0)
-    )
+    const arr = recentByQ.get(qid) ?? [];
+    if (arr.length < 3) {
+      arr.push(isCorrect);
+      recentByQ.set(qid, arr);
+    }
+
+    const topic = doc.get("topic");
+    if (typeof topic === "string" && !topicByQ.has(qid)) {
+      topicByQ.set(qid, topic);
+    }
+  }
+
+  // mastered = 直近3回がすべて isCorrect=true
+  const masteredIds = new Set<string>();
+  for (const [qid, arr] of recentByQ) {
+    if (arr.length >= 3 && arr.every((c) => c)) masteredIds.add(qid);
+  }
+
+  // 候補: 誤答経験あり AND 習得済でない
+  let candidateIds = Array.from(everIncorrect).filter(
+    (qid) => !masteredIds.has(qid)
   );
-  if (questionIds.length === 0) {
-    if (testScopeTopics.length > 0 && wrongAnswers.length > 0) {
+
+  // テスト範囲フィルタ
+  const hadAnyBeforeScope = candidateIds.length > 0;
+  if (testScopeTopics.length > 0) {
+    candidateIds = candidateIds.filter((qid) => {
+      const topic = topicByQ.get(qid);
+      return typeof topic === "string" && testScopeTopics.includes(topic);
+    });
+  }
+
+  if (candidateIds.length === 0) {
+    if (testScopeTopics.length > 0 && hadAnyBeforeScope) {
       await replyText(
         replyToken,
         "テスト範囲内ではまだ苦手な問題がありません。範囲を広げてみてね",
@@ -1178,6 +1206,8 @@ async function handleWeakReviewPostback(
     );
     return;
   }
+
+  const questionIds = candidateIds;
 
   const pickedId = questionIds[Math.floor(Math.random() * questionIds.length)];
   const questionSnap = await db.doc(`questions/${pickedId}`).get();

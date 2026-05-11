@@ -21,10 +21,11 @@ const GRADES: { value: Grade; label: string }[] = [
 ];
 
 /**
- * 公式LINE のリッチメニュー「単元を選ぶ」から開かれる LIFF ページ。
+ * 公式LINE のリッチメニュー「じっくり学ぶ」から開かれる LIFF ページ。
  *
  * 英語・歴史の単元一覧を学年タブで切り替えて表示する。
- * トピックをタップすると Web 版（www.chatstudy.jp）の対応学習ページに遷移する。
+ * トピックをタップすると Web 版（www.chatstudy.jp）の学習ページに遷移し、
+ * フラッシュカードでの暗記・四択クイズの連続学習ができる。
  *
  * 実装メモ:
  * - 単元メタデータは `src/data/generated/topic-registry.generated.ts` の
@@ -84,8 +85,11 @@ export function LiffUnitsPage() {
             className="text-lg font-bold text-gray-800 text-center"
             style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
           >
-            📚 単元を選ぶ
+            📚 じっくり学ぶ
           </h1>
+          <p className="text-xs text-gray-500 text-center mt-1">
+            選んだ単元を、フラッシュカード暗記＋連続クイズで深く学習しよう
+          </p>
         </div>
       </header>
 

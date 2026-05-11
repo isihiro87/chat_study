@@ -144,6 +144,7 @@ LINE 版に必要な環境変数を設定。**Firebase 環境変数 6個 + LINE 
 | `VITE_LIFF_ID_UNITS` | `2009587166-LjyCza2c` |
 | `VITE_LIFF_ID_TEST_RANGE` | `2009587166-XXXXXXX1`（リッチメニュー「テスト範囲設定」用、Endpoint = `/liff/test-range`） |
 | `VITE_LIFF_ID_REPORT` | `2009587166-YYYYYYY2`（リッチメニュー「成績・記録」用、Endpoint = `/liff/report`） |
+| `VITE_LIFF_ID_SETTINGS` | `2009587166-ZZZZZZZ3`（リッチメニュー「設定・サポート」用、Endpoint = `/liff/settings`） |
 | `VITE_MODE` | `line` |
 
 #### 任意（GA計測）

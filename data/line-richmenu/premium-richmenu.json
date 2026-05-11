@@ -34,7 +34,7 @@
       "bounds": { "x": 0, "y": 843, "width": 833, "height": 843 },
       "action": {
         "type": "uri",
-        "label": "単元を選ぶ",
+        "label": "じっくり学ぶ",
         "uri": "https://liff.line.me/2009587166-LjyCza2c"
       }
     },
@@ -49,10 +49,9 @@
     {
       "bounds": { "x": 1667, "y": 843, "width": 833, "height": 843 },
       "action": {
-        "type": "postback",
+        "type": "uri",
         "label": "設定・サポート",
-        "data": "type=settings_menu",
-        "displayText": "設定・サポート"
+        "uri": "https://liff.line.me/PLACEHOLDER_settings"
       }
     }
   ]
