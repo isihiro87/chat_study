@@ -184,6 +184,53 @@ UIを実装・変更する際は必ず `docs/design-guide.md` を参照するこ
 
 詳細は `docs/operations/line-richmenu.md` §6 を参照。
 
+## LIFF「じっくり学ぶ」の学習データフロー
+
+LIFF 内インライン学習体験（暗記カード / クイズ）と LINE 公式の毎日配信 / 追加で解く / 苦手復習 は、**同じ source（`data/content/{subject}/{folder}/*.json`）から派生する 2 系統のデータ**を使う:
+
+```
+data/content/history/{folder}/{topic}.json   ← source of truth
+  ├─ flashcards: 暗記カード本体
+  └─ quiz.questions: 4 択問題本体
+        │
+        ├── generate-line-study-content.ts
+        │     → src/data/generated/line-study-history-g{1,2,3}.generated.ts
+        │     → LIFF「じっくり学ぶ」が grade 別に動的 import（lazy chunk）
+        │
+        └── sync-questions-from-content.ts
+              → Firestore `questions` collection（topic = topic.name 細かい名前）
+              → webhook の毎日配信 / 追加で解く / 苦手復習が利用
+              → users/{uid}.testScope.topics と一致比較
+```
+
+**重要**: testScope.topics は topic-registry / data/content の `name`（細かい日本語、例: "旧石器時代と縄文時代"）を保存する。webhook は Firestore `questions.topic` フィールドと完全一致比較するため、**問題を追加・編集したら必ず両方を同期する**:
+
+```bash
+# JSON を編集したら 2 つ実行
+npx tsx scripts/generate-line-study-content.ts          # LIFF 用 generated TS を更新
+npx tsx scripts/sync-questions-from-content.ts          # Firestore questions に反映（要 gcloud ADC）
+```
+
+短い指示でリクエスト可能:
+- 「問題を Firestore に同期して」「クイズを反映」「sync-questions」 → `sync-line-questions` スキルが起動
+
+### 学年フォルダの対応
+
+| 学年 | data/content/history のフォルダ |
+|------|------------------------------|
+| 中1 | 01-history-basics / 02-ancient-world / 03-japanese-origins / 04-ancient-state / 05-warrior-kamakura / 06-medieval-world |
+| 中2 | 07-early-modern / 08-edo-establishment / 09-modern-era / 10-bakumatsu / 11-meiji-early / 12-meiji-late |
+| 中3 | 13-ww1-japan / 14-taisho-democracy / 15-showa-crisis / 16-ww2-japan / 17-postwar-japan / 18-cold-war-era / 19-modern-world |
+
+両 generator 側にも同じ対応マップがあるので、新規フォルダを足したらどちらも更新する。
+
+### Firestore `questions` collection の同期 ID 規則
+
+- 新ソース由来（data/content）: `q-history-{topicId}-{questionId}`、`syncSource: "content-history-v1"`
+- 旧ソース由来（data/line-questions/*.json）: `q-{subject}-g{grade}-{NNN}`、topic は粗いカテゴリ
+- 両方が `questions` collection に共存。testScope を設定すると新ソース側だけがマッチする
+- 古いものを掃除する場合は `manage-line-questions.ts` で delete
+
 ## 開発プロセス
 
 ### 初回セットアップ
