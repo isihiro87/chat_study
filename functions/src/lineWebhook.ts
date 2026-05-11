@@ -182,6 +182,9 @@ const LIFF_SETTINGS_URL =
 const LIFF_PREMIUM_INFO_URL =
   process.env.LIFF_PREMIUM_INFO_URL ??
   "https://liff.line.me/2009587166-k51bH4LC";
+const LIFF_HELP_URL =
+  process.env.LIFF_HELP_URL ??
+  "https://line.chatstudy.jp/liff/help";
 
 export const lineWebhook = functions
   .region("asia-northeast1")
@@ -855,8 +858,8 @@ function buildHelpFlexMessage() {
             height: "sm" as const,
             action: {
               type: "uri" as const,
-              label: "サイトを開く",
-              uri: "https://www.chatstudy.jp/",
+              label: "使い方を詳しく見る",
+              uri: LIFF_HELP_URL,
             },
           },
         ],
