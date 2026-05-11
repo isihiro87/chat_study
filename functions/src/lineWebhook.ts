@@ -187,7 +187,7 @@ const LIFF_HELP_URL =
   "https://liff.line.me/2009587166-oaTz2NXX";
 const LIFF_TEST_RANGE_URL =
   process.env.LIFF_TEST_RANGE_URL ??
-  "https://liff.line.me/2009587166-a3kYf7tu";
+  "https://liff.line.me/2009587166-fLjzMGk8";
 
 export const lineWebhook = functions
   .region("asia-northeast1")
