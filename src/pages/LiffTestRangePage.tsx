@@ -5,36 +5,58 @@ import { db } from '../firebase/config';
 import { useAuth } from '../contexts/AuthContext';
 import { LoadingScreen } from '../components/common/LoadingScreen';
 import {
-  lineQuestionTopics,
-  type LineGrade,
-  type LineSubject,
-} from '../data/generated/line-topics.generated';
+  eraMetas,
+  topicMetas,
+} from '../data/generated/topic-registry.generated';
 import { saveTestScope, clearTestScope } from '../utils/testScope';
 
-const GRADE_LABEL_TO_NUMBER: Record<string, LineGrade> = {
+type Subject = 'english' | 'history';
+type GradeNum = 1 | 2 | 3;
+
+const GRADE_LABEL_TO_NUMBER: Record<string, GradeNum> = {
   中1: 1,
   中2: 2,
   中3: 3,
 };
 
-const SUBJECT_LABEL: Record<LineSubject, string> = {
+const SUBJECT_LABEL: Record<Subject, string> = {
   english: '英語',
   history: '歴史',
 };
 
 interface UserContext {
-  subject: LineSubject;
-  grade: LineGrade;
+  subject: Subject;
+  grade: GradeNum;
   initialTopics: string[];
 }
 
-type Status = 'loading' | 'ready' | 'saving' | 'saved' | 'cleared' | 'error' | 'profile-missing';
+interface EraGroup {
+  eraId: string;
+  eraName: string;
+  eraIcon: string;
+  eraPeriod: string;
+  topics: { id: string; name: string; subtitle: string; icon: string }[];
+}
+
+type Status =
+  | 'loading'
+  | 'ready'
+  | 'saving'
+  | 'saved'
+  | 'cleared'
+  | 'error'
+  | 'profile-missing';
 
 /**
  * 公式LINE のリッチメニュー「テスト範囲設定」から開かれる LIFF ページ。
  *
  * users/{uid}.subject / .grade に登録されている教科×学年に該当する topic 候補を
- * 表示し、選択した topic を users/{uid}.testScope.topics に保存する。
+ * `topic-registry.generated.ts` の topicMetas / eraMetas から取得し、era 単位で
+ * 折りたたみ可能なグループ表示する。
+ *
+ * testScope.topics には topicMetas[i].name（日本語のトピック名）を保存。
+ * webhook 側は Question.topic とこれを一致比較する。新規登録する Question の
+ * topic フィールドも topicMetas[i].name と完全一致させる必要がある。
  */
 export function LiffTestRangePage() {
   const { user, loading } = useAuth();
@@ -43,12 +65,15 @@ export function LiffTestRangePage() {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [userCtx, setUserCtx] = useState<UserContext | null>(null);
   const [selected, setSelected] = useState<Set<string>>(new Set());
+  const [expandedEras, setExpandedEras] = useState<Set<string>>(new Set());
 
-  // LIFF init（LiffUnitsPage と同じ pattern）
+  // LIFF init
   useEffect(() => {
     let cancelled = false;
     (async () => {
-      const liffId = import.meta.env.VITE_LIFF_ID_TEST_RANGE as string | undefined;
+      const liffId = import.meta.env.VITE_LIFF_ID_TEST_RANGE as
+        | string
+        | undefined;
       if (!liffId) return;
       try {
         const liff = (await import('@line/liff')).default;
@@ -77,7 +102,7 @@ export function LiffTestRangePage() {
           return;
         }
         const data = snap.data();
-        const subject = data.subject as LineSubject | undefined;
+        const subject = data.subject as Subject | undefined;
         const gradeLabel = data.grade as string | undefined;
         const gradeNum = gradeLabel ? GRADE_LABEL_TO_NUMBER[gradeLabel] : undefined;
         if (!subject || !gradeNum) {
@@ -105,19 +130,61 @@ export function LiffTestRangePage() {
     };
   }, [user, loading]);
 
-  const candidateTopics = useMemo(() => {
-    if (!userCtx) return [] as string[];
-    return lineQuestionTopics[userCtx.subject]?.[userCtx.grade] ?? [];
+  const eraGroups: EraGroup[] = useMemo(() => {
+    if (!userCtx) return [];
+    const eras = eraMetas
+      .filter(
+        (e) =>
+          e.subjectId === userCtx.subject && (e.grade ?? null) === userCtx.grade
+      )
+      .sort((a, b) => a.order - b.order);
+    return eras.map((era) => ({
+      eraId: era.id,
+      eraName: era.name,
+      eraIcon: era.icon,
+      eraPeriod: era.period ?? '',
+      topics: topicMetas
+        .filter((t) => t.eraId === era.id)
+        .sort((a, b) => a.order - b.order)
+        .map((t) => ({
+          id: t.name,
+          name: t.name,
+          subtitle: t.subtitle ?? '',
+          icon: t.icon ?? '',
+        })),
+    }));
   }, [userCtx]);
 
-  const allChecked =
-    candidateTopics.length > 0 && candidateTopics.every((t) => selected.has(t));
+  // 初回表示時に「選択中のトピックがある era」だけ自動展開
+  useEffect(() => {
+    if (eraGroups.length === 0) return;
+    const expand = new Set<string>();
+    for (const g of eraGroups) {
+      if (g.topics.some((t) => selected.has(t.id))) {
+        expand.add(g.eraId);
+      }
+    }
+    if (expand.size === 0 && eraGroups.length > 0) {
+      // 何も選んでない場合は最初の era だけ開いておく
+      expand.add(eraGroups[0].eraId);
+    }
+    setExpandedEras(expand);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [eraGroups]);
 
-  const toggleOne = (topic: string) => {
+  const allTopicIds = useMemo(
+    () => eraGroups.flatMap((g) => g.topics.map((t) => t.id)),
+    [eraGroups]
+  );
+
+  const allChecked =
+    allTopicIds.length > 0 && allTopicIds.every((id) => selected.has(id));
+
+  const toggleOne = (id: string) => {
     setSelected((prev) => {
       const next = new Set(prev);
-      if (next.has(topic)) next.delete(topic);
-      else next.add(topic);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
       return next;
     });
   };
@@ -126,8 +193,33 @@ export function LiffTestRangePage() {
     if (allChecked) {
       setSelected(new Set());
     } else {
-      setSelected(new Set(candidateTopics));
+      setSelected(new Set(allTopicIds));
     }
+  };
+
+  const toggleEra = (eraId: string) => {
+    setExpandedEras((prev) => {
+      const next = new Set(prev);
+      if (next.has(eraId)) next.delete(eraId);
+      else next.add(eraId);
+      return next;
+    });
+  };
+
+  const toggleEraSelection = (eraId: string) => {
+    const era = eraGroups.find((g) => g.eraId === eraId);
+    if (!era) return;
+    const eraTopicIds = era.topics.map((t) => t.id);
+    const allInEraSelected = eraTopicIds.every((id) => selected.has(id));
+    setSelected((prev) => {
+      const next = new Set(prev);
+      if (allInEraSelected) {
+        for (const id of eraTopicIds) next.delete(id);
+      } else {
+        for (const id of eraTopicIds) next.add(id);
+      }
+      return next;
+    });
   };
 
   const closeIfPossible = async () => {
@@ -202,7 +294,7 @@ export function LiffTestRangePage() {
             <p className="text-sm text-gray-600">
               先に教科と学年を設定してください。
               <br />
-              LINE で「設定・サポート」→「学年変更」から登録できます。
+              リッチメニュー「設定・サポート」から登録できます。
             </p>
           </div>
         )}
@@ -221,15 +313,15 @@ export function LiffTestRangePage() {
                 </div>
               </div>
 
-              {candidateTopics.length === 0 ? (
+              {eraGroups.length === 0 ? (
                 <p className="mt-8 text-center text-sm text-gray-400">
-                  この教科×学年の問題はまだ準備中です。
+                  この教科×学年の単元はまだ準備中です。
                 </p>
               ) : (
                 <>
                   <div className="mt-4 flex items-center justify-between px-1">
                     <span className="text-xs text-gray-500">
-                      選択中: {selected.size} / {candidateTopics.length}
+                      選択中: {selected.size} / {allTopicIds.length}
                     </span>
                     <button
                       onClick={toggleAll}
@@ -239,43 +331,126 @@ export function LiffTestRangePage() {
                     </button>
                   </div>
 
-                  <ul className="mt-2 space-y-2">
-                    {candidateTopics.map((t) => {
-                      const checked = selected.has(t);
+                  <div className="mt-2 space-y-3">
+                    {eraGroups.map((group) => {
+                      const isExpanded = expandedEras.has(group.eraId);
+                      const eraSelectedCount = group.topics.filter((t) =>
+                        selected.has(t.id)
+                      ).length;
+                      const allInEraSelected =
+                        group.topics.length > 0 &&
+                        eraSelectedCount === group.topics.length;
                       return (
-                        <li key={t}>
-                          <button
-                            onClick={() => toggleOne(t)}
-                            className={`w-full text-left rounded-2xl px-4 py-3 border transition active:scale-[0.99] ${
-                              checked
-                                ? 'bg-amber-50 border-amber-400'
-                                : 'bg-white border-gray-200 hover:border-amber-300'
-                            }`}
-                          >
-                            <div className="flex items-center gap-3">
-                              <span
-                                className={`flex-shrink-0 w-5 h-5 rounded border-2 flex items-center justify-center text-xs font-bold ${
-                                  checked
-                                    ? 'bg-amber-500 border-amber-500 text-white'
-                                    : 'bg-white border-gray-300 text-transparent'
-                                }`}
-                              >
-                                ✓
+                        <section
+                          key={group.eraId}
+                          className="bg-white rounded-2xl shadow-sm overflow-hidden"
+                        >
+                          <div className="flex items-stretch">
+                            <button
+                              onClick={() => toggleEra(group.eraId)}
+                              className="flex-1 px-4 py-3 text-left flex items-center gap-3 hover:bg-gray-50 transition"
+                            >
+                              <span className="text-xl flex-shrink-0">
+                                {group.eraIcon}
                               </span>
-                              <span
-                                className="flex-1 text-sm font-medium text-gray-800"
-                                style={{
-                                  fontFamily: "'Zen Maru Gothic', sans-serif",
-                                }}
-                              >
-                                {t}
+                              <div className="flex-1 min-w-0">
+                                <div
+                                  className="text-sm font-bold text-gray-800"
+                                  style={{
+                                    fontFamily: "'Zen Maru Gothic', sans-serif",
+                                  }}
+                                >
+                                  {group.eraName}
+                                </div>
+                                {group.eraPeriod && (
+                                  <div className="text-xs text-gray-400 mt-0.5 truncate">
+                                    {group.eraPeriod}
+                                  </div>
+                                )}
+                              </div>
+                              <span className="text-xs text-gray-400 flex-shrink-0">
+                                {eraSelectedCount}/{group.topics.length}
                               </span>
-                            </div>
-                          </button>
-                        </li>
+                              <span className="text-gray-400 flex-shrink-0">
+                                {isExpanded ? '▾' : '▸'}
+                              </span>
+                            </button>
+                          </div>
+                          {isExpanded && (
+                            <>
+                              <div className="px-4 pb-2 flex justify-end">
+                                <button
+                                  onClick={() =>
+                                    toggleEraSelection(group.eraId)
+                                  }
+                                  className="text-xs text-amber-600 font-medium hover:text-amber-700"
+                                >
+                                  {allInEraSelected
+                                    ? 'この時代を解除'
+                                    : 'この時代を全選択'}
+                                </button>
+                              </div>
+                              <ul className="px-3 pb-3 space-y-1.5">
+                                {group.topics.map((t) => {
+                                  const checked = selected.has(t.id);
+                                  return (
+                                    <li key={t.id}>
+                                      <button
+                                        onClick={() => toggleOne(t.id)}
+                                        className={`w-full text-left rounded-xl px-3 py-2 border transition active:scale-[0.99] ${
+                                          checked
+                                            ? 'bg-amber-50 border-amber-400'
+                                            : 'bg-white border-gray-200 hover:border-amber-300'
+                                        }`}
+                                      >
+                                        <div className="flex items-center gap-2.5">
+                                          <span
+                                            className={`flex-shrink-0 w-5 h-5 rounded border-2 flex items-center justify-center text-xs font-bold ${
+                                              checked
+                                                ? 'bg-amber-500 border-amber-500 text-white'
+                                                : 'bg-white border-gray-300 text-transparent'
+                                            }`}
+                                          >
+                                            ✓
+                                          </span>
+                                          {t.icon && (
+                                            <span className="text-lg flex-shrink-0">
+                                              {t.icon}
+                                            </span>
+                                          )}
+                                          <div className="flex-1 min-w-0">
+                                            <div
+                                              className="text-sm font-medium text-gray-800 truncate"
+                                              style={{
+                                                fontFamily:
+                                                  "'Zen Maru Gothic', sans-serif",
+                                              }}
+                                            >
+                                              {t.name}
+                                            </div>
+                                            {t.subtitle && (
+                                              <div className="text-xs text-gray-500 truncate mt-0.5">
+                                                {t.subtitle}
+                                              </div>
+                                            )}
+                                          </div>
+                                        </div>
+                                      </button>
+                                    </li>
+                                  );
+                                })}
+                                {group.topics.length === 0 && (
+                                  <li className="text-xs text-gray-400 px-3 py-2">
+                                    準備中...
+                                  </li>
+                                )}
+                              </ul>
+                            </>
+                          )}
+                        </section>
                       );
                     })}
-                  </ul>
+                  </div>
 
                   <div className="mt-6 flex flex-col gap-2">
                     <button
