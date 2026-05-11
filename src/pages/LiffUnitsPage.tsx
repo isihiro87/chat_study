@@ -396,11 +396,23 @@ export function LiffUnitsPage() {
     }
   };
 
-  // ---- フラッシュカード end からクイズに進む ----
+  // ---- フラッシュカード end / 学習中 からクイズに進む ----
   const goToQuizFromFcEnd = () => {
     if (!currentTopic) return;
     setSetupKind('quiz');
     setSessionSeenQuizIds(new Set());
+    setView('setup');
+  };
+
+  // ---- 学習中にフラッシュカード ⇔ クイズを切り替える ----
+  const switchToQuizSetup = () => {
+    if (!currentTopic || currentTopic.quiz.length === 0) return;
+    setSetupKind('quiz');
+    setView('setup');
+  };
+  const switchToFcSetup = () => {
+    if (!currentTopic || currentTopic.flashcards.length === 0) return;
+    setSetupKind('fc');
     setView('setup');
   };
 
@@ -606,6 +618,7 @@ export function LiffUnitsPage() {
         items={activeFcItems}
         onFinish={handleFcFinish}
         onBack={backToList}
+        onSwitchToQuiz={currentTopic.quiz.length > 0 ? switchToQuizSetup : null}
       />
     );
   }
@@ -642,6 +655,7 @@ export function LiffUnitsPage() {
         items={activeQuizItems}
         onFinish={handleQuizFinish}
         onBack={backToList}
+        onSwitchToFc={currentTopic.flashcards.length > 0 ? switchToFcSetup : null}
       />
     );
   }
@@ -1095,11 +1109,13 @@ function FlashcardView({
   items,
   onFinish,
   onBack,
+  onSwitchToQuiz,
 }: {
   topic: StudyTopic;
   items: StudyFlashcard[];
   onFinish: (known: string[], unknown: string[]) => void;
   onBack: () => void;
+  onSwitchToQuiz: (() => void) | null;
 }) {
   const [idx, setIdx] = useState(0);
   const [flipped, setFlipped] = useState(false);
@@ -1146,6 +1162,16 @@ function FlashcardView({
               🃏 {topic.name}
             </div>
           </div>
+          {onSwitchToQuiz && (
+            <button
+              onClick={onSwitchToQuiz}
+              className="text-xs bg-white border border-amber-300 hover:bg-amber-50 text-amber-700 rounded-full px-3 py-1 font-medium flex-shrink-0"
+              style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+              title="クイズに切り替え"
+            >
+              ❓ クイズへ
+            </button>
+          )}
           <span className="text-xs text-gray-500 flex-shrink-0">
             {idx + 1} / {items.length}
           </span>
@@ -1329,11 +1355,13 @@ function QuizView({
   items,
   onFinish,
   onBack,
+  onSwitchToFc,
 }: {
   topic: StudyTopic;
   items: StudyQuizQuestion[];
   onFinish: (correct: number, total: number, wrong: string[]) => void;
   onBack: () => void;
+  onSwitchToFc: (() => void) | null;
 }) {
   const [idx, setIdx] = useState(0);
   const [selected, setSelected] = useState<number | null>(null);
@@ -1388,6 +1416,16 @@ function QuizView({
               ❓ {topic.name}
             </div>
           </div>
+          {onSwitchToFc && (
+            <button
+              onClick={onSwitchToFc}
+              className="text-xs bg-white border border-amber-300 hover:bg-amber-50 text-amber-700 rounded-full px-3 py-1 font-medium flex-shrink-0"
+              style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+              title="暗記カードに切り替え"
+            >
+              🃏 カードへ
+            </button>
+          )}
           <span className="text-xs text-gray-500 flex-shrink-0">
             Q {idx + 1} / {items.length}
           </span>
