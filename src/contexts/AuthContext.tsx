@@ -4,6 +4,8 @@ import {
   signInWithPopup,
   signInWithCustomToken,
   signOut as firebaseSignOut,
+  setPersistence,
+  browserSessionPersistence,
   deleteUser,
   GoogleAuthProvider,
   type User,
@@ -125,45 +127,83 @@ export async function handleLineCallback(code: string, state: string): Promise<v
   await signInWithCustomToken(auth, customToken);
 }
 
+// LINE 版（line.chatstudy.jp）では、複数 LIFF を同時に開いた場合の
+// IndexedDB ロック競合を回避するため、Auth 永続化を sessionStorage に切り替える。
+// sessionStorage は webview タブ毎に独立しており、タブを閉じるとクリアされる。
+const IS_LINE_MODE = import.meta.env.VITE_MODE === 'line';
+
+// AuthContext の loading が予期せず長引いた場合に強制的にフォールバックする
+// safety timeout（LINE 版のみ、ネットワーク不調・IndexedDB ハング時の救済）。
+const LIFF_AUTH_TIMEOUT_MS = 8000;
+
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
   const [userProfile, setUserProfile] = useState<UserProfile>(DEFAULT_PROFILE);
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
-      setUser(firebaseUser);
-      if (firebaseUser) {
-        const userDoc = doc(db, `users/${firebaseUser.uid}`);
-        try {
-          const snap = await retryAsync(() => getDoc(userDoc));
-          if (snap.exists()) {
-            const data = snap.data();
-            setUserProfile({ grade: data.grade ?? null });
-          }
-        } catch (e) {
-          console.warn('[auth] Failed to load user profile after retries', e);
-        }
-        if (shouldWriteLastActive(firebaseUser.uid)) {
+    let safetyTimer: number | undefined;
+
+    // LINE 版は session-only 永続化に切り替えてから onAuthStateChanged を購読
+    const persistencePromise = IS_LINE_MODE
+      ? setPersistence(auth, browserSessionPersistence).catch((e) => {
+          console.warn('[auth] setPersistence(sessionStorage) failed', e);
+        })
+      : Promise.resolve();
+
+    let unsubscribe: (() => void) | undefined;
+    void persistencePromise.then(() => {
+      unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
+        setUser(firebaseUser);
+        if (firebaseUser) {
+          const userDoc = doc(db, `users/${firebaseUser.uid}`);
           try {
-            await setDoc(userDoc, {
-              displayName: firebaseUser.displayName || null,
-              email: firebaseUser.email || null,
-              photoURL: firebaseUser.photoURL || null,
-              provider: firebaseUser.providerData[0]?.providerId === 'google.com' ? 'google' : 'line',
-              lastActiveAt: serverTimestamp(),
-            }, { merge: true });
-            markLastActive(firebaseUser.uid);
-          } catch {
-            // Firestoreエラーは無視（オフライン等）
+            const snap = await retryAsync(() => getDoc(userDoc));
+            if (snap.exists()) {
+              const data = snap.data();
+              setUserProfile({ grade: data.grade ?? null });
+            }
+          } catch (e) {
+            console.warn('[auth] Failed to load user profile after retries', e);
           }
+          if (shouldWriteLastActive(firebaseUser.uid)) {
+            try {
+              await setDoc(userDoc, {
+                displayName: firebaseUser.displayName || null,
+                email: firebaseUser.email || null,
+                photoURL: firebaseUser.photoURL || null,
+                provider: firebaseUser.providerData[0]?.providerId === 'google.com' ? 'google' : 'line',
+                lastActiveAt: serverTimestamp(),
+              }, { merge: true });
+              markLastActive(firebaseUser.uid);
+            } catch {
+              // Firestoreエラーは無視（オフライン等）
+            }
+          }
+        } else {
+          setUserProfile(DEFAULT_PROFILE);
         }
-      } else {
-        setUserProfile(DEFAULT_PROFILE);
-      }
-      setLoading(false);
+        setLoading(false);
+      });
     });
-    return unsubscribe;
+
+    if (IS_LINE_MODE) {
+      safetyTimer = window.setTimeout(() => {
+        setLoading((prev) => {
+          if (prev) {
+            console.warn(
+              `[auth] LINE mode auth init timed out after ${LIFF_AUTH_TIMEOUT_MS}ms; falling back to unauthenticated state`
+            );
+          }
+          return false;
+        });
+      }, LIFF_AUTH_TIMEOUT_MS);
+    }
+
+    return () => {
+      if (unsubscribe) unsubscribe();
+      if (safetyTimer !== undefined) window.clearTimeout(safetyTimer);
+    };
   }, []);
 
   const signInWithGoogle = useCallback(async () => {
