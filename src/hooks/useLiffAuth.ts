@@ -1,28 +1,30 @@
 import { useEffect, useState } from 'react';
-import { signInWithLiffIdToken } from '../contexts/AuthContext';
+import { signInWithLiffIdToken, useAuth } from '../contexts/AuthContext';
 
 /**
  * LIFF SDK を初期化し、LIFF 内蔵 OAuth → Firebase Auth の fast-path 認証を
  * 走らせる hook。
  *
  * 流れ:
- * 1. liff.init({ liffId }) で SDK 初期化
- * 2. 未ログインなら liff.login() を発動（redirect_uri = LIFF endpoint なので
- *    LINE webview 内でも PC ブラウザでも OAuth を完結できる）
- * 3. 戻ってきたら liff.getIDToken() で ID トークン取得
- * 4. Cloud Function `createLiffFirebaseToken` で Firebase custom token に変換
- * 5. signInWithCustomToken で Firebase Auth ログイン
+ * 1. AuthContext の状態を観測し、Firebase Auth に既にセッションがあれば
+ *    LIFF SDK には触れず attempted=true を返す（リピート訪問の高速化）
+ * 2. 未ログイン確定（user===null, loading===false）のときのみ:
+ *    - `import('@line/liff')` で SDK 動的ロード
+ *    - `liff.init({ liffId })` で SDK 初期化
+ *    - 未ログインなら `liff.login()` を発動
+ *    - 戻ってきたら `liff.getIDToken()` で ID トークン取得
+ *    - Cloud Function `createLiffFirebaseToken` で Firebase custom token に変換
+ *    - `signInWithCustomToken` で Firebase Auth ログイン
  *
- * 結果として /welcome → LINE OAuth → /auth/line/callback の手動チェーンを
- * 経由せず、ユーザータップなしで LIFF ページに到達できる。Firebase Auth
- * セッションは localStorage に永続化されるため、他の LIFF からも同一
- * セッションが使い回せる（初回 OAuth 同意のみ）。
+ * AuthContext の Firebase 永続化は localStorage なので、初回 OAuth 同意以降は
+ * 他の LIFF ページからも同一セッションが使い回せる。
  *
  * @param liffId LIFF アプリ ID (`VITE_LIFF_ID_*` の値)。未指定なら何もしない
  * @returns `attempted` — LIFF 認証の試行が完了したか。これが true になって
  *   から Firebase Auth の `user` を見て redirect 判定すること。
  */
 export function useLiffAuth(liffId: string | undefined): { attempted: boolean } {
+  const { user, loading: authLoading } = useAuth();
   const [attempted, setAttempted] = useState(false);
 
   useEffect(() => {
@@ -30,6 +32,17 @@ export function useLiffAuth(liffId: string | undefined): { attempted: boolean } 
       setAttempted(true);
       return;
     }
+    // AuthContext の初期化が終わるまで待つ。loading 中に LIFF フローを発火しても
+    // 結局 onAuthStateChanged で上書きされて二重サインインになりうるため。
+    if (authLoading) return;
+
+    // 既存セッションあり: LIFF SDK のダウンロードも init も呼ばない（最大の高速化ポイント）。
+    if (user) {
+      setAttempted(true);
+      return;
+    }
+
+    // ここに到達するのは「Firebase Auth が未ログインで確定した」ケースのみ。
     let cancelled = false;
     (async () => {
       try {
@@ -63,7 +76,7 @@ export function useLiffAuth(liffId: string | undefined): { attempted: boolean } 
     return () => {
       cancelled = true;
     };
-  }, [liffId]);
+  }, [liffId, user, authLoading]);
 
   return { attempted };
 }

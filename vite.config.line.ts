@@ -26,6 +26,7 @@ export default defineConfig({
         // - firebase: app/auth/firestore-lite。最大の塊
         // - react: react と react-dom
         // - router: react-router-dom
+        // - liff: @line/liff（main.line.tsx で prefetch するため独立 chunk として固定）
         manualChunks(id) {
           if (id.includes('node_modules/firebase') || id.includes('node_modules/@firebase')) {
             return 'firebase';
@@ -39,6 +40,9 @@ export default defineConfig({
           }
           if (id.includes('node_modules/react-router')) {
             return 'router';
+          }
+          if (id.includes('node_modules/@line/liff')) {
+            return 'liff';
           }
           return undefined;
         },

@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Navigate } from 'react-router-dom';
-import { doc, getDoc, setDoc, serverTimestamp } from 'firebase/firestore/lite';
+import { doc, setDoc, serverTimestamp } from 'firebase/firestore/lite';
 import { db } from '../firebase/config';
 import { useAuth } from '../contexts/AuthContext';
 import { useLiffAuth } from '../hooks/useLiffAuth';
@@ -14,6 +14,10 @@ import {
   type ItemResult,
 } from '../firebase/itemStats';
 import { pickItems, countTiers, type PickMode } from '../utils/pickItems';
+import {
+  readCachedItemStats,
+  writeCachedItemStats,
+} from '../utils/liffStudyCache';
 // 型は g1 ファイルから（同じ型を g2 も持つ）。データ本体は動的 import で
 // 学年別に lazy load し、chunk size を最小化する。
 import type {
@@ -43,12 +47,6 @@ async function loadHistoryEras(grade: GradeNum): Promise<StudyEra[] | null> {
       return null;
   }
 }
-
-const GRADE_LABEL_TO_NUMBER: Record<string, GradeNum> = {
-  中1: 1,
-  中2: 2,
-  中3: 3,
-};
 
 type ViewMode = 'list' | 'setup' | 'fc' | 'quiz' | 'fc-end' | 'quiz-end';
 type SetupKind = 'fc' | 'quiz';
@@ -134,7 +132,7 @@ function difficultyMatch(
  * 学年別データは grade に応じて動的 import（chunk lazy load）。
  */
 export function LiffUnitsPage() {
-  const { user, loading } = useAuth();
+  const { user, loading, userDoc, userDocLoaded } = useAuth();
   const { attempted: liffAuthAttempted } = useLiffAuth(
     import.meta.env.VITE_LIFF_ID_UNITS as string | undefined
   );
@@ -168,10 +166,13 @@ export function LiffUnitsPage() {
     savePersistedSetupPrefs({ count: setupCount, randomize: setupRandomize });
   }, [setupCount, setupRandomize]);
 
-  const [testScopeTopics, setTestScopeTopics] = useState<Set<string>>(new Set());
-  const [testScopeLoaded, setTestScopeLoaded] = useState(false);
+  // testScope.topics は AuthContext の userDoc から派生（重複 getDoc 排除）。
+  const testScopeTopics = useMemo<Set<string>>(
+    () => new Set(userDoc?.testScopeTopics ?? []),
+    [userDoc],
+  );
   // ユーザーの登録学年（初期値の決定に使う）。
-  const [userGrade, setUserGrade] = useState<GradeNum | null>(null);
+  const userGrade: GradeNum | null = userDoc?.grade ?? null;
   // 表示中の学年（ユーザー操作で切り替え可能）。初期 = 登録学年。
   const [selectedGrade, setSelectedGrade] = useState<GradeNum | null>(null);
   const [historyEras, setHistoryEras] = useState<StudyEra[] | null>(null);
@@ -190,75 +191,42 @@ export function LiffUnitsPage() {
   const [lastQuizCorrect, setLastQuizCorrect] = useState(0);
   const [lastQuizTotal, setLastQuizTotal] = useState(0);
 
-  // testScope と studyStats を Firestore から読む
+  // userDoc がロードされたら、ローカル state（studyStats / setupDifficulties /
+  // selectedGrade）を userDoc 由来の値で初期化する。getDoc は AuthContext が
+  // 1 回だけ行っているので、ここでは追加の Firestore 読み込みは発生しない。
   useEffect(() => {
-    if (loading || !user) return;
-    let cancelled = false;
-    (async () => {
-      try {
-        const snap = await getDoc(doc(db, 'users', user.uid));
-        if (cancelled) return;
-        const data = snap.exists() ? snap.data() : {};
-        const topics = Array.isArray(data.testScope?.topics)
-          ? (data.testScope.topics as unknown[]).filter(
-              (t): t is string => typeof t === 'string'
-            )
-          : [];
-        setTestScopeTopics(new Set(topics));
-
-        // 学年を取得（中1 / 中2 / 中3）。selectedGrade の初期値にも使う。
-        const gradeLabel = typeof data.grade === 'string' ? data.grade : undefined;
-        const gradeNum = gradeLabel ? GRADE_LABEL_TO_NUMBER[gradeLabel] : undefined;
-        setUserGrade(gradeNum ?? null);
-        setSelectedGrade((prev) => prev ?? gradeNum ?? null);
-
-        const statsRaw = (data.studyStats as Record<string, unknown> | undefined) ?? {};
-        const stats: StudyStatsMap = {};
-        for (const [k, v] of Object.entries(statsRaw)) {
-          if (v && typeof v === 'object') {
-            const s = v as Partial<PerTopicStat>;
-            stats[k] = {
-              fcClearCount: typeof s.fcClearCount === 'number' ? s.fcClearCount : 0,
-              quizClearCount: typeof s.quizClearCount === 'number' ? s.quizClearCount : 0,
-              quizBestAccuracy: typeof s.quizBestAccuracy === 'number' ? s.quizBestAccuracy : 0,
-              quizLastAccuracy: typeof s.quizLastAccuracy === 'number' ? s.quizLastAccuracy : 0,
-            };
-          }
-        }
-        setStudyStats(stats);
-
-        // 教科ごとの直近難易度選択を復元（未設定なら全部 ON）
-        const prefsRaw = (data.studyPrefs as Record<string, unknown> | undefined) ?? {};
-        const subjectPref = prefsRaw[CURRENT_SUBJECT_ID] as
-          | { difficulties?: unknown }
-          | undefined;
-        if (subjectPref && Array.isArray(subjectPref.difficulties)) {
-          const saved = (subjectPref.difficulties as unknown[]).filter(
-            (d): d is Difficulty =>
-              typeof d === 'string' && (ALL_DIFFICULTIES as string[]).includes(d)
-          );
-          if (saved.length > 0) {
-            setSetupDifficulties(new Set(saved));
-          }
-        }
-      } catch (err) {
-        console.warn('[LiffUnitsPage] testScope/studyStats load failed', err);
-      } finally {
-        if (!cancelled) setTestScopeLoaded(true);
+    if (!userDoc) return;
+    setStudyStats(userDoc.studyStats);
+    setSelectedGrade((prev) => prev ?? userDoc.grade ?? null);
+    const subjectPref = userDoc.studyPrefs[CURRENT_SUBJECT_ID];
+    if (subjectPref?.difficulties && subjectPref.difficulties.length > 0) {
+      const saved = subjectPref.difficulties.filter((d): d is Difficulty =>
+        (ALL_DIFFICULTIES as string[]).includes(d),
+      );
+      if (saved.length > 0) {
+        setSetupDifficulties(new Set(saved));
       }
-    })();
-    return () => {
-      cancelled = true;
-    };
-  }, [user, loading]);
+    }
+  }, [userDoc]);
 
-  // 初回ロード後、全トピックの itemStats を一括取得（一覧の進捗ピル用）
+  // 全トピックの itemStats を取得（一覧の進捗ピル用）。
+  // localStorage キャッシュがあれば即描画 → 裏で fetch して差分反映する SWR 風。
   useEffect(() => {
     if (loading || !user) return;
     let cancelled = false;
+
+    const cached = readCachedItemStats(user.uid);
+    if (cached) {
+      setAllItemStats(cached.value);
+    }
+    // キャッシュヒットしていても TTL 内なら fetch をスキップしてネットワーク往復を完全に省く。
+    if (cached && !cached.isStale) return;
+
     void (async () => {
       const map = await loadAllItemStatsByTopic();
-      if (!cancelled) setAllItemStats(map);
+      if (cancelled) return;
+      setAllItemStats(map);
+      writeCachedItemStats(user.uid, map);
     })();
     return () => {
       cancelled = true;
@@ -468,6 +436,7 @@ export function LiffUnitsPage() {
       setAllItemStats((prev) => {
         const next = new Map(prev);
         next.set(currentTopic.topicId, updatedStats);
+        if (user) writeCachedItemStats(user.uid, next);
         return next;
       });
       void updateItemStats(currentTopic.topicId, results);
@@ -500,6 +469,7 @@ export function LiffUnitsPage() {
       setAllItemStats((prev) => {
         const next = new Map(prev);
         next.set(currentTopic.topicId, updatedStats);
+        if (user) writeCachedItemStats(user.uid, next);
         return next;
       });
       void updateItemStats(currentTopic.topicId, results);
@@ -583,7 +553,7 @@ export function LiffUnitsPage() {
   if (!user) {
     return <Navigate to="/welcome?next=/liff/units" replace />;
   }
-  if (!testScopeLoaded) {
+  if (!userDocLoaded) {
     return <LoadingScreen />;
   }
 

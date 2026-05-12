@@ -16,6 +16,16 @@
     <link rel="dns-prefetch" href="https://identitytoolkit.googleapis.com" />
     <link rel="dns-prefetch" href="https://securetoken.googleapis.com" />
 
+    <!-- LIFF SDK / LINE OAuth 系の接続を前倒し（liff.init() / getIDToken の往復短縮） -->
+    <link rel="preconnect" href="https://api.line.me" crossorigin />
+    <link rel="preconnect" href="https://static.line-scdn.net" crossorigin />
+    <link rel="dns-prefetch" href="https://api.line.me" />
+    <link rel="dns-prefetch" href="https://static.line-scdn.net" />
+
+    <!-- createLiffFirebaseToken (Cloud Function) のホストへの preconnect -->
+    <link rel="preconnect" href="https://asia-northeast1-chatstudy-63477.cloudfunctions.net" crossorigin />
+    <link rel="dns-prefetch" href="https://asia-northeast1-chatstudy-63477.cloudfunctions.net" />
+
     <!--
       First-paint の loading 表示。JS の download / parse / React mount まで
       数秒かかる間、ユーザーに真っ白画面を見せないために HTML に直接 inline。

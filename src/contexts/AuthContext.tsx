@@ -21,15 +21,46 @@ import {
 import { auth, db } from '../firebase/config';
 import { retryAsync } from '../utils/retryAsync';
 import { clearProgress } from '../utils/studyProgressStorage';
+import {
+  invalidateCachedForUid,
+  writeCachedGrade,
+  type CacheableGrade,
+} from '../utils/liffStudyCache';
 
 interface UserProfile {
   grade: number | null;
+}
+
+export interface UserDocStudyStat {
+  fcClearCount: number;
+  quizClearCount: number;
+  quizBestAccuracy: number;
+  quizLastAccuracy: number;
+}
+
+export interface UserDocStudyPrefs {
+  difficulties?: string[];
+}
+
+/**
+ * `users/{uid}` の主要フィールドを LIFF 各ページで使いやすい形に整形したもの。
+ * 既存ページごとに行っていた `getDoc(users/{uid})` を AuthContext 1 箇所に集約するため。
+ */
+export interface UserDoc {
+  uid: string;
+  grade: CacheableGrade | null;
+  subject: string | null;
+  testScopeTopics: string[];
+  studyStats: Record<string, UserDocStudyStat>;
+  studyPrefs: Record<string, UserDocStudyPrefs>;
 }
 
 interface AuthContextType {
   user: User | null;
   loading: boolean;
   userProfile: UserProfile;
+  userDoc: UserDoc | null;
+  userDocLoaded: boolean;
   signInWithGoogle: () => Promise<void>;
   signInWithLine: () => void;
   signOut: () => Promise<void>;
@@ -48,6 +79,59 @@ const LINE_AUTH_LIFF_FN_URL = import.meta.env.VITE_LINE_AUTH_LIFF_FN_URL;
 const LINE_CALLBACK_PATH = '/auth/line/callback';
 
 const DEFAULT_PROFILE: UserProfile = { grade: null };
+
+const GRADE_LABEL_TO_NUMBER: Record<string, CacheableGrade> = {
+  中1: 1,
+  中2: 2,
+  中3: 3,
+};
+
+function parseUserDoc(uid: string, data: Record<string, unknown>): UserDoc {
+  const gradeLabel = typeof data.grade === 'string' ? data.grade : undefined;
+  const grade = gradeLabel ? GRADE_LABEL_TO_NUMBER[gradeLabel] ?? null : null;
+
+  const subject =
+    typeof data.subject === 'string' ? (data.subject as string) : null;
+
+  const testScopeRaw = (data.testScope as Record<string, unknown> | undefined)
+    ?.topics;
+  const testScopeTopics = Array.isArray(testScopeRaw)
+    ? (testScopeRaw as unknown[]).filter((t): t is string => typeof t === 'string')
+    : [];
+
+  const studyStats: Record<string, UserDocStudyStat> = {};
+  const rawStats = (data.studyStats as Record<string, unknown> | undefined) ?? {};
+  for (const [k, v] of Object.entries(rawStats)) {
+    if (v && typeof v === 'object') {
+      const s = v as Partial<UserDocStudyStat>;
+      studyStats[k] = {
+        fcClearCount: typeof s.fcClearCount === 'number' ? s.fcClearCount : 0,
+        quizClearCount: typeof s.quizClearCount === 'number' ? s.quizClearCount : 0,
+        quizBestAccuracy:
+          typeof s.quizBestAccuracy === 'number' ? s.quizBestAccuracy : 0,
+        quizLastAccuracy:
+          typeof s.quizLastAccuracy === 'number' ? s.quizLastAccuracy : 0,
+      };
+    }
+  }
+
+  const studyPrefs: Record<string, UserDocStudyPrefs> = {};
+  const rawPrefs = (data.studyPrefs as Record<string, unknown> | undefined) ?? {};
+  for (const [k, v] of Object.entries(rawPrefs)) {
+    if (v && typeof v === 'object') {
+      const p = v as Partial<UserDocStudyPrefs>;
+      studyPrefs[k] = {
+        difficulties: Array.isArray(p.difficulties)
+          ? (p.difficulties as unknown[]).filter(
+              (d): d is string => typeof d === 'string',
+            )
+          : undefined,
+      };
+    }
+  }
+
+  return { uid, grade, subject, testScopeTopics, studyStats, studyPrefs };
+}
 
 // 24時間以内の lastActiveAt 重複書き込みを抑止する
 const ACTIVE_THRESHOLD_MS = 24 * 60 * 60 * 1000;
@@ -175,9 +259,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
   const [userProfile, setUserProfile] = useState<UserProfile>(DEFAULT_PROFILE);
+  const [userDoc, setUserDoc] = useState<UserDoc | null>(null);
+  const [userDocLoaded, setUserDocLoaded] = useState(false);
 
   useEffect(() => {
     let safetyTimer: number | undefined;
+    let lastUid: string | null = null;
 
     // Firebase の永続化はデフォルト（browserLocalPersistence = localStorage / IndexedDB）
     // のまま使用。明示的な setPersistence 呼び出しは不要。
@@ -187,20 +274,49 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     void persistencePromise.then(() => {
       unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
         setUser(firebaseUser);
+
+        // uid が切り替わったら（別アカウントログイン）旧 uid のキャッシュを無効化する。
+        // 同一 uid の連続ログインや初回ログインでは何もしない。
+        if (lastUid && lastUid !== (firebaseUser?.uid ?? null)) {
+          invalidateCachedForUid(lastUid);
+          // 古いユーザーの doc が画面に残らないようにクリア
+          setUserDoc(null);
+          setUserDocLoaded(false);
+        }
+        lastUid = firebaseUser?.uid ?? null;
+
         if (firebaseUser) {
-          const userDoc = doc(db, `users/${firebaseUser.uid}`);
+          const userDocRef = doc(db, `users/${firebaseUser.uid}`);
           try {
-            const snap = await retryAsync(() => getDoc(userDoc));
+            const snap = await retryAsync(() => getDoc(userDocRef));
             if (snap.exists()) {
               const data = snap.data();
               setUserProfile({ grade: data.grade ?? null });
+              const parsed = parseUserDoc(firebaseUser.uid, data);
+              setUserDoc(parsed);
+              if (parsed.grade) {
+                // 次回起動時の grade chunk prefetch に使うため LS にメモする
+                writeCachedGrade(firebaseUser.uid, parsed.grade);
+              }
+            } else {
+              setUserDoc({
+                uid: firebaseUser.uid,
+                grade: null,
+                subject: null,
+                testScopeTopics: [],
+                studyStats: {},
+                studyPrefs: {},
+              });
             }
           } catch (e) {
             console.warn('[auth] Failed to load user profile after retries', e);
+            // fetch 失敗時も loaded フラグは立てる（呼び出し側を blocking しないため）
+          } finally {
+            setUserDocLoaded(true);
           }
           if (shouldWriteLastActive(firebaseUser.uid)) {
             try {
-              await setDoc(userDoc, {
+              await setDoc(userDocRef, {
                 displayName: firebaseUser.displayName || null,
                 email: firebaseUser.email || null,
                 photoURL: firebaseUser.photoURL || null,
@@ -214,6 +330,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           }
         } else {
           setUserProfile(DEFAULT_PROFILE);
+          setUserDoc(null);
+          setUserDocLoaded(false);
         }
         setLoading(false);
       });
@@ -292,13 +410,26 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       user,
       loading,
       userProfile,
+      userDoc,
+      userDocLoaded,
       signInWithGoogle,
       signInWithLine,
       signOut,
       updateUserProfile,
       deleteAccount,
     }),
-    [user, loading, userProfile, signInWithGoogle, signInWithLine, signOut, updateUserProfile, deleteAccount],
+    [
+      user,
+      loading,
+      userProfile,
+      userDoc,
+      userDocLoaded,
+      signInWithGoogle,
+      signInWithLine,
+      signOut,
+      updateUserProfile,
+      deleteAccount,
+    ],
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
