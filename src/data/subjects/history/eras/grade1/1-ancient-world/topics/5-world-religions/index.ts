@@ -56,7 +56,7 @@ export const worldReligions: Topic = {
     flashcards: [
       {
         id: 'fc1',
-        front: '三大宗教', explanation: '仏教・キリスト教・イスラームの3つ。世界で最も信者が多い宗教。', back: '仏教・キリスト教・イスラームを合わせて何という？',
+        front: '{三大|さんだい}{宗教|しゅうきょう}', explanation: '仏教・キリスト教・イスラームの3つ。世界で最も信者が多い宗教。', back: '仏教・キリスト教・イスラームを合わせて何という？',
         difficulty: 'basic',
       },
       {
@@ -86,32 +86,32 @@ export const worldReligions: Topic = {
       },
       {
         id: 'fc7',
-        front: 'ローマ帝国', explanation: '4世紀にキリスト教を国教として採用した古代の大帝国。', back: 'キリスト教を国教とした古代の大帝国は何帝国？',
+        front: 'ローマ{帝国|ていこく}', explanation: '4世紀にキリスト教を国教として採用した古代の大帝国。', back: 'キリスト教を国教とした古代の大帝国は何帝国？',
         difficulty: 'basic',
       },
       {
         id: 'fc8',
-        front: 'カーバ神殿', explanation: 'メッカにあるイスラーム最高の聖殿。信者は礼拝時にこの方角に向かう。', back: 'メッカにあるイスラーム最高の聖地は何という神殿？',
+        front: 'カーバ{神殿|しんでん}', explanation: 'メッカにあるイスラーム最高の聖殿。信者は礼拝時にこの方角に向かう。', back: 'メッカにあるイスラーム最高の聖地は何という神殿？',
         difficulty: 'basic',
       },
       {
         id: 'fc9',
-        front: 'ヒンドゥー教', explanation: 'インドで仏教を吸収して成立した多神教。カースト制度と結びついた。', back: 'インドで仏教を吸収して成立した多神教は何という宗教？',
+        front: 'ヒンドゥー{教|きょう}', explanation: 'インドで仏教を吸収して成立した多神教。カースト制度と結びついた。', back: 'インドで仏教を吸収して成立した多神教は何という宗教？',
         difficulty: 'basic',
       },
       {
         id: 'fc10',
-        front: '聖書', explanation: '旧約聖書と新約聖書からなるキリスト教の聖典。', back: 'キリスト教の聖典を何という？',
+        front: '{聖書|せいしょ}', explanation: '旧約聖書と新約聖書からなるキリスト教の聖典。', back: 'キリスト教の聖典を何という？',
         difficulty: 'basic',
       },
       {
         id: 'fc11',
-        front: 'ユダヤ教', explanation: '古代イスラエルで生まれた一神教。キリスト教やイスラームに影響を与えた。', back: '古代イスラエルの民が信仰した、一神教の先駆けとなった宗教は？',
+        front: 'ユダヤ{教|きょう}', explanation: '古代イスラエルで生まれた一神教。キリスト教やイスラームに影響を与えた。', back: '古代イスラエルの民が信仰した、一神教の先駆けとなった宗教は？',
         difficulty: 'basic',
       },
       {
         id: 'fc12',
-        front: '一神教', explanation: '唯一の神だけを信じる考え方。ユダヤ教・キリスト教・イスラームが該当。', back: '唯一の神だけを信じる宗教の考え方を何という？',
+        front: '{一神教|いっしんきょう}', explanation: '唯一の神だけを信じる考え方。ユダヤ教・キリスト教・イスラームが該当。', back: '唯一の神だけを信じる宗教の考え方を何という？',
         difficulty: 'basic',
       },
       {
@@ -126,12 +126,12 @@ export const worldReligions: Topic = {
       },
       {
         id: 'fc15',
-        front: 'カースト制度', explanation: 'ヒンドゥー教と結びついたインドの身分制度。アーリヤ人がもたらした。', back: 'ヒンドゥー教と結びついたインドの身分制度は？',
+        front: 'カースト{制度|せいど}', explanation: 'ヒンドゥー教と結びついたインドの身分制度。アーリヤ人がもたらした。', back: 'ヒンドゥー教と結びついたインドの身分制度は？',
         difficulty: 'standard',
       },
       {
         id: 'fc17',
-        front: '旧約聖書', explanation: 'ユダヤ教の聖典であり、キリスト教では聖書の前半部分にあたる。', back: 'ユダヤ教の聖典であり、キリスト教の聖書の一部でもあるのは？',
+        front: '{旧約|きゅうやく}{聖書|せいしょ}', explanation: 'ユダヤ教の聖典であり、キリスト教では聖書の前半部分にあたる。', back: 'ユダヤ教の聖典であり、キリスト教の聖書の一部でもあるのは？',
         difficulty: 'standard',
       },
       {
@@ -141,12 +141,12 @@ export const worldReligions: Topic = {
       },
       {
         id: 'fc19',
-        front: '経典', explanation: '仏教の教えを記した聖典の総称。様々な経が含まれる。', back: '仏教の聖典を総称して何という？',
+        front: '{経典|きょうてん}', explanation: '仏教の教えを記した聖典の総称。様々な経が含まれる。', back: '仏教の聖典を総称して何という？',
         difficulty: 'standard',
       },
       {
         id: 'fc20',
-        front: '十字架', explanation: 'イエスが処刑された方法のシンボル。キリスト教の象徴となった。', back: 'イエスが処刑された方法のシンボルは？',
+        front: '{十字架|じゅうじか}', explanation: 'イエスが処刑された方法のシンボル。キリスト教の象徴となった。', back: 'イエスが処刑された方法のシンボルは？',
         difficulty: 'standard',
       },
       {
@@ -161,7 +161,7 @@ export const worldReligions: Topic = {
       },
       {
         id: 'fc26',
-        front: '多神教', explanation: '複数の神を信じる考え方。ヒンドゥー教や古代ギリシャの宗教が該当。', back: '複数の神を信じる宗教の考え方を何という？',
+        front: '{多神教|たしんきょう}', explanation: '複数の神を信じる考え方。ヒンドゥー教や古代ギリシャの宗教が該当。', back: '複数の神を信じる宗教の考え方を何という？',
         difficulty: 'advanced',
       },
       {
@@ -173,7 +173,7 @@ export const worldReligions: Topic = {
       },
       {
         id: 'fc28',
-        front: 'アラビア半島',
+        front: 'アラビア{半島|はんとう}',
         back: 'ムハンマドがイスラームを開いた地域は？',
         explanation: 'メッカやメディナがあるアラビア半島はイスラームの聖地が集中する地域。',
         difficulty: 'advanced',

@@ -54,28 +54,28 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "西暦",
+            "front": "{西暦|せいれき}",
             "back": "イエスが生まれたと考えられた年を基準にして年を表す方法を何という？",
             "explanation": "世界で広く使われる年の表し方で、紀元前・紀元後の区別が重要。",
             "difficulty": "basic"
           },
           {
             "id": "fc2",
-            "front": "紀元前",
+            "front": "{紀元前|きげんぜん}",
             "back": "西暦1年より前の時代を表す言い方は？",
             "explanation": "B.C. と表記する。数字が小さくなるほど西暦1年に近づく。",
             "difficulty": "basic"
           },
           {
             "id": "fc3",
-            "front": "紀元後",
+            "front": "{紀元後|きげんご}",
             "back": "西暦1年以後の時代を表す言い方は？",
             "explanation": "A.D. と表記する。ふつう「西暦○年」と表す。",
             "difficulty": "basic"
           },
           {
             "id": "fc4",
-            "front": "世紀",
+            "front": "{世紀|せいき}",
             "back": "100年を1つのまとまりとして数える表し方を何という？",
             "explanation": "1世紀は1年〜100年。2001年は21世紀。",
             "difficulty": "basic"
@@ -89,21 +89,21 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc6",
-            "front": "21世紀",
+            "front": "21{世紀|せいき}",
             "back": "2001年は何世紀？",
             "explanation": "2001年から2100年までが21世紀。上2桁＋1で求められる。",
             "difficulty": "basic"
           },
           {
             "id": "fc10",
-            "front": "元号",
+            "front": "{元号|げんごう}",
             "back": "日本で用いられる年の表し方で、天皇の代や出来事をきっかけに変わる方法は？",
             "explanation": "令和・平成・昭和など。中国から伝わり、現代まで続く日本独自の紀年法。",
             "difficulty": "standard"
           },
           {
             "id": "fc11",
-            "front": "干支",
+            "front": "{干支|えと}",
             "back": "十干と十二支を組み合わせて年を表す方法を何という？",
             "explanation": "甲・乙…の十干と、子・丑…の十二支を組み合わせ、60年で一回りする。",
             "difficulty": "advanced"
@@ -220,56 +220,56 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "猿人",
+            "front": "{猿人|えんじん}",
             "back": "約700万年前にアフリカで現れた最古の人類は？",
             "explanation": "二足歩行を始めた最初の人類。アフリカ大陸で誕生した。直立二足歩行が大きな特徴。",
             "difficulty": "basic"
           },
           {
             "id": "fc2",
-            "front": "原人",
+            "front": "{原人|げんじん}",
             "back": "約240万年前に現れ火を使うようになった人類は？",
             "explanation": "火を使い始めたことで食物の加熱や暖を取ることが可能になった。北京原人やジャワ原人が代表例。",
             "difficulty": "basic"
           },
           {
             "id": "fc3",
-            "front": "新人（ホモ・サピエンス）",
+            "front": "{新人|しんじん}（ホモ・サピエンス）",
             "back": "約20万年前に現れた現在の人類の直接の祖先は？",
             "explanation": "現在の人類すべての祖先。「知恵のある人」という意味のラテン語名を持つ。洞窟絵画など精神文化も見られる。",
             "difficulty": "basic"
           },
           {
             "id": "fc4",
-            "front": "打製石器",
+            "front": "{打製|だせい}{石器|せっき}",
             "back": "石を打ち欠いて作った石器は？",
             "explanation": "石を打ち欠いて作る最も原始的な石器。旧石器時代の代表的な道具。",
             "difficulty": "basic"
           },
           {
             "id": "fc5",
-            "front": "旧石器時代",
+            "front": "{旧|きゅう}{石器|せっき}時代",
             "back": "打製石器を使い狩猟・採集をしていた時代は？",
             "explanation": "まだ土器がなく、移動しながら狩猟・採集で暮らした時代。打製石器が特徴で、農耕はまだ本格的に始まっていない。",
             "difficulty": "basic"
           },
           {
             "id": "fc6",
-            "front": "磨製石器",
+            "front": "{磨製|ません}{石器|せっき}",
             "back": "表面をみがいて作った石器は？",
             "explanation": "表面を研磨して仕上げるため、打製石器より精巧で切れ味が良い。新石器時代に登場し、農耕と関係が深い。",
             "difficulty": "basic"
           },
           {
             "id": "fc7",
-            "front": "新石器時代",
+            "front": "{新|しん}{石器|せっき}時代",
             "back": "磨製石器や土器を使い始め、農耕が始まった時代は？",
             "explanation": "磨製石器や土器の使用、農耕・牧畜の開始が特徴。定住生活や村の発達につながった。",
             "difficulty": "basic"
           },
           {
             "id": "fc8",
-            "front": "土器",
+            "front": "{土器|どき}",
             "back": "新石器時代に使われ始めた、食物の煮炊きや貯蔵に用いた容器は？",
             "explanation": "粘土を焼いて作った容器。食物の煮炊きや貯蔵が可能になり、生活が大きく変わった。",
             "difficulty": "basic"
@@ -290,42 +290,42 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc11",
-            "front": "氷河時代",
+            "front": "{氷河|ひょうが}時代",
             "back": "旧石器時代にあたる、寒冷な時期が繰り返された時代は？",
             "explanation": "何度も繰り返された寒冷な時期。海面が低下し大陸と島が陸続きになり、人類の移動を可能にした。",
             "difficulty": "basic"
           },
           {
             "id": "fc12",
-            "front": "農耕・牧畜",
+            "front": "{農耕|のうこう}・{牧畜|ぼくちく}",
             "back": "新石器時代に始まった新しい食料の生産方法は？",
             "explanation": "新石器時代に始まり、食料を安定して得られるようになった。「農業革命」とも呼ばれる。定住生活・村・身分差の発生につながる。",
             "difficulty": "standard"
           },
           {
             "id": "fc13",
-            "front": "定住生活",
+            "front": "{定住|ていじゅう}生活",
             "back": "農耕の開始によって可能になった、移動しない暮らし方は？",
             "explanation": "農耕で食料が安定したことで可能になった。集落の形成や国家誕生につながった。",
             "difficulty": "standard"
           },
           {
             "id": "fc14",
-            "front": "骨角器",
+            "front": "{骨角器|こっかくき}",
             "back": "骨や角で作った針や釣り針などの道具を何という？",
             "explanation": "骨や角を加工して作った道具。釣り針や縫い針など、石器より繊細な加工が可能。",
             "difficulty": "standard"
           },
           {
             "id": "fc15",
-            "front": "北京原人",
+            "front": "{北京|ペキン}{原人|げんじん}",
             "back": "中国で発見された原人の代表例は？",
             "explanation": "中国の北京近郊で発見された原人。火を使っていた証拠が見つかっている。",
             "difficulty": "standard"
           },
           {
             "id": "fc16",
-            "front": "ジャワ原人",
+            "front": "ジャワ{原人|げんじん}",
             "back": "インドネシアで発見された原人の代表例は？",
             "explanation": "インドネシアのジャワ島で発見された原人。原人が広く分布していた証拠。",
             "difficulty": "standard"
@@ -339,14 +339,14 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc18",
-            "front": "狩猟・採集",
+            "front": "{狩猟|しゅりょう}・{採集|さいしゅう}",
             "back": "旧石器時代の人々の食料を得る方法は？",
             "explanation": "旧石器時代の食料獲得方法。移動生活が基本で、定住はしなかった。",
             "difficulty": "standard"
           },
           {
             "id": "fc19",
-            "front": "集落",
+            "front": "{集落|しゅうらく}",
             "back": "定住生活が始まり人々が集まって住んだ場所を何という？",
             "explanation": "農耕が始まり定住した人々が集まって住んだ場所。やがて指導者が生まれ国家へと発展。",
             "difficulty": "advanced"
@@ -367,7 +367,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc22",
-            "front": "アフリカ大陸",
+            "front": "アフリカ{大陸|たいりく}",
             "back": "人類が最初に出現した大陸は？",
             "explanation": "猿人から新人まで、すべての段階の人類はアフリカで最初に出現した。",
             "difficulty": "advanced"
@@ -1626,35 +1626,35 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc2",
-            "front": "都市国家",
+            "front": "{都市|とし}{国家|こっか}",
             "back": "都市を中心に独立した政治を行う小国家を何という？",
             "explanation": "ギリシャのポリスがこれにあたる。",
             "difficulty": "basic"
           },
           {
             "id": "fc3",
-            "front": "民主政",
+            "front": "{民主政|みんしゅせい}",
             "back": "アテネで行われた、市民全員が参加して行う政治を何という？",
             "explanation": "アテネで成年男性市民が直接参加して政治を決めた。現代民主主義の原点。女性や奴隷は参加できなかった。",
             "difficulty": "basic"
           },
           {
             "id": "fc4",
-            "front": "アレクサンドロス大王",
+            "front": "アレクサンドロス{大王|だいおう}",
             "back": "東方へ遠征し、ギリシャ文化を広めたマケドニアの王は？",
             "explanation": "マケドニアの王で東方遠征を行い、ギリシャ文化とオリエント文化が融合したヘレニズム文化を生んだ。",
             "difficulty": "basic"
           },
           {
             "id": "fc5",
-            "front": "ヘレニズム文化",
+            "front": "ヘレニズム{文化|ぶんか}",
             "back": "ギリシャ文化とオリエント文化が融合した文化は？",
             "explanation": "アレクサンドロス大王の東方遠征でギリシャとオリエントが融合して生まれた文化。",
             "difficulty": "basic"
           },
           {
             "id": "fc6",
-            "front": "共和政",
+            "front": "{共和政|きょうわせい}",
             "back": "古代ローマで行われた、王がいない政治を何という？",
             "explanation": "王を置かず、市民が政治に参加する仕組み。ローマで行われた。",
             "difficulty": "basic"
@@ -1668,21 +1668,21 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc8",
-            "front": "帝政",
+            "front": "{帝政|ていせい}",
             "back": "ローマで行われた、皇帝が支配する政治の仕組みを何という？",
             "explanation": "共和政から移行した、皇帝が支配する政治の仕組み。広大な領土を統治した。",
             "difficulty": "basic"
           },
           {
             "id": "fc9",
-            "front": "水道橋",
+            "front": "{水道橋|すいどうきょう}",
             "back": "ローマ帝国が各地に建設した、水を運ぶ橋を何という？",
             "explanation": "ローマ帝国が各地に建設。遠くの水源から都市に水を運ぶ技術の結晶。",
             "difficulty": "basic"
           },
           {
             "id": "fc10",
-            "front": "パルテノン神殿",
+            "front": "パルテノン{神殿|しんでん}",
             "back": "アテネの丘に建てられた、守護神をまつる神殿は？",
             "explanation": "アテネのアクロポリスに建てられた女神アテナを祀る神殿。ギリシャ建築の傑作。",
             "difficulty": "basic"
@@ -1710,21 +1710,21 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc14",
-            "front": "ローマ帝国",
+            "front": "ローマ{帝国|ていこく}",
             "back": "地中海周辺を支配した古代の大帝国は？",
             "explanation": "地中海周辺を支配した大帝国。道路・法律・キリスト教の広がりと関係が深い。",
             "difficulty": "basic"
           },
           {
             "id": "fc15",
-            "front": "ローマ法",
+            "front": "ローマ{法|ほう}",
             "back": "ローマ帝国が整備した、ヨーロッパの法律の基礎となった法は？",
             "explanation": "ローマ帝国が整備した法律。ヨーロッパの近代法の基礎となった。",
             "difficulty": "standard"
           },
           {
             "id": "fc16",
-            "front": "直接民主政",
+            "front": "{直接|ちょくせつ}{民主政|みんしゅせい}",
             "back": "アテネで市民が直接集会に参加して政治を決めた仕組みは？",
             "explanation": "代表者を選ぶのではなく、市民が自ら集会に参加して政治を決める仕組み。",
             "difficulty": "standard"
@@ -1766,7 +1766,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc22",
-            "front": "キリスト教",
+            "front": "キリスト{教|きょう}",
             "back": "4世紀にローマ帝国の国教となった宗教は？",
             "explanation": "迫害されていたが信者が増え続け、最終的にローマ帝国の国教に採用された。",
             "difficulty": "advanced"
@@ -2057,7 +2057,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "三大宗教",
+            "front": "{三大|さんだい}{宗教|しゅうきょう}",
             "back": "仏教・キリスト教・イスラームを合わせて何という？",
             "explanation": "世界で広く信者をもつ3つの宗教。始めた人物・聖典・広がった地域を区別する。",
             "difficulty": "basic"
@@ -2085,21 +2085,21 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc5",
-            "front": "仏教",
+            "front": "{仏教|ぶっきょう}",
             "back": "シャカの教えをもとにインドでおこった宗教は？",
             "explanation": "東アジアにも広がり、日本にも伝わった。聖典は経典。",
             "difficulty": "basic"
           },
           {
             "id": "fc6",
-            "front": "キリスト教",
+            "front": "キリスト{教|きょう}",
             "back": "イエスの教えをもとに広がった宗教は？",
             "explanation": "ローマ帝国で公認され、のちに国教となった。聖典は聖書。",
             "difficulty": "basic"
           },
           {
             "id": "fc7",
-            "front": "イスラム教（イスラーム）",
+            "front": "イスラム{教|きょう}（イスラーム）",
             "back": "ムハンマドが始めた一神教は？",
             "explanation": "聖典はコーラン、聖地はメッカ。",
             "difficulty": "basic"
@@ -2120,56 +2120,56 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc10",
-            "front": "ローマ帝国",
+            "front": "ローマ{帝国|ていこく}",
             "back": "キリスト教を国教とした古代の大帝国は何帝国？",
             "explanation": "4世紀にキリスト教を国教として採用した古代の大帝国。",
             "difficulty": "basic"
           },
           {
             "id": "fc11",
-            "front": "カーバ神殿",
+            "front": "カーバ{神殿|しんでん}",
             "back": "メッカにあるイスラーム最高の聖地は何という神殿？",
             "explanation": "メッカにあるイスラーム最高の聖殿。信者は礼拝時にこの方角に向かう。",
             "difficulty": "basic"
           },
           {
             "id": "fc12",
-            "front": "ヒンドゥー教",
+            "front": "ヒンドゥー{教|きょう}",
             "back": "インドで仏教を吸収して成立した多神教は何という宗教？",
             "explanation": "インドで仏教を吸収して成立した多神教。カースト制度と結びついた。",
             "difficulty": "basic"
           },
           {
             "id": "fc13",
-            "front": "聖書",
+            "front": "{聖書|せいしょ}",
             "back": "キリスト教の聖典を何という？",
             "explanation": "旧約聖書と新約聖書からなるキリスト教の聖典。",
             "difficulty": "basic"
           },
           {
             "id": "fc14",
-            "front": "ユダヤ教",
+            "front": "ユダヤ{教|きょう}",
             "back": "古代イスラエルの民が信仰した、一神教の先駆けとなった宗教は？",
             "explanation": "古代イスラエルで生まれた一神教。キリスト教やイスラームに影響を与えた。",
             "difficulty": "basic"
           },
           {
             "id": "fc15",
-            "front": "一神教",
+            "front": "{一神教|いっしんきょう}",
             "back": "唯一の神だけを信じる宗教の考え方を何という？",
             "explanation": "唯一の神だけを信じる考え方。ユダヤ教・キリスト教・イスラームが該当。",
             "difficulty": "basic"
           },
           {
             "id": "fc16",
-            "front": "バラモン教",
+            "front": "バラモン{教|きょう}",
             "back": "古代インドで仏教より前に広まった宗教は？",
             "explanation": "古代インドでアーリヤ人がもたらした宗教。厳しい身分制度（カースト）と結びつき、仏教がおこる背景となった。",
             "difficulty": "standard"
           },
           {
             "id": "fc17",
-            "front": "カースト制度",
+            "front": "カースト{制度|せいど}",
             "back": "ヒンドゥー教と結びついたインドの身分制度は？",
             "explanation": "ヒンドゥー教と結びついたインドの身分制度。アーリヤ人がもたらした。仏教がおこる背景。",
             "difficulty": "standard"
@@ -2190,7 +2190,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc20",
-            "front": "旧約聖書",
+            "front": "{旧約|きゅうやく}{聖書|せいしょ}",
             "back": "ユダヤ教の聖典であり、キリスト教の聖書の一部でもあるのは？",
             "explanation": "ユダヤ教の聖典であり、キリスト教では聖書の前半部分にあたる。",
             "difficulty": "standard"
@@ -2204,14 +2204,14 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc22",
-            "front": "経典",
+            "front": "{経典|きょうてん}",
             "back": "仏教の聖典を総称して何という？",
             "explanation": "仏教の教えを記した聖典の総称。様々な経が含まれる。",
             "difficulty": "standard"
           },
           {
             "id": "fc23",
-            "front": "十字架",
+            "front": "{十字架|じゅうじか}",
             "back": "イエスが処刑された方法のシンボルは？",
             "explanation": "イエスが処刑された方法のシンボル。キリスト教の象徴となった。",
             "difficulty": "standard"
@@ -2232,7 +2232,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc26",
-            "front": "多神教",
+            "front": "{多神教|たしんきょう}",
             "back": "複数の神を信じる宗教の考え方を何という？",
             "explanation": "複数の神を信じる考え方。ヒンドゥー教や古代ギリシャの宗教が該当。",
             "difficulty": "advanced"
@@ -2246,7 +2246,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc28",
-            "front": "アラビア半島",
+            "front": "アラビア{半島|はんとう}",
             "back": "ムハンマドがイスラームを開いた地域は？",
             "explanation": "メッカやメディナがあるアラビア半島はイスラームの聖地が集中する地域。",
             "difficulty": "advanced"
@@ -2636,14 +2636,14 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "旧石器時代",
+            "front": "{旧|きゅう}{石器|せっき}時代",
             "back": "打製石器を使い移動しながら生活した最も古い時代は？",
             "explanation": "日本列島がまだ大陸とつながっていたころ、打製石器を使って狩りや採集をしていた時代。縄文時代より前で、土器はまだ本格的に使われない。",
             "difficulty": "basic"
           },
           {
             "id": "fc2",
-            "front": "氷期（氷河時代）",
+            "front": "{氷期|ひょうき}（{氷河|ひょうが}時代）",
             "back": "日本が大陸と陸続きだった寒い時期を何という？",
             "explanation": "海面が低く、日本列島が大陸とつながっていた時期。ナウマンゾウなど大型動物が渡ってきた。",
             "difficulty": "basic"
@@ -2664,28 +2664,28 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc5",
-            "front": "打製石器",
+            "front": "{打製|だせい}{石器|せっき}",
             "back": "石を打ち欠いて作った旧石器時代の石器は？",
             "explanation": "石を打ち欠いて作った最も原始的な石器。旧石器時代の代表的な道具。",
             "difficulty": "basic"
           },
           {
             "id": "fc6",
-            "front": "岩宿遺跡",
+            "front": "{岩宿|いわじゅく}{遺跡|いせき}",
             "back": "群馬県で打製石器が発見され、日本の旧石器時代を証明した遺跡は？",
             "explanation": "相沢忠洋が打製石器を発見し、日本にも旧石器時代があったことを証明した重要な遺跡。",
             "difficulty": "basic"
           },
           {
             "id": "fc7",
-            "front": "相沢忠洋",
+            "front": "{相沢忠洋|あいざわただひろ}",
             "back": "岩宿遺跡で打製石器を発見した人物は？",
             "explanation": "行商をしながら独学で考古学を学び、岩宿遺跡で打製石器を発見した人物。",
             "difficulty": "basic"
           },
           {
             "id": "fc8",
-            "front": "黒曜石",
+            "front": "{黒曜石|こくようせき}",
             "back": "石器の材料として重宝された黒いガラス質の石は？",
             "explanation": "黒いガラス質の石で鋭い刃を作れた。遠方でも出土し、広域交易の証拠となる。",
             "difficulty": "basic"
@@ -2699,63 +2699,63 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc10",
-            "front": "縄文時代",
+            "front": "{縄文|じょうもん}時代",
             "back": "約1万数千年前から日本で土器を使い始めた時代は？",
             "explanation": "縄文土器を使い、狩り・採集・漁を中心に生活した時代。稲作が広がる弥生時代と区別。",
             "difficulty": "basic"
           },
           {
             "id": "fc11",
-            "front": "縄文土器",
+            "front": "{縄文|じょうもん}{土器|どき}",
             "back": "表面に縄目のような文様がある土器は？",
             "explanation": "縄を転がしてつけた文様が特徴。厚手で黒っぽいものが多く、装飾が豊か。",
             "difficulty": "basic"
           },
           {
             "id": "fc12",
-            "front": "竪穴住居（たて穴住居）",
+            "front": "{竪穴|たてあな}{住居|じゅうきょ}（たて{穴|あな}{住居|じゅうきょ}）",
             "back": "縄文人が地面を掘り柱を立てて造った家は？",
             "explanation": "地面を掘り下げ、柱を立てて屋根をかけた住居。縄文時代・弥生時代に使われた。",
             "difficulty": "basic"
           },
           {
             "id": "fc13",
-            "front": "貝塚",
+            "front": "{貝塚|かいづか}",
             "back": "食べ終わった貝殻や魚の骨を捨てた場所は？",
             "explanation": "食べた貝殻や骨を捨てた場所。当時の食生活を知る貴重な手がかり。",
             "difficulty": "standard"
           },
           {
             "id": "fc14",
-            "front": "土偶",
+            "front": "{土偶|どぐう}",
             "back": "祈りや魔よけのために作られた土の人形は？",
             "explanation": "縄文時代に作られた人形のような土製品。祈りやまじないに使われたと考えられる。",
             "difficulty": "standard"
           },
           {
             "id": "fc15",
-            "front": "三内丸山遺跡",
+            "front": "{三内丸山|さんないまるやま}{遺跡|いせき}",
             "back": "青森県にある縄文時代の大規模な集落遺跡は？",
             "explanation": "青森県にある縄文時代の大規模集落。大型建物やクリの栽培跡が発見された。",
             "difficulty": "standard"
           },
           {
             "id": "fc16",
-            "front": "屈葬",
+            "front": "{屈葬|くっそう}",
             "back": "死者の手足を折り曲げて埋葬する方法は？",
             "explanation": "死者の手足を折り曲げて埋葬する方法。霊が再び戻ってこないようにとの意味があったとされる。",
             "difficulty": "standard"
           },
           {
             "id": "fc17",
-            "front": "磨製石器",
+            "front": "{磨製|ません}{石器|せっき}",
             "back": "縄文時代に磨いて作られた石器は？",
             "explanation": "表面を磨いて仕上げた石器。打製石器より精巧で、縄文時代に登場した。",
             "difficulty": "standard"
           },
           {
             "id": "fc18",
-            "front": "野尻湖",
+            "front": "{野尻湖|のじりこ}",
             "back": "ナウマンゾウの化石が発見された長野県の湖は？",
             "explanation": "長野県にある湖。ナウマンゾウの化石が発見された旧石器時代の重要な遺跡。",
             "difficulty": "standard"
@@ -2769,21 +2769,21 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc20",
-            "front": "狩猟・採集",
+            "front": "{狩猟|しゅりょう}・{採集|さいしゅう}",
             "back": "縄文時代の生活の基本となった食料の獲得方法は？",
             "explanation": "動物を狩り、木の実や植物を集めて生活する方法。縄文時代の生活の基本。",
             "difficulty": "standard"
           },
           {
             "id": "fc21",
-            "front": "釣り針",
+            "front": "{釣|つ}り{針|ばり}",
             "back": "縄文時代に骨や角で作られた魚をとるための道具は？",
             "explanation": "骨角器の一種で、骨や角を加工して魚を釣るために使われた。",
             "difficulty": "advanced"
           },
           {
             "id": "fc22",
-            "front": "狩り・漁・採集",
+            "front": "{狩|か}り・{漁|りょう}・{採集|さいしゅう}",
             "back": "縄文人が食料を得ていた3つの方法は？",
             "explanation": "まだ農耕が本格化しておらず、自然の恵みに頼った食料獲得が基本だった。",
             "difficulty": "advanced"
@@ -3113,182 +3113,182 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "弥生時代",
+            "front": "{弥生|やよい}時代",
             "back": "稲作が伝わり金属器が普及したのは何時代？",
             "explanation": "稲作が広まり、金属器が使われ、むらが発達した時代。縄文時代との違いは稲作・金属器・身分差。",
             "difficulty": "basic"
           },
           {
             "id": "fc2",
-            "front": "稲作",
+            "front": "{稲作|いなさく}",
             "back": "九州北部に伝わり東北まで広がった農業は？",
             "explanation": "大陸から九州北部に伝わり東北まで広がった。社会構造を大きく変えた農業革命。",
             "difficulty": "basic"
           },
           {
             "id": "fc3",
-            "front": "高床倉庫",
+            "front": "{高床|たかゆか}{倉庫|そうこ}",
             "back": "収穫した稲を収め、湿気やねずみを防ぐために建てられた倉庫は？",
             "explanation": "床を高くして湿気やねずみから稲を守った。弥生時代の代表的な建造物で、稲作と関係が深い。",
             "difficulty": "basic"
           },
           {
             "id": "fc4",
-            "front": "弥生土器",
+            "front": "{弥生|やよい}{土器|どき}",
             "back": "弥生時代に使われた薄手で硬くシンプルな形の土器は？",
             "explanation": "縄文土器に比べ薄手で硬くシンプルな形。実用的な目的で作られた。",
             "difficulty": "basic"
           },
           {
             "id": "fc5",
-            "front": "石包丁",
+            "front": "{石包丁|いしぼうちょう}",
             "back": "稲の穂をつみ取るために使われた半月形の石器は？",
             "explanation": "半月形の石器で稲穂をつみ取る。弥生時代の稲作を象徴する道具。",
             "difficulty": "basic"
           },
           {
             "id": "fc6",
-            "front": "鉄器",
+            "front": "{鉄器|てっき}",
             "back": "武器や工具、農具に用いられた実用的な金属器は？",
             "explanation": "硬くて丈夫なため農具や武器に適した金属器。実用品として使われ、生産力を高めた。",
             "difficulty": "basic"
           },
           {
             "id": "fc7",
-            "front": "青銅器",
+            "front": "{青銅器|せいどうき}",
             "back": "銅とすずを混ぜて作った金属器は？",
             "explanation": "銅鐸・銅剣・銅鏡など、祭りに使われることが多い。",
             "difficulty": "basic"
           },
           {
             "id": "fc8",
-            "front": "銅鐸",
+            "front": "{銅鐸|どうたく}",
             "back": "祭りの宝物として使われた、つりがね形の青銅器は？",
             "explanation": "弥生時代に祭りで使われたと考えられる青銅器。近畿地方を中心に出土。",
             "difficulty": "basic"
           },
           {
             "id": "fc9",
-            "front": "銅鏡",
+            "front": "{銅鏡|どうきょう}",
             "back": "弥生時代に祭りや儀式に使われた青銅製の鏡は？",
             "explanation": "青銅製の鏡で、祭りや儀式に用いられた。権威の象徴でもあった。",
             "difficulty": "basic"
           },
           {
             "id": "fc10",
-            "front": "銅剣",
+            "front": "{銅剣|どうけん}",
             "back": "弥生時代に祭りや儀式に使われた青銅製の武器は？",
             "explanation": "青銅製の武器。実戦用ではなく祭りや儀式に用いられた。",
             "difficulty": "basic"
           },
           {
             "id": "fc11",
-            "front": "卑弥呼",
+            "front": "{卑弥呼|ひみこ}",
             "back": "3世紀ごろ、30あまりの国をまとめた女王は？",
             "explanation": "邪馬台国の女王。魏に使いを送り、親魏倭王の称号を得た。まじないの力で人々を治めた。",
             "difficulty": "basic"
           },
           {
             "id": "fc12",
-            "front": "邪馬台国",
+            "front": "{邪馬台国|やまたいこく}",
             "back": "卑弥呼が都を置いていたとされる国は？",
             "explanation": "3世紀ごろ、女王卑弥呼が治めたとされる国。『魏志』倭人伝に記されている。畿内説と九州説が議論。",
             "difficulty": "basic"
           },
           {
             "id": "fc13",
-            "front": "親魏倭王",
+            "front": "{親魏倭王|しんぎわおう}",
             "back": "卑弥呼が魏の皇帝から授かった称号は？",
             "explanation": "魏の皇帝が卑弥呼に与えた称号。邪馬台国と中国との交流を示す。",
             "difficulty": "basic"
           },
           {
             "id": "fc14",
-            "front": "『魏志』倭人伝",
+            "front": "『{魏志|ぎし}』{倭人伝|わじんでん}",
             "back": "卑弥呼と邪馬台国のことが記されている中国の歴史書は？",
             "explanation": "中国の歴史書『三国志』の一部で、倭や邪馬台国について記している。卑弥呼・邪馬台国を知る重要資料。",
             "difficulty": "standard"
           },
           {
             "id": "fc15",
-            "front": "金印",
+            "front": "{金印|きんいん}",
             "back": "1世紀に奴国の王が漢の皇帝から授かったものは？",
             "explanation": "「漢委奴国王」と刻まれた印。1世紀に倭の奴国が後漢に使いを送ったことを示す。福岡県志賀島で発見。",
             "difficulty": "standard"
           },
           {
             "id": "fc16",
-            "front": "漢委奴国王",
+            "front": "{漢委奴国王|かんのわのなのこくおう}",
             "back": "金印に刻まれていた文字は？",
             "explanation": "金印に刻まれた文字。「漢の委ねた奴国の王」という意味。",
             "difficulty": "standard"
           },
           {
             "id": "fc17",
-            "front": "朝貢",
+            "front": "{朝貢|ちょうこう}",
             "back": "定期的に貢ぎ物を送り王と認めてもらう外交を何という？",
             "explanation": "定期的に貢ぎ物を送り、中国の皇帝に王として認めてもらう外交の仕組み。",
             "difficulty": "standard"
           },
           {
             "id": "fc18",
-            "front": "吉野ヶ里遺跡",
+            "front": "{吉野ヶ里|よしのがり}{遺跡|いせき}",
             "back": "佐賀県にある、堀や柵を備えた大規模な弥生時代の遺跡は？",
             "explanation": "佐賀県にある弥生時代の大規模な環濠集落。物見やぐらや堀があり、むらどうしの争いを示す。",
             "difficulty": "standard"
           },
           {
             "id": "fc19",
-            "front": "登呂遺跡",
+            "front": "{登呂|とろ}{遺跡|いせき}",
             "back": "静岡県にある、弥生時代の水田跡が見つかった遺跡は？",
             "explanation": "静岡県にある遺跡。弥生時代の水田跡が見つかり稲作の実態がわかった。",
             "difficulty": "standard"
           },
           {
             "id": "fc20",
-            "front": "環濠（環濠集落）",
+            "front": "{環濠|かんごう}（{環濠|かんごう}{集落|しゅうらく}）",
             "back": "弥生時代の集落の周囲に掘られた防御用の溝は？",
             "explanation": "周囲に堀をめぐらせた集落。弥生時代の争いや防御を示す。",
             "difficulty": "standard"
           },
           {
             "id": "fc21",
-            "front": "志賀島",
+            "front": "{志賀島|しかのしま}",
             "back": "金印が発見された福岡県の島は？",
             "explanation": "福岡県にある島。金印が発見された場所として有名。",
             "difficulty": "standard"
           },
           {
             "id": "fc22",
-            "front": "奴国",
+            "front": "{奴国|なこく}",
             "back": "金印を授かった1世紀の倭のくにの名前は？",
             "explanation": "金印を授かった1世紀の倭のくに。現在の福岡市周辺にあったとされる。",
             "difficulty": "standard"
           },
           {
             "id": "fc23",
-            "front": "物見やぐら",
+            "front": "{物見|ものみ}やぐら",
             "back": "弥生時代の集落で敵の侵入を監視するために建てられた施設は？",
             "explanation": "敵の侵入を高い場所から監視するための施設。弥生時代の争いの証拠。",
             "difficulty": "standard"
           },
           {
             "id": "fc26",
-            "front": "倭",
+            "front": "{倭|わ}",
             "back": "古代の中国が日本列島の人々や国を呼んだ名は？",
             "explanation": "倭国・倭人伝などで出る。古代中国が日本を呼んだ呼称。",
             "difficulty": "advanced"
           },
           {
             "id": "fc27",
-            "front": "静岡県",
+            "front": "{静岡県|しずおかけん}",
             "back": "登呂遺跡がある県は？",
             "explanation": "登呂遺跡は静岡県にあり、弥生時代の水田跡が発見された重要な遺跡。",
             "difficulty": "advanced"
           },
           {
             "id": "fc28",
-            "front": "佐賀県",
+            "front": "{佐賀県|さがけん}",
             "back": "吉野ヶ里遺跡がある県は？",
             "explanation": "吉野ヶ里遺跡は佐賀県にあり、環濠や物見やぐらを備えた大規模な弥生集落。",
             "difficulty": "advanced"
@@ -3605,77 +3605,77 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "古墳時代",
+            "front": "{古墳|こふん}時代",
             "back": "巨大な墓が各地で盛んに造られたのは何時代？",
             "explanation": "3世紀後半から7世紀まで続いた時代。大きな墓である古墳が各地につくられ、大和政権の広がりと関係する。",
             "difficulty": "basic"
           },
           {
             "id": "fc2",
-            "front": "大和政権",
+            "front": "{大和|やまと}{政権|せいけん}",
             "back": "奈良盆地を中心に現れた強大な勢力は？",
             "explanation": "3世紀後半ごろから近畿地方を中心に成立した政治勢力。大王を中心に豪族をまとめた。",
             "difficulty": "basic"
           },
           {
             "id": "fc3",
-            "front": "大王",
+            "front": "{大王|おおきみ}",
             "back": "大和政権の頂点に立つ王を何と呼んだ？",
             "explanation": "大和政権の中心となった王。のちの天皇につながる存在。",
             "difficulty": "basic"
           },
           {
             "id": "fc4",
-            "front": "前方後円墳",
+            "front": "{前方後円墳|ぜんぽうこうえんふん}",
             "back": "円形と方形を組み合わせた日本独自の大きな墓は？",
             "explanation": "前が四角、後ろが円形の古墳。大王や豪族の力を示す。鍵穴のような形が特徴。",
             "difficulty": "basic"
           },
           {
             "id": "fc5",
-            "front": "大仙古墳",
+            "front": "{大仙|だいせん}{古墳|こふん}",
             "back": "堺市にある日本最大級の前方後円墳は？",
             "explanation": "大阪府堺市にある日本最大級の前方後円墳。大王の権力の大きさを示す。",
             "difficulty": "basic"
           },
           {
             "id": "fc6",
-            "front": "埴輪",
+            "front": "{埴輪|はにわ}",
             "back": "古墳の表面に並べられた人や動物の焼き物は？",
             "explanation": "古墳の上や周りに並べられた土製品。人物・家・動物などの形がある。",
             "difficulty": "basic"
           },
           {
             "id": "fc7",
-            "front": "ワカタケル大王",
+            "front": "ワカタケル{大王|おおきみ}",
             "back": "稲荷山古墳の鉄剣に刻まれた大王の名は？",
             "explanation": "稲荷山古墳の鉄剣に名が刻まれた大王（雄略天皇）。大和政権の広範な支配を示す。",
             "difficulty": "basic"
           },
           {
             "id": "fc8",
-            "front": "稲荷山古墳",
+            "front": "{稲荷山|いなりやま}{古墳|こふん}",
             "back": "埼玉県にある、ワカタケル大王の名が刻まれた鉄剣が出土した古墳は？",
             "explanation": "埼玉県にある古墳。ワカタケル大王の名が刻まれた鉄剣が出土した。",
             "difficulty": "basic"
           },
           {
             "id": "fc9",
-            "front": "宋書",
+            "front": "{宋書|そうじょ}",
             "back": "倭の五王の活動が記録されている中国の歴史書は？",
             "explanation": "倭の五王の活動が記録されている中国の歴史書。5世紀の日本と中国の関係がわかる。",
             "difficulty": "basic"
           },
           {
             "id": "fc10",
-            "front": "渡来人",
+            "front": "{渡来人|とらいじん}",
             "back": "大陸から移り住み技術や文化を伝えた人々は？",
             "explanation": "朝鮮半島や中国大陸から日本に移り住み、技術や文化を伝えた人々。漢字・仏教・須恵器・機織りなどを伝えた。",
             "difficulty": "basic"
           },
           {
             "id": "fc11",
-            "front": "須恵器",
+            "front": "{須恵器|すえき}",
             "back": "渡来人が伝えた高温で焼く硬い灰色の土器は？",
             "explanation": "渡来人によって伝えられた技術で作られた硬い土器。弥生土器や縄文土器と区別する。",
             "difficulty": "standard"
@@ -3689,77 +3689,77 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc13",
-            "front": "仏教",
+            "front": "{仏教|ぶっきょう}",
             "back": "渡来人が6世紀半ばに日本へ伝えた宗教は？",
             "explanation": "6世紀半ばに百済から伝来した宗教。のちの日本文化に大きな影響を与えた。",
             "difficulty": "standard"
           },
           {
             "id": "fc14",
-            "front": "高句麗",
+            "front": "{高句麗|こうくり}",
             "back": "古墳時代に朝鮮半島北部にあった強国は？",
             "explanation": "古墳時代に朝鮮半島北部にあった強国。大和政権とは対立関係にあった。",
             "difficulty": "standard"
           },
           {
             "id": "fc15",
-            "front": "百済",
+            "front": "{百済|くだら}",
             "back": "大和政権と友好関係を結んでいた朝鮮半島の国は？",
             "explanation": "大和政権と友好関係を結んだ朝鮮半島の国。仏教や文化を日本に伝えた。",
             "difficulty": "standard"
           },
           {
             "id": "fc16",
-            "front": "新羅",
+            "front": "{新羅|しらぎ}",
             "back": "古墳時代に朝鮮半島東南部にあった国は？",
             "explanation": "古墳時代に朝鮮半島東南部にあった国。のちに朝鮮半島を統一した。",
             "difficulty": "standard"
           },
           {
             "id": "fc17",
-            "front": "伽耶地域",
+            "front": "{伽耶|かや}地域",
             "back": "鉄の原料を輸入していた朝鮮半島南部の地域は？",
             "explanation": "朝鮮半島南部の地域。大和政権が鉄の原料を輸入した重要な交易相手。",
             "difficulty": "standard"
           },
           {
             "id": "fc18",
-            "front": "土師器",
+            "front": "{土師器|はじき}",
             "back": "古墳時代に日常で使われた素焼きの赤茶色の土器は？",
             "explanation": "古墳時代に日常で使われた素焼きの赤茶色の土器。須恵器とは製法が異なる。",
             "difficulty": "standard"
           },
           {
             "id": "fc19",
-            "front": "勾玉",
+            "front": "{勾玉|まがたま}",
             "back": "古墳時代の代表的な曲がった形の装飾品は？",
             "explanation": "古墳時代の代表的な装飾品。曲がった形が特徴で、権力の象徴。",
             "difficulty": "standard"
           },
           {
             "id": "fc20",
-            "front": "江田船山古墳",
+            "front": "{江田船山|えたふなやま}{古墳|こふん}",
             "back": "熊本県にある、ワカタケル大王の名が刻まれた鉄刀が出土した古墳は？",
             "explanation": "熊本県にある古墳。ワカタケル大王の名が刻まれた鉄刀が出土した。",
             "difficulty": "standard"
           },
           {
             "id": "fc21",
-            "front": "豪族",
+            "front": "{豪族|ごうぞく}",
             "back": "大和政権で大王のもとにまとめられた各地の有力者は？",
             "explanation": "土地や人々を支配した有力者。古墳の大きさは豪族の力を示す。",
             "difficulty": "standard"
           },
           {
             "id": "fc23",
-            "front": "三種の神器",
+            "front": "{三種|さんしゅ}の{神器|じんぎ}",
             "back": "古墳時代に鏡・玉・剣の3つを合わせて何と呼ぶ？",
             "explanation": "鏡・玉・剣の3つ。天皇の権威を示す宝物として受け継がれた。",
             "difficulty": "advanced"
           },
           {
             "id": "fc25",
-            "front": "3世紀後半〜7世紀",
+            "front": "3{世紀|せいき}後半〜7{世紀|せいき}",
             "back": "古墳時代はいつからいつ頃まで続いた？",
             "explanation": "約400年続いた時代で、大和政権が成長し日本の国づくりの基礎が固まった。",
             "difficulty": "advanced"
@@ -4136,140 +4136,140 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "聖徳太子",
+            "front": "{聖徳太子|しょうとくたいし}",
             "back": "推古天皇の摂政として政治改革を行った人物は？",
             "explanation": "推古天皇のもとで政治を行い、天皇中心の政治をめざした人物。冠位十二階・十七条の憲法・遣隋使と結びつける。",
             "difficulty": "basic"
           },
           {
             "id": "fc2",
-            "front": "推古天皇",
+            "front": "{推古|すいこ}{天皇|てんのう}",
             "back": "日本初の女性天皇で、聖徳太子が摂政を務めたのは？",
             "explanation": "日本で最初の女性天皇とされ、聖徳太子が補佐した。飛鳥時代の政治改革と関係。",
             "difficulty": "basic"
           },
           {
             "id": "fc3",
-            "front": "蘇我氏",
+            "front": "{蘇我氏|そがし}",
             "back": "仏教を受け入れ、飛鳥時代に大きな力をもった豪族は？",
             "explanation": "仏教を受け入れ、飛鳥時代に大きな力をもった豪族。物部氏との対立、蘇我馬子など。",
             "difficulty": "basic"
           },
           {
             "id": "fc4",
-            "front": "冠位十二階",
+            "front": "{冠位|かんい}{十二階|じゅうにかい}",
             "back": "家柄ではなく才能や功績で地位を決める制度は？",
             "explanation": "家柄に関係なく、才能や功績のある人を役人に取り立てる制度。聖徳太子の政治改革。",
             "difficulty": "basic"
           },
           {
             "id": "fc5",
-            "front": "十七条の憲法",
+            "front": "{十七条|じゅうしちじょう}の{憲法|けんぽう}",
             "back": "役人の心構えを示した、聖徳太子が定めた法は？",
             "explanation": "「和を以て貴しとなす」で始まる役人の心構え。天皇への忠誠と仏教の敬いを説いた。現代の憲法とは性格が違う。",
             "difficulty": "basic"
           },
           {
             "id": "fc6",
-            "front": "遣隋使",
+            "front": "{遣隋使|けんずいし}",
             "back": "中国の隋へ送られた使節の名称は？",
             "explanation": "小野妹子が607年に派遣された。隋の制度や文化を学び、対等外交を目指した。",
             "difficulty": "basic"
           },
           {
             "id": "fc7",
-            "front": "小野妹子",
+            "front": "{小野妹子|おののいもこ}",
             "back": "607年に遣隋使として派遣された人物は？",
             "explanation": "607年に遣隋使として派遣された人物。「日出づる処の天子」の手紙を携えた。",
             "difficulty": "basic"
           },
           {
             "id": "fc8",
-            "front": "法隆寺",
+            "front": "{法隆寺|ほうりゅうじ}",
             "back": "聖徳太子が建立した世界最古の木造建築は？",
             "explanation": "聖徳太子ゆかりの寺。現存する世界最古の木造建築として知られる。飛鳥文化を代表する寺院。",
             "difficulty": "basic"
           },
           {
             "id": "fc9",
-            "front": "飛鳥文化",
+            "front": "{飛鳥|あすか}{文化|ぶんか}",
             "back": "法隆寺に代表される日本初の仏教文化は？",
             "explanation": "飛鳥時代に栄えた、日本で最初の仏教文化。法隆寺・釈迦三尊像など。中国・朝鮮半島の影響を強く受けた。",
             "difficulty": "basic"
           },
           {
             "id": "fc10",
-            "front": "蘇我馬子",
+            "front": "{蘇我馬子|そがのうまこ}",
             "back": "聖徳太子と協力して仏教を広めた有力豪族は？",
             "explanation": "聖徳太子と協力して仏教を推進し、飛鳥寺を建立した有力豪族。",
             "difficulty": "basic"
           },
           {
             "id": "fc11",
-            "front": "厩戸皇子",
+            "front": "{厩戸皇子|うまやどのおうじ}",
             "back": "聖徳太子が生きていた当時の名前は何？",
             "explanation": "聖徳太子の本来の名前。「聖徳太子」は後世に贈られた呼び名。",
             "difficulty": "basic"
           },
           {
             "id": "fc12",
-            "front": "三宝（仏・法・僧）",
+            "front": "{三宝|さんぼう}（{仏|ぶつ}・{法|ほう}・{僧|そう}）",
             "back": "十七条の憲法の第2条「篤く〇〇を敬え」の〇〇に入る言葉は？",
             "explanation": "仏・法（教え）・僧の三つ。十七条の憲法第2条で敬うべきとされた。",
             "difficulty": "basic"
           },
           {
             "id": "fc13",
-            "front": "釈迦三尊像",
+            "front": "{釈迦|しゃか}{三尊像|さんぞんぞう}",
             "back": "法隆寺金堂にある飛鳥文化の仏像は？",
             "explanation": "法隆寺金堂にある飛鳥文化を代表する仏像。左右に脇侍を従えた三尊形式。",
             "difficulty": "basic"
           },
           {
             "id": "fc14",
-            "front": "飛鳥",
+            "front": "{飛鳥|あすか}",
             "back": "聖徳太子が政治を行った地域（奈良県）は？",
             "explanation": "現在の奈良県明日香村周辺。聖徳太子や蘇我氏が政治の中心とした地域。",
             "difficulty": "basic"
           },
           {
             "id": "fc15",
-            "front": "隋",
+            "front": "{隋|ずい}",
             "back": "6世紀末に中国を統一した王朝は？",
             "explanation": "6世紀末に中国を統一した王朝。聖徳太子が遣隋使を送り制度を学んだ。",
             "difficulty": "standard"
           },
           {
             "id": "fc16",
-            "front": "物部氏",
+            "front": "{物部氏|もののべし}",
             "back": "仏教の受け入れに反対し、蘇我氏に滅ぼされた豪族は？",
             "explanation": "仏教の受け入れに反対した豪族。蘇我氏との争いに敗れて滅んだ。",
             "difficulty": "standard"
           },
           {
             "id": "fc17",
-            "front": "摂政",
+            "front": "{摂政|せっしょう}",
             "back": "天皇が幼いときなどに代わって政治を行う役職は？",
             "explanation": "天皇が幼い時や不在の時に代わって政治を行う役職。聖徳太子が務めた。",
             "difficulty": "standard"
           },
           {
             "id": "fc18",
-            "front": "和",
+            "front": "{和|わ}",
             "back": "十七条の憲法の第一条「〇〇を以て貴しとなす」の〇〇に入る言葉は？",
             "explanation": "十七条の憲法第一条の核心。人々が協調することの大切さを説く。",
             "difficulty": "standard"
           },
           {
             "id": "fc19",
-            "front": "日出づる処の天子",
+            "front": "日{出|い}づる{処|ところ}の{天子|てんし}",
             "back": "聖徳太子が隋の皇帝に送った手紙で日本の天皇をこう称した",
             "explanation": "隋の皇帝に対等な関係を主張する表現。隋の皇帝を怒らせたとも伝わる。",
             "difficulty": "standard"
           },
           {
             "id": "fc20",
-            "front": "飛鳥寺",
+            "front": "{飛鳥寺|あすかでら}",
             "back": "蘇我馬子が建てた日本初の本格的な寺院は？",
             "explanation": "蘇我馬子が建立した日本初の本格的な寺院。飛鳥大仏が安置されている。",
             "difficulty": "standard"
@@ -4283,7 +4283,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc22",
-            "front": "唐",
+            "front": "{唐|とう}",
             "back": "隋のあとに中国を支配した王朝は？",
             "explanation": "隋のあとに中国を支配した王朝。約300年続き、東アジアに大きな影響を与えた。",
             "difficulty": "standard"
@@ -4297,21 +4297,21 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc24",
-            "front": "斑鳩（いかるが）",
+            "front": "{斑鳩|いかるが}（いかるが）",
             "back": "法隆寺がある場所（奈良県）はどこ？",
             "explanation": "法隆寺がある奈良県の地名。聖徳太子が宮殿を構えた場所。",
             "difficulty": "advanced"
           },
           {
             "id": "fc25",
-            "front": "天皇中心の国づくり",
+            "front": "{天皇|てんのう}中心の国づくり",
             "back": "聖徳太子の政治改革が目指していたものは？",
             "explanation": "冠位十二階・十七条の憲法・遣隋使に共通する目標。豪族中心ではなく、天皇を中心に国を治める政治。",
             "difficulty": "advanced"
           },
           {
             "id": "fc26",
-            "front": "6世紀",
+            "front": "6{世紀|せいき}",
             "back": "百済から日本に仏教が伝わったのはおよそ何世紀？",
             "explanation": "百済から日本に仏教が伝わった時期。538年説と552年説がある。",
             "difficulty": "advanced"
@@ -4693,168 +4693,168 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "大化の改新",
+            "front": "{大化|たいか}の{改新|かいしん}",
             "back": "645年に始まった天皇中心の政治改革を何という？",
             "explanation": "中大兄皇子と中臣鎌足らが蘇我氏を倒し、始めた政治改革。公地公民をめざした。",
             "difficulty": "basic"
           },
           {
             "id": "fc2",
-            "front": "中大兄皇子",
+            "front": "{中大兄皇子|なかのおおえのおうじ}",
             "back": "大化の改新を主導し、後に天智天皇となったのは誰？",
             "explanation": "蘇我入鹿を倒し大化の改新を主導。のちに天智天皇として即位した。",
             "difficulty": "basic"
           },
           {
             "id": "fc3",
-            "front": "中臣鎌足",
+            "front": "{中臣鎌足|なかとみのかまたり}",
             "back": "改新に協力し、藤原姓を賜り藤原氏の祖となったのは？",
             "explanation": "大化の改新に協力した人物。のちに藤原姓を賜り、藤原氏の祖となった。",
             "difficulty": "basic"
           },
           {
             "id": "fc4",
-            "front": "公地・公民",
+            "front": "{公地|こうち}・{公民|こうみん}",
             "back": "土地と人民を国家が支配する方針は？",
             "explanation": "土地と人民を国家が支配するという方針。豪族の私有を否定し、中央集権を進める考え方。",
             "difficulty": "basic"
           },
           {
             "id": "fc5",
-            "front": "白村江の戦い",
+            "front": "{白村江|はくすきのえ}の{戦|たたか}い",
             "back": "663年に唐・新羅の連合軍に敗れた戦いは？",
             "explanation": "日本が百済を助けるため朝鮮半島に出兵し、唐・新羅の連合軍に敗れた戦い。敗戦後、防衛体制を強めた。",
             "difficulty": "basic"
           },
           {
             "id": "fc6",
-            "front": "壬申の乱",
+            "front": "{壬申|じんしん}の{乱|らん}",
             "back": "672年に起きた皇位継承をめぐる内乱は？",
             "explanation": "天智天皇の死後に起きた皇位継承をめぐる争い。勝利した大海人皇子が天武天皇となった。",
             "difficulty": "basic"
           },
           {
             "id": "fc7",
-            "front": "天武天皇",
+            "front": "{天武|てんむ}{天皇|てんのう}",
             "back": "壬申の乱に勝利し即位した天皇は？",
             "explanation": "壬申の乱に勝ち、天皇中心の国家づくりを進めた天皇。律令国家の基礎を整えた。",
             "difficulty": "basic"
           },
           {
             "id": "fc8",
-            "front": "藤原京",
+            "front": "{藤原京|ふじわらきょう}",
             "back": "694年に造営された日本初の本格的な都城は？",
             "explanation": "694年に持統天皇のもとで造営。唐の長安をモデルにした日本初の本格的な都城。",
             "difficulty": "basic"
           },
           {
             "id": "fc9",
-            "front": "持統天皇",
+            "front": "{持統|じとう}{天皇|てんのう}",
             "back": "天武天皇の皇后で、藤原京を造営した天皇は？",
             "explanation": "天武天皇の皇后。天武天皇の政策を引き継ぎ、藤原京を造営した。",
             "difficulty": "basic"
           },
           {
             "id": "fc10",
-            "front": "水城",
+            "front": "{水城|みずき}",
             "back": "白村江の戦いの後に九州の防衛のため築かれた堤防は？",
             "explanation": "白村江の戦いの敗北後に九州防衛のため築かれた土塁。大宰府を守るために築かれた。",
             "difficulty": "basic"
           },
           {
             "id": "fc11",
-            "front": "大宰府",
+            "front": "{大宰府|だざいふ}",
             "back": "九州の外交と防衛を担った役所は？",
             "explanation": "九州に置かれ、外交や防衛を担当した役所。白村江の戦い後の防衛拠点として重要になった。",
             "difficulty": "basic"
           },
           {
             "id": "fc12",
-            "front": "蘇我入鹿",
+            "front": "{蘇我入鹿|そがのいるか}",
             "back": "大化の改新で倒された蘇我氏の人物は？",
             "explanation": "大化の改新（乙巳の変）で中大兄皇子と中臣鎌足に倒された蘇我氏の人物。",
             "difficulty": "standard"
           },
           {
             "id": "fc13",
-            "front": "大海人皇子",
+            "front": "{大海人皇子|おおあまのおうじ}",
             "back": "壬申の乱に勝利した天智天皇の弟は？",
             "explanation": "天智天皇の弟。壬申の乱に勝利して天武天皇となった。",
             "difficulty": "standard"
           },
           {
             "id": "fc14",
-            "front": "大友皇子",
+            "front": "{大友皇子|おおとものおうじ}",
             "back": "壬申の乱で大海人皇子に敗れた天智天皇の子は？",
             "explanation": "天智天皇の子。壬申の乱で大海人皇子に敗れた。",
             "difficulty": "standard"
           },
           {
             "id": "fc15",
-            "front": "百済",
+            "front": "{百済|くだら}",
             "back": "白村江の戦いで日本が助けようとした国は？",
             "explanation": "白村江の戦いで日本が助けようとした朝鮮半島の国。日本と友好関係にあった。",
             "difficulty": "standard"
           },
           {
             "id": "fc16",
-            "front": "新羅",
+            "front": "{新羅|しらぎ}",
             "back": "白村江の戦い後に朝鮮半島を統一した国は？",
             "explanation": "白村江の戦い後に唐と協力して朝鮮半島を統一した国。",
             "difficulty": "standard"
           },
           {
             "id": "fc17",
-            "front": "天智天皇",
+            "front": "{天智|てんじ}{天皇|てんのう}",
             "back": "中大兄皇子が即位して名乗った天皇名は？",
             "explanation": "中大兄皇子が即位して名乗った天皇名。大化の改新を主導した人物。",
             "difficulty": "standard"
           },
           {
             "id": "fc18",
-            "front": "年号（元号）",
+            "front": "{年号|ねんごう}（{元号|げんごう}）",
             "back": "「大化」は日本で初めて定められた何？",
             "explanation": "「大化」は645年に定められた日本最初の年号。天皇の政治改革の象徴。",
             "difficulty": "standard"
           },
           {
             "id": "fc19",
-            "front": "蘇我蝦夷",
+            "front": "{蘇我蝦夷|そがのえみし}",
             "back": "蘇我入鹿の父で、蘇我氏の有力者は？",
             "explanation": "蘇我入鹿の父。蘇我氏の有力者として朝廷の実権を握っていた。",
             "difficulty": "standard"
           },
           {
             "id": "fc20",
-            "front": "庚午年籍",
+            "front": "{庚午年籍|こうごねんじゃく}",
             "back": "律令国家のために作られた古い戸籍は？",
             "explanation": "戸籍の一つで、人々を把握して税や兵役を課すためにつくられた。律令国家の人々支配と関係。",
             "difficulty": "standard"
           },
           {
             "id": "fc21",
-            "front": "藤原",
+            "front": "{藤原|ふじわら}",
             "back": "中臣鎌足がのちに賜った姓は？",
             "explanation": "中臣鎌足がのちに天智天皇から賜った姓。藤原氏として約500年間権勢を誇った。",
             "difficulty": "advanced"
           },
           {
             "id": "fc22",
-            "front": "富本銭",
+            "front": "{富本銭|ふほんせん}",
             "back": "日本で最初に作られた銅銭とされるものは？",
             "explanation": "日本で最初に作られたとされる銅銭。天武天皇の時代に鋳造された。和同開珎と混同しやすい。",
             "difficulty": "advanced"
           },
           {
             "id": "fc23",
-            "front": "国・郡・里",
+            "front": "国・郡・{里|り}",
             "back": "大化の改新で定められた地方の行政区画の仕組みは？",
             "explanation": "大化の改新で定められた地方行政の仕組み。全国を統一的に治める体制。",
             "difficulty": "advanced"
           },
           {
             "id": "fc24",
-            "front": "中央集権国家",
+            "front": "{中央集権|ちゅうおうしゅうけん}{国家|こっか}",
             "back": "地方の政治や土地・人民を中央政府が管理する国家の形は？",
             "explanation": "地方の政治や土地・人民を中央政府が管理する国家。大化の改新や律令制度の目標。",
             "difficulty": "advanced"
@@ -5210,147 +5210,147 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "大宝律令",
+            "front": "{大宝|たいほう}{律令|りつりょう}",
             "back": "701年に完成した律令を何という？",
             "explanation": "701年に完成した法典。律（刑罰）と令（政治）で国を治める仕組みが整った。唐の制度を参考にした。",
             "difficulty": "basic"
           },
           {
             "id": "fc2",
-            "front": "律令",
+            "front": "{律令|りつりょう}",
             "back": "律は刑罰、令は政治のしくみを定めた法律は？",
             "explanation": "律は刑罰、令は政治のしくみを定めた法律。唐の制度を参考にした。",
             "difficulty": "basic"
           },
           {
             "id": "fc3",
-            "front": "平城京",
+            "front": "{平城京|へいじょうきょう}",
             "back": "710年に奈良に置かれた都は？",
             "explanation": "710年に元明天皇のもとで遷都。唐の長安をモデルに碁盤の目状に整備された。奈良時代の中心。",
             "difficulty": "basic"
           },
           {
             "id": "fc4",
-            "front": "奈良時代",
+            "front": "{奈良|なら}時代",
             "back": "平城京に都が置かれた約80年間を何時代という？",
             "explanation": "平城京を中心に、律令にもとづく政治が行われた時代。班田収授法・租庸調・天平文化が重要。",
             "difficulty": "basic"
           },
           {
             "id": "fc5",
-            "front": "太政官",
+            "front": "{太政官|だいじょうかん}",
             "back": "律令国家で行政を行う最高機関は？",
             "explanation": "律令国家で政治全般を担当した役所。神祇官と並ぶ中央の二官のひとつ。",
             "difficulty": "basic"
           },
           {
             "id": "fc6",
-            "front": "神祇官",
+            "front": "{神祇官|じんぎかん}",
             "back": "神事や祭祀を司り、太政官と並ぶ機関は？",
             "explanation": "神々の祭りを担当した役所。政治を担当する太政官と区別。",
             "difficulty": "basic"
           },
           {
             "id": "fc7",
-            "front": "二官八省",
+            "front": "{二官八省|にかんはっしょう}",
             "back": "太政官・神祇官の二官と八省からなる律令制の中央組織は？",
             "explanation": "律令国家の中央政治のしくみ。太政官・神祇官と八省からなる。",
             "difficulty": "basic"
           },
           {
             "id": "fc8",
-            "front": "国司",
+            "front": "{国司|こくし}",
             "back": "都から地方の国に派遣された役職は？",
             "explanation": "中央から地方の国に派遣された役人。地方政治を監督した。",
             "difficulty": "basic"
           },
           {
             "id": "fc9",
-            "front": "郡司",
+            "front": "{郡司|ぐんじ}",
             "back": "地方の有力豪族が任命された役職は？",
             "explanation": "地方で郡を治めた役人。多くは地方豪族が任命された。",
             "difficulty": "basic"
           },
           {
             "id": "fc10",
-            "front": "律",
+            "front": "{律|りつ}",
             "back": "律令のうち、刑罰に関する決まりは？",
             "explanation": "律令のうち刑罰に関する決まり。犯罪と罰則を定めた。",
             "difficulty": "basic"
           },
           {
             "id": "fc11",
-            "front": "令",
+            "front": "{令|りょう}",
             "back": "律令のうち、政治に関する決まりは？",
             "explanation": "律令のうち政治に関する決まり。行政の仕組みや官職を定めた。",
             "difficulty": "basic"
           },
           {
             "id": "fc12",
-            "front": "和同開珎",
+            "front": "{和同開珎|わどうかいちん}",
             "back": "708年に初めて鋳造された流通貨幣を何という？",
             "explanation": "708年に発行された貨幣。日本最古の流通貨幣。奈良時代の貨幣としてよく出る。",
             "difficulty": "basic"
           },
           {
             "id": "fc13",
-            "front": "大宰府",
+            "front": "{大宰府|だざいふ}",
             "back": "古代に九州の外交や防衛を担った役所は？",
             "explanation": "九州に置かれ、外交や防衛を担当した役所。白村江の戦い後の防衛と関係。",
             "difficulty": "basic"
           },
           {
             "id": "fc14",
-            "front": "朱雀大路",
+            "front": "{朱雀大路|すざくおおじ}",
             "back": "平城京の中央を南北に通る大道路は？",
             "explanation": "平城京の中央を南北に通る大通り。都を左京と右京に分けた。",
             "difficulty": "basic"
           },
           {
             "id": "fc15",
-            "front": "長安",
+            "front": "{長安|ちょうあん}",
             "back": "平城京のモデルとなった唐の都は？",
             "explanation": "唐の都で平城京のモデル。碁盤の目状の都市計画で知られた国際都市。",
             "difficulty": "standard"
           },
           {
             "id": "fc16",
-            "front": "唐",
+            "front": "{唐|とう}",
             "back": "7〜10世紀に栄え、日本が制度や文化を学んだ中国の大帝国は？",
             "explanation": "隋の後に中国を支配した大帝国。日本は遣唐使を送り、制度や文化を学んだ。",
             "difficulty": "standard"
           },
           {
             "id": "fc17",
-            "front": "遣唐使",
+            "front": "{遣唐使|けんとうし}",
             "back": "唐に制度や文化を学ぶために派遣した使節は？",
             "explanation": "唐に送られた使節。律令制度・仏教・文化を学ぶために派遣。",
             "difficulty": "standard"
           },
           {
             "id": "fc18",
-            "front": "水城",
+            "front": "{水城|みずき}",
             "back": "大宰府を守るために築かれた土塁は？",
             "explanation": "大宰府を守るために築かれた土塁。唐・新羅の侵攻に備えた。",
             "difficulty": "standard"
           },
           {
             "id": "fc19",
-            "front": "庚午年籍",
+            "front": "{庚午年籍|こうごねんじゃく}",
             "back": "律令国家のための古い戸籍は？",
             "explanation": "戸籍の一つで、人々を把握して税や兵役を課すためにつくられた。律令国家の人々支配と関係。",
             "difficulty": "standard"
           },
           {
             "id": "fc20",
-            "front": "太政大臣",
+            "front": "{太政大臣|だいじょうだいじん}",
             "back": "太政官の長官を何という？",
             "explanation": "太政官の最高位の官職。律令国家の行政のトップ。",
             "difficulty": "standard"
           },
           {
             "id": "fc21",
-            "front": "里",
+            "front": "{里|り}",
             "back": "律令制で郡の下に置かれた最小の行政単位は？",
             "explanation": "律令制で郡の下に置かれた最小の行政単位。住民の把握と管理の基礎。",
             "difficulty": "standard"
@@ -5364,7 +5364,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc23",
-            "front": "貴族",
+            "front": "{貴族|きぞく}",
             "back": "律令国家で官職に就き特権を持った高い身分は？",
             "explanation": "律令国家で官職に就き特権を持った高い身分。政治の中枢を担った。",
             "difficulty": "standard"
@@ -5378,14 +5378,14 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc25",
-            "front": "中央集権国家",
+            "front": "{中央集権|ちゅうおうしゅうけん}{国家|こっか}",
             "back": "地方の政治や土地・人民を中央政府が管理する国家は？",
             "explanation": "地方の政治や土地・人民を中央政府が管理する国家。大化の改新や律令制度の目標。",
             "difficulty": "advanced"
           },
           {
             "id": "fc26",
-            "front": "富本銭",
+            "front": "{富本銭|ふほんせん}",
             "back": "和同開珎より前に作られた古い貨幣は？",
             "explanation": "日本でつくられた古い貨幣の一つ。和同開珎と混同しやすい。",
             "difficulty": "advanced"
@@ -5715,98 +5715,98 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "班田収授法",
+            "front": "{班田収授法|はんでんしゅうじゅほう}",
             "back": "人々に土地を与え、死後返還させる制度を何という？",
             "explanation": "6歳以上の男女に口分田を与え、死ぬと国に返させた制度。公地公民と結びつく。",
             "difficulty": "basic"
           },
           {
             "id": "fc2",
-            "front": "口分田",
+            "front": "{口分田|くぶんでん}",
             "back": "班田収授法で人々に与えられた田は？",
             "explanation": "班田収授法によって人々に与えられた田。租を納めるもとになった。",
             "difficulty": "basic"
           },
           {
             "id": "fc3",
-            "front": "租",
+            "front": "{租|そ}",
             "back": "収穫量の約3%を稲で納める税は？",
             "explanation": "口分田の収穫から納める税。米で納めた。",
             "difficulty": "basic"
           },
           {
             "id": "fc4",
-            "front": "調",
+            "front": "{調|ちょう}",
             "back": "布や各地の特産物を都へ納める税は？",
             "explanation": "地方の特産物を納める税。成人男性の負担が重かった。運搬費は農民の自己負担。",
             "difficulty": "basic"
           },
           {
             "id": "fc5",
-            "front": "庸",
+            "front": "{庸|よう}",
             "back": "都での労役の代わりに布を納める税は？",
             "explanation": "都での労役の代わりに布などを納める税。租・調とセットで覚える。",
             "difficulty": "basic"
           },
           {
             "id": "fc6",
-            "front": "防人",
+            "front": "{防人|さきもり}",
             "back": "九州の警備に当たった兵士の名称は？",
             "explanation": "九州北部の守りについた兵士。東国の農民が多く派遣された。",
             "difficulty": "basic"
           },
           {
             "id": "fc7",
-            "front": "三世一身法",
+            "front": "{三世一身法|さんぜいっしんのほう}",
             "back": "723年に開墾した土地の私有を認めた法は？",
             "explanation": "開墾した土地を3代まで私有できるとした法。開墾を奨励する目的で出された。",
             "difficulty": "basic"
           },
           {
             "id": "fc8",
-            "front": "墾田永年私財法",
+            "front": "{墾田永年私財法|こんでんえいねんしざいほう}",
             "back": "743年に土地の永久私有を認めた法を何という？",
             "explanation": "新しく開墾した土地の私有を永久に認めた法。荘園が発生するきっかけ。",
             "difficulty": "basic"
           },
           {
             "id": "fc9",
-            "front": "荘園",
+            "front": "{荘園|しょうえん}",
             "back": "古代後半の貴族や大寺院が持つ私有地の名称は？",
             "explanation": "貴族や寺社が私有した土地。公地公民の崩れと関係。",
             "difficulty": "basic"
           },
           {
             "id": "fc10",
-            "front": "戸籍",
+            "front": "{戸籍|こせき}",
             "back": "6歳以上の人々を登録した台帳は？",
             "explanation": "6年ごとに作成された人民の台帳。口分田の配分の基礎資料となった。",
             "difficulty": "basic"
           },
           {
             "id": "fc11",
-            "front": "木簡",
+            "front": "{木簡|もっかん}",
             "back": "税を納めた際に品物に付けた木札は？",
             "explanation": "税の品物に付けられた木札。品名・産地・納入者などが記された。",
             "difficulty": "basic"
           },
           {
             "id": "fc12",
-            "front": "雑徭",
+            "front": "{雑徭|ぞうよう}",
             "back": "地方で年間60日を限度とした労役は？",
             "explanation": "地方で年間60日を限度に課された労役。農繁期にも動員されることがあった。",
             "difficulty": "basic"
           },
           {
             "id": "fc13",
-            "front": "奴婢",
+            "front": "{奴婢|ぬひ}",
             "back": "官庁や個人に所属して売買もされた身分は？",
             "explanation": "律令制で最下層の身分。官庁や個人に属して売買もされた。",
             "difficulty": "basic"
           },
           {
             "id": "fc14",
-            "front": "聖武天皇",
+            "front": "{聖武|しょうむ}{天皇|てんのう}",
             "back": "墾田永年私財法を出した天皇は？",
             "explanation": "国分寺建立や大仏造立を行い、墾田永年私財法を出した天皇。",
             "difficulty": "standard"
@@ -5820,7 +5820,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc16",
-            "front": "東国",
+            "front": "{東国|とうごく}",
             "back": "防人はおもにどの地方の農民から選ばれたか？",
             "explanation": "防人は主に東国（関東地方など）の農民から選ばれた。遠方からの徴兵だった。",
             "difficulty": "standard"
@@ -5834,35 +5834,35 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc18",
-            "front": "万葉集",
+            "front": "{万葉集|まんようしゅう}",
             "back": "防人たちの望郷の歌が収められた歌集は？",
             "explanation": "防人たちの望郷の歌が収められた日本最古の歌集。天皇から農民まで幅広く収録。",
             "difficulty": "standard"
           },
           {
             "id": "fc19",
-            "front": "農民自身",
+            "front": "{農民|のうみん}自身",
             "back": "調や庸を都まで運ぶ費用は誰が負担したか？",
             "explanation": "調や庸を都まで運ぶ費用は農民自身が負担した。大きな経済的負担だった。",
             "difficulty": "standard"
           },
           {
             "id": "fc20",
-            "front": "本人（自弁）",
+            "front": "本人（{自弁|じべん}）",
             "back": "防人の旅費や食料は誰が負担したか？",
             "explanation": "防人の旅費や食料は本人が負担する自弁制だった。",
             "difficulty": "advanced"
           },
           {
             "id": "fc21",
-            "front": "土地の私有",
+            "front": "土地の{私有|しゆう}",
             "back": "班田収授法から墾田永年私財法への変化で認められるようになったことは？",
             "explanation": "班田収授法では土地の私有は認められなかったが、墾田永年私財法で認められた。",
             "difficulty": "advanced"
           },
           {
             "id": "fc22",
-            "front": "税の免除",
+            "front": "{税|ぜい}の{免除|めんじょ}",
             "back": "農民が貴族や寺院に土地を寄進した理由は？",
             "explanation": "荘園は課税が免除される場合があり、農民は税を逃れるために土地を寄進した。",
             "difficulty": "advanced"
@@ -6199,154 +6199,154 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "天平文化",
+            "front": "{天平|てんぴょう}{文化|ぶんか}",
             "back": "聖武天皇の時代を中心に栄えたのは何文化？",
             "explanation": "奈良時代に栄えた、唐の影響を強く受けた仏教文化。東大寺・正倉院・万葉集など。",
             "difficulty": "basic"
           },
           {
             "id": "fc2",
-            "front": "聖武天皇",
+            "front": "{聖武|しょうむ}{天皇|てんのう}",
             "back": "国分寺や東大寺を造らせ仏教で国を守ろうとした天皇は？",
             "explanation": "仏教の力で国を守ろうとし、国分寺や東大寺を造らせた天皇。奈良時代の仏教政治と関係。",
             "difficulty": "basic"
           },
           {
             "id": "fc3",
-            "front": "国分寺",
+            "front": "{国分寺|こくぶんじ}",
             "back": "仏教で国を守るために各国に建てたお寺を何という？",
             "explanation": "聖武天皇が国ごとに建てさせた寺。国分尼寺とともに仏教で国を守るねらい。",
             "difficulty": "basic"
           },
           {
             "id": "fc4",
-            "front": "東大寺",
+            "front": "{東大寺|とうだいじ}",
             "back": "聖武天皇が都に建立した巨大な寺は？",
             "explanation": "奈良に建てられた大寺院。大仏が有名。",
             "difficulty": "basic"
           },
           {
             "id": "fc5",
-            "front": "奈良の大仏（盧舎那仏）",
+            "front": "{奈良|なら}の{大仏|だいぶつ}（{盧舎那仏|るしゃなぶつ}）",
             "back": "聖武天皇が東大寺に造らせた大仏は？",
             "explanation": "聖武天皇が東大寺に造らせた大仏。仏教で国を安定させる願いが込められた。",
             "difficulty": "basic"
           },
           {
             "id": "fc6",
-            "front": "鑑真",
+            "front": "{鑑真|がんじん}",
             "back": "日本に正式な戒律を伝えた唐の僧は？",
             "explanation": "唐から日本に来て、正しい仏教の教えを伝えた僧。唐招提寺を開いた。失明しながらも来日。",
             "difficulty": "basic"
           },
           {
             "id": "fc7",
-            "front": "唐招提寺",
+            "front": "{唐招提寺|とうしょうだいじ}",
             "back": "鑑真が建立した、奈良にあるお寺は？",
             "explanation": "鑑真が開いた寺。正式な戒律を伝えるための修行道場となった。",
             "difficulty": "basic"
           },
           {
             "id": "fc8",
-            "front": "正倉院",
+            "front": "{正倉院|しょうそういん}",
             "back": "聖武天皇の愛用品が納められた建物は？",
             "explanation": "東大寺にある倉で、聖武天皇ゆかりの宝物などを納めた。シルクロードを通じた国際色が見られる。",
             "difficulty": "basic"
           },
           {
             "id": "fc9",
-            "front": "校倉造",
+            "front": "{校倉造|あぜくらづくり}",
             "back": "正倉院で見られる三角形の木材を組む造りは何造り？",
             "explanation": "三角形の木材を組み上げる建築様式。湿度の調節に優れ、宝物の保存に適した。",
             "difficulty": "basic"
           },
           {
             "id": "fc10",
-            "front": "行基",
+            "front": "{行基|ぎょうき}",
             "back": "民間で布教し、橋や池を造った僧は？",
             "explanation": "民間で布教活動を行い、橋や池を造って人々を助けた僧。大仏造立にも民衆を率いて協力。",
             "difficulty": "basic"
           },
           {
             "id": "fc11",
-            "front": "古事記",
+            "front": "{古事記|こじき}",
             "back": "神話や伝承を基に編纂された日本最古の歴史書は？",
             "explanation": "日本最古の歴史書。712年に完成し、神話や天皇の系譜を記した。",
             "difficulty": "basic"
           },
           {
             "id": "fc12",
-            "front": "日本書紀",
+            "front": "{日本書紀|にほんしょき}",
             "back": "720年に完成した国の正史として編纂された歴史書は？",
             "explanation": "国家が編さんした歴史書。漢文で書かれた。",
             "difficulty": "basic"
           },
           {
             "id": "fc13",
-            "front": "万葉集",
+            "front": "{万葉集|まんようしゅう}",
             "back": "8世紀後半にまとめられた日本最古の歌集は？",
             "explanation": "奈良時代にまとめられた和歌集。天皇から農民・防人まで幅広い歌を収める。約4500首。",
             "difficulty": "basic"
           },
           {
             "id": "fc14",
-            "front": "風土記",
+            "front": "{風土記|ふどき}",
             "back": "各地の自然や伝承を記録した報告書は？",
             "explanation": "各地の自然・産物・伝承を記録した報告書。地方の様子を知る貴重な史料。",
             "difficulty": "basic"
           },
           {
             "id": "fc15",
-            "front": "阿修羅像",
+            "front": "{阿修羅像|あしゅらぞう}",
             "back": "興福寺にある、3つの顔と6本の腕を持つ有名な仏像は？",
             "explanation": "興福寺にある3つの顔と6本の腕を持つ仏像。天平文化の写実的な表現の代表。",
             "difficulty": "basic"
           },
           {
             "id": "fc16",
-            "front": "国分尼寺",
+            "front": "{国分尼寺|こくぶんにじ}",
             "back": "国分寺とともに各国に建てられた尼寺は？",
             "explanation": "聖武天皇が国分寺とともに各国に建てた尼寺。仏教で国を守る政策の一環。",
             "difficulty": "standard"
           },
           {
             "id": "fc17",
-            "front": "稗田阿礼",
+            "front": "{稗田阿礼|ひえだのあれ}",
             "back": "古事記の内容を口述した人物は？",
             "explanation": "古事記の内容を口述した人物。太安万侶が文字に記録した。",
             "difficulty": "standard"
           },
           {
             "id": "fc18",
-            "front": "万葉仮名",
+            "front": "{万葉仮名|まんようがな}",
             "back": "万葉集で使われた、漢字を音に当てはめた表記法は？",
             "explanation": "漢字を日本語の音に当てはめた表記法。ひらがな・カタカナの前身。",
             "difficulty": "standard"
           },
           {
             "id": "fc19",
-            "front": "東大寺（境内）",
+            "front": "{東大寺|とうだいじ}（{境内|けいだい}）",
             "back": "正倉院はどの寺の境内にあるか？",
             "explanation": "正倉院は東大寺の境内にある宝物庫。聖武天皇ゆかりの品を収蔵。",
             "difficulty": "standard"
           },
           {
             "id": "fc20",
-            "front": "視力（失明した）",
+            "front": "視力（{失明|しつめい}した）",
             "back": "鑑真が渡航の苦難の中で失ったものは？",
             "explanation": "鑑真は渡航の苦難で視力を失った。それでも日本に来日し戒律を伝えた。",
             "difficulty": "advanced"
           },
           {
             "id": "fc21",
-            "front": "戒律",
+            "front": "{戒律|かいりつ}",
             "back": "鑑真が日本に伝えた、僧侶になるための正しい作法は？",
             "explanation": "僧侶になるための正しい作法（授戒の儀式）。鑑真が日本に伝えた。",
             "difficulty": "advanced"
           },
           {
             "id": "fc22",
-            "front": "鎮護国家",
+            "front": "{鎮護|ちんご}{国家|こっか}",
             "back": "仏教の力で国を守り安定させようとする考えは？",
             "explanation": "仏教の力で国を守り安定させようとする考え。聖武天皇の国分寺・東大寺造立に関係。",
             "difficulty": "advanced"
@@ -6689,42 +6689,42 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "平安京",
+            "front": "{平安京|へいあんきょう}",
             "back": "794年に遷都された京都の都を何という？",
             "explanation": "794年に桓武天皇が移した都。約400年間日本の首都となった。「鳴くよウグイス平安京」で覚えられる。",
             "difficulty": "basic"
           },
           {
             "id": "fc2",
-            "front": "桓武天皇",
+            "front": "{桓武|かんむ}{天皇|てんのう}",
             "back": "平安京へ都を移した天皇は？",
             "explanation": "平安京へ都を移し、政治の立て直しを進めた天皇。平安時代の始まりと結びつく。",
             "difficulty": "basic"
           },
           {
             "id": "fc3",
-            "front": "平安時代",
+            "front": "{平安|へいあん}時代",
             "back": "平安京に都が置かれた約400年間を何時代という？",
             "explanation": "794年の平安京遷都から鎌倉幕府成立までの時代。貴族政治・国風文化・武士の成長が重要。",
             "difficulty": "basic"
           },
           {
             "id": "fc4",
-            "front": "坂上田村麻呂",
+            "front": "{坂上田村麻呂|さかのうえのたむらまろ}",
             "back": "征夷大将軍として東北を平定した人物は？",
             "explanation": "桓武天皇に征夷大将軍に任命され、蝦夷の指導者アテルイを降伏させた。",
             "difficulty": "basic"
           },
           {
             "id": "fc5",
-            "front": "征夷大将軍",
+            "front": "{征夷大将軍|せいいたいしょうぐん}",
             "back": "東北の蝦夷を征討した役職を何という？",
             "explanation": "もとは東北地方の蝦夷を討つために任命された将軍。後の武家政権の将軍と区別。",
             "difficulty": "basic"
           },
           {
             "id": "fc6",
-            "front": "蝦夷",
+            "front": "{蝦夷|えみし}",
             "back": "東北地方に住み朝廷の支配に従わなかった人々は？",
             "explanation": "古代に東北地方などに住み、朝廷に従わなかった人々を指した呼び名。朝廷の東北支配と関係。",
             "difficulty": "basic"
@@ -6738,91 +6738,91 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc8",
-            "front": "最澄",
+            "front": "{最澄|さいちょう}",
             "back": "唐から帰国し、天台宗を開いた僧は？",
             "explanation": "唐で学び、比叡山延暦寺に天台宗を開いた僧。天台宗・延暦寺と結びつける。",
             "difficulty": "basic"
           },
           {
             "id": "fc9",
-            "front": "空海",
+            "front": "{空海|くうかい}",
             "back": "真言宗を始め、高野山に寺を建てた僧は？",
             "explanation": "唐で学び、高野山金剛峯寺に真言宗を開いた僧。弘法大師と呼ばれる。",
             "difficulty": "basic"
           },
           {
             "id": "fc10",
-            "front": "天台宗",
+            "front": "{天台宗|てんだいしゅう}",
             "back": "最澄が比叡山で開いた宗派は？",
             "explanation": "最澄が広めた仏教の宗派。比叡山延暦寺が中心。",
             "difficulty": "basic"
           },
           {
             "id": "fc11",
-            "front": "真言宗",
+            "front": "{真言宗|しんごんしゅう}",
             "back": "空海が高野山で開いた宗派は？",
             "explanation": "空海が広めた仏教の宗派。高野山金剛峯寺が中心。",
             "difficulty": "basic"
           },
           {
             "id": "fc12",
-            "front": "延暦寺",
+            "front": "{延暦寺|えんりゃくじ}",
             "back": "最澄が比叡山に建てた天台宗の総本山は？",
             "explanation": "滋賀県の比叡山にある天台宗の総本山。のちに多くの名僧を輩出した。",
             "difficulty": "basic"
           },
           {
             "id": "fc13",
-            "front": "金剛峯寺",
+            "front": "{金剛峯寺|こんごうぶじ}",
             "back": "空海が高野山に建てた真言宗の総本山は？",
             "explanation": "空海が高野山に建てた真言宗の総本山。密教の修行道場。",
             "difficulty": "basic"
           },
           {
             "id": "fc14",
-            "front": "山岳仏教",
+            "front": "{山岳|さんがく}{仏教|ぶっきょう}",
             "back": "山奥で修行を行う新しい仏教の形態は？",
             "explanation": "最澄・空海が開いた新しい仏教の形態。山奥での修行を重視し、奈良仏教と異なる。",
             "difficulty": "basic"
           },
           {
             "id": "fc15",
-            "front": "菅原道真",
+            "front": "{菅原道真|すがわらのみちざね}",
             "back": "894年に遣唐使の派遣中止を提案した人物は？",
             "explanation": "遣唐使の停止を建議した学者・政治家。894年と結びつける。死後は学問の神として祀られた。",
             "difficulty": "basic"
           },
           {
             "id": "fc16",
-            "front": "遣唐使の停止",
+            "front": "{遣唐使|けんとうし}の停止",
             "back": "894年に菅原道真の進言で起きた外交の出来事は？",
             "explanation": "894年、菅原道真の意見で遣唐使が停止されたこと。国風文化が発達する背景。",
             "difficulty": "standard"
           },
           {
             "id": "fc17",
-            "front": "密教",
+            "front": "{密教|みっきょう}",
             "back": "空海が唐で学んだ秘密の教えは？",
             "explanation": "空海が唐で学んだ秘密の教え。加持祈祷など特別な修行法が特徴。",
             "difficulty": "standard"
           },
           {
             "id": "fc18",
-            "front": "長岡京",
+            "front": "{長岡京|ながおかきょう}",
             "back": "桓武天皇が平安京の前に遷都した都は？",
             "explanation": "桓武天皇が784年に遷都した都。暗殺事件を機に平安京へ移った。",
             "difficulty": "standard"
           },
           {
             "id": "fc19",
-            "front": "弘法大師",
+            "front": "{弘法大師|こうぼうだいし}",
             "back": "空海の死後の尊称は？",
             "explanation": "空海の死後に贈られた尊称。「弘法も筆の誤り」のことわざでも知られる。",
             "difficulty": "standard"
           },
           {
             "id": "fc20",
-            "front": "多賀城",
+            "front": "{多賀城|たがじょう}",
             "back": "東北地方の軍事・政治拠点として設置された城は？",
             "explanation": "東北地方の軍事・政治拠点として設置された城。蝦夷征伐の前線基地。",
             "difficulty": "standard"
@@ -6836,21 +6836,21 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc22",
-            "front": "京都市",
+            "front": "{京都市|きょうとし}",
             "back": "平安京は現在のどの都市にあたるか？",
             "explanation": "平安京は現在の京都市にあたる。約千年間日本の都として機能した。",
             "difficulty": "standard"
           },
           {
             "id": "fc23",
-            "front": "蝦夷を征伐すること",
+            "front": "{蝦夷|えみし}を{征伐|せいばつ}すること",
             "back": "「征夷大将軍」の「征夷」の意味は？",
             "explanation": "「征夷」は蝦夷を征伐するという意味。この称号は後に武家政権の長にも用いられた。",
             "difficulty": "advanced"
           },
           {
             "id": "fc24",
-            "front": "滋賀県",
+            "front": "{滋賀県|しがけん}",
             "back": "延暦寺は現在のどの都道府県にあるか？",
             "explanation": "比叡山は滋賀県と京都府の県境にあるが、延暦寺の住所は滋賀県大津市。",
             "difficulty": "advanced"
@@ -7168,126 +7168,126 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "摂関政治",
+            "front": "{摂関|せっかん}{政治|せいじ}",
             "back": "藤原氏が娘を天皇のきさきにして実権を握った政治を何という？",
             "explanation": "藤原氏が摂政や関白となって行った政治。天皇との外戚関係を利用した。",
             "difficulty": "basic"
           },
           {
             "id": "fc2",
-            "front": "摂政",
+            "front": "{摂政|せっしょう}",
             "back": "幼い天皇に代わって政治を行う役職は？",
             "explanation": "天皇が幼いときなどに代わって政治を行う役職。関白との違いを問われやすい。",
             "difficulty": "basic"
           },
           {
             "id": "fc3",
-            "front": "関白",
+            "front": "{関白|かんぱく}",
             "back": "成長した天皇を補佐する役職を何という？",
             "explanation": "成人した天皇を補佐して政治を行う役職。摂政と区別する。",
             "difficulty": "basic"
           },
           {
             "id": "fc4",
-            "front": "藤原道長",
+            "front": "{藤原道長|ふじわらのみちなが}",
             "back": "摂関政治の全盛期を築いた人物は？",
             "explanation": "摂関政治の全盛期を築いた藤原氏の人物。娘を天皇の后にし、外戚として力を持った。望月の歌で有名。",
             "difficulty": "basic"
           },
           {
             "id": "fc5",
-            "front": "藤原頼通",
+            "front": "{藤原頼通|ふじわらのよりみち}",
             "back": "道長の子で、平等院鳳凰堂を建立した人物は？",
             "explanation": "藤原道長の子で、平等院鳳凰堂を建てた人物。摂関政治と国風文化に関係。",
             "difficulty": "basic"
           },
           {
             "id": "fc6",
-            "front": "外戚",
+            "front": "{外戚|がいせき}",
             "back": "天皇の母方の親戚のことを何という？",
             "explanation": "母方の親戚のこと。藤原氏は天皇の外戚となって力を持った。",
             "difficulty": "basic"
           },
           {
             "id": "fc7",
-            "front": "望月（満月）",
+            "front": "{望月|もちづき}（{満月|まんげつ}）",
             "back": "藤原道長は歌の中で自分の栄華を何にたとえた？",
             "explanation": "欠けることのない満月に自分の栄華をたとえた。藤原道長の権勢を象徴する歌。",
             "difficulty": "basic"
           },
           {
             "id": "fc8",
-            "front": "寝殿造",
+            "front": "{寝殿造|しんでんづくり}",
             "back": "平安時代の貴族の住まいに見られる建築様式は？",
             "explanation": "平安時代の貴族の住宅様式。中央に寝殿を置き渡り廊下で対屋を結ぶ。庭に池を配した。",
             "difficulty": "basic"
           },
           {
             "id": "fc9",
-            "front": "浄土信仰",
+            "front": "{浄土|じょうど}{信仰|しんこう}",
             "back": "念仏を唱えて極楽浄土に往生することを願う信仰は？",
             "explanation": "阿弥陀仏にすがり、死後に極楽浄土へ生まれ変わることを願う信仰。平安時代後期に広まった。",
             "difficulty": "basic"
           },
           {
             "id": "fc10",
-            "front": "阿弥陀如来",
+            "front": "{阿弥陀如来|あみだにょらい}",
             "back": "浄土信仰で信仰の対象とされた仏は？",
             "explanation": "浄土信仰で信仰の対象とされた仏。極楽浄土に導いてくれると信じられた。",
             "difficulty": "basic"
           },
           {
             "id": "fc11",
-            "front": "平等院鳳凰堂",
+            "front": "{平等院|びょうどういん}{鳳凰堂|ほうおうどう}",
             "back": "藤原頼通が宇治に建てた阿弥陀堂は？",
             "explanation": "藤原頼通が宇治に建てた阿弥陀堂。浄土信仰と結びつく。10円硬貨のデザインで有名。",
             "difficulty": "basic"
           },
           {
             "id": "fc12",
-            "front": "宋",
+            "front": "{宋|そう}",
             "back": "10世紀に中国を統一した王朝は？",
             "explanation": "10世紀に中国を統一した王朝。日宋貿易で宋銭や陶磁器が日本に輸入された。",
             "difficulty": "basic"
           },
           {
             "id": "fc13",
-            "front": "院政",
+            "front": "{院政|いんせい}",
             "back": "上皇が中心となって政治を行うしくみは？",
             "explanation": "上皇が院で政治を行うしくみ。白河上皇から本格化。摂関政治の後。",
             "difficulty": "standard"
           },
           {
             "id": "fc14",
-            "front": "白河上皇",
+            "front": "{白河|しらかわ}{上皇|じょうこう}",
             "back": "院政を本格的に始めた上皇は？",
             "explanation": "院政を始めた上皇。藤原氏の力をおさえようとした。",
             "difficulty": "standard"
           },
           {
             "id": "fc15",
-            "front": "末法思想",
+            "front": "{末法|まっぽう}{思想|しそう}",
             "back": "仏教の教えが衰える時代に入るという考え方は？",
             "explanation": "仏教の教えが衰え、世の中が乱れると考える思想。浄土信仰が広まる背景。",
             "difficulty": "standard"
           },
           {
             "id": "fc16",
-            "front": "十二単",
+            "front": "{十二単|じゅうにひとえ}",
             "back": "平安貴族の女性が着用した正装は？",
             "explanation": "平安貴族の女性が着用した正装。何枚もの衣を重ねた華やかな装い。",
             "difficulty": "standard"
           },
           {
             "id": "fc17",
-            "front": "日宋貿易",
+            "front": "{日宋|にっそう}{貿易|ぼうえき}",
             "back": "宋との間で行われた貿易を何という？",
             "explanation": "宋との間で行われた貿易。宋銭・陶磁器などが輸入され、金・銀・刀剣が輸出された。",
             "difficulty": "standard"
           },
           {
             "id": "fc18",
-            "front": "高麗",
+            "front": "{高麗|こうらい}",
             "back": "10世紀に朝鮮半島を統一した国は？",
             "explanation": "10世紀に朝鮮半島を統一した国。新羅に代わって半島を支配した。",
             "difficulty": "standard"
@@ -7308,28 +7308,28 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc21",
-            "front": "11世紀（初頭）",
+            "front": "11{世紀|せいき}（{初頭|しょとう}）",
             "back": "藤原道長の時代は何世紀か？",
             "explanation": "藤原道長が摂関政治の全盛期を築いたのは11世紀初頭。",
             "difficulty": "advanced"
           },
           {
             "id": "fc22",
-            "front": "宇治（京都府）",
+            "front": "{宇治|うじ}（{京都府|きょうとふ}）",
             "back": "平等院鳳凰堂が建てられた場所は？",
             "explanation": "平等院鳳凰堂は京都府宇治市に建てられた。10円硬貨のデザインで有名。",
             "difficulty": "advanced"
           },
           {
             "id": "fc23",
-            "front": "宋銭・陶磁器",
+            "front": "{宋銭|そうせん}・{陶磁器|とうじき}",
             "back": "日宋貿易でおもに輸入されたものは？",
             "explanation": "日宋貿易では宋銭・陶磁器・書籍が輸入され、日本経済に影響を与えた。",
             "difficulty": "advanced"
           },
           {
             "id": "fc24",
-            "front": "中臣鎌足",
+            "front": "{中臣鎌足|なかとみのかまたり}",
             "back": "藤原姓を最初に賜った人物は？",
             "explanation": "中臣鎌足が大化の改新の功績で天智天皇から藤原姓を賜った。藤原氏の祖。",
             "difficulty": "advanced"
@@ -7659,14 +7659,14 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "国風文化",
+            "front": "{国風|こくふう}{文化|ぶんか}",
             "back": "唐の影響をもとに日本独自に発達した文化を何という？",
             "explanation": "唐の文化をもとにしながら、日本の風土に合わせて発達した文化。かな文字・寝殿造・大和絵・物語文学が重要。",
             "difficulty": "basic"
           },
           {
             "id": "fc2",
-            "front": "かな文字（仮名文字）",
+            "front": "かな文字（{仮名|かな}文字）",
             "back": "日本語を書き表すために漢字をもとに作られた文字は？",
             "explanation": "漢字をもとにして作られた、日本語を表しやすい文字。国風文化の発展を支えた。",
             "difficulty": "basic"
@@ -7687,133 +7687,133 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc5",
-            "front": "紫式部",
+            "front": "{紫式部|むらさきしきぶ}",
             "back": "『源氏物語』を書いた女性は？",
             "explanation": "『源氏物語』を書いた女性。国風文化を代表する文学者。藤原道長の娘・彰子に仕えた。",
             "difficulty": "basic"
           },
           {
             "id": "fc6",
-            "front": "清少納言",
+            "front": "{清少納言|せいしょうなごん}",
             "back": "『枕草子』を書いた女性は？",
             "explanation": "『枕草子』を書いた女性。「をかし」の文学として知られる。一条天皇の中宮・定子に仕えた。",
             "difficulty": "basic"
           },
           {
             "id": "fc7",
-            "front": "源氏物語",
+            "front": "{源氏物語|げんじものがたり}",
             "back": "紫式部が書いた、貴族社会を描いた長編物語は？",
             "explanation": "紫式部が書いた長編物語。世界最古級の長編小説ともいわれる国風文化の代表作。",
             "difficulty": "basic"
           },
           {
             "id": "fc8",
-            "front": "枕草子",
+            "front": "{枕草子|まくらのそうし}",
             "back": "清少納言が書いた随筆は？",
             "explanation": "清少納言が書いた随筆。「春はあけぼの」の書き出しで有名。宮中の暮らしを綴った。",
             "difficulty": "basic"
           },
           {
             "id": "fc9",
-            "front": "古今和歌集",
+            "front": "{古今|こきん}{和歌集|わかしゅう}",
             "back": "天皇の命令で編纂された最初の勅撰和歌集は？",
             "explanation": "平安時代にまとめられた和歌集。紀貫之らが編集した最初の勅撰和歌集。",
             "difficulty": "basic"
           },
           {
             "id": "fc10",
-            "front": "紀貫之",
+            "front": "{紀貫之|きのつらゆき}",
             "back": "古今和歌集の選者で、土佐日記を書いた人物は？",
             "explanation": "古今和歌集の選者。土佐日記を女性のふりをして仮名文字で書いた文学者。",
             "difficulty": "basic"
           },
           {
             "id": "fc11",
-            "front": "土佐日記",
+            "front": "{土佐|とさ}{日記|にっき}",
             "back": "紀貫之が女性のふりをして仮名文字で書いた日記は？",
             "explanation": "紀貫之が女性のふりをして仮名文字で書いた日記文学。国風文化の代表作。",
             "difficulty": "basic"
           },
           {
             "id": "fc12",
-            "front": "大和絵",
+            "front": "{大和絵|やまとえ}",
             "back": "日本の自然や生活を題材にした絵画は？",
             "explanation": "日本の自然や生活を題材にした絵画。唐絵と区別。",
             "difficulty": "basic"
           },
           {
             "id": "fc13",
-            "front": "寝殿造",
+            "front": "{寝殿造|しんでんづくり}",
             "back": "平安時代の貴族の住宅様式は？",
             "explanation": "中央に寝殿を置き渡り廊下で対屋を結ぶ建築様式。国風文化の建築。",
             "difficulty": "basic"
           },
           {
             "id": "fc14",
-            "front": "平等院鳳凰堂",
+            "front": "{平等院|びょうどういん}{鳳凰堂|ほうおうどう}",
             "back": "藤原頼通が宇治に建てた阿弥陀堂は？",
             "explanation": "藤原頼通が宇治に建てた阿弥陀堂。浄土信仰と結びつく。",
             "difficulty": "basic"
           },
           {
             "id": "fc15",
-            "front": "浄土信仰",
+            "front": "{浄土|じょうど}{信仰|しんこう}",
             "back": "念仏を唱えて極楽浄土へ行くことを願う信仰は？",
             "explanation": "阿弥陀仏にすがり、死後に極楽浄土へ生まれ変わることを願う信仰。平安時代後期に広まった。",
             "difficulty": "basic"
           },
           {
             "id": "fc16",
-            "front": "光源氏",
+            "front": "{光源氏|ひかるげんじ}",
             "back": "源氏物語の主人公は？",
             "explanation": "源氏物語の主人公。貴族社会の恋愛や人間関係を通じて描かれた架空の人物。",
             "difficulty": "standard"
           },
           {
             "id": "fc17",
-            "front": "末法思想",
+            "front": "{末法|まっぽう}{思想|しそう}",
             "back": "仏教の教えが衰える時代に入るという考え方は？",
             "explanation": "仏教の教えが衰える末法の時代に入るという考え方。浄土信仰の広がりを促した。",
             "difficulty": "standard"
           },
           {
             "id": "fc18",
-            "front": "阿弥陀如来",
+            "front": "{阿弥陀如来|あみだにょらい}",
             "back": "浄土信仰で信仰の対象とされた仏は？",
             "explanation": "浄土信仰で極楽浄土に導いてくれると信じられた仏。平等院鳳凰堂に安置。",
             "difficulty": "standard"
           },
           {
             "id": "fc19",
-            "front": "彰子",
+            "front": "{彰子|しょうし}",
             "back": "紫式部が仕えていた藤原道長の娘は？",
             "explanation": "紫式部が仕えていた藤原道長の娘。一条天皇の中宮となった。",
             "difficulty": "standard"
           },
           {
             "id": "fc20",
-            "front": "定子",
+            "front": "{定子|ていし}",
             "back": "清少納言が仕えていた一条天皇の中宮は？",
             "explanation": "清少納言が仕えていた一条天皇の中宮。紫式部が仕えた彰子のライバル。",
             "difficulty": "standard"
           },
           {
             "id": "fc21",
-            "front": "宋銭",
+            "front": "{宋銭|そうせん}",
             "back": "日宋貿易で輸入された銅銭は？",
             "explanation": "日宋貿易で輸入された銅銭。日本国内の貨幣流通に大きな影響を与えた。",
             "difficulty": "standard"
           },
           {
             "id": "fc23",
-            "front": "10〜11世紀",
+            "front": "10〜11{世紀|せいき}",
             "back": "国風文化が栄えたのは何世紀から何世紀ごろ？",
             "explanation": "国風文化が最も栄えた時期。遣唐使中止から約100年間で独自の文化が成熟した。",
             "difficulty": "advanced"
           },
           {
             "id": "fc24",
-            "front": "勅撰和歌集",
+            "front": "{勅撰|ちょくせん}{和歌集|わかしゅう}",
             "back": "天皇の命令で編纂された和歌集のことを何という？",
             "explanation": "天皇の命令で編纂された和歌集の総称。古今和歌集が最初の勅撰和歌集。",
             "difficulty": "advanced"
@@ -8125,147 +8125,147 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "武士",
+            "front": "{武士|ぶし}",
             "back": "弓矢や馬の技術にすぐれ、10世紀ごろに成長した者を何という？",
             "explanation": "地方の豪族や有力農民が武装して成長した人々。荘園や国司の争い、治安悪化と関係。",
             "difficulty": "basic"
           },
           {
             "id": "fc2",
-            "front": "武士団",
+            "front": "{武士団|ぶしだん}",
             "back": "武士が一族や家来を従えてつくった軍事組織は？",
             "explanation": "血縁関係と主従関係で結ばれた強固な組織で、惣領が長としてまとめた。源氏・平氏が代表。",
             "difficulty": "basic"
           },
           {
             "id": "fc3",
-            "front": "惣領",
+            "front": "{惣領|そうりょう}",
             "back": "武士団のなかで一族をまとめた長は？",
             "explanation": "土地の管理や軍事の指揮、一族間の争いの調停を行った。",
             "difficulty": "basic"
           },
           {
             "id": "fc4",
-            "front": "源氏",
+            "front": "{源氏|げんじ}",
             "back": "東日本を中心に勢力を広げた武士団は？",
             "explanation": "武士団の一つ。後に鎌倉幕府を開く源頼朝につながる。",
             "difficulty": "basic"
           },
           {
             "id": "fc5",
-            "front": "平氏",
+            "front": "{平氏|へいし}",
             "back": "西日本を中心に勢力を広げた武士団は？",
             "explanation": "武士団の一つ。平清盛の時代に政治の実権をにぎる。",
             "difficulty": "basic"
           },
           {
             "id": "fc6",
-            "front": "源義家",
+            "front": "{源義家|みなもとのよしいえ}",
             "back": "前九年合戦・後三年合戦で活躍し、東日本に勢力を広げた人物は？",
             "explanation": "東北の戦乱で活躍し、東日本の武士たちから大きな信頼を得た源氏の武将。",
             "difficulty": "basic"
           },
           {
             "id": "fc7",
-            "front": "奥州藤原氏",
+            "front": "{奥州|おうしゅう}{藤原氏|ふじわらし}",
             "back": "東北地方の平泉を拠点に約100年さかえた一族は？",
             "explanation": "金や馬の交易で富を築き、中尊寺金色堂などを建てて独自の文化を発展させた。",
             "difficulty": "basic"
           },
           {
             "id": "fc8",
-            "front": "平将門",
+            "front": "{平将門|たいらのまさかど}",
             "back": "935年ごろに関東で反乱を起こしたのはだれ？",
             "explanation": "自ら「新皇」を名乗り関東で独立を図ったが、鎮圧された。",
             "difficulty": "basic"
           },
           {
             "id": "fc9",
-            "front": "藤原純友",
+            "front": "{藤原純友|ふじわらのすみとも}",
             "back": "939年ごろ、瀬戸内海で反乱を起こしたのはだれ？",
             "explanation": "平将門の乱とほぼ同時期に瀬戸内海で海賊を率いて反乱を起こした。",
             "difficulty": "basic"
           },
           {
             "id": "fc10",
-            "front": "前九年合戦・後三年合戦",
+            "front": "{前九年|ぜんくねん}{合戦|かっせん}・{後三年|ごさんねん}{合戦|かっせん}",
             "back": "11世紀後半に東北地方で起こった二つの戦乱は？",
             "explanation": "源義家が活躍し、源氏が東日本の武士から信頼を得るきっかけとなった。",
             "difficulty": "basic"
           },
           {
             "id": "fc11",
-            "front": "荘園",
+            "front": "{荘園|しょうえん}",
             "back": "貴族や寺社が私有した土地は？",
             "explanation": "地方の有力者が開墾し、税をまぬがれた私有地。不輸の権・不入の権と関係する。",
             "difficulty": "basic"
           },
           {
             "id": "fc12",
-            "front": "公領",
+            "front": "{公領|こうりょう}",
             "back": "国司が支配する土地を何という？",
             "explanation": "荘園が税免除の私有地であるのに対し、公領は国の管理下で税が課された。",
             "difficulty": "basic"
           },
           {
             "id": "fc13",
-            "front": "中尊寺金色堂",
+            "front": "{中尊寺|ちゅうそんじ}{金色堂|こんじきどう}",
             "back": "奥州藤原氏が建て、金箔でかざられた平泉の建物は？",
             "explanation": "全体が金箔でおおわれた豪華な仏堂で、奥州藤原氏の栄華を今に伝える世界遺産。",
             "difficulty": "standard"
           },
           {
             "id": "fc14",
-            "front": "不輸の権",
+            "front": "{不輸|ふゆ}の{権|けん}",
             "back": "荘園の税をまぬがれることができる権利を何という？",
             "explanation": "有力な貴族が朝廷から認められた特権で、荘園拡大の大きな要因となった。",
             "difficulty": "standard"
           },
           {
             "id": "fc15",
-            "front": "不入の権",
+            "front": "{不入|ふにゅう}の{権|けん}",
             "back": "国司の役人の立ち入りを拒否できる権利を何という？",
             "explanation": "不輸の権とあわせて持つことで、荘園領主が自由に土地を支配できた。",
             "difficulty": "standard"
           },
           {
             "id": "fc16",
-            "front": "寄進",
+            "front": "{寄進|きしん}",
             "back": "開発領主が有力な貴族に荘園を差し出すことを何という？",
             "explanation": "税をまぬがれるために有力貴族に荘園を差し出し、実質的な管理は続けた。",
             "difficulty": "standard"
           },
           {
             "id": "fc17",
-            "front": "平泉",
+            "front": "{平泉|ひらいずみ}",
             "back": "奥州藤原氏の拠点で、中尊寺金色堂がある場所は？",
             "explanation": "奥州藤原氏が約100年にわたり繁栄した東北の拠点で、2011年に世界遺産に登録された。岩手県。",
             "difficulty": "standard"
           },
           {
             "id": "fc18",
-            "front": "10世紀",
+            "front": "10{世紀|せいき}",
             "back": "武士が成長し始めた時期はいつごろ？",
             "explanation": "地方の治安悪化を背景に、弓馬の技術にすぐれた武士が各地で台頭し始めた。",
             "difficulty": "standard"
           },
           {
             "id": "fc19",
-            "front": "東日本（関東中心）",
+            "front": "{東日本|ひがしにほん}（{関東|かんとう}中心）",
             "back": "源氏が主に勢力を広げた地方は？",
             "explanation": "源義家が東北の戦乱で活躍したことで、東日本の武士の信頼を得た。",
             "difficulty": "standard"
           },
           {
             "id": "fc20",
-            "front": "西日本（瀬戸内海中心）",
+            "front": "{西日本|にしにほん}（{瀬戸内海|せとないかい}中心）",
             "back": "平氏が主に勢力を広げた地方は？",
             "explanation": "瀬戸内海の海賊を鎮圧したことで朝廷に認められ、西日本に勢力を広げた。",
             "difficulty": "advanced"
           },
           {
             "id": "fc21",
-            "front": "新皇",
+            "front": "{新皇|しんのう}",
             "back": "平将門が関東で自ら名乗った称号は？",
             "explanation": "関東で独立した国を建てようとしたが、朝廷によって鎮圧された。",
             "difficulty": "advanced"
@@ -8279,14 +8279,14 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc23",
-            "front": "開発領主",
+            "front": "開発{領主|りょうしゅ}",
             "back": "地方で土地を開墾し、のちに荘園を寄進した有力者は？",
             "explanation": "自ら開墾した土地を有力貴族に寄進して税を免れつつ、実質的な管理を続けた。",
             "difficulty": "advanced"
           },
           {
             "id": "fc24",
-            "front": "岩手県",
+            "front": "{岩手県|いわてけん}",
             "back": "中尊寺金色堂がある現在の都道府県は？",
             "explanation": "奥州藤原氏が繁栄した平泉は現在の岩手県にあり、世界遺産に登録されている。",
             "difficulty": "advanced"
@@ -8629,119 +8629,119 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "上皇",
+            "front": "{上皇|じょうこう}",
             "back": "天皇が位をしりぞいたあとの称号を何という？",
             "explanation": "退位後も政治の実権を握り続けることができ、院政の中心となった。",
             "difficulty": "basic"
           },
           {
             "id": "fc2",
-            "front": "院政",
+            "front": "{院政|いんせい}",
             "back": "上皇が中心となって政治を動かす仕組みを何という？",
             "explanation": "上皇が院で政治を行うしくみ。藤原氏の摂関政治に代わる新しい政治のかたちとして白河上皇が始めた。",
             "difficulty": "basic"
           },
           {
             "id": "fc3",
-            "front": "白河上皇",
+            "front": "{白河|しらかわ}{上皇|じょうこう}",
             "back": "院政を最初に始めた上皇はだれ？",
             "explanation": "退位後も政治の実権を握り、北面の武士を置いて武士の力を利用した。藤原氏の力をおさえようとした。",
             "difficulty": "basic"
           },
           {
             "id": "fc4",
-            "front": "北面の武士",
+            "front": "{北面|ほくめん}の{武士|ぶし}",
             "back": "白河上皇が院の警備のために置いた武士を何という？",
             "explanation": "院の北側を警備したことに由来する名前で、上皇の私的な武力として機能した。",
             "difficulty": "basic"
           },
           {
             "id": "fc5",
-            "front": "後三条天皇",
+            "front": "{後三条|ごさんじょう}{天皇|てんのう}",
             "back": "荘園の増加をおさえる政策を行った天皇は？",
             "explanation": "藤原氏と関係が薄く、荘園整理令を出して独自の政策を進めた。",
             "difficulty": "basic"
           },
           {
             "id": "fc6",
-            "front": "保元の乱",
+            "front": "{保元|ほうげん}の{乱|らん}",
             "back": "1156年、崇徳上皇と後白河天皇の対立から起こった内乱は？",
             "explanation": "天皇家や藤原氏の対立に武士が関わった争い。武士の政治的地位が高まるきっかけ。",
             "difficulty": "basic"
           },
           {
             "id": "fc7",
-            "front": "平治の乱",
+            "front": "{平治|へいじ}の{乱|らん}",
             "back": "1159年、清盛と義朝が戦った内乱は？",
             "explanation": "保元の乱の後に起きた争いで、平氏が力を強めた。平清盛の台頭につながる。",
             "difficulty": "basic"
           },
           {
             "id": "fc8",
-            "front": "平清盛",
+            "front": "{平清盛|たいらのきよもり}",
             "back": "武士として初めて太政大臣になったのはだれ？",
             "explanation": "平氏の全盛期を築き、太政大臣になった武士。日宋貿易を進めた。",
             "difficulty": "basic"
           },
           {
             "id": "fc9",
-            "front": "太政大臣",
+            "front": "{太政大臣|だいじょうだいじん}",
             "back": "平清盛が1167年に就任した、武士初の最高の官職は？",
             "explanation": "朝廷の最高位で、平清盛が武士として初めてこの地位にのぼりつめた。",
             "difficulty": "basic"
           },
           {
             "id": "fc10",
-            "front": "大輪田泊",
+            "front": "{大輪田泊|おおわだのとまり}",
             "back": "平清盛が整備した兵庫県神戸市の港は？",
             "explanation": "平清盛が整備した港。日宋貿易の拠点として大規模に整備され、平氏繁栄の経済的基盤となった。",
             "difficulty": "basic"
           },
           {
             "id": "fc11",
-            "front": "日宋貿易",
+            "front": "{日宋|にっそう}{貿易|ぼうえき}",
             "back": "平清盛が大輪田泊を拠点に行った宋との貿易は？",
             "explanation": "平清盛が進めた宋との貿易。宋銭や陶磁器を輸入し、莫大な利益が平氏繁栄の基盤となった。",
             "difficulty": "basic"
           },
           {
             "id": "fc12",
-            "front": "源頼朝",
+            "front": "{源頼朝|みなもとのよりとも}",
             "back": "鎌倉を本拠地に平氏打倒のため挙兵した人物は？",
             "explanation": "平治の乱で敗れた源義朝の子で、のちに鎌倉幕府を開いた。",
             "difficulty": "basic"
           },
           {
             "id": "fc13",
-            "front": "源義経",
+            "front": "{源義経|みなもとのよしつね}",
             "back": "源頼朝の弟で、壇ノ浦の戦いで平氏を破った人物は？",
             "explanation": "一ノ谷・屋島・壇ノ浦と各地で平氏を破る軍事的才能を発揮した。",
             "difficulty": "standard"
           },
           {
             "id": "fc14",
-            "front": "壇ノ浦の戦い",
+            "front": "{壇|だん}ノ{浦|うら}の{戦|たたか}い",
             "back": "1185年、平氏が源氏に敗れてほろんだ戦いは？",
             "explanation": "現在の山口県下関市で行われた海戦で、平氏一門が滅亡した。",
             "difficulty": "standard"
           },
           {
             "id": "fc15",
-            "front": "厳島神社",
+            "front": "{厳島|いつくしま}{神社|じんじゃ}",
             "back": "平清盛が航海の安全を祈り、整備した広島県の神社は？",
             "explanation": "瀬戸内海の海上交通を重視した清盛が整備し、現在は世界遺産に登録されている。",
             "difficulty": "standard"
           },
           {
             "id": "fc16",
-            "front": "後白河天皇",
+            "front": "{後白河|ごしらかわ}{天皇|てんのう}",
             "back": "保元の乱で崇徳上皇と対立した天皇は？",
             "explanation": "保元の乱で勝利し、のちに上皇として院政を行った。",
             "difficulty": "standard"
           },
           {
             "id": "fc17",
-            "front": "平氏政権",
+            "front": "{平氏|へいし}{政権|せいけん}",
             "back": "平清盛が朝廷の高い地位につき、武士として初めて政治の実権を握った政権は？",
             "explanation": "鎌倉幕府とは異なり、朝廷内での政権。",
             "difficulty": "standard"
@@ -8755,14 +8755,14 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc19",
-            "front": "平氏にあらずんば人にあらず",
+            "front": "{平氏|へいし}にあらずんば人にあらず",
             "back": "平氏の権力が絶大だったことを表す有名な言葉は？",
             "explanation": "平氏一族が要職を独占し、他の貴族や武士の不満を招いた状況を象徴する。",
             "difficulty": "advanced"
           },
           {
             "id": "fc20",
-            "front": "山口県下関市",
+            "front": "{山口県|やまぐちけん}{下関市|しものせきし}",
             "back": "壇ノ浦の戦いがあった場所は現在のどこ？",
             "explanation": "関門海峡に面した場所で、1185年に平氏が最期を迎えた。",
             "difficulty": "advanced"
@@ -9093,161 +9093,161 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "鎌倉幕府",
+            "front": "{鎌倉|かまくら}{幕府|ばくふ}",
             "back": "源頼朝が鎌倉に開いた武士の政権は？",
             "explanation": "平氏を滅ぼした後、守護・地頭を全国に設置し武士による政治を始めた。",
             "difficulty": "basic"
           },
           {
             "id": "fc2",
-            "front": "源頼朝",
+            "front": "{源頼朝|みなもとのよりとも}",
             "back": "鎌倉幕府を開き、征夷大将軍に任命された人物は？",
             "explanation": "平氏をほろぼした後、鎌倉を本拠地に武士の政権を開いた人物。",
             "difficulty": "basic"
           },
           {
             "id": "fc3",
-            "front": "壇ノ浦の戦い",
+            "front": "{壇|だん}ノ{浦|うら}の{戦|たたか}い",
             "back": "1185年に源氏が平氏をほろぼした戦いは？",
             "explanation": "山口県の壇ノ浦で行われた海戦で、平氏一門が滅亡した。",
             "difficulty": "basic"
           },
           {
             "id": "fc4",
-            "front": "守護",
+            "front": "{守護|しゅご}",
             "back": "鎌倉幕府が国ごとに置き、軍事や警察の仕事をさせた役職は？",
             "explanation": "各国の治安維持を担当し、地頭とともに幕府の全国支配の基盤となった。御家人の統率も行った。",
             "difficulty": "basic"
           },
           {
             "id": "fc5",
-            "front": "地頭",
+            "front": "{地頭|じとう}",
             "back": "鎌倉幕府が荘園や公領ごとに置き、年貢の取り立てなどを行った役職は？",
             "explanation": "荘園・公領の現地管理を担い、しだいに荘園領主と対立するようになった。",
             "difficulty": "basic"
           },
           {
             "id": "fc6",
-            "front": "御家人",
+            "front": "{御家人|ごけにん}",
             "back": "将軍に忠誠をちかい、家来となった武士は？",
             "explanation": "将軍との御恩と奉公の関係で結ばれ、「いざ鎌倉」の覚悟を持っていた。",
             "difficulty": "basic"
           },
           {
             "id": "fc7",
-            "front": "御恩",
+            "front": "{御恩|ごおん}",
             "back": "将軍が御家人の領地を認めたり、新たな土地をあたえたりすることは？",
             "explanation": "本領安堵（先祖伝来の領地の保障）や新恩給与（新たな土地の付与）のこと。",
             "difficulty": "basic"
           },
           {
             "id": "fc8",
-            "front": "奉公",
+            "front": "{奉公|ほうこう}",
             "back": "御家人が将軍のために戦いや警護を行うことは？",
             "explanation": "戦時の出陣や京都・鎌倉の警護など、軍事的な奉仕を指す。",
             "difficulty": "basic"
           },
           {
             "id": "fc9",
-            "front": "御恩と奉公",
+            "front": "{御恩|ごおん}と{奉公|ほうこう}",
             "back": "将軍と御家人の主従関係のしくみは？",
             "explanation": "鎌倉幕府の基本的な主従関係。将軍が御家人の領地を保護し、御家人が軍役や警備で将軍に仕える関係。",
             "difficulty": "basic"
           },
           {
             "id": "fc10",
-            "front": "征夷大将軍",
+            "front": "{征夷大将軍|せいいたいしょうぐん}",
             "back": "源頼朝が朝廷から任命された、武家の最高位を示す役職は？",
             "explanation": "武家の棟梁を意味する役職で、以後の幕府の将軍の称号となった。",
             "difficulty": "basic"
           },
           {
             "id": "fc11",
-            "front": "侍所",
+            "front": "{侍所|さむらいどころ}",
             "back": "鎌倉幕府で御家人の統率を行った役所は？",
             "explanation": "御家人の管理や軍事を担当する幕府の重要機関。",
             "difficulty": "basic"
           },
           {
             "id": "fc12",
-            "front": "政所",
+            "front": "{政所|まんどころ}",
             "back": "鎌倉幕府で政務や財政を担当した役所は？",
             "explanation": "幕府の一般行政と財政を管理する機関。",
             "difficulty": "basic"
           },
           {
             "id": "fc13",
-            "front": "問注所",
+            "front": "{問注所|もんちゅうじょ}",
             "back": "鎌倉幕府で裁判を担当した役所は？",
             "explanation": "御家人間の訴訟を裁く機関で、地頭と荘園領主の争いも扱った。",
             "difficulty": "basic"
           },
           {
             "id": "fc14",
-            "front": "執権",
+            "front": "{執権|しっけん}",
             "back": "鎌倉幕府で将軍を補佐し、実権をにぎった役職は？",
             "explanation": "源氏の将軍が途絶えた後、北条氏がこの役職で幕府の政治を主導した。北条時政・北条泰時など。",
             "difficulty": "basic"
           },
           {
             "id": "fc15",
-            "front": "北条時政",
+            "front": "{北条時政|ほうじょうときまさ}",
             "back": "鎌倉幕府の初代執権はだれ？",
             "explanation": "頼朝の妻・北条政子の父で、北条氏による執権政治の基礎を築いた。",
             "difficulty": "standard"
           },
           {
             "id": "fc16",
-            "front": "承久の乱",
+            "front": "{承久|じょうきゅう}の{乱|らん}",
             "back": "1221年、後鳥羽上皇が幕府をたおそうとした事件を何という？",
             "explanation": "幕府が勝利し、朝廷に対する幕府の優位が確立された転換点。乱後、幕府の支配が西日本に広がった。",
             "difficulty": "standard"
           },
           {
             "id": "fc17",
-            "front": "北条政子",
+            "front": "{北条政子|ほうじょうまさこ}",
             "back": "頼朝の妻で、承久の乱のとき御家人の団結をうったえたのはだれ？",
             "explanation": "頼朝の恩を説いて御家人を団結させ、「尼将軍」とも呼ばれた。",
             "difficulty": "standard"
           },
           {
             "id": "fc18",
-            "front": "六波羅探題",
+            "front": "{六波羅探題|ろくはらたんだい}",
             "back": "承久の乱のあと、京都の朝廷を監視するために置かれた機関は？",
             "explanation": "承久の乱後に設置され、朝廷の監視と西国の統治を担当した。京都に置かれた。",
             "difficulty": "standard"
           },
           {
             "id": "fc19",
-            "front": "後鳥羽上皇",
+            "front": "{後鳥羽|ごとば}{上皇|じょうこう}",
             "back": "承久の乱で敗れ、隠岐に流された上皇は？",
             "explanation": "幕府の打倒を図って挙兵したが敗れ、隠岐に流された。",
             "difficulty": "standard"
           },
           {
             "id": "fc20",
-            "front": "御成敗式目",
+            "front": "{御成敗式目|ごせいばいしきもく}",
             "back": "1232年、北条泰時が定めた51か条の武士のための法を何という？",
             "explanation": "武士の慣習に基づいた裁判基準で、貞永式目ともいう。",
             "difficulty": "standard"
           },
           {
             "id": "fc21",
-            "front": "北条泰時",
+            "front": "{北条泰時|ほうじょうやすとき}",
             "back": "御成敗式目を定めた第3代執権は？",
             "explanation": "武士の慣習に基づいた公正な法を定め、幕府の統治を安定させた。",
             "difficulty": "standard"
           },
           {
             "id": "fc22",
-            "front": "封建制度",
+            "front": "{封建|ほうけん}{制度|せいど}",
             "back": "将軍と御家人のような、土地を仲立ちとした主従関係を何という？",
             "explanation": "御恩と奉公を基本とし、土地の支配権と軍事的奉仕を交換する仕組み。",
             "difficulty": "advanced"
           },
           {
             "id": "fc23",
-            "front": "隠岐",
+            "front": "{隠岐|おき}",
             "back": "承久の乱で敗れた後鳥羽上皇が流された場所は？",
             "explanation": "現在の島根県に属する日本海の島で、流刑地として使われた。",
             "difficulty": "advanced"
@@ -9261,14 +9261,14 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc25",
-            "front": "新恩給与",
+            "front": "{新恩|しんおん}{給与|きゅうよ}",
             "back": "将軍が御家人に新たな土地をあたえる御恩を何という？",
             "explanation": "戦功などへの報酬として新たな土地を与えること。先祖伝来の領地の保障は本領安堵という。",
             "difficulty": "advanced"
           },
           {
             "id": "fc26",
-            "front": "惣領",
+            "front": "{惣領|そうりょう}",
             "back": "武士の一族をまとめる中心人物は？",
             "explanation": "分割相続のもとで一族をまとめた。惣領制は武士の団結と関係する。",
             "difficulty": "advanced"
@@ -9585,112 +9585,112 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "二毛作",
+            "front": "{二毛作|にもうさく}",
             "back": "同じ田で米と麦を交互に作る農業は？",
             "explanation": "秋に米をとったあと冬に麦を作る農業。鎌倉時代に西日本中心に広まり、生産力を大きく向上させた。",
             "difficulty": "basic"
           },
           {
             "id": "fc2",
-            "front": "定期市",
+            "front": "{定期市|ていきいち}",
             "back": "寺社の門前や交通の便利な場所で、決まった日に開かれた市場は？",
             "explanation": "貨幣の流通や商業の発達と関係する。月3回の三斎市が一般的。",
             "difficulty": "basic"
           },
           {
             "id": "fc3",
-            "front": "三斎市",
+            "front": "{三斎市|さんさいいち}",
             "back": "鎌倉時代に月3回開催された定期市の呼び方は？",
             "explanation": "室町時代には月6回の六斎市に増え、商業がさらに発展した。",
             "difficulty": "basic"
           },
           {
             "id": "fc4",
-            "front": "宋銭",
+            "front": "{宋銭|そうせん}",
             "back": "中国の宋から入ってきた銭で、鎌倉時代に商業や年貢の支払いに使われたお金は？",
             "explanation": "日宋貿易で日本に流入し、物々交換から貨幣経済への移行を促した。",
             "difficulty": "basic"
           },
           {
             "id": "fc5",
-            "front": "年貢",
+            "front": "{年貢|ねんぐ}",
             "back": "農民が領主に毎年納めた米や布などの税は？",
             "explanation": "荘園や公領の農民が領主に毎年納めた税で、宋銭での支払いも行われた。",
             "difficulty": "basic"
           },
           {
             "id": "fc6",
-            "front": "鉄製農具",
+            "front": "{鉄製|てっせい}{農具|のうぐ}",
             "back": "鎌倉時代に普及した、耕作効率を大幅に上げた道具は？",
             "explanation": "木製や石製に比べて硬くて丈夫で、深く耕すことができた。",
             "difficulty": "basic"
           },
           {
             "id": "fc7",
-            "front": "牛馬耕",
+            "front": "{牛馬耕|ぎゅうばこう}",
             "back": "牛や馬を使って田を耕す方法を何という？",
             "explanation": "人力だけの耕作より効率がよく、鎌倉時代に広まった。",
             "difficulty": "basic"
           },
           {
             "id": "fc8",
-            "front": "草木灰",
+            "front": "{草木灰|そうもくばい}",
             "back": "草木を焼いた灰で、鎌倉時代に肥料として使われたのは？",
             "explanation": "土地の養分を補う肥料として利用され、農業の生産力向上に貢献した。",
             "difficulty": "basic"
           },
           {
             "id": "fc9",
-            "front": "馬借",
+            "front": "{馬借|ばしゃく}",
             "back": "鎌倉時代に馬を利用して荷物を運んだ運送業者は？",
             "explanation": "各地の産物を市場に運び、商業の発展を支えた。",
             "difficulty": "basic"
           },
           {
             "id": "fc10",
-            "front": "武士道",
+            "front": "{武士道|ぶしどう}",
             "back": "名誉を大切にし、はじをきらう武士の心がまえは？",
             "explanation": "鎌倉時代の武士の生き方の基本で、弓馬の道を重んじる精神とともに根付いた。",
             "difficulty": "basic"
           },
           {
             "id": "fc11",
-            "front": "弓馬の道",
+            "front": "{弓馬|きゅうば}の道",
             "back": "鎌倉時代の武士が重んじた武芸の精神を何という？",
             "explanation": "弓術と馬術を中心とした武芸を磨くことが武士の最も大切な務めだった。",
             "difficulty": "basic"
           },
           {
             "id": "fc12",
-            "front": "下地中分",
+            "front": "{下地中分|したじちゅうぶん}",
             "back": "地頭と荘園領主が土地を半分ずつ分けることを何という？",
             "explanation": "地頭と荘園領主の土地争いが裁判でも解決しにくく、妥協策として行われた。",
             "difficulty": "basic"
           },
           {
             "id": "fc13",
-            "front": "貨幣経済",
+            "front": "{貨幣|かへい}{経済|けいざい}",
             "back": "宋銭の流通で物々交換から変化した、お金を使う経済のしくみは？",
             "explanation": "宋銭の普及により、年貢の支払いにも貨幣が使われるようになった。",
             "difficulty": "basic"
           },
           {
             "id": "fc15",
-            "front": "問注所",
+            "front": "{問注所|もんちゅうじょ}",
             "back": "鎌倉幕府で地頭と荘園領主の争いを裁判で解決した機関は？",
             "explanation": "幕府の裁判機関で、土地をめぐる訴訟を扱った。",
             "difficulty": "standard"
           },
           {
             "id": "fc16",
-            "front": "行商人",
+            "front": "{行商人|ぎょうしょうにん}",
             "back": "定期市が開かれない日に村々を回って商品を売り歩いた商人は？",
             "explanation": "定期市の間の日にも商品を届ける役割を果たし、商業の裾野を広げた。",
             "difficulty": "standard"
           },
           {
             "id": "fc17",
-            "front": "いざ鎌倉",
+            "front": "いざ{鎌倉|かまくら}",
             "back": "非常事態に将軍のもとへ駆けつけるという御家人の覚悟を表す言葉は？",
             "explanation": "御恩と奉公の関係に基づき、将軍の危機には即座に馳せ参じる忠誠心を示す。",
             "difficulty": "standard"
@@ -9955,182 +9955,182 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "東大寺南大門",
+            "front": "{東大寺|とうだいじ}{南大門|なんだいもん}",
             "back": "鎌倉時代に再建された東大寺の門は？",
             "explanation": "力強い建築様式が特徴。金剛力士像とセットで出題されやすい。",
             "difficulty": "basic"
           },
           {
             "id": "fc2",
-            "front": "金剛力士像",
+            "front": "{金剛力士像|こんごうりきしぞう}",
             "back": "東大寺南大門にある、運慶・快慶らが作った力強い彫刻は？",
             "explanation": "写実的で筋肉の描写に優れ、鎌倉文化の力強さを象徴する作品。",
             "difficulty": "basic"
           },
           {
             "id": "fc4",
-            "front": "快慶",
+            "front": "{快慶|かいけい}",
             "back": "運慶とともに金剛力士像を制作した仏師は？",
             "explanation": "運慶の弟子筋にあたる仏師で、繊細で端正な作風でも知られる。",
             "difficulty": "basic"
           },
           {
             "id": "fc5",
-            "front": "平家物語",
+            "front": "{平家物語|へいけものがたり}",
             "back": "源氏と平氏の戦いをえがいた軍記物語は？",
             "explanation": "琵琶法師によって語り伝えられた。冒頭の「祇園精舎の鐘の声」が有名。",
             "difficulty": "basic"
           },
           {
             "id": "fc6",
-            "front": "琵琶法師",
+            "front": "{琵琶法師|びわほうし}",
             "back": "平家物語を琵琶の伴奏で各地に語り歩いた芸能者は？",
             "explanation": "琵琶の伴奏で語ることで、文字が読めない人々にも物語を届けた。",
             "difficulty": "basic"
           },
           {
             "id": "fc7",
-            "front": "方丈記",
+            "front": "{方丈記|ほうじょうき}",
             "back": "鴨長明が書いた随筆は？",
             "explanation": "災害や世のはかなさを記した。徒然草と並ぶ鎌倉時代の三大随筆の一つ。",
             "difficulty": "basic"
           },
           {
             "id": "fc8",
-            "front": "鴨長明",
+            "front": "{鴨長明|かものちょうめい}",
             "back": "方丈記を書いた人物は？",
             "explanation": "四畳半ほどの小さな庵（方丈）に住みながら随筆を書いた。",
             "difficulty": "basic"
           },
           {
             "id": "fc9",
-            "front": "徒然草",
+            "front": "{徒然草|つれづれぐさ}",
             "back": "兼好法師が書いた随筆は？",
             "explanation": "民衆の姿や人生について述べた。「つれづれなるままに」で始まる。方丈記と並ぶ。",
             "difficulty": "basic"
           },
           {
             "id": "fc10",
-            "front": "兼好法師",
+            "front": "{兼好法師|けんこうほうし}",
             "back": "徒然草を書いた人物は？（吉田兼好ともいう）",
             "explanation": "鎌倉末期から南北朝時代の随筆家。",
             "difficulty": "basic"
           },
           {
             "id": "fc11",
-            "front": "新古今和歌集",
+            "front": "{新古今|しんこきん}{和歌集|わかしゅう}",
             "back": "後鳥羽上皇の命令で編集された和歌集は？",
             "explanation": "藤原定家や西行らの歌が収められた。平安文化を受けつぐ貴族的な文化。",
             "difficulty": "basic"
           },
           {
             "id": "fc12",
-            "front": "法然",
+            "front": "{法然|ほうねん}",
             "back": "「南無阿弥陀仏」と念仏を唱えれば救われると説いた浄土宗の開祖は？",
             "explanation": "念仏を唱えるだけで救われるという簡潔な教えで民衆に広まった。",
             "difficulty": "basic"
           },
           {
             "id": "fc13",
-            "front": "親鸞",
+            "front": "{親鸞|しんらん}",
             "back": "法然の弟子で、阿弥陀如来を信じる浄土真宗を開いたのは？",
             "explanation": "阿弥陀仏を信じる心さえあれば悪人でも救われると説いた。",
             "difficulty": "basic"
           },
           {
             "id": "fc14",
-            "front": "一遍",
+            "front": "{一遍|いっぺん}",
             "back": "「踊念仏」を広め、時宗を開いた人物は？",
             "explanation": "踊りながら念仏を唱える独自の布教方法で全国を巡った。",
             "difficulty": "basic"
           },
           {
             "id": "fc15",
-            "front": "日蓮",
+            "front": "{日蓮|にちれん}",
             "back": "法華経の題目「南無妙法蓮華経」を唱えて救われると説いたのは？",
             "explanation": "法華経こそ唯一の正しい教えであると主張し、他宗派を厳しく批判した。",
             "difficulty": "basic"
           },
           {
             "id": "fc16",
-            "front": "栄西",
+            "front": "{栄西|えいさい}",
             "back": "宋から禅宗を伝え、臨済宗を広めた僧は？",
             "explanation": "中国から臨済宗を伝え、座禅と問答を重視した。日本に喫茶の習慣を広めたともいわれる。",
             "difficulty": "basic"
           },
           {
             "id": "fc17",
-            "front": "道元",
+            "front": "{道元|どうげん}",
             "back": "曹洞宗を開いた僧は？",
             "explanation": "座禅による修行を重視。只管打坐（ひたすら座禅）を説き、越前（福井県）に永平寺を開いた。",
             "difficulty": "basic"
           },
           {
             "id": "fc18",
-            "front": "浄土宗",
+            "front": "{浄土宗|じょうどしゅう}",
             "back": "法然が開いた、念仏を唱えれば救われると説く宗派は？",
             "explanation": "「南無阿弥陀仏」と唱えることで誰でも極楽往生できるとした。",
             "difficulty": "standard"
           },
           {
             "id": "fc19",
-            "front": "浄土真宗",
+            "front": "{浄土真宗|じょうどしんしゅう}",
             "back": "親鸞が開いた、阿弥陀仏を信じる心を重視する宗派は？",
             "explanation": "法然の教えをさらに発展させ、信心を最も重視する宗派として広まった。",
             "difficulty": "standard"
           },
           {
             "id": "fc20",
-            "front": "時宗",
+            "front": "{時宗|じしゅう}",
             "back": "一遍が開いた、踊念仏で知られる宗派は？",
             "explanation": "踊りながら念仏を唱える布教で全国に広まった。",
             "difficulty": "standard"
           },
           {
             "id": "fc21",
-            "front": "日蓮宗",
+            "front": "{日蓮宗|にちれんしゅう}",
             "back": "日蓮が開いた、法華経の題目を重視する宗派は？（法華宗ともいう）",
             "explanation": "法華経の題目「南無妙法蓮華経」を唱えることが唯一の救いの道とした。",
             "difficulty": "standard"
           },
           {
             "id": "fc22",
-            "front": "臨済宗",
+            "front": "{臨済宗|りんざいしゅう}",
             "back": "栄西が伝えた禅宗の宗派で、座禅と問答を重視するのは？",
             "explanation": "座禅に加えて問答（公案）で悟りを目指し、武士や幕府に保護された。",
             "difficulty": "standard"
           },
           {
             "id": "fc23",
-            "front": "曹洞宗",
+            "front": "{曹洞宗|そうとうしゅう}",
             "back": "道元が伝えた禅宗の宗派で、ひたすら座禅を行うのは？",
             "explanation": "問答よりもひたすら座禅を行うことで悟りを目指す教え。",
             "difficulty": "standard"
           },
           {
             "id": "fc24",
-            "front": "南無阿弥陀仏",
+            "front": "{南無阿弥陀仏|なむあみだぶつ}",
             "back": "浄土宗・浄土真宗で唱える念仏は？",
             "explanation": "阿弥陀仏への帰依を表す念仏で、唱えるだけで救われるとされた。",
             "difficulty": "advanced"
           },
           {
             "id": "fc25",
-            "front": "南無妙法蓮華経",
+            "front": "{南無妙法蓮華経|なむみょうほうれんげきょう}",
             "back": "日蓮宗で唱える題目は？",
             "explanation": "法華経に帰依する意味の題目で、日蓮が唯一の救いの道と説いた。",
             "difficulty": "advanced"
           },
           {
             "id": "fc26",
-            "front": "只管打坐",
+            "front": "{只管打坐|しかんたざ}",
             "back": "道元が説いた、ひたすら座禅を行うことを何という？",
             "explanation": "余計なことを考えずただ座禅に打ち込むことで悟りに至るとする教え。",
             "difficulty": "advanced"
           },
           {
             "id": "fc27",
-            "front": "祇園精舎の鐘の声",
+            "front": "{祇園精舎|ぎおんしょうじゃ}の鐘の声",
             "back": "平家物語の冒頭の有名な一節の最初の部分は？",
             "explanation": "「諸行無常の響きあり」と続く、万物の移り変わりを象徴する名句。",
             "difficulty": "advanced"
@@ -10469,42 +10469,42 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc3",
-            "front": "元",
+            "front": "{元|げん}",
             "back": "フビライ・ハンが国号を定めたモンゴル系の王朝は？",
             "explanation": "中国を支配したモンゴル系の王朝。明は漢民族が建てた王朝で区別する。",
             "difficulty": "basic"
           },
           {
             "id": "fc4",
-            "front": "大都（現在の北京）",
+            "front": "{大都|だいと}（現在の{北京|ペキン}）",
             "back": "フビライ・ハンが元の都を置いた場所は？",
             "explanation": "現在の中国の首都・北京にあたり、マルコ・ポーロも訪れた。",
             "difficulty": "basic"
           },
           {
             "id": "fc5",
-            "front": "モンゴル帝国",
+            "front": "モンゴル{帝国|ていこく}",
             "back": "チンギス・ハンが建てた、ユーラシア大陸にまたがる大帝国は？",
             "explanation": "騎兵の機動力を背景に、東アジアからヨーロッパに至る史上最大級の帝国を築いた。",
             "difficulty": "basic"
           },
           {
             "id": "fc6",
-            "front": "騎兵",
+            "front": "{騎兵|きへい}",
             "back": "モンゴル軍の主力で、機動力で他国の軍を圧倒した兵種は？",
             "explanation": "幼い頃から馬に乗り慣れた遊牧民で構成され、その機動力が最大の強みだった。",
             "difficulty": "basic"
           },
           {
             "id": "fc7",
-            "front": "遊牧民",
+            "front": "{遊牧民|ゆうぼくみん}",
             "back": "チンギス・ハンが統一した、モンゴル高原の人々の生活形態は？",
             "explanation": "家畜を連れて草原を移動しながら暮らし、馬術に長けていた。",
             "difficulty": "basic"
           },
           {
             "id": "fc8",
-            "front": "高麗",
+            "front": "{高麗|こうらい}",
             "back": "フビライ・ハンが従えた朝鮮半島の国は？",
             "explanation": "元に従属し、元寇の際には元とともに日本を攻撃した。",
             "difficulty": "basic"
@@ -10518,42 +10518,42 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc10",
-            "front": "黄金の国ジパング",
+            "front": "{黄金|おうごん}の国ジパング",
             "back": "マルコ・ポーロが『世界の記述』で日本を紹介した呼び名は？",
             "explanation": "実際には来日しておらず、伝聞をもとに日本を紹介した。",
             "difficulty": "basic"
           },
           {
             "id": "fc11",
-            "front": "世界の記述（東方見聞録）",
+            "front": "世界の{記述|きじゅつ}（{東方見聞録|とうほうけんぶんろく}）",
             "back": "マルコ・ポーロがアジアの様子を伝える書物は？",
             "explanation": "ヨーロッパの人々にアジアへの興味を抱かせ、大航海時代につながった。",
             "difficulty": "basic"
           },
           {
             "id": "fc12",
-            "front": "ムスリム商人",
+            "front": "ムスリム{商人|しょうにん}",
             "back": "インド洋交易の主要な担い手となった人々は？",
             "explanation": "アラビア半島・インド・東南アジアを結ぶ海上交易のネットワークを築いた。",
             "difficulty": "basic"
           },
           {
             "id": "fc13",
-            "front": "オスマン帝国",
+            "front": "オスマン{帝国|ていこく}",
             "back": "13世紀末にモンゴル帝国分裂後、トルコで成立した国は？",
             "explanation": "イスタンブールを首都とし、16世紀に大帝国を築いたイスラームの国。",
             "difficulty": "standard"
           },
           {
             "id": "fc15",
-            "front": "大航海時代",
+            "front": "{大航海|だいこうかい}時代",
             "back": "東方見聞録がヨーロッパに与えた影響で、のちにつながった時代は？",
             "explanation": "アジアへの関心が高まり、新航路の開拓を目指す動きにつながった。",
             "difficulty": "standard"
           },
           {
             "id": "fc16",
-            "front": "ユーラシア大陸",
+            "front": "ユーラシア{大陸|たいりく}",
             "back": "モンゴル帝国がまたがった大陸の名前は？",
             "explanation": "東アジアからヨーロッパにいたる広大な大陸で、帝国は史上最大級の領域を支配した。",
             "difficulty": "standard"
@@ -10567,7 +10567,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc19",
-            "front": "13世紀末",
+            "front": "13{世紀|せいき}末",
             "back": "モンゴル帝国が分裂した時期は？",
             "explanation": "フビライ・ハンの死後、帝国は複数の国に分裂していった。",
             "difficulty": "advanced"
@@ -10819,28 +10819,28 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "元寇",
+            "front": "{元寇|げんこう}",
             "back": "13世紀後半に元が二度にわたり日本へ攻めてきたことを何という？",
             "explanation": "文永の役（1274年）と弘安の役（1281年）の二度の襲来を指す。鎌倉幕府の衰えにつながった。",
             "difficulty": "basic"
           },
           {
             "id": "fc2",
-            "front": "北条時宗",
+            "front": "{北条時宗|ほうじょうときむね}",
             "back": "二度の元寇に際し防衛を指揮した鎌倉幕府の執権は？",
             "explanation": "第8代執権として元の服属要求を拒否し、博多湾に石塁を築かせた。",
             "difficulty": "basic"
           },
           {
             "id": "fc3",
-            "front": "文永の役",
+            "front": "{文永|ぶんえい}の{役|えき}",
             "back": "1274年、元軍が日本を攻めた最初の戦いは？",
             "explanation": "対馬・壱岐を攻め、博多湾に上陸した。元と高麗の連合軍が集団戦法とてつはうで攻めた。",
             "difficulty": "basic"
           },
           {
             "id": "fc4",
-            "front": "弘安の役",
+            "front": "{弘安|こうあん}の{役|えき}",
             "back": "1281年、元が再び日本を攻めた戦いは？",
             "explanation": "石の防壁や暴風雨で元軍が大打撃を受け、退いた。",
             "difficulty": "basic"
@@ -10854,56 +10854,56 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc6",
-            "front": "集団戦法",
+            "front": "{集団|しゅうだん}{戦法|せんぽう}",
             "back": "元軍が用いた、統制のとれた大勢の兵士による戦い方は？",
             "explanation": "一騎打ちが主流だった日本の武士にとって初めて経験する戦い方だった。",
             "difficulty": "basic"
           },
           {
             "id": "fc7",
-            "front": "石の防壁（石塁）",
+            "front": "石の{防壁|ぼうへき}（{石塁|せきるい}）",
             "back": "弘安の役に備えて博多湾に築かれた防衛施設は？",
             "explanation": "北条時宗の指示で築かれ、弘安の役で元軍の上陸を効果的に防いだ。",
             "difficulty": "basic"
           },
           {
             "id": "fc8",
-            "front": "蒙古襲来絵詞",
+            "front": "{蒙古襲来絵詞|もうこしゅうらいえことば}",
             "back": "恩賞を求めて幕府に訴える御家人の様子を描いた絵巻は？",
             "explanation": "元寇の戦闘の様子や御家人の恩賞要求が描かれた貴重な史料。",
             "difficulty": "basic"
           },
           {
             "id": "fc9",
-            "front": "永仁の徳政令",
+            "front": "{永仁|えいにん}の{徳政令|とくせいれい}",
             "back": "1297年、幕府が御家人を救うために出した法令は？",
             "explanation": "借金の帳消しや土地の取り戻しを認めた。効果は一時的で、かえって金貸しが御家人に金を貸さなくなった。",
             "difficulty": "standard"
           },
           {
             "id": "fc10",
-            "front": "悪党",
+            "front": "{悪党|あくとう}",
             "back": "鎌倉時代末期、荘園領主や幕府の命令に従わず活動した武士は？",
             "explanation": "「悪人」という意味だけでなく、幕府に従わない勢力を指す。",
             "difficulty": "standard"
           },
           {
             "id": "fc11",
-            "front": "後醍醐天皇",
+            "front": "{後醍醐|ごだいご}{天皇|てんのう}",
             "back": "鎌倉幕府を倒し、天皇中心の政治をめざした人物は？",
             "explanation": "建武の新政を始めた。足利尊氏や新田義貞の協力を得て鎌倉幕府を倒した。",
             "difficulty": "basic"
           },
           {
             "id": "fc12",
-            "front": "足利尊氏",
+            "front": "{足利尊氏|あしかがたかうじ}",
             "back": "京都の六波羅探題を攻め落とした有力御家人は？",
             "explanation": "北条氏への権力集中に不満を持ち、幕府を裏切って後醍醐天皇に味方した。のちに室町幕府を開く。",
             "difficulty": "standard"
           },
           {
             "id": "fc13",
-            "front": "新田義貞",
+            "front": "{新田義貞|にったよしさだ}",
             "back": "鎌倉を攻めて幕府を滅ぼした武将は？",
             "explanation": "1333年に鎌倉を攻め落とし、約150年続いた鎌倉幕府を直接滅ぼした。",
             "difficulty": "standard"
@@ -10917,42 +10917,42 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc15",
-            "front": "建武の新政",
+            "front": "{建武|けんむ}の{新政|しんせい}",
             "back": "後醍醐天皇が始めた天皇中心の政治は？",
             "explanation": "貴族を重視したため武士の不満を招き、約2年で崩れた。",
             "difficulty": "standard"
           },
           {
             "id": "fc16",
-            "front": "分割相続",
+            "front": "{分割|ぶんかつ}{相続|そうぞく}",
             "back": "御家人の領地が次第に減少していった原因となった相続方法は？",
             "explanation": "親の領地を子供たちに分けて相続させるため、世代ごとに一人あたりの領地が減った。",
             "difficulty": "standard"
           },
           {
             "id": "fc18",
-            "front": "博多湾",
+            "front": "{博多|はかた}湾",
             "back": "元軍が九州北部に上陸した場所で、石塁が築かれた湾は？",
             "explanation": "現在の福岡市にあり、弘安の役に備えて約20kmの石塁が築かれた。",
             "difficulty": "standard"
           },
           {
             "id": "fc20",
-            "front": "暴風雨",
+            "front": "{暴風雨|ぼうふうう}",
             "back": "弘安の役で元軍が大打撃を受けた自然現象は？",
             "explanation": "台風とも言われる暴風雨が元軍の艦隊を壊滅させ、日本の防衛に貢献した。",
             "difficulty": "advanced"
           },
           {
             "id": "fc21",
-            "front": "第8代執権",
+            "front": "第8代{執権|しっけん}",
             "back": "北条時宗は鎌倉幕府の何代目の執権？",
             "explanation": "若くして執権となり、二度の元寇を指揮して日本を守った。",
             "difficulty": "advanced"
           },
           {
             "id": "fc22",
-            "front": "楠木正成",
+            "front": "{楠木正成|くすのきまさしげ}",
             "back": "後醍醐天皇に味方し、鎌倉幕府倒幕に活躍した武将は？",
             "explanation": "ゲリラ戦で幕府軍を苦しめ、後醍醐天皇への忠義で知られる武将。",
             "difficulty": "advanced"
@@ -11204,112 +11204,112 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "建武の新政",
+            "front": "{建武|けんむ}の{新政|しんせい}",
             "back": "後醍醐天皇が始めた天皇中心の政治は？",
             "explanation": "公家を優遇して武士の功績を正しく評価しなかったため、約2年で崩壊した。",
             "difficulty": "basic"
           },
           {
             "id": "fc2",
-            "front": "足利尊氏",
+            "front": "{足利尊氏|あしかがたかうじ}",
             "back": "鎌倉幕府を倒すのに協力し、のちに室町幕府を開いた人物は？",
             "explanation": "1338年に征夷大将軍となり、京都に室町幕府を開いた。",
             "difficulty": "basic"
           },
           {
             "id": "fc3",
-            "front": "南北朝時代",
+            "front": "{南北朝|なんぼくちょう}時代",
             "back": "京都の北朝と吉野の南朝が対立した時代は？",
             "explanation": "約60年続いた。足利義満が1392年に統一。",
             "difficulty": "basic"
           },
           {
             "id": "fc4",
-            "front": "北朝",
+            "front": "{北朝|ほくちょう}",
             "back": "足利尊氏が京都に立てた天皇の朝廷は？",
             "explanation": "足利尊氏が新たな天皇を立てて京都に置いた朝廷。",
             "difficulty": "basic"
           },
           {
             "id": "fc5",
-            "front": "南朝",
+            "front": "{南朝|なんちょう}",
             "back": "後醍醐天皇が吉野（奈良県）に開いた朝廷は？",
             "explanation": "後醍醐天皇が自らこそ正統と主張して吉野に逃れて開いた。",
             "difficulty": "basic"
           },
           {
             "id": "fc6",
-            "front": "室町幕府",
+            "front": "{室町|むろまち}{幕府|ばくふ}",
             "back": "足利尊氏が京都に開いた武家政権は？",
             "explanation": "鎌倉幕府は源頼朝が鎌倉に開いたのに対し、室町幕府は足利尊氏が京都に開いた。",
             "difficulty": "basic"
           },
           {
             "id": "fc7",
-            "front": "足利義満",
+            "front": "{足利義満|あしかがよしみつ}",
             "back": "室町幕府の3代将軍で、南北朝を統一し日明貿易を始めた人物は？",
             "explanation": "金閣とも関係する。太政大臣にもなった。",
             "difficulty": "basic"
           },
           {
             "id": "fc8",
-            "front": "花の御所",
+            "front": "花の{御所|ごしょ}",
             "back": "足利義満が京都の室町に建てた豪華な邸宅は？",
             "explanation": "この邸宅が「室町幕府」の名前の由来となった。",
             "difficulty": "basic"
           },
           {
             "id": "fc9",
-            "front": "管領",
+            "front": "{管領|かんれい}",
             "back": "室町幕府で将軍を補佐した役職は？",
             "explanation": "有力な守護大名が任じられた。鎌倉幕府の執権と比較される。細川・斯波・畠山の三家が交代で就任。",
             "difficulty": "basic"
           },
           {
             "id": "fc10",
-            "front": "守護大名",
+            "front": "{守護|しゅご}{大名|だいみょう}",
             "back": "室町時代、守護が国内の武士をまとめ強い力を持つようになったものは？",
             "explanation": "鎌倉時代の守護より権限が強い。土地支配や年貢徴収も行うようになった。",
             "difficulty": "standard"
           },
           {
             "id": "fc11",
-            "front": "土倉・酒屋",
+            "front": "{土倉|どそう}・{酒屋|さかや}",
             "back": "室町時代、京都で金融業などを行った商人は？",
             "explanation": "幕府はこれらを保護し税を取った。室町幕府の財政と関係。",
             "difficulty": "standard"
           },
           {
             "id": "fc12",
-            "front": "明",
+            "front": "{明|みん}",
             "back": "14世紀に漢民族が建てた中国の王朝は？",
             "explanation": "室町幕府と日明貿易を行った。元を北へ追いやった。",
             "difficulty": "basic"
           },
           {
             "id": "fc13",
-            "front": "侍所",
+            "front": "{侍所|さむらいどころ}",
             "back": "室町幕府で軍事・警察を担当した機関は？",
             "explanation": "御家人の統率や京都の治安維持を担当した。",
             "difficulty": "standard"
           },
           {
             "id": "fc14",
-            "front": "政所",
+            "front": "{政所|まんどころ}",
             "back": "室町幕府で財政・事務を管理した機関は？",
             "explanation": "鎌倉幕府にも同じ機関があった。",
             "difficulty": "standard"
           },
           {
             "id": "fc15",
-            "front": "問注所",
+            "front": "{問注所|もんちゅうじょ}",
             "back": "室町幕府で裁判・訴訟を扱った機関は？",
             "explanation": "鎌倉幕府から引き継がれた機関。",
             "difficulty": "standard"
           },
           {
             "id": "fc16",
-            "front": "鎌倉府",
+            "front": "{鎌倉府|かまくらふ}",
             "back": "関東8か国などの統治のために幕府が鎌倉に置いた機関は？",
             "explanation": "京都の幕府が遠く離れた関東を統治するために設置した出先機関。",
             "difficulty": "standard"
@@ -11337,21 +11337,21 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc20",
-            "front": "細川・斯波・畠山",
+            "front": "{細川|ほそかわ}・{斯波|しば}・{畠山|はたけやま}",
             "back": "管領に交代で就任した三家は？",
             "explanation": "三管領と呼ばれ、室町幕府で将軍を補佐する役職を担った。",
             "difficulty": "advanced"
           },
           {
             "id": "fc21",
-            "front": "吉野（奈良県）",
+            "front": "{吉野|よしの}（{奈良県|ならけん}）",
             "back": "後醍醐天皇が南朝を開いた場所は？",
             "explanation": "山深い吉野に逃れ、京都の北朝に対抗して正統性を主張した。",
             "difficulty": "advanced"
           },
           {
             "id": "fc22",
-            "front": "太政大臣",
+            "front": "{太政大臣|だいじょうだいじん}",
             "back": "足利義満が就任した朝廷の最高の官職は？",
             "explanation": "武家の棟梁でありながら朝廷の最高位にも就き、武家と公家の両方の権威を手にした。",
             "difficulty": "advanced"
@@ -11642,98 +11642,98 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "倭寇",
+            "front": "{倭寇|わこう}",
             "back": "朝鮮や中国の沿岸をおそった海賊は？",
             "explanation": "14世紀ごろの海賊。日本人だけでなく朝鮮人や中国人もいた。足利義満は倭寇を禁止して明と貿易した。",
             "difficulty": "basic"
           },
           {
             "id": "fc2",
-            "front": "日明貿易",
+            "front": "{日明|にちみん}{貿易|ぼうえき}",
             "back": "室町幕府と明との貿易は？",
             "explanation": "足利義満が始めた。平清盛の日宋貿易と区別する。",
             "difficulty": "basic"
           },
           {
             "id": "fc3",
-            "front": "勘合貿易",
+            "front": "{勘合|かんごう}{貿易|ぼうえき}",
             "back": "勘合という証明書を使った日明貿易の別名は？",
             "explanation": "勘合を使って正式な貿易船と倭寇を区別した。",
             "difficulty": "basic"
           },
           {
             "id": "fc4",
-            "front": "勘合",
+            "front": "{勘合|かんごう}",
             "back": "正式な貿易船と倭寇を区別するための合い札は？",
             "explanation": "一枚の札を二つに割り、日本と明で半分ずつ持って照合する仕組み。",
             "difficulty": "basic"
           },
           {
             "id": "fc5",
-            "front": "足利義満",
+            "front": "{足利義満|あしかがよしみつ}",
             "back": "日明貿易を始めた室町幕府の第3代将軍は？",
             "explanation": "南北朝統一・金閣建立・日明貿易開始など多くの功績を残した。",
             "difficulty": "basic"
           },
           {
             "id": "fc6",
-            "front": "明",
+            "front": "{明|みん}",
             "back": "漢民族が元を倒して建てた中国の王朝は？",
             "explanation": "14世紀に成立し、室町幕府と勘合貿易を行った。",
             "difficulty": "basic"
           },
           {
             "id": "fc7",
-            "front": "李成桂",
+            "front": "{李成桂|りせいけい}",
             "back": "1392年に高麗を滅ぼして朝鮮国を建てた人物は？",
             "explanation": "高麗の武将から国王となり、朝鮮半島に新たな王朝を開いた。",
             "difficulty": "basic"
           },
           {
             "id": "fc8",
-            "front": "朝鮮国",
+            "front": "{朝鮮国|ちょうせんこく}",
             "back": "李成桂が高麗をほろぼして建てた国は？",
             "explanation": "日本とも国交を結んだ。ハングルの制定と結びつける。",
             "difficulty": "basic"
           },
           {
             "id": "fc9",
-            "front": "ハングル（訓民正音）",
+            "front": "ハングル（{訓民正音|くんみんせいおん}）",
             "back": "朝鮮国で作られた独自の文字は？",
             "explanation": "漢字を読めない民衆の教育のために作られた表音文字。",
             "difficulty": "basic"
           },
           {
             "id": "fc10",
-            "front": "琉球王国",
+            "front": "{琉球|りゅうきゅう}{王国|おうこく}",
             "back": "尚氏が沖縄島を統一して建てた国は？",
             "explanation": "首里を都とした。中継貿易で栄えた。",
             "difficulty": "basic"
           },
           {
             "id": "fc11",
-            "front": "尚氏",
+            "front": "{尚氏|しょうし}",
             "back": "沖縄島を統一して琉球王国を建てた一族は？",
             "explanation": "三つに分かれていた沖縄島を統一し、琉球王国を建国した。",
             "difficulty": "basic"
           },
           {
             "id": "fc12",
-            "front": "首里",
+            "front": "{首里|しゅり}",
             "back": "琉球王国の都はどこ？",
             "explanation": "現在の沖縄県那覇市にあり、首里城が王国の中心だった。",
             "difficulty": "basic"
           },
           {
             "id": "fc13",
-            "front": "中継貿易",
+            "front": "{中継|なかつぎ}{貿易|ぼうえき}",
             "back": "各地の産物を別の地域へ運んで利益を得る貿易は？",
             "explanation": "琉球王国が栄えた理由。日本・中国・朝鮮・東南アジアを結ぶ。",
             "difficulty": "standard"
           },
           {
             "id": "fc14",
-            "front": "アイヌ民族",
+            "front": "アイヌ{民族|みんぞく}",
             "back": "蝦夷地に住み、狩りや漁、交易を行っていた人々は？",
             "explanation": "和人との交易やコシャマインの戦いと関係する。",
             "difficulty": "basic"
@@ -11747,28 +11747,28 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc16",
-            "front": "安藤氏",
+            "front": "{安藤氏|あんどうし}",
             "back": "青森県の十三湊を拠点にアイヌとの交易を仲立ちした一族は？",
             "explanation": "本州とアイヌの間の交易を仲介し、日本海交易で栄えた。",
             "difficulty": "standard"
           },
           {
             "id": "fc17",
-            "front": "十三湊",
+            "front": "{十三湊|とさみなと}",
             "back": "安藤氏がアイヌとの交易の拠点とした青森県の港は？",
             "explanation": "津軽半島にあった港で、日本海交易とアイヌ交易の要所だった。",
             "difficulty": "standard"
           },
           {
             "id": "fc18",
-            "front": "蝦夷地",
+            "front": "{蝦夷地|えぞち}",
             "back": "アイヌ民族が暮らしていた北海道の昔の呼び名は？",
             "explanation": "明治時代に北海道と改称されるまでこう呼ばれていた。",
             "difficulty": "standard"
           },
           {
             "id": "fc19",
-            "front": "朝貢貿易",
+            "front": "{朝貢|ちょうこう}{貿易|ぼうえき}",
             "back": "中国皇帝に貢ぎ物を差し出し、その見返りとして貿易を認められる形式は？",
             "explanation": "日明貿易は朝貢形式で行われた。",
             "difficulty": "standard"
@@ -12027,28 +12027,28 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "二毛作",
+            "front": "{二毛作|にもうさく}",
             "back": "同じ土地で年に2回、異なる作物を栽培する農業技術は？",
             "explanation": "鎌倉時代から普及し、室町時代にはさらに各地に広がった。",
             "difficulty": "basic"
           },
           {
             "id": "fc2",
-            "front": "三毛作",
+            "front": "{三毛作|さんもうさく}",
             "back": "一部の温暖な地域で行われた、年に3回作物を栽培する方法は？",
             "explanation": "温暖な地域で行われ、二毛作をさらに発展させた農法。",
             "difficulty": "standard"
           },
           {
             "id": "fc3",
-            "front": "水車",
+            "front": "{水車|すいしゃ}",
             "back": "かんがいのために利用された道具は？",
             "explanation": "川の水を田に引き上げる仕組みで、農業の効率を向上させた。",
             "difficulty": "basic"
           },
           {
             "id": "fc4",
-            "front": "堆肥",
+            "front": "{堆肥|たいひ}",
             "back": "牛馬の糞を使って作られた肥料は？",
             "explanation": "鎌倉時代の草木灰に加え、より効果的な肥料として室町時代に普及した。",
             "difficulty": "basic"
@@ -12062,70 +12062,70 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc6",
-            "front": "馬借",
+            "front": "{馬借|ばしゃく}",
             "back": "馬を使って荷物を運んだ運送業者は？",
             "explanation": "交通や商業の発達を示す。室町時代の流通と関係する。土一揆にも参加した。",
             "difficulty": "basic"
           },
           {
             "id": "fc7",
-            "front": "問（とい）",
+            "front": "{問|とい}（とい）",
             "back": "港や交通の要地で、商品の保管や運送を行った業者は？",
             "explanation": "馬借とともに流通の発達を示す。室町時代に運送業と倉庫業を兼ねた。",
             "difficulty": "basic"
           },
           {
             "id": "fc8",
-            "front": "座",
+            "front": "{座|ざ}",
             "back": "商工業者が同業者ごとにつくった組織は？",
             "explanation": "営業の独占を認められることがあった。織物・油・酒などの商工業と関係。寺社の保護を受けた。",
             "difficulty": "basic"
           },
           {
             "id": "fc9",
-            "front": "六斎市",
+            "front": "{六斎市|ろくさいいち}",
             "back": "室町時代に月6回開かれるようになった定期市は？",
             "explanation": "鎌倉時代の月3回（三斎市）から倍増し、商業の発展を示した。",
             "difficulty": "basic"
           },
           {
             "id": "fc10",
-            "front": "宋銭・明銭",
+            "front": "{宋銭|そうせん}・{明銭|みんせん}",
             "back": "室町時代に中国から輸入されて流通した貨幣は？",
             "explanation": "日本では独自の通貨が十分になく、中国の銅銭が広く流通した。",
             "difficulty": "basic"
           },
           {
             "id": "fc11",
-            "front": "西陣",
+            "front": "{西陣|にしじん}",
             "back": "京都で絹織物の生産が盛んだった地域は？",
             "explanation": "応仁の乱の西軍の陣地があった場所で、現在も西陣織で有名。",
             "difficulty": "basic"
           },
           {
             "id": "fc12",
-            "front": "博多",
+            "front": "{博多|はかた}",
             "back": "西陣とともに絹織物の生産が盛んだった福岡県の地域は？",
             "explanation": "博多織で知られ、大陸との貿易拠点としても栄えた。",
             "difficulty": "standard"
           },
           {
             "id": "fc13",
-            "front": "土倉",
+            "front": "{土倉|どそう}",
             "back": "質物を取って金を貸す高利貸しの業者は？",
             "explanation": "幕府の財源にもなったが、土一揆の攻撃対象にもなった。",
             "difficulty": "basic"
           },
           {
             "id": "fc14",
-            "front": "酒屋",
+            "front": "{酒屋|さかや}",
             "back": "酒造業と金融業を兼ね、高利貸しを行った業者は？",
             "explanation": "酒造業で得た資金を元手に金融業を行い、幕府に税を納めた。",
             "difficulty": "basic"
           },
           {
             "id": "fc17",
-            "front": "養蚕業",
+            "front": "{養蚕業|ようさんぎょう}",
             "back": "桑の栽培が増えたことと関係する産業は？",
             "explanation": "桑は蚕の餌で、絹織物の原料となる生糸を得るための産業。",
             "difficulty": "standard"
@@ -12139,14 +12139,14 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc20",
-            "front": "三斎市",
+            "front": "{三斎市|さんさいいち}",
             "back": "鎌倉時代に月3回開かれた定期市の呼び名は？",
             "explanation": "鎌倉時代は月3回だったが、室町時代には月6回の六斎市に増えた。",
             "difficulty": "standard"
           },
           {
             "id": "fc22",
-            "front": "西陣織",
+            "front": "{西陣織|にしじんおり}",
             "back": "京都の西陣で生産された絹織物の名称は？",
             "explanation": "京都の西陣で生産された高級絹織物で、応仁の乱後に発展した。",
             "difficulty": "advanced"
@@ -12424,91 +12424,91 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "惣（そう）",
+            "front": "{惣|そう}（そう）",
             "back": "村の有力な農民を中心に作られた、村の自治組織を何という？",
             "explanation": "寄合で村の運営を話し合い、掟を定めて自分たちの力で村を運営した。",
             "difficulty": "basic"
           },
           {
             "id": "fc2",
-            "front": "土一揆",
+            "front": "{土一揆|つちいっき}",
             "back": "農民や馬借が借金帳消しを求めて蜂起した運動は？",
             "explanation": "土倉や酒屋などの高利貸しを襲撃し、幕府に徳政令の発布を求めた。",
             "difficulty": "basic"
           },
           {
             "id": "fc3",
-            "front": "町衆",
+            "front": "{町衆|まちしゅう}",
             "back": "京都の自治を担い、祇園祭を運営した裕福な商工業者は？",
             "explanation": "応仁の乱で荒廃した京都を復興させ、祇園祭を復活させた。",
             "difficulty": "basic"
           },
           {
             "id": "fc4",
-            "front": "正長の土一揆",
+            "front": "{正長|しょうちょう}の{土一揆|つちいっき}",
             "back": "1428年に起こった日本最初の大規模な土一揆は？",
             "explanation": "近畿地方一帯で土倉や酒屋を襲撃した日本初の大規模な農民蜂起。",
             "difficulty": "basic"
           },
           {
             "id": "fc5",
-            "front": "寄合",
+            "front": "{寄合|よりあい}",
             "back": "惣の村人が集まって村の運営を話し合う会議は？",
             "explanation": "重要事項を合議で決定する会議で、農民の自治意識の高さを示す。",
             "difficulty": "basic"
           },
           {
             "id": "fc6",
-            "front": "徳政令",
+            "front": "{徳政令|とくせいれい}",
             "back": "土一揆で農民が幕府に求めた、借金帳消しの法令は？",
             "explanation": "借金を帳消しにする法令で、鎌倉時代の永仁の徳政令が先例。",
             "difficulty": "basic"
           },
           {
             "id": "fc7",
-            "front": "おきて（掟）",
+            "front": "おきて（{掟|おきて}）",
             "back": "惣が定めた村の規約を何という？",
             "explanation": "文書で明確に定められた村の規約で、農民の自治意識の高さを示す。",
             "difficulty": "basic"
           },
           {
             "id": "fc8",
-            "front": "会合衆",
+            "front": "{会合衆|えごうしゅう}",
             "back": "堺で合議制の自治を行った有力商人の組織は？",
             "explanation": "有力商人が話し合いで方針を決定し、堺を「自由都市」として運営した。",
             "difficulty": "basic"
           },
           {
             "id": "fc9",
-            "front": "入会地",
+            "front": "{入会地|いりあいち}",
             "back": "惣が共同で管理・利用した山林や野原は？",
             "explanation": "村人が共同で薪や草を採取する場所で、惣が管理ルールを定めた。",
             "difficulty": "basic"
           },
           {
             "id": "fc10",
-            "front": "祇園祭",
+            "front": "{祇園祭|ぎおんまつり}",
             "back": "町衆が復興・運営した京都の有名な祭りは？",
             "explanation": "応仁の乱で中断した後、町衆の力で復活し現在まで続く京都の代表的な祭り。",
             "difficulty": "basic"
           },
           {
             "id": "fc11",
-            "front": "堺",
+            "front": "{堺|さかい}",
             "back": "会合衆による合議制の自治で「自由都市」として知られた港町は？",
             "explanation": "大阪府にある港町。濠で囲まれ、戦国大名にも属さない独自の自治を行った。",
             "difficulty": "basic"
           },
           {
             "id": "fc12",
-            "front": "博多",
+            "front": "{博多|はかた}",
             "back": "年行司が自治を行った福岡県の港町は？",
             "explanation": "大陸との貿易で栄え、有力商人の年行司が自治を担った港町。",
             "difficulty": "basic"
           },
           {
             "id": "fc13",
-            "front": "年行司",
+            "front": "{年行司|としぎょうじ}",
             "back": "博多で自治を担った有力商人の組織は？",
             "explanation": "堺の会合衆に相当する組織で、博多の港町の自治を行った。",
             "difficulty": "standard"
@@ -12522,49 +12522,49 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc15",
-            "front": "土倉・酒屋",
+            "front": "{土倉|どそう}・{酒屋|さかや}",
             "back": "土一揆の攻撃対象となった高利貸しの業者を2つ答えよ",
             "explanation": "高利で金を貸していた業者で、農民の借金苦の原因とされた。",
             "difficulty": "standard"
           },
           {
             "id": "fc16",
-            "front": "嘉吉の土一揆",
+            "front": "{嘉吉|かきつ}の{土一揆|つちいっき}",
             "back": "1441年に起こり、幕府が初めて徳政令を出した土一揆は？",
             "explanation": "幕府が農民の要求に応じて初めて徳政令を発布した画期的な出来事。",
             "difficulty": "standard"
           },
           {
             "id": "fc17",
-            "front": "馬借",
+            "front": "{馬借|ばしゃく}",
             "back": "土一揆に農民とともに参加した運送業者は？",
             "explanation": "運送業者として各地を行き来し、農民とともに蜂起に加わった。",
             "difficulty": "standard"
           },
           {
             "id": "fc18",
-            "front": "応仁の乱",
+            "front": "{応仁|おうにん}の{乱|らん}",
             "back": "京都が焼け野原になり、町衆が復興に力を発揮した戦乱は？",
             "explanation": "1467年から11年間続いた戦乱で、京都の多くの寺社が焼失した。",
             "difficulty": "standard"
           },
           {
             "id": "fc19",
-            "front": "濠（ほり）",
+            "front": "{濠|ほり}（ほり）",
             "back": "堺の周りに掘られた防御設備は？",
             "explanation": "堺の自治を守るために周囲に掘られた防御施設で、独立性の象徴。",
             "difficulty": "standard"
           },
           {
             "id": "fc20",
-            "front": "自由都市",
+            "front": "自由{都市|とし}",
             "back": "堺のように有力商人が自治で運営する都市を何と呼ぶ？",
             "explanation": "大名の支配を受けず、商人自身が合議で都市を運営する形態。",
             "difficulty": "standard"
           },
           {
             "id": "fc21",
-            "front": "合議制",
+            "front": "{合議制|ごうぎせい}",
             "back": "堺の会合衆が自治を行った際の意思決定の方法は？",
             "explanation": "有力商人が話し合いで方針を決める仕組みで、一人の独裁ではなかった。",
             "difficulty": "advanced"
@@ -12855,98 +12855,98 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "北山文化",
+            "front": "{北山|きたやま}{文化|ぶんか}",
             "back": "足利義満の時代の華やかで公家と武家が融合した文化は？",
             "explanation": "日明貿易の莫大な富を背景に、貴族と武士の文化が禅宗の影響で融合した。金閣が代表。",
             "difficulty": "basic"
           },
           {
             "id": "fc2",
-            "front": "金閣",
+            "front": "{金閣|きんかく}",
             "back": "足利義満が京都の北山に建てた3層構造の建物は？",
             "explanation": "1層が寝殿造、2層が武家造、3層が禅宗様で、文化の融合を象徴する。鹿苑寺金閣ともいう。",
             "difficulty": "basic"
           },
           {
             "id": "fc3",
-            "front": "能",
+            "front": "{能|のう}",
             "back": "観阿弥・世阿弥親子が猿楽から大成した舞台芸術は？",
             "explanation": "面をつけて舞い、謡と囃子で演じる舞台芸術で、足利義満に保護された。",
             "difficulty": "basic"
           },
           {
             "id": "fc4",
-            "front": "狂言",
+            "front": "{狂言|きょうげん}",
             "back": "能の合間に演じられた、こっけいな内容の芸能は？",
             "explanation": "能の格式高い世界と対照的に、庶民の滑稽さをユーモラスに描いた喜劇。",
             "difficulty": "basic"
           },
           {
             "id": "fc5",
-            "front": "観阿弥・世阿弥",
+            "front": "{観阿弥|かんあみ}・{世阿弥|ぜあみ}",
             "back": "猿楽から能を大成した親子は？",
             "explanation": "父の観阿弥が能の基礎を作り、子の世阿弥が芸術として完成させた。",
             "difficulty": "basic"
           },
           {
             "id": "fc6",
-            "front": "鹿苑寺",
+            "front": "{鹿苑寺|ろくおんじ}",
             "back": "金閣がある寺の正式名称は？",
             "explanation": "足利義満の法号「鹿苑院殿」にちなんで名付けられた寺。",
             "difficulty": "basic"
           },
           {
             "id": "fc7",
-            "front": "猿楽",
+            "front": "{猿楽|さるがく}",
             "back": "能のもとになった芸能は？",
             "explanation": "平安時代から続く芸能で、観阿弥・世阿弥により能へと発展した。",
             "difficulty": "basic"
           },
           {
             "id": "fc8",
-            "front": "足利義満",
+            "front": "{足利義満|あしかがよしみつ}",
             "back": "金閣を建て、能を保護した室町幕府の第3代将軍は？",
             "explanation": "南北朝統一・日明貿易開始など多くの功績を残し、幕府の全盛期を築いた。",
             "difficulty": "basic"
           },
           {
             "id": "fc9",
-            "front": "日明貿易（勘合貿易）",
+            "front": "{日明|にちみん}{貿易|ぼうえき}（{勘合|かんごう}{貿易|ぼうえき}）",
             "back": "北山文化が華やかだった背景にある、明との貿易は？",
             "explanation": "勘合を用いた正式な貿易で、莫大な利益が文化の華やかさを支えた。",
             "difficulty": "basic"
           },
           {
             "id": "fc11",
-            "front": "寝殿造",
+            "front": "{寝殿造|しんでんづくり}",
             "back": "金閣の1層目の建築様式は？",
             "explanation": "平安時代の貴族の住宅様式で、公家文化を象徴する。",
             "difficulty": "basic"
           },
           {
             "id": "fc12",
-            "front": "禅宗",
+            "front": "{禅宗|ぜんしゅう}",
             "back": "室町文化に大きな影響を与えた仏教の宗派は？",
             "explanation": "水墨画・枯山水・茶の湯など多くの文化に影響を与えた。",
             "difficulty": "standard"
           },
           {
             "id": "fc13",
-            "front": "世阿弥",
+            "front": "{世阿弥|ぜあみ}",
             "back": "観阿弥の子で、能を芸術として完成させた人物は？",
             "explanation": "「風姿花伝」を著し、能の美学を理論化して後世に伝えた。",
             "difficulty": "standard"
           },
           {
             "id": "fc14",
-            "front": "観阿弥",
+            "front": "{観阿弥|かんあみ}",
             "back": "能を大成した親子のうち、父親の方は？",
             "explanation": "猿楽を洗練させて能の基礎を作り、足利義満に見出された。",
             "difficulty": "standard"
           },
           {
             "id": "fc18",
-            "front": "京都の北山",
+            "front": "京都の{北山|きたやま}",
             "back": "金閣が建てられた場所は？",
             "explanation": "この地名が北山文化の名前の由来となった。",
             "difficulty": "advanced"
@@ -13185,49 +13185,49 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "東山文化",
+            "front": "{東山|ひがしやま}{文化|ぶんか}",
             "back": "足利義政のころの文化で、簡素で落ち着いた美しさが特徴の文化は？",
             "explanation": "禅宗の精神を反映した「わび」の文化。銀閣や書院造と関係する。北山文化と比較されやすい。",
             "difficulty": "basic"
           },
           {
             "id": "fc2",
-            "front": "銀閣",
+            "front": "{銀閣|ぎんかく}",
             "back": "足利義政が京都の東山に建てた建物は？",
             "explanation": "東山文化を代表する。金閣とは対照的に質素な佇まいで、書院造の建築様式を取り入れている。",
             "difficulty": "basic"
           },
           {
             "id": "fc3",
-            "front": "足利義政",
+            "front": "{足利義政|あしかがよしまさ}",
             "back": "銀閣を建てた室町幕府の第8代将軍は？",
             "explanation": "政治より文化を好み、東山文化を育てたが、応仁の乱の一因ともなった。",
             "difficulty": "basic"
           },
           {
             "id": "fc4",
-            "front": "書院造",
+            "front": "{書院造|しょいんづくり}",
             "back": "畳、床の間、障子などを備えた住宅様式で、現在の和風建築のもとになったものは？",
             "explanation": "東山文化と結びつける。畳・障子・ふすまを使った建築様式で、和室の原型。",
             "difficulty": "basic"
           },
           {
             "id": "fc5",
-            "front": "水墨画",
+            "front": "{水墨画|すいぼくが}",
             "back": "墨の濃淡だけで自然を表現した、禅宗の影響を受けた絵画は？",
             "explanation": "色を使わず墨の濃淡だけで自然の奥深さを表現する絵画技法。",
             "difficulty": "basic"
           },
           {
             "id": "fc6",
-            "front": "雪舟",
+            "front": "{雪舟|せっしゅう}",
             "back": "明に渡って水墨画を学んだ室町時代の水墨画家は？",
             "explanation": "明（中国）で本場の技法を学び、帰国後に日本独自の水墨画を確立した。",
             "difficulty": "basic"
           },
           {
             "id": "fc7",
-            "front": "枯山水",
+            "front": "{枯山水|かれさんすい}",
             "back": "水を使わず石や砂で山水の風景を表現する庭園は？",
             "explanation": "禅宗の精神で限られた空間に精神世界を表現した庭園。龍安寺の石庭が有名。",
             "difficulty": "basic"
@@ -13248,35 +13248,35 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc10",
-            "front": "連歌",
+            "front": "{連歌|れんが}",
             "back": "複数の人が上の句と下の句を交互に詠み合う文芸は？",
             "explanation": "南北朝時代から発展。貴族から庶民まで幅広い層に楽しまれた。",
             "difficulty": "basic"
           },
           {
             "id": "fc11",
-            "front": "御伽草子",
+            "front": "{御伽草子|おとぎぞうし}",
             "back": "庶民の間で流行した「一寸法師」などの挿絵入り物語は？",
             "explanation": "分かりやすい文章と挿絵で、文字が読めない人にも親しまれた。",
             "difficulty": "basic"
           },
           {
             "id": "fc12",
-            "front": "足利学校",
+            "front": "{足利|あしかが}学校",
             "back": "栃木県にあり、全国から人材が集まって儒学を学んだ学校は？",
             "explanation": "日本最古の学校の一つとされ、僧侶や武士の子弟が学んだ。",
             "difficulty": "basic"
           },
           {
             "id": "fc14",
-            "front": "慈照寺",
+            "front": "{慈照寺|じしょうじ}",
             "back": "銀閣がある寺の正式名称は？",
             "explanation": "足利義政の法号にちなんで名付けられた寺。金閣の鹿苑寺と対比される。",
             "difficulty": "standard"
           },
           {
             "id": "fc15",
-            "front": "秋冬山水図",
+            "front": "{秋冬|しゅうとう}{山水図|さんすいず}",
             "back": "雪舟の代表作として知られる水墨画は？",
             "explanation": "墨の濃淡だけで秋と冬の山水風景を力強く表現した傑作。",
             "difficulty": "standard"
@@ -13290,28 +13290,28 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc17",
-            "front": "明（中国）",
+            "front": "{明|みん}（中国）",
             "back": "雪舟が水墨画の技法を学ぶために渡った国は？",
             "explanation": "本場の中国で水墨画を学び、日本の自然を描き独自の画風を確立した。",
             "difficulty": "standard"
           },
           {
             "id": "fc20",
-            "front": "儒学",
+            "front": "{儒学|じゅがく}",
             "back": "足利学校で主に教えられた学問は？",
             "explanation": "中国の孔子の教えに基づく学問で、礼儀や道徳を重視した。",
             "difficulty": "standard"
           },
           {
             "id": "fc21",
-            "front": "華道",
+            "front": "{華道|かどう}",
             "back": "生け花が後に発展した芸道の名前は？",
             "explanation": "室町時代に始まった生け花が体系化され、現代まで受け継がれている。",
             "difficulty": "standard"
           },
           {
             "id": "fc22",
-            "front": "茶道",
+            "front": "{茶道|さどう}",
             "back": "茶の湯が後に発展した芸道の名前は？",
             "explanation": "わびの精神を大切にする茶の湯が体系化され、千利休が完成させた。",
             "difficulty": "advanced"
