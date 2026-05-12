@@ -276,6 +276,12 @@ export function readSavedSession(
 
 export function writeSavedSession(uid: string | null, session: SavedSession): void {
   setCached(sessionKey(session.topicId, session.kind), uid, session, SESSION_TTL_MS);
+  // 「最後に学習した」ポインタも更新
+  writeLatestSession(uid, {
+    topicId: session.topicId,
+    kind: session.kind,
+    savedAt: session.savedAt,
+  });
 }
 
 export function clearSavedSession(
@@ -289,6 +295,38 @@ export function clearSavedSession(
   } catch {
     /* ignore */
   }
+  // クリアしたセッションが latest と一致するなら latest も消す
+  const latest = readLatestSession(uid);
+  if (latest && latest.topicId === topicId && latest.kind === kind) {
+    try {
+      window.localStorage.removeItem(buildKeyExport(LATEST_SESSION_KEY, uid));
+    } catch {
+      /* ignore */
+    }
+  }
+}
+
+// ---- latest session pointer ---------------------------------------------
+
+const LATEST_SESSION_KEY = 'session:latest';
+
+export interface LatestSessionRef {
+  topicId: string;
+  kind: 'fc' | 'quiz';
+  savedAt: number;
+}
+
+export function readLatestSession(uid: string | null): LatestSessionRef | null {
+  const hit = getCached<LatestSessionRef>(LATEST_SESSION_KEY, uid);
+  if (!hit || hit.isStale) return null;
+  const v = hit.value;
+  if (!v || typeof v !== 'object') return null;
+  if (typeof v.topicId !== 'string' || (v.kind !== 'fc' && v.kind !== 'quiz')) return null;
+  return v;
+}
+
+export function writeLatestSession(uid: string | null, ref: LatestSessionRef): void {
+  setCached(LATEST_SESSION_KEY, uid, ref, SESSION_TTL_MS);
 }
 
 // 内部 buildKey を再露出（同モジュール内なので import 経路を統一）

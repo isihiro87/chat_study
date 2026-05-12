@@ -21,6 +21,8 @@ import {
   readSavedSession,
   writeSavedSession,
   clearSavedSession,
+  readLatestSession,
+  type SavedSession,
   type SavedSessionFc,
   type SavedSessionQuiz,
 } from '../utils/liffStudyCache';
@@ -343,24 +345,32 @@ export function LiffUnitsPage() {
     void persistDifficultyPref();
   };
 
-  // ---- 中断セッションを続きから再開 ----
-  const resumeFromSavedSession = () => {
-    if (!currentTopic) return;
-    if (setupKind === 'fc') {
-      const saved = user ? readSavedSession(user.uid, currentTopic.topicId, 'fc') : null;
-      if (!saved || saved.kind !== 'fc') return;
-      // 保存されている itemIds から実体を復元
-      const byId = new Map(currentTopic.flashcards.map((c) => [c.id, c]));
+  // ---- 中断セッションを続きから再開（任意の topic / kind） ----
+  const resumeSavedSession = (topic: StudyTopic, kind: SetupKind) => {
+    if (!user) return;
+    const saved = readSavedSession(user.uid, topic.topicId, kind);
+    if (!saved) return;
+    setCurrentTopic(topic);
+    setSetupKind(kind);
+    const cachedStats = allItemStats.get(topic.topicId);
+    if (cachedStats) {
+      setItemStats(cachedStats);
+    } else {
+      void (async () => {
+        const stats = await loadItemStats(topic.topicId);
+        setItemStats(stats);
+      })();
+    }
+    if (kind === 'fc' && saved.kind === 'fc') {
+      const byId = new Map(topic.flashcards.map((c) => [c.id, c]));
       const items = saved.itemIds.map((id) => byId.get(id)).filter(Boolean) as StudyFlashcard[];
       if (items.length === 0) return;
       setActiveFcItems(items);
       setSessionSeenFcIds(new Set(items.map((i) => i.id)));
       setResumeFc(saved);
       setView('fc');
-    } else {
-      const saved = user ? readSavedSession(user.uid, currentTopic.topicId, 'quiz') : null;
-      if (!saved || saved.kind !== 'quiz') return;
-      const byId = new Map(currentTopic.quiz.map((q) => [q.id, q]));
+    } else if (kind === 'quiz' && saved.kind === 'quiz') {
+      const byId = new Map(topic.quiz.map((q) => [q.id, q]));
       const items = saved.itemIds.map((id) => byId.get(id)).filter(Boolean) as StudyQuizQuestion[];
       if (items.length === 0) return;
       setActiveQuizItems(items);
@@ -369,6 +379,31 @@ export function LiffUnitsPage() {
       setView('quiz');
     }
   };
+
+  // Setup 画面の「続きから」用（currentTopic 前提）
+  const resumeFromSavedSession = () => {
+    if (!currentTopic) return;
+    resumeSavedSession(currentTopic, setupKind);
+  };
+
+  // 一覧画面の「前回の続き」バナー用: 最終セッション + 対応 topic + saved を集約
+  const latestResumeInfo = useMemo<
+    | { topic: StudyTopic; kind: SetupKind; saved: SavedSession }
+    | null
+  >(() => {
+    if (!user) return null;
+    const latest = readLatestSession(user.uid);
+    if (!latest) return null;
+    const topic = allEras
+      .flatMap((e) => e.topics)
+      .find((t) => t.topicId === latest.topicId);
+    if (!topic) return null;
+    const saved = readSavedSession(user.uid, latest.topicId, latest.kind);
+    if (!saved) return null;
+    return { topic, kind: latest.kind, saved };
+    // view 切替時にも再評価したいので view も依存に入れる
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user, allEras, view]);
 
   // ---- 同条件で次のN問を出題（end 画面から） ----
   const startNextBatch = () => {
@@ -737,6 +772,33 @@ export function LiffUnitsPage() {
       </header>
 
       <main className="max-w-2xl mx-auto px-4">
+        {latestResumeInfo && (
+          <section className="mt-4 bg-amber-50 border border-amber-200 rounded-2xl p-4">
+            <div className="text-xs text-amber-800 mb-1">📍 前回の続きから</div>
+            <div className="flex items-center gap-2 text-sm text-amber-900 mb-3">
+              {latestResumeInfo.topic.icon && (
+                <span className="text-lg">{latestResumeInfo.topic.icon}</span>
+              )}
+              <span className="truncate flex-1">
+                <span className="font-bold">{latestResumeInfo.topic.name}</span>
+                <span className="text-xs text-amber-700 ml-1">
+                  {latestResumeInfo.kind === 'fc' ? '🃏 暗記カード' : '❓ クイズ'}{' '}
+                  {latestResumeInfo.saved.idx} / {latestResumeInfo.saved.itemIds.length}
+                </span>
+              </span>
+            </div>
+            <button
+              onClick={() =>
+                resumeSavedSession(latestResumeInfo.topic, latestResumeInfo.kind)
+              }
+              className="w-full bg-amber-500 hover:bg-amber-600 text-white rounded-full py-2 text-sm font-bold"
+              style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+            >
+              ▶ 続きから始める
+            </button>
+          </section>
+        )}
+
         {selectedGrade === null && (
           <div className="mt-8 text-center text-sm text-gray-500">
             <p>先に教科と学年を設定してください。</p>

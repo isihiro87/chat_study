@@ -9,6 +9,7 @@
  * - `/liff/report`        : リッチメニュー「成績・記録」からの LIFF エントリ
  * - `/liff/settings`      : リッチメニュー「設定・サポート」からの LIFF エントリ
  * - `/liff/premium-info`  : 無料版「もっと解く」flex からのプレミアム誘導 LIFF
+ * - `/liff/premium-apply` : LIFF /premium-info から遷移するプレミアム申込フォーム
  * - `/liff/help`          : 「使い方」flex の「使い方を詳しく見る」LIFF
  * - その他               : NotFoundPage
  *
@@ -47,6 +48,11 @@ const LiffPremiumInfoPage = lazy(() =>
     default: m.LiffPremiumInfoPage,
   }))
 );
+const LiffPremiumApplyPage = lazy(() =>
+  import('../pages/LiffPremiumApplyPage').then((m) => ({
+    default: m.LiffPremiumApplyPage,
+  }))
+);
 const LiffHelpPage = lazy(() =>
   import('../pages/LiffHelpPage').then((m) => ({ default: m.LiffHelpPage }))
 );
@@ -80,6 +86,7 @@ function LineAuthGuard() {
         <Route path="/liff/report" element={<LiffReportPage />} />
         <Route path="/liff/settings" element={<LiffSettingsPage />} />
         <Route path="/liff/premium-info" element={<LiffPremiumInfoPage />} />
+        <Route path="/liff/premium-apply" element={<LiffPremiumApplyPage />} />
         <Route path="/liff/help" element={<LiffHelpPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
