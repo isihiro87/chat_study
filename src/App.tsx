@@ -19,6 +19,8 @@ const LineCallbackPage = lazy(() => import('./pages/LineCallbackPage').then(m =>
 const LiffUnitsPage = lazy(() => import('./pages/LiffUnitsPage').then(m => ({ default: m.LiffUnitsPage })));
 const AdminPage = lazy(() => import('./pages/AdminPage').then(m => ({ default: m.AdminPage })));
 const WelcomePage = lazy(() => import('./pages/WelcomePage').then(m => ({ default: m.WelcomePage })));
+const TermsPage = lazy(() => import('./pages/TermsPage').then(m => ({ default: m.TermsPage })));
+const PrivacyPage = lazy(() => import('./pages/PrivacyPage').then(m => ({ default: m.PrivacyPage })));
 
 // ルート変更時にスクロール位置を復元またはリセット
 function ScrollRestoration() {
@@ -77,6 +79,8 @@ function AnimatedRoutes() {
           <Route path="/auth/line/callback" element={<LineCallbackPage />} />
           <Route path="/liff/units" element={<LiffUnitsPage />} />
           <Route path="/welcome" element={<WelcomePage />} />
+          <Route path="/terms" element={<TermsPage />} />
+          <Route path="/privacy" element={<PrivacyPage />} />
           <Route path="/admin" element={<AdminPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

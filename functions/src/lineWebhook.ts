@@ -2272,16 +2272,43 @@ function buildQuestionMessage(questionId: string, q: Question) {
         layout: "vertical" as const,
         spacing: "sm" as const,
         paddingAll: "16px",
+        // box + action のカード型タップ要素で構成。Flex の button は label を
+        // 1 行で省略表示してしまうため、長い選択肢が読めなくなる。
+        // text に wrap: true を付けて複数行表示できるようにする。
         contents: q.choices.map((choice, i) => ({
-          type: "button" as const,
-          style: "secondary" as const,
-          height: "sm" as const,
+          type: "box" as const,
+          layout: "horizontal" as const,
+          paddingAll: "10px",
+          cornerRadius: "md" as const,
+          backgroundColor: "#FFFFFF",
+          borderColor: "#E5E7EB",
+          borderWidth: "1px",
           action: {
             type: "postback" as const,
             label: choice.slice(0, 40),
             data: `type=answer&questionId=${questionId}&choice=${i}`,
             displayText: choice,
           },
+          contents: [
+            {
+              type: "text" as const,
+              text: String.fromCharCode(65 + i),
+              flex: 0,
+              size: "sm" as const,
+              weight: "bold" as const,
+              color: "#F59E0B",
+              gravity: "top" as const,
+            },
+            {
+              type: "text" as const,
+              text: choice,
+              flex: 1,
+              wrap: true,
+              size: "sm" as const,
+              color: "#111827",
+              margin: "md" as const,
+            },
+          ],
         })),
       },
       styles: {

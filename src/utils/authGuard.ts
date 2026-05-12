@@ -8,7 +8,7 @@
  * 詳細は `.steering/20260510-line-only-auth/design.md` を参照。
  */
 
-const PUBLIC_PATH_EXACT: readonly string[] = ['/'];
+const PUBLIC_PATH_EXACT: readonly string[] = ['/', '/terms', '/privacy'];
 
 const PUBLIC_PATH_PREFIXES: readonly string[] = [
   '/welcome',
