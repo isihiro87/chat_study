@@ -51,27 +51,6 @@
       "difficulty": "basic"
     },
     {
-      "id": "fc7",
-      "front": "年代",
-      "back": "10年ごとにまとめて時代を表す方法は？",
-      "explanation": "1970年代は1970〜1979年。10年ごとのまとまり。",
-      "difficulty": "standard"
-    },
-    {
-      "id": "fc8",
-      "front": "時代区分",
-      "back": "歴史を特徴ごとに分けて考える方法を何という？",
-      "explanation": "政治・文化・社会の変化で区切る。縄文・奈良・鎌倉などが時代区分の例。",
-      "difficulty": "standard"
-    },
-    {
-      "id": "fc9",
-      "front": "紀年法",
-      "back": "年を数える基準や方法のことを何という？",
-      "explanation": "西暦・元号・干支などがある。",
-      "difficulty": "standard"
-    },
-    {
       "id": "fc10",
       "front": "元号",
       "back": "日本で用いられる年の表し方で、天皇の代や出来事をきっかけに変わる方法は？",

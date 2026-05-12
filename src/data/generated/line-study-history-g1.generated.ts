@@ -95,27 +95,6 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "difficulty": "basic"
           },
           {
-            "id": "fc7",
-            "front": "年代",
-            "back": "10年ごとにまとめて時代を表す方法は？",
-            "explanation": "1970年代は1970〜1979年。10年ごとのまとまり。",
-            "difficulty": "standard"
-          },
-          {
-            "id": "fc8",
-            "front": "時代区分",
-            "back": "歴史を特徴ごとに分けて考える方法を何という？",
-            "explanation": "政治・文化・社会の変化で区切る。縄文・奈良・鎌倉などが時代区分の例。",
-            "difficulty": "standard"
-          },
-          {
-            "id": "fc9",
-            "front": "紀年法",
-            "back": "年を数える基準や方法のことを何という？",
-            "explanation": "西暦・元号・干支などがある。",
-            "difficulty": "standard"
-          },
-          {
             "id": "fc10",
             "front": "元号",
             "back": "日本で用いられる年の表し方で、天皇の代や出来事をきっかけに変わる方法は？",
@@ -808,7 +787,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc12",
-            "front": "60{進法|しんぽう}",
+            "front": "60{進法|しんほう}",
             "back": "メソポタミアで発明された、時間や角度のもとになった数え方は？",
             "explanation": "1時間＝60分、1分＝60秒、円周＝360度のもとになった数え方。",
             "difficulty": "basic"
@@ -1167,32 +1146,6 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "difficulty": "standard"
           },
           {
-            "id": "q22",
-            "question": "「文字・暦・建築」の組み合わせとして最も正しいものはどれですか。",
-            "options": [
-              "甲骨文字・太陽暦・コロッセオ",
-              "象形文字・太陽暦・ピラミッド",
-              "くさび形文字・太陰暦・パルテノン神殿",
-              "アルファベット・六十進法・万里の長城"
-            ],
-            "correctIndex": 1,
-            "explanation": "エジプト文明では象形文字、太陽暦、ピラミッドが重要です。",
-            "difficulty": "standard"
-          },
-          {
-            "id": "q23",
-            "question": "ナイル川の洪水がエジプト文明に与えた恩恵は？",
-            "options": [
-              "大量の砂金を川底に運んだ",
-              "外敵の侵攻を水で阻んだ",
-              "肥沃な土を運び農地を作った",
-              "豊富な魚介類を供給した"
-            ],
-            "correctIndex": 2,
-            "explanation": "ナイル川の洪水は肥沃な土を運び、豊かな農地を作りました。",
-            "difficulty": "advanced"
-          },
-          {
             "id": "q24",
             "question": "太陰暦と太陽暦の違いとして正しいものは？",
             "options": [
@@ -1255,56 +1208,56 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "中国文明",
+            "front": "中国{文明|ぶんめい}",
             "back": "黄河や長江の流域で発生した文明は？",
             "explanation": "黄河と長江の流域で発生。殷の甲骨文字から漢字が発展した。",
             "difficulty": "basic"
           },
           {
             "id": "fc2",
-            "front": "甲骨文字",
+            "front": "{甲骨文字|こうこつもじ}",
             "back": "殷で占いの結果を記すのに使われた文字は？",
             "explanation": "亀の甲羅や牛の骨に刻まれた文字。占いの記録に使われ、漢字のもとになった。",
             "difficulty": "basic"
           },
           {
             "id": "fc3",
-            "front": "周",
+            "front": "{周|しゅう}",
             "back": "殷を滅ぼし、その後に支配が弱まった国は？",
             "explanation": "殷を滅ぼした王朝。やがて支配力が弱まり、春秋戦国時代に入った。",
             "difficulty": "basic"
           },
           {
             "id": "fc4",
-            "front": "孔子",
+            "front": "{孔子|こうし}",
             "back": "紀元前6世紀に「仁」と「礼」を説いた人物は？",
             "explanation": "「仁」（思いやり）と「礼」（秩序）を説いた。論語に言行がまとめられている。",
             "difficulty": "basic"
           },
           {
             "id": "fc5",
-            "front": "論語",
+            "front": "{論語|ろんご}",
             "back": "孔子の言行を弟子がまとめた書物は？",
             "explanation": "孔子の教えを弟子たちがまとめた書物。儒教の基本経典となった。",
             "difficulty": "basic"
           },
           {
             "id": "fc6",
-            "front": "始皇帝",
+            "front": "{始皇帝|しこうてい}",
             "back": "紀元前3世紀に初めて中国を統一した王は？",
             "explanation": "紀元前221年に中国を初統一。文字・度量衡の統一や万里の長城の建設を行った。",
             "difficulty": "basic"
           },
           {
             "id": "fc7",
-            "front": "万里の長城",
+            "front": "{万里|ばんり}の{長城|ちょうじょう}",
             "back": "始皇帝が北方民族の侵入を防ぐために築いたのは？",
             "explanation": "北方の遊牧民族の侵入を防ぐための巨大な防壁。始皇帝が各地の長城をつないだ。",
             "difficulty": "basic"
           },
           {
             "id": "fc8",
-            "front": "漢",
+            "front": "{漢|かん}",
             "back": "秦の次に中国を統一し大帝国となった国は？",
             "explanation": "劉邦が建国し約400年続いた大帝国。儒教を国の学問として採用した。",
             "difficulty": "basic"
@@ -1318,70 +1271,70 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc10",
-            "front": "兵馬俑",
+            "front": "{兵馬俑|へいばよう}",
             "back": "始皇帝の墓のそばに埋められた兵士の焼き物は？",
             "explanation": "始皇帝の墓のそばに埋められた実物大の兵士の焼き物。数千体が発見された。",
             "difficulty": "basic"
           },
           {
             "id": "fc11",
-            "front": "儒教",
+            "front": "{儒教|じゅきょう}",
             "back": "孔子の教えをもとにした思想・学問は？",
             "explanation": "孔子の教えをもとにした思想。仁と礼を重んじ、漢の時代に国の学問となった。",
             "difficulty": "basic"
           },
           {
             "id": "fc12",
-            "front": "春秋戦国時代",
+            "front": "{春秋|しゅんじゅう}{戦国|せんごく}時代",
             "back": "周の支配が弱まった後、多くの国が争った時代は？",
             "explanation": "周の支配が弱まった後の時代。多くの国が争い、諸子百家が活躍した。",
             "difficulty": "basic"
           },
           {
             "id": "fc13",
-            "front": "焚書坑儒",
+            "front": "{焚書坑儒|ふんしょこうじゅ}",
             "back": "始皇帝が書物を焼き儒学者を弾圧した政策は？",
             "explanation": "始皇帝が思想統制のために行った政策。反対意見を封じ込めようとした。",
             "difficulty": "standard"
           },
           {
             "id": "fc14",
-            "front": "絹（シルク）",
+            "front": "{絹|きぬ}（シルク）",
             "back": "シルクロードを通じて中国から西方に運ばれた主な産物は？",
             "explanation": "シルクロードの名前の由来となった中国の特産品。西方に高値で取引された。",
             "difficulty": "standard"
           },
           {
             "id": "fc15",
-            "front": "殷",
+            "front": "{殷|いん}",
             "back": "中国最古の王朝とされる国は？",
             "explanation": "中国最古の王朝。甲骨文字で占いを行い政治を決めた。",
             "difficulty": "standard"
           },
           {
             "id": "fc16",
-            "front": "仁",
+            "front": "{仁|じん}",
             "back": "孔子が説いた「人を思いやる心」を表す言葉は？",
             "explanation": "孔子が最も大切にした概念。人を思いやる心、他者への愛情を意味する。",
             "difficulty": "standard"
           },
           {
             "id": "fc17",
-            "front": "礼",
+            "front": "{礼|れい}",
             "back": "孔子が説いた「社会の秩序を守ること」を表す言葉は？",
             "explanation": "社会の秩序を守るための規範。上下関係や作法を重んじる考え方。",
             "difficulty": "standard"
           },
           {
             "id": "fc18",
-            "front": "老子",
+            "front": "{老子|ろうし}",
             "back": "孔子と同時代に「無為自然」を説いた思想家は？",
             "explanation": "「無為自然」を説いた思想家。道教の祖とされる。",
             "difficulty": "standard"
           },
           {
             "id": "fc19",
-            "front": "秦",
+            "front": "{秦|しん}",
             "back": "始皇帝が中国を統一した国は？",
             "explanation": "紀元前221年に中国を統一し、「皇帝」の称号を初めて用いた。文字・貨幣・度量衡の統一が重要。",
             "difficulty": "standard"
@@ -1980,10 +1933,10 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "id": "q15",
             "question": "アレクサンドロス大王の東方遠征はどこまで及んだか？",
             "options": [
-              "ギリシャの周辺地域のみ",
-              "エジプトと小アジアのみ",
+              "ギリシャの周辺地域",
+              "エジプトと小アジア",
               "エジプトからインド北西部まで",
-              "アフリカ南部と西ヨーロッパまで"
+              "アフリカ南部から西ヨーロッパまで"
             ],
             "correctIndex": 2,
             "explanation": "アレクサンドロス大王の東方遠征はエジプトからインド北西部にまで及びました。",
