@@ -2,6 +2,21 @@
 
 content-analysisのフィードバックログに基づく教材修正の作業記録。
 
+## 2026-05-12（歴史ルビ辞書：磨製石器の誤読修正）
+
+### 修正内容
+- ルビ辞書 `scripts/ruby-dict-history-g1.json`: `{磨製|ません}{石器|せっき}` → `{磨製|ませい}{石器|せっき}`
+- 派生 content JSON 2ファイル: `data/content/history/02-ancient-world/human-origins.json` / `data/content/history/03-japanese-origins/jomon-era.json`
+- `npx tsx scripts/generate-line-study-content.ts` で `line-study-history-g{1,2,3}.generated.ts` を再生成
+
+### 影響範囲
+- LIFF「じっくり学ぶ」中1歴史: 旧石器時代・縄文時代の磨製石器フラッシュカードのルビ表示
+- Web 版学習サイト: 同上トピックのフラッシュカード表示
+
+### 横展開メモ
+- 訓読み系の歴史専門用語（〜製・〜国・〜時代）のルビ誤読リスクを `docs/content-analysis/history.md` フィードバックログに汎用ルール化
+- 同種チェックが必要な辞書: `scripts/ruby-dict-history-g23.json`、各 `-supplement.json`
+
 ## 2026-03-20（content-analysis修正適用状況テーブル監査・更新）
 
 ### 全教科テーブル監査

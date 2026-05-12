@@ -255,7 +255,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc6",
-            "front": "{磨製|ません}{石器|せっき}",
+            "front": "{磨製|ませい}{石器|せっき}",
             "back": "表面をみがいて作った石器は？",
             "explanation": "表面を研磨して仕上げるため、打製石器より精巧で切れ味が良い。新石器時代に登場し、農耕と関係が深い。",
             "difficulty": "basic"
@@ -2748,7 +2748,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc17",
-            "front": "{磨製|ません}{石器|せっき}",
+            "front": "{磨製|ませい}{石器|せっき}",
             "back": "縄文時代に磨いて作られた石器は？",
             "explanation": "表面を磨いて仕上げた石器。打製石器より精巧で、縄文時代に登場した。",
             "difficulty": "standard"
