@@ -183,8 +183,7 @@ const LIFF_PREMIUM_INFO_URL =
   "https://liff.line.me/2009587166-k51bH4LC";
 const LIFF_PREMIUM_APPLY_URL =
   process.env.LIFF_PREMIUM_APPLY_URL ??
-  // LIFF endpoint 未作成時の placeholder。endpoint 作成後に functions/.env を更新する
-  "https://liff.line.me/PLACEHOLDER_premium_apply";
+  "https://liff.line.me/2009587166-GKRX5kOQ";
 const LIFF_HELP_URL =
   process.env.LIFF_HELP_URL ??
   "https://liff.line.me/2009587166-oaTz2NXX";
