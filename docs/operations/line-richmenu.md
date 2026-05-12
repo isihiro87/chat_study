@@ -285,7 +285,71 @@ npx tsx scripts/manage-line-richmenu.ts unlink  U0123456789abcdef0123456789abcde
 
 > ⚠️ **`link` / `unlink` は LINE 側のみ**。Firestore の `plan`/`richMenuType` は変わらない。Webhook の `extra_question`/`weak_review` ハンドラは Firestore の `plan` を見て分岐するため、`link` だけ打つとメニューと挙動がズレる。原則 `sync-plan` を使うこと。
 
-### 6-4. Function を直接叩きたい場合（プログラマティック呼び出し）
+### 6-4. LIFF 申込フォーム経由でアップグレードする（推奨フロー）
+
+ユーザーが LIFF `/liff/premium-apply` から送信した申込は Firestore
+`premiumApplications` collection に `status="pending"` で保存され、
+`onPremiumApplicationCreated` トリガーが管理者 (`ADMIN_LINE_USER_IDS` env で指定)
+の LINE に push 通知を投げる。通知本文には `sync-plan` の雛形コマンドが含まれる
+ので、本人確認後にコピペで開通できる。
+
+#### 6-4-1. 申込内容の確認
+
+Firestore Console で `premiumApplications` collection を `createdAt desc` で
+眺めるか、CLI から拾う:
+
+```bash
+# 直近の pending 申込を表示
+gcloud firestore documents list \
+  --collection-path=premiumApplications \
+  --order-by="createdAt desc" --limit=10 \
+  --format='value(name,fields.lineUserId.stringValue,fields.displayName.stringValue,fields.status.stringValue,fields.contactTimeBand.stringValue,fields.paymentPreference.stringValue)'
+```
+
+> 前提: `gcloud auth application-default login` 済み
+
+#### 6-4-2. 開通（sync-plan 実行）
+
+管理者の LINE に届いた push 通知の `npx tsx ...` 行をそのままコピペして実行:
+
+```bash
+npx tsx scripts/manage-line-richmenu.ts sync-plan \
+  U0123456789abcdef0123456789abcdef \
+  premium \
+  --until 2026-08-09T00:00:00+09:00
+```
+
+#### 6-4-3. ステータスを `approved` / `rejected` / `cancelled` に更新
+
+開通後、Firestore Console から該当ドキュメントを開いて手動で
+`status` フィールドを `pending` → `approved` に変更する（必要に応じて
+`approvedAt` / `approvedBy` を追記）。あるいは Admin SDK から:
+
+```bash
+# 例: applicationId を指定して approved にする
+gcloud firestore documents update \
+  premiumApplications/<applicationId> \
+  --field-mask=status,approvedAt,approvedBy \
+  --fields=status=approved,approvedAt=$(date -Iseconds),approvedBy=ishimotty.gst@gmail.com
+```
+
+未開通のまま放置しないこと（`pending` のまま残ると申込状況の把握が困難になる）。
+却下や利用者キャンセルの場合も `rejected` / `cancelled` を明示してドキュメントを残す
+（履歴として保持、削除はしない）。
+
+#### 6-4-4. 失敗時の挙動
+
+- **管理者 push が届かない**: `ADMIN_LINE_USER_IDS` env が空 or 誤った userId 設定。
+  Functions ログで `[onPremiumApplicationCreated] ADMIN_LINE_USER_IDS not set; ...`
+  を確認。env を修正後 `firebase deploy --only functions:onPremiumApplicationCreated`
+- **申込フォームから submit できない**: firestore.rules の `premiumApplications`
+  create ルールを確認。`request.resource.data.uid == request.auth.uid` と
+  `request.resource.data.status == 'pending'` の両方が必要。
+- **LIFF /premium-apply が開けない**: `VITE_LIFF_ID_PREMIUM_APPLY` env を
+  本番値に更新済か / LINE Developers Console の LIFF endpoint URL が
+  `https://line.chatstudy.jp/liff/premium-apply` を指しているか確認
+
+### 6-5. Function を直接叩きたい場合（プログラマティック呼び出し）
 
 将来 Stripe webhook 等から自動切替する場合は、`syncRichMenuToPlan` HTTPS Callable に Admin SDK で Firebase Auth カスタムトークンを発行 → Web SDK で sign-in → ID token を Bearer に付けて HTTPS POST する流れになる。本ドキュメント執筆時点では未使用のためサンプルコードは別ステアリングで実装する。
 
