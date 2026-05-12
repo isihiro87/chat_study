@@ -26,6 +26,7 @@ import {
   writeCachedGrade,
   type CacheableGrade,
 } from '../utils/liffStudyCache';
+import { withFirestoreTimeout } from '../utils/firestoreTimeout';
 
 interface UserProfile {
   grade: number | null;
@@ -255,6 +256,11 @@ const IS_LINE_MODE = import.meta.env.VITE_MODE === 'line';
 // safety timeout（LINE 版のみ、ネットワーク不調・IndexedDB ハング時の救済）。
 const LIFF_AUTH_TIMEOUT_MS = 8000;
 
+// users/{uid} doc の getDoc に被せる hard timeout。これがないと fetch が
+// hang した際 userDocLoaded が永久に false のままで、レンダーガードが
+// LoadingScreen を出し続ける。
+const USER_DOC_FETCH_TIMEOUT_MS = 5000;
+
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
@@ -287,8 +293,21 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
         if (firebaseUser) {
           const userDocRef = doc(db, `users/${firebaseUser.uid}`);
+          // 空のフォールバック userDoc。timeout 時にもこれを入れて render を解放する。
+          const emptyUserDoc: UserDoc = {
+            uid: firebaseUser.uid,
+            grade: null,
+            subject: null,
+            testScopeTopics: [],
+            studyStats: {},
+            studyPrefs: {},
+          };
           try {
-            const snap = await retryAsync(() => getDoc(userDocRef));
+            const snap = await withFirestoreTimeout(
+              retryAsync(() => getDoc(userDocRef)),
+              USER_DOC_FETCH_TIMEOUT_MS,
+              `getDoc users/${firebaseUser.uid}`,
+            );
             if (snap.exists()) {
               const data = snap.data();
               setUserProfile({ grade: data.grade ?? null });
@@ -299,18 +318,25 @@ export function AuthProvider({ children }: { children: ReactNode }) {
                 writeCachedGrade(firebaseUser.uid, parsed.grade);
               }
             } else {
-              setUserDoc({
-                uid: firebaseUser.uid,
-                grade: null,
-                subject: null,
-                testScopeTopics: [],
-                studyStats: {},
-                studyPrefs: {},
-              });
+              setUserDoc(emptyUserDoc);
             }
           } catch (e) {
-            console.warn('[auth] Failed to load user profile after retries', e);
-            // fetch 失敗時も loaded フラグは立てる（呼び出し側を blocking しないため）
+            console.warn('[auth] Failed to load user profile (timeout/error)', e);
+            // タイムアウト or fetch エラー時は空 userDoc を入れて render をブロックしない。
+            // 実際のデータが後で到着した場合はバックグラウンド更新（後述）で反映する。
+            setUserDoc(emptyUserDoc);
+            // タイムアウトで先に進んでも、元の getDoc は裏で生きていることがある。
+            // 戻ってきたらサイレントに userDoc を更新する（fire-and-forget）。
+            void retryAsync(() => getDoc(userDocRef))
+              .then((late) => {
+                if (!late.exists()) return;
+                const parsed = parseUserDoc(firebaseUser.uid, late.data());
+                setUserDoc(parsed);
+                if (parsed.grade) writeCachedGrade(firebaseUser.uid, parsed.grade);
+              })
+              .catch(() => {
+                // 既に上で警告済み。ここではノイズを増やさない。
+              });
           } finally {
             setUserDocLoaded(true);
           }

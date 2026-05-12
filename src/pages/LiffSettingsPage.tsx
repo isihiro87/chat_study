@@ -5,6 +5,7 @@ import { db } from '../firebase/config';
 import { useAuth } from '../contexts/AuthContext';
 import { useLiffAuth } from '../hooks/useLiffAuth';
 import { LoadingScreen } from '../components/common/LoadingScreen';
+import { withFirestoreTimeout } from '../utils/firestoreTimeout';
 
 type Subject = 'history' | 'english';
 type GradeLabel = '中1' | '中2' | '中3';
@@ -67,7 +68,11 @@ export function LiffSettingsPage() {
     let cancelled = false;
     (async () => {
       try {
-        const snap = await getDoc(doc(db, 'users', user.uid));
+        const snap = await withFirestoreTimeout(
+          getDoc(doc(db, 'users', user.uid)),
+          5000,
+          `getDoc users/${user.uid} (settings)`,
+        );
         if (cancelled) return;
         const data = snap.exists() ? snap.data() : {};
         setSettings({

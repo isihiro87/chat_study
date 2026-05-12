@@ -221,3 +221,77 @@ export function writeCachedItemStats(
 ): void {
   setCached(ITEM_STATS_KEY, uid, serializeItemStatsByTopic(byTopic), ITEM_STATS_TTL_MS);
 }
+
+// ---- in-progress study session (resume) ---------------------------------
+
+const SESSION_TTL_MS = 7 * 24 * 60 * 60 * 1000; // 7 日
+
+function sessionKey(topicId: string, kind: 'fc' | 'quiz'): string {
+  return `session:${topicId}:${kind}`;
+}
+
+export interface SavedSessionFc {
+  kind: 'fc';
+  topicId: string;
+  itemIds: string[];
+  /** 次に解くカードの index（== known.length + unknown.length） */
+  idx: number;
+  known: string[];
+  unknown: string[];
+  savedAt: number;
+}
+
+export interface SavedSessionQuiz {
+  kind: 'quiz';
+  topicId: string;
+  itemIds: string[];
+  idx: number;
+  selected: number | null;
+  correctCount: number;
+  wrong: string[];
+  savedAt: number;
+}
+
+export type SavedSession = SavedSessionFc | SavedSessionQuiz;
+
+/**
+ * 中断中のセッションを読み込む。完了 / 期限切れ / 不正形式なら null。
+ */
+export function readSavedSession(
+  uid: string | null,
+  topicId: string,
+  kind: 'fc' | 'quiz',
+): SavedSession | null {
+  const hit = getCached<SavedSession>(sessionKey(topicId, kind), uid);
+  if (!hit || hit.isStale) {
+    if (hit?.isStale) clearSavedSession(uid, topicId, kind);
+    return null;
+  }
+  const v = hit.value;
+  // 完了済（最後のアイテムまで進んでいる）なら無視
+  if (!v || typeof v !== 'object' || !Array.isArray(v.itemIds)) return null;
+  if (v.idx >= v.itemIds.length) return null;
+  return v;
+}
+
+export function writeSavedSession(uid: string | null, session: SavedSession): void {
+  setCached(sessionKey(session.topicId, session.kind), uid, session, SESSION_TTL_MS);
+}
+
+export function clearSavedSession(
+  uid: string | null,
+  topicId: string,
+  kind: 'fc' | 'quiz',
+): void {
+  if (typeof window === 'undefined') return;
+  try {
+    window.localStorage.removeItem(buildKeyExport(sessionKey(topicId, kind), uid));
+  } catch {
+    /* ignore */
+  }
+}
+
+// 内部 buildKey を再露出（同モジュール内なので import 経路を統一）
+function buildKeyExport(key: string, uid: string | null): string {
+  return `${NS_PREFIX}${uid ?? '_anon'}:${key}`;
+}

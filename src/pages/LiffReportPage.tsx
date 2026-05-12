@@ -5,6 +5,9 @@ import { db } from '../firebase/config';
 import { useAuth } from '../contexts/AuthContext';
 import { useLiffAuth } from '../hooks/useLiffAuth';
 import { LoadingScreen } from '../components/common/LoadingScreen';
+import { withFirestoreTimeout } from '../utils/firestoreTimeout';
+
+const REPORT_DOC_TIMEOUT_MS = 5000;
 
 interface PerCount {
   total: number;
@@ -73,7 +76,11 @@ export function LiffReportPage() {
     let cancelled = false;
     (async () => {
       try {
-        const snap = await getDoc(doc(db, 'users', user.uid));
+        const snap = await withFirestoreTimeout(
+          getDoc(doc(db, 'users', user.uid)),
+          REPORT_DOC_TIMEOUT_MS,
+          `getDoc users/${user.uid} (report)`,
+        );
         if (cancelled) return;
 
         if (!snap.exists()) {

@@ -18,6 +18,11 @@ import { pickItems, countTiers, type PickMode } from '../utils/pickItems';
 import {
   readCachedItemStats,
   writeCachedItemStats,
+  readSavedSession,
+  writeSavedSession,
+  clearSavedSession,
+  type SavedSessionFc,
+  type SavedSessionQuiz,
 } from '../utils/liffStudyCache';
 // 型は g1 ファイルから（同じ型を g2 も持つ）。データ本体は動的 import で
 // 学年別に lazy load し、chunk size を最小化する。
@@ -192,6 +197,10 @@ export function LiffUnitsPage() {
   const [lastQuizCorrect, setLastQuizCorrect] = useState(0);
   const [lastQuizTotal, setLastQuizTotal] = useState(0);
 
+  // セッション再開用: 学習開始時の初期状態（resume なら値あり、新規なら null）
+  const [resumeFc, setResumeFc] = useState<SavedSessionFc | null>(null);
+  const [resumeQuiz, setResumeQuiz] = useState<SavedSessionQuiz | null>(null);
+
   // userDoc がロードされたら、ローカル state（studyStats / setupDifficulties /
   // selectedGrade）を userDoc 由来の値で初期化する。getDoc は AuthContext が
   // 1 回だけ行っているので、ここでは追加の Firestore 読み込みは発生しない。
@@ -298,9 +307,14 @@ export function LiffUnitsPage() {
     }
   };
 
-  // ---- 共通: セットアップから FC/Quiz を開始 ----
+  // ---- 共通: セットアップから FC/Quiz を開始（新規） ----
   const startWithSetup = () => {
     if (!currentTopic) return;
+    // 新規開始なので保存中の中断セッションをクリアし、resume 状態もリセット
+    if (user) clearSavedSession(user.uid, currentTopic.topicId, setupKind);
+    setResumeFc(null);
+    setResumeQuiz(null);
+
     const mode: PickMode = setupRandomize ? 'random' : 'sequential';
     if (setupKind === 'fc') {
       const filtered = currentTopic.flashcards.filter((c) =>
@@ -327,6 +341,33 @@ export function LiffUnitsPage() {
     setLastSetupCount(setupCount);
     // 直近の難易度選択を教科ごとに保存（次回セットアップの初期値に使う）
     void persistDifficultyPref();
+  };
+
+  // ---- 中断セッションを続きから再開 ----
+  const resumeFromSavedSession = () => {
+    if (!currentTopic) return;
+    if (setupKind === 'fc') {
+      const saved = user ? readSavedSession(user.uid, currentTopic.topicId, 'fc') : null;
+      if (!saved || saved.kind !== 'fc') return;
+      // 保存されている itemIds から実体を復元
+      const byId = new Map(currentTopic.flashcards.map((c) => [c.id, c]));
+      const items = saved.itemIds.map((id) => byId.get(id)).filter(Boolean) as StudyFlashcard[];
+      if (items.length === 0) return;
+      setActiveFcItems(items);
+      setSessionSeenFcIds(new Set(items.map((i) => i.id)));
+      setResumeFc(saved);
+      setView('fc');
+    } else {
+      const saved = user ? readSavedSession(user.uid, currentTopic.topicId, 'quiz') : null;
+      if (!saved || saved.kind !== 'quiz') return;
+      const byId = new Map(currentTopic.quiz.map((q) => [q.id, q]));
+      const items = saved.itemIds.map((id) => byId.get(id)).filter(Boolean) as StudyQuizQuestion[];
+      if (items.length === 0) return;
+      setActiveQuizItems(items);
+      setSessionSeenQuizIds(new Set(items.map((i) => i.id)));
+      setResumeQuiz(saved);
+      setView('quiz');
+    }
   };
 
   // ---- 同条件で次のN問を出題（end 画面から） ----
@@ -427,6 +468,8 @@ export function LiffUnitsPage() {
     setUnknownIds(unknown);
     setView('fc-end');
     void persistStudyStats('fc', currentTopic?.topicId, { increment: true });
+    if (currentTopic && user) clearSavedSession(user.uid, currentTopic.topicId, 'fc');
+    setResumeFc(null);
     if (currentTopic) {
       const results: ItemResult[] = [
         ...known.map((id) => ({ itemId: id, isCorrect: true })),
@@ -459,6 +502,8 @@ export function LiffUnitsPage() {
       increment: true,
       accuracy: acc,
     });
+    if (currentTopic && user) clearSavedSession(user.uid, currentTopic.topicId, 'quiz');
+    setResumeQuiz(null);
     if (currentTopic) {
       const wrongSet = new Set(wrong);
       const results: ItemResult[] = activeQuizItems.map((q) => ({
@@ -559,6 +604,9 @@ export function LiffUnitsPage() {
   }
 
   if (view === 'setup' && currentTopic) {
+    const savedSession = user
+      ? readSavedSession(user.uid, currentTopic.topicId, setupKind)
+      : null;
     return (
       <SetupView
         topic={currentTopic}
@@ -567,6 +615,12 @@ export function LiffUnitsPage() {
         count={setupCount}
         randomize={setupRandomize}
         itemStats={itemStats}
+        savedSession={savedSession}
+        canSwitchToOtherKind={
+          setupKind === 'fc'
+            ? currentTopic.quiz.length > 0
+            : currentTopic.flashcards.length > 0
+        }
         onToggleDifficulty={(d) => {
           setSetupDifficulties((prev) => {
             const next = new Set(prev);
@@ -578,6 +632,10 @@ export function LiffUnitsPage() {
         onChangeCount={setSetupCount}
         onChangeRandomize={setSetupRandomize}
         onStart={startWithSetup}
+        onResume={resumeFromSavedSession}
+        onSwitchKind={() =>
+          setupKind === 'fc' ? switchToQuizSetup() : switchToFcSetup()
+        }
         onBack={backToList}
       />
     );
@@ -587,6 +645,8 @@ export function LiffUnitsPage() {
       <FlashcardView
         topic={currentTopic}
         items={activeFcItems}
+        initialState={resumeFc}
+        uid={user?.uid ?? null}
         onFinish={handleFcFinish}
         onBack={backToList}
         onSwitchToQuiz={currentTopic.quiz.length > 0 ? switchToQuizSetup : null}
@@ -624,6 +684,8 @@ export function LiffUnitsPage() {
       <QuizView
         topic={currentTopic}
         items={activeQuizItems}
+        initialState={resumeQuiz}
+        uid={user?.uid ?? null}
         onFinish={handleQuizFinish}
         onBack={backToList}
         onSwitchToFc={currentTopic.flashcards.length > 0 ? switchToFcSetup : null}
@@ -879,10 +941,14 @@ function SetupView({
   count,
   randomize,
   itemStats,
+  savedSession,
+  canSwitchToOtherKind,
   onToggleDifficulty,
   onChangeCount,
   onChangeRandomize,
   onStart,
+  onResume,
+  onSwitchKind,
   onBack,
 }: {
   topic: StudyTopic;
@@ -891,10 +957,14 @@ function SetupView({
   count: number | 'all';
   randomize: boolean;
   itemStats: ItemStatsMap;
+  savedSession: SavedSessionFc | SavedSessionQuiz | null;
+  canSwitchToOtherKind: boolean;
   onToggleDifficulty: (d: Difficulty) => void;
   onChangeCount: (c: number | 'all') => void;
   onChangeRandomize: (r: boolean) => void;
   onStart: () => void;
+  onResume: () => void;
+  onSwitchKind: () => void;
   onBack: () => void;
 }) {
   const sourceItems = kind === 'fc' ? topic.flashcards : topic.quiz;
@@ -908,6 +978,12 @@ function SetupView({
   const kindEmoji = kind === 'fc' ? '🃏' : '❓';
   const noDifficultySelected = difficulties.size === 0;
   const tierCounts = countTiers(filtered, itemStats);
+
+  const otherKindLabel = kind === 'fc' ? '❓ クイズへ' : '🃏 カードへ';
+  const sessionProgress =
+    savedSession && savedSession.kind === kind
+      ? { done: savedSession.idx, total: savedSession.itemIds.length }
+      : null;
 
   return (
     <div className="min-h-screen bg-[#FAF9F7] pb-12 flex flex-col">
@@ -925,10 +1001,47 @@ function SetupView({
           >
             {kindEmoji} {topic.name}
           </div>
+          {canSwitchToOtherKind && (
+            <button
+              onClick={onSwitchKind}
+              className="text-xs bg-white border border-amber-300 hover:bg-amber-50 text-amber-700 rounded-full px-3 py-1 font-medium flex-shrink-0"
+              style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+              title={kind === 'fc' ? 'クイズに切り替え' : '暗記カードに切り替え'}
+            >
+              {otherKindLabel}
+            </button>
+          )}
         </div>
       </header>
 
       <main className="max-w-2xl mx-auto px-4 w-full flex-1">
+        {sessionProgress && (
+          <section className="mt-4 bg-amber-50 border border-amber-200 rounded-2xl p-4">
+            <div className="text-xs text-amber-800 mb-1">
+              📍 前回の続きがあります
+            </div>
+            <div className="text-sm text-amber-900 mb-3">
+              {kind === 'fc' ? 'カード' : '問題'} {sessionProgress.done} / {sessionProgress.total} まで進めました
+            </div>
+            <div className="flex gap-2">
+              <button
+                onClick={onResume}
+                className="flex-1 bg-amber-500 hover:bg-amber-600 text-white rounded-full py-2 text-xs font-bold"
+                style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+              >
+                続きから
+              </button>
+              <button
+                onClick={onStart}
+                className="flex-1 bg-white border border-amber-300 hover:bg-amber-50 text-amber-700 rounded-full py-2 text-xs font-medium"
+                style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+              >
+                はじめから
+              </button>
+            </div>
+          </section>
+        )}
+
         <section className="mt-4 bg-white rounded-2xl shadow-sm p-5">
           <div className="text-xs text-gray-500 mb-2">{kindLabel}を始める前に</div>
           <div
@@ -1078,20 +1191,39 @@ function SetupView({
 function FlashcardView({
   topic,
   items,
+  initialState,
+  uid,
   onFinish,
   onBack,
   onSwitchToQuiz,
 }: {
   topic: StudyTopic;
   items: StudyFlashcard[];
+  initialState: SavedSessionFc | null;
+  uid: string | null;
   onFinish: (known: string[], unknown: string[]) => void;
   onBack: () => void;
   onSwitchToQuiz: (() => void) | null;
 }) {
-  const [idx, setIdx] = useState(0);
+  const [idx, setIdx] = useState(() => initialState?.idx ?? 0);
   const [flipped, setFlipped] = useState(false);
-  const [known, setKnown] = useState<string[]>([]);
-  const [unknown, setUnknown] = useState<string[]>([]);
+  const [known, setKnown] = useState<string[]>(() => initialState?.known ?? []);
+  const [unknown, setUnknown] = useState<string[]>(() => initialState?.unknown ?? []);
+
+  // 進捗を localStorage に保存（同じトピックの fc セッション）
+  useEffect(() => {
+    if (items.length === 0) return;
+    // 完了直前は親側で clear するのでここでは保存し続けて OK
+    writeSavedSession(uid, {
+      kind: 'fc',
+      topicId: topic.topicId,
+      itemIds: items.map((i) => i.id),
+      idx,
+      known,
+      unknown,
+      savedAt: Date.now(),
+    });
+  }, [uid, topic.topicId, items, idx, known, unknown]);
 
   if (items.length === 0) {
     return (
@@ -1327,20 +1459,39 @@ function FcEndView({
 function QuizView({
   topic,
   items,
+  initialState,
+  uid,
   onFinish,
   onBack,
   onSwitchToFc,
 }: {
   topic: StudyTopic;
   items: StudyQuizQuestion[];
+  initialState: SavedSessionQuiz | null;
+  uid: string | null;
   onFinish: (correct: number, total: number, wrong: string[]) => void;
   onBack: () => void;
   onSwitchToFc: (() => void) | null;
 }) {
-  const [idx, setIdx] = useState(0);
-  const [selected, setSelected] = useState<number | null>(null);
-  const [correctCount, setCorrectCount] = useState(0);
-  const [wrong, setWrong] = useState<string[]>([]);
+  const [idx, setIdx] = useState(() => initialState?.idx ?? 0);
+  const [selected, setSelected] = useState<number | null>(() => initialState?.selected ?? null);
+  const [correctCount, setCorrectCount] = useState(() => initialState?.correctCount ?? 0);
+  const [wrong, setWrong] = useState<string[]>(() => initialState?.wrong ?? []);
+
+  // 進捗を localStorage に保存
+  useEffect(() => {
+    if (items.length === 0) return;
+    writeSavedSession(uid, {
+      kind: 'quiz',
+      topicId: topic.topicId,
+      itemIds: items.map((i) => i.id),
+      idx,
+      selected,
+      correctCount,
+      wrong,
+      savedAt: Date.now(),
+    });
+  }, [uid, topic.topicId, items, idx, selected, correctCount, wrong]);
 
   if (items.length === 0) {
     return (

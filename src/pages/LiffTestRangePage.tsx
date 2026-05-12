@@ -10,6 +10,7 @@ import {
   topicMetas,
 } from '../data/generated/topic-registry.generated';
 import { saveTestScope, clearTestScope } from '../utils/testScope';
+import { withFirestoreTimeout } from '../utils/firestoreTimeout';
 
 type Subject = 'english' | 'history';
 type GradeNum = 1 | 2 | 3;
@@ -80,7 +81,11 @@ export function LiffTestRangePage() {
     let cancelled = false;
     (async () => {
       try {
-        const snap = await getDoc(doc(db, 'users', user.uid));
+        const snap = await withFirestoreTimeout(
+          getDoc(doc(db, 'users', user.uid)),
+          5000,
+          `getDoc users/${user.uid} (test-range)`,
+        );
         if (cancelled) return;
         if (!snap.exists()) {
           setStatus('profile-missing');
