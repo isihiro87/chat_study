@@ -54,28 +54,28 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "ローマ教皇",
+            "front": "ローマ{教皇|きょうこう}",
             "back": "カトリック教会の頂点に立ち、西ヨーロッパで大きな権威を持った人物は？",
             "explanation": "国王にも強い影響力を持った宗教的指導者。",
             "difficulty": "basic"
           },
           {
             "id": "fc2",
-            "front": "カトリック教会",
+            "front": "カトリック{教会|きょうかい}",
             "back": "ローマ教皇を中心とするキリスト教の宗派は？",
             "explanation": "西ヨーロッパで広まった。東ヨーロッパの正教会と区別する。",
             "difficulty": "basic"
           },
           {
             "id": "fc3",
-            "front": "正教会",
+            "front": "{正教会|せいきょうかい}",
             "back": "ビザンツ帝国と結びついたキリスト教の宗派は？",
             "explanation": "東ヨーロッパで広まり、ローマ教皇の権威を認めない独自の教会。",
             "difficulty": "basic"
           },
           {
             "id": "fc4",
-            "front": "イスラム教",
+            "front": "イスラム{教|きょう}",
             "back": "7世紀にアラビア半島で成立し、西アジア・北アフリカへ広がった宗教は？",
             "explanation": "信者はムスリムと呼ばれる。",
             "difficulty": "basic"
@@ -89,7 +89,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc6",
-            "front": "十字軍",
+            "front": "{十字軍|じゅうじぐん}",
             "back": "ローマ教皇の呼びかけで聖地エルサレム奪還のため派遣された遠征軍は？",
             "explanation": "結果は失敗だが、東西交流を活発にした。",
             "difficulty": "basic"
@@ -103,14 +103,14 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc8",
-            "front": "宗教改革",
+            "front": "{宗教|しゅうきょう}{改革|かいかく}",
             "back": "16世紀にルターやカルバンがカトリック教会を批判して始めた改革は？",
             "explanation": "免罪符販売への批判がきっかけ。",
             "difficulty": "basic"
           },
           {
             "id": "fc9",
-            "front": "免罪符（贖宥状）",
+            "front": "{免罪符|めんざいふ}（{贖宥状|しょくゆうじょう}）",
             "back": "買えば罪が許されるとされた札は？",
             "explanation": "教会の資金集めに使われた。ルターが批判した。",
             "difficulty": "basic"
@@ -138,21 +138,21 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc13",
-            "front": "イエズス会",
+            "front": "イエズス{会|かい}",
             "back": "カトリック教会側が宗教改革に対抗して作った組織は？",
             "explanation": "アジアにも宣教師を送った。ザビエルはイエズス会の宣教師。",
             "difficulty": "standard"
           },
           {
             "id": "fc14",
-            "front": "活版印刷",
+            "front": "{活版|かっぱん}{印刷|いんさつ}",
             "back": "ルネサンス期に発明され、知識の普及を加速した技術は？",
             "explanation": "グーテンベルクが実用化し、書物が安く大量に作れるようになった。",
             "difficulty": "standard"
           },
           {
             "id": "fc15",
-            "front": "羅針盤",
+            "front": "{羅針盤|らしんばん}",
             "back": "遠洋航海を可能にした、方位を示す道具は？",
             "explanation": "中国で発明され、改良されてヨーロッパに伝わり大航海時代を支えた。",
             "difficulty": "standard"
@@ -180,7 +180,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc19",
-            "front": "オスマン帝国",
+            "front": "オスマン{帝国|ていこく}",
             "back": "15世紀にビザンツ帝国を滅ぼしたイスラム教の大国は？",
             "explanation": "東地中海の覇権を握り、約600年間広大な領土を支配した。",
             "difficulty": "standard"
@@ -432,7 +432,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "大航海時代",
+            "front": "{大航海|だいこうかい}時代",
             "back": "ヨーロッパ人が新しい航路を開き、世界各地へ進出した時代は？",
             "explanation": "香辛料やキリスト教布教が目的。15世紀以降、ヨーロッパ人が海外へ進出した時代。",
             "difficulty": "basic"
@@ -453,42 +453,42 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc4",
-            "front": "マゼランの船隊",
+            "front": "マゼランの{船隊|せんたい}",
             "back": "1522年に世界一周を達成した船隊は？",
             "explanation": "マゼラン本人は途中で死亡したが、船隊が世界一周を完成させた。",
             "difficulty": "standard"
           },
           {
             "id": "fc5",
-            "front": "三角貿易",
+            "front": "{三角|さんかく}{貿易|ぼうえき}",
             "back": "ヨーロッパ・アフリカ・アメリカ大陸を結んだ貿易は？",
             "explanation": "アフリカの人々が奴隷として送られた。奴隷貿易とアメリカ大陸の植民地支配を関連づける。",
             "difficulty": "standard"
           },
           {
             "id": "fc6",
-            "front": "東インド会社",
+            "front": "{東|ひがし}インド{会社|がいしゃ}",
             "back": "オランダなどがアジア貿易のために作った会社は？",
             "explanation": "オランダは17世紀に商業・金融の中心となった。",
             "difficulty": "basic"
           },
           {
             "id": "fc7",
-            "front": "香辛料",
+            "front": "{香辛料|こうしんりょう}",
             "back": "欧州人が求めた高価なアジアの産物は？",
             "explanation": "コショウなどは食品の保存に使われ、ヨーロッパでは金と同じ価値があった。",
             "difficulty": "standard"
           },
           {
             "id": "fc8",
-            "front": "インカ帝国",
+            "front": "インカ{帝国|ていこく}",
             "back": "スペインが滅ぼした南米の帝国は？",
             "explanation": "ペルーを中心に栄え、マチュピチュなどの遺跡で知られる。",
             "difficulty": "standard"
           },
           {
             "id": "fc9",
-            "front": "アステカ帝国",
+            "front": "アステカ{帝国|ていこく}",
             "back": "スペインが滅ぼしたメキシコの帝国は？",
             "explanation": "テノチティトランを首都とし、スペインのコルテスに征服された。",
             "difficulty": "standard"
@@ -530,7 +530,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc15",
-            "front": "奴隷貿易",
+            "front": "{奴隷|どれい}{貿易|ぼうえき}",
             "back": "三角貿易でアフリカからアメリカ大陸へ送られた人々の取引は？",
             "explanation": "数百万人のアフリカ人が強制的にアメリカに連れて行かれ、農園で働かされた。",
             "difficulty": "standard"
@@ -717,14 +717,14 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "鉄砲伝来",
+            "front": "{鉄砲|てっぽう}{伝来|でんらい}",
             "back": "1543年、種子島に漂着したポルトガル人によって日本に伝えられた武器は？",
             "explanation": "戦国大名の戦い方を変えた。近江の国友や和泉の堺で量産された。",
             "difficulty": "basic"
           },
           {
             "id": "fc2",
-            "front": "種子島",
+            "front": "{種子島|たねがしま}",
             "back": "1543年に鉄砲が初めて伝来した九州南方の島は？",
             "explanation": "ポルトガル人を乗せた中国船が漂着し、鉄砲2挺が伝えられた。",
             "difficulty": "basic"
@@ -738,28 +738,28 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc4",
-            "front": "南蛮貿易",
+            "front": "{南蛮|なんばん}{貿易|ぼうえき}",
             "back": "ポルトガル人・スペイン人との貿易は？",
             "explanation": "日本は主に銀を輸出し、生糸などを輸入した。南蛮人とはポルトガル人・スペイン人のこと。",
             "difficulty": "basic"
           },
           {
             "id": "fc5",
-            "front": "キリシタン大名",
+            "front": "キリシタン{大名|だいみょう}",
             "back": "南蛮貿易の利益などを目的にキリスト教を受け入れた大名は？",
             "explanation": "九州に多く、大村氏・大友宗麟などが代表。",
             "difficulty": "standard"
           },
           {
             "id": "fc6",
-            "front": "天正遣欧使節",
+            "front": "{天正|てんしょう}{遣欧使節|けんおうしせつ}",
             "back": "1582年、大友宗麟らキリシタン大名がローマ教皇のもとへ送った少年使節は？",
             "explanation": "4人の少年が派遣され、8年後に帰国した。",
             "difficulty": "standard"
           },
           {
             "id": "fc7",
-            "front": "南蛮文化",
+            "front": "{南蛮|なんばん}{文化|ぶんか}",
             "back": "ヨーロッパ人との交流によって日本に伝わった文化は？",
             "explanation": "活版印刷術やヨーロッパ風の絵画などがある。桃山文化の一部。",
             "difficulty": "advanced"
@@ -773,49 +773,49 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc9",
-            "front": "国友",
+            "front": "{国友|くにとも}",
             "back": "鉄砲の生産地として発展した近江の都市は？",
             "explanation": "堺とともに鉄砲の量産拠点となり、刀鍛冶の技術が鉄砲製造に生かされた。",
             "difficulty": "standard"
           },
           {
             "id": "fc10",
-            "front": "堺",
+            "front": "{堺|さかい}",
             "back": "鉄砲の生産地として発展した和泉の都市は？",
             "explanation": "鉄砲の量産地として発展し商業都市としても繁栄した。",
             "difficulty": "standard"
           },
           {
             "id": "fc11",
-            "front": "生糸",
+            "front": "{生糸|きいと}",
             "back": "南蛮貿易で日本に輸入された衣料の高級原料は？",
             "explanation": "中国産の生糸が主な輸入品で、日本の絹織物産業を支えた。",
             "difficulty": "standard"
           },
           {
             "id": "fc13",
-            "front": "長崎",
+            "front": "{長崎|ながさき}",
             "back": "1580年にイエズス会に寄進された港町は？",
             "explanation": "大村純忠が寄進し、南蛮貿易の中心地として繁栄した。",
             "difficulty": "standard"
           },
           {
             "id": "fc14",
-            "front": "イエズス会",
+            "front": "イエズス{会|かい}",
             "back": "ザビエルが所属していたカトリックの修道会は？",
             "explanation": "カトリックの対抗改革で設立され、アジアや南米への布教を積極的に行った。",
             "difficulty": "standard"
           },
           {
             "id": "fc15",
-            "front": "活版印刷術",
+            "front": "{活版|かっぱん}{印刷術|いんさつじゅつ}",
             "back": "宣教師が持ち込み「平家物語」等を印刷した技術は？",
             "explanation": "天草版平家物語がローマ字で印刷され、日本の印刷文化にも影響を与えた。",
             "difficulty": "advanced"
           },
           {
             "id": "fc16",
-            "front": "南蛮人",
+            "front": "{南蛮人|なんばんじん}",
             "back": "ポルトガル人やスペイン人を日本人が呼んだ呼び名は？",
             "explanation": "南方から来た外国人を指す呼び名で、南蛮貿易や南蛮文化の名の由来。",
             "difficulty": "basic"
@@ -1042,98 +1042,98 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "織田信長",
+            "front": "{織田信長|おだのぶなが}",
             "back": "尾張の戦国大名で、桶狭間の戦いで今川義元を破り室町幕府を滅ぼした人物は？",
             "explanation": "鉄砲の活用、楽市・楽座、比叡山延暦寺攻撃が重要。",
             "difficulty": "basic"
           },
           {
             "id": "fc2",
-            "front": "桶狭間の戦い",
+            "front": "{桶狭間|おけはざま}の{戦|たたか}い",
             "back": "1560年、織田信長が今川義元を破った戦いは？",
             "explanation": "信長が勢力を広げるきっかけ。少数の兵力で大軍を奇襲して破った。",
             "difficulty": "basic"
           },
           {
             "id": "fc3",
-            "front": "足利義昭",
+            "front": "{足利義昭|あしかがよしあき}",
             "back": "室町幕府の第15代将軍で、信長により京都へ入ったが、のちに信長と対立した人物は？",
             "explanation": "信長が追放し、室町幕府が滅亡。",
             "difficulty": "basic"
           },
           {
             "id": "fc4",
-            "front": "室町幕府の滅亡",
+            "front": "{室町|むろまち}{幕府|ばくふ}の{滅亡|めつぼう}",
             "back": "1573年、信長が足利義昭を追放して幕府が滅びたことは？",
             "explanation": "鎌倉幕府滅亡（1333年）と混同しない。",
             "difficulty": "basic"
           },
           {
             "id": "fc5",
-            "front": "比叡山延暦寺",
+            "front": "{比叡山|ひえいざん}{延暦寺|えんりゃくじ}",
             "back": "信長が武力で攻撃した仏教勢力の一つで、1571年に焼き討ちにした寺は？",
             "explanation": "信長は強い仏教勢力をおさえようとした。",
             "difficulty": "standard"
           },
           {
             "id": "fc6",
-            "front": "長篠の戦い",
+            "front": "{長篠|ながしの}の{戦|たたか}い",
             "back": "1575年、信長・徳川家康連合軍が鉄砲を活用して武田勝頼を破った戦いは？",
             "explanation": "鉄砲の有効活用がポイント。",
             "difficulty": "basic"
           },
           {
             "id": "fc7",
-            "front": "楽市・楽座",
+            "front": "{楽市|らくいち}・{楽座|らくざ}",
             "back": "信長が城下で商工業を発展させるため、税や座の特権をなくした政策は？",
             "explanation": "商工業の自由化と結びつける。",
             "difficulty": "standard"
           },
           {
             "id": "fc8",
-            "front": "関所の廃止",
+            "front": "{関所|せきしょ}の{廃止|はいし}",
             "back": "信長が交通や流通を発展させるために行った政策は？",
             "explanation": "楽市・楽座と同じく経済政策。",
             "difficulty": "standard"
           },
           {
             "id": "fc9",
-            "front": "安土城",
+            "front": "{安土城|あづちじょう}",
             "back": "信長が近江（琵琶湖東岸）に築いた城は？",
             "explanation": "安土桃山時代の名前の由来の一つ。大阪城は豊臣秀吉の拠点。",
             "difficulty": "basic"
           },
           {
             "id": "fc10",
-            "front": "本能寺の変",
+            "front": "{本能寺|ほんのうじ}の{変|へん}",
             "back": "1582年、信長が家臣の明智光秀に攻められ自害した事件は？",
             "explanation": "場所は京都の本能寺。",
             "difficulty": "basic"
           },
           {
             "id": "fc11",
-            "front": "明智光秀",
+            "front": "{明智光秀|あけちみつひで}",
             "back": "1582年に本能寺で信長を襲撃した家臣は？",
             "explanation": "本能寺の変で謀反を起こし、直後に秀吉に討たれた。",
             "difficulty": "basic"
           },
           {
             "id": "fc12",
-            "front": "豊臣秀吉",
+            "front": "{豊臣秀吉|とよとみひでよし}",
             "back": "信長の後継者となり、全国統一を達成した人物は？",
             "explanation": "関白、太閤検地、刀狩、朝鮮出兵が重要。農民出身で天下人に上り詰めた。",
             "difficulty": "basic"
           },
           {
             "id": "fc13",
-            "front": "大阪城",
+            "front": "{大阪城|おおさかじょう}",
             "back": "秀吉が政治の拠点として築いた城は？",
             "explanation": "信長の安土城と区別する。当時日本最大級の城郭。",
             "difficulty": "basic"
           },
           {
             "id": "fc14",
-            "front": "関白",
+            "front": "{関白|かんぱく}",
             "back": "秀吉が天皇から任命された、天皇を補佐する高い官職は？",
             "explanation": "秀吉は関白に任命され、全国の大名に停戦を命じた。征夷大将軍ではない点に注意。",
             "difficulty": "basic"
@@ -1147,21 +1147,21 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc16",
-            "front": "バテレン追放令",
+            "front": "バテレン{追放令|ついほうれい}",
             "back": "1587年、秀吉が宣教師の国外追放を命じた法令は？",
             "explanation": "南蛮貿易はすぐには禁止されなかった。",
             "difficulty": "standard"
           },
           {
             "id": "fc17",
-            "front": "安土桃山時代",
+            "front": "{安土桃山|あづちももやま}時代",
             "back": "信長・秀吉の二人が政権を握った時代の名称は？",
             "explanation": "信長の安土城と秀吉の伏見桃山城にちなんだ時代名。",
             "difficulty": "basic"
           },
           {
             "id": "fc18",
-            "front": "北条氏",
+            "front": "{北条氏|ほうじょうし}",
             "back": "1590年に秀吉が滅ぼした関東の戦国大名は？",
             "explanation": "小田原城に拠る北条氏を滅ぼし、秀吉の全国統一が完成した。",
             "difficulty": "standard"
@@ -1400,98 +1400,98 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "太閤検地",
+            "front": "{太閤|たいこう}{検地|けんち}",
             "back": "秀吉が全国の田畑を調べ、収穫量を石高で表した政策は？",
             "explanation": "土地支配を統一する目的。京ますを基準に全国の土地を測量。",
             "difficulty": "basic"
           },
           {
             "id": "fc2",
-            "front": "石高",
+            "front": "{石高|こくだか}",
             "back": "米の収穫量で土地の価値を表す基準は？",
             "explanation": "年貢や大名の領地を示す基準になった。",
             "difficulty": "basic"
           },
           {
             "id": "fc3",
-            "front": "刀狩",
+            "front": "{刀狩|かたながり}",
             "back": "秀吉が百姓から刀・弓・鉄砲などの武器を取り上げた政策は？",
             "explanation": "1588年に実施。一揆を防ぎ、兵農分離を進めた。",
             "difficulty": "basic"
           },
           {
             "id": "fc4",
-            "front": "兵農分離",
+            "front": "{兵農|へいのう}{分離|ぶんり}",
             "back": "武士と農民の身分の区別が明確になったことを何という？",
             "explanation": "太閤検地と刀狩によって進んだ。近世社会の基盤となった。",
             "difficulty": "standard"
           },
           {
             "id": "fc5",
-            "front": "文禄・慶長の役",
+            "front": "{文禄|ぶんろく}・{慶長|けいちょう}の{役|えき}",
             "back": "秀吉が明の征服をめざして朝鮮に出兵した戦いは？",
             "explanation": "1592年が文禄の役、1597年が慶長の役。",
             "difficulty": "standard"
           },
           {
             "id": "fc6",
-            "front": "文禄の役",
+            "front": "{文禄|ぶんろく}の{役|えき}",
             "back": "1592年に秀吉が朝鮮に出兵した最初の戦いは？",
             "explanation": "約15万の大軍を派遣したが、朝鮮の抵抗や明の援軍で苦戦した。",
             "difficulty": "standard"
           },
           {
             "id": "fc7",
-            "front": "慶長の役",
+            "front": "{慶長|けいちょう}の{役|えき}",
             "back": "1597年に再び朝鮮へ大軍を派遣した二度目の戦いは？",
             "explanation": "秀吉の死により1598年に撤退した。",
             "difficulty": "standard"
           },
           {
             "id": "fc8",
-            "front": "李舜臣",
+            "front": "{李舜臣|りしゅんしん}",
             "back": "朝鮮の水軍を率いて日本の補給路を断った英雄は？",
             "explanation": "亀甲船を駆使して日本水軍を破った。",
             "difficulty": "standard"
           },
           {
             "id": "fc9",
-            "front": "亀甲船",
+            "front": "{亀甲船|きっこうせん}",
             "back": "李舜臣が率いた甲板を鉄板で覆った軍船は？",
             "explanation": "亀の甲羅のように上部を覆った構造で、敵兵の侵入を防いだ。",
             "difficulty": "standard"
           },
           {
             "id": "fc10",
-            "front": "有田焼・薩摩焼・萩焼",
+            "front": "{有田焼|ありたやき}・{薩摩焼|さつまやき}・{萩焼|はぎやき}",
             "back": "朝鮮出兵で連れてこられた陶工の技術により発展した焼き物は？",
             "explanation": "文禄・慶長の役と関連づける。",
             "difficulty": "standard"
           },
           {
             "id": "fc11",
-            "front": "京ます",
+            "front": "{京|きょう}ます",
             "back": "秀吉が検地の際に基準として統一した計量器は？",
             "explanation": "全国で異なっていた計量の基準を統一し、公平な年貢徴収を可能にした。",
             "difficulty": "advanced"
           },
           {
             "id": "fc12",
-            "front": "百姓",
+            "front": "{百姓|ひゃくしょう}",
             "back": "検地により土地を耕作する権利を保障された身分は？",
             "explanation": "耕作権を得る代わりに年貢を納める義務を負った。",
             "difficulty": "standard"
           },
           {
             "id": "fc13",
-            "front": "明",
+            "front": "{明|みん}",
             "back": "秀吉が朝鮮出兵で征服を目指した中国の王朝は？",
             "explanation": "14世紀から17世紀まで続いた中国の王朝。",
             "difficulty": "basic"
           },
           {
             "id": "fc14",
-            "front": "年貢",
+            "front": "{年貢|ねんぐ}",
             "back": "検地により百姓が納める義務を負った税は？",
             "explanation": "収穫した米などを領主に納める税。",
             "difficulty": "basic"
@@ -1737,63 +1737,63 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "桃山文化",
+            "front": "{桃山|ももやま}{文化|ぶんか}",
             "back": "大名や豪商の力を背景にした、豪華で力強い文化は？",
             "explanation": "城・障壁画・茶の湯などが代表。信長・秀吉の時代に花開いた文化。",
             "difficulty": "basic"
           },
           {
             "id": "fc2",
-            "front": "狩野永徳",
+            "front": "{狩野永徳|かのうえいとく}",
             "back": "桃山文化を代表する画家で、城のふすまや屏風に濃絵を描いた人物は？",
             "explanation": "「唐獅子図屏風」が代表。信長や秀吉に仕えた狩野派の巨匠。",
             "difficulty": "basic"
           },
           {
             "id": "fc3",
-            "front": "唐獅子図屏風",
+            "front": "{唐獅子図屏風|からじしずびょうぶ}",
             "back": "狩野永徳が描いた、力強い唐獅子が特徴の障壁画は？",
             "explanation": "金箔地に力強い唐獅子を描いた、桃山文化を代表する傑作。",
             "difficulty": "basic"
           },
           {
             "id": "fc4",
-            "front": "障壁画",
+            "front": "{障壁画|しょうへきが}",
             "back": "城のふすまや屏風に描かれたきらびやかな絵は？",
             "explanation": "金箔を使った華やかな絵で、大名の権力と富を象徴した。「濃絵」とも呼ばれる。",
             "difficulty": "standard"
           },
           {
             "id": "fc5",
-            "front": "千利休",
+            "front": "{千利休|せんのりきゅう}",
             "back": "茶の湯を大成し、わび茶を完成させた堺の商人は？",
             "explanation": "信長や秀吉に仕えた。豪壮な桃山文化の中で、質素な美を追求した。",
             "difficulty": "basic"
           },
           {
             "id": "fc6",
-            "front": "わび茶",
+            "front": "わび{茶|ちゃ}",
             "back": "千利休が完成させた、質素さを重んじる茶道の様式は？",
             "explanation": "華美を排し質素な美を追求する茶道で、現代の茶道の基礎となった。",
             "difficulty": "standard"
           },
           {
             "id": "fc7",
-            "front": "待庵",
+            "front": "{待庵|たいあん}",
             "back": "千利休が造った、究極のわびを表現した二畳の茶室は？",
             "explanation": "現存する最古の茶室で、わずか二畳の空間にわびの精神が凝縮されている。",
             "difficulty": "standard"
           },
           {
             "id": "fc8",
-            "front": "姫路城",
+            "front": "{姫路城|ひめじじょう}",
             "back": "白壁が美しく「白鷺城」とも呼ばれる兵庫県の城は？",
             "explanation": "現存する天守閣の中でも最大級で、世界遺産にも登録されている。",
             "difficulty": "basic"
           },
           {
             "id": "fc9",
-            "front": "天守閣",
+            "front": "{天守閣|てんしゅかく}",
             "back": "城の中心にそびえる、桃山文化を象徴する建築物は？",
             "explanation": "城の最上部に建てられた高層建築で、大名の権威を示す象徴。",
             "difficulty": "standard"
@@ -1807,21 +1807,21 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc11",
-            "front": "出雲の阿国",
+            "front": "{出雲|いずも}の{阿国|おくに}",
             "back": "京都で「かぶきおどり」を始めた女性は？",
             "explanation": "彼女の始めた「かぶきおどり」が、後の歌舞伎のルーツとなった。",
             "difficulty": "standard"
           },
           {
             "id": "fc12",
-            "front": "浄瑠璃",
+            "front": "{浄瑠璃|じょうるり}",
             "back": "三味線に合わせて語る、桃山時代に人気を集めた芸能は？",
             "explanation": "後に人形と組み合わさって人形浄瑠璃となり、江戸時代に大発展。",
             "difficulty": "basic"
           },
           {
             "id": "fc13",
-            "front": "南蛮文化",
+            "front": "{南蛮|なんばん}{文化|ぶんか}",
             "back": "ヨーロッパ人との交流によって伝わった文化は？",
             "explanation": "活版印刷術やヨーロッパ風の絵画、カステラなどが代表例。",
             "difficulty": "basic"
@@ -1835,21 +1835,21 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc15",
-            "front": "活版印刷術",
+            "front": "{活版|かっぱん}{印刷術|いんさつじゅつ}",
             "back": "宣教師が持ち込み、平家物語などをローマ字で印刷した技術は？",
             "explanation": "天草版平家物語などが宣教師の日本語学習のために印刷された。",
             "difficulty": "standard"
           },
           {
             "id": "fc16",
-            "front": "木綿",
+            "front": "{木綿|もめん}",
             "back": "桃山時代に庶民の衣料として普及し始めた素材は？",
             "explanation": "麻に比べて肌触りがよく温かいため、庶民の衣料として広まった。",
             "difficulty": "standard"
           },
           {
             "id": "fc17",
-            "front": "にじり口",
+            "front": "にじり{口|ぐち}",
             "back": "茶室の入り口にある、身分を問わず屈んで入る扉は？",
             "explanation": "武士も商人も同じように屈んで入ることで、茶室内の平等を表現した。",
             "difficulty": "advanced"
@@ -2083,140 +2083,140 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "徳川家康",
+            "front": "{徳川家康|とくがわいえやす}",
             "back": "関ヶ原の戦いに勝ち、1603年に江戸幕府を開いた人物は？",
             "explanation": "初代将軍。豊臣秀吉とは別人物。",
             "difficulty": "basic"
           },
           {
             "id": "fc2",
-            "front": "関ヶ原の戦い",
+            "front": "{関ヶ原|せきがはら}の{戦|たたか}い",
             "back": "1600年、徳川家康が石田三成らを破った戦いは？",
             "explanation": "天下分け目の戦い。江戸幕府成立につながる。",
             "difficulty": "basic"
           },
           {
             "id": "fc3",
-            "front": "江戸幕府",
+            "front": "{江戸|えど}{幕府|ばくふ}",
             "back": "1603年に徳川家康が開いた幕府は？",
             "explanation": "江戸を政治の中心とし、約260年続いた。",
             "difficulty": "basic"
           },
           {
             "id": "fc4",
-            "front": "征夷大将軍",
+            "front": "{征夷大将軍|せいいたいしょうぐん}",
             "back": "武家政権の最高職。家康は1603年に任命されたのは？",
             "explanation": "秀吉の関白と区別する。",
             "difficulty": "basic"
           },
           {
             "id": "fc5",
-            "front": "大坂の陣",
+            "front": "{大坂|おおさか}の{陣|じん}",
             "back": "1614〜1615年、徳川氏が豊臣氏を滅ぼした戦いは？",
             "explanation": "幕府の支配が安定するきっかけ。冬の陣と夏の陣の二度。",
             "difficulty": "standard"
           },
           {
             "id": "fc6",
-            "front": "大名",
+            "front": "{大名|だいみょう}",
             "back": "将軍から1万石以上の領地を与えられた武士は？",
             "explanation": "親藩・譜代・外様に分けられる。",
             "difficulty": "basic"
           },
           {
             "id": "fc7",
-            "front": "親藩",
+            "front": "{親藩|しんぱん}",
             "back": "徳川氏の一族の大名は？",
             "explanation": "尾張・紀伊・水戸の御三家が代表的。譜代・外様との違いを問われやすい。",
             "difficulty": "standard"
           },
           {
             "id": "fc8",
-            "front": "譜代大名",
+            "front": "{譜代|ふだい}{大名|だいみょう}",
             "back": "関ヶ原の戦い以前から徳川氏に従っていた大名は？",
             "explanation": "幕府の重要な役職につくことが多い。",
             "difficulty": "standard"
           },
           {
             "id": "fc9",
-            "front": "外様大名",
+            "front": "{外様|とざま}{大名|だいみょう}",
             "back": "関ヶ原の戦いの前後から徳川氏に従った大名は？",
             "explanation": "幕府から警戒され、遠くに配置されることが多かった。",
             "difficulty": "standard"
           },
           {
             "id": "fc10",
-            "front": "武家諸法度",
+            "front": "{武家|ぶけ}{諸法度|しょはっと}",
             "back": "大名を統制するために出された法令は？",
             "explanation": "城の修理や結婚などにも制限があった。",
             "difficulty": "basic"
           },
           {
             "id": "fc11",
-            "front": "参勤交代",
+            "front": "{参勤|さんきん}{交代|こうたい}",
             "back": "大名に江戸と領地を1年おきに行き来させた制度は？",
             "explanation": "徳川家光の時代に制度化。大名の財政負担が大きい。",
             "difficulty": "basic"
           },
           {
             "id": "fc12",
-            "front": "幕藩体制",
+            "front": "{幕藩|ばくはん}{体制|たいせい}",
             "back": "幕府と藩が全国を支配した江戸時代の政治体制は？",
             "explanation": "幕府が大名を統制し、藩が領地を支配した。",
             "difficulty": "standard"
           },
           {
             "id": "fc13",
-            "front": "禁中並公家諸法度",
+            "front": "{禁中|きんちゅう}{並|ならびに}{公家|くげ}{諸法度|しょはっと}",
             "back": "天皇や公家を統制するために定めた法律は？",
             "explanation": "天皇は学問に専念すべきとし、政治的な活動を制限した。",
             "difficulty": "standard"
           },
           {
             "id": "fc14",
-            "front": "老中",
+            "front": "{老中|ろうじゅう}",
             "back": "江戸幕府に常に置かれた最高職は？",
             "explanation": "複数の譜代大名が交代で務め、幕政全般を統括した。",
             "difficulty": "standard"
           },
           {
             "id": "fc15",
-            "front": "旗本",
+            "front": "{旗本|はたもと}",
             "back": "将軍に会える、1万石未満の将軍直属の家臣は？",
             "explanation": "将軍に直接会える「お目見え」以上の格式を持つ直属の家臣。",
             "difficulty": "standard"
           },
           {
             "id": "fc16",
-            "front": "御家人",
+            "front": "{御家人|ごけにん}",
             "back": "将軍に直接会えない、1万石未満の将軍直属の家臣は？",
             "explanation": "旗本と違い将軍に直接会う「お目見え」が許されなかった下級の直臣。",
             "difficulty": "advanced"
           },
           {
             "id": "fc17",
-            "front": "幕領",
+            "front": "{幕領|ばくりょう}",
             "back": "幕府が直接支配した土地は？",
             "explanation": "天領とも呼ばれ、主要な都市や鉱山を含む約400万石の領地。",
             "difficulty": "advanced"
           },
           {
             "id": "fc18",
-            "front": "日光東照宮",
+            "front": "{日光|にっこう}{東照宮|とうしょうぐう}",
             "back": "家康をまつる、日光にある有名な建物は？",
             "explanation": "3代将軍家光が大改修し、豪華絢爛な彫刻で幕府の権威を示した。",
             "difficulty": "advanced"
           },
           {
             "id": "fc19",
-            "front": "石田三成",
+            "front": "{石田三成|いしだみつなり}",
             "back": "関ヶ原の戦いで西軍を率いた豊臣方の大名は？",
             "explanation": "豊臣秀吉の側近として活躍したが、関ヶ原で敗れて処刑された。",
             "difficulty": "basic"
           },
           {
             "id": "fc20",
-            "front": "御三家",
+            "front": "{御三家|ごさんけ}",
             "back": "尾張・紀伊・水戸の親藩の中でも特に格式の高い3家は？",
             "explanation": "将軍家の血統が途絶えた場合に、将軍を出す役割を持つ。",
             "difficulty": "standard"
@@ -2455,91 +2455,91 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "朱印船貿易",
+            "front": "{朱印船|しゅいんせん}{貿易|ぼうえき}",
             "back": "幕府から朱印状を受けた船が東南アジアと行った貿易は？",
             "explanation": "初期の江戸幕府は海外貿易を認めていた。家康が奨励。",
             "difficulty": "basic"
           },
           {
             "id": "fc2",
-            "front": "朱印状",
+            "front": "{朱印状|しゅいんじょう}",
             "back": "幕府が海外渡航を許可した船に与えた証明書は？",
             "explanation": "将軍の朱印（赤い印章）が押された公式な渡航許可証。",
             "difficulty": "basic"
           },
           {
             "id": "fc3",
-            "front": "日本町",
+            "front": "{日本町|にほんまち}",
             "back": "東南アジア各地にできた日本人の町は？",
             "explanation": "朱印船貿易と関係が深い。鎖国前の海外交流の証拠。タイのアユタヤなど。",
             "difficulty": "standard"
           },
           {
             "id": "fc4",
-            "front": "禁教",
+            "front": "{禁教|きんきょう}",
             "back": "キリスト教を禁止することを何という？",
             "explanation": "江戸幕府はしだいに取りしまりを強めた。島原・天草一揆後にさらに厳しくなった。",
             "difficulty": "basic"
           },
           {
             "id": "fc5",
-            "front": "禁教令",
+            "front": "{禁教令|きんきょうれい}",
             "back": "1612年に家康が幕領に対して出した命令は？",
             "explanation": "キリスト教の広がりが幕府の支配を揺るがすと考えた。",
             "difficulty": "basic"
           },
           {
             "id": "fc6",
-            "front": "絵踏",
+            "front": "{絵踏|えふみ}",
             "back": "キリスト教徒を見つけるため、キリストやマリアの絵を踏ませた取りしまりは？",
             "explanation": "宗門改めとともに出題されやすい。",
             "difficulty": "standard"
           },
           {
             "id": "fc7",
-            "front": "踏絵",
+            "front": "{踏絵|ふみえ}",
             "back": "キリスト教信者かどうかを調べるために踏ませた絵は？",
             "explanation": "キリストや聖母マリアの像を描いた板で、絵踏の際に使われた道具。",
             "difficulty": "advanced"
           },
           {
             "id": "fc8",
-            "front": "宗門改め",
+            "front": "{宗門|しゅうもん}改め",
             "back": "人々を寺に所属させ、キリスト教徒でないことを証明させた制度は？",
             "explanation": "寺請制度と関連する。",
             "difficulty": "standard"
           },
           {
             "id": "fc9",
-            "front": "寺請制度",
+            "front": "{寺請|てらうけ}{制度|せいど}",
             "back": "すべての人を寺院に登録させキリシタンでないことを証明させた制度は？",
             "explanation": "宗門改と組み合わせて運用され、全国民の宗教を管理する制度。",
             "difficulty": "standard"
           },
           {
             "id": "fc10",
-            "front": "島原・天草一揆",
+            "front": "{島原|しまばら}・{天草|あまくさ}{一揆|いっき}",
             "back": "1637年、重い年貢やキリスト教弾圧に苦しんだ人々が起こした一揆は？",
             "explanation": "幕府の禁教強化につながった。",
             "difficulty": "basic"
           },
           {
             "id": "fc11",
-            "front": "天草四郎（益田時貞）",
+            "front": "{天草|あまくさ}{四郎|しろう}（{益田時貞|ますだときさだ}）",
             "back": "島原・天草一揆で一揆軍の大将となった少年は？",
             "explanation": "わずか16歳前後で一揆軍を率いたが、幕府軍に鎮圧された。",
             "difficulty": "standard"
           },
           {
             "id": "fc12",
-            "front": "鎖国",
+            "front": "{鎖国|さこく}",
             "back": "江戸幕府が海外との交流を制限した体制は？",
             "explanation": "完全に交流を断ったわけではない。長崎など4つの窓口で限定的な交流は続いた。",
             "difficulty": "basic"
           },
           {
             "id": "fc13",
-            "front": "出島",
+            "front": "{出島|でじま}",
             "back": "長崎に作られた人工島で、のちにオランダ商館が置かれた場所は？",
             "explanation": "オランダとの貿易の窓口。鎖国下における唯一の西洋との窓口だった。",
             "difficulty": "standard"
@@ -2553,14 +2553,14 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc15",
-            "front": "唐人屋敷",
+            "front": "{唐人|とうじん}{屋敷|やしき}",
             "back": "長崎に置かれた中国人の居住地区は？",
             "explanation": "清の商人が住み、オランダの出島とともに長崎での貿易拠点。",
             "difficulty": "standard"
           },
           {
             "id": "fc16",
-            "front": "徳川家光",
+            "front": "{徳川家光|とくがわいえみつ}",
             "back": "キリスト教禁止や鎖国を完成させた将軍は？",
             "explanation": "3代将軍で、参勤交代の制度化や鎖国体制の完成を行った。",
             "difficulty": "advanced"
@@ -2814,84 +2814,84 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc2",
-            "front": "出島",
+            "front": "{出島|でじま}",
             "back": "長崎でオランダ人が滞在を許された人工島は？",
             "explanation": "扇形の人工島で、鎖国下での唯一の西洋との貿易窓口。",
             "difficulty": "basic"
           },
           {
             "id": "fc3",
-            "front": "オランダ風説書",
+            "front": "オランダ{風説書|ふうせつしょ}",
             "back": "オランダが幕府に提出した海外情報の報告書は？",
             "explanation": "鎖国下で幕府が世界情勢を知る貴重な情報源。",
             "difficulty": "basic"
           },
           {
             "id": "fc4",
-            "front": "清",
+            "front": "{清|しん}",
             "back": "長崎で貿易を行い、独自の居住地を与えられた国は？",
             "explanation": "唐人屋敷に居住し、オランダとともに長崎で貿易を行った。",
             "difficulty": "basic"
           },
           {
             "id": "fc5",
-            "front": "唐人屋敷",
+            "front": "{唐人|とうじん}{屋敷|やしき}",
             "back": "長崎に住む中国人を収容するために幕府が造った施設は？",
             "explanation": "出島のオランダ商館と並んで、長崎での外国人管理の拠点。",
             "difficulty": "standard"
           },
           {
             "id": "fc6",
-            "front": "対馬藩",
+            "front": "{対馬|つしま}{藩|はん}",
             "back": "朝鮮との外交窓口となった藩は？",
             "explanation": "朝鮮半島に近い地理的条件を生かし、朝鮮との外交・貿易を担った。",
             "difficulty": "basic"
           },
           {
             "id": "fc7",
-            "front": "倭館",
+            "front": "{倭館|わかん}",
             "back": "対馬藩が朝鮮の釜山に設けた居留地は？",
             "explanation": "日本の居留地として貿易と外交の実務が行われた場所。",
             "difficulty": "standard"
           },
           {
             "id": "fc8",
-            "front": "朝鮮通信使",
+            "front": "{朝鮮|ちょうせん}{通信使|つうしんし}",
             "back": "朝鮮から江戸幕府へ派遣された使節は？",
             "explanation": "対馬藩が窓口となった。将軍の代替わりごとに派遣された。",
             "difficulty": "basic"
           },
           {
             "id": "fc9",
-            "front": "薩摩藩",
+            "front": "{薩摩|さつま}{藩|はん}",
             "back": "鎖国下で琉球との窓口となった藩は？",
             "explanation": "1609年に琉球に侵攻して支配下に置き、中国との中継貿易で利益を得た。",
             "difficulty": "basic"
           },
           {
             "id": "fc10",
-            "front": "松前藩",
+            "front": "{松前|まつまえ}{藩|はん}",
             "back": "鎖国下でアイヌとの窓口となった藩は？",
             "explanation": "蝦夷地に置かれ、アイヌとの交易を独占して鮭や昆布を手に入れた。",
             "difficulty": "basic"
           },
           {
             "id": "fc12",
-            "front": "俵物",
+            "front": "{俵物|たわらもの}",
             "back": "銀の代わりに日本が長崎貿易で輸出した海産物は？",
             "explanation": "干しなまこ・干しアワビ・ふかひれなどで、銀の流出を防ぐために輸出された。",
             "difficulty": "standard"
           },
           {
             "id": "fc13",
-            "front": "長崎奉行",
+            "front": "{長崎|ながさき}{奉行|ぶぎょう}",
             "back": "長崎での貿易を管理した幕府の役職は？",
             "explanation": "幕府直轄地の長崎を管理し、出島や唐人屋敷での貿易を監督した。",
             "difficulty": "basic"
           },
           {
             "id": "fc14",
-            "front": "釜山",
+            "front": "{釜山|ふざん}",
             "back": "対馬藩が倭館を設けた朝鮮の港町は？",
             "explanation": "朝鮮半島の南端に位置し、対馬から最も近い朝鮮の港。",
             "difficulty": "standard"
@@ -3111,63 +3111,63 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "琉球王国",
+            "front": "{琉球|りゅうきゅう}{王国|おうこく}",
             "back": "薩摩藩に支配されながら、中国とも関係を保った王国は？",
             "explanation": "現在の沖縄県にあたる。15世紀に成立した王国で、中国との朝貢貿易で繁栄。",
             "difficulty": "basic"
           },
           {
             "id": "fc2",
-            "front": "薩摩藩",
+            "front": "{薩摩|さつま}{藩|はん}",
             "back": "琉球の支配を認められ、貿易の利益を独占したのは何藩？",
             "explanation": "1609年に琉球に侵攻し、表面上は独立国として扱いながら支配した。",
             "difficulty": "basic"
           },
           {
             "id": "fc3",
-            "front": "琉球使節",
+            "front": "{琉球|りゅうきゅう}{使節|しせつ}",
             "back": "琉球国王や将軍の代替わりの際に江戸へ送られた使節は？",
             "explanation": "華やかな行列で江戸に向かい、幕府の権威を国内外に示す役割も果たした。",
             "difficulty": "basic"
           },
           {
             "id": "fc4",
-            "front": "中継貿易",
+            "front": "{中継|なかつぎ}{貿易|ぼうえき}",
             "back": "琉球が中国の品を日本へ送り利益を得た貿易は？",
             "explanation": "中国と日本の間に位置する地理的条件を生かした貿易形態。",
             "difficulty": "basic"
           },
           {
             "id": "fc5",
-            "front": "奄美群島",
+            "front": "{奄美|あまみ}{群島|ぐんとう}",
             "back": "薩摩藩が琉球から取り上げ、直接支配した島々は？",
             "explanation": "砂糖の生産が盛んで、薩摩藩の重要な財源となった。",
             "difficulty": "standard"
           },
           {
             "id": "fc6",
-            "front": "アイヌ民族",
+            "front": "アイヌ{民族|みんぞく}",
             "back": "北海道などに住み、独自の文化をもつ人々は？",
             "explanation": "松前藩と交易した。シャクシャインの戦いと関連する。漁業や狩猟を営んだ。",
             "difficulty": "basic"
           },
           {
             "id": "fc7",
-            "front": "蝦夷地",
+            "front": "{蝦夷地|えぞち}",
             "back": "江戸時代の北海道や千島列島、樺太の呼び方は？",
             "explanation": "アイヌ民族が暮らす地域の総称で、松前藩が窓口を担った。",
             "difficulty": "standard"
           },
           {
             "id": "fc8",
-            "front": "松前藩",
+            "front": "{松前|まつまえ}{藩|はん}",
             "back": "アイヌとの交易を独占し、蝦夷地の窓口となった藩は？",
             "explanation": "米が取れないため石高ではなく交易権で成り立つ特殊な藩だった。",
             "difficulty": "basic"
           },
           {
             "id": "fc9",
-            "front": "シャクシャインの戦い",
+            "front": "シャクシャインの{戦|たたか}い",
             "back": "松前藩との交易をめぐる不満から、アイヌの人々が起こした戦いは？",
             "explanation": "アイヌと松前藩の関係を問う問題で出る。1669年。",
             "difficulty": "advanced"
@@ -3195,21 +3195,21 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc13",
-            "front": "鮭・昆布・毛皮",
+            "front": "{鮭|さけ}・{昆布|こんぶ}・{毛皮|けがわ}",
             "back": "松前藩がアイヌとの交易で主に手に入れた産物は？",
             "explanation": "蝦夷地の豊かな自然から得られる産物で、本州でも高い価値があった。",
             "difficulty": "standard"
           },
           {
             "id": "fc14",
-            "front": "島津氏",
+            "front": "{島津氏|しまづし}",
             "back": "薩摩藩を治めていた大名の氏族は？",
             "explanation": "鎌倉時代から薩摩を治めた名門で、幕末には倒幕の中心的な役割を果たした。",
             "difficulty": "advanced"
           },
           {
             "id": "fc15",
-            "front": "朝貢貿易",
+            "front": "{朝貢|ちょうこう}{貿易|ぼうえき}",
             "back": "琉球が中国に対して行っていた貿易形態は？",
             "explanation": "中国皇帝に貢物を送り、代わりに恩恵的な贈り物を受ける形式の貿易。",
             "difficulty": "advanced"
@@ -3422,70 +3422,70 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "士農工商",
+            "front": "{士農工商|しのうこうしょう}",
             "back": "江戸時代の身分の大まかな分け方は？",
             "explanation": "武士・百姓・町人などに分けられた。実際には公家・神職・えた・ひにんなどもいた。",
             "difficulty": "basic"
           },
           {
             "id": "fc2",
-            "front": "武士",
+            "front": "{武士|ぶし}",
             "back": "江戸時代に名字・帯刀などの特権を持ち、政治を担った身分は？",
             "explanation": "全人口の約7%だが、支配階級として政治・軍事を独占した。",
             "difficulty": "basic"
           },
           {
             "id": "fc3",
-            "front": "百姓",
+            "front": "{百姓|ひゃくしょう}",
             "back": "村に住み、年貢を納めた人々で江戸時代の人口の多くを占めた身分は？",
             "explanation": "農民だけでなく漁業・林業に関わる人も含む。全人口の約85％。",
             "difficulty": "basic"
           },
           {
             "id": "fc4",
-            "front": "町人",
+            "front": "{町人|ちょうにん}",
             "back": "都市に住む商人や職人を何という？",
             "explanation": "城下町に住み、商工業に従事して営業税を納めた。武士や百姓と区別する。",
             "difficulty": "basic"
           },
           {
             "id": "fc5",
-            "front": "五人組",
+            "front": "{五人組|ごにんぐみ}",
             "back": "百姓を数戸ごとにまとめ、年貢納入や犯罪防止に連帯責任を負わせた制度は？",
             "explanation": "村の支配に利用された。5戸1組で互いに監視し合った。",
             "difficulty": "basic"
           },
           {
             "id": "fc6",
-            "front": "年貢",
+            "front": "{年貢|ねんぐ}",
             "back": "百姓が収穫した米などを領主に納める税は？",
             "explanation": "収穫の4〜5割を納めることが多く、百姓の生活を大きく圧迫した。",
             "difficulty": "basic"
           },
           {
             "id": "fc7",
-            "front": "本百姓",
+            "front": "{本百姓|ほんびゃくしょう}",
             "back": "自分の土地を持ち、村役人として村の自治を行った百姓は？",
             "explanation": "名主・庄屋・組頭などの村役人を務め、村の運営の中心を担った。",
             "difficulty": "standard"
           },
           {
             "id": "fc8",
-            "front": "水のみ百姓",
+            "front": "水のみ{百姓|ひゃくしょう}",
             "back": "土地を持たず、小作などを行っていた百姓は？",
             "explanation": "本百姓から土地を借りて耕作し、貧しい暮らしだった。",
             "difficulty": "standard"
           },
           {
             "id": "fc9",
-            "front": "えた身分・ひにん身分",
+            "front": "えた{身分|みぶん}・ひにん{身分|みぶん}",
             "back": "居住や職業、服装を厳しく制限され差別を受けた身分は？",
             "explanation": "不当な差別を受けた人々で、身分制度による差別は明治以降も長く続いた。",
             "difficulty": "advanced"
           },
           {
             "id": "fc10",
-            "front": "名字・帯刀",
+            "front": "{名字|みょうじ}・{帯刀|たいとう}",
             "back": "武士だけに許された、姓を名乗り刀を差す特権は？",
             "explanation": "武士の身分を象徴する特権で、他の身分には原則として許されなかった。",
             "difficulty": "basic"
@@ -3499,35 +3499,35 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc12",
-            "front": "城下町",
+            "front": "{城下町|じょうかまち}",
             "back": "町人が住み、商工業に従事していた場所は？",
             "explanation": "大名の城を中心に発達した都市で、武家地・町人地・寺社地に分かれていた。",
             "difficulty": "basic"
           },
           {
             "id": "fc13",
-            "front": "五公五民",
+            "front": "{五公五民|ごこうごみん}",
             "back": "収穫の5割を年貢として納め、5割を手元に残す割合は？",
             "explanation": "「5割が領主（公）、5割が民」の意味で、年貢の負担の重さを表す言葉。",
             "difficulty": "standard"
           },
           {
             "id": "fc14",
-            "front": "百姓一揆",
+            "front": "{百姓|ひゃくしょう}{一揆|いっき}",
             "back": "百姓が年貢の軽減などを訴えるために集団で行動することは？",
             "explanation": "18世紀以降に激増し、からかさ連判状で首謀者を隠すこともあった。",
             "difficulty": "standard"
           },
           {
             "id": "fc15",
-            "front": "慶安の御触書",
+            "front": "{慶安|けいあん}の{御触書|おふれがき}",
             "back": "百姓が守るべき規則を定めた法令は？",
             "explanation": "倹約や勤勉を求め、百姓の生活態度を細かく規定した法令。",
             "difficulty": "standard"
           },
           {
             "id": "fc16",
-            "front": "村請制",
+            "front": "{村請制|むらうけせい}",
             "back": "年貢の納入について村全体で連帯責任を負う制度は？",
             "explanation": "村全体で年貢を納める責任を負い、個人の逃亡を防ぐ効果があった。",
             "difficulty": "advanced"
@@ -3748,7 +3748,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "啓蒙思想",
+            "front": "{啓蒙|けいもう}{思想|しそう}",
             "back": "人間の理性で政治や社会をより良くできるという考え方は？",
             "explanation": "17〜18世紀のヨーロッパで広まり、革命に大きな影響を与えた。",
             "difficulty": "basic"
@@ -3776,7 +3776,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc5",
-            "front": "ピューリタン革命",
+            "front": "ピューリタン{革命|かくめい}",
             "back": "クロムウェルが率いる議会派が国王軍に勝利した革命は？",
             "explanation": "1649年に国王チャールズ1世を処刑し、一時的に共和制となった。",
             "difficulty": "standard"
@@ -3790,28 +3790,28 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc7",
-            "front": "名誉革命",
+            "front": "{名誉|めいよ}{革命|かくめい}",
             "back": "血を流さずに国王を追放したイギリスの革命は？",
             "explanation": "1688年、議会が国王ジェームズ2世を追放した無血革命。",
             "difficulty": "standard"
           },
           {
             "id": "fc8",
-            "front": "権利章典",
+            "front": "{権利|けんり}{章典|しょうてん}",
             "back": "国王が議会の認めた法律に従うことを約束した文書は？",
             "explanation": "名誉革命後の1689年に制定され、立憲君主制の基礎となった。",
             "difficulty": "standard"
           },
           {
             "id": "fc9",
-            "front": "立憲君主制",
+            "front": "{立憲|りっけん}{君主制|くんしゅせい}",
             "back": "憲法に基づいて君主の権力が制限される政治体制は？",
             "explanation": "イギリスで確立。国王は「君臨すれども統治せず」となった。",
             "difficulty": "standard"
           },
           {
             "id": "fc10",
-            "front": "三権分立",
+            "front": "{三権分立|さんけんぶんりつ}",
             "back": "立法・行政・司法の三つに権力を分ける仕組みは？",
             "explanation": "モンテスキューが提唱した、権力の集中による暴走を防ぐ仕組み。",
             "difficulty": "standard"
@@ -3839,14 +3839,14 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc14",
-            "front": "社会契約説",
+            "front": "社会{契約|けいやく}説",
             "back": "ロックが唱えた、国家は人々の合意によって作られるという考え方は？",
             "explanation": "政府は国民との契約により成り立つという理論。",
             "difficulty": "advanced"
           },
           {
             "id": "fc15",
-            "front": "抵抗権",
+            "front": "{抵抗権|ていこうけん}",
             "back": "政府が国民の権利を守らない場合、国民が政府を変える権利は？",
             "explanation": "ロックが主張し、アメリカ独立革命に大きな影響を与えた。",
             "difficulty": "basic"
@@ -4079,7 +4079,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "代表なくして課税なし",
+            "front": "代表なくして{課税|かぜい}なし",
             "back": "アメリカ植民地の人々が掲げたスローガンは？",
             "explanation": "自分たちの代表がいないイギリス議会の課税に反発したスローガン。",
             "difficulty": "basic"
@@ -4093,28 +4093,28 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc3",
-            "front": "独立宣言",
+            "front": "{独立|どくりつ}{宣言|せんげん}",
             "back": "「すべての人間は平等」という理念を掲げた1776年の文書は？",
             "explanation": "ロックの思想に基づき、生命・自由・幸福追求の権利を謳った。",
             "difficulty": "basic"
           },
           {
             "id": "fc4",
-            "front": "独立戦争",
+            "front": "{独立|どくりつ}{戦争|せんそう}",
             "back": "アメリカがイギリスからの独立を勝ち取った戦争は？",
             "explanation": "1775年に始まり、1783年にイギリスが独立を承認した。",
             "difficulty": "basic"
           },
           {
             "id": "fc5",
-            "front": "ボストン茶会事件",
+            "front": "ボストン{茶会|ちゃかい}{事件|じけん}",
             "back": "イギリスの茶への課税に抗議して茶を海に投げ捨てた事件は？",
             "explanation": "独立戦争のきっかけの一つとなった象徴的な事件。",
             "difficulty": "standard"
           },
           {
             "id": "fc6",
-            "front": "合衆国憲法",
+            "front": "{合衆国|がっしゅうこく}{憲法|けんぽう}",
             "back": "アメリカで1787年に制定された世界初の近代的成文憲法は？",
             "explanation": "三権分立や連邦制などを定め、各国の憲法の模範となった。",
             "difficulty": "standard"
@@ -4128,7 +4128,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc8",
-            "front": "13植民地",
+            "front": "13{植民地|しょくみんち}",
             "back": "イギリスが北アメリカ東部に建設した植民地の数は？",
             "explanation": "これらの植民地が独立してアメリカ合衆国が誕生した。",
             "difficulty": "basic"
@@ -4149,7 +4149,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc11",
-            "front": "パリ条約",
+            "front": "パリ{条約|じょうやく}",
             "back": "アメリカ独立戦争の講和条約は？",
             "explanation": "1783年に締結され、イギリスがアメリカの独立を承認した。",
             "difficulty": "standard"
@@ -4163,7 +4163,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc13",
-            "front": "連邦制",
+            "front": "{連邦制|れんぽうせい}",
             "back": "各州が一定の自治権を持ちつつ連邦政府のもとにまとまる仕組みは？",
             "explanation": "アメリカ合衆国憲法で定められた国家の基本構造。",
             "difficulty": "advanced"
@@ -4383,35 +4383,35 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "フランス革命",
+            "front": "フランス{革命|かくめい}",
             "back": "1789年に始まった、絶対王政を打倒した市民革命は？",
             "explanation": "バスティーユ牢獄襲撃をきっかけに始まり、国王を処刑した。",
             "difficulty": "basic"
           },
           {
             "id": "fc2",
-            "front": "人権宣言",
+            "front": "{人権|じんけん}{宣言|せんげん}",
             "back": "フランス革命で発表された、自由・平等・国民主権を謳った宣言は？",
             "explanation": "「人は生まれながらにして自由で平等な権利を持つ」と宣言した。",
             "difficulty": "basic"
           },
           {
             "id": "fc3",
-            "front": "バスティーユ牢獄",
+            "front": "バスティーユ{牢獄|ろうごく}",
             "back": "1789年7月14日に市民が襲撃したパリの監獄は？",
             "explanation": "フランス革命の始まりを象徴する事件。",
             "difficulty": "basic"
           },
           {
             "id": "fc4",
-            "front": "第三身分",
+            "front": "{第三身分|だいさんみぶん}",
             "back": "フランス革命前、人口の98%を占め重い税に苦しんでいた平民は？",
             "explanation": "聖職者（第一身分）や貴族（第二身分）と違い税を負担していた。",
             "difficulty": "basic"
           },
           {
             "id": "fc5",
-            "front": "ルイ16世",
+            "front": "ルイ16{世|せい}",
             "back": "フランス革命で処刑されたフランス国王は？",
             "explanation": "絶対王政の象徴として、1793年にギロチンで処刑された。",
             "difficulty": "standard"
@@ -4425,49 +4425,49 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc7",
-            "front": "ナポレオン法典",
+            "front": "ナポレオン{法典|ほうてん}",
             "back": "ナポレオンが制定した、個人の自由と財産権を保障した民法は？",
             "explanation": "近代市民社会のルールとして各国の法律に影響を与えた。",
             "difficulty": "standard"
           },
           {
             "id": "fc8",
-            "front": "三部会",
+            "front": "{三部会|さんぶかい}",
             "back": "聖職者・貴族・平民の代表で構成されるフランスの身分制議会は？",
             "explanation": "1789年に175年ぶりに召集され、革命のきっかけとなった。",
             "difficulty": "standard"
           },
           {
             "id": "fc9",
-            "front": "国民主権",
+            "front": "{国民|こくみん}{主権|しゅけん}",
             "back": "国の政治を決める権利は国民にあるという考え方は？",
             "explanation": "ルソーが唱え、人権宣言にも盛り込まれた。",
             "difficulty": "advanced"
           },
           {
             "id": "fc10",
-            "front": "ウィーン会議",
+            "front": "ウィーン{会議|かいぎ}",
             "back": "ナポレオン失脚後に開かれた、ヨーロッパの秩序を戻す国際会議は？",
             "explanation": "革命前のヨーロッパの秩序に戻すことを目的とした。",
             "difficulty": "standard"
           },
           {
             "id": "fc11",
-            "front": "絶対王政",
+            "front": "{絶対|ぜったい}{王政|おうせい}",
             "back": "国王が絶対的な権力を持つ政治体制は？",
             "explanation": "フランス革命前のフランスの政治体制。",
             "difficulty": "basic"
           },
           {
             "id": "fc12",
-            "front": "第一身分",
+            "front": "{第一身分|だいいちみぶん}",
             "back": "フランス革命前の身分制で聖職者を何と呼んだか？",
             "explanation": "税を免除される特権階級の一つ。",
             "difficulty": "standard"
           },
           {
             "id": "fc13",
-            "front": "第二身分",
+            "front": "{第二身分|だいにみぶん}",
             "back": "フランス革命前の身分制で貴族を何と呼んだか？",
             "explanation": "税を免除される特権階級の一つ。",
             "difficulty": "standard"
@@ -4481,7 +4481,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc16",
-            "front": "自由・平等・友愛",
+            "front": "自由・平等・{友愛|ゆうあい}",
             "back": "フランス革命の理想を表すスローガンは？",
             "explanation": "革命の理念として広く知られる。",
             "difficulty": "basic"
@@ -4707,7 +4707,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "国民国家",
+            "front": "{国民|こくみん}{国家|こっか}",
             "back": "同じ言語・文化を持つ国民による統一的な国家を何という？",
             "explanation": "19世紀のヨーロッパで広まり、ドイツやイタリアの統一につながった。",
             "difficulty": "basic"
@@ -4721,21 +4721,21 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc3",
-            "front": "鉄血政策",
+            "front": "{鉄血|てっけつ}{政策|せいさく}",
             "back": "ビスマルクがドイツ統一のために進めた軍事力重視の政策は？",
             "explanation": "「現在の大問題は鉄と血によって解決される」と演説した。",
             "difficulty": "basic"
           },
           {
             "id": "fc4",
-            "front": "義務教育",
+            "front": "{義務|ぎむ}{教育|きょういく}",
             "back": "国民としての一体感を育むため国が定めた学校教育は？",
             "explanation": "同じ言葉や歴史を学ぶことで国民意識が育まれた。",
             "difficulty": "basic"
           },
           {
             "id": "fc5",
-            "front": "男性普通選挙",
+            "front": "{男性|だんせい}{普通|ふつう}{選挙|せんきょ}",
             "back": "財産に関係なく成年男性全員に選挙権を与える制度は？",
             "explanation": "フランスで実現し、より多くの国民が政治に参加できるようになった。",
             "difficulty": "standard"
@@ -4749,7 +4749,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc7",
-            "front": "中南米の独立",
+            "front": "{中南米|ちゅうなんべい}の{独立|どくりつ}",
             "back": "ナポレオン戦争中に独立した、スペイン・ポルトガル植民地は？",
             "explanation": "ヨーロッパの混乱に乗じて独立を達成した。",
             "difficulty": "advanced"
@@ -4770,7 +4770,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc10",
-            "front": "サルデーニャ王国",
+            "front": "サルデーニャ{王国|おうこく}",
             "back": "イタリア統一の中心となった国は？",
             "explanation": "サルデーニャ王国を中心にイタリア統一が進められた。",
             "difficulty": "advanced"
@@ -4784,28 +4784,28 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc12",
-            "front": "ドイツ帝国",
+            "front": "ドイツ{帝国|ていこく}",
             "back": "ドイツ統一後に成立した国の名称は？",
             "explanation": "プロイセン国王がドイツ皇帝となり、ドイツ帝国が成立した。",
             "difficulty": "standard"
           },
           {
             "id": "fc13",
-            "front": "徴兵制",
+            "front": "{徴兵制|ちょうへいせい}",
             "back": "国民国家の形成とともに広まった、国を守る義務の制度は？",
             "explanation": "「国を守るのは国民の義務」という考えに基づく。",
             "difficulty": "standard"
           },
           {
             "id": "fc14",
-            "front": "二大政党制",
+            "front": "{二大|にだい}{政党制|せいとうせい}",
             "back": "イギリスで発展した、2つの主要政党が政権を競う仕組みは？",
             "explanation": "保守党と自由党が議会で政策を競い合った。",
             "difficulty": "standard"
           },
           {
             "id": "fc15",
-            "front": "自由主義",
+            "front": "自由{主義|しゅぎ}",
             "back": "個人の自由や権利を重視する政治思想は？",
             "explanation": "ナショナリズムとともに19世紀ヨーロッパで広まった。",
             "difficulty": "basic"
@@ -5018,49 +5018,49 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "南下政策",
+            "front": "{南下|なんか}{政策|せいさく}",
             "back": "ロシアが不凍港を求めて南へ勢力を広げようとした政策は？",
             "explanation": "冬に凍らない港を求めて、黒海や地中海への進出を目指した。",
             "difficulty": "basic"
           },
           {
             "id": "fc2",
-            "front": "不凍港",
+            "front": "{不凍港|ふとうこう}",
             "back": "冬でも凍らず一年中使える港は？",
             "explanation": "ロシアが南下政策で獲得を目指した重要な戦略拠点。",
             "difficulty": "basic"
           },
           {
             "id": "fc3",
-            "front": "クリミア戦争",
+            "front": "クリミア{戦争|せんそう}",
             "back": "ロシアの南下政策に対抗してイギリス・フランスなどと戦った戦争は？",
             "explanation": "1853〜1856年、クリミア半島が舞台。ロシアは敗北。",
             "difficulty": "basic"
           },
           {
             "id": "fc4",
-            "front": "農奴解放令",
+            "front": "{農奴|のうど}{解放令|かいほうれい}",
             "back": "クリミア戦争後、ロシアで出された農奴を解放する命令は？",
             "explanation": "1861年、アレクサンドル2世が出した。ロシア近代化の第一歩。",
             "difficulty": "standard"
           },
           {
             "id": "fc5",
-            "front": "オスマン帝国",
+            "front": "オスマン{帝国|ていこく}",
             "back": "ロシアの南下を阻止しようとしたトルコ中心の帝国は？",
             "explanation": "イギリス・フランスと協力してクリミア戦争でロシアと戦った。",
             "difficulty": "standard"
           },
           {
             "id": "fc6",
-            "front": "シベリア鉄道",
+            "front": "シベリア{鉄道|てつどう}",
             "back": "ロシアがアジア方面で建設した大陸横断鉄道は？",
             "explanation": "ロシアの東方進出と極東の支配を強めるために建設された。",
             "difficulty": "standard"
           },
           {
             "id": "fc7",
-            "front": "アレクサンドル2世",
+            "front": "アレクサンドル2{世|せい}",
             "back": "農奴解放令を出したロシアの皇帝は？",
             "explanation": "クリミア戦争での敗北を受けて近代化改革を推進した。",
             "difficulty": "advanced"
@@ -5081,7 +5081,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc10",
-            "front": "農奴",
+            "front": "{農奴|のうど}",
             "back": "ロシアで地主に隷属し自由がなかった農民は？",
             "explanation": "農奴解放令により解放されたが、実質的な自由は限定的だった。",
             "difficulty": "basic"
@@ -5095,7 +5095,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc12",
-            "front": "クリミア半島",
+            "front": "クリミア{半島|はんとう}",
             "back": "クリミア戦争の主な戦場となった半島は？",
             "explanation": "黒海に突き出た戦略的に重要な場所。",
             "difficulty": "standard"
@@ -5315,7 +5315,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "南北戦争",
+            "front": "{南北|なんぼく}{戦争|せんそう}",
             "back": "1861年に始まった、アメリカの北部と南部の内戦は？",
             "explanation": "奴隷制をめぐる対立が原因で、北部の勝利に終わった。",
             "difficulty": "basic"
@@ -5329,42 +5329,42 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc3",
-            "front": "奴隷解放宣言",
+            "front": "{奴隷|どれい}{解放|かいほう}{宣言|せんげん}",
             "back": "1863年にリンカンが出した、奴隷を解放する宣言は？",
             "explanation": "南部の奴隷の解放を宣言した。",
             "difficulty": "basic"
           },
           {
             "id": "fc4",
-            "front": "保護貿易",
+            "front": "{保護|ほご}{貿易|ぼうえき}",
             "back": "関税をかけて国内産業を守る貿易政策は？",
             "explanation": "北部が支持した政策で、輸入品に高い関税をかける。",
             "difficulty": "basic"
           },
           {
             "id": "fc5",
-            "front": "自由貿易",
+            "front": "自由{貿易|ぼうえき}",
             "back": "関税を低くして自由に貿易を行う政策は？",
             "explanation": "南部が支持した政策で、綿花を輸出するのに有利。",
             "difficulty": "standard"
           },
           {
             "id": "fc6",
-            "front": "西部開拓",
+            "front": "{西部|せいぶ}{開拓|かいたく}",
             "back": "アメリカが西へ領土を広げていった動きは？",
             "explanation": "ヨーロッパからの移民を受け入れながら太平洋岸まで拡大した。",
             "difficulty": "standard"
           },
           {
             "id": "fc7",
-            "front": "綿花",
+            "front": "{綿花|めんか}",
             "back": "アメリカ南部の大農場で栽培された主要作物は？",
             "explanation": "イギリスの綿織物工業に輸出され、南部経済を支えた。",
             "difficulty": "standard"
           },
           {
             "id": "fc8",
-            "front": "ゲティスバーグ演説",
+            "front": "ゲティスバーグ{演説|えんぜつ}",
             "back": "リンカンが「人民の、人民による、人民のための政治」と述べた演説は？",
             "explanation": "1863年、戦没者墓地で行われた有名な演説。",
             "difficulty": "advanced"
@@ -5392,14 +5392,14 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc12",
-            "front": "先住民",
+            "front": "{先住民|せんじゅうみん}",
             "back": "西部開拓の過程で土地を奪われた人々は？",
             "explanation": "ヨーロッパからの移民による開拓で土地を追われた。",
             "difficulty": "standard"
           },
           {
             "id": "fc13",
-            "front": "奴隷制度の廃止",
+            "front": "{奴隷|どれい}{制度|せいど}の{廃止|はいし}",
             "back": "南北戦争後にアメリカで実現した大きな変化は？",
             "explanation": "憲法修正第13条により正式に廃止された。",
             "difficulty": "standard"
@@ -5612,7 +5612,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "産業革命",
+            "front": "{産業|さんぎょう}{革命|かくめい}",
             "back": "技術革新によって社会や経済が大きく変わることを何という？",
             "explanation": "18世紀後半にイギリスで始まり、世界中に広がった。",
             "difficulty": "basic"
@@ -5626,56 +5626,56 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc3",
-            "front": "蒸気機関",
+            "front": "{蒸気|じょうき}{機関|きかん}",
             "back": "石炭を燃やして蒸気の力で動く装置は？",
             "explanation": "ワットが改良し、工場や蒸気機関車・蒸気船の動力となった。",
             "difficulty": "basic"
           },
           {
             "id": "fc4",
-            "front": "世界の工場",
+            "front": "{世界|せかい}の{工場|こうじょう}",
             "back": "産業革命後、圧倒的な工業力を持ったイギリスの呼び名は？",
             "explanation": "工業製品を世界中に輸出し、世界経済の中心となった。",
             "difficulty": "basic"
           },
           {
             "id": "fc5",
-            "front": "資本主義",
+            "front": "{資本|しほん}{主義|しゅぎ}",
             "back": "資本家が労働者を雇い、利益を追求する経済の仕組みは？",
             "explanation": "産業革命によって成立した新しい経済体制。",
             "difficulty": "standard"
           },
           {
             "id": "fc6",
-            "front": "資本家",
+            "front": "{資本家|しほんか}",
             "back": "工場や機械などの生産手段を持ち、労働者を雇う人は？",
             "explanation": "産業革命後の社会で経済的な力を持った階級。",
             "difficulty": "standard"
           },
           {
             "id": "fc7",
-            "front": "労働組合",
+            "front": "{労働|ろうどう}{組合|くみあい}",
             "back": "労働者が権利を守るために作った団体は？",
             "explanation": "長時間労働や低賃金に対抗するため結成された。",
             "difficulty": "standard"
           },
           {
             "id": "fc8",
-            "front": "蒸気機関車",
+            "front": "{蒸気|じょうき}{機関車|きかんしゃ}",
             "back": "蒸気機関を使って走る陸上交通機関は？",
             "explanation": "スティーブンソンが実用化し、鉄道網が広がった。",
             "difficulty": "standard"
           },
           {
             "id": "fc9",
-            "front": "綿織物工業",
+            "front": "{綿織物|めんおりもの}{工業|こうぎょう}",
             "back": "イギリスの産業革命が最初に始まった工業分野は？",
             "explanation": "紡績機や力織機の発明で大量生産が可能になった。",
             "difficulty": "standard"
           },
           {
             "id": "fc10",
-            "front": "社会主義",
+            "front": "社会{主義|しゅぎ}",
             "back": "資本主義の矛盾を批判し、平等な社会を目指す思想は？",
             "explanation": "マルクスらが提唱し、労働者の権利を重視した。",
             "difficulty": "advanced"
@@ -5689,7 +5689,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc12",
-            "front": "工場制機械工業",
+            "front": "{工場制|こうじょうせい}{機械|きかい}{工業|こうぎょう}",
             "back": "工場に機械を設置し労働者を雇って生産する方式は？",
             "explanation": "産業革命により手工業から機械工業へ転換した。",
             "difficulty": "standard"
@@ -5703,7 +5703,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc14",
-            "front": "18世紀後半",
+            "front": "18{世紀|せいき}後半",
             "back": "産業革命が始まったのはおよそいつか？",
             "explanation": "イギリスの綿織物工業から始まった。",
             "difficulty": "basic"
@@ -5929,49 +5929,49 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "アヘン戦争",
+            "front": "アヘン{戦争|せんそう}",
             "back": "1840年、イギリスが清（中国）に仕掛けた戦争は？",
             "explanation": "清がアヘンの密輸を取り締まったことをきっかけに始まった。",
             "difficulty": "basic"
           },
           {
             "id": "fc2",
-            "front": "三角貿易",
+            "front": "{三角|さんかく}{貿易|ぼうえき}",
             "back": "イギリス・インド・清の間で行われた貿易は？",
             "explanation": "イギリス→インド（綿織物）→清（アヘン）→イギリス（茶）の流れ。",
             "difficulty": "basic"
           },
           {
             "id": "fc3",
-            "front": "南京条約",
+            "front": "{南京|ナンキン}{条約|じょうやく}",
             "back": "アヘン戦争後に清がイギリスと結んだ不平等条約は？",
             "explanation": "香港の割譲、関税自主権の喪失などを定めた。",
             "difficulty": "basic"
           },
           {
             "id": "fc4",
-            "front": "関税自主権",
+            "front": "{関税|かんぜい}{自主権|じしゅけん}",
             "back": "輸入品にかける税率を自国で決める権利は？",
             "explanation": "清は南京条約でこの権利を失った。",
             "difficulty": "basic"
           },
           {
             "id": "fc5",
-            "front": "領事裁判権",
+            "front": "{領事|りょうじ}{裁判権|さいばんけん}",
             "back": "外国人が犯罪を犯してもその国の法律で裁く権利は？",
             "explanation": "清は南京条約でイギリスにこの権利を認めた。",
             "difficulty": "standard"
           },
           {
             "id": "fc6",
-            "front": "香港",
+            "front": "{香港|ホンコン}",
             "back": "アヘン戦争後、イギリスに割譲された中国南部の地域は？",
             "explanation": "1997年まで約150年間イギリスの植民地だった。",
             "difficulty": "standard"
           },
           {
             "id": "fc7",
-            "front": "インド大反乱",
+            "front": "インド{大反乱|だいはんらん}",
             "back": "1857年、イギリス支配に対してインドで起きた反乱は？",
             "explanation": "セポイの反乱とも呼ばれ、鎮圧後イギリスの支配が強化された。",
             "difficulty": "standard"
@@ -5985,28 +5985,28 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc9",
-            "front": "不平等条約",
+            "front": "不平等{条約|じょうやく}",
             "back": "一方に不利な条件を押し付けた条約は？",
             "explanation": "関税自主権の喪失や領事裁判権の承認などが特徴。",
             "difficulty": "advanced"
           },
           {
             "id": "fc10",
-            "front": "清",
+            "front": "{清|しん}",
             "back": "アヘン戦争でイギリスに敗れた当時の中国の国名は？",
             "explanation": "南京条約で香港を割譲するなど不平等条約を結ばされた。",
             "difficulty": "basic"
           },
           {
             "id": "fc11",
-            "front": "太平天国の乱",
+            "front": "{太平天国|たいへいてんごく}の{乱|らん}",
             "back": "清で起きた大規模な農民反乱は？",
             "explanation": "アヘン戦争後の社会的混乱の中で起きた反乱。",
             "difficulty": "standard"
           },
           {
             "id": "fc12",
-            "front": "インド帝国",
+            "front": "インド{帝国|ていこく}",
             "back": "インド大反乱後にイギリスが建設した植民地国家は？",
             "explanation": "イギリス国王がインド皇帝を兼ねる体制が作られた。",
             "difficulty": "advanced"
@@ -6020,7 +6020,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc14",
-            "front": "セポイの反乱",
+            "front": "セポイの{反乱|はんらん}",
             "back": "インド大反乱の別名は？",
             "explanation": "イギリスに雇われたインド人傭兵が反乱を起こした。",
             "difficulty": "advanced"
@@ -6248,77 +6248,77 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc2",
-            "front": "黒船",
+            "front": "{黒船|くろふね}",
             "back": "ペリーが率いた蒸気船の呼び名は？",
             "explanation": "黒い船体と蒸気の煙で「黒船」と呼ばれ、人々を驚かせた。",
             "difficulty": "basic"
           },
           {
             "id": "fc3",
-            "front": "日米和親条約",
+            "front": "{日米|にちべい}{和親|わしん}{条約|じょうやく}",
             "back": "1854年に日本とアメリカが結んだ、下田・函館を開く条約は？",
             "explanation": "この条約で約200年続いた鎖国が終わった。",
             "difficulty": "basic"
           },
           {
             "id": "fc4",
-            "front": "日米修好通商条約",
+            "front": "{日米|にちべい}{修好|しゅうこう}{通商|つうしょう}{条約|じょうやく}",
             "back": "1858年に井伊直弼が結んだ、不平等な通商条約は？",
             "explanation": "領事裁判権を認め、関税自主権がない不平等条約。",
             "difficulty": "basic"
           },
           {
             "id": "fc5",
-            "front": "井伊直弼",
+            "front": "{井伊直弼|いいなおすけ}",
             "back": "日米修好通商条約を朝廷の許可なく結んだ大老は？",
             "explanation": "その後、安政の大獄で反対派を弾圧したが、桜田門外で暗殺された。",
             "difficulty": "standard"
           },
           {
             "id": "fc6",
-            "front": "領事裁判権",
+            "front": "{領事|りょうじ}{裁判権|さいばんけん}",
             "back": "外国人が日本で罪を犯しても日本の法律で裁けない権利は？",
             "explanation": "不平等条約の内容の一つで、治外法権とも呼ばれる。",
             "difficulty": "standard"
           },
           {
             "id": "fc7",
-            "front": "関税自主権",
+            "front": "{関税|かんぜい}{自主権|じしゅけん}",
             "back": "輸入品にかける税率を自国で決める権利は？",
             "explanation": "日本はこの権利がなく、国内産業を保護できなかった。",
             "difficulty": "standard"
           },
           {
             "id": "fc8",
-            "front": "安政の五か国条約",
+            "front": "{安政|あんせい}の{五か国|ごかこく}{条約|じょうやく}",
             "back": "アメリカ・オランダ・ロシア・イギリス・フランスと結んだ不平等条約の総称は？",
             "explanation": "1858年、井伊直弼のもとで5か国と結ばれた。",
             "difficulty": "standard"
           },
           {
             "id": "fc9",
-            "front": "下田",
+            "front": "{下田|しもだ}",
             "back": "日米和親条約で開かれた静岡県の港は？",
             "explanation": "函館とともに最初に開かれた港。",
             "difficulty": "standard"
           },
           {
             "id": "fc10",
-            "front": "函館",
+            "front": "{函館|はこだて}",
             "back": "日米和親条約で開かれた北海道の港は？",
             "explanation": "下田とともに開港された。当時は箱館と書いた。",
             "difficulty": "basic"
           },
           {
             "id": "fc11",
-            "front": "横浜",
+            "front": "{横浜|よこはま}",
             "back": "日米修好通商条約後に最大の貿易港となった港は？",
             "explanation": "開港後、外国との貿易の中心地となった。",
             "difficulty": "standard"
           },
           {
             "id": "fc12",
-            "front": "浦賀",
+            "front": "{浦賀|うらが}",
             "back": "1853年にペリーが来航した場所は？",
             "explanation": "神奈川県にある港で、江戸湾の入口にあたる。",
             "difficulty": "basic"
@@ -6332,7 +6332,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc15",
-            "front": "勅許",
+            "front": "{勅許|ちょっきょ}",
             "back": "天皇の許可のことを何という？",
             "explanation": "井伊直弼は勅許を得ずに条約を結び批判された。",
             "difficulty": "advanced"
@@ -6532,84 +6532,84 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "尊王攘夷",
+            "front": "{尊王攘夷|そんのうじょうい}",
             "back": "天皇を尊び、外国を追い払おうとする運動は？",
             "explanation": "開国に反対する人々が掲げたスローガン。",
             "difficulty": "basic"
           },
           {
             "id": "fc2",
-            "front": "安政の大獄",
+            "front": "{安政|あんせい}の{大獄|たいごく}",
             "back": "井伊直弼が尊王攘夷派を厳しく処罰した事件は？",
             "explanation": "吉田松陰らが処刑され、多くの大名・公家が処分された。",
             "difficulty": "basic"
           },
           {
             "id": "fc3",
-            "front": "桜田門外の変",
+            "front": "{桜田門外|さくらだもんがい}の{変|へん}",
             "back": "1860年、井伊直弼が暗殺された事件は？",
             "explanation": "安政の大獄への反発から、水戸藩の浪士らが襲撃した。",
             "difficulty": "basic"
           },
           {
             "id": "fc4",
-            "front": "吉田松陰",
+            "front": "{吉田松陰|よしだしょういん}",
             "back": "安政の大獄で処刑された長州藩の思想家は？",
             "explanation": "松下村塾で高杉晋作や伊藤博文らを育てた。",
             "difficulty": "basic"
           },
           {
             "id": "fc5",
-            "front": "公武合体",
+            "front": "{公武|こうぶ}{合体|がったい}",
             "back": "幕府と朝廷が協力しようとする政策は？",
             "explanation": "幕府が権威を取り戻そうとしたが、うまくいかなかった。",
             "difficulty": "standard"
           },
           {
             "id": "fc6",
-            "front": "生糸",
+            "front": "{生糸|きいと}",
             "back": "開港後の日本の主要な輸出品は？",
             "explanation": "横浜からイギリスなどに大量に輸出された。",
             "difficulty": "standard"
           },
           {
             "id": "fc7",
-            "front": "金の流出",
+            "front": "金の{流出|りゅうしゅつ}",
             "back": "日本と外国の金銀交換比率の違いで起きた問題は？",
             "explanation": "日本では金が銀に対して安く、大量の金が海外に流出した。",
             "difficulty": "standard"
           },
           {
             "id": "fc8",
-            "front": "物価高騰",
+            "front": "{物価|ぶっか}{高騰|こうとう}",
             "back": "開港後、貿易の影響で起きた経済問題は？",
             "explanation": "輸出増加で国内の品不足が起き、物価が上がった。",
             "difficulty": "standard"
           },
           {
             "id": "fc9",
-            "front": "横浜",
+            "front": "{横浜|よこはま}",
             "back": "開港後に最大の貿易港となった場所は？",
             "explanation": "日米修好通商条約で開かれた5港の一つ。",
             "difficulty": "standard"
           },
           {
             "id": "fc10",
-            "front": "尊王",
+            "front": "{尊王|そんのう}",
             "back": "天皇を尊ぶという考え方を何という？",
             "explanation": "攘夷と合わせて「尊王攘夷」というスローガンになった。",
             "difficulty": "basic"
           },
           {
             "id": "fc11",
-            "front": "攘夷",
+            "front": "{攘夷|じょうい}",
             "back": "外国の勢力を排除しようとする考えは？",
             "explanation": "「夷」は外国人を指す言葉。",
             "difficulty": "standard"
           },
           {
             "id": "fc12",
-            "front": "茶",
+            "front": "{茶|ちゃ}",
             "back": "生糸とともに開港後の日本の主要な輸出品となった農産物は？",
             "explanation": "主にアメリカへ輸出された。",
             "difficulty": "standard"
@@ -6623,7 +6623,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc14",
-            "front": "松下村塾",
+            "front": "{松下村塾|しょうかそんじゅく}",
             "back": "吉田松陰が開いた私塾は？",
             "explanation": "高杉晋作・伊藤博文・木戸孝允らを輩出した。",
             "difficulty": "standard"
@@ -6843,105 +6843,105 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "薩長同盟",
+            "front": "{薩長|さっちょう}{同盟|どうめい}",
             "back": "1866年、薩摩藩と長州藩が結んだ同盟は？",
             "explanation": "坂本龍馬の仲立ちで結ばれ、倒幕の中心勢力となった。",
             "difficulty": "basic"
           },
           {
             "id": "fc2",
-            "front": "坂本龍馬",
+            "front": "{坂本龍馬|さかもとりょうま}",
             "back": "薩長同盟を仲介した土佐藩出身の志士は？",
             "explanation": "海援隊を結成し、日本の近代化に尽力した。",
             "difficulty": "basic"
           },
           {
             "id": "fc3",
-            "front": "大政奉還",
+            "front": "{大政|たいせい}{奉還|ほうかん}",
             "back": "1867年、徳川慶喜が政権を朝廷に返したことは？",
             "explanation": "約260年続いた江戸幕府の政権が終わった。",
             "difficulty": "basic"
           },
           {
             "id": "fc4",
-            "front": "徳川慶喜",
+            "front": "{徳川慶喜|とくがわよしのぶ}",
             "back": "大政奉還を行った江戸幕府最後の将軍は？",
             "explanation": "15代将軍として、幕府の終わりを迎えた。",
             "difficulty": "basic"
           },
           {
             "id": "fc5",
-            "front": "王政復古の大号令",
+            "front": "{王政復古|おうせいふっこ}の{大号令|だいごうれい}",
             "back": "天皇中心の新政府を作ることを宣言した命令は？",
             "explanation": "1867年、大政奉還の後に出された。",
             "difficulty": "basic"
           },
           {
             "id": "fc6",
-            "front": "戊辰戦争",
+            "front": "{戊辰|ぼしん}{戦争|せんそう}",
             "back": "旧幕府軍と新政府軍が戦った内戦は？",
             "explanation": "1868年から約1年半続き、新政府軍が勝利した。",
             "difficulty": "standard"
           },
           {
             "id": "fc7",
-            "front": "西郷隆盛",
+            "front": "{西郷隆盛|さいごうたかもり}",
             "back": "薩摩藩出身で、倒幕運動の中心となった人物は？",
             "explanation": "戊辰戦争では新政府軍を指揮した。",
             "difficulty": "standard"
           },
           {
             "id": "fc8",
-            "front": "大久保利通",
+            "front": "{大久保利通|おおくぼとしみち}",
             "back": "薩摩藩出身で、明治政府の中心となった人物は？",
             "explanation": "西郷隆盛とともに倒幕運動を進めた。",
             "difficulty": "standard"
           },
           {
             "id": "fc9",
-            "front": "高杉晋作",
+            "front": "{高杉晋作|たかすぎしんさく}",
             "back": "長州藩で奇兵隊を組織した志士は？",
             "explanation": "身分に関係なく有志を集めた新しい軍隊を作った。",
             "difficulty": "standard"
           },
           {
             "id": "fc10",
-            "front": "木戸孝允",
+            "front": "{木戸孝允|きどたかよし}",
             "back": "長州藩出身で、薩長同盟を結んだ人物は？",
             "explanation": "桂小五郎とも呼ばれ、明治政府で活躍した。",
             "difficulty": "standard"
           },
           {
             "id": "fc11",
-            "front": "薩英戦争",
+            "front": "{薩英|さつえい}{戦争|せんそう}",
             "back": "1863年、イギリスと薩摩藩が戦った戦争は？",
             "explanation": "生麦事件をきっかけに起こり、薩摩は近代軍の強さを知った。",
             "difficulty": "advanced"
           },
           {
             "id": "fc12",
-            "front": "下関戦争",
+            "front": "{下関|しものせき}{戦争|せんそう}",
             "back": "1863〜64年に長州藩が外国艦隊と戦った戦争は？",
             "explanation": "四国艦隊下関砲撃事件とも呼ばれる。",
             "difficulty": "standard"
           },
           {
             "id": "fc13",
-            "front": "奇兵隊",
+            "front": "{奇兵隊|きへいたい}",
             "back": "高杉晋作が身分に関係なく有志を集めて組織した軍隊は？",
             "explanation": "武士以外も加わった新しい形の軍隊だった。",
             "difficulty": "standard"
           },
           {
             "id": "fc14",
-            "front": "鳥羽・伏見の戦い",
+            "front": "{鳥羽|とば}・{伏見|ふしみ}の{戦|たたか}い",
             "back": "戊辰戦争の最初の戦いが行われた京都近郊の場所は？",
             "explanation": "新政府軍が旧幕府軍に勝利し、戦争の流れを決めた。",
             "difficulty": "advanced"
           },
           {
             "id": "fc15",
-            "front": "江戸城無血開城",
+            "front": "{江戸城|えどじょう}{無血開城|むけつかいじょう}",
             "back": "戊辰戦争中に戦わずして江戸城を明け渡したことは？",
             "explanation": "勝海舟と西郷隆盛の交渉で実現した。",
             "difficulty": "advanced"
@@ -7202,70 +7202,70 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "明治維新",
+            "front": "{明治|めいじ}{維新|いしん}",
             "back": "明治政府が行った政治・社会の大改革は？",
             "explanation": "江戸幕府に代わる天皇中心の新しい国づくり。",
             "difficulty": "basic"
           },
           {
             "id": "fc2",
-            "front": "五箇条の御誓文",
+            "front": "{五箇条|ごかじょう}の{御誓文|ごせいもん}",
             "back": "1868年に明治天皇が発表した、新しい国づくりの基本方針は？",
             "explanation": "広く会議を開く、開国和親などの方針を示した。",
             "difficulty": "basic"
           },
           {
             "id": "fc3",
-            "front": "版籍奉還",
+            "front": "{版籍|はんせき}{奉還|ほうかん}",
             "back": "1869年、藩主が土地と人民を朝廷に返したことは？",
             "explanation": "中央集権化の第一歩。「版」は土地、「籍」は人民。",
             "difficulty": "basic"
           },
           {
             "id": "fc4",
-            "front": "廃藩置県",
+            "front": "{廃藩置県|はいはんちけん}",
             "back": "1871年、藩を廃止して県を設置した改革は？",
             "explanation": "政府が任命した役人が治めるようになった。",
             "difficulty": "basic"
           },
           {
             "id": "fc5",
-            "front": "四民平等",
+            "front": "{四民|しみん}平等",
             "back": "江戸時代の身分制度を改め、平等な社会を目指したことは？",
             "explanation": "華族・士族・平民に分けられた。",
             "difficulty": "standard"
           },
           {
             "id": "fc6",
-            "front": "解放令",
+            "front": "{解放令|かいほうれい}",
             "back": "1871年、えた・ひにんと呼ばれた人々を平民としたお触れは？",
             "explanation": "形式上は平民となったが、差別は根強く残った。",
             "difficulty": "standard"
           },
           {
             "id": "fc7",
-            "front": "藩閥政治",
+            "front": "{藩閥|はんばつ}{政治|せいじ}",
             "back": "薩摩・長州など特定の藩出身者が政治を独占したことは？",
             "explanation": "自由民権運動で批判の対象となった。",
             "difficulty": "standard"
           },
           {
             "id": "fc8",
-            "front": "華族",
+            "front": "{華族|かぞく}",
             "back": "明治時代に公家や大名がなった身分は？",
             "explanation": "皇族の下、士族の上に位置づけられた。",
             "difficulty": "standard"
           },
           {
             "id": "fc9",
-            "front": "士族",
+            "front": "{士族|しぞく}",
             "back": "明治時代にもと武士がなった身分は？",
             "explanation": "特権を失い、不満を持つ者も多かった。",
             "difficulty": "standard"
           },
           {
             "id": "fc10",
-            "front": "中央集権",
+            "front": "{中央集権|ちゅうおうしゅうけん}",
             "back": "中央政府に権力を集中させる政治体制は？",
             "explanation": "廃藩置県で確立された。",
             "difficulty": "standard"
@@ -7279,14 +7279,14 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc12",
-            "front": "県令",
+            "front": "{県令|けんれい}",
             "back": "廃藩置県後に中央から派遣されて県を治めた役人は？",
             "explanation": "のちに県知事と呼ばれるようになった。",
             "difficulty": "standard"
           },
           {
             "id": "fc13",
-            "front": "薩長土肥",
+            "front": "{薩長土肥|さっちょうどひ}",
             "back": "明治維新の中心となった4つの藩の総称は？",
             "explanation": "薩摩藩・長州藩・土佐藩・肥前藩のこと。",
             "difficulty": "standard"
@@ -7507,70 +7507,70 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "学制",
+            "front": "{学制|がくせい}",
             "back": "1872年に出された、6歳以上の男女全員に教育を受けさせる制度は？",
             "explanation": "全国に小学校が作られたが、授業料は家庭負担で反対も。",
             "difficulty": "basic"
           },
           {
             "id": "fc2",
-            "front": "徴兵令",
+            "front": "{徴兵令|ちょうへいれい}",
             "back": "1873年、満20歳の男子に兵役を課す法律は？",
             "explanation": "身分に関わらず兵役の義務を課し、国民皆兵を実現。",
             "difficulty": "basic"
           },
           {
             "id": "fc3",
-            "front": "地租改正",
+            "front": "{地租|ちそ}{改正|かいせい}",
             "back": "1873年、税金の仕組みを変えた改革は？",
             "explanation": "地価の3%を現金で納める制度に変更した。",
             "difficulty": "basic"
           },
           {
             "id": "fc4",
-            "front": "国民皆兵",
+            "front": "{国民皆兵|こくみんかいへい}",
             "back": "国民全員が兵役の義務を負うという考え方は？",
             "explanation": "徴兵令の基本となる考え方。",
             "difficulty": "basic"
           },
           {
             "id": "fc5",
-            "front": "地券",
+            "front": "{地券|ちけん}",
             "back": "地租改正で土地所有者に発行された、所有を証明する文書は？",
             "explanation": "これにより土地の所有権が認められた。",
             "difficulty": "standard"
           },
           {
             "id": "fc6",
-            "front": "地価",
+            "front": "{地価|ちか}",
             "back": "地租改正で税額の基準とされた、土地の価格は？",
             "explanation": "地価の3%（後に2.5%）が税金となった。",
             "difficulty": "standard"
           },
           {
             "id": "fc7",
-            "front": "地租",
+            "front": "{地租|ちそ}",
             "back": "1873年の税制改革で導入された、土地の価格を基準にかける税は？",
             "explanation": "米ではなく現金で納めるようになった。",
             "difficulty": "standard"
           },
           {
             "id": "fc8",
-            "front": "三大改革",
+            "front": "{三大|さんだい}{改革|かいかく}",
             "back": "明治初期の学制・徴兵令・地租改正をまとめて何という？",
             "explanation": "教育・軍隊・税金の三分野で大きな改革が行われた。",
             "difficulty": "standard"
           },
           {
             "id": "fc9",
-            "front": "血税一揆",
+            "front": "{血税|けつぜい}{一揆|いっき}",
             "back": "徴兵令に反対して各地で起きた一揆は？",
             "explanation": "「血税」という言葉を誤解して起きた反対運動。",
             "difficulty": "advanced"
           },
           {
             "id": "fc10",
-            "front": "地租改正反対一揆",
+            "front": "{地租|ちそ}{改正|かいせい}反対{一揆|いっき}",
             "back": "地租改正による重い負担に反対して起きた農民の一揆は？",
             "explanation": "この一揆により税率が3%から2.5%に引き下げられた。",
             "difficulty": "advanced"
@@ -7591,7 +7591,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc13",
-            "front": "現金（金納）",
+            "front": "現金（{金納|きんのう}）",
             "back": "地租改正で税金を納める方法は？",
             "explanation": "米で納める物納から現金で納める方法に変わった。",
             "difficulty": "standard"
@@ -7845,105 +7845,105 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "富国強兵",
+            "front": "{富国強兵|ふこくきょうへい}",
             "back": "国を豊かにし、軍隊を強くするという明治政府のスローガンは？",
             "explanation": "欧米列強に対抗するための国家目標。",
             "difficulty": "basic"
           },
           {
             "id": "fc2",
-            "front": "殖産興業",
+            "front": "{殖産興業|しょくさんこうぎょう}",
             "back": "近代的な産業を育成する政策は？",
             "explanation": "官営模範工場の建設や鉄道の開通などが行われた。",
             "difficulty": "basic"
           },
           {
             "id": "fc3",
-            "front": "富岡製糸場",
+            "front": "{富岡|とみおか}{製糸場|せいしじょう}",
             "back": "フランスの技術を導入した群馬県の官営模範工場は？",
             "explanation": "高品質な生糸を生産し、民間の手本となった。世界文化遺産。",
             "difficulty": "basic"
           },
           {
             "id": "fc4",
-            "front": "官営模範工場",
+            "front": "{官営|かんえい}{模範|もはん}{工場|こうじょう}",
             "back": "政府が直接運営し、民間の手本とした工場は？",
             "explanation": "富岡製糸場などが代表例。",
             "difficulty": "basic"
           },
           {
             "id": "fc5",
-            "front": "文明開化",
+            "front": "{文明|ぶんめい}{開化|かいか}",
             "back": "欧米の文化や生活様式が急速に広まった風潮は？",
             "explanation": "ガス灯、レンガ造り、洋服などが広まった。",
             "difficulty": "standard"
           },
           {
             "id": "fc6",
-            "front": "福沢諭吉",
+            "front": "{福沢諭吉|ふくざわゆきち}",
             "back": "「学問のすゝめ」を著した思想家は？",
             "explanation": "「天は人の上に人を造らず」で有名。",
             "difficulty": "standard"
           },
           {
             "id": "fc7",
-            "front": "学問のすゝめ",
+            "front": "{学問|がくもん}のすゝめ",
             "back": "福沢諭吉が著した、学問の重要性を説いた本は？",
             "explanation": "個人の独立と学問の大切さを訴えた。",
             "difficulty": "standard"
           },
           {
             "id": "fc8",
-            "front": "中江兆民",
+            "front": "{中江兆民|なかえちょうみん}",
             "back": "ルソーの思想を紹介し、自由民権運動に影響を与えた思想家は？",
             "explanation": "「東洋のルソー」とも呼ばれた。",
             "difficulty": "standard"
           },
           {
             "id": "fc9",
-            "front": "太陽暦",
+            "front": "{太陽暦|たいようれき}",
             "back": "明治政府が採用した、1日24時間・1週間7日の暦は？",
             "explanation": "従来の太陰暦に代わって採用された。",
             "difficulty": "advanced"
           },
           {
             "id": "fc10",
-            "front": "鉄道",
+            "front": "{鉄道|てつどう}",
             "back": "1872年に新橋・横浜間で開通した交通機関は？",
             "explanation": "日本初の鉄道で、殖産興業の象徴となった。",
             "difficulty": "advanced"
           },
           {
             "id": "fc11",
-            "front": "ガス灯",
+            "front": "ガス{灯|とう}",
             "back": "文明開化で都市に設置された照明は？",
             "explanation": "東京の銀座などに設置された。",
             "difficulty": "basic"
           },
           {
             "id": "fc12",
-            "front": "牛鍋",
+            "front": "{牛鍋|ぎゅうなべ}",
             "back": "文明開化で広まった、牛肉を使った新しい食文化は？",
             "explanation": "仏教の影響で避けられていた肉食が広まるきっかけとなった。",
             "difficulty": "standard"
           },
           {
             "id": "fc13",
-            "front": "前島密",
+            "front": "{前島密|まえじまひそか}",
             "back": "郵便制度を整備した人物は？",
             "explanation": "日本の近代郵便制度の基礎を築いた。",
             "difficulty": "standard"
           },
           {
             "id": "fc14",
-            "front": "新橋・横浜間",
+            "front": "{新橋|しんばし}・{横浜|よこはま}間",
             "back": "日本初の鉄道が開通した区間は？",
             "explanation": "1872年に開通した。",
             "difficulty": "basic"
           },
           {
             "id": "fc15",
-            "front": "円・銭・厘",
+            "front": "円・{銭|せん}・{厘|りん}",
             "back": "明治政府が導入した統一貨幣の単位は？",
             "explanation": "全国共通の通貨制度が作られた。",
             "difficulty": "advanced"
@@ -8169,98 +8169,98 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "岩倉使節団",
+            "front": "{岩倉|いわくら}{使節団|しせつだん}",
             "back": "1871年に欧米に派遣された、岩倉具視を大使とする使節団は？",
             "explanation": "条約改正交渉と欧米の調査が目的だった。",
             "difficulty": "basic"
           },
           {
             "id": "fc2",
-            "front": "岩倉具視",
+            "front": "{岩倉具視|いわくらともみ}",
             "back": "岩倉使節団の大使を務めた政治家は？",
             "explanation": "帰国後、征韓論に反対して西郷らと対立した。",
             "difficulty": "basic"
           },
           {
             "id": "fc3",
-            "front": "征韓論",
+            "front": "{征韓論|せいかんろん}",
             "back": "朝鮮に武力で開国を迫ろうとする主張は？",
             "explanation": "西郷隆盛や板垣退助らが主張したが否決された。",
             "difficulty": "basic"
           },
           {
             "id": "fc4",
-            "front": "日清修好条規",
+            "front": "{日清|にっしん}{修好|しゅうこう}{条規|じょうき}",
             "back": "1871年に清と結んだ対等な条約は？",
             "explanation": "お互いの独立と主権を尊重する内容だった。",
             "difficulty": "basic"
           },
           {
             "id": "fc5",
-            "front": "江華島事件",
+            "front": "{江華島|こうかとう}{事件|じけん}",
             "back": "1875年に日本の軍艦が朝鮮で起こした武力衝突は？",
             "explanation": "日朝修好条規を結ぶきっかけとなった。",
             "difficulty": "standard"
           },
           {
             "id": "fc6",
-            "front": "日朝修好条規",
+            "front": "{日朝|にっちょう}{修好|しゅうこう}{条規|じょうき}",
             "back": "1876年に朝鮮と結んだ不平等条約は？",
             "explanation": "江華島事件をきっかけに朝鮮を開国させた。",
             "difficulty": "standard"
           },
           {
             "id": "fc7",
-            "front": "樺太・千島交換条約",
+            "front": "{樺太|からふと}・{千島|ちしま}{交換|こうかん}{条約|じょうやく}",
             "back": "1875年にロシアと結んだ、国境を確定する条約は？",
             "explanation": "樺太を放棄し、千島列島全てを日本領とした。",
             "difficulty": "standard"
           },
           {
             "id": "fc8",
-            "front": "屯田兵",
+            "front": "{屯田兵|とんでんへい}",
             "back": "北海道開拓のために送られた、農業と軍務を兼ねる兵士は？",
             "explanation": "ロシアの脅威に備えて配置された。",
             "difficulty": "standard"
           },
           {
             "id": "fc9",
-            "front": "琉球処分",
+            "front": "{琉球|りゅうきゅう}{処分|しょぶん}",
             "back": "1879年、琉球を沖縄県とした一連の動きは？",
             "explanation": "清の反対を押し切って沖縄県を設置した。",
             "difficulty": "advanced"
           },
           {
             "id": "fc10",
-            "front": "北海道",
+            "front": "{北海道|ほっかいどう}",
             "back": "蝦夷地から改称された、明治政府が開拓を進めた地域は？",
             "explanation": "ロシアの脅威に備えて本格的な開拓が行われた。",
             "difficulty": "advanced"
           },
           {
             "id": "fc11",
-            "front": "大久保利通",
+            "front": "{大久保利通|おおくぼとしみち}",
             "back": "征韓論に反対し、国内の富国強兵を優先した政治家は？",
             "explanation": "岩倉具視とともに征韓論を否決させた。",
             "difficulty": "basic"
           },
           {
             "id": "fc12",
-            "front": "板垣退助",
+            "front": "{板垣退助|いたがきたいすけ}",
             "back": "征韓論を主張したが否決され、政府を去った土佐藩出身の政治家は？",
             "explanation": "のちに自由民権運動を始めた。",
             "difficulty": "standard"
           },
           {
             "id": "fc13",
-            "front": "西郷隆盛",
+            "front": "{西郷隆盛|さいごうたかもり}",
             "back": "征韓論を主張したが否決され、政府を去った薩摩藩出身の人物は？",
             "explanation": "のちに西南戦争を起こした。",
             "difficulty": "basic"
           },
           {
             "id": "fc14",
-            "front": "沖縄県",
+            "front": "{沖縄県|おきなわけん}",
             "back": "琉球処分により設置された県は？",
             "explanation": "1879年に琉球王国を廃止して設置された。",
             "difficulty": "standard"
@@ -8480,63 +8480,63 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "自由民権運動",
+            "front": "自由{民権|みんけん}運動",
             "back": "国会開設と国民の権利拡大を求めた運動は？",
             "explanation": "板垣退助らが中心となって全国に広まった。",
             "difficulty": "basic"
           },
           {
             "id": "fc2",
-            "front": "板垣退助",
+            "front": "{板垣退助|いたがきたいすけ}",
             "back": "自由民権運動の中心となり、自由党を結成した政治家は？",
             "explanation": "「板垣死すとも自由は死せず」の言葉で有名。",
             "difficulty": "basic"
           },
           {
             "id": "fc3",
-            "front": "民撰議院設立の建白書",
+            "front": "{民撰|みんせん}{議院|ぎいん}{設立|せつりつ}の{建白書|けんぱくしょ}",
             "back": "1874年に板垣退助らが提出した、国会開設を求める文書は？",
             "explanation": "自由民権運動の始まりとなった。",
             "difficulty": "basic"
           },
           {
             "id": "fc4",
-            "front": "西南戦争",
+            "front": "{西南|せいなん}{戦争|せんそう}",
             "back": "1877年に西郷隆盛を中心に起きた、最大の士族の反乱は？",
             "explanation": "政府軍の勝利で武力による抵抗は終わった。",
             "difficulty": "basic"
           },
           {
             "id": "fc5",
-            "front": "国会期成同盟",
+            "front": "国会{期成|きせい}同盟",
             "back": "自由民権運動で結成された、国会開設を求める組織は？",
             "explanation": "全国から2000人以上の代表が集まった。",
             "difficulty": "standard"
           },
           {
             "id": "fc6",
-            "front": "自由党",
+            "front": "{自由党|じゆうとう}",
             "back": "1881年に板垣退助を党首として結成された政党は？",
             "explanation": "フランス流の急進的な自由主義を主張した。",
             "difficulty": "standard"
           },
           {
             "id": "fc7",
-            "front": "立憲改進党",
+            "front": "{立憲|りっけん}{改進党|かいしんとう}",
             "back": "1882年に大隈重信を党首として結成された政党は？",
             "explanation": "イギリス流の穏健な議会政治を主張した。",
             "difficulty": "standard"
           },
           {
             "id": "fc8",
-            "front": "大隈重信",
+            "front": "{大隈重信|おおくましげのぶ}",
             "back": "立憲改進党を結成した政治家は？",
             "explanation": "イギリス流の議会政治を主張した。",
             "difficulty": "standard"
           },
           {
             "id": "fc9",
-            "front": "国会開設の詔",
+            "front": "{国会|こっかい}{開設|かいせつ}の{詔|みことのり}",
             "back": "1881年に出された、10年後に国会を開くことを約束した詔は？",
             "explanation": "政府が自由民権運動に押されて出した。",
             "difficulty": "advanced"
@@ -8564,21 +8564,21 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc13",
-            "front": "秩父事件",
+            "front": "{秩父|ちちぶ}{事件|じけん}",
             "back": "1884年に埼玉県で起きた農民の武装蜂起は？",
             "explanation": "自由民権運動の影響を受けた農民が困民党を結成。",
             "difficulty": "advanced"
           },
           {
             "id": "fc14",
-            "front": "藩閥政治",
+            "front": "{藩閥|はんばつ}{政治|せいじ}",
             "back": "自由民権運動が批判した、特定藩出身者による政治独占は？",
             "explanation": "薩摩・長州出身者が中心の政治体制。",
             "difficulty": "basic"
           },
           {
             "id": "fc15",
-            "front": "私擬憲法",
+            "front": "{私擬|しぎ}{憲法|けんぽう}",
             "back": "自由民権運動の中で民間が作った憲法の草案は？",
             "explanation": "植木枝盛の「日本国国憲案」などが有名。",
             "difficulty": "advanced"
@@ -8804,63 +8804,63 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "大日本帝国憲法",
+            "front": "{大日本帝国|だいにほんていこく}{憲法|けんぽう}",
             "back": "1889年に発布された、天皇主権の憲法は？",
             "explanation": "ドイツの憲法を参考に作られた。",
             "difficulty": "basic"
           },
           {
             "id": "fc2",
-            "front": "伊藤博文",
+            "front": "{伊藤博文|いとうひろぶみ}",
             "back": "初代内閣総理大臣で、憲法制定の中心となった人物は？",
             "explanation": "ドイツで憲法を学び、大日本帝国憲法を作成した。",
             "difficulty": "basic"
           },
           {
             "id": "fc3",
-            "front": "内閣制度",
+            "front": "{内閣|ないかく}{制度|せいど}",
             "back": "1885年に発足した、総理大臣と各大臣による政治の仕組みは？",
             "explanation": "伊藤博文が初代内閣総理大臣となった。",
             "difficulty": "basic"
           },
           {
             "id": "fc4",
-            "front": "天皇主権",
+            "front": "{天皇|てんのう}{主権|しゅけん}",
             "back": "大日本帝国憲法で、国の主権が天皇にあるとされたことは？",
             "explanation": "天皇は国の元首で神聖な存在とされた。",
             "difficulty": "basic"
           },
           {
             "id": "fc5",
-            "front": "臣民",
+            "front": "{臣民|しんみん}",
             "back": "大日本帝国憲法で国民を指した言葉は？",
             "explanation": "法律の範囲内で権利が認められた。",
             "difficulty": "standard"
           },
           {
             "id": "fc6",
-            "front": "帝国議会",
+            "front": "{帝国|ていこく}{議会|ぎかい}",
             "back": "大日本帝国憲法で設置された議会は？",
             "explanation": "貴族院と衆議院の二院制だった。",
             "difficulty": "standard"
           },
           {
             "id": "fc7",
-            "front": "貴族院",
+            "front": "{貴族院|きぞくいん}",
             "back": "皇族・華族・勅選議員からなる議院は？",
             "explanation": "帝国議会の上院にあたる。",
             "difficulty": "standard"
           },
           {
             "id": "fc8",
-            "front": "衆議院",
+            "front": "{衆議院|しゅうぎいん}",
             "back": "選挙で選ばれた議員からなる議院は？",
             "explanation": "帝国議会の下院にあたる。",
             "difficulty": "standard"
           },
           {
             "id": "fc9",
-            "front": "教育勅語",
+            "front": "{教育|きょういく}{勅語|ちょくご}",
             "back": "1890年に出された、道徳教育の基本を示した文書は？",
             "explanation": "天皇への忠誠と親への孝行を教えた。",
             "difficulty": "standard"
@@ -8888,7 +8888,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc14",
-            "front": "満25歳以上の男子",
+            "front": "{満|まん}25{歳|さい}{以上|いじょう}の{男子|だんし}",
             "back": "第1回衆議院選挙で選挙権を持つ年齢と性別の条件は？",
             "explanation": "女性に選挙権はなく、財産条件も必要だった。",
             "difficulty": "standard"
@@ -8902,7 +8902,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc16",
-            "front": "欽定憲法",
+            "front": "{欽定|きんてい}{憲法|けんぽう}",
             "back": "天皇が国民に与える形で発布された憲法の形式は？",
             "explanation": "大日本帝国憲法は天皇が「与える」形で発布された。",
             "difficulty": "advanced"
@@ -9143,70 +9143,70 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "条約改正",
+            "front": "{条約|じょうやく}{改正|かいせい}",
             "back": "幕末に結ばれた不平等条約を平等にするための明治政府の悲願は？",
             "explanation": "領事裁判権の撤廃と関税自主権の回復が目標だった。",
             "difficulty": "basic"
           },
           {
             "id": "fc2",
-            "front": "領事裁判権",
+            "front": "{領事|りょうじ}{裁判権|さいばんけん}",
             "back": "外国人を日本の法律で裁けない権利は？",
             "explanation": "1894年に陸奥宗光が撤廃に成功した。",
             "difficulty": "basic"
           },
           {
             "id": "fc3",
-            "front": "関税自主権",
+            "front": "{関税|かんぜい}{自主権|じしゅけん}",
             "back": "輸入品にかける税率を自国で決める権利は？",
             "explanation": "1911年に小村寿太郎が回復に成功した。",
             "difficulty": "basic"
           },
           {
             "id": "fc4",
-            "front": "鹿鳴館",
+            "front": "{鹿鳴館|ろくめいかん}",
             "back": "井上馨が条約改正のため西洋風の舞踏会を開いた建物は？",
             "explanation": "極端な欧化政策で批判を受け、改正交渉は失敗した。",
             "difficulty": "standard"
           },
           {
             "id": "fc5",
-            "front": "ノルマントン号事件",
+            "front": "ノルマントン{号|ごう}{事件|じけん}",
             "back": "1886年、日本人船客が見殺しにされた事件は？",
             "explanation": "領事裁判権の不平等さを浮き彫りにした事件。",
             "difficulty": "standard"
           },
           {
             "id": "fc6",
-            "front": "陸奥宗光",
+            "front": "{陸奥宗光|むつむねみつ}",
             "back": "1894年、領事裁判権の撤廃に成功した外相は？",
             "explanation": "イギリスとの間で日英通商航海条約を結んだ。",
             "difficulty": "basic"
           },
           {
             "id": "fc7",
-            "front": "小村寿太郎",
+            "front": "{小村寿太郎|こむらじゅたろう}",
             "back": "1911年、関税自主権の回復に成功した外相は？",
             "explanation": "ポーツマス条約の交渉でも活躍した。",
             "difficulty": "basic"
           },
           {
             "id": "fc8",
-            "front": "日英通商航海条約",
+            "front": "{日英|にちえい}{通商|つうしょう}{航海|こうかい}{条約|じょうやく}",
             "back": "1894年に陸奥宗光が結んだ、領事裁判権を撤廃した条約は？",
             "explanation": "日清戦争直前のタイミングで結ばれた。",
             "difficulty": "standard"
           },
           {
             "id": "fc9",
-            "front": "井上馨",
+            "front": "{井上馨|いのうえかおる}",
             "back": "鹿鳴館外交で条約改正を目指した外相は？",
             "explanation": "極端な欧化政策で批判を受けた。",
             "difficulty": "standard"
           },
           {
             "id": "fc10",
-            "front": "欧化政策",
+            "front": "{欧化|おうか}{政策|せいさく}",
             "back": "井上馨が条約改正のために進めた、西洋風の生活様式を取り入れる政策は？",
             "explanation": "鹿鳴館での舞踏会などが象徴的。",
             "difficulty": "standard"
@@ -9427,70 +9427,70 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "日清戦争",
+            "front": "{日清|にっしん}{戦争|せんそう}",
             "back": "1894〜95年に朝鮮をめぐって日本と清が戦った戦争は？",
             "explanation": "甲午農民戦争（東学党の乱）をきっかけに勃発した。",
             "difficulty": "basic"
           },
           {
             "id": "fc2",
-            "front": "下関条約",
+            "front": "{下関|しものせき}{条約|じょうやく}",
             "back": "1895年に日清戦争の講和として結ばれた条約は？",
             "explanation": "日本側は伊藤博文・陸奥宗光、清側は李鴻章が交渉した。",
             "difficulty": "basic"
           },
           {
             "id": "fc3",
-            "front": "遼東半島",
+            "front": "{遼東|りょうとう}{半島|はんとう}",
             "back": "下関条約で日本が獲得した中国東北部の半島は？",
             "explanation": "三国干渉により返還させられた。",
             "difficulty": "basic"
           },
           {
             "id": "fc4",
-            "front": "台湾",
+            "front": "{台湾|たいわん}",
             "back": "下関条約で日本が獲得した島は？",
             "explanation": "日本初の植民地となり、1945年まで日本領だった。",
             "difficulty": "basic"
           },
           {
             "id": "fc5",
-            "front": "賠償金",
+            "front": "{賠償金|ばいしょうきん}",
             "back": "下関条約で清が日本に支払った2億両は？",
             "explanation": "八幡製鉄所の建設費などに使われた。",
             "difficulty": "standard"
           },
           {
             "id": "fc6",
-            "front": "三国干渉",
+            "front": "{三国|さんごく}{干渉|かんしょう}",
             "back": "ロシア・ドイツ・フランスが遼東半島の返還を日本に迫った事件は？",
             "explanation": "日本は要求を受け入れて返還した。",
             "difficulty": "basic"
           },
           {
             "id": "fc7",
-            "front": "甲午農民戦争（東学党の乱）",
+            "front": "{甲午|こうご}{農民|のうみん}{戦争|せんそう}（{東学党|とうがくとう}の{乱|らん}）",
             "back": "日清戦争のきっかけとなった朝鮮の農民反乱は？",
             "explanation": "東学の信徒が中心となった反乱。",
             "difficulty": "advanced"
           },
           {
             "id": "fc8",
-            "front": "李鴻章",
+            "front": "{李鴻章|りこうしょう}",
             "back": "下関条約で清側を代表した政治家は？",
             "explanation": "清の有力政治家として活躍した。",
             "difficulty": "advanced"
           },
           {
             "id": "fc9",
-            "front": "臥薪嘗胆",
+            "front": "{臥薪嘗胆|がしんしょうたん}",
             "back": "三国干渉後、日本国民が掲げた合言葉は？",
             "explanation": "ロシアへの復讐心を表す言葉。",
             "difficulty": "standard"
           },
           {
             "id": "fc10",
-            "front": "八幡製鉄所",
+            "front": "{八幡|やはた}{製鉄所|せいてつじょ}",
             "back": "下関条約の賠償金などで建設された官営製鉄所は？",
             "explanation": "日本の重工業の基礎となった。",
             "difficulty": "standard"
@@ -9724,35 +9724,35 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "日露戦争",
+            "front": "{日露|にちろ}{戦争|せんそう}",
             "back": "1904〜05年に日本とロシアが戦った戦争は？",
             "explanation": "満州・朝鮮をめぐる対立が原因。日本が勝利した。",
             "difficulty": "basic"
           },
           {
             "id": "fc2",
-            "front": "日英同盟",
+            "front": "{日英|にちえい}{同盟|どうめい}",
             "back": "1902年、ロシアに対抗するために結ばれた日本とイギリスの同盟は？",
             "explanation": "日露戦争の重要な外交的基盤となった。",
             "difficulty": "basic"
           },
           {
             "id": "fc3",
-            "front": "義和団事件",
+            "front": "{義和団|ぎわだん}{事件|じけん}",
             "back": "1900年、中国で起きた排外運動は？",
             "explanation": "8か国連合軍が鎮圧。ロシアが満州に居座る原因となった。",
             "difficulty": "standard"
           },
           {
             "id": "fc4",
-            "front": "ポーツマス条約",
+            "front": "ポーツマス{条約|じょうやく}",
             "back": "1905年に日露戦争の講和として結ばれた条約は？",
             "explanation": "アメリカ大統領セオドア・ルーズベルトの仲介で結ばれた。",
             "difficulty": "basic"
           },
           {
             "id": "fc5",
-            "front": "小村寿太郎",
+            "front": "{小村寿太郎|こむらじゅたろう}",
             "back": "ポーツマス条約の日本側全権大使は？",
             "explanation": "外相としてロシアと交渉した。",
             "difficulty": "standard"
@@ -9766,56 +9766,56 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc7",
-            "front": "韓国の優越権",
+            "front": "{韓国|かんこく}の{優越権|ゆうえつけん}",
             "back": "ポーツマス条約で日本が獲得した、朝鮮支配の権利は？",
             "explanation": "朝鮮を保護国とする道を開いた。",
             "difficulty": "standard"
           },
           {
             "id": "fc8",
-            "front": "南満州鉄道",
+            "front": "{南満州|みなみまんしゅう}{鉄道|てつどう}",
             "back": "ポーツマス条約で日本が獲得した、満州の鉄道権益は？",
             "explanation": "満鉄として日本の満州進出の拠点となった。",
             "difficulty": "standard"
           },
           {
             "id": "fc9",
-            "front": "樺太の南半分",
+            "front": "{樺太|からふと}の南半分",
             "back": "ポーツマス条約で日本が獲得した北方の地域は？",
             "explanation": "北緯50度以南を割譲された。",
             "difficulty": "standard"
           },
           {
             "id": "fc10",
-            "front": "東郷平八郎",
+            "front": "{東郷平八郎|とうごうへいはちろう}",
             "back": "日本海海戦でロシアのバルチック艦隊を破った海軍大将は？",
             "explanation": "「東洋のネルソン」と呼ばれた。",
             "difficulty": "standard"
           },
           {
             "id": "fc11",
-            "front": "日本海海戦",
+            "front": "{日本海|にほんかい}{海戦|かいせん}",
             "back": "1905年、日本海軍がロシアのバルチック艦隊を破った海戦は？",
             "explanation": "東郷平八郎が指揮した。",
             "difficulty": "standard"
           },
           {
             "id": "fc12",
-            "front": "日比谷焼き打ち事件",
+            "front": "{日比谷|ひびや}{焼|や}き{打|う}ち{事件|じけん}",
             "back": "ポーツマス条約の内容に不満を持った民衆が起こした暴動は？",
             "explanation": "賠償金がなかったことへの怒りが背景。",
             "difficulty": "advanced"
           },
           {
             "id": "fc13",
-            "front": "内村鑑三・幸徳秋水",
+            "front": "{内村鑑三|うちむらかんぞう}・{幸徳秋水|こうとくしゅうすい}",
             "back": "日露戦争に反対した非戦論者は？",
             "explanation": "戦争に反対する立場から論陣を張った。",
             "difficulty": "advanced"
           },
           {
             "id": "fc14",
-            "front": "与謝野晶子",
+            "front": "{与謝野晶子|よさのあきこ}",
             "back": "「君死にたまふことなかれ」で戦争を批判した歌人は？",
             "explanation": "弟を案じる詩を発表した。",
             "difficulty": "standard"
@@ -10042,7 +10042,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "韓国併合",
+            "front": "{韓国|かんこく}{併合|へいごう}",
             "back": "1910年、日本が韓国を植民地化したできごとは？",
             "explanation": "1945年まで朝鮮は日本の植民地となった。",
             "difficulty": "basic"
@@ -10056,63 +10056,63 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc3",
-            "front": "朝鮮総督府",
+            "front": "{朝鮮|ちょうせん}{総督府|そうとくふ}",
             "back": "韓国併合後、植民地統治のために設置された機関は？",
             "explanation": "京城（現在のソウル）に置かれた。",
             "difficulty": "standard"
           },
           {
             "id": "fc4",
-            "front": "伊藤博文",
+            "front": "{伊藤博文|いとうひろぶみ}",
             "back": "初代韓国統監を務め、1909年にハルビン駅で暗殺された政治家は？",
             "explanation": "安重根によって暗殺された。",
             "difficulty": "standard"
           },
           {
             "id": "fc5",
-            "front": "安重根",
+            "front": "{安重根|あんじゅうこん}",
             "back": "1909年にハルビン駅で伊藤博文を暗殺した朝鮮の独立運動家は？",
             "explanation": "韓国では独立の英雄として扱われている。",
             "difficulty": "standard"
           },
           {
             "id": "fc6",
-            "front": "韓国統監府",
+            "front": "{韓国|かんこく}{統監府|とうかんふ}",
             "back": "1905年に設置された、韓国を保護国とするための機関は？",
             "explanation": "初代統監は伊藤博文。1910年に朝鮮総督府に改組された。",
             "difficulty": "standard"
           },
           {
             "id": "fc7",
-            "front": "辛亥革命",
+            "front": "{辛亥|しんがい}{革命|かくめい}",
             "back": "1911年、中国で清王朝を倒した革命は？",
             "explanation": "アジア初の共和国・中華民国が成立した。",
             "difficulty": "basic"
           },
           {
             "id": "fc8",
-            "front": "孫文",
+            "front": "{孫文|そんぶん}",
             "back": "辛亥革命を指導した中国の革命家は？",
             "explanation": "三民主義（民族・民権・民生）を唱えた。",
             "difficulty": "basic"
           },
           {
             "id": "fc9",
-            "front": "三民主義",
+            "front": "{三民|さんみん}{主義|しゅぎ}",
             "back": "孫文が唱えた革命の三大理念は？",
             "explanation": "民族主義・民権主義・民生主義の3つ。",
             "difficulty": "standard"
           },
           {
             "id": "fc10",
-            "front": "中華民国",
+            "front": "{中華|ちゅうか}{民国|みんこく}",
             "back": "辛亥革命によって成立した、アジア初の共和国は？",
             "explanation": "1912年に建国された。",
             "difficulty": "basic"
           },
           {
             "id": "fc11",
-            "front": "袁世凱",
+            "front": "{袁世凱|えんせいがい}",
             "back": "孫文に代わって中華民国の臨時大総統となった人物は？",
             "explanation": "清の皇帝（宣統帝）を退位させた。",
             "difficulty": "advanced"
@@ -10126,7 +10126,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc13",
-            "front": "宣統帝（溥儀）",
+            "front": "{宣統帝|せんとうてい}（{溥儀|ふぎ}）",
             "back": "辛亥革命で退位した清の最後の皇帝は？",
             "explanation": "後に満州国の皇帝となった。",
             "difficulty": "advanced"
@@ -10346,42 +10346,42 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "産業革命",
+            "front": "{産業|さんぎょう}{革命|かくめい}",
             "back": "機械を用いた工業生産が広がり、社会・経済の仕組みが大きく変わることを何という？",
             "explanation": "日本では明治後期（1890年代〜）に軽工業から始まった。",
             "difficulty": "basic"
           },
           {
             "id": "fc2",
-            "front": "軽工業",
+            "front": "{軽工業|けいこうぎょう}",
             "back": "繊維など、生活用品をつくる産業を何という？",
             "explanation": "紡績業や製糸業が日本の産業革命の中心だった。",
             "difficulty": "basic"
           },
           {
             "id": "fc3",
-            "front": "重工業",
+            "front": "{重工業|じゅうこうぎょう}",
             "back": "鉄や機械など、重い物をつくる産業を何という？",
             "explanation": "日露戦争後に発展した。",
             "difficulty": "basic"
           },
           {
             "id": "fc4",
-            "front": "紡績業",
+            "front": "{紡績業|ぼうせきぎょう}",
             "back": "綿花から綿糸をつくる産業を何という？",
             "explanation": "大阪紡績会社などが発展し、綿糸の生産量が世界有数になった。",
             "difficulty": "standard"
           },
           {
             "id": "fc5",
-            "front": "製糸業",
+            "front": "{製糸業|せいしぎょう}",
             "back": "蚕の繭から生糸をつくる産業を何という？",
             "explanation": "生糸は日本最大の輸出品で、外貨獲得の柱だった。",
             "difficulty": "standard"
           },
           {
             "id": "fc6",
-            "front": "八幡製鉄所",
+            "front": "{八幡|やはた}{製鉄所|せいてつじょ}",
             "back": "1901年に操業を開始した官営製鉄所は？",
             "explanation": "日清戦争の賠償金などで建設され、日本の重工業の基礎となった。",
             "difficulty": "basic"
@@ -10395,63 +10395,63 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc8",
-            "front": "財閥",
+            "front": "{財閥|ざいばつ}",
             "back": "三井・三菱・住友などの大企業集団は？",
             "explanation": "金融・商業・工業など多方面で経済を支配した。",
             "difficulty": "basic"
           },
           {
             "id": "fc9",
-            "front": "三井・三菱・住友・安田",
+            "front": "{三井|みつい}・{三菱|みつびし}・{住友|すみとも}・{安田|やすだ}",
             "back": "明治期に発展した四大財閥は？",
             "explanation": "様々な分野で日本の産業をリードした。",
             "difficulty": "standard"
           },
           {
             "id": "fc10",
-            "front": "足尾銅山鉱毒事件",
+            "front": "{足尾|あしお}{銅山|どうざん}{鉱毒|こうどく}{事件|じけん}",
             "back": "栃木県で起きた、日本初の公害問題は？",
             "explanation": "渡良瀬川流域に銅山の鉱毒が流れ込み、農作物や住民に被害が出た。",
             "difficulty": "basic"
           },
           {
             "id": "fc11",
-            "front": "田中正造",
+            "front": "{田中正造|たなかしょうぞう}",
             "back": "足尾銅山鉱毒事件で天皇に直訴した衆議院議員は？",
             "explanation": "農民の救済のため生涯を捧げた。",
             "difficulty": "basic"
           },
           {
             "id": "fc12",
-            "front": "労働組合",
+            "front": "{労働|ろうどう}{組合|くみあい}",
             "back": "労働者が労働条件の改善を求めて結成した組織は？",
             "explanation": "明治末期から労働運動が広がり始めた。",
             "difficulty": "standard"
           },
           {
             "id": "fc13",
-            "front": "工場法",
+            "front": "{工場法|こうじょうほう}",
             "back": "1911年に制定された、労働者を保護する法律は？",
             "explanation": "12時間労働の制限、12歳未満の労働禁止などを定めたが、不十分だった。",
             "difficulty": "standard"
           },
           {
             "id": "fc14",
-            "front": "社会主義",
+            "front": "社会{主義|しゅぎ}",
             "back": "労働者の立場から平等な社会を目指す思想は？",
             "explanation": "幸徳秋水らが活動したが、政府に厳しく弾圧された。",
             "difficulty": "standard"
           },
           {
             "id": "fc15",
-            "front": "大逆事件",
+            "front": "{大逆|たいぎゃく}{事件|じけん}",
             "back": "1910年に幸徳秋水らが処刑された事件は？",
             "explanation": "天皇暗殺計画の冤罪事件で、社会主義運動への大弾圧となった。",
             "difficulty": "advanced"
           },
           {
             "id": "fc16",
-            "front": "幸徳秋水",
+            "front": "{幸徳秋水|こうとくしゅうすい}",
             "back": "大逆事件で処刑された社会主義者は？",
             "explanation": "非戦論者としても活動した。",
             "difficulty": "advanced"
@@ -10664,126 +10664,126 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "言文一致",
+            "front": "{言文一致|げんぶんいっち}",
             "back": "話し言葉に近い文体で文学作品を書く運動は？",
             "explanation": "二葉亭四迷が「浮雲」で実践した。",
             "difficulty": "basic"
           },
           {
             "id": "fc2",
-            "front": "二葉亭四迷",
+            "front": "{二葉亭四迷|ふたばていしめい}",
             "back": "「浮雲」で言文一致体を実践した作家は？",
             "explanation": "近代日本文学の出発点とされる。",
             "difficulty": "standard"
           },
           {
             "id": "fc3",
-            "front": "夏目漱石",
+            "front": "{夏目漱石|なつめそうせき}",
             "back": "「坊っちゃん」「吾輩は猫である」「こころ」などを著した作家は？",
             "explanation": "イギリス留学後、近代日本人の苦悩を描いた。",
             "difficulty": "basic"
           },
           {
             "id": "fc4",
-            "front": "森鴎外",
+            "front": "{森鴎外|もりおうがい}",
             "back": "「舞姫」「高瀬舟」などを著した作家・医師は？",
             "explanation": "ドイツ留学経験を基に近代知識人の苦悩を描いた。",
             "difficulty": "basic"
           },
           {
             "id": "fc5",
-            "front": "樋口一葉",
+            "front": "{樋口一葉|ひぐちいちよう}",
             "back": "「たけくらべ」「にごりえ」を著した女性作家は？",
             "explanation": "5千円札の肖像になった。",
             "difficulty": "standard"
           },
           {
             "id": "fc6",
-            "front": "正岡子規",
+            "front": "{正岡子規|まさおかしき}",
             "back": "俳句・短歌の革新運動を進めた俳人は？",
             "explanation": "写生を重視した。",
             "difficulty": "standard"
           },
           {
             "id": "fc7",
-            "front": "石川啄木",
+            "front": "{石川啄木|いしかわたくぼく}",
             "back": "「一握の砂」「悲しき玩具」を著した歌人は？",
             "explanation": "三行書きの短歌で知られる。",
             "difficulty": "standard"
           },
           {
             "id": "fc8",
-            "front": "与謝野晶子",
+            "front": "{与謝野晶子|よさのあきこ}",
             "back": "「みだれ髪」を著した歌人で、日露戦争に反対した人物は？",
             "explanation": "「君死にたまふことなかれ」が有名。",
             "difficulty": "standard"
           },
           {
             "id": "fc9",
-            "front": "北里柴三郎",
+            "front": "{北里柴三郎|きたざとしばさぶろう}",
             "back": "破傷風の血清療法を発見した細菌学者は？",
             "explanation": "ペスト菌の発見でも有名。新千円札の肖像。",
             "difficulty": "basic"
           },
           {
             "id": "fc10",
-            "front": "野口英世",
+            "front": "{野口英世|のぐちひでよ}",
             "back": "黄熱病を研究したアフリカで没した細菌学者は？",
             "explanation": "千円札の肖像にもなった。",
             "difficulty": "basic"
           },
           {
             "id": "fc11",
-            "front": "志賀潔",
+            "front": "{志賀潔|しがきよし}",
             "back": "赤痢菌を発見した細菌学者は？",
             "explanation": "北里柴三郎の弟子。",
             "difficulty": "standard"
           },
           {
             "id": "fc12",
-            "front": "高峰譲吉",
+            "front": "{高峰譲吉|たかみねじょうきち}",
             "back": "アドレナリンの抽出とタカジアスターゼの発明で有名な科学者は？",
             "explanation": "酵素の研究で世界的に活躍した。",
             "difficulty": "standard"
           },
           {
             "id": "fc13",
-            "front": "黒田清輝",
+            "front": "{黒田清輝|くろだせいき}",
             "back": "「湖畔」を描いた西洋画家は？",
             "explanation": "フランス留学で印象派を学び日本に伝えた。",
             "difficulty": "standard"
           },
           {
             "id": "fc14",
-            "front": "横山大観",
+            "front": "{横山大観|よこやまたいかん}",
             "back": "「無我」などを描いた日本画家は？",
             "explanation": "岡倉天心とともに日本美術の発展に尽くした。",
             "difficulty": "standard"
           },
           {
             "id": "fc15",
-            "front": "岡倉天心",
+            "front": "{岡倉天心|おかくらてんしん}",
             "back": "東京美術学校の設立に尽力し、日本美術を世界に紹介した美術指導者は？",
             "explanation": "「東洋の理想」「茶の本」などを英語で著した。",
             "difficulty": "advanced"
           },
           {
             "id": "fc16",
-            "front": "滝廉太郎",
+            "front": "{滝廉太郎|たきれんたろう}",
             "back": "「荒城の月」「箱根八里」「花」などを作曲した音楽家は？",
             "explanation": "23歳で亡くなったが日本音楽史に大きな影響を残した。",
             "difficulty": "standard"
           },
           {
             "id": "fc17",
-            "front": "義務教育",
+            "front": "{義務|ぎむ}{教育|きょういく}",
             "back": "明治後期に4年から6年に延長された学校教育は？",
             "explanation": "1907年に義務教育が6年に延長され、就学率はほぼ100%になった。",
             "difficulty": "standard"
           },
           {
             "id": "fc18",
-            "front": "教育勅語",
+            "front": "{教育|きょういく}{勅語|ちょくご}",
             "back": "1890年に発布された、国民道徳の基本を示した文書は？",
             "explanation": "戦前の国民教育の柱となった。",
             "difficulty": "standard"

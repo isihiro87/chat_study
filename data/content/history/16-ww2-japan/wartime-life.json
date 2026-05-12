@@ -11,63 +11,63 @@
   "flashcards": [
     {
       "id": "fc1",
-      "front": "配給制",
+      "front": "{配給制|はいきゅうせい}",
       "back": "戦時下に米・砂糖・衣料品などを国が割り当てた制度は？",
       "explanation": "物資が不足するなか、すべての国民に最小限の物資を分配した。",
       "difficulty": "basic"
     },
     {
       "id": "fc2",
-      "front": "切符制",
+      "front": "{切符制|きっぷせい}",
       "back": "衣料品や砂糖などを配給するために用いられたチケット制度は？",
       "explanation": "配給制と組み合わせて運用された。",
       "difficulty": "standard"
     },
     {
       "id": "fc3",
-      "front": "学徒出陣",
+      "front": "{学徒|がくと}{出陣|しゅつじん}",
       "back": "戦争末期、文系大学生らが繰り上げ卒業で出征したことは？",
       "explanation": "1943年に開始。多くの若者が戦地に送られた。",
       "difficulty": "basic"
     },
     {
       "id": "fc4",
-      "front": "勤労動員",
+      "front": "{勤労|きんろう}{動員|どういん}",
       "back": "中学生や女学生も工場で働くようになったことは？",
       "explanation": "労働力不足を補うため動員された。",
       "difficulty": "basic"
     },
     {
       "id": "fc5",
-      "front": "学童疎開",
+      "front": "{学童|がくどう}{疎開|そかい}",
       "back": "都市の小学生を空襲から守るため地方へ送ったことは？",
       "explanation": "親元を離れた集団疎開生活を強いられた。",
       "difficulty": "basic"
     },
     {
       "id": "fc6",
-      "front": "創氏改名",
+      "front": "{創氏改名|そうしかいめい}",
       "back": "朝鮮人に日本式の姓名を名乗らせた政策は？",
       "explanation": "皇民化政策の一つ。",
       "difficulty": "standard"
     },
     {
       "id": "fc7",
-      "front": "皇民化政策",
+      "front": "{皇民化|こうみんか}{政策|せいさく}",
       "back": "朝鮮・台湾の人々に日本人化を強要した政策は？",
       "explanation": "日本語使用・神社参拝・創氏改名などを強要した。",
       "difficulty": "standard"
     },
     {
       "id": "fc8",
-      "front": "強制連行",
+      "front": "{強制|きょうせい}{連行|れんこう}",
       "back": "朝鮮・中国の人々を日本の鉱山や工場で働かせたことは？",
       "explanation": "労働力不足を補うために行われた。",
       "difficulty": "standard"
     },
     {
       "id": "fc12",
-      "front": "国民学校",
+      "front": "{国民|こくみん}学校",
       "back": "1941年から尋常小学校が改称されたものは？",
       "explanation": "戦時下の皇国民育成を目的とした。",
       "difficulty": "advanced"

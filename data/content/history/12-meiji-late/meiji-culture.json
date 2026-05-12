@@ -11,126 +11,126 @@
   "flashcards": [
     {
       "id": "fc1",
-      "front": "言文一致",
+      "front": "{言文一致|げんぶんいっち}",
       "back": "話し言葉に近い文体で文学作品を書く運動は？",
       "explanation": "二葉亭四迷が「浮雲」で実践した。",
       "difficulty": "basic"
     },
     {
       "id": "fc2",
-      "front": "二葉亭四迷",
+      "front": "{二葉亭四迷|ふたばていしめい}",
       "back": "「浮雲」で言文一致体を実践した作家は？",
       "explanation": "近代日本文学の出発点とされる。",
       "difficulty": "standard"
     },
     {
       "id": "fc3",
-      "front": "夏目漱石",
+      "front": "{夏目漱石|なつめそうせき}",
       "back": "「坊っちゃん」「吾輩は猫である」「こころ」などを著した作家は？",
       "explanation": "イギリス留学後、近代日本人の苦悩を描いた。",
       "difficulty": "basic"
     },
     {
       "id": "fc4",
-      "front": "森鴎外",
+      "front": "{森鴎外|もりおうがい}",
       "back": "「舞姫」「高瀬舟」などを著した作家・医師は？",
       "explanation": "ドイツ留学経験を基に近代知識人の苦悩を描いた。",
       "difficulty": "basic"
     },
     {
       "id": "fc5",
-      "front": "樋口一葉",
+      "front": "{樋口一葉|ひぐちいちよう}",
       "back": "「たけくらべ」「にごりえ」を著した女性作家は？",
       "explanation": "5千円札の肖像になった。",
       "difficulty": "standard"
     },
     {
       "id": "fc6",
-      "front": "正岡子規",
+      "front": "{正岡子規|まさおかしき}",
       "back": "俳句・短歌の革新運動を進めた俳人は？",
       "explanation": "写生を重視した。",
       "difficulty": "standard"
     },
     {
       "id": "fc7",
-      "front": "石川啄木",
+      "front": "{石川啄木|いしかわたくぼく}",
       "back": "「一握の砂」「悲しき玩具」を著した歌人は？",
       "explanation": "三行書きの短歌で知られる。",
       "difficulty": "standard"
     },
     {
       "id": "fc8",
-      "front": "与謝野晶子",
+      "front": "{与謝野晶子|よさのあきこ}",
       "back": "「みだれ髪」を著した歌人で、日露戦争に反対した人物は？",
       "explanation": "「君死にたまふことなかれ」が有名。",
       "difficulty": "standard"
     },
     {
       "id": "fc9",
-      "front": "北里柴三郎",
+      "front": "{北里柴三郎|きたざとしばさぶろう}",
       "back": "破傷風の血清療法を発見した細菌学者は？",
       "explanation": "ペスト菌の発見でも有名。新千円札の肖像。",
       "difficulty": "basic"
     },
     {
       "id": "fc10",
-      "front": "野口英世",
+      "front": "{野口英世|のぐちひでよ}",
       "back": "黄熱病を研究したアフリカで没した細菌学者は？",
       "explanation": "千円札の肖像にもなった。",
       "difficulty": "basic"
     },
     {
       "id": "fc11",
-      "front": "志賀潔",
+      "front": "{志賀潔|しがきよし}",
       "back": "赤痢菌を発見した細菌学者は？",
       "explanation": "北里柴三郎の弟子。",
       "difficulty": "standard"
     },
     {
       "id": "fc12",
-      "front": "高峰譲吉",
+      "front": "{高峰譲吉|たかみねじょうきち}",
       "back": "アドレナリンの抽出とタカジアスターゼの発明で有名な科学者は？",
       "explanation": "酵素の研究で世界的に活躍した。",
       "difficulty": "standard"
     },
     {
       "id": "fc13",
-      "front": "黒田清輝",
+      "front": "{黒田清輝|くろだせいき}",
       "back": "「湖畔」を描いた西洋画家は？",
       "explanation": "フランス留学で印象派を学び日本に伝えた。",
       "difficulty": "standard"
     },
     {
       "id": "fc14",
-      "front": "横山大観",
+      "front": "{横山大観|よこやまたいかん}",
       "back": "「無我」などを描いた日本画家は？",
       "explanation": "岡倉天心とともに日本美術の発展に尽くした。",
       "difficulty": "standard"
     },
     {
       "id": "fc15",
-      "front": "岡倉天心",
+      "front": "{岡倉天心|おかくらてんしん}",
       "back": "東京美術学校の設立に尽力し、日本美術を世界に紹介した美術指導者は？",
       "explanation": "「東洋の理想」「茶の本」などを英語で著した。",
       "difficulty": "advanced"
     },
     {
       "id": "fc16",
-      "front": "滝廉太郎",
+      "front": "{滝廉太郎|たきれんたろう}",
       "back": "「荒城の月」「箱根八里」「花」などを作曲した音楽家は？",
       "explanation": "23歳で亡くなったが日本音楽史に大きな影響を残した。",
       "difficulty": "standard"
     },
     {
       "id": "fc17",
-      "front": "義務教育",
+      "front": "{義務|ぎむ}{教育|きょういく}",
       "back": "明治後期に4年から6年に延長された学校教育は？",
       "explanation": "1907年に義務教育が6年に延長され、就学率はほぼ100%になった。",
       "difficulty": "standard"
     },
     {
       "id": "fc18",
-      "front": "教育勅語",
+      "front": "{教育|きょういく}{勅語|ちょくご}",
       "back": "1890年に発布された、国民道徳の基本を示した文書は？",
       "explanation": "戦前の国民教育の柱となった。",
       "difficulty": "standard"

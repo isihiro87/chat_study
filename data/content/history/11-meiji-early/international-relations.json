@@ -11,98 +11,98 @@
   "flashcards": [
     {
       "id": "fc1",
-      "front": "岩倉使節団",
+      "front": "{岩倉|いわくら}{使節団|しせつだん}",
       "back": "1871年に欧米に派遣された、岩倉具視を大使とする使節団は？",
       "explanation": "条約改正交渉と欧米の調査が目的だった。",
       "difficulty": "basic"
     },
     {
       "id": "fc2",
-      "front": "岩倉具視",
+      "front": "{岩倉具視|いわくらともみ}",
       "back": "岩倉使節団の大使を務めた政治家は？",
       "explanation": "帰国後、征韓論に反対して西郷らと対立した。",
       "difficulty": "basic"
     },
     {
       "id": "fc3",
-      "front": "征韓論",
+      "front": "{征韓論|せいかんろん}",
       "back": "朝鮮に武力で開国を迫ろうとする主張は？",
       "explanation": "西郷隆盛や板垣退助らが主張したが否決された。",
       "difficulty": "basic"
     },
     {
       "id": "fc4",
-      "front": "日清修好条規",
+      "front": "{日清|にっしん}{修好|しゅうこう}{条規|じょうき}",
       "back": "1871年に清と結んだ対等な条約は？",
       "explanation": "お互いの独立と主権を尊重する内容だった。",
       "difficulty": "basic"
     },
     {
       "id": "fc5",
-      "front": "江華島事件",
+      "front": "{江華島|こうかとう}{事件|じけん}",
       "back": "1875年に日本の軍艦が朝鮮で起こした武力衝突は？",
       "explanation": "日朝修好条規を結ぶきっかけとなった。",
       "difficulty": "standard"
     },
     {
       "id": "fc6",
-      "front": "日朝修好条規",
+      "front": "{日朝|にっちょう}{修好|しゅうこう}{条規|じょうき}",
       "back": "1876年に朝鮮と結んだ不平等条約は？",
       "explanation": "江華島事件をきっかけに朝鮮を開国させた。",
       "difficulty": "standard"
     },
     {
       "id": "fc7",
-      "front": "樺太・千島交換条約",
+      "front": "{樺太|からふと}・{千島|ちしま}{交換|こうかん}{条約|じょうやく}",
       "back": "1875年にロシアと結んだ、国境を確定する条約は？",
       "explanation": "樺太を放棄し、千島列島全てを日本領とした。",
       "difficulty": "standard"
     },
     {
       "id": "fc8",
-      "front": "屯田兵",
+      "front": "{屯田兵|とんでんへい}",
       "back": "北海道開拓のために送られた、農業と軍務を兼ねる兵士は？",
       "explanation": "ロシアの脅威に備えて配置された。",
       "difficulty": "standard"
     },
     {
       "id": "fc9",
-      "front": "琉球処分",
+      "front": "{琉球|りゅうきゅう}{処分|しょぶん}",
       "back": "1879年、琉球を沖縄県とした一連の動きは？",
       "explanation": "清の反対を押し切って沖縄県を設置した。",
       "difficulty": "advanced"
     },
     {
       "id": "fc10",
-      "front": "北海道",
+      "front": "{北海道|ほっかいどう}",
       "back": "蝦夷地から改称された、明治政府が開拓を進めた地域は？",
       "explanation": "ロシアの脅威に備えて本格的な開拓が行われた。",
       "difficulty": "advanced"
     },
     {
       "id": "fc11",
-      "front": "大久保利通",
+      "front": "{大久保利通|おおくぼとしみち}",
       "back": "征韓論に反対し、国内の富国強兵を優先した政治家は？",
       "explanation": "岩倉具視とともに征韓論を否決させた。",
       "difficulty": "basic"
     },
     {
       "id": "fc12",
-      "front": "板垣退助",
+      "front": "{板垣退助|いたがきたいすけ}",
       "back": "征韓論を主張したが否決され、政府を去った土佐藩出身の政治家は？",
       "explanation": "のちに自由民権運動を始めた。",
       "difficulty": "standard"
     },
     {
       "id": "fc13",
-      "front": "西郷隆盛",
+      "front": "{西郷隆盛|さいごうたかもり}",
       "back": "征韓論を主張したが否決され、政府を去った薩摩藩出身の人物は？",
       "explanation": "のちに西南戦争を起こした。",
       "difficulty": "basic"
     },
     {
       "id": "fc14",
-      "front": "沖縄県",
+      "front": "{沖縄県|おきなわけん}",
       "back": "琉球処分により設置された県は？",
       "explanation": "1879年に琉球王国を廃止して設置された。",
       "difficulty": "standard"

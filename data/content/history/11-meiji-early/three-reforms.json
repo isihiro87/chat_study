@@ -11,70 +11,70 @@
   "flashcards": [
     {
       "id": "fc1",
-      "front": "学制",
+      "front": "{学制|がくせい}",
       "back": "1872年に出された、6歳以上の男女全員に教育を受けさせる制度は？",
       "explanation": "全国に小学校が作られたが、授業料は家庭負担で反対も。",
       "difficulty": "basic"
     },
     {
       "id": "fc2",
-      "front": "徴兵令",
+      "front": "{徴兵令|ちょうへいれい}",
       "back": "1873年、満20歳の男子に兵役を課す法律は？",
       "explanation": "身分に関わらず兵役の義務を課し、国民皆兵を実現。",
       "difficulty": "basic"
     },
     {
       "id": "fc3",
-      "front": "地租改正",
+      "front": "{地租|ちそ}{改正|かいせい}",
       "back": "1873年、税金の仕組みを変えた改革は？",
       "explanation": "地価の3%を現金で納める制度に変更した。",
       "difficulty": "basic"
     },
     {
       "id": "fc4",
-      "front": "国民皆兵",
+      "front": "{国民皆兵|こくみんかいへい}",
       "back": "国民全員が兵役の義務を負うという考え方は？",
       "explanation": "徴兵令の基本となる考え方。",
       "difficulty": "basic"
     },
     {
       "id": "fc5",
-      "front": "地券",
+      "front": "{地券|ちけん}",
       "back": "地租改正で土地所有者に発行された、所有を証明する文書は？",
       "explanation": "これにより土地の所有権が認められた。",
       "difficulty": "standard"
     },
     {
       "id": "fc6",
-      "front": "地価",
+      "front": "{地価|ちか}",
       "back": "地租改正で税額の基準とされた、土地の価格は？",
       "explanation": "地価の3%（後に2.5%）が税金となった。",
       "difficulty": "standard"
     },
     {
       "id": "fc7",
-      "front": "地租",
+      "front": "{地租|ちそ}",
       "back": "1873年の税制改革で導入された、土地の価格を基準にかける税は？",
       "explanation": "米ではなく現金で納めるようになった。",
       "difficulty": "standard"
     },
     {
       "id": "fc8",
-      "front": "三大改革",
+      "front": "{三大|さんだい}{改革|かいかく}",
       "back": "明治初期の学制・徴兵令・地租改正をまとめて何という？",
       "explanation": "教育・軍隊・税金の三分野で大きな改革が行われた。",
       "difficulty": "standard"
     },
     {
       "id": "fc9",
-      "front": "血税一揆",
+      "front": "{血税|けつぜい}{一揆|いっき}",
       "back": "徴兵令に反対して各地で起きた一揆は？",
       "explanation": "「血税」という言葉を誤解して起きた反対運動。",
       "difficulty": "advanced"
     },
     {
       "id": "fc10",
-      "front": "地租改正反対一揆",
+      "front": "{地租|ちそ}{改正|かいせい}反対{一揆|いっき}",
       "back": "地租改正による重い負担に反対して起きた農民の一揆は？",
       "explanation": "この一揆により税率が3%から2.5%に引き下げられた。",
       "difficulty": "advanced"
@@ -95,7 +95,7 @@
     },
     {
       "id": "fc13",
-      "front": "現金（金納）",
+      "front": "現金（{金納|きんのう}）",
       "back": "地租改正で税金を納める方法は？",
       "explanation": "米で納める物納から現金で納める方法に変わった。",
       "difficulty": "standard"

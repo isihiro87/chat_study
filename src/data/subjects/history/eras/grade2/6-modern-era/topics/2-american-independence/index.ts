@@ -46,7 +46,7 @@ export const americanIndependence: Topic = {
     flashcards: [
       {
         id: 'fc1',
-        front: '代表なくして課税なし',
+        front: '代表なくして{課税|かぜい}なし',
         back: 'アメリカ植民地の人々が掲げたスローガンは？',
         explanation: '自分たちの代表がいないイギリス議会の課税に反発したスローガン。',
         difficulty: 'basic',
@@ -60,28 +60,28 @@ export const americanIndependence: Topic = {
       },
       {
         id: 'fc3',
-        front: '独立宣言',
+        front: '{独立|どくりつ}{宣言|せんげん}',
         back: '「すべての人間は平等」という理念を掲げた1776年の文書は？',
         explanation: 'ロックの思想に基づき、生命・自由・幸福追求の権利を謳った。',
         difficulty: 'basic',
       },
       {
         id: 'fc4',
-        front: '独立戦争',
+        front: '{独立|どくりつ}{戦争|せんそう}',
         back: 'アメリカがイギリスからの独立を勝ち取った戦争は？',
         explanation: '1775年に始まり、1783年にイギリスが独立を承認した。',
         difficulty: 'basic',
       },
       {
         id: 'fc5',
-        front: 'ボストン茶会事件',
+        front: 'ボストン{茶会|ちゃかい}{事件|じけん}',
         back: 'イギリスの茶に対する課税に抗議して茶を海に投げ捨てた事件は？',
         explanation: '独立戦争のきっかけの一つとなった象徴的な事件。',
         difficulty: 'standard',
       },
       {
         id: 'fc6',
-        front: '合衆国憲法',
+        front: '{合衆国|がっしゅうこく}{憲法|けんぽう}',
         back: 'アメリカで1787年に制定された、世界初の近代的成文憲法は？',
         explanation: '三権分立や連邦制などを定め、各国の憲法の模範となった。',
         difficulty: 'standard',
@@ -102,7 +102,7 @@ export const americanIndependence: Topic = {
       },
       {
         id: 'fc9',
-        front: '13植民地',
+        front: '13{植民地|しょくみんち}',
         back: 'イギリスが北アメリカ東部に建設した植民地の数は？',
         explanation: 'これらの植民地が独立してアメリカ合衆国が誕生した。',
         difficulty: 'basic',
@@ -123,7 +123,7 @@ export const americanIndependence: Topic = {
       },
       {
         id: 'fc12',
-        front: 'パリ条約',
+        front: 'パリ{条約|じょうやく}',
         back: 'アメリカ独立戦争の講和条約は？',
         explanation: '1783年に締結され、イギリスがアメリカの独立を承認した。',
         difficulty: 'standard',
@@ -137,14 +137,14 @@ export const americanIndependence: Topic = {
       },
       {
         id: 'fc14',
-        front: '三権分立',
+        front: '{三権分立|さんけんぶんりつ}',
         back: 'アメリカ合衆国憲法で採用された政治の仕組みは？',
         explanation: 'モンテスキューの思想を取り入れ、権力の集中を防いだ。',
         difficulty: 'standard',
       },
       {
         id: 'fc15',
-        front: '連邦制',
+        front: '{連邦制|れんぽうせい}',
         back: '各州が一定の自治権を持ちつつ連邦政府のもとにまとまる仕組みは？',
         explanation: 'アメリカ合衆国憲法で定められた国家の基本構造。',
         difficulty: 'advanced',
@@ -158,14 +158,14 @@ export const americanIndependence: Topic = {
       },
       {
         id: 'fc17',
-        front: '自由・平等・幸福追求の権利',
+        front: '{自由|じゆう}・{平等|びょうどう}・{幸福|こうふく}{追求|ついきゅう}の{権利|けんり}',
         back: '独立宣言で謳われた基本的な権利は？',
         explanation: 'ロックの思想に基づき、人間が生まれながらに持つ権利を宣言した。',
         difficulty: 'standard',
       },
       {
         id: 'fc18',
-        front: 'フランス革命への影響',
+        front: 'フランス{革命|かくめい}への{影響|えいきょう}',
         back: 'アメリカ独立宣言が後の世界に与えた最大の影響は？',
         explanation: '独立宣言の理念がフランス革命やラテンアメリカの独立運動に影響を与えた。',
         difficulty: 'advanced',

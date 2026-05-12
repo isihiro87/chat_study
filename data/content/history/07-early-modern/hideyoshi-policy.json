@@ -11,98 +11,98 @@
   "flashcards": [
     {
       "id": "fc1",
-      "front": "太閤検地",
+      "front": "{太閤|たいこう}{検地|けんち}",
       "back": "秀吉が全国の田畑を調べ、収穫量を石高で表した政策は？",
       "explanation": "土地支配を統一する目的。京ますを基準に全国の土地を測量。",
       "difficulty": "basic"
     },
     {
       "id": "fc2",
-      "front": "石高",
+      "front": "{石高|こくだか}",
       "back": "米の収穫量で土地の価値を表す基準は？",
       "explanation": "年貢や大名の領地を示す基準になった。",
       "difficulty": "basic"
     },
     {
       "id": "fc3",
-      "front": "刀狩",
+      "front": "{刀狩|かたながり}",
       "back": "秀吉が百姓から刀・弓・鉄砲などの武器を取り上げた政策は？",
       "explanation": "1588年に実施。一揆を防ぎ、兵農分離を進めた。",
       "difficulty": "basic"
     },
     {
       "id": "fc4",
-      "front": "兵農分離",
+      "front": "{兵農|へいのう}{分離|ぶんり}",
       "back": "武士と農民の身分の区別が明確になったことを何という？",
       "explanation": "太閤検地と刀狩によって進んだ。近世社会の基盤となった。",
       "difficulty": "standard"
     },
     {
       "id": "fc5",
-      "front": "文禄・慶長の役",
+      "front": "{文禄|ぶんろく}・{慶長|けいちょう}の{役|えき}",
       "back": "秀吉が明の征服をめざして朝鮮に出兵した戦いは？",
       "explanation": "1592年が文禄の役、1597年が慶長の役。",
       "difficulty": "standard"
     },
     {
       "id": "fc6",
-      "front": "文禄の役",
+      "front": "{文禄|ぶんろく}の{役|えき}",
       "back": "1592年に秀吉が朝鮮に出兵した最初の戦いは？",
       "explanation": "約15万の大軍を派遣したが、朝鮮の抵抗や明の援軍で苦戦した。",
       "difficulty": "standard"
     },
     {
       "id": "fc7",
-      "front": "慶長の役",
+      "front": "{慶長|けいちょう}の{役|えき}",
       "back": "1597年に再び朝鮮へ大軍を派遣した二度目の戦いは？",
       "explanation": "秀吉の死により1598年に撤退した。",
       "difficulty": "standard"
     },
     {
       "id": "fc8",
-      "front": "李舜臣",
+      "front": "{李舜臣|りしゅんしん}",
       "back": "朝鮮の水軍を率いて日本の補給路を断った英雄は？",
       "explanation": "亀甲船を駆使して日本水軍を破った。",
       "difficulty": "standard"
     },
     {
       "id": "fc9",
-      "front": "亀甲船",
+      "front": "{亀甲船|きっこうせん}",
       "back": "李舜臣が率いた甲板を鉄板で覆った軍船は？",
       "explanation": "亀の甲羅のように上部を覆った構造で、敵兵の侵入を防いだ。",
       "difficulty": "standard"
     },
     {
       "id": "fc10",
-      "front": "有田焼・薩摩焼・萩焼",
+      "front": "{有田焼|ありたやき}・{薩摩焼|さつまやき}・{萩焼|はぎやき}",
       "back": "朝鮮出兵で連れてこられた陶工の技術により発展した焼き物は？",
       "explanation": "文禄・慶長の役と関連づける。",
       "difficulty": "standard"
     },
     {
       "id": "fc11",
-      "front": "京ます",
+      "front": "{京|きょう}ます",
       "back": "秀吉が検地の際に基準として統一した計量器は？",
       "explanation": "全国で異なっていた計量の基準を統一し、公平な年貢徴収を可能にした。",
       "difficulty": "advanced"
     },
     {
       "id": "fc12",
-      "front": "百姓",
+      "front": "{百姓|ひゃくしょう}",
       "back": "検地により土地を耕作する権利を保障された身分は？",
       "explanation": "耕作権を得る代わりに年貢を納める義務を負った。",
       "difficulty": "standard"
     },
     {
       "id": "fc13",
-      "front": "明",
+      "front": "{明|みん}",
       "back": "秀吉が朝鮮出兵で征服を目指した中国の王朝は？",
       "explanation": "14世紀から17世紀まで続いた中国の王朝。",
       "difficulty": "basic"
     },
     {
       "id": "fc14",
-      "front": "年貢",
+      "front": "{年貢|ねんぐ}",
       "back": "検地により百姓が納める義務を負った税は？",
       "explanation": "収穫した米などを領主に納める税。",
       "difficulty": "basic"

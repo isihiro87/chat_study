@@ -54,28 +54,28 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "三国協商",
+            "front": "{三国|さんごく}{協商|きょうしょう}",
             "back": "20世紀初頭のイギリス・フランス・ロシアの協力関係は？",
             "explanation": "三国同盟と対立した。",
             "difficulty": "basic"
           },
           {
             "id": "fc2",
-            "front": "三国同盟",
+            "front": "{三国|さんごく}{同盟|どうめい}",
             "back": "ドイツ・オーストリア・イタリアの同盟は？",
             "explanation": "三国協商と対立した。",
             "difficulty": "basic"
           },
           {
             "id": "fc3",
-            "front": "バルカン半島",
+            "front": "バルカン{半島|はんとう}",
             "back": "民族・宗教対立が複雑で「ヨーロッパの火薬庫」と呼ばれた地域は？",
             "explanation": "第一次世界大戦の発火点となった。",
             "difficulty": "basic"
           },
           {
             "id": "fc4",
-            "front": "サラエボ事件",
+            "front": "サラエボ{事件|じけん}",
             "back": "1914年、オーストリアの皇太子夫妻が暗殺された事件は？",
             "explanation": "第一次世界大戦のきっかけとなった。",
             "difficulty": "basic"
@@ -96,28 +96,28 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc7",
-            "front": "総力戦",
+            "front": "{総力戦|そうりょくせん}",
             "back": "国民・経済・科学技術のすべてを動員した戦争のあり方は？",
             "explanation": "第一次世界大戦から本格化した。",
             "difficulty": "basic"
           },
           {
             "id": "fc8",
-            "front": "連合国（協商国）",
+            "front": "{連合国|れんごうこく}（{協商国|きょうしょうこく}）",
             "back": "第一次世界大戦でドイツと戦った陣営は？",
             "explanation": "イギリス・フランス・ロシア・アメリカ・日本など。",
             "difficulty": "standard"
           },
           {
             "id": "fc9",
-            "front": "同盟国",
+            "front": "{同盟国|どうめいこく}",
             "back": "第一次世界大戦でドイツを中心とした陣営は？",
             "explanation": "ドイツ・オーストリア・オスマン帝国など。",
             "difficulty": "standard"
           },
           {
             "id": "fc10",
-            "front": "戦車・飛行機・毒ガス",
+            "front": "{戦車|せんしゃ}・{飛行機|ひこうき}・{毒|どく}ガス",
             "back": "第一次世界大戦で初めて大規模に使用された兵器は？",
             "explanation": "戦争の様相が大きく変わった。",
             "difficulty": "standard"
@@ -131,7 +131,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc12",
-            "front": "塹壕戦",
+            "front": "{塹壕戦|ざんごうせん}",
             "back": "西部戦線で繰り広げられた長期化した防御戦の形式は？",
             "explanation": "膠着状態が続き、莫大な戦死者を出した。",
             "difficulty": "advanced"
@@ -305,28 +305,28 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "日英同盟",
+            "front": "{日英|にちえい}{同盟|どうめい}",
             "back": "日本が第一次世界大戦で連合国側に参戦した根拠となった同盟は？",
             "explanation": "1902年に結ばれた日英の同盟。",
             "difficulty": "basic"
           },
           {
             "id": "fc2",
-            "front": "山東省",
+            "front": "{山東省|さんとうしょう}",
             "back": "日本が第一次世界大戦中に占領した中国のドイツ租借地は？",
             "explanation": "青島など。",
             "difficulty": "standard"
           },
           {
             "id": "fc3",
-            "front": "南洋諸島",
+            "front": "{南洋|なんよう}{諸島|しょとう}",
             "back": "第一次世界大戦中に日本が占領した太平洋のドイツ領は？",
             "explanation": "戦後、委任統治領となった。",
             "difficulty": "standard"
           },
           {
             "id": "fc4",
-            "front": "二十一か条の要求",
+            "front": "{二十一|にじゅういち}か条の{要求|ようきゅう}",
             "back": "1915年、日本が中国（袁世凱政権）に突きつけた要求は？",
             "explanation": "山東省のドイツ権益継承などを求め、中国に強い反発を生んだ。",
             "difficulty": "basic"
@@ -340,21 +340,21 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc6",
-            "front": "大戦景気",
+            "front": "{大戦|たいせん}{景気|けいき}",
             "back": "第一次世界大戦中の日本の好景気は？",
             "explanation": "ヨーロッパからの輸出激減で日本製品の需要が拡大した。",
             "difficulty": "basic"
           },
           {
             "id": "fc7",
-            "front": "成金",
+            "front": "{成金|なりきん}",
             "back": "大戦景気で急に金持ちになった人々は？",
             "explanation": "船成金など、戦争特需で巨富を得た。",
             "difficulty": "standard"
           },
           {
             "id": "fc8",
-            "front": "米騒動",
+            "front": "{米|こめ}{騒動|そうどう}",
             "back": "1918年、米価高騰に怒った民衆が起こした騒動は？",
             "explanation": "全国に広がり、寺内内閣は退陣に追い込まれた。",
             "difficulty": "basic"
@@ -368,14 +368,14 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc10",
-            "front": "シベリア出兵",
+            "front": "シベリア{出兵|しゅっぺい}",
             "back": "1918〜22年、ロシア革命に干渉するため日本軍が出兵したのは？",
             "explanation": "多くの犠牲を出し成果なく撤退した。",
             "difficulty": "standard"
           },
           {
             "id": "fc11",
-            "front": "袁世凱",
+            "front": "{袁世凱|えんせいがい}",
             "back": "二十一か条の要求を受け入れた当時の中国の権力者は？",
             "explanation": "中華民国の臨時大総統。",
             "difficulty": "advanced"
@@ -549,7 +549,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "ロシア革命",
+            "front": "ロシア{革命|かくめい}",
             "back": "1917年、ロシアで起きた世界初の社会主義革命は？",
             "explanation": "戦争の疲弊と食糧不足が背景にあった。",
             "difficulty": "basic"
@@ -577,7 +577,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc5",
-            "front": "ソ連（ソビエト社会主義共和国連邦）",
+            "front": "ソ{連|れん}（ソビエト社会{主義|しゅぎ}{共和国|きょうわこく}{連邦|れんぽう}）",
             "back": "1922年に成立した世界初の社会主義国家は？",
             "explanation": "1991年まで存在した。",
             "difficulty": "basic"
@@ -591,7 +591,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc7",
-            "front": "対ソ干渉戦争",
+            "front": "対ソ{干渉|かんしょう}{戦争|せんそう}",
             "back": "ロシア革命をつぶそうと各国が干渉した戦争は？",
             "explanation": "日本もシベリア出兵で参加した。",
             "difficulty": "standard"
@@ -612,7 +612,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc10",
-            "front": "五か年計画",
+            "front": "5か{年|ねん}{計画|けいかく}",
             "back": "スターリンが進めた計画経済政策は？",
             "explanation": "重工業化を急速に進めた。",
             "difficulty": "standard"
@@ -793,21 +793,21 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "パリ講和会議",
+            "front": "パリ{講和|こうわ}{会議|かいぎ}",
             "back": "1919年、第一次世界大戦の講和を話し合った会議は？",
             "explanation": "戦勝国がドイツへの賠償などを決めた。",
             "difficulty": "basic"
           },
           {
             "id": "fc2",
-            "front": "ベルサイユ条約",
+            "front": "ベルサイユ{条約|じょうやく}",
             "back": "1919年、第一次世界大戦の講和条約は？",
             "explanation": "ドイツに多額の賠償金と領土割譲を課した。",
             "difficulty": "basic"
           },
           {
             "id": "fc3",
-            "front": "国際連盟",
+            "front": "{国際|こくさい}{連盟|れんめい}",
             "back": "1920年に発足した世界平和を目指す国際機関は？",
             "explanation": "アメリカ大統領ウィルソンの提唱。日本は常任理事国となった。",
             "difficulty": "basic"
@@ -821,35 +821,35 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc5",
-            "front": "民族自決",
+            "front": "{民族|みんぞく}{自決|じけつ}",
             "back": "それぞれの民族が自らの国家を持つべきという原則は？",
             "explanation": "ウィルソンが提唱し、アジア・アフリカの独立運動を刺激した。",
             "difficulty": "standard"
           },
           {
             "id": "fc6",
-            "front": "ワシントン会議",
+            "front": "ワシントン{会議|かいぎ}",
             "back": "1921〜22年、海軍軍縮と太平洋・東アジア問題を話し合った国際会議は？",
             "explanation": "日英同盟が解消され、海軍主力艦の比率も決められた。",
             "difficulty": "basic"
           },
           {
             "id": "fc7",
-            "front": "海軍軍縮条約",
+            "front": "{海軍|かいぐん}{軍縮|ぐんしゅく}{条約|じょうやく}",
             "back": "ワシントン会議で結ばれた、米英日仏伊の主力艦比率を定めた条約は？",
             "explanation": "米英5・日3・仏伊1.67の比率となった。",
             "difficulty": "standard"
           },
           {
             "id": "fc8",
-            "front": "三・一独立運動",
+            "front": "{三|さん}・{一|いち}{独立|どくりつ}{運動|うんどう}",
             "back": "1919年、朝鮮で起きた日本支配からの独立運動は？",
             "explanation": "ソウルで「独立万歳」が叫ばれ全国に広がった。",
             "difficulty": "basic"
           },
           {
             "id": "fc9",
-            "front": "五・四運動",
+            "front": "{五|ご}・{四|し}{運動|うんどう}",
             "back": "1919年、中国で起きた反日・反帝国主義の運動は？",
             "explanation": "二十一か条要求とベルサイユ条約への抗議として広がった。",
             "difficulty": "basic"
@@ -863,7 +863,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc11",
-            "front": "非暴力・不服従",
+            "front": "{非暴力|ひぼうりょく}・{不服従|ふふくじゅう}",
             "back": "ガンディーが掲げたイギリスへの抵抗手段は？",
             "explanation": "武力を用いず、納税拒否などで抵抗した。",
             "difficulty": "standard"
@@ -1052,35 +1052,35 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "大正デモクラシー",
+            "front": "{大正|たいしょう}デモクラシー",
             "back": "大正期に広まった民主主義を求める風潮は？",
             "explanation": "政党政治の発展や普通選挙の実現を目指した。",
             "difficulty": "basic"
           },
           {
             "id": "fc2",
-            "front": "護憲運動",
+            "front": "{護憲|ごけん}{運動|うんどう}",
             "back": "1912〜13年の藩閥政治に反対し、憲法に基づく政治を求めた運動は？",
             "explanation": "第3次桂太郎内閣を退陣に追い込んだ（第一次護憲運動）。",
             "difficulty": "basic"
           },
           {
             "id": "fc3",
-            "front": "吉野作造",
+            "front": "{吉野作造|よしのさくぞう}",
             "back": "大正デモクラシーの理論的指導者で、民本主義を唱えた政治学者は？",
             "explanation": "天皇主権下で民衆の意思を政治に反映させる「民本主義」を提唱。",
             "difficulty": "basic"
           },
           {
             "id": "fc4",
-            "front": "民本主義",
+            "front": "{民本|みんぽん}{主義|しゅぎ}",
             "back": "吉野作造が唱えた、民衆の意思を政治に反映させる考えは？",
             "explanation": "「主権在民」とは異なる「民本主義」という訳語を用いた。",
             "difficulty": "standard"
           },
           {
             "id": "fc5",
-            "front": "原敬",
+            "front": "{原敬|はらたかし}",
             "back": "1918年に成立した日本初の本格的政党内閣の首相は？",
             "explanation": "「平民宰相」と呼ばれた。立憲政友会総裁。",
             "difficulty": "basic"
@@ -1094,7 +1094,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc7",
-            "front": "普通選挙法",
+            "front": "{普通選挙法|ふつうせんきょほう}",
             "back": "1925年に制定された、25歳以上のすべての男子に選挙権を与えた法律は？",
             "explanation": "加藤高明内閣が制定。女性にはまだ与えられなかった。",
             "difficulty": "basic"
@@ -1108,14 +1108,14 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc9",
-            "front": "治安維持法",
+            "front": "{治安|ちあん}{維持法|いじほう}",
             "back": "1925年に制定された、社会主義など反体制思想を取り締まる法律は？",
             "explanation": "共産主義への弾圧を強めるための法律。",
             "difficulty": "basic"
           },
           {
             "id": "fc10",
-            "front": "加藤高明",
+            "front": "{加藤高明|かとうたかあき}",
             "back": "1925年に普通選挙法を制定した憲政会総裁の首相は？",
             "explanation": "政党内閣の安定期を開いた。",
             "difficulty": "standard"
@@ -1283,21 +1283,21 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "労働運動",
+            "front": "{労働|ろうどう}運動",
             "back": "労働者が労働条件改善を求めて行った運動は？",
             "explanation": "大正期に労働組合が次々と結成された。",
             "difficulty": "basic"
           },
           {
             "id": "fc2",
-            "front": "農民運動",
+            "front": "{農民|のうみん}運動",
             "back": "小作料の引き下げなどを求めた農民の運動は？",
             "explanation": "1922年に日本農民組合が結成された。",
             "difficulty": "standard"
           },
           {
             "id": "fc3",
-            "front": "全国水平社",
+            "front": "全国{水平社|すいへいしゃ}",
             "back": "1922年、部落差別の解消を目指して結成された組織は？",
             "explanation": "差別からの解放を目指した。「水平社宣言」を発表。",
             "difficulty": "basic"
@@ -1311,28 +1311,28 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc5",
-            "front": "平塚らいてう",
+            "front": "{平塚|ひらつか}らいてう",
             "back": "「青鞜」を創刊し、女性解放運動を進めた人物は？",
             "explanation": "「元始女性は太陽であった」の宣言で有名。",
             "difficulty": "basic"
           },
           {
             "id": "fc6",
-            "front": "青鞜",
+            "front": "{青鞜|せいとう}",
             "back": "1911年に平塚らいてうが創刊した女性誌は？",
             "explanation": "女性の自立を訴えた。",
             "difficulty": "standard"
           },
           {
             "id": "fc7",
-            "front": "新婦人協会",
+            "front": "新{婦人|ふじん}{協会|きょうかい}",
             "back": "1920年、平塚らいてう・市川房枝らが結成した女性団体は？",
             "explanation": "女性の政治参加を目指した。",
             "difficulty": "standard"
           },
           {
             "id": "fc8",
-            "front": "市川房枝",
+            "front": "{市川房枝|いちかわふさえ}",
             "back": "婦人参政権獲得運動の中心となった人物は？",
             "explanation": "戦後の参議院議員としても活躍した。",
             "difficulty": "standard"
@@ -1346,14 +1346,14 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc10",
-            "front": "水平社宣言",
+            "front": "{水平社|すいへいしゃ}{宣言|せんげん}",
             "back": "1922年、全国水平社の結成大会で発表された宣言は？",
             "explanation": "「人の世に熱あれ、人間に光あれ」で結ばれる。",
             "difficulty": "advanced"
           },
           {
             "id": "fc11",
-            "front": "関東大震災",
+            "front": "{関東|かんとう}{大震災|だいしんさい}",
             "back": "1923年に起きた、関東地方の大地震は？",
             "explanation": "死者・行方不明者10万人以上。朝鮮人虐殺など社会不安が広がった。",
             "difficulty": "basic"
@@ -1534,14 +1534,14 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "大衆文化",
+            "front": "{大衆|たいしゅう}{文化|ぶんか}",
             "back": "大正〜昭和初期に都市の一般大衆に広がった文化は？",
             "explanation": "新聞・雑誌・ラジオ・映画などのメディアが普及した。",
             "difficulty": "basic"
           },
           {
             "id": "fc2",
-            "front": "ラジオ放送",
+            "front": "ラジオ{放送|ほうそう}",
             "back": "1925年に日本で始まったメディアは？",
             "explanation": "東京・大阪・名古屋で開始。後にNHKとなる。",
             "difficulty": "basic"
@@ -1555,21 +1555,21 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc4",
-            "front": "活動写真（映画）",
+            "front": "{活動写真|かつどうしゃしん}（映画）",
             "back": "大正期に普及した映像メディアは？",
             "explanation": "無声映画から音声付きへと発展した。",
             "difficulty": "standard"
           },
           {
             "id": "fc5",
-            "front": "大衆雑誌",
+            "front": "{大衆|たいしゅう}{雑誌|ざっし}",
             "back": "「キング」「主婦の友」など発行部数100万部を超えた雑誌は？",
             "explanation": "「キング」は1925年創刊。",
             "difficulty": "standard"
           },
           {
             "id": "fc6",
-            "front": "円本",
+            "front": "{円本|えんぽん}",
             "back": "1冊1円で売り出され、ベストセラーとなった文学全集は？",
             "explanation": "「現代日本文学全集」など。読書の大衆化につながった。",
             "difficulty": "standard"
@@ -1583,42 +1583,42 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc8",
-            "front": "芥川龍之介",
+            "front": "{芥川龍之介|あくたがわりゅうのすけ}",
             "back": "「羅生門」「鼻」を著した大正期の作家は？",
             "explanation": "新思潮派の代表。",
             "difficulty": "basic"
           },
           {
             "id": "fc9",
-            "front": "志賀直哉",
+            "front": "{志賀直哉|しがなおや}",
             "back": "「暗夜行路」を著した白樺派の作家は？",
             "explanation": "白樺派は人道主義・個人主義を掲げた。",
             "difficulty": "standard"
           },
           {
             "id": "fc10",
-            "front": "小林多喜二",
+            "front": "{小林多喜二|こばやしたきじ}",
             "back": "「蟹工船」を著したプロレタリア文学の作家は？",
             "explanation": "労働者の苦しみを描いた。",
             "difficulty": "standard"
           },
           {
             "id": "fc11",
-            "front": "白樺派",
+            "front": "{白樺派|しらかばは}",
             "back": "武者小路実篤・志賀直哉らが結成した文学の流派は？",
             "explanation": "人道主義・理想主義を特徴とした。",
             "difficulty": "standard"
           },
           {
             "id": "fc12",
-            "front": "プロレタリア文学",
+            "front": "プロレタリア{文学|ぶんがく}",
             "back": "労働者・農民の生活を描いた文学運動は？",
             "explanation": "小林多喜二「蟹工船」、徳永直「太陽のない街」など。",
             "difficulty": "standard"
           },
           {
             "id": "fc13",
-            "front": "文化住宅",
+            "front": "{文化|ぶんか}{住宅|じゅうたく}",
             "back": "和洋折衷で台所や応接間を備えた都市住宅は？",
             "explanation": "サラリーマンを中心に普及した。",
             "difficulty": "advanced"
@@ -1800,7 +1800,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "世界恐慌",
+            "front": "世界{恐慌|きょうこう}",
             "back": "1929年にアメリカから始まった世界的経済危機は？",
             "explanation": "ニューヨーク株式市場の暴落から世界に波及した。",
             "difficulty": "basic"
@@ -1814,7 +1814,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc3",
-            "front": "ニューディール政策",
+            "front": "ニューディール{政策|せいさく}",
             "back": "アメリカ大統領ローズベルトが行った恐慌対策は？",
             "explanation": "公共事業による失業者救済など、国家が経済に積極介入した。",
             "difficulty": "basic"
@@ -1828,7 +1828,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc5",
-            "front": "ブロック経済",
+            "front": "ブロック{経済|けいざい}",
             "back": "イギリス・フランスが本国と植民地で経済圏を作った政策は？",
             "explanation": "他国の商品を排除して恐慌を乗り切ろうとした。",
             "difficulty": "standard"
@@ -1856,7 +1856,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc9",
-            "front": "ナチス（ナチ党）",
+            "front": "ナチス（ナチ{党|とう}）",
             "back": "ヒトラーが率いた政党は？",
             "explanation": "国家社会主義ドイツ労働者党の略称。",
             "difficulty": "standard"
@@ -1870,14 +1870,14 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc11",
-            "front": "ユダヤ人迫害",
+            "front": "ユダヤ{人|じん}{迫害|はくがい}",
             "back": "ナチスがドイツで進めた人種差別政策は？",
             "explanation": "ホロコーストへとつながった。",
             "difficulty": "standard"
           },
           {
             "id": "fc12",
-            "front": "昭和恐慌",
+            "front": "{昭和|しょうわ}{恐慌|きょうこう}",
             "back": "1930年代初頭に日本を襲った経済危機は？",
             "explanation": "農村の困窮が特に深刻だった。",
             "difficulty": "basic"
@@ -2051,14 +2051,14 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "満州事変",
+            "front": "{満州|まんしゅう}{事変|じへん}",
             "back": "1931年、関東軍が起こした中国侵略のきっかけとなった事件は？",
             "explanation": "柳条湖事件で南満州鉄道を爆破し、これを口実に軍事行動を起こした。",
             "difficulty": "basic"
           },
           {
             "id": "fc2",
-            "front": "柳条湖事件",
+            "front": "{柳条湖|りゅうじょうこ}{事件|じけん}",
             "back": "1931年9月、関東軍が南満州鉄道を爆破した事件は？",
             "explanation": "満州事変の引き金。中国軍の仕業と偽った。",
             "difficulty": "basic"
@@ -2072,7 +2072,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc4",
-            "front": "満州国",
+            "front": "{満州国|まんしゅうこく}",
             "back": "1932年、日本が満州に作った傀儡国家は？",
             "explanation": "清の最後の皇帝・溥儀を執政（後に皇帝）に据えた。",
             "difficulty": "basic"
@@ -2086,21 +2086,21 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc6",
-            "front": "溥儀（ふぎ）",
+            "front": "{溥儀|ふぎ}（ふぎ）",
             "back": "満州国の執政（後に皇帝）となった清の最後の皇帝は？",
             "explanation": "宣統帝として知られる。",
             "difficulty": "standard"
           },
           {
             "id": "fc7",
-            "front": "リットン調査団",
+            "front": "リットン{調査団|ちょうさだん}",
             "back": "国際連盟が満州事変を調査するため派遣した団体は？",
             "explanation": "満州国を認めず日本に撤退を勧告した。",
             "difficulty": "basic"
           },
           {
             "id": "fc8",
-            "front": "国際連盟脱退",
+            "front": "{国際|こくさい}{連盟|れんめい}{脱退|だったい}",
             "back": "1933年、リットン調査団の報告を不服として日本がとった行動は？",
             "explanation": "国際的孤立を深めた。",
             "difficulty": "basic"
@@ -2114,21 +2114,21 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc10",
-            "front": "五・一五事件",
+            "front": "{五|ご}・{一五|いちご}{事件|じけん}",
             "back": "1932年、海軍青年将校らが犬養毅首相を暗殺した事件は？",
             "explanation": "政党政治が事実上終わった。",
             "difficulty": "basic"
           },
           {
             "id": "fc11",
-            "front": "犬養毅",
+            "front": "{犬養毅|いぬかいつよし}",
             "back": "五・一五事件で暗殺された首相は？",
             "explanation": "立憲政友会総裁。「話せばわかる」と言ったとされる。",
             "difficulty": "standard"
           },
           {
             "id": "fc12",
-            "front": "二・二六事件",
+            "front": "{二|に}・{二六|にろく}{事件|じけん}",
             "back": "1936年、陸軍青年将校らが起こしたクーデター未遂事件は？",
             "explanation": "高橋是清蔵相らが暗殺された。鎮圧された後、軍部の発言力が強まった。",
             "difficulty": "basic"
@@ -2142,7 +2142,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc14",
-            "front": "関東軍",
+            "front": "{関東|かんとう}軍",
             "back": "満州に駐留していた日本陸軍の部隊は？",
             "explanation": "満州事変などを独断で進めた。",
             "difficulty": "standard"
@@ -2316,14 +2316,14 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "日中戦争",
+            "front": "{日中|にっちゅう}{戦争|せんそう}",
             "back": "1937〜45年に日本と中国が戦った戦争は？",
             "explanation": "盧溝橋事件をきっかけに始まり、太平洋戦争へとつながった。",
             "difficulty": "basic"
           },
           {
             "id": "fc2",
-            "front": "盧溝橋事件",
+            "front": "{盧溝橋|ろこうきょう}{事件|じけん}",
             "back": "1937年7月、北京郊外で日中両軍が衝突した事件は？",
             "explanation": "日中戦争のきっかけとなった。",
             "difficulty": "basic"
@@ -2337,35 +2337,35 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc4",
-            "front": "南京事件",
+            "front": "{南京|ナンキン}{事件|じけん}",
             "back": "1937年12月、日本軍が南京で多数の市民・捕虜を殺害した事件は？",
             "explanation": "国際的に大きな批判を受けた。",
             "difficulty": "standard"
           },
           {
             "id": "fc5",
-            "front": "国共合作",
+            "front": "{国共|こっきょう}{合作|がっさく}",
             "back": "日本に対抗するため中国の国民党と共産党が結んだ協力関係は？",
             "explanation": "蒋介石と毛沢東が手を結んだ。",
             "difficulty": "standard"
           },
           {
             "id": "fc6",
-            "front": "蒋介石",
+            "front": "{蒋介石|しょうかいせき}",
             "back": "中国国民党を率いて日本と戦った指導者は？",
             "explanation": "首都を南京から重慶へ移し抵抗を続けた。",
             "difficulty": "standard"
           },
           {
             "id": "fc7",
-            "front": "毛沢東",
+            "front": "{毛沢東|もうたくとう}",
             "back": "中国共産党を率いた指導者は？",
             "explanation": "戦後の中華人民共和国の建国者となる。",
             "difficulty": "basic"
           },
           {
             "id": "fc8",
-            "front": "国家総動員法",
+            "front": "{国家|こっか}{総動員法|そうどういんほう}",
             "back": "1938年に制定された、戦争のために国民・物資をすべて動員できるとした法律は？",
             "explanation": "近衛文麿内閣が制定。議会の承認なく統制可能になった。",
             "difficulty": "basic"
@@ -2379,14 +2379,14 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc10",
-            "front": "近衛文麿",
+            "front": "{近衛文麿|このえふみまろ}",
             "back": "国家総動員法を制定した首相は？",
             "explanation": "後に新体制運動を進めた。",
             "difficulty": "standard"
           },
           {
             "id": "fc11",
-            "front": "大政翼賛会",
+            "front": "{大政|たいせい}{翼賛会|よくさんかい}",
             "back": "1940年、すべての政党を解散させて作られた国民組織は？",
             "explanation": "政党政治が完全に終わり、一党独裁体制となった。",
             "difficulty": "basic"
@@ -2400,14 +2400,14 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc13",
-            "front": "日独伊三国同盟",
+            "front": "{日独伊|にちどくい}{三国|さんごく}{同盟|どうめい}",
             "back": "1940年に日本・ドイツ・イタリアが結んだ軍事同盟は？",
             "explanation": "アメリカとの対立を決定的にした。",
             "difficulty": "basic"
           },
           {
             "id": "fc14",
-            "front": "重慶",
+            "front": "{重慶|じゅうけい}",
             "back": "蒋介石政府が南京から移った臨時首都は？",
             "explanation": "日本軍は何度も空爆したが、降伏させられなかった。",
             "difficulty": "advanced"
@@ -2589,7 +2589,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "第二次世界大戦",
+            "front": "{第二次|だいにじ}世界{大戦|たいせん}",
             "back": "1939〜45年に世界規模で行われた戦争は？",
             "explanation": "枢軸国と連合国の戦い。約6000万人が犠牲となった。",
             "difficulty": "basic"
@@ -2603,28 +2603,28 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc3",
-            "front": "ポーランド侵攻",
+            "front": "ポーランド{侵攻|しんこう}",
             "back": "1939年9月、ドイツが始めた軍事行動は？",
             "explanation": "イギリスとフランスはドイツに宣戦布告し第二次世界大戦が始まった。",
             "difficulty": "standard"
           },
           {
             "id": "fc4",
-            "front": "独ソ不可侵条約",
+            "front": "独ソ{不可侵|ふかしん}{条約|じょうやく}",
             "back": "1939年8月、ドイツとソ連が結んだ条約は？",
             "explanation": "両国の戦争回避を約束。ヒトラーがポーランド侵攻を決断した背景。",
             "difficulty": "standard"
           },
           {
             "id": "fc5",
-            "front": "枢軸国",
+            "front": "{枢軸国|すうじくこく}",
             "back": "第二次世界大戦でドイツ・イタリア・日本など中心国は？",
             "explanation": "ファシズム諸国が中心。",
             "difficulty": "basic"
           },
           {
             "id": "fc6",
-            "front": "連合国",
+            "front": "{連合国|れんごうこく}",
             "back": "第二次世界大戦でアメリカ・イギリス・ソ連・中国など反枢軸国は？",
             "explanation": "民主主義国家と社会主義国家が手を結んだ。",
             "difficulty": "basic"
@@ -2638,7 +2638,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc9",
-            "front": "独ソ戦",
+            "front": "独ソ{戦|せん}",
             "back": "1941年6月、ドイツがソ連に攻め込んだ戦いは？",
             "explanation": "独ソ不可侵条約を破棄してソ連を攻撃した。",
             "difficulty": "standard"
@@ -2833,49 +2833,49 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "太平洋戦争",
+            "front": "{太平洋|たいへいよう}{戦争|せんそう}",
             "back": "1941〜45年に日本がアメリカ・イギリスなどと戦った戦争は？",
             "explanation": "真珠湾攻撃で開戦した。",
             "difficulty": "basic"
           },
           {
             "id": "fc2",
-            "front": "真珠湾攻撃",
+            "front": "{真珠湾|しんじゅわん}{攻撃|こうげき}",
             "back": "1941年12月8日、日本海軍がアメリカ海軍基地を奇襲した攻撃は？",
             "explanation": "ハワイのオアフ島にあるアメリカ海軍基地への奇襲。",
             "difficulty": "basic"
           },
           {
             "id": "fc3",
-            "front": "1941年12月8日",
+            "front": "1941{年|ねん}12{月|がつ}8{日|にち}",
             "back": "太平洋戦争が始まった日は？",
             "explanation": "真珠湾攻撃と同時にマレー半島にも上陸した。",
             "difficulty": "basic"
           },
           {
             "id": "fc4",
-            "front": "東条英機",
+            "front": "{東条英機|とうじょうひでき}",
             "back": "真珠湾攻撃時の日本の首相は？",
             "explanation": "陸軍大将で、戦争を指導した。",
             "difficulty": "basic"
           },
           {
             "id": "fc5",
-            "front": "ABCD包囲網",
+            "front": "ABCD{包囲網|ほういもう}",
             "back": "アメリカ・イギリス・中国・オランダが日本に対して行った経済包囲は？",
             "explanation": "石油や鉄の輸出制限が日本を苦しめた。",
             "difficulty": "standard"
           },
           {
             "id": "fc6",
-            "front": "大東亜共栄圏",
+            "front": "{大東亜|だいとうあ}{共栄圏|きょうえいけん}",
             "back": "日本がアジアを欧米から解放すると唱えた構想は？",
             "explanation": "実態はアジアの植民地化だった。",
             "difficulty": "standard"
           },
           {
             "id": "fc7",
-            "front": "ミッドウェー海戦",
+            "front": "ミッドウェー{海戦|かいせん}",
             "back": "1942年6月、日本海軍が大敗北を喫した海戦は？",
             "explanation": "主力空母4隻を失い、戦況の転換点となった。",
             "difficulty": "basic"
@@ -2896,14 +2896,14 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc10",
-            "front": "サイパン陥落",
+            "front": "サイパン{陥落|かんらく}",
             "back": "1944年、B-29による本土爆撃の拠点となった島の陥落は？",
             "explanation": "東条内閣退陣のきっかけとなった。",
             "difficulty": "standard"
           },
           {
             "id": "fc11",
-            "front": "東京大空襲",
+            "front": "東京{大空襲|だいくうしゅう}",
             "back": "1945年3月10日にアメリカ軍が東京を焼夷弾で大規模爆撃した攻撃は？",
             "explanation": "約10万人が犠牲となった。",
             "difficulty": "basic"
@@ -2917,14 +2917,14 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc13",
-            "front": "沖縄戦",
+            "front": "{沖縄戦|おきなわせん}",
             "back": "1945年4〜6月、唯一日本本土で行われた地上戦は？",
             "explanation": "県民の4分の1以上が犠牲となり、ひめゆり学徒隊なども動員された。",
             "difficulty": "basic"
           },
           {
             "id": "fc14",
-            "front": "ひめゆり学徒隊",
+            "front": "ひめゆり{学徒隊|がくとたい}",
             "back": "沖縄戦で看護要員として動員された女子学生たちは？",
             "explanation": "多くが亡くなった。",
             "difficulty": "standard"
@@ -3098,63 +3098,63 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "配給制",
+            "front": "{配給制|はいきゅうせい}",
             "back": "戦時下に米・砂糖・衣料品などを国が割り当てた制度は？",
             "explanation": "物資が不足するなか、すべての国民に最小限の物資を分配した。",
             "difficulty": "basic"
           },
           {
             "id": "fc2",
-            "front": "切符制",
+            "front": "{切符制|きっぷせい}",
             "back": "衣料品や砂糖などを配給するために用いられたチケット制度は？",
             "explanation": "配給制と組み合わせて運用された。",
             "difficulty": "standard"
           },
           {
             "id": "fc3",
-            "front": "学徒出陣",
+            "front": "{学徒|がくと}{出陣|しゅつじん}",
             "back": "戦争末期、文系大学生らが繰り上げ卒業で出征したことは？",
             "explanation": "1943年に開始。多くの若者が戦地に送られた。",
             "difficulty": "basic"
           },
           {
             "id": "fc4",
-            "front": "勤労動員",
+            "front": "{勤労|きんろう}{動員|どういん}",
             "back": "中学生や女学生も工場で働くようになったことは？",
             "explanation": "労働力不足を補うため動員された。",
             "difficulty": "basic"
           },
           {
             "id": "fc5",
-            "front": "学童疎開",
+            "front": "{学童|がくどう}{疎開|そかい}",
             "back": "都市の小学生を空襲から守るため地方へ送ったことは？",
             "explanation": "親元を離れた集団疎開生活を強いられた。",
             "difficulty": "basic"
           },
           {
             "id": "fc6",
-            "front": "創氏改名",
+            "front": "{創氏改名|そうしかいめい}",
             "back": "朝鮮人に日本式の姓名を名乗らせた政策は？",
             "explanation": "皇民化政策の一つ。",
             "difficulty": "standard"
           },
           {
             "id": "fc7",
-            "front": "皇民化政策",
+            "front": "{皇民化|こうみんか}{政策|せいさく}",
             "back": "朝鮮・台湾の人々に日本人化を強要した政策は？",
             "explanation": "日本語使用・神社参拝・創氏改名などを強要した。",
             "difficulty": "standard"
           },
           {
             "id": "fc8",
-            "front": "強制連行",
+            "front": "{強制|きょうせい}{連行|れんこう}",
             "back": "朝鮮・中国の人々を日本の鉱山や工場で働かせたことは？",
             "explanation": "労働力不足を補うために行われた。",
             "difficulty": "standard"
           },
           {
             "id": "fc12",
-            "front": "国民学校",
+            "front": "{国民|こくみん}学校",
             "back": "1941年から尋常小学校が改称されたものは？",
             "explanation": "戦時下の皇国民育成を目的とした。",
             "difficulty": "advanced"
@@ -3315,14 +3315,14 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "ヤルタ会談",
+            "front": "ヤルタ{会談|かいだん}",
             "back": "1945年2月、米英ソが戦後処理を話し合った会談は？",
             "explanation": "ソ連の対日参戦が秘密協定で決められた。",
             "difficulty": "standard"
           },
           {
             "id": "fc2",
-            "front": "ポツダム宣言",
+            "front": "ポツダム{宣言|せんげん}",
             "back": "1945年7月、米英中（後にソ連も）が日本に降伏を勧告した宣言は？",
             "explanation": "日本は当初黙殺し、原爆投下とソ連参戦を招いた。",
             "difficulty": "basic"
@@ -3336,21 +3336,21 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc4",
-            "front": "広島原爆",
+            "front": "{広島|ひろしま}{原爆|げんばく}",
             "back": "1945年8月6日に原子爆弾が投下された都市は？",
             "explanation": "人類史上初の核兵器の実戦使用。約14万人が犠牲となった。",
             "difficulty": "basic"
           },
           {
             "id": "fc5",
-            "front": "1945年8月6日",
+            "front": "1945{年|ねん}8{月|がつ}6{日|にち}",
             "back": "広島に原爆が投下された日は？",
             "explanation": "毎年原爆死没者慰霊式典が行われる。",
             "difficulty": "basic"
           },
           {
             "id": "fc6",
-            "front": "長崎原爆",
+            "front": "{長崎|ながさき}{原爆|げんばく}",
             "back": "1945年8月9日に原子爆弾が投下された都市は？",
             "explanation": "約7万人が犠牲となった。",
             "difficulty": "basic"
@@ -3364,28 +3364,28 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc8",
-            "front": "ソ連参戦",
+            "front": "ソ{連|れん}{参戦|さんせん}",
             "back": "1945年8月8日に日ソ中立条約を破棄して日本に攻め込んだソ連の行動は？",
             "explanation": "ヤルタ会談の秘密協定に基づく。",
             "difficulty": "standard"
           },
           {
             "id": "fc9",
-            "front": "8月15日",
+            "front": "8{月|がつ}15{日|にち}",
             "back": "昭和天皇が玉音放送で終戦を国民に伝えた日は？",
             "explanation": "ポツダム宣言受諾を国民に告げた。",
             "difficulty": "basic"
           },
           {
             "id": "fc10",
-            "front": "玉音放送",
+            "front": "{玉音|ぎょくおん}{放送|ほうそう}",
             "back": "昭和天皇が直接ラジオで国民に終戦を伝えた放送は？",
             "explanation": "「耐え難きを耐え」の一節で有名。",
             "difficulty": "standard"
           },
           {
             "id": "fc11",
-            "front": "ポツダム宣言受諾",
+            "front": "ポツダム{宣言|せんげん}{受諾|じゅだく}",
             "back": "1945年8月14日に日本が決定した内容は？",
             "explanation": "翌日に玉音放送で国民に告げられた。",
             "difficulty": "standard"
@@ -3399,7 +3399,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc13",
-            "front": "鈴木貫太郎",
+            "front": "{鈴木貫太郎|すずきかんたろう}",
             "back": "終戦時の日本の首相は？",
             "explanation": "ポツダム宣言受諾を主導した。",
             "difficulty": "advanced"
@@ -3602,56 +3602,56 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc3",
-            "front": "間接統治",
+            "front": "{間接|かんせつ}{統治|とうち}",
             "back": "GHQが日本政府を通じて行った占領統治の方式は？",
             "explanation": "直接統治ではなく日本政府に指令を出して統治した。",
             "difficulty": "standard"
           },
           {
             "id": "fc4",
-            "front": "財閥解体",
+            "front": "{財閥|ざいばつ}{解体|かいたい}",
             "back": "三井・三菱などの財閥を分割した戦後改革は？",
             "explanation": "経済の民主化を目指した。",
             "difficulty": "basic"
           },
           {
             "id": "fc5",
-            "front": "農地改革",
+            "front": "{農地|のうち}{改革|かいかく}",
             "back": "地主の農地を小作人に安く分配した戦後改革は？",
             "explanation": "自作農を増やし、農村の民主化を進めた。",
             "difficulty": "basic"
           },
           {
             "id": "fc6",
-            "front": "労働三法",
+            "front": "{労働三法|ろうどうさんぽう}",
             "back": "労働組合法・労働関係調整法・労働基準法をまとめて何という？",
             "explanation": "労働者の権利を保障した。",
             "difficulty": "standard"
           },
           {
             "id": "fc7",
-            "front": "労働組合法",
+            "front": "{労働|ろうどう}{組合法|くみあいほう}",
             "back": "1945年に制定された、労働者の団結権・団体交渉権・団体行動権を保障した法律は？",
             "explanation": "労働三法の一つ。",
             "difficulty": "standard"
           },
           {
             "id": "fc8",
-            "front": "教育基本法",
+            "front": "{教育|きょういく}基本法",
             "back": "1947年に制定された、戦後の新しい教育の方針を定めた法律は？",
             "explanation": "教育の機会均等・男女共学を定めた。",
             "difficulty": "basic"
           },
           {
             "id": "fc9",
-            "front": "学校教育法",
+            "front": "学校{教育法|きょういくほう}",
             "back": "六・三・三・四制の学校制度を定めた法律は？",
             "explanation": "義務教育は9年間となった。",
             "difficulty": "standard"
           },
           {
             "id": "fc10",
-            "front": "婦人参政権",
+            "front": "{婦人|ふじん}{参政権|さんせいけん}",
             "back": "1945年に女性に認められた政治参加の権利は？",
             "explanation": "1946年の選挙で初めて女性議員が誕生した。",
             "difficulty": "basic"
@@ -3665,21 +3665,21 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc12",
-            "front": "極東国際軍事裁判",
+            "front": "{極東|きょくとう}{国際|こくさい}{軍事|ぐんじ}{裁判|さいばん}",
             "back": "戦争責任を問うため開かれた裁判は？",
             "explanation": "東京裁判とも呼ばれる。東条英機ら7名が死刑となった。",
             "difficulty": "basic"
           },
           {
             "id": "fc13",
-            "front": "東京裁判",
+            "front": "{東京|とうきょう}{裁判|さいばん}",
             "back": "極東国際軍事裁判の通称は？",
             "explanation": "戦争を指導した日本の指導者が裁かれた。",
             "difficulty": "standard"
           },
           {
             "id": "fc14",
-            "front": "公職追放",
+            "front": "{公職|こうしょく}{追放|ついほう}",
             "back": "戦争を指導した軍人・政治家・財界人を公職から追放した政策は？",
             "explanation": "戦争責任の追及と民主化のため行われた。",
             "difficulty": "standard"
@@ -3853,77 +3853,77 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "日本国憲法",
+            "front": "{日本国|にほんこく}{憲法|けんぽう}",
             "back": "1946年11月3日に公布、1947年5月3日に施行された憲法は？",
             "explanation": "国民主権・基本的人権の尊重・平和主義の3つを基本原理とする。",
             "difficulty": "basic"
           },
           {
             "id": "fc2",
-            "front": "1946年11月3日",
+            "front": "1946{年|ねん}11{月|がつ}3{日|にち}",
             "back": "日本国憲法が公布された日は？",
             "explanation": "現在の文化の日。",
             "difficulty": "standard"
           },
           {
             "id": "fc3",
-            "front": "1947年5月3日",
+            "front": "1947{年|ねん}5{月|がつ}3{日|にち}",
             "back": "日本国憲法が施行された日は？",
             "explanation": "現在の憲法記念日。",
             "difficulty": "standard"
           },
           {
             "id": "fc4",
-            "front": "国民主権",
+            "front": "{国民|こくみん}{主権|しゅけん}",
             "back": "日本国憲法の三大原則の一つで、政治のあり方を国民が決めるという原則は？",
             "explanation": "天皇主権から国民主権へ転換した。",
             "difficulty": "basic"
           },
           {
             "id": "fc5",
-            "front": "基本的人権の尊重",
+            "front": "基本的{人権|じんけん}の{尊重|そんちょう}",
             "back": "日本国憲法の三大原則の一つで、人が生まれながらに持つ権利を守る原則は？",
             "explanation": "自由権・社会権などが保障された。",
             "difficulty": "basic"
           },
           {
             "id": "fc6",
-            "front": "平和主義",
+            "front": "平和{主義|しゅぎ}",
             "back": "日本国憲法の三大原則の一つで、戦争放棄を定めた原則は？",
             "explanation": "第9条で戦争放棄・戦力不保持を定めた。",
             "difficulty": "basic"
           },
           {
             "id": "fc7",
-            "front": "象徴天皇制",
+            "front": "{象徴|しょうちょう}{天皇制|てんのうせい}",
             "back": "日本国憲法における天皇の地位は？",
             "explanation": "「日本国の象徴であり日本国民統合の象徴」と規定された。",
             "difficulty": "basic"
           },
           {
             "id": "fc8",
-            "front": "第9条",
+            "front": "{第|だい}9{条|じょう}",
             "back": "戦争放棄・戦力不保持を定めた日本国憲法の条文は？",
             "explanation": "平和主義の中核条文。",
             "difficulty": "basic"
           },
           {
             "id": "fc9",
-            "front": "公布",
+            "front": "{公布|こうふ}",
             "back": "新しい法律や憲法を国民に知らせることを何という？",
             "explanation": "日本国憲法は1946年11月3日に公布された。",
             "difficulty": "standard"
           },
           {
             "id": "fc10",
-            "front": "施行",
+            "front": "{施行|しこう}",
             "back": "新しい法律や憲法が実際に効力を持つようになることを何という？",
             "explanation": "日本国憲法は1947年5月3日に施行された。",
             "difficulty": "standard"
           },
           {
             "id": "fc11",
-            "front": "大日本帝国憲法",
+            "front": "{大日本帝国|だいにほんていこく}{憲法|けんぽう}",
             "back": "日本国憲法の前にあった、1889年制定の憲法は？",
             "explanation": "天皇主権で、欽定憲法だった。",
             "difficulty": "standard"
@@ -4092,14 +4092,14 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "冷戦",
+            "front": "{冷戦|れいせん}",
             "back": "戦後のアメリカとソ連の直接戦争にならない対立は？",
             "explanation": "「冷たい戦争」と呼ばれた。1947年から1989年まで続いた。",
             "difficulty": "basic"
           },
           {
             "id": "fc2",
-            "front": "東西陣営",
+            "front": "{東西|とうざい}{陣営|じんえい}",
             "back": "アメリカ中心の資本主義陣営とソ連中心の社会主義陣営の対立は？",
             "explanation": "東側はソ連・東欧、西側はアメリカ・西欧が中心。",
             "difficulty": "basic"
@@ -4113,14 +4113,14 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc4",
-            "front": "ワルシャワ条約機構",
+            "front": "ワルシャワ{条約|じょうやく}{機構|きこう}",
             "back": "1955年に結成された東側諸国の軍事同盟は？",
             "explanation": "NATOに対抗してソ連が結成した。",
             "difficulty": "standard"
           },
           {
             "id": "fc5",
-            "front": "国際連合",
+            "front": "{国際|こくさい}{連合|れんごう}",
             "back": "1945年に発足した世界平和を目指す国際機関は？",
             "explanation": "国際連盟に代わって作られた。本部はニューヨーク。",
             "difficulty": "basic"
@@ -4134,21 +4134,21 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc7",
-            "front": "安全保障理事会",
+            "front": "{安全|あんぜん}{保障|ほしょう}{理事会|りじかい}",
             "back": "国連の中で世界平和を維持する責任を持つ機関は？",
             "explanation": "常任理事国（米英仏ソ中）は拒否権を持つ。",
             "difficulty": "basic"
           },
           {
             "id": "fc8",
-            "front": "ベルリンの壁",
+            "front": "ベルリンの{壁|かべ}",
             "back": "1961年に東ドイツが東西ベルリンを隔てるために築いた壁は？",
             "explanation": "冷戦の象徴。1989年に崩壊した。",
             "difficulty": "basic"
           },
           {
             "id": "fc9",
-            "front": "朝鮮戦争",
+            "front": "{朝鮮|ちょうせん}{戦争|せんそう}",
             "back": "1950年に北朝鮮が韓国に攻め込んで始まった戦争は？",
             "explanation": "冷戦のアジアでの代理戦争。日本は特需景気となった。",
             "difficulty": "basic"
@@ -4162,14 +4162,14 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc11",
-            "front": "ベトナム戦争",
+            "front": "ベトナム{戦争|せんそう}",
             "back": "1960〜75年にベトナムで起きた戦争は？",
             "explanation": "アメリカは北ベトナムと戦ったが敗北し撤退した。",
             "difficulty": "basic"
           },
           {
             "id": "fc12",
-            "front": "中華人民共和国",
+            "front": "{中華|ちゅうか}{人民|じんみん}{共和国|きょうわこく}",
             "back": "1949年に毛沢東が建国した国は？",
             "explanation": "国共内戦に勝利し、中国大陸を支配した。",
             "difficulty": "basic"
@@ -4183,7 +4183,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc14",
-            "front": "キューバ危機",
+            "front": "キューバ{危機|きき}",
             "back": "1962年、米ソが核戦争寸前まで対立した事件は？",
             "explanation": "ソ連がキューバにミサイル基地を建設しようとした。",
             "difficulty": "standard"
@@ -4357,7 +4357,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "サンフランシスコ平和条約",
+            "front": "サンフランシスコ平和{条約|じょうやく}",
             "back": "1951年、日本と連合国48か国が結んだ講和条約は？",
             "explanation": "翌1952年に発効し、日本は独立を回復した。",
             "difficulty": "basic"
@@ -4378,28 +4378,28 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc4",
-            "front": "吉田茂",
+            "front": "{吉田茂|よしだしげる}",
             "back": "サンフランシスコ平和条約・日米安全保障条約に調印した首相は？",
             "explanation": "戦後復興期の首相として活躍した。",
             "difficulty": "basic"
           },
           {
             "id": "fc5",
-            "front": "日米安全保障条約",
+            "front": "{日米|にちべい}{安全|あんぜん}{保障|ほしょう}{条約|じょうやく}",
             "back": "1951年に日米間で結ばれた、米軍の日本駐留を認める条約は？",
             "explanation": "サンフランシスコ平和条約と同日に結ばれた。",
             "difficulty": "basic"
           },
           {
             "id": "fc6",
-            "front": "警察予備隊",
+            "front": "{警察|けいさつ}{予備隊|よびたい}",
             "back": "1950年、朝鮮戦争を背景に作られた組織は？",
             "explanation": "後に保安隊、自衛隊となった。",
             "difficulty": "basic"
           },
           {
             "id": "fc7",
-            "front": "自衛隊",
+            "front": "{自衛隊|じえいたい}",
             "back": "1954年に発足した日本の防衛組織は？",
             "explanation": "警察予備隊→保安隊→自衛隊と変化した。",
             "difficulty": "basic"
@@ -4413,14 +4413,14 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc9",
-            "front": "朝鮮特需",
+            "front": "{朝鮮|ちょうせん}{特需|とくじゅ}",
             "back": "朝鮮戦争による軍需物資の発注で日本が経済復興した好景気は？",
             "explanation": "日本経済の復興を加速させた。",
             "difficulty": "standard"
           },
           {
             "id": "fc10",
-            "front": "新日米安全保障条約",
+            "front": "新{日米|にちべい}{安全|あんぜん}{保障|ほしょう}{条約|じょうやく}",
             "back": "1960年に岸信介内閣が改定した日米安保条約は？",
             "explanation": "条約改定に反対する安保闘争が大規模に起きた。",
             "difficulty": "standard"
@@ -4434,21 +4434,21 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc12",
-            "front": "安保闘争",
+            "front": "{安保|あんぽ}{闘争|とうそう}",
             "back": "1960年の新安保条約改定に反対した大規模な国民運動は？",
             "explanation": "デモが連日国会を取り巻いた。",
             "difficulty": "basic"
           },
           {
             "id": "fc13",
-            "front": "岸信介",
+            "front": "{岸信介|きしのぶすけ}",
             "back": "新安保条約を成立させた首相は？",
             "explanation": "条約成立後、安保闘争の混乱の中で退陣した。",
             "difficulty": "standard"
           },
           {
             "id": "fc14",
-            "front": "沖縄返還",
+            "front": "{沖縄|おきなわ}{返還|へんかん}",
             "back": "1972年、アメリカから日本に返還された地域は？",
             "explanation": "佐藤栄作内閣の時に実現した。",
             "difficulty": "basic"
@@ -4629,7 +4629,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "日ソ共同宣言",
+            "front": "{日|にち}ソ{共同|きょうどう}{宣言|せんげん}",
             "back": "1956年に鳩山一郎内閣が結んだ、ソ連との戦争状態を終わらせた宣言は？",
             "explanation": "国交を回復し、日本の国連加盟への道を開いた。",
             "difficulty": "basic"
@@ -4643,35 +4643,35 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc3",
-            "front": "国連加盟",
+            "front": "{国連|こくれん}{加盟|かめい}",
             "back": "1956年に日本が果たした国際的な復帰は？",
             "explanation": "日ソ共同宣言でソ連の拒否権が解かれて実現した。",
             "difficulty": "basic"
           },
           {
             "id": "fc4",
-            "front": "鳩山一郎",
+            "front": "{鳩山一郎|はとやまいちろう}",
             "back": "日ソ共同宣言を結び国連加盟を実現した首相は？",
             "explanation": "55年体制が始まった時の首相。",
             "difficulty": "standard"
           },
           {
             "id": "fc5",
-            "front": "55年体制",
+            "front": "55年{体制|たいせい}",
             "back": "1955年から続いた自民党と社会党の二大政党体制は？",
             "explanation": "自由民主党が長期政権を担った。1993年まで続いた。",
             "difficulty": "standard"
           },
           {
             "id": "fc6",
-            "front": "自由民主党（自民党）",
+            "front": "自由{民主党|みんしゅとう}（{自民党|じみんとう}）",
             "back": "1955年に結成された保守政党は？",
             "explanation": "55年体制で長期政権を担った。",
             "difficulty": "basic"
           },
           {
             "id": "fc7",
-            "front": "日韓基本条約",
+            "front": "{日韓|にっかん}基本{条約|じょうやく}",
             "back": "1965年に佐藤栄作内閣が結んだ、韓国との国交を樹立した条約は？",
             "explanation": "韓国を朝鮮半島唯一の合法政府と認めた。",
             "difficulty": "basic"
@@ -4685,7 +4685,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc9",
-            "front": "日中共同声明",
+            "front": "{日中|にっちゅう}{共同|きょうどう}{声明|せいめい}",
             "back": "1972年に田中角栄内閣が出した、中華人民共和国と国交を結んだ声明は？",
             "explanation": "日本は中華民国（台湾）と断交した。",
             "difficulty": "basic"
@@ -4699,28 +4699,28 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc11",
-            "front": "田中角栄",
+            "front": "{田中角栄|たなかかくえい}",
             "back": "日中国交正常化を実現した首相は？",
             "explanation": "「列島改造論」を唱えた。",
             "difficulty": "basic"
           },
           {
             "id": "fc12",
-            "front": "日中平和友好条約",
+            "front": "{日中|にっちゅう}平和{友好|ゆうこう}{条約|じょうやく}",
             "back": "1978年に福田赳夫内閣が結んだ、日中の平和を約束する条約は？",
             "explanation": "日中共同声明から6年後に結ばれた。",
             "difficulty": "standard"
           },
           {
             "id": "fc13",
-            "front": "非核三原則",
+            "front": "{非核|ひかく}{三原則|さんげんそく}",
             "back": "「持たず、作らず、持ち込ませず」の核兵器に関する日本の方針は？",
             "explanation": "1967年に佐藤栄作首相が表明。",
             "difficulty": "basic"
           },
           {
             "id": "fc14",
-            "front": "佐藤栄作",
+            "front": "{佐藤栄作|さとうえいさく}",
             "back": "非核三原則を表明し、ノーベル平和賞を受賞した首相は？",
             "explanation": "首相在任期間が当時最長だった。",
             "difficulty": "standard"
@@ -4894,7 +4894,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "高度経済成長",
+            "front": "{高度|こうど}{経済|けいざい}{成長|せいちょう}",
             "back": "1955〜73年に日本経済が年平均約10%成長した時期は？",
             "explanation": "「東洋の奇跡」と呼ばれた。",
             "difficulty": "basic"
@@ -4908,7 +4908,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc3",
-            "front": "三種の神器",
+            "front": "{三種|さんしゅ}の{神器|じんぎ}",
             "back": "1950年代後半に普及した電気冷蔵庫・洗濯機・白黒テレビは？",
             "explanation": "家庭生活が大きく変化した。",
             "difficulty": "basic"
@@ -4922,7 +4922,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc5",
-            "front": "東京オリンピック",
+            "front": "{東京|とうきょう}オリンピック",
             "back": "1964年に開催されたアジア初のオリンピックは？",
             "explanation": "高度経済成長の象徴。新幹線も開通した。",
             "difficulty": "basic"
@@ -4936,14 +4936,14 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc7",
-            "front": "東海道新幹線",
+            "front": "{東海道|とうかいどう}{新幹線|しんかんせん}",
             "back": "1964年に開業した東京〜新大阪間の高速鉄道は？",
             "explanation": "世界初の高速鉄道。",
             "difficulty": "standard"
           },
           {
             "id": "fc8",
-            "front": "大阪万博",
+            "front": "{大阪|おおさか}{万博|ばんぱく}",
             "back": "1970年に開催された日本初の国際博覧会は？",
             "explanation": "「人類の進歩と調和」がテーマ。岡本太郎の「太陽の塔」が有名。",
             "difficulty": "basic"
@@ -4957,49 +4957,49 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc10",
-            "front": "公害",
+            "front": "{公害|こうがい}",
             "back": "経済成長の負の側面として生じた、環境汚染による健康被害は？",
             "explanation": "四大公害病が代表例。",
             "difficulty": "basic"
           },
           {
             "id": "fc11",
-            "front": "四大公害病",
+            "front": "{四大|よんだい}{公害|こうがい}{病|びょう}",
             "back": "水俣病・新潟水俣病・イタイイタイ病・四日市ぜんそくの総称は？",
             "explanation": "高度経済成長期の負の遺産。",
             "difficulty": "basic"
           },
           {
             "id": "fc12",
-            "front": "水俣病",
+            "front": "{水俣病|みなまたびょう}",
             "back": "熊本県で発生した、有機水銀による神経の病気は？",
             "explanation": "チッソの工場排水が原因。",
             "difficulty": "standard"
           },
           {
             "id": "fc13",
-            "front": "イタイイタイ病",
+            "front": "イタイイタイ{病|びょう}",
             "back": "富山県で発生した、カドミウムによる骨の病気は？",
             "explanation": "三井金属神岡鉱業所の排水が原因。",
             "difficulty": "standard"
           },
           {
             "id": "fc14",
-            "front": "四日市ぜんそく",
+            "front": "{四日市|よっかいち}ぜんそく",
             "back": "三重県で発生した、亜硫酸ガスによる呼吸器の病気は？",
             "explanation": "石油化学コンビナートの煙が原因。",
             "difficulty": "standard"
           },
           {
             "id": "fc15",
-            "front": "公害対策基本法",
+            "front": "{公害|こうがい}{対策|たいさく}基本法",
             "back": "1967年に制定された公害防止の基本法は？",
             "explanation": "後に環境基本法に発展した。",
             "difficulty": "standard"
           },
           {
             "id": "fc16",
-            "front": "石油危機（オイルショック）",
+            "front": "{石油|せきゆ}{危機|きき}（オイルショック）",
             "back": "1973年に第四次中東戦争で石油価格が高騰した出来事は？",
             "explanation": "高度経済成長は終わり、安定成長期に入った。",
             "difficulty": "basic"
@@ -5180,7 +5180,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "テレビ放送",
+            "front": "テレビ{放送|ほうそう}",
             "back": "1953年に日本で本放送が始まったメディアは？",
             "explanation": "NHKと日本テレビが放送開始。",
             "difficulty": "basic"
@@ -5201,14 +5201,14 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc4",
-            "front": "湯川秀樹",
+            "front": "{湯川秀樹|ゆかわひでき}",
             "back": "1949年に日本人初のノーベル賞（物理学賞）を受賞した科学者は？",
             "explanation": "中間子理論で受賞した。",
             "difficulty": "basic"
           },
           {
             "id": "fc5",
-            "front": "中間子理論",
+            "front": "{中間子|ちゅうかんし}{理論|りろん}",
             "back": "湯川秀樹がノーベル賞を受賞した研究テーマは？",
             "explanation": "1935年に提唱、1949年に受賞。",
             "difficulty": "standard"
@@ -5222,21 +5222,21 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc7",
-            "front": "川端康成",
+            "front": "{川端康成|かわばたやすなり}",
             "back": "1968年にノーベル文学賞を受賞した日本人初の作家は？",
             "explanation": "「雪国」「伊豆の踊子」などで知られる。",
             "difficulty": "basic"
           },
           {
             "id": "fc8",
-            "front": "黒澤明",
+            "front": "{黒澤明|くろさわあきら}",
             "back": "「羅生門」「七人の侍」などで世界的に有名な映画監督は？",
             "explanation": "ヴェネチア国際映画祭で金獅子賞を受賞。",
             "difficulty": "basic"
           },
           {
             "id": "fc9",
-            "front": "手塚治虫",
+            "front": "{手塚治虫|てづかおさむ}",
             "back": "「鉄腕アトム」「火の鳥」などを著した「マンガの神様」は？",
             "explanation": "日本のマンガ・アニメ文化の基礎を作った。",
             "difficulty": "basic"
@@ -5250,28 +5250,28 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc11",
-            "front": "三島由紀夫",
+            "front": "{三島由紀夫|みしまゆきお}",
             "back": "「金閣寺」「潮騒」などを著した戦後の作家は？",
             "explanation": "1970年に割腹自殺した。",
             "difficulty": "standard"
           },
           {
             "id": "fc12",
-            "front": "美空ひばり",
+            "front": "{美空|みそら}ひばり",
             "back": "戦後を代表する歌手は？",
             "explanation": "「リンゴ追分」「川の流れのように」などで国民的人気となった。",
             "difficulty": "standard"
           },
           {
             "id": "fc13",
-            "front": "司馬遼太郎",
+            "front": "{司馬遼太郎|しばりょうたろう}",
             "back": "「竜馬がゆく」「坂の上の雲」などを著した歴史小説家は？",
             "explanation": "歴史を題材にした作品で人気を集めた。",
             "difficulty": "advanced"
           },
           {
             "id": "fc14",
-            "front": "佐藤栄作",
+            "front": "{佐藤栄作|さとうえいさく}",
             "back": "1974年にノーベル平和賞を受賞した日本人元首相は？",
             "explanation": "非核三原則の表明などが評価された。",
             "difficulty": "standard"
@@ -5453,7 +5453,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "冷戦の終結",
+            "front": "{冷戦|れいせん}の{終結|しゅうけつ}",
             "back": "1989年に米ソ首脳が宣言した、約40年続いた対立の終わりは？",
             "explanation": "マルタ会談でブッシュ大統領とゴルバチョフ書記長が宣言した。",
             "difficulty": "basic"
@@ -5467,7 +5467,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc3",
-            "front": "ベルリンの壁崩壊",
+            "front": "ベルリンの壁{崩壊|ほうかい}",
             "back": "1989年11月、東西ドイツを隔てる壁が壊された出来事は？",
             "explanation": "翌年の東西ドイツ統一につながった。",
             "difficulty": "basic"
@@ -5488,14 +5488,14 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc6",
-            "front": "東西ドイツ統一",
+            "front": "{東西|とうざい}ドイツ統一",
             "back": "1990年に実現したドイツの再統一は？",
             "explanation": "西ドイツが東ドイツを吸収する形で実現。",
             "difficulty": "basic"
           },
           {
             "id": "fc7",
-            "front": "ソ連解体",
+            "front": "ソ{連|れん}{解体|かいたい}",
             "back": "1991年に起きたソビエト連邦の崩壊は？",
             "explanation": "15の共和国に分かれ、社会主義体制が終わった。",
             "difficulty": "basic"
@@ -5509,14 +5509,14 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc9",
-            "front": "湾岸戦争",
+            "front": "{湾岸|わんがん}{戦争|せんそう}",
             "back": "1991年、イラクのクウェート侵攻を受けて多国籍軍がイラクを攻撃した戦争は？",
             "explanation": "アメリカ中心の多国籍軍が組まれた。",
             "difficulty": "basic"
           },
           {
             "id": "fc10",
-            "front": "EU（ヨーロッパ連合）",
+            "front": "EU（ヨーロッパ{連合|れんごう}）",
             "back": "1993年に発足したヨーロッパの統合機構は？",
             "explanation": "経済・政治的統合を進めている。",
             "difficulty": "basic"
@@ -5537,7 +5537,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc13",
-            "front": "アメリカ同時多発テロ",
+            "front": "アメリカ{同時|どうじ}{多発|たはつ}テロ",
             "back": "2001年9月11日に起きたテロ事件は？",
             "explanation": "アフガニスタン戦争・イラク戦争へとつながった。",
             "difficulty": "basic"
@@ -5551,14 +5551,14 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc15",
-            "front": "アフガニスタン戦争",
+            "front": "アフガニスタン{戦争|せんそう}",
             "back": "2001年のアメリカ同時多発テロを受けて始まった戦争は？",
             "explanation": "アメリカがタリバン政権を攻撃した。",
             "difficulty": "standard"
           },
           {
             "id": "fc16",
-            "front": "イラク戦争",
+            "front": "イラク{戦争|せんそう}",
             "back": "2003年にアメリカがイラクのフセイン政権を倒した戦争は？",
             "explanation": "大量破壊兵器の保有を理由としたが見つからなかった。",
             "difficulty": "standard"
@@ -5732,14 +5732,14 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "バブル経済",
+            "front": "バブル{経済|けいざい}",
             "back": "1980年代後半、株価と地価が異常に高騰した経済現象は？",
             "explanation": "1991年に崩壊し、長期不況に入った。",
             "difficulty": "basic"
           },
           {
             "id": "fc2",
-            "front": "バブル崩壊",
+            "front": "バブル{崩壊|ほうかい}",
             "back": "1991年に株価・地価が下落し、日本経済が長期不況に陥った出来事は？",
             "explanation": "「失われた30年」の始まり。",
             "difficulty": "basic"
@@ -5760,14 +5760,14 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc6",
-            "front": "細川護熙",
+            "front": "{細川護熙|ほそかわもりひろ}",
             "back": "1993年に55年体制を終わらせた首相は？",
             "explanation": "日本新党を率いた非自民連立政権。",
             "difficulty": "standard"
           },
           {
             "id": "fc7",
-            "front": "阪神・淡路大震災",
+            "front": "{阪神|はんしん}・{淡路|あわじ}{大震災|だいしんさい}",
             "back": "1995年1月17日に発生した兵庫県南部の大地震は？",
             "explanation": "約6400人の犠牲者。マグニチュード7.3。",
             "difficulty": "basic"
@@ -5781,14 +5781,14 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc9",
-            "front": "地下鉄サリン事件",
+            "front": "地下鉄サリン{事件|じけん}",
             "back": "1995年3月にオウム真理教が東京の地下鉄で起こしたテロ事件は？",
             "explanation": "サリンガスで多数の死傷者を出した。",
             "difficulty": "standard"
           },
           {
             "id": "fc10",
-            "front": "PKO協力法",
+            "front": "PKO{協力法|きょうりょくほう}",
             "back": "1992年に成立し、自衛隊の海外派遣を可能にした法律は？",
             "explanation": "国連平和維持活動への参加が可能になった。",
             "difficulty": "basic"
@@ -5802,7 +5802,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc12",
-            "front": "東日本大震災",
+            "front": "{東日本|ひがしにほん}{大震災|だいしんさい}",
             "back": "2011年3月11日に発生した東北地方太平洋沖の大地震は？",
             "explanation": "マグニチュード9.0。津波で2万人以上の犠牲者。福島原発事故も発生。",
             "difficulty": "basic"
@@ -5816,21 +5816,21 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc14",
-            "front": "福島第一原発事故",
+            "front": "{福島|ふくしま}第一{原発|げんぱつ}事故",
             "back": "東日本大震災で起きた、原子炉のメルトダウン事故は？",
             "explanation": "周辺地域は長期間立ち入れなくなった。",
             "difficulty": "standard"
           },
           {
             "id": "fc15",
-            "front": "高齢化社会",
+            "front": "{高齢化|こうれいか}社会",
             "back": "65歳以上の人口割合が増えていく社会は？",
             "explanation": "日本は世界有数の超高齢社会となった。",
             "difficulty": "basic"
           },
           {
             "id": "fc16",
-            "front": "少子化",
+            "front": "{少子化|しょうしか}",
             "back": "出生数が減り続ける現象は？",
             "explanation": "労働人口の減少が課題となっている。",
             "difficulty": "basic"
@@ -6011,7 +6011,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc2",
-            "front": "情報化社会",
+            "front": "{情報化|じょうほうか}社会",
             "back": "コンピュータ・インターネットが日常生活に欠かせない社会は？",
             "explanation": "1990年代後半から急速に発展した。",
             "difficulty": "basic"
@@ -6025,21 +6025,21 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc4",
-            "front": "地球温暖化",
+            "front": "{地球|ちきゅう}{温暖化|おんだんか}",
             "back": "二酸化炭素などの温室効果ガスで地球の気温が上がる問題は？",
             "explanation": "気候変動を引き起こし、自然災害の激甚化につながっている。",
             "difficulty": "basic"
           },
           {
             "id": "fc5",
-            "front": "温室効果ガス",
+            "front": "{温室|おんしつ}{効果|こうか}ガス",
             "back": "地球温暖化の原因となる、熱を閉じ込めるガスは？",
             "explanation": "二酸化炭素・メタン・フロンなど。",
             "difficulty": "standard"
           },
           {
             "id": "fc6",
-            "front": "京都議定書",
+            "front": "{京都|きょうと}{議定書|ぎていしょ}",
             "back": "1997年、京都で採択された温室効果ガス削減の国際条約は？",
             "explanation": "先進国に削減義務を課した。",
             "difficulty": "basic"
@@ -6053,7 +6053,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc8",
-            "front": "パリ協定",
+            "front": "パリ{協定|きょうてい}",
             "back": "2015年に採択された温室効果ガス削減の新たな国際枠組みは？",
             "explanation": "発展途上国も含めた全ての国が削減目標を持つ。",
             "difficulty": "basic"
@@ -6074,42 +6074,42 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc11",
-            "front": "持続可能な開発",
+            "front": "{持続|じぞく}可能な{開発|かいはつ}",
             "back": "将来の世代の必要を満たす能力を損なうことなく現在の必要を満たす開発は？",
             "explanation": "1987年に提唱され、SDGsへとつながる考え方。",
             "difficulty": "standard"
           },
           {
             "id": "fc12",
-            "front": "国際テロ",
+            "front": "{国際|こくさい}テロ",
             "back": "2001年以降世界の脅威となっている、組織的な暴力行為は？",
             "explanation": "アメリカ同時多発テロ以降、各地で続発。",
             "difficulty": "standard"
           },
           {
             "id": "fc13",
-            "front": "難民問題",
+            "front": "{難民|なんみん}問題",
             "back": "戦争・迫害・自然災害で国を追われる人々の問題は？",
             "explanation": "シリア内戦・ウクライナ戦争などで増加。",
             "difficulty": "basic"
           },
           {
             "id": "fc14",
-            "front": "新型コロナウイルス感染症",
+            "front": "{新型|しんがた}コロナウイルス{感染症|かんせんしょう}",
             "back": "2019年末から世界的に流行した感染症は？",
             "explanation": "経済・社会に大きな影響を与えた。",
             "difficulty": "basic"
           },
           {
             "id": "fc15",
-            "front": "領土問題",
+            "front": "{領土|りょうど}問題",
             "back": "北方領土・竹島・尖閣諸島など、日本が抱える国境問題は？",
             "explanation": "近隣諸国との外交課題となっている。",
             "difficulty": "basic"
           },
           {
             "id": "fc16",
-            "front": "北方領土",
+            "front": "{北方|ほっぽう}{領土|りょうど}",
             "back": "歯舞群島・色丹島・国後島・択捉島の総称は？",
             "explanation": "ロシアが実効支配しているが、日本は返還を求めている。",
             "difficulty": "basic"

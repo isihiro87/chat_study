@@ -11,70 +11,70 @@
   "flashcards": [
     {
       "id": "fc1",
-      "front": "日清戦争",
+      "front": "{日清|にっしん}{戦争|せんそう}",
       "back": "1894〜95年に朝鮮をめぐって日本と清が戦った戦争は？",
       "explanation": "甲午農民戦争（東学党の乱）をきっかけに勃発した。",
       "difficulty": "basic"
     },
     {
       "id": "fc2",
-      "front": "下関条約",
+      "front": "{下関|しものせき}{条約|じょうやく}",
       "back": "1895年に日清戦争の講和として結ばれた条約は？",
       "explanation": "日本側は伊藤博文・陸奥宗光、清側は李鴻章が交渉した。",
       "difficulty": "basic"
     },
     {
       "id": "fc3",
-      "front": "遼東半島",
+      "front": "{遼東|りょうとう}{半島|はんとう}",
       "back": "下関条約で日本が獲得した中国東北部の半島は？",
       "explanation": "三国干渉により返還させられた。",
       "difficulty": "basic"
     },
     {
       "id": "fc4",
-      "front": "台湾",
+      "front": "{台湾|たいわん}",
       "back": "下関条約で日本が獲得した島は？",
       "explanation": "日本初の植民地となり、1945年まで日本領だった。",
       "difficulty": "basic"
     },
     {
       "id": "fc5",
-      "front": "賠償金",
+      "front": "{賠償金|ばいしょうきん}",
       "back": "下関条約で清が日本に支払った2億両は？",
       "explanation": "八幡製鉄所の建設費などに使われた。",
       "difficulty": "standard"
     },
     {
       "id": "fc6",
-      "front": "三国干渉",
+      "front": "{三国|さんごく}{干渉|かんしょう}",
       "back": "ロシア・ドイツ・フランスが遼東半島の返還を日本に迫った事件は？",
       "explanation": "日本は要求を受け入れて返還した。",
       "difficulty": "basic"
     },
     {
       "id": "fc7",
-      "front": "甲午農民戦争（東学党の乱）",
+      "front": "{甲午|こうご}{農民|のうみん}{戦争|せんそう}（{東学党|とうがくとう}の{乱|らん}）",
       "back": "日清戦争のきっかけとなった朝鮮の農民反乱は？",
       "explanation": "東学の信徒が中心となった反乱。",
       "difficulty": "advanced"
     },
     {
       "id": "fc8",
-      "front": "李鴻章",
+      "front": "{李鴻章|りこうしょう}",
       "back": "下関条約で清側を代表した政治家は？",
       "explanation": "清の有力政治家として活躍した。",
       "difficulty": "advanced"
     },
     {
       "id": "fc9",
-      "front": "臥薪嘗胆",
+      "front": "{臥薪嘗胆|がしんしょうたん}",
       "back": "三国干渉後、日本国民が掲げた合言葉は？",
       "explanation": "ロシアへの復讐心を表す言葉。",
       "difficulty": "standard"
     },
     {
       "id": "fc10",
-      "front": "八幡製鉄所",
+      "front": "{八幡|やはた}{製鉄所|せいてつじょ}",
       "back": "下関条約の賠償金などで建設された官営製鉄所は？",
       "explanation": "日本の重工業の基礎となった。",
       "difficulty": "standard"

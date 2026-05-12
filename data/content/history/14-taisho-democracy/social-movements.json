@@ -11,21 +11,21 @@
   "flashcards": [
     {
       "id": "fc1",
-      "front": "労働運動",
+      "front": "{労働|ろうどう}運動",
       "back": "労働者が労働条件改善を求めて行った運動は？",
       "explanation": "大正期に労働組合が次々と結成された。",
       "difficulty": "basic"
     },
     {
       "id": "fc2",
-      "front": "農民運動",
+      "front": "{農民|のうみん}運動",
       "back": "小作料の引き下げなどを求めた農民の運動は？",
       "explanation": "1922年に日本農民組合が結成された。",
       "difficulty": "standard"
     },
     {
       "id": "fc3",
-      "front": "全国水平社",
+      "front": "全国{水平社|すいへいしゃ}",
       "back": "1922年、部落差別の解消を目指して結成された組織は？",
       "explanation": "差別からの解放を目指した。「水平社宣言」を発表。",
       "difficulty": "basic"
@@ -39,28 +39,28 @@
     },
     {
       "id": "fc5",
-      "front": "平塚らいてう",
+      "front": "{平塚|ひらつか}らいてう",
       "back": "「青鞜」を創刊し、女性解放運動を進めた人物は？",
       "explanation": "「元始女性は太陽であった」の宣言で有名。",
       "difficulty": "basic"
     },
     {
       "id": "fc6",
-      "front": "青鞜",
+      "front": "{青鞜|せいとう}",
       "back": "1911年に平塚らいてうが創刊した女性誌は？",
       "explanation": "女性の自立を訴えた。",
       "difficulty": "standard"
     },
     {
       "id": "fc7",
-      "front": "新婦人協会",
+      "front": "新{婦人|ふじん}{協会|きょうかい}",
       "back": "1920年、平塚らいてう・市川房枝らが結成した女性団体は？",
       "explanation": "女性の政治参加を目指した。",
       "difficulty": "standard"
     },
     {
       "id": "fc8",
-      "front": "市川房枝",
+      "front": "{市川房枝|いちかわふさえ}",
       "back": "婦人参政権獲得運動の中心となった人物は？",
       "explanation": "戦後の参議院議員としても活躍した。",
       "difficulty": "standard"
@@ -74,14 +74,14 @@
     },
     {
       "id": "fc10",
-      "front": "水平社宣言",
+      "front": "{水平社|すいへいしゃ}{宣言|せんげん}",
       "back": "1922年、全国水平社の結成大会で発表された宣言は？",
       "explanation": "「人の世に熱あれ、人間に光あれ」で結ばれる。",
       "difficulty": "advanced"
     },
     {
       "id": "fc11",
-      "front": "関東大震災",
+      "front": "{関東|かんとう}{大震災|だいしんさい}",
       "back": "1923年に起きた、関東地方の大地震は？",
       "explanation": "死者・行方不明者10万人以上。朝鮮人虐殺など社会不安が広がった。",
       "difficulty": "basic"

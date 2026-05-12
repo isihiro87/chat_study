@@ -11,14 +11,14 @@
   "flashcards": [
     {
       "id": "fc1",
-      "front": "大衆文化",
+      "front": "{大衆|たいしゅう}{文化|ぶんか}",
       "back": "大正〜昭和初期に都市の一般大衆に広がった文化は？",
       "explanation": "新聞・雑誌・ラジオ・映画などのメディアが普及した。",
       "difficulty": "basic"
     },
     {
       "id": "fc2",
-      "front": "ラジオ放送",
+      "front": "ラジオ{放送|ほうそう}",
       "back": "1925年に日本で始まったメディアは？",
       "explanation": "東京・大阪・名古屋で開始。後にNHKとなる。",
       "difficulty": "basic"
@@ -32,21 +32,21 @@
     },
     {
       "id": "fc4",
-      "front": "活動写真（映画）",
+      "front": "{活動写真|かつどうしゃしん}（映画）",
       "back": "大正期に普及した映像メディアは？",
       "explanation": "無声映画から音声付きへと発展した。",
       "difficulty": "standard"
     },
     {
       "id": "fc5",
-      "front": "大衆雑誌",
+      "front": "{大衆|たいしゅう}{雑誌|ざっし}",
       "back": "「キング」「主婦の友」など発行部数100万部を超えた雑誌は？",
       "explanation": "「キング」は1925年創刊。",
       "difficulty": "standard"
     },
     {
       "id": "fc6",
-      "front": "円本",
+      "front": "{円本|えんぽん}",
       "back": "1冊1円で売り出され、ベストセラーとなった文学全集は？",
       "explanation": "「現代日本文学全集」など。読書の大衆化につながった。",
       "difficulty": "standard"
@@ -60,42 +60,42 @@
     },
     {
       "id": "fc8",
-      "front": "芥川龍之介",
+      "front": "{芥川龍之介|あくたがわりゅうのすけ}",
       "back": "「羅生門」「鼻」を著した大正期の作家は？",
       "explanation": "新思潮派の代表。",
       "difficulty": "basic"
     },
     {
       "id": "fc9",
-      "front": "志賀直哉",
+      "front": "{志賀直哉|しがなおや}",
       "back": "「暗夜行路」を著した白樺派の作家は？",
       "explanation": "白樺派は人道主義・個人主義を掲げた。",
       "difficulty": "standard"
     },
     {
       "id": "fc10",
-      "front": "小林多喜二",
+      "front": "{小林多喜二|こばやしたきじ}",
       "back": "「蟹工船」を著したプロレタリア文学の作家は？",
       "explanation": "労働者の苦しみを描いた。",
       "difficulty": "standard"
     },
     {
       "id": "fc11",
-      "front": "白樺派",
+      "front": "{白樺派|しらかばは}",
       "back": "武者小路実篤・志賀直哉らが結成した文学の流派は？",
       "explanation": "人道主義・理想主義を特徴とした。",
       "difficulty": "standard"
     },
     {
       "id": "fc12",
-      "front": "プロレタリア文学",
+      "front": "プロレタリア{文学|ぶんがく}",
       "back": "労働者・農民の生活を描いた文学運動は？",
       "explanation": "小林多喜二「蟹工船」、徳永直「太陽のない街」など。",
       "difficulty": "standard"
     },
     {
       "id": "fc13",
-      "front": "文化住宅",
+      "front": "{文化|ぶんか}{住宅|じゅうたく}",
       "back": "和洋折衷で台所や応接間を備えた都市住宅は？",
       "explanation": "サラリーマンを中心に普及した。",
       "difficulty": "advanced"

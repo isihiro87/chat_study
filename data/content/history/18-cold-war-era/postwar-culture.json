@@ -11,7 +11,7 @@
   "flashcards": [
     {
       "id": "fc1",
-      "front": "テレビ放送",
+      "front": "テレビ{放送|ほうそう}",
       "back": "1953年に日本で本放送が始まったメディアは？",
       "explanation": "NHKと日本テレビが放送開始。",
       "difficulty": "basic"
@@ -32,14 +32,14 @@
     },
     {
       "id": "fc4",
-      "front": "湯川秀樹",
+      "front": "{湯川秀樹|ゆかわひでき}",
       "back": "1949年に日本人初のノーベル賞（物理学賞）を受賞した科学者は？",
       "explanation": "中間子理論で受賞した。",
       "difficulty": "basic"
     },
     {
       "id": "fc5",
-      "front": "中間子理論",
+      "front": "{中間子|ちゅうかんし}{理論|りろん}",
       "back": "湯川秀樹がノーベル賞を受賞した研究テーマは？",
       "explanation": "1935年に提唱、1949年に受賞。",
       "difficulty": "standard"
@@ -53,21 +53,21 @@
     },
     {
       "id": "fc7",
-      "front": "川端康成",
+      "front": "{川端康成|かわばたやすなり}",
       "back": "1968年にノーベル文学賞を受賞した日本人初の作家は？",
       "explanation": "「雪国」「伊豆の踊子」などで知られる。",
       "difficulty": "basic"
     },
     {
       "id": "fc8",
-      "front": "黒澤明",
+      "front": "{黒澤明|くろさわあきら}",
       "back": "「羅生門」「七人の侍」などで世界的に有名な映画監督は？",
       "explanation": "ヴェネチア国際映画祭で金獅子賞を受賞。",
       "difficulty": "basic"
     },
     {
       "id": "fc9",
-      "front": "手塚治虫",
+      "front": "{手塚治虫|てづかおさむ}",
       "back": "「鉄腕アトム」「火の鳥」などを著した「マンガの神様」は？",
       "explanation": "日本のマンガ・アニメ文化の基礎を作った。",
       "difficulty": "basic"
@@ -81,28 +81,28 @@
     },
     {
       "id": "fc11",
-      "front": "三島由紀夫",
+      "front": "{三島由紀夫|みしまゆきお}",
       "back": "「金閣寺」「潮騒」などを著した戦後の作家は？",
       "explanation": "1970年に割腹自殺した。",
       "difficulty": "standard"
     },
     {
       "id": "fc12",
-      "front": "美空ひばり",
+      "front": "{美空|みそら}ひばり",
       "back": "戦後を代表する歌手は？",
       "explanation": "「リンゴ追分」「川の流れのように」などで国民的人気となった。",
       "difficulty": "standard"
     },
     {
       "id": "fc13",
-      "front": "司馬遼太郎",
+      "front": "{司馬遼太郎|しばりょうたろう}",
       "back": "「竜馬がゆく」「坂の上の雲」などを著した歴史小説家は？",
       "explanation": "歴史を題材にした作品で人気を集めた。",
       "difficulty": "advanced"
     },
     {
       "id": "fc14",
-      "front": "佐藤栄作",
+      "front": "{佐藤栄作|さとうえいさく}",
       "back": "1974年にノーベル平和賞を受賞した日本人元首相は？",
       "explanation": "非核三原則の表明などが評価された。",
       "difficulty": "standard"

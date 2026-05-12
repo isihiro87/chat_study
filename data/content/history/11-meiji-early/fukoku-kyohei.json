@@ -11,105 +11,105 @@
   "flashcards": [
     {
       "id": "fc1",
-      "front": "富国強兵",
+      "front": "{富国強兵|ふこくきょうへい}",
       "back": "国を豊かにし、軍隊を強くするという明治政府のスローガンは？",
       "explanation": "欧米列強に対抗するための国家目標。",
       "difficulty": "basic"
     },
     {
       "id": "fc2",
-      "front": "殖産興業",
+      "front": "{殖産興業|しょくさんこうぎょう}",
       "back": "近代的な産業を育成する政策は？",
       "explanation": "官営模範工場の建設や鉄道の開通などが行われた。",
       "difficulty": "basic"
     },
     {
       "id": "fc3",
-      "front": "富岡製糸場",
+      "front": "{富岡|とみおか}{製糸場|せいしじょう}",
       "back": "フランスの技術を導入した群馬県の官営模範工場は？",
       "explanation": "高品質な生糸を生産し、民間の手本となった。世界文化遺産。",
       "difficulty": "basic"
     },
     {
       "id": "fc4",
-      "front": "官営模範工場",
+      "front": "{官営|かんえい}{模範|もはん}{工場|こうじょう}",
       "back": "政府が直接運営し、民間の手本とした工場は？",
       "explanation": "富岡製糸場などが代表例。",
       "difficulty": "basic"
     },
     {
       "id": "fc5",
-      "front": "文明開化",
+      "front": "{文明|ぶんめい}{開化|かいか}",
       "back": "欧米の文化や生活様式が急速に広まった風潮は？",
       "explanation": "ガス灯、レンガ造り、洋服などが広まった。",
       "difficulty": "standard"
     },
     {
       "id": "fc6",
-      "front": "福沢諭吉",
+      "front": "{福沢諭吉|ふくざわゆきち}",
       "back": "「学問のすゝめ」を著した思想家は？",
       "explanation": "「天は人の上に人を造らず」で有名。",
       "difficulty": "standard"
     },
     {
       "id": "fc7",
-      "front": "学問のすゝめ",
+      "front": "{学問|がくもん}のすゝめ",
       "back": "福沢諭吉が著した、学問の重要性を説いた本は？",
       "explanation": "個人の独立と学問の大切さを訴えた。",
       "difficulty": "standard"
     },
     {
       "id": "fc8",
-      "front": "中江兆民",
+      "front": "{中江兆民|なかえちょうみん}",
       "back": "ルソーの思想を紹介し、自由民権運動に影響を与えた思想家は？",
       "explanation": "「東洋のルソー」とも呼ばれた。",
       "difficulty": "standard"
     },
     {
       "id": "fc9",
-      "front": "太陽暦",
+      "front": "{太陽暦|たいようれき}",
       "back": "明治政府が採用した、1日24時間・1週間7日の暦は？",
       "explanation": "従来の太陰暦に代わって採用された。",
       "difficulty": "advanced"
     },
     {
       "id": "fc10",
-      "front": "鉄道",
+      "front": "{鉄道|てつどう}",
       "back": "1872年に新橋・横浜間で開通した交通機関は？",
       "explanation": "日本初の鉄道で、殖産興業の象徴となった。",
       "difficulty": "advanced"
     },
     {
       "id": "fc11",
-      "front": "ガス灯",
+      "front": "ガス{灯|とう}",
       "back": "文明開化で都市に設置された照明は？",
       "explanation": "東京の銀座などに設置された。",
       "difficulty": "basic"
     },
     {
       "id": "fc12",
-      "front": "牛鍋",
+      "front": "{牛鍋|ぎゅうなべ}",
       "back": "文明開化で広まった、牛肉を使った新しい食文化は？",
       "explanation": "仏教の影響で避けられていた肉食が広まるきっかけとなった。",
       "difficulty": "standard"
     },
     {
       "id": "fc13",
-      "front": "前島密",
+      "front": "{前島密|まえじまひそか}",
       "back": "郵便制度を整備した人物は？",
       "explanation": "日本の近代郵便制度の基礎を築いた。",
       "difficulty": "standard"
     },
     {
       "id": "fc14",
-      "front": "新橋・横浜間",
+      "front": "{新橋|しんばし}・{横浜|よこはま}間",
       "back": "日本初の鉄道が開通した区間は？",
       "explanation": "1872年に開通した。",
       "difficulty": "basic"
     },
     {
       "id": "fc15",
-      "front": "円・銭・厘",
+      "front": "円・{銭|せん}・{厘|りん}",
       "back": "明治政府が導入した統一貨幣の単位は？",
       "explanation": "全国共通の通貨制度が作られた。",
       "difficulty": "advanced"

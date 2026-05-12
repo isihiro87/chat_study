@@ -11,7 +11,7 @@
   "flashcards": [
     {
       "id": "fc1",
-      "front": "韓国併合",
+      "front": "{韓国|かんこく}{併合|へいごう}",
       "back": "1910年、日本が韓国を植民地化したできごとは？",
       "explanation": "1945年まで朝鮮は日本の植民地となった。",
       "difficulty": "basic"
@@ -25,63 +25,63 @@
     },
     {
       "id": "fc3",
-      "front": "朝鮮総督府",
+      "front": "{朝鮮|ちょうせん}{総督府|そうとくふ}",
       "back": "韓国併合後、植民地統治のために設置された機関は？",
       "explanation": "京城（現在のソウル）に置かれた。",
       "difficulty": "standard"
     },
     {
       "id": "fc4",
-      "front": "伊藤博文",
+      "front": "{伊藤博文|いとうひろぶみ}",
       "back": "初代韓国統監を務め、1909年にハルビン駅で暗殺された政治家は？",
       "explanation": "安重根によって暗殺された。",
       "difficulty": "standard"
     },
     {
       "id": "fc5",
-      "front": "安重根",
+      "front": "{安重根|あんじゅうこん}",
       "back": "1909年にハルビン駅で伊藤博文を暗殺した朝鮮の独立運動家は？",
       "explanation": "韓国では独立の英雄として扱われている。",
       "difficulty": "standard"
     },
     {
       "id": "fc6",
-      "front": "韓国統監府",
+      "front": "{韓国|かんこく}{統監府|とうかんふ}",
       "back": "1905年に設置された、韓国を保護国とするための機関は？",
       "explanation": "初代統監は伊藤博文。1910年に朝鮮総督府に改組された。",
       "difficulty": "standard"
     },
     {
       "id": "fc7",
-      "front": "辛亥革命",
+      "front": "{辛亥|しんがい}{革命|かくめい}",
       "back": "1911年、中国で清王朝を倒した革命は？",
       "explanation": "アジア初の共和国・中華民国が成立した。",
       "difficulty": "basic"
     },
     {
       "id": "fc8",
-      "front": "孫文",
+      "front": "{孫文|そんぶん}",
       "back": "辛亥革命を指導した中国の革命家は？",
       "explanation": "三民主義（民族・民権・民生）を唱えた。",
       "difficulty": "basic"
     },
     {
       "id": "fc9",
-      "front": "三民主義",
+      "front": "{三民|さんみん}{主義|しゅぎ}",
       "back": "孫文が唱えた革命の三大理念は？",
       "explanation": "民族主義・民権主義・民生主義の3つ。",
       "difficulty": "standard"
     },
     {
       "id": "fc10",
-      "front": "中華民国",
+      "front": "{中華|ちゅうか}{民国|みんこく}",
       "back": "辛亥革命によって成立した、アジア初の共和国は？",
       "explanation": "1912年に建国された。",
       "difficulty": "basic"
     },
     {
       "id": "fc11",
-      "front": "袁世凱",
+      "front": "{袁世凱|えんせいがい}",
       "back": "孫文に代わって中華民国の臨時大総統となった人物は？",
       "explanation": "清の皇帝（宣統帝）を退位させた。",
       "difficulty": "advanced"
@@ -95,7 +95,7 @@
     },
     {
       "id": "fc13",
-      "front": "宣統帝（溥儀）",
+      "front": "{宣統帝|せんとうてい}（{溥儀|ふぎ}）",
       "back": "辛亥革命で退位した清の最後の皇帝は？",
       "explanation": "後に満州国の皇帝となった。",
       "difficulty": "advanced"
