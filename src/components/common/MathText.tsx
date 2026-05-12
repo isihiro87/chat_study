@@ -1,6 +1,7 @@
 // Security: dangerouslySetInnerHTML is used with static TypeScript data only (no user input or API data).
 import { memo } from 'react';
 import { renderMathInHtml } from '../../utils/math-formula';
+import { convertRubyToHtml, hasRubyMarkup } from '../../utils/ruby';
 
 interface MathTextProps {
   text: string;
@@ -10,20 +11,25 @@ interface MathTextProps {
 }
 
 /**
- * テキスト内の √ や $...$ をKaTeXでレンダリングして表示するコンポーネント。
- * 数学コンテンツに √ や分数が含まれない場合はプレーンテキストと同等に動作する。
+ * テキスト内の √ や $...$ をKaTeXでレンダリングし、{漢字|よみ} を ruby に変換して表示するコンポーネント。
+ * 数学コンテンツや ruby が含まれない場合はプレーンテキストと同等に動作する。
  */
 export const MathText = memo(function MathText({ text, className, style, as: Tag = 'span' }: MathTextProps) {
-  // √ や $ を含まない場合はプレーンテキストとして表示（パフォーマンス最適化）
-  if (!text.includes('√') && !text.includes('$')) {
+  const hasMath = text.includes('√') || text.includes('$');
+  const hasRuby = hasRubyMarkup(text);
+
+  if (!hasMath && !hasRuby) {
     return <Tag className={className} style={style}>{text}</Tag>;
   }
+
+  const html = hasMath ? renderMathInHtml(hasRuby ? convertRubyToHtml(text) : text)
+    : convertRubyToHtml(text);
 
   return (
     <Tag
       className={className}
       style={style}
-      dangerouslySetInnerHTML={{ __html: renderMathInHtml(text) }}
+      dangerouslySetInnerHTML={{ __html: html }}
     />
   );
 });

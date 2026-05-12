@@ -731,42 +731,42 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "flashcards": [
           {
             "id": "fc1",
-            "front": "文明",
+            "front": "{文明|ぶんめい}",
             "back": "大河のほとりで発達した、都市や文字を持つ社会を何という？",
             "explanation": "大河のほとりで農耕が発展し、都市や文字が生まれた高度な社会のこと。",
             "difficulty": "basic"
           },
           {
             "id": "fc2",
-            "front": "メソポタミア文明",
+            "front": "メソポタミア{文明|ぶんめい}",
             "back": "チグリス・ユーフラテス川流域で発達したのは何文明？",
             "explanation": "「川の間の土地」という意味。くさび形文字・太陰暦・60進法が生まれた。",
             "difficulty": "basic"
           },
           {
             "id": "fc3",
-            "front": "くさび形文字",
+            "front": "くさび{形|がた}{文字|もじ}",
             "back": "メソポタミアで粘土板に刻まれたのは何文字？",
             "explanation": "葦のペンで粘土板に刻まれた文字。メソポタミア文明の記録に使われた。",
             "difficulty": "basic"
           },
           {
             "id": "fc4",
-            "front": "ハンムラビ法典",
+            "front": "ハンムラビ{法典|ほうてん}",
             "back": "「目には目を」で知られるバビロニアの法律を何という？",
             "explanation": "同害復讐法で知られる世界最古級の法典。バビロニアのハンムラビ王が定めた。",
             "difficulty": "basic"
           },
           {
             "id": "fc5",
-            "front": "エジプト文明",
+            "front": "エジプト{文明|ぶんめい}",
             "back": "ナイル川流域で発達したのは何文明？",
             "explanation": "ナイル川の洪水が肥沃な土を運び、豊かな農業を支えた。ピラミッド・太陽暦・象形文字が特徴。",
             "difficulty": "basic"
           },
           {
             "id": "fc6",
-            "front": "太陽暦",
+            "front": "{太陽暦|たいようれき}",
             "back": "エジプトで作られた1年365日の暦は？",
             "explanation": "太陽の動きを基準にした暦。ナイル川の洪水時期を予測するために作られた。",
             "difficulty": "basic"
@@ -780,35 +780,35 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc8",
-            "front": "象形文字",
+            "front": "{象形文字|しょうけいもじ}",
             "back": "エジプトで発明された絵のような文字は？",
             "explanation": "ヒエログリフとも呼ばれ、絵のような形が特徴。神殿や墓に刻まれた。",
             "difficulty": "basic"
           },
           {
             "id": "fc9",
-            "front": "インダス文明",
+            "front": "インダス{文明|ぶんめい}",
             "back": "インダス川流域で栄えたのは何文明？",
             "explanation": "モヘンジョ＝ダロなどの計画都市が特徴。整然とした街路や排水設備を持っていた。",
             "difficulty": "basic"
           },
           {
             "id": "fc10",
-            "front": "アーリヤ人",
+            "front": "アーリヤ{人|じん}",
             "back": "衰退したインダス文明の地に侵入した民族は？",
             "explanation": "インダス文明衰退後にインドに侵入。カースト制度をもたらした。",
             "difficulty": "basic"
           },
           {
             "id": "fc11",
-            "front": "太陰暦",
+            "front": "{太陰暦|たいいんれき}",
             "back": "メソポタミアで発明された、月の満ち欠けを基準にした暦は？",
             "explanation": "月の満ち欠けを基準にした暦。メソポタミアで発明された。",
             "difficulty": "basic"
           },
           {
             "id": "fc12",
-            "front": "60進法",
+            "front": "60{進法|しんぽう}",
             "back": "メソポタミアで発明された、時間や角度のもとになった数え方は？",
             "explanation": "1時間＝60分、1分＝60秒、円周＝360度のもとになった数え方。",
             "difficulty": "basic"
@@ -829,14 +829,14 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc15",
-            "front": "甲骨文字",
+            "front": "{甲骨文字|こうこつもじ}",
             "back": "殷で亀の甲羅や牛の骨に刻まれた文字は？",
             "explanation": "占いの結果を記録するために使われた。現在の漢字のもとになった。",
             "difficulty": "standard"
           },
           {
             "id": "fc16",
-            "front": "黄河",
+            "front": "{黄河|こうが}",
             "back": "中国文明が発生した代表的な川は？",
             "explanation": "中国文明が発生した代表的な川。黄土を多く含み黄色い水が特徴。",
             "difficulty": "standard"
@@ -864,28 +864,28 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc20",
-            "front": "ナイル川",
+            "front": "ナイル{川|がわ}",
             "back": "エジプト文明が発達した川は？",
             "explanation": "エジプト文明を育んだ川。定期的な洪水が肥沃な土を運んだ。",
             "difficulty": "standard"
           },
           {
             "id": "fc21",
-            "front": "チグリス川・ユーフラテス川",
+            "front": "チグリス{川|がわ}・ユーフラテス{川|がわ}",
             "back": "メソポタミア文明が発達した2つの川は？",
             "explanation": "メソポタミア文明を育んだ2つの川。「川の間の土地」の語源。",
             "difficulty": "standard"
           },
           {
             "id": "fc22",
-            "front": "インダス川",
+            "front": "インダス{川|がわ}",
             "back": "インダス文明が発達した川は？",
             "explanation": "インダス文明を育んだ川。現在のパキスタンを流れる。",
             "difficulty": "advanced"
           },
           {
             "id": "fc23",
-            "front": "殷",
+            "front": "{殷|いん}",
             "back": "甲骨文字が使われた中国最古の王朝は？",
             "explanation": "甲骨文字が使われた中国最古の王朝。占いで政治を行った。",
             "difficulty": "advanced"
@@ -899,7 +899,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc25",
-            "front": "長江",
+            "front": "{長江|ちょうこう}",
             "back": "黄河とともに中国文明が発生した川は？",
             "explanation": "長江流域では稲作が早くから始まり、黄河流域の畑作文明と並んで中国文明を形成した。",
             "difficulty": "advanced"
@@ -1002,7 +1002,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "question": "エジプトで太陽暦が作られた理由は？",
             "options": [
               "ピラミッドの建設のため",
-              "ナイル川の洪水の時期を知るため",
+              "洪水の時期を知るため",
               "戦争の時期を決めるため",
               "王の誕生日を祝うため"
             ],

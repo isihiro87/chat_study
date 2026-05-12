@@ -5,6 +5,7 @@ import { db } from '../firebase/config';
 import { useAuth } from '../contexts/AuthContext';
 import { useLiffAuth } from '../hooks/useLiffAuth';
 import { LoadingScreen } from '../components/common/LoadingScreen';
+import { RubyText } from '../components/common/RubyText';
 import {
   loadItemStats,
   loadAllItemStatsByTopic,
@@ -1167,9 +1168,12 @@ function FlashcardView({
           ) : (
             <div className="w-full">
               <div className="text-xs text-amber-600 mb-2">答え</div>
-              <div className="text-2xl font-bold text-gray-800 leading-relaxed text-center">
-                {card.front}
-              </div>
+              <RubyText
+                text={card.front}
+                as="div"
+                className="text-2xl font-bold text-gray-800 leading-relaxed text-center"
+              />
+
               {card.explanation && (
                 <div className="mt-3 pt-3 border-t border-gray-200 text-xs text-gray-600 text-left whitespace-pre-wrap leading-relaxed">
                   {card.explanation}
