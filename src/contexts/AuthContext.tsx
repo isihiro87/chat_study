@@ -315,18 +315,23 @@ export function AuthProvider({ children }: { children: ReactNode }) {
             setUserDocLoaded(true);
           }
           if (shouldWriteLastActive(firebaseUser.uid)) {
-            try {
-              await setDoc(userDocRef, {
-                displayName: firebaseUser.displayName || null,
-                email: firebaseUser.email || null,
-                photoURL: firebaseUser.photoURL || null,
-                provider: firebaseUser.providerData[0]?.providerId === 'google.com' ? 'google' : 'line',
-                lastActiveAt: serverTimestamp(),
-              }, { merge: true });
-              markLastActive(firebaseUser.uid);
-            } catch {
-              // Firestoreエラーは無視（オフライン等）
-            }
+            // lastActiveAt の書き込みは fire-and-forget。レンダーをブロックする必要がない。
+            // ここを await すると複数 LIFF タブ同時起動時の IDB / Firestore 競合で
+            // setLoading(false) が遅延してロード画面が長引く。
+            void (async () => {
+              try {
+                await setDoc(userDocRef, {
+                  displayName: firebaseUser.displayName || null,
+                  email: firebaseUser.email || null,
+                  photoURL: firebaseUser.photoURL || null,
+                  provider: firebaseUser.providerData[0]?.providerId === 'google.com' ? 'google' : 'line',
+                  lastActiveAt: serverTimestamp(),
+                }, { merge: true });
+                markLastActive(firebaseUser.uid);
+              } catch {
+                // Firestoreエラーは無視（オフライン等）
+              }
+            })();
           }
         } else {
           setUserProfile(DEFAULT_PROFILE);
