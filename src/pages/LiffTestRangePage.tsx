@@ -1,7 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Navigate } from 'react-router-dom';
-import { doc, getDoc } from 'firebase/firestore/lite';
-import { db } from '../firebase/config';
 import { useAuth } from '../contexts/AuthContext';
 import { useLiffAuth } from '../hooks/useLiffAuth';
 import { LoadingScreen } from '../components/common/LoadingScreen';
@@ -10,16 +8,9 @@ import {
   topicMetas,
 } from '../data/generated/topic-registry.generated';
 import { saveTestScope, clearTestScope } from '../utils/testScope';
-import { withFirestoreTimeout } from '../utils/firestoreTimeout';
 
 type Subject = 'english' | 'history';
 type GradeNum = 1 | 2 | 3;
-
-const GRADE_LABEL_TO_NUMBER: Record<string, GradeNum> = {
-  中1: 1,
-  中2: 2,
-  中3: 3,
-};
 
 const SUBJECT_LABEL: Record<Subject, string> = {
   english: '英語',
@@ -61,7 +52,7 @@ type Status =
  * topic フィールドも topicMetas[i].name と完全一致させる必要がある。
  */
 export function LiffTestRangePage() {
-  const { user, loading } = useAuth();
+  const { user, loading, userDoc, userDocLoaded } = useAuth();
   // LIFF SDK 経由で Firebase Auth に自動ログインする
   // （/welcome → LINE OAuth → /auth/line/callback のチェーンを回避）
   const { attempted: liffAuthAttempted } = useLiffAuth(
@@ -74,51 +65,32 @@ export function LiffTestRangePage() {
   const [selected, setSelected] = useState<Set<string>>(new Set());
   const [expandedEras, setExpandedEras] = useState<Set<string>>(new Set());
 
-  // Firestore からユーザー情報読み出し
+  // AuthContext がロード済みの userDoc から派生（getDoc 重複を排除）
+  // AuthContext 側で既に retry + 5s timeout 付き fetch が走っているので、
+  // ここで再度叩く必要はない。userDocLoaded を待ってから派生する。
   useEffect(() => {
     if (loading) return;
     if (!user) return;
-    let cancelled = false;
-    (async () => {
-      try {
-        const snap = await withFirestoreTimeout(
-          getDoc(doc(db, 'users', user.uid)),
-          5000,
-          `getDoc users/${user.uid} (test-range)`,
-        );
-        if (cancelled) return;
-        if (!snap.exists()) {
-          setStatus('profile-missing');
-          return;
-        }
-        const data = snap.data();
-        const subject = data.subject as Subject | undefined;
-        const gradeLabel = data.grade as string | undefined;
-        const gradeNum = gradeLabel ? GRADE_LABEL_TO_NUMBER[gradeLabel] : undefined;
-        if (!subject || !gradeNum) {
-          setStatus('profile-missing');
-          return;
-        }
-        const initialTopics = Array.isArray(data.testScope?.topics)
-          ? (data.testScope.topics as unknown[]).filter(
-              (t): t is string => typeof t === 'string'
-            )
-          : [];
-        setUserCtx({ subject, grade: gradeNum, initialTopics });
-        setSelected(new Set(initialTopics));
-        setStatus('ready');
-      } catch (err) {
-        console.error('[LiffTestRangePage] load failed', err);
-        if (!cancelled) {
-          setErrorMessage('読み込みに失敗しました。再度開き直してください。');
-          setStatus('error');
-        }
-      }
-    })();
-    return () => {
-      cancelled = true;
-    };
-  }, [user, loading]);
+    if (!userDocLoaded) return;
+    if (!userDoc) {
+      setStatus('profile-missing');
+      return;
+    }
+    const subject = (userDoc.subject ?? null) as Subject | null;
+    const gradeNum = userDoc.grade;
+    if (!subject || !gradeNum) {
+      setStatus('profile-missing');
+      return;
+    }
+    setUserCtx({
+      subject,
+      grade: gradeNum,
+      initialTopics: userDoc.testScopeTopics,
+    });
+    setSelected(new Set(userDoc.testScopeTopics));
+    setStatus('ready');
+    setErrorMessage(null);
+  }, [user, loading, userDoc, userDocLoaded]);
 
   const eraGroups: EraGroup[] = useMemo(() => {
     if (!userCtx) return [];
@@ -263,8 +235,32 @@ export function LiffTestRangePage() {
     return <Navigate to="/welcome?next=/liff/scope" replace />;
   }
 
+  // userDoc がまだ届いていない（AuthContext 側で fetch 中）
+  if (!userDocLoaded) {
+    return <LoadingScreen />;
+  }
+
+  // userDoc fetch 自体は完了したが、致命的エラー時は userCtx 不要のエラー UI を出す
+  if (status === 'error' && !userCtx) {
+    return (
+      <div className="min-h-screen bg-[#FAF9F7] flex items-center justify-center px-4">
+        <div className="text-center">
+          <p className="text-sm text-red-600 mb-3">
+            {errorMessage ?? '読み込みに失敗しました。'}
+          </p>
+          <button
+            onClick={() => window.location.reload()}
+            className="bg-amber-500 hover:bg-amber-600 text-white rounded-full px-6 py-2 text-sm font-medium"
+          >
+            再読み込み
+          </button>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div className="min-h-screen bg-[#FAF9F7] pb-12">
+    <div className="min-h-screen bg-[#FAF9F7] pb-32">
       <header className="bg-white shadow-sm">
         <div className="max-w-2xl mx-auto px-4 py-4">
           <h1
@@ -461,45 +457,57 @@ export function LiffTestRangePage() {
                     })}
                   </div>
 
-                  <div className="mt-6 flex flex-col gap-2">
-                    <button
-                      onClick={handleSave}
-                      disabled={status === 'saving'}
-                      className="w-full bg-amber-500 hover:bg-amber-600 disabled:bg-amber-300 text-white rounded-full py-3 text-sm font-bold transition"
-                      style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
-                    >
-                      {status === 'saving' ? '保存中...' : '範囲を保存'}
-                    </button>
-                    <button
-                      onClick={handleClear}
-                      disabled={status === 'saving'}
-                      className="w-full bg-white text-gray-600 border border-gray-200 hover:border-gray-400 rounded-full py-3 text-sm font-medium transition"
-                      style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
-                    >
-                      範囲をクリア（全範囲に戻す）
-                    </button>
-                  </div>
-
-                  {status === 'saved' && (
-                    <p className="mt-4 text-center text-sm text-amber-700">
-                      ✓ 保存しました
-                    </p>
-                  )}
-                  {status === 'cleared' && (
-                    <p className="mt-4 text-center text-sm text-gray-600">
-                      ✓ クリアしました
-                    </p>
-                  )}
-                  {status === 'error' && errorMessage && (
-                    <p className="mt-4 text-center text-sm text-red-600">
-                      {errorMessage}
-                    </p>
-                  )}
                 </>
               )}
             </>
           )}
       </main>
+
+      {(status === 'ready' ||
+        status === 'saving' ||
+        status === 'saved' ||
+        status === 'cleared' ||
+        status === 'error') &&
+        userCtx &&
+        eraGroups.length > 0 && (
+          <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 shadow-sm">
+            <div className="max-w-2xl mx-auto px-4 py-3">
+              {status === 'saved' && (
+                <p className="mb-2 text-center text-xs text-amber-700">
+                  ✓ 保存しました
+                </p>
+              )}
+              {status === 'cleared' && (
+                <p className="mb-2 text-center text-xs text-gray-600">
+                  ✓ クリアしました
+                </p>
+              )}
+              {status === 'error' && errorMessage && (
+                <p className="mb-2 text-center text-xs text-red-600">
+                  {errorMessage}
+                </p>
+              )}
+              <div className="flex gap-2">
+                <button
+                  onClick={handleClear}
+                  disabled={status === 'saving'}
+                  className="flex-1 bg-white text-gray-600 border border-gray-200 hover:border-gray-400 rounded-full py-3 text-sm font-medium transition"
+                  style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+                >
+                  範囲をクリア
+                </button>
+                <button
+                  onClick={handleSave}
+                  disabled={status === 'saving'}
+                  className="flex-1 bg-amber-500 hover:bg-amber-600 disabled:bg-amber-300 text-white rounded-full py-3 text-sm font-bold transition"
+                  style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+                >
+                  {status === 'saving' ? '保存中...' : '範囲を保存'}
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
     </div>
   );
 }

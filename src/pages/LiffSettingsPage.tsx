@@ -7,6 +7,13 @@ import { useLiffAuth } from '../hooks/useLiffAuth';
 import { LoadingScreen } from '../components/common/LoadingScreen';
 import { withFirestoreTimeout } from '../utils/firestoreTimeout';
 
+const GRADE_NUM_TO_LABEL = (g: 1 | 2 | 3 | null): GradeLabel | null => {
+  if (g === 1) return '中1';
+  if (g === 2) return '中2';
+  if (g === 3) return '中3';
+  return null;
+};
+
 type Subject = 'history' | 'english';
 type GradeLabel = '中1' | '中2' | '中3';
 type PreferredHour = 6 | 7 | 17 | 19;
@@ -31,7 +38,9 @@ const HOURS: { value: PreferredHour; label: string }[] = [
 ];
 
 const CONTACT_URL = 'https://www.chatstudy.jp/contact';
-const PREMIUM_INFO_URL = 'https://www.chatstudy.jp/premium';
+// LIFF /premium-info に同一ドメイン内で遷移。LIFF endpoint は LINE Developers Console で
+// /liff/premium-info にマップ済（VITE_LIFF_ID_PREMIUM_INFO）
+const PREMIUM_INFO_URL = '/liff/premium-info';
 
 interface UserSettings {
   subject: Subject | null;
@@ -51,7 +60,7 @@ type Status = 'loading' | 'ready' | 'saving' | 'saved' | 'error';
  * Web 版（www.chatstudy.jp）の UI には影響しない。
  */
 export function LiffSettingsPage() {
-  const { user, loading } = useAuth();
+  const { user, loading, userDoc, userDocLoaded } = useAuth();
 
   const { attempted: liffAuthAttempted } = useLiffAuth(
     import.meta.env.VITE_LIFF_ID_SETTINGS as string | undefined
@@ -61,39 +70,59 @@ export function LiffSettingsPage() {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [settings, setSettings] = useState<UserSettings | null>(null);
 
-  // Firestore 読み出し
+  // subject / grade は AuthContext 由来の userDoc から即座に派生して
+  // UI を先に表示し、preferredHour / plan だけ追加で fetch する。
+  // これで体感の読み込みを大幅に短縮しつつ、必要なフィールドだけ取得。
   useEffect(() => {
     if (loading) return;
     if (!user) return;
+    if (!userDocLoaded) return;
+
+    // subject/grade は userDoc から即セット（fetch 不要）
+    setSettings((prev) =>
+      prev ?? {
+        subject: (userDoc?.subject ?? null) as Subject | null,
+        grade: GRADE_NUM_TO_LABEL(userDoc?.grade ?? null),
+        preferredHour: null,
+        plan: 'free',
+      },
+    );
+    setStatus('ready');
+
+    // preferredHour / plan は userDoc に含まれていないので追加 fetch
     let cancelled = false;
     (async () => {
       try {
         const snap = await withFirestoreTimeout(
           getDoc(doc(db, 'users', user.uid)),
           5000,
-          `getDoc users/${user.uid} (settings)`,
+          `getDoc users/${user.uid} (settings extra)`,
         );
         if (cancelled) return;
         const data = snap.exists() ? snap.data() : {};
-        setSettings({
-          subject: (data.subject as Subject | undefined) ?? null,
-          grade: (data.grade as GradeLabel | undefined) ?? null,
-          preferredHour: (data.preferredHour as PreferredHour | undefined) ?? null,
-          plan: ((data.plan as Plan | undefined) ?? 'free') as Plan,
+        setSettings((prev) => {
+          const base: UserSettings = prev ?? {
+            subject: (userDoc?.subject ?? null) as Subject | null,
+            grade: GRADE_NUM_TO_LABEL(userDoc?.grade ?? null),
+            preferredHour: null,
+            plan: 'free',
+          };
+          return {
+            ...base,
+            preferredHour:
+              (data.preferredHour as PreferredHour | undefined) ?? base.preferredHour,
+            plan: ((data.plan as Plan | undefined) ?? base.plan) as Plan,
+          };
         });
-        setStatus('ready');
       } catch (err) {
-        console.error('[LiffSettingsPage] load failed', err);
-        if (!cancelled) {
-          setErrorMessage('読み込みに失敗しました。再度開き直してください。');
-          setStatus('error');
-        }
+        console.warn('[LiffSettingsPage] extra fields load failed', err);
+        // subject/grade は既に表示されているので致命的でない。エラー表示はしない。
       }
     })();
     return () => {
       cancelled = true;
     };
-  }, [user, loading]);
+  }, [user, loading, userDoc, userDocLoaded]);
 
   const saveField = async <K extends keyof UserSettings>(
     key: K,
@@ -270,8 +299,6 @@ export function LiffSettingsPage() {
             {s.plan === 'free' && (
               <a
                 href={PREMIUM_INFO_URL}
-                target="_blank"
-                rel="noopener noreferrer"
                 className="text-xs text-amber-600 underline"
               >
                 プレミアムの詳細
@@ -300,8 +327,6 @@ export function LiffSettingsPage() {
             </a>
             <a
               href={PREMIUM_INFO_URL}
-              target="_blank"
-              rel="noopener noreferrer"
               className="block w-full text-center bg-white border border-gray-200 hover:border-amber-300 rounded-full py-3 text-sm font-medium text-gray-700"
               style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
             >
