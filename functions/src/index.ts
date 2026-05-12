@@ -8,6 +8,7 @@ export {
   dailyQuiz19,
 } from "./dailyQuiz";
 export { onAnswerCreated } from "./onAnswerCreated";
+export { onPremiumApplicationCreated } from "./onPremiumApplicationCreated";
 export { syncRichMenuToPlan } from "./syncRichMenuToPlan";
 
 const LINE_LOGIN_CHANNEL_ID = process.env.LINE_LOGIN_CHANNEL_ID || "";

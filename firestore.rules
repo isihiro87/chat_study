@@ -7,11 +7,15 @@ service cloud.firestore {
       return keys.hasAny(['plan', 'premiumUntil', 'richMenuType', 'lastRichMenuUpdatedAt']);
     }
 
+    function isAdmin() {
+      return request.auth != null && request.auth.token.email == 'ishimotty.gst@gmail.com';
+    }
+
     // ユーザーは自分のデータのみ読み書き可能
     match /users/{userId} {
       allow read: if request.auth != null && request.auth.uid == userId;
       // 管理者は全ユーザーデータを読み取り可能
-      allow read: if request.auth != null && request.auth.token.email == 'ishimotty.gst@gmail.com';
+      allow read: if isAdmin();
 
       // 書き込みは「保護フィールドに触っていないこと」を必須にする
       allow create: if request.auth != null && request.auth.uid == userId
@@ -22,8 +26,18 @@ service cloud.firestore {
 
       match /{subcollection}/{document} {
         allow read, write: if request.auth != null && request.auth.uid == userId;
-        allow read: if request.auth != null && request.auth.token.email == 'ishimotty.gst@gmail.com';
+        allow read: if isAdmin();
       }
+    }
+
+    // プレミアム申込（LIFF /premium-apply から書き込み、管理者のみ閲覧・更新）。
+    // クライアントからは自分の uid 名義かつ status=pending の場合のみ作成可。
+    // 既存ドキュメントの編集はクライアント側からは不可（管理者が手動で承認/却下する想定）。
+    match /premiumApplications/{applicationId} {
+      allow create: if request.auth != null
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.status == 'pending';
+      allow read, update, delete: if isAdmin();
     }
   }
 }

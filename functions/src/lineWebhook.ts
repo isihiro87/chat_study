@@ -111,7 +111,7 @@ const timeSelectMessage = {
 };
 
 let cachedClient: messagingApi.MessagingApiClient | null = null;
-async function getLineClient(): Promise<messagingApi.MessagingApiClient> {
+export async function getLineClient(): Promise<messagingApi.MessagingApiClient> {
   if (cachedClient) return cachedClient;
   const channelAccessToken = process.env.LINE_MESSAGING_CHANNEL_ACCESS_TOKEN || "";
   if (!channelAccessToken) {
@@ -159,9 +159,9 @@ function isInitialSetupComplete(
   return typeof stored === "number" && VALID_HOURS.includes(stored as ValidHour);
 }
 
-type UserPlan = "free" | "premium";
+export type UserPlan = "free" | "premium";
 
-function getUserPlan(userData: Record<string, unknown> | undefined): UserPlan {
+export function getUserPlan(userData: Record<string, unknown> | undefined): UserPlan {
   if (!userData) return "free";
   if (userData.plan !== "premium") return "free";
   const until = userData.premiumUntil as { toDate?: () => Date } | undefined | null;
@@ -171,7 +171,6 @@ function getUserPlan(userData: Record<string, unknown> | undefined): UserPlan {
   return "premium";
 }
 
-const PREMIUM_LANDING_URL = "https://www.chatstudy.jp/premium";
 const CONTACT_URL = "https://www.chatstudy.jp/contact";
 
 // LIFF URL（functions/.env で上書き可能、未設定なら known good fallback）
@@ -182,6 +181,10 @@ const LIFF_SETTINGS_URL =
 const LIFF_PREMIUM_INFO_URL =
   process.env.LIFF_PREMIUM_INFO_URL ??
   "https://liff.line.me/2009587166-k51bH4LC";
+const LIFF_PREMIUM_APPLY_URL =
+  process.env.LIFF_PREMIUM_APPLY_URL ??
+  // LIFF endpoint 未作成時の placeholder。endpoint 作成後に functions/.env を更新する
+  "https://liff.line.me/PLACEHOLDER_premium_apply";
 const LIFF_HELP_URL =
   process.env.LIFF_HELP_URL ??
   "https://liff.line.me/2009587166-oaTz2NXX";
@@ -1091,7 +1094,7 @@ function buildSettingsMenuFlexMessage() {
             action: {
               type: "uri" as const,
               label: "プレミアム解約案内",
-              uri: "https://www.chatstudy.jp/premium",
+              uri: LIFF_PREMIUM_INFO_URL,
             },
           },
         ],
@@ -1476,11 +1479,169 @@ function buildPremiumInfoFlexMessage() {
             height: "sm" as const,
             action: {
               type: "uri" as const,
+              label: "申込フォームを開く",
+              uri: LIFF_PREMIUM_APPLY_URL,
+            },
+          },
+          {
+            type: "button" as const,
+            style: "secondary" as const,
+            height: "sm" as const,
+            margin: "sm" as const,
+            action: {
+              type: "uri" as const,
               label: "詳細を見る",
               uri: LIFF_PREMIUM_INFO_URL,
             },
           },
         ],
+      },
+    },
+  };
+}
+
+/**
+ * 発火文脈ごとに見出し・本文を切り替える、プレミアム誘導の共通 flex メッセージ。
+ *
+ * - `extra_question`/`weak_review`: 無料ユーザーが有料機能を踏んだ時の guard。
+ *   なぜ今出ているかを 1 行で伝える。
+ * - `streak_milestone`/`volume_milestone`: 学習行動の節目で送るお祝い兼ナッジ。
+ *   学習を続けた結果として届く文脈を保つ。
+ * - `onboarding`: 友だち追加直後の最初の1問配信に同梱する控えめな案内。
+ *
+ * footer は常に「申込フォームを開く」(primary) + 「詳細を見る」(secondary) の 2 ボタン。
+ */
+export type PremiumNudgeReason =
+  | "extra_question"
+  | "weak_review"
+  | "streak_milestone"
+  | "volume_milestone"
+  | "onboarding";
+
+interface NudgeCopy {
+  headerEmoji: string;
+  headerText: string;
+  leadText: string;
+}
+
+const NUDGE_COPY: Record<PremiumNudgeReason, NudgeCopy> = {
+  extra_question: {
+    headerEmoji: "🚀",
+    headerText: "もう1問はプレミアム機能",
+    leadText:
+      "「追加で解く」はプレミアムプランの機能です。今すぐもう1問解きたい方はぜひご検討ください。",
+  },
+  weak_review: {
+    headerEmoji: "🎯",
+    headerText: "苦手復習はプレミアム機能",
+    leadText:
+      "間違えた問題から優先出題する「苦手を復習」はプレミアムプランの機能です。",
+  },
+  streak_milestone: {
+    headerEmoji: "🔥",
+    headerText: "連続学習おめでとう！",
+    leadText:
+      "コツコツ続けられているあなたなら、もっと伸ばせます。プレミアムで追加問題・苦手復習を解放しませんか？",
+  },
+  volume_milestone: {
+    headerEmoji: "📚",
+    headerText: "問題数の節目！",
+    leadText:
+      "たくさん解けています。プレミアムなら追加で解いたり、苦手から復習したりして、さらに定着が進みます。",
+  },
+  onboarding: {
+    headerEmoji: "✨",
+    headerText: "まずは無料で1日1問",
+    leadText:
+      "選んだ時間に問題が届きます。「もっと解きたい」「苦手から復習したい」と思ったら、プレミアムで広げられます。",
+  },
+};
+
+export function buildPremiumNudgeFlexMessage(reason: PremiumNudgeReason) {
+  const copy = NUDGE_COPY[reason];
+  // onboarding は申込ボタンを出さず「詳細を見る」のみ（初回はまだ早い）
+  const showApplyButton = reason !== "onboarding";
+
+  const footerContents = showApplyButton
+    ? [
+        {
+          type: "button" as const,
+          style: "primary" as const,
+          color: "#F59E0B",
+          height: "sm" as const,
+          action: {
+            type: "uri" as const,
+            label: "申込フォームを開く",
+            uri: LIFF_PREMIUM_APPLY_URL,
+          },
+        },
+        {
+          type: "button" as const,
+          style: "secondary" as const,
+          height: "sm" as const,
+          margin: "sm" as const,
+          action: {
+            type: "uri" as const,
+            label: "詳細を見る",
+            uri: LIFF_PREMIUM_INFO_URL,
+          },
+        },
+      ]
+    : [
+        {
+          type: "button" as const,
+          style: "primary" as const,
+          color: "#F59E0B",
+          height: "sm" as const,
+          action: {
+            type: "uri" as const,
+            label: "詳細を見る",
+            uri: LIFF_PREMIUM_INFO_URL,
+          },
+        },
+      ];
+
+  return {
+    type: "flex" as const,
+    altText: `${copy.headerText} - チャットでスタディ`,
+    contents: {
+      type: "bubble" as const,
+      size: "kilo" as const,
+      header: {
+        type: "box" as const,
+        layout: "vertical" as const,
+        backgroundColor: "#F59E0B",
+        paddingAll: "14px",
+        contents: [
+          {
+            type: "text" as const,
+            text: `${copy.headerEmoji} ${copy.headerText}`,
+            color: "#FFFFFF",
+            weight: "bold" as const,
+            size: "md" as const,
+            wrap: true,
+          },
+        ],
+      },
+      body: {
+        type: "box" as const,
+        layout: "vertical" as const,
+        paddingAll: "16px",
+        contents: [
+          {
+            type: "text" as const,
+            text: copy.leadText,
+            wrap: true,
+            size: "sm" as const,
+            color: "#374151",
+          },
+        ],
+      },
+      footer: {
+        type: "box" as const,
+        layout: "vertical" as const,
+        paddingAll: "16px",
+        contents: footerContents,
       },
     },
   };
@@ -1498,11 +1659,13 @@ async function handleExtraQuestionPostback(
   const plan = getUserPlan(userData);
 
   if (plan !== "premium") {
-    await replyText(
-      replyToken,
-      `追加で問題を解くにはプレミアムが必要です。\n詳細はこちら: ${PREMIUM_LANDING_URL}`,
-      "(extra_question free guard)"
-    );
+    const flex = buildPremiumNudgeFlexMessage("extra_question");
+    try {
+      const client = await getLineClient();
+      await client.replyMessage({ replyToken, messages: [flex] });
+    } catch (error) {
+      console.error("[lineWebhook] handleExtraQuestion free guard reply failed:", error);
+    }
     return;
   }
 
@@ -1525,11 +1688,13 @@ async function handleWeakReviewPostback(
   const plan = getUserPlan(userData);
 
   if (plan !== "premium") {
-    await replyText(
-      replyToken,
-      `苦手復習はプレミアムの機能です。\n詳細はこちら: ${PREMIUM_LANDING_URL}`,
-      "(weak_review free guard)"
-    );
+    const flex = buildPremiumNudgeFlexMessage("weak_review");
+    try {
+      const client = await getLineClient();
+      await client.replyMessage({ replyToken, messages: [flex] });
+    } catch (error) {
+      console.error("[lineWebhook] handleWeakReview free guard reply failed:", error);
+    }
     return;
   }
 
@@ -1878,6 +2043,23 @@ async function handleSelectTimePostback(
     trailingText: getInitialFirstQuestionTrailing(hourLabel),
     isInitialSetup: true,
   });
+
+  // 初回セットアップの最初の1問配信に続けて、プレミアム比較 flex を別 push で1回だけ送る。
+  // reply は selectAndSendQuestion で消費済みなので、ここからは pushMessage を使う。
+  // 送信失敗してもオンボーディング体験は破綻させない（catch して握りつぶす）。
+  if (uid.startsWith("line:")) {
+    const lineUserId = uid.slice("line:".length);
+    try {
+      const onboardingFlex = buildPremiumNudgeFlexMessage("onboarding");
+      const client = await getLineClient();
+      await client.pushMessage({
+        to: lineUserId,
+        messages: [onboardingFlex],
+      });
+    } catch (error) {
+      console.error("[lineWebhook] handleSelectTime onboarding nudge push failed:", error);
+    }
+  }
 }
 
 async function handleAnswerPostback(

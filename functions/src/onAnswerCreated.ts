@@ -1,6 +1,112 @@
 import * as functions from "firebase-functions/v1";
 
 import { getJstDateString, nextStreakState, type StreakState } from "./streakState";
+import {
+  buildPremiumNudgeFlexMessage,
+  getLineClient,
+  getUserPlan,
+  type PremiumNudgeReason,
+} from "./lineWebhook";
+
+const STREAK_MILESTONES = [3, 7, 14, 30] as const;
+const VOLUME_MILESTONES = [10, 30, 100] as const;
+const PREMIUM_NUDGE_COOLDOWN_MS = 7 * 24 * 60 * 60 * 1000;
+
+/**
+ * 「今回の回答で新たに到達したか」を判定する。
+ * `prev < target && next === target` のときだけ true。
+ * streak/totalAnswered の各 milestone をひとつだけ拾う想定。
+ */
+function detectNewlyReachedMilestone(
+  prev: number,
+  next: number,
+  milestones: ReadonlyArray<number>
+): number | null {
+  for (const target of milestones) {
+    if (prev < target && next === target) return target;
+  }
+  return null;
+}
+
+interface NudgeContext {
+  uid: string;
+  lineUserId: string;
+  prevTotalAnswered: number;
+  nextTotalAnswered: number;
+  prevStreakCurrent: number;
+  nextStreakCurrent: number;
+  userPlan: "free" | "premium";
+  lastPremiumNudgeAtMs: number | null;
+}
+
+async function maybeSendPremiumNudge(ctx: NudgeContext): Promise<void> {
+  if (ctx.userPlan === "premium") return;
+  if (!ctx.lineUserId) return;
+
+  if (ctx.lastPremiumNudgeAtMs !== null) {
+    const elapsed = Date.now() - ctx.lastPremiumNudgeAtMs;
+    if (elapsed < PREMIUM_NUDGE_COOLDOWN_MS) {
+      return;
+    }
+  }
+
+  // streak を優先（継続行動への報酬感のほうが効きやすい想定）
+  const streakHit = detectNewlyReachedMilestone(
+    ctx.prevStreakCurrent,
+    ctx.nextStreakCurrent,
+    STREAK_MILESTONES
+  );
+  const volumeHit = streakHit
+    ? null
+    : detectNewlyReachedMilestone(
+        ctx.prevTotalAnswered,
+        ctx.nextTotalAnswered,
+        VOLUME_MILESTONES
+      );
+
+  if (streakHit === null && volumeHit === null) return;
+
+  const reason: PremiumNudgeReason = streakHit
+    ? "streak_milestone"
+    : "volume_milestone";
+
+  const flex = buildPremiumNudgeFlexMessage(reason);
+
+  let pushed = false;
+  try {
+    const client = await getLineClient();
+    await client.pushMessage({
+      to: ctx.lineUserId,
+      messages: [flex],
+    });
+    pushed = true;
+    console.log(
+      `[onAnswerCreated] premium nudge sent uid=${ctx.uid} reason=${reason} ` +
+        `streak=${ctx.nextStreakCurrent} total=${ctx.nextTotalAnswered}`
+    );
+  } catch (error) {
+    console.error("[onAnswerCreated] premium nudge push failed:", error);
+  }
+
+  if (!pushed) return;
+
+  try {
+    const { initializeApp, getApps } = await import("firebase-admin/app");
+    const { getFirestore, FieldValue } = await import("firebase-admin/firestore");
+    if (getApps().length === 0) {
+      initializeApp();
+    }
+    const db = getFirestore();
+    await db
+      .doc(`users/${ctx.uid}`)
+      .set({ lastPremiumNudgeAt: FieldValue.serverTimestamp() }, { merge: true });
+  } catch (error) {
+    console.error(
+      "[onAnswerCreated] lastPremiumNudgeAt update failed (next milestone retry):",
+      error
+    );
+  }
+}
 
 export const onAnswerCreated = functions
   .region("asia-northeast1")
@@ -51,11 +157,15 @@ export const onAnswerCreated = functions
 
     const userRef = db.doc(`users/${uid}`);
 
+    // 通知判定のため transaction 内で prev/next 値や plan を捕捉する
+    let nudgeCtx: NudgeContext | null = null;
+
     try {
       await db.runTransaction(async (tx) => {
         const userSnap = await tx.get(userRef);
         const userData = userSnap.exists ? userSnap.data() ?? {} : {};
-        const prevStats = (userData.stats as Record<string, unknown> | undefined) ?? {};
+        const prevStats =
+          (userData.stats as Record<string, unknown> | undefined) ?? {};
         const prevStreak = (prevStats.streak as StreakState | undefined) ?? null;
 
         const todayJst = getJstDateString(new Date());
@@ -93,9 +203,44 @@ export const onAnswerCreated = functions
         }
 
         tx.set(userRef, { stats: statsPatch }, { merge: true });
+
+        // nudge 判定用コンテキストを captureしておく
+        const prevTotalAnswered =
+          typeof prevStats.totalAnswered === "number"
+            ? prevStats.totalAnswered
+            : 0;
+        const lastNudge = userData.lastPremiumNudgeAt as
+          | { toDate?: () => Date }
+          | undefined
+          | null;
+        const lastPremiumNudgeAtMs =
+          lastNudge && typeof lastNudge.toDate === "function"
+            ? lastNudge.toDate().getTime()
+            : null;
+        const lineUserId =
+          typeof userData.lineUserId === "string" ? userData.lineUserId : "";
+
+        nudgeCtx = {
+          uid,
+          lineUserId,
+          prevTotalAnswered,
+          nextTotalAnswered: prevTotalAnswered + 1,
+          prevStreakCurrent: prevStreak?.current ?? 0,
+          nextStreakCurrent: nextStreak.current,
+          userPlan: getUserPlan(userData),
+          lastPremiumNudgeAtMs,
+        };
       });
       console.log(`[onAnswerCreated] updated users/${uid}.stats`);
     } catch (error) {
       console.error("[onAnswerCreated] users stats update failed:", error);
+    }
+
+    if (nudgeCtx) {
+      try {
+        await maybeSendPremiumNudge(nudgeCtx);
+      } catch (error) {
+        console.error("[onAnswerCreated] maybeSendPremiumNudge failed:", error);
+      }
     }
   });
