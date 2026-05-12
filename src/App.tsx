@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect } from 'react';
+import { Suspense, useEffect } from 'react';
 import { Routes, Route, useLocation, useNavigationType, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { TopPage } from './pages/TopPage';
@@ -6,21 +6,26 @@ import { ErrorBoundary } from './components/common/ErrorBoundary';
 import { NotFoundPage } from './pages/NotFoundPage';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import { LoginPage } from './components/auth/LoginPage';
+import { LoadingScreen } from './components/common/LoadingScreen';
 import { pageview } from './utils/gtag';
 import { isPublicPath } from './utils/authGuard';
+import { lazyWithRetry } from './utils/lazyWithRetry';
 
-const EraSelectPage = lazy(() => import('./pages/EraSelectPage').then(m => ({ default: m.EraSelectPage })));
-const TopicSelectPage = lazy(() => import('./pages/TopicSelectPage').then(m => ({ default: m.TopicSelectPage })));
-const LearningPage = lazy(() => import('./pages/LearningPage').then(m => ({ default: m.LearningPage })));
-const HistoryChatPage = lazy(() => import('./pages/HistoryChatPage').then(m => ({ default: m.HistoryChatPage })));
-const RandomQuizPage = lazy(() => import('./pages/RandomQuizPage').then(m => ({ default: m.RandomQuizPage })));
-const SettingsPage = lazy(() => import('./pages/SettingsPage').then(m => ({ default: m.SettingsPage })));
-const LineCallbackPage = lazy(() => import('./pages/LineCallbackPage').then(m => ({ default: m.LineCallbackPage })));
-const LiffUnitsPage = lazy(() => import('./pages/LiffUnitsPage').then(m => ({ default: m.LiffUnitsPage })));
-const AdminPage = lazy(() => import('./pages/AdminPage').then(m => ({ default: m.AdminPage })));
-const WelcomePage = lazy(() => import('./pages/WelcomePage').then(m => ({ default: m.WelcomePage })));
-const TermsPage = lazy(() => import('./pages/TermsPage').then(m => ({ default: m.TermsPage })));
-const PrivacyPage = lazy(() => import('./pages/PrivacyPage').then(m => ({ default: m.PrivacyPage })));
+// 全 lazy は lazyWithRetry でラップ:
+// deploy 後にブラウザがキャッシュした古い index.html が新しい chunk hash を
+// 要求して 404 になる症状を自動リロードで救済する。
+const EraSelectPage = lazyWithRetry(() => import('./pages/EraSelectPage').then(m => ({ default: m.EraSelectPage })));
+const TopicSelectPage = lazyWithRetry(() => import('./pages/TopicSelectPage').then(m => ({ default: m.TopicSelectPage })));
+const LearningPage = lazyWithRetry(() => import('./pages/LearningPage').then(m => ({ default: m.LearningPage })));
+const HistoryChatPage = lazyWithRetry(() => import('./pages/HistoryChatPage').then(m => ({ default: m.HistoryChatPage })));
+const RandomQuizPage = lazyWithRetry(() => import('./pages/RandomQuizPage').then(m => ({ default: m.RandomQuizPage })));
+const SettingsPage = lazyWithRetry(() => import('./pages/SettingsPage').then(m => ({ default: m.SettingsPage })));
+const LineCallbackPage = lazyWithRetry(() => import('./pages/LineCallbackPage').then(m => ({ default: m.LineCallbackPage })));
+const LiffUnitsPage = lazyWithRetry(() => import('./pages/LiffUnitsPage').then(m => ({ default: m.LiffUnitsPage })));
+const AdminPage = lazyWithRetry(() => import('./pages/AdminPage').then(m => ({ default: m.AdminPage })));
+const WelcomePage = lazyWithRetry(() => import('./pages/WelcomePage').then(m => ({ default: m.WelcomePage })));
+const TermsPage = lazyWithRetry(() => import('./pages/TermsPage').then(m => ({ default: m.TermsPage })));
+const PrivacyPage = lazyWithRetry(() => import('./pages/PrivacyPage').then(m => ({ default: m.PrivacyPage })));
 
 // ルート変更時にスクロール位置を復元またはリセット
 function ScrollRestoration() {
@@ -67,7 +72,7 @@ function AnimatedRoutes() {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.15 }}
     >
-      <Suspense fallback={<div className="min-h-screen bg-[#FAF9F7]" />}>
+      <Suspense fallback={<LoadingScreen />}>
         <Routes location={location}>
           <Route path="/" element={<TopPage />} />
           <Route path="/subjects/:subjectId" element={<EraSelectPage />} />
@@ -105,14 +110,14 @@ function AuthGuard() {
   // LINEコールバックと LIFF エントリは認証前でもアクセス可能にする
   if (pathname === '/auth/line/callback') {
     return (
-      <Suspense fallback={<div className="min-h-screen bg-[#FAF9F7]" />}>
+      <Suspense fallback={<LoadingScreen />}>
         <LineCallbackPage />
       </Suspense>
     );
   }
   if (pathname.startsWith('/liff/')) {
     return (
-      <Suspense fallback={<div className="min-h-screen bg-[#FAF9F7]" />}>
+      <Suspense fallback={<LoadingScreen />}>
         <Routes>
           <Route path="/liff/units" element={<LiffUnitsPage />} />
           <Route path="*" element={<NotFoundPage />} />

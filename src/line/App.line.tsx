@@ -18,48 +18,52 @@
  *
  * 詳細: `.steering/20260510-line-app-split/design.md`
  */
-import { lazy, Suspense } from 'react';
+import { Suspense } from 'react';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { ErrorBoundary } from '../components/common/ErrorBoundary';
 import { LoadingScreen } from '../components/common/LoadingScreen';
 import { AuthProvider, useAuth } from '../contexts/AuthContext';
+import { lazyWithRetry } from '../utils/lazyWithRetry';
 
-const WelcomePage = lazy(() =>
+// すべて lazyWithRetry でラップ:
+// LINE 内蔵ブラウザのキャッシュ起因で「古い index.html → 存在しない chunk hash」
+// にぶつかって dynamic import が失敗した時に、自動でハードリロードして救済する。
+const WelcomePage = lazyWithRetry(() =>
   import('../pages/WelcomePage').then((m) => ({ default: m.WelcomePage }))
 );
-const LiffUnitsPage = lazy(() =>
+const LiffUnitsPage = lazyWithRetry(() =>
   import('../pages/LiffUnitsPage').then((m) => ({ default: m.LiffUnitsPage }))
 );
-const LiffTestRangePage = lazy(() =>
+const LiffTestRangePage = lazyWithRetry(() =>
   import('../pages/LiffTestRangePage').then((m) => ({
     default: m.LiffTestRangePage,
   }))
 );
-const LiffReportPage = lazy(() =>
+const LiffReportPage = lazyWithRetry(() =>
   import('../pages/LiffReportPage').then((m) => ({ default: m.LiffReportPage }))
 );
-const LiffSettingsPage = lazy(() =>
+const LiffSettingsPage = lazyWithRetry(() =>
   import('../pages/LiffSettingsPage').then((m) => ({
     default: m.LiffSettingsPage,
   }))
 );
-const LiffPremiumInfoPage = lazy(() =>
+const LiffPremiumInfoPage = lazyWithRetry(() =>
   import('../pages/LiffPremiumInfoPage').then((m) => ({
     default: m.LiffPremiumInfoPage,
   }))
 );
-const LiffPremiumApplyPage = lazy(() =>
+const LiffPremiumApplyPage = lazyWithRetry(() =>
   import('../pages/LiffPremiumApplyPage').then((m) => ({
     default: m.LiffPremiumApplyPage,
   }))
 );
-const LiffHelpPage = lazy(() =>
+const LiffHelpPage = lazyWithRetry(() =>
   import('../pages/LiffHelpPage').then((m) => ({ default: m.LiffHelpPage }))
 );
-const LineCallbackPage = lazy(() =>
+const LineCallbackPage = lazyWithRetry(() =>
   import('../pages/LineCallbackPage').then((m) => ({ default: m.LineCallbackPage }))
 );
-const NotFoundPage = lazy(() =>
+const NotFoundPage = lazyWithRetry(() =>
   import('../pages/NotFoundPage').then((m) => ({ default: m.NotFoundPage }))
 );
 
@@ -77,7 +81,7 @@ function LineAuthGuard() {
   }
 
   return (
-    <Suspense fallback={<div className="min-h-screen bg-[#FAF9F7]" />}>
+    <Suspense fallback={<LoadingScreen />}>
       <Routes>
         <Route path="/welcome" element={<WelcomePage />} />
         <Route path="/auth/line/callback" element={<LineCallbackPage />} />
