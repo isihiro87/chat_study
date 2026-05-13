@@ -59,19 +59,24 @@ export function LoadingScreen({
         {message}
       </p>
       {stuck && (
-        <div className="mt-6 max-w-xs text-center">
-          <p className="text-xs text-gray-500 mb-3">
-            読み込みに時間がかかっています。
-            <br />
-            通信状況を確認して再読み込みしてください。
-          </p>
-          <button
-            onClick={() => window.location.reload()}
-            className="bg-amber-500 hover:bg-amber-600 text-white rounded-full px-6 py-2 text-sm font-medium"
-            style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
-          >
-            🔄 再読み込み
-          </button>
+        <div className="mt-6 max-w-sm w-full px-2">
+          <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4 text-left">
+            <p
+              className="text-xs font-bold text-amber-800 mb-2"
+              style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+            >
+              💡 読み込みが終わらないとき
+            </p>
+            <ol className="text-[11px] text-gray-700 space-y-1 leading-relaxed list-decimal list-inside">
+              <li>画面右上の「⋮」（縦三点）ボタンをタップ</li>
+              <li>「すべてのタブ」を開く</li>
+              <li>「チャットでスタディ」のタブを全て削除</li>
+              <li>メニューからもう一度開き直す</li>
+            </ol>
+            <p className="text-[10px] text-gray-500 mt-2">
+              キャッシュされた古いページが残っていると発生することがあります。
+            </p>
+          </div>
         </div>
       )}
     </div>
