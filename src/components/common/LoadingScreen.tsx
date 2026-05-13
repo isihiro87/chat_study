@@ -4,13 +4,13 @@ interface LoadingScreenProps {
   message?: string;
   /**
    * この秒数を超えてもロードが終わらなければ、ユーザーが取れる救済 UI
-   * （「再読み込み」ボタンとキャッシュクリア手順）を表示する。
-   * デフォルト 8 秒。0 以下を指定すると救済 UI を出さない。
+   * （タブ削除手順）を表示する。
+   * デフォルト 2 秒。0 以下を指定すると救済 UI を出さない。
    */
   stuckThresholdMs?: number;
 }
 
-const DEFAULT_STUCK_MS = 8000;
+const DEFAULT_STUCK_MS = 2000;
 
 /**
  * フルスクリーンのローディング画面。

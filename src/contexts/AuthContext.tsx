@@ -248,13 +248,11 @@ export async function signInWithLiffIdToken(idToken: string): Promise<void> {
 // Auth 永続化は localStorage（browserLocalPersistence、Firebase デフォルト）の
 // まま維持する。これにより複数 LIFF タブ間で認証セッションを共有でき、
 // LIFF を開くたびに OAuth 同意画面を踏まされる体験を回避できる。
-// 複数 LIFF タブ同時利用時の IndexedDB 競合は LIFF_AUTH_TIMEOUT_MS の
-// safety timeout で救済する。
-const IS_LINE_MODE = import.meta.env.VITE_MODE === 'line';
-
-// AuthContext の loading が予期せず長引いた場合に強制的にフォールバックする
-// safety timeout（LINE 版のみ、ネットワーク不調・IndexedDB ハング時の救済）。
-const LIFF_AUTH_TIMEOUT_MS = 8000;
+//
+// 以前は LIFF_AUTH_TIMEOUT_MS(8s) で loading=false を強制する safety timer を
+// 持っていたが、auth 復元が遅れた端末で user=null と見做されて /welcome に
+// 飛ばされる症状の原因になっていたため撤去。タイムアウト救済は LoadingScreen の
+// stuck UI（タブ全削除手順の案内）に一本化する。
 
 // users/{uid} doc の getDoc に被せる hard timeout。これがないと fetch が
 // hang した際 userDocLoaded が永久に false のままで、レンダーガードが
@@ -269,7 +267,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [userDocLoaded, setUserDocLoaded] = useState(false);
 
   useEffect(() => {
-    let safetyTimer: number | undefined;
     let lastUid: string | null = null;
 
     // Firebase の永続化はデフォルト（browserLocalPersistence = localStorage / IndexedDB）
@@ -368,22 +365,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       });
     });
 
-    if (IS_LINE_MODE) {
-      safetyTimer = window.setTimeout(() => {
-        setLoading((prev) => {
-          if (prev) {
-            console.warn(
-              `[auth] LINE mode auth init timed out after ${LIFF_AUTH_TIMEOUT_MS}ms; falling back to unauthenticated state`
-            );
-          }
-          return false;
-        });
-      }, LIFF_AUTH_TIMEOUT_MS);
-    }
-
     return () => {
       if (unsubscribe) unsubscribe();
-      if (safetyTimer !== undefined) window.clearTimeout(safetyTimer);
     };
   }, []);
 
