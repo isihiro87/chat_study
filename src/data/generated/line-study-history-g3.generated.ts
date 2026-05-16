@@ -143,9 +143,9 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "question": "第一次世界大戦のきっかけとなった事件は？",
             "options": [
               "サラエボ事件",
-              "ノルマントン号事件",
-              "義和団事件",
-              "桜田門外の変"
+              "モロッコ事件",
+              "ボスニア併合事件",
+              "第二次バルカン戦争"
             ],
             "correctIndex": 0,
             "explanation": "1914年のサラエボ事件が開戦のきっかけでした。",
@@ -183,8 +183,8 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "options": [
               "イベリア半島",
               "バルカン半島",
-              "スカンジナビア半島",
-              "アラビア半島"
+              "イタリア半島",
+              "ユトランド半島"
             ],
             "correctIndex": 1,
             "explanation": "民族・宗教対立が複雑なバルカン半島です。",
@@ -220,12 +220,12 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "id": "q7",
             "question": "1917年に連合国側で参戦し戦局を変えた国は？",
             "options": [
+              "ロシア",
+              "イタリア",
               "日本",
-              "アメリカ",
-              "オランダ",
-              "スペイン"
+              "アメリカ"
             ],
-            "correctIndex": 1,
+            "correctIndex": 3,
             "explanation": "アメリカ参戦で連合国が勝利しました。",
             "difficulty": "standard"
           },
@@ -236,10 +236,10 @@ export const lineStudyHistoryEras: StudyEra[] = [
               "戦車",
               "飛行機",
               "毒ガス",
-              "核兵器"
+              "ジェット戦闘機"
             ],
             "correctIndex": 3,
-            "explanation": "核兵器の使用は第二次世界大戦末期でした。",
+            "explanation": "ジェット戦闘機の実戦投入は第二次世界大戦末期で、第一次世界大戦では使用されていません。",
             "difficulty": "standard"
           },
           {
@@ -410,20 +410,20 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "q3",
-            "question": "1918年に米価高騰で起きた騒動は？",
+            "question": "1918年、シベリア出兵を見越した米の買い占めから物価が急騰し、富山県の主婦らをきっかけに全国へ広がった民衆運動は？",
             "options": [
-              "打ちこわし",
-              "ええじゃないか",
-              "百姓一揆",
+              "自由民権運動",
+              "護憲運動",
+              "ノルマントン号事件",
               "米騒動"
             ],
             "correctIndex": 3,
-            "explanation": "米騒動は全国に広がり寺内内閣を退陣に追い込みました。",
+            "explanation": "米騒動は富山県の主婦らをきっかけに全国に広がり、寺内内閣を退陣に追い込みました。",
             "difficulty": "basic"
           },
           {
             "id": "q4",
-            "question": "第一次世界大戦中の日本の好景気は？",
+            "question": "ヨーロッパ諸国が戦争に追われたすきに、日本がアジア市場や輸出を拡大して空前の好景気となった時期を何という？",
             "options": [
               "バブル景気",
               "神武景気",
@@ -431,7 +431,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
               "大戦景気"
             ],
             "correctIndex": 3,
-            "explanation": "ヨーロッパの戦争で日本製品の需要が拡大しました。",
+            "explanation": "ヨーロッパ諸国が戦争に追われたすきに日本製品の需要が拡大し、空前の好景気となりました。",
             "difficulty": "basic"
           },
           {
@@ -492,8 +492,8 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "options": [
               "日露戦争",
               "シベリア出兵",
-              "義和団事件",
-              "二・二六事件"
+              "第一次護憲運動",
+              "関東大震災"
             ],
             "correctIndex": 1,
             "explanation": "シベリア出兵に伴う米の買い占めが原因の一つでした。",
@@ -531,8 +531,8 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "options": [
               "小笠原諸島",
               "南洋諸島",
-              "アリューシャン列島",
-              "サハリン"
+              "千島列島",
+              "ハワイ諸島"
             ],
             "correctIndex": 1,
             "explanation": "南洋諸島は戦後委任統治領となりました。",
@@ -604,13 +604,6 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "difficulty": "advanced"
           },
           {
-            "id": "fc9",
-            "front": "ニコライ2世",
-            "back": "ロシア革命で退位し処刑された最後の皇帝は？",
-            "explanation": "ロマノフ朝の終わりとなった。",
-            "difficulty": "advanced"
-          },
-          {
             "id": "fc10",
             "front": "5か{年|ねん}{計画|けいかく}",
             "back": "スターリンが進めた計画経済政策は？",
@@ -628,15 +621,15 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "quiz": [
           {
             "id": "q1",
-            "question": "1917年にロシアで起きた革命は？",
+            "question": "1917年、レーニンの指導のもと、世界で初めて社会主義政権を樹立した革命は？",
             "options": [
-              "フランス革命",
-              "名誉革命",
               "辛亥革命",
+              "名誉革命",
+              "二月革命のみで終わった革命",
               "ロシア革命"
             ],
             "correctIndex": 3,
-            "explanation": "1917年のロシア革命は世界初の社会主義革命です。",
+            "explanation": "1917年のロシア革命は、レーニンの指導のもと世界初の社会主義政権を樹立しました。",
             "difficulty": "basic"
           },
           {
@@ -657,9 +650,9 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "question": "1922年に成立した世界初の社会主義国家は？",
             "options": [
               "ソ連",
-              "中華人民共和国",
-              "東ドイツ",
-              "ユーゴスラビア"
+              "ロシア帝国",
+              "ロシア共和国",
+              "ポーランド人民共和国"
             ],
             "correctIndex": 0,
             "explanation": "ソビエト社会主義共和国連邦（ソ連）が成立しました。",
@@ -682,13 +675,13 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "id": "q5",
             "question": "ロシア革命の背景にあった社会問題は？",
             "options": [
-              "人口爆発",
-              "民族紛争のみ",
-              "宗教対立",
-              "戦争の疲弊"
+              "王政復古を求める運動の高まり",
+              "工業化による経済発展",
+              "ロシア正教とイスラム教の宗教戦争",
+              "長引く戦争による物資不足と国民の疲弊"
             ],
             "correctIndex": 3,
-            "explanation": "第一次世界大戦の疲弊と食糧不足が背景でした。",
+            "explanation": "第一次世界大戦の長期化による物資不足と食糧不足が国民の疲弊を生み、革命の背景となりました。",
             "difficulty": "standard"
           },
           {
@@ -728,19 +721,6 @@ export const lineStudyHistoryEras: StudyEra[] = [
             ],
             "correctIndex": 1,
             "explanation": "ボリシェビキは後にロシア共産党となりました。",
-            "difficulty": "advanced"
-          },
-          {
-            "id": "q9",
-            "question": "ロシア革命で退位した最後の皇帝は？",
-            "options": [
-              "ニコライ2世",
-              "アレクサンドル2世",
-              "ピョートル大帝",
-              "イワン雷帝"
-            ],
-            "correctIndex": 0,
-            "explanation": "ニコライ2世が退位しロマノフ朝が終わりました。",
             "difficulty": "advanced"
           },
           {
@@ -894,12 +874,12 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "id": "q2",
             "question": "1920年に発足した国際平和機関は？",
             "options": [
-              "国際連盟",
               "国際連合",
-              "EU",
-              "NATO"
+              "国際連盟",
+              "万国郵便連合",
+              "ハーグ平和会議の常設機関"
             ],
-            "correctIndex": 0,
+            "correctIndex": 1,
             "explanation": "国際連盟はウィルソンの提唱で発足しました。",
             "difficulty": "basic"
           },
@@ -918,15 +898,15 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "q4",
-            "question": "1919年、朝鮮で起きた独立運動は？",
+            "question": "1919年、ソウルで「独立万歳」を叫び、日本の植民地支配に抵抗して朝鮮全土に広がった運動は？",
             "options": [
               "三・一独立運動",
               "五・四運動",
-              "甲申事変",
-              "義和団事件"
+              "義兵闘争",
+              "甲午農民戦争"
             ],
             "correctIndex": 0,
-            "explanation": "ソウルで「独立万歳」が叫ばれ全国に広がりました。",
+            "explanation": "1919年3月1日、ソウルで「独立万歳」が叫ばれ朝鮮全土に広がりました。",
             "difficulty": "basic"
           },
           {
@@ -1024,13 +1004,13 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "id": "q12",
             "question": "ベルサイユ条約でドイツに課されたものに含まれないのは？",
             "options": [
-              "賠償金",
-              "領土割譲",
-              "軍備制限",
-              "植民地拡大"
+              "賠償金の支払い",
+              "アルザス・ロレーヌの返還",
+              "軍備の制限",
+              "海外植民地の拡大"
             ],
             "correctIndex": 3,
-            "explanation": "ドイツは植民地を失いました。",
+            "explanation": "ベルサイユ条約は敗戦国ドイツに賠償・領土割譲・軍備制限を課し、海外植民地はすべて失われました。",
             "difficulty": "advanced"
           }
         ]
@@ -1248,15 +1228,15 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "q10",
-            "question": "普通選挙法で選挙権を持たなかったのは？",
+            "question": "1925年の普通選挙法によって新たに選挙権を得たのはどのような人々か？",
             "options": [
-              "25歳以上の男子",
-              "女性",
-              "都市住民",
-              "貧困層の男子"
+              "20歳以上のすべての男女",
+              "直接国税3円以上を納める25歳以上の男子",
+              "25歳以上のすべての男女",
+              "納税額に関係なく25歳以上のすべての男子"
             ],
-            "correctIndex": 1,
-            "explanation": "女性は依然として選挙権を持ちませんでした。",
+            "correctIndex": 3,
+            "explanation": "1925年の普通選挙法により、納税額の制限が撤廃され、25歳以上のすべての男子に選挙権が与えられました。女性にはまだ与えられませんでした。",
             "difficulty": "standard"
           },
           {
@@ -1398,12 +1378,12 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "question": "1923年に関東地方で起きた大災害は？",
             "options": [
               "関東大震災",
-              "東日本大震災",
-              "阪神淡路大震災",
-              "三陸地震"
+              "濃尾地震",
+              "桜島大噴火",
+              "磐梯山噴火"
             ],
             "correctIndex": 0,
-            "explanation": "関東大震災で大きな被害が出ました。",
+            "explanation": "1923年の関東大震災で大きな被害が出ました。濃尾地震・磐梯山噴火は明治期、桜島大噴火は大正期の九州での噴火です。",
             "difficulty": "basic"
           },
           {
@@ -1462,10 +1442,10 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "id": "q8",
             "question": "関東大震災が起きた日付は？",
             "options": [
-              "1月17日",
-              "3月11日",
+              "7月7日",
+              "8月15日",
               "9月1日",
-              "12月7日"
+              "11月3日"
             ],
             "correctIndex": 2,
             "explanation": "1923年9月1日に発生しました。",
@@ -1489,12 +1469,12 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "question": "水平社宣言の有名な結語は？",
             "options": [
               "「人の世に熱あれ、人間に光あれ」",
-              "「自由・平等・博愛」",
-              "「天は人の上に人を造らず」",
-              "「神は死んだ」"
+              "「われわれは、人間を尊敬することによって自らを解放せん」",
+              "「すべての人民は平等にして自由なる権利を有す」",
+              "「労働者よ、団結せよ」"
             ],
             "correctIndex": 0,
-            "explanation": "「人の世に熱あれ、人間に光あれ」で結ばれます。",
+            "explanation": "水平社宣言は「人の世に熱あれ、人間に光あれ」で結ばれます。",
             "difficulty": "advanced"
           },
           {
@@ -1543,7 +1523,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "id": "fc2",
             "front": "ラジオ{放送|ほうそう}",
             "back": "1925年に日本で始まったメディアは？",
-            "explanation": "東京・大阪・名古屋で開始。後にNHKとなる。",
+            "explanation": "東京・大阪・名古屋で開始。全国に放送網が広がった。",
             "difficulty": "basic"
           },
           {
@@ -1555,16 +1535,16 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc4",
-            "front": "{活動写真|かつどうしゃしん}（映画）",
-            "back": "大正期に普及した映像メディアは？",
-            "explanation": "無声映画から音声付きへと発展した。",
+            "front": "{映画|えいが}",
+            "back": "大正期に普及し、無声から音声付きへと発展した映像メディアは？",
+            "explanation": "都市部の娯楽として定着した。",
             "difficulty": "standard"
           },
           {
             "id": "fc5",
             "front": "{大衆|たいしゅう}{雑誌|ざっし}",
-            "back": "「キング」「主婦の友」など発行部数100万部を超えた雑誌は？",
-            "explanation": "「キング」は1925年創刊。",
+            "back": "大正末〜昭和初期に発行部数100万部を超え、大衆向けに広く読まれた月刊雑誌の総称は？",
+            "explanation": "都市の中間層を中心に普及した。",
             "difficulty": "standard"
           },
           {
@@ -1668,26 +1648,26 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "id": "q4",
             "question": "大正末〜昭和初期の流行を取り入れた若者は？",
             "options": [
-              "カバヤ",
-              "モボ・モガ",
               "ハイカラ",
-              "尖端"
+              "モボ・モガ",
+              "バンカラ",
+              "文明開化人"
             ],
             "correctIndex": 1,
-            "explanation": "モダンボーイ・モダンガールの略です。",
+            "explanation": "モダンボーイ・モダンガールの略です。ハイカラは明治期から使われた西洋風の意、バンカラは明治末〜大正の質実剛健な学生風俗を指します。",
             "difficulty": "standard"
           },
           {
             "id": "q5",
-            "question": "1冊1円で売られベストセラーとなった文学全集は？",
+            "question": "大正末〜昭和初期に出版社の改造社が刊行し、読書の大衆化のきっかけとなった文学全集は？",
             "options": [
               "文庫本",
               "円本",
               "新書",
-              "豆本"
+              "岩波文庫"
             ],
             "correctIndex": 1,
-            "explanation": "円本が読書の大衆化をもたらしました。",
+            "explanation": "改造社の「現代日本文学全集」が1冊1円で売り出され「円本」と呼ばれました。読書の大衆化をもたらしました。",
             "difficulty": "standard"
           },
           {
@@ -1717,19 +1697,6 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "difficulty": "standard"
           },
           {
-            "id": "q8",
-            "question": "発行部数100万部を超えた大衆雑誌は？",
-            "options": [
-              "キング",
-              "中央公論",
-              "改造",
-              "新潮"
-            ],
-            "correctIndex": 0,
-            "explanation": "1925年創刊の「キング」が大衆雑誌の代表でした。",
-            "difficulty": "standard"
-          },
-          {
             "id": "q9",
             "question": "労働者・農民の生活を描いた文学運動は？",
             "options": [
@@ -1756,29 +1723,16 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "difficulty": "advanced"
           },
           {
-            "id": "q11",
-            "question": "ラジオ放送を行う放送局の後身は？",
-            "options": [
-              "民放各社",
-              "NHK",
-              "電通",
-              "共同通信"
-            ],
-            "correctIndex": 1,
-            "explanation": "後にNHK（日本放送協会）となりました。",
-            "difficulty": "standard"
-          },
-          {
             "id": "q12",
             "question": "大衆文化の発展を支えたメディアに含まれないものは？",
             "options": [
               "ラジオ",
               "映画",
-              "雑誌",
-              "テレビ"
+              "大衆雑誌",
+              "電報"
             ],
             "correctIndex": 3,
-            "explanation": "テレビは戦後の普及です。",
+            "explanation": "電報は明治期からの通信手段で、大衆文化のメディアではありません。ラジオ・映画・大衆雑誌は大正〜昭和初期の大衆文化を支えました。",
             "difficulty": "basic"
           }
         ]
@@ -1888,39 +1842,39 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "id": "q1",
             "question": "1929年にアメリカから始まった経済危機は？",
             "options": [
-              "関東大震災",
+              "第一次オイルショック",
               "金融恐慌",
-              "昭和恐慌",
+              "リーマン・ショック",
               "世界恐慌"
             ],
             "correctIndex": 3,
-            "explanation": "ニューヨーク株式市場の暴落から始まりました。",
+            "explanation": "ニューヨーク株式市場の暴落から世界中に広がった世界恐慌です。第一次オイルショックは1973年、リーマン・ショックは2008年の出来事、金融恐慌は1927年の日本国内の経済危機です。",
             "difficulty": "basic"
           },
           {
             "id": "q2",
             "question": "ニューディール政策を行ったアメリカ大統領は？",
             "options": [
+              "ハーバート・フーヴァー",
               "セオドア・ローズベルト",
-              "リンカン",
-              "ウィルソン",
+              "ハリー・トルーマン",
               "フランクリン・ローズベルト"
             ],
             "correctIndex": 3,
-            "explanation": "フランクリン・ローズベルトです。",
+            "explanation": "フランクリン・ローズベルトです。フーヴァーは恐慌発生時の大統領、トルーマンは第二次世界大戦後の大統領、セオドア・ローズベルトは20世紀初頭の大統領で別人です。",
             "difficulty": "basic"
           },
           {
             "id": "q3",
             "question": "イタリアでファシスト党を率いた独裁者は？",
             "options": [
-              "ヒトラー",
-              "スターリン",
-              "フランコ",
+              "ガリバルディ",
+              "カブール",
+              "ヴィットーリオ＝エマヌエーレ2世",
               "ムッソリーニ"
             ],
             "correctIndex": 3,
-            "explanation": "ムッソリーニが世界初のファシズム体制を作りました。",
+            "explanation": "ムッソリーニが世界初のファシズム体制を作りました。ガリバルディとカブールは19世紀のイタリア統一運動を進めた人物、ヴィットーリオ＝エマヌエーレ2世はイタリア統一時の国王です。",
             "difficulty": "basic"
           },
           {
@@ -1928,12 +1882,12 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "question": "ドイツでナチスを率いた独裁者は？",
             "options": [
               "ヒトラー",
-              "ムッソリーニ",
-              "フランコ",
-              "スターリン"
+              "ビスマルク",
+              "ヴィルヘルム2世",
+              "ヒンデンブルク"
             ],
             "correctIndex": 0,
-            "explanation": "ヒトラーが1933年に政権を握りました。",
+            "explanation": "ヒトラーが1933年に政権を握りました。ビスマルクは19世紀ドイツ統一を進めた宰相、ヴィルヘルム2世は第一次世界大戦時のドイツ皇帝、ヒンデンブルクはヒトラーを首相に任命した大統領です。",
             "difficulty": "basic"
           },
           {
@@ -1942,11 +1896,11 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "options": [
               "ニューディール政策",
               "ブロック経済",
-              "五か年計画",
-              "鎖国政策"
+              "統制経済",
+              "金本位制への復帰"
             ],
             "correctIndex": 1,
-            "explanation": "本国と植民地で経済圏を作りました。",
+            "explanation": "本国と植民地で経済圏を作り、他国の商品を排除して恐慌を乗り切ろうとしました。ニューディール政策はアメリカ、統制経済はソ連型の計画経済、金本位制への復帰は恐慌前の政策です。",
             "difficulty": "standard"
           },
           {
@@ -1966,26 +1920,26 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "id": "q7",
             "question": "ナチスが行った人種差別政策は？",
             "options": [
-              "黒人奴隷制",
-              "アパルトヘイト",
+              "スラヴ人の強制移住",
+              "共産主義者の収容所送り",
               "ユダヤ人迫害",
-              "イスラム弾圧"
+              "ロマ（ジプシー）への迫害"
             ],
             "correctIndex": 2,
-            "explanation": "ユダヤ人迫害はホロコーストへつながりました。",
+            "explanation": "ナチスの人種差別政策の中心はユダヤ人迫害で、ホロコーストへとつながりました。スラヴ人やロマへの迫害、共産主義者の収容所送りも行われましたが、人種差別政策の象徴はユダヤ人迫害です。",
             "difficulty": "standard"
           },
           {
             "id": "q8",
             "question": "ニューディール政策の特徴は？",
             "options": [
-              "国家が経済に介入",
-              "完全な自由放任",
-              "保護貿易の徹底",
-              "計画経済の導入"
+              "公共事業を増やして失業者を雇用した",
+              "国営工場を作り価格を国が決めた",
+              "関税を高くして外国製品を完全に締め出した",
+              "政府支出を切り詰め通貨を金本位制に戻した"
             ],
             "correctIndex": 0,
-            "explanation": "国家が経済に積極介入する点が画期的でした。",
+            "explanation": "ニューディール政策では公共事業を増やして失業者を雇用するなど、国家が経済に積極介入しました。国営工場と価格統制はソ連の五か年計画、関税による外国製品の締め出しはブロック経済、緊縮財政と金本位制への復帰は恐慌前の政策の方向性です。",
             "difficulty": "standard"
           },
           {
@@ -2018,26 +1972,26 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "id": "q11",
             "question": "個人より国家・民族を優先する独裁体制は？",
             "options": [
-              "民主主義",
-              "ファシズム",
               "共産主義",
-              "自由主義"
+              "ファシズム",
+              "絶対王政",
+              "軍国主義"
             ],
             "correctIndex": 1,
-            "explanation": "ファシズムはイタリアから広がりました。",
+            "explanation": "ファシズムは個人より国家・民族を優先する独裁体制で、イタリアから広がりました。共産主義は階級闘争を重視する考え方、絶対王政は17〜18世紀ヨーロッパの国王による専制政治、軍国主義は軍部が政治の主導権を握る考え方です。",
             "difficulty": "basic"
           },
           {
             "id": "q12",
             "question": "世界恐慌が直撃して特に深刻な打撃を受けた日本の地域は？",
             "options": [
-              "都市部",
-              "農村",
-              "海岸地域",
-              "中央政府"
+              "都市部の大企業",
+              "北海道の漁業地域",
+              "京浜・阪神の工業地帯",
+              "東北地方を中心とした農村"
             ],
-            "correctIndex": 1,
-            "explanation": "農村の困窮が深刻でした。",
+            "correctIndex": 3,
+            "explanation": "東北地方を中心とした農村が、米価・繭価の暴落により深刻な打撃を受けました。都市部の大企業や工業地帯は軍需などで持ち直す部分もありましたが、農村の困窮は社会問題化しました。",
             "difficulty": "standard"
           }
         ]
@@ -2155,24 +2109,24 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "options": [
               "満州事変",
               "日中戦争",
-              "二十一か条要求",
-              "義和団事件"
+              "張作霖爆殺事件",
+              "上海事変"
             ],
             "correctIndex": 0,
-            "explanation": "満州事変は柳条湖事件から始まりました。",
+            "explanation": "満州事変は柳条湖事件から始まりました。張作霖爆殺事件は1928年に関東軍が満州軍閥を暗殺した事件、日中戦争は1937年からの全面戦争、上海事変は満州事変の翌1932年に起きた出来事です。",
             "difficulty": "basic"
           },
           {
             "id": "q2",
             "question": "1932年に日本が建国した傀儡国家は？",
             "options": [
-              "朝鮮国",
-              "蒙古国",
+              "満州国",
               "中華民国",
-              "満州国"
+              "蒙古聯合自治政府",
+              "冀東防共自治政府"
             ],
-            "correctIndex": 3,
-            "explanation": "満州国は溥儀を皇帝として作られました。",
+            "correctIndex": 0,
+            "explanation": "満州国は溥儀を執政（後に皇帝）として1932年に作られました。中華民国は1912年に成立した国家、蒙古聯合自治政府は1939年に内モンゴルで作られた傀儡政権、冀東防共自治政府は1935年に華北で作られた傀儡政権です。",
             "difficulty": "basic"
           },
           {
@@ -2181,24 +2135,24 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "options": [
               "二・二六事件",
               "血盟団事件",
-              "桜田門外の変",
+              "浜口雄幸首相狙撃事件",
               "五・一五事件"
             ],
             "correctIndex": 3,
-            "explanation": "五・一五事件で政党政治が事実上終わりました。",
+            "explanation": "五・一五事件で海軍青年将校らが犬養毅首相を暗殺し、政党政治が事実上終わりました。二・二六事件は1936年の陸軍青年将校によるクーデター、血盟団事件は1932年に井上準之助らを暗殺した事件、浜口雄幸首相狙撃事件は1930年に東京駅で起きた事件です。",
             "difficulty": "basic"
           },
           {
             "id": "q4",
-            "question": "1936年に陸軍青年将校が起こしたクーデター未遂事件は？",
+            "question": "陸軍青年将校が起こしたクーデター未遂事件は？",
             "options": [
               "二・二六事件",
               "五・一五事件",
-              "三月事件",
-              "ノモンハン事件"
+              "二・一ゼネスト計画",
+              "神兵隊事件"
             ],
             "correctIndex": 0,
-            "explanation": "二・二六事件は鎮圧後、軍部の発言力が強まりました。",
+            "explanation": "1936年に陸軍青年将校が起こした二・二六事件です。鎮圧後、軍部の発言力が強まりました。五・一五事件は海軍青年将校による首相暗殺事件、二・一ゼネスト計画は戦後の労働運動、神兵隊事件は1933年の民間右翼によるクーデター未遂です。",
             "difficulty": "basic"
           },
           {
@@ -2296,13 +2250,13 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "id": "q12",
             "question": "五・一五事件以降の政治の変化は？",
             "options": [
-              "政党政治の継続",
-              "政党政治の終焉",
-              "天皇親政の復活",
-              "民主主義の確立"
+              "立憲政友会と立憲民政党による二大政党制が安定した",
+              "選挙で選ばれた政党党首が連続して首相になった",
+              "普通選挙法が改正され女性の参政権が認められた",
+              "海軍出身者を含む挙国一致内閣が続き、政党出身の首相が事実上途絶えた"
             ],
-            "correctIndex": 1,
-            "explanation": "政党政治が事実上終わり、軍部の発言力が強まりました。",
+            "correctIndex": 3,
+            "explanation": "五・一五事件で犬養毅首相が暗殺された後、海軍出身者を含む挙国一致内閣が続き、政党出身の首相が事実上途絶えました。これにより政党政治は終焉し、軍部の発言力が強まりました。",
             "difficulty": "standard"
           }
         ]
@@ -2445,25 +2399,25 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "question": "1940年に結成された全国民組織は？",
             "options": [
               "大政翼賛会",
-              "国民連合",
-              "新体制党",
-              "皇道派"
+              "産業報国会",
+              "大日本婦人会",
+              "隣組"
             ],
             "correctIndex": 0,
-            "explanation": "大政翼賛会で政党政治が完全に終わりました。",
+            "explanation": "1940年に結成された大政翼賛会で、すべての政党を解散させて国民を一つの組織にまとめ、政党政治が完全に終わりました。産業報国会は労働組合を解散して作られた職場組織、大日本婦人会は女性を統合した戦時組織、隣組は町内の相互監視組織です。",
             "difficulty": "basic"
           },
           {
             "id": "q4",
-            "question": "1940年に日独伊が結んだ軍事同盟は？",
+            "question": "1940年に結ばれた軍事同盟は？",
             "options": [
-              "三国干渉",
-              "三国同盟",
-              "日独伊三国同盟",
-              "枢軸同盟"
+              "日英同盟",
+              "日ソ中立条約",
+              "防共協定",
+              "日独伊三国同盟"
             ],
-            "correctIndex": 2,
-            "explanation": "アメリカとの対立を決定的にしました。",
+            "correctIndex": 3,
+            "explanation": "1940年に日本・ドイツ・イタリアが結んだ日独伊三国同盟で、アメリカとの対立を決定的にしました。日英同盟は1902年に日露戦争前に結ばれた同盟、日ソ中立条約は1941年に北方の安全確保のために結ばれた条約、防共協定は1936年に日独間で共産主義に対抗するために結ばれた協定です。",
             "difficulty": "basic"
           },
           {
@@ -2471,12 +2425,12 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "question": "国民党と共産党の対日協力関係は？",
             "options": [
               "国共合作",
-              "中華同盟",
-              "孫中山連合",
-              "重慶連合"
+              "北伐",
+              "西安事件",
+              "辛亥革命"
             ],
             "correctIndex": 0,
-            "explanation": "国共合作で蒋介石と毛沢東が手を結びました。",
+            "explanation": "国共合作で蒋介石と毛沢東が手を結びました。北伐は1926〜28年の国民党による中国統一戦争、西安事件は1936年に蒋介石を監禁して合作を促した事件、辛亥革命は1911年に清を倒した革命です。",
             "difficulty": "standard"
           },
           {
@@ -2561,13 +2515,13 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "id": "q12",
             "question": "大政翼賛会の特徴は？",
             "options": [
-              "多党制の継続",
-              "一党体制の組織",
-              "天皇親政の組織",
-              "軍人だけの組織"
+              "既存政党を残したまま連合政権を作る組織だった",
+              "政党をすべて解散させ国民を一つの組織にまとめあげた",
+              "議会の代わりに選挙で代議員を選出する組織だった",
+              "軍部のみで構成され民間人は加わらなかった"
             ],
             "correctIndex": 1,
-            "explanation": "すべての政党を解散させて作られました。",
+            "explanation": "大政翼賛会はすべての政党を解散させ国民を一つの組織にまとめあげた一党体制の組織で、政党政治が完全に終わりました。",
             "difficulty": "advanced"
           }
         ]
@@ -2685,11 +2639,11 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "options": [
               "連合国",
               "枢軸国",
-              "中立国",
-              "三国協商"
+              "国際連盟主要国",
+              "大西洋憲章調印国"
             ],
             "correctIndex": 1,
-            "explanation": "日独伊が枢軸国の中心でした。",
+            "explanation": "日独伊が枢軸国の中心でした。日本は1933年に国際連盟を脱退しており、大西洋憲章は1941年に米英が調印した連合国側の宣言です。",
             "difficulty": "basic"
           },
           {
@@ -2733,15 +2687,15 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "q6",
-            "question": "ドイツが用いた高速戦法は？",
+            "question": "第二次世界大戦初期、ドイツが戦車部隊と航空機を組み合わせて短期間で他国を制圧した戦法は？",
             "options": [
               "塹壕戦",
               "電撃戦",
-              "ゲリラ戦",
-              "海上戦"
+              "焦土戦術",
+              "包囲殲滅戦"
             ],
             "correctIndex": 1,
-            "explanation": "戦車と航空機を組み合わせた電撃戦でした。",
+            "explanation": "戦車と航空機を組み合わせた電撃戦でした。塹壕戦は第一次世界大戦で主流となった陣地戦、焦土戦術は撤退時に物資を破壊する戦法、包囲殲滅戦は敵を取り囲んで全滅させる古典戦法です。",
             "difficulty": "standard"
           },
           {
@@ -2987,13 +2941,13 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "id": "q5",
             "question": "日本がアジア解放を掲げて唱えた構想は？",
             "options": [
-              "大日本帝国",
-              "アジア共同体",
-              "東洋連邦",
-              "大東亜共栄圏"
+              "大東亜共栄圏",
+              "八紘一宇",
+              "五族協和",
+              "東亜新秩序"
             ],
-            "correctIndex": 3,
-            "explanation": "実態は日本によるアジア支配でした。",
+            "correctIndex": 0,
+            "explanation": "実態は日本によるアジア支配でした。八紘一宇は同時期のスローガンですが構想全体の総称ではなく、五族協和は満州国の建国理念、東亜新秩序は近衛声明の構想で大東亜共栄圏に発展的に置き換えられました。",
             "difficulty": "standard"
           },
           {
@@ -3024,15 +2978,15 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "q8",
-            "question": "日本に経済包囲を行ったABCD包囲網のCはどの国？",
+            "question": "ABCD包囲網を構成した4か国の組み合わせとして正しいものは？",
             "options": [
-              "カナダ",
-              "中国",
-              "キューバ",
-              "チリ"
+              "アメリカ・イギリス・カナダ・オランダ",
+              "アメリカ・ブラジル・中国・ドイツ",
+              "アメリカ・イギリス・カナダ・デンマーク",
+              "アメリカ・イギリス・中国・オランダ"
             ],
-            "correctIndex": 1,
-            "explanation": "ABCDはアメリカ・イギリス・中国・オランダです。",
+            "correctIndex": 3,
+            "explanation": "ABCD包囲網はアメリカ(America)・イギリス(Britain)・中国(China)・オランダ(Dutch)の頭文字をとった対日経済包囲です。石油や鉄の輸出制限が日本を苦しめました。",
             "difficulty": "standard"
           },
           {
@@ -3163,15 +3117,15 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "quiz": [
           {
             "id": "q1",
-            "question": "戦時下に物資を国が割り当てた制度は？",
+            "question": "戦時下、米・砂糖などを国が国民に分配した制度は？",
             "options": [
-              "自由販売",
-              "輸出規制",
-              "市場経済",
+              "専売制",
+              "切符制",
+              "統制経済",
               "配給制"
             ],
             "correctIndex": 3,
-            "explanation": "配給制で米・砂糖などが分配されました。",
+            "explanation": "配給制で米・砂糖などが分配されました。専売制は明治政府が塩・たばこを独占した制度、切符制は配給を受け取るための券の制度で配給制とセットで運用されました。",
             "difficulty": "basic"
           },
           {
@@ -3215,15 +3169,15 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "q5",
-            "question": "朝鮮人に日本式の姓名を強制した政策は？",
+            "question": "朝鮮や台湾の人々に対し、皇民化政策の一環として行われた次の政策のうち、姓名に関わるものは？",
             "options": [
-              "創氏改名",
-              "皇民化",
-              "強制連行",
-              "同化政策"
+              "神社参拝の義務化",
+              "日本語教育の強要",
+              "内地への徴用",
+              "創氏改名"
             ],
-            "correctIndex": 0,
-            "explanation": "創氏改名は皇民化政策の一環でした。",
+            "correctIndex": 3,
+            "explanation": "創氏改名は皇民化政策の一環で、朝鮮人らに日本式の姓名を名乗らせた政策でした。神社参拝の義務化・日本語教育の強要も皇民化政策に含まれますが、姓名に関わるのは創氏改名です。",
             "difficulty": "standard"
           },
           {
@@ -3257,12 +3211,12 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "question": "本土決戦に備え民間人が行った訓練は？",
             "options": [
               "竹槍訓練",
-              "射撃訓練",
-              "白兵訓練",
-              "防空訓練"
+              "バケツリレー訓練",
+              "ラジオ体操訓練",
+              "隣組演習"
             ],
             "correctIndex": 0,
-            "explanation": "竹槍訓練が行われましたが実効性は乏しいものでした。",
+            "explanation": "竹槍訓練が行われましたが実効性は乏しいものでした。バケツリレー訓練は消火訓練、ラジオ体操訓練は戦時下も継続された体操、隣組演習は防空・配給で実施されたもので、いずれも本土決戦用の戦闘訓練ではありませんでした。",
             "difficulty": "advanced"
           },
           {
@@ -3560,13 +3514,13 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "id": "q12",
             "question": "ポツダム宣言を最初に発表した国は？",
             "options": [
-              "米英中",
-              "米英ソ",
-              "英仏中",
-              "米英仏"
+              "アメリカ・イギリス・中国",
+              "アメリカ・イギリス・フランス",
+              "アメリカ・イギリス・オランダ",
+              "アメリカ・イギリス・オーストラリア"
             ],
             "correctIndex": 0,
-            "explanation": "発表時はアメリカ・イギリス・中国の三国でした。",
+            "explanation": "発表時はアメリカ・イギリス・中国の三国でした。ソ連は当時日ソ中立条約があったため後から参加しました。",
             "difficulty": "advanced"
           }
         ]
@@ -3691,12 +3645,12 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "question": "戦後日本を占領した連合国軍最高司令官総司令部の略称は？",
             "options": [
               "GHQ",
-              "GHO",
-              "UNO",
-              "USA"
+              "SCAP",
+              "IMTFE",
+              "UNCC"
             ],
             "correctIndex": 0,
-            "explanation": "GHQ（General Headquarters）が占領を主導しました。",
+            "explanation": "GHQ（General Headquarters）が占領を主導しました。SCAPは最高司令官個人を指す略号、IMTFEは極東国際軍事裁判の略号です。",
             "difficulty": "basic"
           },
           {
@@ -3714,51 +3668,51 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "q3",
-            "question": "地主の農地を小作人に分配した改革は？",
+            "question": "GHQの指示で行われた、自作農を増やすことを目的とした戦後改革は？",
             "options": [
               "財閥解体",
-              "教育改革",
+              "学制改革",
               "労働改革",
               "農地改革"
             ],
             "correctIndex": 3,
-            "explanation": "農地改革で自作農が増えました。",
+            "explanation": "農地改革で地主の土地が小作人に分配され、自作農が増えました。",
             "difficulty": "basic"
           },
           {
             "id": "q4",
-            "question": "三井・三菱などを分割した改革は？",
+            "question": "経済の民主化を目指してGHQが指示した、大企業集団を分割する改革は？",
             "options": [
-              "財閥解体",
-              "農地改革",
-              "労働改革",
-              "教育改革"
+              "独占禁止法の制定",
+              "国有化政策",
+              "新円切替",
+              "財閥解体"
             ],
-            "correctIndex": 0,
-            "explanation": "財閥解体で経済の民主化を目指しました。",
+            "correctIndex": 3,
+            "explanation": "財閥解体で三井・三菱などの大企業集団が分割され、経済の民主化が進みました。",
             "difficulty": "basic"
           },
           {
             "id": "q5",
-            "question": "1947年に制定された教育の方針を定めた法律は？",
+            "question": "1947年に制定され、機会均等・男女共学など戦後の新しい理念を定めた法律は？",
             "options": [
-              "学校教育法",
+              "学校教育法（六・三・三・四制を定めた法律）",
+              "国民学校令",
               "義務教育法",
-              "教育勅語",
               "教育基本法"
             ],
             "correctIndex": 3,
-            "explanation": "教育基本法が制定されました。",
+            "explanation": "教育基本法が戦後の教育理念を定め、機会均等や男女共学が制度化されました。",
             "difficulty": "standard"
           },
           {
             "id": "q6",
             "question": "戦後の学校制度は？",
             "options": [
-              "六・三・三・四制",
-              "六・六制",
-              "四・四・四制",
-              "五・五・五制"
+              "六・三・三・四制（小・中・高・大）",
+              "六・五・三制（戦前の尋常小学校・中学校体系に近い）",
+              "四・四・六制（戦前の旧制中学・高等学校期間に近い）",
+              "八・四制（戦前の尋常小学校・中等学校体系の一案）"
             ],
             "correctIndex": 0,
             "explanation": "六・三・三・四制で義務教育は9年になりました。",
@@ -3792,15 +3746,15 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "q9",
-            "question": "戦争を指導した者を公職から外した政策は？",
+            "question": "GHQが戦争を指導した軍人・政治家・財界人などを政府や企業の要職から退かせた政策は？",
             "options": [
-              "財閥解体",
+              "思想統制",
               "公職追放",
-              "農地改革",
-              "労働改革"
+              "治安維持",
+              "戦犯指定"
             ],
             "correctIndex": 1,
-            "explanation": "公職追放が行われました。",
+            "explanation": "公職追放によって戦争を指導した人物が政府や企業の要職から退かされました。",
             "difficulty": "standard"
           },
           {
@@ -3823,10 +3777,10 @@ export const lineStudyHistoryEras: StudyEra[] = [
               "労働組合法",
               "労働関係調整法",
               "労働基準法",
-              "労働者派遣法"
+              "職業安定法"
             ],
             "correctIndex": 3,
-            "explanation": "労働者派遣法は戦後しばらく経ってから制定されました。",
+            "explanation": "労働三法は労働組合法・労働関係調整法・労働基準法の三つ。職業安定法（1947年制定）は同じ時期に作られたが三法には含まれません。",
             "difficulty": "advanced"
           },
           {
@@ -3961,9 +3915,9 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "question": "日本国憲法の三大原則は？",
             "options": [
               "国民主権・基本的人権の尊重・平和主義",
-              "自由・平等・博愛",
-              "天皇主権・国体護持・八紘一宇",
-              "民主・自由・独立"
+              "国民主権・三権分立・地方自治",
+              "立憲主義・議会制民主主義・平和主義",
+              "基本的人権の尊重・象徴天皇制・平和主義"
             ],
             "correctIndex": 0,
             "explanation": "三大原則は国民主権・基本的人権の尊重・平和主義です。",
@@ -3986,23 +3940,23 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "id": "q5",
             "question": "日本国憲法での天皇の地位は？",
             "options": [
-              "主権者",
-              "国家元首",
-              "元首",
-              "象徴"
+              "主権者（明治憲法での天皇の地位）",
+              "統治者",
+              "国家の長として外交を主導する者",
+              "日本国および日本国民統合の象徴"
             ],
             "correctIndex": 3,
-            "explanation": "「日本国の象徴」と規定されました。",
+            "explanation": "日本国憲法第1条で「日本国の象徴であり日本国民統合の象徴」と規定されました。",
             "difficulty": "basic"
           },
           {
             "id": "q6",
             "question": "明治憲法（大日本帝国憲法）と日本国憲法の最大の違いは？",
             "options": [
-              "天皇主権から国民主権へ",
-              "象徴天皇制が廃止された",
-              "貴族院が拡大された",
-              "陸軍が強化された"
+              "天皇主権から国民主権へ移った",
+              "国民主権から天皇主権へ移った",
+              "議院内閣制から大統領制へ変わった",
+              "立法権が天皇から内閣へ移った"
             ],
             "correctIndex": 0,
             "explanation": "主権が天皇から国民へ移りました。",
@@ -4192,15 +4146,15 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "quiz": [
           {
             "id": "q1",
-            "question": "戦後の米ソの対立を何と呼ぶ？",
+            "question": "第二次世界大戦後、アメリカとソ連が直接戦火を交えずに対立した状態を何と呼ぶ？",
             "options": [
-              "第三次世界大戦",
-              "代理戦争",
-              "宗教戦争",
+              "大東亜共栄圏",
+              "ブロック経済",
+              "三国同盟",
               "冷戦"
             ],
             "correctIndex": 3,
-            "explanation": "「冷たい戦争」と呼ばれました。",
+            "explanation": "「冷たい戦争」と呼ばれました。米ソは直接の戦争を避けつつ、軍事・経済・イデオロギーで対立しました。",
             "difficulty": "basic"
           },
           {
@@ -4259,13 +4213,13 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "id": "q6",
             "question": "冷戦の象徴とされた壁は？",
             "options": [
-              "万里の長城",
+              "朝鮮半島の38度線",
               "ベルリンの壁",
-              "イェルサレムの壁",
-              "サウサンプトンの壁"
+              "板門店の境界線",
+              "ホーチミン・ライン"
             ],
             "correctIndex": 1,
-            "explanation": "ベルリンの壁が冷戦の象徴でした。",
+            "explanation": "ベルリンの壁が冷戦の象徴でした。1961年に東ドイツが東西ベルリンを隔てるために築き、1989年に崩壊しました。",
             "difficulty": "basic"
           },
           {
@@ -4466,13 +4420,13 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "id": "q1",
             "question": "1951年に結ばれた日本独立の条約は？",
             "options": [
-              "ポーツマス条約",
-              "日韓基本条約",
-              "下関条約",
+              "ベルサイユ条約",
+              "日ソ共同宣言",
+              "日米修好通商条約",
               "サンフランシスコ平和条約"
             ],
             "correctIndex": 3,
-            "explanation": "サンフランシスコ平和条約で日本は独立を回復しました。",
+            "explanation": "サンフランシスコ平和条約で日本は独立を回復しました。ベルサイユ条約は第一次世界大戦後、日ソ共同宣言は1956年、日米修好通商条約は江戸時代の条約です。",
             "difficulty": "basic"
           },
           {
@@ -4516,15 +4470,15 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "q5",
-            "question": "1972年に日本に返還された地域は？",
+            "question": "1972年に佐藤栄作内閣のもとでアメリカから日本に返還された地域は？",
             "options": [
-              "北方領土",
-              "尖閣諸島",
-              "竹島",
+              "小笠原諸島",
+              "樺太",
+              "千島列島",
               "沖縄"
             ],
             "correctIndex": 3,
-            "explanation": "佐藤栄作内閣の時に実現しました。",
+            "explanation": "1972年に沖縄がアメリカから日本へ返還されました。小笠原諸島は1968年に返還、樺太・千島列島はサンフランシスコ平和条約で日本が放棄しています。",
             "difficulty": "basic"
           },
           {
@@ -4572,11 +4526,11 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "options": [
               "警察予備隊",
               "保安隊",
-              "海軍",
-              "陸軍"
+              "国家警察",
+              "防衛庁"
             ],
             "correctIndex": 0,
-            "explanation": "警察予備隊が始まりです。",
+            "explanation": "1950年に作られた警察予備隊が始まりです。1952年に保安隊へ改組され、1954年に自衛隊・防衛庁が発足しました。",
             "difficulty": "standard"
           },
           {
@@ -4797,12 +4751,12 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "question": "非核三原則の内容は？",
             "options": [
               "「持たず、作らず、持ち込ませず」",
-              "「核武装、核共有、核実験」",
-              "「軍縮、軍備、軍事化」",
-              "「自衛、防衛、抑止」"
+              "「持たず、使わず、配備せず」",
+              "「作らず、買わず、貸さず」",
+              "「持たず、減らさず、増やさず」"
             ],
             "correctIndex": 0,
-            "explanation": "持たず、作らず、持ち込ませずです。",
+            "explanation": "「持たず、作らず、持ち込ませず」が非核三原則です。1967年に佐藤栄作首相が表明しました。",
             "difficulty": "standard"
           },
           {
@@ -4820,15 +4774,15 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "q8",
-            "question": "日中国交正常化に伴って日本が断交したのは？",
+            "question": "1972年の日中共同声明によって日本が国交を断絶した、台湾の政府は？",
             "options": [
-              "中華民国",
-              "韓国",
-              "北朝鮮",
-              "ソ連"
+              "大韓民国",
+              "朝鮮民主主義人民共和国",
+              "モンゴル人民共和国",
+              "中華民国"
             ],
-            "correctIndex": 0,
-            "explanation": "中華民国（台湾）と断交しました。",
+            "correctIndex": 3,
+            "explanation": "日本は中華人民共和国と国交を樹立する一方、台湾の中華民国とは断交しました。",
             "difficulty": "standard"
           },
           {
@@ -5018,12 +4972,12 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "question": "1964年に開催されたアジア初のオリンピックは？",
             "options": [
               "東京オリンピック",
-              "札幌オリンピック",
-              "長野オリンピック",
-              "ソウルオリンピック"
+              "ローマオリンピック",
+              "メキシコオリンピック",
+              "ミュンヘンオリンピック"
             ],
             "correctIndex": 0,
-            "explanation": "東京オリンピックは高度経済成長の象徴でした。",
+            "explanation": "東京オリンピックは高度経済成長の象徴でした。ローマは1960年、メキシコは1968年、ミュンヘンは1972年でいずれもアジアではありません。",
             "difficulty": "basic"
           },
           {
@@ -5046,10 +5000,10 @@ export const lineStudyHistoryEras: StudyEra[] = [
               "バブル崩壊",
               "リーマンショック",
               "プラザ合意",
-              "石油危機（オイルショック）"
+              "石油危機"
             ],
             "correctIndex": 3,
-            "explanation": "オイルショックが転換点でした。",
+            "explanation": "1973年の石油危機（オイルショック）で原油価格が高騰し、高度経済成長が終わりました。",
             "difficulty": "basic"
           },
           {
@@ -5059,10 +5013,10 @@ export const lineStudyHistoryEras: StudyEra[] = [
               "水俣病",
               "イタイイタイ病",
               "四日市ぜんそく",
-              "アスベスト病"
+              "足尾鉱毒病"
             ],
             "correctIndex": 3,
-            "explanation": "四大公害病は水俣病・新潟水俣病・イタイイタイ病・四日市ぜんそくです。",
+            "explanation": "四大公害病は水俣病・新潟水俣病・イタイイタイ病・四日市ぜんそくです。足尾鉱毒事件は明治期の公害事件で、戦後の四大公害病には含まれません。",
             "difficulty": "basic"
           },
           {
@@ -5119,15 +5073,15 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "q9",
-            "question": "1964年に開業した高速鉄道は？",
+            "question": "1964年に東京〜新大阪間で開業した世界初の高速鉄道は？",
             "options": [
-              "新幹線",
-              "リニア",
-              "在来線",
-              "メトロ"
+              "山陽新幹線",
+              "上越新幹線",
+              "東北新幹線",
+              "東海道新幹線"
             ],
-            "correctIndex": 0,
-            "explanation": "東海道新幹線が開業しました。",
+            "correctIndex": 3,
+            "explanation": "東海道新幹線が世界初の高速鉄道として開業しました。山陽（1972年〜）、上越（1982年）、東北（1982年）はいずれも後の時代に開業した路線です。",
             "difficulty": "basic"
           },
           {
@@ -5182,7 +5136,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "id": "fc1",
             "front": "テレビ{放送|ほうそう}",
             "back": "1953年に日本で本放送が始まったメディアは？",
-            "explanation": "NHKと日本テレビが放送開始。",
+            "explanation": "公共放送と民間放送が同年に開局し、戦後の大衆文化を象徴するメディアとなった。",
             "difficulty": "basic"
           },
           {
@@ -5671,28 +5625,28 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "q9",
-            "question": "1991年にイラクが侵攻し多国籍軍と戦った戦争は？",
+            "question": "湾岸戦争のきっかけとなった、1990年にイラクが侵攻した国は？",
             "options": [
-              "イラン・イラク戦争",
-              "湾岸戦争",
-              "イラク戦争",
-              "アフガニスタン戦争"
+              "イラン",
+              "サウジアラビア",
+              "トルコ",
+              "クウェート"
             ],
-            "correctIndex": 1,
-            "explanation": "湾岸戦争です。",
+            "correctIndex": 3,
+            "explanation": "1990年のイラクによるクウェート侵攻が引き金となり、翌1991年に多国籍軍が介入する湾岸戦争が起こりました。",
             "difficulty": "standard"
           },
           {
             "id": "q10",
-            "question": "アメリカがイラクのフセイン政権を倒した戦争は？",
+            "question": "2003年にアメリカが「大量破壊兵器の保有」を理由に始め、フセイン政権を崩壊させた戦争は？",
             "options": [
               "湾岸戦争",
-              "イラク戦争",
               "アフガニスタン戦争",
-              "クウェート紛争"
+              "第4次中東戦争",
+              "イラク戦争"
             ],
-            "correctIndex": 1,
-            "explanation": "2003年のイラク戦争です。",
+            "correctIndex": 3,
+            "explanation": "2003年、アメリカは大量破壊兵器保有を理由にイラクへ侵攻し、フセイン政権を崩壊させました。これがイラク戦争です。",
             "difficulty": "standard"
           },
           {
@@ -5854,9 +5808,9 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "id": "q2",
             "question": "1995年に発生した大地震は？",
             "options": [
-              "関東大震災",
+              "雲仙普賢岳噴火災害",
+              "北海道南西沖地震",
               "新潟県中越地震",
-              "東日本大震災",
               "阪神・淡路大震災"
             ],
             "correctIndex": 3,
@@ -5865,15 +5819,15 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "q3",
-            "question": "2011年に発生した大地震は？",
+            "question": "マグニチュード9.0で大津波と原発事故を引き起こした地震は？",
             "options": [
-              "関東大震災",
-              "阪神・淡路大震災",
-              "東日本大震災",
-              "熊本地震"
+              "熊本地震",
+              "新潟県中越地震",
+              "北海道胆振東部地震",
+              "東日本大震災"
             ],
-            "correctIndex": 2,
-            "explanation": "東日本大震災は3月11日に発生しました。",
+            "correctIndex": 3,
+            "explanation": "2011年3月11日に発生した東日本大震災はマグニチュード9.0で、大津波と福島第一原発事故を引き起こしました。",
             "difficulty": "basic"
           },
           {
@@ -5904,15 +5858,15 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "q6",
-            "question": "1995年3月に起きたテロ事件は？",
+            "question": "1995年に東京の地下鉄でオウム真理教が起こし、多数の死傷者を出した化学兵器テロは？",
             "options": [
-              "地下鉄サリン事件",
-              "オウム本部襲撃事件",
-              "新宿西口バス放火事件",
-              "あさま山荘事件"
+              "炭疽菌テロ事件",
+              "VXガス事件",
+              "青酸ガス事件",
+              "地下鉄サリン事件"
             ],
-            "correctIndex": 0,
-            "explanation": "オウム真理教による地下鉄サリン事件です。",
+            "correctIndex": 3,
+            "explanation": "1995年3月、オウム真理教が東京の地下鉄でサリンガスを散布し、多数の死傷者を出したのが地下鉄サリン事件です。",
             "difficulty": "standard"
           },
           {
@@ -5930,15 +5884,15 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "q8",
-            "question": "東日本大震災で起きた原発事故は？",
+            "question": "福島第一原発事故で起きた、原子炉の燃料が高温で溶け落ちる現象を何という？",
             "options": [
-              "チェルノブイリ原発事故",
-              "福島第一原発事故",
-              "スリーマイル島原発事故",
-              "もんじゅ事故"
+              "スクラム",
+              "リコール",
+              "フェイルセーフ",
+              "メルトダウン（炉心溶融）"
             ],
-            "correctIndex": 1,
-            "explanation": "福島第一原発でメルトダウンが起きました。",
+            "correctIndex": 3,
+            "explanation": "原子炉内の燃料が高温で溶け落ちる現象をメルトダウン（炉心溶融）といい、福島第一原発事故で発生しました。",
             "difficulty": "standard"
           },
           {
@@ -5969,15 +5923,15 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "q11",
-            "question": "出生数が減り続ける現象は？",
+            "question": "現在の日本が直面している人口問題として、出生数が減り高齢者の割合が増える状態を表す言葉は？",
             "options": [
-              "少子化",
-              "高齢化",
-              "過疎化",
-              "晩婚化"
+              "都市化",
+              "過密化",
+              "国際化",
+              "少子高齢化"
             ],
-            "correctIndex": 0,
-            "explanation": "少子化が日本の課題となっています。",
+            "correctIndex": 3,
+            "explanation": "出生数の減少（少子化）と高齢者割合の増加（高齢化）が同時に進む状態を少子高齢化といい、日本の大きな課題です。",
             "difficulty": "basic"
           },
           {
@@ -6118,15 +6072,15 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "quiz": [
           {
             "id": "q1",
-            "question": "人・物・情報が世界規模で広がることは？",
+            "question": "1990年代以降、各国の経済や文化が国境を越えて結びつき、相互依存が強まる動きを何という？",
             "options": [
-              "地方化",
-              "高齢化",
-              "情報化",
+              "産業革命",
+              "高度経済成長",
+              "情報革命",
               "グローバル化"
             ],
             "correctIndex": 3,
-            "explanation": "グローバル化が進んでいます。",
+            "explanation": "国境を越えたヒト・モノ・カネ・情報の移動が拡大する動きをグローバル化といいます。",
             "difficulty": "basic"
           },
           {
@@ -6170,28 +6124,28 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "q5",
-            "question": "ロシアが実効支配している北方領土に含まれないのは？",
+            "question": "北方領土を構成する4つの島の組み合わせとして正しいものは？",
             "options": [
-              "歯舞群島",
-              "色丹島",
-              "国後島",
-              "竹島"
+              "国後島・択捉島・対馬・佐渡島",
+              "歯舞群島・色丹島・尖閣諸島・竹島",
+              "歯舞群島・対馬・隠岐諸島・色丹島",
+              "歯舞群島・色丹島・国後島・択捉島"
             ],
             "correctIndex": 3,
-            "explanation": "竹島は韓国との領土問題です。",
+            "explanation": "北方領土は歯舞群島・色丹島・国後島・択捉島の4島を指し、ロシアが実効支配しています。",
             "difficulty": "standard"
           },
           {
             "id": "q6",
-            "question": "地球温暖化の主な原因は？",
+            "question": "温室効果ガスの代表例として正しい組み合わせは？",
             "options": [
-              "温室効果ガス",
-              "オゾン層破壊",
-              "酸性雨",
-              "森林火災"
+              "ヘリウム・ネオン",
+              "酸素・窒素",
+              "フロン・オゾン",
+              "二酸化炭素・メタン"
             ],
-            "correctIndex": 0,
-            "explanation": "二酸化炭素などの温室効果ガスが原因です。",
+            "correctIndex": 3,
+            "explanation": "二酸化炭素やメタンが代表的な温室効果ガスで、地球温暖化の主な原因となっています。",
             "difficulty": "standard"
           },
           {
@@ -6209,15 +6163,15 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "q8",
-            "question": "1990年代から急速に普及した世界規模のネットワークは？",
+            "question": "1990年代以降に発展した、ホームページの閲覧やメールに使う、世界中のコンピュータをつなぐ仕組みは？",
             "options": [
-              "インターネット",
-              "テレビ",
-              "ラジオ",
-              "電話"
+              "LAN（構内ネットワーク）",
+              "イントラネット",
+              "衛星放送",
+              "インターネット"
             ],
-            "correctIndex": 0,
-            "explanation": "インターネットが情報化社会の中核です。",
+            "correctIndex": 3,
+            "explanation": "世界中のコンピュータを相互に接続する仕組みがインターネットで、情報化社会の中核です。",
             "difficulty": "basic"
           },
           {
@@ -6261,15 +6215,15 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "q12",
-            "question": "持続可能な開発の定義に含まれるのは？",
+            "question": "SDGs（持続可能な開発目標）の特徴として正しいものは？",
             "options": [
-              "短期的な利益の最大化",
-              "将来世代のニーズも満たす",
-              "経済発展のみの追求",
-              "環境保護のみの追求"
+              "先進国だけが削減目標を持つ",
+              "環境問題のみを対象としている",
+              "2050年までの達成を目指している",
+              "17の目標と169のターゲットからなる"
             ],
-            "correctIndex": 1,
-            "explanation": "将来世代のニーズを損なわないことが核心です。",
+            "correctIndex": 3,
+            "explanation": "SDGsは17の目標と169のターゲットからなり、2030年までの達成を目指す国際的な目標です。",
             "difficulty": "advanced"
           }
         ]
