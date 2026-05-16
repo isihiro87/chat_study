@@ -746,7 +746,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           {
             "id": "fc5",
             "front": "キリシタン{大名|だいみょう}",
-            "back": "南蛮貿易の利益などを目的にキリスト教を受け入れた大名は？",
+            "back": "南南蛮貿易の利益などを目的にキリスト教を受け入れた大名の総称は？",
             "explanation": "九州に多く、大村氏・大友宗麟などが代表。",
             "difficulty": "standard"
           },
@@ -760,7 +760,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           {
             "id": "fc7",
             "front": "{南蛮|なんばん}{文化|ぶんか}",
-            "back": "ヨーロッパ人との交流によって日本に伝わった文化は？",
+            "back": "16世紀後半、ポルトガル人・スペイン人との交流で日本に広まった文化は？",
             "explanation": "活版印刷術やヨーロッパ風の絵画などがある。桃山文化の一部。",
             "difficulty": "advanced"
           },
@@ -1063,9 +1063,9 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc4",
-            "front": "{室町|むろまち}{幕府|ばくふ}の{滅亡|めつぼう}",
-            "back": "1573年、信長が足利義昭を追放して幕府が滅びたことは？",
-            "explanation": "鎌倉幕府滅亡（1333年）と混同しない。",
+            "front": "{室町|むろまち}{幕府|ばくふ}",
+            "back": "1573年、信長が足利義昭を追放して滅ぼした京都の幕府は？",
+            "explanation": "信長は将軍足利義昭を京都から追放し、約240年続いた室町幕府を滅ぼした。鎌倉幕府滅亡（1333年）と混同しない。",
             "difficulty": "basic"
           },
           {
@@ -1140,9 +1140,9 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc15",
-            "front": "全国統一",
-            "back": "1590年、秀吉が北条氏をほろぼして成しとげたことは？",
-            "explanation": "信長ではなく秀吉が完成。",
+            "front": "{天下|てんか}{統一|とういつ}",
+            "back": "1590年に秀吉が北条氏を倒して達成したことを何という？",
+            "explanation": "信長が始めた事業を秀吉が完成させた。本能寺の変で信長が倒れたあと、秀吉が小田原攻めで北条氏を倒して全国を統一した。",
             "difficulty": "basic"
           },
           {
@@ -1429,8 +1429,8 @@ export const lineStudyHistoryEras: StudyEra[] = [
           {
             "id": "fc5",
             "front": "{文禄|ぶんろく}・{慶長|けいちょう}の{役|えき}",
-            "back": "秀吉が明の征服をめざして朝鮮に出兵した戦いは？",
-            "explanation": "1592年が文禄の役、1597年が慶長の役。",
+            "back": "秀吉が2度にわたり明の征服をめざして朝鮮に出兵した戦いの総称は？",
+            "explanation": "1592年が文禄の役、1597年が慶長の役。秀吉の死により1598年に撤退した。",
             "difficulty": "standard"
           },
           {
@@ -1820,16 +1820,9 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "difficulty": "basic"
           },
           {
-            "id": "fc13",
-            "front": "{南蛮|なんばん}{文化|ぶんか}",
-            "back": "ヨーロッパ人との交流によって伝わった文化は？",
-            "explanation": "活版印刷術やヨーロッパ風の絵画、カステラなどが代表例。",
-            "difficulty": "basic"
-          },
-          {
             "id": "fc14",
             "front": "カステラ",
-            "back": "南蛮貿易により伝えられ、現代も親しまれている菓子は？",
+            "back": "南蛮貿易で長崎に伝来し、現代も長崎名物として親しまれている、卵と砂糖を使った焼き菓子は？",
             "explanation": "ポルトガルから伝わり、長崎名物として今も親しまれている。",
             "difficulty": "advanced"
           },
@@ -4047,13 +4040,6 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "difficulty": "standard"
           },
           {
-            "id": "fc7",
-            "front": "ジェファソン",
-            "back": "独立宣言の主な起草者で、第3代大統領となった人物は？",
-            "explanation": "「すべての人間は平等に創られた」という言葉を書いた。",
-            "difficulty": "standard"
-          },
-          {
             "id": "fc8",
             "front": "13{植民地|しょくみんち}",
             "back": "イギリスが北アメリカ東部に建設した植民地の数は？",
@@ -4077,8 +4063,8 @@ export const lineStudyHistoryEras: StudyEra[] = [
           {
             "id": "fc11",
             "front": "パリ{条約|じょうやく}",
-            "back": "アメリカ独立戦争の講和条約は？",
-            "explanation": "1783年に締結され、イギリスがアメリカの独立を承認した。",
+            "back": "1783年に結ばれ、イギリスがアメリカの独立を承認した条約は？",
+            "explanation": "アメリカ独立戦争の講和条約。1783年に締結されイギリスが独立を承認した。",
             "difficulty": "standard"
           },
           {
@@ -4122,12 +4108,12 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "question": "アメリカ植民地の人々が掲げたスローガンは？",
             "options": [
               "自由・平等・友愛",
-              "万人は平等",
-              "王権神授説",
+              "万人は神の前で平等",
+              "王権は神から与えられる",
               "代表なくして課税なし"
             ],
             "correctIndex": 3,
-            "explanation": "代表がいないイギリス議会の課税に反対するスローガンでした。",
+            "explanation": "「代表なくして課税なし」は、自分たちの代表がいないイギリス議会の課税に反対する植民地のスローガンです。「自由・平等・友愛」はフランス革命の理念、「万人は神の前で平等」は宗教改革の主張、「王権は神から与えられる」は絶対王政を支えた王権神授説の考え方です。",
             "difficulty": "basic"
           },
           {
@@ -4194,19 +4180,6 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "correctIndex": 2,
             "explanation": "13植民地が独立しました。",
             "difficulty": "basic"
-          },
-          {
-            "id": "q8",
-            "question": "独立宣言の起草者で、第3代大統領は？",
-            "options": [
-              "ワシントン",
-              "フランクリン",
-              "ジェファソン",
-              "リンカン"
-            ],
-            "correctIndex": 2,
-            "explanation": "ジェファソンは独立宣言の主な起草者です。",
-            "difficulty": "standard"
           },
           {
             "id": "q9",
@@ -4277,13 +4250,13 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "id": "q14",
             "question": "独立宣言で謳われた基本的な権利は？",
             "options": [
-              "信教の自由・表現の自由",
+              "信教・表現・集会の自由",
               "生命・自由・幸福追求の権利",
-              "選挙権・住居の自由",
-              "教育を受ける権利"
+              "選挙・住居・職業の自由",
+              "教育・労働・社会保障の権利"
             ],
             "correctIndex": 1,
-            "explanation": "ロックの思想に基づき、生命・自由・幸福追求の権利を謳いました。",
+            "explanation": "ロックの思想に基づき、生命・自由・幸福追求の権利を謳いました。信教・集会の自由は近代以降の憲法、選挙・住居・職業の自由は別の市民権、教育・労働・社会保障は20世紀の社会権で、いずれも1776年の独立宣言の中心理念ではありません。",
             "difficulty": "standard"
           },
           {
@@ -4508,7 +4481,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "q8",
-            "question": "175年ぶりに召集された会議は？",
+            "question": "フランス革命前夜、ルイ16世が召集した聖職者・貴族・平民の代表からなる身分制議会は？",
             "options": [
               "国民議会",
               "三部会",
@@ -4516,7 +4489,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
               "制憲議会"
             ],
             "correctIndex": 1,
-            "explanation": "三部会は聖職者・貴族・平民の代表で構成される身分制議会です。",
+            "explanation": "三部会は聖職者（第一身分）・貴族（第二身分）・平民（第三身分）の代表で構成される身分制議会で、1789年に175年ぶりに召集されたことが革命のきっかけとなりました。",
             "difficulty": "standard"
           },
           {
@@ -4614,13 +4587,13 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "id": "q16",
             "question": "人権宣言に影響を与えた啓蒙思想家は？",
             "options": [
-              "ビスマルク",
-              "クロムウェル",
+              "ロック",
+              "モンテスキュー",
               "ルソー",
-              "ワシントン"
+              "ヴォルテール"
             ],
             "correctIndex": 2,
-            "explanation": "ルソーの国民主権の思想が人権宣言に影響を与えました。",
+            "explanation": "ルソーの国民主権の思想が人権宣言に最も大きな影響を与えました。ロックは抵抗権、モンテスキューは三権分立、ヴォルテールは思想・信教の自由を主張した啓蒙思想家で、いずれも近代の人権思想を形作りましたが、人権宣言の主柱となる「国民主権」を提唱したのはルソーです。",
             "difficulty": "standard"
           }
         ]
@@ -5165,7 +5138,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           {
             "id": "fc6",
             "front": "{西部|せいぶ}{開拓|かいたく}",
-            "back": "アメリカが西へ領土を広げていった動きは？",
+            "back": "19世紀のアメリカで、ミシシッピ川以西の土地を移民が開拓していった動きは？",
             "explanation": "ヨーロッパからの移民を受け入れながら太平洋岸まで拡大した。",
             "difficulty": "standard"
           },
@@ -5214,8 +5187,8 @@ export const lineStudyHistoryEras: StudyEra[] = [
           {
             "id": "fc13",
             "front": "{奴隷|どれい}{制度|せいど}の{廃止|はいし}",
-            "back": "南北戦争後にアメリカで実現した大きな変化は？",
-            "explanation": "憲法修正第13条により正式に廃止された。",
+            "back": "南北戦争後、リンカンの宣言で南部の奴隷が解放されたことを何という？",
+            "explanation": "1865年に憲法修正第13条で奴隷制度が正式に廃止された。",
             "difficulty": "standard"
           }
         ],
@@ -5595,7 +5568,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "options": [
               "鉄鋼業",
               "造船業",
-              "綿織物工業",
+              "綿織物業",
               "鉱業"
             ],
             "correctIndex": 2,
@@ -5658,10 +5631,10 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "id": "q11",
             "question": "産業革命が世界に広がった結果、欧米列強が行ったことは？",
             "options": [
-              "産業を縮小し農村社会に戻った",
-              "工業生産を抑制し関税同盟を解消した",
+              "産業を縮小して農村社会に戻った",
+              "工業生産を抑え関税同盟を解消した",
               "国内市場のみに依存する政策をとった",
-              "アジア・アフリカの植民地獲得"
+              "アジア・アフリカを植民地化していった"
             ],
             "correctIndex": 3,
             "explanation": "原料と市場を求めてアジア・アフリカを植民地化しました。",
@@ -6207,7 +6180,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "q6",
-            "question": "5か国と結んだ不平等条約の総称は？",
+            "question": "1858年に大老井伊直弼が列強と結んだ一連の不平等条約をまとめて何という？",
             "options": [
               "日米和親条約",
               "安政の五か国条約",
@@ -6215,7 +6188,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
               "日朝修好条規"
             ],
             "correctIndex": 1,
-            "explanation": "1858年に5か国と結ばれました。",
+            "explanation": "1858年に大老井伊直弼が朝廷の許可なくアメリカ・イギリス・フランス・ロシア・オランダの5か国と結んだ不平等条約をまとめて安政の五か国条約といいます。",
             "difficulty": "standard"
           },
           {
@@ -6235,10 +6208,10 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "id": "q8",
             "question": "アメリカが日本に開国を求めた理由は？",
             "options": [
-              "中国市場での貿易戦争に勝つため日本を中継基地とするだけが目的だった",
-              "日本の銀山開発の許可を求めるためだった",
-              "日本にキリスト教を布教するための拠点を求めた",
-              "太平洋を横断する捕鯨船や中国貿易船の補給港を確保するため"
+              "中国市場で貿易を独占するための中継基地を得るため",
+              "日本の銀山を開発し銀を手に入れるため",
+              "日本にキリスト教を布教する拠点を求めたため",
+              "太平洋を横断する捕鯨船や貿易船の補給港を得るため"
             ],
             "correctIndex": 3,
             "explanation": "アメリカは太平洋で活動する捕鯨船や中国貿易船の燃料・食料・水を補給する港として日本に開国を求めました。",
@@ -6687,15 +6660,15 @@ export const lineStudyHistoryEras: StudyEra[] = [
           {
             "id": "fc7",
             "front": "{西郷隆盛|さいごうたかもり}",
-            "back": "薩摩藩出身で、倒幕運動の中心となった人物は？",
-            "explanation": "戊辰戦争では新政府軍を指揮した。",
+            "back": "倒幕運動の中心となり、戊辰戦争で新政府軍を指揮した薩摩藩出身の人物は？",
+            "explanation": "倒幕運動を主導し、戊辰戦争では新政府軍を指揮した。後の西南戦争で敗死。",
             "difficulty": "standard"
           },
           {
             "id": "fc8",
             "front": "{大久保利通|おおくぼとしみち}",
-            "back": "薩摩藩出身で、明治政府の中心となった人物は？",
-            "explanation": "西郷隆盛とともに倒幕運動を進めた。",
+            "back": "初代内務卿として明治政府の中心となった薩摩藩出身の人物は？",
+            "explanation": "西郷隆盛とともに倒幕運動を進め、明治政府で殖産興業を推進した。",
             "difficulty": "standard"
           },
           {
@@ -6708,7 +6681,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           {
             "id": "fc10",
             "front": "{木戸孝允|きどたかよし}",
-            "back": "長州藩出身で、薩長同盟を結んだ人物は？",
+            "back": "桂小五郎の名でも知られ、薩長同盟の交渉を担った長州藩出身の人物は？",
             "explanation": "桂小五郎とも呼ばれ、明治政府で活躍した。",
             "difficulty": "standard"
           },
@@ -6742,9 +6715,9 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc15",
-            "front": "{江戸城|えどじょう}{無血開城|むけつかいじょう}",
-            "back": "戊辰戦争中に戦わずして江戸城を明け渡したことは？",
-            "explanation": "勝海舟と西郷隆盛の交渉で実現した。",
+            "front": "{無血|むけつ}{開城|かいじょう}",
+            "back": "戊辰戦争中、勝海舟と西郷隆盛の交渉により戦わずに江戸城が明け渡されたことを何という？",
+            "explanation": "1868年、新政府軍の総攻撃直前に勝海舟と西郷隆盛が会談し、戦闘なしで江戸城が明け渡された。",
             "difficulty": "advanced"
           },
           {
@@ -6869,7 +6842,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "q9",
-            "question": "薩摩藩出身で、明治政府の中心となった人物は？",
+            "question": "初代内務卿として明治政府の中心となった薩摩藩出身の人物は？",
             "options": [
               "木戸孝允",
               "大久保利通",
@@ -6877,7 +6850,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
               "高杉晋作"
             ],
             "correctIndex": 1,
-            "explanation": "大久保利通は明治政府の中心人物となりました。",
+            "explanation": "大久保利通は初代内務卿として殖産興業を推進し明治政府の中心となりました。木戸孝允は長州藩出身、坂本龍馬は土佐藩出身で薩長同盟を仲介、高杉晋作は長州藩で奇兵隊を組織しました。",
             "difficulty": "standard"
           },
           {
@@ -7358,8 +7331,8 @@ export const lineStudyHistoryEras: StudyEra[] = [
           {
             "id": "fc8",
             "front": "{三大|さんだい}{改革|かいかく}",
-            "back": "明治初期の学制・徴兵令・地租改正をまとめて何という？",
-            "explanation": "教育・軍隊・税金の三分野で大きな改革が行われた。",
+            "back": "明治政府が国民の生活・税・教育を近代化するために実施した3つの政策の総称は？",
+            "explanation": "学制（教育）・徴兵令（軍隊）・地租改正（税）の3つで、欧米に追いつくための近代化政策の柱となった。",
             "difficulty": "standard"
           },
           {
@@ -7839,13 +7812,13 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "id": "q10",
             "question": "文明開化で広まった新しい食文化は？",
             "options": [
-              "天ぷら",
-              "寿司",
+              "あんパン",
+              "カレーライス",
               "牛鍋",
-              "うなぎ"
+              "コロッケ"
             ],
             "correctIndex": 2,
-            "explanation": "牛肉を食べる習慣が広まりました。",
+            "explanation": "牛肉を食べる習慣が文明開化期に広まり、牛鍋が大流行しました。あんパン・カレーライス・コロッケも明治以降に広まった食文化ですが、文明開化期（明治初期）にまず普及したのは牛鍋です。",
             "difficulty": "standard"
           },
           {
@@ -8070,7 +8043,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "q3",
-            "question": "1876年に朝鮮と結んだ不平等条約は？",
+            "question": "江華島事件をきっかけに1876年に結ばれた、朝鮮にとって不平等な条約は？",
             "options": [
               "日朝修好条規",
               "日米和親条約",
@@ -8078,7 +8051,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
               "下関条約"
             ],
             "correctIndex": 0,
-            "explanation": "日朝修好条規は江華島事件をきっかけに結ばれました。",
+            "explanation": "日朝修好条規は1875年の江華島事件をきっかけに翌1876年に結ばれた、朝鮮にとって不平等な条約です。",
             "difficulty": "basic"
           },
           {
@@ -8448,13 +8421,13 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "id": "q8",
             "question": "西南戦争で政府軍が勝利できた理由は？",
             "options": [
-              "イギリスが支援",
-              "平民中心の近代軍",
-              "西郷が降伏",
-              "外国の最新兵器"
+              "イギリスが軍事支援を行った",
+              "徴兵による平民中心の近代軍だった",
+              "武士の士気が高く一致団結していた",
+              "外国から最新兵器を輸入していた"
             ],
             "correctIndex": 1,
-            "explanation": "徴兵令による近代的軍隊が士族の反乱に勝利しました。",
+            "explanation": "徴兵令により集めた平民中心の近代軍が、士族の反乱に勝利しました。イギリスの軍事支援はなく、武士の士気は反乱側の特徴、最新兵器の輸入も主な勝因ではありません。",
             "difficulty": "standard"
           },
           {
@@ -9224,8 +9197,8 @@ export const lineStudyHistoryEras: StudyEra[] = [
           {
             "id": "fc5",
             "front": "{賠償金|ばいしょうきん}",
-            "back": "下関条約で清が日本に支払った2億両は？",
-            "explanation": "八幡製鉄所の建設費などに使われた。",
+            "back": "下関条約で清が日本に支払うこととなった戦争の損害補償金は？",
+            "explanation": "約2億両（当時の日本歳入の約3年分）の賠償金で、八幡製鉄所の建設費などに使われた。",
             "difficulty": "standard"
           },
           {
@@ -9736,7 +9709,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "q11",
-            "question": "ポーツマス条約で日本が獲得した朝鮮支配の権利は？",
+            "question": "ポーツマス条約で日本がロシアから認められた、朝鮮半島での独占的な指導権は？",
             "options": [
               "関税自主権",
               "韓国の優越権",
@@ -9744,7 +9717,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
               "最恵国待遇"
             ],
             "correctIndex": 1,
-            "explanation": "韓国の優越権が後の韓国併合の道を開きました。",
+            "explanation": "ポーツマス条約で日本はロシアから朝鮮半島での独占的な指導権（韓国の優越権）を認められ、これが後の韓国併合の道を開きました。関税自主権・領事裁判権・最恵国待遇はいずれも幕末の不平等条約に関する用語です。",
             "difficulty": "standard"
           },
           {
