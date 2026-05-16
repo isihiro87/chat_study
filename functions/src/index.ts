@@ -10,6 +10,7 @@ export {
 export { onAnswerCreated } from "./onAnswerCreated";
 export { onPremiumApplicationCreated } from "./onPremiumApplicationCreated";
 export { syncRichMenuToPlan } from "./syncRichMenuToPlan";
+export { expireTrialUsers } from "./expireTrialUsers";
 
 const LINE_LOGIN_CHANNEL_ID = process.env.LINE_LOGIN_CHANNEL_ID || "";
 const LINE_LOGIN_CHANNEL_SECRET = process.env.LINE_LOGIN_CHANNEL_SECRET || "";

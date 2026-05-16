@@ -1,5 +1,11 @@
 import * as functions from "firebase-functions/v1";
 
+import {
+  LineRichMenuApiError,
+  LineRichMenuConfigError,
+  linkRichMenuForUser,
+} from "./lineRichMenu";
+
 const ADMIN_EMAIL = "ishimotty.gst@gmail.com";
 const VALID_PLANS = ["free", "premium"] as const;
 type Plan = (typeof VALID_PLANS)[number];
@@ -64,46 +70,25 @@ export const syncRichMenuToPlan = functions
       premiumUntil = parsed;
     }
 
-    // 3. 環境変数の取得
-    const token = process.env.LINE_MESSAGING_CHANNEL_ACCESS_TOKEN || "";
-    const freeId = process.env.LINE_RICHMENU_FREE_ID || "";
-    const premiumId = process.env.LINE_RICHMENU_PREMIUM_ID || "";
-    if (!token) {
-      throw new functions.https.HttpsError(
-        "failed-precondition",
-        "LINE_MESSAGING_CHANNEL_ACCESS_TOKEN が設定されていません。"
-      );
-    }
-    if (!freeId || !premiumId) {
-      throw new functions.https.HttpsError(
-        "failed-precondition",
-        "LINE_RICHMENU_FREE_ID / LINE_RICHMENU_PREMIUM_ID が設定されていません。"
-      );
-    }
-
-    const richMenuId = validPlan === "premium" ? premiumId : freeId;
-
-    // 4. LINE API でリッチメニューをリンク
-    const lineRes = await fetch(
-      `https://api.line.me/v2/bot/user/${lineUserId}/richmenu/${richMenuId}`,
-      {
-        method: "POST",
-        headers: { Authorization: `Bearer ${token}` },
+    // 3. LINE API でリッチメニューをリンク（lineRichMenu.ts に共通化）
+    let richMenuId: string;
+    try {
+      const result = await linkRichMenuForUser(lineUserId, validPlan);
+      richMenuId = result.richMenuId;
+    } catch (error) {
+      if (error instanceof LineRichMenuConfigError) {
+        throw new functions.https.HttpsError("failed-precondition", error.message);
       }
-    );
-    if (!lineRes.ok) {
-      const body = await lineRes.text();
-      const requestId = lineRes.headers.get("x-line-request-id") ?? "(no request-id)";
-      console.error(
-        `[syncRichMenuToPlan] LINE API failed: ${lineRes.status} requestId=${requestId} body=${body}`
-      );
-      throw new functions.https.HttpsError(
-        "internal",
-        `LINE API エラー (status=${lineRes.status}): ${body}`
-      );
+      if (error instanceof LineRichMenuApiError) {
+        console.error(
+          `[syncRichMenuToPlan] LINE API failed: ${error.status} requestId=${error.requestId} body=${error.body}`,
+        );
+        throw new functions.https.HttpsError("internal", error.message);
+      }
+      throw error;
     }
 
-    // 5. Firestore に状態を反映（admin SDK は rules バイパス）
+    // 4. Firestore に状態を反映（admin SDK は rules バイパス）
     const linkedAtIso = new Date().toISOString();
     try {
       const { initializeApp, getApps } = await import("firebase-admin/app");

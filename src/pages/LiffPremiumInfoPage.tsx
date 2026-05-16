@@ -1,7 +1,13 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { usePremiumPromoCountdown } from '../hooks/usePremiumPromoCountdown';
+import { logFunnelEvent } from '../utils/funnelEvent';
+import { useAuth } from '../contexts/AuthContext';
 
 const CONTACT_URL = 'https://www.chatstudy.jp/contact';
 const APPLY_PATH = '/liff/premium-apply';
+const PARENTS_LP_URL = 'https://www.chatstudy.jp/for-parents';
+const PROMO_PRICE_YEN = 680;
+const REGULAR_PRICE_YEN = 1280;
 
 interface ComparisonRow {
   feature: string;
@@ -66,18 +72,18 @@ const STEPS: Step[] = [
   },
   {
     num: 2,
-    title: '担当者からLINEで連絡',
-    body: '24時間以内に公式LINEで折り返します。具体的な金額・期間をご案内します',
+    title: '7日間 無料トライアル開始',
+    body: '送信後すぐに「追加で解く」「苦手を復習」が使えるようになります（自動で開放）',
   },
   {
     num: 3,
-    title: '案内に従って支払い',
-    body: 'ご希望の方法（銀行振込／クレジットカード等）でお支払いいただきます',
+    title: '担当者からLINEで案内',
+    body: 'トライアル期間中に、担当者から具体的な金額・期間・支払い方法をご案内します',
   },
   {
     num: 4,
-    title: 'リッチメニューが切り替わる',
-    body: '確認後、メニューが6ボタンに切り替わり、追加で解く・苦手復習が使えるようになります',
+    title: '本契約 or トライアル終了',
+    body: '気に入っていただけたら本契約。合わなかった場合は7日後に自動で無料プランに戻ります',
   },
 ];
 
@@ -89,7 +95,7 @@ interface QA {
 const FAQ: QA[] = [
   {
     q: '料金はいくらですか？',
-    a: '現在準備中のため、お問い合わせ時に個別にご案内しています。月額／3ヶ月／半年などの期間からお選びいただけます。',
+    a: `特典期間中は月 ${PROMO_PRICE_YEN.toLocaleString()}円。通常価格は月 ${REGULAR_PRICE_YEN.toLocaleString()}円の予定です。今登録いただいた方は、将来通常価格に値上げ後も月 ${PROMO_PRICE_YEN.toLocaleString()}円のまま継続いただけます。`,
   },
   {
     q: '解約はいつでもできますか？',
@@ -97,22 +103,33 @@ const FAQ: QA[] = [
   },
   {
     q: 'もし子どもに合わなかったら？',
-    a: 'お試し利用後、合わないと感じた場合は遠慮なくお知らせください。初回はリスクが少ないよう短期間からご案内することもできます。',
+    a: '7日間の無料トライアル中であれば、追加のお支払いは発生しません。何もしなければ自動で無料プランに戻ります。',
   },
   {
     q: '兄弟・家族で使えますか？',
     a: '公式LINEは1ユーザー単位の契約となるため、お子さま1人につき1アカウントでのご利用をお願いしています。複数人ご希望の場合は申込フォームの「ご質問・ご要望」欄にご記入ください。',
   },
+  {
+    q: '領収書／請求書は発行できますか？',
+    a: '可能です。お問い合わせフォーム、または公式LINE「設定・サポート」から、宛名と必要事項をお知らせください。',
+  },
+  {
+    q: '子どもがどれだけ進めているか親が確認できますか？',
+    a: '公式LINEのリッチメニュー「成績・記録」から、連続学習日数・解いた問題数・正答率がいつでも確認できます。お子さまの LINE 画面を一緒に見ていただく形になります。',
+  },
+  {
+    q: '解約後に再開できますか？',
+    a: 'はい、いつでも再開可能です。再申込のタイミングでも特典期間中であれば月680円が継続します。',
+  },
 ];
 
-/**
- * 公式LINE のリッチメニュー無料版「もっと解く」postback から
- * flex の「詳細を見る」ボタン経由で開かれる、プレミアム誘導ランディング。
- *
- * 認証は不要（誰でも見られる）。プレミアム特典の比較・申込までの流れ・FAQ を
- * 提示し、興味を持ったユーザーを LIFF 申込フォーム (/liff/premium-apply) へ誘導する。
- */
 export function LiffPremiumInfoPage() {
+  const promo = usePremiumPromoCountdown();
+  const { user } = useAuth();
+  const [shareSucceeded, setShareSucceeded] = useState(false);
+  const [copySucceeded, setCopySucceeded] = useState(false);
+  const [shareAvailable, setShareAvailable] = useState(false);
+
   useEffect(() => {
     let cancelled = false;
     (async () => {
@@ -124,6 +141,11 @@ export function LiffPremiumInfoPage() {
         const liff = (await import('@line/liff')).default;
         if (cancelled) return;
         await liff.init({ liffId });
+        if (cancelled) return;
+        const available =
+          typeof liff.isApiAvailable === 'function' &&
+          liff.isApiAvailable('shareTargetPicker');
+        setShareAvailable(available);
       } catch (err) {
         console.warn('[LiffPremiumInfoPage] liff.init failed', err);
       }
@@ -132,6 +154,37 @@ export function LiffPremiumInfoPage() {
       cancelled = true;
     };
   }, []);
+
+  // 計測: ユーザー認証が確立したタイミングで一度だけ閲覧イベントを記録する
+  useEffect(() => {
+    if (!user) return;
+    void logFunnelEvent('liff_premium_info_view');
+  }, [user]);
+
+  const handleShare = async () => {
+    try {
+      const liff = (await import('@line/liff')).default;
+      const message =
+        `📚 チャットでスタディ プレミアムのご案内です\n\n` +
+        `中学生の毎日の学習を、公式LINEで1問ずつコツコツ続けるサービスです。` +
+        `7日間の無料トライアルあり。\n\n` +
+        `▼保護者向けの詳細はこちら\n${PARENTS_LP_URL}`;
+      await liff.shareTargetPicker([{ type: 'text', text: message }]);
+      setShareSucceeded(true);
+    } catch (err) {
+      console.warn('[LiffPremiumInfoPage] shareTargetPicker failed', err);
+    }
+  };
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(PARENTS_LP_URL);
+      setCopySucceeded(true);
+      window.setTimeout(() => setCopySucceeded(false), 2500);
+    } catch (err) {
+      console.warn('[LiffPremiumInfoPage] copy failed', err);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-[#FAF9F7] pb-12">
@@ -150,6 +203,88 @@ export function LiffPremiumInfoPage() {
       </header>
 
       <main className="max-w-2xl mx-auto px-4">
+        {/* 価格バナー */}
+        <section className="mt-4 bg-white rounded-2xl shadow-sm overflow-hidden">
+          {promo.isActive ? (
+            <div className="bg-gradient-to-r from-amber-50 to-white px-5 py-4">
+              <div className="flex items-baseline gap-2">
+                <span
+                  className="text-3xl font-bold text-amber-600"
+                  style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+                >
+                  ¥{PROMO_PRICE_YEN.toLocaleString()}
+                </span>
+                <span className="text-xs text-gray-600">/月（税込）</span>
+                <span className="ml-2 text-xs text-gray-400 line-through">
+                  通常 ¥{REGULAR_PRICE_YEN.toLocaleString()}/月
+                </span>
+              </div>
+              <p
+                className="text-xs font-bold text-amber-700 mt-1.5"
+                style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+              >
+                ⏰ 特典終了まで残り{promo.daysRemaining}日
+                {promo.daysRemaining === 0 && promo.hoursRemaining > 0
+                  ? `${promo.hoursRemaining}時間`
+                  : ''}
+              </p>
+              <p className="text-xs text-gray-600 mt-1 leading-relaxed">
+                今登録いただいた方は、将来通常価格 ¥
+                {REGULAR_PRICE_YEN.toLocaleString()} に値上げ後も
+                <br />
+                <span className="font-bold text-amber-700">
+                  ずっと月¥{PROMO_PRICE_YEN.toLocaleString()}
+                </span>
+                のまま継続いただけます。
+              </p>
+            </div>
+          ) : promo.isExpired ? (
+            <div className="px-5 py-4">
+              <div className="flex items-baseline gap-2">
+                <span
+                  className="text-3xl font-bold text-gray-800"
+                  style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+                >
+                  ¥{REGULAR_PRICE_YEN.toLocaleString()}
+                </span>
+                <span className="text-xs text-gray-600">/月（税込）</span>
+              </div>
+              <p className="text-xs text-gray-500 mt-2 leading-relaxed">
+                ※ 早期登録の特典期間は終了しました
+              </p>
+            </div>
+          ) : (
+            <div className="px-5 py-4">
+              <div className="flex items-baseline gap-2">
+                <span
+                  className="text-3xl font-bold text-gray-800"
+                  style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+                >
+                  ¥{REGULAR_PRICE_YEN.toLocaleString()}
+                </span>
+                <span className="text-xs text-gray-600">/月（税込）</span>
+              </div>
+            </div>
+          )}
+        </section>
+
+        {/* 永続特典説明カード */}
+        {promo.isActive && (
+          <section className="mt-3 bg-amber-50 border border-amber-200 rounded-2xl px-4 py-3">
+            <p
+              className="text-sm font-bold text-amber-800 leading-relaxed"
+              style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+            >
+              💡 アーリーアダプター特典
+            </p>
+            <p className="text-xs text-amber-800 mt-1 leading-relaxed">
+              特典期間に登録すれば、対応教科が増えて通常価格 ¥
+              {REGULAR_PRICE_YEN.toLocaleString()}/月になっても、月 ¥
+              {PROMO_PRICE_YEN.toLocaleString()} のまま継続いただけます。
+            </p>
+          </section>
+        )}
+
         {/* 比較表 */}
         <section className="mt-4 bg-white rounded-2xl shadow-sm p-5">
           <h2
@@ -230,6 +365,46 @@ export function LiffPremiumInfoPage() {
           </ol>
         </section>
 
+        {/* 保護者へ共有 */}
+        <section className="mt-4 bg-white rounded-2xl shadow-sm p-5">
+          <h2
+            className="text-sm font-bold text-gray-700 mb-2"
+            style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+          >
+            📱 保護者にこのページを共有
+          </h2>
+          <p className="text-xs text-gray-600 leading-relaxed mb-3">
+            申込の前に保護者の方とご相談ください。
+            <br />
+            保護者向けの詳しい説明ページを LINE で送れます。
+          </p>
+          <div className="flex flex-col gap-2">
+            {shareAvailable && (
+              <button
+                type="button"
+                onClick={() => void handleShare()}
+                className="w-full bg-amber-500 hover:bg-amber-600 active:scale-[0.98] transition rounded-full py-2.5 text-sm font-bold text-white"
+                style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+              >
+                LINE で保護者に送る
+              </button>
+            )}
+            <button
+              type="button"
+              onClick={() => void handleCopy()}
+              className="w-full bg-white border border-amber-300 text-amber-700 hover:bg-amber-50 active:scale-[0.98] transition rounded-full py-2.5 text-sm font-bold"
+              style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+            >
+              {copySucceeded ? 'コピーしました ✓' : '保護者向けページの URL をコピー'}
+            </button>
+          </div>
+          {shareSucceeded && (
+            <p className="text-xs text-amber-700 mt-2 text-center">
+              送信しました ✓
+            </p>
+          )}
+        </section>
+
         {/* FAQ */}
         <section className="mt-4">
           <h2
@@ -263,7 +438,7 @@ export function LiffPremiumInfoPage() {
           <p className="text-sm text-gray-700 text-center leading-relaxed">
             申込みは LINE 内で完結します
             <br />
-            まずはフォームから連絡可能な時間をお知らせください
+            送信すると <span className="font-bold text-amber-700">7日間の無料トライアル</span> が始まります
           </p>
           <a
             href={APPLY_PATH}
@@ -273,7 +448,7 @@ export function LiffPremiumInfoPage() {
             申込フォームを開く
           </a>
           <p className="text-xs text-gray-400 text-center mt-3 leading-relaxed">
-            送信後、24時間以内に担当者からLINEでご連絡します
+            送信後すぐにトライアル開始 / 担当者から LINE で案内します
           </p>
         </section>
 

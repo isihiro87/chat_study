@@ -471,7 +471,7 @@ async function handlePostback(event: LineEvent): Promise<void> {
   }
 
   if (type === "premium_info") {
-    await handlePremiumInfoPostback(replyToken);
+    await handlePremiumInfoPostback(replyToken, uid);
     return;
   }
 
@@ -496,6 +496,15 @@ async function handleStreakPostback(
   if (!replyToken) return;
   const { db } = await getDb();
 
+  // ユーザーの plan を取って flex に渡し、free 用 CTA の出し分けに使う
+  let plan: UserPlan = "free";
+  try {
+    const userSnap = await db.doc(`users/${uid}`).get();
+    plan = getUserPlan(userSnap.data());
+  } catch (error) {
+    console.warn("[lineWebhook] handleStreak user fetch failed (treat as free):", error);
+  }
+
   // 直近500件の回答履歴から streak を計算（typically 1問/日 ペースなので500件 ≒ 1.5年分）
   let answers: FirebaseFirestore.QueryDocumentSnapshot[] = [];
   try {
@@ -513,7 +522,7 @@ async function handleStreakPostback(
   }
 
   const stats = computeStreakStats(answers);
-  const flex = buildStreakFlexMessage(stats);
+  const flex = buildStreakFlexMessage(stats, plan);
   try {
     const client = await getLineClient();
     await client.replyMessage({ replyToken, messages: [flex] });
@@ -575,9 +584,11 @@ async function handleReportSummaryPostback(
     streakLongest: number;
     lastStudyDate: string;
   } | null = null;
+  let plan: UserPlan = "free";
   try {
     const userSnap = await db.doc(`users/${uid}`).get();
     const data = userSnap.exists ? userSnap.data() ?? {} : {};
+    plan = getUserPlan(data);
     const s = (data.stats as Record<string, unknown> | undefined) ?? null;
     if (s && typeof s.totalAnswered === "number") {
       const streak = (s.streak as Record<string, unknown> | undefined) ?? {};
@@ -594,7 +605,7 @@ async function handleReportSummaryPostback(
     console.error("[lineWebhook] handleReportSummary fetch failed:", error);
   }
 
-  const flex = buildReportSummaryFlexMessage(stats);
+  const flex = buildReportSummaryFlexMessage(stats, plan);
   try {
     const client = await getLineClient();
     await client.replyMessage({ replyToken, messages: [flex] });
@@ -604,9 +615,21 @@ async function handleReportSummaryPostback(
 }
 
 async function handlePremiumInfoPostback(
-  replyToken: string | undefined
+  replyToken: string | undefined,
+  uid: string
 ): Promise<void> {
   if (!replyToken) return;
+  // 計測: 無料リッチメニュー「もっと解く」タップとして記録（fire-and-forget）
+  if (uid) {
+    void (async () => {
+      try {
+        const { logServerFunnelEvent } = await import("./funnelEvent");
+        await logServerFunnelEvent("richmenu_premium_info_tap", uid);
+      } catch (error) {
+        console.warn("[lineWebhook] funnel event log failed:", error);
+      }
+    })();
+  }
   const flex = buildPremiumInfoFlexMessage();
   try {
     const client = await getLineClient();
@@ -872,12 +895,23 @@ function buildHelpFlexMessage() {
       footer: {
         type: "box" as const,
         layout: "vertical" as const,
+        spacing: "sm" as const,
         paddingAll: "16px",
         contents: [
           {
             type: "button" as const,
             style: "primary" as const,
             color: "#F59E0B",
+            height: "sm" as const,
+            action: {
+              type: "uri" as const,
+              label: "✨ プレミアム申込フォームを開く",
+              uri: LIFF_PREMIUM_APPLY_URL,
+            },
+          },
+          {
+            type: "button" as const,
+            style: "secondary" as const,
             height: "sm" as const,
             action: {
               type: "uri" as const,
@@ -891,7 +925,7 @@ function buildHelpFlexMessage() {
   };
 }
 
-function buildStreakFlexMessage(stats: StreakStats) {
+function buildStreakFlexMessage(stats: StreakStats, plan: UserPlan = "premium") {
   const subText = stats.answeredToday
     ? "今日も継続中。"
     : stats.streakDays > 0
@@ -998,6 +1032,21 @@ function buildStreakFlexMessage(stats: StreakStats) {
         spacing: "sm" as const,
         paddingAll: "16px",
         contents: [
+          ...(plan === "free"
+            ? [
+                {
+                  type: "button" as const,
+                  style: "primary" as const,
+                  color: "#F59E0B",
+                  height: "sm" as const,
+                  action: {
+                    type: "uri" as const,
+                    label: "✨ プレミアムでもっと伸ばす",
+                    uri: LIFF_PREMIUM_INFO_URL,
+                  },
+                },
+              ]
+            : []),
           {
             type: "button" as const,
             style: "secondary" as const,
@@ -1256,7 +1305,8 @@ function buildReportSummaryFlexMessage(
     streakCurrent: number;
     streakLongest: number;
     lastStudyDate: string;
-  } | null
+  } | null,
+  plan: UserPlan = "premium"
 ) {
   const accuracy =
     stats && stats.totalAnswered > 0
@@ -1392,6 +1442,20 @@ function buildReportSummaryFlexMessage(
               uri: LIFF_REPORT_URL,
             },
           },
+          ...(plan === "free"
+            ? [
+                {
+                  type: "button" as const,
+                  style: "secondary" as const,
+                  height: "sm" as const,
+                  action: {
+                    type: "uri" as const,
+                    label: "✨ プレミアムを試す",
+                    uri: LIFF_PREMIUM_INFO_URL,
+                  },
+                },
+              ]
+            : []),
         ],
       },
     },
@@ -1555,6 +1619,248 @@ const NUDGE_COPY: Record<PremiumNudgeReason, NudgeCopy> = {
       "選んだ時間に問題が届きます。「もっと解きたい」「苦手から復習したい」と思ったら、プレミアムで広げられます。",
   },
 };
+
+/**
+ * 申込フォーム送信後、即座に 7日間の trial を開放したことをユーザーに伝える flex。
+ * onPremiumApplicationCreated から push される。
+ */
+export function buildTrialStartedFlexMessage() {
+  return {
+    type: "flex" as const,
+    altText: "7日間 trial を開始しました - チャットでスタディ",
+    contents: {
+      type: "bubble" as const,
+      size: "kilo" as const,
+      header: {
+        type: "box" as const,
+        layout: "vertical" as const,
+        backgroundColor: "#F59E0B",
+        paddingAll: "14px",
+        contents: [
+          {
+            type: "text" as const,
+            text: "✨ 7日間 trial 開始！",
+            color: "#FFFFFF",
+            weight: "bold" as const,
+            size: "md" as const,
+          },
+        ],
+      },
+      body: {
+        type: "box" as const,
+        layout: "vertical" as const,
+        paddingAll: "16px",
+        spacing: "sm" as const,
+        contents: [
+          {
+            type: "text" as const,
+            text: "リッチメニューがプレミアム版に切り替わりました。",
+            wrap: true,
+            size: "sm" as const,
+            color: "#111827",
+            weight: "bold" as const,
+          },
+          {
+            type: "text" as const,
+            text: "「追加で解く」「苦手を復習」「じっくり学ぶ」が無制限で使えます。",
+            wrap: true,
+            size: "xs" as const,
+            color: "#374151",
+            margin: "sm" as const,
+          },
+          {
+            type: "text" as const,
+            text: "7日以内に本契約いただくと、特典期間中ずっと月680円のまま継続できます。",
+            wrap: true,
+            size: "xs" as const,
+            color: "#6B7280",
+            margin: "sm" as const,
+          },
+        ],
+      },
+      footer: {
+        type: "box" as const,
+        layout: "vertical" as const,
+        spacing: "sm" as const,
+        paddingAll: "16px",
+        contents: [
+          {
+            type: "button" as const,
+            style: "primary" as const,
+            color: "#F59E0B",
+            height: "sm" as const,
+            action: {
+              type: "uri" as const,
+              label: "本契約を申し込む",
+              uri: LIFF_PREMIUM_APPLY_URL,
+            },
+          },
+          {
+            type: "button" as const,
+            style: "secondary" as const,
+            height: "sm" as const,
+            action: {
+              type: "uri" as const,
+              label: "使い方を見る",
+              uri: LIFF_HELP_URL,
+            },
+          },
+        ],
+      },
+    },
+  };
+}
+
+/**
+ * trial 残り N 日のリマインダー flex。
+ * expireTrialUsers から push される。
+ */
+export function buildTrialReminderFlexMessage(daysLeft: number) {
+  const headline =
+    daysLeft <= 1
+      ? "⏰ trial 残り 1 日です"
+      : `⏰ trial 残り ${daysLeft} 日`;
+  const leadText =
+    daysLeft <= 1
+      ? "明日 trial が終了します。気に入っていただけたら、今のうちに本契約すれば永続680円が確定します。"
+      : `あと ${daysLeft} 日で trial が終了します。気に入っていただけたら、今のうちに本契約すれば永続680円が確定します。`;
+  return {
+    type: "flex" as const,
+    altText: `${headline} - チャットでスタディ`,
+    contents: {
+      type: "bubble" as const,
+      size: "kilo" as const,
+      header: {
+        type: "box" as const,
+        layout: "vertical" as const,
+        backgroundColor: "#F59E0B",
+        paddingAll: "14px",
+        contents: [
+          {
+            type: "text" as const,
+            text: headline,
+            color: "#FFFFFF",
+            weight: "bold" as const,
+            size: "md" as const,
+            wrap: true,
+          },
+        ],
+      },
+      body: {
+        type: "box" as const,
+        layout: "vertical" as const,
+        paddingAll: "16px",
+        contents: [
+          {
+            type: "text" as const,
+            text: leadText,
+            wrap: true,
+            size: "sm" as const,
+            color: "#374151",
+          },
+        ],
+      },
+      footer: {
+        type: "box" as const,
+        layout: "vertical" as const,
+        paddingAll: "16px",
+        contents: [
+          {
+            type: "button" as const,
+            style: "primary" as const,
+            color: "#F59E0B",
+            height: "sm" as const,
+            action: {
+              type: "uri" as const,
+              label: "本契約を申し込む",
+              uri: LIFF_PREMIUM_APPLY_URL,
+            },
+          },
+        ],
+      },
+    },
+  };
+}
+
+/**
+ * trial 期限切れで free に戻したことを通知する flex。
+ * expireTrialUsers から push される。
+ */
+export function buildTrialExpiredFlexMessage() {
+  return {
+    type: "flex" as const,
+    altText: "trial が終了しました - チャットでスタディ",
+    contents: {
+      type: "bubble" as const,
+      size: "kilo" as const,
+      header: {
+        type: "box" as const,
+        layout: "vertical" as const,
+        backgroundColor: "#F59E0B",
+        paddingAll: "14px",
+        contents: [
+          {
+            type: "text" as const,
+            text: "trial 終了しました",
+            color: "#FFFFFF",
+            weight: "bold" as const,
+            size: "md" as const,
+          },
+        ],
+      },
+      body: {
+        type: "box" as const,
+        layout: "vertical" as const,
+        paddingAll: "16px",
+        spacing: "sm" as const,
+        contents: [
+          {
+            type: "text" as const,
+            text: "7日間 trial をご利用いただきありがとうございました。",
+            wrap: true,
+            size: "sm" as const,
+            color: "#111827",
+            weight: "bold" as const,
+          },
+          {
+            type: "text" as const,
+            text: "リッチメニューは無料版に戻りましたが、毎日1問は引き続きお届けします。",
+            wrap: true,
+            size: "xs" as const,
+            color: "#374151",
+            margin: "sm" as const,
+          },
+          {
+            type: "text" as const,
+            text: "今申込めば、永続 月680円が確定します（特典期間中のみ）。",
+            wrap: true,
+            size: "xs" as const,
+            color: "#6B7280",
+            margin: "sm" as const,
+          },
+        ],
+      },
+      footer: {
+        type: "box" as const,
+        layout: "vertical" as const,
+        paddingAll: "16px",
+        contents: [
+          {
+            type: "button" as const,
+            style: "primary" as const,
+            color: "#F59E0B",
+            height: "sm" as const,
+            action: {
+              type: "uri" as const,
+              label: "本契約を申し込む",
+              uri: LIFF_PREMIUM_APPLY_URL,
+            },
+          },
+        ],
+      },
+    },
+  };
+}
 
 export function buildPremiumNudgeFlexMessage(reason: PremiumNudgeReason) {
   const copy = NUDGE_COPY[reason];
@@ -2261,7 +2567,29 @@ export async function selectAndSendQuestion(
       const text = isInitialSetup
         ? `設定を更新したよ。次の問題は明日の${hourLabel}にお届けするね`
         : getAlreadyDeliveredText(hourLabel);
-      await replyText(replyToken, text, "(already delivered today)");
+      // 無料ユーザーが「もう1問」と思って踏んだ最も顕在化したリードなので、
+      // free 判定のときだけプレミアム誘導 flex を続けて送る。
+      // 初回セットアップ直後（isInitialSetup）はオンボーディング体験を優先して flex は送らない。
+      const plan = getUserPlan(userData);
+      if (!isInitialSetup && plan === "free") {
+        try {
+          const client = await getLineClient();
+          await client.replyMessage({
+            replyToken,
+            messages: [
+              { type: "text" as const, text },
+              buildPremiumNudgeFlexMessage("extra_question"),
+            ],
+          });
+        } catch (error) {
+          console.error(
+            "[lineWebhook] selectAndSendQuestion already-delivered+nudge reply failed:",
+            error
+          );
+        }
+      } else {
+        await replyText(replyToken, text, "(already delivered today)");
+      }
     } else {
       console.log(
         `[lineWebhook] selectAndSendQuestion skipped (already delivered today): ${uid}`

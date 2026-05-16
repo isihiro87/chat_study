@@ -289,9 +289,19 @@ npx tsx scripts/manage-line-richmenu.ts unlink  U0123456789abcdef0123456789abcde
 
 ユーザーが LIFF `/liff/premium-apply` から送信した申込は Firestore
 `premiumApplications` collection に `status="pending"` で保存され、
-`onPremiumApplicationCreated` トリガーが管理者 (`ADMIN_LINE_USER_IDS` env で指定)
-の LINE に push 通知を投げる。通知本文には `sync-plan` の雛形コマンドが含まれる
-ので、本人確認後にコピペで開通できる。
+`onPremiumApplicationCreated` トリガーが以下を実行する:
+
+1. **7日間 trial を自動開放**（受付即時）
+   - `users/{uid}` の `plan="premium"`, `premiumUntil=申込時+7日`, `planSource="trial"`,
+     `trialStartedAt=now`, `richMenuType="premium"` を書き込み
+   - LINE API でリッチメニューをプレミアム用に即時 link
+   - ユーザーに「trial 開始」flex を push
+   - **既に有料契約済み（`planSource !== "trial"` で `plan==="premium"`）の場合は trial を再開放しない**
+2. 管理者 (`ADMIN_LINE_USER_IDS` env で指定) の LINE に push 通知
+   - trial 自動開放の結果（成功 / 既プレミアム / 失敗）を反映した文面
+   - 失敗時は手動 `sync-plan` のコマンドが含まれる
+
+trial 期間中の本契約化、もしくは 7日経過後の自動失効（`expireTrialUsers` Function）は §6-6 / §6-7 を参照。
 
 #### 6-4-1. 申込内容の確認
 
@@ -308,16 +318,20 @@ gcloud firestore documents list \
 
 > 前提: `gcloud auth application-default login` 済み
 
-#### 6-4-2. 開通（sync-plan 実行）
+#### 6-4-2. trial 期間中の本契約化（sync-plan 実行）
 
-管理者の LINE に届いた push 通知の `npx tsx ...` 行をそのままコピペして実行:
+trial は自動開放されているので、追加対応は **本契約化のときだけ**:
 
 ```bash
+# trial 期間内に本契約 → premium 期限を伸ばす（planSource は明示変更しないので "trial" のまま残る点に注意）
+# 本契約化に合わせて planSource="paid" にしたい場合は Firestore Console で手動更新する
 npx tsx scripts/manage-line-richmenu.ts sync-plan \
   U0123456789abcdef0123456789abcdef \
   premium \
   --until 2026-08-09T00:00:00+09:00
 ```
+
+trial 自動開放が失敗した場合（管理者通知に `❌ trial 自動開放に失敗しました` が含まれる）、上記コマンドで手動 link する。
 
 #### 6-4-3. ステータスを `approved` / `rejected` / `cancelled` に更新
 
@@ -352,6 +366,43 @@ gcloud firestore documents update \
 ### 6-5. Function を直接叩きたい場合（プログラマティック呼び出し）
 
 将来 Stripe webhook 等から自動切替する場合は、`syncRichMenuToPlan` HTTPS Callable に Admin SDK で Firebase Auth カスタムトークンを発行 → Web SDK で sign-in → ID token を Bearer に付けて HTTPS POST する流れになる。本ドキュメント執筆時点では未使用のためサンプルコードは別ステアリングで実装する。
+
+### 6-6. trial 自動失効（`expireTrialUsers` Function）
+
+Cloud Scheduler が毎日 **03:00 JST** に `expireTrialUsers` を起動する。
+
+処理対象は `users.where(planSource == "trial").where(plan == "premium")`:
+
+| 残り日数 | アクション |
+|---------|-----------|
+| `<= 0` 日 | リッチメニューを free に戻す + `plan="free"`, `planSource="trial_expired"`, `trialExpiredAt=now` を書き込み + 「trial 終了」flex を push |
+| `1〜2` 日 | リマインダー flex を push（「trial 残り N 日」）。直近 24h 以内にリマインダー送信済みならスキップ（`lastTrialReminderAt` で gate） |
+| `> 2` 日 | スキップ |
+
+冪等性: `planSource` が `trial_expired` に変わると次回以降のクエリから外れる。
+
+### 6-7. trial を手動で延長・終了させる
+
+trial 中ユーザーの期限を延長したい場合は通常の `sync-plan` で `--until` を上書き:
+
+```bash
+npx tsx scripts/manage-line-richmenu.ts sync-plan \
+  U0123456789abcdef0123456789abcdef \
+  premium \
+  --until 2026-09-01T00:00:00+09:00
+```
+
+trial 中に強制的に free に戻したい場合（例: 申込内容に不審点があった等）:
+
+```bash
+npx tsx scripts/manage-line-richmenu.ts sync-plan \
+  U0123456789abcdef0123456789abcdef \
+  free
+```
+
+> ⚠️ 手動 `sync-plan` は `planSource` を変更しない（Callable Function 経由のため）。
+> trial → 本契約化に合わせて `planSource="paid"` を残したい場合は Firestore Console で
+> 該当 user ドキュメントを直接編集する。
 
 ---
 
@@ -422,7 +473,7 @@ LINE は **アカウントあたり 1000 個** までリッチメニューを保
 
 ## 10. 将来の拡張
 
-- **自動の有料期限切れ巻き戻し**: Cloud Scheduler で `users.where(premiumUntil < now)` を抽出して `syncRichMenuToPlan(uid, "free")` を打つジョブ
+- ~~**自動の有料期限切れ巻き戻し**~~ → 2026-05 に `expireTrialUsers` Function として実装済（§6-6）
 - **決済との接続**: Stripe webhook → `syncRichMenuToPlan` を呼び出す中間 Function
 - **A/B テスト用の第3メニュー**: `LINE_RICHMENU_TRIAL_ID` を環境変数に追加し、`syncRichMenuToPlan` の plan に `"trial"` を許可
 - **リッチメニュー切替アラート**: `lastRichMenuUpdatedAt` をベースに「直近30日切替なし」のユーザー通知

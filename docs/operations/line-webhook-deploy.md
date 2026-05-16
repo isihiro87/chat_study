@@ -152,7 +152,17 @@ FUNCTIONS_DISCOVERY_TIMEOUT=120 firebase deploy --only functions
 > ⚠️ **`--only functions:lineWebhook` 単体デプロイの落とし穴**:
 > Firebase Cloud Functions は **関数単位でデプロイ** されるため、`lineWebhook.ts` のコードを変更して `--only functions:lineWebhook` だけ更新しても、`dailyQuiz.ts` から `import { selectAndSendQuestion } from "./lineWebhook"` で参照している `dailyQuiz06/07/17/19` 関数は **前回デプロイ時のコードのまま** 動き続ける（各関数が別々の bundle）。
 >
-> **`selectAndSendQuestion` / `buildQuestionMessage` などの共有関数を変更したら、必ず `--only functions`（全関数）で再デプロイすること**。lineWebhook 単体デプロイで完結するのは、`handleSelectGradePostback` や `handleAnswerPostback` のように lineWebhook 側のみで完結する変更の場合のみ。
+> 同様に、`lineWebhook.ts` から re-export している `buildTrialStartedFlexMessage` / `buildTrialReminderFlexMessage` / `buildTrialExpiredFlexMessage` / `getLineClient` / `getUserPlan` を `onPremiumApplicationCreated` / `expireTrialUsers` が参照しているため、これらの共有関数を変更したら関連 Function も再デプロイが必要。
+>
+> **`selectAndSendQuestion` / `buildQuestionMessage` / `buildTrial*FlexMessage` などの共有関数を変更したら、必ず `--only functions`（全関数）で再デプロイすること**。lineWebhook 単体デプロイで完結するのは、`handleSelectGradePostback` や `handleAnswerPostback` のように lineWebhook 側のみで完結する変更の場合のみ。
+
+### 新規 Function を追加した時のチェックリスト
+
+- `functions/src/index.ts` に `export` 行を追加
+- 初回デプロイ時は `firebase deploy --only functions:<新関数名>` で個別にデプロイ
+- pubsub.schedule 系の Function は初回デプロイ時に Cloud Scheduler ジョブが自動生成される（GCP Console > Cloud Scheduler で確認）
+  - 例: `expireTrialUsers` → `firebase-schedule-expireTrialUsers-asia-northeast1` というジョブが作成される
+  - 初回デプロイ後、Cloud Console から手動実行（"今すぐ実行"）して動作確認するのが安全
 
 成功すると最後に以下のような出力が出る:
 

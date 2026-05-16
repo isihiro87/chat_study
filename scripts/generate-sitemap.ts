@@ -31,6 +31,9 @@ function collectRoutes(): SitemapEntry[] {
   // トップページ
   routes.push({ loc: '/', priority: '1.0', changefreq: 'weekly' });
 
+  // 保護者向けランディングページ（SEO 流入の入口）
+  routes.push({ loc: '/for-parents', priority: '0.7', changefreq: 'monthly' });
+
   // 科目データをまとめる
   const subjectData: Record<string, { eras: typeof historyEras; topics: typeof historyTopics }> = {
     history: { eras: historyEras, topics: historyTopics },

@@ -9,6 +9,7 @@ yarn-error.log*
 
 # Build outputs
 dist/
+dist-line/
 build/
 functions/lib/
 *.tsbuildinfo

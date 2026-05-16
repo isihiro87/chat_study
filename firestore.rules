@@ -1,10 +1,21 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    // 課金状態・リッチメニュー種別など、Cloud Functions（admin SDK）でのみ書き換えるべきフィールド。
-    // クライアントは読めるが書けない。admin SDK はルールをバイパスするため、Functions 側からは普通に書ける。
+    // 課金状態・リッチメニュー種別・trial 情報など、Cloud Functions（admin SDK）でのみ
+    // 書き換えるべきフィールド。クライアントは読めるが書けない。
+    // admin SDK はルールをバイパスするため、Functions 側からは普通に書ける。
     function touchesProtectedUserFields(keys) {
-      return keys.hasAny(['plan', 'premiumUntil', 'richMenuType', 'lastRichMenuUpdatedAt']);
+      return keys.hasAny([
+        'plan',
+        'premiumUntil',
+        'richMenuType',
+        'lastRichMenuUpdatedAt',
+        'planSource',
+        'trialStartedAt',
+        'trialExpiredAt',
+        'lastTrialReminderAt',
+        'lastPremiumNudgeAt'
+      ]);
     }
 
     function isAdmin() {
@@ -37,6 +48,20 @@ service cloud.firestore {
       allow create: if request.auth != null
         && request.resource.data.uid == request.auth.uid
         && request.resource.data.status == 'pending';
+      allow read, update, delete: if isAdmin();
+    }
+
+    // プレミアム導線の funnel イベント（クライアント／サーバー両方から記録）。
+    // クライアントは自分名義かつ allowlist の eventType のみ create 可能。
+    // サーバー側（admin SDK）からは任意の eventType を記録できる（ルールバイパス）。
+    match /premiumFunnelEvents/{eventId} {
+      allow create: if request.auth != null
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.eventType in [
+          'liff_premium_info_view',
+          'liff_premium_apply_view',
+          'liff_premium_apply_submit'
+        ];
       allow read, update, delete: if isAdmin();
     }
   }

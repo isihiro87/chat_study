@@ -26,6 +26,7 @@ const AdminPage = lazyWithRetry(() => import('./pages/AdminPage').then(m => ({ d
 const WelcomePage = lazyWithRetry(() => import('./pages/WelcomePage').then(m => ({ default: m.WelcomePage })));
 const TermsPage = lazyWithRetry(() => import('./pages/TermsPage').then(m => ({ default: m.TermsPage })));
 const PrivacyPage = lazyWithRetry(() => import('./pages/PrivacyPage').then(m => ({ default: m.PrivacyPage })));
+const ParentsLandingPage = lazyWithRetry(() => import('./pages/ParentsLandingPage').then(m => ({ default: m.ParentsLandingPage })));
 
 // ルート変更時にスクロール位置を復元またはリセット
 function ScrollRestoration() {
@@ -86,6 +87,7 @@ function AnimatedRoutes() {
           <Route path="/welcome" element={<WelcomePage />} />
           <Route path="/terms" element={<TermsPage />} />
           <Route path="/privacy" element={<PrivacyPage />} />
+          <Route path="/for-parents" element={<ParentsLandingPage />} />
           <Route path="/admin" element={<AdminPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
