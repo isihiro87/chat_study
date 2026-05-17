@@ -1,0 +1,187 @@
+{
+  "subjectId": "history",
+  "eraId": "edo-establishment",
+  "topicId": "edo-culture-learning",
+  "name": "江戸の文化と学問・教育",
+  "subtitle": "元禄文化・化政文化と朱子学・蘭学・国学",
+  "icon": "🎭",
+  "order": 9,
+  "chatId": "edo-culture-learning",
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "{元禄文化|げんろくぶんか}",
+      "back": "17世紀後半、上方を中心に町人が担った文化は？",
+      "explanation": "大坂・京都の町人を中心に栄えた文化。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "{化政文化|かせいぶんか}",
+      "back": "19世紀前半、江戸を中心に広がった庶民文化は？",
+      "explanation": "浮世絵や小説などが発展し、庶民の生活に根ざした文化が広がった。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "{松尾芭蕉|まつおばしょう}",
+      "back": "俳諧を芸術に高め、『奥の細道』で知られる人物は？",
+      "explanation": "元禄文化を代表する人物。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc4",
+      "front": "{近松門左衛門|ちかまつもんざえもん}",
+      "back": "人形浄瑠璃の脚本を書き、義理や人情を題材にした人物は？",
+      "explanation": "元禄文化を代表する脚本家。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc5",
+      "front": "{浮世絵|うきよえ}",
+      "back": "町人の風俗や風景を題材にした絵は？",
+      "explanation": "葛飾北斎・歌川広重が有名で、化政文化では風景画も発展した。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc6",
+      "front": "{井原西鶴|いはらさいかく}",
+      "back": "武士や町人の生活を浮世草子に書いた人物は？",
+      "explanation": "元禄文化を代表する作家。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc7",
+      "front": "{葛飾北斎|かつしかほくさい}・{歌川広重|うたがわひろしげ}",
+      "back": "化政文化の浮世絵で有名な人物の組み合わせは？",
+      "explanation": "風景画でも知られ、江戸の庶民文化を代表する。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc8",
+      "front": "{朱子学|しゅしがく}",
+      "back": "主従関係や上下関係を重んじる儒学の一派は？",
+      "explanation": "幕府が重視した学問で、身分秩序を支える考え方と結びついた。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc9",
+      "front": "{寺子屋|てらこや}",
+      "back": "庶民の子どもが読み書きや計算を学んだ場所は？",
+      "explanation": "江戸時代に庶民教育が広がったことを示す。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc10",
+      "front": "{蘭学|らんがく}",
+      "back": "オランダ語を通じて西洋の医学や科学を学ぶ学問は？",
+      "explanation": "長崎を通じて入った西洋知識を学び、開国前の西洋理解につながった。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc11",
+      "front": "{国学|こくがく}",
+      "back": "古事記などを研究し、日本古来の考え方を明らかにしようとした学問は？",
+      "explanation": "本居宣長が大成した。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc12",
+      "front": "{伊能忠敬|いのうただたか}",
+      "back": "全国を測量し、正確な日本地図作成に貢献した人物は？",
+      "explanation": "科学的な調査にもとづく成果として重要。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc13",
+      "front": "{杉田玄白|すぎたげんぱく}",
+      "back": "『解体新書』の出版に関係が深い人物は？",
+      "explanation": "西洋医学書を翻訳し、蘭学の発展に関わった。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc14",
+      "front": "{本居宣長|もとおりのりなが}",
+      "back": "『古事記伝』を書き、国学を大成した人物は？",
+      "explanation": "日本古来の考え方を研究した国学者。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc15",
+      "front": "{解体新書|かいたいしんしょ}",
+      "back": "杉田玄白らが翻訳した西洋医学書は？",
+      "explanation": "蘭学の発展を示す代表的な書物。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc16",
+      "front": "{寺子屋|てらこや}",
+      "back": "庶民の子どもが読み書きやそろばんを学んだ場所を何という？",
+      "explanation": "江戸時代には庶民教育が広がった。",
+      "difficulty": "basic"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "元禄文化の中心となった地域はどこですか。",
+        "options": ["鎌倉", "江戸", "上方", "蝦夷地"],
+        "correctIndex": 2,
+        "explanation": "元禄文化は京都・大坂を中心とする上方で栄えました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "松尾芭蕉について正しい説明を選びなさい。",
+        "options": [
+          "俳諧を芸術に高めた",
+          "解体新書を出版した",
+          "国学を大成した",
+          "浮世絵の風景画を描いた"
+        ],
+        "correctIndex": 0,
+        "explanation": "松尾芭蕉は俳諧を芸術として高め、『奥の細道』で知られます。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q3",
+        "question": "化政文化に関係が深い組み合わせとして正しいものを選びなさい。",
+        "options": [
+          "井原西鶴・近松門左衛門",
+          "葛飾北斎・歌川広重",
+          "千利休・狩野永徳",
+          "雪舟・観阿弥"
+        ],
+        "correctIndex": 1,
+        "explanation": "葛飾北斎や歌川広重は、化政文化の浮世絵で有名です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q4",
+        "question": "主従関係や上下関係を重んじる学問は何ですか。",
+        "options": ["国学", "蘭学", "朱子学", "和学"],
+        "correctIndex": 2,
+        "explanation": "朱子学は上下関係や秩序を重んじ、幕府の支配に都合のよい学問とされました。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q5",
+        "question": "『解体新書』の出版に関係が深い人物を選びなさい。",
+        "options": ["杉田玄白", "本居宣長", "伊能忠敬", "松尾芭蕉"],
+        "correctIndex": 0,
+        "explanation": "杉田玄白らが西洋医学書を翻訳し、『解体新書』を出版しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q6",
+        "question": "本居宣長と関係が深い学問を選びなさい。",
+        "options": ["蘭学", "国学", "朱子学", "陽明学"],
+        "correctIndex": 1,
+        "explanation": "本居宣長は『古事記伝』を書き、国学を大成しました。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}

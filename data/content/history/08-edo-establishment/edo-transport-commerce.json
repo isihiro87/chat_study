@@ -1,0 +1,197 @@
+{
+  "subjectId": "history",
+  "eraId": "edo-establishment",
+  "topicId": "edo-transport-commerce",
+  "name": "江戸の交通と商業・都市",
+  "subtitle": "五街道・廻船・三都と貨幣経済",
+  "icon": "🧭",
+  "order": 7,
+  "chatId": "edo-transport-commerce",
+  "videos": [],
+  "flashcards": [
+    {
+      "id": "fc1",
+      "front": "{五街道|ごかいどう}",
+      "back": "江戸を中心に整備された主要道路をまとめて何という？",
+      "explanation": "東海道・中山道などがあり、幕府の全国支配や参勤交代に役立った。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc2",
+      "front": "{宿場町|しゅくばまち}",
+      "back": "旅人や大名行列が休んだり泊まったりする町は？",
+      "explanation": "本陣や旅籠などが置かれ、街道沿いに発達した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc3",
+      "front": "{関所|せきしょ}",
+      "back": "人や物の通行を取りしまる施設は？",
+      "explanation": "幕府は特に女性や武器の移動を警戒した。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc4",
+      "front": "{飛脚|ひきゃく}",
+      "back": "手紙や荷物を運ぶ人やしくみを何という？",
+      "explanation": "江戸時代の情報伝達を支えた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc5",
+      "front": "{廻船|かいせん}と{航路|こうろ}",
+      "back": "江戸時代の物資輸送を支えた海上交通は？",
+      "explanation": "菱垣廻船・樽廻船、東廻り航路・西廻り航路が大坂・江戸・東北などを結んだ。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc6",
+      "front": "{東海道|とうかいどう}",
+      "back": "江戸と京都を結ぶ、海沿いを通る五街道の一つは？",
+      "explanation": "参勤交代にも利用された重要な街道だった。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc7",
+      "front": "{東廻|ひがしまわ}り{航路|こうろ}",
+      "back": "東北地方と江戸を結んだ海上交通路を何という？",
+      "explanation": "西廻り航路は東北や蝦夷地と大坂方面を結んだ。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc8",
+      "front": "{樽廻船|たるかいせん}",
+      "back": "大坂から江戸へ酒などを運んだ廻船は？",
+      "explanation": "酒樽などの輸送で知られ、大坂と江戸の流通を支えた。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc9",
+      "front": "{三都|さんと}",
+      "back": "江戸・大坂・京都の三つの大都市をまとめて何という？",
+      "explanation": "江戸は政治、大坂は商業、京都は文化の中心として発展した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc10",
+      "front": "{蔵屋敷|くらやしき}",
+      "back": "諸藩が大坂に置き、年貢米や特産物を保管・販売した施設は？",
+      "explanation": "大坂が「天下の台所」と呼ばれた理由の一つになった。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc11",
+      "front": "{株仲間|かぶなかま}",
+      "back": "営業を独占する権利を認められた商人の同業者組合は？",
+      "explanation": "田沼政治や天保の改革で重要な語句。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc12",
+      "front": "{両替商|りょうがえしょう}",
+      "back": "金貨・銀貨などの交換を行った商人は？",
+      "explanation": "東日本は金貨、西日本は銀貨が多く使われ、貨幣経済を支えた。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc13",
+      "front": "{堂島米市場|どうじまこめいちば}",
+      "back": "大坂にあった米取引の中心地は？",
+      "explanation": "年貢米が商品として売買され、大坂の商業発展を支えた。",
+      "difficulty": "advanced"
+    },
+    {
+      "id": "fc14",
+      "front": "{江戸|えど}",
+      "back": "江戸時代の政治の中心で、人口が多い大都市となった都市は？",
+      "explanation": "将軍の城下町として発展した。",
+      "difficulty": "basic"
+    },
+    {
+      "id": "fc15",
+      "front": "{天下|てんか}の{台所|だいどころ}",
+      "back": "全国の年貢米や特産物が集まった大坂は何と呼ばれた？",
+      "explanation": "諸藩の蔵屋敷が置かれ、物資の集散地として発展した。",
+      "difficulty": "standard"
+    },
+    {
+      "id": "fc16",
+      "front": "{堂島米市場|どうじまこめいちば}",
+      "back": "大坂で米の取引の中心となった市場を何という？",
+      "explanation": "年貢米が商品として売買され、米価にも影響を与えた。",
+      "difficulty": "advanced"
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "question": "江戸を中心に整備された主要な道路をまとめて何といいますか。",
+        "options": ["五畿七道", "五街道", "南海路", "東廻り航路"],
+        "correctIndex": 1,
+        "explanation": "東海道・中山道などをまとめて五街道といいます。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q2",
+        "question": "宿場町の説明として正しいものを選びなさい。",
+        "options": [
+          "年貢米を保管する施設",
+          "外国船を取りしまる場所",
+          "旅人や大名行列が休泊する町",
+          "銀貨をつくる場所"
+        ],
+        "correctIndex": 2,
+        "explanation": "宿場町には本陣や旅籠などが置かれ、旅人や大名行列が休泊しました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q3",
+        "question": "大坂から江戸へ酒などを運んだ廻船として適切なものを選びなさい。",
+        "options": ["樽廻船", "北前船", "南蛮船", "朱印船"],
+        "correctIndex": 0,
+        "explanation": "樽廻船は、大坂から江戸へ酒などを運んだ廻船です。",
+        "difficulty": "advanced"
+      },
+      {
+        "id": "q4",
+        "question": "江戸時代の三都の組み合わせとして正しいものを選びなさい。",
+        "options": [
+          "江戸・鎌倉・奈良",
+          "江戸・大坂・京都",
+          "大坂・堺・長崎",
+          "京都・奈良・平戸"
+        ],
+        "correctIndex": 1,
+        "explanation": "江戸・大坂・京都を三都といいます。",
+        "difficulty": "basic"
+      },
+      {
+        "id": "q5",
+        "question": "大坂が「天下の台所」と呼ばれた理由として適切なものを選びなさい。",
+        "options": [
+          "幕府の将軍が住んだから",
+          "外国貿易を独占したから",
+          "全国の年貢米や特産物が集まったから",
+          "武士の学校が多かったから"
+        ],
+        "correctIndex": 2,
+        "explanation": "大坂には諸藩の蔵屋敷が置かれ、全国の年貢米や特産物が集まりました。",
+        "difficulty": "standard"
+      },
+      {
+        "id": "q6",
+        "question": "株仲間について正しい説明を選びなさい。",
+        "options": [
+          "農民の自治組織",
+          "商人の同業者組合",
+          "武士の軍事組織",
+          "寺子屋の集まり"
+        ],
+        "correctIndex": 1,
+        "explanation": "株仲間は商人の同業者組合で、営業の独占権を認められることがありました。",
+        "difficulty": "advanced"
+      }
+    ]
+  }
+}
