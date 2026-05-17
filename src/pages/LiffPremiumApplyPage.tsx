@@ -3,8 +3,6 @@ import { Navigate } from 'react-router-dom';
 import {
   addDoc,
   collection,
-  doc,
-  getDoc,
   serverTimestamp,
 } from 'firebase/firestore/lite';
 import { db } from '../firebase/config';
@@ -28,6 +26,13 @@ import {
 type Plan = 'free' | 'premium';
 type Status = 'loading' | 'ready' | 'already_premium' | 'submitting' | 'submitted' | 'error';
 type PlanSource = 'trial' | 'paid' | 'trial_expired' | null;
+
+const GRADE_NUM_TO_LABEL = (g: 1 | 2 | 3 | null): ApplicationGrade | null => {
+  if (g === 1) return '中1';
+  if (g === 2) return '中2';
+  if (g === 3) return '中3';
+  return null;
+};
 
 interface UserProfile {
   subject: ApplicationSubject | null;
@@ -64,7 +69,7 @@ const PAYMENT_OPTIONS: PaymentPreference[] = [
  * 申込ステータスは初期値 "pending" 固定（firestore.rules で強制）。
  */
 export function LiffPremiumApplyPage() {
-  const { user, loading } = useAuth();
+  const { user, loading, userDoc, userDocLoaded } = useAuth();
   const { attempted: liffAuthAttempted } = useLiffAuth(
     import.meta.env.VITE_LIFF_ID_PREMIUM_APPLY as string | undefined,
   );
@@ -87,51 +92,38 @@ export function LiffPremiumApplyPage() {
     void logFunnelEvent('liff_premium_apply_view');
   }, [user]);
 
+  // AuthContext がロード済みの userDoc から派生（getDoc 重複を排除）
   useEffect(() => {
     if (loading) return;
     if (!user) return;
-    let cancelled = false;
-    (async () => {
-      try {
-        const snap = await withFirestoreTimeout(
-          getDoc(doc(db, 'users', user.uid)),
-          5000,
-          `getDoc users/${user.uid} (premium-apply)`,
-        );
-        if (cancelled) return;
-        const data = snap.exists() ? snap.data() : {};
-        const plan = ((data.plan as Plan | undefined) ?? 'free') as Plan;
-        const planSource =
-          (data.planSource as PlanSource | undefined) ?? null;
-        setProfile({
-          subject: (data.subject as ApplicationSubject | undefined) ?? null,
-          grade: (data.grade as ApplicationGrade | undefined) ?? null,
-          preferredHour:
-            (data.preferredHour as ApplicationPreferredHour | undefined) ??
-            null,
-          plan,
-          planSource,
-        });
-        // trial 中（plan=premium かつ planSource=trial）は本契約 UI で再申込可能
-        if (plan === 'premium' && planSource === 'trial') {
-          setStatus('ready');
-        } else if (plan === 'premium') {
-          setStatus('already_premium');
-        } else {
-          setStatus('ready');
-        }
-      } catch (err) {
-        console.error('[LiffPremiumApplyPage] load failed', err);
-        if (!cancelled) {
-          setErrorMessage('読み込みに失敗しました。再度開き直してください。');
-          setStatus('error');
-        }
-      }
-    })();
-    return () => {
-      cancelled = true;
-    };
-  }, [user, loading]);
+    if (!userDocLoaded) return;
+    if (!userDoc) {
+      setErrorMessage('読み込みに失敗しました。再度開き直してください。');
+      setStatus('error');
+      return;
+    }
+    const subject = (userDoc.subject as ApplicationSubject | null) ?? null;
+    const grade: ApplicationGrade | null = GRADE_NUM_TO_LABEL(userDoc.grade);
+    const preferredHour =
+      (userDoc.preferredHour as ApplicationPreferredHour | null) ?? null;
+    const plan: Plan = userDoc.plan;
+    const planSource: PlanSource = userDoc.planSource;
+    setProfile({
+      subject,
+      grade,
+      preferredHour,
+      plan,
+      planSource,
+    });
+    // trial 中（plan=premium かつ planSource=trial）は本契約 UI で再申込可能
+    if (plan === 'premium' && planSource === 'trial') {
+      setStatus('ready');
+    } else if (plan === 'premium') {
+      setStatus('already_premium');
+    } else {
+      setStatus('ready');
+    }
+  }, [user, loading, userDoc, userDocLoaded]);
 
   const canSubmit = useMemo(() => {
     if (status !== 'ready') return false;

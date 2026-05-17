@@ -8,7 +8,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { LineApp } from './line/App.line';
-import { readCachedGrade } from './utils/liffStudyCache';
+import { readCachedGrade, readCachedPlan } from './utils/liffStudyCache';
 import './styles/index.css';
 
 // ─── 起動直後の prefetch（fire-and-forget）────────────────────────────
@@ -23,16 +23,36 @@ import './styles/index.css';
 // prefetch が失敗してもユーザー体験には影響しない。
 void import('@line/liff').catch(() => undefined);
 
-// 前回ログインで観測した grade があれば、学年データの大きい chunk を先読みする。
+// 学年データの大きい chunk（g1=583KB / g2=439KB / g3=243KB）は
+// `/liff/units`（プレミアム機能「じっくり学ぶ」）でしか使われない。
+// 無料ユーザーや /liff/scope, /liff/premium-info, /liff/help などの
+// 軽量ページではダウンロード・パースが純粋な無駄になり、特に LIFF 内蔵
+// ブラウザの低速回線で他 chunk（React / firebase / @line/liff）の取得を
+// 遅らせて初期表示を遅延させる。
+//
+// 二段ゲート:
+//   1. pathname が `/liff/units` のときだけ prefetch する
+//      （他ページからのナビゲーションでは LiffUnitsPage 側の dynamic import に任せる）
+//   2. 前回観測した plan が 'premium' のときだけ prefetch する
+//      （初訪問・無料ユーザー・キャッシュ無効化後は安全側に倒して prefetch しない）
+//
 // uid が判明する前なので `_anon` 名前空間からの読み出しになる（liffStudyCache
 // 側で uid 別と anon の両方に書き込む設計）。
-const cachedGrade = readCachedGrade(null);
-if (cachedGrade === 1) {
-  void import('./data/generated/line-study-history-g1.generated').catch(() => undefined);
-} else if (cachedGrade === 2) {
-  void import('./data/generated/line-study-history-g2.generated').catch(() => undefined);
-} else if (cachedGrade === 3) {
-  void import('./data/generated/line-study-history-g3.generated').catch(() => undefined);
+function shouldPrefetchStudyChunk(): boolean {
+  if (typeof window === 'undefined') return false;
+  if (window.location.pathname !== '/liff/units') return false;
+  return readCachedPlan(null) === 'premium';
+}
+
+if (shouldPrefetchStudyChunk()) {
+  const cachedGrade = readCachedGrade(null);
+  if (cachedGrade === 1) {
+    void import('./data/generated/line-study-history-g1.generated').catch(() => undefined);
+  } else if (cachedGrade === 2) {
+    void import('./data/generated/line-study-history-g2.generated').catch(() => undefined);
+  } else if (cachedGrade === 3) {
+    void import('./data/generated/line-study-history-g3.generated').catch(() => undefined);
+  }
 }
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

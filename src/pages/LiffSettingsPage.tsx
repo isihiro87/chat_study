@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react';
 import { Navigate } from 'react-router-dom';
-import { doc, getDoc, serverTimestamp, setDoc } from 'firebase/firestore/lite';
+import { doc, serverTimestamp, setDoc } from 'firebase/firestore/lite';
 import { db } from '../firebase/config';
 import { useAuth } from '../contexts/AuthContext';
 import { useLiffAuth } from '../hooks/useLiffAuth';
 import { LoadingScreen } from '../components/common/LoadingScreen';
-import { withFirestoreTimeout } from '../utils/firestoreTimeout';
 
 const GRADE_NUM_TO_LABEL = (g: 1 | 2 | 3 | null): GradeLabel | null => {
   if (g === 1) return '中1';
@@ -70,58 +69,21 @@ export function LiffSettingsPage() {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [settings, setSettings] = useState<UserSettings | null>(null);
 
-  // subject / grade は AuthContext 由来の userDoc から即座に派生して
-  // UI を先に表示し、preferredHour / plan だけ追加で fetch する。
-  // これで体感の読み込みを大幅に短縮しつつ、必要なフィールドだけ取得。
+  // AuthContext がロード済みの userDoc から派生（getDoc 重複を排除）。
+  // 以前は preferredHour / plan が UserDoc に含まれていなかったため追加 fetch
+  // していたが、これらも UserDoc に格納するようになったので 1 回の fetch で完結。
   useEffect(() => {
     if (loading) return;
     if (!user) return;
     if (!userDocLoaded) return;
 
-    // subject/grade は userDoc から即セット（fetch 不要）
-    setSettings((prev) =>
-      prev ?? {
-        subject: (userDoc?.subject ?? null) as Subject | null,
-        grade: GRADE_NUM_TO_LABEL(userDoc?.grade ?? null),
-        preferredHour: null,
-        plan: 'free',
-      },
-    );
+    setSettings({
+      subject: (userDoc?.subject ?? null) as Subject | null,
+      grade: GRADE_NUM_TO_LABEL(userDoc?.grade ?? null),
+      preferredHour: (userDoc?.preferredHour ?? null) as PreferredHour | null,
+      plan: (userDoc?.plan ?? 'free') as Plan,
+    });
     setStatus('ready');
-
-    // preferredHour / plan は userDoc に含まれていないので追加 fetch
-    let cancelled = false;
-    (async () => {
-      try {
-        const snap = await withFirestoreTimeout(
-          getDoc(doc(db, 'users', user.uid)),
-          5000,
-          `getDoc users/${user.uid} (settings extra)`,
-        );
-        if (cancelled) return;
-        const data = snap.exists() ? snap.data() : {};
-        setSettings((prev) => {
-          const base: UserSettings = prev ?? {
-            subject: (userDoc?.subject ?? null) as Subject | null,
-            grade: GRADE_NUM_TO_LABEL(userDoc?.grade ?? null),
-            preferredHour: null,
-            plan: 'free',
-          };
-          return {
-            ...base,
-            preferredHour:
-              (data.preferredHour as PreferredHour | undefined) ?? base.preferredHour,
-            plan: ((data.plan as Plan | undefined) ?? base.plan) as Plan,
-          };
-        });
-      } catch (err) {
-        console.warn('[LiffSettingsPage] extra fields load failed', err);
-        // subject/grade は既に表示されているので致命的でない。エラー表示はしない。
-      }
-    })();
-    return () => {
-      cancelled = true;
-    };
   }, [user, loading, userDoc, userDocLoaded]);
 
   const saveField = async <K extends keyof UserSettings>(

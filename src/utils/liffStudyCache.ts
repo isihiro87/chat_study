@@ -149,6 +149,45 @@ export function writeCachedGrade(uid: string | null, grade: CacheableGrade): voi
   }
 }
 
+// ---- plan prefetch helpers ----------------------------------------------
+
+const PLAN_KEY = 'plan';
+// plan は trial / 解約 / 7日後の自動 downgrade で変動するため grade より短め。
+// 7日経てば自動的に再 fetch → 上書きされる。
+const PLAN_TTL_MS = 7 * 24 * 60 * 60 * 1000;
+
+export type CacheablePlan = 'free' | 'premium';
+
+/**
+ * 前回観測した plan を読み取る。`/liff/units` 用の重い学習チャンクを
+ * 起動直後に prefetch するかどうかを判定するために使う。
+ * 安全側に倒し、不明なら null（= prefetch しない）を返す。
+ */
+export function readCachedPlan(uid?: string | null): CacheablePlan | null {
+  const direct = getCached<CacheablePlan>(PLAN_KEY, uid ?? null);
+  if (direct?.value === 'free' || direct?.value === 'premium') {
+    return direct.value;
+  }
+  if (uid) {
+    const fallback = getCached<CacheablePlan>(PLAN_KEY, null);
+    if (fallback?.value === 'free' || fallback?.value === 'premium') {
+      return fallback.value;
+    }
+  }
+  return null;
+}
+
+/**
+ * plan を localStorage に書く。`writeCachedGrade` と同じく uid 別と anon の
+ * 両方に書くことで、次回起動時の prefetch ゲートが auth 完了前から有効になる。
+ */
+export function writeCachedPlan(uid: string | null, plan: CacheablePlan): void {
+  setCached(PLAN_KEY, uid, plan, PLAN_TTL_MS);
+  if (uid) {
+    setCached(PLAN_KEY, null, plan, PLAN_TTL_MS);
+  }
+}
+
 // ---- itemStats (Map → JSON) helpers -------------------------------------
 
 interface SerializedItemStat {

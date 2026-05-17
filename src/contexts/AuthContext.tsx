@@ -24,7 +24,9 @@ import { clearProgress } from '../utils/studyProgressStorage';
 import {
   invalidateCachedForUid,
   writeCachedGrade,
+  writeCachedPlan,
   type CacheableGrade,
+  type CacheablePlan,
 } from '../utils/liffStudyCache';
 import { withFirestoreTimeout } from '../utils/firestoreTimeout';
 
@@ -43,6 +45,9 @@ export interface UserDocStudyPrefs {
   difficulties?: string[];
 }
 
+export type PlanSource = 'trial' | 'paid' | 'trial_expired' | null;
+export type PreferredHour = 6 | 7 | 17 | 19 | null;
+
 /**
  * `users/{uid}` の主要フィールドを LIFF 各ページで使いやすい形に整形したもの。
  * 既存ページごとに行っていた `getDoc(users/{uid})` を AuthContext 1 箇所に集約するため。
@@ -54,6 +59,9 @@ export interface UserDoc {
   testScopeTopics: string[];
   studyStats: Record<string, UserDocStudyStat>;
   studyPrefs: Record<string, UserDocStudyPrefs>;
+  plan: CacheablePlan;
+  planSource: PlanSource;
+  preferredHour: PreferredHour;
 }
 
 interface AuthContextType {
@@ -100,6 +108,20 @@ function parseUserDoc(uid: string, data: Record<string, unknown>): UserDoc {
     ? (testScopeRaw as unknown[]).filter((t): t is string => typeof t === 'string')
     : [];
 
+  const plan: CacheablePlan = data.plan === 'premium' ? 'premium' : 'free';
+  const rawPlanSource = data.planSource;
+  const planSource: PlanSource =
+    rawPlanSource === 'trial' ||
+    rawPlanSource === 'paid' ||
+    rawPlanSource === 'trial_expired'
+      ? rawPlanSource
+      : null;
+  const rawHour = data.preferredHour;
+  const preferredHour: PreferredHour =
+    rawHour === 6 || rawHour === 7 || rawHour === 17 || rawHour === 19
+      ? rawHour
+      : null;
+
   const studyStats: Record<string, UserDocStudyStat> = {};
   const rawStats = (data.studyStats as Record<string, unknown> | undefined) ?? {};
   for (const [k, v] of Object.entries(rawStats)) {
@@ -131,7 +153,17 @@ function parseUserDoc(uid: string, data: Record<string, unknown>): UserDoc {
     }
   }
 
-  return { uid, grade, subject, testScopeTopics, studyStats, studyPrefs };
+  return {
+    uid,
+    grade,
+    subject,
+    testScopeTopics,
+    studyStats,
+    studyPrefs,
+    plan,
+    planSource,
+    preferredHour,
+  };
 }
 
 // 24時間以内の lastActiveAt 重複書き込みを抑止する
@@ -298,6 +330,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
             testScopeTopics: [],
             studyStats: {},
             studyPrefs: {},
+            plan: 'free',
+            planSource: null,
+            preferredHour: null,
           };
           try {
             const snap = await withFirestoreTimeout(
@@ -314,8 +349,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
                 // 次回起動時の grade chunk prefetch に使うため LS にメモする
                 writeCachedGrade(firebaseUser.uid, parsed.grade);
               }
+              // 次回起動時の「無料ユーザーに重い学習チャンクを prefetch しない」
+              // ゲートに使うため LS にメモする
+              writeCachedPlan(firebaseUser.uid, parsed.plan);
             } else {
               setUserDoc(emptyUserDoc);
+              // doc 不在 = 新規ユーザーは確実に free なので明示的にキャッシュする
+              writeCachedPlan(firebaseUser.uid, 'free');
             }
           } catch (e) {
             console.warn('[auth] Failed to load user profile (timeout/error)', e);
@@ -330,6 +370,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
                 const parsed = parseUserDoc(firebaseUser.uid, late.data());
                 setUserDoc(parsed);
                 if (parsed.grade) writeCachedGrade(firebaseUser.uid, parsed.grade);
+                writeCachedPlan(firebaseUser.uid, parsed.plan);
               })
               .catch(() => {
                 // 既に上で警告済み。ここではノイズを増やさない。

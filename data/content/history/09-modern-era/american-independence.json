@@ -66,27 +66,6 @@
       "difficulty": "basic"
     },
     {
-      "id": "fc10",
-      "front": "1783年",
-      "back": "イギリスがアメリカの独立を正式に認めた年は？",
-      "explanation": "パリ条約でイギリスがアメリカの独立を正式に承認した。",
-      "difficulty": "standard"
-    },
-    {
-      "id": "fc11",
-      "front": "パリ{条約|じょうやく}",
-      "back": "1783年に結ばれ、イギリスがアメリカの独立を承認した条約は？",
-      "explanation": "アメリカ独立戦争の講和条約。1783年に締結されイギリスが独立を承認した。",
-      "difficulty": "standard"
-    },
-    {
-      "id": "fc12",
-      "front": "1787年",
-      "back": "アメリカ合衆国憲法が制定された年は？",
-      "explanation": "世界初の近代的な成文憲法として三権分立を定めた。",
-      "difficulty": "standard"
-    },
-    {
       "id": "fc13",
       "front": "{連邦制|れんぽうせい}",
       "back": "各州が一定の自治権を持ちつつ連邦政府のもとにまとまる仕組みは？",
@@ -169,19 +148,6 @@
         "difficulty": "standard"
       },
       {
-        "id": "q6",
-        "question": "イギリスがアメリカの独立を認めた年は？",
-        "options": [
-          "1775年",
-          "1776年",
-          "1783年",
-          "1789年"
-        ],
-        "correctIndex": 2,
-        "explanation": "1783年のパリ条約で独立が承認されました。",
-        "difficulty": "standard"
-      },
-      {
         "id": "q7",
         "question": "イギリスが北アメリカ東部に建設した植民地は何か所？",
         "options": [
@@ -245,19 +211,6 @@
         "correctIndex": 3,
         "explanation": "アメリカ独立宣言はフランス革命に大きな影響を与えました。",
         "difficulty": "basic"
-      },
-      {
-        "id": "q13",
-        "question": "アメリカ独立戦争の講和条約は？",
-        "options": [
-          "南京条約",
-          "パリ条約",
-          "ウィーン条約",
-          "ロンドン条約"
-        ],
-        "correctIndex": 1,
-        "explanation": "1783年のパリ条約でイギリスが独立を承認しました。",
-        "difficulty": "standard"
       },
       {
         "id": "q14",
