@@ -185,6 +185,117 @@ export function buildTimeSelectMessage() {
   });
 }
 
+export function buildOnboardingCompleteSummaryFlex(opts: {
+  gradeLabel: string;
+  subjectLabel: string;
+  hourLabel: string;
+}) {
+  const summaryRow = (label: string, value: string) => ({
+    type: 'box' as const,
+    layout: 'horizontal' as const,
+    contents: [
+      {
+        type: 'text' as const,
+        text: label,
+        size: 'sm' as const,
+        color: '#6B7280',
+        flex: 2,
+      },
+      {
+        type: 'text' as const,
+        text: value,
+        size: 'sm' as const,
+        color: '#111827',
+        weight: 'bold' as const,
+        flex: 5,
+        wrap: true,
+      },
+    ],
+  });
+
+  return {
+    type: 'flex' as const,
+    altText: `設定完了！${opts.gradeLabel} ${opts.subjectLabel} ${opts.hourLabel}に毎日1問お届けします`,
+    contents: {
+      type: 'bubble' as const,
+      size: 'kilo' as const,
+      header: {
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        backgroundColor: '#F59E0B',
+        paddingAll: '14px',
+        contents: [
+          {
+            type: 'text' as const,
+            text: '✅ 設定完了！',
+            color: '#FFFFFF',
+            weight: 'bold' as const,
+            size: 'md' as const,
+          },
+        ],
+      },
+      body: {
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        paddingAll: '16px',
+        spacing: 'sm' as const,
+        contents: [
+          summaryRow('学年', opts.gradeLabel),
+          summaryRow('教科', opts.subjectLabel),
+          summaryRow('配信時間', opts.hourLabel),
+          {
+            type: 'separator' as const,
+            margin: 'md' as const,
+          },
+          {
+            type: 'text' as const,
+            text: `明日の${opts.hourLabel}に最初の1問が届きます🎯`,
+            wrap: true,
+            size: 'sm' as const,
+            color: '#111827',
+            weight: 'bold' as const,
+            margin: 'md' as const,
+          },
+          {
+            type: 'text' as const,
+            text: '今日はこのあと、すぐに1問目をお送りしますね。',
+            wrap: true,
+            size: 'xs' as const,
+            color: '#6B7280',
+          },
+        ],
+      },
+      footer: {
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        spacing: 'sm' as const,
+        paddingAll: '16px',
+        contents: [
+          {
+            type: 'button' as const,
+            style: 'secondary' as const,
+            height: 'sm' as const,
+            action: {
+              type: 'postback' as const,
+              label: 'テスト範囲を設定する（任意）',
+              data: 'type=test_range_menu',
+              displayText: 'テスト範囲を設定する',
+            },
+          },
+          {
+            type: 'text' as const,
+            text: '※あとからリッチメニューの「テスト範囲設定」でもいつでも変更できます',
+            wrap: true,
+            size: 'xxs' as const,
+            color: '#9CA3AF',
+            align: 'center' as const,
+          },
+        ],
+      },
+    },
+  };
+}
+
 let cachedClient: messagingApi.MessagingApiClient | null = null;
 export async function getLineClient(): Promise<messagingApi.MessagingApiClient> {
   if (cachedClient) return cachedClient;
@@ -2811,32 +2922,37 @@ async function handleSelectTimePostback(
   }
 
   const hourLabel = HOUR_LABELS[validHour];
+
+  // 設定完了サマリーを1問目の前に積む。学年/教科は users doc から再取得する
+  // （直前 set した validHour 自体は users doc 反映前なので、ここでは values を直接使う）。
+  const storedGrade = userData?.grade;
+  const storedSubject = userData?.subject;
+  const gradeLabel =
+    typeof storedGrade === 'string' &&
+    VALID_GRADES.includes(storedGrade as ValidGrade)
+      ? storedGrade
+      : '';
+  const subjectLabel =
+    typeof storedSubject === 'string' &&
+    VALID_SUBJECTS.includes(storedSubject as ValidSubject)
+      ? SUBJECT_LABELS[storedSubject as ValidSubject]
+      : '';
+  const summaryFlex =
+    gradeLabel && subjectLabel
+      ? buildOnboardingCompleteSummaryFlex({
+          gradeLabel,
+          subjectLabel,
+          hourLabel,
+        })
+      : null;
+
   await selectAndSendQuestion(uid, {
     replyToken,
     introText: getInitialFirstQuestionIntro(hourLabel),
     trailingText: getInitialFirstQuestionTrailing(hourLabel),
     isInitialSetup: true,
+    prependMessages: summaryFlex ? [summaryFlex as LineMessage] : undefined,
   });
-
-  // 初回セットアップの最初の1問配信に続けて、プレミアム比較 flex を別 push で1回だけ送る。
-  // reply は selectAndSendQuestion で消費済みなので、ここからは pushMessage を使う。
-  // 送信失敗してもオンボーディング体験は破綻させない（catch して握りつぶす）。
-  if (uid.startsWith('line:')) {
-    const lineUserId = uid.slice('line:'.length);
-    try {
-      const onboardingFlex = buildPremiumNudgeFlexMessage('onboarding');
-      const client = await getLineClient();
-      await client.pushMessage({
-        to: lineUserId,
-        messages: [onboardingFlex],
-      });
-    } catch (error) {
-      console.error(
-        '[lineWebhook] handleSelectTime onboarding nudge push failed:',
-        error
-      );
-    }
-  }
 }
 
 async function handleAnswerPostback(
@@ -3007,6 +3123,8 @@ async function replyText(
   }
 }
 
+type LineMessage = { type: string } & Record<string, unknown>;
+
 interface SendOptions {
   replyToken?: string;
   introText?: string;
@@ -3014,6 +3132,8 @@ interface SendOptions {
   isInitialSetup?: boolean;
   /** true のとき「当日送信済みなら早期 return」を行わず、強制的に1問送る。プレミアムの『追加で解く』向け */
   bypassDailyLimit?: boolean;
+  /** 問題本体の前に差し込みたい flex/text。初回設定の完了サマリーカードに使う。 */
+  prependMessages?: LineMessage[];
 }
 
 const RECENT_QUESTION_LIMIT = 10;
@@ -3028,6 +3148,7 @@ export async function selectAndSendQuestion(
     trailingText,
     isInitialSetup,
     bypassDailyLimit,
+    prependMessages,
   } = options;
   const { db, FieldValue } = await getDb();
 
@@ -3114,11 +3235,15 @@ export async function selectAndSendQuestion(
     ? userData.recentQuestionIds
     : [];
 
-  const testScopeTopics: string[] = Array.isArray(userData.testScope?.topics)
-    ? (userData.testScope.topics as unknown[]).filter(
-        (t): t is string => typeof t === 'string'
-      )
-    : [];
+  // 初回セットアップ直後の1問目は、過去に保存された testScope の影響を受けないよう
+  // フィルタを無視して必ず該当 grade/subject から1問選ぶ。範囲設定はその後でいい。
+  const testScopeTopics: string[] = isInitialSetup
+    ? []
+    : Array.isArray(userData.testScope?.topics)
+      ? (userData.testScope.topics as unknown[]).filter(
+          (t): t is string => typeof t === 'string'
+        )
+      : [];
 
   const snap = await db
     .collection('questions')
@@ -3138,7 +3263,7 @@ export async function selectAndSendQuestion(
         await client.replyMessage({
           replyToken,
           messages: [
-            { type: 'text', text: '準備中です。少し待ってください。' },
+            { type: 'text', text: '準備中です。少しお待ちください。' },
           ],
         });
       } catch (error) {
@@ -3174,7 +3299,7 @@ export async function selectAndSendQuestion(
           messages: [
             {
               type: 'text',
-              text: 'テスト範囲に該当する問題が準備中です。範囲を見直してね',
+              text: '今のテスト範囲では出題できる問題が見つかりませんでした。リッチメニュー「テスト範囲設定」から範囲を見直してください。',
             },
           ],
         });
@@ -3217,9 +3342,12 @@ export async function selectAndSendQuestion(
   }
 
   const questionMessage = buildQuestionMessage(picked.id, question);
-  const messages: Array<
-    { type: 'text'; text: string } | ReturnType<typeof buildQuestionMessage>
-  > = [];
+  const messages: LineMessage[] = [];
+
+  // 初回設定完了サマリーなど、問題本体の前に挟みたい flex/text を最初に積む。
+  if (prependMessages && prependMessages.length > 0) {
+    for (const m of prependMessages) messages.push(m);
+  }
 
   // 呼び出し元が introText を渡していなければ、push 経路（毎日配信）と判断して
   // ユーザー状態に合うランダムな intro を生成する。reply 経路（追加で解く・苦手復習・
@@ -3237,17 +3365,18 @@ export async function selectAndSendQuestion(
   }
 
   if (resolvedIntroText) {
-    messages.push({ type: 'text' as const, text: resolvedIntroText });
+    messages.push({ type: 'text', text: resolvedIntroText });
   }
-  messages.push(questionMessage);
+  messages.push(questionMessage as unknown as LineMessage);
   if (trailingText) {
-    messages.push({ type: 'text' as const, text: trailingText });
+    messages.push({ type: 'text', text: trailingText });
   }
 
   try {
     const client = await getLineClient();
+    const sdkMessages = messages as unknown as messagingApi.Message[];
     if (replyToken) {
-      await client.replyMessage({ replyToken, messages });
+      await client.replyMessage({ replyToken, messages: sdkMessages });
     } else {
       const lineUserId =
         typeof userData.lineUserId === 'string' ? userData.lineUserId : '';
@@ -3258,7 +3387,7 @@ export async function selectAndSendQuestion(
         );
         return;
       }
-      await client.pushMessage({ to: lineUserId, messages });
+      await client.pushMessage({ to: lineUserId, messages: sdkMessages });
     }
   } catch (error) {
     console.error('[lineWebhook] selectAndSendQuestion send failed:', error);
