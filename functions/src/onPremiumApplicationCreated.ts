@@ -1,9 +1,11 @@
 import * as functions from 'firebase-functions/v1';
 
 import {
+  PREMIUM_NOT_YET_AVAILABLE_TEXT,
   buildTrialStartedFlexMessage,
   getLineClient,
   getUserPlan,
+  isPremiumEligibleGrade,
 } from './lineWebhook';
 import {
   LineRichMenuApiError,
@@ -61,7 +63,8 @@ export const onPremiumApplicationCreated = functions
       | 'already_used'
       | 'already_paid'
       | 'failed'
-      | 'skipped_no_uid' = 'skipped_no_uid';
+      | 'skipped_no_uid'
+      | 'skipped_grade_not_eligible' = 'skipped_no_uid';
     let trialOutcomeDetail = '';
     let trialEndIso = '';
 
@@ -84,7 +87,22 @@ export const onPremiumApplicationCreated = functions
           currentPlanSource === 'trial_expired' ||
           userData?.trialStartedAt !== undefined;
 
-        if (currentPlan === 'premium' && currentPlanSource !== 'trial') {
+        // 中3はプレミアム未対応学年。LIFF 側でガードしているが、サーバ側でも保険を入れる。
+        const applicationGrade =
+          typeof data.grade === 'string' ? data.grade : undefined;
+        const userGrade =
+          typeof userData?.grade === 'string' ? userData.grade : undefined;
+        const effectiveGrade = applicationGrade || userGrade;
+        if (
+          currentPlan !== 'premium' &&
+          !isPremiumEligibleGrade(effectiveGrade)
+        ) {
+          trialOutcome = 'skipped_grade_not_eligible';
+          trialOutcomeDetail = `grade=${effectiveGrade ?? '不明'}`;
+          console.log(
+            `[onPremiumApplicationCreated] 中3 等プレミアム未対応学年のため trial 開放スキップ uid=${uid} grade=${effectiveGrade}`
+          );
+        } else if (currentPlan === 'premium' && currentPlanSource !== 'trial') {
           // 既に有料契約済み → 二重 trial を防ぐ
           trialOutcome = 'already_paid';
           console.log(
@@ -185,6 +203,21 @@ export const onPremiumApplicationCreated = functions
       await logServerFunnelEvent('trial_started', uid, { applicationId });
     }
 
+    // 中3など対応外学年のときは、ユーザーに「準備中」案内を返す
+    if (trialOutcome === 'skipped_grade_not_eligible' && lineUserId) {
+      try {
+        await lineClient.pushMessage({
+          to: lineUserId,
+          messages: [{ type: 'text', text: PREMIUM_NOT_YET_AVAILABLE_TEXT }],
+        });
+      } catch (error) {
+        console.error(
+          `[onPremiumApplicationCreated] not-yet-available push 失敗 uid=${uid}:`,
+          error
+        );
+      }
+    }
+
     // 管理者通知
     const adminIdsRaw = process.env.ADMIN_LINE_USER_IDS || '';
     const adminIds = adminIdsRaw
@@ -234,6 +267,10 @@ export const onPremiumApplicationCreated = functions
         `理由: ${trialOutcomeDetail}\n` +
         `→ 手動で sync-plan を実行してください:\n` +
         `npx tsx scripts/manage-line-richmenu.ts sync-plan ${lineUserId} premium --until <YYYY-MM-DDTHH:mm:ss+09:00>`;
+    } else if (trialOutcome === 'skipped_grade_not_eligible') {
+      trialStatusBlock =
+        `⚠️ 中3 等プレミアム未対応学年のため自動開放をスキップしました（${trialOutcomeDetail}）\n` +
+        `→ ユーザーには「準備中」案内を push 済み。問い合わせがあれば手動で対応してください。`;
     } else {
       trialStatusBlock = `⚠️ lineUserId 不在のため trial 開放をスキップしました。Firestore Console で内容を確認してください。`;
     }

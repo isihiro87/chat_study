@@ -25,6 +25,7 @@ type Status =
   | 'loading'
   | 'ready'
   | 'already_premium'
+  | 'grade_not_eligible'
   | 'submitting'
   | 'submitted'
   | 'error';
@@ -141,6 +142,9 @@ export function LiffPremiumApplyPage() {
       setStatus('ready');
     } else if (plan === 'premium') {
       setStatus('already_premium');
+    } else if (grade === '中3') {
+      // 中3はプレミアム未対応。誤って trial 開放されないよう申込ボタンを出さない。
+      setStatus('grade_not_eligible');
     } else {
       setStatus('ready');
     }
@@ -261,6 +265,39 @@ export function LiffPremiumApplyPage() {
             再読み込み
           </button>
         </div>
+      </div>
+    );
+  }
+
+  if (status === 'grade_not_eligible') {
+    return (
+      <div className="min-h-screen bg-[#FAF9F7] pb-12">
+        <header className="bg-amber-500">
+          <div className="max-w-2xl mx-auto px-4 py-6">
+            <h1
+              className="text-xl font-bold text-white text-center"
+              style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+            >
+              中3向けは現在準備中です
+            </h1>
+          </div>
+        </header>
+        <main className="max-w-2xl mx-auto px-4">
+          <section className="mt-4 bg-white rounded-2xl shadow-sm p-5">
+            <p
+              className="text-sm font-bold text-gray-800 mb-3 text-center"
+              style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+            >
+              プレミアム機能は中1・中2から先行リリースしています
+            </p>
+            <p className="text-xs text-gray-600 leading-relaxed">
+              中3向けの問題と機能は現在準備中です。準備ができ次第、トークでお知らせします。
+            </p>
+            <p className="text-xs text-gray-600 leading-relaxed mt-3">
+              それまでは無料プランで、毎日1問・記録・テスト範囲設定をご利用いただけます。
+            </p>
+          </section>
+        </main>
       </div>
     );
   }

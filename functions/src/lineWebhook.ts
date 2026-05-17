@@ -72,6 +72,7 @@ interface OnboardingSelectOption {
 
 function buildOnboardingSelectFlex(opts: {
   step: 1 | 2 | 3;
+  total: 2 | 3;
   headerTitle: string;
   bodyText: string;
   options: OnboardingSelectOption[];
@@ -92,7 +93,7 @@ function buildOnboardingSelectFlex(opts: {
         contents: [
           {
             type: 'text' as const,
-            text: `STEP ${opts.step} / 3`,
+            text: `STEP ${opts.step} / ${opts.total}`,
             color: '#FEF3C7',
             size: 'xs' as const,
             weight: 'bold' as const,
@@ -145,8 +146,10 @@ function buildOnboardingSelectFlex(opts: {
 export function buildGradeSelectMessage() {
   return buildOnboardingSelectFlex({
     step: 1,
+    total: 2,
     headerTitle: '学年を選ぶ',
-    bodyText: 'あなたの学年を選んでください。',
+    bodyText:
+      'あなたの学年を選んでください。\n※今は歴史のみ配信中。英語など他教科は順次追加予定です。',
     altText: '学年を選んでください',
     options: [
       { label: '中1', data: 'type=select_grade&grade=中1' },
@@ -156,9 +159,12 @@ export function buildGradeSelectMessage() {
   });
 }
 
+// 英語など複数教科が解放されたときに復活させる用途。現状はオンボーディングから
+// 呼び出していないが、handler 側 (handleSelectSubjectPostback) と一緒に残しておく。
 export function buildSubjectSelectMessage() {
   return buildOnboardingSelectFlex({
     step: 2,
+    total: 3,
     headerTitle: '教科を選ぶ',
     bodyText: '勉強したい教科を選んでください。',
     altText: '教科を選んでください',
@@ -171,7 +177,8 @@ export function buildSubjectSelectMessage() {
 
 export function buildTimeSelectMessage() {
   return buildOnboardingSelectFlex({
-    step: 3,
+    step: 2,
+    total: 2,
     headerTitle: '配信時間を選ぶ',
     bodyText:
       '毎日問題を送る時間を選んでください。あとから「設定変更」と送れば変えられます。',
@@ -364,6 +371,17 @@ export function getUserPlan(
   }
   return 'premium';
 }
+
+/**
+ * プレミアム機能の解放対象学年か。中3は現時点では無料プランのみ提供。
+ * 中3用コンテンツの準備が整ったら、ここを `true` に戻すだけで全接点が解放される。
+ */
+export function isPremiumEligibleGrade(grade: unknown): boolean {
+  return grade === '中1' || grade === '中2';
+}
+
+export const PREMIUM_NOT_YET_AVAILABLE_TEXT =
+  '中3向けのプレミアム機能は現在準備中です。\n中3は無料プランで毎日1問と記録機能をお楽しみください。準備ができ次第お知らせします。';
 
 const CONTACT_URL = 'https://www.chatstudy.jp/contact';
 
@@ -680,7 +698,7 @@ async function handlePostback(event: LineEvent): Promise<void> {
   }
 
   if (type === 'help') {
-    await handleHelpPostback(replyToken);
+    await handleHelpPostback(uid, replyToken);
     return;
   }
 
@@ -718,10 +736,23 @@ async function handlePostback(event: LineEvent): Promise<void> {
 }
 
 async function handleHelpPostback(
+  uid: string,
   replyToken: string | undefined
 ): Promise<void> {
   if (!replyToken) return;
-  const helpMessage = buildHelpFlexMessage();
+  let showPremiumCta = false;
+  try {
+    const { db } = await getDb();
+    const userSnap = await db.doc(`users/${uid}`).get();
+    const data = userSnap.data();
+    // free かつ premium 対応学年（中1/中2）のときだけ訴求 CTA を出す。
+    // premium ユーザーには訴求不要、中3には未対応なので出さない。
+    showPremiumCta =
+      getUserPlan(data) === 'free' && isPremiumEligibleGrade(data?.grade);
+  } catch (error) {
+    console.warn('[lineWebhook] handleHelp grade read failed:', error);
+  }
+  const helpMessage = buildHelpFlexMessage({ showPremiumCta });
   try {
     const client = await getLineClient();
     await client.replyMessage({ replyToken, messages: [helpMessage] });
@@ -737,11 +768,14 @@ async function handleStreakPostback(
   if (!replyToken) return;
   const { db } = await getDb();
 
-  // ユーザーの plan を取って flex に渡し、free 用 CTA の出し分けに使う
+  // ユーザーの plan と学年を取って flex に渡し、premium CTA の出し分けに使う
   let plan: UserPlan = 'free';
+  let gradePremiumEligible = true;
   try {
     const userSnap = await db.doc(`users/${uid}`).get();
-    plan = getUserPlan(userSnap.data());
+    const data = userSnap.data();
+    plan = getUserPlan(data);
+    gradePremiumEligible = isPremiumEligibleGrade(data?.grade);
   } catch (error) {
     console.warn(
       '[lineWebhook] handleStreak user fetch failed (treat as free):',
@@ -770,7 +804,7 @@ async function handleStreakPostback(
   }
 
   const stats = computeStreakStats(answers);
-  const flex = buildStreakFlexMessage(stats, plan);
+  const flex = buildStreakFlexMessage(stats, plan, gradePremiumEligible);
   try {
     const client = await getLineClient();
     await client.replyMessage({ replyToken, messages: [flex] });
@@ -798,14 +832,17 @@ async function handleTestRangeMenuPostback(
 ): Promise<void> {
   if (!replyToken) return;
   let plan: UserPlan = 'free';
+  let gradePremiumEligible = true;
   try {
     const { db } = await getDb();
     const userSnap = await db.doc(`users/${uid}`).get();
-    plan = getUserPlan(userSnap.data());
+    const data = userSnap.data();
+    plan = getUserPlan(data);
+    gradePremiumEligible = isPremiumEligibleGrade(data?.grade);
   } catch (error) {
     console.error('[lineWebhook] handleTestRangeMenu user read failed:', error);
   }
-  const flex = buildTestRangeMenuFlexMessage(plan);
+  const flex = buildTestRangeMenuFlexMessage(plan, gradePremiumEligible);
   try {
     const client = await getLineClient();
     await client.replyMessage({ replyToken, messages: [flex] });
@@ -890,6 +927,25 @@ async function handlePremiumInfoPostback(
       }
     })();
   }
+
+  // 中3はプレミアム未対応学年なので、申込導線を出さずに案内テキストだけ返す。
+  let grade: unknown;
+  try {
+    const { db } = await getDb();
+    const userSnap = await db.doc(`users/${uid}`).get();
+    grade = userSnap.data()?.grade;
+  } catch (error) {
+    console.warn('[lineWebhook] handlePremiumInfo grade read failed:', error);
+  }
+  if (!isPremiumEligibleGrade(grade)) {
+    await replyText(
+      replyToken,
+      PREMIUM_NOT_YET_AVAILABLE_TEXT,
+      '(premium info: grade not eligible)'
+    );
+    return;
+  }
+
   const flex = buildPremiumInfoFlexMessage();
   try {
     const client = await getLineClient();
@@ -1088,7 +1144,122 @@ function shiftJstDate(jstDate: string, days: number): string {
   return `${yy}-${mm}-${dd}`;
 }
 
-function buildHelpFlexMessage() {
+function buildHelpFlexMessage(opts: { showPremiumCta: boolean } = { showPremiumCta: true }) {
+  const bodyContents = [
+    {
+      type: 'text' as const,
+      text: '毎日決まった時間に1問届きます。',
+      wrap: true,
+      size: 'sm' as const,
+      color: '#111827',
+    },
+    {
+      type: 'separator' as const,
+      margin: 'sm' as const,
+    },
+    {
+      type: 'box' as const,
+      layout: 'vertical' as const,
+      spacing: 'xs' as const,
+      margin: 'md' as const,
+      contents: [
+        {
+          type: 'text' as const,
+          text: '⏰ 配信時間',
+          weight: 'bold' as const,
+          size: 'sm' as const,
+          color: '#111827',
+        },
+        {
+          type: 'text' as const,
+          text: '朝6時 / 朝7時 / 夕方5時 / 夜7時 から選べます。',
+          wrap: true,
+          size: 'xs' as const,
+          color: '#6B7280',
+        },
+      ],
+    },
+    {
+      type: 'box' as const,
+      layout: 'vertical' as const,
+      spacing: 'xs' as const,
+      margin: 'md' as const,
+      contents: [
+        {
+          type: 'text' as const,
+          text: '🔁 設定を変えたい',
+          weight: 'bold' as const,
+          size: 'sm' as const,
+          color: '#111827',
+        },
+        {
+          type: 'text' as const,
+          text: '「設定変更」とトークに送ると、学年・配信時間を選び直せます（1日1回まで）。',
+          wrap: true,
+          size: 'xs' as const,
+          color: '#6B7280',
+        },
+      ],
+    },
+    ...(opts.showPremiumCta
+      ? [
+          {
+            type: 'box' as const,
+            layout: 'vertical' as const,
+            spacing: 'xs' as const,
+            margin: 'md' as const,
+            contents: [
+              {
+                type: 'text' as const,
+                text: '🚀 もっと解きたい',
+                weight: 'bold' as const,
+                size: 'sm' as const,
+                color: '#111827',
+              },
+              {
+                type: 'text' as const,
+                text: `${PREMIUM_PRICE_TEXT}。もう1問解きたい時や、間違えた問題だけ復習したい時に使えます。`,
+                wrap: true,
+                size: 'xs' as const,
+                color: '#6B7280',
+              },
+            ],
+          },
+        ]
+      : []),
+  ];
+
+  const footerContents = [
+    ...(opts.showPremiumCta
+      ? [
+          {
+            type: 'button' as const,
+            style: 'primary' as const,
+            color: '#F59E0B',
+            height: 'sm' as const,
+            action: {
+              type: 'uri' as const,
+              label: '✨ 7日間無料で始める',
+              uri: withLiffSource(LIFF_PREMIUM_APPLY_URL, 'help'),
+            },
+          },
+        ]
+      : []),
+    {
+      type: 'button' as const,
+      style: opts.showPremiumCta
+        ? ('secondary' as const)
+        : ('primary' as const),
+      ...(opts.showPremiumCta ? {} : { color: '#F59E0B' }),
+      height: 'sm' as const,
+      action: {
+        type: 'uri' as const,
+        label: '使い方を詳しく見る',
+        uri: LIFF_HELP_URL,
+      },
+    },
+  ];
+
   return {
     type: 'flex' as const,
     altText: '使い方ガイド',
@@ -1115,114 +1286,14 @@ function buildHelpFlexMessage() {
         layout: 'vertical' as const,
         spacing: 'md' as const,
         paddingAll: '16px',
-        contents: [
-          {
-            type: 'text' as const,
-            text: '毎日決まった時間に1問届きます。',
-            wrap: true,
-            size: 'sm' as const,
-            color: '#111827',
-          },
-          {
-            type: 'separator' as const,
-            margin: 'sm' as const,
-          },
-          {
-            type: 'box' as const,
-            layout: 'vertical' as const,
-            spacing: 'xs' as const,
-            margin: 'md' as const,
-            contents: [
-              {
-                type: 'text' as const,
-                text: '⏰ 配信時間',
-                weight: 'bold' as const,
-                size: 'sm' as const,
-                color: '#111827',
-              },
-              {
-                type: 'text' as const,
-                text: '朝6時 / 朝7時 / 夕方5時 / 夜7時 から選べます。',
-                wrap: true,
-                size: 'xs' as const,
-                color: '#6B7280',
-              },
-            ],
-          },
-          {
-            type: 'box' as const,
-            layout: 'vertical' as const,
-            spacing: 'xs' as const,
-            margin: 'md' as const,
-            contents: [
-              {
-                type: 'text' as const,
-                text: '🔁 設定を変えたい',
-                weight: 'bold' as const,
-                size: 'sm' as const,
-                color: '#111827',
-              },
-              {
-                type: 'text' as const,
-                text: '「設定変更」とトークに送ると、学年・教科・時間を選び直せます（1日1回まで）。',
-                wrap: true,
-                size: 'xs' as const,
-                color: '#6B7280',
-              },
-            ],
-          },
-          {
-            type: 'box' as const,
-            layout: 'vertical' as const,
-            spacing: 'xs' as const,
-            margin: 'md' as const,
-            contents: [
-              {
-                type: 'text' as const,
-                text: '🚀 もっと解きたい',
-                weight: 'bold' as const,
-                size: 'sm' as const,
-                color: '#111827',
-              },
-              {
-                type: 'text' as const,
-                text: `${PREMIUM_PRICE_TEXT}。もう1問解きたい時や、間違えた問題だけ復習したい時に使えます。`,
-                wrap: true,
-                size: 'xs' as const,
-                color: '#6B7280',
-              },
-            ],
-          },
-        ],
+        contents: bodyContents,
       },
       footer: {
         type: 'box' as const,
         layout: 'vertical' as const,
         spacing: 'sm' as const,
         paddingAll: '16px',
-        contents: [
-          {
-            type: 'button' as const,
-            style: 'primary' as const,
-            color: '#F59E0B',
-            height: 'sm' as const,
-            action: {
-              type: 'uri' as const,
-              label: '✨ 7日間無料で始める',
-              uri: withLiffSource(LIFF_PREMIUM_APPLY_URL, 'help'),
-            },
-          },
-          {
-            type: 'button' as const,
-            style: 'secondary' as const,
-            height: 'sm' as const,
-            action: {
-              type: 'uri' as const,
-              label: '使い方を詳しく見る',
-              uri: LIFF_HELP_URL,
-            },
-          },
-        ],
+        contents: footerContents,
       },
     },
   };
@@ -1230,12 +1301,16 @@ function buildHelpFlexMessage() {
 
 function buildStreakFlexMessage(
   stats: StreakStats,
-  plan: UserPlan = 'premium'
+  plan: UserPlan = 'premium',
+  gradePremiumEligible: boolean = true
 ) {
+  const showPremiumCta = plan === 'free' && gradePremiumEligible;
   const subText = stats.answeredToday
     ? '今日も継続中。'
     : stats.streakDays > 0
-      ? '今日まだ解いていません。続けるなら『追加で解く』！'
+      ? plan === 'premium'
+        ? '今日まだ解いていません。続けるなら『追加で解く』！'
+        : 'この調子で明日もコツコツ続けましょう。'
       : 'まずは今日の1問から始めよう。';
 
   return {
@@ -1377,7 +1452,7 @@ function buildStreakFlexMessage(
         spacing: 'sm' as const,
         paddingAll: '16px',
         contents: [
-          ...(plan === 'free'
+          ...(showPremiumCta
             ? [
                 {
                   type: 'button' as const,
@@ -1496,11 +1571,16 @@ function buildSettingsMenuFlexMessage() {
   };
 }
 
-function buildTestRangeMenuFlexMessage(plan: UserPlan = 'premium') {
+function buildTestRangeMenuFlexMessage(
+  plan: UserPlan = 'premium',
+  gradePremiumEligible: boolean = true
+) {
   const bodyText =
-    plan === 'free'
-      ? '今チェックしておくと、毎日の1問がテスト範囲から優先して届きます。プレミアムでは「追加で解く」「苦手を復習」にも反映されます。'
-      : 'チェックした単元から「追加で解く」「苦手を復習」の問題が出るよ。まだ習っていないところは外しておくとテスト勉強がはかどる👍';
+    plan === 'premium'
+      ? 'チェックした単元から「追加で解く」「苦手を復習」の問題が出るよ。まだ習っていないところは外しておくとテスト勉強がはかどる👍'
+      : gradePremiumEligible
+        ? '今チェックしておくと、毎日の1問がテスト範囲から優先して届きます。プレミアムでは「追加で解く」「苦手を復習」にも反映されます。'
+        : '今チェックしておくと、毎日の1問がテスト範囲から優先して届きます。試験範囲だけに絞って効率よく勉強できます。';
 
   return {
     type: 'flex' as const,
@@ -1600,7 +1680,7 @@ function buildSettingsGuideFlexMessage() {
         contents: [
           {
             type: 'text' as const,
-            text: '学年・教科・配信時刻を変えるなら設定画面から、書き込み制限なしで何度でも変更できるよ。',
+            text: '学年・配信時刻を変えるなら設定画面から、書き込み制限なしで何度でも変更できるよ。',
             wrap: true,
             size: 'sm' as const,
             color: '#111827',
@@ -1978,11 +2058,15 @@ function buildPostAnswerNextStepFlexMessage(options: {
   hourLabel: string;
   dayStreak: number;
   totalAnswered: number;
+  gradePremiumEligible: boolean;
 }) {
   const isPremium = options.plan === 'premium';
+  const showPremiumCta = !isPremium && options.gradePremiumEligible;
   const leadText = isPremium
     ? 'この調子で、もう1問進めることもできます。'
-    : '無料版は1日1問。もっと解きたい時は7日間無料で試せます。';
+    : options.gradePremiumEligible
+      ? '無料版は1日1問。もっと解きたい時は7日間無料で試せます。'
+      : `明日の${options.hourLabel}に次の1問が届きます。今日はおつかれさま！`;
   const primaryAction = isPremium
     ? {
         type: 'postback' as const,
@@ -1990,12 +2074,14 @@ function buildPostAnswerNextStepFlexMessage(options: {
         data: 'type=extra_question',
         displayText: 'もう1問解く',
       }
-    : {
-        type: 'postback' as const,
-        label: '7日間無料を見てみる',
-        data: 'type=premium_info&source=post_answer',
-        displayText: '7日間無料を見てみる',
-      };
+    : showPremiumCta
+      ? {
+          type: 'postback' as const,
+          label: '7日間無料を見てみる',
+          data: 'type=premium_info&source=post_answer',
+          displayText: '7日間無料を見てみる',
+        }
+      : null;
 
   return {
     type: 'flex' as const,
@@ -2079,16 +2165,21 @@ function buildPostAnswerNextStepFlexMessage(options: {
         spacing: 'sm' as const,
         paddingAll: '16px',
         contents: [
+          ...(primaryAction
+            ? [
+                {
+                  type: 'button' as const,
+                  style: 'primary' as const,
+                  color: '#F59E0B',
+                  height: 'sm' as const,
+                  action: primaryAction,
+                },
+              ]
+            : []),
           {
             type: 'button' as const,
-            style: 'primary' as const,
-            color: '#F59E0B',
-            height: 'sm' as const,
-            action: primaryAction,
-          },
-          {
-            type: 'button' as const,
-            style: 'secondary' as const,
+            style: primaryAction ? ('secondary' as const) : ('primary' as const),
+            color: primaryAction ? undefined : '#F59E0B',
             height: 'sm' as const,
             action: {
               type: 'postback' as const,
@@ -2500,6 +2591,15 @@ async function handleExtraQuestionPostback(
   const plan = getUserPlan(userData);
 
   if (plan !== 'premium') {
+    // 中3は申込導線も準備中なので、premium nudge ではなく案内テキストだけ返す。
+    if (!isPremiumEligibleGrade(userData?.grade)) {
+      await replyText(
+        replyToken,
+        PREMIUM_NOT_YET_AVAILABLE_TEXT,
+        '(extra question: grade not eligible)'
+      );
+      return;
+    }
     const flex = buildPremiumNudgeFlexMessage('extra_question');
     try {
       const client = await getLineClient();
@@ -2532,6 +2632,14 @@ async function handleWeakReviewPostback(
   const plan = getUserPlan(userData);
 
   if (plan !== 'premium') {
+    if (!isPremiumEligibleGrade(userData?.grade)) {
+      await replyText(
+        replyToken,
+        PREMIUM_NOT_YET_AVAILABLE_TEXT,
+        '(weak review: grade not eligible)'
+      );
+      return;
+    }
     const flex = buildPremiumNudgeFlexMessage('weak_review');
     try {
       const client = await getLineClient();
@@ -2725,10 +2833,13 @@ async function handleSelectGradePostback(
     return;
   }
 
+  // 現状は歴史のみ配信のため、教科選択ステップをスキップして自動で history を割り当てる。
+  // 英語など他教科が解放されたら subject 自動設定を外し、再び subjectSelectMessage を返すこと。
   try {
     await db.doc(`users/${uid}`).set(
       {
         grade,
+        subject: 'history',
         updatedAt: FieldValue.serverTimestamp(),
       },
       { merge: true }
@@ -2750,8 +2861,11 @@ async function handleSelectGradePostback(
     await client.replyMessage({
       replyToken,
       messages: [
-        { type: 'text', text: `${grade}ですね！次に教科を選んでください。` },
-        buildSubjectSelectMessage(),
+        {
+          type: 'text',
+          text: `${grade}ですね！教科は今は「歴史」のみで配信しています。最後に、毎日問題を送る時間を選んでください。`,
+        },
+        buildTimeSelectMessage(),
       ],
     });
   } catch (error) {
@@ -3055,11 +3169,13 @@ async function handleAnswerPostback(
       ? HOUR_LABELS[preferredHour as ValidHour]
       : 'いつもの時間';
   const plan = getUserPlan(currentUserData);
+  const gradePremiumEligible = isPremiumEligibleGrade(currentUserData?.grade);
   const nextStepFlex = buildPostAnswerNextStepFlexMessage({
     plan,
     hourLabel,
     dayStreak,
     totalAnswered: recentAnswers.length + 1,
+    gradePremiumEligible,
   });
 
   try {
@@ -3204,7 +3320,8 @@ export async function selectAndSendQuestion(
       // free 判定のときだけプレミアム誘導 flex を続けて送る。
       // 初回セットアップ直後（isInitialSetup）はオンボーディング体験を優先して flex は送らない。
       const plan = getUserPlan(userData);
-      if (!isInitialSetup && plan === 'free') {
+      const gradeEligible = isPremiumEligibleGrade(userData.grade);
+      if (!isInitialSetup && plan === 'free' && gradeEligible) {
         try {
           const client = await getLineClient();
           await client.replyMessage({
