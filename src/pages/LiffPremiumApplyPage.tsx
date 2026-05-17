@@ -1,6 +1,12 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Navigate } from 'react-router-dom';
-import { addDoc, collection, serverTimestamp } from 'firebase/firestore/lite';
+import {
+  addDoc,
+  collection,
+  doc,
+  serverTimestamp,
+  setDoc,
+} from 'firebase/firestore/lite';
 import { db } from '../firebase/config';
 import { useAuth } from '../contexts/AuthContext';
 import { useLiffAuth } from '../hooks/useLiffAuth';
@@ -40,10 +46,20 @@ interface UserProfile {
 }
 
 const PROMO_PRICE_YEN = 680;
-const REGULAR_PRICE_YEN = 1280;
 const CHECKOUT_URL = import.meta.env.VITE_PREMIUM_CHECKOUT_URL as
   | string
   | undefined;
+
+const HOURS: {
+  value: ApplicationPreferredHour;
+  label: string;
+  note: string;
+}[] = [
+  { value: 6, label: '朝6時', note: '登校前に1問' },
+  { value: 7, label: '朝7時', note: '朝の準備後に' },
+  { value: 17, label: '夕方5時', note: '帰宅後すぐ' },
+  { value: 19, label: '夜7時', note: '夕食前後に' },
+];
 
 /**
  * LIFF プレミアム登録ページ。
@@ -66,6 +82,9 @@ export function LiffPremiumApplyPage() {
   const [status, setStatus] = useState<Status>('loading');
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [profile, setProfile] = useState<UserProfile | null>(null);
+  const [selectedHour, setSelectedHour] =
+    useState<ApplicationPreferredHour | null>(null);
+  const [guardianConfirmed, setGuardianConfirmed] = useState(false);
 
   // 計測: 認証確立後に1回だけ閲覧イベントを記録
   useEffect(() => {
@@ -96,6 +115,7 @@ export function LiffPremiumApplyPage() {
       plan,
       planSource,
     });
+    setSelectedHour((current) => current ?? preferredHour ?? 19);
     // 無料トライアル中（plan=premium かつ planSource=trial）は本契約 UI へ進める
     if (plan === 'premium' && planSource === 'trial') {
       setStatus('ready');
@@ -108,8 +128,17 @@ export function LiffPremiumApplyPage() {
 
   const canSubmit = useMemo(() => {
     if (status !== 'ready') return false;
+    if (!profile) return false;
+    if (
+      profile.planSource === 'trial' ||
+      profile.planSource === 'trial_expired'
+    ) {
+      return true;
+    }
+    if (!selectedHour) return false;
+    if (!guardianConfirmed) return false;
     return true;
-  }, [status]);
+  }, [guardianConfirmed, profile, selectedHour, status]);
 
   const handleSubmit = async () => {
     if (!user || !profile) return;
@@ -145,6 +174,20 @@ export function LiffPremiumApplyPage() {
       : user.uid;
 
     try {
+      if (selectedHour && selectedHour !== profile.preferredHour) {
+        await withFirestoreTimeout(
+          setDoc(
+            doc(db, 'users', user.uid),
+            {
+              preferredHour: selectedHour,
+              updatedAt: serverTimestamp(),
+            },
+            { merge: true }
+          ),
+          7000,
+          'setDoc users preferredHour'
+        );
+      }
       const ref = await withFirestoreTimeout(
         addDoc(collection(db, 'premiumApplications'), {
           applicationType: 'trial_start',
@@ -153,7 +196,7 @@ export function LiffPremiumApplyPage() {
           displayName,
           subject: profile.subject,
           grade: profile.grade,
-          preferredHour: profile.preferredHour,
+          preferredHour: selectedHour,
           status: 'pending' as const,
           createdAt: serverTimestamp(),
         }),
@@ -231,38 +274,95 @@ export function LiffPremiumApplyPage() {
   }
 
   if (status === 'submitted') {
+    const hourLabel =
+      HOURS.find((h) => h.value === selectedHour)?.label ??
+      (selectedHour ? `${selectedHour}時` : '設定した時刻');
+
+    const handleBackToLine = async () => {
+      try {
+        const liff = (await import('@line/liff')).default;
+        if (typeof liff.closeWindow === 'function') {
+          liff.closeWindow();
+          return;
+        }
+      } catch (err) {
+        console.warn('[LiffPremiumApplyPage] closeWindow failed', err);
+      }
+      window.location.href = 'https://line.me/R/';
+    };
+
     return (
       <div className="min-h-screen bg-[#FAF9F7] pb-12">
-        <header className="bg-amber-500">
-          <div className="max-w-2xl mx-auto px-4 py-6">
+        <header className="bg-gradient-to-br from-amber-400 via-orange-400 to-sky-500">
+          <div className="max-w-2xl mx-auto px-4 py-8">
             <h1
-              className="text-xl font-bold text-white text-center"
+              className="text-2xl font-bold text-white text-center leading-snug"
               style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
             >
-              ✅ 申込を受け付けました
+              7日間無料トライアルを
+              <br />
+              開始しました
             </h1>
+            <p className="text-sm text-white/95 text-center mt-3 leading-relaxed">
+              このあとLINEに戻って、リッチメニューからすぐに使えます。
+            </p>
           </div>
         </header>
         <main className="max-w-2xl mx-auto px-4">
-          <section className="mt-4 bg-white rounded-2xl shadow-sm p-5">
-            <p className="text-sm text-gray-700 leading-relaxed">
-              送信後すぐに7日間無料トライアルを開始します。
-              <br />
-              LINEのリッチメニューがプレミアム版に切り替わります。
+          <section className="-mt-3 bg-white rounded-2xl shadow-sm p-5 border border-amber-100">
+            <p
+              className="text-sm font-bold text-gray-800 mb-3"
+              style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+            >
+              次にすること
             </p>
+            <div className="grid grid-cols-1 gap-3 text-sm text-gray-700">
+              <div className="rounded-xl bg-amber-50 px-4 py-3">
+                <div className="font-bold text-amber-800">1. LINEに戻る</div>
+                <p className="text-xs text-amber-800 mt-1 leading-relaxed">
+                  下のボタンでこの画面を閉じ、チャットでスタディのトーク画面を開きます。
+                </p>
+              </div>
+              <div className="rounded-xl bg-sky-50 px-4 py-3">
+                <div className="font-bold text-sky-800">
+                  2. 「もっと解く」を押す
+                </div>
+                <p className="text-xs text-sky-800 mt-1 leading-relaxed">
+                  プレミアム版リッチメニューから、追加問題と苦手復習を試せます。
+                </p>
+              </div>
+              <div className="rounded-xl bg-gray-50 px-4 py-3">
+                <div className="font-bold text-gray-800">
+                  3. 毎日1問は{hourLabel}に届きます
+                </div>
+                <p className="text-xs text-gray-600 mt-1 leading-relaxed">
+                  配信時刻はあとから「設定・サポート」で変更できます。
+                </p>
+              </div>
+            </div>
+            <button
+              type="button"
+              onClick={() => void handleBackToLine()}
+              className="mt-5 w-full bg-amber-500 hover:bg-amber-600 active:scale-[0.98] transition rounded-full py-3 text-sm font-bold text-white"
+              style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+            >
+              LINEに戻って始める
+            </button>
           </section>
           <section className="mt-4 bg-white rounded-2xl shadow-sm p-5">
             <p
-              className="text-xs font-bold text-gray-700 mb-2"
+              className="text-sm font-bold text-gray-800 mb-2"
               style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
             >
-              次のステップ
+              保護者の方へ
             </p>
-            <ol className="text-xs text-gray-600 space-y-1.5 leading-relaxed list-decimal pl-5">
-              <li>LINEのトーク画面に戻ります</li>
-              <li>プレミアム版リッチメニューから追加学習を試します</li>
-              <li>続けたい場合はトライアル中に本契約へ進みます</li>
-            </ol>
+            <p className="text-xs text-gray-600 leading-relaxed">
+              無料トライアル中はクレジットカード登録なしで試せます。継続して使う場合は、トライアル中にStripeの月額登録へ進む想定です。
+            </p>
+            <p className="text-xs text-gray-600 mt-2 leading-relaxed">
+              現在は中1・中2の歴史が中心です。対応教科は今後増える予定で、今登録した方は月
+              {PROMO_PRICE_YEN.toLocaleString()}円のまま継続できます。
+            </p>
           </section>
           <p className="text-xs text-gray-400 text-center mt-6 leading-relaxed">
             このページは閉じていただいて構いません
@@ -278,11 +378,11 @@ export function LiffPremiumApplyPage() {
   const requiresCheckout = isTrialToPaid || s.planSource === 'trial_expired';
 
   return (
-    <div className="min-h-screen bg-[#FAF9F7] pb-12">
-      <header className="bg-amber-500">
+    <div className="min-h-screen bg-[#FFF9EE] pb-12">
+      <header className="bg-gradient-to-br from-amber-400 via-orange-400 to-sky-500">
         <div className="max-w-2xl mx-auto px-4 py-6">
           <h1
-            className="text-xl font-bold text-white text-center"
+            className="text-2xl font-bold text-white text-center leading-snug"
             style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
           >
             {isTrialToPaid
@@ -296,43 +396,56 @@ export function LiffPremiumApplyPage() {
               ? '無料トライアル後も続ける方はこちらから'
               : s.planSource === 'trial_expired'
                 ? '無料トライアルは終了しています'
-                : 'ワンタップで7日間無料が始まります'}
+                : '内容を確認して、7日間無料を始めます'}
           </p>
         </div>
       </header>
 
-      <main className="max-w-2xl mx-auto px-4 space-y-4 mt-4">
+      <main className="max-w-2xl mx-auto px-4 space-y-4 -mt-2">
         {/* 価格再確認カード */}
-        <section className="bg-white rounded-2xl shadow-sm overflow-hidden">
+        <section className="bg-white rounded-2xl shadow-sm overflow-hidden border border-amber-100">
           {promo.isActive ? (
             <div className="bg-gradient-to-r from-amber-50 to-white px-5 py-4">
-              <div className="flex items-baseline gap-2">
+              <p
+                className="text-sm font-bold text-amber-700 mb-1"
+                style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+              >
+                今だけ月額
+              </p>
+              <div className="flex flex-wrap items-baseline gap-2">
                 <span
-                  className="text-3xl font-bold text-amber-600"
+                  className="text-4xl font-bold text-amber-600"
                   style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
                 >
                   ¥{PROMO_PRICE_YEN.toLocaleString()}
                 </span>
                 <span className="text-xs text-gray-600">/月（税込）</span>
-                <span className="ml-2 text-xs text-gray-400 line-through">
-                  通常 ¥{REGULAR_PRICE_YEN.toLocaleString()}
-                </span>
               </div>
               <p className="text-xs text-amber-700 mt-1 font-bold">
-                ⏰ 特典終了まで残り{promo.daysRemaining}日 / 永続680円が確定
+                ⏰ 特典終了まで残り{promo.daysRemaining}日 /
+                今登録すると今後も680円のまま
+              </p>
+              <p className="text-xs text-gray-600 mt-2 leading-relaxed">
+                7日間無料で試して、続ける場合だけStripeの月額登録に進みます。
               </p>
             </div>
           ) : (
             <div className="px-5 py-4">
-              <div className="flex items-baseline gap-2">
+              <div className="flex flex-wrap items-baseline gap-2">
+                <span className="rounded-full bg-amber-500 px-3 py-1 text-xs font-bold text-white">
+                  今だけ
+                </span>
                 <span
-                  className="text-3xl font-bold text-gray-800"
+                  className="text-4xl font-bold text-amber-600"
                   style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
                 >
-                  ¥{REGULAR_PRICE_YEN.toLocaleString()}
+                  ¥{PROMO_PRICE_YEN.toLocaleString()}
                 </span>
                 <span className="text-xs text-gray-600">/月（税込）</span>
               </div>
+              <p className="text-xs text-gray-600 mt-2 leading-relaxed">
+                今登録すると、今後教科が増えて価格が上がった後も680円のまま使い続けられます。
+              </p>
             </div>
           )}
         </section>
@@ -370,9 +483,9 @@ export function LiffPremiumApplyPage() {
           </section>
         )}
 
-        {/* 自動コピー欄（読み取り専用） */}
+        {/* 申込内容 */}
         <section className="bg-white rounded-2xl shadow-sm p-5">
-          <div className="text-xs text-gray-500 mb-2">登録内容（自動）</div>
+          <div className="text-xs text-gray-500 mb-2">申込内容の確認</div>
           <dl className="text-sm text-gray-700 space-y-1">
             <div className="flex gap-2">
               <dt className="text-gray-500 w-16 shrink-0">教科</dt>
@@ -384,13 +497,85 @@ export function LiffPremiumApplyPage() {
             </div>
             <div className="flex gap-2">
               <dt className="text-gray-500 w-16 shrink-0">配信時刻</dt>
-              <dd>{s.preferredHour ? `${s.preferredHour}時` : '未設定'}</dd>
+              <dd>
+                {selectedHour
+                  ? HOURS.find((h) => h.value === selectedHour)?.label
+                  : '未設定'}
+              </dd>
             </div>
           </dl>
-          <p className="text-xs text-gray-400 mt-2 leading-relaxed">
-            変更は「設定・サポート」から行えます
-          </p>
         </section>
+
+        {!requiresCheckout && (
+          <>
+            <section className="bg-white rounded-2xl shadow-sm p-5">
+              <div className="text-xs text-gray-500 mb-2">
+                毎日1問の配信時刻
+              </div>
+              <div className="grid grid-cols-2 gap-2">
+                {HOURS.map((h) => {
+                  const active = selectedHour === h.value;
+                  return (
+                    <button
+                      key={h.value}
+                      type="button"
+                      onClick={() => setSelectedHour(h.value)}
+                      disabled={submitting}
+                      className={`rounded-2xl border px-3 py-3 text-left transition ${
+                        active
+                          ? 'border-amber-400 bg-amber-50 text-amber-800'
+                          : 'border-gray-200 bg-white text-gray-700 hover:border-amber-300'
+                      } disabled:opacity-50`}
+                    >
+                      <span
+                        className="block text-sm font-bold"
+                        style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+                      >
+                        {h.label}
+                      </span>
+                      <span className="mt-1 block text-[11px] text-gray-500">
+                        {h.note}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+              <p className="text-xs text-gray-500 mt-2 leading-relaxed">
+                ここで選んだ時刻に、毎日1問が届きます。あとから変更できます。
+              </p>
+            </section>
+
+            <section className="bg-white rounded-2xl shadow-sm p-5">
+              <div
+                className="text-sm font-bold text-gray-800 mb-2"
+                style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+              >
+                確認事項
+              </div>
+              <ul className="text-xs text-gray-600 space-y-1.5 leading-relaxed mb-3">
+                <li>7日間無料でプレミアム機能を試せます。</li>
+                <li>
+                  無料体験の開始だけではクレジットカード入力はありません。
+                </li>
+                <li>
+                  継続する場合は、Stripeの月額登録でカード情報を入力します。
+                </li>
+                <li>中学生の方は、保護者の方と確認してから始めてください。</li>
+              </ul>
+              <label className="flex items-start gap-2 rounded-xl bg-amber-50 px-3 py-3 text-xs text-amber-900">
+                <input
+                  type="checkbox"
+                  checked={guardianConfirmed}
+                  onChange={(e) => setGuardianConfirmed(e.target.checked)}
+                  className="mt-0.5"
+                />
+                <span>
+                  保護者と確認しました。7日間無料トライアルを開始します。
+                </span>
+              </label>
+            </section>
+          </>
+        )}
 
         {errorMessage && (
           <p className="text-center text-sm text-red-600">{errorMessage}</p>
@@ -426,7 +611,7 @@ export function LiffPremiumApplyPage() {
                 ? CHECKOUT_URL
                   ? '決済ページで登録を完了できます'
                   : 'Stripe継続課金の準備ができ次第、登録できるようになります'
-                : '送信後すぐに7日間無料トライアルが始まります'}
+                : '開始後はLINEに戻って、リッチメニュー「もっと解く」から使えます'}
           </p>
         </section>
       </main>

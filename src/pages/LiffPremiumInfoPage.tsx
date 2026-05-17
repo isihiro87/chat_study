@@ -7,8 +7,8 @@ const CONTACT_URL = 'https://www.chatstudy.jp/contact';
 const APPLY_PATH = '/liff/premium-apply';
 const PARENTS_LP_URL = 'https://www.chatstudy.jp/for-parents';
 const PROMO_PRICE_YEN = 680;
-const REGULAR_PRICE_YEN = 1280;
 const CURRENT_SCOPE = '現在は中1・中2の歴史に対応';
+const FUTURE_SCOPE = '対応教科は今後追加予定';
 
 interface ComparisonRow {
   feature: string;
@@ -48,7 +48,7 @@ const COMPARISON: ComparisonRow[] = [
   {
     feature: '対応範囲',
     free: '毎日1問',
-    premium: '中1・中2歴史',
+    premium: '無制限',
     highlight: true,
   },
   {
@@ -96,11 +96,11 @@ interface QA {
 const FAQ: QA[] = [
   {
     q: '料金はいくらですか？',
-    a: `特典期間中は月 ${PROMO_PRICE_YEN.toLocaleString()}円。通常価格は月 ${REGULAR_PRICE_YEN.toLocaleString()}円の予定です。今登録いただいた方は、将来通常価格に値上げ後も月 ${PROMO_PRICE_YEN.toLocaleString()}円のまま継続いただけます。`,
+    a: `今だけ月 ${PROMO_PRICE_YEN.toLocaleString()}円です。今登録いただいた方は、今後教科が増えて価格が上がった後も月 ${PROMO_PRICE_YEN.toLocaleString()}円のまま継続いただけます。`,
   },
   {
     q: '今使える範囲はどこまでですか？',
-    a: `${CURRENT_SCOPE}しています。対応科目・範囲は今後追加予定です。`,
+    a: `${CURRENT_SCOPE}しています。${FUTURE_SCOPE}で、追加後も今登録した方は月 ${PROMO_PRICE_YEN.toLocaleString()}円のまま使い続けられます。`,
   },
   {
     q: '解約はいつでもできますか？',
@@ -132,7 +132,6 @@ export function LiffPremiumInfoPage() {
   const promo = usePremiumPromoCountdown();
   const { user } = useAuth();
   const [shareSucceeded, setShareSucceeded] = useState(false);
-  const [copySucceeded, setCopySucceeded] = useState(false);
   const [shareAvailable, setShareAvailable] = useState(false);
 
   useEffect(() => {
@@ -181,48 +180,54 @@ export function LiffPremiumInfoPage() {
     }
   };
 
-  const handleCopy = async () => {
-    try {
-      await navigator.clipboard.writeText(PARENTS_LP_URL);
-      setCopySucceeded(true);
-      window.setTimeout(() => setCopySucceeded(false), 2500);
-    } catch (err) {
-      console.warn('[LiffPremiumInfoPage] copy failed', err);
-    }
-  };
-
   return (
-    <div className="min-h-screen bg-[#FAF9F7] pb-12">
-      <header className="bg-amber-500">
-        <div className="max-w-2xl mx-auto px-4 py-6">
+    <div className="min-h-screen bg-[#FFF9EE] pb-12">
+      <header className="bg-gradient-to-br from-amber-400 via-orange-400 to-sky-500">
+        <div className="max-w-2xl mx-auto px-4 py-7">
+          <div className="flex justify-center gap-2 mb-3">
+            <span className="rounded-full bg-white/90 px-3 py-1 text-[11px] font-bold text-amber-700">
+              7日間無料
+            </span>
+            <span className="rounded-full bg-white/90 px-3 py-1 text-[11px] font-bold text-sky-700">
+              今だけ月{PROMO_PRICE_YEN.toLocaleString()}円
+            </span>
+          </div>
           <h1
-            className="text-xl font-bold text-white text-center"
+            className="text-2xl font-bold text-white text-center leading-snug"
             style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
           >
-            ✨ プレミアムでもっと学ぼう
+            テスト前に、もう少し解きたい。
+            <br />
+            その分だけ進めるプレミアム
           </h1>
-          <p className="text-xs text-white/90 text-center mt-1">
-            無料版にプラスαで、テスト対策が一気に進む
+          <p className="text-sm text-white/95 text-center mt-3 leading-relaxed">
+            中学生がLINEで続けやすく、保護者の方にも料金と条件がわかりやすいプランです。
           </p>
         </div>
       </header>
 
       <main className="max-w-2xl mx-auto px-4">
         {/* 価格バナー */}
-        <section className="mt-4 bg-white rounded-2xl shadow-sm overflow-hidden">
+        <section className="-mt-3 bg-white rounded-2xl shadow-sm overflow-hidden border border-amber-100">
           {promo.isActive ? (
-            <div className="bg-gradient-to-r from-amber-50 to-white px-5 py-4">
-              <div className="flex items-baseline gap-2">
+            <div className="bg-gradient-to-r from-white via-amber-50 to-sky-50 px-5 py-5">
+              <p
+                className="text-sm font-bold text-amber-700 mb-1"
+                style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+              >
+                今すぐ登録した方限定
+              </p>
+              <div className="flex flex-wrap items-baseline gap-2">
+                <span className="rounded-full bg-amber-500 px-3 py-1 text-xs font-bold text-white">
+                  今だけ
+                </span>
                 <span
-                  className="text-3xl font-bold text-amber-600"
+                  className="text-4xl font-bold text-amber-600"
                   style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
                 >
                   ¥{PROMO_PRICE_YEN.toLocaleString()}
                 </span>
                 <span className="text-xs text-gray-600">/月（税込）</span>
-                <span className="ml-2 text-xs text-gray-400 line-through">
-                  通常 ¥{REGULAR_PRICE_YEN.toLocaleString()}/月
-                </span>
               </div>
               <p
                 className="text-xs font-bold text-amber-700 mt-1.5"
@@ -234,44 +239,58 @@ export function LiffPremiumInfoPage() {
                   : ''}
               </p>
               <p className="text-xs text-gray-600 mt-1 leading-relaxed">
-                今登録いただいた方は、将来通常価格 ¥
-                {REGULAR_PRICE_YEN.toLocaleString()} に値上げ後も
-                <br />
+                今登録いただいた方は、今後教科が増えて価格が上がった後も
                 <span className="font-bold text-amber-700">
-                  ずっと月¥{PROMO_PRICE_YEN.toLocaleString()}
+                  月¥{PROMO_PRICE_YEN.toLocaleString()}
                 </span>
-                のまま継続いただけます。
+                のまま使い続けられます。
               </p>
-              <p className="text-xs text-gray-500 mt-2 leading-relaxed">
-                {CURRENT_SCOPE}。対応科目は今後追加予定です。
-              </p>
+              <div className="mt-3 grid grid-cols-2 gap-2 text-[11px] font-bold">
+                <div className="rounded-xl bg-white/80 px-3 py-2 text-gray-700">
+                  {CURRENT_SCOPE}
+                </div>
+                <div className="rounded-xl bg-white/80 px-3 py-2 text-sky-700">
+                  {FUTURE_SCOPE}
+                </div>
+              </div>
             </div>
           ) : promo.isExpired ? (
             <div className="px-5 py-4">
-              <div className="flex items-baseline gap-2">
+              <div className="flex flex-wrap items-baseline gap-2">
+                <span className="rounded-full bg-amber-500 px-3 py-1 text-xs font-bold text-white">
+                  今だけ
+                </span>
                 <span
-                  className="text-3xl font-bold text-gray-800"
+                  className="text-4xl font-bold text-amber-600"
                   style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
                 >
-                  ¥{REGULAR_PRICE_YEN.toLocaleString()}
+                  ¥{PROMO_PRICE_YEN.toLocaleString()}
                 </span>
                 <span className="text-xs text-gray-600">/月（税込）</span>
               </div>
               <p className="text-xs text-gray-500 mt-2 leading-relaxed">
-                ※ 早期登録の特典期間は終了しました
+                今登録いただいた方は、今後教科が増えて価格が上がった後も月¥
+                {PROMO_PRICE_YEN.toLocaleString()}のまま使い続けられます。
               </p>
             </div>
           ) : (
             <div className="px-5 py-4">
-              <div className="flex items-baseline gap-2">
+              <div className="flex flex-wrap items-baseline gap-2">
+                <span className="rounded-full bg-amber-500 px-3 py-1 text-xs font-bold text-white">
+                  今だけ
+                </span>
                 <span
-                  className="text-3xl font-bold text-gray-800"
+                  className="text-4xl font-bold text-amber-600"
                   style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
                 >
-                  ¥{REGULAR_PRICE_YEN.toLocaleString()}
+                  ¥{PROMO_PRICE_YEN.toLocaleString()}
                 </span>
                 <span className="text-xs text-gray-600">/月（税込）</span>
               </div>
+              <p className="text-xs text-gray-500 mt-2 leading-relaxed">
+                今登録いただいた方は、今後教科が増えて価格が上がった後も月¥
+                {PROMO_PRICE_YEN.toLocaleString()}のまま使い続けられます。
+              </p>
             </div>
           )}
         </section>
@@ -286,9 +305,9 @@ export function LiffPremiumInfoPage() {
               💡 アーリーアダプター特典
             </p>
             <p className="text-xs text-amber-800 mt-1 leading-relaxed">
-              特典期間に登録すれば、対応教科が増えて通常価格 ¥
-              {REGULAR_PRICE_YEN.toLocaleString()}/月になっても、月 ¥
-              {PROMO_PRICE_YEN.toLocaleString()} のまま継続いただけます。
+              特典期間に登録すれば、対応教科が増えて価格が上がった後も、月 ¥
+              {PROMO_PRICE_YEN.toLocaleString()}{' '}
+              のまま継続いただけます。対応教科は順次追加予定です。
             </p>
           </section>
         )}
@@ -341,6 +360,16 @@ export function LiffPremiumInfoPage() {
               ))}
             </div>
           </div>
+          <a
+            href={APPLY_PATH}
+            className="mt-4 block w-full text-center bg-amber-500 hover:bg-amber-600 active:scale-[0.98] transition rounded-full py-3 text-sm font-bold text-white shadow-sm"
+            style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+          >
+            7日間無料で試してみる
+          </a>
+          <p className="text-xs text-gray-500 text-center mt-2">
+            今登録すると、今後も月{PROMO_PRICE_YEN.toLocaleString()}円のまま
+          </p>
         </section>
 
         {/* トライアル開始から継続までの流れ */}
@@ -374,46 +403,34 @@ export function LiffPremiumInfoPage() {
         </section>
 
         {/* 保護者へ共有 */}
-        <section className="mt-4 bg-white rounded-2xl shadow-sm p-5">
-          <h2
-            className="text-sm font-bold text-gray-700 mb-2"
-            style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
-          >
-            📱 保護者にこのページを共有
-          </h2>
-          <p className="text-xs text-gray-600 leading-relaxed mb-3">
-            申込の前に保護者の方とご相談ください。
-            <br />
-            保護者向けの詳しい説明ページを LINE で送れます。
-          </p>
-          <div className="flex flex-col gap-2">
-            {shareAvailable && (
-              <button
-                type="button"
-                onClick={() => void handleShare()}
-                className="w-full bg-amber-500 hover:bg-amber-600 active:scale-[0.98] transition rounded-full py-2.5 text-sm font-bold text-white"
-                style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
-              >
-                LINE で保護者に送る
-              </button>
-            )}
-            <button
-              type="button"
-              onClick={() => void handleCopy()}
-              className="w-full bg-white border border-amber-300 text-amber-700 hover:bg-amber-50 active:scale-[0.98] transition rounded-full py-2.5 text-sm font-bold"
+        {shareAvailable && (
+          <section className="mt-4 bg-white rounded-2xl shadow-sm p-5">
+            <h2
+              className="text-sm font-bold text-gray-700 mb-2"
               style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
             >
-              {copySucceeded
-                ? 'コピーしました ✓'
-                : '保護者向けページの URL をコピー'}
-            </button>
-          </div>
-          {shareSucceeded && (
-            <p className="text-xs text-amber-700 mt-2 text-center">
-              送信しました ✓
+              📱 保護者にこのページを共有
+            </h2>
+            <p className="text-xs text-gray-600 leading-relaxed mb-3">
+              申込の前に保護者の方とご相談ください。
+              <br />
+              保護者向けの詳しい説明ページを LINE で送れます。
             </p>
-          )}
-        </section>
+            <button
+              type="button"
+              onClick={() => void handleShare()}
+              className="w-full bg-amber-500 hover:bg-amber-600 active:scale-[0.98] transition rounded-full py-2.5 text-sm font-bold text-white"
+              style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+            >
+              LINE で保護者に送る
+            </button>
+            {shareSucceeded && (
+              <p className="text-xs text-amber-700 mt-2 text-center">
+                送信しました ✓
+              </p>
+            )}
+          </section>
+        )}
 
         {/* FAQ */}
         <section className="mt-4">
