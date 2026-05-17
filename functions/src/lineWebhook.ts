@@ -65,95 +65,125 @@ interface Question {
   explanation: string;
 }
 
-const gradeSelectMessage = {
-  type: 'template' as const,
-  altText: '学年を選んでください',
-  template: {
-    type: 'buttons' as const,
-    title: '学年選択',
-    text: 'あなたの学年を選んでください。',
-    actions: [
-      {
-        type: 'postback' as const,
-        label: '中1',
-        data: 'type=select_grade&grade=中1',
-        displayText: '中1',
-      },
-      {
-        type: 'postback' as const,
-        label: '中2',
-        data: 'type=select_grade&grade=中2',
-        displayText: '中2',
-      },
-      {
-        type: 'postback' as const,
-        label: '中3',
-        data: 'type=select_grade&grade=中3',
-        displayText: '中3',
-      },
-    ],
-  },
-};
+interface OnboardingSelectOption {
+  label: string;
+  data: string;
+}
 
-const subjectSelectMessage = {
-  type: 'template' as const,
-  altText: '教科を選んでください',
-  template: {
-    type: 'buttons' as const,
-    title: '教科選択',
-    text: '勉強したい教科を選んでください。',
-    actions: [
-      {
-        type: 'postback' as const,
-        label: '歴史',
-        data: 'type=select_subject&subject=history',
-        displayText: '歴史',
+function buildOnboardingSelectFlex(opts: {
+  step: 1 | 2 | 3;
+  headerTitle: string;
+  bodyText: string;
+  options: OnboardingSelectOption[];
+  altText: string;
+}) {
+  return {
+    type: 'flex' as const,
+    altText: opts.altText,
+    contents: {
+      type: 'bubble' as const,
+      size: 'kilo' as const,
+      header: {
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        backgroundColor: '#F59E0B',
+        paddingAll: '14px',
+        spacing: 'xs' as const,
+        contents: [
+          {
+            type: 'text' as const,
+            text: `STEP ${opts.step} / 3`,
+            color: '#FEF3C7',
+            size: 'xs' as const,
+            weight: 'bold' as const,
+          },
+          {
+            type: 'text' as const,
+            text: opts.headerTitle,
+            color: '#FFFFFF',
+            weight: 'bold' as const,
+            size: 'md' as const,
+          },
+        ],
       },
-      {
-        type: 'postback' as const,
-        label: '英語',
-        data: 'type=select_subject&subject=english',
-        displayText: '英語',
+      body: {
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        paddingAll: '16px',
+        spacing: 'sm' as const,
+        contents: [
+          {
+            type: 'text' as const,
+            text: opts.bodyText,
+            wrap: true,
+            size: 'sm' as const,
+            color: '#374151',
+          },
+        ],
       },
-    ],
-  },
-};
+      footer: {
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        spacing: 'sm' as const,
+        paddingAll: '16px',
+        contents: opts.options.map((option) => ({
+          type: 'button' as const,
+          style: 'secondary' as const,
+          height: 'sm' as const,
+          action: {
+            type: 'postback' as const,
+            label: option.label,
+            data: option.data,
+            displayText: option.label,
+          },
+        })),
+      },
+    },
+  };
+}
 
-const timeSelectMessage = {
-  type: 'template' as const,
-  altText: '配信時間を選んでください',
-  template: {
-    type: 'buttons' as const,
-    title: '配信時間選択',
-    text: '毎日問題を送る時間を選んでください。',
-    actions: [
-      {
-        type: 'postback' as const,
-        label: '朝6時',
-        data: 'type=select_time&hour=6',
-        displayText: '朝6時',
-      },
-      {
-        type: 'postback' as const,
-        label: '朝7時',
-        data: 'type=select_time&hour=7',
-        displayText: '朝7時',
-      },
-      {
-        type: 'postback' as const,
-        label: '夕方5時',
-        data: 'type=select_time&hour=17',
-        displayText: '夕方5時',
-      },
-      {
-        type: 'postback' as const,
-        label: '夜7時',
-        data: 'type=select_time&hour=19',
-        displayText: '夜7時',
-      },
+export function buildGradeSelectMessage() {
+  return buildOnboardingSelectFlex({
+    step: 1,
+    headerTitle: '学年を選ぶ',
+    bodyText: 'あなたの学年を選んでください。',
+    altText: '学年を選んでください',
+    options: [
+      { label: '中1', data: 'type=select_grade&grade=中1' },
+      { label: '中2', data: 'type=select_grade&grade=中2' },
+      { label: '中3', data: 'type=select_grade&grade=中3' },
     ],
-  },
-};
+  });
+}
+
+export function buildSubjectSelectMessage() {
+  return buildOnboardingSelectFlex({
+    step: 2,
+    headerTitle: '教科を選ぶ',
+    bodyText: '勉強したい教科を選んでください。',
+    altText: '教科を選んでください',
+    options: [
+      { label: '歴史', data: 'type=select_subject&subject=history' },
+      { label: '英語', data: 'type=select_subject&subject=english' },
+    ],
+  });
+}
+
+export function buildTimeSelectMessage() {
+  return buildOnboardingSelectFlex({
+    step: 3,
+    headerTitle: '配信時間を選ぶ',
+    bodyText:
+      '毎日問題を送る時間を選んでください。あとから「設定変更」と送れば変えられます。',
+    altText: '配信時間を選んでください',
+    options: [
+      { label: '朝6時', data: 'type=select_time&hour=6' },
+      { label: '朝7時', data: 'type=select_time&hour=7' },
+      { label: '夕方5時', data: 'type=select_time&hour=17' },
+      { label: '夜7時', data: 'type=select_time&hour=19' },
+    ],
+  });
+}
 
 let cachedClient: messagingApi.MessagingApiClient | null = null;
 export async function getLineClient(): Promise<messagingApi.MessagingApiClient> {
@@ -432,7 +462,7 @@ async function handleSettingsChange(
       replyToken,
       messages: [
         { type: 'text', text: '設定を変更します。学年を選んでください。' },
-        gradeSelectMessage,
+        buildGradeSelectMessage(),
       ],
     });
   } catch (error) {
@@ -466,6 +496,9 @@ async function handleFollow(event: LineEvent): Promise<void> {
         lineUserId: userId,
         status: 'active',
         source: 'messaging-webhook',
+        onboardingState: 'started',
+        onboardingStartedAt: FieldValue.serverTimestamp(),
+        onboardingReminderSentAt: null,
         updatedAt: FieldValue.serverTimestamp(),
       },
       { merge: true }
@@ -488,7 +521,7 @@ async function handleFollow(event: LineEvent): Promise<void> {
           type: 'text',
           text: '友だち追加ありがとうございます。30秒で設定すると、明日から毎日1問が届きます。まずは学年を選んでください。',
         },
-        gradeSelectMessage,
+        buildGradeSelectMessage(),
       ],
     });
   } catch (error) {
@@ -2607,7 +2640,7 @@ async function handleSelectGradePostback(
       replyToken,
       messages: [
         { type: 'text', text: `${grade}ですね！次に教科を選んでください。` },
-        subjectSelectMessage,
+        buildSubjectSelectMessage(),
       ],
     });
   } catch (error) {
@@ -2695,7 +2728,7 @@ async function handleSelectSubjectPostback(
           type: 'text',
           text: `${subjectLabel}ですね！毎日問題を送る時間を選んでください。`,
         },
-        timeSelectMessage,
+        buildTimeSelectMessage(),
       ],
     });
   } catch (error) {
@@ -2759,6 +2792,8 @@ async function handleSelectTimePostback(
     await db.doc(`users/${uid}`).set(
       {
         preferredHour: validHour,
+        onboardingState: 'complete',
+        onboardingCompletedAt: FieldValue.serverTimestamp(),
         updatedAt: FieldValue.serverTimestamp(),
       },
       { merge: true }

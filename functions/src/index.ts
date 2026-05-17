@@ -11,6 +11,8 @@ export { onAnswerCreated } from "./onAnswerCreated";
 export { onPremiumApplicationCreated } from "./onPremiumApplicationCreated";
 export { syncRichMenuToPlan } from "./syncRichMenuToPlan";
 export { expireTrialUsers } from "./expireTrialUsers";
+export { remindIncompleteOnboarding } from "./remindIncompleteOnboarding";
+export { stripeWebhook } from "./stripeWebhook";
 
 const LINE_LOGIN_CHANNEL_ID = process.env.LINE_LOGIN_CHANNEL_ID || "";
 const LINE_LOGIN_CHANNEL_SECRET = process.env.LINE_LOGIN_CHANNEL_SECRET || "";
@@ -55,7 +57,8 @@ export const createLineCustomToken = functions
 
     const { initializeApp, getApps } = await import("firebase-admin/app");
     const { getAuth } = await import("firebase-admin/auth");
-    const { getFirestore, FieldValue } = await import("firebase-admin/firestore");
+    const { getFirestore, FieldValue } =
+      await import("firebase-admin/firestore");
 
     if (getApps().length === 0) {
       initializeApp();
@@ -168,23 +171,21 @@ export const createLiffFirebaseToken = functions
 
     const { initializeApp, getApps } = await import("firebase-admin/app");
     const { getAuth } = await import("firebase-admin/auth");
-    const { getFirestore, FieldValue } = await import("firebase-admin/firestore");
+    const { getFirestore, FieldValue } =
+      await import("firebase-admin/firestore");
     if (getApps().length === 0) {
       initializeApp();
     }
 
     try {
-      const verifyRes = await fetch(
-        "https://api.line.me/oauth2/v2.1/verify",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: new URLSearchParams({
-            id_token: idToken,
-            client_id: LINE_LOGIN_CHANNEL_ID,
-          }),
-        }
-      );
+      const verifyRes = await fetch("https://api.line.me/oauth2/v2.1/verify", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams({
+          id_token: idToken,
+          client_id: LINE_LOGIN_CHANNEL_ID,
+        }),
+      });
 
       if (!verifyRes.ok) {
         const err = await verifyRes.text();

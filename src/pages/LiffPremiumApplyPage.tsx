@@ -61,6 +61,23 @@ const HOURS: {
   { value: 19, label: '夜7時', note: '夕食前後に' },
 ];
 
+function buildCheckoutUrl(baseUrl: string, userUid: string): string {
+  const lineUserId = userUid.startsWith('line:')
+    ? userUid.slice('line:'.length)
+    : userUid;
+  try {
+    const url = new URL(baseUrl);
+    url.searchParams.set('client_reference_id', userUid);
+    url.searchParams.set('line_user_id', lineUserId);
+    return url.toString();
+  } catch {
+    const joiner = baseUrl.includes('?') ? '&' : '?';
+    return `${baseUrl}${joiner}client_reference_id=${encodeURIComponent(
+      userUid
+    )}&line_user_id=${encodeURIComponent(lineUserId)}`;
+  }
+}
+
 /**
  * LIFF プレミアム登録ページ。
  *
@@ -154,7 +171,7 @@ export function LiffPremiumApplyPage() {
         );
         return;
       }
-      window.location.href = CHECKOUT_URL;
+      window.location.href = buildCheckoutUrl(CHECKOUT_URL, user.uid);
       return;
     }
 
