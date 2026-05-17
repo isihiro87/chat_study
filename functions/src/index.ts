@@ -1,4 +1,13 @@
 import * as functions from "firebase-functions/v1";
+import { getApps, initializeApp } from "firebase-admin/app";
+
+// Firestore トリガーで `if (getApps().length === 0) initializeApp()` を関数本体内
+// で呼ぶ pattern は cold start のタイミングで default app の解決に失敗するケースが
+// あった（"The default Firebase app does not exist" エラーで全 trigger が失敗）。
+// 確実に1度だけ初期化されるよう、index.ts の load 時に同期で実行する。
+if (getApps().length === 0) {
+  initializeApp();
+}
 
 export { lineWebhook } from "./lineWebhook";
 export {
