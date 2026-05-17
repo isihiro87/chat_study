@@ -768,7 +768,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "id": "fc10",
             "front": "アーリヤ{人|じん}",
             "back": "衰退したインダス文明の地に侵入した民族は？",
-            "explanation": "インダス文明衰退後にインドに侵入。カースト制度をもたらした。",
+            "explanation": "インダス文明衰退後にインドに侵入。のちのカースト制度につながる身分制度が生まれた。",
             "difficulty": "basic"
           },
           {
@@ -858,8 +858,8 @@ export const lineStudyHistoryEras: StudyEra[] = [
           {
             "id": "fc23",
             "front": "{殷|いん}",
-            "back": "甲骨文字が使われた中国最古の王朝は？",
-            "explanation": "甲骨文字が使われた中国最古の王朝。占いで政治を行った。",
+            "back": "甲骨文字が使われた、実在が確認されている中国最古の王朝は？",
+            "explanation": "甲骨文字が使われた、実在が確認されている中国最古の王朝。占いで政治を行った。",
             "difficulty": "advanced"
           },
           {
@@ -1096,7 +1096,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
               "荘園制度"
             ],
             "correctIndex": 0,
-            "explanation": "アーリヤ人はインドにカースト制度（バルナ制度）をもたらしました。",
+            "explanation": "アーリヤ人の進出後、インドではのちのカースト制度につながる身分制度が生まれました。",
             "difficulty": "standard"
           },
           {
@@ -1109,7 +1109,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
               "議会政治が行われた"
             ],
             "correctIndex": 3,
-            "explanation": "古代文明の共通特徴は大河のほとりで発生したこと、文字の発明、都市の形成です。議会で代表者を選ぶ政治は近代以降の民主主義の特徴です。",
+            "explanation": "古代文明の共通特徴は大河のほとりで発生したこと、文字の発明、都市の形成です。議会政治は、ここで扱う大河文明に共通する特徴ではありません。",
             "difficulty": "standard"
           },
           {
@@ -1142,13 +1142,13 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "id": "q24",
             "question": "太陰暦と太陽暦について正しい説明は？",
             "options": [
-              "太陰暦はエジプト、太陽暦はメソポタミアで作られた",
-              "太陰暦と太陽暦はどちらも中国で発明された",
-              "太陰暦はインダス、太陽暦はメソポタミアで作られた",
-              "太陰暦はメソポタミア、太陽暦はエジプトで作られた"
+              "太陰暦はエジプト、太陽暦はメソポタミアで用いられた",
+              "太陰暦と太陽暦はどちらも中国で用いられた",
+              "太陰暦はインダス、太陽暦はメソポタミアで用いられた",
+              "太陰暦はメソポタミア、太陽暦はエジプトで用いられた"
             ],
             "correctIndex": 3,
-            "explanation": "太陰暦は月の満ち欠けを基準にした暦でメソポタミアで作られ、太陽暦は太陽の動きを基準にした暦でエジプトで作られました。",
+            "explanation": "太陰暦は月の満ち欠けを基準にした暦でメソポタミアで用いられ、太陽暦は太陽の動きを基準にした暦でエジプトで用いられました。",
             "difficulty": "advanced"
           },
           {
