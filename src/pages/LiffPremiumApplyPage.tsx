@@ -89,7 +89,10 @@ export function LiffPremiumApplyPage() {
   // 計測: 認証確立後に1回だけ閲覧イベントを記録
   useEffect(() => {
     if (!user) return;
-    void logFunnelEvent('liff_premium_apply_view');
+    const source = new URLSearchParams(window.location.search).get('src');
+    void logFunnelEvent('liff_premium_apply_view', {
+      source: source ?? 'direct',
+    });
   }, [user]);
 
   // AuthContext がロード済みの userDoc から派生（getDoc 重複を排除）
@@ -206,6 +209,8 @@ export function LiffPremiumApplyPage() {
       void logFunnelEvent('liff_premium_apply_submit', {
         applicationId: ref.id,
         applicationType: 'trial_start',
+        source:
+          new URLSearchParams(window.location.search).get('src') ?? 'direct',
       });
       setStatus('submitted');
     } catch (err) {

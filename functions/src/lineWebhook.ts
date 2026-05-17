@@ -242,6 +242,19 @@ const LIFF_HELP_URL =
 const LIFF_TEST_RANGE_URL =
   process.env.LIFF_TEST_RANGE_URL ?? 'https://liff.line.me/2009587166-fLjzMGk8';
 
+const PREMIUM_PRICE_TEXT = '月680円・7日間無料';
+
+function withLiffSource(url: string, source: string): string {
+  try {
+    const u = new URL(url);
+    u.searchParams.set('src', source);
+    return u.toString();
+  } catch {
+    const joiner = url.includes('?') ? '&' : '?';
+    return `${url}${joiner}src=${encodeURIComponent(source)}`;
+  }
+}
+
 export const lineWebhook = functions
   .region('asia-northeast1')
   .https.onRequest(async (req, res) => {
@@ -470,7 +483,13 @@ async function handleFollow(event: LineEvent): Promise<void> {
     const client = await getLineClient();
     await client.replyMessage({
       replyToken,
-      messages: [gradeSelectMessage],
+      messages: [
+        {
+          type: 'text',
+          text: '友だち追加ありがとうございます。30秒で設定すると、明日から毎日1問が届きます。まずは学年を選んでください。',
+        },
+        gradeSelectMessage,
+      ],
     });
   } catch (error) {
     console.error('[lineWebhook] handleFollow reply failed:', error);
@@ -542,12 +561,12 @@ async function handlePostback(event: LineEvent): Promise<void> {
   }
 
   if (type === 'test_range_menu') {
-    await handleTestRangeMenuPostback(replyToken);
+    await handleTestRangeMenuPostback(uid, replyToken);
     return;
   }
 
   if (type === 'premium_info') {
-    await handlePremiumInfoPostback(replyToken, uid);
+    await handlePremiumInfoPostback(replyToken, uid, params.get('source'));
     return;
   }
 
@@ -630,10 +649,19 @@ async function handleSettingsMenuPostback(
 }
 
 async function handleTestRangeMenuPostback(
+  uid: string,
   replyToken: string | undefined
 ): Promise<void> {
   if (!replyToken) return;
-  const flex = buildTestRangeMenuFlexMessage();
+  let plan: UserPlan = 'free';
+  try {
+    const { db } = await getDb();
+    const userSnap = await db.doc(`users/${uid}`).get();
+    plan = getUserPlan(userSnap.data());
+  } catch (error) {
+    console.error('[lineWebhook] handleTestRangeMenu user read failed:', error);
+  }
+  const flex = buildTestRangeMenuFlexMessage(plan);
   try {
     const client = await getLineClient();
     await client.replyMessage({ replyToken, messages: [flex] });
@@ -701,15 +729,18 @@ async function handleReportSummaryPostback(
 
 async function handlePremiumInfoPostback(
   replyToken: string | undefined,
-  uid: string
+  uid: string,
+  source: string | null = null
 ): Promise<void> {
   if (!replyToken) return;
-  // 計測: 無料リッチメニュー「もっと解く」タップとして記録（fire-and-forget）
+  // 計測: プレミアム情報 flex を開いた文脈を記録（fire-and-forget）
   if (uid) {
     void (async () => {
       try {
         const { logServerFunnelEvent } = await import('./funnelEvent');
-        await logServerFunnelEvent('richmenu_premium_info_tap', uid);
+        await logServerFunnelEvent('richmenu_premium_info_tap', uid, {
+          source: source ?? 'richmenu',
+        });
       } catch (error) {
         console.warn('[lineWebhook] funnel event log failed:', error);
       }
@@ -1011,7 +1042,7 @@ function buildHelpFlexMessage() {
               },
               {
                 type: 'text' as const,
-                text: 'プレミアムなら「追加で解く」「苦手を復習」「テスト範囲設定」が使えます。',
+                text: `${PREMIUM_PRICE_TEXT}。もう1問解きたい時や、間違えた問題だけ復習したい時に使えます。`,
                 wrap: true,
                 size: 'xs' as const,
                 color: '#6B7280',
@@ -1034,7 +1065,7 @@ function buildHelpFlexMessage() {
             action: {
               type: 'uri' as const,
               label: '✨ 7日間無料で始める',
-              uri: LIFF_PREMIUM_APPLY_URL,
+              uri: withLiffSource(LIFF_PREMIUM_APPLY_URL, 'help'),
             },
           },
           {
@@ -1321,7 +1352,12 @@ function buildSettingsMenuFlexMessage() {
   };
 }
 
-function buildTestRangeMenuFlexMessage() {
+function buildTestRangeMenuFlexMessage(plan: UserPlan = 'premium') {
+  const bodyText =
+    plan === 'free'
+      ? '今チェックしておくと、毎日の1問がテスト範囲から優先して届きます。プレミアムでは「追加で解く」「苦手を復習」にも反映されます。'
+      : 'チェックした単元から「追加で解く」「苦手を復習」の問題が出るよ。まだ習っていないところは外しておくとテスト勉強がはかどる👍';
+
   return {
     type: 'flex' as const,
     altText: 'テスト範囲設定',
@@ -1359,7 +1395,7 @@ function buildTestRangeMenuFlexMessage() {
           },
           {
             type: 'text' as const,
-            text: 'チェックした単元から「追加で解く」「苦手を復習」の問題が出るよ。まだ習っていないところは外しておくとテスト勉強がはかどる👍',
+            text: bodyText,
             wrap: true,
             size: 'xs' as const,
             color: '#6B7280',
@@ -1684,6 +1720,15 @@ function buildPremiumInfoFlexMessage() {
             weight: 'bold' as const,
           },
           {
+            type: 'text' as const,
+            text: `${PREMIUM_PRICE_TEXT}。今登録すると、今後教科が増えて価格が上がった後も月680円のまま使えます。`,
+            wrap: true,
+            size: 'xs' as const,
+            color: '#B45309',
+            weight: 'bold' as const,
+            margin: 'sm' as const,
+          },
+          {
             type: 'box' as const,
             layout: 'vertical' as const,
             spacing: 'xs' as const,
@@ -1764,7 +1809,7 @@ function buildPremiumInfoFlexMessage() {
             action: {
               type: 'uri' as const,
               label: '7日間無料で始める',
-              uri: LIFF_PREMIUM_APPLY_URL,
+              uri: withLiffSource(LIFF_PREMIUM_APPLY_URL, 'premium_info'),
             },
           },
           {
@@ -1775,7 +1820,137 @@ function buildPremiumInfoFlexMessage() {
             action: {
               type: 'uri' as const,
               label: '詳細を見る',
-              uri: LIFF_PREMIUM_INFO_URL,
+              uri: withLiffSource(LIFF_PREMIUM_INFO_URL, 'premium_info'),
+            },
+          },
+        ],
+      },
+    },
+  };
+}
+
+function buildPostAnswerNextStepFlexMessage(options: {
+  plan: UserPlan;
+  hourLabel: string;
+  dayStreak: number;
+  totalAnswered: number;
+}) {
+  const isPremium = options.plan === 'premium';
+  const leadText = isPremium
+    ? 'この調子で、もう1問進めることもできます。'
+    : '無料版は1日1問。もっと解きたい時は7日間無料で試せます。';
+  const primaryAction = isPremium
+    ? {
+        type: 'postback' as const,
+        label: 'もう1問解く',
+        data: 'type=extra_question',
+        displayText: 'もう1問解く',
+      }
+    : {
+        type: 'postback' as const,
+        label: '7日間無料を見てみる',
+        data: 'type=premium_info&source=post_answer',
+        displayText: '7日間無料を見てみる',
+      };
+
+  return {
+    type: 'flex' as const,
+    altText: '次の学習案内',
+    contents: {
+      type: 'bubble' as const,
+      size: 'kilo' as const,
+      body: {
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        paddingAll: '16px',
+        spacing: 'sm' as const,
+        contents: [
+          {
+            type: 'text' as const,
+            text: '次はどうする？',
+            weight: 'bold' as const,
+            size: 'md' as const,
+            color: '#111827',
+          },
+          {
+            type: 'text' as const,
+            text: `明日の${options.hourLabel}に次の1問が届きます。`,
+            wrap: true,
+            size: 'xs' as const,
+            color: '#374151',
+          },
+          {
+            type: 'box' as const,
+            layout: 'horizontal' as const,
+            spacing: 'sm' as const,
+            contents: [
+              {
+                type: 'box' as const,
+                layout: 'vertical' as const,
+                backgroundColor: '#FEF3C7',
+                cornerRadius: '10px',
+                paddingAll: '10px',
+                contents: [
+                  {
+                    type: 'text' as const,
+                    text: `連続${options.dayStreak}日`,
+                    weight: 'bold' as const,
+                    size: 'sm' as const,
+                    color: '#92400E',
+                    align: 'center' as const,
+                  },
+                ],
+              },
+              {
+                type: 'box' as const,
+                layout: 'vertical' as const,
+                backgroundColor: '#EFF6FF',
+                cornerRadius: '10px',
+                paddingAll: '10px',
+                contents: [
+                  {
+                    type: 'text' as const,
+                    text: `累計${options.totalAnswered}問`,
+                    weight: 'bold' as const,
+                    size: 'sm' as const,
+                    color: '#1D4ED8',
+                    align: 'center' as const,
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            type: 'text' as const,
+            text: leadText,
+            wrap: true,
+            size: 'xs' as const,
+            color: '#6B7280',
+          },
+        ],
+      },
+      footer: {
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        spacing: 'sm' as const,
+        paddingAll: '16px',
+        contents: [
+          {
+            type: 'button' as const,
+            style: 'primary' as const,
+            color: '#F59E0B',
+            height: 'sm' as const,
+            action: primaryAction,
+          },
+          {
+            type: 'button' as const,
+            style: 'secondary' as const,
+            height: 'sm' as const,
+            action: {
+              type: 'postback' as const,
+              label: '記録を見る',
+              data: 'type=streak',
+              displayText: '記録を見る',
             },
           },
         ],
@@ -1812,32 +1987,27 @@ const NUDGE_COPY: Record<PremiumNudgeReason, NudgeCopy> = {
   extra_question: {
     headerEmoji: '🚀',
     headerText: 'もう1問はプレミアム機能',
-    leadText:
-      '「追加で解く」はプレミアムプランの機能です。今すぐもう1問解きたい方はぜひご検討ください。',
+    leadText: `「追加で解く」はプレミアムプランの機能です。${PREMIUM_PRICE_TEXT}で、今すぐもう1問に進めます。`,
   },
   weak_review: {
     headerEmoji: '🎯',
     headerText: '苦手復習はプレミアム機能',
-    leadText:
-      '間違えた問題から優先出題する「苦手を復習」はプレミアムプランの機能です。',
+    leadText: `間違えた問題から優先出題する「苦手を復習」はプレミアムプランの機能です。${PREMIUM_PRICE_TEXT}で試せます。`,
   },
   streak_milestone: {
     headerEmoji: '🔥',
     headerText: '連続学習おめでとう！',
-    leadText:
-      'コツコツ続けられているあなたなら、もっと伸ばせます。プレミアムで追加問題・苦手復習を解放しませんか？',
+    leadText: `コツコツ続けられているあなたなら、もっと伸ばせます。${PREMIUM_PRICE_TEXT}で追加問題・苦手復習を試せます。`,
   },
   volume_milestone: {
     headerEmoji: '📚',
     headerText: '問題数の節目！',
-    leadText:
-      'たくさん解けています。プレミアムなら追加で解いたり、苦手から復習したりして、さらに定着が進みます。',
+    leadText: `たくさん解けています。${PREMIUM_PRICE_TEXT}で追加問題・苦手復習まで広げられます。`,
   },
   onboarding: {
     headerEmoji: '✨',
     headerText: 'まずは無料で1日1問',
-    leadText:
-      '選んだ時間に問題が届きます。「もっと解きたい」「苦手から復習したい」と思ったら、プレミアムで広げられます。',
+    leadText: `選んだ時間に問題が届きます。「もっと解きたい」と思ったら、${PREMIUM_PRICE_TEXT}で広げられます。`,
   },
 };
 
@@ -2085,6 +2255,7 @@ export function buildTrialExpiredFlexMessage() {
 
 export function buildPremiumNudgeFlexMessage(reason: PremiumNudgeReason) {
   const copy = NUDGE_COPY[reason];
+  const source = `nudge_${reason}`;
   // onboarding は申込ボタンを出さず「詳細を見る」のみ（初回はまだ早い）
   const showApplyButton = reason !== 'onboarding';
 
@@ -2098,7 +2269,7 @@ export function buildPremiumNudgeFlexMessage(reason: PremiumNudgeReason) {
           action: {
             type: 'uri' as const,
             label: '7日間無料で始める',
-            uri: LIFF_PREMIUM_APPLY_URL,
+            uri: withLiffSource(LIFF_PREMIUM_APPLY_URL, source),
           },
         },
         {
@@ -2109,7 +2280,7 @@ export function buildPremiumNudgeFlexMessage(reason: PremiumNudgeReason) {
           action: {
             type: 'uri' as const,
             label: '詳細を見る',
-            uri: LIFF_PREMIUM_INFO_URL,
+            uri: withLiffSource(LIFF_PREMIUM_INFO_URL, source),
           },
         },
       ]
@@ -2122,7 +2293,7 @@ export function buildPremiumNudgeFlexMessage(reason: PremiumNudgeReason) {
           action: {
             type: 'uri' as const,
             label: '詳細を見る',
-            uri: LIFF_PREMIUM_INFO_URL,
+            uri: withLiffSource(LIFF_PREMIUM_INFO_URL, source),
           },
         },
       ];
@@ -2662,11 +2833,13 @@ async function handleAnswerPostback(
   }
 
   const { db, FieldValue } = await getDb();
+  let currentUserData: Record<string, unknown> | undefined;
 
   // 重複回答チェック
   try {
     const userSnap = await db.doc(`users/${uid}`).get();
     const userData = userSnap.data();
+    currentUserData = userData;
     if (userData?.lastAnsweredQuestionId === questionId) {
       console.warn('[lineWebhook] handleAnswer duplicate:', uid, questionId);
       await replyText(replyToken, 'すでに回答済みです。', '(duplicate answer)');
@@ -2724,6 +2897,19 @@ async function handleAnswerPostback(
   const headText = isCorrect
     ? getCorrectFeedback({ correctStreak, dayStreak, isMilestoneDay })
     : getIncorrectFeedback({ correctLabel });
+  const preferredHour = currentUserData?.preferredHour;
+  const hourLabel =
+    typeof preferredHour === 'number' &&
+    VALID_HOURS.includes(preferredHour as ValidHour)
+      ? HOUR_LABELS[preferredHour as ValidHour]
+      : 'いつもの時間';
+  const plan = getUserPlan(currentUserData);
+  const nextStepFlex = buildPostAnswerNextStepFlexMessage({
+    plan,
+    hourLabel,
+    dayStreak,
+    totalAnswered: recentAnswers.length + 1,
+  });
 
   try {
     const client = await getLineClient();
@@ -2732,6 +2918,7 @@ async function handleAnswerPostback(
       messages: [
         { type: 'text', text: headText },
         { type: 'text', text: `📖 解説\n${question.explanation}` },
+        nextStepFlex,
       ],
     });
   } catch (error) {

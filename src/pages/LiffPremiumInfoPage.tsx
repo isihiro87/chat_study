@@ -162,7 +162,10 @@ export function LiffPremiumInfoPage() {
   // 計測: ユーザー認証が確立したタイミングで一度だけ閲覧イベントを記録する
   useEffect(() => {
     if (!user) return;
-    void logFunnelEvent('liff_premium_info_view');
+    const source = new URLSearchParams(window.location.search).get('src');
+    void logFunnelEvent('liff_premium_info_view', {
+      source: source ?? 'direct',
+    });
   }, [user]);
 
   const handleShare = async () => {
