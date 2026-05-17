@@ -41,13 +41,39 @@ service cloud.firestore {
       }
     }
 
-    // プレミアム申込（LIFF /premium-apply から書き込み、管理者のみ閲覧・更新）。
-    // クライアントからは自分の uid 名義かつ status=pending の場合のみ作成可。
-    // 既存ドキュメントの編集はクライアント側からは不可（管理者が手動で承認/却下する想定）。
+    // プレミアム無料トライアル開始リクエスト。
+    // クライアントからは自分の uid 名義の trial_start 作成のみ許可。
+    // 既存ドキュメントの編集はクライアント側からは不可。
     match /premiumApplications/{applicationId} {
       allow create: if request.auth != null
         && request.resource.data.uid == request.auth.uid
-        && request.resource.data.status == 'pending';
+        && request.resource.data.status == 'pending'
+        && request.resource.data.applicationType == 'trial_start'
+        && request.resource.data.keys().hasOnly([
+          'applicationType',
+          'uid',
+          'lineUserId',
+          'displayName',
+          'subject',
+          'grade',
+          'preferredHour',
+          'status',
+          'createdAt'
+        ])
+        && request.resource.data.keys().hasAll([
+          'applicationType',
+          'uid',
+          'lineUserId',
+          'status',
+          'createdAt'
+        ])
+        && request.resource.data.lineUserId is string
+        && request.resource.data.lineUserId.matches('^U[0-9a-f]{32}$')
+        && (!('displayName' in request.resource.data) || request.resource.data.displayName is string)
+        && (!('subject' in request.resource.data) || request.resource.data.subject == null || request.resource.data.subject in ['history', 'english'])
+        && (!('grade' in request.resource.data) || request.resource.data.grade == null || request.resource.data.grade in ['中1', '中2', '中3'])
+        && (!('preferredHour' in request.resource.data) || request.resource.data.preferredHour == null || request.resource.data.preferredHour in [6, 7, 17, 19])
+        && request.resource.data.createdAt is timestamp;
       allow read, update, delete: if isAdmin();
     }
 

@@ -54,9 +54,8 @@ const PARENT_FAQ: ParentQA[] = [
 export function ParentsLandingPage() {
   const promo = usePremiumPromoCountdown();
   const lineFriendUrl =
-    (import.meta.env.VITE_OFFICIAL_LINE_ADD_FRIEND_URL as
-      | string
-      | undefined) || DEFAULT_LINE_FRIEND_URL;
+    (import.meta.env.VITE_OFFICIAL_LINE_ADD_FRIEND_URL as string | undefined) ||
+    DEFAULT_LINE_FRIEND_URL;
 
   useEffect(() => {
     const prev = document.title;
@@ -126,7 +125,8 @@ export function ParentsLandingPage() {
                   のまま継続いただけます。
                 </p>
                 <p className="text-xs text-gray-500 mt-2">
-                  まずは <span className="font-bold">7日間の無料トライアル</span> から
+                  まずは{' '}
+                  <span className="font-bold">7日間の無料トライアル</span> から
                 </p>
               </>
             ) : promo.isExpired ? (
@@ -177,7 +177,9 @@ export function ParentsLandingPage() {
             <li className="flex gap-2">
               <span className="text-amber-600">✓</span>
               <span>
-                <span className="font-bold">学校で習う範囲に合わせた問題。</span>
+                <span className="font-bold">
+                  学校で習う範囲に合わせた問題。
+                </span>
                 中学1〜3年の学年・教科を選ぶだけ。
               </span>
             </li>
@@ -259,9 +261,7 @@ export function ParentsLandingPage() {
               <div className="flex-shrink-0 w-7 h-7 rounded-full bg-amber-500 text-white text-xs font-bold flex items-center justify-center">
                 1
               </div>
-              <div>
-                下のボタンから公式LINE を友だち追加していただきます。
-              </div>
+              <div>下のボタンから公式LINE を友だち追加していただきます。</div>
             </li>
             <li className="flex gap-3">
               <div className="flex-shrink-0 w-7 h-7 rounded-full bg-amber-500 text-white text-xs font-bold flex items-center justify-center">
@@ -276,7 +276,7 @@ export function ParentsLandingPage() {
                 3
               </div>
               <div>
-                プレミアムを試したい時はリッチメニュー「もっと解く」から申込フォームへ。
+                プレミアムを試したい時はリッチメニュー「もっと解く」から7日間無料トライアルへ。
                 送信すると7日間の無料トライアルが始まります。
               </div>
             </li>

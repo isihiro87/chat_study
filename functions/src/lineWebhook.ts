@@ -1,5 +1,5 @@
-import * as functions from "firebase-functions/v1";
-import type { messagingApi } from "@line/bot-sdk";
+import * as functions from 'firebase-functions/v1';
+import type { messagingApi } from '@line/bot-sdk';
 import {
   getCorrectFeedback,
   getIncorrectFeedback,
@@ -10,7 +10,7 @@ import {
   getInitialFirstQuestionTrailing,
   getAlreadyDeliveredText,
   isDayStreakMilestone,
-} from "./messageVariations";
+} from './messageVariations';
 
 interface LineEvent {
   type: string;
@@ -26,21 +26,21 @@ interface LineWebhookBody {
   events?: LineEvent[];
 }
 
-type ValidGrade = "中1" | "中2" | "中3";
-const VALID_GRADES: readonly ValidGrade[] = ["中1", "中2", "中3"] as const;
+type ValidGrade = '中1' | '中2' | '中3';
+const VALID_GRADES: readonly ValidGrade[] = ['中1', '中2', '中3'] as const;
 
-type ValidSubject = "history" | "english";
-const VALID_SUBJECTS: readonly ValidSubject[] = ["history", "english"] as const;
+type ValidSubject = 'history' | 'english';
+const VALID_SUBJECTS: readonly ValidSubject[] = ['history', 'english'] as const;
 const SUBJECT_LABELS: Record<ValidSubject, string> = {
-  history: "歴史",
-  english: "英語",
+  history: '歴史',
+  english: '英語',
 };
 // 教科別のヘッダー背景色。将来 math/science/geography を追加する際は
 // ValidSubject 型と SUBJECT_LABELS / SUBJECT_HEADER_COLORS を同時に更新する。
 // 想定色: 英語=ピンク、歴史/地理=茶（社会系）、数学=青、理科=緑
 const SUBJECT_HEADER_COLORS: Record<ValidSubject, string> = {
-  history: "#A16207", // 社会系の茶色
-  english: "#EC4899", // ピンク
+  history: '#A16207', // 社会系の茶色
+  english: '#EC4899', // ピンク
   // math: "#3B82F6",     // 青
   // science: "#10B981",  // 緑
   // geography: "#A16207", // 茶色（歴史と同じ社会系）
@@ -49,10 +49,10 @@ const SUBJECT_HEADER_COLORS: Record<ValidSubject, string> = {
 type ValidHour = 6 | 7 | 17 | 19;
 const VALID_HOURS: readonly ValidHour[] = [6, 7, 17, 19] as const;
 const HOUR_LABELS: Record<ValidHour, string> = {
-  6: "朝6時",
-  7: "朝7時",
-  17: "夕方5時",
-  19: "夜7時",
+  6: '朝6時',
+  7: '朝7時',
+  17: '夕方5時',
+  19: '夜7時',
 };
 
 interface Question {
@@ -66,46 +66,91 @@ interface Question {
 }
 
 const gradeSelectMessage = {
-  type: "template" as const,
-  altText: "学年を選んでください",
+  type: 'template' as const,
+  altText: '学年を選んでください',
   template: {
-    type: "buttons" as const,
-    title: "学年選択",
-    text: "あなたの学年を選んでください。",
+    type: 'buttons' as const,
+    title: '学年選択',
+    text: 'あなたの学年を選んでください。',
     actions: [
-      { type: "postback" as const, label: "中1", data: "type=select_grade&grade=中1", displayText: "中1" },
-      { type: "postback" as const, label: "中2", data: "type=select_grade&grade=中2", displayText: "中2" },
-      { type: "postback" as const, label: "中3", data: "type=select_grade&grade=中3", displayText: "中3" },
+      {
+        type: 'postback' as const,
+        label: '中1',
+        data: 'type=select_grade&grade=中1',
+        displayText: '中1',
+      },
+      {
+        type: 'postback' as const,
+        label: '中2',
+        data: 'type=select_grade&grade=中2',
+        displayText: '中2',
+      },
+      {
+        type: 'postback' as const,
+        label: '中3',
+        data: 'type=select_grade&grade=中3',
+        displayText: '中3',
+      },
     ],
   },
 };
 
 const subjectSelectMessage = {
-  type: "template" as const,
-  altText: "教科を選んでください",
+  type: 'template' as const,
+  altText: '教科を選んでください',
   template: {
-    type: "buttons" as const,
-    title: "教科選択",
-    text: "勉強したい教科を選んでください。",
+    type: 'buttons' as const,
+    title: '教科選択',
+    text: '勉強したい教科を選んでください。',
     actions: [
-      { type: "postback" as const, label: "歴史", data: "type=select_subject&subject=history", displayText: "歴史" },
-      { type: "postback" as const, label: "英語", data: "type=select_subject&subject=english", displayText: "英語" },
+      {
+        type: 'postback' as const,
+        label: '歴史',
+        data: 'type=select_subject&subject=history',
+        displayText: '歴史',
+      },
+      {
+        type: 'postback' as const,
+        label: '英語',
+        data: 'type=select_subject&subject=english',
+        displayText: '英語',
+      },
     ],
   },
 };
 
 const timeSelectMessage = {
-  type: "template" as const,
-  altText: "配信時間を選んでください",
+  type: 'template' as const,
+  altText: '配信時間を選んでください',
   template: {
-    type: "buttons" as const,
-    title: "配信時間選択",
-    text: "毎日問題を送る時間を選んでください。",
+    type: 'buttons' as const,
+    title: '配信時間選択',
+    text: '毎日問題を送る時間を選んでください。',
     actions: [
-      { type: "postback" as const, label: "朝6時", data: "type=select_time&hour=6", displayText: "朝6時" },
-      { type: "postback" as const, label: "朝7時", data: "type=select_time&hour=7", displayText: "朝7時" },
-      { type: "postback" as const, label: "夕方5時", data: "type=select_time&hour=17", displayText: "夕方5時" },
-      { type: "postback" as const, label: "夜7時", data: "type=select_time&hour=19", displayText: "夜7時" },
+      {
+        type: 'postback' as const,
+        label: '朝6時',
+        data: 'type=select_time&hour=6',
+        displayText: '朝6時',
+      },
+      {
+        type: 'postback' as const,
+        label: '朝7時',
+        data: 'type=select_time&hour=7',
+        displayText: '朝7時',
+      },
+      {
+        type: 'postback' as const,
+        label: '夕方5時',
+        data: 'type=select_time&hour=17',
+        displayText: '夕方5時',
+      },
+      {
+        type: 'postback' as const,
+        label: '夜7時',
+        data: 'type=select_time&hour=19',
+        displayText: '夜7時',
+      },
     ],
   },
 };
@@ -113,11 +158,12 @@ const timeSelectMessage = {
 let cachedClient: messagingApi.MessagingApiClient | null = null;
 export async function getLineClient(): Promise<messagingApi.MessagingApiClient> {
   if (cachedClient) return cachedClient;
-  const channelAccessToken = process.env.LINE_MESSAGING_CHANNEL_ACCESS_TOKEN || "";
+  const channelAccessToken =
+    process.env.LINE_MESSAGING_CHANNEL_ACCESS_TOKEN || '';
   if (!channelAccessToken) {
-    throw new Error("LINE_MESSAGING_CHANNEL_ACCESS_TOKEN is not set");
+    throw new Error('LINE_MESSAGING_CHANNEL_ACCESS_TOKEN is not set');
   }
-  const { messagingApi: api } = await import("@line/bot-sdk");
+  const { messagingApi: api } = await import('@line/bot-sdk');
   cachedClient = new api.MessagingApiClient({ channelAccessToken });
   return cachedClient;
 }
@@ -127,13 +173,13 @@ async function verifyLineSignature(
   channelSecret: string,
   signature: string
 ): Promise<boolean> {
-  const { validateSignature } = await import("@line/bot-sdk");
+  const { validateSignature } = await import('@line/bot-sdk');
   return validateSignature(bodyText, channelSecret, signature);
 }
 
 async function getDb() {
-  const { initializeApp, getApps } = await import("firebase-admin/app");
-  const { getFirestore, FieldValue } = await import("firebase-admin/firestore");
+  const { initializeApp, getApps } = await import('firebase-admin/app');
+  const { getFirestore, FieldValue } = await import('firebase-admin/firestore');
   if (getApps().length === 0) {
     initializeApp();
   }
@@ -142,13 +188,13 @@ async function getDb() {
 
 function getJstDateString(date: Date | undefined): string | null {
   if (!date) return null;
-  const formatter = new Intl.DateTimeFormat("ja-JP", {
-    timeZone: "Asia/Tokyo",
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
+  const formatter = new Intl.DateTimeFormat('ja-JP', {
+    timeZone: 'Asia/Tokyo',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
   });
-  return formatter.format(date).replace(/\//g, "-");
+  return formatter.format(date).replace(/\//g, '-');
 }
 
 function isInitialSetupComplete(
@@ -156,81 +202,90 @@ function isInitialSetupComplete(
 ): boolean {
   if (!userData) return false;
   const stored = userData.preferredHour;
-  return typeof stored === "number" && VALID_HOURS.includes(stored as ValidHour);
+  return (
+    typeof stored === 'number' && VALID_HOURS.includes(stored as ValidHour)
+  );
 }
 
-export type UserPlan = "free" | "premium";
+export type UserPlan = 'free' | 'premium';
 
-export function getUserPlan(userData: Record<string, unknown> | undefined): UserPlan {
-  if (!userData) return "free";
-  if (userData.plan !== "premium") return "free";
-  const until = userData.premiumUntil as { toDate?: () => Date } | undefined | null;
-  if (until && typeof until.toDate === "function") {
-    if (until.toDate().getTime() < Date.now()) return "free"; // 期限切れ
+export function getUserPlan(
+  userData: Record<string, unknown> | undefined
+): UserPlan {
+  if (!userData) return 'free';
+  if (userData.plan !== 'premium') return 'free';
+  const until = userData.premiumUntil as
+    | { toDate?: () => Date }
+    | undefined
+    | null;
+  if (until && typeof until.toDate === 'function') {
+    if (until.toDate().getTime() < Date.now()) return 'free'; // 期限切れ
   }
-  return "premium";
+  return 'premium';
 }
 
-const CONTACT_URL = "https://www.chatstudy.jp/contact";
+const CONTACT_URL = 'https://www.chatstudy.jp/contact';
 
 // LIFF URL（functions/.env で上書き可能、未設定なら known good fallback）
 const LIFF_REPORT_URL =
-  process.env.LIFF_REPORT_URL ?? "https://liff.line.me/2009587166-BsatoYm2";
+  process.env.LIFF_REPORT_URL ?? 'https://liff.line.me/2009587166-BsatoYm2';
 const LIFF_SETTINGS_URL =
-  process.env.LIFF_SETTINGS_URL ?? "https://liff.line.me/2009587166-IvJl78Hk";
+  process.env.LIFF_SETTINGS_URL ?? 'https://liff.line.me/2009587166-IvJl78Hk';
 const LIFF_PREMIUM_INFO_URL =
   process.env.LIFF_PREMIUM_INFO_URL ??
-  "https://liff.line.me/2009587166-k51bH4LC";
+  'https://liff.line.me/2009587166-k51bH4LC';
 const LIFF_PREMIUM_APPLY_URL =
   process.env.LIFF_PREMIUM_APPLY_URL ??
-  "https://liff.line.me/2009587166-GKRX5kOQ";
+  'https://liff.line.me/2009587166-GKRX5kOQ';
 const LIFF_HELP_URL =
-  process.env.LIFF_HELP_URL ??
-  "https://liff.line.me/2009587166-oaTz2NXX";
+  process.env.LIFF_HELP_URL ?? 'https://liff.line.me/2009587166-oaTz2NXX';
 const LIFF_TEST_RANGE_URL =
-  process.env.LIFF_TEST_RANGE_URL ??
-  "https://liff.line.me/2009587166-fLjzMGk8";
+  process.env.LIFF_TEST_RANGE_URL ?? 'https://liff.line.me/2009587166-fLjzMGk8';
 
 export const lineWebhook = functions
-  .region("asia-northeast1")
+  .region('asia-northeast1')
   .https.onRequest(async (req, res) => {
-    if (req.method === "GET") {
-      res.json({ message: "LINE webhook endpoint is working." });
+    if (req.method === 'GET') {
+      res.json({ message: 'LINE webhook endpoint is working.' });
       return;
     }
 
-    if (req.method !== "POST") {
-      res.status(405).json({ error: "Method not allowed" });
+    if (req.method !== 'POST') {
+      res.status(405).json({ error: 'Method not allowed' });
       return;
     }
 
-    const channelSecret = process.env.LINE_MESSAGING_CHANNEL_SECRET || "";
+    const channelSecret = process.env.LINE_MESSAGING_CHANNEL_SECRET || '';
     if (!channelSecret) {
-      console.error("[lineWebhook] LINE_MESSAGING_CHANNEL_SECRET is not set");
-      res.status(500).json({ error: "Server misconfigured" });
+      console.error('[lineWebhook] LINE_MESSAGING_CHANNEL_SECRET is not set');
+      res.status(500).json({ error: 'Server misconfigured' });
       return;
     }
 
-    const signature = req.get("x-line-signature");
+    const signature = req.get('x-line-signature');
     if (!signature) {
-      console.warn("[lineWebhook] missing x-line-signature header");
-      res.status(401).json({ error: "Missing signature" });
+      console.warn('[lineWebhook] missing x-line-signature header');
+      res.status(401).json({ error: 'Missing signature' });
       return;
     }
 
     const rawBody = req.rawBody;
     if (!rawBody || rawBody.length === 0) {
-      console.error("[lineWebhook] empty rawBody");
-      res.status(400).json({ error: "Empty body" });
+      console.error('[lineWebhook] empty rawBody');
+      res.status(400).json({ error: 'Empty body' });
       return;
     }
 
-    const bodyText = rawBody.toString("utf8");
+    const bodyText = rawBody.toString('utf8');
 
-    const signatureValid = await verifyLineSignature(bodyText, channelSecret, signature);
+    const signatureValid = await verifyLineSignature(
+      bodyText,
+      channelSecret,
+      signature
+    );
     if (!signatureValid) {
-      console.warn("[lineWebhook] invalid signature");
-      res.status(401).json({ error: "Invalid signature" });
+      console.warn('[lineWebhook] invalid signature');
+      res.status(401).json({ error: 'Invalid signature' });
       return;
     }
 
@@ -238,8 +293,8 @@ export const lineWebhook = functions
     try {
       body = JSON.parse(bodyText) as LineWebhookBody;
     } catch (error) {
-      console.error("[lineWebhook] failed to parse body JSON:", error);
-      res.status(400).json({ error: "Invalid JSON" });
+      console.error('[lineWebhook] failed to parse body JSON:', error);
+      res.status(400).json({ error: 'Invalid JSON' });
       return;
     }
 
@@ -256,40 +311,49 @@ export const lineWebhook = functions
 async function dispatchEvent(event: LineEvent): Promise<void> {
   try {
     switch (event.type) {
-      case "follow":
+      case 'follow':
         await handleFollow(event);
         return;
-      case "postback":
+      case 'postback':
         await handlePostback(event);
         return;
-      case "message":
+      case 'message':
         await handleMessage(event);
         return;
       default:
-        console.warn("[lineWebhook] unhandled event type:", event.type);
+        console.warn('[lineWebhook] unhandled event type:', event.type);
         return;
     }
   } catch (error) {
-    console.error(`[lineWebhook] dispatchEvent failed (type=${event.type}):`, error);
+    console.error(
+      `[lineWebhook] dispatchEvent failed (type=${event.type}):`,
+      error
+    );
   }
 }
 
 async function handleMessage(event: LineEvent): Promise<void> {
   const messageType = event.message?.type;
-  if (messageType !== "text") {
-    console.warn("[lineWebhook] handleMessage: non-text message type:", messageType);
+  if (messageType !== 'text') {
+    console.warn(
+      '[lineWebhook] handleMessage: non-text message type:',
+      messageType
+    );
     return;
   }
 
-  const text = event.message?.text?.trim() ?? "";
+  const text = event.message?.text?.trim() ?? '';
   const replyToken = event.replyToken;
 
-  if (text === "設定変更" || text === "せってい変更") {
+  if (text === '設定変更' || text === 'せってい変更') {
     await handleSettingsChange(event, replyToken);
     return;
   }
 
-  console.warn("[lineWebhook] handleMessage: unhandled text:", text.slice(0, 30));
+  console.warn(
+    '[lineWebhook] handleMessage: unhandled text:',
+    text.slice(0, 30)
+  );
 }
 
 async function handleSettingsChange(
@@ -308,22 +372,28 @@ async function handleSettingsChange(
     const userData = userSnap.data();
     const stored = userData?.lastSettingsChangeAt;
     let lastChangeDate: Date | undefined;
-    if (stored && typeof stored.toDate === "function") {
+    if (stored && typeof stored.toDate === 'function') {
       lastChangeDate = stored.toDate();
     }
     const lastChangeJst = getJstDateString(lastChangeDate);
     const todayJst = getJstDateString(new Date());
     if (lastChangeJst !== null && lastChangeJst === todayJst) {
-      console.warn("[lineWebhook] handleSettingsChange locked (already changed today):", uid);
+      console.warn(
+        '[lineWebhook] handleSettingsChange locked (already changed today):',
+        uid
+      );
       await replyText(
         replyToken,
-        "設定変更は1日1回までです。明日もう一度お試しください。",
-        "(settings change locked)"
+        '設定変更は1日1回までです。明日もう一度お試しください。',
+        '(settings change locked)'
       );
       return;
     }
   } catch (error) {
-    console.error("[lineWebhook] handleSettingsChange user read failed:", error);
+    console.error(
+      '[lineWebhook] handleSettingsChange user read failed:',
+      error
+    );
     // 読み込み失敗時は続行（保険）
   }
 
@@ -337,7 +407,10 @@ async function handleSettingsChange(
       { merge: true }
     );
   } catch (error) {
-    console.error("[lineWebhook] handleSettingsChange firestore update failed:", error);
+    console.error(
+      '[lineWebhook] handleSettingsChange firestore update failed:',
+      error
+    );
   }
 
   try {
@@ -345,19 +418,22 @@ async function handleSettingsChange(
     await client.replyMessage({
       replyToken,
       messages: [
-        { type: "text", text: "設定を変更します。学年を選んでください。" },
+        { type: 'text', text: '設定を変更します。学年を選んでください。' },
         gradeSelectMessage,
       ],
     });
   } catch (error) {
-    console.error("[lineWebhook] handleSettingsChange reply failed:", error);
+    console.error('[lineWebhook] handleSettingsChange reply failed:', error);
   }
 }
 
 function buildUid(event: LineEvent): string | null {
   const userId = event.source?.userId;
-  if (!userId || event.source?.type !== "user") {
-    console.warn("[lineWebhook] event.source is not a user:", event.source?.type);
+  if (!userId || event.source?.type !== 'user') {
+    console.warn(
+      '[lineWebhook] event.source is not a user:',
+      event.source?.type
+    );
     return null;
   }
   return `line:${userId}`;
@@ -373,20 +449,20 @@ async function handleFollow(event: LineEvent): Promise<void> {
     const { db, FieldValue } = await getDb();
     await db.doc(`users/${uid}`).set(
       {
-        provider: "line",
+        provider: 'line',
         lineUserId: userId,
-        status: "active",
-        source: "messaging-webhook",
+        status: 'active',
+        source: 'messaging-webhook',
         updatedAt: FieldValue.serverTimestamp(),
       },
       { merge: true }
     );
   } catch (error) {
-    console.error("[lineWebhook] handleFollow firestore write failed:", error);
+    console.error('[lineWebhook] handleFollow firestore write failed:', error);
   }
 
   if (!replyToken) {
-    console.warn("[lineWebhook] follow event without replyToken");
+    console.warn('[lineWebhook] follow event without replyToken');
     return;
   }
 
@@ -397,7 +473,7 @@ async function handleFollow(event: LineEvent): Promise<void> {
       messages: [gradeSelectMessage],
     });
   } catch (error) {
-    console.error("[lineWebhook] handleFollow reply failed:", error);
+    console.error('[lineWebhook] handleFollow reply failed:', error);
   }
 }
 
@@ -405,87 +481,89 @@ async function handlePostback(event: LineEvent): Promise<void> {
   const uid = buildUid(event);
   if (!uid) return;
   const replyToken = event.replyToken;
-  const data = event.postback?.data ?? "";
+  const data = event.postback?.data ?? '';
 
   const params = new URLSearchParams(data);
-  const type = params.get("type");
+  const type = params.get('type');
 
-  if (type === "select_grade") {
+  if (type === 'select_grade') {
     await handleSelectGradePostback(uid, replyToken, params);
     return;
   }
 
-  if (type === "select_subject") {
+  if (type === 'select_subject') {
     await handleSelectSubjectPostback(uid, replyToken, params);
     return;
   }
 
-  if (type === "select_time") {
+  if (type === 'select_time') {
     await handleSelectTimePostback(uid, replyToken, params);
     return;
   }
 
-  if (type === "answer") {
+  if (type === 'answer') {
     await handleAnswerPostback(uid, replyToken, params);
     return;
   }
 
-  if (type === "extra_question") {
+  if (type === 'extra_question') {
     await handleExtraQuestionPostback(uid, replyToken);
     return;
   }
 
-  if (type === "weak_review") {
+  if (type === 'weak_review') {
     await handleWeakReviewPostback(uid, replyToken);
     return;
   }
 
-  if (type === "help") {
+  if (type === 'help') {
     await handleHelpPostback(replyToken);
     return;
   }
 
-  if (type === "streak") {
+  if (type === 'streak') {
     await handleStreakPostback(uid, replyToken);
     return;
   }
 
-  if (type === "settings_menu") {
+  if (type === 'settings_menu') {
     await handleSettingsMenuPostback(replyToken);
     return;
   }
 
-  if (type === "settings_guide") {
+  if (type === 'settings_guide') {
     await handleSettingsGuidePostback(replyToken);
     return;
   }
 
-  if (type === "report_summary") {
+  if (type === 'report_summary') {
     await handleReportSummaryPostback(uid, replyToken);
     return;
   }
 
-  if (type === "test_range_menu") {
+  if (type === 'test_range_menu') {
     await handleTestRangeMenuPostback(replyToken);
     return;
   }
 
-  if (type === "premium_info") {
+  if (type === 'premium_info') {
     await handlePremiumInfoPostback(replyToken, uid);
     return;
   }
 
-  console.warn("[lineWebhook] unhandled postback type:", type);
+  console.warn('[lineWebhook] unhandled postback type:', type);
 }
 
-async function handleHelpPostback(replyToken: string | undefined): Promise<void> {
+async function handleHelpPostback(
+  replyToken: string | undefined
+): Promise<void> {
   if (!replyToken) return;
   const helpMessage = buildHelpFlexMessage();
   try {
     const client = await getLineClient();
     await client.replyMessage({ replyToken, messages: [helpMessage] });
   } catch (error) {
-    console.error("[lineWebhook] handleHelp reply failed:", error);
+    console.error('[lineWebhook] handleHelp reply failed:', error);
   }
 }
 
@@ -497,27 +575,34 @@ async function handleStreakPostback(
   const { db } = await getDb();
 
   // ユーザーの plan を取って flex に渡し、free 用 CTA の出し分けに使う
-  let plan: UserPlan = "free";
+  let plan: UserPlan = 'free';
   try {
     const userSnap = await db.doc(`users/${uid}`).get();
     plan = getUserPlan(userSnap.data());
   } catch (error) {
-    console.warn("[lineWebhook] handleStreak user fetch failed (treat as free):", error);
+    console.warn(
+      '[lineWebhook] handleStreak user fetch failed (treat as free):',
+      error
+    );
   }
 
   // 直近500件の回答履歴から streak を計算（typically 1問/日 ペースなので500件 ≒ 1.5年分）
   let answers: FirebaseFirestore.QueryDocumentSnapshot[] = [];
   try {
     const snap = await db
-      .collection("answers")
-      .where("uid", "==", uid)
-      .orderBy("answeredAt", "desc")
+      .collection('answers')
+      .where('uid', '==', uid)
+      .orderBy('answeredAt', 'desc')
       .limit(500)
       .get();
     answers = snap.docs;
   } catch (error) {
-    console.error("[lineWebhook] handleStreak query failed:", error);
-    await replyText(replyToken, "記録の取得に失敗しました。少し時間を置いて試してください。", "(streak query error)");
+    console.error('[lineWebhook] handleStreak query failed:', error);
+    await replyText(
+      replyToken,
+      '記録の取得に失敗しました。少し時間を置いて試してください。',
+      '(streak query error)'
+    );
     return;
   }
 
@@ -527,7 +612,7 @@ async function handleStreakPostback(
     const client = await getLineClient();
     await client.replyMessage({ replyToken, messages: [flex] });
   } catch (error) {
-    console.error("[lineWebhook] handleStreak reply failed:", error);
+    console.error('[lineWebhook] handleStreak reply failed:', error);
   }
 }
 
@@ -540,7 +625,7 @@ async function handleSettingsMenuPostback(
     const client = await getLineClient();
     await client.replyMessage({ replyToken, messages: [flex] });
   } catch (error) {
-    console.error("[lineWebhook] handleSettingsMenu reply failed:", error);
+    console.error('[lineWebhook] handleSettingsMenu reply failed:', error);
   }
 }
 
@@ -553,7 +638,7 @@ async function handleTestRangeMenuPostback(
     const client = await getLineClient();
     await client.replyMessage({ replyToken, messages: [flex] });
   } catch (error) {
-    console.error("[lineWebhook] handleTestRangeMenu reply failed:", error);
+    console.error('[lineWebhook] handleTestRangeMenu reply failed:', error);
   }
 }
 
@@ -566,7 +651,7 @@ async function handleSettingsGuidePostback(
     const client = await getLineClient();
     await client.replyMessage({ replyToken, messages: [flex] });
   } catch (error) {
-    console.error("[lineWebhook] handleSettingsGuide reply failed:", error);
+    console.error('[lineWebhook] handleSettingsGuide reply failed:', error);
   }
 }
 
@@ -584,25 +669,25 @@ async function handleReportSummaryPostback(
     streakLongest: number;
     lastStudyDate: string;
   } | null = null;
-  let plan: UserPlan = "free";
+  let plan: UserPlan = 'free';
   try {
     const userSnap = await db.doc(`users/${uid}`).get();
-    const data = userSnap.exists ? userSnap.data() ?? {} : {};
+    const data = userSnap.exists ? (userSnap.data() ?? {}) : {};
     plan = getUserPlan(data);
     const s = (data.stats as Record<string, unknown> | undefined) ?? null;
-    if (s && typeof s.totalAnswered === "number") {
+    if (s && typeof s.totalAnswered === 'number') {
       const streak = (s.streak as Record<string, unknown> | undefined) ?? {};
       stats = {
         totalAnswered: s.totalAnswered,
-        totalCorrect: typeof s.totalCorrect === "number" ? s.totalCorrect : 0,
-        streakCurrent: typeof streak.current === "number" ? streak.current : 0,
-        streakLongest: typeof streak.longest === "number" ? streak.longest : 0,
+        totalCorrect: typeof s.totalCorrect === 'number' ? s.totalCorrect : 0,
+        streakCurrent: typeof streak.current === 'number' ? streak.current : 0,
+        streakLongest: typeof streak.longest === 'number' ? streak.longest : 0,
         lastStudyDate:
-          typeof streak.lastStudyDate === "string" ? streak.lastStudyDate : "",
+          typeof streak.lastStudyDate === 'string' ? streak.lastStudyDate : '',
       };
     }
   } catch (error) {
-    console.error("[lineWebhook] handleReportSummary fetch failed:", error);
+    console.error('[lineWebhook] handleReportSummary fetch failed:', error);
   }
 
   const flex = buildReportSummaryFlexMessage(stats, plan);
@@ -610,7 +695,7 @@ async function handleReportSummaryPostback(
     const client = await getLineClient();
     await client.replyMessage({ replyToken, messages: [flex] });
   } catch (error) {
-    console.error("[lineWebhook] handleReportSummary reply failed:", error);
+    console.error('[lineWebhook] handleReportSummary reply failed:', error);
   }
 }
 
@@ -623,10 +708,10 @@ async function handlePremiumInfoPostback(
   if (uid) {
     void (async () => {
       try {
-        const { logServerFunnelEvent } = await import("./funnelEvent");
-        await logServerFunnelEvent("richmenu_premium_info_tap", uid);
+        const { logServerFunnelEvent } = await import('./funnelEvent');
+        await logServerFunnelEvent('richmenu_premium_info_tap', uid);
       } catch (error) {
-        console.warn("[lineWebhook] funnel event log failed:", error);
+        console.warn('[lineWebhook] funnel event log failed:', error);
       }
     })();
   }
@@ -635,7 +720,7 @@ async function handlePremiumInfoPostback(
     const client = await getLineClient();
     await client.replyMessage({ replyToken, messages: [flex] });
   } catch (error) {
-    console.error("[lineWebhook] handlePremiumInfo reply failed:", error);
+    console.error('[lineWebhook] handlePremiumInfo reply failed:', error);
   }
 }
 
@@ -651,20 +736,23 @@ function computeStreakStats(
   answers: FirebaseFirestore.QueryDocumentSnapshot[]
 ): StreakStats {
   const totalAnswered = answers.length;
-  const totalCorrect = answers.filter((d) => d.get("isCorrect") === true).length;
+  const totalCorrect = answers.filter(
+    (d) => d.get('isCorrect') === true
+  ).length;
   const accuracyPercent =
     totalAnswered > 0 ? Math.round((totalCorrect / totalAnswered) * 100) : 0;
 
   const answeredDates = new Set<string>();
   for (const doc of answers) {
-    const ts = doc.get("answeredAt") as { toDate?: () => Date } | undefined;
-    const date = ts && typeof ts.toDate === "function" ? ts.toDate() : undefined;
+    const ts = doc.get('answeredAt') as { toDate?: () => Date } | undefined;
+    const date =
+      ts && typeof ts.toDate === 'function' ? ts.toDate() : undefined;
     const jst = getJstDateString(date);
     if (jst !== null) answeredDates.add(jst);
   }
 
   // 連続日数: 今日 or 昨日から遡って連続している日数を数える
-  const todayJst = getJstDateString(new Date()) ?? "";
+  const todayJst = getJstDateString(new Date()) ?? '';
   const answeredToday = answeredDates.has(todayJst);
   let streakDays = 0;
   let cursor = answeredToday ? todayJst : shiftJstDate(todayJst, -1);
@@ -704,7 +792,7 @@ function computeAnswerStreaks(
   // 連続正解: 最新から isCorrect=true が続く件数
   let prevCorrectStreak = 0;
   for (const doc of recentAnswers) {
-    if (doc.get("isCorrect") === true) prevCorrectStreak += 1;
+    if (doc.get('isCorrect') === true) prevCorrectStreak += 1;
     else break;
   }
   const correctStreak = currentIsCorrect ? prevCorrectStreak + 1 : 0;
@@ -712,13 +800,14 @@ function computeAnswerStreaks(
   // 過去の回答日（JST）の集合
   const dateSet = new Set<string>();
   for (const doc of recentAnswers) {
-    const ts = doc.get("answeredAt") as { toDate?: () => Date } | undefined;
-    const date = ts && typeof ts.toDate === "function" ? ts.toDate() : undefined;
+    const ts = doc.get('answeredAt') as { toDate?: () => Date } | undefined;
+    const date =
+      ts && typeof ts.toDate === 'function' ? ts.toDate() : undefined;
     const jst = getJstDateString(date);
     if (jst !== null) dateSet.add(jst);
   }
 
-  const todayJst = getJstDateString(new Date()) ?? "";
+  const todayJst = getJstDateString(new Date()) ?? '';
   const todayAlreadyAnswered = dateSet.has(todayJst);
   // 今回の回答で today は必ずセットに含まれる
   if (todayJst) dateSet.add(todayJst);
@@ -732,15 +821,16 @@ function computeAnswerStreaks(
 
   // 「今日その日に初めて」連続日数が節目に達したかどうか。
   // すでに今日回答済みだった場合は重ねて祝わない。
-  const isMilestoneDay = !todayAlreadyAnswered && isDayStreakMilestone(dayStreak);
+  const isMilestoneDay =
+    !todayAlreadyAnswered && isDayStreakMilestone(dayStreak);
 
   return { correctStreak, dayStreak, isMilestoneDay };
 }
 
 /** JST 日付文字列同士の差分日数（to - from） */
 function jstDayDiff(fromJst: string, toJst: string): number {
-  const [fy, fm, fd] = fromJst.split("-").map(Number);
-  const [ty, tm, td] = toJst.split("-").map(Number);
+  const [fy, fm, fd] = fromJst.split('-').map(Number);
+  const [ty, tm, td] = toJst.split('-').map(Number);
   if (!fy || !fm || !fd || !ty || !tm || !td) return 0;
   const fromUtc = Date.UTC(fy, fm - 1, fd);
   const toUtc = Date.UTC(ty, tm - 1, td);
@@ -759,14 +849,14 @@ async function computeDailyIntro(
   let recentAnswers: FirebaseFirestore.QueryDocumentSnapshot[] = [];
   try {
     const snap = await db
-      .collection("answers")
-      .where("uid", "==", uid)
-      .orderBy("answeredAt", "desc")
+      .collection('answers')
+      .where('uid', '==', uid)
+      .orderBy('answeredAt', 'desc')
       .limit(15)
       .get();
     recentAnswers = snap.docs;
   } catch (error) {
-    console.error("[lineWebhook] computeDailyIntro fetch failed:", error);
+    console.error('[lineWebhook] computeDailyIntro fetch failed:', error);
     return getDailyIntro({ daysSinceLastAnswer: null, dayStreak: 0 });
   }
 
@@ -775,8 +865,9 @@ async function computeDailyIntro(
   }
 
   const latest = recentAnswers[0];
-  const ts = latest.get("answeredAt") as { toDate?: () => Date } | undefined;
-  const lastDate = ts && typeof ts.toDate === "function" ? ts.toDate() : undefined;
+  const ts = latest.get('answeredAt') as { toDate?: () => Date } | undefined;
+  const lastDate =
+    ts && typeof ts.toDate === 'function' ? ts.toDate() : undefined;
   const lastJst = getJstDateString(lastDate);
   const todayJst = getJstDateString(new Date());
 
@@ -787,8 +878,9 @@ async function computeDailyIntro(
 
   const dateSet = new Set<string>();
   for (const doc of recentAnswers) {
-    const docTs = doc.get("answeredAt") as { toDate?: () => Date } | undefined;
-    const date = docTs && typeof docTs.toDate === "function" ? docTs.toDate() : undefined;
+    const docTs = doc.get('answeredAt') as { toDate?: () => Date } | undefined;
+    const date =
+      docTs && typeof docTs.toDate === 'function' ? docTs.toDate() : undefined;
     const jst = getJstDateString(date);
     if (jst !== null) dateSet.add(jst);
   }
@@ -808,114 +900,150 @@ async function computeDailyIntro(
 
 function shiftJstDate(jstDate: string, days: number): string {
   // jstDate は "YYYY-MM-DD" 形式。UTC として一度パースしてからオフセットすると DST 等の影響を受けない
-  const [yStr, mStr, dStr] = jstDate.split("-");
+  const [yStr, mStr, dStr] = jstDate.split('-');
   const y = Number(yStr);
   const m = Number(mStr);
   const d = Number(dStr);
-  if (!y || !m || !d) return "";
+  if (!y || !m || !d) return '';
   const utc = Date.UTC(y, m - 1, d);
   const shifted = new Date(utc + days * 24 * 60 * 60 * 1000);
   const yy = shifted.getUTCFullYear();
-  const mm = String(shifted.getUTCMonth() + 1).padStart(2, "0");
-  const dd = String(shifted.getUTCDate()).padStart(2, "0");
+  const mm = String(shifted.getUTCMonth() + 1).padStart(2, '0');
+  const dd = String(shifted.getUTCDate()).padStart(2, '0');
   return `${yy}-${mm}-${dd}`;
 }
 
 function buildHelpFlexMessage() {
   return {
-    type: "flex" as const,
-    altText: "使い方ガイド",
+    type: 'flex' as const,
+    altText: '使い方ガイド',
     contents: {
-      type: "bubble" as const,
-      size: "kilo" as const,
+      type: 'bubble' as const,
+      size: 'kilo' as const,
       header: {
-        type: "box" as const,
-        layout: "vertical" as const,
-        backgroundColor: "#F59E0B",
-        paddingAll: "14px",
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        backgroundColor: '#F59E0B',
+        paddingAll: '14px',
         contents: [
           {
-            type: "text" as const,
-            text: "📖 使い方ガイド",
-            color: "#FFFFFF",
-            weight: "bold" as const,
-            size: "md" as const,
+            type: 'text' as const,
+            text: '📖 使い方ガイド',
+            color: '#FFFFFF',
+            weight: 'bold' as const,
+            size: 'md' as const,
           },
         ],
       },
       body: {
-        type: "box" as const,
-        layout: "vertical" as const,
-        spacing: "md" as const,
-        paddingAll: "16px",
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        spacing: 'md' as const,
+        paddingAll: '16px',
         contents: [
           {
-            type: "text" as const,
-            text: "毎日決まった時間に1問届きます。",
+            type: 'text' as const,
+            text: '毎日決まった時間に1問届きます。',
             wrap: true,
-            size: "sm" as const,
-            color: "#111827",
+            size: 'sm' as const,
+            color: '#111827',
           },
           {
-            type: "separator" as const,
-            margin: "sm" as const,
+            type: 'separator' as const,
+            margin: 'sm' as const,
           },
           {
-            type: "box" as const,
-            layout: "vertical" as const,
-            spacing: "xs" as const,
-            margin: "md" as const,
+            type: 'box' as const,
+            layout: 'vertical' as const,
+            spacing: 'xs' as const,
+            margin: 'md' as const,
             contents: [
-              { type: "text" as const, text: "⏰ 配信時間", weight: "bold" as const, size: "sm" as const, color: "#111827" },
-              { type: "text" as const, text: "朝6時 / 朝7時 / 夕方5時 / 夜7時 から選べます。", wrap: true, size: "xs" as const, color: "#6B7280" },
+              {
+                type: 'text' as const,
+                text: '⏰ 配信時間',
+                weight: 'bold' as const,
+                size: 'sm' as const,
+                color: '#111827',
+              },
+              {
+                type: 'text' as const,
+                text: '朝6時 / 朝7時 / 夕方5時 / 夜7時 から選べます。',
+                wrap: true,
+                size: 'xs' as const,
+                color: '#6B7280',
+              },
             ],
           },
           {
-            type: "box" as const,
-            layout: "vertical" as const,
-            spacing: "xs" as const,
-            margin: "md" as const,
+            type: 'box' as const,
+            layout: 'vertical' as const,
+            spacing: 'xs' as const,
+            margin: 'md' as const,
             contents: [
-              { type: "text" as const, text: "🔁 設定を変えたい", weight: "bold" as const, size: "sm" as const, color: "#111827" },
-              { type: "text" as const, text: "「設定変更」とトークに送ると、学年・教科・時間を選び直せます（1日1回まで）。", wrap: true, size: "xs" as const, color: "#6B7280" },
+              {
+                type: 'text' as const,
+                text: '🔁 設定を変えたい',
+                weight: 'bold' as const,
+                size: 'sm' as const,
+                color: '#111827',
+              },
+              {
+                type: 'text' as const,
+                text: '「設定変更」とトークに送ると、学年・教科・時間を選び直せます（1日1回まで）。',
+                wrap: true,
+                size: 'xs' as const,
+                color: '#6B7280',
+              },
             ],
           },
           {
-            type: "box" as const,
-            layout: "vertical" as const,
-            spacing: "xs" as const,
-            margin: "md" as const,
+            type: 'box' as const,
+            layout: 'vertical' as const,
+            spacing: 'xs' as const,
+            margin: 'md' as const,
             contents: [
-              { type: "text" as const, text: "🚀 もっと解きたい", weight: "bold" as const, size: "sm" as const, color: "#111827" },
-              { type: "text" as const, text: "プレミアムなら「追加で解く」「苦手を復習」「テスト範囲設定」が使えます。", wrap: true, size: "xs" as const, color: "#6B7280" },
+              {
+                type: 'text' as const,
+                text: '🚀 もっと解きたい',
+                weight: 'bold' as const,
+                size: 'sm' as const,
+                color: '#111827',
+              },
+              {
+                type: 'text' as const,
+                text: 'プレミアムなら「追加で解く」「苦手を復習」「テスト範囲設定」が使えます。',
+                wrap: true,
+                size: 'xs' as const,
+                color: '#6B7280',
+              },
             ],
           },
         ],
       },
       footer: {
-        type: "box" as const,
-        layout: "vertical" as const,
-        spacing: "sm" as const,
-        paddingAll: "16px",
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        spacing: 'sm' as const,
+        paddingAll: '16px',
         contents: [
           {
-            type: "button" as const,
-            style: "primary" as const,
-            color: "#F59E0B",
-            height: "sm" as const,
+            type: 'button' as const,
+            style: 'primary' as const,
+            color: '#F59E0B',
+            height: 'sm' as const,
             action: {
-              type: "uri" as const,
-              label: "✨ プレミアム申込フォームを開く",
+              type: 'uri' as const,
+              label: '✨ 7日間無料で始める',
               uri: LIFF_PREMIUM_APPLY_URL,
             },
           },
           {
-            type: "button" as const,
-            style: "secondary" as const,
-            height: "sm" as const,
+            type: 'button' as const,
+            style: 'secondary' as const,
+            height: 'sm' as const,
             action: {
-              type: "uri" as const,
-              label: "使い方を詳しく見る",
+              type: 'uri' as const,
+              label: '使い方を詳しく見る',
               uri: LIFF_HELP_URL,
             },
           },
@@ -925,101 +1053,143 @@ function buildHelpFlexMessage() {
   };
 }
 
-function buildStreakFlexMessage(stats: StreakStats, plan: UserPlan = "premium") {
+function buildStreakFlexMessage(
+  stats: StreakStats,
+  plan: UserPlan = 'premium'
+) {
   const subText = stats.answeredToday
-    ? "今日も継続中。"
+    ? '今日も継続中。'
     : stats.streakDays > 0
-      ? "今日まだ解いていません。続けるなら『追加で解く』！"
-      : "まずは今日の1問から始めよう。";
+      ? '今日まだ解いていません。続けるなら『追加で解く』！'
+      : 'まずは今日の1問から始めよう。';
 
   return {
-    type: "flex" as const,
+    type: 'flex' as const,
     altText: `連続${stats.streakDays}日｜累計${stats.totalAnswered}問｜正答率${stats.accuracyPercent}%`,
     contents: {
-      type: "bubble" as const,
-      size: "kilo" as const,
+      type: 'bubble' as const,
+      size: 'kilo' as const,
       header: {
-        type: "box" as const,
-        layout: "vertical" as const,
-        backgroundColor: "#F59E0B",
-        paddingAll: "14px",
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        backgroundColor: '#F59E0B',
+        paddingAll: '14px',
         contents: [
           {
-            type: "text" as const,
-            text: "🔥 連続記録",
-            color: "#FFFFFF",
-            weight: "bold" as const,
-            size: "md" as const,
+            type: 'text' as const,
+            text: '🔥 連続記録',
+            color: '#FFFFFF',
+            weight: 'bold' as const,
+            size: 'md' as const,
           },
         ],
       },
       body: {
-        type: "box" as const,
-        layout: "vertical" as const,
-        paddingAll: "20px",
-        spacing: "md" as const,
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        paddingAll: '20px',
+        spacing: 'md' as const,
         contents: [
           {
-            type: "box" as const,
-            layout: "horizontal" as const,
+            type: 'box' as const,
+            layout: 'horizontal' as const,
             contents: [
               {
-                type: "text" as const,
+                type: 'text' as const,
                 text: `${stats.streakDays}`,
-                weight: "bold" as const,
-                size: "4xl" as const,
-                color: "#F59E0B",
+                weight: 'bold' as const,
+                size: '4xl' as const,
+                color: '#F59E0B',
                 flex: 0,
               },
               {
-                type: "text" as const,
-                text: "日連続",
-                size: "md" as const,
-                color: "#111827",
-                gravity: "bottom" as const,
-                margin: "md" as const,
+                type: 'text' as const,
+                text: '日連続',
+                size: 'md' as const,
+                color: '#111827',
+                gravity: 'bottom' as const,
+                margin: 'md' as const,
               },
             ],
           },
           {
-            type: "text" as const,
+            type: 'text' as const,
             text: subText,
             wrap: true,
-            size: "sm" as const,
-            color: "#6B7280",
+            size: 'sm' as const,
+            color: '#6B7280',
           },
           {
-            type: "separator" as const,
-            margin: "md" as const,
+            type: 'separator' as const,
+            margin: 'md' as const,
           },
           {
-            type: "box" as const,
-            layout: "vertical" as const,
-            spacing: "sm" as const,
-            margin: "md" as const,
+            type: 'box' as const,
+            layout: 'vertical' as const,
+            spacing: 'sm' as const,
+            margin: 'md' as const,
             contents: [
               {
-                type: "box" as const,
-                layout: "horizontal" as const,
+                type: 'box' as const,
+                layout: 'horizontal' as const,
                 contents: [
-                  { type: "text" as const, text: "累計問題数", size: "sm" as const, color: "#6B7280", flex: 0 },
-                  { type: "text" as const, text: `${stats.totalAnswered} 問`, size: "sm" as const, color: "#111827", align: "end" as const, weight: "bold" as const },
+                  {
+                    type: 'text' as const,
+                    text: '累計問題数',
+                    size: 'sm' as const,
+                    color: '#6B7280',
+                    flex: 0,
+                  },
+                  {
+                    type: 'text' as const,
+                    text: `${stats.totalAnswered} 問`,
+                    size: 'sm' as const,
+                    color: '#111827',
+                    align: 'end' as const,
+                    weight: 'bold' as const,
+                  },
                 ],
               },
               {
-                type: "box" as const,
-                layout: "horizontal" as const,
+                type: 'box' as const,
+                layout: 'horizontal' as const,
                 contents: [
-                  { type: "text" as const, text: "正解数", size: "sm" as const, color: "#6B7280", flex: 0 },
-                  { type: "text" as const, text: `${stats.totalCorrect} 問`, size: "sm" as const, color: "#111827", align: "end" as const, weight: "bold" as const },
+                  {
+                    type: 'text' as const,
+                    text: '正解数',
+                    size: 'sm' as const,
+                    color: '#6B7280',
+                    flex: 0,
+                  },
+                  {
+                    type: 'text' as const,
+                    text: `${stats.totalCorrect} 問`,
+                    size: 'sm' as const,
+                    color: '#111827',
+                    align: 'end' as const,
+                    weight: 'bold' as const,
+                  },
                 ],
               },
               {
-                type: "box" as const,
-                layout: "horizontal" as const,
+                type: 'box' as const,
+                layout: 'horizontal' as const,
                 contents: [
-                  { type: "text" as const, text: "正答率", size: "sm" as const, color: "#6B7280", flex: 0 },
-                  { type: "text" as const, text: `${stats.accuracyPercent}%`, size: "sm" as const, color: "#111827", align: "end" as const, weight: "bold" as const },
+                  {
+                    type: 'text' as const,
+                    text: '正答率',
+                    size: 'sm' as const,
+                    color: '#6B7280',
+                    flex: 0,
+                  },
+                  {
+                    type: 'text' as const,
+                    text: `${stats.accuracyPercent}%`,
+                    size: 'sm' as const,
+                    color: '#111827',
+                    align: 'end' as const,
+                    weight: 'bold' as const,
+                  },
                 ],
               },
             ],
@@ -1027,33 +1197,33 @@ function buildStreakFlexMessage(stats: StreakStats, plan: UserPlan = "premium") 
         ],
       },
       footer: {
-        type: "box" as const,
-        layout: "vertical" as const,
-        spacing: "sm" as const,
-        paddingAll: "16px",
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        spacing: 'sm' as const,
+        paddingAll: '16px',
         contents: [
-          ...(plan === "free"
+          ...(plan === 'free'
             ? [
                 {
-                  type: "button" as const,
-                  style: "primary" as const,
-                  color: "#F59E0B",
-                  height: "sm" as const,
+                  type: 'button' as const,
+                  style: 'primary' as const,
+                  color: '#F59E0B',
+                  height: 'sm' as const,
                   action: {
-                    type: "uri" as const,
-                    label: "✨ プレミアムでもっと伸ばす",
+                    type: 'uri' as const,
+                    label: '✨ プレミアムでもっと伸ばす',
                     uri: LIFF_PREMIUM_INFO_URL,
                   },
                 },
               ]
             : []),
           {
-            type: "button" as const,
-            style: "secondary" as const,
-            height: "sm" as const,
+            type: 'button' as const,
+            style: 'secondary' as const,
+            height: 'sm' as const,
             action: {
-              type: "uri" as const,
-              label: "教科別・単元別の記録を見る",
+              type: 'uri' as const,
+              label: '教科別・単元別の記録を見る',
               uri: LIFF_REPORT_URL,
             },
           },
@@ -1065,83 +1235,83 @@ function buildStreakFlexMessage(stats: StreakStats, plan: UserPlan = "premium") 
 
 function buildSettingsMenuFlexMessage() {
   return {
-    type: "flex" as const,
-    altText: "設定・サポート",
+    type: 'flex' as const,
+    altText: '設定・サポート',
     contents: {
-      type: "bubble" as const,
-      size: "kilo" as const,
+      type: 'bubble' as const,
+      size: 'kilo' as const,
       header: {
-        type: "box" as const,
-        layout: "vertical" as const,
-        backgroundColor: "#F59E0B",
-        paddingAll: "14px",
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        backgroundColor: '#F59E0B',
+        paddingAll: '14px',
         contents: [
           {
-            type: "text" as const,
-            text: "⚙️ 設定・サポート",
-            color: "#FFFFFF",
-            weight: "bold" as const,
-            size: "md" as const,
+            type: 'text' as const,
+            text: '⚙️ 設定・サポート',
+            color: '#FFFFFF',
+            weight: 'bold' as const,
+            size: 'md' as const,
           },
         ],
       },
       body: {
-        type: "box" as const,
-        layout: "vertical" as const,
-        paddingAll: "20px",
-        spacing: "sm" as const,
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        paddingAll: '20px',
+        spacing: 'sm' as const,
         contents: [
           {
-            type: "text" as const,
-            text: "通知時間や学年を変えたいときは、トークに「設定変更」と送ってください（1日1回まで）。",
+            type: 'text' as const,
+            text: '通知時間や学年を変えたいときは、トークに「設定変更」と送ってください（1日1回まで）。',
             wrap: true,
-            size: "sm" as const,
-            color: "#111827",
+            size: 'sm' as const,
+            color: '#111827',
           },
           {
-            type: "text" as const,
-            text: "解約や問い合わせは下のボタンから。",
+            type: 'text' as const,
+            text: '解約や問い合わせは下のボタンから。',
             wrap: true,
-            size: "xs" as const,
-            color: "#6B7280",
-            margin: "sm" as const,
+            size: 'xs' as const,
+            color: '#6B7280',
+            margin: 'sm' as const,
           },
         ],
       },
       footer: {
-        type: "box" as const,
-        layout: "vertical" as const,
-        spacing: "sm" as const,
-        paddingAll: "16px",
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        spacing: 'sm' as const,
+        paddingAll: '16px',
         contents: [
           {
-            type: "button" as const,
-            style: "primary" as const,
-            color: "#F59E0B",
-            height: "sm" as const,
+            type: 'button' as const,
+            style: 'primary' as const,
+            color: '#F59E0B',
+            height: 'sm' as const,
             action: {
-              type: "message" as const,
-              label: "設定変更",
-              text: "設定変更",
+              type: 'message' as const,
+              label: '設定変更',
+              text: '設定変更',
             },
           },
           {
-            type: "button" as const,
-            style: "secondary" as const,
-            height: "sm" as const,
+            type: 'button' as const,
+            style: 'secondary' as const,
+            height: 'sm' as const,
             action: {
-              type: "uri" as const,
-              label: "問い合わせ",
-              uri: "https://www.chatstudy.jp/contact",
+              type: 'uri' as const,
+              label: '問い合わせ',
+              uri: 'https://www.chatstudy.jp/contact',
             },
           },
           {
-            type: "button" as const,
-            style: "secondary" as const,
-            height: "sm" as const,
+            type: 'button' as const,
+            style: 'secondary' as const,
+            height: 'sm' as const,
             action: {
-              type: "uri" as const,
-              label: "プレミアム解約案内",
+              type: 'uri' as const,
+              label: 'プレミアム解約案内',
               uri: LIFF_PREMIUM_INFO_URL,
             },
           },
@@ -1153,64 +1323,64 @@ function buildSettingsMenuFlexMessage() {
 
 function buildTestRangeMenuFlexMessage() {
   return {
-    type: "flex" as const,
-    altText: "テスト範囲設定",
+    type: 'flex' as const,
+    altText: 'テスト範囲設定',
     contents: {
-      type: "bubble" as const,
-      size: "kilo" as const,
+      type: 'bubble' as const,
+      size: 'kilo' as const,
       header: {
-        type: "box" as const,
-        layout: "vertical" as const,
-        backgroundColor: "#F59E0B",
-        paddingAll: "14px",
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        backgroundColor: '#F59E0B',
+        paddingAll: '14px',
         contents: [
           {
-            type: "text" as const,
-            text: "🎯 テスト範囲設定",
-            color: "#FFFFFF",
-            weight: "bold" as const,
-            size: "md" as const,
+            type: 'text' as const,
+            text: '🎯 テスト範囲設定',
+            color: '#FFFFFF',
+            weight: 'bold' as const,
+            size: 'md' as const,
           },
         ],
       },
       body: {
-        type: "box" as const,
-        layout: "vertical" as const,
-        paddingAll: "20px",
-        spacing: "sm" as const,
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        paddingAll: '20px',
+        spacing: 'sm' as const,
         contents: [
           {
-            type: "text" as const,
-            text: "テスト範囲のうち、もう習った単元だけにチェックを入れよう！",
+            type: 'text' as const,
+            text: 'テスト範囲のうち、もう習った単元だけにチェックを入れよう！',
             wrap: true,
-            size: "sm" as const,
-            color: "#111827",
-            weight: "bold" as const,
+            size: 'sm' as const,
+            color: '#111827',
+            weight: 'bold' as const,
           },
           {
-            type: "text" as const,
-            text: "チェックした単元から「追加で解く」「苦手を復習」の問題が出るよ。まだ習っていないところは外しておくとテスト勉強がはかどる👍",
+            type: 'text' as const,
+            text: 'チェックした単元から「追加で解く」「苦手を復習」の問題が出るよ。まだ習っていないところは外しておくとテスト勉強がはかどる👍',
             wrap: true,
-            size: "xs" as const,
-            color: "#6B7280",
-            margin: "sm" as const,
+            size: 'xs' as const,
+            color: '#6B7280',
+            margin: 'sm' as const,
           },
         ],
       },
       footer: {
-        type: "box" as const,
-        layout: "vertical" as const,
-        spacing: "sm" as const,
-        paddingAll: "16px",
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        spacing: 'sm' as const,
+        paddingAll: '16px',
         contents: [
           {
-            type: "button" as const,
-            style: "primary" as const,
-            color: "#F59E0B",
-            height: "sm" as const,
+            type: 'button' as const,
+            style: 'primary' as const,
+            color: '#F59E0B',
+            height: 'sm' as const,
             action: {
-              type: "uri" as const,
-              label: "範囲を設定する",
+              type: 'uri' as const,
+              label: '範囲を設定する',
               uri: LIFF_TEST_RANGE_URL,
             },
           },
@@ -1222,73 +1392,73 @@ function buildTestRangeMenuFlexMessage() {
 
 function buildSettingsGuideFlexMessage() {
   return {
-    type: "flex" as const,
-    altText: "設定・サポート",
+    type: 'flex' as const,
+    altText: '設定・サポート',
     contents: {
-      type: "bubble" as const,
-      size: "kilo" as const,
+      type: 'bubble' as const,
+      size: 'kilo' as const,
       header: {
-        type: "box" as const,
-        layout: "vertical" as const,
-        backgroundColor: "#F59E0B",
-        paddingAll: "14px",
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        backgroundColor: '#F59E0B',
+        paddingAll: '14px',
         contents: [
           {
-            type: "text" as const,
-            text: "⚙️ 設定・サポート",
-            color: "#FFFFFF",
-            weight: "bold" as const,
-            size: "md" as const,
+            type: 'text' as const,
+            text: '⚙️ 設定・サポート',
+            color: '#FFFFFF',
+            weight: 'bold' as const,
+            size: 'md' as const,
           },
         ],
       },
       body: {
-        type: "box" as const,
-        layout: "vertical" as const,
-        paddingAll: "20px",
-        spacing: "sm" as const,
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        paddingAll: '20px',
+        spacing: 'sm' as const,
         contents: [
           {
-            type: "text" as const,
-            text: "学年・教科・配信時刻を変えるなら設定画面から、書き込み制限なしで何度でも変更できるよ。",
+            type: 'text' as const,
+            text: '学年・教科・配信時刻を変えるなら設定画面から、書き込み制限なしで何度でも変更できるよ。',
             wrap: true,
-            size: "sm" as const,
-            color: "#111827",
+            size: 'sm' as const,
+            color: '#111827',
           },
           {
-            type: "text" as const,
-            text: "解約や問い合わせ・FAQ も設定画面のリンクから。",
+            type: 'text' as const,
+            text: '解約や問い合わせ・FAQ も設定画面のリンクから。',
             wrap: true,
-            size: "xs" as const,
-            color: "#6B7280",
-            margin: "sm" as const,
+            size: 'xs' as const,
+            color: '#6B7280',
+            margin: 'sm' as const,
           },
         ],
       },
       footer: {
-        type: "box" as const,
-        layout: "vertical" as const,
-        spacing: "sm" as const,
-        paddingAll: "16px",
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        spacing: 'sm' as const,
+        paddingAll: '16px',
         contents: [
           {
-            type: "button" as const,
-            style: "primary" as const,
-            color: "#F59E0B",
-            height: "sm" as const,
+            type: 'button' as const,
+            style: 'primary' as const,
+            color: '#F59E0B',
+            height: 'sm' as const,
             action: {
-              type: "uri" as const,
-              label: "設定画面を開く",
+              type: 'uri' as const,
+              label: '設定画面を開く',
               uri: LIFF_SETTINGS_URL,
             },
           },
           {
-            type: "button" as const,
-            style: "secondary" as const,
-            height: "sm" as const,
+            type: 'button' as const,
+            style: 'secondary' as const,
+            height: 'sm' as const,
             action: {
-              type: "uri" as const,
-              label: "お問い合わせ",
+              type: 'uri' as const,
+              label: 'お問い合わせ',
               uri: CONTACT_URL,
             },
           },
@@ -1306,7 +1476,7 @@ function buildReportSummaryFlexMessage(
     streakLongest: number;
     lastStudyDate: string;
   } | null,
-  plan: UserPlan = "premium"
+  plan: UserPlan = 'premium'
 ) {
   const accuracy =
     stats && stats.totalAnswered > 0
@@ -1316,141 +1486,156 @@ function buildReportSummaryFlexMessage(
     stats === null
       ? [
           {
-            type: "text" as const,
-            text: "まだ記録がありません。",
+            type: 'text' as const,
+            text: 'まだ記録がありません。',
             wrap: true,
-            size: "sm" as const,
-            color: "#111827",
-            weight: "bold" as const,
+            size: 'sm' as const,
+            color: '#111827',
+            weight: 'bold' as const,
           },
           {
-            type: "text" as const,
-            text: "1問解くと、ここに連続記録や正答率が表示されるよ。",
+            type: 'text' as const,
+            text: '1問解くと、ここに連続記録や正答率が表示されるよ。',
             wrap: true,
-            size: "xs" as const,
-            color: "#6B7280",
-            margin: "sm" as const,
+            size: 'xs' as const,
+            color: '#6B7280',
+            margin: 'sm' as const,
           },
         ]
       : [
           {
-            type: "box" as const,
-            layout: "horizontal" as const,
-            spacing: "md" as const,
+            type: 'box' as const,
+            layout: 'horizontal' as const,
+            spacing: 'md' as const,
             contents: [
               {
-                type: "box" as const,
-                layout: "vertical" as const,
+                type: 'box' as const,
+                layout: 'vertical' as const,
                 flex: 1,
                 contents: [
-                  { type: "text" as const, text: "連続", size: "xxs" as const, color: "#6B7280" },
                   {
-                    type: "text" as const,
+                    type: 'text' as const,
+                    text: '連続',
+                    size: 'xxs' as const,
+                    color: '#6B7280',
+                  },
+                  {
+                    type: 'text' as const,
                     text: `${stats.streakCurrent} 日`,
-                    weight: "bold" as const,
-                    size: "lg" as const,
-                    color: "#F59E0B",
+                    weight: 'bold' as const,
+                    size: 'lg' as const,
+                    color: '#F59E0B',
                   },
                 ],
               },
               {
-                type: "box" as const,
-                layout: "vertical" as const,
+                type: 'box' as const,
+                layout: 'vertical' as const,
                 flex: 1,
                 contents: [
-                  { type: "text" as const, text: "解いた", size: "xxs" as const, color: "#6B7280" },
                   {
-                    type: "text" as const,
+                    type: 'text' as const,
+                    text: '解いた',
+                    size: 'xxs' as const,
+                    color: '#6B7280',
+                  },
+                  {
+                    type: 'text' as const,
                     text: `${stats.totalAnswered} 問`,
-                    weight: "bold" as const,
-                    size: "lg" as const,
-                    color: "#111827",
+                    weight: 'bold' as const,
+                    size: 'lg' as const,
+                    color: '#111827',
                   },
                 ],
               },
               {
-                type: "box" as const,
-                layout: "vertical" as const,
+                type: 'box' as const,
+                layout: 'vertical' as const,
                 flex: 1,
                 contents: [
-                  { type: "text" as const, text: "正答率", size: "xxs" as const, color: "#6B7280" },
                   {
-                    type: "text" as const,
+                    type: 'text' as const,
+                    text: '正答率',
+                    size: 'xxs' as const,
+                    color: '#6B7280',
+                  },
+                  {
+                    type: 'text' as const,
                     text: `${accuracy}%`,
-                    weight: "bold" as const,
-                    size: "lg" as const,
-                    color: "#F59E0B",
+                    weight: 'bold' as const,
+                    size: 'lg' as const,
+                    color: '#F59E0B',
                   },
                 ],
               },
             ],
           },
           {
-            type: "text" as const,
+            type: 'text' as const,
             text: `最長 ${stats.streakLongest} 日連続${
-              stats.lastStudyDate ? ` ・ 最終: ${stats.lastStudyDate}` : ""
+              stats.lastStudyDate ? ` ・ 最終: ${stats.lastStudyDate}` : ''
             }`,
-            size: "xs" as const,
-            color: "#6B7280",
-            margin: "md" as const,
+            size: 'xs' as const,
+            color: '#6B7280',
+            margin: 'md' as const,
             wrap: true,
           },
         ];
 
   return {
-    type: "flex" as const,
-    altText: "成績・記録",
+    type: 'flex' as const,
+    altText: '成績・記録',
     contents: {
-      type: "bubble" as const,
-      size: "kilo" as const,
+      type: 'bubble' as const,
+      size: 'kilo' as const,
       header: {
-        type: "box" as const,
-        layout: "vertical" as const,
-        backgroundColor: "#F59E0B",
-        paddingAll: "14px",
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        backgroundColor: '#F59E0B',
+        paddingAll: '14px',
         contents: [
           {
-            type: "text" as const,
-            text: "📊 成績・記録",
-            color: "#FFFFFF",
-            weight: "bold" as const,
-            size: "md" as const,
+            type: 'text' as const,
+            text: '📊 成績・記録',
+            color: '#FFFFFF',
+            weight: 'bold' as const,
+            size: 'md' as const,
           },
         ],
       },
       body: {
-        type: "box" as const,
-        layout: "vertical" as const,
-        paddingAll: "20px",
-        spacing: "sm" as const,
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        paddingAll: '20px',
+        spacing: 'sm' as const,
         contents: body,
       },
       footer: {
-        type: "box" as const,
-        layout: "vertical" as const,
-        spacing: "sm" as const,
-        paddingAll: "16px",
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        spacing: 'sm' as const,
+        paddingAll: '16px',
         contents: [
           {
-            type: "button" as const,
-            style: "primary" as const,
-            color: "#F59E0B",
-            height: "sm" as const,
+            type: 'button' as const,
+            style: 'primary' as const,
+            color: '#F59E0B',
+            height: 'sm' as const,
             action: {
-              type: "uri" as const,
-              label: "詳しく見る（教科別・単元別）",
+              type: 'uri' as const,
+              label: '詳しく見る（教科別・単元別）',
               uri: LIFF_REPORT_URL,
             },
           },
-          ...(plan === "free"
+          ...(plan === 'free'
             ? [
                 {
-                  type: "button" as const,
-                  style: "secondary" as const,
-                  height: "sm" as const,
+                  type: 'button' as const,
+                  style: 'secondary' as const,
+                  height: 'sm' as const,
                   action: {
-                    type: "uri" as const,
-                    label: "✨ プレミアムを試す",
+                    type: 'uri' as const,
+                    label: '✨ プレミアムを試す',
                     uri: LIFF_PREMIUM_INFO_URL,
                   },
                 },
@@ -1464,96 +1649,132 @@ function buildReportSummaryFlexMessage(
 
 function buildPremiumInfoFlexMessage() {
   return {
-    type: "flex" as const,
-    altText: "プレミアムで学習を加速",
+    type: 'flex' as const,
+    altText: 'プレミアムで学習を加速',
     contents: {
-      type: "bubble" as const,
-      size: "kilo" as const,
+      type: 'bubble' as const,
+      size: 'kilo' as const,
       header: {
-        type: "box" as const,
-        layout: "vertical" as const,
-        backgroundColor: "#F59E0B",
-        paddingAll: "14px",
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        backgroundColor: '#F59E0B',
+        paddingAll: '14px',
         contents: [
           {
-            type: "text" as const,
-            text: "🚀 プレミアムで学習を加速",
-            color: "#FFFFFF",
-            weight: "bold" as const,
-            size: "md" as const,
+            type: 'text' as const,
+            text: '🚀 プレミアムで学習を加速',
+            color: '#FFFFFF',
+            weight: 'bold' as const,
+            size: 'md' as const,
           },
         ],
       },
       body: {
-        type: "box" as const,
-        layout: "vertical" as const,
-        paddingAll: "20px",
-        spacing: "md" as const,
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        paddingAll: '20px',
+        spacing: 'md' as const,
         contents: [
           {
-            type: "text" as const,
-            text: "毎日1問だけじゃ物足りない人へ。",
+            type: 'text' as const,
+            text: '毎日1問だけじゃ物足りない人へ。',
             wrap: true,
-            size: "sm" as const,
-            color: "#111827",
-            weight: "bold" as const,
+            size: 'sm' as const,
+            color: '#111827',
+            weight: 'bold' as const,
           },
           {
-            type: "box" as const,
-            layout: "vertical" as const,
-            spacing: "xs" as const,
-            margin: "md" as const,
+            type: 'box' as const,
+            layout: 'vertical' as const,
+            spacing: 'xs' as const,
+            margin: 'md' as const,
             contents: [
-              { type: "text" as const, text: "🔁 追加で解く", weight: "bold" as const, size: "sm" as const, color: "#111827" },
-              { type: "text" as const, text: "今すぐもう1問。1日の上限なしで挑戦できる。", wrap: true, size: "xs" as const, color: "#6B7280" },
+              {
+                type: 'text' as const,
+                text: '🔁 追加で解く',
+                weight: 'bold' as const,
+                size: 'sm' as const,
+                color: '#111827',
+              },
+              {
+                type: 'text' as const,
+                text: '今すぐもう1問。1日の上限なしで挑戦できる。',
+                wrap: true,
+                size: 'xs' as const,
+                color: '#6B7280',
+              },
             ],
           },
           {
-            type: "box" as const,
-            layout: "vertical" as const,
-            spacing: "xs" as const,
-            margin: "md" as const,
+            type: 'box' as const,
+            layout: 'vertical' as const,
+            spacing: 'xs' as const,
+            margin: 'md' as const,
             contents: [
-              { type: "text" as const, text: "🎯 苦手を復習", weight: "bold" as const, size: "sm" as const, color: "#111827" },
-              { type: "text" as const, text: "間違えた問題から自動出題。弱点を集中的につぶす。", wrap: true, size: "xs" as const, color: "#6B7280" },
+              {
+                type: 'text' as const,
+                text: '🎯 苦手を復習',
+                weight: 'bold' as const,
+                size: 'sm' as const,
+                color: '#111827',
+              },
+              {
+                type: 'text' as const,
+                text: '間違えた問題から自動出題。弱点を集中的につぶす。',
+                wrap: true,
+                size: 'xs' as const,
+                color: '#6B7280',
+              },
             ],
           },
           {
-            type: "box" as const,
-            layout: "vertical" as const,
-            spacing: "xs" as const,
-            margin: "md" as const,
+            type: 'box' as const,
+            layout: 'vertical' as const,
+            spacing: 'xs' as const,
+            margin: 'md' as const,
             contents: [
-              { type: "text" as const, text: "📝 テスト範囲設定", weight: "bold" as const, size: "sm" as const, color: "#111827" },
-              { type: "text" as const, text: "教科書名と範囲を入れるだけで、それに合わせた問題が届く。", wrap: true, size: "xs" as const, color: "#6B7280" },
+              {
+                type: 'text' as const,
+                text: '📝 テスト範囲設定',
+                weight: 'bold' as const,
+                size: 'sm' as const,
+                color: '#111827',
+              },
+              {
+                type: 'text' as const,
+                text: '教科書名と範囲を入れるだけで、それに合わせた問題が届く。',
+                wrap: true,
+                size: 'xs' as const,
+                color: '#6B7280',
+              },
             ],
           },
         ],
       },
       footer: {
-        type: "box" as const,
-        layout: "vertical" as const,
-        paddingAll: "16px",
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        paddingAll: '16px',
         contents: [
           {
-            type: "button" as const,
-            style: "primary" as const,
-            color: "#F59E0B",
-            height: "sm" as const,
+            type: 'button' as const,
+            style: 'primary' as const,
+            color: '#F59E0B',
+            height: 'sm' as const,
             action: {
-              type: "uri" as const,
-              label: "申込フォームを開く",
+              type: 'uri' as const,
+              label: '7日間無料で始める',
               uri: LIFF_PREMIUM_APPLY_URL,
             },
           },
           {
-            type: "button" as const,
-            style: "secondary" as const,
-            height: "sm" as const,
-            margin: "sm" as const,
+            type: 'button' as const,
+            style: 'secondary' as const,
+            height: 'sm' as const,
+            margin: 'sm' as const,
             action: {
-              type: "uri" as const,
-              label: "詳細を見る",
+              type: 'uri' as const,
+              label: '詳細を見る',
               uri: LIFF_PREMIUM_INFO_URL,
             },
           },
@@ -1572,14 +1793,14 @@ function buildPremiumInfoFlexMessage() {
  *   学習を続けた結果として届く文脈を保つ。
  * - `onboarding`: 友だち追加直後の最初の1問配信に同梱する控えめな案内。
  *
- * footer は常に「申込フォームを開く」(primary) + 「詳細を見る」(secondary) の 2 ボタン。
+ * footer は常に「7日間無料で始める」(primary) + 「詳細を見る」(secondary) の 2 ボタン。
  */
 export type PremiumNudgeReason =
-  | "extra_question"
-  | "weak_review"
-  | "streak_milestone"
-  | "volume_milestone"
-  | "onboarding";
+  | 'extra_question'
+  | 'weak_review'
+  | 'streak_milestone'
+  | 'volume_milestone'
+  | 'onboarding';
 
 interface NudgeCopy {
   headerEmoji: string;
@@ -1589,119 +1810,119 @@ interface NudgeCopy {
 
 const NUDGE_COPY: Record<PremiumNudgeReason, NudgeCopy> = {
   extra_question: {
-    headerEmoji: "🚀",
-    headerText: "もう1問はプレミアム機能",
+    headerEmoji: '🚀',
+    headerText: 'もう1問はプレミアム機能',
     leadText:
-      "「追加で解く」はプレミアムプランの機能です。今すぐもう1問解きたい方はぜひご検討ください。",
+      '「追加で解く」はプレミアムプランの機能です。今すぐもう1問解きたい方はぜひご検討ください。',
   },
   weak_review: {
-    headerEmoji: "🎯",
-    headerText: "苦手復習はプレミアム機能",
+    headerEmoji: '🎯',
+    headerText: '苦手復習はプレミアム機能',
     leadText:
-      "間違えた問題から優先出題する「苦手を復習」はプレミアムプランの機能です。",
+      '間違えた問題から優先出題する「苦手を復習」はプレミアムプランの機能です。',
   },
   streak_milestone: {
-    headerEmoji: "🔥",
-    headerText: "連続学習おめでとう！",
+    headerEmoji: '🔥',
+    headerText: '連続学習おめでとう！',
     leadText:
-      "コツコツ続けられているあなたなら、もっと伸ばせます。プレミアムで追加問題・苦手復習を解放しませんか？",
+      'コツコツ続けられているあなたなら、もっと伸ばせます。プレミアムで追加問題・苦手復習を解放しませんか？',
   },
   volume_milestone: {
-    headerEmoji: "📚",
-    headerText: "問題数の節目！",
+    headerEmoji: '📚',
+    headerText: '問題数の節目！',
     leadText:
-      "たくさん解けています。プレミアムなら追加で解いたり、苦手から復習したりして、さらに定着が進みます。",
+      'たくさん解けています。プレミアムなら追加で解いたり、苦手から復習したりして、さらに定着が進みます。',
   },
   onboarding: {
-    headerEmoji: "✨",
-    headerText: "まずは無料で1日1問",
+    headerEmoji: '✨',
+    headerText: 'まずは無料で1日1問',
     leadText:
-      "選んだ時間に問題が届きます。「もっと解きたい」「苦手から復習したい」と思ったら、プレミアムで広げられます。",
+      '選んだ時間に問題が届きます。「もっと解きたい」「苦手から復習したい」と思ったら、プレミアムで広げられます。',
   },
 };
 
 /**
- * 申込フォーム送信後、即座に 7日間の trial を開放したことをユーザーに伝える flex。
+ * 申込後、即座に 7日間の無料トライアルを開放したことをユーザーに伝える flex。
  * onPremiumApplicationCreated から push される。
  */
 export function buildTrialStartedFlexMessage() {
   return {
-    type: "flex" as const,
-    altText: "7日間 trial を開始しました - チャットでスタディ",
+    type: 'flex' as const,
+    altText: '7日間無料トライアルを開始しました - チャットでスタディ',
     contents: {
-      type: "bubble" as const,
-      size: "kilo" as const,
+      type: 'bubble' as const,
+      size: 'kilo' as const,
       header: {
-        type: "box" as const,
-        layout: "vertical" as const,
-        backgroundColor: "#F59E0B",
-        paddingAll: "14px",
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        backgroundColor: '#F59E0B',
+        paddingAll: '14px',
         contents: [
           {
-            type: "text" as const,
-            text: "✨ 7日間 trial 開始！",
-            color: "#FFFFFF",
-            weight: "bold" as const,
-            size: "md" as const,
+            type: 'text' as const,
+            text: '✨ 7日間無料トライアル開始！',
+            color: '#FFFFFF',
+            weight: 'bold' as const,
+            size: 'md' as const,
           },
         ],
       },
       body: {
-        type: "box" as const,
-        layout: "vertical" as const,
-        paddingAll: "16px",
-        spacing: "sm" as const,
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        paddingAll: '16px',
+        spacing: 'sm' as const,
         contents: [
           {
-            type: "text" as const,
-            text: "リッチメニューがプレミアム版に切り替わりました。",
+            type: 'text' as const,
+            text: 'リッチメニューがプレミアム版に切り替わりました。',
             wrap: true,
-            size: "sm" as const,
-            color: "#111827",
-            weight: "bold" as const,
+            size: 'sm' as const,
+            color: '#111827',
+            weight: 'bold' as const,
           },
           {
-            type: "text" as const,
-            text: "「追加で解く」「苦手を復習」「じっくり学ぶ」が無制限で使えます。",
+            type: 'text' as const,
+            text: '「追加で解く」「苦手を復習」「じっくり学ぶ」が無制限で使えます。',
             wrap: true,
-            size: "xs" as const,
-            color: "#374151",
-            margin: "sm" as const,
+            size: 'xs' as const,
+            color: '#374151',
+            margin: 'sm' as const,
           },
           {
-            type: "text" as const,
-            text: "7日以内に本契約いただくと、特典期間中ずっと月680円のまま継続できます。",
+            type: 'text' as const,
+            text: '7日以内に月額プランへ登録すると、特典期間中ずっと月680円のまま継続できます。',
             wrap: true,
-            size: "xs" as const,
-            color: "#6B7280",
-            margin: "sm" as const,
+            size: 'xs' as const,
+            color: '#6B7280',
+            margin: 'sm' as const,
           },
         ],
       },
       footer: {
-        type: "box" as const,
-        layout: "vertical" as const,
-        spacing: "sm" as const,
-        paddingAll: "16px",
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        spacing: 'sm' as const,
+        paddingAll: '16px',
         contents: [
           {
-            type: "button" as const,
-            style: "primary" as const,
-            color: "#F59E0B",
-            height: "sm" as const,
+            type: 'button' as const,
+            style: 'primary' as const,
+            color: '#F59E0B',
+            height: 'sm' as const,
             action: {
-              type: "uri" as const,
-              label: "本契約を申し込む",
+              type: 'uri' as const,
+              label: '月680円で継続登録',
               uri: LIFF_PREMIUM_APPLY_URL,
             },
           },
           {
-            type: "button" as const,
-            style: "secondary" as const,
-            height: "sm" as const,
+            type: 'button' as const,
+            style: 'secondary' as const,
+            height: 'sm' as const,
             action: {
-              type: "uri" as const,
-              label: "使い方を見る",
+              type: 'uri' as const,
+              label: '使い方を見る',
               uri: LIFF_HELP_URL,
             },
           },
@@ -1712,67 +1933,67 @@ export function buildTrialStartedFlexMessage() {
 }
 
 /**
- * trial 残り N 日のリマインダー flex。
+ * 無料トライアル残り N 日のリマインダー flex。
  * expireTrialUsers から push される。
  */
 export function buildTrialReminderFlexMessage(daysLeft: number) {
   const headline =
     daysLeft <= 1
-      ? "⏰ trial 残り 1 日です"
-      : `⏰ trial 残り ${daysLeft} 日`;
+      ? '⏰ 無料トライアル残り 1 日です'
+      : `⏰ 無料トライアル残り ${daysLeft} 日`;
   const leadText =
     daysLeft <= 1
-      ? "明日 trial が終了します。気に入っていただけたら、今のうちに本契約すれば永続680円が確定します。"
-      : `あと ${daysLeft} 日で trial が終了します。気に入っていただけたら、今のうちに本契約すれば永続680円が確定します。`;
+      ? '明日無料トライアルが終了します。気に入っていただけたら、今のうちに月額プランへ登録すると永続680円が確定します。'
+      : `あと ${daysLeft} 日で無料トライアルが終了します。気に入っていただけたら、今のうちに月額プランへ登録すると永続680円が確定します。`;
   return {
-    type: "flex" as const,
+    type: 'flex' as const,
     altText: `${headline} - チャットでスタディ`,
     contents: {
-      type: "bubble" as const,
-      size: "kilo" as const,
+      type: 'bubble' as const,
+      size: 'kilo' as const,
       header: {
-        type: "box" as const,
-        layout: "vertical" as const,
-        backgroundColor: "#F59E0B",
-        paddingAll: "14px",
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        backgroundColor: '#F59E0B',
+        paddingAll: '14px',
         contents: [
           {
-            type: "text" as const,
+            type: 'text' as const,
             text: headline,
-            color: "#FFFFFF",
-            weight: "bold" as const,
-            size: "md" as const,
+            color: '#FFFFFF',
+            weight: 'bold' as const,
+            size: 'md' as const,
             wrap: true,
           },
         ],
       },
       body: {
-        type: "box" as const,
-        layout: "vertical" as const,
-        paddingAll: "16px",
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        paddingAll: '16px',
         contents: [
           {
-            type: "text" as const,
+            type: 'text' as const,
             text: leadText,
             wrap: true,
-            size: "sm" as const,
-            color: "#374151",
+            size: 'sm' as const,
+            color: '#374151',
           },
         ],
       },
       footer: {
-        type: "box" as const,
-        layout: "vertical" as const,
-        paddingAll: "16px",
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        paddingAll: '16px',
         contents: [
           {
-            type: "button" as const,
-            style: "primary" as const,
-            color: "#F59E0B",
-            height: "sm" as const,
+            type: 'button' as const,
+            style: 'primary' as const,
+            color: '#F59E0B',
+            height: 'sm' as const,
             action: {
-              type: "uri" as const,
-              label: "本契約を申し込む",
+              type: 'uri' as const,
+              label: '月680円で継続登録',
               uri: LIFF_PREMIUM_APPLY_URL,
             },
           },
@@ -1783,76 +2004,76 @@ export function buildTrialReminderFlexMessage(daysLeft: number) {
 }
 
 /**
- * trial 期限切れで free に戻したことを通知する flex。
+ * 無料トライアル期限切れで free に戻したことを通知する flex。
  * expireTrialUsers から push される。
  */
 export function buildTrialExpiredFlexMessage() {
   return {
-    type: "flex" as const,
-    altText: "trial が終了しました - チャットでスタディ",
+    type: 'flex' as const,
+    altText: '無料トライアルが終了しました - チャットでスタディ',
     contents: {
-      type: "bubble" as const,
-      size: "kilo" as const,
+      type: 'bubble' as const,
+      size: 'kilo' as const,
       header: {
-        type: "box" as const,
-        layout: "vertical" as const,
-        backgroundColor: "#F59E0B",
-        paddingAll: "14px",
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        backgroundColor: '#F59E0B',
+        paddingAll: '14px',
         contents: [
           {
-            type: "text" as const,
-            text: "trial 終了しました",
-            color: "#FFFFFF",
-            weight: "bold" as const,
-            size: "md" as const,
+            type: 'text' as const,
+            text: '無料トライアルが終了しました',
+            color: '#FFFFFF',
+            weight: 'bold' as const,
+            size: 'md' as const,
           },
         ],
       },
       body: {
-        type: "box" as const,
-        layout: "vertical" as const,
-        paddingAll: "16px",
-        spacing: "sm" as const,
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        paddingAll: '16px',
+        spacing: 'sm' as const,
         contents: [
           {
-            type: "text" as const,
-            text: "7日間 trial をご利用いただきありがとうございました。",
+            type: 'text' as const,
+            text: '7日間無料トライアルをご利用いただきありがとうございました。',
             wrap: true,
-            size: "sm" as const,
-            color: "#111827",
-            weight: "bold" as const,
+            size: 'sm' as const,
+            color: '#111827',
+            weight: 'bold' as const,
           },
           {
-            type: "text" as const,
-            text: "リッチメニューは無料版に戻りましたが、毎日1問は引き続きお届けします。",
+            type: 'text' as const,
+            text: 'リッチメニューは無料版に戻りましたが、毎日1問は引き続きお届けします。',
             wrap: true,
-            size: "xs" as const,
-            color: "#374151",
-            margin: "sm" as const,
+            size: 'xs' as const,
+            color: '#374151',
+            margin: 'sm' as const,
           },
           {
-            type: "text" as const,
-            text: "今申込めば、永続 月680円が確定します（特典期間中のみ）。",
+            type: 'text' as const,
+            text: '今申込めば、永続 月680円が確定します（特典期間中のみ）。',
             wrap: true,
-            size: "xs" as const,
-            color: "#6B7280",
-            margin: "sm" as const,
+            size: 'xs' as const,
+            color: '#6B7280',
+            margin: 'sm' as const,
           },
         ],
       },
       footer: {
-        type: "box" as const,
-        layout: "vertical" as const,
-        paddingAll: "16px",
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        paddingAll: '16px',
         contents: [
           {
-            type: "button" as const,
-            style: "primary" as const,
-            color: "#F59E0B",
-            height: "sm" as const,
+            type: 'button' as const,
+            style: 'primary' as const,
+            color: '#F59E0B',
+            height: 'sm' as const,
             action: {
-              type: "uri" as const,
-              label: "本契約を申し込む",
+              type: 'uri' as const,
+              label: '月額プランに登録する',
               uri: LIFF_PREMIUM_APPLY_URL,
             },
           },
@@ -1865,87 +2086,87 @@ export function buildTrialExpiredFlexMessage() {
 export function buildPremiumNudgeFlexMessage(reason: PremiumNudgeReason) {
   const copy = NUDGE_COPY[reason];
   // onboarding は申込ボタンを出さず「詳細を見る」のみ（初回はまだ早い）
-  const showApplyButton = reason !== "onboarding";
+  const showApplyButton = reason !== 'onboarding';
 
   const footerContents = showApplyButton
     ? [
         {
-          type: "button" as const,
-          style: "primary" as const,
-          color: "#F59E0B",
-          height: "sm" as const,
+          type: 'button' as const,
+          style: 'primary' as const,
+          color: '#F59E0B',
+          height: 'sm' as const,
           action: {
-            type: "uri" as const,
-            label: "申込フォームを開く",
+            type: 'uri' as const,
+            label: '7日間無料で始める',
             uri: LIFF_PREMIUM_APPLY_URL,
           },
         },
         {
-          type: "button" as const,
-          style: "secondary" as const,
-          height: "sm" as const,
-          margin: "sm" as const,
+          type: 'button' as const,
+          style: 'secondary' as const,
+          height: 'sm' as const,
+          margin: 'sm' as const,
           action: {
-            type: "uri" as const,
-            label: "詳細を見る",
+            type: 'uri' as const,
+            label: '詳細を見る',
             uri: LIFF_PREMIUM_INFO_URL,
           },
         },
       ]
     : [
         {
-          type: "button" as const,
-          style: "primary" as const,
-          color: "#F59E0B",
-          height: "sm" as const,
+          type: 'button' as const,
+          style: 'primary' as const,
+          color: '#F59E0B',
+          height: 'sm' as const,
           action: {
-            type: "uri" as const,
-            label: "詳細を見る",
+            type: 'uri' as const,
+            label: '詳細を見る',
             uri: LIFF_PREMIUM_INFO_URL,
           },
         },
       ];
 
   return {
-    type: "flex" as const,
+    type: 'flex' as const,
     altText: `${copy.headerText} - チャットでスタディ`,
     contents: {
-      type: "bubble" as const,
-      size: "kilo" as const,
+      type: 'bubble' as const,
+      size: 'kilo' as const,
       header: {
-        type: "box" as const,
-        layout: "vertical" as const,
-        backgroundColor: "#F59E0B",
-        paddingAll: "14px",
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        backgroundColor: '#F59E0B',
+        paddingAll: '14px',
         contents: [
           {
-            type: "text" as const,
+            type: 'text' as const,
             text: `${copy.headerEmoji} ${copy.headerText}`,
-            color: "#FFFFFF",
-            weight: "bold" as const,
-            size: "md" as const,
+            color: '#FFFFFF',
+            weight: 'bold' as const,
+            size: 'md' as const,
             wrap: true,
           },
         ],
       },
       body: {
-        type: "box" as const,
-        layout: "vertical" as const,
-        paddingAll: "16px",
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        paddingAll: '16px',
         contents: [
           {
-            type: "text" as const,
+            type: 'text' as const,
             text: copy.leadText,
             wrap: true,
-            size: "sm" as const,
-            color: "#374151",
+            size: 'sm' as const,
+            color: '#374151',
           },
         ],
       },
       footer: {
-        type: "box" as const,
-        layout: "vertical" as const,
-        paddingAll: "16px",
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        paddingAll: '16px',
         contents: footerContents,
       },
     },
@@ -1963,13 +2184,16 @@ async function handleExtraQuestionPostback(
   const userData = userSnap.data();
   const plan = getUserPlan(userData);
 
-  if (plan !== "premium") {
-    const flex = buildPremiumNudgeFlexMessage("extra_question");
+  if (plan !== 'premium') {
+    const flex = buildPremiumNudgeFlexMessage('extra_question');
     try {
       const client = await getLineClient();
       await client.replyMessage({ replyToken, messages: [flex] });
     } catch (error) {
-      console.error("[lineWebhook] handleExtraQuestion free guard reply failed:", error);
+      console.error(
+        '[lineWebhook] handleExtraQuestion free guard reply failed:',
+        error
+      );
     }
     return;
   }
@@ -1992,20 +2216,23 @@ async function handleWeakReviewPostback(
   const userData = userSnap.data();
   const plan = getUserPlan(userData);
 
-  if (plan !== "premium") {
-    const flex = buildPremiumNudgeFlexMessage("weak_review");
+  if (plan !== 'premium') {
+    const flex = buildPremiumNudgeFlexMessage('weak_review');
     try {
       const client = await getLineClient();
       await client.replyMessage({ replyToken, messages: [flex] });
     } catch (error) {
-      console.error("[lineWebhook] handleWeakReview free guard reply failed:", error);
+      console.error(
+        '[lineWebhook] handleWeakReview free guard reply failed:',
+        error
+      );
     }
     return;
   }
 
   const testScopeTopics: string[] = Array.isArray(userData?.testScope?.topics)
     ? (userData!.testScope.topics as unknown[]).filter(
-        (t): t is string => typeof t === "string"
+        (t): t is string => typeof t === 'string'
       )
     : [];
 
@@ -2015,18 +2242,21 @@ async function handleWeakReviewPostback(
   let recentAnswers: FirebaseFirestore.QueryDocumentSnapshot[] = [];
   try {
     const snap = await db
-      .collection("answers")
-      .where("uid", "==", uid)
-      .orderBy("answeredAt", "desc")
+      .collection('answers')
+      .where('uid', '==', uid)
+      .orderBy('answeredAt', 'desc')
       .limit(300)
       .get();
     recentAnswers = snap.docs;
   } catch (error) {
-    console.error("[lineWebhook] handleWeakReview answers query failed:", error);
+    console.error(
+      '[lineWebhook] handleWeakReview answers query failed:',
+      error
+    );
     await replyText(
       replyToken,
-      "苦手の取得に失敗しました。少し時間を置いて試してください。",
-      "(weak_review query error)"
+      '苦手の取得に失敗しました。少し時間を置いて試してください。',
+      '(weak_review query error)'
     );
     return;
   }
@@ -2036,9 +2266,9 @@ async function handleWeakReviewPostback(
   const recentByQ = new Map<string, boolean[]>(); // 直近3回の isCorrect 配列
   const topicByQ = new Map<string, string>();
   for (const doc of recentAnswers) {
-    const qid = doc.get("questionId");
-    if (typeof qid !== "string") continue;
-    const isCorrect = doc.get("isCorrect") === true;
+    const qid = doc.get('questionId');
+    if (typeof qid !== 'string') continue;
+    const isCorrect = doc.get('isCorrect') === true;
     if (!isCorrect) everIncorrect.add(qid);
 
     const arr = recentByQ.get(qid) ?? [];
@@ -2047,8 +2277,8 @@ async function handleWeakReviewPostback(
       recentByQ.set(qid, arr);
     }
 
-    const topic = doc.get("topic");
-    if (typeof topic === "string" && !topicByQ.has(qid)) {
+    const topic = doc.get('topic');
+    if (typeof topic === 'string' && !topicByQ.has(qid)) {
       topicByQ.set(qid, topic);
     }
   }
@@ -2069,7 +2299,7 @@ async function handleWeakReviewPostback(
   if (testScopeTopics.length > 0) {
     candidateIds = candidateIds.filter((qid) => {
       const topic = topicByQ.get(qid);
-      return typeof topic === "string" && testScopeTopics.includes(topic);
+      return typeof topic === 'string' && testScopeTopics.includes(topic);
     });
   }
 
@@ -2077,15 +2307,15 @@ async function handleWeakReviewPostback(
     if (testScopeTopics.length > 0 && hadAnyBeforeScope) {
       await replyText(
         replyToken,
-        "テスト範囲内ではまだ苦手な問題がありません。範囲を広げてみてね",
-        "(weak_review empty in scope)"
+        'テスト範囲内ではまだ苦手な問題がありません。範囲を広げてみてね',
+        '(weak_review empty in scope)'
       );
       return;
     }
     await replyText(
       replyToken,
       getWeakReviewIntro({ empty: true }),
-      "(weak_review empty)"
+      '(weak_review empty)'
     );
     return;
   }
@@ -2095,11 +2325,11 @@ async function handleWeakReviewPostback(
   const pickedId = questionIds[Math.floor(Math.random() * questionIds.length)];
   const questionSnap = await db.doc(`questions/${pickedId}`).get();
   if (!questionSnap.exists) {
-    console.warn("[lineWebhook] handleWeakReview question gone:", pickedId);
+    console.warn('[lineWebhook] handleWeakReview question gone:', pickedId);
     await replyText(
       replyToken,
-      "苦手の出題対象が見つかりませんでした。もう一度押してみてください。",
-      "(weak_review question gone)"
+      '苦手の出題対象が見つかりませんでした。もう一度押してみてください。',
+      '(weak_review question gone)'
     );
     return;
   }
@@ -2111,10 +2341,10 @@ async function handleWeakReviewPostback(
     const client = await getLineClient();
     await client.replyMessage({
       replyToken,
-      messages: [{ type: "text", text: getWeakReviewIntro() }, questionMessage],
+      messages: [{ type: 'text', text: getWeakReviewIntro() }, questionMessage],
     });
   } catch (error) {
-    console.error("[lineWebhook] handleWeakReview reply failed:", error);
+    console.error('[lineWebhook] handleWeakReview reply failed:', error);
     return;
   }
 
@@ -2130,7 +2360,10 @@ async function handleWeakReviewPostback(
       { merge: true }
     );
   } catch (error) {
-    console.error("[lineWebhook] handleWeakReview lastDelivered update failed:", error);
+    console.error(
+      '[lineWebhook] handleWeakReview lastDelivered update failed:',
+      error
+    );
   }
 }
 
@@ -2144,30 +2377,34 @@ async function handleSelectGradePostback(
   const userSnap = await db.doc(`users/${uid}`).get();
   const userData = userSnap.data();
   if (isInitialSetupComplete(userData)) {
-    console.warn("[lineWebhook] handleSelectGrade locked (already set):", uid);
+    console.warn('[lineWebhook] handleSelectGrade locked (already set):', uid);
     if (replyToken) {
-      const storedGrade = typeof userData?.grade === "string" ? userData.grade : "登録済みの学年";
+      const storedGrade =
+        typeof userData?.grade === 'string' ? userData.grade : '登録済みの学年';
       await replyText(
         replyToken,
         `すでに${storedGrade}で登録済みです。変更したい場合は『設定変更』と送ってください。`,
-        "(grade locked)"
+        '(grade locked)'
       );
     }
     return;
   }
 
-  const grade = params.get("grade");
+  const grade = params.get('grade');
   if (!grade || !VALID_GRADES.includes(grade as ValidGrade)) {
-    console.warn("[lineWebhook] invalid grade in postback:", grade);
+    console.warn('[lineWebhook] invalid grade in postback:', grade);
     if (replyToken) {
       try {
         const client = await getLineClient();
         await client.replyMessage({
           replyToken,
-          messages: [{ type: "text", text: "もう一度学年を選んでください。" }],
+          messages: [{ type: 'text', text: 'もう一度学年を選んでください。' }],
         });
       } catch (error) {
-        console.error("[lineWebhook] handlePostback reply (invalid grade) failed:", error);
+        console.error(
+          '[lineWebhook] handlePostback reply (invalid grade) failed:',
+          error
+        );
       }
     }
     return;
@@ -2182,11 +2419,14 @@ async function handleSelectGradePostback(
       { merge: true }
     );
   } catch (error) {
-    console.error("[lineWebhook] handlePostback firestore write failed:", error);
+    console.error(
+      '[lineWebhook] handlePostback firestore write failed:',
+      error
+    );
   }
 
   if (!replyToken) {
-    console.warn("[lineWebhook] postback event without replyToken");
+    console.warn('[lineWebhook] postback event without replyToken');
     return;
   }
 
@@ -2195,12 +2435,12 @@ async function handleSelectGradePostback(
     await client.replyMessage({
       replyToken,
       messages: [
-        { type: "text", text: `${grade}ですね！次に教科を選んでください。` },
+        { type: 'text', text: `${grade}ですね！次に教科を選んでください。` },
         subjectSelectMessage,
       ],
     });
   } catch (error) {
-    console.error("[lineWebhook] handlePostback reply failed:", error);
+    console.error('[lineWebhook] handlePostback reply failed:', error);
   }
 }
 
@@ -2214,34 +2454,41 @@ async function handleSelectSubjectPostback(
   const userSnap = await db.doc(`users/${uid}`).get();
   const userData = userSnap.data();
   if (isInitialSetupComplete(userData)) {
-    console.warn("[lineWebhook] handleSelectSubject locked (already set):", uid);
+    console.warn(
+      '[lineWebhook] handleSelectSubject locked (already set):',
+      uid
+    );
     if (replyToken) {
       const storedSubject = userData?.subject;
       const label =
-        typeof storedSubject === "string" && VALID_SUBJECTS.includes(storedSubject as ValidSubject)
+        typeof storedSubject === 'string' &&
+        VALID_SUBJECTS.includes(storedSubject as ValidSubject)
           ? SUBJECT_LABELS[storedSubject as ValidSubject]
-          : "登録済みの教科";
+          : '登録済みの教科';
       await replyText(
         replyToken,
         `すでに${label}で登録済みです。変更したい場合は『設定変更』と送ってください。`,
-        "(subject locked)"
+        '(subject locked)'
       );
     }
     return;
   }
 
-  const subject = params.get("subject");
+  const subject = params.get('subject');
   if (!subject || !VALID_SUBJECTS.includes(subject as ValidSubject)) {
-    console.warn("[lineWebhook] invalid subject in postback:", subject);
+    console.warn('[lineWebhook] invalid subject in postback:', subject);
     if (replyToken) {
       try {
         const client = await getLineClient();
         await client.replyMessage({
           replyToken,
-          messages: [{ type: "text", text: "もう一度教科を選んでください。" }],
+          messages: [{ type: 'text', text: 'もう一度教科を選んでください。' }],
         });
       } catch (error) {
-        console.error("[lineWebhook] handlePostback reply (invalid subject) failed:", error);
+        console.error(
+          '[lineWebhook] handlePostback reply (invalid subject) failed:',
+          error
+        );
       }
     }
     return;
@@ -2256,11 +2503,14 @@ async function handleSelectSubjectPostback(
       { merge: true }
     );
   } catch (error) {
-    console.error("[lineWebhook] handlePostback (subject) firestore write failed:", error);
+    console.error(
+      '[lineWebhook] handlePostback (subject) firestore write failed:',
+      error
+    );
   }
 
   if (!replyToken) {
-    console.warn("[lineWebhook] postback event without replyToken");
+    console.warn('[lineWebhook] postback event without replyToken');
     return;
   }
 
@@ -2270,12 +2520,18 @@ async function handleSelectSubjectPostback(
     await client.replyMessage({
       replyToken,
       messages: [
-        { type: "text", text: `${subjectLabel}ですね！毎日問題を送る時間を選んでください。` },
+        {
+          type: 'text',
+          text: `${subjectLabel}ですね！毎日問題を送る時間を選んでください。`,
+        },
         timeSelectMessage,
       ],
     });
   } catch (error) {
-    console.error("[lineWebhook] handlePostback (subject) reply failed:", error);
+    console.error(
+      '[lineWebhook] handlePostback (subject) reply failed:',
+      error
+    );
   }
 }
 
@@ -2289,35 +2545,39 @@ async function handleSelectTimePostback(
   const userSnap = await db.doc(`users/${uid}`).get();
   const userData = userSnap.data();
   if (isInitialSetupComplete(userData)) {
-    console.warn("[lineWebhook] handleSelectTime locked (already set):", uid);
+    console.warn('[lineWebhook] handleSelectTime locked (already set):', uid);
     if (replyToken) {
       const storedHour = userData?.preferredHour;
       const label =
-        typeof storedHour === "number" && VALID_HOURS.includes(storedHour as ValidHour)
+        typeof storedHour === 'number' &&
+        VALID_HOURS.includes(storedHour as ValidHour)
           ? HOUR_LABELS[storedHour as ValidHour]
-          : "登録済みの時間";
+          : '登録済みの時間';
       await replyText(
         replyToken,
         `すでに${label}で登録済みです。変更したい場合は『設定変更』と送ってください。`,
-        "(time locked)"
+        '(time locked)'
       );
     }
     return;
   }
 
-  const hourRaw = params.get("hour");
+  const hourRaw = params.get('hour');
   const hour = hourRaw ? Number(hourRaw) : NaN;
   if (!VALID_HOURS.includes(hour as ValidHour)) {
-    console.warn("[lineWebhook] invalid hour in postback:", hourRaw);
+    console.warn('[lineWebhook] invalid hour in postback:', hourRaw);
     if (replyToken) {
       try {
         const client = await getLineClient();
         await client.replyMessage({
           replyToken,
-          messages: [{ type: "text", text: "もう一度時間を選んでください。" }],
+          messages: [{ type: 'text', text: 'もう一度時間を選んでください。' }],
         });
       } catch (error) {
-        console.error("[lineWebhook] handlePostback reply (invalid hour) failed:", error);
+        console.error(
+          '[lineWebhook] handlePostback reply (invalid hour) failed:',
+          error
+        );
       }
     }
     return;
@@ -2333,11 +2593,14 @@ async function handleSelectTimePostback(
       { merge: true }
     );
   } catch (error) {
-    console.error("[lineWebhook] handlePostback (time) firestore write failed:", error);
+    console.error(
+      '[lineWebhook] handlePostback (time) firestore write failed:',
+      error
+    );
   }
 
   if (!replyToken) {
-    console.warn("[lineWebhook] postback event without replyToken");
+    console.warn('[lineWebhook] postback event without replyToken');
     return;
   }
 
@@ -2352,17 +2615,20 @@ async function handleSelectTimePostback(
   // 初回セットアップの最初の1問配信に続けて、プレミアム比較 flex を別 push で1回だけ送る。
   // reply は selectAndSendQuestion で消費済みなので、ここからは pushMessage を使う。
   // 送信失敗してもオンボーディング体験は破綻させない（catch して握りつぶす）。
-  if (uid.startsWith("line:")) {
-    const lineUserId = uid.slice("line:".length);
+  if (uid.startsWith('line:')) {
+    const lineUserId = uid.slice('line:'.length);
     try {
-      const onboardingFlex = buildPremiumNudgeFlexMessage("onboarding");
+      const onboardingFlex = buildPremiumNudgeFlexMessage('onboarding');
       const client = await getLineClient();
       await client.pushMessage({
         to: lineUserId,
         messages: [onboardingFlex],
       });
     } catch (error) {
-      console.error("[lineWebhook] handleSelectTime onboarding nudge push failed:", error);
+      console.error(
+        '[lineWebhook] handleSelectTime onboarding nudge push failed:',
+        error
+      );
     }
   }
 }
@@ -2372,14 +2638,21 @@ async function handleAnswerPostback(
   replyToken: string | undefined,
   params: URLSearchParams
 ): Promise<void> {
-  const questionId = params.get("questionId");
-  const choiceRaw = params.get("choice");
+  const questionId = params.get('questionId');
+  const choiceRaw = params.get('choice');
   const choice = choiceRaw !== null ? Number(choiceRaw) : NaN;
 
   if (!questionId || !Number.isInteger(choice) || choice < 0 || choice > 3) {
-    console.warn("[lineWebhook] handleAnswer invalid params:", params.toString());
+    console.warn(
+      '[lineWebhook] handleAnswer invalid params:',
+      params.toString()
+    );
     if (replyToken) {
-      await replyText(replyToken, "もう一度選択肢を選んでください。", "(invalid params)");
+      await replyText(
+        replyToken,
+        'もう一度選択肢を選んでください。',
+        '(invalid params)'
+      );
     }
     return;
   }
@@ -2395,12 +2668,12 @@ async function handleAnswerPostback(
     const userSnap = await db.doc(`users/${uid}`).get();
     const userData = userSnap.data();
     if (userData?.lastAnsweredQuestionId === questionId) {
-      console.warn("[lineWebhook] handleAnswer duplicate:", uid, questionId);
-      await replyText(replyToken, "すでに回答済みです。", "(duplicate answer)");
+      console.warn('[lineWebhook] handleAnswer duplicate:', uid, questionId);
+      await replyText(replyToken, 'すでに回答済みです。', '(duplicate answer)');
       return;
     }
   } catch (error) {
-    console.error("[lineWebhook] handleAnswer user read failed:", error);
+    console.error('[lineWebhook] handleAnswer user read failed:', error);
     // 読み込み失敗時は続行（保険）
   }
 
@@ -2408,14 +2681,14 @@ async function handleAnswerPostback(
   try {
     questionSnap = await db.doc(`questions/${questionId}`).get();
   } catch (error) {
-    console.error("[lineWebhook] handleAnswer firestore read failed:", error);
-    await replyText(replyToken, "エラーが発生しました。", "(read error)");
+    console.error('[lineWebhook] handleAnswer firestore read failed:', error);
+    await replyText(replyToken, 'エラーが発生しました。', '(read error)');
     return;
   }
 
   if (!questionSnap.exists) {
-    console.warn("[lineWebhook] handleAnswer question not found:", questionId);
-    await replyText(replyToken, "問題が見つかりませんでした。", "(not found)");
+    console.warn('[lineWebhook] handleAnswer question not found:', questionId);
+    await replyText(replyToken, '問題が見つかりませんでした。', '(not found)');
     return;
   }
 
@@ -2429,14 +2702,17 @@ async function handleAnswerPostback(
   let recentAnswers: FirebaseFirestore.QueryDocumentSnapshot[] = [];
   try {
     const snap = await db
-      .collection("answers")
-      .where("uid", "==", uid)
-      .orderBy("answeredAt", "desc")
+      .collection('answers')
+      .where('uid', '==', uid)
+      .orderBy('answeredAt', 'desc')
       .limit(15)
       .get();
     recentAnswers = snap.docs;
   } catch (error) {
-    console.error("[lineWebhook] handleAnswer recent answers fetch failed:", error);
+    console.error(
+      '[lineWebhook] handleAnswer recent answers fetch failed:',
+      error
+    );
     // 取得失敗時は連続0として扱い、デフォルト文言で返す
   }
 
@@ -2454,16 +2730,16 @@ async function handleAnswerPostback(
     await client.replyMessage({
       replyToken,
       messages: [
-        { type: "text", text: headText },
-        { type: "text", text: `📖 解説\n${question.explanation}` },
+        { type: 'text', text: headText },
+        { type: 'text', text: `📖 解説\n${question.explanation}` },
       ],
     });
   } catch (error) {
-    console.error("[lineWebhook] handleAnswer reply failed:", error);
+    console.error('[lineWebhook] handleAnswer reply failed:', error);
   }
 
   try {
-    await db.collection("answers").add({
+    await db.collection('answers').add({
       uid,
       questionId,
       choice,
@@ -2474,7 +2750,7 @@ async function handleAnswerPostback(
       answeredAt: FieldValue.serverTimestamp(),
     });
   } catch (error) {
-    console.error("[lineWebhook] handleAnswer answers write failed:", error);
+    console.error('[lineWebhook] handleAnswer answers write failed:', error);
   }
 
   try {
@@ -2486,7 +2762,10 @@ async function handleAnswerPostback(
       { merge: true }
     );
   } catch (error) {
-    console.error("[lineWebhook] handleAnswer lastAnsweredQuestionId update failed:", error);
+    console.error(
+      '[lineWebhook] handleAnswer lastAnsweredQuestionId update failed:',
+      error
+    );
   }
 }
 
@@ -2499,7 +2778,7 @@ async function replyText(
     const client = await getLineClient();
     await client.replyMessage({
       replyToken,
-      messages: [{ type: "text", text }],
+      messages: [{ type: 'text', text }],
     });
   } catch (error) {
     console.error(`[lineWebhook] replyText failed ${context}:`, error);
@@ -2521,13 +2800,19 @@ export async function selectAndSendQuestion(
   uid: string,
   options: SendOptions = {}
 ): Promise<void> {
-  const { replyToken, introText, trailingText, isInitialSetup, bypassDailyLimit } = options;
+  const {
+    replyToken,
+    introText,
+    trailingText,
+    isInitialSetup,
+    bypassDailyLimit,
+  } = options;
   const { db, FieldValue } = await getDb();
 
   const userSnap = await db.doc(`users/${uid}`).get();
   const userData = userSnap.data();
   if (!userData) {
-    console.warn("[lineWebhook] selectAndSendQuestion: user not found", uid);
+    console.warn('[lineWebhook] selectAndSendQuestion: user not found', uid);
     return;
   }
 
@@ -2535,7 +2820,7 @@ export async function selectAndSendQuestion(
   const subject = userData.subject as ValidSubject | undefined;
   if (!grade || !subject) {
     console.warn(
-      "[lineWebhook] selectAndSendQuestion: missing grade/subject",
+      '[lineWebhook] selectAndSendQuestion: missing grade/subject',
       uid,
       grade,
       subject
@@ -2547,22 +2832,27 @@ export async function selectAndSendQuestion(
   let lastDeliveredDate: Date | undefined;
   try {
     const stored = userData.lastQuestionDeliveredAt;
-    if (stored && typeof stored.toDate === "function") {
+    if (stored && typeof stored.toDate === 'function') {
       lastDeliveredDate = stored.toDate();
     }
   } catch (error) {
-    console.warn("[lineWebhook] selectAndSendQuestion: lastQuestionDeliveredAt parse failed:", error);
+    console.warn(
+      '[lineWebhook] selectAndSendQuestion: lastQuestionDeliveredAt parse failed:',
+      error
+    );
   }
   const lastDeliveredJst = getJstDateString(lastDeliveredDate);
   const todayJst = getJstDateString(new Date());
-  const alreadyDeliveredToday = lastDeliveredJst !== null && lastDeliveredJst === todayJst;
+  const alreadyDeliveredToday =
+    lastDeliveredJst !== null && lastDeliveredJst === todayJst;
 
   if (alreadyDeliveredToday && !bypassDailyLimit) {
     const storedHour = userData.preferredHour;
     const hourLabel =
-      typeof storedHour === "number" && VALID_HOURS.includes(storedHour as ValidHour)
+      typeof storedHour === 'number' &&
+      VALID_HOURS.includes(storedHour as ValidHour)
         ? HOUR_LABELS[storedHour as ValidHour]
-        : "次回";
+        : '次回';
     if (replyToken) {
       const text = isInitialSetup
         ? `設定を更新したよ。次の問題は明日の${hourLabel}にお届けするね`
@@ -2571,24 +2861,24 @@ export async function selectAndSendQuestion(
       // free 判定のときだけプレミアム誘導 flex を続けて送る。
       // 初回セットアップ直後（isInitialSetup）はオンボーディング体験を優先して flex は送らない。
       const plan = getUserPlan(userData);
-      if (!isInitialSetup && plan === "free") {
+      if (!isInitialSetup && plan === 'free') {
         try {
           const client = await getLineClient();
           await client.replyMessage({
             replyToken,
             messages: [
-              { type: "text" as const, text },
-              buildPremiumNudgeFlexMessage("extra_question"),
+              { type: 'text' as const, text },
+              buildPremiumNudgeFlexMessage('extra_question'),
             ],
           });
         } catch (error) {
           console.error(
-            "[lineWebhook] selectAndSendQuestion already-delivered+nudge reply failed:",
+            '[lineWebhook] selectAndSendQuestion already-delivered+nudge reply failed:',
             error
           );
         }
       } else {
-        await replyText(replyToken, text, "(already delivered today)");
+        await replyText(replyToken, text, '(already delivered today)');
       }
     } else {
       console.log(
@@ -2604,19 +2894,19 @@ export async function selectAndSendQuestion(
 
   const testScopeTopics: string[] = Array.isArray(userData.testScope?.topics)
     ? (userData.testScope.topics as unknown[]).filter(
-        (t): t is string => typeof t === "string"
+        (t): t is string => typeof t === 'string'
       )
     : [];
 
   const snap = await db
-    .collection("questions")
-    .where("subject", "==", subject)
-    .where("grade", "==", grade)
+    .collection('questions')
+    .where('subject', '==', subject)
+    .where('grade', '==', grade)
     .get();
 
   if (snap.empty) {
     console.warn(
-      "[lineWebhook] selectAndSendQuestion: no questions",
+      '[lineWebhook] selectAndSendQuestion: no questions',
       subject,
       grade
     );
@@ -2625,10 +2915,15 @@ export async function selectAndSendQuestion(
         const client = await getLineClient();
         await client.replyMessage({
           replyToken,
-          messages: [{ type: "text", text: "準備中です。少し待ってください。" }],
+          messages: [
+            { type: 'text', text: '準備中です。少し待ってください。' },
+          ],
         });
       } catch (error) {
-        console.error("[lineWebhook] selectAndSendQuestion empty reply failed:", error);
+        console.error(
+          '[lineWebhook] selectAndSendQuestion empty reply failed:',
+          error
+        );
       }
     }
     return;
@@ -2638,14 +2933,14 @@ export async function selectAndSendQuestion(
   const scopedDocs =
     testScopeTopics.length > 0
       ? snap.docs.filter((d) => {
-          const topic = d.get("topic");
-          return typeof topic === "string" && testScopeTopics.includes(topic);
+          const topic = d.get('topic');
+          return typeof topic === 'string' && testScopeTopics.includes(topic);
         })
       : snap.docs;
 
   if (testScopeTopics.length > 0 && scopedDocs.length === 0) {
     console.warn(
-      "[lineWebhook] selectAndSendQuestion: no questions in testScope",
+      '[lineWebhook] selectAndSendQuestion: no questions in testScope',
       uid,
       testScopeTopics
     );
@@ -2656,14 +2951,14 @@ export async function selectAndSendQuestion(
           replyToken,
           messages: [
             {
-              type: "text",
-              text: "テスト範囲に該当する問題が準備中です。範囲を見直してね",
+              type: 'text',
+              text: 'テスト範囲に該当する問題が準備中です。範囲を見直してね',
             },
           ],
         });
       } catch (error) {
         console.error(
-          "[lineWebhook] selectAndSendQuestion testScope empty reply failed:",
+          '[lineWebhook] selectAndSendQuestion testScope empty reply failed:',
           error
         );
       }
@@ -2676,9 +2971,10 @@ export async function selectAndSendQuestion(
   const picked = pool[Math.floor(Math.random() * pool.length)];
   const question = picked.data() as Question;
 
-  const updatedRecent = [...recentIds.filter((id) => id !== picked.id), picked.id].slice(
-    -RECENT_QUESTION_LIMIT
-  );
+  const updatedRecent = [
+    ...recentIds.filter((id) => id !== picked.id),
+    picked.id,
+  ].slice(-RECENT_QUESTION_LIMIT);
   try {
     await db.doc(`users/${uid}`).set(
       {
@@ -2692,11 +2988,16 @@ export async function selectAndSendQuestion(
       { merge: true }
     );
   } catch (error) {
-    console.error("[lineWebhook] selectAndSendQuestion recent update failed:", error);
+    console.error(
+      '[lineWebhook] selectAndSendQuestion recent update failed:',
+      error
+    );
   }
 
   const questionMessage = buildQuestionMessage(picked.id, question);
-  const messages: Array<{ type: "text"; text: string } | ReturnType<typeof buildQuestionMessage>> = [];
+  const messages: Array<
+    { type: 'text'; text: string } | ReturnType<typeof buildQuestionMessage>
+  > = [];
 
   // 呼び出し元が introText を渡していなければ、push 経路（毎日配信）と判断して
   // ユーザー状態に合うランダムな intro を生成する。reply 経路（追加で解く・苦手復習・
@@ -2706,16 +3007,19 @@ export async function selectAndSendQuestion(
     try {
       resolvedIntroText = await computeDailyIntro(uid, db);
     } catch (error) {
-      console.error("[lineWebhook] selectAndSendQuestion intro compute failed:", error);
+      console.error(
+        '[lineWebhook] selectAndSendQuestion intro compute failed:',
+        error
+      );
     }
   }
 
   if (resolvedIntroText) {
-    messages.push({ type: "text" as const, text: resolvedIntroText });
+    messages.push({ type: 'text' as const, text: resolvedIntroText });
   }
   messages.push(questionMessage);
   if (trailingText) {
-    messages.push({ type: "text" as const, text: trailingText });
+    messages.push({ type: 'text' as const, text: trailingText });
   }
 
   try {
@@ -2723,15 +3027,19 @@ export async function selectAndSendQuestion(
     if (replyToken) {
       await client.replyMessage({ replyToken, messages });
     } else {
-      const lineUserId = typeof userData.lineUserId === "string" ? userData.lineUserId : "";
+      const lineUserId =
+        typeof userData.lineUserId === 'string' ? userData.lineUserId : '';
       if (!lineUserId) {
-        console.error("[lineWebhook] selectAndSendQuestion: missing lineUserId for push", uid);
+        console.error(
+          '[lineWebhook] selectAndSendQuestion: missing lineUserId for push',
+          uid
+        );
         return;
       }
       await client.pushMessage({ to: lineUserId, messages });
     }
   } catch (error) {
-    console.error("[lineWebhook] selectAndSendQuestion send failed:", error);
+    console.error('[lineWebhook] selectAndSendQuestion send failed:', error);
   }
 }
 
@@ -2739,91 +3047,91 @@ function buildQuestionMessage(questionId: string, q: Question) {
   const subjectLabel = SUBJECT_LABELS[q.subject];
   const headerColor = SUBJECT_HEADER_COLORS[q.subject];
   return {
-    type: "flex" as const,
+    type: 'flex' as const,
     altText: `${subjectLabel}｜${q.grade}: ${q.text.slice(0, 40)}`,
     contents: {
-      type: "bubble" as const,
-      size: "kilo" as const,
+      type: 'bubble' as const,
+      size: 'kilo' as const,
       header: {
-        type: "box" as const,
-        layout: "vertical" as const,
+        type: 'box' as const,
+        layout: 'vertical' as const,
         backgroundColor: headerColor,
-        paddingAll: "14px",
+        paddingAll: '14px',
         contents: [
           {
-            type: "text" as const,
+            type: 'text' as const,
             text: `${subjectLabel}｜${q.grade}`,
-            color: "#FFFFFF",
-            weight: "bold" as const,
-            size: "md" as const,
-            align: "start" as const,
+            color: '#FFFFFF',
+            weight: 'bold' as const,
+            size: 'md' as const,
+            align: 'start' as const,
           },
         ],
       },
       body: {
-        type: "box" as const,
-        layout: "vertical" as const,
-        paddingAll: "20px",
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        paddingAll: '20px',
         contents: [
           {
-            type: "text" as const,
+            type: 'text' as const,
             text: q.text,
             wrap: true,
-            weight: "bold" as const,
-            size: "lg" as const,
-            color: "#111827",
-            align: "start" as const,
+            weight: 'bold' as const,
+            size: 'lg' as const,
+            color: '#111827',
+            align: 'start' as const,
           },
         ],
       },
       footer: {
-        type: "box" as const,
-        layout: "vertical" as const,
-        spacing: "sm" as const,
-        paddingAll: "16px",
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        spacing: 'sm' as const,
+        paddingAll: '16px',
         // box + action のカード型タップ要素で構成。Flex の button は label を
         // 1 行で省略表示してしまうため、長い選択肢が読めなくなる。
         // text に wrap: true を付けて複数行表示できるようにする。
         contents: q.choices.map((choice, i) => ({
-          type: "box" as const,
-          layout: "horizontal" as const,
-          paddingAll: "10px",
-          cornerRadius: "md" as const,
-          backgroundColor: "#FFFFFF",
-          borderColor: "#E5E7EB",
-          borderWidth: "1px",
+          type: 'box' as const,
+          layout: 'horizontal' as const,
+          paddingAll: '10px',
+          cornerRadius: 'md' as const,
+          backgroundColor: '#FFFFFF',
+          borderColor: '#E5E7EB',
+          borderWidth: '1px',
           action: {
-            type: "postback" as const,
+            type: 'postback' as const,
             label: choice.slice(0, 40),
             data: `type=answer&questionId=${questionId}&choice=${i}`,
             displayText: choice,
           },
           contents: [
             {
-              type: "text" as const,
+              type: 'text' as const,
               text: String.fromCharCode(65 + i),
               flex: 0,
-              size: "sm" as const,
-              weight: "bold" as const,
-              color: "#F59E0B",
-              gravity: "top" as const,
+              size: 'sm' as const,
+              weight: 'bold' as const,
+              color: '#F59E0B',
+              gravity: 'top' as const,
             },
             {
-              type: "text" as const,
+              type: 'text' as const,
               text: choice,
               flex: 1,
               wrap: true,
-              size: "sm" as const,
-              color: "#111827",
-              margin: "md" as const,
+              size: 'sm' as const,
+              color: '#111827',
+              margin: 'md' as const,
             },
           ],
         })),
       },
       styles: {
         header: { separator: false },
-        body: { separator: true, separatorColor: "#E5E7EB" },
-        footer: { separator: true, separatorColor: "#E5E7EB" },
+        body: { separator: true, separatorColor: '#E5E7EB' },
+        footer: { separator: true, separatorColor: '#E5E7EB' },
       },
     },
   };

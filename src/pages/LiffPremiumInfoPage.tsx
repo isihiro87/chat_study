@@ -8,6 +8,7 @@ const APPLY_PATH = '/liff/premium-apply';
 const PARENTS_LP_URL = 'https://www.chatstudy.jp/for-parents';
 const PROMO_PRICE_YEN = 680;
 const REGULAR_PRICE_YEN = 1280;
+const CURRENT_SCOPE = '現在は中1・中2の歴史に対応';
 
 interface ComparisonRow {
   feature: string;
@@ -45,9 +46,9 @@ const COMPARISON: ComparisonRow[] = [
     highlight: true,
   },
   {
-    feature: 'じっくり学ぶ',
-    free: '—',
-    premium: 'カード+クイズ',
+    feature: '対応範囲',
+    free: '毎日1問',
+    premium: '中1・中2歴史',
     highlight: true,
   },
   {
@@ -67,8 +68,8 @@ interface Step {
 const STEPS: Step[] = [
   {
     num: 1,
-    title: '申込フォームを送信',
-    body: 'このページの下の「申込フォームを開く」から、連絡可能な時間帯と支払い希望をお選びください',
+    title: '7日間無料で始める',
+    body: 'このページの下のボタンから、ワンタップで無料トライアルを開始できます',
   },
   {
     num: 2,
@@ -77,13 +78,13 @@ const STEPS: Step[] = [
   },
   {
     num: 3,
-    title: '担当者からLINEで案内',
-    body: 'トライアル期間中に、担当者から具体的な金額・期間・支払い方法をご案内します',
+    title: '続ける場合は月額登録へ',
+    body: '無料期間中に気に入ったら、月額プランの登録へ進めます',
   },
   {
     num: 4,
-    title: '本契約 or トライアル終了',
-    body: '気に入っていただけたら本契約。合わなかった場合は7日後に自動で無料プランに戻ります',
+    title: '合わなければ自動で無料に戻る',
+    body: '本契約しなければ7日後に無料プランへ戻ります',
   },
 ];
 
@@ -98,8 +99,12 @@ const FAQ: QA[] = [
     a: `特典期間中は月 ${PROMO_PRICE_YEN.toLocaleString()}円。通常価格は月 ${REGULAR_PRICE_YEN.toLocaleString()}円の予定です。今登録いただいた方は、将来通常価格に値上げ後も月 ${PROMO_PRICE_YEN.toLocaleString()}円のまま継続いただけます。`,
   },
   {
+    q: '今使える範囲はどこまでですか？',
+    a: `${CURRENT_SCOPE}しています。対応科目・範囲は今後追加予定です。`,
+  },
+  {
     q: '解約はいつでもできますか？',
-    a: 'はい、いつでも可能です。リッチメニュー「設定・サポート」内のお問い合わせから連絡してください。次回更新日以降は無料プランに戻ります。',
+    a: 'はい、いつでも可能です。決済ページまたは案内された管理画面から手続きできます。次回更新日以降は無料プランに戻ります。',
   },
   {
     q: 'もし子どもに合わなかったら？',
@@ -107,7 +112,7 @@ const FAQ: QA[] = [
   },
   {
     q: '兄弟・家族で使えますか？',
-    a: '公式LINEは1ユーザー単位の契約となるため、お子さま1人につき1アカウントでのご利用をお願いしています。複数人ご希望の場合は申込フォームの「ご質問・ご要望」欄にご記入ください。',
+    a: '公式LINEは1ユーザー単位の契約となるため、お子さま1人につき1アカウントでのご利用をお願いしています。',
   },
   {
     q: '領収書／請求書は発行できますか？',
@@ -119,7 +124,7 @@ const FAQ: QA[] = [
   },
   {
     q: '解約後に再開できますか？',
-    a: 'はい、いつでも再開可能です。再申込のタイミングでも特典期間中であれば月680円が継続します。',
+    a: 'はい、いつでも再開可能です。ただし一度解約した後の再開時に、早期登録価格を継続できるかは決済・キャンペーン条件に従います。',
   },
 ];
 
@@ -237,6 +242,9 @@ export function LiffPremiumInfoPage() {
                 </span>
                 のまま継続いただけます。
               </p>
+              <p className="text-xs text-gray-500 mt-2 leading-relaxed">
+                {CURRENT_SCOPE}。対応科目は今後追加予定です。
+              </p>
             </div>
           ) : promo.isExpired ? (
             <div className="px-5 py-4">
@@ -335,13 +343,13 @@ export function LiffPremiumInfoPage() {
           </div>
         </section>
 
-        {/* 申込から開通までの流れ */}
+        {/* トライアル開始から継続までの流れ */}
         <section className="mt-4 bg-white rounded-2xl shadow-sm p-5">
           <h2
             className="text-sm font-bold text-gray-700 mb-3"
             style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
           >
-            申込から開通までの流れ
+            無料トライアル開始から継続まで
           </h2>
           <ol className="space-y-3">
             {STEPS.map((step) => (
@@ -395,7 +403,9 @@ export function LiffPremiumInfoPage() {
               className="w-full bg-white border border-amber-300 text-amber-700 hover:bg-amber-50 active:scale-[0.98] transition rounded-full py-2.5 text-sm font-bold"
               style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
             >
-              {copySucceeded ? 'コピーしました ✓' : '保護者向けページの URL をコピー'}
+              {copySucceeded
+                ? 'コピーしました ✓'
+                : '保護者向けページの URL をコピー'}
             </button>
           </div>
           {shareSucceeded && (
@@ -433,22 +443,26 @@ export function LiffPremiumInfoPage() {
           </ul>
         </section>
 
-        {/* 主CTA: 申込フォームを開く */}
+        {/* 主CTA: 7日間無料で始める */}
         <section className="mt-6 bg-white rounded-2xl shadow-sm p-5">
           <p className="text-sm text-gray-700 text-center leading-relaxed">
-            申込みは LINE 内で完結します
+            申込みはスマホで完結します
             <br />
-            送信すると <span className="font-bold text-amber-700">7日間の無料トライアル</span> が始まります
+            送信すると{' '}
+            <span className="font-bold text-amber-700">
+              7日間の無料トライアル
+            </span>{' '}
+            が始まります
           </p>
           <a
             href={APPLY_PATH}
             className="mt-4 block w-full text-center bg-amber-500 hover:bg-amber-600 active:scale-[0.98] transition rounded-full py-3 text-sm font-bold text-white"
             style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
           >
-            申込フォームを開く
+            7日間無料で始める
           </a>
           <p className="text-xs text-gray-400 text-center mt-3 leading-relaxed">
-            送信後すぐにトライアル開始 / 担当者から LINE で案内します
+            担当者とのやり取りなしで開始できます
           </p>
         </section>
 

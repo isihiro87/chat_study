@@ -269,7 +269,7 @@ export function LiffSettingsPage() {
           </div>
           {s.plan === 'premium' && (
             <p className="mt-3 text-xs text-gray-500 leading-relaxed">
-              解約のお手続きは下の「お問い合わせ」からお願いします。担当者からご案内します。
+              月額登録・解約は、決済ページまたは案内された管理画面から手続きできます。
             </p>
           )}
         </section>

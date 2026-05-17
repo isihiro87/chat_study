@@ -9,7 +9,7 @@
  * - `/liff/report`        : リッチメニュー「成績・記録」からの LIFF エントリ
  * - `/liff/settings`      : リッチメニュー「設定・サポート」からの LIFF エントリ
  * - `/liff/premium-info`  : 無料版「もっと解く」flex からのプレミアム誘導 LIFF
- * - `/liff/premium-apply` : LIFF /premium-info から遷移するプレミアム申込フォーム
+ * - `/liff/premium-apply` : LIFF /premium-info から遷移するプレミアム登録ページ
  * - `/liff/help`          : 「使い方」flex の「使い方を詳しく見る」LIFF
  * - その他               : NotFoundPage
  *
@@ -61,7 +61,9 @@ const LiffHelpPage = lazyWithRetry(() =>
   import('../pages/LiffHelpPage').then((m) => ({ default: m.LiffHelpPage }))
 );
 const LineCallbackPage = lazyWithRetry(() =>
-  import('../pages/LineCallbackPage').then((m) => ({ default: m.LineCallbackPage }))
+  import('../pages/LineCallbackPage').then((m) => ({
+    default: m.LineCallbackPage,
+  }))
 );
 const NotFoundPage = lazyWithRetry(() =>
   import('../pages/NotFoundPage').then((m) => ({ default: m.NotFoundPage }))
