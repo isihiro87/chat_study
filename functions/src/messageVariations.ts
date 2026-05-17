@@ -399,37 +399,26 @@ export function getWeakReviewIntro(opts?: { empty?: boolean }): string {
 // =====================================================
 
 const INITIAL_INTROS = [
-  (hourLabel: string) =>
-    `明日から${hourLabel}に毎日1問が届きます。今日は早速、今から1問送るね！`,
-  (hourLabel: string) =>
-    `設定できました。明日から${hourLabel}に毎日1問、今日はこのまま1問目いきます！`,
-  (hourLabel: string) =>
-    `これで明日から${hourLabel}に毎日届きます。今日は早速、最初の1問！`,
-  (hourLabel: string) =>
-    `OK！明日から${hourLabel}に毎日1問。今日は今から送るね！`,
-  (hourLabel: string) =>
-    `登録完了！明日から${hourLabel}に届くよ。今日はお試しで1問目どうぞ！`,
-  (hourLabel: string) =>
-    `明日から${hourLabel}に毎日1問。今日は待たずに、今から1問送ります！`,
-  (hourLabel: string) =>
-    `毎日の配信は明日から${hourLabel}。今日は早速この場で1問やってみよう！`,
-  (hourLabel: string) =>
-    `セット完了！明日から${hourLabel}に毎日1問、今日は今から1問目！`,
+  () => `それじゃ、さっそく今から1問やってみよう！`,
+  () => `登録ありがとう！早速、1問目どうぞ！`,
+  () => `セット完了！今から1問やってみよう！`,
+  () => `OK、設定できたよ！さっそく1問目！`,
+  () => `準備OK！今から1問やってみよう！`,
 ];
 
 const INITIAL_TRAILINGS = [
-  (hourLabel: string) => `次回は明日の${hourLabel}にお届けするね！`,
-  (hourLabel: string) => `また明日の${hourLabel}に会おう！`,
-  (hourLabel: string) => `次は明日の${hourLabel}にお届け！`,
-  (hourLabel: string) => `明日の${hourLabel}に次の1問が届くよ！`,
-  (hourLabel: string) => `また明日の${hourLabel}にお会いしましょう！`,
-  (hourLabel: string) => `明日の${hourLabel}、楽しみにしててね！`,
-  (hourLabel: string) => `次の問題は明日の${hourLabel}にね！`,
-  (hourLabel: string) => `また明日の${hourLabel}にお邪魔します！`,
+  (hourLabel: string) =>
+    `正解だと思うものをタップしてみよう！明日からは${hourLabel}に1問届くよ。これからよろしくね！`,
+  (hourLabel: string) =>
+    `正解だと思う選択肢をタップ！明日からは${hourLabel}に1問お届け。これからよろしくね！`,
+  (hourLabel: string) =>
+    `正解だと思うものをタップ！明日からは毎日${hourLabel}に問題が届くよ。よろしくね！`,
+  (hourLabel: string) =>
+    `これだ！と思った選択肢をタップしてみよう！明日からは${hourLabel}に1問届きます。これからよろしくね！`,
 ];
 
-export function getInitialFirstQuestionIntro(hourLabel: string): string {
-  return pickRandom(INITIAL_INTROS)(hourLabel);
+export function getInitialFirstQuestionIntro(_hourLabel: string): string {
+  return pickRandom(INITIAL_INTROS)();
 }
 
 export function getInitialFirstQuestionTrailing(hourLabel: string): string {

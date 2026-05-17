@@ -41,7 +41,7 @@ type Status =
   | 'profile-missing';
 
 /**
- * 公式LINE のリッチメニュー「テスト範囲設定」から開かれる LIFF ページ。
+ * 公式LINE のリッチメニュー「出題範囲設定」から開かれる LIFF ページ。
  *
  * users/{uid}.subject / .grade に登録されている教科×学年に該当する topic 候補を
  * `topic-registry.generated.ts` の topicMetas / eraMetas から取得し、era 単位で
@@ -267,7 +267,7 @@ export function LiffTestRangePage() {
             className="text-lg font-bold text-gray-800 text-center"
             style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
           >
-            🎯 テスト範囲を設定
+            🎯 出題範囲を設定
           </h1>
         </div>
       </header>
@@ -300,13 +300,13 @@ export function LiffTestRangePage() {
                 </h2>
                 <ol className="text-xs text-gray-700 space-y-1.5 leading-relaxed list-decimal list-inside">
                   <li>
-                    テスト範囲のうち、<strong className="text-amber-700">もう習ったところ</strong>だけにチェックを入れよう
+                    <strong className="text-amber-700">出題してほしい単元</strong>にチェックを入れよう
                   </li>
                   <li>
                     チェックした単元から「追加で解く」「苦手を復習」の問題が出るよ
                   </li>
                   <li>
-                    まだ習っていないところは外しておくと、テスト勉強がはかどる
+                    まだ習っていないところは外しておくと、勉強がはかどる
                   </li>
                 </ol>
               </section>

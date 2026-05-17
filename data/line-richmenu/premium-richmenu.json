@@ -26,9 +26,9 @@
       "bounds": { "x": 1667, "y": 0, "width": 833, "height": 843 },
       "action": {
         "type": "postback",
-        "label": "テスト範囲設定",
+        "label": "出題範囲設定",
         "data": "type=test_range_menu",
-        "displayText": "テスト範囲設定"
+        "displayText": "出題範囲設定"
       }
     },
     {

@@ -16,7 +16,7 @@ interface BenefitRow {
 const BENEFITS: BenefitRow[] = [
   { title: '毎日1問配信', free: '○', premium: '○' },
   { title: '連続記録の確認', free: '○', premium: '○' },
-  { title: 'テスト範囲設定', free: '○', premium: '○' },
+  { title: '出題範囲設定', free: '○', premium: '○' },
   { title: '追加で解く（無制限）', free: '—', premium: '○' },
   { title: '苦手を復習（誤答優先）', free: '—', premium: '○' },
   { title: 'じっくり学ぶ（解説・カード）', free: '—', premium: '○' },
@@ -89,7 +89,7 @@ export function ParentsLandingPage() {
       <main className="max-w-2xl mx-auto px-4">
         {/* 料金カード */}
         <section className="mt-6 bg-white rounded-2xl shadow-sm overflow-hidden">
-          <div className="bg-gradient-to-r from-amber-50 to-white px-5 py-5">
+          <div className="bg-amber-50 px-5 py-5">
             <h2
               className="text-sm font-bold text-amber-700 mb-2"
               style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}

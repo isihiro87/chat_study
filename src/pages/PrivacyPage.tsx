@@ -36,7 +36,7 @@ export function PrivacyPage() {
           <ul className="list-disc list-inside ml-4 mt-1 text-sm">
             <li>LINE 公式アカウントの友だち追加時に、LINE プラットフォームから提供される情報（LINE ユーザー識別子、表示名、プロフィール画像）</li>
             <li>LINE Login（LIFF）の同意時に、LINE プラットフォームから提供される情報（同上の範囲、OpenID Connect の `sub` クレーム）</li>
-            <li>本サービス利用中にユーザーが入力・選択する情報（学年・教科・配信時刻・テスト範囲設定など）</li>
+            <li>本サービス利用中にユーザーが入力・選択する情報（学年・教科・配信時刻・出題範囲設定など）</li>
             <li>本サービス利用中の操作ログ（問題回答内容、正誤、学習日時、連続記録など）</li>
           </ul>
         </Section>

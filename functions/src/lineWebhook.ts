@@ -46,13 +46,17 @@ const SUBJECT_HEADER_COLORS: Record<ValidSubject, string> = {
   // geography: "#A16207", // 茶色（歴史と同じ社会系）
 };
 
-type ValidHour = 6 | 7 | 17 | 19;
-const VALID_HOURS: readonly ValidHour[] = [6, 7, 17, 19] as const;
+type ValidHour = 6 | 7 | 16 | 17 | 18 | 19 | 20 | 21;
+const VALID_HOURS: readonly ValidHour[] = [6, 7, 16, 17, 18, 19, 20, 21] as const;
 const HOUR_LABELS: Record<ValidHour, string> = {
   6: '朝6時',
   7: '朝7時',
+  16: '夕方4時',
   17: '夕方5時',
+  18: '夕方6時',
   19: '夜7時',
+  20: '夜8時',
+  21: '夜9時',
 };
 
 interface Question {
@@ -146,10 +150,9 @@ function buildOnboardingSelectFlex(opts: {
 export function buildGradeSelectMessage() {
   return buildOnboardingSelectFlex({
     step: 1,
-    total: 2,
+    total: 3,
     headerTitle: '学年を選ぶ',
-    bodyText:
-      'あなたの学年を選んでください。\n※今は歴史のみ配信中。英語など他教科は順次追加予定です。',
+    bodyText: 'まずは学年を教えてね。',
     altText: '学年を選んでください',
     options: [
       { label: '中1', data: 'type=select_grade&grade=中1' },
@@ -159,35 +162,36 @@ export function buildGradeSelectMessage() {
   });
 }
 
-// 英語など複数教科が解放されたときに復活させる用途。現状はオンボーディングから
-// 呼び出していないが、handler 側 (handleSelectSubjectPostback) と一緒に残しておく。
+// 現状は「歴史」のみ表示。英語・数学などが解放されたら options に追加していく。
 export function buildSubjectSelectMessage() {
   return buildOnboardingSelectFlex({
     step: 2,
     total: 3,
     headerTitle: '教科を選ぶ',
-    bodyText: '勉強したい教科を選んでください。',
+    bodyText:
+      '勉強したい教科を選んでね。\n※今は「歴史」だけ配信中です。英語・数学・理科・地理は順次追加予定！',
     altText: '教科を選んでください',
-    options: [
-      { label: '歴史', data: 'type=select_subject&subject=history' },
-      { label: '英語', data: 'type=select_subject&subject=english' },
-    ],
+    options: [{ label: '歴史', data: 'type=select_subject&subject=history' }],
   });
 }
 
 export function buildTimeSelectMessage() {
   return buildOnboardingSelectFlex({
-    step: 2,
-    total: 2,
+    step: 3,
+    total: 3,
     headerTitle: '配信時間を選ぶ',
     bodyText:
-      '毎日問題を送る時間を選んでください。あとから「設定変更」と送れば変えられます。',
+      '毎日問題を送る時間を選んでね。学校がない時間で自由にどうぞ。あとから「設定変更」と送れば変えられます。',
     altText: '配信時間を選んでください',
     options: [
       { label: '朝6時', data: 'type=select_time&hour=6' },
       { label: '朝7時', data: 'type=select_time&hour=7' },
+      { label: '夕方4時', data: 'type=select_time&hour=16' },
       { label: '夕方5時', data: 'type=select_time&hour=17' },
+      { label: '夕方6時', data: 'type=select_time&hour=18' },
       { label: '夜7時', data: 'type=select_time&hour=19' },
+      { label: '夜8時', data: 'type=select_time&hour=20' },
+      { label: '夜9時', data: 'type=select_time&hour=21' },
     ],
   });
 }
@@ -256,19 +260,12 @@ export function buildOnboardingCompleteSummaryFlex(opts: {
           },
           {
             type: 'text' as const,
-            text: `明日の${opts.hourLabel}に最初の1問が届きます🎯`,
+            text: '登録ありがとう！設定できたよ🎉',
             wrap: true,
             size: 'sm' as const,
             color: '#111827',
             weight: 'bold' as const,
             margin: 'md' as const,
-          },
-          {
-            type: 'text' as const,
-            text: '今日はこのあと、すぐに1問目をお送りしますね。',
-            wrap: true,
-            size: 'xs' as const,
-            color: '#6B7280',
           },
         ],
       },
@@ -284,14 +281,14 @@ export function buildOnboardingCompleteSummaryFlex(opts: {
             height: 'sm' as const,
             action: {
               type: 'postback' as const,
-              label: 'テスト範囲を設定する（任意）',
+              label: '出題範囲を設定する（任意）',
               data: 'type=test_range_menu',
-              displayText: 'テスト範囲を設定する',
+              displayText: '出題範囲を設定する',
             },
           },
           {
             type: 'text' as const,
-            text: '※あとからリッチメニューの「テスト範囲設定」でもいつでも変更できます',
+            text: '※あとからリッチメニューの「出題範囲設定」でもいつでも変更できます',
             wrap: true,
             size: 'xxs' as const,
             color: '#9CA3AF',
@@ -648,7 +645,11 @@ async function handleFollow(event: LineEvent): Promise<void> {
       messages: [
         {
           type: 'text',
-          text: '友だち追加ありがとうございます。30秒で設定すると、明日から毎日1問が届きます。まずは学年を選んでください。',
+          text: 'はじめまして！Instagramの一問一答動画を見ていただいて、公式LINEまで登録してくれて本当にありがとうございます😊\n\nInstagramとは違って、ここでは皆さんの学校の進度に合わせた問題をお届けしたくて公式LINEを始めました！これからインスタでもLINEでもよろしくお願いします。勉強応援してます📣',
+        },
+        {
+          type: 'text',
+          text: '早速だけど、いくつか質問させてください。すぐに終わるから安心してね。\n\nまずは、君の学年は？\n（保護者の方は、お子様の学年を教えてください）',
         },
         buildGradeSelectMessage(),
       ],
@@ -1211,14 +1212,14 @@ function buildHelpFlexMessage(opts: { showPremiumCta: boolean } = { showPremiumC
             contents: [
               {
                 type: 'text' as const,
-                text: '🚀 もっと解きたい',
+                text: '🚀 1日1問といわず、もっと解きたい',
                 weight: 'bold' as const,
                 size: 'sm' as const,
                 color: '#111827',
               },
               {
                 type: 'text' as const,
-                text: `${PREMIUM_PRICE_TEXT}。もう1問解きたい時や、間違えた問題だけ復習したい時に使えます。`,
+                text: `${PREMIUM_PRICE_TEXT}。追加問題・苦手復習に加え、暗記カードと四択クイズで効率よく学べる「じっくり学ぶ」も無制限で使えます。`,
                 wrap: true,
                 size: 'xs' as const,
                 color: '#6B7280',
@@ -1577,14 +1578,14 @@ function buildTestRangeMenuFlexMessage(
 ) {
   const bodyText =
     plan === 'premium'
-      ? 'チェックした単元から「追加で解く」「苦手を復習」の問題が出るよ。まだ習っていないところは外しておくとテスト勉強がはかどる👍'
+      ? 'チェックした単元から「追加で解く」「苦手を復習」の問題が出るよ。まだ習っていないところは外しておくと勉強がはかどる👍'
       : gradePremiumEligible
-        ? '今チェックしておくと、毎日の1問がテスト範囲から優先して届きます。プレミアムでは「追加で解く」「苦手を復習」にも反映されます。'
-        : '今チェックしておくと、毎日の1問がテスト範囲から優先して届きます。試験範囲だけに絞って効率よく勉強できます。';
+        ? '今チェックしておくと、毎日の1問が出題範囲から優先して届きます。プレミアムでは「追加で解く」「苦手を復習」にも反映されます。'
+        : '今チェックしておくと、毎日の1問が出題範囲から優先して届きます。範囲を絞って効率よく勉強できます。';
 
   return {
     type: 'flex' as const,
-    altText: 'テスト範囲設定',
+    altText: '出題範囲設定',
     contents: {
       type: 'bubble' as const,
       size: 'kilo' as const,
@@ -1596,7 +1597,7 @@ function buildTestRangeMenuFlexMessage(
         contents: [
           {
             type: 'text' as const,
-            text: '🎯 テスト範囲設定',
+            text: '🎯 出題範囲設定',
             color: '#FFFFFF',
             weight: 'bold' as const,
             size: 'md' as const,
@@ -1611,7 +1612,7 @@ function buildTestRangeMenuFlexMessage(
         contents: [
           {
             type: 'text' as const,
-            text: 'テスト範囲のうち、もう習った単元だけにチェックを入れよう！',
+            text: '出題してほしい単元にチェックを入れよう！',
             wrap: true,
             size: 'sm' as const,
             color: '#111827',
@@ -2004,7 +2005,7 @@ function buildPremiumInfoFlexMessage() {
             contents: [
               {
                 type: 'text' as const,
-                text: '📝 テスト範囲設定',
+                text: '📝 出題範囲設定',
                 weight: 'bold' as const,
                 size: 'sm' as const,
                 color: '#111827',
@@ -2065,7 +2066,7 @@ function buildPostAnswerNextStepFlexMessage(options: {
   const leadText = isPremium
     ? 'この調子で、もう1問進めることもできます。'
     : options.gradePremiumEligible
-      ? '無料版は1日1問。もっと解きたい時は7日間無料で試せます。'
+      ? '1日1問といわず、もっと解きたい人は7日間無料で試せます。暗記カード・四択クイズが無制限。'
       : `明日の${options.hourLabel}に次の1問が届きます。今日はおつかれさま！`;
   const primaryAction = isPremium
     ? {
@@ -2241,8 +2242,8 @@ const NUDGE_COPY: Record<PremiumNudgeReason, NudgeCopy> = {
   },
   onboarding: {
     headerEmoji: '✨',
-    headerText: 'まずは無料で1日1問',
-    leadText: `選んだ時間に問題が届きます。「もっと解きたい」と思ったら、${PREMIUM_PRICE_TEXT}で広げられます。`,
+    headerText: '1日1問といわず、もっと解きたい',
+    leadText: `プレミアムなら追加問題・苦手復習・じっくり学ぶ（暗記カード／四択クイズ）が無制限。${PREMIUM_PRICE_TEXT}で広げられます。`,
   },
 };
 
@@ -2717,7 +2718,7 @@ async function handleWeakReviewPostback(
     (qid) => !masteredIds.has(qid)
   );
 
-  // テスト範囲フィルタ
+  // 出題範囲フィルタ
   const hadAnyBeforeScope = candidateIds.length > 0;
   if (testScopeTopics.length > 0) {
     candidateIds = candidateIds.filter((qid) => {
@@ -2730,7 +2731,7 @@ async function handleWeakReviewPostback(
     if (testScopeTopics.length > 0 && hadAnyBeforeScope) {
       await replyText(
         replyToken,
-        'テスト範囲内ではまだ苦手な問題がありません。範囲を広げてみてね',
+        '出題範囲内ではまだ苦手な問題がありません。範囲を広げてみてね',
         '(weak_review empty in scope)'
       );
       return;
@@ -2833,13 +2834,12 @@ async function handleSelectGradePostback(
     return;
   }
 
-  // 現状は歴史のみ配信のため、教科選択ステップをスキップして自動で history を割り当てる。
-  // 英語など他教科が解放されたら subject 自動設定を外し、再び subjectSelectMessage を返すこと。
+  // 学年を保存。教科はユーザーに「歴史」を選んでもらうステップに遷移する
+  // （現状は選択肢が歴史のみ。今後 options を増やせば自動で多教科対応になる）。
   try {
     await db.doc(`users/${uid}`).set(
       {
         grade,
-        subject: 'history',
         updatedAt: FieldValue.serverTimestamp(),
       },
       { merge: true }
@@ -2863,9 +2863,9 @@ async function handleSelectGradePostback(
       messages: [
         {
           type: 'text',
-          text: `${grade}ですね！教科は今は「歴史」のみで配信しています。最後に、毎日問題を送る時間を選んでください。`,
+          text: `${grade}ですね！次は教科を選んでね。`,
         },
-        buildTimeSelectMessage(),
+        buildSubjectSelectMessage(),
       ],
     });
   } catch (error) {
@@ -2951,7 +2951,7 @@ async function handleSelectSubjectPostback(
       messages: [
         {
           type: 'text',
-          text: `${subjectLabel}ですね！毎日問題を送る時間を選んでください。`,
+          text: `${subjectLabel}ですね！最後に、毎日問題を送る時間を選んでね。`,
         },
         buildTimeSelectMessage(),
       ],
@@ -3393,7 +3393,7 @@ export async function selectAndSendQuestion(
     return;
   }
 
-  // テスト範囲が設定されていれば topic で絞り込む
+  // 出題範囲が設定されていれば topic で絞り込む
   const scopedDocs =
     testScopeTopics.length > 0
       ? snap.docs.filter((d) => {
@@ -3416,7 +3416,7 @@ export async function selectAndSendQuestion(
           messages: [
             {
               type: 'text',
-              text: '今のテスト範囲では出題できる問題が見つかりませんでした。リッチメニュー「テスト範囲設定」から範囲を見直してください。',
+              text: '今の出題範囲では出題できる問題が見つかりませんでした。リッチメニュー「出題範囲設定」から範囲を見直してください。',
             },
           ],
         });

@@ -130,7 +130,7 @@ function difficultyMatch(
  * 公式LINE のリッチメニュー「じっくり学ぶ」から開かれる LIFF ページ。
  *
  * インライン学習体験を提供（歴史、grade1/2 対応、data/content/history/01〜12）:
- *  - トピック一覧（時代別 + テスト範囲フィルタ + クリア回数 / 正答率の表示）
+ *  - トピック一覧（時代別 + 出題範囲フィルタ + クリア回数 / 正答率の表示）
  *  - セットアップ: 枚数・問題数の指定、難易度フィルタ
  *  - 暗記カード: フリップ + わかった/わからない振り分け
  *  - クイズ: 4 択 + 間違えた問題のみ復習
@@ -861,7 +861,7 @@ export function LiffUnitsPage() {
                   className="text-sm font-medium text-gray-800"
                   style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
                 >
-                  🎯 テスト範囲のみ表示
+                  🎯 出題範囲のみ表示
                 </span>
               </label>
               <span className="text-xs text-gray-500">
@@ -870,7 +870,7 @@ export function LiffUnitsPage() {
             </section>
             {testScopeTopics.size === 0 && (
               <p className="text-xs text-gray-400 mt-2 px-1">
-                テスト範囲が設定されていません。先に「テスト範囲設定」から範囲を選ぶと、ここで絞り込めるよ。
+                出題範囲が設定されていません。先に「出題範囲設定」から範囲を選ぶと、ここで絞り込めるよ。
               </p>
             )}
           </>
@@ -879,7 +879,7 @@ export function LiffUnitsPage() {
         {selectedGrade !== null && historyEras !== null && historyEras.length > 0 && (
           filteredEras.length === 0 ? (
           <p className="mt-8 text-center text-sm text-gray-400">
-            テスト範囲に該当する単元がありません。チェックを外すと全範囲表示。
+            出題範囲に該当する単元がありません。チェックを外すと全範囲表示。
           </p>
         ) : (
           <div className="mt-4 space-y-4">

@@ -7,6 +7,7 @@ const CONTACT_URL = 'https://www.chatstudy.jp/contact';
 const APPLY_PATH = '/liff/premium-apply';
 const PARENTS_LP_URL = 'https://www.chatstudy.jp/for-parents';
 const PROMO_PRICE_YEN = 680;
+const REGULAR_PRICE_YEN = 1280;
 const CURRENT_SCOPE = '現在は中1・中2の歴史に対応';
 const FUTURE_SCOPE = '対応教科は今後追加予定';
 
@@ -29,7 +30,7 @@ const COMPARISON: ComparisonRow[] = [
     premium: '○',
   },
   {
-    feature: 'テスト範囲設定',
+    feature: '出題範囲設定',
     free: '○',
     premium: '○',
   },
@@ -43,6 +44,18 @@ const COMPARISON: ComparisonRow[] = [
     feature: '苦手を復習',
     free: '—',
     premium: '誤答を優先出題',
+    highlight: true,
+  },
+  {
+    feature: '暗記カード（じっくり学ぶ）',
+    free: '—',
+    premium: '無制限',
+    highlight: true,
+  },
+  {
+    feature: '四択クイズ（じっくり学ぶ）',
+    free: '—',
+    premium: '無制限',
     highlight: true,
   },
   {
@@ -188,26 +201,29 @@ export function LiffPremiumInfoPage() {
 
   return (
     <div className="min-h-screen bg-[#FFF9EE] pb-12">
-      <header className="bg-gradient-to-br from-amber-400 via-orange-400 to-sky-500">
+      <header className="bg-amber-500">
         <div className="max-w-2xl mx-auto px-4 py-7">
           <div className="flex justify-center gap-2 mb-3">
             <span className="rounded-full bg-white/90 px-3 py-1 text-[11px] font-bold text-amber-700">
               7日間無料
             </span>
-            <span className="rounded-full bg-white/90 px-3 py-1 text-[11px] font-bold text-sky-700">
+            <span className="rounded-full bg-white/90 px-3 py-1 text-[11px] font-bold text-amber-700">
               今だけ月{PROMO_PRICE_YEN.toLocaleString()}円
+              <span className="ml-1 text-gray-400 line-through font-normal">
+                ¥{REGULAR_PRICE_YEN.toLocaleString()}
+              </span>
             </span>
           </div>
           <h1
             className="text-2xl font-bold text-white text-center leading-snug"
             style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
           >
-            テスト前に、もう少し解きたい。
+            1日1問といわず、
             <br />
-            その分だけ進めるプレミアム
+            もっと解きたい人へ
           </h1>
           <p className="text-sm text-white/95 text-center mt-3 leading-relaxed">
-            中学生がLINEで続けやすく、保護者の方にも料金と条件がわかりやすいプランです。
+            毎日1問の配信に加えて、暗記カードと四択クイズが無制限。短時間で効率よく学べる仕組みです。
           </p>
         </div>
       </header>
@@ -216,7 +232,7 @@ export function LiffPremiumInfoPage() {
         {/* 価格バナー */}
         <section className="-mt-3 bg-white rounded-2xl shadow-sm overflow-hidden border border-amber-100">
           {promo.isActive ? (
-            <div className="bg-gradient-to-r from-white via-amber-50 to-sky-50 px-5 py-5">
+            <div className="bg-amber-50 px-5 py-5">
               <p
                 className="text-sm font-bold text-amber-700 mb-1"
                 style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
@@ -232,6 +248,9 @@ export function LiffPremiumInfoPage() {
                   style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
                 >
                   ¥{PROMO_PRICE_YEN.toLocaleString()}
+                </span>
+                <span className="text-xs text-gray-400 line-through">
+                  通常 ¥{REGULAR_PRICE_YEN.toLocaleString()}
                 </span>
                 <span className="text-xs text-gray-600">/月（税込）</span>
               </div>
@@ -272,6 +291,9 @@ export function LiffPremiumInfoPage() {
                 >
                   ¥{PROMO_PRICE_YEN.toLocaleString()}
                 </span>
+                <span className="text-xs text-gray-400 line-through">
+                  通常 ¥{REGULAR_PRICE_YEN.toLocaleString()}
+                </span>
                 <span className="text-xs text-gray-600">/月（税込）</span>
               </div>
               <p className="text-xs text-gray-500 mt-2 leading-relaxed">
@@ -290,6 +312,9 @@ export function LiffPremiumInfoPage() {
                   style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
                 >
                   ¥{PROMO_PRICE_YEN.toLocaleString()}
+                </span>
+                <span className="text-xs text-gray-400 line-through">
+                  通常 ¥{REGULAR_PRICE_YEN.toLocaleString()}
                 </span>
                 <span className="text-xs text-gray-600">/月（税込）</span>
               </div>
@@ -385,7 +410,7 @@ export function LiffPremiumInfoPage() {
                 中3向けのプレミアム機能は現在準備中です
               </p>
               <p className="text-xs text-amber-800 mt-1 leading-relaxed">
-                準備ができ次第トークでお知らせします。それまでは無料プランで毎日1問・記録・テスト範囲設定をご利用いただけます。
+                準備ができ次第トークでお知らせします。それまでは無料プランで毎日1問・記録・出題範囲設定をご利用いただけます。
               </p>
             </div>
           )}

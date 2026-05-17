@@ -239,7 +239,7 @@ export function LiffReportPage() {
             {data && data.testScopeCount > 0 && (
               <div className="mt-4 bg-amber-50 border border-amber-200 rounded-full px-4 py-1.5 text-center">
                 <span className="text-xs text-amber-700 font-medium">
-                  🎯 テスト範囲: {data.testScopeCount} 単元
+                  🎯 出題範囲: {data.testScopeCount} 単元
                 </span>
               </div>
             )}

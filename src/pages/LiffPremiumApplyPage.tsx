@@ -47,6 +47,7 @@ interface UserProfile {
 }
 
 const PROMO_PRICE_YEN = 680;
+const REGULAR_PRICE_YEN = 1280;
 const CHECKOUT_URL = import.meta.env.VITE_PREMIUM_CHECKOUT_URL as
   | string
   | undefined;
@@ -294,7 +295,7 @@ export function LiffPremiumApplyPage() {
               中3向けの問題と機能は現在準備中です。準備ができ次第、トークでお知らせします。
             </p>
             <p className="text-xs text-gray-600 leading-relaxed mt-3">
-              それまでは無料プランで、毎日1問・記録・テスト範囲設定をご利用いただけます。
+              それまでは無料プランで、毎日1問・記録・出題範囲設定をご利用いただけます。
             </p>
           </section>
         </main>
@@ -352,7 +353,7 @@ export function LiffPremiumApplyPage() {
 
     return (
       <div className="min-h-screen bg-[#FAF9F7] pb-12">
-        <header className="bg-gradient-to-br from-amber-400 via-orange-400 to-sky-500">
+        <header className="bg-amber-500">
           <div className="max-w-2xl mx-auto px-4 py-8">
             <h1
               className="text-2xl font-bold text-white text-center leading-snug"
@@ -438,7 +439,7 @@ export function LiffPremiumApplyPage() {
 
   return (
     <div className="min-h-screen bg-[#FFF9EE] pb-12">
-      <header className="bg-gradient-to-br from-amber-400 via-orange-400 to-sky-500">
+      <header className="bg-amber-500">
         <div className="max-w-2xl mx-auto px-4 py-6">
           <h1
             className="text-2xl font-bold text-white text-center leading-snug"
@@ -464,7 +465,7 @@ export function LiffPremiumApplyPage() {
         {/* 価格再確認カード */}
         <section className="bg-white rounded-2xl shadow-sm overflow-hidden border border-amber-100">
           {promo.isActive ? (
-            <div className="bg-gradient-to-r from-amber-50 to-white px-5 py-4">
+            <div className="bg-amber-50 px-5 py-4">
               <p
                 className="text-sm font-bold text-amber-700 mb-1"
                 style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
@@ -477,6 +478,9 @@ export function LiffPremiumApplyPage() {
                   style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
                 >
                   ¥{PROMO_PRICE_YEN.toLocaleString()}
+                </span>
+                <span className="text-xs text-gray-400 line-through">
+                  通常 ¥{REGULAR_PRICE_YEN.toLocaleString()}
                 </span>
                 <span className="text-xs text-gray-600">/月（税込）</span>
               </div>
@@ -499,6 +503,9 @@ export function LiffPremiumApplyPage() {
                   style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
                 >
                   ¥{PROMO_PRICE_YEN.toLocaleString()}
+                </span>
+                <span className="text-xs text-gray-400 line-through">
+                  通常 ¥{REGULAR_PRICE_YEN.toLocaleString()}
                 </span>
                 <span className="text-xs text-gray-600">/月（税込）</span>
               </div>
