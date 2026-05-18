@@ -2171,7 +2171,7 @@ function buildPostAnswerNextStepFlexMessage(options: {
   const leadText = isPremium
     ? 'この調子で、もう1問進めることもできます。'
     : options.gradePremiumEligible
-      ? '1日1問といわず、もっと解きたい人は7日間無料で試せます。暗記カード・四択クイズが無制限。'
+      ? '1日1問といわず、もっと解きたい人は7日間無料でプレミアムプランが試せます。暗記カード・四択クイズが無制限。'
       : `明日の${options.hourLabel}に次の1問が届きます。今日はおつかれさま！`;
   const primaryAction = isPremium
     ? {

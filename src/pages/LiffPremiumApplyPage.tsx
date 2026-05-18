@@ -489,7 +489,7 @@ export function LiffPremiumApplyPage() {
                 今登録すると今後も680円のまま
               </p>
               <p className="text-xs text-gray-600 mt-2 leading-relaxed">
-                7日間無料で試して、続ける場合だけStripeの月額登録に進みます。
+                7日間無料でプレミアムプランを試して、続ける場合だけStripeの月額登録に進みます。
               </p>
             </div>
           ) : (

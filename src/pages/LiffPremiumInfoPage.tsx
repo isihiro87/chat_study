@@ -398,7 +398,7 @@ export function LiffPremiumInfoPage() {
                 className="mt-4 block w-full text-center bg-amber-500 hover:bg-amber-600 active:scale-[0.98] transition rounded-full py-3 text-sm font-bold text-white shadow-sm"
                 style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
               >
-                7日間無料で試してみる
+                7日間無料でプレミアムプランを試す
               </a>
               <p className="text-xs text-gray-500 text-center mt-2">
                 今登録すると、今後も月{PROMO_PRICE_YEN.toLocaleString()}円のまま
