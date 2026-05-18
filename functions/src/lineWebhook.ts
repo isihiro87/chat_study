@@ -414,7 +414,7 @@ const LIFF_UNITS_URL =
   process.env.LIFF_UNITS_URL ?? 'https://liff.line.me/2009587166-LjyCza2c';
 const LIFF_NICKNAME_URL =
   process.env.LIFF_NICKNAME_URL ??
-  'https://line.chatstudy.jp/liff/nickname';
+  'https://liff.line.me/2009587166-BMgbpIra';
 
 const PREMIUM_PRICE_TEXT = '月680円・7日間無料';
 
