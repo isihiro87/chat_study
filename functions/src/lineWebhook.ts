@@ -200,7 +200,11 @@ export function buildOnboardingCompleteSummaryFlex(opts: {
   gradeLabel: string;
   subjectLabel: string;
   hourLabel: string;
+  nickname?: string;
 }) {
+  const thanksText = opts.nickname
+    ? `${opts.nickname}、登録ありがとう！設定できたよ🎉`
+    : '登録ありがとう！設定できたよ🎉';
   const summaryRow = (label: string, value: string) => ({
     type: 'box' as const,
     layout: 'horizontal' as const,
@@ -260,7 +264,7 @@ export function buildOnboardingCompleteSummaryFlex(opts: {
           },
           {
             type: 'text' as const,
-            text: '登録ありがとう！設定できたよ🎉',
+            text: thanksText,
             wrap: true,
             size: 'sm' as const,
             color: '#111827',
@@ -528,10 +532,91 @@ async function handleMessage(event: LineEvent): Promise<void> {
     return;
   }
 
+  // 友だち追加直後の名前入力ステップ。awaiting_name の間は最初の
+  // テキストを nickname として保存し、学年 flex へ進める。
+  const uid = buildUid(event);
+  if (uid) {
+    try {
+      const { db } = await getDb();
+      const snap = await db.doc(`users/${uid}`).get();
+      const userData = snap.data();
+      if (userData?.onboardingState === 'awaiting_name') {
+        await handleNicknameInput(uid, replyToken, text);
+        return;
+      }
+    } catch (error) {
+      console.error('[lineWebhook] handleMessage state read failed:', error);
+    }
+  }
+
   console.warn(
     '[lineWebhook] handleMessage: unhandled text:',
     text.slice(0, 30)
   );
+}
+
+/**
+ * ニックネームを sanitize して保存し、学年 flex を返す。
+ * - 長すぎる入力は 20 文字で切り詰め
+ * - 改行・連続空白は単一空白に正規化
+ * - 空文字（trim 後）は受理しない
+ */
+function sanitizeNickname(raw: string): string {
+  const collapsed = raw.replace(/\s+/g, ' ').trim();
+  return collapsed.slice(0, 20);
+}
+
+async function handleNicknameInput(
+  uid: string,
+  replyToken: string | undefined,
+  rawText: string
+): Promise<void> {
+  const nickname = sanitizeNickname(rawText);
+  if (!nickname) {
+    if (replyToken) {
+      await replyText(
+        replyToken,
+        '空白だけだと呼び方が分からないので、もう一度送ってね🙏（ニックネームでもOK）',
+        '(nickname empty)'
+      );
+    }
+    return;
+  }
+
+  try {
+    const { db, FieldValue } = await getDb();
+    await db.doc(`users/${uid}`).set(
+      {
+        nickname,
+        onboardingState: 'started',
+        updatedAt: FieldValue.serverTimestamp(),
+      },
+      { merge: true }
+    );
+  } catch (error) {
+    console.error(
+      '[lineWebhook] handleNicknameInput firestore write failed:',
+      error
+    );
+  }
+
+  if (!replyToken) return;
+
+  try {
+    const client = await getLineClient();
+    await client.replyMessage({
+      replyToken,
+      messages: [
+        {
+          type: 'text',
+          text: `${nickname}って呼ぶね！よろしく😊\nじゃあ、まずは学年を教えてね。`,
+        },
+        buildGradeSelectMessage(),
+      ],
+    });
+  } catch (error) {
+    console.error('[lineWebhook] handleNicknameInput reply failed:', error);
+  }
 }
 
 async function handleSettingsChange(
@@ -631,7 +716,8 @@ async function handleFollow(event: LineEvent): Promise<void> {
         lineUserId: userId,
         status: 'active',
         source: 'messaging-webhook',
-        onboardingState: 'started',
+        // 'awaiting_name' → ユーザーから次に届く text を nickname として保存する
+        onboardingState: 'awaiting_name',
         onboardingStartedAt: FieldValue.serverTimestamp(),
         onboardingReminderSentAt: null,
         updatedAt: FieldValue.serverTimestamp(),
@@ -658,9 +744,8 @@ async function handleFollow(event: LineEvent): Promise<void> {
         },
         {
           type: 'text',
-          text: '早速だけど、いくつか質問させてください。すぐに終わるから安心してね。\n\nまずは、君の学年は？\n（保護者の方は、お子様の学年を教えてください）',
+          text: '早速だけど、いくつか質問させてください。すぐに終わるから安心してね。\n\nまずは、なんて呼べばいい？\nニックネームでも本名でもOK！このトークに送ってね（あとから変更できます）。',
         },
-        buildGradeSelectMessage(),
       ],
     });
   } catch (error) {
@@ -1085,7 +1170,8 @@ function jstDayDiff(fromJst: string, toJst: string): number {
  */
 async function computeDailyIntro(
   uid: string,
-  db: FirebaseFirestore.Firestore
+  db: FirebaseFirestore.Firestore,
+  nickname?: string
 ): Promise<string> {
   let recentAnswers: FirebaseFirestore.QueryDocumentSnapshot[] = [];
   try {
@@ -1098,11 +1184,19 @@ async function computeDailyIntro(
     recentAnswers = snap.docs;
   } catch (error) {
     console.error('[lineWebhook] computeDailyIntro fetch failed:', error);
-    return getDailyIntro({ daysSinceLastAnswer: null, dayStreak: 0 });
+    return getDailyIntro({
+      daysSinceLastAnswer: null,
+      dayStreak: 0,
+      nickname,
+    });
   }
 
   if (recentAnswers.length === 0) {
-    return getDailyIntro({ daysSinceLastAnswer: null, dayStreak: 0 });
+    return getDailyIntro({
+      daysSinceLastAnswer: null,
+      dayStreak: 0,
+      nickname,
+    });
   }
 
   const latest = recentAnswers[0];
@@ -1136,7 +1230,7 @@ async function computeDailyIntro(
     }
   }
 
-  return getDailyIntro({ daysSinceLastAnswer, dayStreak });
+  return getDailyIntro({ daysSinceLastAnswer, dayStreak, nickname });
 }
 
 function shiftJstDate(jstDate: string, days: number): string {
@@ -3083,19 +3177,22 @@ async function handleSelectTimePostback(
     VALID_SUBJECTS.includes(storedSubject as ValidSubject)
       ? SUBJECT_LABELS[storedSubject as ValidSubject]
       : '';
+  const nickname =
+    typeof userData?.nickname === 'string' ? userData.nickname : '';
   const summaryFlex =
     gradeLabel && subjectLabel
       ? buildOnboardingCompleteSummaryFlex({
           gradeLabel,
           subjectLabel,
           hourLabel,
+          nickname,
         })
       : null;
 
   await selectAndSendQuestion(uid, {
     replyToken,
-    introText: getInitialFirstQuestionIntro(hourLabel),
-    trailingText: getInitialFirstQuestionTrailing(hourLabel),
+    introText: getInitialFirstQuestionIntro(hourLabel, nickname),
+    trailingText: getInitialFirstQuestionTrailing(hourLabel, nickname),
     isInitialSetup: true,
     prependMessages: summaryFlex ? [summaryFlex as LineMessage] : undefined,
   });
@@ -3504,7 +3601,9 @@ export async function selectAndSendQuestion(
   let resolvedIntroText = introText;
   if (!resolvedIntroText && !replyToken) {
     try {
-      resolvedIntroText = await computeDailyIntro(uid, db);
+      const nickname =
+        typeof userData.nickname === 'string' ? userData.nickname : undefined;
+      resolvedIntroText = await computeDailyIntro(uid, db, nickname);
     } catch (error) {
       console.error(
         '[lineWebhook] selectAndSendQuestion intro compute failed:',

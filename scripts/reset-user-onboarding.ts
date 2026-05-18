@@ -13,7 +13,7 @@
  * --include-test-scope を付けると testScope も消す (default: 保持)。
  *
  * 削除対象フィールド:
- *   grade, subject, preferredHour
+ *   nickname, grade, subject, preferredHour
  *   lastQuestionDeliveredAt, recentQuestionIds, lastAnsweredQuestionId
  *   lastSettingsChangeAt
  *   onboardingState, onboardingStartedAt, onboardingCompletedAt, onboardingReminderSentAt
@@ -31,6 +31,7 @@
 const FIREBASE_PROJECT_ID = 'chatstudy-63477';
 
 const FIELDS_TO_DELETE = [
+  'nickname',
   'grade',
   'subject',
   'preferredHour',

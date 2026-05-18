@@ -1,4 +1,5 @@
 import * as functions from "firebase-functions/v1";
+import type { messagingApi } from "@line/bot-sdk";
 
 import {
   buildGradeSelectMessage,
@@ -10,24 +11,29 @@ import {
 const DAY_MS = 24 * 60 * 60 * 1000;
 const MAX_USERS_PER_RUN = 100;
 
-type OnboardingStep = "grade" | "subject" | "time";
+type OnboardingStep = "name" | "grade" | "subject" | "time";
 
 const stepText: Record<OnboardingStep, string> = {
+  name: "あとはお名前（ニックネーム）を送ってもらえれば、続きが始められます。",
   grade: "あとは学年を選ぶだけで、設定を再開できます。",
   subject: "あとは教科を選ぶだけで、設定完了まであと少しだよ。",
   time: "あとは配信時間を選ぶだけで、明日から毎日1問お届けします。",
 };
 
 function getNextStep(data: FirebaseFirestore.DocumentData): OnboardingStep {
+  if (data.onboardingState === "awaiting_name" || typeof data.nickname !== "string") {
+    return "name";
+  }
   if (typeof data.grade !== "string") return "grade";
   if (typeof data.subject !== "string") return "subject";
   return "time";
 }
 
-function getStepMessage(step: OnboardingStep) {
-  if (step === "grade") return buildGradeSelectMessage();
-  if (step === "subject") return buildSubjectSelectMessage();
-  return buildTimeSelectMessage();
+function getStepMessage(step: OnboardingStep): messagingApi.Message | null {
+  if (step === "name") return null;
+  if (step === "grade") return buildGradeSelectMessage() as messagingApi.Message;
+  if (step === "subject") return buildSubjectSelectMessage() as messagingApi.Message;
+  return buildTimeSelectMessage() as messagingApi.Message;
 }
 
 /**
@@ -62,7 +68,7 @@ export const remindIncompleteOnboarding = functions
 
     const snap = await db
       .collection("users")
-      .where("onboardingState", "==", "started")
+      .where("onboardingState", "in", ["started", "awaiting_name"])
       .limit(MAX_USERS_PER_RUN)
       .get();
 
@@ -122,13 +128,19 @@ export const remindIncompleteOnboarding = functions
         "登録ありがとうございました🙏\n" +
         "設定がまだ途中になっているみたいです。\n" +
         "30秒で終わるから、良かったらこのまま続きをやってみてね！\n\n" +
-        `${stepText[step]}\n\n` +
-        "下のボタンから続きができます。";
+        `${stepText[step]}` +
+        (step === "name"
+          ? "\n\nそのまま続きを送ってね。"
+          : "\n\n下のボタンから続きができます。");
+
+      const messages: messagingApi.Message[] = [{ type: "text", text }];
+      const stepMessage = getStepMessage(step);
+      if (stepMessage) messages.push(stepMessage);
 
       try {
         await client.pushMessage({
           to: lineUserId,
-          messages: [{ type: "text", text }, getStepMessage(step)],
+          messages,
         });
       } catch (error) {
         console.error(
