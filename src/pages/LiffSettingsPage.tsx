@@ -15,8 +15,9 @@ const GRADE_NUM_TO_LABEL = (g: 1 | 2 | 3 | null): GradeLabel | null => {
 
 type Subject = 'history' | 'english';
 type GradeLabel = '中1' | '中2' | '中3';
-type PreferredHour = 6 | 7 | 17 | 19;
+type PreferredHour = 6 | 7 | 16 | 17 | 18 | 19 | 20 | 21;
 type Plan = 'free' | 'premium';
+const NICKNAME_MAX_LEN = 20;
 
 const SUBJECTS: { id: Subject; label: string; emoji: string }[] = [
   { id: 'english', label: '英語', emoji: '🔤' },
@@ -32,8 +33,12 @@ const GRADES: { value: GradeLabel; label: string }[] = [
 const HOURS: { value: PreferredHour; label: string }[] = [
   { value: 6, label: '朝6時' },
   { value: 7, label: '朝7時' },
+  { value: 16, label: '夕方4時' },
   { value: 17, label: '夕方5時' },
+  { value: 18, label: '夕方6時' },
   { value: 19, label: '夜7時' },
+  { value: 20, label: '夜8時' },
+  { value: 21, label: '夜9時' },
 ];
 
 const CONTACT_URL = 'https://www.chatstudy.jp/contact';
@@ -42,10 +47,15 @@ const CONTACT_URL = 'https://www.chatstudy.jp/contact';
 const PREMIUM_INFO_URL = '/liff/premium-info';
 
 interface UserSettings {
+  nickname: string;
   subject: Subject | null;
   grade: GradeLabel | null;
   preferredHour: PreferredHour | null;
   plan: Plan;
+}
+
+function sanitizeNickname(raw: string): string {
+  return raw.replace(/\s+/g, ' ').trim().slice(0, NICKNAME_MAX_LEN);
 }
 
 type Status = 'loading' | 'ready' | 'saving' | 'saved' | 'error';
@@ -68,6 +78,11 @@ export function LiffSettingsPage() {
   const [status, setStatus] = useState<Status>('loading');
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [settings, setSettings] = useState<UserSettings | null>(null);
+  const [nicknameDraft, setNicknameDraft] = useState('');
+
+  useEffect(() => {
+    if (settings) setNicknameDraft(settings.nickname);
+  }, [settings]);
 
   // AuthContext がロード済みの userDoc から派生（getDoc 重複を排除）。
   // 以前は preferredHour / plan が UserDoc に含まれていなかったため追加 fetch
@@ -78,6 +93,7 @@ export function LiffSettingsPage() {
     if (!userDocLoaded) return;
 
     setSettings({
+      nickname: typeof userDoc?.nickname === 'string' ? userDoc.nickname : '',
       subject: (userDoc?.subject ?? null) as Subject | null,
       grade: GRADE_NUM_TO_LABEL(userDoc?.grade ?? null),
       preferredHour: (userDoc?.preferredHour ?? null) as PreferredHour | null,
@@ -158,6 +174,43 @@ export function LiffSettingsPage() {
       </header>
 
       <main className="max-w-2xl mx-auto px-4 space-y-4 mt-4">
+        {/* ニックネーム */}
+        <section className="bg-white rounded-2xl shadow-sm p-5">
+          <div className="text-xs text-gray-500 mb-2">ニックネーム</div>
+          <div className="flex gap-2">
+            <input
+              type="text"
+              value={nicknameDraft}
+              onChange={(e) => setNicknameDraft(e.target.value)}
+              disabled={status === 'saving'}
+              maxLength={NICKNAME_MAX_LEN}
+              placeholder="例: たろう"
+              className="flex-1 border border-gray-300 rounded-full px-4 py-2 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-amber-300"
+              style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+            />
+            <button
+              type="button"
+              onClick={() => {
+                const cleaned = sanitizeNickname(nicknameDraft);
+                if (!cleaned) return;
+                void saveField('nickname', cleaned);
+              }}
+              disabled={
+                status === 'saving' ||
+                sanitizeNickname(nicknameDraft) === s.nickname ||
+                sanitizeNickname(nicknameDraft).length === 0
+              }
+              className="rounded-full bg-amber-500 hover:bg-amber-600 active:scale-[0.98] transition px-4 text-sm font-bold text-white disabled:opacity-50 disabled:cursor-not-allowed"
+              style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+            >
+              保存
+            </button>
+          </div>
+          <p className="text-xs text-gray-400 mt-2">
+            最大 {NICKNAME_MAX_LEN} 文字。空白だけは保存できません。
+          </p>
+        </section>
+
         {/* 教科 */}
         <section className="bg-white rounded-2xl shadow-sm p-5">
           <div className="text-xs text-gray-500 mb-2">教科</div>

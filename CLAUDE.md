@@ -160,6 +160,7 @@ UIを実装・変更する際は必ず `docs/design-guide.md` を参照するこ
   - `https://line.chatstudy.jp/liff/premium-info` (無料版「もっと解く」flex の「詳細を見る」)
   - `https://line.chatstudy.jp/liff/premium-apply` (LIFF /premium-info の「申込フォームを開く」CTA、および webhook の各 premium-nudge flex の主CTA。申込内容は Firestore `premiumApplications` collection に保存される)
   - `https://line.chatstudy.jp/liff/help` (無料版「使い方」flex の「使い方を詳しく見る」)
+  - `https://line.chatstudy.jp/liff/nickname` (1問目回答後の「ニックネーム教えて」flex から開かれる超シンプルなニックネーム登録ページ)
 - LIFF 認証フロー: 各 LIFF ページは `useLiffAuth` フック経由で
   `liff.init()` → `liff.login()`（未ログイン時）→ `getIDToken()` →
   Cloud Function `createLiffFirebaseToken` → `signInWithCustomToken` で

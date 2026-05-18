@@ -11,6 +11,7 @@
  * - `/liff/premium-info`  : 無料版「もっと解く」flex からのプレミアム誘導 LIFF
  * - `/liff/premium-apply` : LIFF /premium-info から遷移するプレミアム登録ページ
  * - `/liff/help`          : 「使い方」flex の「使い方を詳しく見る」LIFF
+ * - `/liff/nickname`      : 1問目回答後の「ニックネーム教えて」flex からの LIFF
  * - その他               : NotFoundPage
  *
  * `/` は `/welcome` にリダイレクト。学習体験ページ（LearningPage / 263トピック等）は
@@ -60,6 +61,11 @@ const LiffPremiumApplyPage = lazyWithRetry(() =>
 const LiffHelpPage = lazyWithRetry(() =>
   import('../pages/LiffHelpPage').then((m) => ({ default: m.LiffHelpPage }))
 );
+const LiffNicknamePage = lazyWithRetry(() =>
+  import('../pages/LiffNicknamePage').then((m) => ({
+    default: m.LiffNicknamePage,
+  }))
+);
 const LineCallbackPage = lazyWithRetry(() =>
   import('../pages/LineCallbackPage').then((m) => ({
     default: m.LineCallbackPage,
@@ -94,6 +100,7 @@ function LineAuthGuard() {
         <Route path="/liff/premium-info" element={<LiffPremiumInfoPage />} />
         <Route path="/liff/premium-apply" element={<LiffPremiumApplyPage />} />
         <Route path="/liff/help" element={<LiffHelpPage />} />
+        <Route path="/liff/nickname" element={<LiffNicknamePage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Suspense>

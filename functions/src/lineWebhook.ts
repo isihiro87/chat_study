@@ -412,6 +412,9 @@ const LIFF_TEST_RANGE_URL =
   process.env.LIFF_TEST_RANGE_URL ?? 'https://liff.line.me/2009587166-fLjzMGk8';
 const LIFF_UNITS_URL =
   process.env.LIFF_UNITS_URL ?? 'https://liff.line.me/2009587166-LjyCza2c';
+const LIFF_NICKNAME_URL =
+  process.env.LIFF_NICKNAME_URL ??
+  'https://line.chatstudy.jp/liff/nickname';
 
 const PREMIUM_PRICE_TEXT = '月680円・7日間無料';
 
@@ -718,8 +721,7 @@ async function handleFollow(event: LineEvent): Promise<void> {
         lineUserId: userId,
         status: 'active',
         source: 'messaging-webhook',
-        // 'awaiting_name' → ユーザーから次に届く text を nickname として保存する
-        onboardingState: 'awaiting_name',
+        onboardingState: 'started',
         onboardingStartedAt: FieldValue.serverTimestamp(),
         onboardingReminderSentAt: null,
         updatedAt: FieldValue.serverTimestamp(),
@@ -746,8 +748,9 @@ async function handleFollow(event: LineEvent): Promise<void> {
         },
         {
           type: 'text',
-          text: '早速だけど、いくつか質問させてください。すぐに終わるから安心してね。\n\nまずは、なんて呼べばいい？\nニックネームでも本名でもOK！このトークに送ってね（あとから変更できます）。',
+          text: '早速だけど、いくつか質問させてください。すぐに終わるから安心してね。\n\nまずは、学年を教えてね。\n（保護者の方は、お子様の学年を教えてください）',
         },
+        buildGradeSelectMessage(),
       ],
     });
   } catch (error) {
@@ -2363,6 +2366,86 @@ const NUDGE_COPY: Record<PremiumNudgeReason, NudgeCopy> = {
  * onPremiumApplicationCreated から push される。
  */
 /**
+ * 1問目を解き終わったあと、ニックネーム未設定なら送る「これからよろしくね」
+ * + ニックネーム登録 LIFF への誘導 flex。
+ */
+export function buildAskNicknameFlex() {
+  return {
+    type: 'flex' as const,
+    altText: 'これからよろしくね！良かったらニックネーム教えて - チャットでスタディ',
+    contents: {
+      type: 'bubble' as const,
+      size: 'kilo' as const,
+      header: {
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        backgroundColor: '#F59E0B',
+        paddingAll: '12px',
+        contents: [
+          {
+            type: 'text' as const,
+            text: '🙋 これからよろしくね！',
+            color: '#FFFFFF',
+            weight: 'bold' as const,
+            size: 'sm' as const,
+          },
+        ],
+      },
+      body: {
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        paddingAll: '16px',
+        spacing: 'sm' as const,
+        contents: [
+          {
+            type: 'text' as const,
+            text: '1問目おつかれさま！',
+            wrap: true,
+            size: 'sm' as const,
+            color: '#111827',
+            weight: 'bold' as const,
+          },
+          {
+            type: 'text' as const,
+            text: '良かったらニックネームを教えてくれる？\nメッセージで時々呼びかけるのに使うね。あとからでも変えられるので気軽にどうぞ😊',
+            wrap: true,
+            size: 'xs' as const,
+            color: '#374151',
+          },
+        ],
+      },
+      footer: {
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        paddingAll: '16px',
+        contents: [
+          {
+            type: 'button' as const,
+            style: 'primary' as const,
+            color: '#F59E0B',
+            height: 'sm' as const,
+            action: {
+              type: 'uri' as const,
+              label: 'ニックネームを入力する',
+              uri: LIFF_NICKNAME_URL,
+            },
+          },
+          {
+            type: 'text' as const,
+            text: '※スキップしてもOK。あとから「設定・サポート」でも登録できます',
+            wrap: true,
+            size: 'xxs' as const,
+            color: '#9CA3AF',
+            align: 'center' as const,
+            margin: 'sm' as const,
+          },
+        ],
+      },
+    },
+  };
+}
+
+/**
  * プレミアム機能の段階的な誘導 flex。初回 `追加で解く` の直後など、
  * 次のステップを優しく提案するために使う。
  */
@@ -3530,15 +3613,28 @@ async function handleAnswerPostback(
     gradePremiumEligible,
   });
 
+  // 初回回答 AND nickname 未設定 → 「ニックネーム教えて」flex を末尾に積む。
+  // recentAnswers は書き込み前の取得なので length === 0 が初回回答に相当する。
+  const isFirstAnswer = recentAnswers.length === 0;
+  const hasNickname =
+    typeof currentUserData?.nickname === 'string' &&
+    currentUserData.nickname.trim().length > 0;
+  const askNicknameFlex =
+    isFirstAnswer && !hasNickname ? buildAskNicknameFlex() : null;
+
   try {
     const client = await getLineClient();
+    const replyMessages: LineMessage[] = [
+      { type: 'text', text: headText },
+      { type: 'text', text: `📖 解説\n${question.explanation}` },
+      nextStepFlex as unknown as LineMessage,
+    ];
+    if (askNicknameFlex) {
+      replyMessages.push(askNicknameFlex as LineMessage);
+    }
     await client.replyMessage({
       replyToken,
-      messages: [
-        { type: 'text', text: headText },
-        { type: 'text', text: `📖 解説\n${question.explanation}` },
-        nextStepFlex,
-      ],
+      messages: replyMessages as unknown as messagingApi.Message[],
     });
   } catch (error) {
     console.error('[lineWebhook] handleAnswer reply failed:', error);
