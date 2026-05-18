@@ -113,13 +113,6 @@
       "back": "杉田玄白らが翻訳した西洋医学書は？",
       "explanation": "蘭学の発展を示す代表的な書物。",
       "difficulty": "standard"
-    },
-    {
-      "id": "fc16",
-      "front": "{寺子屋|てらこや}",
-      "back": "庶民の子どもが読み書きやそろばんを学んだ場所を何という？",
-      "explanation": "江戸時代には庶民教育が広がった。",
-      "difficulty": "basic"
     }
   ],
   "quiz": {
@@ -169,8 +162,8 @@
       {
         "id": "q5",
         "question": "『解体新書』の出版に関係が深い人物を選びなさい。",
-        "options": ["杉田玄白", "本居宣長", "伊能忠敬", "松尾芭蕉"],
-        "correctIndex": 0,
+        "options": ["本居宣長", "伊能忠敬", "松尾芭蕉", "杉田玄白"],
+        "correctIndex": 3,
         "explanation": "杉田玄白らが西洋医学書を翻訳し、『解体新書』を出版しました。",
         "difficulty": "standard"
       },

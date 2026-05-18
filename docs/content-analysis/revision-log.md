@@ -2,6 +2,43 @@
 
 content-analysisのフィードバックログに基づく教材修正の作業記録。
 
+## 2026-05-18（江戸幕府の成立フォルダ：FC・クイズ品質再点検と修正）
+
+### 対象
+`data/content/history/08-edo-establishment/` 配下の 9 ファイル
+
+### 修正内容
+
+**重複フラッシュカード削除**
+- `edo-culture-learning.json`: fc16（寺子屋）削除 — fc9と完全重複
+- `edo-industry-society.json`: fc14（幕府の支配をゆるがせた）削除 — fc12と意味重複
+- `edo-politics-reforms.json`: fc13（幕府財政の悪化）削除 — fc10と完全重複
+- `edo-transport-commerce.json`: fc16（堂島米市場）削除 — fc13と完全重複
+
+**ID欠番のリナンバ整理**
+- `foreign-relations-edo.json`: fc12〜fc15 → fc11〜fc14（fc11欠番埋め）
+- `sakoku.json`: fc6〜fc19 → fc5〜fc18、q17 → q16（fc5・q16欠番埋め）
+- `social-classes.json`: q14・q15 → q11・q12（q11〜q13欠番埋め）
+
+**重複クイズ問題の差し替え**
+- `sakoku.json` q9: 「1637年に天草四郎を大将として起こった反乱は？」（q5と実質同問題）→ 「島原・天草一揆で一揆軍の大将となった人物は？」に変更
+
+**正答D偏り解消（位置入れ替え）**
+- `edo-bakufu.json`: q10/q13/q14（C偏り 7/17 → C 5/17 に）
+- `edo-culture-learning.json` q5、`edo-industry-society.json` q6、`edo-politics-reforms.json` q6、`edo-transport-commerce.json` q6: D位置正答を新設
+
+**日本語の自然化**
+- `edo-bakufu.json` fc4 back: 「武家政権の最高職。家康は1603年に任命されたのは？」→「武家政権の最高職で、徳川家康が1603年に任命されたのは？」
+- `ryukyu-ainu.json` fc6 explanation: 短文3並列を1文に整理
+
+### 影響範囲
+- Web 版学習サイト: 該当9トピックのフラッシュカード・クイズ表示
+- LIFF「じっくり学ぶ」中2歴史: 同上（要 `generate-line-study-content.ts` 再生成）
+- Firestore `questions` collection: クイズ問題ID・正答位置・問題文の変更（要 `sync-questions-from-content.ts` 同期）
+
+### 横展開メモ
+- 既存コンテンツの再点検で「ID欠番」「完全重複FC」「同義クイズ問題の重複」が複数トピックで見つかった。これまで自動採番・差分マージのレビューが不十分だった可能性。今後の improve-from-pdf / generate-content 実行後にも、ID連番チェックと front 完全一致チェックを review-content スキルに加えると安全
+
 ## 2026-05-12（歴史ルビ辞書：磨製石器の誤読修正）
 
 ### 修正内容
