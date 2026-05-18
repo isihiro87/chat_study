@@ -399,7 +399,22 @@ const WEAK_REVIEW_EMPTY = [
   "苦手データ、まだないみたい。先に『追加で解く』で問題に挑戦してみよう！",
 ];
 
-export function getWeakReviewIntro(opts?: { empty?: boolean }): string {
+const WEAK_REVIEW_CLEARED = [
+  "🎉 すごい！苦手を全部クリアしたよ！この調子、本当にすばらしい！",
+  "🎊 やった！苦手リストが空っぽになりました！本気で努力が実ってるね。",
+  "✨ おめでとう！苦手だった問題、ぜんぶ覚えきったよ！自信もっていいやつ！",
+  "🌟 苦手 0 件達成！前は間違えた問題、しっかり身についてるね。本当にえらい！",
+  "🏆 苦手を全部克服したよ！ここまでコツコツやってきた成果だね、誇っていいよ！",
+  "🎯 苦手リスト、空っぽ達成！『追加で解く』でまた挑戦すれば、新しい苦手も少しずつ減らせるよ。",
+];
+
+export function getWeakReviewIntro(opts?: {
+  empty?: boolean;
+  cleared?: boolean;
+}): string {
+  if (opts?.cleared) {
+    return pickRandom(WEAK_REVIEW_CLEARED);
+  }
   if (opts?.empty) {
     return pickRandom(WEAK_REVIEW_EMPTY);
   }

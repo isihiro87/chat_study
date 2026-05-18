@@ -410,6 +410,8 @@ const LIFF_HELP_URL =
   process.env.LIFF_HELP_URL ?? 'https://liff.line.me/2009587166-oaTz2NXX';
 const LIFF_TEST_RANGE_URL =
   process.env.LIFF_TEST_RANGE_URL ?? 'https://liff.line.me/2009587166-fLjzMGk8';
+const LIFF_UNITS_URL =
+  process.env.LIFF_UNITS_URL ?? 'https://liff.line.me/2009587166-LjyCza2c';
 
 const PREMIUM_PRICE_TEXT = '月680円・7日間無料';
 
@@ -2360,10 +2362,83 @@ const NUDGE_COPY: Record<PremiumNudgeReason, NudgeCopy> = {
  * 申込後、即座に 7日間の無料トライアルを開放したことをユーザーに伝える flex。
  * onPremiumApplicationCreated から push される。
  */
-export function buildTrialStartedFlexMessage() {
+/**
+ * プレミアム機能の段階的な誘導 flex。初回 `追加で解く` の直後など、
+ * 次のステップを優しく提案するために使う。
+ */
+export function buildNextStepGuideFlex(
+  step: 'jikkuri' | 'weak_review'
+) {
+  if (step === 'jikkuri') {
+    return {
+      type: 'flex' as const,
+      altText: '次は「じっくり学ぶ」を試してみよう - チャットでスタディ',
+      contents: {
+        type: 'bubble' as const,
+        size: 'kilo' as const,
+        header: {
+          type: 'box' as const,
+          layout: 'vertical' as const,
+          backgroundColor: '#F59E0B',
+          paddingAll: '12px',
+          contents: [
+            {
+              type: 'text' as const,
+              text: '👏 ナイス！次のステップへ',
+              color: '#FFFFFF',
+              weight: 'bold' as const,
+              size: 'sm' as const,
+            },
+          ],
+        },
+        body: {
+          type: 'box' as const,
+          layout: 'vertical' as const,
+          paddingAll: '16px',
+          spacing: 'sm' as const,
+          contents: [
+            {
+              type: 'text' as const,
+              text: '「追加で解く」を試してくれてありがとう！',
+              wrap: true,
+              size: 'sm' as const,
+              color: '#111827',
+              weight: 'bold' as const,
+            },
+            {
+              type: 'text' as const,
+              text: '次は「じっくり学ぶ」を覗いてみよう。暗記カードでサクサク復習したり、四択クイズを連続で解いたり、自分のペースで集中して学習できます。',
+              wrap: true,
+              size: 'xs' as const,
+              color: '#374151',
+            },
+          ],
+        },
+        footer: {
+          type: 'box' as const,
+          layout: 'vertical' as const,
+          paddingAll: '16px',
+          contents: [
+            {
+              type: 'button' as const,
+              style: 'primary' as const,
+              color: '#F59E0B',
+              height: 'sm' as const,
+              action: {
+                type: 'uri' as const,
+                label: 'じっくり学ぶを開く',
+                uri: LIFF_UNITS_URL,
+              },
+            },
+          ],
+        },
+      },
+    };
+  }
+  // step === 'weak_review'
   return {
     type: 'flex' as const,
-    altText: '7日間無料トライアルを開始しました - チャットでスタディ',
+    altText: '次は「苦手を復習」も使ってみよう - チャットでスタディ',
     contents: {
       type: 'bubble' as const,
       size: 'kilo' as const,
@@ -2371,14 +2446,14 @@ export function buildTrialStartedFlexMessage() {
         type: 'box' as const,
         layout: 'vertical' as const,
         backgroundColor: '#F59E0B',
-        paddingAll: '14px',
+        paddingAll: '12px',
         contents: [
           {
             type: 'text' as const,
-            text: '✨ 7日間無料トライアル開始！',
+            text: '🎯 苦手は伸びしろ！',
             color: '#FFFFFF',
             weight: 'bold' as const,
-            size: 'md' as const,
+            size: 'sm' as const,
           },
         ],
       },
@@ -2390,28 +2465,133 @@ export function buildTrialStartedFlexMessage() {
         contents: [
           {
             type: 'text' as const,
-            text: 'リッチメニューがプレミアム版に切り替わりました。',
+            text: '間違えた問題は「苦手を復習」で何度でも復習できます。テスト前の総復習にぴったり！',
+            wrap: true,
+            size: 'xs' as const,
+            color: '#374151',
+          },
+        ],
+      },
+      footer: {
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        paddingAll: '16px',
+        contents: [
+          {
+            type: 'button' as const,
+            style: 'primary' as const,
+            color: '#F59E0B',
+            height: 'sm' as const,
+            action: {
+              type: 'postback' as const,
+              label: '苦手を復習',
+              data: 'type=weak_review',
+              displayText: '苦手を復習',
+            },
+          },
+        ],
+      },
+    },
+  };
+}
+
+export function buildTrialStartedFlexMessage() {
+  const step = (num: string, title: string, desc: string) => ({
+    type: 'box' as const,
+    layout: 'horizontal' as const,
+    spacing: 'sm' as const,
+    margin: 'md' as const,
+    contents: [
+      {
+        type: 'text' as const,
+        text: num,
+        size: 'lg' as const,
+        weight: 'bold' as const,
+        color: '#F59E0B',
+        flex: 0,
+      },
+      {
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        flex: 1,
+        contents: [
+          {
+            type: 'text' as const,
+            text: title,
+            size: 'sm' as const,
+            weight: 'bold' as const,
+            color: '#111827',
+            wrap: true,
+          },
+          {
+            type: 'text' as const,
+            text: desc,
+            size: 'xs' as const,
+            color: '#6B7280',
+            wrap: true,
+            margin: 'xs' as const,
+          },
+        ],
+      },
+    ],
+  });
+
+  return {
+    type: 'flex' as const,
+    altText: 'プレミアム開始！まずは「追加で解く」を試してみよう - チャットでスタディ',
+    contents: {
+      type: 'bubble' as const,
+      size: 'mega' as const,
+      header: {
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        backgroundColor: '#F59E0B',
+        paddingAll: '14px',
+        contents: [
+          {
+            type: 'text' as const,
+            text: '✨ プレミアム開始！',
+            color: '#FFFFFF',
+            weight: 'bold' as const,
+            size: 'md' as const,
+          },
+          {
+            type: 'text' as const,
+            text: 'これから7日間、プレミアム機能が全部使えるよ',
+            color: '#FFF7E6',
+            size: 'xs' as const,
+            margin: 'xs' as const,
+          },
+        ],
+      },
+      body: {
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        paddingAll: '16px',
+        contents: [
+          {
+            type: 'text' as const,
+            text: '下のボタンから、順番に試してみよう👇',
             wrap: true,
             size: 'sm' as const,
             color: '#111827',
             weight: 'bold' as const,
           },
-          {
-            type: 'text' as const,
-            text: '「追加で解く」「苦手を復習」「じっくり学ぶ」が無制限で使えます。',
-            wrap: true,
-            size: 'xs' as const,
-            color: '#374151',
-            margin: 'sm' as const,
-          },
-          {
-            type: 'text' as const,
-            text: '7日以内に月額プランへ登録すると、特典期間中ずっと月680円のまま継続できます。',
-            wrap: true,
-            size: 'xs' as const,
-            color: '#6B7280',
-            margin: 'sm' as const,
-          },
+          step(
+            '①',
+            'まずは「追加で解く」',
+            '今すぐもう1問チャレンジ！毎日1問じゃ足りない時に。'
+          ),
+          step(
+            '②',
+            '次に「じっくり学ぶ」',
+            '暗記カードと四択クイズで効率よく覚えられる学習体験。'
+          ),
+          step(
+            '③',
+            '「苦手を復習」もチェック',
+            '間違えた問題だけ集めて出題。テスト前の総復習に。'
+          ),
         ],
       },
       footer: {
@@ -2426,9 +2606,10 @@ export function buildTrialStartedFlexMessage() {
             color: '#F59E0B',
             height: 'sm' as const,
             action: {
-              type: 'uri' as const,
-              label: '月680円で継続登録',
-              uri: LIFF_PREMIUM_APPLY_URL,
+              type: 'postback' as const,
+              label: '▶ まずは追加で解く',
+              data: 'type=extra_question',
+              displayText: '追加で解く',
             },
           },
           {
@@ -2437,9 +2618,18 @@ export function buildTrialStartedFlexMessage() {
             height: 'sm' as const,
             action: {
               type: 'uri' as const,
-              label: '使い方を見る',
-              uri: LIFF_HELP_URL,
+              label: 'じっくり学ぶを開く',
+              uri: LIFF_UNITS_URL,
             },
+          },
+          {
+            type: 'text' as const,
+            text: '7日間使い放題。気に入ったら 月¥680（通常¥1,280）で継続登録できます。',
+            wrap: true,
+            size: 'xxs' as const,
+            color: '#9CA3AF',
+            align: 'center' as const,
+            margin: 'sm' as const,
           },
         ],
       },
@@ -2717,7 +2907,7 @@ async function handleExtraQuestionPostback(
 ): Promise<void> {
   if (!replyToken) return;
 
-  const { db } = await getDb();
+  const { db, FieldValue } = await getDb();
   const userSnap = await db.doc(`users/${uid}`).get();
   const userData = userSnap.data();
   const plan = getUserPlan(userData);
@@ -2745,10 +2935,29 @@ async function handleExtraQuestionPostback(
     return;
   }
 
+  // 初回利用ならフォローアップ flex（じっくり学ぶへの誘導）を末尾に積む。
+  const isFirstExtraQuestion = !userData?.firstExtraQuestionAt;
+  if (isFirstExtraQuestion) {
+    try {
+      await db.doc(`users/${uid}`).set(
+        { firstExtraQuestionAt: FieldValue.serverTimestamp() },
+        { merge: true }
+      );
+    } catch (error) {
+      console.error(
+        '[lineWebhook] firstExtraQuestionAt write failed:',
+        error
+      );
+    }
+  }
+
   await selectAndSendQuestion(uid, {
     replyToken,
     introText: getExtraQuestionIntro(),
     bypassDailyLimit: true,
+    appendMessages: isFirstExtraQuestion
+      ? [buildNextStepGuideFlex('jikkuri') as LineMessage]
+      : undefined,
   });
 }
 
@@ -2864,6 +3073,15 @@ async function handleWeakReviewPostback(
         replyToken,
         '出題範囲内ではまだ苦手な問題がありません。範囲を広げてみてね',
         '(weak_review empty in scope)'
+      );
+      return;
+    }
+    // 過去誤答があったのに candidateIds が 0 → 全部習得済（苦手克服）
+    if (everIncorrect.size > 0) {
+      await replyText(
+        replyToken,
+        getWeakReviewIntro({ cleared: true }),
+        '(weak_review cleared all)'
       );
       return;
     }
@@ -3384,6 +3602,8 @@ interface SendOptions {
   bypassDailyLimit?: boolean;
   /** 問題本体の前に差し込みたい flex/text。初回設定の完了サマリーカードに使う。 */
   prependMessages?: LineMessage[];
+  /** 問題と trailingText の後ろに差し込みたい flex/text。初回『追加で解く』のフォローアップ等に使う。 */
+  appendMessages?: LineMessage[];
 }
 
 const RECENT_QUESTION_LIMIT = 10;
@@ -3399,6 +3619,7 @@ export async function selectAndSendQuestion(
     isInitialSetup,
     bypassDailyLimit,
     prependMessages,
+    appendMessages,
   } = options;
   const { db, FieldValue } = await getDb();
 
@@ -3623,6 +3844,9 @@ export async function selectAndSendQuestion(
   messages.push(questionMessage as unknown as LineMessage);
   if (trailingText) {
     messages.push({ type: 'text', text: trailingText });
+  }
+  if (appendMessages && appendMessages.length > 0) {
+    for (const m of appendMessages) messages.push(m);
   }
 
   try {
