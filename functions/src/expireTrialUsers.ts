@@ -14,7 +14,7 @@ import { logServerFunnelEvent } from "./funnelEvent";
 import { getJstDateString } from "./streakState";
 
 const REMINDER_COOLDOWN_MS = 24 * 60 * 60 * 1000;
-const REMINDER_DAY_NUMBERS: readonly (1 | 3 | 6)[] = [1, 3, 6] as const;
+const REMINDER_DAY_NUMBERS: readonly (1 | 3 | 6 | 7)[] = [1, 3, 6, 7] as const;
 
 /**
  * JST 暦日ベースで「日付 a から日付 b までの経過日数」を返す。
@@ -31,8 +31,11 @@ function daysBetweenJst(fromJst: string, toJst: string): number {
  *
  * 処理対象: `users.where(planSource=="trial").where(plan=="premium")` の各ユーザー
  *
- * 1. premiumUntil が現在より過去 → free に戻す + 終了通知 push（trial 7日目相当）
- * 2. trial 開始から 1 / 3 / 6 日目 → リマインダー push（24h gate）
+ * 1. premiumUntil が現在より過去 → free に戻す + 終了通知 push
+ * 2. trial 開始から 1 / 3 / 6 / 7 日目 → リマインダー push（24h gate）
+ *    7日目（最終日）の朝 3:00 時点でまだ premiumUntil 未到達のユーザーに
+ *    「今日が最後」の自然な premium お誘いを送る。premiumUntil 到達後の
+ *    expire 自体は同じ cron の次回起動で処理される。
  *
  * 多重送信防止:
  * - `lastTrialReminderAt` が直近24h 以内なら同じ trial 中の別 milestone でも skip

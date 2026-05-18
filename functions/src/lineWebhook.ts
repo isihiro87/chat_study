@@ -2449,21 +2449,26 @@ export function buildTrialStartedFlexMessage() {
 
 /**
  * 無料トライアル進行リマインダー flex。
- * expireTrialUsers から trial 開始 1 / 3 / 6 日目の朝に push される。
- * （7日目 = トライアル終了日は buildTrialExpiredFlexMessage を使う）
+ * expireTrialUsers から trial 開始 1 / 3 / 6 / 7 日目の朝（3:00 JST）に push される。
+ * 7日目 = 当日中にプレミアムが切れる最終日。実際の期限切れ後は
+ * buildTrialExpiredFlexMessage が翌朝に送信される。
  */
-export function buildTrialReminderFlexMessage(dayNumber: 1 | 3 | 6) {
+export function buildTrialReminderFlexMessage(dayNumber: 1 | 3 | 6 | 7) {
   const daysLeft = 7 - dayNumber;
   const headline =
-    dayNumber === 6
-      ? '⏰ 明日でトライアル終了'
-      : `🚀 プレミアム体験 ${dayNumber}日目（残り${daysLeft}日）`;
+    dayNumber === 7
+      ? '✨ プレミアム体験は今日で最後'
+      : dayNumber === 6
+        ? '⏰ 明日でトライアル終了'
+        : `🚀 プレミアム体験 ${dayNumber}日目（残り${daysLeft}日）`;
   const leadText =
     dayNumber === 1
       ? '昨日からプレミアム体験スタート！「追加で解く」「苦手を復習」「じっくり学ぶ」、もう触ってみた？'
       : dayNumber === 3
         ? '3日目に突入！暗記カードと四択クイズで効率よく覚えていけるのが、プレミアムの強みだよ。'
-        : '残り1日！気に入ったら、今のうちに月額プランに登録すれば、明日以降もそのまま使い続けられます。';
+        : dayNumber === 6
+          ? '残り1日！気に入ったら、今のうちに月額プランに登録すれば、明日以降もそのまま使い続けられます。'
+          : '7日間のプレミアム体験、今日が最後の1日だよ。\n「追加で解く」「苦手を復習」「暗記カード」「四択クイズ」、使ってみていかがでしたか？このまま続けたいと思ってもらえたら、今日中に月額プランに登録すれば、明日からもそのまま使い続けられます。無理にとは言わないので、合わなさそうなら自動で無料プランに戻るから安心してね。';
   const priceText =
     '今登録すると、通常 月¥1,280 のところ ' +
     '永続 月¥680 が確定します（特典期間中のみ）。教科が増えても¥680のまま、ずっと使い続けられます。';
