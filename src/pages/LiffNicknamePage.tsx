@@ -38,7 +38,7 @@ export function LiffNicknamePage() {
   useEffect(() => {
     if (!userDocLoaded) return;
     if (initialized) return;
-    const existing = (userDoc?.nickname as string | undefined) ?? '';
+    const existing = userDoc?.nickname ?? '';
     if (existing) setValue(existing);
     setInitialized(true);
   }, [userDoc, userDocLoaded, initialized]);

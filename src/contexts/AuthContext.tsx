@@ -46,7 +46,7 @@ export interface UserDocStudyPrefs {
 }
 
 export type PlanSource = 'trial' | 'paid' | 'trial_expired' | null;
-export type PreferredHour = 6 | 7 | 17 | 19 | null;
+export type PreferredHour = 6 | 7 | 16 | 17 | 18 | 19 | 20 | 21 | null;
 
 /**
  * `users/{uid}` の主要フィールドを LIFF 各ページで使いやすい形に整形したもの。
@@ -54,6 +54,7 @@ export type PreferredHour = 6 | 7 | 17 | 19 | null;
  */
 export interface UserDoc {
   uid: string;
+  nickname: string | null;
   grade: CacheableGrade | null;
   subject: string | null;
   testScopeTopics: string[];
@@ -116,9 +117,21 @@ function parseUserDoc(uid: string, data: Record<string, unknown>): UserDoc {
     rawPlanSource === 'trial_expired'
       ? rawPlanSource
       : null;
+  const nickname =
+    typeof data.nickname === 'string' && data.nickname.trim().length > 0
+      ? data.nickname
+      : null;
+
   const rawHour = data.preferredHour;
   const preferredHour: PreferredHour =
-    rawHour === 6 || rawHour === 7 || rawHour === 17 || rawHour === 19
+    rawHour === 6 ||
+    rawHour === 7 ||
+    rawHour === 16 ||
+    rawHour === 17 ||
+    rawHour === 18 ||
+    rawHour === 19 ||
+    rawHour === 20 ||
+    rawHour === 21
       ? rawHour
       : null;
 
@@ -155,6 +168,7 @@ function parseUserDoc(uid: string, data: Record<string, unknown>): UserDoc {
 
   return {
     uid,
+    nickname,
     grade,
     subject,
     testScopeTopics,
@@ -325,6 +339,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           // 空のフォールバック userDoc。timeout 時にもこれを入れて render を解放する。
           const emptyUserDoc: UserDoc = {
             uid: firebaseUser.uid,
+            nickname: null,
             grade: null,
             subject: null,
             testScopeTopics: [],
