@@ -187,11 +187,8 @@ export function buildTimeSelectMessage() {
       { label: '朝6時', data: 'type=select_time&hour=6' },
       { label: '朝7時', data: 'type=select_time&hour=7' },
       { label: '夕方4時', data: 'type=select_time&hour=16' },
-      { label: '夕方5時', data: 'type=select_time&hour=17' },
       { label: '夕方6時', data: 'type=select_time&hour=18' },
-      { label: '夜7時', data: 'type=select_time&hour=19' },
       { label: '夜8時', data: 'type=select_time&hour=20' },
-      { label: '夜9時', data: 'type=select_time&hour=21' },
     ],
   });
 }
@@ -293,10 +290,9 @@ export function buildOnboardingCompleteSummaryFlex(opts: {
             color: '#F59E0B',
             height: 'sm' as const,
             action: {
-              type: 'postback' as const,
+              type: 'uri' as const,
               label: '出題範囲を設定する',
-              data: 'type=test_range_menu',
-              displayText: '出題範囲を設定する',
+              uri: LIFF_TEST_RANGE_URL,
             },
           },
           {
@@ -744,11 +740,11 @@ async function handleFollow(event: LineEvent): Promise<void> {
       messages: [
         {
           type: 'text',
-          text: 'はじめまして！Instagramの一問一答動画を見ていただいて、公式LINEまで登録してくれて本当にありがとうございます😊\n\nInstagramとは違って、ここでは皆さんの学校の進度に合わせた問題をお届けしたくて公式LINEを始めました！これからインスタでもLINEでもよろしくお願いします。勉強応援してます📣',
+          text: 'はじめまして！公式LINEに登録してくれてありがとうございます😊',
         },
         {
           type: 'text',
-          text: '早速だけど、いくつか質問させてください。すぐに終わるから安心してね。\n\nまずは、学年を教えてね。\n（保護者の方は、お子様の学年を教えてください）',
+          text: '早速だけど、いくつか質問させてください。すぐに終わります！\n\nまずは、学年を教えてね。\n（保護者の方は、お子様の学年を教えてください）',
         },
         buildGradeSelectMessage(),
       ],
@@ -2163,38 +2159,13 @@ function buildPremiumInfoFlexMessage() {
 }
 
 function buildPostAnswerNextStepFlexMessage(options: {
-  plan: UserPlan;
   hourLabel: string;
   dayStreak: number;
   totalAnswered: number;
-  gradePremiumEligible: boolean;
 }) {
-  const isPremium = options.plan === 'premium';
-  const showPremiumCta = !isPremium && options.gradePremiumEligible;
-  const leadText = isPremium
-    ? 'この調子で、もう1問進めることもできます。'
-    : options.gradePremiumEligible
-      ? '1日1問といわず、もっと解きたい人は7日間無料でプレミアムプランが試せます。暗記カード・四択クイズが無制限。'
-      : `明日の${options.hourLabel}に次の1問が届きます。今日はおつかれさま！`;
-  const primaryAction = isPremium
-    ? {
-        type: 'postback' as const,
-        label: 'もう1問解く',
-        data: 'type=extra_question',
-        displayText: 'もう1問解く',
-      }
-    : showPremiumCta
-      ? {
-          type: 'postback' as const,
-          label: '7日間無料を見てみる',
-          data: 'type=premium_info&source=post_answer',
-          displayText: '7日間無料を見てみる',
-        }
-      : null;
-
   return {
     type: 'flex' as const,
-    altText: '次の学習案内',
+    altText: `明日も${options.hourLabel}に1問お届けします`,
     contents: {
       type: 'bubble' as const,
       size: 'kilo' as const,
@@ -2206,14 +2177,14 @@ function buildPostAnswerNextStepFlexMessage(options: {
         contents: [
           {
             type: 'text' as const,
-            text: '次はどうする？',
+            text: '📬 明日もまた届くよ',
             weight: 'bold' as const,
             size: 'md' as const,
             color: '#111827',
           },
           {
             type: 'text' as const,
-            text: `明日の${options.hourLabel}に次の1問が届きます。`,
+            text: `明日の${options.hourLabel}に次の1問をお届けします。今日はおつかれさま！`,
             wrap: true,
             size: 'xs' as const,
             color: '#374151',
@@ -2258,44 +2229,6 @@ function buildPostAnswerNextStepFlexMessage(options: {
                 ],
               },
             ],
-          },
-          {
-            type: 'text' as const,
-            text: leadText,
-            wrap: true,
-            size: 'xs' as const,
-            color: '#6B7280',
-          },
-        ],
-      },
-      footer: {
-        type: 'box' as const,
-        layout: 'vertical' as const,
-        spacing: 'sm' as const,
-        paddingAll: '16px',
-        contents: [
-          ...(primaryAction
-            ? [
-                {
-                  type: 'button' as const,
-                  style: 'primary' as const,
-                  color: '#F59E0B',
-                  height: 'sm' as const,
-                  action: primaryAction,
-                },
-              ]
-            : []),
-          {
-            type: 'button' as const,
-            style: primaryAction ? ('secondary' as const) : ('primary' as const),
-            color: primaryAction ? undefined : '#F59E0B',
-            height: 'sm' as const,
-            action: {
-              type: 'postback' as const,
-              label: '記録を見る',
-              data: 'type=streak',
-              displayText: '記録を見る',
-            },
           },
         ],
       },
@@ -3603,14 +3536,10 @@ async function handleAnswerPostback(
     VALID_HOURS.includes(preferredHour as ValidHour)
       ? HOUR_LABELS[preferredHour as ValidHour]
       : 'いつもの時間';
-  const plan = getUserPlan(currentUserData);
-  const gradePremiumEligible = isPremiumEligibleGrade(currentUserData?.grade);
   const nextStepFlex = buildPostAnswerNextStepFlexMessage({
-    plan,
     hourLabel,
     dayStreak,
     totalAnswered: recentAnswers.length + 1,
-    gradePremiumEligible,
   });
 
   // 初回回答 AND nickname 未設定 → 「ニックネーム教えて」flex を末尾に積む。
