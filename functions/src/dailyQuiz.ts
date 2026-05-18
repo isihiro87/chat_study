@@ -1,7 +1,7 @@
 import * as functions from "firebase-functions/v1";
 import { selectAndSendQuestion } from "./lineWebhook";
 
-type ValidHour = 6 | 7 | 17 | 19;
+type ValidHour = 6 | 7 | 16 | 17 | 18 | 19 | 20 | 21;
 
 async function runDailyQuiz(hour: ValidHour): Promise<void> {
   const startedAt = Date.now();
@@ -57,14 +57,38 @@ export const dailyQuiz07 = functions
   .timeZone("Asia/Tokyo")
   .onRun(() => runDailyQuiz(7));
 
+export const dailyQuiz16 = functions
+  .region("asia-northeast1")
+  .pubsub.schedule("0 16 * * *")
+  .timeZone("Asia/Tokyo")
+  .onRun(() => runDailyQuiz(16));
+
 export const dailyQuiz17 = functions
   .region("asia-northeast1")
   .pubsub.schedule("0 17 * * *")
   .timeZone("Asia/Tokyo")
   .onRun(() => runDailyQuiz(17));
 
+export const dailyQuiz18 = functions
+  .region("asia-northeast1")
+  .pubsub.schedule("0 18 * * *")
+  .timeZone("Asia/Tokyo")
+  .onRun(() => runDailyQuiz(18));
+
 export const dailyQuiz19 = functions
   .region("asia-northeast1")
   .pubsub.schedule("0 19 * * *")
   .timeZone("Asia/Tokyo")
   .onRun(() => runDailyQuiz(19));
+
+export const dailyQuiz20 = functions
+  .region("asia-northeast1")
+  .pubsub.schedule("0 20 * * *")
+  .timeZone("Asia/Tokyo")
+  .onRun(() => runDailyQuiz(20));
+
+export const dailyQuiz21 = functions
+  .region("asia-northeast1")
+  .pubsub.schedule("0 21 * * *")
+  .timeZone("Asia/Tokyo")
+  .onRun(() => runDailyQuiz(21));

@@ -13,8 +13,12 @@ export { lineWebhook } from "./lineWebhook";
 export {
   dailyQuiz06,
   dailyQuiz07,
+  dailyQuiz16,
   dailyQuiz17,
+  dailyQuiz18,
   dailyQuiz19,
+  dailyQuiz20,
+  dailyQuiz21,
 } from "./dailyQuiz";
 export { onAnswerCreated } from "./onAnswerCreated";
 export { onPremiumApplicationCreated } from "./onPremiumApplicationCreated";
