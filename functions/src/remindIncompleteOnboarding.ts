@@ -13,9 +13,9 @@ const MAX_USERS_PER_RUN = 100;
 type OnboardingStep = "grade" | "subject" | "time";
 
 const stepText: Record<OnboardingStep, string> = {
-  grade: "学年を選ぶだけで、設定を再開できます。",
-  subject: "教科を選ぶと、あと少しで設定完了です。",
-  time: "配信時間を選ぶと、明日から毎日1問が届きます。",
+  grade: "あとは学年を選ぶだけで、設定を再開できます。",
+  subject: "あとは教科を選ぶだけで、設定完了まであと少しだよ。",
+  time: "あとは配信時間を選ぶだけで、明日から毎日1問お届けします。",
 };
 
 function getNextStep(data: FirebaseFirestore.DocumentData): OnboardingStep {
@@ -119,9 +119,11 @@ export const remindIncompleteOnboarding = functions
 
       const step = getNextStep(data);
       const text =
-        "設定がまだ途中のようです。30秒で終わります。\n" +
+        "登録ありがとうございました🙏\n" +
+        "設定がまだ途中になっているみたいです。\n" +
+        "30秒で終わるから、良かったらこのまま続きをやってみてね！\n\n" +
         `${stepText[step]}\n\n` +
-        "このトークを開いて、表示されているボタンから続きができます。";
+        "下のボタンから続きができます。";
 
       try {
         await client.pushMessage({

@@ -267,6 +267,14 @@ export function buildOnboardingCompleteSummaryFlex(opts: {
             weight: 'bold' as const,
             margin: 'md' as const,
           },
+          {
+            type: 'text' as const,
+            text: '次は「出題範囲」を設定しよう！もう習った単元だけにチェックを入れておくと、毎日の1問がその範囲から届くようになるよ。',
+            wrap: true,
+            size: 'xs' as const,
+            color: '#374151',
+            margin: 'sm' as const,
+          },
         ],
       },
       footer: {
@@ -277,11 +285,12 @@ export function buildOnboardingCompleteSummaryFlex(opts: {
         contents: [
           {
             type: 'button' as const,
-            style: 'secondary' as const,
+            style: 'primary' as const,
+            color: '#F59E0B',
             height: 'sm' as const,
             action: {
               type: 'postback' as const,
-              label: '出題範囲を設定する（任意）',
+              label: '出題範囲を設定する',
               data: 'type=test_range_menu',
               displayText: '出題範囲を設定する',
             },
@@ -553,7 +562,7 @@ async function handleSettingsChange(
       );
       await replyText(
         replyToken,
-        '設定変更は1日1回までです。明日もう一度お試しください。',
+        'ごめんね、設定変更は1日1回までとなっています🙏\n明日もう一度お試しください。',
         '(settings change locked)'
       );
       return;
@@ -2211,6 +2220,7 @@ export type PremiumNudgeReason =
   | 'weak_review'
   | 'streak_milestone'
   | 'volume_milestone'
+  | 'first_answer'
   | 'onboarding';
 
 interface NudgeCopy {
@@ -2223,22 +2233,27 @@ const NUDGE_COPY: Record<PremiumNudgeReason, NudgeCopy> = {
   extra_question: {
     headerEmoji: '🚀',
     headerText: 'もう1問はプレミアム機能',
-    leadText: `「追加で解く」はプレミアムプランの機能です。${PREMIUM_PRICE_TEXT}で、今すぐもう1問に進めます。`,
+    leadText: `「追加で解く」はプレミアム機能です。${PREMIUM_PRICE_TEXT}でその場でもう1問に進めるよ。カード登録なしのワンタップで始められます。`,
   },
   weak_review: {
     headerEmoji: '🎯',
     headerText: '苦手復習はプレミアム機能',
-    leadText: `間違えた問題から優先出題する「苦手を復習」はプレミアムプランの機能です。${PREMIUM_PRICE_TEXT}で試せます。`,
+    leadText: `間違えた問題から優先で出る「苦手を復習」はプレミアム機能です。${PREMIUM_PRICE_TEXT}で試せます。ワンタップで開始、カード登録は不要。`,
   },
   streak_milestone: {
     headerEmoji: '🔥',
     headerText: '連続学習おめでとう！',
-    leadText: `コツコツ続けられているあなたなら、もっと伸ばせます。${PREMIUM_PRICE_TEXT}で追加問題・苦手復習を試せます。`,
+    leadText: `コツコツ続いてるね。プレミアムなら追加問題・苦手復習・暗記カード・四択クイズが無制限で使えます。${PREMIUM_PRICE_TEXT}・カード登録なしで試せるよ。`,
   },
   volume_milestone: {
     headerEmoji: '📚',
-    headerText: '問題数の節目！',
-    leadText: `たくさん解けています。${PREMIUM_PRICE_TEXT}で追加問題・苦手復習まで広げられます。`,
+    headerText: 'たくさん解けてるね！',
+    leadText: `ここまでよくがんばったね。プレミアムなら暗記カードと四択クイズが無制限で使えて、もっとサクサク覚えられるよ。${PREMIUM_PRICE_TEXT}・カード登録なしで試せます。`,
+  },
+  first_answer: {
+    headerEmoji: '🎉',
+    headerText: '初めての1問、おつかれさま！',
+    leadText: `これからは毎日1問が無料で届くよ。連続記録や苦手範囲のチェックもぜんぶ無料。\n\n「もっと解きたい」「暗記カードや四択クイズも使いたい」と思ったら、${PREMIUM_PRICE_TEXT}でプレミアムを試せます（ワンタップ開始、カード登録なし、7日後に自動で無料に戻ります）。`,
   },
   onboarding: {
     headerEmoji: '✨',
@@ -2339,18 +2354,25 @@ export function buildTrialStartedFlexMessage() {
 }
 
 /**
- * 無料トライアル残り N 日のリマインダー flex。
- * expireTrialUsers から push される。
+ * 無料トライアル進行リマインダー flex。
+ * expireTrialUsers から trial 開始 1 / 3 / 6 日目の朝に push される。
+ * （7日目 = トライアル終了日は buildTrialExpiredFlexMessage を使う）
  */
-export function buildTrialReminderFlexMessage(daysLeft: number) {
+export function buildTrialReminderFlexMessage(dayNumber: 1 | 3 | 6) {
+  const daysLeft = 7 - dayNumber;
   const headline =
-    daysLeft <= 1
-      ? '⏰ 無料トライアル残り 1 日です'
-      : `⏰ 無料トライアル残り ${daysLeft} 日`;
+    dayNumber === 6
+      ? '⏰ 明日でトライアル終了'
+      : `🚀 プレミアム体験 ${dayNumber}日目（残り${daysLeft}日）`;
   const leadText =
-    daysLeft <= 1
-      ? '明日無料トライアルが終了します。気に入っていただけたら、今のうちに月額プランへ登録すると永続680円が確定します。'
-      : `あと ${daysLeft} 日で無料トライアルが終了します。気に入っていただけたら、今のうちに月額プランへ登録すると永続680円が確定します。`;
+    dayNumber === 1
+      ? '昨日からプレミアム体験スタート！「追加で解く」「苦手を復習」「じっくり学ぶ」、もう触ってみた？'
+      : dayNumber === 3
+        ? '3日目に突入！暗記カードと四択クイズで効率よく覚えていけるのが、プレミアムの強みだよ。'
+        : '残り1日！気に入ったら、今のうちに月額プランに登録すれば、明日以降もそのまま使い続けられます。';
+  const priceText =
+    '今登録すると、通常 月¥1,280 のところ ' +
+    '永続 月¥680 が確定します（特典期間中のみ）。教科が増えても¥680のまま、ずっと使い続けられます。';
   return {
     type: 'flex' as const,
     altText: `${headline} - チャットでスタディ`,
@@ -2377,13 +2399,23 @@ export function buildTrialReminderFlexMessage(daysLeft: number) {
         type: 'box' as const,
         layout: 'vertical' as const,
         paddingAll: '16px',
+        spacing: 'sm' as const,
         contents: [
           {
             type: 'text' as const,
             text: leadText,
             wrap: true,
             size: 'sm' as const,
+            color: '#111827',
+            weight: 'bold' as const,
+          },
+          {
+            type: 'text' as const,
+            text: priceText,
+            wrap: true,
+            size: 'xs' as const,
             color: '#374151',
+            margin: 'sm' as const,
           },
         ],
       },
@@ -2399,7 +2431,7 @@ export function buildTrialReminderFlexMessage(daysLeft: number) {
             height: 'sm' as const,
             action: {
               type: 'uri' as const,
-              label: '月680円で継続登録',
+              label: '月¥680で登録（通常¥1,280）',
               uri: LIFF_PREMIUM_APPLY_URL,
             },
           },
@@ -2459,7 +2491,7 @@ export function buildTrialExpiredFlexMessage() {
           },
           {
             type: 'text' as const,
-            text: '今申込めば、永続 月680円が確定します（特典期間中のみ）。',
+            text: '今登録すると、通常 月¥1,280 のところ 永続 月¥680 が確定します（特典期間中のみ）。教科が増えても¥680のままです。',
             wrap: true,
             size: 'xs' as const,
             color: '#6B7280',

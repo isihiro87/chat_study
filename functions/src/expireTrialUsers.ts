@@ -11,17 +11,28 @@ import {
   linkRichMenuForUser,
 } from "./lineRichMenu";
 import { logServerFunnelEvent } from "./funnelEvent";
+import { getJstDateString } from "./streakState";
 
-const DAY_MS = 24 * 60 * 60 * 1000;
 const REMINDER_COOLDOWN_MS = 24 * 60 * 60 * 1000;
+const REMINDER_DAY_NUMBERS: readonly (1 | 3 | 6)[] = [1, 3, 6] as const;
+
+/**
+ * JST 暦日ベースで「日付 a から日付 b までの経過日数」を返す。
+ * 同日なら 0, 翌日なら 1。
+ */
+function daysBetweenJst(fromJst: string, toJst: string): number {
+  const from = new Date(`${fromJst}T00:00:00Z`).getTime();
+  const to = new Date(`${toJst}T00:00:00Z`).getTime();
+  return Math.round((to - from) / (24 * 60 * 60 * 1000));
+}
 
 /**
  * 日次（JST 03:00）で実行する trial ライフサイクル管理ジョブ。
  *
  * 処理対象: `users.where(planSource=="trial").where(plan=="premium")` の各ユーザー
  *
- * 1. premiumUntil が現在より過去 → free に戻す + 終了通知 push
- * 2. premiumUntil まで残り 1〜2日 → リマインダー push（24h gate）
+ * 1. premiumUntil が現在より過去 → free に戻す + 終了通知 push（trial 7日目相当）
+ * 2. trial 開始から 1 / 3 / 6 日目 → リマインダー push（24h gate）
  *
  * 多重送信防止:
  * - `lastTrialReminderAt` が直近24h 以内なら同じ trial 中の別 milestone でも skip
@@ -154,9 +165,25 @@ export const expireTrialUsers = functions
         continue;
       }
 
-      // まだ期限内 → リマインダー判定
-      const daysLeft = Math.ceil(diffMs / DAY_MS);
-      if (daysLeft > 2) {
+      // まだ期限内 → trial 開始からの経過日数で 1/3/6 日目だけリマインド
+      const trialStartedAtRaw = data.trialStartedAt as
+        | { toDate?: () => Date }
+        | undefined
+        | null;
+      const trialStartedMs =
+        trialStartedAtRaw && typeof trialStartedAtRaw.toDate === "function"
+          ? trialStartedAtRaw.toDate().getTime()
+          : 0;
+      if (trialStartedMs === 0) {
+        // 旧データで trialStartedAt が無い場合は対象外（後続デプロイで自然に解消）
+        skipped++;
+        continue;
+      }
+      const trialStartJst = getJstDateString(new Date(trialStartedMs));
+      const todayJst = getJstDateString(new Date());
+      const daysSinceStart = daysBetweenJst(trialStartJst, todayJst);
+      const matched = REMINDER_DAY_NUMBERS.find((d) => d === daysSinceStart);
+      if (matched === undefined) {
         skipped++;
         continue;
       }
@@ -177,7 +204,7 @@ export const expireTrialUsers = functions
       try {
         await lineClient.pushMessage({
           to: lineUserId,
-          messages: [buildTrialReminderFlexMessage(daysLeft)],
+          messages: [buildTrialReminderFlexMessage(matched)],
         });
       } catch (error) {
         console.error(
@@ -201,7 +228,9 @@ export const expireTrialUsers = functions
           error
         );
       }
-      await logServerFunnelEvent("trial_reminder_sent", uid, { daysLeft });
+      await logServerFunnelEvent("trial_reminder_sent", uid, {
+        dayNumber: matched,
+      });
       reminded++;
     }
 

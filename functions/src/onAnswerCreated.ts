@@ -43,32 +43,40 @@ async function maybeSendPremiumNudge(ctx: NudgeContext): Promise<void> {
   if (ctx.userPlan === "premium") return;
   if (!ctx.lineUserId) return;
 
-  if (ctx.lastPremiumNudgeAtMs !== null) {
+  // 初めての1問を解いた直後だけ、cooldown を無視して
+  // 「無料でできること」と「ワンタップで7日間無料」案内を1回送る。
+  // それ以降は通常の milestone cooldown 制御に従う。
+  const isFirstAnswer =
+    ctx.prevTotalAnswered === 0 && ctx.nextTotalAnswered === 1;
+
+  if (!isFirstAnswer && ctx.lastPremiumNudgeAtMs !== null) {
     const elapsed = Date.now() - ctx.lastPremiumNudgeAtMs;
     if (elapsed < PREMIUM_NUDGE_COOLDOWN_MS) {
       return;
     }
   }
 
-  // streak を優先（継続行動への報酬感のほうが効きやすい想定）
-  const streakHit = detectNewlyReachedMilestone(
-    ctx.prevStreakCurrent,
-    ctx.nextStreakCurrent,
-    STREAK_MILESTONES
-  );
-  const volumeHit = streakHit
-    ? null
-    : detectNewlyReachedMilestone(
-        ctx.prevTotalAnswered,
-        ctx.nextTotalAnswered,
-        VOLUME_MILESTONES
-      );
+  let reason: PremiumNudgeReason;
+  if (isFirstAnswer) {
+    reason = "first_answer";
+  } else {
+    // streak を優先（継続行動への報酬感のほうが効きやすい想定）
+    const streakHit = detectNewlyReachedMilestone(
+      ctx.prevStreakCurrent,
+      ctx.nextStreakCurrent,
+      STREAK_MILESTONES
+    );
+    const volumeHit = streakHit
+      ? null
+      : detectNewlyReachedMilestone(
+          ctx.prevTotalAnswered,
+          ctx.nextTotalAnswered,
+          VOLUME_MILESTONES
+        );
 
-  if (streakHit === null && volumeHit === null) return;
-
-  const reason: PremiumNudgeReason = streakHit
-    ? "streak_milestone"
-    : "volume_milestone";
+    if (streakHit === null && volumeHit === null) return;
+    reason = streakHit ? "streak_milestone" : "volume_milestone";
+  }
 
   const flex = buildPremiumNudgeFlexMessage(reason);
 
