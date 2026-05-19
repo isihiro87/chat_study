@@ -14,18 +14,16 @@
 
 `handleFollow`（lineWebhook.ts L710〜）が発火し、3メッセージを一括返信する。
 
-### 1-1. 自己紹介テキスト
+### 1-1. ウェルカム＋導入テキスト（1メッセージに統合）
 
 > はじめまして！公式LINEに登録してくれてありがとうございます😊
-
-### 1-2. オンボーディング導入テキスト
-
-> 早速だけど、いくつか質問させてください。すぐに終わります！
+>
+> 早速だけど、3つだけ質問させてください。すぐに終わります！
 >
 > まずは、学年を教えてね。
 > （保護者の方は、お子様の学年を教えてください）
 
-### 1-3. 学年選択 Flex（`buildGradeSelectMessage`）
+### 1-2. 学年選択 Flex（`buildGradeSelectMessage`）
 
 - ヘッダー: `STEP 1/3 学年を選ぶ`
 - 本文: `まずは学年を教えてね。`
@@ -82,7 +80,9 @@
 
 ## ④ 配信時間選択後（`select_time` postback）
 
-`handleSelectTimePostback`（L3399〜）。1問目の即時配信に同梱される。
+`handleSelectTimePostback`。**配信時間設定時はサマリー flex だけを返す**。1問目は
+ユーザーが LIFF で `testScope` を初めて保存したタイミングで Firestore トリガから push する
+（⑤を参照）。範囲未設定のまま離脱したら翌日の `dailyQuiz` が初回配信になる。
 
 ### 4-1. オンボーディング完了サマリー Flex（`buildOnboardingCompleteSummaryFlex`）
 
@@ -97,7 +97,26 @@
 - フッターボタン: `出題範囲を設定する`（`uri` アクション → `LIFF_TEST_RANGE_URL` を直接開く）
   - 補足: 「※あとからリッチメニューの「出題範囲設定」でもいつでも変更できます」
 
-### 4-2. 1問目 イントロテキスト（`getInitialFirstQuestionIntro` / messageVariations.ts L464）
+> ⚠️ 旧フローではここで 1問目を同梱 reply していたが、現在は時間設定 reply はこの flex のみ。
+> 1問目の配信は ⑤ `onTestScopeFirstSet` トリガに移譲した。
+
+---
+
+## ⑤ LIFF で出題範囲を初めて保存したタイミング（`onTestScopeFirstSet` トリガ）
+
+`functions/src/onTestScopeFirstSet.ts`。`users/{uid}` の onUpdate トリガ。
+
+**発火条件**:
+
+- `preferredHour` 設定済み（オンボ完了）
+- `lastQuestionDeliveredAt` 未設定（一度も配信されてない＝完全な初回）
+- `testScope.updatedAt` が before/after で異なる（=新規 set されたタイミング）
+
+**動作**: `selectAndSendQuestion(uid, { isInitialSetup: true, introText, trailingText })` で
+1問目を push 配信する。再度 testScope を保存しても `lastQuestionDeliveredAt` が立つため
+再 push されない (idempotent)。
+
+### 5-1. 1問目 イントロテキスト（`getInitialFirstQuestionIntro`）
 
 **ニックネーム設定済（INITIAL_INTROS_WITH_NAME・5パターンからランダム）:**
 
@@ -115,12 +134,12 @@
 - `OK、設定できたよ！さっそく1問目！`
 - `準備OK！今から1問やってみよう！`
 
-### 4-3. 1問目（4択クイズ Flex）
+### 5-2. 1問目（4択クイズ Flex）
 
 ユーザーの `grade` × `subject`（初回は `testScope` 無視）から `questions` collection
 からランダムに1問選び、`buildQuestionMessage` で4択ボタンを生成。
 
-### 4-4. 1問目 末尾テキスト（`getInitialFirstQuestionTrailing` / L474）
+### 5-3. 1問目 末尾テキスト（`getInitialFirstQuestionTrailing`）
 
 **ニックネーム設定済（4パターンからランダム）:**
 
@@ -138,11 +157,11 @@
 
 ---
 
-## ⑤ 1問目に回答した直後（`answer` postback）
+## ⑥ 1問目に回答した直後（`answer` postback）
 
-`handleAnswer`（L3525〜）。最大4メッセージを送る。
+`handleAnswer`。最大5メッセージを送る。
 
-### 5-1. 正誤フィードバック（`getCorrectFeedback` / `getIncorrectFeedback`）
+### 6-1. 正誤フィードバック（`getCorrectFeedback` / `getIncorrectFeedback`）
 
 連続正解数・連続日数のマイルストーンによってプールを切替（messageVariations.ts L26〜212）。
 初回は `correctStreak <= 1`・`dayStreak === 1` のはずなので `CORRECT_DEFAULT` 系（18パターン）または `INCORRECT_TEMPLATES`（15パターン）からランダム。代表例:
@@ -150,23 +169,19 @@
 - 正解: 「正解！いいね！」「合ってるよ！いいね！」「正解！しっかり覚えられてる！」など
 - 不正解: 「惜しい！正解は『{label}』だよ。」「答えは『{label}』。次に出たら思い出そう！」など
 
-### 5-2. 解説テキスト
+### 6-2. 解説テキスト
 
 > 📖 解説
 > {question.explanation}
 
-### 5-3. 次のステップ Flex（`buildPostAnswerNextStepFlexMessage`）
+### 6-3. 「明日も届く」案内 Flex（`buildPostAnswerNextStepFlexMessage`）
 
 - 見出し: `📬 明日もまた届くよ`
 - 本文: `明日の{hourLabel}に次の1問をお届けします。今日はおつかれさま！`
 - バッジ: 連続日数 / 累計回答数（2列横並び）
-- フッター/ボタン: なし（プラン分岐なし、CTAなしの情報カード）
+- フッター/ボタン: なし（CTA なしの情報カード）
 
-> ℹ️ 以前はこのカードでプレミアムプラン誘導（無料×中1/中2 限定で「7日間無料を見てみる」ボタンと
-> リードテキスト）を出していたが、初日体験を煮詰めすぎないようにシンプルな「明日も届く」案内に
-> 変更した。プレミアム誘導はリッチメニューの「もっと解く」flex やストリーク milestone 等に集約。
-
-### 5-4. ニックネーム聞き取り Flex（`buildAskNicknameFlex`、初回回答かつニックネーム未設定のときだけ）
+### 6-4. ニックネーム聞き取り Flex（`buildAskNicknameFlex`、初回回答かつニックネーム未設定のときだけ）
 
 - ヘッダー（amber-500 背景）: `🙋 これからよろしくね！`
 - 本文:
@@ -177,33 +192,46 @@
 - フッターボタン: `ニックネームを入力する`（LIFF `/liff/nickname` を開く）
 - 補足: 「※スキップしてもOK。あとから「設定・サポート」でも登録できます」
 
+### 6-5. プレミアム無料お試し案内 Flex（`buildPremiumNudgeFlexMessage('first_answer')`、初回回答かつ無料×中1/中2 のときだけ）
+
+- ヘッダー: `🎉 初めての1問、おつかれさま！`
+- リード:
+  > これからは毎日1問が無料で届くよ。連続記録や苦手範囲のチェックもぜんぶ無料。
+  >
+  > 「もっと解きたい」「暗記カードや四択クイズも使いたい」と思ったら、月680円・7日間無料でプレミアムを試せます（ワンタップ開始、カード登録なし、7日後に自動で無料に戻ります）。
+- フッターボタン: `7日間無料で始める`（LIFF `/liff/premium-apply`）／ `詳細を見る`（LIFF `/liff/premium-info`）
+
+> ℹ️ 中3 はプレミアム未対応のため出さない。premium 既加入者にも出さない。
+> 過去には `buildPostAnswerNextStepFlexMessage` 内のリード＋ボタンとして埋め込んでいたが、
+> 初日カードはシンプルに保つため独立 flex に切り出した。
+
 ---
 
-## ⑥ ニックネームをメッセージで送ったとき（`awaiting_name` 状態）
+## ⑦ ニックネームをメッセージで送ったとき（`awaiting_name` 状態）
 
-`handleNicknameInput`（L574〜）。LIFF を使わずトークでテキスト入力したケース。
+`handleNicknameInput`。LIFF を使わずトークでテキスト入力したケース。
 
-### 6-1. 受領テキスト
+### 7-1. 受領テキスト
 
 > {nickname}って呼ぶね！よろしく😊
 > じゃあ、まずは学年を教えてね。
 
-### 6-2. 学年選択 Flex
+### 7-2. 学年選択 Flex
 
-`buildGradeSelectMessage`（①-3 と同じ）。
+`buildGradeSelectMessage`（①-2 と同じ）。
 
 > 空白だけ送られた場合は次のテキストのみ返す:
 > 「空白だけだと呼び方が分からないので、もう一度送ってね🙏（ニックネームでもOK）」
 
 ---
 
-## ⑦ オンボーディング離脱時のリマインド（24時間後・スケジュール push）
+## ⑧ オンボーディング離脱時のリマインド（24時間後・スケジュール push）
 
 `remindIncompleteOnboarding.ts`。`onboardingState ∈ {started, awaiting_name}` で
 `onboardingStartedAt` から24時間以上経過しているユーザーに、1回だけ push する
 （その後 `onboardingState=reminded` に遷移し、再リマインドはしない）。
 
-### 7-1. リマインドテキスト
+### 8-1. リマインドテキスト
 
 次のフォーマットで送信。`{step本文}` は止まっているステップで差し替え。
 
@@ -225,18 +253,18 @@ step本文は以下のいずれか:
 | subject（教科未選択） | `あとは教科を選ぶだけで、設定完了まであと少しだよ。` |
 | time（配信時間未選択） | `あとは配信時間を選ぶだけで、明日から毎日1問お届けします。` |
 
-### 7-2. ステップ別 Flex
+### 8-2. ステップ別 Flex
 
 リマインドテキストに続けて、止まっている step に応じた選択 Flex を1つ同梱する
 （name の場合は Flex なし）:
 
-- grade: `buildGradeSelectMessage`（①-3 と同じ）
+- grade: `buildGradeSelectMessage`（①-2 と同じ）
 - subject: `buildSubjectSelectMessage`（②-2 と同じ）
 - time: `buildTimeSelectMessage`（③-2 と同じ）
 
 ---
 
-## ⑧ 翌日以降の「毎日1問」配信（`dailyQuiz0X`）
+## ⑨ 翌日以降の「毎日1問」配信（`dailyQuiz0X`）
 
 `functions/src/dailyQuiz.ts` が `preferredHour` に応じて 6/7/16/17/18/19/20/21 時に
 push 配信する。intro テキストは `getDailyIntro`（messageVariations.ts L343）で

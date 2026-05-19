@@ -6,8 +6,6 @@ import {
   getDailyIntro,
   getExtraQuestionIntro,
   getWeakReviewIntro,
-  getInitialFirstQuestionIntro,
-  getInitialFirstQuestionTrailing,
   getAlreadyDeliveredText,
   isDayStreakMilestone,
 } from './messageVariations';
@@ -46,9 +44,9 @@ const SUBJECT_HEADER_COLORS: Record<ValidSubject, string> = {
   // geography: "#A16207", // 茶色（歴史と同じ社会系）
 };
 
-type ValidHour = 6 | 7 | 16 | 17 | 18 | 19 | 20 | 21;
-const VALID_HOURS: readonly ValidHour[] = [6, 7, 16, 17, 18, 19, 20, 21] as const;
-const HOUR_LABELS: Record<ValidHour, string> = {
+export type ValidHour = 6 | 7 | 16 | 17 | 18 | 19 | 20 | 21;
+export const VALID_HOURS: readonly ValidHour[] = [6, 7, 16, 17, 18, 19, 20, 21] as const;
+export const HOUR_LABELS: Record<ValidHour, string> = {
   6: '朝6時',
   7: '朝7時',
   16: '夕方4時',
@@ -740,11 +738,7 @@ async function handleFollow(event: LineEvent): Promise<void> {
       messages: [
         {
           type: 'text',
-          text: 'はじめまして！公式LINEに登録してくれてありがとうございます😊',
-        },
-        {
-          type: 'text',
-          text: '早速だけど、いくつか質問させてください。すぐに終わります！\n\nまずは、学年を教えてね。\n（保護者の方は、お子様の学年を教えてください）',
+          text: 'はじめまして！公式LINEに登録してくれてありがとうございます😊\n\n早速だけど、3つだけ質問させてください。すぐに終わります！\n\nまずは、学年を教えてね。\n（保護者の方は、お子様の学年を教えてください）',
         },
         buildGradeSelectMessage(),
       ],
@@ -3428,13 +3422,26 @@ async function handleSelectTimePostback(
         })
       : null;
 
-  await selectAndSendQuestion(uid, {
-    replyToken,
-    introText: getInitialFirstQuestionIntro(hourLabel, nickname),
-    trailingText: getInitialFirstQuestionTrailing(hourLabel, nickname),
-    isInitialSetup: true,
-    prependMessages: summaryFlex ? [summaryFlex as LineMessage] : undefined,
-  });
+  // 配信時間設定時はサマリー flex（「出題範囲を設定する」LIFF ボタン付き）だけを返す。
+  // 1問目は LIFF で testScope が初めて保存されたタイミングで `onTestScopeFirstSet`
+  // トリガから push する（範囲を設定しなかった場合は翌日の dailyQuiz で配信）。
+  try {
+    const client = await getLineClient();
+    const replyMessages: messagingApi.Message[] = summaryFlex
+      ? [summaryFlex as unknown as messagingApi.Message]
+      : [
+          {
+            type: 'text',
+            text: `設定完了！明日から${hourLabel}に1問お届けします。`,
+          },
+        ];
+    await client.replyMessage({ replyToken, messages: replyMessages });
+  } catch (error) {
+    console.error(
+      '[lineWebhook] handleSelectTimePostback reply failed:',
+      error
+    );
+  }
 }
 
 async function handleAnswerPostback(
@@ -3551,6 +3558,15 @@ async function handleAnswerPostback(
   const askNicknameFlex =
     isFirstAnswer && !hasNickname ? buildAskNicknameFlex() : null;
 
+  // 初回回答 AND 無料 × プレミアム対応学年（中1/中2）→ プレミアム無料お試し案内を末尾に積む。
+  // 中3 はプレミアム未対応のため出さない。プレミアム既加入者にも出さない。
+  const plan = getUserPlan(currentUserData);
+  const gradePremiumEligible = isPremiumEligibleGrade(currentUserData?.grade);
+  const firstAnswerPremiumFlex =
+    isFirstAnswer && plan === 'free' && gradePremiumEligible
+      ? buildPremiumNudgeFlexMessage('first_answer')
+      : null;
+
   try {
     const client = await getLineClient();
     const replyMessages: LineMessage[] = [
@@ -3560,6 +3576,9 @@ async function handleAnswerPostback(
     ];
     if (askNicknameFlex) {
       replyMessages.push(askNicknameFlex as LineMessage);
+    }
+    if (firstAnswerPremiumFlex) {
+      replyMessages.push(firstAnswerPremiumFlex as LineMessage);
     }
     await client.replyMessage({
       replyToken,

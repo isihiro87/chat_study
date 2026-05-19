@@ -25,6 +25,7 @@ export { onPremiumApplicationCreated } from "./onPremiumApplicationCreated";
 export { syncRichMenuToPlan } from "./syncRichMenuToPlan";
 export { expireTrialUsers } from "./expireTrialUsers";
 export { remindIncompleteOnboarding } from "./remindIncompleteOnboarding";
+export { onTestScopeFirstSet } from "./onTestScopeFirstSet";
 export { stripeWebhook } from "./stripeWebhook";
 
 const LINE_LOGIN_CHANNEL_ID = process.env.LINE_LOGIN_CHANNEL_ID || "";
