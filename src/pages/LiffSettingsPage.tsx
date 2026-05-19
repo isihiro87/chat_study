@@ -50,7 +50,9 @@ const HOURS: { value: PreferredHour; label: string }[] = [
   { value: 20, label: '夜8時' },
 ];
 
-const CONTACT_URL = 'https://www.chatstudy.jp/contact';
+// LIFF お問い合わせフォーム。同一ドメイン内の /liff/contact に飛ばすことで、
+// 既に LIFF 認証済みのセッションを引き継いだまま遷移できる。
+const CONTACT_URL = '/liff/contact';
 // LIFF /premium-info に同一ドメイン内で遷移。LIFF endpoint は LINE Developers Console で
 // /liff/premium-info にマップ済（VITE_LIFF_ID_PREMIUM_INFO）
 const PREMIUM_INFO_URL = '/liff/premium-info';
@@ -477,8 +479,6 @@ export function LiffSettingsPage() {
           <div className="flex flex-col gap-2">
             <a
               href={CONTACT_URL}
-              target="_blank"
-              rel="noopener noreferrer"
               className="block w-full text-center bg-white border border-gray-200 hover:border-amber-300 rounded-full py-3 text-sm font-medium text-gray-700"
               style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
             >

@@ -66,6 +66,11 @@ const LiffNicknamePage = lazyWithRetry(() =>
     default: m.LiffNicknamePage,
   }))
 );
+const LiffContactPage = lazyWithRetry(() =>
+  import('../pages/LiffContactPage').then((m) => ({
+    default: m.LiffContactPage,
+  }))
+);
 const LineCallbackPage = lazyWithRetry(() =>
   import('../pages/LineCallbackPage').then((m) => ({
     default: m.LineCallbackPage,
@@ -101,6 +106,7 @@ function LineAuthGuard() {
         <Route path="/liff/premium-apply" element={<LiffPremiumApplyPage />} />
         <Route path="/liff/help" element={<LiffHelpPage />} />
         <Route path="/liff/nickname" element={<LiffNicknamePage />} />
+        <Route path="/liff/contact" element={<LiffContactPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Suspense>

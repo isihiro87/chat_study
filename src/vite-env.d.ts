@@ -12,6 +12,7 @@ interface ImportMetaEnv {
   readonly VITE_LINE_AUTH_FN_URL: string;
   readonly VITE_PREMIUM_CHECKOUT_FN_URL?: string;
   readonly VITE_PREMIUM_PROMO_END_AT?: string;
+  readonly VITE_CONTACT_FN_URL?: string;
 }
 
 interface ImportMeta {

@@ -29,6 +29,7 @@ export { onTestScopeFirstSet } from './onTestScopeFirstSet';
 export { stripeWebhook } from './stripeWebhook';
 export { createStripeCheckoutSession } from './createStripeCheckoutSession';
 export { cancelStripeSubscription } from './cancelStripeSubscription';
+export { submitContactForm } from './submitContactForm';
 
 // 休眠ユーザー除外システム + Win-back（§B, §C）
 export { recalculateUserStatuses } from './recalculateUserStatuses';
