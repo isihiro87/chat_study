@@ -3,7 +3,12 @@ import { usePremiumPromoCountdown } from '../hooks/usePremiumPromoCountdown';
 import { logFunnelEvent } from '../utils/funnelEvent';
 import { useAuth } from '../contexts/AuthContext';
 
-const CONTACT_URL = 'https://www.chatstudy.jp/contact';
+// お問い合わせは LIFF Contact ページ（line.chatstudy.jp/liff/contact）に集約。
+// 旧 www.chatstudy.jp/contact は Web 版に当該ルートがなく 404 になる。
+const LIFF_ID_CONTACT = import.meta.env.VITE_LIFF_ID_CONTACT as string | undefined;
+const CONTACT_URL = LIFF_ID_CONTACT
+  ? `https://liff.line.me/${LIFF_ID_CONTACT}`
+  : 'https://line.chatstudy.jp/liff/contact';
 const APPLY_PATH = '/liff/premium-apply';
 const PARENTS_LP_URL = 'https://www.chatstudy.jp/for-parents';
 const PROMO_PRICE_YEN = 680;

@@ -9,6 +9,8 @@ import {
   getAlreadyDeliveredText,
   isDayStreakMilestone,
 } from './messageVariations';
+import { recordPushDelivery } from './deliveryStats';
+import type { PushType } from './deliveryStatsTypes';
 
 interface LineEvent {
   type: string;
@@ -387,7 +389,11 @@ export function isPremiumEligibleGrade(grade: unknown): boolean {
 export const PREMIUM_NOT_YET_AVAILABLE_TEXT =
   '中3向けのプレミアム機能は現在準備中です。\n中3は無料プランで毎日1問と記録機能をお楽しみください。準備ができ次第お知らせします。';
 
-const CONTACT_URL = 'https://www.chatstudy.jp/contact';
+// お問い合わせ導線は LIFF /liff/contact（LIFF SDK 経由で line.chatstudy.jp に飛ぶ）。
+// 旧: https://www.chatstudy.jp/contact は Web 版に当該ページがなく 404 になっていた。
+const LIFF_CONTACT_URL =
+  process.env.LIFF_CONTACT_URL ?? 'https://liff.line.me/2009587166-JG4bBwd2';
+const CONTACT_URL = LIFF_CONTACT_URL;
 
 // LIFF URL（functions/.env で上書き可能、未設定なら known good fallback）
 const LIFF_REPORT_URL =
@@ -603,7 +609,7 @@ async function handleRestartIntent(
   }
 
   try {
-    await selectAndSendQuestion(uid);
+    await selectAndSendQuestion(uid, { pushType: 'restartWelcome' });
   } catch (error) {
     console.error('[lineWebhook] restart selectAndSendQuestion failed:', error);
   }
@@ -1709,7 +1715,7 @@ function buildSettingsMenuFlexMessage() {
             action: {
               type: 'uri' as const,
               label: '問い合わせ',
-              uri: 'https://www.chatstudy.jp/contact',
+              uri: CONTACT_URL,
             },
           },
           {
@@ -2665,9 +2671,11 @@ export function buildNextStepGuideFlex(
 }
 
 /**
- * 体験中ユーザーに「今登録すれば 月¥680 永続、1週間後の通常価格は 月¥980」を訴求する flex。
+ * 体験中ユーザーに「今登録すれば、ずっと月¥680のまま」を訴求する flex。
+ * 1週間後の通常価格は月¥980。
  *
- * - 初回: 最初の `追加で解く` 後 (handleExtraQuestionPostback) で `jikkuri` ガイドの直後に同梱
+ * - 初回: 最初の `追加で解く` 後に1問回答 → じっくり学ぶ案内 → 60秒後にこの flex
+ *   （onAnswerCreated.maybeSendFirstExtraFollowup から push）
  * - 定期: trialDripDay4 などからも push される (場面別に reason で文言を出し分け)
  *
  * footer は「今すぐ登録 → /liff/premium-apply」+「詳細を見る → /liff/premium-info」
@@ -2684,7 +2692,7 @@ export function buildPriceLockPitchFlex(opts?: {
   const source = opts?.source ?? 'price_lock_pitch';
   return {
     type: 'flex' as const,
-    altText: '今登録すれば月¥680が永続。1週間後は通常価格の月¥980になります。',
+    altText: '今登録すれば、ずっと月¥680のまま！1週間後の通常価格(月¥980)に上がらず続けられます。',
     contents: {
       type: 'bubble' as const,
       size: 'kilo' as const,
@@ -2696,7 +2704,7 @@ export function buildPriceLockPitchFlex(opts?: {
         contents: [
           {
             type: 'text' as const,
-            text: '💰 価格ロックのお知らせ',
+            text: '🔒 ずっと月¥680のまま！',
             color: '#FFFFFF',
             weight: 'bold' as const,
             size: 'sm' as const,
@@ -2733,7 +2741,7 @@ export function buildPriceLockPitchFlex(opts?: {
               },
               {
                 type: 'text' as const,
-                text: '月 ¥680 が永続で続きます',
+                text: 'ずっと月¥680のまま！',
                 weight: 'bold' as const,
                 size: 'md' as const,
                 color: '#92400E',
@@ -2930,17 +2938,10 @@ export function buildTrialStartedFlexMessage() {
               displayText: '追加で解く',
             },
           },
-          {
-            type: 'button' as const,
-            style: 'secondary' as const,
-            height: 'sm' as const,
-            action: {
-              type: 'uri' as const,
-              label: 'じっくり学ぶを開く',
-              uri: LIFF_UNITS_URL,
-            },
-          },
-          // A-3: 苦手を復習 CTA を追加（trial 開始時に 3 機能すべてに動線を作る）
+          // 「じっくり学ぶを開く」ボタンは意図的に削除。
+          // 「追加で解く → 1問回答 → じっくり学ぶ案内 → 1分後に特別価格案内」の
+          // ステップを順番に体験してもらう設計に変更（D-15）。
+          // 苦手を復習 CTA は残す（trial 開始時に 3 機能すべてに動線を作る）。
           {
             type: 'button' as const,
             style: 'secondary' as const,
@@ -2960,6 +2961,118 @@ export function buildTrialStartedFlexMessage() {
             color: '#9CA3AF',
             align: 'center' as const,
             margin: 'sm' as const,
+          },
+        ],
+      },
+    },
+  };
+}
+
+export function buildPaidStartedFlexMessage(lockedMonthlyPrice?: 680 | 980) {
+  const priceText = lockedMonthlyPrice
+    ? `月¥${lockedMonthlyPrice.toLocaleString()}`
+    : '月額プラン';
+
+  return {
+    type: 'flex' as const,
+    altText: 'プレミアム登録ありがとうございます - チャットでスタディ',
+    contents: {
+      type: 'bubble' as const,
+      size: 'mega' as const,
+      header: {
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        backgroundColor: '#F59E0B',
+        paddingAll: '14px',
+        contents: [
+          {
+            type: 'text' as const,
+            text: '✨ プレミアム登録完了',
+            color: '#FFFFFF',
+            weight: 'bold' as const,
+            size: 'md' as const,
+          },
+          {
+            type: 'text' as const,
+            text: `${priceText}でご利用いただけます`,
+            color: '#FFF7E6',
+            size: 'xs' as const,
+            margin: 'xs' as const,
+          },
+        ],
+      },
+      body: {
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        paddingAll: '16px',
+        contents: [
+          {
+            type: 'text' as const,
+            text: 'お申し込みありがとうございます',
+            wrap: true,
+            size: 'sm' as const,
+            color: '#111827',
+            weight: 'bold' as const,
+          },
+          {
+            type: 'text' as const,
+            text: 'プレミアム機能をそのまま継続して使えるようになりました。毎日の1問に加えて、追加問題・苦手復習・じっくり学ぶをテスト前の復習に活用してください。',
+            wrap: true,
+            size: 'xs' as const,
+            color: '#374151',
+            margin: 'sm' as const,
+          },
+          {
+            type: 'separator' as const,
+            margin: 'md' as const,
+          },
+          {
+            type: 'text' as const,
+            text: '解約について',
+            wrap: true,
+            size: 'sm' as const,
+            color: '#111827',
+            weight: 'bold' as const,
+            margin: 'md' as const,
+          },
+          {
+            type: 'text' as const,
+            text: '解約したい場合は、リッチメニューの「設定・サポート」からご連絡ください。次回請求日前に確認できるよう、余裕をもってお知らせください。',
+            wrap: true,
+            size: 'xs' as const,
+            color: '#4B5563',
+            margin: 'sm' as const,
+          },
+        ],
+      },
+      footer: {
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        spacing: 'sm' as const,
+        paddingAll: '16px',
+        contents: [
+          {
+            type: 'button' as const,
+            style: 'primary' as const,
+            color: '#F59E0B',
+            height: 'sm' as const,
+            action: {
+              type: 'postback' as const,
+              label: '追加で解く',
+              data: 'type=extra_question',
+              displayText: '追加で解く',
+            },
+          },
+          {
+            type: 'button' as const,
+            style: 'secondary' as const,
+            height: 'sm' as const,
+            action: {
+              type: 'postback' as const,
+              label: '設定・サポートを見る',
+              data: 'type=settings_menu',
+              displayText: '設定・サポート',
+            },
           },
         ],
       },
@@ -3288,7 +3401,10 @@ async function handleExtraQuestionPostback(
     return;
   }
 
-  // 初回利用ならフォローアップ flex（じっくり学ぶへの誘導）を末尾に積む。
+  // 初回利用フラグだけ記録する。
+  // 旧フローでは jikkuri / 価格ロック flex をこの1問送信時に同梱していたが、
+  // D-15 で「1問回答 → じっくり学ぶ案内 → 1分後に特別価格案内」の段階送信に変更。
+  // 同梱送信は onAnswerCreated.maybeSendFirstExtraFollowup に移動した。
   const isFirstExtraQuestion = !userData?.firstExtraQuestionAt;
   if (isFirstExtraQuestion) {
     try {
@@ -3304,30 +3420,10 @@ async function handleExtraQuestionPostback(
     }
   }
 
-  // 初回利用時は jikkuri 案内に加えて、無料体験中 (planSource='trial') なら
-  // 価格ロック特典の訴求 flex も同梱する。「追加で解く・じっくり学ぶ説明後」が
-  // 初回 pitch の指定タイミング。既に paid 契約済みの場合は重複訴求にならないよう除外。
-  const appendOnFirst: LineMessage[] = [];
-  if (isFirstExtraQuestion) {
-    appendOnFirst.push(buildNextStepGuideFlex('jikkuri') as LineMessage);
-    const planSource =
-      typeof userData?.planSource === 'string' ? userData.planSource : '';
-    if (planSource === 'trial') {
-      appendOnFirst.push(
-        buildPriceLockPitchFlex({
-          introText:
-            '「追加で解く」と「じっくり学ぶ」、両方ともゆっくり試してみてね。気に入ったら、今のうちに登録しておくとお得だよ。',
-          source: 'first_extra_question',
-        }) as LineMessage
-      );
-    }
-  }
-
   await selectAndSendQuestion(uid, {
     replyToken,
     introText: getExtraQuestionIntro(),
     bypassDailyLimit: true,
-    appendMessages: appendOnFirst.length > 0 ? appendOnFirst : undefined,
   });
 }
 
@@ -4003,6 +4099,8 @@ interface SendOptions {
   prependMessages?: LineMessage[];
   /** 問題と trailingText の後ろに差し込みたい flex/text。初回『追加で解く』のフォローアップ等に使う。 */
   appendMessages?: LineMessage[];
+  /** push 経路で deliveryStats に記録する種別。replyMessage 時は計上しない。 */
+  pushType?: PushType;
 }
 
 const RECENT_QUESTION_LIMIT = 10;
@@ -4019,6 +4117,7 @@ export async function selectAndSendQuestion(
     bypassDailyLimit,
     prependMessages,
     appendMessages,
+    pushType = 'dailyQuiz',
   } = options;
   const { db, FieldValue } = await getDb();
 
@@ -4263,6 +4362,7 @@ export async function selectAndSendQuestion(
         return;
       }
       await client.pushMessage({ to: lineUserId, messages: sdkMessages });
+      await recordPushDelivery(pushType);
     }
   } catch (error) {
     console.error('[lineWebhook] selectAndSendQuestion send failed:', error);
