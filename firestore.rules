@@ -63,7 +63,10 @@ service cloud.firestore {
           'grade',
           'preferredHour',
           'status',
-          'createdAt'
+          'createdAt',
+          // セールスコピー対応で追加: 申込経路と保護者フラグ
+          'source',
+          'parentInitiated'
         ])
         && request.resource.data.keys().hasAll([
           'applicationType',
@@ -78,6 +81,14 @@ service cloud.firestore {
         && (!('subject' in request.resource.data) || request.resource.data.subject == null || request.resource.data.subject in ['history', 'english'])
         && (!('grade' in request.resource.data) || request.resource.data.grade == null || request.resource.data.grade in ['中1', '中2', '中3'])
         && (!('preferredHour' in request.resource.data) || request.resource.data.preferredHour == null || request.resource.data.preferredHour in [6, 7, 16, 18, 20])
+        && (!('source' in request.resource.data) || request.resource.data.source in [
+          'trial-day0', 'trial-day1', 'trial-day3', 'trial-day6',
+          'trial-day7-morning', 'trial-day7-evening', 'trial-day7-night',
+          'post-trial-day8', 'post-trial-day15', 'post-trial-day30',
+          'winback-day7', 'winback-day14',
+          'first-answer', 'milestone', 'other'
+        ])
+        && (!('parentInitiated' in request.resource.data) || request.resource.data.parentInitiated is bool)
         && request.resource.data.createdAt is timestamp;
       allow read, update, delete: if isAdmin();
     }

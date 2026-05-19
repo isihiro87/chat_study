@@ -37,6 +37,13 @@ interface NudgeContext {
   nextStreakCurrent: number;
   userPlan: "free" | "premium";
   lastPremiumNudgeAtMs: number | null;
+  /**
+   * first_answer flex を既に送信したかどうか。送信済みなら null 以外。
+   * Firestore トリガは at-least-once 配信のため、`prevTotalAnswered === 0`
+   * の判定だけでは同じ first_answer flex が重複送信される可能性がある。
+   * このフラグで生涯 1 回限りを保証する。
+   */
+  firstAnswerNudgeSentAtMs: number | null;
 }
 
 async function maybeSendPremiumNudge(ctx: NudgeContext): Promise<void> {
@@ -48,6 +55,16 @@ async function maybeSendPremiumNudge(ctx: NudgeContext): Promise<void> {
   // それ以降は通常の milestone cooldown 制御に従う。
   const isFirstAnswer =
     ctx.prevTotalAnswered === 0 && ctx.nextTotalAnswered === 1;
+
+  // first_answer は生涯 1 回限り。Firestore トリガの at-least-once 配信や
+  // テスト時の並列実行で重複送信される問題を防ぐ。
+  if (isFirstAnswer && ctx.firstAnswerNudgeSentAtMs !== null) {
+    console.log(
+      `[onAnswerCreated] skip first_answer nudge uid=${ctx.uid} ` +
+        `(already sent at ${new Date(ctx.firstAnswerNudgeSentAtMs).toISOString()})`
+    );
+    return;
+  }
 
   if (!isFirstAnswer && ctx.lastPremiumNudgeAtMs !== null) {
     const elapsed = Date.now() - ctx.lastPremiumNudgeAtMs;
@@ -105,9 +122,14 @@ async function maybeSendPremiumNudge(ctx: NudgeContext): Promise<void> {
       initializeApp();
     }
     const db = getFirestore();
-    await db
-      .doc(`users/${ctx.uid}`)
-      .set({ lastPremiumNudgeAt: FieldValue.serverTimestamp() }, { merge: true });
+    const updates: Record<string, unknown> = {
+      lastPremiumNudgeAt: FieldValue.serverTimestamp(),
+    };
+    // first_answer は生涯 1 回限りなので専用フィールドにも記録
+    if (reason === "first_answer") {
+      updates.firstAnswerNudgeSentAt = FieldValue.serverTimestamp();
+    }
+    await db.doc(`users/${ctx.uid}`).set(updates, { merge: true });
   } catch (error) {
     console.error(
       "[onAnswerCreated] lastPremiumNudgeAt update failed (next milestone retry):",
@@ -241,6 +263,18 @@ export const onAnswerCreated = functions
           lastNudge && typeof lastNudge.toDate === "function"
             ? lastNudge.toDate().getTime()
             : null;
+
+        // first_answer 重複送信防止用のフラグ（生涯 1 回限り）
+        const firstAnswerNudgeRaw = userData.firstAnswerNudgeSentAt as
+          | { toDate?: () => Date }
+          | undefined
+          | null;
+        const firstAnswerNudgeSentAtMs =
+          firstAnswerNudgeRaw &&
+          typeof firstAnswerNudgeRaw.toDate === "function"
+            ? firstAnswerNudgeRaw.toDate().getTime()
+            : null;
+
         const lineUserId =
           typeof userData.lineUserId === "string" ? userData.lineUserId : "";
 
@@ -253,6 +287,7 @@ export const onAnswerCreated = functions
           nextStreakCurrent: nextStreak.current,
           userPlan: getUserPlan(userData),
           lastPremiumNudgeAtMs,
+          firstAnswerNudgeSentAtMs,
         };
       });
       console.log(`[onAnswerCreated] updated users/${uid}.stats`);
