@@ -2210,11 +2210,40 @@ function buildPremiumInfoFlexMessage() {
   };
 }
 
+/**
+ * LIFF /liff/units の deep-link URL を組み立てる。
+ * `?topic=<細かい日本語名>&kind=fc|quiz` を付けると、LiffUnitsPage 側で
+ * 該当 topic の setup view へ自動遷移する。
+ */
+function buildLiffUnitsDeepLink(
+  topicName: string,
+  kind: 'fc' | 'quiz',
+  source: string
+): string {
+  try {
+    const u = new URL(LIFF_UNITS_URL);
+    u.searchParams.set('topic', topicName);
+    u.searchParams.set('kind', kind);
+    u.searchParams.set('src', source);
+    return u.toString();
+  } catch {
+    const joiner = LIFF_UNITS_URL.includes('?') ? '&' : '?';
+    return `${LIFF_UNITS_URL}${joiner}topic=${encodeURIComponent(topicName)}&kind=${kind}&src=${encodeURIComponent(source)}`;
+  }
+}
+
 function buildPostAnswerNextStepFlexMessage(options: {
   hourLabel: string;
   dayStreak: number;
   totalAnswered: number;
+  /** プレミアム会員（trial 含む）には解説直後に「じっくり学ぶ」への deep-link を載せる */
+  isPremium: boolean;
+  /** 今回の問題のトピック名（細かい日本語）。premium のときだけ deep-link に使う */
+  topicName?: string;
 }) {
+  const showStudyDeepLinks =
+    options.isPremium && !!options.topicName && options.topicName.length > 0;
+
   return {
     type: 'flex' as const,
     altText: `明日も${options.hourLabel}に1問お届けします`,
@@ -2284,6 +2313,54 @@ function buildPostAnswerNextStepFlexMessage(options: {
           },
         ],
       },
+      ...(showStudyDeepLinks
+        ? {
+            footer: {
+              type: 'box' as const,
+              layout: 'vertical' as const,
+              spacing: 'sm' as const,
+              paddingAll: '16px',
+              contents: [
+                {
+                  type: 'text' as const,
+                  text: 'この分野をもっと深めるなら👇',
+                  size: 'xxs' as const,
+                  color: '#6B7280',
+                  align: 'center' as const,
+                },
+                {
+                  type: 'button' as const,
+                  style: 'primary' as const,
+                  color: '#F59E0B',
+                  height: 'sm' as const,
+                  action: {
+                    type: 'uri' as const,
+                    label: '📚 暗記カードを進める',
+                    uri: buildLiffUnitsDeepLink(
+                      options.topicName!,
+                      'fc',
+                      'post_answer'
+                    ),
+                  },
+                },
+                {
+                  type: 'button' as const,
+                  style: 'secondary' as const,
+                  height: 'sm' as const,
+                  action: {
+                    type: 'uri' as const,
+                    label: '❓ 四択クイズを進める',
+                    uri: buildLiffUnitsDeepLink(
+                      options.topicName!,
+                      'quiz',
+                      'post_answer'
+                    ),
+                  },
+                },
+              ],
+            },
+          }
+        : {}),
     },
   };
 }
@@ -2488,6 +2565,14 @@ export function buildNextStepGuideFlex(
               size: 'xs' as const,
               color: '#374151',
             },
+            {
+              type: 'text' as const,
+              text: '💡 これからは下のメニューの「じっくり学ぶ」ボタンを押せばいつでも開けるよ！',
+              wrap: true,
+              size: 'xxs' as const,
+              color: '#92400E',
+              margin: 'sm' as const,
+            },
           ],
         },
         footer: {
@@ -2545,6 +2630,14 @@ export function buildNextStepGuideFlex(
             wrap: true,
             size: 'xs' as const,
             color: '#374151',
+          },
+          {
+            type: 'text' as const,
+            text: '💡 下のメニューの「苦手を復習」ボタンからもいつでもできるよ！',
+            wrap: true,
+            size: 'xxs' as const,
+            color: '#92400E',
+            margin: 'sm' as const,
           },
         ],
       },
@@ -2647,11 +2740,32 @@ export function buildTrialStartedFlexMessage() {
         contents: [
           {
             type: 'text' as const,
+            text: '申込ありがとう！🎉',
+            wrap: true,
+            size: 'sm' as const,
+            color: '#111827',
+            weight: 'bold' as const,
+          },
+          {
+            type: 'text' as const,
+            text: 'これから7日間、思いっきり問題を解いて勉強の習慣をつくっていこう。テストや受験に向けて一緒にがんばっていこうね📚',
+            wrap: true,
+            size: 'xs' as const,
+            color: '#374151',
+            margin: 'sm' as const,
+          },
+          {
+            type: 'separator' as const,
+            margin: 'md' as const,
+          },
+          {
+            type: 'text' as const,
             text: '下のボタンから、順番に試してみよう👇',
             wrap: true,
             size: 'sm' as const,
             color: '#111827',
             weight: 'bold' as const,
+            margin: 'md' as const,
           },
           step(
             '①',
@@ -3644,10 +3758,14 @@ async function handleAnswerPostback(
     VALID_HOURS.includes(preferredHour as ValidHour)
       ? HOUR_LABELS[preferredHour as ValidHour]
       : 'いつもの時間';
+  const plan = getUserPlan(currentUserData);
+  const gradePremiumEligible = isPremiumEligibleGrade(currentUserData?.grade);
   const nextStepFlex = buildPostAnswerNextStepFlexMessage({
     hourLabel,
     dayStreak,
     totalAnswered: recentAnswers.length + 1,
+    isPremium: plan === 'premium',
+    topicName: question.topic,
   });
 
   // 初回回答 AND nickname 未設定 → 「ニックネーム教えて」flex を末尾に積む。
@@ -3661,8 +3779,6 @@ async function handleAnswerPostback(
 
   // 初回回答 AND 無料 × プレミアム対応学年（中1/中2）→ プレミアム無料お試し案内を末尾に積む。
   // 中3 はプレミアム未対応のため出さない。プレミアム既加入者にも出さない。
-  const plan = getUserPlan(currentUserData);
-  const gradePremiumEligible = isPremiumEligibleGrade(currentUserData?.grade);
   const firstAnswerPremiumFlex =
     isFirstAnswer && plan === 'free' && gradePremiumEligible
       ? buildPremiumNudgeFlexMessage('first_answer')

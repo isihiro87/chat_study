@@ -1,5 +1,5 @@
-import { useEffect, useMemo, useState } from 'react';
-import { Navigate } from 'react-router-dom';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { Navigate, useSearchParams } from 'react-router-dom';
 import { doc, setDoc, serverTimestamp } from 'firebase/firestore/lite';
 import { db } from '../firebase/config';
 import { useAuth } from '../contexts/AuthContext';
@@ -145,6 +145,18 @@ export function LiffUnitsPage() {
     import.meta.env.VITE_LIFF_ID_UNITS as string | undefined
   );
 
+  // 公式LINE の解説 flex から `?topic=<細かい日本語名>&kind=fc|quiz` で開かれた場合に、
+  // そのトピックの setup view へ自動遷移する。一致するトピックが見つからなければ
+  // 通常通り list view を表示する（フォールバック）。
+  const [searchParams] = useSearchParams();
+  const deepLinkTopicName = searchParams.get('topic');
+  const deepLinkKindRaw = searchParams.get('kind');
+  const deepLinkKind: SetupKind | null =
+    deepLinkKindRaw === 'fc' || deepLinkKindRaw === 'quiz'
+      ? deepLinkKindRaw
+      : null;
+  const deepLinkAppliedRef = useRef(false);
+
   const [view, setView] = useState<ViewMode>('list');
   const [currentTopic, setCurrentTopic] = useState<StudyTopic | null>(null);
   const [setupKind, setSetupKind] = useState<SetupKind>('fc');
@@ -266,6 +278,39 @@ export function LiffUnitsPage() {
   }, [selectedGrade]);
 
   const allEras: StudyEra[] = useMemo(() => historyEras ?? [], [historyEras]);
+
+  // 公式LINE の post-answer flex からの deep-link 適用。historyEras がロードされた
+  // タイミングでトピック名が一致するものを探し、見つかれば setup view へ遷移する。
+  // 一度だけ走らせるため deepLinkAppliedRef でガード。
+  useEffect(() => {
+    if (deepLinkAppliedRef.current) return;
+    if (!deepLinkTopicName || !deepLinkKind) return;
+    if (historyEras === null) return; // まだロード中
+    const topic = historyEras
+      .flatMap((e) => e.topics)
+      .find((t) => t.name === deepLinkTopicName);
+    if (!topic) {
+      // 別学年の topic 等で見つからない場合は list view にフォールバック
+      deepLinkAppliedRef.current = true;
+      return;
+    }
+    deepLinkAppliedRef.current = true;
+    setCurrentTopic(topic);
+    setSetupKind(deepLinkKind);
+    setView('setup');
+    setSessionSeenFcIds(new Set());
+    setSessionSeenQuizIds(new Set());
+    // itemStats を非同期ロード（setup view は load 完了前でも描画可）
+    const cached = allItemStats.get(topic.topicId);
+    if (cached) {
+      setItemStats(cached);
+    } else {
+      void (async () => {
+        const stats = await loadItemStats(topic.topicId);
+        setItemStats(stats);
+      })();
+    }
+  }, [historyEras, deepLinkTopicName, deepLinkKind, allItemStats]);
 
   const filteredEras: StudyEra[] = useMemo(() => {
     if (!scopeFilterOn || testScopeTopics.size === 0) {

@@ -19,8 +19,9 @@ type PreferredHour = 6 | 7 | 16 | 18 | 20;
 type Plan = 'free' | 'premium';
 const NICKNAME_MAX_LEN = 20;
 
+// 英語コンテンツは未配信のため、現状の設定ページでは「歴史」のみ選択可能。
+// 配信開始時に { id: 'english', label: '英語', emoji: '🔤' } を再追加する。
 const SUBJECTS: { id: Subject; label: string; emoji: string }[] = [
-  { id: 'english', label: '英語', emoji: '🔤' },
   { id: 'history', label: '歴史', emoji: '⏳' },
 ];
 
