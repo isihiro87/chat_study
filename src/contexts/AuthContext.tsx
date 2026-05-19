@@ -46,7 +46,7 @@ export interface UserDocStudyPrefs {
 }
 
 export type PlanSource = 'trial' | 'paid' | 'trial_expired' | null;
-export type PreferredHour = 6 | 7 | 16 | 17 | 18 | 19 | 20 | 21 | null;
+export type PreferredHour = 6 | 7 | 16 | 18 | 20 | null;
 
 /**
  * `users/{uid}` の主要フィールドを LIFF 各ページで使いやすい形に整形したもの。
@@ -127,11 +127,8 @@ function parseUserDoc(uid: string, data: Record<string, unknown>): UserDoc {
     rawHour === 6 ||
     rawHour === 7 ||
     rawHour === 16 ||
-    rawHour === 17 ||
     rawHour === 18 ||
-    rawHour === 19 ||
-    rawHour === 20 ||
-    rawHour === 21
+    rawHour === 20
       ? rawHour
       : null;
 

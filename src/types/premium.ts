@@ -12,7 +12,7 @@ export type PremiumApplicationStatus =
 
 export type ApplicationSubject = 'history' | 'english';
 export type ApplicationGrade = '中1' | '中2' | '中3';
-export type ApplicationPreferredHour = 6 | 7 | 17 | 19;
+export type ApplicationPreferredHour = 6 | 7 | 16 | 18 | 20;
 export type PremiumApplicationType = 'trial_start';
 
 /**

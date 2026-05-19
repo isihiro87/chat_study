@@ -59,8 +59,9 @@ const HOURS: {
 }[] = [
   { value: 6, label: '朝6時', note: '登校前に1問' },
   { value: 7, label: '朝7時', note: '朝の準備後に' },
-  { value: 17, label: '夕方5時', note: '帰宅後すぐ' },
-  { value: 19, label: '夜7時', note: '夕食前後に' },
+  { value: 16, label: '夕方4時', note: '帰宅後すぐ' },
+  { value: 18, label: '夕方6時', note: '夕食前後に' },
+  { value: 20, label: '夜8時', note: '就寝前のおさらいに' },
 ];
 
 function buildCheckoutUrl(baseUrl: string, userUid: string): string {
@@ -137,7 +138,7 @@ export function LiffPremiumApplyPage() {
       plan,
       planSource,
     });
-    setSelectedHour((current) => current ?? preferredHour ?? 19);
+    setSelectedHour((current) => current ?? preferredHour ?? 18);
     // 無料トライアル中（plan=premium かつ planSource=trial）は本契約 UI へ進める
     if (plan === 'premium' && planSource === 'trial') {
       setStatus('ready');

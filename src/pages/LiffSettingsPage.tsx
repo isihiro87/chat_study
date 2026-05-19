@@ -15,7 +15,7 @@ const GRADE_NUM_TO_LABEL = (g: 1 | 2 | 3 | null): GradeLabel | null => {
 
 type Subject = 'history' | 'english';
 type GradeLabel = '中1' | '中2' | '中3';
-type PreferredHour = 6 | 7 | 16 | 17 | 18 | 19 | 20 | 21;
+type PreferredHour = 6 | 7 | 16 | 18 | 20;
 type Plan = 'free' | 'premium';
 const NICKNAME_MAX_LEN = 20;
 
@@ -34,11 +34,8 @@ const HOURS: { value: PreferredHour; label: string }[] = [
   { value: 6, label: '朝6時' },
   { value: 7, label: '朝7時' },
   { value: 16, label: '夕方4時' },
-  { value: 17, label: '夕方5時' },
   { value: 18, label: '夕方6時' },
-  { value: 19, label: '夜7時' },
   { value: 20, label: '夜8時' },
-  { value: 21, label: '夜9時' },
 ];
 
 const CONTACT_URL = 'https://www.chatstudy.jp/contact';

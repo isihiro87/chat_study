@@ -72,7 +72,7 @@ service cloud.firestore {
         && (!('displayName' in request.resource.data) || request.resource.data.displayName is string)
         && (!('subject' in request.resource.data) || request.resource.data.subject == null || request.resource.data.subject in ['history', 'english'])
         && (!('grade' in request.resource.data) || request.resource.data.grade == null || request.resource.data.grade in ['中1', '中2', '中3'])
-        && (!('preferredHour' in request.resource.data) || request.resource.data.preferredHour == null || request.resource.data.preferredHour in [6, 7, 17, 19])
+        && (!('preferredHour' in request.resource.data) || request.resource.data.preferredHour == null || request.resource.data.preferredHour in [6, 7, 16, 18, 20])
         && request.resource.data.createdAt is timestamp;
       allow read, update, delete: if isAdmin();
     }
