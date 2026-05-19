@@ -50,12 +50,21 @@ const HOURS: { value: PreferredHour; label: string }[] = [
   { value: 20, label: '夜8時' },
 ];
 
-// LIFF お問い合わせフォーム。同一ドメイン内の /liff/contact に飛ばすことで、
-// 既に LIFF 認証済みのセッションを引き継いだまま遷移できる。
-const CONTACT_URL = '/liff/contact';
-// LIFF /premium-info に同一ドメイン内で遷移。LIFF endpoint は LINE Developers Console で
-// /liff/premium-info にマップ済（VITE_LIFF_ID_PREMIUM_INFO）
-const PREMIUM_INFO_URL = '/liff/premium-info';
+// LIFF お問い合わせフォーム / プレミアム案内へのリンク。
+// 相対パスにすると、何らかの理由で Settings が www ドメインで開かれた場合に
+// Web 版（LIFF ルート未登録）の NotFoundPage に落ちてしまう。LIFF URL を
+// 明示することで、LINE 内ブラウザでも外部ブラウザでも LIFF SDK 経由で
+// 正しい endpoint URL（line.chatstudy.jp 配下）に遷移する。
+const LIFF_ID_CONTACT = import.meta.env.VITE_LIFF_ID_CONTACT as string | undefined;
+const LIFF_ID_PREMIUM_INFO = import.meta.env.VITE_LIFF_ID_PREMIUM_INFO as
+  | string
+  | undefined;
+const CONTACT_URL = LIFF_ID_CONTACT
+  ? `https://liff.line.me/${LIFF_ID_CONTACT}`
+  : 'https://line.chatstudy.jp/liff/contact';
+const PREMIUM_INFO_URL = LIFF_ID_PREMIUM_INFO
+  ? `https://liff.line.me/${LIFF_ID_PREMIUM_INFO}`
+  : 'https://line.chatstudy.jp/liff/premium-info';
 
 interface UserSettings {
   nickname: string;
