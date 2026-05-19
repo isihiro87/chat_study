@@ -7,7 +7,7 @@ const CONTACT_URL = 'https://www.chatstudy.jp/contact';
 const APPLY_PATH = '/liff/premium-apply';
 const PARENTS_LP_URL = 'https://www.chatstudy.jp/for-parents';
 const PROMO_PRICE_YEN = 680;
-const REGULAR_PRICE_YEN = 1280;
+const REGULAR_PRICE_YEN = 980;
 const CURRENT_SCOPE = '現在は中1・中2の歴史に対応';
 const FUTURE_SCOPE = '対応教科は今後追加予定';
 

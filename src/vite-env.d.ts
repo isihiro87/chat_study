@@ -10,7 +10,7 @@ interface ImportMetaEnv {
   readonly VITE_FIREBASE_MEASUREMENT_ID: string;
   readonly VITE_LINE_LOGIN_CHANNEL_ID: string;
   readonly VITE_LINE_AUTH_FN_URL: string;
-  readonly VITE_PREMIUM_CHECKOUT_URL?: string;
+  readonly VITE_PREMIUM_CHECKOUT_FN_URL?: string;
   readonly VITE_PREMIUM_PROMO_END_AT?: string;
 }
 

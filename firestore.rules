@@ -14,7 +14,12 @@ service cloud.firestore {
         'trialStartedAt',
         'trialExpiredAt',
         'lastTrialReminderAt',
-        'lastPremiumNudgeAt'
+        'lastPremiumNudgeAt',
+        'lockedMonthlyPrice',
+        'stripeCustomerId',
+        'stripeSubscriptionId',
+        'paidStartedAt',
+        'paidEndedAt'
       ]);
     }
 

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { usePremiumPromoCountdown } from '../hooks/usePremiumPromoCountdown';
 
 const PROMO_PRICE_YEN = 680;
-const REGULAR_PRICE_YEN = 1280;
+const REGULAR_PRICE_YEN = 980;
 const CONTACT_URL = 'https://www.chatstudy.jp/contact';
 const DEFAULT_LINE_FRIEND_URL = 'https://line.me/R/ti/p/@chatstudy';
 
