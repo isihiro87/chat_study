@@ -2664,6 +2664,134 @@ export function buildNextStepGuideFlex(
   };
 }
 
+/**
+ * 体験中ユーザーに「今登録すれば 月¥680 永続、1週間後の通常価格は 月¥980」を訴求する flex。
+ *
+ * - 初回: 最初の `追加で解く` 後 (handleExtraQuestionPostback) で `jikkuri` ガイドの直後に同梱
+ * - 定期: trialDripDay4 などからも push される (場面別に reason で文言を出し分け)
+ *
+ * footer は「今すぐ登録 → /liff/premium-apply」+「詳細を見る → /liff/premium-info」
+ */
+export function buildPriceLockPitchFlex(opts?: {
+  /** 文脈に応じた一文。指定なしならデフォルト文言 */
+  introText?: string;
+  /** withLiffSource に渡す src パラメータ (analytics) */
+  source?: string;
+}) {
+  const introText =
+    opts?.introText ??
+    'プレミアム機能、ぜひゆっくり試してみてね。気に入ったら、今のうちに登録しておくとお得だよ。';
+  const source = opts?.source ?? 'price_lock_pitch';
+  return {
+    type: 'flex' as const,
+    altText: '今登録すれば月¥680が永続。1週間後は通常価格の月¥980になります。',
+    contents: {
+      type: 'bubble' as const,
+      size: 'kilo' as const,
+      header: {
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        backgroundColor: '#F59E0B',
+        paddingAll: '12px',
+        contents: [
+          {
+            type: 'text' as const,
+            text: '💰 価格ロックのお知らせ',
+            color: '#FFFFFF',
+            weight: 'bold' as const,
+            size: 'sm' as const,
+          },
+        ],
+      },
+      body: {
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        paddingAll: '16px',
+        spacing: 'sm' as const,
+        contents: [
+          {
+            type: 'text' as const,
+            text: introText,
+            wrap: true,
+            size: 'xs' as const,
+            color: '#374151',
+          },
+          {
+            type: 'box' as const,
+            layout: 'vertical' as const,
+            backgroundColor: '#FEF3C7',
+            cornerRadius: '10px',
+            paddingAll: '12px',
+            margin: 'md' as const,
+            contents: [
+              {
+                type: 'text' as const,
+                text: '✨ 体験中に登録すると…',
+                weight: 'bold' as const,
+                size: 'sm' as const,
+                color: '#92400E',
+              },
+              {
+                type: 'text' as const,
+                text: '月 ¥680 が永続で続きます',
+                weight: 'bold' as const,
+                size: 'md' as const,
+                color: '#92400E',
+                margin: 'sm' as const,
+              },
+              {
+                type: 'text' as const,
+                text: '体験期間が終わった日から課金が始まるので、二重には引き落とされません。',
+                wrap: true,
+                size: 'xxs' as const,
+                color: '#92400E',
+                margin: 'sm' as const,
+              },
+            ],
+          },
+          {
+            type: 'text' as const,
+            text: '⚠ 体験終了後（1週間経過後）は通常価格の 月 ¥980 になります。',
+            wrap: true,
+            size: 'xxs' as const,
+            color: '#6B7280',
+            margin: 'sm' as const,
+          },
+        ],
+      },
+      footer: {
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        spacing: 'sm' as const,
+        paddingAll: '16px',
+        contents: [
+          {
+            type: 'button' as const,
+            style: 'primary' as const,
+            color: '#F59E0B',
+            height: 'sm' as const,
+            action: {
+              type: 'uri' as const,
+              label: '今すぐ月¥680で登録',
+              uri: withLiffSource(LIFF_PREMIUM_APPLY_URL, source),
+            },
+          },
+          {
+            type: 'button' as const,
+            style: 'secondary' as const,
+            height: 'sm' as const,
+            action: {
+              type: 'uri' as const,
+              label: '詳細を見る',
+              uri: withLiffSource(LIFF_PREMIUM_INFO_URL, source),
+            },
+          },
+        ],
+      },
+    },
+  };
+}
+
 export function buildTrialStartedFlexMessage() {
   const step = (num: string, title: string, desc: string) => ({
     type: 'box' as const,
@@ -3176,13 +3304,30 @@ async function handleExtraQuestionPostback(
     }
   }
 
+  // 初回利用時は jikkuri 案内に加えて、無料体験中 (planSource='trial') なら
+  // 価格ロック特典の訴求 flex も同梱する。「追加で解く・じっくり学ぶ説明後」が
+  // 初回 pitch の指定タイミング。既に paid 契約済みの場合は重複訴求にならないよう除外。
+  const appendOnFirst: LineMessage[] = [];
+  if (isFirstExtraQuestion) {
+    appendOnFirst.push(buildNextStepGuideFlex('jikkuri') as LineMessage);
+    const planSource =
+      typeof userData?.planSource === 'string' ? userData.planSource : '';
+    if (planSource === 'trial') {
+      appendOnFirst.push(
+        buildPriceLockPitchFlex({
+          introText:
+            '「追加で解く」と「じっくり学ぶ」、両方ともゆっくり試してみてね。気に入ったら、今のうちに登録しておくとお得だよ。',
+          source: 'first_extra_question',
+        }) as LineMessage
+      );
+    }
+  }
+
   await selectAndSendQuestion(uid, {
     replyToken,
     introText: getExtraQuestionIntro(),
     bypassDailyLimit: true,
-    appendMessages: isFirstExtraQuestion
-      ? [buildNextStepGuideFlex('jikkuri') as LineMessage]
-      : undefined,
+    appendMessages: appendOnFirst.length > 0 ? appendOnFirst : undefined,
   });
 }
 

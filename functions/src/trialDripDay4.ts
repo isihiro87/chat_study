@@ -9,6 +9,7 @@ import type { messagingApi } from "@line/bot-sdk";
 
 import { runTrialDrip } from "./trialDripBase";
 import { getBenefitText } from "./premiumCopy";
+import { buildPriceLockPitchFlex } from "./lineWebhook";
 
 function buildDay4Message(
   data: FirebaseFirestore.DocumentData
@@ -20,15 +21,9 @@ function buildDay4Message(
   const trialUsage = (data.trialUsage as Record<string, unknown> | undefined) ?? {};
   const jikkuriOpened = trialUsage.jikkuriOpened === true;
 
-  // 既に「じっくり学ぶ」を開いている人にはこのメッセージを送らない
-  if (jikkuriOpened) {
-    return null;
-  }
-
   const benefit = getBenefitText("day3-feature");
-  const text = `${nickname}体験4日目！『じっくり学ぶ』はもう試した？\n\n${benefit}`;
 
-  const flex: messagingApi.FlexMessage = {
+  const jikkuriFlex: messagingApi.FlexMessage = {
     type: "flex",
     altText: "じっくり学ぶを試してみよう",
     contents: {
@@ -47,7 +42,7 @@ function buildDay4Message(
           },
           {
             type: "text",
-            text,
+            text: `${nickname}体験4日目！『じっくり学ぶ』はもう試した？\n\n${benefit}`,
             wrap: true,
             size: "sm",
             color: "#333333",
@@ -74,7 +69,14 @@ function buildDay4Message(
     },
   };
 
-  return [flex];
+  // 価格ロック特典 pitch (定期送信)。Day 4 のタイミングで一度しっかり訴求する。
+  const priceLockFlex = buildPriceLockPitchFlex({
+    introText: `${nickname}体験 4日目、ちょうど折り返しだよ。続けて使うなら今のうちに登録しておくとお得！`,
+    source: "trial_drip_day4",
+  }) as unknown as messagingApi.FlexMessage;
+
+  // jikkuri 未利用者には「じっくり学ぶ案内 + 価格ロック」、利用済みなら「価格ロックのみ」
+  return jikkuriOpened ? [priceLockFlex] : [jikkuriFlex, priceLockFlex];
 }
 
 export const trialDripDay4 = functions
