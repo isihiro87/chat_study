@@ -611,7 +611,7 @@ export function LiffPremiumApplyPage() {
             </p>
             <p className="text-xs text-amber-800 mt-1 leading-relaxed">
               {CHECKOUT_FN_URL
-                ? 'このページから本契約に進むと、無料期間終了後も継続してプレミアム機能をご利用いただけます。'
+                ? 'このページから本契約に進むと、無料体験が終わったあとから1ヶ月のプレミアム期間が始まります。体験中は二重に課金されることはありません。'
                 : '月額プランの登録受付は準備中です。準備ができ次第、こちらから登録できるようになります。'}
             </p>
           </section>

@@ -151,9 +151,17 @@ async function markPaid(input: {
   subscriptionId: string;
   eventId: string;
   lockedMonthlyPrice?: 680 | 980;
+  /** Stripe Subscription オブジェクトの current_period_end (epoch sec) */
+  currentPeriodEnd?: number;
+  /** Stripe Subscription オブジェクトの cancel_at_period_end */
+  cancelAtPeriodEnd?: boolean;
+  /** Stripe Subscription オブジェクトの status (trialing/active) */
+  subscriptionStatus?: string;
 }): Promise<void> {
   const { initializeApp, getApps } = await import('firebase-admin/app');
-  const { getFirestore, FieldValue } = await import('firebase-admin/firestore');
+  const { getFirestore, FieldValue, Timestamp } = await import(
+    'firebase-admin/firestore'
+  );
   if (getApps().length === 0) {
     initializeApp();
   }
@@ -187,6 +195,19 @@ async function markPaid(input: {
   };
   if (input.lockedMonthlyPrice) {
     update.lockedMonthlyPrice = input.lockedMonthlyPrice;
+  }
+  // current_period_end が取れる場合は premiumUntil/currentPeriodEnd を Stripe の真実と同期。
+  // 解約予約 (cancel_at_period_end=true) も保存して、UI で「○月○日まで使える」表示に使う。
+  if (typeof input.currentPeriodEnd === 'number') {
+    const periodEndTs = Timestamp.fromMillis(input.currentPeriodEnd * 1000);
+    update.currentPeriodEnd = periodEndTs;
+    update.premiumUntil = periodEndTs;
+  }
+  if (typeof input.cancelAtPeriodEnd === 'boolean') {
+    update.cancelAtPeriodEnd = input.cancelAtPeriodEnd;
+  }
+  if (input.subscriptionStatus) {
+    update.subscriptionStatus = input.subscriptionStatus;
   }
 
   await db.doc(`users/${input.uid}`).set(update, { merge: true });
@@ -316,12 +337,23 @@ export const stripeWebhook = functions
           res.json({ received: true, skipped: 'user_not_found' });
           return;
         }
+        const cpe =
+          typeof obj.current_period_end === 'number'
+            ? obj.current_period_end
+            : undefined;
+        const cape =
+          typeof obj.cancel_at_period_end === 'boolean'
+            ? obj.cancel_at_period_end
+            : undefined;
         await markPaid({
           uid: found.uid,
           lineUserId: found.lineUserId,
           customerId,
           subscriptionId: getString(obj.id),
           eventId,
+          currentPeriodEnd: cpe,
+          cancelAtPeriodEnd: cape,
+          subscriptionStatus: status,
         });
         res.json({ received: true });
         return;

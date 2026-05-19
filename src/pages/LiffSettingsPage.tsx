@@ -1,10 +1,21 @@
 import { useEffect, useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import { doc, serverTimestamp, setDoc } from 'firebase/firestore/lite';
-import { db } from '../firebase/config';
+import { db, auth } from '../firebase/config';
 import { useAuth } from '../contexts/AuthContext';
 import { useLiffAuth } from '../hooks/useLiffAuth';
 import { LoadingScreen } from '../components/common/LoadingScreen';
+
+const CHECKOUT_FN_URL = import.meta.env.VITE_PREMIUM_CHECKOUT_FN_URL as
+  | string
+  | undefined;
+// 解約 Function は同じ region に同居しているので createStripeCheckoutSession のパスを差し替える。
+const CANCEL_FN_URL = CHECKOUT_FN_URL
+  ? CHECKOUT_FN_URL.replace(
+      /createStripeCheckoutSession$/,
+      'cancelStripeSubscription'
+    )
+  : undefined;
 
 const GRADE_NUM_TO_LABEL = (g: 1 | 2 | 3 | null): GradeLabel | null => {
   if (g === 1) return '中1';
@@ -77,6 +88,66 @@ export function LiffSettingsPage() {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [settings, setSettings] = useState<UserSettings | null>(null);
   const [nicknameDraft, setNicknameDraft] = useState('');
+
+  // プレミアム解約フロー: 確認パネル展開 → 確定ボタン押下で Cloud Function を叩く。
+  // 二段階にすることで誤タップでの解約を防ぐ（無料体験中はそもそも解約ボタン自体を出さない）。
+  type CancelStep = 'idle' | 'confirming' | 'submitting' | 'done';
+  const [cancelStep, setCancelStep] = useState<CancelStep>('idle');
+  const [cancelError, setCancelError] = useState<string | null>(null);
+
+  const planSource = userDoc?.planSource ?? null;
+  const cancelAtPeriodEnd = userDoc?.cancelAtPeriodEnd ?? false;
+  const currentPeriodEnd = userDoc?.currentPeriodEnd ?? null;
+  const isTrial = planSource === 'trial';
+  const isPaid = planSource === 'paid';
+
+  const formatJstDate = (date: Date | null): string => {
+    if (!date) return '次回更新日';
+    return new Intl.DateTimeFormat('ja-JP', {
+      timeZone: 'Asia/Tokyo',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    }).format(date);
+  };
+
+  const handleConfirmCancel = async () => {
+    if (!user) return;
+    if (!CANCEL_FN_URL) {
+      setCancelError('解約 API URL が設定されていません');
+      return;
+    }
+    setCancelStep('submitting');
+    setCancelError(null);
+    try {
+      const idToken = await auth.currentUser?.getIdToken();
+      if (!idToken) {
+        setCancelError('認証情報が取得できませんでした');
+        setCancelStep('confirming');
+        return;
+      }
+      const res = await fetch(CANCEL_FN_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${idToken}`,
+        },
+      });
+      if (!res.ok) {
+        const body = (await res.json().catch(() => ({}))) as {
+          error?: string;
+        };
+        setCancelError(body.error || '解約処理に失敗しました');
+        setCancelStep('confirming');
+        return;
+      }
+      setCancelStep('done');
+    } catch (err) {
+      console.error('[LiffSettingsPage] cancel failed', err);
+      setCancelError('通信エラーが発生しました');
+      setCancelStep('confirming');
+    }
+  };
 
   useEffect(() => {
     if (settings) setNicknameDraft(settings.nickname);
@@ -307,7 +378,11 @@ export function LiffSettingsPage() {
                   : 'bg-gray-100 text-gray-600'
               }`}
             >
-              {s.plan === 'premium' ? '✨ プレミアム' : '無料プラン'}
+              {s.plan === 'premium'
+                ? isTrial
+                  ? '✨ プレミアム（無料体験中）'
+                  : '✨ プレミアム'
+                : '無料プラン'}
             </span>
             {s.plan === 'free' && (
               <a
@@ -318,10 +393,81 @@ export function LiffSettingsPage() {
               </a>
             )}
           </div>
-          {s.plan === 'premium' && (
+
+          {/* 無料体験中: 解約不要の案内 */}
+          {s.plan === 'premium' && isTrial && (
             <p className="mt-3 text-xs text-gray-500 leading-relaxed">
-              月額登録・解約は、決済ページまたは案内された管理画面から手続きできます。
+              無料体験中は解約手続きは不要です。期間終了時に自動で無料プランに戻ります。
+              体験中にこのままサブスク登録した場合は、体験終了後から1ヶ月のプレミアム期間が始まります（体験期間中は二重課金されません）。
             </p>
+          )}
+
+          {/* 有料・解約予約済み: 利用期限の案内 */}
+          {s.plan === 'premium' && isPaid && cancelAtPeriodEnd && (
+            <div className="mt-3 rounded-lg bg-amber-50 border border-amber-200 p-3 text-xs text-amber-900 leading-relaxed">
+              <p className="font-bold">解約予約済み</p>
+              <p className="mt-1">
+                <span className="font-bold">{formatJstDate(currentPeriodEnd)}</span>
+                まではプレミアム機能をそのままご利用いただけます。期日になったら自動で無料プランに切り替わります。
+              </p>
+            </div>
+          )}
+
+          {/* 有料・通常: 解約ボタン */}
+          {s.plan === 'premium' && isPaid && !cancelAtPeriodEnd && (
+            <div className="mt-3">
+              {cancelStep === 'idle' && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    setCancelError(null);
+                    setCancelStep('confirming');
+                  }}
+                  className="text-xs text-gray-500 underline"
+                >
+                  プレミアムを解約する
+                </button>
+              )}
+              {cancelStep === 'confirming' && (
+                <div className="rounded-lg bg-gray-50 border border-gray-200 p-3 space-y-3">
+                  <p className="text-xs text-gray-700 leading-relaxed">
+                    本当に解約しますか？
+                    <br />
+                    解約予約が成立しても、今お支払いいただいた1ヶ月分の期間中はプレミアム機能をそのままご利用いただけます。期間終了時に自動で無料プランへ切り替わります。
+                  </p>
+                  {cancelError && (
+                    <p className="text-xs text-red-600">{cancelError}</p>
+                  )}
+                  <div className="flex gap-2">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setCancelStep('idle');
+                        setCancelError(null);
+                      }}
+                      className="flex-1 rounded-full border border-gray-300 bg-white py-2 text-xs text-gray-700"
+                    >
+                      キャンセル
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => void handleConfirmCancel()}
+                      className="flex-1 rounded-full bg-amber-500 py-2 text-xs font-bold text-white"
+                    >
+                      解約を確定する
+                    </button>
+                  </div>
+                </div>
+              )}
+              {cancelStep === 'submitting' && (
+                <p className="text-xs text-gray-500">解約処理中…</p>
+              )}
+              {cancelStep === 'done' && (
+                <div className="rounded-lg bg-emerald-50 border border-emerald-200 p-3 text-xs text-emerald-900 leading-relaxed">
+                  解約予約を受け付けました。期日まではこれまで通りご利用いただけます。
+                </div>
+              )}
+            </div>
           )}
         </section>
 

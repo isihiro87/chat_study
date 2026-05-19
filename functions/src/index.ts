@@ -28,6 +28,7 @@ export { remindIncompleteOnboarding } from './remindIncompleteOnboarding';
 export { onTestScopeFirstSet } from './onTestScopeFirstSet';
 export { stripeWebhook } from './stripeWebhook';
 export { createStripeCheckoutSession } from './createStripeCheckoutSession';
+export { cancelStripeSubscription } from './cancelStripeSubscription';
 
 // 休眠ユーザー除外システム + Win-back（§B, §C）
 export { recalculateUserStatuses } from './recalculateUserStatuses';

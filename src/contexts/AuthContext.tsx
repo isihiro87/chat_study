@@ -68,6 +68,16 @@ export interface UserDoc {
    * 未登録ユーザーや旧データでは null。LIFF /premium-apply で価格表示に使う。
    */
   lockedMonthlyPrice: 680 | 980 | null;
+  /**
+   * 有料サブスクで解約予約済みなら true。Stripe `cancel_at_period_end=true` 同等。
+   * 解約予約中は `currentPeriodEnd` までプレミアム機能を維持し、その日に free に降格する。
+   */
+  cancelAtPeriodEnd: boolean;
+  /**
+   * 有料サブスクの現在の課金期間終了タイミング (= 解約予約時の停止日)。
+   * 解約予約中の UI で「○月○日まで使えます」を表示するために使う。
+   */
+  currentPeriodEnd: Date | null;
 }
 
 interface AuthContextType {
@@ -172,6 +182,14 @@ function parseUserDoc(uid: string, data: Record<string, unknown>): UserDoc {
   const lockedMonthlyPrice: 680 | 980 | null =
     rawLockedPrice === 680 || rawLockedPrice === 980 ? rawLockedPrice : null;
 
+  const cancelAtPeriodEnd = data.cancelAtPeriodEnd === true;
+  const cpeRaw = data.currentPeriodEnd as
+    | { toDate?: () => Date }
+    | undefined
+    | null;
+  const currentPeriodEnd =
+    cpeRaw && typeof cpeRaw.toDate === 'function' ? cpeRaw.toDate() : null;
+
   return {
     uid,
     nickname,
@@ -184,6 +202,8 @@ function parseUserDoc(uid: string, data: Record<string, unknown>): UserDoc {
     planSource,
     preferredHour,
     lockedMonthlyPrice,
+    cancelAtPeriodEnd,
+    currentPeriodEnd,
   };
 }
 
@@ -356,6 +376,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
             planSource: null,
             preferredHour: null,
             lockedMonthlyPrice: null,
+            cancelAtPeriodEnd: false,
+            currentPeriodEnd: null,
           };
           try {
             const snap = await withFirestoreTimeout(

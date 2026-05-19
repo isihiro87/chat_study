@@ -17,6 +17,7 @@ export type ServerFunnelEventType =
   | "trial_reminder_sent"
   | "trial_expired"
   | "paid_contract_started"
+  | "paid_cancel_requested"
   | "checkout_session_created"
   // 休眠ユーザー除外システム / Win-back（§B, §C）
   | "winback_sent"

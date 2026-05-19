@@ -131,6 +131,26 @@ export const createStripeCheckoutSession = functions
       const priceId =
         lockedMonthlyPrice === TRIAL_PRICE_YEN ? trialPriceId : normalPriceId;
 
+      // 無料体験中にサブスク登録した場合、体験終了までは課金しない。
+      // Stripe の trial_period_days に「体験終了までの残り日数」を渡すと、
+      // 初回課金は trial_end の翌日に発生 → ユーザー目線では「体験終了後から1ヶ月開始」になる。
+      let trialPeriodDays = 0;
+      if (planSource === 'trial') {
+        const premiumUntilRaw = userData.premiumUntil as
+          | { toMillis?: () => number }
+          | undefined
+          | null;
+        const premiumUntilMs =
+          premiumUntilRaw && typeof premiumUntilRaw.toMillis === 'function'
+            ? premiumUntilRaw.toMillis()
+            : 0;
+        if (premiumUntilMs > Date.now()) {
+          trialPeriodDays = Math.ceil(
+            (premiumUntilMs - Date.now()) / (24 * 60 * 60 * 1000)
+          );
+        }
+      }
+
       const params = new URLSearchParams();
       params.append('mode', 'subscription');
       params.append('line_items[0][price]', priceId);
@@ -147,6 +167,12 @@ export const createStripeCheckoutSession = functions
         'subscription_data[metadata][lockedMonthlyPrice]',
         String(lockedMonthlyPrice)
       );
+      if (trialPeriodDays > 0) {
+        params.append(
+          'subscription_data[trial_period_days]',
+          String(trialPeriodDays)
+        );
+      }
       appendFormParam(
         params,
         'customer_email',

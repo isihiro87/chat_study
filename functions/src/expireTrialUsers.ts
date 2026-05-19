@@ -124,6 +124,21 @@ export const expireTrialUsers = functions
       const diffMs = premiumUntilMs - now;
 
       if (diffMs <= 0) {
+        // 体験中にサブスク登録した場合は stripeSubscriptionId が立っている。
+        // この場合は trial_expired への降格を行わず、Stripe 側の subscription.updated
+        // webhook で planSource='paid' に遷移するのを待つ（Stripe 側の trial_period_days で
+        // ちょうど体験終了タイミングに初回課金が走り、planSource が paid に切り替わる）。
+        const hasStripeSubscription =
+          typeof data.stripeSubscriptionId === 'string' &&
+          data.stripeSubscriptionId.length > 0;
+        if (hasStripeSubscription) {
+          console.log(
+            `[expireTrialUsers] skip downgrade for uid=${uid} (stripeSubscriptionId set, waiting for paid activation)`
+          );
+          skipped++;
+          continue;
+        }
+
         // 期限切れ → free に戻す
         try {
           await linkRichMenuForUser(lineUserId, "free");
