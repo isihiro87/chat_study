@@ -11,6 +11,12 @@ import {
 const STREAK_MILESTONES = [3, 7, 14, 30] as const;
 const VOLUME_MILESTONES = [10, 30, 100] as const;
 const PREMIUM_NUDGE_COOLDOWN_MS = 7 * 24 * 60 * 60 * 1000;
+/**
+ * first_answer のプレミアム誘導 flex を push するまでの遅延 (ms)。
+ * 解答直後に被せると解説を読む前に上書きされてしまうため、ユーザーが
+ * まず解答結果と解説を確認できるよう少し間を置く。
+ */
+const FIRST_ANSWER_NUDGE_DELAY_MS = 60 * 1000;
 
 /**
  * 「今回の回答で新たに到達したか」を判定する。
@@ -97,6 +103,14 @@ async function maybeSendPremiumNudge(ctx: NudgeContext): Promise<void> {
 
   const flex = buildPremiumNudgeFlexMessage(reason);
 
+  // first_answer はユーザーが解説を確認する時間を確保するため、push を 60 秒遅らせる。
+  // milestone 系は通常タイミングで即時 push する。
+  if (reason === "first_answer") {
+    await new Promise((resolve) =>
+      setTimeout(resolve, FIRST_ANSWER_NUDGE_DELAY_MS)
+    );
+  }
+
   let pushed = false;
   try {
     const client = await getLineClient();
@@ -140,6 +154,9 @@ async function maybeSendPremiumNudge(ctx: NudgeContext): Promise<void> {
 
 export const onAnswerCreated = functions
   .region("asia-northeast1")
+  // first_answer の遅延 push（60 秒）に余裕を持たせるため timeout を伸ばす。
+  // デフォルト 60 秒だと stats 更新 + 遅延 push が間に合わない可能性がある。
+  .runWith({ timeoutSeconds: 120 })
   .firestore.document("answers/{answerId}")
   .onCreate(async (snap) => {
     const data = snap.data();

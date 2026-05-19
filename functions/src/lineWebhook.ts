@@ -2418,7 +2418,7 @@ const NUDGE_COPY: Record<PremiumNudgeReason, NudgeCopy> = {
     leadText:
       `これからは毎日1問が無料で届くよ。連続記録や苦手範囲のチェックもぜんぶ無料。\n\n` +
       `「もっと解きたい」「暗記カードや四択クイズも使いたい」と思ったら、${PREMIUM_PRICE_TEXT}でプレミアムを試せます。\n\n` +
-      `📚 1日10問+復習無制限\n` +
+      `📚 1日に何問でも！追加問題と苦手復習が無制限\n` +
       `📚 歴史 263トピック・約1,500問が解き放題\n` +
       `✅ カード登録なし、7日後に自動で無料に戻る\n` +
       `✅ 解約忘れの心配ゼロ\n\n` +
@@ -3904,7 +3904,6 @@ async function handleAnswerPostback(
       ? HOUR_LABELS[preferredHour as ValidHour]
       : 'いつもの時間';
   const plan = getUserPlan(currentUserData);
-  const gradePremiumEligible = isPremiumEligibleGrade(currentUserData?.grade);
   const nextStepFlex = buildPostAnswerNextStepFlexMessage({
     hourLabel,
     dayStreak,
@@ -3922,12 +3921,9 @@ async function handleAnswerPostback(
   const askNicknameFlex =
     isFirstAnswer && !hasNickname ? buildAskNicknameFlex() : null;
 
-  // 初回回答 AND 無料 × プレミアム対応学年（中1/中2）→ プレミアム無料お試し案内を末尾に積む。
-  // 中3 はプレミアム未対応のため出さない。プレミアム既加入者にも出さない。
-  const firstAnswerPremiumFlex =
-    isFirstAnswer && plan === 'free' && gradePremiumEligible
-      ? buildPremiumNudgeFlexMessage('first_answer')
-      : null;
+  // 初回回答時のプレミアム誘導 flex（first_answer）は、ユーザーがまず解説を確認できるよう
+  // インライン送信せず、`onAnswerCreated` が 60 秒の遅延を入れて push する。
+  // ここでは nextStep / askNickname だけを reply に積む。
 
   try {
     const client = await getLineClient();
@@ -3938,9 +3934,6 @@ async function handleAnswerPostback(
     ];
     if (askNicknameFlex) {
       replyMessages.push(askNicknameFlex as LineMessage);
-    }
-    if (firstAnswerPremiumFlex) {
-      replyMessages.push(firstAnswerPremiumFlex as LineMessage);
     }
     await client.replyMessage({
       replyToken,
@@ -4113,15 +4106,14 @@ export async function selectAndSendQuestion(
     ? userData.recentQuestionIds
     : [];
 
-  // 初回セットアップ直後の1問目は、過去に保存された testScope の影響を受けないよう
-  // フィルタを無視して必ず該当 grade/subject から1問選ぶ。範囲設定はその後でいい。
-  const testScopeTopics: string[] = isInitialSetup
-    ? []
-    : Array.isArray(userData.testScope?.topics)
-      ? (userData.testScope.topics as unknown[]).filter(
-          (t): t is string => typeof t === 'string'
-        )
-      : [];
+  // 登録後フロー: 配信時間設定 → 出題範囲設定 → onTestScopeFirstSet が当関数を呼ぶ。
+  // この時点で testScope は LIFF で直前に保存されたものなので、初回でも必ず尊重する。
+  // testScope 未設定（範囲設定をスキップしたユーザー等）の場合のみ全範囲から出題。
+  const testScopeTopics: string[] = Array.isArray(userData.testScope?.topics)
+    ? (userData.testScope.topics as unknown[]).filter(
+        (t): t is string => typeof t === 'string'
+      )
+    : [];
 
   const snap = await db
     .collection('questions')
