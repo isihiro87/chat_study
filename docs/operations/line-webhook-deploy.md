@@ -138,16 +138,43 @@ npm run build
 
 ```bash
 cd /workspaces/marutto-study
-FUNCTIONS_DISCOVERY_TIMEOUT=120 firebase deploy --only functions
+FUNCTIONS_DISCOVERY_TIMEOUT=600 firebase deploy --only functions
 ```
 
 初回は **5〜10分** かかる。途中で IAM / Cloud Run / Cloud Build APIs の有効化を求められたら **Y** で進める。
 
-> ⚠️ **`FUNCTIONS_DISCOVERY_TIMEOUT=120` を必ず付ける**。
-> Firebase CLI のデフォルト discovery タイムアウトは 10秒で、`@line/bot-sdk` などを含む node_modules 全体のロードに依存するため、デフォルトでは
+> ⚠️ **`FUNCTIONS_DISCOVERY_TIMEOUT=600` を必ず付ける**。
+> Firebase CLI のデフォルト discovery タイムアウトは 10秒で、`@line/bot-sdk` や `firebase-functions/v1` を含む Functions 全体のロードに依存するため、デフォルトでは
 > `Error: User code failed to load. Cannot determine backend specification. Timeout after 10000.`
-> でデプロイが失敗する。60秒で通る場合もあるが、関数数の増加やコード規模で 60秒でも失敗するケースがあるため **120 を標準** とする。
+> でデプロイが失敗する。2026-05-19 時点では `FUNCTIONS_DISCOVERY_TIMEOUT=120` でも
+> `Timeout after 120000.` で失敗するケースを確認済み。`functions/lib/index.js` の単純ロードだけで約66秒かかり、Firebase CLI 側の解析時間も乗るため **600 を標準** とする。
 > [Firebase 公式ドキュメント参照](https://firebase.google.com/docs/functions/tips#avoid_deployment_timeouts_during_initialization)。
+
+### Functions discovery timeout 対応
+
+`Cannot determine backend specification. Timeout after ...` が出たら、Functions の discovery が `functions/lib/index.js` をロードしきれていない。まず timeout を 600 秒に上げて全関数デプロイする。
+
+```bash
+FUNCTIONS_DISCOVERY_TIMEOUT=600 firebase deploy --only functions
+```
+
+それでも失敗する場合は、ローカルで以下を確認する。
+
+```bash
+cd /workspaces/marutto-study/functions
+npm run build
+timeout 150s node -e "const t=Date.now(); require('./lib/index.js'); console.log('index loaded '+(Date.now()-t)+'ms')"
+timeout 30s node -e "const t=Date.now(); require('firebase-functions/v1'); console.log('ff v1 loaded '+(Date.now()-t)+'ms')"
+timeout 30s node -e "const t=Date.now(); require('firebase-admin/auth'); console.log('admin auth loaded '+(Date.now()-t)+'ms')"
+```
+
+2026-05-19 の切り分けでは、`require('./lib/index.js')` が約66秒、`require('firebase-functions/v1')` と `require('firebase-admin/auth')` は単体でも非常に重いことを確認した。典型的な `listen()`、トップレベル `await`、外部 API 呼び出しではなく、Functions SDK / Admin SDK のトップレベルロードが主因。
+
+恒久対策の候補:
+
+- `firebase-functions/v1` の一括 import を減らし、v2 の個別 import (`firebase-functions/v2/https`, `firebase-functions/v2/scheduler` など) に寄せる
+- Functions を用途別 codebase に分割して discovery 対象を小さくする
+- トップレベルでは Firestore/Auth/LINE/Stripe などの重い SDK を初期化しない
 
 > ⚠️ **`--only functions:lineWebhook` 単体デプロイの落とし穴**:
 > Firebase Cloud Functions は **関数単位でデプロイ** されるため、`lineWebhook.ts` のコードを変更して `--only functions:lineWebhook` だけ更新しても、`dailyQuiz.ts` から `import { selectAndSendQuestion } from "./lineWebhook"` で参照している `dailyQuiz06/07/17/19` 関数は **前回デプロイ時のコードのまま** 動き続ける（各関数が別々の bundle）。

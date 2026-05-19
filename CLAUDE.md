@@ -7,6 +7,24 @@
 - TypeScript 5.x
 - パッケージマネージャー: npm
 
+## Firebase Functions デプロイ時の重要メモ
+
+Cloud Functions の discovery は `functions/lib/index.js` をロードして backend spec を解析する。2026-05-19 時点で、この repo は `node -e "require('./lib/index.js')"` が約66秒かかり、Firebase CLI 側の解析時間も乗るため `FUNCTIONS_DISCOVERY_TIMEOUT=120` でも `Cannot determine backend specification. Timeout after 120000.` で失敗することがある。
+
+Functions 全体をデプロイするときは、まず以下を使う:
+
+```bash
+FUNCTIONS_DISCOVERY_TIMEOUT=600 firebase deploy --only functions
+```
+
+タイムアウトした場合に疑う順番:
+
+1. `cd functions && npm run build`
+2. `cd functions && timeout 150s node -e "const t=Date.now(); require('./lib/index.js'); console.log('index loaded '+(Date.now()-t)+'ms')"`
+3. `firebase-functions/v1` や `firebase-admin/auth` のトップレベルロードが重い可能性を確認
+
+根本対策は Functions の v2 個別 import 化、または codebase 分割。詳細は `docs/operations/line-webhook-deploy.md` の「Functions discovery timeout 対応」を参照。
+
 ## スペック駆動開発の基本原則
 
 ### 基本フロー
