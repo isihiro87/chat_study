@@ -2091,7 +2091,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           {
             "id": "fc4",
             "front": "{征夷大将軍|せいいたいしょうぐん}",
-            "back": "武家政権の最高職。家康は1603年に任命されたのは？",
+            "back": "武家政権の最高職で、徳川家康が1603年に任命されたのは？",
             "explanation": "秀吉の関白と区別する。",
             "difficulty": "basic"
           },
@@ -2332,10 +2332,10 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "options": [
               "執権政治",
               "守護領国制",
-              "幕藩体制",
-              "大名連合政治"
+              "大名連合政治",
+              "幕藩体制"
             ],
-            "correctIndex": 2,
+            "correctIndex": 3,
             "explanation": "江戸時代は将軍が大名（藩）を統制し、全国を支配する幕藩体制でした。執権政治は鎌倉幕府、守護領国制は室町時代の体制です。",
             "difficulty": "basic"
           },
@@ -2371,10 +2371,10 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "options": [
               "徳川家康",
               "豊臣秀頼",
-              "石田三成",
-              "明智光秀"
+              "明智光秀",
+              "石田三成"
             ],
-            "correctIndex": 2,
+            "correctIndex": 3,
             "explanation": "石田三成は豊臣方の大名として西軍を率いました。",
             "difficulty": "basic"
           },
@@ -2383,11 +2383,11 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "question": "将軍に直接会える1万石未満の将軍直属の家臣を何という？",
             "options": [
               "大名",
-              "御家人",
               "旗本",
+              "御家人",
               "老中"
             ],
-            "correctIndex": 2,
+            "correctIndex": 1,
             "explanation": "旗本は将軍に直接会える1万石未満の将軍直属の家臣です。",
             "difficulty": "standard"
           },
@@ -2468,98 +2468,98 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "difficulty": "basic"
           },
           {
-            "id": "fc6",
+            "id": "fc5",
             "front": "{絵踏|えふみ}",
             "back": "キリスト教徒を見つけるため、キリストやマリアの絵を踏ませた取りしまりは？",
             "explanation": "宗門改とともに出題されやすい。",
             "difficulty": "standard"
           },
           {
-            "id": "fc7",
+            "id": "fc6",
             "front": "{踏絵|ふみえ}",
             "back": "キリスト教信者かどうかを調べるために踏ませた絵は？",
             "explanation": "キリストや聖母マリアの像を描いた板で、絵踏の際に使われた道具。",
             "difficulty": "advanced"
           },
           {
-            "id": "fc8",
-            "front": "{宗門|しゅうもん}改め",
+            "id": "fc7",
+            "front": "{宗門|しゅうもん}{改|あらため}",
             "back": "人々を寺に所属させ、キリスト教徒でないことを証明させた制度は？",
             "explanation": "寺請制度と関連する。",
             "difficulty": "standard"
           },
           {
-            "id": "fc9",
+            "id": "fc8",
             "front": "{寺請|てらうけ}{制度|せいど}",
             "back": "すべての人を寺院に登録させキリシタンでないことを証明させた制度は？",
             "explanation": "宗門改と組み合わせて運用され、全国民の宗教を管理する制度。",
             "difficulty": "standard"
           },
           {
-            "id": "fc10",
+            "id": "fc9",
             "front": "{島原|しまばら}・{天草|あまくさ}{一揆|いっき}",
             "back": "1637年、重い年貢やキリスト教弾圧に苦しんだ人々が起こした一揆は？",
             "explanation": "幕府の禁教強化につながった。",
             "difficulty": "basic"
           },
           {
-            "id": "fc11",
+            "id": "fc10",
             "front": "{天草|あまくさ}{四郎|しろう}（{益田時貞|ますだときさだ}）",
             "back": "島原・天草一揆で一揆軍の大将となった少年は？",
             "explanation": "わずか16歳前後で一揆軍を率いたが、幕府軍に鎮圧された。",
             "difficulty": "standard"
           },
           {
-            "id": "fc12",
+            "id": "fc11",
             "front": "{鎖国|さこく}",
             "back": "江戸幕府が海外との交流を制限した体制は？",
             "explanation": "完全に交流を断ったわけではない。長崎など4つの窓口で限定的な交流は続いた。",
             "difficulty": "basic"
           },
           {
-            "id": "fc13",
+            "id": "fc12",
             "front": "{出島|でじま}",
             "back": "長崎に作られた人工島で、のちにオランダ商館が置かれた場所は？",
             "explanation": "オランダとの貿易の窓口。鎖国下における唯一の西洋との窓口だった。",
             "difficulty": "standard"
           },
           {
-            "id": "fc14",
+            "id": "fc13",
             "front": "オランダ",
             "back": "鎖国下でヨーロッパで唯一貿易を許された国は？",
             "explanation": "キリスト教の布教を行わず貿易のみに徹したため、唯一許可された。",
             "difficulty": "basic"
           },
           {
-            "id": "fc15",
+            "id": "fc14",
             "front": "{唐人|とうじん}{屋敷|やしき}",
             "back": "長崎に置かれた中国人の居住地区は？",
             "explanation": "清の商人が住み、オランダの出島とともに長崎での貿易拠点。",
             "difficulty": "standard"
           },
           {
-            "id": "fc16",
+            "id": "fc15",
             "front": "{徳川家光|とくがわいえみつ}",
             "back": "キリスト教禁止や鎖国を完成させた将軍は？",
             "explanation": "3代将軍で、参勤交代の制度化や鎖国体制の完成を行った。",
             "difficulty": "advanced"
           },
           {
-            "id": "fc17",
+            "id": "fc16",
             "front": "ポルトガル",
             "back": "幕府が1639年に来航を禁止したヨーロッパの国は？",
             "explanation": "キリスト教布教と結びついていたため、オランダより先に禁止された。",
             "difficulty": "advanced"
           },
           {
-            "id": "fc18",
+            "id": "fc17",
             "front": "1639年",
             "back": "ポルトガル船の来航が禁止された年は？",
             "explanation": "島原・天草一揆の後、幕府はポルトガル船の来航を禁止した。",
             "difficulty": "standard"
           },
           {
-            "id": "fc19",
+            "id": "fc18",
             "front": "1641年",
             "back": "オランダ商館が出島に移され鎖国が完成した年は？",
             "explanation": "オランダ商館が平戸から出島に移されたことで鎖国体制が完成。",
@@ -2637,9 +2637,9 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "question": "島原・天草一揆後の幕府の対応として正しいものはどれですか。",
             "options": [
               "キリスト教の取りしまりを強めた",
-              "一国一城令を発令した",
-              "参勤交代を廃止した",
-              "ポルトガル人を出島に集めて貿易を再開した"
+              "全国に一国一城令を新たに出した",
+              "大名の参勤交代を完全に廃止した",
+              "ポルトガル船との貿易を再開した"
             ],
             "correctIndex": 0,
             "explanation": "一揆後、幕府は禁教を徹底し、1639年にはポルトガル船の来航も禁止しました。一国一城令は1615年に発令済み、参勤交代は廃止されず、ポルトガルは追放されました。",
@@ -2662,7 +2662,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "id": "q8",
             "question": "鎖国下でオランダとの貿易の窓口となった場所はどこですか。",
             "options": [
-              "長崎の出島",
+              "長崎",
               "堺",
               "博多",
               "鎌倉"
@@ -2673,16 +2673,16 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "q9",
-            "question": "1637年に天草四郎を大将として起こった反乱は？",
+            "question": "島原・天草一揆で一揆軍の大将となった人物は？",
             "options": [
-              "加賀の一向一揆",
-              "島原・天草一揆",
-              "慶安の変",
-              "由井正雪の乱"
+              "天草四郎",
+              "大塩平八郎",
+              "由井正雪",
+              "石田三成"
             ],
-            "correctIndex": 1,
-            "explanation": "島原・天草一揆はキリスト教徒の農民らが起こした大規模な反乱です。加賀の一向一揆は戦国時代、慶安の変・由井正雪の乱は1651年の浪人による幕府転覆未遂事件です。",
-            "difficulty": "basic"
+            "correctIndex": 0,
+            "explanation": "島原・天草一揆では、わずか16歳前後の天草四郎（益田時貞）が一揆軍の大将となりましたが、幕府軍に鎮圧されました。",
+            "difficulty": "standard"
           },
           {
             "id": "q10",
@@ -2751,19 +2751,19 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "q15",
-            "question": "鎖国下でオランダ以外に貿易が許されたアジアの国は？",
+            "question": "鎖国下で長崎においてオランダとともに貿易が許されたアジアの国は？",
             "options": [
-              "宋",
-              "元",
+              "明",
+              "朝鮮",
               "清",
-              "明"
+              "琉球"
             ],
             "correctIndex": 2,
-            "explanation": "清（中国）の商人は唐人屋敷に住み、長崎で貿易を行いました。",
+            "explanation": "清（中国）の商人は唐人屋敷に住み、長崎でオランダとともに貿易を行いました。明は1644年に滅んで清に代わったため鎖国体制下では存在しません。朝鮮は対馬藩、琉球は薩摩藩がそれぞれ窓口で、長崎での貿易ではありません。",
             "difficulty": "standard"
           },
           {
-            "id": "q17",
+            "id": "q16",
             "question": "すべての人を寺院に登録させキリシタンでないことを証明させた制度は？",
             "options": [
               "宗門改",
@@ -2855,7 +2855,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "difficulty": "basic"
           },
           {
-            "id": "fc12",
+            "id": "fc11",
             "front": "{俵物|たわらもの}",
             "back": "銀の代わりに日本が長崎貿易で輸出した海産物は？",
             "explanation": "干しなまこ・干しアワビ・ふかひれなどで、銀の流出を防ぐために輸出された。",
@@ -2863,20 +2863,13 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc13",
-            "front": "{長崎|ながさき}{奉行|ぶぎょう}",
-            "back": "長崎での貿易を管理した幕府の役職は？",
-            "explanation": "幕府直轄地の長崎を管理し、出島や唐人屋敷での貿易を監督した。",
-            "difficulty": "basic"
-          },
-          {
-            "id": "fc14",
             "front": "{釜山|プサン}",
             "back": "対馬藩が倭館を設けた朝鮮の港町は？",
             "explanation": "朝鮮半島の南端に位置し、対馬から最も近い朝鮮の港。",
             "difficulty": "standard"
           },
           {
-            "id": "fc15",
+            "id": "fc14",
             "front": "1609年",
             "back": "薩摩藩が琉球王国に侵攻した年は？",
             "explanation": "島津氏が3000の兵を送り琉球を支配下に置いた。",
@@ -2899,7 +2892,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "q2",
-            "question": "朝鮮との外交で、江戸幕府へ派遣された使節を何といいますか。",
+            "question": "江戸時代、将軍の代替わりごとに来日した外国からの使節は？",
             "options": [
               "遣唐使",
               "天正遣欧使節",
@@ -2907,7 +2900,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
               "岩倉使節団"
             ],
             "correctIndex": 2,
-            "explanation": "朝鮮通信使は朝鮮から江戸幕府へ送られた使節です。",
+            "explanation": "朝鮮通信使は対馬藩を窓口に、将軍の代替わりごとに朝鮮から江戸幕府へ派遣された使節です。遣唐使は古代日本→中国、天正遣欧使節と岩倉使節団は日本→海外への派遣で、いずれも江戸時代に外国から来日した使節ではありません。",
             "difficulty": "standard"
           },
           {
@@ -3002,19 +2995,6 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "difficulty": "standard"
           },
           {
-            "id": "q10",
-            "question": "鎖国下、幕府が直轄地として置いた対外貿易港の管理にあたった役職はどれですか。",
-            "options": [
-              "老中",
-              "長崎奉行",
-              "大目付",
-              "勘定奉行"
-            ],
-            "correctIndex": 1,
-            "explanation": "長崎奉行は幕府が直轄地として置いた長崎を統治し、出島・唐人屋敷での貿易を監督しました。老中は幕政全般を統括する最高職、大目付は大名の監察、勘定奉行は幕府の財政・天領支配を担当する役職で、いずれも対外貿易港の現地管理にはあたっていません。",
-            "difficulty": "standard"
-          },
-          {
             "id": "q11",
             "question": "朝鮮との貿易が行われた場所はどこ？",
             "options": [
@@ -3057,9 +3037,9 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "id": "q14",
             "question": "朝鮮通信使の来日目的は？",
             "options": [
-              "朝鮮国王の即位を江戸幕府に報告するため",
+              "朝鮮国王の即位を伝えるため",
               "将軍の代替わりを祝うため",
-              "倭館での貿易交渉を行うため",
+              "倭館で貿易の交渉を行うため",
               "朝鮮人捕虜の返還を求めるため"
             ],
             "correctIndex": 1,
@@ -3127,7 +3107,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "id": "fc6",
             "front": "アイヌ{民族|みんぞく}",
             "back": "北海道などに住み、独自の文化をもつ人々は？",
-            "explanation": "松前藩と交易した。シャクシャインの戦いと関連する。漁業や狩猟を営んだ。",
+            "explanation": "松前藩と交易し、漁業や狩猟を営んだ。シャクシャインの戦いとも関連が深い。",
             "difficulty": "basic"
           },
           {
@@ -3201,7 +3181,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "options": [
               "松前藩への不満が高まったから",
               "蝦夷地に幕府軍が直接進駐したから",
-              "江戸幕府がアイヌに年貢を課そうとしたから",
+              "江戸幕府が高い年貢を課そうとしたから",
               "ロシア船が蝦夷地に来航したから"
             ],
             "correctIndex": 0,
@@ -3288,7 +3268,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "q8",
-            "question": "琉球国王や将軍の代替わりの際に江戸へ送られた使節は？",
+            "question": "国王や将軍の代替わりの際、薩摩藩を通じて江戸へ送られた使節は？",
             "options": [
               "朝鮮通信使",
               "琉球使節",
@@ -3296,7 +3276,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
               "遣唐使"
             ],
             "correctIndex": 1,
-            "explanation": "琉球使節は琉球国王の代替わりの際に江戸へ送られました。",
+            "explanation": "琉球使節は琉球国王や将軍の代替わりの際に薩摩藩を経由して江戸へ送られました。朝鮮通信使は対馬藩を窓口とした朝鮮からの使節、遣明使は室町時代の日本→明への派遣、遣唐使は古代日本→唐への派遣で、いずれも江戸時代に薩摩経由で来た使節ではありません。",
             "difficulty": "basic"
           },
           {
@@ -3630,7 +3610,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "difficulty": "basic"
           },
           {
-            "id": "q14",
+            "id": "q11",
             "question": "武士以外が名字を名乗ったり刀を差したりすることは許されていた？",
             "options": [
               "全員に許されていた",
@@ -3643,7 +3623,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "difficulty": "basic"
           },
           {
-            "id": "q15",
+            "id": "q12",
             "question": "居住や職業を厳しく制限され不当な差別を受けた身分は？",
             "options": [
               "水のみ百姓",
@@ -3688,16 +3668,9 @@ export const lineStudyHistoryEras: StudyEra[] = [
           {
             "id": "fc4",
             "front": "{田沼政治|たぬませいじ}",
-            "back": "商業を利用して幕府の収入を増やそうとした政治は？",
+            "back": "老中田沼意次が、株仲間の奨励など商業を利用して幕府の収入を増やそうとした政治は？",
             "explanation": "株仲間の奨励、長崎貿易、干拓などがポイントになる。",
             "difficulty": "standard"
-          },
-          {
-            "id": "fc5",
-            "front": "文治政治→元禄期→正徳の治→田沼政治→三大改革",
-            "back": "江戸幕府政治の大まかな流れは？",
-            "explanation": "財政難と社会不安が深まる中で、改革政治へとつながっていく。",
-            "difficulty": "advanced"
           },
           {
             "id": "fc6",
@@ -3728,13 +3701,6 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "difficulty": "standard"
           },
           {
-            "id": "fc10",
-            "front": "幕府財政の悪化",
-            "back": "江戸の三大改革がくり返し行われた大きな背景は？",
-            "explanation": "年貢収入だけでは政治を支えるのが難しくなり、ききんや社会不安も改革を迫った。",
-            "difficulty": "advanced"
-          },
-          {
             "id": "fc11",
             "front": "{松平定信|まつだいらさだのぶ}",
             "back": "寛政の改革を行った老中はだれ？",
@@ -3750,29 +3716,15 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc13",
-            "front": "{幕府|ばくふ}{財政|ざいせい}の{悪化|あっか}",
-            "back": "江戸の三大改革がくり返し行われた背景にあった、幕府の大きな問題は？",
-            "explanation": "年貢収入だけでは支出をまかないにくくなり、改革政治が必要になった。",
-            "difficulty": "advanced"
-          },
-          {
-            "id": "fc14",
             "front": "{長崎貿易|ながさきぼうえき}",
             "back": "新井白石が金銀の海外流出を防ぐために制限した貿易は？",
             "explanation": "輸入をおさえ、金銀が海外へ出ていくのを防ごうとした。",
             "difficulty": "standard"
           },
           {
-            "id": "fc15",
-            "front": "わいろが横行したため",
-            "back": "田沼政治が批判された理由の一つは？",
-            "explanation": "商業を利用した政治は利益を生んだ一方、不正も問題になった。",
-            "difficulty": "advanced"
-          },
-          {
-            "id": "fc16",
+            "id": "fc14",
             "front": "{新井白石|あらいはくせき}",
-            "back": "正徳の治に関係の深い人物は？",
+            "back": "6・7代将軍に仕え、正徳の治に関わった人物は？",
             "explanation": "6代・7代将軍に仕え、貨幣改鋳や長崎貿易制限に関わった。",
             "difficulty": "standard"
           }
@@ -3780,7 +3732,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "quiz": [
           {
             "id": "q1",
-            "question": "5代将軍徳川綱吉が重視した学問は何ですか。",
+            "question": "5代将軍徳川綱吉が重視した学問は？",
             "options": [
               "蘭学",
               "国学",
@@ -3793,7 +3745,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "q2",
-            "question": "正徳の治に関係の深い人物を選びなさい。",
+            "question": "正徳の治を進めた人物は？",
             "options": [
               "新井白石",
               "水野忠邦",
@@ -3806,20 +3758,20 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "q3",
-            "question": "江戸幕府政治の流れとして正しいものを選びなさい。",
+            "question": "江戸幕府政治の正しい流れは？",
             "options": [
               "田沼政治→正徳の治→元禄期",
-              "元禄期→正徳の治→田沼政治",
               "正徳の治→享保の改革→元禄期",
-              "天保の改革→田沼政治→寛政の改革"
+              "天保の改革→田沼政治→寛政の改革",
+              "元禄期→正徳の治→田沼政治"
             ],
-            "correctIndex": 1,
+            "correctIndex": 3,
             "explanation": "元禄期の後、新井白石の正徳の治、さらに田沼政治へ進みます。",
             "difficulty": "advanced"
           },
           {
             "id": "q4",
-            "question": "享保の改革を行った人物はだれですか。",
+            "question": "享保の改革を行った人物は？",
             "options": [
               "徳川吉宗",
               "松平定信",
@@ -3832,28 +3784,132 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "q5",
-            "question": "田沼意次の政治の特徴として正しいものを選びなさい。",
+            "question": "田沼意次の政治の特徴は？",
             "options": [
-              "株仲間を解散した",
-              "商業を利用して財政を立て直そうとした",
+              "倹約令で支出を抑えた",
+              "株仲間を奨励した",
               "朱子学以外の学問を禁じた",
-              "上知令を成功させた"
+              "上知令を出した"
             ],
             "correctIndex": 1,
-            "explanation": "田沼意次は株仲間を奨励し、商業から収入を得て幕府財政を立て直そうとしました。",
+            "explanation": "田沼意次は株仲間を奨励し、商業から収入を得て幕府財政を立て直そうとしました。倹約令や朱子学以外の学問の禁止は寛政の改革（松平定信）、上知令は天保の改革（水野忠邦）の政策です。",
             "difficulty": "standard"
           },
           {
             "id": "q6",
-            "question": "次の改革を古い順に並べたものとして正しいものを選びなさい。",
+            "question": "次の改革を古い順に並べたものは？",
             "options": [
               "寛政の改革→享保の改革→天保の改革",
               "天保の改革→享保の改革→寛政の改革",
-              "享保の改革→寛政の改革→天保の改革",
-              "享保の改革→天保の改革→寛政の改革"
+              "享保の改革→天保の改革→寛政の改革",
+              "享保の改革→寛政の改革→天保の改革"
+            ],
+            "correctIndex": 3,
+            "explanation": "江戸の三大改革は、享保の改革、寛政の改革、天保の改革の順です。",
+            "difficulty": "advanced"
+          },
+          {
+            "id": "q7",
+            "question": "文治政治とはどのような政治？",
+            "options": [
+              "武力を重視する政治",
+              "商業を発展させる政治",
+              "儒学や法を重視する政治",
+              "武士を取りつぶす政治"
             ],
             "correctIndex": 2,
-            "explanation": "江戸の三大改革は、享保の改革、寛政の改革、天保の改革の順です。",
+            "explanation": "文治政治は、武力ではなく儒学や法を重視する政治で、戦乱が終わった江戸前期に進められました。",
+            "difficulty": "basic"
+          },
+          {
+            "id": "q8",
+            "question": "生類憐みの令を出した将軍は？",
+            "options": [
+              "徳川綱吉",
+              "徳川吉宗",
+              "徳川家光",
+              "徳川家康"
+            ],
+            "correctIndex": 0,
+            "explanation": "生類憐みの令は5代将軍徳川綱吉が出した法令です。",
+            "difficulty": "standard"
+          },
+          {
+            "id": "q9",
+            "question": "寛政の改革を行った老中は？",
+            "options": [
+              "徳川吉宗",
+              "松平定信",
+              "田沼意次",
+              "水野忠邦"
+            ],
+            "correctIndex": 1,
+            "explanation": "寛政の改革は田沼政治の後、老中松平定信が行いました。",
+            "difficulty": "basic"
+          },
+          {
+            "id": "q10",
+            "question": "天保の改革を行った老中は？",
+            "options": [
+              "松平定信",
+              "水野忠邦",
+              "田沼意次",
+              "徳川綱吉"
+            ],
+            "correctIndex": 1,
+            "explanation": "天保の改革は老中水野忠邦が幕府の権威回復をめざして行いました。",
+            "difficulty": "basic"
+          },
+          {
+            "id": "q11",
+            "question": "享保の改革で行われた政策は？",
+            "options": [
+              "上知令を出した",
+              "株仲間を解散した",
+              "目安箱を設置した",
+              "棄捐令で旗本・御家人の借金を帳消しにした"
+            ],
+            "correctIndex": 2,
+            "explanation": "目安箱は享保の改革で徳川吉宗が設置しました。上知令と株仲間の解散は天保の改革、棄捐令は寛政の改革の政策です。",
+            "difficulty": "standard"
+          },
+          {
+            "id": "q12",
+            "question": "株仲間とはどのような組織？",
+            "options": [
+              "武士の身分組合",
+              "寺院の宗教組合",
+              "農民の自治組合",
+              "商人の同業者組合"
+            ],
+            "correctIndex": 3,
+            "explanation": "株仲間は営業の独占を認められた商人の同業者組合で、田沼意次が奨励し、水野忠邦が解散させました。",
+            "difficulty": "standard"
+          },
+          {
+            "id": "q13",
+            "question": "田沼意次の政治が批判された理由は？",
+            "options": [
+              "鎖国を緩めたから",
+              "倹約を強制したから",
+              "わいろが横行したから",
+              "朱子学を禁じたから"
+            ],
+            "correctIndex": 2,
+            "explanation": "商業を利用した田沼の政治は利益を生んだ一方、わいろが横行し批判を受けました。",
+            "difficulty": "advanced"
+          },
+          {
+            "id": "q14",
+            "question": "新井白石が長崎貿易を制限した目的は？",
+            "options": [
+              "キリスト教を禁じるため",
+              "金銀の海外流出を防ぐため",
+              "大名を取りしまるため",
+              "武器の輸入を促進するため"
+            ],
+            "correctIndex": 1,
+            "explanation": "新井白石は輸入をおさえることで、金銀が海外へ流出するのを防ごうとしました。",
             "difficulty": "advanced"
           }
         ]
@@ -3895,93 +3951,72 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc5",
-            "front": "{廻船|かいせん}と{航路|こうろ}",
-            "back": "江戸時代の物資輸送を支えた海上交通は？",
-            "explanation": "菱垣廻船・樽廻船、東廻り航路・西廻り航路が大坂・江戸・東北などを結んだ。",
-            "difficulty": "advanced"
-          },
-          {
-            "id": "fc6",
             "front": "{東海道|とうかいどう}",
             "back": "江戸と京都を結ぶ、海沿いを通る五街道の一つは？",
             "explanation": "参勤交代にも利用された重要な街道だった。",
             "difficulty": "basic"
           },
           {
-            "id": "fc7",
+            "id": "fc6",
             "front": "{東廻|ひがしまわ}り{航路|こうろ}",
             "back": "東北地方と江戸を結んだ海上交通路を何という？",
             "explanation": "西廻り航路は東北や蝦夷地と大坂方面を結んだ。",
             "difficulty": "advanced"
           },
           {
-            "id": "fc8",
+            "id": "fc7",
             "front": "{樽廻船|たるかいせん}",
             "back": "大坂から江戸へ酒などを運んだ廻船は？",
             "explanation": "酒樽などの輸送で知られ、大坂と江戸の流通を支えた。",
             "difficulty": "advanced"
           },
           {
-            "id": "fc9",
+            "id": "fc8",
             "front": "{三都|さんと}",
             "back": "江戸・大坂・京都の三つの大都市をまとめて何という？",
             "explanation": "江戸は政治、大坂は商業、京都は文化の中心として発展した。",
             "difficulty": "basic"
           },
           {
-            "id": "fc10",
+            "id": "fc9",
             "front": "{蔵屋敷|くらやしき}",
             "back": "諸藩が大坂に置き、年貢米や特産物を保管・販売した施設は？",
             "explanation": "大坂が「天下の台所」と呼ばれた理由の一つになった。",
             "difficulty": "basic"
           },
           {
-            "id": "fc11",
+            "id": "fc10",
             "front": "{株仲間|かぶなかま}",
             "back": "営業を独占する権利を認められた商人の同業者組合は？",
             "explanation": "田沼政治や天保の改革で重要な語句。",
             "difficulty": "standard"
           },
           {
-            "id": "fc12",
+            "id": "fc11",
             "front": "{両替商|りょうがえしょう}",
             "back": "金貨・銀貨などの交換を行った商人は？",
             "explanation": "東日本は金貨、西日本は銀貨が多く使われ、貨幣経済を支えた。",
             "difficulty": "standard"
           },
           {
-            "id": "fc13",
-            "front": "{堂島米市場|どうじまこめいちば}",
-            "back": "大坂にあった米取引の中心地は？",
-            "explanation": "年貢米が商品として売買され、大坂の商業発展を支えた。",
-            "difficulty": "advanced"
-          },
-          {
-            "id": "fc14",
+            "id": "fc12",
             "front": "{江戸|えど}",
             "back": "江戸時代の政治の中心で、人口が多い大都市となった都市は？",
             "explanation": "将軍の城下町として発展した。",
             "difficulty": "basic"
           },
           {
-            "id": "fc15",
+            "id": "fc13",
             "front": "{天下|てんか}の{台所|だいどころ}",
             "back": "全国の年貢米や特産物が集まった大坂は何と呼ばれた？",
             "explanation": "諸藩の蔵屋敷が置かれ、物資の集散地として発展した。",
             "difficulty": "standard"
-          },
-          {
-            "id": "fc16",
-            "front": "{堂島米市場|どうじまこめいちば}",
-            "back": "大坂で米の取引の中心となった市場を何という？",
-            "explanation": "年貢米が商品として売買され、米価にも影響を与えた。",
-            "difficulty": "advanced"
           }
         ],
         "quiz": [
           {
             "id": "q1",
-            "question": "江戸を中心に整備された主要な道路をまとめて何といいますか。",
+            "question": "江戸を中心に整備された主要な道路をまとめて何という？",
             "options": [
               "五畿七道",
               "五街道",
@@ -3994,68 +4029,159 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "q2",
-            "question": "宿場町の説明として正しいものを選びなさい。",
+            "question": "宿場町とはどのような町？",
             "options": [
-              "年貢米を保管する施設",
-              "外国船を取りしまる場所",
-              "旅人や大名行列が休泊する町",
-              "銀貨をつくる場所"
+              "城を中心に商人や職人が集まる町",
+              "港を中心に船問屋などが発達した町",
+              "街道沿いで本陣や問屋場が置かれた町",
+              "寺社の門前に商業が栄えた町"
             ],
             "correctIndex": 2,
-            "explanation": "宿場町には本陣や旅籠などが置かれ、旅人や大名行列が休泊しました。",
+            "explanation": "宿場町は街道沿いに発達した町で、本陣や旅籠、問屋場が置かれて旅人や大名行列を迎えました。城下町・港町・門前町と区別して覚えましょう。",
             "difficulty": "standard"
           },
           {
             "id": "q3",
-            "question": "大坂から江戸へ酒などを運んだ廻船として適切なものを選びなさい。",
+            "question": "大坂から江戸へ酒を専門に運んだ廻船は？",
             "options": [
               "樽廻船",
+              "菱垣廻船",
               "北前船",
-              "南蛮船",
               "朱印船"
             ],
             "correctIndex": 0,
-            "explanation": "樽廻船は、大坂から江戸へ酒などを運んだ廻船です。",
+            "explanation": "樽廻船は大坂から江戸へ酒を専門に運んだ廻船です。同じ大坂↔江戸ルートには菱垣廻船もありましたが、こちらは酒以外の雑貨を主に運びました。",
             "difficulty": "advanced"
           },
           {
             "id": "q4",
-            "question": "江戸時代の三都の組み合わせとして正しいものを選びなさい。",
+            "question": "江戸時代の三都の組み合わせは？",
             "options": [
               "江戸・鎌倉・奈良",
               "江戸・大坂・京都",
-              "大坂・堺・長崎",
+              "江戸・長崎・博多",
               "京都・奈良・平戸"
             ],
             "correctIndex": 1,
-            "explanation": "江戸・大坂・京都を三都といいます。",
+            "explanation": "江戸・大坂・京都を三都といいます。江戸は政治、大坂は商業、京都は文化の中心として発展しました。",
             "difficulty": "basic"
           },
           {
             "id": "q5",
-            "question": "大坂が「天下の台所」と呼ばれた理由として適切なものを選びなさい。",
+            "question": "大坂が「天下の台所」と呼ばれた理由は？",
             "options": [
               "幕府の将軍が住んだから",
               "外国貿易を独占したから",
-              "全国の年貢米や特産物が集まったから",
+              "全国の物資が集まったから",
               "武士の学校が多かったから"
             ],
             "correctIndex": 2,
-            "explanation": "大坂には諸藩の蔵屋敷が置かれ、全国の年貢米や特産物が集まりました。",
+            "explanation": "大坂には諸藩の蔵屋敷が置かれ、全国の年貢米や特産物が集まったため「天下の台所」と呼ばれました。",
             "difficulty": "standard"
           },
           {
             "id": "q6",
-            "question": "株仲間について正しい説明を選びなさい。",
+            "question": "株仲間とはどのような組織？",
             "options": [
               "農民の自治組織",
-              "商人の同業者組合",
               "武士の軍事組織",
-              "寺子屋の集まり"
+              "寺子屋の集まり",
+              "商人の同業者組合"
             ],
-            "correctIndex": 1,
+            "correctIndex": 3,
             "explanation": "株仲間は商人の同業者組合で、営業の独占権を認められることがありました。",
             "difficulty": "advanced"
+          },
+          {
+            "id": "q7",
+            "question": "関所の役割は？",
+            "options": [
+              "人や物の通行を取りしまる",
+              "旅人を宿泊させ食事を出す",
+              "年貢米を集めて保管する",
+              "幕府の船を造って配備する"
+            ],
+            "correctIndex": 0,
+            "explanation": "関所は街道に置かれた検問所で、幕府は特に女性や武器の移動を警戒しました。",
+            "difficulty": "basic"
+          },
+          {
+            "id": "q8",
+            "question": "江戸時代に手紙や荷物を運んだのは？",
+            "options": [
+              "旅人を案内する人",
+              "大名を護衛する武士",
+              "手紙や荷物を運ぶ飛脚",
+              "関所を守る役人"
+            ],
+            "correctIndex": 2,
+            "explanation": "飛脚は江戸時代の情報伝達を支えたしくみで、手紙や荷物を遠くまで運びました。",
+            "difficulty": "standard"
+          },
+          {
+            "id": "q9",
+            "question": "東海道はどの都市を結ぶ街道？",
+            "options": [
+              "江戸と日光",
+              "江戸と大坂",
+              "京都と長崎",
+              "江戸と京都"
+            ],
+            "correctIndex": 3,
+            "explanation": "東海道は江戸と京都を結ぶ、海沿いを通る五街道の一つです。",
+            "difficulty": "basic"
+          },
+          {
+            "id": "q10",
+            "question": "東廻り航路が結んだ地域は？",
+            "options": [
+              "東北地方と江戸",
+              "東北地方と大坂",
+              "蝦夷地と長崎",
+              "江戸と京都"
+            ],
+            "correctIndex": 0,
+            "explanation": "東廻り航路は東北地方の太平洋側を通って江戸を結びました。日本海側を通って東北・蝦夷地と大坂を結んだのは西廻り航路です。",
+            "difficulty": "advanced"
+          },
+          {
+            "id": "q11",
+            "question": "蔵屋敷とはどのような施設？",
+            "options": [
+              "幕府の武士が住んだ屋敷",
+              "商人が大坂で経営する旅館",
+              "諸藩が大坂に置いた年貢米の蔵",
+              "藩士が朱子学を学ぶ学校"
+            ],
+            "correctIndex": 2,
+            "explanation": "蔵屋敷は諸藩が大坂に置き、年貢米や特産物を保管・販売した施設で、大坂の商業発展を支えました。",
+            "difficulty": "basic"
+          },
+          {
+            "id": "q12",
+            "question": "両替商とはどのような商人？",
+            "options": [
+              "朱印船で海外貿易を行う商人",
+              "株仲間に加わって商売をする商人",
+              "海外と直接取引を行う商人",
+              "金貨と銀貨を取引する商人"
+            ],
+            "correctIndex": 3,
+            "explanation": "東日本では金貨、西日本では銀貨が多く使われたため、その間を取り持つ両替商が貨幣経済を支えました。",
+            "difficulty": "standard"
+          },
+          {
+            "id": "q13",
+            "question": "江戸時代の三都の役割の組み合わせは？",
+            "options": [
+              "江戸が文化、大坂が政治、京都が商業",
+              "江戸が政治、大坂が商業、京都が文化",
+              "江戸が商業、大坂が文化、京都が政治",
+              "江戸が政治、大坂が文化、京都が商業"
+            ],
+            "correctIndex": 1,
+            "explanation": "江戸は政治、大坂は商業、京都は文化の中心として発展しました。",
+            "difficulty": "standard"
           }
         ]
       },
@@ -4144,13 +4270,6 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "difficulty": "standard"
           },
           {
-            "id": "fc12",
-            "front": "社会不安と改革",
-            "back": "ききんや一揆、打ちこわしの増加は幕府に何を迫った？",
-            "explanation": "幕府の支配がゆらぎ、天保の改革などの改革政治につながった。",
-            "difficulty": "advanced"
-          },
-          {
             "id": "fc13",
             "front": "{大塩平八郎|おおしおへいはちろう}",
             "back": "1837年に大坂で反乱を起こした元役人はだれ？",
@@ -4159,21 +4278,21 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "fc14",
-            "front": "幕府の支配をゆるがせた",
-            "back": "ききん、百姓一揆、打ちこわしが増えたことは、江戸幕府にどのような影響を与えた？",
-            "explanation": "社会不安が高まり、改革政治が必要になった。",
-            "difficulty": "advanced"
+            "front": "{天明|てんめい}のききん",
+            "back": "田沼意次の政治のころに起こった、江戸時代の代表的なききんは？",
+            "explanation": "1782年ごろから始まった大ききんで、田沼政治への批判を強める一因となった。",
+            "difficulty": "standard"
           },
           {
             "id": "fc15",
-            "front": "{天明|てんめい}のききん・{天保|てんぽう}のききん",
-            "back": "江戸後期の代表的なききんは？",
-            "explanation": "食料不足や米価上昇を招き、一揆や打ちこわしの背景になった。",
+            "front": "{天保|てんぽう}のききん",
+            "back": "大塩平八郎の乱のきっかけにもなった、江戸後期のききんは？",
+            "explanation": "1830年代に起こった大ききんで、米価上昇と打ちこわしが多発し、大塩平八郎の乱の背景にもなった。",
             "difficulty": "standard"
           },
           {
             "id": "fc16",
-            "front": "{年貢|ねんぐ}{収入|しゅうにゅう}",
+            "front": "{年貢|ねんぐ}",
             "back": "新田開発で幕府や藩が増やそうとした収入は？",
             "explanation": "田畑を増やすことで、米を中心とする年貢収入を増やすねらいがあった。",
             "difficulty": "basic"
@@ -4182,7 +4301,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
         "quiz": [
           {
             "id": "q1",
-            "question": "売って現金収入を得るために栽培された作物を何といいますか。",
+            "question": "売って現金収入を得るために栽培された作物は？",
             "options": [
               "救荒作物",
               "商品作物",
@@ -4195,33 +4314,33 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "q2",
-            "question": "干鰯の説明として正しいものを選びなさい。",
+            "question": "干鰯とはどのようなもの？",
             "options": [
-              "銀を精錬する道具",
-              "いわしを加工した肥料",
-              "幕府が発行した紙幣",
-              "大名が泊まる施設"
+              "海藻を乾燥させて作った肥料",
+              "魚を干して加工した肥料",
+              "貝殻を砕いて作った肥料",
+              "魚を塩漬けにした保存食"
             ],
             "correctIndex": 1,
-            "explanation": "干鰯はいわしを加工した肥料で、農業生産力の向上に役立ちました。",
+            "explanation": "干鰯はいわしを干して作った肥料で、農業生産力の向上に役立ちました。",
             "difficulty": "standard"
           },
           {
             "id": "q3",
-            "question": "問屋制家内工業の説明として正しいものを選びなさい。",
+            "question": "問屋制家内工業とはどのような仕組み？",
             "options": [
-              "問屋が農民に原料や道具を貸して製品を作らせる",
-              "幕府が直接工場を経営する",
-              "武士だけが手工業を行う",
-              "外国人が工場を建てる"
+              "問屋が農家に原料を貸して作らせる",
+              "幕府が直営の工場を経営して生産する",
+              "武士が農村で手工業を営んで生産する",
+              "外国人が日本に工場を建てて生産する"
             ],
             "correctIndex": 0,
-            "explanation": "問屋制家内工業では、問屋が農村の労働力を利用して製品を作らせました。",
+            "explanation": "問屋制家内工業では、問屋が原料や道具を農村に貸し、農家の労働力を利用して製品を作らせました。",
             "difficulty": "advanced"
           },
           {
             "id": "q4",
-            "question": "農民が年貢の軽減などを求めて起こした行動を何といいますか。",
+            "question": "農民が年貢の軽減などを求めて起こした行動は？",
             "options": [
               "打ちこわし",
               "百姓一揆",
@@ -4234,7 +4353,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "q5",
-            "question": "都市で米を買いしめた商人などが襲われた行動を何といいますか。",
+            "question": "都市で米を買いしめた商人などが襲われた行動は？",
             "options": [
               "打ちこわし",
               "刀狩",
@@ -4247,16 +4366,120 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "q6",
-            "question": "大塩平八郎の乱について正しいものを選びなさい。",
+            "question": "大塩平八郎の乱とはどのような事件？",
             "options": [
               "江戸で旗本が起こした反乱",
               "長崎で外国人が起こした事件",
-              "大坂で元役人が困窮する民衆を救おうとして起こした反乱",
-              "農民が新田開発に反対した一揆"
+              "農民が新田開発に反対した一揆",
+              "大坂で元役人が起こした反乱"
             ],
-            "correctIndex": 2,
+            "correctIndex": 3,
             "explanation": "大塩平八郎は大坂町奉行所の元役人で、困窮する民衆を救おうとして1837年に反乱を起こしました。",
             "difficulty": "advanced"
+          },
+          {
+            "id": "q7",
+            "question": "新田開発とはどのような取り組み？",
+            "options": [
+              "古い田を捨てる取り組み",
+              "田を畑に変える取り組み",
+              "田の水を抜く取り組み",
+              "新しく田を開く取り組み"
+            ],
+            "correctIndex": 3,
+            "explanation": "新田開発は、用水路の整備や干拓などによって新しく田を開き、年貢収入を増やすために行われました。",
+            "difficulty": "basic"
+          },
+          {
+            "id": "q8",
+            "question": "佐渡金山で主に産出された資源は？",
+            "options": [
+              "銀",
+              "銅",
+              "金",
+              "鉄"
+            ],
+            "correctIndex": 2,
+            "explanation": "佐渡金山は現在の新潟県にあり、金を多く産出して幕府の財政を支えました。石見銀山は銀、別子銅山は銅の産地として有名です。",
+            "difficulty": "standard"
+          },
+          {
+            "id": "q9",
+            "question": "19世紀に広がった、工場を建てて分業で製品を作らせる生産方式は？",
+            "options": [
+              "問屋制家内工業",
+              "家内手工業",
+              "町人手工業",
+              "工場制手工業"
+            ],
+            "correctIndex": 3,
+            "explanation": "工場制手工業（マニュファクチュア）は、問屋制家内工業からさらに進んだ生産方式です。",
+            "difficulty": "advanced"
+          },
+          {
+            "id": "q10",
+            "question": "「ききん」とはどのような状態？",
+            "options": [
+              "作物が不足し人々が苦しむ状態",
+              "作物が豊作になる状態",
+              "商売がうまくいかない状態",
+              "戦争が起こる状態"
+            ],
+            "correctIndex": 0,
+            "explanation": "ききんは冷害や災害などで作物が不足し、人々の生活が苦しくなる状態をいいます。",
+            "difficulty": "basic"
+          },
+          {
+            "id": "q11",
+            "question": "田沼意次の政治のころに起こった代表的なききんは？",
+            "options": [
+              "天明のききん",
+              "享保のききん",
+              "天保のききん",
+              "寛永のききん"
+            ],
+            "correctIndex": 0,
+            "explanation": "天明のききんは1782年ごろから始まり、田沼意次の政治のころに起こった大ききんです。",
+            "difficulty": "standard"
+          },
+          {
+            "id": "q12",
+            "question": "大塩平八郎の乱の背景となったききんは？",
+            "options": [
+              "享保のききん",
+              "寛永のききん",
+              "天保のききん",
+              "天明のききん"
+            ],
+            "correctIndex": 2,
+            "explanation": "1830年代の天保のききんで米価が上昇し、打ちこわしが多発したことが大塩平八郎の乱の背景となりました。",
+            "difficulty": "standard"
+          },
+          {
+            "id": "q13",
+            "question": "大塩平八郎が反乱を起こした場所は？",
+            "options": [
+              "江戸",
+              "京都",
+              "大坂",
+              "長崎"
+            ],
+            "correctIndex": 2,
+            "explanation": "大塩平八郎は大坂町奉行所の元役人で、困窮する民衆を救おうとして大坂で1837年に反乱を起こしました。",
+            "difficulty": "basic"
+          },
+          {
+            "id": "q14",
+            "question": "江戸時代に栽培された商品作物の組み合わせは？",
+            "options": [
+              "大麦・小麦",
+              "米・粟",
+              "果樹・野菜",
+              "木綿・菜種"
+            ],
+            "correctIndex": 3,
+            "explanation": "木綿や菜種は市場で売ることを目的に栽培された代表的な商品作物です。",
+            "difficulty": "standard"
           }
         ]
       },
@@ -4312,8 +4535,8 @@ export const lineStudyHistoryEras: StudyEra[] = [
           {
             "id": "fc7",
             "front": "{葛飾北斎|かつしかほくさい}・{歌川広重|うたがわひろしげ}",
-            "back": "化政文化の浮世絵で有名な人物の組み合わせは？",
-            "explanation": "風景画でも知られ、江戸の庶民文化を代表する。",
+            "back": "化政文化を代表する風景画の浮世絵師二人は？",
+            "explanation": "北斎『富嶽三十六景』、広重『東海道五十三次』が代表作。江戸の庶民文化を代表する。",
             "difficulty": "advanced"
           },
           {
@@ -4354,8 +4577,8 @@ export const lineStudyHistoryEras: StudyEra[] = [
           {
             "id": "fc13",
             "front": "{杉田玄白|すぎたげんぱく}",
-            "back": "『解体新書』の出版に関係が深い人物は？",
-            "explanation": "西洋医学書を翻訳し、蘭学の発展に関わった。",
+            "back": "『解体新書』の翻訳・出版に関わり、のちに『蘭学事始』を著した医師は？",
+            "explanation": "前野良沢らとともに西洋医学書を翻訳し、晩年には蘭学導入の苦労を『蘭学事始』に記した。",
             "difficulty": "standard"
           },
           {
@@ -4371,19 +4594,12 @@ export const lineStudyHistoryEras: StudyEra[] = [
             "back": "杉田玄白らが翻訳した西洋医学書は？",
             "explanation": "蘭学の発展を示す代表的な書物。",
             "difficulty": "standard"
-          },
-          {
-            "id": "fc16",
-            "front": "{寺子屋|てらこや}",
-            "back": "庶民の子どもが読み書きやそろばんを学んだ場所を何という？",
-            "explanation": "江戸時代には庶民教育が広がった。",
-            "difficulty": "basic"
           }
         ],
         "quiz": [
           {
             "id": "q1",
-            "question": "元禄文化の中心となった地域はどこですか。",
+            "question": "元禄文化の中心となった地域は？",
             "options": [
               "鎌倉",
               "江戸",
@@ -4396,7 +4612,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "q2",
-            "question": "松尾芭蕉について正しい説明を選びなさい。",
+            "question": "松尾芭蕉の業績は？",
             "options": [
               "俳諧を芸術に高めた",
               "解体新書を出版した",
@@ -4409,7 +4625,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "q3",
-            "question": "化政文化に関係が深い組み合わせとして正しいものを選びなさい。",
+            "question": "化政文化に関係が深い人物の組み合わせは？",
             "options": [
               "井原西鶴・近松門左衛門",
               "葛飾北斎・歌川広重",
@@ -4422,7 +4638,7 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "q4",
-            "question": "主従関係や上下関係を重んじる学問は何ですか。",
+            "question": "主従関係や上下関係を重んじる学問は？",
             "options": [
               "国学",
               "蘭学",
@@ -4435,20 +4651,20 @@ export const lineStudyHistoryEras: StudyEra[] = [
           },
           {
             "id": "q5",
-            "question": "『解体新書』の出版に関係が深い人物を選びなさい。",
+            "question": "『解体新書』の出版に関係が深い人物は？",
             "options": [
-              "杉田玄白",
               "本居宣長",
               "伊能忠敬",
-              "松尾芭蕉"
+              "松尾芭蕉",
+              "杉田玄白"
             ],
-            "correctIndex": 0,
+            "correctIndex": 3,
             "explanation": "杉田玄白らが西洋医学書を翻訳し、『解体新書』を出版しました。",
             "difficulty": "standard"
           },
           {
             "id": "q6",
-            "question": "本居宣長と関係が深い学問を選びなさい。",
+            "question": "本居宣長と関係が深い学問は？",
             "options": [
               "蘭学",
               "国学",
@@ -4457,6 +4673,110 @@ export const lineStudyHistoryEras: StudyEra[] = [
             ],
             "correctIndex": 1,
             "explanation": "本居宣長は『古事記伝』を書き、国学を大成しました。",
+            "difficulty": "advanced"
+          },
+          {
+            "id": "q7",
+            "question": "化政文化の特徴は？",
+            "options": [
+              "17世紀後半に上方で栄えた町人文化",
+              "室町時代に京都で生まれた公家文化",
+              "鎌倉時代に武士が育てた武家文化",
+              "19世紀前半に江戸で栄えた庶民文化"
+            ],
+            "correctIndex": 3,
+            "explanation": "化政文化は19世紀前半に江戸を中心に広がった庶民文化で、浮世絵や小説などが発展しました。",
+            "difficulty": "basic"
+          },
+          {
+            "id": "q8",
+            "question": "近松門左衛門の業績は？",
+            "options": [
+              "浮世絵で美人画を描いた",
+              "浮世草子で町人を描いた",
+              "人形浄瑠璃の脚本を書いた",
+              "国学を研究し大成した"
+            ],
+            "correctIndex": 2,
+            "explanation": "近松門左衛門は人形浄瑠璃の脚本を書き、義理や人情を題材にした作品で知られます。",
+            "difficulty": "standard"
+          },
+          {
+            "id": "q9",
+            "question": "化政文化の浮世絵で有名な人物の組み合わせは？",
+            "options": [
+              "葛飾北斎・歌川広重",
+              "雪舟・狩野永徳",
+              "千利休・本阿弥光悦",
+              "観阿弥・世阿弥"
+            ],
+            "correctIndex": 0,
+            "explanation": "葛飾北斎と歌川広重は化政文化を代表する浮世絵師で、風景画でも知られます。",
+            "difficulty": "advanced"
+          },
+          {
+            "id": "q10",
+            "question": "井原西鶴が書いた文学作品の形式は？",
+            "options": [
+              "俳諧",
+              "浮世草子",
+              "人形浄瑠璃",
+              "仮名草子"
+            ],
+            "correctIndex": 1,
+            "explanation": "井原西鶴は武士や町人の生活を題材にした浮世草子を書き、元禄文化を代表する作家となりました。",
+            "difficulty": "standard"
+          },
+          {
+            "id": "q11",
+            "question": "寺子屋とはどのような場所？",
+            "options": [
+              "武士の子弟が学問を学んだ藩校",
+              "僧侶が修行や学問を行う寺院",
+              "庶民の子が読み書きを学ぶ場所",
+              "朱子学を研究する学者の集まり"
+            ],
+            "correctIndex": 2,
+            "explanation": "寺子屋は庶民の子どもが読み書きや計算を学んだ場所で、江戸時代に庶民教育が広がったことを示します。",
+            "difficulty": "basic"
+          },
+          {
+            "id": "q12",
+            "question": "蘭学とはどのような学問？",
+            "options": [
+              "中国から日本に伝わった儒学",
+              "ロシア語で西洋を学ぶ学問",
+              "古事記など日本古典の研究",
+              "オランダ語で学ぶ西洋の学問"
+            ],
+            "correctIndex": 3,
+            "explanation": "蘭学はオランダ語を通じて西洋の医学や科学を学ぶ学問で、長崎を通じて入った西洋知識をもとに発展しました。",
+            "difficulty": "standard"
+          },
+          {
+            "id": "q13",
+            "question": "国学が主に研究の対象とした文献は？",
+            "options": [
+              "解体新書や蘭学書",
+              "論語や朱子学書",
+              "万葉集や古事記",
+              "仏教の経典や仏典"
+            ],
+            "correctIndex": 2,
+            "explanation": "国学は万葉集や古事記など日本古来の文献を研究し、日本独自の考え方を明らかにしようとしました。",
+            "difficulty": "advanced"
+          },
+          {
+            "id": "q14",
+            "question": "伊能忠敬の業績は？",
+            "options": [
+              "全国を測量し日本地図を作った",
+              "西洋医学書を翻訳し出版した",
+              "浮世絵で江戸の風景画を描いた",
+              "古事記を研究し国学を大成した"
+            ],
+            "correctIndex": 0,
+            "explanation": "伊能忠敬は全国を測量し、正確な日本地図の作成に貢献しました。",
             "difficulty": "advanced"
           }
         ]
