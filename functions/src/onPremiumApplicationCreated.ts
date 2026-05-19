@@ -143,6 +143,10 @@ export const onPremiumApplicationCreated = functions
 
           if (trialOutcome !== 'failed') {
             try {
+              // 価格ロック仕組み（§D-3）対応:
+              // trial 中の登録 = 月¥680 永続ロックを確定する。
+              // priceLockExpiresAt は trial 終了と同じ 7日後に設定（trial 中の申込なら 680、
+              // 期限切れ後の申込は priceCalculator.determineApplicationPrice で 980 と判定される）。
               await db.doc(`users/${uid}`).set(
                 {
                   plan: 'premium',
@@ -150,11 +154,32 @@ export const onPremiumApplicationCreated = functions
                   richMenuType: 'premium',
                   planSource: 'trial',
                   trialStartedAt: FieldValue.serverTimestamp(),
+                  priceLockExpiresAt: Timestamp.fromDate(trialEnd),
+                  lockedMonthlyPrice: 680,
                   lastRichMenuUpdatedAt: FieldValue.serverTimestamp(),
                   updatedAt: FieldValue.serverTimestamp(),
                 },
                 { merge: true }
               );
+
+              // premiumApplications にも申込時点で確定した価格を記録
+              // （source は LIFF 側 payload に含めるが、既存ドキュメントには未付与なので
+              //  ここで lockedPrice のみ確実に記録する）
+              try {
+                await db.doc(`premiumApplications/${applicationId}`).set(
+                  {
+                    lockedPrice: 680,
+                    lockedPriceConfirmedAt: FieldValue.serverTimestamp(),
+                  },
+                  { merge: true }
+                );
+              } catch (priceError) {
+                console.error(
+                  `[onPremiumApplicationCreated] premiumApplications lockedPrice 記録失敗:`,
+                  priceError
+                );
+              }
+
               trialOutcome = 'started';
             } catch (error) {
               trialOutcome = 'failed';

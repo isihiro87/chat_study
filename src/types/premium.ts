@@ -16,6 +16,36 @@ export type ApplicationPreferredHour = 6 | 7 | 16 | 18 | 20;
 export type PremiumApplicationType = 'trial_start';
 
 /**
+ * 申込が発生した経路。コピー効果測定・コンバージョン分析用。
+ *
+ * - `trial-day*`: 体験中のリマインダー経由
+ * - `post-trial-*`: 体験終了後のフォローアップ経由
+ * - `winback-*`: 離脱ユーザー向け Win-back 経由（trial 経験者の価格ロック再オープン含む）
+ * - `first-answer`: 初回回答直後のプレミアム誘導 flex
+ * - `milestone`: 連続記録 / 累計回答 milestone のナッジ flex
+ * - `other`: 上記以外（ボタン操作などからの直接遷移）
+ */
+export type PremiumApplicationSource =
+  | 'trial-day0'
+  | 'trial-day1'
+  | 'trial-day3'
+  | 'trial-day6'
+  | 'trial-day7-morning'
+  | 'trial-day7-evening'
+  | 'trial-day7-night'
+  | 'post-trial-day8'
+  | 'post-trial-day15'
+  | 'post-trial-day30'
+  | 'winback-day7'
+  | 'winback-day14'
+  | 'first-answer'
+  | 'milestone'
+  | 'other';
+
+/** 申込時にロックされる月額価格。 */
+export type LockedPrice = 680 | 980;
+
+/**
  * Firestore `premiumApplications/{applicationId}` のドキュメントスキーマ。
  * クライアントは7日間無料トライアル開始リクエストのみ create 可能。
  * read/update/delete は admin SDK 経由。
@@ -43,6 +73,22 @@ export interface PremiumApplication {
   approvedAt?: Timestamp;
   approvedBy?: string;
   rejectedReason?: string;
+
+  // === 価格ロック / 経路（D-3 / D-15 のセールスコピー対応） ===
+
+  /**
+   * 申込時点で確定した永続月額。
+   * - 体験中の申込 / 価格ロック再オープン中の申込 → 680
+   * - それ以外（体験経験者の通常申込含む） → 980
+   * 既存ユーザー（マイグレーション前のドキュメント）は undefined になり得る。
+   */
+  lockedPrice?: LockedPrice;
+
+  /** 申込経路（コピー効果測定用） */
+  source?: PremiumApplicationSource;
+
+  /** 保護者が決済者として申し込んだか（D-5 / D-6 の分岐用） */
+  parentInitiated?: boolean;
 }
 
 /** クライアントが create 時に送信する payload（自動付与フィールドを除く）。 */

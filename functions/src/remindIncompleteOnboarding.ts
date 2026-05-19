@@ -11,6 +11,36 @@ import {
 const DAY_MS = 24 * 60 * 60 * 1000;
 const MAX_USERS_PER_RUN = 100;
 
+/**
+ * 設定不完全リマインダーを送るタイミング（A-6 拡張）。
+ *
+ * - Day 1: 開始から 1 日経過後（既存の 24h リマインド）
+ * - Day 3: 3 日経過後
+ * - Day 7: 7 日経過後（これ以降は休眠扱いで停止）
+ */
+const REMINDER_DAYS: readonly { key: "day1" | "day3" | "day7"; days: number }[] = [
+  { key: "day1", days: 1 },
+  { key: "day3", days: 3 },
+  { key: "day7", days: 7 },
+];
+
+/** 経過時間（ms）から、まだ送っていない milestone を返す */
+function pickReminderMilestone(
+  startedAtMs: number,
+  nowMs: number,
+  alreadySent: Record<string, unknown>
+): "day1" | "day3" | "day7" | null {
+  const elapsedDays = Math.floor((nowMs - startedAtMs) / DAY_MS);
+  // 後ろから（最新の milestone から）探し、まだ送っていない最大の milestone を返す
+  for (let i = REMINDER_DAYS.length - 1; i >= 0; i--) {
+    const m = REMINDER_DAYS[i];
+    if (elapsedDays >= m.days && !alreadySent[m.key]) {
+      return m.key;
+    }
+  }
+  return null;
+}
+
 type OnboardingStep = "name" | "grade" | "subject" | "time";
 
 const stepText: Record<OnboardingStep, string> = {
@@ -66,9 +96,12 @@ export const remindIncompleteOnboarding = functions
       return;
     }
 
+    // Day 3 / Day 7 リマインダー追加に伴い "reminded" も対象に含める。
+    // 設定完了 ("complete") は除外。Day 7 後の Onboarding 中ユーザーは
+    // 別途休眠ユーザー除外システムが扱う。
     const snap = await db
       .collection("users")
-      .where("onboardingState", "in", ["started", "awaiting_name"])
+      .where("onboardingState", "in", ["started", "awaiting_name", "reminded"])
       .limit(MAX_USERS_PER_RUN)
       .get();
 
@@ -118,17 +151,33 @@ export const remindIncompleteOnboarding = functions
         startedAtRaw && typeof startedAtRaw.toDate === "function"
           ? startedAtRaw.toDate().getTime()
           : 0;
-      if (startedAtMs === 0 || now - startedAtMs < DAY_MS) {
+      if (startedAtMs === 0) {
+        skipped++;
+        continue;
+      }
+
+      // A-6: Day 1 / Day 3 / Day 7 のいずれかで未送信のものを選ぶ
+      const alreadySent =
+        (data.onboardingReminderAt as Record<string, unknown>) ?? {};
+      const milestone = pickReminderMilestone(startedAtMs, now, alreadySent);
+      if (!milestone) {
         skipped++;
         continue;
       }
 
       const step = getNextStep(data);
+
+      // milestone ごとにトーンを変えて、複数回送られたユーザーに同じ文言で
+      // 届かないようにする（押し売り感の回避）。
+      const heading =
+        milestone === "day1"
+          ? "登録ありがとうございました🙏\n設定がまだ途中になっているみたいです。\n30秒で終わるから、良かったらこのまま続きをやってみてね！"
+          : milestone === "day3"
+            ? "ひさしぶり！前回の設定、まだ途中だったみたいだから、もし良ければ続きをどうぞ。"
+            : "今回でリマインドはおしまいにするね。気が向いたら続きをやってみよう。設定すれば毎日1問が届くようになるよ。";
+
       const text =
-        "登録ありがとうございました🙏\n" +
-        "設定がまだ途中になっているみたいです。\n" +
-        "30秒で終わるから、良かったらこのまま続きをやってみてね！\n\n" +
-        `${stepText[step]}` +
+        `${heading}\n\n${stepText[step]}` +
         (step === "name"
           ? "\n\nそのまま続きを送ってね。"
           : "\n\n下のボタンから続きができます。");
@@ -152,9 +201,14 @@ export const remindIncompleteOnboarding = functions
       }
 
       try {
+        // onboardingReminderAt.{milestone} に送信履歴を記録
+        // 互換のため state も "reminded" に更新（Day 7 送信後も同じ）
         await doc.ref.set(
           {
             onboardingState: "reminded",
+            onboardingReminderAt: {
+              [milestone]: FieldValue.serverTimestamp(),
+            },
             onboardingReminderSentAt: FieldValue.serverTimestamp(),
             updatedAt: FieldValue.serverTimestamp(),
           },

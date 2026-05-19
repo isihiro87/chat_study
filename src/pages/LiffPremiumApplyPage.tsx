@@ -18,7 +18,34 @@ import {
   type ApplicationGrade,
   type ApplicationPreferredHour,
   type ApplicationSubject,
+  type PremiumApplicationSource,
 } from '../types/premium';
+
+/** URL の ?src=... から受け取る Source。値が一致しなければ undefined。 */
+const VALID_SOURCES: PremiumApplicationSource[] = [
+  'trial-day0',
+  'trial-day1',
+  'trial-day3',
+  'trial-day6',
+  'trial-day7-morning',
+  'trial-day7-evening',
+  'trial-day7-night',
+  'post-trial-day8',
+  'post-trial-day15',
+  'post-trial-day30',
+  'winback-day7',
+  'winback-day14',
+  'first-answer',
+  'milestone',
+  'other',
+];
+
+function parseSourceParam(value: string | null): PremiumApplicationSource {
+  if (!value) return 'other';
+  return (VALID_SOURCES as readonly string[]).includes(value)
+    ? (value as PremiumApplicationSource)
+    : 'other';
+}
 
 type Plan = 'free' | 'premium';
 type Status =
@@ -47,8 +74,8 @@ interface UserProfile {
 }
 
 const PROMO_PRICE_YEN = 680;
-const REGULAR_PRICE_YEN = 1280;
-const CHECKOUT_URL = import.meta.env.VITE_PREMIUM_CHECKOUT_URL as
+const REGULAR_PRICE_YEN = 980;
+const CHECKOUT_FN_URL = import.meta.env.VITE_PREMIUM_CHECKOUT_FN_URL as
   | string
   | undefined;
 
@@ -64,21 +91,15 @@ const HOURS: {
   { value: 20, label: '夜8時', note: '就寝前のおさらいに' },
 ];
 
-function buildCheckoutUrl(baseUrl: string, userUid: string): string {
-  const lineUserId = userUid.startsWith('line:')
-    ? userUid.slice('line:'.length)
-    : userUid;
-  try {
-    const url = new URL(baseUrl);
-    url.searchParams.set('client_reference_id', userUid);
-    url.searchParams.set('line_user_id', lineUserId);
-    return url.toString();
-  } catch {
-    const joiner = baseUrl.includes('?') ? '&' : '?';
-    return `${baseUrl}${joiner}client_reference_id=${encodeURIComponent(
-      userUid
-    )}&line_user_id=${encodeURIComponent(lineUserId)}`;
-  }
+interface CheckoutSessionResponse {
+  url?: string;
+  error?: string;
+}
+
+function buildCheckoutReturnUrl(result: 'success' | 'cancel'): string {
+  const url = new URL('/liff/premium-apply', window.location.origin);
+  url.searchParams.set('checkout', result);
+  return url.toString();
 }
 
 /**
@@ -106,14 +127,40 @@ export function LiffPremiumApplyPage() {
     useState<ApplicationPreferredHour | null>(null);
   const [guardianConfirmed, setGuardianConfirmed] = useState(false);
 
-  // 計測: 認証確立後に1回だけ閲覧イベントを記録
+  // URL param: ?parent=true → 保護者経由フラグ、?src=... → 申込経路
+  const urlParams = useMemo(() => new URLSearchParams(window.location.search), []);
+  const isParentInitiated = urlParams.get('parent') === 'true';
+  const applicationSource = useMemo(
+    () => parseSourceParam(urlParams.get('src')),
+    [urlParams]
+  );
+
+  // 計測: 認証確立後に1回だけ閲覧イベントを記録 + 離脱検知用に開始時刻を Firestore に書き込む
   useEffect(() => {
     if (!user) return;
-    const source = new URLSearchParams(window.location.search).get('src');
     void logFunnelEvent('liff_premium_apply_view', {
-      source: source ?? 'direct',
+      source: applicationSource,
+      parent: isParentInitiated,
     });
-  }, [user]);
+
+    // 申込フォーム途中離脱フォローアップ（D-13）用に premiumApplicationStartedAt を記録。
+    // trialFormAbandonReminder cron が 24h 後に未 submit ユーザーを抽出して push する。
+    // 既に申込済みのユーザーは onPremiumApplicationCreated 側で plan が premium になるため、
+    // ここで重複書き込みしても問題ない（最新時刻に更新される）。
+    void setDoc(
+      doc(db, 'users', user.uid),
+      {
+        premiumApplicationStartedAt: serverTimestamp(),
+        updatedAt: serverTimestamp(),
+      },
+      { merge: true }
+    ).catch((err) => {
+      console.warn(
+        '[LiffPremiumApplyPage] premiumApplicationStartedAt 記録失敗:',
+        err
+      );
+    });
+  }, [user, applicationSource, isParentInitiated]);
 
   // AuthContext がロード済みの userDoc から派生（getDoc 重複を排除）
   useEffect(() => {
@@ -171,14 +218,41 @@ export function LiffPremiumApplyPage() {
     const isTrialToPaid = profile.planSource === 'trial';
     const isTrialExpired = profile.planSource === 'trial_expired';
     if (isTrialToPaid || isTrialExpired) {
-      if (!CHECKOUT_URL) {
+      if (!CHECKOUT_FN_URL) {
         setErrorMessage(
           '本契約ページの準備中です。しばらくしてからもう一度お試しください。'
         );
         return;
       }
-      window.location.href = buildCheckoutUrl(CHECKOUT_URL, user.uid);
-      return;
+      setStatus('submitting');
+      setErrorMessage(null);
+      try {
+        const idToken = await user.getIdToken();
+        const response = await fetch(CHECKOUT_FN_URL, {
+          method: 'POST',
+          headers: {
+            Authorization: `Bearer ${idToken}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            successUrl: buildCheckoutReturnUrl('success'),
+            cancelUrl: buildCheckoutReturnUrl('cancel'),
+          }),
+        });
+        const data = (await response.json()) as CheckoutSessionResponse;
+        if (!response.ok || !data.url) {
+          throw new Error(data.error || 'checkout_session_failed');
+        }
+        window.location.href = data.url;
+        return;
+      } catch (err) {
+        console.error('[LiffPremiumApplyPage] checkout failed', err);
+        setErrorMessage(
+          '決済ページを開けませんでした。通信状況を確認のうえ、もう一度お試しください。'
+        );
+        setStatus('ready');
+        return;
+      }
     }
 
     setStatus('submitting');
@@ -225,6 +299,10 @@ export function LiffPremiumApplyPage() {
           preferredHour: selectedHour,
           status: 'pending' as const,
           createdAt: serverTimestamp(),
+          // D-3 / D-5 セールスコピー対応: 申込経路と保護者フラグを記録。
+          // onPremiumApplicationCreated で lockedPrice はサーバー側判定される。
+          source: applicationSource,
+          parentInitiated: isParentInitiated,
         }),
         7000,
         'addDoc premiumApplications'
@@ -232,8 +310,8 @@ export function LiffPremiumApplyPage() {
       void logFunnelEvent('liff_premium_apply_submit', {
         applicationId: ref.id,
         applicationType: 'trial_start',
-        source:
-          new URLSearchParams(window.location.search).get('src') ?? 'direct',
+        source: applicationSource,
+        parent: isParentInitiated,
       });
       setStatus('submitted');
     } catch (err) {
@@ -442,6 +520,11 @@ export function LiffPremiumApplyPage() {
     <div className="min-h-screen bg-[#FFF9EE] pb-12">
       <header className="bg-amber-500">
         <div className="max-w-2xl mx-auto px-4 py-6">
+          {isParentInitiated && (
+            <div className="mb-2 inline-flex items-center rounded-full bg-white/20 px-3 py-1 text-[11px] font-bold text-white">
+              保護者の方からの申込
+            </div>
+          )}
           <h1
             className="text-2xl font-bold text-white text-center leading-snug"
             style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
@@ -527,7 +610,7 @@ export function LiffPremiumApplyPage() {
               現在 7日間無料トライアルをご利用中です
             </p>
             <p className="text-xs text-amber-800 mt-1 leading-relaxed">
-              {CHECKOUT_URL
+              {CHECKOUT_FN_URL
                 ? 'このページから本契約に進むと、無料期間終了後も継続してプレミアム機能をご利用いただけます。'
                 : '月額プランの登録受付は準備中です。準備ができ次第、こちらから登録できるようになります。'}
             </p>
@@ -543,7 +626,7 @@ export function LiffPremiumApplyPage() {
               無料トライアルは終了しています
             </p>
             <p className="text-xs text-gray-600 mt-1 leading-relaxed">
-              {CHECKOUT_URL
+              {CHECKOUT_FN_URL
                 ? '続けて使う場合は、月額プランの登録へ進んでください。'
                 : '月額プランの登録受付は準備中です。準備ができ次第、こちらから登録できるようになります。'}
             </p>
@@ -654,14 +737,14 @@ export function LiffPremiumApplyPage() {
             type="button"
             onClick={() => void handleSubmit()}
             disabled={
-              !canSubmit || submitting || (requiresCheckout && !CHECKOUT_URL)
+              !canSubmit || submitting || (requiresCheckout && !CHECKOUT_FN_URL)
             }
             className="w-full bg-amber-500 hover:bg-amber-600 active:scale-[0.98] transition rounded-full py-3 text-sm font-bold text-white disabled:opacity-50 disabled:cursor-not-allowed"
             style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
           >
             {submitting
               ? '送信中...'
-              : requiresCheckout && !CHECKOUT_URL
+              : requiresCheckout && !CHECKOUT_FN_URL
                 ? '月額登録の受付準備中'
                 : isTrialToPaid
                   ? '月680円で継続登録する'
@@ -671,11 +754,11 @@ export function LiffPremiumApplyPage() {
           </button>
           <p className="text-xs text-gray-400 text-center mt-3 leading-relaxed">
             {isTrialToPaid
-              ? CHECKOUT_URL
+              ? CHECKOUT_FN_URL
                 ? '決済ページで登録を完了できます'
                 : 'Stripe継続課金の準備ができ次第、登録できるようになります'
               : s.planSource === 'trial_expired'
-                ? CHECKOUT_URL
+                ? CHECKOUT_FN_URL
                   ? '決済ページで登録を完了できます'
                   : 'Stripe継続課金の準備ができ次第、登録できるようになります'
                 : '開始後はLINEに戻って、リッチメニュー「もっと解く」から使えます'}

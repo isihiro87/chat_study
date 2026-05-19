@@ -16,6 +16,19 @@ import { getJstDateString } from "./streakState";
 const REMINDER_COOLDOWN_MS = 24 * 60 * 60 * 1000;
 const REMINDER_DAY_NUMBERS: readonly (1 | 3 | 6 | 7)[] = [1, 3, 6, 7] as const;
 
+// 申込から最低 12h 経過するまで Day 1 リマインダーを送らないガード（A-11）。
+// 23:50 申込 → 翌3時に「1日目」push という違和感を解消する。
+const MIN_HOURS_BEFORE_DAY1_REMINDER_MS = 12 * 60 * 60 * 1000;
+
+type ReminderMilestoneKey = "day1" | "day3" | "day6" | "day7Morning";
+
+function getReminderKey(day: 1 | 3 | 6 | 7): ReminderMilestoneKey {
+  if (day === 1) return "day1";
+  if (day === 3) return "day3";
+  if (day === 6) return "day6";
+  return "day7Morning";
+}
+
 /**
  * JST 暦日ベースで「日付 a から日付 b までの経過日数」を返す。
  * 同日なら 0, 翌日なら 1。
@@ -191,15 +204,30 @@ export const expireTrialUsers = functions
         continue;
       }
 
-      const lastReminderRaw = data.lastTrialReminderAt as
-        | { toDate?: () => Date }
-        | undefined
-        | null;
-      const lastReminderMs =
-        lastReminderRaw && typeof lastReminderRaw.toDate === "function"
-          ? lastReminderRaw.toDate().getTime()
+      // A-11: 申込から 12h 未満なら Day 1 リマインダーをスキップ
+      if (
+        matched === 1 &&
+        now - trialStartedMs < MIN_HOURS_BEFORE_DAY1_REMINDER_MS
+      ) {
+        skipped++;
+        continue;
+      }
+
+      // A-12: milestone 別に lastTrialReminderAt を保持し、重複送信防止を厳密化
+      const reminderKey = getReminderKey(matched);
+      const lastReminderMap = (data.lastTrialReminderAt ?? {}) as Record<
+        string,
+        { toDate?: () => Date } | undefined
+      >;
+      const lastForMilestone = lastReminderMap[reminderKey];
+      const lastForMilestoneMs =
+        lastForMilestone && typeof lastForMilestone.toDate === "function"
+          ? lastForMilestone.toDate().getTime()
           : 0;
-      if (lastReminderMs > 0 && now - lastReminderMs < REMINDER_COOLDOWN_MS) {
+      if (
+        lastForMilestoneMs > 0 &&
+        now - lastForMilestoneMs < REMINDER_COOLDOWN_MS
+      ) {
         skipped++;
         continue;
       }
@@ -218,9 +246,13 @@ export const expireTrialUsers = functions
       }
 
       try {
+        // milestone 別マップに記録（既存単一フィールドは互換維持のため併記）
         await db.doc(`users/${uid}`).set(
           {
-            lastTrialReminderAt: FieldValue.serverTimestamp(),
+            lastTrialReminderAt: {
+              [reminderKey]: FieldValue.serverTimestamp(),
+            },
+            lastTrialReminderAtLegacy: FieldValue.serverTimestamp(),
             updatedAt: FieldValue.serverTimestamp(),
           },
           { merge: true }

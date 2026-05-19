@@ -3,6 +3,15 @@ import { selectAndSendQuestion } from "./lineWebhook";
 
 type ValidHour = 6 | 7 | 16 | 17 | 18 | 19 | 20 | 21;
 
+/**
+ * 休眠ユーザー除外システム（requirements.md §C）対応:
+ *
+ * status == "active" のユーザーにのみ通常配信を送る。at-risk / dormant / churned は
+ * Win-back ジョブ（sendWinbackMessages）が JST 19:00 に節目だけ送信する。
+ *
+ * プレミアム会員は computeStatusFromLastAnswer により常に active になる仕様のため
+ * 追加のフィルタは不要（実際の判定は recalculateUserStatuses cron が行う）。
+ */
 async function runDailyQuiz(hour: ValidHour): Promise<void> {
   const startedAt = Date.now();
   console.log(`[dailyQuiz${pad(hour)}] start`);
@@ -23,6 +32,16 @@ async function runDailyQuiz(hour: ValidHour): Promise<void> {
   if (snap.empty) {
     console.log(`[dailyQuiz${pad(hour)}] no eligible users`);
     return;
+  }
+
+  // 旧スキーマで status フィールドがないドキュメントは Firestore の where("status", "==", "active")
+  // にヒットしないため、migration スクリプトの実行が前提。migration 未実施の場合の
+  // セーフティとして、結果が異常に少ない場合のみログで警告する。
+  if (snap.size === 0) {
+    console.warn(
+      `[dailyQuiz${pad(hour)}] zero active users for hour=${hour}, ` +
+        `migration-user-status の実行を確認`
+    );
   }
 
   const results = await Promise.allSettled(

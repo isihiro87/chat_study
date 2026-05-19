@@ -16,7 +16,23 @@ export type ServerFunnelEventType =
   | "trial_started"
   | "trial_reminder_sent"
   | "trial_expired"
-  | "paid_contract_started";
+  | "paid_contract_started"
+  | "checkout_session_created"
+  // 休眠ユーザー除外システム / Win-back（§B, §C）
+  | "winback_sent"
+  | "status_transition"
+  | "restart_intent_detected"
+  // Trial ドリップキャンペーン（§D）
+  | "trial_drip_sent"
+  | "trial_drip_parent_sent"
+  | "trial_drip_story_sent"
+  | "trial_evening_reminder_sent"
+  | "trial_night_reminder_sent"
+  // 申込フォーム離脱 / 期限切れ後フォロー（§D-13）
+  | "premium_apply_form_abandoned"
+  | "post_trial_followup_sent"
+  // 月次送信モニタリング
+  | "monthly_delivery_report_generated";
 
 export async function logServerFunnelEvent(
   eventType: ServerFunnelEventType,

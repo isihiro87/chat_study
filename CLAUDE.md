@@ -186,6 +186,42 @@ UIを実装・変更する際は必ず `docs/design-guide.md` を参照するこ
 
 詳細は `docs/operations/line-richmenu.md` §6 を参照。
 
+## 公式LINE 休眠ユーザー除外 + Win-back システム
+
+公式LINE の送信枠（月次プラン上限）を超過しないよう、無回答ユーザーへの配信を段階的に停止し、節目に Win-back メッセージを送る仕組みが組み込まれている。
+
+**ユーザーステータス**（`users/{uid}.status` フィールド、JST 02:00 の `recalculateUserStatuses` cron が毎日再計算）:
+
+| status | 判定（最終回答日からの JST 暦日） | 配信内容 |
+|---|---|---|
+| `active` | 0〜3日 | 通常の毎日1問配信 + マイルストーンナッジ |
+| `at-risk` | 4〜7日 | 通常配信停止、**Day 3 Win-back** のみ（JST 19:00） |
+| `dormant` | 8〜14日 | 通常配信停止、**Day 7 Win-back** のみ。streak リセット |
+| `churned` | 15日以上 | **Day 14 Win-back（最終）** 送信後は完全静観 |
+
+※ プレミアム会員（有効期限内）は常に `active`。trial 切れ後は free と同じ判定。
+
+**復帰トリガー**: ユーザーが「再開」「久しぶり」「もう一度」等の幅広い復帰キーワードを送ると `keywordMatcher.detectRestartIntent` が検知、status を `active` に戻して即座に「おかえり」 reply + 1 問送信。
+
+**Win-back バリエーション**: 各タッチポイントで 10 種以上を Firestore 履歴（過去 90 日）と照合して重複回避（`functions/src/winbackVariations.ts`）。
+
+**価格ロック**（D-3 セールスコピー対応）:
+- 体験中の登録 → 月¥680 永続ロック（`users.lockedMonthlyPrice = 680`、`premiumApplications.lockedPrice = 680`）
+- 体験後の登録 → 月¥980
+- Day 7 Win-back で trial 経験者には ¥680 価格ロックを再オープン（生涯 1 回・3日以内に登録すれば ¥680）
+
+**送信枠モニタリング**: `deliveryStats/{YYYY-MM}` collection に push 種別ごとの月次カウントを記録。`monthlyDeliveryReport` cron が毎月 1 日 09:00 JST に前月分を Cloud Logging へ出力（仮上限 30,000 通の 80% 超過時は WARNING）。
+
+詳細は `.steering/20260519-line-message-retention-overhaul/` 配下を参照。
+
+**初期セットアップ（デプロイ時 1 回限り）**:
+```bash
+# users コレクションに status / lockedMonthlyPrice 初期値を書き込む
+gcloud auth application-default login
+npx tsx scripts/migrate-user-status.ts --dry-run    # 差分確認
+npx tsx scripts/migrate-user-status.ts              # 実書き込み
+```
+
 ## LIFF「じっくり学ぶ」の学習データフロー
 
 LIFF 内インライン学習体験（暗記カード / クイズ）と LINE 公式の毎日配信 / 追加で解く / 苦手復習 は、**同じ source（`data/content/{subject}/{folder}/*.json`）から派生する 2 系統のデータ**を使う:

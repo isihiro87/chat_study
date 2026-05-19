@@ -1,5 +1,5 @@
-import * as functions from "firebase-functions/v1";
-import { getApps, initializeApp } from "firebase-admin/app";
+import * as functions from 'firebase-functions/v1';
+import { getApps, initializeApp } from 'firebase-admin/app';
 
 // Firestore トリガーで `if (getApps().length === 0) initializeApp()` を関数本体内
 // で呼ぶ pattern は cold start のタイミングで default app の解決に失敗するケースが
@@ -9,7 +9,7 @@ if (getApps().length === 0) {
   initializeApp();
 }
 
-export { lineWebhook } from "./lineWebhook";
+export { lineWebhook } from './lineWebhook';
 export {
   dailyQuiz06,
   dailyQuiz07,
@@ -19,17 +19,35 @@ export {
   dailyQuiz19,
   dailyQuiz20,
   dailyQuiz21,
-} from "./dailyQuiz";
-export { onAnswerCreated } from "./onAnswerCreated";
-export { onPremiumApplicationCreated } from "./onPremiumApplicationCreated";
-export { syncRichMenuToPlan } from "./syncRichMenuToPlan";
-export { expireTrialUsers } from "./expireTrialUsers";
-export { remindIncompleteOnboarding } from "./remindIncompleteOnboarding";
-export { onTestScopeFirstSet } from "./onTestScopeFirstSet";
-export { stripeWebhook } from "./stripeWebhook";
+} from './dailyQuiz';
+export { onAnswerCreated } from './onAnswerCreated';
+export { onPremiumApplicationCreated } from './onPremiumApplicationCreated';
+export { syncRichMenuToPlan } from './syncRichMenuToPlan';
+export { expireTrialUsers } from './expireTrialUsers';
+export { remindIncompleteOnboarding } from './remindIncompleteOnboarding';
+export { onTestScopeFirstSet } from './onTestScopeFirstSet';
+export { stripeWebhook } from './stripeWebhook';
+export { createStripeCheckoutSession } from './createStripeCheckoutSession';
 
-const LINE_LOGIN_CHANNEL_ID = process.env.LINE_LOGIN_CHANNEL_ID || "";
-const LINE_LOGIN_CHANNEL_SECRET = process.env.LINE_LOGIN_CHANNEL_SECRET || "";
+// 休眠ユーザー除外システム + Win-back（§B, §C）
+export { recalculateUserStatuses } from './recalculateUserStatuses';
+export { sendWinbackMessages } from './sendWinbackMessages';
+
+// Trial ドリップキャンペーン（§A, §D）
+export { trialDripDay2 } from './trialDripDay2';
+export { trialDripDay3Parent } from './trialDripDay3Parent';
+export { trialDripDay4 } from './trialDripDay4';
+export { trialDripDay5Story } from './trialDripDay5Story';
+export { trialReminderEveningDay7 } from './trialReminderEveningDay7';
+export { trialReminderNightDay7 } from './trialReminderNightDay7';
+
+// 申込フォーム離脱 / 期限切れ後フォロー / 月次レポート
+export { trialFormAbandonReminder } from './trialFormAbandonReminder';
+export { postTrialFollowup } from './postTrialFollowup';
+export { monthlyDeliveryReport } from './monthlyDeliveryReport';
+
+const LINE_LOGIN_CHANNEL_ID = process.env.LINE_LOGIN_CHANNEL_ID || '';
+const LINE_LOGIN_CHANNEL_SECRET = process.env.LINE_LOGIN_CHANNEL_SECRET || '';
 
 interface LineTokenResponse {
   access_token: string;
@@ -47,43 +65,43 @@ interface LineProfile {
 }
 
 export const createLineCustomToken = functions
-  .region("asia-northeast1")
+  .region('asia-northeast1')
   .https.onRequest(async (req, res) => {
     // CORS
-    res.set("Access-Control-Allow-Origin", "*");
-    res.set("Access-Control-Allow-Methods", "POST, OPTIONS");
-    res.set("Access-Control-Allow-Headers", "Content-Type");
-    if (req.method === "OPTIONS") {
-      res.status(204).send("");
+    res.set('Access-Control-Allow-Origin', '*');
+    res.set('Access-Control-Allow-Methods', 'POST, OPTIONS');
+    res.set('Access-Control-Allow-Headers', 'Content-Type');
+    if (req.method === 'OPTIONS') {
+      res.status(204).send('');
       return;
     }
 
-    if (req.method !== "POST") {
-      res.status(405).json({ error: "Method not allowed" });
+    if (req.method !== 'POST') {
+      res.status(405).json({ error: 'Method not allowed' });
       return;
     }
 
     const { code, redirectUri } = req.body;
     if (!code || !redirectUri) {
-      res.status(400).json({ error: "code and redirectUri are required" });
+      res.status(400).json({ error: 'code and redirectUri are required' });
       return;
     }
 
-    const { initializeApp, getApps } = await import("firebase-admin/app");
-    const { getAuth } = await import("firebase-admin/auth");
+    const { initializeApp, getApps } = await import('firebase-admin/app');
+    const { getAuth } = await import('firebase-admin/auth');
     const { getFirestore, FieldValue } =
-      await import("firebase-admin/firestore");
+      await import('firebase-admin/firestore');
 
     if (getApps().length === 0) {
       initializeApp();
     }
 
     try {
-      const tokenRes = await fetch("https://api.line.me/oauth2/v2.1/token", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      const tokenRes = await fetch('https://api.line.me/oauth2/v2.1/token', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams({
-          grant_type: "authorization_code",
+          grant_type: 'authorization_code',
           code,
           redirect_uri: redirectUri,
           client_id: LINE_LOGIN_CHANNEL_ID,
@@ -93,19 +111,19 @@ export const createLineCustomToken = functions
 
       if (!tokenRes.ok) {
         const err = await tokenRes.text();
-        console.error("LINE token exchange failed:", err);
-        res.status(401).json({ error: "LINE token exchange failed" });
+        console.error('LINE token exchange failed:', err);
+        res.status(401).json({ error: 'LINE token exchange failed' });
         return;
       }
 
       const tokenData = (await tokenRes.json()) as LineTokenResponse;
 
-      const profileRes = await fetch("https://api.line.me/v2/profile", {
+      const profileRes = await fetch('https://api.line.me/v2/profile', {
         headers: { Authorization: `Bearer ${tokenData.access_token}` },
       });
 
       if (!profileRes.ok) {
-        res.status(401).json({ error: "Failed to get LINE profile" });
+        res.status(401).json({ error: 'Failed to get LINE profile' });
         return;
       }
 
@@ -132,7 +150,7 @@ export const createLineCustomToken = functions
         {
           displayName: profile.displayName,
           photoURL: profile.pictureUrl || null,
-          provider: "line",
+          provider: 'line',
           lineUserId: profile.userId,
           lastActiveAt: FieldValue.serverTimestamp(),
         },
@@ -142,8 +160,8 @@ export const createLineCustomToken = functions
       const customToken = await auth.createCustomToken(uid);
       res.json({ customToken, displayName: profile.displayName });
     } catch (error) {
-      console.error("LINE auth error:", error);
-      res.status(500).json({ error: "Internal server error" });
+      console.error('LINE auth error:', error);
+      res.status(500).json({ error: 'Internal server error' });
     }
   });
 
@@ -163,38 +181,38 @@ interface LineIdTokenPayload {
  * 提供する（LINE webview 内 OAuth が一部 LIFF で 400 を返す問題への対処）。
  */
 export const createLiffFirebaseToken = functions
-  .region("asia-northeast1")
+  .region('asia-northeast1')
   .https.onRequest(async (req, res) => {
-    res.set("Access-Control-Allow-Origin", "*");
-    res.set("Access-Control-Allow-Methods", "POST, OPTIONS");
-    res.set("Access-Control-Allow-Headers", "Content-Type");
-    if (req.method === "OPTIONS") {
-      res.status(204).send("");
+    res.set('Access-Control-Allow-Origin', '*');
+    res.set('Access-Control-Allow-Methods', 'POST, OPTIONS');
+    res.set('Access-Control-Allow-Headers', 'Content-Type');
+    if (req.method === 'OPTIONS') {
+      res.status(204).send('');
       return;
     }
-    if (req.method !== "POST") {
-      res.status(405).json({ error: "Method not allowed" });
+    if (req.method !== 'POST') {
+      res.status(405).json({ error: 'Method not allowed' });
       return;
     }
 
     const { idToken } = req.body ?? {};
-    if (typeof idToken !== "string" || !idToken) {
-      res.status(400).json({ error: "idToken is required" });
+    if (typeof idToken !== 'string' || !idToken) {
+      res.status(400).json({ error: 'idToken is required' });
       return;
     }
 
-    const { initializeApp, getApps } = await import("firebase-admin/app");
-    const { getAuth } = await import("firebase-admin/auth");
+    const { initializeApp, getApps } = await import('firebase-admin/app');
+    const { getAuth } = await import('firebase-admin/auth');
     const { getFirestore, FieldValue } =
-      await import("firebase-admin/firestore");
+      await import('firebase-admin/firestore');
     if (getApps().length === 0) {
       initializeApp();
     }
 
     try {
-      const verifyRes = await fetch("https://api.line.me/oauth2/v2.1/verify", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      const verifyRes = await fetch('https://api.line.me/oauth2/v2.1/verify', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams({
           id_token: idToken,
           client_id: LINE_LOGIN_CHANNEL_ID,
@@ -203,15 +221,15 @@ export const createLiffFirebaseToken = functions
 
       if (!verifyRes.ok) {
         const err = await verifyRes.text();
-        console.error("LIFF id_token verify failed:", err);
-        res.status(401).json({ error: "Invalid LIFF id_token" });
+        console.error('LIFF id_token verify failed:', err);
+        res.status(401).json({ error: 'Invalid LIFF id_token' });
         return;
       }
 
       const payload = (await verifyRes.json()) as LineIdTokenPayload;
       const userId = payload.sub;
       if (!userId) {
-        res.status(401).json({ error: "userId missing in token" });
+        res.status(401).json({ error: 'userId missing in token' });
         return;
       }
 
@@ -239,7 +257,7 @@ export const createLiffFirebaseToken = functions
         {
           displayName,
           photoURL: pictureUrl,
-          provider: "line",
+          provider: 'line',
           lineUserId: userId,
           lastActiveAt: FieldValue.serverTimestamp(),
         },
@@ -249,7 +267,7 @@ export const createLiffFirebaseToken = functions
       const customToken = await auth.createCustomToken(uid);
       res.json({ customToken });
     } catch (error) {
-      console.error("createLiffFirebaseToken error:", error);
-      res.status(500).json({ error: "Internal server error" });
+      console.error('createLiffFirebaseToken error:', error);
+      res.status(500).json({ error: 'Internal server error' });
     }
   });

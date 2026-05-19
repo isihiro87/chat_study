@@ -246,6 +246,19 @@ const COMEBACK_LONG_INTROS = [
   "また勉強再開してくれてありがとう！1問どうぞ！",
 ];
 
+// 30日以上ぶり（churned から復帰）の超長期離脱向け。
+// 心理的ハードルを最大限下げる表現を意識する。
+const COMEBACK_VERY_LONG_INTROS = [
+  "ほんとに久しぶり…！ゆっくりでいいから、1問だけどうぞ。",
+  "戻ってきてくれてありがとう。1問だけ、もう一度始めよう。",
+  "おかえり！長い間ありがとう、まずは1問だけ気軽に。",
+  "ひさびさすぎて緊張するかな？1問だけならすぐ終わるよ。",
+  "戻ってきたあなたへ。1問ずつ、また自分のペースでいこう。",
+  "また会えてうれしい。覚えてなくても大丈夫、1問だけどうぞ。",
+  "おかえり！ブランクのことは気にしないで、今日の1問！",
+  "ほんとに久しぶりだね。1問やったらえらい、それで十分。",
+];
+
 const COMEBACK_SHORT_INTROS = [
   "ひさしぶり！1問だけ一緒にやろう！",
   "おかえり。今日の1問、気楽にどうぞ！",
@@ -319,11 +332,15 @@ function pickBaseDailyIntro(input: DailyIntroInput): string {
     return pickRandom(FIRST_TIME_INTROS);
   }
 
-  // 復帰歓迎（長め）
+  // 超長期離脱からの復帰（30日以上ぶり）
+  if (daysSinceLastAnswer >= 30) {
+    return pickRandom(COMEBACK_VERY_LONG_INTROS);
+  }
+  // 復帰歓迎（長め: 7〜29日）
   if (daysSinceLastAnswer >= 7) {
     return pickRandom(COMEBACK_LONG_INTROS);
   }
-  // 復帰歓迎（軽め）
+  // 復帰歓迎（軽め: 3〜6日）
   if (daysSinceLastAnswer >= 3) {
     return pickRandom(COMEBACK_SHORT_INTROS);
   }
@@ -440,25 +457,27 @@ const INITIAL_INTROS_NO_NAME = [
   () => `準備OK！今から1問やってみよう！`,
 ];
 
+// A-9: 「明日からは{時間}に」は夜の時間帯選択者に違和感が出るため、
+// 「次の{時間}に」「次回の{時間}に」など相対表現に統一。
 const INITIAL_TRAILINGS_WITH_NAME = [
   (hourLabel: string, name: string) =>
-    `正解だと思うものをタップしてみよう！明日からは${hourLabel}に1問届くよ。${name}、これからよろしくね！`,
+    `正解だと思うものをタップしてみよう！次の${hourLabel}に1問届くよ。${name}、これからよろしくね！`,
   (hourLabel: string, name: string) =>
-    `正解だと思う選択肢をタップ！明日からは${hourLabel}に1問お届けします。${name}、これからよろしくね！`,
+    `正解だと思う選択肢をタップ！次回の${hourLabel}に1問お届けします。${name}、これからよろしくね！`,
   (hourLabel: string, name: string) =>
-    `${name}、正解だと思うものをタップ！明日からは毎日${hourLabel}に問題が届くよ。よろしくね！`,
+    `${name}、正解だと思うものをタップ！これからは毎日${hourLabel}に問題が届くよ。よろしくね！`,
   (hourLabel: string, name: string) =>
-    `これだ！と思った選択肢をタップしてみよう！明日からは${hourLabel}に1問届きます。${name}、これからよろしくね！`,
+    `これだ！と思った選択肢をタップしてみよう！次の${hourLabel}に1問届きます。${name}、これからよろしくね！`,
 ];
 const INITIAL_TRAILINGS_NO_NAME = [
   (hourLabel: string) =>
-    `正解だと思うものをタップしてみよう！明日からは${hourLabel}に1問届くよ。これからよろしくね！`,
+    `正解だと思うものをタップしてみよう！次の${hourLabel}に1問届くよ。これからよろしくね！`,
   (hourLabel: string) =>
-    `正解だと思う選択肢をタップ！明日からは${hourLabel}に1問お届け。これからよろしくね！`,
+    `正解だと思う選択肢をタップ！次回の${hourLabel}に1問お届け。これからよろしくね！`,
   (hourLabel: string) =>
-    `正解だと思うものをタップ！明日からは毎日${hourLabel}に問題が届くよ。よろしくね！`,
+    `正解だと思うものをタップ！これからは毎日${hourLabel}に問題が届くよ。よろしくね！`,
   (hourLabel: string) =>
-    `これだ！と思った選択肢をタップしてみよう！明日からは${hourLabel}に1問届きます。これからよろしくね！`,
+    `これだ！と思った選択肢をタップしてみよう！次の${hourLabel}に1問届きます。これからよろしくね！`,
 ];
 
 export function getInitialFirstQuestionIntro(

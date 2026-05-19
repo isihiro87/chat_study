@@ -210,7 +210,23 @@ export const onAnswerCreated = functions
           statsPatch.byTopic = { [topic]: topicPatch };
         }
 
-        tx.set(userRef, { stats: statsPatch }, { merge: true });
+        // 休眠ユーザー除外システム（§C）対応:
+        // top-level `lastAnsweredAt` を更新し、status が active 以外なら active に戻す。
+        // これにより dailyQuiz の対象に即座に復帰する（streak が 0 にリセットされていた
+        // 場合は新規 1日目から再カウント）。
+        const userUpdates: Record<string, unknown> = {
+          stats: statsPatch,
+          lastAnsweredAt: FieldValue.serverTimestamp(),
+        };
+
+        const currentStatus =
+          typeof userData.status === "string" ? userData.status : "active";
+        if (currentStatus !== "active") {
+          userUpdates.status = "active";
+          userUpdates.statusChangedAt = FieldValue.serverTimestamp();
+        }
+
+        tx.set(userRef, userUpdates, { merge: true });
 
         // nudge 判定用コンテキストを captureしておく
         const prevTotalAnswered =

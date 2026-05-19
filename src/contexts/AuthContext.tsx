@@ -63,6 +63,11 @@ export interface UserDoc {
   plan: CacheablePlan;
   planSource: PlanSource;
   preferredHour: PreferredHour;
+  /**
+   * 登録時に確定した永続月額（680 / 980）。
+   * 未登録ユーザーや旧データでは null。LIFF /premium-apply で価格表示に使う。
+   */
+  lockedMonthlyPrice: 680 | 980 | null;
 }
 
 interface AuthContextType {
@@ -163,6 +168,10 @@ function parseUserDoc(uid: string, data: Record<string, unknown>): UserDoc {
     }
   }
 
+  const rawLockedPrice = data.lockedMonthlyPrice;
+  const lockedMonthlyPrice: 680 | 980 | null =
+    rawLockedPrice === 680 || rawLockedPrice === 980 ? rawLockedPrice : null;
+
   return {
     uid,
     nickname,
@@ -174,6 +183,7 @@ function parseUserDoc(uid: string, data: Record<string, unknown>): UserDoc {
     plan,
     planSource,
     preferredHour,
+    lockedMonthlyPrice,
   };
 }
 
@@ -345,6 +355,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
             plan: 'free',
             planSource: null,
             preferredHour: null,
+            lockedMonthlyPrice: null,
           };
           try {
             const snap = await withFirestoreTimeout(

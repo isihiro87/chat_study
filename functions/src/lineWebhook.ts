@@ -543,6 +543,16 @@ async function handleMessage(event: LineEvent): Promise<void> {
         await handleNicknameInput(uid, replyToken, text);
         return;
       }
+
+      // 休眠ユーザー除外システム（§C-3）対応:
+      // 「再開」「またやりたい」「久しぶり」等の復帰キーワードを検知したら、
+      // status を active に戻して即座に 1 問送信する。
+      // onboarding 中・既存コマンドより後に評価して優先順位を守る。
+      const { detectRestartIntent } = await import('./keywordMatcher');
+      if (detectRestartIntent(text)) {
+        await handleRestartIntent(uid, replyToken, event);
+        return;
+      }
     } catch (error) {
       console.error('[lineWebhook] handleMessage state read failed:', error);
     }
@@ -552,6 +562,54 @@ async function handleMessage(event: LineEvent): Promise<void> {
     '[lineWebhook] handleMessage: unhandled text:',
     text.slice(0, 30)
   );
+}
+
+/**
+ * 復帰意思を検知したユーザーの status を active に戻し、おかえりメッセージと
+ * 1 問を送信する。1 日に複数回マッチしてもサーバー側の挙動は冪等
+ * （status が既に active なら遷移処理は no-op）。
+ */
+async function handleRestartIntent(
+  uid: string,
+  replyToken: string | undefined,
+  event: LineEvent
+): Promise<void> {
+  console.log(`[lineWebhook] restart intent detected for ${uid}`);
+
+  try {
+    const { db, FieldValue } = await getDb();
+    await db.doc(`users/${uid}`).set(
+      {
+        status: 'active',
+        statusChangedAt: FieldValue.serverTimestamp(),
+        updatedAt: FieldValue.serverTimestamp(),
+      },
+      { merge: true }
+    );
+  } catch (error) {
+    console.error('[lineWebhook] restart intent status reset failed:', error);
+  }
+
+  if (replyToken) {
+    try {
+      await replyText(
+        replyToken,
+        'おかえり！戻ってきてくれてうれしい。早速だけど今日の1問、いってみよう！',
+        '(restart welcome)'
+      );
+    } catch (error) {
+      console.error('[lineWebhook] restart welcome reply failed:', error);
+    }
+  }
+
+  try {
+    await selectAndSendQuestion(uid);
+  } catch (error) {
+    console.error('[lineWebhook] restart selectAndSendQuestion failed:', error);
+  }
+
+  // 抑制不能な引数だが lint で unused 警告にならないように参照
+  void event;
 }
 
 /**
@@ -2279,7 +2337,15 @@ const NUDGE_COPY: Record<PremiumNudgeReason, NudgeCopy> = {
   first_answer: {
     headerEmoji: '🎉',
     headerText: '初めての1問、おつかれさま！',
-    leadText: `これからは毎日1問が無料で届くよ。連続記録や苦手範囲のチェックもぜんぶ無料。\n\n「もっと解きたい」「暗記カードや四択クイズも使いたい」と思ったら、${PREMIUM_PRICE_TEXT}でプレミアムを試せます（ワンタップ開始、カード登録なし、7日後に自動で無料に戻ります）。`,
+    // D-14 セールスコピー対応: ベネフィット数字 + リスクリバーサル + 価格ロック訴求を追加
+    leadText:
+      `これからは毎日1問が無料で届くよ。連続記録や苦手範囲のチェックもぜんぶ無料。\n\n` +
+      `「もっと解きたい」「暗記カードや四択クイズも使いたい」と思ったら、${PREMIUM_PRICE_TEXT}でプレミアムを試せます。\n\n` +
+      `📚 1日10問+復習無制限\n` +
+      `📚 歴史 263トピック・約1,500問が解き放題\n` +
+      `✅ カード登録なし、7日後に自動で無料に戻る\n` +
+      `✅ 解約忘れの心配ゼロ\n\n` +
+      `体験中の登録なら、月¥680のままずっと同じ価格で続けられます。`,
   },
   onboarding: {
     headerEmoji: '✨',
@@ -2632,9 +2698,21 @@ export function buildTrialStartedFlexMessage() {
               uri: LIFF_UNITS_URL,
             },
           },
+          // A-3: 苦手を復習 CTA を追加（trial 開始時に 3 機能すべてに動線を作る）
+          {
+            type: 'button' as const,
+            style: 'secondary' as const,
+            height: 'sm' as const,
+            action: {
+              type: 'postback' as const,
+              label: '苦手を復習する',
+              data: 'type=weak_review',
+              displayText: '苦手を復習',
+            },
+          },
           {
             type: 'text' as const,
-            text: '7日間使い放題。気に入ったら 月¥680（通常¥1,280）で継続登録できます。',
+            text: '7日間使い放題。体験中の登録なら月¥680のまま、ずっと同じ価格で続けられます。',
             wrap: true,
             size: 'xxs' as const,
             color: '#9CA3AF',
@@ -2665,13 +2743,23 @@ export function buildTrialReminderFlexMessage(dayNumber: 1 | 3 | 6 | 7) {
     dayNumber === 1
       ? '昨日からプレミアム体験スタート！「追加で解く」「苦手を復習」「じっくり学ぶ」、もう触ってみた？'
       : dayNumber === 3
-        ? '3日目に突入！暗記カードと四択クイズで効率よく覚えていけるのが、プレミアムの強みだよ。'
+        ? // D-12: Day 3 は価格訴求を抜き、機能紹介に集中
+          '3日目に突入！暗記カードと四択クイズで、効率よく覚えていけるのがプレミアムの強み。' +
+          '今日は使ってない機能も試してみよう。'
         : dayNumber === 6
-          ? '残り1日！気に入ったら、今のうちに月額プランに登録すれば、明日以降もそのまま使い続けられます。'
-          : '7日間のプレミアム体験、今日が最後の1日だよ。\n「追加で解く」「苦手を復習」「暗記カード」「四択クイズ」、使ってみていかがでしたか？このまま続けたいと思ってもらえたら、今日中に月額プランに登録すれば、明日からもそのまま使い続けられます。無理にとは言わないので、合わなさそうなら自動で無料プランに戻るから安心してね。';
+          ? '残り1日！気に入ったら、今のうちに月¥680で登録すれば、明日以降もそのまま続けられます。' +
+            '明日からの新規登録は月¥980スタートに切り替わります。'
+          : // Day 7: 朝のリマインダー。夕方・夜は別ジョブで送信
+            '7日間のプレミアム体験、今日が最後の1日だよ。\n' +
+            '「追加で解く」「苦手を復習」「暗記カード」「四択クイズ」、使ってみていかがでしたか？' +
+            'このまま続けたいと思ってもらえたら、今日中に月¥680で登録すれば、明日からもそのまま使い続けられます。' +
+            '合わなさそうなら自動で無料プランに戻るから安心してね。';
+  // D-3: 価格ロックを「自然に」伝える文言。煽りトーン禁止
   const priceText =
-    '今登録すると、通常 月¥1,280 のところ ' +
-    '永続 月¥680 が確定します（特典期間中のみ）。教科が増えても¥680のまま、ずっと使い続けられます。';
+    dayNumber === 3
+      ? '' // Day 3 は価格訴求カット
+      : '体験中の登録なら月¥680のまま、これから追加される教科分も同じ価格で使えます。' +
+        '体験を逃すと月¥980スタートになります。';
   return {
     type: 'flex' as const,
     altText: `${headline} - チャットでスタディ`,
@@ -2708,14 +2796,19 @@ export function buildTrialReminderFlexMessage(dayNumber: 1 | 3 | 6 | 7) {
             color: '#111827',
             weight: 'bold' as const,
           },
-          {
-            type: 'text' as const,
-            text: priceText,
-            wrap: true,
-            size: 'xs' as const,
-            color: '#374151',
-            margin: 'sm' as const,
-          },
+          // D-12: Day 3 は priceText を空にしているので、空のときは要素自体を省く
+          ...(priceText
+            ? [
+                {
+                  type: 'text' as const,
+                  text: priceText,
+                  wrap: true,
+                  size: 'xs' as const,
+                  color: '#374151',
+                  margin: 'sm' as const,
+                },
+              ]
+            : []),
         ],
       },
       footer: {
@@ -2730,8 +2823,16 @@ export function buildTrialReminderFlexMessage(dayNumber: 1 | 3 | 6 | 7) {
             height: 'sm' as const,
             action: {
               type: 'uri' as const,
-              label: '月¥680で登録（通常¥1,280）',
-              uri: LIFF_PREMIUM_APPLY_URL,
+              // D-8: 場面別 CTA バリエーション
+              label:
+                dayNumber === 1
+                  ? '続けるならこちら'
+                  : dayNumber === 3
+                    ? 'もっと使ってみる'
+                    : dayNumber === 6
+                      ? '月¥680を確保する'
+                      : '今日中に月¥680で確定',
+              uri: `${LIFF_PREMIUM_APPLY_URL}?src=trial-day${dayNumber}`,
             },
           },
         ],
@@ -2790,7 +2891,7 @@ export function buildTrialExpiredFlexMessage() {
           },
           {
             type: 'text' as const,
-            text: '今登録すると、通常 月¥1,280 のところ 永続 月¥680 が確定します（特典期間中のみ）。教科が増えても¥680のままです。',
+            text: 'また始めたくなったら月¥980から続けられます。¥980 と ¥680 の差は年間¥3,600。3か月で問題集1冊分の差です。',
             wrap: true,
             size: 'xs' as const,
             color: '#6B7280',
@@ -2810,8 +2911,8 @@ export function buildTrialExpiredFlexMessage() {
             height: 'sm' as const,
             action: {
               type: 'uri' as const,
-              label: '月額プランに登録する',
-              uri: LIFF_PREMIUM_APPLY_URL,
+              label: '今ならまだ月¥980',
+              uri: `${LIFF_PREMIUM_APPLY_URL}?src=post-trial-day8`,
             },
           },
         ],
