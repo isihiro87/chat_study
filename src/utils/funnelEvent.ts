@@ -1,5 +1,6 @@
 /**
- * 公式LINE → プレミアム導線の funnel イベントを Firestore に記録するクライアント側ヘルパー。
+ * 公式LINE → プレミアム / LIFF 学習導線の funnel イベントを Firestore に記録する
+ * クライアント側ヘルパー。
  *
  * 記録先: `premiumFunnelEvents/{autoId}`
  *
@@ -7,6 +8,7 @@
  * - liff_premium_info_view
  * - liff_premium_apply_view
  * - liff_premium_apply_submit
+ * - liff_units_open  (じっくり学ぶ LIFF を開いた = 公式LINE flex のクリック相当)
  *
  * 失敗時はユーザー体験を壊さないため warn ログのみ。
  */
@@ -18,7 +20,8 @@ import { withFirestoreTimeout } from './firestoreTimeout';
 export type FunnelEventType =
   | 'liff_premium_info_view'
   | 'liff_premium_apply_view'
-  | 'liff_premium_apply_submit';
+  | 'liff_premium_apply_submit'
+  | 'liff_units_open';
 
 const TIMEOUT_MS = 3000;
 

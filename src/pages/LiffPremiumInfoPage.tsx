@@ -148,12 +148,9 @@ const FAQ: QA[] = [
 
 export function LiffPremiumInfoPage() {
   const promo = usePremiumPromoCountdown();
-  const { user, userDoc } = useAuth();
+  const { user } = useAuth();
   const [shareSucceeded, setShareSucceeded] = useState(false);
   const [shareAvailable, setShareAvailable] = useState(false);
-  // 中3はプレミアム未対応学年。CTA を申込ではなく案内に差し替える。
-  const userGrade = userDoc?.grade;
-  const isGradeEligible = userGrade === 1 || userGrade === 2 || !userGrade;
 
   useEffect(() => {
     let cancelled = false;
@@ -396,29 +393,16 @@ export function LiffPremiumInfoPage() {
               ))}
             </div>
           </div>
-          {isGradeEligible ? (
-            <>
-              <a
-                href={APPLY_PATH}
-                className="mt-4 block w-full text-center bg-amber-500 hover:bg-amber-600 active:scale-[0.98] transition rounded-full py-3 text-sm font-bold text-white shadow-sm"
-                style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
-              >
-                7日間無料でプレミアムプランを試す
-              </a>
-              <p className="text-xs text-gray-500 text-center mt-2">
-                今登録すると、今後も月{PROMO_PRICE_YEN.toLocaleString()}円のまま
-              </p>
-            </>
-          ) : (
-            <div className="mt-4 rounded-2xl bg-amber-50 border border-amber-200 px-4 py-3">
-              <p className="text-xs font-bold text-amber-800 leading-relaxed">
-                中3向けのプレミアム機能は現在準備中です
-              </p>
-              <p className="text-xs text-amber-800 mt-1 leading-relaxed">
-                準備ができ次第トークでお知らせします。それまでは無料プランで毎日1問・記録・出題範囲設定をご利用いただけます。
-              </p>
-            </div>
-          )}
+          <a
+            href={APPLY_PATH}
+            className="mt-4 block w-full text-center bg-amber-500 hover:bg-amber-600 active:scale-[0.98] transition rounded-full py-3 text-sm font-bold text-white shadow-sm"
+            style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+          >
+            7日間無料でプレミアムプランを試す
+          </a>
+          <p className="text-xs text-gray-500 text-center mt-2">
+            今登録すると、今後も月{PROMO_PRICE_YEN.toLocaleString()}円のまま
+          </p>
         </section>
 
         {/* トライアル開始から継続までの流れ */}
@@ -509,40 +493,27 @@ export function LiffPremiumInfoPage() {
           </ul>
         </section>
 
-        {/* 主CTA: 7日間無料で始める（中3には申込導線を出さない） */}
+        {/* 主CTA: 7日間無料で始める */}
         <section className="mt-6 bg-white rounded-2xl shadow-sm p-5">
-          {isGradeEligible ? (
-            <>
-              <p className="text-sm text-gray-700 text-center leading-relaxed">
-                申込みはスマホで完結します
-                <br />
-                送信すると{' '}
-                <span className="font-bold text-amber-700">
-                  7日間の無料トライアル
-                </span>{' '}
-                が始まります
-              </p>
-              <a
-                href={APPLY_PATH}
-                className="mt-4 block w-full text-center bg-amber-500 hover:bg-amber-600 active:scale-[0.98] transition rounded-full py-3 text-sm font-bold text-white"
-                style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
-              >
-                7日間無料で始める
-              </a>
-              <p className="text-xs text-gray-400 text-center mt-3 leading-relaxed">
-                担当者とのやり取りなしで開始できます
-              </p>
-            </>
-          ) : (
-            <div className="rounded-2xl bg-amber-50 border border-amber-200 px-4 py-4">
-              <p className="text-sm font-bold text-amber-800 text-center leading-relaxed">
-                中3向けのプレミアムは現在準備中です
-              </p>
-              <p className="text-xs text-amber-800 mt-2 leading-relaxed text-center">
-                準備ができ次第トークでお知らせします。
-              </p>
-            </div>
-          )}
+          <p className="text-sm text-gray-700 text-center leading-relaxed">
+            申込みはスマホで完結します
+            <br />
+            送信すると{' '}
+            <span className="font-bold text-amber-700">
+              7日間の無料トライアル
+            </span>{' '}
+            が始まります
+          </p>
+          <a
+            href={APPLY_PATH}
+            className="mt-4 block w-full text-center bg-amber-500 hover:bg-amber-600 active:scale-[0.98] transition rounded-full py-3 text-sm font-bold text-white"
+            style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+          >
+            7日間無料で始める
+          </a>
+          <p className="text-xs text-gray-400 text-center mt-3 leading-relaxed">
+            担当者とのやり取りなしで開始できます
+          </p>
         </section>
 
         {/* 補助: 相談だけしたい場合 */}

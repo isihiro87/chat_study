@@ -1,3 +1,4 @@
+// deploy-bust: 2026-05-25 intro-merge
 import * as functions from 'firebase-functions/v1';
 import type { messagingApi } from '@line/bot-sdk';
 import {
@@ -9,6 +10,7 @@ import {
   getAlreadyDeliveredText,
   isDayStreakMilestone,
 } from './messageVariations';
+import { nextStreakState, type StreakState } from './streakState';
 import { recordPushDelivery } from './deliveryStats';
 import type { PushType } from './deliveryStatsTypes';
 
@@ -379,15 +381,22 @@ export function getUserPlan(
 }
 
 /**
- * プレミアム機能の解放対象学年か。中3は現時点では無料プランのみ提供。
- * 中3用コンテンツの準備が整ったら、ここを `true` に戻すだけで全接点が解放される。
+ * プレミアム機能の解放対象学年か。現在は中1/中2/中3 全てを解放。
+ * 将来また学年を絞りたくなったら、ここを `false` にした学年だけが
+ * 各 LINE 接点で `PREMIUM_NOT_YET_AVAILABLE_TEXT` のフォールバックに流れる。
  */
 export function isPremiumEligibleGrade(grade: unknown): boolean {
-  return grade === '中1' || grade === '中2';
+  return grade === '中1' || grade === '中2' || grade === '中3';
 }
 
+/**
+ * `isPremiumEligibleGrade` が false を返した学年に対する案内テキスト。
+ * 現在は全学年解放のため通常運用では使われない（保険ガード用）。
+ * 文言中の学年名は呼び出し側で動的に差し込まれないため、
+ * 将来未対応学年を再導入する際はこの定数も合わせて更新すること。
+ */
 export const PREMIUM_NOT_YET_AVAILABLE_TEXT =
-  '中3向けのプレミアム機能は現在準備中です。\n中3は無料プランで毎日1問と記録機能をお楽しみください。準備ができ次第お知らせします。';
+  'ご利用学年のプレミアム機能は現在準備中です。\n準備ができ次第トークでお知らせします。';
 
 // お問い合わせ導線は LIFF /liff/contact（LIFF SDK 経由で line.chatstudy.jp に飛ぶ）。
 // 旧: https://www.chatstudy.jp/contact は Web 版に当該ページがなく 404 になっていた。
@@ -899,8 +908,8 @@ async function handleHelpPostback(
     const { db } = await getDb();
     const userSnap = await db.doc(`users/${uid}`).get();
     const data = userSnap.data();
-    // free かつ premium 対応学年（中1/中2）のときだけ訴求 CTA を出す。
-    // premium ユーザーには訴求不要、中3には未対応なので出さない。
+    // free かつプレミアム対応学年のときだけ訴求 CTA を出す。
+    // premium ユーザーには訴求不要、対応外学年（将来再導入する場合）には出さない。
     showPremiumCta =
       getUserPlan(data) === 'free' && isPremiumEligibleGrade(data?.grade);
   } catch (error) {
@@ -1082,7 +1091,8 @@ async function handlePremiumInfoPostback(
     })();
   }
 
-  // 中3はプレミアム未対応学年なので、申込導線を出さずに案内テキストだけ返す。
+  // 対応外学年（将来再導入する場合）に対しては申込導線を出さず案内テキストのみ返す保険。
+  // 現在は中1/中2/中3 全て解放済みなので通常はこの分岐に入らない。
   let grade: unknown;
   try {
     const { db } = await getDb();
@@ -1162,54 +1172,53 @@ interface AnswerStreaks {
   dayStreak: number;
   /** 今回の回答で連続日数が節目（3,7,14,30,100）に到達した瞬間か */
   isMilestoneDay: boolean;
+  /** 今回の回答を含めた累計問題数 */
+  totalAnswered: number;
 }
 
 /**
- * handleAnswer 用: 直近の answers 履歴と「今回の回答が正解か」から、
- * 連続正解数・連続日数・節目到達かをまとめて算出する。
- * 既存の computeStreakStats とロジックの一部が重なるが、
- * こちらは「今回の回答を加味した結果」を返す点が異なる。
+ * handleAnswer 用: `users.stats`（onAnswerCreated が transaction で維持）と
+ * 「今回の回答が正解か」から、連続正解数・連続日数・累計問題数・節目到達かを算出する。
+ *
+ * 以前は直近 answers を limit(15) で取得して再計算していたため、表示上の
+ * 連続日数と累計問題数が 16 で頭打ちになる不具合があった。stats を真値として
+ * 参照することでキャップを解消し、`onAnswerCreated` 側の transaction と整合させる。
  */
-function computeAnswerStreaks(
-  recentAnswers: FirebaseFirestore.QueryDocumentSnapshot[],
+function computeAnswerStreaksFromStats(
+  prevStats: Record<string, unknown> | undefined,
   currentIsCorrect: boolean
 ): AnswerStreaks {
-  // 連続正解: 最新から isCorrect=true が続く件数
-  let prevCorrectStreak = 0;
-  for (const doc of recentAnswers) {
-    if (doc.get('isCorrect') === true) prevCorrectStreak += 1;
-    else break;
-  }
-  const correctStreak = currentIsCorrect ? prevCorrectStreak + 1 : 0;
-
-  // 過去の回答日（JST）の集合
-  const dateSet = new Set<string>();
-  for (const doc of recentAnswers) {
-    const ts = doc.get('answeredAt') as { toDate?: () => Date } | undefined;
-    const date =
-      ts && typeof ts.toDate === 'function' ? ts.toDate() : undefined;
-    const jst = getJstDateString(date);
-    if (jst !== null) dateSet.add(jst);
-  }
+  const prevStreakRaw = (prevStats?.streak as Record<string, unknown> | undefined) ?? undefined;
+  const prevStreak: StreakState | null =
+    prevStreakRaw &&
+    typeof prevStreakRaw.current === 'number' &&
+    typeof prevStreakRaw.lastStudyDate === 'string'
+      ? {
+          current: prevStreakRaw.current,
+          longest:
+            typeof prevStreakRaw.longest === 'number'
+              ? prevStreakRaw.longest
+              : prevStreakRaw.current,
+          lastStudyDate: prevStreakRaw.lastStudyDate,
+        }
+      : null;
 
   const todayJst = getJstDateString(new Date()) ?? '';
-  const todayAlreadyAnswered = dateSet.has(todayJst);
-  // 今回の回答で today は必ずセットに含まれる
-  if (todayJst) dateSet.add(todayJst);
-
-  let dayStreak = 0;
-  let cursor = todayJst;
-  while (cursor && dateSet.has(cursor)) {
-    dayStreak += 1;
-    cursor = shiftJstDate(cursor, -1);
-  }
-
-  // 「今日その日に初めて」連続日数が節目に達したかどうか。
-  // すでに今日回答済みだった場合は重ねて祝わない。
+  const nextStreak = nextStreakState(prevStreak, todayJst);
+  const dayStreak = nextStreak.current;
+  const todayAlreadyAnswered = prevStreak?.lastStudyDate === todayJst;
   const isMilestoneDay =
     !todayAlreadyAnswered && isDayStreakMilestone(dayStreak);
 
-  return { correctStreak, dayStreak, isMilestoneDay };
+  const prevCorrectStreak =
+    typeof prevStats?.correctStreak === 'number' ? prevStats.correctStreak : 0;
+  const correctStreak = currentIsCorrect ? prevCorrectStreak + 1 : 0;
+
+  const prevTotalAnswered =
+    typeof prevStats?.totalAnswered === 'number' ? prevStats.totalAnswered : 0;
+  const totalAnswered = prevTotalAnswered + 1;
+
+  return { correctStreak, dayStreak, isMilestoneDay, totalAnswered };
 }
 
 /** JST 日付文字列同士の差分日数（to - from） */
@@ -3379,7 +3388,7 @@ async function handleExtraQuestionPostback(
   const plan = getUserPlan(userData);
 
   if (plan !== 'premium') {
-    // 中3は申込導線も準備中なので、premium nudge ではなく案内テキストだけ返す。
+    // 対応外学年（将来再導入する場合）は premium nudge ではなく案内テキストだけ返す保険。
     if (!isPremiumEligibleGrade(userData?.grade)) {
       await replyText(
         replyToken,
@@ -3965,34 +3974,20 @@ async function handleAnswerPostback(
   const isCorrect = choice === question.correctChoiceId;
   const correctLabel = question.choices[question.correctChoiceId];
 
-  // 連続正解・連続日数を計算するため、書き込み前に直近 answers を取得する。
-  // ここで取った docs は今回の回答を含まないので、`computeAnswerStreaks` の中で
-  // 「今回の正誤」と合わせて最終的な連続数を出す。
-  let recentAnswers: FirebaseFirestore.QueryDocumentSnapshot[] = [];
-  try {
-    const snap = await db
-      .collection('answers')
-      .where('uid', '==', uid)
-      .orderBy('answeredAt', 'desc')
-      .limit(15)
-      .get();
-    recentAnswers = snap.docs;
-  } catch (error) {
-    console.error(
-      '[lineWebhook] handleAnswer recent answers fetch failed:',
-      error
-    );
-    // 取得失敗時は連続0として扱い、デフォルト文言で返す
-  }
+  // 連続日数・累計問題数・連続正解数は `users.stats`（onAnswerCreated が
+  // transaction で維持）を真値として参照する。直近 answers の limit クエリで
+  // 再計算する旧実装は値が頭打ちになるため廃止。
+  const prevStats =
+    (currentUserData?.stats as Record<string, unknown> | undefined) ?? undefined;
+  const { correctStreak, dayStreak, isMilestoneDay, totalAnswered } =
+    computeAnswerStreaksFromStats(prevStats, isCorrect);
 
-  const { correctStreak, dayStreak, isMilestoneDay } = computeAnswerStreaks(
-    recentAnswers,
-    isCorrect
-  );
-
-  const headText = isCorrect
+  const feedbackBody = isCorrect
     ? getCorrectFeedback({ correctStreak, dayStreak, isMilestoneDay })
     : getIncorrectFeedback({ correctLabel });
+  const headText = isCorrect
+    ? `⭕ 正解！\n${feedbackBody}`
+    : `❌ 不正解…\n${feedbackBody}`;
   const preferredHour = currentUserData?.preferredHour;
   const hourLabel =
     typeof preferredHour === 'number' &&
@@ -4003,14 +3998,14 @@ async function handleAnswerPostback(
   const nextStepFlex = buildPostAnswerNextStepFlexMessage({
     hourLabel,
     dayStreak,
-    totalAnswered: recentAnswers.length + 1,
+    totalAnswered,
     isPremium: plan === 'premium',
     topicName: question.topic,
   });
 
   // 初回回答 AND nickname 未設定 → 「ニックネーム教えて」flex を末尾に積む。
-  // recentAnswers は書き込み前の取得なので length === 0 が初回回答に相当する。
-  const isFirstAnswer = recentAnswers.length === 0;
+  // stats.totalAnswered が未設定 or 0 のときが「初回回答（書き込み前）」に相当する。
+  const isFirstAnswer = totalAnswered === 1;
   const hasNickname =
     typeof currentUserData?.nickname === 'string' &&
     currentUserData.nickname.trim().length > 0;
@@ -4310,7 +4305,6 @@ export async function selectAndSendQuestion(
     );
   }
 
-  const questionMessage = buildQuestionMessage(picked.id, question);
   const messages: LineMessage[] = [];
 
   // 初回設定完了サマリーなど、問題本体の前に挟みたい flex/text を最初に積む。
@@ -4335,7 +4329,17 @@ export async function selectAndSendQuestion(
     }
   }
 
-  if (resolvedIntroText) {
+  // 毎日配信（push 経路）は intro を問題 flex の中に埋め込んで 1 通にまとめる。
+  // reply 経路は呼び出し元が intro を「別メッセージとして見せたい」前提で渡してくるため
+  // 従来通り text + flex の 2 通構成を維持する。
+  const embedIntroIntoCard = !replyToken && Boolean(resolvedIntroText);
+  const questionMessage = buildQuestionMessage(
+    picked.id,
+    question,
+    embedIntroIntoCard ? resolvedIntroText : undefined
+  );
+
+  if (resolvedIntroText && !embedIntroIntoCard) {
     messages.push({ type: 'text', text: resolvedIntroText });
   }
   messages.push(questionMessage as unknown as LineMessage);
@@ -4369,9 +4373,38 @@ export async function selectAndSendQuestion(
   }
 }
 
-function buildQuestionMessage(questionId: string, q: Question) {
+function buildQuestionMessage(
+  questionId: string,
+  q: Question,
+  introText?: string
+) {
   const subjectLabel = SUBJECT_LABELS[q.subject];
   const headerColor = SUBJECT_HEADER_COLORS[q.subject];
+  const bodyContents: messagingApi.FlexComponent[] = [];
+  if (introText) {
+    bodyContents.push({
+      type: 'text' as const,
+      text: introText,
+      wrap: true,
+      size: 'sm' as const,
+      color: '#6B7280',
+    });
+    bodyContents.push({
+      type: 'separator' as const,
+      margin: 'md' as const,
+      color: '#E5E7EB',
+    });
+  }
+  bodyContents.push({
+    type: 'text' as const,
+    text: q.text,
+    wrap: true,
+    weight: 'bold' as const,
+    size: 'lg' as const,
+    color: '#111827',
+    align: 'start' as const,
+    ...(introText ? { margin: 'md' as const } : {}),
+  });
   return {
     type: 'flex' as const,
     altText: `${subjectLabel}｜${q.grade}: ${q.text.slice(0, 40)}`,
@@ -4398,17 +4431,7 @@ function buildQuestionMessage(questionId: string, q: Question) {
         type: 'box' as const,
         layout: 'vertical' as const,
         paddingAll: '20px',
-        contents: [
-          {
-            type: 'text' as const,
-            text: q.text,
-            wrap: true,
-            weight: 'bold' as const,
-            size: 'lg' as const,
-            color: '#111827',
-            align: 'start' as const,
-          },
-        ],
+        contents: bodyContents,
       },
       footer: {
         type: 'box' as const,

@@ -23,6 +23,12 @@ const SettingsPage = lazyWithRetry(() => import('./pages/SettingsPage').then(m =
 const LineCallbackPage = lazyWithRetry(() => import('./pages/LineCallbackPage').then(m => ({ default: m.LineCallbackPage })));
 const LiffUnitsPage = lazyWithRetry(() => import('./pages/LiffUnitsPage').then(m => ({ default: m.LiffUnitsPage })));
 const AdminPage = lazyWithRetry(() => import('./pages/AdminPage').then(m => ({ default: m.AdminPage })));
+// AdminDashboardPage はローカル限定（本番ビルドからは除外）。
+// `import.meta.env.DEV` が false の本番ビルド時は dead-code 扱いになり、
+// dynamic import の chunk も生成されない。
+const AdminDashboardPage = import.meta.env.DEV
+  ? lazyWithRetry(() => import('./pages/AdminDashboardPage').then(m => ({ default: m.AdminDashboardPage })))
+  : null;
 const WelcomePage = lazyWithRetry(() => import('./pages/WelcomePage').then(m => ({ default: m.WelcomePage })));
 const TermsPage = lazyWithRetry(() => import('./pages/TermsPage').then(m => ({ default: m.TermsPage })));
 const PrivacyPage = lazyWithRetry(() => import('./pages/PrivacyPage').then(m => ({ default: m.PrivacyPage })));
@@ -89,6 +95,9 @@ function AnimatedRoutes() {
           <Route path="/privacy" element={<PrivacyPage />} />
           <Route path="/for-parents" element={<ParentsLandingPage />} />
           <Route path="/admin" element={<AdminPage />} />
+          {import.meta.env.DEV && AdminDashboardPage && (
+            <Route path="/admin/dashboard" element={<AdminDashboardPage />} />
+          )}
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>
@@ -152,7 +161,7 @@ function AuthGuard() {
         </div>
       );
     }
-    if (pathname === '/admin') {
+    if (pathname === '/admin' || pathname.startsWith('/admin/')) {
       return <LoginPage />;
     }
     const next = encodeURIComponent(pathname + location.search);

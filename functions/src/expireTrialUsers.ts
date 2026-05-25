@@ -12,6 +12,7 @@ import {
 } from "./lineRichMenu";
 import { logServerFunnelEvent } from "./funnelEvent";
 import { getJstDateString } from "./streakState";
+import { recordPushDelivery } from "./deliveryStats";
 
 const REMINDER_COOLDOWN_MS = 24 * 60 * 60 * 1000;
 const REMINDER_DAY_NUMBERS: readonly (1 | 3 | 6 | 7)[] = [1, 3, 6, 7] as const;
@@ -185,6 +186,7 @@ export const expireTrialUsers = functions
             to: lineUserId,
             messages: [buildTrialExpiredFlexMessage()],
           });
+          await recordPushDelivery("trialReminder");
         } catch (error) {
           console.error(
             `[expireTrialUsers] expired push 失敗 uid=${uid}:`,
@@ -252,6 +254,7 @@ export const expireTrialUsers = functions
           to: lineUserId,
           messages: [buildTrialReminderFlexMessage(matched)],
         });
+        await recordPushDelivery("trialReminder");
       } catch (error) {
         console.error(
           `[expireTrialUsers] reminder push 失敗 uid=${uid}:`,

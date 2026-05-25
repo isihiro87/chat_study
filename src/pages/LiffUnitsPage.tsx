@@ -4,6 +4,7 @@ import { doc, setDoc, serverTimestamp } from 'firebase/firestore/lite';
 import { db } from '../firebase/config';
 import { useAuth } from '../contexts/AuthContext';
 import { useLiffAuth } from '../hooks/useLiffAuth';
+import { logFunnelEvent } from '../utils/funnelEvent';
 import { LoadingScreen } from '../components/common/LoadingScreen';
 import { RubyText } from '../components/common/RubyText';
 import {
@@ -156,6 +157,8 @@ export function LiffUnitsPage() {
       ? deepLinkKindRaw
       : null;
   const deepLinkAppliedRef = useRef(false);
+  // liff_units_open イベントは 1 マウントあたり 1 回だけ記録する
+  const openEventLoggedRef = useRef(false);
 
   const [view, setView] = useState<ViewMode>('list');
   const [currentTopic, setCurrentTopic] = useState<StudyTopic | null>(null);
@@ -214,6 +217,19 @@ export function LiffUnitsPage() {
   // セッション再開用: 学習開始時の初期状態（resume なら値あり、新規なら null）
   const [resumeFc, setResumeFc] = useState<SavedSessionFc | null>(null);
   const [resumeQuiz, setResumeQuiz] = useState<SavedSessionQuiz | null>(null);
+
+  // LIFF ページ開封イベントを 1 回だけ記録する。公式LINE flex のクリック相当の
+  // 計測指標として管理ダッシュボードで利用する（liff_units_open）。
+  useEffect(() => {
+    if (openEventLoggedRef.current) return;
+    if (loading || !user) return;
+    openEventLoggedRef.current = true;
+    void logFunnelEvent('liff_units_open', {
+      src: searchParams.get('src'),
+      topic: deepLinkTopicName,
+      kind: deepLinkKindRaw,
+    });
+  }, [loading, user, searchParams, deepLinkTopicName, deepLinkKindRaw]);
 
   // userDoc がロードされたら、ローカル state（studyStats / setupDifficulties /
   // selectedGrade）を userDoc 由来の値で初期化する。getDoc は AuthContext が

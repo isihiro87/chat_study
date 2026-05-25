@@ -3,10 +3,13 @@ import * as functions from "firebase-functions/v1";
 import { getJstDateString, nextStreakState, type StreakState } from "./streakState";
 import {
   buildPremiumNudgeFlexMessage,
+  buildNextStepGuideFlex,
+  buildPriceLockPitchFlex,
   getLineClient,
   getUserPlan,
   type PremiumNudgeReason,
 } from "./lineWebhook";
+import { recordPushDelivery } from "./deliveryStats";
 
 const STREAK_MILESTONES = [3, 7, 14, 30] as const;
 const VOLUME_MILESTONES = [10, 30, 100] as const;
@@ -17,6 +20,11 @@ const PREMIUM_NUDGE_COOLDOWN_MS = 7 * 24 * 60 * 60 * 1000;
  * まず解答結果と解説を確認できるよう少し間を置く。
  */
 const FIRST_ANSWER_NUDGE_DELAY_MS = 60 * 1000;
+/**
+ * 体験中ユーザーが「追加で解く」初回問題に回答した直後に
+ * 「じっくり学ぶ案内 → 60秒後に特別価格案内」を送るための遅延。
+ */
+const FIRST_EXTRA_FOLLOWUP_PRICE_DELAY_MS = 60 * 1000;
 
 /**
  * 「今回の回答で新たに到達したか」を判定する。
@@ -50,6 +58,22 @@ interface NudgeContext {
    * このフラグで生涯 1 回限りを保証する。
    */
   firstAnswerNudgeSentAtMs: number | null;
+}
+
+/**
+ * 体験中ユーザーの「追加で解く」初回フォロー用コンテキスト。
+ * - planSource === 'trial' のプレミアム会員のみ対象
+ * - `firstExtraQuestionAt` (追加で解くを押した時刻) がセット済みで、
+ *   `firstExtraFollowupSentAt` がまだセットされていなければ送信する
+ * - 1問目を回答 → 即「じっくり学ぶ」案内 → 60秒後に「ずっと月¥680」案内
+ */
+interface FirstExtraFollowupContext {
+  uid: string;
+  lineUserId: string;
+  userPlan: "free" | "premium";
+  planSource: string;
+  firstExtraQuestionAtMs: number | null;
+  firstExtraFollowupSentAtMs: number | null;
 }
 
 async function maybeSendPremiumNudge(ctx: NudgeContext): Promise<void> {
@@ -129,6 +153,8 @@ async function maybeSendPremiumNudge(ctx: NudgeContext): Promise<void> {
 
   if (!pushed) return;
 
+  await recordPushDelivery("premiumNudge");
+
   try {
     const { initializeApp, getApps } = await import("firebase-admin/app");
     const { getFirestore, FieldValue } = await import("firebase-admin/firestore");
@@ -147,6 +173,94 @@ async function maybeSendPremiumNudge(ctx: NudgeContext): Promise<void> {
   } catch (error) {
     console.error(
       "[onAnswerCreated] lastPremiumNudgeAt update failed (next milestone retry):",
+      error
+    );
+  }
+}
+
+/**
+ * 体験中ユーザーが「追加で解く」初回問題を回答した直後に、
+ * 「じっくり学ぶ」案内 → 60秒後に「ずっと月¥680」案内を順に push する。
+ *
+ * `firstExtraFollowupSentAt` を push 前に立てることで、Firestore トリガの
+ * at-least-once 配信や並列実行による重複送信を防ぐ。
+ */
+async function maybeSendFirstExtraFollowup(
+  ctx: FirstExtraFollowupContext
+): Promise<void> {
+  if (ctx.userPlan !== "premium") return;
+  if (ctx.planSource !== "trial") return;
+  if (!ctx.lineUserId) return;
+  if (ctx.firstExtraQuestionAtMs === null) return;
+  if (ctx.firstExtraFollowupSentAtMs !== null) {
+    console.log(
+      `[onAnswerCreated] skip first_extra_followup uid=${ctx.uid} ` +
+        `(already sent at ${new Date(ctx.firstExtraFollowupSentAtMs).toISOString()})`
+    );
+    return;
+  }
+
+  const { initializeApp, getApps } = await import("firebase-admin/app");
+  const { getFirestore, FieldValue } = await import("firebase-admin/firestore");
+  if (getApps().length === 0) {
+    initializeApp();
+  }
+  const db = getFirestore();
+
+  try {
+    await db.doc(`users/${ctx.uid}`).set(
+      { firstExtraFollowupSentAt: FieldValue.serverTimestamp() },
+      { merge: true }
+    );
+  } catch (error) {
+    console.error(
+      "[onAnswerCreated] firstExtraFollowupSentAt write failed:",
+      error
+    );
+    return;
+  }
+
+  try {
+    const client = await getLineClient();
+    await client.pushMessage({
+      to: ctx.lineUserId,
+      messages: [buildNextStepGuideFlex("jikkuri") as never],
+    });
+    await recordPushDelivery("premiumNudge");
+    console.log(
+      `[onAnswerCreated] first_extra_followup: jikkuri sent uid=${ctx.uid}`
+    );
+  } catch (error) {
+    console.error(
+      "[onAnswerCreated] first_extra_followup jikkuri push failed:",
+      error
+    );
+    return;
+  }
+
+  await new Promise((resolve) =>
+    setTimeout(resolve, FIRST_EXTRA_FOLLOWUP_PRICE_DELAY_MS)
+  );
+
+  try {
+    const client = await getLineClient();
+    await client.pushMessage({
+      to: ctx.lineUserId,
+      messages: [
+        buildPriceLockPitchFlex({
+          introText:
+            "「追加で解く」も「じっくり学ぶ」も、まずはたっぷり使ってみてね。気に入ったら今のうちに登録しておくとお得だよ。",
+          source: "first_extra_followup",
+        }) as never,
+      ],
+    });
+    await recordPushDelivery("premiumNudge");
+    console.log(
+      `[onAnswerCreated] first_extra_followup: price flex sent uid=${ctx.uid}`
+    );
+  } catch (error) {
+    console.error(
+      "[onAnswerCreated] first_extra_followup price push failed:",
       error
     );
   }
@@ -206,6 +320,7 @@ export const onAnswerCreated = functions
 
     // 通知判定のため transaction 内で prev/next 値や plan を捕捉する
     let nudgeCtx: NudgeContext | null = null;
+    let firstExtraCtx: FirstExtraFollowupContext | null = null;
 
     try {
       await db.runTransaction(async (tx) => {
@@ -214,9 +329,14 @@ export const onAnswerCreated = functions
         const prevStats =
           (userData.stats as Record<string, unknown> | undefined) ?? {};
         const prevStreak = (prevStats.streak as StreakState | undefined) ?? null;
+        const prevCorrectStreak =
+          typeof prevStats.correctStreak === "number"
+            ? prevStats.correctStreak
+            : 0;
 
         const todayJst = getJstDateString(new Date());
         const nextStreak = nextStreakState(prevStreak, todayJst);
+        const nextCorrectStreak = isCorrect ? prevCorrectStreak + 1 : 0;
 
         const statsPatch: Record<string, unknown> = {
           totalAnswered: FieldValue.increment(1),
@@ -226,6 +346,7 @@ export const onAnswerCreated = functions
             longest: nextStreak.longest,
             lastStudyDate: nextStreak.lastStudyDate,
           },
+          correctStreak: nextCorrectStreak,
         };
         if (isCorrect) {
           statsPatch.totalCorrect = FieldValue.increment(1);
@@ -306,6 +427,37 @@ export const onAnswerCreated = functions
           lastPremiumNudgeAtMs,
           firstAnswerNudgeSentAtMs,
         };
+
+        // 体験中ユーザーの「追加で解く」初回フォロー用コンテキスト
+        const firstExtraQuestionAtRaw = userData.firstExtraQuestionAt as
+          | { toDate?: () => Date }
+          | undefined
+          | null;
+        const firstExtraQuestionAtMs =
+          firstExtraQuestionAtRaw &&
+          typeof firstExtraQuestionAtRaw.toDate === "function"
+            ? firstExtraQuestionAtRaw.toDate().getTime()
+            : null;
+        const firstExtraFollowupRaw = userData.firstExtraFollowupSentAt as
+          | { toDate?: () => Date }
+          | undefined
+          | null;
+        const firstExtraFollowupSentAtMs =
+          firstExtraFollowupRaw &&
+          typeof firstExtraFollowupRaw.toDate === "function"
+            ? firstExtraFollowupRaw.toDate().getTime()
+            : null;
+        const planSource =
+          typeof userData.planSource === "string" ? userData.planSource : "";
+
+        firstExtraCtx = {
+          uid,
+          lineUserId,
+          userPlan: getUserPlan(userData),
+          planSource,
+          firstExtraQuestionAtMs,
+          firstExtraFollowupSentAtMs,
+        };
       });
       console.log(`[onAnswerCreated] updated users/${uid}.stats`);
     } catch (error) {
@@ -317,6 +469,17 @@ export const onAnswerCreated = functions
         await maybeSendPremiumNudge(nudgeCtx);
       } catch (error) {
         console.error("[onAnswerCreated] maybeSendPremiumNudge failed:", error);
+      }
+    }
+
+    if (firstExtraCtx) {
+      try {
+        await maybeSendFirstExtraFollowup(firstExtraCtx);
+      } catch (error) {
+        console.error(
+          "[onAnswerCreated] maybeSendFirstExtraFollowup failed:",
+          error
+        );
       }
     }
   });

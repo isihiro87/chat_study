@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { collection, getDocs, query, orderBy, limit } from 'firebase/firestore/lite';
 import { db } from '../firebase/config';
 import { useAuth } from '../contexts/AuthContext';
@@ -116,6 +117,18 @@ export function AdminPage() {
     <div className="min-h-screen bg-[#FAF9F7]">
       <Header title="管理画面" showBack />
       <main className="mx-auto max-w-2xl px-4 py-6 space-y-6">
+        {import.meta.env.DEV && (
+          <Link
+            to="/admin/dashboard"
+            className="block bg-white rounded-xl shadow-sm p-3 text-xs text-gray-700 hover:bg-gray-50"
+          >
+            📊 ダッシュボード（問題別正答率・配信通数 etc.）→
+            <span className="block text-[10px] text-gray-400 mt-0.5">
+              ローカル限定。本番ビルドからは到達不能。
+            </span>
+          </Link>
+        )}
+
         {/* ユーザー一覧 */}
         <section>
           <h2 className="text-sm font-semibold text-gray-600 mb-3">

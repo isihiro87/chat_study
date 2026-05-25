@@ -51,3 +51,6 @@ coverage/
 seo-keywords.md
 functions/lib/
 src/data/subjects/fe-exam/contents/*.pdf
+
+# Claude Code runtime locks
+.claude/scheduled_tasks.lock

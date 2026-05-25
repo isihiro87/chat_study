@@ -102,9 +102,31 @@ service cloud.firestore {
         && request.resource.data.eventType in [
           'liff_premium_info_view',
           'liff_premium_apply_view',
-          'liff_premium_apply_submit'
+          'liff_premium_apply_submit',
+          'liff_units_open'
         ];
       allow read, update, delete: if isAdmin();
+    }
+
+    // LINE 配信用の問題マスタ。クライアントからは読まれず、Cloud Functions
+    // （admin SDK）が dailyQuiz / 追加で解く / 苦手復習 で参照する。
+    // dev 限定の管理ダッシュボード (/admin/dashboard) から問題別正答率を
+    // 閲覧するために admin の読み取りのみ許可。書き込みは Functions のみ。
+    match /questions/{questionId} {
+      allow read: if isAdmin();
+    }
+
+    // ユーザーの回答ログ。書き込みは Cloud Functions（admin SDK）のみで、
+    // クライアントからの書き込みは想定しない。管理ダッシュボードのために
+    // admin の読み取りのみ許可。
+    match /answers/{answerId} {
+      allow read: if isAdmin();
+    }
+
+    // 月次配信通数の集計。Cloud Functions が書き込み、admin ダッシュボードが
+    // 読み取り、monthlyDeliveryReport cron がレポート出力する。
+    match /deliveryStats/{yearMonth} {
+      allow read: if isAdmin();
     }
   }
 }

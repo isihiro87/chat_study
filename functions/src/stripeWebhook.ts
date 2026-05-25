@@ -2,6 +2,7 @@ import * as crypto from 'crypto';
 import * as functions from 'firebase-functions/v1';
 
 import { logServerFunnelEvent } from './funnelEvent';
+import { buildPaidStartedFlexMessage, getLineClient } from './lineWebhook';
 import {
   LineRichMenuApiError,
   LineRichMenuConfigError,
@@ -157,6 +158,8 @@ async function markPaid(input: {
   cancelAtPeriodEnd?: boolean;
   /** Stripe Subscription オブジェクトの status (trialing/active) */
   subscriptionStatus?: string;
+  /** checkout.session.completed など、ユーザー操作直後だけ送る */
+  sendThanksMessage?: boolean;
 }): Promise<void> {
   const { initializeApp, getApps } = await import('firebase-admin/app');
   const { getFirestore, FieldValue, Timestamp } = await import(
@@ -211,6 +214,21 @@ async function markPaid(input: {
   }
 
   await db.doc(`users/${input.uid}`).set(update, { merge: true });
+
+  if (input.sendThanksMessage) {
+    try {
+      const lineClient = await getLineClient();
+      await lineClient.pushMessage({
+        to: input.lineUserId,
+        messages: [buildPaidStartedFlexMessage(input.lockedMonthlyPrice)],
+      });
+    } catch (error) {
+      console.error(
+        `[stripeWebhook] paid started message push failed uid=${input.uid}:`,
+        error
+      );
+    }
+  }
 
   await logServerFunnelEvent('paid_contract_started', input.uid, {
     eventId: input.eventId,
@@ -315,6 +333,7 @@ export const stripeWebhook = functions
           subscriptionId,
           eventId,
           lockedMonthlyPrice: getLockedMonthlyPrice(obj),
+          sendThanksMessage: true,
         });
         res.json({ received: true });
         return;

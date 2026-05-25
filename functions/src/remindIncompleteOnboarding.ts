@@ -7,6 +7,7 @@ import {
   buildTimeSelectMessage,
   getLineClient,
 } from "./lineWebhook";
+import { recordPushDelivery } from "./deliveryStats";
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 const MAX_USERS_PER_RUN = 100;
@@ -191,6 +192,7 @@ export const remindIncompleteOnboarding = functions
           to: lineUserId,
           messages,
         });
+        await recordPushDelivery("onboardingReminder");
       } catch (error) {
         console.error(
           `[remindIncompleteOnboarding] push failed uid=${doc.id}:`,
