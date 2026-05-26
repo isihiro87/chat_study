@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { usePremiumPromoCountdown } from '../hooks/usePremiumPromoCountdown';
 import { trackEvent } from '../utils/gtag';
@@ -8,82 +8,91 @@ const CONTACT_URL = 'https://line.chatstudy.jp/liff/contact';
 const DEFAULT_LINE_FRIEND_URL = 'https://line.me/R/ti/p/@chatstudy';
 const PROMO_PRICE_YEN = 680;
 const REGULAR_PRICE_YEN = 980;
-const CURRENT_SCOPE = '中1〜中3の歴史に対応';
-const FUTURE_SCOPE = '対応教科は今後追加予定';
 
-interface ComparisonRow {
-  feature: string;
-  free: string;
-  premium: string;
-  highlight?: boolean;
+// 画像 placeholder のパス。public/images/premium-lp/ 配下に配置すれば自動表示。
+// 画像が無い間は ImageFrame の alt + 背景色で表示される。
+const IMG_HERO = '/images/premium-lp/hero.png';
+const IMG_SOLUTION_1 = '/images/premium-lp/solution-1-morning.png';
+const IMG_SOLUTION_2 = '/images/premium-lp/solution-2-onequestion.png';
+const IMG_SOLUTION_3 = '/images/premium-lp/solution-3-weakness.png';
+const IMG_SOLUTION_4 = '/images/premium-lp/solution-4-extra.png';
+const IMG_PHONE_MOCKUP = '/images/premium-lp/phone-mockup.png';
+
+interface PainPoint {
+  text: string;
 }
 
-const COMPARISON: ComparisonRow[] = [
-  { feature: '毎日1問配信', free: '○', premium: '○' },
-  { feature: '連続記録の確認', free: '○', premium: '○' },
-  { feature: '出題範囲設定', free: '○', premium: '○' },
-  { feature: '追加で解く', free: '—', premium: '無制限', highlight: true },
-  { feature: '苦手を復習', free: '—', premium: '誤答を優先出題', highlight: true },
-  { feature: '暗記カード（じっくり学ぶ）', free: '—', premium: '無制限', highlight: true },
-  { feature: '四択クイズ（じっくり学ぶ）', free: '—', premium: '無制限', highlight: true },
-  { feature: '成績・記録', free: '簡易', premium: '詳細レポート', highlight: true },
+const PAIN_POINTS: PainPoint[] = [
+  { text: '教科書開く前に、スマホ見ちゃう' },
+  { text: '勉強しなきゃ、は分かってる。けど続かない' },
+  { text: 'テスト前だけ詰め込んで、すぐ忘れる' },
+  { text: '塾に行くほどじゃない、けど何もしないのは不安' },
 ];
 
-interface Feature {
-  icon: string;
-  title: string;
-  body: string;
-}
-
-const FEATURES: Feature[] = [
-  {
-    icon: '🔥',
-    title: '追加で解く（無制限）',
-    body: 'やる気がある日は何問でも。1日1問では物足りない時、リッチメニューから何問でも追加で解けます。',
-  },
-  {
-    icon: '🎯',
-    title: '苦手を復習',
-    body: '過去に間違えた問題が優先で出題。テスト前の弱点つぶしや、忘れたころの再チャレンジに。',
-  },
-  {
-    icon: '📖',
-    title: 'じっくり学ぶ',
-    body: '暗記カードと四択クイズを LIFF 内で無制限に。スキマ時間の教科書代わりとして使えます。',
-  },
-  {
-    icon: '📊',
-    title: '詳細な成績レポート',
-    body: '連続学習日数・正答率・教科ごとの進捗を毎日チェック。続いていることが目に見えてやる気アップ。',
-  },
-];
-
-interface Step {
+interface Solution {
   num: number;
   title: string;
   body: string;
+  image: string;
+  imageAlt: string;
 }
 
-const STEPS: Step[] = [
+const SOLUTIONS: Solution[] = [
   {
     num: 1,
-    title: '下のボタンから申込みへ',
-    body: 'ボタンをタップすると、LINE 内の申込みフォームが開きます。',
+    title: '毎日 LINE が来るから、考えなくていい',
+    body: '朝7時、夕方4時、夜8時 — 自分の好きな時間にLINEへ1問が届く。「やらなきゃ」じゃなくて「届いたから開く」、それだけ。',
+    image: IMG_SOLUTION_1,
+    imageAlt: '朝の光の中、スマホのLINE通知に今日のクイズが届いた様子',
   },
   {
     num: 2,
-    title: '7日間 無料トライアル開始',
-    body: '申込み送信後すぐに「追加で解く」「苦手を復習」「じっくり学ぶ」が使えるようになります。',
+    title: '1問だけ。だから続けられる',
+    body: '「1問だけ解けばいい」と思えば、机に向かう気持ちが楽。30秒で終わって、また明日。それが積み重なって、テスト範囲を全部覆う。',
+    image: IMG_SOLUTION_2,
+    imageAlt: 'スマホ画面に4択クイズが1問だけ表示されている、シンプルな画面',
   },
   {
     num: 3,
-    title: '続ける場合は月額登録へ',
-    body: '無料期間中に気に入ったら、月額プランの登録へ進みます。',
+    title: '苦手だけ、もう一度',
+    body: '間違えた問題は忘れたころにまた出てくる。「分かったつもり」をなくして、本当に覚える。テスト直前、苦手だけ集中して潰せる。',
+    image: IMG_SOLUTION_3,
+    imageAlt: '過去に間違えた問題が再出題されている画面',
   },
   {
     num: 4,
-    title: '合わなければ自動で無料に戻る',
-    body: '本契約しなければ7日後に自動で無料プランへ戻ります。追加のお支払いは発生しません。',
+    title: 'やる気のある日は、好きなだけ',
+    body: 'やる気が乗った日は、リッチメニューから何問でも追加で解ける。テスト直前、まとめて解ける。テスト範囲も指定できる。',
+    image: IMG_SOLUTION_4,
+    imageAlt: 'リッチメニューの「もっと解く」を押してクイズが追加されている様子',
+  },
+];
+
+interface Objection {
+  q: string;
+  a: string;
+}
+
+const OBJECTIONS: Objection[] = [
+  {
+    q: 'スマホで勉強って、本当に続く？',
+    a: '続かないように作ったらこのサービスは終わりです。だから「1問だけ」「好きな時間」「LINEで自然に」という形にしました。7日間で続かないと感じたら、何もしなくていい。料金は発生しません。',
+  },
+  {
+    q: '月¥680、高くないですか？',
+    a: '塾の体験授業1回分以下。スタバ2杯分以下。それで毎日30日間使えて、解約はいつでも可能。今登録すれば、対応教科が増えて通常価格(¥980)になっても、月¥680のまま使い続けられます。',
+  },
+  {
+    q: 'うちの子に合うか不安',
+    a: '7日間、完全無料で試せます。クレジットカードの登録もありません。合わなかったら何もしなくていい — 自動で無料プランに戻ります。追加のお支払いは絶対に発生しません。',
+  },
+  {
+    q: '解約が面倒くさそう',
+    a: 'いいえ。リッチメニュー「設定・サポート」→ お問い合わせから連絡1回で完了します。次の更新日以降は無料プランに戻ります。引き止めなどはしません。',
+  },
+  {
+    q: '保護者の同意なしで使える？',
+    a: '中学生向けサービスのため、申込時に「保護者と確認しました」のチェックを必須にしています。保護者向けの詳しい説明ページもご用意しています。',
   },
 ];
 
@@ -94,20 +103,12 @@ interface QA {
 
 const FAQ: QA[] = [
   {
-    q: '料金はいくらですか？',
-    a: `今だけ月 ${PROMO_PRICE_YEN.toLocaleString()}円（通常 ${REGULAR_PRICE_YEN.toLocaleString()}円）です。今登録いただいた方は、対応教科が増えて通常価格に上がった後も、月 ${PROMO_PRICE_YEN.toLocaleString()}円のまま継続いただけます。`,
+    q: '今使える教科はどこまでですか？',
+    a: '中1〜中3の歴史に対応しています。対応教科は今後追加予定です。今登録した方は、教科が増えて価格が上がった後も月 ¥680 のまま使い続けられます。',
   },
   {
-    q: '今使える範囲はどこまでですか？',
-    a: `${CURRENT_SCOPE}しています。${FUTURE_SCOPE}で、追加後も今登録した方は月 ${PROMO_PRICE_YEN.toLocaleString()}円のまま使い続けられます。`,
-  },
-  {
-    q: '解約はいつでもできますか？',
-    a: 'はい、いつでも可能です。決済ページまたは公式LINE「設定・サポート」内のお問い合わせから手続きいただけます。次回更新日以降は無料プランに戻ります。',
-  },
-  {
-    q: 'もし合わなかったら？',
-    a: '7日間の無料トライアル中であれば、追加のお支払いは発生しません。何もしなければ自動で無料プランに戻りますので、お気軽にお試しください。',
+    q: '7日間トライアル後、自動で課金されますか？',
+    a: 'いいえ。トライアル中にクレジットカード登録はしません。継続したい場合のみ、ご自身でStripeの月額登録に進んでいただきます。何もしなければ自動で無料プランに戻ります。',
   },
   {
     q: '兄弟・家族で使えますか？',
@@ -118,14 +119,65 @@ const FAQ: QA[] = [
     a: '可能です。お問い合わせフォーム、または公式LINE「設定・サポート」から、宛名と必要事項をお知らせください。',
   },
   {
-    q: '解約後に再開できますか？',
-    a: 'はい、いつでも再開可能です。ただし一度解約した後の再開時に、早期登録価格を継続できるかは決済・キャンペーン条件に従います。',
+    q: '一度解約した後、再開できますか？',
+    a: 'はい、いつでも再開可能です。ただし再開時に早期登録価格(¥680)を継続できるかは、その時点のキャンペーン条件に従います。',
   },
   {
-    q: '申込みの流れは？',
-    a: 'ボタンから LINE の申込みフォームが開きます。お名前・学年などを入力して送信するだけで、その場で7日間のトライアルが始まります。',
+    q: '中学生本人が登録できますか？',
+    a: '可能です。ただし保護者の方と相談してから登録するようお願いしています。申込時に「保護者と確認しました」のチェック必須です。',
   },
 ];
+
+// 画像 placeholder フレーム。画像が無い間も alt + 背景色でデザインを維持する。
+function ImageFrame({
+  src,
+  alt,
+  aspect,
+  className = '',
+}: {
+  src: string;
+  alt: string;
+  aspect: 'hero' | 'portrait' | 'phone';
+  className?: string;
+}) {
+  const [loaded, setLoaded] = useState(false);
+  const [failed, setFailed] = useState(false);
+  const aspectClass =
+    aspect === 'hero'
+      ? 'aspect-[3/2]'
+      : aspect === 'phone'
+        ? 'aspect-[2/3]'
+        : 'aspect-[4/5]';
+
+  return (
+    <div
+      className={`relative overflow-hidden rounded-2xl bg-amber-100 ${aspectClass} ${className}`}
+    >
+      {!failed && (
+        <img
+          src={src}
+          alt={alt}
+          loading="lazy"
+          onLoad={() => setLoaded(true)}
+          onError={() => setFailed(true)}
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${
+            loaded ? 'opacity-100' : 'opacity-0'
+          }`}
+        />
+      )}
+      {(!loaded || failed) && (
+        <div className="absolute inset-0 flex items-center justify-center p-4">
+          <p
+            className="text-center text-xs text-amber-700/70 leading-relaxed"
+            style={{ fontFamily: "'Noto Sans JP', sans-serif" }}
+          >
+            {alt}
+          </p>
+        </div>
+      )}
+    </div>
+  );
+}
 
 export function PremiumLandingPage() {
   const promo = usePremiumPromoCountdown();
@@ -149,420 +201,591 @@ export function PremiumLandingPage() {
     }
   }, []);
 
-  const handleCtaClick = (placement: 'hero' | 'comparison' | 'final') => {
+  const handleCtaClick = (
+    placement: 'hero' | 'sticky' | 'objection' | 'pricing' | 'final',
+  ) => {
     trackEvent('premium_lp_cta_click', placement);
   };
 
+  const heroCtaClass =
+    'inline-flex items-center justify-center bg-white text-amber-700 rounded-full px-7 py-4 text-base font-bold active:scale-[0.98] transition shadow-sm';
+  const accentCtaClass =
+    'inline-flex items-center justify-center bg-amber-500 hover:bg-amber-600 text-white rounded-full px-7 py-4 text-base font-bold active:scale-[0.98] transition';
+
   return (
-    <div className="min-h-screen bg-[#FAF9F7] pb-16">
-      {/* Hero */}
-      <header className="bg-amber-500">
-        <div className="max-w-2xl mx-auto px-4 py-10">
-          <div className="flex justify-center gap-2 mb-3">
-            <span className="rounded-full bg-white/90 px-3 py-1 text-[11px] font-bold text-amber-700">
-              7日間無料
-            </span>
-            <span className="rounded-full bg-white/90 px-3 py-1 text-[11px] font-bold text-amber-700">
-              今だけ月{PROMO_PRICE_YEN.toLocaleString()}円
-              <span className="ml-1 text-gray-400 line-through font-normal">
-                ¥{REGULAR_PRICE_YEN.toLocaleString()}
-              </span>
-            </span>
+    <div className="min-h-screen bg-[#FAF9F7] pb-28 sm:pb-16">
+      {/* ============= SECTION 1: Hero ============= */}
+      <header className="relative overflow-hidden bg-amber-500">
+        {/* 装飾: 背景の薄い円 (SVG) */}
+        <svg
+          aria-hidden
+          className="absolute -top-20 -right-20 w-[420px] h-[420px] opacity-20"
+          viewBox="0 0 200 200"
+        >
+          <circle cx="100" cy="100" r="100" fill="#FEF3C7" />
+        </svg>
+        <svg
+          aria-hidden
+          className="absolute -bottom-32 -left-24 w-[320px] h-[320px] opacity-15"
+          viewBox="0 0 200 200"
+        >
+          <circle cx="100" cy="100" r="100" fill="#FFFFFF" />
+        </svg>
+
+        <div className="relative max-w-5xl mx-auto px-4 pt-8 pb-12 sm:pt-14 sm:pb-20">
+          <div className="grid sm:grid-cols-2 gap-8 items-center">
+            {/* テキスト */}
+            <div>
+              <div className="flex flex-wrap gap-2 mb-4">
+                <span className="rounded-full bg-white/95 px-3 py-1 text-[11px] font-bold text-amber-700">
+                  7日間無料
+                </span>
+                <span className="rounded-full bg-white/95 px-3 py-1 text-[11px] font-bold text-amber-700">
+                  今だけ月{PROMO_PRICE_YEN.toLocaleString()}円
+                  <span className="ml-1 text-gray-400 line-through font-normal">
+                    ¥{REGULAR_PRICE_YEN.toLocaleString()}
+                  </span>
+                </span>
+              </div>
+              <h1
+                className="text-3xl sm:text-4xl font-bold text-white leading-[1.3]"
+                style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+              >
+                毎日、LINEが来る。
+                <br />
+                <span className="inline-block bg-white text-amber-600 px-2 rounded-lg mt-2">
+                  だから、続く。
+                </span>
+              </h1>
+              <p className="text-sm sm:text-base text-white/95 mt-5 leading-relaxed">
+                中学生のためのLINE学習サービス、
+                <br className="sm:hidden" />
+                <span className="font-bold">チャットでスタディ プレミアム</span>。
+                <br />
+                1日1問だけ、好きな時間にLINEで届く。
+                <br />
+                やらなきゃ、と思う前に、もう解いてる。
+              </p>
+              <div className="mt-7 flex flex-col gap-3">
+                <a
+                  href={LIFF_APPLY_URL}
+                  onClick={() => handleCtaClick('hero')}
+                  className={heroCtaClass}
+                  style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+                >
+                  7日間無料で始める →
+                </a>
+                <p className="text-[11px] text-white/85 leading-relaxed">
+                  ✓ クレジットカード登録なし &nbsp;✓ 担当者やり取りなし
+                  <br />
+                  ✓ 合わなければ自動で無料に戻る
+                </p>
+              </div>
+            </div>
+
+            {/* ヒーロー画像 */}
+            <div className="relative">
+              <ImageFrame
+                src={IMG_HERO}
+                alt="中学生がスマホで気軽にLINE学習をしている様子"
+                aspect="hero"
+                className="border-4 border-white/40"
+              />
+            </div>
           </div>
-          <h1
-            className="text-2xl sm:text-3xl font-bold text-white text-center leading-snug"
-            style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
-          >
-            1日1問じゃ足りない人へ
-            <br />
-            もう一度始めたい人へ
-          </h1>
-          <p className="text-sm text-white/95 text-center mt-3 leading-relaxed">
-            毎日1問の配信に加えて、追加で解ける・苦手を復習できる・暗記カードや四択クイズが無制限。
-            <br />
-            短時間で効率よく学べる仕組みです。
-          </p>
-          <a
-            href={LIFF_APPLY_URL}
-            onClick={() => handleCtaClick('hero')}
-            className="mt-6 block w-full text-center bg-white text-amber-600 active:scale-[0.98] transition rounded-full py-3.5 text-sm font-bold shadow-sm"
-            style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
-          >
-            7日間無料でプレミアムを試す
-          </a>
-          <p className="text-xs text-white/90 text-center mt-2">
-            申込みは LINE で1分。担当者とのやり取りなし
-          </p>
         </div>
       </header>
 
-      <main className="max-w-2xl mx-auto px-4">
-        {/* 料金カード */}
-        <section className="-mt-3 bg-white rounded-2xl shadow-sm overflow-hidden border border-amber-100">
-          {promo.isActive ? (
-            <div className="bg-amber-50 px-5 py-5">
-              <p
-                className="text-sm font-bold text-amber-700 mb-1"
-                style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
-              >
-                今すぐ登録した方限定
-              </p>
-              <div className="flex flex-wrap items-baseline gap-2">
-                <span className="rounded-full bg-amber-500 px-3 py-1 text-xs font-bold text-white">
-                  今だけ
-                </span>
-                <span
-                  className="text-4xl font-bold text-amber-600"
-                  style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
-                >
-                  ¥{PROMO_PRICE_YEN.toLocaleString()}
-                </span>
-                <span className="text-xs text-gray-400 line-through">
-                  通常 ¥{REGULAR_PRICE_YEN.toLocaleString()}
-                </span>
-                <span className="text-xs text-gray-600">/月（税込）</span>
-              </div>
-              <p
-                className="text-xs font-bold text-amber-700 mt-1.5"
-                style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
-              >
-                ⏰ 特典終了まで残り{promo.daysRemaining}日
-                {promo.daysRemaining === 0 && promo.hoursRemaining > 0
-                  ? `${promo.hoursRemaining}時間`
-                  : ''}
-              </p>
-              <p className="text-xs text-gray-700 mt-2 leading-relaxed">
-                今登録いただいた方は、今後教科が増えて価格が上がった後も
-                <span className="font-bold text-amber-700">
-                  月¥{PROMO_PRICE_YEN.toLocaleString()}
-                </span>
-                のまま使い続けられます。
-              </p>
-              <div className="mt-3 grid grid-cols-2 gap-2 text-[11px] font-bold">
-                <div className="rounded-xl bg-white/80 px-3 py-2 text-gray-700">
-                  {CURRENT_SCOPE}
-                </div>
-                <div className="rounded-xl bg-white/80 px-3 py-2 text-amber-700">
-                  {FUTURE_SCOPE}
-                </div>
-              </div>
-            </div>
-          ) : promo.isExpired ? (
-            <div className="px-5 py-5">
-              <div className="flex flex-wrap items-baseline gap-2">
-                <span
-                  className="text-4xl font-bold text-gray-800"
-                  style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
-                >
-                  ¥{REGULAR_PRICE_YEN.toLocaleString()}
-                </span>
-                <span className="text-xs text-gray-600">/月（税込）</span>
-              </div>
-              <p className="text-xs text-gray-500 mt-2 leading-relaxed">
-                早期登録特典の期間は終了しました。通常価格でのご案内となります。
-              </p>
-              <div className="mt-3 grid grid-cols-2 gap-2 text-[11px] font-bold">
-                <div className="rounded-xl bg-gray-50 px-3 py-2 text-gray-700">
-                  {CURRENT_SCOPE}
-                </div>
-                <div className="rounded-xl bg-gray-50 px-3 py-2 text-gray-700">
-                  {FUTURE_SCOPE}
-                </div>
-              </div>
-            </div>
-          ) : (
-            <div className="px-5 py-5">
-              <div className="flex flex-wrap items-baseline gap-2">
-                <span className="rounded-full bg-amber-500 px-3 py-1 text-xs font-bold text-white">
-                  今だけ
-                </span>
-                <span
-                  className="text-4xl font-bold text-amber-600"
-                  style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
-                >
-                  ¥{PROMO_PRICE_YEN.toLocaleString()}
-                </span>
-                <span className="text-xs text-gray-400 line-through">
-                  通常 ¥{REGULAR_PRICE_YEN.toLocaleString()}
-                </span>
-                <span className="text-xs text-gray-600">/月（税込）</span>
-              </div>
-              <p className="text-xs text-gray-700 mt-2 leading-relaxed">
-                今登録いただいた方は、今後教科が増えて価格が上がった後も月¥
-                {PROMO_PRICE_YEN.toLocaleString()}のまま使い続けられます。
-              </p>
-              <div className="mt-3 grid grid-cols-2 gap-2 text-[11px] font-bold">
-                <div className="rounded-xl bg-amber-50 px-3 py-2 text-gray-700">
-                  {CURRENT_SCOPE}
-                </div>
-                <div className="rounded-xl bg-amber-50 px-3 py-2 text-amber-700">
-                  {FUTURE_SCOPE}
-                </div>
-              </div>
-            </div>
-          )}
-        </section>
-
-        {/* 永続特典説明カード（isActive 時のみ） */}
-        {promo.isActive && (
-          <section className="mt-3 bg-amber-50 border border-amber-200 rounded-2xl px-4 py-3">
+      <main>
+        {/* ============= SECTION 2: 共感（悩み） ============= */}
+        <section className="py-12 sm:py-20 bg-[#FAF9F7]">
+          <div className="max-w-3xl mx-auto px-4">
             <p
-              className="text-sm font-bold text-amber-800 leading-relaxed"
+              className="text-xs sm:text-sm font-bold text-amber-700 mb-3"
               style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
             >
-              💡 アーリーアダプター特典
+              こんなこと、ない？
             </p>
-            <p className="text-xs text-amber-800 mt-1 leading-relaxed">
-              特典期間に登録すれば、対応教科が増えて価格が上がった後も、月 ¥
-              {PROMO_PRICE_YEN.toLocaleString()} のまま継続いただけます。
-              対応教科は順次追加予定です。
-            </p>
-          </section>
-        )}
-
-        {/* プレミアム機能の紹介 */}
-        <section className="mt-6">
-          <h2
-            className="text-lg font-bold text-gray-800 px-1 mb-3"
-            style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
-          >
-            プレミアムでできること
-          </h2>
-          <ul className="space-y-3">
-            {FEATURES.map((f) => (
-              <li
-                key={f.title}
-                className="bg-white rounded-2xl border border-gray-200 p-4"
-              >
-                <div className="flex items-start gap-3">
-                  <span className="text-2xl leading-none mt-0.5" aria-hidden>
-                    {f.icon}
+            <h2
+              className="text-2xl sm:text-3xl font-bold text-gray-800 leading-snug mb-8"
+              style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+            >
+              中学生の「勉強しなきゃ」、
+              <br />
+              続かないのは「気合い」じゃなくて<br className="sm:hidden" />「仕組み」のせい。
+            </h2>
+            <ul className="space-y-3">
+              {PAIN_POINTS.map((p, idx) => (
+                <li
+                  key={idx}
+                  className="bg-white rounded-2xl border border-gray-200 px-5 py-4 text-base text-gray-700 leading-relaxed"
+                >
+                  <span
+                    className="text-amber-500 font-bold mr-2"
+                    style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+                  >
+                    ―
                   </span>
-                  <div className="flex-1 min-w-0">
-                    <div
-                      className="text-base font-bold text-gray-800"
-                      style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
-                    >
-                      {f.title}
-                    </div>
-                    <p className="text-sm text-gray-600 mt-1 leading-relaxed">
-                      {f.body}
-                    </p>
-                  </div>
-                </div>
-              </li>
-            ))}
-          </ul>
+                  {p.text}
+                </li>
+              ))}
+            </ul>
+            <p className="mt-8 text-base sm:text-lg text-gray-600 leading-relaxed">
+              気持ちの問題じゃなくて、続けられる「仕掛け」が無いだけ。
+              <br />
+              チャットでスタディ プレミアムは、その仕掛けを作りました。
+            </p>
+          </div>
         </section>
 
-        {/* 比較表 */}
-        <section className="mt-6 bg-white rounded-2xl shadow-sm p-5">
-          <h2
-            className="text-base font-bold text-gray-800 mb-3"
-            style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
-          >
-            無料 vs プレミアム
-          </h2>
-          <div className="overflow-hidden rounded-xl border border-gray-100">
-            <div className="grid grid-cols-[1fr_auto_auto] text-xs">
-              <div className="bg-gray-50 px-3 py-2 font-bold text-gray-700">
-                機能
-              </div>
-              <div className="bg-gray-50 px-3 py-2 font-bold text-gray-700 text-center min-w-[60px]">
-                無料
-              </div>
-              <div className="bg-amber-50 px-3 py-2 font-bold text-amber-700 text-center min-w-[90px]">
-                プレミアム
-              </div>
-              {COMPARISON.map((row, idx) => (
-                <div key={row.feature} className="contents">
+        {/* ============= SECTION 3: 解決ストーリー（4 シーン） ============= */}
+        <section className="py-14 sm:py-24 bg-white">
+          <div className="max-w-5xl mx-auto px-4">
+            <div className="text-center mb-12">
+              <p
+                className="text-xs sm:text-sm font-bold text-amber-700 mb-2"
+                style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+              >
+                チャットでスタディができること
+              </p>
+              <h2
+                className="text-2xl sm:text-3xl font-bold text-gray-800 leading-snug"
+                style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+              >
+                1日1問、LINEで終わる。
+                <br />
+                それが、続くきっかけ。
+              </h2>
+            </div>
+
+            <div className="space-y-16 sm:space-y-24">
+              {SOLUTIONS.map((s, idx) => {
+                const reverse = idx % 2 === 1;
+                return (
                   <div
-                    className={`px-3 py-2 text-gray-700 ${
-                      idx % 2 === 1 ? 'bg-gray-50/50' : 'bg-white'
+                    key={s.num}
+                    className={`grid sm:grid-cols-2 gap-8 sm:gap-12 items-center ${
+                      reverse ? 'sm:[&>*:first-child]:order-2' : ''
                     }`}
                   >
-                    {row.feature}
+                    <div>
+                      <ImageFrame
+                        src={s.image}
+                        alt={s.imageAlt}
+                        aspect="portrait"
+                        className="max-w-xs mx-auto"
+                      />
+                    </div>
+                    <div>
+                      <div className="flex items-center gap-3 mb-3">
+                        <span
+                          className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-amber-500 text-white font-bold"
+                          style={{
+                            fontFamily: "'Zen Maru Gothic', sans-serif",
+                          }}
+                        >
+                          {s.num}
+                        </span>
+                        <span className="text-xs font-bold text-amber-700 uppercase tracking-wider">
+                          Story {s.num} / {SOLUTIONS.length}
+                        </span>
+                      </div>
+                      <h3
+                        className="text-xl sm:text-2xl font-bold text-gray-800 leading-snug mb-3"
+                        style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+                      >
+                        {s.title}
+                      </h3>
+                      <p className="text-base text-gray-600 leading-relaxed">
+                        {s.body}
+                      </p>
+                    </div>
                   </div>
-                  <div
-                    className={`px-3 py-2 text-center text-gray-500 ${
-                      idx % 2 === 1 ? 'bg-gray-50/50' : 'bg-white'
-                    }`}
-                  >
-                    {row.free}
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* ============= SECTION 4: 実際の画面 ============= */}
+        <section className="py-14 sm:py-20 bg-[#F5F3F0]">
+          <div className="max-w-3xl mx-auto px-4 text-center">
+            <p
+              className="text-xs sm:text-sm font-bold text-amber-700 mb-2"
+              style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+            >
+              実際のLINE画面
+            </p>
+            <h2
+              className="text-2xl sm:text-3xl font-bold text-gray-800 leading-snug mb-3"
+              style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+            >
+              これが、毎日届く1問。
+            </h2>
+            <p className="text-base text-gray-600 leading-relaxed mb-8 max-w-xl mx-auto">
+              朝のあいさつ → クイズ → あなたの回答 → 正誤フィードバック → かんたんな解説。
+              <br />
+              全部、LINEのトーク画面で完結します。
+            </p>
+            <div className="max-w-xs mx-auto">
+              <ImageFrame
+                src={IMG_PHONE_MOCKUP}
+                alt="スマホで実際のLINEチャット画面：朝のあいさつ、クイズ、回答、解説の流れ"
+                aspect="phone"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* ============= SECTION 5: 不安解消（objection handling） ============= */}
+        <section className="py-14 sm:py-24 bg-amber-50">
+          <div className="max-w-3xl mx-auto px-4">
+            <div className="text-center mb-10">
+              <p
+                className="text-xs sm:text-sm font-bold text-amber-700 mb-2"
+                style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+              >
+                「でも...」と思った方へ
+              </p>
+              <h2
+                className="text-2xl sm:text-3xl font-bold text-gray-800 leading-snug"
+                style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+              >
+                正直に、お答えします。
+              </h2>
+            </div>
+
+            <div className="space-y-4">
+              {OBJECTIONS.map((o, idx) => (
+                <div
+                  key={idx}
+                  className="bg-white rounded-2xl border border-amber-200 p-5 sm:p-6"
+                >
+                  <div className="flex items-start gap-3 mb-3">
+                    <span className="flex-shrink-0 inline-flex items-center justify-center w-7 h-7 rounded-full bg-amber-100 text-amber-700 text-xs font-bold">
+                      Q
+                    </span>
+                    <p
+                      className="text-base sm:text-lg font-bold text-gray-800 leading-snug"
+                      style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+                    >
+                      {o.q}
+                    </p>
                   </div>
-                  <div
-                    className={`px-3 py-2 text-center ${
-                      row.highlight
-                        ? 'text-amber-700 font-bold'
-                        : 'text-gray-700'
-                    } ${idx % 2 === 1 ? 'bg-amber-50/30' : 'bg-amber-50/10'}`}
-                  >
-                    {row.premium}
+                  <div className="flex items-start gap-3 pl-1">
+                    <span className="flex-shrink-0 inline-flex items-center justify-center w-7 h-7 rounded-full bg-gray-800 text-white text-xs font-bold">
+                      A
+                    </span>
+                    <p className="text-sm text-gray-700 leading-relaxed">
+                      {o.a}
+                    </p>
                   </div>
                 </div>
               ))}
             </div>
-          </div>
-          <a
-            href={LIFF_APPLY_URL}
-            onClick={() => handleCtaClick('comparison')}
-            className="mt-4 block w-full text-center bg-amber-500 hover:bg-amber-600 active:scale-[0.98] transition rounded-full py-3 text-sm font-bold text-white"
-            style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
-          >
-            7日間無料で始める
-          </a>
-          <p className="text-xs text-gray-500 text-center mt-2">
-            今登録すると、今後も月{PROMO_PRICE_YEN.toLocaleString()}円のまま
-          </p>
-        </section>
 
-        {/* トライアルの流れ */}
-        <section className="mt-6 bg-white rounded-2xl shadow-sm p-5">
-          <h2
-            className="text-base font-bold text-gray-800 mb-3"
-            style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
-          >
-            無料トライアル開始から継続まで
-          </h2>
-          <ol className="space-y-3">
-            {STEPS.map((step) => (
-              <li key={step.num} className="flex gap-3">
-                <div className="flex-shrink-0 w-7 h-7 rounded-full bg-amber-500 text-white text-xs font-bold flex items-center justify-center">
-                  {step.num}
-                </div>
-                <div className="flex-1 min-w-0">
-                  <div
-                    className="text-sm font-bold text-gray-800"
-                    style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
-                  >
-                    {step.title}
-                  </div>
-                  <div className="text-xs text-gray-600 mt-0.5 leading-relaxed">
-                    {step.body}
-                  </div>
-                </div>
-              </li>
-            ))}
-          </ol>
-        </section>
-
-        {/* FAQ */}
-        <section className="mt-6">
-          <h2
-            className="text-lg font-bold text-gray-800 px-1 mb-3"
-            style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
-          >
-            よくある質問
-          </h2>
-          <ul className="space-y-2">
-            {FAQ.map((qa, idx) => (
-              <li
-                key={idx}
-                className="bg-white rounded-2xl border border-gray-200 px-4 py-3"
+            <div className="mt-10 text-center">
+              <a
+                href={LIFF_APPLY_URL}
+                onClick={() => handleCtaClick('objection')}
+                className={accentCtaClass}
+                style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
               >
-                <div
-                  className="text-sm font-bold text-gray-800 mb-1"
+                7日間無料で試してみる →
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* ============= SECTION 6: 保護者の方へ ============= */}
+        <section className="py-14 sm:py-20 bg-white">
+          <div className="max-w-3xl mx-auto px-4">
+            <div className="bg-[#F5F3F0] rounded-3xl p-6 sm:p-10">
+              <p
+                className="text-xs sm:text-sm font-bold text-gray-500 mb-2 tracking-wider"
+                style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+              >
+                FOR PARENTS
+              </p>
+              <h2
+                className="text-2xl sm:text-3xl font-bold text-gray-800 leading-snug mb-4"
+                style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+              >
+                保護者の方へ
+              </h2>
+              <p className="text-base text-gray-700 leading-relaxed mb-5">
+                チャットでスタディは、中学生のお子さま向けの学習サービスです。
+                公式LINEで毎日1問の問題が届き、ゲーム感覚で続けられる仕組みになっています。
+              </p>
+              <ul className="space-y-2 text-sm text-gray-700 leading-relaxed mb-5">
+                <li className="flex gap-2">
+                  <span className="text-amber-600 font-bold">✓</span>
+                  <span>専用アプリ不要。普段使っている LINE だけで完結</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="text-amber-600 font-bold">✓</span>
+                  <span>7日間の無料トライアル中はクレジットカード登録なし</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="text-amber-600 font-bold">✓</span>
+                  <span>連続学習日数・正答率の確認が可能（リッチメニュー「成績・記録」）</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="text-amber-600 font-bold">✓</span>
+                  <span>解約はいつでも、お問い合わせから1回の連絡で完了</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="text-amber-600 font-bold">✓</span>
+                  <span>領収書・請求書も発行可能</span>
+                </li>
+              </ul>
+              <Link
+                to="/for-parents"
+                className="inline-flex items-center gap-1 text-sm font-bold text-amber-700 underline"
+              >
+                保護者向けの詳しい説明を見る →
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* ============= SECTION 7: 料金プラン ============= */}
+        <section className="py-14 sm:py-24 bg-[#FAF9F7]">
+          <div className="max-w-3xl mx-auto px-4">
+            <div className="text-center mb-10">
+              <p
+                className="text-xs sm:text-sm font-bold text-amber-700 mb-2"
+                style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+              >
+                料金プラン
+              </p>
+              <h2
+                className="text-2xl sm:text-3xl font-bold text-gray-800 leading-snug"
+                style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+              >
+                今だけ、月¥{PROMO_PRICE_YEN.toLocaleString()}。
+                <br className="sm:hidden" />
+                登録した方は、ずっとこの価格。
+              </h2>
+            </div>
+
+            <div className="bg-white rounded-3xl border-2 border-amber-300 p-6 sm:p-10">
+              {promo.isActive && (
+                <div className="inline-flex items-center gap-2 rounded-full bg-amber-500 text-white px-4 py-1.5 text-xs font-bold mb-4">
+                  <span>⏰</span>
+                  <span>特典終了まで残り{promo.daysRemaining}日</span>
+                </div>
+              )}
+              <div className="flex flex-wrap items-baseline gap-3 mb-3">
+                <span
+                  className="text-5xl sm:text-6xl font-bold text-amber-600"
                   style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
                 >
-                  Q. {qa.q}
-                </div>
-                <div className="text-xs text-gray-600 leading-relaxed">
-                  A. {qa.a}
-                </div>
-              </li>
-            ))}
-          </ul>
-        </section>
+                  ¥{PROMO_PRICE_YEN.toLocaleString()}
+                </span>
+                <span className="text-base text-gray-600">/月（税込）</span>
+                <span className="text-sm text-gray-400 line-through">
+                  通常 ¥{REGULAR_PRICE_YEN.toLocaleString()}
+                </span>
+              </div>
+              <p className="text-sm text-gray-700 leading-relaxed mb-6">
+                今登録した方は、対応教科が増えて通常価格 ¥
+                {REGULAR_PRICE_YEN.toLocaleString()} に上がった後も、
+                <span className="font-bold text-amber-700">
+                  ずっと月 ¥{PROMO_PRICE_YEN.toLocaleString()}
+                </span>{' '}
+                のまま継続いただけます。
+              </p>
 
-        {/* 最終 CTA */}
-        <section className="mt-8 bg-amber-50 border border-amber-200 rounded-2xl p-5">
-          <p
-            className="text-base font-bold text-gray-800 text-center leading-relaxed"
-            style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
-          >
-            今だけ月¥{PROMO_PRICE_YEN.toLocaleString()}、
-            <br />
-            まずは7日間無料で試せます
-          </p>
-          <p className="text-xs text-gray-600 text-center mt-2 leading-relaxed">
-            申込みは LINE で1分。本契約しなければ自動で無料プランに戻ります。
-          </p>
-          <a
-            href={LIFF_APPLY_URL}
-            onClick={() => handleCtaClick('final')}
-            className="mt-4 block w-full text-center bg-amber-500 hover:bg-amber-600 active:scale-[0.98] transition rounded-full py-3.5 text-sm font-bold text-white"
-            style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
-          >
-            7日間無料で始める
-          </a>
-        </section>
-
-        {/* 運営者 */}
-        <section className="mt-8 bg-white rounded-2xl border border-gray-200 p-5">
-          <h2
-            className="text-base font-bold text-gray-800 mb-3"
-            style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
-          >
-            運営者
-          </h2>
-          <dl className="text-sm text-gray-700 space-y-2 leading-relaxed">
-            <div className="flex gap-2">
-              <dt className="w-20 flex-shrink-0 text-gray-500">サービス名</dt>
-              <dd className="flex-1">チャットでスタディ</dd>
-            </div>
-            <div className="flex gap-2">
-              <dt className="w-20 flex-shrink-0 text-gray-500">運営</dt>
-              <dd className="flex-1">チャットでスタディ運営事務局</dd>
-            </div>
-            <div className="flex gap-2">
-              <dt className="w-20 flex-shrink-0 text-gray-500">連絡先</dt>
-              <dd className="flex-1">
-                <a
-                  href={CONTACT_URL}
-                  className="text-amber-700 underline"
+              <div className="bg-amber-50 rounded-2xl p-4 mb-6">
+                <p
+                  className="text-sm font-bold text-amber-800 mb-2"
+                  style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
                 >
-                  お問い合わせフォーム
-                </a>
-              </dd>
+                  💡 アーリーアダプター特典 = 価格ロック
+                </p>
+                <p className="text-xs text-amber-800 leading-relaxed">
+                  通常価格に値上げされても、今登録した方の月額は変わりません。長く使うほどお得な仕組みです。
+                </p>
+              </div>
+
+              <ul className="space-y-2 text-sm text-gray-700 leading-relaxed mb-6">
+                <li className="flex gap-2">
+                  <span className="text-amber-600 font-bold">✓</span>
+                  <span>7日間 完全無料トライアル</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="text-amber-600 font-bold">✓</span>
+                  <span>クレジットカード登録は本契約時のみ</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="text-amber-600 font-bold">✓</span>
+                  <span>解約はいつでも可能、引き止めなし</span>
+                </li>
+              </ul>
+
+              <a
+                href={LIFF_APPLY_URL}
+                onClick={() => handleCtaClick('pricing')}
+                className={`${accentCtaClass} w-full`}
+                style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+              >
+                7日間無料で始める →
+              </a>
             </div>
-          </dl>
-          <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-2">
-            <a
-              href={CONTACT_URL}
-              className="block text-center bg-white border-2 border-gray-200 active:scale-[0.98] transition rounded-full py-2.5 text-sm font-bold text-gray-700"
-              style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
-            >
-              お問い合わせ
-            </a>
-            <a
-              href={lineFriendUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block text-center bg-white border-2 border-amber-300 active:scale-[0.98] transition rounded-full py-2.5 text-sm font-bold text-amber-700"
-              style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
-            >
-              公式LINEを友だち追加
-            </a>
+
+            <p className="text-xs text-gray-500 text-center mt-4 leading-relaxed">
+              ※ 現在は中1〜中3の歴史に対応。対応教科は順次追加予定です。
+            </p>
           </div>
         </section>
 
-        {/* footer links */}
-        <div className="mt-6 text-center space-x-4">
-          <Link to="/terms" className="text-xs text-gray-500 underline">
-            利用規約
-          </Link>
-          <Link to="/privacy" className="text-xs text-gray-500 underline">
-            プライバシーポリシー
-          </Link>
-          <Link to="/for-parents" className="text-xs text-gray-500 underline">
-            保護者の方へ
-          </Link>
-        </div>
+        {/* ============= SECTION 8: FAQ ============= */}
+        <section className="py-14 sm:py-20 bg-white">
+          <div className="max-w-3xl mx-auto px-4">
+            <h2
+              className="text-2xl sm:text-3xl font-bold text-gray-800 text-center mb-10 leading-snug"
+              style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+            >
+              よくある質問
+            </h2>
+            <ul className="space-y-3">
+              {FAQ.map((qa, idx) => (
+                <li
+                  key={idx}
+                  className="bg-[#FAF9F7] rounded-2xl border border-gray-200 p-5"
+                >
+                  <p
+                    className="text-base font-bold text-gray-800 mb-2 leading-snug"
+                    style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+                  >
+                    Q. {qa.q}
+                  </p>
+                  <p className="text-sm text-gray-600 leading-relaxed">
+                    A. {qa.a}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
 
-        <p className="text-xs text-gray-400 text-center mt-4 leading-relaxed">
-          チャットでスタディ
-        </p>
+        {/* ============= SECTION 9: 最終 CTA ============= */}
+        <section className="relative py-16 sm:py-24 bg-amber-500 overflow-hidden">
+          <svg
+            aria-hidden
+            className="absolute -top-32 -right-32 w-[480px] h-[480px] opacity-15"
+            viewBox="0 0 200 200"
+          >
+            <circle cx="100" cy="100" r="100" fill="#FFFFFF" />
+          </svg>
+          <div className="relative max-w-2xl mx-auto px-4 text-center">
+            <p className="text-xs sm:text-sm font-bold text-white/90 mb-3 tracking-wider">
+              START YOUR 7 DAYS FREE
+            </p>
+            <h2
+              className="text-3xl sm:text-4xl font-bold text-white leading-snug mb-5"
+              style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+            >
+              さあ、明日のあなたを
+              <br />
+              ちょっとだけ変えてみよう。
+            </h2>
+            <p className="text-base text-white/95 leading-relaxed mb-8">
+              7日間、完全無料。クレジットカード登録なし。
+              <br />
+              合わなければ自動で無料に戻ります。
+            </p>
+            <a
+              href={LIFF_APPLY_URL}
+              onClick={() => handleCtaClick('final')}
+              className={heroCtaClass}
+              style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+            >
+              7日間無料で始める →
+            </a>
+            <p className="text-xs text-white/80 mt-4">
+              LINEの申込みフォームが開きます（1分で完了）
+            </p>
+          </div>
+        </section>
+
+        {/* ============= SECTION 10: 運営者 / footer ============= */}
+        <section className="py-12 sm:py-16 bg-[#F5F3F0]">
+          <div className="max-w-3xl mx-auto px-4">
+            <h2
+              className="text-base font-bold text-gray-800 mb-4"
+              style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+            >
+              運営者
+            </h2>
+            <dl className="text-sm text-gray-700 space-y-2 leading-relaxed mb-6">
+              <div className="flex gap-2">
+                <dt className="w-20 flex-shrink-0 text-gray-500">サービス名</dt>
+                <dd className="flex-1">チャットでスタディ</dd>
+              </div>
+              <div className="flex gap-2">
+                <dt className="w-20 flex-shrink-0 text-gray-500">運営</dt>
+                <dd className="flex-1">チャットでスタディ運営事務局</dd>
+              </div>
+              <div className="flex gap-2">
+                <dt className="w-20 flex-shrink-0 text-gray-500">連絡先</dt>
+                <dd className="flex-1">
+                  <a href={CONTACT_URL} className="text-amber-700 underline">
+                    お問い合わせフォーム
+                  </a>
+                </dd>
+              </div>
+            </dl>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-6">
+              <a
+                href={CONTACT_URL}
+                className="block text-center bg-white border-2 border-gray-200 active:scale-[0.98] transition rounded-full py-2.5 text-sm font-bold text-gray-700"
+                style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+              >
+                お問い合わせ
+              </a>
+              <a
+                href={lineFriendUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-center bg-white border-2 border-amber-300 active:scale-[0.98] transition rounded-full py-2.5 text-sm font-bold text-amber-700"
+                style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+              >
+                公式LINEを友だち追加
+              </a>
+            </div>
+
+            <div className="text-center space-x-4 text-xs text-gray-500">
+              <Link to="/terms" className="underline">
+                利用規約
+              </Link>
+              <Link to="/privacy" className="underline">
+                プライバシーポリシー
+              </Link>
+              <Link to="/for-parents" className="underline">
+                保護者の方へ
+              </Link>
+            </div>
+            <p className="text-xs text-gray-400 text-center mt-6 leading-relaxed">
+              © チャットでスタディ
+            </p>
+          </div>
+        </section>
       </main>
+
+      {/* ============= Sticky Bottom CTA (mobile only) ============= */}
+      <div className="fixed bottom-0 left-0 right-0 z-40 sm:hidden bg-white/95 backdrop-blur border-t border-gray-200 px-4 py-3">
+        <a
+          href={LIFF_APPLY_URL}
+          onClick={() => handleCtaClick('sticky')}
+          className={`${accentCtaClass} w-full py-3 text-sm`}
+          style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+        >
+          7日間無料で始める →
+        </a>
+      </div>
     </div>
   );
 }
