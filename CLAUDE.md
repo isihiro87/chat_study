@@ -86,6 +86,8 @@ FUNCTIONS_DISCOVERY_TIMEOUT=600 firebase deploy --only functions
 | `/subjects/:subjectId/eras/:eraId` | トピック選択 | `TopicSelectPage` | 時代/単元内のトピック一覧 |
 | `/subjects/:subjectId/eras/:eraId/topics/:topicId` | 学習ページ | `LearningPage` | メイン学習画面（タブ切替） |
 | `/chat/:chatId` | 歴史チャット | `HistoryChatPage` | 対話形式の歴史学習 |
+| `/premium` | プレミアム LP | `PremiumLandingPage` | 有料プラン申込誘導LP（公開）。CTA → `https://line.chatstudy.jp/liff/premium-apply` |
+| `/for-parents` | 保護者向け LP | `ParentsLandingPage` | 保護者向け説明ページ（公開） |
 | `*` | 404ページ | `NotFoundPage` | 存在しないURLのフォールバック |
 
 ### 全体構成の補足

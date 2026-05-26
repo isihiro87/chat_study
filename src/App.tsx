@@ -33,6 +33,7 @@ const WelcomePage = lazyWithRetry(() => import('./pages/WelcomePage').then(m => 
 const TermsPage = lazyWithRetry(() => import('./pages/TermsPage').then(m => ({ default: m.TermsPage })));
 const PrivacyPage = lazyWithRetry(() => import('./pages/PrivacyPage').then(m => ({ default: m.PrivacyPage })));
 const ParentsLandingPage = lazyWithRetry(() => import('./pages/ParentsLandingPage').then(m => ({ default: m.ParentsLandingPage })));
+const PremiumLandingPage = lazyWithRetry(() => import('./pages/PremiumLandingPage').then(m => ({ default: m.PremiumLandingPage })));
 
 // ルート変更時にスクロール位置を復元またはリセット
 function ScrollRestoration() {
@@ -94,6 +95,7 @@ function AnimatedRoutes() {
           <Route path="/terms" element={<TermsPage />} />
           <Route path="/privacy" element={<PrivacyPage />} />
           <Route path="/for-parents" element={<ParentsLandingPage />} />
+          <Route path="/premium" element={<PremiumLandingPage />} />
           <Route path="/admin" element={<AdminPage />} />
           {import.meta.env.DEV && AdminDashboardPage && (
             <Route path="/admin/dashboard" element={<AdminDashboardPage />} />
