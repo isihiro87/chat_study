@@ -24,8 +24,14 @@ const PUBLIC_PATH_PATTERNS: readonly RegExp[] = [
 ];
 
 export function isPublicPath(pathname: string): boolean {
-  if (PUBLIC_PATH_EXACT.includes(pathname)) return true;
-  if (PUBLIC_PATH_PREFIXES.some((p) => pathname.startsWith(p))) return true;
-  if (PUBLIC_PATH_PATTERNS.some((re) => re.test(pathname))) return true;
+  // Vercel の trailingSlash: true で `/premium` → `/premium/` に自動リダイレクトされるため、
+  // 末尾スラッシュを除いてから判定する（ルート `/` は除外）。
+  const normalized =
+    pathname !== '/' && pathname.endsWith('/')
+      ? pathname.slice(0, -1)
+      : pathname;
+  if (PUBLIC_PATH_EXACT.includes(normalized)) return true;
+  if (PUBLIC_PATH_PREFIXES.some((p) => normalized.startsWith(p))) return true;
+  if (PUBLIC_PATH_PATTERNS.some((re) => re.test(normalized))) return true;
   return false;
 }
