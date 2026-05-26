@@ -96,6 +96,7 @@ export const expireTrialUsers = functions
     let expired = 0;
     let reminded = 0;
     let skipped = 0;
+    let blockedPushSkipped = 0;
 
     // 順次処理: LINE Messaging API は短時間に大量 push すると rate limit を踏む
     for (const doc of snap.docs) {
@@ -181,20 +182,31 @@ export const expireTrialUsers = functions
           continue;
         }
 
-        try {
-          await lineClient.pushMessage({
-            to: lineUserId,
-            messages: [buildTrialExpiredFlexMessage()],
-          });
-          await recordPushDelivery("trialReminder");
-        } catch (error) {
-          console.error(
-            `[expireTrialUsers] expired push 失敗 uid=${uid}:`,
-            error
-          );
+        // 公式 LINE をブロック中なら DB の降格は実施するが push は送らない
+        if (data.blocked === true) {
+          blockedPushSkipped++;
+        } else {
+          try {
+            await lineClient.pushMessage({
+              to: lineUserId,
+              messages: [buildTrialExpiredFlexMessage()],
+            });
+            await recordPushDelivery("trialReminder");
+          } catch (error) {
+            console.error(
+              `[expireTrialUsers] expired push 失敗 uid=${uid}:`,
+              error
+            );
+          }
         }
         await logServerFunnelEvent("trial_expired", uid);
         expired++;
+        continue;
+      }
+
+      // 期限内のリマインダー経路: ブロック中ユーザーは push を送らない
+      if (data.blocked === true) {
+        blockedPushSkipped++;
         continue;
       }
 
@@ -288,6 +300,7 @@ export const expireTrialUsers = functions
     }
 
     console.log(
-      `[expireTrialUsers] done: expired=${expired}, reminded=${reminded}, skipped=${skipped}, total=${snap.size}`
+      `[expireTrialUsers] done: expired=${expired}, reminded=${reminded}, ` +
+        `skipped=${skipped}, blockedPushSkipped=${blockedPushSkipped}, total=${snap.size}`
     );
   });

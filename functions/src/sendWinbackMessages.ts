@@ -50,6 +50,7 @@ interface SendStats {
   sent: number;
   skipped: number;
   failed: number;
+  blockedSkipped: number;
   byTouchpoint: Record<WinbackTouchpoint, number>;
   priceLockReopened: number;
 }
@@ -84,6 +85,7 @@ export const sendWinbackMessages = functions
       sent: 0,
       skipped: 0,
       failed: 0,
+      blockedSkipped: 0,
       byTouchpoint: { day3: 0, day7: 0, day14: 0 },
       priceLockReopened: 0,
     };
@@ -103,6 +105,12 @@ export const sendWinbackMessages = functions
         stats.totalProcessed++;
         const uid = doc.id;
         const data = doc.data() as UserDoc & Record<string, unknown>;
+
+        // 公式 LINE をブロック中のユーザーには Win-back を送らない
+        if (data.blocked === true) {
+          stats.blockedSkipped++;
+          continue;
+        }
 
         const statusChangedAtRaw = data.statusChangedAt as
           | { toDate?: () => Date }
@@ -263,6 +271,7 @@ export const sendWinbackMessages = functions
     console.log(
       `[sendWinbackMessages] done: processed=${stats.totalProcessed}, ` +
         `sent=${stats.sent}, skipped=${stats.skipped}, failed=${stats.failed}, ` +
+        `blockedSkipped=${stats.blockedSkipped}, ` +
         `day3=${stats.byTouchpoint.day3}, day7=${stats.byTouchpoint.day7}, ` +
         `day14=${stats.byTouchpoint.day14}, priceLockReopened=${stats.priceLockReopened}, ` +
         `elapsed=${elapsed}ms`

@@ -44,8 +44,14 @@ async function runDailyQuiz(hour: ValidHour): Promise<void> {
     );
   }
 
+  // 公式 LINE をブロック中のユーザー (blocked === true) は除外する。
+  // Firestore の where("blocked", "!=", true) はフィールド未定義のドキュメントを
+  // 除外してしまうため、クエリには入れずアプリ側で filter する。
+  const eligibleDocs = snap.docs.filter((d) => d.data().blocked !== true);
+  const blockedSkipped = snap.size - eligibleDocs.length;
+
   const results = await Promise.allSettled(
-    snap.docs.map((doc) => selectAndSendQuestion(doc.id))
+    eligibleDocs.map((doc) => selectAndSendQuestion(doc.id))
   );
 
   let success = 0;
@@ -56,7 +62,8 @@ async function runDailyQuiz(hour: ValidHour): Promise<void> {
   }
   const elapsed = Date.now() - startedAt;
   console.log(
-    `[dailyQuiz${pad(hour)}] done users=${snap.size} success=${success} failed=${failed} elapsed=${elapsed}ms`
+    `[dailyQuiz${pad(hour)}] done users=${eligibleDocs.length} success=${success} ` +
+      `failed=${failed} blockedSkipped=${blockedSkipped} elapsed=${elapsed}ms`
   );
 }
 

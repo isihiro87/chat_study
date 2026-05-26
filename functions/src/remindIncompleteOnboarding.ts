@@ -114,9 +114,17 @@ export const remindIncompleteOnboarding = functions
     const now = Date.now();
     let reminded = 0;
     let skipped = 0;
+    let blockedSkipped = 0;
 
     for (const doc of snap.docs) {
       const data = doc.data();
+
+      // 公式 LINE をブロック中のユーザーには未完了リマインドを送らない
+      if (data.blocked === true) {
+        blockedSkipped++;
+        continue;
+      }
+
       const lineUserId =
         typeof data.lineUserId === "string" ? data.lineUserId : "";
       if (!lineUserId) {
@@ -226,6 +234,7 @@ export const remindIncompleteOnboarding = functions
     }
 
     console.log(
-      `[remindIncompleteOnboarding] done: reminded=${reminded}, skipped=${skipped}, total=${snap.size}`
+      `[remindIncompleteOnboarding] done: reminded=${reminded}, skipped=${skipped}, ` +
+        `blockedSkipped=${blockedSkipped}, total=${snap.size}`
     );
   });

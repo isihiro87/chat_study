@@ -510,6 +510,9 @@ async function dispatchEvent(event: LineEvent): Promise<void> {
       case 'follow':
         await handleFollow(event);
         return;
+      case 'unfollow':
+        await handleUnfollow(event);
+        return;
       case 'postback':
         await handlePostback(event);
         return;
@@ -791,6 +794,11 @@ async function handleFollow(event: LineEvent): Promise<void> {
         onboardingState: 'started',
         onboardingStartedAt: FieldValue.serverTimestamp(),
         onboardingReminderSentAt: null,
+        // 公式 LINE 再フォロー時のブロック解除フラグ。webhook の unfollow ハンドラで
+        // blocked=true を立てており、再 follow で確実に false に戻して push 配信を
+        // 再開させる。
+        blocked: false,
+        unblockedAt: FieldValue.serverTimestamp(),
         updatedAt: FieldValue.serverTimestamp(),
       },
       { merge: true }
@@ -818,6 +826,37 @@ async function handleFollow(event: LineEvent): Promise<void> {
     });
   } catch (error) {
     console.error('[lineWebhook] handleFollow reply failed:', error);
+  }
+}
+
+/**
+ * 公式 LINE アカウントをブロック（unfollow）されたときの処理。
+ *
+ * Firestore `users/{uid}` に `blocked: true` を立てて、以降の cron 系 push
+ * （dailyQuiz / trialDrip* / sendWinbackMessages / remindIncompleteOnboarding /
+ * trialFormAbandonReminder / postTrialFollowup / expireTrialUsers /
+ * onAnswerCreated の premiumNudge / firstExtraFollowup）が対象から除外する。
+ *
+ * LINE 仕様により unfollow イベントには replyToken が付かないため、こちらから
+ * 何かを reply / push することはできない。
+ */
+async function handleUnfollow(event: LineEvent): Promise<void> {
+  const uid = buildUid(event);
+  if (!uid) return;
+
+  try {
+    const { db, FieldValue } = await getDb();
+    await db.doc(`users/${uid}`).set(
+      {
+        blocked: true,
+        blockedAt: FieldValue.serverTimestamp(),
+        updatedAt: FieldValue.serverTimestamp(),
+      },
+      { merge: true }
+    );
+    console.log(`[lineWebhook] handleUnfollow: marked blocked uid=${uid}`);
+  } catch (error) {
+    console.error('[lineWebhook] handleUnfollow firestore write failed:', error);
   }
 }
 
@@ -2429,15 +2468,13 @@ const NUDGE_COPY: Record<PremiumNudgeReason, NudgeCopy> = {
   first_answer: {
     headerEmoji: '🎉',
     headerText: '初めての1問、おつかれさま！',
-    // D-14 セールスコピー対応: ベネフィット数字 + リスクリバーサル + 価格ロック訴求を追加
+    // ノーリスク訴求のコンパクト版。料金・「プレミアム」単語は意図的に出さない。
+    // ファネル分析（2026-05-25）で apply_submit=0 だったため、まずは
+    // 「気軽に試せる」感を最優先する文言に絞り込み。
     leadText:
-      `これからは毎日1問が無料で届くよ。連続記録や苦手範囲のチェックもぜんぶ無料。\n\n` +
-      `「もっと解きたい」「暗記カードや四択クイズも使いたい」と思ったら、${PREMIUM_PRICE_TEXT}でプレミアムを試せます。\n\n` +
-      `📚 1日に何問でも！追加問題と苦手復習が無制限\n` +
-      `📚 歴史 263トピック・約1,500問が解き放題\n` +
-      `✅ カード登録なし、7日後に自動で無料に戻る\n` +
-      `✅ 解約忘れの心配ゼロ\n\n` +
-      `体験中の登録なら、月¥680のままずっと同じ価格で続けられます。`,
+      `「もっと解きたい！」と思ったら、7日間だけ気軽に試せるモードがあるよ。\n\n` +
+      `✅ カード登録なし\n` +
+      `✅ 7日後にそのまま自動で戻るから安心`,
   },
   onboarding: {
     headerEmoji: '✨',
@@ -2852,7 +2889,7 @@ export function buildTrialStartedFlexMessage() {
 
   return {
     type: 'flex' as const,
-    altText: 'プレミアム開始！まずは「追加で解く」を試してみよう - チャットでスタディ',
+    altText: '7日間お試し開始！まずは「追加で解く」を試してみよう - チャットでスタディ',
     contents: {
       type: 'bubble' as const,
       size: 'mega' as const,
@@ -2864,14 +2901,14 @@ export function buildTrialStartedFlexMessage() {
         contents: [
           {
             type: 'text' as const,
-            text: '✨ プレミアム開始！',
+            text: '✨ 7日間お試し開始！',
             color: '#FFFFFF',
             weight: 'bold' as const,
             size: 'md' as const,
           },
           {
             type: 'text' as const,
-            text: 'これから7日間、プレミアム機能が全部使えるよ',
+            text: 'これから7日間、追加問題・暗記カード・四択クイズが全部使えるよ',
             color: '#FFF7E6',
             size: 'xs' as const,
             margin: 'xs' as const,
@@ -2885,7 +2922,7 @@ export function buildTrialStartedFlexMessage() {
         contents: [
           {
             type: 'text' as const,
-            text: '申込ありがとう！🎉',
+            text: '1問目おつかれさま！🎉',
             wrap: true,
             size: 'sm' as const,
             color: '#111827',
@@ -2964,7 +3001,7 @@ export function buildTrialStartedFlexMessage() {
           },
           {
             type: 'text' as const,
-            text: '7日間使い放題。体験中の登録なら月¥680のまま、ずっと同じ価格で続けられます。',
+            text: '7日間使い放題。7日後はそのまま自動で元に戻るから、安心して試してね。',
             wrap: true,
             size: 'xxs' as const,
             color: '#9CA3AF',
@@ -3288,47 +3325,71 @@ export function buildTrialExpiredFlexMessage() {
 export function buildPremiumNudgeFlexMessage(reason: PremiumNudgeReason) {
   const copy = NUDGE_COPY[reason];
   const source = `nudge_${reason}`;
-  // onboarding は申込ボタンを出さず「詳細を見る」のみ（初回はまだ早い）
-  const showApplyButton = reason !== 'onboarding';
+  // first_answer はノーリスク訴求の 1 ボタンに絞る（情報過多を避け、apply ページへ直行）。
+  // onboarding は申込ボタンを出さず「詳細を見る」のみ（初回はまだ早い）。
+  // その他は従来通り「7日間無料で始める」+ 「詳細を見る」の 2 ボタン。
+  const layout: 'first_answer' | 'onboarding' | 'default' =
+    reason === 'first_answer'
+      ? 'first_answer'
+      : reason === 'onboarding'
+        ? 'onboarding'
+        : 'default';
 
-  const footerContents = showApplyButton
-    ? [
-        {
-          type: 'button' as const,
-          style: 'primary' as const,
-          color: '#F59E0B',
-          height: 'sm' as const,
-          action: {
-            type: 'uri' as const,
-            label: '7日間無料で始める',
-            uri: withLiffSource(LIFF_PREMIUM_APPLY_URL, source),
-          },
+  let footerContents;
+  if (layout === 'first_answer') {
+    footerContents = [
+      {
+        type: 'button' as const,
+        style: 'primary' as const,
+        color: '#F59E0B',
+        height: 'sm' as const,
+        action: {
+          type: 'uri' as const,
+          label: '気軽に試してみる',
+          uri: withLiffSource(LIFF_PREMIUM_APPLY_URL, source),
         },
-        {
-          type: 'button' as const,
-          style: 'secondary' as const,
-          height: 'sm' as const,
-          margin: 'sm' as const,
-          action: {
-            type: 'uri' as const,
-            label: '詳細を見る',
-            uri: withLiffSource(LIFF_PREMIUM_INFO_URL, source),
-          },
+      },
+    ];
+  } else if (layout === 'default') {
+    footerContents = [
+      {
+        type: 'button' as const,
+        style: 'primary' as const,
+        color: '#F59E0B',
+        height: 'sm' as const,
+        action: {
+          type: 'uri' as const,
+          label: '7日間無料で始める',
+          uri: withLiffSource(LIFF_PREMIUM_APPLY_URL, source),
         },
-      ]
-    : [
-        {
-          type: 'button' as const,
-          style: 'primary' as const,
-          color: '#F59E0B',
-          height: 'sm' as const,
-          action: {
-            type: 'uri' as const,
-            label: '詳細を見る',
-            uri: withLiffSource(LIFF_PREMIUM_INFO_URL, source),
-          },
+      },
+      {
+        type: 'button' as const,
+        style: 'secondary' as const,
+        height: 'sm' as const,
+        margin: 'sm' as const,
+        action: {
+          type: 'uri' as const,
+          label: '詳細を見る',
+          uri: withLiffSource(LIFF_PREMIUM_INFO_URL, source),
         },
-      ];
+      },
+    ];
+  } else {
+    footerContents = [
+      {
+        type: 'button' as const,
+        style: 'primary' as const,
+        color: '#F59E0B',
+        height: 'sm' as const,
+        action: {
+          type: 'uri' as const,
+          label: '詳細を見る',
+          uri: withLiffSource(LIFF_PREMIUM_INFO_URL, source),
+        },
+      },
+    ];
+  }
 
   return {
     type: 'flex' as const,
@@ -4003,18 +4064,9 @@ async function handleAnswerPostback(
     topicName: question.topic,
   });
 
-  // 初回回答 AND nickname 未設定 → 「ニックネーム教えて」flex を末尾に積む。
-  // stats.totalAnswered が未設定 or 0 のときが「初回回答（書き込み前）」に相当する。
-  const isFirstAnswer = totalAnswered === 1;
-  const hasNickname =
-    typeof currentUserData?.nickname === 'string' &&
-    currentUserData.nickname.trim().length > 0;
-  const askNicknameFlex =
-    isFirstAnswer && !hasNickname ? buildAskNicknameFlex() : null;
-
-  // 初回回答時のプレミアム誘導 flex（first_answer）は、ユーザーがまず解説を確認できるよう
-  // インライン送信せず、`onAnswerCreated` が 60 秒の遅延を入れて push する。
-  // ここでは nextStep / askNickname だけを reply に積む。
+  // 初回回答時のトライアル案内 flex（first_answer）は、reply には積まず
+  // `onAnswerCreated` が解説直後に即 push する設計。
+  // ここでは nextStep のみ reply に積む。
 
   try {
     const client = await getLineClient();
@@ -4023,9 +4075,6 @@ async function handleAnswerPostback(
       { type: 'text', text: `📖 解説\n${question.explanation}` },
       nextStepFlex as unknown as LineMessage,
     ];
-    if (askNicknameFlex) {
-      replyMessages.push(askNicknameFlex as LineMessage);
-    }
     await client.replyMessage({
       replyToken,
       messages: replyMessages as unknown as messagingApi.Message[],
@@ -4120,6 +4169,16 @@ export async function selectAndSendQuestion(
   const userData = userSnap.data();
   if (!userData) {
     console.warn('[lineWebhook] selectAndSendQuestion: user not found', uid);
+    return;
+  }
+
+  // 公式 LINE をブロックしているユーザーには push しない。
+  // reply 経路（replyToken あり）はユーザー自身が発言している＝事実上の
+  // 再エンゲージメントなので、ここでは弾かず通常通り reply させる。
+  if (!replyToken && userData.blocked === true) {
+    console.log(
+      `[lineWebhook] selectAndSendQuestion skipped (user is blocked): ${uid}`
+    );
     return;
   }
 

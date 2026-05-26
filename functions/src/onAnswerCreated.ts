@@ -5,26 +5,36 @@ import {
   buildPremiumNudgeFlexMessage,
   buildNextStepGuideFlex,
   buildPriceLockPitchFlex,
+  buildTrialStartedFlexMessage,
   getLineClient,
   getUserPlan,
+  isPremiumEligibleGrade,
   type PremiumNudgeReason,
 } from "./lineWebhook";
+import { linkRichMenuForUser } from "./lineRichMenu";
 import { recordPushDelivery } from "./deliveryStats";
+import { logServerFunnelEvent } from "./funnelEvent";
 
 const STREAK_MILESTONES = [3, 7, 14, 30] as const;
 const VOLUME_MILESTONES = [10, 30, 100] as const;
 const PREMIUM_NUDGE_COOLDOWN_MS = 7 * 24 * 60 * 60 * 1000;
 /**
- * first_answer のプレミアム誘導 flex を push するまでの遅延 (ms)。
- * 解答直後に被せると解説を読む前に上書きされてしまうため、ユーザーが
- * まず解答結果と解説を確認できるよう少し間を置く。
+ * first_answer のトライアル案内 flex を push するまでの遅延 (ms)。
+ * かつては 60 秒の間を置いていたが、ファネル分析（2026-05-25）で
+ * 解説直後の即送信のほうが apply 到達率を稼ぎやすいと判断し 0 に変更。
+ * 将来また遅延を入れたくなったらこの定数だけ戻せばよい。
  */
-const FIRST_ANSWER_NUDGE_DELAY_MS = 60 * 1000;
+const FIRST_ANSWER_NUDGE_DELAY_MS = 0;
 /**
  * 体験中ユーザーが「追加で解く」初回問題に回答した直後に
  * 「じっくり学ぶ案内 → 60秒後に特別価格案内」を送るための遅延。
  */
 const FIRST_EXTRA_FOLLOWUP_PRICE_DELAY_MS = 60 * 1000;
+/**
+ * 1問目回答時に自動開放する trial の期間 (ms)。
+ * 既存の onPremiumApplicationCreated と同じ 7 日間。
+ */
+const AUTO_TRIAL_DURATION_MS = 7 * 24 * 60 * 60 * 1000;
 
 /**
  * 「今回の回答で新たに到達したか」を判定する。
@@ -58,6 +68,8 @@ interface NudgeContext {
    * このフラグで生涯 1 回限りを保証する。
    */
   firstAnswerNudgeSentAtMs: number | null;
+  /** 公式 LINE をブロック中なら nudge / 自動トライアル push をスキップする */
+  blocked: boolean;
 }
 
 /**
@@ -74,11 +86,116 @@ interface FirstExtraFollowupContext {
   planSource: string;
   firstExtraQuestionAtMs: number | null;
   firstExtraFollowupSentAtMs: number | null;
+  /** 公式 LINE をブロック中なら firstExtraFollowup の 2 通連続 push をスキップする */
+  blocked: boolean;
+}
+
+type AutoTrialOutcome = "started" | "skipped" | "failed";
+
+/**
+ * 1問目回答時に 7 日間の trial を自動開放する。
+ *
+ * onPremiumApplicationCreated と同じ書き込み内容で、申込フォームを
+ * 通らずに同等の体験を提供する。
+ * - lineUserId 不在 / 既プレミアム / trial 使用済み / 学年未登録 → 'skipped'
+ *   （呼び出し側で従来の first_answer nudge flex を fallback として送る）
+ * - LINE リッチメニュー切替 or Firestore 書き込み失敗 → 'failed'
+ * - 成功 → 'started'（呼び出し側で trial 開始 flex を push）
+ */
+async function maybeAutoStartTrial(
+  ctx: NudgeContext
+): Promise<AutoTrialOutcome> {
+  if (!ctx.lineUserId) return "skipped";
+
+  const { initializeApp, getApps } = await import("firebase-admin/app");
+  const { getFirestore, FieldValue, Timestamp } = await import(
+    "firebase-admin/firestore"
+  );
+  if (getApps().length === 0) initializeApp();
+  const db = getFirestore();
+
+  // NudgeContext は handleAnswer 直後のスナップショットなので、
+  // 直近の plan 更新（並列 trigger 等）を取りこぼさないよう最新値を読み直す。
+  const userSnap = await db.doc(`users/${ctx.uid}`).get();
+  const userData = userSnap.data();
+  const currentPlan = getUserPlan(userData);
+  const currentPlanSource =
+    typeof userData?.planSource === "string" ? userData.planSource : null;
+  const grade =
+    typeof userData?.grade === "string" ? userData.grade : undefined;
+
+  // 既プレミアム（trial 中含む）→ 二重開放しない
+  if (currentPlan === "premium") return "skipped";
+
+  // trial 使用済み → 再開放しない
+  const hasUsedTrial =
+    currentPlanSource === "trial" ||
+    currentPlanSource === "trial_expired" ||
+    userData?.trialStartedAt !== undefined;
+  if (hasUsedTrial) return "skipped";
+
+  // 学年未登録 → 対応コンテンツが特定できないため trial 対象外
+  if (!isPremiumEligibleGrade(grade)) return "skipped";
+
+  const trialEnd = new Date(Date.now() + AUTO_TRIAL_DURATION_MS);
+
+  // 既存 onPremiumApplicationCreated と同じく、リッチメニュー切替失敗時は
+  // trial 開放を中止する（メニューが free のまま機能だけ premium になる不整合を避ける）。
+  // LINE_RICHMENU_TRIAL_ID 未設定なら lineRichMenu 側で premium ID にフォールバックする。
+  try {
+    await linkRichMenuForUser(ctx.lineUserId, "trial");
+  } catch (error) {
+    console.error(
+      `[onAnswerCreated] auto trial richmenu link failed uid=${ctx.uid}:`,
+      error
+    );
+    return "failed";
+  }
+
+  try {
+    await db.doc(`users/${ctx.uid}`).set(
+      {
+        plan: "premium",
+        premiumUntil: Timestamp.fromDate(trialEnd),
+        richMenuType: "trial",
+        planSource: "trial",
+        trialStartedAt: FieldValue.serverTimestamp(),
+        priceLockExpiresAt: Timestamp.fromDate(trialEnd),
+        lockedMonthlyPrice: 680,
+        lastRichMenuUpdatedAt: FieldValue.serverTimestamp(),
+        updatedAt: FieldValue.serverTimestamp(),
+      },
+      { merge: true }
+    );
+  } catch (error) {
+    console.error(
+      `[onAnswerCreated] auto trial firestore write failed uid=${ctx.uid}:`,
+      error
+    );
+    return "failed";
+  }
+
+  await logServerFunnelEvent("trial_started", ctx.uid, {
+    source: "auto_first_answer",
+  });
+  console.log(
+    `[onAnswerCreated] auto trial started uid=${ctx.uid} until=${trialEnd.toISOString()}`
+  );
+  return "started";
 }
 
 async function maybeSendPremiumNudge(ctx: NudgeContext): Promise<void> {
   if (ctx.userPlan === "premium") return;
   if (!ctx.lineUserId) return;
+  // 公式 LINE をブロック中のユーザーには nudge を送らない。
+  // 自動トライアル開放（maybeAutoStartTrial）もここを通って初めて発動するため
+  // 同時に止まる。
+  if (ctx.blocked) {
+    console.log(
+      `[onAnswerCreated] skip premium nudge / auto trial: blocked uid=${ctx.uid}`
+    );
+    return;
+  }
 
   // 初めての1問を解いた直後だけ、cooldown を無視して
   // 「無料でできること」と「ワンタップで7日間無料」案内を1回送る。
@@ -104,8 +221,24 @@ async function maybeSendPremiumNudge(ctx: NudgeContext): Promise<void> {
   }
 
   let reason: PremiumNudgeReason;
+  // 送信するメッセージ。1問目回答時の trial 自動開放成功時のみ
+  // buildTrialStartedFlexMessage（bubble size="mega"）を使う。
+  // それ以外は buildPremiumNudgeFlexMessage（bubble size="kilo"）。
+  let flex:
+    | ReturnType<typeof buildPremiumNudgeFlexMessage>
+    | ReturnType<typeof buildTrialStartedFlexMessage>;
+
   if (isFirstAnswer) {
     reason = "first_answer";
+    // 1問目回答時は trial 自動開放を試みる（学年登録済み・trial 未使用なら開放成功）。
+    // 成功時: 「trial 開始」flex を push。
+    // 失敗・スキップ時: 従来の first_answer nudge flex を fallback として push。
+    const autoTrialOutcome = await maybeAutoStartTrial(ctx);
+    if (autoTrialOutcome === "started") {
+      flex = buildTrialStartedFlexMessage();
+    } else {
+      flex = buildPremiumNudgeFlexMessage(reason);
+    }
   } else {
     // streak を優先（継続行動への報酬感のほうが効きやすい想定）
     const streakHit = detectNewlyReachedMilestone(
@@ -123,13 +256,12 @@ async function maybeSendPremiumNudge(ctx: NudgeContext): Promise<void> {
 
     if (streakHit === null && volumeHit === null) return;
     reason = streakHit ? "streak_milestone" : "volume_milestone";
+    flex = buildPremiumNudgeFlexMessage(reason);
   }
 
-  const flex = buildPremiumNudgeFlexMessage(reason);
-
-  // first_answer はユーザーが解説を確認する時間を確保するため、push を 60 秒遅らせる。
-  // milestone 系は通常タイミングで即時 push する。
-  if (reason === "first_answer") {
+  // first_answer は基本的に即時 push（FIRST_ANSWER_NUDGE_DELAY_MS=0）。
+  // 将来また遅延を入れたい場合に備え、定数 > 0 のときだけ wait する形を残す。
+  if (reason === "first_answer" && FIRST_ANSWER_NUDGE_DELAY_MS > 0) {
     await new Promise((resolve) =>
       setTimeout(resolve, FIRST_ANSWER_NUDGE_DELAY_MS)
     );
@@ -192,6 +324,13 @@ async function maybeSendFirstExtraFollowup(
   if (ctx.planSource !== "trial") return;
   if (!ctx.lineUserId) return;
   if (ctx.firstExtraQuestionAtMs === null) return;
+  // 公式 LINE をブロック中のユーザーには 2 通連続 push を送らない
+  if (ctx.blocked) {
+    console.log(
+      `[onAnswerCreated] skip first_extra_followup: blocked uid=${ctx.uid}`
+    );
+    return;
+  }
   if (ctx.firstExtraFollowupSentAtMs !== null) {
     console.log(
       `[onAnswerCreated] skip first_extra_followup uid=${ctx.uid} ` +
@@ -268,8 +407,9 @@ async function maybeSendFirstExtraFollowup(
 
 export const onAnswerCreated = functions
   .region("asia-northeast1")
-  // first_answer の遅延 push（60 秒）に余裕を持たせるため timeout を伸ばす。
-  // デフォルト 60 秒だと stats 更新 + 遅延 push が間に合わない可能性がある。
+  // first_extra_followup（trial 中ユーザーの追加で解く 60 秒遅延 push）と
+  // stats 更新の同時実行に備えて timeout を伸ばす。デフォルト 60 秒では
+  // 余裕がないため 120 秒。
   .runWith({ timeoutSeconds: 120 })
   .firestore.document("answers/{answerId}")
   .onCreate(async (snap) => {
@@ -416,6 +556,9 @@ export const onAnswerCreated = functions
         const lineUserId =
           typeof userData.lineUserId === "string" ? userData.lineUserId : "";
 
+        // 公式 LINE をブロック中なら nudge / firstExtraFollowup の push を全て止める
+        const blocked = userData.blocked === true;
+
         nudgeCtx = {
           uid,
           lineUserId,
@@ -426,6 +569,7 @@ export const onAnswerCreated = functions
           userPlan: getUserPlan(userData),
           lastPremiumNudgeAtMs,
           firstAnswerNudgeSentAtMs,
+          blocked,
         };
 
         // 体験中ユーザーの「追加で解く」初回フォロー用コンテキスト
@@ -457,6 +601,7 @@ export const onAnswerCreated = functions
           planSource,
           firstExtraQuestionAtMs,
           firstExtraFollowupSentAtMs,
+          blocked,
         };
       });
       console.log(`[onAnswerCreated] updated users/${uid}.stats`);

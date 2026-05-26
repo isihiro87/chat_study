@@ -58,7 +58,21 @@ export const monthlyDeliveryReport = functions
       }
       const data = snap.data() ?? {};
       const total = (data.totalPushCount as number) ?? 0;
-      const byType = (data.pushCountByType as Record<string, number>) ?? {};
+      // recordPushDelivery の旧実装が `pushCountByType.dailyQuiz` のような
+      // ドット入り top-level フィールドとして書き込んでいたため、後方互換として
+      // legacy キーと nested map の両方を合算する。
+      const byType: Record<string, number> = {};
+      const nested =
+        (data.pushCountByType as Record<string, number> | undefined) ?? {};
+      for (const [k, v] of Object.entries(nested)) {
+        if (typeof v === "number") byType[k] = (byType[k] ?? 0) + v;
+      }
+      for (const [k, v] of Object.entries(data)) {
+        if (typeof v === "number" && k.startsWith("pushCountByType.")) {
+          const type = k.slice("pushCountByType.".length);
+          byType[type] = (byType[type] ?? 0) + v;
+        }
+      }
       const ratio = total / MONTHLY_QUOTA_GUESS;
 
       const reportLine =

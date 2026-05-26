@@ -51,10 +51,18 @@ export const trialFormAbandonReminder = functions
     let sent = 0;
     let skipped = 0;
     let failed = 0;
+    let blockedSkipped = 0;
 
     for (const doc of snap.docs) {
       const uid = doc.id;
       const data = doc.data();
+
+      // 公式 LINE をブロック中のユーザーには送らない
+      if (data.blocked === true) {
+        blockedSkipped++;
+        continue;
+      }
+
       const lineUserId =
         typeof data.lineUserId === "string"
           ? data.lineUserId
@@ -172,6 +180,7 @@ export const trialFormAbandonReminder = functions
 
     console.log(
       `[trialFormAbandonReminder] done: sent=${sent}, skipped=${skipped}, ` +
-        `failed=${failed}, elapsed=${Date.now() - startedAt}ms`
+        `failed=${failed}, blockedSkipped=${blockedSkipped}, ` +
+        `elapsed=${Date.now() - startedAt}ms`
     );
   });

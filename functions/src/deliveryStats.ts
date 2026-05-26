@@ -19,6 +19,16 @@ function getJstYearMonth(date: Date): string {
  * 1 ユーザーへの push を 1 回記録する。
  * `pushType` 別と合計の両方をインクリメントし、ユニークユーザーの追跡は
  * 別 collection でも可能だが、現状はカウンターのみ。
+ *
+ * 旧実装は `[\`pushCountByType.${pushType}\`]` というドット記法を `set({...},
+ * { merge: true })` で使っていた。Firestore admin SDK の `set + merge` は
+ * ドット記法をネストパスに展開せず、「pushCountByType.dailyQuiz」のような
+ * literal な top-level フィールドとして保存してしまうため、想定通りの
+ * nested map にならない（`update()` のみがドット記法を解釈する）。
+ *
+ * 本実装ではネストしたオブジェクトを直接渡して書き込む。`set + merge` は
+ * nested map も適切にマージするため、`pushCountByType.{pushType}` 配下の
+ * 既存カウントを保ったまま該当 pushType だけ increment できる。
  */
 export async function recordPushDelivery(
   pushType: PushType,
@@ -35,12 +45,13 @@ export async function recordPushDelivery(
     const yearMonth = getJstYearMonth(new Date());
     const ref = db.doc(`deliveryStats/${yearMonth}`);
 
-    // ドキュメントがない場合のために初期化フィールドを埋める
     await ref.set(
       {
         yearMonth,
         totalPushCount: FieldValue.increment(count),
-        [`pushCountByType.${pushType}`]: FieldValue.increment(count),
+        pushCountByType: {
+          [pushType]: FieldValue.increment(count),
+        },
         lastUpdatedAt: FieldValue.serverTimestamp(),
       },
       { merge: true }

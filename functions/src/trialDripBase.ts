@@ -63,6 +63,7 @@ interface RunStats {
   sent: number;
   skipped: number;
   failed: number;
+  blockedSkipped: number;
 }
 
 /**
@@ -85,6 +86,7 @@ export async function runTrialDrip(input: RunTrialDripInput): Promise<RunStats> 
     sent: 0,
     skipped: 0,
     failed: 0,
+    blockedSkipped: 0,
   };
 
   let lineClient;
@@ -112,6 +114,13 @@ export async function runTrialDrip(input: RunTrialDripInput): Promise<RunStats> 
     stats.totalScanned++;
     const uid = doc.id;
     const data = doc.data();
+
+    // 公式 LINE をブロック中のユーザーには送らない
+    if (data.blocked === true) {
+      stats.blockedSkipped++;
+      continue;
+    }
+
     const lineUserId =
       typeof data.lineUserId === "string"
         ? data.lineUserId

@@ -97,7 +97,7 @@ export interface UserDoc {
   premiumUntil?: Timestamp;
   trialStartedAt?: Timestamp;
   trialExpiredAt?: Timestamp;
-  richMenuType?: "free" | "premium";
+  richMenuType?: "free" | "trial" | "premium";
 
   // === 活性状態（新規・休眠ユーザー除外システム用） ===
 
@@ -106,6 +106,21 @@ export interface UserDoc {
    * 既存ドキュメントは "active" として扱う。
    */
   status?: UserStatus;
+
+  /**
+   * 公式 LINE アカウントをブロック中かどうか。
+   * webhook の `unfollow` イベント受信時に true、`follow` (再フォロー) で false。
+   * `true` のユーザーには cron 系 push (dailyQuiz / trialDrip* / winback /
+   * onboardingReminder / abandonReminder / postTrialFollowup / premiumNudge /
+   * firstExtraFollowup) を送らない。
+   */
+  blocked?: boolean;
+
+  /** ブロック発生（unfollow 受信）日時 */
+  blockedAt?: Timestamp;
+
+  /** 再フォロー（follow 受信）日時 */
+  unblockedAt?: Timestamp;
 
   /** 最終回答日時。`onAnswerCreated` で更新される。 */
   lastAnsweredAt?: Timestamp;
