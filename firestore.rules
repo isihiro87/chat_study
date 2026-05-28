@@ -23,6 +23,12 @@ service cloud.firestore {
       ]);
     }
 
+    // referrer は流入経路の計測。クライアントは初回（既存ドキュメントに referrer が無い場合）
+    // にのみ書き込み可能。上書きは禁止。
+    function isFirstReferrerWrite() {
+      return !('referrer' in resource.data) || resource.data.referrer == null;
+    }
+
     function isAdmin() {
       return request.auth != null && request.auth.token.email == 'ishimotty.gst@gmail.com';
     }
@@ -33,11 +39,13 @@ service cloud.firestore {
       // 管理者は全ユーザーデータを読み取り可能
       allow read: if isAdmin();
 
-      // 書き込みは「保護フィールドに触っていないこと」を必須にする
+      // 書き込みは「保護フィールドに触っていないこと」+「referrer は初回のみ」を必須にする
       allow create: if request.auth != null && request.auth.uid == userId
         && !touchesProtectedUserFields(request.resource.data.keys());
       allow update: if request.auth != null && request.auth.uid == userId
-        && !touchesProtectedUserFields(request.resource.data.diff(resource.data).affectedKeys());
+        && !touchesProtectedUserFields(request.resource.data.diff(resource.data).affectedKeys())
+        && (!request.resource.data.diff(resource.data).affectedKeys().hasAny(['referrer'])
+            || isFirstReferrerWrite());
       allow delete: if request.auth != null && request.auth.uid == userId;
 
       match /{subcollection}/{document} {
@@ -126,6 +134,24 @@ service cloud.firestore {
     // 月次配信通数の集計。Cloud Functions が書き込み、admin ダッシュボードが
     // 読み取り、monthlyDeliveryReport cron がレポート出力する。
     match /deliveryStats/{yearMonth} {
+      allow read: if isAdmin();
+    }
+
+    // Instagram コメント→DM→公式LINE 集客キャンペーン定義。
+    // 管理ダッシュボードから admin だけが CRUD する。Webhook (admin SDK) も
+    // ルールバイパスで参照可能。
+    match /igCampaigns/{campaignId} {
+      allow read, write: if isAdmin();
+    }
+
+    // Instagram コメント受信ログ（冪等性キー兼イベント記録）。書き込みは
+    // Cloud Functions（admin SDK）のみ。admin が読み取り可。
+    match /igCommentEvents/{commentId} {
+      allow read: if isAdmin();
+    }
+
+    // Instagram DM 送信結果ログ。書き込みは Cloud Functions のみ。
+    match /igDmEvents/{eventId} {
       allow read: if isAdmin();
     }
   }

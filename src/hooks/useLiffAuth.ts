@@ -1,6 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
 import { signInWithLiffIdToken, useAuth } from '../contexts/AuthContext';
 import { auth } from '../firebase/config';
+import {
+  captureIgReferrer,
+  stashIgReferrerFromUrl,
+} from '../utils/captureIgReferrer';
 
 /**
  * LIFF SDK を初期化し、LIFF 内蔵 OAuth → Firebase Auth の fast-path 認証を
@@ -43,11 +47,17 @@ export function useLiffAuth(liffId: string | undefined): { attempted: boolean } 
       return;
     }
 
+    // Instagram キャンペーン経由の流入参照を URL から拾って localStorage に保存。
+    // 認証完了前でも値を保持できるよう、useEffect 入り口で必ず一度行う。
+    stashIgReferrerFromUrl();
+
     // 既存セッションあり: LIFF SDK のダウンロードも init も呼ばない。
     // authLoading 中でも user が立ったタイミングで即 attempted=true にする
     // ことで、LIFF flow が並列で走っていても無駄な signInWithCustomToken を避ける。
     if (user) {
       setAttempted(true);
+      // 既ログインの uid で referrer 取り込みを試行（初回 referrer のみ書き込み）
+      void captureIgReferrer(user.uid);
       return;
     }
 

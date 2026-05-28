@@ -207,6 +207,17 @@ UIを実装・変更する際は必ず `docs/design-guide.md` を参照するこ
 
 詳細は `docs/operations/line-richmenu.md` §6 を参照。
 
+## Instagram キャンペーン運用
+
+Instagram 投稿の特定キーワードコメントに対する DM 自動送信 → 公式LINE 誘導フローを `instagramWebhook` Cloud Function で運用している。
+
+- 管理 UI: ローカル `npm run dev` → `/admin/dashboard` →「インスタ」タブで Firestore `igCampaigns` を CRUD
+- DM 内 URL: `https://liff.line.me/<LIFF_ID>?ig_ref=ig_<campaignId>` の形式で発行（`?lin.ee/xxx?...` 形式はクエリが消えるため計測不可）
+- 流入計測: LIFF 起動時に `useLiffAuth` が `?ig_ref` を拾って `users/{uid}.referrer` に初回のみ書き込み
+- Page Access Token は **60日で失効** するため、Cloud Logging の `code: 190` を見たら再発行 → `firebase functions:secrets:set META_PAGE_ACCESS_TOKEN` で更新
+
+セットアップとトラブルシュートは `docs/operations/instagram-comment-to-line.md` を参照。
+
 ## 公式LINE 休眠ユーザー除外 + Win-back システム
 
 公式LINE の送信枠（月次プラン上限）を超過しないよう、無回答ユーザーへの配信を段階的に停止し、節目に Win-back メッセージを送る仕組みが組み込まれている。

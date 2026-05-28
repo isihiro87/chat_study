@@ -11,6 +11,7 @@ import {
 import { db } from '../firebase/config';
 import { useAuth } from '../contexts/AuthContext';
 import { Header } from '../components/common/Header';
+import { InstagramCampaignsTab } from './admin/InstagramCampaignsTab';
 
 /**
  * 管理ダッシュボード（ローカル開発限定）
@@ -29,7 +30,7 @@ const ADMIN_EMAIL = 'ishimotty.gst@gmail.com';
 
 type Subject = 'history' | 'english' | 'math' | 'science' | 'geography';
 type Grade = '中1' | '中2' | '中3';
-type TabKey = 'reach' | 'liff' | 'retention' | 'questions';
+type TabKey = 'reach' | 'liff' | 'retention' | 'questions' | 'instagram';
 
 interface QuestionRow {
   id: string;
@@ -380,6 +381,7 @@ export function AdminDashboardPage() {
               { key: 'liff', label: 'LIFF 利用' },
               { key: 'retention', label: '継続率' },
               { key: 'questions', label: '問題別' },
+              { key: 'instagram', label: 'インスタ' },
             ] as { key: TabKey; label: string }[]
           ).map((t) => (
             <button
@@ -433,6 +435,10 @@ export function AdminDashboardPage() {
             onGrade={setGradeFilter}
             onSort={setSortMode}
           />
+        )}
+
+        {activeTab === 'instagram' && user && (
+          <InstagramCampaignsTab adminUid={user.uid} />
         )}
       </main>
     </div>

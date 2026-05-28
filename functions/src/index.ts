@@ -10,6 +10,7 @@ if (getApps().length === 0) {
 }
 
 export { lineWebhook } from './lineWebhook';
+export { instagramWebhook } from './instagramWebhook';
 export {
   dailyQuiz06,
   dailyQuiz07,

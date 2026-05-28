@@ -324,6 +324,7 @@ src/data/subjects/
 |----------|------|--------|------|
 | `createLineCustomToken` | HTTPS onRequest | `functions/src/index.ts` | LINE Login（Web）の OAuth コードを Firebase Auth カスタムトークンと交換する |
 | `lineWebhook` | HTTPS onRequest | `functions/src/lineWebhook.ts` | LINE Messaging API（公式LINE）の Webhook 受信 |
+| `instagramWebhook` | HTTPS onRequest | `functions/src/instagramWebhook.ts` | Instagram Graph API Webhook 受信（特定投稿の指定キーワードコメントに公開返信 + Private Replies DM で公式LINE 誘導）。Firestore `igCampaigns / igCommentEvents / igDmEvents` を読み書きする。詳細: `docs/operations/instagram-comment-to-line.md` |
 | `dailyQuiz06` / `dailyQuiz07` / `dailyQuiz17` / `dailyQuiz19` | pubsub.schedule | `functions/src/dailyQuiz.ts` | JST 朝6時/朝7時/夕方5時/夜7時 にユーザーへ問題を push 配信 |
 | `syncRichMenuToPlan` | HTTPS Callable | `functions/src/syncRichMenuToPlan.ts` | 管理者が個別ユーザーの課金プラン（free/premium）を切り替える。LINE 側のリッチメニューリンク変更と Firestore 更新を1コマンドで行う |
 
