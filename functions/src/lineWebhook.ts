@@ -425,8 +425,6 @@ const LIFF_NICKNAME_URL =
   process.env.LIFF_NICKNAME_URL ??
   'https://liff.line.me/2009587166-BMgbpIra';
 
-const PREMIUM_PRICE_TEXT = '月680円・7日間無料';
-
 function withLiffSource(url: string, source: string): string {
   try {
     const u = new URL(url);
@@ -1429,7 +1427,7 @@ function buildHelpFlexMessage(opts: { showPremiumCta: boolean } = { showPremiumC
               },
               {
                 type: 'text' as const,
-                text: `${PREMIUM_PRICE_TEXT}。追加問題・苦手復習に加え、暗記カードと四択クイズで効率よく学べる「じっくり学ぶ」も無制限で使えます。`,
+                text: '追加問題・苦手復習に加え、暗記カードと四択クイズが、7日間だけ気軽に試せるよ。カード登録なしで始められます。',
                 wrap: true,
                 size: 'xs' as const,
                 color: '#6B7280',
@@ -1450,7 +1448,7 @@ function buildHelpFlexMessage(opts: { showPremiumCta: boolean } = { showPremiumC
             height: 'sm' as const,
             action: {
               type: 'uri' as const,
-              label: '✨ 7日間無料で始める',
+              label: '気軽に試してみる',
               uri: withLiffSource(LIFF_PREMIUM_APPLY_URL, 'help'),
             },
           },
@@ -1672,8 +1670,8 @@ function buildStreakFlexMessage(
                   height: 'sm' as const,
                   action: {
                     type: 'uri' as const,
-                    label: '✨ プレミアムでもっと伸ばす',
-                    uri: LIFF_PREMIUM_INFO_URL,
+                    label: '気軽に試してみる',
+                    uri: withLiffSource(LIFF_PREMIUM_APPLY_URL, 'streak'),
                   },
                 },
               ]
@@ -2121,7 +2119,7 @@ function buildReportSummaryFlexMessage(
 function buildPremiumInfoFlexMessage() {
   return {
     type: 'flex' as const,
-    altText: 'プレミアムで学習を加速',
+    altText: 'もっと解きたい人へ',
     contents: {
       type: 'bubble' as const,
       size: 'kilo' as const,
@@ -2133,7 +2131,7 @@ function buildPremiumInfoFlexMessage() {
         contents: [
           {
             type: 'text' as const,
-            text: '🚀 プレミアムで学習を加速',
+            text: '🚀 もっと解きたい人へ',
             color: '#FFFFFF',
             weight: 'bold' as const,
             size: 'md' as const,
@@ -2156,7 +2154,9 @@ function buildPremiumInfoFlexMessage() {
           },
           {
             type: 'text' as const,
-            text: `${PREMIUM_PRICE_TEXT}。今登録すると、今後教科が増えて価格が上がった後も月680円のまま使えます。`,
+            text:
+              '7日間だけ気軽に試せるモードがあるよ。\n' +
+              'カード登録なし・7日後にそのまま自動で戻るから、安心して試せます。',
             wrap: true,
             size: 'xs' as const,
             color: '#B45309',
@@ -2243,19 +2243,8 @@ function buildPremiumInfoFlexMessage() {
             height: 'sm' as const,
             action: {
               type: 'uri' as const,
-              label: '7日間無料で始める',
+              label: '気軽に試してみる',
               uri: withLiffSource(LIFF_PREMIUM_APPLY_URL, 'premium_info'),
-            },
-          },
-          {
-            type: 'button' as const,
-            style: 'secondary' as const,
-            height: 'sm' as const,
-            margin: 'sm' as const,
-            action: {
-              type: 'uri' as const,
-              label: '詳細を見る',
-              uri: withLiffSource(LIFF_PREMIUM_INFO_URL, 'premium_info'),
             },
           },
         ],
@@ -2447,23 +2436,33 @@ interface NudgeCopy {
 const NUDGE_COPY: Record<PremiumNudgeReason, NudgeCopy> = {
   extra_question: {
     headerEmoji: '🚀',
-    headerText: 'もう1問はプレミアム機能',
-    leadText: `「追加で解く」はプレミアム機能です。${PREMIUM_PRICE_TEXT}でその場でもう1問に進めるよ。カード登録なしのワンタップで始められます。`,
+    headerText: 'もう1問はお試し中だけ',
+    leadText:
+      `「追加で解く」は7日間お試しモードで使える機能だよ。\n\n` +
+      `✅ カード登録なし\n` +
+      `✅ 7日後はそのまま自動で戻る`,
   },
   weak_review: {
     headerEmoji: '🎯',
-    headerText: '苦手復習はプレミアム機能',
-    leadText: `間違えた問題から優先で出る「苦手を復習」はプレミアム機能です。${PREMIUM_PRICE_TEXT}で試せます。ワンタップで開始、カード登録は不要。`,
+    headerText: '苦手復習はお試し中だけ',
+    leadText:
+      `間違えた問題から優先で出る「苦手を復習」は、7日間お試しモードで使える機能だよ。\n\n` +
+      `✅ カード登録なし\n` +
+      `✅ 7日後はそのまま自動で戻る`,
   },
   streak_milestone: {
     headerEmoji: '🔥',
     headerText: '連続学習おめでとう！',
-    leadText: `コツコツ続いてるね。プレミアムなら追加問題・苦手復習・暗記カード・四択クイズが無制限で使えます。${PREMIUM_PRICE_TEXT}・カード登録なしで試せるよ。`,
+    leadText:
+      `コツコツ続いてるね。\n\n` +
+      `もっと解きたくなったら、7日間だけ気軽に試せるモードがあるよ。カード登録なし、7日後にそのまま自動で戻ります。`,
   },
   volume_milestone: {
     headerEmoji: '📚',
     headerText: 'たくさん解けてるね！',
-    leadText: `ここまでよくがんばったね。プレミアムなら暗記カードと四択クイズが無制限で使えて、もっとサクサク覚えられるよ。${PREMIUM_PRICE_TEXT}・カード登録なしで試せます。`,
+    leadText:
+      `ここまでよくがんばったね。\n\n` +
+      `暗記カードや四択クイズも使ってみたいときは、7日間だけ気軽に試せるよ。カード登録なし。`,
   },
   first_answer: {
     headerEmoji: '🎉',
@@ -2479,7 +2478,8 @@ const NUDGE_COPY: Record<PremiumNudgeReason, NudgeCopy> = {
   onboarding: {
     headerEmoji: '✨',
     headerText: '1日1問といわず、もっと解きたい',
-    leadText: `プレミアムなら追加問題・苦手復習・じっくり学ぶ（暗記カード／四択クイズ）が無制限。${PREMIUM_PRICE_TEXT}で広げられます。`,
+    leadText:
+      `追加で解く・苦手復習・暗記カード・四択クイズが、7日間だけ気軽に試せるよ。カード登録なしで始められます。`,
   },
 };
 
@@ -3325,18 +3325,14 @@ export function buildTrialExpiredFlexMessage() {
 export function buildPremiumNudgeFlexMessage(reason: PremiumNudgeReason) {
   const copy = NUDGE_COPY[reason];
   const source = `nudge_${reason}`;
-  // first_answer はノーリスク訴求の 1 ボタンに絞る（情報過多を避け、apply ページへ直行）。
-  // onboarding は申込ボタンを出さず「詳細を見る」のみ（初回はまだ早い）。
-  // その他は従来通り「7日間無料で始める」+ 「詳細を見る」の 2 ボタン。
-  const layout: 'first_answer' | 'onboarding' | 'default' =
-    reason === 'first_answer'
-      ? 'first_answer'
-      : reason === 'onboarding'
-        ? 'onboarding'
-        : 'default';
+  // Phase 5(a) で全 reason の CTA を統一:
+  // - onboarding（友達追加直後）のみ「詳細を見る」(/premium-info)。初回は申込訴求が早い。
+  // - それ以外は「気軽に試してみる」(/premium-apply) の 1 ボタン。
+  const layout: 'soft_cta' | 'onboarding' =
+    reason === 'onboarding' ? 'onboarding' : 'soft_cta';
 
   let footerContents;
-  if (layout === 'first_answer') {
+  if (layout === 'soft_cta') {
     footerContents = [
       {
         type: 'button' as const,
@@ -3350,32 +3346,8 @@ export function buildPremiumNudgeFlexMessage(reason: PremiumNudgeReason) {
         },
       },
     ];
-  } else if (layout === 'default') {
-    footerContents = [
-      {
-        type: 'button' as const,
-        style: 'primary' as const,
-        color: '#F59E0B',
-        height: 'sm' as const,
-        action: {
-          type: 'uri' as const,
-          label: '7日間無料で始める',
-          uri: withLiffSource(LIFF_PREMIUM_APPLY_URL, source),
-        },
-      },
-      {
-        type: 'button' as const,
-        style: 'secondary' as const,
-        height: 'sm' as const,
-        margin: 'sm' as const,
-        action: {
-          type: 'uri' as const,
-          label: '詳細を見る',
-          uri: withLiffSource(LIFF_PREMIUM_INFO_URL, source),
-        },
-      },
-    ];
   } else {
+    // onboarding
     footerContents = [
       {
         type: 'button' as const,
