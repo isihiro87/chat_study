@@ -1,7 +1,14 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { usePremiumPromoCountdown } from '../hooks/usePremiumPromoCountdown';
 import { logFunnelEvent } from '../utils/funnelEvent';
 import { useAuth } from '../contexts/AuthContext';
+
+type PageState =
+  | 'loading'
+  | 'free'          // free + trial 未経験。「まずは 1問、解いてみよう」訴求
+  | 'trial_active'  // plan=premium && planSource=trial。「これからも使い続ける」訴求
+  | 'trial_expired' // planSource=trial_expired。「もう一度はじめる」訴求
+  | 'already_premium'; // paid 契約済み
 
 // お問い合わせは LIFF Contact ページ（line.chatstudy.jp/liff/contact）に集約。
 // 旧 www.chatstudy.jp/contact は Web 版に当該ルートがなく 404 になる。
@@ -148,9 +155,38 @@ const FAQ: QA[] = [
 
 export function LiffPremiumInfoPage() {
   const promo = usePremiumPromoCountdown();
-  const { user } = useAuth();
+  const { user, userDoc, userDocLoaded } = useAuth();
   const [shareSucceeded, setShareSucceeded] = useState(false);
   const [shareAvailable, setShareAvailable] = useState(false);
+
+  // ユーザー状態に応じて主CTA と訴求トーンを切替える。
+  // - trial 中           → 「これからも使い続ける」
+  // - trial 切れ         → 「もう一度はじめる」
+  // - paid 契約済み      → CTA 出さず
+  // - free（trial 未経験）→ 「LINE トークから 1問解こう」案内
+  const pageState: PageState = useMemo(() => {
+    if (!userDocLoaded) return 'loading';
+    if (!userDoc) return 'free';
+    const plan = userDoc.plan;
+    const planSource = userDoc.planSource;
+    if (plan === 'premium' && planSource === 'trial') return 'trial_active';
+    if (plan === 'premium') return 'already_premium';
+    if (planSource === 'trial_expired') return 'trial_expired';
+    return 'free';
+  }, [userDoc, userDocLoaded]);
+
+  const handleBackToLine = async () => {
+    try {
+      const liff = (await import('@line/liff')).default;
+      if (typeof liff.closeWindow === 'function') {
+        liff.closeWindow();
+        return;
+      }
+    } catch (err) {
+      console.warn('[LiffPremiumInfoPage] closeWindow failed', err);
+    }
+    window.location.href = 'https://line.me/R/';
+  };
 
   useEffect(() => {
     let cancelled = false;
@@ -393,16 +429,42 @@ export function LiffPremiumInfoPage() {
               ))}
             </div>
           </div>
-          <a
-            href={APPLY_PATH}
-            className="mt-4 block w-full text-center bg-amber-500 hover:bg-amber-600 active:scale-[0.98] transition rounded-full py-3 text-sm font-bold text-white shadow-sm"
-            style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
-          >
-            7日間無料でプレミアムプランを試す
-          </a>
-          <p className="text-xs text-gray-500 text-center mt-2">
-            今登録すると、今後も月{PROMO_PRICE_YEN.toLocaleString()}円のまま
-          </p>
+          {pageState === 'already_premium' ? (
+            <p className="mt-4 text-center text-xs text-amber-700 font-bold">
+              ✨ プレミアム会員ありがとうございます
+            </p>
+          ) : pageState === 'free' || pageState === 'loading' ? (
+            <>
+              <button
+                type="button"
+                onClick={() => void handleBackToLine()}
+                className="mt-4 block w-full text-center bg-amber-500 hover:bg-amber-600 active:scale-[0.98] transition rounded-full py-3 text-sm font-bold text-white shadow-sm"
+                style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+              >
+                まずは1問、LINEで解いてみる
+              </button>
+              <p className="text-xs text-gray-500 text-center mt-2">
+                1問解くと、これらの機能が自動で7日間ひらきます
+              </p>
+            </>
+          ) : (
+            <>
+              <a
+                href={APPLY_PATH}
+                className="mt-4 block w-full text-center bg-amber-500 hover:bg-amber-600 active:scale-[0.98] transition rounded-full py-3 text-sm font-bold text-white shadow-sm"
+                style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+              >
+                {pageState === 'trial_active'
+                  ? 'これからも使い続ける'
+                  : 'もう一度はじめる'}
+              </a>
+              <p className="text-xs text-gray-500 text-center mt-2">
+                {pageState === 'trial_active'
+                  ? `7日後もこのまま月${PROMO_PRICE_YEN.toLocaleString()}円で続けられます`
+                  : '次の画面で決済情報を入力します'}
+              </p>
+            </>
+          )}
         </section>
 
         {/* トライアル開始から継続までの流れ */}
@@ -493,27 +555,65 @@ export function LiffPremiumInfoPage() {
           </ul>
         </section>
 
-        {/* 主CTA: 7日間無料で始める */}
+        {/* 主CTA: 状態別に出し分け */}
         <section className="mt-6 bg-white rounded-2xl shadow-sm p-5">
-          <p className="text-sm text-gray-700 text-center leading-relaxed">
-            申込みはスマホで完結します
-            <br />
-            送信すると{' '}
-            <span className="font-bold text-amber-700">
-              7日間の無料トライアル
-            </span>{' '}
-            が始まります
-          </p>
-          <a
-            href={APPLY_PATH}
-            className="mt-4 block w-full text-center bg-amber-500 hover:bg-amber-600 active:scale-[0.98] transition rounded-full py-3 text-sm font-bold text-white"
-            style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
-          >
-            7日間無料で始める
-          </a>
-          <p className="text-xs text-gray-400 text-center mt-3 leading-relaxed">
-            担当者とのやり取りなしで開始できます
-          </p>
+          {pageState === 'already_premium' ? (
+            <p className="text-sm text-amber-700 text-center font-bold">
+              ✨ プレミアム会員ありがとうございます
+            </p>
+          ) : pageState === 'free' || pageState === 'loading' ? (
+            <>
+              <p className="text-sm text-gray-700 text-center leading-relaxed">
+                まだ1問解いていない方は、まずトークから
+                <br />
+                <span className="font-bold text-amber-700">1問解くと、機能が自動でひらきます</span>
+              </p>
+              <button
+                type="button"
+                onClick={() => void handleBackToLine()}
+                className="mt-4 block w-full text-center bg-amber-500 hover:bg-amber-600 active:scale-[0.98] transition rounded-full py-3 text-sm font-bold text-white"
+                style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+              >
+                LINEに戻って1問解く
+              </button>
+              <p className="text-xs text-gray-400 text-center mt-3 leading-relaxed">
+                カード登録なし、7日後にそのまま自動で戻ります
+              </p>
+            </>
+          ) : (
+            <>
+              <p className="text-sm text-gray-700 text-center leading-relaxed">
+                {pageState === 'trial_active' ? (
+                  <>
+                    今、<span className="font-bold text-amber-700">7日間お試し中</span>です
+                    <br />
+                    これからも続けるならこちらから
+                  </>
+                ) : (
+                  <>
+                    お試し期間は終了しています
+                    <br />
+                    <span className="font-bold text-amber-700">
+                      月{PROMO_PRICE_YEN.toLocaleString()}円
+                    </span>
+                    で再開できます
+                  </>
+                )}
+              </p>
+              <a
+                href={APPLY_PATH}
+                className="mt-4 block w-full text-center bg-amber-500 hover:bg-amber-600 active:scale-[0.98] transition rounded-full py-3 text-sm font-bold text-white"
+                style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+              >
+                {pageState === 'trial_active'
+                  ? 'これからも使い続ける'
+                  : 'もう一度はじめる'}
+              </a>
+              <p className="text-xs text-gray-400 text-center mt-3 leading-relaxed">
+                次の画面で決済情報を入力します。いつでも解約できます。
+              </p>
+            </>
+          )}
         </section>
 
         {/* 補助: 相談だけしたい場合 */}

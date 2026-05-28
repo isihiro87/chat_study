@@ -1,17 +1,19 @@
-# LINE リッチメニュー（無料／有料）運用手順
+# LINE リッチメニュー（無料／トライアル／有料）運用手順
 
-公式LINEに **無料ユーザー用（4ボタン）／有料ユーザー用（6ボタン）** のリッチメニューを設置し、Messaging API でユーザー単位に出し分けるための運用手順。
+公式LINEに **無料ユーザー用（4ボタン）／トライアル中ユーザー用（6ボタン）／有料ユーザー用（6ボタン）** のリッチメニューを設置し、Messaging API でユーザー単位に出し分けるための運用手順。
 
 | 項目 | 値 |
 |------|----|
-| JSON 定義 | `data/line-richmenu/free-richmenu.json` / `data/line-richmenu/premium-richmenu.json` |
-| 画像出力 | `data/line-richmenu/free.png` / `data/line-richmenu/premium.{png,jpg}` |
-| 画像素材 | `data/line-richmenu/raw/free-source.*` / `data/line-richmenu/raw/premium-source.*` |
+| JSON 定義 | `data/line-richmenu/{free,trial,premium}-richmenu.json` |
+| 画像出力 | `data/line-richmenu/{free,trial,premium}.{png,jpg}` |
+| 画像素材 | `data/line-richmenu/raw/{free,trial,premium}-source.*` |
 | 状態管理 | `data/line-richmenu/state.json`（richMenuId 永続化） |
 | 運用 CLI | `scripts/manage-line-richmenu.ts` |
 | 画像変換 | `scripts/prepare-richmenu-images.ts` |
 | 切替 Function | `syncRichMenuToPlan`（HTTPS Callable, 管理者のみ） |
-| 環境変数 | `LINE_MESSAGING_CHANNEL_ACCESS_TOKEN`（既存）／`LINE_RICHMENU_FREE_ID`（新規）／`LINE_RICHMENU_PREMIUM_ID`（新規） |
+| 環境変数 | `LINE_MESSAGING_CHANNEL_ACCESS_TOKEN` ／ `LINE_RICHMENU_FREE_ID` ／ `LINE_RICHMENU_TRIAL_ID`（任意・未設定時は premium に fallback） ／ `LINE_RICHMENU_PREMIUM_ID` |
+
+> ⚠️ **trial 用 richmenu のフォールバック**: 1問目回答時の自動 trial 開放 (`onAnswerCreated`) と申込フォーム経由の trial 開放 (`onPremiumApplicationCreated`) は `linkRichMenuForUser(lineUserId, "trial")` を呼ぶ。`LINE_RICHMENU_TRIAL_ID` が `.env` に未設定の場合は **`LINE_RICHMENU_PREMIUM_ID` にフォールバック** して link する（Functions ログに `LINE_RICHMENU_TRIAL_ID 未設定のため premium ID を fallback として使用します` が出る）。trial 用画像作成と LINE 上の create が運用上まだ済んでいないフェーズでも、機能解放は壊れない設計。
 
 ---
 
@@ -55,7 +57,7 @@
 |------|------------------|
 | 画像素材2枚（無料用・有料用） | リッチメニュー設置前（Canva 等で作成） |
 | `LINE_MESSAGING_CHANNEL_ACCESS_TOKEN` | `functions/.env` に登録済み（`docs/operations/line-webhook-deploy.md` §2） |
-| `LINE_RICHMENU_FREE_ID` / `LINE_RICHMENU_PREMIUM_ID` | リッチメニュー作成後、`functions/.env` に追記して再デプロイ |
+| `LINE_RICHMENU_FREE_ID` / `LINE_RICHMENU_TRIAL_ID` / `LINE_RICHMENU_PREMIUM_ID` | リッチメニュー作成後、`functions/.env` に追記して再デプロイ（`LINE_RICHMENU_TRIAL_ID` は任意、未設定なら premium fallback） |
 | LIFF アプリ（複数） | 別タスク。本ドキュメントでは `PLACEHOLDER_*` URL のままで進める |
 
 ---
@@ -93,6 +95,9 @@
 +------+------+------+
 ```
 
+**トライアル用（6ボタン・3×2）**:
+レイアウト・ボタン構成は有料用と完全に同一。画像のみ「お試し中」とわかる差別化（例: ヘッダーに「7日間お試し中」バッジ、配色を少しトーンダウン等）を入れる想定。areas は `data/line-richmenu/trial-richmenu.json` に定義済み（premium と同一座標）。
+
 ### 文言サンプル（既製の素材と整合）
 
 | ボタン | サブテキスト |
@@ -122,6 +127,7 @@
 ```bash
 # 1. 素材を配置（拡張子は .png / .jpg / .jpeg のいずれか）
 cp ~/Downloads/free.png       data/line-richmenu/raw/free-source.png
+cp ~/Downloads/trial.png      data/line-richmenu/raw/trial-source.png
 cp ~/Downloads/premium.png    data/line-richmenu/raw/premium-source.png
 
 # 2. 変換実行
@@ -189,6 +195,7 @@ LINE 上の richMenu 一覧と、ローカル `state.json` の対応関係を表
 
 ```bash
 npx tsx scripts/manage-line-richmenu.ts create free
+npx tsx scripts/manage-line-richmenu.ts create trial     # 任意（trial 専用メニューを使うなら）
 npx tsx scripts/manage-line-richmenu.ts create premium
 ```
 
@@ -199,6 +206,7 @@ npx tsx scripts/manage-line-richmenu.ts create premium
 
 ```bash
 npx tsx scripts/manage-line-richmenu.ts upload free    data/line-richmenu/free.png
+npx tsx scripts/manage-line-richmenu.ts upload trial   data/line-richmenu/trial.{png,jpg}  # 任意
 npx tsx scripts/manage-line-richmenu.ts upload premium data/line-richmenu/premium.jpg
 ```
 
@@ -223,8 +231,9 @@ LINE_LOGIN_CHANNEL_SECRET=...
 LINE_MESSAGING_CHANNEL_SECRET=...
 LINE_MESSAGING_CHANNEL_ACCESS_TOKEN=...
 
-# 新規追加（state.json の値をそのまま貼る）
+# リッチメニュー（state.json の値をそのまま貼る）
 LINE_RICHMENU_FREE_ID=richmenu-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+LINE_RICHMENU_TRIAL_ID=richmenu-zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz   # 任意。未設定なら premium にフォールバック
 LINE_RICHMENU_PREMIUM_ID=richmenu-yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
 ```
 
@@ -273,6 +282,19 @@ npx tsx scripts/manage-line-richmenu.ts sync-plan U0123456789abcdef0123456789abc
 
 - LINE 側のリンクが `free-richmenu` に戻る
 - Firestore: `plan="free"` / `richMenuType="free"`、`premiumUntil` は **履歴として残す**（`null` にしない）
+
+### 6-2-bis. トライアル状態に手動で切り替える
+
+```bash
+npx tsx scripts/manage-line-richmenu.ts sync-plan \
+  U0123456789abcdef0123456789abcdef \
+  trial \
+  --until 2026-06-02T00:00:00+09:00
+```
+
+- LINE 側のリンクが `trial-richmenu` に切り替わる（`LINE_RICHMENU_TRIAL_ID` 未設定なら `premium-richmenu` で fallback）
+- Firestore: `plan="premium"` / `richMenuType="trial"` / `planSource="trial"` / `premiumUntil=<--until 値>`
+- 通常は `onAnswerCreated` の 1問目自動開放、または `onPremiumApplicationCreated` の申込経由開放で自動的に trial 状態になる。本コマンドは「手動でテストする」「期限を延長する」等の運用用
 
 ### 6-3. リッチメニューだけ手動で切り替えたい場合
 
@@ -475,5 +497,5 @@ LINE は **アカウントあたり 1000 個** までリッチメニューを保
 
 - ~~**自動の有料期限切れ巻き戻し**~~ → 2026-05 に `expireTrialUsers` Function として実装済（§6-6）
 - **決済との接続**: Stripe webhook → `syncRichMenuToPlan` を呼び出す中間 Function
-- **A/B テスト用の第3メニュー**: `LINE_RICHMENU_TRIAL_ID` を環境変数に追加し、`syncRichMenuToPlan` の plan に `"trial"` を許可
+- ~~**A/B テスト用の第3メニュー**: `LINE_RICHMENU_TRIAL_ID` を環境変数に追加し、`syncRichMenuToPlan` の plan に `"trial"` を許可~~ → 2026-05 に trial 専用リッチメニュー / RichMenuPlan=`"trial"` として実装済（`.steering/20260526-trial-richmenu/`）
 - **リッチメニュー切替アラート**: `lastRichMenuUpdatedAt` をベースに「直近30日切替なし」のユーザー通知

@@ -1,17 +1,10 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Navigate } from 'react-router-dom';
-import {
-  addDoc,
-  collection,
-  doc,
-  serverTimestamp,
-  setDoc,
-} from 'firebase/firestore/lite';
+import { doc, serverTimestamp, setDoc } from 'firebase/firestore/lite';
 import { db } from '../firebase/config';
 import { useAuth } from '../contexts/AuthContext';
 import { useLiffAuth } from '../hooks/useLiffAuth';
 import { LoadingScreen } from '../components/common/LoadingScreen';
-import { withFirestoreTimeout } from '../utils/firestoreTimeout';
 import { logFunnelEvent } from '../utils/funnelEvent';
 import { usePremiumPromoCountdown } from '../hooks/usePremiumPromoCountdown';
 import {
@@ -50,10 +43,12 @@ function parseSourceParam(value: string | null): PremiumApplicationSource {
 type Plan = 'free' | 'premium';
 type Status =
   | 'loading'
+  // free + trial 未経験。フォームを出さず「まず1問解いてみよう」案内に倒す。
+  | 'no_trial_yet'
+  // trial 中 / trial 切れ。「これからも使い続ける」フォーム → Stripe Checkout 起動。
   | 'ready'
   | 'already_premium'
   | 'submitting'
-  | 'submitted'
   | 'error';
 type PlanSource = 'trial' | 'paid' | 'trial_expired' | null;
 
@@ -78,17 +73,14 @@ const CHECKOUT_FN_URL = import.meta.env.VITE_PREMIUM_CHECKOUT_FN_URL as
   | string
   | undefined;
 
-const HOURS: {
-  value: ApplicationPreferredHour;
-  label: string;
-  note: string;
-}[] = [
-  { value: 6, label: '朝6時', note: '登校前に1問' },
-  { value: 7, label: '朝7時', note: '朝の準備後に' },
-  { value: 16, label: '夕方4時', note: '帰宅後すぐ' },
-  { value: 18, label: '夕方6時', note: '夕食前後に' },
-  { value: 20, label: '夜8時', note: '就寝前のおさらいに' },
-];
+const HOUR_LABELS: Record<number, string> = {
+  6: '朝6時',
+  7: '朝7時',
+  16: '夕方4時',
+  18: '夕方6時',
+  19: '夕方7時',
+  20: '夜8時',
+};
 
 interface CheckoutSessionResponse {
   url?: string;
@@ -102,15 +94,16 @@ function buildCheckoutReturnUrl(result: 'success' | 'cancel'): string {
 }
 
 /**
- * LIFF プレミアム登録ページ。
+ * LIFF プレミアム登録（継続申込）ページ。
  *
- * 認証必須。Firebase Auth 確立後、users/{uid} を読んで plan を確認:
- * - premium ならフォームを出さず「すでにプレミアム」案内
- * - free ならワンタップで premiumApplications/{autoId} に書き込み、7日間無料を開始
- * - 無料トライアル中 / トライアル使用済みなら本契約用の決済ページへ送客
+ * 認証必須。Firebase Auth 確立後、users/{uid} を読んで plan / planSource を確認:
+ * - plan='premium' && planSource='trial'    → 'ready'（「これからも使い続ける」CTA → Stripe Checkout）
+ * - plan='premium' && planSource≠'trial'    → 'already_premium'（paid 契約済み）
+ * - planSource='trial_expired'              → 'ready'（「もう一度はじめる」CTA → Stripe Checkout）
+ * - それ以外（free + trial 未経験）          → 'no_trial_yet'（「まず1問解いてみよう」案内）
  *
- * LINE displayName は送信時に liff.getProfile() で取得して同梱する。
- * 申込ステータスは初期値 "pending" 固定（firestore.rules で強制）。
+ * Phase 4 以降、フォーム送信は trial 中 / 切れユーザーの Stripe Checkout 起動専用。
+ * 旧 free → premiumApplications 経路は撤去済み（Phase 1+2 の 1問目自動 trial と二重路を回避）。
  */
 export function LiffPremiumApplyPage() {
   const { user, loading, userDoc, userDocLoaded } = useAuth();
@@ -122,9 +115,6 @@ export function LiffPremiumApplyPage() {
   const [status, setStatus] = useState<Status>('loading');
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [profile, setProfile] = useState<UserProfile | null>(null);
-  const [selectedHour, setSelectedHour] =
-    useState<ApplicationPreferredHour | null>(null);
-  const [guardianConfirmed, setGuardianConfirmed] = useState(false);
 
   // URL param: ?parent=true → 保護者経由フラグ、?src=... → 申込経路
   const urlParams = useMemo(() => new URLSearchParams(window.location.search), []);
@@ -184,138 +174,88 @@ export function LiffPremiumApplyPage() {
       plan,
       planSource,
     });
-    setSelectedHour((current) => current ?? preferredHour ?? 18);
-    // 無料トライアル中（plan=premium かつ planSource=trial）は本契約 UI へ進める
+    // 4 状態に分岐:
+    //  - plan='premium' && planSource='trial' → trial 中。「これからも使い続ける」UI（Stripe Checkout）
+    //  - plan='premium' && planSource≠'trial' → paid 契約済み。「すでにプレミアム」
+    //  - planSource='trial_expired'            → trial 切れ。「再開する」UI（Stripe Checkout）
+    //  - それ以外（free + 未経験）              → 'no_trial_yet'。「まず1問解いてみよう」案内
+    // Phase 4 で旧 free→premiumApplications 経路は撤去（1問目自動 trial と二重路を回避）。
     if (plan === 'premium' && planSource === 'trial') {
       setStatus('ready');
     } else if (plan === 'premium') {
       setStatus('already_premium');
-    } else {
+    } else if (planSource === 'trial_expired') {
       setStatus('ready');
+    } else {
+      setStatus('no_trial_yet');
     }
   }, [user, loading, userDoc, userDocLoaded]);
 
   const canSubmit = useMemo(() => {
     if (status !== 'ready') return false;
     if (!profile) return false;
-    if (
+    // Phase 4 以降、ready は trial 中 / 切れのみで成立。両方とも常に submit 可能。
+    return (
       profile.planSource === 'trial' ||
       profile.planSource === 'trial_expired'
-    ) {
-      return true;
-    }
-    if (!selectedHour) return false;
-    if (!guardianConfirmed) return false;
-    return true;
-  }, [guardianConfirmed, profile, selectedHour, status]);
+    );
+  }, [profile, status]);
 
   const handleSubmit = async () => {
     if (!user || !profile) return;
     const isTrialToPaid = profile.planSource === 'trial';
     const isTrialExpired = profile.planSource === 'trial_expired';
-    if (isTrialToPaid || isTrialExpired) {
-      if (!CHECKOUT_FN_URL) {
-        setErrorMessage(
-          '本契約ページの準備中です。しばらくしてからもう一度お試しください。'
-        );
-        return;
-      }
-      setStatus('submitting');
-      setErrorMessage(null);
-      try {
-        const idToken = await user.getIdToken();
-        const response = await fetch(CHECKOUT_FN_URL, {
-          method: 'POST',
-          headers: {
-            Authorization: `Bearer ${idToken}`,
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            successUrl: buildCheckoutReturnUrl('success'),
-            cancelUrl: buildCheckoutReturnUrl('cancel'),
-          }),
-        });
-        const data = (await response.json()) as CheckoutSessionResponse;
-        if (!response.ok || !data.url) {
-          throw new Error(data.error || 'checkout_session_failed');
-        }
-        window.location.href = data.url;
-        return;
-      } catch (err) {
-        console.error('[LiffPremiumApplyPage] checkout failed', err);
-        setErrorMessage(
-          '決済ページを開けませんでした。通信状況を確認のうえ、もう一度お試しください。'
-        );
-        setStatus('ready');
-        return;
-      }
+    if (!isTrialToPaid && !isTrialExpired) {
+      // Phase 4 以降、ready 状態は trial 中 / 切れのみ。
+      // 念のためのガード。
+      console.error(
+        '[LiffPremiumApplyPage] unexpected submit state',
+        profile
+      );
+      setErrorMessage(
+        '内部エラーが発生しました。しばらくしてからもう一度お試しください。'
+      );
+      return;
     }
-
+    if (!CHECKOUT_FN_URL) {
+      setErrorMessage(
+        '決済ページの準備中です。しばらくしてからもう一度お試しください。'
+      );
+      return;
+    }
     setStatus('submitting');
     setErrorMessage(null);
-
-    let displayName = '';
     try {
-      const liff = (await import('@line/liff')).default;
-      if (liff.isLoggedIn()) {
-        const p = await liff.getProfile();
-        displayName = p.displayName ?? '';
-      }
-    } catch (err) {
-      console.warn('[LiffPremiumApplyPage] getProfile failed (continue)', err);
-    }
-
-    const lineUserId = user.uid.startsWith('line:')
-      ? user.uid.slice('line:'.length)
-      : user.uid;
-
-    try {
-      if (selectedHour && selectedHour !== profile.preferredHour) {
-        await withFirestoreTimeout(
-          setDoc(
-            doc(db, 'users', user.uid),
-            {
-              preferredHour: selectedHour,
-              updatedAt: serverTimestamp(),
-            },
-            { merge: true }
-          ),
-          7000,
-          'setDoc users preferredHour'
-        );
-      }
-      const ref = await withFirestoreTimeout(
-        addDoc(collection(db, 'premiumApplications'), {
-          applicationType: 'trial_start',
-          uid: user.uid,
-          lineUserId,
-          displayName,
-          subject: profile.subject,
-          grade: profile.grade,
-          preferredHour: selectedHour,
-          status: 'pending' as const,
-          createdAt: serverTimestamp(),
-          // D-3 / D-5 セールスコピー対応: 申込経路と保護者フラグを記録。
-          // onPremiumApplicationCreated で lockedPrice はサーバー側判定される。
-          source: applicationSource,
-          parentInitiated: isParentInitiated,
+      const idToken = await user.getIdToken();
+      const response = await fetch(CHECKOUT_FN_URL, {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${idToken}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          successUrl: buildCheckoutReturnUrl('success'),
+          cancelUrl: buildCheckoutReturnUrl('cancel'),
         }),
-        7000,
-        'addDoc premiumApplications'
-      );
+      });
+      const data = (await response.json()) as CheckoutSessionResponse;
+      if (!response.ok || !data.url) {
+        throw new Error(data.error || 'checkout_session_failed');
+      }
       void logFunnelEvent('liff_premium_apply_submit', {
-        applicationId: ref.id,
-        applicationType: 'trial_start',
+        applicationType: isTrialToPaid ? 'paid_subscribe' : 'paid_resume',
         source: applicationSource,
         parent: isParentInitiated,
       });
-      setStatus('submitted');
+      window.location.href = data.url;
+      return;
     } catch (err) {
-      console.error('[LiffPremiumApplyPage] submit failed', err);
+      console.error('[LiffPremiumApplyPage] checkout failed', err);
       setErrorMessage(
-        '送信できませんでした。通信状況を確認のうえ、もう一度お試しください。'
+        '決済ページを開けませんでした。通信状況を確認のうえ、もう一度お試しください。'
       );
       setStatus('ready');
+      return;
     }
   };
 
@@ -375,11 +315,7 @@ export function LiffPremiumApplyPage() {
     );
   }
 
-  if (status === 'submitted') {
-    const hourLabel =
-      HOURS.find((h) => h.value === selectedHour)?.label ??
-      (selectedHour ? `${selectedHour}時` : '設定した時刻');
-
+  if (status === 'no_trial_yet') {
     const handleBackToLine = async () => {
       try {
         const liff = (await import('@line/liff')).default;
@@ -394,90 +330,92 @@ export function LiffPremiumApplyPage() {
     };
 
     return (
-      <div className="min-h-screen bg-[#FAF9F7] pb-12">
+      <div className="min-h-screen bg-[#FFF9EE] pb-12">
         <header className="bg-amber-500">
-          <div className="max-w-2xl mx-auto px-4 py-8">
+          <div className="max-w-2xl mx-auto px-4 py-7 text-center">
             <h1
-              className="text-2xl font-bold text-white text-center leading-snug"
+              className="text-2xl font-bold text-white leading-snug"
               style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
             >
-              7日間無料トライアルを
+              📚 まずは1問、
               <br />
-              開始しました
+              解いてみよう
             </h1>
-            <p className="text-sm text-white/95 text-center mt-3 leading-relaxed">
-              このあとLINEに戻って、リッチメニューからすぐに使えます。
+            <p className="text-sm text-white/95 mt-3 leading-relaxed">
+              1問解くと、追加問題・暗記カード・四択クイズが
+              <br />
+              そのまま7日間使えるようになります。
             </p>
           </div>
         </header>
         <main className="max-w-2xl mx-auto px-4">
           <section className="-mt-3 bg-white rounded-2xl shadow-sm p-5 border border-amber-100">
             <p
+              className="text-sm font-bold text-amber-800 mb-2"
+              style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+            >
+              ✨ ノーリスク・カード登録なし
+            </p>
+            <p className="text-xs text-gray-700 leading-relaxed">
+              公式LINEのトークから1問解いた直後に、機能が自動で7日間ひらきます。
+              <br />
+              7日後はそのまま自動で元に戻るので、安心してお試しください。
+            </p>
+          </section>
+          <section className="mt-4 bg-white rounded-2xl shadow-sm p-5">
+            <p
               className="text-sm font-bold text-gray-800 mb-3"
               style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
             >
-              次にすること
+              次にやること
             </p>
-            <div className="grid grid-cols-1 gap-3 text-sm text-gray-700">
-              <div className="rounded-xl bg-amber-50 px-4 py-3">
-                <div className="font-bold text-amber-800">1. LINEに戻る</div>
-                <p className="text-xs text-amber-800 mt-1 leading-relaxed">
-                  下のボタンでこの画面を閉じ、チャットでスタディのトーク画面を開きます。
-                </p>
-              </div>
-              <div className="rounded-xl bg-sky-50 px-4 py-3">
-                <div className="font-bold text-sky-800">
-                  2. 「もっと解く」を押す
-                </div>
-                <p className="text-xs text-sky-800 mt-1 leading-relaxed">
-                  プレミアム版リッチメニューから、追加問題と苦手復習を試せます。
-                </p>
-              </div>
-              <div className="rounded-xl bg-gray-50 px-4 py-3">
-                <div className="font-bold text-gray-800">
-                  3. 毎日1問は{hourLabel}に届きます
-                </div>
-                <p className="text-xs text-gray-600 mt-1 leading-relaxed">
-                  配信時刻はあとから「設定・サポート」で変更できます。
-                </p>
-              </div>
-            </div>
+            <ol className="space-y-2 text-sm text-gray-700">
+              <li className="flex gap-2">
+                <span className="flex-shrink-0 w-6 h-6 rounded-full bg-amber-500 text-white text-xs font-bold flex items-center justify-center">
+                  1
+                </span>
+                <span className="leading-relaxed">下のボタンでLINEのトークに戻る</span>
+              </li>
+              <li className="flex gap-2">
+                <span className="flex-shrink-0 w-6 h-6 rounded-full bg-amber-500 text-white text-xs font-bold flex items-center justify-center">
+                  2
+                </span>
+                <span className="leading-relaxed">
+                  毎日1問が届くまで待つ、または「もっと解く」を押してすぐ1問解く
+                </span>
+              </li>
+              <li className="flex gap-2">
+                <span className="flex-shrink-0 w-6 h-6 rounded-full bg-amber-500 text-white text-xs font-bold flex items-center justify-center">
+                  3
+                </span>
+                <span className="leading-relaxed">
+                  1問解いた直後から、7日間お試しが自動でスタート！
+                </span>
+              </li>
+            </ol>
             <button
               type="button"
               onClick={() => void handleBackToLine()}
               className="mt-5 w-full bg-amber-500 hover:bg-amber-600 active:scale-[0.98] transition rounded-full py-3 text-sm font-bold text-white"
               style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
             >
-              LINEに戻って始める
+              LINEに戻る
             </button>
           </section>
-          <section className="mt-4 bg-white rounded-2xl shadow-sm p-5">
-            <p
-              className="text-sm font-bold text-gray-800 mb-2"
-              style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
-            >
-              保護者の方へ
-            </p>
-            <p className="text-xs text-gray-600 leading-relaxed">
-              無料トライアル中はクレジットカード登録なしで試せます。継続して使う場合は、トライアル中にStripeの月額登録へ進む想定です。
-            </p>
-            <p className="text-xs text-gray-600 mt-2 leading-relaxed">
-              現在は中1・中2の歴史が中心です。対応教科は今後増える予定で、今登録した方は月
-              {PROMO_PRICE_YEN.toLocaleString()}円のまま継続できます。
-            </p>
-          </section>
           <p className="text-xs text-gray-400 text-center mt-6 leading-relaxed">
-            このページは閉じていただいて構いません
+            学年や教科がまだ未設定の場合は、トーク内の案内に従って設定してください。
           </p>
         </main>
       </div>
     );
   }
 
+  // Phase 4 以降、ready 状態は trial 中 / 切れのみ。submit → Stripe Checkout に
+  // window.location.href で遷移するため、'submitted' 状態には到達しない。
   const s = profile!;
   const submitting = status === 'submitting';
   const isTrialToPaid = s.planSource === 'trial';
-  const requiresCheckout = isTrialToPaid || s.planSource === 'trial_expired';
+  const isTrialExpired = s.planSource === 'trial_expired';
 
   return (
     <div className="min-h-screen bg-[#FFF9EE] pb-12">
@@ -493,17 +431,13 @@ export function LiffPremiumApplyPage() {
             style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
           >
             {isTrialToPaid
-              ? '✨ プレミアム本契約のお申込み'
-              : s.planSource === 'trial_expired'
-                ? '✨ プレミアム本契約へ'
-                : '✨ 7日間無料トライアル'}
+              ? '✨ これからも使い続ける'
+              : '✨ もう一度はじめる'}
           </h1>
           <p className="text-xs text-white/90 text-center mt-1">
             {isTrialToPaid
-              ? '無料トライアル後も続ける方はこちらから'
-              : s.planSource === 'trial_expired'
-                ? '無料トライアルは終了しています'
-                : '内容を確認して、7日間無料を始めます'}
+              ? '7日間使ってみて気に入ったら、このまま使い続けられます'
+              : 'いつでも再開できます。よかったらこのまま続けてください'}
           </p>
         </div>
       </header>
@@ -563,35 +497,35 @@ export function LiffPremiumApplyPage() {
           )}
         </section>
 
-        {/* 無料トライアル中向け補足 */}
+        {/* trial 中向け補足 */}
         {isTrialToPaid && (
           <section className="bg-amber-50 border border-amber-200 rounded-2xl px-4 py-3">
             <p
               className="text-sm font-bold text-amber-800"
               style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
             >
-              現在 7日間無料トライアルをご利用中です
+              今、7日間お試し中です
             </p>
             <p className="text-xs text-amber-800 mt-1 leading-relaxed">
               {CHECKOUT_FN_URL
-                ? 'このページから本契約に進むと、無料体験が終わったあとから1ヶ月のプレミアム期間が始まります。体験中は二重に課金されることはありません。'
-                : '月額プランの登録受付は準備中です。準備ができ次第、こちらから登録できるようになります。'}
+                ? 'お試し期間が終わってからこのまま続けるなら、ここから手続きできます。お試し中に二重で課金されることはありません。'
+                : '継続登録の準備中です。準備ができ次第、こちらから手続きできるようになります。'}
             </p>
           </section>
         )}
 
-        {s.planSource === 'trial_expired' && (
+        {isTrialExpired && (
           <section className="bg-white rounded-2xl shadow-sm px-4 py-3">
             <p
               className="text-sm font-bold text-gray-800"
               style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
             >
-              無料トライアルは終了しています
+              お試し期間は終了しています
             </p>
             <p className="text-xs text-gray-600 mt-1 leading-relaxed">
               {CHECKOUT_FN_URL
-                ? '続けて使う場合は、月額プランの登録へ進んでください。'
-                : '月額プランの登録受付は準備中です。準備ができ次第、こちらから登録できるようになります。'}
+                ? 'もう一度はじめる場合は、こちらから手続きできます。'
+                : '継続登録の準備中です。準備ができ次第、こちらから手続きできるようになります。'}
             </p>
           </section>
         )}
@@ -611,84 +545,13 @@ export function LiffPremiumApplyPage() {
             <div className="flex gap-2">
               <dt className="text-gray-500 w-16 shrink-0">配信時刻</dt>
               <dd>
-                {selectedHour
-                  ? HOURS.find((h) => h.value === selectedHour)?.label
+                {s.preferredHour
+                  ? (HOUR_LABELS[s.preferredHour] ?? `${s.preferredHour}時`)
                   : '未設定'}
               </dd>
             </div>
           </dl>
         </section>
-
-        {!requiresCheckout && (
-          <>
-            <section className="bg-white rounded-2xl shadow-sm p-5">
-              <div className="text-xs text-gray-500 mb-2">
-                毎日1問の配信時刻
-              </div>
-              <div className="grid grid-cols-2 gap-2">
-                {HOURS.map((h) => {
-                  const active = selectedHour === h.value;
-                  return (
-                    <button
-                      key={h.value}
-                      type="button"
-                      onClick={() => setSelectedHour(h.value)}
-                      disabled={submitting}
-                      className={`rounded-2xl border px-3 py-3 text-left transition ${
-                        active
-                          ? 'border-amber-400 bg-amber-50 text-amber-800'
-                          : 'border-gray-200 bg-white text-gray-700 hover:border-amber-300'
-                      } disabled:opacity-50`}
-                    >
-                      <span
-                        className="block text-sm font-bold"
-                        style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
-                      >
-                        {h.label}
-                      </span>
-                      <span className="mt-1 block text-[11px] text-gray-500">
-                        {h.note}
-                      </span>
-                    </button>
-                  );
-                })}
-              </div>
-              <p className="text-xs text-gray-500 mt-2 leading-relaxed">
-                ここで選んだ時刻に、毎日1問が届きます。あとから変更できます。
-              </p>
-            </section>
-
-            <section className="bg-white rounded-2xl shadow-sm p-5">
-              <div
-                className="text-sm font-bold text-gray-800 mb-2"
-                style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
-              >
-                確認事項
-              </div>
-              <ul className="text-xs text-gray-600 space-y-1.5 leading-relaxed mb-3">
-                <li>7日間無料でプレミアム機能を試せます。</li>
-                <li>
-                  無料体験の開始だけではクレジットカード入力はありません。
-                </li>
-                <li>
-                  継続する場合は、Stripeの月額登録でカード情報を入力します。
-                </li>
-                <li>中学生の方は、保護者の方と確認してから始めてください。</li>
-              </ul>
-              <label className="flex items-start gap-2 rounded-xl bg-amber-50 px-3 py-3 text-xs text-amber-900">
-                <input
-                  type="checkbox"
-                  checked={guardianConfirmed}
-                  onChange={(e) => setGuardianConfirmed(e.target.checked)}
-                  className="mt-0.5"
-                />
-                <span>
-                  保護者と確認しました。7日間無料トライアルを開始します。
-                </span>
-              </label>
-            </section>
-          </>
-        )}
 
         {errorMessage && (
           <p className="text-center text-sm text-red-600">{errorMessage}</p>
@@ -699,32 +562,22 @@ export function LiffPremiumApplyPage() {
           <button
             type="button"
             onClick={() => void handleSubmit()}
-            disabled={
-              !canSubmit || submitting || (requiresCheckout && !CHECKOUT_FN_URL)
-            }
+            disabled={!canSubmit || submitting || !CHECKOUT_FN_URL}
             className="w-full bg-amber-500 hover:bg-amber-600 active:scale-[0.98] transition rounded-full py-3 text-sm font-bold text-white disabled:opacity-50 disabled:cursor-not-allowed"
             style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
           >
             {submitting
               ? '送信中...'
-              : requiresCheckout && !CHECKOUT_FN_URL
-                ? '月額登録の受付準備中'
+              : !CHECKOUT_FN_URL
+                ? '継続登録の受付準備中'
                 : isTrialToPaid
-                  ? '月680円で継続登録する'
-                  : s.planSource === 'trial_expired'
-                    ? '月額プランに登録する'
-                    : '7日間無料で始める'}
+                  ? 'これからも使い続ける'
+                  : 'もう一度はじめる'}
           </button>
           <p className="text-xs text-gray-400 text-center mt-3 leading-relaxed">
-            {isTrialToPaid
-              ? CHECKOUT_FN_URL
-                ? '決済ページで登録を完了できます'
-                : 'Stripe継続課金の準備ができ次第、登録できるようになります'
-              : s.planSource === 'trial_expired'
-                ? CHECKOUT_FN_URL
-                  ? '決済ページで登録を完了できます'
-                  : 'Stripe継続課金の準備ができ次第、登録できるようになります'
-                : '開始後はLINEに戻って、リッチメニュー「もっと解く」から使えます'}
+            {CHECKOUT_FN_URL
+              ? '次の画面で決済情報を入力します。いつでも解約できます。'
+              : '継続登録の準備ができ次第、こちらから手続きできるようになります。'}
           </p>
         </section>
       </main>

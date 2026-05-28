@@ -10,10 +10,11 @@
  * 環境変数:
  * - `LINE_MESSAGING_CHANNEL_ACCESS_TOKEN` — Messaging API のチャネルアクセストークン
  * - `LINE_RICHMENU_FREE_ID` — 無料用リッチメニュー ID
+ * - `LINE_RICHMENU_TRIAL_ID` — トライアル用リッチメニュー ID（任意。未設定なら premium にフォールバック）
  * - `LINE_RICHMENU_PREMIUM_ID` — プレミアム用リッチメニュー ID
  */
 
-export type RichMenuPlan = "free" | "premium";
+export type RichMenuPlan = "free" | "trial" | "premium";
 
 export class LineRichMenuConfigError extends Error {
   constructor(message: string) {
@@ -40,10 +41,12 @@ interface LinkRichMenuResult {
 function resolveConfig(): {
   token: string;
   freeId: string;
+  trialId: string;
   premiumId: string;
 } {
   const token = process.env.LINE_MESSAGING_CHANNEL_ACCESS_TOKEN || "";
   const freeId = process.env.LINE_RICHMENU_FREE_ID || "";
+  const trialId = process.env.LINE_RICHMENU_TRIAL_ID || "";
   const premiumId = process.env.LINE_RICHMENU_PREMIUM_ID || "";
   if (!token) {
     throw new LineRichMenuConfigError(
@@ -55,7 +58,8 @@ function resolveConfig(): {
       "LINE_RICHMENU_FREE_ID / LINE_RICHMENU_PREMIUM_ID が設定されていません。",
     );
   }
-  return { token, freeId, premiumId };
+  // trialId は必須ではない（未設定なら linkRichMenuForUser 内で premium にフォールバック）
+  return { token, freeId, trialId, premiumId };
 }
 
 /**
@@ -63,13 +67,32 @@ function resolveConfig(): {
  *
  * 成功時は使用された richMenuId を返す。
  * 失敗時は LineRichMenuApiError または LineRichMenuConfigError を throw する。
+ *
+ * plan === "trial" のとき `LINE_RICHMENU_TRIAL_ID` が未設定なら
+ * `LINE_RICHMENU_PREMIUM_ID` にフォールバックする。trial 用画像 / richMenu
+ * 作成が運用上まだ済んでいないフェーズでも、機能（追加で解く等）を
+ * premium menu 上で利用できるようにするための保険。
  */
 export async function linkRichMenuForUser(
   lineUserId: string,
   plan: RichMenuPlan,
 ): Promise<LinkRichMenuResult> {
-  const { token, freeId, premiumId } = resolveConfig();
-  const richMenuId = plan === "premium" ? premiumId : freeId;
+  const { token, freeId, trialId, premiumId } = resolveConfig();
+  let richMenuId: string;
+  if (plan === "premium") {
+    richMenuId = premiumId;
+  } else if (plan === "trial") {
+    if (trialId) {
+      richMenuId = trialId;
+    } else {
+      console.warn(
+        "[lineRichMenu] LINE_RICHMENU_TRIAL_ID 未設定のため premium ID を fallback として使用します",
+      );
+      richMenuId = premiumId;
+    }
+  } else {
+    richMenuId = freeId;
+  }
 
   const res = await fetch(
     `https://api.line.me/v2/bot/user/${lineUserId}/richmenu/${richMenuId}`,

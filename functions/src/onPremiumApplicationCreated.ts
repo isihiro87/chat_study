@@ -17,14 +17,24 @@ import { logServerFunnelEvent } from './funnelEvent';
 const TRIAL_DURATION_MS = 7 * 24 * 60 * 60 * 1000;
 
 /**
- * LIFF /premium-apply から trial_start が作成されたとき、
- * 7日間の無料トライアルを自動開放し、管理者の LINE ID に push 通知を送る。
+ * `premiumApplications/{id}` ドキュメント作成時のフォローアップ Function。
+ *
+ * Phase 4 以降の役割（重要）:
+ * - 通常の新規ユーザーは `onAnswerCreated` の 1問目自動 trial 開放で先回りされる。
+ * - LIFF `/premium-apply` フォームから来るルートは「trial 中 / 切れユーザーが
+ *   Stripe Checkout に直接進む」設計に変わったため、フォーム submit 経路では
+ *   この trigger は通常**発火しない**。
+ * - 残された発火ケース:
+ *   1. **学年未登録など 1問目自動 trial がスキップされたユーザー**が、運用側で手動で
+ *      `premiumApplications` を作成したケース
+ *   2. **Phase 5 の既存ユーザー一括 trial 適用**（migrate スクリプトから作成）
+ *   3. デバッグ / 動作確認用に Firestore Console から直接作成したケース
  *
  * 無料トライアル自動開放処理:
  * 1. users/{uid} を読み、既に paid なら再開放しない（既プレミアム扱い）
- * 2. LINE API でリッチメニューを premium に切り替え
+ * 2. LINE API でリッチメニューを trial に切り替え（LINE_RICHMENU_TRIAL_ID 未設定時は premium fallback）
  * 3. users/{uid} に plan="premium", premiumUntil=now+7d, planSource="trial",
- *    trialStartedAt=now, richMenuType="premium" を書き込み（admin SDK 経由）
+ *    trialStartedAt=now, richMenuType="trial" を書き込み（admin SDK 経由）
  * 4. ユーザーに「無料トライアル開始」flex を push
  * 5. 管理者には結果確認用の文面を push
  *
@@ -125,7 +135,9 @@ export const onPremiumApplicationCreated = functions
           trialEndIso = trialEnd.toISOString();
 
           try {
-            await linkRichMenuForUser(lineUserId, 'premium');
+            // trial 開放時は trial 専用リッチメニューに切替。
+            // LINE_RICHMENU_TRIAL_ID 未設定なら lineRichMenu 側で premium ID にフォールバック。
+            await linkRichMenuForUser(lineUserId, 'trial');
           } catch (error) {
             trialOutcome = 'failed';
             if (error instanceof LineRichMenuConfigError) {
@@ -151,7 +163,7 @@ export const onPremiumApplicationCreated = functions
                 {
                   plan: 'premium',
                   premiumUntil: Timestamp.fromDate(trialEnd),
-                  richMenuType: 'premium',
+                  richMenuType: 'trial',
                   planSource: 'trial',
                   trialStartedAt: FieldValue.serverTimestamp(),
                   priceLockExpiresAt: Timestamp.fromDate(trialEnd),

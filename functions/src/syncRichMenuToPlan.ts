@@ -7,7 +7,7 @@ import {
 } from './lineRichMenu';
 
 const ADMIN_EMAIL = 'ishimotty.gst@gmail.com';
-const VALID_PLANS = ['free', 'premium'] as const;
+const VALID_PLANS = ['free', 'trial', 'premium'] as const;
 type Plan = (typeof VALID_PLANS)[number];
 
 interface SyncRichMenuToPlanInput {
@@ -126,8 +126,13 @@ export const syncRichMenuToPlan = functions
         }
         const db = getFirestore();
         const uid = `line:${lineUserId}`;
+        // `plan` フィールドは "free" | "premium" の 2 値しか持たない。
+        // 入力 `validPlan === 'trial'` は「trial 状態にする」意で、
+        // 内部的には plan="premium" + richMenuType="trial" + planSource="trial" に分解する。
+        const planField: 'free' | 'premium' =
+          validPlan === 'free' ? 'free' : 'premium';
         const update: Record<string, unknown> = {
-          plan: validPlan,
+          plan: planField,
           richMenuType: validPlan,
           lastRichMenuUpdatedAt: FieldValue.serverTimestamp(),
           updatedAt: FieldValue.serverTimestamp(),
@@ -139,6 +144,9 @@ export const syncRichMenuToPlan = functions
           // 手動/決済後の本契約化では trial のまま残さず paid にする。
           // trial の明示更新が必要な特殊ケースだけ input で上書き可能。
           update.planSource = planSource ?? 'paid';
+        } else if (validPlan === 'trial') {
+          // 管理者が手動で trial 状態に切り替えるケース。
+          update.planSource = planSource ?? 'trial';
         } else if (validPlan === 'free') {
           // free に切り替えた時、premiumUntil は明示的に null にしない（履歴として残す）
           // クライアントは getUserPlan で期限切れを検出する

@@ -25,7 +25,7 @@ const ENV_FILE = resolve(ROOT, "functions/.env");
 const RICHMENU_DIR = resolve(ROOT, "data/line-richmenu");
 const STATE_FILE = resolve(RICHMENU_DIR, "state.json");
 
-const TARGETS = ["free", "premium"] as const;
+const TARGETS = ["free", "trial", "premium"] as const;
 type Target = (typeof TARGETS)[number];
 type Plan = Target;
 const FIREBASE_PROJECT_ID = "chatstudy-63477";
@@ -87,16 +87,16 @@ async function main(): Promise<void> {
 
 function printUsage(): void {
   console.log(`Usage:
-  list                                              現在 LINE に存在する richmenu 一覧を表示
-  create <free|premium>                             data/line-richmenu/<target>-richmenu.json から本体を作成
-  upload <free|premium> <imagePath>                 作成済みの richMenu に PNG をアップロード
-  set-default <free|premium>                        デフォルトリッチメニューに設定
-  link <free|premium> <lineUserId>                  特定ユーザーに割り当て（LINE 側のみ。Firestore は更新しない）
-  unlink <lineUserId>                               ユーザーから割当解除（デフォルトに戻る）
-  delete <richMenuId>                               指定 richMenu を削除
-  sync-plan <lineUserId> <free|premium> [--until <ISO>]
-                                                    LINE リンク変更 + Firestore の plan/richMenuType/lastRichMenuUpdatedAt 更新を一気通貫で実行
-                                                    （管理者の運用コマンド。syncRichMenuToPlan Function と同じ処理を Admin SDK 経由でローカル実行）
+  list                                                     現在 LINE に存在する richmenu 一覧を表示
+  create <free|trial|premium>                              data/line-richmenu/<target>-richmenu.json から本体を作成
+  upload <free|trial|premium> <imagePath>                  作成済みの richMenu に PNG をアップロード
+  set-default <free|trial|premium>                         デフォルトリッチメニューに設定
+  link <free|trial|premium> <lineUserId>                   特定ユーザーに割り当て（LINE 側のみ。Firestore は更新しない）
+  unlink <lineUserId>                                      ユーザーから割当解除（デフォルトに戻る）
+  delete <richMenuId>                                      指定 richMenu を削除
+  sync-plan <lineUserId> <free|trial|premium> [--until <ISO>]
+                                                           LINE リンク変更 + Firestore の plan/richMenuType/lastRichMenuUpdatedAt 更新を一気通貫で実行
+                                                           （trial 指定時は内部的に plan="premium"+richMenuType="trial"+planSource="trial" に展開）
 
 Examples:
   npx tsx scripts/manage-line-richmenu.ts list
@@ -105,6 +105,7 @@ Examples:
   npx tsx scripts/manage-line-richmenu.ts set-default free
   npx tsx scripts/manage-line-richmenu.ts link premium U0123456789abcdef
   npx tsx scripts/manage-line-richmenu.ts unlink U0123456789abcdef
+  npx tsx scripts/manage-line-richmenu.ts sync-plan U0123456789abcdef trial   --until 2026-06-02T00:00:00+09:00
   npx tsx scripts/manage-line-richmenu.ts sync-plan U0123456789abcdef premium --until 2026-06-09T00:00:00+09:00
   npx tsx scripts/manage-line-richmenu.ts sync-plan U0123456789abcdef free`);
 }
@@ -460,24 +461,29 @@ async function runSyncPlan(token: string, args: string[]): Promise<void> {
   }
   const db = getFirestore();
   const uid = `line:${lineUserId}`;
+  // users.plan は "free" | "premium" の 2 値しか持たないため、
+  // trial は内部的に plan="premium" + richMenuType="trial" + planSource="trial" に分解する。
+  const planField: "free" | "premium" = plan === "free" ? "free" : "premium";
   const update: Record<string, unknown> = {
-    plan,
+    plan: planField,
     richMenuType: plan,
     lastRichMenuUpdatedAt: FieldValue.serverTimestamp(),
     updatedAt: FieldValue.serverTimestamp(),
   };
+  if (plan === "trial") {
+    update.planSource = "trial";
+  }
   if (premiumUntil !== null) {
     update.premiumUntil = Timestamp.fromDate(premiumUntil);
   }
   await db.doc(`users/${uid}`).set(update, { merge: true });
   console.log(
-    `✓ Firestore: users/${uid} を更新しました (plan=${plan}, richMenuType=${plan}${
-      premiumUntil ? `, premiumUntil=${premiumUntil.toISOString()}` : ""
-    })`
+    `✓ Firestore: users/${uid} を更新しました (plan=${planField}, richMenuType=${plan}${
+      plan === "trial" ? ", planSource=trial" : ""
+    }${premiumUntil ? `, premiumUntil=${premiumUntil.toISOString()}` : ""})`
   );
-  console.log(
-    `\n→ 数秒以内にスマホの LINE メニューが ${plan === "premium" ? "6ボタン" : "4ボタン"} に切り替わります。`
-  );
+  const buttonCount = plan === "free" ? "4ボタン" : "6ボタン";
+  console.log(`\n→ 数秒以内にスマホの LINE メニューが ${buttonCount} に切り替わります。`);
 }
 
 main().catch((err) => {

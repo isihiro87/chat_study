@@ -6,10 +6,11 @@
  *   npx tsx scripts/prepare-richmenu-images.ts
  *
  * 動作:
- *   1. raw/free-source.* を 2500×1686 にリサイズ → PNGパレット圧縮を試行
+ *   1. raw/{free,trial,premium}-source.* を 2500×1686 にリサイズ → PNGパレット圧縮を試行
  *   2. PNG が 1MB を超える場合は JPEG（quality を段階的に下げる）にフォールバック
- *   3. 同様に raw/premium-source.* も処理
- *   4. 出力ファイル: data/line-richmenu/free.png または free.jpg（同様に premium）
+ *   3. 出力ファイル: data/line-richmenu/{free,trial,premium}.png または .jpg
+ *
+ * trial 用素材は任意（未配置ならスキップ）。
  */
 import sharp from "sharp";
 import { existsSync, readdirSync, statSync, unlinkSync, writeFileSync } from "node:fs";
@@ -22,13 +23,29 @@ const TARGET_WIDTH = 2500;
 const TARGET_HEIGHT = 1686;
 const MAX_BYTES = 1024 * 1024; // 1 MB
 
-const TARGETS = ["free", "premium"] as const;
+const TARGETS = ["free", "trial", "premium"] as const;
 type Target = (typeof TARGETS)[number];
 
 async function main(): Promise<void> {
   for (const target of TARGETS) {
+    // trial 素材は任意。未配置ならスキップ（free / premium は必須）。
+    if (target === "trial" && !hasSource(target)) {
+      console.log(`\n[trial] raw/trial-source.* が無いためスキップします。`);
+      continue;
+    }
     await prepareOne(target);
   }
+}
+
+function hasSource(target: Target): boolean {
+  if (!existsSync(RAW_DIR) || !statSync(RAW_DIR).isDirectory()) return false;
+  return readdirSync(RAW_DIR).some((name) => {
+    const lower = name.toLowerCase();
+    return (
+      lower.startsWith(`${target}-source.`) &&
+      (lower.endsWith(".png") || lower.endsWith(".jpg") || lower.endsWith(".jpeg"))
+    );
+  });
 }
 
 async function prepareOne(target: Target): Promise<void> {
