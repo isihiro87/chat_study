@@ -7,13 +7,14 @@
  *
  * セグメント分類:
  *   A: プロフィール未設定         （grade or subject なし）
- *      → お詫び + 学年・教科の登録案内 + アプリ再起動推奨 + trial 案内
- *   B: プロフィール済+範囲未設定   （testScope.topics 空）
- *      → お詫び + テスト範囲設定案内 + アプリ再起動推奨 + trial 案内
- *   C: アクティブ                 （testScope 済 + totalAnswered ≥ 1）
- *      → お詫び+明日から再開 + アプリ再起動推奨 + trial 案内
- *   D: 設定済だが未回答           （testScope 済 + totalAnswered 0）
- *      → 明日から配信開始 + アプリ再起動推奨 + trial 案内
+ *      → 学年・教科の登録案内 + trial 案内 (2 bubble)
+ *   B: 未受信（オンボーディング中） （プロフィールあり、lastQuestionDeliveredAt なし）
+ *      → テスト範囲の設定案内 + trial 案内 (2 bubble)
+ *   C: アクティブ過去             （totalAnswered ≥ 1）
+ *      → お詫び（メッセージ上限到達による突然停止）+ 上限拡張による月末配信告知
+ *        + trial 案内 (2 bubble)
+ *   D: 受信したが未回答           （lastQuestionDeliveredAt あり、totalAnswered 0）
+ *      → 配信再開告知 + trial 案内 (2 bubble)
  *
  * 除外:
  *   - admin
@@ -149,16 +150,21 @@ function classify(uid: string, data: any, stats: Stats): Candidate | null {
   const subject = typeof data.subject === "string" ? data.subject : "";
   const hasProfile =
     (grade === "中1" || grade === "中2" || grade === "中3") && subject.length > 0;
-  const scopeTopics = (data.testScope?.topics as unknown[] | undefined) ?? [];
-  const hasScope = Array.isArray(scopeTopics) && scopeTopics.length > 0;
   const totalAnswered =
     typeof data.stats?.totalAnswered === "number" ? data.stats.totalAnswered : 0;
+  const hasDelivered = data.lastQuestionDeliveredAt != null;
+  const scopeTopics = (data.testScope?.topics as unknown[] | undefined) ?? [];
 
+  // 分類優先順:
+  //   A: プロフィール未設定（学年または教科がない）
+  //   C: 1問以上回答済（メッセージ上限到達で配信停止 → お詫び対象）
+  //   D: 受信したが未回答（配信は受けていた、突然止まった）
+  //   B: 未受信（プロフあり、配信を一度も受け取っていない → 範囲設定が必要）
   let segment: Segment;
   if (!hasProfile) segment = "A";
-  else if (!hasScope) segment = "B";
   else if (totalAnswered >= 1) segment = "C";
-  else segment = "D";
+  else if (hasDelivered) segment = "D";
+  else segment = "B";
 
   if (segment === "A") stats.segmentA++;
   else if (segment === "B") stats.segmentB++;
@@ -177,15 +183,22 @@ function classify(uid: string, data: any, stats: Stats): Candidate | null {
 
 // ============================================================
 // flex バブル定義
+// 方針: メッセージ数削減のため、各セグメントを「アクションバブル + trial 案内」の 2 バブルに集約。
+//      アプリ再起動の案内はアクションバブル末尾に補足として組み込み。
 // ============================================================
 
-function bubbleApology(isActive: boolean) {
+// ----- 共通: 再起動補足テキスト -----
+const RESTART_HINT_TEXT =
+  "※ 設定画面やメニューが古いまま動かない場合は、LINE アプリを完全に終了してから開き直してください。\n（ホームに戻るだけでは更新されません。アプリ切替画面から LINE を上にスワイプ）";
+
+// ----- Segment A: プロフィール未設定 -----
+function bubbleProfileSetup() {
   return {
     type: "flex" as const,
-    altText: "公式LINE 配信を再開しました",
+    altText: "学年と教科を登録してください - 公式LINE 配信を再開しました",
     contents: {
       type: "bubble" as const,
-      size: "kilo" as const,
+      size: "mega" as const,
       header: {
         type: "box" as const,
         layout: "vertical" as const,
@@ -194,9 +207,7 @@ function bubbleApology(isActive: boolean) {
         contents: [
           {
             type: "text" as const,
-            text: isActive
-              ? "📢 お休みしていてすみません"
-              : "📢 公式LINE 配信を再開しました",
+            text: "📢 公式LINE 配信を再開しました",
             color: "#FFFFFF",
             weight: "bold" as const,
             size: "md" as const,
@@ -208,48 +219,22 @@ function bubbleApology(isActive: boolean) {
         type: "box" as const,
         layout: "vertical" as const,
         paddingAll: "14px",
-        contents: [
-          {
-            type: "text" as const,
-            text: isActive
-              ? "先月いっぱい配信を止めていました。\nいつも使ってくれていたのに失礼しました 🙏\n\n本日から毎日1問の配信を再開します！"
-              : "本日から毎日1問の配信を再開します。\nまた一緒に学んでいきましょう。",
-            wrap: true,
-            size: "sm" as const,
-            color: "#333333",
-          },
-        ],
-      },
-    },
-  };
-}
-
-function bubbleProfileSetup() {
-  return {
-    type: "flex" as const,
-    altText: "学年・教科を登録してください",
-    contents: {
-      type: "bubble" as const,
-      size: "kilo" as const,
-      body: {
-        type: "box" as const,
-        layout: "vertical" as const,
-        paddingAll: "14px",
         spacing: "sm" as const,
         contents: [
           {
             type: "text" as const,
-            text: "👤 学年・教科を登録してください",
-            weight: "bold" as const,
-            size: "md" as const,
+            text: "毎日1問の配信を始めるには、学年と教科の登録が必要です。設定画面から1分で完了します。",
             wrap: true,
+            size: "sm" as const,
+            color: "#333333",
           },
           {
             type: "text" as const,
-            text: "明日からの配信のために、学年と教科を選んでください。\n設定画面から1分で完了します。",
+            text: RESTART_HINT_TEXT,
             wrap: true,
-            size: "sm" as const,
-            color: "#444444",
+            size: "xs" as const,
+            color: "#888888",
+            margin: "md",
           },
         ],
       },
@@ -265,7 +250,7 @@ function bubbleProfileSetup() {
             height: "sm" as const,
             action: {
               type: "uri" as const,
-              label: "設定画面を開く",
+              label: "学年・教科を登録する",
               uri: LIFF_SETTINGS_URL,
             },
           },
@@ -275,13 +260,30 @@ function bubbleProfileSetup() {
   };
 }
 
+// ----- Segment B: 未受信（プロフィールあり、配信未経験） -----
 function bubbleScopeSetup() {
   return {
     type: "flex" as const,
-    altText: "テスト範囲を設定してください",
+    altText: "テスト範囲を設定してください - 公式LINE 配信を再開しました",
     contents: {
       type: "bubble" as const,
-      size: "kilo" as const,
+      size: "mega" as const,
+      header: {
+        type: "box" as const,
+        layout: "vertical" as const,
+        backgroundColor: "#F59E0B",
+        paddingAll: "14px",
+        contents: [
+          {
+            type: "text" as const,
+            text: "📢 公式LINE 配信を再開しました",
+            color: "#FFFFFF",
+            weight: "bold" as const,
+            size: "md" as const,
+            wrap: true,
+          },
+        ],
+      },
       body: {
         type: "box" as const,
         layout: "vertical" as const,
@@ -290,17 +292,18 @@ function bubbleScopeSetup() {
         contents: [
           {
             type: "text" as const,
-            text: "🎯 テスト範囲を設定してください",
-            weight: "bold" as const,
-            size: "md" as const,
+            text: "毎日1問の配信を始めるために、まずテスト範囲を選んでください。設定したらすぐに1問目が届きます。",
             wrap: true,
+            size: "sm" as const,
+            color: "#333333",
           },
           {
             type: "text" as const,
-            text: "明日からの配信で出題する範囲を選んでください。\n設定後に LINE アプリを一度閉じて開き直すと、最新の状態で表示されます。",
+            text: RESTART_HINT_TEXT,
             wrap: true,
-            size: "sm" as const,
-            color: "#444444",
+            size: "xs" as const,
+            color: "#888888",
+            margin: "md",
           },
         ],
       },
@@ -326,13 +329,14 @@ function bubbleScopeSetup() {
   };
 }
 
-function bubbleNewStart() {
+// ----- Segment C: アクティブ過去（突然停止 - お詫び） -----
+function bubbleApologyActive() {
   return {
     type: "flex" as const,
-    altText: "本日から配信を始めます",
+    altText: "突然の配信停止についてのお詫びと、月末までの配信再開のお知らせ",
     contents: {
       type: "bubble" as const,
-      size: "kilo" as const,
+      size: "mega" as const,
       header: {
         type: "box" as const,
         layout: "vertical" as const,
@@ -341,7 +345,67 @@ function bubbleNewStart() {
         contents: [
           {
             type: "text" as const,
-            text: "✨ 本日から配信開始",
+            text: "🙏 突然の配信停止、すみませんでした",
+            color: "#FFFFFF",
+            weight: "bold" as const,
+            size: "md" as const,
+            wrap: true,
+          },
+        ],
+      },
+      body: {
+        type: "box" as const,
+        layout: "vertical" as const,
+        paddingAll: "14px",
+        spacing: "sm" as const,
+        contents: [
+          {
+            type: "text" as const,
+            text: "公式LINE のメッセージ送信上限に達してしまい、お使いいただいているのに突然配信が止まってしまいました。本当に申し訳ありませんでした。",
+            wrap: true,
+            size: "sm" as const,
+            color: "#333333",
+          },
+          {
+            type: "text" as const,
+            text: "今月から送信枠を増やしました。月末まで毎日1問お送りします！",
+            wrap: true,
+            size: "sm" as const,
+            color: "#92400E",
+            weight: "bold" as const,
+            margin: "md",
+          },
+          {
+            type: "text" as const,
+            text: RESTART_HINT_TEXT,
+            wrap: true,
+            size: "xs" as const,
+            color: "#888888",
+            margin: "md",
+          },
+        ],
+      },
+    },
+  };
+}
+
+// ----- Segment D: 受信したが未回答（再開告知） -----
+function bubbleRedelivery() {
+  return {
+    type: "flex" as const,
+    altText: "公式LINE 配信を再開しました",
+    contents: {
+      type: "bubble" as const,
+      size: "mega" as const,
+      header: {
+        type: "box" as const,
+        layout: "vertical" as const,
+        backgroundColor: "#F59E0B",
+        paddingAll: "14px",
+        contents: [
+          {
+            type: "text" as const,
+            text: "📢 配信を再開しました",
             color: "#FFFFFF",
             weight: "bold" as const,
             size: "md" as const,
@@ -352,46 +416,22 @@ function bubbleNewStart() {
         type: "box" as const,
         layout: "vertical" as const,
         paddingAll: "14px",
-        contents: [
-          {
-            type: "text" as const,
-            text: "設定いただいた範囲で、毎日1問のクイズをお届けします。\n通学・寝る前のスキマ時間にどうぞ！",
-            wrap: true,
-            size: "sm" as const,
-            color: "#333333",
-          },
-        ],
-      },
-    },
-  };
-}
-
-function bubbleAppReload() {
-  return {
-    type: "flex" as const,
-    altText: "LINE アプリを一度閉じて開き直してください",
-    contents: {
-      type: "bubble" as const,
-      size: "kilo" as const,
-      body: {
-        type: "box" as const,
-        layout: "vertical" as const,
-        paddingAll: "14px",
         spacing: "sm" as const,
         contents: [
           {
             type: "text" as const,
-            text: "🔄 アプリの再起動を推奨",
-            weight: "bold" as const,
-            size: "md" as const,
-            color: "#0EA5E9",
+            text: "公式LINE のメッセージ送信枠を増やし、本日から毎日1問の配信を再開しています。通学・寝る前のスキマ時間にどうぞ！",
+            wrap: true,
+            size: "sm" as const,
+            color: "#333333",
           },
           {
             type: "text" as const,
-            text: "メニューや表示が古いままになっている場合があります。\nLINE アプリを一度閉じて開き直すと、最新の状態で表示されます。",
+            text: RESTART_HINT_TEXT,
             wrap: true,
-            size: "sm" as const,
-            color: "#444444",
+            size: "xs" as const,
+            color: "#888888",
+            margin: "md",
           },
         ],
       },
@@ -468,13 +508,13 @@ function bubbleTrialInfo() {
 function buildBundle(segment: Segment): any[] {
   switch (segment) {
     case "A":
-      return [bubbleApology(false), bubbleProfileSetup(), bubbleAppReload(), bubbleTrialInfo()];
+      return [bubbleProfileSetup(), bubbleTrialInfo()];
     case "B":
-      return [bubbleApology(false), bubbleScopeSetup(), bubbleAppReload(), bubbleTrialInfo()];
+      return [bubbleScopeSetup(), bubbleTrialInfo()];
     case "C":
-      return [bubbleApology(true), bubbleAppReload(), bubbleTrialInfo()];
+      return [bubbleApologyActive(), bubbleTrialInfo()];
     case "D":
-      return [bubbleNewStart(), bubbleAppReload(), bubbleTrialInfo()];
+      return [bubbleRedelivery(), bubbleTrialInfo()];
   }
 }
 

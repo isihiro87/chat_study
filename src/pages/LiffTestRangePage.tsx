@@ -196,6 +196,13 @@ export function LiffTestRangePage() {
     }
   };
 
+  // 初回設定者（initialTopics 空）かつ preferredHour 設定済なら
+  // onTestScopeFirstSet トリガが発火して数秒後に 1問目が push される。
+  // この条件を満たす場合のみ完了画面で「数秒後に1問目が届く」案内を出す。
+  const isFirstTimeSetter =
+    (userCtx?.initialTopics.length ?? 0) === 0 &&
+    userDoc?.preferredHour != null;
+
   const handleSave = async () => {
     if (!user) return;
     setStatus('saving');
@@ -203,7 +210,8 @@ export function LiffTestRangePage() {
     try {
       await saveTestScope(user.uid, Array.from(selected));
       setStatus('saved');
-      await closeIfPossible();
+      // 自動クローズはしない。完了オーバーレイで案内を読んでから
+      // ユーザーが「閉じる」ボタンを押す。
     } catch (err) {
       console.error('[LiffTestRangePage] save failed', err);
       setErrorMessage('保存できませんでした。通信状況を確認してください。');
@@ -219,7 +227,7 @@ export function LiffTestRangePage() {
       await clearTestScope(user.uid);
       setSelected(new Set());
       setStatus('cleared');
-      await closeIfPossible();
+      // 自動クローズはしない（完了オーバーレイから閉じる）
     } catch (err) {
       console.error('[LiffTestRangePage] clear failed', err);
       setErrorMessage('クリアできませんでした。通信状況を確認してください。');
@@ -485,16 +493,6 @@ export function LiffTestRangePage() {
         eraGroups.length > 0 && (
           <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 shadow-sm">
             <div className="max-w-2xl mx-auto px-4 py-3">
-              {status === 'saved' && (
-                <p className="mb-2 text-center text-xs text-amber-700">
-                  ✓ 保存しました
-                </p>
-              )}
-              {status === 'cleared' && (
-                <p className="mb-2 text-center text-xs text-gray-600">
-                  ✓ クリアしました
-                </p>
-              )}
               {status === 'error' && errorMessage && (
                 <p className="mb-2 text-center text-xs text-red-600">
                   {errorMessage}
@@ -521,6 +519,80 @@ export function LiffTestRangePage() {
             </div>
           </div>
         )}
+
+      {/* 保存・クリア完了オーバーレイ */}
+      {(status === 'saved' || status === 'cleared') && (
+        <div className="fixed inset-0 z-50 bg-black/40 flex items-center justify-center p-4">
+          <div className="bg-white rounded-2xl shadow-sm max-w-md w-full p-6">
+            {status === 'saved' ? (
+              <>
+                <div className="text-center mb-4">
+                  <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-amber-100 text-amber-600 text-3xl mb-3">
+                    ✓
+                  </div>
+                  <h2
+                    className="text-lg font-bold text-gray-800"
+                    style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+                  >
+                    範囲を保存しました
+                  </h2>
+                  <p className="text-xs text-gray-500 mt-1">
+                    選択 {selected.size} 単元
+                  </p>
+                </div>
+
+                {isFirstTimeSetter ? (
+                  <div className="rounded-xl bg-amber-50 border border-amber-200 p-4 mb-4">
+                    <p
+                      className="text-sm font-bold text-amber-800 mb-2"
+                      style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+                    >
+                      📨 まもなく 1 問目が届きます
+                    </p>
+                    <p className="text-xs text-gray-700 leading-relaxed">
+                      数秒以内に、公式LINE のトークに最初の1問が送られてきます。
+                      <strong>この画面を閉じてトーク画面に戻り、少しお待ちください。</strong>
+                    </p>
+                    <p className="text-xs text-gray-500 leading-relaxed mt-2">
+                      ※ 届かない場合は、LINE アプリを完全に終了して開き直してみてください。
+                    </p>
+                  </div>
+                ) : (
+                  <p className="text-sm text-gray-700 leading-relaxed mb-4 text-center">
+                    この範囲から「追加で解く」「苦手を復習」が出題されます。
+                  </p>
+                )}
+              </>
+            ) : (
+              <>
+                <div className="text-center mb-4">
+                  <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-gray-100 text-gray-600 text-3xl mb-3">
+                    ✓
+                  </div>
+                  <h2
+                    className="text-lg font-bold text-gray-800"
+                    style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+                  >
+                    範囲をクリアしました
+                  </h2>
+                </div>
+                <p className="text-sm text-gray-700 leading-relaxed mb-4 text-center">
+                  これで全範囲から出題されます。
+                </p>
+              </>
+            )}
+
+            <button
+              type="button"
+              onClick={() => void closeIfPossible()}
+              className="block w-full text-center bg-amber-500 hover:bg-amber-600 active:scale-[0.98] transition rounded-full py-3 text-sm font-bold text-white"
+              style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+            >
+              閉じる
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
