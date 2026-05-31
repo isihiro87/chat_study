@@ -11,6 +11,7 @@ if (getApps().length === 0) {
 
 export { lineWebhook } from './lineWebhook';
 export { instagramWebhook } from './instagramWebhook';
+export { relaunchDispatcher } from './relaunchDispatcher';
 export {
   dailyQuiz06,
   dailyQuiz07,
