@@ -1,4 +1,5 @@
 import type { Era, Topic } from '../../../../types';
+import { vocabUnit1Hello } from './topics/0a-vocab-unit1-hello';
 import { beVerbs } from './topics/1-be-verbs';
 import { generalVerbs } from './topics/2-general-verbs';
 import { nouns } from './topics/3-nouns';
@@ -24,6 +25,7 @@ export const englishGrade1Era: Era = {
 };
 
 export const englishGrade1Topics: Topic[] = [
+  vocabUnit1Hello,
   beVerbs,
   generalVerbs,
   nouns,

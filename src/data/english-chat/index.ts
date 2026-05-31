@@ -1,5 +1,6 @@
 import type { HistoryChat } from '../history-chat/types';
 // Grade 1
+import { unit1HelloVocabChat } from '../subjects/english/grades/grade1/topics/0a-vocab-unit1-hello/chat';
 import { beVerbsChat } from '../subjects/english/grades/grade1/topics/1-be-verbs/chat';
 import { generalVerbsChat } from '../subjects/english/grades/grade1/topics/2-general-verbs/chat';
 import { nounsChat } from '../subjects/english/grades/grade1/topics/3-nouns/chat';
@@ -33,6 +34,7 @@ import { subjunctiveChat } from '../subjects/english/grades/grade3/topics/10-sub
 
 const chatMap: Record<string, HistoryChat> = {
   // Grade 1
+  [unit1HelloVocabChat.id]: unit1HelloVocabChat,
   [beVerbsChat.id]: beVerbsChat,
   [generalVerbsChat.id]: generalVerbsChat,
   [nounsChat.id]: nounsChat,

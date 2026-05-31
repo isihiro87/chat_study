@@ -75,6 +75,7 @@ export const eraMetas: Era[] = [
 
 // All topic metadata (lightweight, no content)
 export const topicMetas: TopicMeta[] = [
+  { id: "eng-vocab-unit1", eraId: "english-grade1", name: "Hello, Everyone! の単語", subtitle: "<ruby>教科書<rt>きょうかしょ</rt></ruby> P.11-18 / <ruby>新出<rt>しんしゅつ</rt></ruby>40<ruby>語<rt>ご</rt></ruby>", icon: "👋", order: 0, chatId: "eng-vocab-unit1", hasExamples: false },
   { id: "eng-be-verbs", eraId: "english-grade1", name: "be動詞", subtitle: "am / is / are の使い分けをマスター", icon: "🔤", order: 1, chatId: "eng-be-verbs", hasExamples: true },
   { id: "eng-exclamatives", eraId: "english-grade1", name: "感嘆文", subtitle: "How ~! / What a ~!", icon: "❗", order: 12, chatId: "eng-exclamatives", hasExamples: true },
   { id: "eng-general-verbs", eraId: "english-grade1", name: "一般動詞", subtitle: "like / play / study ... 動きを表すことば", icon: "🏃", order: 2, chatId: "eng-general-verbs", hasExamples: true },
@@ -366,6 +367,7 @@ export const topicMetas: TopicMeta[] = [
 
 // Lazy content loaders (dynamic import, not loaded until called)
 export const contentLoaders: Record<string, () => Promise<TopicContent>> = {
+  "eng-vocab-unit1": () => import("./../subjects/english/grades/grade1/topics/0a-vocab-unit1-hello/index.ts").then(m => m.vocabUnit1Hello.content),
   "eng-be-verbs": () => import("./../subjects/english/grades/grade1/topics/1-be-verbs/index.ts").then(m => m.beVerbs.content),
   "eng-exclamatives": () => import("./../subjects/english/grades/grade1/topics/10-exclamatives/index.ts").then(m => m.exclamatives.content),
   "eng-general-verbs": () => import("./../subjects/english/grades/grade1/topics/2-general-verbs/index.ts").then(m => m.generalVerbs.content),
@@ -657,6 +659,7 @@ export const contentLoaders: Record<string, () => Promise<TopicContent>> = {
 
 // Lazy chat loaders (dynamic import, not loaded until called)
 export const chatLoaders: Record<string, () => Promise<HistoryChat>> = {
+  "eng-vocab-unit1": () => import("./../subjects/english/grades/grade1/topics/0a-vocab-unit1-hello/chat.ts").then(m => m.unit1HelloVocabChat),
   "eng-be-verbs": () => import("./../subjects/english/grades/grade1/topics/1-be-verbs/chat.ts").then(m => m.beVerbsChat),
   "eng-exclamatives": () => import("./../subjects/english/grades/grade1/topics/10-exclamatives/chat.ts").then(m => m.exclamativesChat),
   "eng-general-verbs": () => import("./../subjects/english/grades/grade1/topics/2-general-verbs/chat.ts").then(m => m.generalVerbsChat),
