@@ -17,6 +17,13 @@ interface StripeCheckoutSessionResponse {
 
 const TRIAL_PRICE_YEN = 680;
 const NORMAL_PRICE_YEN = 980;
+/**
+ * 体験期間の最大日数。Stripe Checkout で trial_period_days を計算するとき、
+ * Math.ceil とクロックずれの組合せで本来 7 を返すべきところ 8 が返るケースを
+ * 防ぐためのキャップ。「7日間無料」と表示されるはずなのに「8日間無料」と
+ * 出ていたのはこれが原因。
+ */
+const MAX_TRIAL_DAYS = 7;
 
 function setCorsHeaders(req: functions.https.Request, res: functions.Response) {
   const origin = req.get('origin') || '*';
@@ -145,9 +152,11 @@ export const createStripeCheckoutSession = functions
             ? premiumUntilRaw.toMillis()
             : 0;
         if (premiumUntilMs > Date.now()) {
-          trialPeriodDays = Math.ceil(
+          const rawDays = Math.ceil(
             (premiumUntilMs - Date.now()) / (24 * 60 * 60 * 1000)
           );
+          // 体験は最大 7 日なので、計算結果が clock skew で 8 になっても 7 に丸める
+          trialPeriodDays = Math.min(MAX_TRIAL_DAYS, Math.max(1, rawDays));
         }
       }
 
@@ -173,6 +182,14 @@ export const createStripeCheckoutSession = functions
           String(trialPeriodDays)
         );
       }
+      // Stripe Checkout のサブミット直下にユーザー安心感を補強する文言を表示。
+      // 「X日間無料」の標準表示に加えて、課金額と解約自由を明示する。
+      params.append(
+        'custom_text[submit][message]',
+        trialPeriodDays > 0
+          ? `体験終了後は月¥${lockedMonthlyPrice}（税込）。マイページからいつでも解約できます。`
+          : `月¥${lockedMonthlyPrice}（税込）。マイページからいつでも解約できます。`
+      );
       appendFormParam(
         params,
         'customer_email',

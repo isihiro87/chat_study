@@ -1889,18 +1889,10 @@ function buildSettingsGuideFlexMessage() {
         contents: [
           {
             type: 'text' as const,
-            text: '学年・配信時刻を変えるなら設定画面から、書き込み制限なしで何度でも変更できるよ。',
+            text: 'よく使う設定はこちらから。学年・配信時刻・解約・お問い合わせは設定画面の中から進められるよ。',
             wrap: true,
             size: 'sm' as const,
             color: '#111827',
-          },
-          {
-            type: 'text' as const,
-            text: '解約や問い合わせ・FAQ も設定画面のリンクから。',
-            wrap: true,
-            size: 'xs' as const,
-            color: '#6B7280',
-            margin: 'sm' as const,
           },
         ],
       },
@@ -1917,8 +1909,8 @@ function buildSettingsGuideFlexMessage() {
             height: 'sm' as const,
             action: {
               type: 'uri' as const,
-              label: '設定画面を開く',
-              uri: LIFF_SETTINGS_URL,
+              label: '🎯 テスト範囲設定',
+              uri: LIFF_TEST_RANGE_URL,
             },
           },
           {
@@ -1927,8 +1919,8 @@ function buildSettingsGuideFlexMessage() {
             height: 'sm' as const,
             action: {
               type: 'uri' as const,
-              label: 'お問い合わせ',
-              uri: CONTACT_URL,
+              label: '⚙️ 設定画面を開く',
+              uri: LIFF_SETTINGS_URL,
             },
           },
         ],
