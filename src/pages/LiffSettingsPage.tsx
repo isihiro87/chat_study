@@ -107,6 +107,59 @@ export function LiffSettingsPage() {
   const [cancelStep, setCancelStep] = useState<CancelStep>('idle');
   const [cancelError, setCancelError] = useState<string | null>(null);
 
+  // 本登録（Stripe Checkout）への直接導線。
+  // 旧フロー: settings →（タップ1）→ /liff/premium-info →（タップ2）→ /liff/premium-apply
+  //                                                                    →（タップ3）→ Stripe Checkout
+  // 新フロー: settings →（タップ1）→ Stripe Checkout
+  // 体験中ユーザーは既にプラン内容を理解しているので、間の説明 LIFF を踏ませず
+  // 最短で決済に進める。
+  const [checkoutStatus, setCheckoutStatus] = useState<'idle' | 'submitting' | 'error'>(
+    'idle'
+  );
+  const [checkoutError, setCheckoutError] = useState<string | null>(null);
+
+  const handleStartCheckout = async () => {
+    if (!user) return;
+    if (!CHECKOUT_FN_URL) {
+      setCheckoutError(
+        '決済ページの準備中です。しばらくしてからもう一度お試しください。'
+      );
+      setCheckoutStatus('error');
+      return;
+    }
+    setCheckoutStatus('submitting');
+    setCheckoutError(null);
+    try {
+      const idToken = await user.getIdToken();
+      const successUrl = new URL('/liff/settings', window.location.origin);
+      successUrl.searchParams.set('checkout', 'success');
+      const cancelUrl = new URL('/liff/settings', window.location.origin);
+      cancelUrl.searchParams.set('checkout', 'cancel');
+      const res = await fetch(CHECKOUT_FN_URL, {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${idToken}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          successUrl: successUrl.toString(),
+          cancelUrl: cancelUrl.toString(),
+        }),
+      });
+      const data = (await res.json()) as { url?: string; error?: string };
+      if (!res.ok || !data.url) {
+        throw new Error(data.error || 'checkout_session_failed');
+      }
+      window.location.href = data.url;
+    } catch (err) {
+      console.error('[LiffSettingsPage] checkout failed', err);
+      setCheckoutError(
+        '決済ページを開けませんでした。通信状況を確認のうえ、もう一度お試しください。'
+      );
+      setCheckoutStatus('error');
+    }
+  };
+
   const planSource = userDoc?.planSource ?? null;
   const cancelAtPeriodEnd = userDoc?.cancelAtPeriodEnd ?? false;
   const currentPeriodEnd = userDoc?.currentPeriodEnd ?? null;
@@ -408,19 +461,32 @@ export function LiffSettingsPage() {
             )}
           </div>
 
-          {/* 無料体験中: 解約不要の案内 + 本登録 CTA */}
+          {/* 無料体験中: 解約不要の案内 + 本登録 CTA（Stripe Checkout 直行） */}
           {s.plan === 'premium' && isTrial && (
             <>
               <p className="mt-3 text-xs text-gray-500 leading-relaxed">
                 体験中は解約手続きは不要です。期間終了時に自動で無料プランに戻ります。
-                体験中にこのままサブスク登録した場合は、体験終了後から1ヶ月のプレミアム期間が始まります（体験期間中は二重課金されません）。
+                体験中にこのまま登録した場合は、体験終了後から1ヶ月のプレミアム期間が始まります（体験期間中は二重課金されません）。
               </p>
-              <a
-                href={PREMIUM_INFO_URL}
-                className="mt-3 block w-full text-center bg-amber-500 hover:bg-amber-600 active:scale-[0.98] transition rounded-full py-3 text-sm font-bold text-white shadow-sm"
+              <button
+                type="button"
+                onClick={() => void handleStartCheckout()}
+                disabled={checkoutStatus === 'submitting'}
+                className="mt-3 block w-full text-center bg-amber-500 hover:bg-amber-600 active:scale-[0.98] transition rounded-full py-3 text-sm font-bold text-white shadow-sm disabled:opacity-60"
                 style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
               >
-                月¥680 で本登録する
+                {checkoutStatus === 'submitting'
+                  ? '決済ページを準備中…'
+                  : '月¥680 で本登録する'}
+              </button>
+              {checkoutError && (
+                <p className="mt-2 text-xs text-red-600">{checkoutError}</p>
+              )}
+              <a
+                href={PREMIUM_INFO_URL}
+                className="mt-2 block text-center text-xs text-amber-700 underline"
+              >
+                プラン内容をもう一度見る
               </a>
             </>
           )}
