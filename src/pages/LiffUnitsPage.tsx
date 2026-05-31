@@ -7,6 +7,7 @@ import { useLiffAuth } from '../hooks/useLiffAuth';
 import { logFunnelEvent } from '../utils/funnelEvent';
 import { LoadingScreen } from '../components/common/LoadingScreen';
 import { RubyText } from '../components/common/RubyText';
+import { TrialPremiumBanner } from '../components/common/TrialPremiumBanner';
 import {
   loadItemStats,
   loadAllItemStatsByTopic,
@@ -831,6 +832,8 @@ export function LiffUnitsPage() {
           </p>
         </div>
       </header>
+
+      <TrialPremiumBanner />
 
       <main className="max-w-2xl mx-auto px-4">
         {latestResumeInfo && (

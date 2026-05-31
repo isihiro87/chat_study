@@ -3,6 +3,7 @@ import { Navigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { useLiffAuth } from '../hooks/useLiffAuth';
 import { LoadingScreen } from '../components/common/LoadingScreen';
+import { TrialPremiumBanner } from '../components/common/TrialPremiumBanner';
 import {
   eraMetas,
   topicMetas,
@@ -281,6 +282,8 @@ export function LiffTestRangePage() {
           </h1>
         </div>
       </header>
+
+      <TrialPremiumBanner />
 
       <main className="max-w-2xl mx-auto px-4">
         {status === 'profile-missing' && (

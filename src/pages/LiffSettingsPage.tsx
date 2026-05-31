@@ -5,6 +5,7 @@ import { db, auth } from '../firebase/config';
 import { useAuth } from '../contexts/AuthContext';
 import { useLiffAuth } from '../hooks/useLiffAuth';
 import { LoadingScreen } from '../components/common/LoadingScreen';
+import { TrialPremiumBanner } from '../components/common/TrialPremiumBanner';
 
 const CHECKOUT_FN_URL = import.meta.env.VITE_PREMIUM_CHECKOUT_FN_URL as
   | string
@@ -253,6 +254,8 @@ export function LiffSettingsPage() {
         </div>
       </header>
 
+      <TrialPremiumBanner />
+
       <main className="max-w-2xl mx-auto px-4 space-y-4 mt-4">
         {/* ニックネーム */}
         <section className="bg-white rounded-2xl shadow-sm p-5">
@@ -405,12 +408,21 @@ export function LiffSettingsPage() {
             )}
           </div>
 
-          {/* 無料体験中: 解約不要の案内 */}
+          {/* 無料体験中: 解約不要の案内 + 本登録 CTA */}
           {s.plan === 'premium' && isTrial && (
-            <p className="mt-3 text-xs text-gray-500 leading-relaxed">
-              無料体験中は解約手続きは不要です。期間終了時に自動で無料プランに戻ります。
-              体験中にこのままサブスク登録した場合は、体験終了後から1ヶ月のプレミアム期間が始まります（体験期間中は二重課金されません）。
-            </p>
+            <>
+              <p className="mt-3 text-xs text-gray-500 leading-relaxed">
+                体験中は解約手続きは不要です。期間終了時に自動で無料プランに戻ります。
+                体験中にこのままサブスク登録した場合は、体験終了後から1ヶ月のプレミアム期間が始まります（体験期間中は二重課金されません）。
+              </p>
+              <a
+                href={PREMIUM_INFO_URL}
+                className="mt-3 block w-full text-center bg-amber-500 hover:bg-amber-600 active:scale-[0.98] transition rounded-full py-3 text-sm font-bold text-white shadow-sm"
+                style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+              >
+                月¥680 で本登録する
+              </a>
+            </>
           )}
 
           {/* 有料・解約予約済み: 利用期限の案内 */}

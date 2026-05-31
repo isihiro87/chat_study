@@ -5,6 +5,7 @@ import { db } from '../firebase/config';
 import { useAuth } from '../contexts/AuthContext';
 import { useLiffAuth } from '../hooks/useLiffAuth';
 import { LoadingScreen } from '../components/common/LoadingScreen';
+import { TrialPremiumBanner } from '../components/common/TrialPremiumBanner';
 import { withFirestoreTimeout } from '../utils/firestoreTimeout';
 
 const REPORT_DOC_TIMEOUT_MS = 5000;
@@ -218,6 +219,8 @@ export function LiffReportPage() {
           </h1>
         </div>
       </header>
+
+      <TrialPremiumBanner />
 
       <main className="max-w-2xl mx-auto px-4">
         {!stats ? (
