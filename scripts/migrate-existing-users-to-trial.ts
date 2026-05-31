@@ -12,23 +12,27 @@
  *   - blocked !== true（ブロック中ユーザーは LINE API でリッチメニュー変更や
  *     push が失敗するので除外）
  *   - grade が "中1" | "中2" | "中3"（trial 適用前に学年は必須）
- *   - stats.totalAnswered >= 1（1問以上回答済）
+ *   - stats.totalAnswered >= 1（1問以上回答済）。
+ *     ※ --include-zero-answers で未回答ユーザーも対象に含める
  *   - plan !== "premium"（既プレミアム化済みは除外）
  *   - planSource !== "trial"（既に trial 使用済み = 期限切れも含む は除外）
  *
  * 使い方:
  *   gcloud auth application-default login
  *   npx tsx scripts/migrate-existing-users-to-trial.ts --dry-run
- *   npx tsx scripts/migrate-existing-users-to-trial.ts --confirm --skip-flex
+ *   npx tsx scripts/migrate-existing-users-to-trial.ts --dry-run --include-zero-answers
+ *   npx tsx scripts/migrate-existing-users-to-trial.ts --confirm --skip-flex --include-zero-answers
  *   npx tsx scripts/migrate-existing-users-to-trial.ts --confirm
  *
  * 引数:
- *   --dry-run            実書き込みなし。対象者リストのみ表示（デフォルト）
- *   --confirm            実書き込みあり
- *   --skip-flex          LINE 公式の trial 開始 flex push を送らない
- *                        （配信制限中の本実行用）
- *   --limit <N>          先頭 N 件だけ処理（段階リリース用）
- *   --uid <line:Uxxx>    特定 1 件だけ処理（テスト用）
+ *   --dry-run                実書き込みなし。対象者リストのみ表示（デフォルト）
+ *   --confirm                実書き込みあり
+ *   --skip-flex              LINE 公式の trial 開始 flex push を送らない
+ *                            （配信制限中の本実行用、または broadcast で代替する場合）
+ *   --limit <N>              先頭 N 件だけ処理（段階リリース用）
+ *   --uid <line:Uxxx>        特定 1 件だけ処理（テスト用）
+ *   --include-zero-answers   stats.totalAnswered < 1 のユーザーも対象に含める
+ *                            （登録者全員 trial キャンペーン用、デフォルトは除外）
  *
  * 各ユーザーに対して行うこと:
  *   1. Firestore users/{uid} に Phase 1+2 と同じ trial フィールド一式を merge
@@ -75,6 +79,7 @@ interface Args {
   skipFlex: boolean;
   limit: number | null;
   onlyUid: string | null;
+  includeZeroAnswers: boolean;
 }
 
 interface Candidate {
@@ -112,12 +117,14 @@ function parseArgs(): Args {
     skipFlex: false,
     limit: null,
     onlyUid: null,
+    includeZeroAnswers: false,
   };
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i];
     if (a === "--dry-run") args.dryRun = true;
     else if (a === "--confirm") args.dryRun = false;
     else if (a === "--skip-flex") args.skipFlex = true;
+    else if (a === "--include-zero-answers") args.includeZeroAnswers = true;
     else if (a === "--limit") {
       const n = Number(argv[++i]);
       if (!Number.isFinite(n) || n <= 0) {
@@ -326,6 +333,7 @@ function classify(
   uid: string,
   data: any,
   stats: Stats,
+  includeZeroAnswers: boolean,
 ): Candidate | null {
   const lineUserId = typeof data.lineUserId === "string" ? data.lineUserId : "";
   if (!lineUserId) {
@@ -349,7 +357,7 @@ function classify(
     typeof data.stats?.totalAnswered === "number"
       ? data.stats.totalAnswered
       : 0;
-  if (totalAnswered < 1) {
+  if (totalAnswered < 1 && !includeZeroAnswers) {
     stats.skippedNoAnswers++;
     return null;
   }
@@ -376,7 +384,9 @@ async function main(): Promise<void> {
   const trialRichMenuId = resolveTrialRichMenuId(env);
 
   console.log(
-    `[migrate] start dryRun=${args.dryRun} skipFlex=${args.skipFlex} limit=${args.limit ?? "none"} onlyUid=${args.onlyUid ?? "(all)"}`,
+    `[migrate] start dryRun=${args.dryRun} skipFlex=${args.skipFlex} ` +
+      `includeZeroAnswers=${args.includeZeroAnswers} ` +
+      `limit=${args.limit ?? "none"} onlyUid=${args.onlyUid ?? "(all)"}`,
   );
   console.log(`[migrate] trial richMenuId = ${trialRichMenuId}`);
 
@@ -417,7 +427,7 @@ async function main(): Promise<void> {
 
   const candidates: Candidate[] = [];
   for (const doc of usersSnap.docs) {
-    const c = classify(doc.id, doc.data(), stats);
+    const c = classify(doc.id, doc.data(), stats, args.includeZeroAnswers);
     if (c) candidates.push(c);
   }
   stats.candidates = candidates.length;
