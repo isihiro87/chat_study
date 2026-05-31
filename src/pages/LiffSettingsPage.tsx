@@ -117,6 +117,10 @@ export function LiffSettingsPage() {
     'idle'
   );
   const [checkoutError, setCheckoutError] = useState<string | null>(null);
+  // 未成年者の単独契約は民法上後で取り消しが可能なため、申込時点で保護者の
+  // 同意を取得したことを明示的に確認する。チェックされるまで本登録ボタンを
+  // 押せない。
+  const [parentConsent, setParentConsent] = useState(false);
 
   const handleStartCheckout = async () => {
     if (!user) return;
@@ -468,17 +472,63 @@ export function LiffSettingsPage() {
                 体験中は解約手続きは不要です。期間終了時に自動で無料プランに戻ります。
                 体験中にこのまま登録した場合は、体験終了後から1ヶ月のプレミアム期間が始まります（体験期間中は二重課金されません）。
               </p>
+              <p className="mt-2 text-xs text-gray-500 leading-relaxed">
+                今後、対応教科の追加に伴い月額を引き上げる予定です（¥980/月を予定）。今登録すると、値上げ後も月¥680のまま継続いただけます。
+              </p>
+              <label className="mt-3 flex items-start gap-2 cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={parentConsent}
+                  onChange={(e) => setParentConsent(e.target.checked)}
+                  className="mt-0.5 h-4 w-4 accent-amber-500"
+                />
+                <span className="text-xs text-gray-700 leading-relaxed">
+                  私は保護者です。お子さまの利用について同意のうえ、本契約を申し込みます。
+                  <a
+                    href="/legal"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="ml-1 text-amber-600 underline"
+                  >
+                    特商法表記
+                  </a>
+                  ・
+                  <a
+                    href="/terms"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-amber-600 underline"
+                  >
+                    利用規約
+                  </a>
+                  ・
+                  <a
+                    href="/privacy"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-amber-600 underline"
+                  >
+                    プライバシーポリシー
+                  </a>
+                  に同意します。
+                </span>
+              </label>
               <button
                 type="button"
                 onClick={() => void handleStartCheckout()}
-                disabled={checkoutStatus === 'submitting'}
-                className="mt-3 block w-full text-center bg-amber-500 hover:bg-amber-600 active:scale-[0.98] transition rounded-full py-3 text-sm font-bold text-white shadow-sm disabled:opacity-60"
+                disabled={checkoutStatus === 'submitting' || !parentConsent}
+                className="mt-3 block w-full text-center bg-amber-500 hover:bg-amber-600 active:scale-[0.98] transition rounded-full py-3 text-sm font-bold text-white shadow-sm disabled:opacity-60 disabled:cursor-not-allowed"
                 style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
               >
                 {checkoutStatus === 'submitting'
                   ? '決済ページを準備中…'
                   : '月¥680 で本登録する'}
               </button>
+              {!parentConsent && (
+                <p className="mt-1 text-[11px] text-gray-400 text-center">
+                  保護者の同意確認後に押せるようになります
+                </p>
+              )}
               {checkoutError && (
                 <p className="mt-2 text-xs text-red-600">{checkoutError}</p>
               )}

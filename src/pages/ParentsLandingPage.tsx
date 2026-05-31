@@ -107,20 +107,17 @@ export function ParentsLandingPage() {
                   </span>
                   <span className="text-sm text-gray-600">/月（税込）</span>
                 </div>
-                <div className="flex items-baseline gap-2 mt-1">
-                  <span className="text-xs text-gray-400 line-through">
-                    通常 ¥{REGULAR_PRICE_YEN.toLocaleString()}/月
-                  </span>
+                <div className="mt-1">
                   <span className="text-xs font-bold text-amber-700">
-                    ⏰ 残り{promo.daysRemaining}日
+                    ⏰ 特典終了まで残り{promo.daysRemaining}日
                   </span>
                 </div>
                 <p className="text-xs text-gray-700 mt-3 leading-relaxed">
-                  特典期間中にご登録いただいた方は、対応教科の追加で通常価格 ¥
-                  {REGULAR_PRICE_YEN.toLocaleString()}/月になっても、
-                  <br />
+                  今後、対応教科の追加に伴い月額を引き上げる予定です（¥
+                  {REGULAR_PRICE_YEN.toLocaleString()}/月を予定）。特典期間中にご登録いただいた方は、値上げ後も
                   <span className="font-bold text-amber-700">
-                    ずっと月 ¥{PROMO_PRICE_YEN.toLocaleString()}
+                    {' '}
+                    ずっと月 ¥{PROMO_PRICE_YEN.toLocaleString()}{' '}
                   </span>
                   のまま継続いただけます。
                 </p>

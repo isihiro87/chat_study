@@ -68,7 +68,6 @@ interface UserProfile {
 }
 
 const PROMO_PRICE_YEN = 680;
-const REGULAR_PRICE_YEN = 980;
 const CHECKOUT_FN_URL = import.meta.env.VITE_PREMIUM_CHECKOUT_FN_URL as
   | string
   | undefined;
@@ -191,15 +190,20 @@ export function LiffPremiumApplyPage() {
     }
   }, [user, loading, userDoc, userDocLoaded]);
 
+  // 未成年者の単独契約は民法上後で取り消しが可能なため、申込時点で保護者の
+  // 同意を取得したことを明示的に確認する。チェックされるまで submit 不可。
+  const [parentConsent, setParentConsent] = useState(false);
+
   const canSubmit = useMemo(() => {
     if (status !== 'ready') return false;
     if (!profile) return false;
+    if (!parentConsent) return false;
     // Phase 4 以降、ready は trial 中 / 切れのみで成立。両方とも常に submit 可能。
     return (
       profile.planSource === 'trial' ||
       profile.planSource === 'trial_expired'
     );
-  }, [profile, status]);
+  }, [profile, status, parentConsent]);
 
   const handleSubmit = async () => {
     if (!user || !profile) return;
@@ -460,14 +464,11 @@ export function LiffPremiumApplyPage() {
                 >
                   ¥{PROMO_PRICE_YEN.toLocaleString()}
                 </span>
-                <span className="text-xs text-gray-400 line-through">
-                  通常 ¥{REGULAR_PRICE_YEN.toLocaleString()}
-                </span>
                 <span className="text-xs text-gray-600">/月（税込）</span>
               </div>
               <p className="text-xs text-amber-700 mt-1 font-bold">
                 ⏰ 特典終了まで残り{promo.daysRemaining}日 /
-                今登録すると今後も680円のまま
+                値上げ後も680円のまま継続可能
               </p>
               <p className="text-xs text-gray-600 mt-2 leading-relaxed">
                 7日間無料でプレミアムプランを試して、続ける場合だけStripeの月額登録に進みます。
@@ -485,13 +486,10 @@ export function LiffPremiumApplyPage() {
                 >
                   ¥{PROMO_PRICE_YEN.toLocaleString()}
                 </span>
-                <span className="text-xs text-gray-400 line-through">
-                  通常 ¥{REGULAR_PRICE_YEN.toLocaleString()}
-                </span>
                 <span className="text-xs text-gray-600">/月（税込）</span>
               </div>
               <p className="text-xs text-gray-600 mt-2 leading-relaxed">
-                今登録すると、今後教科が増えて価格が上がった後も680円のまま使い続けられます。
+                今後、対応教科の追加に伴い月額を引き上げる予定です。今登録すれば、値上げ後も680円のまま継続いただけます。
               </p>
             </div>
           )}
@@ -559,36 +557,44 @@ export function LiffPremiumApplyPage() {
 
         {/* 送信ボタン */}
         <section>
-          <p className="text-xs text-gray-500 text-center mb-3 leading-relaxed">
-            「{isTrialToPaid ? 'これからも使い続ける' : 'もう一度はじめる'}」を押すと、
-            <a
-              href="https://www.chatstudy.jp/terms"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-amber-600 underline"
-            >
-              利用規約
-            </a>
-            ・
-            <a
-              href="https://www.chatstudy.jp/privacy"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-amber-600 underline"
-            >
-              プライバシーポリシー
-            </a>
-            ・
-            <a
-              href="https://www.chatstudy.jp/legal"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-amber-600 underline"
-            >
-              特定商取引法に基づく表記
-            </a>
-            に同意したものとみなします。
-          </p>
+          <label className="flex items-start gap-2 cursor-pointer mb-3 px-2">
+            <input
+              type="checkbox"
+              checked={parentConsent}
+              onChange={(e) => setParentConsent(e.target.checked)}
+              className="mt-0.5 h-4 w-4 accent-amber-500 flex-shrink-0"
+            />
+            <span className="text-xs text-gray-700 leading-relaxed">
+              私は保護者です。お子さまの利用について同意のうえ、本契約を申し込みます。
+              <a
+                href="https://www.chatstudy.jp/legal"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="ml-1 text-amber-600 underline"
+              >
+                特商法表記
+              </a>
+              ・
+              <a
+                href="https://www.chatstudy.jp/terms"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-amber-600 underline"
+              >
+                利用規約
+              </a>
+              ・
+              <a
+                href="https://www.chatstudy.jp/privacy"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-amber-600 underline"
+              >
+                プライバシーポリシー
+              </a>
+              に同意します。
+            </span>
+          </label>
           <button
             type="button"
             onClick={() => void handleSubmit()}
@@ -604,6 +610,11 @@ export function LiffPremiumApplyPage() {
                   ? 'これからも使い続ける'
                   : 'もう一度はじめる'}
           </button>
+          {!parentConsent && (
+            <p className="mt-1 text-[11px] text-gray-400 text-center">
+              保護者の同意確認後に押せるようになります
+            </p>
+          )}
           <p className="text-xs text-gray-400 text-center mt-3 leading-relaxed">
             {CHECKOUT_FN_URL
               ? '次の画面で決済情報を入力します。いつでも解約できます。'

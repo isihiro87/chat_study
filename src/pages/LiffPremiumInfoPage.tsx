@@ -19,7 +19,6 @@ const CONTACT_URL = LIFF_ID_CONTACT
 const APPLY_PATH = '/liff/premium-apply';
 const PARENTS_LP_URL = 'https://www.chatstudy.jp/for-parents';
 const PROMO_PRICE_YEN = 680;
-const REGULAR_PRICE_YEN = 980;
 const CURRENT_SCOPE = '現在は中1・中2の歴史に対応';
 const FUTURE_SCOPE = '対応教科は今後追加予定';
 
@@ -231,9 +230,6 @@ export function LiffPremiumInfoPage() {
           <div className="flex justify-center gap-2 mb-3">
             <span className="rounded-full bg-white/90 px-3 py-1 text-[11px] font-bold text-amber-700">
               今だけ月{PROMO_PRICE_YEN.toLocaleString()}円
-              <span className="ml-1 text-gray-400 line-through font-normal">
-                ¥{REGULAR_PRICE_YEN.toLocaleString()}
-              </span>
             </span>
             <span className="rounded-full bg-white/90 px-3 py-1 text-[11px] font-bold text-amber-700">
               いつでも解約可
@@ -274,9 +270,6 @@ export function LiffPremiumInfoPage() {
                 >
                   ¥{PROMO_PRICE_YEN.toLocaleString()}
                 </span>
-                <span className="text-xs text-gray-400 line-through">
-                  通常 ¥{REGULAR_PRICE_YEN.toLocaleString()}
-                </span>
                 <span className="text-xs text-gray-600">/月（税込）</span>
               </div>
               <p
@@ -289,11 +282,11 @@ export function LiffPremiumInfoPage() {
                   : ''}
               </p>
               <p className="text-xs text-gray-600 mt-1 leading-relaxed">
-                今登録いただいた方は、今後教科が増えて価格が上がった後も
+                今後、対応教科の追加に伴い月額を引き上げる予定です。特典期間中に登録いただいた方は、値上げ後も
                 <span className="font-bold text-amber-700">
                   月¥{PROMO_PRICE_YEN.toLocaleString()}
                 </span>
-                のまま使い続けられます。
+                のまま継続いただけます。
               </p>
               <div className="mt-3 grid grid-cols-2 gap-2 text-[11px] font-bold">
                 <div className="rounded-xl bg-white/80 px-3 py-2 text-gray-700">
@@ -316,14 +309,11 @@ export function LiffPremiumInfoPage() {
                 >
                   ¥{PROMO_PRICE_YEN.toLocaleString()}
                 </span>
-                <span className="text-xs text-gray-400 line-through">
-                  通常 ¥{REGULAR_PRICE_YEN.toLocaleString()}
-                </span>
                 <span className="text-xs text-gray-600">/月（税込）</span>
               </div>
               <p className="text-xs text-gray-500 mt-2 leading-relaxed">
-                今登録いただいた方は、今後教科が増えて価格が上がった後も月¥
-                {PROMO_PRICE_YEN.toLocaleString()}のまま使い続けられます。
+                今後、対応教科の追加に伴い月額を引き上げる予定です。今登録いただいた方は、値上げ後も月¥
+                {PROMO_PRICE_YEN.toLocaleString()}のまま継続いただけます。
               </p>
             </div>
           ) : (
@@ -338,14 +328,11 @@ export function LiffPremiumInfoPage() {
                 >
                   ¥{PROMO_PRICE_YEN.toLocaleString()}
                 </span>
-                <span className="text-xs text-gray-400 line-through">
-                  通常 ¥{REGULAR_PRICE_YEN.toLocaleString()}
-                </span>
                 <span className="text-xs text-gray-600">/月（税込）</span>
               </div>
               <p className="text-xs text-gray-500 mt-2 leading-relaxed">
-                今登録いただいた方は、今後教科が増えて価格が上がった後も月¥
-                {PROMO_PRICE_YEN.toLocaleString()}のまま使い続けられます。
+                今後、対応教科の追加に伴い月額を引き上げる予定です。今登録いただいた方は、値上げ後も月¥
+                {PROMO_PRICE_YEN.toLocaleString()}のまま継続いただけます。
               </p>
             </div>
           )}

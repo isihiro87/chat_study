@@ -249,9 +249,6 @@ export function PremiumLandingPage() {
                 </span>
                 <span className="rounded-full bg-white/95 px-3 py-1 text-[11px] font-bold text-amber-700">
                   今だけ月{PROMO_PRICE_YEN.toLocaleString()}円
-                  <span className="ml-1 text-gray-400 line-through font-normal">
-                    ¥{REGULAR_PRICE_YEN.toLocaleString()}
-                  </span>
                 </span>
               </div>
               <h1
@@ -591,16 +588,14 @@ export function PremiumLandingPage() {
                   ¥{PROMO_PRICE_YEN.toLocaleString()}
                 </span>
                 <span className="text-base text-gray-600">/月（税込）</span>
-                <span className="text-sm text-gray-400 line-through">
-                  通常 ¥{REGULAR_PRICE_YEN.toLocaleString()}
-                </span>
               </div>
               <p className="text-sm text-gray-700 leading-relaxed mb-6">
-                今登録した方は、対応教科が増えて通常価格 ¥
-                {REGULAR_PRICE_YEN.toLocaleString()} に上がった後も、
+                今後、対応教科の追加に伴い月額を引き上げる予定です（¥
+                {REGULAR_PRICE_YEN.toLocaleString()}/月を予定）。今登録した方は、値上げ後も
                 <span className="font-bold text-amber-700">
-                  ずっと月 ¥{PROMO_PRICE_YEN.toLocaleString()}
-                </span>{' '}
+                  {' '}
+                  ずっと月 ¥{PROMO_PRICE_YEN.toLocaleString()}{' '}
+                </span>
                 のまま継続いただけます。
               </p>
 
