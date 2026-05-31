@@ -65,10 +65,10 @@ export function LoadingScreen({
             style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
           >
             <p className="text-sm font-bold text-amber-800 mb-2">
-              ⚠️ ページを開けないようです
+              ⚠️ ページに進めないようです
             </p>
             <p className="text-xs text-gray-700 leading-relaxed">
-              キャッシュが残っている可能性があります。
+              テスト範囲設定や暗記カードのページが開けない場合、
               <br />
               <b>LINE アプリを完全に終了</b>して、
               <br />

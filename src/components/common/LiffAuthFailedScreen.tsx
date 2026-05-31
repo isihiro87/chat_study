@@ -40,9 +40,11 @@ export function LiffAuthFailedScreen({ nextPath }: Props) {
             className="text-lg font-bold text-gray-800"
             style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
           >
-            ページを開けませんでした
+            ページに進めませんでした
           </h1>
           <p className="text-xs text-gray-500 mt-2 leading-relaxed">
+            テスト範囲設定や暗記カードのページが開けないようです。
+            <br />
             LINE アプリのキャッシュが残っている可能性があります。
           </p>
         </div>
