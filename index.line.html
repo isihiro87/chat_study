@@ -79,6 +79,45 @@
         0%, 80%, 100% { transform: translateY(0); }
         40% { transform: translateY(-10px); }
       }
+      .initial-loading-rescue {
+        display: none;
+        margin-top: 24px;
+        max-width: 340px;
+        padding: 0 16px;
+        text-align: center;
+      }
+      .initial-loading-rescue.show { display: block; }
+      .initial-loading-rescue-title {
+        font-size: 14px;
+        font-weight: bold;
+        color: #92400E;
+        margin: 0 0 8px;
+      }
+      .initial-loading-rescue-body {
+        font-size: 12px;
+        color: #4B5563;
+        line-height: 1.6;
+        margin: 0 0 12px;
+      }
+      .initial-loading-rescue-btn {
+        display: inline-block;
+        padding: 10px 24px;
+        background: #F59E0B;
+        color: #FFFFFF;
+        border: none;
+        border-radius: 999px;
+        font-size: 13px;
+        font-weight: 500;
+        cursor: pointer;
+      }
+      .initial-loading-rescue-btn:active { transform: scale(0.96); }
+      .initial-loading-rescue-tips {
+        margin-top: 12px;
+        font-size: 11px;
+        color: #6B7280;
+        text-align: left;
+        line-height: 1.7;
+      }
     </style>
   </head>
   <body>
@@ -90,8 +129,51 @@
           <span class="initial-loading-dot"></span>
         </div>
         <p class="initial-loading-text">読み込み中...</p>
+        <!--
+          React が一定時間内にマウントされなかった場合（= asset hash 404 などで
+          JS バンドルがロードできなかった場合）に出すレスキューパネル。
+          React が正常にマウントすれば <div id="root"> の中身が React によって
+          置き換わるので、このパネル自体も消える。
+        -->
+        <div id="initial-loading-rescue" class="initial-loading-rescue">
+          <p class="initial-loading-rescue-title">⚠️ ページを開けないようです</p>
+          <p class="initial-loading-rescue-body">
+            キャッシュが残っている可能性があります。<br />
+            LINE アプリを<b>完全に終了</b>して、もう一度開いてみてください。
+          </p>
+          <button
+            type="button"
+            class="initial-loading-rescue-btn"
+            onclick="location.reload()"
+          >
+            ページを再読み込み
+          </button>
+          <div class="initial-loading-rescue-tips">
+            それでも開かないとき:
+            <ol style="padding-left: 20px; margin: 6px 0 0;">
+              <li>画面右上の「⋮」ボタン → 「すべてのタブ」</li>
+              <li>「チャットでスタディ」のタブを全て削除</li>
+              <li>LINE のメニューからもう一度開き直す</li>
+            </ol>
+          </div>
+        </div>
       </div>
     </div>
+    <script>
+      // React が STUCK_MS 以内に <div id="root"> を置き換えなかったら、
+      // 上のレスキューパネルを表示する。Cache-Control / SW なしの dist-line/ で
+      // index.html が古いままだと、参照する hash 付き JS が 404 になって
+      // React がマウントできずローディングのままになる症状の救済。
+      (function () {
+        var STUCK_MS = 4000;
+        setTimeout(function () {
+          var loading = document.querySelector('.initial-loading');
+          if (!loading) return; // React がマウント済みなら何もしない
+          var rescue = document.getElementById('initial-loading-rescue');
+          if (rescue) rescue.className = 'initial-loading-rescue show';
+        }, STUCK_MS);
+      })();
+    </script>
     <script type="module" src="/src/main.line.tsx"></script>
   </body>
 </html>

@@ -10,7 +10,7 @@ interface LoadingScreenProps {
   stuckThresholdMs?: number;
 }
 
-const DEFAULT_STUCK_MS = 6000;
+const DEFAULT_STUCK_MS = 4000;
 
 /**
  * フルスクリーンのローディング画面。
@@ -59,10 +59,22 @@ export function LoadingScreen({
         {message}
       </p>
       {stuck && (
-        <div className="mt-6 max-w-sm w-full px-2 space-y-3">
-          <p className="text-xs text-gray-500 text-center">
-            少し時間がかかっています。もう少しお待ちください。
-          </p>
+        <div className="mt-6 max-w-sm w-full px-3 space-y-3">
+          <div
+            className="bg-amber-50 border border-amber-200 rounded-2xl p-4 text-center"
+            style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+          >
+            <p className="text-sm font-bold text-amber-800 mb-2">
+              ⚠️ ページを開けないようです
+            </p>
+            <p className="text-xs text-gray-700 leading-relaxed">
+              キャッシュが残っている可能性があります。
+              <br />
+              <b>LINE アプリを完全に終了</b>して、
+              <br />
+              もう一度開いてみてください。
+            </p>
+          </div>
           <button
             type="button"
             onClick={() => window.location.reload()}
@@ -71,7 +83,7 @@ export function LoadingScreen({
           >
             ページを再読み込み
           </button>
-          <details className="text-[11px] text-gray-500">
+          <details className="text-[11px] text-gray-500 px-1">
             <summary className="cursor-pointer text-center text-gray-400">
               それでも開かないとき
             </summary>
@@ -79,11 +91,8 @@ export function LoadingScreen({
               <li>画面右上の「⋮」（縦三点）ボタンをタップ</li>
               <li>「すべてのタブ」を開く</li>
               <li>「チャットでスタディ」のタブを全て削除</li>
-              <li>メニューからもう一度開き直す</li>
+              <li>LINE のメニューからもう一度開き直す</li>
             </ol>
-            <p className="text-[10px] text-gray-400 mt-2">
-              キャッシュされた古いページが残っていると発生することがあります。
-            </p>
           </details>
         </div>
       )}
