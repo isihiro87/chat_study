@@ -59,6 +59,36 @@ async function loadHistoryEras(grade: GradeNum): Promise<StudyEra[] | null> {
   }
 }
 
+/**
+ * deep link で渡された topic 名から、対応する StudyTopic を全学年から検索する。
+ *
+ * 検索は data/content 由来の topic.name と完全一致のみ。preferredGrade を先頭に
+ * 置いた学年順で見て、見つかった時点でその grade とともに返す。見つからなければ
+ * null を返し、呼び出し側で list view + バナー fallback に倒す想定。
+ *
+ * 旧 data/line-questions/*.json の粗い topic 名（"戦国時代" 等）は対象外。
+ * これらは新ソース（content-history-v1）との 1:1 対応が無く、フォールバックの
+ * list view から手動で選んでもらう。
+ */
+async function resolveDeepLinkTopic(
+  topicName: string,
+  preferredGrade: GradeNum | null,
+): Promise<{ topic: StudyTopic; grade: GradeNum } | null> {
+  const grades: GradeNum[] = preferredGrade
+    ? ([preferredGrade, ...([1, 2, 3] as GradeNum[]).filter((g) => g !== preferredGrade)])
+    : ([1, 2, 3] as GradeNum[]);
+
+  for (const g of grades) {
+    const eras = await loadHistoryEras(g);
+    if (!eras) continue;
+    const exact = eras
+      .flatMap((e) => e.topics)
+      .find((t) => t.name === topicName);
+    if (exact) return { topic: exact, grade: g };
+  }
+  return null;
+}
+
 type ViewMode = 'list' | 'setup' | 'fc' | 'quiz' | 'fc-end' | 'quiz-end';
 type SetupKind = 'fc' | 'quiz';
 type Difficulty = 'basic' | 'standard' | 'advanced';
@@ -159,6 +189,8 @@ export function LiffUnitsPage() {
       ? deepLinkKindRaw
       : null;
   const deepLinkAppliedRef = useRef(false);
+  // resolve に失敗した場合は list view 上部にバナーを出す
+  const [deepLinkUnresolved, setDeepLinkUnresolved] = useState(false);
   // liff_units_open イベントは 1 マウントあたり 1 回だけ記録する
   const openEventLoggedRef = useRef(false);
 
@@ -297,85 +329,52 @@ export function LiffUnitsPage() {
 
   const allEras: StudyEra[] = useMemo(() => historyEras ?? [], [historyEras]);
 
-  // 公式LINE の post-answer flex からの deep-link 適用。historyEras がロードされた
-  // タイミングでトピック名が一致するものを探し、見つかれば該当 kind のセッションを
-  // **自動的に開始**して fc / quiz view に直行する（旧版は setup view 止まり）。
-  // 一度だけ走らせるため deepLinkAppliedRef でガード。
+  // 公式LINE の post-answer flex からの deep-link 適用。historyEras の初回ロードが
+  // 終わったタイミングで、まず現在の学年で検索し、見つからなければ全学年 + 旧
+  // topic マッピングまで含めて resolve する（resolveDeepLinkTopic）。
+  // 着地点は **setup view**（旧版で auto-start していたが、ユーザーが「選択された
+  // ことを確認したい / 枚数・難易度を調整したい」というニーズに合わせ setup 止まり
+  // に戻した）。resolve に失敗した場合は list view にフォールバックし、上部に
+  // 「○○ に近いトピックを下から選んでください」バナーを出す。
   useEffect(() => {
     if (deepLinkAppliedRef.current) return;
     if (!deepLinkTopicName || !deepLinkKind) return;
-    if (historyEras === null) return; // まだロード中
-    const topic = historyEras
-      .flatMap((e) => e.topics)
-      .find((t) => t.name === deepLinkTopicName);
-    if (!topic) {
-      // 別学年の topic 等で見つからない場合は list view にフォールバック
-      deepLinkAppliedRef.current = true;
-      return;
-    }
+    if (historyEras === null) return; // 初回ロード待ち
     deepLinkAppliedRef.current = true;
-    setCurrentTopic(topic);
-    setSetupKind(deepLinkKind);
-    setSessionSeenFcIds(new Set());
-    setSessionSeenQuizIds(new Set());
 
-    const startNow = (topic: StudyTopic, statsForTopic: ItemStatsMap) => {
-      const mode: PickMode = setupRandomize ? 'random' : 'sequential';
-      if (deepLinkKind === 'fc') {
-        const filtered = topic.flashcards.filter((c) =>
-          difficultyMatch(c.difficulty, setupDifficulties),
-        );
-        const picked = pickItems(filtered, statsForTopic, setupCount, mode);
-        if (picked.length === 0) {
-          // 候補ゼロのときだけ setup view に落として手動で条件を変えてもらう
-          setView('setup');
-          return;
-        }
-        if (user) clearSavedSession(user.uid, topic.topicId, 'fc');
-        setResumeFc(null);
-        setActiveFcItems(picked);
-        setSessionSeenFcIds(new Set(picked.map((i) => i.id)));
-        setKnownIds([]);
-        setUnknownIds([]);
-        setView('fc');
-      } else {
-        const filtered = topic.quiz.filter((q) =>
-          difficultyMatch(q.difficulty, setupDifficulties),
-        );
-        const picked = pickItems(filtered, statsForTopic, setupCount, mode);
-        if (picked.length === 0) {
-          setView('setup');
-          return;
-        }
-        if (user) clearSavedSession(user.uid, topic.topicId, 'quiz');
-        setResumeQuiz(null);
-        setActiveQuizItems(picked);
-        setSessionSeenQuizIds(new Set(picked.map((i) => i.id)));
-        setWrongIds([]);
-        setView('quiz');
+    void (async () => {
+      const resolved = await resolveDeepLinkTopic(
+        deepLinkTopicName,
+        selectedGrade,
+      );
+      if (!resolved) {
+        setDeepLinkUnresolved(true);
+        return;
       }
-    };
-
-    const cached = allItemStats.get(topic.topicId);
-    if (cached) {
-      setItemStats(cached);
-      startNow(topic, cached);
-    } else {
-      void (async () => {
-        const stats = await loadItemStats(topic.topicId);
+      // 学年が違うなら切替（list view の整合性のため）
+      if (resolved.grade !== selectedGrade) {
+        setSelectedGrade(resolved.grade);
+      }
+      setCurrentTopic(resolved.topic);
+      setSetupKind(deepLinkKind);
+      setSessionSeenFcIds(new Set());
+      setSessionSeenQuizIds(new Set());
+      // itemStats を裏でロード（setup view の表示には必須ではない）
+      const cached = allItemStats.get(resolved.topic.topicId);
+      if (cached) {
+        setItemStats(cached);
+      } else {
+        const stats = await loadItemStats(resolved.topic.topicId);
         setItemStats(stats);
-        startNow(topic, stats);
-      })();
-    }
+      }
+      setView('setup');
+    })();
   }, [
     historyEras,
     deepLinkTopicName,
     deepLinkKind,
     allItemStats,
-    setupRandomize,
-    setupDifficulties,
-    setupCount,
-    user,
+    selectedGrade,
   ]);
 
   const filteredEras: StudyEra[] = useMemo(() => {
@@ -885,6 +884,15 @@ export function LiffUnitsPage() {
       <TrialPremiumBanner />
 
       <main className="max-w-2xl mx-auto px-4">
+        {deepLinkUnresolved && deepLinkTopicName && (
+          <section className="mt-4 bg-sky-50 border border-sky-200 rounded-2xl p-3">
+            <p className="text-xs text-sky-900 leading-relaxed">
+              🔍「<span className="font-bold">{deepLinkTopicName}</span>」の問題に
+              ぴったり対応する単元が見つかりませんでした。下のリストから近そうな単元を選んでください。
+            </p>
+          </section>
+        )}
+
         {latestResumeInfo && (
           <section className="mt-4 bg-amber-50 border border-amber-200 rounded-2xl p-4">
             <div className="text-xs text-amber-800 mb-1">📍 前回の続きから</div>

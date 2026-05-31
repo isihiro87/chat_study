@@ -191,11 +191,6 @@ const PARENTS_REASSURANCE: ParentReassurance[] = [
     title: '保護者も学習状況を確認できる',
     body: 'リッチメニュー「成績・記録」から、連続学習日数・解いた問題数・正答率がいつでも分かります。',
   },
-  {
-    icon: '🧾',
-    title: '領収書・請求書も発行可能',
-    body: '教育費として家計管理されたい場合も安心。お問い合わせから宛名を指定して発行できます。',
-  },
 ];
 
 interface QA {
@@ -698,17 +693,17 @@ export function LiffPremiumInfoPage() {
           )}
         </section>
 
-        {/* 保護者の安心ブロック */}
+        {/* 安心ポイント: サービス全体の安心要素 */}
         <section className="mt-4 bg-white rounded-2xl shadow-sm p-5 border border-sky-100">
           <div className="flex items-center gap-2 mb-3">
             <span className="rounded-full bg-sky-100 px-2.5 py-0.5 text-[10px] font-bold text-sky-700">
-              FOR PARENTS
+              POINT
             </span>
             <h2
               className="text-base font-bold text-gray-800"
               style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
             >
-              保護者の方が安心できる5つの理由
+              当サービスの安心ポイント4つ
             </h2>
           </div>
           <ul className="space-y-3">
@@ -731,20 +726,6 @@ export function LiffPremiumInfoPage() {
               </li>
             ))}
           </ul>
-          <div className="mt-4 bg-sky-50 rounded-xl px-3 py-2.5">
-            <p className="text-xs text-sky-900 leading-relaxed">
-              📖 保護者向けの詳しい説明は{' '}
-              <a
-                href={PARENTS_LP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-bold underline"
-              >
-                こちらのページ
-              </a>
-              。LINE で送ることもできます（下のセクション参照）。
-            </p>
-          </div>
         </section>
 
         {/* 申込から利用開始までの流れ */}
