@@ -5,6 +5,7 @@ import {
   buildPremiumNudgeFlexMessage,
   buildNextStepGuideFlex,
   buildPriceLockPitchFlex,
+  buildScopeSetupNudgeFlexMessage,
   buildTrialStartedFlexMessage,
   getLineClient,
   getUserPlan,
@@ -35,6 +36,13 @@ const FIRST_EXTRA_FOLLOWUP_PRICE_DELAY_MS = 60 * 1000;
  * 既存の onPremiumApplicationCreated と同じ 7 日間。
  */
 const AUTO_TRIAL_DURATION_MS = 7 * 24 * 60 * 60 * 1000;
+/**
+ * テスト範囲未設定ユーザーへの「範囲を設定しよう」nudge を送る最大回数。
+ * 設定すると以降は送られないが、ずっと未設定のままでもしつこくならないよう
+ * 最初の数回で打ち切る。1問目（first_answer）は trial 開始 flex を優先するため
+ * 2問目以降の回答時にだけ送る。
+ */
+const SCOPE_SETUP_NUDGE_MAX = 3;
 
 /**
  * 「今回の回答で新たに到達したか」を判定する。
@@ -70,6 +78,10 @@ interface NudgeContext {
   firstAnswerNudgeSentAtMs: number | null;
   /** 公式 LINE をブロック中なら nudge / 自動トライアル push をスキップする */
   blocked: boolean;
+  /** testScope.topics が 1 件以上設定済みなら true（範囲設定 nudge の停止条件） */
+  hasTestScope: boolean;
+  /** これまでに範囲設定 nudge を送った回数（SCOPE_SETUP_NUDGE_MAX で打ち切り） */
+  scopeSetupNudgeCount: number;
 }
 
 /**
@@ -305,6 +317,66 @@ async function maybeSendPremiumNudge(ctx: NudgeContext): Promise<void> {
   } catch (error) {
     console.error(
       "[onAnswerCreated] lastPremiumNudgeAt update failed (next milestone retry):",
+      error
+    );
+  }
+}
+
+/**
+ * テスト範囲が未設定のユーザーへ、回答直後に「範囲を設定しよう」nudge を送る。
+ * - testScope 設定済み → 送らない（設定したら自動で止まる）
+ * - 送信回数が SCOPE_SETUP_NUDGE_MAX に達していたら送らない
+ * - 1問目（first_answer）は trial 開始 flex を優先するため送らない
+ * - プレミアム/無料を問わず未設定なら対象
+ * 送信したら scopeSetupNudgeCount をインクリメントする。
+ */
+async function maybeSendScopeSetupNudge(ctx: NudgeContext): Promise<void> {
+  if (!ctx.lineUserId) return;
+  if (ctx.blocked) return;
+  if (ctx.hasTestScope) return;
+  if (ctx.scopeSetupNudgeCount >= SCOPE_SETUP_NUDGE_MAX) return;
+  // 1問目は trial 自動開放 flex（maybeSendPremiumNudge 内）が主役なので衝突回避。
+  const isFirstAnswer =
+    ctx.prevTotalAnswered === 0 && ctx.nextTotalAnswered === 1;
+  if (isFirstAnswer) return;
+
+  let pushed = false;
+  try {
+    const client = await getLineClient();
+    await client.pushMessage({
+      to: ctx.lineUserId,
+      messages: [buildScopeSetupNudgeFlexMessage()],
+    });
+    pushed = true;
+    console.log(
+      `[onAnswerCreated] scope setup nudge sent uid=${ctx.uid} ` +
+        `count=${ctx.scopeSetupNudgeCount + 1}/${SCOPE_SETUP_NUDGE_MAX}`
+    );
+  } catch (error) {
+    console.error("[onAnswerCreated] scope setup nudge push failed:", error);
+  }
+
+  if (!pushed) return;
+
+  await recordPushDelivery("scopeSetupNudge");
+
+  try {
+    const { initializeApp, getApps } = await import("firebase-admin/app");
+    const { getFirestore, FieldValue } = await import("firebase-admin/firestore");
+    if (getApps().length === 0) {
+      initializeApp();
+    }
+    const db = getFirestore();
+    await db.doc(`users/${ctx.uid}`).set(
+      {
+        scopeSetupNudgeCount: FieldValue.increment(1),
+        lastScopeSetupNudgeAt: FieldValue.serverTimestamp(),
+      },
+      { merge: true }
+    );
+  } catch (error) {
+    console.error(
+      "[onAnswerCreated] scopeSetupNudgeCount update failed:",
       error
     );
   }
@@ -559,6 +631,17 @@ export const onAnswerCreated = functions
         // 公式 LINE をブロック中なら nudge / firstExtraFollowup の push を全て止める
         const blocked = userData.blocked === true;
 
+        // 範囲設定 nudge の停止条件
+        const scopeTopics = (userData.testScope as
+          | { topics?: unknown[] }
+          | undefined)?.topics;
+        const hasTestScope =
+          Array.isArray(scopeTopics) && scopeTopics.length > 0;
+        const scopeSetupNudgeCount =
+          typeof userData.scopeSetupNudgeCount === "number"
+            ? userData.scopeSetupNudgeCount
+            : 0;
+
         nudgeCtx = {
           uid,
           lineUserId,
@@ -570,6 +653,8 @@ export const onAnswerCreated = functions
           lastPremiumNudgeAtMs,
           firstAnswerNudgeSentAtMs,
           blocked,
+          hasTestScope,
+          scopeSetupNudgeCount,
         };
 
         // 体験中ユーザーの「追加で解く」初回フォロー用コンテキスト
@@ -614,6 +699,14 @@ export const onAnswerCreated = functions
         await maybeSendPremiumNudge(nudgeCtx);
       } catch (error) {
         console.error("[onAnswerCreated] maybeSendPremiumNudge failed:", error);
+      }
+      try {
+        await maybeSendScopeSetupNudge(nudgeCtx);
+      } catch (error) {
+        console.error(
+          "[onAnswerCreated] maybeSendScopeSetupNudge failed:",
+          error
+        );
       }
     }
 

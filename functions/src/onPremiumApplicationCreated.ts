@@ -13,6 +13,7 @@ import {
   linkRichMenuForUser,
 } from './lineRichMenu';
 import { logServerFunnelEvent } from './funnelEvent';
+import { recordPushDelivery } from './deliveryStats';
 
 const TRIAL_DURATION_MS = 7 * 24 * 60 * 60 * 1000;
 
@@ -231,6 +232,7 @@ export const onPremiumApplicationCreated = functions
           to: lineUserId,
           messages: [buildTrialStartedFlexMessage()],
         });
+        await recordPushDelivery('other');
       } catch (error) {
         console.error(
           `[onPremiumApplicationCreated] trial 開始 flex push 失敗 uid=${uid}:`,
@@ -247,6 +249,7 @@ export const onPremiumApplicationCreated = functions
           to: lineUserId,
           messages: [{ type: 'text', text: PREMIUM_NOT_YET_AVAILABLE_TEXT }],
         });
+        await recordPushDelivery('other');
       } catch (error) {
         console.error(
           `[onPremiumApplicationCreated] not-yet-available push 失敗 uid=${uid}:`,
@@ -327,7 +330,38 @@ export const onPremiumApplicationCreated = functions
       `\n` +
       `applicationId=${applicationId}`;
 
-    await Promise.allSettled(
+    // Firestore トリガは at-least-once 配信のため、同じ applicationId で
+    // この関数が複数回発火し得る。管理者通知が重複して送信枠を無駄に消費しないよう、
+    // `adminNotifiedAt` を transaction で原子的に立て、先勝ちした起動だけが送信する。
+    const appRef = db.doc(`premiumApplications/${applicationId}`);
+    let alreadyNotified = false;
+    try {
+      await db.runTransaction(async (tx) => {
+        const appSnap = await tx.get(appRef);
+        if (appSnap.get('adminNotifiedAt')) {
+          alreadyNotified = true;
+          return;
+        }
+        tx.set(
+          appRef,
+          { adminNotifiedAt: FieldValue.serverTimestamp() },
+          { merge: true }
+        );
+      });
+    } catch (error) {
+      console.error(
+        `[onPremiumApplicationCreated] adminNotifiedAt claim failed (applicationId=${applicationId}):`,
+        error
+      );
+    }
+    if (alreadyNotified) {
+      console.log(
+        `[onPremiumApplicationCreated] admin notify skipped (already notified, applicationId=${applicationId})`
+      );
+      return;
+    }
+
+    const adminResults = await Promise.allSettled(
       adminIds.map(async (adminId) => {
         try {
           await lineClient.pushMessage({
@@ -342,7 +376,14 @@ export const onPremiumApplicationCreated = functions
             `[onPremiumApplicationCreated] push to ${adminId} failed:`,
             error
           );
+          throw error;
         }
       })
     );
+    const adminOkCount = adminResults.filter(
+      (r) => r.status === 'fulfilled'
+    ).length;
+    if (adminOkCount > 0) {
+      await recordPushDelivery('other', adminOkCount);
+    }
   });

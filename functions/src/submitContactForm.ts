@@ -1,6 +1,7 @@
 import * as functions from 'firebase-functions/v1';
 
 import { getLineClient } from './lineWebhook';
+import { recordPushDelivery } from './deliveryStats';
 
 /**
  * 公式LINE LIFF `/liff/contact` のフォームから問い合わせを受け取り、
@@ -89,6 +90,9 @@ async function pushToAdmins(
       );
       failed++;
     }
+  }
+  if (pushed > 0) {
+    await recordPushDelivery('other', pushed);
   }
   return { pushed, failed };
 }

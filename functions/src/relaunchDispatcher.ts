@@ -56,6 +56,24 @@ const LIFF_PREMIUM_INFO_URL = "https://liff.line.me/2009587166-k51bH4LC";
 const RESTART_HINT_TEXT =
   "※ テスト範囲設定や暗記カードのページに進めない場合は、LINE アプリを完全に終了してから開き直してください。\n（ホームに戻るだけでは更新されません。アプリ切替画面から LINE を上にスワイプ）";
 
+const HOUR_LABELS: Record<number, string> = {
+  6: "朝6時", 7: "朝7時", 16: "夕方4時", 18: "夕方6時", 20: "夜8時",
+};
+
+function hourLabel(hour: number | null): string {
+  if (hour == null) return "ご設定の時間";
+  return HOUR_LABELS[hour] ?? `${hour}時`;
+}
+
+/** 「設定いただいた時刻に今日から毎日1問配信します」の案内行 */
+function dailyDeliveryLine(hour: number | null): any {
+  const text =
+    hour == null
+      ? "⏰ 今日から毎日1問、お届けします。"
+      : `⏰ ご設定の${hourLabel(hour)}に、今日から毎日1問お届けします。`;
+  return { type: "text", text, wrap: true, size: "sm", color: "#92400E", weight: "bold", margin: "md" };
+}
+
 type Segment = "A" | "B" | "C" | "D" | "E";
 
 interface Candidate {
@@ -189,7 +207,7 @@ function bubblePreferredHourSelect(): any {
   };
 }
 
-function bubbleScopeSetup(): any {
+function bubbleScopeSetup(hour: number | null): any {
   return {
     type: "flex",
     altText: "テスト範囲を設定すると出題精度が上がります",
@@ -202,7 +220,7 @@ function bubbleScopeSetup(): any {
       body: {
         type: "box", layout: "vertical", paddingAll: "14px", spacing: "sm",
         contents: [
-          { type: "text", text: "本日から毎日1問の配信を再開しています。", wrap: true, size: "sm", color: "#333333" },
+          dailyDeliveryLine(hour),
           { type: "text", text: "テスト範囲を設定すると、その単元だけから出題されてテスト対策の精度が上がります。", wrap: true, size: "sm", color: "#333333", margin: "md" },
           { type: "text", text: RESTART_HINT_TEXT, wrap: true, size: "xs", color: "#888888", margin: "md" },
         ],
@@ -216,7 +234,7 @@ function bubbleScopeSetup(): any {
   };
 }
 
-function bubbleRedelivery(): any {
+function bubbleRedelivery(hour: number | null): any {
   return {
     type: "flex",
     altText: "公式LINE 配信を再開しました",
@@ -229,7 +247,8 @@ function bubbleRedelivery(): any {
       body: {
         type: "box", layout: "vertical", paddingAll: "14px", spacing: "sm",
         contents: [
-          { type: "text", text: "公式LINE のメッセージ送信枠を増やし、本日から毎日1問の配信を再開しています。通学・寝る前のスキマ時間にどうぞ！", wrap: true, size: "sm", color: "#333333" },
+          { type: "text", text: "公式LINE のメッセージ送信枠を増やし、配信を再開しました。通学・寝る前のスキマ時間にどうぞ！", wrap: true, size: "sm", color: "#333333" },
+          dailyDeliveryLine(hour),
           { type: "text", text: RESTART_HINT_TEXT, wrap: true, size: "xs", color: "#888888", margin: "md" },
         ],
       },
@@ -237,7 +256,7 @@ function bubbleRedelivery(): any {
   };
 }
 
-function bubbleApologyAnswered(): any {
+function bubbleApologyAnswered(hour: number | null): any {
   return {
     type: "flex",
     altText: "突然の配信停止についてのお詫びと、月末までの配信再開のお知らせ",
@@ -252,6 +271,7 @@ function bubbleApologyAnswered(): any {
         contents: [
           { type: "text", text: "公式LINE のメッセージ送信上限に達してしまい、お使いいただいているのに突然配信が止まってしまいました。本当に申し訳ありませんでした。", wrap: true, size: "sm", color: "#333333" },
           { type: "text", text: "今月から送信枠を増やしました。月末まで毎日1問お送りします！", wrap: true, size: "sm", color: "#92400E", weight: "bold", margin: "md" },
+          dailyDeliveryLine(hour),
           { type: "text", text: RESTART_HINT_TEXT, wrap: true, size: "xs", color: "#888888", margin: "md" },
         ],
       },
@@ -285,7 +305,7 @@ function bubbleTrialBrief(): any {
 function bubbleTrialInfo(): any {
   return {
     type: "flex",
-    altText: "7日間プレミアム体験中です（登録しない限り料金は発生しません）",
+    altText: "7日間プレミアム体験中です（登録しない限り料金はかかりません）",
     contents: {
       type: "bubble", size: "kilo",
       header: {
@@ -296,8 +316,7 @@ function bubbleTrialInfo(): any {
         type: "box", layout: "vertical", paddingAll: "14px", spacing: "sm",
         contents: [
           { type: "text", text: "「追加で解く」「苦手を復習」「じっくり学ぶ」など、有料機能を 7 日間フルでお試しいただけます。", wrap: true, size: "sm", color: "#333333" },
-          { type: "text", text: "ご自分で本登録の手続きをしない限り料金は発生しません。安心してお試しください。", wrap: true, size: "sm", color: "#92400E", weight: "bold", margin: "md" },
-          { type: "text", text: "✅ クレジットカード登録不要・自動課金なし\n✅ 期間中の登録で月¥680 永続ロック", wrap: true, size: "xs", color: "#666666" },
+          { type: "text", text: "登録しない限り料金はかからないよ。安心してたくさん使ってね😊", wrap: true, size: "sm", color: "#92400E", weight: "bold", margin: "md" },
         ],
       },
       footer: {
@@ -309,13 +328,13 @@ function bubbleTrialInfo(): any {
   };
 }
 
-function buildBundle(segment: Segment): any[] {
+function buildBundle(segment: Segment, hour: number | null): any[] {
   switch (segment) {
     case "A": return [bubbleGradeSelect(), bubbleTrialBrief()];
     case "B": return [bubblePreferredHourSelect(), bubbleTrialBrief()];
-    case "C": return [bubbleScopeSetup(), bubbleTrialInfo()];
-    case "D": return [bubbleRedelivery(), bubbleTrialInfo()];
-    case "E": return [bubbleApologyAnswered(), bubbleTrialInfo()];
+    case "C": return [bubbleScopeSetup(hour), bubbleTrialInfo()];
+    case "D": return [bubbleRedelivery(hour), bubbleTrialInfo()];
+    case "E": return [bubbleApologyAnswered(hour), bubbleTrialInfo()];
   }
 }
 
@@ -393,16 +412,27 @@ async function runDispatchFor(preferredHourFilter: string, lockKey: string): Pro
   for (const seg of ["A", "B", "C", "D", "E"] as Segment[]) {
     const users = bySegment[seg];
     if (users.length === 0) continue;
-    const bundle = buildBundle(seg);
-    const ids = users.map((u) => u.lineUserId);
-    for (let i = 0; i < ids.length; i += 500) {
-      const batch = ids.slice(i, i + 500);
-      try {
-        await multicastApi(token, batch, bundle);
-        sendStats[seg].ok += batch.length;
-      } catch (err) {
-        sendStats[seg].failed += batch.length;
-        console.error(`[relaunchDispatcher] ${seg} multicast 失敗:`, (err as Error).message);
+    // 配信時刻の案内を個別化するため、preferredHour ごとに bundle を分けて送る。
+    const byHour = new Map<number | "none", Candidate[]>();
+    for (const u of users) {
+      const k: number | "none" = u.preferredHour ?? "none";
+      const arr = byHour.get(k);
+      if (arr) arr.push(u);
+      else byHour.set(k, [u]);
+    }
+    for (const [hourKey, group] of byHour) {
+      const hour = hourKey === "none" ? null : hourKey;
+      const bundle = buildBundle(seg, hour);
+      const ids = group.map((u) => u.lineUserId);
+      for (let i = 0; i < ids.length; i += 500) {
+        const batch = ids.slice(i, i + 500);
+        try {
+          await multicastApi(token, batch, bundle);
+          sendStats[seg].ok += batch.length;
+        } catch (err) {
+          sendStats[seg].failed += batch.length;
+          console.error(`[relaunchDispatcher] ${seg} multicast 失敗:`, (err as Error).message);
+        }
       }
     }
   }
@@ -493,7 +523,7 @@ async function runAdminTrialTest(): Promise<void> {
 
   // 3. flex push (Segment E と同じ：お詫び+月末まで配信 + trial info)
   try {
-    const messages = [bubbleApologyAnswered(), bubbleTrialInfo()];
+    const messages = [bubbleApologyAnswered(null), bubbleTrialInfo()];
     const res = await fetch("https://api.line.me/v2/bot/message/push", {
       method: "POST",
       headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },

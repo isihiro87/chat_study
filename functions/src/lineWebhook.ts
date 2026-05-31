@@ -1859,6 +1859,87 @@ function buildTestRangeMenuFlexMessage(
   };
 }
 
+/**
+ * テスト範囲を未設定のユーザーに、回答直後「範囲を設定すると毎日の1問が
+ * その単元から届くよ」と促す nudge flex。`onAnswerCreated` から push される。
+ * 設定画面が開けないケース向けに LINE アプリ再起動の案内も添える。
+ */
+export function buildScopeSetupNudgeFlexMessage() {
+  return {
+    type: 'flex' as const,
+    altText: 'テスト範囲を設定すると、毎日の1問がその単元から届きます',
+    contents: {
+      type: 'bubble' as const,
+      size: 'kilo' as const,
+      header: {
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        backgroundColor: '#F59E0B',
+        paddingAll: '14px',
+        contents: [
+          {
+            type: 'text' as const,
+            text: '🎯 テスト範囲を設定しよう',
+            color: '#FFFFFF',
+            weight: 'bold' as const,
+            size: 'md' as const,
+          },
+        ],
+      },
+      body: {
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        paddingAll: '20px',
+        spacing: 'sm' as const,
+        contents: [
+          {
+            type: 'text' as const,
+            text: '今は学年ぜんぶから出題しているよ。テスト範囲を設定すると、習った単元だけから毎日の1問が届いてテスト対策の効率がぐっと上がる👍',
+            wrap: true,
+            size: 'sm' as const,
+            color: '#111827',
+          },
+          {
+            type: 'text' as const,
+            text: '下のボタンから、出題してほしい単元にチェックを入れてね。',
+            wrap: true,
+            size: 'xs' as const,
+            color: '#6B7280',
+            margin: 'sm' as const,
+          },
+          {
+            type: 'text' as const,
+            text: '※ 設定画面が表示されない場合は、LINE アプリを完全に終了してから開き直してください。\n（ホームに戻るだけでは更新されません。アプリ切替画面から LINE を上にスワイプ）',
+            wrap: true,
+            size: 'xxs' as const,
+            color: '#9CA3AF',
+            margin: 'md' as const,
+          },
+        ],
+      },
+      footer: {
+        type: 'box' as const,
+        layout: 'vertical' as const,
+        spacing: 'sm' as const,
+        paddingAll: '16px',
+        contents: [
+          {
+            type: 'button' as const,
+            style: 'primary' as const,
+            color: '#F59E0B',
+            height: 'sm' as const,
+            action: {
+              type: 'uri' as const,
+              label: '範囲を設定する',
+              uri: LIFF_TEST_RANGE_URL,
+            },
+          },
+        ],
+      },
+    },
+  };
+}
+
 function buildSettingsGuideFlexMessage() {
   return {
     type: 'flex' as const,

@@ -16,6 +16,7 @@ export type PushType =
   | "winback"
   | "onboardingReminder"
   | "premiumNudge"
+  | "scopeSetupNudge"
   | "abandonReminder"
   | "postTrialFollowup"
   | "restartWelcome"
@@ -49,6 +50,7 @@ export function emptyPushCountByType(): PushCountByType {
     winback: 0,
     onboardingReminder: 0,
     premiumNudge: 0,
+    scopeSetupNudge: 0,
     abandonReminder: 0,
     postTrialFollowup: 0,
     restartWelcome: 0,

@@ -8,6 +8,7 @@ import {
   LineRichMenuConfigError,
   linkRichMenuForUser,
 } from './lineRichMenu';
+import { recordPushDelivery } from './deliveryStats';
 
 type StripeEventType =
   | 'checkout.session.completed'
@@ -222,6 +223,7 @@ async function markPaid(input: {
         to: input.lineUserId,
         messages: [buildPaidStartedFlexMessage(input.lockedMonthlyPrice)],
       });
+      await recordPushDelivery('other');
     } catch (error) {
       console.error(
         `[stripeWebhook] paid started message push failed uid=${input.uid}:`,
