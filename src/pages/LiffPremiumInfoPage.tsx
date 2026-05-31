@@ -5,9 +5,9 @@ import { useAuth } from '../contexts/AuthContext';
 
 type PageState =
   | 'loading'
-  | 'free'          // free + trial 未経験。「まずは 1問、解いてみよう」訴求
+  | 'free'          // free。「月¥680 で申し込む」直接訴求（trial 言及なし）
   | 'trial_active'  // plan=premium && planSource=trial。「これからも使い続ける」訴求
-  | 'trial_expired' // planSource=trial_expired。「もう一度はじめる」訴求
+  | 'trial_expired' // planSource=trial_expired。「月¥680 で再開」訴求
   | 'already_premium'; // paid 契約済み
 
 // お問い合わせは LIFF Contact ページ（line.chatstudy.jp/liff/contact）に集約。
@@ -93,23 +93,23 @@ interface Step {
 const STEPS: Step[] = [
   {
     num: 1,
-    title: '7日間無料で始める',
-    body: 'このページの下のボタンから、ワンタップで無料トライアルを開始できます',
+    title: 'このページから申込フォームへ',
+    body: '下のボタンから申込フォーム（LIFF）に進みます',
   },
   {
     num: 2,
-    title: '7日間 無料トライアル開始',
-    body: '送信後すぐに「追加で解く」「苦手を復習」が使えるようになります（自動で開放）',
+    title: '決済情報を入力',
+    body: 'クレジットカード（Visa / Mastercard / JCB / Amex）で月額決済を登録します',
   },
   {
     num: 3,
-    title: '続ける場合は月額登録へ',
-    body: '無料期間中に気に入ったら、月額プランの登録へ進めます',
+    title: 'プレミアム機能がすぐ使えるように',
+    body: '決済完了後すぐに「追加で解く」「苦手を復習」「じっくり学ぶ」が解放されます',
   },
   {
     num: 4,
-    title: '合わなければ自動で無料に戻る',
-    body: '本契約しなければ7日後に無料プランへ戻ります',
+    title: '解約はいつでも',
+    body: '設定・サポートまたはお問い合わせから1タップで解約できます。次回更新日まで利用可能、日割返金はありません',
   },
 ];
 
@@ -133,7 +133,7 @@ const FAQ: QA[] = [
   },
   {
     q: 'もし子どもに合わなかったら？',
-    a: '7日間の無料トライアル中であれば、追加のお支払いは発生しません。何もしなければ自動で無料プランに戻ります。',
+    a: 'いつでも解約できます。次回更新日までは引き続きご利用いただけ、それ以降は無料プランに戻ります。日割返金はありません。',
   },
   {
     q: '兄弟・家族で使えますか？',
@@ -161,9 +161,9 @@ export function LiffPremiumInfoPage() {
 
   // ユーザー状態に応じて主CTA と訴求トーンを切替える。
   // - trial 中           → 「これからも使い続ける」
-  // - trial 切れ         → 「もう一度はじめる」
+  // - trial 切れ         → 「月¥680 で本登録する」
   // - paid 契約済み      → CTA 出さず
-  // - free（trial 未経験）→ 「LINE トークから 1問解こう」案内
+  // - free               → 「月¥680 で申し込む」（trial は言及しない）
   const pageState: PageState = useMemo(() => {
     if (!userDocLoaded) return 'loading';
     if (!userDoc) return 'free';
@@ -174,19 +174,6 @@ export function LiffPremiumInfoPage() {
     if (planSource === 'trial_expired') return 'trial_expired';
     return 'free';
   }, [userDoc, userDocLoaded]);
-
-  const handleBackToLine = async () => {
-    try {
-      const liff = (await import('@line/liff')).default;
-      if (typeof liff.closeWindow === 'function') {
-        liff.closeWindow();
-        return;
-      }
-    } catch (err) {
-      console.warn('[LiffPremiumInfoPage] closeWindow failed', err);
-    }
-    window.location.href = 'https://line.me/R/';
-  };
 
   useEffect(() => {
     let cancelled = false;
@@ -227,8 +214,8 @@ export function LiffPremiumInfoPage() {
       const liff = (await import('@line/liff')).default;
       const message =
         `📚 チャットでスタディ プレミアムのご案内です\n\n` +
-        `中学生の毎日の学習を、公式LINEで1問ずつコツコツ続けるサービスです。` +
-        `7日間の無料トライアルあり。\n\n` +
+        `中学生の毎日の学習を、公式LINEで1問ずつコツコツ続けるサービスです。\n` +
+        `月 ${PROMO_PRICE_YEN.toLocaleString()}円（税込）、いつでも解約可能。\n\n` +
         `▼保護者向けの詳細はこちら\n${PARENTS_LP_URL}`;
       await liff.shareTargetPicker([{ type: 'text', text: message }]);
       setShareSucceeded(true);
@@ -243,13 +230,13 @@ export function LiffPremiumInfoPage() {
         <div className="max-w-2xl mx-auto px-4 py-7">
           <div className="flex justify-center gap-2 mb-3">
             <span className="rounded-full bg-white/90 px-3 py-1 text-[11px] font-bold text-amber-700">
-              7日間無料
-            </span>
-            <span className="rounded-full bg-white/90 px-3 py-1 text-[11px] font-bold text-amber-700">
               今だけ月{PROMO_PRICE_YEN.toLocaleString()}円
               <span className="ml-1 text-gray-400 line-through font-normal">
                 ¥{REGULAR_PRICE_YEN.toLocaleString()}
               </span>
+            </span>
+            <span className="rounded-full bg-white/90 px-3 py-1 text-[11px] font-bold text-amber-700">
+              いつでも解約可
             </span>
           </div>
           <h1
@@ -261,7 +248,7 @@ export function LiffPremiumInfoPage() {
             もっと解きたい人へ
           </h1>
           <p className="text-sm text-white/95 text-center mt-3 leading-relaxed">
-            毎日1問の配信に加えて、暗記カードと四択クイズが無制限。短時間で効率よく学べる仕組みです。
+            毎日1問の配信に加えて、暗記カードと四択クイズが無制限。月{PROMO_PRICE_YEN.toLocaleString()}円（税込）で続けられます。
           </p>
         </div>
       </header>
@@ -433,20 +420,8 @@ export function LiffPremiumInfoPage() {
             <p className="mt-4 text-center text-xs text-amber-700 font-bold">
               ✨ プレミアム会員ありがとうございます
             </p>
-          ) : pageState === 'free' || pageState === 'loading' ? (
-            <>
-              <button
-                type="button"
-                onClick={() => void handleBackToLine()}
-                className="mt-4 block w-full text-center bg-amber-500 hover:bg-amber-600 active:scale-[0.98] transition rounded-full py-3 text-sm font-bold text-white shadow-sm"
-                style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
-              >
-                まずは1問、LINEで解いてみる
-              </button>
-              <p className="text-xs text-gray-500 text-center mt-2">
-                1問解くと、これらの機能が自動で7日間ひらきます
-              </p>
-            </>
+          ) : pageState === 'loading' ? (
+            <p className="mt-4 text-center text-xs text-gray-400">読み込み中...</p>
           ) : (
             <>
               <a
@@ -456,24 +431,24 @@ export function LiffPremiumInfoPage() {
               >
                 {pageState === 'trial_active'
                   ? 'これからも使い続ける'
-                  : 'もう一度はじめる'}
+                  : `月${PROMO_PRICE_YEN.toLocaleString()}円で申し込む`}
               </a>
               <p className="text-xs text-gray-500 text-center mt-2">
                 {pageState === 'trial_active'
-                  ? `7日後もこのまま月${PROMO_PRICE_YEN.toLocaleString()}円で続けられます`
-                  : '次の画面で決済情報を入力します'}
+                  ? `継続後も月${PROMO_PRICE_YEN.toLocaleString()}円のまま使えます`
+                  : '次の画面で決済情報を入力します。いつでも解約できます。'}
               </p>
             </>
           )}
         </section>
 
-        {/* トライアル開始から継続までの流れ */}
+        {/* 申込から利用開始までの流れ */}
         <section className="mt-4 bg-white rounded-2xl shadow-sm p-5">
           <h2
             className="text-sm font-bold text-gray-700 mb-3"
             style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
           >
-            無料トライアル開始から継続まで
+            申込から利用開始まで
           </h2>
           <ol className="space-y-3">
             {STEPS.map((step) => (
@@ -561,42 +536,34 @@ export function LiffPremiumInfoPage() {
             <p className="text-sm text-amber-700 text-center font-bold">
               ✨ プレミアム会員ありがとうございます
             </p>
-          ) : pageState === 'free' || pageState === 'loading' ? (
-            <>
-              <p className="text-sm text-gray-700 text-center leading-relaxed">
-                まだ1問解いていない方は、まずトークから
-                <br />
-                <span className="font-bold text-amber-700">1問解くと、機能が自動でひらきます</span>
-              </p>
-              <button
-                type="button"
-                onClick={() => void handleBackToLine()}
-                className="mt-4 block w-full text-center bg-amber-500 hover:bg-amber-600 active:scale-[0.98] transition rounded-full py-3 text-sm font-bold text-white"
-                style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
-              >
-                LINEに戻って1問解く
-              </button>
-              <p className="text-xs text-gray-400 text-center mt-3 leading-relaxed">
-                カード登録なし、7日後にそのまま自動で戻ります
-              </p>
-            </>
+          ) : pageState === 'loading' ? (
+            <p className="text-sm text-gray-400 text-center">読み込み中...</p>
           ) : (
             <>
               <p className="text-sm text-gray-700 text-center leading-relaxed">
                 {pageState === 'trial_active' ? (
                   <>
-                    今、<span className="font-bold text-amber-700">7日間お試し中</span>です
+                    今、<span className="font-bold text-amber-700">プレミアム体験中</span>です
                     <br />
                     これからも続けるならこちらから
                   </>
-                ) : (
+                ) : pageState === 'trial_expired' ? (
                   <>
-                    お試し期間は終了しています
+                    プレミアム体験は終了しました
                     <br />
                     <span className="font-bold text-amber-700">
                       月{PROMO_PRICE_YEN.toLocaleString()}円
                     </span>
-                    で再開できます
+                    で続けられます
+                  </>
+                ) : (
+                  <>
+                    プレミアム機能をすぐに利用開始
+                    <br />
+                    <span className="font-bold text-amber-700">
+                      月{PROMO_PRICE_YEN.toLocaleString()}円（税込）
+                    </span>
+                    、いつでも解約可
                   </>
                 )}
               </p>
@@ -607,7 +574,7 @@ export function LiffPremiumInfoPage() {
               >
                 {pageState === 'trial_active'
                   ? 'これからも使い続ける'
-                  : 'もう一度はじめる'}
+                  : `月${PROMO_PRICE_YEN.toLocaleString()}円で申し込む`}
               </a>
               <p className="text-xs text-gray-400 text-center mt-3 leading-relaxed">
                 次の画面で決済情報を入力します。いつでも解約できます。
