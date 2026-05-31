@@ -628,7 +628,33 @@ export function LiffPremiumInfoPage() {
           </a>
         </section>
 
-        <p className="text-xs text-gray-400 text-center mt-6 leading-relaxed">
+        <div className="text-center text-xs text-gray-500 mt-6 flex flex-wrap justify-center gap-x-4 gap-y-1">
+          <a
+            href="https://www.chatstudy.jp/terms"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline"
+          >
+            利用規約
+          </a>
+          <a
+            href="https://www.chatstudy.jp/privacy"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline"
+          >
+            プライバシーポリシー
+          </a>
+          <a
+            href="https://www.chatstudy.jp/legal"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline"
+          >
+            特定商取引法に基づく表記
+          </a>
+        </div>
+        <p className="text-xs text-gray-400 text-center mt-3 leading-relaxed">
           チャットでスタディ
         </p>
       </main>

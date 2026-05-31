@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { usePremiumPromoCountdown } from '../hooks/usePremiumPromoCountdown';
 import { trackEvent } from '../utils/gtag';
+import { useAuth } from '../contexts/AuthContext';
 
 const LIFF_APPLY_URL = 'https://line.chatstudy.jp/liff/premium-apply';
 const CONTACT_URL = 'https://line.chatstudy.jp/liff/contact';
@@ -181,6 +182,8 @@ function ImageFrame({
 
 export function PremiumLandingPage() {
   const promo = usePremiumPromoCountdown();
+  const { userDoc } = useAuth();
+  const trialStatus = computeTrialStatus(userDoc);
   const lineFriendUrl =
     (import.meta.env.VITE_OFFICIAL_LINE_ADD_FRIEND_URL as string | undefined) ||
     DEFAULT_LINE_FRIEND_URL;
@@ -214,6 +217,10 @@ export function PremiumLandingPage() {
 
   return (
     <div className="min-h-screen bg-[#FAF9F7] pb-28 sm:pb-16">
+      {trialStatus.kind !== 'none' && (
+        <TrialStatusBanner status={trialStatus} applyUrl={LIFF_APPLY_URL} />
+      )}
+
       {/* ============= SECTION 1: Hero ============= */}
       <header className="relative overflow-hidden bg-amber-500">
         {/* 装飾: 背景の薄い円 (SVG) */}
@@ -757,12 +764,15 @@ export function PremiumLandingPage() {
               </a>
             </div>
 
-            <div className="text-center space-x-4 text-xs text-gray-500">
+            <div className="text-center text-xs text-gray-500 flex flex-wrap justify-center gap-x-4 gap-y-1">
               <Link to="/terms" className="underline">
                 利用規約
               </Link>
               <Link to="/privacy" className="underline">
                 プライバシーポリシー
+              </Link>
+              <Link to="/legal" className="underline">
+                特定商取引法に基づく表記
               </Link>
               <Link to="/for-parents" className="underline">
                 保護者の方へ
@@ -783,9 +793,77 @@ export function PremiumLandingPage() {
           className={`${accentCtaClass} w-full py-3 text-sm`}
           style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
         >
-          7日間無料で始める →
+          {trialStatus.kind === 'trial-active'
+            ? `あと${trialStatus.daysLeft}日 → 継続登録する`
+            : '7日間無料で始める →'}
         </a>
       </div>
     </div>
   );
+}
+
+type TrialStatus =
+  | { kind: 'none' }
+  | { kind: 'trial-active'; daysLeft: number }
+  | { kind: 'trial-expired' }
+  | { kind: 'paid'; cancelAtPeriodEnd: boolean };
+
+function computeTrialStatus(
+  userDoc: ReturnType<typeof useAuth>['userDoc'],
+): TrialStatus {
+  if (!userDoc) return { kind: 'none' };
+  if (userDoc.planSource === 'paid') {
+    return {
+      kind: 'paid',
+      cancelAtPeriodEnd: userDoc.cancelAtPeriodEnd,
+    };
+  }
+  if (userDoc.planSource === 'trial' && userDoc.premiumUntil) {
+    const msLeft = userDoc.premiumUntil.getTime() - Date.now();
+    if (msLeft <= 0) return { kind: 'trial-expired' };
+    const daysLeft = Math.max(1, Math.ceil(msLeft / (24 * 60 * 60 * 1000)));
+    return { kind: 'trial-active', daysLeft };
+  }
+  if (userDoc.planSource === 'trial_expired') return { kind: 'trial-expired' };
+  return { kind: 'none' };
+}
+
+function TrialStatusBanner({
+  status,
+  applyUrl,
+}: {
+  status: TrialStatus;
+  applyUrl: string;
+}) {
+  if (status.kind === 'paid') {
+    return (
+      <div className="bg-emerald-50 border-b border-emerald-200 px-4 py-3 text-center text-sm text-emerald-800">
+        ✨ プレミアム会員にご登録いただきありがとうございます
+        {status.cancelAtPeriodEnd && '（解約予約中）'}
+      </div>
+    );
+  }
+  if (status.kind === 'trial-active') {
+    return (
+      <div className="bg-amber-500 text-white px-4 py-3 text-center text-sm font-bold flex flex-col sm:flex-row items-center justify-center gap-2">
+        <span>
+          🎁 プレミアム体験中（あと{status.daysLeft}日）
+        </span>
+        <a
+          href={applyUrl}
+          className="inline-flex items-center bg-white text-amber-700 rounded-full px-4 py-1 text-xs font-bold"
+        >
+          月¥680で継続登録する →
+        </a>
+      </div>
+    );
+  }
+  if (status.kind === 'trial-expired') {
+    return (
+      <div className="bg-gray-100 border-b border-gray-200 px-4 py-3 text-center text-sm text-gray-700">
+        プレミアム体験は終了しました。引き続きご利用される場合は月¥680で本登録いただけます。
+      </div>
+    );
+  }
+  return null;
 }

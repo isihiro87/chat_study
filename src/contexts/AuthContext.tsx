@@ -78,6 +78,12 @@ export interface UserDoc {
    * 解約予約中の UI で「○月○日まで使えます」を表示するために使う。
    */
   currentPeriodEnd: Date | null;
+  /**
+   * プレミアム機能の有効期限。trial / paid どちらでも設定される。
+   * trial 中なら trial 終了日、paid なら次回課金日相当。
+   * LP の「あと N 日でトライアル終了」表示に使う。
+   */
+  premiumUntil: Date | null;
 }
 
 interface AuthContextType {
@@ -189,6 +195,14 @@ function parseUserDoc(uid: string, data: Record<string, unknown>): UserDoc {
     | null;
   const currentPeriodEnd =
     cpeRaw && typeof cpeRaw.toDate === 'function' ? cpeRaw.toDate() : null;
+  const premiumUntilRaw = data.premiumUntil as
+    | { toDate?: () => Date }
+    | undefined
+    | null;
+  const premiumUntil =
+    premiumUntilRaw && typeof premiumUntilRaw.toDate === 'function'
+      ? premiumUntilRaw.toDate()
+      : null;
 
   return {
     uid,
@@ -204,6 +218,7 @@ function parseUserDoc(uid: string, data: Record<string, unknown>): UserDoc {
     lockedMonthlyPrice,
     cancelAtPeriodEnd,
     currentPeriodEnd,
+    premiumUntil,
   };
 }
 
@@ -378,6 +393,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
             lockedMonthlyPrice: null,
             cancelAtPeriodEnd: false,
             currentPeriodEnd: null,
+            premiumUntil: null,
           };
           try {
             const snap = await withFirestoreTimeout(

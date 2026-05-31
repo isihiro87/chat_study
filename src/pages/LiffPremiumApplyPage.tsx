@@ -559,6 +559,36 @@ export function LiffPremiumApplyPage() {
 
         {/* 送信ボタン */}
         <section>
+          <p className="text-xs text-gray-500 text-center mb-3 leading-relaxed">
+            「{isTrialToPaid ? 'これからも使い続ける' : 'もう一度はじめる'}」を押すと、
+            <a
+              href="https://www.chatstudy.jp/terms"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-amber-600 underline"
+            >
+              利用規約
+            </a>
+            ・
+            <a
+              href="https://www.chatstudy.jp/privacy"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-amber-600 underline"
+            >
+              プライバシーポリシー
+            </a>
+            ・
+            <a
+              href="https://www.chatstudy.jp/legal"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-amber-600 underline"
+            >
+              特定商取引法に基づく表記
+            </a>
+            に同意したものとみなします。
+          </p>
           <button
             type="button"
             onClick={() => void handleSubmit()}

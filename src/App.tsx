@@ -32,6 +32,7 @@ const AdminDashboardPage = import.meta.env.DEV
 const WelcomePage = lazyWithRetry(() => import('./pages/WelcomePage').then(m => ({ default: m.WelcomePage })));
 const TermsPage = lazyWithRetry(() => import('./pages/TermsPage').then(m => ({ default: m.TermsPage })));
 const PrivacyPage = lazyWithRetry(() => import('./pages/PrivacyPage').then(m => ({ default: m.PrivacyPage })));
+const LegalNoticePage = lazyWithRetry(() => import('./pages/LegalNoticePage').then(m => ({ default: m.LegalNoticePage })));
 const ParentsLandingPage = lazyWithRetry(() => import('./pages/ParentsLandingPage').then(m => ({ default: m.ParentsLandingPage })));
 const PremiumLandingPage = lazyWithRetry(() => import('./pages/PremiumLandingPage').then(m => ({ default: m.PremiumLandingPage })));
 
@@ -94,6 +95,7 @@ function AnimatedRoutes() {
           <Route path="/welcome" element={<WelcomePage />} />
           <Route path="/terms" element={<TermsPage />} />
           <Route path="/privacy" element={<PrivacyPage />} />
+          <Route path="/legal" element={<LegalNoticePage />} />
           <Route path="/for-parents" element={<ParentsLandingPage />} />
           <Route path="/premium" element={<PremiumLandingPage />} />
           <Route path="/admin" element={<AdminPage />} />
