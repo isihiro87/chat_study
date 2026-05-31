@@ -2275,21 +2275,24 @@ function buildLiffUnitsDeepLink(
   }
 }
 
+/**
+ * 解説の直後に1通だけ添える「この分野をもっと暗記↓ + 暗記カードを開くボタン」の
+ * 小さい flex。
+ *
+ * 旧版は「📬 明日もまた届くよ」「連続◯日 / 累計◯問」「暗記カード / 四択クイズの
+ * 2ボタン」を1枚に詰め込んでいたが、毎回送られる情報量が多く煩雑なため最小構成に
+ * 整理（2026-05-31）。
+ *
+ * topicName が空の場合（旧データなど）は何も返さず、呼び出し側で flex 自体を
+ * 添付しないよう null を返す。
+ */
 function buildPostAnswerNextStepFlexMessage(options: {
-  hourLabel: string;
-  dayStreak: number;
-  totalAnswered: number;
-  /** プレミアム会員（trial 含む）には解説直後に「じっくり学ぶ」への deep-link を載せる */
-  isPremium: boolean;
-  /** 今回の問題のトピック名（細かい日本語）。premium のときだけ deep-link に使う */
   topicName?: string;
-}) {
-  const showStudyDeepLinks =
-    options.isPremium && !!options.topicName && options.topicName.length > 0;
-
+}): unknown | null {
+  if (!options.topicName) return null;
   return {
     type: 'flex' as const,
-    altText: `明日も${options.hourLabel}に1問お届けします`,
+    altText: 'この分野をもっと暗記',
     contents: {
       type: 'bubble' as const,
       size: 'kilo' as const,
@@ -2301,109 +2304,29 @@ function buildPostAnswerNextStepFlexMessage(options: {
         contents: [
           {
             type: 'text' as const,
-            text: '📬 明日もまた届くよ',
+            text: 'この分野をもっと暗記↓',
             weight: 'bold' as const,
-            size: 'md' as const,
+            size: 'sm' as const,
             color: '#111827',
+            align: 'center' as const,
           },
           {
-            type: 'text' as const,
-            text: `明日の${options.hourLabel}に次の1問をお届けします。今日はおつかれさま！`,
-            wrap: true,
-            size: 'xs' as const,
-            color: '#374151',
-          },
-          {
-            type: 'box' as const,
-            layout: 'horizontal' as const,
-            spacing: 'sm' as const,
-            contents: [
-              {
-                type: 'box' as const,
-                layout: 'vertical' as const,
-                backgroundColor: '#FEF3C7',
-                cornerRadius: '10px',
-                paddingAll: '10px',
-                contents: [
-                  {
-                    type: 'text' as const,
-                    text: `連続${options.dayStreak}日`,
-                    weight: 'bold' as const,
-                    size: 'sm' as const,
-                    color: '#92400E',
-                    align: 'center' as const,
-                  },
-                ],
-              },
-              {
-                type: 'box' as const,
-                layout: 'vertical' as const,
-                backgroundColor: '#EFF6FF',
-                cornerRadius: '10px',
-                paddingAll: '10px',
-                contents: [
-                  {
-                    type: 'text' as const,
-                    text: `累計${options.totalAnswered}問`,
-                    weight: 'bold' as const,
-                    size: 'sm' as const,
-                    color: '#1D4ED8',
-                    align: 'center' as const,
-                  },
-                ],
-              },
-            ],
+            type: 'button' as const,
+            style: 'primary' as const,
+            color: '#F59E0B',
+            height: 'sm' as const,
+            action: {
+              type: 'uri' as const,
+              label: '🃏 暗記カードを開く',
+              uri: buildLiffUnitsDeepLink(
+                options.topicName,
+                'fc',
+                'post_answer',
+              ),
+            },
           },
         ],
       },
-      ...(showStudyDeepLinks
-        ? {
-            footer: {
-              type: 'box' as const,
-              layout: 'vertical' as const,
-              spacing: 'sm' as const,
-              paddingAll: '16px',
-              contents: [
-                {
-                  type: 'text' as const,
-                  text: 'この分野をもっと深めるなら👇',
-                  size: 'xxs' as const,
-                  color: '#6B7280',
-                  align: 'center' as const,
-                },
-                {
-                  type: 'button' as const,
-                  style: 'primary' as const,
-                  color: '#F59E0B',
-                  height: 'sm' as const,
-                  action: {
-                    type: 'uri' as const,
-                    label: '📚 暗記カードを進める',
-                    uri: buildLiffUnitsDeepLink(
-                      options.topicName!,
-                      'fc',
-                      'post_answer'
-                    ),
-                  },
-                },
-                {
-                  type: 'button' as const,
-                  style: 'secondary' as const,
-                  height: 'sm' as const,
-                  action: {
-                    type: 'uri' as const,
-                    label: '❓ 四択クイズを進める',
-                    uri: buildLiffUnitsDeepLink(
-                      options.topicName!,
-                      'quiz',
-                      'post_answer'
-                    ),
-                  },
-                },
-              ],
-            },
-          }
-        : {}),
     },
   };
 }
@@ -4012,27 +3935,18 @@ async function handleAnswerPostback(
   // 再計算する旧実装は値が頭打ちになるため廃止。
   const prevStats =
     (currentUserData?.stats as Record<string, unknown> | undefined) ?? undefined;
-  const { correctStreak, dayStreak, isMilestoneDay, totalAnswered } =
+  const { correctStreak, dayStreak, isMilestoneDay } =
     computeAnswerStreaksFromStats(prevStats, isCorrect);
 
   const feedbackBody = isCorrect
     ? getCorrectFeedback({ correctStreak, dayStreak, isMilestoneDay })
     : getIncorrectFeedback({ correctLabel });
-  const headText = isCorrect
-    ? `⭕ 正解！\n${feedbackBody}`
-    : `❌ 不正解…\n${feedbackBody}`;
-  const preferredHour = currentUserData?.preferredHour;
-  const hourLabel =
-    typeof preferredHour === 'number' &&
-    VALID_HOURS.includes(preferredHour as ValidHour)
-      ? HOUR_LABELS[preferredHour as ValidHour]
-      : 'いつもの時間';
-  const plan = getUserPlan(currentUserData);
+  // 旧版は「⭕正解+励まし」と「📖解説」を 2 通の text に分けて送っていたが、
+  // ユーザー体感が冗長なため 1 通に統合（2026-05-31）。
+  const combinedText = isCorrect
+    ? `⭕ 正解！\n${feedbackBody}\n\n📖 解説\n${question.explanation}`
+    : `❌ 不正解…\n${feedbackBody}\n\n📖 解説\n${question.explanation}`;
   const nextStepFlex = buildPostAnswerNextStepFlexMessage({
-    hourLabel,
-    dayStreak,
-    totalAnswered,
-    isPremium: plan === 'premium',
     topicName: question.topic,
   });
 
@@ -4043,10 +3957,11 @@ async function handleAnswerPostback(
   try {
     const client = await getLineClient();
     const replyMessages: LineMessage[] = [
-      { type: 'text', text: headText },
-      { type: 'text', text: `📖 解説\n${question.explanation}` },
-      nextStepFlex as unknown as LineMessage,
+      { type: 'text', text: combinedText },
     ];
+    if (nextStepFlex) {
+      replyMessages.push(nextStepFlex as LineMessage);
+    }
     await client.replyMessage({
       replyToken,
       messages: replyMessages as unknown as messagingApi.Message[],
