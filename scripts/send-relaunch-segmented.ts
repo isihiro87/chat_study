@@ -5,16 +5,17 @@
  * 1 push（最大5メッセージ）で配信する。1 ユーザー = 1 push なので
  * 約 200 ユーザーで約 200 通の配信枠消費。
  *
- * セグメント分類:
- *   A: プロフィール未設定         （grade or subject なし）
- *      → 学年・教科の登録案内 + trial 案内 (2 bubble)
- *   B: 未受信（オンボーディング中） （プロフィールあり、lastQuestionDeliveredAt なし）
- *      → テスト範囲の設定案内 + trial 案内 (2 bubble)
- *   C: アクティブ過去             （totalAnswered ≥ 1）
- *      → お詫び（メッセージ上限到達による突然停止）+ 上限拡張による月末配信告知
- *        + trial 案内 (2 bubble)
- *   D: 受信したが未回答           （lastQuestionDeliveredAt あり、totalAnswered 0）
- *      → 配信再開告知 + trial 案内 (2 bubble)
+セグメント分類（5段階、設定完了度順）:
+ *   A: プロフィール未設定         （grade or subject なし）= 6 名
+ *      → 学年選択 postback カード + trialBrief（有料情報なし）
+ *   B: 配信時刻未設定             （profile ✅, preferredHour ❌）= 4 名
+ *      → 配信時刻選択 postback カード + trialBrief
+ *   C: テスト範囲未設定           （profile/hour ✅, scope ❌, answered=0）= 114 名
+ *      → 範囲設定 LIFF 誘導 + trialInfo（範囲設定で精度UPの案内）
+ *   D: フル設定済+未回答          （profile/hour/scope ✅, answered=0）= 47 名
+ *      → 配信再開告知 + trialInfo（シンプル）
+ *   E: 回答済                     （totalAnswered ≥ 1）= 30 名
+ *      → 突然停止のお詫び + 月末まで配信告知 + trialInfo
  *
  * 除外:
  *   - admin
@@ -50,7 +51,7 @@ const LIFF_SETTINGS_URL = "https://liff.line.me/2009587166-IvJl78Hk";
 const LIFF_SCOPE_URL = "https://liff.line.me/2009587166-fLjzMGk8";
 const LIFF_PREMIUM_INFO_URL = "https://liff.line.me/2009587166-k51bH4LC";
 
-type Segment = "A" | "B" | "C" | "D";
+type Segment = "A" | "B" | "C" | "D" | "E";
 
 interface Args {
   dryRun: boolean;
@@ -73,6 +74,7 @@ interface Stats {
   segmentB: number;
   segmentC: number;
   segmentD: number;
+  segmentE: number;
   skippedAdmin: number;
   skippedNoLineUserId: number;
   skippedBlocked: number;
@@ -89,8 +91,8 @@ function parseArgs(): Args {
     else if (a === "--execute") args.dryRun = false;
     else if (a === "--segment") {
       const s = argv[++i] as Segment;
-      if (!["A", "B", "C", "D"].includes(s)) {
-        throw new Error("--segment は A|B|C|D");
+      if (!["A", "B", "C", "D", "E"].includes(s)) {
+        throw new Error("--segment は A|B|C|D|E");
       }
       args.onlySegment = s;
     } else if (a === "--limit") {
@@ -150,26 +152,30 @@ function classify(uid: string, data: any, stats: Stats): Candidate | null {
   const subject = typeof data.subject === "string" ? data.subject : "";
   const hasProfile =
     (grade === "中1" || grade === "中2" || grade === "中3") && subject.length > 0;
+  const hasPreferredHour = typeof data.preferredHour === "number";
   const totalAnswered =
     typeof data.stats?.totalAnswered === "number" ? data.stats.totalAnswered : 0;
-  const hasDelivered = data.lastQuestionDeliveredAt != null;
   const scopeTopics = (data.testScope?.topics as unknown[] | undefined) ?? [];
+  const hasScope = Array.isArray(scopeTopics) && scopeTopics.length > 0;
 
-  // 分類優先順:
-  //   A: プロフィール未設定（学年または教科がない）
-  //   C: 1問以上回答済（メッセージ上限到達で配信停止 → お詫び対象）
-  //   D: 受信したが未回答（配信は受けていた、突然止まった）
-  //   B: 未受信（プロフあり、配信を一度も受け取っていない → 範囲設定が必要）
+  // 分類優先順（設定完了度の浅い順 → 回答済を最優先で抽出）:
+  //   E: 1問以上回答済 → お詫び対象
+  //   A: プロフィール未設定
+  //   B: profile ✅ but hour 未設定
+  //   C: profile/hour ✅ but scope 未設定（answered=0）
+  //   D: profile/hour/scope ✅ + answered=0（フル設定済+未回答）
   let segment: Segment;
-  if (!hasProfile) segment = "A";
-  else if (totalAnswered >= 1) segment = "C";
-  else if (hasDelivered) segment = "D";
-  else segment = "B";
+  if (totalAnswered >= 1) segment = "E";
+  else if (!hasProfile) segment = "A";
+  else if (!hasPreferredHour) segment = "B";
+  else if (!hasScope) segment = "C";
+  else segment = "D";
 
   if (segment === "A") stats.segmentA++;
   else if (segment === "B") stats.segmentB++;
   else if (segment === "C") stats.segmentC++;
-  else stats.segmentD++;
+  else if (segment === "D") stats.segmentD++;
+  else stats.segmentE++;
 
   return {
     uid,
@@ -192,26 +198,39 @@ const RESTART_HINT_TEXT =
   "※ 設定画面やメニューが古いまま動かない場合は、LINE アプリを完全に終了してから開き直してください。\n（ホームに戻るだけでは更新されません。アプリ切替画面から LINE を上にスワイプ）";
 
 // ----- Segment A: プロフィール未設定 -----
-function bubbleProfileSetup() {
+// Segment A は深追いしない方針。
+// 1 通目: 学年選択 postback ボタンつき flex（タップしたら webhook 側の
+//         select_grade ハンドラに乗ってオンボーディングが進む）
+// 2 通目: トライアルでできることの簡易説明（有料情報・価格は出さない）
+// ボタンを押さなければそこで止まる。
+
+function bubbleGradeSelect() {
   return {
     type: "flex" as const,
-    altText: "学年と教科を登録してください - 公式LINE 配信を再開しました",
+    altText: "学年を選んでください - 公式LINE で毎日1問配信を始めます",
     contents: {
       type: "bubble" as const,
-      size: "mega" as const,
+      size: "kilo" as const,
       header: {
         type: "box" as const,
         layout: "vertical" as const,
         backgroundColor: "#F59E0B",
         paddingAll: "14px",
+        spacing: "xs" as const,
         contents: [
           {
             type: "text" as const,
-            text: "📢 公式LINE 配信を再開しました",
+            text: "STEP 1 / 3",
+            color: "#FEF3C7",
+            size: "xs" as const,
+            weight: "bold" as const,
+          },
+          {
+            type: "text" as const,
+            text: "学年を選んでください",
             color: "#FFFFFF",
             weight: "bold" as const,
             size: "md" as const,
-            wrap: true,
           },
         ],
       },
@@ -223,7 +242,7 @@ function bubbleProfileSetup() {
         contents: [
           {
             type: "text" as const,
-            text: "毎日1問の配信を始めるには、学年と教科の登録が必要です。設定画面から1分で完了します。",
+            text: "公式LINE で毎日1問の配信を始めるには、まず学年を教えてください。下のボタンをタップするとオンボーディングが続きます。",
             wrap: true,
             size: "sm" as const,
             color: "#333333",
@@ -241,17 +260,40 @@ function bubbleProfileSetup() {
       footer: {
         type: "box" as const,
         layout: "vertical" as const,
+        spacing: "sm" as const,
         paddingAll: "14px",
         contents: [
           {
             type: "button" as const,
-            style: "primary" as const,
-            color: "#F59E0B",
+            style: "secondary" as const,
             height: "sm" as const,
             action: {
-              type: "uri" as const,
-              label: "学年・教科を登録する",
-              uri: LIFF_SETTINGS_URL,
+              type: "postback" as const,
+              label: "中1",
+              data: "type=select_grade&grade=中1",
+              displayText: "中1",
+            },
+          },
+          {
+            type: "button" as const,
+            style: "secondary" as const,
+            height: "sm" as const,
+            action: {
+              type: "postback" as const,
+              label: "中2",
+              data: "type=select_grade&grade=中2",
+              displayText: "中2",
+            },
+          },
+          {
+            type: "button" as const,
+            style: "secondary" as const,
+            height: "sm" as const,
+            action: {
+              type: "postback" as const,
+              label: "中3",
+              data: "type=select_grade&grade=中3",
+              displayText: "中3",
             },
           },
         ],
@@ -260,11 +302,143 @@ function bubbleProfileSetup() {
   };
 }
 
-// ----- Segment B: 未受信（プロフィールあり、配信未経験） -----
+function bubbleTrialBrief() {
+  return {
+    type: "flex" as const,
+    altText: "7日間、こんな機能が使えます",
+    contents: {
+      type: "bubble" as const,
+      size: "kilo" as const,
+      header: {
+        type: "box" as const,
+        layout: "vertical" as const,
+        backgroundColor: "#FEF3C7",
+        paddingAll: "14px",
+        contents: [
+          {
+            type: "text" as const,
+            text: "🎁 7日間、こんな機能が使えます",
+            color: "#92400E",
+            weight: "bold" as const,
+            size: "md" as const,
+            wrap: true,
+          },
+        ],
+      },
+      body: {
+        type: "box" as const,
+        layout: "vertical" as const,
+        paddingAll: "14px",
+        spacing: "sm" as const,
+        contents: [
+          {
+            type: "text" as const,
+            text: "登録後の 7 日間は、プレミアム機能をフル体験いただけます。",
+            wrap: true,
+            size: "sm" as const,
+            color: "#333333",
+          },
+          {
+            type: "text" as const,
+            text: "✅ 追加で解く（範囲指定して何問でも）\n✅ 苦手を復習（誤答を優先出題）\n✅ 暗記カードで深く学ぶ\n✅ 詳細な成績レポート",
+            wrap: true,
+            size: "sm" as const,
+            color: "#444444",
+            margin: "md",
+          },
+        ],
+      },
+    },
+  };
+}
+
+// ----- Segment B: 配信時刻未設定（profile ✅ but hour 未設定） -----
+// 時刻選択の postback ボタンつき flex（buildTimeSelectMessage と同じデータ形式）
+function bubblePreferredHourSelect() {
+  return {
+    type: "flex" as const,
+    altText: "配信時刻を選んでください",
+    contents: {
+      type: "bubble" as const,
+      size: "kilo" as const,
+      header: {
+        type: "box" as const,
+        layout: "vertical" as const,
+        backgroundColor: "#F59E0B",
+        paddingAll: "14px",
+        spacing: "xs" as const,
+        contents: [
+          {
+            type: "text" as const,
+            text: "STEP 2 / 3",
+            color: "#FEF3C7",
+            size: "xs" as const,
+            weight: "bold" as const,
+          },
+          {
+            type: "text" as const,
+            text: "配信時刻を選んでください",
+            color: "#FFFFFF",
+            weight: "bold" as const,
+            size: "md" as const,
+          },
+        ],
+      },
+      body: {
+        type: "box" as const,
+        layout: "vertical" as const,
+        paddingAll: "14px",
+        spacing: "sm" as const,
+        contents: [
+          {
+            type: "text" as const,
+            text: "毎日1問の問題をお届けする時刻を選んでください。タップするとオンボーディングが続きます。",
+            wrap: true,
+            size: "sm" as const,
+            color: "#333333",
+          },
+          {
+            type: "text" as const,
+            text: RESTART_HINT_TEXT,
+            wrap: true,
+            size: "xs" as const,
+            color: "#888888",
+            margin: "md",
+          },
+        ],
+      },
+      footer: {
+        type: "box" as const,
+        layout: "vertical" as const,
+        spacing: "sm" as const,
+        paddingAll: "14px",
+        contents: [
+          { label: "朝6時", hour: 6 },
+          { label: "朝7時", hour: 7 },
+          { label: "夕方4時", hour: 16 },
+          { label: "夕方6時", hour: 18 },
+          { label: "夜8時", hour: 20 },
+        ].map((o) => ({
+          type: "button" as const,
+          style: "secondary" as const,
+          height: "sm" as const,
+          action: {
+            type: "postback" as const,
+            label: o.label,
+            data: `type=select_time&hour=${o.hour}`,
+            displayText: o.label,
+          },
+        })),
+      },
+    },
+  };
+}
+
+// ----- Segment C: テスト範囲未設定 -----
 function bubbleScopeSetup() {
   return {
     type: "flex" as const,
-    altText: "テスト範囲を設定してください - 公式LINE 配信を再開しました",
+    altText: "テスト範囲を設定すると出題精度が上がります",
     contents: {
       type: "bubble" as const,
       size: "mega" as const,
@@ -276,7 +450,7 @@ function bubbleScopeSetup() {
         contents: [
           {
             type: "text" as const,
-            text: "📢 公式LINE 配信を再開しました",
+            text: "📢 配信を再開しました",
             color: "#FFFFFF",
             weight: "bold" as const,
             size: "md" as const,
@@ -292,10 +466,18 @@ function bubbleScopeSetup() {
         contents: [
           {
             type: "text" as const,
-            text: "毎日1問の配信を始めるために、まずテスト範囲を選んでください。設定したらすぐに1問目が届きます。",
+            text: "本日から毎日1問の配信を再開しています。",
             wrap: true,
             size: "sm" as const,
             color: "#333333",
+          },
+          {
+            type: "text" as const,
+            text: "テスト範囲を設定すると、その単元だけから出題されてテスト対策の精度が上がります。",
+            wrap: true,
+            size: "sm" as const,
+            color: "#333333",
+            margin: "md",
           },
           {
             type: "text" as const,
@@ -329,8 +511,8 @@ function bubbleScopeSetup() {
   };
 }
 
-// ----- Segment C: アクティブ過去（突然停止 - お詫び） -----
-function bubbleApologyActive() {
+// ----- Segment E: 回答済（突然停止 - お詫び） -----
+function bubbleApologyAnswered() {
   return {
     type: "flex" as const,
     altText: "突然の配信停止についてのお詫びと、月末までの配信再開のお知らせ",
@@ -389,7 +571,7 @@ function bubbleApologyActive() {
   };
 }
 
-// ----- Segment D: 受信したが未回答（再開告知） -----
+// ----- Segment D: フル設定済 + 未回答（再開告知） -----
 function bubbleRedelivery() {
   return {
     type: "flex" as const,
@@ -517,13 +699,20 @@ function bubbleTrialInfo() {
 function buildBundle(segment: Segment): any[] {
   switch (segment) {
     case "A":
-      return [bubbleProfileSetup(), bubbleTrialInfo()];
+      // 完全に新規。深追いせず、学年選択 + トライアル概要のみ。
+      return [bubbleGradeSelect(), bubbleTrialBrief()];
     case "B":
-      return [bubbleScopeSetup(), bubbleTrialInfo()];
+      // hour 未設定。配信時刻選択 + トライアル概要。
+      return [bubblePreferredHourSelect(), bubbleTrialBrief()];
     case "C":
-      return [bubbleApologyActive(), bubbleTrialInfo()];
+      // 範囲未設定。範囲設定を促す + フル trial 案内。
+      return [bubbleScopeSetup(), bubbleTrialInfo()];
     case "D":
+      // フル設定済+未回答。配信再開告知 + フル trial 案内。
       return [bubbleRedelivery(), bubbleTrialInfo()];
+    case "E":
+      // 回答済。お詫び + フル trial 案内。
+      return [bubbleApologyAnswered(), bubbleTrialInfo()];
   }
 }
 
@@ -565,6 +754,7 @@ async function main(): Promise<void> {
     segmentB: 0,
     segmentC: 0,
     segmentD: 0,
+    segmentE: 0,
     skippedAdmin: 0,
     skippedNoLineUserId: 0,
     skippedBlocked: 0,
@@ -581,24 +771,24 @@ async function main(): Promise<void> {
   }
 
   console.log(
-    `[segmented] candidates: A=${stats.segmentA} B=${stats.segmentB} C=${stats.segmentC} D=${stats.segmentD} ` +
+    `[segmented] candidates: A=${stats.segmentA} B=${stats.segmentB} C=${stats.segmentC} D=${stats.segmentD} E=${stats.segmentE} ` +
       `(filtered ${candidates.length}) | skipped admin=${stats.skippedAdmin} noLineUserId=${stats.skippedNoLineUserId} blocked=${stats.skippedBlocked}`
   );
 
   // セグメント別にグループ化
-  const bySegment: Record<Segment, Candidate[]> = { A: [], B: [], C: [], D: [] };
+  const bySegment: Record<Segment, Candidate[]> = { A: [], B: [], C: [], D: [], E: [] };
   for (const c of candidates) bySegment[c.segment].push(c);
 
   // --limit でセグメントごとに先頭 N 件に絞る
   if (args.limit !== null) {
-    for (const seg of ["A", "B", "C", "D"] as Segment[]) {
+    for (const seg of ["A", "B", "C", "D", "E"] as Segment[]) {
       bySegment[seg] = bySegment[seg].slice(0, args.limit);
     }
     console.log(`[segmented] --limit ${args.limit} applied per segment`);
   }
 
   // 各セグメントの bundle プレビュー
-  for (const seg of ["A", "B", "C", "D"] as Segment[]) {
+  for (const seg of ["A", "B", "C", "D", "E"] as Segment[]) {
     const users = bySegment[seg];
     if (users.length === 0) continue;
     const bundle = buildBundle(seg);
@@ -618,7 +808,7 @@ async function main(): Promise<void> {
 
   // 実送信: 各セグメントを 500 件単位で multicast
   console.log("\n[segmented] 送信開始...");
-  for (const seg of ["A", "B", "C", "D"] as Segment[]) {
+  for (const seg of ["A", "B", "C", "D", "E"] as Segment[]) {
     const users = bySegment[seg];
     if (users.length === 0) continue;
     const bundle = buildBundle(seg);
@@ -651,6 +841,7 @@ async function main(): Promise<void> {
       relaunchSegmentedB: FieldValue.increment(bySegment.B.length),
       relaunchSegmentedC: FieldValue.increment(bySegment.C.length),
       relaunchSegmentedD: FieldValue.increment(bySegment.D.length),
+      relaunchSegmentedE: FieldValue.increment(bySegment.E.length),
       relaunchSegmentedSentAt: FieldValue.serverTimestamp(),
       updatedAt: FieldValue.serverTimestamp(),
     },
