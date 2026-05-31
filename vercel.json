@@ -36,6 +36,15 @@
           "value": "public, max-age=86400"
         }
       ]
+    },
+    {
+      "source": "/((?!assets/|favicon\\.ico|sitemap\\.xml|robots\\.txt).*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, no-cache, must-revalidate, max-age=0"
+        }
+      ]
     }
   ],
   "rewrites": [

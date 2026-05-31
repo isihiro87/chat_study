@@ -6,6 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="中学生のためのスマホ学習サイト。公式LINEから始める" />
     <meta name="robots" content="noindex,nofollow" />
+    <!--
+      LINE WebView は HTTP Cache-Control を無視して HTML を強くキャッシュする
+      ケースがある。古い index.html がキャッシュされて Vite の hash 付き
+      asset を 404 にしないよう、meta 経由でも no-store を明示する（vercel.json
+      のヘッダーと二重設定。実害なし）。
+    -->
+    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
     <title>チャットでスタディ｜公式LINE</title>
 
     <!-- Firebase 系ドメインへの接続を前倒し（DNS / TCP / TLS のハンドシェイク短縮） -->
