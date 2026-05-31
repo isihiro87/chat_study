@@ -82,7 +82,8 @@
 | `trialDripDay4` | 19:00 | 4 | じっくり学ぶ未利用者のみ |
 | `trialDripDay5Story` | 19:00 | 5 | 体験談（価格訴求なし） |
 | `trialReminderEveningDay7` | 18:00 | 7 | あと約 5 時間 |
-| `trialReminderNightDay7` | 22:00 | 7 | 今夜 23:59 まで |
+
+> `trialReminderNightDay7`（22:00 / 今夜 23:59 まで）は 2026-05-31 に廃止（しつこさ回避 + 中学生への深夜配信が不適切なため）。
 
 各 milestone は `users/{uid}.lastTrialReminderAt.{milestone}` に送信履歴を保持。
 

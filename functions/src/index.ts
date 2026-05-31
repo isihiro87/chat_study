@@ -41,8 +41,8 @@ export { trialDripDay2 } from './trialDripDay2';
 export { trialDripDay3Parent } from './trialDripDay3Parent';
 export { trialDripDay4 } from './trialDripDay4';
 export { trialDripDay5Story } from './trialDripDay5Story';
+export { trialDripDay6Projection } from './trialDripDay6Projection';
 export { trialReminderEveningDay7 } from './trialReminderEveningDay7';
-export { trialReminderNightDay7 } from './trialReminderNightDay7';
 
 // 申込フォーム離脱 / 期限切れ後フォロー / 月次レポート
 export { trialFormAbandonReminder } from './trialFormAbandonReminder';

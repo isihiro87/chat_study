@@ -41,7 +41,12 @@ function daysBetweenJst(fromJst: string, toJst: string): number {
 }
 
 /**
- * 日次（JST 03:00）で実行する trial ライフサイクル管理ジョブ。
+ * trial ライフサイクル管理ジョブ。
+ *
+ * 配信時刻（中学生への深夜配信を避けるため 2026-05-31 に 03:00 から変更）:
+ *   - 平日（月〜金）: JST 07:00
+ *   - 土日: JST 08:00
+ * 単一 cron を 07:00 / 08:00 の両方で起動し、曜日に応じて一方だけ実処理する。
  *
  * 処理対象: `users.where(planSource=="trial").where(plan=="premium")` の各ユーザー
  *
@@ -61,9 +66,22 @@ function daysBetweenJst(fromJst: string, toJst: string): number {
  */
 export const expireTrialUsers = functions
   .region("asia-northeast1")
-  .pubsub.schedule("0 3 * * *")
+  .pubsub.schedule("0 7,8 * * *")
   .timeZone("Asia/Tokyo")
   .onRun(async () => {
+    // 平日は 07:00、土日は 08:00 の起動だけ実処理する（深夜配信回避）。
+    const jstNow = new Date(Date.now() + 9 * 60 * 60 * 1000);
+    const jstHour = jstNow.getUTCHours();
+    const jstDow = jstNow.getUTCDay(); // 0=日, 6=土
+    const isWeekend = jstDow === 0 || jstDow === 6;
+    const targetHour = isWeekend ? 8 : 7;
+    if (jstHour !== targetHour) {
+      console.log(
+        `[expireTrialUsers] skip run: jstHour=${jstHour}, dow=${jstDow}, targetHour=${targetHour}`
+      );
+      return;
+    }
+
     const { initializeApp, getApps } = await import("firebase-admin/app");
     const { getFirestore, FieldValue } = await import(
       "firebase-admin/firestore"

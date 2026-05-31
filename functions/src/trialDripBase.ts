@@ -33,6 +33,7 @@ export type TrialMilestoneKey =
   | "day3Parent"
   | "day4"
   | "day5"
+  | "day6Projection"
   | "day7Evening"
   | "day7Night";
 
@@ -41,6 +42,9 @@ const MILESTONE_TO_DAY_NUMBER: Record<TrialMilestoneKey, number> = {
   day3Parent: 3,
   day4: 4,
   day5: 5,
+  // expireTrialUsers の朝 day6 リマインダー（lastTrialReminderAt.day6）とは
+  // 別キーにして cooldown 衝突を避ける
+  day6Projection: 6,
   day7Evening: 7,
   day7Night: 7,
 };

@@ -5,7 +5,12 @@
     "grade": "中1",
     "topic": "be動詞",
     "text": "I ___ a student. の空欄に入る語は？",
-    "choices": ["am", "is", "are", "be"],
+    "choices": [
+      "am",
+      "is",
+      "are",
+      "be"
+    ],
     "correctChoiceId": 0,
     "explanation": "主語が I のときの be 動詞は am です。"
   },
@@ -15,7 +20,12 @@
     "grade": "中1",
     "topic": "三人称単数現在",
     "text": "She ___ tennis every day. の空欄に入る語は？",
-    "choices": ["play", "plays", "playing", "played"],
+    "choices": [
+      "play",
+      "plays",
+      "playing",
+      "played"
+    ],
     "correctChoiceId": 1,
     "explanation": "主語が三人称単数で現在の習慣を表すときは動詞に -s をつけます。"
   },
@@ -25,8 +35,748 @@
     "grade": "中1",
     "topic": "一般動詞の疑問文",
     "text": "Do you ___ a brother? の空欄に入る語は？",
-    "choices": ["has", "have", "having", "had"],
+    "choices": [
+      "has",
+      "have",
+      "having",
+      "had"
+    ],
     "correctChoiceId": 1,
     "explanation": "Do you で始まる疑問文では動詞は原形(have)のままです。"
+  },
+  {
+    "id": "q-english-g1-004",
+    "subject": "english",
+    "grade": "中1",
+    "topic": "英単語 1",
+    "text": "Call me Eddy. の call の意味は？",
+    "choices": [
+      "電話する",
+      "呼ぶ",
+      "読む",
+      "作る"
+    ],
+    "correctChoiceId": 1,
+    "explanation": "Call me Eddy. は「私をエディと呼んで」。この call は「呼ぶ」です。"
+  },
+  {
+    "id": "q-english-g1-005",
+    "subject": "english",
+    "grade": "中1",
+    "topic": "英単語 1",
+    "text": "I'm from South Africa. の from の意味は？",
+    "choices": [
+      "〜出身の",
+      "〜といっしょに",
+      "〜について",
+      "〜もまた"
+    ],
+    "correctChoiceId": 0,
+    "explanation": "I'm from ... は「私は…出身です」。"
+  },
+  {
+    "id": "q-english-g1-006",
+    "subject": "english",
+    "grade": "中1",
+    "topic": "英単語 1",
+    "text": "「よく、しばしば」を表す単語は？",
+    "choices": [
+      "often",
+      "about",
+      "great",
+      "sweet"
+    ],
+    "correctChoiceId": 0,
+    "explanation": "often は頻度を表し「よく、しばしば」という意味です。"
+  },
+  {
+    "id": "q-english-g1-007",
+    "subject": "english",
+    "grade": "中1",
+    "topic": "英単語 1",
+    "text": "「〜といっしょに」を表す単語は？",
+    "choices": [
+      "from",
+      "with",
+      "but",
+      "so"
+    ],
+    "correctChoiceId": 1,
+    "explanation": "with は「〜といっしょに」。with my friends で「友達といっしょに」。"
+  },
+  {
+    "id": "q-english-g1-008",
+    "subject": "english",
+    "grade": "中1",
+    "topic": "英単語 1",
+    "text": "do not の短縮形は？",
+    "choices": [
+      "don't",
+      "can't",
+      "it's",
+      "who's"
+    ],
+    "correctChoiceId": 0,
+    "explanation": "do not は don't です。"
+  },
+  {
+    "id": "q-english-g1-009",
+    "subject": "english",
+    "grade": "中1",
+    "topic": "英単語 2",
+    "text": "「〜できる」を表す単語は？",
+    "choices": [
+      "can",
+      "some",
+      "well",
+      "today"
+    ],
+    "correctChoiceId": 0,
+    "explanation": "can は「〜できる」。後ろには動詞の原形を置きます。"
+  },
+  {
+    "id": "q-english-g1-010",
+    "subject": "english",
+    "grade": "中1",
+    "topic": "英単語 2",
+    "text": "cannot の短縮形は？",
+    "choices": [
+      "don't",
+      "can't",
+      "they're",
+      "it's"
+    ],
+    "correctChoiceId": 1,
+    "explanation": "cannot は can't の形に短縮できます。"
+  },
+  {
+    "id": "q-english-g1-011",
+    "subject": "english",
+    "grade": "中1",
+    "topic": "英単語 2",
+    "text": "「私たちの」を表す単語は？",
+    "choices": [
+      "your",
+      "our",
+      "it",
+      "some"
+    ],
+    "correctChoiceId": 1,
+    "explanation": "our は「私たちの」。your は「あなたの／あなたたちの」です。"
+  },
+  {
+    "id": "q-english-g1-012",
+    "subject": "english",
+    "grade": "中1",
+    "topic": "英単語 2",
+    "text": "女性に使う敬称「〜さん、〜先生」は？",
+    "choices": [
+      "Mr.",
+      "Ms.",
+      "Dr.",
+      "Jr."
+    ],
+    "correctChoiceId": 1,
+    "explanation": "Ms. は女性に使う敬称です。Mr. は男性に使います。"
+  },
+  {
+    "id": "q-english-g1-013",
+    "subject": "english",
+    "grade": "中1",
+    "topic": "英単語 3",
+    "text": "favorite の意味は？",
+    "choices": [
+      "いちばん好きな",
+      "勇敢な",
+      "近くの",
+      "一生懸命に"
+    ],
+    "correctChoiceId": 0,
+    "explanation": "favorite は「いちばん好きな、お気に入りの」。"
+  },
+  {
+    "id": "q-english-g1-014",
+    "subject": "english",
+    "grade": "中1",
+    "topic": "英単語 3",
+    "text": "character の意味は？",
+    "choices": [
+      "登場人物",
+      "日付",
+      "ろうか",
+      "試合"
+    ],
+    "correctChoiceId": 0,
+    "explanation": "character は「登場人物」。アニメや物語の人物に使います。"
+  },
+  {
+    "id": "q-english-g1-015",
+    "subject": "english",
+    "grade": "中1",
+    "topic": "英単語 3",
+    "text": "symbol の意味は？",
+    "choices": [
+      "週",
+      "家族",
+      "シンボル、象徴",
+      "運"
+    ],
+    "correctChoiceId": 2,
+    "explanation": "symbol は「シンボル、象徴、記号」。"
+  },
+  {
+    "id": "q-english-g1-016",
+    "subject": "english",
+    "grade": "中1",
+    "topic": "英単語 3",
+    "text": "usually の意味は？",
+    "choices": [
+      "たいてい",
+      "オンラインで",
+      "約",
+      "次の"
+    ],
+    "correctChoiceId": 0,
+    "explanation": "usually は「いつも、たいてい」を表す頻度の副詞です。"
+  },
+  {
+    "id": "q-english-g1-017",
+    "subject": "english",
+    "grade": "中1",
+    "topic": "英単語 3",
+    "text": "practice の意味は？",
+    "choices": [
+      "住む",
+      "練習する",
+      "勝つ",
+      "勉強する"
+    ],
+    "correctChoiceId": 1,
+    "explanation": "practice は「練習する」。名詞「練習」としても使います。"
+  },
+  {
+    "id": "q-english-g1-018",
+    "subject": "english",
+    "grade": "中1",
+    "topic": "短縮形",
+    "text": "where's の短縮前は？",
+    "choices": [
+      "where are",
+      "where is",
+      "when is",
+      "what is"
+    ],
+    "correctChoiceId": 1,
+    "explanation": "where's は where is の短縮形です。"
+  },
+  {
+    "id": "q-english-g1-019",
+    "subject": "english",
+    "grade": "中1",
+    "topic": "英単語 4",
+    "text": "How many ...? の意味は？",
+    "choices": [
+      "いくつの〜、何人の〜",
+      "たくさんの〜",
+      "〜の1つ",
+      "いつか"
+    ],
+    "correctChoiceId": 0,
+    "explanation": "How many ...? は数をたずねる表現です。"
+  },
+  {
+    "id": "q-english-g1-020",
+    "subject": "english",
+    "grade": "中1",
+    "topic": "英単語 4",
+    "text": "a lot of の意味は？",
+    "choices": [
+      "最後の",
+      "たくさんの、多くの",
+      "正午",
+      "正しい"
+    ],
+    "correctChoiceId": 1,
+    "explanation": "a lot of は「たくさんの、多くの」。"
+  },
+  {
+    "id": "q-english-g1-021",
+    "subject": "english",
+    "grade": "中1",
+    "topic": "英単語 4",
+    "text": "one of の意味は？",
+    "choices": [
+      "〜のような",
+      "〜の1つ、〜の1人",
+      "〜時",
+      "〜自身を"
+    ],
+    "correctChoiceId": 1,
+    "explanation": "one of は「〜の1つ、〜の1人」。後ろは複数名詞にします。"
+  },
+  {
+    "id": "q-english-g1-022",
+    "subject": "english",
+    "grade": "中1",
+    "topic": "短縮形",
+    "text": "they're の短縮前は？",
+    "choices": [
+      "they are",
+      "they is",
+      "there are",
+      "their are"
+    ],
+    "correctChoiceId": 0,
+    "explanation": "they're は they are の短縮形です。"
+  },
+  {
+    "id": "q-english-g1-023",
+    "subject": "english",
+    "grade": "中1",
+    "topic": "英単語 4",
+    "text": "nervous の意味は？",
+    "choices": [
+      "悲しい",
+      "緊張して",
+      "長い",
+      "楽しい"
+    ],
+    "correctChoiceId": 1,
+    "explanation": "nervous は「緊張して」。"
+  },
+  {
+    "id": "q-english-g1-024",
+    "subject": "english",
+    "grade": "中1",
+    "topic": "英単語 4",
+    "text": "front の意味は？",
+    "choices": [
+      "順番",
+      "前、正面",
+      "午後",
+      "台所"
+    ],
+    "correctChoiceId": 1,
+    "explanation": "front は「前、正面」。in front of の形でもよく出ます。"
+  },
+  {
+    "id": "q-english-g1-025",
+    "subject": "english",
+    "grade": "中1",
+    "topic": "英単語 4",
+    "text": "right の意味として、ここで確認するものは？",
+    "choices": [
+      "正しい、正確な",
+      "悲しい",
+      "長い",
+      "最後の"
+    ],
+    "correctChoiceId": 0,
+    "explanation": "right は「正しい、正確な」。文脈によって「右」の意味もあります。"
+  },
+  {
+    "id": "q-english-g1-026",
+    "subject": "english",
+    "grade": "中1",
+    "topic": "英単語 4",
+    "text": "turn の意味は？",
+    "choices": [
+      "番、順番",
+      "絵",
+      "歌",
+      "羊"
+    ],
+    "correctChoiceId": 0,
+    "explanation": "turn は「番、順番」。Your turn. で「あなたの番」。"
+  },
+  {
+    "id": "q-english-g1-027",
+    "subject": "english",
+    "grade": "中1",
+    "topic": "英単語 5",
+    "text": "enjoy ...ing の意味は？",
+    "choices": [
+      "〜して楽しむ",
+      "〜する必要がある",
+      "〜の上に",
+      "〜の近くに"
+    ],
+    "correctChoiceId": 0,
+    "explanation": "enjoy ...ing は「〜して楽しむ」。後ろは ing 形にします。"
+  },
+  {
+    "id": "q-english-g1-028",
+    "subject": "english",
+    "grade": "中1",
+    "topic": "英単語 5",
+    "text": "has は何の形？",
+    "choices": [
+      "have の三人称単数現在形",
+      "do の三人称単数現在形",
+      "child の複数形",
+      "we are の短縮形"
+    ],
+    "correctChoiceId": 0,
+    "explanation": "has は have の三人称単数現在形です。"
+  },
+  {
+    "id": "q-english-g1-029",
+    "subject": "english",
+    "grade": "中1",
+    "topic": "英単語 5",
+    "text": "doesn't の短縮前は？",
+    "choices": [
+      "do not",
+      "does not",
+      "did not",
+      "is not"
+    ],
+    "correctChoiceId": 1,
+    "explanation": "doesn't は does not の短縮形です。"
+  },
+  {
+    "id": "q-english-g1-030",
+    "subject": "english",
+    "grade": "中1",
+    "topic": "英単語 5",
+    "text": "on top of の意味は？",
+    "choices": [
+      "〜のあとに",
+      "〜の上に",
+      "〜の近くに",
+      "〜のように"
+    ],
+    "correctChoiceId": 1,
+    "explanation": "on top of は「〜の上に」。"
+  },
+  {
+    "id": "q-english-g1-031",
+    "subject": "english",
+    "grade": "中1",
+    "topic": "英単語 6",
+    "text": "Why don’t we ...? の意味は？",
+    "choices": [
+      "〜しませんか",
+      "何歳ですか",
+      "だれのものですか",
+      "気をつけて"
+    ],
+    "correctChoiceId": 0,
+    "explanation": "Why don’t we ...? は相手を誘う表現です。"
+  },
+  {
+    "id": "q-english-g1-032",
+    "subject": "english",
+    "grade": "中1",
+    "topic": "英単語 6",
+    "text": "whose の意味は？",
+    "choices": [
+      "どちらの",
+      "だれの、だれのもの",
+      "いつの",
+      "どこで"
+    ],
+    "correctChoiceId": 1,
+    "explanation": "whose は所有者をたずねる疑問詞です。"
+  },
+  {
+    "id": "q-english-g1-033",
+    "subject": "english",
+    "grade": "中1",
+    "topic": "英単語 6",
+    "text": "mine の意味は？",
+    "choices": [
+      "私のもの",
+      "あなたのもの",
+      "彼のもの",
+      "彼女のもの"
+    ],
+    "correctChoiceId": 0,
+    "explanation": "mine は「私のもの」。"
+  },
+  {
+    "id": "q-english-g1-034",
+    "subject": "english",
+    "grade": "中1",
+    "topic": "英単語 6",
+    "text": "be careful with の意味は？",
+    "choices": [
+      "〜の上に",
+      "〜のあつかいに気をつける",
+      "〜を楽しみに待つ",
+      "〜といっしょに"
+    ],
+    "correctChoiceId": 1,
+    "explanation": "be careful with は「〜のあつかいに気をつける」。"
+  },
+  {
+    "id": "q-english-g1-035",
+    "subject": "english",
+    "grade": "中1",
+    "topic": "英単語 7",
+    "text": "look forward to の意味は？",
+    "choices": [
+      "〜を見る",
+      "〜を楽しみに待つ",
+      "〜を買う",
+      "〜へようこそ"
+    ],
+    "correctChoiceId": 1,
+    "explanation": "look forward to は「〜を楽しみに待つ」。"
+  },
+  {
+    "id": "q-english-g1-036",
+    "subject": "english",
+    "grade": "中1",
+    "topic": "英単語 7",
+    "text": "those の意味は？",
+    "choices": [
+      "これらの",
+      "あれらの、それらの",
+      "この",
+      "あの"
+    ],
+    "correctChoiceId": 1,
+    "explanation": "those は「あれらの、それらの」。"
+  },
+  {
+    "id": "q-english-g1-037",
+    "subject": "english",
+    "grade": "中1",
+    "topic": "英単語 7",
+    "text": "take pictures の意味は？",
+    "choices": [
+      "写真を撮る",
+      "絵を見る",
+      "市場へ行く",
+      "旅行する"
+    ],
+    "correctChoiceId": 0,
+    "explanation": "take pictures は「写真を撮る」。"
+  },
+  {
+    "id": "q-english-g1-038",
+    "subject": "english",
+    "grade": "中1",
+    "topic": "英単語 7",
+    "text": "we're の短縮前は？",
+    "choices": [
+      "we is",
+      "we are",
+      "we were",
+      "we do"
+    ],
+    "correctChoiceId": 1,
+    "explanation": "we're は we are の短縮形です。"
+  },
+  {
+    "id": "q-english-g1-039",
+    "subject": "english",
+    "grade": "中1",
+    "topic": "英単語 8",
+    "text": "in need の意味は？",
+    "choices": [
+      "もちろん",
+      "困っている",
+      "長い間",
+      "他方では"
+    ],
+    "correctChoiceId": 1,
+    "explanation": "in need は「困っている」。"
+  },
+  {
+    "id": "q-english-g1-040",
+    "subject": "english",
+    "grade": "中1",
+    "topic": "英単語 8",
+    "text": "try to ... の意味は？",
+    "choices": [
+      "〜する必要がある",
+      "〜になりたい",
+      "〜しようとする",
+      "〜を楽しみに待つ"
+    ],
+    "correctChoiceId": 2,
+    "explanation": "try to ... は「〜しようとする」。"
+  },
+  {
+    "id": "q-english-g1-041",
+    "subject": "english",
+    "grade": "中1",
+    "topic": "英単語 8",
+    "text": "reusable の意味は？",
+    "choices": [
+      "独創的な",
+      "再利用できる",
+      "民族特有の",
+      "清潔な"
+    ],
+    "correctChoiceId": 1,
+    "explanation": "reusable は「再利用できる」。"
+  },
+  {
+    "id": "q-english-g1-042",
+    "subject": "english",
+    "grade": "中1",
+    "topic": "英単語 8",
+    "text": "look + 形容詞 の意味は？",
+    "choices": [
+      "〜に見える",
+      "〜を探す",
+      "〜を見る",
+      "〜を楽しみに待つ"
+    ],
+    "correctChoiceId": 0,
+    "explanation": "look + 形容詞 は「〜に見える」。"
+  },
+  {
+    "id": "q-english-g1-043",
+    "subject": "english",
+    "grade": "中1",
+    "topic": "英単語 9",
+    "text": "go の過去形は？",
+    "choices": [
+      "goed",
+      "went",
+      "gone",
+      "goes"
+    ],
+    "correctChoiceId": 1,
+    "explanation": "go の過去形は went です。"
+  },
+  {
+    "id": "q-english-g1-044",
+    "subject": "english",
+    "grade": "中1",
+    "topic": "英単語 9",
+    "text": "didn't の短縮前は？",
+    "choices": [
+      "do not",
+      "does not",
+      "did not",
+      "was not"
+    ],
+    "correctChoiceId": 2,
+    "explanation": "didn't は did not の短縮形です。"
+  },
+  {
+    "id": "q-english-g1-045",
+    "subject": "english",
+    "grade": "中1",
+    "topic": "英単語 9",
+    "text": "spend の過去形は？",
+    "choices": [
+      "spended",
+      "spent",
+      "spend",
+      "spented"
+    ],
+    "correctChoiceId": 1,
+    "explanation": "spend の過去形は spent です。"
+  },
+  {
+    "id": "q-english-g1-046",
+    "subject": "english",
+    "grade": "中1",
+    "topic": "英単語 9",
+    "text": "last weekend の意味は？",
+    "choices": [
+      "来週末",
+      "先週末",
+      "毎週末",
+      "週末の間"
+    ],
+    "correctChoiceId": 1,
+    "explanation": "last weekend は「先週末」。"
+  },
+  {
+    "id": "q-english-g1-047",
+    "subject": "english",
+    "grade": "中1",
+    "topic": "旅先の便り",
+    "text": "fell は何の過去形？",
+    "choices": [
+      "feel",
+      "fall",
+      "find",
+      "fly"
+    ],
+    "correctChoiceId": 1,
+    "explanation": "fell は fall の過去形です。"
+  },
+  {
+    "id": "q-english-g1-048",
+    "subject": "english",
+    "grade": "中1",
+    "topic": "旅先の便り",
+    "text": "for the first time の意味は？",
+    "choices": [
+      "初めて",
+      "長い間",
+      "すぐに",
+      "下へ"
+    ],
+    "correctChoiceId": 0,
+    "explanation": "for the first time は「初めて」。"
+  },
+  {
+    "id": "q-english-g1-049",
+    "subject": "english",
+    "grade": "中1",
+    "topic": "英単語 10",
+    "text": "were は何の過去形？",
+    "choices": [
+      "am / is",
+      "are",
+      "do",
+      "go"
+    ],
+    "correctChoiceId": 1,
+    "explanation": "were は are の過去形です。"
+  },
+  {
+    "id": "q-english-g1-050",
+    "subject": "english",
+    "grade": "中1",
+    "topic": "英単語 10",
+    "text": "won は何の過去形？",
+    "choices": [
+      "win",
+      "want",
+      "work",
+      "write"
+    ],
+    "correctChoiceId": 0,
+    "explanation": "won は win の過去形です。"
+  },
+  {
+    "id": "q-english-g1-051",
+    "subject": "english",
+    "grade": "中1",
+    "topic": "英単語 10",
+    "text": "look for の意味は？",
+    "choices": [
+      "〜を探す",
+      "〜を見る",
+      "〜を思い出させる",
+      "〜を設置する"
+    ],
+    "correctChoiceId": 0,
+    "explanation": "look for は「〜を探す」。"
+  },
+  {
+    "id": "q-english-g1-052",
+    "subject": "english",
+    "grade": "中1",
+    "topic": "英単語 10",
+    "text": "There are ... の意味は？",
+    "choices": [
+      "〜がありました",
+      "〜があります、〜がいます",
+      "〜がありません",
+      "〜でした"
+    ],
+    "correctChoiceId": 1,
+    "explanation": "There are ... は複数のものについて「〜があります、〜がいます」と言う表現です。"
   }
 ]

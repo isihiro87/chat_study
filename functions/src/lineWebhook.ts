@@ -2823,7 +2823,7 @@ export function buildTrialStartedFlexMessage() {
           },
           {
             type: 'text' as const,
-            text: 'これから7日間、追加問題・暗記カード・四択クイズが全部使えるよ',
+            text: 'これから7日間、追加問題・暗記カード・四択クイズ・苦手な問題の出題が全部使えるよ',
             color: '#FFF7E6',
             size: 'xs' as const,
             margin: 'xs' as const,
