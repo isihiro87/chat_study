@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
-import { Navigate } from 'react-router-dom';
 import { doc, serverTimestamp, setDoc } from 'firebase/firestore/lite';
 import { db, auth } from '../firebase/config';
 import { useAuth } from '../contexts/AuthContext';
 import { useLiffAuth } from '../hooks/useLiffAuth';
 import { LoadingScreen } from '../components/common/LoadingScreen';
+import { LiffAuthFailedScreen } from '../components/common/LiffAuthFailedScreen';
 import { TrialPremiumBanner } from '../components/common/TrialPremiumBanner';
 
 const CHECKOUT_FN_URL = import.meta.env.VITE_PREMIUM_CHECKOUT_FN_URL as
@@ -269,7 +269,7 @@ export function LiffSettingsPage() {
   }
 
   if (!user) {
-    return <Navigate to="/welcome?next=/liff/settings" replace />;
+    return <LiffAuthFailedScreen nextPath="/liff/settings" />;
   }
 
   if (status === 'loading') {

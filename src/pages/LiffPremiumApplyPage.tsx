@@ -1,10 +1,10 @@
 import { useEffect, useMemo, useState } from 'react';
-import { Navigate } from 'react-router-dom';
 import { doc, serverTimestamp, setDoc } from 'firebase/firestore/lite';
 import { db } from '../firebase/config';
 import { useAuth } from '../contexts/AuthContext';
 import { useLiffAuth } from '../hooks/useLiffAuth';
 import { LoadingScreen } from '../components/common/LoadingScreen';
+import { LiffAuthFailedScreen } from '../components/common/LiffAuthFailedScreen';
 import { logFunnelEvent } from '../utils/funnelEvent';
 import { usePremiumPromoCountdown } from '../hooks/usePremiumPromoCountdown';
 import {
@@ -263,7 +263,7 @@ export function LiffPremiumApplyPage() {
     return <LoadingScreen />;
   }
   if (!user) {
-    return <Navigate to="/welcome?next=/liff/premium-apply" replace />;
+    return <LiffAuthFailedScreen nextPath="/liff/premium-apply" />;
   }
   if (status === 'loading') {
     return <LoadingScreen />;

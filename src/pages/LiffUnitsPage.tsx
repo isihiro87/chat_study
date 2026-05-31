@@ -1,11 +1,12 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { Navigate, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import { doc, setDoc, serverTimestamp } from 'firebase/firestore/lite';
 import { db } from '../firebase/config';
 import { useAuth } from '../contexts/AuthContext';
 import { useLiffAuth } from '../hooks/useLiffAuth';
 import { logFunnelEvent } from '../utils/funnelEvent';
 import { LoadingScreen } from '../components/common/LoadingScreen';
+import { LiffAuthFailedScreen } from '../components/common/LiffAuthFailedScreen';
 import { RubyText } from '../components/common/RubyText';
 import { TrialPremiumBanner } from '../components/common/TrialPremiumBanner';
 import {
@@ -742,7 +743,7 @@ export function LiffUnitsPage() {
     return <LoadingScreen />;
   }
   if (!user) {
-    return <Navigate to="/welcome?next=/liff/units" replace />;
+    return <LiffAuthFailedScreen nextPath="/liff/units" />;
   }
   if (!userDocLoaded) {
     return <LoadingScreen />;

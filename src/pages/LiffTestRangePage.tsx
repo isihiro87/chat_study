@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useState } from 'react';
-import { Navigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { useLiffAuth } from '../hooks/useLiffAuth';
 import { LoadingScreen } from '../components/common/LoadingScreen';
+import { LiffAuthFailedScreen } from '../components/common/LiffAuthFailedScreen';
 import { TrialPremiumBanner } from '../components/common/TrialPremiumBanner';
 import {
   eraMetas,
@@ -246,7 +246,7 @@ export function LiffTestRangePage() {
   }
 
   if (!user) {
-    return <Navigate to="/welcome?next=/liff/scope" replace />;
+    return <LiffAuthFailedScreen nextPath="/liff/scope" />;
   }
 
   // userDoc がまだ届いていない（AuthContext 側で fetch 中）

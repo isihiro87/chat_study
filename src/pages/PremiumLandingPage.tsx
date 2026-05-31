@@ -821,7 +821,8 @@ function computeTrialStatus(
   if (userDoc.planSource === 'trial' && userDoc.premiumUntil) {
     const msLeft = userDoc.premiumUntil.getTime() - Date.now();
     if (msLeft <= 0) return { kind: 'trial-expired' };
-    const daysLeft = Math.max(1, Math.ceil(msLeft / (24 * 60 * 60 * 1000)));
+    // Math.floor で「残り完全日数」を表す。Math.ceil だと premiumUntil が日末で +1 されてしまう。
+    const daysLeft = Math.max(1, Math.floor(msLeft / (24 * 60 * 60 * 1000)));
     return { kind: 'trial-active', daysLeft };
   }
   if (userDoc.planSource === 'trial_expired') return { kind: 'trial-expired' };

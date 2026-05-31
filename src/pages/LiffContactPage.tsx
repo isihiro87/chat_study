@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { Navigate } from 'react-router-dom';
 import { auth } from '../firebase/config';
 import { useAuth } from '../contexts/AuthContext';
 import { useLiffAuth } from '../hooks/useLiffAuth';
 import { LoadingScreen } from '../components/common/LoadingScreen';
+import { LiffAuthFailedScreen } from '../components/common/LiffAuthFailedScreen';
 
 type Category = '質問' | '不具合の報告' | 'ご要望' | 'その他';
 
@@ -90,7 +90,7 @@ export function LiffContactPage() {
     return <LoadingScreen />;
   }
   if (!user) {
-    return <Navigate to="/welcome" replace />;
+    return <LiffAuthFailedScreen nextPath="/liff/contact" />;
   }
 
   return (

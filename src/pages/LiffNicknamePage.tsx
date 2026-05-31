@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
-import { Navigate } from 'react-router-dom';
 import { doc, serverTimestamp, setDoc } from 'firebase/firestore/lite';
 import { db } from '../firebase/config';
 import { useAuth } from '../contexts/AuthContext';
 import { useLiffAuth } from '../hooks/useLiffAuth';
 import { LoadingScreen } from '../components/common/LoadingScreen';
+import { LiffAuthFailedScreen } from '../components/common/LiffAuthFailedScreen';
 
 const MAX_LEN = 20;
 
@@ -79,7 +79,7 @@ export function LiffNicknamePage() {
     return <LoadingScreen />;
   }
   if (!user) {
-    return <Navigate to="/welcome?next=/liff/nickname" replace />;
+    return <LiffAuthFailedScreen nextPath="/liff/nickname" />;
   }
 
   const saving = status === 'saving';
