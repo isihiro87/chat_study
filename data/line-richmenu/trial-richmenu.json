@@ -25,10 +25,9 @@
     {
       "bounds": { "x": 1667, "y": 0, "width": 833, "height": 843 },
       "action": {
-        "type": "postback",
-        "label": "出題範囲設定",
-        "data": "type=test_range_menu",
-        "displayText": "出題範囲設定"
+        "type": "uri",
+        "label": "プレミアム",
+        "uri": "https://liff.line.me/2009587166-k51bH4LC"
       }
     },
     {

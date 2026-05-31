@@ -297,7 +297,8 @@ export function LiffUnitsPage() {
   const allEras: StudyEra[] = useMemo(() => historyEras ?? [], [historyEras]);
 
   // 公式LINE の post-answer flex からの deep-link 適用。historyEras がロードされた
-  // タイミングでトピック名が一致するものを探し、見つかれば setup view へ遷移する。
+  // タイミングでトピック名が一致するものを探し、見つかれば該当 kind のセッションを
+  // **自動的に開始**して fc / quiz view に直行する（旧版は setup view 止まり）。
   // 一度だけ走らせるため deepLinkAppliedRef でガード。
   useEffect(() => {
     if (deepLinkAppliedRef.current) return;
@@ -314,20 +315,67 @@ export function LiffUnitsPage() {
     deepLinkAppliedRef.current = true;
     setCurrentTopic(topic);
     setSetupKind(deepLinkKind);
-    setView('setup');
     setSessionSeenFcIds(new Set());
     setSessionSeenQuizIds(new Set());
-    // itemStats を非同期ロード（setup view は load 完了前でも描画可）
+
+    const startNow = (topic: StudyTopic, statsForTopic: ItemStatsMap) => {
+      const mode: PickMode = setupRandomize ? 'random' : 'sequential';
+      if (deepLinkKind === 'fc') {
+        const filtered = topic.flashcards.filter((c) =>
+          difficultyMatch(c.difficulty, setupDifficulties),
+        );
+        const picked = pickItems(filtered, statsForTopic, setupCount, mode);
+        if (picked.length === 0) {
+          // 候補ゼロのときだけ setup view に落として手動で条件を変えてもらう
+          setView('setup');
+          return;
+        }
+        if (user) clearSavedSession(user.uid, topic.topicId, 'fc');
+        setResumeFc(null);
+        setActiveFcItems(picked);
+        setSessionSeenFcIds(new Set(picked.map((i) => i.id)));
+        setKnownIds([]);
+        setUnknownIds([]);
+        setView('fc');
+      } else {
+        const filtered = topic.quiz.filter((q) =>
+          difficultyMatch(q.difficulty, setupDifficulties),
+        );
+        const picked = pickItems(filtered, statsForTopic, setupCount, mode);
+        if (picked.length === 0) {
+          setView('setup');
+          return;
+        }
+        if (user) clearSavedSession(user.uid, topic.topicId, 'quiz');
+        setResumeQuiz(null);
+        setActiveQuizItems(picked);
+        setSessionSeenQuizIds(new Set(picked.map((i) => i.id)));
+        setWrongIds([]);
+        setView('quiz');
+      }
+    };
+
     const cached = allItemStats.get(topic.topicId);
     if (cached) {
       setItemStats(cached);
+      startNow(topic, cached);
     } else {
       void (async () => {
         const stats = await loadItemStats(topic.topicId);
         setItemStats(stats);
+        startNow(topic, stats);
       })();
     }
-  }, [historyEras, deepLinkTopicName, deepLinkKind, allItemStats]);
+  }, [
+    historyEras,
+    deepLinkTopicName,
+    deepLinkKind,
+    allItemStats,
+    setupRandomize,
+    setupDifficulties,
+    setupCount,
+    user,
+  ]);
 
   const filteredEras: StudyEra[] = useMemo(() => {
     if (!scopeFilterOn || testScopeTopics.size === 0) {
