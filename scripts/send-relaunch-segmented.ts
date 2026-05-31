@@ -57,6 +57,7 @@ interface Args {
   dryRun: boolean;
   onlySegment: Segment | null;
   limit: number | null;
+  preferredHourFilter: Set<number | "none"> | null;
 }
 
 interface Candidate {
@@ -66,6 +67,7 @@ interface Candidate {
   grade: string;
   totalAnswered: number;
   scopeCount: number;
+  preferredHour: number | null;
 }
 
 interface Stats {
@@ -84,7 +86,12 @@ interface Stats {
 
 function parseArgs(): Args {
   const argv = process.argv.slice(2);
-  const args: Args = { dryRun: true, onlySegment: null, limit: null };
+  const args: Args = {
+    dryRun: true,
+    onlySegment: null,
+    limit: null,
+    preferredHourFilter: null,
+  };
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i];
     if (a === "--dry-run") args.dryRun = true;
@@ -101,9 +108,20 @@ function parseArgs(): Args {
         throw new Error("--limit には正の整数を指定してください");
       }
       args.limit = n;
+    } else if (a === "--preferred-hour") {
+      const raw = argv[++i] ?? "";
+      const set = new Set<number | "none">();
+      for (const tok of raw.split(",")) {
+        const t = tok.trim();
+        if (t === "none") set.add("none");
+        else if (/^\d+$/.test(t)) set.add(Number(t));
+        else throw new Error(`--preferred-hour 不正な値: ${t}`);
+      }
+      args.preferredHourFilter = set;
     } else if (a === "--help" || a === "-h") {
       console.log(
-        "usage: npx tsx scripts/send-relaunch-segmented.ts [--dry-run | --execute] [--segment A|B|C|D] [--limit N]"
+        "usage: npx tsx scripts/send-relaunch-segmented.ts [--dry-run | --execute] " +
+          "[--segment A|B|C|D|E] [--limit N] [--preferred-hour 6,7,16,18,20,none]"
       );
       process.exit(0);
     } else {
@@ -184,6 +202,7 @@ function classify(uid: string, data: any, stats: Stats): Candidate | null {
     grade,
     totalAnswered,
     scopeCount: scopeTopics.length,
+    preferredHour: hasPreferredHour ? (data.preferredHour as number) : null,
   };
 }
 
@@ -767,12 +786,20 @@ async function main(): Promise<void> {
     const c = classify(doc.id, doc.data(), stats);
     if (!c) continue;
     if (args.onlySegment && c.segment !== args.onlySegment) continue;
+    // --preferred-hour <list> によるフィルター
+    if (args.preferredHourFilter) {
+      const key: number | "none" = c.preferredHour ?? "none";
+      if (!args.preferredHourFilter.has(key)) continue;
+    }
     candidates.push(c);
   }
 
   console.log(
     `[segmented] candidates: A=${stats.segmentA} B=${stats.segmentB} C=${stats.segmentC} D=${stats.segmentD} E=${stats.segmentE} ` +
-      `(filtered ${candidates.length}) | skipped admin=${stats.skippedAdmin} noLineUserId=${stats.skippedNoLineUserId} blocked=${stats.skippedBlocked}`
+      `(filtered ${candidates.length}) | skipped admin=${stats.skippedAdmin} noLineUserId=${stats.skippedNoLineUserId} blocked=${stats.skippedBlocked}` +
+      (args.preferredHourFilter
+        ? ` | preferredHour filter: [${Array.from(args.preferredHourFilter).join(",")}]`
+        : "")
   );
 
   // セグメント別にグループ化
