@@ -442,7 +442,7 @@ function bubbleRedelivery() {
 function bubbleTrialInfo() {
   return {
     type: "flex" as const,
-    altText: "7日間プレミアム体験中です",
+    altText: "7日間プレミアム体験中です（登録しない限り料金は発生しません）",
     contents: {
       type: "bubble" as const,
       size: "kilo" as const,
@@ -476,7 +476,16 @@ function bubbleTrialInfo() {
           },
           {
             type: "text" as const,
-            text: "✅ クレジットカード登録なし\n✅ 期間中の登録で月¥680 永続ロック",
+            text: "ご自分で本登録の手続きをしない限り料金は発生しません。安心してお試しください。",
+            wrap: true,
+            size: "sm" as const,
+            color: "#92400E",
+            weight: "bold" as const,
+            margin: "md",
+          },
+          {
+            type: "text" as const,
+            text: "✅ クレジットカード登録不要・自動課金なし\n✅ 期間中の登録で月¥680 永続ロック",
             wrap: true,
             size: "xs" as const,
             color: "#666666",
