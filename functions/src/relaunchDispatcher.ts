@@ -24,7 +24,7 @@ import {
   getApps,
   applicationDefault,
 } from "firebase-admin/app";
-import { FieldValue, getFirestore } from "firebase-admin/firestore";
+import { FieldValue, Timestamp, getFirestore } from "firebase-admin/firestore";
 
 if (getApps().length === 0) {
   initializeApp({ credential: applicationDefault() });
@@ -39,6 +39,11 @@ const SCHEDULE: Record<string, string> = {
   "17:30": "18",
   "19:30": "20",
 };
+
+/** 管理者テスト用: この時刻に U429... を trial 化 + flex push する */
+const ADMIN_TEST_HHMM = "00:02";
+const ADMIN_TEST_LINE_USER_ID = "U429b1d951fc7236c9e8e85e5ca96b910";
+const ADMIN_TEST_TRIAL_END_ISO = "2026-06-08T00:02:00+09:00";
 
 const ADMIN_LINE_USER_IDS = new Set<string>([
   "U429b1d951fc7236c9e8e85e5ca96b910",
@@ -431,10 +436,85 @@ async function runDispatchFor(preferredHourFilter: string, lockKey: string): Pro
   );
 }
 
+async function runAdminTrialTest(): Promise<void> {
+  const token = process.env.LINE_MESSAGING_CHANNEL_ACCESS_TOKEN;
+  const trialMenuId =
+    process.env.LINE_RICHMENU_TRIAL_ID || process.env.LINE_RICHMENU_PREMIUM_ID;
+  if (!token || !trialMenuId) {
+    console.error("[adminTrialTest] LINE token or trial richmenu id 未設定");
+    return;
+  }
+  const db = getFirestore();
+  const lockRef = db.doc(`relaunchSends/${TARGET_JST_YMD}-${ADMIN_TEST_HHMM}-admin`);
+  const lockSnap = await lockRef.get();
+  if (lockSnap.exists) {
+    console.log("[adminTrialTest] 既実行、skip");
+    return;
+  }
+  await lockRef.set({ startedAt: FieldValue.serverTimestamp() });
+
+  // 1. richmenu trial に切替
+  try {
+    const res = await fetch(
+      `https://api.line.me/v2/bot/user/${ADMIN_TEST_LINE_USER_ID}/richmenu/${trialMenuId}`,
+      { method: "POST", headers: { Authorization: `Bearer ${token}` } }
+    );
+    if (!res.ok) {
+      const body = await res.text().catch(() => "");
+      throw new Error(`richmenu link ${res.status} body=${body}`);
+    }
+    console.log("[adminTrialTest] richmenu trial にリンク成功");
+  } catch (err) {
+    console.error("[adminTrialTest] richmenu リンク失敗:", err);
+  }
+
+  // 2. Firestore users/{uid} を trial 状態に
+  const trialEnd = new Date(ADMIN_TEST_TRIAL_END_ISO);
+  const uid = `line:${ADMIN_TEST_LINE_USER_ID}`;
+  try {
+    await db.doc(`users/${uid}`).set(
+      {
+        plan: "premium",
+        planSource: "trial",
+        richMenuType: "trial",
+        trialStartedAt: FieldValue.serverTimestamp(),
+        premiumUntil: Timestamp.fromDate(trialEnd),
+        priceLockExpiresAt: Timestamp.fromDate(trialEnd),
+        lockedMonthlyPrice: 680,
+        lastRichMenuUpdatedAt: FieldValue.serverTimestamp(),
+        updatedAt: FieldValue.serverTimestamp(),
+      },
+      { merge: true }
+    );
+    console.log("[adminTrialTest] Firestore trial 状態書き込み完了");
+  } catch (err) {
+    console.error("[adminTrialTest] Firestore 書き込み失敗:", err);
+  }
+
+  // 3. flex push (Segment E と同じ：お詫び+月末まで配信 + trial info)
+  try {
+    const messages = [bubbleApologyAnswered(), bubbleTrialInfo()];
+    const res = await fetch("https://api.line.me/v2/bot/message/push", {
+      method: "POST",
+      headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
+      body: JSON.stringify({ to: ADMIN_TEST_LINE_USER_ID, messages }),
+    });
+    if (!res.ok) {
+      const body = await res.text().catch(() => "");
+      throw new Error(`push ${res.status} body=${body}`);
+    }
+    console.log("[adminTrialTest] push 成功");
+  } catch (err) {
+    console.error("[adminTrialTest] push 失敗:", err);
+  }
+
+  await lockRef.set({ finishedAt: FieldValue.serverTimestamp() }, { merge: true });
+}
+
 export const relaunchDispatcher = functions
   .region("asia-northeast1")
   .runWith({ timeoutSeconds: 540 })
-  .pubsub.schedule("*/10 * * * *")
+  .pubsub.schedule("*/2 * * * *")
   .timeZone("Asia/Tokyo")
   .onRun(async () => {
     const now = new Date();
@@ -443,9 +523,12 @@ export const relaunchDispatcher = functions
       // 2026-06-01 以外は何もしない（無害化）
       return null;
     }
+    if (hhmm === ADMIN_TEST_HHMM) {
+      await runAdminTrialTest();
+      return null;
+    }
     const filter = SCHEDULE[hhmm];
     if (!filter) {
-      console.log(`[relaunchDispatcher] ${ymd} ${hhmm} は対象外、skip`);
       return null;
     }
     const lockKey = `${ymd}-${hhmm}-h${filter.replace(/,/g, "_")}`;
