@@ -10,7 +10,7 @@ interface LoadingScreenProps {
   stuckThresholdMs?: number;
 }
 
-const DEFAULT_STUCK_MS = 2000;
+const DEFAULT_STUCK_MS = 6000;
 
 /**
  * フルスクリーンのローディング画面。
@@ -59,24 +59,32 @@ export function LoadingScreen({
         {message}
       </p>
       {stuck && (
-        <div className="mt-6 max-w-sm w-full px-2">
-          <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4 text-left">
-            <p
-              className="text-xs font-bold text-amber-800 mb-2"
-              style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
-            >
-              💡 読み込みが終わらないとき
-            </p>
-            <ol className="text-[11px] text-gray-700 space-y-1 leading-relaxed list-decimal list-inside">
+        <div className="mt-6 max-w-sm w-full px-2 space-y-3">
+          <p className="text-xs text-gray-500 text-center">
+            少し時間がかかっています。もう少しお待ちください。
+          </p>
+          <button
+            type="button"
+            onClick={() => window.location.reload()}
+            className="block w-full text-center bg-amber-500 hover:bg-amber-600 active:scale-95 transition-all rounded-full py-2.5 px-4 text-white text-sm font-medium"
+            style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+          >
+            ページを再読み込み
+          </button>
+          <details className="text-[11px] text-gray-500">
+            <summary className="cursor-pointer text-center text-gray-400">
+              それでも開かないとき
+            </summary>
+            <ol className="mt-2 px-2 space-y-1 leading-relaxed list-decimal list-inside">
               <li>画面右上の「⋮」（縦三点）ボタンをタップ</li>
               <li>「すべてのタブ」を開く</li>
               <li>「チャットでスタディ」のタブを全て削除</li>
               <li>メニューからもう一度開き直す</li>
             </ol>
-            <p className="text-[10px] text-gray-500 mt-2">
+            <p className="text-[10px] text-gray-400 mt-2">
               キャッシュされた古いページが残っていると発生することがあります。
             </p>
-          </div>
+          </details>
         </div>
       )}
     </div>

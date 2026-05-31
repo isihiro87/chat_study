@@ -337,10 +337,17 @@ export async function signInWithLiffIdToken(idToken: string): Promise<void> {
 // まま維持する。これにより複数 LIFF タブ間で認証セッションを共有でき、
 // LIFF を開くたびに OAuth 同意画面を踏まされる体験を回避できる。
 //
-// 以前は LIFF_AUTH_TIMEOUT_MS(8s) で loading=false を強制する safety timer を
-// 持っていたが、auth 復元が遅れた端末で user=null と見做されて /welcome に
-// 飛ばされる症状の原因になっていたため撤去。タイムアウト救済は LoadingScreen の
-// stuck UI（タブ全削除手順の案内）に一本化する。
+// LINE WebView 等で IndexedDB / localStorage アクセスが不安定なときに
+// onAuthStateChanged が発火せず、loading=true のまま LoadingScreen が永続表示
+// される症状（2026-05-31 報告）の救済タイマー。
+//
+// 過去に LIFF_AUTH_TIMEOUT_MS(8s) で loading=false を強制したところ、auth 復元
+// が遅れた端末で誤って user=null と見做されて /welcome に飛ばされる問題が
+// あったが、今回は auth.currentUser を同期的に読んで「Firebase 内部での復元
+// は既に終わっているが onAuthStateChanged だけ届いていない」ケースを救済する
+// 設計に変更。currentUser が立っていれば true source として採用、null なら
+// 未ログインと判定して /welcome に進めて手動 OAuth フォールバックさせる。
+const AUTH_RESOLVE_FALLBACK_MS = 12000;
 
 // users/{uid} doc の getDoc に被せる hard timeout。これがないと fetch が
 // hang した際 userDocLoaded が永久に false のままで、レンダーガードが
@@ -356,14 +363,35 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     let lastUid: string | null = null;
+    let resolvedByListener = false;
 
     // Firebase の永続化はデフォルト（browserLocalPersistence = localStorage / IndexedDB）
     // のまま使用。明示的な setPersistence 呼び出しは不要。
     const persistencePromise: Promise<void> = Promise.resolve();
 
+    // onAuthStateChanged が AUTH_RESOLVE_FALLBACK_MS 以内に発火しなかった場合は
+    // auth.currentUser を信頼して loading をリリースする。
+    const fallbackTimer = window.setTimeout(() => {
+      if (resolvedByListener) return;
+      const current = auth.currentUser;
+      console.warn(
+        `[auth] onAuthStateChanged が ${AUTH_RESOLVE_FALLBACK_MS}ms 以内に発火しませんでした。auth.currentUser=${current ? current.uid : 'null'} で代替解決します。`,
+      );
+      setUser(current);
+      // userDoc は載せられないので空扱い。後続の onAuthStateChanged が遅れて
+      // 届けば setUserDoc / setUserDocLoaded は再評価される。
+      if (!current) {
+        setUserDoc(null);
+        setUserDocLoaded(true);
+      }
+      setLoading(false);
+    }, AUTH_RESOLVE_FALLBACK_MS);
+
     let unsubscribe: (() => void) | undefined;
     void persistencePromise.then(() => {
       unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
+        resolvedByListener = true;
+        window.clearTimeout(fallbackTimer);
         setUser(firebaseUser);
 
         // uid が切り替わったら（別アカウントログイン）旧 uid のキャッシュを無効化する。
@@ -468,6 +496,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     });
 
     return () => {
+      window.clearTimeout(fallbackTimer);
       if (unsubscribe) unsubscribe();
     };
   }, []);

@@ -228,7 +228,12 @@ export function LiffTestRangePage() {
 
   // LIFF auth の試行が終わってない / Firebase Auth が確定してない間は loading
   if (loading || !liffAuthAttempted) {
-    return <LoadingScreen />;
+    return (
+      <LoadingScreen
+        message="LINEログインを確認しています..."
+        stuckThresholdMs={6000}
+      />
+    );
   }
 
   if (!user) {
@@ -237,7 +242,12 @@ export function LiffTestRangePage() {
 
   // userDoc がまだ届いていない（AuthContext 側で fetch 中）
   if (!userDocLoaded) {
-    return <LoadingScreen />;
+    return (
+      <LoadingScreen
+        message="LINEログインを確認しています..."
+        stuckThresholdMs={6000}
+      />
+    );
   }
 
   // userDoc fetch 自体は完了したが、致命的エラー時は userCtx 不要のエラー UI を出す
