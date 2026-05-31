@@ -231,7 +231,7 @@ export function LiffTestRangePage() {
     return (
       <LoadingScreen
         message="LINEログインを確認しています..."
-        stuckThresholdMs={6000}
+        stuckThresholdMs={11000}
       />
     );
   }
@@ -245,7 +245,7 @@ export function LiffTestRangePage() {
     return (
       <LoadingScreen
         message="LINEログインを確認しています..."
-        stuckThresholdMs={6000}
+        stuckThresholdMs={11000}
       />
     );
   }

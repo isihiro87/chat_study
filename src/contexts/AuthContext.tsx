@@ -347,7 +347,7 @@ export async function signInWithLiffIdToken(idToken: string): Promise<void> {
 // は既に終わっているが onAuthStateChanged だけ届いていない」ケースを救済する
 // 設計に変更。currentUser が立っていれば true source として採用、null なら
 // 未ログインと判定して /welcome に進めて手動 OAuth フォールバックさせる。
-const AUTH_RESOLVE_FALLBACK_MS = 12000;
+const AUTH_RESOLVE_FALLBACK_MS = 5000;
 
 // users/{uid} doc の getDoc に被せる hard timeout。これがないと fetch が
 // hang した際 userDocLoaded が永久に false のままで、レンダーガードが
@@ -370,7 +370,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     const persistencePromise: Promise<void> = Promise.resolve();
 
     // onAuthStateChanged が AUTH_RESOLVE_FALLBACK_MS 以内に発火しなかった場合は
-    // auth.currentUser を信頼して loading をリリースする。
+    // auth.currentUser を信頼して loading をリリースする。currentUser があれば
+    // 単独で userDoc fetch も走らせる（このまま userDocLoaded=false で放置すると
+    // LiffTestRangePage などのレンダーガードに引っかかって LoadingScreen が
+    // 残り続けるため）。
     const fallbackTimer = window.setTimeout(() => {
       if (resolvedByListener) return;
       const current = auth.currentUser;
@@ -378,13 +381,57 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         `[auth] onAuthStateChanged が ${AUTH_RESOLVE_FALLBACK_MS}ms 以内に発火しませんでした。auth.currentUser=${current ? current.uid : 'null'} で代替解決します。`,
       );
       setUser(current);
-      // userDoc は載せられないので空扱い。後続の onAuthStateChanged が遅れて
-      // 届けば setUserDoc / setUserDocLoaded は再評価される。
       if (!current) {
         setUserDoc(null);
         setUserDocLoaded(true);
+        setLoading(false);
+        return;
       }
-      setLoading(false);
+      // currentUser はあるので userDoc を独自に fetch（listener と同じ動作）
+      const uid = current.uid;
+      const userDocRef = doc(db, `users/${uid}`);
+      const emptyUserDoc: UserDoc = {
+        uid,
+        nickname: null,
+        grade: null,
+        subject: null,
+        testScopeTopics: [],
+        studyStats: {},
+        studyPrefs: {},
+        plan: 'free',
+        planSource: null,
+        preferredHour: null,
+        lockedMonthlyPrice: null,
+        cancelAtPeriodEnd: false,
+        currentPeriodEnd: null,
+        premiumUntil: null,
+      };
+      void (async () => {
+        try {
+          const snap = await withFirestoreTimeout(
+            retryAsync(() => getDoc(userDocRef)),
+            USER_DOC_FETCH_TIMEOUT_MS,
+            `fallback getDoc users/${uid}`,
+          );
+          if (snap.exists()) {
+            const data = snap.data();
+            setUserProfile({ grade: data.grade ?? null });
+            const parsed = parseUserDoc(uid, data);
+            setUserDoc(parsed);
+            if (parsed.grade) writeCachedGrade(uid, parsed.grade);
+            writeCachedPlan(uid, parsed.plan);
+          } else {
+            setUserDoc(emptyUserDoc);
+            writeCachedPlan(uid, 'free');
+          }
+        } catch (e) {
+          console.warn('[auth] fallback userDoc fetch failed', e);
+          setUserDoc(emptyUserDoc);
+        } finally {
+          setUserDocLoaded(true);
+          setLoading(false);
+        }
+      })();
     }, AUTH_RESOLVE_FALLBACK_MS);
 
     let unsubscribe: (() => void) | undefined;
