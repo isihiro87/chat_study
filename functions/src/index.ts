@@ -28,6 +28,7 @@ export { syncRichMenuToPlan } from './syncRichMenuToPlan';
 export { expireTrialUsers } from './expireTrialUsers';
 export { remindIncompleteOnboarding } from './remindIncompleteOnboarding';
 export { onTestScopeFirstSet } from './onTestScopeFirstSet';
+export { onTestScopeSaved } from './onTestScopeSaved';
 export { stripeWebhook } from './stripeWebhook';
 export { createStripeCheckoutSession } from './createStripeCheckoutSession';
 export { cancelStripeSubscription } from './cancelStripeSubscription';

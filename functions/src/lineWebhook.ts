@@ -4268,36 +4268,21 @@ export async function selectAndSendQuestion(
         })
       : snap.docs;
 
+  // 範囲設定済みでも合致する問題が 0 件の場合は、無言の未配信を防ぐため
+  // 全範囲にフォールバックして必ず 1 問配信する（範囲の単元名が questions と
+  // 一致しない等のケースの安全網。ユーザーの testScope 設定自体は変更しない）。
+  let effectiveDocs = scopedDocs;
   if (testScopeTopics.length > 0 && scopedDocs.length === 0) {
     console.warn(
-      '[lineWebhook] selectAndSendQuestion: no questions in testScope',
+      '[lineWebhook] selectAndSendQuestion: testScope に合致する問題が0件 → 全範囲にフォールバック',
       uid,
       testScopeTopics
     );
-    if (replyToken) {
-      try {
-        const client = await getLineClient();
-        await client.replyMessage({
-          replyToken,
-          messages: [
-            {
-              type: 'text',
-              text: '今の出題範囲では出題できる問題が見つかりませんでした。リッチメニュー「出題範囲設定」から範囲を見直してください。',
-            },
-          ],
-        });
-      } catch (error) {
-        console.error(
-          '[lineWebhook] selectAndSendQuestion testScope empty reply failed:',
-          error
-        );
-      }
-    }
-    return;
+    effectiveDocs = snap.docs;
   }
 
-  const candidates = scopedDocs.filter((d) => !recentIds.includes(d.id));
-  const pool = candidates.length > 0 ? candidates : scopedDocs;
+  const candidates = effectiveDocs.filter((d) => !recentIds.includes(d.id));
+  const pool = candidates.length > 0 ? candidates : effectiveDocs;
   const picked = pool[Math.floor(Math.random() * pool.length)];
   const question = picked.data() as Question;
 
