@@ -1,5 +1,16 @@
 # プロジェクトメモリ
 
+## ⚠️ 最重要: 「era フォルダ」は公式LINEサービスとは別物（混同禁止）
+
+**`src/data/subjects/{subject}/eras/**` および、そこから生成される `src/data/generated/topic-registry.generated.ts`（`eraMetas` / `topicMetas`）は、Web版フル学習サイト（`www.chatstudy.jp`）専用のデータ・単元体系です。公式LINEサービスとは「別物・別タキソノミー」です。**
+
+- **公式LINE（毎日配信 / 追加で解く / 苦手復習 / LIFF じっくり学ぶ / 範囲設定の出題）の source of truth は `data/content/{subject}/{folder}/*.json`** のみ。ここから `sync-questions-from-content.ts`（→ Firestore `questions`）と `generate-line-study-content.ts`（→ `line-study-*.generated.ts`）に派生する。
+- `src/data/subjects/.../eras/` と `data/content/.../` は**単元名・粒度が一致しない**（例: 江戸時代は eras 側が細分化＝「三都の繁栄/五街道と水運/元禄文化…」、content 側は粗い別名）。**eras 側を参照・編集しても公式LINE には一切反映されない。**
+- 公式LINE の単元（testScope / questions.topic）を扱うときは **必ず `data/content/` 系**を見る。`topic-registry` / `eras` は見ない。
+- 既知の不整合: 範囲設定 LIFF (`src/pages/LiffTestRangePage.tsx`) が `topic-registry`（eras 由来）を単元候補に使っているため、ユーザーが選べる単元が公式LINE の `questions` と食い違い配信されないケースがある（要改善・別タスク）。
+
+> 今後 Claude Code / Codex が「公式LINEの単元」を `src/data/subjects/.../eras/` や `topic-registry` で探して混乱しないこと。公式LINEは `data/content/` が正。
+
 ## 技術スタック
 
 - 開発環境: devcontainer
@@ -273,7 +284,8 @@ data/content/history/{folder}/{topic}.json   ← source of truth
               → users/{uid}.testScope.topics と一致比較
 ```
 
-**重要**: testScope.topics は topic-registry / data/content の `name`（細かい日本語、例: "旧石器時代と縄文時代"）を保存する。webhook は Firestore `questions.topic` フィールドと完全一致比較するため、**問題を追加・編集したら必ず両方を同期する**:
+**重要**: testScope.topics は **`data/content/` 由来の `topic.name`**（細かい日本語、例: "旧石器時代と縄文時代"）であるべき。webhook は Firestore `questions.topic` と完全一致比較するため、**問題を追加・編集したら必ず両方を同期する**。
+（⚠️ 現状の範囲設定LIFFは `topic-registry`〔eras 由来〕を候補に使っており `data/content` と食い違うことがある。冒頭「era フォルダは別物」を参照。）:
 
 ```bash
 # JSON を編集したら 2 つ実行

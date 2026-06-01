@@ -13,6 +13,23 @@ import { saveTestScope, clearTestScope } from '../utils/testScope';
 type Subject = 'english' | 'history';
 type GradeNum = 1 | 2 | 3;
 
+/**
+ * userDoc.grade は "中2"（文字列）で保存される一方、topic-registry の eraMetas.grade
+ * は数値 (1|2|3)。両者を直接比較すると常に不一致になり、範囲設定ページにトピックが
+ * 1件も表示されず「設定できない」状態になる。ここで数値の GradeNum に正規化する。
+ * 旧データの数値・"2" 等も許容する。
+ */
+function toGradeNum(raw: unknown): GradeNum | null {
+  if (raw === 1 || raw === 2 || raw === 3) return raw;
+  if (typeof raw === 'string') {
+    const s = raw.trim().replace(/^中/, '');
+    if (s === '1') return 1;
+    if (s === '2') return 2;
+    if (s === '3') return 3;
+  }
+  return null;
+}
+
 const SUBJECT_LABEL: Record<Subject, string> = {
   english: '英語',
   history: '歴史',
@@ -78,14 +95,14 @@ export function LiffTestRangePage() {
       return;
     }
     const subject = (userDoc.subject ?? null) as Subject | null;
-    const gradeNum = userDoc.grade;
-    if (!subject || !gradeNum) {
+    const grade = toGradeNum(userDoc.grade);
+    if (!subject || !grade) {
       setStatus('profile-missing');
       return;
     }
     setUserCtx({
       subject,
-      grade: gradeNum,
+      grade,
       initialTopics: userDoc.testScopeTopics,
     });
     setSelected(new Set(userDoc.testScopeTopics));
