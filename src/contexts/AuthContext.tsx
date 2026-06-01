@@ -260,6 +260,14 @@ async function deleteSubcollection(uid: string, name: string): Promise<void> {
 function getLineLoginUrl(): string {
   const redirectUri = `${window.location.origin}${LINE_CALLBACK_PATH}`;
   const state = crypto.randomUUID();
+  // in-app ブラウザ（Threads / Instagram / Facebook の webview）では OAuth リダイレクトの
+  // 往復で sessionStorage が保持されず、state 不一致で必ずログイン失敗する。localStorage の
+  // 方が webview をまたいでも残りやすいので両方に保存し、検証側で両方を見る。
+  try {
+    localStorage.setItem('line-login-state', state);
+  } catch {
+    /* webview で localStorage 不可なら sessionStorage に頼る */
+  }
   sessionStorage.setItem('line-login-state', state);
   const params = new URLSearchParams({
     response_type: 'code',
@@ -272,10 +280,14 @@ function getLineLoginUrl(): string {
 }
 
 export async function handleLineCallback(code: string, state: string): Promise<void> {
-  const savedState = sessionStorage.getItem('line-login-state');
+  // sessionStorage / localStorage の両方を確認（in-app ブラウザ対策）。
+  let savedState: string | null = null;
+  try { savedState = localStorage.getItem('line-login-state'); } catch { /* ignore */ }
+  if (!savedState) savedState = sessionStorage.getItem('line-login-state');
   if (state !== savedState) {
     throw new Error('Invalid state parameter');
   }
+  try { localStorage.removeItem('line-login-state'); } catch { /* ignore */ }
   sessionStorage.removeItem('line-login-state');
 
   if (!LINE_AUTH_FN_URL) {

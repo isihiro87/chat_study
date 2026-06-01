@@ -36,6 +36,18 @@ function isLikelyReturningUser(next: string | null): boolean {
  *   - 既登録優位: 「LINEでログイン」(amber) を主、「公式LINEを友だち追加」を副
  *   - 新規優位: 「公式LINEを友だち追加」(LINE 緑) を主、「LINEでログイン」を副
  */
+/**
+ * Threads / Instagram / Facebook のアプリ内ブラウザ(webview)判定。
+ * これらの webview は LINE OAuth リダイレクトの往復で state が保持されず
+ * ログインに失敗するため、ユーザーに外部ブラウザ / LINEアプリ利用を促す。
+ */
+function isMetaInAppBrowser(): boolean {
+  if (typeof navigator === 'undefined') return false;
+  return /Instagram|FBAN|FBAV|FB_IAB|Barcelona|Threads/i.test(
+    navigator.userAgent || ''
+  );
+}
+
 export function WelcomePage() {
   const [searchParams] = useSearchParams();
   const { signInWithLine } = useAuth();
@@ -43,6 +55,7 @@ export function WelcomePage() {
 
   const next = searchParams.get('next');
   const returning = useMemo(() => isLikelyReturningUser(next), [next]);
+  const inAppBrowser = useMemo(() => isMetaInAppBrowser(), []);
 
   useEffect(() => {
     if (!next) return;
@@ -106,6 +119,18 @@ export function WelcomePage() {
             ? 'ログインで続きから始められます'
             : '中学生のためのスマホ学習サイト'}
         </p>
+
+        {inAppBrowser && (
+          <div
+            role="alert"
+            className="mb-6 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-xs text-amber-900 leading-relaxed"
+          >
+            ⚠️ Threads・Instagram のアプリ内ブラウザでは LINE ログインに失敗することがあります。
+            <br />
+            右上のメニューから <span className="font-bold">Safari / Chrome で開く</span> か、
+            <span className="font-bold">LINEアプリの公式アカウントのメニュー（出題範囲設定など）</span>からご利用ください。
+          </div>
+        )}
 
         {!returning && (
           <ul className="text-sm text-gray-700 space-y-2 mb-6 leading-relaxed">
