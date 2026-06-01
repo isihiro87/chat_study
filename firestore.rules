@@ -111,7 +111,9 @@ service cloud.firestore {
           'liff_premium_info_view',
           'liff_premium_apply_view',
           'liff_premium_apply_submit',
-          'liff_units_open'
+          'liff_units_open',
+          'liff_scope_open',
+          'liff_scope_save'
         ];
       allow read, update, delete: if isAdmin();
     }

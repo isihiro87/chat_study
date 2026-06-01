@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { useLiffAuth } from '../hooks/useLiffAuth';
 import { LoadingScreen } from '../components/common/LoadingScreen';
@@ -9,6 +9,7 @@ import {
   topicMetas,
 } from '../data/generated/topic-registry.generated';
 import { saveTestScope, clearTestScope } from '../utils/testScope';
+import { logFunnelEvent } from '../utils/funnelEvent';
 
 type Subject = 'english' | 'history';
 type GradeNum = 1 | 2 | 3;
@@ -109,6 +110,16 @@ export function LiffTestRangePage() {
     setStatus('ready');
     setErrorMessage(null);
   }, [user, loading, userDoc, userDocLoaded]);
+
+  // 設定ページに到達（認証成功してページ表示）したら1回だけ計測。
+  // 「開いたのに保存していない」を liff_scope_open − liff_scope_save で測れるようにする。
+  const openLoggedRef = useRef(false);
+  useEffect(() => {
+    if (status === 'ready' && !openLoggedRef.current) {
+      openLoggedRef.current = true;
+      void logFunnelEvent('liff_scope_open');
+    }
+  }, [status]);
 
   const eraGroups: EraGroup[] = useMemo(() => {
     if (!userCtx) return [];
@@ -226,6 +237,7 @@ export function LiffTestRangePage() {
     setErrorMessage(null);
     try {
       await saveTestScope(user.uid, Array.from(selected));
+      void logFunnelEvent('liff_scope_save', { count: selected.size });
       setStatus('saved');
       // 自動クローズはしない。完了オーバーレイで案内を読んでから
       // ユーザーが「閉じる」ボタンを押す。
