@@ -89,6 +89,36 @@ async function resolveDeepLinkTopic(
   return null;
 }
 
+/**
+ * 公式LINE flex から開かれた deep-link のクエリ（topic / kind / src）を読む。
+ *
+ * LIFF はリンク先のクエリを `?liff.state=topic%3D...%26kind%3Dfc` の形に
+ * **エンコードして内包**して渡すため、`searchParams.get('topic')` の直読みでは
+ * 取りこぼす（これが「単元選択ページに飛んでしまう」不具合の原因だった）。
+ * 直接クエリ → 無ければ liff.state をデコードして取り出す（captureIgReferrer と同手法）。
+ */
+function readLiffDeepLinkParam(search: string, key: string): string | null {
+  if (!search) return null;
+  const params = new URLSearchParams(
+    search.startsWith('?') ? search.slice(1) : search,
+  );
+  const direct = params.get(key);
+  if (direct) return direct;
+  const liffState = params.get('liff.state');
+  if (liffState) {
+    try {
+      const decoded = decodeURIComponent(liffState);
+      const inner = new URLSearchParams(
+        decoded.startsWith('?') ? decoded.slice(1) : decoded,
+      );
+      return inner.get(key);
+    } catch {
+      return null;
+    }
+  }
+  return null;
+}
+
 type ViewMode = 'list' | 'setup' | 'fc' | 'quiz' | 'fc-end' | 'quiz-end';
 type SetupKind = 'fc' | 'quiz';
 type Difficulty = 'basic' | 'standard' | 'advanced';
@@ -182,8 +212,14 @@ export function LiffUnitsPage() {
   // そのトピックの setup view へ自動遷移する。一致するトピックが見つからなければ
   // 通常通り list view を表示する（フォールバック）。
   const [searchParams] = useSearchParams();
-  const deepLinkTopicName = searchParams.get('topic');
-  const deepLinkKindRaw = searchParams.get('kind');
+  // LIFF は deep-link クエリを liff.state に内包して渡すため、直接クエリと
+  // liff.state の両方を見て topic / kind を取り出す（直読みだと取りこぼす）。
+  const deepLinkSearch =
+    typeof window !== 'undefined'
+      ? window.location.search
+      : `?${searchParams.toString()}`;
+  const deepLinkTopicName = readLiffDeepLinkParam(deepLinkSearch, 'topic');
+  const deepLinkKindRaw = readLiffDeepLinkParam(deepLinkSearch, 'kind');
   const deepLinkKind: SetupKind | null =
     deepLinkKindRaw === 'fc' || deepLinkKindRaw === 'quiz'
       ? deepLinkKindRaw
@@ -259,7 +295,7 @@ export function LiffUnitsPage() {
     if (loading || !user) return;
     openEventLoggedRef.current = true;
     void logFunnelEvent('liff_units_open', {
-      src: searchParams.get('src'),
+      src: readLiffDeepLinkParam(deepLinkSearch, 'src'),
       topic: deepLinkTopicName,
       kind: deepLinkKindRaw,
     });
