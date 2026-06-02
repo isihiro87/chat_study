@@ -4,7 +4,6 @@ import { getJstDateString, nextStreakState, type StreakState } from "./streakSta
 import {
   buildPremiumNudgeFlexMessage,
   buildNextStepGuideFlex,
-  buildPriceLockPitchFlex,
   buildScopeSetupNudgeFlexMessage,
   buildTrialStartedFlexMessage,
   getLineClient,
@@ -15,6 +14,7 @@ import {
 import { linkRichMenuForUser } from "./lineRichMenu";
 import { recordPushDelivery } from "./deliveryStats";
 import { logServerFunnelEvent } from "./funnelEvent";
+import { computeTrialEndJst } from "./trialDuration";
 
 const STREAK_MILESTONES = [3, 7, 14, 30] as const;
 const VOLUME_MILESTONES = [10, 30, 100] as const;
@@ -26,16 +26,6 @@ const PREMIUM_NUDGE_COOLDOWN_MS = 7 * 24 * 60 * 60 * 1000;
  * 将来また遅延を入れたくなったらこの定数だけ戻せばよい。
  */
 const FIRST_ANSWER_NUDGE_DELAY_MS = 0;
-/**
- * 体験中ユーザーが「追加で解く」初回問題に回答した直後に
- * 「じっくり学ぶ案内 → 60秒後に特別価格案内」を送るための遅延。
- */
-const FIRST_EXTRA_FOLLOWUP_PRICE_DELAY_MS = 60 * 1000;
-/**
- * 1問目回答時に自動開放する trial の期間 (ms)。
- * 既存の onPremiumApplicationCreated と同じ 7 日間。
- */
-const AUTO_TRIAL_DURATION_MS = 7 * 24 * 60 * 60 * 1000;
 /**
  * テスト範囲未設定ユーザーへの「範囲を設定しよう」nudge を送る最大回数。
  * 設定すると以降は送られないが、ずっと未設定のままでもしつこくならないよう
@@ -149,7 +139,7 @@ async function maybeAutoStartTrial(
   // 学年未登録 → 対応コンテンツが特定できないため trial 対象外
   if (!isPremiumEligibleGrade(grade)) return "skipped";
 
-  const trialEnd = new Date(Date.now() + AUTO_TRIAL_DURATION_MS);
+  const trialEnd = computeTrialEndJst(new Date());
 
   // 既存 onPremiumApplicationCreated と同じく、リッチメニュー切替失敗時は
   // trial 開放を中止する（メニューが free のまま機能だけ premium になる不整合を避ける）。
@@ -384,7 +374,11 @@ async function maybeSendScopeSetupNudge(ctx: NudgeContext): Promise<void> {
 
 /**
  * 体験中ユーザーが「追加で解く」初回問題を回答した直後に、
- * 「じっくり学ぶ」案内 → 60秒後に「ずっと月¥680」案内を順に push する。
+ * 「じっくり学ぶ」案内を push する。
+ *
+ * 価格訴求（「ずっと月¥680」案内）はここでは送らない。多くのユーザーが初日に
+ * 「追加で解く」を使うため、初日から金額案内が来るとうんざりされやすい。
+ * 金額の案内は trial 3 日目以降のリマインダー側に寄せる方針。
  *
  * `firstExtraFollowupSentAt` を push 前に立てることで、Firestore トリガの
  * at-least-once 配信や並列実行による重複送信を防ぐ。
@@ -449,32 +443,9 @@ async function maybeSendFirstExtraFollowup(
     return;
   }
 
-  await new Promise((resolve) =>
-    setTimeout(resolve, FIRST_EXTRA_FOLLOWUP_PRICE_DELAY_MS)
-  );
-
-  try {
-    const client = await getLineClient();
-    await client.pushMessage({
-      to: ctx.lineUserId,
-      messages: [
-        buildPriceLockPitchFlex({
-          introText:
-            "「追加で解く」も「じっくり学ぶ」も、まずはたっぷり使ってみてね。気に入ったら今のうちに登録しておくとお得だよ。",
-          source: "first_extra_followup",
-        }) as never,
-      ],
-    });
-    await recordPushDelivery("premiumNudge");
-    console.log(
-      `[onAnswerCreated] first_extra_followup: price flex sent uid=${ctx.uid}`
-    );
-  } catch (error) {
-    console.error(
-      "[onAnswerCreated] first_extra_followup price push failed:",
-      error
-    );
-  }
+  // 価格訴求（「ずっと月¥680のまま」flex）は意図的に送らない。
+  // 「追加で解く」は多くのユーザーが初日に行うため、初日から価格案内が来ると
+  // うんざりされやすい。金額の案内は trial 3 日目以降のリマインダー側に寄せる。
 }
 
 export const onAnswerCreated = functions

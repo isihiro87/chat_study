@@ -14,8 +14,7 @@ import {
 } from './lineRichMenu';
 import { logServerFunnelEvent } from './funnelEvent';
 import { recordPushDelivery } from './deliveryStats';
-
-const TRIAL_DURATION_MS = 7 * 24 * 60 * 60 * 1000;
+import { computeTrialEndJst } from './trialDuration';
 
 /**
  * `premiumApplications/{id}` ドキュメント作成時のフォローアップ Function。
@@ -132,7 +131,7 @@ export const onPremiumApplicationCreated = functions
             `[onPremiumApplicationCreated] trial 使用済みのため再開放スキップ uid=${uid}`
           );
         } else {
-          const trialEnd = new Date(Date.now() + TRIAL_DURATION_MS);
+          const trialEnd = computeTrialEndJst(new Date());
           trialEndIso = trialEnd.toISOString();
 
           try {

@@ -15,7 +15,6 @@ import { getJstDateString } from "./streakState";
 import { recordPushDelivery } from "./deliveryStats";
 
 const REMINDER_COOLDOWN_MS = 24 * 60 * 60 * 1000;
-const REMINDER_DAY_NUMBERS: readonly (1 | 3 | 6 | 7)[] = [1, 3, 6, 7] as const;
 
 // 申込から最低 12h 経過するまで Day 1 リマインダーを送らないガード（A-11）。
 // 23:50 申込 → 翌3時に「1日目」push という違和感を解消する。
@@ -245,7 +244,17 @@ export const expireTrialUsers = functions
       const trialStartJst = getJstDateString(new Date(trialStartedMs));
       const todayJst = getJstDateString(new Date());
       const daysSinceStart = daysBetweenJst(trialStartJst, todayJst);
-      const matched = REMINDER_DAY_NUMBERS.find((d) => d === daysSinceStart);
+      // 早期ナッジ(Day1/Day3)は開始日基準。終盤(明日で終了/今日で最後)は premiumUntil 基準で
+      // 判定することで、既存(7×24h で 6/8 失効)・新規(7暦日で 6/7 失効)どちらでも
+      // 「最終日=今日で最後 / 前日=明日で終了」が正しく発火する。
+      const premiumUntilJst = getJstDateString(new Date(premiumUntilMs));
+      const daysUntilExpiry = daysBetweenJst(todayJst, premiumUntilJst);
+      let matched: 1 | 3 | 6 | 7 | undefined;
+      if (daysSinceStart === 1) matched = 1;
+      else if (daysSinceStart === 3) matched = 3;
+      else if (daysUntilExpiry === 1) matched = 6; // 明日で終了
+      else if (daysUntilExpiry === 0) matched = 7; // 今日で最後
+      else matched = undefined;
       if (matched === undefined) {
         skipped++;
         continue;
