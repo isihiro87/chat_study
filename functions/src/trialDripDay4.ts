@@ -35,14 +35,14 @@ function buildDay4Message(
         contents: [
           {
             type: "text",
-            text: "📚 プレミアム体験 4日目",
+            text: "📚 プレミアム体験 5日目",
             weight: "bold",
             size: "md",
             color: "#F59E0B",
           },
           {
             type: "text",
-            text: `${nickname}体験4日目！『じっくり学ぶ』はもう試した？\n\n${benefit}`,
+            text: `${nickname}体験5日目！『じっくり学ぶ』はもう試した？\n\n${benefit}`,
             wrap: true,
             size: "sm",
             color: "#333333",
@@ -71,7 +71,7 @@ function buildDay4Message(
 
   // 価格ロック特典 pitch (定期送信)。Day 4 のタイミングで一度しっかり訴求する。
   const priceLockFlex = buildPriceLockPitchFlex({
-    introText: `${nickname}体験 4日目、ちょうど折り返しだよ。続けて使うなら今のうちに登録しておくとお得！`,
+    introText: `${nickname}体験5日目、残り3日。続けて使うなら今のうちに登録しておくとお得！`,
     source: "trial_drip_day4",
   }) as unknown as messagingApi.FlexMessage;
 

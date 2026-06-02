@@ -22,7 +22,7 @@ function buildDay5StoryMessage(
     "中2のAさんは、苦手復習機能で1週間に20問の苦手を克服。" +
     "テスト本番では『これ、復習したやつ！』が3問出たそうです。";
 
-  const text = `${nickname}体験5日目！${story}`;
+  const text = `${nickname}体験6日目！${story}`;
 
   const flex: messagingApi.FlexMessage = {
     type: "flex",

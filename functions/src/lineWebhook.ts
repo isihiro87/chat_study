@@ -3129,19 +3129,22 @@ export function buildPaidStartedFlexMessage(lockedMonthlyPrice?: 680 | 980) {
  * buildTrialExpiredFlexMessage が翌朝に送信される。
  */
 export function buildTrialReminderFlexMessage(dayNumber: 1 | 3 | 6 | 7) {
-  const daysLeft = 7 - dayNumber;
+  // トライアル開始日を「1日目」とする表示。dayNumber は daysSinceStart（開始日=0）
+  // なので、表示上は +1 する（開始日=1日目、昨日開始=2日目）。残りは 7 - 表示日。
+  const displayDay = dayNumber + 1;
+  const daysLeft = 7 - displayDay;
   const headline =
     dayNumber === 7
       ? '✨ プレミアム体験は今日で最後'
       : dayNumber === 6
         ? '⏰ 明日でトライアル終了'
-        : `🚀 プレミアム体験 ${dayNumber}日目（残り${daysLeft}日）`;
+        : `🚀 プレミアム体験 ${displayDay}日目（残り${daysLeft}日）`;
   const leadText =
     dayNumber === 1
       ? '昨日からプレミアム体験スタート！「追加で解く」「苦手を復習」「じっくり学ぶ」、もう触ってみた？'
       : dayNumber === 3
         ? // D-12: Day 3 は価格訴求を抜き、機能紹介に集中
-          '3日目に突入！暗記カードと四択クイズで、効率よく覚えていけるのがプレミアムの強み。' +
+          'プレミアム体験4日目！暗記カードと四択クイズで、効率よく覚えていけるのがプレミアムの強み。' +
           '今日は使ってない機能も試してみよう。'
         : dayNumber === 6
           ? '残り1日！気に入ったら、今のうちに月¥680で登録すれば、明日以降もそのまま続けられます。' +

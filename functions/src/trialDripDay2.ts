@@ -25,8 +25,8 @@ function buildDay2Message(
 
   // 「追加で解く」を使った人には進捗を労う、未利用者にはおすすめ
   const heading = extraCount > 0
-    ? `${nickname}体験2日目！『追加で解く』を ${extraCount} 問やってくれてありがとう。`
-    : `${nickname}体験2日目！まだ『追加で解く』を試してないなら、サクッと1問やってみる？`;
+    ? `${nickname}体験3日目！『追加で解く』を ${extraCount} 問やってくれてありがとう。`
+    : `${nickname}体験3日目！まだ『追加で解く』を試してないなら、サクッと1問やってみる？`;
 
   const benefit = getBenefitText("day1");
 
@@ -34,7 +34,7 @@ function buildDay2Message(
 
   const flex: messagingApi.FlexMessage = {
     type: "flex",
-    altText: "体験2日目のヒント",
+    altText: "体験3日目のヒント",
     contents: {
       type: "bubble",
       body: {
@@ -44,7 +44,7 @@ function buildDay2Message(
         contents: [
           {
             type: "text",
-            text: `🚀 プレミアム体験 2日目`,
+            text: `🚀 プレミアム体験 3日目`,
             weight: "bold",
             size: "md",
             color: "#F59E0B",

@@ -72,7 +72,7 @@ function buildDay6ProjectionMessage(
           },
           {
             type: "text",
-            text: `${nickname}体験6日目！ここまで ${totalAnswered}問 解いたね👏`,
+            text: `${nickname}体験7日目！ここまで ${totalAnswered}問 解いたね👏`,
             wrap: true,
             size: "sm",
             color: "#111827",
