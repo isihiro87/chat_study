@@ -114,6 +114,8 @@ export function LiffPremiumApplyPage() {
   const [status, setStatus] = useState<Status>('loading');
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [profile, setProfile] = useState<UserProfile | null>(null);
+  // 保護者に共有する Stripe Checkout リンク（本人が発行→保護者が別端末で決済）
+  const [parentLink, setParentLink] = useState<string | null>(null);
 
   // URL param: ?parent=true → 保護者経由フラグ、?src=... → 申込経路
   const urlParams = useMemo(() => new URLSearchParams(window.location.search), []);
@@ -263,6 +265,66 @@ export function LiffPremiumApplyPage() {
       );
       setStatus('ready');
       return;
+    }
+  };
+
+  // 保護者に「別端末で決済できるリンク」を発行して共有する。
+  // 本人が保護者ではないケース（保護者同意チェック不要）の救済導線。
+  // Stripe Checkout セッションの URL 自体が子の uid に紐づくので、保護者が
+  // 別端末で開いて決済すれば、webhook が子のアカウントを有効化する。
+  const handleSendToParent = async () => {
+    if (!user || !profile) return;
+    if (profile.planSource !== 'trial' && profile.planSource !== 'trial_expired') {
+      return;
+    }
+    if (!CHECKOUT_FN_URL) {
+      setErrorMessage('決済ページの準備中です。しばらくしてからお試しください。');
+      return;
+    }
+    setStatus('submitting');
+    setErrorMessage(null);
+    try {
+      const idToken = await user.getIdToken();
+      const response = await fetch(CHECKOUT_FN_URL, {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${idToken}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          successUrl: buildCheckoutReturnUrl('success'),
+          cancelUrl: buildCheckoutReturnUrl('cancel'),
+        }),
+      });
+      const data = (await response.json()) as CheckoutSessionResponse;
+      if (!response.ok || !data.url) {
+        throw new Error(data.error || 'checkout_session_failed');
+      }
+      setParentLink(data.url);
+      void logFunnelEvent('liff_apply_parent_link_shared', {
+        source: applicationSource,
+      });
+      setStatus('ready');
+      // 共有を試みる（キャンセル/未対応でも、リンクは画面に表示されるので問題ない）
+      try {
+        if (typeof navigator !== 'undefined' && navigator.share) {
+          await navigator.share({
+            title: 'チャットでスタディ プレミアム登録',
+            text: 'お子さまのプレミアム（月¥680）の決済をお願いします。下のリンクから手続きできます。',
+            url: data.url,
+          });
+        } else if (typeof navigator !== 'undefined' && navigator.clipboard) {
+          await navigator.clipboard.writeText(data.url);
+        }
+      } catch {
+        /* ユーザーが共有をキャンセル等。リンクは画面に表示済み */
+      }
+    } catch (err) {
+      console.error('[LiffPremiumApplyPage] parent link failed', err);
+      setErrorMessage(
+        'リンクの発行に失敗しました。通信状況を確認のうえ、もう一度お試しください。'
+      );
+      setStatus('ready');
     }
   };
 
@@ -632,6 +694,50 @@ export function LiffPremiumApplyPage() {
               : '継続登録の準備ができ次第、こちらから手続きできるようになります。'}
           </p>
         </section>
+
+        {/* 保護者ハンドオフ：本人が保護者にお願いする導線（同意チェック不要） */}
+        {CHECKOUT_FN_URL && (
+          <section className="mt-4">
+            <div className="my-2 flex items-center gap-3">
+              <div className="flex-1 h-px bg-gray-200" />
+              <span className="text-xs text-gray-400">保護者の方にお願いする場合</span>
+              <div className="flex-1 h-px bg-gray-200" />
+            </div>
+            <p className="text-xs text-gray-500 leading-relaxed mb-2 px-1">
+              保護者の方が別のスマホ・PCで決済できるリンクを送れます。保護者の方がリンクから決済すると、このアカウントで登録が完了します。
+            </p>
+            <button
+              type="button"
+              onClick={() => void handleSendToParent()}
+              disabled={submitting}
+              className="w-full border border-amber-500 text-amber-600 hover:bg-amber-50 active:scale-[0.98] transition rounded-full py-3 text-sm font-bold disabled:opacity-50"
+              style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
+            >
+              {submitting ? '準備中...' : '👨‍👩‍👧 保護者に決済リンクを送る'}
+            </button>
+            {parentLink && (
+              <div className="mt-3 rounded-xl border border-amber-200 bg-amber-50 p-3">
+                <p className="text-xs text-amber-900 leading-relaxed mb-2">
+                  ✅ リンクを発行しました。このリンクを保護者の方に送ってください（LINE・メールなど）。保護者の方が決済すると登録完了です。
+                </p>
+                <p className="text-[11px] text-gray-600 break-all bg-white rounded-lg p-2 border border-gray-200 select-all">
+                  {parentLink}
+                </p>
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (navigator.clipboard && parentLink) {
+                      void navigator.clipboard.writeText(parentLink);
+                    }
+                  }}
+                  className="mt-2 text-xs text-amber-600 underline"
+                >
+                  リンクをコピー
+                </button>
+              </div>
+            )}
+          </section>
+        )}
       </main>
     </div>
   );

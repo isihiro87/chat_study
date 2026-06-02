@@ -27,7 +27,8 @@ export type FunnelEventType =
   | 'liff_scope_open'
   | 'liff_scope_save'
   | 'liff_apply_consent_checked'
-  | 'liff_apply_checkout_opened';
+  | 'liff_apply_checkout_opened'
+  | 'liff_apply_parent_link_shared';
 
 const TIMEOUT_MS = 3000;
 
