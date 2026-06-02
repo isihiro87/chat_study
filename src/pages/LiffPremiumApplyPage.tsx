@@ -251,6 +251,9 @@ export function LiffPremiumApplyPage() {
         source: applicationSource,
         parent: isParentInitiated,
       });
+      void logFunnelEvent('liff_apply_checkout_opened', {
+        source: applicationSource,
+      });
       window.location.href = data.url;
       return;
     } catch (err) {
@@ -561,7 +564,15 @@ export function LiffPremiumApplyPage() {
             <input
               type="checkbox"
               checked={parentConsent}
-              onChange={(e) => setParentConsent(e.target.checked)}
+              onChange={(e) => {
+                setParentConsent(e.target.checked);
+                if (e.target.checked) {
+                  void logFunnelEvent('liff_apply_consent_checked', {
+                    source: applicationSource,
+                    parent: isParentInitiated,
+                  });
+                }
+              }}
               className="mt-0.5 h-4 w-4 accent-amber-500 flex-shrink-0"
             />
             <span className="text-xs text-gray-700 leading-relaxed">
