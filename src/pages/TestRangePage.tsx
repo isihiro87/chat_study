@@ -12,6 +12,11 @@ import { logFunnelEvent } from '../utils/funnelEvent';
 
 type GradeNum = 1 | 2 | 3;
 
+// 保存完了後に公式LINEのトーク画面へ戻すための deep link。
+// 外部ブラウザ（openExternalBrowser=1）で開かれているため liff.closeWindow は
+// 使えない。この URL をタップすると LINE アプリの公式アカウントのトークが開く。
+const LINE_OFFICIAL_CHAT_URL = 'https://line.me/R/ti/p/@chatstudy';
+
 /**
  * userDoc.grade は "中2"（文字列）で保存される一方、scope index の grade キーは
  * 数値 (1|2|3)。両者を直接比較すると常に不一致になり、範囲設定ページに単元が
@@ -84,6 +89,7 @@ export function TestRangePage() {
   const [expandedEras, setExpandedEras] = useState<Set<string>>(new Set());
 
   // AuthContext がロード済みの userDoc から派生（getDoc 重複を排除）
+  const seededRef = useRef(false);
   useEffect(() => {
     if (loading) return;
     if (!user) return;
@@ -103,7 +109,21 @@ export function TestRangePage() {
       grade,
       initialTopics: userDoc.testScopeTopics,
     });
-    setSelected(new Set(userDoc.testScopeTopics));
+    // 選択状態のシードは初回のみ。userDoc が再取得されても編集中の選択を
+    // 巻き戻さない。さらに現行の単元候補（data/content 由来）に存在する名前
+    // だけに絞り、旧 eras タキソノミー由来で画面に表示されない＝解除できない
+    // 孤立トピックが保存に残り続けるのを防ぐ。
+    if (!seededRef.current) {
+      seededRef.current = true;
+      const validNames = new Set(
+        (lineScopeIndex[subject]?.[grade] ?? []).flatMap((e) =>
+          e.topics.map((t) => t.name)
+        )
+      );
+      setSelected(
+        new Set(userDoc.testScopeTopics.filter((t) => validNames.has(t)))
+      );
+    }
     setStatus('ready');
     setErrorMessage(null);
   }, [user, loading, userDoc, userDocLoaded]);
@@ -586,16 +606,15 @@ export function TestRangePage() {
               </>
             )}
 
-            <button
-              type="button"
-              onClick={() => setStatus('ready')}
+            <a
+              href={LINE_OFFICIAL_CHAT_URL}
               className="block w-full text-center bg-amber-500 hover:bg-amber-600 active:scale-[0.98] transition rounded-full py-3 text-sm font-bold text-white"
               style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
             >
-              続けて編集する
-            </button>
+              OK
+            </a>
             <p className="text-center text-xs text-gray-400 mt-3 leading-relaxed">
-              設定はもう保存されています。LINE のトーク画面に戻って学習を続けてください。
+              「OK」を押すと公式LINEのトーク画面に戻ります。
             </p>
           </div>
         </div>

@@ -1,5 +1,10 @@
 import { initializeApp } from 'firebase/app';
-import { getAuth } from 'firebase/auth';
+import {
+  initializeAuth,
+  browserLocalPersistence,
+  browserSessionPersistence,
+  inMemoryPersistence,
+} from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore/lite';
 import { validateEnv } from '../utils/validateEnv';
 
@@ -16,5 +21,18 @@ const firebaseConfig = {
 };
 
 export const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
+
+// 永続化を localStorage（browserLocalPersistence）に固定する。
+// getAuth() の既定は indexedDBLocalPersistence 優先だが、LINE アプリ内ブラウザ
+// などの webview では IndexedDB への書き込みがハングし、signInWithCustomToken が
+// resolve せず「LINEでログイン中...」のまま固まる事象があった。localStorage は
+// これらの環境でも安定するため明示指定する（IndexedDB は使わない）。
+// initializeAuth は getAuth より前に 1 度だけ呼ぶ必要があるため、ここで実行する。
+export const auth = initializeAuth(app, {
+  persistence: [
+    browserLocalPersistence,
+    browserSessionPersistence,
+    inMemoryPersistence,
+  ],
+});
 export const db = getFirestore(app);
