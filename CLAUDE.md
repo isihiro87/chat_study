@@ -7,7 +7,7 @@
 - **公式LINE（毎日配信 / 追加で解く / 苦手復習 / LIFF じっくり学ぶ / 範囲設定の出題）の source of truth は `data/content/{subject}/{folder}/*.json`** のみ。ここから `sync-questions-from-content.ts`（→ Firestore `questions`）と `generate-line-study-content.ts`（→ `line-study-*.generated.ts`）に派生する。
 - `src/data/subjects/.../eras/` と `data/content/.../` は**単元名・粒度が一致しない**（例: 江戸時代は eras 側が細分化＝「三都の繁栄/五街道と水運/元禄文化…」、content 側は粗い別名）。**eras 側を参照・編集しても公式LINE には一切反映されない。**
 - 公式LINE の単元（testScope / questions.topic）を扱うときは **必ず `data/content/` 系**を見る。`topic-registry` / `eras` は見ない。
-- 既知の不整合: 範囲設定 LIFF (`src/pages/LiffTestRangePage.tsx`) が `topic-registry`（eras 由来）を単元候補に使っているため、ユーザーが選べる単元が公式LINE の `questions` と食い違い配信されないケースがある（要改善・別タスク）。
+- ✅ 解消済み（2026-06-08）: 旧 範囲設定 LIFF (`LiffTestRangePage.tsx`) は `topic-registry`（eras 由来）を単元候補に使い、選べる単元が公式LINE の `questions` と食い違っていた。現在は LIFF を廃止し**通常ブラウザページ `src/pages/TestRangePage.tsx`（ルート `/scope`）**へ置き換え、単元候補は **`data/content` 由来の `src/data/generated/line-scope-index.generated.ts`** から取得するようにした（`scripts/generate-line-scope-index.ts` で生成）。これで testScope.topics が Firestore `questions.topic` と一致し配信に反映される。
 
 > 今後 Claude Code / Codex が「公式LINEの単元」を `src/data/subjects/.../eras/` や `topic-registry` で探して混乱しないこと。公式LINEは `data/content/` が正。
 
@@ -17,6 +17,29 @@
 - Node.js v24.11.0
 - TypeScript 5.x
 - パッケージマネージャー: npm
+
+## ⚠️ Firestore 読み取りコストの規律（必読・コード生成時に守る）
+
+Firestore の課金は**ドキュメント1件読むごとに1 read**で、クエリは「ヒット件数ぶん」消費する（クエリ1回＝1 read ではない）。本番 webhook 由来の read は極小だが、**分析スクリプト・管理画面・LIFF/Web の一覧取得がコレクションを丸ごと舐めると一気に数万〜数十万 read** に膨れる（実績: 1日23万 read で無料枠5万/日を超過）。クエリを書くときは必ず次を守る:
+
+1. **コレクション全件取得（`.get()` だけ）を書かない。** 必ず `.where()` で絞り、`.limit(N)` を付ける。とくに `users` / `answers` は件数が大きい。
+2. **件数だけ欲しいときは全件 `.get()` せず `count()` 集計クエリを使う**（1000件ごとに1 read 相当で激安）。
+3. **同じドキュメントをループ内で繰り返し読まない。** 一度読んだら変数 / Map にキャッシュして使い回す。
+4. **使い捨ての分析スクリプト（`scripts/_*.ts` 等）でも `limit()` 必須。** 全ユーザー走査が要るときは「件数を log で示す」「ページング」「サンプリング」を入れ、無制限スキャンを避ける。実行頻度も最小限に。
+5. **管理画面・LIFF の一覧表示はページング前提**で、初期ロードで全件読まない。
+
+> 新しい Firestore クエリ（webhook / cron / scripts / 管理UI / LIFF いずれも）を書くときは、`.limit()` か `count()` を付けたか・全件スキャンになっていないかを必ず自己チェックしてから出すこと。
+
+## 保存済みログ・データスナップショット（再取得しない）
+
+`firebase functions:log` はページングが壊れていて過去日時を確実に再取得できず、Cloud Functions のログ保持期間も限られる。そのため**調査に使った過去ログは取得時にファイルへ固定保存**してある。**既に保存済みの期間は再フェッチしないこと**（CLI では取れない／時間とコストの無駄）。分析時は下記ファイルを読む。
+
+| 期間 | 保存先 | 内容 |
+|---|---|---|
+| 2026-06-01 / 06-02 lineWebhook | `docs/operations/log-snapshots/2026-06-01_02-lineWebhook-snapshot.md`（サマリ＋メトリクス）<br>`docs/operations/log-snapshots/lineWebhook-events-2026-06-01_02.log`（生イベント256行） | 無反応調査の生データ。reply失敗0件／topic undefined書込失敗／duplicate 等。結論: 無反応はハード障害でなく応答モード=チャット由来 |
+| 2026-06-04 trial×ブロック分析 | `docs/operations/log-snapshots/2026-06-04-trial-block-analysis.md`（分析: `scripts/_analyze-trial-block.ts`） | 全体ブロック15%。trial vs なし比較は付与除外で**無効**、ドリップ多=低ブロックは**生存バイアス**。確定: ブロックは**trial開始〜48hに集中**、06-01一括付与直後に山。強制trialの是非は対照群なしで**判定不能**→今後A/B要 |
+
+> 新しく過去ログ／Firestore集計を調査目的で取得したら、同様に `docs/operations/log-snapshots/` 等へ保存し、この表に1行追記してから「再取得不要」と明記すること。
 
 ## Firebase Functions デプロイ時の重要メモ
 
@@ -185,7 +208,7 @@ UIを実装・変更する際は必ず `docs/design-guide.md` を参照するこ
 - LINE版に変更を入れる場合: `src/line/App.line.tsx`、`src/pages/Welcome*`/`Liff*`/`LineCallback*`、共有 AuthContext を編集
 - LIFF endpoint URL（LINE Developers Console で管理）:
   - `https://line.chatstudy.jp/liff/units` (premium「じっくり学ぶ」)
-  - `https://line.chatstudy.jp/liff/scope` (free + premium「テスト範囲設定」flex の「範囲を設定する」)
+  - ~~`/liff/scope`~~ → **廃止。出題範囲設定は LIFF をやめ通常ブラウザページ `https://line.chatstudy.jp/scope`（`TestRangePage`）に置き換え（2026-06-08）。** 認証は LIFF SDK ではなく既存の LINE Login OAuth（`/welcome?next=/scope` → `/auth/line/callback`）。旧 `/liff/scope` は `/scope` へリダイレクトする後方互換ルートのみ残置。webhook/relaunch の「範囲を設定する」ボタンはこの URL を指す（`TEST_RANGE_SCOPE_URL` / env `LINE_SCOPE_URL` で上書き可）。
   - `https://line.chatstudy.jp/liff/report` (premium 成績・記録 flex の「詳しく見る」)
   - `https://line.chatstudy.jp/liff/settings` (premium 設定・サポート flex の「設定画面を開く」)
   - `https://line.chatstudy.jp/liff/premium-info` (無料版「もっと解く」flex の「詳細を見る」)
@@ -285,11 +308,12 @@ data/content/history/{folder}/{topic}.json   ← source of truth
 ```
 
 **重要**: testScope.topics は **`data/content/` 由来の `topic.name`**（細かい日本語、例: "旧石器時代と縄文時代"）であるべき。webhook は Firestore `questions.topic` と完全一致比較するため、**問題を追加・編集したら必ず両方を同期する**。
-（⚠️ 現状の範囲設定LIFFは `topic-registry`〔eras 由来〕を候補に使っており `data/content` と食い違うことがある。冒頭「era フォルダは別物」を参照。）:
+（範囲設定ページ `TestRangePage`〔ルート `/scope`〕は `data/content` 由来の `line-scope-index.generated.ts` を単元候補に使うので、ここで保存される topic.name は `questions.topic` と一致する。**単元を追加・編集したら scope index も再生成する**。）:
 
 ```bash
-# JSON を編集したら 2 つ実行
-npx tsx scripts/generate-line-study-content.ts          # LIFF 用 generated TS を更新
+# JSON を編集したら 3 つ実行
+npx tsx scripts/generate-line-study-content.ts          # LIFF「じっくり学ぶ」用 generated TS を更新
+npx tsx scripts/generate-line-scope-index.ts            # 出題範囲設定ページの単元候補を更新
 npx tsx scripts/sync-questions-from-content.ts          # Firestore questions に反映（要 gcloud ADC）
 ```
 

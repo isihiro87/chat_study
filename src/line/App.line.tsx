@@ -5,7 +5,8 @@
  * - `/welcome`            : 公式LINE 友だち追加誘導 + LINEログイン
  * - `/auth/line/callback` : LINE Login OAuth コールバック処理
  * - `/liff/units`         : リッチメニュー「単元を選ぶ」からの LIFF エントリ
- * - `/liff/scope`         : リッチメニュー「テスト範囲設定」からの LIFF エントリ
+ * - `/scope`              : リッチメニュー「テスト範囲設定」からの通常ブラウザページ
+ * - `/liff/scope`         : 旧 LIFF エントリ（後方互換で `/scope` へリダイレクト）
  * - `/liff/report`        : リッチメニュー「成績・記録」からの LIFF エントリ
  * - `/liff/settings`      : リッチメニュー「設定・サポート」からの LIFF エントリ
  * - `/liff/premium-info`  : 無料版「もっと解く」flex からのプレミアム誘導 LIFF
@@ -35,9 +36,9 @@ const WelcomePage = lazyWithRetry(() =>
 const LiffUnitsPage = lazyWithRetry(() =>
   import('../pages/LiffUnitsPage').then((m) => ({ default: m.LiffUnitsPage }))
 );
-const LiffTestRangePage = lazyWithRetry(() =>
-  import('../pages/LiffTestRangePage').then((m) => ({
-    default: m.LiffTestRangePage,
+const TestRangePage = lazyWithRetry(() =>
+  import('../pages/TestRangePage').then((m) => ({
+    default: m.TestRangePage,
   }))
 );
 const LiffReportPage = lazyWithRetry(() =>
@@ -99,7 +100,10 @@ function LineAuthGuard() {
         <Route path="/welcome" element={<WelcomePage />} />
         <Route path="/auth/line/callback" element={<LineCallbackPage />} />
         <Route path="/liff/units" element={<LiffUnitsPage />} />
-        <Route path="/liff/scope" element={<LiffTestRangePage />} />
+        {/* 出題範囲設定: LIFF を廃止し通常ブラウザページ /scope へ置き換え。
+            旧 LIFF endpoint(/liff/scope) に来た場合も /scope へリダイレクト。 */}
+        <Route path="/scope" element={<TestRangePage />} />
+        <Route path="/liff/scope" element={<Navigate to="/scope" replace />} />
         <Route path="/liff/report" element={<LiffReportPage />} />
         <Route path="/liff/settings" element={<LiffSettingsPage />} />
         <Route path="/liff/premium-info" element={<LiffPremiumInfoPage />} />

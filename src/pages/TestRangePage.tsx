@@ -1,23 +1,21 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { Navigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import { useLiffAuth } from '../hooks/useLiffAuth';
 import { LoadingScreen } from '../components/common/LoadingScreen';
-import { LiffAuthFailedScreen } from '../components/common/LiffAuthFailedScreen';
 import { TrialPremiumBanner } from '../components/common/TrialPremiumBanner';
 import {
-  eraMetas,
-  topicMetas,
-} from '../data/generated/topic-registry.generated';
+  lineScopeIndex,
+  type ScopeSubjectId,
+} from '../data/generated/line-scope-index.generated';
 import { saveTestScope, clearTestScope } from '../utils/testScope';
 import { logFunnelEvent } from '../utils/funnelEvent';
 
-type Subject = 'english' | 'history';
 type GradeNum = 1 | 2 | 3;
 
 /**
- * userDoc.grade は "中2"（文字列）で保存される一方、topic-registry の eraMetas.grade
- * は数値 (1|2|3)。両者を直接比較すると常に不一致になり、範囲設定ページにトピックが
- * 1件も表示されず「設定できない」状態になる。ここで数値の GradeNum に正規化する。
+ * userDoc.grade は "中2"（文字列）で保存される一方、scope index の grade キーは
+ * 数値 (1|2|3)。両者を直接比較すると常に不一致になり、範囲設定ページに単元が
+ * 1件も表示されない。ここで数値の GradeNum に正規化する。
  * 旧データの数値・"2" 等も許容する。
  */
 function toGradeNum(raw: unknown): GradeNum | null {
@@ -31,13 +29,17 @@ function toGradeNum(raw: unknown): GradeNum | null {
   return null;
 }
 
-const SUBJECT_LABEL: Record<Subject, string> = {
+const SUBJECT_LABEL: Record<ScopeSubjectId, string> = {
   english: '英語',
   history: '歴史',
 };
 
+function isScopeSubject(v: unknown): v is ScopeSubjectId {
+  return v === 'english' || v === 'history';
+}
+
 interface UserContext {
-  subject: Subject;
+  subject: ScopeSubjectId;
   grade: GradeNum;
   initialTopics: string[];
 }
@@ -60,23 +62,20 @@ type Status =
   | 'profile-missing';
 
 /**
- * 公式LINE のリッチメニュー「出題範囲設定」から開かれる LIFF ページ。
+ * 公式LINE のリッチメニュー「出題範囲設定」から開かれる *通常ブラウザ* ページ。
  *
- * users/{uid}.subject / .grade に登録されている教科×学年に該当する topic 候補を
- * `topic-registry.generated.ts` の topicMetas / eraMetas から取得し、era 単位で
- * 折りたたみ可能なグループ表示する。
+ * 旧 LiffTestRangePage（LIFF SDK 経由）は LINE 内蔵ブラウザでの LIFF 初期化が
+ * 不安定だったため廃止し、通常の Web ページ＋既存の LINE Login OAuth
+ * （`/welcome?next=/scope` → `/auth/line/callback`）で認証する方式へ置き換えた。
  *
- * testScope.topics には topicMetas[i].name（日本語のトピック名）を保存。
- * webhook 側は Question.topic とこれを一致比較する。新規登録する Question の
- * topic フィールドも topicMetas[i].name と完全一致させる必要がある。
+ * 単元候補は **data/content 由来の `line-scope-index.generated.ts`** から取得する
+ * （公式LINE の source of truth）。testScope.topics には topic.name をそのまま
+ * 保存し、webhook 側は Firestore `questions.topic` とこれを完全一致比較する。
+ * ⚠️ eras / topic-registry（Web 版専用）は使わない。CLAUDE.md「era フォルダは
+ * 公式LINEとは別物」を参照。
  */
-export function LiffTestRangePage() {
+export function TestRangePage() {
   const { user, loading, userDoc, userDocLoaded } = useAuth();
-  // LIFF SDK 経由で Firebase Auth に自動ログインする
-  // （/welcome → LINE OAuth → /auth/line/callback のチェーンを回避）
-  const { attempted: liffAuthAttempted } = useLiffAuth(
-    import.meta.env.VITE_LIFF_ID_TEST_RANGE as string | undefined
-  );
 
   const [status, setStatus] = useState<Status>('loading');
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -85,8 +84,6 @@ export function LiffTestRangePage() {
   const [expandedEras, setExpandedEras] = useState<Set<string>>(new Set());
 
   // AuthContext がロード済みの userDoc から派生（getDoc 重複を排除）
-  // AuthContext 側で既に retry + 5s timeout 付き fetch が走っているので、
-  // ここで再度叩く必要はない。userDocLoaded を待ってから派生する。
   useEffect(() => {
     if (loading) return;
     if (!user) return;
@@ -95,7 +92,7 @@ export function LiffTestRangePage() {
       setStatus('profile-missing');
       return;
     }
-    const subject = (userDoc.subject ?? null) as Subject | null;
+    const subject = isScopeSubject(userDoc.subject) ? userDoc.subject : null;
     const grade = toGradeNum(userDoc.grade);
     if (!subject || !grade) {
       setStatus('profile-missing');
@@ -112,7 +109,8 @@ export function LiffTestRangePage() {
   }, [user, loading, userDoc, userDocLoaded]);
 
   // 設定ページに到達（認証成功してページ表示）したら1回だけ計測。
-  // 「開いたのに保存していない」を liff_scope_open − liff_scope_save で測れるようにする。
+  // 「開いたのに保存していない」を liff_scope_open − liff_scope_save で測れるように
+  // する。イベント名は LIFF 廃止後もファネル連続性のため据え置く。
   const openLoggedRef = useRef(false);
   useEffect(() => {
     if (status === 'ready' && !openLoggedRef.current) {
@@ -123,26 +121,18 @@ export function LiffTestRangePage() {
 
   const eraGroups: EraGroup[] = useMemo(() => {
     if (!userCtx) return [];
-    const eras = eraMetas
-      .filter(
-        (e) =>
-          e.subjectId === userCtx.subject && (e.grade ?? null) === userCtx.grade
-      )
-      .sort((a, b) => a.order - b.order);
+    const eras = lineScopeIndex[userCtx.subject]?.[userCtx.grade] ?? [];
     return eras.map((era) => ({
-      eraId: era.id,
-      eraName: era.name,
-      eraIcon: era.icon,
-      eraPeriod: era.period ?? '',
-      topics: topicMetas
-        .filter((t) => t.eraId === era.id)
-        .sort((a, b) => a.order - b.order)
-        .map((t) => ({
-          id: t.name,
-          name: t.name,
-          subtitle: t.subtitle ?? '',
-          icon: t.icon ?? '',
-        })),
+      eraId: era.eraId,
+      eraName: era.eraName,
+      eraIcon: era.eraIcon,
+      eraPeriod: era.eraPeriod,
+      topics: era.topics.map((t) => ({
+        id: t.name,
+        name: t.name,
+        subtitle: t.subtitle,
+        icon: t.icon,
+      })),
     }));
   }, [userCtx]);
 
@@ -213,20 +203,8 @@ export function LiffTestRangePage() {
     });
   };
 
-  const closeIfPossible = async () => {
-    try {
-      const liff = (await import('@line/liff')).default;
-      if (liff.isInClient()) {
-        liff.closeWindow();
-      }
-    } catch {
-      // SPA で開かれている場合は閉じない
-    }
-  };
-
   // 初回設定者（initialTopics 空）かつ preferredHour 設定済なら
   // onTestScopeFirstSet トリガが発火して数秒後に 1問目が push される。
-  // この条件を満たす場合のみ完了画面で「数秒後に1問目が届く」案内を出す。
   const isFirstTimeSetter =
     (userCtx?.initialTopics.length ?? 0) === 0 &&
     userDoc?.preferredHour != null;
@@ -239,10 +217,8 @@ export function LiffTestRangePage() {
       await saveTestScope(user.uid, Array.from(selected));
       void logFunnelEvent('liff_scope_save', { count: selected.size });
       setStatus('saved');
-      // 自動クローズはしない。完了オーバーレイで案内を読んでから
-      // ユーザーが「閉じる」ボタンを押す。
     } catch (err) {
-      console.error('[LiffTestRangePage] save failed', err);
+      console.error('[TestRangePage] save failed', err);
       setErrorMessage('保存できませんでした。通信状況を確認してください。');
       setStatus('error');
     }
@@ -256,33 +232,33 @@ export function LiffTestRangePage() {
       await clearTestScope(user.uid);
       setSelected(new Set());
       setStatus('cleared');
-      // 自動クローズはしない（完了オーバーレイから閉じる）
     } catch (err) {
-      console.error('[LiffTestRangePage] clear failed', err);
+      console.error('[TestRangePage] clear failed', err);
       setErrorMessage('クリアできませんでした。通信状況を確認してください。');
       setStatus('error');
     }
   };
 
-  // LIFF auth の試行が終わってない / Firebase Auth が確定してない間は loading
-  if (loading || !liffAuthAttempted) {
+  // Firebase Auth 確定待ち
+  if (loading) {
     return (
       <LoadingScreen
-        message="LINEログインを確認しています..."
+        message="ログインを確認しています..."
         stuckThresholdMs={6000}
       />
     );
   }
 
+  // 未認証: 既存の LINE Login OAuth 誘導ページへ。ログイン後 /scope に戻る。
   if (!user) {
-    return <LiffAuthFailedScreen nextPath="/liff/scope" />;
+    return <Navigate to="/welcome?next=/scope" replace />;
   }
 
   // userDoc がまだ届いていない（AuthContext 側で fetch 中）
   if (!userDocLoaded) {
     return (
       <LoadingScreen
-        message="LINEログインを確認しています..."
+        message="プロフィールを読み込んでいます..."
         stuckThresholdMs={6000}
       />
     );
@@ -506,7 +482,6 @@ export function LiffTestRangePage() {
                       );
                     })}
                   </div>
-
                 </>
               )}
             </>
@@ -580,7 +555,7 @@ export function LiffTestRangePage() {
                     </p>
                     <p className="text-xs text-gray-700 leading-relaxed">
                       数秒以内に、公式LINE のトークに最初の1問が送られてきます。
-                      <strong>この画面を閉じてトーク画面に戻り、少しお待ちください。</strong>
+                      <strong>このページを閉じてトーク画面に戻り、少しお待ちください。</strong>
                     </p>
                     <p className="text-xs text-gray-500 leading-relaxed mt-2">
                       ※ 届かない場合は、LINE アプリを完全に終了して開き直してみてください。
@@ -613,12 +588,15 @@ export function LiffTestRangePage() {
 
             <button
               type="button"
-              onClick={() => void closeIfPossible()}
+              onClick={() => setStatus('ready')}
               className="block w-full text-center bg-amber-500 hover:bg-amber-600 active:scale-[0.98] transition rounded-full py-3 text-sm font-bold text-white"
               style={{ fontFamily: "'Zen Maru Gothic', sans-serif" }}
             >
-              閉じる
+              続けて編集する
             </button>
+            <p className="text-center text-xs text-gray-400 mt-3 leading-relaxed">
+              設定はもう保存されています。LINE のトーク画面に戻って学習を続けてください。
+            </p>
           </div>
         </div>
       )}

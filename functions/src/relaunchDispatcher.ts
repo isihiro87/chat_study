@@ -50,7 +50,8 @@ const ADMIN_LINE_USER_IDS = new Set<string>([
   "U732828c7b975479c97a104c5cbc45b7a",
 ]);
 
-const LIFF_SCOPE_URL = "https://liff.line.me/2009587166-fLjzMGk8";
+// 出題範囲設定は LIFF を廃止し通常ブラウザページ /scope へ置き換え。
+const LIFF_SCOPE_URL = "https://line.chatstudy.jp/scope";
 const LIFF_PREMIUM_INFO_URL = "https://liff.line.me/2009587166-k51bH4LC";
 
 const RESTART_HINT_TEXT =

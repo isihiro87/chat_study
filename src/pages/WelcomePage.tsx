@@ -16,6 +16,7 @@ function isLikelyReturningUser(next: string | null): boolean {
   if (!next) return false;
   if (
     next.startsWith('/liff/') ||
+    next === '/scope' ||
     next.startsWith('/learning/') ||
     next.startsWith('/random-quiz') ||
     next.startsWith('/chat/') ||
