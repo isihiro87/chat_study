@@ -62,16 +62,14 @@ export const onTestScopeFirstSet = functions
 
     const hour = after.preferredHour as ValidHour;
     const hourLabel = HOUR_LABELS[hour];
-    const nickname =
-      typeof after.nickname === 'string' ? after.nickname : undefined;
 
     console.log(
       `[onTestScopeFirstSet] pushing first question uid=${uid} hour=${hour}`
     );
     try {
       await selectAndSendQuestion(uid, {
-        introText: getInitialFirstQuestionIntro(hourLabel, nickname),
-        trailingText: getInitialFirstQuestionTrailing(hourLabel, nickname),
+        introText: getInitialFirstQuestionIntro(hourLabel),
+        trailingText: getInitialFirstQuestionTrailing(hourLabel),
         isInitialSetup: true,
       });
     } catch (e) {

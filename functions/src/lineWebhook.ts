@@ -199,11 +199,8 @@ export function buildOnboardingCompleteSummaryFlex(opts: {
   gradeLabel: string;
   subjectLabel: string;
   hourLabel: string;
-  nickname?: string;
 }) {
-  const thanksText = opts.nickname
-    ? `${opts.nickname}、登録ありがとう！設定できたよ🎉`
-    : '登録ありがとう！設定できたよ🎉';
+  const thanksText = '登録ありがとう！設定できたよ🎉';
   const summaryRow = (label: string, value: string) => ({
     type: 'box' as const,
     layout: 'horizontal' as const,
@@ -287,6 +284,41 @@ export function buildOnboardingCompleteSummaryFlex(opts: {
             size: 'xs' as const,
             color: '#374151',
             margin: 'sm' as const,
+          },
+          {
+            type: 'separator' as const,
+            margin: 'md' as const,
+          },
+          {
+            type: 'text' as const,
+            text: '📖 使い方はかんたん',
+            wrap: true,
+            size: 'xs' as const,
+            color: '#111827',
+            weight: 'bold' as const,
+            margin: 'md' as const,
+          },
+          {
+            type: 'text' as const,
+            text:
+              `・届いた問題は、選択肢をタップするだけ。すぐに正解と解説が出ます。\n` +
+              `・下のメニューから「苦手を復習」「じっくり学ぶ（暗記カード・クイズ）」も使えます。`,
+            wrap: true,
+            size: 'xs' as const,
+            color: '#374151',
+            margin: 'sm' as const,
+          },
+          {
+            type: 'text' as const,
+            text: '🤖 困ったときや勉強の質問は、このトークにそのまま送ればAIが答えるよ。',
+            wrap: true,
+            size: 'xs' as const,
+            color: '#374151',
+            margin: 'sm' as const,
+          },
+          {
+            type: 'separator' as const,
+            margin: 'md' as const,
           },
           {
             type: 'text' as const,
@@ -474,9 +506,6 @@ const TEST_RANGE_SCOPE_URL =
   'https://line.chatstudy.jp/scope?openExternalBrowser=1';
 const LIFF_UNITS_URL =
   process.env.LIFF_UNITS_URL ?? 'https://liff.line.me/2009587166-LjyCza2c';
-const LIFF_NICKNAME_URL =
-  process.env.LIFF_NICKNAME_URL ??
-  'https://liff.line.me/2009587166-BMgbpIra';
 
 function withLiffSource(url: string, source: string): string {
   try {
@@ -600,8 +629,6 @@ async function handleMessage(event: LineEvent): Promise<void> {
     return;
   }
 
-  // 友だち追加直後の名前入力ステップ。awaiting_name の間は最初の
-  // テキストを nickname として保存し、学年 flex へ進める。
   const uid = buildUid(event);
   let userData: Record<string, unknown> | undefined;
   if (uid) {
@@ -609,10 +636,6 @@ async function handleMessage(event: LineEvent): Promise<void> {
       const { db } = await getDb();
       const snap = await db.doc(`users/${uid}`).get();
       userData = snap.data();
-      if (userData?.onboardingState === 'awaiting_name') {
-        await handleNicknameInput(uid, replyToken, text);
-        return;
-      }
 
       // 休眠ユーザー除外システム（§C-3）対応:
       // 「再開」「またやりたい」「久しぶり」等の復帰キーワードを検知したら、
@@ -705,69 +728,6 @@ async function handleRestartIntent(
   void event;
 }
 
-/**
- * ニックネームを sanitize して保存し、学年 flex を返す。
- * - 長すぎる入力は 20 文字で切り詰め
- * - 改行・連続空白は単一空白に正規化
- * - 空文字（trim 後）は受理しない
- */
-function sanitizeNickname(raw: string): string {
-  const collapsed = raw.replace(/\s+/g, ' ').trim();
-  return collapsed.slice(0, 20);
-}
-
-async function handleNicknameInput(
-  uid: string,
-  replyToken: string | undefined,
-  rawText: string
-): Promise<void> {
-  const nickname = sanitizeNickname(rawText);
-  if (!nickname) {
-    if (replyToken) {
-      await replyText(
-        replyToken,
-        '空白だけだと呼び方が分からないので、もう一度送ってね🙏（ニックネームでもOK）',
-        '(nickname empty)'
-      );
-    }
-    return;
-  }
-
-  try {
-    const { db, FieldValue } = await getDb();
-    await db.doc(`users/${uid}`).set(
-      {
-        nickname,
-        onboardingState: 'started',
-        updatedAt: FieldValue.serverTimestamp(),
-      },
-      { merge: true }
-    );
-  } catch (error) {
-    console.error(
-      '[lineWebhook] handleNicknameInput firestore write failed:',
-      error
-    );
-  }
-
-  if (!replyToken) return;
-
-  try {
-    const client = await getLineClient();
-    await client.replyMessage({
-      replyToken,
-      messages: [
-        {
-          type: 'text',
-          text: `${nickname}って呼ぶね！よろしく😊\nじゃあ、まずは学年を教えてね。`,
-        },
-        buildGradeSelectMessage(),
-      ],
-    });
-  } catch (error) {
-    console.error('[lineWebhook] handleNicknameInput reply failed:', error);
-  }
-}
 
 async function handleSettingsChange(
   event: LineEvent,
@@ -1352,8 +1312,7 @@ function jstDayDiff(fromJst: string, toJst: string): number {
  */
 async function computeDailyIntro(
   uid: string,
-  db: FirebaseFirestore.Firestore,
-  nickname?: string
+  db: FirebaseFirestore.Firestore
 ): Promise<string> {
   let recentAnswers: FirebaseFirestore.QueryDocumentSnapshot[] = [];
   try {
@@ -1369,7 +1328,6 @@ async function computeDailyIntro(
     return getDailyIntro({
       daysSinceLastAnswer: null,
       dayStreak: 0,
-      nickname,
     });
   }
 
@@ -1377,7 +1335,6 @@ async function computeDailyIntro(
     return getDailyIntro({
       daysSinceLastAnswer: null,
       dayStreak: 0,
-      nickname,
     });
   }
 
@@ -1412,7 +1369,7 @@ async function computeDailyIntro(
     }
   }
 
-  return getDailyIntro({ daysSinceLastAnswer, dayStreak, nickname });
+  return getDailyIntro({ daysSinceLastAnswer, dayStreak });
 }
 
 function shiftJstDate(jstDate: string, days: number): string {
@@ -2556,89 +2513,6 @@ const NUDGE_COPY: Record<PremiumNudgeReason, NudgeCopy> = {
   },
 };
 
-/**
- * 申込後、即座に 7日間の無料トライアルを開放したことをユーザーに伝える flex。
- * onPremiumApplicationCreated から push される。
- */
-/**
- * 1問目を解き終わったあと、ニックネーム未設定なら送る「これからよろしくね」
- * + ニックネーム登録 LIFF への誘導 flex。
- */
-export function buildAskNicknameFlex() {
-  return {
-    type: 'flex' as const,
-    altText: 'これからよろしくね！良かったらニックネーム教えて - チャットでスタディ',
-    contents: {
-      type: 'bubble' as const,
-      size: 'kilo' as const,
-      header: {
-        type: 'box' as const,
-        layout: 'vertical' as const,
-        backgroundColor: '#F59E0B',
-        paddingAll: '12px',
-        contents: [
-          {
-            type: 'text' as const,
-            text: '🙋 これからよろしくね！',
-            color: '#FFFFFF',
-            weight: 'bold' as const,
-            size: 'sm' as const,
-          },
-        ],
-      },
-      body: {
-        type: 'box' as const,
-        layout: 'vertical' as const,
-        paddingAll: '16px',
-        spacing: 'sm' as const,
-        contents: [
-          {
-            type: 'text' as const,
-            text: '1問目おつかれさま！',
-            wrap: true,
-            size: 'sm' as const,
-            color: '#111827',
-            weight: 'bold' as const,
-          },
-          {
-            type: 'text' as const,
-            text: '良かったらニックネームを教えてくれる？\nメッセージで時々呼びかけるのに使うね。あとからでも変えられるので気軽にどうぞ😊',
-            wrap: true,
-            size: 'xs' as const,
-            color: '#374151',
-          },
-        ],
-      },
-      footer: {
-        type: 'box' as const,
-        layout: 'vertical' as const,
-        paddingAll: '16px',
-        contents: [
-          {
-            type: 'button' as const,
-            style: 'primary' as const,
-            color: '#F59E0B',
-            height: 'sm' as const,
-            action: {
-              type: 'uri' as const,
-              label: 'ニックネームを入力する',
-              uri: LIFF_NICKNAME_URL,
-            },
-          },
-          {
-            type: 'text' as const,
-            text: '※スキップしてもOK。あとから「設定・サポート」でも登録できます',
-            wrap: true,
-            size: 'xxs' as const,
-            color: '#9CA3AF',
-            align: 'center' as const,
-            margin: 'sm' as const,
-          },
-        ],
-      },
-    },
-  };
-}
 
 /**
  * プレミアム機能の段階的な誘導 flex。初回 `追加で解く` の直後など、
@@ -3939,15 +3813,12 @@ async function handleSelectTimePostback(
     VALID_SUBJECTS.includes(storedSubject as ValidSubject)
       ? SUBJECT_LABELS[storedSubject as ValidSubject]
       : '';
-  const nickname =
-    typeof userData?.nickname === 'string' ? userData.nickname : '';
   const summaryFlex =
     gradeLabel && subjectLabel
       ? buildOnboardingCompleteSummaryFlex({
           gradeLabel,
           subjectLabel,
           hourLabel,
-          nickname,
         })
       : null;
 
@@ -3963,7 +3834,9 @@ async function handleSelectTimePostback(
             type: 'text',
             text:
               `設定完了！明日から${hourLabel}に1問お届けします。\n\n` +
-              `はじめの2週間は毎日、そのあとは週3回（月・水・金）に届きます。配信がない日も、メニューの「1問解く」を押せばいつでも問題に挑戦できるよ。`,
+              `📅 はじめの2週間は毎日、そのあとは週3回（月・水・金）に届きます。配信がない日も、メニューの「1問解く」を押せばいつでも問題に挑戦できるよ。\n\n` +
+              `📖 届いた問題は選択肢をタップするだけ。すぐに正解と解説が出ます。メニューから「苦手を復習」「じっくり学ぶ」も使えます。\n\n` +
+              `🤖 困ったときや勉強の質問は、このトークにそのまま送ればAIが答えるよ。`,
           },
         ];
     await client.replyMessage({ replyToken, messages: replyMessages });
@@ -4364,9 +4237,7 @@ export async function selectAndSendQuestion(
   let resolvedIntroText = introText;
   if (!resolvedIntroText && !replyToken) {
     try {
-      const nickname =
-        typeof userData.nickname === 'string' ? userData.nickname : undefined;
-      resolvedIntroText = await computeDailyIntro(uid, db, nickname);
+      resolvedIntroText = await computeDailyIntro(uid, db);
     } catch (error) {
       console.error(
         '[lineWebhook] selectAndSendQuestion intro compute failed:',

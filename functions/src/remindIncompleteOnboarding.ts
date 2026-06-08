@@ -42,26 +42,21 @@ function pickReminderMilestone(
   return null;
 }
 
-type OnboardingStep = "name" | "grade" | "subject" | "time";
+type OnboardingStep = "grade" | "subject" | "time";
 
 const stepText: Record<OnboardingStep, string> = {
-  name: "あとはお名前（ニックネーム）を送ってもらえれば、続きが始められます。",
   grade: "あとは学年を選ぶだけで、設定を再開できます。",
   subject: "あとは教科を選ぶだけで、設定完了まであと少しだよ。",
   time: "あとは配信時間を選ぶだけで、明日から毎日1問お届けします。",
 };
 
 function getNextStep(data: FirebaseFirestore.DocumentData): OnboardingStep {
-  if (data.onboardingState === "awaiting_name" || typeof data.nickname !== "string") {
-    return "name";
-  }
   if (typeof data.grade !== "string") return "grade";
   if (typeof data.subject !== "string") return "subject";
   return "time";
 }
 
-function getStepMessage(step: OnboardingStep): messagingApi.Message | null {
-  if (step === "name") return null;
+function getStepMessage(step: OnboardingStep): messagingApi.Message {
   if (step === "grade") return buildGradeSelectMessage() as messagingApi.Message;
   if (step === "subject") return buildSubjectSelectMessage() as messagingApi.Message;
   return buildTimeSelectMessage() as messagingApi.Message;
@@ -102,7 +97,7 @@ export const remindIncompleteOnboarding = functions
     // 別途休眠ユーザー除外システムが扱う。
     const snap = await db
       .collection("users")
-      .where("onboardingState", "in", ["started", "awaiting_name", "reminded"])
+      .where("onboardingState", "in", ["started", "reminded"])
       .limit(MAX_USERS_PER_RUN)
       .get();
 
@@ -186,14 +181,12 @@ export const remindIncompleteOnboarding = functions
             : "今回でリマインドはおしまいにするね。気が向いたら続きをやってみよう。設定すれば毎日1問が届くようになるよ。";
 
       const text =
-        `${heading}\n\n${stepText[step]}` +
-        (step === "name"
-          ? "\n\nそのまま続きを送ってね。"
-          : "\n\n下のボタンから続きができます。");
+        `${heading}\n\n${stepText[step]}\n\n下のボタンから続きができます。`;
 
-      const messages: messagingApi.Message[] = [{ type: "text", text }];
-      const stepMessage = getStepMessage(step);
-      if (stepMessage) messages.push(stepMessage);
+      const messages: messagingApi.Message[] = [
+        { type: "text", text },
+        getStepMessage(step),
+      ];
 
       try {
         await client.pushMessage({

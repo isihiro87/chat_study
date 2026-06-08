@@ -320,8 +320,6 @@ export interface DailyIntroInput {
   daysSinceLastAnswer: number | null;
   /** 連続学習日数（今日を含むかは問わない） */
   dayStreak: number;
-  /** 登録時に聞いたニックネーム。約 30% の確率で intro 冒頭に挿入 */
-  nickname?: string;
 }
 
 function pickBaseDailyIntro(input: DailyIntroInput): string {
@@ -358,13 +356,7 @@ function pickBaseDailyIntro(input: DailyIntroInput): string {
 }
 
 export function getDailyIntro(input: DailyIntroInput): string {
-  const base = pickBaseDailyIntro(input);
-  const name = input.nickname?.trim();
-  // 名前があるとき、約 1/3 の確率で「${name}、」を頭につける（毎回だとしつこい）
-  if (name && Math.random() < 1 / 3) {
-    return `${name}、${base}`;
-  }
-  return base;
+  return pickBaseDailyIntro(input);
 }
 
 // =====================================================
@@ -442,14 +434,7 @@ export function getWeakReviewIntro(opts?: {
 // 初期設定完了直後（時間選択後）の最初の1問
 // =====================================================
 
-const INITIAL_INTROS_WITH_NAME = [
-  (name: string) => `${name}、それじゃさっそく今から1問やってみよう！`,
-  (name: string) => `${name}、登録ありがとう！早速1問目どうぞ！`,
-  (name: string) => `${name}、セット完了！今から1問やってみよう！`,
-  (name: string) => `OK ${name}、設定できたよ！さっそく1問目！`,
-  (name: string) => `${name}、準備OK！今から1問やってみよう！`,
-];
-const INITIAL_INTROS_NO_NAME = [
+const INITIAL_INTROS = [
   () => `それじゃ、さっそく今から1問やってみよう！`,
   () => `登録ありがとう！早速、1問目どうぞ！`,
   () => `セット完了！今から1問やってみよう！`,
@@ -459,17 +444,7 @@ const INITIAL_INTROS_NO_NAME = [
 
 // A-9: 「明日からは{時間}に」は夜の時間帯選択者に違和感が出るため、
 // 「次の{時間}に」「次回の{時間}に」など相対表現に統一。
-const INITIAL_TRAILINGS_WITH_NAME = [
-  (hourLabel: string, name: string) =>
-    `正解だと思うものをタップしてみよう！次の${hourLabel}に1問届くよ。${name}、これからよろしくね！`,
-  (hourLabel: string, name: string) =>
-    `正解だと思う選択肢をタップ！次回の${hourLabel}に1問お届けします。${name}、これからよろしくね！`,
-  (hourLabel: string, name: string) =>
-    `${name}、正解だと思うものをタップ！これからは毎日${hourLabel}に問題が届くよ。よろしくね！`,
-  (hourLabel: string, name: string) =>
-    `これだ！と思った選択肢をタップしてみよう！次の${hourLabel}に1問届きます。${name}、これからよろしくね！`,
-];
-const INITIAL_TRAILINGS_NO_NAME = [
+const INITIAL_TRAILINGS = [
   (hourLabel: string) =>
     `正解だと思うものをタップしてみよう！次の${hourLabel}に1問届くよ。これからよろしくね！`,
   (hourLabel: string) =>
@@ -480,24 +455,12 @@ const INITIAL_TRAILINGS_NO_NAME = [
     `これだ！と思った選択肢をタップしてみよう！次の${hourLabel}に1問届きます。これからよろしくね！`,
 ];
 
-export function getInitialFirstQuestionIntro(
-  _hourLabel: string,
-  nickname?: string
-): string {
-  if (nickname && nickname.trim()) {
-    return pickRandom(INITIAL_INTROS_WITH_NAME)(nickname);
-  }
-  return pickRandom(INITIAL_INTROS_NO_NAME)();
+export function getInitialFirstQuestionIntro(_hourLabel: string): string {
+  return pickRandom(INITIAL_INTROS)();
 }
 
-export function getInitialFirstQuestionTrailing(
-  hourLabel: string,
-  nickname?: string
-): string {
-  if (nickname && nickname.trim()) {
-    return pickRandom(INITIAL_TRAILINGS_WITH_NAME)(hourLabel, nickname);
-  }
-  return pickRandom(INITIAL_TRAILINGS_NO_NAME)(hourLabel);
+export function getInitialFirstQuestionTrailing(hourLabel: string): string {
+  return pickRandom(INITIAL_TRAILINGS)(hourLabel);
 }
 
 // =====================================================
