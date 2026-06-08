@@ -21,9 +21,6 @@ import { getLineClient } from "./lineWebhook";
 import { logServerFunnelEvent } from "./funnelEvent";
 import { recordPushDelivery } from "./deliveryStats";
 import { selectNextWinbackVariation } from "./winbackSelector";
-import {
-  canReopenPriceLock,
-} from "./priceCalculator";
 import type {
   UserStatus,
   WinbackTouchpoint,
@@ -192,25 +189,18 @@ export const sendWinbackMessages = functions
           now,
         });
 
-        const nickname =
-          typeof data.nickname === "string" ? data.nickname : undefined;
         const weakCount = ((data.stats as Record<string, unknown> | undefined)
           ?.weakCount ?? 0) as number;
 
-        let bodyText = variation.body({
-          nickname,
+        // 2026-06: ニックネーム廃止に伴い名前呼びかけは行わない（nickname を渡さない）。
+        const bodyText = variation.body({
           daysSinceLastAnswer,
           weakReviewCount: weakCount,
         });
 
-        // Day 7 Win-back で trial 経験者なら、価格ロック再オープンを提示する
-        // （priceLockReopenedAt を立てて 3 日以内の登録なら ¥680 で受理）
-        let priceLockReopenedThisRun = false;
-        if (touchpoint === "day7" && canReopenPriceLock(data)) {
-          bodyText +=
-            "\n\n戻ってきてくれてありがとう。特別に ¥680 価格ロックを再オープンします。" +
-            "今から3日以内に登録すれば、月¥680のままずっと使えます。";
-        }
+        // 2026-06: トライアル/プレミアム導線停止に伴い、Day7 の ¥680 価格ロック
+        // 再オープン案内は送らない（priceLock 関連の append / 書き込みを撤去）。
+        const priceLockReopenedThisRun = false;
 
         try {
           await lineClient.pushMessage({
@@ -238,11 +228,6 @@ export const sendWinbackMessages = functions
           lastWinbackAt: FieldValue.serverTimestamp(),
           updatedAt: FieldValue.serverTimestamp(),
         };
-        // Day 7 で price lock 再オープンしたら timestamp を立てる
-        if (touchpoint === "day7" && canReopenPriceLock(data)) {
-          updates.priceLockReopenedAt = FieldValue.serverTimestamp();
-          priceLockReopenedThisRun = true;
-        }
 
         try {
           await doc.ref.set(updates, { merge: true });
