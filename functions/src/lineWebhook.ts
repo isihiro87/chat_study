@@ -463,9 +463,15 @@ const LIFF_HELP_URL =
 // 出題範囲設定は LIFF を廃止し、通常ブラウザページ /scope へ置き換えた
 // （LINE 内蔵ブラウザでの LIFF 初期化が不安定だったため）。認証は既存の
 // LINE Login OAuth（/welcome?next=/scope → /auth/line/callback）を利用する。
+//
+// ⚠️ `openExternalBrowser=1` は必須。LINE アプリ内ブラウザでは Firebase Auth の
+// 永続化（IndexedDB）書き込みがハングし「LINEでログイン中...」のまま固まるため、
+// このパラメータで端末の既定ブラウザ（Safari/Chrome）を強制起動し、Web版と同じ
+// 実績ある OAuth/永続化環境でログインさせる。
 // env が旧 LIFF URL で上書きされていないよう、既定値を通常 URL にする。
 const TEST_RANGE_SCOPE_URL =
-  process.env.LINE_SCOPE_URL ?? 'https://line.chatstudy.jp/scope';
+  process.env.LINE_SCOPE_URL ??
+  'https://line.chatstudy.jp/scope?openExternalBrowser=1';
 const LIFF_UNITS_URL =
   process.env.LIFF_UNITS_URL ?? 'https://liff.line.me/2009587166-LjyCza2c';
 const LIFF_NICKNAME_URL =

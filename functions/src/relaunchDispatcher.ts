@@ -51,7 +51,9 @@ const ADMIN_LINE_USER_IDS = new Set<string>([
 ]);
 
 // 出題範囲設定は LIFF を廃止し通常ブラウザページ /scope へ置き換え。
-const LIFF_SCOPE_URL = "https://line.chatstudy.jp/scope";
+// openExternalBrowser=1: LINE 内蔵ブラウザだと Firebase Auth 永続化がハングするため
+// 端末既定ブラウザ（Safari/Chrome）を強制起動して OAuth ログインさせる。
+const LIFF_SCOPE_URL = "https://line.chatstudy.jp/scope?openExternalBrowser=1";
 const LIFF_PREMIUM_INFO_URL = "https://liff.line.me/2009587166-k51bH4LC";
 
 const RESTART_HINT_TEXT =
