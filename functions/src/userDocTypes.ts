@@ -76,6 +76,32 @@ export interface WinbackHistory {
   day14?: WinbackHistoryEntry[];
 }
 
+/** フォールバック AI チャットの 1 ターン（user / model）。 */
+export interface AiChatTurn {
+  role: "user" | "model";
+  text: string;
+}
+
+/**
+ * フォールバック AI チャット（Gemini）のユーザー別状態。
+ * コスト管理のための日次カウントと、文脈維持のための直近会話履歴を持つ。
+ */
+export interface AiChatState {
+  /** 当日カウントの基準となる JST 日付（YYYY-MM-DD）。日付が変わると count リセット。 */
+  dateJST?: string;
+  /** 当日の AI 応答利用回数。 */
+  count?: number;
+  /** 直近の会話履歴（user/model 交互。プラン別の上限ターンでトリミング）。 */
+  history?: AiChatTurn[];
+  /** 最終 AI 応答日時。 */
+  lastChatAt?: Timestamp;
+  /**
+   * AI 注意書きを最後に表示した JST 月（YYYY-MM）。
+   * 当月と異なる（未設定含む）なら、その月の最初の応答に注意書きを添える。
+   */
+  lastDisclaimerMonth?: string;
+}
+
 /**
  * `users/{uid}` の完全型。
  *
@@ -90,6 +116,12 @@ export interface UserDoc {
   grade?: "中1" | "中2" | "中3";
   subject?: "history" | "english";
   preferredHour?: PreferredHour;
+
+  /**
+   * 毎日配信→週3配信の切替案内（登録14日目）を送った日時。
+   * `dailyQuiz` が二重送信を防ぐためのフラグ（2026-06 配信モデル）。
+   */
+  deliveryTransitionNotifiedAt?: Timestamp;
 
   // === プラン関連 ===
   plan?: Plan;
@@ -191,6 +223,11 @@ export interface UserDoc {
 
   /** 最終学習日（JST 日付文字列、既存） */
   lastStudiedDateJst?: string;
+
+  // === フォールバック AI チャット（新規） ===
+
+  /** Gemini フォールバック応答の日次カウント・会話履歴。 */
+  aiChat?: AiChatState;
 
   // === メタ ===
   createdAt?: Timestamp;

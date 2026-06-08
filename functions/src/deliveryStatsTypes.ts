@@ -20,6 +20,7 @@ export type PushType =
   | "abandonReminder"
   | "postTrialFollowup"
   | "restartWelcome"
+  | "deliveryTransition"
   | "other";
 
 /** 送信種別ごとのカウント。 */
@@ -54,6 +55,7 @@ export function emptyPushCountByType(): PushCountByType {
     abandonReminder: 0,
     postTrialFollowup: 0,
     restartWelcome: 0,
+    deliveryTransition: 0,
     other: 0,
   };
 }

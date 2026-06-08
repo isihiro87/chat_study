@@ -23,14 +23,18 @@ const TARGET_WIDTH = 2500;
 const TARGET_HEIGHT = 1686;
 const MAX_BYTES = 1024 * 1024; // 1 MB
 
-const TARGETS = ["free", "trial", "premium"] as const;
+// "default" は 2026-06 のトライアル廃止後に使う全ユーザー共通メニュー。
+// free / trial / premium は dormant（残置）。
+const TARGETS = ["default", "free", "trial", "premium"] as const;
 type Target = (typeof TARGETS)[number];
+
+// 素材未配置ならスキップしてよい任意ターゲット（必須は無し。配置されたものだけ整形）。
+const OPTIONAL_TARGETS = new Set<Target>(["default", "free", "trial", "premium"]);
 
 async function main(): Promise<void> {
   for (const target of TARGETS) {
-    // trial 素材は任意。未配置ならスキップ（free / premium は必須）。
-    if (target === "trial" && !hasSource(target)) {
-      console.log(`\n[trial] raw/trial-source.* が無いためスキップします。`);
+    if (OPTIONAL_TARGETS.has(target) && !hasSource(target)) {
+      console.log(`\n[${target}] raw/${target}-source.* が無いためスキップします。`);
       continue;
     }
     await prepareOne(target);

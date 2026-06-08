@@ -25,9 +25,13 @@ const ENV_FILE = resolve(ROOT, "functions/.env");
 const RICHMENU_DIR = resolve(ROOT, "data/line-richmenu");
 const STATE_FILE = resolve(RICHMENU_DIR, "state.json");
 
-const TARGETS = ["free", "trial", "premium"] as const;
+// "default" は 2026-06 トライアル廃止後の全ユーザー共通メニュー。
+// free / trial / premium は dormant（残置）。sync-plan は plan 概念があるため
+// "default" を受け付けない（PLAN_TARGETS でガード）。
+const TARGETS = ["default", "free", "trial", "premium"] as const;
 type Target = (typeof TARGETS)[number];
-type Plan = Target;
+const PLAN_TARGETS = ["free", "trial", "premium"] as const;
+type Plan = (typeof PLAN_TARGETS)[number];
 const FIREBASE_PROJECT_ID = "chatstudy-63477";
 
 interface StateEntry {
@@ -88,10 +92,10 @@ async function main(): Promise<void> {
 function printUsage(): void {
   console.log(`Usage:
   list                                                     現在 LINE に存在する richmenu 一覧を表示
-  create <free|trial|premium>                              data/line-richmenu/<target>-richmenu.json から本体を作成
-  upload <free|trial|premium> <imagePath>                  作成済みの richMenu に PNG をアップロード
-  set-default <free|trial|premium>                         デフォルトリッチメニューに設定
-  link <free|trial|premium> <lineUserId>                   特定ユーザーに割り当て（LINE 側のみ。Firestore は更新しない）
+  create <default|free|trial|premium>                      data/line-richmenu/<target>-richmenu.json から本体を作成
+  upload <default|free|trial|premium> <imagePath>          作成済みの richMenu に PNG をアップロード
+  set-default <default|free|trial|premium>                 デフォルトリッチメニューに設定（全ユーザー共通は default）
+  link <default|free|trial|premium> <lineUserId>           特定ユーザーに割り当て（LINE 側のみ。Firestore は更新しない）
   unlink <lineUserId>                                      ユーザーから割当解除（デフォルトに戻る）
   delete <richMenuId>                                      指定 richMenu を削除
   sync-plan <lineUserId> <free|trial|premium> [--until <ISO>]
@@ -100,6 +104,9 @@ function printUsage(): void {
 
 Examples:
   npx tsx scripts/manage-line-richmenu.ts list
+  npx tsx scripts/manage-line-richmenu.ts create default
+  npx tsx scripts/manage-line-richmenu.ts upload default ./data/line-richmenu/default.png
+  npx tsx scripts/manage-line-richmenu.ts set-default default
   npx tsx scripts/manage-line-richmenu.ts create free
   npx tsx scripts/manage-line-richmenu.ts upload free ./richmenu_free.png
   npx tsx scripts/manage-line-richmenu.ts set-default free
@@ -412,10 +419,10 @@ function validateLineUserId(value: string): void {
 
 async function runSyncPlan(token: string, args: string[]): Promise<void> {
   const lineUserId = requireArg(args[0], "lineUserId");
-  const planArg = requireArg(args[1], "<free|premium>");
+  const planArg = requireArg(args[1], "<free|trial|premium>");
   validateLineUserId(lineUserId);
-  if (!(TARGETS as readonly string[]).includes(planArg)) {
-    throw new Error(`第2引数は ${TARGETS.join(" | ")} のいずれかでなければなりません: ${planArg}`);
+  if (!(PLAN_TARGETS as readonly string[]).includes(planArg)) {
+    throw new Error(`第2引数は ${PLAN_TARGETS.join(" | ")} のいずれかでなければなりません: ${planArg}`);
   }
   const plan = planArg as Plan;
 

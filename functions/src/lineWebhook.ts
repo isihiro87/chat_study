@@ -272,6 +272,24 @@ export function buildOnboardingCompleteSummaryFlex(opts: {
           },
           {
             type: 'text' as const,
+            text:
+              `📅 はじめの2週間は毎日1問お届け！\n` +
+              `そのあとは週3回（月・水・金）に届きます。`,
+            wrap: true,
+            size: 'xs' as const,
+            color: '#111827',
+            margin: 'md' as const,
+          },
+          {
+            type: 'text' as const,
+            text: '配信がない日も、メニューの「1問解く」を押せばいつでも問題に挑戦できるよ。',
+            wrap: true,
+            size: 'xs' as const,
+            color: '#374151',
+            margin: 'sm' as const,
+          },
+          {
+            type: 'text' as const,
             text: '次は「出題範囲」を設定しよう！もう習った単元だけにチェックを入れておくと、毎日の1問がその範囲から届くようになるよ。',
             wrap: true,
             size: 'xs' as const,
@@ -294,7 +312,7 @@ export function buildOnboardingCompleteSummaryFlex(opts: {
             action: {
               type: 'uri' as const,
               label: '出題範囲を設定する',
-              uri: LIFF_TEST_RANGE_URL,
+              uri: TEST_RANGE_SCOPE_URL,
             },
           },
           {
@@ -363,6 +381,31 @@ function isInitialSetupComplete(
   );
 }
 
+/**
+ * 「おかえり」復帰フローを出す対象とみなす最小の非アクティブ日数（JST 暦日）。
+ * 最後に問題を解いた日からこの日数以上空いているユーザーだけに、復帰キーワードで
+ * 「おかえり + 1問」を返す。8 日 = 休眠（dormant）以降に相当。
+ */
+const RESTART_WELCOME_MIN_INACTIVE_DAYS = 8;
+
+/**
+ * 復帰キーワードに「おかえり + 1問」で応答してよいユーザーか。
+ * 実際に一定期間 問題を解いていない（lastAnsweredAt が閾値以上前）場合のみ true。
+ * 一度も回答がない / 直近に回答している場合は false（→ AI チャットが自然に応答）。
+ */
+async function isEligibleForRestartWelcome(
+  userData: Record<string, unknown> | undefined
+): Promise<boolean> {
+  const raw = userData?.lastAnsweredAt as
+    | { toDate?: () => Date }
+    | undefined
+    | null;
+  if (!raw || typeof raw.toDate !== 'function') return false;
+  const { daysBetweenJst } = await import('./userStatus');
+  const inactiveDays = daysBetweenJst(raw.toDate(), new Date());
+  return inactiveDays >= RESTART_WELCOME_MIN_INACTIVE_DAYS;
+}
+
 export type UserPlan = 'free' | 'premium';
 
 export function getUserPlan(
@@ -417,8 +460,12 @@ const LIFF_PREMIUM_APPLY_URL =
   'https://liff.line.me/2009587166-GKRX5kOQ';
 const LIFF_HELP_URL =
   process.env.LIFF_HELP_URL ?? 'https://liff.line.me/2009587166-oaTz2NXX';
-const LIFF_TEST_RANGE_URL =
-  process.env.LIFF_TEST_RANGE_URL ?? 'https://liff.line.me/2009587166-fLjzMGk8';
+// 出題範囲設定は LIFF を廃止し、通常ブラウザページ /scope へ置き換えた
+// （LINE 内蔵ブラウザでの LIFF 初期化が不安定だったため）。認証は既存の
+// LINE Login OAuth（/welcome?next=/scope → /auth/line/callback）を利用する。
+// env が旧 LIFF URL で上書きされていないよう、既定値を通常 URL にする。
+const TEST_RANGE_SCOPE_URL =
+  process.env.LINE_SCOPE_URL ?? 'https://line.chatstudy.jp/scope';
 const LIFF_UNITS_URL =
   process.env.LIFF_UNITS_URL ?? 'https://liff.line.me/2009587166-LjyCza2c';
 const LIFF_NICKNAME_URL =
@@ -550,11 +597,12 @@ async function handleMessage(event: LineEvent): Promise<void> {
   // 友だち追加直後の名前入力ステップ。awaiting_name の間は最初の
   // テキストを nickname として保存し、学年 flex へ進める。
   const uid = buildUid(event);
+  let userData: Record<string, unknown> | undefined;
   if (uid) {
     try {
       const { db } = await getDb();
       const snap = await db.doc(`users/${uid}`).get();
-      const userData = snap.data();
+      userData = snap.data();
       if (userData?.onboardingState === 'awaiting_name') {
         await handleNicknameInput(uid, replyToken, text);
         return;
@@ -564,13 +612,36 @@ async function handleMessage(event: LineEvent): Promise<void> {
       // 「再開」「またやりたい」「久しぶり」等の復帰キーワードを検知したら、
       // status を active に戻して即座に 1 問送信する。
       // onboarding 中・既存コマンドより後に評価して優先順位を守る。
+      //
+      // ただし「おかえり」フローは、実際にしばらく問題を解いていないユーザー
+      // （最後の回答から RESTART_WELCOME_MIN_INACTIVE_DAYS 日以上）だけに出す。
+      // 直近に学習しているユーザーやまだ一度も回答がないユーザーが復帰語を
+      // 含むメッセージ（「また明日」「ごめん」等）を送っても誤爆させず、
+      // そのまま下の AI チャットボットに自然に応答させる。
       const { detectRestartIntent } = await import('./keywordMatcher');
-      if (detectRestartIntent(text)) {
+      if (
+        detectRestartIntent(text) &&
+        (await isEligibleForRestartWelcome(userData))
+      ) {
         await handleRestartIntent(uid, replyToken, event);
         return;
       }
     } catch (error) {
       console.error('[lineWebhook] handleMessage state read failed:', error);
+    }
+  }
+
+  // どの既存コマンドにもマッチしなかった自由文は、サービス知識を内蔵した
+  // フォールバック AI チャットボット（Gemini）が応答する。レート制限・履歴・
+  // 計測は handleAiChat 内で完結。userData は上で取得済みのものを渡し、
+  // 追加の Firestore read を避ける。
+  if (uid && replyToken) {
+    try {
+      const { handleAiChat } = await import('./aiChat');
+      await handleAiChat(uid, replyToken, text, userData as never);
+      return;
+    } catch (error) {
+      console.error('[lineWebhook] handleAiChat failed:', error);
     }
   }
 
@@ -1850,7 +1921,7 @@ function buildTestRangeMenuFlexMessage(
             action: {
               type: 'uri' as const,
               label: '範囲を設定する',
-              uri: LIFF_TEST_RANGE_URL,
+              uri: TEST_RANGE_SCOPE_URL,
             },
           },
         ],
@@ -1931,7 +2002,7 @@ export function buildScopeSetupNudgeFlexMessage() {
             action: {
               type: 'uri' as const,
               label: '範囲を設定する',
-              uri: LIFF_TEST_RANGE_URL,
+              uri: TEST_RANGE_SCOPE_URL,
             },
           },
         ],
@@ -1991,7 +2062,7 @@ function buildSettingsGuideFlexMessage() {
             action: {
               type: 'uri' as const,
               label: '🎯 テスト範囲設定',
-              uri: LIFF_TEST_RANGE_URL,
+              uri: TEST_RANGE_SCOPE_URL,
             },
           },
           {
@@ -3417,35 +3488,11 @@ async function handleExtraQuestionPostback(
   const { db, FieldValue } = await getDb();
   const userSnap = await db.doc(`users/${uid}`).get();
   const userData = userSnap.data();
-  const plan = getUserPlan(userData);
 
-  if (plan !== 'premium') {
-    // 対応外学年（将来再導入する場合）は premium nudge ではなく案内テキストだけ返す保険。
-    if (!isPremiumEligibleGrade(userData?.grade)) {
-      await replyText(
-        replyToken,
-        PREMIUM_NOT_YET_AVAILABLE_TEXT,
-        '(extra question: grade not eligible)'
-      );
-      return;
-    }
-    const flex = buildPremiumNudgeFlexMessage('extra_question');
-    try {
-      const client = await getLineClient();
-      await client.replyMessage({ replyToken, messages: [flex] });
-    } catch (error) {
-      console.error(
-        '[lineWebhook] handleExtraQuestion free guard reply failed:',
-        error
-      );
-    }
-    return;
-  }
+  // 2026-06 トライアル廃止: 「1問解く」は全ユーザーが無料で使える。
+  // reply（postback への応答）で送るため LINE 通数課金の対象外。
 
   // 初回利用フラグだけ記録する。
-  // 旧フローでは jikkuri / 価格ロック flex をこの1問送信時に同梱していたが、
-  // D-15 で「1問回答 → じっくり学ぶ案内 → 1分後に特別価格案内」の段階送信に変更。
-  // 同梱送信は onAnswerCreated.maybeSendFirstExtraFollowup に移動した。
   const isFirstExtraQuestion = !userData?.firstExtraQuestionAt;
   if (isFirstExtraQuestion) {
     try {
@@ -3477,29 +3524,8 @@ async function handleWeakReviewPostback(
   const { db, FieldValue } = await getDb();
   const userSnap = await db.doc(`users/${uid}`).get();
   const userData = userSnap.data();
-  const plan = getUserPlan(userData);
 
-  if (plan !== 'premium') {
-    if (!isPremiumEligibleGrade(userData?.grade)) {
-      await replyText(
-        replyToken,
-        PREMIUM_NOT_YET_AVAILABLE_TEXT,
-        '(weak review: grade not eligible)'
-      );
-      return;
-    }
-    const flex = buildPremiumNudgeFlexMessage('weak_review');
-    try {
-      const client = await getLineClient();
-      await client.replyMessage({ replyToken, messages: [flex] });
-    } catch (error) {
-      console.error(
-        '[lineWebhook] handleWeakReview free guard reply failed:',
-        error
-      );
-    }
-    return;
-  }
+  // 2026-06 トライアル廃止: 「苦手を復習」は全ユーザーが無料で使える。
 
   const testScopeTopics: string[] = Array.isArray(userData?.testScope?.topics)
     ? (userData!.testScope.topics as unknown[]).filter(
@@ -3929,7 +3955,9 @@ async function handleSelectTimePostback(
       : [
           {
             type: 'text',
-            text: `設定完了！明日から${hourLabel}に1問お届けします。`,
+            text:
+              `設定完了！明日から${hourLabel}に1問お届けします。\n\n` +
+              `はじめの2週間は毎日、そのあとは週3回（月・水・金）に届きます。配信がない日も、メニューの「1問解く」を押せばいつでも問題に挑戦できるよ。`,
           },
         ];
     await client.replyMessage({ replyToken, messages: replyMessages });
@@ -4047,14 +4075,19 @@ async function handleAnswerPostback(
   }
 
   try {
+    // questions ドキュメントは旧ソース由来などで subject/grade/topic が欠落する
+    // ことがある。undefined のまま add すると Firestore が write 全体を弾き、
+    // 回答記録が残らず onAnswerCreated（連続記録・累計・初回フォロー）も発火しない。
+    // 欠落フィールドは null にフォールバックして write を必ず成功させる
+    // （onAnswerCreated 側は topic=null / subject='' を許容済み）。
     await db.collection('answers').add({
       uid,
       questionId,
       choice,
       isCorrect,
-      subject: question.subject,
-      grade: question.grade,
-      topic: question.topic,
+      subject: question.subject ?? null,
+      grade: question.grade ?? null,
+      topic: question.topic ?? null,
       answeredAt: FieldValue.serverTimestamp(),
     });
   } catch (error) {

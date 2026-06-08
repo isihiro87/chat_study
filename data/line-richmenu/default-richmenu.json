@@ -1,0 +1,61 @@
+{
+  "size": { "width": 2500, "height": 1686 },
+  "selected": true,
+  "name": "default-menu",
+  "chatBarText": "メニューをひらく",
+  "areas": [
+    {
+      "bounds": { "x": 0, "y": 0, "width": 833, "height": 843 },
+      "action": {
+        "type": "postback",
+        "label": "1問解く",
+        "data": "type=extra_question",
+        "displayText": "もう1問！"
+      }
+    },
+    {
+      "bounds": { "x": 833, "y": 0, "width": 834, "height": 843 },
+      "action": {
+        "type": "postback",
+        "label": "苦手を復習",
+        "data": "type=weak_review",
+        "displayText": "苦手を復習"
+      }
+    },
+    {
+      "bounds": { "x": 1667, "y": 0, "width": 833, "height": 843 },
+      "action": {
+        "type": "uri",
+        "label": "じっくり学ぶ",
+        "uri": "https://liff.line.me/2009587166-LjyCza2c"
+      }
+    },
+    {
+      "bounds": { "x": 0, "y": 843, "width": 833, "height": 843 },
+      "action": {
+        "type": "postback",
+        "label": "出題範囲設定",
+        "data": "type=test_range_menu",
+        "displayText": "出題範囲設定"
+      }
+    },
+    {
+      "bounds": { "x": 833, "y": 843, "width": 834, "height": 843 },
+      "action": {
+        "type": "postback",
+        "label": "成績・記録",
+        "data": "type=report_summary",
+        "displayText": "成績・記録"
+      }
+    },
+    {
+      "bounds": { "x": 1667, "y": 843, "width": 833, "height": 843 },
+      "action": {
+        "type": "postback",
+        "label": "設定・サポート",
+        "data": "type=settings_guide",
+        "displayText": "設定・サポート"
+      }
+    }
+  ]
+}

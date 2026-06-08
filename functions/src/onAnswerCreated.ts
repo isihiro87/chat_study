@@ -20,6 +20,14 @@ const STREAK_MILESTONES = [3, 7, 14, 30] as const;
 const VOLUME_MILESTONES = [10, 30, 100] as const;
 const PREMIUM_NUDGE_COOLDOWN_MS = 7 * 24 * 60 * 60 * 1000;
 /**
+ * 2026-06 トライアル廃止・課金導線停止フラグ。
+ * false の間は自動トライアル開放・プレミアム nudge・trial 中の「じっくり学ぶ」
+ * 60 秒遅延 push をすべて止める（本体ロジックは dormant 残置）。再開時は true に。
+ * 型を boolean にして「常に return で本体が到達不能」と型解析されないようにしている
+ * （到達不能だと本体の型ナローイングが失われビルドエラーになるため）。
+ */
+const TRIAL_FLOW_ENABLED: boolean = false;
+/**
  * first_answer のトライアル案内 flex を push するまでの遅延 (ms)。
  * かつては 60 秒の間を置いていたが、ファネル分析（2026-05-25）で
  * 解説直後の即送信のほうが apply 到達率を稼ぎやすいと判断し 0 に変更。
@@ -187,6 +195,9 @@ async function maybeAutoStartTrial(
 }
 
 async function maybeSendPremiumNudge(ctx: NudgeContext): Promise<void> {
+  // 2026-06 トライアル廃止・課金導線停止: 自動トライアル開放（maybeAutoStartTrial）
+  // とプレミアム nudge はいったん全停止（TRIAL_FLOW_ENABLED 参照）。
+  if (!TRIAL_FLOW_ENABLED) return;
   if (ctx.userPlan === "premium") return;
   if (!ctx.lineUserId) return;
   // 公式 LINE をブロック中のユーザーには nudge を送らない。
@@ -386,6 +397,10 @@ async function maybeSendScopeSetupNudge(ctx: NudgeContext): Promise<void> {
 async function maybeSendFirstExtraFollowup(
   ctx: FirstExtraFollowupContext
 ): Promise<void> {
+  // 2026-06 トライアル廃止: trial 中ユーザー向けの「じっくり学ぶ」60秒遅延 push は停止
+  // （TRIAL_FLOW_ENABLED 参照）。じっくり学ぶは全ユーザーが回答後の
+  // 「暗記カードを開く」ボタンから到達できる。
+  if (!TRIAL_FLOW_ENABLED) return;
   if (ctx.userPlan !== "premium") return;
   if (ctx.planSource !== "trial") return;
   if (!ctx.lineUserId) return;

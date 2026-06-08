@@ -25,7 +25,7 @@ export {
 export { onAnswerCreated } from './onAnswerCreated';
 export { onPremiumApplicationCreated } from './onPremiumApplicationCreated';
 export { syncRichMenuToPlan } from './syncRichMenuToPlan';
-export { expireTrialUsers } from './expireTrialUsers';
+// expireTrialUsers は 2026-06 トライアル廃止に伴い登録停止（dormant 残置）。
 export { remindIncompleteOnboarding } from './remindIncompleteOnboarding';
 export { onTestScopeFirstSet } from './onTestScopeFirstSet';
 export { onTestScopeSaved } from './onTestScopeSaved';
@@ -38,18 +38,15 @@ export { submitContactForm } from './submitContactForm';
 export { recalculateUserStatuses } from './recalculateUserStatuses';
 export { sendWinbackMessages } from './sendWinbackMessages';
 
-// Trial ドリップキャンペーン（§A, §D）
-export { trialDripDay2 } from './trialDripDay2';
-export { trialDripDay3Parent } from './trialDripDay3Parent';
-export { trialDripDay4 } from './trialDripDay4';
-export { trialDripDay5Story } from './trialDripDay5Story';
-export { trialDripDay6Projection } from './trialDripDay6Projection';
-export { trialReminderEveningDay7 } from './trialReminderEveningDay7';
-
-// 申込フォーム離脱 / 期限切れ後フォロー / 月次レポート
-export { trialFormAbandonReminder } from './trialFormAbandonReminder';
-export { postTrialFollowup } from './postTrialFollowup';
+// 送信通数の月次レポート（通数モニタは新モデルでも継続）
 export { monthlyDeliveryReport } from './monthlyDeliveryReport';
+
+// 2026-06 トライアル廃止・課金導線停止:
+// 以下の trial 関連 cron は登録を停止（ファイル本体は dormant として残置）。
+// 再開する場合はこの export を復活させる。
+//   trialDripDay2 / trialDripDay3Parent / trialDripDay4 / trialDripDay5Story /
+//   trialDripDay6Projection / trialReminderEveningDay7 / trialFormAbandonReminder /
+//   postTrialFollowup / expireTrialUsers
 
 const LINE_LOGIN_CHANNEL_ID = process.env.LINE_LOGIN_CHANNEL_ID || '';
 const LINE_LOGIN_CHANNEL_SECRET = process.env.LINE_LOGIN_CHANNEL_SECRET || '';
