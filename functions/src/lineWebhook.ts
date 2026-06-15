@@ -802,6 +802,44 @@ async function handleMediaMessage(
     return;
   }
 
+  // userData を 1 回 read（handleAiChat にも渡して追加 read を避ける）。
+  let userData: Record<string, unknown> | undefined;
+  try {
+    const { db } = await getDb();
+    const snap = await db.doc(`users/${uid}`).get();
+    userData = snap.data();
+  } catch (error) {
+    console.error('[lineWebhook] handleMediaMessage state read failed:', error);
+  }
+
+  // 早期レート上限ガード: 1日上限に達していれば、コンテンツのダウンロードも
+  // Gemini 呼び出しもせず固定文で断る（上限判定に必要な上の 1 read のみで完結）。
+  try {
+    const { getDailyLimit, getJstDate, evaluateRateLimit } = await import(
+      './aiChatCore'
+    );
+    const { LIMIT_REACHED_TEXT } = await import('./aiChat');
+    const plan = getUserPlan(userData);
+    const aiChat = (userData as { aiChat?: Parameters<typeof evaluateRateLimit>[0] })
+      ?.aiChat;
+    const { limited } = evaluateRateLimit(
+      aiChat,
+      getJstDate(new Date()),
+      getDailyLimit(plan)
+    );
+    if (limited) {
+      const client = await getLineClient();
+      await client.replyMessage({
+        replyToken,
+        messages: [{ type: 'text', text: LIMIT_REACHED_TEXT }],
+      });
+      return;
+    }
+  } catch (error) {
+    // ガードでの失敗は致命的ではない。ログのみ残し、通常フローへ進める。
+    console.error('[lineWebhook] media rate-limit guard failed:', error);
+  }
+
   // コンテンツ取得（失敗時はフォールバック文）。
   let content: { data: string; mimeType: string };
   try {
@@ -829,16 +867,6 @@ async function handleMediaMessage(
   } else {
     // LINE の音声は m4a（AAC/MP4 コンテナ）。Gemini には audio/mp4 で渡す。
     mimeType = 'audio/mp4';
-  }
-
-  // userData を 1 回 read して handleAiChat に渡す（追加 read を避ける）。
-  let userData: Record<string, unknown> | undefined;
-  try {
-    const { db } = await getDb();
-    const snap = await db.doc(`users/${uid}`).get();
-    userData = snap.data();
-  } catch (error) {
-    console.error('[lineWebhook] handleMediaMessage state read failed:', error);
   }
 
   try {
